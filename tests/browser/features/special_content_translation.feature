@@ -13,8 +13,8 @@ Feature: Content translation special page
   Scenario: Anonymous user cannot use Content translation.
     Given I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
     Then I see the message "You must be logged in to translate in this page."
-      And I don't see a source column
-      And I don't see a translation column
+      And I don't see the source column
+      And I don't see the translation column
       And I don't see a "Publish Translation" button
 
   Scenario: Logged in user viewing the special page for translation.
