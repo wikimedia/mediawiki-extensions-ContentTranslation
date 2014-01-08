@@ -95,5 +95,6 @@ Then(/^the page "(.+?)" is displayed$/) do |page_title|
 end
 
 Then(/^the "view page" link points to the page "(.*?)" on the same wiki$/) do |source_page|
-	pending # express the regexp above with the code you wish you had
+	source_page_in_url = source_page.gsub(" ", "_")
+	on(ContentTranslationPage).view_page_element.attribute("href").should match(/#{source_page_in_url}$/)
 end
