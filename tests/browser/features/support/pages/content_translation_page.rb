@@ -3,6 +3,8 @@ class ContentTranslationPage
 	include URL
 	page_url URL.url("Special:ContentTranslation?<%=params[:extra]%>")
 
+	a(:view_page, class: "view-page")
+
 	button(:publish_translation, class: "publish-translation")
 
 	div(:source_column, class: "source")
