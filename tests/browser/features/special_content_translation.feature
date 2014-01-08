@@ -31,9 +31,9 @@ Feature: Content translation special page
       And the translation column's direction is left-to-right
       And I see an input box pre-filled with the text "Bratislava" above the writing area in the second column
       And I see "dansk" below the translation column's title
-      And I see an translation information column
-      And I see a "Publish Translation" button
-      And I see a translation progress bar
+      And I see a translation information column at the top of the page
+      And I see a "Publish Translation" button at the top of the page
+      And I see a translation progress bar at the top of the page
 
   Scenario: Writing some translation text and saving it
     Given I am logged in
