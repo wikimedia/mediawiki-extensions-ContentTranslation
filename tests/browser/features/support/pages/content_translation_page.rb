@@ -1,7 +1,7 @@
 class ContentTranslationPage
 	include PageObject
 	include URL
-	page_url URL.url("Special:ContentTranslation")
+	page_url URL.url("Special:ContentTranslation?<%=params[:extra]%>")
 
 	button(:publish_translation, class: "publish-translation")
 

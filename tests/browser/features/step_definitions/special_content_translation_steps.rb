@@ -1,5 +1,5 @@
 Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+)$/) do |source_language, page_name, target_language|
-	pending # express the regexp above with the code you wish you had
+	visit(ContentTranslationPage, :using_params => {:extra => "title=#{page_name}&lang=#{target_language}"})
 end
 
 When(/^I press the "Publish Translation" button$/) do
