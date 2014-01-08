@@ -7,7 +7,7 @@ When(/^I press the "Publish Translation" button$/) do
 end
 
 When(/^I write "(.*?)" in the editing area in the translation column$/) do |translation|
-	on(ContentTranslationPage).translation_editing_area = translation
+	on(ContentTranslationPage).translation_editor = translation
 end
 
 Then(/^I don't see a "Publish Translation" button$/) do
@@ -31,7 +31,7 @@ Then(/^I see a language label saying "(.*?)" below the (.+) column's title$/) do
 end
 
 Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).target_title.should == text
 end
 
 Then(/^I see a source column with the content of the page "(.*?)"$/) do |page_name|
@@ -39,47 +39,40 @@ Then(/^I see a source column with the content of the page "(.*?)"$/) do |page_na
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).translation_editor.should == ""
 end
 
 Then(/^I see a translation information column$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).column("information").should be_visible
 end
 
 Then(/^I see a translation progress bar$/) do
-	pending # express the regexp above with the code you wish you had
+	pending "Not implemented yet"
+	on(ContentTranslationPage).progress_bar.should be_visible
 end
 
 Then(/^I see the message "You must be logged in to translate in this page\."$/) do
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^I see the title "(.*?)" at the top of the source column$/) do |page_title|
-	pending # express the regexp above with the code you wish you had
+Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_page_title|
+	on(ContentTranslationPage).source_title.should == source_page_title
 end
 
 Then(/^the content of the page is "(.*?)"$/) do |page_content|
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^the direction of the source column is "(.+)"$/) do |direction|
-	pending # express the regexp above with the code you wish you had
-end
-
-Then(/^the direction of the translation column is "(.+)"$/) do |direction|
-	pending # express the regexp above with the code you wish you had
+Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
+	on(ContentTranslationPage).column(column_type).attribute("dir").should == direction
 end
 
 Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |page_title, tag_name|
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^the language code of the source column is "(.+)"$/) do |language_code|
-	pending # express the regexp above with the code you wish you had
-end
-
-Then(/^the language code of the translation column is "(.+?)"$/) do |language_code|
-	pending # express the regexp above with the code you wish you had
+Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, language_code|
+	on(ContentTranslationPage).column(column_type).attribute("lang").should == language_code
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|

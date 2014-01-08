@@ -7,6 +7,8 @@ class ContentTranslationPage
 
 	button(:publish_translation, class: "publish-translation")
 
+	div(:progress_bar, class: "ct-progress-bar")
+
 	def column(column_type)
 		@browser.div(class: ".ct-column.#{column_type}")
 	end
@@ -15,7 +17,15 @@ class ContentTranslationPage
 		column(column_type).span(class: "language-label")
 	end
 
-	def translation_editing_area
+	def source_title
+		column("source").h1(class: "source-title")
+	end
+
+	def target_title
+		column("translation").text_field(class: "target-title")
+	end
+
+	def translation_editor
 		@browser.div(css: ".translation div[contenteditable]")
 	end
 end
