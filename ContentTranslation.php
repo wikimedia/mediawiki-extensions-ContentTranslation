@@ -37,6 +37,13 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
 );
 
-require __DIR__ . '/Resources.php';
+$dir = __DIR__;
 
-$wgMessagesDirs['ContentTranslation'] = __DIR__ . "/i18n/";
+require_once "$dir/Resources.php";
+require_once "$dir/Autoload.php";
+
+$GLOBALS['wgMessagesDirs']['ContentTranslation'] = __DIR__ . "/i18n";
+$GLOBALS['wgMessagesDirs']['ContentTranslationAlias'] = __DIR__ . "/ContentTranslation.alias.php";
+
+// Special pages
+$wgSpecialPages['ContentTranslation'] = 'SpecialContentTranslation';
