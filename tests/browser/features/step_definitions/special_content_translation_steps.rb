@@ -1,4 +1,4 @@
-Given(/^I am on the content translation page in a wiki in (.+?), translating the article "(.+?)" to (.+)$/) do |source_language, article_name, target_language|
+Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+)$/) do |source_language, page_name, target_language|
 	pending # express the regexp above with the code you wish you had
 end
 
@@ -26,8 +26,8 @@ Then(/^I see a "Publish Translation" button$/) do
 	on(ContentTranslationPage).publish_translation_element.should be_visible
 end
 
-Then(/^I see a "view article" link in the source column$/) do
-	on(ContentTranslationPage).view_article.should be_visible
+Then(/^I see a "view page" link in the source column$/) do
+	on(ContentTranslationPage).view_page.should be_visible
 end
 
 Then(/^I see a language label saying "(.*?)" below the source column's title$/) do |language_name|
@@ -42,7 +42,7 @@ Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing ar
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^I see a source column with the content of the article "(.*?)"$/) do |article_name|
+Then(/^I see a source column with the content of the page "(.*?)"$/) do |page_name|
 	pending # express the regexp above with the code you wish you had
 end
 
@@ -62,7 +62,7 @@ Then(/^I see the message "You must be logged in to translate in this page\."$/) 
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^I see the title "(.*?)" at the top of the source column$/) do |article_title|
+Then(/^I see the title "(.*?)" at the top of the source column$/) do |page_title|
 	pending # express the regexp above with the code you wish you had
 end
 
@@ -94,6 +94,6 @@ Then(/^the page "(.+?)" is displayed$/) do |page_title|
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^the "view article" link points to the page "(.*?)" on the same wiki$/) do |source_page|
+Then(/^the "view page" link points to the page "(.*?)" on the same wiki$/) do |source_page|
 	pending # express the regexp above with the code you wish you had
 end
