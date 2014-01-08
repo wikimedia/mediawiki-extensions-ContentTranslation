@@ -14,12 +14,8 @@ Then(/^I don't see a "Publish Translation" button$/) do
 	on(ContentTranslationPage).publish_translation_element.should_not be_visible
 end
 
-Then(/^I don't see a source column$/) do
-	on(ContentTranslationPage).source_column.should_not be_visible
-end
-
-Then(/^I don't see a translation column$/) do
-	on(ContentTranslationPage).translation_column.should_not be_visible
+Then(/^I don't see the (.+) column$/) do |column_type|
+	on(ContentTranslationPage).column(column_type).should_not be_visible
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -30,12 +26,8 @@ Then(/^I see a "view page" link in the source column$/) do
 	on(ContentTranslationPage).view_page.should be_visible
 end
 
-Then(/^I see a language label saying "(.*?)" below the source column's title$/) do |language_name|
-	pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I see a language label saying "(.*?)" below the translation column's title$/) do |language_name|
-	pending # express the regexp above with the code you wish you had
+Then(/^I see a language label saying "(.*?)" below the (.+) column's title$/) do |language_name, column_type|
+	on(ContentTranslationPage).language_label(column_type).should == language_name
 end
 
 Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|

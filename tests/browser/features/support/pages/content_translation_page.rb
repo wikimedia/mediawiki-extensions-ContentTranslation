@@ -7,8 +7,13 @@ class ContentTranslationPage
 
 	button(:publish_translation, class: "publish-translation")
 
-	div(:source_column, class: "source")
-	div(:translation_column, class: "translation")
+	def column(column_type)
+		@browser.div(class: ".ct-column.#{column_type}")
+	end
+
+	def language_label(column_type)
+		column(column_type).span(class: "language-label")
+	end
 
 	def translation_editing_area
 		@browser.div(css: ".translation div[contenteditable]")
