@@ -32,8 +32,8 @@ Feature: Content translation special page
       And I see an input box pre-filled with the text "Bratislava" above the editing area in the second column
       And I see a language label saying "dansk" below the translation column's title
       And I see a translation information column
-      And I see a "Publish Translation" button at the top of the page
-      And I see a translation progress bar at the top of the page
+      And I see a "Publish Translation" button
+      And I see a translation progress bar
 
   Scenario: Writing some translation text and saving it
     Given I am logged in

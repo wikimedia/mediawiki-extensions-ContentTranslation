@@ -3,31 +3,31 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
 end
 
 When(/^I press the "Publish Translation" button$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).publish_translation
 end
 
 When(/^I write "(.*?)" in the editing area in the translation column$/) do |translation|
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).translation_editing_area = translation
 end
 
 Then(/^I don't see a "Publish Translation" button$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).publish_translation_element.should_not be_visible
 end
 
 Then(/^I don't see a source column$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).source_column.should_not be_visible
 end
 
 Then(/^I don't see a translation column$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).translation_column.should_not be_visible
 end
 
-Then(/^I see a "Publish Translation" button at the top of the page$/) do
-	pending # express the regexp above with the code you wish you had
+Then(/^I see a "Publish Translation" button$/) do
+	on(ContentTranslationPage).publish_translation_element.should be_visible
 end
 
-Then(/^I see a "view article" link that points to the page "(.*?)" on the same wiki$/) do |source_page|
-	pending # express the regexp above with the code you wish you had
+Then(/^I see a "view article" link in the source column$/) do
+	on(ContentTranslationPage).view_article.should be_visible
 end
 
 Then(/^I see a language label saying "(.*?)" below the source column's title$/) do |language_name|
@@ -54,7 +54,7 @@ Then(/^I see a translation information column$/) do
 	pending # express the regexp above with the code you wish you had
 end
 
-Then(/^I see a translation progress bar at the top of the page$/) do
+Then(/^I see a translation progress bar$/) do
 	pending # express the regexp above with the code you wish you had
 end
 
@@ -91,5 +91,9 @@ Then(/^the language code of the translation column is "(.+?)"$/) do |language_co
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|
+	pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the "view article" link points to the page "(.*?)" on the same wiki$/) do |source_page|
 	pending # express the regexp above with the code you wish you had
 end
