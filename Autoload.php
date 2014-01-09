@@ -12,3 +12,4 @@ global $wgAutoloadClasses;
 $dir = __DIR__;
 
 $wgAutoloadClasses['SpecialContentTranslation'] = "$dir/specials/SpecialContentTranslation.php";
+$wgAutoloadClasses['ContentTranslationHooks'] = "$dir/ContentTranslation.hooks.php";
