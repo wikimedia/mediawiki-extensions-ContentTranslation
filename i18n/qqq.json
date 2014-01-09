@@ -4,6 +4,6 @@
            "Santhosh.thottingal"
         ]
     },
-    "ct": "Title for [[Special:ContentTranslation]]",
-    "ct-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}"
+    "cot": "Title for [[Special:ContentTranslation]]",
+    "cot-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}"
 }

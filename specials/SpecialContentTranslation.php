@@ -18,7 +18,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function getDescription() {
-		return $this->msg( 'ct' )->text();
+		return $this->msg( 'cot' )->text();
 	}
 
 	public function execute( $parameters ) {
