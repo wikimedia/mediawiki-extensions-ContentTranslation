@@ -33,7 +33,7 @@ $wgExtensionCredits['specialpage'][] = array(
 		'Siebrand Mazeland',
 		'Sucheta Ghoshal',
 	),
-	'descriptionmsg' => 'ct-desc',
+	'descriptionmsg' => 'cot-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
 );
 

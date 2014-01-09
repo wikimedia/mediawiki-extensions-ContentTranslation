@@ -1,6 +1,6 @@
-# Contributing to ContentTranslation
+# Contributing to Content translation
 
-Thank you for helping us develop ContentTranslation!
+Thank you for helping us develop Content translation!
 
 This document describes how to report bugs, set up your development
 environment, run tests, and build documentation. It also provides the coding
@@ -9,7 +9,7 @@ conventions we use in the project.
 ## Bug reports
 
 Please report bugs to [bugzilla.wikimedia.org](https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=ContentTranslation)
-using the `ContentTranslation` product.  Feel free to use the `General`
+using the `ContentTranslation` product. Feel free to use the `General`
 component if you don't know where else your bug might belong. Don't
 worry about specifying version, severity, hardware, or OS.
 
@@ -19,7 +19,6 @@ To run the tests in a web browser, make sure your MediaWiki install is
 [configured](https://www.mediawiki.org/wiki/Manual:JavaScript_unit_testing) to
 allow running of tests. Set in `LocalSettings.php`:
 ```php
-// https://www.mediawiki.org/wiki/Manual:JavaScript_unit_testing
 $wgEnableJavaScriptTest = true;
 ```
 
@@ -28,9 +27,9 @@ Then open `http://URL_OF_MEDIAWIKI/index.php/Special:JavaScriptTest/qunit`
 
 ## Building documentation
 
-ContentTranslation uses [JSDuck](https://github.com/senchalabs/jsduck) to process
-documentation comments embedded in the code.  To build the documentation, you
-will need `ruby`, `gem`, and `jsduck` installed.
+ContentTranslation uses [JSDuck](https://github.com/senchalabs/jsduck) to
+process documentation comments embedded in the code. To build the documentation,
+you will need `ruby`, `gem`, and `jsduck` installed.
 
 ### Installing ruby and gem
 
@@ -61,20 +60,22 @@ $ .docs/generate.sh
 ```
 
 You may need to set `MW_INSTALL_PATH` in your environment to the location of
-your mediawiki installation if ContentTranslation is not checked out directly in the
-mediawiki extensions folder (for example, if you're using a symlink).
+your mediawiki installation if ContentTranslation is not checked out directly
+in the mediawiki extensions folder (for example, if you're using a symlink).
 
 The generated documentation is in the `docs/` subdirectory.  View the
 documentation at
 `http://URL_OF_MEDIAWIKI/extensions/ContentTranslation/docs/`
 (for example, <http://localhost/w/extensions/ContentTranslation/docs>).
 
-Note that `jsduck` doesn't support browsing vis the `file:` protocol.
+Note that `jsduck` doesn't support browsing is the `file:` protocol.
 
 ## ContentTranslation Code Guidelines
 
-We inherit the code structure (about whitespace, naming and comments) conventions
-from MediaWiki. See [Manual:Coding conventions/JavaScript](https://www.mediawiki.org/wiki/Manual:Coding_conventions/JavaScript)
+We inherit the code structure (about whitespace, naming and comments)
+conventions from MediaWiki.
+
+See [Manual:Coding conventions/JavaScript](https://www.mediawiki.org/wiki/Manual:Coding_conventions/JavaScript)
 on mediawiki.org.
 
 Git commit messages should follow the conventions described in
@@ -92,7 +93,8 @@ Git commit messages should follow the conventions described in
 ### Annotations
 
 We use the following annotations. They should be used in the order as they are described
-here, for consistency. See [JSDuck/Tags](https://github.com/senchalabs/jsduck/wiki/Tags) for more elaborate documentation.
+here, for consistency. See [JSDuck/Tags](https://github.com/senchalabs/jsduck/wiki/Tags)
+for more elaborate documentation.
 
 * @class Name (optional, guessed)
 * @abstract
