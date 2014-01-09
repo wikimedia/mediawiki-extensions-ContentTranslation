@@ -6,8 +6,8 @@
  *
  * @file
  * @ingroup Extensions
- * @copyright 2014 ContentTranslation Team and others; see AUTHORS.txt
- * @license GPL-2.0+; see LICENSE.txt
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0+
  */
 
 /**
@@ -42,8 +42,9 @@ $dir = __DIR__;
 require_once "$dir/Resources.php";
 require_once "$dir/Autoload.php";
 
-$GLOBALS['wgMessagesDirs']['ContentTranslation'] = __DIR__ . "/i18n";
-$GLOBALS['wgMessagesDirs']['ContentTranslationAlias'] = __DIR__ . "/ContentTranslation.alias.php";
+$GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
+$GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
+	"$dir/ContentTranslation.alias.php";
 
 // Special pages
-$wgSpecialPages['ContentTranslation'] = 'SpecialContentTranslation';
+$GLOBALS['wgSpecialPages']['ContentTranslation'] = 'SpecialContentTranslation';
