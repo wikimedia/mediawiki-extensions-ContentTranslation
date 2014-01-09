@@ -26,6 +26,6 @@ class ContentTranslationPage
 	end
 
 	def translation_editor
-		@browser.div(css: ".translation div[contenteditable]")
+		@browser.div(class: "translation-editor")
 	end
 end

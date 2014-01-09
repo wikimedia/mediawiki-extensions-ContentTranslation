@@ -7,7 +7,7 @@ When(/^I press the "Publish Translation" button$/) do
 end
 
 When(/^I write "(.*?)" in the editing area in the translation column$/) do |translation|
-	on(ContentTranslationPage).translation_editor = translation
+	on(ContentTranslationPage).translation_editor.send_keys(translation)
 end
 
 Then(/^I don't see a "Publish Translation" button$/) do
