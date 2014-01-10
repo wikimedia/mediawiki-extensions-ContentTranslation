@@ -11,41 +11,41 @@ $dir = __DIR__;
 $resourcePaths = array(
 	'localBasePath' => $dir . '/modules',
 	'remoteExtPath' => 'ContentTranslation/modules',
-	'group' => 'ext.ct',
+	'group' => 'ext.cx',
 );
 
-$wgResourceModules['ext.ct.base'] = array(
-	'scripts' => 'base/ext.ct.base.js',
+$wgResourceModules['ext.cx.base'] = array(
+	'scripts' => 'base/ext.cx.base.js',
 	'styles' => array(
-		'base/styles/ext.ct.base.less',
+		'base/styles/ext.cx.base.less',
 	),
 	'dependencies' => array(
 		'mediawiki.ui',
-		'ext.ct.header',
-		'ext.ct.source',
-		'ext.ct.translation',
-		'ext.ct.tool',
+		'ext.cx.header',
+		'ext.cx.source',
+		'ext.cx.translation',
+		'ext.cx.tool',
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.ct.header'] = array(
-	'scripts' => 'base/ext.ct.header.js',
+$wgResourceModules['ext.cx.header'] = array(
+	'scripts' => 'base/ext.cx.header.js',
 	'styles' => array(
-		'base/styles/ext.ct.header.less',
+		'base/styles/ext.cx.header.less',
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.ct.source'] = array(
-	'scripts' => 'source/ext.ct.source.js',
+$wgResourceModules['ext.cx.source'] = array(
+	'scripts' => 'source/ext.cx.source.js',
 	'dependencies' => array(
 		'mediawiki.Uri',
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.ct.translation'] = array(
-	'scripts' => 'translation/ext.ct.translation.js',
+$wgResourceModules['ext.cx.translation'] = array(
+	'scripts' => 'translation/ext.cx.translation.js',
 ) + $resourcePaths;
 
-$wgResourceModules['ext.ct.tool'] = array(
-	'scripts' => 'tools/ext.ct.tools.js',
+$wgResourceModules['ext.cx.tool'] = array(
+	'scripts' => 'tools/ext.cx.tools.js',
 ) + $resourcePaths;

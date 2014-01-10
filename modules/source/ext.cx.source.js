@@ -18,7 +18,7 @@
 	 */
 	function ContentTranslationSource( element, options ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.ctSource.defaults, options );
+		this.options = $.extend( true, {}, $.fn.cxSource.defaults, options );
 		this.init();
 	}
 
@@ -45,13 +45,13 @@
 		mw.log( 'Loading ' + title );
 	};
 
-	$.fn.ctSource = function ( options ) {
+	$.fn.cxSource = function ( options ) {
 		return this.each( function () {
 			var $this = $( this ),
-				data = $this.data( 'ctSource' );
+				data = $this.data( 'cxSource' );
 
 			if ( !data ) {
-				$this.data( 'ctSource',
+				$this.data( 'cxSource',
 					( data = new ContentTranslationSource( this, options ) )
 				);
 			}
@@ -61,5 +61,5 @@
 			}
 		} );
 	};
-	$.fn.ctSource.defaults = {};
+	$.fn.cxSource.defaults = {};
 }( jQuery, mediaWiki ) );

@@ -22,7 +22,7 @@
 		this.$header = null;
 		this.$source = null;
 		this.$tools = null;
-		this.options = $.extend( true, {}, $.fn.ct.defaults, options );
+		this.options = $.extend( true, {}, $.fn.cx.defaults, options );
 		this.init();
 	}
 
@@ -33,10 +33,10 @@
 
 	ContentTranslation.prototype.initComponents = function () {
 		// Initialize the components
-		this.$header.ctHeader();
-		this.$source.ctSource();
-		this.$translation.ctTranslation();
-		this.$tools.ctTools();
+		this.$header.cxHeader();
+		this.$source.cxSource();
+		this.$translation.cxTranslation();
+		this.$tools.cxTools();
 	};
 
 	ContentTranslation.prototype.render = function () {
@@ -56,13 +56,13 @@
 		this.$tools = this.$container.find( '.tools' );
 	};
 
-	$.fn.ct = function ( options ) {
+	$.fn.cx = function ( options ) {
 		return this.each( function () {
 			var $this = $( this ),
-				data = $this.data( 'ct' );
+				data = $this.data( 'cx' );
 
 			if ( !data ) {
-				$this.data( 'ct',
+				$this.data( 'cx',
 					( data = new ContentTranslation( this, options ) )
 				);
 			}
@@ -72,9 +72,9 @@
 			}
 		} );
 	};
-	$.fn.ct.defaults = {};
+	$.fn.cx.defaults = {};
 
 	$( document ).ready( function () {
-		$( 'body' ).ct();
+		$( 'body' ).cx();
 	} );
 }( jQuery ) );

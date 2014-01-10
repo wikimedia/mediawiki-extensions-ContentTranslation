@@ -18,7 +18,7 @@
 	 */
 	function ContentTranslationTools( element, options ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.ctTools.defaults, options );
+		this.options = $.extend( true, {}, $.fn.cxTools.defaults, options );
 		this.init();
 	}
 
@@ -64,13 +64,13 @@
 		return $content;
 	};
 
-	$.fn.ctTools = function ( options ) {
+	$.fn.cxTools = function ( options ) {
 		return this.each( function () {
 			var $this = $( this ),
-				data = $this.data( 'ctTools' );
+				data = $this.data( 'cxTools' );
 
 			if ( !data ) {
-				$this.data( 'ctTools',
+				$this.data( 'cxTools',
 					( data = new ContentTranslationTools( this, options ) )
 				);
 			}
@@ -80,5 +80,5 @@
 			}
 		} );
 	};
-	$.fn.ctTools.defaults = {};
+	$.fn.cxTools.defaults = {};
 }( jQuery ) );

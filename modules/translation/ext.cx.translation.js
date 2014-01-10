@@ -18,7 +18,7 @@
 	 */
 	function ContentTranslationEditor( element, options ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.ctTranslation.defaults, options );
+		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
 		this.init();
 	}
 
@@ -40,13 +40,13 @@
 		this.$container.append( $content );
 	};
 
-	$.fn.ctTranslation = function ( options ) {
+	$.fn.cxTranslation = function ( options ) {
 		return this.each( function () {
 			var $this = $( this ),
-				data = $this.data( 'ctTranslation' );
+				data = $this.data( 'cxTranslation' );
 
 			if ( !data ) {
-				$this.data( 'ctTranslation',
+				$this.data( 'cxTranslation',
 					( data = new ContentTranslationEditor( this, options ) )
 				);
 			}
@@ -56,5 +56,5 @@
 			}
 		} );
 	};
-	$.fn.ctTranslation.defaults = {};
+	$.fn.cxTranslation.defaults = {};
 }( jQuery ) );

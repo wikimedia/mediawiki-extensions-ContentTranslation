@@ -18,7 +18,7 @@
 	 */
 	function ContentTranslationHeader( element, options ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.ctHeader.defaults, options );
+		this.options = $.extend( true, {}, $.fn.cxHeader.defaults, options );
 		this.init();
 	}
 
@@ -32,13 +32,13 @@
 			);
 	};
 
-	$.fn.ctHeader = function ( options ) {
+	$.fn.cxHeader = function ( options ) {
 		return this.each( function () {
 			var $this = $( this ),
-				data = $this.data( 'ctHeader' );
+				data = $this.data( 'cxHeader' );
 
 			if ( !data ) {
-				$this.data( 'ctHeader',
+				$this.data( 'cxHeader',
 					( data = new ContentTranslationHeader( this, options ) )
 				);
 			}
@@ -48,5 +48,5 @@
 			}
 		} );
 	};
-	$.fn.ctHeader.defaults = {};
+	$.fn.cxHeader.defaults = {};
 }( jQuery ) );

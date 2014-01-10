@@ -19,7 +19,7 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function onBeforePageDisplay( &$output, &$skin ) {
-		$output->addModules( 'ext.ct.base' );
+		$output->addModules( 'ext.cx.base' );
 		return true;
 	}
 }
