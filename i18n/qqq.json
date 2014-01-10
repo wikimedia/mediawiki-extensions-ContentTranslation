@@ -1,9 +1,10 @@
 {
     "@metadata": {
         "authors": [
-            "Santhosh.thottingal"
+            "Santhosh.thottingal",
+            "Shirayuki"
         ]
     },
-    "cx": "Title for [[Special:ContentTranslation]]",
+    "cx": "{{doc-special|ContentTranslation}}",
     "cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}"
 }

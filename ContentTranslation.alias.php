@@ -7,6 +7,7 @@
  * @copyright 2014 ContentTranslation Team and others; see AUTHORS.txt
  * @license GPL-2.0+; see LICENSE.txt
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
