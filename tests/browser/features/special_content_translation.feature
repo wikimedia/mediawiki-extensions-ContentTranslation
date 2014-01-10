@@ -11,7 +11,7 @@ Feature: Content translation special page
   These scenarios test the basic functionality of the Special:ContentTranslation page.
 
   Scenario: Anonymous user cannot use Content translation.
-    Given I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
     Then I see the message "You must be logged in to translate in this page."
       And I don't see the source column
       And I don't see the translation column
@@ -19,7 +19,7 @@ Feature: Content translation special page
 
   Scenario: Logged in user viewing the special page for translation.
     Given I am logged in
-      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
     Then I see a source column with the content of the page "Bratislava"
       And the language code of the source column is "en"
       And the direction of the source column is "ltr"

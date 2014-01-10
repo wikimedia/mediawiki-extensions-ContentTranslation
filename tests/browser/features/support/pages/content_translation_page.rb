@@ -26,6 +26,6 @@ class ContentTranslationPage
 	end
 
 	def translation_editor
-		@browser.div(class: "translation-editor")
+		column("translation").div(class: "translation-editor")
 	end
 end
