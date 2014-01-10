@@ -27,9 +27,9 @@
 	};
 
 	ContentTranslationHeader.prototype.render = function () {
-		this.$container.append( $( '<div>' )
-				.addClass( 'logo')
-			);
+		this.$container.append(
+			$( '<div>' ).addClass( 'logo')
+		);
 	};
 
 	$.fn.cxHeader = function ( options ) {
@@ -38,7 +38,8 @@
 				data = $this.data( 'cxHeader' );
 
 			if ( !data ) {
-				$this.data( 'cxHeader',
+				$this.data(
+					'cxHeader',
 					( data = new ContentTranslationHeader( this, options ) )
 				);
 			}
@@ -48,5 +49,6 @@
 			}
 		} );
 	};
+
 	$.fn.cxHeader.defaults = {};
 }( jQuery ) );

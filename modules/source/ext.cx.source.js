@@ -29,12 +29,12 @@
 	ContentTranslationSource.prototype.render = function () {
 		var title = new mw.Uri().query.article;
 
-		this.$container.append( $( '<h2>' )
-			.text( title || 'Article title' )
+		this.$container.append(
+			$( '<h2>' ).text( title || 'Article title' )
 		);
 
-		this.$container.append( $( '<div>' )
-			.text( 'Loading ' + ( title || '' ) )
+		this.$container.append(
+			$( '<div>' ).text( 'Loading ' + ( title || '' ) )
 		);
 
 		this.load( title );
@@ -51,7 +51,8 @@
 				data = $this.data( 'cxSource' );
 
 			if ( !data ) {
-				$this.data( 'cxSource',
+				$this.data(
+					'cxSource',
 					( data = new ContentTranslationSource( this, options ) )
 				);
 			}
@@ -61,5 +62,6 @@
 			}
 		} );
 	};
+
 	$.fn.cxSource.defaults = {};
 }( jQuery, mediaWiki ) );

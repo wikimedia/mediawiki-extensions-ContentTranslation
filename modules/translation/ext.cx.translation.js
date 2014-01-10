@@ -29,14 +29,16 @@
 	ContentTranslationEditor.prototype.render = function () {
 		var $content;
 
-		this.$container.append( $( '<h2>' )
+		this.$container.append(
+			$( '<h2>' )
 				.attr( 'contenteditable', true )
 				.text( 'Translated title' )
-			);
+		);
 
 		$content = $( '<div>' )
 			.attr( 'contenteditable', true )
 			.text( 'Translated text' );
+
 		this.$container.append( $content );
 	};
 
@@ -56,5 +58,6 @@
 			}
 		} );
 	};
+
 	$.fn.cxTranslation.defaults = {};
 }( jQuery ) );

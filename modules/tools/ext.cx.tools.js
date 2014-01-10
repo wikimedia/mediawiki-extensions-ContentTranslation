@@ -40,24 +40,29 @@
 					$( '<li>' )
 						.text( 'Add some paragraphs to the translation.' ),
 					$( '<li>' )
-						.text( 'Adjust the automatic translations '
-							+ ' provided to ensure quality' )
+						.text( 'Adjust the automatic translations ' +
+							'provided to ensure quality' )
 						.append( $( '<ul>')
 							.append(
 								$( '<li>' )
-									.text( 'Machine translation is a useful starting point for'
-										+ 'translations, but translators must revise errors as'
-										+ 'necessary and confirm that the translation is accurate.' ),
+									.text(
+										'Machine translation is a useful starting point for ' +
+										'translations, but translators must revise errors as ' +
+										'necessary and confirm that the translation is accurate.'
+									),
 								$( '<li>' )
-									.text( 'o not translate text that appears unreliable'
-										+ 'or low-quality. If possible, verify the text with'
-										+ 'references provided in the source article.' )
+									.text(
+										'Do not translate text that appears unreliable' +
+										'or low-quality. If possible, verify the text with' +
+										'references provided in the source article.'
+									)
 							)
 						),
 					$( '<div>' )
-						.text( 'When you are happy with the result,'
-							+ 'select \"Publish Translation\" '
-							+ 'to create a new article.' )
+						.text( 'When you are happy with the result, ' +
+							'press \"Publish Translation\" ' +
+							'to create the new article.'
+						)
 				)
 			);
 
@@ -80,5 +85,6 @@
 			}
 		} );
 	};
+
 	$.fn.cxTools.defaults = {};
 }( jQuery ) );

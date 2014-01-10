@@ -49,6 +49,7 @@
 				$( '<div>' ).addClass( 'translation' ),
 				$( '<div>' ).addClass( 'tools' )
 			);
+
 		this.$container.append( $content );
 		this.$header = this.$container.find( '.header' );
 		this.$source = this.$container.find( '.source' );
