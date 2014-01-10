@@ -7,10 +7,12 @@ class ContentTranslationPage
 
 	button(:publish_translation, class: "publish-translation")
 
-	div(:progress_bar, class: "ct-progress-bar")
+	div(:progress_bar, class: "progressbar")
+
+	div(:content, class: "content")
 
 	def column(column_type)
-		@browser.div(class: ".ct-column.#{column_type}")
+		@browser.div(class: column_type)
 	end
 
 	def language_label(column_type)

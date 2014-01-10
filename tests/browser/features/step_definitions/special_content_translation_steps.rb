@@ -34,8 +34,8 @@ Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing ar
 	on(ContentTranslationPage).target_title.should == text
 end
 
-Then(/^I see a source column with the content of the page "(.*?)"$/) do |page_name|
-	pending # express the regexp above with the code you wish you had
+Then(/^I see a source column with the text "(.*?)"$/) do |text|
+	on(ContentTranslationPage).column("source").should == text
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
@@ -47,12 +47,11 @@ Then(/^I see a translation information column$/) do
 end
 
 Then(/^I see a translation progress bar$/) do
-	pending "Not implemented yet"
-	on(ContentTranslationPage).progress_bar.should be_visible
+	on(ContentTranslationPage).progress_bar_element.should be_visible
 end
 
 Then(/^I see the message "You must be logged in to translate in this page\."$/) do
-	pending # express the regexp above with the code you wish you had
+	on(ContentTranslationPage).content.should == "You must be logged in to translate this page"
 end
 
 Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_page_title|
@@ -76,7 +75,7 @@ Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, langua
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|
-	pending # express the regexp above with the code you wish you had
+	on(TranslatedPage).title.should == page_title
 end
 
 Then(/^the "view page" link points to the page "(.*?)" on the same wiki$/) do |source_page|

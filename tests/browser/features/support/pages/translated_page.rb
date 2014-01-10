@@ -1,0 +1,8 @@
+class TranslatedPage
+	include PageObject
+	include URL
+	page_url URL.url("User:TranslateToDa/Bratislava")
+
+	div(:content, class: "mw-content-text")
+	h1(:first_heading, id: "firstHeading")
+end
