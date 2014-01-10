@@ -47,6 +47,9 @@ $wgResourceModules['ext.cx.source'] = array(
 
 $wgResourceModules['ext.cx.translation'] = array(
 	'scripts' => 'translation/ext.cx.translation.js',
+	'styles' => array(
+		'translation/styles/ext.cx.translation.less',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tool'] = array(
