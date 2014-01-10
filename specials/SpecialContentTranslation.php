@@ -3,8 +3,8 @@
  * Contains special page Special:ContentTranslation.
  *
  * @file
- * @copyright 2014 ContentTranslation Team and others; see AUTHORS.txt
- * @license GPL-2.0+; see LICENSE.txt
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0+
  */
 
 /**
@@ -23,6 +23,7 @@ class SpecialContentTranslation extends SpecialPage {
 
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
+		$out->addModules( 'ext.cx.base' );
 		$skin = $this->getSkin();
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );

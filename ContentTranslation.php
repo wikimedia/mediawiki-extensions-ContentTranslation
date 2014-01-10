@@ -46,6 +46,5 @@ $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
-$GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::onBeforePageDisplay';
 // Special pages
 $GLOBALS['wgSpecialPages']['ContentTranslation'] = 'SpecialContentTranslation';
