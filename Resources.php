@@ -29,9 +29,12 @@ $wgResourceModules['ext.cx.base'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.header'] = array(
-	'scripts' => 'base/ext.cx.header.js',
+	'scripts' => 'header/ext.cx.header.js',
 	'styles' => array(
-		'base/styles/ext.cx.header.less',
+		'header/styles/ext.cx.header.less',
+	),
+	'dependencies' => array(
+		'ext.cx.progressbar',
 	),
 ) + $resourcePaths;
 
@@ -48,4 +51,11 @@ $wgResourceModules['ext.cx.translation'] = array(
 
 $wgResourceModules['ext.cx.tool'] = array(
 	'scripts' => 'tools/ext.cx.tools.js',
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.progressbar'] = array(
+	'scripts' => 'header/ext.cx.progressbar.js',
+	'styles' => array(
+		'header/styles/ext.cx.progressbar.less',
+	),
 ) + $resourcePaths;

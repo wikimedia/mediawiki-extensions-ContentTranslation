@@ -30,6 +30,20 @@
 		this.$container.append(
 			$( '<div>' ).addClass( 'logo')
 		);
+
+		this.$container.append(
+			$( '<div>' )
+				.addClass( 'translation-bar' )
+				.append(
+					$( '<a>' )
+						.addClass( 'translation-center-link' )
+						.text( 'Translation center' )
+						.attr( 'href', '#' ),
+					$( '<div>' )
+						.addClass( 'translation-progress' )
+						.cxProgressBar()
+				)
+		);
 	};
 
 	$.fn.cxHeader = function ( options ) {

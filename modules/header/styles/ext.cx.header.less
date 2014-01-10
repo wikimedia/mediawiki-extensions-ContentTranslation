@@ -1,0 +1,33 @@
+@import "../../base/styles/grid/agora-grid";
+
+.header {
+	.logo {
+		.mw-ui-one-third;
+		height: 100px;
+		background-size: 50%;
+		background-image: url(../images/wikipedia-logo-landscape.png);
+		background-repeat: no-repeat;
+		background-position: left top;
+	}
+
+	.translation-bar {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		.translation-center-link {
+			.mw-ui-item;
+			.mw-ui-one-third;
+			&:before {
+				content: "";
+				display: inline-block;
+				border: 4px solid transparent;
+				border-right-color: #555;
+				margin: 0 8px 0 0;
+			}
+		}
+
+		.translation-progress {
+			.mw-ui-item;
+			.mw-ui-one-third;
+		}
+	}
+}
