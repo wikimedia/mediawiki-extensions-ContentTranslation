@@ -37,6 +37,9 @@ $wgResourceModules['ext.ct.header'] = array(
 
 $wgResourceModules['ext.ct.source'] = array(
 	'scripts' => 'source/ext.ct.source.js',
+	'dependencies' => array(
+		'mediawiki.Uri',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.ct.translation'] = array(

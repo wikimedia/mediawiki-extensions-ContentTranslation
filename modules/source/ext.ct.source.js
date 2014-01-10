@@ -8,7 +8,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( $ ) {
+( function ( $, mw ) {
 	'use strict';
 
 	/**
@@ -27,12 +27,22 @@
 	};
 
 	ContentTranslationSource.prototype.render = function () {
+		var title = new mw.Uri().query.article;
+
 		this.$container.append( $( '<h2>' )
-				.text( 'Article title' )
-			);
+			.text( title || 'Article title' )
+		);
 
 		this.$container.append( $( '<div>' )
-			.text( 'Article text' ) );
+			.text( 'Loading ' + ( title || '' ) )
+		);
+
+		this.load( title );
+	};
+
+	ContentTranslationSource.prototype.load = function ( title ) {
+		// TODO load the article content as html and add to $container
+		mw.log( 'Loading ' + title );
 	};
 
 	$.fn.ctSource = function ( options ) {
@@ -52,4 +62,4 @@
 		} );
 	};
 	$.fn.ctSource.defaults = {};
-}( jQuery ) );
+}( jQuery, mediaWiki ) );
