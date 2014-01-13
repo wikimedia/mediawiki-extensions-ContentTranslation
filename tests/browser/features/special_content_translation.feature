@@ -20,7 +20,7 @@ Feature: Content translation special page
   Scenario: Logged in user viewing the special page for translation.
     Given I am logged in
     When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
-    Then I see a source column with the content of the page "Bratislava"
+    Then I see a source column with the text "Bratislava is the capital of Slovakia and the country's largest city."
       And the language code of the source column is "en"
       And the direction of the source column is "ltr"
       And I see the title "Bratislava" at the top of the source column
