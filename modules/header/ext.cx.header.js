@@ -47,7 +47,7 @@
 						.addClass( 'translation-progress' )
 						.cxProgressBar(),
 					$( '<button>' )
-						.addClass( 'publish' )
+						.addClass( 'publish mw-ui-button mw-ui-primary' )
 						.text( 'Publish translation' )
 				)
 		);
