@@ -21,6 +21,7 @@ $wgResourceModules['ext.cx.base'] = array(
 	),
 	'dependencies' => array(
 		'mediawiki.ui',
+		'mediawiki.api',
 		'ext.cx.header',
 		'ext.cx.source',
 		'ext.cx.translation',

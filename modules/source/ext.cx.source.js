@@ -19,30 +19,43 @@
 	function ContentTranslationSource( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxSource.defaults, options );
+		this.page = null;
 		this.init();
 	}
 
 	ContentTranslationSource.prototype.init = function () {
+		this.page = new mw.Uri().query.page;
 		this.render();
+		this.load();
 	};
 
 	ContentTranslationSource.prototype.render = function () {
-		var title = new mw.Uri().query.article;
-
 		this.$container.append(
-			$( '<h2>' ).text( title || 'Article title' )
+			$( '<h2>' )
+				.addClass( 'title' )
+				.text( this.page )
 		);
 
 		this.$container.append(
-			$( '<div>' ).text( 'Loading ' + ( title || '' ) )
+			$( '<div>' )
+				.addClass( 'content' )
+				.text( 'Loading ' + ( this.page || '' ) )
 		);
-
-		this.load( title );
 	};
 
-	ContentTranslationSource.prototype.load = function ( title ) {
-		// TODO load the article content as html and add to $container
-		mw.log( 'Loading ' + title );
+	ContentTranslationSource.prototype.load = function () {
+		var api = new mw.Api(),
+			ctSource = this;
+
+		api.get( {
+			action: 'parse',
+			page: this.page,
+			disablepp: true,
+		} ).done( function ( result ) {
+			ctSource.$container.find( '.title' ).html( result.parse.title );
+			ctSource.$container.find( '.content' ).html( result.parse.text['*'] );
+		} );
+
 	};
 
 	$.fn.cxSource = function ( options ) {
