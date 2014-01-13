@@ -29,7 +29,16 @@
 
 	ContentTranslationHeader.prototype.render = function () {
 		this.$container.append(
-			$( '<div>' ).addClass( 'logo')
+			$( '<div>' )
+				.addClass( 'logo' ),
+			$( '<div>' )
+				.addClass( 'user-details' )
+				.append(
+					$( '<a>' )
+						.addClass( 'user-name' )
+						.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
+						.text ( mw.user.getName() )
+				)
 		);
 
 		this.$container.append(
