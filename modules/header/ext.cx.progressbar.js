@@ -35,8 +35,9 @@
 				.append(
 					$( '<span>')
 						.addClass( 'status' )
-				)
-			// TODO add a textual status indicator
+				),
+			$( '<span>' )
+				.addClass( 'status-text' )
 		);
 
 		this.update( 0 );
@@ -50,8 +51,9 @@
 		this.status = percentage;
 		this.$container.find( '.status' )
 			.css( 'width', this.status + '%' );
+		this.$container.find( '.status-text' )
+			.text( this.status + '% translated' );
 	};
-
 
 	$.fn.cxProgressBar = function ( options ) {
 		return this.each( function () {
