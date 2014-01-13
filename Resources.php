@@ -35,6 +35,7 @@ $wgResourceModules['ext.cx.header'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.progressbar',
+		'ext.cx.publish',
 	),
 ) + $resourcePaths;
 
@@ -61,4 +62,8 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 	'styles' => array(
 		'header/styles/ext.cx.progressbar.less',
 	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.publish'] = array(
+	'scripts' => 'translation/ext.cx.publish.js',
 ) + $resourcePaths;
