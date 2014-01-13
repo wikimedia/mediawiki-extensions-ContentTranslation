@@ -35,10 +35,13 @@
 			$( '<div>' )
 				.addClass( 'translation-bar' )
 				.append(
-					$( '<a>' )
+					$( '<div>' )
 						.addClass( 'translation-center-link' )
-						.text( 'Translation center' )
-						.attr( 'href', '#' ),
+						.append(
+							$( '<a>' )
+								.text( 'Translation center' )
+								.attr( 'href', '#' )
+						),
 					$( '<div>' )
 						.addClass( 'translation-progress' )
 						.cxProgressBar()

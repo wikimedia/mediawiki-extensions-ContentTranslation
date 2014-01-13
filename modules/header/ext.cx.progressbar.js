@@ -19,6 +19,7 @@
 	function ProgressBar( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxProgressBar.defaults, options );
+		this.status = 0;
 		this.init();
 	}
 
@@ -34,10 +35,11 @@
 				.append(
 					$( '<span>')
 						.addClass( 'status' )
-						.css( 'width', '0' )
-					// TODO: Add a textual status indicator here
 				)
+			// TODO add a textual status indicator
 		);
+
+		this.update( 0 );
 	};
 
 	ProgressBar.prototype.listen = function () {
@@ -45,8 +47,9 @@
 	};
 
 	ProgressBar.prototype.update = function ( percentage ) {
+		this.status = percentage;
 		this.$container.find( '.status' )
-			.css( 'width', percentage + '%' );
+			.css( 'width', this.status + '%' );
 	};
 
 
