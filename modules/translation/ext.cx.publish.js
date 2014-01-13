@@ -13,9 +13,44 @@
 	mw.cx = mw.cx || {};
 
 	mw.cx.publish = function () {
-		// TODO: publish the article
-		mw.notify( 'Article published!' );
+		var translatedTitle, translatedContent, summary, sourceTitle;
+
+		sourceTitle = $( '.source > h2' ).text();
+		translatedTitle = $( '.translation .title' ).text();
+		translatedContent = $( '.translation .article' ).text();
+		summary = '[ContentTranslation] Translated from ' + sourceTitle;
+		// To be saved under User:UserName
+		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
+		publishTranslation( translatedTitle, translatedContent, summary )
+			.done( function () {
+				mw.notify( $( '<p>' )
+					.text( 'Article published - ' )
+					.append( $( '<a>' )
+						.text( translatedTitle )
+						.attr( 'href', mw.util.getUrl( translatedTitle ) )
+					)
+				);
+			} ).fail( function () {
+				mw.notify( 'Error while saving article.' );
+			} );
 	};
+
+	/**
+	 * @param {string} title
+	 * @param {string} content
+	 * @param {string} summary
+	 */
+	function publishTranslation( title, content, summary ) {
+		var api = new mw.Api();
+		// FIXME: We need to write ApiPublishTranslation to add
+		// contenttranslation tag to the revisions
+		return api.postWithEditToken( {
+			action: 'edit',
+			title: title,
+			summary: summary,
+			text: content,
+		} );
+	}
 
 	$( function () {
 		mw.hook( 'mw.cx.publish' ).add( $.proxy( mw.cx.publish, this ) );
