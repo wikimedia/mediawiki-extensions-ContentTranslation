@@ -32,11 +32,13 @@
 		this.$container.append(
 			$( '<h2>' )
 				.attr( 'contenteditable', true )
+				.addClass( 'title' )
 				.text( 'Translated title' )
 		);
 
 		$content = $( '<div>' )
 			.attr( 'contenteditable', true )
+			.addClass( 'article' )
 			.text( 'Translated text' );
 
 		this.$container.append( $content );
