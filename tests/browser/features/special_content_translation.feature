@@ -6,7 +6,7 @@ Feature: Content translation special page
 
   Design:
    - https://www.mediawiki.org/wiki/Content_translation
-   - https://pauginer.github.io/prototype-translate/content-translation.html#mies-nl
+   - http://pauginer.github.io/prototype-translate/content-translation.html#mies-nl
 
   These scenarios test the basic functionality of the Special:ContentTranslation page.
 
@@ -21,6 +21,7 @@ Feature: Content translation special page
     Given I am logged in
     When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
     Then I see a source column with the text "Bratislava is the capital of Slovakia and the country's largest city."
+      And the source column is not editable
       And the language code of the source column is "en"
       And the direction of the source column is "ltr"
       And I see the title "Bratislava" at the top of the source column
@@ -33,7 +34,24 @@ Feature: Content translation special page
       And I see a language label saying "dansk" below the translation column's title
       And I see a translation information column
       And I see a "Publish Translation" button
+      And the "Publish Translation" button is disabled
       And I see a translation progress bar
+      And the translation progress bar is in 0% state
+      And the text near the translation progress bar says "0% translated"
+      And I see the username at the top of the page
+
+  Scenario: Writing some translation text enables the "Publish Translation" button
+    Given I am logged in
+      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
+    Then the "Publish Translation" button is enabled
+
+  Scenario: Deleting the translation text disables the "Publish Translation" button
+    Given I am logged in
+      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
+      And I empty the editing area in the translation column
+    Then the "Publish Translation" button is disabled
 
   Scenario: Writing some translation text and saving it
     Given I am logged in
