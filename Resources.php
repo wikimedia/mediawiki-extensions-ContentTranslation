@@ -67,4 +67,7 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 
 $wgResourceModules['ext.cx.publish'] = array(
 	'scripts' => 'translation/ext.cx.publish.js',
+	'dependencies' => array(
+		'mediawiki.api.edit',
+	),
 ) + $resourcePaths;
