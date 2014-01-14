@@ -1,10 +1,23 @@
 {
     "@metadata": {
         "authors": [
+            "Kartik Mistry",
             "Santhosh.thottingal",
             "Shirayuki"
         ]
     },
     "cx": "{{doc-special|ContentTranslation}}",
-    "cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}"
+    "cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
+    "cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is translation progress in percentage.",
+    "cx-header-translation-center": "Text for translation center title.",
+    "cx-publish-page": "Link of the page to be publish.",
+    "cx-publish-page-error": "Error message to display when page saving fails.",
+    "cx-publish-button": "Publish button text in [[Special:ContentTranslation]].",
+    "cx-source-loading": "Status text shown in the source article pane while article is being loaded. $1 is the title of the page being loaded.",
+    "cx-tools-instructions-title": "Title for the translation aids pane.",
+    "cx-tools-instructions-text1": "Help text for the translation aids pane.",
+    "cx-tools-instructions-text2": "Help text for the translation aids pane.",
+    "cx-tools-instructions-text3": "Help text for the translation aids pane.",
+    "cx-tools-instructions-text4": "Help text for the translation aids pane.",
+    "cx-tools-instructions-text5": "Help text for the translation aids pane."
 }

@@ -51,7 +51,8 @@
 	ProgressBar.prototype.update = function ( percentage ) {
 		this.status = percentage;
 		this.$bar.css( 'width', this.status + '%' );
-		this.$text.text( this.status + '% translated' );
+		this.$text.text( mw.msg( 'cx-header-progressbar-text',
+			mw.language.convertNumber( percentage ) ) );
 	};
 
 	$.fn.cxProgressBar = function ( options ) {

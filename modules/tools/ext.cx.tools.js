@@ -8,7 +8,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( $ ) {
+( function ( $, mw ) {
 	'use strict';
 
 	/**
@@ -34,35 +34,23 @@
 		var $content;
 
 		$content = $( '<h2>' )
-			.text( 'Create a translation' )
+			.text( mw.msg( 'cx-tools-instructions-title' ) )
 			.after( $( '<ol>' )
 				.append(
 					$( '<li>' )
-						.text( 'Add some paragraphs to the translation.' ),
+						.text( mw.msg( 'cx-tools-instructions-text1' ) ),
 					$( '<li>' )
-						.text( 'Adjust the automatic translations ' +
-							'provided to ensure quality' )
+						.text( mw.msg( 'cx-tools-instructions-text2' ) )
 						.append( $( '<ul>')
 							.append(
 								$( '<li>' )
-									.text(
-										'Machine translation is a useful starting point for ' +
-										'translations, but translators must revise errors as ' +
-										'necessary and confirm that the translation is accurate.'
-									),
+									.text( mw.msg( 'cx-tools-instructions-text3' ) ),
 								$( '<li>' )
-									.text(
-										'Do not translate text that appears unreliable' +
-										'or low-quality. If possible, verify the text with' +
-										'references provided in the source article.'
-									)
+									.text( mw.msg( 'cx-tools-instructions-text4' ) )
 							)
 						),
 					$( '<div>' )
-						.text( 'When you are happy with the result, ' +
-							'press \"Publish Translation\" ' +
-							'to create the new article.'
-						)
+						.text( mw.msg( 'cx-tools-instructions-text5' ) )
 				)
 			);
 
@@ -87,4 +75,4 @@
 	};
 
 	$.fn.cxTools.defaults = {};
-}( jQuery ) );
+}( jQuery, mediaWiki ) );

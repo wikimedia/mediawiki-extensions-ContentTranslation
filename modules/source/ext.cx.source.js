@@ -39,7 +39,7 @@
 		this.$container.append(
 			$( '<div>' )
 				.addClass( 'cx-column__content' )
-				.text( 'Loading ' + ( this.page || '' ) )
+				.text( mw.msg( 'cx-source-loading', this.page ) )
 		);
 	};
 

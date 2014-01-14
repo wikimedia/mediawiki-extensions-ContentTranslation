@@ -49,7 +49,7 @@
 						.addClass( 'cx-header__translation-center' )
 						.append(
 							$( '<a>' )
-								.text( 'Translation center' )
+								.text( mw.msg( 'cx-header-translation-center' ) )
 								.attr( 'href', '#' )
 						),
 					$( '<div>' )
@@ -57,7 +57,7 @@
 						.cxProgressBar(),
 					$( '<button>' )
 						.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
-						.text( 'Publish translation' )
+						.text( mw.msg( 'cx-publish-button' ) )
 				)
 		);
 	};
