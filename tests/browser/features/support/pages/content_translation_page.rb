@@ -11,6 +11,8 @@ class ContentTranslationPage
 
 	div(:content, class: "content")
 
+	a(:user_name, class: "user-name")
+
 	def column(column_type)
 		@browser.div(class: column_type)
 	end
@@ -19,8 +21,20 @@ class ContentTranslationPage
 		column(column_type).span(class: "language-label")
 	end
 
+	def progress_bar_text
+		@browser.div(class: "progressbar").span(class: "status-text")
+	end
+
+	def source_text
+		column("source").div(class: "content")
+	end
+
 	def source_title
 		column("source").h1(class: "source-title")
+	end
+
+	def target_text
+		column("translation").div(class: "article")
 	end
 
 	def target_title

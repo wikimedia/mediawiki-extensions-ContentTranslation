@@ -2,6 +2,10 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
 	visit(ContentTranslationPage, :using_params => {:extra => "title=#{page_name}&lang=#{target_language}"})
 end
 
+When(/^I empty the editing area in the translation column$/) do
+	on(ContentTranslationPage).target_text_element
+end
+
 When(/^I press the "Publish Translation" button$/) do
 	on(ContentTranslationPage).publish_translation
 end
@@ -10,12 +14,17 @@ When(/^I write "(.*?)" in the editing area in the translation column$/) do |tran
 	on(ContentTranslationPage).translation_editor.send_keys(translation)
 end
 
+
 Then(/^I don't see a "Publish Translation" button$/) do
 	on(ContentTranslationPage).publish_translation_element.should_not be_visible
 end
 
 Then(/^I don't see the (.+) column$/) do |column_type|
 	on(ContentTranslationPage).column(column_type).should_not be_visible
+end
+
+Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |link_name, page_title|
+	pending # express the regexp above with the code you wish you had
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -35,7 +44,7 @@ Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing ar
 end
 
 Then(/^I see a source column with the text "(.*?)"$/) do |text|
-	on(ContentTranslationPage).column("source").should == text
+	on(ContentTranslationPage).source_text.text.should == text
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
@@ -58,6 +67,10 @@ Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_pag
 	on(ContentTranslationPage).source_title.should == source_page_title
 end
 
+Then(/^I see the username at the top of the page$/) do |username|
+	on(ContentTranslationPage).user_name.should == ENV["MEDIAWIKI_USER"]
+end
+
 Then(/^the content of the page is "(.*?)"$/) do |page_content|
 	pending # express the regexp above with the code you wish you had
 end
@@ -71,11 +84,31 @@ Then(/^the first version in the history of the page "(.+?)" should have the tag 
 end
 
 Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, language_code|
-	on(ContentTranslationPage).column(column_type).attribute("lang").should == language_code
+	on(ContentTranslationPage).column(column_type).attribute_value("lang").should == language_code
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|
 	on(TranslatedPage).title.should == page_title
+end
+
+Then(/^the "Publish Translation" button is disabled$/) do
+	on(ContentTranslationPage).publish_translation_element.attribute("disabled").should != nil
+end
+
+Then(/^the "Publish Translation" button is enabled$/) do
+	on(ContentTranslationPage).publish_translation_element.attribute("disabled").should == nil
+end
+
+Then(/^the source column text is not editable$/) do
+	on(ContentTranslationPage).source_text.attribute_value("contenteditable").should == nil
+end
+
+Then(/^the text near the translation progress bar says "(.*?)"$/) do |text|
+	on(ContentTranslationPage).progress_bar_text.text.should == text
+end
+
+Then(/^the translation progress bar is in (\d+)% state$/) do |percentage|
+	on(ContentTranslationPage).progress_bar_element.status.should == percentage
 end
 
 Then(/^the "view page" link points to the page "(.*?)" on the same wiki$/) do |source_page|
