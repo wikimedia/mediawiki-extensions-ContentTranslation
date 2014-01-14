@@ -23,12 +23,20 @@
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
+		this.lang = new mw.Uri().query.lang || '';
 		this.render();
 		this.listen();
 	};
 
 	ContentTranslationEditor.prototype.render = function () {
 		var $content;
+
+		if ( this.lang ) {
+			this.$container.prop( {
+				lang: this.lang,
+				dir: $.uls.data.getDir( this.lang )
+			} );
+		}
 
 		this.$container.append(
 			$( '<h2>' )
