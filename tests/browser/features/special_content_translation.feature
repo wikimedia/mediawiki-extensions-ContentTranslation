@@ -32,13 +32,13 @@ Feature: Content translation special page
       And the direction of the translation column is "ltr"
       And I see an input box pre-filled with the text "Bratislava" above the editing area in the second column
       And I see a language label saying "dansk" below the translation column's title
-      And I see a translation information column
+      And I see a translation aids column
       And I see a "Publish Translation" button
       And the "Publish Translation" button is disabled
+      And I see the username at the top of the page
       And I see a translation progress bar
       And the translation progress bar is in 0% state
       And the text near the translation progress bar says "0% translated"
-      And I see the username at the top of the page
 
   Scenario: Writing some translation text enables the "Publish Translation" button
     Given I am logged in

@@ -36,6 +36,7 @@
 				.addClass( 'cx-header__user-details' )
 				.append(
 					$( '<a>' )
+						.addClass( 'cx-header__user-details__user-name' )
 						.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
 						.text ( mw.user.getName() )
 				)
