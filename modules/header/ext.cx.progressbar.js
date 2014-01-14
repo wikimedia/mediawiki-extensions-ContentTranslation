@@ -31,14 +31,15 @@
 	ProgressBar.prototype.render = function () {
 		this.$container.append(
 			$( '<div>' )
-				.addClass( 'progressbar' )
+				.addClass( 'cx-progressbar' )
 				.append(
-					$( '<span>')
-						.addClass( 'status' )
+					$( '<span>' ).addClass( 'cx-progressbar__bar' )
 				),
-			$( '<span>' )
-				.addClass( 'status-text' )
+			$( '<span>' ).addClass( 'cx-progressbar__text' )
 		);
+
+		this.$bar = this.$container.find( '.cx-progressbar__bar' );
+		this.$text = this.$container.find( '.cx-progressbar__text' );
 
 		this.update( 0 );
 	};
@@ -49,10 +50,8 @@
 
 	ProgressBar.prototype.update = function ( percentage ) {
 		this.status = percentage;
-		this.$container.find( '.status' )
-			.css( 'width', this.status + '%' );
-		this.$container.find( '.status-text' )
-			.text( this.status + '% translated' );
+		this.$bar.css( 'width', this.status + '%' );
+		this.$text.text( this.status + '% translated' );
 	};
 
 	$.fn.cxProgressBar = function ( options ) {

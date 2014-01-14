@@ -1,6 +1,6 @@
 @import "../../base/styles/grid/agora-grid";
 
-.progressbar {
+.cx-progressbar {
 	.mw-ui-item;
 	.mw-ui-one-sixth;
 	height: 10px;
@@ -9,18 +9,19 @@
 	background: #fbfbfb;
 	vertical-align: middle;
 	position: absolute;
-	.status {
-		background: #3892E3;
-		display: inline-block;
-		height: 10px;
-		border-radius: 10px;
-		position: absolute;
-		left: 0;
-		transition: width 1s;
-	}
 }
 
-.status-text {
+.cx-progressbar__bar {
+	background: #3892E3;
+	display: inline-block;
+	height: 10px;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	transition: width 1s;
+}
+
+.cx-progressbar__text {
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	font-size: 0.8em;

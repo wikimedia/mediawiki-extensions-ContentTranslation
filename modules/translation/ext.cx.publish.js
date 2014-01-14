@@ -15,9 +15,10 @@
 	mw.cx.publish = function () {
 		var translatedTitle, translatedContent, summary, sourceTitle;
 
-		sourceTitle = $( '.source > h2' ).text();
-		translatedTitle = $( '.translation .title' ).text();
-		translatedContent = $( '.translation .article' ).text();
+		// @todo: Refactor so that this module is not grabbing random dom nodes
+		sourceTitle = $( '.cx-column--source > h2' ).text();
+		translatedTitle = $( '.cx-column--translation > h2' ).text();
+		translatedContent = $( '.cx-column--translation .article' ).text();
 		summary = '[ContentTranslation] Translated from ' + sourceTitle;
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;

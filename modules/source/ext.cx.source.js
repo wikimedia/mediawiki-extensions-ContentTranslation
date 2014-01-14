@@ -32,28 +32,28 @@
 	ContentTranslationSource.prototype.render = function () {
 		this.$container.append(
 			$( '<h2>' )
-				.addClass( 'title' )
+				.addClass( 'cx-column__title' )
 				.text( this.page )
 		);
 
 		this.$container.append(
 			$( '<div>' )
-				.addClass( 'content' )
+				.addClass( 'cx-column__content' )
 				.text( 'Loading ' + ( this.page || '' ) )
 		);
 	};
 
 	ContentTranslationSource.prototype.load = function () {
 		var api = new mw.Api(),
-			ctSource = this;
+			cxSource = this;
 
 		api.get( {
 			action: 'parse',
 			page: this.page,
 			disablepp: true
 		} ).done( function ( result ) {
-			ctSource.$container.find( '.title' ).html( result.parse.title );
-			ctSource.$container.find( '.content' ).html( result.parse.text['*'] );
+			cxSource.$container.find( '.cx-column__title' ).html( result.parse.title );
+			cxSource.$container.find( '.cx-column__content' ).html( result.parse.text['*'] );
 		} );
 
 	};

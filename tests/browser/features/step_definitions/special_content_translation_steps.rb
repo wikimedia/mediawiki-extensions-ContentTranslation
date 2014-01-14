@@ -3,7 +3,7 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
 end
 
 When(/^I empty the editing area in the translation column$/) do
-	on(ContentTranslationPage).target_text_element
+	pending
 end
 
 When(/^I press the "Publish Translation" button$/) do
@@ -13,7 +13,6 @@ end
 When(/^I write "(.*?)" in the editing area in the translation column$/) do |translation|
 	on(ContentTranslationPage).translation_editor.send_keys(translation)
 end
-
 
 Then(/^I don't see a "Publish Translation" button$/) do
 	on(ContentTranslationPage).publish_translation_element.should_not be_visible
@@ -40,11 +39,11 @@ Then(/^I see a language label saying "(.*?)" below the (.+) column's title$/) do
 end
 
 Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
-	on(ContentTranslationPage).target_title.should == text
+	on(ContentTranslationPage).title("translation").should == text
 end
 
 Then(/^I see a source column with the text "(.*?)"$/) do |text|
-	on(ContentTranslationPage).source_text.text.should == text
+	on(ContentTranslationPage).content("source").text.should == text
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
@@ -60,11 +59,11 @@ Then(/^I see a translation progress bar$/) do
 end
 
 Then(/^I see the message "You must be logged in to translate in this page\."$/) do
-	on(ContentTranslationPage).content.should == "You must be logged in to translate this page"
+	on(ContentTranslationPage).main_widget.should == "You must be logged in to translate this page"
 end
 
 Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_page_title|
-	on(ContentTranslationPage).source_title.should == source_page_title
+	on(ContentTranslationPage).title("source").text.should == source_page_title
 end
 
 Then(/^I see the username at the top of the page$/) do |username|
@@ -100,7 +99,7 @@ Then(/^the "Publish Translation" button is enabled$/) do
 end
 
 Then(/^the source column text is not editable$/) do
-	on(ContentTranslationPage).source_text.attribute_value("contenteditable").should == nil
+	on(ContentTranslationPage).content("source").attribute_value("contenteditable").should == nil
 end
 
 Then(/^the text near the translation progress bar says "(.*?)"$/) do |text|

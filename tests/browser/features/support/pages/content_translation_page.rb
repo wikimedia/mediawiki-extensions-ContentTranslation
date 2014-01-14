@@ -5,16 +5,16 @@ class ContentTranslationPage
 
 	a(:view_page, class: "view-page")
 
-	button(:publish_translation, class: "publish-translation")
+	button(:publish_translation, class: "cx-header__publish")
 
-	div(:progress_bar, class: "progressbar")
+	div(:progress_bar, class: "cx-progressbar")
 
 	div(:content, class: "content")
 
 	a(:user_name, class: "user-name")
 
 	def column(column_type)
-		@browser.div(class: column_type)
+		@browser.div(class: "cx-column--#{column_type}")
 	end
 
 	def language_label(column_type)
@@ -25,23 +25,15 @@ class ContentTranslationPage
 		@browser.div(class: "progressbar").span(class: "status-text")
 	end
 
-	def source_text
-		column("source").div(class: "content")
+	def content(column_type)
+		column(column_type).div(class: "cx-column__content")
 	end
 
-	def source_title
-		column("source").h1(class: "source-title")
-	end
-
-	def target_text
-		column("translation").div(class: "article")
-	end
-
-	def target_title
-		column("translation").text_field(class: "target-title")
+	def title(column_type)
+		column(column_type).div(class: "cx-column__title")
 	end
 
 	def translation_editor
-		column("translation").div(class: "translation-editor")
+		content("translation")
 	end
 end

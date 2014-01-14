@@ -1,52 +1,51 @@
 @import "../../base/styles/grid/agora-grid";
 
-.header {
-	.logo {
-		.mw-ui-item;
-		.mw-ui-two-thirds;
-		height: 100px;
-		background-image: url(../images/wikipedia-logo-landscape.png);
-		background-repeat: no-repeat;
-		background-position: left top;
+.cx-header__logo {
+	.mw-ui-item;
+	.mw-ui-two-thirds;
+	height: 100px;
+	background-image: url(../images/wikipedia-logo-landscape.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+.cx-header__user-details {
+	.mw-ui-item;
+	.mw-ui-one-third;
+
+	> a {
+		float: right;
 	}
+}
 
-	.user-details {
-		.mw-ui-item;
-		.mw-ui-one-third;
-		.user-name {
-			float: right;
-		}
-	}
+.cx-header__bar {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+}
 
-	.translation-bar {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-		border-bottom: 1px solid #ddd;
-		padding-bottom: 10px;
-		.translation-center-link {
-			.mw-ui-item;
-			.mw-ui-four-sixths;
-			a {
-				&:before {
-					content: "";
-					display: inline-block;
-					border: 4px solid transparent;
-					border-right-color: #555;
-					margin: 0 8px 0 0;
-				}
-			}
-		}
-
-		.translation-progress {
-			.mw-ui-item;
-			.mw-ui-one-sixth;
-			padding-bottom: 10px;
-		}
-
-		.publish {
-			.mw-ui-item;
-			.mw-ui-one-eighth;
-			float: right;
+.cx-header__translation-center {
+	.mw-ui-item;
+	.mw-ui-four-sixths;
+	a {
+		&:before {
+			content: "";
+			display: inline-block;
+			border: 4px solid transparent;
+			border-right-color: #555;
+			margin: 0 8px 0 0;
 		}
 	}
+}
+
+.cx-header__progressbar {
+	.mw-ui-item;
+	.mw-ui-one-sixth;
+}
+
+.cx-header__publish {
+	.mw-ui-item;
+	.mw-ui-one-eighth;
+	float: right;
 }

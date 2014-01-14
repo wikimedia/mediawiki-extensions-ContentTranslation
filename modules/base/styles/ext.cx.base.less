@@ -6,38 +6,36 @@ h2 {
 	color: @grey;
 }
 
-.content {
+/**
+ * Container for the translation widget
+ */
+.cx-widget {
 	.mw-ui-grid;
 	color: @grey;
 }
 
-.header {
+.cx-widget__header {
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	.mw-ui-palm-one-whole;
 }
 
-.source {
+.cx-column {
 	.mw-ui-item;
 	.mw-ui-one-third;
+}
+
+.cx-column--source,
+.cx-column--translation {
 	.mw-ui-palm-one-half;
 }
 
-.translation {
-	.mw-ui-item;
-	.mw-ui-one-third;
-	.mw-ui-palm-one-half;
-
-}
-
-.tools {
-	.mw-ui-item;
-	.mw-ui-one-third;
+.cx-column--aids {
 	.mw-ui-palm-one-whole;
 	background: #f0f0f0;
-
 }
 
+/* Unused? */
 .suggestion-list {
 	.mw-ui-grid;
 }

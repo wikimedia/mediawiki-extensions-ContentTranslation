@@ -28,14 +28,14 @@
 	};
 
 	ContentTranslationHeader.prototype.render = function () {
+		this.$container.addClass( 'cx-header' );
 		this.$container.append(
 			$( '<div>' )
-				.addClass( 'logo' ),
+				.addClass( 'cx-header__logo' ),
 			$( '<div>' )
-				.addClass( 'user-details' )
+				.addClass( 'cx-header__user-details' )
 				.append(
 					$( '<a>' )
-						.addClass( 'user-name' )
 						.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
 						.text ( mw.user.getName() )
 				)
@@ -43,20 +43,20 @@
 
 		this.$container.append(
 			$( '<div>' )
-				.addClass( 'translation-bar' )
+				.addClass( 'cx-header__bar' )
 				.append(
 					$( '<div>' )
-						.addClass( 'translation-center-link' )
+						.addClass( 'cx-header__translation-center' )
 						.append(
 							$( '<a>' )
 								.text( 'Translation center' )
 								.attr( 'href', '#' )
 						),
 					$( '<div>' )
-						.addClass( 'translation-progress' )
+						.addClass( 'cx-header__progressbar' )
 						.cxProgressBar(),
 					$( '<button>' )
-						.addClass( 'publish mw-ui-button mw-ui-constructive' )
+						.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
 						.text( 'Publish translation' )
 				)
 		);

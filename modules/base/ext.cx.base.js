@@ -43,19 +43,22 @@
 	ContentTranslation.prototype.render = function () {
 		var $content;
 
-		$content = $( '<div>' ).addClass( 'content' )
+		$content = $( '<div>' ).addClass( 'cx-widget' )
 			.append(
-				$( '<div>' ).addClass( 'header' ),
-				$( '<div>' ).addClass( 'source' ),
-				$( '<div>' ).addClass( 'translation' ),
-				$( '<div>' ).addClass( 'tools' )
+				$( '<div>' ).addClass( 'cx-widget__header' ),
+				$( '<div>' ).addClass( 'cx-widget__columns' )
+					.append(
+						$( '<div>' ).addClass( 'cx-column cx-column--source' ),
+						$( '<div>' ).addClass( 'cx-column cx-column--translation' ),
+						$( '<div>' ).addClass( 'cx-column cx-column--aids' )
+					)
 			);
 
 		this.$container.append( $content );
-		this.$header = this.$container.find( '.header' );
-		this.$source = this.$container.find( '.source' );
-		this.$translation = this.$container.find( '.translation' );
-		this.$tools = this.$container.find( '.tools' );
+		this.$header = this.$container.find( '.cx-widget__header' );
+		this.$source = this.$container.find( '.cx-column--source' );
+		this.$translation = this.$container.find( '.cx-column--translation' );
+		this.$tools = this.$container.find( '.cx-column--aids' );
 	};
 
 	$.fn.cx = function ( options ) {
