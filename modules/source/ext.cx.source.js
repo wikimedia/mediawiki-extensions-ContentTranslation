@@ -50,7 +50,7 @@
 		api.get( {
 			action: 'parse',
 			page: this.page,
-			disablepp: true,
+			disablepp: true
 		} ).done( function ( result ) {
 			ctSource.$container.find( '.title' ).html( result.parse.title );
 			ctSource.$container.find( '.content' ).html( result.parse.text['*'] );
