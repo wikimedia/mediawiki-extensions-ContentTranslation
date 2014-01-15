@@ -20,8 +20,10 @@ $wgResourceModules['ext.cx.base'] = array(
 		'base/styles/ext.cx.base.less',
 	),
 	'dependencies' => array(
-		'mediawiki.ui',
 		'mediawiki.api',
+		'mediawiki.jqueryMsg',
+		'mediawiki.language',
+		'mediawiki.ui',
 		'ext.cx.header',
 		'ext.cx.source',
 		'ext.cx.translation',
@@ -38,12 +40,19 @@ $wgResourceModules['ext.cx.header'] = array(
 		'ext.cx.progressbar',
 		'ext.cx.publish',
 	),
+	'messages' => array(
+		'cx-header-translation-center',
+		'cx-publish-button'
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.source'] = array(
 	'scripts' => 'source/ext.cx.source.js',
 	'dependencies' => array(
 		'mediawiki.Uri',
+	),
+	'messages' => array(
+		'cx-source-loading'
 	),
 ) + $resourcePaths;
 
@@ -56,6 +65,14 @@ $wgResourceModules['ext.cx.translation'] = array(
 
 $wgResourceModules['ext.cx.tool'] = array(
 	'scripts' => 'tools/ext.cx.tools.js',
+	'messages' => array(
+		'cx-tools-instructions-title',
+		'cx-tools-instructions-text1',
+		'cx-tools-instructions-text2',
+		'cx-tools-instructions-text3',
+		'cx-tools-instructions-text4',
+		'cx-tools-instructions-text5'
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.progressbar'] = array(
@@ -63,11 +80,18 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 	'styles' => array(
 		'header/styles/ext.cx.progressbar.less',
 	),
+	'messages' => array(
+		'cx-header-progressbar-text'
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.publish'] = array(
 	'scripts' => 'translation/ext.cx.publish.js',
 	'dependencies' => array(
 		'mediawiki.api.edit',
+	),
+	'messages' => array(
+		'cx-publish-page',
+		'cx-publish-page-error'
 	),
 ) + $resourcePaths;

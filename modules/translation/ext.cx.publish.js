@@ -24,15 +24,10 @@
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 		publishTranslation( translatedTitle, translatedContent, summary )
 			.done( function () {
-				mw.notify( $( '<p>' )
-					.text( 'Article published - ' )
-					.append( $( '<a>' )
-						.text( translatedTitle )
-						.attr( 'href', mw.util.getUrl( translatedTitle ) )
-					)
-				);
+				mw.notify( $( '<p>' ).html( mw.message( 'cx-publish-page',
+					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() ) );
 			} ).fail( function () {
-				mw.notify( 'Error while saving article.' );
+				mw.notify( mw.msg( 'cx-publish-page-error' ) );
 			} );
 	};
 
@@ -49,7 +44,7 @@
 			action: 'edit',
 			title: title,
 			summary: summary,
-			text: content,
+			text: content
 		} );
 	}
 
