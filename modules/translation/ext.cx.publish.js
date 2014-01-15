@@ -18,7 +18,7 @@
 		// @todo: Refactor so that this module is not grabbing random dom nodes
 		sourceTitle = $( '.cx-column--source > h2' ).text();
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
-		translatedContent = $( '.cx-column--translation .article' ).text();
+		translatedContent = $( '.cx-column--translation .cx-column__content' ).text();
 		summary = '[ContentTranslation] Translated from ' + sourceTitle;
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
