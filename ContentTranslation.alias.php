@@ -13,7 +13,7 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'ContentTranslation' => array( 'ContentTranslation' ),
+	'ContentTranslation' => array( 'ContentTranslation', 'CX' ),
 );
 
 /** Malayalam (മലയാളം) */
