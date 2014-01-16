@@ -5,5 +5,14 @@
         ]
     },
     "cx": "Säit iwwersetzen",
-    "cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungshëllefen."
+    "cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungshëllefen.",
+    "cx-header-progressbar-text": "$1% iwwersat",
+    "cx-header-translation-center": "Iwwersetzungszentral",
+    "cx-publish-page": "Säit publizéiert ënner [$1 $2]",
+    "cx-publish-page-error": "Feeler beim Späichere vun der Säit.",
+    "cx-publish-button": "Iwwersetzung publizéieren",
+    "cx-source-loading": "$1 lueden",
+    "cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
+    "cx-tools-instructions-text1": "Setzt e puer Abschnitter bäi d'Iwwersetzung derbäi.",
+    "cx-tools-instructions-text2": "Adaptéiert déi proposéiert automatesch Iwwersetzung fir d'Qualitéit ze garantéieren"
 }

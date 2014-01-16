@@ -4,5 +4,10 @@
             "Shirayuki"
         ]
     },
-    "cx": "ページの翻訳"
+    "cx": "ページの翻訳",
+    "cx-header-progressbar-text": "$1% 翻訳済",
+    "cx-header-translation-center": "翻訳センター",
+    "cx-publish-page-error": "ページの保存エラーです。",
+    "cx-source-loading": "$1 を読み込み中",
+    "cx-tools-instructions-title": "翻訳の作成"
 }

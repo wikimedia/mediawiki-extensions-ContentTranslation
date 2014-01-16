@@ -1,9 +1,14 @@
 {
     "@metadata": {
         "authors": [
-            "Leehoy"
+            "Leehoy",
+            "Priviet"
         ]
     },
     "cx": "번역 페이지",
-    "cx-desc": "기계를 이용한 번역과 다른 번역 결과를 이용해 편집자들이 페이지들을 번역할 수 있게 해주는 도구"
+    "cx-desc": "기계를 이용한 번역과 다른 번역 결과를 이용해 편집자들이 페이지들을 번역할 수 있게 해주는 도구",
+    "cx-header-progressbar-text": "$1% 번역됨",
+    "cx-source-loading": "$1 문서를 불러오는 중",
+    "cx-tools-instructions-title": "번역 만들기",
+    "cx-tools-instructions-text1": "번역에 문단 추가"
 }

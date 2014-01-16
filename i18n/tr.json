@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joseph"
+        ]
+    },
+    "cx": "Sayfayı çevir",
+    "cx-header-progressbar-text": "%$1 çevrildi",
+    "cx-header-translation-center": "Çeviri merkezi",
+    "cx-publish-page-error": "Sayfa kaydedilirken hata oluştu.",
+    "cx-publish-button": "Çeviriyi yayınla",
+    "cx-source-loading": "$1 yükleniyor",
+    "cx-tools-instructions-title": "Bir çeviri oluşturun",
+    "cx-tools-instructions-text1": "Çeviriye paragraf ekleyin."
+}

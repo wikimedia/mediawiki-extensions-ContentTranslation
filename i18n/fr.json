@@ -5,5 +5,17 @@
         ]
     },
     "cx": "Traduire la page",
-    "cx-desc": "Un outil qui permet aux éditeurs de traduire les pages d’une langue vers une autre avec l’aide d’une traduction automatiques et d’autres aides à la traduction."
+    "cx-desc": "Un outil qui permet aux éditeurs de traduire les pages d’une langue vers une autre avec l’aide d’une traduction automatiques et d’autres aides à la traduction.",
+    "cx-header-progressbar-text": "$1% traduit",
+    "cx-header-translation-center": "Centre des traductions",
+    "cx-publish-page": "Page publiée sur [$1 $2]",
+    "cx-publish-page-error": "Erreur lors de l’enregistrement de la page.",
+    "cx-publish-button": "Publier la traduction",
+    "cx-source-loading": "Chargement de $1",
+    "cx-tools-instructions-title": "Créer une traduction",
+    "cx-tools-instructions-text1": "Ajouter quelques paragraphes à la traduction.",
+    "cx-tools-instructions-text2": "Ajuster les traductions automatiques fournies pour garantir leur qualité",
+    "cx-tools-instructions-text3": "La traduction automatique est un point de départ utile pour les traductions, mais les traducteurs doivent corriger les erreurs si nécessaire et confirmer que la traduction est appropriée.",
+    "cx-tools-instructions-text4": "Ne pas traduire un texte qui semble non fiable ou de mauvaise qualité. Si possible, vérifier le texte avec les références fournies dans la page source.",
+    "cx-tools-instructions-text5": "Quand vous êtes satisfait du résultat, appuyez sur {{int:cx-publish-button}} pour créer la nouvelle page."
 }

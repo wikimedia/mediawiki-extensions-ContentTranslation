@@ -1,9 +1,22 @@
 {
     "@metadata": {
         "authors": [
-            "Yfdyh000"
+            "Yfdyh000",
+            "Liuxinyu970226"
         ]
     },
     "cx": "翻译页面",
-    "cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具。"
+    "cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具。",
+    "cx-header-progressbar-text": "$1%已翻译",
+    "cx-header-translation-center": "翻译中心",
+    "cx-publish-page": "页面发布在[$1 $2]",
+    "cx-publish-page-error": "当保存页面时出错。",
+    "cx-publish-button": "发布翻译",
+    "cx-source-loading": "$1载入中",
+    "cx-tools-instructions-title": "创建翻译",
+    "cx-tools-instructions-text1": "将一些段落添加到翻译。",
+    "cx-tools-instructions-text2": "调整自动翻译以保证质量",
+    "cx-tools-instructions-text3": "机械翻译是一个有用的基础翻译，但是翻译者必须修正其中的错误并确信译文如预期所见。",
+    "cx-tools-instructions-text4": "不要将原文粗劣翻译。如果可能，请引用原文以进行验证。",
+    "cx-tools-instructions-text5": "当您对结果满意时，按下{{int:cx-publish-button}}以创建新页面。"
 }

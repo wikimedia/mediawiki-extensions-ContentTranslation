@@ -5,5 +5,17 @@
         ]
     },
     "cx": "Seite übersetzen",
-    "cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungshilfen von einer Sprache in eine andere zu übersetzen"
+    "cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungshilfen von einer Sprache in eine andere zu übersetzen",
+    "cx-header-progressbar-text": "$1% übersetzt",
+    "cx-header-translation-center": "Übersetzungscenter",
+    "cx-publish-page": "Seite veröffentlicht unter [$1 $2]",
+    "cx-publish-page-error": "Fehler beim Speichern der Seite.",
+    "cx-publish-button": "Übersetzung veröffentlichen",
+    "cx-source-loading": "Lade $1",
+    "cx-tools-instructions-title": "Eine Übersetzung erstellen",
+    "cx-tools-instructions-text1": "Füge einige Absätze der Übersetzung hinzu.",
+    "cx-tools-instructions-text2": "Passe die zur Verfügung gestellten automatischen Übersetzungen an, um die Qualität zu gewährleisten.",
+    "cx-tools-instructions-text3": "Maschinelle Übersetzungen sind zum Beginnen hilfreich für Übersetzungen, jedoch müssen Übersetzer nach Bedarf Fehler korrigieren und bestätigen, dass die Übersetzung korrekt ist.",
+    "cx-tools-instructions-text4": "Übersetze keinen Text, der unglaubwürdig oder minderwertig erscheint. Falls möglich, verifiziere den Text mit in der Quellseite angegebenen Nachweisen.",
+    "cx-tools-instructions-text5": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“, um die neue Seite zu erstellen."
 }
