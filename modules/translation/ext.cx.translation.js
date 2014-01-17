@@ -39,8 +39,7 @@
 
 		$content = $( '<div>' )
 			.attr( 'contenteditable', true )
-			.addClass( 'cx-column__content' )
-			.text( 'Translated text' );
+			.addClass( 'cx-column__content' );
 
 		this.$container.append( $content );
 	};
