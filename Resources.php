@@ -53,6 +53,7 @@ $wgResourceModules['ext.cx.source'] = array(
 		'mediawiki.Uri',
 	),
 	'messages' => array(
+		'cx-source-view-page',
 		'cx-source-loading'
 	),
 ) + $resourcePaths;

@@ -28,7 +28,8 @@ Then(/^I don't see the (.+?) column$/) do |column_type|
 end
 
 Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |link_name, page_title|
-	pending # express the regexp above with the code you wish you had
+	page_title_in_url = page_title.gsub(" ", "_")
+	on(ContentTranslationPage).view_page.attribute_value("href").should match(/#{page_title_in_url}$/)
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -115,9 +116,4 @@ Then(/^the translation progress bar is in (\d+%) state$/) do |width|
 	# The .style method returns the computed value in px,
 	# but we need the specified CSS value, so we chech it manually
 	on(ContentTranslationPage).progress_bar_element.attribute("style").should match(/width: #{width};/)
-end
-
-Then(/^the "view page" link points to the page "(.+?)" on the same wiki$/) do |source_page|
-	source_page_in_url = source_page.gsub(" ", "_")
-	on(ContentTranslationPage).view_page_element.attribute("href").should match(/#{source_page_in_url}$/)
 end
