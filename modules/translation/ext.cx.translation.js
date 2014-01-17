@@ -34,7 +34,7 @@
 			$( '<h2>' )
 				.attr( 'contenteditable', true )
 				.addClass( 'cx-column__title' )
-				.text( 'Translated title' )
+				.text( $( '.cx-column--source .cx-column__title' ).text() )
 		);
 
 		$content = $( '<div>' )
