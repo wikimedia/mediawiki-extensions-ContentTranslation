@@ -27,6 +27,7 @@
 		this.page = new mw.Uri().query.page;
 		this.render();
 		this.load();
+		this.listen();
 	};
 
 	ContentTranslationSource.prototype.render = function () {
@@ -56,6 +57,12 @@
 			cxSource.$container.find( '.cx-column__content' ).html( result.parse.text['*'] );
 		} );
 
+	};
+
+	ContentTranslationSource.prototype.listen = function () {
+		this.$container.find( '.cx-column__content' ).on( 'click', function () {
+			mw.hook( 'mw.cx.addContent' ).fire( $( this ).html() );
+		} );
 	};
 
 	$.fn.cxSource = function ( options ) {
