@@ -34,7 +34,7 @@
 	ContentTranslationEditor.prototype.render = function () {
 		var $content;
 
-		if ( this.lang ) {
+		if ( this.language ) {
 			this.$container.prop( {
 				lang: this.language,
 				dir: $.uls.data.getDir( this.language )
@@ -47,6 +47,23 @@
 				.addClass( 'cx-column__title' )
 				.text( $( '.cx-column--source .cx-column__title' ).text() )
 		);
+
+		if ( this.language ) {
+			this.$container.prop( {
+				lang: this.language,
+				dir: $.uls.data.getDir( this.language )
+			} );
+
+			this.$container.append(
+				$( '<div>' )
+					.addClass( 'cx-column__sub-heading' )
+					.append(
+						$( '<span>' )
+							.addClass( 'cx-column__language-label' )
+							.text( $.uls.data.getAutonym( this.language ) )
+					)
+			);
+		}
 
 		$content = $( '<div>' )
 			.attr( 'contenteditable', true )

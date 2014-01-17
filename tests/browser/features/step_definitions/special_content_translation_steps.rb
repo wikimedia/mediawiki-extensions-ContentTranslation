@@ -40,7 +40,7 @@ Then(/^I see a "view page" link in the source column$/) do
 end
 
 Then(/^I see a language label saying "(.*?)" below the (.+?) column's title$/) do |language_name, column_type|
-	on(ContentTranslationPage).language_label(column_type).should == language_name
+	on(ContentTranslationPage).language_label(column_type).text.should == language_name
 end
 
 Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
