@@ -2,13 +2,22 @@
     "@metadata": {
         "authors": [
             "Leehoy",
-            "Priviet"
+            "Priviet",
+            "Freebiekr"
         ]
     },
-    "cx": "번역 페이지",
-    "cx-desc": "기계를 이용한 번역과 다른 번역 결과를 이용해 편집자들이 페이지들을 번역할 수 있게 해주는 도구",
+    "cx": "문서 번역",
+    "cx-desc": "기계 번역과 기타 번역 보조 도구를 이용해 문서를 번역하는 도구",
     "cx-header-progressbar-text": "$1% 번역됨",
+    "cx-header-translation-center": "번역 센터",
+    "cx-publish-page": "[$1 $2]에 발행된 문서",
+    "cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
+    "cx-publish-button": "번역물 발행",
     "cx-source-loading": "$1 문서를 불러오는 중",
-    "cx-tools-instructions-title": "번역 만들기",
-    "cx-tools-instructions-text1": "번역에 문단 추가"
+    "cx-tools-instructions-title": "번역하기",
+    "cx-tools-instructions-text1": "번역물에 문단 추가",
+    "cx-tools-instructions-text2": "품질을 보증하기 위해 제시된 자동 번역을 수정",
+    "cx-tools-instructions-text3": "기계 번역은 번역을 시작하는 데 도움이 되지만 번역자는 필요하면 오류를 수정해서 번역이 정확함을 확인해야 합니다.",
+    "cx-tools-instructions-text4": "출처가 불분명하거나 품질이 떨어지는 글을 번역하지 마십시오. 가능하다면 출처에서 제시된 참고 문헌으로 글을 검증하십시오.",
+    "cx-tools-instructions-text5": "번역 결과에 만족하면 {{int:cx-publish-button}}을 눌러 새 문서를 만드십시오."
 }

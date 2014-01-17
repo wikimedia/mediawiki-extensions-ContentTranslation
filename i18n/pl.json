@@ -1,14 +1,18 @@
 {
     "@metadata": {
         "authors": [
-            "Chrumps"
+            "Chrumps",
+            "Vuh"
         ]
     },
     "cx": "Przetłumacz stronę",
     "cx-desc": "Narzędzie, które umożliwia edytorom na tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
     "cx-header-progressbar-text": "$1% przetłumaczono",
     "cx-header-translation-center": "Centrum tłumaczeń",
+    "cx-publish-page": "Strona opublikowana w [$1 $2]",
     "cx-publish-page-error": "Błąd podczas zapisywania strony.",
+    "cx-publish-button": "Publikuj tłumaczenie",
     "cx-source-loading": "Ładowanie $1",
+    "cx-tools-instructions-title": "Utwórz tłumaczenie",
     "cx-tools-instructions-text5": "Jeśli jesteś zadowolony z wyniku, naciśnij {{int:cx-publish-button}}, aby utworzyć nową stronę."
 }

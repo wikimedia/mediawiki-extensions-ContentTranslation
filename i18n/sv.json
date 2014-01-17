@@ -1,9 +1,22 @@
 {
     "@metadata": {
         "authors": [
-            "WikiPhoenix"
+            "WikiPhoenix",
+            "Lokal Profil"
         ]
     },
-    "cx": "Översätt sida",
-    "cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningshjälpmedel"
+    "cx": "Översätt sidan",
+    "cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningshjälpmedel",
+    "cx-header-progressbar-text": "$1% översatt",
+    "cx-header-translation-center": "Översättningscenter",
+    "cx-publish-page": "Sidan publicerad på [$1 $2]",
+    "cx-publish-page-error": "Fel vid sparandet av sida.",
+    "cx-publish-button": "Publicera översättningen",
+    "cx-source-loading": "Läser in $1",
+    "cx-tools-instructions-title": "Skapa en översättning",
+    "cx-tools-instructions-text1": "Lägg till några stycken till översättning.",
+    "cx-tools-instructions-text2": "Justera de automatiska översättningarna som tillhandahålls för att säkerställa kvaliteten",
+    "cx-tools-instructions-text3": "Maskinöversättning är en bra utgångspunkt för översättningar, men översättare måste revidera fel vid behövs och bekräfta att översättningen är korrekt.",
+    "cx-tools-instructions-text4": "Översätt inte texten som verkar otillförlitliga eller håller låg kvalitet. Om möjligt, kontrollera texten med de referenser som anges på källsidan.",
+    "cx-tools-instructions-text5": "När du är nöjd med resultatet, tryck på {{int:cx-publish-button}} för att skapa den nya sidan."
 }
