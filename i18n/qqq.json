@@ -14,6 +14,7 @@
     "cx-publish-page-error": "Error message to display when page saving fails.",
     "cx-publish-button": "Publish button text in [[Special:ContentTranslation]].",
     "cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
+    "cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
     "cx-tools-instructions-title": "Title for the translation aids pane.",
     "cx-tools-instructions-text1": "Help text for the translation aids pane.",
     "cx-tools-instructions-text2": "Help text for the translation aids pane.",
