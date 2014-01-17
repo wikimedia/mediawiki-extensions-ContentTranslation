@@ -19,6 +19,7 @@
 	function ContentTranslationEditor( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
+		this.lang = '';
 		this.init();
 	}
 
