@@ -20,6 +20,8 @@
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
 		this.language = '';
+		this.$title = null;
+		this.$content = null;
 		this.init();
 	}
 
@@ -51,6 +53,8 @@
 			.addClass( 'cx-column__content' );
 
 		this.$container.append( $content );
+		this.$title = this.$container.find( '.cx-column__title' );
+		this.$content = this.$container.find( '.cx-column__content' );
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
@@ -58,7 +62,7 @@
 	};
 
 	ContentTranslationEditor.prototype.update = function ( data ) {
-		this.$container.find( '.cx-column__content' ).html( data );
+		this.$content.html( data );
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
 	};
 

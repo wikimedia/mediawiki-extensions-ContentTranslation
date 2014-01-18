@@ -20,6 +20,8 @@
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxSource.defaults, options );
 		this.page = null;
+		this.$title = null;
+		this.$content = null;
 		this.init();
 	}
 
@@ -49,6 +51,8 @@
 				.addClass( 'cx-column__content' )
 				.text( mw.msg( 'cx-source-loading', this.page ) )
 		);
+		this.$title = this.$container.find( '.cx-column__title' );
+		this.$content = this.$container.find( '.cx-column__content' );
 	};
 
 	ContentTranslationSource.prototype.load = function () {
@@ -60,14 +64,14 @@
 			page: this.page,
 			disablepp: true
 		} ).done( function ( result ) {
-			cxSource.$container.find( '.cx-column__title' ).html( result.parse.title );
-			cxSource.$container.find( '.cx-column__content' ).html( result.parse.text['*'] );
+			cxSource.$title.html( result.parse.title );
+			cxSource.$content.html( result.parse.text['*'] );
 		} );
 
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		this.$container.find( '.cx-column__content' ).on( 'click', function () {
+		this.$content.on( 'click', function () {
 			mw.hook( 'mw.cx.translation.add' ).fire( $( this ).html() );
 		} );
 	};
