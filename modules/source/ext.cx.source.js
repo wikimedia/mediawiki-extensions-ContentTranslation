@@ -31,6 +31,13 @@
 	};
 
 	ContentTranslationSource.prototype.render = function () {
+		var contentLanguage = mw.config.get( 'wgContentLanguage' );
+
+		this.$container.prop( {
+			lang: contentLanguage,
+			dir: $.uls.data.getDir( contentLanguage )
+		} );
+
 		this.$container.append(
 			$( '<h2>' )
 				.addClass( 'cx-column__title' )

@@ -49,6 +49,7 @@ $wgResourceModules['ext.cx.header'] = array(
 $wgResourceModules['ext.cx.source'] = array(
 	'scripts' => 'source/ext.cx.source.js',
 	'dependencies' => array(
+		'jquery.uls.data',
 		'mediawiki.Uri',
 	),
 	'messages' => array(
@@ -58,6 +59,10 @@ $wgResourceModules['ext.cx.source'] = array(
 
 $wgResourceModules['ext.cx.translation'] = array(
 	'scripts' => 'translation/ext.cx.translation.js',
+	'dependencies' => array(
+		'jquery.uls.data',
+		'mediawiki.Uri',
+	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
 	),
