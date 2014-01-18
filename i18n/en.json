@@ -13,6 +13,7 @@
     "cx-publish-page-error": "Error while saving page.",
     "cx-publish-button": "Publish translation",
     "cx-source-loading": "Loading $1",
+    "cx-special-login-error": "You must be logged in to translate in this page.",
     "cx-tools-instructions-title": "Create a translation",
     "cx-tools-instructions-text1": "Add some paragraphs to the translation.",
     "cx-tools-instructions-text2": "Adjust the automatic translations provided to ensure quality",

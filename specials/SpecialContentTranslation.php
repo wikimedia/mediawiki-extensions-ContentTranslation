@@ -23,16 +23,23 @@ class SpecialContentTranslation extends SpecialPage {
 
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
-		$out->addModules( 'ext.cx.base' );
 		$skin = $this->getSkin();
-		$this->setHeaders();
-		$out->setArticleBodyOnly( true );
-		// Default modules copied from OutputPage::addDefaultModules
-		$out->addModules( array(
-			'mediawiki.user',
-			'mediawiki.page.startup',
-			'mediawiki.page.ready',
-		) );
+		$user = $this->getUser();
+
+		if ( !($user->isLoggedIn() ) ) {
+			$out->addHTML( $this->msg('cx-special-login-error'));
+		}
+		else {
+			$out->addModules( 'ext.cx.base' );
+			$this->setHeaders();
+			$out->setArticleBodyOnly( true );
+			// Default modules copied from OutputPage::addDefaultModules
+			$out->addModules( array(
+				'mediawiki.user',
+				'mediawiki.page.startup',
+				'mediawiki.page.ready',
+			) );
+		}
 
 		$out->addHTML( $out->headElement( $skin ) );
 
