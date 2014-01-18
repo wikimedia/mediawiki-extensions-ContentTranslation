@@ -68,7 +68,7 @@
 
 	ContentTranslationSource.prototype.listen = function () {
 		this.$container.find( '.cx-column__content' ).on( 'click', function () {
-			mw.hook( 'mw.cx.addContent' ).fire( $( this ).html() );
+			mw.hook( 'mw.cx.translation.add' ).fire( $( this ).html() );
 		} );
 	};
 

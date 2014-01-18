@@ -19,12 +19,12 @@
 	function ContentTranslationEditor( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
-		this.lang = '';
+		this.language = '';
 		this.init();
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
-		this.lang = new mw.Uri().query.lang || '';
+		this.language = new mw.Uri().query.lang || '';
 		this.render();
 		this.listen();
 	};
@@ -34,8 +34,8 @@
 
 		if ( this.lang ) {
 			this.$container.prop( {
-				lang: this.lang,
-				dir: $.uls.data.getDir( this.lang )
+				lang: this.language,
+				dir: $.uls.data.getDir( this.language )
 			} );
 		}
 
@@ -54,7 +54,7 @@
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
-		mw.hook( 'mw.cx.addContent' ).add( $.proxy( this.update, this ) );
+		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
 	};
 
 	ContentTranslationEditor.prototype.update = function ( data ) {
