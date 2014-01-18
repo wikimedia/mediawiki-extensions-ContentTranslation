@@ -2,7 +2,8 @@
     "@metadata": {
         "authors": [
             "WikiPhoenix",
-            "Lokal Profil"
+            "Lokal Profil",
+            "Jopparn"
         ]
     },
     "cx": "Översätt sidan",
@@ -14,9 +15,9 @@
     "cx-publish-button": "Publicera översättningen",
     "cx-source-loading": "Läser in $1",
     "cx-tools-instructions-title": "Skapa en översättning",
-    "cx-tools-instructions-text1": "Lägg till några stycken till översättning.",
+    "cx-tools-instructions-text1": "Lägg till några stycken till översättningen.",
     "cx-tools-instructions-text2": "Justera de automatiska översättningarna som tillhandahålls för att säkerställa kvaliteten",
-    "cx-tools-instructions-text3": "Maskinöversättning är en bra utgångspunkt för översättningar, men översättare måste revidera fel vid behövs och bekräfta att översättningen är korrekt.",
-    "cx-tools-instructions-text4": "Översätt inte texten som verkar otillförlitliga eller håller låg kvalitet. Om möjligt, kontrollera texten med de referenser som anges på källsidan.",
+    "cx-tools-instructions-text3": "Maskinöversättning är en bra utgångspunkt för översättningar, men översättare måste se över texten efter eventuella fel och bekräfta att översättningen är korrekt.",
+    "cx-tools-instructions-text4": "Översätt inte texter som verkar otillförlitliga eller håller låg kvalitet. Om möjligt, kontrollera texten gentemot de referenser som anges på källsidan.",
     "cx-tools-instructions-text5": "När du är nöjd med resultatet, tryck på {{int:cx-publish-button}} för att skapa den nya sidan."
 }
