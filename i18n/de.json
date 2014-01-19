@@ -12,6 +12,7 @@
     "cx-publish-page-error": "Fehler beim Speichern der Seite.",
     "cx-publish-button": "Übersetzung veröffentlichen",
     "cx-source-loading": "Lade $1",
+    "cx-special-login-error": "Du musst angemeldet sein, um in dieser Seite übersetzen zu können.",
     "cx-tools-instructions-title": "Eine Übersetzung erstellen",
     "cx-tools-instructions-text1": "Füge einige Absätze der Übersetzung hinzu.",
     "cx-tools-instructions-text2": "Passe die zur Verfügung gestellten automatischen Übersetzungen an, um die Qualität zu gewährleisten.",

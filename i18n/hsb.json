@@ -12,5 +12,9 @@
     "cx-publish-page-error": "Zmylk při składowanju strony.",
     "cx-publish-button": "Přełožk wozjewić",
     "cx-source-loading": "$1 so začituje",
-    "cx-tools-instructions-title": "Přełožk wutworić"
+    "cx-special-login-error": "Dyrbiš přizjewjeny być, zo by w tutej stronje přełožił.",
+    "cx-tools-instructions-title": "Přełožk wutworić",
+    "cx-tools-instructions-text1": "Přidaj přełožkej někotre wotstawki.",
+    "cx-tools-instructions-text2": "Přiměr k dispoziciji stajene awtomatiske přełožki, zo by kwalitu polěpšił",
+    "cx-tools-instructions-text5": "Jeli sy z wuslědkom spokojom, klikń na {{int:cx-publish-button}}, zo by nowu stronu wutworił."
 }

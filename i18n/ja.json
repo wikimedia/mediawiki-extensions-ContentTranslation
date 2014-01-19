@@ -9,5 +9,6 @@
     "cx-header-translation-center": "翻訳センター",
     "cx-publish-page-error": "ページの保存エラーです。",
     "cx-source-loading": "$1 を読み込み中",
+    "cx-special-login-error": "このページを翻訳するには、ログインしてください。",
     "cx-tools-instructions-title": "翻訳の作成"
 }

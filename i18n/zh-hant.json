@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "EagerLin"
+        ]
+    },
+    "cx-header-progressbar-text": "$1%已翻譯",
+    "cx-header-translation-center": "翻譯中心",
+    "cx-publish-page": "頁面發佈在[$1 $2]",
+    "cx-publish-page-error": "當保存頁面時出錯。",
+    "cx-publish-button": "發佈翻譯",
+    "cx-source-loading": "正在載入$1",
+    "cx-special-login-error": "您必須登錄翻譯在此頁中。",
+    "cx-tools-instructions-title": "創建翻譯",
+    "cx-tools-instructions-text1": "將一些段落添加到翻譯。",
+    "cx-tools-instructions-text2": "調整提供自動翻譯以保證品質",
+    "cx-tools-instructions-text3": "機械翻譯是一個有用的基礎翻譯，但是翻譯者必須修正其中的錯誤並確信譯文如預期所見。",
+    "cx-tools-instructions-text4": "勿將原文粗劣翻譯。若有可能，請引用原文以利於查證。",
+    "cx-tools-instructions-text5": "當你對結果滿意時，按下{{int:cx-publish-button}}以創建新頁面。"
+}

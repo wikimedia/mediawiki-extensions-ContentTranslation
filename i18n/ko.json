@@ -14,6 +14,7 @@
     "cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
     "cx-publish-button": "번역물 발행",
     "cx-source-loading": "$1 문서를 불러오는 중",
+    "cx-special-login-error": "이 문서를 번역하려면 로그인 상태여야 합니다.",
     "cx-tools-instructions-title": "번역하기",
     "cx-tools-instructions-text1": "번역물에 문단 추가",
     "cx-tools-instructions-text2": "품질을 보증하기 위해 제시된 자동 번역을 수정",

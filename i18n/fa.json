@@ -12,6 +12,7 @@
     "cx-publish-page-error": "خطا هنگام ذخیرهٔ ترجمه.",
     "cx-publish-button": "انتشار ترجمه",
     "cx-source-loading": "در حال بارگذاری $1",
+    "cx-special-login-error": "شما برای ترجمه در این صفحه باید وارد شوید.",
     "cx-tools-instructions-title": "ایجاد یک ترجمه",
     "cx-tools-instructions-text1": "اضافه کردن برخی پاراگراف‌ها به ترجمه.",
     "cx-tools-instructions-text2": "تنظیم ترجمه‌های خودکار ارائه شده برای تضمین کیفیت",
