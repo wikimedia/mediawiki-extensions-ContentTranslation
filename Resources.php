@@ -101,3 +101,8 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'cx-publish-page-error'
 	),
 ) + $resourcePaths;
+
+$wgResourceModules['ext.cx.eventlogging'] = array(
+	'scripts' => 'eventlogging/ext.cx.eventlogging.js',
+	'dependencies' => 'schema.ContentTranslation',
+) + $resourcePaths;
