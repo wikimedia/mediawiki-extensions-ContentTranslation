@@ -46,5 +46,9 @@ $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
+
 // Special pages
 $GLOBALS['wgSpecialPages']['ContentTranslation'] = 'SpecialContentTranslation';
+
+// API modules
+$GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';

@@ -10,19 +10,20 @@
  */
 ( function ( $, mw ) {
 	'use strict';
+
 	mw.cx = mw.cx || {};
 
 	mw.cx.publish = function () {
-		var translatedTitle, translatedContent, summary, sourceTitle;
+		var translatedTitle, translatedContent, sourceTitle;
 
 		// @todo: Refactor so that this module is not grabbing random dom nodes
 		sourceTitle = $( '.cx-column--source > h2' ).text();
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = $( '.cx-column--translation .cx-column__content' ).text();
-		summary = '[ContentTranslation] Translated from ' + sourceTitle;
+
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
-		publishTranslation( translatedTitle, translatedContent, summary )
+		publishTranslation( translatedTitle, translatedContent, sourceTitle )
 			.done( function () {
 				mw.notify( $( '<p>' ).html( mw.message( 'cx-publish-page',
 					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() ) );
@@ -34,17 +35,16 @@
 	/**
 	 * @param {string} title
 	 * @param {string} content
-	 * @param {string} summary
+	 * @param {string} sourceTitle
 	 */
-	function publishTranslation( title, content, summary ) {
+	function publishTranslation( title, content, sourceTitle ) {
 		var api = new mw.Api();
-		// FIXME: We need to write ApiPublishTranslation to add
-		// contenttranslation tag to the revisions
+
 		return api.postWithEditToken( {
-			action: 'edit',
+			action: 'cxpublish',
 			title: title,
-			summary: summary,
-			text: content
+			text: content,
+			sourcetitle: sourceTitle
 		} );
 	}
 

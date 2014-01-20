@@ -1,6 +1,7 @@
 {
     "@metadata": {
         "authors": [
+            "Amire80",
             "Kartik Mistry",
             "Santhosh.thottingal"
         ]
@@ -12,6 +13,8 @@
     "cx-publish-page": "Page published at [$1 $2]",
     "cx-publish-page-error": "Error while saving page.",
     "cx-publish-button": "Publish translation",
+    "cx-publish-summary": "Created by translating the page \"$1\"",
+    "tag-contenttranslation": "ContentTranslation",
     "cx-source-loading": "Loading $1",
     "cx-special-login-error": "You must be logged in to translate in this page.",
     "cx-tools-instructions-title": "Create a translation",
