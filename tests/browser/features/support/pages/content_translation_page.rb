@@ -31,7 +31,7 @@ class ContentTranslationPage
 	end
 
 	def language_label(column_type)
-		column(column_type).span(class: "language-label")
+		column(column_type).span(class: "cx-column__language-label")
 	end
 
 	def content(column_type)

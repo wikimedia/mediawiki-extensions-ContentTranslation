@@ -48,6 +48,16 @@
 
 		this.$container.append(
 			$( '<div>' )
+				.addClass( 'cx-column__sub-heading' )
+				.append(
+					$( '<span>' )
+						.addClass( 'cx-column__language-label' )
+						.text( $.uls.data.getAutonym( contentLanguage ) )
+				)
+		);
+
+		this.$container.append(
+			$( '<div>' )
 				.addClass( 'cx-column__content' )
 				.text( mw.msg( 'cx-source-loading', this.page ) )
 		);

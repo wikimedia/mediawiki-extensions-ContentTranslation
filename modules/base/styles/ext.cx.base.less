@@ -1,9 +1,13 @@
 @import "grid/agora-grid";
 
-@grey: #222222;
+@gray-darker: #252525;
+@gray-dark: #565656;
+@gray: #C9C9C9;
+@gray-light: #f0f0f0;
+@gray-lighter: #fbfbfb;
 
 h2 {
-	color: @grey;
+	color: @gray-darker;
 }
 
 /**
@@ -11,13 +15,17 @@ h2 {
  */
 .cx-widget {
 	.mw-ui-grid;
-	color: @grey;
+	color: @gray-darker;
 }
 
 .cx-widget__header {
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	.mw-ui-palm-one-whole;
+}
+
+.cx-column__language-label {
+	color: @gray-dark;
 }
 
 .cx-column {
