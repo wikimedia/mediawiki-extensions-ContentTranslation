@@ -7,7 +7,9 @@
     "cx": "ページの翻訳",
     "cx-header-progressbar-text": "$1% 翻訳済",
     "cx-header-translation-center": "翻訳センター",
+    "cx-source-view-page": "[$1 ページを閲覧]",
     "cx-publish-page-error": "ページの保存エラーです。",
+    "cx-publish-summary": "ページ「$1」の翻訳に伴い作成",
     "cx-source-loading": "$1 を読み込み中",
     "cx-special-login-error": "このページを翻訳するには、ログインしてください。",
     "cx-tools-instructions-title": "翻訳の作成"

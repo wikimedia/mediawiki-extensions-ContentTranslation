@@ -8,13 +8,18 @@
     "cx-desc": "Nastroj, kotryž wobdźěłarjam zmóžnja, strony z jedneje rěče do druheje z pomocu mašinoweho přełožowanja a druhich přełožowanskich pomocnych srědkow přełožować",
     "cx-header-progressbar-text": "$1 % přełožene.",
     "cx-header-translation-center": "Přełožowanske srjedźišćo",
+    "cx-source-view-page": "[$1 stronu sej wobhladać]",
     "cx-publish-page": "Strona pola [$1 $2] wozjewjena.",
     "cx-publish-page-error": "Zmylk při składowanju strony.",
     "cx-publish-button": "Přełožk wozjewić",
+    "cx-publish-summary": "Přez přełožowanje strony \"$1\" wutworjeny",
+    "tag-contenttranslation": "Wobsahowy přełožk",
     "cx-source-loading": "$1 so začituje",
     "cx-special-login-error": "Dyrbiš přizjewjeny być, zo by w tutej stronje přełožił.",
     "cx-tools-instructions-title": "Přełožk wutworić",
     "cx-tools-instructions-text1": "Přidaj přełožkej někotre wotstawki.",
     "cx-tools-instructions-text2": "Přiměr k dispoziciji stajene awtomatiske přełožki, zo by kwalitu polěpšił",
+    "cx-tools-instructions-text3": "Mašinowe přełožki su wužitne na spočatku, ale přełožowarjo dyrbja zmylki, je-li trjeba, korigować a wobkrućić, zo přełožk je korektny.",
+    "cx-tools-instructions-text4": "Njepřełož tekst, kotryž zda so njespušćomny abo mjenjehódneje kwality być. Jeli móžno, přepruwuj tekst z dopokazami, kotrež su w žórłowej stronje podate.",
     "cx-tools-instructions-text5": "Jeli sy z wuslědkom spokojom, klikń na {{int:cx-publish-button}}, zo by nowu stronu wutworił."
 }

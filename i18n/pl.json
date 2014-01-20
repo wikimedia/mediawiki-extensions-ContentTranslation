@@ -13,6 +13,7 @@
     "cx-publish-page-error": "Błąd podczas zapisywania strony.",
     "cx-publish-button": "Publikuj tłumaczenie",
     "cx-source-loading": "Ładowanie $1",
+    "cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
     "cx-tools-instructions-title": "Utwórz tłumaczenie",
     "cx-tools-instructions-text5": "Jeśli jesteś zadowolony z wyniku, naciśnij {{int:cx-publish-button}}, aby utworzyć nową stronę."
 }

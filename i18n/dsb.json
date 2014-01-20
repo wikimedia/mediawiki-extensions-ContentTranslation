@@ -8,13 +8,18 @@
     "cx-desc": "Rěd, kótaryž zmóžnja wobźěłarjam, boki z jadneje rěcy do drugeje z pomocu mašinowego pśełožowanja a drugich pśełožowańskich pomocnych srědkow pśełožowaś",
     "cx-header-progressbar-text": "$1 % pśełožone.",
     "cx-header-translation-center": "Pśełožowańske srjejźišćo",
+    "cx-source-view-page": "[$1 bok se woglědaś]",
     "cx-publish-page": "Bok pla [$1 $2] wózjawjony.",
     "cx-publish-page-error": "Zmólka pśi składowanju boka.",
     "cx-publish-button": "Pśełožk wózjawiś",
+    "cx-publish-summary": "Pśez pśełožowanje boka \"$1\" napórany",
+    "tag-contenttranslation": "Wopśimjeśowy pśełožk",
     "cx-source-loading": "$1 se zacytujo",
     "cx-special-login-error": "Musyš pśizjawjony byś, aby w toś tom boku pśełožył.",
     "cx-tools-instructions-title": "Pśełožk napóraś",
     "cx-tools-instructions-text1": "Pśidaj pśełožkoju někotare wótstawki.",
     "cx-tools-instructions-text2": "Pśiměŕ k dispoziciji stajone awtomatiske pśełožki, aby kwalitu pólěpšył",
+    "cx-tools-instructions-text3": "Mašinowe pśełožki su wužytne na zachopjeńku, ale pśełožowarje muse zmólki, jo-li jo trjeba, korigěrowaś a wobkšuśiś, až pśełožk jo korektny.",
+    "cx-tools-instructions-text4": "Njepśełož tekst, kótaryž zda se njespušćobny abo małogódneje kwality byś. Jolic móžno, pśeglědaj tekst z dopokazami, kótarež su w žrědłowem boku pódane.",
     "cx-tools-instructions-text5": "Jolic sy z wuslědkom spokojom, klikni na {{int:cx-publish-button}}, aby nowy bok napórał."
 }

@@ -8,10 +8,13 @@
     "cx-desc": "Uno strumento che permette agli editori di tradurre le pagine da una lingua ad un'altra con l'aiuto della traduzione automatica e di altri aiuti",
     "cx-header-progressbar-text": "$1% tradotto",
     "cx-header-translation-center": "Centro di traduzione",
+    "cx-source-view-page": "[$1 vedi pagina]",
     "cx-publish-page": "Pagina pubblicata su [$1 $2]",
     "cx-publish-page-error": "Errore durante il salvataggio della pagina.",
     "cx-publish-button": "Pubblica traduzione",
+    "cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",
     "cx-source-loading": "Caricamento $1",
+    "cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina.",
     "cx-tools-instructions-title": "Crea una traduzione",
     "cx-tools-instructions-text1": "Aggiungi alcuni paragrafi alla traduzione."
 }
