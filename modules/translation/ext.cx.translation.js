@@ -67,7 +67,8 @@
 
 		$content = $( '<div>' )
 			.attr( 'contenteditable', true )
-			.addClass( 'cx-column__content' );
+			.addClass( 'cx-column__content' )
+			.html( '\n' ); // Make sure that it's visible to the tests
 
 		this.$container.append( $content );
 		mw.hook( 'mw.cx.changeTranslation' ).fire();

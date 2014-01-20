@@ -58,6 +58,14 @@ Feature: Content translation special page
       And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
       And I press the "Publish Translation" button
+    Then I see a notification bubble that begins with the words "Page published at"
+
+  Scenario: Writing some translation text and saving it
+    Given I am logged in
+      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
+      And I press the "Publish Translation" button
+      And I click the link in the notification bubble
     Then the page "User:TranslatorToDa/Bratislava" is displayed
       And the content of the page is "Bratislava er hovedstad og største by i Slovakiet."
       And the first version in the history of the page "User:TranslatorToDa/Bratislava" should have the tag "ContentTranslation"

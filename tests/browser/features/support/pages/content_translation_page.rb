@@ -8,6 +8,7 @@ class ContentTranslationPage
 	button(:publish_translation, class: "cx-header__publish")
 
 	div(:content, class: "content")
+	div(:notification_bubble, class: "mw-notification-content")
 	div(:progress_bar_container, class: "cx-progressbar")
 
 	span(:progress_bar, class: "cx-progressbar__bar")
@@ -23,6 +24,8 @@ class ContentTranslationPage
 
 	def empty_translation_editor
 		set_element_text(".cx-column--translation .cx-column__content", "")
+		# Fake an input event
+		translation_editor_element.send_keys('a', :backspace)
 	end
 
 	def column(column_type)
@@ -37,11 +40,15 @@ class ContentTranslationPage
 		column(column_type).div(class: "cx-column__content")
 	end
 
+	def notification_link_element
+		notification_bubble_element.when_present.element.a
+	end
+
 	def title(column_type)
 		column(column_type).h2(class: "cx-column__title")
 	end
 
-	def translation_editor
+	def translation_editor_element
 		content("translation")
 	end
 

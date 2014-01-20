@@ -7,6 +7,10 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
 	visit(ContentTranslationPage, :using_params => {:extra => "page=#{page_name}&lang=#{language_code[target_language]}"})
 end
 
+When(/^I click the link in the notification bubble$/) do
+	on(ContentTranslationPage).notification_link_element.click
+end
+
 When(/^I empty the editing area in the translation column$/) do
 	on(ContentTranslationPage).empty_translation_editor
 end
@@ -16,20 +20,20 @@ When(/^I press the "Publish Translation" button$/) do
 end
 
 When(/^I write "(.*?)" in the editing area in the translation column$/) do |translation|
-	on(ContentTranslationPage).translation_editor.send_keys(translation)
+	on(ContentTranslationPage).translation_editor_element.send_keys(translation)
 end
 
 Then(/^I don't see a "Publish Translation" button$/) do
-	on(ContentTranslationPage).publish_translation_element.should_not be_visible
+	on(ContentTranslationPage).publish_translation_element.should_not exist
 end
 
 Then(/^I don't see the (.+?) column$/) do |column_type|
-	on(ContentTranslationPage).column(column_type).should_not be_visible
+	on(ContentTranslationPage).column(column_type).should_not exist
 end
 
 Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |link_name, page_title|
 	page_title_in_url = page_title.gsub(" ", "_")
-	on(ContentTranslationPage).view_page.attribute_value("href").should match(/#{page_title_in_url}$/)
+	on(ContentTranslationPage).view_page.attribute_value("href").should end_with(page_title_in_url)
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -48,12 +52,16 @@ Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing ar
 	on(ContentTranslationPage).title("translation").text.should == text
 end
 
+Then(/^I see a notification bubble that begins with the words "(.*?)"$/) do |text|
+	on(ContentTranslationPage).notification_bubble_element.when_present.text.should start_with(text)
+end
+
 Then(/^I see a source column with the text "(.*?)"$/) do |text|
 	on(ContentTranslationPage).content("source").text.should == text
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
-	on(ContentTranslationPage).translation_editor.text.should == ""
+	on(ContentTranslationPage).translation_editor_element.text.should == ""
 end
 
 Then(/^I see a translation aids column$/) do
@@ -65,7 +73,7 @@ Then(/^I see a translation progress bar$/) do
 end
 
 Then(/^I see the message "You must be logged in to translate in this page\."$/) do
-	on(ContentTranslationPage).main_widget.should == "You must be logged in to translate this page"
+	on(AnonErrorPage).content_text.should == "You must be logged in to translate in this page."
 end
 
 Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_page_title|
@@ -77,7 +85,7 @@ Then(/^I see the username at the top of the page$/) do
 end
 
 Then(/^the content of the page is "(.*?)"$/) do |page_content|
-	pending # express the regexp above with the code you wish you had
+	on(TranslatedPage).content_text_element.when_visible.text.should == page_content
 end
 
 Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
@@ -85,7 +93,7 @@ Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
 end
 
 Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |page_title, tag_name|
-	pending # express the regexp above with the code you wish you had
+	visit(TranslatedPageHistory).contenttranslation_tag_element.should be_visible
 end
 
 Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, language_code|
@@ -93,7 +101,7 @@ Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, langua
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|
-	on(TranslatedPage).title.should == page_title
+	on(TranslatedPage).first_heading.should == page_title
 end
 
 Then(/^the "Publish Translation" button is disabled$/) do
