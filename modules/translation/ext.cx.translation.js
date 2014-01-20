@@ -71,7 +71,7 @@
 			.html( '\n' ); // Make sure that it's visible to the tests
 
 		this.$container.append( $content );
-		mw.hook( 'mw.cx.changeTranslation' ).fire();
+		mw.hook( 'mw.cx.translation.change' ).fire();
 		this.$title = this.$container.find( '.cx-column__title' );
 		this.$content = this.$container.find( '.cx-column__content' );
 	};
@@ -79,14 +79,14 @@
 	ContentTranslationEditor.prototype.listen = function () {
 		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
 		this.$container.find( '.cx-column__content' ).on( 'input', function () {
-			mw.hook( 'mw.cx.changeTranslation' ).fire();
+			mw.hook( 'mw.cx.translation.change' ).fire();
 		} );
 	};
 
 	ContentTranslationEditor.prototype.update = function ( data ) {
 		this.$content.html( data );
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
-		mw.hook( 'mw.cx.changeTranslation' ).fire();
+		mw.hook( 'mw.cx.translation.change' ).fire();
 	};
 
 	$.fn.cxTranslation = function ( options ) {

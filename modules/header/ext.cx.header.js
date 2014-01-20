@@ -77,7 +77,7 @@
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
 
-		mw.hook( 'mw.cx.changeTranslation' ).add( $.proxy( this.setPublishButtonState, this ) );
+		mw.hook( 'mw.cx.translation.change' ).add( $.proxy( this.setPublishButtonState, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {
