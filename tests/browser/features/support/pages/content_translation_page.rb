@@ -4,7 +4,6 @@ class ContentTranslationPage
 	page_url URL.url("Special:ContentTranslation?<%=params[:extra]%>")
 
 	a(:user_name, class: "cx-header__user-details__user-name")
-	a(:view_page, class: "view-page")
 
 	button(:publish_translation, class: "cx-header__publish")
 
@@ -44,5 +43,9 @@ class ContentTranslationPage
 
 	def translation_editor
 		content("translation")
+	end
+
+	def view_page
+		column("source").span(class: "cx-column__sub-heading__view-page").a
 	end
 end

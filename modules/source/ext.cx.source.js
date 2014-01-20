@@ -52,7 +52,13 @@
 				.append(
 					$( '<span>' )
 						.addClass( 'cx-column__language-label' )
-						.text( $.uls.data.getAutonym( contentLanguage ) )
+						.text( $.uls.data.getAutonym( contentLanguage ) ),
+					$( '<span>' )
+						.addClass( 'cx-column__sub-heading__view-page' )
+						.html( '&nbsp;' + mw.message(
+							'cx-source-view-page',
+							mw.util.getUrl( this.page )
+						).parse() )
 				)
 		);
 

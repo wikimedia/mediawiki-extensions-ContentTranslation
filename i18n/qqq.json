@@ -11,6 +11,7 @@
     "cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
     "cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is translation progress in percentage.",
     "cx-header-translation-center": "Text for translation center title.",
+    "cx-source-view-page": "A link that points to the source page under the heading of the source article. $1 is the source article title.",
     "cx-publish-page": "Link of the page to be publish.",
     "cx-publish-page-error": "Error message to display when page saving fails.",
     "cx-publish-button": "Publish button text in [[Special:ContentTranslation]].",

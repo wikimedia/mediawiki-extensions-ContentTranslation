@@ -10,6 +10,7 @@
     "cx-desc": "A tool that allows editors to translate pages from one language to another with the help of machine translation and other translation aids",
     "cx-header-progressbar-text": "$1% translated",
     "cx-header-translation-center": "Translation center",
+    "cx-source-view-page": "[$1 view page]",
     "cx-publish-page": "Page published at [$1 $2]",
     "cx-publish-page-error": "Error while saving page.",
     "cx-publish-button": "Publish translation",
