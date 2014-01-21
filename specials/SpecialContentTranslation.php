@@ -27,9 +27,8 @@ class SpecialContentTranslation extends SpecialPage {
 		$user = $this->getUser();
 
 		if ( !($user->isLoggedIn() ) ) {
-			$out->addHTML( $this->msg('cx-special-login-error'));
-		}
-		else {
+			$out->addHTML( $this->msg( 'cx-special-login-error' ) );
+		} else {
 			$out->addModules( 'ext.cx.base' );
 			$this->setHeaders();
 			$out->setArticleBodyOnly( true );
