@@ -1,7 +1,8 @@
 {
     "@metadata": {
         "authors": [
-            "EagerLin"
+            "EagerLin",
+            "Liuxinyu970226"
         ]
     },
     "cx-header-progressbar-text": "$1%已翻譯",
@@ -9,6 +10,7 @@
     "cx-publish-page": "頁面發佈在[$1 $2]",
     "cx-publish-page-error": "當保存頁面時出錯。",
     "cx-publish-button": "發佈翻譯",
+    "cx-publish-summary": "經由翻譯頁面“$1”創建",
     "cx-source-loading": "正在載入$1",
     "cx-special-login-error": "您必須登錄翻譯在此頁中。",
     "cx-tools-instructions-title": "創建翻譯",

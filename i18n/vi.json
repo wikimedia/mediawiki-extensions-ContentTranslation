@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Withoutaname"
+        ]
+    },
+    "cx": "Dịch trang",
+    "cx-header-progressbar-text": "$1% được dịch",
+    "cx-header-translation-center": "Trung tâm dịch",
+    "cx-source-view-page": "[$1 xem trang]",
+    "cx-publish-page": "Trang đườc xuất bản ở [$1 $2]",
+    "cx-publish-page-error": "Lỗi trong khi lưu trang.",
+    "cx-publish-button": "Xuất bản sự dịch",
+    "tag-contenttranslation": "Sự dịch nội dung",
+    "cx-special-login-error": "Bạn phải đăng nhập để dịch trong trang này.",
+    "cx-tools-instructions-title": "Tạo ra một bản dịch"
+}
