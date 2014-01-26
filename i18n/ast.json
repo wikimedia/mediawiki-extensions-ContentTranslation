@@ -5,5 +5,21 @@
         ]
     },
     "cx": "Traducir la páxina",
-    "cx-desc": "Una ferramienta que permite a los editores traducir páxines d'una llingua a otra cola ayuda de traductores automáticos y otres ayudes a la traducción"
+    "cx-desc": "Una ferramienta que permite a los editores traducir páxines d'una llingua a otra cola ayuda de traductores automáticos y otres ayudes a la traducción",
+    "cx-header-progressbar-text": "$1 % traducío",
+    "cx-header-translation-center": "Centru de traducción",
+    "cx-source-view-page": "[$1 ver páxina]",
+    "cx-publish-page": "Páxina espublizada en [$1 $2]",
+    "cx-publish-page-error": "Error al guardar la páxina.",
+    "cx-publish-button": "Espublizar la traducción",
+    "cx-publish-summary": "Creada traduciendo la páxina «$1»",
+    "tag-contenttranslation": "TraducciónConteníu",
+    "cx-source-loading": "Cargando $1",
+    "cx-special-login-error": "Tien d'aniciar sesión pa traducir esta páxina.",
+    "cx-tools-instructions-title": "Crear una traducción",
+    "cx-tools-instructions-text1": "Amestar dellos párrafos a la traducción.",
+    "cx-tools-instructions-text2": "Iguar les traducciones automátiques daes p'asegurar la so calidá",
+    "cx-tools-instructions-text3": "La traducción automática ye un puntu de partida útil pa traducir, pero los traductores tienen de revisar los errores cuando seya necesario y confirmar que la traducción ye precisa.",
+    "cx-tools-instructions-text4": "Nun traduza testu nel que nun tenga enfotu o de baxa calidá. Si ye posible, compruebe'l testu coles referencies que se dan na páxina orixinal.",
+    "cx-tools-instructions-text5": "Cuando tea contentu col resultáu, faiga clic en {{int:cx-publish-button}} pa crear la páxina nueva."
 }

@@ -11,6 +11,7 @@
     "cx-publish-page": "Página publicada en [$1 $2]",
     "cx-publish-page-error": "Ocurrió un error al guardar la página.",
     "cx-publish-button": "Publicar traducción",
+    "cx-publish-summary": "Creado al traducir la página «$1»",
     "cx-source-loading": "Cargando $1",
     "cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
     "cx-tools-instructions-title": "Crear una traducción",
