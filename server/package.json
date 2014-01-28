@@ -1,0 +1,18 @@
+{
+	"name": "mediawiki-content-translation",
+	"description": "Server for Content Translation",
+	"version": "0.1.0",
+	"dependencies": {
+		"express": "3.x"
+	},
+	"devDependencies": {
+		"colors": "~0.6.2",
+		"diff": "~1.0.7"
+	},
+	"scripts": {
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git"
+	}
+}

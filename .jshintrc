@@ -21,6 +21,7 @@
 	"smarttabs": true,
 	"multistr": true,
 	"browser": true,
+	"node": true,
 	"predef": [
 		"mediaWiki",
 		"jQuery",
