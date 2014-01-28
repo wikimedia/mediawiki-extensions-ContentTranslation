@@ -2,12 +2,15 @@
     "@metadata": {
         "authors": [
             "Niknetniko",
-            "Arent"
+            "Arent",
+            "AvatarTeam"
         ]
     },
     "cx": "Vertaalpagina",
     "cx-header-progressbar-text": "$1% vertaald",
+    "cx-header-translation-center": "Vertaalcentrum",
     "cx-source-view-page": "[$1  Bekijk pagina]",
+    "cx-publish-page": "Pagina gepubliceerd op [$1 $2]",
     "cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
     "cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",
     "cx-source-loading": "Bezig met laden van $1",
