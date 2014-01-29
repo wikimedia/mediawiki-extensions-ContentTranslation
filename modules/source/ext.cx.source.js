@@ -85,13 +85,10 @@
 			cxSource.$title.html( result.parse.title );
 			cxSource.$content.html( result.parse.text['*'] );
 		} );
-
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		this.$content.on( 'click', function () {
-			mw.hook( 'mw.cx.translation.add' ).fire( $( this ).html() );
-		} );
+		// Empty for now
 	};
 
 	$.fn.cxSource = function ( options ) {

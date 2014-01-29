@@ -78,13 +78,31 @@
 
 	ContentTranslationEditor.prototype.listen = function () {
 		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
-		this.$container.find( '.cx-column__content' ).on( 'input', function () {
+
+		this.$content.on( 'input', function () {
 			mw.hook( 'mw.cx.translation.change' ).fire();
+		} );
+
+		this.$content.on( 'click', function () {
+			mw.hook( 'mw.cx.translation.add' ).fire(
+				$( '.cx-column--source .cx-column__content' ).html()
+			);
 		} );
 	};
 
 	ContentTranslationEditor.prototype.update = function ( data ) {
-		this.$content.html( data );
+		var contentTranslationEditor = this;
+
+		$.post( mw.config.get( 'wgContentTranslationServerURL' ), {
+			sourcelang: this.language,
+			targetlang: $( '.cx-column--source' ).prop( 'lang' ),
+			sourcetext: data
+		} ).done( function ( response ) {
+			contentTranslationEditor.$content.html( response );
+		} ).fail( function () {
+			mw.log( 'API call to get machine translation failed.' );
+		} );
+
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
 		mw.hook( 'mw.cx.translation.change' ).fire();
 	};

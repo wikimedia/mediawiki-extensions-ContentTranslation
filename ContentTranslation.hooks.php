@@ -29,4 +29,17 @@ class ContentTranslationHooks {
 
 		return true;
 	}
+
+	/**
+	 * Hook: ResourceLoaderGetConfigVars
+	 * @param array $vars
+	 * @return bool
+	 */
+	public static function addConfig( &$vars ) {
+		global $wgContentTranslationServerURL;
+
+		$vars['wgContentTranslationServerURL'] = $wgContentTranslationServerURL;
+
+		return true;
+	}
 }
