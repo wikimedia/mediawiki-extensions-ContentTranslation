@@ -20,6 +20,7 @@
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTools.defaults, options );
 		this.init();
+		this.listen();
 	}
 
 	ContentTranslationTools.prototype.init = function () {
@@ -28,6 +29,10 @@
 
 	ContentTranslationTools.prototype.render = function () {
 		this.$container.append( this.helpMessage() );
+	};
+
+	ContentTranslationTools.prototype.listen = function () {
+		$( window ).scroll( $.proxy( this.scroll, this ) );
 	};
 
 	ContentTranslationTools.prototype.helpMessage = function () {
@@ -55,6 +60,18 @@
 			);
 
 		return $content;
+	};
+
+	ContentTranslationTools.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop(),
+			// Use the .prev() element as the reference point(anchor)
+			offsetTop = this.$container.prev().offset().top;
+
+		if ( scrollTop > offsetTop ) {
+			this.$container.addClass( 'sticky' );
+		} else if ( scrollTop <= offsetTop ) {
+			this.$container.removeClass( 'sticky' );
+		}
 	};
 
 	$.fn.cxTools = function ( options ) {

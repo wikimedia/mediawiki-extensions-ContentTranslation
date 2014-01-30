@@ -77,6 +77,9 @@ $wgResourceModules['ext.cx.translation'] = array(
 
 $wgResourceModules['ext.cx.tool'] = array(
 	'scripts' => 'tools/ext.cx.tools.js',
+	'styles' => array(
+		'tools/styles/ext.cx.tools.less',
+	),
 	'messages' => array(
 		'cx-tools-instructions-title',
 		'cx-tools-instructions-text1',
@@ -112,3 +115,4 @@ $wgResourceModules['ext.cx.eventlogging'] = array(
 	'scripts' => 'eventlogging/ext.cx.eventlogging.js',
 	'dependencies' => 'schema.ContentTranslation',
 ) + $resourcePaths;
+
