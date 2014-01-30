@@ -32,7 +32,10 @@ $wgResourceModules['ext.cx.base'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.header'] = array(
-	'scripts' => 'header/ext.cx.header.js',
+	'scripts' => array(
+		'header/ext.cx.header.js',
+		'header/ext.cx.header.render.js',
+	),
 	'styles' => array(
 		'header/styles/ext.cx.header.less',
 	),
