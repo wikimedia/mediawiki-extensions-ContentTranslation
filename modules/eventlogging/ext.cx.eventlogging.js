@@ -80,6 +80,5 @@
 		}
 	};
 
-	mw.cx = mw.cx || {};
 	mw.cx.eventlogging = new ContentTranslationEventLogging();
 }( jQuery, mediaWiki ) );

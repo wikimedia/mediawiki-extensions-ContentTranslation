@@ -11,8 +11,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	mw.cx = mw.cx || {};
-
 	mw.cx.publish = function () {
 		var translatedTitle, translatedContent, sourceTitle;
 

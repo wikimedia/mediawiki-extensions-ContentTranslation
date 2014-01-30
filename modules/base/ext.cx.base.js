@@ -8,10 +8,9 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( $, mw ) {
+( function ( $ ) {
 	'use strict';
 
-	mw.cx = mw.cx || {};
 	/**
 	 * ContentTranslation
 	 *
@@ -82,4 +81,4 @@
 	$( document ).ready( function () {
 		$( 'body' ).cx();
 	} );
-}( jQuery, mediaWiki ) );
+}( jQuery ) );
