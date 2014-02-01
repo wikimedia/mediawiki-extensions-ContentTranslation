@@ -18,5 +18,7 @@
     "cx-special-login-error": "Dir musst ageloggt si fir dës Säit z'iwwersetzen.",
     "cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
     "cx-tools-instructions-text1": "Setzt e puer Abschnitter bäi d'Iwwersetzung derbäi.",
-    "cx-tools-instructions-text2": "Adaptéiert déi proposéiert automatesch Iwwersetzung fir d'Qualitéit ze garantéieren"
+    "cx-tools-instructions-text2": "Adaptéiert déi proposéiert automatesch Iwwersetzung fir d'Qualitéit ze garantéieren",
+    "cx-tools-instructions-text3": "Maschinneniwwersetzung ass en nëtzlechen Ufank fir Iwwersetzungen, awer Iwwersetzer mussen do wou et néideg ass Feeler nokucken a confirméieren datt d'Iwwersetzung richteg ass.",
+    "cx-tools-instructions-text5": "Wann Dir zefridde sidd mam Resultat, da klickt {{int:cx-publish-button}} fir déi nei säit unzeleeën."
 }

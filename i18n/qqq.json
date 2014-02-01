@@ -15,7 +15,7 @@
     "cx-publish-page": "Link of the page to be publish.",
     "cx-publish-page-error": "Error message to display when page saving fails.",
     "cx-publish-button": "Publish button text in [[Special:ContentTranslation]].",
-    "cx-publish-summary": "Edit summary when creating the translated page. Parameters:\n* $1 - the source page name",
+    "cx-publish-summary": "Edit summary when creating the translated page.\n\nThis is an automatic edit summary for the page that is automatically created as a result of translating a message using something like [[Special:Translate]].\n\nParameters:\n* $1 - the source page name",
     "tag-contenttranslation": "A short description of the contenttranslation tag. Appears in the edit summary when a translated page is created.",
     "cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
     "cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
