@@ -4,5 +4,12 @@
             "Умар"
         ]
     },
-    "cx-source-view-page": "[$1 агӀоне хьажар]"
+    "cx-header-progressbar-text": "Гочдина $1%",
+    "cx-header-translation-center": "Гочдечера меттиг",
+    "cx-source-view-page": "[$1 агӀоне хьажар]",
+    "cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
+    "cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
+    "cx-publish-button": "Гайта гоч",
+    "cx-source-loading": "Чуйолуш $1",
+    "cx-tools-instructions-title": "Кхолла гоч"
 }
