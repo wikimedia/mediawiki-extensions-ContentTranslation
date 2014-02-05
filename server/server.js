@@ -8,12 +8,7 @@
 
 var cluster = require( 'cluster' );
 
-try {
-	var config;
-		config = require( + './config.js' );
-} catch ( e ) {
-	config = { port: 8000 };
-}
+var config = require( __dirname + '/config.js' );
 
 if ( cluster.isMaster ) {
 	// Start a few more workers than there are cpus visible to the OS, so that we
