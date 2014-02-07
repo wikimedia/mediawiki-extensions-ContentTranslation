@@ -56,7 +56,7 @@ $ gem install --user-install jsduck
 Creating the documentation is easy:
 ```sh
 $ cd ContentTranslation
-$ .docs/generate.sh
+$ jsduck <source> --output docs
 ```
 
 You may need to set `MW_INSTALL_PATH` in your environment to the location of
