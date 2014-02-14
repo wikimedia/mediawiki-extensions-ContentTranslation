@@ -8,8 +8,6 @@
 
 var cluster = require( 'cluster' );
 
-var config = require( __dirname + '/config.js' );
-
 if ( cluster.isMaster ) {
 	// Start a few more workers than there are cpus visible to the OS, so that we
 	// get some degree of parallelism even on single-core systems. A single
@@ -57,8 +55,5 @@ if ( cluster.isMaster ) {
 		heapdump.writeSnapshot();
 	} );
 
-	var app = require( './ContentTranslationService.js' );
-	// when running on appfog.com the listen port for the app
-	// is passed in an environment variable.  Most users can ignore this!
-	app.listen( process.env.VCAP_APP_PORT || config.port );
+	require( './ContentTranslationService.js' );
 }

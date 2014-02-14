@@ -53,8 +53,8 @@ app.post( /^\/$/, function ( req, res ) {
 		sourceText = req.body.sourcetext;
 
 	res.setHeader( 'Content-Type', 'text/plain; charset=UTF-8' );
-        // TODO: create configurable access control list for production
-        res.setHeader( 'Access-Control-Allow-Origin', '*' );
+	// TODO: create configurable access control list for production
+	res.setHeader( 'Access-Control-Allow-Origin', '*' );
 	res.end( app.translator.translate(
 		sourceLang,
 		targetLang,
@@ -67,5 +67,6 @@ app.use(express.static(__dirname + '/public'));
 
 console.log( ' - ' + instanceName + ' ready' );
 
-module.exports = app;
+app.listen( config.port );
 
+module.exports = app;
