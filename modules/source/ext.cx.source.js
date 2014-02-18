@@ -19,31 +19,30 @@
 	function ContentTranslationSource( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxSource.defaults, options );
-		this.page = null;
 		this.$title = null;
 		this.$content = null;
 		this.init();
 	}
 
 	ContentTranslationSource.prototype.init = function () {
-		this.page = new mw.Uri().query.page;
+		mw.cx.sourceTitle = new mw.Uri().query.page;
 		this.render();
 		this.load();
 		this.listen();
 	};
 
 	ContentTranslationSource.prototype.render = function () {
-		var contentLanguage = mw.config.get( 'wgContentLanguage' );
+		mw.cx.sourceLanguage = mw.config.get( 'wgContentLanguage' );
 
 		this.$container.prop( {
-			lang: contentLanguage,
-			dir: $.uls.data.getDir( contentLanguage )
+			lang: mw.cx.sourceLanguage,
+			dir: $.uls.data.getDir( mw.cx.sourceLanguage )
 		} );
 
 		this.$container.append(
 			$( '<h2>' )
 				.addClass( 'cx-column__title' )
-				.text( this.page )
+				.text( mw.cx.sourceTitle )
 		);
 
 		this.$container.append(
@@ -52,13 +51,13 @@
 				.append(
 					$( '<span>' )
 						.addClass( 'cx-column__language-label' )
-						.text( $.uls.data.getAutonym( contentLanguage ) ),
+						.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) ),
 					$( '<span>' )
 						.addClass( 'cx-column__sub-heading__view-page' )
 						.html(
 							mw.message(
 								'cx-source-view-page',
-								mw.util.getUrl( this.page )
+								mw.util.getUrl( mw.cx.sourceTitle )
 							).parse()
 						)
 				)
@@ -67,7 +66,7 @@
 		this.$container.append(
 			$( '<div>' )
 				.addClass( 'cx-column__content' )
-				.text( mw.msg( 'cx-source-loading', this.page ) )
+				.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) )
 		);
 		this.$title = this.$container.find( '.cx-column__title' );
 		this.$content = this.$container.find( '.cx-column__content' );
@@ -79,7 +78,7 @@
 
 		api.get( {
 			action: 'parse',
-			page: this.page,
+			page: mw.cx.sourceTitle,
 			disablepp: true
 		} ).done( function ( result ) {
 			cxSource.$title.html( result.parse.title );

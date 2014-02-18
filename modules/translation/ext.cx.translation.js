@@ -19,14 +19,13 @@
 	function ContentTranslationEditor( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
-		this.language = '';
 		this.$title = null;
 		this.$content = null;
 		this.init();
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
-		this.language = new mw.Uri().query.lang || '';
+		mw.cx.targetLanguage = new mw.Uri().query.lang || '';
 		this.render();
 		this.listen();
 	};
@@ -34,10 +33,10 @@
 	ContentTranslationEditor.prototype.render = function () {
 		var $content;
 
-		if ( this.language ) {
+		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
-				lang: this.language,
-				dir: $.uls.data.getDir( this.language )
+				lang: mw.cx.targetLanguage,
+				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
 		}
 
@@ -48,10 +47,10 @@
 				.text( $( '.cx-column--source .cx-column__title' ).text() )
 		);
 
-		if ( this.language ) {
+		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
-				lang: this.language,
-				dir: $.uls.data.getDir( this.language )
+				lang: mw.cx.targetLanguage,
+				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
 
 			this.$container.append(
@@ -60,7 +59,7 @@
 					.append(
 						$( '<span>' )
 							.addClass( 'cx-column__language-label' )
-							.text( $.uls.data.getAutonym( this.language ) )
+							.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) )
 					)
 			);
 		}
@@ -94,8 +93,8 @@
 		var contentTranslationEditor = this;
 
 		$.post( mw.config.get( 'wgContentTranslationServerURL' ), {
-			sourcelang: this.language,
-			targetlang: $( '.cx-column--source' ).prop( 'lang' ),
+			sourcelang: mw.cx.sourceLanguage,
+			targetlang: mw.cx.targetLanguage,
 			sourcetext: data
 		} ).done( function ( response ) {
 			contentTranslationEditor.$content.html( response );
