@@ -11,8 +11,8 @@
 				sourceLanguage: $('input[name=sourceLanguage').val(),
 				targetLanguage: $('input[name=targetLanguage').val()
 			} );
-			socket.on( 'cx.initialized', function ( data ) {
-				$( '.status' ).text( 'Connected to server' );
+			socket.on( 'cx.data.update', function ( data ) {
+				$( '.status' ).text( 'Recieved version ' + data.version );
 				console.log( data );
 			} );
 		} );
