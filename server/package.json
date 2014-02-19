@@ -3,7 +3,8 @@
 	"description": "Server for Content Translation",
 	"version": "0.1.0",
 	"dependencies": {
-		"express": "3.x"
+		"express": "3.x",
+		"socket.io": "0.9.x"
 	},
 	"devDependencies": {
 		"colors": "~0.6.2",
