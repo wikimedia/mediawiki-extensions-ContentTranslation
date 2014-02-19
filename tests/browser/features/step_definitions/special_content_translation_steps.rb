@@ -60,6 +60,10 @@ Then(/^I see a source column with the text "(.*?)"$/) do |text|
 	on(ContentTranslationPage).content("source").text.should == text
 end
 
+Then(/^I see a search box in the translation tools column$/) do
+	on(ContentTranslationPage).search_box_element.should be_visible
+end
+
 Then(/^I see a translation column with an empty editing area$/) do
 	on(ContentTranslationPage).translation_editor_element.text.should == ""
 end

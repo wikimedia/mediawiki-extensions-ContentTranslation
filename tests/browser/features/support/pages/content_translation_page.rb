@@ -10,6 +10,7 @@ class ContentTranslationPage
 	div(:content, class: "content")
 	div(:notification_bubble, class: "mw-notification-content")
 	div(:progress_bar_container, class: "cx-progressbar")
+	div(:search_box, class: "card search")
 
 	span(:progress_bar, class: "cx-progressbar__bar")
 	span(:progress_bar_text, class: "cx-progressbar__text")

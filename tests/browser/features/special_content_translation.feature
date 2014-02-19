@@ -34,6 +34,7 @@ Feature: Content translation special page
       And I see an input box pre-filled with the text "Bratislava" above the editing area in the second column
       And I see a language label saying "dansk" below the translation column's title
       And I see a translation tools column
+      And I see a search box in the translation tools column
       And I see a "Publish Translation" button
       And the "Publish Translation" button is disabled
       And I see the username at the top of the page
