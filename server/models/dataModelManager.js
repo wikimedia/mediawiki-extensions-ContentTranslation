@@ -1,13 +1,15 @@
 /**
  * ContentTranslation Server
-
-* @file
+ *
+ * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
 'use strict';
+
+var CXSegmenter = require( __dirname + '/../segmentation/CXSegmenter.js' ).CXSegmenter;
 
 /**
  * CXDataModelManager
@@ -23,19 +25,18 @@ function CXDataModelManager( context ) {
  * Initialize
  */
 CXDataModelManager.prototype.init = function () {
-	var dataModelManager = this;
+	var dataModelManager = this, segmenter;
 
+	segmenter = new CXSegmenter( this.context.sourceText );
+	segmenter.segment();
 	this.dataModel = {
 		version: 0,
-		sourceLang: this.context.sourceLanguage,
-		targetLang: this.context.targetLanguage,
+		sourceLanguage: this.context.sourceLanguage,
+		targetLanguage: this.context.targetLanguage,
 		sourceLocation: this.context.sourceTitle,
-		segments: [],
-		segmentedContent: [],
-		segmentCount: 0,
-		dictionary: null,
-		glossary: null,
-		links: null
+		segments: segmenter.getSegments(),
+		segmentedContent: segmenter.getSegmentedContent(),
+		links: segmenter.getLinks()
 	};
 	dataModelManager.refresh();
 };
