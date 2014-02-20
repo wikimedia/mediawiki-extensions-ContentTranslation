@@ -4,7 +4,8 @@
             "Amire80",
             "Kartik Mistry",
             "Santhosh.thottingal",
-            "Shirayuki"
+            "Shirayuki",
+            "Sucheta Ghoshal"
         ]
     },
     "cx": "{{doc-special|ContentTranslation}}",
@@ -24,5 +25,14 @@
     "cx-tools-instructions-text2": "Help text for the translation tools pane.",
     "cx-tools-instructions-text3": "Help text for the translation tools pane.",
     "cx-tools-instructions-text4": "Help text for the translation tools pane.",
-    "cx-tools-instructions-text5": "Help text for the translation tools pane."
+    "cx-tools-instructions-text5": "Help text for the translation tools pane.",
+    "cx-tools-instructions-title": "Title for the translation tools pane.",
+    "cx-tools-instructions-text1": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text2": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text3": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text4": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text5": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text6": "Help text for the translation tools pane.",
+    "cx-tools-searchbox-text": "Placeholder text for the searchbox on the translation tools column",
+    "cx-tools-view-guidelines": "$1 is the link to the guidelines for translation in Wikipedia."
 }
