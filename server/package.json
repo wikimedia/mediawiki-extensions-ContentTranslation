@@ -4,7 +4,9 @@
 	"version": "0.1.0",
 	"dependencies": {
 		"express": "3.x",
-		"socket.io": "0.9.x"
+		"socket.io": "0.9.x",
+		"q": "*",
+		"request": "*"
 	},
 	"devDependencies": {
 		"colors": "~0.6.2",
