@@ -17,7 +17,6 @@ var util = require( 'util' ),
 
 function ParagraphSegmenter( content ) {
 	Segmenter.call( this, content );
-	this.paragraphs = [];
 	this.links = {};
 }
 
@@ -28,17 +27,22 @@ ParagraphSegmenter.prototype.segment = function () {
 	var segmenter = this,
 		$container = $( '<div>' ).html( this.content );
 
-	$container.find( 'p' ).each( function ( index, paragraph ) {
-		var $paragraph = $( paragraph ),
-			sentenceSegments,
-			sentenceSegmenter = new SentenceSegmenter( $paragraph.html() );
+	segmenter.segmentedContent = '';
+	// TODO: Following line effectively filters the page content.
+	// We take only paragraphs and section titles. Will require a better
+	// strategy for preprocessing article content.
+	$container.find( 'p, h1, h2, h3, h4, h5, h6' ).each( function ( index, section ) {
+		var $section = $( section ), sentenceSegments, sentenceSegmenter;
 
+		sentenceSegmenter = new SentenceSegmenter( $section.html() );
 		sentenceSegmenter.segment();
 		sentenceSegments = sentenceSegmenter.getSegments();
 		segmenter.segments = $.extend( segmenter.segments, sentenceSegments );
+		// TODO: do we need segmentCount?
 		segmenter.segmentCount += sentenceSegmenter.getSegmentCount();
 		segmenter.links = $.extend( segmenter.links, sentenceSegmenter.getLinks() );
-		segmenter.paragraphs.push( sentenceSegmenter.toHTML() );
+		$section.html( sentenceSegmenter.toHTML() );
+		segmenter.segmentedContent +=  $section[0].outerHTML;
 	} );
 };
 
@@ -47,14 +51,7 @@ ParagraphSegmenter.prototype.getLinks = function () {
 };
 
 ParagraphSegmenter.prototype.toHTML = function () {
-	var i, paragraph, paragraphs = '';
-
-	for ( i = 0; i< this.paragraphs.length; i++ ) {
-		paragraph = $( this.paragraphs[i] );
-		paragraphs += $( '<p>' ).append( paragraph ).prop( 'outerHTML' );
-	}
-
-	return paragraphs;
+	return this.segmentedContent;
 };
 
 module.exports.ParagraphSegmenter = ParagraphSegmenter;

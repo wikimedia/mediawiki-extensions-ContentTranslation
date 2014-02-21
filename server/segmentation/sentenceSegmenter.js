@@ -37,7 +37,8 @@ SentenceSegmenter.prototype.segment = function () {
 		linkSegmenter.segment();
 		this.links = $.extend( this.links, linkSegmenter.getSegments() );
 		this.segments[segmentId] = {
-			source: linkSegmenter.toHTML() + '. '
+			source: linkSegmenter.toHTML() +
+				( ( i+1 !== this.segmentCount )? '. ': '' ) // XXX
 		};
 		// We need this lookup to keep the order of segments
 		// while constructing the segmented content using
