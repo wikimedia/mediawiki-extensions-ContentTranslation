@@ -26,20 +26,27 @@ io = require( 'socket.io' ).listen( server );
 // socket.io connection establishment
 io.sockets.on( 'connection', function ( socket ) {
 	var datamodelManager,
+		PageLoader,
 		CXDataModelManager;
 	console.log( '[CX] Client connected to worker(' + process.pid + '). Socket: ' + socket.id );
 	socket.on( 'cx.init', function ( data ) {
+		var pageloader;
 		CXDataModelManager = require(  __dirname + '/models/dataModelManager.js').CXDataModelManager;
 		context = {
 			sourceLanguage: data.sourceLanguage,
 			targetLanguage: data.targetLanguage,
-			sourceText: data.sourceText,
+			sourcePage: data.sourcePage,
 			socket: socket
 		};
-		// Inject the session context to dataModelManager
-		// It should take care of managing the data model and pushing
-		// it to the client through socket.
-		datamodelManager = new CXDataModelManager( context );
+		PageLoader  = require(  __dirname + '/pageloader/PageLoader.js').PageLoader;
+		pageloader = new PageLoader( context.sourcePage );
+		pageloader.load().done( function ( data ) {
+			context.sourceText = data;
+			// Inject the session context to dataModelManager
+			// It should take care of managing the data model and pushing
+			// it to the client through socket.
+			datamodelManager = new CXDataModelManager( context );
+		} );
 	} );
 } );
 

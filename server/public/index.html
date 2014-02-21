@@ -8,20 +8,25 @@
 			width: 80%;
 			margin-left: 10%;
 		}
+
 		label {
-			float: left;
 			width: 20%;
 		}
+
 		input {
+			width: 40%;
+			padding: 5px;
+		}
+
+		.lang {
+			width: 5%;
+		}
+
+		button {
 			width: 10%;
 			padding: 5px;
 		}
-		button {
-			width: 10%;
-			margin-left: 40%;
-			padding: 10px;
-			margin-bottom: 20px;
-		}
+
 		.status {
 			position: fixed;
 			bottom: 0;
@@ -33,6 +38,7 @@
 			color: green;
 			font-size: 0.8em;
 		}
+
 		.cx-segment:hover {
 			background-color: #ccc;
 		}
@@ -41,28 +47,32 @@
 			background-color: #aaa;
 		}
 
-		.sourceText {
-			clear: both;
+		.form {
+			border: 1px solid #000;
+			padding: 10px;
+		}
+
+		.info {
+			color: #555;
 		}
 	</style>
 </head>
 
 <body>
 	<h1>Content Translation Server</h1>
-	<form>
-		<label for="sourceLanguage">Translate from</label>
-		<input name="sourceLanguage" value="en" />
-		<br/>
-		<label for="targetLanguage">Translate to</label>
-		<input name="targetLanguage" value="cy" />
-		<br/>
-		<div contenteditable class="sourceText">
-			<p><b>Hydrogen</b> is a <a href="/wiki/Chemical_element" title="Chemical element">chemical element</a> with <a href="/wiki/Chemical_symbol" title="Chemical symbol" class="mw-redirect">chemical symbol</a>&nbsp;<b>H</b> and <a href="/wiki/Atomic_number" title="Atomic number">atomic number</a>&nbsp;1. With an <a href="/wiki/Atomic_weight" title="Atomic weight" class="mw-redirect">atomic weight</a> of <span style="white-space:nowrap">1.00794&nbsp;<a href="/wiki/Atomic_mass_unit" title="Atomic mass unit">u</a></span>, hydrogen is the lightest element on the <a href="/wiki/Periodic_table" title="Periodic table">periodic table</a>. Its <a href="/wiki/Monatomic" title="Monatomic" class="mw-redirect">monatomic</a> form (H) is the <a href="/wiki/Abundance_of_the_chemical_elements" title="Abundance of the chemical elements">most abundant</a> chemical substance in the universe, constituting roughly 75% of all <a href="/wiki/Baryon" title="Baryon">baryonic</a> mass.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7"><span>[</span>7<span>]</span></a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8"><span>[</span>note 1<span>]</span></a></sup> Non-<a href="/wiki/Stellar_remnant" title="Stellar remnant" class="mw-redirect">remnant</a> <a href="/wiki/Star" title="Star">stars</a> are mainly composed of hydrogen in its <a href="/wiki/Plasma_(physics)" title="Plasma (physics)">plasma</a> state. The most common <a href="/wiki/Isotope" title="Isotope">isotope</a> of hydrogen, termed <i>protium</i> (name rarely used, symbol <sup>1</sup>H), has a single proton and zero <a href="/wiki/Neutron" title="Neutron">neutrons</a>.</p>
-			<p>The universal emergence of atomic hydrogen first occurred during the <a href="/wiki/Recombination_(cosmology)" title="Recombination (cosmology)">recombination epoch</a>. At <a href="/wiki/Standard_temperature_and_pressure" title="Standard temperature and pressure" class="mw-redirect">standard temperature and pressure</a>, hydrogen is a <a href="/wiki/Transparency_(optics)" title="Transparency (optics)" class="mw-redirect">colorless</a>, <a href="/wiki/Odorless" title="Odorless" class="mw-redirect">odorless</a>, <a href="/wiki/Taste" title="Taste">tasteless</a>, non-toxic, <a href="/wiki/Nonmetal" title="Nonmetal">nonmetallic</a>, highly <a href="/wiki/Combustion" title="Combustion">combustible</a> <a href="/wiki/Diatomic_molecule" title="Diatomic molecule">diatomic</a> <a href="/wiki/Gas" title="Gas">gas</a> with the <a href="/wiki/Molecular_formula" title="Molecular formula" class="mw-redirect">molecular formula</a> H<sub>2</sub>. Since hydrogen readily forms <a href="/wiki/Covalent_bond" title="Covalent bond">covalent</a> compounds with most <a href="/wiki/Nonmetal" title="Nonmetal">non-metallic</a> elements, most of the hydrogen on Earth exists in <a href="/wiki/Molecule" title="Molecule">molecular forms</a> such as in the form of <a href="/wiki/Water" title="Water">water</a> or <a href="/wiki/Organic_compound" title="Organic compound">organic compounds</a>. Hydrogen plays a particularly important role in <a href="/wiki/Acid%E2%80%93base_reaction" title="Acid–base reaction">acid–base reactions</a>. In <a href="/wiki/Ionic_compound" title="Ionic compound">ionic compounds</a>, hydrogen can take the form of a negative charge (i.e., <a href="/wiki/Anion" title="Anion" class="mw-redirect">anion</a>) known as a <a href="/wiki/Hydride" title="Hydride">hydride</a>, or as a positively charged (i.e., <a href="/wiki/Cation" title="Cation" class="mw-redirect">cation</a>) <a href="/wiki/Chemical_species" title="Chemical species">species</a> denoted by the symbol H<sup>+</sup>. The hydrogen <a href="/wiki/Cation" title="Cation" class="mw-redirect">cation</a> is written as though composed of a bare proton, but in reality, hydrogen cations in <a href="/wiki/Ionic_compound" title="Ionic compound">ionic compounds</a> are always more complex species than that would suggest.</p>
-		</div>
-	</form>
-	<button>Submit</button>
-	<div class='status'></div>
+	<div class='form'>
+		<label for="sourcePage">Translate</label>
+		<input name="sourcePage" value="https://en.wikipedia.org/wiki/Food" />
+		<label for="sourceLanguage">from</label>
+		<input class="lang" name="sourceLanguage" value="en" />
+		<label for="targetLanguage">to</label>
+		<input class="lang" name="targetLanguage" value="cy" />
+		<button>Go</button>
+		<progress></progress>
+	</div>
+	<div contenteditable class="article"></div>
+
+	<div class='status'>Server console. Keep your browser developer console open. Not connected to server.</div>
 	<script src="js/main.js"></script>
 </body>
 
