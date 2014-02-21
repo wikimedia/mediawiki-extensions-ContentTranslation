@@ -16,7 +16,7 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( $out, $skin ) {
-		global $wgContentTranslationEventLogging;
+		global $wgContentTranslationEventLogging, $wgContentTranslationServerURL;
 
 		// If EventLogging integration is enabled, load the schema module
 		// and the event logging functions module
@@ -26,6 +26,9 @@ class ContentTranslationHooks {
 				'ext.cx.eventlogging',
 			) );
 		}
+		$out->addScript(
+			"<script src='$wgContentTranslationServerURL/socket.io/socket.io.js'></script>"
+		);
 
 		return true;
 	}
@@ -42,4 +45,5 @@ class ContentTranslationHooks {
 
 		return true;
 	}
+
 }

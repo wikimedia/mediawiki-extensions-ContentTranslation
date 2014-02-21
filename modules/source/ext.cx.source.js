@@ -26,8 +26,9 @@
 
 	ContentTranslationSource.prototype.init = function () {
 		mw.cx.sourceTitle = new mw.Uri().query.page;
+		mw.cx.targetLanguage = new mw.Uri().query.lang || '';
 		this.render();
-		this.load();
+		mw.cx.connect();
 		this.listen();
 	};
 
@@ -73,21 +74,11 @@
 	};
 
 	ContentTranslationSource.prototype.load = function () {
-		var api = new mw.Api(),
-			cxSource = this;
-
-		api.get( {
-			action: 'parse',
-			page: mw.cx.sourceTitle,
-			disablepp: true
-		} ).done( function ( result ) {
-			cxSource.$title.html( result.parse.title );
-			cxSource.$content.html( result.parse.text['*'] );
-		} );
+		this.$content.html( mw.cx.data.segmentedContent );
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		// Empty for now
+		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( this.load, this ) );
 	};
 
 	$.fn.cxSource = function ( options ) {

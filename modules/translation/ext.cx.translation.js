@@ -25,7 +25,6 @@
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
-		mw.cx.targetLanguage = new mw.Uri().query.lang || '';
 		this.render();
 		this.listen();
 	};
@@ -89,18 +88,8 @@
 		} );
 	};
 
-	ContentTranslationEditor.prototype.update = function ( data ) {
-		var contentTranslationEditor = this;
-
-		$.post( mw.config.get( 'wgContentTranslationServerURL' ), {
-			sourcelang: mw.cx.sourceLanguage,
-			targetlang: mw.cx.targetLanguage,
-			sourcetext: data
-		} ).done( function ( response ) {
-			contentTranslationEditor.$content.html( response );
-		} ).fail( function () {
-			mw.log( 'API call to get machine translation failed.' );
-		} );
+	ContentTranslationEditor.prototype.update = function ( ) {
+		this.$content.html( mw.cx.data.segmentedContent );
 
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
 		mw.hook( 'mw.cx.translation.change' ).fire();
