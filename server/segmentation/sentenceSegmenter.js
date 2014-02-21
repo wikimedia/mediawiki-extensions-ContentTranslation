@@ -27,7 +27,7 @@ util.inherits( SentenceSegmenter, Segmenter );
 
 SentenceSegmenter.prototype.segment = function () {
 	var i, segmentId, linkSegmenter,
-		sentences = this.content.split( '.' );
+		sentences = this.content.split( '. ' );
 
 	this.segmentCount += sentences.length;
 	for ( i = 0; i< this.segmentCount; i++ ) {
@@ -37,7 +37,7 @@ SentenceSegmenter.prototype.segment = function () {
 		linkSegmenter.segment();
 		this.links = $.extend( this.links, linkSegmenter.getSegments() );
 		this.segments[segmentId] = {
-			source: linkSegmenter.toHTML() + '.'
+			source: linkSegmenter.toHTML() + '. '
 		};
 		// We need this lookup to keep the order of segments
 		// while constructing the segmented content using
