@@ -36,6 +36,11 @@ $specialPageAliases['fa'] = array(
 	'ContentTranslation' => array( 'ترجمه_محتوا' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),
+);
+
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
 	'ContentTranslation' => array( 'ലേഖനപരിഭാഷ' ),
