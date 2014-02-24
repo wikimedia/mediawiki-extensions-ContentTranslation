@@ -13,7 +13,7 @@
 
 	/* global io */
 	$( document ).ready( function () {
-		var socket = io.connect( '/', { port: 8000 } );
+		var socket = io.connect( '/' );
 		$( 'progress' ).hide();
 		socket.on( 'cx.data.update', function ( data ) {
 			cxdata = data;
