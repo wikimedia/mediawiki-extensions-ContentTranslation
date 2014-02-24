@@ -1,5 +1,5 @@
 /**
- *  ContentTranslation server
+ * ContentTranslation server
  *
  * @file
  * @copyright See AUTHORS.txt
@@ -22,8 +22,17 @@ var port = process.argv[2] || 8000;
 var app = express();
 var server = require( 'http' ).createServer( app );
 var io = require( 'socket.io' ).listen( server );
-
 var redis = require( 'redis' );
+
+// Use Redis as the store for socket.io
+var RedisStore = require( 'socket.io/lib/stores/redis' );
+io.set( 'store',
+	new RedisStore( {
+		redisPub: redis.createClient(),
+		redisSub: redis.createClient(),
+		redisClient: redis.createClient()
+	} )
+);
 
 instanceName = 'worker(' + process.pid + ')';
 // socket.io connection establishment
@@ -34,13 +43,13 @@ io.sockets.on( 'connection', function ( socket ) {
 
 	console.log( '[CX] Client connected to ' + instanceName + '). Socket: ' + socket.id );
 	redisSub.subscribe( 'cx' );
-	redisSub.on( 'message', function( channel, message ) {
+	redisSub.on( 'message', function ( channel, message ) {
 		socket.emit( 'cx.data.update', JSON.parse( message ) );
 		console.log('[CX] Received from channel #' + channel + ':' + message );
 	} );
 
 	socket.on( 'cx.init', function ( data ) {
-		CXDataModelManager = require(  __dirname + '/models/dataModelManager.js').CXDataModelManager;
+		CXDataModelManager = require( __dirname + '/models/dataModelManager.js').CXDataModelManager;
 		context = {
 			sourceLanguage: data.sourceLanguage,
 			targetLanguage: data.targetLanguage,
