@@ -25,27 +25,53 @@ function CXDataModelManager( context ) {
  * Initialize
  */
 CXDataModelManager.prototype.init = function () {
-	var dataModelManager = this, segmenter;
+	var dataModelManager = this,
+		segmenter,
+		PageLoader, pageloader;
 
-	segmenter = new CXSegmenter( this.context.sourceText );
-	segmenter.segment();
-	this.dataModel = {
-		version: 0,
-		sourceLanguage: this.context.sourceLanguage,
-		targetLanguage: this.context.targetLanguage,
-		sourceLocation: this.context.sourceTitle,
-		segments: segmenter.getSegments(),
-		segmentedContent: segmenter.getSegmentedContent(),
-		links: segmenter.getLinks()
-	};
-	dataModelManager.refresh();
+	// TODO: refactor this
+	this.context.store.get( this.context.sourcePage, function ( err, data ) {
+		dataModelManager.dataModel = JSON.parse( data );
+		if ( dataModelManager.dataModel ) {
+			// data model present in redis store
+			dataModelManager.publish();
+		} else {
+			PageLoader = require( __dirname + '/../pageloader/PageLoader.js').PageLoader;
+			pageloader = new PageLoader( dataModelManager.context.sourcePage );
+			pageloader.load().done( function ( data ) {
+				dataModelManager.context.sourceText = data;
+				segmenter = new CXSegmenter( dataModelManager.context.sourceText );
+				segmenter.segment();
+				dataModelManager.dataModel = {
+					version: 0,
+					sourceLanguage: dataModelManager.context.sourceLanguage,
+					targetLanguage: dataModelManager.context.targetLanguage,
+					sourcePage: dataModelManager.context.sourcePage,
+					segments: segmenter.getSegments(),
+					segmentedContent: segmenter.getSegmentedContent(),
+					links: segmenter.getLinks()
+				};
+				dataModelManager.publish();
+				// TODO: Dispatch the context to a number of task runners
+				// Once each task runners finish, publish.
+			} );
+		}
+	} );
 };
 
 /**
- * Refresh the data model. Syncs the data with the socket, updates version
+ * Publish the data model. Syncs the data with the socket, updates version
  */
-CXDataModelManager.prototype.refresh = function () {
-	this.context.socket.emit( 'cx.data.update', this.getDataModel() );
+CXDataModelManager.prototype.publish = function () {
+	var dataModelManager = this,
+		data = JSON.stringify( dataModelManager.getDataModel() );
+
+	// TODO: Make the key unique, language pair also should be considered
+	// TODO: Make the data model in the redis store more granular than
+	// a single json dump.
+	this.context.store.set( this.dataModel.sourcePage, data, function () {
+		dataModelManager.context.pub.publish( 'cx', data );
+	} );
 	console.log( '[CX] Sending data. Version: ' + this.dataModel.version );
 	this.updateVersion();
 };
