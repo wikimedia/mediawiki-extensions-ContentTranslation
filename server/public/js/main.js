@@ -15,6 +15,13 @@
 	$( document ).ready( function () {
 		var socket = io.connect( '/', { port: 8000 } );
 		$( 'progress' ).hide();
+		socket.on( 'cx.data.update', function ( data ) {
+			cxdata = data;
+			$( 'progress' ).hide();
+			$( '.status' ).text( 'Recieved version '+ cxdata.version + '. Click on the content segments to inspect.');
+			$( '.article' ).html( cxdata.segmentedContent );
+			console.log( cxdata );
+		} );
 		$( 'button' ).click( function () {
 			$( 'progress' ).show();
 			$( '.status' ).text( 'Connecting to server...' );
@@ -22,13 +29,6 @@
 				sourcePage:  $('input[name=sourcePage').val(),
 				sourceLanguage: $('input[name=sourceLanguage').val(),
 				targetLanguage: $('input[name=targetLanguage').val()
-			} );
-			socket.on( 'cx.data.update', function ( data ) {
-				cxdata = data;
-				$( 'progress' ).hide();
-				$( '.status' ).text( 'Recieved version ' + cxdata.version + '. Click on the content segments to inspect.' );
-				$( '.article' ).html( cxdata.segmentedContent );
-				console.log( cxdata );
 			} );
 		} );
 	} );
