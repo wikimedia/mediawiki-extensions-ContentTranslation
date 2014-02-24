@@ -1,29 +1,26 @@
 <html>
 <head>
 	<script src='//code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script src="/socket.io/socket.io.js"></script>
 	<title>Content Translation Server</title>
-	<meta content="">
 	<style>
 		body {
-			width: 50%;
-			margin-left: 25%;
+			width: 80%;
+			margin-left: 10%;
 		}
 		label {
 			float: left;
 			width: 20%;
 		}
-		input, textarea {
-			float: left;
-			width: 80%;
+		input {
+			width: 10%;
 			padding: 5px;
 		}
 		button {
-			width: 100%;
+			width: 10%;
+			margin-left: 40%;
 			padding: 10px;
-		}
-		progress {
-			width: 100%;
-			display: none;
+			margin-bottom: 20px;
 		}
 		.status {
 			position: fixed;
@@ -33,7 +30,14 @@
 			height: 16px;
 			padding: 5px;
 			background: #ccc;
+			color: green;
 			font-size: 0.8em;
+		}
+		.segment:hover {
+			background-color: #ccc;
+		}
+		.sourceText {
+			clear: both;
 		}
 	</style>
 </head>
@@ -41,35 +45,19 @@
 <body>
 	<h1>Content Translation Server</h1>
 	<form>
-		<label for="sourcelang">Translate from</label>
-		<input name="sourcelang" value="en" />
+		<label for="sourceLanguage">Translate from</label>
+		<input name="sourceLanguage" value="en" />
 		<br/>
-		<label for="targetlang">Translate to</label>
-		<input name="targetlang" value="cy" />
+		<label for="targetLanguage">Translate to</label>
+		<input name="targetLanguage" value="cy" />
 		<br/>
-		<label for="sourcetext">Translate</label>
-		<textarea rows=10 cols=40 name="sourcetext">Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the universe, constituting roughly 75% of all baryonic mass.Non-remnant stars are mainly composed of hydrogen in its plasma state. The most common isotope of hydrogen, termed protium (name rarely used, symbol 1H), has a single proton and zero neutrons.</textarea>
+		<div contenteditable class="sourceText">
+			Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the universe, constituting roughly 75% of all baryonic mass.Non-remnant stars are mainly composed of hydrogen in its plasma state. The most common isotope of hydrogen, termed protium (name rarely used, symbol 1H), has a single proton and zero neutrons.
+		</div>
 	</form>
 	<button>Submit</button>
-	<progress></progress>
-	<div class='response'></div>
 	<div class='status'></div>
-	<script>
-	$('button').click( function() {
-		var startTime;
-
-		$( 'progress' ).show();
-		$( 'div.response' ).empty();
-		startTime = new Date().getTime();
-		$.post( '/', $('form').serialize(), function( response ) {
-			responseTime = new Date().getTime() - startTime;
-			$( 'progress' ).hide();
-			$( 'div.response' ).html( response )
-			$( '.status' ).text( 'Request finished successfully in ' + responseTime + 'ms' );
-		} );
-	} );
-
-	</script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>

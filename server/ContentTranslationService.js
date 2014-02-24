@@ -14,59 +14,38 @@
 
 'use strict';
 
-// global includes
-var config,
-	express = require( 'express' ),
-	cluster = require( 'cluster' ),
-	CXMTInterface = require( __dirname+ '/mt/CXMTInterface.js' ).CXMTInterface;
-try {
-	var config;
-	config = require( __dirname + '/config.js' );
-} catch ( e ) {
-	config = { port: 8000 };
-}
+var app, instanceName, server, io, port, context,
+	express = require( 'express' );
+
+port = process.argv[2] || 8000;
 
 /**
  * The name of this instance.
  * @property {string}
  */
-var instanceName = cluster.isWorker ? 'worker(' + process.pid + ')' : 'master';
+instanceName = 'worker(' + process.pid + ')';
+app = express();
+server = require( 'http' ).createServer( app );
+io = require( 'socket.io' ).listen( server );
 
-console.log( ' - ' + instanceName + ' loading...' );
-
-/* -------------------- web app access points below --------------------- */
-
-var app = express();
-
-app.translator = new CXMTInterface( config );
-
-app.use( express.urlencoded() );
-
-// robots.txt: no indexing.
-app.get( /^\/robots.txt$/, function ( req, res ) {
-	res.end( 'User-agent: *\nDisallow: /\n' );
-} );
-
-app.post( /^\/$/, function ( req, res ) {
-	var sourceLang = req.body.sourcelang,
-		targetLang = req.body.targetlang,
-		sourceText = req.body.sourcetext;
-
-	res.setHeader( 'Content-Type', 'text/plain; charset=UTF-8' );
-	// TODO: create configurable access control list for production
-	res.setHeader( 'Access-Control-Allow-Origin', '*' );
-	res.end( app.translator.translate(
-		sourceLang,
-		targetLang,
-		sourceText
-	) );
+// socket.io connection establishment
+io.sockets.on( 'connection', function ( socket ) {
+	console.log( '[CX] Client connected to ' + instanceName + '. Socket: ' + socket.id );
+	socket.on( 'cx.init', function ( data ) {
+		context = {
+			sourceLanguage: data.sourceLanguage,
+			targetLanguage: data.targetLanguage,
+			sourceText: data.sourceText,
+			socket: socket
+		};
+		socket.emit( 'cx.initialized', true );
+	} );
 } );
 
 // Everything else goes through this.
-app.use(express.static(__dirname + '/public'));
-
-console.log( ' - ' + instanceName + ' ready' );
-
-app.listen( config.port );
+app.use( express.static( __dirname + '/public') );
+console.log( '[CX] ' + instanceName + ' ready. Listening on port: ' + port );
+server.listen( port );
 
 module.exports = app;
+
