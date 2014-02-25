@@ -7,7 +7,6 @@
  * @license GPL-2.0+
  */
 
-
 'use strict';
 
 var util = require( 'util' ),
@@ -42,7 +41,7 @@ ParagraphSegmenter.prototype.segment = function () {
 		segmenter.segmentCount += sentenceSegmenter.getSegmentCount();
 		segmenter.links = $.extend( segmenter.links, sentenceSegmenter.getLinks() );
 		$section.html( sentenceSegmenter.toHTML() );
-		segmenter.segmentedContent +=  $section[0].outerHTML;
+		segmenter.segmentedContent += $section[0].outerHTML;
 	} );
 };
 

@@ -36,7 +36,7 @@ CXDataModelManager.prototype.init = function () {
 			// data model present in redis store
 			dataModelManager.publish();
 		} else {
-			PageLoader = require( __dirname + '/../pageloader/PageLoader.js').PageLoader;
+			PageLoader = require( __dirname + '/../pageloader/PageLoader.js' ).PageLoader;
 			pageloader = new PageLoader( dataModelManager.context.sourcePage );
 			pageloader.load().then( function ( data ) {
 				dataModelManager.context.sourceText = data;
@@ -87,7 +87,7 @@ CXDataModelManager.prototype.updateVersion = function () {
 };
 
 /**
- *  Get the data model
+ * Get the data model
  */
 CXDataModelManager.prototype.getDataModel = function () {
 	return this.dataModel;

@@ -18,14 +18,14 @@ if ( cluster.isMaster ) {
 		cluster.fork();
 	}
 
-	cluster.on( 'exit', function( worker /*, code, signal */) {
+	cluster.on( 'exit', function( worker /*, code, signal */ ) {
 		if ( !worker.suicide ) {
 			var exitCode = worker.process.exitCode;
 			console.log( 'worker', worker.process.pid,
 				'died (' + exitCode + '), restarting.' );
 			cluster.fork();
 		}
-	});
+	} );
 
 	process.on( 'SIGTERM', function() {
 		console.log( 'master shutting down, killing workers' );

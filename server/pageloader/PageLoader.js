@@ -40,7 +40,7 @@ PageLoader.prototype.load = function () {
 	title = this.page.split( '/' ).pop();
 	if ( config.pageloaderservice === 'parsoid' ) {
 		ParsoidPageLoader = require( __dirname + '/ParsoidPageLoader.js' ).ParsoidPageLoader;
-		loader = new ParsoidPageLoader( config.parsoid.api, 'enwiki' ); //FIXME
+		loader = new ParsoidPageLoader( config.parsoid.api, 'enwiki' ); // FIXME
 		promise = loader.load( title );
 	}
 	if ( config.pageloaderservice === 'mediawiki' ) {

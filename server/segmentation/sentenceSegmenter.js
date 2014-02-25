@@ -7,7 +7,6 @@
  * @license GPL-2.0+
  */
 
-
 'use strict';
 
 var util = require( 'util' ),
@@ -33,12 +32,12 @@ SentenceSegmenter.prototype.segment = function () {
 	for ( i = 0; i< this.segmentCount; i++ ) {
 		segmentId = crypto.createHash( 'md5' ).update( sentences[i] )
 			.digest( 'hex' ).substr( 0, 5 );
-		linkSegmenter = new LinkSegmenter(sentences[i]);
+		linkSegmenter = new LinkSegmenter( sentences[i] );
 		linkSegmenter.segment();
 		this.links = $.extend( this.links, linkSegmenter.getSegments() );
 		this.segments[segmentId] = {
 			source: linkSegmenter.toHTML() +
-				( ( i+1 !== this.segmentCount )? '. ': '' ) // XXX
+				( ( i+1 !== this.segmentCount )? '. ': '.' ) // XXX
 		};
 		// We need this lookup to keep the order of segments
 		// while constructing the segmented content using
@@ -55,7 +54,7 @@ SentenceSegmenter.prototype.toHTML = function () {
 	var i, segmentId, $sentence, $sentences = '';
 
 	for ( i = 0; i< this.segmentCount; i++ ) {
-		segmentId =  this.lookup[i];
+		segmentId = this.lookup[i];
 		$sentence = $( '<span>' )
 			.addClass( 'cx-segment' )
 			.attr( 'data-segment', segmentId )

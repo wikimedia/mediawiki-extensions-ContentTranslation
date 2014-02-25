@@ -37,7 +37,7 @@ io.set( 'store',
 instanceName = 'worker(' + process.pid + ')';
 // socket.io connection establishment
 io.sockets.on( 'connection', function ( socket ) {
-	var datamodelManager,
+	var dataModelManager,
 		CXDataModelManager,
 		redisSub = redis.createClient();
 
@@ -45,11 +45,11 @@ io.sockets.on( 'connection', function ( socket ) {
 	redisSub.subscribe( 'cx' );
 	redisSub.on( 'message', function ( channel, message ) {
 		socket.emit( 'cx.data.update', JSON.parse( message ) );
-		console.log('[CX] Received from channel #' + channel + ':' + message );
+		console.log( '[CX] Received from channel #' + channel + ':' + message );
 	} );
 
 	socket.on( 'cx.init', function ( data ) {
-		CXDataModelManager = require( __dirname + '/models/dataModelManager.js').CXDataModelManager;
+		CXDataModelManager = require( __dirname + '/models/dataModelManager.js' ).CXDataModelManager;
 		context = {
 			sourceLanguage: data.sourceLanguage,
 			targetLanguage: data.targetLanguage,
@@ -60,7 +60,7 @@ io.sockets.on( 'connection', function ( socket ) {
 		// Inject the session context to dataModelManager
 		// It should take care of managing the data model and pushing
 		// it to the client through socket.
-		datamodelManager = new CXDataModelManager( context );
+		dataModelManager = new CXDataModelManager( context );
 	} );
 
 	socket.on( 'disconnect', function () {
@@ -71,7 +71,7 @@ io.sockets.on( 'connection', function ( socket ) {
 } );
 
 // Everything else goes through this.
-app.use( express.static( __dirname + '/public') );
+app.use( express.static( __dirname + '/public' ) );
 console.log( '[CX] ' + instanceName + ' ready. Listening on port: ' + port );
 server.listen( port );
 

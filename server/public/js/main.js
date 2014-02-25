@@ -1,5 +1,6 @@
 ( function ( $ ) {
 	'use strict';
+
 	var cxdata;
 	$( '.article' ).on( 'click', '.cx-segment', function () {
 		var segment = cxdata.segments[$( this ).data( 'segment' )];
@@ -26,7 +27,7 @@
 			$( 'progress' ).show();
 			$( '.status' ).text( 'Connecting to server...' );
 			socket.emit( 'cx.init', {
-				sourcePage:  $( 'input[name=sourcePage]' ).val(),
+				sourcePage: $( 'input[name=sourcePage]' ).val(),
 				sourceLanguage: $( 'input[name=sourceLanguage]' ).val(),
 				targetLanguage: $( 'input[name=targetLanguage]' ).val()
 			} );
