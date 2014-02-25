@@ -27,7 +27,7 @@ class ContentTranslationHooks {
 			) );
 		}
 		$out->addScript(
-			"<script src='$wgContentTranslationServerURL/socket.io/socket.io.js'></script>"
+			Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
 		);
 
 		return true;
