@@ -31,6 +31,7 @@ class SpecialContentTranslation extends SpecialPage {
 		if ( !($user->isLoggedIn() ) ) {
 			$out->addHTML( $this->msg( 'cx-special-login-error' ) );
 		} else {
+			$out->addModuleStyles( 'mediawiki.ui.button' );
 			$out->addModules( 'ext.cx.base' );
 			$this->setHeaders();
 			$out->setArticleBodyOnly( true );
