@@ -38,7 +38,7 @@ CXDataModelManager.prototype.init = function () {
 		} else {
 			PageLoader = require( __dirname + '/../pageloader/PageLoader.js').PageLoader;
 			pageloader = new PageLoader( dataModelManager.context.sourcePage );
-			pageloader.load().done( function ( data ) {
+			pageloader.load().then( function ( data ) {
 				dataModelManager.context.sourceText = data;
 				segmenter = new CXSegmenter( dataModelManager.context.sourceText );
 				segmenter.segment();
@@ -54,6 +54,9 @@ CXDataModelManager.prototype.init = function () {
 				dataModelManager.publish();
 				// TODO: Dispatch the context to a number of task runners
 				// Once each task runners finish, publish.
+			}, function ( /*jqXHR, textStatus, errorThrown*/ ) {
+				console.error( '[CX] Error in retrieving the page ' +
+					dataModelManager.context.sourcePage );
 			} );
 		}
 	} );
