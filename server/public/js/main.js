@@ -26,9 +26,9 @@
 			$( 'progress' ).show();
 			$( '.status' ).text( 'Connecting to server...' );
 			socket.emit( 'cx.init', {
-				sourcePage:  $('input[name=sourcePage').val(),
-				sourceLanguage: $('input[name=sourceLanguage').val(),
-				targetLanguage: $('input[name=targetLanguage').val()
+				sourcePage:  $( 'input[name=sourcePage]' ).val(),
+				sourceLanguage: $( 'input[name=sourceLanguage]' ).val(),
+				targetLanguage: $( 'input[name=targetLanguage]' ).val()
 			} );
 		} );
 	} );
