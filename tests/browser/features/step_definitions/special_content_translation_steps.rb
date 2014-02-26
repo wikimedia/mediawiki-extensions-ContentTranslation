@@ -64,8 +64,8 @@ Then(/^I see a translation column with an empty editing area$/) do
 	on(ContentTranslationPage).translation_editor_element.text.should == ""
 end
 
-Then(/^I see a translation aids column$/) do
-	on(ContentTranslationPage).column("aids").should be_visible
+Then(/^I see a translation tools column$/) do
+	on(ContentTranslationPage).column("tools").should be_visible
 end
 
 Then(/^I see a translation progress bar$/) do

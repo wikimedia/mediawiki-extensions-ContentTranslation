@@ -1,7 +1,7 @@
 /**
  * ContentTranslation extension
  * A tool that allows editors to translate pages from one language
- * to another with the help of machine translation and other translation aids
+ * to another with the help of machine translation and other translation
  *
  * @file
  * @ingroup Extensions
@@ -49,7 +49,7 @@
 					.append(
 						$( '<div>' ).addClass( 'cx-column cx-column--source' ),
 						$( '<div>' ).addClass( 'cx-column cx-column--translation' ),
-						$( '<div>' ).addClass( 'cx-column cx-column--aids' )
+						$( '<div>' ).addClass( 'cx-column cx-column--tools' )
 					)
 			);
 
@@ -57,7 +57,7 @@
 		this.$header = this.$container.find( '.cx-widget__header' );
 		this.$source = this.$container.find( '.cx-column--source' );
 		this.$translation = this.$container.find( '.cx-column--translation' );
-		this.$tools = this.$container.find( '.cx-column--aids' );
+		this.$tools = this.$container.find( '.cx-column--tools' );
 	};
 
 	$.fn.cx = function ( options ) {

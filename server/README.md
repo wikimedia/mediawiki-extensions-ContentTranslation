@@ -1,5 +1,5 @@
 ContentTranslation is a tool that allows editors to translate pages from
-one language to another with the help of machine translation and other translation aids.
+one language to another with the help of machine translation and other translation tools.
 
 This is the server component of ContentTranslation.
 

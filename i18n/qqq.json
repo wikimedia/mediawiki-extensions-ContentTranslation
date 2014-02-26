@@ -19,10 +19,10 @@
     "tag-contenttranslation": "A short description of the contenttranslation tag. Appears in the edit summary when a translated page is created.",
     "cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
     "cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
-    "cx-tools-instructions-title": "Title for the translation aids pane.",
-    "cx-tools-instructions-text1": "Help text for the translation aids pane.",
-    "cx-tools-instructions-text2": "Help text for the translation aids pane.",
-    "cx-tools-instructions-text3": "Help text for the translation aids pane.",
-    "cx-tools-instructions-text4": "Help text for the translation aids pane.",
-    "cx-tools-instructions-text5": "Help text for the translation aids pane."
+    "cx-tools-instructions-title": "Title for the translation tools pane.",
+    "cx-tools-instructions-text1": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text2": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text3": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text4": "Help text for the translation tools pane.",
+    "cx-tools-instructions-text5": "Help text for the translation tools pane."
 }

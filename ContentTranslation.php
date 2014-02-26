@@ -2,7 +2,7 @@
 /**
  * ContentTranslation extension
  * A tool that allows editors to translate pages from one language
- * to another with the help of machine translation and other translation aids
+ * to another with the help of machine translation and other translation tools
  *
  * @file
  * @ingroup Extensions

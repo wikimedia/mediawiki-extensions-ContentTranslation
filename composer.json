@@ -1,7 +1,7 @@
 {
 	"name": "mediawiki/content-translation",
 	"type": "mediawiki-extension",
-	"description": "Allows editors to translate an article from one language to another with the help of translation aids.",
+	"description": "Allows editors to translate an article from one language to another with the help of translation tools.",
 	"keywords": [
 		"MediaWiki",
 		"Translation"
