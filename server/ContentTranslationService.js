@@ -15,9 +15,10 @@
 'use strict';
 
 var instanceName, context,
-	express = require( 'express' );
+	express = require( 'express' ),
+	args = require( 'minimist' )( process.argv.slice( 2 ) );
 
-var port = process.argv[2] || 8000;
+var port = args.port || 8000;
 
 var app = express();
 var server = require( 'http' ).createServer( app );
