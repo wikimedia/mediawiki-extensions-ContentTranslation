@@ -5,7 +5,7 @@
         ]
     },
     "cx": "Traduire la page",
-    "cx-desc": "Un outil qui permet aux éditeurs de traduire les pages d’une langue vers une autre avec l’aide d’une traduction automatiques et d’autres aides à la traduction.",
+    "cx-desc": "Un outil qui permet aux éditeurs de traduire les pages d’une langue vers une autre avec l’aide d’une traduction automatiques et d’autres outils de traduction.",
     "cx-header-progressbar-text": "$1% traduit",
     "cx-header-translation-center": "Centre des traductions",
     "cx-source-view-page": "[$1 afficher la page]",

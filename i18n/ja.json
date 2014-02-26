@@ -5,6 +5,7 @@
         ]
     },
     "cx": "ページの翻訳",
+    "cx-desc": "機械翻訳やその他の翻訳ツールの支援で、編集者がページを別の言語に翻訳できるようにするツール",
     "cx-header-progressbar-text": "$1% 翻訳済",
     "cx-header-translation-center": "翻訳センター",
     "cx-source-view-page": "[$1 ページを閲覧]",
