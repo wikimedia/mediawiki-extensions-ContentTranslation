@@ -10,8 +10,8 @@
 'use strict';
 
 var util = require( 'util' ),
-	Segmenter = require( __dirname + '/segmenter.js' ).Segmenter,
-	SentenceSegmenter = require( __dirname + '/sentenceSegmenter.js' ).SentenceSegmenter,
+	Segmenter = require( __dirname + '/Segmenter.js' ).Segmenter,
+	SentenceSegmenter = require( __dirname + '/SentenceSegmenter.js' ).SentenceSegmenter,
 	$ = require( 'jquery' );
 
 function ParagraphSegmenter( content ) {

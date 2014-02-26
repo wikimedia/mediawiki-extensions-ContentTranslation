@@ -12,7 +12,7 @@
 
 var util = require( 'util' ),
 	crypto = require( 'crypto' ),
-	Segmenter = require( __dirname + '/segmenter.js' ).Segmenter,
+	Segmenter = require( __dirname + '/Segmenter.js' ).Segmenter,
 	$ = require( 'jquery' );
 
 function LinkSegmenter( content ) {

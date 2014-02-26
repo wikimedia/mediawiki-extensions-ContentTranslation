@@ -10,8 +10,8 @@
 'use strict';
 
 var util = require( 'util' ),
-	Segmenter = require( __dirname + '/segmenter.js' ).Segmenter,
-	ParagraphSegmenter = require( __dirname + '/paragraphSegmenter.js' ).ParagraphSegmenter;
+	Segmenter = require( __dirname + '/Segmenter.js' ).Segmenter,
+	ParagraphSegmenter = require( __dirname + '/ParagraphSegmenter.js' ).ParagraphSegmenter;
 
 function CXSegmenter( content ) {
 	Segmenter.call( this, content );

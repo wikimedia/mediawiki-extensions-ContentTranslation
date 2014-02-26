@@ -50,7 +50,7 @@ io.sockets.on( 'connection', function ( socket ) {
 	} );
 
 	socket.on( 'cx.init', function ( data ) {
-		CXDataModelManager = require( __dirname + '/models/dataModelManager.js' ).CXDataModelManager;
+		CXDataModelManager = require( __dirname + '/models/DataModelManager.js' ).CXDataModelManager;
 		context = {
 			sourceLanguage: data.sourceLanguage,
 			targetLanguage: data.targetLanguage,

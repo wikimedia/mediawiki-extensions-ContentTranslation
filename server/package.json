@@ -16,7 +16,7 @@
 		"diff": "~1.0.7"
 	},
 	"scripts": {
-		"start": "node server.js"
+		"start": "node Server.js"
 	},
 	"repository": {
 		"type": "git"
