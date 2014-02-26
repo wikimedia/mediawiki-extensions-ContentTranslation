@@ -22,6 +22,8 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
+		global $wgContentTranslationServerURL;
+
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 		$user = $this->getUser();
@@ -38,6 +40,9 @@ class SpecialContentTranslation extends SpecialPage {
 				'mediawiki.page.startup',
 				'mediawiki.page.ready',
 			) );
+			$out->addScript(
+				Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
+			);
 		}
 
 		$out->addHTML( $out->headElement( $skin ) );
