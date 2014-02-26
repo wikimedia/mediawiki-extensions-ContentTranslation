@@ -6,19 +6,25 @@ This is the server component of ContentTranslation.
 Installation
 ------------
 
-Install the depdendencies
+Install the dependencies:
 
 ```$ npm install```
 
-You need redis server running on your machine. Install redis-server using
-your OS package manager. Example:
+You need a Redis server on your machine.
+Install it using your OS package manager:
 
-```apt-get install redis-server```
+Debian: ```apt-get install redis-server```
+Fedora: ```yum install redis```
 
 Running the server
 ------------------
 
-To run the server:
+First, make sure that the Redis server is running:
+
+Debian: ```service redis-server start```
+Fedora: ```service redis start```
+
+To run the ContentTranslation server:
 
 ```$ npm start```
 
@@ -29,6 +35,6 @@ Configuration
 -------------
 
 An example configuration file is given as config.example.js.
-Rename that file to config.js and make your changes. Then
-restart the server.
+Rename that file to config.js and make your changes.
+Then restart the server.
 
