@@ -26,9 +26,17 @@ class ContentTranslationHooks {
 				'ext.cx.eventlogging',
 			) );
 		}
-		$out->addScript(
-			Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
-		);
+
+		$title = $out->getTitle();
+		list( $alias, ) = SpecialPageFactory::resolveAlias( $title->getText() );
+
+		if ( $title->isSpecialPage() && ( $alias === 'CX'
+			|| $alias === 'ContentTranslation' )
+		) {
+			$out->addScript(
+				Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
+			);
+		}
 
 		return true;
 	}
