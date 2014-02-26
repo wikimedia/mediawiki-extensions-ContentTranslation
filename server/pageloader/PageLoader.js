@@ -17,11 +17,13 @@ try {
 	// TODO: define this configuration in betterway
 	config = {
 		pageloaderservice: 'parsoid',
-		parsoid: {
-			api: 'http://parsoid.wmflabs.org'
-		},
-		mediawiki: {
-			api: 'http://en.wikipedia.org/w/api.php'
+		pageloaderservices: {
+			parsoid: {
+				api: 'http://parsoid.wmflabs.org'
+			},
+			mediawiki: {
+				api: 'http://en.wikipedia.org/w/api.php'
+			}
 		}
 	};
 }
