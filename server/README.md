@@ -38,3 +38,12 @@ An example configuration file is given as config.example.js.
 Rename that file to config.js and make your changes.
 Then restart the server.
 
+Debugging
+---------
+To run the ContentTranslation server:
+
+```$ npm run-script debug```
+
+It will open chrome developer tools with the ContentTranslation source code.
+You can debug the code just like a web application. You can also edit the code
+and save from the debugger.

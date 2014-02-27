@@ -13,10 +13,12 @@
 	},
 	"devDependencies": {
 		"colors": "~0.6.2",
-		"diff": "~1.0.7"
+		"diff": "~1.0.7",
+		"node-inspector": "0.7"
 	},
 	"scripts": {
-		"start": "node Server.js"
+		"start": "node Server.js",
+		"debug": "node-debug ContentTranslationService.js"
 	},
 	"repository": {
 		"type": "git"
