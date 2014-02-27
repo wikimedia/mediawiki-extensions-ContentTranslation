@@ -16,7 +16,7 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( $out, $skin ) {
-		global $wgContentTranslationEventLogging, $wgContentTranslationServerURL;
+		global $wgContentTranslationEventLogging;
 
 		// If EventLogging integration is enabled, load the schema module
 		// and the event logging functions module
@@ -25,17 +25,6 @@ class ContentTranslationHooks {
 				'schema.ContentTranslation',
 				'ext.cx.eventlogging',
 			) );
-		}
-
-		$title = $out->getTitle();
-		list( $alias, ) = SpecialPageFactory::resolveAlias( $title->getText() );
-
-		if ( $title->isSpecialPage() && ( $alias === 'CX'
-			|| $alias === 'ContentTranslation' )
-		) {
-			$out->addScript(
-				Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
-			);
 		}
 
 		return true;
