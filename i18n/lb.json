@@ -5,7 +5,7 @@
         ]
     },
     "cx": "Säit iwwersetzen",
-    "cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungshëllefen.",
+    "cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
     "cx-header-progressbar-text": "$1% iwwersat",
     "cx-header-translation-center": "Iwwersetzungszentral",
     "cx-source-view-page": "[$1 Säit weisen]",
@@ -20,5 +20,6 @@
     "cx-tools-instructions-text1": "Setzt e puer Abschnitter bäi d'Iwwersetzung derbäi.",
     "cx-tools-instructions-text2": "Adaptéiert déi proposéiert automatesch Iwwersetzung fir d'Qualitéit ze garantéieren",
     "cx-tools-instructions-text3": "Maschinneniwwersetzung ass en nëtzlechen Ufank fir Iwwersetzungen, awer Iwwersetzer mussen do wou et néideg ass Feeler nokucken a confirméieren datt d'Iwwersetzung richteg ass.",
+    "cx-tools-instructions-text4": "Iwwersetzt keen Text deen net glafwierdeg oder vu schlechter Qualitéit ze si schéngt. Wa méiglech iwwerpréift den Text mat de Referenzen déi an der Quellsäit ugi sinn.",
     "cx-tools-instructions-text5": "Wann Dir zefridde sidd mam Resultat, da klickt {{int:cx-publish-button}} fir déi nei säit unzeleeën."
 }

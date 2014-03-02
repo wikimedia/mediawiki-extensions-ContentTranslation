@@ -2,11 +2,12 @@
     "@metadata": {
         "authors": [
             "Yfdyh000",
-            "Liuxinyu970226"
+            "Liuxinyu970226",
+            "Byfserag"
         ]
     },
     "cx": "翻译页面",
-    "cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具。",
+    "cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
     "cx-header-progressbar-text": "$1%已翻译",
     "cx-header-translation-center": "翻译中心",
     "cx-source-view-page": "[$1 浏览页面]",

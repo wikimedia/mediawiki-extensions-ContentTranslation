@@ -15,6 +15,7 @@
     "cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
     "cx-publish-button": "Vertaling publiceren",
     "cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",
+    "tag-contenttranslation": "ContentTranslation",
     "cx-source-loading": "Bezig met laden van $1",
     "cx-special-login-error": "U moet ingelogd zijn om in deze pagina te vertalen.",
     "cx-tools-instructions-title": "Maak een vertaling",

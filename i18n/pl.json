@@ -2,11 +2,12 @@
     "@metadata": {
         "authors": [
             "Chrumps",
-            "Vuh"
+            "Vuh",
+            "Jacenty359"
         ]
     },
     "cx": "Przetłumacz stronę",
-    "cx-desc": "Narzędzie, które umożliwia edytorom na tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
+    "cx-desc": "Narzędzie, które umożliwia edytorom tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
     "cx-header-progressbar-text": "$1% przetłumaczono",
     "cx-header-translation-center": "Centrum tłumaczeń",
     "cx-publish-page": "Strona opublikowana w [$1 $2]",
