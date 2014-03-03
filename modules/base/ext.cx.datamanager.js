@@ -20,7 +20,7 @@
 	}
 
 	function updateModel( data) {
-		mw.log( '[CX] Recieved data from server' );
+		mw.log( '[CX] Received data from server' );
 		mw.cx.data = data;
 		mw.hook( 'mw.cx.source.ready' ).fire();
 	}
