@@ -38,7 +38,6 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function execute() {
-		$user = $this->getUser();
 		$params = $this->extractRequestParams();
 		$title = Title::newFromText( $params['title'] );
 
