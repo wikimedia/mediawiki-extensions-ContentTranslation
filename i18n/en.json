@@ -3,7 +3,8 @@
         "authors": [
             "Amire80",
             "Kartik Mistry",
-            "Santhosh.thottingal"
+            "Santhosh.thottingal",
+            "Sucheta Ghoshal"
         ]
     },
     "cx": "Translate page",
@@ -19,9 +20,12 @@
     "cx-source-loading": "Loading $1",
     "cx-special-login-error": "You must be logged in to translate in this page.",
     "cx-tools-instructions-title": "Create a translation",
-    "cx-tools-instructions-text1": "Add some paragraphs to the translation.",
-    "cx-tools-instructions-text2": "Adjust the automatic translations provided to ensure quality",
-    "cx-tools-instructions-text3": "Machine translation is a useful starting point for translations, but translators must revise errors as necessary and confirm that the translation is accurate.",
-    "cx-tools-instructions-text4": "Do not translate text that appears unreliable or low-quality. If possible, verify the text with references provided in the source page.",
-    "cx-tools-instructions-text5": "When you are happy with the result, press {{int:cx-publish-button}} to create the new page."
+    "cx-tools-instructions-text1": "Add paragraphs to translate",
+    "cx-tools-instructions-text2": "You don't need to add them all",
+    "cx-tools-instructions-text3": "Make text read natural",
+    "cx-tools-instructions-text4": "Automatic translation is useful but you'll need to revise errors to make it accurate.",
+    "cx-tools-instructions-text5": "Publish the translation",
+    "cx-tools-instructions-text6": "When you are happy with the result, press {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Search for a word",
+    "cx-tools-view-guidelines": "[$1 View translation guidelines]"
 }

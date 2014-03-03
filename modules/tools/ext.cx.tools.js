@@ -24,42 +24,11 @@
 	}
 
 	ContentTranslationTools.prototype.init = function () {
-		this.render();
-	};
-
-	ContentTranslationTools.prototype.render = function () {
-		this.$container.append( this.helpMessage() );
+		this.helpMessage();
 	};
 
 	ContentTranslationTools.prototype.listen = function () {
 		$( window ).scroll( $.proxy( this.scroll, this ) );
-	};
-
-	ContentTranslationTools.prototype.helpMessage = function () {
-		var $content;
-
-		$content = $( '<h2>' )
-			.text( mw.msg( 'cx-tools-instructions-title' ) )
-			.after( $( '<ol>' )
-				.append(
-					$( '<li>' )
-						.text( mw.msg( 'cx-tools-instructions-text1' ) ),
-					$( '<li>' )
-						.text( mw.msg( 'cx-tools-instructions-text2' ) )
-						.append( $( '<ul>')
-							.append(
-								$( '<li>' )
-									.text( mw.msg( 'cx-tools-instructions-text3' ) ),
-								$( '<li>' )
-									.text( mw.msg( 'cx-tools-instructions-text4' ) )
-							)
-						),
-					$( '<div>' )
-						.text( mw.msg( 'cx-tools-instructions-text5' ) )
-				)
-			);
-
-		return $content;
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {
@@ -90,6 +59,6 @@
 			}
 		} );
 	};
-
+	mw.cx.ContentTranslationTools = ContentTranslationTools;
 	$.fn.cxTools.defaults = {};
 }( jQuery, mediaWiki ) );

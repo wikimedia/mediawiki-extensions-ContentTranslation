@@ -1,0 +1,73 @@
+@import "../../base/styles/grid/agora-grid";
+
+.card.instructions {
+	animation-name: card-show-animation;
+	animation-duration: 1.5s;
+	position: relative;
+}
+
+@keyframes card-show-animation {
+	0% {
+		opacity: 0;
+		transform: rotate(10deg);
+		left: 200px;
+	}
+	50% {
+		opacity: 0;
+		transform: rotate(10deg);
+		left: 200px;
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(0deg);
+		left: 0px;
+	}
+}
+
+.card__section {
+	.mw-ui-grid;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 10px 10px 20px 10px;
+	font-size: 16px;
+	word-wrap: break-word;
+	background-color: #FFFFFF;
+}
+
+.card__section.guidelines {
+	text-align: center;
+	color: #3366bb;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.tools.serial.number {
+	.mw-ui-item;
+	.mw-ui-one-eighth;
+	height: 10%;
+	font-size: 2em;
+	color: #3366bb;
+	background-color: #FFFFFF;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.instruction.text {
+	.mw-ui-item;
+	.mw-ui-seven-eighths;
+	padding-top: 5px;
+}
+
+.text.heading {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+}
+
+.text.description {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	font-size: 14px;
+	color: #555555;
+	text-wrap: nowrap;
+	padding-top: 10px;
+	line-height: 1.5em;
+}
