@@ -88,20 +88,10 @@ $wgResourceModules['ext.cx.translation'] = array(
 $wgResourceModules['ext.cx.tool'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.js',
-		'tools/ext.cx.tools.helpmessage.js'
+		'tools/ext.cx.tools.helpmessage.js',
 	),
 	'styles' => array(
 		'tools/styles/ext.cx.tools.less',
-	),
-	'dependencies' => array(
-		'mediawiki.jqueryMsg',
-		'ext.cx.tools.helpmessage'
-	),
-) + $resourcePaths;
-
-$wgResourceModules['ext.cx.tools.helpmessage'] = array(
-	'scripts' => 'tools/ext.cx.tools.helpmessage.js',
-	'styles' => array(
 		'tools/styles/ext.cx.tools.helpmessage.less',
 	),
 	'messages' => array(
@@ -113,7 +103,7 @@ $wgResourceModules['ext.cx.tools.helpmessage'] = array(
 		'cx-tools-instructions-text5',
 		'cx-tools-instructions-text6',
 		'cx-tools-searchbox-text',
-		'cx-tools-view-guidelines'
+		'cx-tools-view-guidelines',
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',
