@@ -76,13 +76,13 @@ CXDataModelManager.prototype.publish = function () {
 		dataModelManager.context.pub.publish( 'cx', data );
 	} );
 	console.log( '[CX] Sending data. Version: ' + this.dataModel.version );
-	this.updateVersion();
+	this.incrementVersionNumber();
 };
 
 /**
- * Update the version
+ * Update the version number of the model
  */
-CXDataModelManager.prototype.updateVersion = function () {
+CXDataModelManager.prototype.incrementVersionNumber = function () {
 	this.dataModel.version += 1;
 };
 
