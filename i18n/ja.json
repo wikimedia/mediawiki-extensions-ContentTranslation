@@ -13,5 +13,8 @@
     "cx-publish-summary": "ページ「$1」の翻訳に伴い作成",
     "cx-source-loading": "$1 を読み込み中",
     "cx-special-login-error": "このページを翻訳するには、ログインしてください。",
-    "cx-tools-instructions-title": "翻訳の作成"
+    "cx-tools-instructions-title": "翻訳の作成",
+    "cx-tools-instructions-text4": "自動翻訳は有用ですが、正確なものにするため誤りを訂正する必要があります。",
+    "cx-tools-searchbox-text": "単語の検索",
+    "cx-tools-view-guidelines": "[$1 翻訳ガイドラインを閲覧]"
 }

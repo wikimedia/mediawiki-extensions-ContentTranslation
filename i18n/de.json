@@ -17,9 +17,12 @@
     "cx-source-loading": "Lade $1",
     "cx-special-login-error": "Du musst angemeldet sein, um in dieser Seite übersetzen zu können.",
     "cx-tools-instructions-title": "Eine Übersetzung erstellen",
-    "cx-tools-instructions-text1": "Füge einige Absätze der Übersetzung hinzu.",
-    "cx-tools-instructions-text2": "Passe die zur Verfügung gestellten automatischen Übersetzungen an, um die Qualität zu gewährleisten.",
-    "cx-tools-instructions-text3": "Maschinelle Übersetzungen sind zum Beginnen hilfreich für Übersetzungen, jedoch müssen Übersetzer nach Bedarf Fehler korrigieren und bestätigen, dass die Übersetzung korrekt ist.",
-    "cx-tools-instructions-text4": "Übersetze keinen Text, der unglaubwürdig oder minderwertig erscheint. Falls möglich, verifiziere den Text mit in der Quellseite angegebenen Nachweisen.",
-    "cx-tools-instructions-text5": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“, um die neue Seite zu erstellen."
+    "cx-tools-instructions-text1": "Füge Absätze der Übersetzung hinzu.",
+    "cx-tools-instructions-text2": "Du musst sie nicht alle hinzufügen.",
+    "cx-tools-instructions-text3": "Mache den Text natürlich lesbar.",
+    "cx-tools-instructions-text4": "Automatische Übersetzungen sind hilfreich, aber du musst Fehler korrigieren, um die Übersetzungen richtig zu machen.",
+    "cx-tools-instructions-text5": "Die Übersetzung veröffentlichen",
+    "cx-tools-instructions-text6": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“.",
+    "cx-tools-searchbox-text": "Nach einem Wort suchen",
+    "cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]"
 }

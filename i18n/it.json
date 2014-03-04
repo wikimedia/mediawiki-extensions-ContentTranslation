@@ -18,9 +18,9 @@
     "cx-source-loading": "Caricamento $1",
     "cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina.",
     "cx-tools-instructions-title": "Crea una traduzione",
-    "cx-tools-instructions-text1": "Aggiungi alcuni paragrafi alla traduzione.",
-    "cx-tools-instructions-text2": "Ottimizza le traduzioni automatiche suggerite per garantire la qualità",
-    "cx-tools-instructions-text3": "La traduzione automatica è un utile punto di partenza per le traduzioni, ma i traduttori devono correggere gli errori quando occorre e confermare che la traduzione sia accurata.",
-    "cx-tools-instructions-text4": "Non tradurre testo che appare inaffidabile o di bassa qualità. Se possibile, controlla il testo con i riferimenti forniti nella pagina originale.",
-    "cx-tools-instructions-text5": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}} per creare la nuova pagina."
+    "cx-tools-instructions-text1": "Aggiungi paragrafi da tradurre",
+    "cx-tools-instructions-text2": "Non è necessario aggiungerli tutti",
+    "cx-tools-instructions-text3": "Rendi la lettura del testo naturale",
+    "cx-tools-instructions-text4": "La traduzione automatica è un utile, ma devi correggere gli errori e renderla accurata.",
+    "cx-tools-instructions-text5": "Pubblica la traduzione"
 }
