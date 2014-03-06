@@ -18,7 +18,8 @@
     "cx-source-loading": "Ładowanie $1",
     "cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
     "cx-tools-instructions-title": "Utwórz tłumaczenie",
-    "cx-tools-instructions-text1": "Dodaj kilka akapitów do tłumaczenia.",
+    "cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
     "cx-tools-instructions-text4": "Nie tłumacz tekstu, który nie wygląda na wiarygodny lub jest o niskiej jakości. Jeśli to możliwe, zweryfikuj tekst na podstawie przypisów podanych na stronie źródłowej.",
-    "cx-tools-instructions-text5": "Jeśli jesteś zadowolony z wyniku, naciśnij {{int:cx-publish-button}}, aby utworzyć nową stronę."
+    "cx-tools-instructions-text5": "Opublikuj tłumaczenie",
+    "cx-tools-searchbox-text": "Wyszukaj słowo"
 }

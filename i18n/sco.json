@@ -4,5 +4,13 @@
             "John Reid"
         ]
     },
-    "cx-desc": "Ae tuill that permits eiditors tae owerset pages fae yin leid til anither wi the heelp o machine owersetin an ither owersetin tuils"
+    "cx-desc": "Ae tuill that permits eiditors tae owerset pages fae yin leid til anither wi the heelp o machine owersetin an ither owersetin tuils",
+    "cx-tools-instructions-text1": "Add paragraphs tae owerset",
+    "cx-tools-instructions-text2": "Ye dinna need tae add them aw",
+    "cx-tools-instructions-text3": "Mak tex read natural",
+    "cx-tools-instructions-text4": "Autæmatic owersetin is uisefu but ye'll need tae clean up some mistaks tae mak it just richt.",
+    "cx-tools-instructions-text5": "Publish the owerset",
+    "cx-tools-instructions-text6": "Whan ye'r happie wi the result, press {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Rake fer ae waird",
+    "cx-tools-view-guidelines": "[$1 Luik at owersetin guidelines]"
 }
