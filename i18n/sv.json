@@ -7,7 +7,7 @@
         ]
     },
     "cx": "Översätt sidan",
-    "cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningshjälpmedel",
+    "cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningsverktyg",
     "cx-header-progressbar-text": "$1% översatt",
     "cx-header-translation-center": "Översättningscenter",
     "cx-source-view-page": "[$1 visa sida]",
@@ -19,9 +19,9 @@
     "cx-source-loading": "Läser in $1",
     "cx-special-login-error": "Du måste vara inloggad för att översätta denna sida.",
     "cx-tools-instructions-title": "Skapa en översättning",
-    "cx-tools-instructions-text1": "Lägg till några stycken till översättningen.",
-    "cx-tools-instructions-text2": "Justera de automatiska översättningarna som tillhandahålls för att säkerställa kvaliteten",
+    "cx-tools-instructions-text1": "Lägg till stycken för översättning",
+    "cx-tools-instructions-text2": "Du behöver inte lägga till dem alla",
     "cx-tools-instructions-text3": "Maskinöversättning är en bra utgångspunkt för översättningar, men översättare måste se över texten efter eventuella fel och bekräfta att översättningen är korrekt.",
-    "cx-tools-instructions-text4": "Översätt inte texter som verkar otillförlitliga eller håller låg kvalitet. Om möjligt, kontrollera texten gentemot de referenser som anges på källsidan.",
-    "cx-tools-instructions-text5": "När du är nöjd med resultatet, tryck på {{int:cx-publish-button}} för att skapa den nya sidan."
+    "cx-tools-instructions-text4": "Automatisk översättning är användbart men du kommer att behöva revidera fel för att göra den korrekt.",
+    "cx-tools-instructions-text5": "Publicera översättningen"
 }
