@@ -17,9 +17,12 @@
     "cx-source-loading": "در حال بارگذاری $1",
     "cx-special-login-error": "شما برای ترجمه در این صفحه باید وارد شوید.",
     "cx-tools-instructions-title": "ایجاد یک ترجمه",
-    "cx-tools-instructions-text1": "اضافه کردن برخی پاراگراف‌ها به ترجمه.",
-    "cx-tools-instructions-text2": "تنظیم ترجمه‌های خودکار ارائه شده برای تضمین کیفیت",
-    "cx-tools-instructions-text3": "ترجمهٔ ماشینی یک نقطهٔ شروع مفید برای ترجمه است،‌ اما مترجمان باید خطاها را به عنوان لازم و تایید اینکه ترجمه صحیح است، بازبینی کنند.",
-    "cx-tools-instructions-text4": "متنی که به نظر غیرقابل اعتماد یا کم‌کیفیت به نظر می‌رسد را ترجمه نکنید. اگر امکان دارد، متن را با منابع ارائه شده در صفحهٔ منبع تایید کنید.",
-    "cx-tools-instructions-text5": "هنگامی که از نتیجه راضی هستید، {{int:cx-publish-button}} را برای ایجاد صفحهٔ جدید فشار دهید."
+    "cx-tools-instructions-text1": "افزون پاراگراف‌ها به ترجمه",
+    "cx-tools-instructions-text2": "شما نیاز ندارید همه آن‌ها را اضافه کنید",
+    "cx-tools-instructions-text3": "ایجاد خواندن متن طبیعی",
+    "cx-tools-instructions-text4": "ترجمه خودکار مفید است ولی شما به تجدیدنظر خطاها برای اصلاح آن‌ها، نیاز خواهید داشت.",
+    "cx-tools-instructions-text5": "ترجمه را منتشر کنید",
+    "cx-tools-instructions-text6": "هنگامی که شما از نتیجه راضی هستید، {{int:cx-publish-button}} را فشار دهید.",
+    "cx-tools-searchbox-text": "جستجو برای یک کلمه",
+    "cx-tools-view-guidelines": "[$1 مشاهده دستورالعمل‌های ترجمه]"
 }
