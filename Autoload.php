@@ -8,9 +8,10 @@
  */
 
 global $wgAutoloadClasses;
-
 $dir = __DIR__;
 
-$wgAutoloadClasses['ApiContentTranslationPublish'] = "$dir/api/ApiContentTranslationPublish.php";
-$wgAutoloadClasses['ContentTranslationHooks'] = "$dir/ContentTranslation.hooks.php";
-$wgAutoloadClasses['SpecialContentTranslation'] = "$dir/specials/SpecialContentTranslation.php";
+$wgAutoloadClasses += array(
+	'ApiContentTranslationPublish' => "$dir/api/ApiContentTranslationPublish.php",
+	'ContentTranslationHooks' => "$dir/ContentTranslation.hooks.php",
+	'SpecialContentTranslation' => "$dir/specials/SpecialContentTranslation.php",
+);
