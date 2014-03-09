@@ -19,8 +19,9 @@
     "cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
     "cx-tools-instructions-text1": "Setzt Abschnitter dobäi fir z'iwwersetzen",
     "cx-tools-instructions-text2": "Dir musst se net all derbäisetzen",
-    "cx-tools-instructions-text3": "Maschinneniwwersetzung ass en nëtzlechen Ufank fir Iwwersetzungen, awer Iwwersetzer mussen do wou et néideg ass Feeler nokucken a confirméieren datt d'Iwwersetzung richteg ass.",
-    "cx-tools-instructions-text4": "Iwwersetzt keen Text deen net glafwierdeg oder vu schlechter Qualitéit ze si schéngt. Wa méiglech iwwerpréift den Text mat de Referenzen déi an der Quellsäit ugi sinn.",
+    "cx-tools-instructions-text3": "Maacht den Text natierlech liesbar",
+    "cx-tools-instructions-text4": "Automatesch Iwwersetzung ass nëtzlech awer Dir musst d'Feeler nokucken fir d'Iwwersetzung korrekt ze maachen.",
     "cx-tools-instructions-text5": "D'Iwwersetzung publizéieren",
+    "cx-tools-instructions-text6": "Wann Dir mam Resultat zefridde sidd, da klickt op {{int:cx-publish-button}}.",
     "cx-tools-searchbox-text": "E Wuert sichen"
 }

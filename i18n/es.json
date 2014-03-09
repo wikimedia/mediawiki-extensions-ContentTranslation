@@ -1,11 +1,12 @@
 {
     "@metadata": {
         "authors": [
-            "Fitoschido"
+            "Fitoschido",
+            "Sporeunai"
         ]
     },
     "cx": "Traducir página",
-    "cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro, con la ayuda de herramientas automáticas",
+    "cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de la traducción automática y otras herramientas de traducción",
     "cx-header-progressbar-text": "$1 % traducido",
     "cx-header-translation-center": "Centro de traducción",
     "cx-source-view-page": "[$1 ver página]",
@@ -17,9 +18,12 @@
     "cx-source-loading": "Cargando $1",
     "cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
     "cx-tools-instructions-title": "Crear una traducción",
-    "cx-tools-instructions-text1": "Añade algunos párrafos a la traducción.",
-    "cx-tools-instructions-text2": "Ajusta las traducciones automáticas provistas para garantizar su calidad",
-    "cx-tools-instructions-text3": "La traducción automática es un punto de partida útil para los traductores, pero estos deben revisar los errores a medida que sea necesario y confirmar que la traducción es precisa.",
-    "cx-tools-instructions-text4": "No traduzcas texto que parezca poco fiable o de baja calidad. De ser posible, revísalo con las referencias provistas en la página original.",
-    "cx-tools-instructions-text5": "Cuando creas que el texto está listo, pulsa en el botón {{int:cx-publish-button}} para crear la página nueva."
+    "cx-tools-instructions-text1": "Añadir párrafos para traducir",
+    "cx-tools-instructions-text2": "Usted no necesita agregar todos ellos",
+    "cx-tools-instructions-text3": "Hacer texto leído natural",
+    "cx-tools-instructions-text4": "Traducción automática es útil pero usted necesitará revisar errores para que sea exacta.",
+    "cx-tools-instructions-text5": "Publicar la traducción",
+    "cx-tools-instructions-text6": "Cuando usted está contento con el resultado, oprima {{int:cx-publicar-botón}}.",
+    "cx-tools-searchbox-text": "Buscar una palabra",
+    "cx-tools-view-guidelines": "[$1 Ver pautas de traducción]"
 }

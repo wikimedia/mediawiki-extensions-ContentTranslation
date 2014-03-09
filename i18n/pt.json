@@ -1,11 +1,18 @@
 {
     "@metadata": {
         "authors": [
-            "Imperadeiro98"
+            "Imperadeiro98",
+            "SandroHc"
         ]
     },
     "cx-header-translation-center": "Centro de tradução",
+    "cx-source-view-page": "[$1 ver página]",
     "cx-publish-page": "Página publicada em [$1 $2]",
+    "cx-publish-button": "Publicar tradução",
+    "cx-source-loading": "A carregar $1",
     "cx-tools-instructions-title": "Criar uma tradução",
-    "cx-tools-instructions-text3": "A tradução do computador é um ponto de partida útil para traduções, mas os tradutores devem rever erros conforme necessário e confirmar que a tradução é exata."
+    "cx-tools-instructions-text3": "Faz com que o texto seja lido de uma forma natural",
+    "cx-tools-instructions-text6": "Quando estiveres feliz com os resultados, pressiona {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Pesquisar por palavra",
+    "cx-tools-view-guidelines": "[$1 Ver as diretrizes de tradução]"
 }
