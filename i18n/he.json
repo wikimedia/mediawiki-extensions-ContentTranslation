@@ -2,11 +2,12 @@
     "@metadata": {
         "authors": [
             "Amire80",
-            "Lego770"
+            "Lego770",
+            "Inkbug"
         ]
     },
     "cx": "תרגום דף",
-    "cx-desc": "כלי המאפשר לעורכים לתרגם דפים משפה אחת לאחרת בעזרת תרגום מכונה ועזרי תרגום אחרים",
+    "cx-desc": "כלי המאפשר לעורכים לתרגם דפים משפה אחת לאחרת בעזרת תרגום מכונה וכלי תרגום אחרים",
     "cx-header-progressbar-text": "תורגמו $1%",
     "cx-header-translation-center": "מרכז התרגום",
     "cx-source-view-page": "[$1 הצגת הדף]",
@@ -19,8 +20,8 @@
     "cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה.",
     "cx-tools-instructions-title": "יצירת תרגום",
     "cx-tools-instructions-text1": "הוספת פסקאות לתרגום.",
-    "cx-tools-instructions-text2": "יש להתאים את תרגומי המכונה לשם אבטחת איכות",
+    "cx-tools-instructions-text2": "לא צריך להוסיף את כולם",
     "cx-tools-instructions-text3": "תרגום מכונה הוא נקודת פתיחה שימושית לתרגומים, אבל מתרגמים צריכים לתקן שגיאות כפי שנדרש ולוודא שהתרגום מדויק.",
-    "cx-tools-instructions-text4": "אין לתרגם טקסט שנראה בלתי־אמין או לא איכותי. אם הדבר אפשרי, יש לאמת את הטקסט בעזרת המקורות שניתנו בדף המקורי.",
-    "cx-tools-instructions-text5": "כשהתוצאה משביעה את רצונך, יש ללחוץ על {{int:cx-publish-button}} כדי ליצור דף חדש."
+    "cx-tools-instructions-text4": "תרגום אוטומטי הוא שימושי, אך יהיה עליך לתקן את השגיאות כדי שהתרגום יהיה מדויק.",
+    "cx-tools-instructions-text5": "פרסום התרגום"
 }
