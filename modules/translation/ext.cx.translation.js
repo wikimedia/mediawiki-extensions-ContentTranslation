@@ -81,15 +81,10 @@
 			mw.hook( 'mw.cx.translation.change' ).fire();
 		} );
 
-		this.$content.on( 'click', function () {
-			mw.hook( 'mw.cx.translation.add' ).fire(
-				$( '.cx-column--source .cx-column__content' ).html()
-			);
-		} );
 	};
 
-	ContentTranslationEditor.prototype.update = function ( ) {
-		this.$content.html( mw.cx.data.segmentedContent );
+	ContentTranslationEditor.prototype.update = function ( content ) {
+		this.$content.append( content );
 
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
 		mw.hook( 'mw.cx.translation.change' ).fire();
