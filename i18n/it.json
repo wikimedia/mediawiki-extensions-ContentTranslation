@@ -22,5 +22,8 @@
     "cx-tools-instructions-text2": "Non è necessario aggiungerli tutti",
     "cx-tools-instructions-text3": "Rendi la lettura del testo naturale",
     "cx-tools-instructions-text4": "La traduzione automatica è un utile, ma devi correggere gli errori e renderla accurata.",
-    "cx-tools-instructions-text5": "Pubblica la traduzione"
+    "cx-tools-instructions-text5": "Pubblica la traduzione",
+    "cx-tools-instructions-text6": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Cerca una parola",
+    "cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]"
 }

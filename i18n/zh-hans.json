@@ -20,11 +20,12 @@
     "cx-source-loading": "$1载入中",
     "cx-special-login-error": "您必须登录才能翻译此页面。",
     "cx-tools-instructions-title": "创建翻译",
-    "cx-tools-instructions-text1": "将一些段落添加到翻译。",
-    "cx-tools-instructions-text2": "调整自动翻译以保证质量",
-    "cx-tools-instructions-text3": "机械翻译是一个有用的基础翻译，但是翻译者必须修正其中的错误并确信译文如预期所见。",
-    "cx-tools-instructions-text4": "不要将原文粗劣翻译。如果可能，请引用原文以进行验证。",
-    "cx-tools-instructions-text5": "当您对结果满意时，按下{{int:cx-publish-button}}以创建新页面。",
+    "cx-tools-instructions-text1": "添加段落到翻译",
+    "cx-tools-instructions-text2": "您不需要加入它们",
+    "cx-tools-instructions-text3": "使文本阅读起来跟自然",
+    "cx-tools-instructions-text4": "自动翻译非常有用，但您仍需要复查错误使其精确。",
+    "cx-tools-instructions-text5": "发布翻译",
     "cx-tools-instructions-text6": "如果你满意这个结果，请按{{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "请搜索"
+    "cx-tools-searchbox-text": "请搜索",
+    "cx-tools-view-guidelines": "[$1 查看翻译指引]"
 }
