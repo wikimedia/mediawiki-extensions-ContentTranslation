@@ -21,7 +21,10 @@
     "cx-tools-instructions-title": "Skapa en översättning",
     "cx-tools-instructions-text1": "Lägg till stycken för översättning",
     "cx-tools-instructions-text2": "Du behöver inte lägga till dem alla",
-    "cx-tools-instructions-text3": "Maskinöversättning är en bra utgångspunkt för översättningar, men översättare måste se över texten efter eventuella fel och bekräfta att översättningen är korrekt.",
+    "cx-tools-instructions-text3": "Få texten att flöda naturligt",
     "cx-tools-instructions-text4": "Automatisk översättning är användbart men du kommer att behöva revidera fel för att göra den korrekt.",
-    "cx-tools-instructions-text5": "Publicera översättningen"
+    "cx-tools-instructions-text5": "Publicera översättningen",
+    "cx-tools-instructions-text6": "När du är nöjd med resultatet, tryck {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Söka efter ett ord",
+    "cx-tools-view-guidelines": "[$1 Visa riktlinjer för översättning]"
 }
