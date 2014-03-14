@@ -75,7 +75,7 @@
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
-		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
+		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
 
 		this.$content.on( 'input', function () {
 			mw.hook( 'mw.cx.translation.change' ).fire();
