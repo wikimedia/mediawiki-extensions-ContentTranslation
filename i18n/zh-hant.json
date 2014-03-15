@@ -5,18 +5,25 @@
             "Liuxinyu970226"
         ]
     },
+    "cx": "翻譯頁面",
+    "cx-desc": "允許編輯者經由機械翻譯和其他翻譯工具從一種語言翻譯成其他語言的工具",
     "cx-header-progressbar-text": "$1%已翻譯",
     "cx-header-translation-center": "翻譯中心",
+    "cx-source-view-page": "[$1 查看頁面]",
     "cx-publish-page": "頁面發佈在[$1 $2]",
     "cx-publish-page-error": "當保存頁面時出錯。",
     "cx-publish-button": "發佈翻譯",
     "cx-publish-summary": "經由翻譯頁面“$1”創建",
+    "tag-contenttranslation": "內容翻譯",
     "cx-source-loading": "正在載入$1",
     "cx-special-login-error": "您必須登錄翻譯在此頁中。",
     "cx-tools-instructions-title": "創建翻譯",
-    "cx-tools-instructions-text1": "將一些段落添加到翻譯。",
-    "cx-tools-instructions-text2": "調整提供自動翻譯以保證品質",
-    "cx-tools-instructions-text3": "機械翻譯是一個有用的基礎翻譯，但是翻譯者必須修正其中的錯誤並確信譯文如預期所見。",
-    "cx-tools-instructions-text4": "勿將原文粗劣翻譯。若有可能，請引用原文以利於查證。",
-    "cx-tools-instructions-text5": "當你對結果滿意時，按下{{int:cx-publish-button}}以創建新頁面。"
+    "cx-tools-instructions-text1": "將段落添加到翻譯",
+    "cx-tools-instructions-text2": "您無需加入它們",
+    "cx-tools-instructions-text3": "使文本能自然閱讀",
+    "cx-tools-instructions-text4": "自動翻譯很有用唯您務需複查錯誤使之精確。",
+    "cx-tools-instructions-text5": "發佈翻譯",
+    "cx-tools-instructions-text6": "當您對結果滿意時，按下{{int:cx-publish-button}}。",
+    "cx-tools-searchbox-text": "搜索一個單詞",
+    "cx-tools-view-guidelines": "[$1 查看翻譯指引]"
 }
