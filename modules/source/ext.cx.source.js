@@ -75,13 +75,11 @@
 
 	ContentTranslationSource.prototype.load = function () {
 		this.$content.html( mw.cx.data.segmentedContent );
+		mw.hook( 'mw.cx.source.loaded' ).fire();
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
 		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( this.load, this ) );
-		this.$content.on( 'click', 'p, h1, h2, h3, h4, ul', function () {
-			mw.hook( 'mw.cx.translation.add' ).fire( this.outerHTML );
-		} );
 	};
 
 	$.fn.cxSource = function ( options ) {

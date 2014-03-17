@@ -10,7 +10,6 @@
 'use strict';
 
 var CXSegmenter = require( __dirname + '/../segmentation/CXSegmenter.js' ).CXSegmenter;
-
 /**
  * CXDataModelManager
  * @class
@@ -39,6 +38,7 @@ CXDataModelManager.prototype.init = function () {
 			PageLoader = require( __dirname + '/../pageloader/PageLoader.js' ).PageLoader;
 			pageloader = new PageLoader( dataModelManager.context.sourcePage );
 			pageloader.load().then( function ( data ) {
+				console.log( '[CX] Page fetched' );
 				dataModelManager.context.sourceText = data;
 				segmenter = new CXSegmenter( dataModelManager.context.sourceText );
 				segmenter.segment();

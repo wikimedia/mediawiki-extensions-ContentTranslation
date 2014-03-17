@@ -130,7 +130,8 @@ CXParser.prototype.linkHandler = function ( href ) {
  */
 CXParser.prototype.onopentag = function ( tag ) {
 	var attrName,
-		section = /[ph1-6]|figure|ul|div/;
+		attributes,
+		section = /[ph1-6]|figure|ul|div|table/;
 
 	if ( tag.name === 'a' && !this.inSentence ) {
 		// sentences starting with a link
@@ -143,20 +144,20 @@ CXParser.prototype.onopentag = function ( tag ) {
 	if ( tag.name === 'a' ) {
 		this.linkHandler( tag.attributes.href );
 	}
-
-	for ( attrName in tag.attributes ) {
+	attributes = tag.attributes;
+	for ( attrName in attributes ) {
 		if ( attrName === 'data-parsoid' || attrName === 'data-mw' ) {
 			// Parsoid gives the html with these attributes and has
 			// values as big escaped htmls. The parser has trouble in
 			// not leaking it to the text. So ignore these attributes.
 			continue;
 		}
-		this.print( ' ' + attrName + '="' + entity( tag.attributes[attrName] ) + '"' );
+		this.print( ' ' + attrName + '="' + entity( attributes[attrName] ) + '"' );
 	}
 
 	// Sections
 	if ( tag.name.match( section ) ) {
-		if ( !tag.attributes.id ) {
+		if ( !attributes.id ) {
 			this.print( ' id="' + ( this.segmentCount++ ) + '"' );
 		}
 	}
@@ -175,7 +176,7 @@ CXParser.prototype.onopentag = function ( tag ) {
  * @param {string} tag
  */
 CXParser.prototype.onclosetag = function ( tag ) {
-	var section = /[ph1-6]|figure|ul|div/;
+	var section = /[ph1-6]|figure|ul|div|table/;
 	if ( tag.match( section ) ) {
 		if ( this.inSentence ) {
 			// Avoid dangling sentence.

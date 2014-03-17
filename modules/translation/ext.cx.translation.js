@@ -64,7 +64,7 @@
 		}
 
 		$content = $( '<div>' )
-			.attr( 'contenteditable', true )
+			//.attr( 'contenteditable', true )
 			.addClass( 'cx-column__content' )
 			.html( '\n' ); // Make sure that it's visible to the tests
 
@@ -75,20 +75,73 @@
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
-		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
-
+		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
+		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.addPlaceholders, this ) );
 		this.$content.on( 'input', function () {
 			mw.hook( 'mw.cx.translation.change' ).fire();
 		} );
 
 	};
 
-	ContentTranslationEditor.prototype.update = function ( content ) {
-		this.$content.append( content );
+	ContentTranslationEditor.prototype.update = function ( sourceId ) {
+		var sourceHtml = $( '#' + sourceId ).html();
 
+		$( '#t' + sourceId ).html( sourceHtml );
 		mw.hook( 'mw.cx.progress' ).fire( 100 );
 		mw.hook( 'mw.cx.translation.change' ).fire();
 	};
+
+	ContentTranslationEditor.prototype.addPlaceholders = function () {
+		var cxSections = 'p, h1, h2, h3, div, table, figure, ul' ;
+		this.$content.html( mw.cx.data.segmentedContent );
+		this.$content.find( cxSections ).each( function () {
+			var $section = $( this ),
+				sourceSectionId = $section.attr( 'id' ),
+				$sourceSection =  $( '#' + sourceSectionId );
+			$section.css( 'min-height', $section.height() );
+			$section.attr( {
+				'id': 't' + sourceSectionId,
+				'data-source': sourceSectionId,
+				'contenteditable': true
+			} );
+			$section.empty();
+			keepAlignment( $section );
+
+			// Bind events to the placeholder sections
+			$sourceSection.click( function() {
+				$( '#t' + $( this ).attr( 'id' ) ).click();
+			} );
+			$section.on( 'mouseenter', function () {
+				$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
+			} );
+			$section.on( 'mouseleave', function () {
+				$( this ).removeClass( 'placeholder' ).empty();
+			} );
+			$section.on( 'click', function () {
+				$( this ).removeClass( 'placeholder' )
+					.unbind( 'mouseenter mouseleave click' );
+				mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
+			} );
+
+		} );
+	};
+
+	function keepAlignment( $section ) {
+		$section .on( 'input', function () {
+			var $sourceSection, sectionHeight, sourceSectionHeight;
+
+			$section.css( 'min-height', '' );
+			$sourceSection = $( '#' + $section.data( 'source' ) );
+			sectionHeight = $section.height();
+			sourceSectionHeight = $sourceSection.height();
+			if ( sourceSectionHeight > sectionHeight ) {
+				$section.css( 'min-height', sourceSectionHeight );
+			} else {
+				$sourceSection.css( 'min-height', sectionHeight );
+			}
+			// TODO: We will have to auto-shrink the sections while removing content.
+		} );
+	}
 
 	$.fn.cxTranslation = function ( options ) {
 		return this.each( function () {
