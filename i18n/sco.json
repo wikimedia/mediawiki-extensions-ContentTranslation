@@ -4,13 +4,25 @@
             "John Reid"
         ]
     },
+    "cx": "Owerset page",
     "cx-desc": "Ae tuill that permits eeditors tae owerset pages fae yin leid intil anither wi the heelp o machine owersetin n ither owersetin tuils",
+    "cx-header-progressbar-text": "$1% owerset",
+    "cx-header-translation-center": "Owersetin center",
+    "cx-source-view-page": "[$1 see page]",
+    "cx-publish-page": "Page publeeshed at [$1 $2]",
+    "cx-publish-page-error": "Mistak while hainin page.",
+    "cx-publish-button": "Publeesh owerset",
+    "cx-publish-summary": "Cræftit bi owersetin the page \"$1\"",
+    "tag-contenttranslation": "ContentOwerset",
+    "cx-source-loading": "Laidin $1",
+    "cx-special-login-error": "Ye maun be loggit in fer tae owerset in this page.",
+    "cx-tools-instructions-title": "Cræft aen owerset",
     "cx-tools-instructions-text1": "Add paragraphs tae owerset",
     "cx-tools-instructions-text2": "Ye dinna need tae add thaim aw",
     "cx-tools-instructions-text3": "Mak tex read natural",
     "cx-tools-instructions-text4": "Autæmatic owersetin is uisefu but ye'll need tae clean up some mistaks tae mak it just richt.",
     "cx-tools-instructions-text5": "Publish the owerset",
-    "cx-tools-instructions-text6": "Whan ye'r happie wi the affcome, press {{int:cx-publish-button}}.",
+    "cx-tools-instructions-text6": "Whan ye'r happie wi the ootcome, press {{int:cx-publish-button}}.",
     "cx-tools-searchbox-text": "Rake fer ae waird",
     "cx-tools-view-guidelines": "[$1 Luik at owersetin guidelines]"
 }
