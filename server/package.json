@@ -9,6 +9,7 @@
 		"q": "*",
 		"redis": "0.10",
 		"request": "*",
+		"sax": "0.6.0",
 		"socket.io": "0.9.x"
 	},
 	"devDependencies": {

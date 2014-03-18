@@ -3,7 +3,7 @@
 
 	var cxdata;
 	$( '.article' ).on( 'click', '.cx-segment', function () {
-		var segment = cxdata.segments[$( this ).data( 'segment' )];
+		var segment = cxdata.segments[$( this ).data( 'segmentid' )];
 		console.log( segment );
 	} );
 

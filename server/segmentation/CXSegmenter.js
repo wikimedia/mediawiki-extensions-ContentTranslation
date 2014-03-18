@@ -1,5 +1,5 @@
 /**
- * ContentTranslation Server
+ * ContentTranslation Server - Segmenter
  *
  * @file
  * @ingroup Extensions
@@ -9,28 +9,56 @@
 
 'use strict';
 
-var util = require( 'util' ),
-	Segmenter = require( __dirname + '/Segmenter.js' ).Segmenter,
-	ParagraphSegmenter = require( __dirname + '/ParagraphSegmenter.js' ).ParagraphSegmenter;
+var CXParserFactory = require( __dirname + '/CXParserFactory.js' ).CXParserFactory,
+	$ = require( 'jquery' );
 
-function CXSegmenter( content ) {
-	Segmenter.call( this, content );
+function CXSegmenter( content, language ) {
+	this.content = content;
+	this.segmentCount = 0;
+	this.segments = {};
+	this.segmentedContent = null;
 	this.links = {};
+	this.parser = ( new CXParserFactory() ).getParser( language || 'en' );
 }
 
-// Extend Segmenter
-util.inherits( CXSegmenter, Segmenter );
-
 CXSegmenter.prototype.segment = function () {
-	var paragraphSegmenter = new ParagraphSegmenter( this.content );
-	paragraphSegmenter.segment();
-	this.segments = paragraphSegmenter.getSegments();
-	this.segmentedContent = paragraphSegmenter.toHTML();
-	this.links = paragraphSegmenter.getLinks();
+	this.parse();
+	this.extractSegments();
+};
+
+CXSegmenter.prototype.parse = function () {
+	this.parser.parse( this.content );
+	this.links = this.parser.links;
+	this.segmentedContent = this.parser.segmentedContent;
 };
 
 CXSegmenter.prototype.getLinks = function () {
 	return this.links;
+};
+
+CXSegmenter.prototype.extractSegments = function () {
+	var segmenter = this,
+		$container = $( '<div>' ).html( this.segmentedContent );
+
+	$container.find( '.cx-segment' ).each( function ( index, section ) {
+		var $section = $( section ),
+			segmentId = $section.data( 'segmentid' );
+		segmenter.segments[segmentId] = {
+			source: $section.html()
+		};
+	} );
+};
+
+CXSegmenter.prototype.getSegmentCount = function () {
+	return this.segmentCount;
+};
+
+CXSegmenter.prototype.getSegments = function () {
+	return this.segments;
+};
+
+CXSegmenter.prototype.getSegmentedContent = function () {
+	return this.segmentedContent;
 };
 
 module.exports.CXSegmenter = CXSegmenter;
