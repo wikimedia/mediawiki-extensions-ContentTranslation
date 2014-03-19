@@ -49,13 +49,11 @@
 				data = $this.data( 'cxTools' );
 
 			if ( !data ) {
-				$this.data( 'cxTools',
-					( data = new ContentTranslationTools( this, options ) )
-				);
+				$this.data( 'cxTools', ( data = new ContentTranslationTools( this, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};

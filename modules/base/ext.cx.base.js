@@ -17,7 +17,7 @@
 	 * @class
 	 */
 	function ContentTranslation( element, options ) {
-		this.$container =  $( element );
+		this.$container = $( element );
 		this.$translation = null;
 		this.$header = null;
 		this.$source = null;
@@ -66,13 +66,11 @@
 				data = $this.data( 'cx' );
 
 			if ( !data ) {
-				$this.data( 'cx',
-					( data = new ContentTranslation( this, options ) )
-				);
+				$this.data( 'cx', ( data = new ContentTranslation( this, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};

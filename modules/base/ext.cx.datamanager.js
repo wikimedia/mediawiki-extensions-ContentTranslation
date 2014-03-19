@@ -19,7 +19,7 @@
 		mw.log( '[CX] Connected to server' );
 	}
 
-	function updateModel( data) {
+	function updateModel( data ) {
 		mw.log( '[CX] Received data from server' );
 		mw.cx.data = data;
 		mw.hook( 'mw.cx.source.ready' ).fire();

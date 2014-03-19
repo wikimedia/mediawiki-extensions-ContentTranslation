@@ -51,13 +51,12 @@
 
 			if ( !data ) {
 				$this.data(
-					'cxHeader',
-					( data = new ContentTranslationHeader( this, options ) )
+					'cxHeader', ( data = new ContentTranslationHeader( this, options ) )
 				);
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};

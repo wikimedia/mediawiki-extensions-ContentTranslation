@@ -89,13 +89,12 @@
 
 			if ( !data ) {
 				$this.data(
-					'cxSource',
-					( data = new ContentTranslationSource( this, options ) )
+					'cxSource', ( data = new ContentTranslationSource( this, options ) )
 				);
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};

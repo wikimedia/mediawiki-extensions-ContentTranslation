@@ -61,13 +61,11 @@
 				data = $this.data( 'cxProgressBar' );
 
 			if ( !data ) {
-				$this.data( 'cxProgressBar',
-					( data = new ProgressBar( this, options ) )
-				);
+				$this.data( 'cxProgressBar', ( data = new ProgressBar( this, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};
