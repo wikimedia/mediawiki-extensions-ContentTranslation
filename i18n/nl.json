@@ -8,7 +8,7 @@
             "Siebrand"
         ]
     },
-    "cx": "Vertaalpagina",
+    "cx": "Pagina vertalen",
     "cx-desc": "Gereedschap waarmee redacteuren met behulp van machinevertaling en andere vertaalhulpmiddelen pagina's van de ene taal naar de andere kunnen omzetten",
     "cx-header-progressbar-text": "$1% vertaald",
     "cx-header-translation-center": "Vertaalcentrum",
@@ -23,9 +23,10 @@
     "cx-tools-instructions-title": "Maak een vertaling",
     "cx-tools-instructions-text1": "Te vertalen alinea's toevoegen",
     "cx-tools-instructions-text2": "U hoeft ze niet allemaal toe te voegen",
-    "cx-tools-instructions-text3": "Machine vertaling is een goed uitgangspunt voor vertalingen, maar vertalers moeten waar nodig fouten corrigeren en bevestigen dat de vertaling juist is.",
-    "cx-tools-instructions-text4": "Vertaal geen tekst die onbetrouwbaar of van lage kwaliteit is. Indien mogelijk controleert u de tekst aan de rand van referenties uit de bronpagina.",
+    "cx-tools-instructions-text3": "Tekstlezen natuurlijk maken",
+    "cx-tools-instructions-text4": "Automatische vertaling is handig, maar u zult fouten moeten herzien om het juist te maken.",
     "cx-tools-instructions-text5": "Vertaling publiceren",
+    "cx-tools-instructions-text6": "Wanneer u tevreden met het resultaat bent, drukt u op {{int:cx-publiceren-knop}}.",
     "cx-tools-searchbox-text": "Woord zoeken",
     "cx-tools-view-guidelines": "[$1 Vertaalrichtlijnen weergeven]"
 }
