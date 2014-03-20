@@ -9,7 +9,8 @@
 
 'use strict';
 
-var CXSegmenter = require( __dirname + '/../segmentation/CXSegmenter.js' ).CXSegmenter;
+var CXSegmenter = require( __dirname + '/../segmentation/CXSegmenter.js' ).CXSegmenter,
+	CXMTInterface = require( __dirname + '/../mt/CXMTInterface.js' ).CXMTInterface;
 /**
  * CXDataModelManager
  * @class
@@ -26,6 +27,7 @@ function CXDataModelManager( context ) {
 CXDataModelManager.prototype.init = function () {
 	var dataModelManager = this,
 		segmenter,
+		mtInterface,
 		PageLoader, pageloader;
 
 	// TODO: refactor this
@@ -54,10 +56,16 @@ CXDataModelManager.prototype.init = function () {
 				dataModelManager.publish();
 				// TODO: Dispatch the context to a number of task runners
 				// Once each task runners finish, publish.
-			}, function ( /*jqXHR, textStatus, errorThrown*/ ) {
+				mtInterface = new CXMTInterface( dataModelManager.context );
+				mtInterface.translate( dataModelManager.dataModel.segments ).then( function ( translations ) {
+					dataModelManager.dataModel.mt = translations;
+					dataModelManager.publish();
+				} );
+			}, function () {
 				console.error( '[CX] Error in retrieving the page ' +
 					dataModelManager.context.sourcePage );
 			} );
+
 		}
 	} );
 };

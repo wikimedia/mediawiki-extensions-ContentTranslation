@@ -5,16 +5,16 @@
 
 'use strict';
 
-var ROT13Service = require( __dirname+ '/providers/ROT13.js' ).ROT13Service;
+var Rot13Service = require( __dirname + '/providers/Rot13.js' ).ROT13Service;
 /**
  * @class CxTranslator
  */
-function CXMTInterface ( config ) {
-	this.config = config;
+function CXMTInterface( context ) {
+	this.context = context;
 }
 
-CXMTInterface.prototype.translate = function ( sourceLang, targetLang, sourceText/*, onSuccess, onError */) {
-	return ( new ROT13Service(this.config) ).translate( sourceLang, targetLang, sourceText );
+CXMTInterface.prototype.translate = function ( segments ) {
+	return ( new Rot13Service( this.context ) ).translate( segments );
 };
 
-module.exports = { 'CXMTInterface': CXMTInterface };
+module.exports.CXMTInterface = CXMTInterface;

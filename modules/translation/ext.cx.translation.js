@@ -41,9 +41,9 @@
 
 		this.$container.append(
 			$( '<h2>' )
-				.attr( 'contenteditable', true )
-				.addClass( 'cx-column__title' )
-				.text( $( '.cx-column--source .cx-column__title' ).text() )
+			.attr( 'contenteditable', true )
+			.addClass( 'cx-column__title' )
+			.text( $( '.cx-column--source .cx-column__title' ).text() )
 		);
 
 		if ( mw.cx.targetLanguage ) {
@@ -64,7 +64,6 @@
 		}
 
 		$content = $( '<div>' )
-			//.attr( 'contenteditable', true )
 			.addClass( 'cx-column__content' )
 			.html( '\n' ); // Make sure that it's visible to the tests
 
@@ -75,7 +74,7 @@
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
-		mw.hook(  'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
+		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.addPlaceholders, this ) );
 		this.$content.on( 'input', function () {
 			mw.hook( 'mw.cx.translation.change' ).fire();
@@ -84,20 +83,34 @@
 	};
 
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
-		var sourceHtml = $( '#' + sourceId ).html();
+		$( '#t' + sourceId ).empty();
 
-		$( '#t' + sourceId ).html( sourceHtml );
-		mw.hook( 'mw.cx.progress' ).fire( 100 );
+		$( '#' + sourceId ).find( '.cx-segment' ).each( function () {
+			$( '#t' + sourceId ).append( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
+		} );
+		$( '#t' + sourceId ).trigger( 'input' );
+
+		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
 	};
 
+	// TODO This is a dummy completeness calculation.
+	ContentTranslationEditor.prototype.calculateCompletion = function () {
+		var completeness;
+
+		completeness = $( '.cx-column--translation' ).html().length / $( '.cx-column--source' ).html().length * 100;
+		completeness = completeness > 100? 100 : completeness;
+		mw.hook( 'mw.cx.progress' ).fire( completeness );
+	};
+
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var cxSections = 'p, h1, h2, h3, div, table, figure, ul' ;
+		var cxSections = 'p, h1, h2, h3, div, table, figure, ul';
+
 		this.$content.html( mw.cx.data.segmentedContent );
 		this.$content.find( cxSections ).each( function () {
 			var $section = $( this ),
 				sourceSectionId = $section.attr( 'id' ),
-				$sourceSection =  $( '#' + sourceSectionId );
+				$sourceSection = $( '#' + sourceSectionId );
 			$section.css( 'min-height', $section.height() );
 			$section.attr( {
 				'id': 't' + sourceSectionId,
@@ -108,7 +121,7 @@
 			keepAlignment( $section );
 
 			// Bind events to the placeholder sections
-			$sourceSection.click( function() {
+			$sourceSection.click( function () {
 				$( '#t' + $( this ).attr( 'id' ) ).click();
 			} );
 			$section.on( 'mouseenter', function () {
@@ -127,7 +140,7 @@
 	};
 
 	function keepAlignment( $section ) {
-		$section .on( 'input', function () {
+		$section.on( 'input', function () {
 			var $sourceSection, sectionHeight, sourceSectionHeight;
 
 			$section.css( 'min-height', '' );
@@ -149,13 +162,11 @@
 				data = $this.data( 'cxTranslation' );
 
 			if ( !data ) {
-				$this.data( 'cxTranslation',
-					( data = new ContentTranslationEditor( this, options ) )
-				);
+				$this.data( 'cxTranslation', ( data = new ContentTranslationEditor( this, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {
-				data[options].call( $this );
+				data[ options ].call( $this );
 			}
 		} );
 	};
