@@ -5,7 +5,7 @@
 
 'use strict';
 
-var Rot13Service = require( __dirname + '/providers/Rot13.js' ).ROT13Service;
+var Rot13Service = require( __dirname + '/providers/Rot13.js' ).Rot13Service;
 /**
  * @class CxTranslator
  */
