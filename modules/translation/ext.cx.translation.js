@@ -118,7 +118,7 @@
 				'contenteditable': true
 			} );
 			$section.empty();
-			keepAlignment( $section );
+			$section.on( 'input', keepAlignment );
 
 			// Bind events to the placeholder sections
 			$sourceSection.click( function () {
@@ -139,21 +139,21 @@
 		} );
 	};
 
-	function keepAlignment( $section ) {
-		$section.on( 'input', function () {
-			var $sourceSection, sectionHeight, sourceSectionHeight;
-
-			$section.css( 'min-height', '' );
-			$sourceSection = $( '#' + $section.data( 'source' ) );
-			sectionHeight = $section.height();
-			sourceSectionHeight = $sourceSection.height();
-			if ( sourceSectionHeight > sectionHeight ) {
-				$section.css( 'min-height', sourceSectionHeight );
-			} else {
-				$sourceSection.css( 'min-height', sectionHeight );
-			}
-			// TODO: We will have to auto-shrink the sections while removing content.
-		} );
+	/**
+	 * Keep the height of the source and translation sections equal
+	 * so that they will appear top aligned.
+	 */
+	function keepAlignment() {
+		var $sourceSection, sectionHeight, sourceSectionHeight, $section;
+		/*jshint validthis:true */
+		$section = $( this );
+		$sourceSection = $( '#' + $section.data( 'source' ) );
+		sectionHeight = $section.height();
+		$sourceSection.css( 'min-height', '' );
+		sourceSectionHeight = $sourceSection.height();
+		if ( sourceSectionHeight < sectionHeight ) {
+			$sourceSection.css( 'min-height', sectionHeight );
+		}
 	}
 
 	$.fn.cxTranslation = function ( options ) {
