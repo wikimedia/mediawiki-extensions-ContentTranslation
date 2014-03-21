@@ -31,6 +31,11 @@ $specialPageAliases['de'] = array(
 	'ContentTranslation' => array( 'Inhaltsübersetzung' ),
 );
 
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'ContentTranslation' => array( 'ZerrekAçarnayış', 'ZA' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'ContentTranslation' => array( 'ترجمه_محتوا' ),
