@@ -83,12 +83,18 @@
 
 	};
 
+	/**
+	 * Update the translation section with the machine translation
+	 * @param {string} sourceId source section identifier
+	 */
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
-		$( '#t' + sourceId ).empty();
-
-		$( '#' + sourceId ).find( '.cx-segment' ).each( function () {
-			$( '#t' + sourceId ).append( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
+		// Copy the whole section html to translation section.
+		$( '#t' + sourceId ).html( $( '#' + sourceId ).html() );
+		// For every segment, use MT as replacement
+		$( '#t' + sourceId ).find( '.cx-segment' ).each( function () {
+			$( this ).html( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
 		} );
+		// Trigger input event so that the alignemnt is right.
 		$( '#t' + sourceId ).trigger( 'input' );
 
 		this.calculateCompletion();
@@ -100,15 +106,44 @@
 		var completeness;
 
 		completeness = $( '.cx-column--translation' ).html().length / $( '.cx-column--source' ).html().length * 100;
-		completeness = completeness > 100? 100 : completeness;
+		completeness = completeness > 100 ? 100 : completeness;
 		mw.hook( 'mw.cx.progress' ).fire( completeness );
 	};
 
+	/**
+	 * Generate a jquery selector for all sections
+	 * @return {string} the section selector string
+	 */
+	ContentTranslationEditor.prototype.getSectionSelector = function () {
+		var i, sectionSelector = '',
+			sectionTypes = [
+			'div', 'p',
+			// tables
+			'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
+			// lists
+			'ul', 'ol', 'li', 'dl', 'dt', 'dd',
+			// HTML5 heading content
+			'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
+			// HTML5 sectioning content
+			'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
+			'figcaption', 'fieldset', 'details', 'blockquote',
+			// other
+			'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
+			'map', 'object', 'pre', 'progress', 'video'
+		 ];
+		for ( i = 0; i < sectionTypes.length; i++ ) {
+			sectionSelector += sectionTypes[ i ] + ',';
+		}
+		// Remove the trailing comma.
+		sectionSelector = sectionSelector.replace( /,+$/, '' );
+		return sectionSelector;
+	};
+
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var cxSections = 'p, h1, h2, h3, div, table, figure, ul';
+		var cxSectionSelector = this.getSectionSelector();
 
 		this.$content.html( mw.cx.data.segmentedContent );
-		this.$content.find( cxSections ).each( function () {
+		this.$content.find( cxSectionSelector ).each( function () {
 			var $section = $( this ),
 				sourceSectionId = $section.attr( 'id' ),
 				$sourceSection = $( '#' + sourceSectionId );
