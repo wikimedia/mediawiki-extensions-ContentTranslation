@@ -1,4 +1,4 @@
-@language-stage.wmflabs.org @login
+@firefox @language-stage.wmflabs.org @login
 Feature: Content translation special page
 
   As a wiki editor
