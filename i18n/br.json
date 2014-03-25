@@ -15,5 +15,10 @@
     "cx-source-loading": "O kargañ $1",
     "cx-special-login-error": "Ret eo deoc'h bezañ kevreet evit treiñ ar bajenn-mañ.",
     "cx-tools-instructions-title": "Krouiñ un droidigezh",
-    "cx-tools-instructions-text1": "Ouzhpennañ un nebeud rannbennadoù d'an droidigezh."
+    "cx-tools-instructions-text1": "Ouzhpennañ un nebeud rannbennadoù d'an droidigezh.",
+    "cx-tools-instructions-text2": "N'ho peus ket ezhomm da ouzhpennañ an holl anezho",
+    "cx-tools-instructions-text5": "Embann an droidigezh",
+    "cx-tools-instructions-text6": "Pa vioc'h kontant eus an disoc'h, klikit war {{int:cx-publish-button}}.",
+    "cx-tools-searchbox-text": "Klask ur ger",
+    "cx-tools-view-guidelines": "[$1 Gwelet ar sturiadoù treiñ]"
 }
