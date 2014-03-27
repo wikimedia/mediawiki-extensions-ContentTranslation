@@ -4,5 +4,4 @@
 .*.swp
 .idea
 .bundle/
-server/node_modules
 docs/
