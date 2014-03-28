@@ -30,7 +30,7 @@
 	};
 
 	ContentTranslationEditor.prototype.render = function () {
-		var $content;
+		var $content, $heading, $languageLabel, $subHeading;
 
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
@@ -38,29 +38,24 @@
 				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
 		}
-
-		this.$container.append(
-			$( '<h2>' )
+		$heading = $( '<h2>' )
 			.attr( 'contenteditable', true )
 			.addClass( 'cx-column__title' )
-			.text( $( '.cx-column--source .cx-column__title' ).text() )
-		);
+			.text( $( '.cx-column--source .cx-column__title' ).text() );
+		this.$container.append( $heading );
 
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
 				lang: mw.cx.targetLanguage,
 				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
-
-			this.$container.append(
-				$( '<div>' )
-					.addClass( 'cx-column__sub-heading' )
-					.append(
-						$( '<span>' )
-							.addClass( 'cx-column__language-label' )
-							.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) )
-					)
-			);
+			$languageLabel = $( '<span>' )
+				.addClass( 'cx-column__language-label' )
+				.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
+			$subHeading = $( '<div>' )
+				.addClass( 'cx-column__sub-heading' )
+				.append( $languageLabel );
+			this.$container.append( $subHeading );
 		}
 
 		$content = $( '<div>' )
