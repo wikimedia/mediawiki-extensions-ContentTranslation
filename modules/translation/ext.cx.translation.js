@@ -83,14 +83,16 @@
 	 * @param {string} sourceId source section identifier
 	 */
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
+		var $section = $( jquerySelectorForId( sourceId, 't' ) );
+
 		// Copy the whole section html to translation section.
-		$( '#t' + sourceId ).html( $( '#' + sourceId ).html() );
+		$section.html( $( '#' + sourceId ).html() );
 		// For every segment, use MT as replacement
-		$( '#t' + sourceId ).find( '.cx-segment' ).each( function () {
+		$section.find( '.cx-segment' ).each( function () {
 			$( this ).html( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
 		} );
 		// Trigger input event so that the alignemnt is right.
-		$( '#t' + sourceId ).trigger( 'input' );
+		$section.trigger( 'input' );
 
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
@@ -100,7 +102,8 @@
 	ContentTranslationEditor.prototype.calculateCompletion = function () {
 		var completeness;
 
-		completeness = $( '.cx-column--translation' ).html().length / $( '.cx-column--source' ).html().length * 100;
+		completeness = $( '.cx-column--translation' ).html().length /
+			$( '.cx-column--source' ).html().length * 100;
 		completeness = completeness > 100 ? 100 : completeness;
 		mw.hook( 'mw.cx.progress' ).fire( completeness );
 	};
@@ -138,22 +141,36 @@
 		/*jshint validthis:true */
 		$( this ).removeClass( 'placeholder' )
 			.unbind( 'hover click' );
-		$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 	}
 
 	function sectionMouseEnter() {
 		/*jshint validthis:true */
 		$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
-		$( '#' + $( this ).data( 'source' ) ).addClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'highlight' );
 	}
 
 	function sectionMouseLeave() {
 		/*jshint validthis:true */
 		$( this ).removeClass( 'placeholder' ).empty();
-		$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 	}
 
+	/**
+	 * Return a valid jquery selector for the given id after escaping
+	 * @param {string} id
+	 * @param {string} [prefix] id prefix
+	 */
+	function jquerySelectorForId( id, prefix ) {
+		prefix = prefix || '';
+		if ( !id ) {
+			return '#' + prefix + ( Math.floor( Math.random() * 1000000 ) + 1 );
+		}
+		// make it a string
+		id = id + '';
+		return '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
+	}
 	/**
 	 * Add placeholders for translation sections. The placeholders
 	 * are aligned to the source sections. Also provides mouse hover effects.
@@ -167,7 +184,7 @@
 
 			$section = $( this );
 			sourceSectionId = $section.attr( 'id' );
-			$sourceSection = $( '#' + sourceSectionId );
+			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
 			$section.css( 'min-height', $section.height() )
 				.attr( {
 					'id': 't' + sourceSectionId,
@@ -178,12 +195,12 @@
 			$section.on( 'input', keepAlignment );
 			// Bind events to the placeholder sections
 			$sourceSection.click( function () {
-				$( '#t' + $( this ).attr( 'id' ) ).click();
+				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).click();
 			} );
 			$sourceSection.hover( function () {
-				$( '#t' + $( this ).attr( 'id' ) ).mouseenter();
+				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseenter();
 			}, function () {
-				$( '#t' + $( this ).attr( 'id' ) ).mouseleave();
+				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
 			} );
 			$section.hover( sectionMouseEnter, sectionMouseLeave );
 			$section.on( 'click', sectionClick );
