@@ -73,7 +73,18 @@
 
 	ContentTranslationSource.prototype.load = function () {
 		this.$content.html( mw.cx.data.segmentedContent );
+		// Disable all links
+		this.disableLinks();
 		mw.hook( 'mw.cx.source.loaded' ).fire();
+	};
+
+	/**
+	 * Disable all links in the content area.
+	 */
+	ContentTranslationSource.prototype.disableLinks = function () {
+		this.$content.find( 'a' ).bind( 'click', function () {
+			return false;
+		} );
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
