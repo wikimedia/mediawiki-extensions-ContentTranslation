@@ -32,7 +32,12 @@
 		this.listen();
 	};
 
+	/**
+	 * Render the source content column
+	 */
 	ContentTranslationSource.prototype.render = function () {
+		var $heading, $languageLabel, $articleLink, $subHeading, $loader;
+
 		mw.cx.sourceLanguage = mw.config.get( 'wgContentLanguage' );
 
 		this.$container.prop( {
@@ -40,35 +45,28 @@
 			dir: $.uls.data.getDir( mw.cx.sourceLanguage )
 		} );
 
-		this.$container.append(
-			$( '<h2>' )
-				.addClass( 'cx-column__title' )
-				.text( mw.cx.sourceTitle )
+		$heading = $( '<h2>' )
+			.addClass( 'cx-column__title' )
+			.text( mw.cx.sourceTitle );
+		$languageLabel = $( '<span>' )
+			.addClass( 'cx-column__language-label' )
+			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
+		$articleLink = $( '<span>' )
+			.addClass( 'cx-column__sub-heading__view-page' )
+			.html(
+				mw.message(
+					'cx-source-view-page',
+					mw.util.getUrl( mw.cx.sourceTitle )
+				).parse()
 		);
+		$subHeading = $( '<div>' )
+			.addClass( 'cx-column__sub-heading' )
+			.append( $languageLabel, $articleLink );
+		$loader = $( '<div>' )
+			.addClass( 'cx-column__content' )
+			.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) );
+		this.$container.append( $heading, $subHeading, $loader );
 
-		this.$container.append(
-			$( '<div>' )
-				.addClass( 'cx-column__sub-heading' )
-				.append(
-					$( '<span>' )
-						.addClass( 'cx-column__language-label' )
-						.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) ),
-					$( '<span>' )
-						.addClass( 'cx-column__sub-heading__view-page' )
-						.html(
-							mw.message(
-								'cx-source-view-page',
-								mw.util.getUrl( mw.cx.sourceTitle )
-							).parse()
-						)
-				)
-		);
-
-		this.$container.append(
-			$( '<div>' )
-				.addClass( 'cx-column__content' )
-				.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) )
-		);
 		this.$title = this.$container.find( '.cx-column__title' );
 		this.$content = this.$container.find( '.cx-column__content' );
 	};
