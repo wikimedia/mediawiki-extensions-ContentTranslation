@@ -134,42 +134,59 @@
 		return sectionSelector;
 	};
 
+	function sectionClick() {
+		/*jshint validthis:true */
+		$( this ).removeClass( 'placeholder' )
+			.unbind( 'hover click' );
+		$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
+		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
+	}
+
+	function sectionMouseEnter() {
+		/*jshint validthis:true */
+		$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
+		$( '#' + $( this ).data( 'source' ) ).addClass( 'highlight' );
+	}
+
+	function sectionMouseLeave() {
+		/*jshint validthis:true */
+		$( this ).removeClass( 'placeholder' ).empty();
+		$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
+	}
+
+	/**
+	 * Add placeholders for translation sections. The placeholders
+	 * are aligned to the source sections. Also provides mouse hover effects.
+	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
 		var cxSectionSelector = this.getSectionSelector();
 
 		this.$content.html( mw.cx.data.segmentedContent );
 		this.$content.find( cxSectionSelector ).each( function () {
-			var $section = $( this ),
-				sourceSectionId = $section.attr( 'id' ),
-				$sourceSection = $( '#' + sourceSectionId );
-			$section.css( 'min-height', $section.height() );
-			$section.attr( {
-				'id': 't' + sourceSectionId,
-				'data-source': sourceSectionId,
-				'contenteditable': true
-			} );
+			var $section, sourceSectionId, $sourceSection;
+
+			$section = $( this );
+			sourceSectionId = $section.attr( 'id' );
+			$sourceSection = $( '#' + sourceSectionId );
+			$section.css( 'min-height', $section.height() )
+				.attr( {
+					'id': 't' + sourceSectionId,
+					'data-source': sourceSectionId,
+					'contenteditable': true
+				} );
 			$section.empty();
 			$section.on( 'input', keepAlignment );
-
 			// Bind events to the placeholder sections
 			$sourceSection.click( function () {
 				$( '#t' + $( this ).attr( 'id' ) ).click();
 			} );
-			$section.on( 'mouseenter', function () {
-				$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
-				$( '#' + $( this ).data( 'source' ) ).addClass( 'highlight' );
+			$sourceSection.hover( function () {
+				$( '#t' + $( this ).attr( 'id' ) ).mouseenter();
+			}, function () {
+				$( '#t' + $( this ).attr( 'id' ) ).mouseleave();
 			} );
-			$section.on( 'mouseleave', function () {
-				$( this ).removeClass( 'placeholder' ).empty();
-				$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
-			} );
-			$section.on( 'click', function () {
-				$( this ).removeClass( 'placeholder' )
-					.unbind( 'mouseenter mouseleave click' );
-				$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
-				mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
-			} );
-
+			$section.hover( sectionMouseEnter, sectionMouseLeave );
+			$section.on( 'click', sectionClick );
 		} );
 	};
 
