@@ -157,13 +157,16 @@
 			} );
 			$section.on( 'mouseenter', function () {
 				$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
+				$( '#' + $( this ).data( 'source' ) ).addClass( 'highlight' );
 			} );
 			$section.on( 'mouseleave', function () {
 				$( this ).removeClass( 'placeholder' ).empty();
+				$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
 			} );
 			$section.on( 'click', function () {
 				$( this ).removeClass( 'placeholder' )
 					.unbind( 'mouseenter mouseleave click' );
+				$( '#' + $( this ).data( 'source' ) ).removeClass( 'highlight' );
 				mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 			} );
 
