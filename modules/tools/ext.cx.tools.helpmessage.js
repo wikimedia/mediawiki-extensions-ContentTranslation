@@ -15,7 +15,7 @@
 		var $helpTemplate;
 
 		$helpTemplate = '<div class="card search">' +
-			'<input class="tools-words-search box"></input></div>' +
+			'<input class="tools-words-search box"></div>' +
 			'<div class="card instructions">' +
 			'<div class="card__section">' +
 			'<div class="tools serial number">' +
