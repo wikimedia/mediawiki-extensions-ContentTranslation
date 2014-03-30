@@ -4,7 +4,8 @@
             "Yfdyh000",
             "Liuxinyu970226",
             "Byfserag",
-            "Cwek"
+            "Cwek",
+            "Xiaomingyan"
         ]
     },
     "cx": "翻译页面",
@@ -23,7 +24,7 @@
     "cx-tools-instructions-text1": "添加段落到翻译",
     "cx-tools-instructions-text2": "您不需要加入它们",
     "cx-tools-instructions-text3": "使文本阅读起来跟自然",
-    "cx-tools-instructions-text4": "自动翻译非常有用，但您仍需要复查错误使其精确。",
+    "cx-tools-instructions-text4": "自动翻译很有用，但是你需要校订错误使其准确。",
     "cx-tools-instructions-text5": "发布翻译",
     "cx-tools-instructions-text6": "如果你满意这个结果，请按{{int:cx-publish-button}}.",
     "cx-tools-searchbox-text": "请搜索",

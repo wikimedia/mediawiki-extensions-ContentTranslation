@@ -18,9 +18,12 @@
     "cx-source-loading": "Cargando \"$1\"",
     "cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina.",
     "cx-tools-instructions-title": "Crear unha tradución",
-    "cx-tools-instructions-text1": "Engada algúns parágrafos á tradución.",
-    "cx-tools-instructions-text2": "Axuste as traducións automáticas achegadas para garantir a súa calidade",
-    "cx-tools-instructions-text3": "Os tradutores automáticos son un bo punto de partida para as traducións, pero os tradutores deben corrixir os erros e confirmar que a tradución é precisa.",
-    "cx-tools-instructions-text4": "Non traduza texto que pareza pouco fiable ou de mala calidade. Se é posible, comprobe o texto coas referencias proporcionadas na páxina orixinal.",
-    "cx-tools-instructions-text5": "Cando considere que o resultado é bo, prema en \"{{int:cx-publish-button}}\" para crear a páxina nova."
+    "cx-tools-instructions-text1": "Engada parágrafos á tradución",
+    "cx-tools-instructions-text2": "Non é necesario engadilos todos",
+    "cx-tools-instructions-text3": "Faga que o texto soe natural",
+    "cx-tools-instructions-text4": "As traducións automáticas son útiles, pero debe corrixir os erros e confirmar que a tradución é precisa.",
+    "cx-tools-instructions-text5": "Publicar a tradución",
+    "cx-tools-instructions-text6": "Cando considere que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
+    "cx-tools-searchbox-text": "Procurar unha palabra",
+    "cx-tools-view-guidelines": "[$1 Mostrar as normas de tradución]"
 }
