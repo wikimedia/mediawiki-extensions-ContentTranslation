@@ -141,3 +141,13 @@ $wgResourceModules['ext.cx.eventlogging'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.redlink'] = array(
+	'scripts' => 'redlink/ext.cx.redlink.js',
+	'styles' => 'redlink/styles/ext.cx.redlink.less',
+	'messages' => array(
+		'cx-redlink-title',
+	),
+	'dependencies' => array(
+		'mediawiki.jqueryMsg',
+	),
+) + $resourcePaths;

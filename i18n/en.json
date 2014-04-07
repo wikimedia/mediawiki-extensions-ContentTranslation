@@ -18,6 +18,7 @@
     "cx-publish-summary": "Created by translating the page \"$1\"",
     "tag-contenttranslation": "ContentTranslation",
     "cx-source-loading": "Loading $1",
+    "cx-redlink-title": "Translate this page to $1",
     "cx-special-login-error": "You must be logged in to translate in this page.",
     "cx-tools-instructions-title": "Create a translation",
     "cx-tools-instructions-text1": "Add paragraphs to translate",
