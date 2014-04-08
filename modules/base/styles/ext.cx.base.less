@@ -49,6 +49,10 @@ h2 {
 	.mw-ui-palm-one-whole;
 	background: #f0f0f0;
 	min-height: 100vh;
+	position: relative;
+	&.sticky {
+		.sticky;
+	}
 }
 
 /* Unused? */
@@ -63,4 +67,10 @@ h2 {
 	padding: 10px;
 	margin: 2px 0;
 	.mw-ui-palm-one-half;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	right: 0;
 }
