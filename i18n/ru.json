@@ -16,6 +16,7 @@
     "cx-publish-summary": "Создан перевод страницы \"$1\"",
     "tag-contenttranslation": "ПереводСодержимого",
     "cx-source-loading": "Загрузка $1",
+    "cx-redlink-title": "Перевести эту страницу на $1",
     "cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
     "cx-tools-instructions-title": "Создать перевод",
     "cx-tools-instructions-text1": "Добавьте несколько параграфов перевода",

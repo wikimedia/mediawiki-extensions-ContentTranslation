@@ -17,6 +17,7 @@
     "cx-publish-summary": "Skapad genom översättning av \"$1\"",
     "tag-contenttranslation": "Innehållsöversättning",
     "cx-source-loading": "Läser in $1",
+    "cx-redlink-title": "Översätt denna sida till $1",
     "cx-special-login-error": "Du måste vara inloggad för att översätta denna sida.",
     "cx-tools-instructions-title": "Skapa en översättning",
     "cx-tools-instructions-text1": "Lägg till stycken för översättning",

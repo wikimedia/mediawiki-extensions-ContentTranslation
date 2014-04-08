@@ -13,7 +13,7 @@
     "cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is translation progress in percentage.",
     "cx-header-translation-center": "Text for translation center title.",
     "cx-source-view-page": "A link that points to the source page under the heading of the source article.\n\nParameters:\n* $1 - the source article title",
-    "cx-publish-page": "Link of the page to be publish.",
+    "cx-publish-page": "Link of the page to be publish. Parameters:\n* $1 - URL\n* $2 - link text",
     "cx-publish-page-error": "Error message to display when page saving fails.",
     "cx-publish-button": "Publish button text in [[Special:ContentTranslation]].\n\nAlso used in {{msg-mw|Cx-tools-instructions-text6}}.",
     "cx-publish-summary": "Edit summary when creating the translated page.\n\nThis is an automatic edit summary for the page that is automatically created as a result of translating a message using something like [[Special:Translate]].\n\nParameters:\n* $1 - the source page name",
