@@ -183,6 +183,11 @@
 			var $section, sourceSectionId, $sourceSection;
 
 			$section = $( this );
+			if ( $section.height() === 0 ) {
+				// Source section has height as 0. This indicates an empty
+				// section - mainly resulting from spurious wikitext
+				return;
+			}
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
 			$section.css( 'min-height', $section.height() )
