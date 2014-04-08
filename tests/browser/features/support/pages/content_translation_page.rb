@@ -8,6 +8,7 @@ class ContentTranslationPage
 	button(:publish_translation, class: "cx-header__publish")
 
 	div(:content, class: "content")
+	div(:cx_widget, class: "cx-widget")
 	div(:notification_bubble, class: "mw-notification-content")
 	div(:progress_bar_container, class: "cx-progressbar")
 	div(:search_box, class: "card search")

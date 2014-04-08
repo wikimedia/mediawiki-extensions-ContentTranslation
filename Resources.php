@@ -142,10 +142,25 @@ $wgResourceModules['ext.cx.eventlogging'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.redlink'] = array(
-	'scripts' => 'redlink/ext.cx.redlink.js',
-	'styles' => 'redlink/styles/ext.cx.redlink.less',
+	'scripts' => 'entrypoint/ext.cx.redlink.js',
+	'styles' => 'entrypoint/styles/ext.cx.redlink.less',
 	'messages' => array(
 		'cx-redlink-title',
+	),
+	'dependencies' => array(
+		'ext.cx.entrypoint',
+		'mediawiki.jqueryMsg',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.entrypoint'] = array(
+	'scripts' => 'entrypoint/ext.cx.entrypoint.js',
+	'styles' => 'entrypoint/styles/ext.cx.entrypoint.less',
+	'messages' => array(
+		'cx-entrypoint-dialog-page-doesnt-exist-yet',
+		'cx-entrypoint-dialog-title-in',
+		'cx-entrypoint-dialog-button-create-from-scratch',
+		'cx-entrypoint-dialog-button-translate-from',
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',

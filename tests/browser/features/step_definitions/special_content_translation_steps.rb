@@ -48,7 +48,7 @@ Then(/^I see a language label saying "(.*?)" below the (.+?) column's title$/) d
 	on(ContentTranslationPage).language_label(column_type).text.should == language_name
 end
 
-Then(/^I see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
+Then(/^I should see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
 	on(ContentTranslationPage).title("translation").text.should == text
 end
 
@@ -100,7 +100,7 @@ Then(/^the first version in the history of the page "(.+?)" should have the tag 
 	visit(TranslatedPageHistory).contenttranslation_tag_element.should be_visible
 end
 
-Then(/^the language code of the (.+) column is "(.+)"$/) do |column_type, language_code|
+Then(/^the language code of the (.+) column should be "(.+)"$/) do |column_type, language_code|
 	on(ContentTranslationPage).column(column_type).attribute_value("lang").should == language_code
 end
 

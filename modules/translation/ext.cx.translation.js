@@ -25,6 +25,10 @@
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
+		var uri = new mw.Uri();
+
+		mw.cx.targetTitle = uri.query.targettitle || uri.query.page;
+
 		this.render();
 		this.listen();
 	};
@@ -41,7 +45,7 @@
 		$heading = $( '<h2>' )
 			.attr( 'contenteditable', true )
 			.addClass( 'cx-column__title' )
-			.text( $( '.cx-column--source .cx-column__title' ).text() );
+			.text( mw.cx.targetTitle );
 		this.$container.append( $heading );
 
 		if ( mw.cx.targetLanguage ) {

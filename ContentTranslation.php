@@ -94,3 +94,11 @@ $GLOBALS['wgExtensionFunctions'][] = function () {
  * The EventLogging extension must be installed if this option is enabled.
  */
 $GLOBALS['wgContentTranslationEventLogging'] = false;
+
+/**
+ * Domain template for starting an article in a foreign language.
+ * This is used when starting an article from scratch.
+ * $1 is replaced with the language code.
+ * The default is for Wikipedia.
+ */
+$GLOBALS['wgContentTranslationDomainTemplate'] = "$1.wikipedia.org";

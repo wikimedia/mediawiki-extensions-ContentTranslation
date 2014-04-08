@@ -24,15 +24,15 @@ Feature: Content translation special page
     # This fails because we don't have proper loading from a local server yet
     # Then I see a source column with the text "Bratislava is the capital of Slovakia and the country's largest city."
       And the source column text is not editable
-      And the language code of the source column is "en"
+      And the language code of the source column should be "en"
       And the direction of the source column is "ltr"
       And I see the title "Bratislava" at the top of the source column
       And I see a language label saying "English" below the source column's title
       And I see a "view page" link that points to the page "Bratislava" on the same wiki
       And I see a translation column with an empty editing area
-      And the language code of the translation column is "da"
+      And the language code of the translation column should be "da"
       And the direction of the translation column is "ltr"
-      And I see an input box pre-filled with the text "Bratislava" above the editing area in the second column
+      And I should see an input box pre-filled with the text "Bratislava" above the editing area in the second column
       And I see a language label saying "dansk" below the translation column's title
       And I see a translation tools column
       And I see a search box in the translation tools column

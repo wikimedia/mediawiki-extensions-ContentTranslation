@@ -46,11 +46,11 @@ class ContentTranslationHooks {
 	 * @return bool
 	 */
 	public static function addConfig( &$vars ) {
-		global $wgContentTranslationServerURL;
+		global $wgContentTranslationServerURL, $wgContentTranslationDomainTemplate;
 
 		$vars['wgContentTranslationServerURL'] = $wgContentTranslationServerURL;
+		$vars['wgContentTranslationDomainTemplate'] = $wgContentTranslationDomainTemplate;
 
 		return true;
 	}
-
 }

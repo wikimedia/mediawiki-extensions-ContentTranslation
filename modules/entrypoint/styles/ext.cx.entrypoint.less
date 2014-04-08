@@ -1,0 +1,73 @@
+@import "../../base/styles/grid/agora-grid";
+
+/* TODO remove when the grid is updated */
+.hidden {
+	display: none;
+}
+
+.cx-entrypoint-dialog {
+	.mw-ui-grid;
+	.mw-ui-one-third;
+	color: #333;
+	position: absolute;
+	min-width: 500px;
+	max-width: 700px;
+	background: white;
+	left: 140px;
+	border: 1px solid #ccc;
+	border-bottom-width: 3px;
+	border-radius: 3px;
+	margin-left: 10px;
+	z-index: 100;
+}
+
+.cx-entrypoint-dialog__heading {
+	.mw-ui-item;
+	.mw-ui-eleven-twelfths;
+	padding: 10px 15px;
+	font-size: large;
+	line-height: 1.5em;
+	background-color: #fbfbfb;
+	.icon-close {
+		/* @embed */
+		background: transparent url('../images/close.png') no-repeat scroll center center;
+		/* @embed */
+		background-image: -webkit-linear-gradient(transparent, transparent), url('../images/close.svg');
+		/* @embed */
+		background-image: linear-gradient(transparent, transparent), url('../images/close.svg');
+		float: right;
+		padding: 15px;
+		cursor: pointer;
+	}
+}
+
+.cx-entrypoint-dialog__title-label {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 15px;
+	padding-bottom: 0;
+	border-top: 1px solid #ddd;
+}
+
+.cx-entrypoint-dialog__title-box-block {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 10px 15px 0 15px;
+	input {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		padding: 4px 8px;
+		font-size: 1em;
+		line-height: 1.5em;
+	}
+}
+
+.cx-entrypoint-dialog__actions {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 10px 15px 15px 15px;
+	text-align: right;
+	button {
+		margin-left: 10px;
+	}
+}
