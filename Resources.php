@@ -47,7 +47,6 @@ $wgResourceModules['ext.cx.header'] = array(
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',
-		'ext.cx.progressbar',
 		'ext.cx.publish',
 	),
 	'messages' => array(
@@ -105,14 +104,15 @@ $wgResourceModules['ext.cx.tool'] = array(
 		'cx-tools-view-guidelines',
 	),
 	'dependencies' => array(
+		'ext.cx.progressbar',
 		'mediawiki.jqueryMsg',
 	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.progressbar'] = array(
-	'scripts' => 'header/ext.cx.progressbar.js',
+	'scripts' => 'tools/ext.cx.progressbar.js',
 	'styles' => array(
-		'header/styles/ext.cx.progressbar.less',
+		'tools/styles/ext.cx.progressbar.less',
 	),
 	'messages' => array(
 		'cx-header-progressbar-text'

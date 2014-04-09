@@ -1,31 +1,25 @@
 @import "../../base/styles/grid/agora-grid";
 
+.cx-header__progressbar {
+	.mw-ui-one-whole;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
 .cx-progressbar {
 	.mw-ui-item;
-	.mw-ui-one-sixth;
-	height: 10px;
-	border-radius: 10px;
-	border: 1px solid #ddd;
-	background: #fbfbfb;
+	.mw-ui-one-whole;
+	height: 4px;
+	background: #ddd;
 	vertical-align: middle;
-	position: absolute;
+	padding: 0;
 }
 
 .cx-progressbar__bar {
 	background: #3892E3;
-	display: inline-block;
-	height: 10px;
-	border-radius: 10px;
-	position: absolute;
+	display: block;
+	height: 4px;
 	left: 0;
 	transition: width 1s;
-}
-
-.cx-progressbar__text {
-	.mw-ui-item;
-	.mw-ui-one-whole;
-	font-size: 0.8em;
-	color: #999;
-	text-align: right;
-	padding-top: 10px;
 }

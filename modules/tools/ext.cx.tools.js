@@ -24,6 +24,14 @@
 	}
 
 	ContentTranslationTools.prototype.init = function () {
+		this.render();
+	};
+
+	ContentTranslationTools.prototype.render = function () {
+		var $progressBar = $( '<div>' )
+			.addClass( 'cx-header__progressbar' )
+			.cxProgressBar();
+		this.$container.append( $progressBar );
 		this.helpMessage();
 	};
 
