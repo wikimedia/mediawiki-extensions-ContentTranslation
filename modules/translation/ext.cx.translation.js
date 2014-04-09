@@ -190,13 +190,13 @@
 			}
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
-			$section.css( 'min-height', $section.height() )
+			$section.empty();
+			$section.css( 'min-height', $sourceSection.height() )
 				.attr( {
 					'id': 't' + sourceSectionId,
 					'data-source': sourceSectionId,
 					'contenteditable': true
 				} );
-			$section.empty();
 			$section.on( 'input', keepAlignment );
 			// Bind events to the placeholder sections
 			$sourceSection.click( function () {
@@ -221,11 +221,26 @@
 		/*jshint validthis:true */
 		$section = $( this );
 		$sourceSection = $( '#' + $section.data( 'source' ) );
-		sectionHeight = $section.height();
 		$sourceSection.css( 'min-height', '' );
+
 		sourceSectionHeight = $sourceSection.height();
+		sectionHeight = $section.height();
+
 		if ( sourceSectionHeight < sectionHeight ) {
 			$sourceSection.css( 'min-height', sectionHeight );
+			sourceSectionHeight = $sourceSection.height();
+			sectionHeight = $section.height();
+			// Fun stuff - setting a calculated min-height will not guarantee
+			// equal height for all kind of section pairs.
+			// Experiments shows a few pixels difference
+			// Here we do it by 10px steps till we reach equal height.
+			while ( sectionHeight !== sourceSectionHeight ) {
+				sectionHeight = sectionHeight = sectionHeight + 10;
+				$sourceSection.css( 'min-height', sectionHeight );
+				$section.css( 'min-height', sectionHeight );
+				sectionHeight = $section.height();
+				sourceSectionHeight = $sourceSection.height();
+			}
 		}
 	}
 
