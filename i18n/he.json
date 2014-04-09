@@ -18,6 +18,7 @@
     "cx-publish-summary": "יצירה באמצעות תרגום הדף \"$1\"",
     "tag-contenttranslation": "תרגום תוכן",
     "cx-source-loading": "טעינת $1",
+    "cx-redlink-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
     "cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה.",
     "cx-tools-instructions-title": "יצירת תרגום",
     "cx-tools-instructions-text1": "הוספת פסקאות לתרגום.",

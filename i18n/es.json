@@ -2,7 +2,8 @@
     "@metadata": {
         "authors": [
             "Fitoschido",
-            "Sporeunai"
+            "Sporeunai",
+            "VegaDark"
         ]
     },
     "cx": "Traducir página",
@@ -16,6 +17,7 @@
     "cx-publish-summary": "Creado al traducir la página «$1»",
     "tag-contenttranslation": "Traducción de contenido",
     "cx-source-loading": "Cargando $1",
+    "cx-redlink-title": "Traduce esta página al $1",
     "cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
     "cx-tools-instructions-title": "Crear una traducción",
     "cx-tools-instructions-text1": "Añadir párrafos para traducir",

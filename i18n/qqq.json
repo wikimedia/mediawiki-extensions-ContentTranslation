@@ -19,7 +19,7 @@
     "cx-publish-summary": "Edit summary when creating the translated page.\n\nThis is an automatic edit summary for the page that is automatically created as a result of translating a message using something like [[Special:Translate]].\n\nParameters:\n* $1 - the source page name",
     "tag-contenttranslation": "A short description of the contenttranslation tag. Appears in the edit summary when a translated page is created.",
     "cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
-    "cx-redlink-title": "Tooltip for a red link that appears in the interlanguage links list and invites the user to translate the article to their language. $1 is the language name in the interface language.",
+    "cx-redlink-title": "Tooltip for a red link that appears in the interlanguage links list and invites the user to translate the article to their language.\n\nParameters:\n* $1 - the language name in the interface language",
     "cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
     "cx-tools-instructions-title": "Title for the translation tools pane.",
     "cx-tools-instructions-text1": "Help text for the translation tools pane.",
