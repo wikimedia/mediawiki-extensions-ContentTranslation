@@ -65,17 +65,11 @@
 		this.$container.append( $content );
 		mw.hook( 'mw.cx.translation.change' ).fire();
 		this.$title = this.$container.find( '.cx-column__title' );
-		this.$content = this.$container.find( '.cx-column__content' );
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.addPlaceholders, this ) );
-
-		this.$content.on( 'input', function () {
-			mw.hook( 'mw.cx.translation.change' ).fire();
-		} );
-
 	};
 
 	/**
@@ -145,13 +139,13 @@
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 	}
 
-	function sectionMouseEnter() {
+	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
 		$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'highlight' );
 	}
 
-	function sectionMouseLeave() {
+	function sectionMouseLeaveHandler() {
 		/*jshint validthis:true */
 		$( this ).removeClass( 'placeholder' ).empty();
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
@@ -171,25 +165,44 @@
 		id = id + '';
 		return '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
 	}
+
+	function souceSectionClickHandler() {
+		/*jshint validthis:true */
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).click();
+	}
+
+	function souceSectionMouseEnterHandler() {
+		/*jshint validthis:true */
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseenter();
+	}
+
+	function souceSectionMouseLeaveHandler() {
+		/*jshint validthis:true */
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
+	}
 	/**
 	 * Add placeholders for translation sections. The placeholders
 	 * are aligned to the source sections. Also provides mouse hover effects.
 	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var cxSectionSelector = this.getSectionSelector();
+		var cxSectionSelector = this.getSectionSelector(),
+			$content,
+			$sections, i, $section, sourceSectionId, $sourceSection;
 
-		this.$content.html( mw.cx.data.segmentedContent );
-		this.$content.find( cxSectionSelector ).each( function () {
-			var $section, sourceSectionId, $sourceSection;
-
-			$section = $( this );
-			if ( $section.height() === 0 ) {
-				// Source section has height as 0. This indicates an empty
-				// section - mainly resulting from spurious wikitext
-				return;
-			}
+		// Clone the source article and work on this detached object
+		// to help performance
+		$content = $( '.cx-column--source .cx-column__content' ).clone();
+		$sections = $content.find( cxSectionSelector );
+		for ( i = 0; i < $sections.length; i++ ) {
+			$section = $( $sections[ i ] );
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
+			if ( $sourceSection.height() === 0 ) {
+				// Source section has height as 0. This indicates an empty
+				// section - mainly resulting from spurious wikitext
+				continue;
+			}
+
 			$section.empty();
 			$section.css( {
 				'min-height': $sourceSection.height(),
@@ -198,21 +211,20 @@
 			$section.attr( {
 				'id': 't' + sourceSectionId,
 				'data-source': sourceSectionId,
+				// Sections are editable
 				'contenteditable': true
 			} );
-			$section.on( 'input', keepAlignment );
+
+			// Attach event handlers for sections
+			$section.on( 'input', keepAlignment )
+				.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
+				.on( 'click', sectionClick );
 			// Bind events to the placeholder sections
-			$sourceSection.click( function () {
-				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).click();
-			} );
-			$sourceSection.hover( function () {
-				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseenter();
-			}, function () {
-				$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
-			} );
-			$section.hover( sectionMouseEnter, sectionMouseLeave );
-			$section.on( 'click', sectionClick );
-		} );
+			$sourceSection.click( souceSectionClickHandler )
+				.hover( souceSectionMouseEnterHandler, souceSectionMouseLeaveHandler );
+		}
+		// Attach $content to container
+		this.$container.append( $content );
 	};
 
 	/**
