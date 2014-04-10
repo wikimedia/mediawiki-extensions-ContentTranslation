@@ -191,12 +191,15 @@
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
 			$section.empty();
-			$section.css( 'min-height', $sourceSection.height() )
-				.attr( {
-					'id': 't' + sourceSectionId,
-					'data-source': sourceSectionId,
-					'contenteditable': true
-				} );
+			$section.css( {
+				'min-height': $sourceSection.height(),
+				width: $sourceSection.width()
+			} );
+			$section.attr( {
+				'id': 't' + sourceSectionId,
+				'data-source': sourceSectionId,
+				'contenteditable': true
+			} );
 			$section.on( 'input', keepAlignment );
 			// Bind events to the placeholder sections
 			$sourceSection.click( function () {
