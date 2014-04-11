@@ -1,7 +1,8 @@
 {
     "@metadata": {
         "authors": [
-            "Gomoko"
+            "Gomoko",
+            "Sherbrooke"
         ]
     },
     "cx": "Traduire la page",
@@ -15,6 +16,7 @@
     "cx-publish-summary": "Créé en traduisant la page « $1 »",
     "tag-contenttranslation": "Traduction du contenu",
     "cx-source-loading": "Chargement de $1",
+    "cx-redlink-title": "Traduire cette page en $1",
     "cx-special-login-error": "Vous devez être connecté pour traduire cette page.",
     "cx-tools-instructions-title": "Créer une traduction",
     "cx-tools-instructions-text1": "Ajouter quelques paragraphes à traduire",
