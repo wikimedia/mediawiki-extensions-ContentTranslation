@@ -15,6 +15,7 @@
     "cx-publish-summary": "Створений шляхом перекладу сторінки \"$1\"",
     "tag-contenttranslation": "ПерекладВмісту",
     "cx-source-loading": "Завантаження $1",
+    "cx-redlink-title": "Перекласти цю сторінку до $1",
     "cx-special-login-error": "Ви повинні увійти в систему, щоб перекласти сторінку.",
     "cx-tools-instructions-title": "Створити переклад",
     "cx-tools-instructions-text1": "Додавайте параграфи для перекладу",
