@@ -215,7 +215,7 @@
 	 * are aligned to the source sections. Also provides mouse hover effects.
 	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var $content,
+		var $content, template,
 			$sections, i, $section, sourceSectionId, $sourceSection,
 			cxSectionSelector = this.getSectionSelector();
 
@@ -225,6 +225,7 @@
 		$sections = $content.find( cxSectionSelector );
 
 		for ( i = 0; i < $sections.length; i++ ) {
+			template = false;
 			$section = $( $sections[ i ] );
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
@@ -238,6 +239,13 @@
 				continue;
 			}
 
+			// Mask the templates
+			if ( $sourceSection.attr( 'typeof' ) === 'mw:Transclusion' ) {
+				$section.addClass( 'cx-mw-template' );
+				$sourceSection.addClass( 'cx-mw-template' );
+				template = true;
+			}
+
 			$section.empty();
 			$section.css( {
 				'min-height': $sourceSection.height(),
@@ -247,8 +255,8 @@
 			$section.attr( {
 				'id': 't' + sourceSectionId,
 				'data-source': sourceSectionId,
-				// Sections are editable
-				'contenteditable': true
+				// Sections are editable if they are not templates
+				'contenteditable': template ? false : true
 			} );
 
 			// Attach event handlers for sections
