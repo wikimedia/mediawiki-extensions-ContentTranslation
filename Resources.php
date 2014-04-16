@@ -50,8 +50,9 @@ $wgResourceModules['ext.cx.header'] = array(
 		'ext.cx.publish',
 	),
 	'messages' => array(
+		'cx-error-server-connection',
 		'cx-header-translation-center',
-		'cx-publish-button'
+		'cx-publish-button',
 	),
 ) + $resourcePaths;
 

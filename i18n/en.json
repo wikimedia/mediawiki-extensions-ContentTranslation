@@ -8,6 +8,7 @@
         ]
     },
     "cx": "Translate page",
+    "cx-error-server-connection": "Error: Could not connect to the server.",
     "cx-desc": "A tool that allows editors to translate pages from one language to another with the help of machine translation and other translation tools",
     "cx-header-progressbar-text": "$1% translated",
     "cx-header-translation-center": "Translation center",
