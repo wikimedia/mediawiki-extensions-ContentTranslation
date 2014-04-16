@@ -119,8 +119,8 @@
 	 */
 	CXEntryPoint.prototype.show = function () {
 		this.$dialog.removeClass( 'hidden' );
-		this.$dialog.find( 'input' ).focus();
 		this.position();
+		this.$dialog.find( 'input' ).focus();
 	};
 
 	/**
@@ -178,7 +178,8 @@
 			.addClass( 'icon-close' );
 
 		$heading = $( '<div>' ).addClass( 'cx-entrypoint-dialog__heading' )
-			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) );
+			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
+			.prepend( $closeIcon );
 
 		$titleLabel = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-label' )
 			.html( mw.msg( 'cx-entrypoint-dialog-title-in', targetAutonym ) );
@@ -207,7 +208,7 @@
 		$actions = $( '<div>' ).addClass( 'cx-entrypoint-dialog__actions' )
 			.append( $fromScratchButton, $translateFromButton );
 
-		this.$dialog.append( $heading, $closeIcon, $titleLabel, $titleBoxBlock, $actions );
+		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $actions );
 
 		$( 'body' ).append( this.$dialog );
 	};
