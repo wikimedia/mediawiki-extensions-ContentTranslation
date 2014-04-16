@@ -1,29 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "Metalhead64"
-        ]
-    },
-    "cx": "Seite übersetzen",
-    "cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungswerkzeugen von einer Sprache in eine andere zu übersetzen",
-    "cx-header-progressbar-text": "$1% übersetzt",
-    "cx-header-translation-center": "Übersetzungscenter",
-    "cx-source-view-page": "[$1 Seite ansehen]",
-    "cx-publish-page": "Seite veröffentlicht unter [$1 $2]",
-    "cx-publish-page-error": "Fehler beim Speichern der Seite.",
-    "cx-publish-button": "Übersetzung veröffentlichen",
-    "cx-publish-summary": "Erstellt durch Übersetzen der Seite „$1“",
-    "tag-contenttranslation": "Inhaltsübersetzung",
-    "cx-source-loading": "Lade $1",
-    "cx-redlink-title": "Diese Seite auf $1 übersetzen",
-    "cx-special-login-error": "Du musst angemeldet sein, um in dieser Seite übersetzen zu können.",
-    "cx-tools-instructions-title": "Eine Übersetzung erstellen",
-    "cx-tools-instructions-text1": "Füge Absätze der Übersetzung hinzu.",
-    "cx-tools-instructions-text2": "Du musst sie nicht alle hinzufügen.",
-    "cx-tools-instructions-text3": "Mache den Text natürlich lesbar.",
-    "cx-tools-instructions-text4": "Automatische Übersetzungen sind hilfreich, aber du musst Fehler korrigieren, um die Übersetzungen richtig zu machen.",
-    "cx-tools-instructions-text5": "Die Übersetzung veröffentlichen",
-    "cx-tools-instructions-text6": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“.",
-    "cx-tools-searchbox-text": "Nach einem Wort suchen",
-    "cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]"
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"cx": "Seite übersetzen",
+	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
+	"cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungswerkzeugen von einer Sprache in eine andere zu übersetzen",
+	"cx-header-progressbar-text": "$1% übersetzt",
+	"cx-header-translation-center": "Übersetzungscenter",
+	"cx-source-view-page": "[$1 Seite ansehen]",
+	"cx-publish-page": "Seite veröffentlicht unter [$1 $2]",
+	"cx-publish-page-error": "Fehler beim Speichern der Seite.",
+	"cx-publish-button": "Übersetzung veröffentlichen",
+	"cx-publish-summary": "Erstellt durch Übersetzen der Seite „$1“",
+	"tag-contenttranslation": "Inhaltsübersetzung",
+	"cx-source-loading": "Lade $1",
+	"cx-entrypoint-title": "Diese Seite auf $1 übersetzen",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Diese Seite ist noch nicht auf $1 vorhanden.<br />\nMöchtest du sie erstellen?",
+	"cx-entrypoint-dialog-title-in": "Titel für die neue Seite in $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Vom Original erstellen",
+	"cx-entrypoint-dialog-button-translate-from": "Übersetzen von $1",
+	"cx-special-login-error": "Du musst angemeldet sein, um in dieser Seite übersetzen zu können.",
+	"cx-tools-instructions-title": "Eine Übersetzung erstellen",
+	"cx-tools-instructions-text1": "Füge Absätze der Übersetzung hinzu.",
+	"cx-tools-instructions-text2": "Du musst sie nicht alle hinzufügen.",
+	"cx-tools-instructions-text3": "Mache den Text natürlich lesbar.",
+	"cx-tools-instructions-text4": "Automatische Übersetzungen sind hilfreich, aber du musst Fehler korrigieren, um die Übersetzungen richtig zu machen.",
+	"cx-tools-instructions-text5": "Die Übersetzung veröffentlichen",
+	"cx-tools-instructions-text6": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“.",
+	"cx-tools-searchbox-text": "Nach einem Wort suchen",
+	"cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]"
 }

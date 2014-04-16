@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Danmichaelo"
-        ]
-    },
-    "cx": "Oversett side",
-    "cx-desc": "Et verktøy som lar bidragsytere oversette sider fra et språk til et annet ved hjelp av maskinoversettelse og andre oversettelsesverktøy",
-    "cx-header-progressbar-text": "$1% oversatt",
-    "cx-header-translation-center": "Oversettelsessenter",
-    "cx-source-view-page": "[$1 vis side]",
-    "cx-publish-page": "Siden publiseres på [$1 $2]",
-    "cx-publish-page-error": "Feil ved lagring av siden.",
-    "cx-publish-button": "Publisér oversettelse",
-    "cx-publish-summary": "Skapt ved oversettelse av siden «$1»",
-    "tag-contenttranslation": "ContentTranslation",
-    "cx-source-loading": "Laster $1",
-    "cx-special-login-error": "Du må være innlogget for å oversette denne siden.",
-    "cx-tools-instructions-title": "Opprett en oversettelse",
-    "cx-tools-instructions-text1": "Legg til noen avsnitt til denne oversettelsen.",
-    "cx-tools-instructions-text2": "Gå gjennom de automatiske oversettelsene for å sikre best mulig kvalitet",
-    "cx-tools-instructions-text3": "Maskinoversettelser kan være et bra utgangspunkt for oversettelser, men oversettere må gå gjennom teksten og korrige feil eller bekrefte at oversettelsen er korrekt.",
-    "cx-tools-instructions-text4": "Ikke oversett tekst som fremstår upålitelig eller har lav kvalitet. Om det er mulig, sjekk teksten mot referansene angitt på kildesiden.",
-    "cx-tools-instructions-text5": "Når du er fornøyd med resultatet, trykk på {{int:cx-publish-button}} for å opprette den nye siden."
+	"@metadata": {
+		"authors": [
+			"Danmichaelo"
+		]
+	},
+	"cx": "Oversett side",
+	"cx-desc": "Et verktøy som lar bidragsytere oversette sider fra et språk til et annet ved hjelp av maskinoversettelse og andre oversettelsesverktøy",
+	"cx-header-progressbar-text": "$1% oversatt",
+	"cx-header-translation-center": "Oversettelsessenter",
+	"cx-source-view-page": "[$1 vis side]",
+	"cx-publish-page": "Siden publiseres på [$1 $2]",
+	"cx-publish-page-error": "Feil ved lagring av siden.",
+	"cx-publish-button": "Publisér oversettelse",
+	"cx-publish-summary": "Skapt ved oversettelse av siden «$1»",
+	"tag-contenttranslation": "ContentTranslation",
+	"cx-source-loading": "Laster $1",
+	"cx-special-login-error": "Du må være innlogget for å oversette denne siden.",
+	"cx-tools-instructions-title": "Opprett en oversettelse",
+	"cx-tools-instructions-text1": "Legg til noen avsnitt til denne oversettelsen.",
+	"cx-tools-instructions-text2": "Gå gjennom de automatiske oversettelsene for å sikre best mulig kvalitet",
+	"cx-tools-instructions-text3": "Maskinoversettelser kan være et bra utgangspunkt for oversettelser, men oversettere må gå gjennom teksten og korrige feil eller bekrefte at oversettelsen er korrekt.",
+	"cx-tools-instructions-text4": "Ikke oversett tekst som fremstår upålitelig eller har lav kvalitet. Om det er mulig, sjekk teksten mot referansene angitt på kildesiden.",
+	"cx-tools-instructions-text5": "Når du er fornøyd med resultatet, trykk på {{int:cx-publish-button}} for å opprette den nye siden."
 }

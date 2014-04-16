@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fohanno"
-        ]
-    },
-    "cx": "Pajenn hag a c'haller treiñ",
-    "cx-header-progressbar-text": "$1% troet",
-    "cx-header-translation-center": "Kreizenn dreiñ",
-    "cx-source-view-page": "[$1 gwelet ar bajenn]",
-    "cx-publish-page": "Pajenn embannet war [$1 $2]",
-    "cx-publish-page-error": "Fazi oc'h enrollañ ar bajenn.",
-    "cx-publish-button": "Embann an droidigezh",
-    "cx-publish-summary": "Krouet o treiñ ar bajenn \"$1\"",
-    "cx-source-loading": "O kargañ $1",
-    "cx-redlink-title": "Treiñ ar bajenn-mañ e $1",
-    "cx-special-login-error": "Ret eo deoc'h bezañ kevreet evit treiñ ar bajenn-mañ.",
-    "cx-tools-instructions-title": "Krouiñ un droidigezh",
-    "cx-tools-instructions-text1": "Ouzhpennañ rannbennadoù da dreiñ.",
-    "cx-tools-instructions-text2": "N'ho peus ket ezhomm da ouzhpennañ an holl anezho",
-    "cx-tools-instructions-text5": "Embann an droidigezh",
-    "cx-tools-instructions-text6": "Pa vioc'h kontant eus an disoc'h, klikit war {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "Klask ur ger",
-    "cx-tools-view-guidelines": "[$1 Gwelet ar sturiadoù treiñ]"
+	"@metadata": {
+		"authors": [
+			"Fohanno"
+		]
+	},
+	"cx": "Pajenn hag a c'haller treiñ",
+	"cx-header-progressbar-text": "$1% troet",
+	"cx-header-translation-center": "Kreizenn dreiñ",
+	"cx-source-view-page": "[$1 gwelet ar bajenn]",
+	"cx-publish-page": "Pajenn embannet war [$1 $2]",
+	"cx-publish-page-error": "Fazi oc'h enrollañ ar bajenn.",
+	"cx-publish-button": "Embann an droidigezh",
+	"cx-publish-summary": "Krouet o treiñ ar bajenn \"$1\"",
+	"cx-source-loading": "O kargañ $1",
+	"cx-entrypoint-title": "Treiñ ar bajenn-mañ e $1",
+	"cx-special-login-error": "Ret eo deoc'h bezañ kevreet evit treiñ ar bajenn-mañ.",
+	"cx-tools-instructions-title": "Krouiñ un droidigezh",
+	"cx-tools-instructions-text1": "Ouzhpennañ rannbennadoù da dreiñ.",
+	"cx-tools-instructions-text2": "N'ho peus ket ezhomm da ouzhpennañ an holl anezho",
+	"cx-tools-instructions-text5": "Embann an droidigezh",
+	"cx-tools-instructions-text6": "Pa vioc'h kontant eus an disoc'h, klikit war {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "Klask ur ger",
+	"cx-tools-view-guidelines": "[$1 Gwelet ar sturiadoù treiñ]"
 }

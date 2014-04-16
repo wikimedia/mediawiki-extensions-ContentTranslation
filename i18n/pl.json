@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrumps",
-            "Vuh",
-            "Jacenty359"
-        ]
-    },
-    "cx": "Przetłumacz stronę",
-    "cx-desc": "Narzędzie, które umożliwia edytorom tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
-    "cx-header-progressbar-text": "$1% przetłumaczono",
-    "cx-header-translation-center": "Centrum tłumaczeń",
-    "cx-publish-page": "Strona opublikowana w [$1 $2]",
-    "cx-publish-page-error": "Błąd podczas zapisywania strony.",
-    "cx-publish-button": "Publikuj tłumaczenie",
-    "cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
-    "tag-contenttranslation": "Tłumaczenie treści",
-    "cx-source-loading": "Ładowanie $1",
-    "cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
-    "cx-tools-instructions-title": "Utwórz tłumaczenie",
-    "cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
-    "cx-tools-instructions-text4": "Nie tłumacz tekstu, który nie wygląda na wiarygodny lub jest o niskiej jakości. Jeśli to możliwe, zweryfikuj tekst na podstawie przypisów podanych na stronie źródłowej.",
-    "cx-tools-instructions-text5": "Opublikuj tłumaczenie",
-    "cx-tools-searchbox-text": "Wyszukaj słowo"
+	"@metadata": {
+		"authors": [
+			"Chrumps",
+			"Vuh",
+			"Jacenty359"
+		]
+	},
+	"cx": "Przetłumacz stronę",
+	"cx-desc": "Narzędzie, które umożliwia edytorom tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
+	"cx-header-progressbar-text": "$1% przetłumaczono",
+	"cx-header-translation-center": "Centrum tłumaczeń",
+	"cx-publish-page": "Strona opublikowana w [$1 $2]",
+	"cx-publish-page-error": "Błąd podczas zapisywania strony.",
+	"cx-publish-button": "Publikuj tłumaczenie",
+	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
+	"tag-contenttranslation": "Tłumaczenie treści",
+	"cx-source-loading": "Ładowanie $1",
+	"cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
+	"cx-tools-instructions-title": "Utwórz tłumaczenie",
+	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
+	"cx-tools-instructions-text4": "Nie tłumacz tekstu, który nie wygląda na wiarygodny lub jest o niskiej jakości. Jeśli to możliwe, zweryfikuj tekst na podstawie przypisów podanych na stronie źródłowej.",
+	"cx-tools-instructions-text5": "Opublikuj tłumaczenie",
+	"cx-tools-searchbox-text": "Wyszukaj słowo"
 }

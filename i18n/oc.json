@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jfblanc",
-            "Cedric31"
-        ]
-    },
-    "cx": "Traduire la pagina",
-    "cx-desc": "Una aisina que permet als editors de tradusir las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
-    "cx-header-progressbar-text": "$1% traduch",
-    "cx-header-translation-center": "Centre de traduccions",
-    "cx-source-view-page": "[$1 afichar la pagina]",
-    "cx-publish-page": "Pagina publicada sus [$1 $2]",
-    "cx-publish-page-error": "Error al moment de l’enregistrament de la pagina.",
-    "cx-publish-button": "Publicar la traduccion",
-    "cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
-    "tag-contenttranslation": "Traduccion del contengut",
-    "cx-source-loading": "Telecargament de $1",
-    "cx-redlink-title": "Tradusir aquesta pagina en $1",
-    "cx-special-login-error": "Vos cal èsser connectat per tradusir aquesta pagina.",
-    "cx-tools-instructions-title": "Crear una traduccion",
-    "cx-tools-instructions-text1": "Apondre qualques paragrafes de tradusir",
-    "cx-tools-instructions-text2": "Avètz pas besonh de los apondre totes",
-    "cx-tools-instructions-text3": "Rendre lo tèxte legible d'un biais natural",
-    "cx-tools-instructions-text5": "Publicar la traduccion",
-    "cx-tools-searchbox-text": "Cercar un mot",
-    "cx-tools-view-guidelines": "[$1 Afichar las directivas de traduccion]"
+	"@metadata": {
+		"authors": [
+			"Jfblanc",
+			"Cedric31"
+		]
+	},
+	"cx": "Traduire la pagina",
+	"cx-desc": "Una aisina que permet als editors de tradusir las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
+	"cx-header-progressbar-text": "$1% traduch",
+	"cx-header-translation-center": "Centre de traduccions",
+	"cx-source-view-page": "[$1 afichar la pagina]",
+	"cx-publish-page": "Pagina publicada sus [$1 $2]",
+	"cx-publish-page-error": "Error al moment de l’enregistrament de la pagina.",
+	"cx-publish-button": "Publicar la traduccion",
+	"cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
+	"tag-contenttranslation": "Traduccion del contengut",
+	"cx-source-loading": "Telecargament de $1",
+	"cx-entrypoint-title": "Tradusir aquesta pagina en $1",
+	"cx-special-login-error": "Vos cal èsser connectat per tradusir aquesta pagina.",
+	"cx-tools-instructions-title": "Crear una traduccion",
+	"cx-tools-instructions-text1": "Apondre qualques paragrafes de tradusir",
+	"cx-tools-instructions-text2": "Avètz pas besonh de los apondre totes",
+	"cx-tools-instructions-text3": "Rendre lo tèxte legible d'un biais natural",
+	"cx-tools-instructions-text5": "Publicar la traduccion",
+	"cx-tools-searchbox-text": "Cercar un mot",
+	"cx-tools-view-guidelines": "[$1 Afichar las directivas de traduccion]"
 }

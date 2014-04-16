@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Beta16",
-            "Gianfranco"
-        ]
-    },
-    "cx": "Traduci pagina",
-    "cx-desc": "Uno strumento che permette agli editori di tradurre le pagine da una lingua ad un'altra con l'aiuto della traduzione automatica e di altri strumenti di traduzione",
-    "cx-header-progressbar-text": "$1% tradotto",
-    "cx-header-translation-center": "Centro di traduzione",
-    "cx-source-view-page": "[$1 vedi pagina]",
-    "cx-publish-page": "Pagina pubblicata su [$1 $2]",
-    "cx-publish-page-error": "Errore durante il salvataggio della pagina.",
-    "cx-publish-button": "Pubblica traduzione",
-    "cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",
-    "tag-contenttranslation": "TraduzioneContenuto",
-    "cx-source-loading": "Caricamento $1",
-    "cx-redlink-title": "Traduci questa pagina in $1",
-    "cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina.",
-    "cx-tools-instructions-title": "Crea una traduzione",
-    "cx-tools-instructions-text1": "Aggiungi paragrafi da tradurre",
-    "cx-tools-instructions-text2": "Non è necessario aggiungerli tutti",
-    "cx-tools-instructions-text3": "Rendi la lettura del testo naturale",
-    "cx-tools-instructions-text4": "La traduzione automatica è un utile, ma devi correggere gli errori e renderla accurata.",
-    "cx-tools-instructions-text5": "Pubblica la traduzione",
-    "cx-tools-instructions-text6": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "Cerca una parola",
-    "cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]"
+	"@metadata": {
+		"authors": [
+			"Beta16",
+			"Gianfranco"
+		]
+	},
+	"cx": "Traduci pagina",
+	"cx-desc": "Uno strumento che permette agli editori di tradurre le pagine da una lingua ad un'altra con l'aiuto della traduzione automatica e di altri strumenti di traduzione",
+	"cx-header-progressbar-text": "$1% tradotto",
+	"cx-header-translation-center": "Centro di traduzione",
+	"cx-source-view-page": "[$1 vedi pagina]",
+	"cx-publish-page": "Pagina pubblicata su [$1 $2]",
+	"cx-publish-page-error": "Errore durante il salvataggio della pagina.",
+	"cx-publish-button": "Pubblica traduzione",
+	"cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",
+	"tag-contenttranslation": "TraduzioneContenuto",
+	"cx-source-loading": "Caricamento $1",
+	"cx-entrypoint-title": "Traduci questa pagina in $1",
+	"cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina.",
+	"cx-tools-instructions-title": "Crea una traduzione",
+	"cx-tools-instructions-text1": "Aggiungi paragrafi da tradurre",
+	"cx-tools-instructions-text2": "Non è necessario aggiungerli tutti",
+	"cx-tools-instructions-text3": "Rendi la lettura del testo naturale",
+	"cx-tools-instructions-text4": "La traduzione automatica è un utile, ma devi correggere gli errori e renderla accurata.",
+	"cx-tools-instructions-text5": "Pubblica la traduzione",
+	"cx-tools-instructions-text6": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "Cerca una parola",
+	"cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]"
 }

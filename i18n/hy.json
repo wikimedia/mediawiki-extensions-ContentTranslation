@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Vadgt"
-        ]
-    },
-    "cx-header-progressbar-text": "Թարգմանությունը կատարվել է $1%",
-    "cx-source-loading": "Բեռնում $1",
-    "cx-tools-instructions-title": "Ստեղծել թարգմանությունը"
+	"@metadata": {
+		"authors": [
+			"Vadgt"
+		]
+	},
+	"cx-header-progressbar-text": "Թարգմանությունը կատարվել է $1%",
+	"cx-source-loading": "Բեռնում $1",
+	"cx-tools-instructions-title": "Ստեղծել թարգմանությունը"
 }

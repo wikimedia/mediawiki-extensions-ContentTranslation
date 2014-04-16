@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fitoschido",
-            "Sporeunai",
-            "VegaDark"
-        ]
-    },
-    "cx": "Traducir página",
-    "cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de la traducción automática y otras herramientas de traducción",
-    "cx-header-progressbar-text": "$1 % traducido",
-    "cx-header-translation-center": "Centro de traducción",
-    "cx-source-view-page": "[$1 ver página]",
-    "cx-publish-page": "Página publicada en [$1 $2]",
-    "cx-publish-page-error": "Ocurrió un error al guardar la página.",
-    "cx-publish-button": "Publicar traducción",
-    "cx-publish-summary": "Creado al traducir la página «$1»",
-    "tag-contenttranslation": "Traducción de contenido",
-    "cx-source-loading": "Cargando $1",
-    "cx-redlink-title": "Traduce esta página al $1",
-    "cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
-    "cx-tools-instructions-title": "Crear una traducción",
-    "cx-tools-instructions-text1": "Añadir párrafos para traducir",
-    "cx-tools-instructions-text2": "No es necesario añadirlo todo",
-    "cx-tools-instructions-text3": "Haz que el texto suene natural",
-    "cx-tools-instructions-text4": "La traducción automática puede ser útil, pero hay que revisarla para eliminar errores y asegurar la exactitud.",
-    "cx-tools-instructions-text5": "Publicar la traducción",
-    "cx-tools-instructions-text6": "Cuando usted está contento con el resultado, oprima {{int:cx-publicar-botón}}.",
-    "cx-tools-searchbox-text": "Buscar una palabra",
-    "cx-tools-view-guidelines": "[$1 Ver pautas de traducción]"
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Sporeunai",
+			"VegaDark"
+		]
+	},
+	"cx": "Traducir página",
+	"cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de la traducción automática y otras herramientas de traducción",
+	"cx-header-progressbar-text": "$1 % traducido",
+	"cx-header-translation-center": "Centro de traducción",
+	"cx-source-view-page": "[$1 ver página]",
+	"cx-publish-page": "Página publicada en [$1 $2]",
+	"cx-publish-page-error": "Ocurrió un error al guardar la página.",
+	"cx-publish-button": "Publicar traducción",
+	"cx-publish-summary": "Creado al traducir la página «$1»",
+	"tag-contenttranslation": "Traducción de contenido",
+	"cx-source-loading": "Cargando $1",
+	"cx-entrypoint-title": "Traduce esta página al $1",
+	"cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
+	"cx-tools-instructions-title": "Crear una traducción",
+	"cx-tools-instructions-text1": "Añadir párrafos para traducir",
+	"cx-tools-instructions-text2": "No es necesario añadirlo todo",
+	"cx-tools-instructions-text3": "Haz que el texto suene natural",
+	"cx-tools-instructions-text4": "La traducción automática puede ser útil, pero hay que revisarla para eliminar errores y asegurar la exactitud.",
+	"cx-tools-instructions-text5": "Publicar la traducción",
+	"cx-tools-instructions-text6": "Cuando usted está contento con el resultado, oprima {{int:cx-publicar-botón}}.",
+	"cx-tools-searchbox-text": "Buscar una palabra",
+	"cx-tools-view-guidelines": "[$1 Ver pautas de traducción]"
 }

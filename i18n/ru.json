@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Okras",
-            "Alexandr Efremov"
-        ]
-    },
-    "cx": "Перевести страницу",
-    "cx-desc": "Инструмент, который позволяет редакторам переводить страницы с одного языка на другой с помощью машинного перевода и других инструментов перевода",
-    "cx-header-progressbar-text": "Перевод выполнен на $1%",
-    "cx-header-translation-center": "Центр переводов",
-    "cx-source-view-page": "[$1 просмотр страницы]",
-    "cx-publish-page": "Страница опубликована на [$1 $2]",
-    "cx-publish-page-error": "Ошибка при сохранении страницы.",
-    "cx-publish-button": "Опубликовать перевод",
-    "cx-publish-summary": "Создан перевод страницы \"$1\"",
-    "tag-contenttranslation": "ПереводСодержимого",
-    "cx-source-loading": "Загрузка $1",
-    "cx-redlink-title": "Перевести эту страницу на $1",
-    "cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
-    "cx-tools-instructions-title": "Создать перевод",
-    "cx-tools-instructions-text1": "Добавьте несколько параграфов перевода",
-    "cx-tools-instructions-text2": "Вам не нужно добавлять их все",
-    "cx-tools-instructions-text3": "Сделайте так, чтоб текст читался естественно",
-    "cx-tools-instructions-text4": "Автоматический перевод полезен, но вам нужно будет проверить его на наличие ошибок, чтоб сделать более точным.",
-    "cx-tools-instructions-text5": "Опубликовать перевод",
-    "cx-tools-instructions-text6": "Когда вы будете довольны результатом, нажмите {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "Искать слово",
-    "cx-tools-view-guidelines": "[$1 Посмотреть принципы перевода]"
+	"@metadata": {
+		"authors": [
+			"Okras",
+			"Alexandr Efremov"
+		]
+	},
+	"cx": "Перевести страницу",
+	"cx-desc": "Инструмент, который позволяет редакторам переводить страницы с одного языка на другой с помощью машинного перевода и других инструментов перевода",
+	"cx-header-progressbar-text": "Перевод выполнен на $1%",
+	"cx-header-translation-center": "Центр переводов",
+	"cx-source-view-page": "[$1 просмотр страницы]",
+	"cx-publish-page": "Страница опубликована на [$1 $2]",
+	"cx-publish-page-error": "Ошибка при сохранении страницы.",
+	"cx-publish-button": "Опубликовать перевод",
+	"cx-publish-summary": "Создан перевод страницы \"$1\"",
+	"tag-contenttranslation": "ПереводСодержимого",
+	"cx-source-loading": "Загрузка $1",
+	"cx-entrypoint-title": "Перевести эту страницу на $1",
+	"cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
+	"cx-tools-instructions-title": "Создать перевод",
+	"cx-tools-instructions-text1": "Добавьте несколько параграфов перевода",
+	"cx-tools-instructions-text2": "Вам не нужно добавлять их все",
+	"cx-tools-instructions-text3": "Сделайте так, чтоб текст читался естественно",
+	"cx-tools-instructions-text4": "Автоматический перевод полезен, но вам нужно будет проверить его на наличие ошибок, чтоб сделать более точным.",
+	"cx-tools-instructions-text5": "Опубликовать перевод",
+	"cx-tools-instructions-text6": "Когда вы будете довольны результатом, нажмите {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "Искать слово",
+	"cx-tools-view-guidelines": "[$1 Посмотреть принципы перевода]"
 }

@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Anakmalaysia"
-        ]
-    },
-    "cx": "Penterjemahan halaman",
-    "cx-desc": "Alat yang membolehkan penyunting untuk menterjemahkan halaman dari satu bahasa ke satu bahasa dengan bantuan penterjemahan mesin dan lain-lain bantuan peterjemahan",
-    "cx-header-progressbar-text": "$1% diterjemahkan",
-    "cx-header-translation-center": "Pusat penterjemahan",
-    "cx-source-view-page": "[$1 paparkan]",
-    "cx-publish-page": "Halaman disiarkan di [$1 $2]",
-    "cx-publish-page-error": "Ralat ketika menyimpan halaman.",
-    "cx-publish-button": "Siarkan terjemahan",
-    "cx-publish-summary": "Dicipta dengan menterjemah halaman \"$1\"",
-    "tag-contenttranslation": "PenterjemahanKandungan",
-    "cx-source-loading": "Memuatkan $1",
-    "cx-special-login-error": "Anda mesti log masuk untuk menterjemah di halaman ini.",
-    "cx-tools-instructions-title": "Buat terjemahan",
-    "cx-tools-instructions-text1": "Tambahkan beberapa perenggan ke dalam terjemahan.",
-    "cx-tools-instructions-text2": "Laraskan terjemahan automasik yang disediakan untuk menjaga kualiti",
-    "cx-tools-instructions-text3": "Penterjemahan mesin merupakan titik permulaan yang berguna untuk usaha penterjemahan, tetapi penterjemah mesti menyemak kesilapan di mana perlu serta mengesahkan ketepatan terjemahannya.",
-    "cx-tools-instructions-text4": "Jangan terjemah teks yang kelihatan sukar dipercayai atau berkualiti rendah. Jika boleh, sahkan teks itu dengan rujukan yang disediakan di dalam halaman sumber.",
-    "cx-tools-instructions-text5": "Apabila anda berpuas hati dengan hasilnya, tekan {{int:cx-publish-button}} untuk mewujudkan halaman baru."
+	"@metadata": {
+		"authors": [
+			"Anakmalaysia"
+		]
+	},
+	"cx": "Penterjemahan halaman",
+	"cx-desc": "Alat yang membolehkan penyunting untuk menterjemahkan halaman dari satu bahasa ke satu bahasa dengan bantuan penterjemahan mesin dan lain-lain bantuan peterjemahan",
+	"cx-header-progressbar-text": "$1% diterjemahkan",
+	"cx-header-translation-center": "Pusat penterjemahan",
+	"cx-source-view-page": "[$1 paparkan]",
+	"cx-publish-page": "Halaman disiarkan di [$1 $2]",
+	"cx-publish-page-error": "Ralat ketika menyimpan halaman.",
+	"cx-publish-button": "Siarkan terjemahan",
+	"cx-publish-summary": "Dicipta dengan menterjemah halaman \"$1\"",
+	"tag-contenttranslation": "PenterjemahanKandungan",
+	"cx-source-loading": "Memuatkan $1",
+	"cx-special-login-error": "Anda mesti log masuk untuk menterjemah di halaman ini.",
+	"cx-tools-instructions-title": "Buat terjemahan",
+	"cx-tools-instructions-text1": "Tambahkan beberapa perenggan ke dalam terjemahan.",
+	"cx-tools-instructions-text2": "Laraskan terjemahan automasik yang disediakan untuk menjaga kualiti",
+	"cx-tools-instructions-text3": "Penterjemahan mesin merupakan titik permulaan yang berguna untuk usaha penterjemahan, tetapi penterjemah mesti menyemak kesilapan di mana perlu serta mengesahkan ketepatan terjemahannya.",
+	"cx-tools-instructions-text4": "Jangan terjemah teks yang kelihatan sukar dipercayai atau berkualiti rendah. Jika boleh, sahkan teks itu dengan rujukan yang disediakan di dalam halaman sumber.",
+	"cx-tools-instructions-text5": "Apabila anda berpuas hati dengan hasilnya, tekan {{int:cx-publish-button}} untuk mewujudkan halaman baru."
 }

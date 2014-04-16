@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yfdyh000",
-            "Liuxinyu970226",
-            "Byfserag",
-            "Cwek",
-            "Xiaomingyan"
-        ]
-    },
-    "cx": "翻译页面",
-    "cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
-    "cx-header-progressbar-text": "$1%已翻译",
-    "cx-header-translation-center": "翻译中心",
-    "cx-source-view-page": "[$1 浏览页面]",
-    "cx-publish-page": "页面发布在[$1 $2]",
-    "cx-publish-page-error": "当保存页面时出错。",
-    "cx-publish-button": "发布翻译",
-    "cx-publish-summary": "通过翻译页面“$1”创建",
-    "tag-contenttranslation": "内容翻译",
-    "cx-source-loading": "$1载入中",
-    "cx-redlink-title": "翻译此页为$1",
-    "cx-special-login-error": "您必须登录才能翻译此页面。",
-    "cx-tools-instructions-title": "创建翻译",
-    "cx-tools-instructions-text1": "添加段落到翻译",
-    "cx-tools-instructions-text2": "您不需要加入它们",
-    "cx-tools-instructions-text3": "使文本阅读起来跟自然",
-    "cx-tools-instructions-text4": "自动翻译很有用，但是你需要校订错误使其准确。",
-    "cx-tools-instructions-text5": "发布翻译",
-    "cx-tools-instructions-text6": "如果你满意这个结果，请按{{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "请搜索",
-    "cx-tools-view-guidelines": "[$1 查看翻译指引]"
+	"@metadata": {
+		"authors": [
+			"Yfdyh000",
+			"Liuxinyu970226",
+			"Byfserag",
+			"Cwek",
+			"Xiaomingyan"
+		]
+	},
+	"cx": "翻译页面",
+	"cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
+	"cx-header-progressbar-text": "$1%已翻译",
+	"cx-header-translation-center": "翻译中心",
+	"cx-source-view-page": "[$1 浏览页面]",
+	"cx-publish-page": "页面发布在[$1 $2]",
+	"cx-publish-page-error": "当保存页面时出错。",
+	"cx-publish-button": "发布翻译",
+	"cx-publish-summary": "通过翻译页面“$1”创建",
+	"tag-contenttranslation": "内容翻译",
+	"cx-source-loading": "$1载入中",
+	"cx-entrypoint-title": "翻译此页为$1",
+	"cx-special-login-error": "您必须登录才能翻译此页面。",
+	"cx-tools-instructions-title": "创建翻译",
+	"cx-tools-instructions-text1": "添加段落到翻译",
+	"cx-tools-instructions-text2": "您不需要加入它们",
+	"cx-tools-instructions-text3": "使文本阅读起来跟自然",
+	"cx-tools-instructions-text4": "自动翻译很有用，但是你需要校订错误使其准确。",
+	"cx-tools-instructions-text5": "发布翻译",
+	"cx-tools-instructions-text6": "如果你满意这个结果，请按{{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "请搜索",
+	"cx-tools-view-guidelines": "[$1 查看翻译指引]"
 }

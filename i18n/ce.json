@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Умар"
-        ]
-    },
-    "cx-header-progressbar-text": "Гочдина $1%",
-    "cx-header-translation-center": "Гочдечера меттиг",
-    "cx-source-view-page": "[$1 агӀоне хьажар]",
-    "cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
-    "cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
-    "cx-publish-button": "Гайта гоч",
-    "cx-source-loading": "Чуйолуш $1",
-    "cx-redlink-title": "Гоч йе хӀара агӀо $1 тӀе",
-    "cx-tools-instructions-title": "Кхолла гоч",
-    "cx-tools-instructions-text1": "ТӀетоха массийта параграфаш",
-    "cx-tools-instructions-text2": "Ахьа уьш массо тӀе ца тоьхча а мегаш ду",
-    "cx-tools-instructions-text3": "Де иштта, йоза нийса деша луш хилийта",
-    "cx-tools-instructions-text5": "Гайта гоч",
-    "cx-tools-instructions-text6": "Хиллачун хьой реза хилча тӀетаӀе {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "Лаха дош",
-    "cx-tools-view-guidelines": "[$1 Хьажа гочдаран хьоле]"
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"cx-header-progressbar-text": "Гочдина $1%",
+	"cx-header-translation-center": "Гочдечера меттиг",
+	"cx-source-view-page": "[$1 агӀоне хьажар]",
+	"cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
+	"cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
+	"cx-publish-button": "Гайта гоч",
+	"cx-source-loading": "Чуйолуш $1",
+	"cx-entrypoint-title": "Гоч йе хӀара агӀо $1 тӀе",
+	"cx-tools-instructions-title": "Кхолла гоч",
+	"cx-tools-instructions-text1": "ТӀетоха массийта параграфаш",
+	"cx-tools-instructions-text2": "Ахьа уьш массо тӀе ца тоьхча а мегаш ду",
+	"cx-tools-instructions-text3": "Де иштта, йоза нийса деша луш хилийта",
+	"cx-tools-instructions-text5": "Гайта гоч",
+	"cx-tools-instructions-text6": "Хиллачун хьой реза хилча тӀетаӀе {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "Лаха дош",
+	"cx-tools-view-guidelines": "[$1 Хьажа гочдаран хьоле]"
 }

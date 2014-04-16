@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "Robby"
-        ]
-    },
-    "cx": "Säit iwwersetzen",
-    "cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
-    "cx-header-progressbar-text": "$1% iwwersat",
-    "cx-header-translation-center": "Iwwersetzungszentral",
-    "cx-source-view-page": "[$1 Säit weisen]",
-    "cx-publish-page": "Säit publizéiert ënner [$1 $2]",
-    "cx-publish-page-error": "Feeler beim Späichere vun der Säit.",
-    "cx-publish-button": "Iwwersetzung publizéieren",
-    "cx-publish-summary": "Ugeluecht duerch d'Iwwersetze vun der Säit \"$1\"",
-    "tag-contenttranslation": "Iwwersetzung vum Inhalt",
-    "cx-source-loading": "$1 lueden",
-    "cx-redlink-title": "Dës Säit op $1 iwwersetzen",
-    "cx-special-login-error": "Dir musst ageloggt si fir dës Säit z'iwwersetzen.",
-    "cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
-    "cx-tools-instructions-text1": "Setzt Abschnitter dobäi fir z'iwwersetzen",
-    "cx-tools-instructions-text2": "Dir musst se net all derbäisetzen",
-    "cx-tools-instructions-text3": "Maacht den Text natierlech liesbar",
-    "cx-tools-instructions-text4": "Automatesch Iwwersetzung ass nëtzlech awer Dir musst d'Feeler nokucken fir d'Iwwersetzung korrekt ze maachen.",
-    "cx-tools-instructions-text5": "D'Iwwersetzung publizéieren",
-    "cx-tools-instructions-text6": "Wann Dir mam Resultat zefridde sidd, da klickt op {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "E Wuert sichen",
-    "cx-tools-view-guidelines": "[$1 Iwwersetzungsrichtlinne weisen]"
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"cx": "Säit iwwersetzen",
+	"cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
+	"cx-header-progressbar-text": "$1% iwwersat",
+	"cx-header-translation-center": "Iwwersetzungszentral",
+	"cx-source-view-page": "[$1 Säit weisen]",
+	"cx-publish-page": "Säit publizéiert ënner [$1 $2]",
+	"cx-publish-page-error": "Feeler beim Späichere vun der Säit.",
+	"cx-publish-button": "Iwwersetzung publizéieren",
+	"cx-publish-summary": "Ugeluecht duerch d'Iwwersetze vun der Säit \"$1\"",
+	"tag-contenttranslation": "Iwwersetzung vum Inhalt",
+	"cx-source-loading": "$1 lueden",
+	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
+	"cx-special-login-error": "Dir musst ageloggt si fir dës Säit z'iwwersetzen.",
+	"cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
+	"cx-tools-instructions-text1": "Setzt Abschnitter dobäi fir z'iwwersetzen",
+	"cx-tools-instructions-text2": "Dir musst se net all derbäisetzen",
+	"cx-tools-instructions-text3": "Maacht den Text natierlech liesbar",
+	"cx-tools-instructions-text4": "Automatesch Iwwersetzung ass nëtzlech awer Dir musst d'Feeler nokucken fir d'Iwwersetzung korrekt ze maachen.",
+	"cx-tools-instructions-text5": "D'Iwwersetzung publizéieren",
+	"cx-tools-instructions-text6": "Wann Dir mam Resultat zefridde sidd, da klickt op {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "E Wuert sichen",
+	"cx-tools-view-guidelines": "[$1 Iwwersetzungsrichtlinne weisen]"
 }

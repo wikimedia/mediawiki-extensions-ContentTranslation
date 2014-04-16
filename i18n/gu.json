@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "KartikMistry"
-        ]
-    },
-    "cx": "ભાષાંતર પાનું",
-    "cx-desc": "સંપાદકોને એક ભાષામાંથી બીજી ભાષામાં પાનાંઓનું ભાષાંતર મશીન ભાષાંતર અને બીજા સાધનો વડે કરવા દેતું સાધન",
-    "cx-header-progressbar-text": "$1% અનુવાદિત",
-    "cx-header-translation-center": "ભાષાંતર કેન્દ્ર",
-    "cx-source-view-page": "[$1 પાનું જુઓ]",
-    "cx-publish-page": "પાનું [$1 $2] પર પ્રકાશિત થયું",
-    "cx-publish-page-error": "પાનું સંગ્રહ કરતી વખતે ક્ષતિ આવી.",
-    "cx-publish-button": "ભાષાંતર પ્રકાશિત કરો",
-    "cx-publish-summary": "પાનાં \"$1\" ને ભાષાંતર કરીને બનાવેલ",
-    "tag-contenttranslation": "ભાષાંતર",
-    "cx-source-loading": "$1 લાવે છે",
-    "cx-special-login-error": "આ પાનાંનું ભાષાંતર કરવા માટે તમારે પ્રવેશ કરેલો જ હોવો જોઇએ.",
-    "cx-tools-instructions-title": "ભાષાંતર શરુ કરો",
-    "cx-tools-instructions-text1": "ભાષાંતર કરવા માટે ફકરાઓ ઉમેરો",
-    "cx-tools-instructions-text2": "તમારે તે બધાંજ ઉમેરવાની જરુર નથી",
-    "cx-tools-instructions-text3": "લખાણને તટસ્થ બનાવો",
-    "cx-tools-instructions-text4": "આપમેળે ભાષાંતર ઉપયોગી છે પણ તમારે તેને ચોક્કસ બનાવવા માટે ક્ષતિઓને સુધારવી પડશે.",
-    "cx-tools-instructions-text5": "ભાષાંતર પ્રકાશિત કરો",
-    "cx-tools-instructions-text6": "જ્યારે તમે પરિણામ સાથે સંતોષ પામો ત્યારે, {{int:cx-publish-button}} દબાવો.",
-    "cx-tools-searchbox-text": "શબ્દ માટે શોધો",
-    "cx-tools-view-guidelines": "[ભાષાંતર માર્ગદર્શિકા $1 જુઓ]"
+	"@metadata": {
+		"authors": [
+			"KartikMistry"
+		]
+	},
+	"cx": "ભાષાંતર પાનું",
+	"cx-desc": "સંપાદકોને એક ભાષામાંથી બીજી ભાષામાં પાનાંઓનું ભાષાંતર મશીન ભાષાંતર અને બીજા સાધનો વડે કરવા દેતું સાધન",
+	"cx-header-progressbar-text": "$1% અનુવાદિત",
+	"cx-header-translation-center": "ભાષાંતર કેન્દ્ર",
+	"cx-source-view-page": "[$1 પાનું જુઓ]",
+	"cx-publish-page": "પાનું [$1 $2] પર પ્રકાશિત થયું",
+	"cx-publish-page-error": "પાનું સંગ્રહ કરતી વખતે ક્ષતિ આવી.",
+	"cx-publish-button": "ભાષાંતર પ્રકાશિત કરો",
+	"cx-publish-summary": "પાનાં \"$1\" ને ભાષાંતર કરીને બનાવેલ",
+	"tag-contenttranslation": "ભાષાંતર",
+	"cx-source-loading": "$1 લાવે છે",
+	"cx-special-login-error": "આ પાનાંનું ભાષાંતર કરવા માટે તમારે પ્રવેશ કરેલો જ હોવો જોઇએ.",
+	"cx-tools-instructions-title": "ભાષાંતર શરુ કરો",
+	"cx-tools-instructions-text1": "ભાષાંતર કરવા માટે ફકરાઓ ઉમેરો",
+	"cx-tools-instructions-text2": "તમારે તે બધાંજ ઉમેરવાની જરુર નથી",
+	"cx-tools-instructions-text3": "લખાણને તટસ્થ બનાવો",
+	"cx-tools-instructions-text4": "આપમેળે ભાષાંતર ઉપયોગી છે પણ તમારે તેને ચોક્કસ બનાવવા માટે ક્ષતિઓને સુધારવી પડશે.",
+	"cx-tools-instructions-text5": "ભાષાંતર પ્રકાશિત કરો",
+	"cx-tools-instructions-text6": "જ્યારે તમે પરિણામ સાથે સંતોષ પામો ત્યારે, {{int:cx-publish-button}} દબાવો.",
+	"cx-tools-searchbox-text": "શબ્દ માટે શોધો",
+	"cx-tools-view-guidelines": "[ભાષાંતર માર્ગદર્શિકા $1 જુઓ]"
 }

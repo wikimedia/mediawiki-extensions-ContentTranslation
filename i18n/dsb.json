@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "cx": "Bok pśełožyś",
-    "cx-desc": "Rěd, kótaryž zmóžnja wobźěłarjam, boki z jadneje rěcy do drugeje z pomocu mašinowego pśełožowanja a drugich pśełožowańskich rědow pśełožowaś",
-    "cx-header-progressbar-text": "$1 % pśełožone.",
-    "cx-header-translation-center": "Pśełožowańske srjejźišćo",
-    "cx-source-view-page": "[$1 bok se woglědaś]",
-    "cx-publish-page": "Bok pla [$1 $2] wózjawjony.",
-    "cx-publish-page-error": "Zmólka pśi składowanju boka.",
-    "cx-publish-button": "Pśełožk wózjawiś",
-    "cx-publish-summary": "Pśez pśełožowanje boka \"$1\" napórany",
-    "tag-contenttranslation": "Wopśimjeśowy pśełožk",
-    "cx-source-loading": "$1 se zacytujo",
-    "cx-special-login-error": "Musyš pśizjawjony byś, aby w toś tom boku pśełožył.",
-    "cx-tools-instructions-title": "Pśełožk napóraś",
-    "cx-tools-instructions-text1": "Pśidaj wótstawki, kótarež maju se pśełožowaś.",
-    "cx-tools-instructions-text2": "Njetrjebaš wšykne dodaś",
-    "cx-tools-instructions-text3": "Tekst pśirodnje cytajobny cyniś",
-    "cx-tools-instructions-text4": "Awtomatiske pśełožowanje jo wužytne, ale musyš zmólku korigěrowaś, aby akuratny był.",
-    "cx-tools-instructions-text5": "Pśełožk wózjawiś",
-    "cx-tools-instructions-text6": "Gaž sy z wuslědkom spokojom, klikni na {{int:cx-publish-button}}.",
-    "cx-tools-searchbox-text": "Za słowom pytaś",
-    "cx-tools-view-guidelines": "[$1 Směrnice pśełožowanja se woglědaś]"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"cx": "Bok pśełožyś",
+	"cx-desc": "Rěd, kótaryž zmóžnja wobźěłarjam, boki z jadneje rěcy do drugeje z pomocu mašinowego pśełožowanja a drugich pśełožowańskich rědow pśełožowaś",
+	"cx-header-progressbar-text": "$1 % pśełožone.",
+	"cx-header-translation-center": "Pśełožowańske srjejźišćo",
+	"cx-source-view-page": "[$1 bok se woglědaś]",
+	"cx-publish-page": "Bok pla [$1 $2] wózjawjony.",
+	"cx-publish-page-error": "Zmólka pśi składowanju boka.",
+	"cx-publish-button": "Pśełožk wózjawiś",
+	"cx-publish-summary": "Pśez pśełožowanje boka \"$1\" napórany",
+	"tag-contenttranslation": "Wopśimjeśowy pśełožk",
+	"cx-source-loading": "$1 se zacytujo",
+	"cx-special-login-error": "Musyš pśizjawjony byś, aby w toś tom boku pśełožył.",
+	"cx-tools-instructions-title": "Pśełožk napóraś",
+	"cx-tools-instructions-text1": "Pśidaj wótstawki, kótarež maju se pśełožowaś.",
+	"cx-tools-instructions-text2": "Njetrjebaš wšykne dodaś",
+	"cx-tools-instructions-text3": "Tekst pśirodnje cytajobny cyniś",
+	"cx-tools-instructions-text4": "Awtomatiske pśełožowanje jo wužytne, ale musyš zmólku korigěrowaś, aby akuratny był.",
+	"cx-tools-instructions-text5": "Pśełožk wózjawiś",
+	"cx-tools-instructions-text6": "Gaž sy z wuslědkom spokojom, klikni na {{int:cx-publish-button}}.",
+	"cx-tools-searchbox-text": "Za słowom pytaś",
+	"cx-tools-view-guidelines": "[$1 Směrnice pśełožowanja se woglědaś]"
 }

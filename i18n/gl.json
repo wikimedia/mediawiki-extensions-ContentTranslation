@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño",
-            "Fitoschido"
-        ]
-    },
-    "cx": "Traducir a páxina",
-    "cx-desc": "Unha ferramenta que permite aos editores traducir páxinas dunha lingua a outra coa axuda dun tradutor automático e outras ferramentas",
-    "cx-header-progressbar-text": "$1% traducido",
-    "cx-header-translation-center": "Centro de tradución",
-    "cx-source-view-page": "[$1 ver a páxina]",
-    "cx-publish-page": "Páxina publicada en \"[$1 $2]\"",
-    "cx-publish-page-error": "Erro ao gardar a páxina.",
-    "cx-publish-button": "Publicar a tradución",
-    "cx-publish-summary": "Creada como tradución da páxina \"$1\"",
-    "tag-contenttranslation": "Tradución de contido",
-    "cx-source-loading": "Cargando \"$1\"",
-    "cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina.",
-    "cx-tools-instructions-title": "Crear unha tradución",
-    "cx-tools-instructions-text1": "Engada parágrafos á tradución",
-    "cx-tools-instructions-text2": "Non é necesario engadilos todos",
-    "cx-tools-instructions-text3": "Faga que o texto soe natural",
-    "cx-tools-instructions-text4": "As traducións automáticas son útiles, pero debe corrixir os erros e confirmar que a tradución é precisa.",
-    "cx-tools-instructions-text5": "Publicar a tradución",
-    "cx-tools-instructions-text6": "Cando considere que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
-    "cx-tools-searchbox-text": "Procurar unha palabra",
-    "cx-tools-view-guidelines": "[$1 Mostrar as normas de tradución]"
+	"@metadata": {
+		"authors": [
+			"Toliño",
+			"Fitoschido"
+		]
+	},
+	"cx": "Traducir a páxina",
+	"cx-desc": "Unha ferramenta que permite aos editores traducir páxinas dunha lingua a outra coa axuda dun tradutor automático e outras ferramentas",
+	"cx-header-progressbar-text": "$1% traducido",
+	"cx-header-translation-center": "Centro de tradución",
+	"cx-source-view-page": "[$1 ver a páxina]",
+	"cx-publish-page": "Páxina publicada en \"[$1 $2]\"",
+	"cx-publish-page-error": "Erro ao gardar a páxina.",
+	"cx-publish-button": "Publicar a tradución",
+	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",
+	"tag-contenttranslation": "Tradución de contido",
+	"cx-source-loading": "Cargando \"$1\"",
+	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina.",
+	"cx-tools-instructions-title": "Crear unha tradución",
+	"cx-tools-instructions-text1": "Engada parágrafos á tradución",
+	"cx-tools-instructions-text2": "Non é necesario engadilos todos",
+	"cx-tools-instructions-text3": "Faga que o texto soe natural",
+	"cx-tools-instructions-text4": "As traducións automáticas son útiles, pero debe corrixir os erros e confirmar que a tradución é precisa.",
+	"cx-tools-instructions-text5": "Publicar a tradución",
+	"cx-tools-instructions-text6": "Cando considere que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
+	"cx-tools-searchbox-text": "Procurar unha palabra",
+	"cx-tools-view-guidelines": "[$1 Mostrar as normas de tradución]"
 }

@@ -1,34 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "Niknetniko",
-            "Arent",
-            "AvatarTeam",
-            "Sjoerddebruin",
-            "Siebrand",
-            "JurgenNL"
-        ]
-    },
-    "cx": "Pagina vertalen",
-    "cx-desc": "Gereedschap waarmee redacteuren met behulp van machinevertaling en andere vertaalhulpmiddelen pagina's van de ene taal naar de andere kunnen omzetten",
-    "cx-header-progressbar-text": "$1% vertaald",
-    "cx-header-translation-center": "Vertaalcentrum",
-    "cx-source-view-page": "[$1  Bekijk pagina]",
-    "cx-publish-page": "Pagina gepubliceerd op [$1 $2]",
-    "cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
-    "cx-publish-button": "Vertaling publiceren",
-    "cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",
-    "tag-contenttranslation": "Vertaling",
-    "cx-source-loading": "Bezig met laden van $1",
-    "cx-redlink-title": "Pagina vertalen naar het $1",
-    "cx-special-login-error": "U moet ingelogd zijn om in deze pagina te vertalen.",
-    "cx-tools-instructions-title": "Maak een vertaling",
-    "cx-tools-instructions-text1": "Te vertalen alinea's toevoegen",
-    "cx-tools-instructions-text2": "U hoeft ze niet allemaal toe te voegen",
-    "cx-tools-instructions-text3": "Zorg ervoor dat de tekst makkelijk te lezen is",
-    "cx-tools-instructions-text4": "Automatische vertaling is handig, maar verbeter fouten om de vertaling goed te maken.",
-    "cx-tools-instructions-text5": "Vertaling publiceren",
-    "cx-tools-instructions-text6": "Klik op \"{{int:cx-publish-button}}\" als u tevreden bent met het resultaat.",
-    "cx-tools-searchbox-text": "Woord zoeken",
-    "cx-tools-view-guidelines": "[$1 Vertaalrichtlijnen weergeven]"
+	"@metadata": {
+		"authors": [
+			"Niknetniko",
+			"Arent",
+			"AvatarTeam",
+			"Sjoerddebruin",
+			"Siebrand",
+			"JurgenNL"
+		]
+	},
+	"cx": "Pagina vertalen",
+	"cx-desc": "Gereedschap waarmee redacteuren met behulp van machinevertaling en andere vertaalhulpmiddelen pagina's van de ene taal naar de andere kunnen omzetten",
+	"cx-header-progressbar-text": "$1% vertaald",
+	"cx-header-translation-center": "Vertaalcentrum",
+	"cx-source-view-page": "[$1  Bekijk pagina]",
+	"cx-publish-page": "Pagina gepubliceerd op [$1 $2]",
+	"cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
+	"cx-publish-button": "Vertaling publiceren",
+	"cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",
+	"tag-contenttranslation": "Vertaling",
+	"cx-source-loading": "Bezig met laden van $1",
+	"cx-entrypoint-title": "Pagina vertalen naar het $1",
+	"cx-special-login-error": "U moet ingelogd zijn om in deze pagina te vertalen.",
+	"cx-tools-instructions-title": "Maak een vertaling",
+	"cx-tools-instructions-text1": "Te vertalen alinea's toevoegen",
+	"cx-tools-instructions-text2": "U hoeft ze niet allemaal toe te voegen",
+	"cx-tools-instructions-text3": "Zorg ervoor dat de tekst makkelijk te lezen is",
+	"cx-tools-instructions-text4": "Automatische vertaling is handig, maar verbeter fouten om de vertaling goed te maken.",
+	"cx-tools-instructions-text5": "Vertaling publiceren",
+	"cx-tools-instructions-text6": "Klik op \"{{int:cx-publish-button}}\" als u tevreden bent met het resultaat.",
+	"cx-tools-searchbox-text": "Woord zoeken",
+	"cx-tools-view-guidelines": "[$1 Vertaalrichtlijnen weergeven]"
 }
