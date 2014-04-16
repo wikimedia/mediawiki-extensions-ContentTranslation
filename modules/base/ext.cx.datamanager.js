@@ -15,8 +15,12 @@
 
 	/* global io */
 	function initConnection() {
+		if ( !window.io ) {
+			return false;
+		}
 		socket = io.connect( mw.config.get( 'wgContentTranslationServerURL' ) );
 		mw.log( '[CX] Connected to server' );
+		return true;
 	}
 
 	function updateModel( data ) {
@@ -27,7 +31,13 @@
 
 	mw.cx.connect = function () {
 		if ( !socket ) {
-			initConnection();
+			if ( !initConnection() ) {
+				// io not defined. Server is unreachable.
+				$( '.cx-header__infobar' )
+					.text( mw.msg( 'cx-error-server-connection' ) )
+					.show();
+				return;
+			}
 		}
 		socket.emit( 'cx.init', {
 			// FIXME
