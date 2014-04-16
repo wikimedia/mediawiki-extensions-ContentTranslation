@@ -229,9 +229,12 @@
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
 
-			if ( $sourceSection.height() === 0 ) {
-				// Source section has height as 0. This indicates an empty
-				// section - mainly resulting from spurious wikitext
+			if ( $sourceSection.height() === 0 || !$sourceSection.text().trim() ) {
+				$sourceSection.remove();
+				$section.remove();
+
+				// Source section has 0 height. This indicates an empty
+				// section - mainly resulting from spurious wikitext.
 				continue;
 			}
 
