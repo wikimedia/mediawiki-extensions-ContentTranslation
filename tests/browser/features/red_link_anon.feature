@@ -1,13 +1,13 @@
 Feature: New translation from interlanguage link
 
-  As a wiki editor
+  As a registered wiki editor who uses a wiki in a different language
   I can initiate a translation directly from the content page,
   so that I can immediately discover how to contribute.
 
   Design:
   - http://pauginer.github.io/prototype-uls/#mies
 
-  These scenarios check the main entry point to the Special:ContentTranslation page.
+  These scenarios check that anonymous users don't see any red interlanguage links.
 
   Scenario: Anonymous user using the wiki's content language viewing a page that doesn't have a corresponding page in the target language
     Given I am on a page with an interlanguage link to "da"

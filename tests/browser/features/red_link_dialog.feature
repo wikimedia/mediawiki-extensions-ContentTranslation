@@ -1,6 +1,6 @@
 Feature: New translation from interlanguage link
 
-  As a wiki editor
+  As a registered wiki editor who uses a wiki in a different language
   I can initiate a translation directly from the content page,
   so that I can immediately discover how to contribute.
 
