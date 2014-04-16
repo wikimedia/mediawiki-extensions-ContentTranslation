@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nike"
+		]
+	},
+	"cx-error-server-connection": "Virhe: Yhdistäminen palvelimeen epäonnistui.",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1.<br />\nHaluatko luoda sen?",
+	"cx-entrypoint-dialog-title-in": "Sivun otsikko kielellä $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Luo uusi",
+	"cx-entrypoint-dialog-button-translate-from": "Käännä kielestä $1"
+}

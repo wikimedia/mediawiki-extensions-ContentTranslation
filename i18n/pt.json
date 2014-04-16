@@ -5,11 +5,16 @@
 			"SandroHc"
 		]
 	},
+	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
 	"cx-header-translation-center": "Centro de tradução",
 	"cx-source-view-page": "[$1 ver página]",
 	"cx-publish-page": "Página publicada em [$1 $2]",
 	"cx-publish-button": "Publicar tradução",
 	"cx-source-loading": "A carregar $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página ainda não existe em $1.<br />\nDeseja criá-la?",
+	"cx-entrypoint-dialog-title-in": "Título da nova página em $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Criar de raiz",
+	"cx-entrypoint-dialog-button-translate-from": "Traduzir do $1",
 	"cx-tools-instructions-title": "Criar uma tradução",
 	"cx-tools-instructions-text3": "Faz com que o texto seja lido de uma forma natural",
 	"cx-tools-instructions-text5": "Publicar a tradução",

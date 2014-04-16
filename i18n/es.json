@@ -3,7 +3,8 @@
 		"authors": [
 			"Fitoschido",
 			"Sporeunai",
-			"VegaDark"
+			"VegaDark",
+			"Vi00000051"
 		]
 	},
 	"cx": "Traducir página",
@@ -18,6 +19,7 @@
 	"tag-contenttranslation": "Traducción de contenido",
 	"cx-source-loading": "Cargando $1",
 	"cx-entrypoint-title": "Traduce esta página al $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "aún NO existe esta página en $1.<br />\nquieres crearla?",
 	"cx-special-login-error": "Debes iniciar sesión para traducir esta página.",
 	"cx-tools-instructions-title": "Crear una traducción",
 	"cx-tools-instructions-text1": "Añadir párrafos para traducir",

@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "Traducir la páxina",
+	"cx-error-server-connection": "Error: Nun se pudo coneutar col sirvidor.",
 	"cx-desc": "Una ferramienta que permite a los editores traducir páxines d'una llingua a otra cola ayuda de traductores automáticos y otres ferramientes de traducción",
 	"cx-header-progressbar-text": "$1 % traducío",
 	"cx-header-translation-center": "Centru de traducción",
@@ -16,6 +17,10 @@
 	"tag-contenttranslation": "TraducciónConteníu",
 	"cx-source-loading": "Cargando $1",
 	"cx-entrypoint-title": "Traducir esta páxina al $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta páxina inda nun esiste en $1.<br />\n¿Quier creala?",
+	"cx-entrypoint-dialog-title-in": "Títulu de la páxina nueva en $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Crear desde'l principiu",
+	"cx-entrypoint-dialog-button-translate-from": "Traducir dende $1",
 	"cx-special-login-error": "Tien d'aniciar sesión pa traducir esta páxina.",
 	"cx-tools-instructions-title": "Crear una traducción",
 	"cx-tools-instructions-text1": "Amestar los párrafos a traducir",
