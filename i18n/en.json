@@ -17,6 +17,7 @@
     "cx-publish-page-error": "Error while saving page.",
     "cx-publish-button": "Publish translation",
     "cx-publish-summary": "Created by translating the page \"$1\"",
+    "cx-translation-add-translation": "+ Add translation",
     "tag-contenttranslation": "ContentTranslation",
     "cx-source-loading": "Loading $1",
     "cx-entrypoint-title": "Translate this page to $1",

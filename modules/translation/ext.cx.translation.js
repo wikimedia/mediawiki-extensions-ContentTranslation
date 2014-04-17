@@ -156,7 +156,7 @@
 
 	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( this ).addClass( 'placeholder' ).html( '+ Add Translation' );
+		$( this ).addClass( 'placeholder' ).html( mw.msg( 'cx-translation-add-translation' ) );
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'highlight' );
 	}
 

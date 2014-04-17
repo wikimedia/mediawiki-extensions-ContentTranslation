@@ -82,6 +82,9 @@ $wgResourceModules['ext.cx.translation'] = array(
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
 	),
+	'messages' => array(
+		'cx-translation-add-translation',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tool'] = array(
