@@ -38,16 +38,30 @@
 			'<div class="card__section guidelines"></div></div>';
 
 		this.$container.append( $helpTemplate );
-		this.$container.find( '.tools-words-search.box' ).attr( 'placeholder', mw.msg( 'cx-tools-searchbox-text' ) );
-		this.$container.find( '.tools.count.one' ).text( mw.language.convertNumber( 1 ) );
-		this.$container.find( '.text.heading.one' ).text( mw.msg( 'cx-tools-instructions-text1' ) );
-		this.$container.find( '.text.description.one' ).text( mw.msg( 'cx-tools-instructions-text2' ) );
-		this.$container.find( '.tools.count.two' ).text( mw.language.convertNumber( 2 ) );
-		this.$container.find( '.text.heading.two' ).text( mw.msg( 'cx-tools-instructions-text3' ) );
-		this.$container.find( '.text.description.two' ).text( mw.msg( 'cx-tools-instructions-text4' ) );
-		this.$container.find( '.tools.count.three' ).text( mw.language.convertNumber( 3 ) );
-		this.$container.find( '.text.heading.three' ).text( mw.msg( 'cx-tools-instructions-text5' ) );
-		this.$container.find( '.text.description.three' ).text( mw.msg( 'cx-tools-instructions-text6' ) );
+		this.$container.find( '.tools-words-search.box' )
+			.attr( 'placeholder', mw.msg( 'cx-tools-searchbox-text' ) );
+
+		this.$container.find( '.tools.count.one' )
+			.text( mw.language.convertNumber( 1 ) );
+		this.$container.find( '.text.heading.one' )
+			.text( mw.msg( 'cx-tools-instructions-text1' ) );
+		this.$container.find( '.text.description.one' )
+			.text( mw.msg( 'cx-tools-instructions-text2' ) );
+
+		this.$container.find( '.tools.count.two' )
+			.text( mw.language.convertNumber( 2 ) );
+		this.$container.find( '.text.heading.two' )
+			.text( mw.msg( 'cx-tools-instructions-text3' ) );
+		this.$container.find( '.text.description.two' )
+			.text( mw.msg( 'cx-tools-instructions-text4' ) );
+
+		this.$container.find( '.tools.count.three' )
+			.text( mw.language.convertNumber( 3 ) );
+		this.$container.find( '.text.heading.three' )
+			.text( mw.msg( 'cx-tools-instructions-text5' ) );
+		this.$container.find( '.text.description.three' )
+			.text( mw.msg( 'cx-tools-instructions-text6' ) );
+
 		this.$container.find( '.card__section.guidelines' )
 			.html(
 				mw.message(
@@ -56,5 +70,4 @@
 				).parse()
 			);
 	};
-
 }( jQuery, mediaWiki ) );

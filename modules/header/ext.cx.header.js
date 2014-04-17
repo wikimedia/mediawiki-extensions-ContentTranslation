@@ -60,6 +60,7 @@
 			}
 		} );
 	};
+
 	mw.cx.ContentTranslationHeader = ContentTranslationHeader;
 	$.fn.cxHeader.defaults = {};
 }( jQuery, mediaWiki ) );
