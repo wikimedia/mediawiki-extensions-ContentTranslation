@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "ページの翻訳",
+	"cx-error-server-connection": "エラー: サーバーに接続できませんでした。",
 	"cx-desc": "機械翻訳やその他の翻訳ツールの支援で、編集者がページを別の言語に翻訳できるようにするツール",
 	"cx-header-progressbar-text": "$1% 翻訳済",
 	"cx-header-translation-center": "翻訳センター",
@@ -15,6 +16,8 @@
 	"cx-entrypoint-title": "このページを$1に翻訳",
 	"cx-special-login-error": "このページを翻訳するには、ログインしてください。",
 	"cx-tools-instructions-title": "翻訳の作成",
+	"cx-tools-instructions-text1": "翻訳する段落を追加",
+	"cx-tools-instructions-text2": "すべての段落を追加する必要はありません",
 	"cx-tools-instructions-text4": "自動翻訳は有用ですが、正確なものにするため誤りを訂正する必要があります。",
 	"cx-tools-searchbox-text": "単語の検索",
 	"cx-tools-view-guidelines": "[$1 翻訳ガイドラインを閲覧]"

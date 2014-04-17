@@ -16,6 +16,8 @@
 	"cx-publish-summary": "經由翻譯頁面“$1”創建",
 	"tag-contenttranslation": "內容翻譯",
 	"cx-source-loading": "正在載入$1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此頁面於$1尚無存在。<br />\n您希望創建之？",
+	"cx-entrypoint-dialog-title-in": "於$1新頁面標題：",
 	"cx-special-login-error": "您必須登錄翻譯在此頁中。",
 	"cx-tools-instructions-title": "創建翻譯",
 	"cx-tools-instructions-text1": "將段落添加到翻譯",

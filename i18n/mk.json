@@ -14,6 +14,7 @@
 	"cx-publish-page-error": "Грешка при зачувувањето на страницата.",
 	"cx-publish-button": "Објави превод",
 	"cx-publish-summary": "Создадено преведувајќи ја страницата „$1“",
+	"cx-translation-add-translation": "+ Додај превод",
 	"tag-contenttranslation": "ПреводНаСодржина",
 	"cx-source-loading": "Го вчитувам $1",
 	"cx-entrypoint-title": "Преведете ја страницава на $1",

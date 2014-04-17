@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Перевести страницу",
+	"cx-error-server-connection": "Ошибка: Не удалось подключиться к серверу.",
 	"cx-desc": "Инструмент, который позволяет редакторам переводить страницы с одного языка на другой с помощью машинного перевода и других инструментов перевода",
 	"cx-header-progressbar-text": "Перевод выполнен на $1%",
 	"cx-header-translation-center": "Центр переводов",
@@ -17,6 +18,10 @@
 	"tag-contenttranslation": "ПереводСодержимого",
 	"cx-source-loading": "Загрузка $1",
 	"cx-entrypoint-title": "Перевести эту страницу на $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Эта страница на $1 ещё не существует.<br />\nВы хотите создать её?",
+	"cx-entrypoint-dialog-title-in": "Заголовок для новой страницы на $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Создать с нуля",
+	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
 	"cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
 	"cx-tools-instructions-title": "Создать перевод",
 	"cx-tools-instructions-text1": "Добавьте несколько параграфов перевода",
