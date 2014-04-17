@@ -37,7 +37,7 @@
 	function createRedInterlanguageItem( code ) {
 		var $link, $item, autonym;
 
-		// Optimization: if it's just the the user language,
+		// Optimization: if it's just the user language,
 		// get the autonym from an available variable.
 		// Otherwise, get it from uls.data, which should be loaded by now.
 		if ( code === mw.config.get( 'wgUserLanguage' ) ) {
