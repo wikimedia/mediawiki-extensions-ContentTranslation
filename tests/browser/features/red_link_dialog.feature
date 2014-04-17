@@ -41,6 +41,7 @@ Feature: New translation from interlanguage link
     When I write "Translated title" in the input box in the red link dialog
       And I click the "Translate from English" button
     Then the Content translation page should open
+      And the language code of the source column should be "en"
       And the language code of the translation column should be "nl"
       And the name of the page should appear in the source column
       And the title in the translation column should be "Translated title"
@@ -58,3 +59,17 @@ Feature: New translation from interlanguage link
     Then the page creation page should open
       And the name "Translated title" should appear in the main title
       And the language of the editing area should be "nl"
+
+  Scenario: Selecting a different language to translate from
+    When I click on the second part of the "Translate from" button
+      And I select "da" as my source language
+    Then in the dialog for creating a page in "Nederlands" I should see a "Translate from Dansk" button
+      And I do not see the ULS panel for selecting the source language
+
+  Scenario: Selecting a different language to translate from
+    When I click on the second part of the "Translate from" button
+      And I select "da" as my source language
+      And in the dialog for creating a page in "Nederlands" I click the "Translate from Dansk" button
+    Then the Content translation page should open
+      And the language code of the source column should be "da"
+      And the language code of the translation column should be "nl"

@@ -41,5 +41,6 @@ Feature: New translation from interlanguage link
       And I am on a page without interlanguage links
     When I click on the red link to "Nederlands" in the list of the interlanguage links
     Then I should see a dialog for creating a page in "Nederlands"
+      And in the dialog for creating a page in "Nederlands" I should see a "Translate from English" button
       And the heading of the dialog for creating a page should include "This page does not exist in Nederlands yet"
       And the label of the input box in the dialog for creating a page should be "Title for the new page in Nederlands:"
