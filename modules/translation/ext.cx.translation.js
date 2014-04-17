@@ -161,13 +161,24 @@
 	 * @param {string} [prefix] id prefix
 	 */
 	function jquerySelectorForId( id, prefix ) {
+		var selector, randomId;
+
+		randomId = '#' + prefix + ( Math.floor( Math.random() * 1000000 ) + 1 );
 		prefix = prefix || '';
 		if ( !id ) {
-			return '#' + prefix + ( Math.floor( Math.random() * 1000000 ) + 1 );
+			selector = randomId;
+		} else {
+			// make it a string
+			id = id + '';
+			selector = '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
 		}
-		// make it a string
-		id = id + '';
-		return '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
+		try {
+			// Make sure jQuery consider it as a valid selector.
+			$( selector );
+		} catch ( error ) {
+			selector = randomId;
+		}
+		return selector;
 	}
 
 	function souceSectionClickHandler() {
