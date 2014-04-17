@@ -16,31 +16,38 @@
 			$translationCenterLink, $translationCenter, $infoBar;
 
 		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
+
 		$userName = $( '<a>' )
 			.addClass( 'cx-header__user-details__user-name' )
 			.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
 			.text( mw.user.getName() );
+
 		$userDetails = $( '<div>' )
 			.addClass( 'cx-header__user-details' )
 			.append( $userName );
+
 		$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
 			.text( mw.msg( 'cx-publish-button' ) );
+
 		$translationCenterLink = $( '<a>' )
 			.text( mw.msg( 'cx-header-translation-center' ) )
 			.attr( 'href', '#' );
+
 		$translationCenter = $( '<div>' )
 			.addClass( 'cx-header__translation-center' )
 			.append( $translationCenterLink );
+
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
 			.append( $translationCenter, $publishButton );
+
 		$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
 			.hide();
+
 		this.$container
 			.addClass( 'cx-header' )
 			.append( $logo, $userDetails, $headerBar, $infoBar );
 	};
-
 }( jQuery, mediaWiki ) );

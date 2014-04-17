@@ -65,6 +65,8 @@
 			}
 		} );
 	};
+
 	mw.cx.ContentTranslationTools = ContentTranslationTools;
+
 	$.fn.cxTools.defaults = {};
 }( jQuery, mediaWiki ) );
