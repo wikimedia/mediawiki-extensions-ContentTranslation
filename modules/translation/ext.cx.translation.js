@@ -42,10 +42,12 @@
 				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
 		}
+
 		$heading = $( '<h2>' )
 			.attr( 'contenteditable', true )
 			.addClass( 'cx-column__title' )
 			.text( mw.cx.targetTitle );
+
 		this.$container.append( $heading );
 
 		if ( mw.cx.targetLanguage ) {
@@ -53,12 +55,15 @@
 				lang: mw.cx.targetLanguage,
 				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} );
+
 			$languageLabel = $( '<span>' )
 				.addClass( 'cx-column__language-label' )
 				.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
+
 			$subHeading = $( '<div>' )
 				.addClass( 'cx-column__sub-heading' )
 				.append( $languageLabel );
+
 			this.$container.append( $subHeading );
 		}
 
@@ -85,10 +90,12 @@
 
 		// Copy the whole section html to translation section.
 		$section.html( $( '#' + sourceId ).html() );
+
 		// For every segment, use MT as replacement
 		$section.find( '.cx-segment' ).each( function () {
 			$( this ).html( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
 		} );
+
 		// Trigger input event so that the alignemnt is right.
 		$section.trigger( 'input' );
 
@@ -113,25 +120,28 @@
 	ContentTranslationEditor.prototype.getSectionSelector = function () {
 		var i, sectionSelector = '',
 			sectionTypes = [
-			'div', 'p',
-			// tables
-			'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
-			// lists
-			'ul', 'ol', 'li', 'dl', 'dt', 'dd',
-			// HTML5 heading content
-			'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
-			// HTML5 sectioning content
-			'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
-			'figcaption', 'fieldset', 'details', 'blockquote',
-			// other
-			'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
-			'map', 'object', 'pre', 'progress', 'video'
-		 ];
+				'div', 'p',
+				// tables
+				'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
+				// lists
+				'ul', 'ol', 'li', 'dl', 'dt', 'dd',
+				// HTML5 heading content
+				'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
+				// HTML5 sectioning content
+				'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
+				'figcaption', 'fieldset', 'details', 'blockquote',
+				// other
+				'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
+				'map', 'object', 'pre', 'progress', 'video'
+			];
+
 		for ( i = 0; i < sectionTypes.length; i++ ) {
 			sectionSelector += sectionTypes[ i ] + ',';
 		}
+
 		// Remove the trailing comma.
 		sectionSelector = sectionSelector.replace( /,+$/, '' );
+
 		return sectionSelector;
 	};
 
@@ -139,6 +149,7 @@
 		/*jshint validthis:true */
 		$( this ).removeClass( 'placeholder' )
 			.unbind( 'hover click' );
+
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 	}
@@ -165,6 +176,7 @@
 
 		randomId = '#' + prefix + ( Math.floor( Math.random() * 1000000 ) + 1 );
 		prefix = prefix || '';
+
 		if ( !id ) {
 			selector = randomId;
 		} else {
@@ -172,12 +184,14 @@
 			id = id + '';
 			selector = '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
 		}
+
 		try {
-			// Make sure jQuery consider it as a valid selector.
+			// Make sure jQuery considers it as a valid selector.
 			$( selector );
 		} catch ( error ) {
 			selector = randomId;
 		}
+
 		return selector;
 	}
 
@@ -195,23 +209,26 @@
 		/*jshint validthis:true */
 		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
 	}
+
 	/**
 	 * Add placeholders for translation sections. The placeholders
 	 * are aligned to the source sections. Also provides mouse hover effects.
 	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var cxSectionSelector = this.getSectionSelector(),
-			$content,
-			$sections, i, $section, sourceSectionId, $sourceSection;
+		var $content,
+			$sections, i, $section, sourceSectionId, $sourceSection,
+			cxSectionSelector = this.getSectionSelector();
 
 		// Clone the source article and work on this detached object
 		// to help performance
 		$content = $( '.cx-column--source .cx-column__content' ).clone();
 		$sections = $content.find( cxSectionSelector );
+
 		for ( i = 0; i < $sections.length; i++ ) {
 			$section = $( $sections[ i ] );
 			sourceSectionId = $section.attr( 'id' );
 			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
+
 			if ( $sourceSection.height() === 0 ) {
 				// Source section has height as 0. This indicates an empty
 				// section - mainly resulting from spurious wikitext
@@ -223,6 +240,7 @@
 				'min-height': $sourceSection.height(),
 				width: $sourceSection.width()
 			} );
+
 			$section.attr( {
 				'id': 't' + sourceSectionId,
 				'data-source': sourceSectionId,
@@ -234,10 +252,12 @@
 			$section.on( 'input', keepAlignment )
 				.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
 				.on( 'click', sectionClick );
+
 			// Bind events to the placeholder sections
 			$sourceSection.click( souceSectionClickHandler )
 				.hover( souceSectionMouseEnterHandler, souceSectionMouseLeaveHandler );
 		}
+
 		// Attach $content to container
 		this.$container.append( $content );
 	};
@@ -248,6 +268,7 @@
 	 */
 	function keepAlignment() {
 		var $sourceSection, sectionHeight, sourceSectionHeight, $section;
+
 		/*jshint validthis:true */
 		$section = $( this );
 		$sourceSection = $( '#' + $section.data( 'source' ) );
@@ -260,6 +281,7 @@
 			$sourceSection.css( 'min-height', sectionHeight );
 			sourceSectionHeight = $sourceSection.height();
 			sectionHeight = $section.height();
+
 			// Fun stuff - setting a calculated min-height will not guarantee
 			// equal height for all kind of section pairs.
 			// Experiments shows a few pixels difference
