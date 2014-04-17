@@ -48,9 +48,9 @@
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 		publishTranslation( translatedTitle, translatedContent, sourceTitle )
 			.done( function () {
-
 				mw.notify( $( '<p>' ).html( mw.message( 'cx-publish-page',
 					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() ) );
+
 				mw.hook( 'mw.cx.translate.create' ).fire(
 					$( '.cx-column--source' ).prop( 'lang' ),
 					$( '.cx-column--translation' ).prop( 'lang' )

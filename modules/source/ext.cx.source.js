@@ -48,9 +48,11 @@
 		$heading = $( '<h2>' )
 			.addClass( 'cx-column__title' )
 			.text( mw.cx.sourceTitle );
+
 		$languageLabel = $( '<span>' )
 			.addClass( 'cx-column__language-label' )
 			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
+
 		$articleLink = $( '<span>' )
 			.addClass( 'cx-column__sub-heading__view-page' )
 			.html(
@@ -58,13 +60,16 @@
 					'cx-source-view-page',
 					mw.util.getUrl( mw.cx.sourceTitle )
 				).parse()
-		);
+			);
+
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )
 			.append( $languageLabel, $articleLink );
+
 		$loader = $( '<div>' )
 			.addClass( 'cx-column__content' )
 			.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) );
+
 		this.$container.append( $heading, $subHeading, $loader );
 
 		this.$title = this.$container.find( '.cx-column__title' );
@@ -73,10 +78,13 @@
 
 	ContentTranslationSource.prototype.load = function () {
 		this.$content.html( mw.cx.data.segmentedContent );
+
 		// @todo figure out what should be done here
 		this.$content.find( 'base' ).detach();
+
 		// Disable all links
 		this.disableLinks();
+
 		mw.hook( 'mw.cx.source.loaded' ).fire();
 	};
 
