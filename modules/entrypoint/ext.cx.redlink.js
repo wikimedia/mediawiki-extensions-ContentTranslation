@@ -54,7 +54,7 @@
 						lang: code
 					}
 				),
-				title: mw.msg( 'cx-redlink-title', autonym ),
+				title: mw.msg( 'cx-entrypoint-title', autonym ),
 				lang: code,
 				dir: 'auto'
 			} )

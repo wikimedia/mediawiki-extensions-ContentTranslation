@@ -146,7 +146,7 @@ $wgResourceModules['ext.cx.redlink'] = array(
 	'scripts' => 'entrypoint/ext.cx.redlink.js',
 	'styles' => 'entrypoint/styles/ext.cx.redlink.less',
 	'messages' => array(
-		'cx-redlink-title',
+		'cx-entrypoint-title',
 	),
 	'dependencies' => array(
 		'ext.cx.entrypoint',
