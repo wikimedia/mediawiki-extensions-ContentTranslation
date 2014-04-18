@@ -32,7 +32,7 @@
 	"cx-tools-instructions-text3": "Make text read natural",
 	"cx-tools-instructions-text4": "Automatic translation is useful but you'll need to revise errors to make it accurate.",
 	"cx-tools-instructions-text5": "Publish the translation",
-	"cx-tools-instructions-text6": "When you are happy with the result, press {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "When you are happy with the result, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Search for a word",
 	"cx-tools-view-guidelines": "[$1 View translation guidelines]"
 }
