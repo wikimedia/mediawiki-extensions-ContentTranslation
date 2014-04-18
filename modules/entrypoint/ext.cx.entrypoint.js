@@ -62,7 +62,6 @@
 	 * Initialize the plugin.
 	 */
 	CXEntryPoint.prototype.init = function () {
-		this.render();
 		this.listen();
 	};
 
@@ -87,20 +86,13 @@
 
 			// jquery.uls.data is needed for autonyms
 			mw.loader.using( 'jquery.uls.data', function () {
+				if ( !entryPoint.$dialog ) {
+					entryPoint.render();
+				}
+
 				entryPoint.toggle();
 			} );
 		} );
-
-		this.$dialog.find( '.cx-entrypoint-dialog-button-create-from-scratch' ).click( function () {
-			var $titleInput = entryPoint.$dialog.find( '.cx-entrypoint-dialog__title-box-block input' );
-
-			createNewPage( entryPoint.options.targetLanguage, $titleInput.val() );
-		} );
-
-		this.$dialog.find( '.cx-entrypoint-dialog-button-translate-from' )
-			.click( $.proxy( this.startPageInCX, this ) );
-
-		this.$dialog.find( '.icon-close' ).click( $.proxy( this.hide, this ) );
 	};
 
 	/**
@@ -164,6 +156,7 @@
 		var $fromScratchButton, $translateFromButton, $actions,
 			$titleInput, $titleBoxBlock,
 			$closeIcon, $heading, $titleLabel,
+			entryPoint = this,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
 			currentTitle = mw.config.get( 'wgTitle' );
 
@@ -175,7 +168,8 @@
 			} );
 
 		$closeIcon = $( '<span>' )
-			.addClass( 'icon-close' );
+			.addClass( 'icon-close' )
+			.click( $.proxy( this.hide, this ) );
 
 		$heading = $( '<div>' ).addClass( 'cx-entrypoint-dialog__heading' )
 			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
@@ -196,14 +190,18 @@
 
 		$fromScratchButton = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
-			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) );
+			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) )
+			.click( function () {
+				createNewPage( entryPoint.options.targetLanguage, $titleInput.val() );
+			} );
 
 		$translateFromButton = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-translate-from' )
 			.text( mw.msg(
 				'cx-entrypoint-dialog-button-translate-from',
 				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-			) );
+			) )
+			.click( $.proxy( this.startPageInCX, this ) );
 
 		$actions = $( '<div>' ).addClass( 'cx-entrypoint-dialog__actions' )
 			.append( $fromScratchButton, $translateFromButton );
