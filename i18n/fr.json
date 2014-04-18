@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Sherbrooke"
+			"Sherbrooke",
+			"Maxim21"
 		]
 	},
 	"cx": "Traduire la page",
@@ -15,6 +16,7 @@
 	"cx-publish-page-error": "Erreur lors de l’enregistrement de la page.",
 	"cx-publish-button": "Publier la traduction",
 	"cx-publish-summary": "Créé en traduisant la page « $1 »",
+	"cx-translation-add-translation": "+ Ajouter une traduction",
 	"tag-contenttranslation": "Traduction du contenu",
 	"cx-source-loading": "Chargement de $1",
 	"cx-entrypoint-title": "Traduire cette page en $1",

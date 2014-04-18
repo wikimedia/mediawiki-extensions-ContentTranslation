@@ -15,6 +15,7 @@
 	"cx-publish-page-error": "Errore durante il salvataggio della pagina.",
 	"cx-publish-button": "Pubblica traduzione",
 	"cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",
+	"cx-translation-add-translation": "+ Aggiungi traduzione",
 	"tag-contenttranslation": "TraduzioneContenuto",
 	"cx-source-loading": "Caricamento $1",
 	"cx-entrypoint-title": "Traduci questa pagina in $1",

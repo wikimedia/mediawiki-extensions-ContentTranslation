@@ -15,6 +15,7 @@
 	"cx-publish-page-error": "Ошибка при сохранении страницы.",
 	"cx-publish-button": "Опубликовать перевод",
 	"cx-publish-summary": "Создан перевод страницы \"$1\"",
+	"cx-translation-add-translation": "+ Добавить перевод",
 	"tag-contenttranslation": "ПереводСодержимого",
 	"cx-source-loading": "Загрузка $1",
 	"cx-entrypoint-title": "Перевести эту страницу на $1",

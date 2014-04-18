@@ -17,6 +17,7 @@
 	"cx-publish-page-error": "שגיאה בעת שמירת הדף.",
 	"cx-publish-button": "פרסום התרגום",
 	"cx-publish-summary": "יצירה באמצעות תרגום הדף \"$1\"",
+	"cx-translation-add-translation": "+ הוספת תרגום",
 	"tag-contenttranslation": "תרגום תוכן",
 	"cx-source-loading": "טעינת $1",
 	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
