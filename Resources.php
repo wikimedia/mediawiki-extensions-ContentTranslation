@@ -97,7 +97,6 @@ $wgResourceModules['ext.cx.tool'] = array(
 		'tools/styles/ext.cx.tools.helpmessage.less',
 	),
 	'messages' => array(
-		'cx-tools-instructions-title',
 		'cx-tools-instructions-text1',
 		'cx-tools-instructions-text2',
 		'cx-tools-instructions-text3',
