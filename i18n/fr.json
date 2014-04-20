@@ -3,7 +3,8 @@
 		"authors": [
 			"Gomoko",
 			"Sherbrooke",
-			"Maxim21"
+			"Maxim21",
+			"Ultimate"
 		]
 	},
 	"cx": "Traduire la page",
@@ -25,13 +26,12 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Créer à partir de zéro",
 	"cx-entrypoint-dialog-button-translate-from": "Traduire depuis $1",
 	"cx-special-login-error": "Vous devez être connecté pour traduire cette page.",
-	"cx-tools-instructions-title": "Créer une traduction",
 	"cx-tools-instructions-text1": "Ajouter quelques paragraphes à traduire",
 	"cx-tools-instructions-text2": "Vous n’avez pas besoin de tous les ajouter",
 	"cx-tools-instructions-text3": "Rendre le texte lisible de façon naturelle",
 	"cx-tools-instructions-text4": "La traduction automatique est utile mais vous devrez corriger les erreurs pour la rendre correcte.",
 	"cx-tools-instructions-text5": "Publier la traduction",
-	"cx-tools-instructions-text6": "Quand vous serez satisfait du résultat, appuyez sur {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "Lorsque vous serez satisfait du résultat, appuyez sur {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Chercher un mot",
 	"cx-tools-view-guidelines": "[$1 Afficher les directives de traduction]"
 }

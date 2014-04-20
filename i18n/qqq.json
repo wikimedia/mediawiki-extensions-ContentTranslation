@@ -28,7 +28,6 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "A label for a button on the bottom of the dialog that appears when the red interlanguage link is clicked. Clicking the button takes the user to a new article creation page in the wiki in the target language.",
 	"cx-entrypoint-dialog-button-translate-from": "A label for a button on the bottom of the dialog that appears when the red interlanguage link is clicked.\n\nClicking the button takes the user to the column-based content translation interface.\n\nParameters:\n* $1 - the name of the current wiki's content language",
 	"cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
-	"cx-tools-instructions-title": "Title for the translation tools pane.",
 	"cx-tools-instructions-text1": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text2}}.",
 	"cx-tools-instructions-text2": "Help text for the translation tools pane.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text1}}.",
 	"cx-tools-instructions-text3": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text4}}.",

@@ -14,6 +14,7 @@
 	"cx-publish-page-error": "Error al guardar la páxina.",
 	"cx-publish-button": "Espublizar la traducción",
 	"cx-publish-summary": "Creada traduciendo la páxina «$1»",
+	"cx-translation-add-translation": "+ Amestar traducción",
 	"tag-contenttranslation": "TraducciónConteníu",
 	"cx-source-loading": "Cargando $1",
 	"cx-entrypoint-title": "Traducir esta páxina al $1",
@@ -22,13 +23,12 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Crear desde'l principiu",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir dende $1",
 	"cx-special-login-error": "Tien d'aniciar sesión pa traducir esta páxina.",
-	"cx-tools-instructions-title": "Crear una traducción",
 	"cx-tools-instructions-text1": "Amestar los párrafos a traducir",
 	"cx-tools-instructions-text2": "Nun necesita amestalos toos",
 	"cx-tools-instructions-text3": "Faiga que'l testu se llea natural",
 	"cx-tools-instructions-text4": "Les traducciones automátiques son afayadices, pero tien de revisar los fallos pa faceles precises.",
 	"cx-tools-instructions-text5": "Publicar la traducción",
-	"cx-tools-instructions-text6": "Cuando tea satisfechu col resultáu, calque {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "Cuando tea satisfechu col resultáu, calque «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Guetar una pallabra",
 	"cx-tools-view-guidelines": "[$1 Ver les guíes pa la traducción]"
 }

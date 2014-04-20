@@ -26,13 +26,12 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "יצירה מאפס",
 	"cx-entrypoint-dialog-button-translate-from": "תרגום מ{{GRAMMAR:תחילית|$1}}",
 	"cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה.",
-	"cx-tools-instructions-title": "יצירת תרגום",
 	"cx-tools-instructions-text1": "הוספת פסקאות לתרגום.",
 	"cx-tools-instructions-text2": "לא צריך להוסיף את כולם",
 	"cx-tools-instructions-text3": "הופך את הקטסט להיות קריא בצורה טבעית",
 	"cx-tools-instructions-text4": "תרגום אוטומטי הוא שימושי, אך יהיה עליך לתקן את השגיאות כדי שהתרגום יהיה מדויק.",
 	"cx-tools-instructions-text5": "פרסום התרגום",
-	"cx-tools-instructions-text6": "כאשר הינך מרוצה מהתוצאה, לחץ {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "כאשר הינך מרוצה מהתוצאה, לחץ \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "חיפוש מילה",
 	"cx-tools-view-guidelines": "[$1 הצגת הנחיות התרגום]"
 }

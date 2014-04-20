@@ -24,13 +24,12 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Создать с нуля",
 	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
 	"cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
-	"cx-tools-instructions-title": "Создать перевод",
 	"cx-tools-instructions-text1": "Добавьте несколько параграфов перевода",
 	"cx-tools-instructions-text2": "Вам не нужно добавлять их все",
 	"cx-tools-instructions-text3": "Сделайте так, чтоб текст читался естественно",
 	"cx-tools-instructions-text4": "Автоматический перевод полезен, но вам нужно будет проверить его на наличие ошибок, чтоб сделать более точным.",
 	"cx-tools-instructions-text5": "Опубликовать перевод",
-	"cx-tools-instructions-text6": "Когда вы будете довольны результатом, нажмите {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "Когда вы будете довольны результатом, нажмите «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Искать слово",
 	"cx-tools-view-guidelines": "[$1 Посмотреть принципы перевода]"
 }

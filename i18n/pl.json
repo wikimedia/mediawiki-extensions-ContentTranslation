@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"Vuh",
-			"Jacenty359"
+			"Jacenty359",
+			"Wedkarski"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -14,11 +15,11 @@
 	"cx-publish-page-error": "Błąd podczas zapisywania strony.",
 	"cx-publish-button": "Publikuj tłumaczenie",
 	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
+	"cx-translation-add-translation": "+ Dodaj tłumaczenie",
 	"tag-contenttranslation": "Tłumaczenie treści",
 	"cx-source-loading": "Ładowanie $1",
 	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z $1",
 	"cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
-	"cx-tools-instructions-title": "Utwórz tłumaczenie",
 	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
 	"cx-tools-instructions-text4": "Nie tłumacz tekstu, który nie wygląda na wiarygodny lub jest o niskiej jakości. Jeśli to możliwe, zweryfikuj tekst na podstawie przypisów podanych na stronie źródłowej.",
 	"cx-tools-instructions-text5": "Opublikuj tłumaczenie",

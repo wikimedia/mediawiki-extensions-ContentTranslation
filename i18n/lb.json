@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "Säit iwwersetzen",
+	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
 	"cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
 	"cx-header-progressbar-text": "$1% iwwersat",
 	"cx-header-translation-center": "Iwwersetzungszentral",
@@ -17,16 +18,17 @@
 	"tag-contenttranslation": "Iwwersetzung vum Inhalt",
 	"cx-source-loading": "$1 lueden",
 	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Dës Säit gëtt et op $1 nach net.<br />\nWëllt Dir se uleeën?",
 	"cx-entrypoint-dialog-title-in": "Titel fir déi nei Säit op $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Vun null ufänken",
 	"cx-entrypoint-dialog-button-translate-from": "Iwwersetze vu(n) $1",
 	"cx-special-login-error": "Dir musst ageloggt si fir dës Säit z'iwwersetzen.",
-	"cx-tools-instructions-title": "Eng Iwwersetzung uleeën",
 	"cx-tools-instructions-text1": "Setzt Abschnitter dobäi fir z'iwwersetzen",
 	"cx-tools-instructions-text2": "Dir musst se net all derbäisetzen",
 	"cx-tools-instructions-text3": "Maacht den Text natierlech liesbar",
 	"cx-tools-instructions-text4": "Automatesch Iwwersetzung ass nëtzlech awer Dir musst d'Feeler nokucken fir d'Iwwersetzung korrekt ze maachen.",
 	"cx-tools-instructions-text5": "D'Iwwersetzung publizéieren",
-	"cx-tools-instructions-text6": "Wann Dir mam Resultat zefridde sidd, da klickt op {{int:cx-publish-button}}.",
+	"cx-tools-instructions-text6": "Wann Dir mam Resultat zefridde sidd, da klickt op \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "E Wuert sichen",
 	"cx-tools-view-guidelines": "[$1 Iwwersetzungsrichtlinne weisen]"
 }

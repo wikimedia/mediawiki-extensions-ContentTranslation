@@ -4,7 +4,8 @@
 			"Leehoy",
 			"Priviet",
 			"Freebiekr",
-			"아라"
+			"아라",
+			"Namoroka"
 		]
 	},
 	"cx": "문서 번역",
@@ -16,16 +17,16 @@
 	"cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
 	"cx-publish-button": "번역 게시",
 	"cx-publish-summary": "\"$1\" 문서 번역됨",
+	"cx-translation-add-translation": "+ 번역 추가",
 	"tag-contenttranslation": "내용 번역",
 	"cx-source-loading": "$1 문서를 불러오는 중",
 	"cx-special-login-error": "이 문서를 번역하려면 로그인 상태여야 합니다.",
-	"cx-tools-instructions-title": "번역하기",
 	"cx-tools-instructions-text1": "번역에 문단 추가",
 	"cx-tools-instructions-text2": "그들 모두를 추가하지 않아도 됩니다",
 	"cx-tools-instructions-text3": "글을 자연스럽게 읽히도록 만드세요",
 	"cx-tools-instructions-text4": "자동 번역은 유용하지만 정확하게 하도록 오류를 고쳐야 합니다.",
 	"cx-tools-instructions-text5": "번역 게시",
-	"cx-tools-instructions-text6": "결과에 만족한다면, {{int:cx-publish-button}}를 누르세요.",
+	"cx-tools-instructions-text6": "결과에 만족한다면, \"{{int:cx-publish-button}}\"를 누르세요.",
 	"cx-tools-searchbox-text": "낱말 검색",
 	"cx-tools-view-guidelines": "[$1 번역 지침 보기]"
 }
