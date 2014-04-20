@@ -195,17 +195,17 @@
 		return selector;
 	}
 
-	function souceSectionClickHandler() {
+	function sourceSectionClickHandler() {
 		/*jshint validthis:true */
 		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).click();
 	}
 
-	function souceSectionMouseEnterHandler() {
+	function sourceSectionMouseEnterHandler() {
 		/*jshint validthis:true */
 		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseenter();
 	}
 
-	function souceSectionMouseLeaveHandler() {
+	function sourceSectionMouseLeaveHandler() {
 		/*jshint validthis:true */
 		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
 	}
@@ -257,8 +257,8 @@
 				.on( 'click', sectionClick );
 
 			// Bind events to the placeholder sections
-			$sourceSection.click( souceSectionClickHandler )
-				.hover( souceSectionMouseEnterHandler, souceSectionMouseLeaveHandler );
+			$sourceSection.click( sourceSectionClickHandler )
+				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
 		}
 
 		// Attach $content to container
