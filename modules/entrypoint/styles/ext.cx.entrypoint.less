@@ -22,9 +22,11 @@
 }
 
 .cx-entrypoint-dialog__heading {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	padding: 10px 15px;
+	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	line-height: 1.5em;
 	background-color: #fbfbfb;
@@ -38,6 +40,9 @@
 		float: right;
 		padding: 15px;
 		cursor: pointer;
+		position: relative;
+		top: -@vertical-margin;
+		left: @horizontal-margin;
 	}
 }
 
