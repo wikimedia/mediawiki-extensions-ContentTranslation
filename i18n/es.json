@@ -4,7 +4,8 @@
 			"Fitoschido",
 			"Sporeunai",
 			"VegaDark",
-			"Vi00000051"
+			"Vi00000051",
+			"Ihojose"
 		]
 	},
 	"cx": "Traducir página",
@@ -31,7 +32,7 @@
 	"cx-tools-instructions-text3": "Haz que el texto suene natural",
 	"cx-tools-instructions-text4": "La traducción automática puede ser útil, pero hay que revisarla para eliminar errores y asegurar la exactitud.",
 	"cx-tools-instructions-text5": "Publicar la traducción",
-	"cx-tools-instructions-text6": "Cuando usted está contento con el resultado, oprima {{int:cx-publicar-botón}}.",
+	"cx-tools-instructions-text6": "Cuando estés contento con el resultado, presiona \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Buscar una palabra",
 	"cx-tools-view-guidelines": "[$1 Ver pautas de traducción]"
 }

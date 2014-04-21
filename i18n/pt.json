@@ -10,6 +10,7 @@
 	"cx-source-view-page": "[$1 ver página]",
 	"cx-publish-page": "Página publicada em [$1 $2]",
 	"cx-publish-button": "Publicar tradução",
+	"cx-translation-add-translation": "+ Adicionar tradução",
 	"cx-source-loading": "A carregar $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página ainda não existe em $1.<br />\nDeseja criá-la?",
 	"cx-entrypoint-dialog-title-in": "Título da nova página em $1:",
