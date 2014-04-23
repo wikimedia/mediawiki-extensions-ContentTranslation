@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Vuh",
 			"Jacenty359",
-			"Wedkarski"
+			"Wedkarski",
+			"Alan ffm"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -18,6 +19,7 @@
 	"cx-translation-add-translation": "+ Dodaj tłumaczenie",
 	"tag-contenttranslation": "Tłumaczenie treści",
 	"cx-source-loading": "Ładowanie $1",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Stworzyć od podstaw",
 	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z $1",
 	"cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
 	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
