@@ -67,6 +67,7 @@
 			this.$container.append( $subHeading );
 		}
 
+		// Why is this needed??
 		$content = $( '<div>' )
 			.addClass( 'cx-column__content' )
 			.html( '\n' ); // Make sure that it's visible to the tests
@@ -117,7 +118,7 @@
 	 * Generate a jquery selector for all sections
 	 * @return {string} the section selector string
 	 */
-	ContentTranslationEditor.prototype.getSectionSelector = function () {
+	mw.cx.getSectionSelector = function () {
 		var i, sectionSelector = '',
 			sectionTypes = [
 				'div', 'p',
@@ -217,7 +218,7 @@
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
 		var $content, template,
 			$sections, i, $section, sourceSectionId, $sourceSection,
-			cxSectionSelector = this.getSectionSelector();
+			cxSectionSelector = mw.cx.getSectionSelector();
 
 		// Clone the source article and work on this detached object
 		// to help performance
@@ -253,7 +254,7 @@
 			} );
 
 			$section.attr( {
-				'id': 't' + sourceSectionId,
+				id: 't' + sourceSectionId,
 				'data-source': sourceSectionId,
 				// Sections are editable if they are not templates
 				'contenteditable': template ? false : true
@@ -268,6 +269,8 @@
 			$sourceSection.click( sourceSectionClickHandler )
 				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
 		}
+
+		this.$container.find( '.cx-column__content' ).remove();
 
 		// Attach $content to container
 		this.$container.append( $content );

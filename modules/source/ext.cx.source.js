@@ -73,6 +73,8 @@
 
 	ContentTranslationSource.prototype.load = function () {
 		this.$content.html( mw.cx.data.segmentedContent );
+		// @todo figure out what should be done here
+		this.$content.find( 'base' ).detach();
 		// Disable all links
 		this.disableLinks();
 		mw.hook( 'mw.cx.source.loaded' ).fire();

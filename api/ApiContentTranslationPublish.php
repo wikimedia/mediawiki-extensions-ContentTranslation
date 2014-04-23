@@ -10,6 +10,40 @@
  */
 
 class ApiContentTranslationPublish extends ApiBase {
+
+	/**
+	 * Converts html to wikitext
+	 *
+	 * @param Title $title
+	 * @param string $html
+	 * @return Status
+	 * @throw MWException
+	 */
+	protected function convertHtmlToWikitext( Title $title, $html ) {
+		global $wgContentTranslationParsoid;
+
+		$conf = $wgContentTranslationParsoid;
+		$page = urlencode( $title->getPrefixedDBkey() );
+
+		$req = MWHttpRequest::factory(
+			"{$conf['url']}/{$conf['prefix']}/$page",
+			array(
+				'method' => 'POST',
+				'postData' => array(
+					'content' => $html,
+				),
+				'timeout' => $conf['timeout'],
+			)
+		);
+
+		$status = $req->execute();
+		if ( !$status->isOK() ) {
+			throw new MWException( $status->getMessage()->text() );
+		}
+
+		return $req->getContent();
+	}
+
 	protected function saveWikitext( $title, $wikitext, $params ) {
 		$summary = $this->msg(
 			'cx-publish-summary',
@@ -39,18 +73,22 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function execute() {
 		$params = $this->extractRequestParams();
-		$title = Title::newFromText( $params['title'] );
 
+		$title = Title::newFromText( $params['title'] );
 		if ( !$title ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
 		}
 
-		// TODO Should convert contenteditable HTML to Wikitext
-		$saveresult = $this->saveWikitext( $title, $params['text'], $params );
+		try {
+			$wikitext = $this->convertHtmlToWikitext( $title, $params['html'] );
+		} catch ( MWException $e ) {
+			$this->dieUsage( 'Conversion to wikitext with parsoid failed', 'parsoidserver' );
+		}
+
+		$saveresult = $this->saveWikitext( $title, $wikitext, $params );
 		$editStatus = $saveresult['edit']['result'];
 
-		if ( isset( $saveresult['edit']['result'] ) || $editStatus === 'Success' ) {
-			// TODO Can it be false?
+		if ( $editStatus === 'Success' ) {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				ChangeTags::addTags( 'contenttranslation', null,
 					intval( $saveresult['edit']['newrevid'] ),
@@ -83,7 +121,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'token' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
-			'text' => array(
+			'html' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'sourcetitle' => array(
@@ -112,12 +150,12 @@ class ApiContentTranslationPublish extends ApiBase {
 		return array(
 			'title' => 'The title of the page to perform actions on.',
 			'token' => 'Edit token',
-			'text' => 'The wikitext to save in the page.',
+			'html' => 'The content to save.',
 			'sourcetitle' => 'The title of the source page.',
 		);
 	}
 
 	public function getDescription() {
-		return 'Save a page created using ContentTranslation to MediaWiki.';
+		return 'Save a page created using the content translation extension.';
 	}
 }

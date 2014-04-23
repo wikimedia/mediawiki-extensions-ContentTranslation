@@ -11,14 +11,39 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	/**
+	 * Prepare the translated content for publishing by removing
+	 * unwanted parts.
+	 * @return {string} processed html
+	 */
+	function prepareTranslationForPublish() {
+		var $translatedContent;
+
+		// TODO: Refactor so that this module is not grabbing random dom nodes
+		$translatedContent = $( '.cx-column--translation .cx-column__content' ).clone();
+		$translatedContent.find( '.cx-segment' ).replaceWith( function () {
+			return $( this ).html();
+		} );
+
+		// Remove placeholder sections that are empty
+		// TODO: This can be better done if all placeholder sections has a semantic
+		// class which get removed when content is inserted.
+		$translatedContent.find( mw.cx.getSectionSelector() ).each( function () {
+			if ( !$( this ).text().trim() ) {
+				$( this ).remove();
+			}
+		} );
+
+		return $translatedContent.html();
+
+	}
+
 	mw.cx.publish = function () {
 		var translatedTitle, translatedContent, sourceTitle;
 
-		// @todo: Refactor so that this module is not grabbing random dom nodes
 		sourceTitle = $( '.cx-column--source > h2' ).text();
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
-		translatedContent = $( '.cx-column--translation .cx-column__content' ).text();
-
+		translatedContent = prepareTranslationForPublish();
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 		publishTranslation( translatedTitle, translatedContent, sourceTitle )
@@ -46,7 +71,7 @@
 		return api.postWithEditToken( {
 			action: 'cxpublish',
 			title: title,
-			text: content,
+			html: content,
 			sourcetitle: sourceTitle
 		} );
 	}

@@ -48,6 +48,12 @@ $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 $GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8000';
 $GLOBALS['wgContentTranslationServerTimeout'] = 15;
 
+$GLOBALS['wgContentTranslationParsoid'] = array(
+	'url' => 'http://parsoid.wmflabs.org/',
+	'timeout' => 15,
+	'prefix' => 'enwiki',
+);
+
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
 
