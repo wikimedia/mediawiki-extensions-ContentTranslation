@@ -35,8 +35,8 @@ class RedLinkPage
 		@browser.li(class: "interlanguage-link", text: autonym)
 	end
 
-	def dialog_close_button(autonym)
-		page_creation_dialog(autonym).span(class: "cx-icon-close")
+	def dialog_close_button
+		@browser.span(css: ".cx-entrypoint-dialog:not(.hidden) .icon-close")
 	end
 
 	def page_creation_dialog(autonym)
@@ -48,9 +48,5 @@ class RedLinkPage
 
 	def red_interlanguage_item_with_autonym(autonym)
 		@browser.li(class: "cx-new-interlanguage-link", text: autonym)
-	end
-
-	def red_interlanguage_link_with_autonym(autonym)
-		red_interlanguage_item_with_autonym(autonym).a
 	end
 end

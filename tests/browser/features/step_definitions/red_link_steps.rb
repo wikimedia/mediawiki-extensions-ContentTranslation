@@ -9,8 +9,7 @@ When(/^I am on a page without interlanguage links$/) do
 end
 
 When(/^I click on the red link to "(.*?)" in the list of the interlanguage links$/) do |autonym|
-	sleep 5
-	on(RedLinkPage).red_interlanguage_link_with_autonym(autonym).click
+	on(RedLinkPage).red_interlanguage_item_with_autonym(autonym).when_present.click
 end
 
 When(/^I click outside of the red link dialog$/) do
@@ -29,18 +28,21 @@ When(/^I click the input box in the red link dialog$/) do
 	on(RedLinkPage).translated_title_element.when_visible.click
 end
 
-When(/^I click on the X button in the dialog for creating a page in "(.+?)"$/) do |autonym|
-	on(RedLinkPage).dialog_close_button(autonym).click
+When(/^I click on the X button in the red link dialog$/) do
+	on(RedLinkPage).dialog_close_button.click
 end
 
 When(/^I set "(.*?)" as the interface language$/) do |code|
 	on(RedLinkPage) do |page|
 		page.trigger_cog_element.click
-		page.uls_more_languages_element.click
+		page.uls_more_languages_element.when_present.click
 		page.language_filter = code
 		# Because one browser wants :enter and other :return -- sigh
 		page.language_filter_element.send_keys [:enter, "\n"]
 		page.uls_settings_apply_element.click
+		page.wait_until do
+			@browser.url.match /setlang=#{code}/
+		end
 	end
 end
 
