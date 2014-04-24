@@ -83,10 +83,14 @@
 		}
 
 		mw.loader.using( dependencies, function () {
-			var cxEntryPointDialogLeft, pLangListLeft;
+			var cxEntryPointDialogLeft,
+				cxEntryPointDialogOffset = 5,
+				$contentText = $( '#mw-content-text' ),
+				contentTextLeft = $contentText.offset().left;
 
-			pLangListLeft = $pLangList.offset().left;
-			cxEntryPointDialogLeft = pLangListLeft + $pLangList.width();
+			cxEntryPointDialogLeft = ( $( 'html' ).prop( 'dir' ) === 'rtl' ) ?
+				contentTextLeft + $contentText.width() + cxEntryPointDialogOffset :
+				contentTextLeft - cxEntryPointDialogOffset;
 
 			$.each( targetLanguages, function ( i, code ) {
 				if ( !pageInLanguageExists( code ) ) {

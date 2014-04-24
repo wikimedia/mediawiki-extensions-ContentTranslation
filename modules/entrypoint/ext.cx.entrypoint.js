@@ -122,11 +122,14 @@
 		var dialogTop, dialogLeft,
 			dir = $( 'html' ).prop( 'dir' );
 
+		// The default is to place the dialog near the element that triggers it
 		dialogTop = this.options.top || this.$trigger.offset().top;
 		dialogLeft = this.options.left || this.$trigger.offset().left;
+
 		if ( dir === 'rtl' ) {
 			dialogLeft = dialogLeft - this.$dialog.width();
 		}
+
 		this.$dialog.css( {
 			top: dialogTop,
 			left: dialogLeft
