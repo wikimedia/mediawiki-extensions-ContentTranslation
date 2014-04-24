@@ -30,7 +30,7 @@
 	"cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in.",
 	"cx-tools-instructions-text1": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text2}}.",
 	"cx-tools-instructions-text2": "Help text for the translation tools pane.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text1}}.",
-	"cx-tools-instructions-text3": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text4}}.",
+	"cx-tools-instructions-text3": "Help text for the translation tools pane. This suggests the translator to make the translated text natural and easily understandable in the target language.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text4}}.",
 	"cx-tools-instructions-text4": "Help text for the translation tools pane.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text3}}.",
 	"cx-tools-instructions-text5": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-tools-instructions-text6": "Help text for the translation tools pane.\n\nRefers to {{msg-mw|Cx-publish-button}}.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text5}}.",

@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Muhammad Shuaib"
+		]
+	},
+	"cx": "صفحہ کا ترجمہ کریں",
+	"cx-error-server-connection": "نقص: سرور سے رابطہ نہیں ہو پارہا ہے",
+	"cx-desc": "اس ٹول کے ذریعہ صارفین ایک زبان میں تحریر شدہ صفحات کو کسی دوسری زبان میں مشینی ترجمہ اور دیگر ترجمہ جاتی آلات کے ذریعہ ترجمہ کرسکتے ہیں۔",
+	"cx-header-progressbar-text": "$1% کا ترجمہ مکمل",
+	"cx-header-translation-center": "دار الترجمہ",
+	"cx-source-view-page": "[صفحہ $1 دیکھیں]",
+	"cx-publish-page": "صفحہ [$1 $2] پر شائع کردیا گیا",
+	"cx-publish-page-error": "صفحہ کو محفوظ کرنے کے دوران کوئی نقص پیش آیا ہے۔",
+	"cx-publish-button": "ترجمہ شائع کریں",
+	"cx-publish-summary": "تخلیق شدہ از ترجمہ \"$1\" صفحہ",
+	"cx-translation-add-translation": "+ ترجمہ شامل کریں",
+	"tag-contenttranslation": "ترجمہ مواد",
+	"cx-source-loading": "$1 لد رہا ہے",
+	"cx-entrypoint-title": "اس صفحہ کو $1 میں ترجمہ کریں",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "یہ صفحہ تاحال $1 موجود نہیں ہے۔<br />\nکیا آپ سے تخلیق کرنا چاہتے ہیں؟",
+	"cx-entrypoint-dialog-title-in": "$1 میں نئے صفحہ کا عنوان",
+	"cx-entrypoint-dialog-button-create-from-scratch": "آغاز سے تخلیق کریں",
+	"cx-entrypoint-dialog-button-translate-from": "ترجمہ از $1",
+	"cx-special-login-error": "اس صفحہ میں ترجمہ کرنے کے لیے آپ کا داخل نوشتہ ہونا ضروری ہے۔",
+	"cx-tools-instructions-text1": "ترجمہ میں پیراگرافز شامل کریں",
+	"cx-tools-instructions-text2": "ان تمام کو شامل کرنے کی ضرورت نہیں ہے",
+	"cx-tools-instructions-text3": "متن کو فطری اور قابل فہم بنائیں",
+	"cx-tools-instructions-text4": "خوکار ترجمہ مفید ہے تاہم نظر ثانی ضروری ہے تاکہ کوئی غلطی باقی نہ رہے اور ترجمہ بہتر ہوجائے۔",
+	"cx-tools-instructions-text5": "ترجمہ شائع کریں",
+	"cx-tools-instructions-text6": "جب آپ نتیجہ سے متفق ہوجائیں تو \"{{int:cx-publish-button}}\" پر کلک کریں۔",
+	"cx-tools-searchbox-text": "لفظ کو تلاش کریں",
+	"cx-tools-view-guidelines": "[$1 ہدایات برائے ترجمہ ملاحظہ فرمائیں]"
+}
