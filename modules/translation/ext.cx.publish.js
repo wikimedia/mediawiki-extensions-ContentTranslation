@@ -24,6 +24,8 @@
 		$translatedContent.find( '.cx-segment' ).replaceWith( function () {
 			return $( this ).html();
 		} );
+		// TODO: This clean up should be done even before segmentation at server.
+		$translatedContent.find( 'link, title' ).remove();
 
 		// Remove placeholder sections that are empty
 		// TODO: This can be better done if all placeholder sections has a semantic
