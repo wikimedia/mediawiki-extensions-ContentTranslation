@@ -1,3 +1,4 @@
+@firefox @language-stage.wmflabs.org @login
 Feature: Basic machine translation.
 
   As a user,
