@@ -22,6 +22,8 @@
 	"cx-translation-add-translation": "This appears in the empty paragraph in the translation column. Clicking the paragraph adds an automatic translation of the corresponding source paragraph. The plus sign is used as an icon that hints that something is being added.",
 	"tag-contenttranslation": "A short description of the contenttranslation tag. Appears in the edit summary when a translated page is created.",
 	"cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
+	"cx-red-interlanguage-link-preference": "Beta feature title.",
+	"cx-red-interlanguage-link-preference-beta-desc": "Beta feature description.",
 	"cx-entrypoint-title": "Tooltip for a red link that appears in the interlanguage links list and invites the user to translate the article to their language.\n\nParameters:\n* $1 - the language name in the interface language",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "The heading that appears at the top of the dialog that appears when the red interlanguage link is clicked.\n\nParameters:\n* $1 - the name of the target language, enclosed in <code><nowiki><span></nowiki></code> tags",
 	"cx-entrypoint-dialog-title-in": "Label for a text input field where the user is supposed to write a title for the new that is going to be translated.\n\nParameters:\n* $1 - the name of the target language, enclosed in <code><nowiki><span></nowiki></code> tags",

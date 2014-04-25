@@ -20,6 +20,8 @@
 	"cx-translation-add-translation": "+ Add translation",
 	"tag-contenttranslation": "ContentTranslation",
 	"cx-source-loading": "Loading $1",
+	"cx-red-interlanguage-link-preference": "Content translation",
+	"cx-red-interlanguage-link-preference-beta-desc": "Shows a red link to your language in the language links list if the page is not yet translated to your language and helps translating a page to your language using a convenient translation interface.",
 	"cx-entrypoint-title": "Translate this page to $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "This page does not exist in $1 yet.<br />\nDo you want to create it?",
 	"cx-entrypoint-dialog-title-in": "Title for the new page in $1:",

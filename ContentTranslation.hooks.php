@@ -21,8 +21,12 @@ class ContentTranslationHooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
+		$redlinkFeatureEnabled = class_exists( 'BetaFeatures' ) &&
+			BetaFeatures::isFeatureEnabled( $user, 'red-interlanguage-link' );
+
 		if ( $user->isLoggedIn() &&
-			$title->getNamespace() === NS_MAIN &&
+			$redlinkFeatureEnabled &&
+			$title->inNamespace( NS_MAIN ) &&
 			$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
 		) {
 			$out->addModules( 'ext.cx.redlink' );
@@ -36,6 +40,31 @@ class ContentTranslationHooks {
 				'ext.cx.eventlogging',
 			) );
 		}
+
+		return true;
+	}
+
+	/**
+	 * Hook: GetBetaFeaturePreferences
+	 * @param User $user
+	 * @param array $prefs
+	 * @return bool
+	 */
+	public static function getPreferences( $user, &$prefs ) {
+		global $wgExtensionAssetsPath;
+
+		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/modules/entrypoint/images";
+
+		$prefs['red-interlanguage-link'] = array(
+			'label-message' => 'cx-red-interlanguage-link-preference',
+			'desc-message' => 'cx-red-interlanguage-link-preference-beta-desc',
+			'screenshot' => array(
+				'ltr' => "$imageDir/translate-redlink-ltr.svg",
+				'rtl' => "$imageDir/translate-redlink-rtl.svg",
+			),
+			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation',
+		);
 
 		return true;
 	}
