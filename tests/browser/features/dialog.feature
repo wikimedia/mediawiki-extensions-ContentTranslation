@@ -1,3 +1,4 @@
+@firefox @language-stage.wmflabs.org @login
 Feature: "New Page" dialog
 
   As a wiki editor
