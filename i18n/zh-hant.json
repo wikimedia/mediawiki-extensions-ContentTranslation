@@ -3,7 +3,8 @@
 		"authors": [
 			"EagerLin",
 			"Liuxinyu970226",
-			"Spring Roll Conan"
+			"Spring Roll Conan",
+			"Cwlin0416"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -15,8 +16,10 @@
 	"cx-publish-page-error": "當保存頁面時出錯。",
 	"cx-publish-button": "發佈翻譯",
 	"cx-publish-summary": "經由翻譯頁面“$1”創建",
+	"cx-translation-add-translation": "+ 增加翻譯",
 	"tag-contenttranslation": "內容翻譯",
 	"cx-source-loading": "正在載入$1",
+	"cx-entrypoint-title": "翻譯本頁為 $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此頁面於$1尚無存在。<br />\n您希望創建之？",
 	"cx-entrypoint-dialog-title-in": "於$1新頁面標題：",
 	"cx-special-login-error": "您必須登錄翻譯在此頁中。",
