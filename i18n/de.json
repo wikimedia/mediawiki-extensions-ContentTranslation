@@ -17,6 +17,8 @@
 	"cx-translation-add-translation": "+ Übersetzung hinzufügen",
 	"tag-contenttranslation": "Inhaltsübersetzung",
 	"cx-source-loading": "Lade $1",
+	"cx-red-interlanguage-link-preference": "Inhaltsübersetzung",
+	"cx-red-interlanguage-link-preference-beta-desc": "Zeigt einen roten Link zu deiner Sprache in der Sprachlinkliste an, falls die Seite noch nicht in deine Sprache übersetzt ist und hilft dir, eine Seite in deine Sprache mithilfe einer praktischen Übersetzungsoberfläche zu übersetzen.",
 	"cx-entrypoint-title": "Diese Seite auf $1 übersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Diese Seite ist noch nicht auf $1 vorhanden.<br />\nMöchtest du sie erstellen?",
 	"cx-entrypoint-dialog-title-in": "Titel für die neue Seite in $1:",

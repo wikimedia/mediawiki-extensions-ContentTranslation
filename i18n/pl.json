@@ -9,6 +9,7 @@
 		]
 	},
 	"cx": "Przetłumacz stronę",
+	"cx-error-server-connection": "Błąd: Nie można połączyć się z serwerem.",
 	"cx-desc": "Narzędzie, które umożliwia edytorom tłumaczenie stron z jednego języka na inny przy pomocy tłumaczenia maszynowego i innych narzędzi",
 	"cx-header-progressbar-text": "$1% przetłumaczono",
 	"cx-header-translation-center": "Centrum tłumaczeń",
@@ -19,11 +20,13 @@
 	"cx-translation-add-translation": "+ Dodaj tłumaczenie",
 	"tag-contenttranslation": "Tłumaczenie treści",
 	"cx-source-loading": "Ładowanie $1",
+	"cx-entrypoint-title": "Przetłumacz tę stronę na $1",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Stworzyć od podstaw",
 	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z $1",
 	"cx-special-login-error": "Możesz być zalogowany, aby tłumaczyć na tej stronie.",
 	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
-	"cx-tools-instructions-text4": "Nie tłumacz tekstu, który nie wygląda na wiarygodny lub jest o niskiej jakości. Jeśli to możliwe, zweryfikuj tekst na podstawie przypisów podanych na stronie źródłowej.",
+	"cx-tools-instructions-text4": "Automatyczne tłumaczenie jest przydatne, ale powinieneś przejrzeć błędy, aby było dokłaniejsze.",
 	"cx-tools-instructions-text5": "Opublikuj tłumaczenie",
+	"cx-tools-instructions-text6": "Jeśli jesteś zadowolony z wyniku, kliknij „{{int:cx-publish-button}}”.",
 	"cx-tools-searchbox-text": "Wyszukaj słowo"
 }

@@ -20,6 +20,8 @@
 	"cx-translation-add-translation": "+ הוספת תרגום",
 	"tag-contenttranslation": "תרגום תוכן",
 	"cx-source-loading": "טעינת $1",
+	"cx-red-interlanguage-link-preference": "תרגום תוכן",
+	"cx-red-interlanguage-link-preference-beta-desc": "הצגת קישור אדום לשפה שלך ברשימת קישורי השפה אם הדף עדיין אינו מתורגם לשפה שלך ועוזר לך לתרגם דף לשפה שלך באמצעות ממשק תרגום נוח.",
 	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "הדף הזה אינו קיים עדיין ב{{GRAMMAR:תחילית|$1}}<br />\nרוצה ליצור אותו?",
 	"cx-entrypoint-dialog-title-in": "כותרת לדף החדש ב{{GRAMMAR:תחילית|$1}}:",
