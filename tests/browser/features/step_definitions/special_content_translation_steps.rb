@@ -85,7 +85,7 @@ Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_pag
 end
 
 Then(/^I see the username at the top of the page$/) do
-	on(ContentTranslationPage).user_name_element.text.should == ENV["MEDIAWIKI_USER"].gsub!(/_/, ' ')
+	on(ContentTranslationPage).user_name_element.text.should == ENV["MEDIAWIKI_USER"]
 end
 
 Then(/^the content of the page is "(.*?)"$/) do |page_content|
