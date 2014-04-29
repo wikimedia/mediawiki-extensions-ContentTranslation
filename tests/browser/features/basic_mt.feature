@@ -1,5 +1,5 @@
 @firefox @language-stage.wmflabs.org @login
-Feature: Basic machine translation.
+Feature: Basic machine translation
 
   As a user,
   I can use machine translations as templates,
