@@ -18,6 +18,8 @@
 	"cx-translation-add-translation": "+ Добавить перевод",
 	"tag-contenttranslation": "ПереводСодержимого",
 	"cx-source-loading": "Загрузка $1",
+	"cx-red-interlanguage-link-preference": "Перевод содержимого",
+	"cx-red-interlanguage-link-preference-beta-desc": "Показывает в списке языковых ссылок красную ссылку на ваш язык, если страница еще не переведена на него, а также помогает перевести страницу с помощью удобного интерфейса перевода.",
 	"cx-entrypoint-title": "Перевести эту страницу на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Эта страница на $1 ещё не существует.<br />\nВы хотите создать её?",
 	"cx-entrypoint-dialog-title-in": "Заголовок для новой страницы на $1:",

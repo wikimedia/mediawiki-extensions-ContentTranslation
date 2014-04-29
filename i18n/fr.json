@@ -20,6 +20,8 @@
 	"cx-translation-add-translation": "+ Ajouter une traduction",
 	"tag-contenttranslation": "Traduction du contenu",
 	"cx-source-loading": "Chargement de $1",
+	"cx-red-interlanguage-link-preference": "Traduction du contenu",
+	"cx-red-interlanguage-link-preference-beta-desc": "Affiche un lien en rouge vers votre langue dans la liste des liens de langue si la page n’est pas encore traduite dans votre langue, et aide à traduire une page dans votre langue en utilisant une interface de traduction appropriée.",
 	"cx-entrypoint-title": "Traduire cette page en $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Cette page n’existe pas encore en $1.<br />\nVoulez-vous la créer ?",
 	"cx-entrypoint-dialog-title-in": "Titre pour la nouvelle page en $1 :",

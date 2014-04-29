@@ -17,6 +17,8 @@
 	"cx-translation-add-translation": "+ Додај превод",
 	"tag-contenttranslation": "ПреводНаСодржина",
 	"cx-source-loading": "Го вчитувам $1",
+	"cx-red-interlanguage-link-preference": "Превод на содржини",
+	"cx-red-interlanguage-link-preference-beta-desc": "Во списокот го покажува вашиот јазик со црвено ако страницата досега ја нема на истиот и ви помага во нејзиното преведување со згоден преводен посредник.",
 	"cx-entrypoint-title": "Преведете ја страницава на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Страницава сè уште не постои на $1.<br />\nДали сакате да ја создадете?",
 	"cx-entrypoint-dialog-title-in": "Наслов на нова страница на $1:",
