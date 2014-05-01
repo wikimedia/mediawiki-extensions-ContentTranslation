@@ -18,6 +18,7 @@
 	"tag-contenttranslation": "Iwwersetzung vum Inhalt",
 	"cx-source-loading": "$1 lueden",
 	"cx-red-interlanguage-link-preference": "Iwwersetzung vum Inhalt",
+	"cx-red-interlanguage-link-preference-beta-desc": "Weist e roude Link op Är Sprooch an der Lëscht vun der Lëscht vun de Sproochlinken wann d'Säit nach net an !Ar Sprooch iwwersat ass an hëlleft eng Säit an Är Sprooch z'iwwersetzen an deem e prakteschen Iwwersetzungsinterface benotzt gëtt.",
 	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Dës Säit gëtt et op $1 nach net.<br />\nWëllt Dir se uleeën?",
 	"cx-entrypoint-dialog-title-in": "Titel fir déi nei Säit op $1:",
