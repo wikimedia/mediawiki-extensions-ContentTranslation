@@ -20,7 +20,7 @@
 	"tag-contenttranslation": "Innehållsöversättning",
 	"cx-source-loading": "Läser in $1",
 	"cx-red-interlanguage-link-preference": "Innehållsöversättning",
-	"cx-red-interlanguage-link-preference-beta-desc": "Visar en röd länk till ditt språk i listan över språklänkar om sidan inte ännu är översatt till ditt språk och hjälper till att översätta en sida till ditt språk med ett bekvämt översättningsgränssnitt.",
+	"cx-red-interlanguage-link-preference-beta-desc": "Visar en röd länk till ditt språk i listan över språklänkar. Detta om sidan ännu inte är översatt till ditt språk, och hjälper till att översätta en sida till ditt språk med ett bekvämt översättningsgränssnitt.",
 	"cx-entrypoint-title": "Översätt denna sida till $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denna sida finns inte på $1 ännu.<br />\nVill du skapa den?",
 	"cx-entrypoint-dialog-title-in": "Titel för den nya sidan på $1:",
