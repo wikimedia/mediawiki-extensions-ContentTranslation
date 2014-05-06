@@ -22,6 +22,7 @@
 	"cx-translation-add-translation": "+加入翻译",
 	"tag-contenttranslation": "内容翻译",
 	"cx-source-loading": "$1载入中",
+	"cx-red-interlanguage-link-preference": "内容翻译",
 	"cx-entrypoint-title": "翻译此页为$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "该页面尚不存在$1。\n您想现在创建吗？",
 	"cx-entrypoint-dialog-title-in": "在$1的新页面标题：",
