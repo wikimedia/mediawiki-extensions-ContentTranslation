@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gorizon"
+			"Gorizon",
+			"Mirzali"
 		]
 	},
-	"cx": "Peleyê açarnayışin",
-	"cx-header-translation-center": "Merkeza açarnayışi",
-	"cx-source-view-page": "[Pela $1 bıvin]",
-	"cx-translation-add-translation": "+ Açarnayış dekerê",
+	"cx": "Pela açarnayışi",
+	"cx-header-translation-center": "Merkezê açarnayışi",
+	"cx-source-view-page": "[Pela $1 bıvêne]",
+	"cx-translation-add-translation": "+ Açarnayış cı ke",
 	"tag-contenttranslation": "ZerrekAçarnayış"
 }
