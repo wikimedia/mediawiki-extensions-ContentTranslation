@@ -17,6 +17,8 @@
 	"cx-translation-add-translation": "+ ભાષાંતર ઉમેરો",
 	"tag-contenttranslation": "ભાષાંતર",
 	"cx-source-loading": "$1 લાવે છે",
+	"cx-red-interlanguage-link-preference": "લેખ ભાષાંતર",
+	"cx-red-interlanguage-link-preference-beta-desc": "જો પાનું તમારી ભાષામાં ભાષાંતરિત ન થયેલ હોય તો ભાષા કડીઓમાં લાલ કડી બતાવે છે અને પાનાંને તમારી ભાષામાં ભાષાંતર કરવામાં મદદ કરે છે.",
 	"cx-entrypoint-title": "આ પાનાનું $1 પર ભાષાંતર કરો",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1 માં આ પાનું હજુ અસ્તિત્વ ધરાવતું નથી.<br />\nશું તમે તેને બનાવવા માંગો છો?",
 	"cx-entrypoint-dialog-title-in": "$1 માં નવા પાનાનું શિર્ષક:",
@@ -28,7 +30,7 @@
 	"cx-tools-instructions-text3": "લખાણને તટસ્થ બનાવો",
 	"cx-tools-instructions-text4": "આપમેળે ભાષાંતર ઉપયોગી છે પણ તમારે તેને ચોક્કસ બનાવવા માટે ક્ષતિઓને સુધારવી પડશે.",
 	"cx-tools-instructions-text5": "ભાષાંતર પ્રકાશિત કરો",
-	"cx-tools-instructions-text6": "જ્યારે તમે પરિણામ સાથે સંતોષ પામો ત્યારે, {{int:cx-publish-button}} દબાવો.",
+	"cx-tools-instructions-text6": "જ્યારે તમે પરિણામ સાથે સંતોષ પામો ત્યારે, \"{{int:cx-publish-button}}\" દબાવો.",
 	"cx-tools-searchbox-text": "શબ્દ માટે શોધો",
 	"cx-tools-view-guidelines": "[ભાષાંતર માર્ગદર્શિકા $1 જુઓ]"
 }
