@@ -94,7 +94,10 @@
 
 		// For every segment, use MT as replacement
 		$section.find( '.cx-segment' ).each( function () {
-			$( this ).html( mw.cx.data.mt[ $( this ).data( 'segmentid' ) ] );
+			var translation = mw.cx.data.mt && mw.cx.data.mt[ $( this ).data( 'segmentid' ) ];
+			if ( translation ) {
+				$( this ).html( translation );
+			}
 		} );
 
 		// Trigger input event so that the alignemnt is right.
