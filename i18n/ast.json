@@ -18,6 +18,7 @@
 	"tag-contenttranslation": "TraducciónConteníu",
 	"cx-source-loading": "Cargando $1",
 	"cx-red-interlanguage-link-preference": "Traducción del conteníu",
+	"cx-red-interlanguage-link-preference-beta-desc": "Amuesa un enllaz bermeyu pal to idioma nos enllaces d'idioma si la páxina inda nun ta traducida a la to llingua y ayuda a traducir una páxina a la to llingua usando una interfaz de traducción afayadiza.",
 	"cx-entrypoint-title": "Traducir esta páxina al $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta páxina inda nun esiste en $1.<br />\n¿Quier creala?",
 	"cx-entrypoint-dialog-title-in": "Títulu de la páxina nueva en $1:",
