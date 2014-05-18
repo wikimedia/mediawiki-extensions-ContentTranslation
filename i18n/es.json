@@ -5,7 +5,8 @@
 			"Sporeunai",
 			"VegaDark",
 			"Vi00000051",
-			"Ihojose"
+			"Ihojose",
+			"Wifidel"
 		]
 	},
 	"cx": "Traducir página",
@@ -22,7 +23,7 @@
 	"tag-contenttranslation": "Traducción de contenido",
 	"cx-source-loading": "Cargando $1",
 	"cx-red-interlanguage-link-preference": "Traducción del contenido",
-	"cx-red-interlanguage-link-preference-beta-desc": "Mostrar un enlace rojo para tu idioma en los enlaces de idioma si la página no está traducida a tu idioma y ayuda traduciendo una página a tu idioma usando una interfaz de traducción conveniente.",
+	"cx-red-interlanguage-link-preference-beta-desc": "Muestra un enlace rojo para tu idioma en los enlaces de idioma si la página no está traducida a tu idioma y ayuda traduciendo una página a tu idioma usando una interfaz de traducción conveniente.",
 	"cx-entrypoint-title": "Traduce esta página al $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Todavía no existe esta página de $1.<br />\n¿Quieres crearla?",
 	"cx-entrypoint-dialog-title-in": "Título de la página nueva en $1:",
