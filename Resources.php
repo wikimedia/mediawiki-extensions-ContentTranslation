@@ -17,7 +17,6 @@ $resourcePaths = array(
 $wgResourceModules['ext.cx.model'] = array(
 	'scripts' => array(
 		'base/ext.cx.model.js',
-		'base/ext.cx.datamanager.js',
 	),
 ) + $resourcePaths;
 

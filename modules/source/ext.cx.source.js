@@ -11,6 +11,13 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	mw.cx.fetchPage = function ( sourcePage, sourceLanguage ) {
+		$.get( mw.config.get( 'wgContentTranslationServerURL' ) + '/page/' + sourceLanguage + '/' + sourcePage, function ( response ) {
+			mw.cx.data = response;
+			mw.hook( 'mw.cx.source.ready' ).fire();
+		} );
+	};
+
 	/**
 	 * ContentTranslationSource
 	 *
@@ -27,8 +34,9 @@
 	ContentTranslationSource.prototype.init = function () {
 		mw.cx.sourceTitle = new mw.Uri().query.page;
 		mw.cx.targetLanguage = new mw.Uri().query.lang || '';
+		mw.cx.sourceLanguage = mw.config.get( 'wgContentLanguage' );
 		this.render();
-		mw.cx.connect();
+		mw.cx.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();
 	};
 
@@ -37,8 +45,6 @@
 	 */
 	ContentTranslationSource.prototype.render = function () {
 		var $heading, $languageLabel, $articleLink, $subHeading, $loader;
-
-		mw.cx.sourceLanguage = mw.config.get( 'wgContentLanguage' );
 
 		this.$container.prop( {
 			lang: mw.cx.sourceLanguage,
@@ -60,7 +66,7 @@
 					'cx-source-view-page',
 					mw.util.getUrl( mw.cx.sourceTitle )
 				).parse()
-			);
+		);
 
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )

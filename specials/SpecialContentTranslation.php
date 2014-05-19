@@ -41,9 +41,6 @@ class SpecialContentTranslation extends SpecialPage {
 				'mediawiki.page.startup',
 				'mediawiki.page.ready',
 			) );
-			$out->addScript(
-				Html::linkedScript( "$wgContentTranslationServerURL/socket.io/socket.io.js" )
-			);
 		}
 
 		$out->addHTML( $out->headElement( $skin ) );
