@@ -45,7 +45,7 @@ require_once "$dir/Autoload.php";
 $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
 // Content translation server URL
-$GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8000';
+$GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8080';
 $GLOBALS['wgContentTranslationServerTimeout'] = 15;
 
 $GLOBALS['wgContentTranslationParsoid'] = array(
