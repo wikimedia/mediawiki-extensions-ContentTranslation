@@ -1,0 +1,78 @@
+@import "../../base/styles/grid/agora-grid";
+
+.card__title-row {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	color: #c9c9c9; // TODO Should come from library?
+	font-size: medium;
+
+	.card__title {
+		.mw-ui-item;
+		.mw-ui-one-third;
+	}
+
+	.card__title-language-selector {
+		.mw-ui-item;
+		.mw-ui-one-third;
+		float: right;
+		text-align: right;
+	}
+
+	.card__close-button {
+		.mw-ui-item;
+		.mw-ui-one-third;
+		border-left: 1px solid;
+		float: right;
+	}
+}
+
+.card__headword {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none; // XXX why would it be needed?
+	padding: @vertical-margin @horizontal-margin;
+	font-size: large;
+	line-height: 1.5em;
+	color: #565656; // TODO Should come from library?
+}
+
+.card__definition {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none; // XXX why would it be needed?
+	padding: @vertical-margin @horizontal-margin;
+	line-height: 1.5em;
+	color: #565656; // TODO Should come from library?
+}
+
+.card__translations {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none; // XXX why would it be needed?
+	.card__translation {
+		@vertical-margin: 10px;
+		@horizontal-margin: 15px;
+		.mw-ui-item;
+		.mw-ui-one-third;
+		font-size: large;
+		line-height: 1.5em;
+		color: #565656;
+
+		&:hover {
+			background-color: #f0f0f0;
+			color: #252525;
+		}
+	}
+}
+
+.card__expand {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none; // XXX why would it be needed?
+	clear: both;
+	text-align: center;
+}

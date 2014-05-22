@@ -32,7 +32,7 @@ $wgResourceModules['ext.cx.base'] = array(
 		'ext.cx.header',
 		'ext.cx.source',
 		'ext.cx.translation',
-		'ext.cx.tool',
+		'ext.cx.tools',
 	),
 ) + $resourcePaths;
 
@@ -86,28 +86,65 @@ $wgResourceModules['ext.cx.translation'] = array(
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.cx.tool'] = array(
+$wgResourceModules['ext.cx.tools.manager'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.manager.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.manager.less',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.js',
-		'tools/ext.cx.tools.helpmessage.js',
 	),
 	'styles' => array(
 		'tools/styles/ext.cx.tools.less',
-		'tools/styles/ext.cx.tools.helpmessage.less',
+	),
+	'dependencies' => array(
+		'ext.cx.progressbar',
+		'mediawiki.jqueryMsg',
+		'ext.cx.tools.manager',
+		'ext.cx.tools.dictionary',
+		'ext.cx.tools.instructions',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.instructions'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.instructions.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.instructions.less',
 	),
 	'messages' => array(
+		'cx-tools-searchbox-text',
 		'cx-tools-instructions-text1',
 		'cx-tools-instructions-text2',
 		'cx-tools-instructions-text3',
 		'cx-tools-instructions-text4',
 		'cx-tools-instructions-text5',
 		'cx-tools-instructions-text6',
-		'cx-tools-searchbox-text',
 		'cx-tools-view-guidelines',
 	),
 	'dependencies' => array(
-		'ext.cx.progressbar',
-		'mediawiki.jqueryMsg',
+		'ext.cx.tools.manager',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.dictionary'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.dictionary.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.dictionary.less',
+	),
+	'messages' => array(
+		'cx-tools-dictionary-title',
+	),
+	'dependencies' => array(
+		'ext.cx.tools.manager',
 	),
 ) + $resourcePaths;
 

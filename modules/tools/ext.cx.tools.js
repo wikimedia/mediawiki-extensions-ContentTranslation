@@ -16,23 +16,45 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslationTools( element, options ) {
+	function ContentTranslationTools( element ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.cxTools.defaults, options );
 		this.init();
 		this.listen();
 	}
 
 	ContentTranslationTools.prototype.init = function () {
 		this.render();
+		this.$toolsContainer.cxtoolmanager();
+		this.$searchBox.find( 'input' ).keypress( function ( event ) {
+			if ( event.which === 13 ) {
+				mw.hook( 'mw.cx.search.word' ).fire( $( this ).val().trim().toLowerCase() );
+			}
+		} );
+		mw.hook( 'mw.cx.tools.ready' ).fire();
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar = $( '<div>' )
+		var $progressBar;
+
+		this.$searchBox = $( '<div>' )
+			.addClass( 'card search cx-tools--container' );
+		this.$toolsContainer = $( '<div>' )
+			.addClass( 'cx-tools--container' );
+		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
 			.cxProgressBar();
-		this.$container.append( $progressBar );
-		this.helpMessage();
+
+		this.$searchBox.append(
+			$( '<input>' )
+			.addClass( 'tools-words-search box' )
+			.attr( 'placeholder', mw.msg( 'cx-tools-searchbox-text' ) )
+		);
+
+		this.$container.append(
+			$progressBar,
+			this.$searchBox,
+			this.$toolsContainer
+		);
 	};
 
 	ContentTranslationTools.prototype.listen = function () {
@@ -51,22 +73,17 @@
 		}
 	};
 
-	$.fn.cxTools = function ( options ) {
+	$.fn.cxTools = function () {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxTools' );
-
 			if ( !data ) {
-				$this.data( 'cxTools', ( data = new ContentTranslationTools( this, options ) ) );
+				$this.data( 'cxTools', ( data = new ContentTranslationTools( this ) ) );
 			}
 
-			if ( typeof options === 'string' ) {
-				data[ options ].call( $this );
-			}
 		} );
 	};
 
 	mw.cx.ContentTranslationTools = ContentTranslationTools;
 
-	$.fn.cxTools.defaults = {};
 }( jQuery, mediaWiki ) );

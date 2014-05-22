@@ -75,6 +75,8 @@
 		this.$container.append( $content );
 		mw.hook( 'mw.cx.translation.change' ).fire();
 		this.$title = this.$container.find( '.cx-column__title' );
+
+		mw.hook( 'mw.cx.translation.ready' ).fire();
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {

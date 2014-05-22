@@ -23,5 +23,5 @@
 	mw.cx.targetTitle = null;
 	// Current progress of translation.
 	mw.cx.progress = 0;
-
+	mw.cx.tools = {};
 }( jQuery, mediaWiki ) );

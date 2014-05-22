@@ -117,6 +117,13 @@
 
 	ContentTranslationSource.prototype.listen = function () {
 		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( this.load, this ) );
+
+		this.$content.on( 'click', function () {
+			var selection = window.getSelection().toString();
+			if ( selection ) {
+				mw.hook( 'mw.cx.select.word' ).fire( selection.toLowerCase() );
+			}
+		} );
 	};
 
 	$.fn.cxSource = function ( options ) {

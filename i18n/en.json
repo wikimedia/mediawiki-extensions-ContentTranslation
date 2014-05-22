@@ -35,5 +35,6 @@
 	"cx-tools-instructions-text5": "Publish the translation",
 	"cx-tools-instructions-text6": "When you are happy with the result, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Search for a word",
-	"cx-tools-view-guidelines": "[$1 View translation guidelines]"
+	"cx-tools-view-guidelines": "[$1 View translation guidelines]",
+	"cx-tools-dictionary-title": "Definition"
 }
