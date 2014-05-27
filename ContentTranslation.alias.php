@@ -41,6 +41,11 @@ $specialPageAliases['fa'] = array(
 	'ContentTranslation' => array( 'ترجمه_محتوا' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'ContentTranslation' => array( 'תרגום_תוכן' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),
