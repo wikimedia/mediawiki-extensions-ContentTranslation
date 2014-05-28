@@ -11,11 +11,23 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	mw.cx.fetchPage = function ( sourcePage, sourceLanguage ) {
-		$.get( mw.config.get( 'wgContentTranslationServerURL' ) + '/page/' + sourceLanguage + '/' + sourcePage, function ( response ) {
-			mw.cx.data = response;
-			mw.hook( 'mw.cx.source.ready' ).fire();
-		} );
+	/**
+	 * Fetch the page with given title and language.
+	 * Response contains
+	 * @param {string} title Title of the page to be fetched
+	 * @param {string} language Language of the page requested. This will be used to
+	 *     identify the host wiki.
+	 */
+	mw.cx.fetchPage = function ( title, language ) {
+		$.get( mw.config.get( 'wgContentTranslationServerURL' ) + '/page/' + language + '/' + title )
+			.done( function ( response ) {
+				mw.cx.data = response;
+				mw.hook( 'mw.cx.source.ready' ).fire();
+			} ).fail( function () {
+				$( '.cx-header__infobar' )
+					.text( mw.msg( 'cx-error-server-connection' ) )
+					.show();
+			} );
 	};
 
 	/**
