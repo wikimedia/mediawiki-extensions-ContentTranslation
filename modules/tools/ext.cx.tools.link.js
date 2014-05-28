@@ -68,6 +68,51 @@
 	};
 
 	/**
+	 * Adapt the given title to a target language
+	 * @param {string|string[]} titles A title as string or array of titles
+	 * @param {string} targetLanguage Language to which the links are to be adapted
+	 * @return {jQuery.Promise}
+	 */
+	LinkCard.prototype.adapt = function ( titles, targetLanguage ) {
+		var api, deferred;
+
+		api = new mw.Api();
+		deferred = $.Deferred();
+		if ( !$.isArray( titles ) ) {
+			titles = new Array( titles );
+		}
+		api.get( {
+			action: 'query',
+			titles: titles.join( '|' ),
+			prop: 'langlinks',
+			lllang: targetLanguage,
+			format: 'json'
+		}, {
+			url: '//' + mw.cx.sourceLanguage + '.wikipedia.org/w/api.php',
+			dataType: 'jsonp',
+			// This prevents warnings about the unrecognized parameter "_"
+			cache: true
+		} ).done( function ( response ) {
+			var linkPairs = {};
+			if ( response.query ) {
+				$.each( response.query.pages, function ( pageId, page ) {
+					if ( page.title ) {
+						linkPairs[ page.title ] = page.langlinks && page.langlinks[ 0 ][ '*' ] ||
+							page.title; // Redirects will not have langlinks property
+					}
+				} );
+			}
+			deferred.resolve( linkPairs );
+		} ).fail( function ( error ) {
+			mw.log( 'Error while adapting links:' + error );
+			// No need to make this error visible beyond logging
+			deferred.resolve( {} );
+		} );
+		return deferred.promise();
+	};
+
+
+	/**
 	 * Save the selection while other screen elements are clicked.
 	 * See http://stackoverflow.com/a/3316483/337907
 	 */
@@ -82,6 +127,13 @@
 			return document.selection.createRange();
 		}
 		return null;
+	}
+
+	/**
+	 * Remove the leading slashes or dots if any.
+	 */
+	function cleanupLinkHref( href ) {
+		return href.replace( /^.\//, '' );
 	}
 
 	/**
@@ -156,5 +208,41 @@
 		];
 	};
 
+	/**
+	 * jQuery plugin to adapt all the links with rel="mw:WikiLink"
+	 * @param {string} targetLanguage
+	 */
+	$.fn.adaptLinks = function ( targetLanguage ) {
+		var linkAdaptor = new LinkCard();
+		return this.each( function () {
+			var $this = $( this ),
+				$links,
+				sourceTitles;
+
+			$links = $this.find( 'a[rel="mw:WikiLink"]' );
+			// Collect all sourceTitles;
+			sourceTitles = $links.map( function () {
+				var href = $( this ).attr( 'href' );
+				// some cleanup
+				return cleanupLinkHref( href );
+			} ).get();
+
+			function apply( adaptations ) {
+				$links.map( function () {
+					var $this = $( this ),
+						href = $this.attr( 'href' );
+
+					href = cleanupLinkHref( href );
+					if ( adaptations[ href ] ) {
+						$( this ).prop( 'href', adaptations[ href ] );
+					} else {
+						// Remove the link
+						$( this ).after( $( this ).text() ).remove();
+					}
+				} );
+			}
+			linkAdaptor.adapt( sourceTitles, targetLanguage ).done( apply );
+		} );
+	};
 	mw.cx.tools.link = LinkCard;
 }( jQuery, mediaWiki ) );

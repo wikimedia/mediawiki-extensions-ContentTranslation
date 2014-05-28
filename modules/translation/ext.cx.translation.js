@@ -101,7 +101,7 @@
 				$( this ).html( translation );
 			}
 		} );
-
+		$section.adaptLinks( mw.cx.targetLanguage );
 		// Trigger input event so that the alignemnt is right.
 		$section.trigger( 'input' );
 
