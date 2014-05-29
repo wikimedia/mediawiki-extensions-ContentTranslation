@@ -27,7 +27,7 @@ h2 {
 .cx-widget__header {
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	.mw-ui-palm-one-whole;
+	.mw-ui-one-whole(@palm);
 }
 
 .cx-column__language-label {
@@ -42,17 +42,24 @@ h2 {
 
 .cx-column--source,
 .cx-column--translation {
-	.mw-ui-palm-one-half;
+	.mw-ui-one-half(@palm);
 }
 
 .cx-column--tools {
-	.mw-ui-palm-one-whole;
+	.mw-ui-one-whole(@palm);
 	background: #f0f0f0;
 	min-height: 100vh;
 	position: relative;
 	&.sticky {
-		.sticky;
+		.stick-to-side;
+		@media @palm {
+			.stick-to-bottom;
+		}
 	}
+	@media @palm {
+		.stick-to-bottom;
+	}
+
 }
 
 /* Unused? */
@@ -66,11 +73,27 @@ h2 {
 	border: 1px solid #cccccc;
 	padding: 10px;
 	margin: 2px 0;
-	.mw-ui-palm-one-half;
+	.mw-ui-one-half(@palm);
 }
 
-.sticky {
+.stick-to-side() {
 	position: fixed;
 	top: 0;
 	right: 0;
+}
+
+.stick-to-bottom() {
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.05);
+	max-height: 20%;
+	min-height: 3em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: max-height 0.25s;
+	&:hover {
+		max-height: 50%;
+	}
 }
