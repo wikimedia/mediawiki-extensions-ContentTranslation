@@ -104,7 +104,7 @@
 
 		// Trigger input event so that the alignemnt is right.
 		$section.trigger( 'input' );
-
+		$section.cxEditor();
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
 	};
