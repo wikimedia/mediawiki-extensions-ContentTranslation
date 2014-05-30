@@ -284,10 +284,16 @@
 	 * so that they will appear top aligned.
 	 */
 	function keepAlignment() {
-		var $sourceSection, sectionHeight, sourceSectionHeight, $section;
+		var $sourceSection, sectionHeight, sourceSectionHeight, $section, steps = 0;
 
 		/*jshint validthis:true */
 		$section = $( this );
+
+		if ( $section.prop( 'tagName' ) === 'TABLE' ) {
+			// 'min-height' is undefined for table elements
+			return true;
+		}
+
 		$sourceSection = $( '#' + $section.data( 'source' ) );
 		$sourceSection.css( 'min-height', '' );
 
@@ -304,11 +310,15 @@
 			// Experiments shows a few pixels difference
 			// Here we do it by 10px steps till we reach equal height.
 			while ( sectionHeight !== sourceSectionHeight ) {
-				sectionHeight = sectionHeight = sectionHeight + 10;
+				sectionHeight = sectionHeight + 10;
 				$sourceSection.css( 'min-height', sectionHeight );
 				$section.css( 'min-height', sectionHeight );
 				sectionHeight = $section.height();
 				sourceSectionHeight = $sourceSection.height();
+				if ( steps++ === 1000 ) {
+					mw.track( 'Alignment attempt is not succeeding. Aborting.' );
+					break;
+				}
 			}
 		}
 	}
