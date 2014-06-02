@@ -50,7 +50,7 @@ $GLOBALS['wgContentTranslationServerTimeout'] = 15;
 
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid.wmflabs.org/',
-	'timeout' => 15,
+	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
 	'prefix' => 'enwiki',
 );
 

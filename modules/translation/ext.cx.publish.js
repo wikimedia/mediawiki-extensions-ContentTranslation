@@ -70,11 +70,15 @@
 	function publishTranslation( title, content, sourceTitle ) {
 		var api = new mw.Api();
 
-		return api.postWithEditToken( {
+		return api.postWithToken( 'edit', {
 			action: 'cxpublish',
 			title: title,
 			html: content,
 			sourcetitle: sourceTitle
+		}, {
+			// A bigger timeout since publishing after converting html to wikitext
+			// parsoid is not a fast operation.
+			timeout: 100 * 1000 // in milliseconds
 		} );
 	}
 
