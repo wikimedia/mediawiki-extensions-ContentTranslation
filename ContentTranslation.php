@@ -49,7 +49,7 @@ $GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8080';
 
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid.wmflabs.org/',
-	'timeout' => 15,
+	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
 	'prefix' => 'enwiki',
 );
 

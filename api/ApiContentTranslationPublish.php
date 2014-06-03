@@ -82,7 +82,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		try {
 			$wikitext = $this->convertHtmlToWikitext( $title, $params['html'] );
 		} catch ( MWException $e ) {
-			$this->dieUsage( 'Conversion to wikitext with parsoid failed', 'parsoidserver' );
+			$this->dieUsage( $e->getMessage(), 'parsoidserver' );
 		}
 
 		$saveresult = $this->saveWikitext( $title, $wikitext, $params );
