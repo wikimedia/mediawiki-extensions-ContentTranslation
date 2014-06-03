@@ -45,8 +45,8 @@
 
 	ContentTranslationSource.prototype.init = function () {
 		mw.cx.sourceTitle = new mw.Uri().query.page;
-		mw.cx.targetLanguage = new mw.Uri().query.lang || '';
-		mw.cx.sourceLanguage = mw.config.get( 'wgContentLanguage' );
+		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
+		mw.cx.sourceLanguage = new mw.Uri().query.from || mw.config.get( 'wgContentLanguage' );
 		this.render();
 		mw.cx.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();

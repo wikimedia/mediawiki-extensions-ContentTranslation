@@ -41,7 +41,7 @@
 		window.location.href = mw.util.getUrl(
 			'Special:ContentTranslation', {
 				page: sourceTitle,
-				lang: targetLanguage,
+				to: targetLanguage,
 				targettitle: targetTitle
 			}
 		);
