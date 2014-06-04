@@ -154,7 +154,7 @@
 	function sectionClick() {
 		/*jshint validthis:true */
 		$( this ).removeClass( 'placeholder' )
-			.unbind( 'hover click' );
+			.unbind( 'mouseenter mouseleave click' );
 
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
