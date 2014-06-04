@@ -39,5 +39,6 @@
 	"cx-tools-searchbox-text": "Placeholder text for the searchbox on the translation tools column",
 	"cx-tools-dictionary-title": "Used as the title for a card that shows dictinary definition.",
 	"cx-tools-view-guidelines": "Parameters:\n* $1 - the URL pointing to the guidelines for translation in Wikipedia",
-	"cx-tools-dictionary-title": "Title of definition tool card"
+	"cx-tools-dictionary-title": "Title of definition tool card",
+	"cx-tools-link-remove": "Text shown in link tool card. Clicking on it removes the link in the context"
 }

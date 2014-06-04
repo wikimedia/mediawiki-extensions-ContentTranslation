@@ -28,6 +28,7 @@
 		this.$searchBox.find( 'input' ).keypress( function ( event ) {
 			if ( event.which === 13 ) {
 				mw.hook( 'mw.cx.search.word' ).fire( $( this ).val().trim().toLowerCase() );
+				mw.hook( 'mw.cx.search.link'). fire( $( this ).val().trim().toLowerCase() );
 			}
 		} );
 		mw.hook( 'mw.cx.tools.ready' ).fire();

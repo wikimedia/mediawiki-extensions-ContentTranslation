@@ -1,0 +1,23 @@
+@import "../../base/styles/grid/agora-grid";
+
+.card__remove-link {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none; // XXX why would it be needed?
+	padding: @vertical-margin @horizontal-margin;
+	font-size: large;
+	line-height: 1.5em;
+	color: #565656; // TODO Should come from library?
+	/* @embed */
+	background: url(../images/clear.png) no-repeat scroll 10px center #FFFFFF;
+	/* @embed */
+	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
+	/* @embed */
+	background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
+	background-size: 20px;
+	padding: 0 10px 0 40px;
+	line-height: 2.5em;
+	cursor: pointer;
+}
