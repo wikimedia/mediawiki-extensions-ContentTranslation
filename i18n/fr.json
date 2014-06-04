@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Sherbrooke",
 			"Maxim21",
-			"Ultimate"
+			"Ultimate",
+			"Constructeur"
 		]
 	},
 	"cx": "Traduire la page",
@@ -35,5 +36,6 @@
 	"cx-tools-instructions-text5": "Publier la traduction",
 	"cx-tools-instructions-text6": "Lorsque vous serez satisfait du résultat, appuyez sur {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Chercher un mot",
-	"cx-tools-view-guidelines": "[$1 Afficher les directives de traduction]"
+	"cx-tools-view-guidelines": "[$1 Afficher les directives de traduction]",
+	"cx-tools-dictionary-title": "Définition"
 }

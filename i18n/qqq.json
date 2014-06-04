@@ -37,7 +37,6 @@
 	"cx-tools-instructions-text5": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-tools-instructions-text6": "Help text for the translation tools pane.\n\nRefers to {{msg-mw|Cx-publish-button}}.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text5}}.",
 	"cx-tools-searchbox-text": "Placeholder text for the searchbox on the translation tools column",
-	"cx-tools-dictionary-title": "Used as the title for a card that shows dictinary definition.",
 	"cx-tools-view-guidelines": "Parameters:\n* $1 - the URL pointing to the guidelines for translation in Wikipedia",
 	"cx-tools-dictionary-title": "Title of definition tool card"
 }

@@ -32,5 +32,6 @@
 	"cx-tools-instructions-text5": "Die Übersetzung veröffentlichen",
 	"cx-tools-instructions-text6": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“.",
 	"cx-tools-searchbox-text": "Nach einem Wort suchen",
-	"cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]"
+	"cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]",
+	"cx-tools-dictionary-title": "Definition"
 }
