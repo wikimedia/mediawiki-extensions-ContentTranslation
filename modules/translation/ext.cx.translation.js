@@ -107,8 +107,14 @@
 
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
-		$section.find( 'a[rel="mw:WikiLink"]' ).on( 'click', function () {
+		$section.on( 'click', 'a', function () {
 			mw.hook( 'mw.cx.select.link' ).fire( $( this ) );
+		} );
+		$section.on( 'click', function () {
+			var selection = window.getSelection().toString();
+			if ( selection ) {
+				mw.hook( 'mw.cx.search.link' ).fire( selection.toLowerCase() );
+			}
 		} );
 	};
 

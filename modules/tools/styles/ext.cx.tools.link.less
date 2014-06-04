@@ -5,7 +5,7 @@
 	@horizontal-margin: 15px;
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	float: none; // XXX why would it be needed?
+	float: none;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	line-height: 1.5em;
@@ -20,4 +20,22 @@
 	padding: 0 10px 0 40px;
 	line-height: 2.5em;
 	cursor: pointer;
+	clear: both;
+}
+
+.card__link-image-container {
+	.mw-ui-item;
+	.mw-ui-one-quarter;
+	background-color: #FFFFFF;
+}
+
+.card__link-info {
+	.mw-ui-item;
+	.mw-ui-three-quarters;
+	background-color: #FFFFFF;
+}
+
+.card__link-text {
+	color: #0645ad;
+	font-size: large;
 }
