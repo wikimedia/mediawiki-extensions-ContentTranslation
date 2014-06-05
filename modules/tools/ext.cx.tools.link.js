@@ -55,7 +55,11 @@
 			prop: 'pageimages',
 			piprop: 'thumbnail',
 			pithumbsize: 100,
+			redirects: true,
 			format: 'json'
+		}, {
+			url: '//' + mw.cx.targetLanguage + '.wikipedia.org/w/api.php',
+			dataType: 'jsonp'
 		} );
 	}
 
