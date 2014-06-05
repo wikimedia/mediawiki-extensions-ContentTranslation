@@ -35,5 +35,8 @@
 	"cx-tools-instructions-text5": "פרסום התרגום",
 	"cx-tools-instructions-text6": "כאשר הינך מרוצה מהתוצאה, לחץ \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "חיפוש מילה",
-	"cx-tools-view-guidelines": "[$1 הצגת הנחיות התרגום]"
+	"cx-tools-view-guidelines": "[$1 הצגת הנחיות התרגום]",
+	"cx-tools-dictionary-title": "הגדרה",
+	"cx-tools-link-title": "קישור",
+	"cx-tools-link-remove": "הסרת קישור"
 }

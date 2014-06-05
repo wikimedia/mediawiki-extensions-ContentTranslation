@@ -33,5 +33,7 @@
 	"cx-tools-instructions-text6": "Wenn du mit dem Ergebnis zufrieden bist, klicke auf „{{int:cx-publish-button}}“.",
 	"cx-tools-searchbox-text": "Nach einem Wort suchen",
 	"cx-tools-view-guidelines": "[$1 Übersetzungsrichtlinien ansehen]",
-	"cx-tools-dictionary-title": "Definition"
+	"cx-tools-dictionary-title": "Definition",
+	"cx-tools-link-title": "Link",
+	"cx-tools-link-remove": "Link entfernen"
 }

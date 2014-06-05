@@ -33,5 +33,7 @@
 	"cx-tools-instructions-text6": "Кога ќе бидете задоволни со исходот, стиснете на „{{int:cx-publish-button}}“.",
 	"cx-tools-searchbox-text": "Пребарајте збор",
 	"cx-tools-view-guidelines": "[$1 Погл. напатствијата за преведување]",
-	"cx-tools-dictionary-title": "Толкување"
+	"cx-tools-dictionary-title": "Толкување",
+	"cx-tools-link-title": "Врска",
+	"cx-tools-link-remove": "Отстрани врска"
 }

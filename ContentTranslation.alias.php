@@ -46,6 +46,11 @@ $specialPageAliases['he'] = array(
 	'ContentTranslation' => array( 'תרגום_תוכן' ),
 );
 
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'ContentTranslation' => array( '내용번역' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),

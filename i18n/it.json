@@ -33,5 +33,6 @@
 	"cx-tools-instructions-text5": "Pubblica la traduzione",
 	"cx-tools-instructions-text6": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Cerca una parola",
-	"cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]"
+	"cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]",
+	"cx-tools-dictionary-title": "Definizione"
 }
