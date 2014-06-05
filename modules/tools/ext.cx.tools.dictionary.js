@@ -103,7 +103,8 @@
 		}
 		this.$card.find( '.card__headword' ).text( word );
 		getTranslation( word, mw.cx.sourceLanguage, mw.cx.targetLanguage )
-			.done( $.proxy( this.showResult, this ) );
+			.done( $.proxy( this.showResult, this ) )
+			.fail( $.proxy( this.stop, this ) );
 	};
 
 	DictionaryCard.prototype.stop = function () {
