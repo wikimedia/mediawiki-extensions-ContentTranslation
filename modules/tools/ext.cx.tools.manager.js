@@ -67,7 +67,7 @@
 	CXToolManager.prototype.dispatch = function ( eventName, data ) {
 		var index, tools, cxToolManager = this;
 
-		this.hideCards();
+		//this.hideCards();
 		mw.log( '[CX] event:' + eventName + ' , data:' + data );
 		tools = this.eventRegistry[ eventName ];
 		for ( index in tools ) {
@@ -107,6 +107,10 @@
 	CXToolManager.prototype.showCard = function ( toolName, data ) {
 		var tool;
 
+		this.hideCard( toolName );
+		if ( toolName !== this.options.defaultTool ) {
+			this.hideCard( this.options.defaultTool );
+		}
 		tool = new mw.cx.tools[ toolName ]();
 		this.$container.append( tool.getCard() );
 		tool.start( data );
@@ -114,16 +118,12 @@
 	};
 
 	/**
-	 * Hide all the cards that are shown since they are no longer required
+	 * Hide a card
 	 */
-	CXToolManager.prototype.hideCards = function () {
-		var tool;
-
-		for ( tool in this.tools ) {
-			if ( this.tools[ tool ] ) {
-				this.tools[ tool ].stop();
-				delete this.tools[ tool ];
-			}
+	CXToolManager.prototype.hideCard = function ( toolName ) {
+		if ( this.tools[ toolName ] ) {
+			this.tools[ toolName ].stop();
+			delete this.tools[ toolName ];
 		}
 	};
 
