@@ -107,6 +107,9 @@
 
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
+		$section.find( 'a[rel="mw:WikiLink"]' ).on( 'click', function () {
+			mw.hook( 'mw.cx.select.link' ).fire( $( this ) );
+		} );
 	};
 
 	// TODO This is a dummy completeness calculation.
