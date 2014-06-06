@@ -51,7 +51,7 @@
 		}
 	};
 
-	function getLink( word ) {
+	function getLink( word, language ) {
 		var api = new mw.Api();
 
 		return api.get( {
@@ -63,8 +63,10 @@
 			redirects: true,
 			format: 'json'
 		}, {
-			url: '//' + mw.cx.targetLanguage + '.wikipedia.org/w/api.php',
-			dataType: 'jsonp'
+			url: '//' + language + '.wikipedia.org/w/api.php',
+			dataType: 'jsonp',
+			// This prevents warnings about the unrecognized parameter "_"
+			cache: true
 		} );
 	}
 
@@ -158,9 +160,10 @@
 		}
 	}
 
-	LinkCard.prototype.start = function ( link ) {
+	LinkCard.prototype.start = function ( link, language ) {
 		var word, linkCard = this;
 
+		language = language || mw.cx.targetLanguage;
 		if ( typeof link === 'string' ) {
 			word = link;
 		} else {
@@ -174,11 +177,18 @@
 		this.$card.hide();
 		if ( this.$link ) {
 			this.$card.show();
+			// Since this is an existing link, we can show the link title early.
+			this.$card.find( '.card__link-text' )
+				.text( word )
+				.attr( {
+					target: '_blank',
+					href: '//' + language + '.wikipedia.org/wiki/' + word
+				} );
 			this.$addLink.hide();
 		} else {
 			this.$removeLink.hide();
 		}
-		getLink( word ).done( function ( response ) {
+		getLink( word, language ).done( function ( response ) {
 			var imgSrc, pageId, range, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
@@ -194,7 +204,7 @@
 				.text( page.title )
 				.attr( {
 					target: '_blank',
-					href: '//' + mw.cx.targetLanguage + '.wikipedia.org/wiki/' + page.title
+					href: '//' + language + '.wikipedia.org/wiki/' + page.title
 				} );
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );

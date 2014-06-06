@@ -111,6 +111,12 @@
 	 */
 	ContentTranslationSource.prototype.disableLinks = function () {
 		this.$content.find( 'a' ).bind( 'click', function () {
+			var $link = $( this );
+			// avoid all reference links
+			if ( !$link.parent().hasClass( 'reference' ) ) {
+				mw.hook( 'mw.cx.select.link' ).fire( $link.text(), mw.cx.sourceLanguage );
+			}
+			// Disable link click
 			return false;
 		} );
 	};
