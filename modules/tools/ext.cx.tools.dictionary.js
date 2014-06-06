@@ -114,7 +114,6 @@
 	DictionaryCard.prototype.getTriggerEvents = function () {
 		return [
 			'mw.cx.select.word',
-			'mw.cx.select.link',
 			'mw.cx.search.word'
 		];
 	};
