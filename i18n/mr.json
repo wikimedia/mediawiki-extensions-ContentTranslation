@@ -16,10 +16,12 @@
 	"tag-contenttranslation": "आशयभाषांतर",
 	"cx-source-loading": "$1 चे प्रभारण करीत आहे",
 	"cx-special-login-error": "आपण या पानाचे भाषांतरासाठी सनोंद प्रवेशित असावयास हवे.",
-	"cx-tools-instructions-title": "भाषांतर निर्माण करा",
 	"cx-tools-instructions-text1": "भाषांतरास काहे परिच्छेद जोडा.",
 	"cx-tools-instructions-text2": "दर्ज्याच्या खात्रीस, दिलेले स्वयंचलित भाषांतर जुळवा",
 	"cx-tools-instructions-text3": "मशिनी भाषांतर हे भाषांतरासाठी उपयोगी असा आरंभबिंदू आहे, पण भाषांतरकाराने,त्यात झालेल्या चूका सुधारावयास हव्या व खात्री करावयास हवी की ते भाषांतर अचूक आहे.",
 	"cx-tools-instructions-text4": "भरवसा ठेवण्यालायक नसलेला किंवा निम्न दर्जाचा मजकूर भाषांतरीत करू नका. शक्य असल्यास,स्रोत पानावर दिलेला संदर्भ बघून मजकूर शहानिशा करा.",
-	"cx-tools-instructions-text5": "जर आपण मिळालेल्या निकालाने खुश असाल तर,{{int:cx-publish-button}} टिचकून नविन पान तयार करा."
+	"cx-tools-instructions-text5": "जर आपण मिळालेल्या निकालाने खुश असाल तर,{{int:cx-publish-button}} टिचकून नविन पान तयार करा.",
+	"cx-tools-dictionary-title": "व्याख्या",
+	"cx-tools-link-title": "दुवा",
+	"cx-tools-link-remove": "दुवा काढा"
 }

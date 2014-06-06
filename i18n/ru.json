@@ -34,5 +34,7 @@
 	"cx-tools-instructions-text6": "Когда вы будете довольны результатом, нажмите «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Искать слово",
 	"cx-tools-view-guidelines": "[$1 Посмотреть принципы перевода]",
-	"cx-tools-dictionary-title": "Определение"
+	"cx-tools-dictionary-title": "Определение",
+	"cx-tools-link-title": "Ссылка",
+	"cx-tools-link-remove": "Удалить ссылку"
 }

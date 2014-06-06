@@ -36,5 +36,7 @@
 	"cx-tools-instructions-text6": "Quando estiver satisfeito com o resultado, pressione \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Pesquisar por palavra",
 	"cx-tools-view-guidelines": "[$1 Ver as diretrizes de tradução]",
-	"cx-tools-dictionary-title": "Definição"
+	"cx-tools-dictionary-title": "Definição",
+	"cx-tools-link-title": "Ligação",
+	"cx-tools-link-remove": "Remover ligação"
 }
