@@ -34,5 +34,7 @@
 	"cx-tools-instructions-text5": "Publicera översättningen",
 	"cx-tools-instructions-text6": "När du är nöjd med resultatet, tryck på \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Sök efter ett ord",
-	"cx-tools-view-guidelines": "[$1 Visa riktlinjer för översättning]"
+	"cx-tools-view-guidelines": "[$1 Visa riktlinjer för översättning]",
+	"cx-tools-link-title": "Länk",
+	"cx-tools-link-remove": "Ta bort länk"
 }
