@@ -64,12 +64,13 @@
 	 * @param {string} eventName event name
 	 * @param {Array|Object|string} The data passed by the event.
 	 */
-	CXToolManager.prototype.dispatch = function ( eventName, data ) {
-		var index, tools, cxToolManager = this;
+	CXToolManager.prototype.dispatch = function ( eventName ) {
+		var index, tools, cxToolManager = this,
+			data = Array.prototype.slice.apply( arguments );
 
-		//this.hideCards();
 		mw.log( '[CX] event:' + eventName + ' , data:' + data );
 		tools = this.eventRegistry[ eventName ];
+		data = data.splice( 1 );
 		for ( index in tools ) {
 			// Call render function on the current setting module.
 			this.showCard( tools[ index ], data );
@@ -113,7 +114,10 @@
 		}
 		tool = new mw.cx.tools[ toolName ]();
 		this.$container.append( tool.getCard() );
-		tool.start( data );
+		if ( typeof data === 'string' ) {
+			data = new Array( data );
+		}
+		tool.start.apply( tool, data );
 		this.tools[ toolName ] = tool;
 	};
 
