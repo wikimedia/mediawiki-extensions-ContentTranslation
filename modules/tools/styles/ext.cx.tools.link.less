@@ -1,5 +1,9 @@
 @import "../../base/styles/grid/agora-grid";
 
+.card__title {
+	padding: 4px;
+}
+
 .card__remove-link {
 	@vertical-margin: 10px;
 	@horizontal-margin: 15px;
@@ -21,21 +25,52 @@
 	line-height: 2.5em;
 	cursor: pointer;
 	clear: both;
+	border-top: 1px solid #C9C9C9;
 }
+
+.card__add-link {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none;
+	padding: @vertical-margin @horizontal-margin;
+	font-size: large;
+	line-height: 1.5em;
+	color: #565656; // TODO Should come from library?
+	/* @embed */
+	background: url(../images/add.png) no-repeat scroll 10px center #FFFFFF;
+	/* @embed */
+	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/add.svg);
+	/* @embed */
+	background-image: linear-gradient(transparent, transparent), url(../images/add.svg);
+	background-size: 20px;
+	padding: 0 10px 0 40px;
+	line-height: 2.5em;
+	cursor: pointer;
+	clear: both;
+	border-top: 1px solid #C9C9C9;
+}
+
 
 .card__link-image-container {
 	.mw-ui-item;
 	.mw-ui-one-quarter;
+	min-height: 100px;
 	background-color: #FFFFFF;
+	border:1px solid #C9C9C9;;
 }
 
 .card__link-info {
 	.mw-ui-item;
 	.mw-ui-three-quarters;
+	padding: 0;
 	background-color: #FFFFFF;
+	border:1px solid #C9C9C9;
 }
 
 .card__link-text {
 	color: #0645ad;
 	font-size: large;
+	padding: 4px;
 }

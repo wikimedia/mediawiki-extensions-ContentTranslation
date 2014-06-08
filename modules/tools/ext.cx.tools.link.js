@@ -14,6 +14,7 @@
 	function LinkCard() {
 		this.$card = null;
 		this.$removeLink = null;
+		this.$addLink = null;
 		this.$link = null;
 	}
 
@@ -27,14 +28,18 @@
 		this.$removeLink = $( '<div>' )
 			.addClass( 'card__remove-link' )
 			.text( mw.msg( 'cx-tools-link-remove' ) );
+		this.$addLink = $( '<div>' )
+			.addClass( 'card__add-link' )
+			.text( mw.msg( 'cx-tools-link-add' ) );
 		$linkInfo = $( '<div>' )
 			.addClass( 'card__link-info' );
 		$linkInfo.append( $( '<div>' )
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-link-title' ) ) );
-		$linkInfo.append( $( '<div>' )
+		$linkInfo.append( $( '<a>' )
 			.addClass( 'card__link-text' ) );
-		this.$card.append( $imageContainer, $linkInfo, this.$removeLink );
+		$linkInfo.append( this.$removeLink, this.$addLink );
+		this.$card.append( $imageContainer, $linkInfo );
 		this.listen();
 		return this.$card;
 	};
@@ -166,8 +171,12 @@
 			return;
 		}
 		word = word || this.$link.text();
-		if ( !this.$link ) {
-			this.$removeLink.empty();
+		this.$card.hide();
+		if ( this.$link ) {
+			this.$card.show();
+			this.$addLink.hide();
+		} else {
+			this.$removeLink.hide();
 		}
 		getLink( word ).done( function ( response ) {
 			var imgSrc, pageId, range, page;
@@ -183,15 +192,20 @@
 			range = saveSelection();
 			linkCard.$card.find( '.card__link-text' )
 				.text( page.title )
-				.click( function () {
-					restoreSelection( range );
-					document.execCommand( 'CreateLink', false, page.title );
+				.attr( {
+					target: '_blank',
+					href: '//' + mw.cx.targetLanguage + '.wikipedia.org/wiki/' + page.title
 				} );
+			linkCard.$addLink.click( function () {
+				restoreSelection( range );
+				document.execCommand( 'CreateLink', false, page.title );
+			} );
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
 				linkCard.$card.find( '.card__link-image-container' )
 					.append( $( '<img>' ).attr( 'src', imgSrc ) );
 			}
+			linkCard.$card.show();
 		} );
 	};
 

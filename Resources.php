@@ -159,6 +159,7 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 	),
 	'messages' => array(
 		'cx-tools-link-title',
+		'cx-tools-link-add',
 		'cx-tools-link-remove',
 	),
 	'dependencies' => array(
