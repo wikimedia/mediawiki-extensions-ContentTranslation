@@ -108,7 +108,11 @@
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
 		$section.on( 'click', 'a', function () {
-			mw.hook( 'mw.cx.select.link' ).fire( $( this ) );
+			var $link = $( this );
+			// avoid all reference links
+			if ( !$link.parent().hasClass( 'reference' ) ) {
+				mw.hook( 'mw.cx.select.link' ).fire( $link );
+			}
 		} );
 		$section.on( 'click', function () {
 			var selection = window.getSelection().toString();
