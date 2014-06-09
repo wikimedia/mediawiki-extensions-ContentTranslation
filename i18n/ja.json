@@ -21,5 +21,6 @@
 	"cx-tools-instructions-text2": "すべての段落を追加する必要はありません",
 	"cx-tools-instructions-text4": "自動翻訳は有用ですが、正確なものにするため誤りを訂正する必要があります。",
 	"cx-tools-searchbox-text": "単語の検索",
-	"cx-tools-view-guidelines": "[$1 翻訳ガイドラインを閲覧]"
+	"cx-tools-view-guidelines": "[$1 翻訳ガイドラインを閲覧]",
+	"cx-tools-link-add": "リンクを追加"
 }

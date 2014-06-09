@@ -4,7 +4,8 @@
 			"Amire80",
 			"Lego770",
 			"Inkbug",
-			"Yona b"
+			"Yona b",
+			"Ronel1"
 		]
 	},
 	"cx": "תרגום דף",
@@ -38,5 +39,6 @@
 	"cx-tools-view-guidelines": "[$1 הצגת הנחיות התרגום]",
 	"cx-tools-dictionary-title": "הגדרה",
 	"cx-tools-link-title": "קישור",
+	"cx-tools-link-add": "הוספת קישורים",
 	"cx-tools-link-remove": "הסרת קישור"
 }
