@@ -65,7 +65,7 @@
 	 * @param {Array|Object|string} The data passed by the event.
 	 */
 	CXToolManager.prototype.dispatch = function ( eventName ) {
-		var index, tools, cxToolManager = this,
+		var index, tools,
 			data = Array.prototype.slice.apply( arguments );
 
 		mw.log( '[CX] event:' + eventName + ' , data:' + data );
@@ -75,15 +75,6 @@
 			// Call render function on the current setting module.
 			this.showCard( tools[ index ], data );
 		}
-
-		// Wait for a while before checking if any cards are shown
-		// XXX This works, but can go wrong as we have more cards. Need
-		// to think more robust way.
-		window.setTimeout( function () {
-			if ( !cxToolManager.$container.find( '.card' ).length ) {
-				cxToolManager.showCard( cxToolManager.options.defaultTool );
-			}
-		}, 1000 );
 	};
 
 	/**
@@ -91,13 +82,21 @@
 	 * dispatch them
 	 */
 	CXToolManager.prototype.listen = function () {
-		var event;
+		var event, cxToolManager = this;
 
 		for ( event in this.eventRegistry ) {
 			mw.hook( event ).add(
 				$.proxy( this.dispatch, this, event )
 			);
 		}
+
+		// Check if there are any cards shown in regular time intervals
+		// If not show the default tool
+		window.setInterval( function () {
+			if ( !cxToolManager.$container.find( '.card' ).length ) {
+				cxToolManager.showCard( cxToolManager.options.defaultTool );
+			}
+		}, 5000 );
 	};
 
 	/**
