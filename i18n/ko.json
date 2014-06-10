@@ -5,7 +5,8 @@
 			"Priviet",
 			"Freebiekr",
 			"아라",
-			"Namoroka"
+			"Namoroka",
+			"Tyey"
 		]
 	},
 	"cx": "문서 번역",
@@ -35,5 +36,8 @@
 	"cx-tools-instructions-text5": "번역 게시",
 	"cx-tools-instructions-text6": "결과에 만족한다면, \"{{int:cx-publish-button}}\"를 누르세요.",
 	"cx-tools-searchbox-text": "낱말 검색",
-	"cx-tools-view-guidelines": "[$1 번역 지침 보기]"
+	"cx-tools-view-guidelines": "[$1 번역 지침 보기]",
+	"cx-tools-link-title": "링크",
+	"cx-tools-link-add": "링크 추가",
+	"cx-tools-link-remove": "링크 삭제"
 }

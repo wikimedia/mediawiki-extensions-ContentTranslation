@@ -39,5 +39,6 @@
 	"cx-tools-view-guidelines": "[$1 Afficher les directives de traduction]",
 	"cx-tools-dictionary-title": "Définition",
 	"cx-tools-link-title": "Lien",
+	"cx-tools-link-add": "Ajouter un lien",
 	"cx-tools-link-remove": "Supprimer le lien"
 }
