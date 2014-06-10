@@ -37,7 +37,7 @@
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar;
+		var $progressBar, $search;
 
 		this.$searchBox = $( '<div>' )
 			.addClass( 'card search cx-tools--container' );
@@ -46,13 +46,13 @@
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
 			.cxProgressBar();
-
-		this.$searchBox.append(
-			$( '<input>' )
+		$search = $( '<input>' )
 			.addClass( 'tools-words-search box' )
-			.attr( 'placeholder', mw.msg( 'cx-tools-searchbox-text' ) )
-		);
-
+			.attr( {
+				placeholder: mw.msg( 'cx-tools-searchbox-text' ),
+				type: 'search'
+			} );
+		this.$searchBox.append( $search );
 		this.$container.append(
 			$progressBar,
 			this.$searchBox,
