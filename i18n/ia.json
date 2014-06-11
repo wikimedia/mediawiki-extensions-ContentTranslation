@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"cx": "Traducer pagina",
+	"cx-error-server-connection": "Error: Impossibile connecter al servitor.",
+	"cx-desc": "Instrumento que permitte a redactores traducer paginas de un lingua in un altere con le adjuta de un traductor automatic e altere instrumentos de traduction.",
+	"cx-header-progressbar-text": "$1% traducite",
+	"cx-header-translation-center": "Centro de traduction",
+	"cx-source-view-page": "[$1 vider pagina]",
+	"cx-publish-page": "Pagina publicate in [$1 $2]",
+	"cx-publish-page-error": "Error durante le salveguarda del pagina.",
+	"cx-publish-button": "Publicar traduction",
+	"cx-publish-summary": "Create como traduction del pagina \"$1\"",
+	"cx-translation-add-translation": "+ Adder traduction",
+	"tag-contenttranslation": "Traduction de contento",
+	"cx-source-loading": "Carga $1",
+	"cx-red-interlanguage-link-preference": "Traduction de contento",
+	"cx-red-interlanguage-link-preference-beta-desc": "Monstra un ligamine rubie a tu lingua in le lista de ligamines de lingua si le pagina non ha ancora essite traducite in tu lingua, e adjuta a traducer un pagina in tu lingua per medio de un interfacie de traduction commode.",
+	"cx-entrypoint-title": "Traducer iste pagina in $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Iste pagina non existe ancora in $1.<br />\nVole tu crear lo?",
+	"cx-entrypoint-dialog-title-in": "Titulo del nove pagina in $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Crear ab zero",
+	"cx-entrypoint-dialog-button-translate-from": "Traducer de $1",
+	"cx-special-login-error": "Tu debe aperir session pro poter traducer iste pagina.",
+	"cx-tools-instructions-text1": "Adder paragraphos a traducer",
+	"cx-tools-instructions-text2": "Non es necessari adder totes",
+	"cx-tools-instructions-text3": "Face le texto natural a leger",
+	"cx-tools-instructions-text4": "Le traduction automatic es utile ma tu debe corriger errores pro render lo accurate.",
+	"cx-tools-instructions-text5": "Publicar le traduction",
+	"cx-tools-instructions-text6": "Quando le resultato te satisface, preme \"{{int:cx-publish-button}}\".",
+	"cx-tools-searchbox-text": "Cercar un parola",
+	"cx-tools-view-guidelines": "[$1 Vider directivas de traduction]",
+	"cx-tools-dictionary-title": "Definition",
+	"cx-tools-link-title": "Ligamine",
+	"cx-tools-link-add": "Adder ligamine",
+	"cx-tools-link-remove": "Remover ligamine"
+}

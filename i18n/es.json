@@ -37,5 +37,9 @@
 	"cx-tools-instructions-text5": "Publicar la traducción",
 	"cx-tools-instructions-text6": "Cuando estés contento con el resultado, presiona \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Buscar una palabra",
-	"cx-tools-view-guidelines": "[$1 Ver pautas de traducción]"
+	"cx-tools-view-guidelines": "[$1 Ver pautas de traducción]",
+	"cx-tools-dictionary-title": "Definición",
+	"cx-tools-link-title": "Enlace",
+	"cx-tools-link-add": "Añadir enlace",
+	"cx-tools-link-remove": "Quitar enlace"
 }
