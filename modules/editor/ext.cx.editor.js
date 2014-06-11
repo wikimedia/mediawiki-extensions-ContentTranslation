@@ -14,7 +14,7 @@
 
 	var editorOptions = {
 		cleanPastedHTML: true,
-		buttons: [ 'bold', 'italic', 'anchor', 'header1', 'header2', 'unorderedlist', 'orderedlist', 'indent', 'outdent' ],
+		buttons: [ 'bold', 'italic', 'header1', 'header2', 'unorderedlist', 'orderedlist', 'indent', 'outdent' ],
 		firstHeader: 'h2',
 		secondHeader: 'h3'
 	};
