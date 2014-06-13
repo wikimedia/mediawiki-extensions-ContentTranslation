@@ -80,8 +80,16 @@
 	};
 
 	ContentTranslationEditor.prototype.listen = function () {
+		var cxTranslation = this;
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
-		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.addPlaceholders, this ) );
+		mw.hook( 'mw.cx.source.loaded' ).add( function () {
+			// Delay adding placeholders. If we calculate the section
+			// dimensions before all css and screenpainting is done,
+			// there is a chance for section missalignment
+			window.setTimeout( function () {
+				cxTranslation.addPlaceholders();
+			}, 2000 );
+		} );
 	};
 
 	/**
@@ -89,10 +97,20 @@
 	 * @param {string} sourceId source section identifier
 	 */
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
-		var $section = $( jquerySelectorForId( sourceId, 't' ) );
+		var targetSectionId, $section;
 
-		// Copy the whole section html to translation section.
-		$section.html( $( '#' + sourceId ).html() );
+		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
+		$section = $( targetSectionId );
+		// Replace the placeholder with the source section
+		$section.replaceWith( $( '#' + sourceId )
+			.clone()
+			.attr( {
+				'id': 'cx' + sourceId,
+				'contenteditable': true,
+				'data-source': sourceId
+			} )
+		);
+		$section = $( targetSectionId );
 
 		// For every segment, use MT as replacement
 		$section.find( '.cx-segment' ).each( function () {
@@ -101,9 +119,12 @@
 				$( this ).html( translation );
 			}
 		} );
+		// Adapt the links
 		$section.adaptLinks( mw.cx.targetLanguage );
 		// Trigger input event so that the alignemnt is right.
-		$section.trigger( 'input' );
+		$section.on( 'input', keepAlignment )
+			.trigger( 'input' );
+		// Attach an editor
 		$section.cxEditor();
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
@@ -216,17 +237,17 @@
 
 	function sourceSectionClickHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).click();
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).click();
 	}
 
 	function sourceSectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseenter();
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).mouseenter();
 	}
 
 	function sourceSectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 't' ) ).mouseleave();
+		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).mouseleave();
 	}
 
 	/**
@@ -234,64 +255,44 @@
 	 * are aligned to the source sections. Also provides mouse hover effects.
 	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var $content, template,
-			$sections, i, $section, sourceSectionId, $sourceSection,
-			cxSectionSelector = mw.cx.getSectionSelector();
+		var $sourceContent, template, $sourceSection, cxSectionSelector,
+			$sourceSections, i, placeholders = [],
+			$placeholder, sourceSectionId;
 
-		// Clone the source article and work on this detached object
-		// to help performance
-		$content = $( '.cx-column--source .cx-column__content' ).clone();
-		$sections = $content.find( cxSectionSelector );
+		cxSectionSelector = mw.cx.getSectionSelector();
+		$sourceContent = $( '.cx-column--source .cx-column__content' );
+		$sourceSections = $sourceContent.children( cxSectionSelector );
 
-		for ( i = 0; i < $sections.length; i++ ) {
+		for ( i = 0; i < $sourceSections.length; i++ ) {
 			template = false;
-			$section = $( $sections[ i ] );
-			sourceSectionId = $section.attr( 'id' );
-			$sourceSection = $( jquerySelectorForId( sourceSectionId ) );
-
-			if ( $sourceSection.height() === 0 || !$sourceSection.text().trim() ) {
-				$sourceSection.remove();
-				$section.remove();
-
-				// Source section has 0 height. This indicates an empty
-				// section - mainly resulting from spurious wikitext.
-				continue;
-			}
-
-			// Mask the templates
-			if ( $sourceSection.attr( 'typeof' ) === 'mw:Transclusion' ) {
-				$section.addClass( 'cx-mw-template' );
-				$sourceSection.addClass( 'cx-mw-template' );
-				template = true;
-			}
-
-			$section.empty();
-			$section.css( {
-				'min-height': $sourceSection.height(),
-				width: $sourceSection.width()
-			} );
-
-			$section.attr( {
-				id: 't' + sourceSectionId,
-				'data-source': sourceSectionId,
-				// Sections are editable if they are not templates
-				'contenteditable': template ? false : true
-			} );
-
-			// Attach event handlers for sections
-			$section.on( 'input', keepAlignment )
+			$sourceSection = $( $sourceSections[ i ] );
+			sourceSectionId = $sourceSection.attr( 'id' );
+			$placeholder = $( '<div>' )
+				.addClass( 'placeholder' )
 				.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
-				.on( 'click', sectionClick );
+				.on( 'click', sectionClick )
+				.attr( {
+					'id': 'cx' + sourceSectionId,
+					'data-source': sourceSectionId,
+				} ).css( {
+					// Copy a bunch of position related attribute values
+					'min-height': $sourceSection.outerHeight(),
+					'width': $sourceSection.width(),
+					'margin-top': $sourceSection.css( 'margin-top' ),
+					'margin-bottom': $sourceSection.css( 'margin-bottom' ),
+					'display': $sourceSection.css( 'display' ),
+					'float': $sourceSection.css( 'float' ),
+					'clear': $sourceSection.css( 'clear' ),
+					'position': $sourceSection.css( 'position' )
+				} );
 
 			// Bind events to the placeholder sections
 			$sourceSection.click( sourceSectionClickHandler )
 				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
+			placeholders.push( $placeholder );
 		}
-
-		this.$container.find( '.cx-column__content' ).remove();
-
-		// Attach $content to container
-		this.$container.append( $content );
+		// Append the placeholders to the translation column.
+		this.$container.find( '.cx-column__content' ).append( placeholders );
 	};
 
 	/**
@@ -310,8 +311,11 @@
 		}
 
 		$sourceSection = $( '#' + $section.data( 'source' ) );
+		if ( $section.prop( 'tagName' ) === 'FIGURE' ) {
+			$sourceSection = $sourceSection.find( 'figcaption' );
+			$section = $section.find( 'figcaption' );
+		}
 		$sourceSection.css( 'min-height', '' );
-
 		sourceSectionHeight = $sourceSection.height();
 		sectionHeight = $section.height();
 
@@ -330,12 +334,15 @@
 				$section.css( 'min-height', sectionHeight );
 				sectionHeight = $section.height();
 				sourceSectionHeight = $sourceSection.height();
-				if ( steps++ === 1000 ) {
+				if ( steps++ === 10 ) {
 					mw.track( 'Alignment attempt is not succeeding. Aborting.' );
 					break;
 				}
 			}
+		} else if ( sourceSectionHeight > sectionHeight ) {
+			$section.css( 'min-height', sourceSectionHeight );
 		}
+
 	}
 
 	$.fn.cxTranslation = function ( options ) {
