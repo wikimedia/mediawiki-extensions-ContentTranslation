@@ -39,7 +39,7 @@
 	"cx-tools-searchbox-text": "Placeholder text for the searchbox on the translation tools column",
 	"cx-tools-view-guidelines": "Parameters:\n* $1 - the URL pointing to the guidelines for translation in Wikipedia",
 	"cx-tools-dictionary-title": "Title of definition tool card",
-	"cx-tools-link-title": "Title of link tool card",
+	"cx-tools-link-title": "Title of link tool card.\n{{Identical|Link}}",
 	"cx-tools-link-add": "Text shown in link tool card. Clicking on it adds the link in the cursor position.\n{{Identical|Add link}}",
-	"cx-tools-link-remove": "Text shown in link tool card. Clicking on it removes the link in the context"
+	"cx-tools-link-remove": "Text shown in link tool card. Clicking on it removes the link in the context.\n{{Identical|Remove link}}"
 }
