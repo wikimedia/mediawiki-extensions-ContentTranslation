@@ -85,7 +85,7 @@
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,
-			// there is a chance for section missalignment
+			// there is a chance for section misalignment
 			window.setTimeout( function () {
 				cxTranslation.addPlaceholders();
 			}, 2000 );
