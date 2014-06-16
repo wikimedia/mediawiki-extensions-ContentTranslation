@@ -90,6 +90,14 @@
 				cxTranslation.addPlaceholders();
 			}, 2000 );
 		} );
+		// Tanslation for a section was cleared. Either the translator
+		// deleted the content, or translator used the clear translation
+		// tool. Present the placeholder for the section to user.
+		mw.hook( 'mw.cx.translation.clear' ).add( function ( sourceId ) {
+			var targetSectionId, $placeholder = getPlaceholder( sourceId );
+			targetSectionId = jquerySelectorForId( sourceId, 'cx' );
+			$( targetSectionId ).replaceWith( $placeholder );
+		} );
 	};
 
 	/**
@@ -107,7 +115,6 @@
 			.clone()
 			.attr( {
 				'id': 'cx' + sourceId,
-				'contenteditable': true,
 				'data-source': sourceId
 			} )
 		);
@@ -268,25 +275,7 @@
 			template = false;
 			$sourceSection = $( $sourceSections[ i ] );
 			sourceSectionId = $sourceSection.attr( 'id' );
-			$placeholder = $( '<div>' )
-				.addClass( 'placeholder' )
-				.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
-				.on( 'click', sectionClick )
-				.attr( {
-					'id': 'cx' + sourceSectionId,
-					'data-source': sourceSectionId,
-				} ).css( {
-					// Copy a bunch of position related attribute values
-					'min-height': $sourceSection.outerHeight(),
-					'width': $sourceSection.width(),
-					'margin-top': $sourceSection.css( 'margin-top' ),
-					'margin-bottom': $sourceSection.css( 'margin-bottom' ),
-					'display': $sourceSection.css( 'display' ),
-					'float': $sourceSection.css( 'float' ),
-					'clear': $sourceSection.css( 'clear' ),
-					'position': $sourceSection.css( 'position' )
-				} );
-
+			$placeholder = getPlaceholder( sourceSectionId );
 			// Bind events to the placeholder sections
 			$sourceSection.click( sourceSectionClickHandler )
 				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
@@ -295,6 +284,33 @@
 		// Append the placeholders to the translation column.
 		this.$container.find( '.cx-column__content' ).append( placeholders );
 	};
+
+	/**
+	 * Get a placeholder div for the given source section
+	 * @param {string} sourceSectionId
+	 * @return {jQuery} The placeholder jQuery object
+	 */
+	function getPlaceholder( sourceSectionId ) {
+		var $sourceSection = $( '#' + sourceSectionId );
+		return $( '<div>' )
+			.addClass( 'placeholder' )
+			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
+			.on( 'click', sectionClick )
+			.attr( {
+				'id': 'cx' + sourceSectionId,
+				'data-source': sourceSectionId,
+			} ).css( {
+				// Copy a bunch of position related attribute values
+				'min-height': $sourceSection.outerHeight(),
+				'width': $sourceSection.width(),
+				'margin-top': $sourceSection.css( 'margin-top' ),
+				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
+				'display': $sourceSection.css( 'display' ),
+				'float': $sourceSection.css( 'float' ),
+				'clear': $sourceSection.css( 'clear' ),
+				'position': $sourceSection.css( 'position' )
+			} );
+	}
 
 	/**
 	 * Keep the height of the source and translation sections equal
