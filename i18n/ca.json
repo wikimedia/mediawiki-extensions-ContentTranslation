@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toniher"
+			"Toniher",
+			"Fitoschido"
 		]
 	},
-	"cx-publish-button": "Publica la traducció"
+	"cx-publish-button": "Publica la traducció",
+	"cx-tools-dictionary-title": "Definició",
+	"cx-tools-link-title": "Enllaç"
 }

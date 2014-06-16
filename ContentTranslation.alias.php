@@ -46,6 +46,11 @@ $specialPageAliases['he'] = array(
 	'ContentTranslation' => array( 'תרגום_תוכן' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'ContentTranslation' => array( 'Wobsahowe_přełožowanje' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'ContentTranslation' => array( '내용번역' ),
