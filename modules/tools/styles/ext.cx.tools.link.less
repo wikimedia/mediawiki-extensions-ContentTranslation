@@ -1,9 +1,11 @@
 @import "../../base/styles/grid/agora-grid";
 
 .card.link {
+	.mw-ui-item;
 	animation-name: card-show-animation;
 	animation-duration: 0.5s;
 	position: relative;
+	padding: 0;
 }
 
 .card__remove-link {
@@ -14,7 +16,6 @@
 	float: none;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
-	line-height: 1.5em;
 	color: #565656; // TODO Should come from library?
 	/* @embed */
 	background: url(../images/clear.png) no-repeat scroll 10px center #FFFFFF;
@@ -22,12 +23,11 @@
 	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
 	/* @embed */
 	background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
-	background-size: 20px;
-	padding: 0 10px 0 40px;
-	line-height: 2.5em;
+	background-size: 15px;
+	padding: 5px 10px 5px 32px;
 	cursor: pointer;
 	clear: both;
-	border-top: 1px solid #C9C9C9;
+	border-top: 1px solid #dddddd;
 }
 
 .card__add-link {
@@ -38,7 +38,6 @@
 	float: none;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
-	line-height: 1.5em;
 	color: #565656; // TODO Should come from library?
 	/* @embed */
 	background: url(../images/add.png) no-repeat scroll 10px center #FFFFFF;
@@ -46,12 +45,11 @@
 	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/add.svg);
 	/* @embed */
 	background-image: linear-gradient(transparent, transparent), url(../images/add.svg);
-	background-size: 20px;
-	padding: 0 10px 0 40px;
-	line-height: 2.5em;
+	background-size: 15px;
+	padding: 5px 10px 5px 32px;
 	cursor: pointer;
 	clear: both;
-	border-top: 1px solid #C9C9C9;
+	border-top: 1px solid #dddddd;
 }
 
 
@@ -60,19 +58,37 @@
 	.mw-ui-one-quarter;
 	min-height: 100px;
 	background-color: #FFFFFF;
-	border:1px solid #C9C9C9;;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	img {
+		min-width: 100%;
+		min-height: 100%;
+		position: absolute;
+	}
+	&:empty {
+	background-color: #fbfbfb;
+	/* @embed */
+	background: url(../images/link_lightgray.png) no-repeat scroll center center #fbfbfb;
+	/* @embed */
+	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
+	/* @embed */
+	background-image: linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
+	border-right: 1px solid #eeeeee;
+	}
 }
 
 .card__link-info {
 	.mw-ui-item;
 	.mw-ui-three-quarters;
-	padding: 0;
 	background-color: #FFFFFF;
-	border:1px solid #C9C9C9;
+	padding: 0;
 }
 
 .card__link-text {
+	.mw-ui-item;
 	color: #0645ad;
 	font-size: large;
 	padding: 4px;
+	padding-bottom: 15px;
 }

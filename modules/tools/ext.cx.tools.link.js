@@ -59,7 +59,7 @@
 			titles: word,
 			prop: 'pageimages',
 			piprop: 'thumbnail',
-			pithumbsize: 100,
+			pithumbsize: 150,
 			redirects: true,
 			format: 'json'
 		}, {
