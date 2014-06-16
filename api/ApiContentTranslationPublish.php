@@ -92,9 +92,15 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $editStatus === 'Success' ) {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
-				ChangeTags::addTags( 'contenttranslation', null,
+				ChangeTags::addTags(
+					'contenttranslation',
+					null,
 					intval( $saveresult['edit']['newrevid'] ),
-					null
+					null,
+					FormatJson::encode( array(
+						'from' => $params['from'],
+						'to' => $params['to'],
+					) )
 				);
 			}
 
@@ -126,6 +132,12 @@ class ApiContentTranslationPublish extends ApiBase {
 			'html' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'from' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'to' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
 			'sourcetitle' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -153,6 +165,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			'title' => 'The title of the page to perform actions on.',
 			'token' => 'Edit token',
 			'html' => 'The content to save.',
+			'from' => 'The source language code.',
+			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
 		);
 	}

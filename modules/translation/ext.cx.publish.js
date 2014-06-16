@@ -74,6 +74,8 @@
 			action: 'cxpublish',
 			title: title,
 			html: content,
+			from: mw.cx.sourceLanguage,
+			to: mw.cx.targetLanguage,
 			sourcetitle: sourceTitle
 		}, {
 			// A bigger timeout since publishing after converting html to wikitext
