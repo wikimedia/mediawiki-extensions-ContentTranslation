@@ -93,6 +93,7 @@
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
 			lllang: targetLanguage,
+			redirects: true,
 			format: 'json'
 		}, {
 			url: '//' + mw.cx.sourceLanguage + '.wikipedia.org/w/api.php',
@@ -101,10 +102,13 @@
 			cache: true
 		} ).done( function ( response ) {
 			var linkPairs = {};
+
 			if ( response.query ) {
 				$.each( response.query.pages, function ( pageId, page ) {
-					if ( page.title ) {
-						linkPairs[ page.title ] = page.langlinks && page.langlinks[ 0 ][ '*' ] ||
+					var title = mw.Title.newFromText( page.title );
+
+					if ( title ) {
+						linkPairs[ title.getPrefixedDb() ] = page.langlinks && page.langlinks[ 0 ][ '*' ] ||
 							page.title; // Redirects will not have langlinks property
 					}
 				} );
