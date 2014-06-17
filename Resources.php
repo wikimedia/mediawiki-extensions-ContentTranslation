@@ -80,7 +80,6 @@ $wgResourceModules['ext.cx.translation'] = array(
 	'dependencies' => array(
 		'jquery.uls.data',
 		'mediawiki.Uri',
-		'ext.cx.editor'
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
@@ -247,14 +246,16 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 $wgResourceModules['ext.cx.editor'] = array(
 	'scripts' => array(
 		'editor/ext.cx.editor.js',
-		'editor/medium/medium-editor.js'
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.editor.medium'] = array(
+	'scripts' => array(
+		'editor/ext.cx.editor.js',
+		'editor/medium/medium-editor.js',
 	),
 	'styles' => array(
 		'editor/medium/medium-editor.css',
-		'editor/medium/theme/agora.css'
-	),
-	'dependencies' => array(
-		'ext.cx.entrypoint',
-		'mediawiki.jqueryMsg',
+		'editor/medium/theme/agora.css',
 	),
 ) + $resourcePaths;

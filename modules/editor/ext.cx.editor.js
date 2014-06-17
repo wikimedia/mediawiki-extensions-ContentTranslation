@@ -43,8 +43,9 @@
 		}
 		// Make the element editable
 		this.$editableElement.attr( 'contenteditable', true );
-		// Initialize a WYSIWYG editor
-		this.wysiwygEditor();
+		if ( mw.config.get( 'wgContentTranslationWYSIWYGEditor' ) ) {
+			this.wysiwygEditor();
+		}
 	};
 
 	/**
