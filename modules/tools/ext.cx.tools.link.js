@@ -122,7 +122,6 @@
 		return deferred.promise();
 	};
 
-
 	/**
 	 * Save the selection while other screen elements are clicked.
 	 * See http://stackoverflow.com/a/3316483/337907
@@ -237,6 +236,17 @@
 	};
 
 	/**
+	 * Click handler for the links in translation column
+	 */
+	function linkClickHandler() {
+		/*jshint validthis:true */
+		var $link = $( this );
+		// avoid all reference links
+		if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
+			mw.hook( 'mw.cx.select.link' ).fire( $link );
+		}
+	}
+	/**
 	 * jQuery plugin to adapt all the links with rel="mw:WikiLink"
 	 * @param {string} targetLanguage
 	 */
@@ -247,6 +257,8 @@
 				$links,
 				sourceTitles;
 
+			// Handle clicks on the section, including future links
+			$this.on( 'click', 'a', linkClickHandler );
 			$links = $this.find( 'a[rel="mw:WikiLink"]' );
 			// Collect all sourceTitles;
 			sourceTitles = $links.map( function () {

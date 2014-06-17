@@ -135,13 +135,6 @@
 		// Calculate the progress of the translation
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
-		$section.on( 'click', 'a', function () {
-			var $link = $( this );
-			// avoid all reference links
-			if ( !$link.parent().hasClass( 'reference' ) ) {
-				mw.hook( 'mw.cx.select.link' ).fire( $link );
-			}
-		} );
 		$section.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection ) {
