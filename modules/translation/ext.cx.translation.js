@@ -122,6 +122,7 @@
 		} );
 		// Adapt the links
 		$section.adaptLinks( mw.cx.targetLanguage );
+		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 		// Trigger input event so that the alignemnt is right.
 		$section.on( 'input', keepAlignment )
 			.trigger( 'input' );

@@ -112,7 +112,8 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.dictionary',
 		'ext.cx.tools.instructions',
-		'ext.cx.tools.link'
+		'ext.cx.tools.link',
+		'ext.cx.tools.images',
 	),
 ) + $resourcePaths;
 
@@ -176,6 +177,12 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 	'dependencies' => array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.images'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.images.js',
 	),
 ) + $resourcePaths;
 
