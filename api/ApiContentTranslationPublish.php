@@ -57,10 +57,12 @@ class ApiContentTranslationPublish extends ApiBase {
 			'summary' => $summary,
 		);
 
+		$request = $this->getRequest();
+
 		$api = new ApiMain(
 			new DerivativeRequest(
-				$this->getRequest(),
-				$apiParams + $this->getRequest()->getValues(),
+				$request,
+				$apiParams + $request->getValues(),
 				true // was posted
 			),
 			true // enable write
