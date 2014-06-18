@@ -3,6 +3,10 @@
 		"Ficha de taxón": {
 			"targetname": "Taxocaixa",
 			"editable": false
+		},
+		"listaref": {
+			"targetname": "Referències",
+			"editable": false
 		}
 	}
 }
