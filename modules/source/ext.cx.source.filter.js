@@ -32,27 +32,39 @@
 
 	CXSourceFilter.prototype.filter = function ( configuration ) {
 		$( '[typeof="mw:Transclusion"]' ).each( function () {
-			var mwData, templateName, templateConf;
+			var mwData, $template = $( this ),
+				templateName, templateFragments, templateConf;
 
-			mwData = $( this ).data( 'mw' );
+			mwData = $template.data( 'mw' );
 			templateName = mwData.parts[ 0 ].template.target.wt;
 			templateName = templateName.trim();
 			if ( configuration ) {
 				templateConf = configuration.templates && configuration.templates[ templateName ];
+
+				// See www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
+				// Template information is stored in parsoid-data attribute with an element with
+				// mw:Transcusion type, while the template rendering can be a different html element.
+				// They are connected using 'about' attribute.
+				templateFragments = $template.attr( 'about' );
 				if ( !templateConf ) {
+					// No configuration for the given template name found. So delete.
 					mw.log( '[CX] Removing template:' + templateName );
-					$( this ).remove();
+					$template.remove();
+					// Remove the associated template renderings too.
+					if ( templateFragments ) {
+						$( '[about="' + templateFragments + '"]' ).remove();
+					}
 					return;
 				}
 				mwData.parts[ 0 ].template.target.wt = templateConf.targetname;
-				$( this ).attr( 'data-mw', JSON.stringify( mwData ) );
+				$template.attr( 'data-mw', JSON.stringify( mwData ) );
 				if ( !templateConf.editable ) {
-					$( this ).attr( 'data-editable', false );
+					$template.attr( 'data-editable', false );
 				}
 				mw.log( '[CX] Keeping template:' + templateName );
 			} else {
 				mw.log( '[CX] Removing template:' + templateName );
-				$( this ).remove();
+				$template.remove();
 			}
 		} );
 		mw.hook( 'mw.cx.source.ready' ).fire();
