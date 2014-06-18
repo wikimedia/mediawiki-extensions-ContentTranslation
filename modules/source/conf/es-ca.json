@@ -1,0 +1,8 @@
+{
+	"templates": {
+		"Ficha de taxón": {
+			"targetname": "Taxocaixa",
+			"editable": false
+		}
+	}
+}

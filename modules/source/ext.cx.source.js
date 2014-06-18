@@ -22,7 +22,7 @@
 		$.get( mw.config.get( 'wgContentTranslationServerURL' ) + '/page/' + language + '/' + title )
 			.done( function ( response ) {
 				mw.cx.data = response;
-				mw.hook( 'mw.cx.source.ready' ).fire();
+				mw.hook( 'mw.cx.source.loaded' ).fire();
 			} ).fail( function () {
 				$( '.cx-header__infobar' )
 					.text( mw.msg( 'cx-error-server-connection' ) )
@@ -95,7 +95,7 @@
 	};
 
 	ContentTranslationSource.prototype.load = function () {
-		this.$content.html( mw.cx.data.segmentedContent );
+		this.$content.html( mw.cx.data.segmentedContent ).cxFilterSource();
 
 		// @todo figure out what should be done here
 		this.$content.find( 'base' ).detach();
@@ -103,7 +103,7 @@
 		// Disable all links
 		this.disableLinks();
 
-		mw.hook( 'mw.cx.source.loaded' ).fire();
+		mw.hook( 'mw.cx.source.ready' ).fire();
 	};
 
 	/**
@@ -122,7 +122,7 @@
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( this.load, this ) );
+		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
 
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();

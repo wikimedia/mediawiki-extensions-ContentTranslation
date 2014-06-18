@@ -97,8 +97,9 @@
 	 * @param {string} sourceId source section identifier
 	 */
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
-		var targetSectionId, $section;
+		var targetSectionId, $section, $sourceSection;
 
+		$sourceSection = $( '#' + sourceId );
 		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
 		$section = $( targetSectionId );
 		// Replace the placeholder with the source section
@@ -124,8 +125,14 @@
 		// Trigger input event so that the alignemnt is right.
 		$section.on( 'input', keepAlignment )
 			.trigger( 'input' );
-		// Attach an editor
-		$section.cxEditor();
+		// If the section is editable, initiate an editor
+		// Otherwise make it non-editable. Example: templates
+		if ( $sourceSection.data( 'editable' ) === false ) {
+			$section.removeAttr( 'contenteditable' );
+		} else {
+			$section.cxEditor();
+		}
+		// Calculate the progress of the translation
 		this.calculateCompletion();
 		mw.hook( 'mw.cx.translation.change' ).fire();
 		$section.on( 'click', 'a', function () {
