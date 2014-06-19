@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains special page Special:ContentTranslation.
+ * Contains the special page Special:ContentTranslation.
  *
  * @file
  * @copyright See AUTHORS.txt
@@ -8,8 +8,8 @@
  */
 
 /**
- * Implements the core of Content Translation extension - a special page which
- * shows Content Translation user interface.
+ * Implements the core of the Content Translation extension:
+ * a special page that shows Content Translation user interface.
  * @ingroup SpecialPage
  */
 class SpecialContentTranslation extends SpecialPage {
@@ -26,15 +26,15 @@ class SpecialContentTranslation extends SpecialPage {
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
-		$user = $this->getUser();
 
-		if ( !($user->isLoggedIn() ) ) {
+		if ( !( $this->getUser()->isLoggedIn() ) ) {
 			$out->addHTML( $this->msg( 'cx-special-login-error' ) );
 		} else {
 			$out->addModuleStyles( 'mediawiki.ui.button' );
 			$out->addModules( 'ext.cx.base' );
 			$this->setHeaders();
 			$out->setArticleBodyOnly( true );
+
 			// Default modules copied from OutputPage::addDefaultModules
 			$out->addModules( array(
 				'mediawiki.user',
@@ -48,8 +48,8 @@ class SpecialContentTranslation extends SpecialPage {
 		// Enable this if you need useful debugging information
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
 		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
+
 		$out->addHTML( $skin->bottomScripts() );
 		$out->addHTML( '</body></html>' );
 	}
-
 }
