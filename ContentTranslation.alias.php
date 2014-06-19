@@ -14,6 +14,7 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'ContentTranslation' => array( 'ContentTranslation', 'CX' ),
+	'ContentTranslationStats' => array( 'ContentTranslationStats', 'CXStats' ),
 );
 
 /** Arabic (العربية) */
@@ -44,6 +45,7 @@ $specialPageAliases['fa'] = array(
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'ContentTranslation' => array( 'תרגום_תוכן' ),
+	'ContentTranslation' => array( 'סטטיסטיקות_תרגום_תוכן' ),
 );
 
 /** Upper Sorbian (hornjoserbsce) */

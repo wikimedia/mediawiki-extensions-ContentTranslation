@@ -58,6 +58,7 @@ $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 
 // Special pages
 $GLOBALS['wgSpecialPages']['ContentTranslation'] = 'SpecialContentTranslation';
+$GLOBALS['wgSpecialPages']['ContentTranslationStats'] = 'SpecialContentTranslationStats';
 
 // API modules
 $GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';
