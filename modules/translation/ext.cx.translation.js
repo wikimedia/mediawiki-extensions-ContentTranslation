@@ -195,22 +195,17 @@
 
 	function sectionClick() {
 		/*jshint validthis:true */
-		$( this ).removeClass( 'placeholder' )
-			.unbind( 'mouseenter mouseleave click' );
-
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 	}
 
 	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( this ).addClass( 'placeholder' ).html( mw.msg( 'cx-translation-add-translation' ) );
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'highlight' );
 	}
 
 	function sectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( this ).removeClass( 'placeholder' ).empty();
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
 	}
 
@@ -309,7 +304,7 @@
 				'float': $sourceSection.css( 'float' ),
 				'clear': $sourceSection.css( 'clear' ),
 				'position': $sourceSection.css( 'position' )
-			} );
+			} ).html( mw.msg( 'cx-translation-add-translation' ) );
 	}
 
 	/**

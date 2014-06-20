@@ -27,14 +27,8 @@
 		// TODO: This clean up should be done even before segmentation at server.
 		$translatedContent.find( 'link, title' ).remove();
 
-		// Remove placeholder sections that are empty
-		// TODO: This can be better done if all placeholder sections has a semantic
-		// class which get removed when content is inserted.
-		$translatedContent.find( mw.cx.getSectionSelector() ).each( function () {
-			if ( !$( this ).text().trim() ) {
-				$( this ).remove();
-			}
-		} );
+		// Remove placeholder sections
+		$translatedContent.find( '.placeholder' ).remove();
 
 		return $translatedContent.html();
 
