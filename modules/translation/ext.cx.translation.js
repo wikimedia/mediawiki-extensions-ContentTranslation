@@ -135,6 +135,12 @@
 		// Adapt the links
 		$section.adaptLinks( mw.cx.targetLanguage );
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
+		$section.on( 'click', '[typeof="mw:Extension/ref"]', function () {
+			var $reference = $( this );
+			mw.hook( 'mw.cx.select.reference' ).fire(
+				$reference.text(), $reference.data( 'mw' ), $reference
+			);
+		} );
 		// Trigger input event so that the alignemnt is right.
 		$section.on( 'input', keepAlignment )
 			.trigger( 'input' );

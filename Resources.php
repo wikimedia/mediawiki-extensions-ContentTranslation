@@ -179,6 +179,23 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.tools.reference'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.reference.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.reference.less',
+	),
+	'messages' => array(
+		'cx-tools-reference-title',
+		'cx-tools-reference-remove',
+	),
+	'dependencies' => array(
+		'ext.cx.tools.manager',
+		'ext.cx.tools.card',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.tools.images'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.images.js',
