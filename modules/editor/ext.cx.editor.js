@@ -43,9 +43,7 @@
 		}
 		// Make the element editable
 		this.$editableElement.attr( 'contenteditable', true );
-		if ( mw.config.get( 'wgContentTranslationWYSIWYGEditor' ) ) {
-			this.wysiwygEditor();
-		}
+		this.wysiwygEditor();
 	};
 
 	/**
@@ -77,6 +75,9 @@
 	CXSectionEditor.prototype.wysiwygEditor = function () {
 		var editorOptions;
 
+		if ( !window.MediumEditor ) {
+			return;
+		}
 		editorOptions = {
 			cleanPastedHTML: true,
 			buttons: [ 'bold', 'italic', 'header1', 'header2',

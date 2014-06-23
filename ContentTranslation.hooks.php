@@ -16,7 +16,7 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( $out, $skin ) {
-		global $wgContentTranslationEventLogging, $wgContentTranslationWYSIWYGEditor;
+		global $wgContentTranslationEventLogging, $wgContentTranslationExperimentalFeatures;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -41,7 +41,7 @@ class ContentTranslationHooks {
 			) );
 		}
 
-		if ( $wgContentTranslationWYSIWYGEditor ) {
+		if ( $wgContentTranslationExperimentalFeatures ) {
 			// WYSIWYGEditor
 			$out->addModules( 'ext.cx.editor.medium' );
 		} else {
@@ -83,11 +83,11 @@ class ContentTranslationHooks {
 	 */
 	public static function addConfig( &$vars ) {
 		global $wgContentTranslationServerURL, $wgContentTranslationDomainTemplate,
-			$wgContentTranslationWYSIWYGEditor;
+			$wgContentTranslationExperimentalFeatures;
 
 		$vars['wgContentTranslationServerURL'] = $wgContentTranslationServerURL;
 		$vars['wgContentTranslationDomainTemplate'] = $wgContentTranslationDomainTemplate;
-		$vars['wgContentTranslationWYSIWYGEditor'] = $wgContentTranslationWYSIWYGEditor;
+		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		return true;
 	}
 }

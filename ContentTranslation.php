@@ -46,7 +46,7 @@ $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
 // Content translation server URL
 $GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8080';
-$GLOBALS['wgContentTranslationWYSIWYGEditor'] = false;
+$GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid.wmflabs.org/',
 	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
