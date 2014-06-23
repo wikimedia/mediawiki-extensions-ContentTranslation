@@ -238,7 +238,9 @@ $wgResourceModules['ext.cx.publish'] = array(
 	'scripts' => 'translation/ext.cx.publish.js',
 	'dependencies' => array(
 		'ext.cx.model',
+		'json',
 		'mediawiki.api.edit',
+		'mediawiki.cookie',
 	),
 	'messages' => array(
 		'cx-publish-page',
@@ -281,6 +283,30 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.guidedTour.tour.cxpublish'] = array(
+	'scripts' => 'tours/ext.cx.tours.publish.js',
+	'dependencies' => array(
+		'ext.guidedTour',
+		'json',
+		'mediawiki.cookie',
+		'mediawiki.Title',
+	),
+	'messages' => array(
+		'vector-action-move',
+		'vector-view-edit',
+		'cx-publish-gt-no-permission-to-move-title',
+		'cx-publish-gt-no-permission-to-move-description',
+		'cx-publish-gt-first-step-title',
+		'cx-publish-gt-first-step-description',
+		'cx-publish-gt-move-page-title',
+		'cx-publish-gt-move-page-description',
+		'cx-publish-gt-moved-title',
+		'cx-publish-gt-moved-description',
+		'cx-publish-gt-published-title',
+		'cx-publish-gt-published-description',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.editor'] = array(
 	'scripts' => array(
 		'editor/ext.cx.editor.js',
@@ -300,3 +326,4 @@ $wgResourceModules['ext.cx.editor.medium'] = array(
 		'editor/medium/theme/agora.css',
 	),
 ) + $resourcePaths;
+

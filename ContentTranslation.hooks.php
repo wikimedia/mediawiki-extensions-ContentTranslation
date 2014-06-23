@@ -24,12 +24,17 @@ class ContentTranslationHooks {
 		$redlinkFeatureEnabled = class_exists( 'BetaFeatures' ) &&
 			BetaFeatures::isFeatureEnabled( $user, 'red-interlanguage-link' );
 
-		if ( $user->isLoggedIn() &&
-			$redlinkFeatureEnabled &&
-			$title->inNamespace( NS_MAIN ) &&
-			$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
-		) {
-			$out->addModules( 'ext.cx.redlink' );
+		if ( $user->isLoggedIn() ) {
+			if ( $redlinkFeatureEnabled &&
+				$title->inNamespace( NS_MAIN ) &&
+				$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
+			) {
+				$out->addModules( 'ext.cx.redlink' );
+			}
+
+			if ( class_exists( 'GuidedTourHooks' ) ) {
+				$out->addModules( 'ext.guidedTour' );
+			}
 		}
 
 		// If EventLogging integration is enabled, load the schema module
@@ -39,6 +44,16 @@ class ContentTranslationHooks {
 				'schema.ContentTranslation',
 				'ext.cx.eventlogging',
 			) );
+		}
+
+		if ( $wgContentTranslationExperimentalFeatures ) {
+			// WYSIWYGEditor
+			$out->addModules( 'ext.cx.editor.medium' );
+			// Reference card
+			$out->addModules( 'ext.cx.tools.reference' );
+		} else {
+			// Just ContentEditable
+			$out->addModules( 'ext.cx.editor' );
 		}
 
 		return true;

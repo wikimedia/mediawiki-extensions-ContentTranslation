@@ -31,7 +31,6 @@
 		$translatedContent.find( '.placeholder' ).remove();
 
 		return $translatedContent.html();
-
 	}
 
 	mw.cx.publish = function () {
@@ -44,6 +43,8 @@
 
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish();
+
+		initGuidedTour( translatedTitle );
 
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
@@ -84,6 +85,26 @@
 			// parsoid is not a fast operation.
 			timeout: 100 * 1000 // in milliseconds
 		} );
+	}
+
+	/**
+	 * If GuidedTour is available, set cookies to start a tour.
+	 * @param {string} translatedTitle
+	 */
+	function initGuidedTour( translatedTitle ) {
+		if ( !mw.guidedTour ) {
+			return;
+		}
+
+		mw.cookie.set(
+			'-cx-published',
+			JSON.stringify( {
+				translatedTitle: translatedTitle,
+				username: mw.user.getName()
+			} )
+		);
+
+		mw.guidedTour.setTourCookie( 'cxpublish', 'suggestmovestart' );
 	}
 
 	$( function () {
