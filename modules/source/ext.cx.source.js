@@ -80,6 +80,10 @@
 				).parse()
 		);
 
+		// The <a> element is added by the message, which has [].
+		// This makes the article open in a new tab (or window).
+		$articleLink.find( 'a' ).prop( 'target', '_blank' );
+
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )
 			.append( $languageLabel, $articleLink );
