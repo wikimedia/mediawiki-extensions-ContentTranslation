@@ -287,14 +287,16 @@
 	 */
 	function getPlaceholder( sourceSectionId ) {
 		var $sourceSection = $( '#' + sourceSectionId );
+
 		return $( '<div>' )
 			.addClass( 'placeholder' )
 			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
 			.on( 'click', sectionClick )
 			.attr( {
 				'id': 'cx' + sourceSectionId,
-				'data-source': sourceSectionId,
-			} ).css( {
+				'data-source': sourceSectionId
+			} )
+			.css( {
 				// Copy a bunch of position related attribute values
 				'min-height': $sourceSection.outerHeight(),
 				'width': $sourceSection.width(),
@@ -304,7 +306,8 @@
 				'float': $sourceSection.css( 'float' ),
 				'clear': $sourceSection.css( 'clear' ),
 				'position': $sourceSection.css( 'position' )
-			} ).html( mw.msg( 'cx-translation-add-translation' ) );
+			} )
+			.html( mw.msg( 'cx-translation-add-translation' ) );
 	}
 
 	/**
