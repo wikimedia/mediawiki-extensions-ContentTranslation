@@ -81,7 +81,9 @@
 
 	ContentTranslationEditor.prototype.listen = function () {
 		var cxTranslation = this;
+
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
+
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,
@@ -90,12 +92,15 @@
 				cxTranslation.addPlaceholders();
 			}, 2000 );
 		} );
-		// Tanslation for a section was cleared. Either the translator
-		// deleted the content, or translator used the clear translation
-		// tool. Present the placeholder for the section to user.
+
+		// The translation for a section was cleared.
+		// The translator either deleted the content
+		// or used the clear translation tool.
+		// Present the placeholder for the section to user.
 		mw.hook( 'mw.cx.translation.clear' ).add( function ( sourceId ) {
-			var targetSectionId, $placeholder = getPlaceholder( sourceId );
-			targetSectionId = jquerySelectorForId( sourceId, 'cx' );
+			var targetSectionId = jquerySelectorForId( sourceId, 'cx' ),
+				$placeholder = getPlaceholder( sourceId );
+
 			$( targetSectionId ).replaceWith( $placeholder );
 		} );
 	};
