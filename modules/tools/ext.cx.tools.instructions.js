@@ -40,6 +40,8 @@
 	InstructionsCard.prototype.constructor = InstructionsCard;
 
 	InstructionsCard.prototype.render = function () {
+		var $guidelines;
+
 		this.$card.find( '.tools.count.one' )
 			.text( mw.language.convertNumber( 1 ) );
 		this.$card.find( '.text.heading.one' )
@@ -61,13 +63,17 @@
 		this.$card.find( '.text.description.three' )
 			.text( mw.msg( 'cx-tools-instructions-text6' ) );
 
-		this.$card.find( '.card__section.guidelines' )
+		$guidelines = this.$card.find( '.card__section.guidelines' )
 			.html(
 				mw.message(
 					'cx-tools-view-guidelines',
 					mw.util.getUrl( 'Wikipedia:Translation#How_to_translate' )
 				).parse()
-		);
+			);
+
+		// The <a> element is added by the message, which has [].
+		// This makes the article open in a new tab (or window).
+		$guidelines.find( 'a' ).prop( 'target', '_blank' );
 	};
 
 	InstructionsCard.prototype.getCard = function () {
