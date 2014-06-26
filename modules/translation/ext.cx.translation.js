@@ -254,28 +254,29 @@
 	}
 
 	/**
-	 * Add placeholders for translation sections. The placeholders
-	 * are aligned to the source sections. Also provides mouse hover effects.
+	 * Add placeholders for translation sections.
+	 * The placeholders are aligned to the source sections.
+	 * Also provides mouse hover effects.
 	 */
 	ContentTranslationEditor.prototype.addPlaceholders = function () {
-		var $sourceContent, template, $sourceSection, cxSectionSelector,
-			$sourceSections, i, placeholders = [],
-			$placeholder, sourceSectionId;
-
-		cxSectionSelector = mw.cx.getSectionSelector();
-		$sourceContent = $( '.cx-column--source .cx-column__content' );
-		$sourceSections = $sourceContent.children( cxSectionSelector );
+		var i, $sourceSection, $placeholder, sourceSectionId,
+			cxSectionSelector = mw.cx.getSectionSelector(),
+			$sourceContent = $( '.cx-column--source .cx-column__content' ),
+			$sourceSections = $sourceContent.children( cxSectionSelector ),
+			placeholders = [];
 
 		for ( i = 0; i < $sourceSections.length; i++ ) {
-			template = false;
 			$sourceSection = $( $sourceSections[ i ] );
 			sourceSectionId = $sourceSection.attr( 'id' );
 			$placeholder = getPlaceholder( sourceSectionId );
-			// Bind events to the placeholder sections
-			$sourceSection.click( sourceSectionClickHandler )
-				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
 			placeholders.push( $placeholder );
+
+			// Bind events to the placeholder sections
+			$sourceSection
+				.click( sourceSectionClickHandler )
+				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
 		}
+
 		// Append the placeholders to the translation column.
 		this.$container.find( '.cx-column__content' ).append( placeholders );
 	};
