@@ -118,6 +118,40 @@
 		}
 		tool.start.apply( tool, data );
 		this.tools[ toolName ] = tool;
+		this.hideUnrelatedCards( toolName );
+	};
+
+	/**
+	 * Find intersection of two arrays
+	 * @param {Array} array1
+	 * @param {Array} array2
+	 * @return {Array} intersection array
+	 */
+	function intersection( array1, array2 ) {
+		return array1.filter( function ( n ) {
+			return array2.indexOf( n ) !== -1;
+		} );
+	}
+
+	/**
+	 * Hide unrelated cards
+	 * Find out cards not having trigger events intersecton and hide them.
+	 * @param {string} currentToolName current tool name
+	 */
+	CXToolManager.prototype.hideUnrelatedCards = function ( currentToolName ) {
+		var currentToolEvents, toolEvents, toolName;
+		if ( this.tools[ currentToolName ] ) {
+			currentToolEvents = this.tools[ currentToolName ].getTriggerEvents();
+		}
+		for ( toolName in this.tools ) {
+			if ( toolName === currentToolName ) {
+				continue;
+			}
+			toolEvents = this.tools[ toolName ].getTriggerEvents();
+			if ( intersection( currentToolEvents, toolEvents ).length === 0 ) {
+				this.hideCard( toolName );
+			}
+		}
 	};
 
 	/**
