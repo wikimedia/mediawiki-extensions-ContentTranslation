@@ -33,5 +33,9 @@
 	"cx-tools-dictionary-title": "Definicja",
 	"cx-tools-link-title": "Link",
 	"cx-tools-link-add": "Dodaj link",
-	"cx-tools-link-remove": "Usuń link"
+	"cx-tools-link-remove": "Usuń link",
+	"cx-stats-page-title": "Strona",
+	"cx-stats-from": "Język źródłowy",
+	"cx-stats-to": "Język docelowy",
+	"cx-stats-pages-title": "Przetłumaczone strony"
 }

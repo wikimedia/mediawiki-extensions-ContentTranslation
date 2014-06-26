@@ -40,5 +40,12 @@
 	"cx-tools-dictionary-title": "Définition",
 	"cx-tools-link-title": "Lien",
 	"cx-tools-link-add": "Ajouter un lien",
-	"cx-tools-link-remove": "Supprimer le lien"
+	"cx-tools-link-remove": "Supprimer le lien",
+	"cx-stats-title": "Statistiques de traduction du contenu",
+	"cx-stats-page-title": "Page",
+	"cx-stats-from": "Langue de la source",
+	"cx-stats-to": "Langue cible",
+	"cx-stats-pages-title": "Pages traduites",
+	"cx-stats-unknown": "inconnu",
+	"cx-stats-summary": "{{PLURAL:$1|Une page|$1/$2 pages ($3%)}} dans l’espace de noms principal."
 }

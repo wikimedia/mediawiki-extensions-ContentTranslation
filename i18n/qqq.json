@@ -47,7 +47,6 @@
 	"cx-stats-from": "A header for a table column. The column lists the languages from which the pages were translated.",
 	"cx-stats-to": "A header for a table column. The column lists the languages into which the pages were translated.",
 	"cx-stats-pages-title": "A heading for the section at Special:ContentTranslationStats. The section shows a list of translated articles.",
-	"cx-stats-languages-title": "A heading for the section at Special:ContentTranslationStats. The section shows a list of languages between which articles were translated, and the number of translations.",
-	"cx-stats-unknown": "Text when the source or target language is unknown",
+	"cx-stats-unknown": "Text when the source or target language is unknown. An adjective that describes the language.",
 	"cx-stats-summary": "A summary of the number of published pages. $1 is the number of translated pages that were moved to the main namespace, $2 is the total number of translated pages, and $3 is percent of pages in the main namespace."
 }

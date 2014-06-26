@@ -36,5 +36,12 @@
 	"cx-tools-dictionary-title": "Definition",
 	"cx-tools-link-title": "Link",
 	"cx-tools-link-add": "Link hinzufügen",
-	"cx-tools-link-remove": "Link entfernen"
+	"cx-tools-link-remove": "Link entfernen",
+	"cx-stats-title": "Statistiken zu Inhaltsübersetzungen",
+	"cx-stats-page-title": "Seite",
+	"cx-stats-from": "Quellsprache",
+	"cx-stats-to": "Zielsprache",
+	"cx-stats-pages-title": "Übersetzte Seiten",
+	"cx-stats-unknown": "unbekannt",
+	"cx-stats-summary": "{{PLURAL:$1|Eine Seite|$1 von $2 Seiten ($3 %)}} im Hauptnamensraum."
 }

@@ -40,5 +40,12 @@
 	"cx-tools-dictionary-title": "הגדרה",
 	"cx-tools-link-title": "קישור",
 	"cx-tools-link-add": "הוספת קישור",
-	"cx-tools-link-remove": "הסרת קישור"
+	"cx-tools-link-remove": "הסרת קישור",
+	"cx-stats-title": "סטטיסטיקות של תרגום תוכן",
+	"cx-stats-page-title": "דף",
+	"cx-stats-from": "שפת המקור",
+	"cx-stats-to": "שפת היעד",
+	"cx-stats-pages-title": "דפים מתורגמים",
+	"cx-stats-unknown": "אינה ידועה",
+	"cx-stats-summary": "{{PLURAL:$1|דף אחד|$1/$2 ($3%)}} במרחב הראשי."
 }
