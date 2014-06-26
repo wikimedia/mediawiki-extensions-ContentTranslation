@@ -101,8 +101,10 @@
 			var targetSectionId = jquerySelectorForId( sourceId, 'cx' ),
 				$placeholder = getPlaceholder( sourceId );
 
+			mw.hook( 'mw.cx.translation.change' ).fire( $( targetSectionId ) );
 			$( targetSectionId ).replaceWith( $placeholder );
 		} );
+		mw.hook( 'mw.cx.translation.change' ).add( keepAlignment );
 	};
 
 	/**
@@ -142,8 +144,9 @@
 			);
 		} );
 		// Trigger input event so that the alignemnt is right.
-		$section.on( 'input', keepAlignment )
-			.trigger( 'input' );
+		$section.on( 'input', $.debounce( 200, false, function () {
+			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
+		} ) );
 		// If the section is editable, initiate an editor
 		// Otherwise make it non-editable. Example: templates
 		if ( $sourceSection.data( 'editable' ) === false ) {
@@ -151,25 +154,14 @@
 		} else {
 			$section.cxEditor();
 		}
-		// Calculate the progress of the translation
-		this.calculateCompletion();
-		mw.hook( 'mw.cx.translation.change' ).fire();
+
+		$section.trigger( 'input' );
 		$section.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection ) {
 				mw.hook( 'mw.cx.search.link' ).fire( selection.toLowerCase() );
 			}
 		} );
-	};
-
-	// TODO This is a dummy completeness calculation.
-	ContentTranslationEditor.prototype.calculateCompletion = function () {
-		var completeness;
-
-		completeness = $( '.cx-column--translation' ).html().length /
-			$( '.cx-column--source' ).html().length * 100;
-		completeness = completeness > 100 ? 100 : completeness;
-		mw.hook( 'mw.cx.progress' ).fire( completeness );
 	};
 
 	/**
@@ -326,11 +318,12 @@
 	 * Keep the height of the source and translation sections equal
 	 * so that they will appear top aligned.
 	 */
-	function keepAlignment() {
-		var $sourceSection, sectionHeight, sourceSectionHeight, $section, steps = 0;
+	function keepAlignment( $section ) {
+		var $sourceSection, sectionHeight, sourceSectionHeight, steps = 0;
 
-		/*jshint validthis:true */
-		$section = $( this );
+		if ( !$section ) {
+			return;
+		}
 
 		if ( $section.prop( 'tagName' ) === 'TABLE' ) {
 			// 'min-height' is undefined for table elements

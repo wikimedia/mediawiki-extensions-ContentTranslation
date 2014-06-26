@@ -78,8 +78,10 @@ $wgResourceModules['ext.cx.source'] = array(
 $wgResourceModules['ext.cx.translation'] = array(
 	'scripts' => 'translation/ext.cx.translation.js',
 	'dependencies' => array(
+		'ext.cx.translation.progress',
 		'jquery.uls.data',
 		'mediawiki.Uri',
+		'jquery.throttle-debounce',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
@@ -87,6 +89,10 @@ $wgResourceModules['ext.cx.translation'] = array(
 	'messages' => array(
 		'cx-translation-add-translation',
 	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.translation.progress'] = array(
+	'scripts' => 'translation/ext.cx.translation.progress.js',
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tools.manager'] = array(
