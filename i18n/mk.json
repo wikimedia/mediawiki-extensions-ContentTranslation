@@ -37,10 +37,13 @@
 	"cx-tools-link-title": "Врска",
 	"cx-tools-link-add": "Додај врска",
 	"cx-tools-link-remove": "Отстрани врска",
+	"cx-stats-title": "Статистики за содржински преводи",
 	"cx-stats-page-title": "Страница",
 	"cx-stats-from": "Изворен јазик:",
 	"cx-stats-to": "Целен јазик",
 	"cx-stats-pages-title": "Преведени страници",
 	"cx-stats-unknown": "непознат",
-	"cx-stats-summary": "{{PLURAL:$1|Една страница|$1/$2 страници ($3%)}} во главниот именски простор."
+	"cx-stats-summary": "{{PLURAL:$1|Една страница|$1/$2 страници ($3%)}} во главниот именски простор.",
+	"cx-tools-reference-title": "Навод",
+	"cx-tools-reference-remove": "Отстрани навод"
 }

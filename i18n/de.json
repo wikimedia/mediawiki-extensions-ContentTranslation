@@ -43,5 +43,7 @@
 	"cx-stats-to": "Zielsprache",
 	"cx-stats-pages-title": "Übersetzte Seiten",
 	"cx-stats-unknown": "unbekannt",
-	"cx-stats-summary": "{{PLURAL:$1|Eine Seite|$1 von $2 Seiten ($3 %)}} im Hauptnamensraum."
+	"cx-stats-summary": "{{PLURAL:$1|Eine Seite|$1 von $2 Seiten ($3 %)}} im Hauptnamensraum.",
+	"cx-tools-reference-title": "Referenz",
+	"cx-tools-reference-remove": "Referenz entfernen"
 }

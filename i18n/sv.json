@@ -38,5 +38,12 @@
 	"cx-tools-dictionary-title": "Definition",
 	"cx-tools-link-title": "Länk",
 	"cx-tools-link-add": "Lägg till länk",
-	"cx-tools-link-remove": "Ta bort länk"
+	"cx-tools-link-remove": "Ta bort länk",
+	"cx-stats-title": "Statistik för innehållsöversättning",
+	"cx-stats-page-title": "Sida",
+	"cx-stats-from": "Källspråk",
+	"cx-stats-to": "Målspråk",
+	"cx-stats-pages-title": "Översatta sidor",
+	"cx-stats-unknown": "okänt",
+	"cx-stats-summary": "{{PLURAL:$1|En sida|$1/$2 sidor ($3%)}} i huvudnamnrymden."
 }

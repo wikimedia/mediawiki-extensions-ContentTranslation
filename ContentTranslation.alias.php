@@ -30,6 +30,7 @@ $specialPageAliases['arz'] = array(
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'ContentTranslation' => array( 'Inhaltsübersetzung' ),
+	'ContentTranslationStats' => array( 'Statistiken_zu_Inhaltsübersetzungen' ),
 );
 
 /** Zazaki (Zazaki) */
@@ -75,6 +76,7 @@ $specialPageAliases['vi'] = array(
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'ContentTranslation' => array( '内容翻译' ),
+	'ContentTranslationStats' => array( '内容翻译统计' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */

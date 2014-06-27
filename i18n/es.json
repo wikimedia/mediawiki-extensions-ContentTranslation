@@ -7,7 +7,8 @@
 			"Vi00000051",
 			"Ihojose",
 			"Wifidel",
-			"Amire80"
+			"Amire80",
+			"Macofe"
 		]
 	},
 	"cx": "Traducir página",
@@ -42,5 +43,12 @@
 	"cx-tools-dictionary-title": "Definición",
 	"cx-tools-link-title": "Enlace",
 	"cx-tools-link-add": "Añadir enlace",
-	"cx-tools-link-remove": "Quitar enlace"
+	"cx-tools-link-remove": "Quitar enlace",
+	"cx-stats-title": "Estadísticas de traducción de contenidos",
+	"cx-stats-page-title": "Página",
+	"cx-stats-from": "Idioma de origen",
+	"cx-stats-to": "Idioma de destino",
+	"cx-stats-pages-title": "Páginas traducidas",
+	"cx-stats-unknown": "desconocido",
+	"cx-stats-summary": "{{PLURAL:$1|Una página|$1/$2 páginas ($3%)}} en el espacio de nombres principal."
 }

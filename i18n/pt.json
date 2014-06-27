@@ -39,5 +39,13 @@
 	"cx-tools-dictionary-title": "Definição",
 	"cx-tools-link-title": "Ligação",
 	"cx-tools-link-add": "Adicionar ligação",
-	"cx-tools-link-remove": "Remover ligação"
+	"cx-tools-link-remove": "Remover ligação",
+	"cx-stats-page-title": "Página",
+	"cx-stats-from": "Idioma de origem",
+	"cx-stats-to": "Idioma-alvo",
+	"cx-stats-pages-title": "Páginas traduzidas",
+	"cx-stats-unknown": "desconhecido",
+	"cx-stats-summary": "{{PLURAL:$1|Uma página|$1/$2 páginas ($3%)}} no domínio principal.",
+	"cx-tools-reference-title": "Referência",
+	"cx-tools-reference-remove": "Remover referência"
 }
