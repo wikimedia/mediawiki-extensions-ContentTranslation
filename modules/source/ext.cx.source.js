@@ -104,25 +104,7 @@
 		// @todo figure out what should be done here
 		this.$content.find( 'base' ).detach();
 
-		// Disable all links
-		this.disableLinks();
-
 		mw.hook( 'mw.cx.source.ready' ).fire();
-	};
-
-	/**
-	 * Disable all links in the content area.
-	 */
-	ContentTranslationSource.prototype.disableLinks = function () {
-		this.$content.find( 'a' ).bind( 'click', function () {
-			var $link = $( this );
-			// avoid all reference links
-			if ( !$link.parent().hasClass( 'reference' ) ) {
-				mw.hook( 'mw.cx.select.link' ).fire( $link.text(), mw.cx.sourceLanguage );
-			}
-			// Disable link click
-			return false;
-		} );
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
@@ -133,6 +115,16 @@
 			if ( selection ) {
 				mw.hook( 'mw.cx.select.word' ).fire( selection.toLowerCase() );
 			}
+		} );
+
+		this.$content.on( 'click', 'a', function () {
+			var $link = $( this );
+			// avoid all reference links
+			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
+				mw.hook( 'mw.cx.select.link' ).fire( $link.text(), mw.cx.sourceLanguage );
+			}
+			// Disable link click
+			return false;
 		} );
 	};
 
