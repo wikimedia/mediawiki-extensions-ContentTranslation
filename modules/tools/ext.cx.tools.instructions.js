@@ -40,7 +40,9 @@
 	InstructionsCard.prototype.constructor = InstructionsCard;
 
 	InstructionsCard.prototype.render = function () {
-		var $guidelines;
+		var $guidelines,
+			uri = new mw.Uri(),
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
 
 		this.$card.find( '.tools.count.one' )
 			.text( mw.language.convertNumber( 1 ) );
@@ -63,17 +65,21 @@
 		this.$card.find( '.text.description.three' )
 			.text( mw.msg( 'cx-tools-instructions-text6' ) );
 
-		$guidelines = this.$card.find( '.card__section.guidelines' )
-			.html(
-				mw.message(
-					'cx-tools-view-guidelines',
-					mw.util.getUrl( 'Wikipedia:Translation#How_to_translate' )
-				).parse()
-			);
+		uri.host = domainTemplate.replace( '$1', mw.cx.targetLanguage );
+		uri.path = mw.config.get( 'wgScript' );
+		uri.query = {
+			// TODO: This must customizable per project
+			title: 'Project:Translation#How_to_translate'
+		};
 
-		// The <a> element is added by the message, which has [].
-		// This makes the article open in a new tab (or window).
-		$guidelines.find( 'a' ).prop( 'target', '_blank' );
+		$guidelines = this.$card.find( '.card__section.guidelines' )
+			.append( $( '<a>' )
+				.prop( {
+					href: uri.toString(),
+					target: '_blank'
+				} )
+				.text( mw.msg( 'cx-tools-view-guidelines' ) )
+			);
 	};
 
 	InstructionsCard.prototype.getCard = function () {

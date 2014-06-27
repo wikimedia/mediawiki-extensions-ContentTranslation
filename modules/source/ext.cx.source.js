@@ -52,6 +52,19 @@
 		this.listen();
 	};
 
+	function getSourceArticleUrl() {
+		var uri = new mw.Uri(),
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+
+		uri.host = domainTemplate.replace( '$1', mw.cx.sourceLanguage );
+		uri.path = mw.config.get( 'wgScript' );
+		uri.query = {
+			title: mw.cx.sourceTitle
+		};
+
+		return uri.toString();
+	}
+
 	/**
 	 * Render the source content column
 	 */
@@ -73,16 +86,13 @@
 
 		$articleLink = $( '<span>' )
 			.addClass( 'cx-column__sub-heading__view-page' )
-			.html(
-				mw.message(
-					'cx-source-view-page',
-					mw.util.getUrl( mw.cx.sourceTitle )
-				).parse()
-		);
-
-		// The <a> element is added by the message, which has [].
-		// This makes the article open in a new tab (or window).
-		$articleLink.find( 'a' ).prop( 'target', '_blank' );
+			.append( $( '<a>' )
+				.prop( {
+					href: getSourceArticleUrl(),
+					target: '_blank'
+				} )
+				.text( mw.msg( 'cx-source-view-page' ) )
+			);
 
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )

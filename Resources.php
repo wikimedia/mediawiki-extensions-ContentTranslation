@@ -142,6 +142,7 @@ $wgResourceModules['ext.cx.tools.instructions'] = array(
 	'dependencies' => array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+		'mediawiki.Uri',
 	),
 ) + $resourcePaths;
 
