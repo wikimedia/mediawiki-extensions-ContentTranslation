@@ -168,6 +168,66 @@
 		}
 	}
 
+	/**
+	 * Paste a given html string at the selection.
+	 * It replaces the selected text if any. Otherwise it insert
+	 * at caret position.
+	 * Tries to do it in a cross browser compatible way.
+	 * See http://stackoverflow.com/a/6691294/337907, Credits: Tim Down
+	 * @param {string} html The html string
+	 */
+	function pasteHtmlAtSelection( html ) {
+		var sel, range;
+		if ( window.getSelection ) {
+			// IE9 and non-IE
+			sel = window.getSelection();
+			if ( sel.getRangeAt && sel.rangeCount ) {
+				range = sel.getRangeAt( 0 );
+				range.deleteContents();
+
+				// Range.createContextualFragment() would be useful here but is
+				// only relatively recently standardized and is not supported in
+				// some browsers (IE9, for one)
+				var el = document.createElement( 'div' );
+				el.innerHTML = html;
+				var frag = document.createDocumentFragment(),
+					node, lastNode;
+				while ( ( node = el.firstChild ) ) {
+					lastNode = frag.appendChild( node );
+				}
+				range.insertNode( frag );
+
+				// Preserve the selection
+				if ( lastNode ) {
+					range = range.cloneRange();
+					range.setStartAfter( lastNode );
+					range.collapse( true );
+					sel.removeAllRanges();
+					sel.addRange( range );
+				}
+			}
+		} else if ( document.selection && document.selection.type !== 'Control' ) {
+			// IE < 9
+			document.selection.createRange().pasteHTML( html );
+		}
+	}
+
+	/**
+	 * Create a wiki internal link with given link text and target
+	 * @param {string} linkText The link Text
+	 * @param {string} title The link target
+	 */
+	LinkCard.prototype.createInternalLink = function ( linkText, title ) {
+		var $link = $( '<a>' )
+			.addClass( 'cx-link' )
+			.text( linkText )
+			.attr( {
+				href: title,
+				rel: 'mw:WikiLink'
+			} );
+		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
+	};
+
 	LinkCard.prototype.start = function ( link, language ) {
 		var word, linkCard = this;
 
@@ -218,7 +278,7 @@
 				} );
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );
-				document.execCommand( 'CreateLink', false, page.title );
+				linkCard.createInternalLink( word, page.title );
 			} );
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
