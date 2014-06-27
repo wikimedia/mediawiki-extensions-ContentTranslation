@@ -119,7 +119,7 @@
 		$section.replaceWith( $( '#' + sourceId )
 			.clone()
 			.attr( {
-				'id': 'cx' + sourceId,
+				id: 'cx' + sourceId,
 				'data-source': sourceId
 			} )
 		);
@@ -299,19 +299,19 @@
 			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
 			.on( 'click', sectionClick )
 			.attr( {
-				'id': 'cx' + sourceSectionId,
+				id: 'cx' + sourceSectionId,
 				'data-source': sourceSectionId
 			} )
 			.css( {
 				// Copy a bunch of position related attribute values
 				'min-height': $sourceSection.outerHeight(),
-				'width': $sourceSection.width(),
+				width: $sourceSection.width(),
 				'margin-top': $sourceSection.css( 'margin-top' ),
 				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
-				'display': $sourceSection.css( 'display' ),
-				'float': $sourceSection.css( 'float' ),
-				'clear': $sourceSection.css( 'clear' ),
-				'position': $sourceSection.css( 'position' )
+				display: $sourceSection.css( 'display' ),
+				float: $sourceSection.css( 'float' ),
+				clear: $sourceSection.css( 'clear' ),
+				position: $sourceSection.css( 'position' )
 			} )
 			.html( mw.msg( 'cx-translation-add-translation' ) );
 	}
