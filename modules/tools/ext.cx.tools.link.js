@@ -19,7 +19,7 @@
 	}
 
 	LinkCard.prototype.getCard = function () {
-		var $imageContainer, $linkInfo;
+		var $imageContainer, $cardHeader, $linkInfo;
 
 		$imageContainer = $( '<div>' )
 			.addClass( 'card__link-image-container' );
@@ -33,9 +33,14 @@
 			.text( mw.msg( 'cx-tools-link-add' ) );
 		$linkInfo = $( '<div>' )
 			.addClass( 'card__link-info' );
-		$linkInfo.append( $( '<div>' )
+		$cardHeader = $( '<div>' )
+			.addClass( 'card__link-header' );
+		$cardHeader.append( $( '<div>' )
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-link-title' ) ) );
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title_language' ) );
+		$linkInfo.append( $cardHeader );
 		$linkInfo.append( $( '<a>' )
 			.addClass( 'card__link-text' ) );
 		$linkInfo.append( this.$removeLink, this.$addLink );
@@ -178,6 +183,8 @@
 		}
 		word = word || this.$link.text();
 		this.$card.hide();
+		this.$card.find( '.card__title_language' )
+				.text( $.uls.data.getAutonym( language ) );
 		if ( this.$link ) {
 			this.$card.show();
 			// Since this is an existing link, we can show the link title early.
