@@ -47,5 +47,7 @@
 	"cx-stats-to": "Langue cible",
 	"cx-stats-pages-title": "Pages traduites",
 	"cx-stats-unknown": "inconnu",
-	"cx-stats-summary": "{{PLURAL:$1|Une page|$1/$2 pages ($3%)}} dans l’espace de noms principal."
+	"cx-stats-summary": "{{PLURAL:$1|Une page|$1/$2 pages ($3%)}} dans l’espace de noms principal.",
+	"cx-tools-reference-title": "Référence",
+	"cx-tools-reference-remove": "Supprimer la référence"
 }

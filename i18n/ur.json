@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Muhammad Shuaib"
+			"Muhammad Shuaib",
+			"Amire80"
 		]
 	},
 	"cx": "صفحہ کا ترجمہ کریں",
@@ -9,7 +10,7 @@
 	"cx-desc": "اس ٹول کے ذریعہ صارفین ایک زبان میں تحریر شدہ صفحات کو کسی دوسری زبان میں مشینی ترجمہ اور دیگر ترجمہ جاتی آلات کے ذریعہ ترجمہ کرسکتے ہیں۔",
 	"cx-header-progressbar-text": "$1% کا ترجمہ مکمل",
 	"cx-header-translation-center": "دار الترجمہ",
-	"cx-source-view-page": "[صفحہ $1 دیکھیں]",
+	"cx-source-view-page": "[$1 صفحہ دیکھیں]",
 	"cx-publish-page": "صفحہ [$1 $2] پر شائع کردیا گیا",
 	"cx-publish-page-error": "صفحہ کو محفوظ کرنے کے دوران کوئی نقص پیش آیا ہے۔",
 	"cx-publish-button": "ترجمہ شائع کریں",

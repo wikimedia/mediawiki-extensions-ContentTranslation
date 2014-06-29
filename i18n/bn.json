@@ -6,13 +6,19 @@
 			"Amire80"
 		]
 	},
+	"cx": "পাতা অনুবাদ করুন",
 	"cx-header-progressbar-text": "$1% অনূদিত হয়েছে",
 	"cx-header-translation-center": "অনুবাদ কেন্দ্র",
-	"cx-source-view-page": "[$1 পাতা দেখাও]",
+	"cx-source-view-page": "[$1 পাতা দেখুন]",
 	"cx-publish-page": "পাতাটি প্রকাশিত হয়েছে [$1 $2]",
-	"cx-publish-page-error": "পাতা সংরক্ষণের সময় সমস্যা।",
+	"cx-publish-page-error": "পাতা সংরক্ষণের সময় সমস্যা হয়েছে।",
 	"cx-publish-button": "অনুবাদ প্রকাশ করুন",
 	"cx-translation-add-translation": "+ অনুবাদ যোগ করুন",
+	"cx-source-loading": "$1 লোড হচ্ছে",
 	"cx-special-login-error": "এই পাতাটি অনুবাদের জন্য আপনাকে অবশ্যই প্রবেশ করতে হবে।",
-	"cx-tools-instructions-text1": "অনুবাদে কিছু অনুচ্ছেদ যোগ করুন অনুচ্ছেদ।"
+	"cx-tools-instructions-text1": "অনুবাদে অনুচ্ছেদ যোগ করুন",
+	"cx-stats-page-title": "পাতা",
+	"cx-stats-from": "উৎস ভাষা",
+	"cx-stats-pages-title": "অনূদিত পাতা",
+	"cx-stats-unknown": "অজানা"
 }

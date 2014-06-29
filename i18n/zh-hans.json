@@ -41,5 +41,14 @@
 	"cx-tools-dictionary-title": "定义",
 	"cx-tools-link-title": "链接",
 	"cx-tools-link-add": "添加链接",
-	"cx-tools-link-remove": "移除链接"
+	"cx-tools-link-remove": "移除链接",
+	"cx-stats-title": "内容翻译统计",
+	"cx-stats-page-title": "页面",
+	"cx-stats-from": "源语言",
+	"cx-stats-to": "目标语言",
+	"cx-stats-pages-title": "翻译页面",
+	"cx-stats-unknown": "未知",
+	"cx-stats-summary": "{{PLURAL:$1|一页|$1/$2页（$3%）}}位于主名字空间。",
+	"cx-tools-reference-title": "参考资料",
+	"cx-tools-reference-remove": "移除参考资料"
 }

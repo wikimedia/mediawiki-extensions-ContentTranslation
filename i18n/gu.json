@@ -32,5 +32,18 @@
 	"cx-tools-instructions-text5": "ભાષાંતર પ્રકાશિત કરો",
 	"cx-tools-instructions-text6": "જ્યારે તમે પરિણામ સાથે સંતોષ પામો ત્યારે, \"{{int:cx-publish-button}}\" દબાવો.",
 	"cx-tools-searchbox-text": "શબ્દ માટે શોધો",
-	"cx-tools-view-guidelines": "[ભાષાંતર માર્ગદર્શિકા $1 જુઓ]"
+	"cx-tools-view-guidelines": "[$1 ભાષાંતર માર્ગદર્શિકા જુઓ]",
+	"cx-tools-dictionary-title": "વ્યાખ્યા",
+	"cx-tools-link-title": "કડી",
+	"cx-tools-link-add": "કડી ઉમેરો",
+	"cx-tools-link-remove": "કડી દૂર કરો",
+	"cx-stats-title": "ભાષાંતર આંકડાઓ",
+	"cx-stats-page-title": "પાનું",
+	"cx-stats-from": "સ્ત્રોત ભાષા",
+	"cx-stats-to": "લક્ષ્ય ભાષા",
+	"cx-stats-pages-title": "ભાષાંતરિત પાનાંઓ",
+	"cx-stats-unknown": "અજ્ઞાત",
+	"cx-stats-summary": "મુખ્ય નામ સ્થળમાં {{PLURAL:$1|એક પાનું|$1/$2 પાનાંઓ ($3%)}}.",
+	"cx-tools-reference-title": "સંદર્ભ",
+	"cx-tools-reference-remove": "સંદર્ભ દૂર કરો"
 }

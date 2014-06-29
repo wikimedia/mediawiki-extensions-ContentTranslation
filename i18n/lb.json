@@ -37,9 +37,13 @@
 	"cx-tools-link-title": "Link",
 	"cx-tools-link-add": "Link derbäisetzen",
 	"cx-tools-link-remove": "Link ewechhuelen",
+	"cx-stats-title": "Statgistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-stats-page-title": "Säit",
 	"cx-stats-from": "Quellsprooch",
 	"cx-stats-to": "Zilsprooch",
 	"cx-stats-pages-title": "Iwwersat Säiten",
-	"cx-stats-unknown": "onbekannt"
+	"cx-stats-unknown": "onbekannt",
+	"cx-stats-summary": "{{PLURAL:$1|Eng Säit|$1/$2 Säiten ($3%)}} am Haaptnummraum.",
+	"cx-tools-reference-title": "Referenz",
+	"cx-tools-reference-remove": "Referenz ewechhuelen"
 }

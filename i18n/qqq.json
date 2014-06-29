@@ -38,7 +38,7 @@
 	"cx-tools-instructions-text5": "Help text for the translation tools pane.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-tools-instructions-text6": "Help text for the translation tools pane.\n\nRefers to {{msg-mw|Cx-publish-button}}.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text5}}.",
 	"cx-tools-searchbox-text": "Placeholder text for the searchbox on the translation tools column",
-	"cx-tools-view-guidelines": "Parameters:\n* $1 - the URL pointing to the guidelines for translation in Wikipedia",
+	"cx-tools-view-guidelines": "Shown at the bottom of the instructions text. A hyperlink to the translation guidelines in the target language. The square brackets are wiki syntax for creating an external link.\nParameters:\n* $1 - the URL pointing to the guidelines for translation in Wikipedia",
 	"cx-tools-dictionary-title": "Title of definition tool card.\n{{Identical|Definition}}",
 	"cx-tools-link-title": "Title of link tool card.\n{{Identical|Link}}",
 	"cx-tools-link-add": "Text shown in link tool card. Clicking on it adds the link in the cursor position.\n{{Identical|Add link}}",

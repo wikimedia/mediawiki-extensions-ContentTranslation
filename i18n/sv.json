@@ -45,5 +45,6 @@
 	"cx-stats-to": "Målspråk",
 	"cx-stats-pages-title": "Översatta sidor",
 	"cx-stats-unknown": "okänt",
-	"cx-stats-summary": "{{PLURAL:$1|En sida|$1/$2 sidor ($3%)}} i huvudnamnrymden."
+	"cx-stats-summary": "{{PLURAL:$1|En sida|$1/$2 sidor ($3%)}} i huvudnamnrymden.",
+	"cx-tools-reference-remove": "Ta bort referens"
 }
