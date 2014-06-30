@@ -52,7 +52,8 @@
 		$heading = $( '<h2>' )
 			.attr( 'contenteditable', true )
 			.addClass( 'cx-column__title' )
-			.text( mw.cx.targetTitle );
+			.text( mw.cx.targetTitle )
+			.cxEditor();
 
 		this.$container.append( $heading );
 
