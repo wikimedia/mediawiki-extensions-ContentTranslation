@@ -69,12 +69,18 @@
 	 * Render the source content column
 	 */
 	ContentTranslationSource.prototype.render = function () {
-		var $heading, $languageLabel, $articleLink, $subHeading, $loader;
+		var $heading, $languageLabel, $articleLink, $subHeading, $loader, title;
 
 		this.$container.prop( {
 			lang: mw.cx.sourceLanguage,
 			dir: $.uls.data.getDir( mw.cx.sourceLanguage )
 		} );
+
+		title = mw.Title.newFromText( mw.cx.sourceTitle );
+
+		if ( title ) {
+			mw.cx.sourceTitle = title.getPrefixedText();
+		}
 
 		$heading = $( '<h2>' )
 			.addClass( 'cx-column__title' )
