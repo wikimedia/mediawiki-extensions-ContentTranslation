@@ -14,7 +14,7 @@
 	"cx-desc": "편집자가 기계 번역과 다른 번역 도구의 도움으로 한 언어에서 다른 언어로 문서를 번역할 수 있도록 하는 도구",
 	"cx-header-progressbar-text": "$1% 번역됨",
 	"cx-header-translation-center": "번역 센터",
-	"cx-source-view-page": "[$1 문서 보기]",
+	"cx-source-view-page": "문서 보기",
 	"cx-publish-page": "[$1 $2]에 게시된 문서",
 	"cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
 	"cx-publish-button": "번역 게시",
@@ -36,7 +36,7 @@
 	"cx-tools-instructions-text5": "번역 게시",
 	"cx-tools-instructions-text6": "결과에 만족한다면, \"{{int:cx-publish-button}}\"를 누르세요.",
 	"cx-tools-searchbox-text": "낱말 검색",
-	"cx-tools-view-guidelines": "[$1 번역 지침 보기]",
+	"cx-tools-view-guidelines": "번역 지침 보기",
 	"cx-tools-link-title": "링크",
 	"cx-tools-link-add": "링크 추가",
 	"cx-tools-link-remove": "링크 제거"

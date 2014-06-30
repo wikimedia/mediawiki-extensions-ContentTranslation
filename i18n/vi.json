@@ -8,13 +8,12 @@
 	"cx": "Dịch trang",
 	"cx-header-progressbar-text": "đã dịch $1%",
 	"cx-header-translation-center": "Trung tâm dịch",
-	"cx-source-view-page": "[$1 xem trang]",
+	"cx-source-view-page": "xem trang",
 	"cx-publish-page": "Trang được xuất bản tại [$1 $2]",
 	"cx-publish-page-error": "Lỗi trong khi lưu trang.",
 	"cx-publish-button": "Xuất bản bản dịch",
 	"cx-publish-summary": "Tạo với bản dịch của trang “$1”",
 	"tag-contenttranslation": "Biên dịch nội dung",
 	"cx-source-loading": "Đang tải $1",
-	"cx-special-login-error": "Bạn phải đăng nhập để dịch trong trang này.",
-	"cx-tools-instructions-title": "Tạo ra một bản dịch"
+	"cx-special-login-error": "Bạn phải đăng nhập để dịch trong trang này."
 }

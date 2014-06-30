@@ -10,7 +10,7 @@
 	"cx-desc": "Uno strumento che permette agli editori di tradurre le pagine da una lingua ad un'altra con l'aiuto della traduzione automatica e di altri strumenti di traduzione",
 	"cx-header-progressbar-text": "$1% tradotto",
 	"cx-header-translation-center": "Centro di traduzione",
-	"cx-source-view-page": "[$1 vedi pagina]",
+	"cx-source-view-page": "vedi pagina",
 	"cx-publish-page": "Pagina pubblicata su [$1 $2]",
 	"cx-publish-page-error": "Errore durante il salvataggio della pagina.",
 	"cx-publish-button": "Pubblica traduzione",
@@ -33,7 +33,7 @@
 	"cx-tools-instructions-text5": "Pubblica la traduzione",
 	"cx-tools-instructions-text6": "Quando sei soddisfatto del risultato, premi {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Cerca una parola",
-	"cx-tools-view-guidelines": "[$1 Vedi linee guida sulle traduzioni]",
+	"cx-tools-view-guidelines": "Vedi linee guida sulle traduzioni",
 	"cx-tools-dictionary-title": "Definizione",
 	"cx-tools-link-title": "Collegamento",
 	"cx-tools-link-add": "Aggiungi collegamento",
@@ -44,5 +44,7 @@
 	"cx-stats-to": "Lingua di destinazione",
 	"cx-stats-pages-title": "Pagine tradotte",
 	"cx-stats-unknown": "sconosciuta",
-	"cx-stats-summary": "{{PLURAL:$1|Una pagina|$1/$2 pagine ($3%)}} nel namespace principale."
+	"cx-stats-summary": "{{PLURAL:$1|Una pagina|$1/$2 pagine ($3%)}} nel namespace principale.",
+	"cx-tools-reference-title": "Riferimento",
+	"cx-tools-reference-remove": "Rimuovi riferimento"
 }

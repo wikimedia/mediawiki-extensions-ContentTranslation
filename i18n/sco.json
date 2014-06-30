@@ -8,7 +8,7 @@
 	"cx-desc": "Ae tuill that permits eeditors tae owerset pages fae yin leid intil anither wi the heelp o machine owersetin n ither owersetin tuils",
 	"cx-header-progressbar-text": "$1% owerset",
 	"cx-header-translation-center": "Owersetin center",
-	"cx-source-view-page": "[$1 see page]",
+	"cx-source-view-page": "see page",
 	"cx-publish-page": "Page publeeshed at [$1 $2]",
 	"cx-publish-page-error": "Mistak while hainin page.",
 	"cx-publish-button": "Publeesh owerset",
@@ -23,5 +23,5 @@
 	"cx-tools-instructions-text5": "Publish the owerset",
 	"cx-tools-instructions-text6": "Whan ye'r happie wi the ootcome, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Rake fer ae waird",
-	"cx-tools-view-guidelines": "[$1 Luik at owersetin guidelines]"
+	"cx-tools-view-guidelines": "Luik at owersetin guidelines"
 }

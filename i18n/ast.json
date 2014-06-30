@@ -9,7 +9,7 @@
 	"cx-desc": "Una ferramienta que permite a los editores traducir páxines d'una llingua a otra cola ayuda de traductores automáticos y otres ferramientes de traducción",
 	"cx-header-progressbar-text": "$1 % traducío",
 	"cx-header-translation-center": "Centru de traducción",
-	"cx-source-view-page": "[$1 ver páxina]",
+	"cx-source-view-page": "ver páxina",
 	"cx-publish-page": "Páxina espublizada en [$1 $2]",
 	"cx-publish-page-error": "Error al guardar la páxina.",
 	"cx-publish-button": "Espublizar la traducción",
@@ -32,5 +32,5 @@
 	"cx-tools-instructions-text5": "Publicar la traducción",
 	"cx-tools-instructions-text6": "Cuando tea satisfechu col resultáu, calque «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Guetar una pallabra",
-	"cx-tools-view-guidelines": "[$1 Ver les guíes pa la traducción]"
+	"cx-tools-view-guidelines": "Ver les guíes pa la traducción"
 }

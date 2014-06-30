@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fohanno"
+			"Fohanno",
+			"Y-M D"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
 	"cx-header-progressbar-text": "$1% troet",
 	"cx-header-translation-center": "Kreizenn dreiñ",
-	"cx-source-view-page": "[$1 gwelet ar bajenn]",
+	"cx-source-view-page": "gwelet ar bajenn",
 	"cx-publish-page": "Pajenn embannet war [$1 $2]",
 	"cx-publish-page-error": "Fazi oc'h enrollañ ar bajenn.",
 	"cx-publish-button": "Embann an droidigezh",
@@ -22,5 +23,10 @@
 	"cx-tools-instructions-text5": "Embann an droidigezh",
 	"cx-tools-instructions-text6": "Pa vioc'h kontant eus an disoc'h, klikit war {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Klask ur ger",
-	"cx-tools-view-guidelines": "[$1 Gwelet ar sturiadoù treiñ]"
+	"cx-tools-view-guidelines": "Gwelet ar sturiadoù treiñ",
+	"cx-stats-page-title": "Pajenn",
+	"cx-stats-pages-title": "Pajennoù troet",
+	"cx-stats-unknown": "dianav",
+	"cx-tools-reference-title": "Daveenn",
+	"cx-tools-reference-remove": "Lemel an daveenn"
 }

@@ -7,7 +7,7 @@
 	"cx-error-server-connection": "ГӀалат: Серверах тасадала цаделира.",
 	"cx-header-progressbar-text": "Гочдина $1%",
 	"cx-header-translation-center": "Гочдечера меттиг",
-	"cx-source-view-page": "[$1 агӀоне хьажар]",
+	"cx-source-view-page": "агӀоне хьажар",
 	"cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
 	"cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
 	"cx-publish-button": "Гайта гоч",
@@ -24,7 +24,7 @@
 	"cx-tools-instructions-text5": "Гайта гоч",
 	"cx-tools-instructions-text6": "Хиллачун хьой реза хилча тӀетаӀе {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Лаха дош",
-	"cx-tools-view-guidelines": "[$1 Хьажа гочдаран хьоле]",
+	"cx-tools-view-guidelines": "Хьажа гочдаран хьоле",
 	"cx-tools-dictionary-title": "Къастам",
 	"cx-tools-link-title": "Хьажораг",
 	"cx-tools-link-remove": "ДӀаяккха хьажорг"

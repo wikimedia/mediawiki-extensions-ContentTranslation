@@ -11,7 +11,7 @@
 	"cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningsverktyg",
 	"cx-header-progressbar-text": "$1% översatt",
 	"cx-header-translation-center": "Översättningscenter",
-	"cx-source-view-page": "[$1 visa sida]",
+	"cx-source-view-page": "visa sida",
 	"cx-publish-page": "Sidan publicerad på [$1 $2]",
 	"cx-publish-page-error": "Fel vid sparandet av sida.",
 	"cx-publish-button": "Publicera översättningen",
@@ -34,7 +34,7 @@
 	"cx-tools-instructions-text5": "Publicera översättningen",
 	"cx-tools-instructions-text6": "När du är nöjd med resultatet, tryck på \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Sök efter ett ord",
-	"cx-tools-view-guidelines": "[$1 Visa riktlinjer för översättning]",
+	"cx-tools-view-guidelines": "Visa riktlinjer för översättning",
 	"cx-tools-dictionary-title": "Definition",
 	"cx-tools-link-title": "Länk",
 	"cx-tools-link-add": "Lägg till länk",
@@ -46,5 +46,6 @@
 	"cx-stats-pages-title": "Översatta sidor",
 	"cx-stats-unknown": "okänt",
 	"cx-stats-summary": "{{PLURAL:$1|En sida|$1/$2 sidor ($3%)}} i huvudnamnrymden.",
+	"cx-tools-reference-title": "Referens",
 	"cx-tools-reference-remove": "Ta bort referens"
 }

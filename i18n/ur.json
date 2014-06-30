@@ -10,7 +10,7 @@
 	"cx-desc": "اس ٹول کے ذریعہ صارفین ایک زبان میں تحریر شدہ صفحات کو کسی دوسری زبان میں مشینی ترجمہ اور دیگر ترجمہ جاتی آلات کے ذریعہ ترجمہ کرسکتے ہیں۔",
 	"cx-header-progressbar-text": "$1% کا ترجمہ مکمل",
 	"cx-header-translation-center": "دار الترجمہ",
-	"cx-source-view-page": "[$1 صفحہ دیکھیں]",
+	"cx-source-view-page": "صفحہ دیکھیں",
 	"cx-publish-page": "صفحہ [$1 $2] پر شائع کردیا گیا",
 	"cx-publish-page-error": "صفحہ کو محفوظ کرنے کے دوران کوئی نقص پیش آیا ہے۔",
 	"cx-publish-button": "ترجمہ شائع کریں",
@@ -31,5 +31,5 @@
 	"cx-tools-instructions-text5": "ترجمہ شائع کریں",
 	"cx-tools-instructions-text6": "جب آپ نتیجہ سے متفق ہوجائیں تو \"{{int:cx-publish-button}}\" پر کلک کریں۔",
 	"cx-tools-searchbox-text": "لفظ کو تلاش کریں",
-	"cx-tools-view-guidelines": "[$1 ہدایات برائے ترجمہ ملاحظہ فرمائیں]"
+	"cx-tools-view-guidelines": "ہدایات برائے ترجمہ ملاحظہ فرمائیں"
 }

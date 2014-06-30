@@ -8,7 +8,7 @@
 	"cx-desc": "Nastroj, kotryž wobdźěłarjam zmóžnja, strony z jedneje rěče do druheje z pomocu mašinoweho přełožowanja a druhich přełožowanskich nastrojow přełožować",
 	"cx-header-progressbar-text": "$1 % přełožene.",
 	"cx-header-translation-center": "Přełožowanske srjedźišćo",
-	"cx-source-view-page": "[$1 stronu sej wobhladać]",
+	"cx-source-view-page": "stronu sej wobhladać",
 	"cx-publish-page": "Strona pola [$1 $2] wozjewjena.",
 	"cx-publish-page-error": "Zmylk při składowanju strony.",
 	"cx-publish-button": "Přełožk wozjewić",
@@ -16,7 +16,6 @@
 	"tag-contenttranslation": "Wobsahowy přełožk",
 	"cx-source-loading": "$1 so začituje",
 	"cx-special-login-error": "Dyrbiš přizjewjeny być, zo by w tutej stronje přełožił.",
-	"cx-tools-instructions-title": "Přełožk wutworić",
 	"cx-tools-instructions-text1": "Přidaj wotstawki, kotrež maja so přełožować.",
 	"cx-tools-instructions-text2": "Njetrjebaš wšě přidać",
 	"cx-tools-instructions-text3": "Tekst přirodnje čitajomny činić",
@@ -24,5 +23,5 @@
 	"cx-tools-instructions-text5": "Přełožk wozjewić",
 	"cx-tools-instructions-text6": "Hdyž sy z wuslědkom spokojom, klikń na {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Za słowom pytać",
-	"cx-tools-view-guidelines": "[$1 Směrnicy přełožowanja sej wobhladać]"
+	"cx-tools-view-guidelines": "Směrnicy přełožowanja sej wobhladać"
 }

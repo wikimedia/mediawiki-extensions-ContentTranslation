@@ -8,7 +8,7 @@
 	"cx-desc": "Інструмент, який дозволяє редакторам переклад сторінок з однієї мови на іншу за допомогою машинного перекладу та інші перекладацьких засобів",
 	"cx-header-progressbar-text": "$1% перекладено",
 	"cx-header-translation-center": "Центр перекладів",
-	"cx-source-view-page": "[$1 перегляд сторінки]",
+	"cx-source-view-page": "перегляд сторінки",
 	"cx-publish-page": "Сторінка опублікована на [$1 $2]",
 	"cx-publish-page-error": "Помилка при збереженні сторінки.",
 	"cx-publish-button": "Опублікувати переклад",
@@ -17,7 +17,6 @@
 	"cx-source-loading": "Завантаження $1",
 	"cx-entrypoint-title": "Перекласти цю сторінку до $1",
 	"cx-special-login-error": "Ви повинні увійти в систему, щоб перекласти сторінку.",
-	"cx-tools-instructions-title": "Створити переклад",
 	"cx-tools-instructions-text1": "Додавайте параграфи для перекладу",
 	"cx-tools-instructions-text2": "Вам не потрібно додавати їх усіх",
 	"cx-tools-instructions-text3": "Зробіть усе можливе, аби текст звучав природно",
@@ -25,5 +24,5 @@
 	"cx-tools-instructions-text5": "Опублікувати переклад",
 	"cx-tools-instructions-text6": "Якщо ви задоволені результатом, натисніть {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Пошук слова",
-	"cx-tools-view-guidelines": "[$1  Переглянути керівні принципи перекладу]"
+	"cx-tools-view-guidelines": "Переглянути керівні принципи перекладу"
 }
