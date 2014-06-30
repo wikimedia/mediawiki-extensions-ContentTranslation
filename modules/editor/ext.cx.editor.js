@@ -56,6 +56,13 @@
 				}
 			}
 		) );
+
+		// Disable pressing return key in headers and figure caption
+		if ( this.$editableElement.is( 'h1, h2, h3, h4, h5, h6, figcaption' ) ) {
+			this.$editableElement.keypress( function ( e ) {
+				return e.which !== 13; // Enter key code
+			} );
+		}
 	};
 
 	/**
