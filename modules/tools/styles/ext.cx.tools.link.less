@@ -1,11 +1,26 @@
 @import "../../base/styles/grid/agora-grid";
 
-.card.link {
+.cards.link {
 	.mw-ui-item;
 	animation-name: card-show-animation;
 	animation-duration: 0.5s;
 	position: relative;
 	padding: 0;
+	.card:nth-of-type(1) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.card:nth-of-type(2) {
+		position: relative;
+		top: 35px;
+	}
+
+	// On mouse over of first card, push the second card a bit down.
+	.card:nth-of-type(1):hover + .card:nth-of-type(2) {
+		top: 70px;
+	}
 }
 
 .card__remove-link {
@@ -67,14 +82,14 @@
 		position: absolute;
 	}
 	&:empty {
-	background-color: #fbfbfb;
-	/* @embed */
-	background: url(../images/link_lightgray.png) no-repeat scroll center center #fbfbfb;
-	/* @embed */
-	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
-	/* @embed */
-	background-image: linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
-	border-right: 1px solid #eeeeee;
+		background-color: #fbfbfb;
+		/* @embed */
+		background: url(../images/link_lightgray.png) no-repeat scroll center center #fbfbfb;
+		/* @embed */
+		background-image: -webkit-linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
+		/* @embed */
+		background-image: linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
+		border-right: 1px solid #eeeeee;
 	}
 }
 
@@ -91,4 +106,14 @@
 	font-size: large;
 	padding: 4px;
 	padding-bottom: 15px;
+}
+
+.card__link-instruction {
+	color: #565656;
+	font-size: large;
+	border-top: 1px solid #dddddd;
+	clear: both;
+	.shortcut-info{
+		font-size: medium;
+	}
 }

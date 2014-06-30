@@ -16,15 +16,51 @@
 		this.$removeLink = null;
 		this.$addLink = null;
 		this.$link = null;
+		this.$sourceLinkCard = null;
+		this.$targetLinkCard = null;
 	}
 
-	LinkCard.prototype.getCard = function () {
-		var $imageContainer, $cardHeader, $linkInfo;
-
+	LinkCard.prototype.getSourceLinkCard = function () {
+		var $imageContainer, $linkInstructionSection,
+			$linkInstruction, $linkInstructionShortcut,
+			$cardHeader, $linkInfo;
+		this.$sourceLinkCard = $( '<div>' )
+			.addClass( 'card sourcelink' );
 		$imageContainer = $( '<div>' )
 			.addClass( 'card__link-image-container' );
-		this.$card = $( '<div>' )
-			.addClass( 'card link' );
+		$linkInfo = $( '<div>' )
+			.addClass( 'card__link-info' );
+		$cardHeader = $( '<div>' )
+			.addClass( 'card__link-header' );
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title' )
+			.text( mw.msg( 'cx-tools-link-title' ) ) );
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) ) );
+		$linkInfo.append( $cardHeader );
+		$linkInfo.append( $( '<a>' )
+			.addClass( 'card__link-text' ) );
+		$linkInstructionSection = $( '<div>' )
+			.addClass( 'card__link-instruction' );
+		$linkInstruction = $( '<div>' )
+			.text( mw.msg( 'cx-tools-link-instruction-header' ) );
+		$linkInstructionShortcut = $( '<div>' )
+			.addClass( 'shortcut-info' )
+			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
+		$linkInstructionSection.append( $linkInstruction, $linkInstructionShortcut );
+		$linkInfo.append( $linkInstructionSection );
+		this.$sourceLinkCard.append( $imageContainer, $linkInfo );
+		return this.$sourceLinkCard.hide();
+	};
+
+	LinkCard.prototype.getTargetLinkCard = function () {
+		var $imageContainer, $cardHeader, $linkInfo;
+
+		this.$targetLinkCard = $( '<div>' )
+			.addClass( 'card targetlink' );
+		$imageContainer = $( '<div>' )
+			.addClass( 'card__link-image-container' );
 		this.$removeLink = $( '<div>' )
 			.addClass( 'card__remove-link' )
 			.text( mw.msg( 'cx-tools-link-remove' ) );
@@ -39,14 +75,23 @@
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-link-title' ) ) );
 		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title_language' ) );
+			.addClass( 'card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) ) );
 		$linkInfo.append( $cardHeader );
 		$linkInfo.append( $( '<a>' )
 			.addClass( 'card__link-text' ) );
 		$linkInfo.append( this.$removeLink, this.$addLink );
-		this.$card.append( $imageContainer, $linkInfo );
+		this.$targetLinkCard.append( $imageContainer, $linkInfo );
+		return this.$targetLinkCard.hide();
+	};
+
+	LinkCard.prototype.getCard = function () {
+		this.$card = $( '<div>' )
+			.addClass( 'cards link' );
+		this.$card.append( this.getSourceLinkCard() );
+		this.$card.append( this.getTargetLinkCard() );
 		this.listen();
-		return this.$card;
+		return this.$card.hide();
 	};
 
 	LinkCard.prototype.removeLink = function () {
@@ -76,7 +121,12 @@
 	}
 
 	LinkCard.prototype.listen = function () {
+		var linkCard = this;
 		this.$removeLink.on( 'click', $.proxy( this.removeLink, this ) );
+		// Bring the card to front when clicked
+		this.$card.on( 'click', '.card:first', function () {
+			$( this ).insertAfter( linkCard.$card.find( '.card:last' ) );
+		} );
 	};
 
 	/**
@@ -113,8 +163,7 @@
 					var title = mw.Title.newFromText( page.title );
 
 					if ( title ) {
-						linkPairs[ title.getPrefixedDb() ] = page.langlinks && page.langlinks[ 0 ][ '*' ] ||
-							page.title; // Redirects will not have langlinks property
+						linkPairs[ title.getPrefixedDb() ] = page.langlinks && page.langlinks[ 0 ][ '*' ];
 					}
 				} );
 			}
@@ -177,7 +226,7 @@
 	 * @param {string} html The html string
 	 */
 	function pasteHtmlAtSelection( html ) {
-		var sel, range;
+		var sel, el, range, frag, node, lastNode;
 		if ( window.getSelection ) {
 			// IE9 and non-IE
 			sel = window.getSelection();
@@ -188,10 +237,9 @@
 				// Range.createContextualFragment() would be useful here but is
 				// only relatively recently standardized and is not supported in
 				// some browsers (IE9, for one)
-				var el = document.createElement( 'div' );
+				el = document.createElement( 'div' );
 				el.innerHTML = html;
-				var frag = document.createDocumentFragment(),
-					node, lastNode;
+				frag = document.createDocumentFragment();
 				while ( ( node = el.firstChild ) ) {
 					lastNode = frag.appendChild( node );
 				}
@@ -228,65 +276,135 @@
 		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
 	};
 
-	LinkCard.prototype.start = function ( link, language ) {
-		var word, linkCard = this;
+	/**
+	 *  Prepare the link card for the source language
+	 * @param {string} title The title
+	 * @param {string} language Source language code
+	 */
+	LinkCard.prototype.prepareSourceLinkCard = function ( title, language ) {
+		var linkCard = this;
 
-		language = language || mw.cx.targetLanguage;
-		if ( typeof link === 'string' ) {
-			word = link;
-		} else {
-			this.$link = link;
-		}
-		if ( word === '' ) {
-			this.stop();
-			return;
-		}
-		word = word || this.$link.text();
-		this.$card.hide();
-		this.$card.find( '.card__title_language' )
-				.text( $.uls.data.getAutonym( language ) );
-		if ( this.$link ) {
-			this.$card.show();
-			// Since this is an existing link, we can show the link title early.
-			this.$card.find( '.card__link-text' )
-				.text( word )
-				.attr( {
-					target: '_blank',
-					href: '//' + language + '.wikipedia.org/wiki/' + word
-				} );
-			this.$addLink.hide();
-		} else {
-			this.$removeLink.hide();
-		}
-		getLink( word, language ).done( function ( response ) {
+		getLink( title, language ).done( function ( response ) {
 			var imgSrc, pageId, range, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
 				if ( !linkCard.$link ) {
-					linkCard.stop();
+					linkCard.$sourceLinkCard.hide();
 				}
 				return;
 			}
 			page = response.query.pages[ pageId ];
 			range = saveSelection();
-			linkCard.$card.find( '.card__link-text' )
+			linkCard.$sourceLinkCard.find( '.card__link-text' )
 				.text( page.title )
 				.attr( {
 					target: '_blank',
-					href: '//' + language + '.wikipedia.org/wiki/' + page.title
+					href: '//' + mw.cx.sourceLanguage + '.wikipedia.org/wiki/' + page.title
 				} );
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );
-				linkCard.createInternalLink( word, page.title );
+				document.execCommand( 'CreateLink', false, page.title );
 			} );
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
-				linkCard.$card.find( '.card__link-image-container' )
+				linkCard.$sourceLinkCard.find( '.card__link-image-container' )
 					.append( $( '<img>' ).attr( 'src', imgSrc ) );
 			}
+			linkCard.$sourceLinkCard.show();
 			linkCard.$card.show();
 		} );
+	};
+
+	/**
+	 * Prepare the link card for the target language
+	 * @param {string} title The title
+	 * @param {string} language Target language code
+	 */
+	LinkCard.prototype.prepareTargetLinkCard = function ( title, language ) {
+		var linkCard = this;
+
+		getLink( title, language ).done( function ( response ) {
+			var imgSrc, pageId, range, page;
+
+			pageId = Object.keys( response.query.pages )[ 0 ];
+			if ( pageId === '-1' ) {
+				linkCard.$targetLinkCard.hide();
+				return;
+			}
+			page = response.query.pages[ pageId ];
+			range = saveSelection();
+			linkCard.$targetLinkCard.find( '.card__link-text' )
+				.text( page.title )
+				.attr( {
+					target: '_blank',
+					href: '//' + mw.cx.targetLanguage + '.wikipedia.org/wiki/' + page.title
+				} );
+			linkCard.$addLink.click( function () {
+				restoreSelection( range );
+				linkCard.createInternalLink( title, page.title );
+			} );
+			if ( page.thumbnail ) {
+				imgSrc = page.thumbnail.source;
+				linkCard.$targetLinkCard.find( '.card__link-image-container' )
+					.append( $( '<img>' ).attr( 'src', imgSrc ) );
+			}
+			linkCard.$targetLinkCard.show();
+			linkCard.$card.show();
+		} );
+	};
+
+	/**
+	 * Start preseting the link card(s)
+	 * @param {string|jQuery} The link passed by trigger event. Can be link text or link itself
+	 * @param {string} [langauge] The language in which the link exist
+	 */
+	LinkCard.prototype.start = function ( link, language ) {
+		var title, linkCard = this;
+
+		// If language is not given, use target language
+		language = language || mw.cx.targetLanguage;
+
+		// link can be link text or jQuery link object
+		if ( typeof link === 'string' ) {
+			title = link;
+		} else {
+			this.$link = link;
+			title = cleanupLinkHref( this.$link.attr( 'href' ) );
+		}
+		// Do we have a valid title now?
+		if ( !title ) {
+			this.stop();
+			return;
+		}
+
+		if ( this.$link && language === mw.cx.targetLanguage ) {
+			this.$card.show();
+			// Since this is an existing link, we can show the link title early.
+			this.$card.find( '.card__link-text' )
+				.text( title )
+				.attr( {
+					target: '_blank',
+					href: '//' + language + '.wikipedia.org/wiki/' + title
+				} );
+			this.$addLink.hide();
+		} else {
+			this.$removeLink.hide();
+		}
+
+		if ( language === mw.cx.targetLanguage ) {
+			linkCard.prepareTargetLinkCard( title, language );
+		} else {
+			// Adapt the title to the target language from source language
+			linkCard.adapt( title, mw.cx.targetLanguage ).done( function ( adaptations ) {
+				var adaptedTitle = adaptations[ title ];
+				if ( !adaptedTitle ) {
+					return;
+				}
+				linkCard.prepareTargetLinkCard( adaptedTitle, mw.cx.targetLanguage );
+			} );
+			linkCard.prepareSourceLinkCard( title, mw.cx.sourceLanguage );
+		}
 	};
 
 	LinkCard.prototype.stop = function () {

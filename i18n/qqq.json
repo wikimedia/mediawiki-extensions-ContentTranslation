@@ -51,5 +51,7 @@
 	"cx-stats-unknown": "Text when the source or target language is unknown. An adjective that describes the language.",
 	"cx-stats-summary": "A summary of the number of published pages. $1 is the number of translated pages that were moved to the main namespace, $2 is the total number of translated pages, and $3 is percent of pages in the main namespace.",
 	"cx-tools-reference-title": "Title of Reference tool card.\n{{Identical|Reference}}",
-	"cx-tools-reference-remove": "Text shown in reference tool card. Clicking on it removes the reference in the context."
+	"cx-tools-reference-remove": "Text shown in reference tool card. Clicking on it removes the reference in the context.",
+	"cx-tools-link-instruction-header": "Title for the instructions to open a link. Appears in link tool card",
+	"cx-tools-link-instruction-shortcut": "Text explaining the short cut for opening a link. Appears in link tool card"
 }

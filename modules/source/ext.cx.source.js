@@ -148,7 +148,7 @@
 			var $link = $( this );
 			// avoid all reference links
 			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
-				mw.hook( 'mw.cx.select.link' ).fire( $link.text(), mw.cx.sourceLanguage );
+				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
 			}
 			// Disable link click
 			return false;
