@@ -60,8 +60,14 @@
 		);
 	};
 
+	ContentTranslationTools.prototype.clearSearch = function () {
+		this.$searchBox.find( 'input' ).val( '' );
+	};
+
 	ContentTranslationTools.prototype.listen = function () {
 		$( window ).scroll( $.proxy( this.scroll, this ) );
+		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.clearSearch, this ) );
+		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.clearSearch, this ) );
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {
