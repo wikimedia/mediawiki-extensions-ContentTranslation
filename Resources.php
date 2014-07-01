@@ -271,6 +271,9 @@ $wgResourceModules['ext.cx.editor'] = array(
 	'scripts' => array(
 		'editor/ext.cx.editor.js',
 	),
+	'dependencies' => array(
+		'jquery.throttle-debounce',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.editor.medium'] = array(
