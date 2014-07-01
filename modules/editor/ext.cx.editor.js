@@ -12,15 +12,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var delay = ( function () {
-		var timer = 0;
-
-		return function ( callback, milliseconds ) {
-			clearTimeout( timer );
-			timer = setTimeout( callback, milliseconds );
-		};
-	}() );
-
 	/**
 	 * CXSectionEditor - Editor for each sections in the translation
 	 *
@@ -52,19 +43,19 @@
 	CXSectionEditor.prototype.listen = function () {
 		var cxEditor = this;
 
-		this.$editableElement.on( 'input', function () {
+		this.$editableElement.on( 'input', $.debounce( 300, false,
 			// Delay the emptiness check till user pause typing.
 			// If this check was done every input, the responsiveness
 			// will get affected.
-			delay( function () {
+			function () {
 				if ( cxEditor.$editableElement.text().trim() === '' ) {
 					// Emit 'mw.cx.translation.clear' event
 					mw.hook( 'mw.cx.translation.clear' ).fire(
 						cxEditor.$element.data( 'source' )
 					);
 				}
-			}, 300 );
-		} );
+			}
+		) );
 	};
 
 	/**
