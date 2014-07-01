@@ -153,6 +153,14 @@
 			// Disable link click
 			return false;
 		} );
+		this.$content.on( 'mouseenter', 'a', function () {
+			var linkid = $( this ).data( 'linkid' );
+			$( '[data-linkid="' + linkid + '"]' ).addClass( 'highlight' );
+		} );
+		this.$content.on( 'mouseleave', 'a', function () {
+			var linkid = $( this ).data( 'linkid' );
+			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'highlight' );
+		} );
 	};
 
 	$.fn.cxSource = function ( options ) {

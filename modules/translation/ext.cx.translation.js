@@ -105,6 +105,14 @@
 			$( targetSectionId ).replaceWith( $placeholder );
 		} );
 		mw.hook( 'mw.cx.translation.change' ).add( keepAlignment );
+		this.$container.on( 'mouseenter', 'a', function () {
+			var linkid = $( this ).data( 'linkid' );
+			$( '[data-linkid="' + linkid + '"]' ).addClass( 'highlight' );
+		} );
+		this.$container.on( 'mouseleave', 'a', function () {
+			var linkid = $( this ).data( 'linkid' );
+			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'highlight' );
+		} );
 	};
 
 	/**
