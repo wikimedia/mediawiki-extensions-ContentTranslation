@@ -14,7 +14,7 @@
 	"cx-desc": "Gereedschap waarmee redacteuren met behulp van machinevertaling en andere vertaalhulpmiddelen pagina's van de ene taal naar de andere kunnen omzetten",
 	"cx-header-progressbar-text": "$1% vertaald",
 	"cx-header-translation-center": "Vertaalcentrum",
-	"cx-source-view-page": "Bekijk pagina",
+	"cx-source-view-page": "pagina bekijken",
 	"cx-publish-page": "Pagina gepubliceerd op [$1 $2]",
 	"cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
 	"cx-publish-button": "Vertaling publiceren",
@@ -36,5 +36,7 @@
 	"cx-stats-page-title": "Pagina",
 	"cx-stats-from": "Brontaal",
 	"cx-stats-to": "Doeltaal",
-	"cx-stats-pages-title": "Vertaalde pagina's"
+	"cx-stats-pages-title": "Vertaalde pagina's",
+	"cx-stats-unknown": "onbekend",
+	"cx-tools-reference-title": "Referentie"
 }

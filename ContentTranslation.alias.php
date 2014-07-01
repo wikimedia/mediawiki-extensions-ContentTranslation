@@ -82,4 +82,5 @@ $specialPageAliases['zh-hans'] = array(
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'ContentTranslation' => array( '內容翻譯' ),
+	'ContentTranslationStats' => array( '內容翻譯統計' ),
 );
