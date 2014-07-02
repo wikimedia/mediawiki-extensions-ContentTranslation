@@ -52,5 +52,6 @@
 	"cx-stats-unknown": "desconocido",
 	"cx-stats-summary": "{{PLURAL:$1|Una página|$1/$2 páginas ($3%)}} en el espacio de nombres principal.",
 	"cx-tools-reference-title": "Referencia",
-	"cx-tools-reference-remove": "Eliminar referencia"
+	"cx-tools-reference-remove": "Eliminar referencia",
+	"cx-tools-link-instruction-header": "Abrir el enlace"
 }

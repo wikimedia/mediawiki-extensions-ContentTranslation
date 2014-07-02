@@ -16,6 +16,7 @@
 	"cx-publish-page": "Página publicada em [$1 $2]",
 	"cx-publish-page-error": "Ocorreu um erro ao salvar a página.",
 	"cx-publish-button": "Publicar tradução",
+	"cx-publish-button-publishing": "A publicar...",
 	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",
 	"cx-translation-add-translation": "+ Adicionar tradução",
 	"tag-contenttranslation": "ContentTranslation",
@@ -47,5 +48,8 @@
 	"cx-stats-unknown": "desconhecido",
 	"cx-stats-summary": "{{PLURAL:$1|Uma página|$1/$2 páginas ($3%)}} no domínio principal.",
 	"cx-tools-reference-title": "Referência",
-	"cx-tools-reference-remove": "Remover referência"
+	"cx-tools-reference-remove": "Remover referência",
+	"cx-tools-link-instruction-header": "Abrir ligação",
+	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
+	"cx-tools-link-hover-tooltip": "Clique para abrir"
 }

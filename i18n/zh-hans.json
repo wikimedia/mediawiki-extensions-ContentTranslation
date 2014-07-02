@@ -50,5 +50,7 @@
 	"cx-stats-unknown": "未知",
 	"cx-stats-summary": "{{PLURAL:$1|一页|$1/$2页（$3%）}}位于主名字空间。",
 	"cx-tools-reference-title": "参考资料",
-	"cx-tools-reference-remove": "移除参考资料"
+	"cx-tools-reference-remove": "移除参考资料",
+	"cx-tools-link-instruction-header": "打开连接",
+	"cx-tools-link-instruction-shortcut": "Shift+点击任何连接打开"
 }

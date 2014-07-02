@@ -47,5 +47,7 @@
 	"cx-stats-unknown": "okänt",
 	"cx-stats-summary": "{{PLURAL:$1|En sida|$1/$2 sidor ($3%)}} i huvudnamnrymden.",
 	"cx-tools-reference-title": "Referens",
-	"cx-tools-reference-remove": "Ta bort referens"
+	"cx-tools-reference-remove": "Ta bort referens",
+	"cx-tools-link-instruction-header": "Öppna länk",
+	"cx-tools-link-instruction-shortcut": "Skift + klicka på en länk för att öppna"
 }
