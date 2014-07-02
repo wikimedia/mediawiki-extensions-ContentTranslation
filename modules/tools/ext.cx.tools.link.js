@@ -373,7 +373,7 @@
 			title = cleanupLinkHref( this.$link.attr( 'href' ) );
 		}
 		// Do we have a valid title now?
-		if ( !title ) {
+		if ( !title || !title.trim() ) {
 			this.stop();
 			return;
 		}
