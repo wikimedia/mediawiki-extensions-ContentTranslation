@@ -35,11 +35,17 @@
 	}
 
 	mw.cx.publish = function () {
-		var translatedTitle, translatedContent, sourceTitle;
+		var translatedTitle, translatedContent, sourceTitle, $publishButton;
+
+		$publishButton = $( 'button.publish' );
+		$publishButton
+			.attr( 'disabled', 'disabled' )
+			.text( mw.msg( 'cx-publish-button-publishing' ) );
 
 		sourceTitle = $( '.cx-column--source > h2' ).text();
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish();
+
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 		publishTranslation( translatedTitle, translatedContent, sourceTitle )
@@ -53,6 +59,9 @@
 				);
 			} ).fail( function () {
 				mw.notify( mw.msg( 'cx-publish-page-error' ) );
+			} ).always( function () {
+				$publishButton.removeAttr( 'disabled' )
+					.text( mw.msg( 'cx-publish-button' ) );
 			} );
 	};
 

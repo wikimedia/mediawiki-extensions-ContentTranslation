@@ -234,7 +234,8 @@ $wgResourceModules['ext.cx.publish'] = array(
 	),
 	'messages' => array(
 		'cx-publish-page',
-		'cx-publish-page-error'
+		'cx-publish-page-error',
+		'cx-publish-button-publishing',
 	),
 ) + $resourcePaths;
 
