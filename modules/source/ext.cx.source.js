@@ -150,8 +150,15 @@
 			}
 		} );
 
-		this.$content.on( 'click', 'a', function () {
-			var $link = $( this );
+		this.$content.on( 'click', 'a', function ( e ) {
+			var $link = $( this ),
+				url;
+			// Allow link exploration
+			if ( e.shiftKey || e.ctrlKey ) {
+				url = '//' + mw.cx.sourceLanguage + '.wikipedia.org/wiki/' + $link.attr( 'href' );
+				window.open( url, '_blank' );
+				return false;
+			}
 			// avoid all reference links
 			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
 				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
@@ -159,13 +166,21 @@
 			// Disable link click
 			return false;
 		} );
-		this.$content.on( 'mouseenter', 'a', function () {
-			var linkid = $( this ).data( 'linkid' );
+		this.$content.on( 'mouseenter', 'a', function ( e ) {
+			var $link = $( this ),
+				linkid = $( this ).data( 'linkid' );
 			$( '[data-linkid="' + linkid + '"]' ).addClass( 'highlight' );
+			if ( e.shiftKey || e.ctrlKey ) {
+				$link
+					.addClass( 'highlight--blue' )
+					.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
+			}
 		} );
 		this.$content.on( 'mouseleave', 'a', function () {
-			var linkid = $( this ).data( 'linkid' );
+			var $link = $( this ),
+				linkid = $link.data( 'linkid' );
 			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'highlight' );
+			$link.removeClass( 'highlight--blue' );
 		} );
 	};
 

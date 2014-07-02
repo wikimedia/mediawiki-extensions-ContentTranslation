@@ -72,7 +72,8 @@ $wgResourceModules['ext.cx.source'] = array(
 	),
 	'messages' => array(
 		'cx-source-view-page',
-		'cx-source-loading'
+		'cx-source-loading',
+		'cx-tools-link-hover-tooltip',
 	),
 ) + $resourcePaths;
 

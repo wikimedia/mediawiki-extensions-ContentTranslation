@@ -53,5 +53,6 @@
 	"cx-tools-reference-title": "Title of Reference tool card.\n{{Identical|Reference}}",
 	"cx-tools-reference-remove": "Text shown in reference tool card. Clicking on it removes the reference in the context.",
 	"cx-tools-link-instruction-header": "Title for the instructions to open a link. Appears in link tool card",
-	"cx-tools-link-instruction-shortcut": "Text explaining the short cut for opening a link. Appears in link tool card"
+	"cx-tools-link-instruction-shortcut": "Text explaining the short cut for opening a link. Appears in link tool card",
+	"cx-tools-link-hover-tooltip": "Tooltip text shown when mouse is over the link with shift or control key is pressed"
 }
