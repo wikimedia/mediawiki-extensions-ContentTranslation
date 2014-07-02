@@ -18,6 +18,7 @@
 	 */
 	function ContentTranslationHeader( element, options ) {
 		this.$container = $( element );
+		this.$publishButton = null;
 		this.options = $.extend( true, {}, $.fn.cxHeader.defaults, options );
 		this.init();
 	}
@@ -27,21 +28,19 @@
 		this.listen();
 	};
 
-	ContentTranslationHeader.prototype.setPublishButtonState = function () {
-		var translationText = $( '.cx-column--translation .cx-column__content' ).text();
-
-		// Disable the publish button if it has any non-space characters
-		this.$container.find( '.cx-header__publish' ).prop( {
-			disabled: !translationText.match( /\S/ )
-		} );
+	/**
+	 * Enable/Disable the publish button based on progress of translation
+	 * @param {float} progress
+	 */
+	ContentTranslationHeader.prototype.setPublishButtonState = function ( progress ) {
+		this.$publishButton.prop( 'disabled', parseInt( progress, 10 ) === 0 );
 	};
 
 	ContentTranslationHeader.prototype.listen = function () {
 		this.$container.find( '.publish' ).on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
-
-		mw.hook( 'mw.cx.translation.change' ).add( $.proxy( this.setPublishButtonState, this ) );
+		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {

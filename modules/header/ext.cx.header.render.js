@@ -12,7 +12,7 @@
 	'use strict';
 
 	mw.cx.ContentTranslationHeader.prototype.render = function () {
-		var $logo, $userName, $userDetails, $headerBar, $publishButton,
+		var $logo, $userName, $userDetails, $headerBar,
 			$translationCenterLink, $translationCenter, $infoBar;
 
 		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
@@ -26,8 +26,9 @@
 			.addClass( 'cx-header__user-details' )
 			.append( $userName );
 
-		$publishButton = $( '<button>' )
+		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
+			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button' ) );
 
 		$translationCenterLink = $( '<a>' )
@@ -40,7 +41,7 @@
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
-			.append( $translationCenter, $publishButton );
+			.append( $translationCenter, this.$publishButton );
 
 		$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
