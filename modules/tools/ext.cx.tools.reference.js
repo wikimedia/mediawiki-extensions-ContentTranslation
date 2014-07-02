@@ -11,14 +11,22 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	/**
+	 * Reference Card
+	 * @class
+	 */
 	function ReferenceCard() {
 		this.$card = null;
 		this.$removeReference = null;
 		this.$reference = null;
 	}
 
+	/**
+	 * Get the reference card
+	 * @return {jQuery}
+	 */
 	ReferenceCard.prototype.getCard = function () {
-		var $referenceInfo;
+		var $referenceInfo, $cardHeader;
 
 		this.$card = $( '<div>' )
 			.addClass( 'card reference' );
@@ -28,9 +36,14 @@
 
 		$referenceInfo = $( '<div>' )
 			.addClass( 'card__reference-info' );
-		$referenceInfo.append( $( '<div>' )
+		$cardHeader = $( '<div>' )
+			.addClass( 'card__reference-header' );
+		$cardHeader.append( $( '<div>' )
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-reference-title' ) ) );
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title--language' ) );
+		$referenceInfo.append( $cardHeader );
 		$referenceInfo.append( $( '<div>' )
 			.addClass( 'card__reference-number' ) );
 		$referenceInfo.append( $( '<div>' )
@@ -42,6 +55,9 @@
 		return this.$card;
 	};
 
+	/**
+	 * Remove the reference
+	 */
 	ReferenceCard.prototype.removeReference = function () {
 		if ( this.$reference ) {
 			this.$reference.remove();
@@ -49,11 +65,22 @@
 		}
 	};
 
+	/**
+	 * Event handlers
+	 */
 	ReferenceCard.prototype.listen = function () {
 		this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
 	};
 
-	ReferenceCard.prototype.start = function ( refNumber, reference, $reference ) {
+	/**
+	 * Start presenting the reference card
+	 * @param {string} refNumber The reference number. Example: [4]
+	 * @param {string} reference The reference content. Can be html.
+	 * @param {jQuery} [$reference] The jquery object related to reference. If passed,
+	 *   the reference card give and option to delete it.
+	 * @param {string} [language] Language code of language where this reference exist.
+	 */
+	ReferenceCard.prototype.start = function ( refNumber, reference, $reference, language ) {
 		this.$card.find( '.card__reference-number' )
 			.text( refNumber );
 		this.$card.find( '.card__reference-content' )
@@ -64,6 +91,9 @@
 		} else {
 			this.$removeReference.remove();
 		}
+		this.$card.find( '.card__title--language' )
+			.text( $.uls.data.getAutonym( language || mw.cx.sourceLanguage ) );
+		this.$card.find( 'a' ).attr( 'target', '_blank' );
 	};
 
 	ReferenceCard.prototype.stop = function () {
@@ -76,9 +106,9 @@
 			'mw.cx.search.reference'
 		];
 	};
+
 	/**
 	 * jQuery plugin to adapt all the references with rel="mw:WikiLink"
-	 * @param {string} targetLanguage
 	 */
 	$.fn.adaptReferences = function () {
 		return this.each( function () {

@@ -98,7 +98,7 @@
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-source-view-page' ) )
-			);
+		);
 
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )
@@ -123,23 +123,6 @@
 		mw.hook( 'mw.cx.source.ready' ).fire();
 	};
 
-	/**
-	 * Disable all links in the content area.
-	 */
-	ContentTranslationSource.prototype.disableLinks = function () {
-		this.$content.find( 'a' ).bind( 'click', function () {
-			var $link = $( this );
-			// avoid all reference links
-			if ( $link.parent().attr( 'typeof' ) === 'mw:Extension/ref' ) {
-				mw.hook( 'mw.cx.select.reference' ).fire( $link.text(), $link.parent().data( 'mw' ) );
-			} else {
-				mw.hook( 'mw.cx.select.link' ).fire( $link.text(), mw.cx.sourceLanguage );
-			}
-			// Disable link click
-			return false;
-		} );
-	};
-
 	ContentTranslationSource.prototype.listen = function () {
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
 
@@ -162,6 +145,8 @@
 			// avoid all reference links
 			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
 				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
+			} else {
+				mw.hook( 'mw.cx.select.reference' ).fire( $link.text(), $link.parent().data( 'mw' ) );
 			}
 			// Disable link click
 			return false;
