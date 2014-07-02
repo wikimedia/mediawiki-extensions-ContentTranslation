@@ -35,27 +35,26 @@
 	}
 
 	mw.cx.publish = function () {
-		var translatedTitle, translatedContent, sourceTitle, $publishButton;
+		var translatedTitle, translatedContent, $publishButton;
 
 		$publishButton = $( '.cx-header__publish' );
 		$publishButton
 			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button-publishing' ) );
 
-		sourceTitle = $( '.cx-column--source > h2' ).text();
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish();
 
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
-		publishTranslation( translatedTitle, translatedContent, sourceTitle )
+		publishTranslation( translatedTitle, translatedContent, mw.cx.sourceTitle )
 			.done( function () {
 				mw.notify( $( '<p>' ).html( mw.message( 'cx-publish-page',
 					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() ) );
 
 				mw.hook( 'mw.cx.translate.create' ).fire(
-					$( '.cx-column--source' ).prop( 'lang' ),
-					$( '.cx-column--translation' ).prop( 'lang' )
+					mw.cx.sourceLanguage,
+					mw.cx.targetLanguage
 				);
 			} ).fail( function () {
 				mw.notify( mw.msg( 'cx-publish-page-error' ) );
