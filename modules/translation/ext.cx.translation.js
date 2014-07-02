@@ -25,9 +25,15 @@
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
-		var uri = new mw.Uri();
+		var title, uri = new mw.Uri();
 
 		mw.cx.targetTitle = uri.query.targettitle || uri.query.page;
+
+		title = mw.Title.newFromText( mw.cx.targetTitle );
+
+		if ( title ) {
+			mw.cx.targetTitle = title.getPrefixedText();
+		}
 
 		this.render();
 		this.listen();

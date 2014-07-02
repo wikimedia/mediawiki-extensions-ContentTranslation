@@ -68,6 +68,7 @@ $wgResourceModules['ext.cx.source'] = array(
 		'mediawiki.api',
 		'jquery.uls.data',
 		'mediawiki.Uri',
+		'mediawiki.Title',
 	),
 	'messages' => array(
 		'cx-source-view-page',
@@ -82,6 +83,7 @@ $wgResourceModules['ext.cx.translation'] = array(
 		'jquery.uls.data',
 		'mediawiki.Uri',
 		'jquery.throttle-debounce',
+		'mediawiki.Title',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
