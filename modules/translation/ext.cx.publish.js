@@ -37,9 +37,9 @@
 	mw.cx.publish = function () {
 		var translatedTitle, translatedContent, sourceTitle, $publishButton;
 
-		$publishButton = $( 'button.publish' );
+		$publishButton = $( '.cx-header__publish' );
 		$publishButton
-			.attr( 'disabled', 'disabled' )
+			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button-publishing' ) );
 
 		sourceTitle = $( '.cx-column--source > h2' ).text();
@@ -60,7 +60,7 @@
 			} ).fail( function () {
 				mw.notify( mw.msg( 'cx-publish-page-error' ) );
 			} ).always( function () {
-				$publishButton.removeAttr( 'disabled' )
+				$publishButton.prop( 'disabled', false )
 					.text( mw.msg( 'cx-publish-button' ) );
 			} );
 	};
