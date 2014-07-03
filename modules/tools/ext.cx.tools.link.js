@@ -11,6 +11,10 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	/**
+	 * Link Card
+	 * @class
+	 */
 	function LinkCard() {
 		this.$card = null;
 		this.$removeLink = null;
@@ -20,12 +24,16 @@
 		this.$targetLinkCard = null;
 	}
 
-	LinkCard.prototype.getSourceLinkCard = function () {
-		var $imageContainer, $linkInstructionSection,
-			$linkInstruction, $linkInstructionShortcut,
+	/**
+	 * Get a link card
+	 * @rertun {jQuery}
+	 */
+	LinkCard.prototype.getLinkCard = function () {
+		var $card, $imageContainer,
 			$cardHeader, $linkInfo;
-		this.$sourceLinkCard = $( '<div>' )
-			.addClass( 'card sourcelink' );
+
+		$card = $( '<div>' )
+			.addClass( 'card' );
 		$imageContainer = $( '<div>' )
 			.addClass( 'card__link-image-container' );
 		$linkInfo = $( '<div>' )
@@ -36,11 +44,25 @@
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-link-title' ) ) );
 		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title--language' )
-			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) ) );
+			.addClass( 'card__title--language' ) );
 		$linkInfo.append( $cardHeader );
 		$linkInfo.append( $( '<a>' )
 			.addClass( 'card__link-text' ) );
+		$card.append( $imageContainer, $linkInfo );
+		return $card;
+	};
+
+	/**
+	 * Get a source link card
+	 * @return {jQuery}
+	 */
+	LinkCard.prototype.getSourceLinkCard = function () {
+		var $linkInstructionSection, $linkInstruction,
+			$linkInstructionShortcut;
+
+		this.$sourceLinkCard = this.getLinkCard();
+		this.$sourceLinkCard.find( '.card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
 		$linkInstructionSection = $( '<div>' )
 			.addClass( 'card__link-instruction' );
 		$linkInstruction = $( '<div>' )
@@ -49,42 +71,34 @@
 			.addClass( 'shortcut-info' )
 			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
 		$linkInstructionSection.append( $linkInstruction, $linkInstructionShortcut );
-		$linkInfo.append( $linkInstructionSection );
-		this.$sourceLinkCard.append( $imageContainer, $linkInfo );
+		this.$sourceLinkCard.find( '.card__link-info' )
+			.append( $linkInstructionSection );
 		return this.$sourceLinkCard.hide();
 	};
 
+	/**
+	 * Get a target link card
+	 * @rertun {jQuery}
+	 */
 	LinkCard.prototype.getTargetLinkCard = function () {
-		var $imageContainer, $cardHeader, $linkInfo;
-
-		this.$targetLinkCard = $( '<div>' )
-			.addClass( 'card targetlink' );
-		$imageContainer = $( '<div>' )
-			.addClass( 'card__link-image-container' );
+		this.$targetLinkCard = this.getLinkCard();
+		this.$targetLinkCard.find( '.card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
 		this.$removeLink = $( '<div>' )
 			.addClass( 'card__remove-link' )
 			.text( mw.msg( 'cx-tools-link-remove' ) );
 		this.$addLink = $( '<div>' )
 			.addClass( 'card__add-link' )
 			.text( mw.msg( 'cx-tools-link-add' ) );
-		$linkInfo = $( '<div>' )
-			.addClass( 'card__link-info' );
-		$cardHeader = $( '<div>' )
-			.addClass( 'card__link-header' );
-		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title' )
-			.text( mw.msg( 'cx-tools-link-title' ) ) );
-		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title--language' )
-			.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) ) );
-		$linkInfo.append( $cardHeader );
-		$linkInfo.append( $( '<a>' )
-			.addClass( 'card__link-text' ) );
-		$linkInfo.append( this.$removeLink, this.$addLink );
-		this.$targetLinkCard.append( $imageContainer, $linkInfo );
+		this.$targetLinkCard.find( '.card__link-info' )
+			.append( this.$addLink, this.$removeLink );
 		return this.$targetLinkCard.hide();
 	};
 
+	/**
+	 * Get all applicable cards.
+	 * @return {jQuery}
+	 */
 	LinkCard.prototype.getCard = function () {
 		this.$card = $( '<div>' )
 			.addClass( 'cards link' );
@@ -101,12 +115,18 @@
 		}
 	};
 
-	function getLink( word, language ) {
+	/**
+	 * Get the link for a given title and language
+	 * @param {string} title
+	 * @param {string} language
+	 * @return {jQuery.Promise}
+	 */
+	function getLink( title, language ) {
 		var api = new mw.Api();
 
 		return api.get( {
 			action: 'query',
-			titles: word,
+			titles: title,
 			prop: 'pageimages',
 			piprop: 'thumbnail',
 			pithumbsize: 150,
@@ -120,8 +140,12 @@
 		} );
 	}
 
+	/**
+	 * Event listeners
+	 */
 	LinkCard.prototype.listen = function () {
 		var linkCard = this;
+
 		this.$removeLink.on( 'click', $.proxy( this.removeLink, this ) );
 		// Bring the card to front when clicked
 		this.$card.on( 'click', '.card:first', function () {
@@ -182,6 +206,7 @@
 	 */
 	function saveSelection() {
 		var sel;
+
 		if ( window.getSelection ) {
 			sel = window.getSelection();
 			if ( sel.getRangeAt && sel.rangeCount ) {
@@ -194,10 +219,12 @@
 	}
 
 	/**
-	 * Remove the leading slashes or dots if any.
+	 * Remove the leading ./ added by parsoid.
+	 * @param {string} href Link target
+	 * @return {string} Cleaned up href
 	 */
 	function cleanupLinkHref( href ) {
-		return href.replace( /^.\//, '' );
+		return href.replace( /^\.\//, '' );
 	}
 
 	/**
@@ -206,6 +233,7 @@
 	 */
 	function restoreSelection( range ) {
 		var sel;
+
 		if ( range ) {
 			if ( window.getSelection ) {
 				sel = window.getSelection();
@@ -227,6 +255,7 @@
 	 */
 	function pasteHtmlAtSelection( html ) {
 		var sel, el, range, frag, node, lastNode;
+
 		if ( window.getSelection ) {
 			// IE9 and non-IE
 			sel = window.getSelection();
@@ -266,7 +295,9 @@
 	 * @param {string} title The link target
 	 */
 	LinkCard.prototype.createInternalLink = function ( linkText, title ) {
-		var $link = $( '<a>' )
+		var $link;
+
+		$link = $( '<a>' )
 			.addClass( 'cx-link' )
 			.text( linkText )
 			.attr( {
@@ -277,7 +308,7 @@
 	};
 
 	/**
-	 *  Prepare the link card for the source language
+	 * Prepare the link card for the source language
 	 * @param {string} title The title
 	 * @param {string} language Source language code
 	 */
@@ -413,10 +444,10 @@
 
 	LinkCard.prototype.getTriggerEvents = function () {
 		return [
-			'mw.cx.select.link',
-			'mw.cx.search.link',
-			'mw.cx.select.word',
-			'mw.cx.search.word'
+			'mw.cx.select.link', // Select a link by clicking - in translation or source
+			'mw.cx.search.link', // Search a link title using search box
+			'mw.cx.select.word', // Select a word using mouse or keyboard - in translation or source
+			'mw.cx.search.word' // Search a word title using search box
 		];
 	};
 
@@ -426,6 +457,7 @@
 	function linkClickHandler() {
 		/*jshint validthis:true */
 		var $link = $( this );
+
 		// avoid all reference links
 		if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
 			mw.hook( 'mw.cx.select.link' ).fire( $link );
@@ -437,6 +469,7 @@
 	 */
 	$.fn.adaptLinks = function ( targetLanguage ) {
 		var linkAdaptor = new LinkCard();
+
 		return this.each( function () {
 			var $this = $( this ),
 				$links,
@@ -469,5 +502,6 @@
 			linkAdaptor.adapt( sourceTitles, targetLanguage ).done( apply );
 		} );
 	};
+
 	mw.cx.tools.link = LinkCard;
 }( jQuery, mediaWiki ) );
