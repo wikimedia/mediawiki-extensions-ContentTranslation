@@ -22,8 +22,14 @@
 	color: transparent;
 	cursor: pointer;
 
+	.cx-column--translation:hover &:first-child {
+		color: transparent;
+	}
+
 	&:first-child,
+	.cx-column--translation &:first-child:hover,
 	&:hover {
 		color: #AAA;
 	}
+
 }
