@@ -154,18 +154,18 @@
 		this.$content.on( 'mouseenter', 'a', function ( e ) {
 			var $link = $( this ),
 				linkid = $( this ).data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).addClass( 'highlight' );
+			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
 			if ( e.shiftKey || e.ctrlKey ) {
 				$link
-					.addClass( 'highlight--blue' )
+					.addClass( 'cx-highlight--blue' )
 					.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
 			}
 		} );
 		this.$content.on( 'mouseleave', 'a', function () {
 			var $link = $( this ),
 				linkid = $link.data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'highlight' );
-			$link.removeClass( 'highlight--blue' );
+			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
+			$link.removeClass( 'cx-highlight--blue' );
 		} );
 	};
 
