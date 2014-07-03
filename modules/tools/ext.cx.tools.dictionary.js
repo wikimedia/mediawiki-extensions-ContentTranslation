@@ -26,8 +26,6 @@
 	DictionaryCard.prototype.getCard = function () {
 		var $titleRow, $title, $languageSelector, $closeButton,
 			$headword, $expand,
-			forwardArrow = $( 'html' ).prop( 'dir' ) === 'ltr' ? '→' : '←',
-			sourceAutonym = $.uls.data.getAutonym( mw.cx.sourceLanguage ),
 			targetAutonym = $.uls.data.getAutonym( mw.cx.targetLanguage );
 
 		this.$card = $( '<div>' )
@@ -38,7 +36,7 @@
 
 		$languageSelector = $( '<div>' )
 			.addClass( 'card__title-language-selector' )
-			.text( sourceAutonym + forwardArrow + targetAutonym );
+			.text( targetAutonym );
 
 		$titleRow = $( '<div>' )
 			.addClass( 'card__title-row' )
