@@ -63,6 +63,12 @@ $specialPageAliases['lb'] = array(
 	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),
 );
 
+/** Macedonian (македонски) */
+$specialPageAliases['mk'] = array(
+	'ContentTranslation' => array( 'ПреводНаСодржини' ),
+	'ContentTranslationStats' => array( 'СтатистикаЗаПреводНаСодржини' ),
+);
+
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
 	'ContentTranslation' => array( 'ലേഖനപരിഭാഷ' ),
