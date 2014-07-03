@@ -50,7 +50,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|One page|$1/$2 pages ($3%)}} in the main namespace.",
 	"cx-tools-reference-title": "Reference",
 	"cx-tools-reference-remove": "Remove reference",
-	"cx-tools-link-instruction-header": "Open link",
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
 	"cx-tools-link-hover-tooltip": "Click to open"
 }
