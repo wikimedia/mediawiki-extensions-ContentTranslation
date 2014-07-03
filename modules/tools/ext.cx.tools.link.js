@@ -290,9 +290,11 @@
 	}
 
 	/**
-	 * Create a wiki internal link with given link text and target
-	 * @param {string} linkText The link Text
-	 * @param {string} title The link target
+	 * Create a wiki internal link with given link text and target and paste it into
+	 * current selection in translation column.
+	 *
+	 * @param {string} linkText Link display text
+	 * @param {string} title Link target
 	 */
 	LinkCard.prototype.createInternalLink = function ( linkText, title ) {
 		var $link;
@@ -305,6 +307,24 @@
 				rel: 'mw:WikiLink'
 			} );
 		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
+	};
+
+	/**
+	 * Make the given element to be an external link to a page in given language.
+	 * @param {jQuery} $a Link element
+	 * @param {string} target The page title in the target wikis
+	 * @param {string} language Language code of target wikis
+	 */
+	LinkCard.prototype.createExternalLink = function ( $a, target, language ) {
+		// Normalize the text for display and href
+		var title = mw.Title.newFromText( target );
+		title = title ? title.getPrefixedText() : target;
+
+		$a.text( title );
+		$a.attr( {
+			target: '_blank',
+			href: '//' + language + '.wikipedia.org/wiki/' + title
+		} );
 	};
 
 	/**
@@ -327,12 +347,11 @@
 			}
 			page = response.query.pages[ pageId ];
 			range = saveSelection();
-			linkCard.$sourceLinkCard.find( '.card__link-text' )
-				.text( page.title )
-				.attr( {
-					target: '_blank',
-					href: '//' + mw.cx.sourceLanguage + '.wikipedia.org/wiki/' + page.title
-				} );
+			linkCard.createExternalLink(
+				linkCard.$sourceLinkCard.find( '.card__link-text' ),
+				page.title,
+				language
+			);
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );
 				document.execCommand( 'CreateLink', false, page.title );
@@ -365,12 +384,12 @@
 			}
 			page = response.query.pages[ pageId ];
 			range = saveSelection();
-			linkCard.$targetLinkCard.find( '.card__link-text' )
-				.text( page.title )
-				.attr( {
-					target: '_blank',
-					href: '//' + mw.cx.targetLanguage + '.wikipedia.org/wiki/' + page.title
-				} );
+
+			linkCard.createExternalLink(
+				linkCard.$targetLinkCard.find( '.card__link-text' ),
+				page.title,
+				language
+			);
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );
 				linkCard.createInternalLink( title, page.title );
@@ -386,9 +405,12 @@
 	};
 
 	/**
-	 * Start preseting the link card(s)
-	 * @param {string|jQuery} The link passed by trigger event. Can be link text or link itself
-	 * @param {string} [langauge] The language in which the link exist
+	 * Executed when link cards are shown, for example when a link is clicked on
+	 * the source or translation column (jQuery type for link) or when a word is
+	 * searched or selected in the source or translation column (string).
+	 *
+	 * @param {string|jQuery} link The link element or target title.
+	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
 		var title, linkCard = this;
@@ -400,8 +422,8 @@
 		if ( typeof link === 'string' ) {
 			title = link;
 		} else {
+			title = cleanupLinkHref( link.attr( 'href' ) );
 			this.$link = link;
-			title = cleanupLinkHref( this.$link.attr( 'href' ) );
 		}
 		// Do we have a valid title now?
 		if ( !title || !title.trim() ) {
@@ -485,6 +507,8 @@
 				return cleanupLinkHref( href );
 			} ).get();
 
+			// This callback is called after we have fetched the interwiki links. It
+			// updates the href appropriate for target language or removes the link.
 			function apply( adaptations ) {
 				$links.map( function () {
 					var $this = $( this ),
