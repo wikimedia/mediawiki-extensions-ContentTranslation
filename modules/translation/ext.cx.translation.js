@@ -114,11 +114,11 @@
 		mw.hook( 'mw.cx.translation.change' ).add( keepAlignment );
 		this.$container.on( 'mouseenter', 'a', function () {
 			var linkid = $( this ).data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).addClass( 'highlight' );
+			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
 		} );
 		this.$container.on( 'mouseleave', 'a', function () {
 			var linkid = $( this ).data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'highlight' );
+			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
 		} );
 	};
 
@@ -217,18 +217,18 @@
 
 	function sectionClick() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'cx-highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
 	}
 
 	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'cx-highlight' );
 	}
 
 	function sectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'highlight' );
+		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'cx-highlight' );
 	}
 
 	/**
