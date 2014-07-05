@@ -11,6 +11,7 @@
 	"cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
 	"cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
 	"cx-publish-button": "Гайта гоч",
+	"cx-publish-button-publishing": "Араяхар...",
 	"cx-translation-add-translation": "+ ТӀетоха гоч",
 	"cx-source-loading": "Чуйолуш $1",
 	"cx-entrypoint-title": "Гоч йе хӀара агӀо $1 тӀе",
@@ -27,5 +28,7 @@
 	"cx-tools-view-guidelines": "Хьажа гочдаран хьоле",
 	"cx-tools-dictionary-title": "Къастам",
 	"cx-tools-link-title": "Хьажораг",
-	"cx-tools-link-remove": "ДӀаяккха хьажорг"
+	"cx-tools-link-remove": "ДӀаяккха хьажорг",
+	"cx-tools-link-instruction-header": "Схьаелла хьажорг",
+	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха"
 }
