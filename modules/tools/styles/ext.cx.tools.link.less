@@ -1,25 +1,30 @@
 @import "../../base/styles/grid/agora-grid";
 
 .cards.link {
-	.mw-ui-item;
 	animation-name: card-show-animation;
 	animation-duration: 0.5s;
 	position: relative;
 	padding: 0;
+	.card {
+		.mw-ui-item;
+		padding: 0;
+	}
 	.card:nth-of-type(1) {
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
+		transition: top 0.15s;
 	}
 	.card:nth-of-type(2) {
 		position: relative;
-		top: 35px;
+		top: 30px;
+		transition: top 0.5s;
 	}
 
 	// On mouse over of first card, push the second card a bit down.
 	.card:nth-of-type(1):hover + .card:nth-of-type(2) {
-		top: 70px;
+		top: 60px;
 	}
 }
 
@@ -50,7 +55,6 @@
 	@horizontal-margin: 15px;
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	float: none;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	color: #565656; // TODO Should come from library?
@@ -63,7 +67,6 @@
 	background-size: 15px;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
-	clear: both;
 	border-top: 1px solid #dddddd;
 }
 
@@ -102,6 +105,7 @@
 
 .card__link-text {
 	.mw-ui-item;
+	width: auto;
 	color: #0645ad;
 	font-size: large;
 	padding: 4px;
@@ -109,11 +113,15 @@
 }
 
 .card__link-instruction {
+	.mw-ui-item;
+	.mw-ui-one-whole;
 	color: #565656;
 	font-size: large;
 	border-top: 1px solid #dddddd;
 	clear: both;
+	padding-top: 10px;
 	.shortcut-info{
-		font-size: medium;
+		font-size: small;
+		color: #aaaaaa;
 	}
 }

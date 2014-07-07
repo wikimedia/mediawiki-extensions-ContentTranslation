@@ -57,22 +57,18 @@
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getSourceLinkCard = function () {
-		var $linkInstructionSection, $linkInstruction,
-			$linkInstructionShortcut;
+		var $linkInstructionSection, $linkInstructionShortcut;
 
 		this.$sourceLinkCard = this.getLinkCard();
 		this.$sourceLinkCard.find( '.card__title--language' )
 			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
 		$linkInstructionSection = $( '<div>' )
 			.addClass( 'card__link-instruction' );
-		$linkInstruction = $( '<div>' )
-			.text( mw.msg( 'cx-tools-link-instruction-header' ) );
 		$linkInstructionShortcut = $( '<div>' )
 			.addClass( 'shortcut-info' )
 			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
-		$linkInstructionSection.append( $linkInstruction, $linkInstructionShortcut );
-		this.$sourceLinkCard.find( '.card__link-info' )
-			.append( $linkInstructionSection );
+		$linkInstructionSection.append( $linkInstructionShortcut );
+		this.$sourceLinkCard.find( '.card__link-info' ).append( $linkInstructionSection );
 		return this.$sourceLinkCard.hide();
 	};
 
