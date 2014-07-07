@@ -142,9 +142,14 @@
 	/**
 	 * Update the translation section with the machine translation
 	 * @param {string} sourceId source section identifier
+	 * @param {boolean} machineTranslate Whether to do machine translation; default is false.
 	 */
-	ContentTranslationEditor.prototype.update = function ( sourceId ) {
+	ContentTranslationEditor.prototype.update = function ( sourceId, machineTranslate ) {
 		var $sourceSection, targetSectionId, $section;
+
+		if ( machineTranslate === undefined ) {
+			machineTranslate = true;
+		}
 
 		$sourceSection = $( '#' + sourceId );
 		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
@@ -161,24 +166,14 @@
 
 		// $section was replaced. Get the updated instance.
 		$section = $( targetSectionId );
-		// TODO to be moved to MT tool card
-		$section.each( function () {
-			var $section = $( this ),
-				sourceContent = $section[ 0 ].outerHTML;
 
-			mw.cx.mt( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
-				.done( function ( translation ) {
-					if ( translation ) {
-						$section.html( $( translation ).children().html() )
-							.adaptLinks( mw.cx.targetLanguage );
-					}
-				} ).fail( function () {
-					$section.adaptLinks( mw.cx.targetLanguage );
-				} ).always( function () {
-					$section.data( 'cx-mt', true );
-					mw.hook( 'mw.cx.translation.change' ).fire( $section );
-				} );
-		} );
+		if ( machineTranslate ) {
+			$section.each( function () {
+				if ( mw.cx.tools.mt.enabled() ) {
+					$section.machineTranslate();
+				}
+			} );
+		}
 
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 
@@ -209,6 +204,12 @@
 				mw.hook( 'mw.cx.select.word' ).fire( selection );
 			}
 		} ) );
+
+		$section.on( 'click focus', function () {
+			mw.hook( 'mw.cx.translation.focus' ).fire( $( this ) );
+		} );
+
+		mw.hook( 'mw.cx.translation.updated' ).fire();
 	};
 
 	/**

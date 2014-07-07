@@ -1,0 +1,76 @@
+@import "../../base/styles/grid/agora-grid";
+
+/* TODO remove when the grid is updated */
+.hidden {
+	display: none;
+}
+
+.card.mt {
+	.card__title-row {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		float: none; // XXX why would it be needed?
+		color: #c9c9c9; // TODO Should come from library?
+		padding-top: 8px;
+
+		.card__title {
+			.mw-ui-item;
+			.mw-ui-one-whole;
+			float: none; // XXX why would it be needed?
+		}
+	}
+
+	.card__trigger {
+		@vertical-margin: 10px;
+		@horizontal-margin: 15px;
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		float: none; // XXX why would it be needed?
+		cursor: pointer;
+		font-size: large;
+	}
+
+	.card__providers-menu {
+		.mw-ui-item;
+		.mw-ui-two-thirds;
+		list-style: none;
+		position: absolute;
+		background-color: white;
+		border: 1px solid black;
+
+		li {
+			cursor: pointer;
+		}
+	}
+
+	.card__control-block {
+		@vertical-margin: 10px;
+		@horizontal-margin: 15px;
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		float: none; // XXX why would it be needed?
+		padding: @vertical-margin @horizontal-margin;
+		line-height: 1.5em;
+		color: #c9c9c9; // TODO Should come from library?
+
+		.card__control-button {
+			@vertical-margin: 10px;
+			@horizontal-margin: 15px;
+			.mw-ui-item;
+			.mw-ui-one-half;
+			padding: @vertical-margin @horizontal-margin;
+			line-height: 1.5em;
+			color: #565656; // TODO Should come from library?
+			cursor: pointer;
+		}
+	}
+
+	.card__bottom {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		float: none; // XXX why would it be needed?
+		clear: both;
+		padding: 5px;
+		text-align: center;
+	}
+}
