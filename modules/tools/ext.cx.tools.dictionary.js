@@ -24,7 +24,7 @@
 	}
 
 	DictionaryCard.prototype.getCard = function () {
-		var $titleRow, $title, $languageSelector, $closeButton,
+		var $titleRow, $title, $languageSelector,
 			$headword, $expand,
 			targetAutonym = $.uls.data.getAutonym( mw.cx.targetLanguage );
 
@@ -40,11 +40,7 @@
 
 		$titleRow = $( '<div>' )
 			.addClass( 'card__title-row' )
-			.append(
-				$title,
-				$languageSelector,
-				$closeButton
-		);
+			.append( $title, $languageSelector );
 
 		$headword = $( '<div>' )
 			.addClass( 'card__headword' );
