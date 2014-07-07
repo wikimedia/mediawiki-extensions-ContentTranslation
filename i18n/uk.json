@@ -48,7 +48,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|Одна сторінка|$1/$2 сторінок ($3%)}} в основному просторі.",
 	"cx-tools-reference-title": "Посилання",
 	"cx-tools-reference-remove": "Видалити посилання",
-	"cx-tools-link-instruction-header": "Відкрити посилання",
 	"cx-tools-link-instruction-shortcut": "Shift + клік на будь-яке посилання, щоб відкрити",
 	"cx-tools-link-hover-tooltip": "Клацніть, щоб відкрити"
 }

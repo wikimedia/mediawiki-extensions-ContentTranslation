@@ -48,7 +48,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|Одна страница|$1/$2 страниц ($3%)}} в основном пространстве имён.",
 	"cx-tools-reference-title": "Примечание",
 	"cx-tools-reference-remove": "Удалить примечание",
-	"cx-tools-link-instruction-header": "Открыть ссылку",
 	"cx-tools-link-instruction-shortcut": "Shift + щелчок мыши на любой ссылке, чтобы открыть её",
 	"cx-tools-link-hover-tooltip": "Щелкните, чтобы открыть"
 }

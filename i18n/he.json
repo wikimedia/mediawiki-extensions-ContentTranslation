@@ -51,7 +51,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|דף אחד|$1/$2 ($3%)}} במרחב הראשי.",
 	"cx-tools-reference-title": "הערת שוליים",
 	"cx-tools-reference-remove": "הסרת הערת שוליים",
-	"cx-tools-link-instruction-header": "פתיחת קישור",
 	"cx-tools-link-instruction-shortcut": "יש ללחוץ על קישור עם שיפט כדי לפתוח אותו",
 	"cx-tools-link-hover-tooltip": "ללחוץ לפתיחה"
 }

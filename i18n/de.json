@@ -48,7 +48,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|Eine Seite|$1 von $2 Seiten ($3 %)}} im Hauptnamensraum.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz entfernen",
-	"cx-tools-link-instruction-header": "Link öffnen",
 	"cx-tools-link-instruction-shortcut": "Umschalttaste drücken sowie einen beliebigen Link anklicken, um diesen zu öffnen",
 	"cx-tools-link-hover-tooltip": "Zum Öffnen klicken"
 }

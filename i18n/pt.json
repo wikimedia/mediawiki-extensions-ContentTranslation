@@ -49,7 +49,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|Uma página|$1/$2 páginas ($3%)}} no domínio principal.",
 	"cx-tools-reference-title": "Referência",
 	"cx-tools-reference-remove": "Remover referência",
-	"cx-tools-link-instruction-header": "Abrir ligação",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
 	"cx-tools-link-hover-tooltip": "Clique para abrir"
 }
