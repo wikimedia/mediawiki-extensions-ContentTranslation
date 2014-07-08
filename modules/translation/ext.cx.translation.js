@@ -178,7 +178,7 @@
 			var selection = window.getSelection().toString().toLowerCase();
 
 			if ( selection ) {
-				mw.hook( 'mw.cx.search.link' ).fire( selection );
+				mw.hook( 'mw.cx.select.word' ).fire( selection );
 			}
 		} ) );
 	};
