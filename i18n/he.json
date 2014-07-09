@@ -52,5 +52,6 @@
 	"cx-tools-reference-title": "הערת שוליים",
 	"cx-tools-reference-remove": "הסרת הערת שוליים",
 	"cx-tools-link-instruction-shortcut": "יש ללחוץ על קישור עם שיפט כדי לפתוח אותו",
-	"cx-tools-link-hover-tooltip": "ללחוץ לפתיחה"
+	"cx-tools-link-hover-tooltip": "ללחוץ לפתיחה",
+	"cx-warning-unsaved-translation": "יש לך תרגום שלא נשמר."
 }

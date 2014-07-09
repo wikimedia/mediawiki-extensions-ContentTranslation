@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"G1m"
+			"G1m",
+			"Gertakapllani"
 		]
 	},
-	"cx-source-view-page": "shiko faqen"
+	"cx-source-view-page": "shiko faqen",
+	"cx-warning-unsaved-translation": "ju keni perkthime te pa ruajtura"
 }

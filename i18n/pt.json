@@ -50,5 +50,6 @@
 	"cx-tools-reference-title": "Referência",
 	"cx-tools-reference-remove": "Remover referência",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
-	"cx-tools-link-hover-tooltip": "Clique para abrir"
+	"cx-tools-link-hover-tooltip": "Clique para abrir",
+	"cx-warning-unsaved-translation": "Não gravou a tradução."
 }

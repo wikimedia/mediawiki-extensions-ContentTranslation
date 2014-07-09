@@ -14,6 +14,7 @@
 	"cx-publish-page": "താൾ [$1 $2] ആയി പ്രസിദ്ധീകരിച്ചിരിക്കുന്നു",
 	"cx-publish-page-error": "താൾ സംരക്ഷിക്കുന്നതിൽ പിഴവുണ്ടായി.",
 	"cx-publish-button": "പരിഭാഷ പ്രസിദ്ധീകരിക്കുക",
+	"cx-publish-button-publishing": "പ്രസിദ്ധീകരിക്കുന്നു...",
 	"cx-publish-summary": "\"$1\" എന്ന താൾ പരിഭാഷപ്പെടുത്തിയത്.",
 	"cx-translation-add-translation": "+ പരിഭാഷ ചേർക്കുക",
 	"tag-contenttranslation": "ഉള്ളടക്കപരിഭാഷ",
@@ -37,5 +38,15 @@
 	"cx-tools-dictionary-title": "നിർ‌വചനം",
 	"cx-tools-link-title": "കണ്ണി",
 	"cx-tools-link-add": "കണ്ണി ചേർക്കുക",
-	"cx-tools-link-remove": "കണ്ണി നീക്കംചെയ്യുക"
+	"cx-tools-link-remove": "കണ്ണി നീക്കംചെയ്യുക",
+	"cx-stats-title": "ഉള്ളടക്ക പരിഭാഷകളുടെ സ്ഥിതിവിവരക്കണക്കുകൾ",
+	"cx-stats-page-title": "താൾ",
+	"cx-stats-from": "സ്രോതസ്സ് ഭാഷ",
+	"cx-stats-to": "ലക്ഷ്യ ഭാഷ",
+	"cx-stats-pages-title": "പരിഭാഷപ്പെടുത്തിയ താളുകൾ",
+	"cx-stats-unknown": "അജ്ഞാതം",
+	"cx-tools-reference-title": "അവലംബം",
+	"cx-tools-reference-remove": "അവലംബം നീക്കംചെയ്യുക",
+	"cx-tools-link-hover-tooltip": "തുറക്കാനായി ക്ലിക്കു ചെയ്യുക",
+	"cx-warning-unsaved-translation": "താങ്കൾക്ക് സേവ് ചെയ്യാത്ത പരിഭാഷകൾ ഉണ്ട്."
 }

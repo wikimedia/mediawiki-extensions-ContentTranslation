@@ -7,5 +7,6 @@
 	"cx": "Преведи страницу",
 	"cx-tools-link-add": "Додај везу",
 	"cx-stats-page-title": "Страница",
-	"cx-stats-from": "Изворни језик"
+	"cx-stats-from": "Изворни језик",
+	"cx-warning-unsaved-translation": "Имате несачуван превод"
 }

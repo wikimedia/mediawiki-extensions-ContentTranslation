@@ -48,5 +48,6 @@
 	"cx-tools-reference-title": "Навод",
 	"cx-tools-reference-remove": "Отстрани навод",
 	"cx-tools-link-instruction-shortcut": "Shift + стиснете на некоја врска за да ја отворите",
-	"cx-tools-link-hover-tooltip": "Стиснете за да отворите"
+	"cx-tools-link-hover-tooltip": "Стиснете за да отворите",
+	"cx-warning-unsaved-translation": "Имате незачуван превод"
 }
