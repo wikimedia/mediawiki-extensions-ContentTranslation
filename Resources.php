@@ -62,6 +62,7 @@ $wgResourceModules['ext.cx.source'] = array(
 	),
 	'styles' => array(
 		'source/styles/ext.cx.source.less',
+		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',

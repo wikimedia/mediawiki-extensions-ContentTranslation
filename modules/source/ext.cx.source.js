@@ -69,7 +69,7 @@
 	 * Render the source content column
 	 */
 	ContentTranslationSource.prototype.render = function () {
-		var $heading, $languageLabel, $articleLink, $subHeading, $loader, title;
+		var $languageLabel, $articleLink, $subHeading, title;
 
 		this.$container.prop( {
 			lang: mw.cx.sourceLanguage,
@@ -82,7 +82,7 @@
 			mw.cx.sourceTitle = title.getPrefixedText();
 		}
 
-		$heading = $( '<h2>' )
+		this.$title = $( '<h2>' )
 			.addClass( 'cx-column__title' )
 			.text( mw.cx.sourceTitle );
 
@@ -104,14 +104,11 @@
 			.addClass( 'cx-column__sub-heading' )
 			.append( $languageLabel, $articleLink );
 
-		$loader = $( '<div>' )
-			.addClass( 'cx-column__content' )
-			.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) );
+		this.$content = $( '<div>' )
+			.addClass( 'cx-column__content' );
 
-		this.$container.append( $heading, $subHeading, $loader );
-
-		this.$title = this.$container.find( '.cx-column__title' );
-		this.$content = this.$container.find( '.cx-column__content' );
+		this.$container.append( this.$title, $subHeading, this.$content );
+		this.showLoadingIndicator();
 	};
 
 	ContentTranslationSource.prototype.load = function () {
@@ -121,6 +118,23 @@
 		this.$content.find( 'base' ).detach();
 
 		mw.hook( 'mw.cx.source.ready' ).fire();
+	};
+
+	ContentTranslationSource.prototype.showLoadingIndicator = function () {
+		var $loadingIndicator, $loadingIndicatorText, $loadingIndicatorSpinner;
+		$loadingIndicator = $( '<div>' )
+			.addClass( 'cx-column__loading-indicator' );
+		$loadingIndicatorText = $( '<div>' )
+			.addClass( 'cx-column__loading-indicator--text' )
+			.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) );
+		$loadingIndicatorSpinner = $( '<div>' )
+			.addClass( 'cx-spinner' )
+			.append(
+				$( '<div>' ).addClass( 'bounce1' ),
+				$( '<div>' ).addClass( 'bounce2' ),
+				$( '<div>' ).addClass( 'bounce3' ) );
+		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
+		this.$content.append( $loadingIndicator );
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
