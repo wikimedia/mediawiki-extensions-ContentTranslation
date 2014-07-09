@@ -123,6 +123,19 @@
 	};
 
 	/**
+	 * Do machine translation
+	 * @param {string} sourceLang Source language
+	 * @param {string} targetLang Target language
+	 * @param {string} sourceText Content
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.mt = function ( sourceLang, targetLang, sourceText ) {
+		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
+			sourceLang + '/' + targetLang + '/' + encodeURIComponent( sourceText );
+		return $.get( mtURL );
+	};
+
+	/**
 	 * Update the translation section with the machine translation
 	 * @param {string} sourceId source section identifier
 	 */
@@ -142,15 +155,22 @@
 		);
 		$section = $( targetSectionId );
 
-		// For every segment, use MT as replacement
-		$section.find( '.cx-segment' ).each( function () {
-			var translation = mw.cx.data.mt && mw.cx.data.mt[ $( this ).data( 'segmentid' ) ];
-			if ( translation ) {
-				$( this ).html( translation );
-			}
+		// TODO to be moved to MT tool card
+		$section.each( function () {
+			var $section = $( this ),
+				sourceContent = $section[ 0 ].outerHTML;
+			mw.cx.mt( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
+				.done( function ( translation ) {
+					if ( translation ) {
+						$section.html( $( translation ).children().html() )
+							.trigger( 'input' )
+							.adaptLinks( mw.cx.targetLanguage );
+					}
+				} ).fail( function () {
+					$section.adaptLinks( mw.cx.targetLanguage )
+						.trigger( 'input' );
+				} );
 		} );
-		// Adapt the links
-		$section.adaptLinks( mw.cx.targetLanguage );
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 		$section.on( 'click', '[typeof="mw:Extension/ref"]', function () {
 			var $reference = $( this );
