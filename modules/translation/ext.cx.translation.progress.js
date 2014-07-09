@@ -38,7 +38,16 @@
 	/**
 	 * Calculate the translation progress
 	 */
-	function calculateProgress() {
+	function showProgress() {
+		var percentage = getTranslationProgress();
+		mw.hook( 'mw.cx.progress' ).fire( percentage );
+	}
+
+	/**
+	 * Calculate the translation progress
+	 * @return {float} percentage
+	 */
+	function getTranslationProgress() {
 		var completedTranslation = 0,
 			percentage;
 
@@ -47,7 +56,7 @@
 		} );
 		percentage = ( ( 1 + completedTranslation ) /
 			( 1 + getTotalSourceWeight() ) ) * 100;
-		mw.hook( 'mw.cx.progress' ).fire( percentage );
+		return percentage;
 	}
 
 	/**
@@ -72,10 +81,16 @@
 			$section.attr( 'data-cx-weight', sourceLength );
 		}
 		// Calculate the total translation progress
-		calculateProgress();
+		showProgress();
 	}
 
 	$( function () {
 		mw.hook( 'mw.cx.translation.change' ).add( onSectionUpdate );
+		window.onbeforeunload = function () {
+			// Check if progress is greater than 1%
+			if ( parseInt( getTranslationProgress(), 10 ) > 0 ) {
+				return mw.msg( 'cx-warning-unsaved-translation' );
+			}
+		};
 	} );
 }( jQuery, mediaWiki ) );

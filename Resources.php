@@ -97,6 +97,9 @@ $wgResourceModules['ext.cx.translation'] = array(
 
 $wgResourceModules['ext.cx.translation.progress'] = array(
 	'scripts' => 'translation/ext.cx.translation.progress.js',
+	'messages' => array(
+		'cx-warning-unsaved-translation',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tools.manager'] = array(
