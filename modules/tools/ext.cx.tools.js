@@ -37,7 +37,7 @@
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $search;
+		var $progressBar, $loadingIndicator, $search;
 
 		this.$searchBox = $( '<div>' )
 			.addClass( 'card search cx-tools--container' );
@@ -53,12 +53,24 @@
 				type: 'search'
 			} );
 		this.$searchBox.append( $search );
+		$loadingIndicator = getLoadingIndicator();
 		this.$container.append(
 			$progressBar,
 			this.$searchBox,
-			this.$toolsContainer
+			this.$toolsContainer,
+			$loadingIndicator
 		);
 	};
+
+	function getLoadingIndicator() {
+		return $( '<div>' )
+			.addClass( 'cx-spinner cx-tools__loading-indicator' )
+			.append(
+				$( '<div>' ).addClass( 'bounce1' ),
+				$( '<div>' ).addClass( 'bounce2' ),
+				$( '<div>' ).addClass( 'bounce3' ) )
+			.hide();
+	}
 
 	ContentTranslationTools.prototype.clearSearch = function () {
 		this.$searchBox.find( 'input' ).val( '' );

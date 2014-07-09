@@ -18,6 +18,8 @@
  * 1. getCard() - Return the jQuery object representing the DOM of the card
  * 2. start(data) - Takes the data given by events and start presenting the card
  * 3. stop()- Destroys the DOM of the card. End of the card instance.
+ *
+ * The tool need to fire an event mw.cx.tool.shown once the card is shown
  */
 ( function ( $, mw ) {
 	'use strict';
@@ -43,6 +45,7 @@
 	CXToolManager.prototype.init = function () {
 		var index, cxToolManager = this;
 
+		this.$loadingIndicator = $( '.cx-tools__loading-indicator' );
 		$.each( mw.cx.tools, function ( toolName, tool ) {
 			var events = tool.prototype.getTriggerEvents();
 			for ( index = 0; index < events.length; index++ ) {
@@ -90,6 +93,9 @@
 			);
 		}
 
+		mw.hook( 'mw.cx.tools.shown' ).add( function () {
+			cxToolManager.$loadingIndicator.hide();
+		} );
 		// Check if there are any cards shown in regular time intervals
 		// If not show the default tool
 		window.setInterval( function () {
@@ -116,6 +122,7 @@
 		if ( typeof data === 'string' ) {
 			data = new Array( data );
 		}
+		this.$loadingIndicator.show();
 		tool.start.apply( tool, data );
 		this.tools[ toolName ] = tool;
 		this.hideUnrelatedCards( toolName );

@@ -359,6 +359,7 @@
 			}
 			linkCard.$sourceLinkCard.show();
 			linkCard.$card.show();
+			linkCard.onShow();
 		} );
 	};
 
@@ -397,7 +398,12 @@
 			}
 			linkCard.$targetLinkCard.show();
 			linkCard.$card.show();
+			linkCard.onShow();
 		} );
+	};
+
+	LinkCard.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
 	/**
@@ -464,6 +470,7 @@
 
 	LinkCard.prototype.stop = function () {
 		this.$card.remove();
+		mw.hook( 'mw.cx.tools.shown' ).fire( false );
 	};
 
 	LinkCard.prototype.getTriggerEvents = function () {

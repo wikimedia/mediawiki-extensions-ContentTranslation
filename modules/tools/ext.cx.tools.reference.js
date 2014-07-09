@@ -55,6 +55,10 @@
 		return this.$card;
 	};
 
+	ReferenceCard.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
+	};
+
 	/**
 	 * Remove the reference
 	 */
@@ -72,6 +76,9 @@
 		this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
 	};
 
+	ReferenceCard.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
+	};
 	/**
 	 * Start presenting the reference card
 	 * @param {string} refNumber The reference number. Example: [4]
@@ -94,10 +101,12 @@
 		this.$card.find( '.card__title--language' )
 			.text( $.uls.data.getAutonym( language || mw.cx.sourceLanguage ) );
 		this.$card.find( 'a' ).attr( 'target', '_blank' );
+		this.onShow();
 	};
 
 	ReferenceCard.prototype.stop = function () {
 		this.$card.remove();
+		mw.hook( 'mw.cx.tools.shown' ).fire( false );
 	};
 
 	ReferenceCard.prototype.getTriggerEvents = function () {

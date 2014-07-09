@@ -117,6 +117,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 	),
 	'styles' => array(
 		'tools/styles/ext.cx.tools.less',
+		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
 		'ext.cx.progressbar',

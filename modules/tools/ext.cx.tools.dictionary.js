@@ -75,6 +75,10 @@
 		return $.get( dictUrl );
 	}
 
+	DictionaryCard.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
+	};
+
 	DictionaryCard.prototype.showResult = function ( response ) {
 		var i, $translaton;
 
@@ -92,6 +96,7 @@
 				this.stop();
 			}
 		}
+		this.onShow();
 	};
 
 	DictionaryCard.prototype.start = function ( word ) {
@@ -107,6 +112,7 @@
 
 	DictionaryCard.prototype.stop = function () {
 		this.$card.remove();
+		mw.hook( 'mw.cx.tools.shown' ).fire( false );
 	};
 
 	DictionaryCard.prototype.getTriggerEvents = function () {

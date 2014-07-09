@@ -79,7 +79,11 @@
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-tools-view-guidelines' ) )
-			);
+		);
+	};
+
+	InstructionsCard.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
 	InstructionsCard.prototype.getCard = function () {
@@ -88,10 +92,12 @@
 
 	InstructionsCard.prototype.start = function () {
 		this.$card.show();
+		this.onShow();
 	};
 
 	InstructionsCard.prototype.stop = function () {
 		this.$card.remove();
+		mw.hook( 'mw.cx.tools.shown' ).fire( false );
 	};
 
 	InstructionsCard.prototype.getTriggerEvents = function () {
