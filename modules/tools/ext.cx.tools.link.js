@@ -409,7 +409,7 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var title, linkCard = this;
+		var title, sourceTitle, linkCard = this;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
@@ -443,6 +443,12 @@
 
 		if ( language === mw.cx.targetLanguage ) {
 			linkCard.prepareTargetLinkCard( title, language );
+			sourceTitle = this.$link && this.$link.data( 'parsoid' ) &&
+				this.$link.data( 'parsoid' ).a.href;
+			if ( sourceTitle ) {
+				sourceTitle = cleanupLinkHref( sourceTitle );
+				linkCard.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+			}
 		} else {
 			// Adapt the title to the target language from source language
 			linkCard.adapt( title, mw.cx.targetLanguage ).done( function ( adaptations ) {
