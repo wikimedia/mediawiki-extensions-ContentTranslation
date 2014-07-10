@@ -175,12 +175,10 @@
 		} );
 
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
-		$section.on( 'click', '[typeof="mw:Extension/ref"]', function () {
-			var $reference = $( this );
-			mw.hook( 'mw.cx.select.reference' ).fire(
-				$reference.text(), $reference.data( 'mw' ), $reference, mw.cx.targetLanguage
-			);
-		} );
+
+		if ( $.fn.adaptReferences ) { // This is an experimental feature
+			$section.find( '[typeof="mw:Extension/ref"]' ).adaptReferences();
+		}
 
 		// Trigger input event so that the alignment will be correct
 		$section.on( 'input', $.debounce( 200, false, function () {

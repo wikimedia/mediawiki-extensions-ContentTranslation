@@ -117,16 +117,51 @@
 	};
 
 	/**
-	 * jQuery plugin to adapt all the references with rel="mw:WikiLink"
+	 * jQuery plugin to adapt all the references with rel="mw:Extension/references"
 	 */
 	$.fn.adaptReferences = function () {
 		return this.each( function () {
-			var $this = $( this );
+			var $reference = $( this ),
+				$referenceContent, referenceId,
+				mwData, adaptedData;
 
-			$this.on( 'click', '[typeof="mw:Extension/ref"]', function () {
+			// Click handler for references.
+			// TODO: This can be in a better place since
+			// this is not necessarily part of reference adaptation.
+			$reference.on( 'click', function () {
 				var $reference = $( this );
-				mw.hook( 'mw.cx.select.reference' ).fire( $reference.text(), $reference.data( 'mw' ), $reference );
+				mw.hook( 'mw.cx.select.reference' ).fire(
+					$reference.text(), $reference.data( 'mw' ), $reference, mw.cx.targetLanguage );
 			} );
+
+			// Reference adaptation.
+			// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
+			// We copy the data-mw that was adapted using the template configuration at
+			// ext.cx.source.filter.js#adaptTemplate to the $references' mwData.body.html
+			referenceId = $reference.prop( 'id' );
+			mwData = $reference.data( 'mw' );
+			if ( !mwData.body ) {
+				return;
+			}
+			$referenceContent = $( '<div>' ).html( mwData.body.html );
+			/*
+			Reference template expands in references section as below
+			<ol about="#mwt11" typeof="mw:Extension/references">
+				<li about="#cite_note-1" id="cite_note-1">
+					<span rel="mw:referencedBy">
+						<a href="#cite_ref-1-0">↑</a>
+					</span>
+					<span>Reference content html goes here</span>
+			</li>
+			*/
+			adaptedData = $( '[typeof="mw:Extension/references"]' )
+				.find( 'a[href="#' + referenceId + '"]' )
+				.parent()
+				.next()
+				.data( 'mw' );
+			$referenceContent.children().attr( 'data-mw', JSON.stringify( adaptedData ) );
+			mwData.body.html = $referenceContent.html();
+			$reference.attr( 'data-mw', JSON.stringify( mwData ) );
 		} );
 	};
 
