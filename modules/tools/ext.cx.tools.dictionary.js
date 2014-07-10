@@ -11,9 +11,15 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	/**
+	 * A plugin that adds text to an element,
+	 * converting explicit line endings to <br /> elements
+	 * @param {text} text
+	 */
 	$.fn.multiline = function ( text ) {
 		this.text( text );
-		this.html( this.html().replace( /\n/g, '<br/>' ) );
+		this.html( this.html().replace( /\n/g, '<br />' ) );
+
 		return this;
 	};
 
@@ -30,6 +36,7 @@
 
 		this.$card = $( '<div>' )
 			.addClass( 'card dictionary' );
+
 		$title = $( '<div>' )
 			.addClass( 'card__title' )
 			.text( mw.msg( 'cx-tools-dictionary-title' ) );
@@ -62,10 +69,15 @@
 		);
 	};
 
+	/**
+	 * Do the dictionary translation
+	 * @param {string} word The word to translate using a dictionary
+	 * @param {string} from Source language
+	 * @param {string} to Target language
+	 * @return {jQuery.Promise}
+	 */
 	function getTranslation( word, from, to ) {
-		var dictUrl;
-
-		dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
+		var dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
 			word + '/' + from + '/' + to;
 
 		return $.get( dictUrl );
@@ -92,14 +104,20 @@
 				this.stop();
 			}
 		}
+
 		this.onShow();
 	};
 
 	DictionaryCard.prototype.start = function ( word ) {
+		// Don't appear if there's nothing to translate
 		if ( word === '' ) {
 			this.stop();
+
 			return;
 		}
+
+		// Show the source word and get a translation,
+		// and don't appear if getting the translation fails
 		this.$card.find( '.card__headword' ).text( word );
 		getTranslation( word, mw.cx.sourceLanguage, mw.cx.targetLanguage )
 			.done( $.proxy( this.showResult, this ) )
