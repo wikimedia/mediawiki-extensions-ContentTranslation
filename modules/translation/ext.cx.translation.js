@@ -111,14 +111,13 @@
 			mw.hook( 'mw.cx.translation.change' ).fire( $( targetSectionId ) );
 			$( targetSectionId ).replaceWith( $placeholder );
 		} );
+
 		mw.hook( 'mw.cx.translation.change' ).add( keepAlignment );
-		this.$container.on( 'mouseenter', 'a', function () {
-			var linkid = $( this ).data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
-		} );
-		this.$container.on( 'mouseleave', 'a', function () {
-			var linkid = $( this ).data( 'linkid' );
-			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
+
+		// Highlight corresponding links in source and translation columns
+		this.$container.on( 'mouseenter mouseleave', 'a', function () {
+			$( '[data-linkid="' + $( this ).data( 'linkid' ) + '"]' )
+				.toggleClass( 'cx-highlight' );
 		} );
 	};
 
