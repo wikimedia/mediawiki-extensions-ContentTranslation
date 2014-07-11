@@ -36,6 +36,9 @@
 				templateName, templateFragments, templateConf;
 
 			mwData = $template.data( 'mw' );
+			if ( !mwData ) {
+				return;
+			}
 			templateName = mwData.parts[ 0 ].template.target.wt;
 			templateName = templateName.trim();
 			if ( configuration ) {
