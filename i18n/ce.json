@@ -32,7 +32,9 @@
 	"cx-stats-page-title": "АгӀо",
 	"cx-stats-from": "Коьрта мотт",
 	"cx-stats-to": "Коьрта мотт",
+	"cx-stats-pages-title": "Гочйина агӀонаш",
 	"cx-stats-unknown": "хууш дац",
+	"cx-stats-summary": "{{PLURAL:$1|Цхьа агӀо|$1/$2 агӀонаш ($3%)}} коьрта цӀерийн меттигехь.",
 	"cx-tools-link-instruction-shortcut": "Shift + дехкан кнопка таӀае хьажорг схьаелла",
 	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха"
 }

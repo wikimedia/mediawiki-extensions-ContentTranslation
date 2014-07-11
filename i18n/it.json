@@ -49,5 +49,6 @@
 	"cx-tools-reference-title": "Riferimento",
 	"cx-tools-reference-remove": "Rimuovi riferimento",
 	"cx-tools-link-instruction-shortcut": "Maiusc + clic su qualsiasi collegamento per aprirlo",
-	"cx-tools-link-hover-tooltip": "Clicca per aprire"
+	"cx-tools-link-hover-tooltip": "Clicca per aprire",
+	"cx-warning-unsaved-translation": "Ci sono traduzioni non salvate."
 }
