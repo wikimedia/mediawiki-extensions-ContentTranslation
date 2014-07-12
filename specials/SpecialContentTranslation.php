@@ -22,7 +22,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationServerURL;
+		global $wgContentTranslationServerURL, $wgContentTranslationExperimentalFeatures;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
@@ -32,6 +32,15 @@ class SpecialContentTranslation extends SpecialPage {
 		} else {
 			$out->addModuleStyles( 'mediawiki.ui.button' );
 			$out->addModules( 'ext.cx.base' );
+			if ( $wgContentTranslationExperimentalFeatures ) {
+				// WYSIWYGEditor
+				$out->addModules( 'ext.cx.editor.medium' );
+				// Reference card
+				$out->addModules( 'ext.cx.tools.reference' );
+			} else {
+				// Just ContentEditable
+				$out->addModules( 'ext.cx.editor' );
+			}
 			$this->setHeaders();
 			$out->setArticleBodyOnly( true );
 
