@@ -36,7 +36,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|Añade}} párrafos para traducir",
 	"cx-tools-instructions-text2": "No es necesario añadirlos todos",
 	"cx-tools-instructions-text3": "{{GENDER:|Haz}} que el texto suene natural",
-	"cx-tools-instructions-text4": "La traducción automática puede ser útil, pero hay que revisarla para eliminar errores y asegurar la exactitud.",
+	"cx-tools-instructions-text4": "La traducción automática puede ser útil, pero {{GENDER:|deberás}} revisarla para eliminar errores y asegurar la exactitud.",
 	"cx-tools-instructions-text5": "{{GENDER:|Publicar}} la traducción",
 	"cx-tools-instructions-text6": "Cuando estés {{GENDER:|contento|contenta}} con el resultado, presiona \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Buscar una palabra",

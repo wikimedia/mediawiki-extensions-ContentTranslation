@@ -46,6 +46,7 @@ $specialPageAliases['fa'] = array(
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'ContentTranslation' => array( 'תרגום_תוכן' ),
+	'ContentTranslationStats' => array( 'סטטיסטיקות_תרגום_תוכן' ),
 );
 
 /** Upper Sorbian (hornjoserbsce) */

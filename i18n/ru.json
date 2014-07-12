@@ -49,5 +49,6 @@
 	"cx-tools-reference-title": "Примечание",
 	"cx-tools-reference-remove": "Удалить примечание",
 	"cx-tools-link-instruction-shortcut": "Shift + щелчок мыши на любой ссылке, чтобы открыть её",
-	"cx-tools-link-hover-tooltip": "Щелкните, чтобы открыть"
+	"cx-tools-link-hover-tooltip": "Щелкните, чтобы открыть",
+	"cx-warning-unsaved-translation": "У вас есть несохранённый перевод."
 }

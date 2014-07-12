@@ -19,9 +19,10 @@
 	"cx-tools-instructions-text1": "Çeviriye paragraf ekleyin.",
 	"cx-tools-instructions-text2": "Kaliteden emin olmak için sağlanan otomatik çevirileri uyarlayın",
 	"cx-tools-instructions-text3": "Makina çevirisi çeviriler için kullanışlı bir başlangıç noktasıdır, ancak çevirmenler gerektiğinde hataları gözden geçirmeli ve çevirinin doğru olduğunu onaylamalıdır.",
-	"cx-tools-instructions-text4": "Güvenilir olmayan ya da düşük kalite bir metni çevirmeyin. Eğer mümkünse, metni kaynak sayfasında sağlanan referanslarla doğrulayın.",
+	"cx-tools-instructions-text4": "Otomatik çeviriler kullanışlıdır ancak doğruluk için hataları gözden geçirmeniz gerekir.",
 	"cx-tools-instructions-text5": "Sonuçtan memnunsanız, yeni sayfa oluşturmak için  {{int:cx-publish-button}} düğmesine tıklayın.",
 	"cx-tools-searchbox-text": "Bir kelime ara",
 	"cx-tools-link-add": "Bağlantı ekle",
-	"cx-tools-link-remove": "Bağlantıyı kaldır"
+	"cx-tools-link-remove": "Bağlantıyı kaldır",
+	"cx-tools-link-hover-tooltip": "Açmak için tıklayın"
 }
