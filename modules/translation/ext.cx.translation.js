@@ -139,25 +139,26 @@
 	 * @param {string} sourceId source section identifier
 	 */
 	ContentTranslationEditor.prototype.update = function ( sourceId ) {
-		var targetSectionId, $section, $sourceSection;
+		var $sourceSection, targetSectionId, $section;
 
 		$sourceSection = $( '#' + sourceId );
 		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
 		$section = $( targetSectionId );
+
 		// Replace the placeholder with the source section
-		$section.replaceWith( $( '#' + sourceId )
+		$section.replaceWith( $sourceSection
 			.clone()
 			.attr( {
 				id: 'cx' + sourceId,
 				'data-source': sourceId
 			} )
 		);
-		$section = $( targetSectionId );
 
 		// TODO to be moved to MT tool card
 		$section.each( function () {
 			var $section = $( this ),
 				sourceContent = $section[ 0 ].outerHTML;
+
 			mw.cx.mt( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
 				.done( function ( translation ) {
 					if ( translation ) {
@@ -170,6 +171,7 @@
 						.trigger( 'input' );
 				} );
 		} );
+
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 		$section.on( 'click', '[typeof="mw:Extension/ref"]', function () {
 			var $reference = $( this );
@@ -177,11 +179,13 @@
 				$reference.text(), $reference.data( 'mw' ), $reference, mw.cx.targetLanguage
 			);
 		} );
-		// Trigger input event so that the alignemnt is right.
+
+		// Trigger input event so that the alignment will be correct
 		$section.on( 'input', $.debounce( 200, false, function () {
 			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
 		} ) );
-		// If the section is editable, initiate an editor
+
+		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates
 		if ( $sourceSection.data( 'editable' ) === false ) {
 			$section.removeAttr( 'contenteditable' );
