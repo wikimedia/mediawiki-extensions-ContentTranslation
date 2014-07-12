@@ -154,6 +154,8 @@
 			} )
 		);
 
+		// $section was replaced. Get the updated instance.
+		$section = $( targetSectionId );
 		// TODO to be moved to MT tool card
 		$section.each( function () {
 			var $section = $( this ),
