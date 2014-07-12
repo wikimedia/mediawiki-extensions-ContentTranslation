@@ -22,7 +22,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationServerURL, $wgContentTranslationExperimentalFeatures;
+		global $wgContentTranslationExperimentalFeatures;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
