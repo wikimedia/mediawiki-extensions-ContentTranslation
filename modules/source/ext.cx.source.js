@@ -19,7 +19,12 @@
 	 *     identify the host wiki.
 	 */
 	mw.cx.fetchPage = function ( title, language ) {
-		$.get( mw.config.get( 'wgContentTranslationServerURL' ) + '/page/' + language + '/' + title )
+		var fetchPageUrl;
+
+		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
+			'/page/' + language + '/' + title;
+
+		$.get( fetchPageUrl )
 			.done( function ( response ) {
 				mw.cx.data = response;
 				mw.hook( 'mw.cx.source.loaded' ).fire();
@@ -79,7 +84,7 @@
 	}
 
 	/**
-	 * Render the source content column
+	 * Render the source content column.
 	 */
 	ContentTranslationSource.prototype.render = function () {
 		var $languageLabel, $articleLink, $subHeading, title;
@@ -135,6 +140,7 @@
 
 	ContentTranslationSource.prototype.showLoadingIndicator = function () {
 		var $loadingIndicator, $loadingIndicatorText, $loadingIndicatorSpinner;
+
 		$loadingIndicator = $( '<div>' )
 			.addClass( 'cx-column__loading-indicator' );
 		$loadingIndicatorText = $( '<div>' )
@@ -145,7 +151,9 @@
 			.append(
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' ) );
+				$( '<div>' ).addClass( 'bounce3' )
+			);
+
 		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
 		this.$content.append( $loadingIndicator );
 	};
@@ -160,36 +168,44 @@
 		} );
 
 		this.$content.on( 'click', 'a', function ( e ) {
-			var $link = $( this ),
-				url;
+			var url,
+				$link = $( this );
+
 			// Allow link exploration
 			if ( e.shiftKey || e.ctrlKey ) {
 				url = '//' + mw.cx.sourceLanguage + '.wikipedia.org/wiki/' + $link.attr( 'href' );
 				window.open( url, '_blank' );
+
 				return false;
 			}
-			// avoid all reference links
+
+			// Avoid all reference links
 			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
 				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
 			} else {
 				mw.hook( 'mw.cx.select.reference' ).fire( $link.text(), $link.parent().data( 'mw' ) );
 			}
+
 			// Disable link click
 			return false;
 		} );
 		this.$content.on( 'mouseenter', 'a', function ( e ) {
 			var $link = $( this ),
 				linkid = $( this ).data( 'linkid' );
+
 			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
+
 			if ( e.shiftKey || e.ctrlKey ) {
 				$link
 					.addClass( 'cx-highlight--blue' )
 					.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
 			}
 		} );
+
 		this.$content.on( 'mouseleave', 'a', function () {
 			var $link = $( this ),
 				linkid = $link.data( 'linkid' );
+
 			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
 			$link.removeClass( 'cx-highlight--blue' );
 		} );
