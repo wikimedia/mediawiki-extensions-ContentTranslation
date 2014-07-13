@@ -25,7 +25,8 @@
 	}
 
 	ContentTranslationEditor.prototype.init = function () {
-		var title, uri = new mw.Uri();
+		var title,
+			uri = new mw.Uri();
 
 		mw.cx.targetTitle = uri.query.targettitle || uri.query.page;
 
@@ -79,10 +80,7 @@
 			this.$container.append( $subHeading );
 		}
 
-		// Why is this needed??
-		$content = $( '<div>' )
-			.addClass( 'cx-column__content' )
-			.html( '\n' ); // Make sure that it's visible to the tests
+		$content = $( '<div>' ).addClass( 'cx-column__content' );
 
 		this.$container.append( $content );
 		mw.hook( 'mw.cx.translation.change' ).fire();
@@ -127,7 +125,7 @@
 	};
 
 	/**
-	 * Post-process the section after MT is applied
+	 * Post-process the section after MT is applied.
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
@@ -174,12 +172,15 @@
 		mw.hook( 'mw.cx.translation.updated' ).fire();
 	};
 
-	/*
-	 * Update the translation section with the machine translation template
+	/**
+	 * Update the translation section with the machine translation template.
 	 * @param {string} sourceId source section identifier
 	 * @param {boolean} machineTranslate Whether machine translation to be used or not
 	 */
-	ContentTranslationEditor.prototype.applyTranslationTemplate = function ( sourceId, machineTranslate ) {
+	ContentTranslationEditor.prototype.applyTranslationTemplate = function (
+		sourceId,
+		machineTranslate
+	) {
 		var $sourceSection, targetSectionId, $section;
 
 		$sourceSection = $( '#' + sourceId );
@@ -247,7 +248,7 @@
 	}
 
 	/**
-	 * Return a valid jquery selector for the given id after escaping
+	 * Return a valid jQuery selector for the given id after escaping.
 	 * @param {string} id
 	 * @param {string} [prefix] id prefix
 	 */
@@ -319,7 +320,7 @@
 	};
 
 	/**
-	 * Get a placeholder div for the given source section
+	 * Get a placeholder div for the given source section.
 	 * @param {string} sourceSectionId
 	 * @return {jQuery} The placeholder jQuery object
 	 */
@@ -335,7 +336,7 @@
 				'data-source': sourceSectionId
 			} )
 			.css( {
-				// Copy a bunch of position related attribute values
+				// Copy a bunch of position-related attribute values
 				'min-height': $sourceSection.outerHeight(),
 				width: $sourceSection.width(),
 				'margin-top': $sourceSection.css( 'margin-top' ),
@@ -350,7 +351,7 @@
 
 	/**
 	 * Keep the height of the source and translation sections equal
-	 * so that they will appear top aligned.
+	 * so that they will appear top-aligned.
 	 */
 	function keepAlignment( $section ) {
 		var $sourceSection, sectionHeight, sourceSectionHeight, steps = 0;
@@ -365,10 +366,12 @@
 		}
 
 		$sourceSection = $( '#' + $section.data( 'source' ) );
+
 		if ( $section.prop( 'tagName' ) === 'FIGURE' ) {
 			$sourceSection = $sourceSection.find( 'figcaption' );
 			$section = $section.find( 'figcaption' );
 		}
+
 		$sourceSection.css( 'min-height', '' );
 		sourceSectionHeight = $sourceSection.height();
 		sectionHeight = $section.height();
@@ -379,8 +382,8 @@
 			sectionHeight = $section.height();
 
 			// Fun stuff - setting a calculated min-height will not guarantee
-			// equal height for all kind of section pairs.
-			// Experiments shows a few pixels difference
+			// equal height for all kinds of section pairs.
+			// Experiments shows a few pixels difference.
 			// Here we do it by 10px steps till we reach equal height.
 			while ( sectionHeight !== sourceSectionHeight ) {
 				sectionHeight = sectionHeight + 10;
@@ -388,6 +391,7 @@
 				$section.css( 'min-height', sectionHeight );
 				sectionHeight = $section.height();
 				sourceSectionHeight = $sourceSection.height();
+
 				if ( steps++ === 10 ) {
 					mw.track( 'Alignment attempt is not succeeding. Aborting.' );
 					break;
