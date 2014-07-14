@@ -49,15 +49,14 @@
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 		publishTranslation( translatedTitle, translatedContent, mw.cx.sourceTitle )
 			.done( function () {
-				mw.notify( $( '<p>' ).html( mw.message( 'cx-publish-page',
-					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() ) );
-
+				mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page',
+					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() );
 				mw.hook( 'mw.cx.translate.create' ).fire(
 					mw.cx.sourceLanguage,
 					mw.cx.targetLanguage
 				);
 			} ).fail( function () {
-				mw.notify( mw.msg( 'cx-publish-page-error' ) );
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 			} ).always( function () {
 				$publishButton.prop( 'disabled', false )
 					.text( mw.msg( 'cx-publish-button' ) );
