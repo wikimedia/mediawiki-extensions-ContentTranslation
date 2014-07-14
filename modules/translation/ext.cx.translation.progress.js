@@ -49,13 +49,17 @@
 	 */
 	function getTranslationProgress() {
 		var completedTranslation = 0,
+			sourceWeight,
 			percentage;
 
 		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
 			completedTranslation += $( this ).data( 'cx-weight' );
 		} );
-		percentage = ( ( 1 + completedTranslation ) /
-			( 1 + getTotalSourceWeight() ) ) * 100;
+		sourceWeight = getTotalSourceWeight();
+		if ( sourceWeight === 0 ) {
+			return 0;
+		}
+		percentage = ( completedTranslation / sourceWeight ) * 100;
 		return percentage;
 	}
 
