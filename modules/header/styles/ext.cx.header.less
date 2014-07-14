@@ -44,9 +44,24 @@
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 10px;
-	color: #f00;
+	background-color: #F7D358;
 	border-bottom: 1px solid #ddd;
 	font-size: large;
+	.remove {
+		@vertical-margin: 10px;
+		@horizontal-margin: 15px;
+		float: right;
+		padding: @vertical-margin @horizontal-margin;
+		/* @embed */
+		background: url(../images/clear.png) no-repeat scroll 10px center;
+		/* @embed */
+		background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
+		/* @embed */
+		background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
+		background-size: 15px;
+		cursor: pointer;
+		clear: both;
+	}
 }
 
 .cx-header__publish {
