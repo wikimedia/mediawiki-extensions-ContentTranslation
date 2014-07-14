@@ -40,9 +40,24 @@
 	 * Show error message
 	 * @param {string} message
 	 */
+	ContentTranslationHeader.prototype.showSuccess = function ( message ) {
+		this.$infoBar
+			.show()
+			.removeClass( 'cx-error' )
+			.addClass( 'cx-success' )
+			.find( '.text' )
+			.html( message );
+	};
+
+	/**
+	 * Show error message
+	 * @param {string} message
+	 */
 	ContentTranslationHeader.prototype.showError = function ( message ) {
 		this.$infoBar
 			.show()
+			.removeClass( 'cx-success' )
+			.addClass( 'cx-error' )
 			.find( '.text' )
 			.text( message );
 	};
@@ -57,6 +72,7 @@
 		} );
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
 		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
+		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {
