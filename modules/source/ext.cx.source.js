@@ -23,10 +23,14 @@
 			.done( function ( response ) {
 				mw.cx.data = response;
 				mw.hook( 'mw.cx.source.loaded' ).fire();
-			} ).fail( function () {
-				$( '.cx-header__infobar' )
-					.text( mw.msg( 'cx-error-server-connection' ) )
-					.show();
+			} ).fail( function ( xhr ) {
+				if ( xhr.status === 404 ) {
+					mw.hook( 'mw.cx.error' ).fire(
+						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
+					);
+				} else {
+					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+				}
 			} );
 	};
 

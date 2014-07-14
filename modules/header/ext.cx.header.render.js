@@ -13,7 +13,7 @@
 
 	mw.cx.ContentTranslationHeader.prototype.render = function () {
 		var $logo, $userName, $userDetails, $headerBar,
-			$translationCenterLink, $translationCenter, $infoBar;
+			$translationCenterLink, $translationCenter;
 
 		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
 
@@ -43,12 +43,14 @@
 			.addClass( 'cx-header__bar' )
 			.append( $translationCenter, this.$publishButton );
 
-		$infoBar = $( '<div>' )
+		this.$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
+			.append( $( '<span>' ).addClass( 'text' ) )
+			.append( $( '<span>' ).addClass( 'remove' ) )
 			.hide();
 
 		this.$container
 			.addClass( 'cx-header' )
-			.append( $logo, $userDetails, $headerBar, $infoBar );
+			.append( $logo, $userDetails, $headerBar, this.$infoBar );
 	};
 }( jQuery, mediaWiki ) );

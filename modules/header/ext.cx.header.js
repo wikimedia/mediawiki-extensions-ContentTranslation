@@ -36,11 +36,27 @@
 		this.$publishButton.prop( 'disabled', parseInt( progress, 10 ) === 0 );
 	};
 
+	/**
+	 * Show error message
+	 * @param {string} message
+	 */
+	ContentTranslationHeader.prototype.showError = function ( message ) {
+		this.$infoBar
+			.show()
+			.find( '.text' )
+			.text( message );
+	};
+
 	ContentTranslationHeader.prototype.listen = function () {
 		this.$container.find( '.publish' ).on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
+		// Click hander for remove icon in info bar.
+		this.$infoBar.find( '.remove' ).click( function () {
+			$( this ).parent().hide();
+		} );
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
+		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {

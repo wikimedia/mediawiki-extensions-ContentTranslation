@@ -61,5 +61,6 @@
 	"cx-tools-reference-remove": "Remove reference",
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
 	"cx-tools-link-hover-tooltip": "Click to open",
-	"cx-warning-unsaved-translation": "You have unsaved translation."
+	"cx-warning-unsaved-translation": "You have unsaved translation.",
+	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia"
 }
