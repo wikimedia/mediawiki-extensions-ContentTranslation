@@ -62,5 +62,9 @@
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
 	"cx-tools-link-hover-tooltip": "Click to open",
 	"cx-warning-unsaved-translation": "You have unsaved translation.",
-	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia"
+	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia",
+	"cx-sourceselector-dialog-new-translation": "New translation",
+	"cx-sourceselector-dialog-button-create-translation": "Create translation",
+	"cx-sourceselector-dialog-source-language-label": "From:",
+	"cx-sourceselector-dialog-target-language-label": "To:"
 }
