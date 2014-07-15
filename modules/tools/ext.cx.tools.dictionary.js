@@ -88,14 +88,14 @@
 	};
 
 	DictionaryCard.prototype.showResult = function ( response ) {
-		var i, $translaton;
+		var i, $translation;
 
 		if ( response.translations && response.translations.length ) {
 			for ( i = 0; i < response.translations.length; i++ ) {
-				$translaton = $( '<div>' )
+				$translation = $( '<div>' )
 					.addClass( 'card__translation' )
 					.text( response.translations[ i ].phrase );
-				this.$translationsBlock.append( $translaton );
+				this.$translationsBlock.append( $translation );
 			}
 		} else {
 			if ( response.freetext && response.freetext.length ) {
