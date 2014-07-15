@@ -277,7 +277,14 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.publish'] = array(
-	'scripts' => 'translation/ext.cx.publish.js',
+	'scripts' => array(
+		'translation/ext.cx.publish.js',
+		'translation/ext.cx.publish.captcha.js',
+	),
+	'styles' => array(
+		'base/styles/ext.cx.callout.less',
+		'translation/styles/ext.cx.publish.less',
+	),
 	'dependencies' => array(
 		'ext.cx.model',
 		'json',
@@ -288,6 +295,7 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'cx-publish-page',
 		'cx-publish-page-error',
 		'cx-publish-button-publishing',
+		'cx-publish-captcha-title',
 	),
 ) + $resourcePaths;
 

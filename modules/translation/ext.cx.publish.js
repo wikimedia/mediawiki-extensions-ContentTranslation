@@ -33,7 +33,11 @@
 		return $translatedContent.html();
 	}
 
-	mw.cx.publish = function () {
+	/**
+	 * Publish the translation
+	 * @param {Object} [params] Additional parameters for save API. Example: Captcha params
+	 */
+	mw.cx.publish = function ( params ) {
 		var translatedTitle, translatedContent, $publishButton;
 
 		$publishButton = $( '.cx-header__publish' );
@@ -48,8 +52,16 @@
 
 		// To be saved under User:UserName
 		translatedTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
-		publishTranslation( translatedTitle, translatedContent, mw.cx.sourceTitle )
-			.done( function () {
+		publishTranslation( translatedTitle, translatedContent, mw.cx.sourceTitle, params )
+			.done( function ( response ) {
+				if ( response.cxpublish.result === 'error' ) {
+					if ( response.cxpublish.edit.captcha ) {
+						mw.hook( 'mw.cx.publish.captcha' ).fire( response.cxpublish.edit.captcha );
+					} else {
+						mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
+					}
+					return;
+				}
 				mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page',
 					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() );
 				mw.hook( 'mw.cx.translate.create' ).fire(
@@ -68,18 +80,26 @@
 	 * @param {string} title
 	 * @param {string} content
 	 * @param {string} sourceTitle
+	 * @param {Object} [params] Additional parameters for save API. Example: Captcha params
 	 */
-	function publishTranslation( title, content, sourceTitle ) {
-		var api = new mw.Api();
+	function publishTranslation( title, content, sourceTitle, params ) {
+		var api = new mw.Api(),
+			apiParams;
 
-		return api.postWithToken( 'edit', {
+		apiParams = {
 			action: 'cxpublish',
 			title: title,
 			html: content,
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			sourcetitle: sourceTitle
-		}, {
+		};
+
+		if ( params ) {
+			$.extend( apiParams, params );
+		}
+
+		return api.postWithToken( 'edit', apiParams, {
 			// A bigger timeout since publishing after converting html to wikitext
 			// parsoid is not a fast operation.
 			timeout: 100 * 1000 // in milliseconds

@@ -141,6 +141,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			'sourcetitle' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'wpCaptchaId'=> null,
+			'wpCaptchaWord' => null,
 		);
 	}
 
@@ -168,6 +170,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			'from' => 'The source language code.',
 			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
+			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',
+			'wpCaptchaWord' => 'Answer to the captcha (when saving with a captcha response).',
 		);
 	}
 

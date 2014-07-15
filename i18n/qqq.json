@@ -69,5 +69,6 @@
 	"cx-warning-unsaved-translation": "Warning message shown when user tried to navigate away when translation is not saved.",
 	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name",
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
-	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse."
+	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
+	"cx-publish-captcha-title": "Title of captcha form while publishing the translation"
 }

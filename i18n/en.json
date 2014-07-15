@@ -69,5 +69,6 @@
 	"cx-sourceselector-dialog-source-language-label": "From:",
 	"cx-sourceselector-dialog-target-language-label": "To:",
 	"cx-mt-abuse-warning-title": "Your translation contains $1% of unmodified text",
-	"cx-mt-abuse-warning-text": "Machine translations are provided as a template. You need to make sure that content reads naturally in your language and is accurate."
+	"cx-mt-abuse-warning-text": "Machine translations are provided as a template. You need to make sure that content reads naturally in your language and is accurate.",
+	"cx-publish-captcha-title": "Security question"
 }
