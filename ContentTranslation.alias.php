@@ -20,11 +20,13 @@ $specialPageAliases['en'] = array(
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = array(
 	'ContentTranslation' => array( 'ترجمة_المحتوى' ),
+	'ContentTranslationStats' => array( 'إحصاءات_ترجمة_المحتوى' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'ContentTranslation' => array( 'ترجمه_المحتوى' ),
+	'ContentTranslationStats' => array( 'احصاءات_ترجمه_المحتوى' ),
 );
 
 /** German (Deutsch) */

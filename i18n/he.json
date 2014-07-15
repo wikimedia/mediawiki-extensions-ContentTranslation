@@ -19,6 +19,15 @@
 	"cx-publish-button": "פרסום התרגום",
 	"cx-publish-button-publishing": "התרגום מתפרסם...",
 	"cx-publish-summary": "יצירה באמצעות תרגום הדף \"$1\"",
+	"cx-publish-gt-no-permission-to-move-description": "נא לבקש ממשתמש מנוסה של האתר לעזור לך לסקור את התרגום שלך ולפרסם אותו במרחב הערכים.",
+	"cx-publish-gt-first-step-title": "התרגום פורסם בתור טיוטה לסקירה תחת דף המשתמש שלך",
+	"cx-publish-gt-first-step-description": "יש ללחוץ על הפעולה \"{{int:vector-action-move}}\" תחת התפריט הזה כדי להנגיש את התוכן הזה לכל המשתמשים בתור דף רגיל.",
+	"cx-publish-gt-move-page-title": "העברת הדף",
+	"cx-publish-gt-move-page-description": "נא לבחור את המרחב הראשי (מרחב הערכים) ולתת לדף את השם המתאים.",
+	"cx-publish-gt-moved-title": "הדף המתורגם הועבר",
+	"cx-publish-gt-moved-description": "יש ללחוץ על הקישור הזה כדי לקרוא ולשפר את הדף המתורגם החדש שלך",
+	"cx-publish-gt-published-title": "ברכות, הדף פורםס",
+	"cx-publish-gt-published-description": "אפשר ללחוץ על \"{{int:vector-view-edit}}\" כדי להמשיך לשפר את הדף. נא לוודא שהוא קריא וטבעי.",
 	"cx-translation-add-translation": "+ הוספת תרגום",
 	"tag-contenttranslation": "תרגום תוכן",
 	"cx-source-loading": "טעינת $1",
@@ -53,5 +62,6 @@
 	"cx-tools-reference-remove": "הסרת הערת שוליים",
 	"cx-tools-link-instruction-shortcut": "יש ללחוץ על קישור עם שיפט כדי לפתוח אותו",
 	"cx-tools-link-hover-tooltip": "ללחוץ לפתיחה",
-	"cx-warning-unsaved-translation": "יש לך תרגום שלא נשמר."
+	"cx-warning-unsaved-translation": "יש לך תרגום שלא נשמר.",
+	"cx-error-page-not-found": "הדף \"$1\" לא נמצא בוויקיפדיה ב{{GRAMMAR:תחילית|$2}}"
 }

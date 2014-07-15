@@ -54,5 +54,6 @@
 	"cx-stats-summary": "{{PLURAL:$1|Una página|$1/$2 páginas ($3%)}} en el espacio de nombres principal.",
 	"cx-tools-reference-title": "Referencia",
 	"cx-tools-reference-remove": "Eliminar referencia",
-	"cx-tools-link-hover-tooltip": "Pulsa para abrir"
+	"cx-tools-link-hover-tooltip": "Pulsa para abrir",
+	"cx-error-page-not-found": "La página «$1» no se encuentra en la Wikipedia en $2"
 }

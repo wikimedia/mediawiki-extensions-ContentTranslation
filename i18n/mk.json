@@ -20,6 +20,10 @@
 	"cx-publish-gt-first-step-description": "Стиснете на дејството „{{int:vector-action-move}}“ под ова мени за да ја објавите содржината како видлива за сите корисници на нормалната страница.",
 	"cx-publish-gt-move-page-title": "Премести ја страницата",
 	"cx-publish-gt-move-page-description": "Одберете го именскиот ппростор „(главен)“ и дајте му го исправниот назив.",
+	"cx-publish-gt-moved-title": "Преведената страница е преместена",
+	"cx-publish-gt-moved-description": "Стиснете на врската за да ја прочирате и подобрите новопреведената страница",
+	"cx-publish-gt-published-title": "Честитаме! Страницата е објавена.",
+	"cx-publish-gt-published-description": "Можете да стиснете на „{{int:vector-view-edit}}“ за да продолжите со подобрување на страницата. Потрудете се текстот да тече природно.",
 	"cx-translation-add-translation": "+ Додај превод",
 	"tag-contenttranslation": "ПреводНаСодржина",
 	"cx-source-loading": "Го вчитувам $1",
@@ -54,5 +58,6 @@
 	"cx-tools-reference-remove": "Отстрани навод",
 	"cx-tools-link-instruction-shortcut": "Shift + стиснете на некоја врска за да ја отворите",
 	"cx-tools-link-hover-tooltip": "Стиснете за да отворите",
-	"cx-warning-unsaved-translation": "Имате незачуван превод"
+	"cx-warning-unsaved-translation": "Имате незачуван превод",
+	"cx-error-page-not-found": "Не можев да ја најдам страницата „$1“ на Википедија на $2"
 }

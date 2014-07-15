@@ -62,5 +62,6 @@
 	"cx-tools-reference-remove": "Supprimer la référence",
 	"cx-tools-link-instruction-shortcut": "Shift + clic un lien pour l’ouvrir",
 	"cx-tools-link-hover-tooltip": "Cliquer pour ouvrir",
-	"cx-warning-unsaved-translation": "Vous avez une traduction non enregistrée."
+	"cx-warning-unsaved-translation": "Vous avez une traduction non enregistrée.",
+	"cx-error-page-not-found": "La page « $1 » n’a pas été trouvée sur Wikipédia en $2"
 }

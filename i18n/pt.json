@@ -18,6 +18,11 @@
 	"cx-publish-button": "Publicar tradução",
 	"cx-publish-button-publishing": "A publicar...",
 	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",
+	"cx-publish-gt-move-page-title": "Mover página",
+	"cx-publish-gt-moved-title": "A página traduzida foi movida",
+	"cx-publish-gt-moved-description": "Clique nesta ligação para ler e melhorar a sua nova página traduzida",
+	"cx-publish-gt-published-title": "Parabéns, a página foi publicada",
+	"cx-publish-gt-published-description": "Pode clicar em \"{{int:vector-view-edit}}\" para continuar a melhorar a página. Certifique-se que a sua leitura é fluida.",
 	"cx-translation-add-translation": "+ Adicionar tradução",
 	"tag-contenttranslation": "ContentTranslation",
 	"cx-source-loading": "A carregar $1",
@@ -51,5 +56,6 @@
 	"cx-tools-reference-remove": "Remover referência",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
 	"cx-tools-link-hover-tooltip": "Clique para abrir",
-	"cx-warning-unsaved-translation": "Não gravou a tradução."
+	"cx-warning-unsaved-translation": "Não gravou a tradução.",
+	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2"
 }

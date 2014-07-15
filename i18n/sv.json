@@ -17,6 +17,8 @@
 	"cx-publish-button": "Publicera översättningen",
 	"cx-publish-button-publishing": "Publicerar...",
 	"cx-publish-summary": "Skapad genom översättning av \"$1\"",
+	"cx-publish-gt-move-page-title": "Flytta sidan",
+	"cx-publish-gt-moved-title": "Den översatta sidan flyttades",
 	"cx-translation-add-translation": "+ Lägg till översättning",
 	"tag-contenttranslation": "Innehållsöversättning",
 	"cx-source-loading": "Läser in $1",
