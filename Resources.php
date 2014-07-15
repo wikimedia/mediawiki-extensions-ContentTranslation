@@ -53,6 +53,8 @@ $wgResourceModules['ext.cx.header'] = array(
 		'cx-error-page-not-found',
 		'cx-header-translation-center',
 		'cx-publish-button',
+		'cx-special-login-error',
+		'login',
 	),
 ) + $resourcePaths;
 

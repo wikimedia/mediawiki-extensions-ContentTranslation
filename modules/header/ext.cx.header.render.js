@@ -12,19 +12,19 @@
 	'use strict';
 
 	mw.cx.ContentTranslationHeader.prototype.render = function () {
-		var $logo, $userName, $userDetails, $headerBar,
+		var $logo, $userDetails, $headerBar,
 			$translationCenterLink, $translationCenter;
 
 		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
 
-		$userName = $( '<a>' )
+		this.$userName = $( '<a>' )
 			.addClass( 'cx-header__user-details__user-name' )
 			.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
 			.text( mw.user.getName() );
 
 		$userDetails = $( '<div>' )
 			.addClass( 'cx-header__user-details' )
-			.append( $userName );
+			.append( this.$userName );
 
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
