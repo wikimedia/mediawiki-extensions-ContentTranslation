@@ -151,6 +151,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.link',
 		'ext.cx.tools.images',
 		'ext.cx.tools.mtabuse',
+		'ext.cx.tools.mt',
 	),
 ) + $resourcePaths;
 
@@ -236,6 +237,33 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 		'ext.cx.tools.card',
 		'jquery.uls.data',
 		'mediawiki.Title',
+	),
+) + $resourcePaths;
+
+// TODO
+$wgResourceModules['ext.cx.tools.mt'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.mt.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.mt.less',
+	),
+	'messages' => array(
+		'cx-tools-mt-title',
+		'cx-tools-mt-use-source',
+		'cx-tools-mt-clear-translation',
+		'cx-tools-mt-restore',
+		'cx-tools-mt-from-provider',
+		'cx-tools-mt-not-available',
+		'cx-tools-mt-dont-use',
+		'cx-tools-mt-use-other-language',
+	),
+	'dependencies' => array(
+		'ext.cx.model',
+		'ext.cx.source',
+		'ext.cx.translation',
+		'ext.cx.tools.manager',
+		'ext.cx.tools.card',
 	),
 ) + $resourcePaths;
 
