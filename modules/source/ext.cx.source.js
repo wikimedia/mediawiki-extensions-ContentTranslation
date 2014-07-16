@@ -28,6 +28,7 @@
 					mw.hook( 'mw.cx.error' ).fire(
 						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
 					);
+					mw.hook( 'mw.cx.source.select' ).fire();
 				} else {
 					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 				}
@@ -49,6 +50,10 @@
 
 	ContentTranslationSource.prototype.init = function () {
 		mw.cx.sourceTitle = new mw.Uri().query.page;
+		if ( !mw.cx.sourceTitle ) {
+			mw.hook( 'mw.cx.source.select' ).fire();
+			return;
+		}
 		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
 		mw.cx.sourceLanguage = new mw.Uri().query.from || mw.config.get( 'wgContentLanguage' );
 		this.render();
@@ -147,7 +152,6 @@
 
 	ContentTranslationSource.prototype.listen = function () {
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
-
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection ) {

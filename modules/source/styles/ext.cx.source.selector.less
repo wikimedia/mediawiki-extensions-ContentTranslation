@@ -1,0 +1,79 @@
+@import "../../base/styles/grid/agora-grid";
+
+.hidden {
+	display: none;
+}
+
+.cx-sourceselector-dialog {
+	.mw-ui-grid;
+	.mw-ui-one-third;
+	color: #333;
+	position: absolute;
+	min-width: 500px;
+	max-width: 700px;
+	background: white;
+	border: 1px solid #ccc;
+	border-bottom-width: 3px;
+	border-radius: 3px;
+	z-index: 100;
+}
+
+.cx-sourceselector-dialog__heading {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: @vertical-margin @horizontal-margin;
+	font-size: larger;
+	line-height: 1.5em;
+	background-color: #fbfbfb;
+	.icon-close {
+		/* @embed */
+		background: transparent url('../images/close.png') no-repeat scroll center center;
+		/* @embed */
+		background-image: -webkit-linear-gradient(transparent, transparent), url('../images/close.svg');
+		/* @embed */
+		background-image: linear-gradient(transparent, transparent), url('../images/close.svg');
+		float: right;
+		padding: 15px;
+		cursor: pointer;
+		position: relative;
+		top: -@vertical-margin;
+		left: @horizontal-margin;
+	}
+}
+
+.cx-sourceselector-dialog__language-label {
+	.mw-ui-item;
+	.mw-ui-one-sixth;
+	padding: 5px;
+	line-height: 1.5em;
+	font-size: large;
+}
+
+.cx-sourceselector-dialog__language {
+	.mw-ui-item;
+	.mw-ui-one-third;
+	padding: 5px;
+	line-height: 1.5em;
+	font-size: large;
+}
+
+.cx-sourceselector-dialog__title {
+	.mw-ui-item;
+	.mw-ui-one-half;
+	padding: 5px;
+	font-size: large;
+ }
+
+.cx-sourceselector-dialog__actions {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 10px 15px 15px 15px;
+	text-align: right;
+	border-top: 1px solid #aaa;
+	margin-top: 20px;
+	button {
+		margin-left: 10px;
+	}
+}

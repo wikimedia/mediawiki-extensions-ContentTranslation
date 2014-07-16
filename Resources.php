@@ -61,7 +61,8 @@ $wgResourceModules['ext.cx.header'] = array(
 $wgResourceModules['ext.cx.source'] = array(
 	'scripts' =>  array(
 		'source/ext.cx.source.js',
-		'source/ext.cx.source.filter.js'
+		'source/ext.cx.source.filter.js',
+		'source/ext.cx.source.selector.js'
 	),
 	'styles' => array(
 		'source/styles/ext.cx.source.less',
@@ -73,11 +74,30 @@ $wgResourceModules['ext.cx.source'] = array(
 		'jquery.uls.data',
 		'mediawiki.Uri',
 		'mediawiki.Title',
+		'ext.cx.source.selector',
 	),
 	'messages' => array(
 		'cx-source-view-page',
 		'cx-source-loading',
 		'cx-tools-link-hover-tooltip',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.source.selector'] = array(
+	'scripts' =>  array(
+		'source/ext.cx.source.selector.js'
+	),
+	'styles' => array(
+		'source/styles/ext.cx.source.selector.less',
+	),
+	'dependencies' => array(
+		'jquery.uls.data',
+	),
+	'messages' => array(
+		'cx-sourceselector-dialog-new-translation',
+		'cx-sourceselector-dialog-button-create-translation',
+		'cx-sourceselector-dialog-source-language-label',
+		'cx-sourceselector-dialog-target-language-label'
 	),
 ) + $resourcePaths;
 
