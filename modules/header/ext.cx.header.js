@@ -37,6 +37,33 @@
 	};
 
 	/**
+	 * Show login message
+	 * @param {string} message
+	 */
+	ContentTranslationHeader.prototype.showLoginMessage = function () {
+		var loginUri, title, queryString;
+
+		loginUri = new mw.Uri();
+		title = loginUri.query.title;
+		delete loginUri.query.title;
+		queryString = loginUri.getQueryString();
+		loginUri.query = {
+			title: 'Special:UserLogin',
+			returnto: title,
+			returntoquery: encodeURI( queryString )
+		};
+		this.$infoBar
+			.show()
+			.removeClass( 'cx-success' )
+			.addClass( 'cx-error' )
+			.find( '.text' )
+			.html( mw.message( 'cx-special-login-error', loginUri.toString() ).parse() );
+		this.$userName.text( mw.msg( 'login' ) ).prop( 'href', loginUri.toString() );
+		// Do not show the loading indicator
+		$( '.cx-column__loading-indicator' ).remove();
+	};
+
+	/**
 	 * Show error message
 	 * @param {string} message
 	 */
@@ -73,6 +100,7 @@
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
 		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
+		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {

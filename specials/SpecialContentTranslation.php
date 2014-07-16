@@ -27,30 +27,17 @@ class SpecialContentTranslation extends SpecialPage {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 
-		if ( !( $this->getUser()->isLoggedIn() ) ) {
-			$out->addHTML( $this->msg( 'cx-special-login-error' ) );
-		} else {
-			$out->addModuleStyles( 'mediawiki.ui.button' );
-			$out->addModules( 'ext.cx.base' );
-			if ( $wgContentTranslationExperimentalFeatures ) {
-				// WYSIWYGEditor
-				$out->addModules( 'ext.cx.editor.medium' );
-				// Reference card
-				$out->addModules( 'ext.cx.tools.reference' );
-			} else {
-				// Just ContentEditable
-				$out->addModules( 'ext.cx.editor' );
-			}
-			$this->setHeaders();
-			$out->setArticleBodyOnly( true );
+		$out->addModuleStyles( 'mediawiki.ui.button' );
+		$out->addModules( 'ext.cx.base' );
+		$this->setHeaders();
+		$out->setArticleBodyOnly( true );
 
-			// Default modules copied from OutputPage::addDefaultModules
-			$out->addModules( array(
-				'mediawiki.user',
-				'mediawiki.page.startup',
-				'mediawiki.page.ready',
-			) );
-		}
+		// Default modules copied from OutputPage::addDefaultModules
+		$out->addModules( array(
+			'mediawiki.user',
+			'mediawiki.page.startup',
+			'mediawiki.page.ready',
+		) );
 
 		$out->addHTML( $out->headElement( $skin ) );
 

@@ -52,6 +52,10 @@
 		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
 		mw.cx.sourceLanguage = new mw.Uri().query.from || mw.config.get( 'wgContentLanguage' );
 		this.render();
+		if ( mw.user.isAnon() ) {
+			mw.hook( 'mw.cx.error.anonuser' ).fire();
+			return;
+		}
 		mw.cx.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();
 	};

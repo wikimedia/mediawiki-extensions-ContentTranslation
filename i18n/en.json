@@ -37,7 +37,7 @@
 	"cx-entrypoint-dialog-title-in": "Title for the new page in $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Create from scratch",
 	"cx-entrypoint-dialog-button-translate-from": "Translate from $1",
-	"cx-special-login-error": "You must be logged in to translate in this page.",
+	"cx-special-login-error": "You must be logged in to translate in this page. [$1 Login]",
 	"cx-tools-instructions-text1": "{{GENDER:|Add}} paragraphs to translate",
 	"cx-tools-instructions-text2": "{{GENDER:|You}} don't need to add them all",
 	"cx-tools-instructions-text3": "{{GENDER:|Make}} text read natural",
