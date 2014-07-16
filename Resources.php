@@ -282,7 +282,6 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'translation/ext.cx.publish.captcha.js',
 	),
 	'styles' => array(
-		'base/styles/ext.cx.callout.less',
 		'translation/styles/ext.cx.publish.less',
 	),
 	'dependencies' => array(
