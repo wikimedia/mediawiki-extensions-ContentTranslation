@@ -24,6 +24,7 @@
 		.mw-ui-item;
 		.mw-ui-one-whole;
 		padding-left: 10px;
+		padding-bottom: 10px;
 		cursor: pointer;
 		color: #555;
 		&:after {
@@ -78,7 +79,7 @@
 		}
 	}
 
-	.card__control-block {
+	.card__button-block {
 		.mw-ui-item;
 		.mw-ui-one-whole;
 		float: none; // XXX why would it be needed?
@@ -86,16 +87,22 @@
 		color: #c9c9c9; // TODO Should come from library?
 		padding: 10px 0;
 		.card__control-button {
-			@vertical-margin: 10px;
-			@horizontal-margin: 15px;
-			.mw-ui-item;
-			.mw-ui-one-half;
-			padding: @vertical-margin @horizontal-margin;
 			line-height: 1.5em;
 			color: #565656; // TODO Should come from library?
 			cursor: pointer;
+			padding: 5px 10px;
 			border-top: 1px solid #dddddd;
 			border-left: 1px solid #dddddd;
+		}
+		.cx-use-source,
+		.cx-clear-translation {
+			.mw-ui-one-half;
+			.card__control-button;
+		}
+		.cx-restore-translation {
+			.mw-ui-one-whole;
+			.card__control-button;
+			border: none;
 		}
 	}
 

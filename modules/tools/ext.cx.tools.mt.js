@@ -72,6 +72,12 @@
 				mw.cx.tools.mt.providers.defaultProvider :
 				disableMT;
 		}
+
+		// This is static because the card can be reinitialized.
+		// Indexed by section id.
+		if ( !MTControlCard.enableRestore ) {
+			MTControlCard.enableRestore = {};
+		}
 	}
 
 	MTControlCard.prototype.getCard = function () {
@@ -90,6 +96,13 @@
 			.addClass( 'card__title-row' )
 			.append( $title );
 
+		this.$providerSelectorTrigger = $( '<div>' )
+			.addClass( 'card__trigger' );
+
+		this.$restore = $( '<div>' )
+			.addClass( 'card__control-button cx-restore-translation' )
+			.text( mw.msg( 'cx-tools-mt-restore' ) );
+
 		$useSource = $( '<div>' )
 			.addClass( 'card__control-button cx-use-source' )
 			.text( mw.msg( 'cx-tools-mt-use-source' ) );
@@ -98,12 +111,10 @@
 			.addClass( 'card__control-button cx-clear-translation' )
 			.text( mw.msg( 'cx-tools-mt-clear-translation' ) );
 
-		this.$providerSelectorTrigger = $( '<div>' )
-			.addClass( 'card__trigger' );
-
 		$controlButtonsBlock = $( '<div>' )
-			.addClass( 'card__control-block' )
+			.addClass( 'card__button-block' )
 			.append(
+				this.$restore,
 				$useSource,
 				$clearTranslation
 		);
@@ -125,12 +136,17 @@
 		return this.$card;
 	};
 
-	MTControlCard.prototype.useSource = function () {
+	/**
+	 * Update the section with text from source, applying tools like
+	 * adaptation and machine translation.
+	 * @param {boolean} machineTranslate Whether to apply machine translation to the section.
+	 */
+	MTControlCard.prototype.updateSection = function ( machineTranslate ) {
 		var sourceId = this.$section.data( 'source' ),
 			cxMtCard = this;
 
 		// Paste the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, machineTranslate );
 
 		// Updating the section replaced the DOM element,
 		// so it needs to be reinitialized
@@ -139,10 +155,51 @@
 		} );
 	};
 
+	/**
+	 * Update the section with text from source,
+	 * not applying machine translation.
+	 */
+	MTControlCard.prototype.useSource = function () {
+		this.updateSection( false );
+		this.showRestore();
+	};
+
+	/**
+	 * Update the section with text from source,
+	 * apply machine translation,
+	 * and hide the restore button.
+	 */
+	MTControlCard.prototype.restoreTranslation = function () {
+		this.updateSection( true );
+		this.hideRestore();
+	};
+
+	/**
+	 * Clear the translation text.
+	 */
 	MTControlCard.prototype.clearTranslation = function () {
 		this.$section
-			.html( '' )
-			.focus();
+			.html( '' );
+
+		this.showRestore();
+
+		this.$section.focus();
+	};
+
+	/**
+	 * Show the restore button.
+	 */
+	MTControlCard.prototype.showRestore = function () {
+		MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] = true;
+		this.$restore.removeClass( 'hidden' );
+	};
+
+	/**
+	 * Hide the restore button.
+	 */
+	MTControlCard.prototype.hideRestore = function () {
+		MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] = false;
+		this.$restore.addClass( 'hidden' );
 	};
 
 	MTControlCard.prototype.selectProvider = function ( providerId ) {
@@ -170,6 +227,9 @@
 
 		this.$card.find( '.cx-clear-translation' )
 			.on( 'click', $.proxy( this.clearTranslation, this ) );
+
+		this.$restore
+			.on( 'click', $.proxy( this.restoreTranslation, this ) );
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
@@ -242,6 +302,11 @@
 	MTControlCard.prototype.start = function ( $section ) {
 		this.$section = $section;
 		this.selectProvider( mw.cx.tools.mt.provider );
+
+		if ( !MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] ) {
+			this.$restore.addClass( 'hidden' );
+		}
+
 		this.$card.show();
 		this.onShow();
 	};
