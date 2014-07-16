@@ -29,6 +29,11 @@
 
 		mw.cx.targetTitle = uri.query.targettitle || uri.query.page;
 
+		if ( !mw.cx.targetTitle ) {
+			// Title not passed to the page? We show a selector in this case.
+			// No need to proceed.
+			return;
+		}
 		title = mw.Title.newFromText( mw.cx.targetTitle );
 
 		if ( title ) {
