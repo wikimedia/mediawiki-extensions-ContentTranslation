@@ -236,8 +236,8 @@
 			$container.empty().cxSourceSelector( {
 				top: '150px',
 				left: '33%',
-				sourceLanguages: [ 'es', 'ca' ],
-				targetLanguages: [ 'es', 'ca' ]
+				sourceLanguages: [ 'es' ],
+				targetLanguages: [ 'ca' ]
 			} ).click();
 		} );
 	} );
