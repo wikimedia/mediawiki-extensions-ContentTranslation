@@ -130,13 +130,13 @@
 	 * Do machine translation
 	 * @param {string} sourceLang Source language
 	 * @param {string} targetLang Target language
-	 * @param {string} sourceText Content
+	 * @param {string} sourceHtml Content
 	 * @return {jQuery.Promise}
 	 */
-	mw.cx.mt = function ( sourceLang, targetLang, sourceText ) {
+	mw.cx.mt = function ( sourceLang, targetLang, sourceHtml ) {
 		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
-			sourceLang + '/' + targetLang + '/' + encodeURIComponent( sourceText );
-		return $.post( mtURL );
+			sourceLang + '/' + targetLang;
+		return $.post( mtURL, sourceHtml );
 	};
 
 	/**
