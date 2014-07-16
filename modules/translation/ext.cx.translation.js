@@ -131,7 +131,7 @@
 	mw.cx.mt = function ( sourceLang, targetLang, sourceText ) {
 		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
 			sourceLang + '/' + targetLang + '/' + encodeURIComponent( sourceText );
-		return $.get( mtURL );
+		return $.post( mtURL );
 	};
 
 	/**
