@@ -150,6 +150,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.instructions',
 		'ext.cx.tools.link',
 		'ext.cx.tools.images',
+		'ext.cx.tools.mtabuse',
 	),
 ) + $resourcePaths;
 
@@ -181,6 +182,23 @@ $wgResourceModules['ext.cx.tools.instructions'] = array(
 		'ext.cx.tools.card',
 		'mediawiki.jqueryMsg',
 		'mediawiki.Uri',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.mtabuse'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.mtabuse.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.mtabuse.less',
+	),
+	'messages' => array(
+		'cx-mt-abuse-warning-title',
+		'cx-mt-abuse-warning-text',
+	),
+	'dependencies' => array(
+		'ext.cx.tools.manager',
+		'ext.cx.tools.card',
 	),
 ) + $resourcePaths;
 
@@ -250,7 +268,8 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 		'tools/styles/ext.cx.progressbar.less',
 	),
 	'messages' => array(
-		'cx-header-progressbar-text'
+		'cx-header-progressbar-text',
+		'cx-header-progressbar-text-mt',
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',

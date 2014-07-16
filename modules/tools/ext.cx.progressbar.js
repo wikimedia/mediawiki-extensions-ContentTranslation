@@ -31,25 +31,48 @@
 	ProgressBar.prototype.render = function () {
 		this.$container.append(
 			$( '<div>' )
-				.addClass( 'cx-progressbar' )
-				.append(
-					$( '<span>' ).addClass( 'cx-progressbar__bar' )
-				)
+			.addClass( 'cx-progressbar' )
+			.append(
+				$( '<span>' ).addClass( 'cx-progressbar__bar' ),
+				$( '<span>' ).addClass( 'cx-progressbar__bar--mt' )
+			)
 		);
+		this.$info = $( '<div>' )
+			.addClass( 'cx-progressbar__info' )
+			.append( $( '<div>' )
+				.addClass( 'cx-progressbar__info--total' ),
+				$( '<div>' )
+				.addClass( 'cx-progressbar__info--mt' ) );
 
+		this.$container.append( this.$info.hide() );
 		this.$bar = this.$container.find( '.cx-progressbar__bar' );
-		this.update( 0 );
+		this.$mtbar = this.$container.find( '.cx-progressbar__bar--mt' );
+		this.update( 0, 0 );
 	};
 
 	ProgressBar.prototype.listen = function () {
+		var progressBar = this;
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.update, this ) );
+		this.$container.on( 'mouseenter', '.cx-progressbar', function () {
+			progressBar.$info.show();
+		} );
+		this.$container.on( 'mouseleave', '.cx-progressbar', function () {
+			progressBar.$info.hide();
+		} );
 	};
 
-	ProgressBar.prototype.update = function ( percentage ) {
+	ProgressBar.prototype.update = function ( percentage, mtPercentage ) {
 		this.status = percentage;
+		percentage = parseInt( percentage, 10 );
+		mtPercentage = parseInt( mtPercentage, 10 );
 		this.$bar.css( 'width', this.status + '%' );
-		this.$container.attr( 'title', mw.msg( 'cx-header-progressbar-text',
-			mw.language.convertNumber( percentage ) ) );
+		this.$mtbar.css( 'width', mtPercentage + '%' );
+		this.$info.find( '.cx-progressbar__info--total' )
+			.text( mw.msg( 'cx-header-progressbar-text',
+				mw.language.convertNumber( percentage ) ) );
+		this.$info.find( '.cx-progressbar__info--mt' )
+			.text( mw.msg( 'cx-header-progressbar-text-mt',
+				mw.language.convertNumber( mtPercentage ) ) );
 	};
 
 	$.fn.cxProgressBar = function ( options ) {

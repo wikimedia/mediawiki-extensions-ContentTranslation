@@ -11,6 +11,7 @@
 	"cx-error-server-connection": "Error: Could not connect to the server.",
 	"cx-desc": "A tool that allows editors to translate pages from one language to another with the help of machine translation and other translation tools",
 	"cx-header-progressbar-text": "$1% translated",
+	"cx-header-progressbar-text-mt": "($1% from machine translation)",
 	"cx-header-translation-center": "Translation center",
 	"cx-source-view-page": "view page",
 	"cx-publish-page": "Page published at [$1 $2]",
@@ -41,7 +42,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|Add}} paragraphs to translate",
 	"cx-tools-instructions-text2": "{{GENDER:|You}} don't need to add them all",
 	"cx-tools-instructions-text3": "{{GENDER:|Make}} text read natural",
-	"cx-tools-instructions-text4": "Automatic translation is useful but {{GENDER:|you'll}} need to revise errors to make it accurate.",
+	"cx-tools-instructions-text4": "Machine translation is useful but {{GENDER:|you'll}} need to revise errors to make it accurate.",
 	"cx-tools-instructions-text5": "{{GENDER:|Publish}} the translation",
 	"cx-tools-instructions-text6": "When {{GENDER:|you}} are happy with the result, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Search for a word",
@@ -66,5 +67,7 @@
 	"cx-sourceselector-dialog-new-translation": "New translation",
 	"cx-sourceselector-dialog-button-create-translation": "Create translation",
 	"cx-sourceselector-dialog-source-language-label": "From:",
-	"cx-sourceselector-dialog-target-language-label": "To:"
+	"cx-sourceselector-dialog-target-language-label": "To:",
+	"cx-mt-abuse-warning-title": "Your translation contains $1% of unmodified text",
+	"cx-mt-abuse-warning-text": "Machine translations are provided as a template. You need to make sure that content reads naturally in your language and is accurate."
 }

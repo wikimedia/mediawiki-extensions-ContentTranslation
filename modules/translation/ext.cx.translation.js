@@ -165,12 +165,13 @@
 				.done( function ( translation ) {
 					if ( translation ) {
 						$section.html( $( translation ).children().html() )
-							.trigger( 'input' )
 							.adaptLinks( mw.cx.targetLanguage );
 					}
 				} ).fail( function () {
-					$section.adaptLinks( mw.cx.targetLanguage )
-						.trigger( 'input' );
+					$section.adaptLinks( mw.cx.targetLanguage );
+				} ).always( function () {
+					$section.data( 'cx-mt', true );
+					mw.hook( 'mw.cx.translation.change' ).fire( $section );
 				} );
 		} );
 
@@ -182,6 +183,7 @@
 
 		// Trigger input event so that the alignment will be correct
 		$section.on( 'input', $.debounce( 200, false, function () {
+			$( this ).data( 'cx-mt', false );
 			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
 		} ) );
 
@@ -192,8 +194,6 @@
 		} else {
 			$section.cxEditor();
 		}
-
-		$section.trigger( 'input' );
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.

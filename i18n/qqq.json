@@ -15,6 +15,7 @@
 	"cx-error-server-connection": "Error message shown when connection to the content translation server has failed.",
 	"cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
 	"cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the percent of translation progress.",
+	"cx-header-progressbar-text-mt": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the percent of machine translation.",
 	"cx-header-translation-center": "Text for the translation center title.",
 	"cx-source-view-page": "A link that points to the source page under the heading of the source article.",
 	"cx-publish-page": "Link to the published page. Parameters:\n* $1 - URL\n* $2 - link text",
@@ -66,5 +67,7 @@
 	"cx-tools-link-instruction-shortcut": "Text explaining the shortcut for opening a link. Appears in the link tool card.",
 	"cx-tools-link-hover-tooltip": "Tooltip text shown when the mouse is over the link with shift or control key is pressed.",
 	"cx-warning-unsaved-translation": "Warning message shown when user tried to navigate away when translation is not saved.",
-	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name"
+	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name",
+	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
+	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse."
 }

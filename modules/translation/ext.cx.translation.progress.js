@@ -39,8 +39,34 @@
 	 * Calculate the translation progress
 	 */
 	function showProgress() {
-		var percentage = getTranslationProgress();
-		mw.hook( 'mw.cx.progress' ).fire( percentage );
+		var percentage = getTranslationProgress(),
+			mtPercentage = getMachineTranslationPercentage();
+		mw.hook( 'mw.cx.progress' ).fire( percentage, mtPercentage );
+		if ( mtPercentage > 75 ) {
+			mw.hook( 'mw.cx.warning.mtabuse' ).fire( mtPercentage );
+		}
+	}
+
+	/**
+	 * Calculate the percentage of machine translation
+	 * @return {float} percentage
+	 */
+	function getMachineTranslationPercentage() {
+		var completedTranslation = 0,
+			sourceWeight,
+			percentage;
+
+		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
+			if ( $( this ).data( 'cx-mt' ) === true ) {
+				completedTranslation += $( this ).data( 'cx-weight' );
+			}
+		} );
+		sourceWeight = getTotalSourceWeight();
+		if ( sourceWeight === 0 ) {
+			return 0;
+		}
+		percentage = ( completedTranslation / sourceWeight ) * 100;
+		return percentage;
 	}
 
 	/**
@@ -53,7 +79,9 @@
 			percentage;
 
 		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			completedTranslation += $( this ).data( 'cx-weight' );
+			if ( $( this ).data( 'cx-mt' ) === false ) {
+				completedTranslation += $( this ).data( 'cx-weight' );
+			}
 		} );
 		sourceWeight = getTotalSourceWeight();
 		if ( sourceWeight === 0 ) {
