@@ -65,9 +65,9 @@
 	"cx-warning-unsaved-translation": "You have unsaved translation.",
 	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia",
 	"cx-sourceselector-dialog-new-translation": "New translation",
-	"cx-sourceselector-dialog-button-create-translation": "Create translation",
-	"cx-sourceselector-dialog-source-language-label": "From:",
-	"cx-sourceselector-dialog-target-language-label": "To:",
+	"cx-sourceselector-dialog-button-start-translation": "Start translation",
+	"cx-sourceselector-dialog-source-language-label": "Source:",
+	"cx-sourceselector-dialog-target-language-label": "Target:",
 	"cx-mt-abuse-warning-title": "Your translation contains $1% of unmodified text",
 	"cx-mt-abuse-warning-text": "Machine translations are provided as a template. You need to make sure that content reads naturally in your language and is accurate.",
 	"cx-publish-captcha-title": "Security question"

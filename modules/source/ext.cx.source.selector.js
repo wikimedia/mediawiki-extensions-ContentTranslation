@@ -144,19 +144,14 @@
 	CXSourceSelector.prototype.render = function () {
 		var $actions,
 			$sourceLanguageLabel,
-			$closeIcon, $heading, $targetLanguageLabel,
+			$heading, $targetLanguageLabel,
 			index;
 
 		this.$dialog = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog hidden' );
 
-		$closeIcon = $( '<span>' )
-			.addClass( 'icon-close' )
-			.click( $.proxy( this.hide, this ) );
-
 		$heading = $( '<div>' ).addClass( 'cx-sourceselector-dialog__heading' )
-			.text( mw.msg( 'cx-sourceselector-dialog-new-translation' ) )
-			.prepend( $closeIcon );
+			.text( mw.msg( 'cx-sourceselector-dialog-new-translation' ) );
 
 		$sourceLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
@@ -193,8 +188,8 @@
 			} );
 
 		this.$translateFromButton = $( '<button>' )
-			.addClass( 'mw-ui-button mw-ui-constructive cx-sourceselector-dialog__button-translate' )
-			.text( mw.msg( 'cx-sourceselector-dialog-button-create-translation' ) )
+			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
+			.text( mw.msg( 'cx-sourceselector-dialog-button-start-translation' ) )
 			.click( $.proxy( this.startPageInCX, this ) );
 
 		$actions = $( '<div>' ).addClass( 'cx-sourceselector-dialog__actions' )
@@ -205,7 +200,7 @@
 			$sourceLanguageLabel,
 			this.$sourceLanguage,
 			this.$sourceTitleInput,
-			$('<br />'),
+			$( '<br>' ),
 			$targetLanguageLabel,
 			this.$targetLanguage,
 			this.$targetTitleInput,
