@@ -59,8 +59,8 @@
 			.find( '.text' )
 			.html( mw.message( 'cx-special-login-error', loginUri.toString() ).parse() );
 		this.$userName.text( mw.msg( 'login' ) ).prop( 'href', loginUri.toString() );
-		// Do not show the loading indicator
-		$( '.cx-column__loading-indicator' ).remove();
+		// Do not show the columns
+		$( '.cx-widget__columns' ).remove();
 	};
 
 	/**
