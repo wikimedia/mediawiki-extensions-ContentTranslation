@@ -176,17 +176,36 @@
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} ).done( function ( response ) {
-			var linkPairs = {};
+			var redirects,
+				linkPairs = {};
 
 			if ( response.query ) {
+				redirects = jQuery.extend( {}, response.query.redirects );
+
 				$.each( response.query.pages, function ( pageId, page ) {
-					var title = mw.Title.newFromText( page.title );
+					var i, key, title;
+
+					for ( i in redirects ) {
+						if ( redirects[ i ].to === page.title ) {
+							key = redirects[ i ].from;
+
+							break;
+						}
+					}
+
+					if ( !key ) {
+						key = page.title;
+					}
+
+					title = mw.Title.newFromText( key );
 
 					if ( title ) {
-						linkPairs[ title.getPrefixedDb() ] = page.langlinks && page.langlinks[ 0 ][ '*' ];
+						linkPairs[ title.getPrefixedDb() ] = page.langlinks &&
+							page.langlinks[ 0 ][ '*' ];
 					}
 				} );
 			}
+
 			deferred.resolve( linkPairs );
 		} ).fail( function ( error ) {
 			mw.log( 'Error while adapting links:' + error );
