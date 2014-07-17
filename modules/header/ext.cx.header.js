@@ -41,24 +41,25 @@
 	 * @param {string} message
 	 */
 	ContentTranslationHeader.prototype.showLoginMessage = function () {
-		var loginUri, title, queryString;
+		var currentUri, returnToQueryString, loginUriHref;
 
-		loginUri = new mw.Uri();
-		title = loginUri.query.title;
-		delete loginUri.query.title;
-		queryString = loginUri.getQueryString();
-		loginUri.query = {
-			title: 'Special:UserLogin',
-			returnto: title,
-			returntoquery: encodeURI( queryString )
-		};
+		currentUri = new mw.Uri();
+		delete currentUri.query.title;
+		returnToQueryString = currentUri.getQueryString();
+
+		loginUriHref = mw.util.getUrl( 'Special:UserLogin', {
+			returnto: 'Special:ContentTranslation',
+			returntoquery: returnToQueryString
+		} );
+
 		this.$infoBar
 			.show()
 			.removeClass( 'cx-success' )
 			.addClass( 'cx-error' )
 			.find( '.text' )
-			.html( mw.message( 'cx-special-login-error', loginUri.toString() ).parse() );
-		this.$userName.text( mw.msg( 'login' ) ).prop( 'href', loginUri.toString() );
+			.html( mw.message( 'cx-special-login-error', loginUriHref ).parse() );
+
+		this.$userName.text( mw.msg( 'login' ) ).prop( 'href', loginUriHref );
 		// Do not show the columns
 		$( '.cx-widget__columns' ).remove();
 	};

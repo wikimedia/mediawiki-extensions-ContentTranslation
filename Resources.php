@@ -46,6 +46,8 @@ $wgResourceModules['ext.cx.header'] = array(
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',
+		'mediawiki.Uri',
+		'mediawiki.util',
 		'ext.cx.publish',
 	),
 	'messages' => array(
