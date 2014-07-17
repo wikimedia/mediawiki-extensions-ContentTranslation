@@ -72,7 +72,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "Почни со преведување",
 	"cx-sourceselector-dialog-source-language-label": "Извор:",
 	"cx-sourceselector-dialog-target-language-label": "Цел:",
-	"cx-mt-abuse-warning-title": "Вашиот превод содржи $1% неизменет текст",
-	"cx-mt-abuse-warning-text": "Машинските преводи се даваат како појдовни. На вас е преводот да го прилагодите за да изгледа природно на вашиот јазик и да биде точен.",
+	"cx-mt-abuse-warning-title": "Вашиот превод содржи $1% неизменет машински преведен текст",
+	"cx-mt-abuse-warning-text": "Машинските преводи се даваат само како појдовни. На вас е да се погрижите преводот да биде точен и да го прилагодите за да изгледа природно на вашиот јазик.",
 	"cx-publish-captcha-title": "Безбедносно прашање"
 }

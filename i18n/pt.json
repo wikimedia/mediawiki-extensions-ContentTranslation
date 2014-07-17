@@ -11,6 +11,7 @@
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
 	"cx-desc": "Uma ferramenta que permite aos editores traduzir páginas de uma língua para outra com o auxílio de tradutores automáticos e outras ferramentas de tradução",
 	"cx-header-progressbar-text": "$1% traduzido",
+	"cx-header-progressbar-text-mt": "($1% a partir da tradução automática)",
 	"cx-header-translation-center": "Centro de tradução",
 	"cx-source-view-page": "ver página",
 	"cx-publish-page": "Página publicada em [$1 $2]",
@@ -33,7 +34,7 @@
 	"cx-entrypoint-dialog-title-in": "Título da nova página em $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Criar de raiz",
 	"cx-entrypoint-dialog-button-translate-from": "Traduzir do $1",
-	"cx-special-login-error": "Deve estar autenticado para traduzir esta página.",
+	"cx-special-login-error": "Deve estar autenticado para traduzir esta página. [$1 Iniciar sessão]",
 	"cx-tools-instructions-text1": "Adicionar parágrafos para traduzir",
 	"cx-tools-instructions-text2": "Não é necessário adicionar tudo",
 	"cx-tools-instructions-text3": "Faz com que o texto seja lido de uma forma natural",
@@ -46,6 +47,10 @@
 	"cx-tools-link-title": "Ligação",
 	"cx-tools-link-add": "Adicionar ligação",
 	"cx-tools-link-remove": "Remover ligação",
+	"cx-tools-mt-title": "Tradução automática",
+	"cx-tools-mt-restore": "Restaurar",
+	"cx-tools-mt-from-provider": "De $1",
+	"cx-tools-mt-not-available": "Não disponível para $1",
 	"cx-stats-page-title": "Página",
 	"cx-stats-from": "Idioma de origem",
 	"cx-stats-to": "Idioma-alvo",
@@ -57,5 +62,8 @@
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
 	"cx-tools-link-hover-tooltip": "Clique para abrir",
 	"cx-warning-unsaved-translation": "Não gravou a tradução.",
-	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2"
+	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2",
+	"cx-sourceselector-dialog-new-translation": "Nova tradução",
+	"cx-sourceselector-dialog-button-start-translation": "Começar a traduzir",
+	"cx-publish-captcha-title": "Pergunta de segurança"
 }

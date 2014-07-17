@@ -32,7 +32,7 @@
 	"cx-entrypoint-dialog-title-in": "Заголовок для новой страницы на $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Создать с нуля",
 	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
-	"cx-special-login-error": "Вы должны войти, чтоб перевести эту страницу.",
+	"cx-special-login-error": "Вы должны авторизоваться, чтоб перевести эту страницу. [$1 Войти]",
 	"cx-tools-instructions-text1": "{{GENDER:|Добавьте}} несколько параграфов перевода",
 	"cx-tools-instructions-text2": "{{GENDER:|Вам}} не нужно добавлять их все",
 	"cx-tools-instructions-text3": "{{GENDER:|Сделайте}} так, чтоб текст читался естественно",

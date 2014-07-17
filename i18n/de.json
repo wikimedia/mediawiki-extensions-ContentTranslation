@@ -73,7 +73,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "Übersetzung starten",
 	"cx-sourceselector-dialog-source-language-label": "Quelle:",
 	"cx-sourceselector-dialog-target-language-label": "Ziel:",
-	"cx-mt-abuse-warning-title": "Deine Übersetzung enthält $1% unveränderten Text",
-	"cx-mt-abuse-warning-text": "Maschinenübersetzungen werden als Vorlage zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
+	"cx-mt-abuse-warning-title": "Deine Übersetzung enthält $1% unveränderten maschinenübersetzten Text",
+	"cx-mt-abuse-warning-text": "Maschinenübersetzungen werden nur als Vorlage zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
 	"cx-publish-captcha-title": "Sicherheitsfrage"
 }
