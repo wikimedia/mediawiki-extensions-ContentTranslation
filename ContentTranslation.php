@@ -104,8 +104,18 @@ $GLOBALS['wgContentTranslationEventLogging'] = false;
 
 /**
  * Domain template for starting an article in a foreign language.
- * This is used when starting an article from scratch.
+ * This is used when starting an article from scratch,
+ * and can be used when starting a translation on Special:ContentTranslation
+ * if $wgContentTranslationTranslateInTarget is true.
  * $1 is replaced with the language code.
  * The default is for Wikipedia.
  */
 $GLOBALS['wgContentTranslationDomainTemplate'] = "$1.wikipedia.org";
+
+/**
+ * Whether to open Special:ContentTranslation in the target wiki
+ * when clicking the button in the entry point.
+ * The domain will be based on $wgContentTranslationDomainTemplate.
+ * The default is to open Special:ContentTranslation on the same wiki.
+ */
+$GLOBALS['wgContentTranslationTranslateInTarget'] = false;
