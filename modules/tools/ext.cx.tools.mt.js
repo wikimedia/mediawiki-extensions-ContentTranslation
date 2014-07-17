@@ -36,6 +36,9 @@
 				}
 			} ).fail( function () {
 				$section.adaptLinks( mw.cx.targetLanguage );
+			} ).always( function () {
+				$section.data( 'cx-mt', true );
+				mw.hook( 'mw.cx.translation.change' ).fire( $section );
 			} );
 
 		return this;
@@ -75,7 +78,7 @@
 			.addClass( 'card__control-button cx-use-source' )
 			.text( mw.msg( 'cx-tools-mt-use-source' ) );
 
-		$clearTranslation  = $( '<div>' )
+		$clearTranslation = $( '<div>' )
 			.addClass( 'card__control-button cx-clear-translation' )
 			.text( mw.msg( 'cx-tools-mt-clear-translation' ) );
 
@@ -87,7 +90,7 @@
 			.append(
 				$useSource,
 				$clearTranslation
-			);
+		);
 
 		$bottom = $( '<div>' )
 			.addClass( 'card__bottom' );
@@ -140,8 +143,8 @@
 		// Set the main label
 		this.$providerSelectorTrigger.text(
 			mw.cx.tools.mt.enabled() ?
-				mw.msg( 'cx-tools-mt-from-provider', providerTitle ) :
-				providerTitle
+			mw.msg( 'cx-tools-mt-from-provider', providerTitle ) :
+			providerTitle
 		);
 	};
 
