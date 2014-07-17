@@ -358,7 +358,10 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 		'cx-entrypoint-dialog-button-translate-from',
 	),
 	'dependencies' => array(
+		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
+		'mediawiki.Uri',
+		'mediawiki.util',
 	),
 ) + $resourcePaths;
 
