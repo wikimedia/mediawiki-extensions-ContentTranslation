@@ -127,12 +127,22 @@
 	};
 
 	MTControlCard.prototype.selectProvider = function ( providerId ) {
-		var $providerItem = $( '#' + providerIdPrefix + providerId );
+		var $providerItem = $( '#' + providerIdPrefix + providerId ),
+			providerTitle = $providerItem.text();
 
+		// Hide the menu
 		$providerItem.parent().addClass( 'hidden' );
+
+		// Set the global engine
+		// TODO This should be saved in a preference or a cookie
 		mw.cx.tools.mt.provider = providerId;
 
-		this.$providerSelectorTrigger.text( $providerItem.text() );
+		// Set the main label
+		this.$providerSelectorTrigger.text(
+			mw.cx.tools.mt.enabled() ?
+				mw.msg( 'cx-tools-mt-from-provider', providerTitle ) :
+				providerTitle
+		);
 	};
 
 	MTControlCard.prototype.listen = function () {
