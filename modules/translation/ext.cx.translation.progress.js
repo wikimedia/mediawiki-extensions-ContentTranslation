@@ -120,7 +120,8 @@
 		mw.hook( 'mw.cx.translation.change' ).add( onSectionUpdate );
 		window.onbeforeunload = function () {
 			// Check if progress is greater than 1%
-			if ( parseInt( getTranslationProgress(), 10 ) > 0 ) {
+			if ( parseInt( getTranslationProgress(), 10 ) > 0 ||
+				parseInt( getMachineTranslationPercentage(), 10 ) > 0 ) {
 				return mw.msg( 'cx-warning-unsaved-translation' );
 			}
 		};
