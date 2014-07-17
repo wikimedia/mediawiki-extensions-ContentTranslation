@@ -36,6 +36,15 @@ $wgResourceModules['ext.cx.base'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.util'] = array(
+	'scripts' => array(
+		'base/ext.cx.util.js',
+	),
+	'dependencies' => array(
+		'mediawiki.Uri',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.header'] = array(
 	'scripts' => array(
 		'header/ext.cx.header.js',
@@ -93,6 +102,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'source/styles/ext.cx.source.selector.less',
 	),
 	'dependencies' => array(
+		'ext.cx.util',
 		'jquery.uls.data',
 	),
 	'messages' => array(
@@ -358,10 +368,10 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 		'cx-entrypoint-dialog-button-translate-from',
 	),
 	'dependencies' => array(
+		'ext.cx.util',
 		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
 		'mediawiki.Uri',
-		'mediawiki.util',
 	),
 ) + $resourcePaths;
 
