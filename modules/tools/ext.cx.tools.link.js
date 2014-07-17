@@ -506,12 +506,17 @@
 	 */
 	function linkClickHandler() {
 		/*jshint validthis:true */
-		var $link = $( this );
+		var $link = $( this ),
+			linkType = $link.parent().attr( 'typeof' );
 
-		// avoid all reference links
-		if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
+		// Avoid reference links and images
+		if ( linkType !== 'mw:Extension/ref' &&
+			linkType !== 'mw:Image/Thumb'
+		) {
 			mw.hook( 'mw.cx.select.link' ).fire( $link );
 		}
+
+		return false;
 	}
 	/**
 	 * jQuery plugin to adapt all the links with rel="mw:WikiLink"
