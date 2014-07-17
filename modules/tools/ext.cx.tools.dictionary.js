@@ -115,7 +115,8 @@
 
 			return;
 		}
-
+		// Normalize the case to lowercase.
+		word = word.toLowerCase();
 		// Show the source word and get a translation,
 		// and don't appear if getting the translation fails
 		this.$card.find( '.card__headword' ).text( word );

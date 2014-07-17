@@ -198,7 +198,7 @@
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
 		$section.on( 'click keyup', $.debounce( 250, function () {
-			var selection = window.getSelection().toString().toLowerCase();
+			var selection = window.getSelection().toString();
 
 			if ( selection ) {
 				mw.hook( 'mw.cx.select.word' ).fire( selection );

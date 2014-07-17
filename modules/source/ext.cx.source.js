@@ -155,7 +155,7 @@
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection ) {
-				mw.hook( 'mw.cx.select.word' ).fire( selection.toLowerCase() );
+				mw.hook( 'mw.cx.select.word' ).fire( selection );
 			}
 		} );
 
