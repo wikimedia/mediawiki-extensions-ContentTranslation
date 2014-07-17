@@ -19,7 +19,10 @@
 
 		this.$userName = $( '<a>' )
 			.addClass( 'cx-header__user-details__user-name' )
-			.attr( 'href', mw.util.getUrl( 'User:' + mw.user.getName() ) )
+			.attr( {
+				href: mw.util.getUrl( 'User:' + mw.user.getName() ),
+				target: '_blank'
+			} )
 			.text( mw.user.getName() );
 
 		$userDetails = $( '<div>' )
