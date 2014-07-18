@@ -213,35 +213,29 @@
 	};
 
 	/**
-	 * Generate a jquery selector for all sections
+	 * Generate a jQuery selector for all possible sections.
 	 * @return {string} the section selector string
 	 */
 	mw.cx.getSectionSelector = function () {
-		var i, sectionSelector = '',
-			sectionTypes = [
-				'div', 'p',
-				// tables
-				'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
-				// lists
-				'ul', 'ol', 'li', 'dl', 'dt', 'dd',
-				// HTML5 heading content
-				'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
-				// HTML5 sectioning content
-				'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
-				'figcaption', 'fieldset', 'details', 'blockquote',
-				// other
-				'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
-				'map', 'object', 'pre', 'progress', 'video'
-			];
+		var sectionTypes;
 
-		for ( i = 0; i < sectionTypes.length; i++ ) {
-			sectionSelector += sectionTypes[ i ] + ',';
-		}
+		sectionTypes = [
+			'div', 'p',
+			// tables
+			'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
+			// lists
+			'ul', 'ol', 'li', 'dl', 'dt', 'dd',
+			// HTML5 heading content
+			'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
+			// HTML5 sectioning content
+			'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
+			'figcaption', 'fieldset', 'details', 'blockquote',
+			// other
+			'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
+			'map', 'object', 'pre', 'progress', 'video'
+		];
 
-		// Remove the trailing comma.
-		sectionSelector = sectionSelector.replace( /,+$/, '' );
-
-		return sectionSelector;
+		return sectionTypes.join( ',' );
 	};
 
 	function sectionClick() {
