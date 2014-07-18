@@ -31,32 +31,6 @@
 	}
 
 	/**
-	 * Do the content translation by going to Special:CX
-	 * with the given source-target title and target language
-	 * @param {string} sourceTitle
-	 * @param {string} targetTitle
-	 * @param {string} targetLanguage
-	 */
-	function doCX( sourceTitle, targetTitle, targetLanguage ) {
-		var uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
-
-		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
-			uri.host = domainTemplate.replace( '$1', targetLanguage );
-		}
-
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			title: 'Special:ContentTranslation',
-			page: sourceTitle,
-			to: targetLanguage,
-			targettitle: targetTitle
-		};
-
-		window.location.href = uri.toString();
-	}
-
-	/**
 	 * @class
 	 */
 	function CXEntryPoint( $trigger, options ) {
@@ -158,7 +132,12 @@
 	CXEntryPoint.prototype.startPageInCX = function () {
 		var $titleInput = this.$dialog.find( '.cx-entrypoint-dialog__title-box-block input' );
 
-		doCX( mw.config.get( 'wgTitle' ), $titleInput.val(), this.options.targetLanguage );
+		mw.cx.doCX(
+			mw.config.get( 'wgTitle' ),
+			$titleInput.val(),
+			mw.config.get( 'wgContentLanguage' ),
+			this.options.targetLanguage
+		);
 	};
 
 	/**

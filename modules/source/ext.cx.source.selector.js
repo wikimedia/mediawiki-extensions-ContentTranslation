@@ -12,25 +12,6 @@
 	'use strict';
 
 	/**
-	 * Do the content translation by goint to Special:CX
-	 * with the given source-target title and target language
-	 * @param {string} sourceTitle
-	 * @param {string} targetTitle
-	 * @param {string} sourceLanguage
-	 * @param {string} targetLanguage
-	 */
-	function doCX( sourceTitle, targetTitle, sourceLanguage, targetLanguage ) {
-		window.location.href = mw.util.getUrl(
-			'Special:ContentTranslation', {
-				page: sourceTitle,
-				from: sourceLanguage,
-				to: targetLanguage,
-				targettitle: targetTitle
-			}
-		);
-	}
-
-	/**
 	 * CXSourceSelector
 	 * @class
 	 */
@@ -131,7 +112,8 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		doCX( this.$sourceTitleInput.val(),
+		mw.cx.doCX(
+			this.$sourceTitleInput.val(),
 			this.$targetTitleInput.val(),
 			this.$sourceLanguage.val(),
 			this.$targetLanguage.val()
