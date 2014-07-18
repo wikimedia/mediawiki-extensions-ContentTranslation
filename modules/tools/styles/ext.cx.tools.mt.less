@@ -79,15 +79,12 @@
 	}
 
 	.card__control-block {
-		@vertical-margin: 10px;
-		@horizontal-margin: 15px;
 		.mw-ui-item;
 		.mw-ui-one-whole;
 		float: none; // XXX why would it be needed?
-		padding: @vertical-margin @horizontal-margin;
 		line-height: 1.5em;
 		color: #c9c9c9; // TODO Should come from library?
-
+		padding: 10px 0;
 		.card__control-button {
 			@vertical-margin: 10px;
 			@horizontal-margin: 15px;
@@ -97,6 +94,8 @@
 			line-height: 1.5em;
 			color: #565656; // TODO Should come from library?
 			cursor: pointer;
+			border-top: 1px solid #dddddd;
+			border-left: 1px solid #dddddd;
 		}
 	}
 
