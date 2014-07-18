@@ -238,16 +238,17 @@
 
 	MTControlCard.prototype.start = function ( $section ) {
 		this.$section = $section;
+		this.selectProvider( mw.cx.tools.mt.provider );
 		this.$card.show();
 		this.onShow();
 	};
 
 	MTControlCard.prototype.stop = function () {
 		this.$card.remove();
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
 	MTControlCard.prototype.onShow = function () {
-		this.selectProvider( mw.cx.tools.mt.provider );
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
