@@ -164,6 +164,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.images',
 		'ext.cx.tools.mtabuse',
 		'ext.cx.tools.mt',
+		'ext.cx.tools.reference',
 	),
 ) + $resourcePaths;
 
