@@ -26,7 +26,7 @@
 	"cx-entrypoint-dialog-title-in": "Titel fir déi nei Säit op $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Vun null ufänken",
 	"cx-entrypoint-dialog-button-translate-from": "Iwwersetze vu(n) $1",
-	"cx-special-login-error": "Dir musst ageloggt si fir dës Säit z'iwwersetzen.",
+	"cx-special-login-error": "Dir musst ageloggt si fir fës Säit z'iwwersetzen. [$1 Aloggen]",
 	"cx-tools-instructions-text1": "{{GENDER:|Setzt}} Abschnitter dobäi fir z'iwwersetzen",
 	"cx-tools-instructions-text2": "{{GENDER:|Dir}} musst se net all derbäisetzen",
 	"cx-tools-instructions-text3": "{{GENDER:|Maacht}} den Text natierlech liesbar",
@@ -39,6 +39,8 @@
 	"cx-tools-link-title": "Link",
 	"cx-tools-link-add": "Link derbäisetzen",
 	"cx-tools-link-remove": "Link ewechhuelen",
+	"cx-tools-mt-title": "Maschineniwwersetzung",
+	"cx-tools-mt-restore": "Restauréieren",
 	"cx-stats-title": "Statgistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-stats-page-title": "Säit",
 	"cx-stats-from": "Quellsprooch",
@@ -49,5 +51,9 @@
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz ewechhuelen",
 	"cx-tools-link-hover-tooltip": "Klickt fir opzemaachen",
-	"cx-warning-unsaved-translation": "Dir hutt eng net gespäichert Iwwersetzung."
+	"cx-warning-unsaved-translation": "Dir hutt eng net gespäichert Iwwersetzung.",
+	"cx-sourceselector-dialog-new-translation": "Nei Iwwersetzung",
+	"cx-sourceselector-dialog-button-start-translation": "Iwwersetzung ufänken",
+	"cx-sourceselector-dialog-source-language-label": "Quell:",
+	"cx-sourceselector-dialog-target-language-label": "Zil:"
 }
