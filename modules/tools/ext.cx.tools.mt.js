@@ -237,15 +237,12 @@
 	}
 
 	MTControlCard.prototype.start = function ( $section ) {
-		mw.log( 'MTControlCard.prototype.start' ); // TODO remove
-
 		this.$section = $section;
 		this.$card.show();
 		this.onShow();
 	};
 
 	MTControlCard.prototype.stop = function () {
-		mw.log( 'MTControlCard.prototype.stop' ); // TODO remove
 		this.$card.remove();
 	};
 
