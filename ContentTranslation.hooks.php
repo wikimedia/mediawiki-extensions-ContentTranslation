@@ -49,8 +49,6 @@ class ContentTranslationHooks {
 		if ( $wgContentTranslationExperimentalFeatures ) {
 			// WYSIWYGEditor
 			$out->addModules( 'ext.cx.editor.medium' );
-			// Reference card
-			$out->addModules( 'ext.cx.tools.reference' );
 		} else {
 			// Just ContentEditable
 			$out->addModules( 'ext.cx.editor' );
