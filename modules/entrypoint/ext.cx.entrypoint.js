@@ -31,20 +31,29 @@
 	}
 
 	/**
-	 * Do the content translation by goint to Special:CX
+	 * Do the content translation by going to Special:CX
 	 * with the given source-target title and target language
 	 * @param {string} sourceTitle
 	 * @param {string} targetTitle
 	 * @param {string} targetLanguage
 	 */
 	function doCX( sourceTitle, targetTitle, targetLanguage ) {
-		window.location.href = mw.util.getUrl(
-			'Special:ContentTranslation', {
-				page: sourceTitle,
-				to: targetLanguage,
-				targettitle: targetTitle
-			}
-		);
+		var uri = new mw.Uri(),
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+
+		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
+			uri.host = domainTemplate.replace( '$1', targetLanguage );
+		}
+
+		uri.path = mw.config.get( 'wgScript' );
+		uri.query = {
+			title: 'Special:ContentTranslation',
+			page: sourceTitle,
+			to: targetLanguage,
+			targettitle: targetTitle
+		};
+
+		window.location.href = uri.toString();
 	}
 
 	/**

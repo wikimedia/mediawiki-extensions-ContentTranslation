@@ -91,10 +91,12 @@ class ContentTranslationHooks {
 	 */
 	public static function addConfig( &$vars ) {
 		global $wgContentTranslationServerURL, $wgContentTranslationDomainTemplate,
+			$wgContentTranslationTranslateInTarget,
 			$wgContentTranslationExperimentalFeatures;
 
 		$vars['wgContentTranslationServerURL'] = $wgContentTranslationServerURL;
 		$vars['wgContentTranslationDomainTemplate'] = $wgContentTranslationDomainTemplate;
+		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		return true;
 	}
