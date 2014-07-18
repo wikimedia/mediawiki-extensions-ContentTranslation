@@ -22,8 +22,6 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationExperimentalFeatures;
-
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 
