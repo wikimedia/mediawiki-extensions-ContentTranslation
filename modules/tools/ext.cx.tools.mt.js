@@ -15,6 +15,19 @@
 		disableMT = 'disable-mt';
 
 	/**
+	 * Do machine translation
+	 * @param {string} sourceLang Source language
+	 * @param {string} targetLang Target language
+	 * @param {string} sourceHtml Content
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.mt = function ( sourceLang, targetLang, sourceHtml ) {
+		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
+			sourceLang + '/' + targetLang;
+		return $.post( mtURL, sourceHtml );
+	};
+
+	/**
 	 * A plugin that performs machine translation on an element.
 	 * @param {text} text
 	 */

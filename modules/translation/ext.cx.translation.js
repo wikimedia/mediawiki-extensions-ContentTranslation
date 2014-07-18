@@ -127,19 +127,6 @@
 	};
 
 	/**
-	 * Do machine translation
-	 * @param {string} sourceLang Source language
-	 * @param {string} targetLang Target language
-	 * @param {string} sourceHtml Content
-	 * @return {jQuery.Promise}
-	 */
-	mw.cx.mt = function ( sourceLang, targetLang, sourceHtml ) {
-		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
-			sourceLang + '/' + targetLang;
-		return $.post( mtURL, sourceHtml );
-	};
-
-	/**
 	 * Update the translation section with the machine translation
 	 * @param {string} sourceId source section identifier
 	 * @param {boolean} machineTranslate Whether to do machine translation; default is false.
