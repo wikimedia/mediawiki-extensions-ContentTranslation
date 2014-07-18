@@ -94,8 +94,8 @@
 	ContentTranslationEditor.prototype.listen = function () {
 		var cxTranslation = this;
 
-		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.update, this ) );
-
+		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
+		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,
@@ -127,52 +127,21 @@
 	};
 
 	/**
-	 * Update the translation section with the machine translation
-	 * @param {string} sourceId source section identifier
-	 * @param {boolean} machineTranslate Whether to do machine translation; default is false.
+	 * Post-process the section after MT is applied
+	 * @param {jQuery} $section
 	 */
-	ContentTranslationEditor.prototype.update = function ( sourceId, machineTranslate ) {
-		var $sourceSection, targetSectionId, $section;
+	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
+		var $sourceSection;
 
-		if ( machineTranslate === undefined ) {
-			machineTranslate = true;
-		}
-
-		$sourceSection = $( '#' + sourceId );
-		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
-		$section = $( targetSectionId );
-
-		// Replace the placeholder with the source section
-		$section.replaceWith( $sourceSection
-			.clone()
-			.attr( {
-				id: 'cx' + sourceId,
-				'data-source': sourceId
-			} )
-		);
-
-		// $section was replaced. Get the updated instance.
-		$section = $( targetSectionId );
-
-		if ( machineTranslate ) {
-			$section.each( function () {
-				if ( mw.cx.tools.mt.enabled() ) {
-					$section.machineTranslate();
-				}
-			} );
-		}
-
+		// Adapt links
+		$section.adaptLinks( mw.cx.targetLanguage );
+		// Adapt images
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
-
+		// Adapt references
+		$sourceSection = $( '#' + $section.data( 'source' ) );
 		if ( $.fn.adaptReferences ) { // This is an experimental feature
 			$section.find( '[typeof="mw:Extension/ref"]' ).adaptReferences();
 		}
-
-		// Trigger input event so that the alignment will be correct
-		$section.on( 'input', $.debounce( 200, false, function () {
-			$( this ).data( 'cx-mt', false );
-			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
-		} ) );
 
 		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates
@@ -181,6 +150,12 @@
 		} else {
 			$section.cxEditor();
 		}
+
+		// Trigger input event so that the alignment will be correct
+		$section.on( 'input', $.debounce( 200, false, function () {
+			$( this ).data( 'cx-mt', false );
+			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
+		} ) );
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
@@ -197,6 +172,36 @@
 		} );
 
 		mw.hook( 'mw.cx.translation.updated' ).fire();
+	};
+
+	/*
+	 * Update the translation section with the machine translation template
+	 * @param {string} sourceId source section identifier
+	 * @param {boolean} machineTranslate Whether machine translation to be used or not
+	 */
+	ContentTranslationEditor.prototype.applyTranslationTemplate = function ( sourceId, machineTranslate ) {
+		var $sourceSection, targetSectionId, $section;
+
+		$sourceSection = $( '#' + sourceId );
+		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
+		$section = $( targetSectionId );
+
+		// Replace the placeholder with the source section
+		$section.replaceWith( $sourceSection
+			.clone()
+			.attr( {
+				id: 'cx' + sourceId,
+				'data-source': sourceId
+			} )
+		);
+
+		// $section was replaced. Get the updated instance.
+		$section = $( targetSectionId );
+		if ( machineTranslate ) {
+			$section.machineTranslate();
+		} else {
+			this.postProcessMT( $section );
+		}
 	};
 
 	/**
@@ -228,7 +233,7 @@
 	function sectionClick() {
 		/*jshint validthis:true */
 		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'cx-highlight' );
-		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ) );
+		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ), true );
 	}
 
 	function sectionMouseEnterHandler() {

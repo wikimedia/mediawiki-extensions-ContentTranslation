@@ -39,19 +39,22 @@
 		}
 
 		$section = $( this );
-		sourceContent = $section[ 0 ].outerHTML;
 
+		if ( !mw.cx.tools.mt.enabled() ) {
+			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
+			return;
+		}
+
+		sourceContent = $section[ 0 ].outerHTML;
 		mw.cx.mt( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
 			.done( function ( translation ) {
 				if ( translation ) {
-					$section.html( $( translation ).children().html() )
-						.adaptLinks( mw.cx.targetLanguage );
+					$section.html( $( translation ).children().html() );
 				}
-			} ).fail( function () {
-				$section.adaptLinks( mw.cx.targetLanguage );
 			} ).always( function () {
 				$section.data( 'cx-mt', true );
 				mw.hook( 'mw.cx.translation.change' ).fire( $section );
+				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 			} );
 
 		return this;
