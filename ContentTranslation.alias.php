@@ -59,6 +59,7 @@ $specialPageAliases['hsb'] = array(
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'ContentTranslation' => array( '내용번역' ),
+	'ContentTranslationStats' => array( '내용번역통계' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
