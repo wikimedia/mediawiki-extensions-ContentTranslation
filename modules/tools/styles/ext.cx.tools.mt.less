@@ -1,4 +1,5 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 /* TODO remove when the grid is updated */
 .hidden {
@@ -50,10 +51,15 @@
 		>li {
 			cursor: pointer;
 			padding: 5px;
-		}
-		>li:hover{
-			background-color: #6698FF;
-			color: #FFF;
+			&.selected {
+				.background-image-svg('../images/tick.svg', '../images/tick.png');
+				background-repeat: no-repeat;
+				background-position: right 4px center;
+			}
+			&:hover {
+				background-color: #6698FF;
+				color: #FFF;
+			}
 		}
 		:after, :before {
 			bottom: 100%;

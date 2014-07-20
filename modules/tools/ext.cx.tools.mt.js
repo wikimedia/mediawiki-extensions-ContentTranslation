@@ -99,7 +99,7 @@
 		this.$section = null;
 		this.$card = null;
 		this.$translations = null;
-		this.$definition = null;
+		this.$providersMenu = null;
 
 		// This is static because the card can be reinitialized.
 		// Indexed by section id.
@@ -234,7 +234,11 @@
 		var $providerItem = $( '#' + providerIdPrefix + providerId );
 
 		// Hide the menu
-		$providerItem.parent().addClass( 'hidden' );
+		this.$providersMenu.addClass( 'hidden' );
+
+		// Mark the selected item
+		this.$providersMenu.find( 'li' ).removeClass( 'selected' );
+		$providerItem.addClass( 'selected' );
 
 		// Set the global engine
 		// TODO This should be saved in a preference or a cookie
@@ -260,14 +264,15 @@
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider, $providersMenu;
+		var provider,
+			cxMtCard = this;
 
-		$providersMenu = $( '<ul>' )
+		this.$providersMenu = $( '<ul>' )
 			.addClass( 'card__providers-menu hidden' );
 
 		// Add available machine translation engines to the menu
 		for ( provider in MTControlCard.providers ) {
-			$providersMenu.append(
+			this.$providersMenu.append(
 				this.getProviderItem(
 					MTControlCard.providers[ provider ],
 					mw.cx.sourceLanguage,
@@ -277,14 +282,14 @@
 		}
 
 		// Add an item to disable machine translation for the language
-		$providersMenu.append( this.getProviderItem( disableMT ) );
+		this.$providersMenu.append( this.getProviderItem( disableMT ) );
 
 		this.$providerSelectorTrigger
 			.on( 'click', function ( e ) {
-				$providersMenu.toggleClass( 'hidden' );
+				cxMtCard.$providersMenu.toggleClass( 'hidden' );
 				e.stopPropagation();
 			} )
-			.after( $providersMenu );
+			.after( this.$providersMenu );
 	};
 
 	/**
