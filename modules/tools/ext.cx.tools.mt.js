@@ -15,47 +15,82 @@
 		disableMT = 'disable-mt';
 
 	/**
-	 * Do machine translation
+	 * Get the registry of machine translation providers
+	 * for a language pair from the CX server.
+	 * @param {string} from Source language
+	 * @param {string} to Target language
+	 * @return {jQuery.Promise}
+	 */
+	function getProviders( from, to ) {
+		var fetchProvidersUrl;
+
+		if ( MTControlCard.provider ) {
+			return $.Deferred().resolve();
+		}
+
+		fetchProvidersUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/list/mt/' +
+			encodeURIComponent( from ) + '/' + encodeURIComponent( to );
+
+		return $.get( fetchProvidersUrl )
+			.done( function ( response ) {
+				MTControlCard.providers = response;
+
+				if ( $.isEmptyObject( MTControlCard.providers ) ) {
+					MTControlCard.provider = disableMT;
+				} else {
+					MTControlCard.provider = MTControlCard.providers.provider;
+				}
+			} )
+			.fail( function ( response ) {
+				mw.log(
+					'Error getting translation providers from ' + fetchProvidersUrl + ' . ' +
+					response.statusText + ' (' + response.status + '). ' +
+					response.responseText
+				);
+			} );
+	}
+
+	/**
+	 * Do machine translation.
 	 * @param {string} sourceLang Source language
 	 * @param {string} targetLang Target language
 	 * @param {string} sourceHtml Content
 	 * @return {jQuery.Promise}
 	 */
-	mw.cx.mt = function ( sourceLang, targetLang, sourceHtml ) {
+	function doMT( sourceLang, targetLang, sourceHtml ) {
 		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
 			sourceLang + '/' + targetLang;
 		return $.post( mtURL, sourceHtml );
-	};
+	}
 
 	/**
 	 * A plugin that performs machine translation on an element.
 	 * @param {text} text
 	 */
 	$.fn.machineTranslate = function () {
-		var $section, sourceContent;
+		var $section = $( this );
 
-		if ( !mw.cx.tools.mt.enabled() ) {
-			return;
-		}
+		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
+			var sourceContent;
 
-		$section = $( this );
-
-		if ( !mw.cx.tools.mt.enabled() ) {
-			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-			return;
-		}
-
-		sourceContent = $section[ 0 ].outerHTML;
-		mw.cx.mt( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
-			.done( function ( translation ) {
-				if ( translation ) {
-					$section.html( $( translation ).children().html() );
-				}
-			} ).always( function () {
-				$section.data( 'cx-mt', true );
-				mw.hook( 'mw.cx.translation.change' ).fire( $section );
+			if ( MTControlCard.provider === disableMT ) {
 				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-			} );
+
+				return;
+			}
+
+			sourceContent = $section[ 0 ].outerHTML;
+			doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
+				.done( function ( translation ) {
+					if ( translation ) {
+						$section.html( $( translation ).children().html() );
+					}
+				} ).always( function () {
+					$section.data( 'cx-mt', true );
+					mw.hook( 'mw.cx.translation.change' ).fire( $section );
+					mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
+				} );
+		} );
 
 		return this;
 	};
@@ -65,13 +100,6 @@
 		this.$card = null;
 		this.$translations = null;
 		this.$definition = null;
-
-		if ( !mw.cx.tools.mt.providers ) {
-			mw.cx.tools.mt.providers = getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage );
-			mw.cx.tools.mt.provider = mw.cx.tools.mt.providers ?
-				mw.cx.tools.mt.providers.defaultProvider :
-				disableMT;
-		}
 
 		// This is static because the card can be reinitialized.
 		// Indexed by section id.
@@ -203,22 +231,21 @@
 	};
 
 	MTControlCard.prototype.selectProvider = function ( providerId ) {
-		var $providerItem = $( '#' + providerIdPrefix + providerId ),
-			providerTitle = $providerItem.text();
+		var $providerItem = $( '#' + providerIdPrefix + providerId );
 
 		// Hide the menu
 		$providerItem.parent().addClass( 'hidden' );
 
 		// Set the global engine
 		// TODO This should be saved in a preference or a cookie
-		mw.cx.tools.mt.provider = providerId;
+		MTControlCard.provider = providerId;
 
 		// Set the main label
-		this.$providerSelectorTrigger.text(
-			mw.cx.tools.mt.enabled() ?
-			mw.msg( 'cx-tools-mt-from-provider', providerTitle ) :
-			providerTitle
-		);
+		this.$providerSelectorTrigger.text( this.getProviderTitle(
+			providerId,
+			mw.cx.sourceLanguage,
+			mw.cx.targetLanguage
+		) );
 	};
 
 	MTControlCard.prototype.listen = function () {
@@ -239,26 +266,18 @@
 			.addClass( 'card__providers-menu hidden' );
 
 		// Add available machine translation engines to the menu
-		for ( provider in mw.cx.tools.mt.providers ) {
+		for ( provider in MTControlCard.providers ) {
 			$providersMenu.append(
 				this.getProviderItem(
-					provider,
-					mw.cx.tools.mt.providers[ provider ].title
+					MTControlCard.providers[ provider ],
+					mw.cx.sourceLanguage,
+					mw.cx.targetLanguage
 				)
 			);
 		}
 
 		// Add an item to disable machine translation for the language
-		$providersMenu.append(
-			this.getProviderItem(
-				'disable-mt',
-				mw.msg( 'cx-tools-mt-dont-use' ),
-				function () {
-					mw.cx.tools.mt.provider = disableMT;
-					mw.log( 'disabling machine translation' );
-				}
-			)
-		);
+		$providersMenu.append( this.getProviderItem( disableMT ) );
 
 		this.$providerSelectorTrigger
 			.on( 'click', function ( e ) {
@@ -268,40 +287,42 @@
 			.after( $providersMenu );
 	};
 
-	MTControlCard.prototype.getProviderItem = function ( id, providerName ) {
+	/**
+	 * Get the text for the menu item in the providers list.
+	 * @param {string} id Provider id.
+	 * @param {string} sourceLang Source language code.
+	 * @param {string} targetLang Target language code.
+	 * @return {string}
+	 */
+	MTControlCard.prototype.getProviderTitle = function ( id, from, to ) {
+		if ( id === disableMT ) {
+			return mw.msg( 'cx-tools-mt-dont-use' );
+		} else {
+			return mw.msg( 'cx-tools-mt-provider-title',
+				id,
+				$.uls.data.getAutonym( from ),
+				$.uls.data.getAutonym( to )
+			);
+		}
+	};
+
+	/**
+	 * Get a menu item for the providers list.
+	 * @param {string} id Provider id.
+	 * @param {string} from Source language code.
+	 * @param {string} to Target language code.
+	 * @return {jQuery}
+	 */
+	MTControlCard.prototype.getProviderItem = function ( id, from, to ) {
 		return $( '<li>' )
-			.text( providerName )
+			.text( this.getProviderTitle( id, from, to ) )
 			.prop( 'id', providerIdPrefix + id )
 			.on( 'click', $.proxy( this.selectProvider, this, id ) );
 	};
 
-	/**
-	 * TODO
-	 */
-	function getProviders( from, to ) {
-		var providers;
-
-		providers = {
-			es: {
-				ca: {
-					'apertium-es-ca': {
-						title: 'Apertium español-català'
-					},
-					defaultProvider: 'apertium-es-ca'
-				}
-			}
-		};
-
-		if ( providers[ from ] && providers[ from ][ to ] ) {
-			return providers[ from ][ to ];
-		}
-
-		return false;
-	}
-
 	MTControlCard.prototype.start = function ( $section ) {
 		this.$section = $section;
-		this.selectProvider( mw.cx.tools.mt.provider );
+		this.selectProvider( MTControlCard.provider );
 
 		if ( !MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] ) {
 			this.$restore.addClass( 'hidden' );
@@ -327,8 +348,4 @@
 	};
 
 	mw.cx.tools.mt = MTControlCard;
-
-	mw.cx.tools.mt.enabled = function () {
-		return mw.cx.tools.mt.provider !== disableMT;
-	};
 }( jQuery, mediaWiki ) );

@@ -266,7 +266,7 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'cx-tools-mt-use-source',
 		'cx-tools-mt-clear-translation',
 		'cx-tools-mt-restore',
-		'cx-tools-mt-from-provider',
+		'cx-tools-mt-provider-title',
 		'cx-tools-mt-not-available',
 		'cx-tools-mt-dont-use',
 		'cx-tools-mt-use-other-language',
@@ -277,6 +277,7 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'ext.cx.translation',
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+		'jquery.uls.data',
 	),
 ) + $resourcePaths;
 

@@ -55,7 +55,7 @@
 	"cx-tools-mt-use-source": "Use source text",
 	"cx-tools-mt-clear-translation": "Clear translation",
 	"cx-tools-mt-restore": "Restore",
-	"cx-tools-mt-from-provider": "From $1",
+	"cx-tools-mt-provider-title": "From $1, $2 to $3",
 	"cx-tools-mt-not-available": "Not available for $1",
 	"cx-tools-mt-dont-use": "Don't use machine translation",
 	"cx-tools-mt-use-other-language": "$1 ($2)",
