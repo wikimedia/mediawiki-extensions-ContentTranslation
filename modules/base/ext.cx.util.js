@@ -40,4 +40,39 @@
 
 		window.location.href = uri.toString();
 	};
+
+	/**
+	 * Get the API URL, ending with /api.php, for a given language.
+	 * The domain is based on $wgContentTranslationDomainTemplate.
+	 * @param {string} language Language code
+	 * @return {string}
+	 */
+	mw.cx.getApiUrl = function ( language ) {
+		var uri = new mw.Uri(),
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+
+		uri.host = domainTemplate.replace( '$1', language );
+		uri.path = mw.config.get( 'wgScriptPath' ) + '/api.php';
+		uri.query = {};
+
+		return uri.toString();
+	};
+
+	/**
+	 * Get a URL to an article in a wiki for a given language.
+	 * The domain is based on $wgContentTranslationDomainTemplate.
+	 * @param {string} language Language code
+	 * @param {string} title Page title
+	 * @return {string}
+	 */
+	mw.cx.getPageUrl = function ( language, title ) {
+		var uri = new mw.Uri(),
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+
+		uri.host = domainTemplate.replace( '$1', language );
+		uri.path = mw.config.get( 'wgArticlePath' ).replace( '$1', title );
+		uri.query = {};
+
+		return uri.toString();
+	};
 }( mediaWiki ) );
