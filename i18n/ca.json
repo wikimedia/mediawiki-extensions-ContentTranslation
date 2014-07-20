@@ -5,7 +5,8 @@
 			"Fitoschido",
 			"Amire80",
 			"Pginer",
-			"KRLS"
+			"KRLS",
+			"QuimGil"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -39,11 +40,11 @@
 	"cx-entrypoint-dialog-title-in": "Títol per a la nova pàgina en $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Crea des de zero",
 	"cx-entrypoint-dialog-button-translate-from": "Tradueix de la llengua $1",
-	"cx-special-login-error": "Heu d'iniciar una sessió per traduir en aquesta pàgina. [$1 Inicia la sessió]",
+	"cx-special-login-error": "Heu d'iniciar una sessió per a traduir en aquesta pàgina. [$1 Inicia la sessió]",
 	"cx-tools-instructions-text1": "Afegeix paràgrafs per traduir",
 	"cx-tools-instructions-text2": "No cal afegir-los tots",
 	"cx-tools-instructions-text3": "Fes que el text es llegeixi de forma natural",
-	"cx-tools-instructions-text4": "La traducció automàtica és útil, però haureu de revisar errors per fer-la precisa.",
+	"cx-tools-instructions-text4": "La traducció automàtica és útil, però haureu de revisar errors per a fer-la precisa.",
 	"cx-tools-instructions-text5": "Publica la traducció",
 	"cx-tools-instructions-text6": "Quan {{GENDER:|estigueu}} satisfet amb el resultat, premeu el botó «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Cerca una paraula",
@@ -65,7 +66,7 @@
 	"cx-stats-to": "Llengua destí",
 	"cx-stats-pages-title": "Pàgines traduïdes",
 	"cx-stats-unknown": "desconegut",
-	"cx-stats-summary": "{{PLURAL:$1|S'ha publicat una pàgina|S'han publicat $1/$2 articles ($3%)}} en l'espai principal.",
+	"cx-stats-summary": "{{PLURAL:$1|S'ha publicat una pàgina|S'han publicat $1/$2 pàgines ($3%)}} en l'espai principal.",
 	"cx-tools-reference-title": "Referència",
 	"cx-tools-reference-remove": "Esborra la referència",
 	"cx-tools-link-instruction-shortcut": "Feu Shift + clic a qualsevol enllaç per obrir-lo",

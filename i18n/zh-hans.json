@@ -6,7 +6,8 @@
 			"Byfserag",
 			"Cwek",
 			"Xiaomingyan",
-			"Liye"
+			"Liye",
+			"Fengchao"
 		]
 	},
 	"cx": "翻译页面",
@@ -35,11 +36,11 @@
 	"cx-entrypoint-dialog-title-in": "在$1的新页面标题：",
 	"cx-entrypoint-dialog-button-create-from-scratch": "从头开始创建",
 	"cx-entrypoint-dialog-button-translate-from": "从$1翻译",
-	"cx-special-login-error": "您必须登录才能翻译此页面。",
+	"cx-special-login-error": "您必须登录才能翻译此页面。[$1 登录]",
 	"cx-tools-instructions-text1": "添加段落到翻译",
 	"cx-tools-instructions-text2": "您不需要加入它们",
 	"cx-tools-instructions-text3": "使文本阅读起来跟自然",
-	"cx-tools-instructions-text4": "自动翻译很有用，但是你需要校订错误使其准确。",
+	"cx-tools-instructions-text4": "自动翻译很有用，但是你需要校订错误。",
 	"cx-tools-instructions-text5": "发布翻译",
 	"cx-tools-instructions-text6": "如果您满意这个结果，请按“{{int:cx-publish-button}}”。",
 	"cx-tools-searchbox-text": "请搜索",
@@ -48,6 +49,8 @@
 	"cx-tools-link-title": "链接",
 	"cx-tools-link-add": "添加链接",
 	"cx-tools-link-remove": "移除链接",
+	"cx-tools-mt-title": "机器翻译",
+	"cx-tools-mt-restore": "还原",
 	"cx-stats-title": "内容翻译统计",
 	"cx-stats-page-title": "页面",
 	"cx-stats-from": "源语言",
@@ -60,5 +63,6 @@
 	"cx-tools-link-instruction-shortcut": "Shift+点击任何连接打开",
 	"cx-tools-link-hover-tooltip": "单击打开",
 	"cx-warning-unsaved-translation": "您有未保存的翻译。",
-	"cx-error-page-not-found": "$2维基百科上找不到页面“$1”"
+	"cx-error-page-not-found": "$2维基百科上找不到页面“$1”",
+	"cx-publish-captcha-title": "安全问题"
 }
