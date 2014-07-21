@@ -111,7 +111,7 @@
 			}
 			//delete data.parts[ 0 ].template.params[ key ];
 			// Copy over other parameters, but map known keys
-			if ( mappings.parameters[ key ] !== undefined ) {
+			if ( mappings.parameters && mappings.parameters[ key ] !== undefined ) {
 				key = mappings.parameters[ key ];
 			}
 
