@@ -29,7 +29,7 @@
 	};
 
 	/**
-	 * Enable/Disable the publish button based on progress of translation
+	 * Enable/Disable the publish button based on progress of translation.
 	 * @param {float} progress
 	 */
 	ContentTranslationHeader.prototype.setPublishButtonState = function ( progress ) {
@@ -37,8 +37,7 @@
 	};
 
 	/**
-	 * Show login message
-	 * @param {string} message
+	 * Show login message.
 	 */
 	ContentTranslationHeader.prototype.showLoginMessage = function () {
 		var currentUri, returnToQueryString, loginUriHref;
@@ -65,7 +64,7 @@
 	};
 
 	/**
-	 * Show error message
+	 * Show a success message in the info bar.
 	 * @param {string} message
 	 */
 	ContentTranslationHeader.prototype.showSuccess = function ( message ) {
@@ -78,7 +77,7 @@
 	};
 
 	/**
-	 * Show error message
+	 * Show an error message in the info bar.
 	 * @param {string} message
 	 */
 	ContentTranslationHeader.prototype.showError = function ( message ) {
@@ -94,10 +93,12 @@
 		this.$container.find( '.publish' ).on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
-		// Click hander for remove icon in info bar.
+
+		// Click handler for remove icon in info bar.
 		this.$infoBar.find( '.remove' ).click( function () {
 			$( this ).parent().hide();
 		} );
+
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
 		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
