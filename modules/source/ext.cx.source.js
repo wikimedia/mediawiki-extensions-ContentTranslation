@@ -22,7 +22,7 @@
 		var fetchPageUrl;
 
 		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
-			'/page/' + language + '/' + title;
+			'/page/' + encodeURIComponent( language ) + '/' + encodeURIComponent( title );
 
 		$.get( fetchPageUrl )
 			.done( function ( response ) {
