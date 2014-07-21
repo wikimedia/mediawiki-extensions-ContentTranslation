@@ -108,7 +108,7 @@
 		// or used the clear translation tool.
 		// Present the placeholder for the section to user.
 		mw.hook( 'mw.cx.translation.clear' ).add( function ( sourceId ) {
-			var targetSectionId = jquerySelectorForId( sourceId, 'cx' ),
+			var targetSectionId = '#cx' + sourceId,
 				$placeholder = getPlaceholder( sourceId );
 
 			mw.hook( 'mw.cx.translation.change' ).fire( $( targetSectionId ) );
@@ -185,11 +185,10 @@
 		sourceId,
 		machineTranslate
 	) {
-		var $sourceSection, targetSectionId, $section;
+		var $sourceSection, $section;
 
 		$sourceSection = $( '#' + sourceId );
-		targetSectionId = jquerySelectorForId( sourceId, 'cx' );
-		$section = $( targetSectionId );
+		$section = $( '#cx' + sourceId );
 
 		// Replace the placeholder with the source section
 		$section.replaceWith( $sourceSection
@@ -201,7 +200,7 @@
 		);
 
 		// $section was replaced. Get the updated instance.
-		$section = $( targetSectionId );
+		$section = $( '#cx' + sourceId );
 		if ( machineTranslate ) {
 			$section.machineTranslate();
 		} else {
@@ -237,62 +236,33 @@
 
 	function sectionClick() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'cx-highlight' );
+		$( '#' + $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ), true );
 	}
 
 	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).addClass( 'cx-highlight' );
+		$( '#' + $( this ).data( 'source' ) ).addClass( 'cx-highlight' );
 	}
 
 	function sectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).data( 'source' ) ) ).removeClass( 'cx-highlight' );
-	}
-
-	/**
-	 * Return a valid jQuery selector for the given id after escaping.
-	 * @param {string} id
-	 * @param {string} [prefix] id prefix
-	 */
-	function jquerySelectorForId( id, prefix ) {
-		var selector, randomId;
-
-		randomId = '#' + prefix + ( Math.floor( Math.random() * 1000000 ) + 1 );
-		prefix = prefix || '';
-
-		if ( !id ) {
-			selector = randomId;
-		} else {
-			// make it a string
-			id = id + '';
-			selector = '#' + prefix + id.replace( /(:|\/|\.|\[|\])/g, '\\$1' );
-		}
-
-		try {
-			// Make sure jQuery considers it as a valid selector.
-			$( selector );
-		} catch ( error ) {
-			selector = randomId;
-		}
-
-		return selector;
+		$( '#' + $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
 	}
 
 	function sourceSectionClickHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).click();
+		$( '#cx' + $( this ).attr( 'id' ) ).click();
 	}
 
 	function sourceSectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).mouseenter();
+		$( '#cx' + $( this ).attr( 'id' ) ).mouseenter();
 	}
 
 	function sourceSectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( jquerySelectorForId( $( this ).attr( 'id' ), 'cx' ) ).mouseleave();
+		$( '#cx' + $( this ).attr( 'id' ) ).mouseleave();
 	}
 
 	/**
