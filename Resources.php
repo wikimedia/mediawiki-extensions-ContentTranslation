@@ -114,7 +114,10 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.translation'] = array(
-	'scripts' => 'translation/ext.cx.translation.js',
+	'scripts' => array(
+		'translation/ext.cx.translation.js',
+		'translation/ext.cx.translation.aligner.js',
+	),
 	'dependencies' => array(
 		'ext.cx.translation.progress',
 		'jquery.uls.data',
