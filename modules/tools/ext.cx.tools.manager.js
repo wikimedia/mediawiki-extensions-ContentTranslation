@@ -13,13 +13,13 @@
  * 	mw.cx.tools.dictionary = DictionaryCard;
  * </code>
  * In this example dictionary is a unique identifier for the tool card
- * DictionaryCard is a class that implement the tool card
- * This class should have the following methods defined.
- * 1. getCard() - Return the jQuery object representing the DOM of the card
- * 2. start(data) - Takes the data given by events and start presenting the card
+ * DictionaryCard is a class that implements the tool card
+ * This class should have the following methods defined:
+ * 1. getCard() - Return the jQuery object representing the DOM of the card.
+ * 2. start( data ) - Takes the data given by events and start presenting the card.
  * 3. stop()- Destroys the DOM of the card. End of the card instance.
  *
- * The tool need to fire an event mw.cx.tool.shown once the card is shown
+ * The tool needs to fire the event mw.cx.tool.shown once the card is shown.
  */
 ( function ( $, mw ) {
 	'use strict';
@@ -43,17 +43,21 @@
 	 * Initialize
 	 */
 	CXToolManager.prototype.init = function () {
-		var index, cxToolManager = this;
+		var index,
+			cxToolManager = this;
 
 		this.$loadingIndicator = $( '.cx-tools__loading-indicator' );
 		$.each( mw.cx.tools, function ( toolName, tool ) {
 			var events = tool.prototype.getTriggerEvents();
+
 			for ( index = 0; index < events.length; index++ ) {
 				if ( !cxToolManager.eventRegistry[ events[ index ] ] ) {
 					// initialize the array
 					cxToolManager.eventRegistry[ events[ index ] ] = [];
 				}
+
 				cxToolManager.eventRegistry[ events[ index ] ].push( toolName );
+
 				if ( toolName === cxToolManager.options.defaultTool ) {
 					// show the default tool
 					cxToolManager.showCard( toolName );
@@ -74,18 +78,19 @@
 		mw.log( '[CX] event:' + eventName + ' , data:' + data );
 		tools = this.eventRegistry[ eventName ];
 		data = data.splice( 1 );
+
 		for ( index in tools ) {
-			// Call render function on the current setting module.
+			// Call the render function on the current setting module
 			this.showCard( tools[ index ], data );
 		}
 	};
 
 	/**
-	 * Listen for all kind of events that tools registered and
-	 * dispatch them
+	 * Listen for all kinds of events that the tools registered and dispatch them.
 	 */
 	CXToolManager.prototype.listen = function () {
-		var event, cxToolManager = this;
+		var event,
+			cxToolManager = this;
 
 		for ( event in this.eventRegistry ) {
 			mw.hook( event ).add(
@@ -96,8 +101,9 @@
 		mw.hook( 'mw.cx.tools.shown' ).add( function () {
 			cxToolManager.$loadingIndicator.hide();
 		} );
-		// Check if there are any cards shown in regular time intervals
-		// If not show the default tool
+
+		// Check if there are any cards shown in regular time intervals.
+		// If not, show the default tool.
 		window.setInterval( function () {
 			if ( !cxToolManager.$container.find( '.card' ).length ) {
 				cxToolManager.showCard( cxToolManager.options.defaultTool );
@@ -106,7 +112,7 @@
 	};
 
 	/**
-	 * Show a tool card
+	 * Show a tool card.
 	 * @param {toolName} toolName tool name
 	 * @param {Array|Object|string} The data passed by the event.
 	 */
@@ -117,11 +123,14 @@
 		if ( toolName !== this.options.defaultTool ) {
 			this.hideCard( this.options.defaultTool );
 		}
+
 		tool = new mw.cx.tools[ toolName ]();
+
 		this.$container.append( tool.getCard() );
 		if ( typeof data === 'string' ) {
 			data = new Array( data );
 		}
+
 		this.$loadingIndicator.show();
 		tool.start.apply( tool, data );
 		this.tools[ toolName ] = tool;
@@ -141,19 +150,22 @@
 	}
 
 	/**
-	 * Hide unrelated cards
-	 * Find out cards not having trigger events intersecton and hide them.
+	 * Hide unrelated cards.
+	 * Find cards not having trigger events intersecton and hide them.
 	 * @param {string} currentToolName current tool name
 	 */
 	CXToolManager.prototype.hideUnrelatedCards = function ( currentToolName ) {
 		var currentToolEvents, toolEvents, toolName;
+
 		if ( this.tools[ currentToolName ] ) {
 			currentToolEvents = this.tools[ currentToolName ].getTriggerEvents();
 		}
+
 		for ( toolName in this.tools ) {
 			if ( toolName === currentToolName ) {
 				continue;
 			}
+
 			toolEvents = this.tools[ toolName ].getTriggerEvents();
 			if ( intersection( currentToolEvents, toolEvents ).length === 0 ) {
 				this.hideCard( toolName );
@@ -162,7 +174,8 @@
 	};
 
 	/**
-	 * Hide a card
+	 * Hide a card.
+	 * @param {string} toolName
 	 */
 	CXToolManager.prototype.hideCard = function ( toolName ) {
 		if ( this.tools[ toolName ] ) {
