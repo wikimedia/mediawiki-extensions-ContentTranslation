@@ -49,7 +49,6 @@
 	"cx-tools-mt-use-source": "Использовать исходный текст",
 	"cx-tools-mt-clear-translation": "Очистить перевод",
 	"cx-tools-mt-restore": "Восстановить",
-	"cx-tools-mt-from-provider": "С помощью $1",
 	"cx-tools-mt-not-available": "Недоступно для $1",
 	"cx-tools-mt-dont-use": "Не использовать машинный перевод",
 	"cx-stats-title": "Статистика перевода контента",

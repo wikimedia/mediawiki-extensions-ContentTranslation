@@ -56,7 +56,7 @@
 	"cx-tools-mt-use-source": "להשתמש בטקסט המקור",
 	"cx-tools-mt-clear-translation": "לנקות את התרגום",
 	"cx-tools-mt-restore": "שחזור",
-	"cx-tools-mt-from-provider": "מ{{GRAMMAR:תחילית|$1}}",
+	"cx-tools-mt-provider-title": "מ{{GRAMMAR:תחילית|$1}}, מ{{GRAMMAR:תחילית|$2}} ל{{GRAMMAR:תחילית|$3}}",
 	"cx-tools-mt-not-available": "לא זמין עבור $1",
 	"cx-tools-mt-dont-use": "לא להשתמש בתרגום מכונה",
 	"cx-stats-title": "סטטיסטיקות של תרגום תוכן",

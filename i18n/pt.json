@@ -50,7 +50,7 @@
 	"cx-tools-mt-title": "Tradução automática",
 	"cx-tools-mt-clear-translation": "Limpar tradução",
 	"cx-tools-mt-restore": "Restaurar",
-	"cx-tools-mt-from-provider": "De $1",
+	"cx-tools-mt-provider-title": "De $1, $2 para $3",
 	"cx-tools-mt-not-available": "Não disponível para $1",
 	"cx-tools-mt-dont-use": "Não usar a tradução automática",
 	"cx-stats-page-title": "Página",

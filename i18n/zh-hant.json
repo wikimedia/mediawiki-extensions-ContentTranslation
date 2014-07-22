@@ -18,6 +18,7 @@
 	"cx-publish-page-error": "當保存頁面時出錯。",
 	"cx-publish-button": "發佈翻譯",
 	"cx-publish-summary": "經由翻譯頁面“$1”創建",
+	"cx-publish-gt-move-page-description": "選擇「（主）」命名空間并定義準確標題。",
 	"cx-translation-add-translation": "+ 增加翻譯",
 	"tag-contenttranslation": "內容翻譯",
 	"cx-source-loading": "正在載入$1",
