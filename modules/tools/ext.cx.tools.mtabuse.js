@@ -23,22 +23,13 @@
 	}
 
 	MTAbuseCard.prototype.render = function () {
-		var uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
-
 		this.$card.find( '.card__mtabuse-details' )
 			.text( mw.msg( 'cx-mt-abuse-warning-text' ) );
-		uri.host = domainTemplate.replace( '$1', mw.cx.targetLanguage );
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			// TODO: This must customizable per project
-			title: 'Project:Translation#How_to_translate'
-		};
 
 		this.$card.find( '.card__mtabuse-link' )
 			.append( $( '<a>' )
 				.prop( {
-					href: uri.toString(),
+					href: mw.msg( 'cx-tools-view-guidelines-link' ),
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-tools-view-guidelines' ) )

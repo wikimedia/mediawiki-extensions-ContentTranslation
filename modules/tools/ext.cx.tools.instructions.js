@@ -40,9 +40,7 @@
 	InstructionsCard.prototype.constructor = InstructionsCard;
 
 	InstructionsCard.prototype.render = function () {
-		var $guidelines,
-			uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+		var $guidelines;
 
 		this.$card.find( '.tools.count.one' )
 			.text( mw.language.convertNumber( 1 ) );
@@ -65,17 +63,10 @@
 		this.$card.find( '.text.description.three' )
 			.text( mw.msg( 'cx-tools-instructions-text6' ) );
 
-		uri.host = domainTemplate.replace( '$1', mw.cx.targetLanguage );
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			// TODO: This must customizable per project
-			title: 'Project:Translation#How_to_translate'
-		};
-
 		$guidelines = this.$card.find( '.card__section.guidelines' )
 			.append( $( '<a>' )
 				.prop( {
-					href: uri.toString(),
+					href: mw.msg( 'cx-tools-view-guidelines-link' ),
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-tools-view-guidelines' ) )

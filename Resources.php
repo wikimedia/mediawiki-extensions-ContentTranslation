@@ -193,12 +193,12 @@ $wgResourceModules['ext.cx.tools.instructions'] = array(
 		'cx-tools-instructions-text5',
 		'cx-tools-instructions-text6',
 		'cx-tools-view-guidelines',
+		'cx-tools-view-guidelines-link',
 	),
 	'dependencies' => array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
 		'mediawiki.jqueryMsg',
-		'mediawiki.Uri',
 	),
 ) + $resourcePaths;
 
@@ -212,6 +212,8 @@ $wgResourceModules['ext.cx.tools.mtabuse'] = array(
 	'messages' => array(
 		'cx-mt-abuse-warning-title',
 		'cx-mt-abuse-warning-text',
+		'cx-tools-view-guidelines',
+		'cx-tools-view-guidelines-link',
 	),
 	'dependencies' => array(
 		'ext.cx.tools.manager',

@@ -47,6 +47,7 @@
 	"cx-tools-instructions-text6": "When {{GENDER:|you}} are happy with the result, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Search for a word",
 	"cx-tools-view-guidelines": "{{GENDER:|View}} translation guidelines",
+	"cx-tools-view-guidelines-link": "https://en.wikipedia.org/wiki/Project:Translation#How_to_translate",
 	"cx-tools-dictionary-title": "Definition",
 	"cx-tools-link-title": "Link",
 	"cx-tools-link-add": "Add link",

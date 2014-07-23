@@ -51,6 +51,7 @@
 	"cx-tools-instructions-text6": "Help text for the translation tools pane on Special:ContentTranslation.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text5}}.",
 	"cx-tools-searchbox-text": "Placeholder text for the search box on the translation tools column.",
 	"cx-tools-view-guidelines": "Shown at the bottom of the instructions text. A hyperlink to the translation guidelines in the target language.",
+	"cx-tools-view-guidelines-link": "Link to translation guideline in the target language wiki. Give the absolute URL of a translation guidelines page in target language.",
 	"cx-tools-dictionary-title": "Title of tool card that shows dictionary definitions on Special:ContentTranslation.\n{{Identical|Definition}}",
 	"cx-tools-link-title": "Title of link tool card.\n{{Identical|Link}}",
 	"cx-tools-link-add": "Text shown in link tool card. Clicking on it adds the link in the cursor position.\n{{Identical|Add link}}",
