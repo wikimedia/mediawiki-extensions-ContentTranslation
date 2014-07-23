@@ -25,6 +25,7 @@
 	ContentTranslationTools.prototype.init = function () {
 		this.render();
 		this.$toolsContainer.cxtoolmanager();
+
 		// Handle enter key press in the search field.
 		this.$searchBox.find( 'input' ).keypress( function ( event ) {
 			if ( event.which === 13 ) {
@@ -33,27 +34,34 @@
 				mw.hook( 'mw.cx.search.link' ).fire( text );
 			}
 		} );
+
 		mw.hook( 'mw.cx.tools.ready' ).fire();
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $loadingIndicator, $search;
+		var $progressBar, $search, $loadingIndicator;
 
 		this.$searchBox = $( '<div>' )
 			.addClass( 'card search cx-tools--container' );
+
 		this.$toolsContainer = $( '<div>' )
 			.addClass( 'cx-tools--container' );
+
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
 			.cxProgressBar();
+
 		$search = $( '<input>' )
 			.addClass( 'tools-words-search box' )
 			.attr( {
 				placeholder: mw.msg( 'cx-tools-searchbox-text' ),
 				type: 'search'
 			} );
+
 		this.$searchBox.append( $search );
+
 		$loadingIndicator = getLoadingIndicator();
+
 		this.$container.append(
 			$progressBar,
 			this.$searchBox,
@@ -68,7 +76,8 @@
 			.append(
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' ) )
+				$( '<div>' ).addClass( 'bounce3' )
+			)
 			.hide();
 	}
 
@@ -84,7 +93,7 @@
 
 	ContentTranslationTools.prototype.scroll = function () {
 		var scrollTop = $( window ).scrollTop(),
-			// Use the .prev() element as the reference point(anchor)
+			// Use the .prev() element as the reference point (anchor)
 			offsetTop = this.$container.prev().offset().top;
 
 		if ( scrollTop > offsetTop ) {
@@ -98,11 +107,10 @@
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxTools' );
+
 			if ( !data ) {
 				$this.data( 'cxTools', ( data = new ContentTranslationTools( this ) ) );
 			}
-
 		} );
 	};
-
 }( jQuery, mediaWiki ) );

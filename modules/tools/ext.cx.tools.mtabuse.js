@@ -33,7 +33,7 @@
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-tools-view-guidelines' ) )
-		);
+			);
 	};
 
 	MTAbuseCard.prototype.onShow = function () {
@@ -46,9 +46,14 @@
 
 	MTAbuseCard.prototype.start = function ( mtPercentage ) {
 		this.$card.show();
+
 		mtPercentage = parseInt( mtPercentage, 10 );
 		this.$card.find( '.card__mtabuse-title' )
-			.text( mw.msg( 'cx-mt-abuse-warning-title', mw.language.convertNumber( mtPercentage ) ) );
+			.text( mw.msg(
+				'cx-mt-abuse-warning-title',
+				mw.language.convertNumber( mtPercentage ) )
+			);
+
 		this.onShow();
 	};
 

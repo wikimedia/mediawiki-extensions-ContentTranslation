@@ -29,20 +29,22 @@
 	};
 
 	ProgressBar.prototype.render = function () {
-		this.$container.append(
-			$( '<div>' )
+		this.$container.append( $( '<div>' )
 			.addClass( 'cx-progressbar' )
 			.append(
 				$( '<span>' ).addClass( 'cx-progressbar__bar' ),
 				$( '<span>' ).addClass( 'cx-progressbar__bar--mt' )
 			)
 		);
+
 		this.$info = $( '<div>' )
 			.addClass( 'cx-progressbar__info' )
-			.append( $( '<div>' )
-				.addClass( 'cx-progressbar__info--total' ),
+			.append(
 				$( '<div>' )
-				.addClass( 'cx-progressbar__info--mt' ) );
+					.addClass( 'cx-progressbar__info--total' ),
+				$( '<div>' )
+					.addClass( 'cx-progressbar__info--mt' )
+			);
 
 		this.$container.append( this.$info.hide() );
 		this.$bar = this.$container.find( '.cx-progressbar__bar' );
@@ -52,10 +54,13 @@
 
 	ProgressBar.prototype.listen = function () {
 		var progressBar = this;
+
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.update, this ) );
+
 		this.$container.on( 'mouseenter', '.cx-progressbar', function () {
 			progressBar.$info.show();
 		} );
+
 		this.$container.on( 'mouseleave', '.cx-progressbar', function () {
 			progressBar.$info.hide();
 		} );
@@ -67,12 +72,18 @@
 		mtPercentage = parseInt( mtPercentage, 10 );
 		this.$bar.css( 'width', this.status + '%' );
 		this.$mtbar.css( 'width', mtPercentage + '%' );
+
 		this.$info.find( '.cx-progressbar__info--total' )
-			.text( mw.msg( 'cx-header-progressbar-text',
-				mw.language.convertNumber( percentage ) ) );
+			.text( mw.msg(
+				'cx-header-progressbar-text',
+				mw.language.convertNumber( percentage )
+			) );
+
 		this.$info.find( '.cx-progressbar__info--mt' )
-			.text( mw.msg( 'cx-header-progressbar-text-mt',
-				mw.language.convertNumber( mtPercentage ) ) );
+			.text( mw.msg(
+				'cx-header-progressbar-text-mt',
+				mw.language.convertNumber( mtPercentage )
+			) );
 	};
 
 	$.fn.cxProgressBar = function ( options ) {

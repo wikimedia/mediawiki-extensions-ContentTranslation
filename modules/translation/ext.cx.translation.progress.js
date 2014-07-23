@@ -15,8 +15,8 @@
 		translationThreshold = 0.05;
 
 	/**
-	 * Get the total source weight
-	 * @return {int} total source weight
+	 * Get the total source weight.
+	 * @return {int} Total source weight
 	 */
 	function getTotalSourceWeight() {
 		var $sourceContainer,
@@ -25,6 +25,7 @@
 		if ( totalSourceWeight ) {
 			return totalSourceWeight;
 		}
+
 		$sourceContainer = $( '.cx-column--source .cx-column__content' );
 		$sections = $sourceContainer.children( mw.cx.getSectionSelector() );
 
@@ -36,11 +37,12 @@
 	}
 
 	/**
-	 * Calculate the translation progress
+	 * Calculate the translation progress.
 	 */
 	function showProgress() {
 		var percentage = getTranslationProgress(),
 			mtPercentage = getMachineTranslationPercentage();
+
 		mw.hook( 'mw.cx.progress' ).fire( percentage, mtPercentage );
 		if ( mtPercentage > 75 ) {
 			mw.hook( 'mw.cx.warning.mtabuse' ).fire( mtPercentage );
@@ -48,70 +50,82 @@
 	}
 
 	/**
-	 * Calculate the percentage of machine translation
+	 * Calculate the percentage of machine translation.
 	 * @return {float} percentage
 	 */
 	function getMachineTranslationPercentage() {
-		var completedTranslation = 0,
-			sourceWeight,
-			percentage;
+		var sourceWeight,
+			percentage,
+			completedTranslation = 0;
 
 		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			if ( $( this ).data( 'cx-mt' ) === true ) {
-				completedTranslation += $( this ).data( 'cx-weight' );
+			var $this = $( this );
+
+			if ( $this.data( 'cx-mt' ) === true ) {
+				completedTranslation += $this.data( 'cx-weight' );
 			}
 		} );
+
 		sourceWeight = getTotalSourceWeight();
 		if ( sourceWeight === 0 ) {
 			return 0;
 		}
+
 		percentage = ( completedTranslation / sourceWeight ) * 100;
+
 		return percentage;
 	}
 
 	/**
-	 * Calculate the translation progress
+	 * Calculate the translation progress.
 	 * @return {float} percentage
 	 */
 	function getTranslationProgress() {
-		var completedTranslation = 0,
-			sourceWeight,
-			percentage;
+		var sourceWeight,
+			percentage,
+			completedTranslation = 0;
 
 		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			if ( $( this ).data( 'cx-mt' ) === false ) {
-				completedTranslation += $( this ).data( 'cx-weight' );
+			var $this = $( this );
+
+			if ( $this.data( 'cx-mt' ) === false ) {
+				completedTranslation += $this.data( 'cx-weight' );
 			}
 		} );
+
 		sourceWeight = getTotalSourceWeight();
 		if ( sourceWeight === 0 ) {
 			return 0;
 		}
+
 		percentage = ( completedTranslation / sourceWeight ) * 100;
+
 		return percentage;
 	}
 
 	/**
-	 * Update/Change handler for section
+	 * Update/Change handler for section.
 	 * @param {jQuery} $section The source section
 	 */
 	function onSectionUpdate( $section ) {
-		var $sourceSection, sourceLength, translationLength;
+		var $sourceSection, translationLength, sourceLength;
 
 		if ( !$section ) {
 			return;
 		}
+
 		$sourceSection = $( '#' + $section.data( 'source' ) );
 		translationLength = $section.text().length;
 		sourceLength = $sourceSection.text().length;
 
-		// Check if the translation is above the defined threshold to count.
+		// Check if the translation is above the defined threshold to count
 		if ( translationLength / sourceLength < translationThreshold ) {
 			// Do not count the section as translated
 			$section.removeAttr( 'data-cx-weight' );
 		} else {
 			$section.attr( 'data-cx-weight', sourceLength );
 		}
+
 		// Calculate the total translation progress
 		showProgress();
 	}
@@ -119,9 +133,10 @@
 	$( function () {
 		mw.hook( 'mw.cx.translation.change' ).add( onSectionUpdate );
 		window.onbeforeunload = function () {
-			// Check if progress is greater than 1%
+			// Check if the progress is greater than 1%
 			if ( parseInt( getTranslationProgress(), 10 ) > 0 ||
-				parseInt( getMachineTranslationPercentage(), 10 ) > 0 ) {
+				parseInt( getMachineTranslationPercentage(), 10 ) > 0
+			) {
 				return mw.msg( 'cx-warning-unsaved-translation' );
 			}
 		};
