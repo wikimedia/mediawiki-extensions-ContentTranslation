@@ -8,7 +8,8 @@
 			"Sucheta Ghoshal",
 			"Raymond",
 			"Robby",
-			"Metalhead64"
+			"Metalhead64",
+			"Liuxinyu970226"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -80,7 +81,7 @@
 	"cx-sourceselector-dialog-new-translation": "Title of language and title selector on on Special:ContentTranslation.",
 	"cx-sourceselector-dialog-button-start-translation": "Button label for translation selector. Clicking on it starts a new translation in Special:ContentTranslation.",
 	"cx-sourceselector-dialog-source-language-label": "Label text for source language and title selector.\n{{Identical|Source}}",
-	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.",
+	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.\n{{Identical|Target}}",
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation"

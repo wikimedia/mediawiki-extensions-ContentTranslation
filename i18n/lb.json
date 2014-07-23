@@ -43,6 +43,7 @@
 	"cx-tools-link-add": "Link derbäisetzen",
 	"cx-tools-link-remove": "Link ewechhuelen",
 	"cx-tools-mt-title": "Maschineniwwersetzung",
+	"cx-tools-mt-use-source": "Quelltext benotzen",
 	"cx-tools-mt-clear-translation": "Iwwersetzung eidelmaachen",
 	"cx-tools-mt-restore": "Restauréieren",
 	"cx-tools-mt-provider-title": "Vu(n) $1, $2 op $3",
@@ -63,5 +64,6 @@
 	"cx-sourceselector-dialog-new-translation": "Nei Iwwersetzung",
 	"cx-sourceselector-dialog-button-start-translation": "Iwwersetzung ufänken",
 	"cx-sourceselector-dialog-source-language-label": "Quell:",
-	"cx-sourceselector-dialog-target-language-label": "Zil:"
+	"cx-sourceselector-dialog-target-language-label": "Zil:",
+	"cx-publish-captcha-title": "Sécherheetsfro"
 }
