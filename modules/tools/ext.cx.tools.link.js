@@ -239,7 +239,7 @@
 	 * @return {string} Cleaned up href
 	 */
 	function cleanupLinkHref( href ) {
-		return href.replace( /^\.\//, '' );
+		return href.replace( /^\.*\//, '' );
 	}
 
 	/**
