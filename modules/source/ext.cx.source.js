@@ -206,6 +206,13 @@
 
 			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
 		} );
+
+		// Highlight segment pairs
+		this.$content.on( 'mouseenter mouseleave', '.cx-segment', function () {
+			var $segment = $( this ),
+				segmentId = $segment.data( 'segmentid' );
+			$( '[data-segmentid="' + segmentId + '"]' ).toggleClass( 'cx-highlight' );
+		} );
 	};
 
 	$.fn.cxSource = function ( options ) {
