@@ -196,9 +196,7 @@
 			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
 
 			if ( e.shiftKey || e.ctrlKey ) {
-				$link
-					.addClass( 'cx-highlight--blue' )
-					.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
+				$link.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
 			}
 		} );
 
@@ -207,7 +205,6 @@
 				linkid = $link.data( 'linkid' );
 
 			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
-			$link.removeClass( 'cx-highlight--blue' );
 		} );
 	};
 
