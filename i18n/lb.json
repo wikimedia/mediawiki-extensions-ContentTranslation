@@ -8,6 +8,7 @@
 	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
 	"cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
 	"cx-header-progressbar-text": "$1% iwwersat",
+	"cx-header-progressbar-text-mt": "($1% Maschinneniwwersetzung)",
 	"cx-header-translation-center": "Iwwersetzungszentral",
 	"cx-source-view-page": "Säit weisen",
 	"cx-publish-page": "Säit publizéiert ënner [$1 $2]",

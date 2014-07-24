@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Okras",
-			"Alexandr Efremov"
+			"Alexandr Efremov",
+			"Meshkov.a"
 		]
 	},
 	"cx": "Перевести страницу",
 	"cx-error-server-connection": "Ошибка: Не удалось подключиться к серверу.",
 	"cx-desc": "Инструмент, который позволяет редакторам переводить страницы с одного языка на другой с помощью машинного перевода и других инструментов перевода",
 	"cx-header-progressbar-text": "Перевод выполнен на $1%",
+	"cx-header-progressbar-text-mt": "($1% от машинного перевода)",
 	"cx-header-translation-center": "Центр переводов",
 	"cx-source-view-page": "просмотр страницы",
 	"cx-publish-page": "Страница опубликована на [$1 $2]",
@@ -20,8 +22,11 @@
 	"cx-publish-gt-first-step-title": "Перевод был опубликован как черновик под вашей страницей участника для дальнейшей проверки",
 	"cx-publish-gt-first-step-description": "Нажмите на «{{int:vector-action-move}}» под этим меню, чтобы сделать это содержимое доступным для всех пользователей в качестве обычной страницы.",
 	"cx-publish-gt-move-page-title": "Переименовать страницу",
+	"cx-publish-gt-move-page-description": "Выберите пространство имен «(Главная)» и дайте ему правильный заголовок.",
 	"cx-publish-gt-moved-title": "Переведённая страница была переименована",
+	"cx-publish-gt-moved-description": "Нажмите эту ссылку, чтобы прочитать и улучшить ваши новые переведенные страницы",
 	"cx-publish-gt-published-title": "Поздравляем, страница была опубликована",
+	"cx-publish-gt-published-description": "Вы можете нажать кнопку \"{{int:vector-view-edit}}\", чтобы продолжить улучшать страницу. Убедитесь, что она читается естественно.",
 	"cx-translation-add-translation": "+ Добавить перевод",
 	"tag-contenttranslation": "ПереводСодержимого",
 	"cx-source-loading": "Загрузка $1",
@@ -49,6 +54,7 @@
 	"cx-tools-mt-use-source": "Использовать исходный текст",
 	"cx-tools-mt-clear-translation": "Очистить перевод",
 	"cx-tools-mt-restore": "Восстановить",
+	"cx-tools-mt-provider-title": "От $1, $2 в $3",
 	"cx-tools-mt-not-available": "Недоступно для $1",
 	"cx-tools-mt-dont-use": "Не использовать машинный перевод",
 	"cx-stats-title": "Статистика перевода контента",
@@ -63,7 +69,12 @@
 	"cx-tools-link-instruction-shortcut": "Shift + щелчок мыши на любой ссылке, чтобы открыть её",
 	"cx-tools-link-hover-tooltip": "Щелкните, чтобы открыть",
 	"cx-warning-unsaved-translation": "У вас есть несохранённый перевод.",
+	"cx-error-page-not-found": "Страница \"$1\" не может быть найдена в $2 Википедии",
 	"cx-sourceselector-dialog-new-translation": "Новый перевод",
 	"cx-sourceselector-dialog-button-start-translation": "Начать перевод",
-	"cx-sourceselector-dialog-source-language-label": "Источник:"
+	"cx-sourceselector-dialog-source-language-label": "Источник:",
+	"cx-sourceselector-dialog-target-language-label": "Цель:",
+	"cx-mt-abuse-warning-title": "Ваш перевод содержит $1% неизмененного машинного перевода текста",
+	"cx-mt-abuse-warning-text": "Машинные переводы предоставляются только в качестве шаблона. Вам нужно убедиться, что контент является точным и естественно читается на вашем языке.",
+	"cx-publish-captcha-title": "Секретный вопрос"
 }
