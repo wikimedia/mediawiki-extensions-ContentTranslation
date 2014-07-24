@@ -16,7 +16,7 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( $out, $skin ) {
-		global $wgContentTranslationEventLogging, $wgContentTranslationExperimentalFeatures;
+		global $wgContentTranslationEventLogging;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -44,14 +44,6 @@ class ContentTranslationHooks {
 				'schema.ContentTranslation',
 				'ext.cx.eventlogging',
 			) );
-		}
-
-		if ( $wgContentTranslationExperimentalFeatures ) {
-			// WYSIWYGEditor
-			$out->addModules( 'ext.cx.editor.medium' );
-		} else {
-			// Just ContentEditable
-			$out->addModules( 'ext.cx.editor' );
 		}
 
 		return true;
