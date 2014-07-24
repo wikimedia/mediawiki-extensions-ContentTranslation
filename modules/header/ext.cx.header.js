@@ -30,10 +30,12 @@
 
 	/**
 	 * Enable/Disable the publish button based on progress of translation.
-	 * @param {float} progress
+	 * @param {number} progress
+	 * @param {number} mtPercentage
 	 */
-	ContentTranslationHeader.prototype.setPublishButtonState = function ( progress ) {
-		this.$publishButton.prop( 'disabled', parseInt( progress, 10 ) === 0 );
+	ContentTranslationHeader.prototype.setPublishButtonState = function ( progress, mtPercentage ) {
+		this.$publishButton.prop( 'disabled',
+			parseInt( progress, 10 ) === 0 && parseInt( mtPercentage, 10 ) === 0 );
 	};
 
 	/**
