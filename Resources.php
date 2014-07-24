@@ -274,7 +274,6 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'cx-tools-mt-provider-title',
 		'cx-tools-mt-not-available',
 		'cx-tools-mt-dont-use',
-		'cx-tools-mt-use-other-language',
 	),
 	'dependencies' => array(
 		'ext.cx.model',
