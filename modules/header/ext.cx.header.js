@@ -58,7 +58,16 @@
 			.find( '.text' )
 			.html( mw.message( 'cx-special-login-error', loginUriHref ).parse() );
 
-		this.$userName.text( mw.msg( 'login' ) ).prop( 'href', loginUriHref );
+		// The top login link should open in the same window.
+		// There is no reason to open a new tab for it,
+		// becauses there is no translation here.
+		this.$userName
+			.text( mw.msg( 'login' ) )
+			.prop( {
+				href: loginUriHref,
+				target: ''
+			} );
+
 		// Do not show the columns
 		$( '.cx-widget__columns' ).remove();
 	};
