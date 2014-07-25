@@ -22,11 +22,13 @@
 	"cx-publish-button": "发布翻译",
 	"cx-publish-button-publishing": "正在发布...",
 	"cx-publish-summary": "通过翻译页面“$1”创建",
+	"cx-publish-gt-first-step-title": "译文已作为草稿发布至您的用户页以复核",
 	"cx-publish-gt-move-page-title": "移动页面",
 	"cx-publish-gt-move-page-description": "选择“（主）”名字空间并提供正确的标题。",
 	"cx-publish-gt-moved-title": "翻译页面已移动",
 	"cx-publish-gt-moved-description": "点此链接阅读并提高您新的翻译页面",
 	"cx-publish-gt-published-title": "祝贺！页面已发布！",
+	"cx-publish-gt-published-description": "您可点击“{{int:vector-view-edit}}”保持改进页面。确保它读起来顺口。",
 	"cx-translation-add-translation": "+加入翻译",
 	"tag-contenttranslation": "内容翻译",
 	"cx-source-loading": "$1载入中",
@@ -74,5 +76,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "开始翻译",
 	"cx-sourceselector-dialog-source-language-label": "来源：",
 	"cx-sourceselector-dialog-target-language-label": "目标：",
+	"cx-mt-abuse-warning-title": "您的译文包含$1%未校订的机器翻译文本",
+	"cx-mt-abuse-warning-text": "机器翻译只是作为模板提供。您需要确保内容读起来准确并符合您语言的语法。",
 	"cx-publish-captcha-title": "安全问题"
 }
