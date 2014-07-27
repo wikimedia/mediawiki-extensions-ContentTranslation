@@ -15,13 +15,13 @@
 	"cx-publish-summary": "Cræftit bi owersetin the page \"$1\"",
 	"tag-contenttranslation": "ContentOwerset",
 	"cx-source-loading": "Laidin $1",
-	"cx-special-login-error": "Ye maun be loggit in fer tae owerset in this page.",
-	"cx-tools-instructions-text1": "Eik paragraphs tae owerset",
-	"cx-tools-instructions-text2": "Ye dinna need tae eik thaim aw",
-	"cx-tools-instructions-text3": "Mak tex read natural",
-	"cx-tools-instructions-text4": "Autæmatic owersetin is uisefu but ye'll need tae clean up some mistaks tae mak it just richt.",
-	"cx-tools-instructions-text5": "Publish the owerset",
-	"cx-tools-instructions-text6": "Whan ye'r happie wi the ootcome, press \"{{int:cx-publish-button}}\".",
+	"cx-special-login-error": "Ye maun be loggit in fer tae owerset in this page. [$1 Login]",
+	"cx-tools-instructions-text1": "{{GENDER:|Eik}} paragraphs tae owerset",
+	"cx-tools-instructions-text2": "{{GENDER:|Ye}} dinna need tae eik thaim aw",
+	"cx-tools-instructions-text3": "{{GENDER:|Mak}} tex read natural",
+	"cx-tools-instructions-text4": "Machine owersetin is uisefu but {{GENDER:|ye'l}} need tae clean up some mistaks tae mak it juIst richt.",
+	"cx-tools-instructions-text5": "{{GENDER:|Publish}} the owerset",
+	"cx-tools-instructions-text6": "Whan {{GENDER:|ye}}'r happie wi the ootcome, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Rake fer ae waird",
-	"cx-tools-view-guidelines": "Luik at owersetin guidelines"
+	"cx-tools-view-guidelines": "{{GENDER:|See}} the owersetin guidelines"
 }

@@ -29,6 +29,8 @@
 	"cx-tools-dictionary-title": "Къастам",
 	"cx-tools-link-title": "Хьажораг",
 	"cx-tools-link-remove": "ДӀаяккха хьажорг",
+	"cx-tools-mt-use-source": "Леладе дӀадолалун йоза",
+	"cx-tools-mt-restore": "МеттахӀоттае",
 	"cx-stats-page-title": "АгӀо",
 	"cx-stats-from": "Коьрта мотт",
 	"cx-stats-to": "Коьрта мотт",
@@ -36,5 +38,9 @@
 	"cx-stats-unknown": "хууш дац",
 	"cx-stats-summary": "{{PLURAL:$1|Цхьа агӀо|$1/$2 агӀонаш ($3%)}} коьрта цӀерийн меттигехь.",
 	"cx-tools-link-instruction-shortcut": "Shift + дехкан кнопка таӀае хьажорг схьаелла",
-	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха"
+	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха",
+	"cx-sourceselector-dialog-new-translation": "Керла гоч",
+	"cx-sourceselector-dialog-button-start-translation": "Дlадоладе гоч дар",
+	"cx-sourceselector-dialog-source-language-label": "Хьост:",
+	"cx-sourceselector-dialog-target-language-label": "Ӏалашо:"
 }
