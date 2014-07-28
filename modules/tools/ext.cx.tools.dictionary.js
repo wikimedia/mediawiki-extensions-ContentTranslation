@@ -60,13 +60,17 @@
 		$expand = $( '<div>' )
 			.addClass( 'card__expand' );
 
-		return this.$card.append(
+		this.$card.append(
 			$titleRow,
 			$headword,
 			this.$definition,
 			this.$translationsBlock,
 			$expand
 		);
+
+		this.hide();
+
+		return this.$card;
 	};
 
 	/**
@@ -90,6 +94,8 @@
 	DictionaryCard.prototype.showResult = function ( response ) {
 		var i, $translation;
 
+		this.show();
+
 		if ( response.translations && response.translations.length ) {
 			for ( i = 0; i < response.translations.length; i++ ) {
 				$translation = $( '<div>' )
@@ -104,7 +110,20 @@
 				this.stop();
 			}
 		}
+	};
 
+	/**
+	 * Hide the card.
+	 */
+	DictionaryCard.prototype.hide = function () {
+		this.$card.hide();
+	};
+
+	/**
+	 * Show the card.
+	 */
+	DictionaryCard.prototype.show = function () {
+		this.$card.show();
 		this.onShow();
 	};
 
@@ -115,11 +134,15 @@
 
 			return;
 		}
+
 		// Normalize the case to lowercase.
 		word = word.toLowerCase();
-		// Show the source word and get a translation,
-		// and don't appear if getting the translation fails
+
+		// Set the source word
 		this.$card.find( '.card__headword' ).text( word );
+
+		// Try to get a translation.
+		// Don't appear if getting the translation fails.
 		getTranslation( word, mw.cx.sourceLanguage, mw.cx.targetLanguage )
 			.done( $.proxy( this.showResult, this ) )
 			.fail( $.proxy( this.stop, this ) );
