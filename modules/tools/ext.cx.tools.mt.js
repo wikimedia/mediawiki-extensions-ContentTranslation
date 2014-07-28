@@ -290,6 +290,13 @@
 				e.stopPropagation();
 			} )
 			.after( this.$providersMenu );
+
+		// Hide the dropdown on clicking outside of it
+		$( 'html' ).on( 'click', function ( e ) {
+			if ( !e.isDefaultPrevented() ) {
+				cxMtCard.$providersMenu.addClass( 'hidden' );
+			}
+		} );
 	};
 
 	/**
