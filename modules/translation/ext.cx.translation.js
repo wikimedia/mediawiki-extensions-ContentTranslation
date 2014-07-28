@@ -140,15 +140,16 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var $sourceSection;
+		var $sourceSection = $( '#' + $section.data( 'source' ) );
+
+		// Translation filled up. Unbind click handler for the source section.
+		$sourceSection.unbind( 'click', sourceSectionClickHandler );
 
 		// Adapt links
 		$section.adaptLinks( mw.cx.targetLanguage );
 		// Adapt images
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 		// Adapt references
-		$sourceSection = $( '#' + $section.data( 'source' ) );
-
 		if ( $.fn.adaptReferences ) { // This is an experimental feature
 			$section.find( '[typeof="mw:Extension/ref"]' ).adaptReferences();
 		}
