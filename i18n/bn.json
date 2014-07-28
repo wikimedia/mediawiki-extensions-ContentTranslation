@@ -18,7 +18,7 @@
 	"cx-translation-add-translation": "+ অনুবাদ যোগ করুন",
 	"cx-source-loading": "$1 লোড হচ্ছে",
 	"cx-entrypoint-dialog-button-translate-from": "$1 থেকে অনুবাদ",
-	"cx-special-login-error": "এই পাতাটি অনুবাদের জন্য আপনাকে অবশ্যই প্রবেশ করতে হবে।",
+	"cx-special-login-error": "এই পাতাটি অনুবাদের জন্য আপনাকে অবশ্যই প্রবেশ করতে হবে। [$1 প্রবেশ]",
 	"cx-tools-instructions-text1": "অনুবাদে অনুচ্ছেদ {{GENDER:|যোগ করুন}}",
 	"cx-tools-searchbox-text": "শব্দ জন্য অনুসন্ধান করুন",
 	"cx-stats-page-title": "পাতা",

@@ -14,8 +14,9 @@
 	"cx-publish-page": "Sayfa şurada yayınlandı [$1 $2]",
 	"cx-publish-page-error": "Sayfa kaydedilirken hata oluştu.",
 	"cx-publish-button": "Çeviriyi yayınla",
+	"cx-publish-gt-move-page-title": "Sayfayı taşı",
 	"cx-source-loading": "$1 yükleniyor",
-	"cx-special-login-error": "Bu sayfayı çevirmek için oturum açmanız gerekli.",
+	"cx-special-login-error": "Bu sayfayı çevirmek için oturum açmanız gerekli. [$1 Oturum aç]",
 	"cx-tools-instructions-text1": "Çeviriye paragraf ekleyin.",
 	"cx-tools-instructions-text2": "Kaliteden emin olmak için sağlanan otomatik çevirileri uyarlayın",
 	"cx-tools-instructions-text3": "Makina çevirisi çeviriler için kullanışlı bir başlangıç noktasıdır, ancak çevirmenler gerektiğinde hataları gözden geçirmeli ve çevirinin doğru olduğunu onaylamalıdır.",
@@ -24,5 +25,10 @@
 	"cx-tools-searchbox-text": "Bir kelime ara",
 	"cx-tools-link-add": "Bağlantı ekle",
 	"cx-tools-link-remove": "Bağlantıyı kaldır",
-	"cx-tools-link-hover-tooltip": "Açmak için tıklayın"
+	"cx-tools-mt-title": "Makine çevirisi",
+	"cx-tools-link-hover-tooltip": "Açmak için tıklayın",
+	"cx-sourceselector-dialog-new-translation": "Yeni çeviri",
+	"cx-sourceselector-dialog-button-start-translation": "Çevirmeye başla",
+	"cx-sourceselector-dialog-source-language-label": "Kaynak:",
+	"cx-publish-captcha-title": "Güvenlik sorusu"
 }

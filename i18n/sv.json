@@ -20,7 +20,7 @@
 	"cx-publish-summary": "Skapad genom översättning av \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Fråga en erfaren användare om hjälp att granska din översättning och publicera den som en artikel.",
 	"cx-publish-gt-first-step-title": "Översättningen har publicerats som ett utkast på en undersida till din användarsida för granskning",
-	"cx-publish-gt-first-step-description": "Klicka på \"{{int:vector-action-flytta}}\"-åtgärden under denna meny för att göra innehållet tillgängligt för alla användare som en vanlig sida.",
+	"cx-publish-gt-first-step-description": "Klicka på \"{{int:vector-action-move}}-åtgärden under denna meny för att göra innehållet tillgängligt för alla användare som en vanlig sida.",
 	"cx-publish-gt-move-page-title": "Flytta sidan",
 	"cx-publish-gt-move-page-description": "Välj namnrymden \"(Huvudnamnrymden)\" och ge sidan den rätta titeln",
 	"cx-publish-gt-moved-title": "Den översatta sidan flyttades",
