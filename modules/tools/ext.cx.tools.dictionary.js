@@ -127,7 +127,14 @@
 		this.onShow();
 	};
 
-	DictionaryCard.prototype.start = function ( word ) {
+	/**
+	 * @param {string} word
+	 * @param {string} [sourceLanguage]
+	 * @param {string} [targetLanguage]
+	 */
+	DictionaryCard.prototype.start = function ( word, sourceLanguage, targetLanguage ) {
+		sourceLanguage = sourceLanguage || mw.cx.sourceLanguage;
+		targetLanguage = targetLanguage || mw.cx.targetLanguage;
 		// Don't appear if there's nothing to translate
 		if ( word === '' ) {
 			this.stop();
@@ -143,7 +150,7 @@
 
 		// Try to get a translation.
 		// Don't appear if getting the translation fails.
-		getTranslation( word, mw.cx.sourceLanguage, mw.cx.targetLanguage )
+		getTranslation( word, sourceLanguage, targetLanguage )
 			.done( $.proxy( this.showResult, this ) )
 			.fail( $.proxy( this.stop, this ) );
 	};

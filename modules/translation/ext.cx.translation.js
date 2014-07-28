@@ -148,6 +148,7 @@
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 		// Adapt references
 		$sourceSection = $( '#' + $section.data( 'source' ) );
+
 		if ( $.fn.adaptReferences ) { // This is an experimental feature
 			$section.find( '[typeof="mw:Extension/ref"]' ).adaptReferences();
 		}
@@ -172,7 +173,9 @@
 			var selection = window.getSelection().toString();
 
 			if ( selection ) {
-				mw.hook( 'mw.cx.select.word' ).fire( selection );
+				// In this case, user is interested in targetLanguage->targetLanguage
+				// dictionary lookup. Or synonyms.
+				mw.hook( 'mw.cx.select.word' ).fire( selection, mw.cx.targetLanguage, mw.cx.targetLanguage );
 			}
 		} ) );
 
