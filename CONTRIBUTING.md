@@ -81,6 +81,13 @@ on mediawiki.org.
 Git commit messages should follow the conventions described in
 <https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines>.
 
+### Events and hooks
+
+This project's UI is event driven. See https://www.mediawiki.org/wiki/Content_translation/Front_end.
+Whenever possible, use the mw.hook framework for JavaScript events.
+
+Document each hook that you add in the hooks.md file.
+
 ### Documentation comments
 
 * End sentences in a full stop.
