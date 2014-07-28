@@ -164,8 +164,11 @@
 
 		// Trigger input event so that the alignment will be correct
 		$section.on( 'input', $.debounce( 200, false, function () {
-			$( this ).data( 'cx-mt', false );
-			mw.hook( 'mw.cx.translation.change' ).fire( $( this ) );
+			var $section = $( this );
+
+			$section.data( 'cx-mt', false );
+			mw.hook( 'mw.cx.translation.change' ).fire( $section );
+			mw.hook( 'mw.cx.translation.edit' ).fire( $section );
 		} ) );
 
 		// Search for text that was selected using the mouse.
