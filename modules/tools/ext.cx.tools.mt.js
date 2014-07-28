@@ -70,13 +70,17 @@
 	$.fn.machineTranslate = function () {
 		var $section = $( this );
 
+		// Hide the translation section till we get response from MT.
+		// Using opacity here because we don't want to disturb the alignment by
+		// hiding using display: none.
+		$section.css( 'opacity', 0 );
 		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
 			var sourceContent;
 
 			if ( MTControlCard.provider === disableMT ) {
 				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 
-				return;
+				return this;
 			}
 
 			sourceContent = $section[ 0 ].outerHTML;
@@ -85,9 +89,13 @@
 					if ( translation ) {
 						$section.html( $( translation ).children().html() );
 					}
-				} ).always( function () {
-					$section.data( 'cx-mt', true );
+				} )
+				.always( function () {
+					$section
+						.css( 'opacity', 1 )
+						.data( 'cx-mt', true );
 					mw.hook( 'mw.cx.translation.change' ).fire( $section );
+					mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 					mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 				} );
 		} );
