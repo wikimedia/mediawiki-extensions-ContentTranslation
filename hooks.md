@@ -82,7 +82,7 @@ Fires when the tools system is ready.
 
 Every tool card fires this when it is ready. Tools manager listen for this so that it can stop showing the loading indicator.
 
-## mw.cx.translate.create
+## mw.cx.translation.published
 
 Fires when the article is published successfully. Example subsciber is event logging (analytics) module.
 
