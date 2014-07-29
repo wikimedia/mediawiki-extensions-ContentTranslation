@@ -60,6 +60,7 @@
 	"cx-tools-mt-use-source": "Usar texto de origen",
 	"cx-tools-mt-clear-translation": "Borrar traducción",
 	"cx-tools-mt-restore": "Restaurar",
+	"cx-tools-mt-provider-title": "De $1, del $2 al $3",
 	"cx-tools-mt-not-available": "No disponible para $1",
 	"cx-tools-mt-dont-use": "No usar la traducción automática",
 	"cx-stats-title": "Estadísticas de traducción de contenidos",

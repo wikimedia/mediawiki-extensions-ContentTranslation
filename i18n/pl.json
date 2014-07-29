@@ -26,7 +26,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z $1",
 	"cx-special-login-error": "Musisz być zalogowany, aby tłumaczyć na tej stronie. [$1 Zaloguj się]",
 	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
-	"cx-tools-instructions-text4": "Automatyczne tłumaczenie jest przydatne, ale powinieneś przejrzeć błędy, aby było dokłaniejsze.",
+	"cx-tools-instructions-text4": "Automatyczne tłumaczenie jest przydatne, ale {{GENDER:|powinieneś|powinnaś}} przejrzeć błędy, aby było dokładniejsze.",
 	"cx-tools-instructions-text5": "Opublikuj tłumaczenie",
 	"cx-tools-instructions-text6": "Jeśli jesteś zadowolony z wyniku, kliknij „{{int:cx-publish-button}}”.",
 	"cx-tools-searchbox-text": "Wyszukaj słowo",
