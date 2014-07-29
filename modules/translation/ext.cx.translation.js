@@ -145,9 +145,6 @@
 		// Translation filled up. Unbind click handler for the source section.
 		$sourceSection.unbind( 'click', sourceSectionClickHandler );
 
-		// Adapt links
-		$section.adaptLinks( mw.cx.targetLanguage );
-
 		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates
 		if ( $sourceSection.data( 'editable' ) === false ) {

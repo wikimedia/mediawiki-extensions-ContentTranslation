@@ -552,47 +552,44 @@
 
 		return false;
 	}
-	/**
-	 * jQuery plugin to adapt all the links with rel="mw:WikiLink"
-	 * @param {string} targetLanguage
-	 */
-	$.fn.adaptLinks = function ( targetLanguage ) {
-		var linkAdaptor = new LinkCard();
 
-		return this.each( function () {
-			var $this = $( this ),
-				$links,
-				sourceTitles;
+	function adaptLinks( $section ) {
+		var linkAdaptor = new LinkCard(),
+			$links,
+			sourceTitles;
 
-			// Handle clicks on the section, including future links
-			$this.on( 'click', 'a', linkClickHandler );
-			$links = $this.find( 'a[rel="mw:WikiLink"]' );
-			// Collect all sourceTitles;
-			sourceTitles = $links.map( function () {
-				var href = $( this ).attr( 'href' );
-				// some cleanup
-				return cleanupLinkHref( href );
-			} ).get();
+		// Handle clicks on the section, including future links
+		$section.on( 'click', 'a', linkClickHandler );
+		$links = $section.find( 'a[rel="mw:WikiLink"]' );
+		// Collect all sourceTitles;
+		sourceTitles = $links.map( function () {
+			var href = $( this ).attr( 'href' );
+			// some cleanup
+			return cleanupLinkHref( href );
+		} ).get();
 
-			// This callback is called after we have fetched the interwiki links. It
-			// updates the href appropriate for target language or removes the link.
-			function apply( adaptations ) {
-				$links.map( function () {
-					var $this = $( this ),
-						href = $this.attr( 'href' );
+		// This callback is called after we have fetched the interwiki links. It
+		// updates the href appropriate for target language or removes the link.
+		function apply( adaptations ) {
+			$links.map( function () {
+				var $this = $( this ),
+					href = $this.attr( 'href' );
 
-					href = cleanupLinkHref( href );
-					if ( adaptations[ href ] ) {
-						$( this ).prop( 'href', adaptations[ href ] );
-					} else {
-						// Remove the link
-						$( this ).after( $( this ).text() ).remove();
-					}
-				} );
-			}
-			linkAdaptor.adapt( sourceTitles, targetLanguage ).done( apply );
-		} );
-	};
+				href = cleanupLinkHref( href );
+				if ( adaptations[ href ] ) {
+					$( this ).prop( 'href', adaptations[ href ] );
+				} else {
+					// Remove the link
+					$( this ).after( $( this ).text() ).remove();
+				}
+			} );
+		}
+		linkAdaptor.adapt( sourceTitles, mw.cx.targetLanguage ).done( apply );
+	}
 
 	mw.cx.tools.link = LinkCard;
+
+	$( function () {
+		mw.hook( 'mw.cx.translation.postMT' ).add( adaptLinks );
+	} );
 }( jQuery, mediaWiki ) );
