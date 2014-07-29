@@ -147,8 +147,6 @@
 
 		// Adapt links
 		$section.adaptLinks( mw.cx.targetLanguage );
-		// Adapt images
-		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
 
 		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates

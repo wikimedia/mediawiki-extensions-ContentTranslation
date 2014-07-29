@@ -61,13 +61,10 @@
 		return deferred.promise();
 	}
 
-	/**
-	 * jQuery plugin to adapt images so that parsoid can translate it to
-	 * proper wiki text.
-	 * @param {string} targetLanguage
-	 */
-	$.fn.adaptImage = function ( targetLanguage ) {
-		return this.each( function () {
+	function adaptImage( $section ) {
+		var targetLanguage = mw.cx.targetLanguage;
+
+		$section.find( 'img' ).each( function () {
 			var $image = $( this );
 
 			getImageNamespaceTranslation( targetLanguage )
@@ -84,5 +81,9 @@
 					$image.parent( 'a' ).attr( 'href', resource );
 				} );
 		} );
-	};
+	}
+
+	$( function () {
+		mw.hook( 'mw.cx.translation.postMT' ).add( adaptImage );
+	} );
 }( jQuery, mediaWiki ) );
