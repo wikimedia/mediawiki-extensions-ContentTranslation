@@ -209,7 +209,7 @@
 		if ( machineTranslate ) {
 			$section.machineTranslate();
 		} else {
-			this.postProcessMT( $section );
+			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
 	};
 
