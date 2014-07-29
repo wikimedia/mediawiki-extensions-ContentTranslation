@@ -149,10 +149,6 @@
 		$section.adaptLinks( mw.cx.targetLanguage );
 		// Adapt images
 		$section.find( 'img' ).adaptImage( mw.cx.targetLanguage );
-		// Adapt references
-		if ( $.fn.adaptReferences ) { // This is an experimental feature
-			$section.find( '[typeof="mw:Extension/ref"]' ).adaptReferences();
-		}
 
 		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates

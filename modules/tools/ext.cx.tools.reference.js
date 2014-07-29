@@ -153,25 +153,24 @@
 		$reference.attr( 'data-mw', JSON.stringify( mwData ) );
 	};
 
-	/**
-	 * jQuery plugin to adapt all the references with rel="mw:Extension/references"
-	 */
-	$.fn.adaptReferences = function () {
+	function processReferences( $section ) {
 		var referenceAdaptor = new ReferenceCard();
-
-		return this.each( function () {
+		$section.find( '[typeof="mw:Extension/ref"]' ).each( function () {
 			var $reference = $( this );
 			// Click handler for references.
-			// TODO: This can be in a better place since
-			// this is not necessarily part of reference adaptation.
 			$reference.on( 'click', function () {
 				var $reference = $( this );
 				mw.hook( 'mw.cx.select.reference' ).fire(
 					$reference.text(), $reference.data( 'mw' ), $reference, mw.cx.targetLanguage );
 			} );
+			// Adapt references.
 			referenceAdaptor.adaptReference( $reference );
 		} );
-	};
+	}
 
 	mw.cx.tools.reference = ReferenceCard;
+
+	$( function () {
+		mw.hook( 'mw.cx.translation.postMT' ).add( processReferences );
+	} );
 }( jQuery, mediaWiki ) );
