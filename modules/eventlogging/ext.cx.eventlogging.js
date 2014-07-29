@@ -60,7 +60,7 @@
 		 */
 		listen: function () {
 			// Register handlers for event logging triggers
-			mw.hook( 'mw.cx.translate.create' ).add(
+			mw.hook( 'mw.cx.translation.published' ).add(
 				$.proxy( this.translatedPageCreated, this )
 			);
 		},
