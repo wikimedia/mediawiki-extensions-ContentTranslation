@@ -18,8 +18,8 @@
 	 * @class
 	 */
 	function CXSectionEditor( element ) {
-		this.$element = $( element );
-		this.$editableElement = this.$element;
+		this.$section = $( element );
+		this.$editableElement = this.$section;
 		this.init();
 		this.listen();
 	}
@@ -28,9 +28,9 @@
 	 * Initialize the editor
 	 */
 	CXSectionEditor.prototype.init = function () {
-		if ( this.$element.get( 0 ).tagName === 'FIGURE' ) {
+		if ( this.$section.get( 0 ).tagName === 'FIGURE' ) {
 			// Inside figure allow editing of caption alone
-			this.$editableElement = this.$element.find( 'figcaption' );
+			this.$editableElement = this.$section.find( 'figcaption' );
 		}
 		// Make the element editable
 		this.$editableElement.attr( 'contenteditable', true );
@@ -43,19 +43,20 @@
 	CXSectionEditor.prototype.listen = function () {
 		var cxEditor = this;
 
-		this.$editableElement.on( 'input', $.debounce( 300, false,
-			// Delay the emptiness check till user pause typing.
+		this.$editableElement.on( 'input', $.debounce( 200, false, function () {
+			// Delay the input handler check till user pause typing.
 			// If this check was done every input, the responsiveness
 			// will get affected.
-			function () {
-				if ( cxEditor.$editableElement.text().trim() === '' ) {
-					// Emit 'mw.cx.translation.clear' event
-					mw.hook( 'mw.cx.translation.clear' ).fire(
-						cxEditor.$element.data( 'source' )
-					);
-				}
+			cxEditor.$section.data( 'cx-mt', false );
+			mw.hook( 'mw.cx.translation.change' ).fire( cxEditor.$section );
+			mw.hook( 'mw.cx.translation.edit' ).fire( cxEditor.$section );
+			if ( cxEditor.$editableElement.text().trim() === '' ) {
+				// Emit 'mw.cx.translation.clear' event
+				mw.hook( 'mw.cx.translation.clear' ).fire(
+					cxEditor.$section.data( 'source' )
+				);
 			}
-		) );
+		} ) );
 
 		// Disable pressing return key in headers and figure caption
 		if ( this.$editableElement.is( 'h1, h2, h3, h4, h5, h6, figcaption' ) ) {
