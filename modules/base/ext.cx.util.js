@@ -22,10 +22,11 @@
 	 * @param {string} targetLanguage
 	 */
 	mw.cx.doCX = function ( sourceTitle, targetTitle, sourceLanguage, targetLanguage ) {
-		var uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
+		var domainTemplate,
+			uri = new mw.Uri();
 
 		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
+			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
 			uri.host = domainTemplate.replace( '$1', targetLanguage );
 		}
 
