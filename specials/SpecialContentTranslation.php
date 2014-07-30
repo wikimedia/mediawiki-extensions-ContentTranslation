@@ -48,6 +48,11 @@ class SpecialContentTranslation extends SpecialPage {
 		) );
 
 		$out->addHTML( $out->headElement( $skin ) );
+		$out->addHTML( Html::element(
+			'noscript',
+			array(),
+			$this->msg( 'cx-javascript' )->text()
+		) );
 
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
 		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );

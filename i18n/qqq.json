@@ -13,6 +13,7 @@
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
+	"cx-javascript": "Error message shown when JavaScript is not enabled in the browser.",
 	"cx-error-server-connection": "Error message shown when connection to the content translation server has failed.",
 	"cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
 	"cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the percent of translation progress.",
