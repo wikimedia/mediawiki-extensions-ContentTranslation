@@ -12,35 +12,6 @@
 	'use strict';
 
 	/**
-	 * Fetch the page with given title and language.
-	 * Response contains
-	 * @param {string} title Title of the page to be fetched
-	 * @param {string} language Language of the page requested. This will be used to
-	 *     identify the host wiki.
-	 */
-	mw.cx.fetchPage = function ( title, language ) {
-		var fetchPageUrl;
-
-		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
-			'/page/' + encodeURIComponent( language ) + '/' + encodeURIComponent( title );
-
-		$.get( fetchPageUrl )
-			.done( function ( response ) {
-				mw.cx.data = response;
-				mw.hook( 'mw.cx.source.loaded' ).fire();
-			} ).fail( function ( xhr ) {
-				if ( xhr.status === 404 ) {
-					mw.hook( 'mw.cx.error' ).fire(
-						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
-					);
-					mw.hook( 'mw.cx.source.select' ).fire();
-				} else {
-					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
-				}
-			} );
-	};
-
-	/**
 	 * ContentTranslationSource
 	 *
 	 * @class
@@ -66,8 +37,36 @@
 		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
 		mw.cx.sourceLanguage = new mw.Uri().query.from || mw.config.get( 'wgContentLanguage' );
 		this.render();
-		mw.cx.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
+		this.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();
+	};
+
+	/**
+	 * Fetch the page with given title and language.
+	 * Response contains
+	 * @param {string} title Title of the page to be fetched
+	 * @param {string} language Language of the page requested. This will be used to
+	 *     identify the host wiki.
+	 */
+	ContentTranslationSource.prototype.fetchPage = function ( title, language ) {
+		var fetchPageUrl;
+
+		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
+			'/page/' + encodeURIComponent( language ) + '/' + encodeURIComponent( title );
+
+		$.get( fetchPageUrl )
+			.done( function ( response ) {
+				mw.hook( 'mw.cx.source.loaded' ).fire( response );
+			} ).fail( function ( xhr ) {
+				if ( xhr.status === 404 ) {
+					mw.hook( 'mw.cx.error' ).fire(
+						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
+					);
+					mw.hook( 'mw.cx.source.select' ).fire();
+				} else {
+					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+				}
+			} );
 	};
 
 	function getSourceArticleUrl() {
@@ -129,8 +128,8 @@
 		this.showLoadingIndicator();
 	};
 
-	ContentTranslationSource.prototype.load = function () {
-		this.$content.html( mw.cx.data.segmentedContent ).cxFilterSource();
+	ContentTranslationSource.prototype.load = function ( content ) {
+		this.$content.html( content.segmentedContent ).cxFilterSource();
 
 		// @todo figure out what should be done here
 		this.$content.find( 'base' ).detach();
@@ -152,7 +151,7 @@
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
 				$( '<div>' ).addClass( 'bounce3' )
-			);
+		);
 
 		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
 		this.$content.append( $loadingIndicator );
