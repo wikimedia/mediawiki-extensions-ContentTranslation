@@ -105,6 +105,4 @@
 		} );
 	};
 
-	mw.cx.ContentTranslationTools = ContentTranslationTools;
-
 }( jQuery, mediaWiki ) );
