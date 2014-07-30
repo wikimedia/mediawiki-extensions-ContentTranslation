@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Seite übersetzen",
+	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
 	"cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungswerkzeugen von einer Sprache in eine andere zu übersetzen",
 	"cx-header-progressbar-text": "$1% übersetzt",

@@ -58,6 +58,7 @@
 	"cx-stats-unknown": "അജ്ഞാതം",
 	"cx-tools-reference-title": "അവലംബം",
 	"cx-tools-reference-remove": "അവലംബം നീക്കംചെയ്യുക",
+	"cx-tools-link-instruction-shortcut": "Shift അമർത്തി ക്ലിക്കുചെയ്തു് കണ്ണികൾ തുറക്കുക",
 	"cx-tools-link-hover-tooltip": "തുറക്കാനായി ക്ലിക്കു ചെയ്യുക",
 	"cx-warning-unsaved-translation": "താങ്കൾക്ക് സേവ് ചെയ്യാത്ത പരിഭാഷകൾ ഉണ്ട്.",
 	"cx-error-page-not-found": "\"$1\" എന്ന താൾ \"$2\" വിക്കിപീഡിയയിൽ കാണാൻ സാധിച്ചില്ല.",
@@ -65,5 +66,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "പരിഭാഷ തുടങ്ങുക",
 	"cx-sourceselector-dialog-source-language-label": "സ്രോതസ്സ്:",
 	"cx-sourceselector-dialog-target-language-label": "ലക്ഷ്യം:",
+	"cx-mt-abuse-warning-title": "താങ്കളുടെ പരിഭാഷയിൽ $1% മാറ്റം വരുത്താത്ത യാന്ത്രികപരിഭാഷ അടങ്ങിയിരിയ്ക്കുന്നു.",
+	"cx-mt-abuse-warning-text": "യാന്ത്രികപരിഭാഷ ഒരു മാതൃക എന്നരീതിയിലാണു് തന്നിരിയ്ക്കുന്നതു്. അതു് കൃത്യമാണെന്നും നിങ്ങളുടെ ഭാഷയിൽ സുഖമമായി വായിയ്ക്കാവുന്നതുമാണെന്നും താങ്കൾ ഉറപ്പുവരുത്തേണ്ടതുണ്ടു്.",
 	"cx-publish-captcha-title": "സുരക്ഷാചോദ്യം"
 }

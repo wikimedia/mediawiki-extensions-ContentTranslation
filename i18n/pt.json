@@ -8,6 +8,7 @@
 		]
 	},
 	"cx": "Traduzir página",
+	"cx-javascript": "Esta ferramenta não funciona sem JavaScript.",
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
 	"cx-desc": "Uma ferramenta que permite aos editores traduzir páginas de uma língua para outra com o auxílio de tradutores automáticos e outras ferramentas de tradução",
 	"cx-header-progressbar-text": "$1% traduzido",

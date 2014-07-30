@@ -13,10 +13,11 @@
 		]
 	},
 	"cx": "Traducir página",
+	"cx-javascript": "Esta herramienta no funciona sin JavaScript.",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
 	"cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de la traducción automática y otras herramientas de traducción",
 	"cx-header-progressbar-text": "$1 % traducido",
-	"cx-header-progressbar-text-mt": "($1 % de la traducción automática)",
+	"cx-header-progressbar-text-mt": "($1% de traducción automática)",
 	"cx-header-translation-center": "Centro de traducción",
 	"cx-source-view-page": "ver página",
 	"cx-publish-page": "Página publicada en [$1 $2]",

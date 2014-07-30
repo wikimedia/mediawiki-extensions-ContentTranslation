@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "Säit iwwersetzen",
+	"cx-javascript": "Dëse Programm funktionéiert net ouni JavaScript",
 	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
 	"cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
 	"cx-header-progressbar-text": "$1% iwwersat",
@@ -67,5 +68,6 @@
 	"cx-sourceselector-dialog-button-start-translation": "Iwwersetzung ufänken",
 	"cx-sourceselector-dialog-source-language-label": "Quell:",
 	"cx-sourceselector-dialog-target-language-label": "Zil:",
+	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-publish-captcha-title": "Sécherheetsfro"
 }
