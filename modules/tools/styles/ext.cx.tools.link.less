@@ -1,4 +1,5 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .cards.link {
 	animation-name: card-show-animation;
@@ -37,12 +38,10 @@
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	color: #565656; // TODO Should come from library?
-	/* @embed */
-	background: url(../images/clear.png) no-repeat scroll 10px center #FFFFFF;
-	/* @embed */
-	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
-	/* @embed */
-	background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
+	.background-image-svg('../images/clear.svg', '../images/clear.png');
+	background-repeat: no-repeat;
+	background-color: #FFFFFF;
+	background-position: 10px center;
 	background-size: 15px;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
@@ -58,13 +57,11 @@
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	color: #565656; // TODO Should come from library?
-	/* @embed */
-	background: url(../images/add.png) no-repeat scroll 10px center #FFFFFF;
-	/* @embed */
-	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/add.svg);
-	/* @embed */
-	background-image: linear-gradient(transparent, transparent), url(../images/add.svg);
+	.background-image-svg('../images/add.svg', '../images/add.png');
+	background-repeat: no-repeat;
+	background-position: 10px center;
 	background-size: 15px;
+	background-color: #FFFFFF;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
 	border-top: 1px solid #dddddd;
@@ -85,13 +82,10 @@
 		position: absolute;
 	}
 	&:empty {
+		.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
+		background-repeat: no-repeat;
 		background-color: #fbfbfb;
-		/* @embed */
-		background: url(../images/link_lightgray.png) no-repeat scroll center center #fbfbfb;
-		/* @embed */
-		background-image: -webkit-linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
-		/* @embed */
-		background-image: linear-gradient(transparent, transparent), url(../images/link_lightgray.svg);
+		background-position: center center;
 		border-right: 1px solid #eeeeee;
 	}
 }
