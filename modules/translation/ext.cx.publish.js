@@ -37,7 +37,7 @@
 	 * Publish the translation
 	 * @param {Object} [params] Additional parameters for save API. Example: Captcha params
 	 */
-	mw.cx.publish = function ( params ) {
+	function publish( params ) {
 		var translatedTitle, translatedContent, $publishButton;
 
 		$publishButton = $( '.cx-header__publish' );
@@ -74,7 +74,7 @@
 				$publishButton.prop( 'disabled', false )
 					.text( mw.msg( 'cx-publish-button' ) );
 			} );
-	};
+	}
 
 	/**
 	 * @param {string} title
@@ -127,6 +127,6 @@
 	}
 
 	$( function () {
-		mw.hook( 'mw.cx.publish' ).add( $.proxy( mw.cx.publish, this ) );
+		mw.hook( 'mw.cx.publish' ).add( $.proxy( publish, this ) );
 	} );
 }( jQuery, mediaWiki ) );
