@@ -105,5 +105,7 @@
 		} );
 	}
 
-	$( document ).ready( prepareRedInterLanguageLinks );
+	$( function () {
+		prepareRedInterLanguageLinks();
+	} );
 }( jQuery, mediaWiki ) );
