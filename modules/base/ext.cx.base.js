@@ -76,7 +76,7 @@
 	};
 	$.fn.cx.defaults = {};
 
-	$( document ).ready( function () {
+	$( function () {
 		$( 'body' ).cx();
 	} );
 }( jQuery ) );
