@@ -10,25 +10,25 @@
 	.card {
 		.mw-ui-item;
 		padding: 0;
-	}
 
-	.card:nth-of-type(1) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		transition: top 0.15s;
-	}
+		&:nth-of-type(1) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			transition: top 0.15s;
 
-	.card:nth-of-type(2) {
-		position: relative;
-		top: 30px;
-		transition: top 0.5s;
-	}
+			// On mouse over of first card, push the second card a bit down.
+			&:hover + .card:nth-of-type(2) {
+				top: 60px;
+			}
+		}
 
-	// On mouse over of first card, push the second card a bit down.
-	.card:nth-of-type(1):hover + .card:nth-of-type(2) {
-		top: 60px;
+		&:nth-of-type(2) {
+			position: relative;
+			top: 30px;
+			transition: top 0.5s;
+		}
 	}
 }
 
