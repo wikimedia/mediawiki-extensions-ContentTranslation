@@ -6,10 +6,12 @@
 	animation-duration: 0.5s;
 	position: relative;
 	padding: 0;
+
 	.card {
 		.mw-ui-item;
 		padding: 0;
 	}
+
 	.card:nth-of-type(1) {
 		position: absolute;
 		top: 0;
@@ -17,6 +19,7 @@
 		right: 0;
 		transition: top 0.15s;
 	}
+
 	.card:nth-of-type(2) {
 		position: relative;
 		top: 30px;
@@ -67,7 +70,6 @@
 	border-top: 1px solid #dddddd;
 }
 
-
 .card__link-image-container {
 	.mw-ui-item;
 	.mw-ui-one-quarter;
@@ -76,11 +78,13 @@
 	overflow: hidden;
 	padding: 0;
 	position: relative;
+
 	img {
 		min-width: 100%;
 		min-height: 100%;
 		position: absolute;
 	}
+
 	&:empty {
 		.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
 		background-repeat: no-repeat;
@@ -114,7 +118,8 @@
 	border-top: 1px solid #dddddd;
 	clear: both;
 	padding-top: 10px;
-	.shortcut-info{
+
+	.shortcut-info {
 		font-size: small;
 		color: #aaaaaa;
 	}

@@ -11,7 +11,9 @@
 	padding: 10px;
 	z-index: 10;
 	border-radius: 2px;
-	:after, :before {
+
+	:after,
+	:before {
 		bottom: 100%;
 		left: 80%;
 		border: solid transparent;
@@ -21,23 +23,27 @@
 		position: absolute;
 		pointer-events: none;
 	}
+
 	:after {
 		border-color: rgba(255, 255, 255, 0);
 		border-bottom-color: #FFF;
 		border-width: 20px;
 		margin-left: -20px;
 	}
+
 	:before {
 		border-color: rgba(238, 238, 238, 0);
 		border-bottom-color: #aaa;
 		border-width: 21px;
 		margin-left: -21px;
 	}
+
 	img,
 	.cx-header__publish-captcha {
 		.mw-ui-item;
 		.mw-ui-one-whole;
 	}
+
 	input {
 		.mw-ui-item;
 		.mw-ui-one-whole;

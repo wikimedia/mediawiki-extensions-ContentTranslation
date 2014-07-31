@@ -28,6 +28,7 @@
 		padding-bottom: 10px;
 		cursor: pointer;
 		color: #555;
+
 		&:after {
 			width: 0;
 			height: 0;
@@ -49,20 +50,25 @@
 		background-color: white;
 		border: 1px solid #aaa;
 		padding: 0;
+
 		>li {
 			cursor: pointer;
 			padding: 5px;
+
 			&.selected {
 				.background-image-svg('../images/tick.svg', '../images/tick.png');
 				background-repeat: no-repeat;
 				background-position: right 4px center;
 			}
+
 			&:hover {
 				background-color: #6698FF;
 				color: #FFF;
 			}
 		}
-		:after, :before {
+
+		:after,
+		:before {
 			bottom: 100%;
 			left: 50%;
 			border: solid transparent;
@@ -72,12 +78,14 @@
 			position: absolute;
 			pointer-events: none;
 		}
+
 		:after {
 			border-color: rgba(255, 255, 255, 0);
 			border-bottom-color: #FFF;
 			border-width: 10px;
 			margin-left: -10px;
 		}
+
 		:before {
 			border-color: rgba(238, 238, 238, 0);
 			border-bottom-color: #aaa;
@@ -93,6 +101,7 @@
 		line-height: 1.5em;
 		color: #c9c9c9; // TODO Should come from library?
 		padding: 10px 0;
+
 		.card__control-button {
 			line-height: 1.5em;
 			color: #565656; // TODO Should come from library?
@@ -103,16 +112,19 @@
 			background-repeat: no-repeat;
 			background-position: left 4px center;
 		}
+
 		.cx-use-source {
 			.mw-ui-one-half;
 			.card__control-button;
 			.background-image-svg('../images/pasting.svg', '../images/pasting.png');
 		}
+
 		.cx-clear-translation {
 			.mw-ui-one-half;
 			.card__control-button;
 			.background-image-svg('../images/clear.svg', '../images/clear.png');
 		}
+
 		.cx-restore-translation {
 			.mw-ui-one-whole;
 			.card__control-button;

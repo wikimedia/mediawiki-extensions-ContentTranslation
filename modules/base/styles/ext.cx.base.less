@@ -54,19 +54,22 @@ h2 {
 	background: #f0f0f0;
 	min-height: 100vh;
 	position: relative;
+
 	&.sticky {
 		.stick-to-side;
+
 		@media @palm {
 			.stick-to-bottom;
 		}
 	}
+
 	@media @palm {
 		.stick-to-bottom;
 	}
 
 }
 
-/* Unused? */
+/* XXX Unused? */
 .suggestion-list {
 	.mw-ui-grid;
 }
@@ -97,6 +100,7 @@ h2 {
 	overflow-x: hidden;
 	overflow-y: auto;
 	transition: max-height 0.25s;
+
 	&:hover {
 		max-height: 50%;
 	}
