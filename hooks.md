@@ -23,6 +23,10 @@ Fired when the frontend identifies that the user is anonymous.
 ## mw.cx.progress
 
 Fired when the translation progress is recalculated.
+* {object} progress Map of progress data
+* {integer} progress.any Weight of translation sections with any content
+* {integer} progress.human Weight of translation sections with human modified content
+* {integer} progress.mt Weight of translation sections with unmodified mt content
 
 ## mw.cx.publish
 

@@ -41,66 +41,57 @@
 	 * Calculate the translation progress.
 	 */
 	function showProgress() {
-		var percentage = getTranslationProgress(),
-			mtPercentage = getMachineTranslationPercentage();
+		var sourceWeight, weights;
 
-		mw.hook( 'mw.cx.progress' ).fire( percentage, mtPercentage );
+		sourceWeight = getTotalSourceWeight();
+		weights = getTranslationWeights( getSectionsWithContent() );
+		if ( sourceWeight > 0 ) {
+			weights.any /= sourceWeight;
+			weights.human /= sourceWeight;
+			weights.mt /= sourceWeight;
+		}
+
+		mw.hook( 'mw.cx.progress' ).fire( weights );
 	}
 
 	/**
-	 * Calculate the percentage of machine translation.
-	 * @return {float} percentage
+	 * Calculate the percentage of machine translation out of the whole article.
+	 *
+	 * @param {jQuery} $sections List of sections.
+	 * @return {object} Map of weights
+	 * @return {integer} return.any Weight of sections with content
+	 * @return {integer} return.human Weight of sections with human modified content
+	 * @return {integer} return.mt Weight of sections with unmodified mt content
 	 */
-	function getMachineTranslationPercentage() {
-		var sourceWeight, percentage, completedTranslation;
+	function getTranslationWeights( $sections ) {
+		var weights = {
+			any: 0,
+			human: 0,
+			mt: 0
+		};
 
-		sourceWeight = getTotalSourceWeight();
-		if ( sourceWeight === 0 ) {
-			return 0;
-		}
+		$sections.each( function () {
+			var weight, $section = $( this );
 
-		completedTranslation = 0;
-
-		// Sum the weight of all translated sections that have machine-translated text
-		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			var $section = $( this );
+			weight = $section.data( 'cx-weight' );
+			weights.any += weight;
 
 			if ( $section.data( 'cx-mt' ) === true ) {
-				completedTranslation += $section.data( 'cx-weight' );
+				weights.mt += weight;
+			} else {
+				weights.human += weight;
 			}
 		} );
 
-		percentage = ( completedTranslation / sourceWeight ) * 100;
-
-		return percentage;
+		return weights;
 	}
 
 	/**
-	 * Calculate the translation progress.
-	 * @return {float} percentage
+	 * Return all translation sections that have any text.
+	 * @return {jQuery}
 	 */
-	function getTranslationProgress() {
-		var sourceWeight, percentage, completedTranslation;
-
-		sourceWeight = getTotalSourceWeight();
-		if ( sourceWeight === 0 ) {
-			return 0;
-		}
-
-		completedTranslation = 0;
-
-		// Sum the weight of all translated sections that have any text
-		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			var $section = $( this );
-
-			if ( $section.data( 'cx-mt' ) === false ) {
-				completedTranslation += $section.data( 'cx-weight' );
-			}
-		} );
-
-		percentage = ( completedTranslation / sourceWeight ) * 100;
-
-		return percentage;
+	function getSectionsWithContent() {
+		return $( '.cx-column--translation [data-cx-weight]' );
 	}
 
 	/**
@@ -133,10 +124,10 @@
 	$( function () {
 		mw.hook( 'mw.cx.translation.change' ).add( onSectionUpdate );
 		window.onbeforeunload = function () {
-			// Check if the progress is greater than 1%
-			if ( parseInt( getTranslationProgress(), 10 ) > 0 ||
-				parseInt( getMachineTranslationPercentage(), 10 ) > 0
-			) {
+			var weights = getTranslationWeights( getSectionsWithContent() );
+
+			// Check if there are unsaved human content
+			if ( weights.human > 0 ) {
 				return mw.msg( 'cx-warning-unsaved-translation' );
 			}
 		};

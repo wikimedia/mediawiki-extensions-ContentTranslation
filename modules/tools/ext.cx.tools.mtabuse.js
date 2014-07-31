@@ -52,8 +52,8 @@
 		return this.$card;
 	};
 
-	MTAbuseCard.prototype.start = function ( translationPercentage, mtPercentage ) {
-		this.mtPercentage = parseInt( mtPercentage, 10 );
+	MTAbuseCard.prototype.start = function ( progress ) {
+		this.mtPercentage = parseInt( progress.mt / progress.any * 100 || 0, 10 );
 		if ( !this.isAbuse() ) {
 			this.stop();
 			this.sticky = false;
