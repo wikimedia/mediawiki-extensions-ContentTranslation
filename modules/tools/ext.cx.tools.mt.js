@@ -218,6 +218,12 @@
 	 * Show the restore button.
 	 */
 	MTControlCard.prototype.showRestore = function () {
+		// TODO Investigate why isn't it initialized sometimes.
+		// It should always be initialized by the time this runs.
+		if ( !this.$section ) {
+			return;
+		}
+
 		MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] = true;
 		this.$restore.removeClass( 'hidden' );
 	};
