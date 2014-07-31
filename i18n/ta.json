@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"ElangoRamanujam"
+		]
+	},
+	"cx-publish-gt-moved-title": "மொழிபெயர்க்கப்பட்ட பக்கம் நகர்த்தப்பட்டது",
+	"cx-tools-mt-restore": "மீட்டெடுக்கவும்",
+	"cx-tools-mt-provider-title": "$1,$2லிருந்து $3க்கு",
+	"cx-sourceselector-dialog-new-translation": "புதிய மொழிபெயர்ப்பு",
+	"cx-sourceselector-dialog-button-start-translation": "மொழிபெயர்க்கத் தொடங்குக",
+	"cx-sourceselector-dialog-target-language-label": "இலக்கு:"
+}

@@ -11,6 +11,7 @@
 		]
 	},
 	"cx": "翻译页面",
+	"cx-javascript": "此工具没有JavaScript就不能工作。",
 	"cx-error-server-connection": "错误：无法连接至服务器",
 	"cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
 	"cx-header-progressbar-text": "$1%已翻译",
