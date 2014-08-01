@@ -31,6 +31,7 @@
 	"cx-publish-gt-published-title": "ברכות, הדף פורםס",
 	"cx-publish-gt-published-description": "אפשר ללחוץ על \"{{int:vector-view-edit}}\" כדי להמשיך לשפר את הדף. נא לוודא שהוא קריא וטבעי.",
 	"cx-translation-add-translation": "+ הוספת תרגום",
+	"cx-translation-target-page-exists": "דף בעל השם [$1 $2] קיים בוויקי היעד. נא לשקול לתת לדף הזה שם אחר.",
 	"tag-contenttranslation": "תרגום תוכן",
 	"cx-source-loading": "טעינת $1",
 	"cx-red-interlanguage-link-preference": "תרגום תוכן",

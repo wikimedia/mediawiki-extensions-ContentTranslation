@@ -27,6 +27,7 @@
 	"cx-publish-gt-published-title": "Честитаме! Страницата е објавена.",
 	"cx-publish-gt-published-description": "Можете да стиснете на „{{int:vector-view-edit}}“ за да продолжите со подобрување на страницата. Потрудете се текстот да тече природно.",
 	"cx-translation-add-translation": "+ Додај превод",
+	"cx-translation-target-page-exists": "На целното вики веќе постои страница насловена како [$1 $2]. Дајте ѝ друг наслов.",
 	"tag-contenttranslation": "ПреводНаСодржина",
 	"cx-source-loading": "Го вчитувам $1",
 	"cx-red-interlanguage-link-preference": "Превод на содржини",
