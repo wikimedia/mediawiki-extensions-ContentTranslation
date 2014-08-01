@@ -30,6 +30,7 @@
 	"cx-publish-gt-published-title": "Congratulations, the page has been published",
 	"cx-publish-gt-published-description": "You can click \"{{int:vector-view-edit}}\" to keep improving the page. Make sure it reads naturally.",
 	"cx-translation-add-translation": "+ Add translation",
+	"cx-translation-target-page-exists": "A page with the title [$1 $2] exists in the target wiki. Consider giving the page a different title.",
 	"tag-contenttranslation": "ContentTranslation",
 	"cx-source-loading": "Loading $1",
 	"cx-red-interlanguage-link-preference": "Content translation",

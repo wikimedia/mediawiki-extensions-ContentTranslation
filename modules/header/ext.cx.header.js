@@ -97,7 +97,33 @@
 			.removeClass( 'cx-success' )
 			.addClass( 'cx-error' )
 			.find( '.text' )
-			.text( message );
+			.html( message );
+	};
+
+	/**
+	 * Check whether a page with the same title already exists
+	 * and show a warning if needed.
+	 */
+	ContentTranslationHeader.prototype.checkTargetTitle = function () {
+		var api = new mw.Api();
+
+		api.get( {
+			titles: mw.cx.targetTitle
+		}, {
+			url: mw.cx.getApiUrl( mw.cx.targetLanguage ),
+			dataType: 'jsonp'
+		} ).done( function ( response ) {
+			// If page doesn't exist, it's OK
+			if ( response.query.pages[ -1 ] ) {
+				return;
+			}
+
+			mw.hook( 'mw.cx.error' ).fire( mw.message(
+				'cx-translation-target-page-exists',
+				mw.cx.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle ),
+				mw.cx.targetTitle
+			).parse() );
+		} );
 	};
 
 	ContentTranslationHeader.prototype.listen = function () {
@@ -114,6 +140,7 @@
 		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
+		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
 	};
 
 	$.fn.cxHeader = function ( options ) {

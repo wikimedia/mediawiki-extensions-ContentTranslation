@@ -58,6 +58,7 @@ $wgResourceModules['ext.cx.header'] = array(
 		'mediawiki.Uri',
 		'mediawiki.util',
 		'ext.cx.publish',
+		'ext.cx.util',
 	),
 	'messages' => array(
 		'cx-error-server-connection',
@@ -65,6 +66,7 @@ $wgResourceModules['ext.cx.header'] = array(
 		'cx-header-translation-center',
 		'cx-publish-button',
 		'cx-special-login-error',
+		'cx-translation-target-page-exists',
 		'login',
 	),
 ) + $resourcePaths;

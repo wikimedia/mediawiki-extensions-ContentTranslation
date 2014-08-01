@@ -35,6 +35,7 @@
 	"cx-publish-gt-published-title": "Title for a guider that is shown to a user after going to a published translated page. It's shown near the Edit link on the top of the page.",
 	"cx-publish-gt-published-description": "Title for a guider that is shown to a user after going to a published translated page. It's shown near the Edit link on the top of the page.",
 	"cx-translation-add-translation": "This appears in the empty paragraph in the translation column. Clicking the paragraph adds an automatic translation of the corresponding source paragraph. The plus sign is used as an icon that hints that something is being added.",
+	"cx-translation-target-page-exists": "A warning that is shown if a user tries to translate a page with a title that already exists in the target wiki. $1 is a URL to the target page and $2 is the target page title.",
 	"tag-contenttranslation": "A short description of the contenttranslation revision tag. It appears in the edit summary when a translated page is created. It doesn't have to be CamelCase.",
 	"cx-source-loading": "Status text shown in the source article pane while article is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded",
 	"cx-red-interlanguage-link-preference": "Beta feature title. Appears in the beta tab in user preferences.",
