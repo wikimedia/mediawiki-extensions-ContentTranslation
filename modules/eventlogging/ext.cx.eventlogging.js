@@ -22,19 +22,16 @@
 
 	ContentTranslationEventLogging.prototype = {
 		init: function () {
-			var eventLogging = this;
-
-			// Set event defaults and make the
 			mw.eventLog.setDefaults( 'ContentTranslation', {
 				version: 1,
 				token: mw.user.id()
 			} );
 
-			eventLogging.logEventQueue.fire();
+			this.logEventQueue.fire();
 		},
 
 		/**
-		 * Local wrapper for 'mw.eventLog.logEvent'
+		 * Local wrapper for mw.eventLog.logEvent.
 		 *
 		 * @param {Object} event Event action and optional fields
 		 * @return {jQuery.Promise} jQuery Promise object for the logging call
@@ -56,7 +53,7 @@
 		},
 
 		/**
-		 * Listen for event logging
+		 * Listen for event logging.
 		 */
 		listen: function () {
 			// Register handlers for event logging triggers
@@ -66,12 +63,11 @@
 		},
 
 		/**
-		 * Log creation of translated page
+		 * Log creation of translated page.
 		 * @param {string} contentLanguage source language
 		 * @param {string} targetLanguage Target language code
 		 */
 		translatedPageCreated: function ( contentLanguage, targetLanguage ) {
-			mw.log( 'eventlogging! translatedPageCreated!' ); // XXX
 			this.log( {
 				action: 'create-translated-page',
 				contentLanguage: contentLanguage,
