@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "Traducir la páxina",
+	"cx-javascript": "Esta ferramienta nun funciona sin JavaScript.",
 	"cx-error-server-connection": "Error: Nun se pudo coneutar col sirvidor.",
 	"cx-desc": "Una ferramienta que permite a los editores traducir páxines d'una llingua a otra cola ayuda de traductores automáticos y otres ferramientes de traducción",
 	"cx-header-progressbar-text": "$1 % traducío",
@@ -26,6 +27,7 @@
 	"cx-publish-gt-published-title": "Felicidaes, publicóse la páxina",
 	"cx-publish-gt-published-description": "Pues facer clic en \"{{int:vector-view-edit}}\" pa siguir ameyorando la páxina. Asegúrate de que pue lleese de forma natural.",
 	"cx-translation-add-translation": "+ Amestar traducción",
+	"cx-translation-target-page-exists": "Yá esiste una páxina col títulu [$1 $2] na wiki destín. Considera da-y a la páxina un títulu distintu.",
 	"tag-contenttranslation": "TraducciónConteníu",
 	"cx-source-loading": "Cargando $1",
 	"cx-red-interlanguage-link-preference": "Traducción del conteníu",
@@ -52,6 +54,7 @@
 	"cx-tools-mt-use-source": "Usar el testu fonte",
 	"cx-tools-mt-clear-translation": "Llimpiar la traducción",
 	"cx-tools-mt-restore": "Restaurar",
+	"cx-tools-mt-provider-title": "De $1, $2 a $3",
 	"cx-tools-mt-not-available": "Nun ta disponible pa $1",
 	"cx-tools-mt-dont-use": "Nun usar traducción automática",
 	"cx-stats-title": "Estadístiques de traducción de conteníu",

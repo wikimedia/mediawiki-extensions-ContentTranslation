@@ -23,6 +23,7 @@
 	"cx-publish-gt-published-title": "Felicitatioun, d'Säit gouf publizéiert",
 	"cx-publish-gt-published-description": "Dir kënnt op \"{{int:vector-view-edit}}\" klicke fir d'Säit ze verbesseren. Vergewëssert Iech dat se sech natierlech liese léist.",
 	"cx-translation-add-translation": "+ Iwwersetzung derbäisetzen",
+	"cx-translation-target-page-exists": "Eng Säit mam Titel [$1 $2] gëtt et an der Zil-Wiki. Iwwerleet ob Dir der säit keen aneren Titel kënnt ginn.",
 	"tag-contenttranslation": "Iwwersetzung vum Inhalt",
 	"cx-source-loading": "$1 lueden",
 	"cx-red-interlanguage-link-preference": "Iwwersetzung vum Inhalt",

@@ -5,7 +5,8 @@
 			"Sherbrooke",
 			"Maxim21",
 			"Ultimate",
-			"Constructeur"
+			"Constructeur",
+			"Wyz"
 		]
 	},
 	"cx": "Traduire la page",
@@ -31,7 +32,7 @@
 	"cx-publish-gt-published-title": "Félicitations, la page a été publiée",
 	"cx-publish-gt-published-description": "Vous pouvez cliquer sur « {{int:vector-view-edit}} » pour continuer à améliorer cette page. Assurez-vous qu’elle se lit de façon naturelle.",
 	"cx-translation-add-translation": "+ Ajouter une traduction",
-	"cx-translation-target-page-exists": "Une page avec le titre [$1 $2] existe déjà dans le wiki cible. Pensez à donner un autre titre à la page.",
+	"cx-translation-target-page-exists": "Une page avec le titre [$1 $2] existe déjà sur le wiki cible. Pensez à donner un autre titre à la page.",
 	"tag-contenttranslation": "Traduction du contenu",
 	"cx-source-loading": "Chargement de $1",
 	"cx-red-interlanguage-link-preference": "Traduction du contenu",

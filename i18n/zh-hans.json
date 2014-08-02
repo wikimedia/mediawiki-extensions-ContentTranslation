@@ -31,6 +31,7 @@
 	"cx-publish-gt-published-title": "祝贺！页面已发布！",
 	"cx-publish-gt-published-description": "您可点击“{{int:vector-view-edit}}”保持改进页面。确保它读起来顺口。",
 	"cx-translation-add-translation": "+加入翻译",
+	"cx-translation-target-page-exists": "带[$1 $2]标题的页面已存在于目标wiki。考虑提供不同标题的页面。",
 	"tag-contenttranslation": "内容翻译",
 	"cx-source-loading": "$1载入中",
 	"cx-red-interlanguage-link-preference": "内容翻译",
