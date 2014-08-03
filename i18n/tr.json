@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Sayfayı çevir",
+	"cx-javascript": "Bu araç JavaScript olmadan çalışmaz.",
 	"cx-error-server-connection": "Hata: Sunucuya bağlanılamadı.",
 	"cx-desc": "Kullanıcıların sayfaları bir dilden başka birine makine çevirisi ve diğer çeviri araçlarıyla çevirmesine izin veren bir araç",
 	"cx-header-progressbar-text": "%$1 çevrildi",
