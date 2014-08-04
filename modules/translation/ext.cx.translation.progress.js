@@ -16,12 +16,13 @@
 
 	/**
 	 * Get the total source weight.
+	 * This is only calculated once per session and cached, because the source doesn't change.
 	 * @return {int} Total source weight
 	 */
 	function getTotalSourceWeight() {
-		var $sourceContainer,
-			$sections;
+		var $sourceContainer, $sections;
 
+		// Return the cached value
 		if ( totalSourceWeight ) {
 			return totalSourceWeight;
 		}
@@ -54,22 +55,23 @@
 	 * @return {float} percentage
 	 */
 	function getMachineTranslationPercentage() {
-		var sourceWeight,
-			percentage,
-			completedTranslation = 0;
-
-		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			var $this = $( this );
-
-			if ( $this.data( 'cx-mt' ) === true ) {
-				completedTranslation += $this.data( 'cx-weight' );
-			}
-		} );
+		var sourceWeight, percentage, completedTranslation;
 
 		sourceWeight = getTotalSourceWeight();
 		if ( sourceWeight === 0 ) {
 			return 0;
 		}
+
+		completedTranslation = 0;
+
+		// Sum the weight of all translated sections that have machine-translated text
+		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
+			var $section = $( this );
+
+			if ( $section.data( 'cx-mt' ) === true ) {
+				completedTranslation += $section.data( 'cx-weight' );
+			}
+		} );
 
 		percentage = ( completedTranslation / sourceWeight ) * 100;
 
@@ -81,22 +83,23 @@
 	 * @return {float} percentage
 	 */
 	function getTranslationProgress() {
-		var sourceWeight,
-			percentage,
-			completedTranslation = 0;
-
-		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
-			var $this = $( this );
-
-			if ( $this.data( 'cx-mt' ) === false ) {
-				completedTranslation += $this.data( 'cx-weight' );
-			}
-		} );
+		var sourceWeight, percentage, completedTranslation;
 
 		sourceWeight = getTotalSourceWeight();
 		if ( sourceWeight === 0 ) {
 			return 0;
 		}
+
+		completedTranslation = 0;
+
+		// Sum the weight of all translated sections that have any text
+		$( '.cx-column--translation [data-cx-weight]' ).each( function () {
+			var $section = $( this );
+
+			if ( $section.data( 'cx-mt' ) === false ) {
+				completedTranslation += $section.data( 'cx-weight' );
+			}
+		} );
 
 		percentage = ( completedTranslation / sourceWeight ) * 100;
 
