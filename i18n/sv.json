@@ -7,6 +7,7 @@
 		]
 	},
 	"cx": "Översätt sidan",
+	"cx-javascript": "Detta verktyg fungerar inte utan JavaScript.",
 	"cx-error-server-connection": "Fel: Kunde inte ansluta till servern.",
 	"cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningsverktyg",
 	"cx-header-progressbar-text": "$1% översatt",
@@ -28,6 +29,7 @@
 	"cx-publish-gt-published-title": "Grattis, sidan har publicerats",
 	"cx-publish-gt-published-description": "Du kan klicka på \"{{int:vector-Visa-redigera}}\" för att fortsätta att förbättra sidan. Se till att texten flyter naturligt.",
 	"cx-translation-add-translation": "+ Lägg till översättning",
+	"cx-translation-target-page-exists": "En sida med titeln [$1 $2] finns på målwikin. Överväga att ge sidan en annan titel.",
 	"tag-contenttranslation": "Innehållsöversättning",
 	"cx-source-loading": "Läser in $1",
 	"cx-red-interlanguage-link-preference": "Innehållsöversättning",
