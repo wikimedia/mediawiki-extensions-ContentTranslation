@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
-			"Ата"
+			"Ата",
+			"Mykola Swarnyk"
 		]
 	},
 	"cx": "Перекласти сторінку",
+	"cx-javascript": "Цей інструмент не працює без JavaScript.",
 	"cx-error-server-connection": "Помилка: не вдалося підключитися до сервера.",
 	"cx-desc": "Інструмент, який дозволяє редакторам переклад сторінок з однієї мови на іншу за допомогою машинного перекладу та інші перекладацьких засобів",
 	"cx-header-progressbar-text": "$1% перекладено",
@@ -27,6 +29,7 @@
 	"cx-publish-gt-published-title": "Вітаємо, сторінку було опубліковано",
 	"cx-publish-gt-published-description": "Ви можете натиснути «{{int:vector-view-edit}}», щоб продовжити покращення сторінки. Переконайтесь, що вона читається природно.",
 	"cx-translation-add-translation": "+ Додати переклад",
+	"cx-translation-target-page-exists": "Сторінка з назвою [$1 $2] вже існує в цільовій Вікі. Подумайте, може підійде інакша назва?",
 	"tag-contenttranslation": "ПерекладВмісту",
 	"cx-source-loading": "Завантаження $1",
 	"cx-red-interlanguage-link-preference": "Переклад вмісту",
