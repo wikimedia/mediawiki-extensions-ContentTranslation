@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Gianfranco"
+			"Gianfranco",
+			"FRacco"
 		]
 	},
 	"cx": "Traduci pagina",
+	"cx-javascript": "Questo strumento non funziona senza JavaScript.",
 	"cx-error-server-connection": "Errore: impossibile connettersi al server.",
 	"cx-desc": "Uno strumento che permette agli editori di tradurre le pagine da una lingua ad un'altra con l'aiuto della traduzione automatica e di altri strumenti di traduzione",
 	"cx-header-progressbar-text": "$1% tradotto",

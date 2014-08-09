@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Reem AK"
+		]
+	},
+	"cx": "ترجمة الصفحة",
+	"cx-javascript": "لا تعمل هذه الأداة دون جافا سكريبت.",
+	"cx-error-server-connection": "خطأ: تعذر الاتصال بالخادم.",
+	"cx-desc": "أداة تسمح المحررين ترجمة صفحات من لغة واحدة إلى أخرى بمساعدة الترجمة الآلية، وغيرها من أدوات الترجمة",
+	"cx-header-progressbar-text": "$1% تمت ترجمته",
+	"cx-header-progressbar-text-mt": "( $1 % من الترجمة الآلية)",
+	"cx-header-translation-center": "مركز الترجمة",
+	"cx-source-view-page": "عرض الصفحة",
+	"cx-publish-page": "نشرت الصفحة في [$1 $2]",
+	"cx-publish-page-error": "حدث خطأ أثناء حفظ الصفحة.",
+	"cx-publish-button": "نشر الترجمة",
+	"cx-publish-button-publishing": "ينشر...",
+	"cx-publish-summary": "تم إنشاؤها بواسطة ترجمة الصفحة \" $1 \"",
+	"cx-publish-gt-no-permission-to-move-description": "الرجاء أطلب من مستخدم ذي خيرة يهذا الموقع مساعدتك على مراجعة الترجمة الخاصة بك ونشرها في المساحة المخصصة للمقالة",
+	"cx-publish-gt-first-step-title": "حُفظت الترجمة في مسودة في صفحة المستخدم الخاصة بك في انتظار المراجعة",
+	"cx-publish-gt-move-page-title": "نقل هذه الصفحة"
+}
