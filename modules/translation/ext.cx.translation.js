@@ -56,7 +56,10 @@
 		}
 
 		$heading = $( '<h2>' )
-			.attr( 'contenteditable', true )
+			.attr( {
+				'data-source': 'cx-source-title',
+				contenteditable: true
+			} )
 			.addClass( 'cx-column__title' )
 			.text( mw.cx.targetTitle )
 			.cxEditor();
