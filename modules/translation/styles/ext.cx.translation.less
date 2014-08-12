@@ -1,5 +1,8 @@
 @import "../../base/styles/grid/agora-grid";
 
+@text-highlight-color: #FEFCE0;
+@link-highlight-color: #BDD4FF;
+
 .cx-column--translation {
 	[contenteditable] {
 		outline: none;
@@ -12,11 +15,17 @@
 	}
 
 	.cx-highlight {
-		background-color: #FFFEEC;
+		background-color: @text-highlight-color;
+		box-shadow: 0px 0px 0 2px @text-highlight-color;
+		border-radius: 2px;
+		transition: all 0.25s;
 	}
 
 	.cx-highlight--blue {
-		background-color: #A9A9F5;
+		background-color: @link-highlight-color;
+		box-shadow: 0px 0px 0 2px @link-highlight-color;
+		border-radius: 2px;
+		transition: all 0.25s;
 	}
 }
 
@@ -30,11 +39,14 @@
 
 	.cx-column--translation:hover &:first-child {
 		color: transparent;
+		background: transparent;
 	}
 
 	&:first-child,
 	.cx-column--translation &:first-child:hover,
 	&:hover {
 		color: #AAA;
+		background: #f8f8f8;
+		line-height: 2em;
 	}
 }
