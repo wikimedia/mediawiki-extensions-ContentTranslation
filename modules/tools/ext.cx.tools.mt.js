@@ -190,6 +190,8 @@
 	MTControlCard.prototype.useSource = function () {
 		this.updateSection( false );
 		this.showRestore();
+
+		this.$section.focus();
 	};
 
 	/**
@@ -200,6 +202,8 @@
 	MTControlCard.prototype.restoreTranslation = function () {
 		this.updateSection( true );
 		this.hideRestore();
+
+		this.$section.focus();
 	};
 
 	/**

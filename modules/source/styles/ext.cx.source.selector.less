@@ -1,4 +1,5 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .hidden {
 	display: none;
@@ -44,27 +45,43 @@
 	}
 }
 
+.cx-sourceselector-dialog__target-inputs,
+.cx-sourceselector-dialog__source-inputs {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+}
+
 .cx-sourceselector-dialog__language-label {
 	.mw-ui-item;
 	.mw-ui-one-sixth;
 	padding: 5px;
-	line-height: 1.5em;
 	font-size: large;
 }
 
 .cx-sourceselector-dialog__language {
 	.mw-ui-item;
 	.mw-ui-one-third;
-	padding: 5px;
-	line-height: 1.5em;
+	margin: 5px 0;
 	font-size: large;
 }
 
 .cx-sourceselector-dialog__title {
 	.mw-ui-item;
 	.mw-ui-one-half;
-	padding: 5px;
+	margin: 5px 0;
 	font-size: large;
+	-webkit-appearance: none;
+
+	&[type=search] {
+		/* @embed */
+		.background-image-svg('../../tools/images/search.svg', '../../tools/images/search.png');
+		background-repeat: no-repeat;
+		background-position: 5px center;
+		background-size: 20px;
+		padding-left: 30px;
+	}
+
+	border: 1px solid #ccc;
  }
 
 .cx-sourceselector-dialog__actions {

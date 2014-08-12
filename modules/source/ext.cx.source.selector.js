@@ -127,6 +127,7 @@
 		var $actions,
 			$sourceLanguageLabel,
 			$heading, $targetLanguageLabel,
+			$sourceInputs, $targetInputs,
 			index;
 
 		this.$dialog = $( '<div>' )
@@ -178,15 +179,25 @@
 			.append( this.$translateFromButton );
 
 		this.$titleList = $( '<datalist>' ).prop( 'id', 'searchresults' );
+		$sourceInputs = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__source-inputs' )
+			.append( $sourceLanguageLabel,
+				this.$sourceLanguage,
+				this.$sourceTitleInput
+			);
+		$targetInputs = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__target-inputs' )
+			.append(
+				$targetLanguageLabel,
+				this.$targetLanguage,
+				this.$targetTitleInput
+			);
+
 		this.$dialog.append( $heading,
-			$sourceLanguageLabel,
-			this.$sourceLanguage,
-			this.$sourceTitleInput,
-			$( '<br>' ),
-			$targetLanguageLabel,
-			this.$targetLanguage,
-			this.$targetTitleInput,
-			$actions, this.$titleList
+			$sourceInputs,
+			$targetInputs,
+			$actions,
+			this.$titleList
 		);
 
 		$( 'body' ).append( this.$dialog );
