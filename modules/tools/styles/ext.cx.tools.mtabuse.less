@@ -1,18 +1,26 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .card.mtabuse {
 	animation-name: card-show-animation;
 	animation-duration: 0.5s;
 	position: relative;
-	padding: 10px
 }
 
 .card__mtabuse-title {
 	font-size: large;
+	.background-image-svg('../images/flag_yellow.svg', '../images/flag_yellow.png');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 50px;
+	padding: 10px 15px 10px 70px;
+	border: none;
+	margin: 0;
 }
 
 .card__mtabuse-details {
-	padding: 5px;
+	padding: 5px 15px 20px 15px;
+	color: #555;
 }
 
 .card__mtabuse-link {
@@ -20,5 +28,5 @@
 	color: #3366bb;
 	padding: 10px;
 	font-size: medium;
-	border-top: 1px solid #aaa
+	border-top: 1px solid #ddd
 }
