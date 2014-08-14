@@ -302,8 +302,6 @@
 	 * @return {jQuery} The placeholder jQuery object
 	 */
 	function getPlaceholder( sourceSectionId ) {
-		var $sourceSection = $( '#' + sourceSectionId );
-
 		return $( '<div>' )
 			.addClass( 'placeholder' )
 			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
@@ -312,17 +310,7 @@
 				id: 'cx' + sourceSectionId,
 				'data-source': sourceSectionId
 			} )
-			.css( {
-				// Copy a bunch of position-related attribute values
-				'min-height': $sourceSection.outerHeight(),
-				width: $sourceSection.width(),
-				'margin-top': $sourceSection.css( 'margin-top' ),
-				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
-				display: $sourceSection.css( 'display' ),
-				float: $sourceSection.css( 'float' ),
-				clear: $sourceSection.css( 'clear' ),
-				position: $sourceSection.css( 'position' )
-			} )
+			.keepAlignment()
 			.html( mw.msg( 'cx-translation-add-translation' ) );
 	}
 

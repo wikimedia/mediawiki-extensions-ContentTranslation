@@ -21,13 +21,28 @@
 			steps = 0;
 
 		$section = $( this );
+		$sourceSection = $( '#' + $section.data( 'source' ) );
+
+		if ( $section.is( '.placeholder' ) ) {
+			$section.css( {
+				// Copy a bunch of position-related attribute values
+				'min-height': $sourceSection.outerHeight(),
+				width: $sourceSection.width(),
+				'margin-top': $sourceSection.css( 'margin-top' ),
+				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
+				display: $sourceSection.css( 'display' ),
+				float: $sourceSection.css( 'float' ),
+				clear: $sourceSection.css( 'clear' ),
+				position: $sourceSection.css( 'position' )
+			} );
+
+			return this;
+		}
 
 		if ( $section.prop( 'tagName' ) === 'TABLE' ) {
 			// 'min-height' is undefined for table elements
-			return true;
+			return this;
 		}
-
-		$sourceSection = $( '#' + $section.data( 'source' ) );
 
 		if ( $section.prop( 'tagName' ) === 'FIGURE' ) {
 			$sourceSection = $sourceSection.find( 'figcaption' );
@@ -62,5 +77,7 @@
 		} else if ( sourceSectionHeight > sectionHeight ) {
 			$section.css( 'min-height', sourceSectionHeight );
 		}
+
+		return this;
 	};
 }( jQuery, mediaWiki ) );
