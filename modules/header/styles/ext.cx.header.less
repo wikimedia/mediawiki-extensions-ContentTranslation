@@ -1,4 +1,5 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .cx-header__logo {
 	.mw-ui-item;
@@ -63,12 +64,11 @@
 		@horizontal-margin: 15px;
 		float: right;
 		padding: @vertical-margin @horizontal-margin;
-		/* @embed */
-		background: url(../images/clear.png) no-repeat scroll 10px center;
-		/* @embed */
-		background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
-		/* @embed */
-		background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
+
+		.background-image-svg('../images/clear.svg', '../images/clear.png');
+		background-attachment: scroll;
+		background-position: 10px center;
+		background-repeat: no-repeat;
 		background-size: 15px;
 		cursor: pointer;
 		clear: both;

@@ -1,12 +1,11 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .card.search {
-	/* @embed */
-	background: url(../images/search.png) no-repeat scroll 10px center #FFFFFF;
-	/* @embed */
-	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/search.svg);
-	/* @embed */
-	background-image: linear-gradient(transparent, transparent), url(../images/search.svg);
+	.background-image-svg('../images/search.svg', '../images/search.png');
+	background-color: #FFF;
+	background-position: 10px center;
+	background-repeat: no-repeat;
 	background-size: 25px;
 	padding: 0 10px 0 40px;
 	line-height: 2.5em;

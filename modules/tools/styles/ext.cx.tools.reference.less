@@ -1,4 +1,5 @@
 @import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
 
 .card.reference {
 	.mw-ui-item;
@@ -17,12 +18,10 @@
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
 	color: #565656; // TODO Should come from library?
-	/* @embed */
-	background: url(../images/clear.png) no-repeat scroll 10px center #FFFFFF;
-	/* @embed */
-	background-image: -webkit-linear-gradient(transparent, transparent), url(../images/clear.svg);
-	/* @embed */
-	background-image: linear-gradient(transparent, transparent), url(../images/clear.svg);
+	.background-image-svg('../images/clear.svg', '../images/clear.png');
+	background-color: #FFF;
+	background-position: 10px center;
+	background-repeat: no-repeat;
 	background-size: 15px;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
