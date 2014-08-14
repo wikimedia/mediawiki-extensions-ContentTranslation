@@ -36,6 +36,21 @@
 				position: $sourceSection.css( 'position' )
 			} );
 
+			// Firefox fix for figure heights. Uses InstallTrigger for browser detection.
+			// See https://bugzilla.wikimedia.org/68498
+			if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' &&
+				typeof InstallTrigger !== 'undefined'
+			) {
+				$section.css( {
+					// Add figcaption height also to the placeholder height because Firefox ignores it
+					// while calculating height of figure. Set it as height instead of min-height since
+					// Firefox does not allow setting min-height for elements with display: table.
+					// Figures in wiki pages have display style property as table.
+					// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
+					height: $sourceSection.outerHeight() + $sourceSection.find( 'figcaption' ).outerHeight()
+				} );
+			}
+
 			return this;
 		}
 
