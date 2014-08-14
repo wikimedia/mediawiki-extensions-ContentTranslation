@@ -45,9 +45,6 @@
 			mtPercentage = getMachineTranslationPercentage();
 
 		mw.hook( 'mw.cx.progress' ).fire( percentage, mtPercentage );
-		if ( mtPercentage > 75 ) {
-			mw.hook( 'mw.cx.warning.mtabuse' ).fire( mtPercentage );
-		}
 	}
 
 	/**

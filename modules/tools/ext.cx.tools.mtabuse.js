@@ -11,7 +11,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var template = '<div class="card mtabuse">' +
+	var MT_ABUSE_THRESHOLD = 75,
+		template = '<div class="card mtabuse">' +
 		'<h2 class="card__mtabuse-title"></h2>' +
 		'<div class="card__mtabuse-details"></div>' +
 		'<div class="card__mtabuse-link"></div>' +
@@ -19,6 +20,9 @@
 
 	function MTAbuseCard() {
 		this.$card = $( template );
+		this.mtPercentage = 0;
+		// This card need to be "sticky" till mt is below abuse threshold.
+		this.sticky = true;
 		this.render();
 	}
 
@@ -32,27 +36,34 @@
 					href: mw.msg( 'cx-tools-view-guidelines-link' ),
 					target: '_blank'
 				} )
-				.text( mw.msg( 'cx-tools-view-guidelines' ) )
-			);
+				.text( mw.msg( 'cx-tools-view-guidelines' ) ) );
+		this.$card.hide();
 	};
 
 	MTAbuseCard.prototype.onShow = function () {
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
+	MTAbuseCard.prototype.isAbuse = function () {
+		return this.mtPercentage > MT_ABUSE_THRESHOLD;
+	};
+
 	MTAbuseCard.prototype.getCard = function () {
 		return this.$card;
 	};
 
-	MTAbuseCard.prototype.start = function ( mtPercentage ) {
+	MTAbuseCard.prototype.start = function ( translationPercentage, mtPercentage ) {
+		this.mtPercentage = parseInt( mtPercentage, 10 );
+		if ( !this.isAbuse() ) {
+			this.stop();
+			this.sticky = false;
+			return;
+		}
 		this.$card.show();
-
-		mtPercentage = parseInt( mtPercentage, 10 );
 		this.$card.find( '.card__mtabuse-title' )
 			.text( mw.msg(
 				'cx-mt-abuse-warning-title',
-				mw.language.convertNumber( mtPercentage ) )
-			);
+				mw.language.convertNumber( this.mtPercentage ) ) );
 
 		this.onShow();
 	};
@@ -64,7 +75,7 @@
 
 	MTAbuseCard.prototype.getTriggerEvents = function () {
 		return [
-			'mw.cx.warning.mtabuse'
+			'mw.cx.progress'
 		];
 	};
 

@@ -117,7 +117,3 @@ Fired when the translation column is rendered and ready. No subscribers yet.
 ## mw.cx.translation.updated
 
 Fired when the translation section was updated using the MT card, for example with the 'restore' or 'use source text' actions.
-
-## mw.cx.warning.mtabuse
-
-Fired by the progress calculation module when the MT is beyond a threshold. The percentage of MT is passed as argument. The MT abuse tool card listens for this.

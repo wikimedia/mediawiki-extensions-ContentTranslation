@@ -20,6 +20,9 @@
  * 3. stop()- Destroys the DOM of the card. End of the card instance.
  *
  * The tool needs to fire the event mw.cx.tool.shown once the card is shown.
+ *
+ * Additionally, if the card need to stay in tools till a condition is met, mark
+ * the sticky property of tool object true. See MTAbuseCard for example.
  */
 ( function ( $, mw ) {
 	'use strict';
@@ -155,18 +158,22 @@
 	 * @param {string} currentToolName current tool name
 	 */
 	CXToolManager.prototype.hideUnrelatedCards = function ( currentToolName ) {
-		var currentToolEvents, toolEvents, toolName;
+		var currentToolEvents, toolEvents, tool, toolName;
 
 		if ( this.tools[ currentToolName ] ) {
 			currentToolEvents = this.tools[ currentToolName ].getTriggerEvents();
 		}
 
 		for ( toolName in this.tools ) {
+			tool = this.tools[ toolName ];
 			if ( toolName === currentToolName ) {
 				continue;
 			}
-
-			toolEvents = this.tools[ toolName ].getTriggerEvents();
+			if ( tool.sticky ) {
+				// If the card is sticky, do not hide till it is done. Example: MTAbuse card.
+				continue;
+			}
+			toolEvents = tool.getTriggerEvents();
 			if ( intersection( currentToolEvents, toolEvents ).length === 0 ) {
 				this.hideCard( toolName );
 			}
