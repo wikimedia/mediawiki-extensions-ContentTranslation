@@ -212,7 +212,7 @@
 	MTControlCard.prototype.clearTranslation = function () {
 		this.$section
 			.html( '' );
-
+		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
 		this.showRestore();
 
 		this.$section.focus();
