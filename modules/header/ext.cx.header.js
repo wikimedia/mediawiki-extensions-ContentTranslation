@@ -1,5 +1,5 @@
 /**
- * ContentTranslation Tools
+ * ContentTranslation Translation view header
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
@@ -16,10 +16,9 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslationHeader( element, options ) {
+	function ContentTranslationHeader( element ) {
 		this.$container = $( element );
 		this.$publishButton = null;
-		this.options = $.extend( true, {}, $.fn.cxHeader.defaults, options );
 		this.init();
 	}
 
@@ -143,23 +142,70 @@
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
 	};
 
-	$.fn.cxHeader = function ( options ) {
+	/**
+	 * Render the header
+	 */
+	ContentTranslationHeader.prototype.render = function () {
+		var $logo, $userDetails, $headerBar,
+			$translationCenterLink, $translationCenter;
+
+		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
+
+		this.$userName = $( '<a>' )
+			.addClass( 'cx-header__user-details__user-name' )
+			.attr( {
+				href: mw.util.getUrl( 'User:' + mw.user.getName() ),
+				target: '_blank'
+			} )
+			.text( mw.user.getName() );
+
+		$userDetails = $( '<div>' )
+			.addClass( 'cx-header__user-details' )
+			.append( this.$userName );
+
+		this.$publishButton = $( '<button>' )
+			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
+			.prop( 'disabled', true )
+			.text( mw.msg( 'cx-publish-button' ) );
+
+		$translationCenterLink = $( '<a>' )
+			.text( mw.msg( 'cx-header-translation-center' ) )
+			.attr( 'href', '#' );
+
+		$translationCenter = $( '<div>' )
+			.addClass( 'cx-header__translation-center' )
+			.append( $translationCenterLink );
+
+		$headerBar = $( '<div>' )
+			.addClass( 'cx-header__bar' )
+			.append( $translationCenter, this.$publishButton );
+
+		this.$infoBar = $( '<div>' )
+			.addClass( 'cx-header__infobar' )
+			.append( $( '<span>' ).addClass( 'text' ) )
+			.append( $( '<span>' ).addClass( 'remove' ) )
+			.hide();
+
+		this.$container
+			.addClass( 'cx-header' )
+			.append( $logo, $userDetails, $headerBar, this.$infoBar );
+	};
+
+	/**
+	 * CX Header plugin. Prepares the Special:CX header and interactions.
+	 * @return {jQuery}
+	 */
+	$.fn.cxHeader = function () {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxHeader' );
 
 			if ( !data ) {
 				$this.data(
-					'cxHeader', ( data = new ContentTranslationHeader( this, options ) )
+					'cxHeader', ( data = new ContentTranslationHeader( this ) )
 				);
-			}
-
-			if ( typeof options === 'string' ) {
-				data[ options ].call( $this );
 			}
 		} );
 	};
 
-	mw.cx.ContentTranslationHeader = ContentTranslationHeader;
-	$.fn.cxHeader.defaults = {};
 }( jQuery, mediaWiki ) );
