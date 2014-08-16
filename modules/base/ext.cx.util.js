@@ -11,8 +11,6 @@
 ( function ( mw ) {
 	'use strict';
 
-	mw.cx = mw.cx || {};
-
 	/**
 	 * Do the content translation by going to Special:CX
 	 * with the given source-target title and target language

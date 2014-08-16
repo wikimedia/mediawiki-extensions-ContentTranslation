@@ -41,6 +41,7 @@ $wgResourceModules['ext.cx.util'] = array(
 		'base/ext.cx.util.js',
 	),
 	'dependencies' => array(
+		'ext.cx.model',
 		'mediawiki.Uri',
 	),
 ) + $resourcePaths;
