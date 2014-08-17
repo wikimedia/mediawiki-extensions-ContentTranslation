@@ -29,6 +29,7 @@
 	"cx-publish-gt-published-title": "Поздравляем, страница была опубликована",
 	"cx-publish-gt-published-description": "Вы можете нажать кнопку \"{{int:vector-view-edit}}\", чтобы продолжить улучшать страницу. Убедитесь, что она читается естественно.",
 	"cx-translation-add-translation": "+ Добавить перевод",
+	"cx-translation-target-page-exists": "Страница с заголовком [$1 $2] уже существует в целевой вики. Попробуйте задать странице другой заголовок.",
 	"tag-contenttranslation": "ПереводСодержимого",
 	"cx-source-loading": "Загрузка $1",
 	"cx-red-interlanguage-link-preference": "Перевод содержимого",
