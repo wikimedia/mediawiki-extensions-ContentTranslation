@@ -147,7 +147,11 @@
 
 		// Translation filled up. Unbind click handler for the source section.
 		$sourceSection.unbind( 'click', sourceSectionClickHandler );
-
+		// And now onwards clicking on source section has same effect of clicking
+		// on target section.
+		$sourceSection.on( 'click', function () {
+			mw.hook( 'mw.cx.translation.focus' ).fire( $section );
+		} );
 		// If the section is editable, initiate an editor.
 		// Otherwise make it non-editable. Example: templates
 		if ( $sourceSection.data( 'editable' ) === false ) {
