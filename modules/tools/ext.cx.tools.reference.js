@@ -79,27 +79,31 @@
 	ReferenceCard.prototype.onShow = function () {
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
+
 	/**
 	 * Start presenting the reference card
-	 * @param {string} refNumber The reference number. Example: [4]
-	 * @param {string} reference The reference content. Can be html.
-	 * @param {jQuery} [$reference] The jquery object related to reference. If passed,
-	 *   the reference card give and option to delete it.
-	 * @param {string} [language] Language code of language where this reference exist.
+	 * @param {string} referenceId The reference element Identifier.
+	 * @param {string} language Language code of language where this reference exist.
 	 */
-	ReferenceCard.prototype.start = function ( refNumber, reference, $reference, language ) {
+	ReferenceCard.prototype.start = function ( referenceId, language ) {
+		var $sourceReference, $targetReference, reference;
+
+		// Reference Ids are weird strings like "cite_ref-12-0", jquery fails to do look up with them
+		$sourceReference = $( document.getElementById( referenceId ) );
+		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
+		reference = $sourceReference.data( 'mw' );
 		this.$card.find( '.card__reference-number' )
-			.text( refNumber );
+			.text( $sourceReference.text() );
 		this.$card.find( '.card__reference-content' )
 			.html( reference.body.html );
-		if ( $reference ) {
-			this.$reference = $reference;
+		if ( $targetReference.length ) {
+			this.$reference = $targetReference;
 			this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
 		} else {
 			this.$removeReference.remove();
 		}
 		this.$card.find( '.card__title--language' )
-			.text( $.uls.data.getAutonym( language || mw.cx.sourceLanguage ) );
+			.text( $.uls.data.getAutonym( language ) );
 		this.$card.find( 'a' ).attr( 'target', '_blank' );
 		this.onShow();
 	};
@@ -121,15 +125,16 @@
 	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
 	 * We copy the data-mw that was adapted using the template configuration at
 	 * ext.cx.source.filter.js#adaptTemplate to the $references' mwData.body.html
-	 * @param {jQuery} $reference
+	 * @param {string} referenceId
 	 */
-	ReferenceCard.prototype.adaptReference = function ( $reference ) {
-		var $referenceContent, referenceId,
+	ReferenceCard.prototype.adaptReference = function ( referenceId ) {
+		var $referenceContent, $sourceReference, $targetReference,
 			mwData, adaptedData;
 
-		referenceId = $reference.prop( 'id' );
-		mwData = $reference.data( 'mw' );
-		if ( !mwData.body ) {
+		$sourceReference = $( document.getElementById( referenceId ) );
+		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
+		mwData = $sourceReference.data( 'mw' );
+		if ( !mwData || !mwData.body ) {
 			return;
 		}
 		$referenceContent = $( '<div>' ).html( mwData.body.html );
@@ -150,21 +155,25 @@
 			.data( 'mw' );
 		$referenceContent.children().attr( 'data-mw', JSON.stringify( adaptedData ) );
 		mwData.body.html = $referenceContent.html();
-		$reference.attr( 'data-mw', JSON.stringify( mwData ) );
+		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 	};
 
 	function processReferences( $section ) {
 		var referenceAdaptor = new ReferenceCard();
 		$section.find( '[typeof="mw:Extension/ref"]' ).each( function () {
-			var $reference = $( this );
+			var $reference = $( this ),
+				referenceId = $reference.prop( 'id' );
+
+			$reference.prop( 'data-sourceid', referenceId );
+			$reference.prop( 'id', 'cx' + referenceId );
 			// Click handler for references.
 			$reference.on( 'click', function () {
 				var $reference = $( this );
 				mw.hook( 'mw.cx.select.reference' ).fire(
-					$reference.text(), $reference.data( 'mw' ), $reference, mw.cx.targetLanguage );
+					$reference.prop( 'data-sourceid' ), mw.cx.targetLanguage );
 			} );
 			// Adapt references.
-			referenceAdaptor.adaptReference( $reference );
+			referenceAdaptor.adaptReference( referenceId );
 		} );
 	}
 
