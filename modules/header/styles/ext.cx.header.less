@@ -1,6 +1,10 @@
 @import "../../base/styles/grid/agora-grid";
 @import "mediawiki.mixins";
 
+.cx-header{
+	transition: width 0.15s;
+}
+
 .cx-header__logo {
 	.mw-ui-item;
 	.mw-ui-two-thirds;
@@ -24,7 +28,7 @@
 	.mw-ui-one-whole;
 	border-bottom: 1px solid #ddd;
 	padding-bottom: 10px;
-	box-shadow: 0 4px #fafafa;
+	box-shadow: 0 4px rgba(0,0,0,0.05);
 }
 
 .cx-header__translation-center {
@@ -77,6 +81,19 @@
 
 .cx-header__publish {
 	.mw-ui-item;
-	.mw-ui-one-eighth;
+	.mw-ui-one-quarter;
 	float: right;
+}
+
+.cx-header.sticky {
+	.mw-ui-two-thirds;
+	position:fixed;
+	background: #fff;
+	background: rgba(255,255,255,0.95);
+	padding-top: 5px;
+	padding: 5px 0 0 0;
+	.cx-header__logo,
+	.cx-header__user-details {
+		display: none;
+	}
 }
