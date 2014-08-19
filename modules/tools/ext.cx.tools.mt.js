@@ -64,6 +64,19 @@
 	}
 
 	/**
+	 * Clean up the section by removing data-parsoid and data-mw attributes
+	 * @param {jQuery} $section
+	 */
+	function doPreTranslateCleanup( $section ) {
+		$section
+			.removeAttr( 'data-parsoid' )
+			.removeAttr( 'data-mw' )
+			.find( '*' )
+			.removeAttr( 'data-parsoid' )
+			.removeAttr( 'data-mw' );
+	}
+
+	/**
 	 * A plugin that performs machine translation on an element.
 	 * @param {text} text
 	 */
@@ -74,6 +87,8 @@
 		// Using opacity here because we don't want to disturb the alignment by
 		// hiding using display: none.
 		$section.css( 'opacity', 0 );
+
+		doPreTranslateCleanup( $section );
 		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
 			var sourceContent;
 
