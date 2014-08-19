@@ -128,5 +128,13 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.publish' ).add( $.proxy( publish, this ) );
+		// Publish when CTRL+S is pressed.
+		$( document ).on( 'keydown', function ( e ) {
+			if ( e.ctrlKey && e.which === 83 ) {
+				e.preventDefault();
+				mw.hook( 'mw.cx.publish' ).fire();
+				return false;
+			}
+		} );
 	} );
 }( jQuery, mediaWiki ) );
