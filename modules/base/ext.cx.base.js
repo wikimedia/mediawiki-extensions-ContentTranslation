@@ -29,6 +29,7 @@
 	ContentTranslation.prototype.init = function () {
 		this.render();
 		this.initComponents();
+		this.listen();
 	};
 
 	ContentTranslation.prototype.initComponents = function () {
@@ -46,18 +47,36 @@
 			.append(
 				$( '<div>' ).addClass( 'cx-widget__header' ),
 				$( '<div>' ).addClass( 'cx-widget__columns' )
-					.append(
-						$( '<div>' ).addClass( 'cx-column cx-column--source' ),
-						$( '<div>' ).addClass( 'cx-column cx-column--translation' ),
-						$( '<div>' ).addClass( 'cx-column cx-column--tools' )
-					)
-			);
+				.append(
+					$( '<div>' ).addClass( 'cx-column cx-column--source' ),
+					$( '<div>' ).addClass( 'cx-column cx-column--translation' ),
+					$( '<div>' ).addClass( 'cx-column cx-column--tools' )
+				)
+		);
 
 		this.$container.append( $content );
 		this.$header = this.$container.find( '.cx-widget__header' );
 		this.$source = this.$container.find( '.cx-column--source' );
 		this.$translation = this.$container.find( '.cx-column--translation' );
 		this.$tools = this.$container.find( '.cx-column--tools' );
+	};
+
+	ContentTranslation.prototype.listen = function () {
+		$( window ).scroll( $.proxy( this.scroll, this ) );
+	};
+
+	ContentTranslation.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop(),
+			// Use the top of source column as reference point
+			offsetTop = this.$source.offset().top;
+
+		if ( scrollTop > offsetTop ) {
+			this.$header.addClass( 'sticky' );
+			this.$tools.addClass( 'sticky' );
+		} else if ( scrollTop <= offsetTop ) {
+			this.$header.removeClass( 'sticky' );
+			this.$tools.removeClass( 'sticky' );
+		}
 	};
 
 	$.fn.cx = function ( options ) {

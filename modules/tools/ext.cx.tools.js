@@ -86,21 +86,8 @@
 	};
 
 	ContentTranslationTools.prototype.listen = function () {
-		$( window ).scroll( $.proxy( this.scroll, this ) );
 		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.clearSearch, this ) );
 		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.clearSearch, this ) );
-	};
-
-	ContentTranslationTools.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			// Use the .prev() element as the reference point (anchor)
-			offsetTop = this.$container.prev().offset().top;
-
-		if ( scrollTop > offsetTop ) {
-			this.$container.addClass( 'sticky' );
-		} else if ( scrollTop <= offsetTop ) {
-			this.$container.removeClass( 'sticky' );
-		}
 	};
 
 	$.fn.cxTools = function () {
