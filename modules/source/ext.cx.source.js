@@ -185,7 +185,7 @@
 			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
 				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
 			} else {
-				mw.hook( 'mw.cx.select.reference' ).fire( $link.text(), $link.parent().data( 'mw' ) );
+				mw.hook( 'mw.cx.select.reference' ).fire( $link.parent().prop( 'id' ), mw.cx.sourceLanguage );
 			}
 
 			// Disable link click
