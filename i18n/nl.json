@@ -24,7 +24,7 @@
 	"cx-source-loading": "Bezig met laden van $1",
 	"cx-red-interlanguage-link-preference": "Vertaling van inhoud",
 	"cx-entrypoint-title": "Pagina vertalen naar het $1",
-	"cx-special-login-error": "U moet ingelogd zijn om in deze pagina te vertalen.",
+	"cx-special-login-error": "U moet aangemeld zijn om in deze pagina te vertalen. [$1 Aanmelden]",
 	"cx-tools-instructions-text1": "Te vertalen alinea's toevoegen",
 	"cx-tools-instructions-text2": "U hoeft ze niet allemaal toe te voegen",
 	"cx-tools-instructions-text3": "Zorg ervoor dat de tekst makkelijk te lezen is",
