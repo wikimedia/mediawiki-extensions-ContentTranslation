@@ -426,6 +426,17 @@
 	};
 
 	/**
+	 * For the link, get the corresponding link in source section.
+	 * @return {jQuery}
+	 */
+	LinkCard.prototype.getSourceLink = function () {
+		if ( !this.$link ) {
+			return null;
+		}
+		return $( '[data-linkid="' + this.$link.data( 'linkid' ) + '"]' ).first();
+	};
+
+	/**
 	 * Executed when link cards are shown, for example when a link is clicked on
 	 * the source or translation column (jQuery type for link) or when a word is
 	 * searched or selected in the source or translation column (string).
@@ -434,7 +445,7 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var title, sourceTitle, linkCard = this;
+		var title, sourceTitle, $sourceLink, linkCard = this;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
@@ -470,8 +481,9 @@
 
 		if ( language === mw.cx.targetLanguage ) {
 			linkCard.prepareTargetLinkCard( title, language );
-			sourceTitle = this.$link && this.$link.data( 'parsoid' ) &&
-				this.$link.data( 'parsoid' ).a.href;
+			$sourceLink = this.getSourceLink();
+			sourceTitle = $sourceLink && $sourceLink.data( 'parsoid' ) &&
+				$sourceLink.data( 'parsoid' ).a.href;
 			if ( sourceTitle ) {
 				sourceTitle = cleanupLinkHref( sourceTitle );
 				linkCard.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
