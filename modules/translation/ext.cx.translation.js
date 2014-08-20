@@ -145,6 +145,8 @@
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
 		var $sourceSection = $( '#' + $section.data( 'source' ) );
 
+		mw.hook( 'mw.cx.translation.change' ).fire( $section );
+		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 		// Translation filled up. Unbind click handler for the source section.
 		$sourceSection.unbind( 'click', sourceSectionClickHandler );
 		// And now onwards clicking on source section has same effect of clicking
@@ -193,20 +195,20 @@
 		$sourceSection = $( '#' + sourceId );
 		$section = $( '#cx' + sourceId );
 
-		// Replace the placeholder with the source section
-		$section.replaceWith( $sourceSection
-			.clone()
-			.attr( {
-				id: 'cx' + sourceId,
-				'data-source': sourceId
-			} )
-		);
-
-		// $section was replaced. Get the updated instance.
-		$section = $( '#cx' + sourceId );
 		if ( machineTranslate ) {
-			$section.machineTranslate();
+			$sourceSection.machineTranslate();
 		} else {
+			// Replace the placeholder with the source section
+			$section.replaceWith( $sourceSection
+				.clone()
+				.attr( {
+					id: 'cx' + sourceId,
+					'data-source': sourceId
+				} )
+			);
+
+			// $section was replaced. Get the updated instance.
+			$section = $( '#cx' + sourceId );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
 	};
