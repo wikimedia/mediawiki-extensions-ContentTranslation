@@ -63,54 +63,70 @@
 		return $.post( mtURL, sourceHtml );
 	}
 
-	/**
-	 * Clean up the section by removing data-parsoid and data-mw attributes
-	 * @param {jQuery} $section
-	 */
-	function doPreTranslateCleanup( $section ) {
+	function markMTLoading( $section ) {
 		$section
-			.removeAttr( 'data-parsoid' )
-			.removeAttr( 'data-mw' )
-			.find( '*' )
-			.removeAttr( 'data-parsoid' )
-			.removeAttr( 'data-mw' );
+			.empty()
+			.addClass( 'cx-spinner' )
+			.append(
+				$( '<div>' ).addClass( 'bounce1' ),
+				$( '<div>' ).addClass( 'bounce2' ),
+				$( '<div>' ).addClass( 'bounce3' ) );
 	}
 
 	/**
-	 * A plugin that performs machine translation on an element.
+	 * Clean up the section by removing data-parsoid and data-mw attributes
+	 * @param {jQuery} $section
+	 * @retun {string}
+	 */
+	function getSimplifiedHTMLForMT( $section ) {
+		return $( '<div>' ).append( $section.clone() )
+			.find( '*' )
+			.removeAttr( 'data-parsoid' )
+			.removeAttr( 'data-mw' )
+			.html();
+	}
+
+	/**
+	 * A plugin that performs machine translation on a section element.
 	 * @param {text} text
+	 * @return {jQuery}
 	 */
 	$.fn.machineTranslate = function () {
-		var $section = $( this );
+		var $sourceSection = $( this ),
+			sourceId = $sourceSection.prop( 'id' ),
+			$section = $( '#cx' + sourceId );
 
-		// Hide the translation section till we get response from MT.
-		// Using opacity here because we don't want to disturb the alignment by
-		// hiding using display: none.
-		$section.css( 'opacity', 0 );
-
-		doPreTranslateCleanup( $section );
+		markMTLoading( $section );
 		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
 			var sourceContent;
 
 			if ( MTControlCard.provider === disableMT ) {
-				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-
+				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
 				return this;
 			}
 
-			sourceContent = $section[ 0 ].outerHTML;
+			sourceContent = getSimplifiedHTMLForMT( $sourceSection );
 			doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
 				.done( function ( translation ) {
 					if ( translation ) {
-						$section.html( $( translation ).children().html() );
+						// Replace the placeholder with the source section
+						$section.replaceWith( $sourceSection
+							.clone()
+							.attr( {
+								id: 'cx' + sourceId,
+								'data-source': sourceId
+							} )
+						);
+						// $section was replaced. Get the updated instance.
+						$section = $( '#cx' + sourceId );
+						$section.html( $( translation ).html() );
 					}
 				} )
+				.fail( function () {
+					mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
+				} )
 				.always( function () {
-					$section
-						.css( 'opacity', 1 )
-						.data( 'cx-mt', true );
-					mw.hook( 'mw.cx.translation.change' ).fire( $section );
-					mw.hook( 'mw.cx.translation.focus' ).fire( $section );
+					$section.data( 'cx-mt', true );
 					mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 				} );
 		} );
