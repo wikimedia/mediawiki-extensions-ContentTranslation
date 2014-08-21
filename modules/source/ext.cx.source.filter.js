@@ -31,11 +31,37 @@
 	}
 
 	/**
+	 * Simple check for inline templates.
+	 * @param {jQuery} $template
+	 * @return {boolean} Whether the template is inline or not.
+	 */
+	function isInlineTemplate( $template ) {
+		var aboutAttr;
+
+		// we need to identify whether the template is a section or inline section.
+		// In CX the html elements that are considered as a section is defined in
+		// mw.cx.getSectionSelector()
+		if ( $template.is( mw.cx.getSectionSelector() ) ) {
+			return false;
+		}
+		// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
+		aboutAttr = $template.attr( 'about' );
+		if ( aboutAttr ) {
+			// In a page, there will n number of elements with same about attribute
+			// For templates, n is 2, from observation. There can be templates without about
+			// attribute, but such templates are self contained, and already handled above.
+			return !$( '[about="' + aboutAttr + '"]:eq( 1 )' ).is( mw.cx.getSectionSelector() );
+		}
+
+		return true;
+	}
+
+	/**
 	 * Filter the templates present in source article based on the configuration
 	 * @param {Object} configuration
 	 */
 	CXSourceFilter.prototype.filter = function ( configuration ) {
-		var self = this;
+		var sourceFilter = this;
 
 		$( '[typeof="mw:Transclusion"]' ).each( function () {
 			var title, mwData, templateName, templateConf,
@@ -62,10 +88,19 @@
 
 			if ( templateConf ) {
 				mw.log( '[CX] Keeping template: ' + templateName );
-				self.adaptTemplate( $template, templateConf );
+				$template.attr( {
+					'data-editable': templateConf.editable,
+					'data-template-mapping': JSON.stringify( templateConf )
+				} );
+
+				return;
+			}
+
+			if ( isInlineTemplate( $template ) ) {
+				mw.log( '[CX] Keeping inline template: ' + templateName );
 			} else {
 				mw.log( '[CX] Removing template: ' + templateName );
-				self.removeTemplate( $template );
+				sourceFilter.removeTemplate( $template );
 			}
 		} );
 		mw.hook( 'mw.cx.source.ready' ).fire();
@@ -88,44 +123,6 @@
 		}
 
 		$template.remove();
-	};
-
-	/**
-	 * Adapt a template
-	 * @param {jQuery} $template
-	 * @param {Object} mappings parameter mappings
-	 */
-	CXSourceFilter.prototype.adaptTemplate = function ( $template, mappings ) {
-		var targetParams = {},
-			data = $template.data( 'mw' ),
-			sourceParams = data.parts[ 0 ].template.params;
-
-		// Update the name of the template
-		data.parts[ 0 ].template.target.wt = mappings.targetname;
-
-		// Update the tempate parameters
-		$.each( sourceParams, function ( key, value ) {
-			// Drop empty parameters
-			if ( $.trim( value ) === '' ) {
-				return;
-			}
-			//delete data.parts[ 0 ].template.params[ key ];
-			// Copy over other parameters, but map known keys
-			if ( mappings.parameters && mappings.parameters[ key ] !== undefined ) {
-				key = mappings.parameters[ key ];
-			}
-
-			targetParams[ key ] = value;
-
-		} );
-
-		data.parts[ 0 ].template.params = targetParams;
-		$template.attr( 'data-mw', JSON.stringify( data ) );
-
-		// Make templates uneditable unless whitelisted
-		if ( !mappings.editable ) {
-			$template.data( 'editable', false );
-		}
 	};
 
 	CXSourceFilter.prototype.listen = function () {
