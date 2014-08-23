@@ -120,7 +120,7 @@
 	};
 
 	/**
-	 * Get the link for a given title and language
+	 * Get the link data for a given title and language.
 	 * @param {string} title
 	 * @param {string} language
 	 * @return {jQuery.Promise}
@@ -390,20 +390,17 @@
 
 	/**
 	 * Make the given element to be an external link to a page in given language.
-	 * @param {jQuery} $a Link element
+	 * @param {jQuery} $link Link element
 	 * @param {string} target The page title in the target wikis
 	 * @param {string} language Language code of target wikis
 	 */
-	LinkCard.prototype.createExternalLink = function ( $a, target, language ) {
+	LinkCard.prototype.createExternalLink = function ( $link, target, language ) {
 		// Normalize the text for display and href
 		var title = mw.Title.newFromText( target );
+
 		title = title ? title.getPrefixedText() : target;
 
-		$a.text( title );
-		$a.attr( {
-			target: '_blank',
-			href: '//' + language + '.wikipedia.org/wiki/' + title
-		} );
+		this.setLinkAttributes( $link, title, language );
 	};
 
 	/**
@@ -529,7 +526,6 @@
 			return false;
 		}
 
-
 		// Check if the link itself is non editable. Happens in the case of
 		// non-editable inline templates
 		if ( this.$link.is( '[contenteditable="false"]' ) ) {
@@ -591,13 +587,10 @@
 		this.highlightLink();
 		if ( this.$link && language === mw.cx.targetLanguage ) {
 			this.$card.show();
-			// Since this is an existing link, we can show the link title early.
-			this.$card.find( '.card__link-text' )
-				.text( title )
-				.attr( {
-					target: '_blank',
-					href: '//' + language + '.wikipedia.org/wiki/' + title
-				} );
+
+			// Since this is an existing link, we can show the link title early
+			this.setLinkAttributes( this.$card.find( '.card__link-text' ), title, language );
+
 			this.$addLink.hide();
 			if ( this.isEditableTargetLink() === false ) {
 				this.$removeLink.hide();
@@ -671,6 +664,23 @@
 			// there will not be data-linkid. So remove it explicitly.
 			this.$link.removeClass( 'cx-highlight--blue' );
 		}
+	};
+
+	/**
+	 * Modify the link with appropriate attributes.
+	 * @param {jQuery} $link The anchor object.
+	 * @param {string} title Article title.
+	 * @param {string} language The wiki language.
+	 */
+	LinkCard.prototype.setLinkAttributes = function ( $link, title, language ) {
+		$link
+			.text( title )
+			.prop( {
+				lang: language,
+				dir: $.uls.data.getDir( language ),
+				target: '_blank',
+				href: '//' + language + '.wikipedia.org/wiki/' + title
+			} );
 	};
 
 	LinkCard.prototype.getTriggerEvents = function () {
