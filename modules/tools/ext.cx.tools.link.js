@@ -26,7 +26,7 @@
 
 	/**
 	 * Get a link card
-	 * @rertun {jQuery}
+	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getLinkCard = function () {
 		var $card, $imageContainer,
@@ -74,7 +74,7 @@
 
 	/**
 	 * Get a target link card
-	 * @rertun {jQuery}
+	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getTargetLinkCard = function () {
 		this.$targetLinkCard = this.getLinkCard();
@@ -548,7 +548,7 @@
 	};
 
 	/**
-	 * Click handler for the links in translation column
+	 * Click handler for the links in translation column.
 	 */
 	function linkClickHandler() {
 		/*jshint validthis:true */
