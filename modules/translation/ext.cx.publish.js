@@ -68,8 +68,9 @@
 					mw.cx.sourceLanguage,
 					mw.cx.targetLanguage
 				);
-			} ).fail( function () {
+			} ).fail( function ( jqXHR, textStatus ) {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
+				mw.log( '[CX] Error while publishing: ' + textStatus.error.info );
 			} ).always( function () {
 				$publishButton.prop( 'disabled', false )
 					.text( mw.msg( 'cx-publish-button' ) );
