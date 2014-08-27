@@ -33,12 +33,13 @@
 
 		return $.get( fetchProvidersUrl )
 			.done( function ( response ) {
-				MTControlCard.providers = response;
+				MTControlCard.providers = response.providers;
 
 				if ( $.isEmptyObject( MTControlCard.providers ) ) {
 					MTControlCard.provider = disableMT;
 				} else {
-					MTControlCard.provider = MTControlCard.providers.provider;
+					// TODO Consider user preferences
+					MTControlCard.provider = MTControlCard.providers[0];
 				}
 			} )
 			.fail( function ( response ) {
@@ -59,7 +60,8 @@
 	 */
 	function doMT( sourceLang, targetLang, sourceHtml ) {
 		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
-			sourceLang + '/' + targetLang;
+			sourceLang + '/' + targetLang + '/' + MTControlCard.provider;
+
 		return $.post( mtURL, sourceHtml );
 	}
 
