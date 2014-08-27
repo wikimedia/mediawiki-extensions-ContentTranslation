@@ -67,6 +67,8 @@ $GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::addModules';
 $GLOBALS['wgHooks']['GetBetaFeaturePreferences'][] = 'ContentTranslationHooks::getPreferences';
 $GLOBALS['wgHooks']['ResourceLoaderGetConfigVars'][] = 'ContentTranslationHooks::addConfig';
+$GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
+	'ContentTranslationHooks::addTestModules';
 
 $GLOBALS['wgExtensionFunctions'][] = function () {
 	global $wgResourceModules, $wgContentTranslationEventLogging;

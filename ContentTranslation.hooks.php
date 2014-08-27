@@ -90,4 +90,22 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		return true;
 	}
+
+	/**
+	 * @param $testModules array of javascript testing modules. 'qunit' is fed
+	 * using tests/qunit/QUnitTestResources.php.
+	 * @param ResourceLoader $resourceLoader
+	 * @return bool
+	 * Hook: ResourceLoaderTestModules
+	 */
+	public static function addTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+		$testModules['qunit']['ext.cx.tools.tests'] = array(
+			'scripts' => array( 'tests/qunit/ext.cx.tools.template.test.js' ),
+			'dependencies' => array( 'ext.cx.model', 'ext.cx.tools.template' ),
+			'localBasePath' => __DIR__,
+			'remoteExtPath' => 'ContentTranslation',
+		);
+
+		return true;
+	}
 }

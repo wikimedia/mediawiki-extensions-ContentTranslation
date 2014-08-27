@@ -41,6 +41,7 @@
 	TemplateTool.prototype.getTemplateData = function () {
 		var templateData,
 			aboutAttr = this.$template.attr( 'about' );
+
 		$( '[about="' + aboutAttr + '"]' ).each( function ( index, fragment ) {
 			var $fragment = $( fragment );
 
@@ -67,6 +68,7 @@
 			templateTool = this,
 			sourceParams = this.templateData.parts[ 0 ].template.params;
 
+		mw.log( '[CX] Adapting template ' + this.templateTitle + ' based on mapping.' );
 		// Update the name of the template
 		this.templateData.parts[ 0 ].template.target.wt = this.templateMapping.targetname;
 
@@ -124,9 +126,12 @@
 
 	/**
 	 * Process the template. Figure out what we can do.
+	 *
+	 * @return {jQuery.Promise}
 	 */
 	TemplateTool.prototype.process = function () {
-		var templateTool = this;
+		var templateTool = this,
+			deferred = new $.Deferred();
 
 		this.templateData = this.getTemplateData();
 		this.templateMapping = this.getTemplateMapping();
@@ -148,8 +153,14 @@
 				} else {
 					templateTool.adaptTitle( targetTitleData.pages[ pageId ].title );
 				}
+				deferred.resolve();
 			} )
-			.fail( $.proxy( this.deconstruct, this ) );
+			.fail( function () {
+				templateTool.deconstruct();
+				deferred.resolve();
+			} );
+
+		return deferred.promise();
 	};
 
 	/**
@@ -202,6 +213,11 @@
 
 			template.process();
 		} );
+	}
+
+	if ( typeof QUnit !== undefined ) {
+		// Expose this module for unit testing
+		mw.cx.TemplateTool = TemplateTool;
 	}
 
 	$( function () {
