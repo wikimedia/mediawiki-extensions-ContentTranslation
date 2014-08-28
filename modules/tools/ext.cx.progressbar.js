@@ -19,7 +19,6 @@
 	function ProgressBar( element, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxProgressBar.defaults, options );
-		this.status = 0;
 		this.init();
 	}
 
@@ -49,7 +48,7 @@
 		this.$container.append( this.$info.hide() );
 		this.$bar = this.$container.find( '.cx-progressbar__bar' );
 		this.$mtbar = this.$container.find( '.cx-progressbar__bar--mt' );
-		this.update( 0, 0 );
+		this.update( { maximum: 0, any: 0, human: 0, mt: 0 } );
 	};
 
 	ProgressBar.prototype.listen = function () {
@@ -66,23 +65,24 @@
 		} );
 	};
 
-	ProgressBar.prototype.update = function ( percentage, mtPercentage ) {
-		this.status = percentage;
-		percentage = parseInt( percentage, 10 );
-		mtPercentage = parseInt( mtPercentage, 10 );
-		this.$bar.css( 'width', this.status + '%' );
-		this.$mtbar.css( 'width', mtPercentage + '%' );
+	ProgressBar.prototype.update = function ( weights ) {
+		var progress = weights.any * 100,
+			mtProgress = weights.mt * 100,
+			mtPercentage = weights.mt / weights.any * 100 || 0;
+
+		this.$bar.css( 'width', progress + '%' );
+		this.$mtbar.css( 'width', mtProgress + '%' );
 
 		this.$info.find( '.cx-progressbar__info--total' )
 			.text( mw.msg(
 				'cx-header-progressbar-text',
-				mw.language.convertNumber( percentage )
+				mw.language.convertNumber( parseInt( progress, 10 ) )
 			) );
 
 		this.$info.find( '.cx-progressbar__info--mt' )
 			.text( mw.msg(
 				'cx-header-progressbar-text-mt',
-				mw.language.convertNumber( mtPercentage )
+				mw.language.convertNumber( parseInt( mtPercentage, 10 ) )
 			) );
 	};
 
