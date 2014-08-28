@@ -170,6 +170,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.mtabuse',
 		'ext.cx.tools.mt',
 		'ext.cx.tools.reference',
+		'ext.cx.tools.template',
 	),
 ) + $resourcePaths;
 
@@ -301,6 +302,12 @@ $wgResourceModules['ext.cx.tools.reference'] = array(
 	'dependencies' => array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.template'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.template.js',
 	),
 ) + $resourcePaths;
 

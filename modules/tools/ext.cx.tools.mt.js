@@ -100,7 +100,9 @@
 		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
 			var sourceContent;
 
-			if ( MTControlCard.provider === disableMT ) {
+			if ( MTControlCard.provider === disableMT ||
+				$sourceSection.data( 'editable' ) === false
+			) {
 				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
 				return this;
 			}
