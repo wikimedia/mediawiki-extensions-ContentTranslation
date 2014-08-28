@@ -105,7 +105,7 @@
 	};
 
 	LinkCard.prototype.removeLink = function () {
-		if ( this.$link ) {
+		if ( this.isEditableTargetLink() ) {
 			this.$link.after( this.$link.text() ).remove();
 			this.stop();
 		}
@@ -315,7 +315,7 @@
 		var $link;
 
 		$link = $( '<a>' )
-			.addClass( 'cx-link' )
+			.addClass( 'cx-target-link' )
 			.text( linkText )
 			.attr( {
 				href: title,
@@ -433,7 +433,49 @@
 		if ( !this.$link ) {
 			return null;
 		}
-		return $( '[data-linkid="' + this.$link.data( 'linkid' ) + '"]' ).first();
+
+		return $( '.cx-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+	};
+
+	/**
+	 * For the link, get the corresponding link in target section.
+	 * @return {jQuery}
+	 */
+	LinkCard.prototype.getTargetLink = function () {
+		if ( !this.$link ) {
+			return null;
+		}
+
+		return $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+	};
+
+	/**
+	 * Check if the link is an editable link in target section
+	 * @return {boolean}
+	 */
+	LinkCard.prototype.isEditableTargetLink = function () {
+		if ( !this.$link ) {
+			return false;
+		}
+
+		// Even if the link is at target section, it will not be editable,
+		// For example none-editable templates.
+		return $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' )
+			.parents( '[contenteditable]' )
+			.length;
+	};
+
+	/**
+	 * Check if the link, the click of which caused the current link card
+	 * is a link in source section.
+	 * @return {boolean}
+	 */
+	LinkCard.prototype.isSourceLink = function () {
+		if ( !this.$link ) {
+			return false;
+		}
+
+		return this.$link.is( '.cx-link' );
 	};
 
 	/**
@@ -584,15 +626,19 @@
 		// updates the href appropriate for target language or removes the link.
 		function apply( adaptations ) {
 			$links.map( function () {
-				var $this = $( this ),
-					href = $this.attr( 'href' );
+				var $link = $( this ),
+					href = $link.attr( 'href' );
+
+				// add a class to the link at this section - to identify
+				// them as links in translation.
+				$link.removeClass( 'cx-link' ).addClass( 'cx-target-link' );
 
 				href = cleanupLinkHref( href );
 				if ( adaptations[ href ] ) {
-					$( this ).prop( 'href', adaptations[ href ] );
+					$link.prop( 'href', adaptations[ href ] );
 				} else {
 					// Remove the link
-					$( this ).after( $( this ).text() ).remove();
+					$link.after( $( this ).text() ).remove();
 				}
 			} );
 		}
