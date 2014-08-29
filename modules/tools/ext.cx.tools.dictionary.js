@@ -11,6 +11,9 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	// Cached dictionary providers
+	var cachedProviders = null;
+
 	/**
 	 * A plugin that adds text to an element,
 	 * converting explicit line endings to <br /> elements
@@ -80,12 +83,52 @@
 	 * @param {string} to Target language
 	 * @return {jQuery.Promise}
 	 */
-	function getTranslation( word, from, to ) {
+	function getTranslation( word, from, to, provider ) {
 		var dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
-			word + '/' + from + '/' + to;
+			word + '/' + from + '/' + to + '/' + provider;
 
 		return $.get( dictUrl );
 	}
+
+	/**
+	 * Get the registry of dictionary providers for a language pair from the CX server.
+	 * @param {string} from Source language
+	 * @param {string} to Target language
+	 * @return {jQuery.Promise}
+	 */
+	DictionaryCard.prototype.getProviders = function ( from, to ) {
+		var fetchProvidersUrl,
+			deferred = $.Deferred();
+
+		if ( cachedProviders ) {
+			return deferred.resolve( cachedProviders );
+		}
+
+		fetchProvidersUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/list/dictionary/' +
+			encodeURIComponent( from ) + '/' + encodeURIComponent( to );
+
+		$.get( fetchProvidersUrl )
+			.done( function ( response ) {
+				DictionaryCard.providers = response.providers;
+
+				if ( $.isEmptyObject( DictionaryCard.providers ) ) {
+					deferred.reject();
+				} else {
+					cachedProviders = DictionaryCard.providers;
+					deferred.resolve( cachedProviders );
+				}
+			} )
+			.fail( function ( response ) {
+				mw.log(
+					'Error getting dictionary providers from ' + fetchProvidersUrl + ' . ' +
+					response.statusText + ' (' + response.status + '). ' +
+					response.responseText
+				);
+				deferred.reject();
+			} );
+
+		return deferred.promise();
+	};
 
 	DictionaryCard.prototype.onShow = function () {
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
@@ -133,6 +176,8 @@
 	 * @param {string} [targetLanguage]
 	 */
 	DictionaryCard.prototype.start = function ( word, sourceLanguage, targetLanguage ) {
+		var dictionaryCard = this;
+
 		sourceLanguage = sourceLanguage || mw.cx.sourceLanguage;
 		targetLanguage = targetLanguage || mw.cx.targetLanguage;
 		// Don't appear if there's nothing to translate
@@ -148,11 +193,19 @@
 		// Set the source word
 		this.$card.find( '.card__headword' ).text( word );
 
-		// Try to get a translation.
-		// Don't appear if getting the translation fails.
-		getTranslation( word, sourceLanguage, targetLanguage )
-			.done( $.proxy( this.showResult, this ) )
-			.fail( $.proxy( this.stop, this ) );
+		this.getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage )
+			.done( function ( providers ) {
+				var provider;
+
+				// TODO: Now we use the first one, If there is a selector UI for this,
+				// this will come from selected provider.
+				provider = providers[ 0 ];
+				// Try to get a translation.
+				// Don't appear if getting the translation fails.
+				getTranslation( word, sourceLanguage, targetLanguage, provider )
+					.done( $.proxy( dictionaryCard.showResult, dictionaryCard ) )
+					.fail( $.proxy( dictionaryCard.stop, dictionaryCard ) );
+			} ).fail( $.proxy( this.stop, this ) );
 	};
 
 	DictionaryCard.prototype.stop = function () {
