@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Armin1392",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Reza1615"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -13,6 +14,7 @@
 	"cx-publish-page": "صفحه در [$1 $2] منتشر شده",
 	"cx-publish-page-error": "خطا هنگام ذخیرهٔ ترجمه.",
 	"cx-publish-button": "انتشار ترجمه",
+	"cx-publish-button-publishing": "در حال انتشار...",
 	"cx-publish-summary": "ایجاد شده توسط ترجمهٔ صفحهٔ \"$1\"",
 	"tag-contenttranslation": "ترجمهٔ محتوا",
 	"cx-source-loading": "در حال بارگذاری $1",
@@ -24,5 +26,6 @@
 	"cx-tools-instructions-text5": "ترجمه را منتشر کنید",
 	"cx-tools-instructions-text6": "هنگامی که شما از نتیجه راضی هستید، {{int:cx-publish-button}} را فشار دهید.",
 	"cx-tools-searchbox-text": "جستجو برای یک کلمه",
-	"cx-tools-view-guidelines": "مشاهده دستورالعمل‌های ترجمه"
+	"cx-tools-view-guidelines": "مشاهده دستورالعمل‌های ترجمه",
+	"cx-tools-reference-title": "منبع"
 }

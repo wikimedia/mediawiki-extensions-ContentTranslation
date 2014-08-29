@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
+	"cx-error-server-connection": "Fazi : Ne c'haller ket kevreañ ouzh ar servijer.",
 	"cx-header-progressbar-text": "$1% troet",
 	"cx-header-translation-center": "Kreizenn dreiñ",
 	"cx-source-view-page": "gwelet ar bajenn",
