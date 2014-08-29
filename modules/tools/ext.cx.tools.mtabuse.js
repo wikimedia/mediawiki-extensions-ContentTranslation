@@ -20,7 +20,6 @@
 
 	function MTAbuseCard() {
 		this.$card = $( template );
-		this.mtPercentage = 0;
 		// This card need to be "sticky" till mt is below abuse threshold.
 		this.sticky = true;
 		this.render();
@@ -44,8 +43,14 @@
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
 	};
 
-	MTAbuseCard.prototype.isAbuse = function () {
-		return this.mtPercentage > MT_ABUSE_THRESHOLD;
+	/**
+	 * Detects whether MT is abused or not.
+	 * @param {object} progress Translation progress in percentage.
+	 * @return {boolean}
+	 */
+	MTAbuseCard.prototype.isAbuse = function ( progress ) {
+		// Only use abuse detection when thresold is reached and overall translation is > 10 %
+		return progress.mt * 100 > MT_ABUSE_THRESHOLD && progress.any * 100 > 10;
 	};
 
 	MTAbuseCard.prototype.getCard = function () {
@@ -53,8 +58,8 @@
 	};
 
 	MTAbuseCard.prototype.start = function ( progress ) {
-		this.mtPercentage = parseInt( progress.mt / progress.any * 100 || 0, 10 );
-		if ( !this.isAbuse() ) {
+		var mtPercentage = parseInt( progress.mt / progress.any * 100 || 0, 10 );
+		if ( !this.isAbuse( progress ) ) {
 			this.stop();
 			this.sticky = false;
 			return;
@@ -63,7 +68,7 @@
 		this.$card.find( '.card__mtabuse-title' )
 			.text( mw.msg(
 				'cx-mt-abuse-warning-title',
-				mw.language.convertNumber( this.mtPercentage ) ) );
+				mw.language.convertNumber( mtPercentage ) ) );
 
 		this.onShow();
 	};
