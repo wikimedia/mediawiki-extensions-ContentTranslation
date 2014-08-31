@@ -18,10 +18,10 @@
 	"cx-source-loading": "Telecargament de $1",
 	"cx-entrypoint-title": "Tradusir aquesta pagina en $1",
 	"cx-special-login-error": "Vos cal èsser connectat per tradusir aquesta pagina.",
-	"cx-tools-instructions-text1": "Apondre qualques paragrafes de tradusir",
-	"cx-tools-instructions-text2": "Avètz pas besonh de los apondre totes",
-	"cx-tools-instructions-text3": "Rendre lo tèxte legible d'un biais natural",
-	"cx-tools-instructions-text5": "Publicar la traduccion",
+	"cx-tools-instructions-text1": "{{GENDER:|Apondre}} qualques paragrafes de tradusir",
+	"cx-tools-instructions-text2": "{{GENDER:|Avètz}} pas besonh de los apondre totes",
+	"cx-tools-instructions-text3": "{{GENDER:|Rendre}} lo tèxte legible d'un biais natural",
+	"cx-tools-instructions-text5": "{{GENDER:|Publicar}} la traduccion",
 	"cx-tools-searchbox-text": "Cercar un mot",
-	"cx-tools-view-guidelines": "Afichar las directivas de traduccion"
+	"cx-tools-view-guidelines": "{{GENDER:|Afichar}} las directivas de traduccion"
 }
