@@ -104,9 +104,13 @@
 		return this.$card.hide();
 	};
 
+	/**
+	 * Removes a link if the link is an editable target link
+	 * @return {boolean}
+	 */
 	LinkCard.prototype.removeLink = function () {
 		if ( this.isEditableTargetLink() ) {
-			this.$link.after( this.$link.text() ).remove();
+			this.$link.before( this.$link.text() ).remove();
 			this.stop();
 		}
 	};
@@ -142,7 +146,6 @@
 	LinkCard.prototype.listen = function () {
 		var linkCard = this;
 
-		this.$removeLink.on( 'click', $.proxy( this.removeLink, this ) );
 		// Bring the card to front when clicked
 		this.$card.on( 'click', '.card:first', function () {
 			$( this ).insertAfter( linkCard.$card.find( '.card:last' ) );
@@ -261,6 +264,50 @@
 	}
 
 	/**
+	 * Returns the parent node of the current selection as jQuery object
+	 * @return {jQuery}
+	 */
+	function getSelectionParent() {
+		var parent, selection;
+
+		if ( window.getSelection ) {
+			selection = window.getSelection();
+			if ( selection.rangeCount ) {
+				parent = selection.getRangeAt( 0 ).commonAncestorContainer;
+				if ( parent.nodeType !== 1 ) {
+					parent = parent.parentNode;
+				}
+			}
+		} else if ( document.selection ) {
+			selection = document.selection;
+			if ( selection.type !== 'Control' ) {
+				parent = selection.createRange().parentElement();
+			}
+		}
+		return $( parent );
+	}
+
+	/**
+	 * Tests whether the current selection is in a target segment
+	 * @param {range} selection Selection range to test
+	 * @return {boolean}
+	 */
+	function isValidSelection( selection ) {
+		var $parent, $parentSection;
+
+		restoreSelection( selection );
+		$parent = getSelectionParent();
+
+		if ( $parent.is( '[contenteditable="false"]' ) ) {
+			return false;
+		}
+		// Get parent section
+		$parentSection = $parent.parents( '[contenteditable]' );
+		// Check if that section is editable
+		return $parentSection.prop( 'contenteditable' );
+	}
+
+	/**
 	 * Paste a given html string at the selection.
 	 * It replaces the selected text if any. Otherwise it insert
 	 * at caret position.
@@ -310,8 +357,10 @@
 	 *
 	 * @param {string} linkText Link display text
 	 * @param {string} title Link target
+	 * @param {string} [id] Link id
+	 * @return {jQuery}
 	 */
-	LinkCard.prototype.createInternalLink = function ( linkText, title ) {
+	LinkCard.prototype.createInternalLink = function ( linkText, title, id ) {
 		var $link;
 
 		$link = $( '<a>' )
@@ -321,7 +370,14 @@
 				href: title,
 				rel: 'mw:WikiLink'
 			} );
+
+		if ( id ) {
+			$link.attr( 'data-linkid', id );
+		}
+
 		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
+
+		return $link;
 	};
 
 	/**
@@ -367,10 +423,6 @@
 				page.title,
 				language
 			);
-			linkCard.$addLink.click( function () {
-				restoreSelection( range );
-				document.execCommand( 'CreateLink', false, page.title );
-			} );
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
 				linkCard.$sourceLinkCard.find( '.card__link-image-container' )
@@ -409,6 +461,10 @@
 			linkCard.$addLink.click( function () {
 				restoreSelection( range );
 				linkCard.createInternalLink( title, page.title );
+			} );
+			linkCard.$removeLink.click( function () {
+				restoreSelection( range );
+				linkCard.removeLink();
 			} );
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
@@ -454,15 +510,23 @@
 	 * @return {boolean}
 	 */
 	LinkCard.prototype.isEditableTargetLink = function () {
+
+		// Check to make sure we have a link
 		if ( !this.$link ) {
 			return false;
 		}
 
-		// Even if the link is at target section, it will not be editable,
-		// For example none-editable templates.
-		return $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' )
-			.parents( '[contenteditable]' )
-			.length;
+		// Check if the link is a target link
+		if ( !this.$link.is( '.cx-target-link' ) ) {
+			return false;
+		}
+
+		// Check to make sure none of the link's parents are not contenteditable
+		if ( this.$link.parents( '[contenteditable="false"]' ).length > 0 ) {
+			return false;
+		}
+
+		return true;
 	};
 
 	/**
@@ -487,10 +551,13 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var title, sourceTitle, $sourceLink, linkCard = this;
+		var title, sourceTitle, $sourceLink, selection, linkCard = this;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
+
+		// Capture the selection
+		selection = saveSelection();
 
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
@@ -517,6 +584,9 @@
 					href: '//' + language + '.wikipedia.org/wiki/' + title
 				} );
 			this.$addLink.hide();
+			if ( this.isEditableTargetLink() === false ) {
+				this.$removeLink.hide();
+			}
 		} else {
 			this.$removeLink.hide();
 		}
@@ -533,14 +603,22 @@
 		} else {
 			// Adapt the title to the target language from source language
 			linkCard.adapt( title, mw.cx.targetLanguage ).done( function ( adaptations ) {
-				var adaptedTitle = adaptations[ title ];
+				var $newLink, adaptedTitle = adaptations[ title ];
 				if ( !adaptedTitle ) {
 					return;
 				}
 				linkCard.prepareTargetLinkCard( adaptedTitle, mw.cx.targetLanguage );
+				// If text is selected, create a new internal link
+				if ( isValidSelection( selection ) && selection.toString().length > 0 ) {
+					$newLink = linkCard.createInternalLink( selection.toString(), adaptedTitle, linkCard.$link.data( 'linkid' ) );
+					mw.hook( 'mw.cx.select.link' ).fire( $newLink );
+				}
 			} );
 			linkCard.prepareSourceLinkCard( title, mw.cx.sourceLanguage );
+
 		}
+
+		restoreSelection( selection );
 	};
 
 	/**
