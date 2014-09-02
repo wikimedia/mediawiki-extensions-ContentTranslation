@@ -39,7 +39,7 @@
 					MTControlCard.provider = disableMT;
 				} else {
 					// TODO Consider user preferences
-					MTControlCard.provider = MTControlCard.providers[0];
+					MTControlCard.provider = MTControlCard.providers[ 0 ];
 				}
 			} )
 			.fail( function ( response ) {
@@ -81,11 +81,10 @@
 	 * @retun {string}
 	 */
 	function getSimplifiedHTMLForMT( $section ) {
-		return $( '<div>' ).append( $section.clone() )
-			.find( '*' )
-			.removeAttr( 'data-parsoid' )
-			.removeAttr( 'data-mw' )
-			.html();
+		var $wrapper = $( '<div>' ).append( $section.clone() );
+
+		$wrapper.find( '*' ).removeAttr( 'data-parsoid data-mw' );
+		return $wrapper.html();
 	}
 
 	/**
@@ -113,9 +112,8 @@
 			doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
 				.done( function ( translation ) {
 					if ( translation ) {
-						// Replace the placeholder with the source section
-						$section.replaceWith( $sourceSection
-							.clone()
+						$section.replaceWith( $( translation )
+							.children()
 							.attr( {
 								id: 'cx' + sourceId,
 								'data-source': sourceId
@@ -123,7 +121,6 @@
 						);
 						// $section was replaced. Get the updated instance.
 						$section = $( '#cx' + sourceId );
-						$section.html( $( translation ).html() );
 					}
 				} )
 				.fail( function () {
