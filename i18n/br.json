@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
+	"cx-javascript": "N'a ket an ostilh-mañ en-dro panevet JavaScript.",
 	"cx-error-server-connection": "Fazi : Ne c'haller ket kevreañ ouzh ar servijer.",
 	"cx-header-progressbar-text": "$1% troet",
 	"cx-header-translation-center": "Kreizenn dreiñ",
@@ -43,5 +44,6 @@
 	"cx-tools-link-hover-tooltip": "Klikañ evit digeriñ",
 	"cx-warning-unsaved-translation": "Chom a ra troidigezhioù n'int ket bet enrollet ganeoc'h.",
 	"cx-sourceselector-dialog-new-translation": "Troidigezh nevez",
-	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ"
+	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ",
+	"cx-publish-captcha-title": "Goulenn surentez"
 }
