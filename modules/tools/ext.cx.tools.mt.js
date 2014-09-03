@@ -140,12 +140,6 @@
 		this.$card = null;
 		this.$translations = null;
 		this.$providersMenu = null;
-
-		// This is static because the card can be reinitialized.
-		// Indexed by section id.
-		if ( !MTControlCard.enableRestore ) {
-			MTControlCard.enableRestore = {};
-		}
 	}
 
 	MTControlCard.prototype.getCard = function () {
@@ -205,33 +199,13 @@
 	};
 
 	/**
-	 * Update the section with text from source, applying tools like
-	 * adaptation and machine translation.
-	 * @param {boolean} machineTranslate Whether to apply machine translation to the section.
-	 */
-	MTControlCard.prototype.updateSection = function ( machineTranslate ) {
-		var sourceId = this.$section.data( 'source' ),
-			cxMtCard = this;
-
-		// Paste the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, machineTranslate );
-
-		// Updating the section replaced the DOM element,
-		// so it needs to be reinitialized
-		mw.hook( 'mw.cx.translation.updated' ).add( function () {
-			cxMtCard.$section = $( '#cx' + sourceId );
-		} );
-	};
-
-	/**
 	 * Update the section with text from source,
 	 * not applying machine translation.
 	 */
 	MTControlCard.prototype.useSource = function () {
-		this.updateSection( false );
-		this.showRestore();
-
-		this.$section.focus();
+		var sourceId = this.$section.data( 'source' );
+		// Use the source without machine translation
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
 	};
 
 	/**
@@ -240,44 +214,19 @@
 	 * and hide the restore button.
 	 */
 	MTControlCard.prototype.restoreTranslation = function () {
-		this.updateSection( true );
-		this.hideRestore();
-
-		this.$section.focus();
+		var sourceId = this.$section.data( 'source' );
+		// Use the source without machine translation
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, true );
+		this.stop();
 	};
 
 	/**
 	 * Clear the translation text.
 	 */
 	MTControlCard.prototype.clearTranslation = function () {
-		this.$section
-			.html( '' );
+		this.$section.empty();
 		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
-		this.showRestore();
-
 		this.$section.focus();
-	};
-
-	/**
-	 * Show the restore button.
-	 */
-	MTControlCard.prototype.showRestore = function () {
-		// TODO Investigate why isn't it initialized sometimes.
-		// It should always be initialized by the time this runs.
-		if ( !this.$section ) {
-			return;
-		}
-
-		MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] = true;
-		this.$restore.removeClass( 'hidden' );
-	};
-
-	/**
-	 * Hide the restore button.
-	 */
-	MTControlCard.prototype.hideRestore = function () {
-		MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] = false;
-		this.$restore.addClass( 'hidden' );
 	};
 
 	MTControlCard.prototype.selectProvider = function ( providerId ) {
@@ -388,8 +337,10 @@
 		this.$section = $section;
 		this.selectProvider( MTControlCard.provider );
 
-		if ( !MTControlCard.enableRestore[ this.$section.prop( 'id' ) ] ) {
+		if ( this.$section.data( 'cx-mt' ) ) {
 			this.$restore.addClass( 'hidden' );
+		} else {
+			this.$restore.removeClass( 'hidden' );
 		}
 
 		this.$card.show();
