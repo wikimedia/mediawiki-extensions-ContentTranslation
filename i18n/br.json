@@ -36,6 +36,7 @@
 	"cx-tools-link-remove": "Dilemel al liamm",
 	"cx-tools-mt-title": "Treiñ emgefre",
 	"cx-tools-mt-restore": "Assevel",
+	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
 	"cx-stats-page-title": "Pajenn",
 	"cx-stats-pages-title": "Pajennoù troet",
 	"cx-stats-unknown": "dianav",
@@ -43,6 +44,7 @@
 	"cx-tools-reference-remove": "Lemel an daveenn",
 	"cx-tools-link-hover-tooltip": "Klikañ evit digeriñ",
 	"cx-warning-unsaved-translation": "Chom a ra troidigezhioù n'int ket bet enrollet ganeoc'h.",
+	"cx-error-page-not-found": "N'eus ket bet gallet kavout ar bajenn \"$1\" er Wikipedia $2",
 	"cx-sourceselector-dialog-new-translation": "Troidigezh nevez",
 	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ",
 	"cx-publish-captcha-title": "Goulenn surentez"
