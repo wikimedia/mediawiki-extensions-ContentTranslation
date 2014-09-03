@@ -62,12 +62,14 @@
 	 * @return {integer} return.any Weight of sections with content
 	 * @return {integer} return.human Weight of sections with human modified content
 	 * @return {integer} return.mt Weight of sections with unmodified mt content
+	 * @return {integer} return.mtSectionsCount Count of sections with unmodified mt content
 	 */
 	function getTranslationWeights( $sections ) {
 		var weights = {
 			any: 0,
 			human: 0,
-			mt: 0
+			mt: 0,
+			mtSectionsCount: 0
 		};
 
 		$sections.each( function () {
@@ -78,6 +80,7 @@
 
 			if ( $section.data( 'cx-mt' ) === true ) {
 				weights.mt += weight;
+				weights.mtSectionsCount += 1;
 			} else {
 				weights.human += weight;
 			}

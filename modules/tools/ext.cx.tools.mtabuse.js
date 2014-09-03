@@ -11,8 +11,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var MT_ABUSE_THRESHOLD = 75,
-		template = '<div class="card mtabuse">' +
+	var template = '<div class="card mtabuse">' +
 		'<h2 class="card__mtabuse-title"></h2>' +
 		'<div class="card__mtabuse-details"></div>' +
 		'<div class="card__mtabuse-link"></div>' +
@@ -49,8 +48,15 @@
 	 * @return {boolean}
 	 */
 	MTAbuseCard.prototype.isAbuse = function ( progress ) {
-		// Only use abuse detection when thresold is reached and overall translation is > 10 %
-		return progress.mt * 100 > MT_ABUSE_THRESHOLD && progress.any * 100 > 10;
+		var mtPercentage = progress.mt / progress.any * 100 || 0;
+
+		// Only use abuse detection when thresold is reached and there are 5 or more
+		// sections with MT. Some times, even with less than 5 sections, the total
+		// translations can be a lot. So the condition then becomes: Either the mtSectionCount
+		// is geater than 5 or total translation is greater than 75%.
+		// This also address the case of a source article having just 5 or less sections.
+		return mtPercentage > 75 &&
+			( progress.mtSectionsCount > 5 || progress.any * 100 > 75 );
 	};
 
 	MTAbuseCard.prototype.getCard = function () {
