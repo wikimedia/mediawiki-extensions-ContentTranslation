@@ -38,7 +38,20 @@
 	};
 
 	/**
-	 * Listen for changes in the section
+	 * Section change handler
+	 */
+	CXSectionEditor.prototype.onChange = function () {
+		// Remove the MT and source label from the section.
+		// Some manual change happened.
+		this.$section.data( {
+			'cx-mt': false,
+			'cx-source': false
+		} );
+		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
+	};
+
+	/**
+	 * Bind event handlers
 	 */
 	CXSectionEditor.prototype.listen = function () {
 		var cxEditor = this;
@@ -47,15 +60,7 @@
 			// Delay the input handler check till user pause typing.
 			// If this check was done every input, the responsiveness
 			// will get affected.
-			cxEditor.$section.data( 'cx-mt', false );
-			mw.hook( 'mw.cx.translation.change' ).fire( cxEditor.$section );
-			mw.hook( 'mw.cx.translation.edit' ).fire( cxEditor.$section );
-			if ( cxEditor.$editableElement.text().trim() === '' ) {
-				// Emit 'mw.cx.translation.clear' event
-				mw.hook( 'mw.cx.translation.clear' ).fire(
-					cxEditor.$section.data( 'source' )
-				);
-			}
+			cxEditor.onChange();
 		} ) );
 
 		// Disable pressing return key in headers and figure caption
