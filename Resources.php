@@ -8,6 +8,7 @@
 
 $dir = __DIR__;
 
+// TODO: use the standard form
 $resourcePaths = array(
 	'localBasePath' => $dir . '/modules',
 	'remoteExtPath' => 'ContentTranslation/modules',
@@ -434,3 +435,17 @@ $wgResourceModules['ext.cx.editor.medium'] = array(
 	),
 ) + $resourcePaths;
 
+$wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
+	$resourcePaths = array(
+		'localBasePath' => __DIR__,
+		'remoteExtPath' => 'ContentTranslation',
+	);
+
+	$modules['qunit']['ext.cx.util.test'] = array(
+		'scripts' => array( 'tests/qunit/base/ext.cx.util.test.js' ),
+		'dependencies' => array(
+			'ext.cx.util',
+			'mediawiki.Uri',
+		),
+	) + $resourcePaths;
+};
