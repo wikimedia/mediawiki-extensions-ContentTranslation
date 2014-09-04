@@ -78,7 +78,11 @@
 			weight = $section.data( 'cx-weight' );
 			weights.any += weight;
 
-			if ( $section.data( 'cx-mt' ) === true ) {
+			if ( $section.data( 'cx-mt' ) === true ||
+				$section.data( 'cx-source' ) === true
+			) {
+				// If the section has unmodified MT or source content copied,
+				// count it as MT.
 				weights.mt += weight;
 				weights.mtSectionsCount += 1;
 			} else {
