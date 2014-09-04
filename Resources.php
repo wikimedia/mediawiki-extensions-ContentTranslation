@@ -448,4 +448,14 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 			'mediawiki.Uri',
 		),
 	) + $resourcePaths;
+
+	$modules['qunit']['ext.cx.tools.tests'] = array(
+		'scripts' => array(
+			'tests/qunit/ext.cx.tools.template.test.js'
+		),
+		'dependencies' => array(
+			'ext.cx.model',
+			'ext.cx.tools.template',
+		),
+	) + $resourcePaths;
 };
