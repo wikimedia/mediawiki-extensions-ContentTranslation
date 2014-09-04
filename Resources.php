@@ -440,12 +440,9 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 		'remoteExtPath' => 'ContentTranslation',
 	);
 
-	$modules['qunit']['ext.cx.util.test'] = array(
-		'scripts' => array( 'tests/qunit/base/ext.cx.util.test.js' ),
-		'dependencies' => array(
-			'ext.cx.util',
-			'mediawiki.Uri',
-		),
+	$modules['qunit']['ext.cx.editor.tests'] = array(
+		'scripts' => array( 'tests/qunit/editor/ext.cx.editor.test.js' ),
+		'dependencies' => array( 'ext.cx.editor' ),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.tools.tests'] = array(
@@ -457,6 +454,14 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 			'ext.cx.model',
 			'ext.cx.tools.template',
 			'ext.cx.tools.mtabuse'
+		),
+	) + $resourcePaths;
+
+	$modules['qunit']['ext.cx.util.test'] = array(
+		'scripts' => array( 'tests/qunit/base/ext.cx.util.test.js' ),
+		'dependencies' => array(
+			'ext.cx.util',
+			'mediawiki.Uri',
 		),
 	) + $resourcePaths;
 };
