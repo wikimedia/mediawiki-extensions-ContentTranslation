@@ -11,7 +11,6 @@ $dir = __DIR__;
 $resourcePaths = array(
 	'localBasePath' => $dir . '/modules',
 	'remoteExtPath' => 'ContentTranslation/modules',
-	'group' => 'ext.cx',
 );
 
 $wgResourceModules['ext.cx.model'] = array(
