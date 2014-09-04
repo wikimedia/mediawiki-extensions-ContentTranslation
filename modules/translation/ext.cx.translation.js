@@ -106,18 +106,6 @@
 			}, 2000 );
 		} );
 
-		// The translation for a section was cleared.
-		// The translator either deleted the content
-		// or used the clear translation tool.
-		// Present the placeholder for the section to user.
-		mw.hook( 'mw.cx.translation.clear' ).add( function ( sourceId ) {
-			var targetSectionId = '#cx' + sourceId,
-				$placeholder = getPlaceholder( sourceId );
-
-			mw.hook( 'mw.cx.translation.change' ).fire( $( targetSectionId ) );
-			$( targetSectionId ).replaceWith( $placeholder );
-		} );
-
 		mw.hook( 'mw.cx.translation.change' ).add( function ( $section ) {
 			if ( $section ) {
 				$section.keepAlignment();

@@ -98,14 +98,6 @@ Used to trigger the pre-translation for a source section. Source section id is p
 
 Fired when the translation section changed because of any reason.
 
-## mw.cx.translation.clear
-
-Fired when the translation section is cleared.
-
-## mw.cx.translation.edit
-
-Fired when translator edits the translation section, for example by typing.
-
 ## mw.cx.translation.focus
 
 Fired when translation section receives focus.

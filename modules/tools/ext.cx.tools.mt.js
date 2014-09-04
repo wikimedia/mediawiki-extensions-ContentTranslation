@@ -261,7 +261,7 @@
 		this.$restore
 			.on( 'click', $.proxy( this.restoreTranslation, this ) );
 
-		mw.hook( 'mw.cx.translation.edit' ).add( $.proxy( this.showRestore, this ) );
+		mw.hook( 'mw.cx.translation.change' ).add( $.proxy( this.showRestore, this ) );
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
