@@ -109,7 +109,11 @@
 	 * @return {boolean}
 	 */
 	LinkCard.prototype.removeLink = function () {
+		var $parentSection = null;
+
 		if ( this.isEditableTargetLink() ) {
+			$parentSection = this.$link.parents( '[contenteditable]' );
+			$parentSection.trigger( 'input' );
 			this.$link.before( this.$link.text() ).remove();
 			this.stop();
 		}
