@@ -525,6 +525,13 @@
 			return false;
 		}
 
+
+		// Check if the link itself is non editable. Happens in the case of
+		// non-editable inline templates
+		if ( this.$link.is( '[contenteditable="false"]' ) ) {
+			return false;
+		}
+
 		// Check to make sure none of the link's parents are not contenteditable
 		if ( this.$link.parents( '[contenteditable="false"]' ).length > 0 ) {
 			return false;
