@@ -63,7 +63,11 @@
 	 * Remove the reference
 	 */
 	ReferenceCard.prototype.removeReference = function () {
+		var $parentSection;
+
 		if ( this.$reference ) {
+			$parentSection = this.$reference.parents( '[contenteditable]' );
+			$parentSection.trigger( 'input' );
 			this.$reference.remove();
 			this.stop();
 		}
