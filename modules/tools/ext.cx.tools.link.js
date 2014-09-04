@@ -365,7 +365,7 @@
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.createInternalLink = function ( linkText, title, id ) {
-		var $link;
+		var $link, $parentSection;
 
 		$link = $( '<a>' )
 			.addClass( 'cx-target-link' )
@@ -380,6 +380,10 @@
 		}
 
 		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
+
+		$parentSection = $( '.cx-target-link[data-linkid="' + id + '"]' )
+			.parents( '[contenteditable]' );
+		$parentSection.trigger( 'input' );
 
 		return $link;
 	};
