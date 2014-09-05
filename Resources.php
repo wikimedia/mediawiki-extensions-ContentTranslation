@@ -451,11 +451,13 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 
 	$modules['qunit']['ext.cx.tools.tests'] = array(
 		'scripts' => array(
-			'tests/qunit/ext.cx.tools.template.test.js'
+			'tests/qunit/ext.cx.tools.template.test.js',
+			'tests/qunit/ext.cx.tools.mtabuse.test.js'
 		),
 		'dependencies' => array(
 			'ext.cx.model',
 			'ext.cx.tools.template',
+			'ext.cx.tools.mtabuse'
 		),
 	) + $resourcePaths;
 };
