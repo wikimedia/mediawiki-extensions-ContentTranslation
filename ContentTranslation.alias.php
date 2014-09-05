@@ -67,6 +67,12 @@ $specialPageAliases['lb'] = array(
 	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),
 );
 
+/** Malagasy (Malagasy) */
+$specialPageAliases['mg'] = array(
+	'ContentTranslation' => array( 'FandikanaVontoatiny' ),
+	'ContentTranslationStats' => array( 'StatistikaFandikanaVontoatiny' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'ContentTranslation' => array( 'ПреводНаСодржини' ),
