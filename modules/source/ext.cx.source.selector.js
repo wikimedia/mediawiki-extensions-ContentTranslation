@@ -44,7 +44,7 @@
 		} );
 
 		this.$sourceTitleInput.on( 'input', $.debounce( 100, false, function () {
-			searchTitles( selector.$sourceLanguage.val(), $( this ).val() ).done( function ( response ) {
+			searchTitles( selector.sourceLanguage, $( this ).val() ).done( function ( response ) {
 				var i, len, suggestions = response[ 1 ];
 				selector.$titleList.empty();
 				if ( suggestions.length ) {
@@ -54,6 +54,28 @@
 				}
 			} );
 		} ) );
+
+		this.$sourceLanguage.on( 'change', function () {
+			if ( selector.$sourceLanguage.val() === selector.targetLanguage ) {
+				selector.$targetLanguage.val( selector.sourceLanguage );
+				selector.targetLanguage = selector.sourceLanguage;
+			}
+
+			selector.sourceLanguage = selector.$sourceLanguage.val();
+
+			return;
+		} );
+
+		this.$targetLanguage.on( 'change', function () {
+			if ( selector.$targetLanguage.val() === selector.sourceLanguage ) {
+				selector.$sourceLanguage.val( selector.targetLanguage );
+				selector.sourceLanguage = selector.targetLanguage;
+			}
+
+			selector.targetLanguage = selector.$targetLanguage.val();
+
+			return;
+		} );
 	};
 
 	/**
@@ -115,8 +137,8 @@
 		mw.cx.doCX(
 			this.$sourceTitleInput.val(),
 			this.$targetTitleInput.val(),
-			this.$sourceLanguage.val(),
-			this.$targetLanguage.val()
+			this.sourceLanguage,
+			this.targetLanguage
 		);
 	};
 
@@ -138,13 +160,17 @@
 
 		$sourceLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
+
 		this.$sourceLanguage = $( '<select>' ).addClass( 'cx-sourceselector-dialog__language' )
 			.text( $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) );
 		for ( index in this.options.sourceLanguages ) {
 			this.$sourceLanguage.append( $( '<option>' )
 				.attr( 'value', this.options.sourceLanguages[ index ] )
-				.text( $.uls.data.getAutonym( this.options.sourceLanguages[ index ] ) ) );
+				.text( $.uls.data.getAutonym( this.options.sourceLanguages[ index ] ) )
+			);
 		}
+		this.sourceLanguage = this.$sourceLanguage.val();
+
 		$targetLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-target-language-label' ) );
 		this.$targetLanguage = $( '<select>' ).addClass( 'cx-sourceselector-dialog__language' )
@@ -153,10 +179,13 @@
 			this.$targetLanguage.append( $( '<option>' )
 				.attr( {
 					value: this.options.targetLanguages[ index ],
-					selected: ( index === '1' )
+					selected: ( index === '1' ) // TODO remove this hack
 				} )
-				.text( $.uls.data.getAutonym( this.options.targetLanguages[ index ] ) ) );
+				.text( $.uls.data.getAutonym( this.options.targetLanguages[ index ] ) )
+			);
 		}
+		this.targetLanguage = this.$targetLanguage.val();
+
 		this.$sourceTitleInput = $( '<input>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
 			.attr( {
@@ -220,14 +249,15 @@
 	$( function () {
 		mw.hook( 'mw.cx.source.select' ).add( function () {
 			var $container;
+
 			$container = $( '.cx-widget__columns' );
 			$container.empty().cxSourceSelector( {
 				top: '150px',
 				left: '33%',
-				sourceLanguages: [ 'es' ],
-				targetLanguages: [ 'ca' ]
+				// TODO Get a list from configuration
+				sourceLanguages: [ 'es', 'ca' ],
+				targetLanguages: [ 'es', 'ca' ]
 			} ).click();
 		} );
 	} );
-
 }( jQuery, mediaWiki ) );
