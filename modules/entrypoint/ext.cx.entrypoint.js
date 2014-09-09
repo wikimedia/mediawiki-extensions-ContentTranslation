@@ -38,6 +38,9 @@
 		this.$trigger = $( $trigger );
 		this.options = $.extend( {}, $.fn.cxEntryPoint.defaults, options );
 		this.$dialog = null;
+		this.$actionScratch = null;
+		this.$actionTranslate = null;
+		this.$titleInput = null;
 
 		this.init();
 	}
@@ -96,7 +99,7 @@
 	CXEntryPoint.prototype.show = function () {
 		this.$dialog.removeClass( 'hidden' );
 		this.position();
-		this.$dialog.find( 'input' ).focus();
+		this.$titleInput.focus();
 	};
 
 	/**
@@ -131,11 +134,9 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXEntryPoint.prototype.startPageInCX = function () {
-		var $titleInput = this.$dialog.find( '.cx-entrypoint-dialog__title-box-block input' );
-
 		mw.cx.doCX(
 			mw.config.get( 'wgTitle' ),
-			$titleInput.val(),
+			this.$titleInput.val(),
 			mw.config.get( 'wgContentLanguage' ),
 			this.options.targetLanguage
 		);
@@ -145,8 +146,7 @@
 	 * Render the CX entry point dialog.
 	 */
 	CXEntryPoint.prototype.render = function () {
-		var $fromScratchButton, $translateFromButton, $actions,
-			$titleInput, $titleBoxBlock,
+		var $actions, $titleBoxBlock,
 			$closeIcon, $heading, $titleLabel,
 			entryPoint = this,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
@@ -170,7 +170,7 @@
 		$titleLabel = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-label' )
 			.html( mw.msg( 'cx-entrypoint-dialog-title-in', targetAutonym ) );
 
-		$titleInput = $( '<input>' )
+		this.$titleInput = $( '<input>' )
 			.prop( {
 				placeholder: currentTitle,
 				lang: this.options.targetLanguage,
@@ -178,20 +178,20 @@
 			} );
 
 		$titleBoxBlock = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-box-block' )
-			.append( $titleInput );
+			.append( this.$titleInput );
 
-		$fromScratchButton = $( '<button>' )
+		this.$actionScratch = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
 			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) )
 			.click( function () {
 				var title, url;
 
-				title = $titleInput.val() || mw.config.get( 'wgTitle' );
+				title = entryPoint.$titleInput.val() || mw.config.get( 'wgTitle' );
 				url = getFromScratchUrl( entryPoint.options.targetLanguage, title );
 				location.href = url;
 			} );
 
-		$translateFromButton = $( '<button>' )
+		this.$actionTranslate = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-translate-from' )
 			.text( mw.msg(
 				'cx-entrypoint-dialog-button-translate-from',
@@ -200,7 +200,7 @@
 			.click( $.proxy( this.startPageInCX, this ) );
 
 		$actions = $( '<div>' ).addClass( 'cx-entrypoint-dialog__actions' )
-			.append( $fromScratchButton, $translateFromButton );
+			.append( this.$actionScratch, this.$actionTranslate );
 
 		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $actions );
 
