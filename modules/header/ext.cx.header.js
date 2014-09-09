@@ -50,12 +50,7 @@
 			returntoquery: returnToQueryString
 		} );
 
-		this.$infoBar
-			.show()
-			.removeClass( 'cx-success' )
-			.addClass( 'cx-error' )
-			.find( '.text' )
-			.html( mw.message( 'cx-special-login-error', loginUriHref ).parse() );
+		this.showError( mw.message( 'cx-special-login-error', loginUriHref ) );
 
 		// The top login link should open in the same window.
 		// There is no reason to open a new tab for it,
@@ -68,33 +63,45 @@
 			} );
 
 		// Do not show the columns
+		// TODO: use events
 		$( '.cx-widget__columns' ).remove();
 	};
 
 	/**
 	 * Show a success message in the info bar.
-	 * @param {string} message
+	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
 	 */
 	ContentTranslationHeader.prototype.showSuccess = function ( message ) {
-		this.$infoBar
-			.show()
-			.removeClass( 'cx-error' )
-			.addClass( 'cx-success' )
-			.find( '.text' )
-			.html( message );
+		this.showMessage( 'cx-success', message );
 	};
 
 	/**
 	 * Show an error message in the info bar.
-	 * @param {string} message
+	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
 	 */
 	ContentTranslationHeader.prototype.showError = function ( message ) {
+		this.showMessage( 'cx-error', message );
+	};
+
+	/**
+	 * Shows a message in the info bar.
+	 *
+	 * For internal use. use showSuccess and showError instead.
+	 *
+	 * @param {string} type Message class.
+	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
+	 */
+	ContentTranslationHeader.prototype.showMessage = function ( type, message ) {
+		if ( message instanceof mw.Message ) {
+			this.$infoBar.find( '.text' ).html( message.parse() );
+		} else {
+			this.$infoBar.find( '.text' ).text( message );
+		}
+
 		this.$infoBar
-			.show()
-			.removeClass( 'cx-success' )
-			.addClass( 'cx-error' )
-			.find( '.text' )
-			.html( message );
+			.removeClass( 'cx-success cx-error' )
+			.addClass( type )
+			.show();
 	};
 
 	/**
@@ -119,17 +126,17 @@
 				'cx-translation-target-page-exists',
 				mw.cx.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle ),
 				mw.cx.targetTitle
-			).parse() );
+			) );
 		} );
 	};
 
 	ContentTranslationHeader.prototype.listen = function () {
-		this.$container.find( '.publish' ).on( 'click', function () {
+		this.$publishButton.on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
 
 		// Click handler for remove icon in info bar.
-		this.$infoBar.find( '.remove' ).click( function () {
+		this.$infoBar.on( 'click', '.remove', function () {
 			$( this ).parent().hide();
 		} );
 
