@@ -41,6 +41,7 @@
 		this.$actionScratch = null;
 		this.$actionTranslate = null;
 		this.$titleInput = null;
+		this.$closeIcon = null;
 
 		this.init();
 	}
@@ -74,12 +75,36 @@
 			// jquery.uls.data is needed for autonyms
 			mw.loader.using( 'jquery.uls.data', function () {
 				if ( !entryPoint.$dialog ) {
-					entryPoint.render();
+					entryPoint.renderDialog();
+					entryPoint.listenForDialog();
 				}
 
 				entryPoint.toggle();
 			} );
 		} );
+	};
+
+	/**
+	 * Listen for events in the CX entry point dialog.
+	 */
+	CXEntryPoint.prototype.listenForDialog = function () {
+		var entryPoint = this;
+
+		this.$actionScratch.click( function () {
+			var title, url;
+
+			title = entryPoint.$titleInput.val() || mw.config.get( 'wgTitle' );
+			url = getFromScratchUrl( entryPoint.options.targetLanguage, title );
+			location.href = url;
+		} );
+
+		this.$actionTranslate.click( $.proxy( this.startPageInCX, this ) );
+
+		this.$dialog.click( function ( e ) {
+			e.stopPropagation();
+		} );
+
+		this.$closeIcon.click( $.proxy( this.hide, this ) );
 	};
 
 	/**
@@ -145,27 +170,22 @@
 	/**
 	 * Render the CX entry point dialog.
 	 */
-	CXEntryPoint.prototype.render = function () {
+	CXEntryPoint.prototype.renderDialog = function () {
 		var $actions, $titleBoxBlock,
-			$closeIcon, $heading, $titleLabel,
-			entryPoint = this,
+			$heading, $titleLabel,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
 			currentTitle = mw.config.get( 'wgTitle' );
 
 		this.$dialog = $( '<div>' )
 			.prop( 'id', 'cx-entrypoint-dialog-' + this.options.targetLanguage )
-			.addClass( 'cx-entrypoint-dialog hidden' )
-			.click( function ( e ) {
-				e.stopPropagation();
-			} );
+			.addClass( 'cx-entrypoint-dialog hidden' );
 
-		$closeIcon = $( '<span>' )
-			.addClass( 'icon-close' )
-			.click( $.proxy( this.hide, this ) );
+		this.$closeIcon = $( '<span>' )
+			.addClass( 'icon-close' );
 
 		$heading = $( '<div>' ).addClass( 'cx-entrypoint-dialog__heading' )
 			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
-			.prepend( $closeIcon );
+			.prepend( this.$closeIcon );
 
 		$titleLabel = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-label' )
 			.html( mw.msg( 'cx-entrypoint-dialog-title-in', targetAutonym ) );
@@ -182,22 +202,14 @@
 
 		this.$actionScratch = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
-			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) )
-			.click( function () {
-				var title, url;
-
-				title = entryPoint.$titleInput.val() || mw.config.get( 'wgTitle' );
-				url = getFromScratchUrl( entryPoint.options.targetLanguage, title );
-				location.href = url;
-			} );
+			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) );
 
 		this.$actionTranslate = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-translate-from' )
 			.text( mw.msg(
 				'cx-entrypoint-dialog-button-translate-from',
 				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-			) )
-			.click( $.proxy( this.startPageInCX, this ) );
+			) );
 
 		$actions = $( '<div>' ).addClass( 'cx-entrypoint-dialog__actions' )
 			.append( this.$actionScratch, this.$actionTranslate );
