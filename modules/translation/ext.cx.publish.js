@@ -62,8 +62,11 @@
 					}
 					return;
 				}
-				mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page',
-					mw.util.getUrl( translatedTitle ), translatedTitle ).parse() );
+				mw.hook( 'mw.cx.success' ).fire( mw.message(
+					'cx-publish-page',
+					mw.util.getUrl( translatedTitle ),
+					translatedTitle
+				) );
 				mw.hook( 'mw.cx.translation.published' ).fire(
 					mw.cx.sourceLanguage,
 					mw.cx.targetLanguage
