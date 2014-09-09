@@ -15,19 +15,20 @@
 	 * Create a new page with given language and title.
 	 * @param {string} language
 	 * @param {string} title
+	 * @return {string} URL
 	 */
-	function createNewPage( language, title ) {
+	function getFromScratchUrl( language, title ) {
 		var uri = new mw.Uri(),
 			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
 
 		uri.host = domainTemplate.replace( '$1', language );
 		uri.path = mw.config.get( 'wgScript' );
 		uri.query = {
-			title: title || mw.config.get( 'wgTitle' ),
+			title: title,
 			action: 'edit'
 		};
 
-		window.location.href = uri.toString();
+		return uri.toString();
 	}
 
 	/**
@@ -183,7 +184,11 @@
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
 			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) )
 			.click( function () {
-				createNewPage( entryPoint.options.targetLanguage, $titleInput.val() );
+				var title, url;
+
+				title = $titleInput.val() || mw.config.get( 'wgTitle' );
+				url = getFromScratchUrl( entryPoint.options.targetLanguage, title );
+				location.href = url;
 			} );
 
 		$translateFromButton = $( '<button>' )

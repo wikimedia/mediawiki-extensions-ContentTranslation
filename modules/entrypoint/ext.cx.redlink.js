@@ -31,7 +31,7 @@
 	 * @return {Boolean}
 	 */
 	function pageInLanguageExists( code ) {
-		return ( $( 'li.interlanguage-link.interwiki-' + code ).length === 1 );
+		return $( 'li.interlanguage-link.interwiki-' + code ).length === 1;
 	}
 
 	function createRedInterlanguageItem( code ) {
