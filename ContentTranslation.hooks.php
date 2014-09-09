@@ -12,10 +12,9 @@ class ContentTranslationHooks {
 	/**
 	 * @param OutputPage $out
 	 * @param Skin $skin
-	 * @return bool
 	 * Hook: BeforePageDisplay
 	 */
-	public static function addModules( $out, $skin ) {
+	public static function addModules( OutputPage $out, Skin $skin ) {
 		global $wgContentTranslationEventLogging;
 
 		$title = $out->getTitle();
@@ -45,17 +44,14 @@ class ContentTranslationHooks {
 				'ext.cx.eventlogging',
 			) );
 		}
-
-		return true;
 	}
 
 	/**
 	 * Hook: GetBetaFeaturePreferences
 	 * @param User $user
 	 * @param array $prefs
-	 * @return bool
 	 */
-	public static function getPreferences( $user, &$prefs ) {
+	public static function getPreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath;
 
 		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/modules/entrypoint/images";
@@ -70,16 +66,13 @@ class ContentTranslationHooks {
 			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation',
 		);
-
-		return true;
 	}
 
 	/**
 	 * Hook: ResourceLoaderGetConfigVars
 	 * @param array $vars
-	 * @return bool
 	 */
-	public static function addConfig( &$vars ) {
+	public static function addConfig( array &$vars ) {
 		global $wgContentTranslationServerURL, $wgContentTranslationDomainTemplate,
 			$wgContentTranslationTranslateInTarget,
 			$wgContentTranslationExperimentalFeatures;
@@ -88,6 +81,5 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationDomainTemplate'] = $wgContentTranslationDomainTemplate;
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
-		return true;
 	}
 }
