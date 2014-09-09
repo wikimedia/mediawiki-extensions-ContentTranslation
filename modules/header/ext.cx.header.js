@@ -19,6 +19,7 @@
 	function ContentTranslationHeader( element ) {
 		this.$container = $( element );
 		this.$publishButton = null;
+		this.$infoBar = null;
 		this.init();
 	}
 

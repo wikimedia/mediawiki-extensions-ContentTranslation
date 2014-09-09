@@ -445,6 +445,19 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 		'dependencies' => array( 'ext.cx.editor' ),
 	) + $resourcePaths;
 
+	$modules['qunit']['ext.cx.header.test'] = array(
+		'scripts' => array( 'tests/qunit/ext.cx.header.test.js' ),
+		'dependencies' => array( 'ext.cx.header' ),
+	) + $resourcePaths;
+
+	$modules['qunit']['ext.cx.util.test'] = array(
+		'scripts' => array( 'tests/qunit/base/ext.cx.util.test.js' ),
+		'dependencies' => array(
+			'ext.cx.util',
+			'mediawiki.Uri',
+		),
+	) + $resourcePaths;
+
 	$modules['qunit']['ext.cx.tools.tests'] = array(
 		'scripts' => array(
 			'tests/qunit/ext.cx.tools.template.test.js',
