@@ -183,12 +183,15 @@
 		this.$closeIcon = $( '<span>' )
 			.addClass( 'icon-close' );
 
-		$heading = $( '<div>' ).addClass( 'cx-entrypoint-dialog__heading' )
+		// Uses .html because of <br /> in the message
+		$heading = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__heading' )
 			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
 			.prepend( this.$closeIcon );
 
-		$titleLabel = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-label' )
-			.html( mw.msg( 'cx-entrypoint-dialog-title-in', targetAutonym ) );
+		$titleLabel = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__title-label' )
+			.text( mw.msg( 'cx-entrypoint-dialog-title-in', targetAutonym ) );
 
 		this.$titleInput = $( '<input>' )
 			.prop( {
@@ -197,7 +200,8 @@
 				dir: $.uls.data.getDir( this.options.targetLanguage )
 			} );
 
-		$titleBoxBlock = $( '<div>' ).addClass( 'cx-entrypoint-dialog__title-box-block' )
+		$titleBoxBlock = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__title-box-block' )
 			.append( this.$titleInput );
 
 		this.$actionScratch = $( '<button>' )
@@ -211,7 +215,8 @@
 				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
 			) );
 
-		$actions = $( '<div>' ).addClass( 'cx-entrypoint-dialog__actions' )
+		$actions = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__actions' )
 			.append( this.$actionScratch, this.$actionTranslate );
 
 		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $actions );
