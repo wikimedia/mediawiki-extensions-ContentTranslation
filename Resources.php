@@ -107,7 +107,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'cx-sourceselector-dialog-new-translation',
 		'cx-sourceselector-dialog-button-start-translation',
 		'cx-sourceselector-dialog-source-language-label',
-		'cx-sourceselector-dialog-target-language-label'
+		'cx-sourceselector-dialog-target-language-label',
 	),
 ) + $resourcePaths;
 

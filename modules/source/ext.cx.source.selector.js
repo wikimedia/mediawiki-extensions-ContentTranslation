@@ -19,7 +19,13 @@
 		this.$trigger = $( $trigger );
 		this.options = options;
 		this.$dialog = null;
-
+		this.languagePairs = null;
+		this.sourceLanguages = [];
+		this.targetLanguages = [];
+		this.$sourceLanguage = null;
+		this.$targetLanguage = null;
+		this.sourceLanguage = null;
+		this.targetLanguage = null;
 		this.init();
 	}
 
@@ -27,8 +33,90 @@
 	 * Initialize the plugin.
 	 */
 	CXSourceSelector.prototype.init = function () {
-		this.render();
-		this.listen();
+		var cxSourceSelector = this;
+		this.getLanguagePairs().then( function () {
+			cxSourceSelector.render();
+			cxSourceSelector.listen();
+		} );
+
+	};
+
+	/**
+	 * Get all the source and target languages.
+	 * @return {jQuery.Promise}
+	 */
+	CXSourceSelector.prototype.getLanguagePairs = function () {
+		var languagePairsAPIUrl, cxSourceSelector = this;
+
+		languagePairsAPIUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/languagepairs';
+
+		return $.get( languagePairsAPIUrl )
+			.done( function ( response ) {
+				var sourceLanguage, i,
+					targetLanguages = [];
+
+				cxSourceSelector.languagePairs = response;
+				for ( sourceLanguage in cxSourceSelector.languagePairs ) {
+					cxSourceSelector.sourceLanguages.push( sourceLanguage );
+					$.merge( targetLanguages, cxSourceSelector.languagePairs[ sourceLanguage ] );
+				}
+
+				if ( !cxSourceSelector.targetLanguages ) {
+					cxSourceSelector.targetLanguages = [];
+				}
+
+				// Make the target languages array unique
+				targetLanguages = targetLanguages.sort();
+				for ( i = 0; i < targetLanguages.length; i++ ) {
+					if ( targetLanguages[ i ] !== targetLanguages[ i - 1 ] ) {
+						cxSourceSelector.targetLanguages.push( targetLanguages[ i ] );
+					}
+				}
+			} )
+			.fail( function ( response ) {
+				mw.log(
+					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
+					response.statusText + ' (' + response.status + '). ' +
+					response.responseText
+				);
+			} );
+	};
+
+	/**
+	 * Fill the target language dropdown with target languages that have
+	 * language tools compatible with the source language.
+	 */
+	CXSourceSelector.prototype.fillTargetLanguages = function () {
+		var index, targetLanguage, $option,
+			sourceLanguage = this.$sourceLanguage.val(),
+			enabledOptions = [],
+			disabledOptions = [];
+
+		this.$targetLanguage.empty();
+		for ( index in this.targetLanguages ) {
+			targetLanguage = this.targetLanguages[ index ];
+
+			// Skip the same language
+			if ( targetLanguage === sourceLanguage ) {
+				continue;
+			}
+
+			$option = $( '<option>' )
+				.attr( 'value', targetLanguage )
+				.text( $.uls.data.getAutonym( targetLanguage ) );
+
+			if ( $.inArray( targetLanguage, this.languagePairs[ sourceLanguage ] ) > -1 ) {
+				enabledOptions.push( $option );
+			} else {
+				// Disable the option, but show it so the user will
+				// know that this language is is in the system
+				$option.attr( 'disabled', true );
+				disabledOptions.push( $option );
+			}
+		}
+
+		// Show the enabled languages first
+		this.$targetLanguage.append( enabledOptions, disabledOptions );
 	};
 
 	/**
@@ -44,6 +132,7 @@
 		} );
 
 		this.$sourceTitleInput.on( 'input', $.debounce( 100, false, function () {
+			selector.sourceLanguage = selector.$sourceLanguage.val();
 			searchTitles( selector.sourceLanguage, $( this ).val() ).done( function ( response ) {
 				var i, len, suggestions = response[ 1 ];
 				selector.$titleList.empty();
@@ -55,27 +144,7 @@
 			} );
 		} ) );
 
-		this.$sourceLanguage.on( 'change', function () {
-			if ( selector.$sourceLanguage.val() === selector.targetLanguage ) {
-				selector.$targetLanguage.val( selector.sourceLanguage );
-				selector.targetLanguage = selector.sourceLanguage;
-			}
-
-			selector.sourceLanguage = selector.$sourceLanguage.val();
-
-			return;
-		} );
-
-		this.$targetLanguage.on( 'change', function () {
-			if ( selector.$targetLanguage.val() === selector.sourceLanguage ) {
-				selector.$sourceLanguage.val( selector.targetLanguage );
-				selector.sourceLanguage = selector.targetLanguage;
-			}
-
-			selector.targetLanguage = selector.$targetLanguage.val();
-
-			return;
-		} );
+		this.$sourceLanguage.on( 'change', $.proxy( this.fillTargetLanguages, this ) );
 	};
 
 	/**
@@ -123,6 +192,7 @@
 			cache: true
 		} );
 	}
+
 	/**
 	 * Hide the entry point dialog.
 	 */
@@ -134,6 +204,8 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
+		this.sourceLanguage = this.$sourceLanguage.val();
+		this.targetLanguage = this.$targetLanguage.val();
 		mw.cx.doCX(
 			this.$sourceTitleInput.val(),
 			this.$targetTitleInput.val(),
@@ -161,30 +233,23 @@
 		$sourceLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
 
-		this.$sourceLanguage = $( '<select>' ).addClass( 'cx-sourceselector-dialog__language' )
+		this.$sourceLanguage = $( '<select>' )
+			.addClass( 'cx-sourceselector-dialog__language' )
 			.text( $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) );
-		for ( index in this.options.sourceLanguages ) {
+		for ( index in this.sourceLanguages ) {
 			this.$sourceLanguage.append( $( '<option>' )
-				.attr( 'value', this.options.sourceLanguages[ index ] )
-				.text( $.uls.data.getAutonym( this.options.sourceLanguages[ index ] ) )
+				.attr( 'value', this.sourceLanguages[ index ] )
+				.text( $.uls.data.getAutonym( this.sourceLanguages[ index ] ) )
 			);
 		}
-		this.sourceLanguage = this.$sourceLanguage.val();
 
 		$targetLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-target-language-label' ) );
-		this.$targetLanguage = $( '<select>' ).addClass( 'cx-sourceselector-dialog__language' )
+		this.$targetLanguage = $( '<select>' )
+			.addClass( 'cx-sourceselector-dialog__language' )
 			.text( $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) );
-		for ( index in this.options.targetLanguages ) {
-			this.$targetLanguage.append( $( '<option>' )
-				.attr( {
-					value: this.options.targetLanguages[ index ],
-					selected: ( index === '1' ) // TODO remove this hack
-				} )
-				.text( $.uls.data.getAutonym( this.options.targetLanguages[ index ] ) )
-			);
-		}
-		this.targetLanguage = this.$targetLanguage.val();
+
+		this.fillTargetLanguages();
 
 		this.$sourceTitleInput = $( '<input>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
@@ -199,6 +264,21 @@
 				name: 'targetTitle'
 			} );
 
+		this.$titleList = $( '<datalist>' ).prop( 'id', 'searchresults' );
+		$sourceInputs = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__source-inputs' )
+			.append( $sourceLanguageLabel,
+				this.$sourceLanguage,
+				this.$sourceTitleInput
+		);
+		$targetInputs = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__target-inputs' )
+			.append(
+				$targetLanguageLabel,
+				this.$targetLanguage,
+				this.$targetTitleInput
+		);
+
 		this.$translateFromButton = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
 			.text( mw.msg( 'cx-sourceselector-dialog-button-start-translation' ) )
@@ -206,21 +286,6 @@
 
 		$actions = $( '<div>' ).addClass( 'cx-sourceselector-dialog__actions' )
 			.append( this.$translateFromButton );
-
-		this.$titleList = $( '<datalist>' ).prop( 'id', 'searchresults' );
-		$sourceInputs = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__source-inputs' )
-			.append( $sourceLanguageLabel,
-				this.$sourceLanguage,
-				this.$sourceTitleInput
-			);
-		$targetInputs = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__target-inputs' )
-			.append(
-				$targetLanguageLabel,
-				this.$targetLanguage,
-				this.$targetTitleInput
-			);
 
 		this.$dialog.append( $heading,
 			$sourceInputs,
@@ -230,6 +295,8 @@
 		);
 
 		$( 'body' ).append( this.$dialog );
+
+		this.show();
 	};
 
 	/**
@@ -248,15 +315,11 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.source.select' ).add( function () {
-			var $container;
+			var $container = $( '.cx-widget__columns' );
 
-			$container = $( '.cx-widget__columns' );
 			$container.empty().cxSourceSelector( {
 				top: '150px',
-				left: '33%',
-				// TODO Get a list from configuration
-				sourceLanguages: [ 'es' ],
-				targetLanguages: [ 'ca' ]
+				left: '33%'
 			} ).click();
 		} );
 	} );
