@@ -255,8 +255,8 @@
 				top: '150px',
 				left: '33%',
 				// TODO Get a list from configuration
-				sourceLanguages: [ 'es', 'ca' ],
-				targetLanguages: [ 'es', 'ca' ]
+				sourceLanguages: [ 'es' ],
+				targetLanguages: [ 'ca' ]
 			} ).click();
 		} );
 	} );
