@@ -56,6 +56,7 @@
 
 		$.get( fetchPageUrl )
 			.done( function ( response ) {
+				mw.cx.sourceRevision = response.revision;
 				mw.hook( 'mw.cx.source.loaded' ).fire( response );
 			} ).fail( function ( xhr ) {
 				if ( xhr.status === 404 ) {
