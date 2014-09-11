@@ -8,7 +8,6 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-/* global MediumEditor: true */
 ( function ( $, mw ) {
 	'use strict';
 
@@ -34,7 +33,6 @@
 		}
 		// Make the element editable
 		this.$editableElement.attr( 'contenteditable', true );
-		this.wysiwygEditor();
 	};
 
 	/**
@@ -69,38 +67,6 @@
 				return e.which !== 13; // Enter key code
 			} );
 		}
-	};
-
-	/**
-	 * Enhance the basic content editable with a WYSIWYG editor
-	 * MediumEditor is used here. But any such simple editor
-	 * can work here.
-	 */
-	CXSectionEditor.prototype.wysiwygEditor = function () {
-		var editorOptions;
-
-		if ( !window.MediumEditor ) {
-			return;
-		}
-		editorOptions = {
-			cleanPastedHTML: true,
-			buttons: [ 'bold', 'italic', 'header1', 'header2',
-				'unorderedlist', 'orderedlist', 'indent', 'outdent' ],
-			firstHeader: 'h2',
-			secondHeader: 'h3',
-			disableDoubleReturn: true
-		};
-		// Avoid previews on mouse over of links
-		MediumEditor.prototype.editorAnchorObserver = function () {};
-
-		if ( this.$editableElement.get( 0 ).tagName === 'FIGURECAPTION' ) {
-			// Prevent pressing return on caption to avoid
-			// creation of <p> nodes
-			editorOptions.disableReturn = true;
-		}
-
-		/*jshint -W031 */
-		new MediumEditor( this.$editableElement, editorOptions );
 	};
 
 	$.fn.cxEditor = function () {

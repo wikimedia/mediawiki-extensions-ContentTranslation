@@ -122,6 +122,7 @@ $wgResourceModules['ext.cx.translation'] = array(
 		'mediawiki.Uri',
 		'jquery.throttle-debounce',
 		'mediawiki.Title',
+		'ext.cx.editor',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
@@ -415,17 +416,6 @@ $wgResourceModules['ext.cx.editor'] = array(
 	),
 	'dependencies' => array(
 		'jquery.throttle-debounce',
-	),
-) + $resourcePaths;
-
-$wgResourceModules['ext.cx.editor.medium'] = array(
-	'scripts' => array(
-		'editor/ext.cx.editor.js',
-		'editor/medium/medium-editor.js',
-	),
-	'styles' => array(
-		'editor/medium/medium-editor.css',
-		'editor/medium/theme/agora.css',
 	),
 ) + $resourcePaths;
 
