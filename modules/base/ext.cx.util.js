@@ -74,4 +74,30 @@
 
 		return uri.toString();
 	};
+
+	/**
+	 * Generate a jQuery selector for all possible sections.
+	 * @return {string} the section selector string
+	 */
+	mw.cx.getSectionSelector = function () {
+		var sectionTypes;
+
+		sectionTypes = [
+			'div', 'p',
+			// tables
+			'table', 'tbody', 'thead', 'tfoot', 'caption', 'th', 'tr', 'td',
+			// lists
+			'ul', 'ol', 'li', 'dl', 'dt', 'dd',
+			// HTML5 heading content
+			'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup',
+			// HTML5 sectioning content
+			'article', 'aside', 'body', 'nav', 'section', 'footer', 'header', 'figure',
+			'figcaption', 'fieldset', 'details', 'blockquote',
+			// other
+			'hr', 'button', 'canvas', 'center', 'col', 'colgroup', 'embed',
+			'map', 'object', 'pre', 'progress', 'video'
+		];
+
+		return sectionTypes.join( ',' );
+	};
 }( mediaWiki ) );

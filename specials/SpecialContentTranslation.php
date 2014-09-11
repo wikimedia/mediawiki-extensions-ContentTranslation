@@ -28,7 +28,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$skin = $this->getSkin();
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		$out->addModules( 'ext.cx.base' );
+		$out->addModules( 'ext.cx.init' );
 		if ( $wgContentTranslationExperimentalFeatures ) {
 			// WYSIWYGEditor
 			$out->addModules( 'ext.cx.editor.medium' );

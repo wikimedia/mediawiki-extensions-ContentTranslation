@@ -31,7 +31,7 @@
 			return;
 		}
 		if ( !mw.cx.sourceTitle ) {
-			mw.hook( 'mw.cx.source.select' ).fire();
+			this.showSourceSelector();
 			return;
 		}
 		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
@@ -49,7 +49,7 @@
 	 *     identify the host wiki.
 	 */
 	ContentTranslationSource.prototype.fetchPage = function ( title, language ) {
-		var fetchPageUrl;
+		var fetchPageUrl, cxSource = this;
 
 		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
 			'/page/' + encodeURIComponent( language ) + '/' + encodeURIComponent( title );
@@ -62,11 +62,17 @@
 					mw.hook( 'mw.cx.error' ).fire(
 						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
 					);
-					mw.hook( 'mw.cx.source.select' ).fire();
+					cxSource.showSourceSelector();
 				} else {
 					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 				}
 			} );
+	};
+
+	ContentTranslationSource.prototype.showSourceSelector = function () {
+		mw.loader.using( 'ext.cx.source.selector' ).then( function () {
+			mw.hook( 'mw.cx.source.select' ).fire();
+		} );
 	};
 
 	function getSourceArticleUrl() {

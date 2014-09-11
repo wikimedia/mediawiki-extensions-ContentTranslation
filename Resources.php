@@ -20,7 +20,7 @@ $wgResourceModules['ext.cx.model'] = array(
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.cx.base'] = array(
+$wgResourceModules['ext.cx.init'] = array(
 	'scripts' => array(
 		'base/ext.cx.base.js',
 	),
@@ -31,8 +31,6 @@ $wgResourceModules['ext.cx.base'] = array(
 		'ext.cx.model',
 		'ext.cx.header',
 		'ext.cx.source',
-		'ext.cx.translation',
-		'ext.cx.tools',
 	),
 ) + $resourcePaths;
 
@@ -75,7 +73,6 @@ $wgResourceModules['ext.cx.source'] = array(
 	'scripts' =>  array(
 		'source/ext.cx.source.js',
 		'source/ext.cx.source.filter.js',
-		'source/ext.cx.source.selector.js'
 	),
 	'styles' => array(
 		'source/styles/ext.cx.source.less',
@@ -87,7 +84,6 @@ $wgResourceModules['ext.cx.source'] = array(
 		'jquery.uls.data',
 		'mediawiki.Uri',
 		'mediawiki.Title',
-		'ext.cx.source.selector',
 	),
 	'messages' => array(
 		'cx-source-view-page',
@@ -261,7 +257,6 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 	),
 ) + $resourcePaths;
 
-// TODO
 $wgResourceModules['ext.cx.tools.mt'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.mt.js',

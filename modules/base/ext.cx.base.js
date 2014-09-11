@@ -8,7 +8,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( $ ) {
+( function ( $, mw ) {
 	'use strict';
 
 	/**
@@ -32,12 +32,17 @@
 		this.listen();
 	};
 
+	/**
+	 * Initialize the components
+	 */
 	ContentTranslation.prototype.initComponents = function () {
-		// Initialize the components
+		var cx = this;
 		this.$header.cxHeader();
 		this.$source.cxSource();
-		this.$translation.cxTranslation();
-		this.$tools.cxTools();
+		mw.loader.using( [ 'ext.cx.tools', 'ext.cx.translation' ] ).then( function () {
+			cx.$translation.cxTranslation();
+			cx.$tools.cxTools();
+		} );
 	};
 
 	ContentTranslation.prototype.render = function () {
@@ -98,4 +103,4 @@
 	$( function () {
 		$( 'body' ).cx();
 	} );
-}( jQuery ) );
+}( jQuery, mediaWiki ) );
