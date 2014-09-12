@@ -96,7 +96,8 @@
 			html: content,
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
-			sourcetitle: sourceTitle
+			sourcetitle: sourceTitle,
+			sourcerevision: mw.cx.sourceRevision
 		};
 
 		if ( params ) {

@@ -19,6 +19,8 @@
 	mw.cx.targetLanguage = null;
 	// Source title
 	mw.cx.sourceTitle = null;
+	// Source revision
+	mw.cx.sourceRevision = null;
 	// Translated title
 	mw.cx.targetTitle = null;
 	mw.cx.tools = {};
