@@ -22,21 +22,11 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationExperimentalFeatures;
-
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
 		$out->addModules( 'ext.cx.init' );
-		if ( $wgContentTranslationExperimentalFeatures ) {
-			// WYSIWYGEditor
-			$out->addModules( 'ext.cx.editor.medium' );
-		} else {
-			// Just ContentEditable
-			$out->addModules( 'ext.cx.editor' );
-		}
-
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 
