@@ -95,7 +95,12 @@
 		// Reference Ids are weird strings like "cite_ref-12-0", jquery fails to do look up with them
 		$sourceReference = $( document.getElementById( referenceId ) );
 		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
-		reference = $sourceReference.data( 'mw' );
+		reference = this.getReferenceData( referenceId );
+
+		if ( !reference ) {
+			this.stop();
+			return;
+		}
 		this.$card.find( '.card__reference-number' )
 			.text( $sourceReference.text() );
 		this.$card.find( '.card__reference-content' )
@@ -125,6 +130,54 @@
 	};
 
 	/**
+	 * For the given reference id, get the reference data
+	 *
+	 * This is very easy in the cases one reference used only once in the page.
+	 * Such a reference link will have data-mw carrying the data.
+	 *
+	 * But when the same reference used in multiple places, this is tricky.
+	 * The page will have the following markup(example) at the end of page, saying all these 3
+	 * references are same. One of these links will have reference data. Not necessarily
+	 * first one. So we have to iterate through all these siblings and find which one has
+	 * reference data.
+	 *
+	 * Example from Antipasto article from eswiki:
+	 * <li about="#cite_note-Jöel-1" data-parsoid="{}" id="130">
+	 * <span data-parsoid="{}" rel="mw:referencedBy">↑
+	 * <a class="cx-link" data-linkid="132" data-parsoid="{}" href="#cite_ref-Jöel-1-0">1.0</a>
+	 * <a class="cx-link" data-linkid="133" data-parsoid="{}" href="#cite_ref-Jöel-1-1">1.1</a>
+	 * <a class="cx-link" data-linkid="134" data-parsoid="{}" href="#cite_ref-Jöel-1-2">1.2</a>
+	 * </span>
+	 * </li>
+	 * @param {string} referenceId
+	 * @return {Object|null}
+	 */
+	ReferenceCard.prototype.getReferenceData = function ( referenceId ) {
+		var $sourceReference, i, mwData, $referenceSiblings;
+
+		$sourceReference = $( document.getElementById( referenceId ) );
+		mwData = $sourceReference.data( 'mw' );
+
+		if ( mwData && mwData.body ) {
+			return mwData;
+		}
+
+		$referenceSiblings = $( '[typeof="mw:Extension/references"]' )
+			.find( 'a[href="#' + referenceId + '"]' )
+			.siblings();
+		for ( i = 0; i < $referenceSiblings.length; i++ ) {
+			mwData = this.getReferenceData(
+				$( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' ) );
+			if ( mwData ) {
+				return mwData;
+			}
+		}
+
+		// Did not see a case where we still not find reference data, but...
+		return null;
+	};
+
+	/**
 	 * Reference adaptation.
 	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
 	 * We copy the data-mw that was adapted using the template configuration at
@@ -132,12 +185,11 @@
 	 * @param {string} referenceId
 	 */
 	ReferenceCard.prototype.adaptReference = function ( referenceId ) {
-		var $referenceContent, $sourceReference, $targetReference,
+		var $referenceContent, $targetReference,
 			mwData, adaptedData;
 
-		$sourceReference = $( document.getElementById( referenceId ) );
 		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
-		mwData = $sourceReference.data( 'mw' );
+		mwData = this.getReferenceData( referenceId );
 		if ( !mwData || !mwData.body ) {
 			return;
 		}
