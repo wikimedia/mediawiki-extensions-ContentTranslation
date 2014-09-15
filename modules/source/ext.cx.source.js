@@ -171,7 +171,7 @@
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
-			if ( selection ) {
+			if ( selection.trim() ) {
 				mw.hook( 'mw.cx.select.word' ).fire( selection );
 			}
 		} );
