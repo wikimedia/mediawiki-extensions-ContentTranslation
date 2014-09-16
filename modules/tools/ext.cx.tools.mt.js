@@ -11,7 +11,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var providerIdPrefix = 'cx-provider-',
+	var cache = {}, // MT requests cache
+		providerIdPrefix = 'cx-provider-',
 		disableMT = 'disable-mt';
 
 	/**
@@ -88,49 +89,83 @@
 	}
 
 	/**
+	 * Translate the given source section
+	 * @param {jQuery} $section Source section to translate
+	 * @param {boolean} prefetch Whether the translation of next secton to be prefetched
+	 * @return {jQuery.Promise}
+	 */
+	function translateSection( $section, prefetch ) {
+		var sectionId, sourceContent, sectionTranslationRequest,
+			$nextSection,
+			provider = MTControlCard.provider;
+
+		if ( !provider ) {
+			// Provider information not ready. Fetch it and call this method again.
+			return getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
+				translateSection( $section );
+			} );
+		}
+		// Check if the section is ediable or provider is disabled
+		if ( MTControlCard.provider === disableMT || $section.data( 'editable' ) === false ) {
+			return $.Deferred().reject().promise();
+		}
+
+		sectionId = $section.prop( 'id' );
+		sourceContent = getSimplifiedHTMLForMT( $section );
+		sectionTranslationRequest = cache[ sectionId ] && cache[ sectionId ][ provider ];
+
+		if ( !sectionTranslationRequest ) {
+			sectionTranslationRequest =
+				doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent );
+			// Put that in cache.
+			cache[ sectionId ] = cache[ sectionId ] || {};
+			cache[ sectionId ][ MTControlCard.provider ] = sectionTranslationRequest;
+		}
+
+		if ( prefetch ) {
+			$nextSection = $section.next();
+
+			if ( $nextSection.length ) {
+				translateSection( $nextSection );
+			}
+		}
+
+		return sectionTranslationRequest;
+	}
+
+	/**
 	 * A plugin that performs machine translation on a section element.
 	 * @param {text} text
 	 * @return {jQuery}
 	 */
 	$.fn.machineTranslate = function () {
 		var $sourceSection = $( this ),
+			prefetch = true,
 			sourceId = $sourceSection.prop( 'id' ),
 			$section = $( '#cx' + sourceId );
 
 		markMTLoading( $section );
-		getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
-			var sourceContent;
-
-			if ( MTControlCard.provider === disableMT ||
-				$sourceSection.data( 'editable' ) === false
-			) {
+		translateSection( $sourceSection, prefetch )
+			.done( function ( translation ) {
+				if ( translation ) {
+					$section.replaceWith( $( translation )
+						.children()
+						.attr( {
+							id: 'cx' + sourceId,
+							'data-source': sourceId
+						} )
+					);
+					// $section was replaced. Get the updated instance.
+					$section = $( '#cx' + sourceId );
+				}
+			} )
+			.fail( function () {
 				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
-				return this;
-			}
-
-			sourceContent = getSimplifiedHTMLForMT( $sourceSection );
-			doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent )
-				.done( function ( translation ) {
-					if ( translation ) {
-						$section.replaceWith( $( translation )
-							.children()
-							.attr( {
-								id: 'cx' + sourceId,
-								'data-source': sourceId
-							} )
-						);
-						// $section was replaced. Get the updated instance.
-						$section = $( '#cx' + sourceId );
-					}
-				} )
-				.fail( function () {
-					mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
-				} )
-				.always( function () {
-					$section.data( 'cx-mt', true );
-					mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-				} );
-		} );
+			} )
+			.always( function () {
+				$section.data( 'cx-mt', true );
+				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
+			} );
 
 		return this;
 	};
@@ -363,4 +398,10 @@
 	};
 
 	mw.cx.tools.mt = MTControlCard;
+
+	$( function () {
+		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( function () {
+			translateSection( $( '.cx-column__content' ).find( mw.cx.getSectionSelector() ).first(), true );
+		}, this ) );
+	} );
 }( jQuery, mediaWiki ) );
