@@ -155,7 +155,7 @@
 		$section.on( 'click keyup', $.debounce( 250, function () {
 			var selection = window.getSelection().toString();
 
-			if ( selection ) {
+			if ( selection.trim() ) {
 				// In this case, user is interested in targetLanguage->targetLanguage
 				// dictionary lookup. Or synonyms.
 				mw.hook( 'mw.cx.select.word' ).fire( selection, mw.cx.targetLanguage, mw.cx.targetLanguage );
