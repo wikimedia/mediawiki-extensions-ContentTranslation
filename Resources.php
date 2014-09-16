@@ -430,7 +430,7 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.header.test'] = array(
-		'scripts' => array( 'tests/qunit/ext.cx.header.test.js' ),
+		'scripts' => array( 'tests/qunit/header/ext.cx.header.test.js' ),
 		'dependencies' => array( 'ext.cx.header' ),
 	) + $resourcePaths;
 
@@ -441,8 +441,8 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 
 	$modules['qunit']['ext.cx.tools.tests'] = array(
 		'scripts' => array(
-			'tests/qunit/ext.cx.tools.template.test.js',
-			'tests/qunit/ext.cx.tools.mtabuse.test.js'
+			'tests/qunit/tools/ext.cx.tools.template.test.js',
+			'tests/qunit/tools/ext.cx.tools.mtabuse.test.js'
 		),
 		'dependencies' => array(
 			'ext.cx.model',
