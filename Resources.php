@@ -330,7 +330,6 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 $wgResourceModules['ext.cx.publish'] = array(
 	'scripts' => array(
 		'translation/ext.cx.publish.js',
-		'translation/ext.cx.publish.captcha.js',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.publish.less',
@@ -433,6 +432,11 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	$modules['qunit']['ext.cx.header.test'] = array(
 		'scripts' => array( 'tests/qunit/ext.cx.header.test.js' ),
 		'dependencies' => array( 'ext.cx.header' ),
+	) + $resourcePaths;
+
+	$modules['qunit']['ext.cx.publish.test'] = array(
+		'scripts' => array( 'tests/qunit/translation/ext.cx.publish.test.js' ),
+		'dependencies' => array( 'ext.cx.publish' ),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.tools.tests'] = array(

@@ -30,11 +30,7 @@ Fired when the translation progress is recalculated.
 
 ## mw.cx.publish
 
-Used to trigger the publish action. Optionally, key-value pairs of extra parameters to publising API can be passed.
-
-## mw.cx.publish.captcha
-
-Publishing module fires this when publishing failed because of a CAPTCHA question. A module can listen for this and present a form to the user to fill captcha. Once filled mw.cx.publish can be again fired with filled form parameters as arguments.
+Used to trigger the publish action.
 
 ## mw.cx.search.link
 
