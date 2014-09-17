@@ -68,7 +68,11 @@
 				$template = $( this );
 
 			mwData = $template.data( 'mw' );
-			if ( !mwData ) {
+			if ( !mwData || mwData.parts.length > 1 ) {
+				// Either the template is missing mw data or having multiple
+				// parts. At present, we cannot handle them.
+				// An example: {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
+				// in enwiki:Debian, Timeline table.
 				mw.log( '[CX] Skipping template!' );
 				return;
 			}
