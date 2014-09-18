@@ -136,7 +136,11 @@
 		this.templateData = this.getTemplateData();
 		this.templateMapping = this.getTemplateMapping();
 
-		if ( !this.templateData ) {
+		if ( !this.templateData || this.templateData.parts.length > 1 ) {
+			// Either the template is missing mw data or having multiple
+			// parts. At present, we cannot handle them.
+			// An example: {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
+			// in enwiki:Debian, Timeline table.
 			mw.log( '[CX] Skipping template. Missing template data.' );
 
 			return;
