@@ -24,7 +24,7 @@
 	"cx-publish-gt-first-step-title": "The translation has been published as a draft under your user page for review",
 	"cx-publish-gt-first-step-description": "Click on the \"{{int:vector-action-move}}\" action under this menu to make the content available to all users as a regular page.",
 	"cx-publish-gt-move-page-title": "Move the page",
-	"cx-publish-gt-move-page-description": "Select the \"(main)\" namespace and give it the right title.",
+	"cx-publish-gt-move-page-description": "Select the \"(main)\" namespace and give a right title for the page.",
 	"cx-publish-gt-moved-title": "The translated page was moved",
 	"cx-publish-gt-moved-description": "Click this link to read and improve your new translated page",
 	"cx-publish-gt-published-title": "Congratulations, the page has been published",
