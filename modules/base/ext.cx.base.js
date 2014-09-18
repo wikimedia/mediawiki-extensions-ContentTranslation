@@ -39,7 +39,11 @@
 		var cx = this;
 		this.$header.cxHeader();
 		this.$source.cxSource();
-		mw.loader.using( [ 'ext.cx.tools', 'ext.cx.translation' ] ).then( function () {
+		mw.loader.using( [
+			'ext.cx.tools',
+			'ext.cx.translation',
+			'ext.cx.translation.progress',
+		] ).then( function () {
 			cx.$translation.cxTranslation();
 			cx.$tools.cxTools();
 		} );

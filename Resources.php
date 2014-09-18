@@ -117,12 +117,11 @@ $wgResourceModules['ext.cx.translation'] = array(
 		'translation/ext.cx.translation.aligner.js',
 	),
 	'dependencies' => array(
-		'ext.cx.translation.progress',
-		'jquery.uls.data',
-		'mediawiki.Uri',
-		'jquery.throttle-debounce',
-		'mediawiki.Title',
 		'ext.cx.editor',
+		'jquery.throttle-debounce',
+		'jquery.uls.data',
+		'mediawiki.Title',
+		'mediawiki.Uri',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
@@ -449,6 +448,11 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 			'ext.cx.tools.template',
 			'ext.cx.tools.mtabuse'
 		),
+	) + $resourcePaths;
+
+	$modules['qunit']['ext.cx.translation.tests'] = array(
+		'scripts' => array( 'tests/qunit/translation/ext.cx.translation.test.js' ),
+		'dependencies' => array( 'ext.cx.translation' ),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.util.test'] = array(
