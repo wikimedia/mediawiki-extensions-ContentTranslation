@@ -184,7 +184,7 @@
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
-			.append( $translationCenter, this.$publishButton );
+			.append( /*$translationCenter,*/ this.$publishButton );
 
 		this.$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
