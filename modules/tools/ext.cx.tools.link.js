@@ -11,6 +11,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var cache = {};
 	/**
 	 * Link Card
 	 * @class
@@ -126,9 +127,16 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getLink( title, language ) {
-		var api = new mw.Api();
+		var request, api;
 
-		return api.get( {
+		// Normalize
+		title = mw.Title.newFromText( title ).toString();
+		if ( cache[ title ] && cache[ title ][ language ] ) {
+			return cache[ title ][ language ];
+		}
+
+		api = new mw.Api();
+		request = api.get( {
 			action: 'query',
 			titles: title,
 			prop: 'pageimages',
@@ -142,6 +150,10 @@
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} );
+
+		cache[ title ] = cache[ title ] || {};
+		cache[ title ][ language ] = request;
+		return request;
 	}
 
 	/**
@@ -159,10 +171,10 @@
 	/**
 	 * Adapt the given title to a target language
 	 * @param {string|string[]} titles A title as string or array of titles
-	 * @param {string} targetLanguage Language to which the links are to be adapted
+	 * @param {string} language Language to which the links are to be adapted
 	 * @return {jQuery.Promise}
 	 */
-	LinkCard.prototype.adapt = function ( titles, targetLanguage ) {
+	LinkCard.prototype.adapt = function ( titles, language ) {
 		var api, deferred;
 
 		api = new mw.Api();
@@ -174,7 +186,7 @@
 			action: 'query',
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
-			lllang: targetLanguage,
+			lllang: language,
 			redirects: true,
 			format: 'json'
 		}, {
@@ -195,7 +207,6 @@
 					for ( i in redirects ) {
 						if ( redirects[ i ].to === page.title ) {
 							key = redirects[ i ].from;
-
 							break;
 						}
 					}
@@ -246,7 +257,7 @@
 	 * @return {string} Cleaned up href
 	 */
 	function cleanupLinkHref( href ) {
-		return href.replace( /^\.*\//, '' );
+		return href && href.replace( /^\.*\//, '' );
 	}
 
 	/**
@@ -300,6 +311,9 @@
 		var $parent, $parentSection;
 
 		restoreSelection( selection );
+		if ( !selection || !selection.toString().length ) {
+			return false;
+		}
 		$parent = getSelectionParent();
 
 		if ( $parent.is( '[contenteditable="false"]' ) ) {
@@ -411,6 +425,10 @@
 	LinkCard.prototype.prepareSourceLinkCard = function ( title, language ) {
 		var linkCard = this;
 
+		if ( !title ) {
+			return;
+		}
+
 		getLink( title, language ).done( function ( response ) {
 			var imgSrc, pageId, range, page;
 
@@ -447,8 +465,11 @@
 	LinkCard.prototype.prepareTargetLinkCard = function ( title, language ) {
 		var linkCard = this;
 
+		if ( !title ) {
+			return;
+		}
 		getLink( title, language ).done( function ( response ) {
-			var imgSrc, pageId, range, page;
+			var imgSrc, pageId, selection, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
@@ -456,21 +477,36 @@
 				return;
 			}
 			page = response.query.pages[ pageId ];
-			range = saveSelection();
+			selection = saveSelection();
 
 			linkCard.createExternalLink(
 				linkCard.$targetLinkCard.find( '.card__link-text' ),
 				page.title,
 				language
 			);
-			linkCard.$addLink.click( function () {
-				restoreSelection( range );
-				linkCard.createInternalLink( title, page.title );
-			} );
-			linkCard.$removeLink.click( function () {
-				restoreSelection( range );
-				linkCard.removeLink();
-			} );
+			if ( isValidSelection( selection ) ) {
+				// Some text selected in translation column and it has a link.
+				// Set up the add link button.
+				linkCard.$addLink.click( function () {
+					restoreSelection( selection );
+					linkCard.createInternalLink( title, page.title );
+				} );
+				// Show the add link button
+				linkCard.$addLink.show();
+				// Hide the remove link button
+				linkCard.$removeLink.hide();
+			} else {
+				// Nothing selected. Hide the add link button.
+				linkCard.$addLink.hide();
+				linkCard.$removeLink.click( function () {
+					restoreSelection( selection );
+					linkCard.removeLink();
+				} );
+			}
+			if ( !linkCard.$link ) {
+				// There is no link to remove. Card came from search.
+				linkCard.$removeLink.hide();
+			}
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
 				linkCard.$targetLinkCard.find( '.card__link-image-container' )
@@ -562,7 +598,7 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var title, sourceTitle, $sourceLink, selection, linkCard = this;
+		var title, targetTitle, sourceTitle, $sourceLink, $targetLink, selection;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
@@ -572,61 +608,44 @@
 
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
-			title = link;
+			title = link.trim();
 		} else {
 			title = cleanupLinkHref( link.attr( 'href' ) );
 			this.$link = link;
-			this.$link.addClass( 'cx-highlight--blue' );
 		}
+
 		// Do we have a valid title now?
-		if ( !title || !title.trim() ) {
+		if ( !title ) {
 			this.stop();
 			return;
 		}
 
 		this.highlightLink();
 		if ( this.$link && language === mw.cx.targetLanguage ) {
-			this.$card.show();
-
-			// Since this is an existing link, we can show the link title early
-			this.setLinkAttributes( this.$card.find( '.card__link-text' ), title, language );
-
-			this.$addLink.hide();
-			if ( this.isEditableTargetLink() === false ) {
-				this.$removeLink.hide();
-			}
+			targetTitle = title;
 		} else {
-			this.$removeLink.hide();
+			sourceTitle = title;
 		}
 
-		if ( language === mw.cx.targetLanguage ) {
-			linkCard.prepareTargetLinkCard( title, language );
+		if ( !targetTitle ) {
+			$targetLink = this.getTargetLink();
+			targetTitle = $targetLink && $targetLink.attr( 'href' ) || title;
+		}
+
+		if ( !sourceTitle ) {
 			$sourceLink = this.getSourceLink();
-			sourceTitle = $sourceLink && $sourceLink.data( 'parsoid' ) &&
-				$sourceLink.data( 'parsoid' ).a.href;
-			if ( sourceTitle ) {
-				sourceTitle = cleanupLinkHref( sourceTitle );
-				linkCard.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-			}
-		} else {
-			// Adapt the title to the target language from source language
-			linkCard.adapt( title, mw.cx.targetLanguage ).done( function ( adaptations ) {
-				var $newLink, adaptedTitle = adaptations[ title ];
-				if ( !adaptedTitle ) {
-					return;
-				}
-				linkCard.prepareTargetLinkCard( adaptedTitle, mw.cx.targetLanguage );
-				// If text is selected, create a new internal link
-				if ( isValidSelection( selection ) && selection.toString().length > 0 ) {
-					$newLink = linkCard.createInternalLink( selection.toString(), adaptedTitle, linkCard.$link.data( 'linkid' ) );
-					mw.hook( 'mw.cx.select.link' ).fire( $newLink );
-				}
-			} );
-			linkCard.prepareSourceLinkCard( title, mw.cx.sourceLanguage );
-
+			sourceTitle = $sourceLink.attr( 'href' );
+			sourceTitle = cleanupLinkHref( sourceTitle );
 		}
 
-		restoreSelection( selection );
+		this.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+		this.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
+
+		// If text is selected, create a new internal link
+		if ( isValidSelection( selection ) && this.$link ) {
+			$targetLink = this.createInternalLink( selection.toString(), targetTitle, this.$link.data( 'linkid' ) );
+			mw.hook( 'mw.cx.select.link' ).fire( $targetLink );
+		}
 	};
 
 	/**
