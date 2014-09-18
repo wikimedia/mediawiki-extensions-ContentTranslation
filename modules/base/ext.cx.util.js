@@ -51,6 +51,7 @@
 			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
 
 		uri.host = domainTemplate.replace( '$1', language );
+		uri.port = undefined;
 		uri.path = mw.config.get( 'wgScriptPath' ) + '/api.php';
 		uri.query = {};
 
@@ -69,6 +70,7 @@
 			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
 
 		uri.host = domainTemplate.replace( '$1', language );
+		uri.port = undefined;
 		uri.path = mw.config.get( 'wgArticlePath' ).replace( '$1', title );
 		uri.query = {};
 
