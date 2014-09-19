@@ -198,7 +198,11 @@
 		sourceLanguage = sourceLanguage || mw.cx.sourceLanguage;
 		targetLanguage = targetLanguage || mw.cx.targetLanguage;
 		// Don't appear if there's nothing to translate
-		if ( word === '' ) {
+		if ( word === '' ||
+			// Avoid text selections with whitespace characters
+			// treated as words and going to api.
+			word.match( /[\s.]+/ )
+		) {
 			this.stop();
 
 			return;
