@@ -12,7 +12,8 @@
 	'use strict';
 
 	// Cached dictionary providers
-	var cachedProviders = null;
+	var cache = {},
+		cachedProviders = null;
 
 	/**
 	 * A plugin that adds text to an element,
@@ -84,10 +85,26 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getTranslation( word, from, to, provider ) {
-		var dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
+		var dictUrl, request;
+
+		if ( cache[ word ] &&
+			cache[ word ][ from ] &&
+			cache[ word ][ from ][ to ] &&
+			cache[ word ][ from ][ to ][ provider ]
+		) {
+			return cache[ word ][ from ][ to ][ provider ];
+		}
+
+		dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
 			word + '/' + from + '/' + to + '/' + provider;
 
-		return $.get( dictUrl );
+		request = $.get( dictUrl );
+		// Create the cache object
+		cache[ word ] = cache[ word ] || {};
+		cache[ word ][ from ] = cache[ word ][ from ] || {};
+		cache[ word ][ from ][ to ] = cache[ word ][ from ][ to ] || {};
+		cache[ word ][ from ][ to ][ provider ] = request;
+		return request;
 	}
 
 	/**
@@ -193,7 +210,7 @@
 		// Set the source word
 		this.$card.find( '.card__headword' ).text( word );
 
-		this.getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage )
+		this.getProviders( sourceLanguage, targetLanguage )
 			.done( function ( providers ) {
 				var provider;
 
