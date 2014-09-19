@@ -23,7 +23,7 @@
 	"cx-publish-gt-first-step-title": "Översättningen har publicerats som ett utkast på en undersida till din användarsida för granskning",
 	"cx-publish-gt-first-step-description": "Klicka på \"{{int:vector-action-move}}-åtgärden under denna meny för att göra innehållet tillgängligt för alla användare som en vanlig sida.",
 	"cx-publish-gt-move-page-title": "Flytta sidan",
-	"cx-publish-gt-move-page-description": "Välj namnrymden \"(Huvudnamnrymden)\" och ge sidan den rätta titeln",
+	"cx-publish-gt-move-page-description": "Välj namnrymden \"(Huvudnamnrymden)\" och ange en korrekt titel för sidan.",
 	"cx-publish-gt-moved-title": "Den översatta sidan flyttades",
 	"cx-publish-gt-moved-description": "Klicka på denna länk för att läsa och förbättra den sida du nyss översatt",
 	"cx-publish-gt-published-title": "Grattis, sidan har publicerats",

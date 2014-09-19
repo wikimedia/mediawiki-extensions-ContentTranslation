@@ -27,7 +27,7 @@
 	"cx-publish-gt-first-step-title": "译文已作为草稿发布至您的用户页以复核",
 	"cx-publish-gt-first-step-description": "点击此菜单下面的“{{int:vector-action-move}}”选项使内容作为常规页面对所有用户可用。",
 	"cx-publish-gt-move-page-title": "移动页面",
-	"cx-publish-gt-move-page-description": "选择“（主）”名字空间并提供正确的标题。",
+	"cx-publish-gt-move-page-description": "选择“（主）”名字空间并提供页面正确的标题。",
 	"cx-publish-gt-moved-title": "翻译页面已移动",
 	"cx-publish-gt-moved-description": "点此链接阅读并提高您新的翻译页面",
 	"cx-publish-gt-published-title": "祝贺！页面已发布！",
