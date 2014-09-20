@@ -21,6 +21,7 @@
 	"cx-publish-button-publishing": "A publicar...",
 	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",
 	"cx-publish-gt-move-page-title": "Mover página",
+	"cx-publish-gt-move-page-description": "Selecione o domínio \"(principal)\" e atribua um título correto à página.",
 	"cx-publish-gt-moved-title": "A página traduzida foi movida",
 	"cx-publish-gt-moved-description": "Clique nesta ligação para ler e melhorar a sua nova página traduzida",
 	"cx-publish-gt-published-title": "Parabéns, a página foi publicada",

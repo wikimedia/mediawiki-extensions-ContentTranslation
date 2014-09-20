@@ -21,7 +21,7 @@
 	"cx-publish-gt-first-step-title": "It-traduzzjoni ġiet ppubblikata bħala abbozz fuq il-paġna ta' utent tiegħek għar-reviżjoni",
 	"cx-publish-gt-first-step-description": "Ikklikkja fuq l-azzjoni \"{{int:vector-action-move}}\" taħt dan il-menù biex tagħmel il-kontenut disponibbli għall-utenti kollha bħala paġna regolari.",
 	"cx-publish-gt-move-page-title": "Mexxi l-paġna",
-	"cx-publish-gt-move-page-description": "Agħżel in-namespace \"(prinċipali)\" u agħti t-titlu korrett.",
+	"cx-publish-gt-move-page-description": "Agħżel in-namespace \"(prinċipali)\" u agħti t-titlu korrett għall-paġna.",
 	"cx-publish-gt-moved-title": "Il-paġna tradotta tmexxiet",
 	"cx-publish-gt-moved-description": "Ikklikkja din il-ħolqa biex taqra u ttejjeb il-paġna li ttraduċejt",
 	"cx-publish-gt-published-title": "Prosit, il-paġna ġiet ippubblikata",
