@@ -198,6 +198,7 @@
 			// Disable link click
 			return false;
 		} );
+
 		this.$content.on( 'mouseenter', 'a', function ( e ) {
 			var $link = $( this ),
 				linkid = $( this ).data( 'linkid' );

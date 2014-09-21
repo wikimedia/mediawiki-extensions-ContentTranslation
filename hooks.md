@@ -88,7 +88,7 @@ Fires when the article is published successfully. Example subsciber is event log
 
 ## mw.cx.translation.add
 
-Used to trigger the pre-translation for a source section. Source section id is passed as argument. The translation module listens for this.
+Used to trigger the pre-translation for a source section. Source section id is passed as argument. Second argument is a boolean which controls whether machine translation should be applied to the text. The translation module listens for this.
 
 ## mw.cx.translation.change
 

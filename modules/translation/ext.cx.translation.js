@@ -202,10 +202,63 @@
 		}
 	};
 
+	/**
+	 * Checks whether a tag is a heading.
+	 *
+	 * @static
+	 * @param {string} tagName
+	 * @return {boolean}
+	 */
+	ContentTranslationEditor.isHeading = function ( tagName ) {
+		return /^H[1-6]$/i.test( tagName );
+	};
+
+	/**
+	 * Checks whether one tag is a parent heading of another tag.
+	 *
+	 * @static
+	 * @param {string} preceding tagName
+	 * @param {string} current tagName
+	 * @return {boolean}
+	 */
+	ContentTranslationEditor.isParentHeading = function ( preceding, current ) {
+		// Any header goes if this is a non-heading
+		if ( !ContentTranslationEditor.isHeading( current ) ) {
+			return ContentTranslationEditor.isHeading( preceding );
+		}
+
+		// Both are headings, check that the previous one is bigger
+		if ( ContentTranslationEditor.isHeading( preceding ) ) {
+			return preceding < current;
+		}
+
+		// Parent is not a heading at all
+		return false;
+	};
+
 	function sectionClick() {
 		/*jshint validthis:true */
-		$( '#' + $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
-		mw.hook( 'mw.cx.translation.add' ).fire( $( this ).data( 'source' ), true );
+		var sourceSectionId, $currentSection, $previousSection;
+
+		$currentSection = $( this );
+		$previousSection = $currentSection.prev();
+		sourceSectionId = $currentSection.data( 'source' );
+
+		// The equivalent section in source column
+		$( '#' + sourceSectionId ).removeClass( 'cx-highlight' );
+
+		// Fill in the preceding parent heading, if not yet filled
+		if (
+			$previousSection.is( '.placeholder' ) &&
+			ContentTranslationEditor.isParentHeading(
+				$previousSection.data( 'cx-section-type' ),
+				$currentSection.data( 'cx-section-type' )
+			)
+		) {
+			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), true );
+		}
+
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceSectionId, true );
 	}
 
 	function sectionMouseEnterHandler() {
@@ -248,7 +301,8 @@
 		for ( i = 0; i < $sourceSections.length; i++ ) {
 			$sourceSection = $( $sourceSections[ i ] );
 			sourceSectionId = $sourceSection.attr( 'id' );
-			$placeholder = getPlaceholder( sourceSectionId );
+			$placeholder = getPlaceholder( sourceSectionId )
+				.data( 'cx-section-type', $sourceSection.prop( 'tagName' ) );
 			placeholders.push( $placeholder );
 
 			// Bind events to the placeholder sections
@@ -263,6 +317,7 @@
 
 	/**
 	 * Get a placeholder div for the given source section.
+	 *
 	 * @param {string} sourceSectionId
 	 * @return {jQuery} The placeholder jQuery object
 	 */
@@ -293,6 +348,11 @@
 			}
 		} );
 	};
+
+	if ( typeof QUnit !== undefined ) {
+		// Expose this module for unit testing
+		mw.cx.ContentTranslationEditor = ContentTranslationEditor;
+	}
 
 	$.fn.cxTranslation.defaults = {};
 }( jQuery, mediaWiki ) );
