@@ -23,7 +23,7 @@
 	"cx-publish-gt-first-step-title": "Переклад було опубліковано як чернетку під Вашою сторінкою користувача для вичитки",
 	"cx-publish-gt-first-step-description": "Натисніть на дію «{{int:vector-action-move}}» під цим меню, щоб зробити вміст доступним усім користувачам як звичайна сторінка.",
 	"cx-publish-gt-move-page-title": "Перейменувати сторінку",
-	"cx-publish-gt-move-page-description": "Оберіть простір назв «(Основний)» і дайте їй правильну назву.",
+	"cx-publish-gt-move-page-description": "Оберіть простір назв «(Основний)» і дайте правильну назву для сторінки.",
 	"cx-publish-gt-moved-title": "Перекладену сторінку було перейменовано",
 	"cx-publish-gt-moved-description": "Натисніть це посилання, щоб прочитати і поліпшити Вашу нову перекладену сторінку",
 	"cx-publish-gt-published-title": "Вітаємо, сторінку було опубліковано",

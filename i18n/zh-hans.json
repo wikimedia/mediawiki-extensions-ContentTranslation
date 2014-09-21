@@ -7,7 +7,8 @@
 			"Cwek",
 			"Xiaomingyan",
 			"Liye",
-			"Fengchao"
+			"Fengchao",
+			"Duolaimi"
 		]
 	},
 	"cx": "翻译页面",
@@ -15,7 +16,7 @@
 	"cx-error-server-connection": "错误：无法连接至服务器",
 	"cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
 	"cx-header-progressbar-text": "$1%已翻译",
-	"cx-header-progressbar-text-mt": "（来自机械翻译的$1%）",
+	"cx-header-progressbar-text-mt": "（$1%来自机器翻译）",
 	"cx-header-translation-center": "翻译中心",
 	"cx-source-view-page": "浏览页面",
 	"cx-publish-page": "页面发布在[$1 $2]",

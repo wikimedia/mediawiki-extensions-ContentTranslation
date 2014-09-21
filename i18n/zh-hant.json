@@ -12,6 +12,7 @@
 	"cx-error-server-connection": "錯誤：無法連接到伺服器。",
 	"cx-desc": "允許編輯者經由機械翻譯和其他翻譯工具從一種語言翻譯成其他語言的工具",
 	"cx-header-progressbar-text": "$1%已翻譯",
+	"cx-header-progressbar-text-mt": "（$1% 從機械翻譯）",
 	"cx-header-translation-center": "翻譯中心",
 	"cx-source-view-page": "檢視頁面",
 	"cx-publish-page": "頁面發佈在[$1 $2]",
