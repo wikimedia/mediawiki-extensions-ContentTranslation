@@ -18,6 +18,9 @@
 	function CXSourceSelector( $trigger, options ) {
 		this.$trigger = $( $trigger );
 		this.options = options;
+		// @todo Refactor
+		this.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+
 		this.$dialog = null;
 		this.languagePairs = null;
 		this.sourceLanguages = [];
@@ -127,13 +130,11 @@
 
 		// Open or close the dialog when clicking the link.
 		// The dialog will be unitialized until the first click.
-		this.$trigger.click( function () {
-			selector.show();
-		} );
+		this.$trigger.click( $.proxy( this.show, this ) );
 
 		this.$sourceTitleInput.on( 'input', $.debounce( 100, false, function () {
 			selector.sourceLanguage = selector.$sourceLanguage.val();
-			searchTitles( selector.sourceLanguage, $( this ).val() ).done( function ( response ) {
+			selector.searchTitles( selector.sourceLanguage, $( this ).val() ).done( function ( response ) {
 				var i, len, suggestions = response[ 1 ];
 				selector.$titleList.empty();
 				if ( suggestions.length ) {
@@ -176,8 +177,14 @@
 		} );
 	};
 
-	function searchTitles( language, input ) {
-		var api = new mw.Api();
+	/**
+	 * Provides titles for autocompletion from given wiki.
+	 * @param {string} language
+	 * @param {string} input
+	 * @return {jQuery.Deferred}
+	 */
+	CXSourceSelector.prototype.searchTitles = function ( language, input ) {
+		var api = this.siteMapper.getApi( language );
 
 		return api.get( {
 			action: 'opensearch',
@@ -186,12 +193,11 @@
 			suggest: true,
 			format: 'json'
 		}, {
-			url: '//' + language + '.wikipedia.org/w/api.php',
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} );
-	}
+	};
 
 	/**
 	 * Hide the entry point dialog.

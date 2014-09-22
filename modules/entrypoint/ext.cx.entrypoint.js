@@ -12,31 +12,13 @@
 	'use strict';
 
 	/**
-	 * Create a new page with given language and title.
-	 * @param {string} language
-	 * @param {string} title
-	 * @return {string} URL
-	 */
-	function getFromScratchUrl( language, title ) {
-		var uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
-
-		uri.host = domainTemplate.replace( '$1', language );
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			title: title,
-			action: 'edit'
-		};
-
-		return uri.toString();
-	}
-
-	/**
 	 * @class
 	 */
 	function CXEntryPoint( $trigger, options ) {
 		this.$trigger = $( $trigger );
 		this.options = $.extend( {}, $.fn.cxEntryPoint.defaults, options );
+		this.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+
 		this.$dialog = null;
 		this.$actionScratch = null;
 		this.$actionTranslate = null;
@@ -94,7 +76,7 @@
 			var title, url;
 
 			title = entryPoint.$titleInput.val() || mw.config.get( 'wgTitle' );
-			url = getFromScratchUrl( entryPoint.options.targetLanguage, title );
+			url = entryPoint.siteMapper.getPageUrl( entryPoint.options.targetLanguage, title );
 			location.href = url;
 		} );
 

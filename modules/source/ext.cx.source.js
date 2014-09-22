@@ -16,11 +16,14 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslationSource( element, options ) {
+	function ContentTranslationSource( element, siteMapper, options ) {
 		this.$container = $( element );
+		this.siteMapper = siteMapper;
 		this.options = $.extend( true, {}, $.fn.cxSource.defaults, options );
+
 		this.$title = null;
 		this.$content = null;
+
 		this.init();
 	}
 
@@ -49,10 +52,10 @@
 	 *     identify the host wiki.
 	 */
 	ContentTranslationSource.prototype.fetchPage = function ( title, language ) {
-		var fetchPageUrl, cxSource = this;
+		var fetchPageUrl,
+			cxSource = this;
 
-		fetchPageUrl = mw.config.get( 'wgContentTranslationServerURL' ) +
-			'/page/' + encodeURIComponent( language ) + '/' + encodeURIComponent( title );
+		fetchPageUrl = this.siteMapper.getCXServerUrl( language, title );
 
 		$.get( fetchPageUrl )
 			.done( function ( response ) {
@@ -75,19 +78,6 @@
 			mw.hook( 'mw.cx.source.select' ).fire();
 		} );
 	};
-
-	function getSourceArticleUrl() {
-		var uri = new mw.Uri(),
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
-
-		uri.host = domainTemplate.replace( '$1', mw.cx.sourceLanguage );
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			title: mw.cx.sourceTitle
-		};
-
-		return uri.toString();
-	}
 
 	/**
 	 * Render the source content column.
@@ -121,7 +111,7 @@
 			.addClass( 'cx-column__sub-heading__view-page' )
 			.append( $( '<a>' )
 				.prop( {
-					href: getSourceArticleUrl(),
+					href: this.siteMapper.getPageUrl( mw.cx.sourceLanguage, mw.cx.sourceTitle ),
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-source-view-page' ) )
@@ -168,6 +158,8 @@
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
+		var self = this;
+
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
@@ -182,7 +174,8 @@
 
 			// Allow link exploration
 			if ( e.shiftKey || e.ctrlKey ) {
-				url = '//' + mw.cx.sourceLanguage + '.wikipedia.org/wiki/' + $link.attr( 'href' );
+
+				url = self.siteMapper.getPageUrl( mw.cx.sourceLanguage, $link.attr( 'href' ) );
 				window.open( url, '_blank' );
 
 				return false;
@@ -225,14 +218,14 @@
 		} );
 	};
 
-	$.fn.cxSource = function ( options ) {
+	$.fn.cxSource = function ( siteMapper, options ) {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxSource' );
 
 			if ( !data ) {
 				$this.data(
-					'cxSource', ( data = new ContentTranslationSource( this, options ) )
+					'cxSource', ( data = new ContentTranslationSource( this, siteMapper, options ) )
 				);
 			}
 

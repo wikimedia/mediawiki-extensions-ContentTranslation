@@ -12,14 +12,19 @@
 	'use strict';
 
 	/**
-	 * ContentTranslationHeader
+	 * Handlers the top part of the three column interface.
+	 *
+	 * That includes notifications, user tools and the submit button.
 	 *
 	 * @class
 	 */
-	function ContentTranslationHeader( element ) {
+	function ContentTranslationHeader( element, siteMapper ) {
 		this.$container = $( element );
+		this.siteMapper = siteMapper;
+
 		this.$publishButton = null;
 		this.$infoBar = null;
+
 		this.init();
 	}
 
@@ -110,12 +115,14 @@
 	 * and show a warning if needed.
 	 */
 	ContentTranslationHeader.prototype.checkTargetTitle = function () {
-		var api = new mw.Api();
+		var api, viewTargetUrl;
+
+		api = this.siteMapper.getApi( mw.cx.targetLanguage );
+		viewTargetUrl = this.siteMapper.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle );
 
 		api.get( {
 			titles: mw.cx.targetTitle
 		}, {
-			url: mw.cx.getApiUrl( mw.cx.targetLanguage ),
 			dataType: 'jsonp'
 		} ).done( function ( response ) {
 			// If page doesn't exist, it's OK
@@ -125,7 +132,7 @@
 
 			mw.hook( 'mw.cx.error' ).fire( mw.message(
 				'cx-translation-target-page-exists',
-				mw.cx.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle ),
+				viewTargetUrl,
 				mw.cx.targetTitle
 			) );
 		} );
@@ -199,16 +206,17 @@
 
 	/**
 	 * CX Header plugin. Prepares the Special:CX header and interactions.
+	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @return {jQuery}
 	 */
-	$.fn.cxHeader = function () {
+	$.fn.cxHeader = function ( siteMapper ) {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxHeader' );
 
 			if ( !data ) {
 				$this.data(
-					'cxHeader', ( data = new ContentTranslationHeader( this ) )
+					'cxHeader', ( data = new ContentTranslationHeader( this, siteMapper ) )
 				);
 			}
 		} );

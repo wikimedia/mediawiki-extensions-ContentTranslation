@@ -16,13 +16,17 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslation( element, options ) {
+	function ContentTranslation( element, siteMapper, options ) {
 		this.$container = $( element );
+
 		this.$translation = null;
 		this.$header = null;
 		this.$source = null;
 		this.$tools = null;
+
 		this.options = $.extend( true, {}, $.fn.cx.defaults, options );
+		this.siteMapper = siteMapper;
+
 		this.init();
 	}
 
@@ -37,12 +41,13 @@
 	 */
 	ContentTranslation.prototype.initComponents = function () {
 		var cx = this;
-		this.$header.cxHeader();
-		this.$source.cxSource();
+		this.$header.cxHeader( this.siteMapper );
+		this.$source.cxSource( this.siteMapper );
+
 		mw.loader.using( [
 			'ext.cx.tools',
 			'ext.cx.translation',
-			'ext.cx.translation.progress',
+			'ext.cx.translation.progress'
 		] ).then( function () {
 			cx.$translation.cxTranslation();
 			cx.$tools.cxTools();
@@ -88,13 +93,13 @@
 		}
 	};
 
-	$.fn.cx = function ( options ) {
+	$.fn.cx = function ( siteMapper, options ) {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cx' );
 
 			if ( !data ) {
-				$this.data( 'cx', ( data = new ContentTranslation( this, options ) ) );
+				$this.data( 'cx', ( data = new ContentTranslation( this, siteMapper, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {
@@ -105,6 +110,8 @@
 	$.fn.cx.defaults = {};
 
 	$( function () {
-		$( 'body' ).cx();
+		var siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+
+		$( 'body' ).cx( siteMapper );
 	} );
 }( jQuery, mediaWiki ) );

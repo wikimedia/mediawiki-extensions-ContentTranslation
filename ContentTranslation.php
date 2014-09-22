@@ -113,6 +113,16 @@ $GLOBALS['wgContentTranslationEventLogging'] = false;
 $GLOBALS['wgContentTranslationDomainTemplate'] = "$1.wikipedia.org";
 
 /**
+ * Patterns to access MediaWiki pages, APIs and cxserver in different languages
+ * for the site family.
+ */
+$GLOBALS['wgContentTranslationSiteTemplates'] = array(
+	'view' => '//$1.wikipedia.org/wiki/$2',
+	'api' => '//$1.wikipedia.org/w/api.php',
+	'cx' => 'http://localhost:8080/page/$1/$2',
+);
+
+/**
  * Whether to open Special:ContentTranslation in the target wiki
  * when clicking the button in the entry point.
  * The domain will be based on $wgContentTranslationDomainTemplate.

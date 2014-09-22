@@ -31,6 +31,7 @@ $wgResourceModules['ext.cx.init'] = array(
 		'ext.cx.model',
 		'ext.cx.header',
 		'ext.cx.source',
+		'ext.cx.sitemapper',
 	),
 ) + $resourcePaths;
 
@@ -39,8 +40,17 @@ $wgResourceModules['ext.cx.util'] = array(
 		'base/ext.cx.util.js',
 	),
 	'dependencies' => array(
-		'ext.cx.model',
 		'mediawiki.Uri',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.sitemapper'] = array(
+	'scripts' => array(
+		'base/ext.cx.sitemapper.js',
+	),
+	'dependencies' => array(
+		'mediawiki.Uri',
+		'mediawiki.api',
 	),
 ) + $resourcePaths;
 
@@ -52,11 +62,10 @@ $wgResourceModules['ext.cx.header'] = array(
 		'header/styles/ext.cx.header.less',
 	),
 	'dependencies' => array(
-		'mediawiki.jqueryMsg',
-		'mediawiki.Uri',
-		'mediawiki.util',
 		'ext.cx.publish',
-		'ext.cx.util',
+		'mediawiki.Uri',
+		'mediawiki.jqueryMsg',
+		'mediawiki.util',
 	),
 	'messages' => array(
 		'cx-error-server-connection',
@@ -79,11 +88,12 @@ $wgResourceModules['ext.cx.source'] = array(
 		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
-		'mediawiki.jqueryMsg',
-		'mediawiki.api',
+		'ext.cx.util',
 		'jquery.uls.data',
-		'mediawiki.Uri',
 		'mediawiki.Title',
+		'mediawiki.Uri',
+		'mediawiki.api',
+		'mediawiki.jqueryMsg',
 	),
 	'messages' => array(
 		'cx-source-view-page',
@@ -100,6 +110,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'source/styles/ext.cx.source.selector.less',
 	),
 	'dependencies' => array(
+		'ext.cx.sitemapper',
 		'ext.cx.util',
 		'jquery.uls.data',
 	),
@@ -118,6 +129,8 @@ $wgResourceModules['ext.cx.translation'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.editor',
+		'ext.cx.translation.progress',
+		'ext.cx.util',
 		'jquery.throttle-debounce',
 		'jquery.uls.data',
 		'mediawiki.Title',
@@ -135,6 +148,9 @@ $wgResourceModules['ext.cx.translation.progress'] = array(
 	'scripts' => 'translation/ext.cx.translation.progress.js',
 	'messages' => array(
 		'cx-warning-unsaved-translation',
+	),
+	'dependencies' => array(
+		'ext.cx.util'
 	),
 ) + $resourcePaths;
 
@@ -276,9 +292,10 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 	'dependencies' => array(
 		'ext.cx.model',
 		'ext.cx.source',
-		'ext.cx.translation',
-		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+		'ext.cx.tools.manager',
+		'ext.cx.translation',
+		'ext.cx.util',
 		'jquery.uls.data',
 	),
 ) + $resourcePaths;
@@ -377,10 +394,11 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 		'cx-entrypoint-dialog-button-translate-from',
 	),
 	'dependencies' => array(
+		'ext.cx.sitemapper',
 		'ext.cx.util',
 		'jquery.uls.data',
-		'mediawiki.jqueryMsg',
 		'mediawiki.Uri',
+		'mediawiki.jqueryMsg',
 	),
 ) + $resourcePaths;
 
@@ -455,11 +473,10 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 		'dependencies' => array( 'ext.cx.translation' ),
 	) + $resourcePaths;
 
-	$modules['qunit']['ext.cx.util.test'] = array(
-		'scripts' => array( 'tests/qunit/base/ext.cx.util.test.js' ),
+	$modules['qunit']['ext.cx.sitemapper.test'] = array(
+		'scripts' => array( 'tests/qunit/base/ext.cx.sitemapper.test.js' ),
 		'dependencies' => array(
-			'ext.cx.util',
-			'mediawiki.Uri',
+			'ext.cx.sitemapper'
 		),
 	) + $resourcePaths;
 };
