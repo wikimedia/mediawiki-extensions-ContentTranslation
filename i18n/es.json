@@ -29,7 +29,7 @@
 	"cx-publish-gt-first-step-title": "La traducción ha sido publicada como un borrador en tu página de usuario para revisión",
 	"cx-publish-gt-first-step-description": "Haga clic en la acción \"{{int:vector-action-move}}\" debajo de este menú para que el contenido esté disponible a todos los usuarios como una página normal.",
 	"cx-publish-gt-move-page-title": "Trasladar la página",
-	"cx-publish-gt-move-page-description": "Selecciona el espacio de nombres \"(principal)\" y dale el título correcto.",
+	"cx-publish-gt-move-page-description": "Selecciona el espacio de nombres «(principal)» y dale un título adecuado a la página.",
 	"cx-publish-gt-moved-title": "La página traducida fue movida",
 	"cx-publish-gt-moved-description": "Haz clic en este enlace para leer y mejorar tu nueva página traducida",
 	"cx-publish-gt-published-title": "Felicidades, la página se ha publicado",

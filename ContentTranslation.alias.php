@@ -87,6 +87,7 @@ $specialPageAliases['ml'] = array(
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'ContentTranslation' => array( 'Dịch_nội_dung' ),
+	'ContentTranslationStats' => array( 'Thống_kê_dịch_nội_dung' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */

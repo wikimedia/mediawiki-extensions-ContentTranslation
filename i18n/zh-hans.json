@@ -24,7 +24,7 @@
 	"cx-publish-button": "发布翻译",
 	"cx-publish-button-publishing": "正在发布...",
 	"cx-publish-summary": "通过翻译页面“$1”创建",
-	"cx-publish-gt-no-permission-to-move-description": "请询问此站点有经验用户帮助你复核您的翻译并在条目名字空间发布它。",
+	"cx-publish-gt-no-permission-to-move-description": "请询问此站点有经验的用户以帮助您复核您的翻译并将其发布于条目名字空间。",
 	"cx-publish-gt-first-step-title": "译文已作为草稿发布至您的用户页以复核",
 	"cx-publish-gt-first-step-description": "点击此菜单下面的“{{int:vector-action-move}}”选项使内容作为常规页面对所有用户可用。",
 	"cx-publish-gt-move-page-title": "移动页面",

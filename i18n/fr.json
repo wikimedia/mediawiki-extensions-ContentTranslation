@@ -26,7 +26,7 @@
 	"cx-publish-gt-first-step-title": "La traduction a été publiée comme brouillon sous votre page utilisateur, pour relecture",
 	"cx-publish-gt-first-step-description": "Cliquer sur l’action « {{int:vector-action-move}} » sous ce menu pour rendre le contenu disponible à tous les utilisateurs sous la forme d’une page normale.",
 	"cx-publish-gt-move-page-title": "Déplacer la page",
-	"cx-publish-gt-move-page-description": "Sélectionner l’espace de noms « (main) » et lui donner le bon titre.",
+	"cx-publish-gt-move-page-description": "Sélectionner l’espace de noms « (main) » et fournir un titre correct pour la page.",
 	"cx-publish-gt-moved-title": "La page traduite a été déplacée",
 	"cx-publish-gt-moved-description": "Cliquer sur ce lien pour lire et améliorer votre nouvelle page traduite",
 	"cx-publish-gt-published-title": "Félicitations, la page a été publiée",

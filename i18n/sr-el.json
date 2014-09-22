@@ -4,5 +4,9 @@
 			"Milicevic01"
 		]
 	},
-	"cx-tools-link-add": "Dodaj veze"
+	"cx-publish-gt-move-page-title": "Premesti stranicu",
+	"cx-tools-link-add": "Dodaj veze",
+	"cx-stats-page-title": "Stranica",
+	"cx-stats-from": "Izvorni jezik",
+	"cx-warning-unsaved-translation": "Imate nesačuvan prevod."
 }
