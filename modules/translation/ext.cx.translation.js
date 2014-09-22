@@ -92,6 +92,25 @@
 		mw.hook( 'mw.cx.translation.ready' ).fire();
 	};
 
+	function saveCursorPosition() {
+		var $container, selection, anchorNode, focusNode;
+
+		/*jshint validthis:true */
+		$container = $( this );
+		selection = mw.cx.selection.get();
+		if ( selection ) {
+			anchorNode = selection.anchorNode;
+			focusNode = selection.focusNode;
+
+			// Make sure the entire selection is inside the container
+			// Only save the selection if it is
+			if ( $.contains( $container[ 0 ], anchorNode ) &&
+				$.contains( $container[ 0 ], focusNode ) ) {
+				mw.cx.selection.save( 'translation', selection );
+			}
+		}
+	}
+
 	ContentTranslationEditor.prototype.listen = function () {
 		var cxTranslation = this;
 
@@ -124,6 +143,9 @@
 				segmentId = $segment.data( 'segmentid' );
 			$( '[data-segmentid="' + segmentId + '"]' ).toggleClass( 'cx-highlight' );
 		} );
+
+		// Capture translation selection on keyup and mouseup
+		this.$container.on( 'keyup mouseup', saveCursorPosition );
 	};
 
 	/**
@@ -131,7 +153,7 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var $sourceSection = $( '#' + $section.data( 'source' ) );
+		var selection, $sourceSection = $( '#' + $section.data( 'source' ) );
 
 		mw.hook( 'mw.cx.translation.change' ).fire( $section );
 		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
@@ -140,6 +162,7 @@
 		// And now onwards clicking on source section has same effect of clicking
 		// on target section.
 		$sourceSection.on( 'click', function () {
+			mw.cx.selection.restore( 'translation' );
 			mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 		} );
 		// If the section is editable, initiate an editor.
@@ -149,6 +172,14 @@
 		} else {
 			$section.cxEditor();
 		}
+
+		// Set the focus on the new section
+		// Rely on browser behavior for setting cursor position
+		// Will generally go to beginning of section
+		$section[ 0 ].focus();
+		// Capture and save the new selection/cursor position
+		selection = mw.cx.selection.get();
+		mw.cx.selection.save( 'translation', selection );
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
