@@ -305,7 +305,6 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'ext.cx.tools.manager',
 		'ext.cx.translation',
 		'ext.cx.util',
-		'jquery.uls.data',
 	),
 ) + $resourcePaths;
 

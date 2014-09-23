@@ -279,11 +279,7 @@
 		MTControlCard.provider = providerId;
 
 		// Set the main label
-		this.$providerSelectorTrigger.text( this.getProviderTitle(
-			providerId,
-			mw.cx.sourceLanguage,
-			mw.cx.targetLanguage
-		) );
+		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
 	};
 
 	MTControlCard.prototype.listen = function () {
@@ -338,32 +334,24 @@
 	/**
 	 * Get the text for the menu item in the providers list.
 	 * @param {string} id Provider id.
-	 * @param {string} sourceLang Source language code.
-	 * @param {string} targetLang Target language code.
 	 * @return {string}
 	 */
-	MTControlCard.prototype.getProviderTitle = function ( id, from, to ) {
+	MTControlCard.prototype.getProviderTitle = function ( id ) {
 		if ( id === disableMT ) {
 			return mw.msg( 'cx-tools-mt-dont-use' );
 		} else {
-			return mw.msg( 'cx-tools-mt-provider-title',
-				id,
-				$.uls.data.getAutonym( from ),
-				$.uls.data.getAutonym( to )
-			);
+			return mw.msg( 'cx-tools-mt-provider-title', id );
 		}
 	};
 
 	/**
 	 * Get a menu item for the providers list.
 	 * @param {string} id Provider id.
-	 * @param {string} from Source language code.
-	 * @param {string} to Target language code.
 	 * @return {jQuery}
 	 */
-	MTControlCard.prototype.getProviderItem = function ( id, from, to ) {
+	MTControlCard.prototype.getProviderItem = function ( id ) {
 		return $( '<li>' )
-			.text( this.getProviderTitle( id, from, to ) )
+			.text( this.getProviderTitle( id ) )
 			.prop( 'id', providerIdPrefix + id )
 			.on( 'click', $.proxy( this.selectProvider, this, id ) );
 	};
