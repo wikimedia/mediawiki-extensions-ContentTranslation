@@ -180,18 +180,18 @@ $wgResourceModules['ext.cx.tools'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.progressbar',
-		'mediawiki.jqueryMsg',
-		'ext.cx.tools.manager',
 		'ext.cx.tools.dictionary',
 		'ext.cx.tools.formatter',
+		'ext.cx.tools.images',
 		'ext.cx.tools.instructions',
 		'ext.cx.tools.link',
-		'ext.cx.tools.images',
-		'ext.cx.tools.mtabuse',
+		'ext.cx.tools.manager',
 		'ext.cx.tools.mt',
+		'ext.cx.tools.mtabuse',
 		'ext.cx.tools.reference',
 		'ext.cx.tools.template',
 		'ext.cx.util.selection',
+		'mediawiki.jqueryMsg',
 	),
 ) + $resourcePaths;
 
@@ -312,6 +312,7 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'cx-tools-mt-dont-use',
 	),
 	'dependencies' => array(
+		'ext.cx.init',
 		'ext.cx.model',
 		'ext.cx.source',
 		'ext.cx.tools.card',

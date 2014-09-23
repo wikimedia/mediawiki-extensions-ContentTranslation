@@ -51,7 +51,7 @@
 	CXSourceSelector.prototype.getLanguagePairs = function () {
 		var languagePairsAPIUrl, cxSourceSelector = this;
 
-		languagePairsAPIUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/languagepairs';
+		languagePairsAPIUrl = this.siteMapper.getCXServerUrl( '/languagepairs' );
 
 		return $.get( languagePairsAPIUrl )
 			.done( function ( response ) {

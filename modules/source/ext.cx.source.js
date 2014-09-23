@@ -55,7 +55,10 @@
 		var fetchPageUrl,
 			cxSource = this;
 
-		fetchPageUrl = this.siteMapper.getCXServerUrl( language, title );
+		fetchPageUrl = this.siteMapper.getCXServerUrl( '/page/$language/$title', {
+			$language: language,
+			$title: title
+		} );
 
 		$.get( fetchPageUrl )
 			.done( function ( response ) {

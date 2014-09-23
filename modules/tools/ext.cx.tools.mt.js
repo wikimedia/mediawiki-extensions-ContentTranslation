@@ -29,8 +29,11 @@
 			return $.Deferred().resolve();
 		}
 
-		fetchProvidersUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/list/mt/' +
-			encodeURIComponent( from ) + '/' + encodeURIComponent( to );
+		// @todo refactor
+		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
+			$from: from,
+			$to: to
+		} );
 
 		return $.get( fetchProvidersUrl )
 			.done( function ( response ) {
@@ -60,8 +63,12 @@
 	 * @return {jQuery.Promise}
 	 */
 	function doMT( sourceLang, targetLang, sourceHtml ) {
-		var mtURL = mw.config.get( 'wgContentTranslationServerURL' ) + '/mt/' +
-			sourceLang + '/' + targetLang + '/' + MTControlCard.provider;
+		// @todo refactor
+		var mtURL = mw.cx.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
+			$from: sourceLang,
+			$to: targetLang,
+			$provider: MTControlCard.provider
+		} );
 
 		return $.post( mtURL, sourceHtml );
 	}
