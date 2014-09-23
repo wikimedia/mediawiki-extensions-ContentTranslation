@@ -79,7 +79,7 @@
 							'$1' + translatedNamespace + '$3' );
 						$image.attr( 'resource', resource );
 						// If the image has a parent link, correct its link target
-						$image.parent( 'a' ).attr( 'href', resource );
+						$image.parents( 'a' ).attr( 'href', resource );
 					}
 				} );
 		} );
