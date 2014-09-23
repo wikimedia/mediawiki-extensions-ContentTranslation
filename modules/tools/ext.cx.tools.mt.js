@@ -280,6 +280,9 @@
 
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
+
+		// Restore the selection in the translation
+		mw.cx.selection.restore( 'translation' );
 	};
 
 	MTControlCard.prototype.listen = function () {
