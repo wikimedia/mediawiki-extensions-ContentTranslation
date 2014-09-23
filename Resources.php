@@ -37,10 +37,16 @@ $wgResourceModules['ext.cx.init'] = array(
 
 $wgResourceModules['ext.cx.util'] = array(
 	'scripts' => array(
-		'base/ext.cx.util.js',
+		'util/ext.cx.util.js',
 	),
 	'dependencies' => array(
 		'mediawiki.Uri',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.util.selection'] = array(
+	'scripts' => array(
+		'util/ext.cx.util.selection.js',
 	),
 ) + $resourcePaths;
 
@@ -131,6 +137,7 @@ $wgResourceModules['ext.cx.translation'] = array(
 		'ext.cx.editor',
 		'ext.cx.translation.progress',
 		'ext.cx.util',
+		'ext.cx.util.selection',
 		'jquery.throttle-debounce',
 		'jquery.uls.data',
 		'mediawiki.Title',
@@ -183,6 +190,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.mt',
 		'ext.cx.tools.reference',
 		'ext.cx.tools.template',
+		'ext.cx.util.selection',
 	),
 ) + $resourcePaths;
 
