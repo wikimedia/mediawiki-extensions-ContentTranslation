@@ -141,7 +141,7 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXEntryPoint.prototype.startPageInCX = function () {
-		mw.cx.doCX(
+		location.href = this.siteMapper.getCXUrl(
 			mw.config.get( 'wgTitle' ),
 			this.$titleInput.val(),
 			mw.config.get( 'wgContentLanguage' ),

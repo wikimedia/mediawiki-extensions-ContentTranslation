@@ -19,7 +19,7 @@
 		this.$trigger = $( $trigger );
 		this.options = options;
 		// @todo Refactor
-		this.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+		this.siteMapper = mw.cx.siteMapper;
 
 		this.$dialog = null;
 		this.languagePairs = null;
@@ -210,13 +210,11 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		this.sourceLanguage = this.$sourceLanguage.val();
-		this.targetLanguage = this.$targetLanguage.val();
-		mw.cx.doCX(
+		location.href = this.siteMapper.getCXUrl(
 			this.$sourceTitleInput.val(),
 			this.$targetTitleInput.val(),
-			this.sourceLanguage,
-			this.targetLanguage
+			this.$sourceLanguage.val(),
+			this.$targetLanguage.val()
 		);
 	};
 
