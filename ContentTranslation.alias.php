@@ -84,6 +84,12 @@ $specialPageAliases['ml'] = array(
 	'ContentTranslation' => array( 'ലേഖനപരിഭാഷ' ),
 );
 
+/** Swedish (svenska) */
+$specialPageAliases['sv'] = array(
+	'ContentTranslation' => array( 'Innehållsöversättning' ),
+	'ContentTranslationStats' => array( 'Innehållsöversättningsstatistik' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'ContentTranslation' => array( 'Dịch_nội_dung' ),
