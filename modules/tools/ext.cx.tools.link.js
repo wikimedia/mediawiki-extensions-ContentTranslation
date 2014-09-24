@@ -234,48 +234,12 @@
 	};
 
 	/**
-	 * Save the selection while other screen elements are clicked.
-	 * See http://stackoverflow.com/a/3316483/337907
-	 */
-	function saveSelection() {
-		var sel;
-
-		if ( window.getSelection ) {
-			sel = window.getSelection();
-			if ( sel.getRangeAt && sel.rangeCount ) {
-				return sel.getRangeAt( 0 );
-			}
-		} else if ( document.selection && document.selection.createRange ) {
-			return document.selection.createRange();
-		}
-		return null;
-	}
-
-	/**
 	 * Remove the leading ./ added by parsoid.
 	 * @param {string} href Link target
 	 * @return {string} Cleaned up href
 	 */
 	function cleanupLinkHref( href ) {
 		return href && href.replace( /^\.*\//, '' );
-	}
-
-	/**
-	 * Restore a saved selection
-	 * See http://stackoverflow.com/a/3316483/337907
-	 */
-	function restoreSelection( range ) {
-		var sel;
-
-		if ( range ) {
-			if ( window.getSelection ) {
-				sel = window.getSelection();
-				sel.removeAllRanges();
-				sel.addRange( range );
-			} else if ( document.selection && range.select ) {
-				range.select();
-			}
-		}
 	}
 
 	/**
@@ -304,13 +268,12 @@
 
 	/**
 	 * Tests whether the current selection is in a target segment
-	 * @param {range} selection Selection range to test
+	 * @param {object} selection, the selection to test
 	 * @return {boolean}
 	 */
 	function isValidSelection( selection ) {
 		var $parent, $parentSection;
 
-		restoreSelection( selection );
 		if ( !selection || !selection.toString().length ) {
 			return false;
 		}
@@ -323,50 +286,6 @@
 		$parentSection = $parent.parents( '[contenteditable]' );
 		// Check if that section is editable
 		return $parentSection.prop( 'contenteditable' );
-	}
-
-	/**
-	 * Paste a given html string at the selection.
-	 * It replaces the selected text if any. Otherwise it insert
-	 * at caret position.
-	 * Tries to do it in a cross browser compatible way.
-	 * See http://stackoverflow.com/a/6691294/337907, Credits: Tim Down
-	 * @param {string} html The html string
-	 */
-	function pasteHtmlAtSelection( html ) {
-		var sel, el, range, frag, node, lastNode;
-
-		if ( window.getSelection ) {
-			// IE9 and non-IE
-			sel = window.getSelection();
-			if ( sel.getRangeAt && sel.rangeCount ) {
-				range = sel.getRangeAt( 0 );
-				range.deleteContents();
-
-				// Range.createContextualFragment() would be useful here but is
-				// only relatively recently standardized and is not supported in
-				// some browsers (IE9, for one)
-				el = document.createElement( 'div' );
-				el.innerHTML = html;
-				frag = document.createDocumentFragment();
-				while ( ( node = el.firstChild ) ) {
-					lastNode = frag.appendChild( node );
-				}
-				range.insertNode( frag );
-
-				// Preserve the selection
-				if ( lastNode ) {
-					range = range.cloneRange();
-					range.setStartAfter( lastNode );
-					range.collapse( true );
-					sel.removeAllRanges();
-					sel.addRange( range );
-				}
-			}
-		} else if ( document.selection && document.selection.type !== 'Control' ) {
-			// IE < 9
-			document.selection.createRange().pasteHTML( html );
-		}
 	}
 
 	/**
@@ -393,7 +312,7 @@
 			$link.attr( 'data-linkid', id );
 		}
 
-		pasteHtmlAtSelection( $link[ 0 ].outerHTML );
+		mw.cx.selection.pasteHTML( $link[ 0 ].outerHTML );
 
 		$parentSection = $( '.cx-target-link[data-linkid="' + id + '"]' )
 			.parents( '[contenteditable]' );
@@ -430,7 +349,7 @@
 		}
 
 		getLink( title, language ).done( function ( response ) {
-			var imgSrc, pageId, range, page;
+			var imgSrc, pageId, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
@@ -440,7 +359,6 @@
 				return;
 			}
 			page = response.query.pages[ pageId ];
-			range = saveSelection();
 			linkCard.createExternalLink(
 				linkCard.$sourceLinkCard.find( '.card__link-text' ),
 				page.title,
@@ -477,7 +395,7 @@
 				return;
 			}
 			page = response.query.pages[ pageId ];
-			selection = saveSelection();
+			selection = mw.cx.selection.get();
 
 			linkCard.createExternalLink(
 				linkCard.$targetLinkCard.find( '.card__link-text' ),
@@ -488,7 +406,7 @@
 				// Some text selected in translation column and it has a link.
 				// Set up the add link button.
 				linkCard.$addLink.click( function () {
-					restoreSelection( selection );
+					mw.cx.selection.restore( 'translation' );
 					linkCard.createInternalLink( title, page.title );
 				} );
 				// Show the add link button
@@ -499,7 +417,7 @@
 				// Nothing selected. Hide the add link button.
 				linkCard.$addLink.hide();
 				linkCard.$removeLink.click( function () {
-					restoreSelection( selection );
+					mw.cx.selection.restore( 'translation' );
 					linkCard.removeLink();
 				} );
 			}
@@ -603,8 +521,8 @@
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
 
-		// Capture the selection
-		selection = saveSelection();
+		// Capture the current selection
+		selection = mw.cx.selection.get();
 
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
