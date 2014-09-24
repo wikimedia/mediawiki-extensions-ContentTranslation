@@ -280,9 +280,6 @@
 
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
-
-		// Restore the selection in the translation
-		mw.cx.selection.restore( 'translation' );
 	};
 
 	MTControlCard.prototype.listen = function () {
@@ -353,10 +350,14 @@
 	 * @return {jQuery}
 	 */
 	MTControlCard.prototype.getProviderItem = function ( id ) {
+		var cxMtCard = this;
 		return $( '<li>' )
 			.text( this.getProviderTitle( id ) )
 			.prop( 'id', providerIdPrefix + id )
-			.on( 'click', $.proxy( this.selectProvider, this, id ) );
+			.on( 'click', function () {
+				cxMtCard.selectProvider( id );
+				mw.cx.selection.restore( 'translation' );
+			} );
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {

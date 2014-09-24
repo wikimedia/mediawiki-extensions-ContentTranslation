@@ -562,7 +562,6 @@
 		// If text is selected, create a new internal link
 		if ( isValidSelection( selection ) && this.$link ) {
 			$targetLink = this.createInternalLink( selection.toString(), targetTitle, this.$link.data( 'linkid' ) );
-			mw.hook( 'mw.cx.select.link' ).fire( $targetLink );
 		}
 	};
 
