@@ -68,6 +68,10 @@
 		sourceSectionHeight = $sourceSection.height();
 		sectionHeight = $section.height();
 
+		if ( !sourceSectionHeight ) {
+			return this;
+		}
+
 		if ( sourceSectionHeight < sectionHeight ) {
 			$sourceSection.css( 'min-height', sectionHeight );
 			sourceSectionHeight = $sourceSection.height();
@@ -95,4 +99,15 @@
 
 		return this;
 	};
+
+	$( function () {
+		// Window resize handler.
+		$( window ).resize( $.debounce( 250, function () {
+			$( '.cx-column--translation .cx-column__content' )
+				.find( mw.cx.getSectionSelector() )
+				.each( function () {
+					$( this ).keepAlignment();
+				} );
+		} ) );
+	} );
 }( jQuery, mediaWiki ) );
