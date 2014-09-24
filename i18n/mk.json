@@ -54,7 +54,7 @@
 	"cx-tools-mt-use-source": "Користи го изворниот текст",
 	"cx-tools-mt-clear-translation": "Тргни го преводот",
 	"cx-tools-mt-restore": "Возобнови",
-	"cx-tools-mt-provider-title": "$1: од $2 на $3",
+	"cx-tools-mt-provider-title": "Од $1",
 	"cx-tools-mt-not-available": "Не е достапно за $1",
 	"cx-tools-mt-dont-use": "Не користи машински превод",
 	"cx-stats-title": "Статистики за содржински преводи",

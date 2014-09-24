@@ -59,7 +59,7 @@
 	"cx-tools-mt-use-source": "Utiliser le texte source",
 	"cx-tools-mt-clear-translation": "Effacer la traduction",
 	"cx-tools-mt-restore": "Rétablir",
-	"cx-tools-mt-provider-title": "Par $1, $2 vers $3",
+	"cx-tools-mt-provider-title": "Par $1",
 	"cx-tools-mt-not-available": "Non disponible pour $1",
 	"cx-tools-mt-dont-use": "Ne pas utiliser de traduction automatique",
 	"cx-stats-title": "Statistiques de traduction du contenu",

@@ -61,7 +61,7 @@
 	"cx-tools-mt-use-source": "使用来源文本",
 	"cx-tools-mt-clear-translation": "明确翻译",
 	"cx-tools-mt-restore": "还原",
-	"cx-tools-mt-provider-title": "来自$1的$2至$3",
+	"cx-tools-mt-provider-title": "来自$1",
 	"cx-tools-mt-not-available": "不可用于$1",
 	"cx-tools-mt-dont-use": "不使用机器翻译",
 	"cx-stats-title": "内容翻译统计",
