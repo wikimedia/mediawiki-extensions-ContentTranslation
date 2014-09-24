@@ -45,8 +45,13 @@ class SpecialContentTranslation extends SpecialPage {
 		) );
 
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
+		$toolbarList = Html::rawElement( 'ul',
+			null,
+			$skin->getPersonalToolsList() );
+		$out->addHTML( Html::rawElement( 'div',
+			array( 'id' => 'p-personal'),
+			$toolbarList ) );
 		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
-
 		$out->addHTML( $skin->bottomScripts() );
 		$out->addHTML( '</body></html>' );
 	}

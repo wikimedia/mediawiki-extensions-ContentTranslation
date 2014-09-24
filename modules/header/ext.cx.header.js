@@ -58,16 +58,6 @@
 
 		this.showError( mw.message( 'cx-special-login-error', loginUriHref ) );
 
-		// The top login link should open in the same window.
-		// There is no reason to open a new tab for it,
-		// becauses there is no translation here.
-		this.$userName
-			.text( mw.msg( 'login' ) )
-			.prop( {
-				href: loginUriHref,
-				target: ''
-			} );
-
 		// Do not show the columns
 		// TODO: use events
 		$( '.cx-widget__columns' ).remove();
@@ -159,22 +149,10 @@
 	 * Render the header
 	 */
 	ContentTranslationHeader.prototype.render = function () {
-		var $logo, $userDetails, $headerBar,
+		var $logo, $headerBar,
 			$translationCenterLink, $translationCenter;
 
 		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
-
-		this.$userName = $( '<a>' )
-			.addClass( 'cx-header__user-details__user-name' )
-			.attr( {
-				href: mw.util.getUrl( 'User:' + mw.user.getName() ),
-				target: '_blank'
-			} )
-			.text( mw.user.getName() );
-
-		$userDetails = $( '<div>' )
-			.addClass( 'cx-header__user-details' )
-			.append( this.$userName );
 
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
@@ -201,7 +179,7 @@
 
 		this.$container
 			.addClass( 'cx-header' )
-			.append( $logo, $userDetails, $headerBar, this.$infoBar );
+			.append( $logo, $headerBar, this.$infoBar );
 	};
 
 	/**
