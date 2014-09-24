@@ -17,7 +17,7 @@
 	 * @class
 	 */
 	function Selection() {
-		this.selections = {};
+		this.ranges = {};
 	}
 
 	/**
@@ -40,16 +40,6 @@
 	};
 
 	/**
-	 * Saves a selection for later retrieval
-	 *
-	 * @param {string} key, the key to use for storage
-	 * @param {object} selection, the selection to save
-	 */
-	Selection.prototype.save = function ( key, selection ) {
-		this.selections[ key ] = selection;
-	};
-
-	/**
 	 * Returns the range of a selection.
 	 * Cross-browser
 	 *
@@ -69,6 +59,16 @@
 			return false;
 		}
 	}
+
+	/**
+	 * Saves a selection range for later retrieval
+	 *
+	 * @param {string} key, the key to use for storage
+	 * @param {object} selection, the selection save the range from
+	 */
+	Selection.prototype.save = function ( key, selection ) {
+		this.ranges[ key ] = getRange( selection );
+	};
 
 	/**
 	 * Sets focus on parent element of range
@@ -100,24 +100,16 @@
 	}
 
 	/**
-	 * Restores a saved selection
+	 * Restores selection from a saved selection range
 	 * Cross-browser.
 	 *
-	 * @param {string} key, the key for the saved selection
+	 * @param {string} key, the key for the saved selection range
 	 */
 	Selection.prototype.restore = function ( key ) {
-		var currentSelection, savedSelection, range;
+		var currentSelection, range;
 
 		currentSelection = this.get();
-		savedSelection = this.selections[ key ];
-		if ( !savedSelection ) {
-			return;
-		}
-
-		range = getRange( savedSelection );
-		if ( !range ) {
-			return;
-		}
+		range = this.ranges[ key ];
 
 		setFocusOnParentBlock( range ); // for FireFox
 
@@ -135,40 +127,40 @@
 
 	/**
 	 * Pastes the specified html.
-	 * If selectionToRestore is passed, retrieves
-	 * and restores that selection before pasting.
+	 * If rangeToRestore is passed, retrieves
+	 * and restores that range before pasting.
 	 * If no selection is specified, the current selection is used.
 	 *
 	 * @param {string} html, the html to paste
-	 * @param {string} selectionToRestore, name of selection to restore
+	 * @param {string} rangeToRestore, key for the range to restore
 	 */
-	Selection.prototype.pasteHTML = function ( html, selectionToRestore ) {
-		var selection, el, frag, node, lastNode;
+	Selection.prototype.pasteHTML = function ( html, rangeToRestore ) {
+		var range, el, frag, node, lastNode;
 
-		if ( selectionToRestore ) {
-			this.restore( selectionToRestore );
+		if ( rangeToRestore ) {
+			range = this.ranges[ rangeToRestore ];
+		} else {
+			range = getRange( this.get() );
 		}
 
-		selection = this.get();
-
-		if ( selection && window.getSelection ) {
-			selection.deleteContents();
+		if ( window.getSelection ) {
+			range.deleteContents();
 			el = document.createElement( 'div' );
 			el.innerHTML = html;
 			frag = document.createDocumentFragment();
 			while ( ( node = el.firstChild ) ) {
 				lastNode = frag.appendChild( node );
 			}
-			selection.insertNode( frag );
+			range.insertNode( frag );
 
 			if ( lastNode ) {
-				selection.setStartAfter( lastNode );
-				selection.collapse( true );
+				range.setStartAfter( lastNode );
+				range.collapse( true );
 			}
 
-		} else if ( selection && selection.type !== 'Control' ) {
+		} else if ( range.pasteHTML ) {
 			// IE < 9
-			selection.createRange().pasteHTML( html );
+			range.pasteHTML( html );
 		}
 	};
 
