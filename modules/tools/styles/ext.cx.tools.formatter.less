@@ -1,0 +1,49 @@
+@import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
+
+.card__format {
+	animation-name: card-show-animation;
+	animation-duration: 0.5s;
+	position: relative;
+	min-height: 30px;
+	padding: 5px;
+
+	button {
+		cursor: pointer;
+		min-width: 30px;
+		height: 30px;
+		border: none;
+		border-right: 1px solid #fbfbfb;
+		background-color: transparent;
+		color: #555555;
+		box-sizing: border-box;
+		border-radius: 4px;
+		float: left;
+		opacity: 0.8;
+		transition: opacity .1s ease-in, color .1s ease-in;
+		background-repeat: no-repeat;
+		background-position: center;
+		&:hover {
+			opacity: 1;
+		}
+		&.highlight {
+			background-color: #ccc;
+		}
+	}
+
+	.card__format--bold {
+		.background-image-svg('../images/bold-b.svg', '../images/bold-b.png');
+	}
+
+	.card__format--italic {
+		.background-image-svg('../images/italic-i.svg', '../images/italic-i.png');
+	}
+
+	.card__format--orderedlist {
+		.background-image-svg('../images/number-list.svg', '../images/number-list.png');
+	}
+
+	.card__format--unorderedlist {
+		.background-image-svg('../images/bullet-list.svg', '../images/bullet-list.png');
+	}
+}
