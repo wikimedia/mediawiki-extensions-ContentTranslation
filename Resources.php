@@ -141,8 +141,8 @@ $wgResourceModules['ext.cx.translation'] = array(
 		'ext.cx.util.selection',
 		'jquery.throttle-debounce',
 		'jquery.uls.data',
-		'mediawiki.Title',
 		'mediawiki.Uri',
+		'mediawiki.Title',
 	),
 	'styles' => array(
 		'translation/styles/ext.cx.translation.less',
@@ -184,6 +184,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'mediawiki.jqueryMsg',
 		'ext.cx.tools.manager',
 		'ext.cx.tools.dictionary',
+		'ext.cx.tools.formatter',
 		'ext.cx.tools.instructions',
 		'ext.cx.tools.link',
 		'ext.cx.tools.images',
@@ -238,6 +239,19 @@ $wgResourceModules['ext.cx.tools.mtabuse'] = array(
 		'cx-mt-abuse-warning-text',
 		'cx-tools-view-guidelines',
 		'cx-tools-view-guidelines-link',
+	),
+	'dependencies' => array(
+		'ext.cx.tools.manager',
+		'ext.cx.tools.card',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.formatter'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.formatter.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.formatter.less',
 	),
 	'dependencies' => array(
 		'ext.cx.tools.manager',

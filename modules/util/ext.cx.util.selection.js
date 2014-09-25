@@ -30,10 +30,10 @@
 		// Standards
 		if ( window.getSelection ) {
 			return window.getSelection();
-		// IE < 9
+			// IE < 9
 		} else if ( document.selection ) {
 			return document.selection;
-		// Return false if no selection
+			// Return false if no selection
 		} else {
 			return false;
 		}
@@ -48,11 +48,13 @@
 	 */
 	function getRange( selection ) {
 		// Standards
-		if ( selection && selection.rangeCount && selection.getRangeAt ) {
+		if ( selection && selection.rangeCount &&
+			selection.getRangeAt
+		) {
 			if ( selection.rangeCount > 0 ) {
 				return selection.getRangeAt( 0 );
 			}
-		// IE < 9
+			// IE < 9
 		} else if ( selection && selection.createRange ) {
 			return selection.createRange();
 		} else {
@@ -74,21 +76,14 @@
 	 * Sets focus on parent element of range
 	 * Required for restoring selections on FireFox
 	 *
-	 * @param {object} range, the range to get parent from
+	 * @param {object} range The range to get parent from
 	 */
 	function setFocusOnParentBlock( range ) {
 		var parent, cStyle;
 
-		if ( range.commonAncestorContainer ) {
-			parent = range.commonAncestorContainer;
-			if ( parent.nodeType !== 1 ) {
-				parent = parent.parentNode;
-			}
-		} else if ( range.parentElement ) {
-			parent = range.parentElement();
-		}
-
-		cStyle = parent.currentStyle || window.getComputedStyle( parent, '' );
+		parent = getRangeParent( range );
+		cStyle = parent.currentStyle ||
+			window.getComputedStyle( parent, '' );
 		while ( cStyle.display !== 'block' ) {
 			parent = parent.parentNode;
 			cStyle = parent.currentStyle || window.getComputedStyle( parent, '' );
@@ -98,9 +93,40 @@
 			parent.focus();
 		}
 	}
+	/*
+	 * Get parent of the given range.
+	 * @param {object} range The range to get parent from
+	 */
+	function getRangeParent( range ) {
+		var parent;
+
+		if ( range.commonAncestorContainer ) {
+			parent = range.commonAncestorContainer;
+			if ( parent.nodeType !== 1 ) {
+				parent = parent.parentNode;
+			}
+		} else if ( range.parentElement ) {
+			parent = range.parentElement();
+		}
+		return parent;
+	}
 
 	/**
-	 * Restores selection from a saved selection range
+	 * Returns the parent node of the current selection
+	 * @return {Element}
+	 */
+	Selection.prototype.getParent = function ( key ) {
+		var range;
+
+		range = this.ranges[ key ];
+		if ( !range ) {
+			return null;
+		}
+		return getRangeParent( range );
+	};
+
+	/**
+	 * Restores a saved selection
 	 * Cross-browser.
 	 *
 	 * @param {string} key, the key for the saved selection range
@@ -114,12 +140,13 @@
 		setFocusOnParentBlock( range ); // for FireFox
 
 		// Standards
-		if ( currentSelection
-			&& currentSelection.removeAllRanges
-			&& currentSelection.addRange ) {
+		if ( currentSelection &&
+			currentSelection.removeAllRanges &&
+			currentSelection.addRange
+		) {
 			currentSelection.removeAllRanges();
 			currentSelection.addRange( range );
-		// IE < 9
+			// IE < 9
 		} else if ( currentSelection && range.select ) {
 			range.select();
 		}
