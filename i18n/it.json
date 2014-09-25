@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"Gianfranco",
-			"FRacco"
+			"FRacco",
+			"Nemo bis"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -20,13 +21,13 @@
 	"cx-publish-button-publishing": "Pubblicazione...",
 	"cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",
 	"cx-publish-gt-move-page-title": "Sposta la pagina",
-	"cx-publish-gt-move-page-description": "Seleziona il namespace \"(principale)\" e inserisci il titolo corretto.",
+	"cx-publish-gt-move-page-description": "Seleziona il namespace \"(principale)\" e inserisci un titolo corretto per la pagina.",
 	"cx-publish-gt-moved-title": "La pagina tradotta è stata spostata",
 	"cx-publish-gt-published-title": "Congratulazioni, la pagina è stata pubblicata",
 	"cx-translation-add-translation": "+ Aggiungi traduzione",
 	"tag-contenttranslation": "TraduzioneContenuti",
 	"cx-source-loading": "Caricamento $1",
-	"cx-red-interlanguage-link-preference": "Traduzione contenuti",
+	"cx-red-interlanguage-link-preference": "Traduzione voci",
 	"cx-red-interlanguage-link-preference-beta-desc": "Mostra un collegamento rosso per la propria lingua nell'elenco dei collegamenti linguistici se la pagina non è ancora tradotta nella tua lingua e aiuta a tradurre una pagina nella la tua lingua, utilizzando una comoda interfaccia di traduzione.",
 	"cx-entrypoint-title": "Traduci questa pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Questa pagina non esiste in $1 ancora.<br />\n{{GENDER:|Vuoi}} crearla?",
@@ -52,7 +53,7 @@
 	"cx-tools-mt-restore": "Ripristina",
 	"cx-tools-mt-not-available": "Non disponibile per $1",
 	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
-	"cx-stats-title": "Statistiche traduzione contenuti",
+	"cx-stats-title": "Statistiche traduzione voci",
 	"cx-stats-page-title": "Pagina",
 	"cx-stats-from": "Lingua di origine",
 	"cx-stats-to": "Lingua di destinazione",
