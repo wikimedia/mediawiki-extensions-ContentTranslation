@@ -135,12 +135,14 @@
 	 * @param {string} rangeToRestore, key for the range to restore
 	 */
 	Selection.prototype.pasteHTML = function ( html, rangeToRestore ) {
-		var range, el, frag, node, lastNode;
+		var selection, range, el, frag, node, lastNode;
+
+		selection = this.get();
 
 		if ( rangeToRestore ) {
 			range = this.ranges[ rangeToRestore ];
 		} else {
-			range = getRange( this.get() );
+			range = getRange( selection );
 		}
 
 		if ( window.getSelection ) {
@@ -154,8 +156,12 @@
 			range.insertNode( frag );
 
 			if ( lastNode ) {
+				range = range.cloneRange();
 				range.setStartAfter( lastNode );
 				range.collapse( true );
+				selection.removeAllRanges();
+				selection.addRange( range );
+				this.save( 'translation', selection );
 			}
 
 		} else if ( range.pasteHTML ) {
