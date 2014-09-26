@@ -353,9 +353,10 @@
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
-				if ( !linkCard.$link ) {
-					linkCard.$sourceLinkCard.hide();
+				if ( linkCard.$link ) {
+					linkCard.$link.addClass( 'new' );
 				}
+
 				return;
 			}
 			page = response.query.pages[ pageId ];
