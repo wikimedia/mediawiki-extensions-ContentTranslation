@@ -38,7 +38,7 @@
 	 * @param {object} weights
 	 */
 	ContentTranslationHeader.prototype.setPublishButtonState = function ( weights ) {
-		this.$publishButton.prop( 'disabled', weights.any === 0 );
+		this.$publishButton.show().prop( 'disabled', weights.any === 0 );
 	};
 
 	/**
@@ -157,7 +157,8 @@
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
 			.prop( 'disabled', true )
-			.text( mw.msg( 'cx-publish-button' ) );
+			.text( mw.msg( 'cx-publish-button' ) )
+			.hide();
 
 		$translationCenterLink = $( '<a>' )
 			.text( mw.msg( 'cx-header-translation-center' ) )
