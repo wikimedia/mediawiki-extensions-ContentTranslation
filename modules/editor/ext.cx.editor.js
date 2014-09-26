@@ -48,6 +48,13 @@
 		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
 	};
 
+	CXSectionEditor.prototype.pasteHandler = function ( e ) {
+		// Enforce plain text pasting.
+		var text = e.originalEvent.clipboardData.getData( 'text/plain' );
+		document.execCommand( 'insertHTML', false, text );
+		return false;
+	};
+
 	/**
 	 * Bind event handlers
 	 */
@@ -67,6 +74,7 @@
 				return e.which !== 13; // Enter key code
 			} );
 		}
+		this.$editableElement.on( 'paste', $.proxy( this.pasteHandler, this ) );
 	};
 
 	$.fn.cxEditor = function () {
