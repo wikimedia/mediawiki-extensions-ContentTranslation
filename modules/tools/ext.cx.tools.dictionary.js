@@ -27,10 +27,15 @@
 		return this;
 	};
 
-	function DictionaryCard() {
+	/**
+	 * @param {mw.cx.SiteMapper} siteMapper
+	 */
+	function DictionaryCard( siteMapper ) {
 		this.$card = null;
 		this.$translations = null;
 		this.$definition = null;
+
+		this.siteMapper = siteMapper;
 	}
 
 	DictionaryCard.prototype.getCard = function () {
@@ -84,7 +89,7 @@
 	 * @param {string} to Target language
 	 * @return {jQuery.Promise}
 	 */
-	function getTranslation( word, from, to, provider ) {
+	DictionaryCard.prototype.getTranslation = function ( word, from, to, provider ) {
 		var dictUrl, request;
 
 		if ( cache[ word ] &&
@@ -95,8 +100,13 @@
 			return cache[ word ][ from ][ to ][ provider ];
 		}
 
-		dictUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/dictionary/' +
-			word + '/' + from + '/' + to + '/' + provider;
+		// todo: refactor to avoid global access
+		dictUrl = this.siteMapper.getCXServerUrl( '/dictionary/$word/$from/$to/$provider', {
+			$word: word,
+			$from: from,
+			$to: to,
+			$provider: provider
+		} );
 
 		request = $.get( dictUrl );
 		// Create the cache object
@@ -105,7 +115,7 @@
 		cache[ word ][ from ][ to ] = cache[ word ][ from ][ to ] || {};
 		cache[ word ][ from ][ to ][ provider ] = request;
 		return request;
-	}
+	};
 
 	/**
 	 * Get the registry of dictionary providers for a language pair from the CX server.
@@ -121,8 +131,11 @@
 			return deferred.resolve( cachedProviders );
 		}
 
-		fetchProvidersUrl = mw.config.get( 'wgContentTranslationServerURL' ) + '/list/dictionary/' +
-			encodeURIComponent( from ) + '/' + encodeURIComponent( to );
+		// todo: refactor to avoid global access
+		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/dictionary/$from/$to', {
+			$from: from,
+			$to: to
+		} );
 
 		$.get( fetchProvidersUrl )
 			.done( function ( response ) {
@@ -223,7 +236,7 @@
 				provider = providers[ 0 ];
 				// Try to get a translation.
 				// Don't appear if getting the translation fails.
-				getTranslation( word, sourceLanguage, targetLanguage, provider )
+				dictionaryCard.getTranslation( word, sourceLanguage, targetLanguage, provider )
 					.done( $.proxy( dictionaryCard.showResult, dictionaryCard ) )
 					.fail( $.proxy( dictionaryCard.stop, dictionaryCard ) );
 			} ).fail( $.proxy( this.stop, this ) );

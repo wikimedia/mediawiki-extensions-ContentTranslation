@@ -44,12 +44,18 @@
 	/**
 	 * Get a URL to an article in a wiki for a given language.
 	 *
-	 * @param {string} language Language code
-	 * @param {string} title Page title
+	 * @param {string} module CXServer module path
+	 * @param {Object} [params]
 	 * @return {string}
 	 */
-	mw.cx.SiteMapper.prototype.getCXServerUrl = function ( language, title ) {
-		return this.config.cx.replace( '$1', language ).replace( '$2', title );
+	mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
+		if ( params !== undefined ) {
+			$.each( params, function ( key, value ) {
+				module = module.replace( key, encodeURIComponent( value ) );
+			} );
+		}
+
+		return this.config.cx + module;
 	};
 
 	/**

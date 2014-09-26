@@ -44,8 +44,8 @@ require_once "$dir/Autoload.php";
 
 $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
-// Content translation server URL
-$GLOBALS['wgContentTranslationServerURL'] = 'http://localhost:8080';
+// Content translation server URL, deprecated, use $wgContentTranslationSiteTemplates
+$GLOBALS['wgContentTranslationServerURL'] = null;
 $GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid.wmflabs.org/',
@@ -109,7 +109,7 @@ $GLOBALS['wgContentTranslationEventLogging'] = false;
 $GLOBALS['wgContentTranslationSiteTemplates'] = array(
 	'view' => '//$1.wikipedia.org/wiki/$2',
 	'api' => '//$1.wikipedia.org/w/api.php',
-	'cx' => 'http://localhost:8080/page/$1/$2',
+	'cx' => 'http://localhost:8080/',
 );
 
 /**
