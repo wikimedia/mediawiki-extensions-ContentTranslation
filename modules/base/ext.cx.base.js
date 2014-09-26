@@ -107,11 +107,13 @@
 			}
 		} );
 	};
+
 	$.fn.cx.defaults = {};
 
-	$( function () {
-		var siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+	// Set the global siteMapper for code which we cannot inject it
+	mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
-		$( 'body' ).cx( siteMapper );
+	$( function () {
+		$( 'body' ).cx( mw.cx.siteMapper );
 	} );
 }( jQuery, mediaWiki ) );

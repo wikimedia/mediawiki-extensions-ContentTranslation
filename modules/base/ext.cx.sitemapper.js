@@ -15,9 +15,9 @@
 	 * Handles providing urls to different wikis.
 	 * @class
 	 */
-	function SiteMapper( siteconfig ) {
+	mw.cx.SiteMapper = function ( siteconfig ) {
 		this.config = siteconfig;
-	}
+	};
 
 	/**
 	 * Get the API for a remote wiki.
@@ -25,13 +25,9 @@
 	 * @param {string} language Language code
 	 * @return {mediawiki.Api}
 	 */
-	SiteMapper.prototype.getApi = function ( language ) {
+	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
 		var url = this.config.api.replace( '$1', language );
-		return new mw.Api( {
-			ajax: {
-				url: url
-			}
-		} );
+		return new mw.Api( { ajax: { url: url } } );
 	};
 
 	/**
@@ -41,7 +37,7 @@
 	 * @param {string} title Page title
 	 * @return {string}
 	 */
-	SiteMapper.prototype.getPageUrl = function ( language, title ) {
+	mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title ) {
 		return this.config.view.replace( '$1', language ).replace( '$2', title );
 	};
 
@@ -52,12 +48,12 @@
 	 * @param {string} title Page title
 	 * @return {string}
 	 */
-	SiteMapper.prototype.getCXServerUrl = function ( language, title ) {
+	mw.cx.SiteMapper.prototype.getCXServerUrl = function ( language, title ) {
 		return this.config.cx.replace( '$1', language ).replace( '$2', title );
 	};
 
 	/**
-	 * Do the content translation by going to Special:CX  with the given
+	 * Do the content translation by going to Special:CX with the given
 	 * source-target title and target language.
 	 *
 	 * @param {string} sourceTitle
@@ -65,24 +61,29 @@
 	 * @param {string} sourceLanguage
 	 * @param {string} targetLanguage
 	 */
-	SiteMapper.prototype.getCXUrl = function ( sourceTitle, targetTitle, sourceLanguage, targetLanguage ) {
-		var uri;
+	mw.cx.SiteMapper.prototype.getCXUrl = function (
+		sourceTitle,
+		targetTitle,
+		sourceLanguage,
+		targetLanguage
+	) {
+		var cxPage, uri, queryParams;
 
-		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
-			uri = new mw.Uri( this.getPageUrl( targetLanguage, 'Special:ContentTranslation' ) );
-		} else {
-			uri = new mw.Uri( mw.util.getUrl( 'Special:ContentTranslation' ) );
-		}
-
-		uri.query = $.extend( uri.query, {
+		cxPage = 'Special:ContentTranslation';
+		queryParams = {
 			page: sourceTitle,
 			from: sourceLanguage,
 			to: targetLanguage,
 			targettitle: targetTitle
-		} );
+		};
 
-		return uri.toString();
+		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
+			uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
+			$.extend( uri.query, queryParams );
+
+			return uri.toString();
+		}
+
+		return mw.util.getUrl( cxPage, queryParams );
 	};
-
-	mw.cx.SiteMapper = SiteMapper;
 }( jQuery, mediaWiki ) );

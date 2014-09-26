@@ -117,7 +117,6 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.sitemapper',
-		'ext.cx.util',
 		'jquery.throttle-debounce',
 		'jquery.uls.data',
 	),
@@ -417,7 +416,6 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.sitemapper',
-		'ext.cx.util',
 		'jquery.uls.data',
 		'mediawiki.Uri',
 		'mediawiki.jqueryMsg',

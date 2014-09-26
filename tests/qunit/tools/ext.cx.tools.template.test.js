@@ -12,7 +12,13 @@
 	var testDataPath = mw.config.get( 'wgExtensionAssetsPath' ) +
 		'/ContentTranslation/tests/qunit/data/';
 
-	QUnit.module( 'ext.cx.tools.template', QUnit.newMwEnvironment() );
+	QUnit.module( 'ext.cx.tools.template', QUnit.newMwEnvironment( {
+		setup: function () {
+			mw.cx.siteMapper = new mw.cx.SiteMapper(
+				mw.config.get( 'wgContentTranslationSiteTemplates' )
+			);
+		}
+	} ) );
 
 	QUnit.test( 'Equivalent template exists', function ( assert ) {
 		var $fixture = $( '#qunit-fixture' );

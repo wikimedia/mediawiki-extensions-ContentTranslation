@@ -12,35 +12,6 @@
 	'use strict';
 
 	/**
-	 * Do the content translation by going to Special:CX
-	 * with the given source-target title and target language
-	 * @param {string} sourceTitle
-	 * @param {string} targetTitle
-	 * @param {string} sourceLanguage
-	 * @param {string} targetLanguage
-	 */
-	mw.cx.doCX = function ( sourceTitle, targetTitle, sourceLanguage, targetLanguage ) {
-		var domainTemplate,
-			uri = new mw.Uri();
-
-		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
-			domainTemplate = mw.config.get( 'wgContentTranslationDomainTemplate' );
-			uri.host = domainTemplate.replace( '$1', targetLanguage );
-		}
-
-		uri.path = mw.config.get( 'wgScript' );
-		uri.query = {
-			title: 'Special:ContentTranslation',
-			page: sourceTitle,
-			from: sourceLanguage,
-			to: targetLanguage,
-			targettitle: targetTitle
-		};
-
-		window.location.href = uri.toString();
-	};
-
-	/**
 	 * Generate a jQuery selector for all possible sections.
 	 * @return {string} the section selector string
 	 */

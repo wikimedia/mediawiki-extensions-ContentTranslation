@@ -175,17 +175,16 @@
 	 * @return {number} return.done.data The page id
 	 */
 	TemplateTool.prototype.getTargetTemplate = function () {
-		var domain = mw.config.get( 'wgContentTranslationDomainTemplate' );
+		// todo: avoid direct access to globals
+		var api = mw.cx.siteMapper.getApi( mw.cx.targetLanguage );
 
-		domain = domain.replace( '$1', mw.cx.targetLanguage );
 		// Note that we use canonical namespace 'Template' for title.
-		return new mw.Api().get( {
+		return api.get( {
 			action: 'query',
 			titles: 'Template:' + this.templateTitle,
 			redirects: true,
 			format: 'json'
 		}, {
-			url: '//' + domain + '/w/api.php',
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
