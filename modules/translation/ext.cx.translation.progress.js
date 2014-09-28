@@ -130,6 +130,10 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.translation.change' ).add( onSectionUpdate );
+		// Show the progress bar with 0 progress.
+		mw.hook( 'mw.cx.progress' ).fire( {
+			any: 0
+		} );
 		window.onbeforeunload = function () {
 			var weights = getTranslationWeights( getSectionsWithContent() );
 

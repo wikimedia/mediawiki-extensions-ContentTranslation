@@ -68,7 +68,6 @@ $wgResourceModules['ext.cx.header'] = array(
 		'header/styles/ext.cx.header.less',
 	),
 	'dependencies' => array(
-		'ext.cx.publish',
 		'mediawiki.Uri',
 		'mediawiki.jqueryMsg',
 		'mediawiki.util',

@@ -44,14 +44,17 @@
 		this.$header.cxHeader( this.siteMapper );
 		this.$source.cxSource( this.siteMapper );
 
-		mw.loader.using( [
-			'ext.cx.tools',
-			'ext.cx.translation',
-			'ext.cx.translation.progress'
-		] ).then( function () {
-			cx.$translation.cxTranslation();
-			cx.$tools.cxTools();
-		} );
+		if ( mw.cx.sourceTitle ) {
+			mw.loader.using( [
+				'ext.cx.tools',
+				'ext.cx.translation',
+				'ext.cx.translation.progress',
+				'ext.cx.publish'
+			] ).then( function () {
+				cx.$translation.cxTranslation();
+				cx.$tools.cxTools();
+			} );
+		}
 	};
 
 	ContentTranslation.prototype.render = function () {
