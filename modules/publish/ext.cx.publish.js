@@ -141,8 +141,16 @@
 				mw.cx.targetLanguage
 			);
 		} ).fail( function ( code, details ) {
+			var trace = {
+				sourceLanguage: mw.cx.sourceLanguage,
+				targetLanguage: mw.cx.targetLanguage,
+				sourceTitle: mw.cx.sourceTitle,
+				sourceRevision: mw.cx.sourceRevision,
+				targetTitle: targetTitle,
+				error: details
+			};
 			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
-			mw.log( '[CX] Error while publishing:', code, details );
+			mw.log( '[CX] Error while publishing:', code, trace );
 		} ).always( function () {
 			$publishButton
 				.prop( 'disabled', false )
