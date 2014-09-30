@@ -162,7 +162,6 @@
 		// And now onwards clicking on source section has same effect of clicking
 		// on target section.
 		$sourceSection.on( 'click', function () {
-			mw.cx.selection.restore( 'translation' );
 			mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 		} );
 		// If the section is editable, initiate an editor.
