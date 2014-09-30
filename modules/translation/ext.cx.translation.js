@@ -202,30 +202,38 @@
 
 	/**
 	 * Update the translation section with the machine translation template.
+	 *
 	 * @param {string} sourceId source section identifier
-	 * @param {boolean} machineTranslate Whether machine translation to be used or not
+	 * @param {string} origin Event source or reason
 	 */
 	ContentTranslationEditor.prototype.applyTranslationTemplate = function (
 		sourceId,
-		machineTranslate
+		origin
 	) {
-		var $sourceSection, $section;
+		var $sourceSection, $section, $clone;
 
 		$sourceSection = $( '#' + sourceId );
 		$section = $( '#cx' + sourceId );
 
-		if ( machineTranslate ) {
+		if ( origin === 'click' || origin === 'restore' ) {
+			// On failure this fires a hook which this method listens to.
+			// For that there is the else branch.
 			$sourceSection.machineTranslate();
 		} else {
-			// Replace the placeholder with the source section
-			$section.replaceWith( $sourceSection
+			$clone = $sourceSection
 				.clone()
 				.attr( {
 					id: 'cx' + sourceId,
 					'data-source': sourceId,
 					'data-cx-source': true
-				} )
-			);
+				} );
+
+			if ( origin === 'mt-disabled' || origin === 'clear' ) {
+				$clone.empty();
+			} // else: service-failure, non-editable
+
+			// Replace the placeholder with a translatable element
+			$section.replaceWith( $clone );
 
 			// $section was replaced. Get the updated instance.
 			$section = $( '#cx' + sourceId );
@@ -286,10 +294,10 @@
 				$currentSection.data( 'cx-section-type' )
 			)
 		) {
-			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), true );
+			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), 'click' );
 		}
 
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceSectionId, true );
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceSectionId, 'click' );
 	}
 
 	function sectionMouseEnterHandler() {

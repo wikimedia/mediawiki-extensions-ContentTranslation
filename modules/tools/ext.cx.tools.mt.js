@@ -70,7 +70,9 @@
 			$provider: MTControlCard.provider
 		} );
 
-		return $.post( mtURL, sourceHtml );
+		return $.post( mtURL, sourceHtml ).then( null, function () {
+			return new $.Deferred().reject( 'service-failure', arguments ).promise();
+		} );
 	}
 
 	function markMTLoading( $section ) {
@@ -112,9 +114,13 @@
 				translateSection( $section );
 			} );
 		}
-		// Check if the section is ediable or provider is disabled
-		if ( MTControlCard.provider === disableMT || $section.data( 'editable' ) === false ) {
-			return $.Deferred().reject().promise();
+
+		if ( MTControlCard.provider === disableMT ) {
+			return $.Deferred().reject( 'mt-disabled' ).promise();
+		}
+
+		if ( $section.data( 'editable' ) === false ) {
+			return $.Deferred().reject( 'non-editable' ).promise();
 		}
 
 		sectionId = $section.prop( 'id' );
@@ -166,8 +172,8 @@
 					$section = $( '#cx' + sourceId );
 				}
 			} )
-			.fail( function () {
-				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
+			.fail( function ( reason ) {
+				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, reason );
 			} )
 			.always( function () {
 				$section.data( 'cx-mt', true );
@@ -247,7 +253,7 @@
 	MTControlCard.prototype.useSource = function () {
 		var sourceId = this.$section.data( 'source' );
 		// Use the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, false );
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'source' );
 	};
 
 	/**
@@ -258,7 +264,7 @@
 	MTControlCard.prototype.restoreTranslation = function () {
 		var sourceId = this.$section.data( 'source' );
 		// Use the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, true );
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'restore' );
 		this.stop();
 	};
 
@@ -298,8 +304,6 @@
 
 		this.$restore
 			.on( 'click', $.proxy( this.restoreTranslation, this ) );
-
-		mw.hook( 'mw.cx.translation.change' ).add( $.proxy( this.showRestore, this ) );
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
@@ -371,7 +375,7 @@
 		this.$section = $section;
 		this.selectProvider( MTControlCard.provider );
 
-		if ( this.$section.data( 'cx-mt' ) ) {
+		if ( this.$section.data( 'cx-mt' ) || MTControlCard.provider === disableMT ) {
 			this.$restore.addClass( 'hidden' );
 		} else {
 			this.$restore.removeClass( 'hidden' );
