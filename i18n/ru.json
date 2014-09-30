@@ -3,7 +3,8 @@
 		"authors": [
 			"Okras",
 			"Alexandr Efremov",
-			"Meshkov.a"
+			"Meshkov.a",
+			"Amire80"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -11,7 +12,7 @@
 	"cx-error-server-connection": "Ошибка: Не удалось подключиться к серверу.",
 	"cx-desc": "Инструмент, который позволяет редакторам переводить страницы с одного языка на другой с помощью машинного перевода и других инструментов перевода",
 	"cx-header-progressbar-text": "Перевод выполнен на $1%",
-	"cx-header-progressbar-text-mt": "($1% от машинного перевода)",
+	"cx-header-progressbar-text-mt": "($1% машинного перевода)",
 	"cx-header-translation-center": "Центр переводов",
 	"cx-source-view-page": "просмотр страницы",
 	"cx-publish-page": "Страница опубликована на [$1 $2]",
