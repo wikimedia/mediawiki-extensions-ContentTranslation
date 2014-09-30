@@ -24,20 +24,19 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getImageNamespaceTranslation( targetLanguage ) {
-		var api = new mw.Api(),
-			deferred = $.Deferred();
+		var deferred = new $.Deferred();
 
 		if ( cachedNamespaces[ targetLanguage ] ) {
-			return deferred.resolve( cachedNamespaces[ targetLanguage ] );
+			return deferred.resolve( cachedNamespaces[ targetLanguage ] ).promise();
 		}
 
-		api.get( {
+		// @todo refactor to avoid global reference
+		mw.cx.siteMapper.getApi( targetLanguage ).get( {
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces',
 			format: 'json'
 		}, {
-			url: '//' + targetLanguage + '.wikipedia.org/w/api.php',
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
