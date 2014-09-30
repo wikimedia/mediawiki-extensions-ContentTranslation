@@ -49,17 +49,24 @@ h2 {
 .cx-column {
 	.mw-ui-item;
 	.mw-ui-one-third;
-	word-wrap: break-word;
 	.mw-ui-gutter(3%);
 }
 
 .cx-column--source,
 .cx-column--translation {
 	.mw-ui-one-half(@palm);
-}
 
-.cx-column__content {
-	clear: both;
+	.cx-column__sub-heading {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		padding-bottom: 10px;
+		height: 3em;
+	}
+
+	.cx-column__content {
+		clear: both;
+		word-wrap: break-word;
+	}
 }
 
 .cx-column--tools {
