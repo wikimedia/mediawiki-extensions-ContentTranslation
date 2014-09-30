@@ -50,6 +50,7 @@
 		background-color: white;
 		border: 1px solid #aaa;
 		padding: 0;
+		z-index: 1;
 
 		>li {
 			cursor: pointer;
@@ -106,28 +107,30 @@
 			line-height: 1.5em;
 			color: #565656; // TODO Should come from library?
 			cursor: pointer;
-			padding: 5px 10px 0px 25px;
+			padding: 5px 10px 0px 25px !important; /* grid override */
 			border-top: 1px solid #dddddd;
 			border-left: 1px solid #dddddd;
 			background-repeat: no-repeat;
 			background-position: left 4px center;
+
+			&.card__control-button--disabled {
+				opacity: 0.5;
+				cursor: default;
+			}
 		}
 
 		.cx-use-source {
 			.mw-ui-one-half;
-			.card__control-button;
 			.background-image-svg('../images/pasting.svg', '../images/pasting.png');
 		}
 
 		.cx-clear-translation {
 			.mw-ui-one-half;
-			.card__control-button;
 			.background-image-svg('../images/clear.svg', '../images/clear.png');
 		}
 
 		.cx-restore-translation {
 			.mw-ui-one-whole;
-			.card__control-button;
 			.background-image-svg('../images/arched-arrow-ltr.svg', '../images/arched-arrow-ltr.png');
 			border: none;
 		}

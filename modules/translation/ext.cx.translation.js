@@ -217,7 +217,8 @@
 
 		if ( origin === 'click' || origin === 'restore' ) {
 			// On failure this fires a hook which this method listens to.
-			// For that there is the else branch.
+			// For that there is the else branch. On success this also sets the
+			// data-cx-state to 'mt'.
 			$sourceSection.machineTranslate();
 		} else {
 			$clone = $sourceSection
@@ -225,10 +226,11 @@
 				.attr( {
 					id: 'cx' + sourceId,
 					'data-source': sourceId,
-					'data-cx-source': true
-				} );
+				} )
+				.data( 'cx-state', 'source' );
 
 			if ( origin === 'mt-disabled' || origin === 'clear' ) {
+				$clone.data( 'cx-state', 'empty' );
 				$clone.empty();
 			} // else: service-failure, non-editable
 

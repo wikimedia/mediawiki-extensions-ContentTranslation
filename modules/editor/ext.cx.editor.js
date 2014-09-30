@@ -39,12 +39,9 @@
 	 * Section change handler
 	 */
 	CXSectionEditor.prototype.onChange = function () {
-		// Remove the MT and source label from the section.
+		// Remove the MT/source/empty label from the section.
 		// Some manual change happened.
-		this.$section.data( {
-			'cx-mt': false,
-			'cx-source': false
-		} );
+		this.$section.data( 'cx-state', null );
 		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
 	};
 
