@@ -15,14 +15,17 @@
 	/**
 	 * Link Card
 	 * @class
+	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
-	function LinkCard() {
+	function LinkCard( siteMapper ) {
 		this.$card = null;
 		this.$removeLink = null;
 		this.$addLink = null;
 		this.$link = null;
 		this.$sourceLinkCard = null;
 		this.$targetLinkCard = null;
+
+		this.siteMapper = siteMapper;
 	}
 
 	/**
@@ -122,20 +125,20 @@
 
 	/**
 	 * Get the link data for a given title and language.
+	 * @param {mediawiki.Api} api
 	 * @param {string} title
 	 * @param {string} language
 	 * @return {jQuery.Promise}
 	 */
-	function getLink( title, language ) {
-		var request, api;
+	function getLink( api, title, language ) {
+		var request;
 
 		// Normalize
 		title = mw.Title.newFromText( title ).toString();
 		if ( cache[ title ] && cache[ title ][ language ] ) {
-			return cache[ title ][ language ];
+			return cache[ title ][ language ].promise();
 		}
 
-		api = new mw.Api();
 		request = api.get( {
 			action: 'query',
 			titles: title,
@@ -145,7 +148,6 @@
 			redirects: true,
 			format: 'json'
 		}, {
-			url: '//' + language + '.wikipedia.org/w/api.php',
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
@@ -153,7 +155,8 @@
 
 		cache[ title ] = cache[ title ] || {};
 		cache[ title ][ language ] = request;
-		return request;
+
+		return request.promise();
 	}
 
 	/**
@@ -175,14 +178,13 @@
 	 * @return {jQuery.Promise}
 	 */
 	LinkCard.prototype.adapt = function ( titles, language ) {
-		var api, deferred;
+		var deferred = $.Deferred();
 
-		api = new mw.Api();
-		deferred = $.Deferred();
 		if ( !$.isArray( titles ) ) {
 			titles = new Array( titles );
 		}
-		api.get( {
+
+		this.siteMapper.getApi( mw.cx.sourceLanguage ).get( {
 			action: 'query',
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
@@ -190,7 +192,6 @@
 			redirects: true,
 			format: 'json'
 		}, {
-			url: '//' + mw.cx.sourceLanguage + '.wikipedia.org/w/api.php',
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
@@ -230,6 +231,7 @@
 			// No need to make this error visible beyond logging
 			deferred.resolve( {} );
 		} );
+
 		return deferred.promise();
 	};
 
@@ -342,13 +344,15 @@
 	 * @param {string} language Source language code
 	 */
 	LinkCard.prototype.prepareSourceLinkCard = function ( title, language ) {
-		var linkCard = this;
+		var api,
+			linkCard = this;
 
 		if ( !title ) {
 			return;
 		}
 
-		getLink( title, language ).done( function ( response ) {
+		api = this.siteMapper.getApi( language );
+		getLink( api, title, language ).done( function ( response ) {
 			var imgSrc, pageId, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
@@ -382,12 +386,15 @@
 	 * @param {string} language Target language code
 	 */
 	LinkCard.prototype.prepareTargetLinkCard = function ( title, language ) {
-		var linkCard = this;
+		var api,
+			linkCard = this;
 
 		if ( !title ) {
 			return;
 		}
-		getLink( title, language ).done( function ( response ) {
+
+		api = this.siteMapper.getApi( language );
+		getLink( api, title, language ).done( function ( response ) {
 			var imgSrc, pageId, selection, page;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
@@ -610,13 +617,14 @@
 	 * @param {string} language The wiki language.
 	 */
 	LinkCard.prototype.setLinkAttributes = function ( $link, title, language ) {
+
 		$link
 			.text( title )
 			.prop( {
 				lang: language,
 				dir: $.uls.data.getDir( language ),
 				target: '_blank',
-				href: '//' + language + '.wikipedia.org/wiki/' + title
+				href: this.siteMapper.getPageUrl( language, title )
 			} );
 	};
 
@@ -648,7 +656,9 @@
 	}
 
 	function adaptLinks( $section ) {
-		var linkAdaptor = new LinkCard(),
+		// WHYYYYYYY?
+		// @todo refactor to avoid global reference
+		var linkAdaptor = new LinkCard( mw.cx.siteMapper ),
 			$links,
 			sourceTitles;
 
