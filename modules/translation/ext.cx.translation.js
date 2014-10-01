@@ -66,6 +66,12 @@
 
 		this.$container.append( $heading );
 
+		// The heading of the translation can be significantly shorter or longer
+		// than the heading of the source. Because it uses cxEditor, it is
+		// automatically aligned when it's edited, but not if it's loaded
+		// with explicit targettitle.
+		$heading.keepAlignment();
+
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
 				lang: mw.cx.targetLanguage,
