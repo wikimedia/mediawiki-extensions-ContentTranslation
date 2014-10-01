@@ -99,15 +99,21 @@
 	.mw-ui-three-quarters;
 	background-color: #FFFFFF;
 	padding: 0;
-}
 
-.card__link-text {
-	.mw-ui-item;
-	width: auto;
-	color: #0645ad;
-	font-size: large;
-	padding: 4px;
-	padding-bottom: 15px;
+	.card__link-container {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding: 4px;
+		padding-bottom: 15px;
+
+		.card__link-text {
+			color: #0645ad;
+			font-size: large;
+			white-space: nowrap;
+		}
+	}
 }
 
 .card__link-instruction {

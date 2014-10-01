@@ -33,15 +33,19 @@
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getLinkCard = function () {
-		var $card, $imageContainer,
+		var $card,
+			$imageContainer, $linkContainer,
 			$cardHeader, $linkInfo;
 
 		$card = $( '<div>' )
 			.addClass( 'card' );
+
 		$imageContainer = $( '<div>' )
 			.addClass( 'card__link-image-container' );
+
 		$linkInfo = $( '<div>' )
 			.addClass( 'card__link-info' );
+
 		$cardHeader = $( '<div>' )
 			.addClass( 'card__link-header' );
 		$cardHeader.append( $( '<div>' )
@@ -49,10 +53,19 @@
 			.text( mw.msg( 'cx-tools-link-title' ) ) );
 		$cardHeader.append( $( '<div>' )
 			.addClass( 'card__title--language' ) );
+
 		$linkInfo.append( $cardHeader );
-		$linkInfo.append( $( '<a>' )
+
+		$linkContainer = $( '<div>' )
+			.addClass( 'card__link-container' );
+
+		$linkContainer.append( $( '<a>' )
 			.addClass( 'card__link-text' ) );
+
+		$linkInfo.append( $linkContainer );
+
 		$card.append( $imageContainer, $linkInfo );
+
 		return $card;
 	};
 
@@ -621,6 +634,7 @@
 		$link
 			.text( title )
 			.prop( {
+				title: title,
 				lang: language,
 				dir: $.uls.data.getDir( language ),
 				target: '_blank',
