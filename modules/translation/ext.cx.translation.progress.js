@@ -73,14 +73,13 @@
 		};
 
 		$sections.each( function () {
-			var weight, $section = $( this );
+			var weight, state, $section = $( this );
 
 			weight = $section.data( 'cx-weight' );
 			weights.any += weight;
 
-			if ( $section.data( 'cx-mt' ) === true ||
-				$section.data( 'cx-source' ) === true
-			) {
+			state = $section.data( 'cx-state' );
+			if ( state === 'mt' || state === 'source' ) {
 				// If the section has unmodified MT or source content copied,
 				// count it as MT.
 				weights.mt += weight;

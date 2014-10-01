@@ -165,8 +165,9 @@
 						.children()
 						.attr( {
 							id: 'cx' + sourceId,
-							'data-source': sourceId
+							'data-source': sourceId,
 						} )
+						.data( 'cx-state', 'mt' )
 					);
 					// $section was replaced. Get the updated instance.
 					$section = $( '#cx' + sourceId );
@@ -176,7 +177,6 @@
 				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, reason );
 			} )
 			.always( function () {
-				$section.data( 'cx-mt', true );
 				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 			} );
 
@@ -188,12 +188,15 @@
 		this.$card = null;
 		this.$translations = null;
 		this.$providersMenu = null;
+		this.actions = {
+			$restore: null,
+			$clear: null,
+			$source: null
+		};
 	}
 
 	MTControlCard.prototype.getCard = function () {
-		var $titleRow, $title,
-			$controlButtonsBlock, $useSource, $clearTranslation,
-			$bottom;
+		var $titleRow, $title, $controlButtonsBlock, $bottom;
 
 		this.$card = $( '<div>' )
 			.addClass( 'card mt' );
@@ -209,25 +212,25 @@
 		this.$providerSelectorTrigger = $( '<div>' )
 			.addClass( 'card__trigger' );
 
-		this.$restore = $( '<div>' )
+		this.actions.$restore = $( '<div>' )
 			.addClass( 'card__control-button cx-restore-translation' )
 			.text( mw.msg( 'cx-tools-mt-restore' ) );
 
-		$useSource = $( '<div>' )
+		this.actions.$source = $( '<div>' )
 			.addClass( 'card__control-button cx-use-source' )
 			.text( mw.msg( 'cx-tools-mt-use-source' ) );
 
-		$clearTranslation = $( '<div>' )
+		this.actions.$clear = $( '<div>' )
 			.addClass( 'card__control-button cx-clear-translation' )
 			.text( mw.msg( 'cx-tools-mt-clear-translation' ) );
 
 		$controlButtonsBlock = $( '<div>' )
 			.addClass( 'card__button-block' )
-			.append(
-				this.$restore,
-				$useSource,
-				$clearTranslation
-		);
+			.append( // Object.values would be nice here
+				this.actions.$restore,
+				this.actions.$source,
+				this.actions.$clear
+			);
 
 		$bottom = $( '<div>' )
 			.addClass( 'card__bottom' );
@@ -272,9 +275,9 @@
 	 * Clear the translation text.
 	 */
 	MTControlCard.prototype.clearTranslation = function () {
-		this.$section.empty();
-		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
-		this.$section.focus();
+		var sourceId = this.$section.data( 'source' );
+
+		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'clear' );
 	};
 
 	MTControlCard.prototype.selectProvider = function ( providerId ) {
@@ -296,13 +299,13 @@
 	};
 
 	MTControlCard.prototype.listen = function () {
-		this.$card.find( '.cx-use-source' )
+		this.actions.$source
 			.on( 'click', $.proxy( this.useSource, this ) );
 
-		this.$card.find( '.cx-clear-translation' )
+		this.actions.$clear
 			.on( 'click', $.proxy( this.clearTranslation, this ) );
 
-		this.$restore
+		this.actions.$restore
 			.on( 'click', $.proxy( this.restoreTranslation, this ) );
 	};
 
@@ -372,13 +375,34 @@
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
+		var state;
+
 		this.$section = $section;
 		this.selectProvider( MTControlCard.provider );
 
-		if ( this.$section.data( 'cx-mt' ) || MTControlCard.provider === disableMT ) {
-			this.$restore.addClass( 'hidden' );
+		// Hide or disable action buttons depending on the state.
+		// Disabling is achieved by changing style. Actions are
+		// only disabled if they were already executed and no changes
+		// have been done after that. Hence there is no need to actually
+		// prevent doing them again.
+		state = $section.data( 'cx-state' );
+
+		if ( state === 'mt' || MTControlCard.provider === disableMT ) {
+			this.actions.$restore.addClass( 'hidden' );
 		} else {
-			this.$restore.removeClass( 'hidden' );
+			this.actions.$restore.removeClass( 'hidden' );
+		}
+
+		if ( state === 'empty' ) {
+			this.actions.$clear.addClass( 'card__control-button--disabled' );
+		} else {
+			this.actions.$clear.removeClass( 'card__control-button--disabled' );
+		}
+
+		if ( state === 'source' ) {
+			this.actions.$source.addClass( 'card__control-button--disabled' );
+		} else {
+			this.actions.$source.removeClass( 'card__control-button--disabled' );
 		}
 
 		this.$card.show();
