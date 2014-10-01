@@ -207,7 +207,7 @@
 	};
 
 	/**
-	 * CXEntryPoint Plugin
+	 * CXEntryPoint plugin
 	 */
 	$.fn.cxEntryPoint = function ( options ) {
 		return this.each( function () {

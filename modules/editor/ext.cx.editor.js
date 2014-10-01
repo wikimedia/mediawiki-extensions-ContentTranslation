@@ -24,19 +24,20 @@
 	}
 
 	/**
-	 * Initialize the editor
+	 * Initialize the editor.
 	 */
 	CXSectionEditor.prototype.init = function () {
 		if ( this.$section.get( 0 ).tagName === 'FIGURE' ) {
 			// Inside figure allow editing of caption alone
 			this.$editableElement = this.$section.find( 'figcaption' );
 		}
+
 		// Make the element editable
 		this.$editableElement.attr( 'contenteditable', true );
 	};
 
 	/**
-	 * Section change handler
+	 * Section change handler.
 	 */
 	CXSectionEditor.prototype.onChange = function () {
 		// Remove the MT/source/empty label from the section.
@@ -45,23 +46,28 @@
 		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
 	};
 
+	/**
+	 * Paste handler. Adapts pasted text.
+	 */
 	CXSectionEditor.prototype.pasteHandler = function ( e ) {
-		// Enforce plain text pasting.
+		// Enforce plain text pasting
 		var text = e.originalEvent.clipboardData.getData( 'text/plain' );
+
 		document.execCommand( 'insertHTML', false, text );
+
 		return false;
 	};
 
 	/**
-	 * Bind event handlers
+	 * Bind event handlers.
 	 */
 	CXSectionEditor.prototype.listen = function () {
 		var cxEditor = this;
 
 		this.$editableElement.on( 'input', $.debounce( 200, false, function () {
-			// Delay the input handler check till user pause typing.
-			// If this check was done every input, the responsiveness
-			// will get affected.
+			// Delay the input handler check till user pauses typing.
+			// If this check is done every input,
+			// the responsiveness will get affected.
 			cxEditor.onChange();
 		} ) );
 
@@ -71,17 +77,23 @@
 				return e.which !== 13; // Enter key code
 			} );
 		}
+
 		this.$editableElement.on( 'paste', $.proxy( this.pasteHandler, this ) );
 	};
 
+	/**
+	 * The CXSectionEditor plugin.
+	 * Sets common properties on all editable elements
+	 * in the translation column.
+	 */
 	$.fn.cxEditor = function () {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxSectionEditor' );
+
 			if ( !data ) {
 				$this.data( 'cxSectionEditor', ( data = new CXSectionEditor( this ) ) );
 			}
 		} );
 	};
-
 }( jQuery, mediaWiki ) );
