@@ -39,10 +39,8 @@
 		this.$info = $( '<div>' )
 			.addClass( 'cx-progressbar__info' )
 			.append(
-				$( '<div>' )
-					.addClass( 'cx-progressbar__info--total' ),
-				$( '<div>' )
-					.addClass( 'cx-progressbar__info--mt' )
+				$( '<div>' ).addClass( 'cx-progressbar__info--total' ),
+				$( '<div>' ).addClass( 'cx-progressbar__info--mt' )
 			);
 
 		this.$container.append( this.$info.hide() );

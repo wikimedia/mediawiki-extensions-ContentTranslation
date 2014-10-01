@@ -28,13 +28,13 @@
 		this.$card.find( '.card__mtabuse-details' )
 			.text( mw.msg( 'cx-mt-abuse-warning-text' ) );
 
-		this.$card.find( '.card__mtabuse-link' )
-			.append( $( '<a>' )
-				.prop( {
-					href: mw.msg( 'cx-tools-view-guidelines-link' ),
-					target: '_blank'
-				} )
-				.text( mw.msg( 'cx-tools-view-guidelines' ) ) );
+		this.$card.find( '.card__mtabuse-link' ).append( $( '<a>' )
+			.prop( {
+				href: mw.msg( 'cx-tools-view-guidelines-link' ),
+				target: '_blank'
+			} )
+			.text( mw.msg( 'cx-tools-view-guidelines' ) ) );
+
 		this.$card.hide();
 	};
 

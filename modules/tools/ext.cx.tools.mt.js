@@ -82,7 +82,8 @@
 			.append(
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' ) );
+				$( '<div>' ).addClass( 'bounce3' )
+			);
 	}
 
 	/**
@@ -94,6 +95,7 @@
 		var $wrapper = $( '<div>' ).append( $section.clone() );
 
 		$wrapper.find( '*' ).removeAttr( 'data-parsoid data-mw' );
+
 		return $wrapper.html();
 	}
 

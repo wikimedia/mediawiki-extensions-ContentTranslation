@@ -40,8 +40,6 @@
 	InstructionsCard.prototype.constructor = InstructionsCard;
 
 	InstructionsCard.prototype.render = function () {
-		var $guidelines;
-
 		this.$card.find( '.tools.count.one' )
 			.text( mw.language.convertNumber( 1 ) );
 		this.$card.find( '.text.heading.one' )
@@ -63,13 +61,12 @@
 		this.$card.find( '.text.description.three' )
 			.text( mw.msg( 'cx-tools-instructions-text6' ) );
 
-		$guidelines = this.$card.find( '.card__section.guidelines' )
-			.append( $( '<a>' )
-				.prop( {
-					href: mw.msg( 'cx-tools-view-guidelines-link' ),
-					target: '_blank'
-				} )
-				.text( mw.msg( 'cx-tools-view-guidelines' ) )
+		this.$card.find( '.card__section.guidelines' ).append( $( '<a>' )
+			.prop( {
+				href: mw.msg( 'cx-tools-view-guidelines-link' ),
+				target: '_blank'
+			} )
+			.text( mw.msg( 'cx-tools-view-guidelines' ) )
 		);
 	};
 

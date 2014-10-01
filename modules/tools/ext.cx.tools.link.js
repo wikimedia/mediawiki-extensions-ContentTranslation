@@ -86,6 +86,7 @@
 			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
 		$linkInstructionSection.append( $linkInstructionShortcut );
 		this.$sourceLinkCard.find( '.card__link-info' ).append( $linkInstructionSection );
+
 		return this.$sourceLinkCard.hide();
 	};
 
@@ -105,6 +106,7 @@
 			.text( mw.msg( 'cx-tools-link-add' ) );
 		this.$targetLinkCard.find( '.card__link-info' )
 			.append( this.$addLink, this.$removeLink );
+
 		return this.$targetLinkCard.hide();
 	};
 
@@ -118,6 +120,7 @@
 		this.$card.append( this.getSourceLinkCard() );
 		this.$card.append( this.getTargetLinkCard() );
 		this.listen();
+
 		return this.$card.hide();
 	};
 
@@ -376,17 +379,20 @@
 
 				return;
 			}
+
 			page = response.query.pages[ pageId ];
 			linkCard.createExternalLink(
 				linkCard.$sourceLinkCard.find( '.card__link-text' ),
 				page.title,
 				language
 			);
+
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
 				linkCard.$sourceLinkCard.find( '.card__link-image-container' )
 					.append( $( '<img>' ).attr( 'src', imgSrc ) );
 			}
+
 			linkCard.$sourceLinkCard.show();
 			linkCard.$card.show();
 			linkCard.onShow();
@@ -408,7 +414,7 @@
 
 		api = this.siteMapper.getApi( language );
 		getLink( api, title, language ).done( function ( response ) {
-			var imgSrc, pageId, selection, page;
+			var pageId, page, selection, imgSrc;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
@@ -423,6 +429,7 @@
 				page.title,
 				language
 			);
+
 			if ( isValidSelection( selection ) ) {
 				// Some text selected in translation column and it has a link.
 				// Set up the add link button.
@@ -430,8 +437,10 @@
 					mw.cx.selection.restore( 'translation' );
 					linkCard.createInternalLink( title, page.title );
 				} );
+
 				// Show the add link button
 				linkCard.$addLink.show();
+
 				// Hide the remove link button
 				linkCard.$removeLink.hide();
 			} else {
@@ -442,15 +451,18 @@
 					linkCard.removeLink();
 				} );
 			}
+
 			if ( !linkCard.$link ) {
 				// There is no link to remove. Card came from search.
 				linkCard.$removeLink.hide();
 			}
+
 			if ( page.thumbnail ) {
 				imgSrc = page.thumbnail.source;
 				linkCard.$targetLinkCard.find( '.card__link-image-container' )
 					.append( $( '<img>' ).attr( 'src', imgSrc ) );
 			}
+
 			linkCard.$targetLinkCard.show();
 			linkCard.$card.show();
 			linkCard.onShow();
@@ -537,7 +549,7 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var title, targetTitle, sourceTitle, $sourceLink, $targetLink, selection;
+		var selection, title, targetTitle, sourceTitle, $targetLink, $sourceLink;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
@@ -630,7 +642,6 @@
 	 * @param {string} language The wiki language.
 	 */
 	LinkCard.prototype.setLinkAttributes = function ( $link, title, language ) {
-
 		$link
 			.text( title )
 			.prop( {
@@ -682,7 +693,7 @@
 		// Collect all sourceTitles;
 		sourceTitles = $links.map( function () {
 			var href = $( this ).attr( 'href' );
-			// some cleanup
+
 			return cleanupLinkHref( href );
 		} ).get();
 
@@ -693,8 +704,7 @@
 				var $link = $( this ),
 					href = $link.attr( 'href' );
 
-				// add a class to the link at this section - to identify
-				// them as links in translation.
+				// Identify this link as an adapted link in translation
 				$link.removeClass( 'cx-link' ).addClass( 'cx-target-link' );
 
 				href = cleanupLinkHref( href );
