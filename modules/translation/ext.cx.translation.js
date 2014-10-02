@@ -92,7 +92,6 @@
 		$content = $( '<div>' ).addClass( 'cx-column__content' );
 
 		this.$container.append( $content );
-		mw.hook( 'mw.cx.translation.change' ).fire();
 		this.$title = this.$container.find( '.cx-column__title' );
 
 		mw.hook( 'mw.cx.translation.ready' ).fire();
@@ -234,10 +233,10 @@
 				} )
 				.data( 'cx-state', 'source' );
 
-			if ( origin === 'mt-disabled' || origin === 'clear' ) {
+			if ( origin === 'mt-user-disabled' || origin === 'clear' ) {
 				$clone.data( 'cx-state', 'empty' );
 				$clone.empty();
-			} // else: service-failure, non-editable
+			} // else: service-failure, non-editable, mt-not-available
 
 			// Replace the placeholder with a translatable element
 			$section.replaceWith( $clone );

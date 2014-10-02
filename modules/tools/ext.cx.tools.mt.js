@@ -13,7 +13,9 @@
 
 	var cache = {}, // MT requests cache
 		providerIdPrefix = 'cx-provider-',
-		disableMT = 'disable-mt';
+		disableMT = 'disable-mt',
+		noMT = 'no-mt',
+		sourceMT = 'source-mt';
 
 	/**
 	 * Get the registry of machine translation providers
@@ -40,7 +42,7 @@
 				MTControlCard.providers = response.providers;
 
 				if ( $.isEmptyObject( MTControlCard.providers ) ) {
-					MTControlCard.provider = disableMT;
+					MTControlCard.provider = noMT;
 				} else {
 					// TODO Consider user preferences
 					MTControlCard.provider = MTControlCard.providers[ 0 ];
@@ -117,8 +119,16 @@
 			} );
 		}
 
-		if ( MTControlCard.provider === disableMT ) {
-			return $.Deferred().reject( 'mt-disabled' ).promise();
+		if ( provider === disableMT ) {
+			return $.Deferred().reject( 'mt-user-disabled' ).promise();
+		}
+
+		if ( provider === noMT ) {
+			return $.Deferred().reject( 'mt-not-available' ).promise();
+		}
+
+		if ( provider === sourceMT ) {
+			return $.Deferred().reject( 'mt-not-available' ).promise();
 		}
 
 		if ( $section.data( 'editable' ) === false ) {
@@ -134,7 +144,7 @@
 				doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent );
 			// Put that in cache.
 			cache[ sectionId ] = cache[ sectionId ] || {};
-			cache[ sectionId ][ MTControlCard.provider ] = sectionTranslationRequest;
+			cache[ sectionId ][ provider ] = sectionTranslationRequest;
 		}
 
 		if ( prefetch ) {
@@ -330,7 +340,10 @@
 		}
 
 		// Add an item to disable machine translation for the language
-		this.$providersMenu.append( this.getProviderItem( disableMT ) );
+		this.$providersMenu.append(
+			this.getProviderItem( sourceMT ),
+			this.getProviderItem( disableMT )
+		);
 
 		this.$providerSelectorTrigger
 			.on( 'click', function ( e ) {
@@ -355,6 +368,11 @@
 	MTControlCard.prototype.getProviderTitle = function ( id ) {
 		if ( id === disableMT ) {
 			return mw.msg( 'cx-tools-mt-dont-use' );
+		} else if ( id === noMT ) {
+			return mw.msg( 'cx-tools-mt-not-available', $.uls.data.getAutonym( mw.cx.targetLanguage ) );
+		} else if ( id === sourceMT ) {
+			// FIXME: message reuse
+			return mw.msg( 'cx-tools-mt-use-source' );
 		} else {
 			return mw.msg( 'cx-tools-mt-provider-title', id );
 		}
@@ -377,10 +395,11 @@
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
-		var state;
+		var state,
+			provider = MTControlCard.provider;
 
 		this.$section = $section;
-		this.selectProvider( MTControlCard.provider );
+		this.selectProvider( provider );
 
 		// Hide or disable action buttons depending on the state.
 		// Disabling is achieved by changing style. Actions are
@@ -389,7 +408,12 @@
 		// prevent doing them again.
 		state = $section.data( 'cx-state' );
 
-		if ( state === 'mt' || MTControlCard.provider === disableMT ) {
+		if (
+			state === 'mt' ||
+			provider === disableMT ||
+			provider === sourceMT ||
+			provider === noMT
+		) {
 			this.actions.$restore.addClass( 'hidden' );
 		} else {
 			this.actions.$restore.removeClass( 'hidden' );
@@ -422,7 +446,8 @@
 
 	MTControlCard.prototype.getTriggerEvents = function () {
 		return [
-			'mw.cx.translation.focus'
+			'mw.cx.translation.focus',
+			'mw.cx.translation.change'
 		];
 	};
 
