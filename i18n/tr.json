@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joseph",
-			"Sayginer"
+			"Sayginer",
+			"Violetanka"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -27,6 +28,7 @@
 	"cx-tools-link-add": "Bağlantı ekle",
 	"cx-tools-link-remove": "Bağlantıyı kaldır",
 	"cx-tools-mt-title": "Makine çevirisi",
+	"cx-tools-mt-provider-title": "$1 sayfasından",
 	"cx-tools-link-hover-tooltip": "Açmak için tıklayın",
 	"cx-sourceselector-dialog-new-translation": "Yeni çeviri",
 	"cx-sourceselector-dialog-button-start-translation": "Çevirmeye başla",

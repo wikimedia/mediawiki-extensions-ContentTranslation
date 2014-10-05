@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"LNDDYL"
+			"LNDDYL",
+			"StephDC"
 		]
 	},
-	"cx-tools-searchbox-text": "尋文"
+	"cx-tools-searchbox-text": "尋文",
+	"cx-tools-mt-provider-title": "自$1"
 }

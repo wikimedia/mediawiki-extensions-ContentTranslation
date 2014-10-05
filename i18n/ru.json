@@ -4,7 +4,8 @@
 			"Okras",
 			"Alexandr Efremov",
 			"Meshkov.a",
-			"Amire80"
+			"Amire80",
+			"Striking Blue"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -24,7 +25,7 @@
 	"cx-publish-gt-first-step-title": "Перевод был опубликован как черновик под вашей страницей участника для дальнейшей проверки",
 	"cx-publish-gt-first-step-description": "Нажмите на «{{int:vector-action-move}}» под этим меню, чтобы сделать это содержимое доступным для всех пользователей в качестве обычной страницы.",
 	"cx-publish-gt-move-page-title": "Переименовать страницу",
-	"cx-publish-gt-move-page-description": "Выберите пространство имен «(Главная)» и дайте ему правильный заголовок для страницы.",
+	"cx-publish-gt-move-page-description": "Выберите пространство имен «(Главная)» и задайте правильный заголовок страницы.",
 	"cx-publish-gt-moved-title": "Переведённая страница была переименована",
 	"cx-publish-gt-moved-description": "Нажмите эту ссылку, чтобы прочитать и улучшить ваши новые переведенные страницы",
 	"cx-publish-gt-published-title": "Поздравляем, страница была опубликована",
