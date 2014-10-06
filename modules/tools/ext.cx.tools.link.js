@@ -541,6 +541,20 @@
 	};
 
 	/**
+	 * Get a valid normalized title from the given text
+	 * If the text is not suitable for the title, return null;
+	 * Validation is done by mw.Title
+	 * @param {string} text Text for the title.
+	 * @return {string|null}
+	 */
+	function getValidTitle( text ) {
+		var title = text.trim();
+		title = mw.Title.newFromText( title );
+		title = title && title.toString();
+		return title;
+	}
+
+	/**
 	 * Executed when link cards are shown, for example when a link is clicked on
 	 * the source or translation column (jQuery type for link) or when a word is
 	 * searched or selected in the source or translation column (string).
@@ -559,7 +573,7 @@
 
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
-			title = link.trim();
+			title = getValidTitle( link );
 		} else {
 			title = cleanupLinkHref( link.attr( 'href' ) );
 			this.$link = link;
