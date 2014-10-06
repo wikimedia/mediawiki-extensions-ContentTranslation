@@ -177,7 +177,7 @@
 						.children()
 						.attr( {
 							id: 'cx' + sourceId,
-							'data-source': sourceId,
+							'data-source': sourceId
 						} )
 						.data( 'cx-state', 'mt' )
 					);
