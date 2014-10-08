@@ -16,7 +16,7 @@
 	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",
 	"tag-contenttranslation": "Tradución de contido",
 	"cx-source-loading": "Cargando \"$1\"",
-	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina.",
+	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
 	"cx-tools-instructions-text1": "Engada parágrafos á tradución",
 	"cx-tools-instructions-text2": "Non é necesario engadilos todos",
 	"cx-tools-instructions-text3": "Faga que o texto soe natural",
