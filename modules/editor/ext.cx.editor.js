@@ -59,6 +59,19 @@
 	};
 
 	/**
+	 * Drop handler. Adapts pasted text.
+	 */
+	CXSectionEditor.prototype.dropHandler = function ( e ) {
+		var text = e.originalEvent.dataTransfer.getData( 'text' ) ||
+			e.originalEvent.dataTransfer.getData( 'text/plain' );
+		// Focus at editable area to have a valid selection range for
+		// document.execCommand
+		mw.cx.selection.restore( 'translation' );
+		document.execCommand( 'insertHTML', false, text );
+		return false;
+	};
+
+	/**
 	 * Bind event handlers.
 	 */
 	CXSectionEditor.prototype.listen = function () {
@@ -78,7 +91,9 @@
 			} );
 		}
 
-		this.$editableElement.on( 'paste', $.proxy( this.pasteHandler, this ) );
+		this.$editableElement
+			.on( 'paste', $.proxy( this.pasteHandler, this ) )
+			.on( 'drop', $.proxy( this.dropHandler, this ) );
 	};
 
 	/**
