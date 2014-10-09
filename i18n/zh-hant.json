@@ -9,7 +9,7 @@
 		]
 	},
 	"cx": "翻譯頁面",
-	"cx-error-server-connection": "錯誤：無法連接到伺服器。",
+	"cx-error-server-connection": "錯誤：無法與伺服器連線。",
 	"cx-desc": "允許編輯者經由機械翻譯和其他翻譯工具從一種語言翻譯成其他語言的工具",
 	"cx-header-progressbar-text": "$1%已翻譯",
 	"cx-header-progressbar-text-mt": "（$1% 從機械翻譯）",
