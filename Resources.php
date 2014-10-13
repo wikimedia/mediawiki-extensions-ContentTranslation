@@ -189,6 +189,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.mtabuse',
 		'ext.cx.tools.reference',
 		'ext.cx.tools.template',
+		'ext.cx.tools.categories',
 		'ext.cx.util.selection',
 		'mediawiki.jqueryMsg',
 	),
@@ -347,6 +348,18 @@ $wgResourceModules['ext.cx.tools.template'] = array(
 $wgResourceModules['ext.cx.tools.images'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.images.js',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.categories'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.categories.js',
+	),
+	'styles' => array(
+		'tools/styles/ext.cx.tools.categories.less',
+	),
+	'messages' => array(
+		'cx-tools-categories-count-message',
 	),
 ) + $resourcePaths;
 

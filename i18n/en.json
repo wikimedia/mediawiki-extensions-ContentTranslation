@@ -61,6 +61,7 @@
 	"cx-tools-mt-provider-title": "From $1",
 	"cx-tools-mt-not-available": "Not available for $1",
 	"cx-tools-mt-dont-use": "Don't use machine translation",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 category|$1 categories}}",
 	"cx-stats-title": "Content translation statistics",
 	"cx-stats-page-title": "Page",
 	"cx-stats-from": "Source language",

@@ -1,0 +1,107 @@
+@import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
+
+@text-highlight-color: #FEFCE0;
+
+.cx-category-widget {
+	.mw-ui-item;
+	width: 100%;
+	padding: .2em;
+	.cx-category-icon {
+		display: block;
+		min-width: 1.5em;
+		min-height: 1.5em;
+		width: 1.5em;
+		height: 1.5em;
+		float: left;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 1.5em 1.5em;
+		.background-image-svg( '../images/tag.svg', '../images/tag.png' );
+		text-decoration: none;
+	}
+}
+
+.cx-category-counter {
+	.cx-category-counterbutton {
+		cursor: pointer;
+		padding-left: 0;
+		padding-top: .25em;
+		.cx-category-icon {
+			margin-right: .25em;
+			min-width: 1em;
+			min-height: 1em;
+			width: 1em;
+			height: 1em;
+			background-size: 1em 1em;
+		}
+		.cx-category-counter-count {
+			margin-left: 1em;
+			margin-top: .5em;
+		}
+
+	}
+}
+
+.cx-category-listing {
+	padding: .2em;
+	margin-top: 1em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #DDDDDD;
+	border-radius: 2px;
+
+	.cx-category-categorylist {
+		list-display-type: none;
+		list-display-image: none;
+		padding: 0;
+		margin: 0;
+		margin-left: 2em;
+
+		.cx-category {
+			border: 1px solid #C9C9C9;
+			border-radius: 2px;
+			padding-left: .25em;
+			padding-right: .25em;
+			display: inline-block;
+			margin: 0;
+			margin-right: 1em;
+			margin-bottom: 1em;
+		}
+
+		.cx-category--source {
+			border: 1px solid transparent;
+			box-shadow: none;
+			cursor: pointer;
+		}
+
+		.cx-category--translation {
+			.cx-category-remove {
+				cursor: pointer;
+				display: inline-block;
+				min-height: .75em;
+				min-width: .75em;
+				width: .75em;
+				height: .75em;
+				margin-left: .5em;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: .75em .75em;
+				.background-image-svg( '../images/clear.svg', '../images/clear.png' );
+			}
+		}
+
+		.cx-category-disabled {
+			color: #C9C9C9;
+			border: none;
+			cursor: default;
+		}
+
+		.cx-category-highlight {
+			.cx-category;
+			background-color: @text-highlight-color;
+			box-shadow: 0 1px 0 0 #C9C9C9;
+			transition: all 0.15s;
+		}
+	}
+}
