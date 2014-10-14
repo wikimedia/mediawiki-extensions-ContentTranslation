@@ -107,7 +107,9 @@
 	 * Publish the translation
 	 */
 	function publish() {
-		var $publishButton, publisher, translatedTitle, translatedContent, targetTitle;
+		var $publishButton, publisher, translatedTitle,
+			translatedContent, targetTitle, targetCategories,
+			categoryTitles, categories;
 
 		$publishButton = $( '.cx-header__publish' );
 
@@ -122,6 +124,12 @@
 			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button-publishing' ) );
 
+		targetCategories = mw.cx.categoryTool.categories.target;
+		categoryTitles = $.map( targetCategories, function ( v ) {
+			return v;
+		} );
+		categories = categoryTitles.join( '|' );
+
 		publisher = new CXPublish( $publishButton );
 		publisher.publish( {
 			from: mw.cx.sourceLanguage,
@@ -129,7 +137,8 @@
 			sourcetitle: mw.cx.sourceTitle,
 			title: targetTitle,
 			html: translatedContent,
-			sourcerevision: mw.cx.sourceRevision
+			sourcerevision: mw.cx.sourceRevision,
+			categories: categories
 		} ).done( function () {
 			mw.hook( 'mw.cx.success' ).fire( mw.message(
 				'cx-publish-page',

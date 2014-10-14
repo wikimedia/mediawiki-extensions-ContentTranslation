@@ -50,6 +50,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			. $params['sourcerevision']
 			. '|' . $params['sourcetitle'] . ']]';
 
+		if ( $params['categories'] ) {
+			$categories = explode( '|', $params['categories'] );
+			foreach ( $categories as $categoryTitle ) {
+				$wikitext .= "\n[[" . $categoryTitle . "]]";
+			}
+		}
+
 		$summary = $this->msg(
 			'cx-publish-summary',
 			$sourceLink
@@ -149,6 +156,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'sourcerevision' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'categories' => null,
 			'wpCaptchaId'=> null,
 			'wpCaptchaWord' => null,
 		);
@@ -179,6 +187,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
 			'sourcerevision' => 'The revision of the source page.',
+			'categories' => 'The categories to be added to the published page.',
 			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',
 			'wpCaptchaWord' => 'Answer to the captcha (when saving with a captcha response).',
 		);
