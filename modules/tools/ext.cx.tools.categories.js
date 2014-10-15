@@ -382,6 +382,7 @@
 			action: 'query',
 			prop: 'categories',
 			clshow: '!hidden',
+			cllimit: 100,
 			indexpageids: true,
 			titles: title,
 			format: 'json'
@@ -447,6 +448,7 @@
 			titles: categoryTitles.join( '|' ),
 			prop: 'langlinks',
 			lllang: language,
+			lllimit: 100,
 			redirects: true,
 			format: 'json'
 		}, {
