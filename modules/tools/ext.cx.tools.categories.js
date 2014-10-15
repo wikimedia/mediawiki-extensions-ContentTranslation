@@ -14,7 +14,7 @@
 	/**
 	 * Handles the jump between category counter and listing
 	 *
-	 * @param {Event} e the click event
+	 * @param {Event} e The click event
 	 * @return {boolean} false
 	 */
 	function jump( e ) {
@@ -29,8 +29,8 @@
 	/**
 	 * CXCategoryCounter Class
 	 * @class
-	 * @param {string} language the language for the counter
-	 * @param {CXCategoryTool} categoryTool the CXCategoryTool
+	 * @param {string} language The language for the counter
+	 * @param {CXCategoryTool} categoryTool The CXCategoryTool
 	 */
 	function CXCategoryCounter( language, categoryTool ) {
 		this.language = language;
@@ -97,7 +97,7 @@
 	/**
 	 * Updates the count shown in the category counter
 	 *
-	 * @param {integer} count the category count
+	 * @param {integer} count The category count
 	 */
 	CXCategoryCounter.prototype.update = function ( count ) {
 		var text;
@@ -109,8 +109,8 @@
 	/**
 	 * CXCategoryListing Class
 	 * @class
-	 * @param {string} language the language for the counter
-	 * @param {CXCategoryTool} categoryTool the CXCategoryTool
+	 * @param {string} language The language for the counter
+	 * @param {CXCategoryTool} categoryTool The CXCategoryTool
 	 */
 	function CXCategoryListing( language, categoryTool ) {
 		this.language = language;
@@ -141,7 +141,7 @@
 	/**
 	 * Handles click events on source list items
 	 *
-	 * @param {Event} e the click event
+	 * @param {Event} e The click event
 	 */
 	function sourceClickHandler( e ) {
 		var $listItem, categoryId, categoryTool, title, count;
@@ -168,7 +168,7 @@
 	/**
 	 * Handles click events on the remove span inside target list items
 	 *
-	 * @param {Event} e the click event
+	 * @param {Event} e The click event
 	 */
 	function targetClickHandler( e ) {
 		var $remove, $listItem, categoryId, categoryTool, count;
@@ -259,8 +259,8 @@
 	/**
 	 * Adds categories to the category listing
 	 *
-	 * @param {object} categories key value object with ids and titles
-	 * @param {boolean} clear flag to clear existing categories
+	 * @param {object} categories A key value object with ids and titles
+	 * @param {boolean} clear A flag to clear existing categories
 	 */
 	CXCategoryListing.prototype.addCategories = function ( categories, clear ) {
 		var category, $categoryList;
@@ -284,8 +284,8 @@
 	/**
 	 * Creates a source category list item
 	 *
-	 * @param {string} id the category id
-	 * @param {string} title the category title
+	 * @param {string} id The category id
+	 * @param {string} title The category title
 	 * @return {jQuery}
 	 */
 	function createSourceCategoryListItem( id, title ) {
@@ -303,8 +303,8 @@
 	/**
 	 * Creates a target category list item
 	 *
-	 * @param {string} id the category id
-	 * @param {string} title the category title
+	 * @param {string} id The category id
+	 * @param {string} title The category title
 	 * @return {jQuery}
 	 */
 	function createTargetCategoryListItem( id, title ) {
@@ -327,8 +327,8 @@
 	/**
 	 * Ads a category to the category list
 	 *
-	 * @param {string} id the category id
-	 * @param {string} title the category title
+	 * @param {string} id The category id
+	 * @param {string} title The category title
 	 */
 	CXCategoryListing.prototype.addCategory = function ( id, title ) {
 		var $categoryList, $categoryListItem;
@@ -363,14 +363,33 @@
 	}
 
 	/**
+	 * Creates id of specified width from number using the padding character
+	 *
+	 * @param {integer} number The number to make the id from
+	 * @param {integer} width The desired width of the id
+	 * @param {string} character The character to use for padding
+	 * @return {string}
+	 */
+	function makeCategoryId( number, width, character ) {
+		var output;
+
+		character = character || '0';
+		number = number + '';
+		output = number.length >= width ? number : new Array( width - number.length + 1 ).join( character ) + number;
+		return output;
+	}
+
+	/**
 	 * Retrieves categories for the source article
 	 *
-	 * @param {string} title the article title
-	 * @param {string} language the article language
+	 * @param {string} title The article title
+	 * @param {string} language The article language
 	 * @return {jQuery.Promise}
 	 */
 	CXCategoryTool.prototype.getArticleCategories = function ( title, language ) {
-		var categoryTool, deferred = $.Deferred();
+		var categoryTool,
+			categories = {},
+			deferred = $.Deferred();
 
 		if ( this.categories.source !== null ) {
 			deferred.resolve( this.categories.source );
@@ -390,28 +409,25 @@
 			dataType: 'jsonp',
 			cache: true
 		} ).done( function ( response ) {
-			var pageId, data, categories;
-
-			categories = {};
+			var pageId,
+				categoriesArray = [];
 
 			if ( response.query ) {
 				pageId = response.query.pageids[ 0 ];
-				data = response.query.pages[ pageId ].categories;
-				if ( data ) {
-					$.each( data, function ( index, value ) {
-						var key;
-						key = 'cx-category-' + index;
-						categories[ key ] = value.title;
-					} );
-				}
-			}
+				categoriesArray = response.query.pages[ pageId ].categories;
+				$.each( categoriesArray, function ( index, object ) {
+					var categoryId;
 
+					categoryId = makeCategoryId( index, 3, '0' );
+					categories[ categoryId ] = object.title;
+				} );
+			}
 			categoryTool.categories.source = categories;
 			deferred.resolve( categories );
 		} ).fail( function ( error ) {
 			mw.log( '[CX] Error while retrieving source categories ' + error );
-			categoryTool.categories.source = {};
-			deferred.resolve( {} );
+			categoryTool.categories.source = categories;
+			deferred.resolve( categories );
 		} );
 
 		return deferred.promise();
@@ -420,13 +436,16 @@
 	/**
 	 * Adapts a set of categories
 	 *
-	 * @param {object} categories key value listing of ids and titles
-	 * @param {string} language the language for adaptation
+	 * @param {object} categories A key value listing of ids and titles
+	 * @param {string} language The language for adaptation
 	 * @return {jQuery.Promise}
 	 */
 	CXCategoryTool.prototype.adaptCategories = function ( categories, language ) {
-		var categoryTool, categoryId, categoryTitles, inverted,
-			keys, sorted, counter, deferred = $.Deferred();
+		var categoryTool,
+			categoryId,
+			categoryTitles,
+			inverted,
+			deferred = $.Deferred();
 
 		if ( this.categories.adapted !== null ) {
 			deferred.resolve( this.categories.adapted );
@@ -483,24 +502,26 @@
 					}
 				} );
 			}
+			deferred.resolve( adaptedCategories );
+		} ).fail( function ( error ) {
+			mw.log( '[CX] Error adapting categories ' + error );
+			deferred.resolve( {} );
+		} );
 
-			// Maintain the same sort order
-			keys = Object.keys( adaptedCategories );
+		deferred.then( function ( adaptedCategories ) {
+			var i,
+				sorted = {},
+				keys = Object.keys( adaptedCategories );
+
 			keys.sort();
-			sorted = {};
-			for ( counter = 0; counter < keys.length; counter++ ) {
-				sorted[ keys[ counter ] ] = adaptedCategories[ keys[ counter ] ];
+			for ( i = 0; i < keys.length; i++ ) {
+				sorted[ keys[ i ] ] = adaptedCategories[ keys[ i ] ];
 			}
-
 			categoryTool.categories.adapted = sorted;
 			if ( categoryTool.categories.target === null ) {
 				categoryTool.categories.target = $.extend( {}, sorted );
 			}
-			deferred.resolve( adaptedCategories );
-		} ).fail( function ( error ) {
-			mw.log( 'Error adapting categories ' + error );
-			categoryTool.categories.adapted = {};
-			deferred.resolve( {} );
+			return sorted;
 		} );
 
 		return deferred.promise();
@@ -511,7 +532,7 @@
 	 * Valid sets are 'source', 'target' and 'adapted'
 	 * If no set is specified, returns all three sets
 	 *
-	 * @param {string} categorySet the set of categories to return
+	 * @param {string} categorySet The set of categories to return
 	 * @return {jQuery.promis}
 	 */
 	CXCategoryTool.prototype.getCategories = function ( categorySet ) {
@@ -563,6 +584,8 @@
 
 	/**
 	 * Initalizes UI widgets and attaches them to DOM
+	 *
+	 * @param {string} column The name of the column to initialize widgets for
 	 */
 	CXCategoryTool.prototype.initializeWidgets = function ( column ) {
 		if ( column === 'source' ) {
@@ -579,6 +602,8 @@
 
 	/**
 	 * Attaches UI widgets to DOM
+	 *
+	 * @param {string} column The name of the column to attach widgets to
 	 */
 	CXCategoryTool.prototype.attachWidgets = function ( column ) {
 		var categoryTool;
@@ -604,6 +629,8 @@
 
 	/**
 	 * Shows UI widgets
+	 *
+	 * @param {string} column The name of the column to show widgets for
 	 */
 	CXCategoryTool.prototype.showWidgets = function ( column ) {
 		if ( column === 'source' ) {
