@@ -62,6 +62,7 @@
 	"cx-tools-mt-provider-title": "מתוך $1",
 	"cx-tools-mt-not-available": "לא זמין עבור $1",
 	"cx-tools-mt-dont-use": "לא להשתמש בתרגום מכונה",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|קטגוריה אחת|$1 קטגוריות}}",
 	"cx-stats-title": "סטטיסטיקות של תרגום תוכן",
 	"cx-stats-page-title": "דף",
 	"cx-stats-from": "שפת המקור",

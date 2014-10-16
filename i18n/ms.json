@@ -21,5 +21,6 @@
 	"cx-tools-instructions-text3": "Penterjemahan mesin merupakan titik permulaan yang berguna untuk usaha penterjemahan, tetapi penterjemah mesti menyemak kesilapan di mana perlu serta mengesahkan ketepatan terjemahannya.",
 	"cx-tools-instructions-text4": "Jangan terjemah teks yang kelihatan sukar dipercayai atau berkualiti rendah. Jika boleh, sahkan teks itu dengan rujukan yang disediakan di dalam halaman sumber.",
 	"cx-tools-instructions-text5": "Apabila anda berpuas hati dengan hasilnya, tekan {{int:cx-publish-button}} untuk mewujudkan halaman baru.",
-	"cx-tools-mt-provider-title": "Dari $1"
+	"cx-tools-mt-provider-title": "Dari $1",
+	"cx-tools-categories-count-message": "$1 kategori"
 }

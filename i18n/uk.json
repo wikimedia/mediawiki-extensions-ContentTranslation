@@ -4,7 +4,8 @@
 			"Andriykopanytsia",
 			"Ата",
 			"Mykola Swarnyk",
-			"Olion"
+			"Olion",
+			"Olvin"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -60,6 +61,7 @@
 	"cx-tools-mt-provider-title": "Від $1",
 	"cx-tools-mt-not-available": "Недоступно для $1",
 	"cx-tools-mt-dont-use": "Не використовуйте машинний переклад",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорія|$1 категорії|$1 категорій}}",
 	"cx-stats-title": "Статистика перекладу вмісту",
 	"cx-stats-page-title": "Сторінка",
 	"cx-stats-from": "Мова оригіналу",

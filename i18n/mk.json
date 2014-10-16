@@ -57,6 +57,7 @@
 	"cx-tools-mt-provider-title": "Од $1",
 	"cx-tools-mt-not-available": "Не е достапно за $1",
 	"cx-tools-mt-dont-use": "Не користи машински превод",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
 	"cx-stats-title": "Статистики за содржински преводи",
 	"cx-stats-page-title": "Страница",
 	"cx-stats-from": "Изворен јазик:",

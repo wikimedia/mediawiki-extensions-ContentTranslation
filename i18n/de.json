@@ -58,6 +58,7 @@
 	"cx-tools-mt-provider-title": "Von $1",
 	"cx-tools-mt-not-available": "Nicht verfügbar in $1",
 	"cx-tools-mt-dont-use": "Maschinenübersetzung nicht verwenden",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|Eine Kategorie|$1 Kategorien}}",
 	"cx-stats-title": "Statistiken zu Inhaltsübersetzungen",
 	"cx-stats-page-title": "Seite",
 	"cx-stats-from": "Quellsprache",
