@@ -18,8 +18,9 @@
 	 * @return {boolean} false
 	 */
 	function jump( e ) {
-		var id, url = location.href;
-		id = e.data.id;
+		var id = e.data.id,
+			url = location.href;
+
 		location.href = '#' + id;
 		history.replaceState( null, null, url );
 
@@ -77,8 +78,10 @@
 		$view = $( '<div>' )
 			.prop( languageProps( $( 'html' ).prop( 'lang' ) ) )
 			.addClass( 'cx-category-widget cx-category-counter' );
+
 		$button = $( '<button>' )
 			.addClass( 'cx-category-counterbutton mw-ui-button mw-ui-quiet' );
+
 		if ( this.language === mw.cx.sourceLanguage ) {
 			$button.on( 'click', {
 				id: 'cx-category-listing-anchor--source'
@@ -96,7 +99,8 @@
 			.addClass( 'cx-category-count' );
 
 		$button.append( $icon, $count );
-		$view.append( $button )
+		$view
+			.append( $button )
 			.hide();
 
 		return $view;
@@ -109,8 +113,9 @@
 	 */
 	CXCategoryCounter.prototype.update = function ( count ) {
 		var text;
+
 		count = mw.language.convertNumber( count );
-		text = mw.message( 'cx-tools-categories-count-message', count ).text();
+		text = mw.msg( 'cx-tools-categories-count-message', count );
 		this.$view.find( 'span.cx-category-count' ).text( text );
 	};
 
@@ -194,13 +199,14 @@
 		if ( categoryTool.categories.adapted.hasOwnProperty( categoryId ) &&
 			!categoryTool.categories.target.hasOwnProperty( categoryId )
 		) {
-
 			title = categoryTool.categories.adapted[ categoryId ];
 			categoryTool.categories.target[ categoryId ] = title;
 			count = Object.keys( categoryTool.categories.target ).length;
 			categoryTool.widgets.target.listing.addCategory( categoryId, title );
+
 			$( '.cx-category--translation[cx-category-id="' + categoryId + '"]' )
 				.addClass( 'cx-category-highlight' );
+
 			categoryTool.widgets.target.counter.update( count );
 			categoryTool.widgets.target.listing.$view
 				.find( '.cx-category-categorylist' )
@@ -229,8 +235,10 @@
 		$listItem.remove();
 		delete categoryTool.categories.target[ categoryId ];
 		count = Object.keys( categoryTool.categories.target ).length;
+
 		$( '.cx-category--source[cx-category-id="' + categoryId + '"]' )
 			.removeClass( 'cx-category-highlight' );
+
 		categoryTool.widgets.target.counter.update( count );
 		if ( count === 0 ) {
 			categoryTool.widgets.target.listing.$view
@@ -248,7 +256,8 @@
 	 */
 	function highlightCategory() {
 		/*jshint validthis:true */
-		var categoryId, $category = $( this );
+		var categoryId,
+			$category = $( this );
 
 		if ( $category.hasClass( 'cx-category-disabled' ) ) {
 			return;
@@ -265,11 +274,13 @@
 	 */
 	function removeCategoryHighlight() {
 		/*jshint validthis:true */
-		var categoryId, $category = $( this );
+		var categoryId,
+			$category = $( this );
 
 		if ( $category.hasClass( 'cx-category-disabled' ) ) {
 			return;
 		}
+
 		categoryId = $category.attr( 'cx-category-id' );
 
 		$( '[cx-category-id="' + categoryId + '"]' )
@@ -307,7 +318,8 @@
 			}, targetClickHandler );
 		}
 
-		$categoryList.on( 'mouseover', '.cx-category', highlightCategory )
+		$categoryList
+			.on( 'mouseover', '.cx-category', highlightCategory )
 			.on( 'mouseout', '.cx-category', removeCategoryHighlight )
 			.hide();
 
@@ -481,6 +493,7 @@
 			if ( response.query ) {
 				pageId = response.query.pageids[ 0 ];
 				categoriesArray = response.query.pages[ pageId ].categories;
+
 				$.each( categoriesArray, function ( index, object ) {
 					var categoryId;
 
@@ -659,6 +672,7 @@
 			this.widgets.source.counter = new CXCategoryCounter( mw.cx.sourceLanguage, this );
 			this.widgets.source.listing = new CXCategoryListing( mw.cx.sourceLanguage, this );
 		}
+
 		if ( column === 'translation' ) {
 			this.widgets.target = {};
 			this.widgets.target.counter = new CXCategoryCounter( mw.cx.targetLanguage, this );
@@ -672,9 +686,7 @@
 	 * @param {string} column The name of the column to attach widgets to
 	 */
 	CXCategoryTool.prototype.attachWidgets = function ( column ) {
-		var categoryTool;
-
-		categoryTool = this;
+		var categoryTool = this;
 
 		// Load widgets for the source column
 		if ( column === 'source' ) {
@@ -703,6 +715,7 @@
 			this.widgets.source.counter.$view.show();
 			this.widgets.source.listing.$view.show();
 		}
+
 		if ( column === 'translation' ) {
 			this.widgets.target.counter.$view.show();
 			this.widgets.target.listing.$view.show();
