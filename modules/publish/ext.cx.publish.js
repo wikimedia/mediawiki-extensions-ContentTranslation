@@ -142,10 +142,11 @@
 			sourcerevision: mw.cx.sourceRevision,
 			categories: categories
 		} ).done( function () {
-			mw.hook( 'mw.cx.success' ).fire( mw.message(
-				'cx-publish-page',
-				mw.util.getUrl( targetTitle ),
-				targetTitle
+			mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
+				$( '<a>' ).attr( {
+					href: mw.util.getUrl( targetTitle ),
+					target: '_blank'
+				} ).text( targetTitle )[ 0 ].outerHTML
 			) );
 			mw.hook( 'mw.cx.translation.published' ).fire(
 				mw.cx.sourceLanguage,

@@ -97,8 +97,7 @@
 		this.$infoBar
 			.removeClass( 'cx-success cx-error' )
 			.addClass( type )
-			.show()
-			.find( 'a' ).attr( 'target', '_blank' );
+			.show();
 	};
 
 	/**

@@ -391,7 +391,7 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'mediawiki.cookie',
 	),
 	'messages' => array(
-		'cx-publish-page',
+		'cx-publish-page-success',
 		'cx-publish-page-error',
 		'cx-publish-button-publishing',
 		'cx-publish-captcha-title',
