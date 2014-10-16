@@ -26,6 +26,13 @@
 		return false;
 	}
 
+	function languageProps( code ) {
+		return {
+			lang: code,
+			dir: $.uls.data.getDir( code )
+		};
+	}
+
 	/**
 	 * CXCategoryCounter Class
 	 * @class
@@ -68,6 +75,7 @@
 		var $view, $button, $icon, $count;
 
 		$view = $( '<div>' )
+			.prop( languageProps( $( 'html' ).prop( 'lang' ) ) )
 			.addClass( 'cx-category-widget cx-category-counter' );
 		$button = $( '<button>' )
 			.addClass( 'cx-category-counterbutton mw-ui-button mw-ui-quiet' );
@@ -278,9 +286,13 @@
 
 		categoryTool = this.categoryTool;
 
-		$view = $( '<div>' ).addClass( 'cx-category-widget cx-category-listing' );
+		$view = $( '<div>' )
+			.prop( languageProps( $( 'html' ).prop( 'lang' ) ) )
+			.addClass( 'cx-category-widget cx-category-listing' );
 		$icon = $( '<span>' ).addClass( 'cx-category-icon' );
-		$categoryList = $( '<ul>' ).addClass( 'cx-category-categorylist' );
+		$categoryList = $( '<ul>' )
+			.prop( languageProps( this.language ) )
+			.addClass( 'cx-category-categorylist' );
 		$anchor = $( '<a>' );
 
 		if ( this.language === mw.cx.sourceLanguage ) {
