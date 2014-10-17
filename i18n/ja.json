@@ -41,7 +41,7 @@
 	"cx-stats-from": "翻訳元言語",
 	"cx-stats-to": "翻訳先言語",
 	"cx-stats-unknown": "不明",
-	"cx-stats-summary": "標準名前空間の {{PLURAL:$1|1 ページ|$1/$2 ページ ($3%)}}",
+	"cx-stats-summary": "標準名前空間の $1/$2 {{PLURAL:$2|ページ}} ($3%)",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
 	"cx-sourceselector-dialog-button-start-translation": "翻訳を開始",
 	"cx-sourceselector-dialog-source-language-label": "翻訳元:",

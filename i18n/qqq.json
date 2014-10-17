@@ -66,7 +66,7 @@
 	"cx-tools-mt-provider-title": "An item in a menu in the machine translation tool card on Special:ContentTranslation. The menu lists different available machine translation providers for this language.\n* $1 is the name of the provider, such as Apertium, Microsoft Translator, Google Translate, etc.\n{{Identical|From}}",
 	"cx-tools-mt-not-available": "An item in a menu in the machine translation tool card on Special:ContentTranslation. It's shown when there is no machine translation provider for that language. $1 is the name of the language.",
 	"cx-tools-mt-dont-use": "An item in a menu in the machine translation tool card on Special:ContentTranslation. Other items in same menu will use the message {{msg-mw|cx-tools-mt-from-provider}}. Selecting this item disables machine translation. It may be the default for some languages.",
-	"cx-tools-categories-count-message": "Indicates number of categories associated with article.\n\nDisplayed at top of source and translation columns in [[Special:ContentTranslation]].\n\nParameters:\n* $1 - number of categories",
+	"cx-tools-categories-count-message": "Indicates number of categories associated with article.\n\nDisplayed at top of source and translation columns in [[Special:ContentTranslation]].\n\nParameters:\n* $1 - number of categories\n{{Identical|Category}}",
 	"cx-stats-title": "The title for the Special:ContentTranslationStats special page.",
 	"cx-stats-page-title": "A header for a table column. The column lists titles of translated pages.\n{{Identical|Page}}",
 	"cx-stats-from": "A header for a table column. The column lists the languages from which the pages were translated.",

@@ -51,6 +51,7 @@
 	"cx-stats-from": "Język źródłowy",
 	"cx-stats-to": "Język docelowy",
 	"cx-stats-pages-title": "Przetłumaczone strony",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|strona|stron}} ($3%) w przestrzeni głównej.",
 	"cx-tools-reference-title": "Przypis",
 	"cx-tools-reference-remove": "Usuń przypis",
 	"cx-tools-link-hover-tooltip": "Kliknij, aby otworzyć",

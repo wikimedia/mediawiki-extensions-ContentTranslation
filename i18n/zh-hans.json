@@ -64,6 +64,7 @@
 	"cx-tools-mt-provider-title": "来自$1",
 	"cx-tools-mt-not-available": "不可用于$1",
 	"cx-tools-mt-dont-use": "不使用机器翻译",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1个分类}}",
 	"cx-stats-title": "内容翻译统计",
 	"cx-stats-page-title": "页面",
 	"cx-stats-from": "源语言",
