@@ -68,7 +68,7 @@
 	"cx-stats-to": "Target language",
 	"cx-stats-pages-title": "Translated pages",
 	"cx-stats-unknown": "unknown",
-	"cx-stats-summary": "{{PLURAL:$1|One page|$1/$2 pages ($3%)}} in the main namespace.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|page|pages}} ($3%) in the main namespace.",
 	"cx-tools-reference-title": "Reference",
 	"cx-tools-reference-remove": "Remove reference",
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
