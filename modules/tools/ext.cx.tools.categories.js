@@ -341,7 +341,7 @@
 	 * @param {boolean} clear A flag to clear existing categories
 	 */
 	CXCategoryListing.prototype.addCategories = function ( categories, clear ) {
-		var category, $categoryList;
+		var keys, i, $categoryList;
 
 		if ( !categories ) {
 			return;
@@ -354,8 +354,9 @@
 			$categoryList.empty();
 		}
 
-		for ( category in categories ) {
-			this.addCategory( category, categories[ category ] );
+		keys = Object.keys( categories ).sort();
+		for ( i = 0; i < keys.length; i++ ) {
+			this.addCategory( keys[ i ], categories[ keys[ i ] ] );
 		}
 	};
 
@@ -454,7 +455,7 @@
 		character = character || '0';
 		number = number + '';
 		output = number.length >= width ? number : new Array( width - number.length + 1 ).join( character ) + number;
-		return output;
+		return 'cxCategory' + output;
 	}
 
 	/**
@@ -581,26 +582,15 @@
 					}
 				} );
 			}
+
+			categoryTool.categories.adapted = adaptedCategories;
+			if ( categoryTool.categories.target === null ) {
+				categoryTool.categories.target = $.extend( {}, adaptedCategories );
+			}
 			deferred.resolve( adaptedCategories );
 		} ).fail( function ( error ) {
 			mw.log( '[CX] Error adapting categories ' + error );
 			deferred.resolve( {} );
-		} );
-
-		deferred.then( function ( adaptedCategories ) {
-			var i,
-				sorted = {},
-				keys = Object.keys( adaptedCategories );
-
-			keys.sort();
-			for ( i = 0; i < keys.length; i++ ) {
-				sorted[ keys[ i ] ] = adaptedCategories[ keys[ i ] ];
-			}
-			categoryTool.categories.adapted = sorted;
-			if ( categoryTool.categories.target === null ) {
-				categoryTool.categories.target = $.extend( {}, sorted );
-			}
-			return sorted;
 		} );
 
 		return deferred.promise();
@@ -724,6 +714,11 @@
 
 	// Expose the CXCategoryTool (required by publishing)
 	mw.cx.categoryTool = new CXCategoryTool( mw.cx.siteMapper );
+
+	// Expose the CXCategoryTool class for unit testing
+	if ( typeof QUnit !== undefined ) {
+		mw.cx.CategoryTool = CXCategoryTool;
+	}
 
 	$( function () {
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {

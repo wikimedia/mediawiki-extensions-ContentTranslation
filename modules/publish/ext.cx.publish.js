@@ -109,7 +109,7 @@
 	function publish() {
 		var $publishButton, publisher, translatedTitle,
 			translatedContent, targetTitle, targetCategories,
-			categoryTitles, categories;
+			sortedKeys, i, categoryTitles, categories;
 
 		$publishButton = $( '.cx-header__publish' );
 
@@ -125,9 +125,11 @@
 			.text( mw.msg( 'cx-publish-button-publishing' ) );
 
 		targetCategories = mw.cx.categoryTool.categories.target;
-		categoryTitles = $.map( targetCategories, function ( v ) {
-			return v;
-		} );
+		sortedKeys = Object.keys( targetCategories ).sort();
+		categoryTitles = [];
+		for ( i = 0; i < sortedKeys.length; i++ ) {
+			categoryTitles.push( targetCategories[ sortedKeys[ i ] ] );
+		}
 		categories = categoryTitles.join( '|' );
 
 		publisher = new CXPublish( $publishButton );
