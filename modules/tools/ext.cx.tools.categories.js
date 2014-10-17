@@ -126,15 +126,47 @@
 		this.$view = this.getView();
 
 		if ( this.language === mw.cx.sourceLanguage &&
-			this.categoryTool.categories.source !== null &&
-			Object.keys( this.categoryTool.categories.source ).length > 0
+			this.categoryTool.categories.source !== null
 		) {
-			this.addCategories( this.categoryTool.categories.source );
+			if ( Object.keys( this.categoryTool.categories.source ).length > 0 ) {
+				this.addCategories( this.categoryTool.categories.source );
+				this.$view
+					.find( '.cx-category-categorylist' )
+					.show()
+					.end()
+					.find( '.cx-category-nocategories' )
+					.hide()
+					.end();
+			} else {
+				this.$view
+					.find( '.cx-category-categorylist' )
+					.hide()
+					.end()
+					.find( '.cx-category-nocategories' )
+					.show()
+					.end();
+			}
 		} else if ( this.language === mw.cx.targetLanguage &&
-			this.categoryTool.categories.target !== null &&
-			Object.keys( this.categoryTool.categories.target ).length > 0
+			this.categoryTool.categories.target !== null
 		) {
-			this.addCategories( this.categoryTool.categories.target );
+			if ( Object.keys( this.categoryTool.categories.target ).length > 0 ) {
+				this.addCategories( this.categoryTool.categories.target );
+				this.$view
+					.find( '.cx-category-categorylist' )
+					.show()
+					.end()
+					.find( '.cx-category-nocategories' )
+					.hide()
+					.end();
+			} else {
+				this.$view
+					.find( '.cx-category-categorylist' )
+					.hide()
+					.end()
+					.find( '.cx-category-nocategories' )
+					.show()
+					.end();
+			}
 		}
 	};
 
@@ -162,6 +194,13 @@
 			$( '.cx-category--translation[cx-category-id="' + categoryId + '"]' )
 				.addClass( 'cx-category-highlight' );
 			categoryTool.widgets.target.counter.update( count );
+			categoryTool.widgets.target.listing.$view
+				.find( '.cx-category-categorylist' )
+				.show()
+				.end()
+				.find( '.cx-category-nocategories' )
+				.hide()
+				.end();
 		}
 	}
 
@@ -185,6 +224,15 @@
 		$( '.cx-category--source[cx-category-id="' + categoryId + '"]' )
 			.removeClass( 'cx-category-highlight' );
 		categoryTool.widgets.target.counter.update( count );
+		if ( count === 0 ) {
+			categoryTool.widgets.target.listing.$view
+				.find( '.cx-category-categorylist' )
+				.hide()
+				.end()
+				.find( '.cx-category-nocategories' )
+				.show()
+				.end();
+		}
 	}
 
 	/**
@@ -226,7 +274,7 @@
 	 * @return {jQuery}
 	 */
 	CXCategoryListing.prototype.getView = function () {
-		var categoryTool, $view, $anchor, $icon, $categoryList;
+		var categoryTool, $view, $anchor, $icon, $categoryList, $noCategories;
 
 		categoryTool = this.categoryTool;
 
@@ -248,9 +296,15 @@
 		}
 
 		$categoryList.on( 'mouseover', '.cx-category', highlightCategory )
-			.on( 'mouseout', '.cx-category', removeCategoryHighlight );
+			.on( 'mouseout', '.cx-category', removeCategoryHighlight )
+			.hide();
 
-		$view.append( $anchor, $icon, $categoryList )
+		$noCategories = $( '<span>' )
+			.text( mw.msg( 'cx-tools-categories-count-message', 0 ) )
+			.addClass( 'cx-category-nocategories' )
+			.hide();
+
+		$view.append( $anchor, $icon, $noCategories, $categoryList )
 			.hide();
 
 		return $view;
@@ -648,15 +702,17 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
-			mw.cx.categoryTool.getCategories().done( function () {
+			mw.cx.categoryTool.getCategories().done( function ( categories ) {
 				mw.cx.categoryTool.initializeWidgets( 'source' );
-				mw.cx.categoryTool.attachWidgets( 'source' );
-				mw.cx.categoryTool.showWidgets( 'source' );
-				window.setTimeout( function () {
-					mw.cx.categoryTool.initializeWidgets( 'translation' );
-					mw.cx.categoryTool.attachWidgets( 'translation' );
-					mw.cx.categoryTool.showWidgets( 'translation' );
-				}, 2000 );
+				mw.cx.categoryTool.initializeWidgets( 'translation' );
+				if ( Object.keys( categories.source ).length > 0 ) {
+					mw.cx.categoryTool.attachWidgets( 'source' );
+					mw.cx.categoryTool.showWidgets( 'source' );
+					window.setTimeout( function () {
+						mw.cx.categoryTool.attachWidgets( 'translation' );
+						mw.cx.categoryTool.showWidgets( 'translation' );
+					}, 2000 );
+				}
 			} );
 		} );
 	} );
