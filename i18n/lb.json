@@ -59,7 +59,7 @@
 	"cx-stats-to": "Zilsprooch",
 	"cx-stats-pages-title": "Iwwersat Säiten",
 	"cx-stats-unknown": "onbekannt",
-	"cx-stats-summary": "{{PLURAL:$1|Eng Säit|$1/$2 Säiten ($3%)}} am Haaptnummraum.",
+	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz ewechhuelen",
 	"cx-tools-link-hover-tooltip": "Klickt fir opzemaachen",

@@ -64,7 +64,7 @@
 	"cx-stats-to": "Целен јазик",
 	"cx-stats-pages-title": "Преведени страници",
 	"cx-stats-unknown": "непознат",
-	"cx-stats-summary": "{{PLURAL:$1|Една страница|$1/$2 страници ($3%)}} во главниот именски простор.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|страница|страници}} ($3%) во главниот именски простор.",
 	"cx-tools-reference-title": "Навод",
 	"cx-tools-reference-remove": "Отстрани навод",
 	"cx-tools-link-instruction-shortcut": "Shift + стиснете на некоја врска за да ја отворите",

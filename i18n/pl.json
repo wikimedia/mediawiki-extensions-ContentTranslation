@@ -46,7 +46,7 @@
 	"cx-tools-mt-restore": "Odtwórz",
 	"cx-tools-mt-provider-title": "Z $1",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategoria|$1 kategorii}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategoria|$1 kategorie|$1 kategorii|0=Brak kategorii}}",
 	"cx-stats-page-title": "Strona",
 	"cx-stats-from": "Język źródłowy",
 	"cx-stats-to": "Język docelowy",
