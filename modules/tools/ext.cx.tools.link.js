@@ -435,7 +435,7 @@
 				// Set up the add link button.
 				linkCard.$addLink.click( function () {
 					mw.cx.selection.restore( 'translation' );
-					linkCard.createInternalLink( title, page.title );
+					linkCard.createInternalLink( selection.toString(), page.title );
 				} );
 
 				// Show the add link button
