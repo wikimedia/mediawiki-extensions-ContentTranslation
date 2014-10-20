@@ -96,7 +96,12 @@ class SpecialContentTranslationStats extends SpecialPage {
 			implode( "\n", $rows )
 		);
 
-		$percentage = round( $main / $total * 100 );
+		if ($total > 0) {
+			$percentage = round( $main / $total * 100 );
+		} else {
+			$percentage = 0;
+		}
+
 		$summary = wfMessage( 'cx-stats-summary' )
 			->numParams( $main, $total, $percentage )
 			->parse();
