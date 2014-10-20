@@ -629,9 +629,21 @@
 	 * Highlight the current link pairs.
 	 */
 	LinkCard.prototype.highlightLink = function () {
+		var $connectedLink;
+
 		if ( this.$link ) {
-			$( '[data-linkid="' + this.$link.data( 'linkid' ) + '"]' )
-				.addClass( 'cx-highlight--blue' );
+			this.$link.addClass( 'cx-highlight--blue' );
+
+			if ( this.isSourceLink() ) {
+				$connectedLink = this.getTargetLink();
+			} else {
+				$connectedLink = this.getSourceLink();
+			}
+
+			// Both methods above can return null, so we need to check if we have a link
+			if ( $connectedLink ) {
+				$connectedLink.addClass( 'cx-highlight--lightblue' );
+			}
 		}
 	};
 
@@ -641,11 +653,7 @@
 	LinkCard.prototype.removeLinkHighlight = function () {
 		if ( this.$link ) {
 			$( '[data-linkid="' + this.$link.data( 'linkid' ) + '"]' )
-				.removeClass( 'cx-highlight--blue' );
-
-			// If the link exists only in translation, in the case of an added link,
-			// there will not be data-linkid. So remove it explicitly.
-			this.$link.removeClass( 'cx-highlight--blue' );
+				.removeClass( 'cx-highlight--blue cx-highlight--lightblue' );
 		}
 	};
 
@@ -704,10 +712,10 @@
 		// Handle clicks on the section, including future links
 		$section.on( 'click', 'a', linkClickHandler );
 		$links = $section.find( 'a[rel="mw:WikiLink"]' );
+
 		// Collect all sourceTitles;
 		sourceTitles = $links.map( function () {
 			var href = $( this ).attr( 'href' );
-
 			return cleanupLinkHref( href );
 		} ).get();
 
