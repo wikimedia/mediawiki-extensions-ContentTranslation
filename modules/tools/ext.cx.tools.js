@@ -18,6 +18,11 @@
 	 */
 	function ContentTranslationTools( element ) {
 		this.$container = $( element );
+
+		this.$toolsContainer = null;
+		this.$searchBox = null;
+		this.$searchInput = null;
+
 		this.init();
 		this.listen();
 	}
@@ -27,7 +32,7 @@
 		this.$toolsContainer.cxtoolmanager();
 
 		// Handle enter key press in the search field.
-		this.$searchBox.find( 'input' ).keypress( function ( event ) {
+		this.$searchInput.keypress( function ( event ) {
 			if ( event.which === 13 ) {
 				var text = $( this ).val().trim().toLowerCase();
 				mw.hook( 'mw.cx.search.word' ).fire( text );
@@ -39,32 +44,31 @@
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $search, $loadingIndicator;
-
-		this.$searchBox = $( '<div>' )
-			.addClass( 'card search cx-tools--container' );
-
-		this.$toolsContainer = $( '<div>' )
-			.addClass( 'cx-tools--container' );
+		var $progressBar, $loadingIndicator;
 
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
 			.cxProgressBar();
 
-		$search = $( '<input>' )
-			.addClass( 'tools-words-search box' )
+		this.$searchInput = $( '<input>' )
+			.addClass( 'cx-card--search__input' )
 			.attr( {
 				placeholder: mw.msg( 'cx-tools-searchbox-text' ),
 				type: 'search'
 			} );
 
-		this.$searchBox.append( $search );
+		this.$searchBox = $( '<div>' )
+			.addClass( 'card cx-card--search cx-card--fixed' )
+			.append( this.$searchInput );
+
+		this.$toolsContainer = $( '<div>' )
+			.addClass( 'cx-tools' )
+			.append( this.$searchBox );
 
 		$loadingIndicator = getLoadingIndicator();
 
 		this.$container.append(
 			$progressBar,
-			this.$searchBox,
 			this.$toolsContainer,
 			$loadingIndicator
 		);
@@ -72,7 +76,7 @@
 
 	function getLoadingIndicator() {
 		return $( '<div>' )
-			.addClass( 'cx-spinner cx-tools__loading-indicator' )
+			.addClass( 'cx-spinner cx-spinner--tools' )
 			.append(
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
@@ -82,7 +86,7 @@
 	}
 
 	ContentTranslationTools.prototype.clearSearch = function () {
-		this.$searchBox.find( 'input' ).val( '' );
+		this.$searchInput.val( '' );
 	};
 
 	ContentTranslationTools.prototype.listen = function () {

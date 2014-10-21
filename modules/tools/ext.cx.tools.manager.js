@@ -108,7 +108,7 @@
 		// Check if there are any cards shown in regular time intervals.
 		// If not, show the default tool.
 		window.setInterval( function () {
-			if ( !cxToolManager.$container.find( '.card' ).length ) {
+			if ( !cxToolManager.$container.find( '.card' ).not( '.cx-card--fixed' ).length ) {
 				cxToolManager.showCard( cxToolManager.options.defaultTool );
 			}
 		}, 5000 );
