@@ -18,7 +18,7 @@
 	/**
 	 * A plugin that adds text to an element,
 	 * converting explicit line endings to <br /> elements
-	 * @param {text} text
+	 * @param {string} text
 	 */
 	$.fn.multiline = function ( text ) {
 		this.text( text );
@@ -66,6 +66,7 @@
 
 		this.$translationsBlock = $( '<div>' )
 			.addClass( 'card__translations' );
+
 		$expand = $( '<div>' )
 			.addClass( 'card__expand' );
 
@@ -87,6 +88,7 @@
 	 * @param {string} word The word to translate using a dictionary
 	 * @param {string} from Source language
 	 * @param {string} to Target language
+	 * @param {string} provider Provider id
 	 * @return {jQuery.Promise}
 	 */
 	DictionaryCard.prototype.getTranslation = function ( word, from, to, provider ) {
@@ -114,6 +116,7 @@
 		cache[ word ][ from ] = cache[ word ][ from ] || {};
 		cache[ word ][ from ][ to ] = cache[ word ][ from ][ to ] || {};
 		cache[ word ][ from ][ to ][ provider ] = request;
+
 		return request;
 	};
 
