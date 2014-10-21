@@ -95,13 +95,18 @@
 		mw.hook( 'mw.cx.search.link' ).fire( text );
 	};
 
-	ContentTranslationTools.prototype.clearSearch = function () {
-		this.$searchInput.val( '' );
+	ContentTranslationTools.prototype.updateSearch = function ( word ) {
+		if ( typeof word === 'string' ) {
+			this.$searchInput.val( word );
+		} else {
+			// This nicely covers emptying in case of link selection
+			this.$searchInput.val( '' );
+		}
 	};
 
 	ContentTranslationTools.prototype.listen = function () {
-		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.clearSearch, this ) );
-		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.clearSearch, this ) );
+		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.updateSearch, this ) );
+		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.updateSearch, this ) );
 	};
 
 	$.fn.cxTools = function () {
