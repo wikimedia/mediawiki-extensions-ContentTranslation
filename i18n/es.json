@@ -65,6 +65,7 @@
 	"cx-tools-mt-provider-title": "De $1",
 	"cx-tools-mt-not-available": "No disponible para $1",
 	"cx-tools-mt-dont-use": "No usar la traducción automática",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoría|$1 categorías|0=Sin categorías}}",
 	"cx-stats-title": "Estadísticas de traducción de contenidos",
 	"cx-stats-page-title": "Página",
 	"cx-stats-from": "Idioma de origen",

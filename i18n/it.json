@@ -60,7 +60,7 @@
 	"cx-stats-to": "Lingua di destinazione",
 	"cx-stats-pages-title": "Pagine tradotte",
 	"cx-stats-unknown": "sconosciuta",
-	"cx-stats-summary": "{{PLURAL:$1|Una pagina|$1/$2 pagine ($3%)}} nel namespace principale.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|pagina|pagine}} ($3%) nel namespace principale.",
 	"cx-tools-reference-title": "Riferimento",
 	"cx-tools-reference-remove": "Rimuovi riferimento",
 	"cx-tools-link-instruction-shortcut": "Maiusc + clic su qualsiasi collegamento per aprirlo",
