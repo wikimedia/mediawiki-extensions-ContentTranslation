@@ -2,6 +2,7 @@
 
 @text-highlight-color: #FEFCE0;
 @link-highlight-color: #BDD4FF;
+@connected-link-highlight-color: #D9E6FF;
 
 .cx-column--translation {
 	[contenteditable] {
@@ -21,6 +22,13 @@
 
 	.cx-highlight--blue {
 		background-color: @link-highlight-color;
+		box-shadow: 0px 0px 0 2px @link-highlight-color;
+		border-radius: 2px;
+		transition: all 0.25s;
+	}
+
+	.cx-highlight--lightblue {
+		background-color: @connected-link-highlight-color;
 		box-shadow: 0px 0px 0 2px @link-highlight-color;
 		border-radius: 2px;
 		transition: all 0.25s;
