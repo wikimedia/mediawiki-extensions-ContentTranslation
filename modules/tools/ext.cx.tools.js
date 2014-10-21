@@ -38,6 +38,8 @@
 			}
 		}, this ) );
 
+		this.$searchInput.keyup( $.debounce( 300, $.proxy( this.doSearch, this ) ) );
+
 		this.$searchIcon.on( 'click', $.proxy( this.doSearch, this ) );
 
 		mw.hook( 'mw.cx.tools.ready' ).fire();
