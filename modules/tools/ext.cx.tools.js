@@ -20,7 +20,7 @@
 		this.$container = $( element );
 
 		this.$toolsContainer = null;
-		this.$searchBox = null;
+		this.$searchIcon = null;
 		this.$searchInput = null;
 
 		this.init();
@@ -32,19 +32,19 @@
 		this.$toolsContainer.cxtoolmanager();
 
 		// Handle enter key press in the search field.
-		this.$searchInput.keypress( function ( event ) {
+		this.$searchInput.keypress( $.proxy( function ( event ) {
 			if ( event.which === 13 ) {
-				var text = $( this ).val().trim().toLowerCase();
-				mw.hook( 'mw.cx.search.word' ).fire( text );
-				mw.hook( 'mw.cx.search.link' ).fire( text );
+				this.doSearch();
 			}
-		} );
+		}, this ) );
+
+		this.$searchIcon.on( 'click', $.proxy( this.doSearch, this ) );
 
 		mw.hook( 'mw.cx.tools.ready' ).fire();
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $loadingIndicator;
+		var $progressBar, $searchBox, $loadingIndicator;
 
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
@@ -57,13 +57,16 @@
 				type: 'search'
 			} );
 
-		this.$searchBox = $( '<div>' )
+		this.$searchIcon = $( '<div>' )
+			.addClass( 'cx-card--search__icon' );
+
+		$searchBox = $( '<div>' )
 			.addClass( 'card cx-card--search cx-card--fixed' )
-			.append( this.$searchInput );
+			.append( this.$searchIcon, this.$searchInput );
 
 		this.$toolsContainer = $( '<div>' )
 			.addClass( 'cx-tools' )
-			.append( this.$searchBox );
+			.append( $searchBox );
 
 		$loadingIndicator = getLoadingIndicator();
 
@@ -84,6 +87,13 @@
 			)
 			.hide();
 	}
+
+	ContentTranslationTools.prototype.doSearch = function () {
+		var text = this.$searchInput.val().trim().toLowerCase();
+
+		mw.hook( 'mw.cx.search.word' ).fire( text );
+		mw.hook( 'mw.cx.search.link' ).fire( text );
+	};
 
 	ContentTranslationTools.prototype.clearSearch = function () {
 		this.$searchInput.val( '' );
