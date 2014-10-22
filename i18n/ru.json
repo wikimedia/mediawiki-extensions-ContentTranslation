@@ -61,7 +61,7 @@
 	"cx-tools-mt-provider-title": "От $1",
 	"cx-tools-mt-not-available": "Недоступно для $1",
 	"cx-tools-mt-dont-use": "Не использовать машинный перевод",
-	"cx-tools-categories-count-message": "$1 категори{{PLURAL:$1|я|й|и}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категорий|$1 категории|0=Нет категорий}}",
 	"cx-stats-title": "Статистика перевода контента",
 	"cx-stats-page-title": "Страница",
 	"cx-stats-from": "Исходный язык",
