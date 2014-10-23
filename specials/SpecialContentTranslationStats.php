@@ -22,7 +22,6 @@ class SpecialContentTranslationStats extends SpecialPage {
 
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
-		$skin = $this->getSkin();
 
 		$this->setHeaders();
 		$this->outputHeader();
@@ -35,11 +34,6 @@ class SpecialContentTranslationStats extends SpecialPage {
 	}
 
 	private function getPagesTable( $pages ) {
-		global $wgContLang;
-
-		$namespaces = $wgContLang->getFormattedNamespaces();
-		$blanknamespace = $this->msg( 'blanknamespace' )->text();
-
 		$headingMsgs = array(
 			'cx-stats-page-title',
 			'cx-stats-from',
@@ -96,7 +90,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 			implode( "\n", $rows )
 		);
 
-		if ($total > 0) {
+		if ( $total > 0 ) {
 			$percentage = round( $main / $total * 100 );
 		} else {
 			$percentage = 0;
