@@ -20,12 +20,12 @@ $wgResourceModules['ext.cx.model'] = array(
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.cx.init'] = array(
+$wgResourceModules['ext.cx.translationview'] = array(
 	'scripts' => array(
-		'base/ext.cx.base.js',
+		'translationview/ext.cx.translationview.js',
 	),
 	'styles' => array(
-		'base/styles/ext.cx.base.less',
+		'translationview/styles/ext.cx.translationview.less',
 	),
 	'dependencies' => array(
 		'ext.cx.model',
@@ -312,7 +312,7 @@ $wgResourceModules['ext.cx.tools.mt'] = array(
 		'cx-tools-mt-dont-use',
 	),
 	'dependencies' => array(
-		'ext.cx.init',
+		'ext.cx.translationview',
 		'ext.cx.model',
 		'ext.cx.source',
 		'ext.cx.tools.card',

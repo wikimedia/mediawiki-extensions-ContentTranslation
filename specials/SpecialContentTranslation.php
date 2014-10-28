@@ -26,7 +26,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$skin = $this->getSkin();
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		$out->addModules( 'ext.cx.init' );
+		$out->addModules( 'ext.cx.translationview' );
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 
@@ -43,7 +43,6 @@ class SpecialContentTranslation extends SpecialPage {
 			array(),
 			$this->msg( 'cx-javascript' )->text()
 		) );
-
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
 		$toolbarList = Html::rawElement( 'ul',
 			null,
