@@ -1,4 +1,4 @@
-Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+?)$/) do |source_language, page_name, target_language|
+Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+?)$/) do |_source_language, page_name, target_language|
 	language_code = {
 		"Danish" => "da",
 		"English" => "en",
@@ -31,7 +31,7 @@ Then(/^I don't see the (.+?) column$/) do |column_type|
 	on(ContentTranslationPage).column(column_type).should_not exist
 end
 
-Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |link_name, page_title|
+Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |_link_name, page_title|
 	page_title_in_url = page_title.gsub(" ", "_")
 	on(ContentTranslationPage).view_page.attribute_value("href").should end_with(page_title_in_url)
 end
@@ -96,7 +96,7 @@ Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
 	on(ContentTranslationPage).column(column_type).attribute_value("dir").should == direction
 end
 
-Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |page_title, tag_name|
+Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |_page_title, _tag_name|
 	visit(TranslatedPageHistory).contenttranslation_tag_element.should be_visible
 end
 

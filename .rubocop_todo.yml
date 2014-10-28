@@ -9,11 +9,6 @@
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Lint/UnusedBlockArgument:
-  Enabled: false
-
 # Offense count: 36
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
