@@ -16,7 +16,7 @@
 	"cx-header-progressbar-text-mt": "($1% машинного перевода)",
 	"cx-header-translation-center": "Центр переводов",
 	"cx-source-view-page": "просмотр страницы",
-	"cx-publish-page": "Страница опубликована на [$1 $2]",
+	"cx-publish-page-success": "Страница опубликована на $1",
 	"cx-publish-page-error": "Ошибка при сохранении страницы.",
 	"cx-publish-button": "Опубликовать перевод",
 	"cx-publish-button-publishing": "Публикация…",

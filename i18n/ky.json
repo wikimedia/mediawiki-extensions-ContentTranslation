@@ -10,7 +10,7 @@
 	"cx-header-progressbar-text": "$1% которулган",
 	"cx-header-translation-center": "Котормо борбору",
 	"cx-source-view-page": "баракты кароо",
-	"cx-publish-page": "Барак [$1 $2] жарыяланган",
+	"cx-publish-page-success": "Барак $1 жарыяланган",
 	"cx-publish-page-error": "Баракты сактоодо ката кетти.",
 	"cx-publish-button": "Котормону жарыялоо",
 	"cx-publish-summary": "\"$1\" барагынан которулуп түзүлдү",

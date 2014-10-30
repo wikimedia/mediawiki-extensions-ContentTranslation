@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text-mt": "($1% зорбанан гочдарера)",
 	"cx-header-translation-center": "Гочдечера меттиг",
 	"cx-source-view-page": "агӀоне хьажар",
-	"cx-publish-page": "АгӀо [$1 $2] чохь гайтина",
+	"cx-publish-page-success": "АгӀо $1 чохь гайтина",
 	"cx-publish-page-error": "АгӀо Ӏалаш еш гӀалат даьлла.",
 	"cx-publish-button": "Гайта гоч",
 	"cx-publish-button-publishing": "Араяхар...",

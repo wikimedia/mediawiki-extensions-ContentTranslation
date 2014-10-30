@@ -10,7 +10,7 @@
 	"cx-header-progressbar-text": "$1% traducido",
 	"cx-header-translation-center": "Centro de tradución",
 	"cx-source-view-page": "ver a páxina",
-	"cx-publish-page": "Páxina publicada en \"[$1 $2]\"",
+	"cx-publish-page-success": "Páxina publicada en \"$1\"",
 	"cx-publish-page-error": "Erro ao gardar a páxina.",
 	"cx-publish-button": "Publicar a tradución",
 	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",

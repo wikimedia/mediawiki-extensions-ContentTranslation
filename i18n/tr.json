@@ -13,7 +13,7 @@
 	"cx-header-progressbar-text": "%$1 çevrildi",
 	"cx-header-translation-center": "Çeviri merkezi",
 	"cx-source-view-page": "sayfayı görüntüle",
-	"cx-publish-page": "Sayfa şurada yayınlandı [$1 $2]",
+	"cx-publish-page-success": "Sayfa şurada yayınlandı $1",
 	"cx-publish-page-error": "Sayfa kaydedilirken hata oluştu.",
 	"cx-publish-button": "Çeviriyi yayınla",
 	"cx-publish-gt-move-page-title": "Sayfayı taşı",

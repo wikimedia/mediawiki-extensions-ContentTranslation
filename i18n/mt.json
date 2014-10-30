@@ -12,7 +12,7 @@
 	"cx-header-progressbar-text-mt": "($1% mit-traduzzjoni awtomatika)",
 	"cx-header-translation-center": "Ċentru ta' traduzzjoni",
 	"cx-source-view-page": "Ara l-paġna",
-	"cx-publish-page": "Paġna ppubblikata fuq [$1 $2]",
+	"cx-publish-page-success": "Paġna ppubblikata fuq $1",
 	"cx-publish-page-error": "Sar żball waqt li l-paġna kienet qiegħda tiġi ssevjata.",
 	"cx-publish-button": "Ippubblika t-traduzzjoni",
 	"cx-publish-button-publishing": "Qiegħda ssir il-pubblikazzjoni...",

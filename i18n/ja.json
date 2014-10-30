@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"SkyDaisy9"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -11,6 +12,7 @@
 	"cx-header-progressbar-text": "$1% 翻訳済",
 	"cx-header-translation-center": "翻訳センター",
 	"cx-source-view-page": "ページを閲覧",
+	"cx-publish-page-success": "ページを$1に公開しました",
 	"cx-publish-page-error": "ページの保存エラーです。",
 	"cx-publish-summary": "ページ「$1」の翻訳に伴い作成",
 	"cx-publish-gt-move-page-title": "ページの移動",

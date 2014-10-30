@@ -17,7 +17,7 @@
 	"cx-header-progressbar-text-mt": "($1% תרגום מכונה)",
 	"cx-header-translation-center": "מרכז התרגום",
 	"cx-source-view-page": "הצגת הדף",
-	"cx-publish-page": "הדף פורסם בכתובת [$1 $2]",
+	"cx-publish-page-success": "הדף פורסם בכתובת $1",
 	"cx-publish-page-error": "שגיאה בעת שמירת הדף.",
 	"cx-publish-button": "פרסום התרגום",
 	"cx-publish-button-publishing": "התרגום מתפרסם...",

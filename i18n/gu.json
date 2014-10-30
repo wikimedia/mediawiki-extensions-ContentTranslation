@@ -12,7 +12,7 @@
 	"cx-header-progressbar-text-mt": "(મશીન ભાષાંતરમાંથી $1%)",
 	"cx-header-translation-center": "ભાષાંતર કેન્દ્ર",
 	"cx-source-view-page": "પાનું જુઓ",
-	"cx-publish-page": "પાનું [$1 $2] પર પ્રકાશિત થયું",
+	"cx-publish-page-success": "પાનું $1 પર પ્રકાશિત થયું",
 	"cx-publish-page-error": "પાનું સંગ્રહ કરતી વખતે ક્ષતિ આવી.",
 	"cx-publish-button": "ભાષાંતર પ્રકાશિત કરો",
 	"cx-publish-button-publishing": "પ્રકાશિત કરે છે...",

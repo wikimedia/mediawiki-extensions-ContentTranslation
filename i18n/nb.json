@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "$1% oversatt",
 	"cx-header-translation-center": "Oversettelsessenter",
 	"cx-source-view-page": "vis side",
-	"cx-publish-page": "Siden publiseres på [$1 $2]",
+	"cx-publish-page-success": "Siden publiseres på $1",
 	"cx-publish-page-error": "Feil ved lagring av siden.",
 	"cx-publish-button": "Publisér oversettelse",
 	"cx-publish-summary": "Skapt ved oversettelse av siden «$1»",

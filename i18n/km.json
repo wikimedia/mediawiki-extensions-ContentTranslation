@@ -10,7 +10,7 @@
 	"cx-desc": "ឧបករណ៍មួយដែលជួយអ្នកប្រែសម្រួលអោយបកប្រែពីភាសាមួយទៅភាសាមួយទៀតដោយមានជំនួយពីម៉ាស៊ីនបកប្រែនិងឧបករណ៍បកប្រែផ្សេងទៀត",
 	"cx-header-progressbar-text": "បកប្រែសរួច $1%",
 	"cx-header-translation-center": "មជ្ឍមណ្ឌលបកប្រែ",
-	"cx-publish-page": "ទំព័របោះផ្សាយនៅ [$1 $2]",
+	"cx-publish-page-success": "ទំព័របោះផ្សាយនៅ $1",
 	"cx-publish-page-error": "បញ្ហាពេលរក្សាទុកទំព័រ។",
 	"cx-publish-button": "បោះផ្សាយការបកប្រែ",
 	"cx-translation-add-translation": "+ បន្ថែម​ការ​បក​ប្រែ",

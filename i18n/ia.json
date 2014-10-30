@@ -10,7 +10,7 @@
 	"cx-header-progressbar-text": "$1% traducite",
 	"cx-header-translation-center": "Centro de traduction",
 	"cx-source-view-page": "vider pagina",
-	"cx-publish-page": "Pagina publicate in [$1 $2]",
+	"cx-publish-page-success": "Pagina publicate in $1",
 	"cx-publish-page-error": "Error durante le salveguarda del pagina.",
 	"cx-publish-button": "Publicar traduction",
 	"cx-publish-button-publishing": "Publica...",

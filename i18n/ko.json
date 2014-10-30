@@ -15,7 +15,7 @@
 	"cx-header-progressbar-text": "$1% 번역됨",
 	"cx-header-translation-center": "번역 센터",
 	"cx-source-view-page": "문서 보기",
-	"cx-publish-page": "[$1 $2]에 게시된 문서",
+	"cx-publish-page-success": "$1에 게시된 문서",
 	"cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
 	"cx-publish-button": "번역 게시",
 	"cx-publish-summary": "\"$1\" 문서 번역됨",

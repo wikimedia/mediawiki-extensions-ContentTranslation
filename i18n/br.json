@@ -11,7 +11,7 @@
 	"cx-header-progressbar-text": "$1% troet",
 	"cx-header-translation-center": "Kreizenn dreiñ",
 	"cx-source-view-page": "gwelet ar bajenn",
-	"cx-publish-page": "Pajenn embannet war [$1 $2]",
+	"cx-publish-page-success": "Pajenn embannet war $1",
 	"cx-publish-page-error": "Fazi oc'h enrollañ ar bajenn.",
 	"cx-publish-button": "Embann an droidigezh",
 	"cx-publish-button-publishing": "Oc'h embann...",

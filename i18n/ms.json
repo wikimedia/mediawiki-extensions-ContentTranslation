@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "$1% diterjemahkan",
 	"cx-header-translation-center": "Pusat penterjemahan",
 	"cx-source-view-page": "paparkan",
-	"cx-publish-page": "Halaman disiarkan di [$1 $2]",
+	"cx-publish-page-success": "Halaman disiarkan di $1",
 	"cx-publish-page-error": "Ralat ketika menyimpan halaman.",
 	"cx-publish-button": "Siarkan terjemahan",
 	"cx-publish-summary": "Dicipta dengan menterjemah halaman \"$1\"",

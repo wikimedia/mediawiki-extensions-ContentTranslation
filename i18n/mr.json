@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "$1% भाषांतर झाले",
 	"cx-header-translation-center": "भाषांतर केंद्र",
 	"cx-source-view-page": "पान बघा",
-	"cx-publish-page": "[$1 $2] येथे प्रकाशित केलेले पान",
+	"cx-publish-page-success": "$1 येथे प्रकाशित केलेले पान",
 	"cx-publish-page-error": "पान जतन करतांना त्रूटी.",
 	"cx-publish-button": "भाषांतर प्रकाशित करा",
 	"cx-publish-summary": "\"$1\" पानाचे भाषांतर करुन तयार झाले",

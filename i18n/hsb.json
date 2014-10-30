@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "$1 % přełožene.",
 	"cx-header-translation-center": "Přełožowanske srjedźišćo",
 	"cx-source-view-page": "stronu sej wobhladać",
-	"cx-publish-page": "Strona pola [$1 $2] wozjewjena.",
+	"cx-publish-page-success": "Strona pola $1 wozjewjena.",
 	"cx-publish-page-error": "Zmylk při składowanju strony.",
 	"cx-publish-button": "Přełožk wozjewić",
 	"cx-publish-summary": "Přez přełožowanje strony \"$1\" wutworjeny",

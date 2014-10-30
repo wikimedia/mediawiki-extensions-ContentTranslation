@@ -12,7 +12,7 @@
 	"cx-header-progressbar-text-mt": "($1% Maschinneniwwersetzung)",
 	"cx-header-translation-center": "Iwwersetzungszentral",
 	"cx-source-view-page": "Säit weisen",
-	"cx-publish-page": "Säit publizéiert ënner [$1 $2]",
+	"cx-publish-page-success": "Säit publizéiert ënner $1",
 	"cx-publish-page-error": "Feeler beim Späichere vun der Säit.",
 	"cx-publish-button": "Iwwersetzung publizéieren",
 	"cx-publish-button-publishing": "Gëtt publizéiert...",

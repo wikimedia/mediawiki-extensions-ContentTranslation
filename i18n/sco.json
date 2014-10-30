@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "$1% owerset",
 	"cx-header-translation-center": "Owersetin center",
 	"cx-source-view-page": "see page",
-	"cx-publish-page": "Page publeeshed at [$1 $2]",
+	"cx-publish-page-success": "Page publeeshed at $1",
 	"cx-publish-page-error": "Mistak while hainin page.",
 	"cx-publish-button": "Publeesh owerset",
 	"cx-publish-summary": "Cræftit bi owersetin the page \"$1\"",

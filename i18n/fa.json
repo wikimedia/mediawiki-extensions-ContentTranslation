@@ -11,7 +11,7 @@
 	"cx-header-progressbar-text": "$1% ترجمه شده",
 	"cx-header-translation-center": "مرکز ترجمه",
 	"cx-source-view-page": "مشاهده صفحه",
-	"cx-publish-page": "صفحه در [$1 $2] منتشر شده",
+	"cx-publish-page-success": "صفحه در $1 منتشر شده",
 	"cx-publish-page-error": "خطا هنگام ذخیرهٔ ترجمه.",
 	"cx-publish-button": "انتشار ترجمه",
 	"cx-publish-button-publishing": "در حال انتشار...",

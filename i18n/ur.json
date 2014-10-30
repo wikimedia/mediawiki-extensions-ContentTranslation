@@ -11,7 +11,7 @@
 	"cx-header-progressbar-text": "$1% کا ترجمہ مکمل",
 	"cx-header-translation-center": "دار الترجمہ",
 	"cx-source-view-page": "صفحہ دیکھیں",
-	"cx-publish-page": "صفحہ [$1 $2] پر شائع کردیا گیا",
+	"cx-publish-page-success": "صفحہ $1 پر شائع کردیا گیا",
 	"cx-publish-page-error": "صفحہ کو محفوظ کرنے کے دوران کوئی نقص پیش آیا ہے۔",
 	"cx-publish-button": "ترجمہ شائع کریں",
 	"cx-publish-summary": "تخلیق شدہ از ترجمہ \"$1\" صفحہ",

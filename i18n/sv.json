@@ -14,7 +14,7 @@
 	"cx-header-progressbar-text-mt": "($1% från maskinöversättning)",
 	"cx-header-translation-center": "Översättningscenter",
 	"cx-source-view-page": "visa sida",
-	"cx-publish-page": "Sidan publicerad på [$1 $2]",
+	"cx-publish-page-success": "Sidan publicerad på $1",
 	"cx-publish-page-error": "Fel vid sparandet av sida.",
 	"cx-publish-button": "Publicera översättningen",
 	"cx-publish-button-publishing": "Publicerar...",

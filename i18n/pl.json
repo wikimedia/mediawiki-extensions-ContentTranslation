@@ -17,7 +17,7 @@
 	"cx-header-progressbar-text": "$1% przetłumaczono",
 	"cx-header-translation-center": "Centrum tłumaczeń",
 	"cx-source-view-page": "Zobacz stronę",
-	"cx-publish-page": "Strona opublikowana w [$1 $2]",
+	"cx-publish-page-success": "Strona opublikowana w $1",
 	"cx-publish-page-error": "Błąd podczas zapisywania strony.",
 	"cx-publish-button": "Publikuj tłumaczenie",
 	"cx-publish-button-publishing": "Publikowanie...",

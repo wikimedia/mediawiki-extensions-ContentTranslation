@@ -11,7 +11,7 @@
 	"cx-header-progressbar-text": "$1% অনূদিত হয়েছে",
 	"cx-header-translation-center": "অনুবাদ কেন্দ্র",
 	"cx-source-view-page": "পাতা দেখুন",
-	"cx-publish-page": "পাতাটি প্রকাশিত হয়েছে [$1 $2]",
+	"cx-publish-page-success": "পাতাটি প্রকাশিত হয়েছে $1",
 	"cx-publish-page-error": "পাতা সংরক্ষণের সময় সমস্যা হয়েছে।",
 	"cx-publish-button": "অনুবাদ প্রকাশ করুন",
 	"cx-publish-button-publishing": "প্রকাশ হচ্ছে...",

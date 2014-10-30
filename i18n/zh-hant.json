@@ -15,7 +15,7 @@
 	"cx-header-progressbar-text-mt": "（$1% 從機械翻譯）",
 	"cx-header-translation-center": "翻譯中心",
 	"cx-source-view-page": "檢視頁面",
-	"cx-publish-page": "頁面發佈在[$1 $2]",
+	"cx-publish-page-success": "頁面發佈在$1",
 	"cx-publish-page-error": "當保存頁面時出錯。",
 	"cx-publish-button": "發佈翻譯",
 	"cx-publish-summary": "經由翻譯頁面“$1”創建",

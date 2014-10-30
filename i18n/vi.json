@@ -9,7 +9,7 @@
 	"cx-header-progressbar-text": "đã dịch $1%",
 	"cx-header-translation-center": "Trung tâm dịch",
 	"cx-source-view-page": "xem trang",
-	"cx-publish-page": "Trang được xuất bản tại [$1 $2]",
+	"cx-publish-page-success": "Trang được xuất bản tại $1",
 	"cx-publish-page-error": "Lỗi trong khi lưu trang.",
 	"cx-publish-button": "Xuất bản bản dịch",
 	"cx-publish-summary": "Tạo với bản dịch của trang “$1”",

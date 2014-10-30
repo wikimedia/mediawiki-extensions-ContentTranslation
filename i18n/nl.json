@@ -15,7 +15,7 @@
 	"cx-header-progressbar-text": "$1% vertaald",
 	"cx-header-translation-center": "Vertaalcentrum",
 	"cx-source-view-page": "pagina bekijken",
-	"cx-publish-page": "Pagina gepubliceerd op [$1 $2]",
+	"cx-publish-page-success": "Pagina gepubliceerd op $1",
 	"cx-publish-page-error": "Fout tijdens het opslaan van de pagina.",
 	"cx-publish-button": "Vertaling publiceren",
 	"cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",

@@ -19,7 +19,7 @@
 	"cx-header-progressbar-text-mt": "（$1%来自机器翻译）",
 	"cx-header-translation-center": "翻译中心",
 	"cx-source-view-page": "浏览页面",
-	"cx-publish-page": "页面发布在[$1 $2]",
+	"cx-publish-page-success": "页面发布在$1",
 	"cx-publish-page-error": "当保存页面时出错。",
 	"cx-publish-button": "发布翻译",
 	"cx-publish-button-publishing": "正在发布...",
