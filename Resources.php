@@ -148,6 +148,12 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'cx-sourceselector-dialog-button-start-translation',
 		'cx-sourceselector-dialog-source-language-label',
 		'cx-sourceselector-dialog-target-language-label',
+		'cx-sourceselector-dialog-source-title-placeholder',
+		'cx-sourceselector-dialog-target-title-placeholder',
+		'cx-sourceselector-dialog-error-page-and-title-exist',
+		'cx-sourceselector-dialog-error-page-exists',
+		'cx-sourceselector-dialog-error-title-in-use',
+		'cx-sourceselector-dialog-error-no-source-article',
 	),
 ) + $resourcePaths;
 
