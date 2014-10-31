@@ -36,31 +36,18 @@
 			)
 		);
 
-		this.$info = $( '<div>' )
-			.addClass( 'cx-progressbar__info' )
-			.append(
-				$( '<div>' ).addClass( 'cx-progressbar__info--total' ),
-				$( '<div>' ).addClass( 'cx-progressbar__info--mt' )
-			);
-
-		this.$container.append( this.$info.hide() );
 		this.$bar = this.$container.find( '.cx-progressbar__bar' );
 		this.$mtbar = this.$container.find( '.cx-progressbar__bar--mt' );
-		this.update( { maximum: 0, any: 0, human: 0, mt: 0 } );
+		this.update( {
+			maximum: 0,
+			any: 0,
+			human: 0,
+			mt: 0
+		} );
 	};
 
 	ProgressBar.prototype.listen = function () {
-		var progressBar = this;
-
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.update, this ) );
-
-		this.$container.on( 'mouseenter', '.cx-progressbar', function () {
-			progressBar.$info.show();
-		} );
-
-		this.$container.on( 'mouseleave', '.cx-progressbar', function () {
-			progressBar.$info.hide();
-		} );
 	};
 
 	ProgressBar.prototype.update = function ( weights ) {
@@ -71,14 +58,12 @@
 		this.$bar.css( 'width', progress + '%' );
 		this.$mtbar.css( 'width', mtProgress + '%' );
 
-		this.$info.find( '.cx-progressbar__info--total' )
-			.text( mw.msg(
+		this.$container.attr( 'title',
+			mw.msg(
 				'cx-header-progressbar-text',
-				mw.language.convertNumber( parseInt( progress, 10 ) )
-			) );
-
-		this.$info.find( '.cx-progressbar__info--mt' )
-			.text( mw.msg(
+				mw.language.convertNumber( parseInt( progress, 10 ) ) ) +
+			'\n' +
+			mw.msg(
 				'cx-header-progressbar-text-mt',
 				mw.language.convertNumber( parseInt( mtPercentage, 10 ) )
 			) );
