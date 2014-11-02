@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Kartik Mistry",
+			"Pau Giner",
 			"Santhosh.thottingal",
 			"Sucheta Ghoshal"
 		]
@@ -14,6 +15,7 @@
 	"cx-header-progressbar-text": "$1% translated",
 	"cx-header-progressbar-text-mt": "($1% from machine translation)",
 	"cx-header-translation-center": "Translation center",
+	"cx-header-new-translation": "New translation",
 	"cx-source-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1",
 	"cx-publish-page-error": "Error while saving page.",

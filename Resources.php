@@ -73,9 +73,11 @@ $wgResourceModules['ext.cx.header'] = array(
 		'mediawiki.util',
 	),
 	'messages' => array(
+		'cx',
 		'cx-error-server-connection',
 		'cx-error-page-not-found',
-		'cx-header-translation-center',
+		'cx-header-new-translation',
+		'cx-last-saved',
 		'cx-publish-button',
 		'cx-special-login-error',
 		'cx-translation-target-page-exists',

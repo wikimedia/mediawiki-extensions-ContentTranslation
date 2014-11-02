@@ -149,10 +149,15 @@
 	 * Render the header
 	 */
 	ContentTranslationHeader.prototype.render = function () {
-		var $logo, $headerBar,
+		var $headerTitle, $headerBar,
 			$translationCenterLink, $translationCenter;
 
-		$logo = $( '<div>' ).addClass( 'cx-header__logo' );
+		$headerTitle = $( '<div>' )
+			.addClass( 'cx-header__title' )
+			.append(
+				$( '<div>' ).addClass( 'cx-header__logo' ),
+				$( '<span>' ).text( mw.msg( 'cx' ) )
+			);
 
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish publish mw-ui-button mw-ui-constructive' )
@@ -161,8 +166,9 @@
 			.hide();
 
 		$translationCenterLink = $( '<a>' )
-			.text( mw.msg( 'cx-header-translation-center' ) )
-			.attr( 'href', '#' );
+			// TODO update the text when the dashboard is ready
+			.text( mw.msg( 'cx-header-new-translation' ) )
+			.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) );
 
 		$translationCenter = $( '<div>' )
 			.addClass( 'cx-header__translation-center' )
@@ -170,7 +176,7 @@
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
-			.append( /*$translationCenter,*/ this.$publishButton );
+			.append( $translationCenter, this.$publishButton );
 
 		this.$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
@@ -180,7 +186,7 @@
 
 		this.$container
 			.addClass( 'cx-header' )
-			.append( $logo, $headerBar, this.$infoBar );
+			.append( $headerTitle, $headerBar, this.$infoBar );
 	};
 
 	/**

@@ -1,37 +1,54 @@
 @import "../../base/styles/grid/agora-grid";
 @import "mediawiki.mixins";
 
-.cx-header{
+.cx-header {
 	transition: width 0.15s;
 }
 
 .cx-header__logo {
 	.mw-ui-item;
-	.mw-ui-two-thirds;
-	height: 100px;
-	background-image: url(../images/wikipedia-logo-landscape.png);
+	width: 42px;
+	height: 38px;
+	margin: 0 10px 0 0;
+	.background-image-svg('../images/W_gray.svg', '../images/W_gray.png');
 	background-repeat: no-repeat;
-	background-position: left top;
+	background-position: center center;
+	background-size: 28px;
+	border-right: 1px solid #ddd;
+}
+
+.cx-header__title {
+	.mw-ui-item;
+	.mw-ui-two-fifths;
+	padding: 10px 0 5px 0;
+	font-size: 18px;
+	color: #777;
 }
 
 .cx-header__bar {
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
 	padding-bottom: 10px;
+	padding-top: 15px;
 	box-shadow: 0 4px rgba(0,0,0,0.05);
 }
 
 .cx-header__translation-center {
 	.mw-ui-item;
-	.mw-ui-four-sixths;
+	.mw-ui-two-thirds;
 
-	a:before {
+	a {
+		color: #565656;
+
+		&:before {
 			content: "";
 			display: inline-block;
 			border: 4px solid transparent;
 			border-right-color: #555;
 			margin: 0 8px 0 0;
+		}
 	}
 }
 
@@ -70,7 +87,7 @@
 
 .cx-header__publish {
 	.mw-ui-item;
-	.mw-ui-one-quarter;
+	.mw-ui-one-third;
 	float: right;
 }
 
@@ -83,8 +100,15 @@
 	background: rgba(255,255,255,0.95);
 	padding-top: 5px;
 	padding: 5px 0 0 0;
+
+	.cx-header__bar {
+		border: none;
+		margin: 0;
+	}
+
 	.cx-header__logo,
-	.cx-header__user-details {
+	.cx-header__user-details,
+	.cx-header__title {
 		display: none;
 	}
 }
