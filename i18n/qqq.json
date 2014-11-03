@@ -86,5 +86,15 @@
 	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.\n{{Identical|Target}}",
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
-	"cx-publish-captcha-title": "Title of captcha form while publishing the translation"
+	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",
+	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",
+	"apihelp-cxpublish-param-title": "{{doc-apihelp-param|cxpublish|title}}",
+	"apihelp-cxpublish-param-html": "{{doc-apihelp-param|cxpublish|html}}",
+	"apihelp-cxpublish-param-from": "{{doc-apihelp-param|cxpublish|from}}",
+	"apihelp-cxpublish-param-to": "{{doc-apihelp-param|cxpublish|to}}",
+	"apihelp-cxpublish-param-sourcetitle": "{{doc-apihelp-param|cxpublish|sourcetitle}}",
+	"apihelp-cxpublish-param-sourcerevision": "{{doc-apihelp-param|cxpublish|sourcerevision}}",
+	"apihelp-cxpublish-param-categories": "{{doc-apihelp-param|cxpublish|categories}}",
+	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
+	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}"
 }

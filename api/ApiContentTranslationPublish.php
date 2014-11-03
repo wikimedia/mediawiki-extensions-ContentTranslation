@@ -157,6 +157,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'categories' => null,
+			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
 			'wpCaptchaId'=> null,
 			'wpCaptchaWord' => null,
 		);
@@ -178,6 +179,9 @@ class ApiContentTranslationPublish extends ApiBase {
 		return true;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'title' => 'The title of the page to perform actions on.',
@@ -193,7 +197,19 @@ class ApiContentTranslationPublish extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Save a page created using the content translation extension.';
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			/** @todo Provide examples */
+		);
 	}
 }
