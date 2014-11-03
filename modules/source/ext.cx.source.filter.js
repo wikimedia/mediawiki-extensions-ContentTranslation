@@ -134,14 +134,10 @@
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage ).done( function ( configuration ) {
 				filter.filter( configuration );
-			} ).fail( function ( jqXHR ) {
-				if ( jqXHR.status === 404 ) {
-					// If the configuration file is not present, filter all.
-					filter.filter();
-				} else {
-					// TODO: Show in UI when we have a general error display mechanism.
-					mw.log( '[CX] Failed to fetch template configuration.' + jqXHR.responseText );
-				}
+			} ).fail( function () {
+				// If the configuration file is not present, or not able
+				// to load, filter all.
+				filter.filter();
 			} );
 		} );
 	};
