@@ -82,5 +82,6 @@
 	"cx-sourceselector-dialog-target-language-label": "יעד:",
 	"cx-mt-abuse-warning-title": "התרגום שלך מכיל $1% של טקסט לא ערוך מתרגום מכונה",
 	"cx-mt-abuse-warning-text": "תרגומי מכונה ניתנים רק בתור תבנית. חובתך לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.",
-	"cx-publish-captcha-title": "שאלת אבטחה"
+	"cx-publish-captcha-title": "שאלת אבטחה",
+	"apihelp-cxpublish-description": "שמירת דף שנוצר באמצעות ההרחבה ContentTranslation."
 }

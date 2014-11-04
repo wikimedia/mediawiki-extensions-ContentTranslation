@@ -78,5 +78,15 @@
 	"cx-sourceselector-dialog-target-language-label": "Ziel:",
 	"cx-mt-abuse-warning-title": "Deine Übersetzung enthält $1% unveränderten maschinenübersetzten Text",
 	"cx-mt-abuse-warning-text": "Maschinenübersetzungen werden nur als Vorlage zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
-	"cx-publish-captcha-title": "Sicherheitsfrage"
+	"cx-publish-captcha-title": "Sicherheitsfrage",
+	"apihelp-cxpublish-description": "Speichert eine Seite, die mit der Inhaltsübersetzungs-Erweiterung erstellt wurde.",
+	"apihelp-cxpublish-param-title": "Der Titel der Seite, bei der die Aktionen ausgeführt werden sollen.",
+	"apihelp-cxpublish-param-html": "Der zu speichernde Inhalt.",
+	"apihelp-cxpublish-param-from": "Der Quell-Sprachcode.",
+	"apihelp-cxpublish-param-to": "Der Ziel-Sprachcode.",
+	"apihelp-cxpublish-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-cxpublish-param-sourcerevision": "Die Version der Quellseite.",
+	"apihelp-cxpublish-param-categories": "Die Kategorien, die zu der veröffentlichten Seite hinzugefügt werden sollen.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort)."
 }

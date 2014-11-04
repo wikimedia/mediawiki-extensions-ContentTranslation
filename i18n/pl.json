@@ -60,5 +60,6 @@
 	"cx-sourceselector-dialog-button-start-translation": "Rozpocznij tłumaczenie",
 	"cx-sourceselector-dialog-source-language-label": "Źródło:",
 	"cx-sourceselector-dialog-target-language-label": "Cel:",
-	"cx-publish-captcha-title": "Pytanie zabezpieczające"
+	"cx-publish-captcha-title": "Pytanie zabezpieczające",
+	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej."
 }

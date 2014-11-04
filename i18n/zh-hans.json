@@ -84,5 +84,8 @@
 	"cx-sourceselector-dialog-target-language-label": "目标：",
 	"cx-mt-abuse-warning-title": "您的译文包含$1%未校订的机器翻译文本",
 	"cx-mt-abuse-warning-text": "机器翻译只是作为模板提供。您需要确保内容读起来准确并符合您语言的语法。",
-	"cx-publish-captcha-title": "安全问题"
+	"cx-publish-captcha-title": "安全问题",
+	"apihelp-cxpublish-param-html": "要保存的内容。",
+	"apihelp-cxpublish-param-from": "源语言代码。",
+	"apihelp-cxpublish-param-to": "目标语言代码。"
 }

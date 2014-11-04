@@ -69,7 +69,7 @@
 	"cx-tools-categories-count-message": "Indicates number of categories associated with article.\n\nDisplayed at top of source and translation columns in [[Special:ContentTranslation]].\n\nParameters:\n* $1 - number of categories\n{{Identical|Category}}",
 	"cx-stats-title": "The title for the Special:ContentTranslationStats special page.",
 	"cx-stats-page-title": "A header for a table column. The column lists titles of translated pages.\n{{Identical|Page}}",
-	"cx-stats-from": "A header for a table column. The column lists the languages from which the pages were translated.",
+	"cx-stats-from": "A header for a table column. The column lists the languages from which the pages were translated.\n{{Identical|Source language}}",
 	"cx-stats-to": "A header for a table column. The column lists the languages into which the pages were translated.",
 	"cx-stats-pages-title": "A heading for the section at Special:ContentTranslationStats. The section shows a list of translated articles.",
 	"cx-stats-unknown": "Text when the source or target language is unknown. An adjective that describes the language.\n{{Identical|Unknown}}",

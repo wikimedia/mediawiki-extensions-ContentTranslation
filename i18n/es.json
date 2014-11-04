@@ -72,7 +72,7 @@
 	"cx-stats-to": "Idioma de destino",
 	"cx-stats-pages-title": "Páginas traducidas",
 	"cx-stats-unknown": "desconocido",
-	"cx-stats-summary": "{{PLURAL:$1|Una página|$1/$2 páginas ($3%)}} en el espacio de nombres principal.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) en el espacio de nombres principal.",
 	"cx-tools-reference-title": "Referencia",
 	"cx-tools-reference-remove": "Eliminar referencia",
 	"cx-tools-link-instruction-shortcut": "Presiona Mayús + clic en cualquier enlace para abrir",
