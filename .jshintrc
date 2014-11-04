@@ -24,6 +24,7 @@
 	"predef": [
 		"mediaWiki",
 		"jQuery",
-		"QUnit"
+		"QUnit",
+		"moment"
 	]
 }

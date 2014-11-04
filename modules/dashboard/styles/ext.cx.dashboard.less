@@ -1,0 +1,34 @@
+@import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
+
+@gray-darker: #252525;
+@gray-dark: #565656;
+@gray: #C9C9C9;
+@gray-light: #f0f0f0;
+@gray-lighter: #fbfbfb;
+
+h2 {
+	color: @gray-darker;
+}
+
+.cx-column__title {
+	font-size: 2.2em;
+	font-family: 'Linux Libertine', Georgia, Times, serif;
+}
+
+.cx-cta {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 50px;
+	background-color: #fff;
+
+	.cx-cta__action {
+		.mw-ui-one-quarter;
+	}
+
+	.cx-cta___description {
+		.mw-ui-three-quarters;
+		font-size: larger;
+		padding: 0 20px;
+	}
+}

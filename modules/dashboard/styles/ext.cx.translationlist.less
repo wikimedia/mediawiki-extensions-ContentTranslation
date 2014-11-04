@@ -1,0 +1,100 @@
+@import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
+
+.cx-translationlist {
+	.mw-ui-item;
+	.mw-ui-two-thirds;
+	padding-left: 50px;
+
+	.translation {
+		.mw-ui-one-whole;
+		padding: 10px;
+
+		.last-updated {
+			.mw-ui-one-sixth;
+			color: #565656;
+		}
+
+		.image-block {
+			.mw-ui-one-sixth;
+			padding: 0 10px;
+			width: 120px;
+
+			.image {
+				height: 100px;
+				width: 100px;
+
+				&:empty {
+					.background-image-svg('../../tools/images/link_lightgray.svg', '../images/link_lightgray.png');
+					background-repeat: no-repeat;
+					background-color: #fbfbfb;
+					background-position: center center;
+					border-right: 1px solid #eeeeee;
+				}
+			}
+		}
+
+		.title-language-block {
+			.mw-ui-one-half;
+			.source-title {
+				.mw-ui-one-whole;
+				font-size: larger;
+			}
+
+			.status,
+			.target-language,
+			.source-language {
+				float: left;
+				position: relative;
+				padding: 10px 10px 10px 0;
+				margin-right: 20px;
+				color: #565656;
+			}
+
+			.source-language:after,
+			.source-language:before {
+				left: 100%;
+				top: 50%;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+			}
+
+			.source-language:after {
+				border-color: rgba(255, 255, 255, 0);
+				border-left-color: #fff;
+				border-width: 5px;
+				margin-top: -5px;
+			}
+
+			.source-language:before {
+				border-color: rgba(85, 85, 85, 0);
+				border-left-color: #555;
+				border-width: 7px;
+				margin-top: -7px;
+			}
+
+			.status-published {
+				color: #00af89;
+			}
+		}
+	}
+
+	.translation-filter {
+		padding: 10px 0;
+		.mw-ui-one-whole;
+
+		select {
+			.mw-ui-one-quarter;
+			height: 40px;
+			background-color: white;
+		}
+
+		.translation-source-language-filter {
+			margin-left: 50px;
+		}
+	}
+}

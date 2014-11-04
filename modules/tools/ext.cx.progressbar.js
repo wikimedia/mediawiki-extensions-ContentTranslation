@@ -25,6 +25,9 @@
 	ProgressBar.prototype.init = function () {
 		this.render();
 		this.listen();
+		if ( this.options.weights ) {
+			this.update( this.options.weights );
+		}
 	};
 
 	ProgressBar.prototype.render = function () {

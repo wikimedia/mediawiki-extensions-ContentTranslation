@@ -35,6 +35,26 @@ $wgResourceModules['ext.cx.translationview'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.dashboard'] = array(
+	'scripts' => array(
+		'dashboard/ext.cx.dashboard.js',
+	),
+	'styles' => array(
+		'dashboard/styles/ext.cx.dashboard.less',
+	),
+	'dependencies' => array(
+		'ext.cx.model',
+		'ext.cx.header',
+		'ext.cx.sitemapper',
+		'ext.cx.translationlist',
+		'ext.cx.source.selector',
+	),
+	'messages' => array(
+		'cx-create-new-translation',
+		'cx-create-new-translation-desc',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.util'] = array(
 	'scripts' => array(
 		'util/ext.cx.util.js',
@@ -459,6 +479,27 @@ $wgResourceModules['ext.guidedTour.tour.cxpublish'] = array(
 		'cx-publish-gt-moved-description',
 		'cx-publish-gt-published-title',
 		'cx-publish-gt-published-description',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.translationlist'] = array(
+	'scripts' => array(
+		'dashboard/ext.cx.translationlist.js',
+	),
+	'styles' => array(
+		'dashboard/styles/ext.cx.translationlist.less',
+	),
+	'dependencies' => array(
+		'moment',
+		'jquery.uls.data',
+		'ext.cx.progressbar'
+	),
+	'messages' => array(
+		'cx-translation-filter-all-translations',
+		'cx-translation-filter-published-translations',
+		'cx-translation-filter-draft-translations',
+		'cx-translation-filter-from-any-language',
+		'cx-translation-filter-to-any-language',
 	),
 ) + $resourcePaths;
 

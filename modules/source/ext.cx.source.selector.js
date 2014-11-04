@@ -17,7 +17,7 @@
 	 */
 	function CXSourceSelector( $trigger, options ) {
 		this.$trigger = $( $trigger );
-		this.options = options;
+		this.options = $.extend( {}, options );
 		// @todo Refactor
 		this.siteMapper = mw.cx.siteMapper;
 
@@ -299,8 +299,6 @@
 		);
 
 		$( 'body' ).append( this.$dialog );
-
-		this.show();
 	};
 
 	/**

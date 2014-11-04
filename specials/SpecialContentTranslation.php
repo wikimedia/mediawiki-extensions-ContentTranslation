@@ -24,9 +24,17 @@ class SpecialContentTranslation extends SpecialPage {
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
+		$request = $this->getRequest();
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		$out->addModules( 'ext.cx.translationview' );
+		if ( $request->getVal( 'from' ) === null ||
+			$request->getVal( 'to' ) === null ||
+			$request->getVal( 'page' ) === null
+		) {
+			$out->addModules( 'ext.cx.dashboard' );
+		} else {
+			$out->addModules( 'ext.cx.translationview' );
+		}
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 
@@ -50,7 +58,7 @@ class SpecialContentTranslation extends SpecialPage {
 			null,
 			$skin->getPersonalToolsList() );
 		$out->addHTML( Html::rawElement( 'div',
-			array( 'id' => 'p-personal'),
+			array( 'id' => 'p-personal' ),
 			$toolbarList ) );
 
 		$out->addHTML( $skin->bottomScripts() );
