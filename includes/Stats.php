@@ -6,11 +6,12 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
+namespace ContentTranslation;
 
 /**
  * Functions for getting ContentTranslation metrics.
  */
-class ContentTranslationStats {
+class Stats {
 	/**
 	 * Get CX-related stats.
 	 *

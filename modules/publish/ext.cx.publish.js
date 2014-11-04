@@ -140,7 +140,8 @@
 			title: targetTitle,
 			html: translatedContent,
 			sourcerevision: mw.cx.sourceRevision,
-			categories: categories
+			categories: categories,
+			progress: JSON.stringify( mw.cx.getProgress() )
 		} ).done( function () {
 			mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
 				$( '<a>' ).attr( {

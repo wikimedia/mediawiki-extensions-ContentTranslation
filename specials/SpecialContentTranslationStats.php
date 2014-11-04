@@ -29,7 +29,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$out->wrapWikiMsg( '== $1 ==',  array( 'cx-stats-pages-title' ) );
 
 		// @TODO better to return title => stats iterator
-		$stats = ContentTranslationStats::getStats();
+		$stats = ContentTranslation\Stats::getStats();
 		$out->addHtml( $this->getPagesTable( $stats ) );
 	}
 

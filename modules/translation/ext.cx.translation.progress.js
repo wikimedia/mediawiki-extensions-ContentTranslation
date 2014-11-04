@@ -38,9 +38,21 @@
 	}
 
 	/**
-	 * Calculate the translation progress.
+	 * Calculate and show the translation progress.
 	 */
 	function showProgress() {
+		mw.hook( 'mw.cx.progress' ).fire( mw.cx.getProgress() );
+	}
+
+	/**
+	 * Calculate the percentage of machine translation out of the whole article.
+	 * @return {Object} Map of weights
+	 * @return {number} return.any Weight of sections with content
+	 * @return {number} return.human Weight of sections with human modified content
+	 * @return {number} return.mt Weight of sections with unmodified mt content
+	 * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
+	 */
+	mw.cx.getProgress = function() {
 		var sourceWeight, weights;
 
 		sourceWeight = getTotalSourceWeight();
@@ -51,18 +63,18 @@
 			weights.mt /= sourceWeight;
 		}
 
-		mw.hook( 'mw.cx.progress' ).fire( weights );
-	}
+		return weights;
+	};
 
 	/**
-	 * Calculate the percentage of machine translation out of the whole article.
+	 * Calculate the percentage of machine translation for the given sections.
 	 *
 	 * @param {jQuery} $sections List of sections.
-	 * @return {object} Map of weights
-	 * @return {integer} return.any Weight of sections with content
-	 * @return {integer} return.human Weight of sections with human modified content
-	 * @return {integer} return.mt Weight of sections with unmodified mt content
-	 * @return {integer} return.mtSectionsCount Count of sections with unmodified mt content
+	 * @return {Object} Map of weights
+	 * @return {number} return.any Weight of sections with content
+	 * @return {number} return.human Weight of sections with human modified content
+	 * @return {number} return.mt Weight of sections with unmodified mt content
+	 * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
 	 */
 	function getTranslationWeights( $sections ) {
 		var weights = {

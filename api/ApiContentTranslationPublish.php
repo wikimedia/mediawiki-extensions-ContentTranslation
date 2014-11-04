@@ -8,7 +8,6 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-
 class ApiContentTranslationPublish extends ApiBase {
 
 	/**
@@ -123,6 +122,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
 			}
+			$this->saveTranslationHistory( $params );
 		} else {
 			$result = array(
 				'result' => 'error',
@@ -131,6 +131,30 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	public function saveTranslationHistory( $params ) {
+		$user = $this->getUser();
+		$translator = new ContentTranslation\Translator( $user );
+		$translation = new ContentTranslation\Translation( array(
+			'sourceTitle' => $params['sourcetitle'],
+			'targetTitle' => $params['title'],
+			'sourceLanguage' => $params['from'],
+			'targetLanguage' => $params['to'],
+			'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
+				$params['from'], $params['sourcetitle']
+			),
+			'targetURL' => ContentTranslation\SiteMapper::getPageURL(
+				$params['to'], $params['title']
+			),
+			'status' => 'published',
+			'progress' => $params['progress'],
+			// XXX Do not overwrite startedTranslator when we have "draft save" feature.
+			'startedTranslator' => $translator->getGlobalUserId(),
+			'lastUpdatedTranslator' => $translator->getGlobalUserId(),
+		) );
+		$translation->save();
+		$translator->addTranslation( $translation->getTranslationId() );
 	}
 
 	public function getAllowedParams() {
@@ -147,6 +171,9 @@ class ApiContentTranslationPublish extends ApiBase {
 			'from' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'progress' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
 			'to' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -158,7 +185,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			),
 			'categories' => null,
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
-			'wpCaptchaId'=> null,
+			'wpCaptchaId' => null,
 			'wpCaptchaWord' => null,
 		);
 	}
@@ -191,6 +218,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
 			'sourcerevision' => 'The revision of the source page.',
+			'progress' => 'Translation progress as JSON.',
 			'categories' => 'The categories to be added to the published page.',
 			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',
 			'wpCaptchaWord' => 'Answer to the captcha (when saving with a captcha response).',

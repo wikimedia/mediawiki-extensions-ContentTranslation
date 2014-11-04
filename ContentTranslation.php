@@ -53,6 +53,10 @@ $GLOBALS['wgContentTranslationParsoid'] = array(
 	'prefix' => 'enwiki',
 );
 
+// Content translaton database to provide dashboard and other features.
+// Provide the database name as the value.
+// See sql/contenttranslation.sql for scripts to create this database.
+$GLOBALS['wgContentTranslationDatabase'] = null;
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
 
@@ -62,6 +66,7 @@ $GLOBALS['wgSpecialPages']['ContentTranslationStats'] = 'SpecialContentTranslati
 
 // API modules
 $GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';
+$GLOBALS['wgAPIListModules']['contenttranslation'] = 'ApiQueryContentTranslation';
 
 // Hooks
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::addModules';
