@@ -134,6 +134,12 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function saveTranslationHistory( $params ) {
+		global $wgContentTranslationDatabase;
+
+		if ( $wgContentTranslationDatabase === null ) {
+			// Central CX database not configured.
+			return;
+		}
 		$user = $this->getUser();
 		$translator = new ContentTranslation\Translator( $user );
 		$translation = new ContentTranslation\Translation( array(
