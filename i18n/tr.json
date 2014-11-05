@@ -12,6 +12,7 @@
 	"cx-desc": "Kullanıcıların sayfaları bir dilden başka birine makine çevirisi ve diğer çeviri araçlarıyla çevirmesine izin veren bir araç",
 	"cx-header-progressbar-text": "%$1 çevrildi",
 	"cx-header-translation-center": "Çeviri merkezi",
+	"cx-header-new-translation": "Yeni çeviri",
 	"cx-source-view-page": "sayfayı görüntüle",
 	"cx-publish-page-success": "Sayfa şurada yayınlandı $1",
 	"cx-publish-page-error": "Sayfa kaydedilirken hata oluştu.",
