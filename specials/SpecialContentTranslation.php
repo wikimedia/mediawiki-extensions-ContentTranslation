@@ -37,6 +37,8 @@ class SpecialContentTranslation extends SpecialPage {
 			'mediawiki.page.ready',
 		) );
 
+		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
+
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'noscript',
@@ -50,7 +52,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addHTML( Html::rawElement( 'div',
 			array( 'id' => 'p-personal'),
 			$toolbarList ) );
-		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
+
 		$out->addHTML( $skin->bottomScripts() );
 		$out->addHTML( '</body></html>' );
 	}
