@@ -149,15 +149,18 @@
 	 * Render the header
 	 */
 	ContentTranslationHeader.prototype.render = function () {
-		var $headerTitle, $headerBar,
-			$translationCenterLink, $translationCenter, $publishArea;
+		var $logo, $titleText, $headerTitle,
+			$translationCenterLink, $translationCenter, $publishArea,
+			$headerBar;
 
+		$logo = $( '<div>' )
+			.addClass( 'cx-header__logo' );
+		$titleText = $( '<span>' )
+			.addClass( 'cx-header__title-text' )
+			.text( mw.msg( 'cx' ) );
 		$headerTitle = $( '<div>' )
 			.addClass( 'cx-header__title' )
-			.append(
-				$( '<div>' ).addClass( 'cx-header__logo' ),
-				$( '<span>' ).text( mw.msg( 'cx' ) )
-			);
+			.append( $logo, $titleText );
 
 		$translationCenterLink = $( '<a>' )
 			// TODO update the text when the dashboard is ready
