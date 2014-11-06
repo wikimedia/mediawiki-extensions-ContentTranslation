@@ -153,7 +153,8 @@
 			$translationCenterLink, $translationCenter, $publishArea,
 			$headerBar;
 
-		$logo = $( '<div>' )
+		$logo = $( '<a>' )
+			.prop( 'href', mw.config.get( 'wgScript' ) )
 			.addClass( 'cx-header__logo' );
 		$titleText = $( '<span>' )
 			.addClass( 'cx-header__title-text' )
