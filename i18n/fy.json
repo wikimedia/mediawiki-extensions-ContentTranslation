@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin0van0der0vliet"
+		]
+	},
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategory|$1 kategoryen|0=Gjin kategoryen}}"
+}

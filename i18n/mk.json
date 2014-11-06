@@ -11,6 +11,7 @@
 	"cx-header-progressbar-text": "$1% преведено",
 	"cx-header-progressbar-text-mt": "($1% од машински превод)",
 	"cx-header-translation-center": "Преводен центар",
+	"cx-header-new-translation": "Нов превод",
 	"cx-source-view-page": "погл. страница",
 	"cx-publish-page-success": "Страницата е објавена на $1",
 	"cx-publish-page-error": "Грешка при зачувувањето на страницата.",
