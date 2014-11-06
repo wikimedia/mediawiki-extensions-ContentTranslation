@@ -111,7 +111,7 @@
 			sortedKeys, i, categoryTitles, categories;
 
 		$publishArea = $( '.cx-header__publish' );
-		$publishButton = $publishArea.find( 'button.publish' );
+		$publishButton = $publishArea.find( '.cx-header__publish-button' );
 
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(

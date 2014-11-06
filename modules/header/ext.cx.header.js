@@ -173,7 +173,7 @@
 			.append( $translationCenterLink );
 
 		this.$publishButton = $( '<button>' )
-			.addClass( 'publish mw-ui-button mw-ui-constructive' )
+			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-constructive' )
 			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button' ) )
 			.hide();
