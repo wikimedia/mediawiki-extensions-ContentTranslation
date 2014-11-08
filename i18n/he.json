@@ -16,6 +16,7 @@
 	"cx-header-progressbar-text": "תורגמו $1%",
 	"cx-header-progressbar-text-mt": "($1% תרגום מכונה)",
 	"cx-header-translation-center": "מרכז התרגום",
+	"cx-header-new-translation": "תרגום חדש",
 	"cx-source-view-page": "הצגת הדף",
 	"cx-publish-page-success": "הדף פורסם בכתובת $1",
 	"cx-publish-page-error": "שגיאה בעת שמירת הדף.",
@@ -84,5 +85,13 @@
 	"cx-mt-abuse-warning-text": "תרגומי מכונה ניתנים רק בתור תבנית. חובתך לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.",
 	"cx-publish-captcha-title": "שאלת אבטחה",
 	"apihelp-cxpublish-description": "שמירת דף שנוצר באמצעות ההרחבה ContentTranslation.",
-	"apihelp-cxpublish-param-title": "כותרת הדף שעליו יבוצעו הפעולות."
+	"apihelp-cxpublish-param-title": "כותרת הדף שעליו יבוצעו הפעולות.",
+	"apihelp-cxpublish-param-html": "התוכן לשמור.",
+	"apihelp-cxpublish-param-from": "קוד שפת המקור.",
+	"apihelp-cxpublish-param-to": "קוד שפת היעד.",
+	"apihelp-cxpublish-param-sourcetitle": "כותרת דף המקור.",
+	"apihelp-cxpublish-param-sourcerevision": "גרסת דף המקור.",
+	"apihelp-cxpublish-param-categories": "הקטגוריות להוסיף לדף שיתפרסם.",
+	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה)."
 }
