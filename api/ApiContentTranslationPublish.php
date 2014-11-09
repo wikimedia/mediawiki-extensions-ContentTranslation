@@ -44,6 +44,8 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
+		global $wgContentTranslationHighMTCategory;
+
 		$sourceLink = '[[:' . $params['from']
 			. ':Special:Redirect/revision/'
 			. $params['sourcerevision']
@@ -53,6 +55,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			$categories = explode( '|', $params['categories'] );
 			foreach ( $categories as $categoryTitle ) {
 				$wikitext .= "\n[[" . $categoryTitle . "]]";
+			}
+		}
+
+		if ( $params['progress'] ) {
+			$progress = json_decode( $params['progress'] );
+			if ( $this->hasHighMT( $progress ) && $wgContentTranslationHighMTCategory ) {
+				$wikitext .= "\n[[" . $wgContentTranslationHighMTCategory . ']]';
 			}
 		}
 
@@ -245,5 +254,18 @@ class ApiContentTranslationPublish extends ApiBase {
 		return array(
 			/** @todo Provide examples */
 		);
+	}
+
+	/**
+	 * Determines if the article is being published with a high amount of
+	 * unedited MT content.
+	 *
+	 * @param StdObject progress
+	 * @return boolean
+	 */
+	protected function hasHighMT( $progress ) {
+		$mtPercentage =  $progress->any !== 0 ? $progress->mt / $progress->any * 100 : 0;
+		return $mtPercentage > 75 &&
+			( $progress->mtSectionsCount > 5 || $progress->any * 100 > 75 );
 	}
 }

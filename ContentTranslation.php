@@ -108,6 +108,12 @@ $GLOBALS['wgExtensionFunctions'][] = function () {
 $GLOBALS['wgContentTranslationEventLogging'] = false;
 
 /**
+ * Category to add to published translations if there is a high amount
+ * of unedited machine translation. E.g., "Category:HighMT"
+ */
+$GLOBALS['wgContentTranslationHighMTCategory'] = null;
+
+/**
  * Patterns to access MediaWiki pages, APIs and cxserver in different languages
  * for the site family.
  */
