@@ -92,7 +92,7 @@
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
 	"cx-translation-filter-draft-translations": "Shown in translation filter in Content Translation dashboard. Selects all draft translations by the current translator.",
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
-	"cx-translation-filter-to-any-language":  "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
+	"cx-translation-filter-to-any-language": "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
 	"cx-create-new-translation-desc": "Description about what the content translation tool does. The link may point to a translation help page in your language.",
 	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",

@@ -6,7 +6,8 @@
 			"Amire80",
 			"Pginer",
 			"KRLS",
-			"QuimGil"
+			"QuimGil",
+			"Alvaro Vidal-Abarca"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -81,5 +82,11 @@
 	"cx-sourceselector-dialog-target-language-label": "Objectiu:",
 	"cx-mt-abuse-warning-title": "Un $1% de la seva traducció és text traduït automàticament que no s'ha modificat",
 	"cx-mt-abuse-warning-text": "Les traduccions automàtiques només s'han d'utilitzar com a plantilles. Heu de tenir cura del contingut i assegurar-vos que les traduccions són acurades i naturals en la vostra llengua.",
-	"cx-publish-captcha-title": "Pregunta de seguretat"
+	"cx-publish-captcha-title": "Pregunta de seguretat",
+	"cx-translation-filter-all-translations": "Totes les traduccions",
+	"cx-translation-filter-published-translations": "Traduccions publicades",
+	"cx-translation-filter-draft-translations": "Esborranys de traducció",
+	"cx-translation-filter-from-any-language": "Des de qualsevol idioma",
+	"cx-translation-filter-to-any-language": "A qualsevol idioma",
+	"cx-create-new-translation": "Crear una nova traducció"
 }
