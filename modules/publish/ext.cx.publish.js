@@ -35,7 +35,6 @@
 			// parsoid is not a fast operation.
 			timeout: 100 * 1000 // in milliseconds
 		} ).then( function ( response ) {
-
 			if ( response.cxpublish.result === 'success' ) {
 				return;
 			}
@@ -59,13 +58,13 @@
 	 * @return {jQuery.promise}
 	 */
 	CXPublish.prototype.captchaHandler = function ( captcha ) {
-		var deferred, $captcaHeader, $captchaForm, $captchaAnswer, $publishButton;
+		var deferred, $captchaHeader, $captchaForm, $captchaAnswer, $publishButton;
 
-		$captcaHeader = $( '<h2>' )
+		$captchaHeader = $( '<h2>' )
 			.text( mw.msg( 'cx-publish-captcha-title' ) );
 		$captchaForm = $( '<div>' )
 			.addClass( 'cx-publish-catcha-form' )
-			.append( $captcaHeader );
+			.append( $captchaHeader );
 
 		if ( captcha.url ) { // FancyCaptcha
 			$captchaForm.append( $( '<img>' ).attr( 'src', captcha.url ) );
@@ -107,11 +106,12 @@
 	 * Publish the translation
 	 */
 	function publish() {
-		var $publishButton, publisher, translatedTitle,
+		var $publishArea, $publishButton, publisher, translatedTitle,
 			translatedContent, targetTitle, targetCategories,
 			sortedKeys, i, categoryTitles, categories;
 
-		$publishButton = $( '.cx-header__publish' );
+		$publishArea = $( '.cx-header__publish' );
+		$publishButton = $publishArea.find( 'button.publish' );
 
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(
@@ -132,7 +132,7 @@
 		}
 		categories = categoryTitles.join( '|' );
 
-		publisher = new CXPublish( $publishButton );
+		publisher = new CXPublish( $publishArea );
 		publisher.publish( {
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
