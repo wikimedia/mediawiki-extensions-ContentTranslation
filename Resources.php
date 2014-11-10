@@ -40,6 +40,7 @@ $wgResourceModules['ext.cx.util'] = array(
 		'util/ext.cx.util.js',
 	),
 	'dependencies' => array(
+		'ext.cx.model',
 		'mediawiki.Uri',
 	),
 ) + $resourcePaths;
@@ -55,6 +56,7 @@ $wgResourceModules['ext.cx.sitemapper'] = array(
 		'base/ext.cx.sitemapper.js',
 	),
 	'dependencies' => array(
+		'ext.cx.model',
 		'mediawiki.Uri',
 		'mediawiki.api',
 	),
