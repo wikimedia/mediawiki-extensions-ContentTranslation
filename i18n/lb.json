@@ -71,5 +71,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Quell:",
 	"cx-sourceselector-dialog-target-language-label": "Zil:",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
-	"cx-publish-captcha-title": "Sécherheetsfro"
+	"cx-publish-captcha-title": "Sécherheetsfro",
+	"cx-translation-filter-all-translations": "All Iwwersetzungen",
+	"cx-translation-filter-to-any-language": "An iergendeng Sprooch"
 }

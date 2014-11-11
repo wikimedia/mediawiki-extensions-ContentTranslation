@@ -85,5 +85,11 @@
 	"cx-sourceselector-dialog-target-language-label": "Destinoː",
 	"cx-mt-abuse-warning-title": "Tu traducción contiene  $1% de textos traducidos automáticamente sin modificar",
 	"cx-mt-abuse-warning-text": "Las traducciones automáticas son proporcionadas solamente como una plantilla. Tienes que asegurarte de que el contenido sea preciso y se lea naturalmente en tu idioma.",
-	"cx-publish-captcha-title": "Pregunta de seguridad"
+	"cx-publish-captcha-title": "Pregunta de seguridad",
+	"cx-translation-filter-all-translations": "Todas las traducciones",
+	"cx-translation-filter-published-translations": "Traducciones publicadas",
+	"cx-translation-filter-draft-translations": "Traducciones en borrador",
+	"cx-translation-filter-from-any-language": "De cualquier idioma",
+	"cx-translation-filter-to-any-language": "A cualquier idioma",
+	"cx-create-new-translation": "Crear nueva traducción"
 }

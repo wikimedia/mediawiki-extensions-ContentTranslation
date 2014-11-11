@@ -88,7 +88,7 @@
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",
-	"cx-translation-filter-all-translations": "Shown in translation filter in Content Translation dashboard. Selects all translations by the current translator.",
+	"cx-translation-filter-all-translations": "Shown in translation filter in Content Translation dashboard. Selects all translations by the current translator.\n{{Identical|All translations}}",
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
 	"cx-translation-filter-draft-translations": "Shown in translation filter in Content Translation dashboard. Selects all draft translations by the current translator.",
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",

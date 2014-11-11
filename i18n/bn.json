@@ -29,5 +29,9 @@
 	"cx-tools-reference-title": "তথ্যসূত্র",
 	"cx-tools-reference-remove": "তথ্যসূত্র সরান",
 	"cx-tools-link-hover-tooltip": "খোলার জন্য ক্লিক করুন",
-	"cx-warning-unsaved-translation": "আপনার অসংরক্ষিত অনুবাদ রয়েছে।"
+	"cx-warning-unsaved-translation": "আপনার অসংরক্ষিত অনুবাদ রয়েছে।",
+	"cx-translation-filter-all-translations": "সমস্ত অনুবাদ",
+	"cx-translation-filter-published-translations": "প্রকাশিত অনুবাদ",
+	"cx-translation-filter-draft-translations": "খসড়া অনুবাদ",
+	"cx-translation-filter-to-any-language": "যে কোন ভাষা থেকে"
 }

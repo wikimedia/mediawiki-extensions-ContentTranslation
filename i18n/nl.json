@@ -39,5 +39,8 @@
 	"cx-stats-to": "Doeltaal",
 	"cx-stats-pages-title": "Vertaalde pagina's",
 	"cx-stats-unknown": "onbekend",
-	"cx-tools-reference-title": "Referentie"
+	"cx-tools-reference-title": "Referentie",
+	"cx-translation-filter-all-translations": "Alle vertalingen",
+	"cx-translation-filter-published-translations": "Gepubliceerde vertalingen",
+	"cx-translation-filter-draft-translations": "Kladvertalingen"
 }

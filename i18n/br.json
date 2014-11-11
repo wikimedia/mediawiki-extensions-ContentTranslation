@@ -52,5 +52,6 @@
 	"cx-error-page-not-found": "N'eus ket bet gallet kavout ar bajenn \"$1\" er Wikipedia $2",
 	"cx-sourceselector-dialog-new-translation": "Troidigezh nevez",
 	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ",
-	"cx-publish-captcha-title": "Goulenn surentez"
+	"cx-publish-captcha-title": "Goulenn surentez",
+	"cx-translation-filter-all-translations": "An holl droidigezhioù"
 }
