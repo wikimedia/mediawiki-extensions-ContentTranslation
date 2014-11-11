@@ -122,6 +122,7 @@ $wgResourceModules['ext.cx.source'] = array(
 		'mediawiki.Uri',
 		'mediawiki.api',
 		'mediawiki.jqueryMsg',
+		'mediawiki.util',
 	),
 	'messages' => array(
 		'cx-source-view-page',

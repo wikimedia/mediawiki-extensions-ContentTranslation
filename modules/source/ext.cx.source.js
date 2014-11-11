@@ -34,7 +34,7 @@
 			return;
 		}
 		if ( !mw.cx.sourceTitle ) {
-			this.showSourceSelector();
+			this.showDashboard();
 			return;
 		}
 		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
@@ -76,10 +76,8 @@
 			} );
 	};
 
-	ContentTranslationSource.prototype.showSourceSelector = function () {
-		mw.loader.using( 'ext.cx.source.selector' ).then( function () {
-			mw.hook( 'mw.cx.source.select' ).fire();
-		} );
+	ContentTranslationSource.prototype.showDashboard = function () {
+		 location.href = mw.util.getUrl( 'Special:ContentTranslation' );
 	};
 
 	/**
