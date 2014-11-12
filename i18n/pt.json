@@ -72,5 +72,12 @@
 	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2",
 	"cx-sourceselector-dialog-new-translation": "Nova tradução",
 	"cx-sourceselector-dialog-button-start-translation": "Começar a traduzir",
-	"cx-publish-captcha-title": "Pergunta de segurança"
+	"cx-publish-captcha-title": "Pergunta de segurança",
+	"cx-translation-filter-all-translations": "Todas as traduções",
+	"cx-translation-filter-published-translations": "Traduções publicadas",
+	"cx-translation-filter-draft-translations": "Rascunhos",
+	"cx-translation-filter-from-any-language": "De qualquer idioma",
+	"cx-translation-filter-to-any-language": "Para qualquer idioma",
+	"cx-create-new-translation": "Criar nova tradução",
+	"cx-create-new-translation-desc": "Cria páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Tradu%C3%A7%C3%A3o/Traduzindo Saiba mais]"
 }

@@ -73,5 +73,9 @@
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-publish-captcha-title": "Sécherheetsfro",
 	"cx-translation-filter-all-translations": "All Iwwersetzungen",
-	"cx-translation-filter-to-any-language": "An iergendeng Sprooch"
+	"cx-translation-filter-published-translations": "Publizéiert Iwwersetzungen",
+	"cx-translation-filter-draft-translations": "Brouillone vun Iwwersetzungen",
+	"cx-translation-filter-from-any-language": "Aus iergendenger Sprooch",
+	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
+	"cx-create-new-translation": "Nei Iwwersetzung uleeën"
 }
