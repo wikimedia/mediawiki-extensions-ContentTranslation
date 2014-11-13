@@ -94,5 +94,7 @@
 	"cx-create-new-translation": "创建新翻译",
 	"apihelp-cxpublish-param-html": "要保存的内容。",
 	"apihelp-cxpublish-param-from": "源语言代码。",
-	"apihelp-cxpublish-param-to": "目标语言代码。"
+	"apihelp-cxpublish-param-to": "目标语言代码。",
+	"apihelp-cxpublish-param-sourcetitle": "来源页面的标题。",
+	"apihelp-cxpublish-param-sourcerevision": "来源页面的修订版本。"
 }

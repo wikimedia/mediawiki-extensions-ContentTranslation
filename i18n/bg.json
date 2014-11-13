@@ -2,8 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Mitzev",
-			"DCLXVI"
+			"DCLXVI",
+			"Vodnokon4e"
 		]
 	},
-	"cx-desc": "Инструмент, който позволява на редакторите да превеждат страници от един език на друг чрез машинен превод и други инструменти за превод"
+	"cx-desc": "Инструмент, който позволява на редакторите да превеждат страници от един език на друг чрез машинен превод и други инструменти за превод",
+	"cx-sourceselector-dialog-source-language-label": "От:",
+	"cx-sourceselector-dialog-target-language-label": "До:",
+	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 вече съществува] на $2"
 }
