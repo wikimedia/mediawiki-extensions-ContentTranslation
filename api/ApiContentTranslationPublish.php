@@ -96,11 +96,21 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
+		if ( $params['status'] === 'draft' ) {
+			$this->saveAsDraft();
+		} else {
+			$this->publish();
+		}
+
+	}
+
+	public function publish() {
+		$params = $this->extractRequestParams();
+
 		$title = Title::newFromText( $params['title'] );
 		if ( !$title ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
 		}
-
 		try {
 			$wikitext = $this->convertHtmlToWikitext( $title, $params['html'] );
 		} catch ( MWException $e ) {
@@ -142,6 +152,15 @@ class ApiContentTranslationPublish extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	public function saveAsDraft() {
+		$params = $this->extractRequestParams();
+		$this->saveTranslationHistory( $params );
+		$result = array(
+			'result' => 'success',
+		);
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
 	public function saveTranslationHistory( $params ) {
 		global $wgContentTranslationDatabase;
 
@@ -162,14 +181,18 @@ class ApiContentTranslationPublish extends ApiBase {
 			'targetURL' => ContentTranslation\SiteMapper::getPageURL(
 				$params['to'], $params['title']
 			),
-			'status' => 'published',
+			'status' => $params['status'],
 			'progress' => $params['progress'],
 			// XXX Do not overwrite startedTranslator when we have "draft save" feature.
 			'startedTranslator' => $translator->getGlobalUserId(),
 			'lastUpdatedTranslator' => $translator->getGlobalUserId(),
 		) );
 		$translation->save();
-		$translator->addTranslation( $translation->getTranslationId() );
+		$translationId = $translation->getTranslationId();
+		$translator->addTranslation(  $translationId );
+		if ( $params['status'] === 'draft' ) {
+			ContentTranslation\Draft::save( $translationId, $params['html'] );
+		}
 	}
 
 	public function getAllowedParams() {
@@ -197,6 +220,10 @@ class ApiContentTranslationPublish extends ApiBase {
 			),
 			'sourcerevision' => array(
 				ApiBase::PARAM_REQUIRED => true,
+			),
+			'status' => array(
+				ApiBase::PARAM_REQUIRED => true,
+				ApiBase::PARAM_TYPE => array( 'draft', 'published' ),
 			),
 			'categories' => null,
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
@@ -233,6 +260,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
 			'sourcerevision' => 'The revision of the source page.',
+			'status' => 'If draft, translation will be saved as draft.
+				If published, translation will be published',
 			'progress' => 'Translation progress as JSON.',
 			'categories' => 'The categories to be added to the published page.',
 			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',

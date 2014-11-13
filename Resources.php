@@ -100,6 +100,7 @@ $wgResourceModules['ext.cx.header'] = array(
 		'cx-error-page-not-found',
 		'cx-header-new-translation',
 		'cx-publish-button',
+		'cx-save-draft-button',
 		'cx-special-login-error',
 		'cx-translation-target-page-exists',
 		'login',
@@ -405,6 +406,19 @@ $wgResourceModules['ext.cx.progressbar'] = array(
 	),
 	'dependencies' => array(
 		'mediawiki.jqueryMsg',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.draft'] = array(
+	'scripts' => array(
+		'draft/ext.cx.draft.js',
+	),
+	'dependencies' => array(
+		'ext.cx.model',
+		'mediawiki.api.edit',
+	),
+	'messages' => array(
+		'cx-save-draft-saving',
 	),
 ) + $resourcePaths;
 

@@ -42,7 +42,10 @@
 	CXSectionEditor.prototype.onChange = function () {
 		// Remove the MT/source/empty label from the section.
 		// Some manual change happened.
-		this.$section.data( 'cx-state', null );
+		// Need to do both to actually null the data - so that it reflects in
+		// jquery cache and DOM http://api.jquery.com/removedata/
+		this.$section.removeData( 'cx-state' );
+		this.$section.removeAttr( 'data-cx-state' );
 		mw.hook( 'mw.cx.translation.change' ).fire( this.$section );
 	};
 

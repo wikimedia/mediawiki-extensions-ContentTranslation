@@ -32,31 +32,41 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 */
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
-		$translator = new ContentTranslation\Translator( User::newFromName( $params['user'] ) );
-		$translations = $translator->getAllTranslations();
 		$result = $this->getResult();
-		$result->addValue(
-			array( 'query', 'contenttranslation' ),
-			'translator',
-			$params['user']
-		);
-		$result->addValue(
-			array( 'query', 'contenttranslation' ),
-			'translations',
-			$translations
-		);
-		$result->addValue(
-			array( 'query', 'contenttranslation' ),
-			'resultsize',
-			count( $translations )
-		);
+
+		if ( $params['translationid'] ) {
+			$translation = ContentTranslation\Translation::newFromId( $params['translationid'] );
+			$result->addValue(
+				array( 'query', 'contenttranslation' ),
+				'translations',
+				$translation
+			);
+		} else {
+			if ( !isset( $params['user'] ) ) {
+				$this->dieUsageMsg( array( 'missingparam', 'user' ) );
+			}
+			$translator = new ContentTranslation\Translator( User::newFromName( $params['user'] ) );
+			$translations = $translator->getAllTranslations();
+			$result->addValue(
+				array( 'query', 'contenttranslation' ),
+				'translations',
+				$translations
+			);
+			$result->addValue(
+				array( 'query', 'contenttranslation' ),
+				'translator',
+				$params['user']
+			);
+		}
 	}
 
 	public function getAllowedParams() {
 		$allowedParams = array(
 			'user' => array(
 				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
+			),
+			'translationid' => array(
+				ApiBase::PARAM_TYPE => 'string',
 			),
 			'limit' => array(
 				ApiBase::PARAM_DFLT => 10,
@@ -72,6 +82,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	public function getParamDescription() {
 		$paramDescs = array(
 			'user' => 'Username of the translator.',
+			'translationid' => 'Translation id',
 		);
 
 		return $paramDescs;
@@ -84,6 +95,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	protected function getExamples() {
 		return array(
 			'api.php?action=query&list=contenttranslation&user=Santhosh',
+			'api.php?action=query&list=contenttranslation&translationid=94',
 		);
 	}
 }

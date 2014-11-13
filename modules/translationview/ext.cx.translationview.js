@@ -49,7 +49,8 @@
 				'ext.cx.tools',
 				'ext.cx.translation',
 				'ext.cx.translation.progress',
-				'ext.cx.publish'
+				'ext.cx.publish',
+				'ext.cx.draft'
 			] ).then( function () {
 				cx.$translation.cxTranslation();
 				cx.$tools.cxTools();

@@ -127,6 +127,7 @@
 			// there is a chance for section misalignment
 			window.setTimeout( function () {
 				cxTranslation.addPlaceholders();
+				mw.hook( 'mw.cx.translation.placeholders.ready' ).fire();
 			}, 2000 );
 		} );
 
@@ -229,12 +230,12 @@
 				.clone()
 				.attr( {
 					id: 'cx' + sourceId,
-					'data-source': sourceId
-				} )
-				.data( 'cx-state', 'source' );
+					'data-source': sourceId,
+					'data-cx-state': 'source',
+				} );
 
 			if ( origin === 'mt-user-disabled' || origin === 'clear' ) {
-				$clone.data( 'cx-state', 'empty' );
+				$clone.attr( 'data-cx-state', 'empty' );
 				$clone.empty();
 			} // else: service-failure, non-editable, mt-not-available
 
@@ -347,7 +348,7 @@
 			$sourceSection = $( $sourceSections[ i ] );
 			sourceSectionId = $sourceSection.attr( 'id' );
 			$placeholder = getPlaceholder( sourceSectionId )
-				.data( 'cx-section-type', $sourceSection.prop( 'tagName' ) );
+				.attr( 'data-cx-section-type', $sourceSection.prop( 'tagName' ) );
 			placeholders.push( $placeholder );
 
 			// Bind events to the placeholder sections

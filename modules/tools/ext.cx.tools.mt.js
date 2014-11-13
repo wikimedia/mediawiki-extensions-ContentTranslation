@@ -177,9 +177,9 @@
 						.children()
 						.attr( {
 							id: 'cx' + sourceId,
-							'data-source': sourceId
+							'data-source': sourceId,
+							'data-cx-state': 'mt'
 						} )
-						.data( 'cx-state', 'mt' )
 					);
 					// $section was replaced. Get the updated instance.
 					$section = $( '#cx' + sourceId );

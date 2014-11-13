@@ -107,12 +107,12 @@
 	 */
 	function publish() {
 		var $publishArea, $publishButton, publisher, translatedTitle,
-			translatedContent, targetTitle, targetCategories,
+			translatedContent, targetTitle, targetCategories, $draftButton,
 			sortedKeys, i, categoryTitles, categories;
 
 		$publishArea = $( '.cx-header__publish' );
 		$publishButton = $publishArea.find( '.cx-header__publish-button' );
-
+		$draftButton = $publishArea.find( '.cx-header__draft-button' );
 		translatedTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(
 			$( '.cx-column--translation .cx-column__content' ).clone()
@@ -139,6 +139,7 @@
 			sourcetitle: mw.cx.sourceTitle,
 			title: targetTitle,
 			html: translatedContent,
+			status: 'published',
 			sourcerevision: mw.cx.sourceRevision,
 			categories: categories,
 			progress: JSON.stringify( mw.cx.getProgress() )
@@ -167,7 +168,8 @@
 		} ).always( function () {
 			$publishButton
 				.prop( 'disabled', false )
-				.text( mw.msg( 'cx-publish-button' ) );
+				.text( mw.msg( 'cx-publish-button' ) )
+				.hide();
 		} );
 
 		initGuidedTour( translatedTitle );
@@ -216,13 +218,8 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.publish' ).add( $.proxy( publish, this ) );
-		// Publish when CTRL+S is pressed.
-		$( document ).on( 'keydown', function ( e ) {
-			if ( e.ctrlKey && e.which === 83 ) {
-				e.preventDefault();
-				mw.hook( 'mw.cx.publish' ).fire();
-				return false;
-			}
+		mw.hook( 'mw.cx.translation.saved' ).add( function () {
+			$( '.cx-header__publish-button' ).show();
 		} );
 	} );
 }( jQuery, mediaWiki ) );

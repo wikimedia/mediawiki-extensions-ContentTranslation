@@ -104,7 +104,10 @@
 	"apihelp-cxpublish-param-to": "The target language code.",
 	"apihelp-cxpublish-param-sourcetitle": "The title of the source page.",
 	"apihelp-cxpublish-param-sourcerevision": "The revision of the source page.",
+	"apihelp-cxpublish-param-status": "If draft, translation will be saved as draft. If published, translation will be published.",
 	"apihelp-cxpublish-param-categories": "The categories to be added to the published page.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (when saving with a captcha response).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "Answer to the captcha (when saving with a captcha response)."
+	"apihelp-cxpublish-param-wpCaptchaWord": "Answer to the captcha (when saving with a captcha response).",
+	"cx-save-draft-button": "Save as draft",
+	"cx-save-draft-saving": "Saving..."
 }

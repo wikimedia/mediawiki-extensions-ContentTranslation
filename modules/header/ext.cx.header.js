@@ -23,6 +23,7 @@
 		this.siteMapper = siteMapper;
 
 		this.$publishButton = null;
+		this.$draftButton = null;
 		this.$infoBar = null;
 
 		this.init();
@@ -38,7 +39,14 @@
 	 * @param {object} weights
 	 */
 	ContentTranslationHeader.prototype.setPublishButtonState = function ( weights ) {
-		this.$publishButton.show().prop( 'disabled', weights.any === 0 );
+		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
+			this.$draftButton.show().prop( 'disabled', weights.any === 0 );
+			this.$publishButton.hide();
+		} else {
+			this.$publishButton.show().prop( 'disabled', weights.any === 0 );
+		}
+
+
 	};
 
 	/**
@@ -132,6 +140,9 @@
 		this.$publishButton.on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
+		this.$draftButton.on( 'click', function () {
+			mw.hook( 'mw.cx.save' ).fire();
+		} );
 
 		// Click handler for remove icon in info bar.
 		this.$infoBar.on( 'click', '.remove', function () {
@@ -164,8 +175,8 @@
 			.append( $logo, $titleText );
 
 		$translationCenterLink = $( '<a>' )
-			// TODO update the text when the dashboard is ready
-			.text( mw.msg( 'cx-header-new-translation' ) )
+		// TODO update the text when the dashboard is ready
+		.text( mw.msg( 'cx-header-new-translation' ) )
 			.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) );
 
 		$translationCenter = $( '<div>' )
@@ -178,9 +189,20 @@
 			.text( mw.msg( 'cx-publish-button' ) )
 			.hide();
 
+		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
+			this.$draftButton = $( '<button>' )
+				.addClass( 'cx-header__draft-button mw-ui-button mw-ui-constructive' )
+				.prop( 'disabled', true )
+				.text( mw.msg( 'cx-save-draft-button' ) )
+				.hide();
+			this.$publishButton.prop( 'disabled', false );
+		} else {
+			this.$draftButton = $();
+		}
+
 		$publishArea = $( '<div>' )
 			.addClass( 'cx-header__publish' )
-			.append( this.$publishButton );
+			.append( this.$draftButton, this.$publishButton );
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )

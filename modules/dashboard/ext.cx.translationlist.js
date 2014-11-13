@@ -94,7 +94,7 @@
 	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
-		var i, translation, $translation, $titleLanguageBlock, $sourceLink, $sourceLanguage,
+		var i, translation, $translation, $titleLanguageBlock, $translationLink, $sourceLanguage,
 			$targetLanguage, $imageBlock, $lastUpdated, $image, $status, $progressbar;
 
 		for ( i = 0; i < translations.length; i++ ) {
@@ -118,11 +118,15 @@
 			$imageBlock.append( $image, $progressbar );
 			this.showTitleImage( translation );
 
-			$sourceLink = $( '<a>' )
+			$translationLink = $( '<a>' )
 				.addClass( 'source-title' )
 				.attr( {
-					href: translation.sourceURL,
-					target: '_blank'
+					href: new mw.Uri().extend( {
+						from: translation.sourceLanguage,
+						to: translation.targetLanguage,
+						page: translation.sourceTitle,
+						draft: translation.status === 'draft' ? translation.id : undefined
+					} ).toString(),
 				} ).text( translation.sourceTitle );
 			$sourceLanguage = $( '<div>' )
 				.addClass( 'source-language' )
@@ -135,7 +139,7 @@
 				.text( translation.status );
 			$titleLanguageBlock = $( '<div>' )
 				.addClass( 'title-language-block' )
-				.append( $sourceLink, $sourceLanguage, $targetLanguage, $status );
+				.append( $translationLink, $sourceLanguage, $targetLanguage, $status );
 			$translation.append(
 				$lastUpdated,
 				$imageBlock,

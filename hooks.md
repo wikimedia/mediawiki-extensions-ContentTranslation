@@ -109,3 +109,7 @@ Fired when the translation column is rendered and ready. No subscribers yet.
 ## mw.cx.translation.updated
 
 Fired when the translation section was updated using the MT card, for example with the 'restore' or 'use source text' actions.
+
+##  mw.cx.translation.placeholders.ready
+
+Fired after every section in the translation column has been filled with a placeholder.
