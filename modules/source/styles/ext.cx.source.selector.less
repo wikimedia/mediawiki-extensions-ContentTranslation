@@ -7,7 +7,8 @@
 
 .cx-sourceselector-dialog {
 	.mw-ui-grid;
-	.mw-ui-one-third;
+	.mw-ui-item;
+	.mw-ui-four-tenths;
 	color: #333;
 	position: absolute;
 	min-width: 500px;
@@ -17,6 +18,7 @@
 	border-bottom-width: 3px;
 	border-radius: 3px;
 	z-index: 100;
+	padding: 0;
 }
 
 .cx-sourceselector-dialog__heading {
@@ -25,37 +27,44 @@
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: @vertical-margin @horizontal-margin;
-	font-size: larger;
+	font-size: 2em;
 	line-height: 1.5em;
-	background-color: #fbfbfb;
+	border-bottom: 1px solid #ccc;
+	font-weight: normal;
 }
 
 .cx-sourceselector-dialog__target-inputs,
 .cx-sourceselector-dialog__source-inputs {
 	.mw-ui-item;
 	.mw-ui-one-whole;
+	height: 50px;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
 }
 
 .cx-sourceselector-dialog__language-label {
 	.mw-ui-item;
-	.mw-ui-one-sixth;
+	.mw-ui-one-eighth;
 	padding: 5px;
 	font-size: large;
 }
 
 .cx-sourceselector-dialog__language {
 	.mw-ui-item;
-	.mw-ui-one-third;
-	margin: 5px 0;
-	font-size: large;
+	.mw-ui-two-tenths;
+	font-size: medium;
+	height: 30px;
+	margin-top: 5px;
 }
 
 .cx-sourceselector-dialog__title {
 	.mw-ui-item;
-	.mw-ui-one-half;
-	margin: 5px 0;
-	font-size: large;
+	.mw-ui-six-tenths;
+	margin: 5px 10px 0;
+	font-size: medium;
 	-webkit-appearance: none;
+	border: none;
+	padding: 2px;
 
 	&[type=search] {
 		.background-image-svg('../../tools/images/search.svg', '../../tools/images/search.png');
@@ -65,16 +74,20 @@
 		padding-left: 30px;
 	}
 
-	border: 1px solid #ccc;
+ }
+
+ .cx-sourceselector-dialog__messagebar {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 10px;
+	background-color: #F7D358;
  }
 
 .cx-sourceselector-dialog__actions {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 10px 15px 15px 15px;
 	text-align: right;
-	border-top: 1px solid #aaa;
-	margin-top: 20px;
+	margin-top: 10px;
 
 	button {
 		margin-left: 10px;

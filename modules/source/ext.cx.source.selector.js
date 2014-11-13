@@ -29,6 +29,9 @@
 		this.$targetLanguage = null;
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
+		this.$messageBar = null;
+		this.$sourceTitleInput = null;
+		this.$targetTitleInput = null;
 		this.init();
 	}
 
@@ -126,26 +129,334 @@
 	 * Listen for events.
 	 */
 	CXSourceSelector.prototype.listen = function () {
-		var selector = this;
-
 		// Open or close the dialog when clicking the link.
 		// The dialog will be unitialized until the first click.
 		this.$trigger.click( $.proxy( this.show, this ) );
 
-		this.$sourceTitleInput.on( 'input', $.debounce( 100, false, function () {
-			selector.sourceLanguage = selector.$sourceLanguage.val();
-			selector.searchTitles( selector.sourceLanguage, $( this ).val() ).done( function ( response ) {
-				var i, len, suggestions = response[ 1 ];
-				selector.$titleList.empty();
-				if ( suggestions.length ) {
-					for ( i = 0, len = suggestions.length; i < len; i++ ) {
-						selector.$titleList.append( $( '<option>' ).attr( 'value', suggestions[ i ] ) );
+		// Source title input input (search titles)
+		this.$sourceTitleInput.on(
+			'input',
+			$.debounce( 100, false, $.proxy( this.searchHandler, this ) )
+		);
+
+		// Source language selector change (fill target languages, localStorage, check)
+		this.$sourceLanguage.on(
+			'change',
+			$.proxy( this.sourceLanguageChangeHandler, this )
+		);
+
+		// Target language selector change (localStorage, check)
+		this.$targetLanguage.on(
+			'change',
+			$.proxy( this.targetLanguageChangeHandler, this )
+		);
+
+		// Source title input or target title input, blur or search (check)
+		this.$dialog.on(
+			'blur search',
+			'.cx-sourceselector-dialog__title',
+			$.proxy( this.check, this )
+		);
+
+		// Keypress (start translation on enter key)
+		this.$dialog.on(
+			'keypress',
+			'.cx-sourceselector-dialog__title',
+			$.proxy( this.enterKeyHandler, this )
+		);
+	};
+
+	/**
+	 * Handles searching for titles based on source title input
+	 */
+	CXSourceSelector.prototype.searchHandler = function () {
+		var selector = this;
+
+		this.sourceLanguage = this.$sourceLanguage.val();
+		this.searchTitles( this.sourceLanguage, this.$sourceTitleInput.val() ).done( function ( response ) {
+			var i, len, suggestions = response[ 1 ];
+			selector.$titleList.empty();
+			if ( suggestions.length ) {
+				for ( i = 0, len = suggestions.length; i < len; i++ ) {
+					selector.$titleList.append( $( '<option>' ).attr( 'value', suggestions[ i ] ) );
+				}
+			}
+		} );
+	};
+
+	/**
+	 * Handles source language change
+	 */
+	CXSourceSelector.prototype.sourceLanguageChangeHandler = function () {
+		this.fillTargetLanguages();
+		if ( localStorage ) {
+			localStorage.cxSourceLanguage = this.$sourceLanguage.val();
+			localStorage.cxTargetLanguage = this.$targetLanguage.val();
+		}
+		this.check();
+	};
+
+	/**
+	 * Handles target language change
+	 */
+	CXSourceSelector.prototype.targetLanguageChangeHandler = function () {
+		if ( localStorage ) {
+			localStorage.cxTargetLanguage = this.$targetLanguage.val();
+		}
+		this.check();
+	};
+
+	/**
+	 * Handles enter keypress
+	 */
+	CXSourceSelector.prototype.enterKeyHandler = function ( e ) {
+		var sourceLanguage = this.$sourceLanguage.val(),
+			sourceTitle = this.$sourceTitleInput.val().trim(),
+			selector = this;
+
+		if ( e.which === 13 && sourceTitle !== '' ) {
+			this.checkForTitle( sourceLanguage, sourceTitle )
+				.done( function ( response ) {
+					if ( response !== false ) {
+						selector.startPageInCX();
 					}
+				} );
+		}
+	};
+
+	/**
+	 * Checks source and target inputs for errors.
+	 */
+	CXSourceSelector.prototype.check = function () {
+		var sourceLanguage = this.$sourceLanguage.val(),
+			targetLanguage = this.$targetLanguage.val(),
+			sourceTitle = this.$sourceTitleInput.val().trim(),
+			targetTitle = this.$targetTitleInput.val().trim(),
+			selector = this;
+
+		this.$messageBar.hide();
+
+		// if source title is blank, disable button and skip validation
+		if ( sourceTitle === '' ) {
+			selector.$translateFromButton.prop( 'disabled', true );
+			return;
+		}
+
+		// check to see if the specified source article exists
+		this.checkForTitle( sourceLanguage, sourceTitle )
+			.done( function ( sourcePage ) {
+				// if no source page to translate disable button and show error
+				// skip rest of validation checks
+				if ( !sourcePage && sourceTitle !== '' ) {
+					selector.$translateFromButton.prop( 'disabled', true );
+					selector.showSourceTitleError( sourceLanguage );
+				} else {
+					selector.$translateFromButton.prop( 'disabled', false );
+					// check to see if there is a matching article in the target wiki
+					// the matching article may or may not have the same title
+					selector.checkForEquivalentTargetPage(
+						sourceLanguage,
+						targetLanguage,
+						sourceTitle
+					)
+						.done( function ( equivalentTargetPage ) {
+							// check to see if the specified target title is in use
+							// must be nested inside check for matching target article
+							// because first possible error requires results of both api calls
+							selector.checkForTitle( targetLanguage, targetTitle )
+								.done( function ( existingTargetTitle ) {
+									// if there is a matching target page and
+									// the specified target title is in use
+									if ( equivalentTargetPage && existingTargetTitle ) {
+										selector.showPageExistsAndTitleInUseError(
+											equivalentTargetPage,
+											existingTargetTitle
+										);
+										// if there is just an matching target page
+									} else if ( equivalentTargetPage ) {
+										selector.showPageExistsError( equivalentTargetPage );
+										// if the specified target title is in use
+									} else if ( existingTargetTitle ) {
+										selector.showTitleInUseError( existingTargetTitle );
+									}
+								} );
+						} );
 				}
 			} );
-		} ) );
+	};
 
-		this.$sourceLanguage.on( 'change', $.proxy( this.fillTargetLanguages, this ) );
+	/**
+	 * Checks to see if a title exists in the specified language wiki
+	 * @param {string} language the language of the wiki to check
+	 * @param {string} title the title to look for
+	 * return {jQuery.promise}
+	 */
+	CXSourceSelector.prototype.checkForTitle = function ( language, title ) {
+		var api = this.siteMapper.getApi( language ),
+			$deferred = $.Deferred();
+
+		api.get( {
+			action: 'opensearch',
+			search: title,
+			namespace: 0,
+			format: 'json',
+			limit: 1
+		}, {
+			dataType: 'jsonp',
+			// This prevents warnings about the unrecognized parameter "_"
+			cache: true
+		} )
+			.done( function ( response ) {
+				if ( response[ 1 ][ 0 ] === title ) {
+					$deferred.resolve( title );
+				} else {
+					$deferred.resolve( false );
+				}
+			} )
+			.fail( function () {
+				$deferred.resolve( false );
+			} );
+		return $deferred.promise();
+	};
+
+	/**
+	 * Checks for an equivalent page in the target wiki based on sourceTitle
+	 * @param {string} sourceLanguage the source language
+	 * @param {string} targetLanguage the target language
+	 * @param {string} sourceTitle the title to check
+	 * @return {jQuery.promise}
+	 */
+	CXSourceSelector.prototype.checkForEquivalentTargetPage = function (
+		sourceLanguage,
+		targetLanguage,
+		sourceTitle
+	) {
+		var api = this.siteMapper.getApi( sourceLanguage ),
+			$deferred = $.Deferred();
+
+		api.get( {
+			action: 'query',
+			prop: 'langlinks',
+			titles: sourceTitle,
+			lllang: targetLanguage,
+			lllimit: 1,
+			redirects: true,
+			format: 'json'
+		}, {
+			dataType: 'jsonp',
+			cache: true
+		} ).done( function ( response ) {
+			var equivalentTargetPage = false;
+			if ( response.query && response.query.pages ) {
+				$.each( response.query.pages, function ( pageId, page ) {
+					if ( page.langlinks ) {
+						equivalentTargetPage = page.langlinks[ 0 ][ '*' ];
+					}
+				} );
+			}
+			$deferred.resolve( equivalentTargetPage );
+		} ).fail( function () {
+			$deferred.resolve( false );
+		} );
+
+		return $deferred.promise();
+	};
+
+	/**
+	 * Shows error for source page not existing
+	 * @param {string} sourceLanguage the source language language code
+	 */
+	CXSourceSelector.prototype.showSourceTitleError = function ( sourceLanguage ) {
+		var sourceLanguageDisplay, message;
+
+		sourceLanguageDisplay = $.uls.data.getAutonym( sourceLanguage );
+		message = mw.message(
+			'cx-sourceselector-dialog-error-no-source-article',
+			sourceLanguageDisplay
+		);
+		this.showMessage( message );
+	};
+
+	/**
+	 * Shows error for target page existing and target title in use
+	 * @param {string} equivalentTargetPage the title of the existing page
+	 * @param {string} existingTargetTitle the title already in use
+	 */
+	CXSourceSelector.prototype.showPageExistsAndTitleInUseError = function (
+		equivalentTargetPage,
+		existingTargetTitle
+	) {
+		var targetLanguage, equivalentTargetPageLink, targetLanguageDisplay,
+			existingTargetTitleLink, message;
+
+		targetLanguage = this.$targetLanguage.val();
+		equivalentTargetPageLink = this.siteMapper
+			.getPageUrl( targetLanguage, equivalentTargetPage );
+		targetLanguageDisplay = $.uls.data.getAutonym( targetLanguage );
+		existingTargetTitleLink = this.siteMapper
+			.getPageUrl( targetLanguage, existingTargetTitle );
+		message = mw.message(
+			'cx-sourceselector-dialog-error-page-and-title-exist',
+			equivalentTargetPageLink,
+			targetLanguageDisplay,
+			existingTargetTitleLink
+		);
+		this.showMessage( message );
+	};
+
+	/**
+	 * Shows error for page already existing in target
+	 * @param {string} equivalentTargetPage the title of the existing page
+	 */
+	CXSourceSelector.prototype.showPageExistsError = function ( equivalentTargetPage ) {
+		var targetLanguage, equivalentTargetPageLink,
+			targetLanguageDisplay, message;
+
+		targetLanguage = this.$targetLanguage.val();
+		equivalentTargetPageLink = this.siteMapper
+			.getPageUrl( targetLanguage, equivalentTargetPage );
+		targetLanguageDisplay = $.uls.data.getAutonym( targetLanguage );
+		message = mw.message(
+			'cx-sourceselector-dialog-error-page-exists',
+			equivalentTargetPageLink, targetLanguageDisplay
+		);
+		this.showMessage( message );
+	};
+
+	/**
+	 * Shows error for title already in use in target wiki
+	 * @param {string} existingTargetTitle the title already in use
+	 */
+	CXSourceSelector.prototype.showTitleInUseError = function ( existingTargetTitle ) {
+		var targetLanguage, existingTargetTitleLink, message;
+
+		targetLanguage = this.$targetLanguage.val();
+		existingTargetTitleLink = this.siteMapper
+			.getPageUrl( targetLanguage, existingTargetTitle );
+		message = mw.message(
+			'cx-sourceselector-dialog-error-title-in-use',
+			existingTargetTitleLink
+		);
+		this.showMessage( message );
+	};
+
+	/**
+	 * Shows error message for dialog
+	 * @param {mw.Message|text} message the message to show
+	 */
+	CXSourceSelector.prototype.showMessage = function ( message ) {
+		var $messageText = $( '.cx-sourceselector-dialog__messagebar-text' );
+
+		if ( message instanceof mw.Message ) {
+			$messageText.html( message.parse() );
+		} else {
+			$messageText.text( message );
+		}
+
+		this.$messageBar.find( 'a' )
+			.attr( 'target', '_blank' );
+
+		this.$messageBar.show();
 	};
 
 	/**
@@ -210,9 +521,16 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
+		var targetTitle;
+
+		if ( this.$targetTitleInput.val() === '' ) {
+			targetTitle = this.$sourceTitleInput.val();
+		} else {
+			targetTitle = this.$targetTitleInput.val();
+		}
 		location.href = this.siteMapper.getCXUrl(
 			this.$sourceTitleInput.val(),
-			this.$targetTitleInput.val(),
+			targetTitle,
 			this.$sourceLanguage.val(),
 			this.$targetLanguage.val()
 		);
@@ -226,6 +544,7 @@
 			$sourceLanguageLabel,
 			$heading, $targetLanguageLabel,
 			$sourceInputs, $targetInputs,
+			$messageText,
 			index;
 
 		this.$dialog = $( '<div>' )
@@ -260,12 +579,15 @@
 			.attr( {
 				name: 'sourceTitle',
 				type: 'search',
-				list: 'searchresults'
+				list: 'searchresults',
+				placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
 			} );
+
 		this.$targetTitleInput = $( '<input>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
 			.attr( {
-				name: 'targetTitle'
+				name: 'targetTitle',
+				placeholder: mw.msg( 'cx-sourceselector-dialog-target-title-placeholder' )
 			} );
 
 		this.$titleList = $( '<datalist>' ).prop( 'id', 'searchresults' );
@@ -282,10 +604,18 @@
 				this.$targetLanguage,
 				this.$targetTitleInput
 		);
+		this.$messageBar = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__messagebar' );
+		$messageText = $( '<span>' )
+			.addClass( 'cx-sourceselector-dialog__messagebar-text' );
+		this.$messageBar
+			.append( $messageText )
+			.hide();
 
 		this.$translateFromButton = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
 			.text( mw.msg( 'cx-sourceselector-dialog-button-start-translation' ) )
+			.prop( 'disabled', true )
 			.click( $.proxy( this.startPageInCX, this ) );
 
 		$actions = $( '<div>' ).addClass( 'cx-sourceselector-dialog__actions' )
@@ -294,9 +624,25 @@
 		this.$dialog.append( $heading,
 			$sourceInputs,
 			$targetInputs,
+			this.$messageBar,
 			$actions,
 			this.$titleList
 		);
+
+		if ( localStorage && localStorage.cxSourceLanguage ) {
+			this.$sourceLanguage.children().filter( function () {
+				return this.getAttribute( 'value' ) === localStorage.cxSourceLanguage;
+			} )
+				.prop( 'selected', true );
+			this.fillTargetLanguages();
+		}
+
+		if ( localStorage && localStorage.cxTargetLanguage ) {
+			this.$targetLanguage.children().filter( function () {
+				return this.getAttribute( 'value' ) === localStorage.cxTargetLanguage;
+			} )
+				.prop( 'selected', true );
+		}
 
 		$( 'body' ).append( this.$dialog );
 	};
@@ -321,7 +667,7 @@
 
 			$container.empty().cxSourceSelector( {
 				top: '150px',
-				left: '33%'
+				left: '30%'
 			} ).click();
 		} );
 	} );
