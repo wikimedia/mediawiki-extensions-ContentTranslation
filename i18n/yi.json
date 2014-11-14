@@ -8,5 +8,8 @@
 	"cx-desc": "דערמעגלעכט רעדאקטארן איבערצוזעצן בלעטער פון איין שפראך אויף א צוויטן מיט דער הילף פון מאשין־איבערזעצן און אנדערע איבערזעצן געצייג",
 	"cx-red-interlanguage-link-preference": "לויפיקע איבערזעצונג",
 	"cx-entrypoint-title": "איבערזעצן דעם בלאט צו $1",
-	"cx-tools-link-hover-tooltip": "קליקט צו עפענען"
+	"cx-tools-link-hover-tooltip": "קליקט צו עפענען",
+	"cx-sourceselector-dialog-source-language-label": "פֿון:",
+	"cx-sourceselector-dialog-target-language-label": "צו:",
+	"cx-sourceselector-dialog-source-title-placeholder": "זוכן קוואל ארטיקל"
 }

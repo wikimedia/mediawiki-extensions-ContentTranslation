@@ -70,7 +70,7 @@
 	"cx-error-page-not-found": "La pagina \"$1\" non è stata trovata nella Wikipedia in $2",
 	"cx-sourceselector-dialog-new-translation": "Nuova traduzione",
 	"cx-sourceselector-dialog-button-start-translation": "Inizia traduzione",
-	"cx-sourceselector-dialog-source-language-label": "Pagina di partenza:",
-	"cx-sourceselector-dialog-target-language-label": "Destinazione:",
+	"cx-sourceselector-dialog-source-language-label": "Da:",
+	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-publish-captcha-title": "Domanda di sicurezza"
 }
