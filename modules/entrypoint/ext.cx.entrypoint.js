@@ -43,9 +43,7 @@
 
 		// Hide the dialog when clicking outside it
 		$( 'html' ).click( function () {
-			if ( entryPoint.$dialog && !entryPoint.$dialog.hasClass( 'hidden' ) ) {
-				entryPoint.hide();
-			}
+			entryPoint.hide();
 		} );
 
 		// Open or close the dialog when clicking the link.
@@ -93,18 +91,14 @@
 	 * Show or Hide the CX entry point dialog based on current state
 	 */
 	CXEntryPoint.prototype.toggle = function () {
-		if ( this.$dialog.hasClass( 'hidden' ) ) {
-			this.show();
-		} else {
-			this.hide();
-		}
+		this.$dialog.toggle();
 	};
 
 	/**
 	 * Show the entry point dialog
 	 */
 	CXEntryPoint.prototype.show = function () {
-		this.$dialog.removeClass( 'hidden' );
+		this.$dialog.show();
 		this.position();
 		this.$titleInput.focus();
 	};
@@ -134,7 +128,7 @@
 	 * Hide the entry point dialog.
 	 */
 	CXEntryPoint.prototype.hide = function () {
-		this.$dialog.addClass( 'hidden' );
+		this.$dialog.hide();
 	};
 
 	/**
@@ -160,7 +154,8 @@
 
 		this.$dialog = $( '<div>' )
 			.prop( 'id', 'cx-entrypoint-dialog-' + this.options.targetLanguage )
-			.addClass( 'cx-entrypoint-dialog hidden' );
+			.addClass( 'cx-entrypoint-dialog' )
+			.hide();
 
 		this.$closeIcon = $( '<span>' )
 			.addClass( 'icon-close' );

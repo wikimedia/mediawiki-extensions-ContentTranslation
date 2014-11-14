@@ -458,7 +458,7 @@
 	 * Show the CXSourceSelector dialog
 	 */
 	CXSourceSelector.prototype.show = function () {
-		this.$dialog.removeClass( 'hidden' );
+		this.$dialog.show();
 		this.position();
 	};
 
@@ -509,7 +509,7 @@
 	 * Hide the entry point dialog.
 	 */
 	CXSourceSelector.prototype.hide = function () {
-		this.$dialog.addClass( 'hidden' );
+		this.$dialog.hide();
 	};
 
 	/**
@@ -543,7 +543,8 @@
 			index;
 
 		this.$dialog = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog hidden' );
+			.addClass( 'cx-sourceselector-dialog' )
+			.hide();
 
 		$heading = $( '<div>' ).addClass( 'cx-sourceselector-dialog__heading' )
 			.text( mw.msg( 'cx-sourceselector-dialog-new-translation' ) );

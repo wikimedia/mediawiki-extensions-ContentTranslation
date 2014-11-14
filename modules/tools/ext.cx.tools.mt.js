@@ -296,7 +296,7 @@
 		var $providerItem = $( '#' + providerIdPrefix + providerId );
 
 		// Hide the menu
-		this.$providersMenu.addClass( 'hidden' );
+		this.$providersMenu.hide();
 
 		// Mark the selected item
 		this.$providersMenu.find( 'li' ).removeClass( 'selected' );
@@ -326,7 +326,8 @@
 			cxMtCard = this;
 
 		this.$providersMenu = $( '<ul>' )
-			.addClass( 'card__providers-menu hidden' );
+			.addClass( 'card__providers-menu' )
+			.hide();
 
 		// Add available machine translation engines to the menu
 		for ( provider in MTControlCard.providers ) {
@@ -347,7 +348,7 @@
 
 		this.$providerSelectorTrigger
 			.on( 'click', function ( e ) {
-				cxMtCard.$providersMenu.toggleClass( 'hidden' );
+				cxMtCard.$providersMenu.toggle();
 				e.stopPropagation();
 			} )
 			.after( this.$providersMenu );
@@ -355,7 +356,7 @@
 		// Hide the dropdown on clicking outside of it
 		$( 'html' ).on( 'click', function ( e ) {
 			if ( !e.isDefaultPrevented() ) {
-				cxMtCard.$providersMenu.addClass( 'hidden' );
+				cxMtCard.$providersMenu.hide();
 			}
 		} );
 	};
@@ -414,9 +415,9 @@
 			provider === sourceMT ||
 			provider === noMT
 		) {
-			this.actions.$restore.addClass( 'hidden' );
+			this.actions.$restore.hide();
 		} else {
-			this.actions.$restore.removeClass( 'hidden' );
+			this.actions.$restore.show();
 		}
 
 		if ( state === 'empty' ) {
