@@ -21,14 +21,13 @@
 		// @todo Refactor
 		this.siteMapper = mw.cx.siteMapper;
 
-		this.$dialog = null;
 		this.languagePairs = null;
 		this.sourceLanguages = [];
 		this.targetLanguages = [];
+
+		this.$dialog = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
-		this.sourceLanguage = null;
-		this.targetLanguage = null;
 		this.$messageBar = null;
 		this.$sourceTitleInput = null;
 		this.$targetTitleInput = null;
@@ -170,17 +169,13 @@
 	 * Handles searching for titles based on source title input
 	 */
 	CXSourceSelector.prototype.searchHandler = function () {
-		var selector = this;
+		var $input = this.$sourceTitleInput;
 
-		this.sourceLanguage = this.$sourceLanguage.val();
-		this.searchTitles( this.sourceLanguage, this.$sourceTitleInput.val() ).done( function ( response ) {
-			var i, len, suggestions = response[ 1 ];
-			selector.$titleList.empty();
-			if ( suggestions.length ) {
-				for ( i = 0, len = suggestions.length; i < len; i++ ) {
-					selector.$titleList.append( $( '<option>' ).attr( 'value', suggestions[ i ] ) );
-				}
-			}
+		this.searchTitles(
+			this.$sourceLanguage.val(),
+			$input.val()
+		).done( function ( response ) {
+			$input.suggestions( 'suggestions', response[ 1 ] );
 		} );
 	};
 
@@ -590,7 +585,6 @@
 				placeholder: mw.msg( 'cx-sourceselector-dialog-target-title-placeholder' )
 			} );
 
-		this.$titleList = $( '<datalist>' ).prop( 'id', 'searchresults' );
 		$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__source-inputs' )
 			.append( $sourceLanguageLabel,
@@ -618,15 +612,15 @@
 			.prop( 'disabled', true )
 			.click( $.proxy( this.startPageInCX, this ) );
 
-		$actions = $( '<div>' ).addClass( 'cx-sourceselector-dialog__actions' )
+		$actions = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__actions' )
 			.append( this.$translateFromButton );
 
 		this.$dialog.append( $heading,
 			$sourceInputs,
 			$targetInputs,
 			this.$messageBar,
-			$actions,
-			this.$titleList
+			$actions
 		);
 
 		if ( localStorage && localStorage.cxSourceLanguage ) {
