@@ -15,11 +15,11 @@
 	 * CXSourceSelector
 	 * @class
 	 */
-	function CXSourceSelector( $trigger, options ) {
+	function CXSourceSelector( $trigger, siteMapper, options ) {
 		this.$trigger = $( $trigger );
 		this.options = $.extend( {}, options );
 		// @todo Refactor
-		this.siteMapper = mw.cx.siteMapper;
+		this.siteMapper = siteMapper;
 
 		this.languagePairs = null;
 		this.sourceLanguages = [];
@@ -651,7 +651,7 @@
 				data = $this.data( 'cxsourceselector' );
 
 			if ( !data ) {
-				$this.data( 'cxsourceselector', ( data = new CXSourceSelector( this, options ) ) );
+				$this.data( 'cxsourceselector', ( data = new CXSourceSelector( this, mw.cx.siteMapper, options ) ) );
 			}
 		} );
 	};
