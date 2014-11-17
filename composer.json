@@ -12,7 +12,7 @@
 	"support": {
 		"issues": "https://bugzilla.wikimedia.org/",
 		"irc": "irc://irc.freenode.net/mediawiki-i18n",
-		"wiki": "https://www.mediawiki.org/wiki/Content translation"
+		"wiki": "https://www.mediawiki.org/wiki/Content_translation"
 	},
 	"require": {
 		"php": ">=5.3.0",
