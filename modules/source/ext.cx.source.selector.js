@@ -171,6 +171,7 @@
 	CXSourceSelector.prototype.searchHandler = function () {
 		var $input = this.$sourceTitleInput;
 
+		this.$messageBar.hide();
 		this.searchTitles(
 			this.$sourceLanguage.val(),
 			$input.val()
