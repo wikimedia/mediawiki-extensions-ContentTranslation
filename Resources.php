@@ -143,7 +143,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'ext.cx.sitemapper',
 		'jquery.suggestions',
 		'jquery.throttle-debounce',
-		'jquery.uls.data',
+		'ext.uls.mediawiki',
 	),
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',

@@ -35,6 +35,22 @@
 	}
 
 	/**
+	 * Return an object of languages indexed by language code.
+	 * @param {array} languages An array of language codes.
+	 * return {object} Autonyms indexed by language code.
+	 */
+	function getAutonyms( languages ) {
+		var i,
+			autonyms = {};
+
+		for ( i = 0; i < languages.length; i++ ) {
+			autonyms[ languages[ i ] ] = $.uls.data.getAutonym( languages[ i ] );
+		}
+
+		return autonyms;
+	}
+
+	/**
 	 * Initialize the plugin.
 	 */
 	CXSourceSelector.prototype.init = function () {
@@ -88,40 +104,62 @@
 	};
 
 	/**
+	 * Check whether a language is available as a target language
+	 * for the currently selected source language.
+	 * @param {array} language A language code.
+	 * return {boolean} true if the language is available.
+	 */
+	CXSourceSelector.prototype.isValidTarget = function ( language ) {
+		return ( $.inArray(
+			language,
+			this.languagePairs[ this.getSourceLanguage() ]
+		) > -1 );
+	};
+
+	/**
+	 * Get the current source language code.
+	 * return {string} Language code. Empty string if not set.
+	 */
+	CXSourceSelector.prototype.getSourceLanguage = function () {
+		return this.$sourceLanguage.prop( 'lang' );
+	};
+
+	/**
+	 * Get the current target language code.
+	 * return {string} Language code. Empty string if not set.
+	 */
+	CXSourceSelector.prototype.getTargetLanguage = function () {
+		return this.$targetLanguage.prop( 'lang' );
+	};
+
+	/**
 	 * Fill the target language dropdown with target languages that have
 	 * language tools compatible with the source language.
 	 */
 	CXSourceSelector.prototype.fillTargetLanguages = function () {
-		var index, targetLanguage, $option,
-			sourceLanguage = this.$sourceLanguage.val(),
-			enabledOptions = [],
-			disabledOptions = [];
+		var cxSourceSelector = this,
+			targetUlsClass = 'cx-sourceselector-uls-target';
 
-		this.$targetLanguage.empty();
-		for ( index in this.targetLanguages ) {
-			targetLanguage = this.targetLanguages[ index ];
+		// Delete the old target ULS
+		$( '.' + targetUlsClass ).remove();
+		this.$targetLanguage.data( 'uls', null );
 
-			// Skip the same language
-			if ( targetLanguage === sourceLanguage ) {
-				continue;
-			}
-
-			$option = $( '<option>' )
-				.attr( 'value', targetLanguage )
-				.text( $.uls.data.getAutonym( targetLanguage ) );
-
-			if ( $.inArray( targetLanguage, this.languagePairs[ sourceLanguage ] ) > -1 ) {
-				enabledOptions.push( $option );
-			} else {
-				// Disable the option, but show it so the user will
-				// know that this language is is in the system
-				$option.attr( 'disabled', true );
-				disabledOptions.push( $option );
-			}
-		}
-
-		// Show the enabled languages first
-		this.$targetLanguage.append( enabledOptions, disabledOptions );
+		// Create a new target ULS
+		this.$targetLanguage.uls( {
+			languages: getAutonyms( this.targetLanguages ),
+			onSelect: function ( language ) {
+				cxSourceSelector.targetLanguageChangeHandler( language );
+			},
+			onReady: function () {
+				this.$menu.addClass( targetUlsClass );
+			},
+			languageDecorator: function ( $languageLink, language ) {
+				if ( !cxSourceSelector.isValidTarget( language ) ) {
+					$languageLink.addClass( 'cx-sourceselector-unavailable-target' );
+				}
+			},
+			compact: true
+		} );
 	};
 
 	/**
@@ -136,18 +174,6 @@
 		this.$sourceTitleInput.on(
 			'input',
 			$.debounce( 100, false, $.proxy( this.searchHandler, this ) )
-		);
-
-		// Source language selector change (fill target languages, localStorage, check)
-		this.$sourceLanguage.on(
-			'change',
-			$.proxy( this.sourceLanguageChangeHandler, this )
-		);
-
-		// Target language selector change (localStorage, check)
-		this.$targetLanguage.on(
-			'change',
-			$.proxy( this.targetLanguageChangeHandler, this )
 		);
 
 		// Source title input or target title input, blur or search (check)
@@ -173,7 +199,7 @@
 
 		this.$messageBar.hide();
 		this.searchTitles(
-			this.$sourceLanguage.val(),
+			this.getSourceLanguage(),
 			$input.val()
 		).done( function ( response ) {
 			$input.suggestions( 'suggestions', response[ 1 ] );
@@ -182,23 +208,46 @@
 
 	/**
 	 * Handles source language change
+	 * @param {string} language Language code.
 	 */
-	CXSourceSelector.prototype.sourceLanguageChangeHandler = function () {
+	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
+		this.$sourceLanguage
+			.prop( {
+				lang: language,
+				dir: $.uls.data.getDir( language )
+			} )
+			.text( $.uls.data.getAutonym( language ) );
+
 		this.fillTargetLanguages();
+
 		if ( localStorage ) {
-			localStorage.cxSourceLanguage = this.$sourceLanguage.val();
-			localStorage.cxTargetLanguage = this.$targetLanguage.val();
+			localStorage.cxSourceLanguage = this.getSourceLanguage();
+			localStorage.cxTargetLanguage = this.getTargetLanguage();
 		}
+
 		this.check();
 	};
 
 	/**
-	 * Handles target language change
+	 * Handles target language change.
+	 * @param {string} language Language code.
 	 */
-	CXSourceSelector.prototype.targetLanguageChangeHandler = function () {
+	CXSourceSelector.prototype.targetLanguageChangeHandler = function ( language ) {
+		this.$targetLanguage
+			.prop( {
+				lang: language,
+				dir: $.uls.data.getDir( language )
+			} )
+			.text( $.uls.data.getAutonym( language ) );
+
 		if ( localStorage ) {
-			localStorage.cxTargetLanguage = this.$targetLanguage.val();
+			localStorage.cxTargetLanguage = this.getTargetLanguage();
 		}
+
+		// Disable the target input if the target language is not valid
+		// for the current source language
+		this.$targetTitleInput.prop( 'disabled', !this.isValidTarget( language ) );
+
 		this.check();
 	};
 
@@ -206,7 +255,7 @@
 	 * Handles enter keypress
 	 */
 	CXSourceSelector.prototype.enterKeyHandler = function ( e ) {
-		var sourceLanguage = this.$sourceLanguage.val(),
+		var sourceLanguage = this.getSourceLanguage(),
 			sourceTitle = this.$sourceTitleInput.val().trim(),
 			selector = this;
 
@@ -224,8 +273,8 @@
 	 * Checks source and target inputs for errors.
 	 */
 	CXSourceSelector.prototype.check = function () {
-		var sourceLanguage = this.$sourceLanguage.val(),
-			targetLanguage = this.$targetLanguage.val(),
+		var sourceLanguage = this.getSourceLanguage(),
+			targetLanguage = this.getTargetLanguage(),
 			sourceTitle = this.$sourceTitleInput.val().trim(),
 			targetTitle = this.$targetTitleInput.val().trim(),
 			selector = this;
@@ -385,7 +434,7 @@
 		var targetLanguage, equivalentTargetPageLink, targetLanguageDisplay,
 			existingTargetTitleLink, message;
 
-		targetLanguage = this.$targetLanguage.val();
+		targetLanguage = this.getTargetLanguage();
 		equivalentTargetPageLink = this.siteMapper
 			.getPageUrl( targetLanguage, equivalentTargetPage );
 		targetLanguageDisplay = $.uls.data.getAutonym( targetLanguage );
@@ -408,7 +457,7 @@
 		var targetLanguage, equivalentTargetPageLink,
 			targetLanguageDisplay, message;
 
-		targetLanguage = this.$targetLanguage.val();
+		targetLanguage = this.getTargetLanguage();
 		equivalentTargetPageLink = this.siteMapper
 			.getPageUrl( targetLanguage, equivalentTargetPage );
 		targetLanguageDisplay = $.uls.data.getAutonym( targetLanguage );
@@ -426,7 +475,7 @@
 	CXSourceSelector.prototype.showTitleInUseError = function ( existingTargetTitle ) {
 		var targetLanguage, existingTargetTitleLink, message;
 
-		targetLanguage = this.$targetLanguage.val();
+		targetLanguage = this.getTargetLanguage();
 		existingTargetTitleLink = this.siteMapper
 			.getPageUrl( targetLanguage, existingTargetTitle );
 		message = mw.message(
@@ -579,8 +628,8 @@
 		location.href = this.siteMapper.getCXUrl(
 			this.$sourceTitleInput.val(),
 			targetTitle,
-			this.$sourceLanguage.val(),
-			this.$targetLanguage.val()
+			this.getSourceLanguage(),
+			this.getTargetLanguage()
 		);
 	};
 
@@ -595,7 +644,7 @@
 			$messageText,
 			translateButtonLabel,
 			$license,
-			index;
+			cxSourceSelector = this;
 
 		this.$dialog = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog' )
@@ -607,19 +656,24 @@
 		$sourceLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
 
-		this.$sourceLanguage = $( '<select>' )
+		this.$sourceLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__language' )
 			.text( $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) );
-		for ( index in this.sourceLanguages ) {
-			this.$sourceLanguage.append( $( '<option>' )
-				.attr( 'value', this.sourceLanguages[ index ] )
-				.text( $.uls.data.getAutonym( this.sourceLanguages[ index ] ) )
-			);
-		}
+
+		this.$sourceLanguage.uls( {
+			languages: getAutonyms( this.sourceLanguages ),
+			onSelect: function ( language ) {
+				cxSourceSelector.sourceLanguageChangeHandler( language );
+			},
+			onReady: function () {
+				this.$menu.addClass( 'cx-sourceselector-uls-source' );
+			},
+			compact: true
+		} );
 
 		$targetLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-target-language-label' ) );
-		this.$targetLanguage = $( '<select>' )
+		this.$targetLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__language' )
 			.text( $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) );
 
@@ -693,18 +747,22 @@
 		);
 
 		if ( localStorage && localStorage.cxSourceLanguage ) {
-			this.$sourceLanguage.children().filter( function () {
-				return this.getAttribute( 'value' ) === localStorage.cxSourceLanguage;
-			} )
-				.prop( 'selected', true );
+			this.$sourceLanguage
+				.prop( {
+					lang: localStorage.cxSourceLanguage,
+					dir: $.uls.data.getDir( localStorage.cxSourceLanguage )
+				} )
+				.text( $.uls.data.getAutonym( localStorage.cxSourceLanguage ) );
 			this.fillTargetLanguages();
 		}
 
 		if ( localStorage && localStorage.cxTargetLanguage ) {
-			this.$targetLanguage.children().filter( function () {
-				return this.getAttribute( 'value' ) === localStorage.cxTargetLanguage;
-			} )
-				.prop( 'selected', true );
+			this.$targetLanguage
+				.prop( {
+					lang: localStorage.cxTargetLanguage,
+					dir: $.uls.data.getDir( localStorage.cxTargetLanguage )
+				} )
+				.text( $.uls.data.getAutonym( localStorage.cxTargetLanguage ) );
 		}
 
 		$( 'body' ).append( this.$dialog );
