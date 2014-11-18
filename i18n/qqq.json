@@ -83,6 +83,7 @@
 	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name",
 	"cx-sourceselector-dialog-new-translation": "Title of language and title selector on on Special:ContentTranslation.",
 	"cx-sourceselector-dialog-button-start-translation": "Button label for translation selector. Clicking on it starts a new translation in Special:ContentTranslation.",
+	"cx-sourceselector-dialog-button-cancel": "Button label for translation selector. Clicking on it cancels new translation and hides dialog. Only appears when translation selector is presented as a dialog.",
 	"cx-sourceselector-dialog-source-language-label": "Label text for source language and title selector.\n{{Identical|From}}",
 	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.\n{{Identical|Target}}",
 	"cx-sourceselector-dialog-source-title-placeholder": "Placeholder for the source title input. Provides prompt to search for source title.",

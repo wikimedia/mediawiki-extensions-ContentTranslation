@@ -2,18 +2,15 @@
 @import "mediawiki.mixins";
 
 .cx-sourceselector-dialog {
-	.mw-ui-grid;
 	.mw-ui-item;
-	.mw-ui-four-tenths;
 	color: #333;
 	position: absolute;
-	min-width: 500px;
-	max-width: 700px;
+	min-width: 400px;
+	max-width: 600px;
 	background: white;
 	border: 1px solid #ccc;
 	border-bottom-width: 3px;
 	border-radius: 3px;
-	z-index: 100;
 	padding: 0;
 }
 
@@ -87,4 +84,14 @@
 	button {
 		margin-left: 10px;
 	}
+}
+
+.cx-sourceselector-dialog__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #FFF;
+	opacity: 0.5;
 }

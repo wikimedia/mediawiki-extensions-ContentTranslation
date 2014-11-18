@@ -18,7 +18,6 @@
 	function CXSourceSelector( $trigger, siteMapper, options ) {
 		this.$trigger = $( $trigger );
 		this.options = $.extend( {}, options );
-		// @todo Refactor
 		this.siteMapper = siteMapper;
 
 		this.languagePairs = null;
@@ -31,6 +30,7 @@
 		this.$messageBar = null;
 		this.$sourceTitleInput = null;
 		this.$targetTitleInput = null;
+		this.$overlay = null;
 		this.init();
 	}
 
@@ -152,7 +152,7 @@
 
 		// Source title input or target title input, blur or search (check)
 		this.$dialog.on(
-			'blur search',
+			'blur',
 			'.cx-sourceselector-dialog__title',
 			$.proxy( this.check, this )
 		);
@@ -456,32 +456,86 @@
 	};
 
 	/**
-	 * Show the CXSourceSelector dialog
+	 * Show the CXSourceSelector
 	 */
 	CXSourceSelector.prototype.show = function () {
-		this.$dialog.show();
-		this.position();
+		var $container = this.options.container;
+
+		if ( $container && $container instanceof jQuery ) {
+			this.showAsEmbedded( $container );
+		} else {
+			this.showAsDialog();
+		}
 	};
 
 	/**
-	 * Position the CXSourceSelector dialog.
+	 * Shows the source selector as a dialog. If top and left options
+	 * are provided, uses those for positioning. Otherwise centered.
+	 * If the option 'overlay' has been passed in, and overlay is placed
+	 * over the rest of the content on the page.
 	 */
-	CXSourceSelector.prototype.position = function () {
-		var dialogTop, dialogLeft,
-			dir = $( 'html' ).prop( 'dir' );
+	CXSourceSelector.prototype.showAsDialog = function () {
+		var top, left, dir;
 
-		// The default is to place the dialog near the element that triggers it
-		dialogTop = this.options.top || this.$trigger.offset().top;
-		dialogLeft = this.options.left || this.$trigger.offset().left;
+		dir = $( 'html' ).prop( 'dir' );
+
+		if ( this.options.top ) {
+			top = this.options.top;
+		} else {
+			top = ( $( window ).height() - this.$dialog.height() ) / 2;
+			top = top + $( document ).scrollTop();
+		}
+
+		if ( this.options.left ) {
+			left = this.options.left;
+		} else {
+			left = ( $( window ).width() - this.$dialog.width() ) / 2;
+		}
 
 		if ( dir === 'rtl' ) {
-			dialogLeft = dialogLeft - this.$dialog.width();
+			left = left - this.$dialog.width();
 		}
 
 		this.$dialog.css( {
-			top: dialogTop,
-			left: dialogLeft
+			'top': top,
+			'left': left,
+			'z-index': 100
 		} );
+
+		if ( !this.$overlay ) {
+			this.$overlay = $( '<div>' )
+				.addClass( 'cx-sourceselector-dialog__overlay' );
+			$( 'body' ).append( this.$overlay );
+		}
+
+		this.$overlay.show();
+		this.$dialog.show();
+	};
+
+	/**
+	 * Embeds source selector dialog inside the element
+	 * specified by $container
+	 * @param {jQuery} $container, the container in which to embed the selector
+	 */
+	CXSourceSelector.prototype.showAsEmbedded = function ( $container ) {
+		$container.append( this.$dialog );
+		this.$dialog.show();
+	};
+
+	/**
+	 * Cancels the start translation process and hides dialog
+	 */
+	CXSourceSelector.prototype.cancel = function () {
+		this.$sourceTitleInput.val( '' );
+		this.$targetTitleInput.val( '' );
+		this.$translateFromButton.prop( 'disabled', true );
+		this.$messageBar.hide();
+		if ( this.$overlay ) {
+			this.$overlay.hide();
+		}
+		if ( !this.options.container ) {
+			this.$dialog.hide();
+		}
 	};
 
 	/**
@@ -600,6 +654,7 @@
 				this.$targetLanguage,
 				this.$targetTitleInput
 		);
+
 		this.$messageBar = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__messagebar' );
 		$messageText = $( '<span>' )
@@ -608,6 +663,11 @@
 			.append( $messageText )
 			.hide();
 
+		this.$cancelButton = $( '<button>' )
+			.addClass( 'mw-ui-button mw-ui-quiet cx-sourceselector-dialog__button-cancel' )
+			.text( mw.msg( 'cx-sourceselector-dialog-button-cancel' ) )
+			.click( $.proxy( this.cancel, this ) );
+
 		this.$translateFromButton = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
 			.text( mw.msg( 'cx-sourceselector-dialog-button-start-translation' ) )
@@ -615,8 +675,9 @@
 			.click( $.proxy( this.startPageInCX, this ) );
 
 		$actions = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__actions' )
-			.append( this.$translateFromButton );
+			.addClass( 'cx-sourceselector-dialog__actions' );
+
+		$actions.append( this.$cancelButton, this.$translateFromButton );
 
 		this.$dialog.append( $heading,
 			$sourceInputs,
@@ -661,10 +722,7 @@
 		mw.hook( 'mw.cx.source.select' ).add( function () {
 			var $container = $( '.cx-widget__columns' );
 
-			$container.empty().cxSourceSelector( {
-				top: '150px',
-				left: '30%'
-			} ).click();
+			$container.empty().cxSourceSelector().click();
 		} );
 	} );
 }( jQuery, mediaWiki ) );
