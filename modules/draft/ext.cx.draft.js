@@ -87,13 +87,11 @@
 	 */
 	ContentTranslationDraft.prototype.save = function () {
 		var self = this,
-			translatedTitle,
 			draftContent, targetTitle, params, apiParams,
 			api = new mw.Api();
 
-		translatedTitle = $( '.cx-column--translation > h2' ).text();
+		targetTitle = $( '.cx-column--translation > h2' ).text();
 		draftContent = $( '.cx-column--translation .cx-column__content' ).clone();
-		targetTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 
 		this.$draftButton
 			.prop( 'disabled', true )

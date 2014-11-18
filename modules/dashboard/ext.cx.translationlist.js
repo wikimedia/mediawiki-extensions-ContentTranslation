@@ -125,6 +125,7 @@
 						from: translation.sourceLanguage,
 						to: translation.targetLanguage,
 						page: translation.sourceTitle,
+						targettitle: translation.targetTitle,
 						draft: translation.status === 'draft' ? translation.id : undefined
 					} ).toString(),
 				} ).text( translation.sourceTitle );
