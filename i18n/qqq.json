@@ -113,5 +113,5 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
 	"cx-save-draft-button": "Label of button to save the translation as draft.",
-	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress"
+	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}"
 }

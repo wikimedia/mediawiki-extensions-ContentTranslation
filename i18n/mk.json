@@ -18,7 +18,7 @@
 	"cx-publish-button": "Објави превод",
 	"cx-publish-button-publishing": "Објавувам...",
 	"cx-publish-summary": "Создадено преведувајќи ја страницата „$1“",
-	"cx-publish-gt-no-permission-to-move-description": "Побарајте од искусен корисник за да ви помогне со прегледувањето на преводот и неговото објавување во статискиот именски простор.",
+	"cx-publish-gt-no-permission-to-move-description": "Побарајте од искусен корисник за да ви помогне со прегледувањето на преводот и неговото објавување во главниот именски простор.",
 	"cx-publish-gt-first-step-title": "Преводот е доставен за преглед под вашата корисничка страница.",
 	"cx-publish-gt-first-step-description": "Стиснете на дејството „{{int:vector-action-move}}“ под ова мени за да ја објавите содржината како видлива за сите корисници на нормалната страница.",
 	"cx-publish-gt-move-page-title": "Премести ја страницата",
@@ -76,9 +76,9 @@
 	"cx-sourceselector-dialog-button-start-translation": "Почни со преведување",
 	"cx-sourceselector-dialog-source-language-label": "Од:",
 	"cx-sourceselector-dialog-target-language-label": "За:",
-	"cx-sourceselector-dialog-source-title-placeholder": "Пребарај ја изворната статија",
+	"cx-sourceselector-dialog-source-title-placeholder": "Пребарај ја изворната страница",
 	"cx-sourceselector-dialog-target-title-placeholder": "Наслов на преводот (ако е различен од изворниот)",
-	"cx-sourceselector-dialog-error-page-and-title-exist": "Страницата веќе постои на [$1 $2], а насловот го користи [$3 друга статија]",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "Насловот веќе се користи на [$1 $2] за [$3 друга страница]",
 	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 веќе постои] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Насловот за новата страница е [$1 веќе зафатен]",
 	"cx-sourceselector-dialog-error-no-source-article": "Страницата за преведување не постои на $1",
@@ -101,5 +101,7 @@
 	"apihelp-cxpublish-param-sourcerevision": "Преработка на изворната страница.",
 	"apihelp-cxpublish-param-categories": "Категориите што треба да ѝ се придодадат на објавената страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Назнака за Captcha (кога зачувувате со одѕив на Captcha).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на captcha-та (кога зачувувате со одѕив на Captcha)."
+	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на captcha-та (кога зачувувате со одѕив на Captcha).",
+	"cx-save-draft-button": "Зачувај како нацрт",
+	"cx-save-draft-saving": "Зачувувам..."
 }

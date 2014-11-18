@@ -102,5 +102,7 @@
 	"apihelp-cxpublish-param-sourcerevision": "Die Version der Quellseite.",
 	"apihelp-cxpublish-param-categories": "Die Kategorien, die zu der veröffentlichten Seite hinzugefügt werden sollen.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort)."
+	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
+	"cx-save-draft-button": "Als Entwurf speichern",
+	"cx-save-draft-saving": "Speichere …"
 }
