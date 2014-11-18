@@ -18,17 +18,49 @@
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
 		this.translations = [];
+		this.filters = {
+			status: null,
+			sourceLanguage: null,
+			targetLanguage: null
+		};
+
+		this.$statusFilter = null;
+		this.$sourceLanguageFilter = null;
+		this.$targetLanguageFilter = null;
+
 		this.init();
+		this.render();
+		this.listen();
 	}
 
 	CXTranslationList.prototype.init = function () {
 		var translationList = this;
 
-		this.getTranslations( mw.user.getName() )
-			.done( function ( response ) {
-				translationList.translations = response.query.contenttranslation.translations;
-				translationList.render();
-			} );
+		this.getTranslations(
+			mw.user.getName()
+		).done( function ( response ) {
+			translationList.getTranslationsCallback( response.query.contenttranslation.translations );
+		} );
+	};
+
+	/**
+	 * Populates various UI components with data in the given translations.
+	 */
+	CXTranslationList.prototype.getTranslationsCallback = function ( translations ) {
+		var sourceLanguages, targetLanguages;
+
+		// Remove unnecessary object wrapping to get plain list of objects
+		translations = $.map( translations, function ( e ) { return e.translation; } );
+
+		this.translations = translations;
+
+		this.listTranslations( translations );
+		this.applyFilters( this.filters, translations );
+
+		sourceLanguages = $.map( translations, function ( e ) { return e.sourceLanguage; } );
+		this.populateLanguageFilter( this.$sourceLanguageFilter, unique( sourceLanguages ) );
+		targetLanguages = $.map( translations, function ( e ) { return e.targetLanguage; } );
+		this.populateLanguageFilter( this.$targetLanguageFilter, unique( targetLanguages ) );
 	};
 
 	/**
@@ -38,7 +70,7 @@
 	 * @param {string} title Title
 	 * @return {jQuery.Promise}
 	 */
-	CXTranslationList.prototype.getLinkImage = function ( id, language, title ) {
+	CXTranslationList.prototype.getLinkImage = function ( language, title ) {
 		return this.siteMapper.getApi( language ).get( {
 			action: 'query',
 			titles: title,
@@ -75,7 +107,7 @@
 	 * @param {Object} translation
 	 */
 	CXTranslationList.prototype.showTitleImage = function ( translation ) {
-		this.getLinkImage( translation.id, translation.sourceLanguage, translation.sourceTitle )
+		this.getLinkImage( translation.sourceLanguage, translation.sourceTitle )
 			.done( function ( response ) {
 				var pageId, page, imgSrc;
 
@@ -86,7 +118,6 @@
 					$( '#' + translation.id ).find( '.image' ).attr( 'src', imgSrc );
 				}
 			} );
-
 	};
 
 	/**
@@ -99,7 +130,7 @@
 
 		for ( i = 0; i < translations.length; i++ ) {
 
-			translation = translations[ i ].translation;
+			translation = translations[ i ];
 			$translation = $( '<div>' )
 				.addClass( 'translation' )
 				.attr( 'id', translation.id );
@@ -147,35 +178,137 @@
 				$titleLanguageBlock
 			);
 			this.$container.append( $translation );
+
+			// Store reference to the DOM node
+			translation.$element = $translation;
+		}
+	};
+
+	CXTranslationList.prototype.populateLanguageFilter = function ( $filter, languages ) {
+		var i;
+
+		for ( i = 0; i < languages.length; i++ ) {
+			$filter.append(
+				$( '<option>' )
+					// Todo: use translated language name
+					.text( $.uls.data.getAutonym( languages[i] ) )
+					.attr( 'value', languages[i] )
+			);
 		}
 	};
 
 	CXTranslationList.prototype.render = function () {
-		var $translationFilterContainer, $translationStatusFilter,
-			$sourceLanguageFilter, $targetLanguageFilter;
+		var $translationFilterContainer;
 
 		$translationFilterContainer = $( '<div>' )
 			.addClass( 'translation-filter' );
-		$translationStatusFilter = $( '<select>' ).addClass( 'translation-status-filter' );
-		$translationStatusFilter.append(
-			$( '<option>' ).text( mw.msg( 'cx-translation-filter-all-translations' ) ),
-			$( '<option>' ).text( mw.msg( 'cx-translation-filter-published-translations' ) ),
-			$( '<option>' ).text( mw.msg( 'cx-translation-filter-draft-translations' ) )
+
+		this.$statusFilter = createSelect(
+			'translation-status-filter',
+			{
+				'': mw.msg( 'cx-translation-filter-all-translations' ),
+				published: mw.msg( 'cx-translation-filter-published-translations' ),
+				draft: mw.msg( 'cx-translation-filter-draft-translations' )
+			}
 		);
-		$sourceLanguageFilter = $( '<select>' ).addClass( 'translation-source-language-filter' );
-		$sourceLanguageFilter.append(
-			$( '<option>' ).text( mw.msg( 'cx-translation-filter-from-any-language' ) )
+
+		this.$sourceLanguageFilter = createSelect(
+			'translation-source-language-filter',
+			{ '': mw.msg( 'cx-translation-filter-from-any-language' ) }
 		);
-		$targetLanguageFilter = $( '<select>' ).addClass( 'translation-target-language-filter' );
-		$targetLanguageFilter.append(
-			$( '<option>' ).text( mw.msg( 'cx-translation-filter-to-any-language' ) )
+
+		this.$targetLanguageFilter = createSelect(
+			'translation-target-language-filter',
+			{ '': mw.msg( 'cx-translation-filter-to-any-language' ) }
 		);
+
 		$translationFilterContainer.append(
-			$translationStatusFilter, $sourceLanguageFilter, $targetLanguageFilter
+			this.$statusFilter,
+			this.$sourceLanguageFilter,
+			this.$targetLanguageFilter
 		);
+
 		this.$container.append( $translationFilterContainer );
-		this.listTranslations( this.translations );
 	};
+
+	CXTranslationList.prototype.listen = function () {
+		var setFilter = $.proxy( this.setFilter, this );
+
+		this.$statusFilter.on( 'change', function () {
+			setFilter( 'status', $( this ).val() );
+		} );
+
+		this.$sourceLanguageFilter.on( 'change', function () {
+			setFilter( 'sourceLanguage', $( this ).val() );
+		} );
+
+		this.$targetLanguageFilter.on( 'change', function () {
+			setFilter( 'targetLanguage', $( this ).val() );
+		} );
+	};
+
+	CXTranslationList.prototype.setFilter = function ( type, value ) {
+		if ( value === '' ) {
+			value = null;
+		}
+
+		this.filters[type] = value;
+		this.applyFilters( this.filters, this.translations );
+	};
+
+	CXTranslationList.prototype.applyFilters = function ( filters, translations ) {
+		var translation, filterProp, filterValue, visible, i, j,
+			keys = Object.keys( filters );
+
+		for ( i = 0; i < translations.length; i++ ) {
+			translation = translations[i];
+
+			visible = true;
+			for ( j = 0; j < keys.length; j++ ) {
+				filterProp = keys[j];
+				filterValue = filters[filterProp];
+
+				if ( filterValue === null ) {
+					continue;
+				}
+
+				visible = visible && translation[filterProp] === filterValue;
+			}
+
+			if ( visible ) {
+				translation.$element.show();
+			} else {
+				translation.$element.hide();
+			}
+		}
+	};
+
+	/**
+	 * Creates a jQuery select element from given options.
+	 * @param {string} classes
+	 * @param {Object} options
+	 * @return {jQuery}
+	 */
+	function createSelect( classes, options ) {
+		var i, key, value,
+			keys = Object.keys( options ),
+			$select = $( '<select>' ).addClass( classes );
+
+		for ( i = 0; i < keys.length; i++ ) {
+			value = keys[i];
+			key = options[value];
+
+			$select.append( $( '<option>' ).text( key ).attr( 'value', value ) );
+		}
+
+		return $select;
+	}
+
+	function unique( array ) {
+		return $.grep( array, function ( el, index ) {
+			return index === $.inArray( el, array );
+		} );
+	}
 
 	$.fn.cxTranslationList = function ( siteMapper ) {
 		return this.each( function () {
