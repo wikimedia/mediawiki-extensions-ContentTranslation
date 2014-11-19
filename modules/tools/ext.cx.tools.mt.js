@@ -73,7 +73,7 @@
 		} );
 
 		return $.post( mtURL, sourceHtml ).then( null, function () {
-			return new $.Deferred().reject( 'service-failure', arguments ).promise();
+			return $.Deferred().reject( 'service-failure', arguments ).promise();
 		} );
 	}
 

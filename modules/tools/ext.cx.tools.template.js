@@ -131,7 +131,7 @@
 	 */
 	TemplateTool.prototype.process = function () {
 		var templateTool = this,
-			deferred = new $.Deferred();
+			deferred = $.Deferred();
 
 		this.templateData = this.getTemplateData();
 		this.templateMapping = this.getTemplateMapping();
@@ -192,7 +192,7 @@
 			var pageId = Object.keys( response.query.pages )[ 0 ];
 
 			if ( pageId === '-1' ) {
-				return new $.Deferred().reject().promise();
+				return $.Deferred().reject().promise();
 			}
 
 			return response.query;

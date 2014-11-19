@@ -24,7 +24,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getImageNamespaceTranslation( targetLanguage ) {
-		var deferred = new $.Deferred();
+		var deferred = $.Deferred();
 
 		if ( cachedNamespaces[ targetLanguage ] ) {
 			return deferred.resolve( cachedNamespaces[ targetLanguage ] ).promise();
