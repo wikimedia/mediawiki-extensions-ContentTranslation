@@ -23,7 +23,7 @@
 		QUnit.expect( 3 );
 
 		newCaptchaHandler = function ( captcha ) {
-			var deferred = new $.Deferred();
+			var deferred = $.Deferred();
 
 			assert.ok( true, 'Captcha handler was called' );
 			assert.equal( captcha.captchaKey, '1234565', '...with correct captcha response' );
