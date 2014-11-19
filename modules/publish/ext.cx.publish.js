@@ -113,12 +113,10 @@
 		$publishArea = $( '.cx-header__publish' );
 		$publishButton = $publishArea.find( '.cx-header__publish-button' );
 		$draftButton = $publishArea.find( '.cx-header__draft-button' );
-		translatedTitle = $( '.cx-column--translation > h2' ).text();
+		targetTitle = $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(
 			$( '.cx-column--translation .cx-column__content' ).clone()
 		);
-
-		targetTitle = 'User:' + mw.user.getName() + '/' + translatedTitle;
 
 		$publishButton
 			.prop( 'disabled', true )
@@ -144,11 +142,12 @@
 			categories: categories,
 			progress: JSON.stringify( mw.cx.getProgress() )
 		} ).done( function () {
+			var publishedTitle = 'User:' + mw.user.getName() + '/' + targetTitle;
 			mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
 				$( '<a>' ).attr( {
-					href: mw.util.getUrl( targetTitle ),
+					href: mw.util.getUrl( publishedTitle ),
 					target: '_blank'
-				} ).text( targetTitle )[ 0 ].outerHTML
+				} ).text( publishedTitle )[ 0 ].outerHTML
 			) );
 			mw.hook( 'mw.cx.translation.published' ).fire(
 				mw.cx.sourceLanguage,

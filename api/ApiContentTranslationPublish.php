@@ -109,7 +109,9 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function publish() {
 		$params = $this->extractRequestParams();
 
-		$title = Title::newFromText( $params['title'] );
+		$title = Title::newFromText(
+			'User:' . $this->getUser()->getName() . '/' . $params['title'] );
+
 		if ( !$title ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
 		}
