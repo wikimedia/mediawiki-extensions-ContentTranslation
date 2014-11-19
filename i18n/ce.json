@@ -52,5 +52,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "Дlадоладе гоч дар",
 	"cx-sourceselector-dialog-source-language-label": "Хьост:",
 	"cx-sourceselector-dialog-target-language-label": "Ӏалашо:",
-	"cx-publish-captcha-title": "Къайла хаттар"
+	"cx-publish-captcha-title": "Къайла хаттар",
+	"cx-save-draft-button": "Дуьххьарлераниг сана Ӏалашъян",
+	"cx-save-draft-saving": "Ӏалашъяр..."
 }

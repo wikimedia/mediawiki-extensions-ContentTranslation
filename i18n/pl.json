@@ -71,5 +71,7 @@
 	"cx-translation-filter-from-any-language": "Z dowolnego języka",
 	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Utwórz nowe tłumaczenie",
-	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej."
+	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
+	"cx-save-draft-button": "Zapisz jako brudnopis",
+	"cx-save-draft-saving": "Zapisywanie..."
 }

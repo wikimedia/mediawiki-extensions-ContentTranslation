@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nike"
+			"Nike",
+			"Pxos"
 		]
 	},
 	"cx": "Sivun kääntäminen",
@@ -15,7 +16,7 @@
 	"cx-publish-button": "Julkaise käännös",
 	"cx-publish-button-publishing": "Julkaistaan...",
 	"cx-publish-summary": "Luotu kääntämällä sivu ”$1”",
-	"cx-publish-gt-no-permission-to-move-description": "Pyydä kokenutta käyttäjää oikolukemaan ja julkaisemaan sivu artikkelina.",
+	"cx-publish-gt-no-permission-to-move-description": "Pyydä kokenutta käyttäjää auttamaan sinua käännöksen oikoluvussa sekä julkaisemaan sivu pääavaruudessa.",
 	"cx-publish-gt-first-step-title": "Käännös on julkaistu luonnoksena käyttäjäsivusi alasivuna",
 	"cx-publish-gt-first-step-description": "Saata sivu kaikkien luettavaksi käyttämällä tämän valikon ”{{int:vector-toiminta-siirrä}}”-toimintoa.",
 	"cx-publish-gt-move-page-title": "Siirrä tämä sivu",
@@ -24,5 +25,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1.<br />\nHaluatko luoda sen?",
 	"cx-entrypoint-dialog-title-in": "Sivun otsikko kielellä $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Luo uusi",
-	"cx-entrypoint-dialog-button-translate-from": "Käännä kielestä $1"
+	"cx-entrypoint-dialog-button-translate-from": "Käännä kielestä $1",
+	"cx-save-draft-button": "Tallenna luonnoksena",
+	"cx-save-draft-saving": "Tallennetaan..."
 }

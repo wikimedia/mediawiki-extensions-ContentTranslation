@@ -99,6 +99,7 @@
 	"apihelp-cxpublish-param-to": "Код на целниот јазик.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов на изворната страница.",
 	"apihelp-cxpublish-param-sourcerevision": "Преработка на изворната страница.",
+	"apihelp-cxpublish-param-status": "Ако е недовршен (draft), преводот ќе се зачува како недовршен. Ако е објавен (published), преводот ќе биде објавен.",
 	"apihelp-cxpublish-param-categories": "Категориите што треба да ѝ се придодадат на објавената страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Назнака за Captcha (кога зачувувате со одѕив на Captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на captcha-та (кога зачувувате со одѕив на Captcha).",
