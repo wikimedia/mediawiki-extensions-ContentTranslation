@@ -70,10 +70,6 @@ Fired when the source article content is loaded.
 
 Fired when the source article content is ready from API, but not rendered at the source column.
 
-## mw.cx.source.select
-
-Fires when Special:CX is missing required parameters to start a translation, such as source language, source article title etc. Example subscriber is CX source selector module.
-
 ## mw.cx.tools.ready
 
 Fires when the tools system is ready.

@@ -530,10 +530,8 @@
 		this.$targetTitleInput.val( '' );
 		this.$translateFromButton.prop( 'disabled', true );
 		this.$messageBar.hide();
-		if ( this.$overlay ) {
-			this.$overlay.hide();
-		}
 		if ( !this.options.container ) {
+			this.$overlay.hide();
 			this.$dialog.hide();
 		}
 	};
@@ -718,11 +716,4 @@
 		} );
 	};
 
-	$( function () {
-		mw.hook( 'mw.cx.source.select' ).add( function () {
-			var $container = $( '.cx-widget__columns' );
-
-			$container.empty().cxSourceSelector().click();
-		} );
-	} );
 }( jQuery, mediaWiki ) );
