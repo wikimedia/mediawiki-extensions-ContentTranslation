@@ -79,6 +79,7 @@
 	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia",
 	"cx-sourceselector-dialog-new-translation": "New translation",
 	"cx-sourceselector-dialog-button-start-translation": "Start translation",
+	"cx-sourceselector-dialog-button-cancel": "Cancel",
 	"cx-sourceselector-dialog-source-language-label": "From:",
 	"cx-sourceselector-dialog-target-language-label": "To:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Search for source page",

@@ -58,9 +58,7 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		this.$newTranslationButton.cxSourceSelector( {
-			left: '25%'
-		} );
+		this.$newTranslationButton.cxSourceSelector();
 	};
 
 	$.fn.cxDashboard = function ( siteMapper, options ) {

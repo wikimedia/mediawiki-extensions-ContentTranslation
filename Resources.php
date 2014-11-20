@@ -148,6 +148,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',
 		'cx-sourceselector-dialog-button-start-translation',
+		'cx-sourceselector-dialog-button-cancel',
 		'cx-sourceselector-dialog-source-language-label',
 		'cx-sourceselector-dialog-target-language-label',
 		'cx-sourceselector-dialog-source-title-placeholder',
