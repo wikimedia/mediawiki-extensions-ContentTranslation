@@ -262,8 +262,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			'to' => 'The target language code.',
 			'sourcetitle' => 'The title of the source page.',
 			'sourcerevision' => 'The revision of the source page.',
-			'status' => 'If draft, translation will be saved as draft.
-				If published, translation will be published',
+			'status' => 'If "draft", translation will be saved as draft.
+				If "published", translation will be published',
 			'progress' => 'Translation progress as JSON.',
 			'categories' => 'The categories to be added to the published page.',
 			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',
