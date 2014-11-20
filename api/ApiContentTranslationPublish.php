@@ -58,11 +58,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 		}
 
-		if ( $params['progress'] ) {
-			$progress = json_decode( $params['progress'] );
-			if ( $this->hasHighMT( $progress ) && $wgContentTranslationHighMTCategory ) {
-				$wikitext .= "\n[[" . $wgContentTranslationHighMTCategory . ']]';
-			}
+		$progress = json_decode( $params['progress'], true );
+		if (
+			$progress &&
+			$wgContentTranslationHighMTCategory &&
+			$this->hasHighMT( $progress )
+		) {
+			$wikitext .= "\n[[" . $wgContentTranslationHighMTCategory . ']]';
 		}
 
 		$summary = $this->msg(
@@ -289,12 +291,22 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * Determines if the article is being published with a high amount of
 	 * unedited MT content.
 	 *
-	 * @param StdObject progress
-	 * @return boolean
+	 * @param {array} progress
+	 * @return {boolean}
 	 */
 	protected function hasHighMT( $progress ) {
-		$mtPercentage =  $progress->any !== 0 ? $progress->mt / $progress->any * 100 : 0;
-		return $mtPercentage > 75 &&
-			( $progress->mtSectionsCount > 5 || $progress->any * 100 > 75 );
+		if (
+			isset( $progress['any'] ) &&
+			isset( $progress['mt'] ) &&
+			isset( $progress['mtSectionsCount'] )
+		) {
+			$mtPercentage = $progress['any'] !== 0 ? $progress['mt'] / $progress['any'] * 100 : 0;
+
+			return $mtPercentage > 75 &&
+				( $progress['mtSectionsCount'] > 5 || $progress['any'] * 100 > 75 );
+		} else {
+
+			return false;
+		}
 	}
 }
