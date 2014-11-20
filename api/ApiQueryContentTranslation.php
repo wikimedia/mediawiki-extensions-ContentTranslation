@@ -67,35 +67,24 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			),
 			'translationid' => array(
 				ApiBase::PARAM_TYPE => 'string',
-			),
+			),/*
 			'limit' => array(
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			),
+			),*/
 		);
 		return $allowedParams;
 	}
 
-	public function getParamDescription() {
-		$paramDescs = array(
-			'user' => 'Username of the translator.',
-			'translationid' => 'Translation id',
-		);
-
-		return $paramDescs;
-	}
-
-	public function getDescription() {
-		return 'Query Content Translation database for translations.';
-	}
-
-	protected function getExamples() {
+	protected function getExamplesMessages() {
 		return array(
-			'api.php?action=query&list=contenttranslation&user=Santhosh',
-			'api.php?action=query&list=contenttranslation&translationid=94',
+			'action=query&list=contenttranslation&user=Santhosh' =>
+				'apihelp-query+contenttranslation-example-1',
+			'action=query&list=contenttranslation&translationid=94' =>
+				'apihelp-query+contenttranslation-example-2',
 		);
 	}
 }
