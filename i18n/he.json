@@ -79,6 +79,7 @@
 	"cx-error-page-not-found": "הדף \"$1\" לא נמצא בוויקיפדיה ב{{GRAMMAR:תחילית|$2}}",
 	"cx-sourceselector-dialog-new-translation": "תרגום חדש",
 	"cx-sourceselector-dialog-button-start-translation": "להתחיל לתרגם",
+	"cx-sourceselector-dialog-button-cancel": "ביטול",
 	"cx-sourceselector-dialog-source-language-label": "מ־:",
 	"cx-sourceselector-dialog-target-language-label": "אל:",
 	"cx-sourceselector-dialog-source-title-placeholder": "חיפוש דף המקור",
@@ -104,7 +105,15 @@
 	"apihelp-cxpublish-param-to": "קוד שפת היעד.",
 	"apihelp-cxpublish-param-sourcetitle": "כותרת דף המקור.",
 	"apihelp-cxpublish-param-sourcerevision": "גרסת דף המקור.",
+	"apihelp-cxpublish-param-status": "אם \"draft\", התרגום יישמר בתור טיוטה. אם \"published\", התרגום יפורסם.",
 	"apihelp-cxpublish-param-categories": "הקטגוריות להוסיף לדף שיתפרסם.",
 	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה)."
+	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
+	"apihelp-query+contenttranslation-description": "שאילתה לאחזור תרגומים ממסד הנתונים של תרגום תוכן.",
+	"apihelp-query+contenttranslation-param-user": "שם המשתמש של המתרגם.",
+	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
+	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים של Santhosh.",
+	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
+	"cx-save-draft-button": "שמירת טיוטה",
+	"cx-save-draft-saving": "שמירה..."
 }

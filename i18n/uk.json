@@ -5,7 +5,8 @@
 			"Ата",
 			"Mykola Swarnyk",
 			"Olion",
-			"Olvin"
+			"Olvin",
+			"Ypryima"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -77,9 +78,11 @@
 	"cx-error-page-not-found": "Не вдалося знайти сторінку «$1» в {{GRAMMAR:locative|$2}} Вікіпедії",
 	"cx-sourceselector-dialog-new-translation": "Новий переклад",
 	"cx-sourceselector-dialog-button-start-translation": "Почати переклад",
+	"cx-sourceselector-dialog-button-cancel": "Скасувати",
 	"cx-sourceselector-dialog-source-language-label": "Джерело:",
 	"cx-sourceselector-dialog-target-language-label": "Ціль:",
 	"cx-mt-abuse-warning-title": "Ваш переклад містить $1% незміненого машинно-перекладеного тексту",
 	"cx-mt-abuse-warning-text": "Машинний переклад надається лише як шаблон. Вам треба переконатися, що зміст є точним і природно читається Вашою мовою.",
-	"cx-publish-captcha-title": "Секретне запитання"
+	"cx-publish-captcha-title": "Секретне запитання",
+	"apihelp-query+contenttranslation-param-user": "Ім’я перекладача."
 }

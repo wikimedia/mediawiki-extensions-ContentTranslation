@@ -7,7 +7,8 @@
 			"Wedkarski",
 			"Alan ffm",
 			"Matik7",
-			"Py64"
+			"Py64",
+			"Darellur"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -72,6 +73,9 @@
 	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Utwórz nowe tłumaczenie",
 	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
+	"apihelp-query+contenttranslation-param-user": "Nazwa tłumacza",
+	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
+	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
 	"cx-save-draft-button": "Zapisz jako brudnopis",
 	"cx-save-draft-saving": "Zapisywanie..."
 }

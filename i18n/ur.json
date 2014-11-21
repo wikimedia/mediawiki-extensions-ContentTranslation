@@ -31,5 +31,6 @@
 	"cx-tools-instructions-text5": "ترجمہ شائع کریں",
 	"cx-tools-instructions-text6": "جب آپ نتیجہ سے متفق ہوجائیں تو \"{{int:cx-publish-button}}\" پر کلک کریں۔",
 	"cx-tools-searchbox-text": "لفظ کو تلاش کریں",
-	"cx-tools-view-guidelines": "ہدایات برائے ترجمہ ملاحظہ فرمائیں"
+	"cx-tools-view-guidelines": "ہدایات برائے ترجمہ ملاحظہ فرمائیں",
+	"cx-sourceselector-dialog-button-cancel": "منسوخ"
 }

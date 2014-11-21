@@ -72,6 +72,7 @@
 	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2",
 	"cx-sourceselector-dialog-new-translation": "Nova tradução",
 	"cx-sourceselector-dialog-button-start-translation": "Começar a traduzir",
+	"cx-sourceselector-dialog-button-cancel": "Cancelar",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "A página já existe em [$1 $2] e o título é usado por uma [$3 página diferente]",
 	"cx-sourceselector-dialog-error-page-exists": "A página [$1 já existe] em $2",
 	"cx-sourceselector-dialog-error-title-in-use": "O título para a nova página já [$1 se encontra em uso]",
@@ -83,5 +84,7 @@
 	"cx-translation-filter-from-any-language": "De qualquer idioma",
 	"cx-translation-filter-to-any-language": "Para qualquer idioma",
 	"cx-create-new-translation": "Criar nova tradução",
-	"cx-create-new-translation-desc": "Cria páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Tradu%C3%A7%C3%A3o/Traduzindo Saiba mais]"
+	"cx-create-new-translation-desc": "Cria páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Tradu%C3%A7%C3%A3o/Traduzindo Saiba mais]",
+	"cx-save-draft-button": "Gravar como rascunho",
+	"cx-save-draft-saving": "A gravar..."
 }
