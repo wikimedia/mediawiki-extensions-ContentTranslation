@@ -253,34 +253,6 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'title' => 'The title of the page to perform actions on.',
-			'token' => 'Edit token',
-			'html' => 'The content to save.',
-			'from' => 'The source language code.',
-			'to' => 'The target language code.',
-			'sourcetitle' => 'The title of the source page.',
-			'sourcerevision' => 'The revision of the source page.',
-			'status' => 'If "draft", translation will be saved as draft.
-				If "published", translation will be published',
-			'progress' => 'Translation progress as JSON.',
-			'categories' => 'The categories to be added to the published page.',
-			'wpCaptchaId' => 'Captcha ID (when saving with a captcha response).',
-			'wpCaptchaWord' => 'Answer to the captcha (when saving with a captcha response).',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Save a page created using the content translation extension.';
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
