@@ -233,7 +233,7 @@
 		this.$messageBar.hide();
 
 		// if source title is blank, disable button and skip validation
-		if ( sourceTitle === '' ) {
+		if ( !sourceTitle ) {
 			selector.$translateFromButton.prop( 'disabled', true );
 			return;
 		}
@@ -243,7 +243,7 @@
 			.done( function ( sourcePage ) {
 				// if no source page to translate disable button and show error
 				// skip rest of validation checks
-				if ( !sourcePage && sourceTitle !== '' ) {
+				if ( !sourcePage ) {
 					selector.$translateFromButton.prop( 'disabled', true );
 					selector.showSourceTitleError( sourceLanguage );
 				} else {
