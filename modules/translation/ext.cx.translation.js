@@ -231,14 +231,29 @@
 				.attr( {
 					id: 'cx' + sourceId,
 					'data-source': sourceId,
-					'data-cx-state': 'source',
+					'data-cx-state': 'source'
 				} );
 
-			if ( origin === 'mt-user-disabled' || origin === 'clear' ) {
+			if ( origin === 'mt-user-disabled' ) {
 				$clone.attr( 'data-cx-state', 'empty' );
-				$clone.empty();
-			} // else: service-failure, non-editable, mt-not-available
+				if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
+					// Clear figure caption alone.
+					$clone.find( 'figcaption' ).empty();
+				} else {
+					$clone.empty();
+				}
+			}
 
+			if ( origin === 'clear' ) {
+				$clone.attr( 'data-cx-state', 'empty' );
+				if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
+					// When clearing figures, replace it with placeholder.
+					$clone = getPlaceholder( sourceId )
+						.attr( 'data-cx-section-type', $sourceSection.prop( 'tagName' ) );
+				} else {
+					$clone.empty();
+				}
+			} // else: service-failure, non-editable, mt-not-available
 			// Replace the placeholder with a translatable element
 			$section.replaceWith( $clone );
 
