@@ -6,7 +6,8 @@
 			"Maxim21",
 			"Ultimate",
 			"Constructeur",
-			"Wyz"
+			"Wyz",
+			"Macofe"
 		]
 	},
 	"cx": "Traduire la page",
@@ -77,8 +78,8 @@
 	"cx-error-page-not-found": "La page « $1 » n’a pas été trouvée sur Wikipédia en $2",
 	"cx-sourceselector-dialog-new-translation": "Nouvelle traduction",
 	"cx-sourceselector-dialog-button-start-translation": "Démarrer la traduction",
-	"cx-sourceselector-dialog-source-language-label": "Source :",
-	"cx-sourceselector-dialog-target-language-label": "Cible :",
+	"cx-sourceselector-dialog-source-language-label": "De :",
+	"cx-sourceselector-dialog-target-language-label": "À :",
 	"cx-mt-abuse-warning-title": "Votre traduction contient $1% de texte traduit automatiquement non modifié",
 	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme modèle. Vous devez vous assurer que le contenu est exact et se lit de façon naturelle dans votre langue.",
 	"cx-publish-captcha-title": "Question de sécurité"

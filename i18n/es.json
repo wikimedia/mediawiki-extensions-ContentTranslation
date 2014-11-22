@@ -25,7 +25,7 @@
 	"cx-publish-button": "Publicar traducción",
 	"cx-publish-button-publishing": "Publicando…",
 	"cx-publish-summary": "Creado al traducir la página «$1»",
-	"cx-publish-gt-no-permission-to-move-description": "Por favor, pregunta a un usuario con experiencia en este sitio para que te ayude a revisar tu traducción y publicarla en el espacio del artículo.",
+	"cx-publish-gt-no-permission-to-move-description": "Pregunta a un usuario experimentado de este sitio para que te ayude a revisar tu traducción y publicarla en el espacio principal.",
 	"cx-publish-gt-first-step-title": "La traducción ha sido publicada como un borrador en tu página de usuario para revisión",
 	"cx-publish-gt-first-step-description": "Haga clic en la acción \"{{int:vector-action-move}}\" debajo de este menú para que el contenido esté disponible a todos los usuarios como una página normal.",
 	"cx-publish-gt-move-page-title": "Trasladar la página",
@@ -81,8 +81,9 @@
 	"cx-error-page-not-found": "La página «$1» no se encuentra en la Wikipedia en $2",
 	"cx-sourceselector-dialog-new-translation": "Nueva traducción",
 	"cx-sourceselector-dialog-button-start-translation": "¡Comienza a traducir!",
-	"cx-sourceselector-dialog-source-language-label": "Fuente:",
-	"cx-sourceselector-dialog-target-language-label": "Destinoː",
+	"cx-sourceselector-dialog-button-cancel": "Cancelar",
+	"cx-sourceselector-dialog-source-language-label": "De:",
+	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-mt-abuse-warning-title": "Tu traducción contiene  $1% de textos traducidos automáticamente sin modificar",
 	"cx-mt-abuse-warning-text": "Las traducciones automáticas son proporcionadas solamente como una plantilla. Tienes que asegurarte de que el contenido sea preciso y se lea naturalmente en tu idioma.",
 	"cx-publish-captcha-title": "Pregunta de seguridad",
@@ -91,5 +92,6 @@
 	"cx-translation-filter-draft-translations": "Traducciones en borrador",
 	"cx-translation-filter-from-any-language": "De cualquier idioma",
 	"cx-translation-filter-to-any-language": "A cualquier idioma",
-	"cx-create-new-translation": "Crear nueva traducción"
+	"cx-create-new-translation": "Crear nueva traducción",
+	"cx-save-draft-button": "Guardar como borrador"
 }

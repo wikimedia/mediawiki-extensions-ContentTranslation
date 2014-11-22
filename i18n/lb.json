@@ -68,6 +68,7 @@
 	"cx-error-page-not-found": "D'Säit \"$1\" konnt op der $2 Wikipedia net fonnt ginn",
 	"cx-sourceselector-dialog-new-translation": "Nei Iwwersetzung",
 	"cx-sourceselector-dialog-button-start-translation": "Iwwersetzung ufänken",
+	"cx-sourceselector-dialog-button-cancel": "Ofbriechen",
 	"cx-sourceselector-dialog-source-language-label": "Quell:",
 	"cx-sourceselector-dialog-target-language-label": "Zil:",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",

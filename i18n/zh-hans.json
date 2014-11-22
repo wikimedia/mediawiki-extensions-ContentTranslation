@@ -37,7 +37,7 @@
 	"cx-translation-add-translation": "+加入翻译",
 	"cx-translation-target-page-exists": "带[$1 $2]标题的页面已存在于目标wiki。考虑提供不同标题的页面。",
 	"tag-contenttranslation": "内容翻译",
-	"cx-source-loading": "$1载入中",
+	"cx-source-loading": "正在载入$1",
 	"cx-red-interlanguage-link-preference": "内容翻译",
 	"cx-red-interlanguage-link-preference-beta-desc": "在语言链接列表中显示红链至您的语言，如果对应页面未翻译成您的语言且希望帮助通过很方便的翻译界面翻译页面至您的语言的话。",
 	"cx-entrypoint-title": "翻译此页为$1",

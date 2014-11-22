@@ -7,7 +7,8 @@
 			"Pginer",
 			"KRLS",
 			"QuimGil",
-			"Alvaro Vidal-Abarca"
+			"Alvaro Vidal-Abarca",
+			"Macofe"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -78,8 +79,8 @@
 	"cx-error-page-not-found": "No es pot trobar la pàgina «$1» a la Viquipèdia en $2",
 	"cx-sourceselector-dialog-new-translation": "Nova traducció",
 	"cx-sourceselector-dialog-button-start-translation": "Comenceu a traduir",
-	"cx-sourceselector-dialog-source-language-label": "Origen:",
-	"cx-sourceselector-dialog-target-language-label": "Objectiu:",
+	"cx-sourceselector-dialog-source-language-label": "De:",
+	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-mt-abuse-warning-title": "Un $1% de la seva traducció és text traduït automàticament que no s'ha modificat",
 	"cx-mt-abuse-warning-text": "Les traduccions automàtiques només s'han d'utilitzar com a plantilles. Heu de tenir cura del contingut i assegurar-vos que les traduccions són acurades i naturals en la vostra llengua.",
 	"cx-publish-captcha-title": "Pregunta de seguretat",
