@@ -111,6 +111,8 @@
 	"apihelp-cxpublish-param-categories": "要加入发布页面的分类。",
 	"apihelp-cxpublish-param-wpCaptchaId": "验证码ID（当带验证码保存时）。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "回答验证码（当带验证码保存时）。",
+	"apihelp-query+contenttranslation-param-user": "译者用户名。",
+	"apihelp-query+contenttranslation-param-translationid": "翻译ID。",
 	"cx-save-draft-button": "保存为草稿",
 	"cx-save-draft-saving": "正在保存..."
 }

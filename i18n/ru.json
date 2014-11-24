@@ -15,6 +15,7 @@
 	"cx-header-progressbar-text": "Перевод выполнен на $1%",
 	"cx-header-progressbar-text-mt": "($1% машинного перевода)",
 	"cx-header-translation-center": "Центр переводов",
+	"cx-header-new-translation": "Новый перевод",
 	"cx-source-view-page": "просмотр страницы",
 	"cx-publish-page-success": "Страница опубликована на $1",
 	"cx-publish-page-error": "Ошибка при сохранении страницы.",
@@ -77,9 +78,18 @@
 	"cx-error-page-not-found": "Страница \"$1\" не может быть найдена в $2 Википедии",
 	"cx-sourceselector-dialog-new-translation": "Новый перевод",
 	"cx-sourceselector-dialog-button-start-translation": "Начать перевод",
+	"cx-sourceselector-dialog-button-cancel": "Отмена",
 	"cx-sourceselector-dialog-source-language-label": "С:",
 	"cx-sourceselector-dialog-target-language-label": "На:",
 	"cx-mt-abuse-warning-title": "Ваш перевод содержит $1% неизмененного машинного перевода текста",
 	"cx-mt-abuse-warning-text": "Машинные переводы предоставляются только в качестве шаблона. Вам нужно убедиться, что контент является точным и естественно читается на вашем языке.",
-	"cx-publish-captcha-title": "Секретный вопрос"
+	"cx-publish-captcha-title": "Секретный вопрос",
+	"cx-translation-filter-all-translations": "Все переводы",
+	"cx-translation-filter-published-translations": "Опубликованные переводы",
+	"cx-translation-filter-draft-translations": "Черновики переводов",
+	"cx-translation-filter-from-any-language": "С любого языка",
+	"cx-translation-filter-to-any-language": "На любой язык",
+	"cx-create-new-translation": "Создать новый перевод",
+	"cx-save-draft-button": "Сохранить как черновик",
+	"cx-save-draft-saving": "Сохраняется…"
 }
