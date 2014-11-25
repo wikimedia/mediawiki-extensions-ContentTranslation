@@ -1,7 +1,7 @@
 <?php
 /**
  * ContentTranslation Translation Draft
- * Database access method for drafts table.
+ * Database access method for cx_drafts table.
  */
 namespace ContentTranslation;
 
@@ -14,7 +14,7 @@ class Draft {
 			'draft_timestamp' => $dbw->timestamp(),
 		);
 		$dbw->upsert(
-			'drafts',
+			'cx_drafts',
 			$values,
 			array( 'draft_id' ),
 			$values,

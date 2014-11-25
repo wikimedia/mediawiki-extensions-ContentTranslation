@@ -27,7 +27,7 @@ class Translation {
 			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
 		);
 		$dbw->upsert(
-			'translations',
+			'cx_translations',
 			$values,
 			array( 'translation_id' ),
 			$values,
@@ -46,7 +46,7 @@ class Translation {
 	public static function newFromId( $translationId ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$rows = $dbr->select(
-			array( 'translations', 'drafts' ),
+			array( 'cx_translations', 'cx_drafts' ),
 			'*',
 			array(
 				'translation_id' => $translationId,

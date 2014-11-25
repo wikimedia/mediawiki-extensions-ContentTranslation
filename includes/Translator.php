@@ -16,7 +16,7 @@ class Translator {
 	public function addTranslation( $translationId ) {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->replace(
-			'translators',
+			'cx_translators',
 			array( 'translator_user_id', 'translator_translation_id' ),
 			array(
 				'translator_user_id' => $this->getGlobalUserId(),
@@ -32,7 +32,7 @@ class Translator {
 	public function getAllTranslations() {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$rows = $dbr->select(
-			array( 'translations', 'translators' ),
+			array( 'cx_translations', 'cx_translators' ),
 			'*',
 			array(
 				'translator_translation_id = translation_id',
