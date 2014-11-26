@@ -5,11 +5,14 @@
 		]
 	},
 	"cx": "Преведи страницу",
+	"cx-header-new-translation": "Нови превод",
 	"cx-publish-gt-move-page-title": "Премести страницу",
 	"cx-tools-link-add": "Додај везу",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорија|$1 категорије|$1 категорија|0=Нема категорија}}",
 	"cx-stats-page-title": "Страница",
 	"cx-stats-from": "Изворни језик",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|странице|страница}} ($3%) у главном именском простору.",
-	"cx-warning-unsaved-translation": "Имате несачуван превод."
+	"cx-warning-unsaved-translation": "Имате несачуван превод.",
+	"cx-sourceselector-dialog-button-cancel": "Откажи",
+	"cx-save-draft-saving": "Чување..."
 }

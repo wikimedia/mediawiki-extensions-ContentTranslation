@@ -76,6 +76,7 @@
 	"cx-error-page-not-found": "Sidan \"$1\" kunde inte hittas på $2 Wikipedia",
 	"cx-sourceselector-dialog-new-translation": "Ny översättning",
 	"cx-sourceselector-dialog-button-start-translation": "Börja översätta",
+	"cx-sourceselector-dialog-button-cancel": "Avbryt",
 	"cx-sourceselector-dialog-source-language-label": "Från:",
 	"cx-sourceselector-dialog-target-language-label": "Till:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Sök efter källsida",
@@ -104,6 +105,8 @@
 	"apihelp-cxpublish-param-categories": "Kategorierna att lägga till i den publicerade sidan.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
+	"apihelp-query+contenttranslation-param-user": "Översättarens användarnamn.",
+	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",
 	"cx-save-draft-button": "Spara som utkast",
 	"cx-save-draft-saving": "Sparar..."
 }
