@@ -57,6 +57,11 @@ $GLOBALS['wgContentTranslationParsoid'] = array(
 // Provide the database name as the value.
 // See sql/contenttranslation.sql for scripts to create this database.
 $GLOBALS['wgContentTranslationDatabase'] = null;
+
+// If the content translation database is located in a different cluster,
+// specify the name of the cluster.
+$GLOBALS['wgContentTranslationCluster'] = false;
+
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
 

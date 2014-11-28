@@ -11,9 +11,13 @@ class Database {
 	 * @return DatabaseBase
 	 */
 	public static function getConnection( $type ) {
-		global $wgContentTranslationDatabase;
-		return wfGetLB( $wgContentTranslationDatabase )->getConnection( $type, array(),
-				$wgContentTranslationDatabase );
+		global $wgContentTranslationDatabase, $wgContentTranslationCluster;
+
+		$lb = $wgContentTranslationCluster
+			? wfGetLBFactory()->getExternalLB( $wgContentTranslationCluster )
+			: wfGetLB( $wgContentTranslationDatabase );
+
+		return $lb->getConnectionRef( $type, array(), $wgContentTranslationDatabase );
 	}
 
 }
