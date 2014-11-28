@@ -148,7 +148,7 @@
 	 */
 	CXEntryPoint.prototype.renderDialog = function () {
 		var $actions, $titleBoxBlock,
-			$heading, $titleLabel,
+			$heading, $titleLabel, $license, translateButtonLabel,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
 			currentTitle = mw.config.get( 'wgTitle' );
 
@@ -185,18 +185,23 @@
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
 			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) );
 
+		translateButtonLabel = mw.msg(
+			'cx-entrypoint-dialog-button-translate-from',
+			$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+		);
 		this.$actionTranslate = $( '<button>' )
 			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-translate-from' )
-			.text( mw.msg(
-				'cx-entrypoint-dialog-button-translate-from',
-				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-			) );
+			.text( translateButtonLabel );
+
+		$license = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__license' )
+			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
 
 		$actions = $( '<div>' )
 			.addClass( 'cx-entrypoint-dialog__actions' )
 			.append( this.$actionScratch, this.$actionTranslate );
 
-		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $actions );
+		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $license, $actions );
 
 		$( 'body' ).append( this.$dialog );
 	};

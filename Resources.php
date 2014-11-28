@@ -157,6 +157,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'cx-sourceselector-dialog-error-page-exists',
 		'cx-sourceselector-dialog-error-title-in-use',
 		'cx-sourceselector-dialog-error-no-source-article',
+		'cx-license-agreement',
 	),
 ) + $resourcePaths;
 
@@ -472,6 +473,7 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 		'cx-entrypoint-dialog-title-in',
 		'cx-entrypoint-dialog-button-create-from-scratch',
 		'cx-entrypoint-dialog-button-translate-from',
+		'cx-license-agreement',
 	),
 	'dependencies' => array(
 		'ext.cx.sitemapper',

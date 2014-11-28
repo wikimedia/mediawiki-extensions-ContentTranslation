@@ -593,6 +593,8 @@
 			$heading, $targetLanguageLabel,
 			$sourceInputs, $targetInputs,
 			$messageText,
+			translateButtonLabel,
+			$license,
 			index;
 
 		this.$dialog = $( '<div>' )
@@ -666,6 +668,7 @@
 			.text( mw.msg( 'cx-sourceselector-dialog-button-cancel' ) )
 			.click( $.proxy( this.cancel, this ) );
 
+		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
 		this.$translateFromButton = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
 			.text( mw.msg( 'cx-sourceselector-dialog-button-start-translation' ) )
@@ -677,10 +680,15 @@
 
 		$actions.append( this.$cancelButton, this.$translateFromButton );
 
+		$license = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__license' )
+			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
+
 		this.$dialog.append( $heading,
 			$sourceInputs,
 			$targetInputs,
 			this.$messageBar,
+			$license,
 			$actions
 		);
 
