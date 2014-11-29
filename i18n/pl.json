@@ -8,7 +8,8 @@
 			"Alan ffm",
 			"Matik7",
 			"Py64",
-			"Darellur"
+			"Darellur",
+			"Sp5uhe"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -34,7 +35,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Stworzyć od podstaw",
 	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z $1",
 	"cx-special-login-error": "Musisz być zalogowany, aby tłumaczyć na tej stronie. [$1 Zaloguj się]",
-	"cx-tools-instructions-text1": "Dodaj akapity do tłumaczenia",
+	"cx-tools-instructions-text1": "{{GENDER:|Kliknij}} akapity do przetłumaczenia",
 	"cx-tools-instructions-text4": "Automatyczne tłumaczenie jest przydatne, ale {{GENDER:|powinieneś|powinnaś}} przejrzeć błędy, aby było dokładniejsze.",
 	"cx-tools-instructions-text5": "Opublikuj tłumaczenie",
 	"cx-tools-instructions-text6": "Jeśli jesteś zadowolony z wyniku, kliknij „{{int:cx-publish-button}}”.",
@@ -45,6 +46,7 @@
 	"cx-tools-link-remove": "Usuń link",
 	"cx-tools-mt-title": "Tłumaczenie automatyczne",
 	"cx-tools-mt-use-source": "Użyj tekstu źródłowego",
+	"cx-tools-mt-clear-translation": "Wyczyść akapit",
 	"cx-tools-mt-restore": "Odtwórz",
 	"cx-tools-mt-provider-title": "Z $1",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
@@ -74,7 +76,7 @@
 	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Utwórz nowe tłumaczenie",
 	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
-	"apihelp-query+contenttranslation-param-user": "Nazwa tłumacza",
+	"apihelp-query+contenttranslation-param-user": "Nazwa konta użytkownika tłumacza",
 	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
 	"cx-save-draft-button": "Zapisz jako brudnopis",

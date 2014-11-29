@@ -48,6 +48,7 @@
 	"cx-stats-summary": "{{PLURAL:$1|Цхьа агӀо|$1/$2 агӀонаш ($3%)}} коьрта цӀерийн меттигехь.",
 	"cx-tools-link-instruction-shortcut": "Shift + дехкан кнопка таӀае хьажорг схьаелла",
 	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха",
+	"cx-warning-unsaved-translation": "Хьа Ӏалашданза гочдарш ду.",
 	"cx-sourceselector-dialog-new-translation": "Керла гоч",
 	"cx-sourceselector-dialog-button-start-translation": "Дlадоладе гоч дар",
 	"cx-sourceselector-dialog-button-cancel": "Цаоьшу",

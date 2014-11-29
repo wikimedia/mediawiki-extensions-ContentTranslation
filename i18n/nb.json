@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Danmichaelo"
+			"Danmichaelo",
+			"Laaknor"
 		]
 	},
 	"cx": "Oversett side",
@@ -20,5 +21,6 @@
 	"cx-tools-instructions-text2": "Gå gjennom de automatiske oversettelsene for å sikre best mulig kvalitet",
 	"cx-tools-instructions-text3": "Maskinoversettelser kan være et bra utgangspunkt for oversettelser, men oversettere må gå gjennom teksten og korrige feil eller bekrefte at oversettelsen er korrekt.",
 	"cx-tools-instructions-text4": "Ikke oversett tekst som fremstår upålitelig eller har lav kvalitet. Om det er mulig, sjekk teksten mot referansene angitt på kildesiden.",
-	"cx-tools-instructions-text5": "Når du er fornøyd med resultatet, trykk på {{int:cx-publish-button}} for å opprette den nye siden."
+	"cx-tools-instructions-text5": "Når du er fornøyd med resultatet, trykk på {{int:cx-publish-button}} for å opprette den nye siden.",
+	"cx-warning-unsaved-translation": "Du har ulagrede oversettelser."
 }
