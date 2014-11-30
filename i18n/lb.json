@@ -35,7 +35,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Vun null ufänken",
 	"cx-entrypoint-dialog-button-translate-from": "Iwwersetze vu(n) $1",
 	"cx-special-login-error": "Dir musst ageloggt si fir fës Säit z'iwwersetzen. [$1 Aloggen]",
-	"cx-tools-instructions-text1": "{{GENDER:|Setzt}} Abschnitter dobäi fir z'iwwersetzen",
+	"cx-tools-instructions-text1": "{{GENDER:|Klickt op}} d'Abschnitter fir z'iwwersetzen",
 	"cx-tools-instructions-text2": "{{GENDER:|Dir}} musst se net all derbäisetzen",
 	"cx-tools-instructions-text3": "{{GENDER:|Maacht}} den Text natierlech liesbar",
 	"cx-tools-instructions-text4": "Maschinell Iwwersetzung ass nëtzlech awer {{GENDER:|Dir}} musst d'Feeler nokucke fir d'Iwwersetzung korrekt ze maachen.",
@@ -49,7 +49,7 @@
 	"cx-tools-link-remove": "Link ewechhuelen",
 	"cx-tools-mt-title": "Maschineniwwersetzung",
 	"cx-tools-mt-use-source": "Quelltext benotzen",
-	"cx-tools-mt-clear-translation": "Iwwersetzung eidelmaachen",
+	"cx-tools-mt-clear-translation": "Abschnitt eidelmaachen",
 	"cx-tools-mt-restore": "Restauréieren",
 	"cx-tools-mt-provider-title": "Vu(n) $1",
 	"cx-tools-mt-not-available": "Net disponibel fir $1",
@@ -79,6 +79,7 @@
 	"cx-translation-filter-from-any-language": "Aus iergendenger Sprooch",
 	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
 	"cx-create-new-translation": "Nei Iwwersetzung uleeën",
+	"apihelp-query+contenttranslation-param-user": "Benotzernumm vum Iwwersetzer.",
 	"cx-save-draft-button": "Als Brouillon späicheren",
 	"cx-save-draft-saving": "Späicheren..."
 }
