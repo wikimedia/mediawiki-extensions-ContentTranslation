@@ -109,3 +109,7 @@ Fired when the translation section was updated using the MT card, for example wi
 ##  mw.cx.translation.placeholders.ready
 
 Fired after every section in the translation column has been filled with a placeholder.
+
+##  mw.cx.translation.title.change
+
+Fired when the title for the translation is changed. Check for existing title listens for this.

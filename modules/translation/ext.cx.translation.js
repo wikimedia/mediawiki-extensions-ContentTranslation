@@ -152,6 +152,15 @@
 
 		// Capture translation selection on keyup and mouseup
 		this.$container.on( 'keyup mouseup', saveCursorPosition );
+
+		this.$title.on( 'blur', function () {
+			var title = cxTranslation.$title.text();
+
+			if ( title !== mw.cx.targetTitle ) {
+				mw.cx.targetTitle = cxTranslation.$title.text();
+				mw.hook( 'mw.cx.translation.title.change' ).fire();
+			}
+		} );
 	};
 
 	/**

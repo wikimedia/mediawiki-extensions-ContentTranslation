@@ -46,7 +46,6 @@
 			this.$publishButton.show().prop( 'disabled', weights.any === 0 );
 		}
 
-
 	};
 
 	/**
@@ -154,6 +153,7 @@
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
+		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.checkTargetTitle, this ) );
 	};
 
 	/**
