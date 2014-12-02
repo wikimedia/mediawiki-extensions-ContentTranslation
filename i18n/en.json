@@ -122,5 +122,8 @@
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
 	"cx-contributions": "New contribution",
 	"cx-contributions-translation": "Translation",
-	"cx-contributions-media": "Upload media file"
+	"cx-contributions-media": "Upload media file",
+	"cx-publishing-dialog-message": "The page $1 already exists. The current content will be replaced by your translation. Do you want to publish anyway?",
+	"cx-publishing-dialog-keep-button": "Keep both versions",
+	"cx-publishing-dialog-publish-anyway-button": "Publish anyway"
 }

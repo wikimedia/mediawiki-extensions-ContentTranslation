@@ -103,12 +103,37 @@
 	};
 
 	/**
+	 * Checks to see if there is already a published article with the title
+	 * @param {string} title The title to check
+	 */
+	function checkTargetTitle( title ) {
+		var api,
+			$deferred = $.Deferred();
+
+		api = new mw.Api();
+
+		api.get( {
+			titles: title
+		}, {
+			dataType: 'jsonp'
+		} ).done( function ( response ) {
+			if ( response.query.pages[ -1 ] ) {
+				$deferred.resolve( false );
+			} else {
+				$deferred.resolve( true );
+			}
+		} );
+
+		return $deferred.promise();
+	}
+
+	/**
 	 * Publish the translation
 	 */
-	function publish() {
+	function publish( publishAnyway ) {
 		var $publishArea, $publishButton, publisher, translatedTitle,
-			translatedContent, targetTitle, targetCategories, $draftButton,
-			sortedKeys, i, categoryTitles, categories;
+			translatedContent, targetCategories, $draftButton, targetTitle,
+			sortedKeys, i, categoryTitles, categories, publishedTitle;
 
 		$publishArea = $( '.cx-header__publish' );
 		$publishButton = $publishArea.find( '.cx-header__publish-button' );
@@ -118,57 +143,65 @@
 			$( '.cx-column--translation .cx-column__content' ).clone()
 		);
 
-		$publishButton
-			.prop( 'disabled', true )
-			.text( mw.msg( 'cx-publish-button-publishing' ) );
+		publishedTitle = 'User:' + mw.user.getName() + '/' + targetTitle;
 
-		targetCategories = mw.cx.categoryTool.categories.target;
-		sortedKeys = Object.keys( targetCategories ).sort();
-		categoryTitles = [];
-		for ( i = 0; i < sortedKeys.length; i++ ) {
-			categoryTitles.push( targetCategories[ sortedKeys[ i ] ] );
-		}
-		categories = categoryTitles.join( '|' );
+		checkTargetTitle( publishedTitle )
+			.done( function ( titleExists ) {
+				if ( titleExists === false || publishAnyway === true ) {
+					$publishButton
+						.prop( 'disabled', true )
+						.text( mw.msg( 'cx-publish-button-publishing' ) );
 
-		publisher = new CXPublish( $publishArea );
-		publisher.publish( {
-			from: mw.cx.sourceLanguage,
-			to: mw.cx.targetLanguage,
-			sourcetitle: mw.cx.sourceTitle,
-			title: targetTitle,
-			html: translatedContent,
-			status: 'published',
-			sourcerevision: mw.cx.sourceRevision,
-			categories: categories,
-			progress: JSON.stringify( mw.cx.getProgress() )
-		} ).done( function () {
-			var publishedTitle = 'User:' + mw.user.getName() + '/' + targetTitle;
-			mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
-				$( '<a>' ).attr( {
-					href: mw.util.getUrl( publishedTitle ),
-					target: '_blank'
-				} ).text( publishedTitle )[ 0 ].outerHTML
-			) );
-			mw.hook( 'mw.cx.translation.published' ).fire(
-				mw.cx.sourceLanguage,
-				mw.cx.targetLanguage
-			);
-		} ).fail( function ( code, details ) {
-			var trace = {
-				sourceLanguage: mw.cx.sourceLanguage,
-				targetLanguage: mw.cx.targetLanguage,
-				sourceTitle: mw.cx.sourceTitle,
-				sourceRevision: mw.cx.sourceRevision,
-				targetTitle: targetTitle,
-				error: details
-			};
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
-			mw.log( '[CX] Error while publishing:', code, trace );
-		} ).always( function () {
-			$publishButton
-				.prop( 'disabled', true )
-				.text( mw.msg( 'cx-publish-button' ) );
-		} );
+					targetCategories = mw.cx.categoryTool.categories.target;
+					sortedKeys = Object.keys( targetCategories ).sort();
+					categoryTitles = [];
+					for ( i = 0; i < sortedKeys.length; i++ ) {
+						categoryTitles.push( targetCategories[ sortedKeys[ i ] ] );
+					}
+					categories = categoryTitles.join( '|' );
+
+					publisher = new CXPublish( $publishArea );
+					publisher.publish( {
+						from: mw.cx.sourceLanguage,
+						to: mw.cx.targetLanguage,
+						sourcetitle: mw.cx.sourceTitle,
+						title: targetTitle,
+						html: translatedContent,
+						status: 'published',
+						sourcerevision: mw.cx.sourceRevision,
+						categories: categories,
+						progress: JSON.stringify( mw.cx.getProgress() )
+					} ).done( function () {
+						mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
+							$( '<a>' ).attr( {
+								href: mw.util.getUrl( publishedTitle ),
+								target: '_blank'
+							} ).text( publishedTitle )[ 0 ].outerHTML
+						) );
+						mw.hook( 'mw.cx.translation.published' ).fire(
+							mw.cx.sourceLanguage,
+							mw.cx.targetLanguage
+						);
+					} ).fail( function ( code, details ) {
+						var trace = {
+							sourceLanguage: mw.cx.sourceLanguage,
+							targetLanguage: mw.cx.targetLanguage,
+							sourceTitle: mw.cx.sourceTitle,
+							sourceRevision: mw.cx.sourceRevision,
+							targetTitle: targetTitle,
+							error: details
+						};
+						mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
+						mw.log( '[CX] Error while publishing:', code, trace );
+					} ).always( function () {
+						$publishButton
+							.prop( 'disabled', true )
+							.text( mw.msg( 'cx-publish-button' ) );
+					} );
+				} else {
+					$publishButton.cxPublishingDialog();
+				}
+			} );
 
 		initGuidedTour( translatedTitle );
 	}

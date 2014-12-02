@@ -466,12 +466,30 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'json',
 		'mediawiki.api.edit',
 		'mediawiki.cookie',
+		'ext.cx.publish.dialog',
 	),
 	'messages' => array(
 		'cx-publish-page-success',
 		'cx-publish-page-error',
 		'cx-publish-button-publishing',
 		'cx-publish-captcha-title',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.publish.dialog'] = array(
+	'scripts' => array(
+		'publish/ext.cx.publish.dialog.js',
+	),
+	'styles' => array(
+		'publish/styles/ext.cx.publish.dialog.less',
+	),
+	'dependencies' => array(
+		'ext.cx.model',
+	),
+	'messages' => array(
+		'cx-publishing-dialog-message',
+		'cx-publishing-dialog-keep-button',
+		'cx-publishing-dialog-publish-anyway-button',
 	),
 ) + $resourcePaths;
 

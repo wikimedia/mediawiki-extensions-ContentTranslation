@@ -125,5 +125,8 @@
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-contributions": "Text of a button which opens a dropdown",
 	"cx-contributions-translation": "Dropdown item\n{{Identical|Translation}}",
-	"cx-contributions-media": "Dropdown item"
+	"cx-contributions-media": "Dropdown item",
+	"cx-publishing-dialog-message": "Message that shows in the publishing options dialog when there is an existing page with the same title already published.\n\nParameters:\n* $1 - The link to the existing page with just the title as text.",
+	"cx-publishing-dialog-keep-button": "Button label for publishing options dialog. Clicking button preserves both the existing translation and the new translation.",
+	"cx-publishing-dialog-publish-anyway-button": "Button label for publishing options dialog. Clicking button overwrites the existing translation with the new translation."
 }

@@ -1,0 +1,60 @@
+@import "../../base/styles/grid/agora-grid";
+@import "mediawiki.mixins";
+
+.cx-publishing-dialog {
+	.mw-ui-item;
+	color: #333;
+	position: absolute;
+	width: 400px;
+	background: white;
+	border: 1px solid #ccc;
+	border-bottom-width: 3px;
+	border-radius: 3px;
+	padding: 5px;
+	padding-bottom: 10px;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+	.cx-publishing-dialog__close {
+		float: right;
+		.background-image-svg('../images/clear.svg', '../images/clear.png');
+		background-repeat: no-repeat;
+		background-color: #FFFFFF;
+		background-position: 10px center;
+		background-size: 15px;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+
+	.cx-publishing-dialog__message {
+		font-size: medium;
+		margin: 0;
+		margin-right: 30px;
+		margin-bottom: 10px;
+		padding: 5px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	.cx-publishing-dialog__buttons {
+		clear: both;
+
+		button {
+			float: right;
+			margin-right: 5px;
+		}
+	}
+}
+
+.cx-publishing-dialog::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	border: 0.8em solid transparent;
+	position: absolute;
+	left: 45%;
+	top: -20px;
+	border-bottom: 10px solid white;
+}
