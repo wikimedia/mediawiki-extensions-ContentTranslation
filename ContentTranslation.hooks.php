@@ -10,8 +10,27 @@
 
 class ContentTranslationHooks {
 	/**
-	 * @param OutputPage $out
-	 * @param Skin $skin
+	 * Utility function that checks whether CX is enabled for a given user.
+	 * Currently it checks that if CX is a beta feature, whether the user has
+	 * enabled it. Otherwise it is always enabled.
+	 *
+	 * @param User $user
+	 * @return Boolean
+	 */
+	public static function isEnabledForUser( User $user ) {
+		global $wgContentTranslationAsBetaFeature;
+
+		if ( !$wgContentTranslationAsBetaFeature ) {
+			return true;
+		}
+
+		return
+			class_exists( 'BetaFeatures' ) &&
+			BetaFeatures::isFeatureEnabled( $user, 'cx' );
+	}
+
+
+	/**
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
@@ -20,22 +39,6 @@ class ContentTranslationHooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
-		$redlinkFeatureEnabled = class_exists( 'BetaFeatures' ) &&
-			BetaFeatures::isFeatureEnabled( $user, 'red-interlanguage-link' );
-
-		if ( $user->isLoggedIn() ) {
-			if ( $redlinkFeatureEnabled &&
-				$title->inNamespace( NS_MAIN ) &&
-				$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
-			) {
-				$out->addModules( 'ext.cx.redlink' );
-			}
-
-			if ( class_exists( 'GuidedTourHooks' ) ) {
-				$out->addModules( 'ext.guidedTour' );
-			}
-		}
-
 		// If EventLogging integration is enabled, load the schema module
 		// and the event logging functions module
 		if ( $wgContentTranslationEventLogging ) {
@@ -43,6 +46,23 @@ class ContentTranslationHooks {
 				'schema.ContentTranslation',
 				'ext.cx.eventlogging',
 			) );
+		}
+
+		// CX is currently restricted to only logged in users
+		if ( $user->isLoggedIn() ) {
+			return;
+		}
+
+		if (
+			self::isEnabledForUser( $user ) &&
+			$title->inNamespace( NS_MAIN ) &&
+			$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
+		) {
+			$out->addModules( 'ext.cx.redlink' );
+		}
+
+		if ( class_exists( 'GuidedTourHooks' ) ) {
+			$out->addModules( 'ext.guidedTour' );
 		}
 	}
 
@@ -54,14 +74,14 @@ class ContentTranslationHooks {
 	public static function getPreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath;
 
-		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/modules/entrypoint/images";
+		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/images";
 
-		$prefs['red-interlanguage-link'] = array(
-			'label-message' => 'cx-red-interlanguage-link-preference',
-			'desc-message' => 'cx-red-interlanguage-link-preference-beta-desc',
+		$prefs['cx'] = array(
+			'label-message' => 'cx-beta',
+			'desc-message' => 'cx-beta-desc',
 			'screenshot' => array(
-				'ltr' => "$imageDir/translate-redlink-ltr.svg",
-				'rtl' => "$imageDir/translate-redlink-rtl.svg",
+				'ltr' => "$imageDir/cx-icon-ltr.svg",
+				'rtl' => "$imageDir/cx-icon-rtl.svg",
 			),
 			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation',

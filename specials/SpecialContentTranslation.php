@@ -21,10 +21,20 @@ class SpecialContentTranslation extends SpecialPage {
 		return $this->msg( 'cx' )->text();
 	}
 
+	public function isListed() {
+		return ContentTranslationHooks::isEnabledForUser( $this->getUser() );
+	}
+
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 		$request = $this->getRequest();
+
+		// Direct access, isListed only affects Special:SpecialPages
+		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
+			$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
+			return;
+		}
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
 		if ( $request->getVal( 'from' ) === null ||

@@ -135,3 +135,9 @@ $GLOBALS['wgContentTranslationSiteTemplates'] = array(
  * The default is to open Special:ContentTranslation on the same wiki.
  */
 $GLOBALS['wgContentTranslationTranslateInTarget'] = false;
+
+/**
+ * Whether to have CX available only as a beta feature and only shown to the
+ * users who have enabled the beta feature.
+ */
+$GLOBALS['wgContentTranslationAsBetaFeature'] = true;

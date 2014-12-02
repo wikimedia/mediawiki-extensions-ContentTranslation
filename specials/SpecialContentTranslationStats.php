@@ -20,8 +20,18 @@ class SpecialContentTranslationStats extends SpecialPage {
 		return $this->msg( 'cx-stats-title' )->text();
 	}
 
+	public function isListed() {
+		return ContentTranslationHooks::isEnabledForUser( $this->getUser() );
+	}
+
 	public function execute( $parameters ) {
 		$out = $this->getOutput();
+
+		// Direct access, isListed only affects Special:SpecialPages
+		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
+			$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
+			return;
+		}
 
 		$this->setHeaders();
 		$this->outputHeader();
