@@ -44,24 +44,6 @@ require_once "$dir/Autoload.php";
 
 $GLOBALS['wgMessagesDirs']['ContentTranslation'] = "$dir/i18n";
 
-// Content translation server URL, deprecated, use $wgContentTranslationSiteTemplates
-$GLOBALS['wgContentTranslationServerURL'] = null;
-$GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
-$GLOBALS['wgContentTranslationParsoid'] = array(
-	'url' => 'http://parsoid.wmflabs.org/',
-	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
-	'prefix' => 'enwiki',
-);
-
-// Content translaton database to provide dashboard and other features.
-// Provide the database name as the value.
-// See sql/contenttranslation.sql for scripts to create this database.
-$GLOBALS['wgContentTranslationDatabase'] = null;
-
-// If the content translation database is located in a different cluster,
-// specify the name of the cluster.
-$GLOBALS['wgContentTranslationCluster'] = false;
-
 $GLOBALS['wgExtensionMessagesFiles']['ContentTranslationAlias'] =
 	"$dir/ContentTranslation.alias.php";
 
@@ -106,6 +88,32 @@ $GLOBALS['wgExtensionFunctions'][] = function () {
 };
 
 // Globals for this extension
+
+/**
+ * Content translation server URL
+ * @deprecated, use $wgContentTranslationSiteTemplates
+ */
+$GLOBALS['wgContentTranslationServerURL'] = null;
+$GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
+$GLOBALS['wgContentTranslationParsoid'] = array(
+	'url' => 'http://parsoid.wmflabs.org/',
+	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
+	'prefix' => 'enwiki',
+);
+
+/**
+ * Content translaton database to provide dashboard and other features.
+ * Provide the database name as the value.
+ * @see sql/contenttranslation.sql for scripts to create this database.
+ */
+$GLOBALS['wgContentTranslationDatabase'] = null;
+
+/**
+ * If the content translation database is located in a different cluster,
+ * specify the name of the cluster.
+ */
+$GLOBALS['wgContentTranslationCluster'] = false;
+
 /**
  * Whether to use EventLogging.
  * The EventLogging extension must be installed if this option is enabled.
