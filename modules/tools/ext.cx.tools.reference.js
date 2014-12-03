@@ -162,7 +162,7 @@
 			return mwData;
 		}
 
-		$referenceSiblings = $( '[typeof="mw:Extension/references"]' )
+		$referenceSiblings = $( '[typeof*="mw:Extension/references"]' )
 			.find( 'a[href="#' + referenceId + '"]' )
 			.siblings();
 		for ( i = 0; i < $referenceSiblings.length; i++ ) {
@@ -204,7 +204,7 @@
 				<span>Reference content html goes here</span>
 		</li>
 		*/
-		adaptedData = $( '[typeof="mw:Extension/references"]' )
+		adaptedData = $( '[typeof*="mw:Extension/references"]' )
 			.find( 'a[href="#' + referenceId + '"]' )
 			.parent()
 			.next()
@@ -216,7 +216,7 @@
 
 	function processReferences( $section ) {
 		var referenceAdaptor = new ReferenceCard();
-		$section.find( '[typeof="mw:Extension/ref"]' ).each( function () {
+		$section.find( '[typeof*="mw:Extension/ref"]' ).each( function () {
 			var $reference = $( this ),
 				referenceId = $reference.prop( 'id' );
 

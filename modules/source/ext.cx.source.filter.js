@@ -63,7 +63,7 @@
 	CXSourceFilter.prototype.filter = function ( configuration ) {
 		var sourceFilter = this;
 
-		$( '[typeof="mw:Transclusion"]' ).each( function () {
+		$( '[typeof*="mw:Transclusion"]' ).each( function () {
 			var title, mwData, templateName, templateConf,
 				$template = $( this );
 
