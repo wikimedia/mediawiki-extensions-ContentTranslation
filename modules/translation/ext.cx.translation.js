@@ -370,6 +370,11 @@
 
 		for ( i = 0; i < $sourceSections.length; i++ ) {
 			$sourceSection = $( $sourceSections[ i ] );
+			// If source section has zero height, do not add a placeholder
+			// Zero height means either the section is empty or invisible.
+			if ( $sourceSection.height() === 0 ) {
+				continue;
+			}
 			sourceSectionId = $sourceSection.attr( 'id' );
 			$placeholder = getPlaceholder( sourceSectionId )
 				.attr( 'data-cx-section-type', $sourceSection.prop( 'tagName' ) );
