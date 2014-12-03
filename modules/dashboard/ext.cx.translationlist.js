@@ -27,6 +27,7 @@
 		this.$statusFilter = null;
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
+		this.$translationFilterContainer = null;
 
 		this.init();
 		this.render();
@@ -50,16 +51,26 @@
 		var sourceLanguages, targetLanguages;
 
 		// Remove unnecessary object wrapping to get plain list of objects
-		translations = $.map( translations, function ( e ) { return e.translation; } );
+		translations = $.map( translations, function ( e ) {
+			return e.translation;
+		} );
 
 		this.translations = translations;
+
+		if ( translations.length > 0 ) {
+			this.$translationFilterContainer.show();
+		}
 
 		this.listTranslations( translations );
 		this.applyFilters( this.filters, translations );
 
-		sourceLanguages = $.map( translations, function ( e ) { return e.sourceLanguage; } );
+		sourceLanguages = $.map( translations, function ( e ) {
+			return e.sourceLanguage;
+		} );
 		this.populateLanguageFilter( this.$sourceLanguageFilter, unique( sourceLanguages ) );
-		targetLanguages = $.map( translations, function ( e ) { return e.targetLanguage; } );
+		targetLanguages = $.map( translations, function ( e ) {
+			return e.targetLanguage;
+		} );
 		this.populateLanguageFilter( this.$targetLanguageFilter, unique( targetLanguages ) );
 	};
 
@@ -191,16 +202,14 @@
 			$filter.append(
 				$( '<option>' )
 					// Todo: use translated language name
-					.text( $.uls.data.getAutonym( languages[i] ) )
-					.attr( 'value', languages[i] )
+					.text( $.uls.data.getAutonym( languages[ i ] ) )
+					.attr( 'value', languages[ i ] )
 			);
 		}
 	};
 
 	CXTranslationList.prototype.render = function () {
-		var $translationFilterContainer;
-
-		$translationFilterContainer = $( '<div>' )
+		this.$translationFilterContainer = $( '<div>' )
 			.addClass( 'translation-filter' );
 
 		this.$statusFilter = createSelect(
@@ -214,21 +223,26 @@
 
 		this.$sourceLanguageFilter = createSelect(
 			'translation-source-language-filter',
-			{ '': mw.msg( 'cx-translation-filter-from-any-language' ) }
+			{
+				'': mw.msg( 'cx-translation-filter-from-any-language' )
+			}
 		);
 
 		this.$targetLanguageFilter = createSelect(
 			'translation-target-language-filter',
-			{ '': mw.msg( 'cx-translation-filter-to-any-language' ) }
+			{
+				'': mw.msg( 'cx-translation-filter-to-any-language' )
+			}
 		);
 
-		$translationFilterContainer.append(
+		this.$translationFilterContainer.append(
 			this.$statusFilter,
 			this.$sourceLanguageFilter,
 			this.$targetLanguageFilter
 		);
-
-		this.$container.append( $translationFilterContainer );
+		// Hide the filters till we see there are translations to list.
+		this.$translationFilterContainer.hide();
+		this.$container.append( this.$translationFilterContainer );
 	};
 
 	CXTranslationList.prototype.listen = function () {
@@ -252,7 +266,7 @@
 			value = null;
 		}
 
-		this.filters[type] = value;
+		this.filters[ type ] = value;
 		this.applyFilters( this.filters, this.translations );
 	};
 
@@ -261,18 +275,18 @@
 			keys = Object.keys( filters );
 
 		for ( i = 0; i < translations.length; i++ ) {
-			translation = translations[i];
+			translation = translations[ i ];
 
 			visible = true;
 			for ( j = 0; j < keys.length; j++ ) {
-				filterProp = keys[j];
-				filterValue = filters[filterProp];
+				filterProp = keys[ j ];
+				filterValue = filters[ filterProp ];
 
 				if ( filterValue === null ) {
 					continue;
 				}
 
-				visible = visible && translation[filterProp] === filterValue;
+				visible = visible && translation[ filterProp ] === filterValue;
 			}
 
 			if ( visible ) {
@@ -295,8 +309,8 @@
 			$select = $( '<select>' ).addClass( classes );
 
 		for ( i = 0; i < keys.length; i++ ) {
-			value = keys[i];
-			key = options[value];
+			value = keys[ i ];
+			key = options[ value ];
 
 			$select.append( $( '<option>' ).text( key ).attr( 'value', value ) );
 		}
