@@ -32,7 +32,7 @@
 	"cx-translation-target-page-exists": "Sivu [$1 $2] on jo olemassa kohdewikissä. Anna käännökselle toinen nimi.",
 	"tag-contenttranslation": "Käännetty sisältö",
 	"cx-source-loading": "Ladataan sivua $1",
-	"cx-red-interlanguage-link-preference": "Sisällön kääntäminen",
+	"cx-beta": "Sisällön kääntäminen",
 	"cx-entrypoint-title": "Käännä tämä sivu kielelle $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1.\n{{GENDER:|Haluatko}} luoda sen?",
 	"cx-entrypoint-dialog-title-in": "Sivun otsikko kielellä $1:",

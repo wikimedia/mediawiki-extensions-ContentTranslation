@@ -3,7 +3,8 @@
 		"authors": [
 			"WikiPhoenix",
 			"Lokal Profil",
-			"Jopparn"
+			"Jopparn",
+			"Albinomamba"
 		]
 	},
 	"cx": "Översätt sidan",
@@ -33,15 +34,14 @@
 	"cx-translation-target-page-exists": "En sida med titeln [$1 $2] finns på målwikin. Överväga att ge sidan en annan titel.",
 	"tag-contenttranslation": "Innehållsöversättning",
 	"cx-source-loading": "Läser in $1",
-	"cx-red-interlanguage-link-preference": "Innehållsöversättning",
-	"cx-red-interlanguage-link-preference-beta-desc": "Visar en röd länk till ditt språk i listan över språklänkar. Detta om sidan ännu inte är översatt till ditt språk, och hjälper till att översätta en sida till ditt språk med ett bekvämt översättningsgränssnitt.",
+	"cx-beta": "Innehållsöversättning",
 	"cx-entrypoint-title": "Översätt denna sida till $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denna sida finns inte på $1 ännu.<br />\nVill {{GENDER|du}} skapa den?",
 	"cx-entrypoint-dialog-title-in": "Titel för den nya sidan på $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Skapa från grunden",
 	"cx-entrypoint-dialog-button-translate-from": "Översätt från $1",
 	"cx-special-login-error": "Du måste vara inloggad för att översätta denna sida. [$1 Logga in]",
-	"cx-tools-instructions-text1": "{{GENDER|Lägg till}} stycken för översättning",
+	"cx-tools-instructions-text1": "{{GENDER|Klicka}} stycken att översätta",
 	"cx-tools-instructions-text2": "{{GENDER|Du}} behöver inte lägga till dem alla",
 	"cx-tools-instructions-text3": "{{GENDER|Få}} texten att flöda naturligt",
 	"cx-tools-instructions-text4": "Maskinöversättning är användbart men {{GENDER|du}} kommer att behöva revidera fel för att göra den korrekt.",
@@ -55,7 +55,7 @@
 	"cx-tools-link-remove": "Ta bort länk",
 	"cx-tools-mt-title": "Maskinöversättning",
 	"cx-tools-mt-use-source": "Använd källtext",
-	"cx-tools-mt-clear-translation": "Ta bort översättning",
+	"cx-tools-mt-clear-translation": "Radera stycket",
 	"cx-tools-mt-restore": "Återställ",
 	"cx-tools-mt-provider-title": "Från $1",
 	"cx-tools-mt-not-available": "Inte tillgängligt för $1",
