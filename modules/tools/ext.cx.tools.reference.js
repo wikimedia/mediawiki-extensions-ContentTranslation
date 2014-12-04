@@ -215,7 +215,9 @@
 	};
 
 	function processReferences( $section ) {
-		var referenceAdaptor = new ReferenceCard();
+		var $sourceSection, referenceAdaptor;
+
+		referenceAdaptor = new ReferenceCard();
 		$section.find( '[typeof*="mw:Extension/ref"]' ).each( function () {
 			var $reference = $( this ),
 				referenceId = $reference.prop( 'id' );
@@ -231,6 +233,15 @@
 			// Adapt references.
 			referenceAdaptor.adaptReference( referenceId );
 		} );
+
+		if ( $section.is( '[typeof="mw:Extension/references"]' ) ) {
+			// It is references listing. Copy data-mw that we strip before MT.
+			// See https://phabricator.wikimedia.org/T75121 and
+			// https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
+			$sourceSection = $( '#' + $section.data( 'source' ) );
+			$section.attr( 'data-mw', JSON.stringify( $sourceSection.data( 'mw' ) ) );
+		}
+
 	}
 
 	mw.cx.tools.reference = ReferenceCard;
