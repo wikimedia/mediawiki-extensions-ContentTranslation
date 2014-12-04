@@ -22,4 +22,18 @@ class Draft {
 		);
 	}
 
+	/**
+	 * Delete the draft for the given draftId
+	 * @param {int} $draftId
+	 */
+	public static function delete( $draftId ) {
+		$dbw = Database::getConnection( DB_MASTER );
+		$dbw->delete(
+			'cx_drafts',
+			array(
+				'draft_id' => $draftId,
+			),
+			__METHOD__
+		);
+	}
 }
