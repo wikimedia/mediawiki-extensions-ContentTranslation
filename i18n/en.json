@@ -37,7 +37,7 @@
 	"tag-contenttranslation": "ContentTranslation",
 	"cx-source-loading": "Loading $1",
 	"cx-beta": "Content translation",
-	"cx-beta-desc": "A tool to quickly translate articles into your language. Start translations from your contributions page, and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
+	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from your contributions page, and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
 	"cx-entrypoint-title": "Translate this page to $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "This page does not exist in $1 yet. Do {{GENDER:|you}} want to create it?",
 	"cx-entrypoint-dialog-title-in": "Title for the new page in $1:",
