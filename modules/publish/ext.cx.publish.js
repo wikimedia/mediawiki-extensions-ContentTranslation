@@ -188,6 +188,14 @@
 
 		// Remove placeholder sections
 		$content.find( '.placeholder' ).remove();
+		// Remove empty sections.
+		$content.find( mw.cx.getSectionSelector() ).each( function () {
+			var $section = $( this );
+
+			if ( !$.trim( $section.text() ) ) {
+				$section.remove();
+			}
+		} );
 
 		return $content.html();
 	}
