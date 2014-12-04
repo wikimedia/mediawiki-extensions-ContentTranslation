@@ -19,6 +19,7 @@
 	"cx-header-progressbar-text": "$1% przetłumaczono",
 	"cx-header-translation-center": "Centrum tłumaczeń",
 	"cx-header-new-translation": "Nowe tłumaczenie",
+	"cx-header-all-translations": "Wszystkie tłumaczenia",
 	"cx-source-view-page": "Zobacz stronę",
 	"cx-publish-page-success": "Strona opublikowana w $1",
 	"cx-publish-page-error": "Błąd podczas zapisywania strony.",
