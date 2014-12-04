@@ -175,9 +175,13 @@
 			.append( $logo, $titleText );
 
 		$translationCenterLink = $( '<a>' )
-		// TODO update the text when the dashboard is ready
-		.text( mw.msg( 'cx-header-new-translation' ) )
 			.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) );
+
+		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
+			$translationCenterLink.text( mw.msg( 'cx-header-all-translations' ) );
+		} else {
+			$translationCenterLink.text( mw.msg( 'cx-header-new-translation' ) );
+		}
 
 		$translationCenter = $( '<div>' )
 			.addClass( 'cx-header__translation-center' )

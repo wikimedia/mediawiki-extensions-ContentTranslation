@@ -17,6 +17,7 @@
 	"cx-header-progressbar-text-mt": "($1% from machine translation)",
 	"cx-header-translation-center": "Translation center",
 	"cx-header-new-translation": "New translation",
+	"cx-header-all-translations": "All translations",
 	"cx-source-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1",
 	"cx-publish-page-error": "Error while saving page.",

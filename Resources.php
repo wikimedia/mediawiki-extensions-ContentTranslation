@@ -99,6 +99,7 @@ $wgResourceModules['ext.cx.header'] = array(
 		'cx-error-server-connection',
 		'cx-error-page-not-found',
 		'cx-header-new-translation',
+		'cx-header-all-translations',
 		'cx-publish-button',
 		'cx-save-draft-button',
 		'cx-special-login-error',

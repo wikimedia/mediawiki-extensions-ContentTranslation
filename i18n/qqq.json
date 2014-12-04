@@ -21,6 +21,7 @@
 	"cx-header-progressbar-text-mt": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the estimated percent of machine-translated text out of all the translation text that was written so far.",
 	"cx-header-translation-center": "Text for the translation center title.",
 	"cx-header-new-translation": "A link at the top of the translation interface to the main Special:ContentTranslation page that creates a new translation.\n{{Identical|New translation}}",
+	"cx-header-all-translations":  "A link at the top of the translation interface to the main Special:ContentTranslation page that lists all translations by the user.\n{{Identical|New translation}}",
 	"cx-source-view-page": "A link that points to the source page under the heading of the source article.\n{{Identical|View page}}",
 	"cx-publish-page-success": "Message shown when page is published successfully. Parameters:\n* $1 - Link to the published page",
 	"cx-publish-page-error": "Error message to display when page saving fails.",
