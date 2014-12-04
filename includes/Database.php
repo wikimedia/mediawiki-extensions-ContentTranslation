@@ -8,7 +8,7 @@ class Database {
 	/**
 	 * Gets a database connection to the ContentTranslation database
 	 * @param int $type Either DB_SLAVE or DB_MASTER
-	 * @return DatabaseBase
+	 * @return DBConnRef
 	 */
 	public static function getConnection( $type ) {
 		global $wgContentTranslationDatabase, $wgContentTranslationCluster;
