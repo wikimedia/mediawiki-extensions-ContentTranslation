@@ -51,6 +51,23 @@
 	}
 
 	/**
+	 * Return the appropriate menuWidth parameter for a given language count
+	 * @param {number} languagesCount Number of languages
+	 * return {string} wide, medium or narrow
+	 */
+	function getUlsMenuWidth( languagesCount ) {
+		if ( languagesCount <= 12 ) {
+			return 'narrow';
+		}
+
+		if ( languagesCount <= 100 ) {
+			return 'medium';
+		}
+
+		return 'wide';
+	}
+
+	/**
 	 * Initialize the plugin.
 	 */
 	CXSourceSelector.prototype.init = function () {
@@ -248,6 +265,7 @@
 		// Create a new target ULS
 		this.$targetLanguage.uls( {
 			languages: getAutonyms( this.targetLanguages ),
+			menuWidth: getUlsMenuWidth( this.targetLanguages.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.targetLanguageChangeHandler( language );
 			},
@@ -595,13 +613,19 @@
 	 * Show the CXSourceSelector
 	 */
 	CXSourceSelector.prototype.show = function () {
-		var $container = this.options.container;
+		var sourceUls, targetUls,
+			$container = this.options.container;
 
 		if ( $container && $container instanceof jQuery ) {
 			this.showAsEmbedded( $container );
 		} else {
 			this.showAsDialog();
 		}
+
+		sourceUls = this.$sourceLanguage.data( 'uls' );
+		sourceUls.left = this.$sourceLanguage.offset().left;
+		targetUls = this.$targetLanguage.data( 'uls' );
+		targetUls.left = this.$targetLanguage.offset().left;
 	};
 
 	/**
@@ -807,6 +831,7 @@
 
 		this.$sourceLanguage.uls( {
 			languages: getAutonyms( this.sourceLanguages ),
+			menuWidth: getUlsMenuWidth( this.sourceLanguages.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.sourceLanguageChangeHandler( language );
 			},
