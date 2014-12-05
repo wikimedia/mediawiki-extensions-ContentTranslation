@@ -26,6 +26,7 @@ $wgExtensionCredits['specialpage'][] = array(
 		'Amir Aharoni',
 		'David Chan',
 		'Kartik Mistry',
+		'Joel Sahleen',
 		'Niklas Laxström',
 		'Pau Giner',
 		'Runa Bhattacharjee',
