@@ -8,6 +8,7 @@
 	"cx-desc": "Alat yang membolehkan penyunting untuk menterjemahkan halaman dari satu bahasa ke satu bahasa dengan bantuan penterjemahan mesin dan lain-lain bantuan peterjemahan",
 	"cx-header-progressbar-text": "$1% diterjemahkan",
 	"cx-header-translation-center": "Pusat penterjemahan",
+	"cx-header-all-translations": "Semua terjemahan",
 	"cx-source-view-page": "paparkan",
 	"cx-publish-page-success": "Halaman disiarkan di $1",
 	"cx-publish-page-error": "Ralat ketika menyimpan halaman.",
@@ -15,6 +16,7 @@
 	"cx-publish-summary": "Dicipta dengan menterjemah halaman \"$1\"",
 	"tag-contenttranslation": "PenterjemahanKandungan",
 	"cx-source-loading": "Memuatkan $1",
+	"cx-beta-desc": "Alat untuk segera menterjemahkan rencana ke dalam bahas aanda. Mulakan terjemahan dari laman sumbangan anda, dan sunting rencana dengan editor sebelah-sebelahan kami yang dicipta khas untuk penterjemahan. Sesetengah alatan hanya terdapat untuk bahasa-bahasa tertentu.",
 	"cx-special-login-error": "Anda mesti log masuk untuk menterjemah di halaman ini.",
 	"cx-tools-instructions-text1": "Tambahkan beberapa perenggan ke dalam terjemahan.",
 	"cx-tools-instructions-text2": "Laraskan terjemahan automasik yang disediakan untuk menjaga kualiti",
@@ -24,5 +26,7 @@
 	"cx-tools-mt-provider-title": "Dari $1",
 	"cx-tools-categories-count-message": "$1 kategori",
 	"cx-translation-filter-all-translations": "Kesemua terjemahan",
-	"cx-translation-filter-from-any-language": "Dari sebarang bahasa"
+	"cx-translation-filter-from-any-language": "Dari sebarang bahasa",
+	"apihelp-query+contenttranslation-param-user": "Nama pengguna penterjemah.",
+	"apihelp-query+contenttranslation-param-translationid": "ID terjemahan."
 }

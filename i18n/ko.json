@@ -6,7 +6,8 @@
 			"Freebiekr",
 			"아라",
 			"Namoroka",
-			"Tyey"
+			"Tyey",
+			"Kwj2772"
 		]
 	},
 	"cx": "문서 번역",
@@ -14,6 +15,7 @@
 	"cx-desc": "편집자가 기계 번역과 다른 번역 도구의 도움으로 한 언어에서 다른 언어로 문서를 번역할 수 있도록 하는 도구",
 	"cx-header-progressbar-text": "$1% 번역됨",
 	"cx-header-translation-center": "번역 센터",
+	"cx-header-all-translations": "모든 번역",
 	"cx-source-view-page": "문서 보기",
 	"cx-publish-page-success": "$1에 게시된 문서",
 	"cx-publish-page-error": "문서를 저장하는 도중에 오류 발생",
@@ -22,7 +24,7 @@
 	"cx-translation-add-translation": "+ 번역 추가",
 	"tag-contenttranslation": "내용 번역",
 	"cx-source-loading": "$1 문서를 불러오는 중",
-	"cx-red-interlanguage-link-preference": "내용 번역",
+	"cx-beta": "내용 번역",
 	"cx-entrypoint-title": "$1로 이 문서 번역",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "이 문서는 아직 $1로 존재하지 않습니다.<br />\n만들겠습니까?",
 	"cx-entrypoint-dialog-title-in": "$1의 새 문서 제목:",

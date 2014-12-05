@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jefersonmoraes"
+			"Jefersonmoraes",
+			"Mordecool"
 		]
 	},
 	"cx-publish-gt-move-page-description": "Selecione a opção \"(principal)\" e atribua um título correto à página.",
-	"cx-tools-mt-provider-title": "De $1"
+	"cx-tools-mt-provider-title": "De $1",
+	"cx-sourceselector-dialog-button-cancel": "Cancele"
 }
