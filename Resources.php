@@ -101,7 +101,6 @@ $wgResourceModules['ext.cx.header'] = array(
 		'cx-header-new-translation',
 		'cx-header-all-translations',
 		'cx-publish-button',
-		'cx-save-draft-button',
 		'cx-special-login-error',
 		'cx-translation-target-page-exists',
 		'login',
@@ -422,6 +421,8 @@ $wgResourceModules['ext.cx.draft'] = array(
 	),
 	'messages' => array(
 		'cx-save-draft-saving',
+		'cx-save-draft-save-success',
+		'cx-save-draft-tooltip',
 	),
 ) + $resourcePaths;
 

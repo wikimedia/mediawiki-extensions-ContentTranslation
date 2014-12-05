@@ -9,13 +9,14 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var timer;
+
 	/**
 	 * @class
 	 * @param {number} draftId Draft id
 	 */
 	function ContentTranslationDraft( draftId ) {
 		this.draftId = draftId;
-		this.$draftButton = $( '.cx-header__draft-button' );
 		this.listen();
 	}
 
@@ -23,14 +24,21 @@
 	 * Event bindings
 	 */
 	ContentTranslationDraft.prototype.listen = function () {
-		var self = this;
-		mw.hook( 'mw.cx.save' ).add( function () {
-			self.save();
-		} );
-		mw.hook( 'mw.cx.translation.published' ).add( function () {
-			self.$draftButton.prop( 'disabled', true ).show();
-		} );
-		// Publish when CTRL+S is pressed.
+		var save;
+
+		save = function ( weights ) {
+			if ( weights && weights.any === 0 ) {
+				return;
+			}
+			mw.hook( 'mw.cx.save' ).fire();
+		};
+
+		mw.hook( 'mw.cx.save' ).add( $.proxy( this.save, this ) );
+		// Save the draft on progress events, but not in all progress
+		// events. Use a few seconds delay.
+		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, save ) );
+
+		// Save when CTRL+S is pressed.
 		$( document ).on( 'keydown', function ( e ) {
 			if ( e.ctrlKey && e.which === 83 ) {
 				e.preventDefault();
@@ -86,16 +94,12 @@
 	 * Save the translation
 	 */
 	ContentTranslationDraft.prototype.save = function () {
-		var self = this,
-			draftContent, targetTitle, params, apiParams,
+		var draftContent, targetTitle, params, apiParams,
 			api = new mw.Api();
 
 		targetTitle = $( '.cx-column--translation > h2' ).text();
 		draftContent = $( '.cx-column--translation .cx-column__content' ).clone();
-
-		this.$draftButton
-			.prop( 'disabled', true )
-			.text( mw.msg( 'cx-save-draft-saving' ) );
+		clearInterval( timer );
 		params = {
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
@@ -114,13 +118,11 @@
 			timeout: 100 * 1000 // in milliseconds
 		} ).done( function () {
 			mw.hook( 'mw.cx.translation.saved' ).fire();
+			timer = setInterval( function () {
+				mw.hook( 'mw.cx.save' ).fire();
+			}, 5 * 60 * 1000 );
 		} ).fail( function () {
 			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
-		} ).always( function () {
-			self.$draftButton
-				.prop( 'disabled', false )
-				.text( mw.msg( 'cx-save-draft-button' ) )
-				.hide();
 		} );
 	};
 
@@ -141,9 +143,13 @@
 		return $content.html();
 	}
 
-
 	$( function () {
 		var drafId, draft;
+
+		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
+			mw.log( 'The ext.cx.drafts module can only work if CX Database configured.' );
+			return;
+		}
 
 		drafId = new mw.Uri().query.draft;
 		draft = new ContentTranslationDraft( drafId );

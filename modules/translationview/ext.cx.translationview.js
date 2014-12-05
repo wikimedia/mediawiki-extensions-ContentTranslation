@@ -40,18 +40,24 @@
 	 * Initialize the components
 	 */
 	ContentTranslation.prototype.initComponents = function () {
-		var cx = this;
+		var cx = this,
+			modules;
 		this.$header.cxHeader( this.siteMapper );
 		this.$source.cxSource( this.siteMapper );
 
+		modules = [
+			'ext.cx.tools',
+			'ext.cx.translation',
+			'ext.cx.translation.progress',
+			'ext.cx.publish'
+		];
+		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
+			// CX Database configured. Load ext.cx.draft module.
+			modules.push( 'ext.cx.draft' );
+		}
+
 		if ( mw.cx.sourceTitle ) {
-			mw.loader.using( [
-				'ext.cx.tools',
-				'ext.cx.translation',
-				'ext.cx.translation.progress',
-				'ext.cx.publish',
-				'ext.cx.draft'
-			] ).then( function () {
+			mw.loader.using( modules ).then( function () {
 				cx.$translation.cxTranslation();
 				cx.$tools.cxTools();
 			} );
