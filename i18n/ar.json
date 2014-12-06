@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Reem AK",
-			"زكريا"
+			"زكريا",
+			"سامي الرحيلي"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -12,6 +13,7 @@
 	"cx-header-progressbar-text": "ترجم $1%",
 	"cx-header-progressbar-text-mt": "($1% ترجمة آلية)",
 	"cx-header-translation-center": "مركز الترجمة",
+	"cx-header-all-translations": "كل الترجمات",
 	"cx-source-view-page": "عرض الصفحة",
 	"cx-publish-page-success": "نشرت الصفحة في $1",
 	"cx-publish-page-error": "حدث خطأ أثناء حفظ الصفحة.",
@@ -31,8 +33,8 @@
 	"cx-translation-target-page-exists": "الويكي الهدف فيه صفحة بعنوان [$1 $2]. اختر عنوانا مختلفا للصفحة.",
 	"tag-contenttranslation": "ترجمة المحتوى",
 	"cx-source-loading": "تحميل $1",
-	"cx-red-interlanguage-link-preference": "ترجمة المحتوى",
-	"cx-red-interlanguage-link-preference-beta-desc": "إظهار وصلة حمراء إلى لغتك في قائمة وصلات اللغات إذا كانت الصفحة غير مترجمة بها والمساعدة على ترجمة الصفحة بالاستعانة واجهة مناسبة للترجمة.",
+	"cx-beta": "ترجمة المحتوى",
+	"cx-beta-desc": "هناك أداة لترجمة المواد بسرعة إلى لغتك. أبدئ الترجمة من صفحة مساهماتكم، وحررها جنبا إلى جنب مع محررين أخرين فهي مصممة خصيصا للترجمة. بعض الأدوات قد تكون متاحة فقط في لغات معينة.",
 	"cx-entrypoint-title": "ترجمة هذه الصفحة إلى $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "هذه الصفحة غير موجودة في $1. أتريد{{GENDER:||ين}} إنشاءها؟",
 	"cx-entrypoint-dialog-title-in": "عنوان الصفحة الجديدة ب$1:",
