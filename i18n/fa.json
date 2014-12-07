@@ -3,13 +3,15 @@
 		"authors": [
 			"Armin1392",
 			"Alirezaaa",
-			"Reza1615"
+			"Reza1615",
+			"Saeidpourbabak"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
 	"cx-desc": "ابزاری که به ویرایشگران برای ترجمه کردن صفحات از یک زبان به زبان دیگری با کمک ترجمهٔ ماشینی و دیگر ابزارهای ترجمه  اجازه می‌دهد.",
 	"cx-header-progressbar-text": "$1% ترجمه شده",
 	"cx-header-translation-center": "مرکز ترجمه",
+	"cx-header-all-translations": "همهٔ ترجمه‌ها",
 	"cx-source-view-page": "مشاهده صفحه",
 	"cx-publish-page-success": "صفحه در $1 منتشر شده",
 	"cx-publish-page-error": "خطا هنگام ذخیرهٔ ترجمه.",
@@ -27,5 +29,6 @@
 	"cx-tools-instructions-text6": "هنگامی که شما از نتیجه راضی هستید، {{int:cx-publish-button}} را فشار دهید.",
 	"cx-tools-searchbox-text": "جستجو برای یک کلمه",
 	"cx-tools-view-guidelines": "مشاهده دستورالعمل‌های ترجمه",
-	"cx-tools-reference-title": "منبع"
+	"cx-tools-reference-title": "منبع",
+	"cx-warning-unsaved-translation": "شما ترجمه‌های ذخیره‌نشده دارید."
 }
