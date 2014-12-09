@@ -146,7 +146,14 @@
 			any: 0
 		} );
 		window.onbeforeunload = function () {
-			var weights = getTranslationWeights( getSectionsWithContent() );
+			var weights;
+
+			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
+				mw.hook( 'mw.cx.save' ).fire();
+				return;
+			}
+
+			weights = getTranslationWeights( getSectionsWithContent() );
 
 			// Check if there are unsaved human content
 			if ( weights.human > 0 ) {
