@@ -49,7 +49,7 @@ class ContentTranslationHooks {
 		}
 
 		// CX is currently restricted to only logged in users
-		if ( $user->isLoggedIn() ) {
+		if ( !$user->isLoggedIn() ) {
 			return;
 		}
 
