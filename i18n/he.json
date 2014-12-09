@@ -39,6 +39,7 @@
 	"tag-contenttranslation": "תרגום תוכן",
 	"cx-source-loading": "טעינת $1",
 	"cx-beta": "תרגום תוכן",
+	"cx-beta-desc": "כלי לתרגום מהיר של דפים לשפה שלך. התחילו תרגומים מדף התרומות שלך וערכו אותם בעורך שלנו שמציג שפה לצד שפה ומעוצב במיוחד עבור תרגומים. חלק מכלי העזר זמינים רק בשפות מסוימות.",
 	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "הדף הזה אינו קיים עדיין ב{{GRAMMAR:תחילית|$1}}<br />\n{{GENDER:|האם אתה רוצה|האם את רוצה|רוצה}} ליצור אותו?",
 	"cx-entrypoint-dialog-title-in": "כותרת לדף החדש ב{{GRAMMAR:תחילית|$1}}:",
@@ -115,6 +116,5 @@
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים של Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
-	"cx-save-draft-button": "שמירת טיוטה",
 	"cx-save-draft-saving": "שמירה..."
 }

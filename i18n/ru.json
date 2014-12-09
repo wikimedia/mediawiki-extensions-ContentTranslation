@@ -116,6 +116,5 @@
 	"apihelp-query+contenttranslation-param-translationid": "ID перевода.",
 	"apihelp-query+contenttranslation-example-1": "Получить перевод начатый Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
-	"cx-save-draft-button": "Сохранить как черновик",
 	"cx-save-draft-saving": "Сохраняется…"
 }

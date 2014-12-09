@@ -82,6 +82,5 @@
 	"apihelp-query+contenttranslation-param-translationid": "Oversettelsesid",
 	"apihelp-query+contenttranslation-example-1": "Hent oversettelser som er startet av Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Hent oversettelsesutkast med id",
-	"cx-save-draft-button": "Lagre utkast",
 	"cx-save-draft-saving": "Lagrer…"
 }

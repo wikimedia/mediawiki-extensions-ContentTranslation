@@ -35,7 +35,7 @@
 	"tag-contenttranslation": "Inhaltsübersetzung",
 	"cx-source-loading": "Lade $1",
 	"cx-beta": "Inhaltsübersetzung",
-	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Artikeln in deine Sprache. Beginne Übersetzungen von deiner Beitragsseite aus und bearbeite sie mit unserem Seite-an-Seite-Editor, speziell für Übersetzungen gestaltet. Einige der Werkzeuge könnten nur für spezielle Sprachen verfügbar sein.",
+	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. Beginne Übersetzungen von deiner Beitragsseite aus und bearbeite sie mit unserem speziell für Übersetzungen gestalteten Seite-an-Seite-Editor. Einige der Werkzeuge könnten nur für spezielle Sprachen verfügbar sein.",
 	"cx-entrypoint-title": "Diese Seite auf $1 übersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Diese Seite ist noch nicht auf $1 vorhanden.<br />\nMöchtest {{GENDER:|du}} sie erstellen?",
 	"cx-entrypoint-dialog-title-in": "Titel für die neue Seite in $1:",
@@ -109,6 +109,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-query+contenttranslation-param-user": "Benutzername des Übersetzers.",
 	"apihelp-query+contenttranslation-param-translationid": "Übersetzungskennung.",
-	"cx-save-draft-button": "Als Entwurf speichern",
-	"cx-save-draft-saving": "Speichere …"
+	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
+	"cx-save-draft-saving": "Speichere …",
+	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert"
 }

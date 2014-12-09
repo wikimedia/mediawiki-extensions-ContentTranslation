@@ -118,6 +118,5 @@
 	"apihelp-query+contenttranslation-param-translationid": "翻译ID。",
 	"apihelp-query+contenttranslation-example-1": "获取由Santhosh作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
-	"cx-save-draft-button": "保存为草稿",
 	"cx-save-draft-saving": "正在保存..."
 }

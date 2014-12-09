@@ -69,8 +69,8 @@
 	"cx-sourceselector-dialog-new-translation": "Nei Iwwersetzung",
 	"cx-sourceselector-dialog-button-start-translation": "Iwwersetzung ufänken",
 	"cx-sourceselector-dialog-button-cancel": "Ofbriechen",
-	"cx-sourceselector-dialog-source-language-label": "Quell:",
-	"cx-sourceselector-dialog-target-language-label": "Zil:",
+	"cx-sourceselector-dialog-source-language-label": "Vun:",
+	"cx-sourceselector-dialog-target-language-label": "Op:",
 	"cx-sourceselector-dialog-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-publish-captcha-title": "Sécherheetsfro",
@@ -81,6 +81,5 @@
 	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
 	"cx-create-new-translation": "Nei Iwwersetzung uleeën",
 	"apihelp-query+contenttranslation-param-user": "Benotzernumm vum Iwwersetzer.",
-	"cx-save-draft-button": "Als Brouillon späicheren",
 	"cx-save-draft-saving": "Späicheren..."
 }

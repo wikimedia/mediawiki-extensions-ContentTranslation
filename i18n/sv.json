@@ -107,6 +107,5 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
 	"apihelp-query+contenttranslation-param-user": "Översättarens användarnamn.",
 	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",
-	"cx-save-draft-button": "Spara som utkast",
 	"cx-save-draft-saving": "Sparar..."
 }

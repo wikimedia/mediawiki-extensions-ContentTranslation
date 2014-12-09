@@ -80,6 +80,5 @@
 	"apihelp-query+contenttranslation-param-user": "Nazwa konta użytkownika tłumacza",
 	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
-	"cx-save-draft-button": "Zapisz jako brudnopis",
 	"cx-save-draft-saving": "Zapisywanie..."
 }
