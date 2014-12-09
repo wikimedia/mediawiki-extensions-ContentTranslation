@@ -8,10 +8,9 @@ conventions we use in the project.
 
 ## Bug reports
 
-Please report bugs to [bugzilla.wikimedia.org](https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=ContentTranslation)
-using the `ContentTranslation` product. Feel free to use the `General`
-component if you don't know where else your bug might belong. Don't
-worry about specifying version, severity, hardware, or OS.
+Please report bugs to [phabricator.wikimedia.org](https://phabricator.wikimedia.org)
+using the `mediawiki-extensions-contenttranslation` project. Don't worry about
+specifying prioriy or security.
 
 ## Running tests
 
