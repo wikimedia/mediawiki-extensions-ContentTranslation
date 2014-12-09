@@ -406,7 +406,7 @@
 				'data-source': sourceSectionId
 			} )
 			.keepAlignment()
-			.html( mw.msg( 'cx-translation-add-translation' ) );
+			.text( mw.msg( 'cx-translation-add-translation' ) );
 	}
 
 	$.fn.cxTranslation = function ( options ) {
