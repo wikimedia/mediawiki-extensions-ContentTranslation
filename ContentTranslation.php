@@ -90,11 +90,6 @@ $GLOBALS['wgExtensionFunctions'][] = function () {
 
 // Globals for this extension
 
-/**
- * Content translation server URL
- * @deprecated, use $wgContentTranslationSiteTemplates
- */
-$GLOBALS['wgContentTranslationServerURL'] = null;
 $GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid.wmflabs.org/',
