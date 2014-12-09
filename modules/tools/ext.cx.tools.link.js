@@ -571,6 +571,12 @@
 		// Capture the current selection
 		selection = mw.cx.selection.get();
 
+		// If the link is a source link, restore the selection
+		// in the translation column
+		if ( language === mw.cx.sourceLanguage ) {
+			mw.cx.selection.restore( 'translation' );
+		}
+
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
 			title = getValidTitle( link );
