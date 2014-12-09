@@ -117,6 +117,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Translation id.",
 	"apihelp-query+contenttranslation-example-1": "Get translations started by Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by id.",
-	"cx-save-draft-button": "Save as draft",
-	"cx-save-draft-saving": "Saving..."
+	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
+	"cx-save-draft-saving": "Saving...",
+	"cx-save-draft-tooltip": "Translation drafts are saved automatically"
 }

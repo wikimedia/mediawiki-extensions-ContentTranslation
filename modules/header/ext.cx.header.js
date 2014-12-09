@@ -11,6 +11,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var timer;
 	/**
 	 * Handlers the top part of the three column interface.
 	 *
@@ -21,9 +22,8 @@
 	function ContentTranslationHeader( element, siteMapper ) {
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
-
+		this.$saveStatus = null;
 		this.$publishButton = null;
-		this.$draftButton = null;
 		this.$infoBar = null;
 
 		this.init();
@@ -39,13 +39,7 @@
 	 * @param {object} weights
 	 */
 	ContentTranslationHeader.prototype.setPublishButtonState = function ( weights ) {
-		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-			this.$draftButton.show().prop( 'disabled', weights.any === 0 );
-			this.$publishButton.hide();
-		} else {
-			this.$publishButton.show().prop( 'disabled', weights.any === 0 );
-		}
-
+		this.$publishButton.show().prop( 'disabled', weights.any === 0 );
 	};
 
 	/**
@@ -139,10 +133,6 @@
 		this.$publishButton.on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
-		this.$draftButton.on( 'click', function () {
-			mw.hook( 'mw.cx.save' ).fire();
-		} );
-
 		// Click handler for remove icon in info bar.
 		this.$infoBar.on( 'click', '.remove', function () {
 			$( this ).parent().hide();
@@ -154,8 +144,28 @@
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
 		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.checkTargetTitle, this ) );
+		mw.hook( 'mw.cx.save' ).add( $.proxy( this.updateSaveStatus, this, 'progress' ) );
+		mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.updateSaveStatus, this, 'success' ) );
 	};
 
+	ContentTranslationHeader.prototype.updateSaveStatus = function ( status ) {
+		var $status = this.$saveStatus,
+			minutes = 0;
+
+		$status.attr( 'title', mw.msg( 'cx-save-draft-tooltip' ) );
+		clearTimeout( timer );
+		if ( status === 'progress' ) {
+			$status.text( mw.msg( 'cx-save-draft-saving' ) );
+		} else {
+			$status.text( mw.msg( 'cx-save-draft-save-success', 0 ) );
+			timer = setInterval( function () {
+				minutes++;
+				$status.text(
+					mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
+				);
+			}, 60 * 1000 );
+		}
+	};
 	/**
 	 * Render the header
 	 */
@@ -187,22 +197,14 @@
 			.addClass( 'cx-header__translation-center' )
 			.append( $translationCenterLink );
 
+		this.$saveStatus = $( '<div>' )
+			.addClass( 'cx-header__save-status' );
+
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-constructive' )
 			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button' ) )
 			.hide();
-
-		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-			this.$draftButton = $( '<button>' )
-				.addClass( 'cx-header__draft-button mw-ui-button mw-ui-constructive' )
-				.prop( 'disabled', true )
-				.text( mw.msg( 'cx-save-draft-button' ) )
-				.hide();
-			this.$publishButton.prop( 'disabled', false );
-		} else {
-			this.$draftButton = $();
-		}
 
 		$publishArea = $( '<div>' )
 			.addClass( 'cx-header__publish' )
@@ -210,7 +212,7 @@
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
-			.append( $translationCenter, $publishArea );
+			.append( $translationCenter, this.$saveStatus, $publishArea );
 
 		this.$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )
