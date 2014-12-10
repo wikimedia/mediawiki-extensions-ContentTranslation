@@ -120,6 +120,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "{{doc-apihelp-param|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-1": "Don't translate \"Santhosh\". It is a username and must remain exactly as in the example.\n{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-2": "{{doc-apihelp-example|query+contenttranslation}}",
+	"cx-save-draft-save-success": "Save status indicator text in the header of [[Special:ContentTranslation]].\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
-	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]]\nParameters: \n* $1 - the number of minutes ago the translation was saved."
+	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]]."
 }
