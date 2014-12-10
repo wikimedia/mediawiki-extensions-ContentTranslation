@@ -116,5 +116,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים של Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
-	"cx-save-draft-saving": "שמירה..."
+	"cx-save-draft-save-success": "נשמר {{PLURAL:$1|לפני דקה|לפני $1 דקות|0=זה עתה}}",
+	"cx-save-draft-saving": "שמירה...",
+	"cx-save-draft-tooltip": "טיוטות של תרגומים נשמרות אוטומטית"
 }

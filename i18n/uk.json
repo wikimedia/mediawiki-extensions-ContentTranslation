@@ -35,8 +35,7 @@
 	"cx-translation-target-page-exists": "Сторінка з назвою [$1 $2] вже існує в цільовій Вікі. Подумайте, може підійде інакша назва?",
 	"tag-contenttranslation": "ПерекладВмісту",
 	"cx-source-loading": "Завантаження $1",
-	"cx-red-interlanguage-link-preference": "Переклад вмісту",
-	"cx-red-interlanguage-link-preference-beta-desc": "Показує червоне посилання на вашу мову у списку мовних посилань, якщо ця сторінка ще не перекладена вашою мовою, і допомагає перекладати сторінку вашою мовою, використовуючи зручний інтерфейс перекладу.",
+	"cx-beta": "Переклад вмісту",
 	"cx-entrypoint-title": "Перекласти цю сторінку до $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ця сторінка ще не існує мовою $1.<br />\n{{GENDER:|Ви}} хочете створити її?",
 	"cx-entrypoint-dialog-title-in": "Заголовок для нової сторінки мовою $1:",
@@ -84,5 +83,7 @@
 	"cx-mt-abuse-warning-title": "Ваш переклад містить $1% незміненого машинно-перекладеного тексту",
 	"cx-mt-abuse-warning-text": "Машинний переклад надається лише як шаблон. Вам треба переконатися, що зміст є точним і природно читається Вашою мовою.",
 	"cx-publish-captcha-title": "Секретне запитання",
-	"apihelp-query+contenttranslation-param-user": "Ім’я перекладача."
+	"apihelp-query+contenttranslation-param-user": "Ім’я перекладача.",
+	"cx-save-draft-save-success": "Врятував {{Множина:$1|хвилину тому|$1 хвилин тому|0=тільки зараз}}",
+	"cx-save-draft-tooltip": "Переклад чернетки зберігаються автоматично"
 }

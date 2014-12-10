@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Purodha"
+		]
+	},
+	"cx": "Sigg övversäze",
+	"cx-javascript": "Dat heh Deihd et nit der ohne JavaSkrep.",
+	"cx-error-server-connection": "Fähler: Kunnt kein Verbendung nohm ẞööver krijje.",
+	"cx-header-progressbar-text": "$1% övversaz",
+	"cx-header-progressbar-text-mt": "($1% vun de automatteshe Övversäzong)",
+	"cx-header-new-translation": "neu Översäzong",
+	"cx-header-all-translations": "Alle Översäzonge",
+	"cx-source-view-page": "Donn di Sigg belooere",
+	"cx-publish-page-success": "Di Sigg es op $1 veröffentlesch",
+	"cx-publish-page-error": "Ene Fähler es beim Faßhallde vun dä Sigg opjetrodde.",
+	"cx-publish-button": "De Översäzong öffentlesch maache",
+	"cx-publish-button-publishing": "Öffentlesch aam maache&nbsp;&hellip;",
+	"cx-publish-summary": "aanjelaat beim Översäze vun dä Sigg „$1“",
+	"cx-publish-gt-move-page-title": "Donn di Sigg ömbenänne",
+	"cx-tools-link-title": "Lengk",
+	"cx-tools-link-add": "Ene Lengk derbei donn",
+	"cx-tools-link-remove": "Lengks fott nämme",
+	"cx-tools-mt-title": "Automattesche Övversäzong",
+	"cx-stats-unknown": "onbikannt",
+	"cx-sourceselector-dialog-new-translation": "Neu Övversäzong",
+	"cx-sourceselector-dialog-button-start-translation": "Et Övversäze aanfange",
+	"cx-sourceselector-dialog-button-cancel": "Ophüre!",
+	"cx-sourceselector-dialog-source-language-label": "Vun:",
+	"cx-sourceselector-dialog-target-language-label": "Noh:",
+	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
+	"cx-translation-filter-to-any-language": "En jejde Schprohch"
+}
