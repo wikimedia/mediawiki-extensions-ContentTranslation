@@ -726,6 +726,12 @@
 
 		// Handle clicks on the section, including future links
 		$section.on( 'click', 'a', linkClickHandler );
+
+		if ( $section.data( 'cx-draft' ) === true ) {
+			// This section is restored from draft. No need of link adaptation.
+			return;
+		}
+
 		$links = $section.find( 'a[rel="mw:WikiLink"]' );
 
 		// Collect all sourceTitles;

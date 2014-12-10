@@ -214,27 +214,37 @@
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 	};
 
+	function referenceClickHandler () {
+		/*jshint validthis:true */
+		var $reference = $( this );
+		mw.hook( 'mw.cx.select.reference' ).fire(
+			$reference.data( 'sourceid' ), mw.cx.targetLanguage );
+	}
+
 	function processReferences( $section ) {
-		var $sourceSection, referenceAdaptor;
+		var $sourceSection, referenceAdaptor, isRestoredFromDraft;
+
+		isRestoredFromDraft =  $section.data( 'cx-draft' ) === true;
 
 		referenceAdaptor = new ReferenceCard();
 		$section.find( '[typeof*="mw:Extension/ref"]' ).each( function () {
 			var $reference = $( this ),
-				referenceId = $reference.prop( 'id' );
+				referenceId;
 
-			$reference.prop( 'data-sourceid', referenceId );
-			$reference.prop( 'id', 'cx' + referenceId );
 			// Click handler for references.
-			$reference.on( 'click', function () {
-				var $reference = $( this );
-				mw.hook( 'mw.cx.select.reference' ).fire(
-					$reference.prop( 'data-sourceid' ), mw.cx.targetLanguage );
-			} );
+			$reference.on( 'click', referenceClickHandler );
+			if ( isRestoredFromDraft ) {
+				// This section is restored from draft. No need of reference adaptation.
+				return;
+			}
+			referenceId = $reference.prop( 'id' );
+			$reference.attr( 'data-sourceid', referenceId );
+			$reference.attr( 'id', 'cx' + referenceId );
 			// Adapt references.
 			referenceAdaptor.adaptReference( referenceId );
 		} );
 
-		if ( $section.is( '[typeof="mw:Extension/references"]' ) ) {
+		if ( !isRestoredFromDraft && $section.is( '[typeof="mw:Extension/references"]' ) ) {
 			// It is references listing. Copy data-mw that we strip before MT.
 			// See https://phabricator.wikimedia.org/T75121 and
 			// https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References

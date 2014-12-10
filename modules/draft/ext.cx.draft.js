@@ -86,6 +86,9 @@
 			$section.replaceWith( $draftSection );
 			// Get new section
 			$section = $( '#' + sectionId );
+			// Annotate the section to indicate it was restored from draft
+			// so that certain adaptations can be skipped.
+			$section.attr( 'data-cx-draft', true );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
 	};
