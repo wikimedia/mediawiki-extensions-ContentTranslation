@@ -55,11 +55,31 @@
 	 */
 	CXSourceSelector.prototype.init = function () {
 		var cxSourceSelector = this;
+
 		this.getLanguagePairs().then( function () {
 			cxSourceSelector.render();
 			cxSourceSelector.listen();
 		} );
 
+	};
+
+	/**
+	 * Prefill the selector if values are passed as options.
+	 */
+	CXSourceSelector.prototype.prefill = function () {
+		if ( this.options.sourceLanguage ) {
+			this.sourceLanguageChangeHandler( this.options.sourceLanguage );
+		}
+		if ( this.options.targetLanguage ) {
+			this.targetLanguageChangeHandler( this.options.targetLanguage );
+		}
+		if ( this.options.sourceTitle ) {
+			this.$sourceTitleInput.val( this.options.sourceTitle ).trigger( 'input' );
+			this.show();
+		}
+		if ( this.options.targetTitle ) {
+			this.$targetTitleInput.val( this.options.targetTitle ).trigger( 'input' );
+		}
 	};
 
 	/**
@@ -676,21 +696,54 @@
 	};
 
 	/**
+	 * Set CX Token in cookie.
+	 * This token gurantees that the translator read the license agreement
+	 * and starting a translation from CX dashboard enabled as beta feature
+	 * from any wiki under the top domain.
+	 *
+	 * @param {string} sourceLanguage Source language
+	 * @param {string} targetLanguage Target language
+	 * @param {string} sourceTitle Source title
+	 */
+	function setCXToken( sourceLanguage, targetLanguage, sourceTitle ) {
+		var date = new Date();
+		// At this point, the translator saw the license agreement.
+		// Save that information in a domain cookie
+		$.cookie(
+			[ 'cx', sourceLanguage, targetLanguage, sourceTitle ].join( '_' ),
+			true, {
+				prefix: '',
+				// Use Domain cookie. Example: domain=.wikipedia.org
+				domain: '.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ),
+				expires: date.setTime( date.getTime() + ( 5 * 60 * 1000 ) ) // 5 minutes from now
+			}
+		);
+	}
+
+	/**
 	 * Start a new page translation in Special:CX
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		var targetTitle;
+		var targetTitle, sourceTitle, sourceLanguage, targetLanguage;
+
+		sourceLanguage = this.getSourceLanguage();
+		targetLanguage = this.getTargetLanguage();
+		sourceTitle = this.$sourceTitleInput.val();
 
 		if ( this.$targetTitleInput.val() === '' ) {
 			targetTitle = this.$sourceTitleInput.val();
 		} else {
 			targetTitle = this.$targetTitleInput.val();
 		}
+
+		// Set CX token as cookie.
+		setCXToken( sourceLanguage, targetLanguage, sourceTitle );
+
 		location.href = this.siteMapper.getCXUrl(
-			this.$sourceTitleInput.val(),
+			sourceTitle,
 			targetTitle,
-			this.getSourceLanguage(),
-			this.getTargetLanguage()
+			sourceLanguage,
+			targetLanguage
 		);
 	};
 
@@ -838,6 +891,8 @@
 		);
 
 		$( 'body' ).append( this.$dialog );
+
+		this.prefill();
 	};
 
 	/**

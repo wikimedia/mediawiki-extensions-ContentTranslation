@@ -30,6 +30,9 @@ class SpecialContentTranslation extends SpecialPage {
 		$skin = $this->getSkin();
 		$request = $this->getRequest();
 
+		$token = implode( '_', array(
+			'cx', $request->getVal( 'from' ), $request->getVal( 'to' ), $request->getVal( 'page' )
+			) );
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
 			$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
@@ -37,9 +40,8 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		if ( $request->getVal( 'from' ) === null ||
-			$request->getVal( 'to' ) === null ||
-			$request->getVal( 'page' ) === null
+		if ( $request->getCookie( $token, '' ) === null &&
+			$request->getVal( 'draft' ) === null
 		) {
 			$out->addModules( 'ext.cx.dashboard' );
 		} else {

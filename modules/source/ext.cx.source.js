@@ -77,7 +77,7 @@
 	};
 
 	ContentTranslationSource.prototype.showDashboard = function () {
-		 location.href = mw.util.getUrl( 'Special:ContentTranslation' );
+		location.href = mw.util.getUrl( 'Special:ContentTranslation' );
 	};
 
 	/**
