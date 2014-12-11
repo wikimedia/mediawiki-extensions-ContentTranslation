@@ -454,6 +454,15 @@
 
 			if ( !linkCard.$link ) {
 				// There is no link to remove. Card came from search.
+				// Prepare add link
+				linkCard.$addLink.click( function () {
+					mw.cx.selection.restore( 'translation' );
+					linkCard.createInternalLink( selection.toString(), page.title );
+				} );
+
+				// Show the add link button
+				linkCard.$addLink.show();
+				// Hide the remove link button
 				linkCard.$removeLink.hide();
 			}
 
