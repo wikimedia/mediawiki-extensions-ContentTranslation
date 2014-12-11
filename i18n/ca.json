@@ -101,7 +101,7 @@
 	"cx-translation-filter-draft-translations": "Esborranys de traducció",
 	"cx-translation-filter-from-any-language": "Des de qualsevol idioma",
 	"cx-translation-filter-to-any-language": "A qualsevol idioma",
-	"cx-create-new-translation": "Crear una nova traducció",
+	"cx-create-new-translation": "Crea una nova traducció",
 	"cx-create-new-translation-desc": "Creeu articles sobre temes que no existeixen en el vostre idioma. És molt fàcil amb l'ajuda de les nostres eines de traducció. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate més informació]",
 	"apihelp-cxpublish-description": "Desa una pàgina creada amb l'extensió Content Translation.",
 	"apihelp-cxpublish-param-title": "El títol de la pàgina per realitzar-hi accions.",

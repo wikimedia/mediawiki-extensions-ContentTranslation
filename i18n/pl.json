@@ -80,5 +80,7 @@
 	"apihelp-query+contenttranslation-param-user": "Nazwa konta użytkownika tłumacza",
 	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
-	"cx-save-draft-saving": "Zapisywanie..."
+	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
+	"cx-save-draft-saving": "Zapisywanie...",
+	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie"
 }
