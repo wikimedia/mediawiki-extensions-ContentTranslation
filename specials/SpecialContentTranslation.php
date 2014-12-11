@@ -31,10 +31,18 @@ class SpecialContentTranslation extends SpecialPage {
 		$request = $this->getRequest();
 
 		$token = implode( '_', array(
-			'cx', $request->getVal( 'from' ), $request->getVal( 'to' ), $request->getVal( 'page' )
-			) );
+			'cx',
+			$request->getVal( 'from' ),
+			$request->getVal( 'to' ),
+			preg_replace( "/\s/", "-", urldecode( $request->getVal( 'page' ) ) )
+		) );
+
 		// Direct access, isListed only affects Special:SpecialPages
-		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
+		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) &&
+			// With a valid cx token or draft id, override beta feature settings.
+			$request->getCookie( $token, '' ) === null &&
+			$request->getVal( 'draft' ) === null
+		) {
 			$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
 			return;
 		}

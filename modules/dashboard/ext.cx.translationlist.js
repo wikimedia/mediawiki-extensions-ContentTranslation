@@ -169,7 +169,7 @@
 						page: translation.sourceTitle,
 						targettitle: translation.targetTitle,
 						draft: translation.status === 'draft' ? translation.id : undefined
-					} ).toString(),
+					} ).toString()
 				} ).text( translation.sourceTitle );
 			$sourceLanguage = $( '<div>' )
 				.addClass( 'source-language' )
@@ -201,9 +201,9 @@
 		for ( i = 0; i < languages.length; i++ ) {
 			$filter.append(
 				$( '<option>' )
-					// Todo: use translated language name
-					.text( $.uls.data.getAutonym( languages[ i ] ) )
-					.attr( 'value', languages[ i ] )
+				// Todo: use translated language name
+				.text( $.uls.data.getAutonym( languages[ i ] ) )
+				.attr( 'value', languages[ i ] )
 			);
 		}
 	};
@@ -213,8 +213,7 @@
 			.addClass( 'translation-filter' );
 
 		this.$statusFilter = createSelect(
-			'translation-status-filter',
-			{
+			'translation-status-filter', {
 				'': mw.msg( 'cx-translation-filter-all-translations' ),
 				published: mw.msg( 'cx-translation-filter-published-translations' ),
 				draft: mw.msg( 'cx-translation-filter-draft-translations' )
@@ -222,15 +221,13 @@
 		);
 
 		this.$sourceLanguageFilter = createSelect(
-			'translation-source-language-filter',
-			{
+			'translation-source-language-filter', {
 				'': mw.msg( 'cx-translation-filter-from-any-language' )
 			}
 		);
 
 		this.$targetLanguageFilter = createSelect(
-			'translation-target-language-filter',
-			{
+			'translation-target-language-filter', {
 				'': mw.msg( 'cx-translation-filter-to-any-language' )
 			}
 		);

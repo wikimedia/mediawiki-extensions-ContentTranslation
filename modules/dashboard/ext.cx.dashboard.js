@@ -61,7 +61,7 @@
 		var query,
 			sourceSelectorOptions = {};
 
-		query =new mw.Uri().query;
+		query = new mw.Uri().query;
 		sourceSelectorOptions.sourceLanguage = query.from;
 		sourceSelectorOptions.targetLanguage = query.to;
 		sourceSelectorOptions.sourceTitle = query.page;
