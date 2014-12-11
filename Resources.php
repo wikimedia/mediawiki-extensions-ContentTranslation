@@ -14,6 +14,33 @@ $resourcePaths = array(
 	'remoteExtPath' => 'ContentTranslation/modules',
 );
 
+$wgResourceModules['ext.cx.contributions'] = array(
+	'scripts' => array(
+		'entrypoint/ext.cx.contributions.js',
+	),
+	'styles' => array(
+		'entrypoint/styles/ext.cx.contributions.less',
+	),
+	'dependencies' => array(
+		'mediawiki.util',
+	),
+	'messages' => array(
+		'cx-contributions',
+		'cx-contributions-translation',
+		'cx-contributions-media',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.contributions.init'] = array(
+	'scripts' => array(
+		'entrypoint/ext.cx.contributions.init.js',
+	),
+	'dependencies' => array(
+		'ext.cx.contributions',
+	),
+	'position' => 'top',
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.model'] = array(
 	'scripts' => array(
 		'base/ext.cx.model.js',

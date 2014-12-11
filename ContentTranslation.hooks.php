@@ -89,6 +89,20 @@ class ContentTranslationHooks {
 	}
 
 	/**
+	 * Hook: SpecialContributionsBeforeMainOutput
+	 * @param int $id
+	 * @param User $user
+	 * @param SpecialPage $page
+	 */
+	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
+		if ( $user->getId() === $page->getUser()->getId() &&
+			ContentTranslationHooks::isEnabledForUser( $user )
+		) {
+			$page->getOutput()->addModules( 'ext.cx.contributions.init' );
+		}
+	}
+
+	/**
 	 * Hook: ResourceLoaderGetConfigVars
 	 * @param array $vars
 	 */
