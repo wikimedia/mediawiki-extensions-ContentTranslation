@@ -203,8 +203,7 @@
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-constructive' )
 			.prop( 'disabled', true )
-			.text( mw.msg( 'cx-publish-button' ) )
-			.hide();
+			.text( mw.msg( 'cx-publish-button' ) );
 
 		$publishArea = $( '<div>' )
 			.addClass( 'cx-header__publish' )

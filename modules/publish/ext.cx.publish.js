@@ -166,9 +166,8 @@
 			mw.log( '[CX] Error while publishing:', code, trace );
 		} ).always( function () {
 			$publishButton
-				.prop( 'disabled', false )
-				.text( mw.msg( 'cx-publish-button' ) )
-				.hide();
+				.prop( 'disabled', true )
+				.text( mw.msg( 'cx-publish-button' ) );
 		} );
 
 		initGuidedTour( translatedTitle );
@@ -225,8 +224,5 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.publish' ).add( $.proxy( publish, this ) );
-		mw.hook( 'mw.cx.translation.saved' ).add( function () {
-			$( '.cx-header__publish-button' ).show();
-		} );
 	} );
 }( jQuery, mediaWiki ) );
