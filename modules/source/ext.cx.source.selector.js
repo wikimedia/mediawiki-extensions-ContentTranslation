@@ -257,11 +257,11 @@
 			$.debounce( 100, false, $.proxy( this.searchHandler, this ) )
 		);
 
-		// Source title input or target title input, blur or search (check)
+		// Source title input or target title input, input or search (check)
 		this.$dialog.on(
-			'blur',
+			'input blur',
 			'.cx-sourceselector-dialog__title',
-			$.proxy( this.check, this )
+			$.debounce( 600, false, $.proxy( this.check, this ) )
 		);
 
 		// Keypress (start translation on enter key)
