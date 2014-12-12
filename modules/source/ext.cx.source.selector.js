@@ -754,8 +754,8 @@
 		$sourceLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
 
-		this.$sourceLanguage = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__language' );
+		this.$sourceLanguage = $( '<button>' )
+			.addClass( 'cx-sourceselector-dialog__language mw-ui-button' );
 
 		this.$sourceLanguage.uls( {
 			languages: getAutonyms( this.sourceLanguages ),
@@ -770,8 +770,9 @@
 
 		$targetLanguageLabel = $( '<label>' ).addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-target-language-label' ) );
-		this.$targetLanguage = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__language' );
+
+		this.$targetLanguage = $( '<button>' )
+			.addClass( 'cx-sourceselector-dialog__language mw-ui-button' );
 
 		this.setDefaultLanguages();
 
