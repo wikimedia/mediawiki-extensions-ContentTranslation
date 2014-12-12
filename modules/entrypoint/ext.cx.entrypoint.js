@@ -182,7 +182,7 @@
 			.append( this.$titleInput );
 
 		this.$actionScratch = $( '<button>' )
-			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-create-from-scratch' )
+			.addClass( 'mw-ui-button mw-ui-quiet cx-entrypoint-dialog-button-create-from-scratch' )
 			.text( mw.msg( 'cx-entrypoint-dialog-button-create-from-scratch' ) );
 
 		translateButtonLabel = mw.msg(
@@ -190,7 +190,7 @@
 			$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
 		);
 		this.$actionTranslate = $( '<button>' )
-			.addClass( 'mw-ui-button cx-entrypoint-dialog-button-translate-from' )
+			.addClass( 'mw-ui-button mw-ui-progressive cx-entrypoint-dialog-button-translate-from' )
 			.text( translateButtonLabel );
 
 		$license = $( '<div>' )
