@@ -10,9 +10,10 @@
 	"license": "GPL-2.0+",
 	"authors": [],
 	"support": {
-		"issues": "https://bugzilla.wikimedia.org/",
+		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-contenttranslation/",
 		"irc": "irc://irc.freenode.net/mediawiki-i18n",
-		"wiki": "https://www.mediawiki.org/wiki/Content_translation"
+		"wiki": "https://www.mediawiki.org/wiki/Content_translation",
+		"forum": "https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation"
 	},
 	"require": {
 		"php": ">=5.3.0",
