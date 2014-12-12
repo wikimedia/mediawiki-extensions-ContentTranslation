@@ -119,5 +119,8 @@
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by id.",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
-	"cx-save-draft-tooltip": "Translation drafts are saved automatically"
+	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
+	"cx-contributions": "New contribution",
+	"cx-contributions-translation": "Translation",
+	"cx-contributions-media": "Upload media file"
 }
