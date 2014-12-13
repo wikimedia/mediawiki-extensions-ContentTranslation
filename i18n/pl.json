@@ -82,5 +82,8 @@
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
 	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
 	"cx-save-draft-saving": "Zapisywanie...",
-	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie"
+	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
+	"cx-contributions": "Nowy wkład",
+	"cx-contributions-translation": "Tłumaczenie",
+	"cx-contributions-media": "Prześlij plik multimedialny"
 }

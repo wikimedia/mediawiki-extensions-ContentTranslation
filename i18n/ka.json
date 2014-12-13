@@ -8,5 +8,9 @@
 	"cx": "გვერდის თარგმნა",
 	"cx-header-all-translations": "ყველა თარგმანი",
 	"cx-tools-mt-clear-translation": "პარაგრაფის წაშლა",
-	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება"
+	"cx-warning-unsaved-translation": "თქვენ გაქვთ დაუმახსოვრებელი თარგმანები.",
+	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება",
+	"cx-contributions": "ახალი წვლილი",
+	"cx-contributions-translation": "თარგმანი",
+	"cx-contributions-media": "მედია-ფაილის ატვირთვა"
 }

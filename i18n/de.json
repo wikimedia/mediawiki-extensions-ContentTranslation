@@ -111,5 +111,8 @@
 	"apihelp-query+contenttranslation-param-translationid": "Übersetzungskennung.",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
-	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert"
+	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
+	"cx-contributions": "Neuer Beitrag",
+	"cx-contributions-translation": "Übersetzung",
+	"cx-contributions-media": "Mediendatei hochladen"
 }

@@ -113,5 +113,8 @@
 	"apihelp-query+contenttranslation-example-2": "Дај недовршени преводи по назнака.",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Зачувано пред една минута|Зачувано пред $1 минути|0=Штотуку зачувано}}",
 	"cx-save-draft-saving": "Зачувувам...",
-	"cx-save-draft-tooltip": "Недовршените преводи се зачувуваат автоматски"
+	"cx-save-draft-tooltip": "Недовршените преводи се зачувуваат автоматски",
+	"cx-contributions": "Нов придонес",
+	"cx-contributions-translation": "Превод",
+	"cx-contributions-media": "Подигање на медиумска податотека"
 }
