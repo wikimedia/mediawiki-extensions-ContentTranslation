@@ -81,7 +81,9 @@
 	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
 	"cx-create-new-translation": "Nei Iwwersetzung uleeën",
 	"apihelp-query+contenttranslation-param-user": "Benotzernumm vum Iwwersetzer.",
+	"cx-save-draft-save-success": "{{PLURAL:$1|Virun enger Mimutt|Viru(n) $1 Minutte|0=Elo grad}} gespäichert",
 	"cx-save-draft-saving": "Späicheren...",
 	"cx-contributions": "Nei Kontributioun",
-	"cx-contributions-translation": "Iwwersetzung"
+	"cx-contributions-translation": "Iwwersetzung",
+	"cx-contributions-media": "Mediefichier eroplueden"
 }

@@ -28,5 +28,10 @@
 	"cx-translation-filter-all-translations": "Kesemua terjemahan",
 	"cx-translation-filter-from-any-language": "Dari sebarang bahasa",
 	"apihelp-query+contenttranslation-param-user": "Nama pengguna penterjemah.",
-	"apihelp-query+contenttranslation-param-translationid": "ID terjemahan."
+	"apihelp-query+contenttranslation-param-translationid": "ID terjemahan.",
+	"cx-save-draft-save-success": "{{PLURAL:$1|Disimpan seminit yang lalu|Disimpan $1 minit yang lalu|0=Baru disimpan}}",
+	"cx-save-draft-tooltip": "Draf terjamahan disimpan secara automatik",
+	"cx-contributions": "Sumbangan baru",
+	"cx-contributions-translation": "Terjemahan",
+	"cx-contributions-media": "Muat naik fail media"
 }

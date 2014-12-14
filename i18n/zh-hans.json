@@ -119,5 +119,8 @@
 	"apihelp-query+contenttranslation-example-1": "获取由Santhosh作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分钟前|0=刚刚}}保存",
-	"cx-save-draft-saving": "正在保存..."
+	"cx-save-draft-saving": "正在保存...",
+	"cx-contributions": "新贡献",
+	"cx-contributions-translation": "翻译",
+	"cx-contributions-media": "上传媒体文件"
 }

@@ -124,6 +124,6 @@
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-contributions": "Text of a button which opens a dropdown",
-	"cx-contributions-translation": "Dropdown item",
+	"cx-contributions-translation": "Dropdown item\n{{Identical|Translation}}",
 	"cx-contributions-media": "Dropdown item"
 }
