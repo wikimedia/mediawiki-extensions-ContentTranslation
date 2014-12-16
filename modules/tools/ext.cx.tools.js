@@ -55,6 +55,10 @@
 		this.$searchInput = $( '<input>' )
 			.addClass( 'cx-card--search__input' )
 			.attr( {
+				// It's more likely that the user will search
+				// for words in the source language
+				lang: mw.cx.sourceLanguage,
+				dir: $.uls.data.getDir( mw.cx.sourceLanguage ),
 				placeholder: mw.msg( 'cx-tools-searchbox-text' ),
 				type: 'search'
 			} );

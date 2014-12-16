@@ -252,6 +252,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.tools.template',
 		'ext.cx.tools.categories',
 		'ext.cx.util.selection',
+		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
 	),
 ) + $resourcePaths;
