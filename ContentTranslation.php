@@ -131,7 +131,7 @@ $GLOBALS['wgContentTranslationHighMTCategory'] = null;
 $GLOBALS['wgContentTranslationSiteTemplates'] = array(
 	'view' => '//$1.wikipedia.org/wiki/$2',
 	'api' => '//$1.wikipedia.org/w/api.php',
-	'cx' => 'http://localhost:8080/',
+	'cx' => 'http://localhost:8080',
 );
 
 /**
