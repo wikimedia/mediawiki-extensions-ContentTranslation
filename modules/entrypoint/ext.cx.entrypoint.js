@@ -25,6 +25,8 @@
 		this.$titleInput = null;
 		this.$closeIcon = null;
 
+		this.shown = false;
+
 		this.init();
 	}
 
@@ -91,7 +93,11 @@
 	 * Show or Hide the CX entry point dialog based on current state
 	 */
 	CXEntryPoint.prototype.toggle = function () {
-		this.$dialog.toggle();
+		if ( this.shown ) {
+			this.hide();
+		} else {
+			this.show();
+		}
 	};
 
 	/**
@@ -99,6 +105,7 @@
 	 */
 	CXEntryPoint.prototype.show = function () {
 		this.$dialog.show();
+		this.shown = true;
 		this.position();
 		this.$titleInput.focus();
 	};
@@ -129,6 +136,7 @@
 	 */
 	CXEntryPoint.prototype.hide = function () {
 		this.$dialog.hide();
+		this.shown = false;
 	};
 
 	/**
