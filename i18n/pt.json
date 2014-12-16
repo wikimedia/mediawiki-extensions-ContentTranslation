@@ -85,6 +85,5 @@
 	"cx-create-new-translation": "Criar nova tradução",
 	"cx-create-new-translation-desc": "Cria páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Tradu%C3%A7%C3%A3o/Traduzindo Saiba mais]",
 	"apihelp-query+contenttranslation-param-user": "Nome de utilizador do tradutor.",
-	"cx-save-draft-button": "Gravar como rascunho",
 	"cx-save-draft-saving": "A gravar..."
 }

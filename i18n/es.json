@@ -93,5 +93,9 @@
 	"cx-translation-filter-draft-translations": "Traducciones en borrador",
 	"cx-translation-filter-from-any-language": "De cualquier idioma",
 	"cx-translation-filter-to-any-language": "A cualquier idioma",
-	"cx-create-new-translation": "Crear nueva traducción"
+	"cx-create-new-translation": "Crear nueva traducción",
+	"cx-save-draft-save-success": "Guardado {{PLURAL:$1|hace un minuto|hace $1 minutos|0=hace instantes}}",
+	"cx-contributions": "Contribución nueva",
+	"cx-contributions-translation": "Traducción",
+	"cx-contributions-media": "Cargar archivo multimedia"
 }
