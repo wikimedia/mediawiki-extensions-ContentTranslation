@@ -55,5 +55,8 @@
 	"cx-sourceselector-dialog-source-language-label": "Хьост:",
 	"cx-sourceselector-dialog-target-language-label": "Ӏалашо:",
 	"cx-publish-captcha-title": "Къайла хаттар",
-	"cx-save-draft-saving": "Ӏалашъяр..."
+	"cx-save-draft-save-success": "Ӏалашйнарш {{PLURAL:$1|минот хьалха0=хӀинца}}",
+	"cx-save-draft-saving": "Ӏалашъяр...",
+	"cx-contributions": "Керла къинхьегам",
+	"cx-contributions-translation": "Гоч"
 }
