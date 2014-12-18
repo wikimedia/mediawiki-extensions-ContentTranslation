@@ -9,12 +9,14 @@
 	},
 	"cx": "Översätt sidan",
 	"cx-javascript": "Detta verktyg fungerar inte utan JavaScript.",
+	"cx-license-agreement": "Genom att klicka på \"$1\"-knappen, går du med på [//wikimediafoundation.org/wiki/Terms_of_Use användarvilkoren] och släpper oåterkalleligen dina bidrag med översättningsverktyget under [//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License CC BY-SA 3.0]-licensen och [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] med förståelse om att en hyperlänk eller URL är tillräckligt för CC BY-SA 3.0 erkännande.",
 	"cx-error-server-connection": "Fel: Kunde inte ansluta till servern.",
 	"cx-desc": "Ett verktyg som låter redigerare översätta sidor från ett språk till ett annat med hjälp av maskinöversättning och andra översättningsverktyg",
 	"cx-header-progressbar-text": "$1% översatt",
 	"cx-header-progressbar-text-mt": "($1% från maskinöversättning)",
 	"cx-header-translation-center": "Översättningscenter",
 	"cx-header-new-translation": "Ny översättning",
+	"cx-header-all-translations": "Alla översättningar",
 	"cx-source-view-page": "visa sida",
 	"cx-publish-page-success": "Sidan publicerad på $1",
 	"cx-publish-page-error": "Fel vid sparandet av sida.",
@@ -107,5 +109,10 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
 	"apihelp-query+contenttranslation-param-user": "Översättarens användarnamn.",
 	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",
-	"cx-save-draft-saving": "Sparar..."
+	"apihelp-query+contenttranslation-example-1": "Få översättningar påbörjade av Santhosh.",
+	"cx-save-draft-save-success": "Sparades {{PLURAL:$1|en minut sedan|$1 minuter sedan|0=just nu}}",
+	"cx-save-draft-saving": "Sparar...",
+	"cx-contributions": "Nytt bidrag",
+	"cx-contributions-translation": "Översättning",
+	"cx-contributions-media": "Ladda upp en mediefil"
 }
