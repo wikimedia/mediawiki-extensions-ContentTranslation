@@ -18,8 +18,7 @@
 	"cx-translation-add-translation": "+ Adder traduction",
 	"tag-contenttranslation": "Traduction de contento",
 	"cx-source-loading": "Carga $1",
-	"cx-red-interlanguage-link-preference": "Traduction de contento",
-	"cx-red-interlanguage-link-preference-beta-desc": "Monstra un ligamine rubie a tu lingua in le lista de ligamines de lingua si le pagina non ha ancora essite traducite in tu lingua, e adjuta a traducer un pagina in tu lingua per medio de un interfacie de traduction commode.",
+	"cx-beta": "Traduction de contento",
 	"cx-entrypoint-title": "Traducer iste pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Iste pagina non existe ancora in $1.<br />\nVole {{GENDER:|tu}} crear lo?",
 	"cx-entrypoint-dialog-title-in": "Titulo del nove pagina in $1:",
@@ -48,5 +47,8 @@
 	"cx-tools-reference-title": "Referentia",
 	"cx-tools-reference-remove": "Remover referentia",
 	"cx-tools-link-instruction-shortcut": "Shift + clic sur un ligamine pro aperir lo",
-	"cx-tools-link-hover-tooltip": "Clicca pro aperir"
+	"cx-tools-link-hover-tooltip": "Clicca pro aperir",
+	"cx-contributions": "Nove contribution",
+	"cx-contributions-translation": "Traduction",
+	"cx-contributions-media": "Incargar file multimedial"
 }
