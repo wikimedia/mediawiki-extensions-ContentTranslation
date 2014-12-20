@@ -4,7 +4,8 @@
 			"Beta16",
 			"Gianfranco",
 			"FRacco",
-			"Nemo bis"
+			"Nemo bis",
+			"Macofe"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -28,8 +29,7 @@
 	"cx-translation-add-translation": "+ Aggiungi traduzione",
 	"tag-contenttranslation": "TraduzioneContenuti",
 	"cx-source-loading": "Caricamento $1",
-	"cx-red-interlanguage-link-preference": "Traduzione voci",
-	"cx-red-interlanguage-link-preference-beta-desc": "Mostra un collegamento rosso per la propria lingua nell'elenco dei collegamenti linguistici se la pagina non è ancora tradotta nella tua lingua e aiuta a tradurre una pagina nella la tua lingua, utilizzando una comoda interfaccia di traduzione.",
+	"cx-beta": "Traduzione voci",
 	"cx-entrypoint-title": "Traduci questa pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Questa pagina non esiste in $1 ancora.<br />\n{{GENDER:|Vuoi}} crearla?",
 	"cx-entrypoint-dialog-title-in": "Titolo per la nuova pagina in $1:",
@@ -72,5 +72,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "Inizia traduzione",
 	"cx-sourceselector-dialog-source-language-label": "Da:",
 	"cx-sourceselector-dialog-target-language-label": "A:",
-	"cx-publish-captcha-title": "Domanda di sicurezza"
+	"cx-publish-captcha-title": "Domanda di sicurezza",
+	"cx-contributions": "Nuovo contributo",
+	"cx-contributions-translation": "Traduzione"
 }
