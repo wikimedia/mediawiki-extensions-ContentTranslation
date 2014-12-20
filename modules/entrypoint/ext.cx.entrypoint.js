@@ -135,7 +135,10 @@
 	 * Hide the entry point dialog.
 	 */
 	CXEntryPoint.prototype.hide = function () {
-		this.$dialog.hide();
+		if ( this.shown ) {
+			this.$dialog.hide();
+		}
+
 		this.shown = false;
 	};
 
