@@ -681,7 +681,7 @@
 		// Load widgets for the source column
 		if ( column === 'source' ) {
 			$( 'div.cx-column--source > div.cx-column__sub-heading' )
-				.append( categoryTool.widgets.source.counter.$view );
+				.after( categoryTool.widgets.source.counter.$view );
 			$( 'div.cx-column--source > div.cx-column__content' )
 				.after( categoryTool.widgets.source.listing.$view );
 		}
@@ -689,7 +689,7 @@
 		// Load widgets for the translation column
 		if ( column === 'translation' ) {
 			$( 'div.cx-column--translation > div.cx-column__sub-heading' )
-				.append( categoryTool.widgets.target.counter.$view );
+				.after( categoryTool.widgets.target.counter.$view );
 			$( 'div.cx-column--translation > div.cx-column__content' )
 				.after( categoryTool.widgets.target.listing.$view );
 		}
