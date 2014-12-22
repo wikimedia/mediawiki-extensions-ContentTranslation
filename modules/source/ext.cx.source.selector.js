@@ -591,9 +591,7 @@
 	 * over the rest of the content on the page.
 	 */
 	CXSourceSelector.prototype.showAsDialog = function () {
-		var top, left, dir;
-
-		dir = $( 'html' ).prop( 'dir' );
+		var top, left;
 
 		if ( this.options.top ) {
 			top = this.options.top;
@@ -606,10 +604,6 @@
 			left = this.options.left;
 		} else {
 			left = ( $( window ).width() - this.$dialog.width() ) / 2;
-		}
-
-		if ( dir === 'rtl' ) {
-			left = left - this.$dialog.width();
 		}
 
 		this.$dialog.css( {
