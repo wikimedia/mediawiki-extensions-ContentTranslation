@@ -3,7 +3,8 @@
 		"authors": [
 			"Jefersonmoraes",
 			"Mordecool",
-			"Rodrigo Padula"
+			"Rodrigo Padula",
+			"Amire80"
 		]
 	},
 	"cx": "Traduzir página",
@@ -70,7 +71,7 @@
 	"cx-sourceselector-dialog-target-title-placeholder": "Título da tradução(se diferente da fonte)",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "O título já é usado em [$1 $2] para [$3 uma página diferente]",
 	"cx-sourceselector-dialog-error-page-exists": "A página [$1 já existe] em $2",
-	"cx-sourceselector-dialog-error-title-in-use": "O título para a nova página [$ já está em uso]",
+	"cx-sourceselector-dialog-error-title-in-use": "O título para a nova página [$1 já está em uso]",
 	"cx-sourceselector-dialog-error-no-source-article": "A página para traduzir não existe em $1",
 	"cx-mt-abuse-warning-title": "Sua tradução contém $1% de textos traduzidos automaticamente não modificados",
 	"cx-mt-abuse-warning-text": "Traduções automáticas são providas somente como um template. Você precisa ter certeza que o conteúdo é preciso e lido naturalmente no seu idioma.",

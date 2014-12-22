@@ -114,5 +114,8 @@
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
 	"cx-contributions": "Neuer Beitrag",
 	"cx-contributions-translation": "Übersetzung",
-	"cx-contributions-media": "Mediendatei hochladen"
+	"cx-contributions-media": "Mediendatei hochladen",
+	"cx-publishing-dialog-message": "Die Seite $1 ist bereits vorhanden. Der aktuelle Inhalt wird durch deine Übersetzung ersetzt. Möchtest du trotzdem veröffentlichen?",
+	"cx-publishing-dialog-keep-button": "Beide Versionen behalten",
+	"cx-publishing-dialog-publish-anyway-button": "Trotzdem veröffentlichen"
 }
