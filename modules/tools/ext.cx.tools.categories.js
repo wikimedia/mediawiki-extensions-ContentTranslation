@@ -493,7 +493,7 @@
 
 			if ( response.query ) {
 				pageId = response.query.pageids[ 0 ];
-				categoriesArray = response.query.pages[ pageId ].categories;
+				categoriesArray = response.query.pages[ pageId ].categories || [];
 
 				$.each( categoriesArray, function ( index, object ) {
 					var categoryId;
