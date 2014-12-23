@@ -12,6 +12,7 @@
 	'use strict';
 
 	var totalSourceWeight = 0,
+		dirty = false,
 		translationThreshold = 0.05;
 
 	/**
@@ -122,7 +123,7 @@
 		if ( !$section ) {
 			return;
 		}
-
+		dirty = true;
 		$sourceSection = $( '#' + $section.data( 'source' ) );
 		translationLength = $section.text().length;
 		sourceLength = $sourceSection.text().length;
@@ -145,11 +146,17 @@
 		mw.hook( 'mw.cx.progress' ).fire( {
 			any: 0
 		} );
+		mw.hook( 'mw.cx.translation.saved' ).add( function () {
+			dirty = false;
+		} );
 		window.onbeforeunload = function () {
 			var weights;
 
 			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-				mw.hook( 'mw.cx.translation.save' ).fire();
+				if ( dirty ) {
+					mw.hook( 'mw.cx.translation.save' ).fire();
+				}
+
 				return;
 			}
 
