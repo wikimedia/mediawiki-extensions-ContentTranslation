@@ -160,17 +160,27 @@
 			$imageBlock.append( $image, $progressbar );
 			this.showTitleImage( translation );
 
-			$translationLink = $( '<a>' )
-				.addClass( 'source-title' )
-				.attr( {
-					href: new mw.Uri().extend( {
-						from: translation.sourceLanguage,
-						to: translation.targetLanguage,
-						page: translation.sourceTitle,
-						targettitle: translation.targetTitle,
-						draft: translation.status === 'draft' ? translation.id : undefined
-					} ).toString()
-				} ).text( translation.sourceTitle );
+			if ( translation.status === 'draft' ) {
+				$translationLink = $( '<a>' )
+					.addClass( 'source-title' )
+					.attr( {
+						href: new mw.Uri().extend( {
+							from: translation.sourceLanguage,
+							to: translation.targetLanguage,
+							page: translation.sourceTitle,
+							targettitle: translation.targetTitle,
+							draft: translation.status === 'draft' ? translation.id : undefined
+						} ).toString()
+					} ).text( translation.sourceTitle );
+			}
+			if ( translation.status === 'published' ) {
+				$translationLink = $( '<a>' )
+					.addClass( 'source-title' )
+					.attr( {
+						href: translation.targetURL
+					} )
+					.text( translation.sourceTitle );
+			}
 			$sourceLanguage = $( '<div>' )
 				.addClass( 'source-language' )
 				.text( $.uls.data.getAutonym( translation.sourceLanguage ) );
