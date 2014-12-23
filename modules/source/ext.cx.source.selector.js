@@ -733,7 +733,7 @@
 		var slug, date = new Date();
 		// At this point, the translator saw the license agreement.
 		// Save that information in a domain cookie
-		slug = sourceTitle.replace( /\s/, '-' );
+		slug = sourceTitle.replace( /\s/g, '-' );
 		$.cookie(
 			[ 'cx', sourceLanguage, targetLanguage, slug ].join( '_' ),
 			true, {
