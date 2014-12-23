@@ -10,6 +10,7 @@
 	"cx-error-server-connection": "Fazi : Ne c'haller ket kevreañ ouzh ar servijer.",
 	"cx-header-progressbar-text": "$1% troet",
 	"cx-header-translation-center": "Kreizenn dreiñ",
+	"cx-header-all-translations": "An holl droidigezhioù",
 	"cx-source-view-page": "gwelet ar bajenn",
 	"cx-publish-page-success": "Pajenn embannet war $1",
 	"cx-publish-page-error": "Fazi oc'h enrollañ ar bajenn.",
@@ -38,7 +39,7 @@
 	"cx-tools-link-add": "Ouzhpennañ ul liamm",
 	"cx-tools-link-remove": "Dilemel al liamm",
 	"cx-tools-mt-title": "Treiñ emgefre",
-	"cx-tools-mt-clear-translation": "Diverkañ an droidigezh",
+	"cx-tools-mt-clear-translation": "Diverkañ ar rannbennad",
 	"cx-tools-mt-restore": "Assevel",
 	"cx-tools-mt-not-available": "N'eus ket evit ar $1",
 	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
@@ -54,5 +55,6 @@
 	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ",
 	"cx-sourceselector-dialog-button-cancel": "Nullañ",
 	"cx-publish-captcha-title": "Goulenn surentez",
-	"cx-translation-filter-all-translations": "An holl droidigezhioù"
+	"cx-translation-filter-all-translations": "An holl droidigezhioù",
+	"cx-contributions-translation": "Troidigezh"
 }

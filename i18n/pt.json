@@ -113,5 +113,8 @@
 	"cx-save-draft-tooltip": "Os rascunhos são gravados automaticamente",
 	"cx-contributions": "Nova contribuição",
 	"cx-contributions-translation": "Tradução",
-	"cx-contributions-media": "Carregar ficheiro multimédia"
+	"cx-contributions-media": "Carregar ficheiro multimédia",
+	"cx-publishing-dialog-message": "A página $1 já existe. O presente conteúdo será substituído pela sua tradução. Pretende publicar ainda assim?",
+	"cx-publishing-dialog-keep-button": "Manter ambas as versões",
+	"cx-publishing-dialog-publish-anyway-button": "Publicar na mesma"
 }

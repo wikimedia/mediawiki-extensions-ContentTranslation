@@ -121,5 +121,8 @@
 	"cx-save-draft-tooltip": "טיוטות של תרגומים נשמרות אוטומטית",
 	"cx-contributions": "תרומה חדשה",
 	"cx-contributions-translation": "תרגום",
-	"cx-contributions-media": "העלאת קובץ מדיה"
+	"cx-contributions-media": "העלאת קובץ מדיה",
+	"cx-publishing-dialog-message": "הדף $1 כבר קיים. התוכן הנוכחי יוחלף בתרגום שלך. האם לפרסם אותו?",
+	"cx-publishing-dialog-keep-button": "לשמור את שתי הגרסאות",
+	"cx-publishing-dialog-publish-anyway-button": "לפרסם בכל־זאת"
 }

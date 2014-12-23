@@ -22,7 +22,7 @@
 	"cx-translation-add-translation": "+ Vertaling toevoegen",
 	"tag-contenttranslation": "Vertaling",
 	"cx-source-loading": "Bezig met laden van $1",
-	"cx-red-interlanguage-link-preference": "Vertaling van inhoud",
+	"cx-beta": "Vertaling van inhoud",
 	"cx-entrypoint-title": "Pagina vertalen naar het $1",
 	"cx-special-login-error": "U moet aangemeld zijn om in deze pagina te vertalen. [$1 Aanmelden]",
 	"cx-tools-instructions-text1": "Te vertalen alinea's toevoegen",
@@ -43,5 +43,6 @@
 	"cx-sourceselector-dialog-button-cancel": "Annuleren",
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Gepubliceerde vertalingen",
-	"cx-translation-filter-draft-translations": "Kladvertalingen"
+	"cx-translation-filter-draft-translations": "Kladvertalingen",
+	"cx-contributions-translation": "Vertaling"
 }
