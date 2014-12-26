@@ -32,9 +32,9 @@ class SpecialContentTranslation extends SpecialPage {
 
 		$token = implode( '_', array(
 			'cx',
+			preg_replace( "/\s/", "-", urldecode( $request->getVal( 'page' ) ) ),
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
-			preg_replace( "/\s/", "-", urldecode( $request->getVal( 'page' ) ) )
 		) );
 
 		// Direct access, isListed only affects Special:SpecialPages

@@ -735,7 +735,7 @@
 		// Save that information in a domain cookie
 		slug = sourceTitle.replace( /\s/g, '-' );
 		$.cookie(
-			[ 'cx', sourceLanguage, targetLanguage, slug ].join( '_' ),
+			[ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' ),
 			true, {
 				prefix: '',
 				// Use Domain cookie. Example: domain=.wikipedia.org
