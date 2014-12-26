@@ -85,5 +85,7 @@
 	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
 	"cx-contributions": "Nowy wkład",
 	"cx-contributions-translation": "Tłumaczenie",
-	"cx-contributions-media": "Prześlij plik multimedialny"
+	"cx-contributions-media": "Prześlij plik multimedialny",
+	"cx-publishing-dialog-message": "Strona $1 już istnieje. Obecna treść zostanie zastąpiona twoim tłumaczeniem. Czy mimo to chcesz je opublikować?",
+	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje"
 }
