@@ -11,7 +11,7 @@
 	},
 	"cx": "Translate page",
 	"cx-javascript": "This tool does not work without JavaScript.",
-	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License CC BY-SA 3.0 License] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL sufficient for CC BY-SA 3.0 attribution.",
+	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL sufficient for CC BY-SA 3.0 attribution.",
 	"cx-error-server-connection": "Error: Could not connect to the server.",
 	"cx-desc": "A tool that allows editors to translate pages from one language to another with the help of machine translation and other translation tools",
 	"cx-header-progressbar-text": "$1% translated",
