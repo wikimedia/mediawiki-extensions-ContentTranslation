@@ -62,6 +62,7 @@
 		}
 
 		this.listTranslations( translations );
+		this.filters.status = 'draft';
 		this.applyFilters( this.filters, translations );
 
 		sourceLanguages = $.map( translations, function ( e ) {
@@ -219,6 +220,10 @@
 				draft: mw.msg( 'cx-translation-filter-draft-translations' )
 			}
 		);
+
+		// By default select the 'draft' translations
+		// We expect users to look for draft translations to complete them as the regular behaviour
+		this.$statusFilter.val( 'draft' );
 
 		this.$sourceLanguageFilter = createSelect(
 			'translation-source-language-filter', {
