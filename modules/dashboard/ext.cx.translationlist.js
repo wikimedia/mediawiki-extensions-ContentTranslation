@@ -134,7 +134,8 @@
 	 */
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
 		var i, translation, $translation, $titleLanguageBlock, $translationLink, $sourceLanguage,
-			$targetLanguage, $imageBlock, $lastUpdated, $image, $status, $progressbar;
+			$targetLanguage, $imageBlock, $lastUpdated, $image, $status, $progressbar,
+			$actionsTrigger, $menu, $menuContainer, $deleteTranslation;
 
 		for ( i = 0; i < translations.length; i++ ) {
 
@@ -186,10 +187,29 @@
 				.text( $.uls.data.getAutonym( translation.targetLanguage ) );
 			$status = $( '<div>' )
 				.addClass( 'status status-' + translation.status )
-				.text( translation.status );
+				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
+
+			// If the translation is draft, allow deleting it.
+			if ( translation.status === 'draft' ) {
+				$actionsTrigger = $( '<div>' )
+					.addClass( 'actions-menu-trigger' )
+					.text( '…' );
+				$deleteTranslation = $( '<li>' )
+					.addClass( 'cx-discard-translation' )
+					.text( mw.msg( 'cx-discard-translation' ) )
+					.data( 'translation', translation );
+				$menu = $( '<ul>' )
+					.append( $deleteTranslation );
+				$menuContainer = $( '<div>' )
+					.addClass( 'actions-menu-container' )
+					.append( $actionsTrigger, $menu );
+			} else {
+				$menuContainer = $();
+			}
+
 			$titleLanguageBlock = $( '<div>' )
 				.addClass( 'title-language-block' )
-				.append( $translationLink, $sourceLanguage, $targetLanguage, $status );
+				.append( $translationLink, $sourceLanguage, $targetLanguage, $status, $menuContainer );
 			$translation.append(
 				$lastUpdated,
 				$imageBlock,
@@ -254,7 +274,10 @@
 	};
 
 	CXTranslationList.prototype.listen = function () {
-		var setFilter = $.proxy( this.setFilter, this );
+		var setFilter,
+			translationList = this;
+
+		setFilter = $.proxy( this.setFilter, this );
 
 		this.$statusFilter.on( 'change', function () {
 			setFilter( 'status', $( this ).val() );
@@ -267,6 +290,51 @@
 		this.$targetLanguageFilter.on( 'change', function () {
 			setFilter( 'targetLanguage', $( this ).val() );
 		} );
+
+		this.$container.on( 'click', '.cx-discard-translation', function () {
+			var translation = $( this ).data( 'translation' );
+
+			translationList.discardTranslation( $( this ).data( 'translation' ) )
+				.then( function ( response ) {
+					if ( response.cxdelete.result === 'success' ) {
+						translationList.markTranslationAsDeleted( translation );
+					}
+				} );
+		} );
+	};
+
+	/**
+	 * Mark the translation item in the translation list as deleted
+	 * @param {Object} translation
+	 */
+	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
+		$( '#' + translation.id )
+			.find( '.status' )
+			.removeClass( 'status-draft status-published' )
+			.addClass( 'status-deleted' )
+			.text( mw.msg( 'cx-translation-status-deleted' ) )
+			.end()
+			.find( '.actions-menu-container' )
+			.remove()
+			.end()
+			.find( '.source-title' )
+			.addClass( 'disabled' );
+	};
+
+	/*
+	 * Discard a translation.
+	 * @param {Object} translation
+	 * @return {jQuery.Promise}
+	 */
+	CXTranslationList.prototype.discardTranslation = function ( translation ) {
+		var apiParams = {
+			action: 'cxdelete',
+			from: translation.sourceLanguage,
+			to: translation.targetLanguage,
+			sourcetitle: translation.sourceTitle,
+		};
+
+		return new mw.Api().postWithToken( 'edit', apiParams );
 	};
 
 	CXTranslationList.prototype.setFilter = function ( type, value ) {

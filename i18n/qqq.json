@@ -127,5 +127,14 @@
 	"cx-contributions-media": "Dropdown item",
 	"cx-publishing-dialog-message": "Message that shows in the publishing options dialog when there is an existing page with the same title already published.\n\nParameters:\n* $1 - The link to the existing page with just the title as text.",
 	"cx-publishing-dialog-keep-button": "Button label for publishing options dialog. Clicking button preserves both the existing translation and the new translation.",
-	"cx-publishing-dialog-publish-anyway-button": "Button label for publishing options dialog. Clicking button overwrites the existing translation with the new translation."
+	"cx-publishing-dialog-publish-anyway-button": "Button label for publishing options dialog. Clicking button overwrites the existing translation with the new translation.",
+	"cx-discard-translation": "Menu label for discarding a translation shown in the Content Translation dashboard.",
+	"cx-translation-status-draft": "In progress status label for the translation in the Content Translation dashboard.",
+	"cx-translation-status-published": "Published status label for the translation in the Content Translation dashboard.",
+	"cx-translation-status-deleted": "Deleted status label for the translation in the Content Translation dashboard.",
+	"apihelp-cxdelete-description": "{{doc-apihelp-description|cxdelete}}",
+	"apihelp-cxdelete-param-from": "{{doc-apihelp-param|cxdelete|from}}",
+	"apihelp-cxdelete-param-to": "{{doc-apihelp-param|cxdelete|to}}",
+	"apihelp-cxdelete-param-sourcetitle": "{{doc-apihelp-param|cxdelete|sourcetitle}}",
+	"apihelp-cxdelete-example-1": "{{doc-apihelp-example|cx|cxdelete|query+contenttranslation}}"
 }

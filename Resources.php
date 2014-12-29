@@ -572,6 +572,10 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 		'cx-translation-filter-draft-translations',
 		'cx-translation-filter-from-any-language',
 		'cx-translation-filter-to-any-language',
+		'cx-discard-translation',
+		'cx-translation-status-draft',
+		'cx-translation-status-deleted',
+		'cx-translation-status-published',
 	),
 ) + $resourcePaths;
 

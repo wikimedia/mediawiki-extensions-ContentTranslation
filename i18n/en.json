@@ -124,5 +124,14 @@
 	"cx-contributions-media": "Upload media file",
 	"cx-publishing-dialog-message": "The page $1 already exists. The current content will be replaced by your translation. Do you want to publish anyway?",
 	"cx-publishing-dialog-keep-button": "Keep both versions",
-	"cx-publishing-dialog-publish-anyway-button": "Publish anyway"
+	"cx-publishing-dialog-publish-anyway-button": "Publish anyway",
+	"cx-discard-translation": "Discard translation",
+	"cx-translation-status-draft": "In progress",
+	"cx-translation-status-published": "Published",
+	"cx-translation-status-deleted": "Deleted",
+	"apihelp-cxdelete-description": "Delete a translation in draft stage, created using the content translation extension.",
+	"apihelp-cxdelete-param-from": "The source language code.",
+	"apihelp-cxdelete-param-to": "The target language code.",
+	"apihelp-cxdelete-param-sourcetitle": "The title of the source page.",
+	"apihelp-cxdelete-example-1": "Delete draft associated with give language pair and title"
 }
