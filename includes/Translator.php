@@ -38,7 +38,8 @@ class Translator {
 				'translator_translation_id = translation_id',
 				'translator_user_id' => $this->getGlobalUserId()
 			),
-			__METHOD__
+			__METHOD__,
+			array( 'ORDER BY' => 'translation_last_updated_timestamp DESC' )
 		);
 
 		$result = array();
