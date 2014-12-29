@@ -96,7 +96,7 @@
 	"cx-publish-captcha-title": "Security question",
 	"cx-translation-filter-all-translations": "All translations",
 	"cx-translation-filter-published-translations": "Published translations",
-	"cx-translation-filter-draft-translations": "Draft translations",
+	"cx-translation-filter-draft-translations": "In progress translations",
 	"cx-translation-filter-from-any-language": "From any language",
 	"cx-translation-filter-to-any-language": "To any language",
 	"cx-create-new-translation": "Create new translation",
