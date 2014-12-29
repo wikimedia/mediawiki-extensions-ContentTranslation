@@ -730,17 +730,20 @@
 	 * @param {string} sourceTitle Source title
 	 */
 	function setCXToken( sourceLanguage, targetLanguage, sourceTitle ) {
-		var slug, date = new Date();
-		// At this point, the translator saw the license agreement.
-		// Save that information in a domain cookie
+		var slug, now;
+
+		now = new Date();
 		slug = sourceTitle.replace( /\s/g, '-' );
+
+		// At this point, the translator saw the license agreement.
+		// Save that information in a domain cookie.
 		$.cookie(
 			[ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' ),
 			true, {
 				prefix: '',
 				// Use Domain cookie. Example: domain=.wikipedia.org
 				domain: '.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ),
-				expires: date.setTime( date.getTime() + ( 5 * 60 * 1000 ) ) // 5 minutes from now
+				expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
 			}
 		);
 	}
