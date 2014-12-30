@@ -721,8 +721,8 @@
 
 	/**
 	 * Set CX Token in cookie.
-	 * This token gurantees that the translator read the license agreement
-	 * and starting a translation from CX dashboard enabled as beta feature
+	 * This token guarantees that the translator read the license agreement
+	 * and starts translating from CX dashboard enabled as beta feature
 	 * from any wiki under the top domain.
 	 *
 	 * @param {string} sourceLanguage Source language
@@ -730,22 +730,21 @@
 	 * @param {string} sourceTitle Source title
 	 */
 	function setCXToken( sourceLanguage, targetLanguage, sourceTitle ) {
-		var slug, now;
+		var slug, now, name, options;
 
 		now = new Date();
 		slug = sourceTitle.replace( /\s/g, '-' );
+		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
+		options = {
+			prefix: '',
+			// Use Domain cookie. Example: domain=.wikipedia.org
+			domain: '.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ),
+			expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
+		};
 
 		// At this point, the translator saw the license agreement.
 		// Save that information in a domain cookie.
-		$.cookie(
-			[ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' ),
-			true, {
-				prefix: '',
-				// Use Domain cookie. Example: domain=.wikipedia.org
-				domain: '.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ),
-				expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
-			}
-		);
+		$.cookie( name, true, options );
 	}
 
 	/**
