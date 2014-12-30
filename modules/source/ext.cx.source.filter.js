@@ -12,8 +12,11 @@
 	'use strict';
 
 	/**
-	 * Fetch the source content filter configuration for the given
-	 * language pairs
+	 * Fetch the source content filter configuration
+	 * for the given language pairs.
+	 * @param {string} sourceLanguage
+	 * @param {string} targetLanguage
+	 * @return {jQuery.Promise}
 	 */
 	function fetchFilterConfiguration( sourceLanguage, targetLanguage ) {
 		return $.getJSON( mw.config.get( 'wgExtensionAssetsPath' ) +
@@ -38,18 +41,20 @@
 	function isInlineTemplate( $template ) {
 		var aboutAttr;
 
-		// we need to identify whether the template is a section or inline section.
-		// In CX the html elements that are considered as a section is defined in
-		// mw.cx.getSectionSelector()
+		// We need to identify whether the template is a section or an inline element.
+		// In CX the HTML elements that are considered as a section are defined in
+		// mw.cx.getSectionSelector().
 		if ( $template.is( mw.cx.getSectionSelector() ) ) {
 			return false;
 		}
+
 		// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
 		aboutAttr = $template.attr( 'about' );
+
 		if ( aboutAttr ) {
-			// In a page, there will n number of elements with same about attribute
-			// For templates, n is 2, from observation. There can be templates without about
-			// attribute, but such templates are self contained, and already handled above.
+			// In a page, there will n number of elements with the same "about" attribute.
+			// For templates, n is 2, from observation. There can be templates without an "about"
+			// attribute, but such templates are self-contained, and already handled above.
 			return !$( '[about="' + aboutAttr + '"]:eq( 1 )' ).is( mw.cx.getSectionSelector() );
 		}
 
@@ -57,7 +62,7 @@
 	}
 
 	/**
-	 * Filter the templates present in source article based on the configuration
+	 * Filter the templates present in the source article based on the configuration.
 	 * @param {Object} configuration
 	 */
 	CXSourceFilter.prototype.filter = function ( configuration ) {
@@ -68,17 +73,19 @@
 				$template = $( this );
 
 			mwData = $template.data( 'mw' );
+
 			if ( !mwData || mwData.parts.length > 1 ) {
-				// Either the template is missing mw data or having multiple
-				// parts. At present, we cannot handle them.
-				// An example: {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
+				// Either the template is missing mw data or having multiple parts.
+				// At present, we cannot handle them.
+				// An example:
+				// {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
 				// in enwiki:Debian, Timeline table.
 				mw.log( '[CX] Skipping template!' );
+
 				return;
 			}
 
-			templateName = mwData.parts[ 0 ].template.target.wt;
-			templateName = templateName.trim();
+			templateName = mwData.parts[ 0 ].template.target.wt.trim();
 
 			// Normalize the name
 			title = mw.Title.newFromText( templateName );
@@ -107,6 +114,7 @@
 				sourceFilter.removeTemplate( $template );
 			}
 		} );
+
 		mw.hook( 'mw.cx.source.ready' ).fire();
 	};
 
@@ -116,11 +124,13 @@
 	 */
 	CXSourceFilter.prototype.removeTemplate = function ( $template ) {
 		var templateFragments;
+
 		// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
-		// Template information is stored in data-parsoid attribute with an element with
-		// mw:Transcusion type, while the template rendering can be a different html element.
+		// Template information is stored in the "data-parsoid" attribute with an element with
+		// mw:Transcusion type, while the template rendering can be a different HTML element.
 		// They are connected using 'about' attribute.
 		templateFragments = $template.attr( 'about' );
+
 		// Remove the associated template renderings too.
 		if ( templateFragments ) {
 			$( '[about="' + templateFragments + '"]' ).remove();
@@ -131,14 +141,17 @@
 
 	CXSourceFilter.prototype.listen = function () {
 		var filter = this;
+
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
-			fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage ).done( function ( configuration ) {
-				filter.filter( configuration );
-			} ).fail( function () {
-				// If the configuration file is not present, or not able
-				// to load, filter all.
-				filter.filter();
-			} );
+			fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage )
+				.done( function ( configuration ) {
+					filter.filter( configuration );
+				} )
+				.fail( function () {
+					// If the configuration file is not present, or not able
+					// to load, filter all.
+					filter.filter();
+				} );
 		} );
 	};
 
@@ -152,7 +165,6 @@
 					'cxSourceFilter', ( data = new CXSourceFilter( this ) )
 				);
 			}
-
 		} );
 	};
 
