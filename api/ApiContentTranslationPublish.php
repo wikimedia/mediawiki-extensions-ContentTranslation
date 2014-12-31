@@ -183,7 +183,9 @@ class ApiContentTranslationPublish extends ApiBase {
 				$params['from'], $params['sourcetitle']
 			),
 			'targetURL' => ContentTranslation\SiteMapper::getPageURL(
-				$params['to'], $params['title']
+				$params['to'],
+				// TODO: Construction of this URL should be configurable
+				'User:' . $this->getUser()->getName() . '/' . $params['title']
 			),
 			'status' => $params['status'],
 			'progress' => $params['progress'],
