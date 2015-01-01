@@ -404,38 +404,44 @@
 			if ( !sourcePage ) {
 				selector.$translateFromButton.prop( 'disabled', true );
 				selector.showSourceTitleError( sourceLanguage );
-			} else {
-				selector.$translateFromButton.prop( 'disabled', false );
-				// Check to see if there is a matching article in the target wiki.
-				// The matching article may or may not have the same title.
-				selector.checkForEquivalentTargetPage(
-					sourceLanguage,
-					targetLanguage,
-					sourceTitle
-				)
-					.done( function ( equivalentTargetPage ) {
-						// Check to see if the specified target title is in use.
-						// Must be nested inside check for matching target article
-						// because first possible error requires results of both API calls.
-						selector.checkForTitle( targetLanguage, targetTitle )
-							.done( function ( existingTargetTitle ) {
-								// If there is a matching target page and
-								// the specified target title is in use
-								if ( equivalentTargetPage && existingTargetTitle ) {
-									selector.showPageExistsAndTitleInUseError(
-										equivalentTargetPage,
-										existingTargetTitle
-									);
-									// If there is just a matching target page
-								} else if ( equivalentTargetPage ) {
-									selector.showPageExistsError( equivalentTargetPage );
-									// If the specified target title is in use
-								} else if ( existingTargetTitle ) {
-									selector.showTitleInUseError( existingTargetTitle );
-								}
-							} );
-					} );
+
+				return;
 			}
+
+			selector.$translateFromButton.prop( 'disabled', false );
+
+			// Check to see if there is a matching article in the target wiki.
+			// The matching article may or may not have the same title.
+			selector.checkForEquivalentTargetPage(
+				sourceLanguage,
+				targetLanguage,
+				sourceTitle
+			).done( function ( equivalentTargetPage ) {
+				// Check to see if the specified target title is in use.
+				// Must be nested inside check for matching target article
+				// because first possible error requires results of both API calls.
+				selector.checkForTitle(
+					targetLanguage,
+					targetTitle
+				).done( function ( existingTargetTitle ) {
+					// If there is a matching target page and
+					// the specified target title is in use
+					if ( equivalentTargetPage && existingTargetTitle ) {
+						selector.showPageExistsAndTitleInUseError(
+							equivalentTargetPage,
+							existingTargetTitle
+						);
+
+					// If there is just a matching target page
+					} else if ( equivalentTargetPage ) {
+						selector.showPageExistsError( equivalentTargetPage );
+
+					// If the specified target title is in use
+					} else if ( existingTargetTitle ) {
+						selector.showTitleInUseError( existingTargetTitle );
+					}
+				} );
+			} );
 		} );
 	};
 
