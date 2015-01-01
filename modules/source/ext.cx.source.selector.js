@@ -834,13 +834,14 @@
 	 * Render the CXSourceSelector dialog.
 	 */
 	CXSourceSelector.prototype.render = function () {
-		var $actions,
-			$sourceLanguageLabel,
-			$heading, $targetLanguageLabel,
+		var $heading,
+			$sourceLanguageLabel, $sourceLanguageLabelContainer, $sourceLanguageContainer,
+			$targetLanguageLabel, $targetLanguageLabelContainer, $targetLanguageContainer,
+			$sourceTitleInputContainer, $targetTitleInputContainer,
 			$sourceInputs, $targetInputs,
 			$messageText,
 			translateButtonLabel,
-			$license,
+			$actions, $license,
 			cxSourceSelector = this;
 
 		this.$dialog = $( '<div>' )
@@ -851,11 +852,14 @@
 			.text( mw.msg( 'cx-sourceselector-dialog-new-translation' ) );
 
 		$sourceLanguageLabel = $( '<label>' )
-			.addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-source-language-label' ) );
 
+		$sourceLanguageLabelContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__language-label' )
+			.append( $sourceLanguageLabel );
+
 		this.$sourceLanguage = $( '<button>' )
-			.addClass( 'cx-sourceselector-dialog__language mw-ui-button' );
+			.addClass( 'mw-ui-button' );
 
 		this.$sourceLanguage.uls( {
 			languages: getAutonyms( this.sourceLanguages ),
@@ -869,17 +873,27 @@
 			compact: true
 		} );
 
+		$sourceLanguageContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__language' )
+			.append( this.$sourceLanguage );
+
 		$targetLanguageLabel = $( '<label>' )
-			.addClass( 'cx-sourceselector-dialog__language-label' )
 			.text( mw.msg( 'cx-sourceselector-dialog-target-language-label' ) );
 
+		$targetLanguageLabelContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__language-label' )
+			.append( $targetLanguageLabel );
+
 		this.$targetLanguage = $( '<button>' )
-			.addClass( 'cx-sourceselector-dialog__language mw-ui-button' );
+			.addClass( 'mw-ui-button' );
+
+		$targetLanguageContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__language' )
+			.append( this.$targetLanguage );
 
 		this.setDefaultLanguages();
 
 		this.$sourceTitleInput = $( '<input>' )
-			.addClass( 'cx-sourceselector-dialog__title' )
 			.attr( {
 				name: 'sourceTitle',
 				type: 'search',
@@ -887,27 +901,34 @@
 				placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
 			} );
 
-		this.$targetTitleInput = $( '<input>' )
+		$sourceTitleInputContainer = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
+			.append( this.$sourceTitleInput );
+
+		this.$targetTitleInput = $( '<input>' )
 			.attr( {
 				name: 'targetTitle',
 				placeholder: mw.msg( 'cx-sourceselector-dialog-target-title-placeholder' )
 			} );
 
+		$targetTitleInputContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-dialog__title' )
+			.append( this.$targetTitleInput );
+
 		$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__source-inputs' )
 			.append(
-				$sourceLanguageLabel,
-				this.$sourceLanguage,
-				this.$sourceTitleInput
+				$sourceLanguageLabelContainer,
+				$sourceLanguageContainer,
+				$sourceTitleInputContainer
 			);
 
 		$targetInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__target-inputs' )
 			.append(
-				$targetLanguageLabel,
-				this.$targetLanguage,
-				this.$targetTitleInput
+				$targetLanguageLabelContainer,
+				$targetLanguageContainer,
+				$targetTitleInputContainer
 			);
 
 		this.$messageBar = $( '<div>' )
