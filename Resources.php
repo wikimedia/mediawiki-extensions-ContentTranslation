@@ -508,7 +508,6 @@ $wgResourceModules['ext.cx.redlink'] = array(
 		'cx-entrypoint-title',
 	),
 	'dependencies' => array(
-		'ext.cx.entrypoint',
 		'mediawiki.jqueryMsg',
 	),
 ) + $resourcePaths;

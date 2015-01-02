@@ -119,7 +119,7 @@
 			return;
 		}
 
-		dependencies = [];
+		dependencies = [ 'ext.cx.entrypoint' ];
 		if ( !( suggestedTargetLanguages.length === 1 &&
 			suggestedTargetLanguages[ 0 ] === mw.config.get( 'wgUserLanguage' )
 		) ) {
