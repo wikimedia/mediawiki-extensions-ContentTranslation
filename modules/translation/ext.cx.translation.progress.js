@@ -149,7 +149,7 @@
 			var weights;
 
 			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-				mw.hook( 'mw.cx.save' ).fire();
+				mw.hook( 'mw.cx.translation.save' ).fire();
 				return;
 			}
 

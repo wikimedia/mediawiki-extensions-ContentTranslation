@@ -30,10 +30,10 @@
 			if ( weights && weights.any === 0 ) {
 				return;
 			}
-			mw.hook( 'mw.cx.save' ).fire();
+			mw.hook( 'mw.cx.translation.save' ).fire();
 		};
 
-		mw.hook( 'mw.cx.save' ).add( $.proxy( this.save, this ) );
+		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 		// Save the draft on progress events, but not in all progress
 		// events. Use a few seconds delay.
 		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, save ) );
@@ -42,7 +42,7 @@
 		$( document ).on( 'keydown', function ( e ) {
 			if ( e.ctrlKey && e.which === 83 ) {
 				e.preventDefault();
-				mw.hook( 'mw.cx.save' ).fire();
+				mw.hook( 'mw.cx.translation.save' ).fire();
 				return false;
 			}
 		} );
@@ -122,7 +122,7 @@
 		} ).done( function () {
 			mw.hook( 'mw.cx.translation.saved' ).fire();
 			timer = setInterval( function () {
-				mw.hook( 'mw.cx.save' ).fire();
+				mw.hook( 'mw.cx.translation.save' ).fire();
 			}, 5 * 60 * 1000 );
 		} ).fail( function () {
 			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
