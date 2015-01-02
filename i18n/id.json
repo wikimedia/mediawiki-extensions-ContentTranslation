@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"C5st4wr6ch",
-			"Ahdan"
+			"Ahdan",
+			"Macofe"
 		]
 	},
-	"cx-red-interlanguage-link-preference-beta-desc": "Menunjukkan pranala merah ke bahasa Anda dalam daftar link bahasa jika halaman belum diterjemahkan ke bahasa Anda dan membantu menerjemahkan halaman ke bahasa Anda menggunakan antarmuka terjemahan yang nyaman.",
 	"cx-special-login-error": "Anda harus masuk log untuk menerjemahkan dalam halaman ini.",
-	"cx-tools-mt-provider-title": "Dari $1"
+	"cx-tools-mt-provider-title": "Dari $1",
+	"cx-contributions-translation": "Terjemahan"
 }

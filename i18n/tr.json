@@ -35,5 +35,6 @@
 	"cx-sourceselector-dialog-button-start-translation": "Çevirmeye başla",
 	"cx-sourceselector-dialog-source-language-label": "Kaynak:",
 	"cx-publish-captcha-title": "Güvenlik sorusu",
+	"cx-translation-filter-draft-translations": "Devam eden çeviriler",
 	"apihelp-cxpublish-param-to": "Hedef dil kodu."
 }

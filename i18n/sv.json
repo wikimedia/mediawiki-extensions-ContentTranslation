@@ -93,7 +93,7 @@
 	"cx-publish-captcha-title": "Säkerhetsfråga",
 	"cx-translation-filter-all-translations": "Alla översättningar",
 	"cx-translation-filter-published-translations": "Publicerade översättningar",
-	"cx-translation-filter-draft-translations": "Utkastsöversättningar",
+	"cx-translation-filter-draft-translations": "Pågående översättningar",
 	"cx-translation-filter-from-any-language": "Från alla språk",
 	"cx-translation-filter-to-any-language": "Till alla språk",
 	"cx-create-new-translation": "Skapa ny översättning",
@@ -119,5 +119,8 @@
 	"cx-save-draft-tooltip": "Översättningsutkast sparas automatiskt.",
 	"cx-contributions": "Nytt bidrag",
 	"cx-contributions-translation": "Översättning",
-	"cx-contributions-media": "Ladda upp en mediefil"
+	"cx-contributions-media": "Ladda upp en mediefil",
+	"cx-publishing-dialog-message": "Sidan $1 finns redan. Det nuvarande innehållet kommer att ersättas med din översättning. Vill du publicera ändå?",
+	"cx-publishing-dialog-keep-button": "Håll båda versioner",
+	"cx-publishing-dialog-publish-anyway-button": "Publicera ändå"
 }
