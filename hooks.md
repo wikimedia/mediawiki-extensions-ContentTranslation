@@ -139,3 +139,11 @@ Fired after every section in the translation column has been filled with a place
 ## mw.cx.translation.title.change
 
 Fired when the title for the translation is changed. Check for existing title listens for this.
+
+## mw.cx.save
+
+Fired to request saving a translation as a draft.
+
+## mw.cx.translation.saved
+
+Fired after a translation was successfully saved as a draft.
