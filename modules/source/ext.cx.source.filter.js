@@ -115,28 +115,58 @@
 			}
 		} );
 
+		// Remove <timeline> sections.
+		// Maybe in the future they can be adapted.
+		$( '[typeof*="mw:Extension/timeline"]' ).each( function () {
+			mw.log( '[CX] Removing timeline.' );
+			sourceFilter.removeTimeline( $( this ) );
+		} );
+
 		mw.hook( 'mw.cx.source.ready' ).fire();
 	};
 
 	/**
-	 * Remove a template
-	 * @param {jQuery} $template
+	 * Remove a template.
+	 * @param {jQuery} $template The main element of the template.
 	 */
 	CXSourceFilter.prototype.removeTemplate = function ( $template ) {
-		var templateFragments;
+		this.removeRelatedElements( $template );
+	};
 
-		// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
-		// Template information is stored in the "data-parsoid" attribute with an element with
-		// mw:Transcusion type, while the template rendering can be a different HTML element.
-		// They are connected using 'about' attribute.
-		templateFragments = $template.attr( 'about' );
+	/**
+	 * Remove a timeline.
+	 * @param {jQuery} $timelineMap The <map> element of the timeline.
+	 */
+	CXSourceFilter.prototype.removeTimeline = function ( $timelineMap ) {
+		this.removeRelatedElements( $timelineMap );
+	};
 
-		// Remove the associated template renderings too.
-		if ( templateFragments ) {
-			$( '[about="' + templateFragments + '"]' ).remove();
+	/**
+	 * Remove a DOM element and all elements that are related to it
+	 * according to the "about" attribute.
+	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content .
+	 * @param {jQuery} $element
+	 */
+	CXSourceFilter.prototype.removeRelatedElements = function ( $element ) {
+		var about;
+
+		// Templates and some other special elements, such as <timeline>s,
+		// are represented as DOM elements with a "data-parsoid" attribute,
+		// and typeof attributes like mw:Transclusion or mw:Extensions.
+		// Their actual content can be in a different DOM element.
+		// All the related DOM have the 'about' attribute with the same value.
+		about = $element.attr( 'about' );
+
+		if ( about ) {
+			// Remove all the related elements.
+			// This is supposed to include the main element,
+			// because all the elements in the group are
+			// supposed to have the same "about" value.
+			this.$container.find( '[about="' + about + '"]' ).remove();
+		} else {
+			// If there is no about value, just remove this element.
+			$element.remove();
 		}
-
-		$template.remove();
 	};
 
 	CXSourceFilter.prototype.listen = function () {
