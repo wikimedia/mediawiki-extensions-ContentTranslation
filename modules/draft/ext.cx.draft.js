@@ -64,10 +64,11 @@
 			translationid: this.draftId,
 			format: 'json'
 		} ).done( function ( response ) {
-			var translations, translation, draftContent;
-			translations = response.query.contenttranslation.translations;
-			translation = translations[ 0 ].translation;
+			var translation, draftContent;
+
+			translation = response.query.contenttranslation.translation;
 			draftContent = translation.draftContent;
+
 			self.$draft = $( draftContent );
 			self.restore();
 		} );

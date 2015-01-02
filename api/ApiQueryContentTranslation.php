@@ -33,38 +33,33 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
+		$user = $this->getUser();
 
 		if ( $params['translationid'] ) {
-			$translation = ContentTranslation\Translation::newFromId( $params['translationid'] );
-			$result->addValue(
-				array( 'query', 'contenttranslation' ),
-				'translations',
-				$translation
-			);
-		} else {
-			if ( !isset( $params['user'] ) ) {
-				$this->dieUsageMsg( array( 'missingparam', 'user' ) );
+			$translator = new ContentTranslation\Translator( $user );
+			$translation = $translator->getTranslation( $params['translationid'] );
+			if ( $translation !== null ) {
+				$result->addValue(
+					array( 'query', 'contenttranslation' ),
+					'translation',
+					$translation->translation
+				);
+			} else {
+				$this->dieUsage( 'Draft does not exist', $params['translationid']  );
 			}
-			$translator = new ContentTranslation\Translator( User::newFromName( $params['user'] ) );
+		} else {
+			$translator = new ContentTranslation\Translator( $user );
 			$translations = $translator->getAllTranslations();
 			$result->addValue(
 				array( 'query', 'contenttranslation' ),
 				'translations',
 				$translations
 			);
-			$result->addValue(
-				array( 'query', 'contenttranslation' ),
-				'translator',
-				$params['user']
-			);
 		}
 	}
 
 	public function getAllowedParams() {
 		$allowedParams = array(
-			'user' => array(
-				ApiBase::PARAM_TYPE => 'string',
-			),
 			'translationid' => array(
 				ApiBase::PARAM_TYPE => 'string',
 			),/*
@@ -81,7 +76,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 	protected function getExamplesMessages() {
 		return array(
-			'action=query&list=contenttranslation&user=Santhosh' =>
+			'action=query&list=contenttranslation' =>
 				'apihelp-query+contenttranslation-example-1',
 			'action=query&list=contenttranslation&translationid=94' =>
 				'apihelp-query+contenttranslation-example-2',

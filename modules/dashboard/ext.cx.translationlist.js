@@ -37,9 +37,7 @@
 	CXTranslationList.prototype.init = function () {
 		var translationList = this;
 
-		this.getTranslations(
-			mw.user.getName()
-		).done( function ( response ) {
+		this.getTranslations().done( function ( response ) {
 			translationList.getTranslationsCallback( response.query.contenttranslation.translations );
 		} );
 	};
@@ -100,16 +98,14 @@
 
 	/**
 	 * Get all the translations of given user
-	 * @param {string} username User name
 	 * @return {jQuery.Promise}
 	 */
-	CXTranslationList.prototype.getTranslations = function ( username ) {
+	CXTranslationList.prototype.getTranslations = function () {
 		var api = new mw.Api();
 
 		return api.get( {
 			action: 'query',
 			list: 'contenttranslation',
-			user: username,
 			format: 'json'
 		} );
 	};

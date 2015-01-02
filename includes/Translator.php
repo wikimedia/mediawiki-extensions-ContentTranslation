@@ -27,6 +27,33 @@ class Translator {
 	}
 
 	/**
+	 * Get a translation by translation id for the translator
+	 * @return Translation
+	 */
+	public function getTranslation( $translationId ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$rows = $dbr->select(
+			array( 'cx_translations', 'cx_translators', 'cx_drafts' ),
+			'*',
+			array(
+				'translator_translation_id' => $translationId,
+				'draft_id' => $translationId,
+				'translator_user_id' => $this->getGlobalUserId()
+			),
+			__METHOD__
+		);
+
+		$result = array();
+		foreach ( $rows as $row ) {
+			$result[] = Translation::newFromRow( $row );
+		}
+		if ( count( $result ) > 0 ) {
+			return $result[0];
+		}
+		return null;
+	}
+
+	/**
 	 * @return Translation[]
 	 */
 	public function getAllTranslations() {
