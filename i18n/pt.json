@@ -98,7 +98,7 @@
 	"cx-translation-filter-to-any-language": "Para qualquer idioma",
 	"cx-create-new-translation": "Criar nova tradução",
 	"cx-create-new-translation-desc": "Cria páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Tradu%C3%A7%C3%A3o/Traduzindo Saiba mais]",
-	"apihelp-cxpublish-description": "Grava uma página criada usando a extensão de tradução de conteúdo.",
+	"apihelp-cxpublish-description": "Gravar uma página criada usando a extensão de tradução de conteúdo.",
 	"apihelp-cxpublish-param-title": "O título da página a executar as ações.",
 	"apihelp-cxpublish-param-html": "O conteúdo a gravar.",
 	"apihelp-cxpublish-param-from": "O código-fonte do idioma.",
