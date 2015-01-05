@@ -53,6 +53,7 @@
 	"cx-tools-mt-provider-title": "$1 થી",
 	"cx-tools-mt-not-available": "$1 માટે પ્રાપ્ત નથી",
 	"cx-tools-mt-dont-use": "મશીન ભાષાંતર ન વાપરો",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 શ્રેણી|$1 શ્રેણીઓ|0=શ્રેણીવિહિન}}",
 	"cx-stats-title": "ભાષાંતર આંકડાઓ",
 	"cx-stats-page-title": "પાનું",
 	"cx-stats-from": "સ્ત્રોત ભાષા",
@@ -73,6 +74,7 @@
 	"cx-sourceselector-dialog-target-language-label": "લક્ષ્ય:",
 	"cx-sourceselector-dialog-source-title-placeholder": "સ્ત્રોત પાનાં માટે શોધો",
 	"cx-sourceselector-dialog-target-title-placeholder": "ભાષાંતર શીર્ષક ‍(જો સ્ત્રોત કરતાં અલગ હોય તો)",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "આ શીર્ષક [$1 $2] માં [$3 અલગ પાનાં] તરીકે પહેલેથી હાજર છે જ",
 	"cx-sourceselector-dialog-error-page-exists": "$2 પર પાનું [$1 પહેલેથી અસ્તિત્વમાં છે]",
 	"cx-sourceselector-dialog-error-title-in-use": "નવાં પાનાંનું શીર્ષક છે [$1 પહેલેથી હાજર છે]",
 	"cx-sourceselector-dialog-error-no-source-article": "ભાષાંતર કરવા માટેનું પાનું $1 માં અસિતત્વ ધરાવતું નથી",
@@ -96,5 +98,6 @@
 	"cx-contributions": "નવું યોગદાન",
 	"cx-contributions-translation": "ભાષાંતર",
 	"cx-contributions-media": "મિડિઆ ફાઇલ અપલોડ કરો",
-	"cx-publishing-dialog-keep-button": "બંને આવૃત્તિઓ રાખો"
+	"cx-publishing-dialog-keep-button": "બંને આવૃત્તિઓ રાખો",
+	"cx-publishing-dialog-publish-anyway-button": "તો પણ પ્રકાશિત કરો"
 }

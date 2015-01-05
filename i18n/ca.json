@@ -9,7 +9,8 @@
 			"QuimGil",
 			"Alvaro Vidal-Abarca",
 			"Macofe",
-			"Davidpar"
+			"Davidpar",
+			"Adriabages"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -98,7 +99,7 @@
 	"cx-publish-captcha-title": "Pregunta de seguretat",
 	"cx-translation-filter-all-translations": "Totes les traduccions",
 	"cx-translation-filter-published-translations": "Traduccions publicades",
-	"cx-translation-filter-draft-translations": "Esborranys de traducció",
+	"cx-translation-filter-draft-translations": "Traduccions en curs",
 	"cx-translation-filter-from-any-language": "Des de qualsevol idioma",
 	"cx-translation-filter-to-any-language": "A qualsevol idioma",
 	"cx-create-new-translation": "Crea una nova traducció",

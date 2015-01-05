@@ -108,7 +108,7 @@
 	"apihelp-cxpublish-param-categories": "Kategoriene som skal legges til på den publiserte siden.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (når det lagres med en captcha respons).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar på captcha (når det lagres med en captcha respons).",
-	"apihelp-query+contenttranslation-description": "Spør Content Translation databasen om oversettelser",
+	"apihelp-query+contenttranslation-description": "Spør Content Translation-databasen om oversettelser.",
 	"apihelp-query+contenttranslation-param-user": "Brukernavn for oversetter",
 	"apihelp-query+contenttranslation-param-translationid": "Oversettelsesid",
 	"apihelp-query+contenttranslation-example-1": "Hent oversettelser som er startet av Santhosh.",
@@ -121,5 +121,5 @@
 	"cx-contributions-media": "Last opp mediefil",
 	"cx-publishing-dialog-message": "Siden $1 finnes allerede. Det eksisterende innholdet vil bli erstattet av din oversettelse. Vil du likevel publisere?",
 	"cx-publishing-dialog-keep-button": "Behold begge versjoner",
-	"cx-publishing-dialog-publish-anyway-button": "Publiser likevel"
+	"cx-publishing-dialog-publish-anyway-button": "Publiser allikevel"
 }

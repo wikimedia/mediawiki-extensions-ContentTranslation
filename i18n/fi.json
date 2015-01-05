@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nike",
-			"Pxos"
+			"Pxos",
+			"MrTapsa"
 		]
 	},
 	"cx": "Sivun kääntäminen",
@@ -77,7 +78,7 @@
 	"cx-sourceselector-dialog-target-title-placeholder": "Käännöksen otsikko (jos eroaa lähdekielestä)",
 	"cx-translation-filter-all-translations": "Kaikki käännökset",
 	"cx-translation-filter-published-translations": "Julkaistut käännökset",
-	"cx-translation-filter-draft-translations": "Julkaisemattomat käännökset",
+	"cx-translation-filter-draft-translations": "Käynnissä olevat käännökset",
 	"cx-translation-filter-from-any-language": "Mistä tahansa kielestä",
 	"cx-translation-filter-to-any-language": "Mihin tahansa kieleen",
 	"cx-create-new-translation": "Luo uusi käännös",
