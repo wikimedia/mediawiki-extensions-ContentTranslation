@@ -112,7 +112,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-query+contenttranslation-description": "שאילתה לאחזור תרגומים ממסד הנתונים של תרגום תוכן.",
-	"apihelp-query+contenttranslation-param-user": "שם המשתמש של המתרגם.",
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים של Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",

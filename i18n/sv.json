@@ -110,7 +110,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
 	"apihelp-query+contenttranslation-description": "Fråga Content Translation-databasen om översättningar.",
-	"apihelp-query+contenttranslation-param-user": "Översättarens användarnamn.",
 	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",
 	"apihelp-query+contenttranslation-example-1": "Få översättningar påbörjade av Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Hämta översättningsutkast efter id.",

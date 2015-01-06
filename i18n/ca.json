@@ -116,7 +116,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "Identificació de captcha (en cas de guardar-lo amb una resposta de captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respon el captcha (en cas de guardar-ho amb una resposta de captcha).",
 	"apihelp-query+contenttranslation-description": "Base de dades de Content Translation de llenguatge de consulta.",
-	"apihelp-query+contenttranslation-param-user": "Nom d'usuari del traductor.",
 	"apihelp-query+contenttranslation-param-translationid": "Identificació de la traducció.",
 	"apihelp-query+contenttranslation-example-1": "Obtén les traduccions iniciades per Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Obtén l'esborrany de traduccions per identificació.",

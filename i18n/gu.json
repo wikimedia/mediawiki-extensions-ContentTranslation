@@ -89,7 +89,6 @@
 	"apihelp-cxpublish-param-from": "સ્ત્રોત ભાષા કોડ.",
 	"apihelp-cxpublish-param-to": "લક્ષ્ય ભાષા કોડ.",
 	"apihelp-cxpublish-param-sourcetitle": "સ્ત્રોત પાનાનું શીર્ષક.",
-	"apihelp-query+contenttranslation-param-user": "અનુવાદકનું સભ્યનામ.",
 	"apihelp-query+contenttranslation-param-translationid": "ભાષાંતર ઓળખ.",
 	"apihelp-query+contenttranslation-example-1": "સંતોષ દ્વારા શરુ કરેલ ભાષાંતરો મેળવો.",
 	"apihelp-query+contenttranslation-example-2": "ઓળખ વડે ભાષાંતરો મેળવો.",

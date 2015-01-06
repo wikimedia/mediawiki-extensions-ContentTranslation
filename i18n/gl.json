@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Fitoschido"
+			"Fitoschido",
+			"Elisardojm"
 		]
 	},
 	"cx": "Traducir a páxina",
@@ -17,12 +18,12 @@
 	"tag-contenttranslation": "Tradución de contido",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
-	"cx-tools-instructions-text1": "Engada parágrafos á tradución",
-	"cx-tools-instructions-text2": "Non é necesario engadilos todos",
-	"cx-tools-instructions-text3": "Faga que o texto soe natural",
-	"cx-tools-instructions-text4": "As traducións automáticas son útiles, pero debe corrixir os erros e confirmar que a tradución é precisa.",
-	"cx-tools-instructions-text5": "Publicar a tradución",
-	"cx-tools-instructions-text6": "Cando considere que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
+	"cx-tools-instructions-text1": "{{GENDER:|Engada}} parágrafos á tradución",
+	"cx-tools-instructions-text2": "{{GENDER:|Non}} é necesario engadilos todos",
+	"cx-tools-instructions-text3": "{{GENDER:|Faga}} que o texto soe natural",
+	"cx-tools-instructions-text4": "As traducións automáticas son útiles, pero {{GENDER:|deberá}} corrixir os erros e confirmar que a tradución é precisa.",
+	"cx-tools-instructions-text5": "{{GENDER:|Publicar}} a tradución",
+	"cx-tools-instructions-text6": "Cando {{GENDER:|considere}} que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Procurar unha palabra",
-	"cx-tools-view-guidelines": "Mostrar as normas de tradución"
+	"cx-tools-view-guidelines": "{{GENDER:|Mostrar}} as normas de tradución"
 }

@@ -112,7 +112,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчи (при сохранении с показом капчи).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ответ на капчу (при сохранении с показом капчи).",
 	"apihelp-query+contenttranslation-description": "Запрос к базе данных Content Translation'а для переводов.",
-	"apihelp-query+contenttranslation-param-user": "Имя переводчика.",
 	"apihelp-query+contenttranslation-param-translationid": "ID перевода.",
 	"apihelp-query+contenttranslation-example-1": "Получить перевод начатый Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
