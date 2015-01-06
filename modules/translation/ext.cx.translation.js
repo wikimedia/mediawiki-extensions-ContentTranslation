@@ -66,12 +66,6 @@
 
 		this.$container.append( $heading );
 
-		// The heading of the translation can be significantly shorter or longer
-		// than the heading of the source. Because it uses cxEditor, it is
-		// automatically aligned when it's edited, but not if it's loaded
-		// with explicit targettitle.
-		$heading.keepAlignment();
-
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
 				lang: mw.cx.targetLanguage,
@@ -126,6 +120,11 @@
 			// dimensions before all css and screenpainting is done,
 			// there is a chance for section misalignment
 			window.setTimeout( function () {
+				// The heading of the translation can be significantly shorter or longer
+				// than the heading of the source. Because it uses cxEditor, it is
+				// automatically aligned when it's edited, but not if it's loaded
+				// with explicit targettitle, so it must be aligned after the source is loaded.
+				cxTranslation.$container.find( '.cx-column__title' ).keepAlignment();
 				cxTranslation.addPlaceholders();
 				mw.hook( 'mw.cx.translation.placeholders.ready' ).fire();
 			}, 2000 );
