@@ -10,6 +10,10 @@
 		.mw-ui-one-whole;
 		padding: 10px;
 
+		&.cx-translation-deleted {
+			opacity: 0.5;
+		}
+
 		.last-updated {
 			.mw-ui-one-sixth;
 			color: #565656;
@@ -118,8 +122,9 @@
 					font-weight: normal;
 					min-width: 300px;
 					background-color: #fff;
-					border: 1px solid #ccc;
-					box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+					border: 1px solid #ddd;
+					border-bottom: 3px solid #ddd;
+					border-radius: 2px;
 
 					li {
 						padding: 5px 30px;
@@ -127,11 +132,11 @@
 						.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
 						background-repeat: no-repeat;
 						background-position: center left;
-						background-size: 20px;
+						background-size: 30px 20px;
 
 						&:hover {
 							.background-image-svg('../images/trash_orange.svg', '../images/trash_orange.png');
-							background-color: darken( white, 10% );
+							background-color: darken( white, 5% );
 						}
 					}
 				}
