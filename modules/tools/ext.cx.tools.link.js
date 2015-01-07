@@ -446,7 +446,7 @@
 			} else {
 				// Make sure this target link is not deleted.
 				// The valid page id above might be from cache.
-				if ( linkCard.getTargetLink().length === 0 ) {
+				if ( !linkCard.getTargetLink() ) {
 					linkCard.$targetLinkCard.hide();
 					return;
 				}
@@ -493,11 +493,15 @@
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getSourceLink = function () {
+		var $sourceLink;
+
 		if ( !this.$link ) {
 			return null;
 		}
 
-		return $( '.cx-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+		$sourceLink = $( '.cx-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+
+		return $sourceLink.length ? $sourceLink : null;
 	};
 
 	/**
@@ -505,11 +509,15 @@
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getTargetLink = function () {
+		var $targetLink;
+
 		if ( !this.$link ) {
 			return null;
 		}
 
-		return $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+		$targetLink = $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
+
+		return $targetLink.length ? $targetLink : null;
 	};
 
 	/**
