@@ -444,6 +444,12 @@
 				// Hide the remove link button
 				linkCard.$removeLink.hide();
 			} else {
+				// Make sure this target link is not deleted.
+				// The valid page id above might be from cache.
+				if ( linkCard.getTargetLink().length === 0 ) {
+					linkCard.$targetLinkCard.hide();
+					return;
+				}
 				// Nothing selected. Hide the add link button.
 				linkCard.$addLink.hide();
 				linkCard.$removeLink.click( function () {
