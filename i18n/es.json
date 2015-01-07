@@ -10,7 +10,8 @@
 			"Amire80",
 			"Macofe",
 			"ProtoplasmaKid",
-			"Patricio"
+			"Patricio",
+			"Cgalindo"
 		]
 	},
 	"cx": "Traducir página",
@@ -112,12 +113,13 @@
 	"apihelp-cxpublish-param-sourcerevision": "La revisión de la página original.",
 	"apihelp-cxpublish-param-status": "Si el valor es «draft», la traducción se guardará como borrador. Si es «published», la traducción se publicará.",
 	"apihelp-cxpublish-param-categories": "Las categorías que se añadirán a la página publicada.",
-	"apihelp-query+contenttranslation-param-user": "Nombre de usuario del traductor.",
 	"apihelp-query+contenttranslation-param-translationid": "Id. de la traducción",
 	"cx-save-draft-save-success": "Guardado {{PLURAL:$1|hace un minuto|hace $1 minutos|0=hace instantes}}",
 	"cx-save-draft-saving": "Guardando...",
 	"cx-save-draft-tooltip": "Los borradores de traducción se guardan automáticamente",
 	"cx-contributions": "Contribución nueva",
 	"cx-contributions-translation": "Traducción",
-	"cx-contributions-media": "Cargar archivo multimedia"
+	"cx-contributions-media": "Cargar archivo multimedia",
+	"cx-discard-translation": "Borra la traduccion",
+	"apihelp-cxdelete-param-from": "El codigo del lenaguaje fuente."
 }

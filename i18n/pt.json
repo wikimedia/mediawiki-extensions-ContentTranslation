@@ -4,7 +4,8 @@
 			"Imperadeiro98",
 			"SandroHc",
 			"Fúlvio",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Imperadeiro90"
 		]
 	},
 	"cx": "Traduzir página",
@@ -105,7 +106,7 @@
 	"apihelp-cxpublish-param-to": "O código do idioma de destino.",
 	"apihelp-cxpublish-param-categories": "As categorias a serem adicionadas à página publicada.",
 	"apihelp-query+contenttranslation-param-translationid": "ID de tradução.",
-	"apihelp-query+contenttranslation-example-1": "Obtém traduções iniciadas pelo utilizador atual.",
+	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo utilizador atual.",
 	"apihelp-query+contenttranslation-example-2": "Obtém rascunhos por ID.",
 	"cx-save-draft-save-success": "Gravada {{PLURAL:$1|há um minuto|há $1 minutos ago|0=agora}}",
 	"cx-save-draft-saving": "A gravar...",

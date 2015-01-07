@@ -7,7 +7,7 @@
 	},
 	"cx": "Seite übersetzen",
 	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht.",
-	"cx-license-agreement": "Durch den Klick auf die Schaltfläche „$1“ stimmst du den [//wikimediafoundation.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [//de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu mit dem Verständnis, dass ein Hyperlink oder eine URL für eine CC-BY-SA-3.0-Namensnennung ausreichend ist.",
+	"cx-license-agreement": "Durch den Klick auf die Schaltfläche „$1“ stimmst du den [//wikimediafoundation.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu mit dem Verständnis, dass ein Hyperlink oder eine URL für eine CC-BY-SA-3.0-Namensnennung ausreichend ist.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
 	"cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungswerkzeugen von einer Sprache in eine andere zu übersetzen",
 	"cx-header-progressbar-text": "$1% übersetzt",
@@ -117,5 +117,9 @@
 	"cx-contributions-media": "Mediendatei hochladen",
 	"cx-publishing-dialog-message": "Die Seite $1 ist bereits vorhanden. Der aktuelle Inhalt wird durch deine Übersetzung ersetzt. Möchtest du trotzdem veröffentlichen?",
 	"cx-publishing-dialog-keep-button": "Beide Versionen behalten",
-	"cx-publishing-dialog-publish-anyway-button": "Trotzdem veröffentlichen"
+	"cx-publishing-dialog-publish-anyway-button": "Trotzdem veröffentlichen",
+	"cx-discard-translation": "Übersetzung verwerfen",
+	"cx-translation-status-draft": "In Bearbeitung",
+	"cx-translation-status-published": "Veröffentlicht",
+	"cx-translation-status-deleted": "Gelöscht"
 }

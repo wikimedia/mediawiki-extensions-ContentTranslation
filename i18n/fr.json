@@ -8,7 +8,8 @@
 			"Constructeur",
 			"Wyz",
 			"Macofe",
-			"Crochet.david"
+			"Crochet.david",
+			"0x010C"
 		]
 	},
 	"cx": "Traduire la page",
@@ -125,5 +126,11 @@
 	"cx-contributions-media": "Télécharger le fichier de média",
 	"cx-publishing-dialog-message": "La page $1 existe déjà. Le contenu actuel sera remplacé par votre traduction. Voulez-vous publier tout de même ?",
 	"cx-publishing-dialog-keep-button": "Garder les deux versions",
-	"cx-publishing-dialog-publish-anyway-button": "Publier tout de même"
+	"cx-publishing-dialog-publish-anyway-button": "Publier tout de même",
+	"cx-translation-status-draft": "En cours",
+	"cx-translation-status-published": "Publié",
+	"cx-translation-status-deleted": "Supprimé",
+	"apihelp-cxdelete-param-from": "Le code de langue source.",
+	"apihelp-cxdelete-param-to": "Le code de langue cible.",
+	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source."
 }
