@@ -14,4 +14,21 @@ class SiteMapper {
 		);
 	}
 
+	public static function getTargetTitle( $title, $userName ) {
+		global $wgContentTranslationTargetNamespace;
+
+		switch ( $wgContentTranslationTargetNamespace ) {
+			case 'Main':
+				$targetTitle = $title;
+				break;
+			case 'User':
+				$targetTitle = 'User:' . $userName . '/' . $title;
+				break;
+			default:
+				$targetTitle = $wgContentTranslationTargetNamespace . ':' . $title;
+				break;
+		}
+
+		return $targetTitle;
+	}
 }

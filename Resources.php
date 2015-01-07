@@ -467,6 +467,7 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'mediawiki.api.edit',
 		'mediawiki.cookie',
 		'ext.cx.publish.dialog',
+		'ext.cx.sitemapper',
 	),
 	'messages' => array(
 		'cx-publish-page-success',
@@ -485,6 +486,7 @@ $wgResourceModules['ext.cx.publish.dialog'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.model',
+		'ext.cx.sitemapper',
 	),
 	'messages' => array(
 		'cx-publishing-dialog-message',

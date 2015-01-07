@@ -119,12 +119,12 @@
 	CXPublishingDialog.prototype.setMessage = function ( title ) {
 		var publishedTitle, link;
 
-		publishedTitle = 'User:' + mw.user.getName() + '/' + title;
+		publishedTitle = mw.cx.SiteMapper.prototype.getTargetTitle( title );
 
 		link = $( '<a>' ).attr( {
 			href: mw.util.getUrl( publishedTitle ),
 			target: '_blank'
-		} ).text( title )[ 0 ].outerHTML;
+		} ).text( publishedTitle )[ 0 ].outerHTML;
 
 		this.$message.html( mw.msg( 'cx-publishing-dialog-message', link ) );
 

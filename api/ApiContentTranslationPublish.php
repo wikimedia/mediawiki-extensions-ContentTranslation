@@ -109,8 +109,11 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function publish() {
 		$params = $this->extractRequestParams();
 
-		$title = Title::newFromText(
-			'User:' . $this->getUser()->getName() . '/' . $params['title'] );
+		$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
+			$params['title'],
+			$this->getUser()->getName()
+		);
+		$title = Title::newFromText( $targetTitle );
 
 		if ( !$title ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
@@ -174,6 +177,10 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 		$user = $this->getUser();
 		$translator = new ContentTranslation\Translator( $user );
+		$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
+			$params['title'],
+			$this->getUser()->getName()
+		);
 		$translation = new ContentTranslation\Translation( array(
 			'sourceTitle' => $params['sourcetitle'],
 			'targetTitle' => $params['title'],
@@ -183,9 +190,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				$params['from'], $params['sourcetitle']
 			),
 			'targetURL' => ContentTranslation\SiteMapper::getPageURL(
-				$params['to'],
-				// TODO: Construction of this URL should be configurable
-				'User:' . $this->getUser()->getName() . '/' . $params['title']
+				$params['to'], $targetTitle
 			),
 			'status' => $params['status'],
 			'progress' => $params['progress'],

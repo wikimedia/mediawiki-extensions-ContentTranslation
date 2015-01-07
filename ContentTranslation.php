@@ -148,3 +148,13 @@ $GLOBALS['wgContentTranslationTranslateInTarget'] = false;
  * users who have enabled the beta feature.
  */
 $GLOBALS['wgContentTranslationAsBetaFeature'] = true;
+
+/*
+ * Target namespace to publish articles. Values can be 'Main'
+ * or any valid Namepace without leading column.
+ * Example: 'User', 'MediaWiki', 'Draft'
+ * If the value is Main, article will be published in Main namespace.
+ * If the value is User, article will be published under User:UserName/PageTitle
+ * If it is another value like Foo, It will get published in Foo:PageTitle
+ */
+$GLOBALS['wgContentTranslationTargetNamespace'] = 'Main';

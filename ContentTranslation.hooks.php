@@ -111,7 +111,8 @@ class ContentTranslationHooks {
 			$wgContentTranslationTranslateInTarget,
 			$wgContentTranslationExperimentalFeatures,
 			$wgContentTranslationDatabase,
-			$wgContentTranslationSiteTemplates;
+			$wgContentTranslationSiteTemplates,
+			$wgContentTranslationTargetNamespace;
 
 		// Temporary BC code for old configuration
 		if ( $wgContentTranslationServerURL !== null ) {
@@ -122,5 +123,6 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
+		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 	}
 }

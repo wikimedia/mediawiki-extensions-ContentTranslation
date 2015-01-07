@@ -143,7 +143,7 @@
 			$( '.cx-column--translation .cx-column__content' ).clone()
 		);
 
-		publishedTitle = 'User:' + mw.user.getName() + '/' + targetTitle;
+		publishedTitle = mw.cx.SiteMapper.prototype.getTargetTitle( targetTitle );
 
 		checkTargetTitle( publishedTitle )
 			.done( function ( titleExists ) {

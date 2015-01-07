@@ -27,7 +27,11 @@
 	 */
 	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
 		var url = this.config.api.replace( '$1', language );
-		return new mw.Api( { ajax: { url: url } } );
+		return new mw.Api( {
+			ajax: {
+				url: url
+			}
+		} );
 	};
 
 	/**
@@ -56,6 +60,30 @@
 		}
 
 		return this.config.cx + module;
+	};
+
+	/**
+	 * Get the target title to publish based on per wiki configuration.
+	 * @param {string} title
+	 * @return {string} target title
+	 */
+	mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
+		var targetTitle, targetNameSpace;
+
+		targetNameSpace = mw.config.get( 'wgContentTranslationTargetNamespace' );
+		switch ( targetNameSpace ) {
+		case 'Main':
+			targetTitle = title;
+			break;
+		case 'User':
+			targetTitle = 'User:' + mw.user.getName() + '/' + title;
+			break;
+		default:
+			targetTitle = targetNameSpace + ':' + title;
+			break;
+		}
+
+		return targetTitle;
 	};
 
 	/**
