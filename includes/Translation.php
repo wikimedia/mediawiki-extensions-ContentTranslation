@@ -39,6 +39,38 @@ class Translation {
 		}
 	}
 
+	public static function find( $sourceLanguage, $targetLanguage, $title ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$values = array(
+			'translation_source_language' => $sourceLanguage,
+			'translation_target_language' => $targetLanguage,
+			'translation_source_title' => $title
+		);
+		$rows = $dbr->select(
+			'cx_translations',
+			'*',
+			$values,
+			__METHOD__
+		);
+		$result = array();
+		foreach ( $rows as $row ) {
+			$result[] = Translation::newFromRow( $row );
+		}
+		if ( count( $result ) > 0 ) {
+			return $result[0];
+		}
+		return null;
+	}
+
+	public static function delete( $translationId ) {
+		$dbw = Database::getConnection( DB_MASTER );
+		$dbw->delete(
+			'cx_translations',
+			array( 'translation_id' => $translationId ),
+			__METHOD__
+		);
+	}
+
 	public function getTranslationId() {
 		return $this->translation['id'];
 	}

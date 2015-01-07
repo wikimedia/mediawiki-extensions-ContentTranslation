@@ -26,6 +26,15 @@ class Translator {
 		);
 	}
 
+	public static function removeTranslation( $translationId ) {
+		$dbw = Database::getConnection( DB_MASTER );
+		$dbw->delete(
+			'cx_translators',
+			array( 'translator_translation_id' => $translationId  ),
+			__METHOD__
+		);
+	}
+
 	/**
 	 * Get a translation by translation id for the translator
 	 * @return Translation

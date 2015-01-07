@@ -36,9 +36,15 @@
 
 		.title-language-block {
 			.mw-ui-one-half;
+
 			.source-title {
 				.mw-ui-one-whole;
 				font-size: larger;
+
+				&.disabled  {
+					pointer-events: none;
+					cursor: default;
+				}
 			}
 
 			.status,
@@ -77,8 +83,66 @@
 				margin-top: -7px;
 			}
 
+			.status-deleted {
+				color: #ff3300;
+			}
+
 			.status-published {
 				color: #00af89;
+			}
+
+			.actions-menu-trigger {
+				font-size: larger;
+				font-weight: 800;
+				color: #565656;
+				cursor: pointer;
+				padding: 0 5px;
+			}
+
+			.actions-menu-container {
+				.mw-ui-one-whole;
+
+				clear: both;
+				position: relative;
+				width: auto;
+				float: left;
+
+				ul {
+					display: none;
+					position: absolute;
+					top: 20px;
+					left: 0;
+					list-style: none;
+					margin: 0;
+					font-size: normal;
+					font-weight: normal;
+					min-width: 300px;
+					background-color: #fff;
+					border: 1px solid #ccc;
+					box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+					li {
+						padding: 5px 30px;
+						cursor: pointer;
+						.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
+						background-repeat: no-repeat;
+						background-position: center left;
+						background-size: 20px;
+
+						&:hover {
+							.background-image-svg('../images/trash_orange.svg', '../images/trash_orange.png');
+							background-color: darken( white, 10% );
+						}
+					}
+				}
+
+				&:hover ul {
+					display: block;
+				}
+
+				&:hover .actions-menu-trigger {
+					background-color: #eee;
+				}
 			}
 		}
 	}
