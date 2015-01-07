@@ -309,6 +309,7 @@
 	 */
 	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
 		$( '#' + translation.id )
+			.addClass( 'cx-translation-deleted' )
 			.find( '.status' )
 			.removeClass( 'status-draft status-published' )
 			.addClass( 'status-deleted' )
