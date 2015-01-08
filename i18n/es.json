@@ -120,6 +120,6 @@
 	"cx-contributions": "Contribución nueva",
 	"cx-contributions-translation": "Traducción",
 	"cx-contributions-media": "Cargar archivo multimedia",
-	"cx-discard-translation": "Borra la traduccion",
-	"apihelp-cxdelete-param-from": "El codigo del lenaguaje fuente."
+	"cx-discard-translation": "Descartar la traducción",
+	"apihelp-cxdelete-param-from": "El código del idioma de origen."
 }

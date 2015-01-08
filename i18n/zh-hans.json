@@ -13,7 +13,7 @@
 	},
 	"cx": "翻译页面",
 	"cx-javascript": "此工具没有JavaScript就不能工作。",
-	"cx-license-agreement": "通过点击“$1”按钮，您同意[//wikimediafoundation.org/wiki/Terms_of_Use 使用条款]，并义无反顾地同意采用[//zh.wikipedia.org/wiki/Wikipedia:CC-BY-SA CC BY-SA 3.0]和[//zh.wikipedia.org/wiki/Wikipedia:GFDL GFDL]发表您通过翻译工具做出的贡献，并认可超链接或URL充分符合CC BY-SA 3.0中的署名要求。",
+	"cx-license-agreement": "通过点击“$1”按钮，您同意[//wikimediafoundation.org/wiki/Terms_of_Use 使用条款]，并义无反顾地同意采用[https://creativecommons.org/licenses/by-sa/3.0/deed.zh CC BY-SA 3.0]和[//zh.wikipedia.org/wiki/Wikipedia:GFDL GFDL]发表您通过翻译工具做出的贡献，并认可超链接或URL充分符合CC BY-SA 3.0中的署名要求。",
 	"cx-error-server-connection": "错误：无法连接至服务器。",
 	"cx-desc": "允许编者借助机器翻译和其他翻译辅助翻译页面的工具",
 	"cx-header-progressbar-text": "$1%已翻译",
@@ -125,5 +125,14 @@
 	"cx-contributions-media": "上传媒体文件",
 	"cx-publishing-dialog-message": "页面$1已存在。当前的内容将被您的翻译所覆盖。您是否无论如何都要发布它？",
 	"cx-publishing-dialog-keep-button": "保留两个版本",
-	"cx-publishing-dialog-publish-anyway-button": "无论如何发布"
+	"cx-publishing-dialog-publish-anyway-button": "无论如何发布",
+	"cx-discard-translation": "丢弃翻译",
+	"cx-translation-status-draft": "进行中",
+	"cx-translation-status-published": "已发布",
+	"cx-translation-status-deleted": "已删除",
+	"apihelp-cxdelete-description": "删除一个处在草稿阶段、使用内容翻译扩展创建的翻译。",
+	"apihelp-cxdelete-param-from": "源语言代码。",
+	"apihelp-cxdelete-param-to": "目标语言代码。",
+	"apihelp-cxdelete-param-sourcetitle": "来源页面的标题。",
+	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。"
 }

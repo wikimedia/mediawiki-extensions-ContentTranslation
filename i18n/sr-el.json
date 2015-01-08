@@ -4,9 +4,14 @@
 			"Milicevic01"
 		]
 	},
+	"cx-header-new-translation": "Novi prevod",
 	"cx-publish-gt-move-page-title": "Premesti stranicu",
 	"cx-tools-link-add": "Dodaj veze",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=Nema kategorija}}",
 	"cx-stats-page-title": "Stranica",
 	"cx-stats-from": "Izvorni jezik",
-	"cx-warning-unsaved-translation": "Imate nesačuvan prevod."
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|stranice|stranica}} ($3%) u glavnom imenskom prostoru.",
+	"cx-warning-unsaved-translation": "Imate nesačuvan prevod.",
+	"cx-sourceselector-dialog-button-cancel": "Otkaži",
+	"cx-save-draft-saving": "Čuvanje..."
 }
