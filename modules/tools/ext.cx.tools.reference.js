@@ -156,8 +156,12 @@
 		var $sourceReference, i, mwData, $referenceSiblings;
 
 		$sourceReference = $( document.getElementById( referenceId ) );
-		mwData = $sourceReference.data( 'mw' );
+		if ( !$sourceReference.is( '[typeof*="mw:Extension/ref"]' ) ) {
+			mw.log( '[CX] Possible exploitation attempt via references. Reference ignored.' );
+			return null;
+		}
 
+		mwData = $sourceReference.data( 'mw' );
 		if ( mwData && mwData.body ) {
 			return mwData;
 		}
