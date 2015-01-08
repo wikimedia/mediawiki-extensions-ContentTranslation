@@ -17,8 +17,21 @@
 	 */
 	function ContentTranslationDraft( draftId ) {
 		this.draftId = draftId;
+		this.disabled = false;
+		this.init();
 		this.listen();
 	}
+
+	ContentTranslationDraft.prototype.init = function () {
+		var self = this;
+
+		this.hasConflictingTranslation().done( function ( translation ) {
+			if ( translation !== null ) {
+				self.showConflictWarning( translation );
+				self.disabled = true;
+			}
+		} );
+	};
 
 	/**
 	 * Event bindings
@@ -49,6 +62,45 @@
 		} );
 	};
 
+	ContentTranslationDraft.prototype.showConflictWarning = function ( translation ) {
+		mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
+			mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
+		} );
+	};
+
+	/**
+	 * Find if there is a draft existing for the current title and language pair.
+	 * @return {jQuery.Promise}
+	 */
+	ContentTranslationDraft.prototype.hasConflictingTranslation = function () {
+		var deferred = $.Deferred(),
+			api = new mw.Api();
+
+		api.get( {
+			action: 'query',
+			list: 'contenttranslation',
+			sourcetitle: mw.cx.sourceTitle,
+			from: mw.cx.sourceLanguage,
+			to: mw.cx.targetLanguage,
+			format: 'json'
+		} ).done( function ( response ) {
+			var translation;
+
+			translation = response.query.contenttranslation.translation;
+			// If this translation is draft and not by current user, there is an
+			// existing translation.
+			if ( translation &&
+				parseInt( translation.lastUpdatedTranslator ) !== mw.user.getId() &&
+				translation.status === 'draft'
+			) {
+				deferred.resolve( translation );
+			} else {
+				deferred.resolve( null );
+			}
+		} );
+		return deferred.promise();
+	};
+
 	/**
 	 * Fetch a draft content and restore it.
 	 */
@@ -71,7 +123,9 @@
 			draftContent = translation.draftContent;
 
 			self.$draft = $( draftContent );
-			self.restore();
+			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
+				self.restore();
+			} );
 		} ).fail( function () {
 			var uri = new mw.Uri();
 
@@ -108,6 +162,9 @@
 		var draftContent, targetTitle, params, apiParams,
 			api = new mw.Api();
 
+		if ( this.disabled ) {
+			return;
+		}
 		targetTitle = $( '.cx-column--translation > h2' ).text();
 		draftContent = $( '.cx-column--translation .cx-column__content' ).clone();
 		clearInterval( timer );
@@ -165,9 +222,7 @@
 		drafId = new mw.Uri().query.draft;
 		draft = new ContentTranslationDraft( drafId );
 		if ( drafId ) {
-			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
-				draft.fetch();
-			} );
+			draft.fetch();
 		}
 	} );
 }( jQuery, mediaWiki ) );

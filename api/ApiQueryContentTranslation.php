@@ -35,6 +35,13 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$result = $this->getResult();
 		$user = $this->getUser();
 
+		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
+			return $this->find(
+				$params['sourcetitle'],
+				$params['from'],
+				$params['to']
+			);
+		}
 		if ( $params['translationid'] ) {
 			$translator = new ContentTranslation\Translator( $user );
 			$translation = $translator->getTranslation( $params['translationid'] );
@@ -58,9 +65,40 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	/**
+	 * Find a translation with any status for the given language pair and title.
+	 */
+	public function find( $sourceTitle, $sourceLanguage, $targetLanguage ) {
+		$result = $this->getResult();
+		$translation = ContentTranslation\Translation::find(
+			$sourceLanguage,
+			$targetLanguage,
+			$sourceTitle
+		);
+		if ( $translation !== null ) {
+			$translator = $translation->translation['lastUpdatedTranslator'];
+			$translation->translation['translatorName'] =
+				User::newFromId( $translator )->getName();
+			$result->addValue(
+				array( 'query', 'contenttranslation' ),
+				'translation', $translation->translation
+			);
+		}
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
 	public function getAllowedParams() {
 		$allowedParams = array(
 			'translationid' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'from' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'to' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'sourcetitle' => array(
 				ApiBase::PARAM_TYPE => 'string',
 			),/*
 			'limit' => array(
@@ -80,6 +118,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				'apihelp-query+contenttranslation-example-1',
 			'action=query&list=contenttranslation&translationid=94' =>
 				'apihelp-query+contenttranslation-example-2',
+			'action=query&list=contenttranslation&from=en&to=es&sourcetitle=Hibiscus' =>
+				'apihelp-query+contenttranslation-example-3',
 		);
 	}
 }
