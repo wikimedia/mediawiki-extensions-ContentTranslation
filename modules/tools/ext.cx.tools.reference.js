@@ -167,7 +167,8 @@
 			.siblings();
 		for ( i = 0; i < $referenceSiblings.length; i++ ) {
 			mwData = this.getReferenceData(
-				$( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' ) );
+				$( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' )
+			);
 			if ( mwData ) {
 				return mwData;
 			}
