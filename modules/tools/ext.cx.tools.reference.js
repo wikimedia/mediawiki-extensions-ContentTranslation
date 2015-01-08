@@ -224,7 +224,7 @@
 	function processReferences( $section ) {
 		var $sourceSection, referenceAdaptor, isRestoredFromDraft;
 
-		isRestoredFromDraft =  $section.data( 'cx-draft' ) === true;
+		isRestoredFromDraft = $section.data( 'cx-draft' ) === true;
 
 		referenceAdaptor = new ReferenceCard();
 		$section.find( '[typeof*="mw:Extension/ref"]' ).each( function () {
