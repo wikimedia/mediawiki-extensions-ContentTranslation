@@ -21,7 +21,7 @@
 			steps = 0;
 
 		$section = $( this );
-		$sourceSection = $( '#' + $section.data( 'source' ) );
+		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 
 		if ( $section.is( '.placeholder' ) ) {
 			$section.css( {

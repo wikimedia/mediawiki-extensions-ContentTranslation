@@ -167,7 +167,7 @@
 		var $sourceSection = $( this ),
 			prefetch = true,
 			sourceId = $sourceSection.prop( 'id' ),
-			$section = $( '#cx' + sourceId );
+			$section = mw.cx.getTranslationSection( sourceId );
 
 		markMTLoading( $section );
 		translateSection( $sourceSection, prefetch )
@@ -182,7 +182,7 @@
 						} )
 					);
 					// $section was replaced. Get the updated instance.
-					$section = $( '#cx' + sourceId );
+					$section = mw.cx.getTranslationSection( sourceId );
 				}
 			} )
 			.fail( function ( reason ) {

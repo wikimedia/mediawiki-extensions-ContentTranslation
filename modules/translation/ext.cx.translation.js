@@ -167,7 +167,7 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var selection, $sourceSection = $( '#' + $section.data( 'source' ) );
+		var selection, $sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 
 		mw.hook( 'mw.cx.translation.change' ).fire( $section );
 		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
@@ -225,8 +225,8 @@
 	) {
 		var $sourceSection, $section, $clone;
 
-		$sourceSection = $( '#' + sourceId );
-		$section = $( '#cx' + sourceId );
+		$sourceSection = mw.cx.getSourceSection( sourceId );
+		$section = mw.cx.getTranslationSection( sourceId );
 
 		if ( origin === 'click' || origin === 'restore' ) {
 			// On failure this fires a hook which this method listens to.
@@ -266,7 +266,7 @@
 			$section.replaceWith( $clone );
 
 			// $section was replaced. Get the updated instance.
-			$section = $( '#cx' + sourceId );
+			$section = mw.cx.getTranslationSection( sourceId );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
 	};
@@ -314,7 +314,7 @@
 		sourceSectionId = $currentSection.data( 'source' );
 
 		// The equivalent section in source column
-		$( '#' + sourceSectionId ).removeClass( 'cx-highlight' );
+		mw.cx.getSourceSection( sourceSectionId ).removeClass( 'cx-highlight' );
 
 		// Fill in the preceding parent heading, if not yet filled
 		if (
@@ -332,27 +332,27 @@
 
 	function sectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( '#' + $( this ).data( 'source' ) ).addClass( 'cx-highlight' );
+		mw.cx.getSourceSection( $( this ).data( 'source' ) ).addClass( 'cx-highlight' );
 	}
 
 	function sectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( '#' + $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
+		mw.cx.getSourceSection( $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
 	}
 
 	function sourceSectionClickHandler() {
 		/*jshint validthis:true */
-		$( '#cx' + $( this ).attr( 'id' ) ).click();
+		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).click();
 	}
 
 	function sourceSectionMouseEnterHandler() {
 		/*jshint validthis:true */
-		$( '#cx' + $( this ).attr( 'id' ) ).mouseenter();
+		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).mouseenter();
 	}
 
 	function sourceSectionMouseLeaveHandler() {
 		/*jshint validthis:true */
-		$( '#cx' + $( this ).attr( 'id' ) ).mouseleave();
+		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).mouseleave();
 	}
 
 	/**

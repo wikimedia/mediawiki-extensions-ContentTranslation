@@ -8,7 +8,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( mw ) {
+( function ( mw, $ ) {
 	'use strict';
 
 	/**
@@ -36,4 +36,22 @@
 
 		return sectionTypes.join( ',' );
 	};
-}( mediaWiki ) );
+
+	mw.cx.getSourceSection = function ( id ) {
+		// Sanity check
+		if ( isNaN( id ) ) {
+			return $( [] );
+		} else {
+			return $( document.getElementById( id ) );
+		}
+	};
+
+	mw.cx.getTranslationSection = function ( id ) {
+		// Sanity check
+		if ( isNaN( id ) ) {
+			return $( [] );
+		} else {
+			return $( document.getElementById( 'cx' + id ) );
+		}
+	};
+}( mediaWiki, jQuery ) );
