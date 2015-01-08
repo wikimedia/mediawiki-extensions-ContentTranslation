@@ -71,6 +71,12 @@
 
 			self.$draft = $( draftContent );
 			self.restore();
+		} ).fail( function () {
+			var uri = new mw.Uri();
+
+			// Wrong draft id passed.
+			delete uri.query.draft;
+			location.href = uri.toString();
 		} );
 	};
 
