@@ -42,20 +42,20 @@
 	};
 
 	/**
-	 * Increase the version number of a title starting with 1
-	 * @param {string} title The title to increase the version on
+	 * Increase the version number of a title starting with 1.
+	 * @param {string} title The title to increase the version on.
 	 */
 	function increaseVersion( title ) {
 		var match, version;
 
 		match = title.match( /^.*\((\d)\)$/ );
 		if ( match ) {
-			version = parseInt( match[ 1 ] ) + 1;
+			version = parseInt( match[ 1 ], 10 ) + 1;
+
 			return title.replace( /\(\d+\)$/, '(' + version + ')' );
-		} else {
-			return title + ' (1)';
 		}
 
+		return title + ' (1)';
 	}
 
 	/**
