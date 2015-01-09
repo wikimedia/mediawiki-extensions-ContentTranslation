@@ -176,7 +176,7 @@
 	 * @return {array} An array of valid target languages
 	 */
 	CXSourceSelector.prototype.getValidTargetLanguages = function ( sourceLanguage ) {
-		return this.languagePairs[ sourceLanguage ];
+		return this.languagePairs[ sourceLanguage ] || [];
 	};
 
 	/**
@@ -342,9 +342,14 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
+		var validTargetLanguages;
+
 		this.setSourceLanguage( language );
 		this.fillTargetLanguages();
-		this.setTargetLanguage( this.getValidTargetLanguages( language )[ 0 ] );
+		validTargetLanguages = this.getValidTargetLanguages( language );
+		if ( validTargetLanguages.length > 0 ) {
+			this.setTargetLanguage( validTargetLanguages[ 0 ] );
+		}
 		this.check();
 	};
 
@@ -353,18 +358,11 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.targetLanguageChangeHandler = function ( language ) {
-		// Only allow valid target languages to be selected
-		if ( !this.isValidTarget( language, this.getSourceLanguage() ) ) {
+		// Don't allow setting the target language to the source language.
+		if ( language === this.getSourceLanguage() ) {
 			return;
 		}
-
 		this.setTargetLanguage( language );
-
-		// Disable the target input if the target language is not valid
-		// for the current source language
-		this.$targetTitleInput
-			.prop( 'disabled', !this.isValidTarget( language, this.getSourceLanguage() ) );
-
 		this.check();
 	};
 
