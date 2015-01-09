@@ -231,8 +231,8 @@
 			} )
 			.text( $.uls.data.getAutonym( language ) );
 
-		if ( localStorage ) {
-			localStorage.cxSourceLanguage = language;
+		if ( window.localStorage ) {
+			localStorage.setItem( 'cxSourceLanguage', language );
 		}
 	};
 
@@ -256,8 +256,8 @@
 			} )
 			.text( $.uls.data.getAutonym( language ) );
 
-		if ( localStorage ) {
-			localStorage.cxTargetLanguage = language;
+		if ( window.localStorage ) {
+			localStorage.setItem( 'cxTargetLanguage', language );
 		}
 	};
 
@@ -810,32 +810,36 @@
 	};
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
-		var sourceLanguage, targetLanguage;
+		var sourceLanguage, targetLanguage,
+			storedSourceLanguage, storedTargetLanguage;
 
 		// If there is a target language code in localStorage, use that.
-		// Otherwise default to wiki content language
-		if ( localStorage && localStorage.cxTargetLanguage ) {
-			targetLanguage = localStorage.cxTargetLanguage;
-		} else {
-			targetLanguage = mw.config.get( 'wgContentLanguage' );
+		// Otherwise default to wiki content language.
+		if ( window.localStorage ) {
+			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
 		}
+
+		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
 
 		// If there is a source language code in localStorage and it is valid
 		// for the target language, use that.
 		// Otherwise use the first valid source language.
-		if ( localStorage &&
-			localStorage.cxSourceLanguage &&
-			this.isValidSource( localStorage.cxSourceLanguage, targetLanguage )
-		) {
-			sourceLanguage = localStorage.cxSourceLanguage;
-		} else {
-			sourceLanguage = this.getValidSourceLanguages( targetLanguage )[ 0 ];
+		if ( window.localStorage ) {
+			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
+
+			if ( this.isValidSource( storedSourceLanguage, targetLanguage ) ) {
+				sourceLanguage = storedSourceLanguage;
+			}
 		}
+
+		sourceLanguage = sourceLanguage || this.getValidSourceLanguages( targetLanguage )[ 0 ];
 
 		// Set the source language
 		this.setSourceLanguage( sourceLanguage );
+
 		// Fill in the target languages
 		this.fillTargetLanguages();
+
 		// Set the target language
 		this.setTargetLanguage( targetLanguage );
 	};
