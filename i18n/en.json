@@ -129,9 +129,9 @@
 	"cx-translation-status-draft": "In progress",
 	"cx-translation-status-published": "Published",
 	"cx-translation-status-deleted": "Deleted",
-	"apihelp-cxdelete-description": "Delete a translation in draft stage, created using the content translation extension.",
+	"apihelp-cxdelete-description": "Delete a draft translation created using the content translation extension.",
 	"apihelp-cxdelete-param-from": "The source language code.",
 	"apihelp-cxdelete-param-to": "The target language code.",
 	"apihelp-cxdelete-param-sourcetitle": "The title of the source page.",
-	"apihelp-cxdelete-example-1": "Delete draft associated with give language pair and title"
+	"apihelp-cxdelete-example-1": "Delete a draft associated with given language pair and title."
 }
