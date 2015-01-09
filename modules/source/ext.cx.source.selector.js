@@ -810,8 +810,9 @@
 	};
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
-		var sourceLanguage, targetLanguage,
-			storedSourceLanguage, storedTargetLanguage;
+		var contentLanguage,
+			storedTargetLanguage, targetLanguage,
+			storedSourceLanguage, sourceLanguage;
 
 		// If there is a target language code in localStorage, use that.
 		// Otherwise default to wiki content language.
@@ -819,7 +820,8 @@
 			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
 		}
 
-		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
+		contentLanguage = mw.config.get( 'wgContentLanguage' );
+		targetLanguage = storedTargetLanguage || contentLanguage;
 
 		// If there is a source language code in localStorage and it is valid
 		// for the target language, use that.
@@ -833,6 +835,21 @@
 		}
 
 		sourceLanguage = sourceLanguage || this.getValidSourceLanguages( targetLanguage )[ 0 ];
+
+		if ( !sourceLanguage ) {
+			if ( $.inArray( contentLanguage, this.sourceLanguages ) > -1 ) {
+				// If the content language is available as a possible source language,
+				// set it as the source, because the user probably wants to translate from it
+				sourceLanguage = contentLanguage;
+			} else {
+				// Give up: just set the first available source language
+				sourceLanguage = this.sourceLanguages[0];
+			}
+		}
+
+		if ( sourceLanguage === targetLanguage ) {
+			targetLanguage = this.getValidTargetLanguages( sourceLanguage )[0];
+		}
 
 		// Set the source language
 		this.setSourceLanguage( sourceLanguage );
