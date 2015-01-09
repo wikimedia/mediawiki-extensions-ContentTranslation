@@ -77,7 +77,6 @@
 	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Utwórz nowe tłumaczenie",
 	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
-	"apihelp-query+contenttranslation-param-user": "Nazwa konta użytkownika tłumacza",
 	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów przez ID.",
 	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
@@ -87,5 +86,8 @@
 	"cx-contributions-translation": "Tłumaczenie",
 	"cx-contributions-media": "Prześlij plik multimedialny",
 	"cx-publishing-dialog-message": "Strona $1 już istnieje. Obecna treść zostanie zastąpiona twoim tłumaczeniem. Czy mimo to chcesz je opublikować?",
-	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje"
+	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje",
+	"apihelp-cxdelete-param-from": "Źródłowy kod języka.",
+	"apihelp-cxdelete-param-to": "Docelowy kod język.",
+	"apihelp-cxdelete-param-sourcetitle": "Tytuł strony źródłowej."
 }

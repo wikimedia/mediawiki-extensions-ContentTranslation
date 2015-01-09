@@ -11,7 +11,7 @@
 	},
 	"cx": "תרגום דף",
 	"cx-javascript": "הכלי הזה לא עובד ללא JavaScript.",
-	"cx-license-agreement": "לחיצה על מקש \"$1\" מהווה את הסכמתך ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] ואת הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
+	"cx-license-agreement": "לחיצה על מקש \"$1\" מהווה את הסכמתך ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] ואת הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
 	"cx-desc": "כלי המאפשר לעורכים לתרגם דפים משפה אחת לאחרת בעזרת תרגום מכונה וכלי תרגום אחרים",
 	"cx-header-progressbar-text": "תורגמו $1%",
@@ -113,7 +113,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-query+contenttranslation-description": "שאילתה לאחזור תרגומים ממסד הנתונים של תרגום תוכן.",
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
-	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים של Santhosh.",
+	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
 	"cx-save-draft-save-success": "נשמר {{PLURAL:$1|לפני דקה|לפני $1 דקות|0=זה עתה}}",
 	"cx-save-draft-saving": "שמירה...",
@@ -123,5 +123,14 @@
 	"cx-contributions-media": "העלאת קובץ מדיה",
 	"cx-publishing-dialog-message": "הדף $1 כבר קיים. התוכן הנוכחי יוחלף בתרגום שלך. האם לפרסם אותו?",
 	"cx-publishing-dialog-keep-button": "לשמור את שתי הגרסאות",
-	"cx-publishing-dialog-publish-anyway-button": "לפרסם בכל־זאת"
+	"cx-publishing-dialog-publish-anyway-button": "לפרסם בכל־זאת",
+	"cx-discard-translation": "מחיקת תרגום",
+	"cx-translation-status-draft": "התחיל",
+	"cx-translation-status-published": "פורסם",
+	"cx-translation-status-deleted": "נמחק",
+	"apihelp-cxdelete-description": "מחיקת תרגום במצב טיוטה שנוצר באמצעות ההרחבה ContentTranslation.",
+	"apihelp-cxdelete-param-from": "קוד שפת המקור.",
+	"apihelp-cxdelete-param-to": "קוד שפת היעד.",
+	"apihelp-cxdelete-param-sourcetitle": "כותרת דף המקור.",
+	"apihelp-cxdelete-example-1": "מחיקת טיוטה שמשויכת לזוג שפות וכותרת"
 }

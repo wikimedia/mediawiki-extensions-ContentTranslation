@@ -4,11 +4,25 @@
 			"Papuass"
 		]
 	},
+	"cx": "Tulkot lapu",
 	"cx-publish-button-publishing": "Publicē...",
 	"cx-publish-gt-move-page-title": "Pārvietot lapu",
-	"cx-red-interlanguage-link-preference": "Satura tulkošana",
+	"cx-source-loading": "Ielādē $1",
+	"cx-beta": "Satura tulkošana",
 	"cx-tools-dictionary-title": "Definīcija",
 	"cx-tools-link-title": "Saite",
+	"cx-tools-link-add": "Pievienot saiti",
+	"cx-tools-link-remove": "Noņemt saiti",
+	"cx-stats-page-title": "Lapa",
+	"cx-stats-from": "Avota valoda",
+	"cx-stats-to": "Mērķa valoda",
+	"cx-tools-reference-title": "Atsauce",
+	"cx-tools-reference-remove": "Noņemt atsauci",
+	"cx-sourceselector-dialog-new-translation": "Jauns tulkojums",
 	"cx-sourceselector-dialog-button-cancel": "Atcelt",
-	"cx-save-draft-saving": "Saglabā..."
+	"cx-sourceselector-dialog-source-language-label": "No:",
+	"cx-sourceselector-dialog-target-language-label": "Uz:",
+	"cx-save-draft-saving": "Saglabā...",
+	"cx-translation-status-published": "Publicēts",
+	"cx-translation-status-deleted": "Dzēsts"
 }

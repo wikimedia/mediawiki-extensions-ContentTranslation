@@ -130,7 +130,7 @@
 	"cx-publishing-dialog-keep-button": "Button label for publishing options dialog. Clicking button preserves both the existing translation and the new translation.",
 	"cx-publishing-dialog-publish-anyway-button": "Button label for publishing options dialog. Clicking button overwrites the existing translation with the new translation.",
 	"cx-discard-translation": "Menu label for discarding a translation shown in the Content Translation dashboard.",
-	"cx-translation-status-draft": "In progress status label for the translation in the Content Translation dashboard.",
+	"cx-translation-status-draft": "In progress status label for the translation in the Content Translation dashboard. This means that the translation is stored internally as a draft, accessible only to the user who started it, and not published as a wiki page.",
 	"cx-translation-status-published": "Published status label for the translation in the Content Translation dashboard.",
 	"cx-translation-status-deleted": "Deleted status label for the translation in the Content Translation dashboard.",
 	"apihelp-cxdelete-description": "{{doc-apihelp-description|cxdelete}}",
