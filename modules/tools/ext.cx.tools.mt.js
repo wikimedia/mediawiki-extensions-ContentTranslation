@@ -173,7 +173,10 @@
 		translateSection( $sourceSection, prefetch )
 			.done( function ( translation ) {
 				if ( translation ) {
-					$section.replaceWith( $( translation )
+					// Translation is sent as json string
+					// Automatically parsed by jQuery into object
+					// Html is inside contents field
+					$section.replaceWith( $( translation.contents )
 						.children()
 						.attr( {
 							id: 'cx' + sourceId,
