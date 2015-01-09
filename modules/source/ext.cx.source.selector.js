@@ -762,16 +762,18 @@
 	 * @param {string} sourceTitle Source title
 	 */
 	function setCXToken( sourceLanguage, targetLanguage, sourceTitle ) {
-		var slug, now, name, options;
+		var slug, now, name, options, domain;
 
 		now = new Date();
 		slug = sourceTitle.replace( /\s/g, '-' );
 		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
-
+		domain = location.hostname.indexOf( '.' ) > 0 ?
+			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
+			null; // Mostly domains like "localhost"
 		options = {
 			prefix: '',
 			// Use Domain cookie. Example: domain=.wikipedia.org
-			domain: '.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ),
+			domain: domain,
 			expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
 		};
 
