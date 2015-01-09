@@ -638,7 +638,7 @@
 		// If text is selected, and the link clicked is source language, create a new internal link
 		// in the translation section
 		if ( isValidSelection( selection ) && this.$link && language === mw.cx.sourceLanguage ) {
-			$targetLink = this.createInternalLink( selection.toString(), targetTitle, this.$link.data( 'linkid' ) );
+			this.createInternalLink( selection.toString(), targetTitle, this.$link.data( 'linkid' ) );
 		}
 	};
 
