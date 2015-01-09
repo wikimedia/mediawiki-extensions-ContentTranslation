@@ -12,9 +12,9 @@
 	'use strict';
 
 	var totalSourceWeight = 0,
-		dirty = false,
 		translationThreshold = 0.05;
 
+	mw.cx.dirty = false;
 	/**
 	 * Get the total source weight.
 	 * This is only calculated once per session and cached, because the source doesn't change.
@@ -123,8 +123,10 @@
 		if ( !$section ) {
 			return;
 		}
-		dirty = true;
+
+		mw.cx.dirty = true;
 		$sourceSection = mw.cx.getTranslationSection( $section.data( 'source' ) );
+
 		translationLength = $section.text().length;
 		sourceLength = $sourceSection.text().length;
 
@@ -147,13 +149,13 @@
 			any: 0
 		} );
 		mw.hook( 'mw.cx.translation.saved' ).add( function () {
-			dirty = false;
+			mw.cx.dirty = false;
 		} );
 		window.onbeforeunload = function () {
 			var weights;
 
 			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-				if ( dirty ) {
+				if ( mw.cx.dirty ) {
 					mw.hook( 'mw.cx.translation.save' ).fire();
 				}
 

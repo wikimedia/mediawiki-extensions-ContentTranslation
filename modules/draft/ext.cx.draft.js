@@ -27,9 +27,10 @@
 		var save;
 
 		save = function ( weights ) {
-			if ( weights && weights.any === 0 ) {
+			if ( weights && weights.any === 0 || !mw.cx.dirty ) {
 				return;
 			}
+
 			mw.hook( 'mw.cx.translation.save' ).fire();
 		};
 

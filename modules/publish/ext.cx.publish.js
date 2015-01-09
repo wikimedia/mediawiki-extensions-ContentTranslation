@@ -182,6 +182,7 @@
 							mw.cx.sourceLanguage,
 							mw.cx.targetLanguage
 						);
+						mw.cx.dirty = false;
 					} ).fail( function ( code, details ) {
 						var trace = {
 							sourceLanguage: mw.cx.sourceLanguage,
