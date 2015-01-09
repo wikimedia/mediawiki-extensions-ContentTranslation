@@ -398,6 +398,7 @@ $wgResourceModules['ext.cx.tools.reference'] = array(
 	'dependencies' => array(
 		'ext.cx.tools.manager',
 		'ext.cx.tools.card',
+		'ext.cx.util',
 	),
 ) + $resourcePaths;
 

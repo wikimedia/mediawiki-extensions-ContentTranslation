@@ -124,7 +124,7 @@
 			return;
 		}
 		dirty = true;
-		$sourceSection = $( '#' + $section.data( 'source' ) );
+		$sourceSection = mw.cx.getTranslationSection( $section.data( 'source' ) );
 		translationLength = $section.text().length;
 		sourceLength = $sourceSection.text().length;
 
