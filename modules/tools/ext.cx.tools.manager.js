@@ -10,7 +10,7 @@
  * A tool can register as a CX tool card with this manager.
  * Example:
  * <code>
- * 	mw.cx.tools.dictionary = DictionaryCard;
+ * mw.cx.tools.dictionary = DictionaryCard;
  * </code>
  * In this example dictionary is a unique identifier for the tool card
  * DictionaryCard is a class that implements the tool card
@@ -32,10 +32,13 @@
 	 */
 	function CXToolManager( container, options ) {
 		this.options = $.extend( {}, $.fn.cxtoolmanager.defaults, options );
+
 		// The tools container
 		this.$container = $( container );
+
 		// Collection of all tool instances that are currently shown
 		this.tools = {};
+
 		// Collection of all events that the registered tools listen for.
 		this.eventRegistry = {};
 		this.init();
@@ -55,14 +58,13 @@
 
 			for ( index = 0; index < events.length; index++ ) {
 				if ( !cxToolManager.eventRegistry[ events[ index ] ] ) {
-					// initialize the array
 					cxToolManager.eventRegistry[ events[ index ] ] = [];
 				}
 
 				cxToolManager.eventRegistry[ events[ index ] ].push( toolName );
 
 				if ( toolName === cxToolManager.options.defaultTool ) {
-					// show the default tool
+					// Show the default tool
 					cxToolManager.showCard( toolName );
 				}
 			}
@@ -170,10 +172,12 @@
 			if ( toolName === currentToolName ) {
 				continue;
 			}
+
 			if ( tool.sticky ) {
 				// If the card is sticky, do not hide till it is done. Example: MTAbuse card.
 				continue;
 			}
+
 			toolEvents = tool.getTriggerEvents();
 			if ( intersection( currentToolEvents, toolEvents ).length === 0 ) {
 				this.hideCard( toolName );
