@@ -88,5 +88,7 @@
 	"cx-contributions-media": "Mediefichier eroplueden",
 	"cx-publishing-dialog-message": "D'Säit $1 gëtt et schonn. Den aktuellen Inhalt gëtt duerch Är Iwwersetzung ersat. Wëllt Dir trotzdem publizéieren?",
 	"cx-publishing-dialog-keep-button": "Béid Versioune behalen",
-	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren"
+	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
+	"cx-discard-translation": "Iwwersetzung verwerfen",
+	"cx-translation-status-deleted": "Geläscht"
 }
