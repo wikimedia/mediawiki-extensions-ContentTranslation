@@ -583,6 +583,20 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.translation.conflict'] = array(
+	'scripts' => array(
+		'translation/ext.cx.translation.conflict.js',
+	),
+	'styles' => array(
+		'translation/styles/ext.cx.translation.conflict.less',
+	),
+	'messages' => array(
+		'cx-translation-already-in-progress',
+		'cx-translation-already-in-progress-collaborate',
+		'cx-create-new-translation'
+	)
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.editor'] = array(
 	'scripts' => array(
 		'editor/ext.cx.editor.js',

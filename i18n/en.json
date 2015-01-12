@@ -116,6 +116,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Translation id.",
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by id.",
+	"apihelp-query+contenttranslation-example-3": "Find any translation for the given title between given language pair",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
@@ -133,5 +134,7 @@
 	"apihelp-cxdelete-param-from": "The source language code.",
 	"apihelp-cxdelete-param-to": "The target language code.",
 	"apihelp-cxdelete-param-sourcetitle": "The title of the source page.",
-	"apihelp-cxdelete-example-1": "Delete a draft associated with given language pair and title."
+	"apihelp-cxdelete-example-1": "Delete a draft associated with given language pair and title.",
+	"cx-translation-already-in-progress": "This is an ongoing translation by $1.",
+	"cx-translation-already-in-progress-collaborate": "Please make sure you coordinate with the user who translated the current translation."
 }
