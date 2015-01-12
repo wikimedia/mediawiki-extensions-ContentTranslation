@@ -126,10 +126,19 @@
 
 	/**
 	 * Removes a link if the link is an editable target link
+	 * If the link is a source link, removes the corresponding
+	 * editable target link.
 	 * @return {boolean}
 	 */
 	LinkCard.prototype.removeLink = function () {
-		var $parentSection = null;
+		var $targetLink, $parentSection = null;
+
+		if ( this.isSourceLink() ) {
+			$targetLink = this.getTargetLink();
+			if ( $targetLink ) {
+				this.$link = $targetLink.first();
+			}
+		}
 
 		if ( this.isEditableTargetLink() ) {
 			$parentSection = this.$link.parents( '[contenteditable]' );
