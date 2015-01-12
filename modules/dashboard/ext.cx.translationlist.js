@@ -133,8 +133,10 @@
 	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
-		var i, translation, $translation, $titleLanguageBlock, $translationLink, $sourceLanguage,
-			$targetLanguage, $imageBlock, $lastUpdated, $image, $status, $progressbar,
+		var i, translation, $translation, $titleLanguageBlock,
+			$translationLink, translationLinkUrl,
+			$sourceLanguage, $targetLanguage,
+			$imageBlock, $lastUpdated, $image, $status, $progressbar,
 			$actionsTrigger, $menu, $menuContainer, $deleteTranslation;
 
 		for ( i = 0; i < translations.length; i++ ) {
@@ -159,26 +161,26 @@
 			this.showTitleImage( translation );
 
 			if ( translation.status === 'draft' ) {
-				$translationLink = $( '<a>' )
-					.addClass( 'source-title' )
-					.attr( {
-						href: new mw.Uri().extend( {
-							from: translation.sourceLanguage,
-							to: translation.targetLanguage,
-							page: translation.sourceTitle,
-							targettitle: translation.targetTitle,
-							draft: translation.status === 'draft' ? translation.id : undefined
-						} ).toString()
-					} ).text( translation.sourceTitle );
+				translationLinkUrl = new mw.Uri().extend( {
+					from: translation.sourceLanguage,
+					to: translation.targetLanguage,
+					page: translation.sourceTitle,
+					targettitle: translation.targetTitle,
+					draft: translation.status === 'draft' ? translation.id : undefined
+				} ).toString();
 			}
+
 			if ( translation.status === 'published' ) {
-				$translationLink = $( '<a>' )
-					.addClass( 'source-title' )
-					.attr( {
-						href: translation.targetURL
-					} )
-					.text( translation.sourceTitle );
+				translationLinkUrl = translation.targetURL;
 			}
+
+			$translationLink = $( '<a>' )
+				.addClass( 'source-title' )
+				.text( translation.sourceTitle )
+				.attr( {
+					href: translationLinkUrl
+				} );
+
 			$sourceLanguage = $( '<div>' )
 				.addClass( 'source-language' )
 				.text( $.uls.data.getAutonym( translation.sourceLanguage ) );
@@ -332,7 +334,7 @@
 			action: 'cxdelete',
 			from: translation.sourceLanguage,
 			to: translation.targetLanguage,
-			sourcetitle: translation.sourceTitle,
+			sourcetitle: translation.sourceTitle
 		};
 
 		return new mw.Api().postWithToken( 'edit', apiParams );
