@@ -300,6 +300,11 @@
 		if ( $parent.is( '[contenteditable="false"]' ) ) {
 			return false;
 		}
+		// Check if the text selected is text of a link. If so, that substring
+		// of link text is not a valid text of any link card related actions.
+		if ( $parent.is( '.cx-target-link' ) || $parent.parents( '.cx-target-link' ).length ) {
+			return false;
+		}
 		// Check if parent is already a section. Happens when translator clear the section
 		// and start from empty paragraph. No segments there, just a section parent.
 		if ( $parent.is( mw.cx.getSectionSelector() ) ) {
