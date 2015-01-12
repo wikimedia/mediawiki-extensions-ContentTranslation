@@ -300,6 +300,11 @@
 		if ( $parent.is( '[contenteditable="false"]' ) ) {
 			return false;
 		}
+		// Check if parent is already a section. Happens when translator clear the section
+		// and start from empty paragraph. No segments there, just a section parent.
+		if ( $parent.is( mw.cx.getSectionSelector() ) ) {
+			return true;
+		}
 		// Get parent section
 		$parentSection = $parent.parents( '[contenteditable]' );
 		// Check if that section is editable
