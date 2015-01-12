@@ -6,6 +6,7 @@ namespace ContentTranslation;
 
 class Translator {
 	function __construct( \User $user ) {
+		// GlobalUser::newFromUser must be used so CentralAuth checks are done
 		$this->globalUser = GlobalUser::newFromUser( $user );
 	}
 
