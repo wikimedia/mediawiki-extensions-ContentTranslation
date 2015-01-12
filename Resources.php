@@ -171,6 +171,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'jquery.suggestions',
 		'jquery.throttle-debounce',
 		'ext.uls.mediawiki',
+		'jquery.uls.compact',
 	),
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',
