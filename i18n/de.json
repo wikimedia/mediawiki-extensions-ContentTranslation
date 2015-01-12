@@ -124,5 +124,7 @@
 	"cx-translation-status-deleted": "Gelöscht",
 	"apihelp-cxdelete-param-from": "Der Quellsprachcode.",
 	"apihelp-cxdelete-param-to": "Der Zielsprachcode.",
-	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite."
+	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",
+	"cx-translation-already-in-progress": "Dies ist eine laufende Übersetzung von $1.",
+	"cx-translation-already-in-progress-collaborate": "Bitte stelle sicher, dass du dich mit dem Benutzer abstimmst, der die aktuelle Übersetzung erstellt hat."
 }
