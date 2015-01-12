@@ -63,8 +63,11 @@
 	 * @param {string} title The title of the existing article
 	 */
 	CXPublishingDialog.prototype.render = function ( title ) {
-		var $buttons, $keepButton, $publishAnywayButton,
+		var $buttons, $keepButton, $publishAnywayButton, username, namespace,
 			cxPublishingDialog = this;
+
+		username = mw.user.getName();
+		namespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
 
 		this.$dialog = $( '<div>' )
 			.addClass( 'cx-publishing-dialog' )
@@ -85,11 +88,24 @@
 			.addClass( 'cx-publishing-dialog__buttons' );
 
 		$keepButton = $( '<button>' )
-			.addClass( 'cx-publishing-dialog__buttons-keep mw-ui-button mw-ui-quiet' )
-			.text( mw.msg( 'cx-publishing-dialog-keep-button' ) )
-			.on( 'click', function () {
+			.addClass( 'cx-publishing-dialog__buttons-keep mw-ui-button mw-ui-quiet' );
+
+		if ( namespace === 'User' ) {
+			$keepButton.text( mw.msg( 'cx-publishing-dialog-keep-button' ) );
+		} else {
+			$keepButton.text( mw.msg( 'cx-publishing-dialog-publish-draft-button' ) );
+		}
+
+		$keepButton.on( 'click', function () {
 				var text = $( '.cx-column--translation > h2' ).text();
-				$( '.cx-column--translation > h2' ).text( increaseVersion( text ) );
+				if ( /^User:/.test( text ) ||
+					namespace === 'User'
+				) {
+					text = increaseVersion( text );
+				} else {
+					text = 'User:' + username + '/' + text;
+				}
+				$( '.cx-column--translation > h2' ).text( text );
 				cxPublishingDialog.$dialog.hide();
 				mw.hook( 'mw.cx.publish' ).fire();
 			} );

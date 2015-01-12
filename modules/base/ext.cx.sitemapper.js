@@ -70,6 +70,12 @@
 	mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
 		var targetTitle, targetNameSpace;
 
+		// If the title has already been set
+		// to the user namespace just return it.
+		if ( /^User:/.test( title ) ) {
+			return title;
+		}
+
 		targetNameSpace = mw.config.get( 'wgContentTranslationTargetNamespace' );
 		switch ( targetNameSpace ) {
 		case 'Main':
