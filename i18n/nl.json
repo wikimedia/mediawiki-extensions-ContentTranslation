@@ -45,5 +45,6 @@
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Gepubliceerde vertalingen",
 	"cx-translation-filter-draft-translations": "Kladvertalingen",
-	"cx-contributions-translation": "Vertaling"
+	"cx-contributions-translation": "Vertaling",
+	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren"
 }

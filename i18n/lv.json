@@ -24,5 +24,6 @@
 	"cx-sourceselector-dialog-target-language-label": "Uz:",
 	"cx-save-draft-saving": "Saglabā...",
 	"cx-translation-status-published": "Publicēts",
-	"cx-translation-status-deleted": "Dzēsts"
+	"cx-translation-status-deleted": "Dzēsts",
+	"cx-publishing-dialog-publish-draft-button": "Publicēt kā melnrakstu"
 }

@@ -90,5 +90,7 @@
 	"cx-publishing-dialog-keep-button": "Béid Versioune behalen",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
 	"cx-discard-translation": "Iwwersetzung verwerfen",
-	"cx-translation-status-deleted": "Geläscht"
+	"cx-translation-status-published": "Verëffentlecht",
+	"cx-translation-status-deleted": "Geläscht",
+	"cx-translation-already-in-progress": "Dëst ass eng Iwwersetzung vum $1, déi net ofgeschloss ass."
 }
