@@ -42,23 +42,6 @@
 	};
 
 	/**
-	 * Increase the version number of a title starting with 1.
-	 * @param {string} title The title to increase the version on.
-	 */
-	function increaseVersion( title ) {
-		var match, version;
-
-		match = title.match( /^.*\((\d)\)$/ );
-		if ( match ) {
-			version = parseInt( match[ 1 ], 10 ) + 1;
-
-			return title.replace( /\(\d+\)$/, '(' + version + ')' );
-		}
-
-		return title + ' (1)';
-	}
-
-	/**
 	 * Renders the publishing options dialog.
 	 * @param {string} title The title of the existing article
 	 */
@@ -97,17 +80,8 @@
 		}
 
 		$keepButton.on( 'click', function () {
-				var text = $( '.cx-column--translation > h2' ).text();
-				if ( /^User:/.test( text ) ||
-					namespace === 'User'
-				) {
-					text = increaseVersion( text );
-				} else {
-					text = 'User:' + username + '/' + text;
-				}
-				$( '.cx-column--translation > h2' ).text( text );
 				cxPublishingDialog.$dialog.hide();
-				mw.hook( 'mw.cx.publish' ).fire();
+				mw.hook( 'mw.cx.publish' ).fire( false );
 			} );
 
 		$publishAnywayButton = $( '<button>' )
