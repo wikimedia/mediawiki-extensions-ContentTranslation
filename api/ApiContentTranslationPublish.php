@@ -102,6 +102,14 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieUsageMsg( 'blockedtext' );
 		}
 
+		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
+			$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
+		}
+
+		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
+			$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
+		}
+
 		if ( $params['status'] === 'draft' ) {
 			$this->saveAsDraft();
 		} else {
