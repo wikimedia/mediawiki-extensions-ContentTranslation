@@ -98,6 +98,10 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
+		if ( $this->getUser()->isBlocked() ) {
+			$this->dieUsageMsg( 'blockedtext' );
+		}
+
 		if ( $params['status'] === 'draft' ) {
 			$this->saveAsDraft();
 		} else {

@@ -11,6 +11,11 @@ class ApiContentTranslationDelete extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
+
+		if ( $user->isBlocked() ) {
+			$this->dieUsageMsg( 'blockedtext' );
+		}
+
 		$translator = new ContentTranslation\Translator( $user );
 		$translation = ContentTranslation\Translation::find(
 			$params['from'],

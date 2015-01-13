@@ -20,6 +20,11 @@ class ContentTranslationHooks {
 	public static function isEnabledForUser( User $user ) {
 		global $wgContentTranslationAsBetaFeature;
 
+		// Not available for blocked users.
+		if ( $user->isBlocked() ) {
+			return false;
+		}
+
 		if ( !$wgContentTranslationAsBetaFeature ) {
 			return true;
 		}
