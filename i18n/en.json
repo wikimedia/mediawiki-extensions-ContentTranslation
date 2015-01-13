@@ -136,5 +136,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "The title of the source page.",
 	"apihelp-cxdelete-example-1": "Delete a draft associated with given language pair and title.",
 	"cx-translation-already-in-progress": "This is an ongoing translation by $1.",
-	"cx-translation-already-in-progress-collaborate": "Please make sure you coordinate with the user who translated the current translation."
+	"cx-translation-already-in-progress-collaborate": "Please make sure you coordinate with the user who translated the current translation.",
+	"cx-publishing-dialog-publish-draft-button": "Publish as draft"
 }

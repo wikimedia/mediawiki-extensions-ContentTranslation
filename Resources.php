@@ -493,6 +493,7 @@ $wgResourceModules['ext.cx.publish.dialog'] = array(
 	'messages' => array(
 		'cx-publishing-dialog-message',
 		'cx-publishing-dialog-keep-button',
+		'cx-publishing-dialog-publish-draft-button',
 		'cx-publishing-dialog-publish-anyway-button',
 	),
 ) + $resourcePaths;
