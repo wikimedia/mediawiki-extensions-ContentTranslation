@@ -24,4 +24,8 @@ class GlobalUser {
 	public function getId() {
 		return $this->user->getId();
 	}
+
+	public function getName() {
+		return $this->user->getName();
+	}
 }

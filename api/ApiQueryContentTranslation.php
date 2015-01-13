@@ -78,7 +78,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $translation !== null ) {
 			$translator = $translation->translation['lastUpdatedTranslator'];
 			$translation->translation['translatorName'] =
-				User::newFromId( $translator )->getName();
+				ContentTranslation\GlobalUser::newFromUser(
+					User::newFromId( $translator )
+				)->getName();
 			$result->addValue(
 				array( 'query', 'contenttranslation' ),
 				'translation', $translation->translation
