@@ -86,7 +86,7 @@
 		} ).done( function ( response ) {
 			var translation;
 
-			translation = response.query.contenttranslation.translation;
+			translation = response.query && response.query.contenttranslation.translation;
 			// If this translation is draft and not by current user, there is an
 			// existing translation.
 			if ( translation &&
