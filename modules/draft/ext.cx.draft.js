@@ -90,7 +90,7 @@
 			// If this translation is draft and not by current user, there is an
 			// existing translation.
 			if ( translation &&
-				parseInt( translation.lastUpdatedTranslator ) !== mw.user.getId() &&
+				translation.translatorName !== mw.user.getName() &&
 				translation.status === 'draft'
 			) {
 				deferred.resolve( translation );
