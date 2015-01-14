@@ -114,7 +114,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ответ на капчу (при сохранении с показом капчи).",
 	"apihelp-query+contenttranslation-description": "Запрос к базе данных Content Translation'а для переводов.",
 	"apihelp-query+contenttranslation-param-translationid": "ID перевода.",
-	"apihelp-query+contenttranslation-example-1": "Получить перевод начатый Santhosh.",
+	"apihelp-query+contenttranslation-example-1": "Получить перевод, начатый текущим участником.",
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
 	"cx-save-draft-saving": "Сохраняется…",
 	"apihelp-cxdelete-description": "Удалить проект перевода, созданные с помощью контент-перевод с расширением.",

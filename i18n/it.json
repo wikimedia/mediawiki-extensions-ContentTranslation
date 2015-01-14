@@ -5,7 +5,8 @@
 			"Gianfranco",
 			"FRacco",
 			"Nemo bis",
-			"Macofe"
+			"Macofe",
+			"Ricordisamoa"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -74,5 +75,6 @@
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-publish-captcha-title": "Domanda di sicurezza",
 	"cx-contributions": "Nuovo contributo",
-	"cx-contributions-translation": "Traduzione"
+	"cx-contributions-translation": "Traduzione",
+	"cx-publishing-dialog-publish-draft-button": "Pubblica come bozza"
 }

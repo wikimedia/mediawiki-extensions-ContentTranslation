@@ -117,6 +117,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "翻译ID。",
 	"apihelp-query+contenttranslation-example-1": "获取由当前用户作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
+	"apihelp-query+contenttranslation-example-3": "查找指定的语言对中给定标题的任何翻译",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分钟前|0=刚刚}}保存",
 	"cx-save-draft-saving": "正在保存...",
 	"cx-save-draft-tooltip": "翻译草稿会自动保存",
@@ -134,5 +135,8 @@
 	"apihelp-cxdelete-param-from": "源语言代码。",
 	"apihelp-cxdelete-param-to": "目标语言代码。",
 	"apihelp-cxdelete-param-sourcetitle": "来源页面的标题。",
-	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。"
+	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。",
+	"cx-translation-already-in-progress": "这里正在由$1翻译中。",
+	"cx-translation-already-in-progress-collaborate": "请确保您与做出当前翻译的用户协调一致。",
+	"cx-publishing-dialog-publish-draft-button": "作为草稿发布"
 }

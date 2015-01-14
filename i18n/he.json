@@ -115,6 +115,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
+	"apihelp-query+contenttranslation-example-3": "חיפוש כל תרגום עבור הכותרת הנתונה בין זוג השפות הנתונות",
 	"cx-save-draft-save-success": "נשמר {{PLURAL:$1|לפני דקה|לפני $1 דקות|0=זה עתה}}",
 	"cx-save-draft-saving": "שמירה...",
 	"cx-save-draft-tooltip": "טיוטות של תרגומים נשמרות אוטומטית",
@@ -132,5 +133,8 @@
 	"apihelp-cxdelete-param-from": "קוד שפת המקור.",
 	"apihelp-cxdelete-param-to": "קוד שפת היעד.",
 	"apihelp-cxdelete-param-sourcetitle": "כותרת דף המקור.",
-	"apihelp-cxdelete-example-1": "מחיקת טיוטה שמשויכת לזוג שפות וכותרת"
+	"apihelp-cxdelete-example-1": "מחיקת טיוטה שמשויכת לזוג שפות וכותרת",
+	"cx-translation-already-in-progress": "זה תרגום שנערך עכשיו על־ידי $1.",
+	"cx-translation-already-in-progress-collaborate": "נא להסתנכרן עם המשתמש שהתחיל את התרגום הנוכחי.",
+	"cx-publishing-dialog-publish-draft-button": "לפרסם כטיוטה"
 }

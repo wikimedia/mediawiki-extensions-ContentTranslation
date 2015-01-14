@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mantak111"
+			"Mantak111",
+			"Aswanas"
 		]
 	},
-	"cx-tools-instructions-text5": "Publikuoti vertimą"
+	"cx-tools-instructions-text5": "Publikuoti vertimą",
+	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų  kalbų porų",
+	"cx-translation-already-in-progress": "Tai yra $1 tęsiamas vertimas",
+	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad  suderinote su vartotoju, kuris išvertė  esamą vertimą.",
+	"cx-publishing-dialog-publish-draft-button": "Paskelbti kaip projektą"
 }
