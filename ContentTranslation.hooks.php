@@ -88,8 +88,8 @@ class ContentTranslationHooks {
 				'ltr' => "$imageDir/cx-icon-ltr.svg",
 				'rtl' => "$imageDir/cx-icon-rtl.svg",
 			),
-			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
-			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation',
+			'info-link' => 'https://www.mediawiki.org/wiki/Content_translation',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Content_translation',
 		);
 	}
 
