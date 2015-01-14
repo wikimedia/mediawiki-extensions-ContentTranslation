@@ -128,9 +128,28 @@
 	}
 
 	/**
-	 * Publish the translation
+	 * Increase the version number of a title starting with 1.
+	 * @param {string} title The title to increase the version on.
 	 */
-	function publish( publishAnyway ) {
+	function increaseVersion( title ) {
+		var match, version;
+
+		match = title.match( /^.*\((\d+)\)$/ );
+		if ( match ) {
+			version = parseInt( match[ 1 ], 10 ) + 1;
+
+			return title.replace( /\(\d+\)$/, '(' + version + ')' );
+		}
+
+		return title + ' (1)';
+	}
+
+	/**
+	 * Publish the translation
+	 * @param {boolean} publishAnyway Flag to overwrite translation
+	 * @param {string} title [optional], Optional title for the translation
+	 */
+	function publish( publishAnyway, title ) {
 		var $publishArea, $publishButton, publisher, translatedTitle,
 			translatedContent, targetCategories, $draftButton, targetTitle,
 			sortedKeys, i, categoryTitles, categories, publishedTitle;
@@ -138,7 +157,7 @@
 		$publishArea = $( '.cx-header__publish' );
 		$publishButton = $publishArea.find( '.cx-header__publish-button' );
 		$draftButton = $publishArea.find( '.cx-header__draft-button' );
-		targetTitle = $( '.cx-column--translation > h2' ).text();
+		targetTitle = title || $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(
 			$( '.cx-column--translation .cx-column__content' ).clone()
 		);
@@ -147,6 +166,10 @@
 
 		checkTargetTitle( publishedTitle )
 			.done( function ( titleExists ) {
+				var username;
+
+				username = mw.user.getName();
+
 				if ( titleExists === false || publishAnyway === true ) {
 					$publishButton
 						.prop( 'disabled', true )
@@ -172,7 +195,9 @@
 						categories: categories,
 						progress: JSON.stringify( mw.cx.getProgress() )
 					} ).done( function () {
-						mw.hook( 'mw.cx.success' ).fire( mw.message( 'cx-publish-page-success',
+						$( '.cx-column--translation > h2' ).text( publishedTitle );
+						mw.hook( 'mw.cx.success' )
+							.fire( mw.message( 'cx-publish-page-success',
 							$( '<a>' ).attr( {
 								href: mw.util.getUrl( publishedTitle ),
 								target: '_blank'
@@ -199,6 +224,13 @@
 							.prop( 'disabled', true )
 							.text( mw.msg( 'cx-publish-button' ) );
 					} );
+				} else if ( publishAnyway === false ) {
+					if ( /^User:/.test( publishedTitle ) ) {
+						publishedTitle = increaseVersion( publishedTitle );
+					} else {
+						publishedTitle = 'User:' + username + '/' + publishedTitle;
+					}
+					publish( false, publishedTitle );
 				} else {
 					$publishButton.cxPublishingDialog();
 				}
