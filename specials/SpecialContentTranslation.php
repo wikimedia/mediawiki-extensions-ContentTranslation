@@ -65,6 +65,11 @@ class SpecialContentTranslation extends SpecialPage {
 			'mediawiki.page.ready',
 		) );
 
+		// Load legacy modules if any, for the skin.
+		// Some wikis have Common.js scripts that depend on this module.
+		$defaultSkinModules = $skin->getDefaultModules();
+		$out->addModules( $defaultSkinModules['legacy'] );
+
 		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
 
 		$out->addHTML( $out->headElement( $skin ) );
