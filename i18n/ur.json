@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Muhammad Shuaib",
-			"Amire80"
+			"Amire80",
+			"عثمان خان شاہ"
 		]
 	},
 	"cx": "صفحہ کا ترجمہ کریں",
@@ -32,5 +33,10 @@
 	"cx-tools-instructions-text6": "جب آپ نتیجہ سے متفق ہوجائیں تو \"{{int:cx-publish-button}}\" پر کلک کریں۔",
 	"cx-tools-searchbox-text": "لفظ کو تلاش کریں",
 	"cx-tools-view-guidelines": "ہدایات برائے ترجمہ ملاحظہ فرمائیں",
-	"cx-sourceselector-dialog-button-cancel": "منسوخ"
+	"cx-sourceselector-dialog-button-cancel": "منسوخ",
+	"cx-discard-translation": "مسترد شدہ ترجمہ",
+	"cx-translation-status-draft": "کامیابی سے جارہا ہے",
+	"cx-translation-status-published": "شائع شدہ",
+	"cx-translation-status-deleted": "خارج کر دیا گیا",
+	"cx-publishing-dialog-publish-draft-button": "بطور ڈرافٹ شائع کریں"
 }

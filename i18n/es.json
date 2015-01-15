@@ -11,7 +11,8 @@
 			"Macofe",
 			"ProtoplasmaKid",
 			"Patricio",
-			"Cgalindo"
+			"Cgalindo",
+			"Pginer"
 		]
 	},
 	"cx": "Traducir página",
@@ -44,7 +45,7 @@
 	"tag-contenttranslation": "Traducción de contenido",
 	"cx-source-loading": "Cargando $1",
 	"cx-beta": "Traducción del contenido",
-	"cx-beta-desc": "Una herramienta para traducir rápidamente páginas a su idioma. Inicie traducciones en su página de usuario, y edítelas con un editor especialmente diseñado para la traducción. Algunas de las herramientas pueden estar disponibles sólo para idiomas específicos.",
+	"cx-beta-desc": "Una herramienta para traducir rápidamente páginas a su idioma. Inicie traducciones en su página de contribuciones, y edítelas con un editor especialmente diseñado para la traducción. Algunas de las herramientas pueden estar disponibles sólo para idiomas específicos.",
 	"cx-entrypoint-title": "Traduce esta página al $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página aún no existe en $1.<br />\n¿{{GENDER:|Quieres}} crearla?",
 	"cx-entrypoint-dialog-title-in": "Título de la página nueva en $1:",
