@@ -647,8 +647,7 @@
 
 		if ( !sourceTitle ) {
 			$sourceLink = this.getSourceLink();
-			sourceTitle = $sourceLink.attr( 'href' );
-			sourceTitle = cleanupLinkHref( sourceTitle );
+			sourceTitle = $sourceLink && cleanupLinkHref( $sourceLink.attr( 'href' ) );
 		}
 
 		this.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
