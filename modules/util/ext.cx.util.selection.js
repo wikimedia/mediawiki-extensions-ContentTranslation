@@ -137,6 +137,10 @@
 		currentSelection = this.get();
 		range = this.ranges[ key ];
 
+		if ( !range ) {
+			return;
+		}
+
 		setFocusOnParentBlock( range ); // for FireFox
 
 		// Standards
