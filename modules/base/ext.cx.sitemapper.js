@@ -70,9 +70,9 @@
 	mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
 		var targetTitle, targetNameSpace;
 
-		// If the title has already been set
-		// to the user namespace just return it.
-		if ( /^User:/.test( title ) ) {
+		// If the title is already in the
+		// user namespace just return it.
+		if ( new mw.Title( title ).getNamespaceId() === 2 ) {
 			return title;
 		}
 

@@ -225,7 +225,7 @@
 							.text( mw.msg( 'cx-publish-button' ) );
 					} );
 				} else if ( publishAnyway === false ) {
-					if ( /^User:/.test( publishedTitle ) ) {
+					if ( new mw.Title( publishedTitle ).getNamespaceId() === 2 ) {
 						publishedTitle = increaseVersion( publishedTitle );
 					} else {
 						publishedTitle = 'User:' + username + '/' + publishedTitle;
