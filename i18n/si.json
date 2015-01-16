@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Susith Chandira Gts"
+			"Susith Chandira Gts",
+			"Thirsty"
 		]
 	},
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|පිටුව|පිටු}} ($3%) ප්‍රධාන නාමඅවකාශය තුලයි.",
-	"cx-translation-filter-draft-translations": "පරිවර්තන ප්‍රගතිය"
+	"cx-translation-filter-draft-translations": "පරිවර්තන ප්‍රගතිය",
+	"apihelp-query+contenttranslation-example-3": "දී ඇති භාෂා ද්විත්වය අතර දී ඇති මාතෘකාව සදහා ඕනෑම පරිවර්තනයක් සොයන්න.",
+	"cx-translation-already-in-progress": "මෙය $1 විසින් සිදුකරමින් පවතින පරිවර්තනයකි."
 }
