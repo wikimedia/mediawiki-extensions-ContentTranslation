@@ -161,11 +161,12 @@
 			this.showTitleImage( translation );
 
 			if ( translation.status === 'draft' ) {
-				translationLinkUrl = new mw.Uri().extend( {
-					from: translation.sourceLanguage,
-					to: translation.targetLanguage,
-					page: translation.sourceTitle,
-					targettitle: translation.targetTitle,
+				translationLinkUrl = new mw.Uri( mw.cx.siteMapper.getCXUrl(
+					translation.sourceTitle,
+					translation.targetTitle,
+					translation.sourceLanguage,
+					translation.targetLanguage
+				) ).extend( {
 					draft: translation.status === 'draft' ? translation.id : undefined
 				} ).toString();
 			}
