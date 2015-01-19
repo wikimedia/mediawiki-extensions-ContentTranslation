@@ -84,6 +84,24 @@ $specialPageAliases['ml'] = array(
 	'ContentTranslation' => array( 'ലേഖനപരിഭാഷ' ),
 );
 
+/** Norwegian Bokmål (norsk bokmål) */
+$specialPageAliases['nb'] = array(
+	'ContentTranslation' => array( 'Innholdsoversettelse' ),
+	'ContentTranslationStats' => array( 'Innholdsoversettelsesstatistikk' ),
+);
+
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'ContentTranslation' => array( 'Paginavertalen' ),
+	'ContentTranslationStats' => array( 'Paginavertalingsstatistieken' ),
+);
+
+/** Norwegian Nynorsk (norsk nynorsk) */
+$specialPageAliases['nn'] = array(
+	'ContentTranslation' => array( 'Innhaldsomsetjing' ),
+	'ContentTranslationStats' => array( 'Innhaldsomsetjingsstatistikk' ),
+);
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'ContentTranslation' => array( 'Innehållsöversättning' ),

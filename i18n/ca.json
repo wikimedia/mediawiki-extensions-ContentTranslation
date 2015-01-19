@@ -10,12 +10,13 @@
 			"Alvaro Vidal-Abarca",
 			"Macofe",
 			"Davidpar",
-			"Adriabages"
+			"Adriabages",
+			"Vriullop"
 		]
 	},
 	"cx": "Tradueix la pàgina",
 	"cx-javascript": "Aquesta eina no funciona sense JavaScript.",
-	"cx-license-agreement": "En fer clic a «$1» estàs d'acord amb els [//wikimediafoundation.org/wiki/Terms_of_Use termes d'ús] i irrevocablement d'acord en alliberar les teves contribucions amb l'eina de traducció sota la [//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License llicència CC BY-SA 3.0] i el [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] entenent que un hipervincle o URL és suficient per atribuir CC BY-SA 3.0.",
+	"cx-license-agreement": "En clicar el botó «$1» esteu acceptant els [//wikimediafoundation.org/wiki/Terms_of_Use termes d'ús] i accepteu alliberar irrevocablement les vostres contribucions amb l'eina de traducció sota la [https://creativecommons.org/licenses/by-sa/3.0/deed.ca llicència CC BY-SA 3.0] i la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] entenent que un hiperenllaç o URL és suficient per l'atribució CC BY-SA 3.0.",
 	"cx-error-server-connection": "Error: No s'ha pogut connectar al servidor.",
 	"cx-desc": "Una eina que permet els editors traduir pàgines d'una llengua a una altra amb l'ajuda de la traducció automàtica i altres eines de traducció",
 	"cx-header-progressbar-text": "$1% traduït",
@@ -117,9 +118,22 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respon el captcha (en cas de guardar-ho amb una resposta de captcha).",
 	"apihelp-query+contenttranslation-description": "Base de dades de Content Translation de llenguatge de consulta.",
 	"apihelp-query+contenttranslation-param-translationid": "Identificació de la traducció.",
-	"apihelp-query+contenttranslation-example-1": "Obtén les traduccions iniciades per Santhosh.",
+	"apihelp-query+contenttranslation-example-1": "Obtén les traduccions iniciades per l'usuari actual.",
 	"apihelp-query+contenttranslation-example-2": "Obtén l'esborrany de traduccions per identificació.",
+	"apihelp-query+contenttranslation-example-3": "Troba traduccions per al títol donat entre un parell de llengües donades",
 	"cx-save-draft-save-success": "Desat {{PLURAL:$1|fa un minut|$1 fa uns minuts|0=ara mateix}}",
 	"cx-save-draft-saving": "S’està desant…",
-	"cx-save-draft-tooltip": "Els esborranys de traduccions es desen automàticament."
+	"cx-save-draft-tooltip": "Els esborranys de traduccions es desen automàticament.",
+	"cx-contributions": "Nova contribució",
+	"cx-contributions-translation": "Traducció",
+	"cx-contributions-media": "Càrrega de fitxer multimèdia",
+	"cx-publishing-dialog-message": "La pàgina $1 ja existeix. El contingunt actual serà reemplaçat per la vostra traducció. Ho voleu publicar de totes maneres?",
+	"cx-publishing-dialog-publish-anyway-button": "Publica-ho igualment",
+	"cx-discard-translation": "Descarta la traducció",
+	"cx-translation-status-draft": "En curs",
+	"cx-translation-status-published": "Publicat",
+	"cx-translation-status-deleted": "Suprimit",
+	"apihelp-cxdelete-param-from": "El codi de la llengua origen.",
+	"apihelp-cxdelete-param-sourcetitle": "El títol de la pàgina d'origen.",
+	"cx-translation-already-in-progress": "Aquesta és una traducció en curs per $1."
 }
