@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeblad"
+		]
+	},
+	"cx": "Omset side",
+	"cx-header-translation-center": "Senter for omsetjing",
+	"cx-source-view-page": "Sjå side",
+	"cx-entrypoint-title": "Omset denne sida til $1",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Skriv frå botnen av",
+	"cx-tools-link-title": "Lekje",
+	"cx-tools-link-add": "Legg til lenkje",
+	"cx-tools-link-remove": "Slett lenkje",
+	"cx-tools-mt-title": "Maskinomsetjing",
+	"cx-tools-mt-restore": "Attopprett",
+	"cx-tools-mt-provider-title": "Frå $1",
+	"cx-stats-page-title": "Side",
+	"cx-stats-to": "Målspråk",
+	"cx-stats-pages-title": "Omsette sider",
+	"cx-stats-unknown": "ukjend",
+	"cx-tools-reference-title": "Referanse",
+	"cx-tools-reference-remove": "Slett referanse",
+	"cx-sourceselector-dialog-new-translation": "Ny omsetjing",
+	"cx-sourceselector-dialog-button-start-translation": "Start omsetjing",
+	"cx-sourceselector-dialog-button-cancel": "Avbryt",
+	"cx-sourceselector-dialog-source-language-label": "Frå:",
+	"cx-sourceselector-dialog-target-language-label": "Til:",
+	"cx-sourceselector-dialog-source-title-placeholder": "Søk for kjeldeside",
+	"cx-translation-status-draft": "Under arbeid",
+	"cx-translation-status-published": "Publiser",
+	"cx-translation-status-deleted": "Sletta",
+	"apihelp-cxdelete-param-from": "Koda for kjeldespråket",
+	"apihelp-cxdelete-param-to": "Koda for målspråket",
+	"apihelp-cxdelete-param-sourcetitle": "Tittelen åt kjeldesida."
+}
