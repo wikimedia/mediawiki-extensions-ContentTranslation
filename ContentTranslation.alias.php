@@ -84,6 +84,12 @@ $specialPageAliases['ml'] = array(
 	'ContentTranslation' => array( 'ലേഖനപരിഭാഷ' ),
 );
 
+/** Malay (Bahasa Melayu) */
+$specialPageAliases['ms'] = array(
+	'ContentTranslation' => array( 'Penterjemahan_kandungan' ),
+	'ContentTranslationStats' => array( 'Statistik_penterjemahan_kandungan' ),
+);
+
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'ContentTranslation' => array( 'Innholdsoversettelse' ),

@@ -17,7 +17,7 @@
 	},
 	"cx": "Traducir página",
 	"cx-javascript": "Esta herramienta no funciona sin JavaScript.",
-	"cx-license-agreement": "Al pulsar en el botón «$1» aceptarás las [//wikimediafoundation.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones con la herramienta de traducción en el marco de la [//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_License licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL], con el entendimiento de que un enlace o URL es suficiente para la atribución de esta licencia Creative Commons.",
+	"cx-license-agreement": "Al pulsar en el botón «$1» aceptarás las [//wikimediafoundation.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones con la herramienta de traducción en el marco de la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL], con el entendimiento de que un enlace o URL es suficiente para la atribución de esta licencia Creative Commons.",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
 	"cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de software de traducción automática y otras herramientas de traducción",
 	"cx-header-progressbar-text": "$1 % traducido",
@@ -122,5 +122,7 @@
 	"cx-contributions-translation": "Traducción",
 	"cx-contributions-media": "Cargar archivo multimedia",
 	"cx-discard-translation": "Descartar la traducción",
+	"cx-translation-status-published": "Publicado",
+	"cx-translation-status-deleted": "Borrado",
 	"apihelp-cxdelete-param-from": "El código del idioma de origen."
 }
