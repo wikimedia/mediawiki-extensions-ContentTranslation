@@ -39,7 +39,7 @@
 	};
 
 	CXDashboard.prototype.render = function () {
-		var $content, $newTranslationContainer, $newTranslationDesc;
+		var $content, $newTranslationContainer, $newTranslationDesc, $feedbackLink, $feedbackContainer;
 
 		this.$header = $( '<div>' ).addClass( 'cx-widget__header' );
 		$newTranslationContainer = $( '<div>' ).addClass( 'cx-cta' );
@@ -54,7 +54,20 @@
 		$newTranslationDesc = $( '<div>' )
 			.addClass( 'cx-cta___description' )
 			.html( mw.message( 'cx-create-new-translation-desc' ).parse() );
-		$newTranslationContainer.append( this.$newTranslationButton, $newTranslationDesc );
+
+		$feedbackLink = $( '<a>' )
+			.addClass( 'cx-dashboard--feedback__link' )
+			.attr( {
+				href: '//www.mediawiki.org/wiki/Talk:Content_translation',
+				target: '_blank'
+			} )
+			.text( mw.msg( 'cx-feedback-link' ) );
+
+		$feedbackContainer = $( '<div>' )
+			.addClass( 'cx-dashboard--feedback' )
+			.append( $feedbackLink );
+
+		$newTranslationContainer.append( this.$newTranslationButton, $newTranslationDesc, $feedbackContainer );
 	};
 
 	CXDashboard.prototype.listen = function () {

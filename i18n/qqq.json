@@ -142,5 +142,6 @@
 	"apihelp-cxdelete-example-1": "{{doc-apihelp-example|cx|cxdelete|query+contenttranslation}}",
 	"cx-translation-already-in-progress": "Message shown when a second translator tries to translate the same page between same languages. \n\nParameters:\n* $1 - User name of first translator",
 	"cx-translation-already-in-progress-collaborate": "A message to collaborate with other translator. Shown when there is translation conflict.",
-	"cx-publishing-dialog-publish-draft-button": "Button label for publishing options dialog. Used if extension is not configured to publish to User namespace."
+	"cx-publishing-dialog-publish-draft-button": "Button label for publishing options dialog. Used if extension is not configured to publish to User namespace.",
+	"cx-feedback-link": "Link text for the link to give feedback"
 }

@@ -46,7 +46,7 @@
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $searchBox, $loadingIndicator;
+		var $progressBar, $searchBox, $loadingIndicator, $feedbackLink, $feedbackContainer;
 
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
@@ -70,9 +70,21 @@
 			.addClass( 'card cx-card--search cx-card--fixed' )
 			.append( this.$searchIcon, this.$searchInput );
 
+		$feedbackLink = $( '<a>' )
+			.addClass( 'cx-tools--feedback__link' )
+			.attr( {
+				href: '//www.mediawiki.org/wiki/Talk:Content_translation',
+				target: '_blank'
+			} )
+			.text( mw.msg( 'cx-feedback-link' ) );
+
+		$feedbackContainer = $( '<div>' )
+			.addClass( 'cx-tools--feedback' )
+			.append( $feedbackLink );
+
 		this.$toolsContainer = $( '<div>' )
 			.addClass( 'cx-tools' )
-			.append( $searchBox );
+			.append( $searchBox, $feedbackContainer );
 
 		$loadingIndicator = getLoadingIndicator();
 

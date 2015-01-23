@@ -79,6 +79,7 @@ $wgResourceModules['ext.cx.dashboard'] = array(
 	'messages' => array(
 		'cx-create-new-translation',
 		'cx-create-new-translation-desc',
+		'cx-feedback-link',
 	),
 ) + $resourcePaths;
 
@@ -256,6 +257,9 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
 	),
+	'messages' => array(
+		'cx-feedback-link'
+	)
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tools.card'] = array(
