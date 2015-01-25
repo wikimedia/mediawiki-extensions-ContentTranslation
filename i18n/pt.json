@@ -122,5 +122,6 @@
 	"cx-translation-status-published": "Publicada",
 	"cx-translation-status-deleted": "Eliminada",
 	"cx-translation-already-in-progress": "Esta é uma tradução em andamento de $1.",
-	"cx-publishing-dialog-publish-draft-button": "Publicar como rascunho"
+	"cx-publishing-dialog-publish-draft-button": "Publicar como rascunho",
+	"cx-feedback-link": "Fornecer comentários"
 }

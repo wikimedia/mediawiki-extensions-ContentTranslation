@@ -138,5 +138,6 @@
 	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。",
 	"cx-translation-already-in-progress": "这里正在由$1翻译中。",
 	"cx-translation-already-in-progress-collaborate": "请确保您与做出当前翻译的用户协调一致。",
-	"cx-publishing-dialog-publish-draft-button": "作为草稿发布"
+	"cx-publishing-dialog-publish-draft-button": "作为草稿发布",
+	"cx-feedback-link": "提供反馈"
 }

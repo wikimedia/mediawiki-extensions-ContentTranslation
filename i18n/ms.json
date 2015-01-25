@@ -7,7 +7,7 @@
 	},
 	"cx": "Terjemahkan laman",
 	"cx-javascript": "Peralatan ini tidak berfungsi tanpa JavaScript.",
-	"cx-license-agreement": "Dengan mengeklik butang \"$1\", anda bersetujui dengan [//wikimediafoundation.org/wiki/Terms_of_Use Syarat-Syarat Penggunaan] dan anda bersetujui, tanpa kebolehan menarik balik, untuk mengeluarkan sumbangan-sumbangan anda dengan alat terjemahan ini di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.ms Lesen CC BY-SA 3.0] dan [//ms.wikipedia.org/wiki/Wikipedia:Teks_Lesen_Pendokumenan_Bebas_GNU GDFL] dengan pemahaman bahawa sebuah pautan atau URL adalah cukup untuk pengiktirafan CC BY-SA 3.0.",
+	"cx-license-agreement": "Dengan mengeklik butang \"$1\", anda bersetujui dengan [//wikimediafoundation.org/wiki/Terms_of_Use Syarat-Syarat Penggunaan] dan anda bersetujui, tanpa kebolehan menarik balik, untuk mengeluarkan sumbangan-sumbangan anda dengan alat terjemahan ini di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.ms Lesen CC BY-SA 3.0] dan [//ms.wikipedia.org/wiki/Wikipedia:Teks_Lesen_Pendokumenan_Bebas_GNU GFDL] dengan pemahaman bahawa sebuah pautan atau URL adalah cukup untuk pengiktirafan CC BY-SA 3.0.",
 	"cx-error-server-connection": "Ralat: Tidak dapat menyambung ke pelayan.",
 	"cx-desc": "Sebuah alat yang membolehkan penyunting untuk menterjemah laman-laman dari satu bahasa ke satu bahasa dengan bantuan terjemahan mesin dan alat-alat peterjemahan lain",
 	"cx-header-progressbar-text": "$1% diterjemahkan",
@@ -132,5 +132,6 @@
 	"apihelp-cxdelete-example-1": "Hapus sebuah draf terkait dengan pasangan bahasa serta tajuk yang diberikan.",
 	"cx-translation-already-in-progress": "Ini adalah terjemahan yang sedang berlangsung oleh $1.",
 	"cx-translation-already-in-progress-collaborate": "Sila pastikan anda menyelaraskan dengan pengguna yang menterjemah terjemahan semasa.",
-	"cx-publishing-dialog-publish-draft-button": "Terbit sebagai draf"
+	"cx-publishing-dialog-publish-draft-button": "Terbit sebagai draf",
+	"cx-feedback-link": "Berikan maklum balas"
 }

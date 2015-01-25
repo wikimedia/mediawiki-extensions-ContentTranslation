@@ -131,5 +131,6 @@
 	"apihelp-cxdelete-example-1": "Избриши нацрт за даден јазичен пар и наслов.",
 	"cx-translation-already-in-progress": "Ова е превод во тек на $1.",
 	"cx-translation-already-in-progress-collaborate": "Не заборавајте да се усогласите со корисникот што го направил тековниот превод.",
-	"cx-publishing-dialog-publish-draft-button": "Објави како нацрт"
+	"cx-publishing-dialog-publish-draft-button": "Објави како нацрт",
+	"cx-feedback-link": "Дајте ваше мислење"
 }

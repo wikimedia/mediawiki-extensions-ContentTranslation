@@ -128,5 +128,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",
 	"cx-translation-already-in-progress": "Dies ist eine laufende Übersetzung von $1.",
 	"cx-translation-already-in-progress-collaborate": "Bitte stelle sicher, dass du dich mit dem Benutzer abstimmst, der die aktuelle Übersetzung erstellt hat.",
-	"cx-publishing-dialog-publish-draft-button": "Als Entwurf veröffentlichen"
+	"cx-publishing-dialog-publish-draft-button": "Als Entwurf veröffentlichen",
+	"cx-feedback-link": "Rückmeldung geben"
 }

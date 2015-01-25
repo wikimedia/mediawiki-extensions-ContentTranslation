@@ -9,7 +9,9 @@
 			"Wyz",
 			"Macofe",
 			"Crochet.david",
-			"0x010C"
+			"0x010C",
+			"Benjozork",
+			"Orikrin1998"
 		]
 	},
 	"cx": "Traduire la page",
@@ -132,5 +134,7 @@
 	"cx-translation-status-deleted": "Supprimé",
 	"apihelp-cxdelete-param-from": "Le code de langue source.",
 	"apihelp-cxdelete-param-to": "Le code de langue cible.",
-	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source."
+	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source.",
+	"cx-publishing-dialog-publish-draft-button": "Publier en brouillon",
+	"cx-feedback-link": "Donner un commentaire"
 }
