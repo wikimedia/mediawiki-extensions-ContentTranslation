@@ -4,7 +4,8 @@
 			"C5st4wr6ch",
 			"Ahdan",
 			"Macofe",
-			"William Surya Permana"
+			"William Surya Permana",
+			"BaconSenpai"
 		]
 	},
 	"cx": "Terjemahkan halaman",
@@ -134,5 +135,6 @@
 	"apihelp-cxdelete-example-1": "Hapus konsep yang berhubungan dengan pasangan bahasa dan judul yang diberikan.",
 	"cx-translation-already-in-progress": "Terdapat terjemahan yang sedang dalam proses oleh $1.",
 	"cx-translation-already-in-progress-collaborate": "Harap pastikan Anda telah berkoordinasi dengan pengguna yang menerjemahkan terjemahan saat ini.",
-	"cx-publishing-dialog-publish-draft-button": "Terbitkan sebagai konsep"
+	"cx-publishing-dialog-publish-draft-button": "Terbitkan sebagai konsep",
+	"cx-feedback-link": "Memberi masukan"
 }

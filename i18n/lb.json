@@ -93,5 +93,6 @@
 	"cx-translation-status-published": "Verëffentlecht",
 	"cx-translation-status-deleted": "Geläscht",
 	"cx-translation-already-in-progress": "Dëst ass eng Iwwersetzung vum $1, déi net ofgeschloss ass.",
-	"cx-publishing-dialog-publish-draft-button": "Als Brouillon verëffentlechen"
+	"cx-publishing-dialog-publish-draft-button": "Als Brouillon verëffentlechen",
+	"cx-feedback-link": "Feedback ginn"
 }
