@@ -150,7 +150,7 @@
 	 * @param {string} title [optional], Optional title for the translation
 	 */
 	function publish( publishAnyway, title ) {
-		var $publishArea, $publishButton, publisher, translatedTitle,
+		var $publishArea, $publishButton, publisher,
 			translatedContent, targetCategories, $draftButton, targetTitle,
 			sortedKeys, i, categoryTitles, categories, publishedTitle;
 
@@ -236,7 +236,7 @@
 				}
 			} );
 
-		initGuidedTour( translatedTitle );
+		initGuidedTour( targetTitle );
 	}
 
 	/**
