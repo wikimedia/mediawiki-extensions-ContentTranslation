@@ -11,7 +11,8 @@
 			"Crochet.david",
 			"0x010C",
 			"Benjozork",
-			"Orikrin1998"
+			"Orikrin1998",
+			"Weft"
 		]
 	},
 	"cx": "Traduire la page",
@@ -118,7 +119,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Répondre au captcha (en enregistrant avec une réponse de captcha).",
 	"apihelp-query+contenttranslation-description": "Interroger la base de données de traduction du contenu pour les traductions",
 	"apihelp-query+contenttranslation-param-translationid": "Id de traduction.",
-	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par Santhosh.",
+	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par id.",
 	"cx-save-draft-save-success": "Enregistré il y a {{PLURAL:$1|une minute|$1 minutes|0=à l’instant}}",
 	"cx-save-draft-saving": "Enregistrement en cours…",
@@ -135,6 +136,7 @@
 	"apihelp-cxdelete-param-from": "Le code de langue source.",
 	"apihelp-cxdelete-param-to": "Le code de langue cible.",
 	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source.",
+	"cx-translation-already-in-progress": "En cours de traduction par $1.",
 	"cx-publishing-dialog-publish-draft-button": "Publier en brouillon",
 	"cx-feedback-link": "Donner un commentaire"
 }
