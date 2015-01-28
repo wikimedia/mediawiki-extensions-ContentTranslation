@@ -13,7 +13,7 @@
 /**
  * Version number used in extension credits and in other places where needed.
  */
-define( 'CONTENTTRANSLATION_VERSION', '1.0.0+20140422' );
+define( 'CONTENTTRANSLATION_VERSION', '1.0.0+20150127' );
 
 /**
  * Extension credits properties.
