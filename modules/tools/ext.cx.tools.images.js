@@ -60,6 +60,34 @@
 		return deferred.promise();
 	}
 
+	/**
+	 * Check if an image is coming from Commons or not. Uses
+	 * the URL pattern image source,
+	 *
+	 * @param {jQuery} $image
+	 * @return {boolean}
+	 */
+	function isCommonsImage( $image ) {
+		if ( $image.attr( 'src' ).indexOf( '//upload.wikimedia.org/wikipedia/commons/' ) === 0 ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Remove all non-Commons images since we cannot use it in target wiki.
+	 */
+	function removeNonCommonsImages() {
+		$( '[typeof*="mw:Image/Thumb"] img' ).each( function () {
+			var $image = $( this );
+
+			if ( !isCommonsImage( $image ) ) {
+				$image.parents( 'figure' ).remove();
+			}
+		} );
+	}
+
 	function adaptImage( $section ) {
 		var targetLanguage = mw.cx.targetLanguage;
 
@@ -86,5 +114,6 @@
 
 	$( function () {
 		mw.hook( 'mw.cx.translation.postMT' ).add( adaptImage );
+		mw.hook( 'mw.cx.source.loaded' ).add( removeNonCommonsImages );
 	} );
 }( jQuery, mediaWiki ) );
