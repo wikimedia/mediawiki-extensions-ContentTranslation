@@ -112,17 +112,11 @@ class ContentTranslationHooks {
 	 * @param array $vars
 	 */
 	public static function addConfig( array &$vars ) {
-		global $wgContentTranslationServerURL,
-			$wgContentTranslationTranslateInTarget,
+		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationExperimentalFeatures,
 			$wgContentTranslationDatabase,
 			$wgContentTranslationSiteTemplates,
 			$wgContentTranslationTargetNamespace;
-
-		// Temporary BC code for old configuration
-		if ( $wgContentTranslationServerURL !== null ) {
-			$wgContentTranslationSiteTemplates['cx'] = $wgContentTranslationServerURL;
-		}
 
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
