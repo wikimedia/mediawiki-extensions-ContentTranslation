@@ -131,4 +131,15 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 	}
+
+	/**
+	 * Hooks: ListDefinedTags and ChangeTagsListActive
+	 * Define the content translation change tag, and mark it as active.
+	 * @param array $tags
+	 * @return bool
+	 */
+	public static function registerTags( array &$tags ) {
+		$tags[] = 'contenttranslation';
+		return true;
+	}
 }

@@ -37,6 +37,7 @@
 	"cx-translation-add-translation": "+ Add translation",
 	"cx-translation-target-page-exists": "A page with the title [$1 $2] exists in the target wiki. Consider giving the page a different title.",
 	"tag-contenttranslation": "ContentTranslation",
+	"tag-contenttranslation-description": "The content was translated from another language using the ContentTranslation tool.",
 	"cx-source-loading": "Loading $1",
 	"cx-beta": "Content translation",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
