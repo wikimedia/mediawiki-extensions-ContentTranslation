@@ -101,7 +101,7 @@ $GLOBALS['wgContentTranslationParsoid'] = array(
 );
 
 /**
- * Content translaton database to provide dashboard and other features.
+ * Content translation database to provide dashboard and other features.
  * Provide the database name as the value.
  * @see sql/contenttranslation.sql for scripts to create this database.
  */
@@ -151,7 +151,7 @@ $GLOBALS['wgContentTranslationAsBetaFeature'] = true;
 
 /*
  * Target namespace to publish articles. Values can be 'Main'
- * or any valid Namepace without leading column.
+ * or any valid Namespace without leading column.
  * Example: 'User', 'MediaWiki', 'Draft'
  * If the value is Main, article will be published in Main namespace.
  * If the value is User, article will be published under User:UserName/PageTitle
