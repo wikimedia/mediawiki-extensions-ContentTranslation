@@ -36,6 +36,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	),
 	'descriptionmsg' => 'cx-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ContentTranslation',
+	'license-name' => 'GPL-2.0+',
 );
 
 $dir = __DIR__;
