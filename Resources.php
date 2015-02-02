@@ -573,7 +573,7 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 	'dependencies' => array(
 		'moment',
 		'jquery.uls.data',
-		'ext.cx.progressbar'
+		'ext.cx.progressbar',
 	),
 	'messages' => array(
 		'cx-translation-filter-all-translations',
@@ -598,8 +598,8 @@ $wgResourceModules['ext.cx.translation.conflict'] = array(
 	'messages' => array(
 		'cx-translation-already-in-progress',
 		'cx-translation-already-in-progress-collaborate',
-		'cx-create-new-translation'
-	)
+		'cx-create-new-translation',
+	),
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.editor'] = array(
@@ -618,18 +618,30 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	);
 
 	$modules['qunit']['ext.cx.editor.tests'] = array(
-		'scripts' => array( 'tests/qunit/editor/ext.cx.editor.test.js' ),
-		'dependencies' => array( 'ext.cx.editor' ),
+		'scripts' => array(
+			'tests/qunit/editor/ext.cx.editor.test.js',
+		),
+		'dependencies' => array(
+			'ext.cx.editor',
+		),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.header.test'] = array(
-		'scripts' => array( 'tests/qunit/header/ext.cx.header.test.js' ),
-		'dependencies' => array( 'ext.cx.header' ),
+		'scripts' => array(
+			'tests/qunit/header/ext.cx.header.test.js',
+		),
+		'dependencies' => array(
+			'ext.cx.header',
+		),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.publish.test'] = array(
-		'scripts' => array( 'tests/qunit/publish/ext.cx.publish.test.js' ),
-		'dependencies' => array( 'ext.cx.publish' ),
+		'scripts' => array(
+			'tests/qunit/publish/ext.cx.publish.test.js',
+		),
+		'dependencies' => array(
+			'ext.cx.publish',
+		),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.tools.tests'] = array(
@@ -647,14 +659,20 @@ $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.translation.tests'] = array(
-		'scripts' => array( 'tests/qunit/translation/ext.cx.translation.test.js' ),
-		'dependencies' => array( 'ext.cx.translation' ),
+		'scripts' => array(
+			'tests/qunit/translation/ext.cx.translation.test.js',
+		),
+		'dependencies' => array(
+			'ext.cx.translation',
+		),
 	) + $resourcePaths;
 
 	$modules['qunit']['ext.cx.sitemapper.test'] = array(
-		'scripts' => array( 'tests/qunit/base/ext.cx.sitemapper.test.js' ),
+		'scripts' => array(
+			'tests/qunit/base/ext.cx.sitemapper.test.js',
+		),
 		'dependencies' => array(
-			'ext.cx.sitemapper'
+			'ext.cx.sitemapper',
 		),
 	) + $resourcePaths;
 };
