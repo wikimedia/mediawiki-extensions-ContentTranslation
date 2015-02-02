@@ -54,9 +54,17 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( $params['categories'] ) {
 			$categories = explode( '|', $params['categories'] );
 			foreach ( $categories as $categoryTitle ) {
-				$wikitext .= "\n[[" . $categoryTitle . "]]";
+				$categoryText .= "\n[[" . $categoryTitle . "]]";
 			}
 		}
+
+		// If publishing to User namespace, wrap categories in <nowiki>
+		// to avoid blocks by abuse filter. See T88007.
+		if ( isset( $categoryText ) && $title->inNamespace( NS_USER ) ) {
+			$categoryText = "<nowiki>" . $categoryText . "\n</nowiki>";
+		}
+
+		$wikitext .= $categoryText;
 
 		$progress = json_decode( $params['progress'], true );
 		if (
