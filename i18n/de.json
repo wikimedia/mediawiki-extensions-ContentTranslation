@@ -35,7 +35,7 @@
 	"tag-contenttranslation": "Inhaltsübersetzung",
 	"cx-source-loading": "Lade $1",
 	"cx-beta": "Inhaltsübersetzung",
-	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. Beginne Übersetzungen von deiner Beitragsseite aus und bearbeite sie mit unserem speziell für Übersetzungen gestalteten Seite-an-Seite-Editor. Einige der Werkzeuge könnten nur für spezielle Sprachen verfügbar sein.",
+	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. Beginne Übersetzungen von [[Special:MyContributions|deiner Beitragsseite]] aus und bearbeite sie mit unserem speziell für Übersetzungen gestalteten Seite-an-Seite-Editor. Einige der Werkzeuge könnten nur für spezielle Sprachen verfügbar sein.",
 	"cx-entrypoint-title": "Diese Seite auf $1 übersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Diese Seite ist noch nicht auf $1 vorhanden.<br />\nMöchtest {{GENDER:|du}} sie erstellen?",
 	"cx-entrypoint-dialog-title-in": "Titel für die neue Seite in $1:",

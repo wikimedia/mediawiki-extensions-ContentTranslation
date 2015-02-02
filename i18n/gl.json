@@ -3,7 +3,8 @@
 		"authors": [
 			"Toliño",
 			"Fitoschido",
-			"Elisardojm"
+			"Elisardojm",
+			"Breogan2008"
 		]
 	},
 	"cx": "Traducir a páxina",
@@ -17,6 +18,7 @@
 	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",
 	"tag-contenttranslation": "Tradución de contido",
 	"cx-source-loading": "Cargando \"$1\"",
+	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á túa lingua. Comeza as traducións dende [[Special:MyContributions|your contributions page]], e edítaas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles só en certas linguas.",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
 	"cx-tools-instructions-text1": "{{GENDER:|Engada}} parágrafos á tradución",
 	"cx-tools-instructions-text2": "{{GENDER:|Non}} é necesario engadilos todos",

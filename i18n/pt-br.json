@@ -6,7 +6,8 @@
 			"Rodrigo Padula",
 			"Amire80",
 			"Dianakc",
-			"Vitor Mazuco"
+			"Vitor Mazuco",
+			"He7d3r"
 		]
 	},
 	"cx": "Traduzir página",
@@ -29,7 +30,7 @@
 	"cx-publish-gt-first-step-title": "A tradução foi publicada como um rascunho em sua página de usuário para revisão",
 	"cx-publish-gt-first-step-description": "Clique na ação \"{{int:vector-action-move}}\" abaixo deste menu para que o conteúdo se torne disponível para todos os usuários como uma página normal.",
 	"cx-publish-gt-move-page-title": "Mover a página",
-	"cx-publish-gt-move-page-description": "Selecione a opção \"(principal)\" e atribua um título correto à página.",
+	"cx-publish-gt-move-page-description": "Selecione o domínio \"(principal)\" e atribua um título correto à página.",
 	"cx-publish-gt-moved-title": "A página traduzida foi movida",
 	"cx-publish-gt-moved-description": "Clique neste link para ler e melhorar a sua nova página traduzida",
 	"cx-publish-gt-published-title": "Parabéns, a página foi publicada",

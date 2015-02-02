@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vadgt"
+			"Vadgt",
+			"Beko"
 		]
 	},
+	"cx": "Թարգմանիր էջը",
+	"cx-javascript": "Այս գործիքը չի աշխատում առանց JavaScript-ի։",
 	"cx-header-progressbar-text": "Թարգմանությունը կատարվել է $1%",
 	"cx-source-loading": "Բեռնում $1"
 }

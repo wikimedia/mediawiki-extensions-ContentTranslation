@@ -130,5 +130,7 @@
 	"apihelp-cxdelete-param-sourcetitle": "Titolo de la fonta paĝo.",
 	"apihelp-cxdelete-example-1": "Forigi malneton asociigitan kun la lingva paro kaj titolo.",
 	"cx-translation-already-in-progress": "Tio ĉi estas prilaborata traduko komencita de $1",
-	"cx-publishing-dialog-publish-draft-button": "Publikigi kiel malneton"
+	"cx-translation-already-in-progress-collaborate": "Bonvolu certiĝi, ke vi estas kunordigata kun la uzanto, kiu tradukis nunan version.",
+	"cx-publishing-dialog-publish-draft-button": "Publikigi kiel malneton",
+	"cx-feedback-link": "Provizu prijuĝajn rimarkojn"
 }
