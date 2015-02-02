@@ -45,6 +45,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
 		global $wgContentTranslationHighMTCategory;
+		$categories = array();
 
 		$sourceLink = '[[:' . $params['from']
 			. ':Special:Redirect/revision/'
@@ -53,18 +54,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $params['categories'] ) {
 			$categories = explode( '|', $params['categories'] );
-			foreach ( $categories as $categoryTitle ) {
-				$categoryText .= "\n[[" . $categoryTitle . "]]";
-			}
 		}
-
-		// If publishing to User namespace, wrap categories in <nowiki>
-		// to avoid blocks by abuse filter. See T88007.
-		if ( isset( $categoryText ) && $title->inNamespace( NS_USER ) ) {
-			$categoryText = "<nowiki>" . $categoryText . "\n</nowiki>";
-		}
-
-		$wikitext .= $categoryText;
 
 		$progress = json_decode( $params['progress'], true );
 		if (
@@ -72,7 +62,17 @@ class ApiContentTranslationPublish extends ApiBase {
 			$wgContentTranslationHighMTCategory &&
 			$this->hasHighMT( $progress )
 		) {
-			$wikitext .= "\n[[" . $wgContentTranslationHighMTCategory . ']]';
+			$categories[] = $wgContentTranslationHighMTCategory;
+		}
+
+		if ( count( $categories ) ) {
+			$categoryText = "\n[[" . implode( "]]\n[[", $categories ) . ']]';
+			// If publishing to User namespace, wrap categories in <nowiki>
+			// to avoid blocks by abuse filter. See T88007.
+			if ( $title->inNamespace( NS_USER ) ) {
+				$categoryText = "\n<nowiki>$categoryText</nowiki>";
+			}
+			$wikitext .= $categoryText;
 		}
 
 		$summary = $this->msg(
