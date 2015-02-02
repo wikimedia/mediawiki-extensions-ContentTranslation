@@ -36,34 +36,13 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 
-		$out->wrapWikiMsg( '== $1 ==',  array( 'cx-stats-pages-title' ) );
-
 		// @TODO better to return title => stats iterator
 		$stats = ContentTranslation\Stats::getStats();
-		$out->addHtml( $this->getPagesTable( $stats ) );
+		$out->addHtml( $this->getPagesSummary( $stats ) );
+		$out->addModules( 'ext.cx.stats' );
 	}
 
-	private function getPagesTable( $pages ) {
-		$headingMsgs = array(
-			'cx-stats-page-title',
-			'cx-stats-from',
-			'cx-stats-to',
-		);
-
-		// @TODO want to use html template here
-		$headingRow = '';
-		foreach ( $headingMsgs as $headingMsg ) {
-			$headingRow .= Html::element( 'th',
-				array(),
-				$this->msg( $headingMsg )->text()
-			);
-		}
-
-		$rows = array( Html::rawElement( 'tr',
-			array(),
-			$headingRow
-		) );
-
+	private function getPagesSummary( $pages ) {
 		$total = $main = 0;
 
 		foreach ( $pages as $row ) {
@@ -73,32 +52,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 			if ( $title->inNamespace( NS_MAIN ) ) {
 				$main++;
 			}
-
-			$titleCell = Html::rawElement( 'td', array(), Linker::link( $title ) );
-
-			$languages = FormatJson::decode( $row->ct_params );
-			if ( $languages === null ) {
-				$from = $to = $this->msg( 'cx-stats-unknown' )->text();
-			} else {
-				$from = $languages->from;
-				$to = $languages->to;
-			}
-
-			$fromCell = Html::element( 'td', array(), $from );
-			$toCell = Html::element( 'td', array(), $to );
-
-			$rows[] = Html::rawElement( 'tr',
-				array(),
-				$titleCell . $fromCell . $toCell
-			);
 		}
-
-		$table = Html::rawElement( 'table',
-			array(
-				'class' => 'wikitable sortable',
-			),
-			implode( "\n", $rows )
-		);
 
 		if ( $total > 0 ) {
 			$percentage = round( $main / $total * 100 );
@@ -110,6 +64,6 @@ class SpecialContentTranslationStats extends SpecialPage {
 			->numParams( $main, $total, $percentage )
 			->parse();
 
-		return $table . $summary;
+		return $summary;
 	}
 }

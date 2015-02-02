@@ -91,6 +91,7 @@ class Translation {
 			),
 			__METHOD__
 		);
+
 		$result = array();
 		foreach ( $rows as $row ) {
 			$result[] = array(

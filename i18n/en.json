@@ -68,12 +68,8 @@
 	"cx-tools-mt-dont-use": "Don't use machine translation",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 category|$1 categories|0=No categories}}",
 	"cx-stats-title": "Content translation statistics",
-	"cx-stats-page-title": "Page",
-	"cx-stats-from": "Source language",
-	"cx-stats-to": "Target language",
-	"cx-stats-pages-title": "Translated pages",
 	"cx-stats-unknown": "unknown",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|page|pages}} ($3%) in the main namespace.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|page|pages}} ($3%) in the main namespace in this wiki.",
 	"cx-tools-reference-title": "Reference",
 	"cx-tools-reference-remove": "Remove reference",
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
@@ -139,5 +135,10 @@
 	"cx-translation-already-in-progress": "This is an ongoing translation by $1.",
 	"cx-translation-already-in-progress-collaborate": "Please make sure you coordinate with the user who translated the current translation.",
 	"cx-publishing-dialog-publish-draft-button": "Publish as draft",
-	"cx-feedback-link": "Provide feedback"
+	"cx-feedback-link": "Provide feedback",
+	"cx-stats-table-source-target": "Source↓ / Target→",
+	"cx-stats-table-source-total": "Total (Source)",
+	"cx-stats-table-target-total": "Total (Target)",
+	"cx-stats-published-translations-title": "Published tranlslations",
+	"cx-stats-draft-translations-title": "In progress tranlslations"
 }

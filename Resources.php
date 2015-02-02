@@ -610,6 +610,22 @@ $wgResourceModules['ext.cx.editor'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.stats'] = array(
+	'scripts' => array(
+		'stats/ext.cx.stats.js',
+	),
+	'styles' => array(
+		'stats/styles/ext.cx.stats.less',
+	),
+	'messages' => array(
+		'cx-stats-table-source-target',
+		'cx-stats-table-source-total',
+		'cx-stats-table-target-total',
+		'cx-stats-published-translations-title',
+		'cx-stats-draft-translations-title',
+	)
+) + $resourcePaths;
+
 $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	$resourcePaths = array(
 		'localBasePath' => __DIR__,
