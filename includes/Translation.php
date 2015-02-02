@@ -71,6 +71,38 @@ class Translation {
 		);
 	}
 
+	public static function getStats() {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$rows = $dbr->select(
+			'cx_translations',
+			array(
+				'translation_source_language',
+				'translation_target_language',
+				'translation_status',
+				'count(translation_target_language) as count',
+			),
+			'',
+			'',
+			array(
+				'GROUP BY' => array(
+					'translation_source_language',
+					'translation_target_language'
+				),
+			),
+			__METHOD__
+		);
+		$result = array();
+		foreach ( $rows as $row ) {
+			$result[] = array(
+				'sourceLanguage' => $row->translation_source_language,
+				'targetLanguage' => $row->translation_target_language,
+				'status' => $row->translation_status,
+				'count' => $row->count,
+			);
+		}
+		return $result;
+	}
+
 	public function getTranslationId() {
 		return $this->translation['id'];
 	}

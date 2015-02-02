@@ -117,6 +117,7 @@
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by id.",
 	"apihelp-query+contenttranslation-example-3": "Find any translation for the given title between given language pair",
+	"apihelp-query+contenttranslationstats-example-1": "Get content translation statistics for all languages.",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",

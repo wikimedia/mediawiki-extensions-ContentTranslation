@@ -57,6 +57,7 @@ $GLOBALS['wgSpecialPages']['ContentTranslationStats'] = 'SpecialContentTranslati
 $GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';
 $GLOBALS['wgAPIModules']['cxdelete'] = 'ApiContentTranslationDelete';
 $GLOBALS['wgAPIListModules']['contenttranslation'] = 'ApiQueryContentTranslation';
+$GLOBALS['wgAPIListModules']['contenttranslationstats'] = 'ApiQueryContentTranslationStats';
 
 // Hooks
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::addModules';
