@@ -146,10 +146,14 @@
 	 * Start a new page translation in Special:CX
 	 */
 	CXEntryPoint.prototype.startPageInCX = function () {
+		var sourceLanguage = mw.config.get( 'wgContentLanguage' ),
+			sourceTitle = mw.config.get( 'wgTitle' );
+
+		this.siteMapper.setCXToken( sourceLanguage, this.options.targetLanguage, sourceTitle );
 		location.href = this.siteMapper.getCXUrl(
-			mw.config.get( 'wgTitle' ),
+			sourceTitle,
 			this.$titleInput.val(),
-			mw.config.get( 'wgContentLanguage' ),
+			sourceLanguage,
 			this.options.targetLanguage
 		);
 	};
