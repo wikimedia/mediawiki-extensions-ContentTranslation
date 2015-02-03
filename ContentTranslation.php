@@ -62,36 +62,9 @@ $GLOBALS['wgAPIListModules']['contenttranslation'] = 'ApiQueryContentTranslation
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::addModules';
 $GLOBALS['wgHooks']['GetBetaFeaturePreferences'][] = 'ContentTranslationHooks::getPreferences';
 $GLOBALS['wgHooks']['ResourceLoaderGetConfigVars'][] = 'ContentTranslationHooks::addConfig';
+$GLOBALS['wgHooks']['EventLoggingRegisterSchemas'][] = 'ContentTranslationHooks::addEventLogging';
 $GLOBALS['wgHooks']['SpecialContributionsBeforeMainOutput'][] =
 	'ContentTranslationHooks::addNewContributionButton';
-
-$GLOBALS['wgExtensionFunctions'][] = function () {
-	global $wgResourceModules, $wgContentTranslationEventLogging;
-
-	// If EventLogging integration is enabled, first ensure that the
-	// EventLogging extension is present, then declare the schema module.
-	// If it is not present, emit a warning and disable logging.
-	if ( $wgContentTranslationEventLogging ) {
-		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
-			/// @see https://meta.wikimedia.org/wiki/Schema:ContentTranslation
-			$wgResourceModules[ 'schema.ContentTranslation' ] = array(
-				'class'  => 'ResourceLoaderSchemaModule',
-				'schema' => 'ContentTranslation',
-				'revision' => 7146627,
-			);
-		} else {
-			wfWarn(
-				'ContentTranslation is configured to use EventLogging, ' .
-				'but the extension is is not available. ' .
-				'Disabling $wgContentTranslationEventLogging.'
-			);
-			$wgContentTranslationEventLogging = false;
-		}
-	}
-
-	return true;
-};
-
 // Globals for this extension
 
 $GLOBALS['wgContentTranslationExperimentalFeatures'] = false;

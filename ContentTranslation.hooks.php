@@ -94,6 +94,17 @@ class ContentTranslationHooks {
 	}
 
 	/**
+	 * Hook: EventLoggingRegisterSchemas
+	 */
+	public static function addEventLogging( array &$schemas ) {
+		global $wgContentTranslationEventLogging;
+
+		if ( $wgContentTranslationEventLogging ) {
+			$schemas['ContentTranslation'] = 7146627;
+		}
+	}
+
+	/**
 	 * Hook: SpecialContributionsBeforeMainOutput
 	 * @param int $id
 	 * @param User $user
