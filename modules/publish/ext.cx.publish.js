@@ -195,7 +195,9 @@
 						categories: categories,
 						progress: JSON.stringify( mw.cx.getProgress() )
 					} ).done( function () {
-						$( '.cx-column--translation > h2' ).text( publishedTitle );
+						$( '.cx-column--translation > h2' )
+							.text( publishedTitle )
+							.trigger( 'input' );
 						mw.hook( 'mw.cx.success' )
 							.fire( mw.message( 'cx-publish-page-success',
 							$( '<a>' ).attr( {
