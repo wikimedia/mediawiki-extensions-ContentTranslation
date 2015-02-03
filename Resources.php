@@ -505,7 +505,6 @@ $wgResourceModules['ext.cx.publish.dialog'] = array(
 $wgResourceModules['ext.cx.eventlogging'] = array(
 	'scripts' => 'eventlogging/ext.cx.eventlogging.js',
 	'dependencies' => array(
-		'schema.ContentTranslation',
 		'ext.cx.model',
 	),
 ) + $resourcePaths;
