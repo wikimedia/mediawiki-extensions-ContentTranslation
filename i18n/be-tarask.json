@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Renessaince"
+			"Renessaince",
+			"Red Winged Duck"
 		]
 	},
 	"cx": "Перакласьці старонку",
 	"cx-javascript": "Гэтая прылада не працуе без JavaScript.",
-	"cx-license-agreement": "Націснуўшы кнопку «$1», Вы пагаджаецеся з [//wikimediafoundation.org/wiki/Terms_of_Use Умовамі выкарыстаньня] і незваротна згаджаецеся на публікацыю вашага ўнёску з інструмэнтам перакладу пад [https://creativecommons.org/licenses/by-sa/3.0/ ліцэнзіяй CC BY-SA 3.0] і [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] з усьведамленьнем таго, што гіпэрспасылкі або URL дастатне для атрыбуцыі паводле CC BY-SA 3.0.",
+	"cx-license-agreement": "Націснуўшы кнопку «$1», Вы пагаджаецеся з [//wikimediafoundation.org/wiki/Terms_of_Use умовамі выкарыстаньня] і незваротна згаджаецеся на публікацыю вашага ўнёску з інструмэнтам перакладу пад [https://creativecommons.org/licenses/by-sa/3.0/ ліцэнзіяй CC BY-SA 3.0] і [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] з усьведамленьнем таго, што гіпэрспасылкі або URL дастаткова для атрыбуцыі паводле CC BY-SA 3.0.",
 	"cx-error-server-connection": "Памылка: немагчыма злучыцца з сэрвэрам.",
 	"cx-desc": "Прылада, якая дазваляе рэдактарам перакладаць старонкі з аднае мовы на іншую з дапамогай машыннага перакладу ды іншых перакладніцкіх інструмэнтаў",
 	"cx-header-progressbar-text": "$1 перакладзена",
@@ -41,7 +42,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Стварыць з нуля",
 	"cx-entrypoint-dialog-button-translate-from": "Перакласьці з $1",
 	"cx-special-login-error": "Вы павінны ўвайсьці, каб перакласьці гэтую старонку. [$1 Увайсьці]",
-	"cx-tools-instructions-text1": "{{GENDER:|Пстрыкніце}} параграфы для перакладу",
+	"cx-tools-instructions-text1": "{{GENDER:|Націсьніце}} на параграфы для перакладу",
 	"cx-tools-instructions-text2": "{{GENDER:|Вам}} не патрэбна дадаваць іх усе",
 	"cx-tools-instructions-text3": "{{GENDER:|Зрабіце}} так, каб тэкст чытаўся натуральна",
 	"cx-tools-instructions-text4": "Машынны пераклад карысны, але {{GENDER:|Вам}} неабходна будзе праверыць памылкі, каб зрабіць тэкст дакладнейшым.",
@@ -84,7 +85,7 @@
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Гэтая назва ўжо выкарыстоўваецца ў [$1 $2] для [$3 іншай старонкі]",
 	"cx-sourceselector-dialog-error-page-exists": "Гэтая старонка [$1 ўжо існуе] ў $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Назва для новай старонкі [$1 ўжо выкарыстоўваецца]",
-	"cx-sourceselector-dialog-error-no-source-article": "Гэтая перакладваная старонка ня існуе ў $1",
+	"cx-sourceselector-dialog-error-no-source-article": "Гэтая старонка для перакладу не існуе ў $1",
 	"cx-mt-abuse-warning-title": "Ваш пераклад зьмяшчае $1% нязьмененага машыннага перакладу тэксту",
 	"cx-mt-abuse-warning-text": "Машынныя пераклады прадастаўленыя толькі як шаблён. Вам неабходна пераканацца, што зьмест дакладны і гучыць Вашай мовай натуральна.",
 	"cx-publish-captcha-title": "Сакрэтнае пытаньне",
@@ -95,14 +96,14 @@
 	"cx-translation-filter-to-any-language": "На любую мову",
 	"cx-create-new-translation": "Стварыць новы пераклад",
 	"cx-create-new-translation-desc": "Стварайце старонкі для тэмаў, якія не існуюць на Вашай мове. З дапамогай нашых прыладаў перакладу гэта проста. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Даведацца болей]",
-	"apihelp-cxpublish-description": "Захаваньне старонкі, створанай з дапамогай пашырэньне content translation.",
+	"apihelp-cxpublish-description": "Захаваньне старонкі, створанай з дапамогай пашырэньня content translation.",
 	"apihelp-cxpublish-param-title": "Назва старонкі, на якой будуць выкананыя дзеяньні.",
 	"apihelp-cxpublish-param-html": "Зьмест для захаваньня.",
 	"apihelp-cxpublish-param-from": "Код крынічнай мовы.",
 	"apihelp-cxpublish-param-to": "Код мэтавай мовы.",
 	"apihelp-cxpublish-param-sourcetitle": "Назва зыходнай старонкі.",
 	"apihelp-cxpublish-param-sourcerevision": "Вэрсія зыходнай старонкі.",
-	"apihelp-cxpublish-param-status": "Калі «чарнавік», пераклад будзе захаваны як чарнавік. Калі «апублікаваны», пераклад будзе апублікаваны.",
+	"apihelp-cxpublish-param-status": "Калі «draft», пераклад будзе захаваны як чарнавік. Калі «published», пераклад будзе апублікаваны.",
 	"apihelp-cxpublish-param-categories": "Катэгорыі, якія трэба дадаць у апублікаваную старонку.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчы (пры захаваньні з запытам капчы).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Адказ на капчу (пры захаваньні з запытам капчы).",

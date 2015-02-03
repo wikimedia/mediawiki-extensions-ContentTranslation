@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Misosoof"
+		]
+	},
+	"cx": "Tõlkelehekülg",
+	"cx-javascript": "See tööriist ei toimi ilma JavaScript'ita.",
+	"cx-license-agreement": "Vajutades nupule \"$1\" nõustud sa [//wikimediafoundation.org/wiki/Terms_of_Use kasutustingimustega], muuhulgas avaldama tõlketööriistaga tehtud kaastöö [https://creativecommons.org/licences/by-sa/3.0/ CC BY-SA 3.0 litsentsi] ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GNU vaba dokumentatsiooni litsentsi] alusel, mõistmisega, et hüperlink või URL viide on piisav  CC BY-SA 3.0 litsentsi viitetingimuste täitmiseks.",
+	"cx-error-server-connection": "Tõrge: Serveriga ei saa ühendust.",
+	"cx-desc": "Tööriist,mis võimaldab toimetajatel tõlkida lehekülgi ühest keelest teise masintõlke või muude tõlketööriistade abiga.",
+	"cx-header-progressbar-text": "$1% tõlgitud",
+	"cx-header-progressbar-text-mt": "($1% masintõlkest)",
+	"cx-header-translation-center": "Tõlkekeskus",
+	"cx-header-new-translation": "Uus tõlge",
+	"cx-header-all-translations": "Kõik tõlked",
+	"cx-source-view-page": "Vaata lehekülge",
+	"cx-publish-page-success": "Lehekülg avaldatud nimega $1",
+	"cx-publish-page-error": "Tõrge lehekülje salvestamisel",
+	"cx-publish-button": "Avalda tõlge",
+	"cx-publish-button-publishing": "Avaldamine...",
+	"cx-publish-summary": "Loodud lehekülje \"$1\" tõlkimisel",
+	"cx-publish-gt-no-permission-to-move-description": "Palun pöörduge lehekülje kogenud kasutaja poole, et ta aitaks su tõlke üle vaadata ning selle põhileheküljel avaldada.",
+	"cx-publish-gt-first-step-title": "Tõlge on avaldatud visandina läbivaatamiseks sinu kasutajaleheküljel.",
+	"cx-publish-gt-first-step-description": "Klõpsa menüüs nimetusel \"{{int:vector-???-teisalda?}}\", et muuta sisu kõikidele kättesaadavaks tavalise leheküljena.",
+	"cx-publish-gt-move-page-title": "Teisalda see lehekülg",
+	"cx-publish-gt-moved-title": "Tõlgitud lehekülg on teisaldatud",
+	"cx-publish-gt-moved-description": "Klõpsa lingile, et lugeda ja täiendada tõlgitud lehekülge",
+	"cx-publish-gt-published-title": "Õnnitleme, leht on avaldatud",
+	"cx-translation-add-translation": "+ Lisa tõlge",
+	"cx-translation-target-page-exists": "Lehekülg pealkirjaga [$1 $2] on sihtwikis juba olemas. Andke leheküljele teistsugune pealkiri.",
+	"tag-contenttranslation": "Sisutõlge",
+	"cx-source-loading": "$1 laadimine"
+}

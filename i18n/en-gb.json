@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Chase me ladies, I'm the Cavalry"
 		]
 	},
-	"cx-header-translation-center": "Translation centre"
+	"cx-header-translation-center": "Translation centre",
+	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages."
 }
