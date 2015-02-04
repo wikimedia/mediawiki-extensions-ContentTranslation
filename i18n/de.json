@@ -33,6 +33,7 @@
 	"cx-translation-add-translation": "+ Übersetzung hinzufügen",
 	"cx-translation-target-page-exists": "Eine Seite mit dem Titel [$1 $2] ist bereits im Zielwiki vorhanden. Ziehe in Erwägung, der Seite einen anderen Titel zu geben.",
 	"tag-contenttranslation": "Inhaltsübersetzung",
+	"tag-contenttranslation-description": "Der Inhalt wurde von einer anderen Sprache mithilfe des Inhaltsübersetzungswerkzeugs übersetzt.",
 	"cx-source-loading": "Lade $1",
 	"cx-beta": "Inhaltsübersetzung",
 	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. Beginne Übersetzungen von [[Special:MyContributions|deiner Beitragsseite]] aus und bearbeite sie mit unserem speziell für Übersetzungen gestalteten Seite-an-Seite-Editor. Einige der Werkzeuge könnten nur für spezielle Sprachen verfügbar sein.",
@@ -63,12 +64,8 @@
 	"cx-tools-mt-dont-use": "Maschinenübersetzung nicht verwenden",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Eine Kategorie|$1 Kategorien|0=Keine Kategorien}}",
 	"cx-stats-title": "Statistiken zu Inhaltsübersetzungen",
-	"cx-stats-page-title": "Seite",
-	"cx-stats-from": "Quellsprache",
-	"cx-stats-to": "Zielsprache",
-	"cx-stats-pages-title": "Übersetzte Seiten",
 	"cx-stats-unknown": "unbekannt",
-	"cx-stats-summary": "$1 von $2 {{PLURAL:$1|Seite|Seiten}} ($3%) im Hauptnamensraum.",
+	"cx-stats-summary": "$1 von $2 {{PLURAL:$1|Seite|Seiten}} ($3%) im Hauptnamensraum in diesem Wiki.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz entfernen",
 	"cx-tools-link-instruction-shortcut": "Umschalttaste drücken sowie einen beliebigen Link anklicken, um diesen zu öffnen",
@@ -129,5 +126,10 @@
 	"cx-translation-already-in-progress": "Dies ist eine laufende Übersetzung von $1.",
 	"cx-translation-already-in-progress-collaborate": "Bitte stelle sicher, dass du dich mit dem Benutzer abstimmst, der die aktuelle Übersetzung erstellt hat.",
 	"cx-publishing-dialog-publish-draft-button": "Als Entwurf veröffentlichen",
-	"cx-feedback-link": "Rückmeldung geben"
+	"cx-feedback-link": "Rückmeldung geben",
+	"cx-stats-table-source-target": "Quelle↓ / Ziel→",
+	"cx-stats-table-source-total": "Gesamt (Quelle)",
+	"cx-stats-table-target-total": "Gesamt (Ziel)",
+	"cx-stats-published-translations-title": "Veröffentlichte Übersetzungen",
+	"cx-stats-draft-translations-title": "Übersetzungen in Vorbereitung"
 }

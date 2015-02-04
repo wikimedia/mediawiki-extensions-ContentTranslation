@@ -12,7 +12,8 @@
 			"0x010C",
 			"Benjozork",
 			"Orikrin1998",
-			"Weft"
+			"Weft",
+			"Element303"
 		]
 	},
 	"cx": "Traduire la page",
@@ -45,7 +46,7 @@
 	"tag-contenttranslation": "Traduction du contenu",
 	"cx-source-loading": "Chargement de $1",
 	"cx-beta": "Traduction du contenu",
-	"cx-beta-desc": "Un outil pour traduire rapidement les pages dans votre langue. Démarrez les traductions de votre page de contributions, et modifiez-les avec notre éditeur côte à côte conçu spécialement pour la traduction. Certains des outils peuvent n’être disponibles que pour certaines langues.",
+	"cx-beta-desc": "Un outil pour traduire rapidement les pages dans votre langue. Démarrez les traductions de [[Special:MyContributions|votre page de contributions]], et modifiez-les avec notre éditeur côte à côte conçu spécialement pour la traduction. Certains des outils peuvent n’être disponibles que pour certaines langues.",
 	"cx-entrypoint-title": "Traduire cette page en $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Cette page n’existe pas encore en $1.<br />\nVoulez-{{GENDER:|vous}} la créer ?",
 	"cx-entrypoint-dialog-title-in": "Titre pour la nouvelle page en $1 :",
@@ -73,12 +74,8 @@
 	"cx-tools-mt-dont-use": "Ne pas utiliser de traduction automatique",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 catégorie|$1 catégories|0=Aucune catégorie}}",
 	"cx-stats-title": "Statistiques de traduction du contenu",
-	"cx-stats-page-title": "Page",
-	"cx-stats-from": "Langue de la source",
-	"cx-stats-to": "Langue cible",
-	"cx-stats-pages-title": "Pages traduites",
 	"cx-stats-unknown": "inconnu",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|page|pages}} ($3%) dans l’espace de noms principal.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|page|pages}} ($3%) dans l’espace de noms principal de ce wiki.",
 	"cx-tools-reference-title": "Référence",
 	"cx-tools-reference-remove": "Supprimer la référence",
 	"cx-tools-link-instruction-shortcut": "Shift + clic un lien pour l’ouvrir",
@@ -121,6 +118,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Id de traduction.",
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par id.",
+	"apihelp-query+contenttranslationstats-example-1": "Obtenir des statistiques de traduction du contenu pour toutes les langues.",
 	"cx-save-draft-save-success": "Enregistré il y a {{PLURAL:$1|une minute|$1 minutes|0=à l’instant}}",
 	"cx-save-draft-saving": "Enregistrement en cours…",
 	"cx-save-draft-tooltip": "Les brouillons de traduction sont enregistrés automatiquement",
@@ -138,5 +136,10 @@
 	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source.",
 	"cx-translation-already-in-progress": "En cours de traduction par $1.",
 	"cx-publishing-dialog-publish-draft-button": "Publier en brouillon",
-	"cx-feedback-link": "Donner un commentaire"
+	"cx-feedback-link": "Donner un commentaire",
+	"cx-stats-table-source-target": "Source↓ / Cible→",
+	"cx-stats-table-source-total": "Total (Source)",
+	"cx-stats-table-target-total": "Total (Objectif)",
+	"cx-stats-published-translations-title": "Traductions publiées",
+	"cx-stats-draft-translations-title": "Traductions en cours"
 }

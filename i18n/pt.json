@@ -66,12 +66,8 @@
 	"cx-tools-mt-dont-use": "Não usar a tradução automática",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorias|0=Sem categorias}}",
 	"cx-stats-title": "Estatísticas de tradução de conteúdo",
-	"cx-stats-page-title": "Página",
-	"cx-stats-from": "Idioma de origem",
-	"cx-stats-to": "Idioma-alvo",
-	"cx-stats-pages-title": "Páginas traduzidas",
 	"cx-stats-unknown": "desconhecido",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) no domínio principal.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) no domínio principal nesta wiki.",
 	"cx-tools-reference-title": "Referência",
 	"cx-tools-reference-remove": "Remover referência",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
@@ -123,5 +119,10 @@
 	"cx-translation-status-deleted": "Eliminada",
 	"cx-translation-already-in-progress": "Esta é uma tradução em andamento de $1.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como rascunho",
-	"cx-feedback-link": "Fornecer comentários"
+	"cx-feedback-link": "Fornecer comentários",
+	"cx-stats-table-source-target": "Origem↓ / Destino→",
+	"cx-stats-table-source-total": "Total (Origem)",
+	"cx-stats-table-target-total": "Total (Destino)",
+	"cx-stats-published-translations-title": "Traduções publicadas",
+	"cx-stats-draft-translations-title": "Traduções em andamento"
 }
