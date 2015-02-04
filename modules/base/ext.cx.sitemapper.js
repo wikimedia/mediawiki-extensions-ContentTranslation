@@ -126,4 +126,37 @@
 
 		return mw.util.getUrl( cxPage, queryParams );
 	};
+
+
+	/**
+	 * Set CX Token in a cookie.
+	 * This token guarantees that the translator read the license agreement
+	 * and starts translating from CX dashboard enabled as beta feature
+	 * from any wiki under the top domain.
+	 *
+	 * @param {string} sourceLanguage Source language
+	 * @param {string} targetLanguage Target language
+	 * @param {string} sourceTitle Source title
+	 */
+	mw.cx.SiteMapper.prototype.setCXToken = function( sourceLanguage, targetLanguage, sourceTitle ) {
+		var slug, now, name, options, domain;
+
+		now = new Date();
+		slug = sourceTitle.replace( /\s/g, '-' );
+		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
+		domain = location.hostname.indexOf( '.' ) > 0 ?
+			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
+			null; // Mostly domains like "localhost"
+		options = {
+			prefix: '',
+			// Use Domain cookie. Example: domain=.wikipedia.org
+			domain: domain,
+			expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
+		};
+
+		// At this point, the translator saw the license agreement.
+		// Save that information in a domain cookie.
+		$.cookie( name, true, options );
+	};
+
 }( jQuery, mediaWiki ) );
