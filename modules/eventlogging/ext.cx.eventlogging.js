@@ -1,6 +1,5 @@
 /**
  * ContentTranslation event logging.
- * Uses the EventLogging extension, if it's available, to log events.
  *
  * @file
  * @ingroup Extensions
@@ -15,41 +14,21 @@
 	 * ContentTranslation event logger
 	 */
 	function ContentTranslationEventLogging() {
-		this.logEventQueue = $.Callbacks( 'memory once' );
-		this.init();
+		this.defaults = {
+			version: 1,
+			token: mw.user.id()
+		};
 		this.listen();
 	}
 
 	ContentTranslationEventLogging.prototype = {
-		init: function () {
-			mw.eventLog.setDefaults( 'ContentTranslation', {
-				version: 1,
-				token: mw.user.id()
-			} );
-
-			this.logEventQueue.fire();
-		},
-
 		/**
-		 * Local wrapper for mw.eventLog.logEvent.
+		 * Log the event
 		 *
 		 * @param {Object} event Event action and optional fields
-		 * @return {jQuery.Promise} jQuery Promise object for the logging call
 		 */
 		log: function ( event ) {
-			// We need to create our own deferred for two reasons:
-			//  - logEvent might not be executed immediately
-			//  - we cannot reject a promise returned by it
-			// So we proxy the original promises status updates.
-			var deferred = $.Deferred();
-
-			this.logEventQueue.add( function () {
-				mw.eventLog.logEvent( 'ContentTranslation', event )
-					.done( deferred.resolve )
-					.fail( deferred.reject );
-			} );
-
-			return deferred.promise();
+			mw.track( 'event.ContentTranslation', $.extend( {}, event, this.defaults ) );
 		},
 
 		/**

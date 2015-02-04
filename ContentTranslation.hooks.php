@@ -54,13 +54,9 @@ class ContentTranslationHooks {
 			return;
 		}
 
-		// If EventLogging integration is enabled, load the schema module
-		// and the event logging functions module
+		// If EventLogging integration is enabled, load the event logging functions module
 		if ( $wgContentTranslationEventLogging ) {
-			$out->addModules( array(
-				'schema.ContentTranslation',
-				'ext.cx.eventlogging',
-			) );
+			$out->addModules( 'ext.cx.eventlogging' );
 		}
 
 		if (
@@ -101,11 +97,7 @@ class ContentTranslationHooks {
 	 * Hook: EventLoggingRegisterSchemas
 	 */
 	public static function addEventLogging( array &$schemas ) {
-		global $wgContentTranslationEventLogging;
-
-		if ( $wgContentTranslationEventLogging ) {
-			$schemas['ContentTranslation'] = 7146627;
-		}
+		$schemas['ContentTranslation'] = 7146627;
 	}
 
 	/**
