@@ -25,6 +25,11 @@ class ContentTranslationHooks {
 			return false;
 		}
 
+		// CX is currently restricted to only logged in users
+		if ( $user->isAnon() ) {
+			return false;
+		}
+
 		if ( !$wgContentTranslationAsBetaFeature ) {
 			return true;
 		}
@@ -44,6 +49,11 @@ class ContentTranslationHooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
+		// Check if CX is available for current user.
+		if ( !self::isEnabledForUser( $user ) ) {
+			return;
+		}
+
 		// If EventLogging integration is enabled, load the schema module
 		// and the event logging functions module
 		if ( $wgContentTranslationEventLogging ) {
@@ -53,13 +63,7 @@ class ContentTranslationHooks {
 			) );
 		}
 
-		// CX is currently restricted to only logged in users
-		if ( !$user->isLoggedIn() ) {
-			return;
-		}
-
 		if (
-			self::isEnabledForUser( $user ) &&
 			$title->inNamespace( NS_MAIN ) &&
 			$out->getLanguage()->getCode() !== $title->getPageLanguage()->getCode()
 		) {
