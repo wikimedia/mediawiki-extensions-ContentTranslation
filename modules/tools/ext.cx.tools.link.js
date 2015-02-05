@@ -203,13 +203,20 @@
 	 * @return {jQuery.Promise}
 	 */
 	LinkCard.prototype.adapt = function ( titles, language ) {
-		var deferred = $.Deferred();
+		var apiLanguage,
+			deferred = $.Deferred();
 
 		if ( !$.isArray( titles ) ) {
 			titles = new Array( titles );
 		}
 
-		this.siteMapper.getApi( mw.cx.sourceLanguage ).get( {
+		if ( language === mw.cx.sourceLanguage ) {
+			apiLanguage = mw.cx.targetLanguage;
+		} else {
+			apiLanguage = mw.cx.sourceLanguage;
+		}
+
+		this.siteMapper.getApi( apiLanguage ).get( {
 			action: 'query',
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
@@ -605,7 +612,8 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var selection, title, targetTitle, sourceTitle, $targetLink, $sourceLink;
+		var selection, title, targetTitle, sourceTitle, $targetLink, $sourceLink,
+			self = this;
 
 		// If language is not given, use target language
 		language = language || mw.cx.targetLanguage;
@@ -634,7 +642,7 @@
 		}
 
 		this.highlightLink();
-		if ( this.$link && language === mw.cx.targetLanguage ) {
+		if ( language === mw.cx.targetLanguage ) {
 			targetTitle = title;
 		} else {
 			sourceTitle = title;
@@ -642,21 +650,39 @@
 
 		if ( !targetTitle ) {
 			$targetLink = this.getTargetLink();
-			targetTitle = $targetLink && $targetLink.attr( 'href' ) || title;
+			if ( $targetLink ) {
+				targetTitle = $targetLink.attr( 'href' );
+				self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+				self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
+			} else {
+				this.adapt( sourceTitle, mw.cx.targetLanguage )
+					.done( function ( linkPairs ) {
+						targetTitle = linkPairs[ sourceTitle ];
+						self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+						self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
+						// If text is selected, and the link clicked is source language,
+						// create a new internal link in the translation section
+						if ( isValidSelection( selection ) && self.$link ) {
+							self.createInternalLink( selection.toString(), targetTitle, self.$link.data( 'linkid') );
+						}
+					} );
+			}
 		}
 
 		if ( !sourceTitle ) {
 			$sourceLink = this.getSourceLink();
-			sourceTitle = $sourceLink && cleanupLinkHref( $sourceLink.attr( 'href' ) );
-		}
-
-		this.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-		this.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
-
-		// If text is selected, and the link clicked is source language, create a new internal link
-		// in the translation section
-		if ( isValidSelection( selection ) && this.$link && language === mw.cx.sourceLanguage ) {
-			this.createInternalLink( selection.toString(), targetTitle, this.$link.data( 'linkid' ) );
+			if ( $sourceLink ) {
+				sourceTitle = cleanupLinkHref( $sourceLink.attr( 'href' ) );
+				self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+				self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
+			} else {
+				this.adapt( targetTitle, mw.cx.sourceLanguage )
+					.done( function ( linkPairs ) {
+						sourceTitle = linkPairs[ targetTitle ];
+						self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
+						self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
+					} );
+			}
 		}
 	};
 
