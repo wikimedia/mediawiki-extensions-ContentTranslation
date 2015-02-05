@@ -142,4 +142,74 @@ class ContentTranslationHooks {
 		$tags[] = 'contenttranslation';
 		return true;
 	}
+
+	/**
+	 * Hook: ResourceLoaderTestModules
+	 */
+	public static function onResourceLoaderTestModules( array &$modules ) {
+		$resourcePaths = array(
+			'localBasePath' => __DIR__,
+			'remoteExtPath' => 'ContentTranslation',
+		);
+
+		$modules['qunit']['ext.cx.editor.tests'] = array(
+			'scripts' => array(
+				'tests/qunit/editor/ext.cx.editor.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.editor',
+			),
+		) + $resourcePaths;
+
+		$modules['qunit']['ext.cx.header.test'] = array(
+			'scripts' => array(
+				'tests/qunit/header/ext.cx.header.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.header',
+			),
+		) + $resourcePaths;
+
+		$modules['qunit']['ext.cx.publish.test'] = array(
+			'scripts' => array(
+				'tests/qunit/publish/ext.cx.publish.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.publish',
+			),
+		) + $resourcePaths;
+
+		$modules['qunit']['ext.cx.tools.tests'] = array(
+			'scripts' => array(
+				'tests/qunit/tools/ext.cx.tools.template.test.js',
+				'tests/qunit/tools/ext.cx.tools.mtabuse.test.js',
+				'tests/qunit/tools/ext.cx.tools.categories.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.model',
+				'ext.cx.tools.template',
+				'ext.cx.tools.mtabuse',
+				'ext.cx.tools.categories',
+			),
+		) + $resourcePaths;
+
+		$modules['qunit']['ext.cx.translation.tests'] = array(
+			'scripts' => array(
+				'tests/qunit/translation/ext.cx.translation.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.translation',
+			),
+		) + $resourcePaths;
+
+		$modules['qunit']['ext.cx.sitemapper.test'] = array(
+			'scripts' => array(
+				'tests/qunit/base/ext.cx.sitemapper.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.sitemapper',
+			),
+		) + $resourcePaths;
+	}
+
 }

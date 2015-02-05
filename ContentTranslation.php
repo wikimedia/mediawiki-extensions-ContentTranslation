@@ -68,6 +68,8 @@ $GLOBALS['wgHooks']['SpecialContributionsBeforeMainOutput'][] =
 	'ContentTranslationHooks::addNewContributionButton';
 $GLOBALS['wgHooks']['ListDefinedTags'][] = 'ContentTranslationHooks::registerTags';
 $GLOBALS['wgHooks']['ChangeTagsListActive'][] = 'ContentTranslationHooks::registerTags';
+$GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
+	'ContentTranslationHooks::onResourceLoaderTestModules';
 
 // Globals for this extension
 
