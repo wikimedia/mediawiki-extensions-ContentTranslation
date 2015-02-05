@@ -36,6 +36,7 @@
 	"cx-translation-add-translation": "+ Adicionar tradução",
 	"cx-translation-target-page-exists": "Uma página com o título [$1 $2] já existe na wiki definida. Considere atribuir um título diferente à página.",
 	"tag-contenttranslation": "ContentTranslation",
+	"tag-contenttranslation-description": "O conteúdo foi traduzido a partir de outro idioma com a ferramenta ContentTranslation.",
 	"cx-source-loading": "A carregar $1",
 	"cx-beta": "Tradução de conteúdo",
 	"cx-beta-desc": "Uma ferramenta para traduzir páginas para o seu idioma de forma rápida. Inicie as traduções a partir da sua [[Special:MyContributions|página de contribuições]] e depois edite-as com o nosso editor lado-a-lado, especialmente desenvolvido para a tarefa. Algumas destas ferramentas podem estar disponíveis apenas para certos idiomas.",

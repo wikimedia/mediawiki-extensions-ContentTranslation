@@ -39,6 +39,7 @@
 	"cx-translation-add-translation": "+加入翻译",
 	"cx-translation-target-page-exists": "带[$1 $2]标题的页面已存在于目标wiki。考虑提供不同标题的页面。",
 	"tag-contenttranslation": "内容翻译",
+	"tag-contenttranslation-description": "内容是通过内容翻译工具从另一语言翻译而来的。",
 	"cx-source-loading": "正在载入$1",
 	"cx-beta": "内容翻译",
 	"cx-beta-desc": "一个快速将页面翻译成您使用的语言的工具。从[[Special:MyContributions|您的贡献页面]]开始翻译，并通过我们特别为翻译工作设计的并排式编辑器编辑它们。一些工具可能只对特定语言可用。",
@@ -70,7 +71,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1个分类|0=没有分类}}",
 	"cx-stats-title": "内容翻译统计",
 	"cx-stats-unknown": "未知",
-	"cx-stats-summary": "位于主名字空间的$1/$2页（$3%）。",
+	"cx-stats-summary": "在此wiki的$1/$2个主名字空间中的{{PLURAL:$1|页面}}（$3%）。",
 	"cx-tools-reference-title": "参考资料",
 	"cx-tools-reference-remove": "移除参考资料",
 	"cx-tools-link-instruction-shortcut": "Shift+点击任何连接打开",
@@ -114,6 +115,7 @@
 	"apihelp-query+contenttranslation-example-1": "获取由当前用户作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
 	"apihelp-query+contenttranslation-example-3": "查找指定的语言对中给定标题的任何翻译",
+	"apihelp-query+contenttranslationstats-example-1": "获取所有语言的内容翻译统计信息。",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分钟前|0=刚刚}}保存",
 	"cx-save-draft-saving": "正在保存...",
 	"cx-save-draft-tooltip": "翻译草稿会自动保存",
@@ -135,5 +137,10 @@
 	"cx-translation-already-in-progress": "这里正在由$1翻译中。",
 	"cx-translation-already-in-progress-collaborate": "请确保您与做出当前翻译的用户协调一致。",
 	"cx-publishing-dialog-publish-draft-button": "作为草稿发布",
-	"cx-feedback-link": "提供反馈"
+	"cx-feedback-link": "提供反馈",
+	"cx-stats-table-source-target": "来源↓ / 目标→",
+	"cx-stats-table-source-total": "总计（来源）",
+	"cx-stats-table-target-total": "总计（目标）",
+	"cx-stats-published-translations-title": "已发布的翻译",
+	"cx-stats-draft-translations-title": "进行中的翻译"
 }

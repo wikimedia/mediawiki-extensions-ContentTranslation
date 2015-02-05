@@ -4,7 +4,8 @@
 			"Tauhid16",
 			"Aftab1995",
 			"Amire80",
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"Aashaa"
 		]
 	},
 	"cx": "পাতা অনুবাদ করুন",
@@ -25,9 +26,6 @@
 	"cx-tools-instructions-text1": "অনুবাদ করতে অনুচ্ছেদে {{GENDER:|ক্লিক করুন}}",
 	"cx-tools-searchbox-text": "শব্দ জন্য অনুসন্ধান করুন",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
-	"cx-stats-page-title": "পাতা",
-	"cx-stats-from": "উৎস ভাষা",
-	"cx-stats-pages-title": "অনূদিত পাতা",
 	"cx-stats-unknown": "অজানা",
 	"cx-stats-summary": "প্রধান নামস্থানে $1/$2 {{PLURAL:$1|টি পাতা}} ($3%)",
 	"cx-tools-reference-title": "তথ্যসূত্র",
@@ -49,5 +47,7 @@
 	"cx-save-draft-saving": "সংরক্ষণ করা হচ্ছে ...",
 	"cx-contributions": "নতুন অবদান",
 	"cx-contributions-translation": "অনুবাদ",
-	"cx-contributions-media": "মিডিয়া ফাইল আপলোড করুন"
+	"cx-contributions-media": "মিডিয়া ফাইল আপলোড করুন",
+	"cx-stats-published-translations-title": "প্রকাশিত অনুবাদসমূহ",
+	"cx-stats-draft-translations-title": "চলমান অনুবাদসমূহ"
 }

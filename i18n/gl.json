@@ -18,6 +18,7 @@
 	"cx-publish-button": "Publicar a tradución",
 	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",
 	"tag-contenttranslation": "Tradución de contido",
+	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta Content Translation",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á túa lingua. Comeza as traducións dende [[Special:MyContributions|your contributions page]], e edítaas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles só en certas linguas.",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
