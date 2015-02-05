@@ -80,9 +80,9 @@
 		}
 
 		$keepButton.on( 'click', function () {
-				cxPublishingDialog.$dialog.hide();
-				mw.hook( 'mw.cx.publish' ).fire( false );
-			} );
+			cxPublishingDialog.$dialog.hide();
+			mw.hook( 'mw.cx.publish' ).fire( false );
+		} );
 
 		$publishAnywayButton = $( '<button>' )
 			.addClass( 'cx-publishing-dialog__buttons-publishanyway mw-ui-button mw-ui-progressive' )
@@ -134,8 +134,8 @@
 			this.$trigger.height() + 20;
 
 		this.$dialog.css( {
-			'top': dialogTop,
-			'left': dialogLeft,
+			top: dialogTop,
+			left: dialogLeft,
 			'z-index': 100
 		} );
 

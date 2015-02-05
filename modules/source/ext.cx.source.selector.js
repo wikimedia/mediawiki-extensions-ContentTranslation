@@ -679,8 +679,8 @@
 		}
 
 		this.$dialog.css( {
-			'top': top,
-			'left': left,
+			top: top,
+			left: left,
 			'z-index': 100
 		} );
 

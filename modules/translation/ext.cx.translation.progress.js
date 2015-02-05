@@ -53,7 +53,7 @@
 	 * @return {number} return.mt Weight of sections with unmodified mt content
 	 * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
 	 */
-	mw.cx.getProgress = function() {
+	mw.cx.getProgress = function () {
 		var sourceWeight, weights;
 
 		sourceWeight = getTotalSourceWeight();

@@ -21,7 +21,7 @@
 		$columns = $( '.cx-widget__columns' );
 		$header = $( '.cx-header' );
 		$userLink = $( '<a>' ).attr( {
-			href: mw.util.getUrl( 'User:' + translation.translatorName ),
+			href: mw.util.getUrl( 'User:' + translation.translatorName )
 		} ).text( translation.translatorName )[ 0 ].outerHTML;
 		$info = $( '<div>' )
 			.addClass( 'cx-conflict-info' )

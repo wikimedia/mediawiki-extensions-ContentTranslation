@@ -219,7 +219,7 @@
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 	};
 
-	function referenceClickHandler () {
+	function referenceClickHandler() {
 		/*jshint validthis:true */
 		var $reference = $( this );
 		mw.hook( 'mw.cx.select.reference' ).fire(

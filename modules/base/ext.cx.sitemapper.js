@@ -127,7 +127,6 @@
 		return mw.util.getUrl( cxPage, queryParams );
 	};
 
-
 	/**
 	 * Set CX Token in a cookie.
 	 * This token guarantees that the translator read the license agreement
@@ -138,7 +137,7 @@
 	 * @param {string} targetLanguage Target language
 	 * @param {string} sourceTitle Source title
 	 */
-	mw.cx.SiteMapper.prototype.setCXToken = function( sourceLanguage, targetLanguage, sourceTitle ) {
+	mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
 		var slug, now, name, options, domain;
 
 		now = new Date();
