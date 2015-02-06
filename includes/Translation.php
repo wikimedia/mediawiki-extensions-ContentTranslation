@@ -79,7 +79,8 @@ class Translation {
 				'translation_source_language',
 				'translation_target_language',
 				'translation_status',
-				'count(translation_target_language) as count',
+				'COUNT(translation_target_language) AS count',
+				'COUNT(DISTINCT translation_started_by) AS translators'
 			),
 			'',
 			'',
@@ -99,6 +100,7 @@ class Translation {
 				'targetLanguage' => $row->translation_target_language,
 				'status' => $row->translation_status,
 				'count' => $row->count,
+				'translators' => $row->translators,
 			);
 		}
 		return $result;

@@ -623,6 +623,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'cx-stats-table-target-total',
 		'cx-stats-published-translations-title',
 		'cx-stats-draft-translations-title',
+		'cx-stats-published-translators-title',
 	)
 ) + $resourcePaths;
 
