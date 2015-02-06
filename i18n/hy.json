@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Vadgt",
-			"Beko"
+			"Beko",
+			"GrigorGB"
 		]
 	},
 	"cx": "Թարգմանիր էջը",
 	"cx-javascript": "Այս գործիքը չի աշխատում առանց JavaScript-ի։",
 	"cx-header-progressbar-text": "Թարգմանությունը կատարվել է $1%",
-	"cx-source-loading": "Բեռնում $1"
+	"cx-source-loading": "Բեռնում $1",
+	"cx-stats-published-translations-title": "Հրապարակված թարգմանություններ",
+	"cx-stats-draft-translations-title": "Ընթացիկ թարգմանություններ"
 }

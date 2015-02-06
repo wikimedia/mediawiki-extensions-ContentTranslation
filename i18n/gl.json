@@ -30,7 +30,9 @@
 	"cx-tools-instructions-text6": "Cando {{GENDER:|considere}} que o resultado é bo, prema en \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Procurar unha palabra",
 	"cx-tools-view-guidelines": "{{GENDER:|Mostrar}} as normas de tradución",
+	"cx-stats-table-source-target": "Orixe↓ / Destino→",
 	"cx-stats-table-source-total": "Total (Fonte)",
+	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traducións publicadas",
 	"cx-stats-draft-translations-title": "Traducións en marcha"
 }

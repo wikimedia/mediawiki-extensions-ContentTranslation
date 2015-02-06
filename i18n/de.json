@@ -131,5 +131,6 @@
 	"cx-stats-table-source-total": "Gesamt (Quelle)",
 	"cx-stats-table-target-total": "Gesamt (Ziel)",
 	"cx-stats-published-translations-title": "Veröffentlichte Übersetzungen",
-	"cx-stats-draft-translations-title": "Übersetzungen in Vorbereitung"
+	"cx-stats-draft-translations-title": "Übersetzungen in Vorbereitung",
+	"cx-stats-published-translators-title": "Anzahl der Übersetzer"
 }
