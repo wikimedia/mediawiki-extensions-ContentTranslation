@@ -66,7 +66,14 @@ class ContentTranslationHooks {
 			$out->addModules( 'ext.cx.redlink' );
 		}
 
-		if ( class_exists( 'GuidedTourHooks' ) ) {
+		// The current guided tours are only for the user namespace,
+		// so load the module only there.
+		// In the future there may be guided tours in other namespaces,
+		// and then this condition should be changed.
+		if (
+			class_exists( 'GuidedTourHooks' ) &&
+			$title->inNamespace( NS_USER )
+		) {
 			$out->addModules( 'ext.guidedTour' );
 		}
 	}
