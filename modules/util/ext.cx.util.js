@@ -39,7 +39,7 @@
 
 	mw.cx.getSourceSection = function ( id ) {
 		// Sanity check, id should be either a number or prefixed with cx
-		if ( isNaN( id ) && id.indexOf( 'cx') !== 0 ) {
+		if ( isNaN( id ) && id.indexOf( 'cx' ) !== 0 ) {
 			return $( [] );
 		} else {
 			return $( document.getElementById( id ) );
