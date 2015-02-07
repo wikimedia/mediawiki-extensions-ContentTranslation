@@ -6,7 +6,8 @@
 			"FRacco",
 			"Nemo bis",
 			"Macofe",
-			"Ricordisamoa"
+			"Ricordisamoa",
+			"Nivit"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -57,10 +58,6 @@
 	"cx-tools-mt-not-available": "Non disponibile per $1",
 	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
 	"cx-stats-title": "Statistiche traduzione voci",
-	"cx-stats-page-title": "Pagina",
-	"cx-stats-from": "Lingua di origine",
-	"cx-stats-to": "Lingua di destinazione",
-	"cx-stats-pages-title": "Pagine tradotte",
 	"cx-stats-unknown": "sconosciuta",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|pagina|pagine}} ($3%) nel namespace principale.",
 	"cx-tools-reference-title": "Riferimento",
@@ -76,5 +73,6 @@
 	"cx-publish-captcha-title": "Domanda di sicurezza",
 	"cx-contributions": "Nuovo contributo",
 	"cx-contributions-translation": "Traduzione",
-	"cx-publishing-dialog-publish-draft-button": "Pubblica come bozza"
+	"cx-publishing-dialog-publish-draft-button": "Pubblica come bozza",
+	"cx-stats-published-translators-title": "Numero di traduttori"
 }

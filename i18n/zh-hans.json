@@ -142,5 +142,6 @@
 	"cx-stats-table-source-total": "总计（来源）",
 	"cx-stats-table-target-total": "总计（目标）",
 	"cx-stats-published-translations-title": "已发布的翻译",
-	"cx-stats-draft-translations-title": "进行中的翻译"
+	"cx-stats-draft-translations-title": "进行中的翻译",
+	"cx-stats-published-translators-title": "译者数量"
 }

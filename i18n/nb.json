@@ -64,10 +64,6 @@
 	"cx-tools-mt-dont-use": "Ikke bruk maskinoversettelse",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Ingen kategorier}}",
 	"cx-stats-title": "Statistikk for innholdsoversettelser",
-	"cx-stats-page-title": "Side",
-	"cx-stats-from": "Kildespråk",
-	"cx-stats-to": "Målspråk",
-	"cx-stats-pages-title": "Oversatte sider",
 	"cx-stats-unknown": "ukjent",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|side|sider}} ($3%) i hovedrommet.",
 	"cx-tools-reference-title": "Referanse",
@@ -133,5 +129,6 @@
 	"apihelp-cxdelete-example-1": "Slett et utkast for gitt språkpar og tittel.",
 	"cx-translation-already-in-progress": "Dette er et pågående arbeid av $1.",
 	"cx-translation-already-in-progress-collaborate": "Vær vennlig å forsikre deg om at du koordinerer med brukeren som oversatte den nåværende oversettelsen.",
-	"cx-publishing-dialog-publish-draft-button": "Publiser som utkast"
+	"cx-publishing-dialog-publish-draft-button": "Publiser som utkast",
+	"cx-stats-published-translators-title": "Antall oversettere"
 }

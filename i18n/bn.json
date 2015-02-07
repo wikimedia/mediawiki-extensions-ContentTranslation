@@ -27,7 +27,7 @@
 	"cx-tools-searchbox-text": "শব্দ জন্য অনুসন্ধান করুন",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
 	"cx-stats-unknown": "অজানা",
-	"cx-stats-summary": "প্রধান নামস্থানে $1/$2 {{PLURAL:$1|টি পাতা}} ($3%)",
+	"cx-stats-summary": "এই উইকির প্রধান নামস্থানে $1/$2 {{PLURAL:$1|টি পাতা}} ($3%)",
 	"cx-tools-reference-title": "তথ্যসূত্র",
 	"cx-tools-reference-remove": "তথ্যসূত্র সরান",
 	"cx-tools-link-hover-tooltip": "খোলার জন্য ক্লিক করুন",
@@ -48,6 +48,7 @@
 	"cx-contributions": "নতুন অবদান",
 	"cx-contributions-translation": "অনুবাদ",
 	"cx-contributions-media": "মিডিয়া ফাইল আপলোড করুন",
+	"cx-stats-table-source-target": "উত্স↓ / লক্ষ্য→",
 	"cx-stats-published-translations-title": "প্রকাশিত অনুবাদসমূহ",
 	"cx-stats-draft-translations-title": "চলমান অনুবাদসমূহ"
 }

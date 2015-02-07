@@ -55,12 +55,8 @@
 	"cx-tools-mt-not-available": "Net disponibel fir $1",
 	"cx-tools-mt-dont-use": "Benotzt keng Maschinneniwwersetzung",
 	"cx-stats-title": "Statgistiken iwwer d'Iwwersetze vum Inhalt",
-	"cx-stats-page-title": "Säit",
-	"cx-stats-from": "Quellsprooch",
-	"cx-stats-to": "Zilsprooch",
-	"cx-stats-pages-title": "Iwwersat Säiten",
 	"cx-stats-unknown": "onbekannt",
-	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum.",
+	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum vun dëser Wiki.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz ewechhuelen",
 	"cx-tools-link-hover-tooltip": "Klickt fir opzemaachen",
@@ -94,5 +90,8 @@
 	"cx-translation-status-deleted": "Geläscht",
 	"cx-translation-already-in-progress": "Dëst ass eng Iwwersetzung vum $1, déi net ofgeschloss ass.",
 	"cx-publishing-dialog-publish-draft-button": "Als Brouillon verëffentlechen",
-	"cx-feedback-link": "Feedback ginn"
+	"cx-feedback-link": "Feedback ginn",
+	"cx-stats-published-translations-title": "Publizéiert Iwwersetzungen",
+	"cx-stats-draft-translations-title": "Iwwersetzungen am Gaang",
+	"cx-stats-published-translators-title": "Zuel vun Iwwersetzer"
 }

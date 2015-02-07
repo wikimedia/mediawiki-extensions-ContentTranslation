@@ -5,7 +5,8 @@
 			"SandroHc",
 			"Fúlvio",
 			"Vitorvicentevalente",
-			"Imperadeiro90"
+			"Imperadeiro90",
+			"Fernandofelippe"
 		]
 	},
 	"cx": "Traduzir página",
@@ -125,5 +126,6 @@
 	"cx-stats-table-source-total": "Total (Origem)",
 	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traduções publicadas",
-	"cx-stats-draft-translations-title": "Traduções em andamento"
+	"cx-stats-draft-translations-title": "Traduções em andamento",
+	"cx-stats-published-translators-title": "Numero de tradutores"
 }
