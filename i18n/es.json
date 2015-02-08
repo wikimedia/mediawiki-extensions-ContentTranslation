@@ -12,7 +12,8 @@
 			"ProtoplasmaKid",
 			"Patricio",
 			"Cgalindo",
-			"Pginer"
+			"Pginer",
+			"JasterTDC"
 		]
 	},
 	"cx": "Traducir página",
@@ -73,10 +74,6 @@
 	"cx-tools-mt-dont-use": "No usar la traducción automática",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoría|$1 categorías|0=Sin categorías}}",
 	"cx-stats-title": "Estadísticas de traducción de contenidos",
-	"cx-stats-page-title": "Página",
-	"cx-stats-from": "Idioma de origen",
-	"cx-stats-to": "Idioma de destino",
-	"cx-stats-pages-title": "Páginas traducidas",
 	"cx-stats-unknown": "desconocido",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) en el espacio de nombres principal.",
 	"cx-tools-reference-title": "Referencia",
@@ -124,5 +121,10 @@
 	"cx-discard-translation": "Descartar la traducción",
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Borrado",
-	"apihelp-cxdelete-param-from": "El código del idioma de origen."
+	"apihelp-cxdelete-param-from": "El código del idioma de origen.",
+	"cx-stats-table-source-target": "Fuente↓ / Objetivo→",
+	"cx-stats-table-source-total": "Total (Fuente)",
+	"cx-stats-published-translations-title": "Traducciones publicadas",
+	"cx-stats-draft-translations-title": "Traducción en progreso",
+	"cx-stats-published-translators-title": "Número de traductores"
 }

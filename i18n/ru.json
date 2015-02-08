@@ -38,6 +38,7 @@
 	"cx-translation-add-translation": "+ Добавить перевод",
 	"cx-translation-target-page-exists": "Страница с заголовком [$1 $2] уже существует в целевой вики. Попробуйте задать странице другой заголовок.",
 	"tag-contenttranslation": "ПереводСодержимого",
+	"tag-contenttranslation-description": "Содержание было переведено с другого языка при помощи инструмента ПереводСодержания.",
 	"cx-source-loading": "Загрузка $1",
 	"cx-beta": "Перевод содержимого",
 	"cx-beta-desc": "Инструмент для быстрого перевода страниц на ваш язык. Начните перевод из страницы [[Special:MyContributions|вашего вклада]] и правьте его в нашем редакторе «бок о бок», специально спроектированном для переводов. Некоторые инструменты могут быть доступны только для определённых языков.",
@@ -69,7 +70,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|$1 категорий|0=Нет категорий}}",
 	"cx-stats-title": "Статистика перевода содержания",
 	"cx-stats-unknown": "неизвестно",
-	"cx-stats-summary": "$1/$2 страниц{{PLURAL:$1|ы|}} ($3%) в основном пространстве имён.",
+	"cx-stats-summary": "$1/$2 страниц{{PLURAL:$1|ы|}} ($3%) в основном пространстве имён в этой вики.",
 	"cx-tools-reference-title": "Примечание",
 	"cx-tools-reference-remove": "Удалить примечание",
 	"cx-tools-link-instruction-shortcut": "Shift + щелчок мыши на любой ссылке, чтобы открыть её",
@@ -113,6 +114,7 @@
 	"apihelp-query+contenttranslation-example-1": "Получить перевод, начатый текущим участником.",
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
 	"apihelp-query+contenttranslation-example-3": "Найти любой перевод для данного названия между данной парой языков",
+	"apihelp-query+contenttranslationstats-example-1": "Получите статистику перевода содержимого для всех языков.",
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",
@@ -134,5 +136,9 @@
 	"cx-translation-already-in-progress": "Это перевод, начатый участником $1.",
 	"cx-translation-already-in-progress-collaborate": "Пожалуйста, договоритесь с участником, который начал этот перевод.",
 	"cx-publishing-dialog-publish-draft-button": "Опубликовать как черновик",
-	"cx-feedback-link": "Послать отзыв"
+	"cx-feedback-link": "Послать отзыв",
+	"cx-stats-table-source-target": "Источник↓ / Цель→",
+	"cx-stats-published-translations-title": "Опубликованные переводы",
+	"cx-stats-draft-translations-title": "В процессе перевода",
+	"cx-stats-published-translators-title": "Количество переводчиков"
 }
