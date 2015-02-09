@@ -61,6 +61,11 @@ CREATE UNIQUE INDEX /*i*/cx_translation_pair ON /*_*/cx_translations (
     translation_target_language
 );
 
+CREATE INDEX /*i*/cx_translation_languages ON /*_*/cx_translations (
+    translation_source_language,
+    translation_target_language
+);
+
 CREATE UNIQUE INDEX /*i*/cx_translation_translators ON /*_*/cx_translators (
     translator_user_id,
     translator_translation_id
