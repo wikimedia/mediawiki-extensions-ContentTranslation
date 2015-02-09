@@ -12,5 +12,6 @@
     "wrap_line_length": 0,
     "space_in_paren": true,
     "git_happy": true,
-    "indent_with_tabs": true
+    "indent_with_tabs": true,
+    "end_with_newline": true
 }
