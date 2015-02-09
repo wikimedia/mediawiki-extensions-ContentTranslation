@@ -88,5 +88,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "Tytuł strony źródłowej.",
 	"cx-stats-table-source-target": "Źródło↓ / Cel→",
 	"cx-stats-table-source-total": "Łącznie (Źródło)",
-	"cx-stats-table-target-total": "Łącznie (Cel)"
+	"cx-stats-table-target-total": "Łącznie (Cel)",
+	"cx-stats-published-translators-title": "Liczba tłumaczy"
 }

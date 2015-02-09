@@ -112,6 +112,7 @@
 	"apihelp-cxpublish-param-status": "Si el valor es «draft», la traducción se guardará como borrador. Si es «published», la traducción se publicará.",
 	"apihelp-cxpublish-param-categories": "Las categorías que se añadirán a la página publicada.",
 	"apihelp-query+contenttranslation-param-translationid": "Id. de la traducción",
+	"apihelp-query+contenttranslationstats-example-1": "Obtener estadísticas de traducción de contenido para todos los idiomas.",
 	"cx-save-draft-save-success": "Guardado {{PLURAL:$1|hace un minuto|hace $1 minutos|0=hace instantes}}",
 	"cx-save-draft-saving": "Guardando...",
 	"cx-save-draft-tooltip": "Los borradores de traducción se guardan automáticamente",
@@ -125,6 +126,6 @@
 	"cx-stats-table-source-target": "Fuente↓ / Objetivo→",
 	"cx-stats-table-source-total": "Total (Fuente)",
 	"cx-stats-published-translations-title": "Traducciones publicadas",
-	"cx-stats-draft-translations-title": "Traducción en progreso",
+	"cx-stats-draft-translations-title": "Traducciones en proceso",
 	"cx-stats-published-translators-title": "Número de traductores"
 }

@@ -34,5 +34,6 @@
 	"cx-stats-table-source-total": "Total (Fonte)",
 	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traducións publicadas",
-	"cx-stats-draft-translations-title": "Traducións en marcha"
+	"cx-stats-draft-translations-title": "Traducións en marcha",
+	"cx-stats-published-translators-title": "Número de tradutores"
 }
