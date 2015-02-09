@@ -60,35 +60,28 @@
 				}
 				record = findLanguagePair( records, languages[ i - 1 ],
 					languages[ j - 1 ], status );
-				table[ i ][ j ] = record[ 0 ] && record[ 0 ][ property ] ||
-					'';
+				table[ i ][ j ] = record[ 0 ] && record[ 0 ][ property ] || 0;
+				table[ i ][ j ] = parseInt( table[ i ][ j ] );
 				// Keep track of max value of translation in any language pair.
 				// Required for coloring
 				max = table[ i ][ j ] > max ? table[ i ][ j ] : max;
 				// Total(to)
 				table[ i ][ languages.length + 1 ] = table[ i ][ languages.length + 1 ] || 0;
-				table[ i ][ languages.length + 1 ] += parseInt( table[
-					i ][ j ] ) || 0;
+				table[ i ][ languages.length + 1 ] += table[ i ][ j ];
 				// Total(from)
-				table[ languages.length + 1 ] = table[ languages.length +
-					1 ] || [];
-				table[ languages.length + 1 ][ j ] = table[ languages.length +
-					1 ][ j ] || 0;
-				table[ languages.length + 1 ][ j ] += parseInt( table[
-					i ][ j ] ) || 0;
+				table[ languages.length + 1 ] = table[ languages.length + 1 ] || [];
+				table[ languages.length + 1 ][ j ] = table[ languages.length + 1 ][ j ] || 0;
+				table[ languages.length + 1 ][ j ] += table[ i ][ j ];
 			}
 			// Total translations
 			table[ languages.length + 1 ] = table[ languages.length + 1 ] || [];
 			table[ languages.length + 1 ][ languages.length + 1 ] =
-				table[ languages.length + 1 ][ languages.length + 1 ] ||
-				0;
+				table[ languages.length + 1 ][ languages.length + 1 ] || 0;
 			table[ languages.length + 1 ][ languages.length + 1 ] +=
 				table[ i ][ languages.length + 1 ];
 		}
-		table[ 0 ][ languages.length + 1 ] = mw.msg(
-			'cx-stats-table-source-total' );
-		table[ languages.length + 1 ][ 0 ] = mw.msg(
-			'cx-stats-table-target-total' );
+		table[ 0 ][ languages.length + 1 ] = mw.msg( 'cx-stats-table-source-total' );
+		table[ languages.length + 1 ][ 0 ] = mw.msg( 'cx-stats-table-target-total' );
 
 		return table;
 	}
@@ -109,12 +102,10 @@
 			$row = $( '<tr>' );
 			for ( j = 0; j < table.length; j++ ) {
 				value = table[ i ][ j ];
-				$td = $( '<td>' ).text( value ? mw.language.convertNumber(
-					value ) : '' );
+				$td = $( '<td>' ).text( value === 0 ? '' : mw.language.convertNumber( value ) );
 				if ( i > 0 && j > 0 && i < table.length - 1 && j <
 					table.length - 1 && value > 0 ) {
-					$td.addClass( 'cx-stat-color-' + parseInt( value /
-						division ) );
+					$td.addClass( 'cx-stat-color-' + parseInt( value / division ) );
 				}
 				$row.append( $td );
 			}
