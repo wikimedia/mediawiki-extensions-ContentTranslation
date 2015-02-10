@@ -147,7 +147,7 @@
 			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
 			null; // Mostly domains like "localhost"
 		options = {
-			prefix: '',
+			path: mw.config.get( 'wgCookiePath' ),
 			// Use Domain cookie. Example: domain=.wikipedia.org
 			domain: domain,
 			expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
