@@ -167,3 +167,41 @@
 		}
 	}
 }
+
+.cx-draft-discard-dialog {
+	.mw-ui-item;
+	color: #333;
+	position: fixed;
+	min-width: 500px;
+	max-width: 600px;
+	background: white;
+	border: 1px solid #ddd;
+	border-bottom-width: 3px;
+	border-radius: 3px;
+	padding: 0;
+	top: 30%;
+	left: 30%;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	&__message {
+		padding: 25px;
+		font-size: large;
+	}
+	&__actions {
+		.mw-ui-one-whole;
+		padding: 20px;
+		button {
+			float: right;
+			padding-right: 20px;
+		}
+	}
+}
+
+.cx-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #FFF;
+	opacity: 0.5;
+}

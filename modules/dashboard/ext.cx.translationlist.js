@@ -28,7 +28,8 @@
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$translationFilterContainer = null;
-
+		this.$confirmatonDialog = null;
+		this.$overlay = null;
 		this.init();
 		this.render();
 		this.listen();
@@ -301,13 +302,75 @@
 		this.$container.on( 'click', '.cx-discard-translation', function () {
 			var translation = $( this ).data( 'translation' );
 
-			translationList.discardTranslation( $( this ).data( 'translation' ) )
-				.then( function ( response ) {
-					if ( response.cxdelete.result === 'success' ) {
-						translationList.markTranslationAsDeleted( translation );
-					}
-				} );
+			translationList.showDiscardConfirmation( translation ).then( function ( answer ) {
+				if ( !answer ) {
+					return;
+				}
+				translationList.discardTranslation( translation )
+					.then( function ( response ) {
+						if ( response.cxdelete.result === 'success' ) {
+							translationList.markTranslationAsDeleted( translation );
+						}
+					} );
+			} );
 		} );
+	};
+
+	/**
+	 * Show the confirmaton dialog for discarding a translaton
+	 * @return {jQuery.Promise}
+	 */
+	CXTranslationList.prototype.showDiscardConfirmation = function () {
+		var deferred, $actions, $cancelButton, $discardButton, $message,
+			translationList = this;
+
+		deferred = $.Deferred();
+
+		if ( !this.$overlay ) {
+			this.$overlay = $( '<div>' )
+				.addClass( 'cx-overlay' );
+			$( 'body' ).append( this.$overlay );
+		}
+
+		if ( !this.$confirmatonDialog ) {
+			this.$confirmatonDialog = $( '<div>' )
+				.addClass( 'cx-draft-discard-dialog' );
+			$cancelButton = $( '<button>' )
+				.addClass( 'mw-ui-button mw-ui-quiet cx-draft-discard-dialog__cancel' )
+				.text( mw.msg( 'cx-draft-cancel-button-label' ) );
+			$discardButton = $( '<button>' )
+				.addClass( 'mw-ui-button mw-ui-destructive cx-draft-discard-dialog__discard' )
+				.text( mw.msg( 'cx-draft-discard-button-label' ) );
+			$actions = $( '<div>' )
+				.addClass( 'cx-draft-discard-dialog__actions' )
+				.append( $discardButton, $cancelButton );
+			$message = $( '<div>' )
+				.addClass( 'cx-draft-discard-dialog__message' )
+				.text( mw.msg( 'cx-draft-discard-confirmaton-message' ) );
+			$( 'body' ).append( this.$confirmatonDialog.append( $message, $actions ) );
+		} else {
+			$cancelButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__cancel' );
+			$discardButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__discard' );
+		}
+
+		$cancelButton.one( 'click', function () {
+			deferred.resolve( false );
+			translationList.$confirmatonDialog.hide();
+			translationList.$overlay.hide();
+			$discardButton.off( 'click' );
+		} );
+
+		$discardButton.one( 'click', function () {
+			deferred.resolve( true );
+			translationList.$confirmatonDialog.hide();
+			translationList.$overlay.hide();
+			$cancelButton.off( 'click' );
+		} );
+
+		this.$overlay.show();
+		this.$confirmatonDialog.show();
+
+		return deferred.promise();
 	};
 
 	/**

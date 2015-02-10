@@ -142,5 +142,8 @@
 	"cx-stats-table-target-total": "Total (Target)",
 	"cx-stats-published-translations-title": "Published translations",
 	"cx-stats-draft-translations-title": "In progress translations",
-	"cx-stats-published-translators-title": "Number of translators"
+	"cx-stats-published-translators-title": "Number of translators",
+	"cx-draft-discard-confirmaton-message": "Are you sure you want to permanently delete this translation?",
+	"cx-draft-cancel-button-label": "Cancel",
+	"cx-draft-discard-button-label": "Delete translation"
 }
