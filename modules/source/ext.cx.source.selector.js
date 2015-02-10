@@ -370,17 +370,8 @@
 	 * Handles Enter (Return) keypress.
 	 */
 	CXSourceSelector.prototype.enterKeyHandler = function ( e ) {
-		var sourceLanguage = this.getSourceLanguage(),
-			sourceTitle = this.$sourceTitleInput.val().trim(),
-			selector = this;
-
-		if ( e.which === 13 && sourceTitle !== '' ) {
-			this.checkForTitle( sourceLanguage, sourceTitle )
-				.done( function ( response ) {
-					if ( response !== false ) {
-						selector.startPageInCX();
-					}
-				} );
+		if ( e.which === 13 ) {
+			this.startPageInCX();
 		}
 	};
 
@@ -396,86 +387,100 @@
 
 		this.$messageBar.hide();
 
-		// If the source title is blank, disable the button and skip validation
-		if ( !sourceTitle ) {
-			selector.$translateFromButton.prop( 'disabled', true );
+		// We do not want to show "title does not exist" for empty input
+		if ( sourceTitle === '' ) {
+			this.$translateFromButton.prop( 'disabled', true );
 
 			return;
 		}
 
-		// Check to see if the specified source article exists
-		this.checkForTitle( sourceLanguage, sourceTitle ).done( function ( sourcePage ) {
-			// If there is no source page to translate, disable the button, show an error
-			// and skip the rest of the validation checks
-			if ( !sourcePage ) {
-				selector.$translateFromButton.prop( 'disabled', true );
+		// Perform multitude of validations for the titles
+		this.checkForTitle( sourceLanguage, sourceTitle ).done( function ( sourceTitle ) {
+			var titleCheck, translationCheck;
+
+			selector.$translateFromButton.prop( 'disabled', !sourceTitle );
+
+			if ( sourceTitle === false ) {
 				selector.showSourceTitleError( sourceLanguage );
 
 				return;
 			}
 
-			selector.$translateFromButton.prop( 'disabled', false );
-
-			// Check to see if there is a matching article in the target wiki.
-			// The matching article may or may not have the same title.
-			selector.checkForEquivalentTargetPage(
+			// Whether the target title, if given, exists in the target wiki
+			titleCheck = selector.checkForTitle( targetLanguage, targetTitle );
+			// Whether the source already has a translation linked via language links
+			translationCheck = selector.checkForEquivalentTargetPage(
 				sourceLanguage,
 				targetLanguage,
 				sourceTitle
-			).done( function ( equivalentTargetPage ) {
-				// Check to see if the specified target title is in use.
-				// Must be nested inside check for matching target article
-				// because first possible error requires results of both API calls.
-				selector.checkForTitle(
-					targetLanguage,
-					targetTitle
-				).done( function ( existingTargetTitle ) {
-					// If there is a matching target page and
-					// the specified target title is in use
-					if ( equivalentTargetPage && existingTargetTitle ) {
-						selector.showPageExistsAndTitleInUseError(
-							equivalentTargetPage,
-							existingTargetTitle
-						);
+			);
 
-					// If there is just a matching target page
-					} else if ( equivalentTargetPage ) {
-						selector.showPageExistsError( equivalentTargetPage );
-
+			$.when(
+				translationCheck,
+				titleCheck
+			).done( function ( existingTranslation, existingTargetTitle ) {
+				// If there is an existing translation and
+				// the specified target title is in use
+				if ( existingTranslation && existingTargetTitle ) {
+					selector.showPageExistsAndTitleInUseError(
+						existingTranslation,
+						existingTargetTitle
+					);
+				} else if ( existingTranslation ) {
+					// If there is just an existing translation
+					selector.showPageExistsError( existingTranslation );
+				} else if ( existingTargetTitle ) {
 					// If the specified target title is in use
-					} else if ( existingTargetTitle ) {
-						selector.showTitleInUseError( existingTargetTitle );
-					}
-				} );
+					selector.showTitleInUseError( existingTargetTitle );
+				}
 			} );
 		} );
 	};
 
 	/**
-	 * Checks to see if a title exists in the specified language wiki.
+	 * Checks to see if a title exists in the specified language wiki. Returns
+	 * the normalised title and resolves redirects.
 	 * @param {string} language The language of the wiki to check
 	 * @param {string} title The title to look for
 	 * @return {jQuery.promise}
+	 * @return {Function} return.done If title exists
+	 * @return {String|false} return.done.title
 	 */
 	CXSourceSelector.prototype.checkForTitle = function ( language, title ) {
 		var api = this.siteMapper.getApi( language );
 
+		// Short circuit empty titles
+		if ( title === '' ) {
+			return $.Deferred().reject().promise();
+		}
+
+		// Reject titles with pipe in the name, as it has special meaning in the api
+		if ( /\|/.test( title ) ) {
+			return $.Deferred().resolve( false ).promise();
+		}
+
 		return api.get( {
-			action: 'opensearch',
-			search: title,
-			namespace: 0,
-			format: 'json',
-			limit: 1
+			action: 'query',
+			titles: title,
+			redirects: 1,
+			indexpageids: 1,
+			format: 'json'
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} ).then( function ( response ) {
-			if ( response[ 1 ][ 0 ] === title ) {
-				return title;
+			var pageid = response.query.pageids[ 0 ];
+
+			if ( response.query.pages[ pageid ].missing !== undefined ) {
+				return false;
 			}
 
-			return false;
+			if ( response.query.pages[ pageid ].invalid !== undefined ) {
+				return false;
+			}
+
+			return response.query.pages[ pageid ].title;
 		} );
 	};
 
@@ -744,29 +749,39 @@
 
 	/**
 	 * Start a new page translation in Special:CX.
+	 * Does nothing if source page does not exist.
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		var targetTitle, sourceTitle, sourceLanguage, targetLanguage;
+		var targetTitle, sourceTitle, sourceLanguage, targetLanguage, siteMapper;
 
+		siteMapper = this.siteMapper;
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
-		sourceTitle = this.$sourceTitleInput.val();
+		sourceTitle = this.$sourceTitleInput.val().trim();
+		targetTitle = this.$targetTitleInput.val().trim();
 
-		if ( this.$targetTitleInput.val() === '' ) {
-			targetTitle = this.$sourceTitleInput.val();
-		} else {
-			targetTitle = this.$targetTitleInput.val();
-		}
-
-		// Set CX token as cookie.
-		this.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
-
-		location.href = this.siteMapper.getCXUrl(
-			sourceTitle,
-			targetTitle,
+		this.checkForTitle(
 			sourceLanguage,
-			targetLanguage
-		);
+			sourceTitle
+		).done( function ( sourceTitle ) {
+			if ( sourceTitle === false ) {
+				return;
+			}
+
+			if ( targetTitle === '' ) {
+				targetTitle = sourceTitle;
+			}
+
+			// Set CX token as cookie.
+			siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
+
+			location.href = siteMapper.getCXUrl(
+				sourceTitle,
+				targetTitle,
+				sourceLanguage,
+				targetLanguage
+			);
+		} );
 	};
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
@@ -803,12 +818,12 @@
 				sourceLanguage = contentLanguage;
 			} else {
 				// Give up: just set the first available source language
-				sourceLanguage = this.sourceLanguages[0];
+				sourceLanguage = this.sourceLanguages[ 0 ];
 			}
 		}
 
 		if ( sourceLanguage === targetLanguage ) {
-			targetLanguage = this.getValidTargetLanguages( sourceLanguage )[0];
+			targetLanguage = this.getValidTargetLanguages( sourceLanguage )[ 0 ];
 		}
 
 		// Set the source language
@@ -974,8 +989,7 @@
 
 			if ( !data ) {
 				$this.data(
-					'cxsourceselector',
-					( data = new CXSourceSelector( this, mw.cx.siteMapper, options ) )
+					'cxsourceselector', ( data = new CXSourceSelector( this, mw.cx.siteMapper, options ) )
 				);
 			}
 		} );
