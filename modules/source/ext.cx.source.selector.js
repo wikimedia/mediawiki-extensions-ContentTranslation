@@ -458,10 +458,9 @@
 	 * @return {jQuery.promise}
 	 */
 	CXSourceSelector.prototype.checkForTitle = function ( language, title ) {
-		var api = this.siteMapper.getApi( language ),
-			$deferred = $.Deferred();
+		var api = this.siteMapper.getApi( language );
 
-		api.get( {
+		return api.get( {
 			action: 'opensearch',
 			search: title,
 			namespace: 0,
@@ -471,19 +470,13 @@
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
-		} )
-			.done( function ( response ) {
-				if ( response[ 1 ][ 0 ] === title ) {
-					$deferred.resolve( title );
-				} else {
-					$deferred.resolve( false );
-				}
-			} )
-			.fail( function () {
-				$deferred.resolve( false );
-			} );
+		} ).then( function ( response ) {
+			if ( response[ 1 ][ 0 ] === title ) {
+				return title;
+			}
 
-		return $deferred.promise();
+			return false;
+		} );
 	};
 
 	/**
