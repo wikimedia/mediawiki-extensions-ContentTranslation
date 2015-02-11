@@ -133,15 +133,21 @@
 	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
-		var i, translation, $translation, $titleLanguageBlock,
+		var i, translation, progress, $translation, $titleLanguageBlock,
 			$translationLink, translationLinkUrl,
 			$sourceLanguage, $targetLanguage,
 			$imageBlock, $lastUpdated, $image, $status, $progressbar,
 			$actionsTrigger, $menu, $menuContainer, $deleteTranslation;
 
 		for ( i = 0; i < translations.length; i++ ) {
-
 			translation = translations[ i ];
+
+			try {
+				progress = JSON.parse( translation.progress );
+			} catch ( e ) {
+				progress = {};
+			}
+
 			$translation = $( '<div>' )
 				.addClass( 'translation' )
 				.attr( 'id', translation.id );
@@ -154,9 +160,7 @@
 				.addClass( 'image' );
 			$progressbar = $( '<div>' )
 				.addClass( 'progressbar' )
-				.cxProgressBar( {
-					weights: JSON.parse( translation.progress )
-				} );
+				.cxProgressBar( { weights: progress } );
 			$imageBlock.append( $image, $progressbar );
 			this.showTitleImage( translation );
 
