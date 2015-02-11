@@ -40,12 +40,8 @@
 	"cx-tools-mt-provider-title": "$1 тӀера, $2 $3 чохь",
 	"cx-tools-mt-not-available": "ТӀе цакхочу $1",
 	"cx-tools-mt-dont-use": "Ма леладе зорбанан гоч",
-	"cx-stats-page-title": "АгӀо",
-	"cx-stats-from": "Коьрта мотт",
-	"cx-stats-to": "Коьрта мотт",
-	"cx-stats-pages-title": "Гочйина агӀонаш",
 	"cx-stats-unknown": "хууш дац",
-	"cx-stats-summary": "{{PLURAL:$1|Цхьа агӀо|$1/$2 агӀонаш ($3%)}} коьрта цӀерийн меттигехь.",
+	"cx-stats-summary": "{{PLURAL:$1|Цхьа агӀо|$1/$2 агӀонаш ($3%)}} коьрта цӀерийн анашкахь.",
 	"cx-tools-link-instruction-shortcut": "Shift + дехкан кнопка таӀае хьажорг схьаелла",
 	"cx-tools-link-hover-tooltip": "ТаӀае къайлаяккха",
 	"cx-warning-unsaved-translation": "Хьа Ӏалашданза гочдарш ду.",
@@ -58,5 +54,8 @@
 	"cx-save-draft-save-success": "Ӏалашйнарш {{PLURAL:$1|минот хьалха0=хӀинца}}",
 	"cx-save-draft-saving": "Ӏалашъяр...",
 	"cx-contributions": "Керла къинхьегам",
-	"cx-contributions-translation": "Гоч"
+	"cx-contributions-translation": "Гоч",
+	"cx-stats-table-source-target": "Хьост↓ / Ӏалашо→",
+	"cx-stats-published-translations-title": "Арадаьхна гочдарш",
+	"cx-stats-draft-translations-title": "Гочян езаш"
 }
