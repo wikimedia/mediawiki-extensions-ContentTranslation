@@ -39,10 +39,19 @@
 	 *
 	 * @param {string} language Language code
 	 * @param {string} title Page title
+	 * @param {Object} [params] Query parameters
 	 * @return {string}
 	 */
-	mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title ) {
-		return this.config.view.replace( '$1', language ).replace( '$2', title );
+	mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
+		var base = this.config.view,
+			extra = '';
+
+		if ( params && !$.isEmptyObject( params ) ) {
+			base = this.config.action || this.config.view;
+			extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
+		}
+
+		return base.replace( '$1', language ).replace( '$2', title ) + extra;
 	};
 
 	/**

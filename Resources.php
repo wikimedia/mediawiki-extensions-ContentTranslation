@@ -620,6 +620,9 @@ $wgResourceModules['ext.cx.stats'] = array(
 	'styles' => array(
 		'stats/styles/ext.cx.stats.less',
 	),
+	'dependencies' => array(
+		'ext.cx.sitemapper',
+	),
 	'messages' => array(
 		'cx-stats-table-source-target',
 		'cx-stats-table-source-total',
