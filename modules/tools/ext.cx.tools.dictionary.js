@@ -142,7 +142,7 @@
 
 		$.get( fetchProvidersUrl )
 			.done( function ( response ) {
-				DictionaryCard.providers = response.providers;
+				DictionaryCard.providers = response.dictionary;
 
 				if ( $.isEmptyObject( DictionaryCard.providers ) ) {
 					deferred.reject();
