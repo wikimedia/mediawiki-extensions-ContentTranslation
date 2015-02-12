@@ -20,11 +20,10 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 
 	public function execute() {
 		$result = $this->getResult();
-		$stats = ContentTranslation\Translation::getStats();
 		$result->addValue(
 			array( 'query' ),
 			'contenttranslationstats',
-			$stats
+			ContentTranslation\Translation::getStats()
 		);
 	}
 

@@ -76,33 +76,28 @@ class Translation {
 		$rows = $dbr->select(
 			'cx_translations',
 			array(
-				'translation_source_language',
-				'translation_target_language',
-				'translation_status',
-				'COUNT(translation_target_language) AS count',
-				'COUNT(DISTINCT translation_started_by) AS translators'
+				'translation_source_language as sourceLanguage',
+				'translation_target_language as targetLanguage',
+				'translation_status as status',
+				'COUNT(*) AS count',
+				'COUNT(DISTINCT translation_started_by) AS translators',
 			),
 			'',
-			'',
+			__METHOD__,
 			array(
 				'GROUP BY' => array(
 					'translation_source_language',
-					'translation_target_language'
+					'translation_target_language',
+					'translation_status'
 				),
-			),
-			__METHOD__
+			)
 		);
 
 		$result = array();
 		foreach ( $rows as $row ) {
-			$result[] = array(
-				'sourceLanguage' => $row->translation_source_language,
-				'targetLanguage' => $row->translation_target_language,
-				'status' => $row->translation_status,
-				'count' => $row->count,
-				'translators' => $row->translators,
-			);
+			$result[] = (array) $row;
 		}
+
 		return $result;
 	}
 
