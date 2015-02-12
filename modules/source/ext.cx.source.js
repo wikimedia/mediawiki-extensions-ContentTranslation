@@ -140,6 +140,15 @@
 		mw.hook( 'mw.cx.source.ready' ).fire();
 	};
 
+	/**
+	 * Remove the leading ./ added by parsoid.
+	 * @param {string} href Link target
+	 * @return {string} Cleaned up href
+	 */
+	function cleanupLinkHref( href ) {
+		return href && href.replace( /^\.*\//, '' );
+	}
+
 	ContentTranslationSource.prototype.showLoadingIndicator = function () {
 		var $loadingIndicator, $loadingIndicatorText, $loadingIndicatorSpinner;
 
@@ -177,8 +186,9 @@
 
 			// Allow link exploration
 			if ( e.shiftKey || e.ctrlKey ) {
-
-				url = self.siteMapper.getPageUrl( mw.cx.sourceLanguage, $link.attr( 'href' ) );
+				url = self.siteMapper.getPageUrl(
+					mw.cx.sourceLanguage, cleanupLinkHref( $link.attr( 'href' ) )
+				);
 				window.open( url, '_blank' );
 
 				return false;
@@ -193,6 +203,21 @@
 
 			// Disable link click
 			return false;
+		} );
+
+		// Middle click handler for links
+		this.$content.on( 'mousedown', 'a', function ( button ) {
+			var url,
+				$link = $( this );
+
+			if ( button.which === 2 ) {
+				url = self.siteMapper.getPageUrl(
+					mw.cx.sourceLanguage, cleanupLinkHref( $link.attr( 'href' ) )
+				);
+				window.open( url, '_blank' );
+
+				return false;
+			}
 		} );
 
 		this.$content.on( 'mouseenter', 'a', function ( e ) {
