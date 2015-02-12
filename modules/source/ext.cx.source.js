@@ -29,16 +29,18 @@
 
 	ContentTranslationSource.prototype.init = function () {
 		mw.cx.sourceTitle = new mw.Uri().query.page;
+		mw.cx.targetLanguage = new mw.Uri().query.to;
+		mw.cx.sourceLanguage = new mw.Uri().query.from;
+
 		if ( mw.user.isAnon() ) {
 			mw.hook( 'mw.cx.error.anonuser' ).fire();
 			return;
 		}
-		if ( !mw.cx.sourceTitle ) {
+		if ( !mw.cx.sourceTitle || !mw.cx.sourceLanguage || !mw.cx.targetLanguage ) {
 			this.showDashboard();
 			return;
 		}
-		mw.cx.targetLanguage = new mw.Uri().query.to || mw.config.get( 'wgUserLanguage' );
-		mw.cx.sourceLanguage = new mw.Uri().query.from || mw.config.get( 'wgContentLanguage' );
+
 		this.render();
 		this.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();
@@ -116,7 +118,7 @@
 					target: '_blank'
 				} )
 				.text( mw.msg( 'cx-source-view-page' ) )
-		);
+			);
 
 		$subHeading = $( '<div>' )
 			.addClass( 'cx-column__sub-heading' )
@@ -152,7 +154,7 @@
 				$( '<div>' ).addClass( 'bounce1' ),
 				$( '<div>' ).addClass( 'bounce2' ),
 				$( '<div>' ).addClass( 'bounce3' )
-		);
+			);
 
 		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
 		this.$content.append( $loadingIndicator );
