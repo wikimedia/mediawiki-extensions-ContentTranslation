@@ -51,7 +51,16 @@
 					continue;
 				}
 				if ( i === 0 ) {
-					table[ 0 ][ j ] = languages[ j - 1 ];
+					table[ 0 ][ j ] = $( '<a>' )
+						.attr( {
+							target: '_blank',
+							href: mw.cx.siteMapper.getPageUrl(
+								languages[ j - 1 ],
+								'Special:RecentChanges',
+								{ tagfilter: 'contenttranslation' }
+							)
+						} )
+						.text( languages[ j - 1 ] );
 					continue;
 				}
 				if ( j === 0 ) {
@@ -102,7 +111,11 @@
 			$row = $( '<tr>' );
 			for ( j = 0; j < table.length; j++ ) {
 				value = table[ i ][ j ];
-				$td = $( '<td>' ).text( value === 0 ? '' : mw.language.convertNumber( value ) );
+				if ( value instanceof jQuery ) {
+					$td = $( '<td>' ).append( value );
+				} else {
+					$td = $( '<td>' ).text( value === 0 ? '' : mw.language.convertNumber( value ) );
+				}
 				if ( i > 0 && j > 0 && i < table.length - 1 && j <
 					table.length - 1 && value > 0 ) {
 					$td.addClass( 'cx-stat-color-' + parseInt( value / division ) );
@@ -134,6 +147,8 @@
 	}
 
 	$( function () {
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+
 		getCXStats().then( function ( data ) {
 			var $container = $( '#bodyContent' );
 			$container.append(
