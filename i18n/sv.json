@@ -4,7 +4,8 @@
 			"WikiPhoenix",
 			"Lokal Profil",
 			"Jopparn",
-			"Albinomamba"
+			"Albinomamba",
+			"Jenniesarina"
 		]
 	},
 	"cx": "Översätt sidan",
@@ -35,6 +36,7 @@
 	"cx-translation-add-translation": "+ Lägg till översättning",
 	"cx-translation-target-page-exists": "En sida med titeln [$1 $2] finns på målwikin. Överväga att ge sidan en annan titel.",
 	"tag-contenttranslation": "Innehållsöversättning",
+	"tag-contenttranslation-description": "Innehållet är översatt från ett annat språk med hjälp av verktyget Innehållsöversättning.",
 	"cx-source-loading": "Läser in $1",
 	"cx-beta": "Innehållsöversättning",
 	"cx-beta-desc": "Ett verktyg för att snabbt översätta sidor till ditt språk. Börja översättningar från dina bidragssida, och redigera dem med vår sida-vid-sida-editor som är särskilt utformad för översättning. Några av verktygen kan vara tillgängliga endast för vissa språk.",
@@ -65,10 +67,6 @@
 	"cx-tools-mt-dont-use": "Använd inte maskinöversättningar",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Inga kategorier}}",
 	"cx-stats-title": "Statistik för innehållsöversättning",
-	"cx-stats-page-title": "Sida",
-	"cx-stats-from": "Källspråk",
-	"cx-stats-to": "Målspråk",
-	"cx-stats-pages-title": "Översatta sidor",
 	"cx-stats-unknown": "okänt",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|sida|sidor}} ($3%) i huvudnamnrymden.",
 	"cx-tools-reference-title": "Referens",
@@ -113,6 +111,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",
 	"apihelp-query+contenttranslation-example-1": "Få översättningar påbörjade av Santhosh.",
 	"apihelp-query+contenttranslation-example-2": "Hämta översättningsutkast efter id.",
+	"apihelp-query+contenttranslationstats-example-1": "Hämta statistik för innehållsöversättningar på alla språk",
 	"cx-save-draft-save-success": "Sparades {{PLURAL:$1|en minut sedan|$1 minuter sedan|0=just nu}}",
 	"cx-save-draft-saving": "Sparar...",
 	"cx-save-draft-tooltip": "Översättningsutkast sparas automatiskt.",
@@ -121,5 +120,14 @@
 	"cx-contributions-media": "Ladda upp en mediefil",
 	"cx-publishing-dialog-message": "Sidan $1 finns redan. Det nuvarande innehållet kommer att ersättas med din översättning. Vill du publicera ändå?",
 	"cx-publishing-dialog-keep-button": "Behåll båda versionerna",
-	"cx-publishing-dialog-publish-anyway-button": "Publicera ändå"
+	"cx-publishing-dialog-publish-anyway-button": "Publicera ändå",
+	"cx-stats-table-source-target": "Källa↓ / Mål→",
+	"cx-stats-table-source-total": "Total (Källa)",
+	"cx-stats-table-target-total": "Totalt (Mål)",
+	"cx-stats-published-translations-title": "Publicerade översättningar",
+	"cx-stats-draft-translations-title": "Pågående översättningar",
+	"cx-stats-published-translators-title": "Antal översättare",
+	"cx-draft-discard-confirmaton-message": "Är du säker på att du vill ta bort denna översättning permanent?",
+	"cx-draft-cancel-button-label": "Avbryt",
+	"cx-draft-discard-button-label": "Radera översättning"
 }

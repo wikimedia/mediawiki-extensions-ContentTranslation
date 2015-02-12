@@ -66,5 +66,8 @@
 	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traducións publicadas",
 	"cx-stats-draft-translations-title": "Traducións en marcha",
-	"cx-stats-published-translators-title": "Número de tradutores"
+	"cx-stats-published-translators-title": "Número de tradutores",
+	"cx-draft-discard-confirmaton-message": "Está seguro de querer borrar de forma permanente esta tradución?",
+	"cx-draft-cancel-button-label": "Cancelar",
+	"cx-draft-discard-button-label": "Borrar tradución"
 }

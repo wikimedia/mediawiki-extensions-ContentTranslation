@@ -13,7 +13,8 @@
 			"Patricio",
 			"Cgalindo",
 			"Pginer",
-			"JasterTDC"
+			"JasterTDC",
+			"Awesomecat5"
 		]
 	},
 	"cx": "Traducir página",
@@ -129,5 +130,8 @@
 	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traducciones publicadas",
 	"cx-stats-draft-translations-title": "Traducciones en proceso",
-	"cx-stats-published-translators-title": "Número de traductores"
+	"cx-stats-published-translators-title": "Número de traductores",
+	"cx-draft-discard-confirmaton-message": "¿Está seguro que desea eliminar permanentemente esta traducción?",
+	"cx-draft-cancel-button-label": "Cancelar",
+	"cx-draft-discard-button-label": "Eliminar la página de traducción"
 }
