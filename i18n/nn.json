@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeblad"
+			"Jeblad",
+			"Ranveig"
 		]
 	},
 	"cx": "Omset side",
@@ -9,15 +10,12 @@
 	"cx-source-view-page": "Sjå side",
 	"cx-entrypoint-title": "Omset denne sida til $1",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Skriv frå botnen av",
-	"cx-tools-link-title": "Lekje",
+	"cx-tools-link-title": "Lenkje",
 	"cx-tools-link-add": "Legg til lenkje",
 	"cx-tools-link-remove": "Slett lenkje",
 	"cx-tools-mt-title": "Maskinomsetjing",
 	"cx-tools-mt-restore": "Attopprett",
 	"cx-tools-mt-provider-title": "Frå $1",
-	"cx-stats-page-title": "Side",
-	"cx-stats-to": "Målspråk",
-	"cx-stats-pages-title": "Omsette sider",
 	"cx-stats-unknown": "ukjend",
 	"cx-tools-reference-title": "Referanse",
 	"cx-tools-reference-remove": "Slett referanse",

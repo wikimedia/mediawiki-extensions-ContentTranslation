@@ -6,7 +6,8 @@
 			"Inkbug",
 			"Yona b",
 			"Ronel1",
-			"Guycn2"
+			"Guycn2",
+			"Danny-w"
 		]
 	},
 	"cx": "תרגום דף",
@@ -140,5 +141,8 @@
 	"cx-stats-table-source-total": "סה\"כ (מקור)",
 	"cx-stats-table-target-total": "סה\"כ (יעד)",
 	"cx-stats-published-translations-title": "תרגומים שפורסמו",
-	"cx-stats-draft-translations-title": "תרגום בתהליך עבודה"
+	"cx-stats-draft-translations-title": "תרגום בתהליך עבודה",
+	"cx-draft-discard-confirmaton-message": "האם אתה בטוח שברצונך למחוק לצמיתות את תרגום זה?",
+	"cx-draft-cancel-button-label": "ביטול",
+	"cx-draft-discard-button-label": "מחיקת תרגום"
 }

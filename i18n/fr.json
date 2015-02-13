@@ -141,5 +141,8 @@
 	"cx-stats-table-source-total": "Total (Source)",
 	"cx-stats-table-target-total": "Total (Objectif)",
 	"cx-stats-published-translations-title": "Traductions publiées",
-	"cx-stats-draft-translations-title": "Traductions en cours"
+	"cx-stats-draft-translations-title": "Traductions en cours",
+	"cx-draft-discard-confirmaton-message": "Êtes-vous sûr de que vouloir supprimer définitivement cette traduction ?",
+	"cx-draft-cancel-button-label": "Annuler",
+	"cx-draft-discard-button-label": "Supprimer la traduction"
 }

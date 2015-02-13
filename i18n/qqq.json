@@ -149,6 +149,6 @@
 	"cx-stats-draft-translations-title": "Section title for translations in draft(in progress) state stats",
 	"cx-stats-published-translators-title": "Section title for stats about number of translators who published articles across languages",
 	"cx-draft-discard-confirmaton-message": "Confirmation message when user attempts to delete a translation",
-	"cx-draft-cancel-button-label": "Cancel button label",
+	"cx-draft-cancel-button-label": "Cancel button label\n{{Identical|Cancel}}",
 	"cx-draft-discard-button-label": "Label for delete button"
 }

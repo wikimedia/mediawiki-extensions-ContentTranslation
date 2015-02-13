@@ -136,5 +136,8 @@
 	"cx-stats-table-target-total": "Вкупно (Цел)",
 	"cx-stats-published-translations-title": "Објавени преводи",
 	"cx-stats-draft-translations-title": "Преводи во тек",
-	"cx-stats-published-translators-title": "Број на преведувачи"
+	"cx-stats-published-translators-title": "Број на преведувачи",
+	"cx-draft-discard-confirmaton-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
+	"cx-draft-cancel-button-label": "Откажи",
+	"cx-draft-discard-button-label": "Избриши го преводот"
 }
