@@ -197,14 +197,14 @@
 					} ).done( function () {
 						$( '.cx-column--translation > h2' )
 							.text( publishedTitle )
-							.trigger( 'input' );
+							.keepAlignment();
 						mw.hook( 'mw.cx.success' )
 							.fire( mw.message( 'cx-publish-page-success',
-							$( '<a>' ).attr( {
-								href: mw.util.getUrl( publishedTitle ),
-								target: '_blank'
-							} ).text( publishedTitle )[ 0 ].outerHTML
-						) );
+								$( '<a>' ).attr( {
+									href: mw.util.getUrl( publishedTitle ),
+									target: '_blank'
+								} ).text( publishedTitle )[ 0 ].outerHTML
+							) );
 						mw.hook( 'mw.cx.translation.published' ).fire(
 							mw.cx.sourceLanguage,
 							mw.cx.targetLanguage
