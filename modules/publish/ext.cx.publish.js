@@ -63,7 +63,7 @@
 		$captchaHeader = $( '<h2>' )
 			.text( mw.msg( 'cx-publish-captcha-title' ) );
 		$captchaForm = $( '<div>' )
-			.addClass( 'cx-publish-catcha-form' )
+			.addClass( 'cx-publish-captcha-form' )
 			.append( $captchaHeader );
 
 		if ( captcha.url ) { // FancyCaptcha
