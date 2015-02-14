@@ -752,24 +752,24 @@
 	 * Does nothing if source page does not exist.
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		var targetTitle, sourceTitle, sourceLanguage, targetLanguage, siteMapper;
+		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper;
 
 		siteMapper = this.siteMapper;
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
-		sourceTitle = this.$sourceTitleInput.val().trim();
+		originalSourceTitle = this.$sourceTitleInput.val().trim();
 		targetTitle = this.$targetTitleInput.val().trim();
 
 		this.checkForTitle(
 			sourceLanguage,
-			sourceTitle
+			originalSourceTitle
 		).done( function ( sourceTitle ) {
 			if ( sourceTitle === false ) {
 				return;
 			}
 
 			if ( targetTitle === '' ) {
-				targetTitle = sourceTitle;
+				targetTitle = originalSourceTitle;
 			}
 
 			// Set CX token as cookie.
