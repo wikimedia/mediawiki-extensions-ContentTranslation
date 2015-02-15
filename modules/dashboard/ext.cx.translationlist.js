@@ -75,7 +75,7 @@
 	};
 
 	/**
-	 * Get the thumbnail image of the given link
+	 * Get the thumbnail image of the given link.
 	 * @param {string} id translation id
 	 * @param {string} language
 	 * @param {string} title Title
@@ -98,7 +98,7 @@
 	};
 
 	/**
-	 * Get all the translations of given user
+	 * Get all the translations of given user.
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.getTranslations = function () {
@@ -197,7 +197,7 @@
 				.addClass( 'status status-' + translation.status )
 				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
 
-			// If the translation is draft, allow deleting it.
+			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
 				$actionsTrigger = $( '<div>' )
 					.addClass( 'actions-menu-trigger' )
@@ -234,8 +234,7 @@
 		var i;
 
 		for ( i = 0; i < languages.length; i++ ) {
-			$filter.append(
-				$( '<option>' )
+			$filter.append( $( '<option>' )
 				// Todo: use translated language name
 				.text( $.uls.data.getAutonym( languages[ i ] ) )
 				.attr( 'value', languages[ i ] )
@@ -255,8 +254,9 @@
 			}
 		);
 
-		// By default select the 'draft' translations
-		// We expect users to look for draft translations to complete them as the regular behaviour
+		// By default select the 'draft' translations.
+		// We expect users to look for draft translations
+		// to complete them as the regular behavior.
 		this.$statusFilter.val( 'draft' );
 
 		this.$sourceLanguageFilter = createSelect(
@@ -276,6 +276,7 @@
 			this.$sourceLanguageFilter,
 			this.$targetLanguageFilter
 		);
+
 		// Hide the filters till we see there are translations to list.
 		this.$translationFilterContainer.hide();
 		this.$container.append( this.$translationFilterContainer );
@@ -317,7 +318,7 @@
 	};
 
 	/**
-	 * Show the confirmaton dialog for discarding a translaton
+	 * Show the confirmaton dialog for discarding a translaton.
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.showDiscardConfirmation = function () {
@@ -374,7 +375,7 @@
 	};
 
 	/**
-	 * Mark the translation item in the translation list as deleted
+	 * Mark the translation item in the translation list as deleted.
 	 * @param {Object} translation
 	 */
 	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
@@ -392,7 +393,7 @@
 			.addClass( 'disabled' );
 	};
 
-	/*
+	/**
 	 * Discard a translation.
 	 * @param {Object} translation
 	 * @return {jQuery.Promise}
@@ -481,5 +482,4 @@
 			}
 		} );
 	};
-
 }( jQuery, mediaWiki ) );
