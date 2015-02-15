@@ -332,7 +332,10 @@
 			$( 'body' ).append( this.$overlay );
 		}
 
-		if ( !this.$confirmatonDialog ) {
+		if ( this.$confirmatonDialog ) {
+			$cancelButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__cancel' );
+			$discardButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__discard' );
+		} else {
 			this.$confirmatonDialog = $( '<div>' )
 				.addClass( 'cx-draft-discard-dialog' );
 			$cancelButton = $( '<button>' )
@@ -348,9 +351,6 @@
 				.addClass( 'cx-draft-discard-dialog__message' )
 				.text( mw.msg( 'cx-draft-discard-confirmaton-message' ) );
 			$( 'body' ).append( this.$confirmatonDialog.append( $message, $actions ) );
-		} else {
-			$cancelButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__cancel' );
-			$discardButton = this.$confirmatonDialog.find( '.cx-draft-discard-dialog__discard' );
 		}
 
 		$cancelButton.one( 'click', function () {
