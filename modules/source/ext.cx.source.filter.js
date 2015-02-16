@@ -19,8 +19,14 @@
 	 * @return {jQuery.Promise}
 	 */
 	function fetchFilterConfiguration( sourceLanguage, targetLanguage ) {
-		return $.getJSON( mw.config.get( 'wgExtensionAssetsPath' ) +
-			'/ContentTranslation/modules/source/conf/' + sourceLanguage + '-' + targetLanguage + '.json' );
+		var api = new mw.Api();
+
+		return api.get( {
+			action: 'cxconfiguration',
+			from: sourceLanguage,
+			to: targetLanguage,
+			format: 'json'
+		} );
 	}
 
 	/**
@@ -174,8 +180,8 @@
 
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage )
-				.done( function ( configuration ) {
-					filter.filter( configuration );
+				.done( function ( response ) {
+					filter.filter( response.configuration );
 				} )
 				.fail( function () {
 					// If the configuration file is not present, or not able
