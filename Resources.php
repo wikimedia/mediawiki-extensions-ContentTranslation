@@ -47,6 +47,21 @@ $wgResourceModules['ext.cx.model'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.feedback'] = array(
+	'dependencies' => array(
+		'ext.cx.model',
+	),
+	'scripts' => array(
+		'base/ext.cx.feedback.js',
+	),
+	'styles' => array(
+		'base/styles/ext.cx.feedback.less',
+	),
+	'messages' => array(
+		'cx-feedback-link',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.translationview'] = array(
 	'scripts' => array(
 		'translationview/ext.cx.translationview.js',
@@ -75,11 +90,11 @@ $wgResourceModules['ext.cx.dashboard'] = array(
 		'ext.cx.sitemapper',
 		'ext.cx.translationlist',
 		'ext.cx.source.selector',
+		'ext.cx.feedback',
 	),
 	'messages' => array(
 		'cx-create-new-translation',
 		'cx-create-new-translation-desc',
-		'cx-feedback-link',
 	),
 ) + $resourcePaths;
 
@@ -241,6 +256,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
+		'ext.cx.feedback',
 		'ext.cx.progressbar',
 		'ext.cx.tools.dictionary',
 		'ext.cx.tools.formatter',
@@ -257,9 +273,6 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
 	),
-	'messages' => array(
-		'cx-feedback-link'
-	)
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.tools.card'] = array(
