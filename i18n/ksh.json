@@ -28,6 +28,7 @@
 	"cx-sourceselector-dialog-button-cancel": "Ophüre!",
 	"cx-sourceselector-dialog-source-language-label": "Vun:",
 	"cx-sourceselector-dialog-target-language-label": "Noh:",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "Heh dä Tettel weed ald en [$1 $2] för en [$3 ander Sigg] jebruch.",
 	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
 	"cx-translation-filter-to-any-language": "En jejde Schprohch"
 }

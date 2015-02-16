@@ -34,10 +34,6 @@
 	"cx-tools-searchbox-text": "Woord zoeken",
 	"cx-tools-view-guidelines": "Vertaalrichtlijnen weergeven",
 	"cx-tools-mt-provider-title": "Van $1",
-	"cx-stats-page-title": "Pagina",
-	"cx-stats-from": "Brontaal",
-	"cx-stats-to": "Doeltaal",
-	"cx-stats-pages-title": "Vertaalde pagina's",
 	"cx-stats-unknown": "onbekend",
 	"cx-stats-summary": "$1 van $2 {{PLURAL:$2|pagina|pagina's}} ($3%) in de hoofdnaamruimte.",
 	"cx-tools-reference-title": "Referentie",
@@ -46,5 +42,8 @@
 	"cx-translation-filter-published-translations": "Gepubliceerde vertalingen",
 	"cx-translation-filter-draft-translations": "Kladvertalingen",
 	"cx-contributions-translation": "Vertaling",
-	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren"
+	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren",
+	"cx-stats-published-translations-title": "Gepubliceerde vertalingen",
+	"cx-stats-published-translators-title": "Aantal vertalers",
+	"cx-draft-cancel-button-label": "Annuleren"
 }

@@ -7,7 +7,8 @@
 			"Amire80",
 			"Striking Blue",
 			"Sunpriat",
-			"Максим777"
+			"Максим777",
+			"Batumski brodyaga"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -140,5 +141,8 @@
 	"cx-stats-table-source-target": "Источник↓ / Цель→",
 	"cx-stats-published-translations-title": "Опубликованные переводы",
 	"cx-stats-draft-translations-title": "В процессе перевода",
-	"cx-stats-published-translators-title": "Количество переводчиков"
+	"cx-stats-published-translators-title": "Количество переводчиков",
+	"cx-draft-discard-confirmaton-message": "Вы уверены, что хотите навсегда удалить перевод?",
+	"cx-draft-cancel-button-label": "Отмена",
+	"cx-draft-discard-button-label": "Удалить перевод"
 }

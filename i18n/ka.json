@@ -13,5 +13,6 @@
 	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება",
 	"cx-contributions": "ახალი წვლილი",
 	"cx-contributions-translation": "თარგმანი",
-	"cx-contributions-media": "მედია-ფაილის ატვირთვა"
+	"cx-contributions-media": "მედია-ფაილის ატვირთვა",
+	"cx-draft-cancel-button-label": "გაუქმება"
 }

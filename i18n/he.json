@@ -142,7 +142,8 @@
 	"cx-stats-table-target-total": "סה\"כ (יעד)",
 	"cx-stats-published-translations-title": "תרגומים שפורסמו",
 	"cx-stats-draft-translations-title": "תרגום בתהליך עבודה",
-	"cx-draft-discard-confirmaton-message": "האם אתה בטוח שברצונך למחוק לצמיתות את תרגום זה?",
+	"cx-stats-published-translators-title": "מספר המתרגמים",
+	"cx-draft-discard-confirmaton-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום"
 }
