@@ -22,7 +22,7 @@ class RedLinkPage
   text_field(:language_filter, id: 'languagefilter')
 
   def create_page(text)
-    if (ENV['MEDIAWIKI_API_URL'] == nil)
+    if ENV['MEDIAWIKI_API_URL'].nil?
       abort 'Environment variable MEDIAWIKI_API_URL must be set in order to create a target page for this test'
     end
 

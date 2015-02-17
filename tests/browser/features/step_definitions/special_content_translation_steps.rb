@@ -122,7 +122,7 @@ Then(/^the "Publish Translation" button is enabled$/) do
 end
 
 Then(/^the source column text is not editable$/) do
-  on(ContentTranslationPage).content('source').attribute_value('contenteditable').should == nil
+  on(ContentTranslationPage).content('source').attribute_value('contenteditable').should.nil?
 end
 
 Then(/^the text near the translation progress bar says "(.*?)"$/) do |text|
