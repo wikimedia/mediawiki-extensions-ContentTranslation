@@ -7,7 +7,8 @@
 			"Amire80",
 			"Dianakc",
 			"Vitor Mazuco",
-			"He7d3r"
+			"He7d3r",
+			"Fasouzafreitas"
 		]
 	},
 	"cx": "Traduzir página",
@@ -38,9 +39,10 @@
 	"cx-translation-add-translation": "+ Adicionar tradução",
 	"cx-translation-target-page-exists": "Uma página com o título [$1 $2] já existe na wiki de destino. Considere usar um título diferente.",
 	"tag-contenttranslation": "ContentTranslation",
+	"tag-contenttranslation-description": "O conteúdo foi traduzido a partir de outro idioma com a ferramenta ContentTranslation.",
 	"cx-source-loading": "Carregando $1",
 	"cx-beta": "Tradução de conteúdo",
-	"cx-beta-desc": "Uma ferramenta para rapidamente traduzir páginas para seu idioma. Comece traduções a partir da sua página Contribuições e as edite com o nosso editor lado-a-lado especialmente desenvolvido para tradução. Algumas das ferramentas podem estar disponíveis apenas para alguns idiomas específicos.",
+	"cx-beta-desc": "Uma ferramenta para traduzir páginas para o seu idioma de forma rápida. Inicie as traduções a partir da sua [[Special:MyContributions|página de contribuições]] e depois edite-as com o nosso editor lado-a-lado, especialmente desenvolvido para a tarefa. Algumas destas ferramentas podem estar disponíveis apenas para certos idiomas.",
 	"cx-entrypoint-title": "Traduzir esta página para $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página ainda não existe em $1. {{GENDER:|Gostaria}} de criá-la?",
 	"cx-entrypoint-dialog-title-in": "Título para a nova página em $1:",
@@ -69,7 +71,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorias|0=Sem categorias}}",
 	"cx-stats-title": "Estatísticas de tradução de conteúdo",
 	"cx-stats-unknown": "desconhecido",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) no domínio principal",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|página|páginas}} ($3%) no domínio principal nesta wiki.",
 	"cx-tools-reference-title": "Referência",
 	"cx-tools-reference-remove": "Remover referência",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer link para abrir",
@@ -113,6 +115,7 @@
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo usuário atual.",
 	"apihelp-query+contenttranslation-example-2": "Obter rascunhos de traduções por id.",
 	"apihelp-query+contenttranslation-example-3": "Encontre qualquer tradução para o título entre os pares de idioma",
+	"apihelp-query+contenttranslationstats-example-1": "Obter estatísticas de tradução de conteúdo para todos os idiomas.",
 	"cx-save-draft-save-success": "Salvo {{PLURAL:$1|um minuto atrás|$1 minutos atrás|0=agora}}",
 	"cx-save-draft-saving": "Salvando...",
 	"cx-save-draft-tooltip": "Rascunhos de tradução são salvos automaticamente",
@@ -134,5 +137,14 @@
 	"cx-translation-already-in-progress": "Esta é uma tradução em andamento por $1.",
 	"cx-translation-already-in-progress-collaborate": "Por favor, certifique-se de coordenar com o usuários que traduziu a tradução atual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar um rascunho",
-	"cx-feedback-link": "Dê sua opinião"
+	"cx-feedback-link": "Dê sua opinião",
+	"cx-stats-table-source-target": "Origem↓ / Destino→",
+	"cx-stats-table-source-total": "Total (Fonte)",
+	"cx-stats-table-target-total": "Total (Destino)",
+	"cx-stats-published-translations-title": "Traduções publicadas",
+	"cx-stats-draft-translations-title": "Traduções em andamento",
+	"cx-stats-published-translators-title": "Número de tradutores",
+	"cx-draft-discard-confirmaton-message": "Tem certeza de que pretende eliminar permanentemente esta tradução?",
+	"cx-draft-cancel-button-label": "Cancelar",
+	"cx-draft-discard-button-label": "Apagar tradução"
 }

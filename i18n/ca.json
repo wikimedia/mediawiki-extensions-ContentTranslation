@@ -72,10 +72,6 @@
 	"cx-tools-mt-dont-use": "No utilitzar traducció automàtica",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categories|0=No hi ha categories}}",
 	"cx-stats-title": "Les vostres estadístiques de traducció",
-	"cx-stats-page-title": "Pàgina",
-	"cx-stats-from": "Llengua d'origen",
-	"cx-stats-to": "Llengua destí",
-	"cx-stats-pages-title": "Pàgines traduïdes",
 	"cx-stats-unknown": "desconegut",
 	"cx-stats-summary": "$1/$2 {{PLURAL:$1|pàgina|pàgines}} ($3%) en l'espai principal.",
 	"cx-tools-reference-title": "Referència",
@@ -135,5 +131,10 @@
 	"cx-translation-status-deleted": "Suprimit",
 	"apihelp-cxdelete-param-from": "El codi de la llengua origen.",
 	"apihelp-cxdelete-param-sourcetitle": "El títol de la pàgina d'origen.",
-	"cx-translation-already-in-progress": "Aquesta és una traducció en curs per $1."
+	"cx-translation-already-in-progress": "Aquesta és una traducció en curs per $1.",
+	"cx-stats-published-translations-title": "Traduccions publicades",
+	"cx-stats-draft-translations-title": "Traduccions en curs",
+	"cx-stats-published-translators-title": "Nombre de traductors",
+	"cx-draft-cancel-button-label": "Cancel·la",
+	"cx-draft-discard-button-label": "Suprimir la traducció"
 }
