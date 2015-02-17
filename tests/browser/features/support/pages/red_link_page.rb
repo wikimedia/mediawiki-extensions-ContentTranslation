@@ -41,7 +41,7 @@ class RedLinkPage
 
   def page_creation_dialog(autonym)
     codes = {
-      'Nederlands' => 'nl',
+      'Nederlands' => 'nl'
     }
     @browser.div(id: "cx-entrypoint-dialog-#{codes[autonym]}")
   end
