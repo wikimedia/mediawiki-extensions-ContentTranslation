@@ -122,26 +122,9 @@
 
 		return $.get( languagePairsAPIUrl )
 			.done( function ( response ) {
-				var sourceLanguage, i,
-					targetLanguages = [];
-
 				cxSourceSelector.languagePairs = response;
-				for ( sourceLanguage in cxSourceSelector.languagePairs ) {
-					cxSourceSelector.sourceLanguages.push( sourceLanguage );
-					$.merge( targetLanguages, cxSourceSelector.languagePairs[ sourceLanguage ] );
-				}
-
-				if ( !cxSourceSelector.targetLanguages ) {
-					cxSourceSelector.targetLanguages = [];
-				}
-
-				// Make the target languages array unique
-				targetLanguages = targetLanguages.sort();
-				for ( i = 0; i < targetLanguages.length; i++ ) {
-					if ( targetLanguages[ i ] !== targetLanguages[ i - 1 ] ) {
-						cxSourceSelector.targetLanguages.push( targetLanguages[ i ] );
-					}
-				}
+				cxSourceSelector.targetLanguages = response.target;
+				cxSourceSelector.sourceLanguages = response.source;
 			} )
 			.fail( function ( response ) {
 				mw.log(
@@ -153,62 +136,23 @@
 	};
 
 	/**
-	 * Returns the valid source languages for the given target language.
-	 * @param {string} targetLanguage A language code
-	 * @return {array} An array of valid source languages
-	 */
-	CXSourceSelector.prototype.getValidSourceLanguages = function ( targetLanguage ) {
-		var sourceLanguage,
-			validSourceLanguages = [];
-
-		for ( sourceLanguage in this.languagePairs ) {
-			if ( $.inArray( targetLanguage, this.languagePairs[ sourceLanguage ] ) > -1 ) {
-				validSourceLanguages.push( sourceLanguage );
-			}
-		}
-
-		return validSourceLanguages;
-	};
-
-	/**
-	 * Returns the valid target languages for the given source language.
-	 * @param {string} sourceLanguage A language code
-	 * @return {array} An array of valid target languages
-	 */
-	CXSourceSelector.prototype.getValidTargetLanguages = function ( sourceLanguage ) {
-		return this.languagePairs[ sourceLanguage ] || [];
-	};
-
-	/**
 	 * Check whether a language is available as a target language
 	 * for the specified source language.
 	 * @param {string} targetLanguage A language code.
-	 * @param {string} sourceLanguage A language code.
 	 * @return {boolean} true if the target language is valid for the source language.
 	 */
-	CXSourceSelector.prototype.isValidTarget = function ( targetLanguage, sourceLanguage ) {
-		return ( $.inArray(
-			targetLanguage,
-			this.languagePairs[ sourceLanguage ]
-		) > -1 );
+	CXSourceSelector.prototype.isValidTarget = function ( targetLanguage ) {
+		return ( $.inArray( targetLanguage, this.targetLanguages ) > -1 );
 	};
 
 	/**
 	 * Check whether a language is available as a source language
 	 * for the specified target language.
 	 * @param {string} targetLanguage A language code.
-	 * @param {string} sourceLanguage A language code.
 	 * @return {boolean} true if the target language is valid for the source language.
 	 */
-	CXSourceSelector.prototype.isValidSource = function ( sourceLanguage, targetLanguage ) {
-		var sourceLanguages;
-
-		sourceLanguages = this.getValidSourceLanguages( targetLanguage );
-
-		return ( $.inArray(
-			sourceLanguage,
-			sourceLanguages
-		) > -1 );
+	CXSourceSelector.prototype.isValidSource = function ( sourceLanguage ) {
+		return ( $.inArray( sourceLanguage, this.sourceLanguages ) > -1 );
 	};
 
 	/**
@@ -267,8 +211,7 @@
 	 */
 	CXSourceSelector.prototype.fillTargetLanguages = function () {
 		var cxSourceSelector = this,
-			targetUlsClass = 'cx-sourceselector-uls-target',
-			sourceLanguage = this.getSourceLanguage();
+			targetUlsClass = 'cx-sourceselector-uls-target';
 
 		// Delete the old target ULS
 		$( '.' + targetUlsClass ).remove();
@@ -283,11 +226,6 @@
 			},
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
-			},
-			languageDecorator: function ( $languageLink, language ) {
-				if ( !cxSourceSelector.isValidTarget( language, sourceLanguage ) ) {
-					$languageLink.addClass( 'cx-sourceselector-unavailable-target' );
-				}
 			},
 			compact: true
 		} );
@@ -342,14 +280,7 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
-		var validTargetLanguages;
-
 		this.setSourceLanguage( language );
-		this.fillTargetLanguages();
-		validTargetLanguages = this.getValidTargetLanguages( language );
-		if ( validTargetLanguages.length > 0 ) {
-			this.setTargetLanguage( validTargetLanguages[ 0 ] );
-		}
 		this.check();
 	};
 

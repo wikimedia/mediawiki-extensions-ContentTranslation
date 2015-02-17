@@ -39,7 +39,7 @@
 
 		return $.get( fetchProvidersUrl )
 			.done( function ( response ) {
-				MTControlCard.providers = response.providers;
+				MTControlCard.providers = response.mt;
 
 				if ( $.isEmptyObject( MTControlCard.providers ) ) {
 					MTControlCard.provider = noMT;
