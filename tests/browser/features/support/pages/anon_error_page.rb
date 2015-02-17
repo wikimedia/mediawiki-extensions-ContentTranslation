@@ -1,6 +1,6 @@
 class AnonErrorPage
-	include PageObject
-	include URL
+  include PageObject
+  include URL
 
-	div(:content_text, id: "mw-content-text")
+  div(:content_text, id: "mw-content-text")
 end
