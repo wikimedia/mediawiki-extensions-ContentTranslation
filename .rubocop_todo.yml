@@ -24,12 +24,6 @@ Style/LeadingCommentSpace:
 Style/NilComparison:
   Enabled: false
 
-# Offense count: 81
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/StringLiterals:
-  Enabled: false
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.

@@ -4,7 +4,7 @@ When(/^I am on a page with an interlanguage link to "(.+?)"$/) do |code|
 end
 
 When(/^I am on a page without interlanguage links$/) do
-  on(RedLinkPage).create_page("This is a red interlanguage link test page without links.")
+  on(RedLinkPage).create_page('This is a red interlanguage link test page without links.')
   visit(RedLinkPage)
 end
 
@@ -75,7 +75,7 @@ Then(/^the Content translation page should open$/) do
 end
 
 Then(/^the page creation page should open$/) do
-  on(PageCreationPage).editing_area.should == ""
+  on(PageCreationPage).editing_area.should == ''
 end
 
 Then(/^the name of the page should appear in the main title$/) do
@@ -87,15 +87,15 @@ Then(/^the name "(.+?)" should appear in the main title$/) do |target_title|
 end
 
 Then(/^the name of the page should appear in the (.+) column$/) do |column_type|
-  on(ContentTranslationPage).title(column_type).text.should == "Red interlanguage link test"
+  on(ContentTranslationPage).title(column_type).text.should == 'Red interlanguage link test'
 end
 
 Then(/^the title in the translation column should be "(.*?)"$/) do |target_title|
-  on(ContentTranslationPage).title("translation").text.should == target_title
+  on(ContentTranslationPage).title('translation').text.should == target_title
 end
 
 Then(/^the language of the editing area should be "(.*?)"$/) do |code|
-  on(PageCreationPage).editing_area_element.attribute_value("lang").should == code
+  on(PageCreationPage).editing_area_element.attribute_value('lang').should == code
 end
 
 Then(/^the heading of the dialog for creating a page should include "(.+?)"$/) do |text|
