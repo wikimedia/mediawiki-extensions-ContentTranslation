@@ -4,7 +4,12 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
     "English" => "en",
     "Hebrew" => "he",
   }
-  visit(ContentTranslationPage, :using_params => {:extra => "page=#{page_name}&lang=#{language_code[target_language]}"})
+  visit(
+    ContentTranslationPage,
+    using_params: {
+      extra: "page=#{page_name}&lang=#{language_code[target_language]}"
+    }
+  )
 end
 
 When(/^I click the link in the notification bubble$/) do
