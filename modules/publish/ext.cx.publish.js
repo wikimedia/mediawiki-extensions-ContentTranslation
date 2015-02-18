@@ -45,6 +45,9 @@
 						return self.publish( $.extend( params, captchaResult ) );
 					} );
 			}
+
+			// If it's a different error, log it
+			mw.log( '[CX] Unexpected error while publishing: ', response.cxpublish );
 		} );
 	};
 
