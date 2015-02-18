@@ -11,6 +11,7 @@ global $wgAutoloadClasses;
 $dir = __DIR__;
 
 $wgAutoloadClasses += array(
+	'ApiContentTranslationConfiguration' => "$dir/api/ApiContentTranslationConfiguration.php",
 	'ApiContentTranslationPublish' => "$dir/api/ApiContentTranslationPublish.php",
 	'ApiContentTranslationDelete' => "$dir/api/ApiContentTranslationDelete.php",
 	'ApiQueryContentTranslation' => "$dir/api/ApiQueryContentTranslation.php",
