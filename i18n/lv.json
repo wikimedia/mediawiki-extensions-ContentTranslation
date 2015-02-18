@@ -47,5 +47,6 @@
 	"cx-save-draft-saving": "Saglabā...",
 	"cx-translation-status-published": "Publicēts",
 	"cx-translation-status-deleted": "Dzēsts",
-	"cx-publishing-dialog-publish-draft-button": "Publicēt kā melnrakstu"
+	"cx-publishing-dialog-publish-draft-button": "Publicēt kā melnrakstu",
+	"cx-draft-cancel-button-label": "Atcelt"
 }
