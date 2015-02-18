@@ -741,8 +741,6 @@
 			}
 		}
 
-		sourceLanguage = sourceLanguage || this.getValidSourceLanguages( targetLanguage )[ 0 ];
-
 		if ( !sourceLanguage ) {
 			if ( $.inArray( contentLanguage, this.sourceLanguages ) > -1 ) {
 				// If the content language is available as a possible source language,
@@ -755,7 +753,7 @@
 		}
 
 		if ( sourceLanguage === targetLanguage ) {
-			targetLanguage = this.getValidTargetLanguages( sourceLanguage )[ 0 ];
+			targetLanguage = this.targetLanguages[ 0 ];
 		}
 
 		// Set the source language
