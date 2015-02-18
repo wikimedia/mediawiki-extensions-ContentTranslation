@@ -132,6 +132,7 @@
 					response.statusText + ' (' + response.status + '). ' +
 					response.responseText
 				);
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 			} );
 	};
 
