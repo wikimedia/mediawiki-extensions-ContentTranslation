@@ -23,7 +23,7 @@ class RedLinkPage
 
   def create_page(text)
     if ENV['MEDIAWIKI_API_URL'].nil?
-      abort 'Environment variable MEDIAWIKI_API_URL must be set in order to create a target page for this test'
+      abort 'Environment variable MEDIAWIKI_API_URL must be set'
     end
 
     client = MediawikiApi::Client.new(ENV['MEDIAWIKI_API_URL'])
