@@ -25,32 +25,44 @@ class SpecialContentTranslation extends SpecialPage {
 		return ContentTranslationHooks::isEnabledForUser( $this->getUser() );
 	}
 
-	public function execute( $parameters ) {
+	public function enableCXBetaFeature() {
+		$user = $this->getUser();
 		$out = $this->getOutput();
-		$skin = $this->getSkin();
-		$request = $this->getRequest();
+		$user->setOption( 'cx', 1 );
+		$user->saveSettings();
+		$out->addModules( 'ext.cx.beta.notification' );
+	}
 
+	public function hasToken() {
+		$request = $this->getRequest();
 		$token = implode( '_', array(
 			'cx',
 			preg_replace( "/\s/", "-", urldecode( $request->getVal( 'page' ) ) ),
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
 		) );
+		// With a valid cx token or draft id, override beta feature settings.
+		return $request->getCookie( $token, '' ) !== null || $request->getVal( 'draft' ) !== null;
+	}
 
+	public function execute( $parameters ) {
+		$out = $this->getOutput();
+		$skin = $this->getSkin();
+		$request = $this->getRequest();
+		$user = $this->getUser();
 		// Direct access, isListed only affects Special:SpecialPages
-		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) &&
-			// With a valid cx token or draft id, override beta feature settings.
-			$request->getCookie( $token, '' ) === null &&
-			$request->getVal( 'draft' ) === null
-		) {
-			$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
-			return;
+		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
+			if ( $this->hasToken() ) {
+				// User has a token. Enabled cx for the user in this wiki.
+				$this->enableCXBetaFeature();
+			} else {
+				$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
+				return;
+			}
 		}
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		if ( $request->getCookie( $token, '' ) === null &&
-			$request->getVal( 'draft' ) === null
-		) {
+		if ( !$this->hasToken() ) {
 			$out->addModules( 'ext.cx.dashboard' );
 		} else {
 			$out->addModules( 'ext.cx.translationview' );

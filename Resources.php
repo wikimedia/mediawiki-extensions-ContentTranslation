@@ -646,6 +646,18 @@ $wgResourceModules['ext.cx.stats'] = array(
 	)
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.beta.notification'] = array(
+	'scripts' => array(
+		'entrypoint/ext.cx.betafeature.notification.js',
+	),
+	'dependencies' => array(
+		'jquery.tipsy',
+	),
+	'messages' => array(
+		'cx-beta-feature-enabled-notification',
+	),
+) + $resourcePaths;
+
 $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	$resourcePaths = array(
 		'localBasePath' => __DIR__,
