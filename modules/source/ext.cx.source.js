@@ -132,7 +132,7 @@
 	};
 
 	ContentTranslationSource.prototype.load = function ( content ) {
-		this.$content.html( content.segmentedContent ).cxFilterSource();
+		this.$content.html( content.segmentedContent );
 
 		// @todo figure out what should be done here
 		this.$content.find( 'base' ).detach();
@@ -173,6 +173,8 @@
 		var self = this;
 
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
+		// Apply source filter plugin to the content
+		this.$content.cxFilterSource();
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection.trim() ) {

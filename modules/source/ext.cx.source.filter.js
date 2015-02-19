@@ -36,6 +36,7 @@
 	 */
 	function CXSourceFilter( element ) {
 		this.$container = $( element );
+		this.configuration = null;
 		this.listen();
 	}
 
@@ -69,7 +70,7 @@
 
 	/**
 	 * Filter the templates present in the source article based on the configuration.
-	 * @param {Object} configuration
+	 * @param {Object} [configuration]
 	 */
 	CXSourceFilter.prototype.filter = function ( configuration ) {
 		var sourceFilter = this;
@@ -178,17 +179,16 @@
 	CXSourceFilter.prototype.listen = function () {
 		var filter = this;
 
-		mw.hook( 'mw.cx.source.loaded' ).add( function () {
-			fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage )
-				.done( function ( response ) {
-					filter.filter( response.configuration );
-				} )
-				.fail( function () {
-					// If the configuration file is not present, or not able
-					// to load, filter all.
-					filter.filter();
+		// Fetch the configuration now, but use it once source is loaded
+		fetchFilterConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage )
+			.done( function ( response ) {
+				filter.configuration = response.configuration;
+			} )
+			.always( function () {
+				mw.hook( 'mw.cx.source.loaded' ).add( function () {
+					filter.filter( filter.configuration );
 				} );
-		} );
+			} );
 	};
 
 	$.fn.cxFilterSource = function () {
