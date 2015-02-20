@@ -59,7 +59,7 @@ $GLOBALS['wgAPIModules']['cxpublish'] = 'ApiContentTranslationPublish';
 $GLOBALS['wgAPIModules']['cxdelete'] = 'ApiContentTranslationDelete';
 $GLOBALS['wgAPIListModules']['contenttranslation'] = 'ApiQueryContentTranslation';
 $GLOBALS['wgAPIListModules']['contenttranslationstats'] = 'ApiQueryContentTranslationStats';
-
+$GLOBALS['wgAPIListModules']['cxpublishedtranslations']= 'ApiQueryPublishedTranslations';
 // Hooks
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'ContentTranslationHooks::addModules';
 $GLOBALS['wgHooks']['GetBetaFeaturePreferences'][] = 'ContentTranslationHooks::getPreferences';

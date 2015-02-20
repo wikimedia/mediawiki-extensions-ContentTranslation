@@ -124,6 +124,52 @@ class Translation {
 	}
 
 	/**
+	 * Get all published translation records.
+	 *
+	 * @param string $from Source language code
+	 * @param string $to Target language code
+	 * @param int $limit Number of records to fetch atmost
+	 * @param in $offset Offset from which at most $limit records to fetch
+	 * @return array[]
+	 */
+	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$conditions = array( 'translation_status' => 'published' );
+		if ( $from ) {
+			$conditions['translation_source_language'] = $from;
+		}
+		if ( $to ) {
+			$conditions['translation_target_language'] = $to;
+		}
+		$options = array ( 'LIMIT' => $limit );
+		if ( $offset ) {
+			$options['OFFSET'] = $offset;
+		}
+		$rows = $dbr->select(
+			'cx_translations',
+			array(
+				'translation_source_title AS sourceTitle',
+				'translation_target_title AS targetTitle',
+				'translation_source_language AS sourceLanguage',
+				'translation_target_language AS targetLanguage',
+				'translation_source_url AS sourceURL',
+				'translation_target_url AS targetURL',
+				'translation_progress AS stats',
+			),
+			$conditions,
+			__METHOD__,
+			$options
+		);
+		$result = array();
+		foreach ( $rows as $row ) {
+			$translation = (array) $row;
+			$translation['stats'] = json_decode( $translation['stats'] );
+			$result[] = $translation;
+		}
+		return $result;
+	}
+
+	/**
 	 * @return Translation
 	 */
 	public static function newFromRow( $row ) {
