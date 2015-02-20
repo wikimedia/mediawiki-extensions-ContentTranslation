@@ -109,6 +109,10 @@
 	"apihelp-query+contenttranslation-example-2": "Дај недовршени преводи по назнака.",
 	"apihelp-query+contenttranslation-example-3": "Најдете било кој превод за дадениот наслов помеѓу даден јазичен пар",
 	"apihelp-query+contenttranslationstats-example-1": "Дава статистики за преведеност на содржините за сите јазици.",
+	"apihelp-cxconfiguration-description": "Дај ја поставеноста на JSON за Преведување на содржини за дадениот јазичен пар",
+	"apihelp-cxconfiguration-param-from": "Код на изворниот јазик.",
+	"apihelp-cxconfiguration-param-to": "Код на целниот јазик.",
+	"apihelp-cxconfiguration-example-1": "Дај ја поставеноста на JSON за Преведување на содржини за јазичниот пар „шпански-каталонски“",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Зачувано пред една минута|Зачувано пред $1 минути|0=Штотуку зачувано}}",
 	"cx-save-draft-saving": "Зачувувам...",
 	"cx-save-draft-tooltip": "Нацрт-преводите се зачувуваат автоматски",
@@ -139,5 +143,6 @@
 	"cx-stats-published-translators-title": "Број на преведувачи",
 	"cx-draft-discard-confirmaton-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
 	"cx-draft-cancel-button-label": "Откажи",
-	"cx-draft-discard-button-label": "Избриши го преводот"
+	"cx-draft-discard-button-label": "Избриши го преводот",
+	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики."
 }

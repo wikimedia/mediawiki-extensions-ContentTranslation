@@ -130,5 +130,6 @@
 	"cx-stats-published-translators-title": "Número de tradutores",
 	"cx-draft-discard-confirmaton-message": "Tem certeza de que pretende eliminar permanentemente esta tradução?",
 	"cx-draft-cancel-button-label": "Cancelar",
-	"cx-draft-discard-button-label": "Eliminar tradução"
+	"cx-draft-discard-button-label": "Eliminar tradução",
+	"cx-beta-feature-enabled-notification": "A Content Translation foi ativada nesta wiki."
 }
