@@ -6,7 +6,8 @@
 			"Mykola Swarnyk",
 			"Olion",
 			"Olvin",
-			"Ypryima"
+			"Ypryima",
+			"Lxlalexlxl"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -144,7 +145,7 @@
 	"cx-stats-table-source-total": "Усього (Джерело)",
 	"cx-stats-table-target-total": "Усього (Ціль)",
 	"cx-stats-published-translations-title": "Опубліковані переклади",
-	"cx-stats-draft-translations-title": "Переклади в процесі",
+	"cx-stats-draft-translations-title": "Переклади, що тривають",
 	"cx-stats-published-translators-title": "Кількість перекладачів",
 	"cx-draft-discard-confirmaton-message": "Ви впевнені, що хочете вилучити цей переклад назовсім?",
 	"cx-draft-cancel-button-label": "Скасувати",
