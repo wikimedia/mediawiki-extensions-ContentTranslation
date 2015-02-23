@@ -598,57 +598,22 @@
 
 	/**
 	 * Retrieves the specified set of categories
-	 * Valid sets are 'source', 'target' and 'adapted'
-	 * If no set is specified, returns all three sets
 	 *
-	 * @param {string} categorySet The set of categories to return
-	 * @return {jQuery.promis}
+	 * @return {jQuery.Promise}
 	 */
-	CXCategoryTool.prototype.getCategories = function ( categorySet ) {
+	CXCategoryTool.prototype.getCategories = function () {
 		var categoryTool = this,
 			deferred = $.Deferred();
 
-		switch ( categorySet ) {
-		case 'source':
-			this.getArticleCategories( mw.cx.sourceTitle, mw.cx.sourceLanguage )
-				.done( function ( categories ) {
-					deferred.resolve( categories );
-				} );
-			break;
-		case 'adapted':
-			this.getArticleCategories( mw.cx.sourceTitle, mw.cx.sourceLanguage )
-				.done( function ( categories ) {
-					categoryTool.adaptCategories( categories, mw.cx.targetLanguage )
-						.done( function ( adaptedCategories ) {
-							deferred.resolve( adaptedCategories );
-						} );
-				} );
-			break;
-		case 'target':
-			if ( this.categories.target !== null ) {
-				deferred.resolve( this.categories.target );
-			} else {
-				this.getArticleCategories( mw.cx.sourceTitle, mw.cx.sourceLanguage )
-					.done( function ( categories ) {
-						categoryTool.adaptCategories( categories, mw.cx.targetLanguage )
-							.done( function ( adaptedCategories ) {
-								deferred.resolve( adaptedCategories );
-							} );
+		this.getArticleCategories( mw.cx.sourceTitle, mw.cx.sourceLanguage )
+			.done( function ( categories ) {
+				categoryTool.adaptCategories( categories, mw.cx.targetLanguage )
+					.done( function () {
+						deferred.resolve( categoryTool.categories );
 					} );
-			}
-			break;
-		default:
-			this.getArticleCategories( mw.cx.sourceTitle, mw.cx.sourceLanguage )
-				.done( function ( categories ) {
-					categoryTool.adaptCategories( categories, mw.cx.targetLanguage )
-						.done( function () {
-							deferred.resolve( categoryTool.categories );
-						} );
-				} );
-		}
+			} );
 
 		return deferred.promise();
-
 	};
 
 	/**
