@@ -9,7 +9,7 @@
 
 	QUnit.module( 'ext.cx.tools.categories', QUnit.newMwEnvironment( {
 		setup: function () {
-			mw.cx.siteMapper = new mw.cx.SiteMapper(
+			this.sitemapper = new mw.cx.SiteMapper(
 				mw.config.get( 'wgContentTranslationSiteTemplates' )
 			);
 			mw.cx.sourceLanguage = 'es';
@@ -18,7 +18,7 @@
 	} ) );
 
 	QUnit.test( 'Get categories', function ( assert ) {
-		var done, categoryTool = new mw.cx.CategoryTool( mw.cx.siteMapper );
+		var done, categoryTool = new mw.cx.CategoryTool( this.sitemapper );
 		done = assert.async();
 		QUnit.expect( 3 );
 

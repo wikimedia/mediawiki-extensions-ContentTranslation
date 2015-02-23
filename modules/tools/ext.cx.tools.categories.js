@@ -597,8 +597,7 @@
 	};
 
 	/**
-	 * Retrieves the specified set of categories
-	 *
+	 * Retrieves the categories
 	 * @return {jQuery.Promise}
 	 */
 	CXCategoryTool.prototype.getCategories = function () {
@@ -677,17 +676,26 @@
 		}
 	};
 
-	// Expose the CXCategoryTool (required by publishing)
-	mw.cx.categoryTool = new CXCategoryTool( mw.cx.siteMapper );
-
 	// Expose the CXCategoryTool class for unit testing
 	if ( typeof QUnit !== undefined ) {
 		mw.cx.CategoryTool = CXCategoryTool;
 	}
 
 	$( function () {
-		mw.hook( 'mw.cx.source.loaded' ).add( function () {
-			mw.cx.categoryTool.getCategories().done( function ( categories ) {
+		var sitemapper;
+
+		sitemapper = new mw.cx.SiteMapper(
+			mw.config.get( 'wgContentTranslationSiteTemplates' )
+		);
+		// The module will be loaded in the context of Unit tests too, there
+		// source language may not set. Check and abort if that is the case.
+		if ( !mw.cx.sourceLanguage ) {
+			return;
+		}
+		// Expose the CXCategoryTool (required by publishing)
+		mw.cx.categoryTool = new CXCategoryTool( sitemapper );
+		mw.cx.categoryTool.getCategories().done( function ( categories ) {
+			mw.hook( 'mw.cx.source.loaded' ).add( function () {
 				mw.cx.categoryTool.initializeWidgets( 'source' );
 				mw.cx.categoryTool.initializeWidgets( 'translation' );
 				if ( Object.keys( categories.source ).length > 0 ) {
