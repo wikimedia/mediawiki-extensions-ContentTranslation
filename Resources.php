@@ -202,6 +202,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'cx-sourceselector-dialog-error-title-in-use',
 		'cx-sourceselector-dialog-error-no-source-article',
 		'cx-license-agreement',
+		'cx-error-server-connection',
 	),
 ) + $resourcePaths;
 
