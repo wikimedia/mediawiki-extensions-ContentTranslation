@@ -209,7 +209,8 @@
 							) );
 						mw.hook( 'mw.cx.translation.published' ).fire(
 							mw.cx.sourceLanguage,
-							mw.cx.targetLanguage
+							mw.cx.targetLanguage,
+							targetTitle
 						);
 						mw.cx.dirty = false;
 					} ).fail( function ( code, details ) {
@@ -239,8 +240,6 @@
 					$publishButton.cxPublishingDialog();
 				}
 			} );
-
-		initGuidedTour( targetTitle );
 	}
 
 	/**
@@ -267,26 +266,6 @@
 		} );
 
 		return $content.html();
-	}
-
-	/**
-	 * If GuidedTour is available, set cookies to start a tour.
-	 * @param {string} translatedTitle
-	 */
-	function initGuidedTour( translatedTitle ) {
-		if ( !mw.guidedTour ) {
-			return;
-		}
-
-		mw.cookie.set(
-			'-cx-published',
-			JSON.stringify( {
-				translatedTitle: translatedTitle,
-				username: mw.user.getName()
-			} )
-		);
-
-		mw.guidedTour.setTourCookie( 'cxpublish', 'suggestmovestart' );
 	}
 
 	// Expose the CXPublish
