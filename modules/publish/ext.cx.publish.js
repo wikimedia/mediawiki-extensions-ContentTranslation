@@ -89,7 +89,7 @@
 		// Show the captcha form
 		this.$trigger.after( $captchaForm );
 
-		deferred = new $.Deferred();
+		deferred = $.Deferred();
 
 		$publishButton.on( 'click', function () {
 			var captchaParams = {
@@ -149,17 +149,16 @@
 
 	/**
 	 * Publish the translation
-	 * @param {boolean} publishAnyway Flag to overwrite translation
+	 * @param {boolean} overwrite Flag to overwrite translation
 	 * @param {string} title [optional], Optional title for the translation
 	 */
-	function publish( publishAnyway, title ) {
+	function publish( overwrite, title ) {
 		var $publishArea, $publishButton, publisher,
-			translatedContent, targetCategories, $draftButton, targetTitle,
+			translatedContent, targetCategories, targetTitle,
 			sortedKeys, i, categoryTitles, categories, publishedTitle;
 
 		$publishArea = $( '.cx-header__publish' );
 		$publishButton = $publishArea.find( '.cx-header__publish-button' );
-		$draftButton = $publishArea.find( '.cx-header__draft-button' );
 		targetTitle = title || $( '.cx-column--translation > h2' ).text();
 		translatedContent = prepareTranslationForPublish(
 			$( '.cx-column--translation .cx-column__content' ).clone()
@@ -173,7 +172,7 @@
 
 				username = mw.user.getName();
 
-				if ( titleExists === false || publishAnyway === true ) {
+				if ( titleExists === false || overwrite === true ) {
 					$publishButton
 						.prop( 'disabled', true )
 						.text( mw.msg( 'cx-publish-button-publishing' ) );
@@ -229,7 +228,7 @@
 							.prop( 'disabled', true )
 							.text( mw.msg( 'cx-publish-button' ) );
 					} );
-				} else if ( publishAnyway === false ) {
+				} else if ( overwrite === false ) {
 					if ( new mw.Title( publishedTitle ).getNamespaceId() === 2 ) {
 						publishedTitle = increaseVersion( publishedTitle );
 					} else {
