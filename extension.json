@@ -678,7 +678,10 @@
 				"cx-discard-translation",
 				"cx-translation-status-draft",
 				"cx-translation-status-deleted",
-				"cx-translation-status-published"
+				"cx-translation-status-published",
+				"cx-draft-discard-confirmation-message",
+				"cx-draft-cancel-button-label",
+				"cx-draft-discard-button-label"
 			]
 		},
 		"ext.cx.translation.conflict": {
@@ -704,6 +707,40 @@
 			],
 			"dependencies": [
 				"jquery.throttle-debounce"
+			]
+		},
+		"ext.cx.stats": {
+			"localBasePath": "modules",
+			"remoteExtPath": "ContentTranslation/modules",
+			"scripts": [
+				"stats/ext.cx.stats.js"
+			],
+			"styles": [
+				"stats/styles/ext.cx.stats.less"
+			],
+			"dependencies": [
+				"ext.cx.sitemapper"
+			],
+			"messages": [
+				"cx-stats-table-source-target",
+				"cx-stats-table-source-total",
+				"cx-stats-table-target-total",
+				"cx-stats-published-translations-title",
+				"cx-stats-draft-translations-title",
+				"cx-stats-published-translators-title"
+			]
+		},
+		"ext.cx.beta.notification": {
+			"localBasePath": "modules",
+			"remoteExtPath": "ContentTranslation/modules",
+			"scripts": [
+				"entrypoint/ext.cx.betafeature.notification.js"
+			],
+			"dependencies": [
+				"jquery.tipsy"
+			],
+			"messages": [
+				"cx-beta-feature-enabled-notification"
 			]
 		}
 	},
