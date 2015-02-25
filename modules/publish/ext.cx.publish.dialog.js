@@ -21,22 +21,18 @@
 		this.$dialog = null;
 		this.$close = null;
 		this.$message = null;
+		this.$publishButton = null;
+		this.$keepButton = null;
 		this.init();
 	}
 
 	/**
 	 * Initializes the publishing dialog instance.
-	 * @param {string} title The title of the existing article
 	 */
 	CXPublishingDialog.prototype.init = function () {
 		var title = $( '.cx-column--translation > h2' ).text();
 
-		if ( this.$dialog ) {
-			this.setMessage( title );
-		} else {
-			this.render( title );
-		}
-		this.listen();
+		this.render( title );
 		this.position();
 		this.show();
 	};
@@ -46,8 +42,7 @@
 	 * @param {string} title The title of the existing article
 	 */
 	CXPublishingDialog.prototype.render = function ( title ) {
-		var $buttons, $keepButton, $publishAnywayButton, username, namespace,
-			cxPublishingDialog = this;
+		var $buttons, username, namespace;
 
 		username = mw.user.getName();
 		namespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
@@ -57,49 +52,33 @@
 			.hide();
 
 		this.$close = $( '<div>' )
-			.addClass( 'cx-publishing-dialog__close' )
-			.on( 'click', function () {
-				cxPublishingDialog.$dialog.hide();
-			} );
+			.addClass( 'cx-publishing-dialog__close' );
 
 		this.$message = $( '<p>' )
 			.addClass( 'cx-publishing-dialog__message' );
 
-		$( '.cx-publishing-dialog__message > a' ).prop( 'target', '_blank' );
+		this.$dialog.find( '.cx-publishing-dialog__message > a' ).prop( 'target', '_blank' );
 
 		$buttons = $( '<div>' )
 			.addClass( 'cx-publishing-dialog__buttons' );
 
-		$keepButton = $( '<button>' )
+		this.$keepButton = $( '<button>' )
 			.addClass( 'cx-publishing-dialog__buttons-keep mw-ui-button mw-ui-quiet' );
 
 		if ( namespace === 'User' ) {
-			$keepButton.text( mw.msg( 'cx-publishing-dialog-keep-button' ) );
+			this.$keepButton.text( mw.msg( 'cx-publishing-dialog-keep-button' ) );
 		} else {
-			$keepButton.text( mw.msg( 'cx-publishing-dialog-publish-draft-button' ) );
+			this.$keepButton.text( mw.msg( 'cx-publishing-dialog-publish-draft-button' ) );
 		}
 
-		$keepButton.on( 'click', function () {
-			cxPublishingDialog.$dialog.hide();
-			mw.hook( 'mw.cx.publish' ).fire( false );
-		} );
-
-		$publishAnywayButton = $( '<button>' )
+		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-publishing-dialog__buttons-publishanyway mw-ui-button mw-ui-progressive' )
-			.text( mw.msg( 'cx-publishing-dialog-publish-anyway-button' ) )
-			.on( 'click', function () {
-				cxPublishingDialog.$dialog.hide();
-				mw.hook( 'mw.cx.publish' ).fire( true );
-			} );
+			.text( mw.msg( 'cx-publishing-dialog-publish-anyway-button' ) );
 
 		this.setMessage( title );
-
-		$buttons.append( $publishAnywayButton, $keepButton );
-
+		$buttons.append( this.$publishButton, this.$keepButton );
 		this.$dialog.append( this.$close, this.$message, $buttons );
-
 		$( 'body' ).append( this.$dialog );
-
 	};
 
 	/**
@@ -129,10 +108,7 @@
 		buttonPosition = this.$trigger.position();
 		buttonCenter = buttonPosition.left + ( this.$trigger.outerWidth() / 2 );
 		dialogLeft = buttonCenter - ( this.$dialog.outerWidth() / 2 );
-		dialogTop = $( window ).scrollTop() +
-			buttonPosition.top +
-			this.$trigger.height() + 20;
-
+		dialogTop = $( window ).scrollTop() + buttonPosition.top + this.$trigger.height() + 20;
 		this.$dialog.css( {
 			top: dialogTop,
 			left: dialogLeft,
@@ -142,11 +118,31 @@
 	};
 
 	/**
-	 * A listener that adjust the positioning when the page is scrolled
-	 * Necessary because the publishing button moves to the left on window scroll
+	 * Listen for events. This dialog is kind of model dialog.
+	 * An action is expected from user while it is shown. The code
+	 * that invoked this dialog will be waiting for this action.
+	 * Hence the method returns a jQuery Promise
+	 * @return {jQuery.Promise}
 	 */
 	CXPublishingDialog.prototype.listen = function () {
+		var deferred = $.Deferred(),
+			self = this;
+
 		$( window ).on( 'scroll', $.proxy( this.position, this ) );
+		this.$keepButton.on( 'click', function () {
+			deferred.resolve( false );
+			self.$dialog.remove();
+		} );
+		this.$publishButton.on( 'click', function () {
+			deferred.resolve( true );
+			self.$dialog.remove();
+		} );
+		this.$close.on( 'click', function () {
+			deferred.reject();
+			self.$dialog.remove();
+		} );
+
+		return deferred.promise();
 	};
 
 	/**
@@ -161,16 +157,8 @@
 	 */
 	$.fn.cxPublishingDialog = function () {
 		return this.each( function () {
-			/*jshint validthis:true */
-			var $this = $( this ),
-				data = $this.data( 'cxPublishingDialog' );
-
-			if ( !data ) {
-				$this.data( 'cxPublishingDialog', ( data = new CXPublishingDialog( this ) ) );
-			}
-
-			data.init();
-
+			var $this = $( this );
+			$this.data( 'cxPublishingDialog', new CXPublishingDialog( this ) );
 		} );
 	};
 } )( jQuery, mediaWiki );
