@@ -584,6 +584,8 @@
 		sourceUls.left = this.$sourceLanguage.offset().left;
 		targetUls = this.$targetLanguage.data( 'uls' );
 		targetUls.left = this.$targetLanguage.offset().left;
+
+		this.$sourceTitleInput.focus();
 	};
 
 	/**
