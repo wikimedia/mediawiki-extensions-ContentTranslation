@@ -485,9 +485,9 @@ $wgResourceModules['ext.cx.publish'] = array(
 		'ext.cx.model',
 		'json',
 		'mediawiki.api.edit',
-		'mediawiki.cookie',
 		'ext.cx.publish.dialog',
 		'ext.cx.sitemapper',
+		'ext.cx.tours.publish.init',
 	),
 	'messages' => array(
 		'cx-publish-page-success',
@@ -513,6 +513,15 @@ $wgResourceModules['ext.cx.publish.dialog'] = array(
 		'cx-publishing-dialog-keep-button',
 		'cx-publishing-dialog-publish-draft-button',
 		'cx-publishing-dialog-publish-anyway-button',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tours.publish.init'] = array(
+	'scripts' => array(
+		'tours/ext.cx.tours.publish.init.js',
+	),
+	'dependencies' => array(
+		'mediawiki.cookie',
 	),
 ) + $resourcePaths;
 
