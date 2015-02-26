@@ -8,7 +8,8 @@
 			"Striking Blue",
 			"Sunpriat",
 			"Максим777",
-			"Batumski brodyaga"
+			"Batumski brodyaga",
+			"Dicto23456"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -116,6 +117,8 @@
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
 	"apihelp-query+contenttranslation-example-3": "Найти любой перевод для данного названия между данной парой языков",
 	"apihelp-query+contenttranslationstats-example-1": "Получите статистику перевода содержимого для всех языков.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Код языка источника.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Код целевого языка.",
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",

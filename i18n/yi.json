@@ -23,10 +23,6 @@
 	"cx-tools-link-title": "לינק",
 	"cx-tools-link-add": "צולייגן לינק",
 	"cx-tools-link-remove": "אראפנעמען לינק",
-	"cx-stats-page-title": "בלאַט",
-	"cx-stats-from": "קוואל שפראך",
-	"cx-stats-to": "צילשפראך",
-	"cx-stats-pages-title": "איבערגעזעצטע בלעטער",
 	"cx-stats-unknown": "אומבאַוואוסט",
 	"cx-tools-reference-title": "רעפערענץ",
 	"cx-tools-link-hover-tooltip": "קליקט צו עפענען",
@@ -35,5 +31,6 @@
 	"cx-sourceselector-dialog-source-language-label": "פֿון:",
 	"cx-sourceselector-dialog-target-language-label": "צו:",
 	"cx-sourceselector-dialog-source-title-placeholder": "זוכן קוואל בלאט",
-	"cx-create-new-translation": "שאפן נײַע איבערזעצונג"
+	"cx-create-new-translation": "שאפן נײַע איבערזעצונג",
+	"apihelp-query+cxpublishedtranslations-param-to": "צילשפראך קאד"
 }

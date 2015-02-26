@@ -75,6 +75,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Tarjima identifikatsiyasi.",
 	"apihelp-query+contenttranslation-example-2": "Tarjmia qoralamasini identifikatsiya nomeri bo‘yicha olish.",
 	"cx-save-draft-saving": "Saqlanyapti...",
+	"cx-save-draft-tooltip": "Tarjima qoralamalari avtomatik ravishda saqlanadi.",
 	"cx-contributions": "Yangi hissa",
 	"cx-contributions-translation": "Tarjima",
 	"cx-contributions-media": "Media faylni yuklash",
@@ -101,5 +102,6 @@
 	"cx-stats-published-translators-title": "Tarjimonlar soni",
 	"cx-draft-discard-confirmaton-message": "Ushbu tarjimani butunlay o‘chirmoqchi ekanligingizga aminmisiz?",
 	"cx-draft-cancel-button-label": "Bekor qilish",
-	"cx-draft-discard-button-label": "Tarjimani o‘chirish"
+	"cx-draft-discard-button-label": "Tarjimani o‘chirish",
+	"cx-beta-feature-enabled-notification": "Ushbu Vikida Kontent Tarjima faollashtirildi."
 }
