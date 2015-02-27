@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Iwan Novirion"
+		]
+	},
+	"cx": "Tajamahkan laman",
+	"cx-javascript": "Alat ko indak dapek bafungsi kalau indak ado JavaScript.",
+	"cx-error-server-connection": "Galat: Indak dapek tahubuang ka server.",
+	"cx-desc": "Alat nan mamungkinkan panyuntiang untuak manajamahkan laman dari suatu bahaso ka bahaso lainnyo jo bantuan panajamahan masin dan pakakeh bahaso lainnyo",
+	"cx-header-progressbar-text": "$1% ditajamahkan",
+	"cx-header-progressbar-text-mt": "($1% dari tajamahan masin)",
+	"cx-header-translation-center": "Pusek tajamahan",
+	"cx-header-new-translation": "Tajamahan baru",
+	"cx-header-all-translations": "Sado tajamahan",
+	"cx-source-view-page": "caliak laman",
+	"cx-publish-page-success": "Laman ditabikkan di $1",
+	"cx-publish-page-error": "Galat sangkek manyimpan laman."
+}
