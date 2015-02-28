@@ -5,5 +5,13 @@
 		]
 	},
 	"cx": "مخ ژباړل",
-	"cx-desc": "يوه وزله چې سمونگران پدې توانوي چې د ماشيني ژباړې او د ژباړې نور مرستيالي وزلو په مرسته مخونه له يوې ژبې بلې ژبې ته وژباړي"
+	"cx-desc": "يوه وزله چې سمونگران پدې توانوي چې د ماشيني ژباړې او د ژباړې نور مرستيالي وزلو په مرسته مخونه له يوې ژبې بلې ژبې ته وژباړي",
+	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
+	"cx-stats-table-source-target": "سرچينه↓ / موخه←",
+	"cx-stats-table-source-total": "ټولټال (سرچينه)",
+	"cx-stats-table-target-total": "ټولټال (موخه)",
+	"cx-stats-published-translations-title": "خپرې شوې ژباړې",
+	"cx-stats-published-translators-title": "د ژباړونکو شمېر",
+	"cx-draft-cancel-button-label": "ناگارل",
+	"cx-draft-discard-button-label": "ژباړه ړنگول"
 }
