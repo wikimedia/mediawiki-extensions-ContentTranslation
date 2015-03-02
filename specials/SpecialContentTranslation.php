@@ -33,16 +33,31 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addModules( 'ext.cx.beta.notification' );
 	}
 
+	/**
+	 * Check if the request has a token to use CX.
+	 * With a valid cx token or draft id, override beta feature settings.
+	 * @return bool
+	 */
 	public function hasToken() {
 		$request = $this->getRequest();
+		$title = $request->getVal( 'page' );
+
+		if ( $title === null ) {
+			return false;
+		}
+
+		if ( $request->getVal( 'draft' ) !== null ) {
+			return true;
+		}
+
 		$token = implode( '_', array(
 			'cx',
-			preg_replace( "/\s/", "-", urldecode( $request->getVal( 'page' ) ) ),
+			Title::newFromText( $title )->getDBkey(),
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
 		) );
-		// With a valid cx token or draft id, override beta feature settings.
-		return $request->getCookie( $token, '' ) !== null || $request->getVal( 'draft' ) !== null;
+
+		return $request->getCookie( $token, '' ) !== null;
 	}
 
 	public function execute( $parameters ) {
