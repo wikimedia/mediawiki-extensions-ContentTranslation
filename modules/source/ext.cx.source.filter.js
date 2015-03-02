@@ -75,7 +75,7 @@
 	CXSourceFilter.prototype.filter = function ( configuration ) {
 		var sourceFilter = this;
 
-		$( '[typeof*="mw:Transclusion"]' ).each( function () {
+		this.$container.find( '[typeof*="mw:Transclusion"]' ).each( function () {
 			var title, mwData, templateName, templateConf,
 				$template = $( this );
 
@@ -124,7 +124,7 @@
 
 		// Remove <timeline> sections.
 		// Maybe in the future they can be adapted.
-		$( '[typeof*="mw:Extension/timeline"]' ).each( function () {
+		this.$container.find( '[typeof*="mw:Extension/timeline"]' ).each( function () {
 			mw.log( '[CX] Removing timeline.' );
 			sourceFilter.removeTimeline( $( this ) );
 		} );
