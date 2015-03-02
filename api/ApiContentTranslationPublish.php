@@ -193,7 +193,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function saveTranslationHistory( $params ) {
-		global $wgContentTranslationDatabase;
+		global $wgContentTranslationDatabase, $wgContentTranslationTranslateInTarget;
 
 		if ( $wgContentTranslationDatabase === null ) {
 			// Central CX database not configured.
@@ -201,10 +201,21 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 		$user = $this->getUser();
 		$translator = new ContentTranslation\Translator( $user );
-		$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
-			$params['title'],
-			$this->getUser()->getName()
-		);
+
+		if ( !$wgContentTranslationTranslateInTarget ) {
+			$targetTitle = Title::newFromText( $params['title'] );
+			if ( !$targetTitle ) {
+				throw new InvalidArgumentException( "Invalid target title given" );
+			}
+			$targetURL = $targetTitle->getCanonicalUrl();
+		} else {
+			$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
+				$params['title'],
+				$this->getUser()->getName()
+			);
+			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetTitle );
+		}
+
 		$translation = new ContentTranslation\Translation( array(
 			'sourceTitle' => $params['sourcetitle'],
 			'targetTitle' => $params['title'],
@@ -213,9 +224,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
 				$params['from'], $params['sourcetitle']
 			),
-			'targetURL' => ContentTranslation\SiteMapper::getPageURL(
-				$params['to'], $targetTitle
-			),
+			'targetURL' => $targetURL,
 			'status' => $params['status'],
 			'progress' => $params['progress'],
 			// XXX Do not overwrite startedTranslator when we have "draft save" feature.
