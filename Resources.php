@@ -668,6 +668,20 @@ $wgResourceModules['ext.cx.beta.notification'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.campaigns.newarticle'] = array(
+	'scripts' => array(
+		'campaigns/ext.cx.campaigns.newarticle.js',
+	),
+	'styles' => array(
+		'campaigns/styles/ext.cx.campaigns.newarticle.less',
+	),
+	'messages' => array(
+		'cx-campaign-newarticle-notice',
+		'cx-campaign-no-thanks',
+		'cx-campaign-try',
+	)
+) + $resourcePaths;
+
 $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	$resourcePaths = array(
 		'localBasePath' => __DIR__,

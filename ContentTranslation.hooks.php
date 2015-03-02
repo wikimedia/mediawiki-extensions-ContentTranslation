@@ -130,6 +130,7 @@ class ContentTranslationHooks {
 			$wgContentTranslationExperimentalFeatures,
 			$wgContentTranslationDatabase,
 			$wgContentTranslationSiteTemplates,
+			$wgContentTranslationCampaigns,
 			$wgContentTranslationTargetNamespace;
 
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
@@ -137,6 +138,7 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
+		$vars['wgContentTranslationCampaigns'] = $wgContentTranslationCampaigns;
 	}
 
 	/**
@@ -148,6 +150,27 @@ class ContentTranslationHooks {
 	public static function registerTags( array &$tags ) {
 		$tags[] = 'contenttranslation';
 		return true;
+	}
+
+	/**
+	 * Hook: EditPage::showEditForm:initial
+	 */
+	public static function newArticleCampign( EditPage $newPage, OutputPage $out ) {
+		global $wgContentTranslationCampaigns;
+		$user = $out->getUser();
+
+		if (
+			!in_array( 'newarticle', $wgContentTranslationCampaigns ) ||
+			$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) ||
+			$newPage->mTitle->exists() ||
+			!$newPage->mTitle->inNamespace( NS_MAIN ) ||
+			$user->isAnon() ||
+			BetaFeatures::isFeatureEnabled( $user, 'cx' )
+		) {
+			return true;
+		}
+
+		$out->addModules( 'ext.cx.campaigns.newarticle' );
 	}
 
 	/**

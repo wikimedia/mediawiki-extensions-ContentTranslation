@@ -69,6 +69,8 @@ $GLOBALS['wgHooks']['SpecialContributionsBeforeMainOutput'][] =
 	'ContentTranslationHooks::addNewContributionButton';
 $GLOBALS['wgHooks']['ListDefinedTags'][] = 'ContentTranslationHooks::registerTags';
 $GLOBALS['wgHooks']['ChangeTagsListActive'][] = 'ContentTranslationHooks::registerTags';
+$GLOBALS['wgHooks']['EditPage::showEditForm:initial'][] =
+	'ContentTranslationHooks::newArticleCampign';
 $GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
 	'ContentTranslationHooks::onResourceLoaderTestModules';
 
@@ -140,3 +142,6 @@ $GLOBALS['wgContentTranslationAsBetaFeature'] = true;
  * If it is another value like Foo, It will get published in Foo:PageTitle
  */
 $GLOBALS['wgContentTranslationTargetNamespace'] = 'Main';
+
+// List of campaigns enabled. Available campaigns: 'newarticle'
+$GLOBALS['wgContentTranslationCampaigns'] = array();

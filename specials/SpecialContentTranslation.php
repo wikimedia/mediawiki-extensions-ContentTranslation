@@ -33,6 +33,12 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addModules( 'ext.cx.beta.notification' );
 	}
 
+	public function isValidCampaign( $campaign ) {
+		global $wgContentTranslationCampaigns;
+
+		return $campaign !== null && in_array( $campaign, $wgContentTranslationCampaigns );
+	}
+
 	/**
 	 * Check if the request has a token to use CX.
 	 * With a valid cx token or draft id, override beta feature settings.
@@ -49,7 +55,6 @@ class SpecialContentTranslation extends SpecialPage {
 		if ( $request->getVal( 'draft' ) !== null ) {
 			return true;
 		}
-
 		$token = implode( '_', array(
 			'cx',
 			Title::newFromText( $title )->getDBkey(),
@@ -65,9 +70,13 @@ class SpecialContentTranslation extends SpecialPage {
 		$skin = $this->getSkin();
 		$request = $this->getRequest();
 		$user = $this->getUser();
+		$hasToken = $this->hasToken();
+		$campaign = $request->getVal( 'campaign' );
+		$isCampaign = $this->isValidCampaign( $campaign );
+
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
-			if ( $this->hasToken() ) {
+			if ( $hasToken || $isCampaign ) {
 				// User has a token. Enabled cx for the user in this wiki.
 				$this->enableCXBetaFeature();
 			} else {
@@ -77,11 +86,13 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		$out->addModuleStyles( 'mediawiki.ui.button' );
-		if ( !$this->hasToken() ) {
-			$out->addModules( 'ext.cx.dashboard' );
-		} else {
+
+		if ( $hasToken ) {
 			$out->addModules( 'ext.cx.translationview' );
+		} else {
+			$out->addModules( 'ext.cx.dashboard' );
 		}
+
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 

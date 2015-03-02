@@ -156,5 +156,8 @@
 	"cx-draft-discard-confirmaton-message": "Are you sure you want to permanently delete this translation?",
 	"cx-draft-cancel-button-label": "Cancel",
 	"cx-draft-discard-button-label": "Delete translation",
-	"cx-beta-feature-enabled-notification": "Content Translation has been activated in this wiki."
+	"cx-beta-feature-enabled-notification": "Content Translation has been activated in this wiki.",
+	"cx-campaign-newarticle-notice": "Now you can also create new content by <b>translating</b>! Do you want to try Content Translation beta tool?",
+	"cx-campaign-no-thanks": "No, thanks",
+	"cx-campaign-try": "Try Content Translation"
 }
