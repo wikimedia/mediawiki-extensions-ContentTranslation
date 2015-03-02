@@ -18,6 +18,7 @@
 			$sourceSection,
 			sectionHeight,
 			sourceSectionHeight,
+			sectionTagName,
 			steps = 0;
 
 		$section = $( this );
@@ -54,12 +55,14 @@
 			return this;
 		}
 
-		if ( $section.prop( 'tagName' ) === 'TABLE' ) {
+		sectionTagName = $section.prop( 'tagName' );
+
+		if ( sectionTagName === 'TABLE' ) {
 			// 'min-height' is undefined for table elements
 			return this;
 		}
 
-		if ( $section.prop( 'tagName' ) === 'FIGURE' ) {
+		if ( sectionTagName === 'FIGURE' ) {
 			$sourceSection = $sourceSection.find( 'figcaption' );
 			$section = $section.find( 'figcaption' );
 		}
