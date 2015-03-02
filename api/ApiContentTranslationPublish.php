@@ -1,8 +1,15 @@
 <?php
 /**
- * Saving a page created in ContentTranslation.
- * The main change from usual saving is that a tag is added.
- * Borrows heavily from ApiVisualEditorEdit.
+ * Saving a wiki page created using ContentTranslation.
+ * The following special things happen when the page is created:
+ * - HTML from the translation editor's contenteditable is converted to wiki syntax using Parsoid.
+ * - A change tag is added.
+ * - The edit summary shows a link to the revision from which the translation was made.
+ * - Optionally, a template is added if the article appears to have a lot of machine translation.
+ * - Categories are hidden in <nowiki> if the page is not published to the main space.
+ * - Information about the translated page is saved to the central ContentTranslation database.
+ * - When relevant, values of MediaWiki CAPTCHA can be sent.
+ * This borrows heavily from ApiVisualEditorEdit.
  *
  * @file
  * @copyright See AUTHORS.txt
