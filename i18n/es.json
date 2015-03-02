@@ -22,7 +22,7 @@
 	"cx-javascript": "Esta herramienta no funciona sin JavaScript.",
 	"cx-license-agreement": "Al pulsar en el botón «$1» aceptarás las [//wikimediafoundation.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones con la herramienta de traducción en el marco de la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL], con el entendimiento de que un enlace o URL es suficiente para la atribución de esta licencia Creative Commons.",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
-	"cx-desc": "Una herramienta que permite a los editores traducir páginas de un idioma a otro con la ayuda de software de traducción automática y otras herramientas de traducción",
+	"cx-desc": "Facilita la traducción de páginas de contenido",
 	"cx-header-progressbar-text": "$1 % traducido",
 	"cx-header-progressbar-text-mt": "($1 % de traducción automática)",
 	"cx-header-translation-center": "Centro de traducción",
@@ -107,7 +107,7 @@
 	"cx-create-new-translation": "Crear nueva traducción",
 	"cx-create-new-translation-desc": "Crea páginas sobre temas que no existen en tu idioma. Es fácil con la ayuda de nuestras herramientas de traducción. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Más información]",
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
-	"apihelp-cxpublish-param-title": "Título de la página en la que realizarán las acciones.",
+	"apihelp-cxpublish-param-title": "Título de la página en la que se realizarán las acciones.",
 	"apihelp-cxpublish-param-html": "El contenido para guardar",
 	"apihelp-cxpublish-param-from": "El código en el idioma original",
 	"apihelp-cxpublish-param-to": "El código de idioma de la traducción.",
@@ -133,6 +133,7 @@
 	"cx-contributions": "Contribución nueva",
 	"cx-contributions-translation": "Traducción",
 	"cx-contributions-media": "Cargar archivo multimedia",
+	"cx-publishing-dialog-message": "La página $1 ya existe. Tu traducción reemplazará el contenido actual. ¿Quieres publicarla de todos modos?",
 	"cx-publishing-dialog-keep-button": "Mantener ambas versiones",
 	"cx-publishing-dialog-publish-anyway-button": "Publicar de todos modos",
 	"cx-discard-translation": "Descartar la traducción",
@@ -140,7 +141,9 @@
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Borrado",
 	"apihelp-cxdelete-param-from": "El código del idioma de origen.",
-	"cx-translation-already-in-progress": "Ésta es una traducción en curso de $1.",
+	"apihelp-cxdelete-param-to": "El código del idioma de destino.",
+	"apihelp-cxdelete-param-sourcetitle": "El título de la página de origen.",
+	"cx-translation-already-in-progress": "Esta es una traducción en curso de $1.",
 	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinar con el usuario que hizo la traducción actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como borrador",
 	"cx-feedback-link": "Proporcionar comentarios",
@@ -153,5 +156,5 @@
 	"cx-draft-discard-confirmaton-message": "¿Está seguro que desea eliminar permanentemente esta traducción?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar la página de traducción",
-	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenido en ésta wiki."
+	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenido en este wiki."
 }
