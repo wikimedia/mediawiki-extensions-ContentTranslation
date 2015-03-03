@@ -17,7 +17,7 @@
 	"cx": "{{doc-special|ContentTranslation}}",
 	"cx-javascript": "Error message shown when JavaScript is not enabled in the browser.",
 	"cx-license-agreement": "License agreement for the contributions using Content Translation tool. This is legal text and be careful. You may point the license URLs to a Wikipedia page in your language if it exists. Parameters:\n* $1 - Label of the button that starts the translation tool.",
-	"cx-error-server-connection": "Error message shown when connection to the content translation server has failed.",
+	"cx-error-server-connection": "Error message shown when connection to the Content Translation server has failed.",
 	"cx-desc": "{{desc|name=ContentTranslation|url=http://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
 	"cx-header-progressbar-text": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the percent of translation progress.\n{{Identical|Translated}}",
 	"cx-header-progressbar-text-mt": "Text to be shown with the progress bar in [[Special:ContentTranslation]]. $1 is the estimated percent of machine-translated text out of all the translation text that was written so far.",
@@ -50,7 +50,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "The heading that appears at the top of the dialog that appears when the red interlanguage link is clicked.\n\nParameters:\n* $1 - the name of the target language, enclosed in <code><nowiki><span></nowiki></code> tags",
 	"cx-entrypoint-dialog-title-in": "Label for a text input field where the user is supposed to write a title for the new that is going to be translated.\n\nParameters:\n* $1 - the name of the target language, enclosed in <code><nowiki><span></nowiki></code> tags",
 	"cx-entrypoint-dialog-button-create-from-scratch": "A label for a button on the bottom of the dialog that appears when the red interlanguage link is clicked. Clicking the button takes the user to a new page creation page in the wiki in the target language.",
-	"cx-entrypoint-dialog-button-translate-from": "A label for a button on the bottom of the dialog that appears when the red interlanguage link is clicked.\n\nClicking the button takes the user to the column-based content translation interface.\n\nParameters:\n* $1 - the name of the current wiki's content language",
+	"cx-entrypoint-dialog-button-translate-from": "A label for a button on the bottom of the dialog that appears when the red interlanguage link is clicked.\n\nClicking the button takes the user to the column-based Content Translation interface.\n\nParameters:\n* $1 - the name of the current wiki's content language",
 	"cx-special-login-error": "Error to show when user try to use [[Special:ContentTranslation]] without logging in. \n\nParameters:\n* $1 - The login link",
 	"cx-tools-instructions-text1": "Help text for the translation tools panel on Special:ContentTranslation.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text2}}.",
 	"cx-tools-instructions-text2": "Help text for the translation tools pane. \"Them all\" refers to paragraphs, and means that the translators doesn't have to translate all the paragraphs completely to publish a translated page.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text1}}.",
@@ -102,7 +102,7 @@
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
 	"cx-translation-filter-to-any-language": "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
-	"cx-create-new-translation-desc": "Description about what the content translation tool does. The link may point to a translation help page in your language.",
+	"cx-create-new-translation-desc": "Description about what the Content Translation tool does. The link may point to a translation help page in your language.",
 	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",
 	"apihelp-cxpublish-param-title": "{{doc-apihelp-param|cxpublish|title}}",
 	"apihelp-cxpublish-param-html": "{{doc-apihelp-param|cxpublish|html}}",
@@ -161,5 +161,5 @@
 	"cx-draft-discard-confirmaton-message": "Confirmation message when user attempts to delete a translation on the dashboard.\n\nYou can use <nowiki>{{GENDER:|you}}</nowiki>.",
 	"cx-draft-cancel-button-label": "Cancel button label\n{{Identical|Cancel}}",
 	"cx-draft-discard-button-label": "Label for delete button",
-	"cx-beta-feature-enabled-notification": "Notification shown when content translation enabled for a user. This is a tooltip text shown next to the beta feature link in the page."
+	"cx-beta-feature-enabled-notification": "Notification shown when Content Translation enabled for a user. This is a tooltip text shown next to the beta feature link in the page."
 }
