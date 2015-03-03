@@ -24,7 +24,7 @@ CREATE TABLE /*_*/cx_translations (
     translation_target_url text binary not null,
     -- Status of translation - Draft or published status.
     -- There is no final status. A published translation can be draft again to update again
-    translation_status enum('draft', 'published') default null,
+    translation_status enum('draft', 'published', 'deleted') default null,
     -- Start date of this translation
     translation_start_timestamp varchar(14) binary not null,
     -- Last updated date of this translation
