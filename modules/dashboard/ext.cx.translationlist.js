@@ -184,6 +184,8 @@
 				.addClass( 'source-title' )
 				.text( translation.sourceTitle )
 				.attr( {
+					lang: translation.sourceLanguage,
+					dir: $.uls.data.getDir( translation.sourceLanguage ),
 					href: translationLinkUrl
 				} );
 
