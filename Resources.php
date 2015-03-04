@@ -122,6 +122,7 @@ $wgResourceModules['ext.cx.sitemapper'] = array(
 		'ext.cx.model',
 		'mediawiki.Uri',
 		'mediawiki.api',
+		'mediawiki.Title',
 	),
 ) + $resourcePaths;
 
