@@ -85,8 +85,6 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 		}
 
-		$out->addModuleStyles( 'mediawiki.ui.button' );
-
 		if ( $hasToken ) {
 			$out->addModules( 'ext.cx.translationview' );
 		} else {

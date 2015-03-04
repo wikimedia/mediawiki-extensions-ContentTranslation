@@ -23,6 +23,7 @@ $wgResourceModules['ext.cx.contributions'] = array(
 	),
 	'dependencies' => array(
 		'mediawiki.util',
+		'mediawiki.ui.button',
 	),
 	'messages' => array(
 		'cx-contributions',
@@ -91,6 +92,7 @@ $wgResourceModules['ext.cx.dashboard'] = array(
 		'ext.cx.translationlist',
 		'ext.cx.source.selector',
 		'ext.cx.feedback',
+		'mediawiki.ui.button',
 	),
 	'messages' => array(
 		'cx-create-new-translation',
@@ -137,6 +139,7 @@ $wgResourceModules['ext.cx.header'] = array(
 		'mediawiki.Uri',
 		'mediawiki.jqueryMsg',
 		'mediawiki.util',
+		'mediawiki.ui.button',
 	),
 	'messages' => array(
 		'cx',
@@ -189,6 +192,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'jquery.throttle-debounce',
 		'ext.uls.mediawiki',
 		'jquery.uls.compact',
+		'mediawiki.ui.button',
 	),
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',
@@ -675,6 +679,9 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 	),
 	'styles' => array(
 		'campaigns/styles/ext.cx.campaigns.newarticle.less',
+	),
+	'dependencies' => array(
+		'mediawiki.ui.button',
 	),
 	'messages' => array(
 		'cx-campaign-newarticle-notice',
