@@ -62,6 +62,11 @@
 		} );
 	}
 
-	$( showInvitation );
+	$( function () {
+		var blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
+		if ( !$.client.test( blacklist, null, true ) ) {
+			showInvitation();
+		}
+	} );
 
 }( jQuery, mediaWiki ) );
