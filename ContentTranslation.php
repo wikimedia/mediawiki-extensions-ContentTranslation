@@ -145,3 +145,10 @@ $GLOBALS['wgContentTranslationTargetNamespace'] = 'Main';
 
 // List of campaigns enabled. Available campaigns: 'newarticle'
 $GLOBALS['wgContentTranslationCampaigns'] = array();
+
+// List of browsers Content Translation is incompatibe with
+// See jQuery.client for specification
+$GLOBALS['wgContentTranslationBrowserBlacklist'] = array(
+	// IE < 10 has various incompatibilities in layout and feature support
+	'msie' => array ( array( '<', 10 ) ),
+);

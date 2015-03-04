@@ -84,7 +84,7 @@ class ContentTranslationHooks {
 	 * @param array $prefs
 	 */
 	public static function getPreferences( User $user, array &$prefs ) {
-		global $wgExtensionAssetsPath;
+		global $wgExtensionAssetsPath, $wgContentTranslationBrowserBlacklist;
 
 		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/images";
 
@@ -97,6 +97,10 @@ class ContentTranslationHooks {
 			),
 			'info-link' => 'https://www.mediawiki.org/wiki/Content_translation',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Content_translation',
+			'requirements' => array(
+				'javascript' => true,
+				'blacklist' => $wgContentTranslationBrowserBlacklist,
+			)
 		);
 	}
 
