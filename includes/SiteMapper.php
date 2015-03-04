@@ -22,6 +22,12 @@ class SiteMapper {
 				$targetTitle = $title;
 				break;
 			case 'User':
+				$titleObj = \Title::newFromText( $title );
+				if ( $titleObj && $titleObj->inNamespace( NS_USER ) ) {
+					// Already in User namespace. Avoid generating titles like User:A/User:A/Title
+					$targetTitle = $title;
+					break;
+				}
 				$targetTitle = 'User:' . $userName . '/' . $title;
 				break;
 			default:
