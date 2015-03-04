@@ -663,7 +663,7 @@
 						// If text is selected, and the link clicked is source language,
 						// create a new internal link in the translation section
 						if ( isValidSelection( selection ) && self.$link ) {
-							self.createInternalLink( selection.toString(), targetTitle, self.$link.data( 'linkid') );
+							self.createInternalLink( selection.toString(), targetTitle, self.$link.data( 'linkid' ) );
 						}
 					} );
 			}

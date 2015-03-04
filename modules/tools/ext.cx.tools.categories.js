@@ -453,7 +453,7 @@
 		var output;
 
 		character = character || '0';
-		number = number + '';
+		number = String( number );
 		output = number.length >= width ? number : new Array( width - number.length + 1 ).join( character ) + number;
 		return 'cxCategory' + output;
 	}
