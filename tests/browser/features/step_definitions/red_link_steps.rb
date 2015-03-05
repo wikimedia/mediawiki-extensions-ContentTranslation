@@ -41,7 +41,7 @@ When(/^I set "(.*?)" as the interface language$/) do |code|
     page.language_filter_element.send_keys [:enter, "\n"]
     page.uls_settings_apply_element.click
     page.wait_until do
-      @browser.url.match /setlang=#{code}/
+      @browser.url.match(/setlang=#{code}/)
     end
   end
 end
@@ -79,11 +79,11 @@ Then(/^the page creation page should open$/) do
 end
 
 Then(/^the name of the page should appear in the main title$/) do
-  on(PageCreationPage).first_heading.should match /Red interlanguage link test/
+  on(PageCreationPage).first_heading.should match(/Red interlanguage link test/)
 end
 
 Then(/^the name "(.+?)" should appear in the main title$/) do |target_title|
-  on(PageCreationPage).first_heading.should match /#{target_title}/
+  on(PageCreationPage).first_heading.should match(/#{target_title}/)
 end
 
 Then(/^the name of the page should appear in the (.+) column$/) do |column_type|
