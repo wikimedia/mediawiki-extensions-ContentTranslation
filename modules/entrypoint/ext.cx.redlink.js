@@ -13,20 +13,28 @@
 
 	/**
 	 * Get the list of target languages that should be suggested
-	 * to the current user.
-	 * For now, just the user interface language.
+	 * to the current user:
+	 * - The MediaWiki user interface language.
+	 * - Accept-Language.
+	 * - Browser interface language.
 	 * This will probably include more languages in the future.
 	 * @param {String[]} availableTargetLanguages A list of target languages
 	 *     that are supported by this instance.
 	 * @return {string[]} target languages
 	 */
 	function getSuggestedTargetLanguages( availableTargetLanguages ) {
-		var possibleTargetLanguages = [];
+		var possibleTargetLanguages = [],
+			pageLanguage = mw.config.get( 'wgPageContentLanguage' );
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
+		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
+		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
 
-		return $.grep( possibleTargetLanguages, function ( language ) {
-			return ( $.inArray( language, availableTargetLanguages ) > -1 );
+		return $.grep( mw.cx.unique( possibleTargetLanguages ), function ( language ) {
+			return (
+				$.inArray( language, availableTargetLanguages ) > -1 &&
+				language !== pageLanguage
+			);
 		} );
 	}
 
