@@ -6,6 +6,7 @@
 	},
 	"cx": "مخ ژباړل",
 	"cx-desc": "يوه وزله چې سمونگران پدې توانوي چې د ماشيني ژباړې او د ژباړې نور مرستيالي وزلو په مرسته مخونه له يوې ژبې بلې ژبې ته وژباړي",
+	"cx-sourceselector-dialog-source-language-label": "لېږونکی:",
 	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
 	"cx-stats-table-source-target": "سرچينه↓ / موخه←",
 	"cx-stats-table-source-total": "ټولټال (سرچينه)",

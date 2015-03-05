@@ -11,7 +11,7 @@
 		]
 	},
 	"cx": "Pagina vertalen",
-	"cx-desc": "Gereedschap waarmee redacteuren met behulp van machinevertaling en andere vertaalhulpmiddelen pagina's van de ene taal naar de andere kunnen omzetten",
+	"cx-desc": "Maakt het gemakelijk om inhoudelijke pagina's te vertalen",
 	"cx-header-progressbar-text": "$1% vertaald",
 	"cx-header-translation-center": "Vertaalcentrum",
 	"cx-source-view-page": "pagina bekijken",
@@ -45,5 +45,6 @@
 	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren",
 	"cx-stats-published-translations-title": "Gepubliceerde vertalingen",
 	"cx-stats-published-translators-title": "Aantal vertalers",
-	"cx-draft-cancel-button-label": "Annuleren"
+	"cx-draft-cancel-button-label": "Annuleren",
+	"cx-campaign-no-thanks": "Nee, bedankt"
 }

@@ -14,7 +14,7 @@
 	"cx-javascript": "הכלי הזה לא עובד ללא JavaScript.",
 	"cx-license-agreement": "לחיצה על מקש \"$1\" מהווה את הסכמתך ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] ואת הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
-	"cx-desc": "כלי המאפשר לעורכים לתרגם דפים משפה אחת לאחרת בעזרת תרגום מכונה וכלי תרגום אחרים",
+	"cx-desc": "מקלה על תרגום דפי תוכן",
 	"cx-header-progressbar-text": "תורגמו $1%",
 	"cx-header-progressbar-text-mt": "($1% תרגום מכונה)",
 	"cx-header-translation-center": "מרכז התרגום",
@@ -156,5 +156,8 @@
 	"cx-draft-discard-confirmaton-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
-	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה."
+	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
+	"cx-campaign-newarticle-notice": "עכשיו אפשר ליצור תוכן חדש באמצעות <b>תרגום</b>! האם ברצונך לנסות את כלי תרגום התוכן?",
+	"cx-campaign-no-thanks": "לא, תודה",
+	"cx-campaign-try": "לנסות את כלי תרגום התוכן"
 }

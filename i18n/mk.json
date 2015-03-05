@@ -8,7 +8,7 @@
 	"cx-javascript": "Оваа алатка не работи без JavaScript.",
 	"cx-license-agreement": "Стискајќи на копчето „$1“, се согласувате со [//wikimediafoundation.org/wiki/Terms_of_Use/mk Условите на употреба] и неотповикливо потврдувате дека ги објавувате вашите придонеси направени со преводната алатка под лиценцата [https://creativecommons.org/licenses/by-sa/3.0/deed.mk CC BY-SA 3.0] и [//mk.wikipedia.org/wiki/Википедија:Текст_на_ГНУ-овата_лиценца_за_слободна_документација ГЛСД], и со разбирање дека хиперврската или URL-адресата претставуваат достатно наведување на изворот според CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: Не можев да се поврзам со опслужувачот.",
-	"cx-desc": "Алатка што им овозможува на уредниците да преведуваат страници од еден јазик на друг, потпомогнати од машински превод и други преводни помагала",
+	"cx-desc": "Овозможува лесно преведување на содржински страници",
 	"cx-header-progressbar-text": "$1% преведено",
 	"cx-header-progressbar-text-mt": "($1% од машински превод)",
 	"cx-header-translation-center": "Преводен центар",
@@ -62,7 +62,7 @@
 	"cx-tools-mt-not-available": "Не е достапно за $1",
 	"cx-tools-mt-dont-use": "Не користи машински превод",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
-	"cx-stats-title": "Статистики за содржински преводи",
+	"cx-stats-title": "Статистики за преводот на содржини",
 	"cx-stats-unknown": "непознат",
 	"cx-stats-summary": "$1 од $2 {{PLURAL:$1|страница|страници}} ($3%) во главниот именски простор на ова вики.",
 	"cx-tools-reference-title": "Навод",
@@ -92,7 +92,7 @@
 	"cx-translation-filter-to-any-language": "На било кој јазик",
 	"cx-create-new-translation": "Направи нов превод",
 	"cx-create-new-translation-desc": "Направете страници за теми што не постојат на вашиот јазик. Ова ќе го постигнете лесно со помош на нашите преводни алатки. [https://mk.wikipedia.org/wiki/Википедија:Преведување Дознајте повеќе]",
-	"apihelp-cxpublish-description": "Зачувај страница создадена со додатокот за преведување на содржина.",
+	"apihelp-cxpublish-description": "Зачувај страница создадена со додатокот „Превод на содржини“.",
 	"apihelp-cxpublish-param-title": "Насловот на страницата врз која ќе се вршат дејства.",
 	"apihelp-cxpublish-param-html": "Содржината што треба да се зачува.",
 	"apihelp-cxpublish-param-from": "Код на изворниот јазик.",
@@ -150,5 +150,8 @@
 	"cx-draft-discard-confirmaton-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Избриши го преводот",
-	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики."
+	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики.",
+	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <b>преведување</b>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
+	"cx-campaign-no-thanks": "Не, благодарам",
+	"cx-campaign-try": "Пробајте го „Превод на содржини“"
 }

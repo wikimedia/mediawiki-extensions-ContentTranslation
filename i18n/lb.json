@@ -7,7 +7,7 @@
 	"cx": "Säit iwwersetzen",
 	"cx-javascript": "Dëse Programm funktionéiert net ouni JavaScript",
 	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
-	"cx-desc": "En Tool den et Auteuren erlaabt fir Säiten aus enger Sprooch an eng aner Sprooch z'iwwersetze mat Hëllef vu Maschinneniwwersetzung a vun aneren Iwwersetzungstools.",
+	"cx-desc": "Mécht et einfach fir Säite mat Inhalt z'iwwersetzen.",
 	"cx-header-progressbar-text": "$1% iwwersat",
 	"cx-header-progressbar-text-mt": "($1% Maschinneniwwersetzung)",
 	"cx-header-translation-center": "Iwwersetzungszentral",
@@ -54,7 +54,7 @@
 	"cx-tools-mt-provider-title": "Vu(n) $1",
 	"cx-tools-mt-not-available": "Net disponibel fir $1",
 	"cx-tools-mt-dont-use": "Benotzt keng Maschinneniwwersetzung",
-	"cx-stats-title": "Statgistiken iwwer d'Iwwersetze vum Inhalt",
+	"cx-stats-title": "Statistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-stats-unknown": "onbekannt",
 	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum vun dëser Wiki.",
 	"cx-tools-reference-title": "Referenz",
@@ -97,5 +97,6 @@
 	"cx-stats-published-translators-title": "Zuel vun Iwwersetzer",
 	"cx-draft-discard-confirmaton-message": "Sidd Dir sécher datt Dir dës Iwwersetzung definitiv läsche wëllt?",
 	"cx-draft-cancel-button-label": "Ofbriechen",
-	"cx-draft-discard-button-label": "Iwwersetzung läschen"
+	"cx-draft-discard-button-label": "Iwwersetzung läschen",
+	"cx-campaign-no-thanks": "Nee, merci"
 }

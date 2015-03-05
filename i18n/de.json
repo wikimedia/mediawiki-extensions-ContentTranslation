@@ -9,7 +9,7 @@
 	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht.",
 	"cx-license-agreement": "Durch den Klick auf die Schaltfläche „$1“ stimmst du den [//wikimediafoundation.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu mit dem Verständnis, dass ein Hyperlink oder eine URL für eine CC-BY-SA-3.0-Namensnennung ausreichend ist.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
-	"cx-desc": "Ermöglicht es Autoren, Seiten mithilfe maschineller Übersetzungen und anderen Übersetzungswerkzeugen von einer Sprache in eine andere zu übersetzen",
+	"cx-desc": "Ermöglicht die einfache Übersetzung von Inhaltsseiten",
 	"cx-header-progressbar-text": "$1% übersetzt",
 	"cx-header-progressbar-text-mt": "($1% von der Maschinenübersetzung)",
 	"cx-header-translation-center": "Übersetzungscenter",
@@ -136,5 +136,8 @@
 	"cx-draft-discard-confirmaton-message": "Bist du dir sicher, dass du diese Übersetzung dauerhaft löschen möchtest?",
 	"cx-draft-cancel-button-label": "Abbrechen",
 	"cx-draft-discard-button-label": "Übersetzung löschen",
-	"cx-beta-feature-enabled-notification": "Die Inhaltsübersetzung wurde in diesem Wiki aktiviert."
+	"cx-beta-feature-enabled-notification": "Die Inhaltsübersetzung wurde in diesem Wiki aktiviert.",
+	"cx-campaign-newarticle-notice": "Jetzt kannst du auch neuen Inhalt durch <b>Übersetzungen</b> erstellen! Möchtest du das Beta-Tool „Inhaltsübersetzung“ ausprobieren?",
+	"cx-campaign-no-thanks": "Nein danke",
+	"cx-campaign-try": "Inhaltsübersetzung ausprobieren"
 }
