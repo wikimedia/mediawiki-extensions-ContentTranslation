@@ -1,8 +1,8 @@
 Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+?)$/) do |_source_language, page_name, target_language|
   language_code = {
-    "Danish" => "da",
-    "English" => "en",
-    "Hebrew" => "he",
+    'Danish' => 'da',
+    'English' => 'en',
+    'Hebrew' => 'he',
   }
   visit(
     ContentTranslationPage,
@@ -37,8 +37,8 @@ Then(/^I don't see the (.+?) column$/) do |column_type|
 end
 
 Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |_link_name, page_title|
-  page_title_in_url = page_title.gsub(" ", "_")
-  on(ContentTranslationPage).view_page.attribute_value("href").should end_with(page_title_in_url)
+  page_title_in_url = page_title.gsub(' ', '_')
+  on(ContentTranslationPage).view_page.attribute_value('href').should end_with(page_title_in_url)
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -54,7 +54,7 @@ Then(/^I see a language label saying "(.*?)" below the (.+?) column's title$/) d
 end
 
 Then(/^I should see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
-  on(ContentTranslationPage).title("translation").text.should == text
+  on(ContentTranslationPage).title('translation').text.should == text
 end
 
 Then(/^I see a notification bubble that begins with the words "(.*?)"$/) do |text|
@@ -62,7 +62,7 @@ Then(/^I see a notification bubble that begins with the words "(.*?)"$/) do |tex
 end
 
 Then(/^I see a source column with the text "(.*?)"$/) do |text|
-  on(ContentTranslationPage).content("source").text.should == text
+  on(ContentTranslationPage).content('source').text.should == text
 end
 
 Then(/^I see a search box in the translation tools column$/) do
@@ -70,11 +70,11 @@ Then(/^I see a search box in the translation tools column$/) do
 end
 
 Then(/^I see a translation column with an empty editing area$/) do
-  on(ContentTranslationPage).translation_editor_element.text.should == ""
+  on(ContentTranslationPage).translation_editor_element.text.should == ''
 end
 
 Then(/^I see a translation tools column$/) do
-  on(ContentTranslationPage).column("tools").should be_visible
+  on(ContentTranslationPage).column('tools').should be_visible
 end
 
 Then(/^I see a translation progress bar$/) do
@@ -82,15 +82,15 @@ Then(/^I see a translation progress bar$/) do
 end
 
 Then(/^I see the message "You must be logged in to translate in this page\."$/) do
-  on(AnonErrorPage).content_text.should == "You must be logged in to translate in this page."
+  on(AnonErrorPage).content_text.should == 'You must be logged in to translate in this page.'
 end
 
 Then(/^I see the title "(.*?)" at the top of the source column$/) do |source_page_title|
-  on(ContentTranslationPage).title("source").text.should == source_page_title
+  on(ContentTranslationPage).title('source').text.should == source_page_title
 end
 
 Then(/^I see the username at the top of the page$/) do
-  on(ContentTranslationPage).user_name_element.text.should == ENV["MEDIAWIKI_USER"]
+  on(ContentTranslationPage).user_name_element.text.should == ENV['MEDIAWIKI_USER']
 end
 
 Then(/^the content of the page is "(.*?)"$/) do |page_content|
@@ -98,7 +98,7 @@ Then(/^the content of the page is "(.*?)"$/) do |page_content|
 end
 
 Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
-  on(ContentTranslationPage).column(column_type).attribute_value("dir").should == direction
+  on(ContentTranslationPage).column(column_type).attribute_value('dir').should == direction
 end
 
 Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |_page_title, _tag_name|
@@ -106,7 +106,7 @@ Then(/^the first version in the history of the page "(.+?)" should have the tag 
 end
 
 Then(/^the language code of the (.+) column should be "(.+)"$/) do |column_type, language_code|
-  on(ContentTranslationPage).column(column_type).attribute_value("lang").should == language_code
+  on(ContentTranslationPage).column(column_type).attribute_value('lang').should == language_code
 end
 
 Then(/^the page "(.+?)" is displayed$/) do |page_title|
@@ -122,7 +122,7 @@ Then(/^the "Publish Translation" button is enabled$/) do
 end
 
 Then(/^the source column text is not editable$/) do
-  on(ContentTranslationPage).content("source").attribute_value("contenteditable").should == nil
+  on(ContentTranslationPage).content('source').attribute_value('contenteditable').should == nil
 end
 
 Then(/^the text near the translation progress bar says "(.*?)"$/) do |text|
@@ -132,5 +132,5 @@ end
 Then(/^the translation progress bar is in (\d+%) state$/) do |width|
   # The .style method returns the computed value in px,
   # but we need the specified CSS value, so we chech it manually
-  on(ContentTranslationPage).progress_bar_element.attribute("style").should match(/width: #{width};/)
+  on(ContentTranslationPage).progress_bar_element.attribute('style').should match(/width: #{width};/)
 end
