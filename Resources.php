@@ -687,6 +687,7 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 	'dependencies' => array(
 		'mediawiki.ui.button',
 		'jquery.client',
+		'mediawiki.util',
 	),
 	'messages' => array(
 		'cx-campaign-newarticle-notice',
