@@ -2,7 +2,7 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
   language_code = {
     'Danish' => 'da',
     'English' => 'en',
-    'Hebrew' => 'he',
+    'Hebrew' => 'he'
   }
   visit(
     ContentTranslationPage,
