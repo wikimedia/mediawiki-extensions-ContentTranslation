@@ -1,5 +1,5 @@
-#ruby=ruby-2.1.1
-#ruby-gemset=ContentTranslation
+# ruby=ruby-2.1.1
+# ruby-gemset=ContentTranslation
 
 source 'https://rubygems.org'
 
