@@ -10,7 +10,8 @@
 class ApiContentTranslationConfiguration extends ApiBase {
 
 	public function execute() {
-		$contents = "{}";
+		$commonContent = "{}";
+		$configuration =  null;
 		$this->getMain()->setCacheMode( 'public' );
 		$this->getMain()->setCacheMaxAge( 2419200 );
 
@@ -20,12 +21,34 @@ class ApiContentTranslationConfiguration extends ApiBase {
 		if ( !Language::isValidBuiltInCode( $source ) || !Language::isValidBuiltInCode( $target )  ) {
 			$this->dieUsage( 'Invalid language', 'invalidlanguage' );
 		}
+		// Read common configuraiton
+		$commonFileName =  __DIR__ . "/../modules/source/conf/common.json";
+		if ( is_readable( $commonFileName ) ) {
+			$commonContent = file_get_contents( $commonFileName );
+		}
+		$commonConfiguration = json_decode( $commonContent, false );
+
+		// Read configuraiton for language pair
 		$filename = __DIR__ . "/../modules/source/conf/$source-$target.json";
 		if ( is_readable( $filename ) ) {
 			$contents = file_get_contents( $filename );
+			$configuration = json_decode( $contents, false );
 		}
-		// Output the file's contents raw
-		$this->getResult()->addValue( null, 'configuration', json_decode( $contents, false ) );
+
+		if ( !$configuration ) {
+			// No language specific configuration.
+			$configuration = $commonConfiguration;
+		} else {
+			// For now, we use only templates in configuration.
+			// If we have more keys in configuration, this must be
+			// a separate method to merge configurations
+			$configuration->templates = (object) array_merge(
+				(array) $commonConfiguration->templates,
+				(array) $configuration->templates
+			);
+		}
+
+		$this->getResult()->addValue( null, 'configuration', $configuration );
 	}
 
 	public function getAllowedParams() {

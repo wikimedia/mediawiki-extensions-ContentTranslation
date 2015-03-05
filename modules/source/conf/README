@@ -1,0 +1,11 @@
+Content Translation can selectively adapt the content elements of source article.
+Some parts like templates cannot be adapted easily.
+
+This directory contains configuration for language pairs to do this adaptation.
+In addition to them, there is a common.json, and the configuration given in
+that file is common for all language pairs. Language pair specific configuration
+can optionally override them.
+
+Currently configuration support white listing certain templates
+
+See https://www.mediawiki.org/wiki/Content_translation/Templates for more details.

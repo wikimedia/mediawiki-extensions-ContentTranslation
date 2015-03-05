@@ -1,0 +1,8 @@
+{
+	"templates": {
+		"Reflist": {
+			"targetname": "Reflist",
+			"editable": false
+		}
+	}
+}
