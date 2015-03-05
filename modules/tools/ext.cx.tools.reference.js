@@ -85,26 +85,57 @@
 	};
 
 	/**
+	 * Get the reference content for the given reference Id.
+	 * The content is taken from the reference list section , linked
+	 * by mw-data.body.id. See T88290
+	 * @param {string} referenceId The reference element Identifier.
+	 * @return {string} The HTML content of the reference.
+	 */
+	ReferenceCard.prototype.getReferenceContent = function ( referenceId ) {
+		var reference, referenceContentElement;
+
+		reference = this.getReferenceData( referenceId );
+		if ( !reference || !reference.body ) {
+			return null;
+		}
+		referenceContentElement = document.getElementById( reference.body.id );
+
+		return referenceContentElement && referenceContentElement.outerHTML;
+	};
+
+	/**
+	 * Add the reference list, usually at the end of translation
+	 */
+	ReferenceCard.prototype.addReferenceList = function () {
+		var $referenceList;
+
+		$referenceList = $( '[typeof*="mw:Extension/references"]' );
+
+		if ( $referenceList.length === 1 ) {
+			// Only one reference list - means the target reference list not added yet.
+			mw.hook( 'mw.cx.translation.add' ).fire( $referenceList.parent().attr( 'id' ), 'click' );
+		}
+	};
+	/**
 	 * Start presenting the reference card
 	 * @param {string} referenceId The reference element Identifier.
 	 * @param {string} language Language code of language where this reference exist.
 	 */
 	ReferenceCard.prototype.start = function ( referenceId, language ) {
-		var $sourceReference, $targetReference, reference;
+		var $sourceReference, $targetReference, referenceContent;
 
 		// Reference Ids are weird strings like "cite_ref-12-0", jquery fails to do look up with them
 		$sourceReference = $( document.getElementById( referenceId ) );
 		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
-		reference = this.getReferenceData( referenceId );
-
-		if ( !reference ) {
+		referenceContent = this.getReferenceContent( referenceId );
+		if ( !referenceContent ) {
 			this.stop();
 			return;
 		}
 		this.$card.find( '.card__reference-number' )
 			.text( $sourceReference.text() );
 		this.$card.find( '.card__reference-content' )
-			.html( reference.body.html );
+			.html( referenceContent );
 		if ( $targetReference.length ) {
 			this.$reference = $targetReference;
 			this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
@@ -217,6 +248,7 @@
 		$referenceContent.children().attr( 'data-mw', JSON.stringify( adaptedData ) );
 		mwData.body.html = $referenceContent.html();
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
+		this.addReferenceList();
 	};
 
 	function referenceClickHandler() {
@@ -256,7 +288,6 @@
 			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 			$section.attr( 'data-mw', JSON.stringify( $sourceSection.data( 'mw' ) ) );
 		}
-
 	}
 
 	mw.cx.tools.reference = ReferenceCard;

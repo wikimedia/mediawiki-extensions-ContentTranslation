@@ -317,6 +317,8 @@
 		mw.cx.getSourceSection( sourceSectionId ).removeClass( 'cx-highlight' );
 
 		// Fill in the preceding parent heading, if not yet filled
+		// TODO: This must be triggerd by 'mw.cx.translation.add' hook and not by
+		// a click to allow programmatically add sections and get consistent behavior
 		if (
 			$previousSection.is( '.placeholder' ) &&
 			ContentTranslationEditor.isParentHeading(
