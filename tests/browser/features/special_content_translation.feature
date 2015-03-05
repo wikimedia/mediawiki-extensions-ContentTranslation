@@ -12,7 +12,7 @@ Feature: Content translation special page
   These scenarios test the basic functionality of the Special:ContentTranslation page.
 
   Scenario: Anonymous user cannot use Content translation.
-    When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I am translating the page "Bratislava" from English to Danish
     Then I see the message "You must be logged in to translate in this page."
       And I don't see the source column
       And I don't see the translation column
@@ -21,7 +21,7 @@ Feature: Content translation special page
   @login
   Scenario: Logged in user viewing the special page for translation.
     Given I am logged in
-    When I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+    When I am translating the page "Bratislava" from English to Danish
     # This fails because we don't have proper loading from a local server yet
     # Then I see a source column with the text "Bratislava is the capital of Slovakia and the country's largest city."
       And the source column text is not editable
@@ -33,7 +33,7 @@ Feature: Content translation special page
       And I see a translation column with an empty editing area
       And the language code of the translation column should be "da"
       And the direction of the translation column is "ltr"
-      And I should see an input box pre-filled with the text "Bratislava" above the editing area in the second column
+      And I should see a box pre-filled with the text "Bratislava" above the second column
       And I see a language label saying "dansk" below the translation column's title
       And I see a translation tools column
       And I see a search box in the translation tools column
@@ -47,14 +47,14 @@ Feature: Content translation special page
   @login
   Scenario: Writing some translation text enables the "Publish Translation" button
     Given I am logged in
-      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+      And I am translating the page "Bratislava" from English to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
     Then the "Publish Translation" button is enabled
 
   @login
   Scenario: Deleting the translation text disables the "Publish Translation" button
     Given I am logged in
-      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+      And I am translating the page "Bratislava" from English to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
       And I empty the editing area in the translation column
     Then the "Publish Translation" button is disabled
@@ -62,7 +62,7 @@ Feature: Content translation special page
   @login
   Scenario: Writing some translation text and saving it
     Given I am logged in
-      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+      And I am translating the page "Bratislava" from English to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
       And I press the "Publish Translation" button
     Then I see a notification bubble that begins with the words "Page published at"
@@ -70,7 +70,7 @@ Feature: Content translation special page
   @login
   Scenario: Writing some translation text and saving it
     Given I am logged in
-      And I am on the content translation page in a wiki in English, translating the page "Bratislava" to Danish
+      And I am translating the page "Bratislava" from English to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
       And I press the "Publish Translation" button
       And I click the link in the notification bubble

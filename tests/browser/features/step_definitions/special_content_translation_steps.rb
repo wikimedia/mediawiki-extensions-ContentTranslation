@@ -1,4 +1,4 @@
-Given(/^I am on the content translation page in a wiki in (.+?), translating the page "(.+?)" to (.+?)$/) do |_source_language, page_name, target_language|
+Given(/^I am translating the page "(.+?)" from (.+?) to (.+?)$/) do |page, from, to|
   language_code = {
     'Danish' => 'da',
     'English' => 'en',
@@ -7,7 +7,7 @@ Given(/^I am on the content translation page in a wiki in (.+?), translating the
   visit(
     ContentTranslationPage,
     using_params: {
-      extra: "page=#{page_name}&lang=#{language_code[target_language]}"
+      extra: "page=#{page}&from=#{language_code[from]}&to=#{language_code[to]}"
     }
   )
 end
@@ -36,9 +36,9 @@ Then(/^I don't see the (.+?) column$/) do |column_type|
   on(ContentTranslationPage).column(column_type).should_not exist
 end
 
-Then(/^I see a "(.*?)" link that points to the page "(.*?)" on the same wiki$/) do |_link_name, page_title|
-  page_title_in_url = page_title.gsub(' ', '_')
-  on(ContentTranslationPage).view_page.attribute_value('href').should end_with(page_title_in_url)
+Then(/^I see a ".*?" link that points to the page "(.*?)" on the same wiki$/) do |page|
+  page_in_url = page.gsub(' ', '_')
+  on(ContentTranslationPage).view_page.attribute_value('href').should end_with(page_in_url)
 end
 
 Then(/^I see a "Publish Translation" button$/) do
@@ -49,11 +49,11 @@ Then(/^I see a "view page" link in the source column$/) do
   on(ContentTranslationPage).view_page.should be_visible
 end
 
-Then(/^I see a language label saying "(.*?)" below the (.+?) column's title$/) do |language_name, column_type|
-  on(ContentTranslationPage).language_label(column_type).text.should == language_name
+Then(/^I see a language label saying "(.*?)" below the (.+?) column's title$/) do |language, column|
+  on(ContentTranslationPage).language_label(column).text.should == language
 end
 
-Then(/^I should see an input box pre\-filled with the text "(.*?)" above the editing area in the second column$/) do |text|
+Then(/^I should see a box pre\-filled with the text "(.*?)" above the second column$/) do |text|
   on(ContentTranslationPage).title('translation').text.should == text
 end
 
@@ -101,7 +101,7 @@ Then(/^the direction of the (.+) column is "(.+)"$/) do |column_type, direction|
   on(ContentTranslationPage).column(column_type).attribute_value('dir').should == direction
 end
 
-Then(/^the first version in the history of the page "(.+?)" should have the tag "(.+?)"$/) do |_page_title, _tag_name|
+Then(/^the first version in the history of the page ".+?" should have the tag ".+?"$/) do
   visit(TranslatedPageHistory).contenttranslation_tag_element.should be_visible
 end
 
@@ -131,6 +131,7 @@ end
 
 Then(/^the translation progress bar is in (\d+%) state$/) do |width|
   # The .style method returns the computed value in px,
-  # but we need the specified CSS value, so we chech it manually
-  on(ContentTranslationPage).progress_bar_element.attribute('style').should match(/width: #{width};/)
+  # but we need the specified CSS value, so we check it manually
+  width_re = /width: #{width};/
+  on(ContentTranslationPage).progress_bar_element.attribute('style').should match(width_re)
 end
