@@ -54,4 +54,15 @@
 			return $( document.getElementById( 'cx' + id ) );
 		}
 	};
+
+	/**
+	 * Return array with duplicate items removed
+	 * @param {array} list List of strings, numbers or boolean
+	 * @return {array}
+	 */
+	mw.cx.unique = function ( list ) {
+		return $.grep( list, function ( v, k ) {
+			return $.inArray( v, list ) === k;
+		} );
+	};
 }( mediaWiki, jQuery ) );

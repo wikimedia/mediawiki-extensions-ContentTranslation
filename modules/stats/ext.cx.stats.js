@@ -27,17 +27,6 @@
 		} );
 	}
 
-	/**
-	 * Similar to array_unique in PHP.
-	 * @param {array} list List of strings
-	 * @return {array}
-	 */
-	function uniq( list ) {
-		return $.grep( list, function ( v, k ) {
-			return $.inArray( v, list ) === k;
-		} );
-	}
-
 	function jsonToTable( records, status, property ) {
 		var i, j, record, srcLen, trgLen,
 			table = [],
@@ -51,8 +40,8 @@
 		}
 
 		// remove duplicates
-		sourceLanguages = uniq( sourceLanguages ).sort();
-		targetLanguages = uniq( targetLanguages ).sort();
+		sourceLanguages = mw.cx.unique( sourceLanguages ).sort();
+		targetLanguages = mw.cx.unique( targetLanguages ).sort();
 		srcLen = sourceLanguages.length;
 		trgLen = targetLanguages.length;
 
