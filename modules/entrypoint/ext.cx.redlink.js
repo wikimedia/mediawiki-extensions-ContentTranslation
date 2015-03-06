@@ -121,14 +121,7 @@
 			return;
 		}
 
-		dependencies = [ 'ext.cx.entrypoint' ];
-		if ( !( suggestedTargetLanguages.length === 1 &&
-			suggestedTargetLanguages[ 0 ] === mw.config.get( 'wgUserLanguage' )
-		) ) {
-			// Optimization: load jquery.uls.data
-			// only if we need more than the autonym of the user language
-			dependencies.push( 'jquery.uls.data' );
-		}
+		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];
 
 		mw.loader.using( dependencies, function () {
 			var cxEntryPointDialogLeft,
