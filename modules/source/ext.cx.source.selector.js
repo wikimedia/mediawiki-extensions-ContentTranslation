@@ -228,6 +228,11 @@
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
 			},
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+					return cxSourceSelector.targetLanguages.indexOf( n ) !== -1;
+				} );
+			},
 			compact: true
 		} );
 	};
@@ -807,6 +812,11 @@
 			},
 			onReady: function () {
 				this.$menu.addClass( 'cx-sourceselector-uls-source' );
+			},
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+					return cxSourceSelector.sourceLanguages.indexOf( n ) !== -1;
+				} );
 			},
 			compact: true
 		} );
