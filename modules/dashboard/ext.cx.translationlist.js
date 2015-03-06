@@ -67,11 +67,11 @@
 		sourceLanguages = $.map( translations, function ( e ) {
 			return e.sourceLanguage;
 		} );
-		this.populateLanguageFilter( this.$sourceLanguageFilter, unique( sourceLanguages ) );
+		this.populateLanguageFilter( this.$sourceLanguageFilter, mw.cx.unique( sourceLanguages ) );
 		targetLanguages = $.map( translations, function ( e ) {
 			return e.targetLanguage;
 		} );
-		this.populateLanguageFilter( this.$targetLanguageFilter, unique( targetLanguages ) );
+		this.populateLanguageFilter( this.$targetLanguageFilter, mw.cx.unique( targetLanguages ) );
 	};
 
 	/**
@@ -466,12 +466,6 @@
 		}
 
 		return $select;
-	}
-
-	function unique( array ) {
-		return $.grep( array, function ( el, index ) {
-			return index === $.inArray( el, array );
-		} );
 	}
 
 	$.fn.cxTranslationList = function ( siteMapper ) {

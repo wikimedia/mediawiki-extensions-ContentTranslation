@@ -599,8 +599,9 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 	),
 	'dependencies' => array(
 		'moment',
-		'jquery.uls.data',
 		'ext.cx.progressbar',
+		'ext.cx.util',
+		'jquery.uls.data',
 	),
 	'messages' => array(
 		'cx-translation-filter-all-translations',
@@ -650,6 +651,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 	),
 	'dependencies' => array(
 		'ext.cx.sitemapper',
+		'ext.cx.util',
 	),
 	'messages' => array(
 		'cx-stats-table-source-target',
