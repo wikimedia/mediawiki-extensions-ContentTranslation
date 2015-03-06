@@ -114,6 +114,7 @@
 		var cxTranslation = this;
 
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
+		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.addSectionHeader, this ) );
 		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
@@ -278,7 +279,7 @@
 	 * @param {string} tagName
 	 * @return {boolean}
 	 */
-	ContentTranslationEditor.isHeading = function ( tagName ) {
+	ContentTranslationEditor.prototype.isHeading = function ( tagName ) {
 		return /^H[1-6]$/i.test( tagName );
 	};
 
@@ -290,14 +291,14 @@
 	 * @param {string} current tagName
 	 * @return {boolean}
 	 */
-	ContentTranslationEditor.isParentHeading = function ( preceding, current ) {
+	ContentTranslationEditor.prototype.isParentHeading = function ( preceding, current ) {
 		// Any header goes if this is a non-heading
-		if ( !ContentTranslationEditor.isHeading( current ) ) {
-			return ContentTranslationEditor.isHeading( preceding );
+		if ( !this.isHeading( current ) ) {
+			return this.isHeading( preceding );
 		}
 
 		// Both are headings, check that the previous one is bigger
-		if ( ContentTranslationEditor.isHeading( preceding ) ) {
+		if ( this.isHeading( preceding ) ) {
 			return preceding < current;
 		}
 
@@ -305,30 +306,34 @@
 		return false;
 	};
 
-	function sectionClick() {
-		/*jshint validthis:true */
-		var sourceSectionId, $currentSection, $previousSection;
+	/**
+	 * Fill in the preceding parent heading, if not yet filled
+	 * @param {string} sectionId Source section Id
+	 */
+	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId ) {
+		var $currentSection, $previousSection;
 
-		$currentSection = $( this );
+		$currentSection = mw.cx.getTranslationSection( sectionId );
 		$previousSection = $currentSection.prev();
-		sourceSectionId = $currentSection.data( 'source' );
-
-		// The equivalent section in source column
-		mw.cx.getSourceSection( sourceSectionId ).removeClass( 'cx-highlight' );
-
-		// Fill in the preceding parent heading, if not yet filled
-		// TODO: This must be triggerd by 'mw.cx.translation.add' hook and not by
-		// a click to allow programmatically add sections and get consistent behavior
 		if (
 			$previousSection.is( '.placeholder' ) &&
-			ContentTranslationEditor.isParentHeading(
+			this.isParentHeading(
 				$previousSection.data( 'cx-section-type' ),
 				$currentSection.data( 'cx-section-type' )
 			)
 		) {
 			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), 'click' );
 		}
+	};
 
+	function sectionClick() {
+		var sourceSectionId,
+			/*jshint validthis:true */
+			$currentSection = $( this );
+
+		sourceSectionId = $currentSection.data( 'source' );
+		// The equivalent section in source column
+		mw.cx.getSourceSection( sourceSectionId ).removeClass( 'cx-highlight' );
 		mw.hook( 'mw.cx.translation.add' ).fire( sourceSectionId, 'click' );
 	}
 
