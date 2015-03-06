@@ -46,13 +46,7 @@
 
 		$.get( languagePairsAPIUrl )
 			.done( function ( response ) {
-				var sourceLanguage;
-
-				// For now, only consider the current content language as the source language.
-				// In the future we may allow translating from other languages.
-				sourceLanguage = mw.config.get( 'wgContentLanguage' );
-
-				deferred.resolve( response[ sourceLanguage ] || [] );
+				deferred.resolve( response.target || [] );
 			} )
 			.fail( function ( response ) {
 				mw.log(
