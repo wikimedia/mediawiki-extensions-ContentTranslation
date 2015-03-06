@@ -58,7 +58,7 @@
 		sectionTagName = $section.prop( 'tagName' );
 
 		if ( sectionTagName === 'TABLE' ) {
-			// 'min-height' is undefined for table elements
+			keepTableAlignment( $sourceSection, $section );
 			return this;
 		}
 
@@ -102,6 +102,29 @@
 
 		return this;
 	};
+
+	/**
+	 * Tables does not have a min-height css property defined. We use
+	 * margin-bottom to keep the heights in sync
+	 * @param {jQuery} @sourceTable
+	 * @param {jQuery} @targetTable
+	 */
+	function keepTableAlignment( $sourceTable, $targetTable ) {
+		var sourceHeight, heightDiff, targetHeight;
+
+		sourceHeight = $sourceTable.outerHeight();
+		targetHeight = $targetTable.outerHeight();
+
+		if ( targetHeight > sourceHeight ) {
+			// 10 is just a margin we add to avoid 0 margin-bottom for table.
+			heightDiff = targetHeight - sourceHeight;
+			$sourceTable.css( 'margin-bottom', heightDiff + 10 );
+			$targetTable.css( 'margin-bottom', 10 );
+		} else {
+			$targetTable.css( 'margin-bottom', heightDiff + 10 );
+			$sourceTable.css( 'margin-bottom', 10 );
+		}
+	}
 
 	$( function () {
 		// Window resize handler.
