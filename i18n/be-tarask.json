@@ -92,7 +92,7 @@
 	"cx-translation-filter-to-any-language": "На любую мову",
 	"cx-create-new-translation": "Стварыць новы пераклад",
 	"cx-create-new-translation-desc": "Стварайце старонкі для тэмаў, якія не існуюць на Вашай мове. З дапамогай нашых прыладаў перакладу гэта проста. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Даведацца болей]",
-	"apihelp-cxpublish-description": "Захаваньне старонкі, створанай з дапамогай пашырэньня content translation.",
+	"apihelp-cxpublish-description": "Захаваньне старонкі, створанай з дапамогай пашырэньня перакладу зьместу.",
 	"apihelp-cxpublish-param-title": "Назва старонкі, на якой будуць выкананыя дзеяньні.",
 	"apihelp-cxpublish-param-html": "Зьмест для захаваньня.",
 	"apihelp-cxpublish-param-from": "Код крынічнай мовы.",

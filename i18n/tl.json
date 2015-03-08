@@ -4,8 +4,12 @@
 			"Leeheonjin"
 		]
 	},
+	"tag-contenttranslation-description": "Isinalin ang nilalaman mula sa ibang wika gamit ang kagamitan Pangsalinwika ng Nilalaman.",
+	"cx-beta": "Nilalamang Salinwika",
 	"cx-stats-table-source-total": "Kabuuan (Pinagmulan)",
 	"cx-stats-published-translators-title": "Bilang ng mga tagapag-salinwika",
 	"cx-draft-cancel-button-label": "Huwag ipagpatuloy",
-	"cx-draft-discard-button-label": "Burahin ang pag-salinwika"
+	"cx-draft-discard-button-label": "Burahin ang pag-salinwika",
+	"cx-campaign-no-thanks": "Hindi, salamat.",
+	"cx-campaign-try": "Subukan ang Nilalamang Wika"
 }

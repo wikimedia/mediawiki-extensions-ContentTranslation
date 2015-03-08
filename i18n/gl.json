@@ -11,7 +11,7 @@
 	},
 	"cx": "Traducir a páxina",
 	"cx-error-server-connection": "Erro: Non se puido conectar có servidor",
-	"cx-desc": "Unha ferramenta que permite aos editores traducir páxinas dunha lingua a outra coa axuda dun tradutor automático e outras ferramentas",
+	"cx-desc": "Facilita a tradución de páxinas de contido",
 	"cx-header-progressbar-text": "$1% traducido",
 	"cx-header-translation-center": "Centro de tradución",
 	"cx-header-new-translation": "Nova tradución",

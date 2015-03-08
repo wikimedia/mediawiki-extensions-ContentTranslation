@@ -65,6 +65,7 @@ $specialPageAliases['ko'] = array(
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'ContentTranslation' => array( 'Iwwersetzung_vum_Inhalt' ),
+	'ContentTranslationStats' => array( 'Statistiken_iwwer_d\'Iwwersetze_vun_Inhalter' ),
 );
 
 /** Malagasy (Malagasy) */
