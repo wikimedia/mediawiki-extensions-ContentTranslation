@@ -388,7 +388,7 @@
 
 		// Short circuit empty titles
 		if ( title === '' ) {
-			return $.Deferred().reject().promise();
+			return $.Deferred().resolve( false ).promise();
 		}
 
 		// Reject titles with pipe in the name, as it has special meaning in the api
