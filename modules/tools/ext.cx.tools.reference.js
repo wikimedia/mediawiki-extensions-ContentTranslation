@@ -86,9 +86,10 @@
 
 	/**
 	 * Get the reference content for the given reference Id.
-	 * The content is taken from the reference list section , linked
-	 * by mw-data.body.id. See T88290 and
-	 * https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
+	 * The content is taken from the reference list section,
+	 * linked by mw-data.body.id.
+	 * See https://phabricator.wikimedia.org/T88290
+	 * and https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
 	 * @param {string} referenceId The reference element Identifier.
 	 * @return {string} The HTML content of the reference.
 	 */
@@ -103,6 +104,7 @@
 		if ( reference.body.html ) {
 			return reference.body.html;
 		}
+
 		referenceContentElement = document.getElementById( reference.body.id );
 
 		return referenceContentElement && referenceContentElement.outerHTML;
