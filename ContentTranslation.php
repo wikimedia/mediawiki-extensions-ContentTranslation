@@ -146,6 +146,14 @@ $GLOBALS['wgContentTranslationTargetNamespace'] = 'Main';
 // List of campaigns enabled. Available campaigns: 'newarticle'
 $GLOBALS['wgContentTranslationCampaigns'] = array();
 
+/*
+ * Whether the Magnus tool to find missing articles to be enabled or not.
+ * This is initially made to experiment with an article comparison tool at
+ * http://tools.wmflabs.org/not-in-the-other-language/
+ * See https://phabricator.wikimedia.org/T76843
+ */
+$GLOBALS['wgContentTranslationUseMagnusTool'] = true;
+
 // List of browsers Content Translation is incompatibe with
 // See jQuery.client for specification
 $GLOBALS['wgContentTranslationBrowserBlacklist'] = array(

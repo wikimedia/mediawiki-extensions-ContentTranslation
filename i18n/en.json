@@ -138,6 +138,7 @@
 	"cx-translation-status-draft": "In progress",
 	"cx-translation-status-published": "Published",
 	"cx-translation-status-deleted": "Deleted",
+	"cx-magnus-tool-link-text": "Find articles missing in your language",
 	"apihelp-cxdelete-description": "Delete a draft translation created using the Content Translation extension.",
 	"apihelp-cxdelete-param-from": "The source language code.",
 	"apihelp-cxdelete-param-to": "The target language code.",

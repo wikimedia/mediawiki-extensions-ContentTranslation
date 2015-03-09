@@ -28,6 +28,7 @@
 		this.render();
 		this.initComponents();
 		this.listen();
+		mw.hook( 'mw.cx.dashboard.ready' ).fire();
 	};
 
 	/**
@@ -43,6 +44,7 @@
 
 		this.$header = $( '<div>' ).addClass( 'cx-widget__header' );
 		$newTranslationContainer = $( '<div>' ).addClass( 'cx-cta' );
+
 		this.$translationList = $( '<div>' ).addClass( 'cx-translationlist' );
 		$content = $( '<div>' ).addClass( 'cx-widget' )
 			.append( this.$header, $newTranslationContainer, this.$translationList );
@@ -56,6 +58,7 @@
 			.html( mw.message( 'cx-create-new-translation-desc' ).parse() );
 
 		$newTranslationContainer.append( this.$newTranslationButton, $newTranslationDesc );
+
 		this.$container.cxFeedback();
 	};
 

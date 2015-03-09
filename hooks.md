@@ -147,3 +147,7 @@ Fired to request saving a translation as a draft.
 ## mw.cx.translation.saved
 
 Fired after a translation was successfully saved as a draft.
+
+# mw.cx.dashboard.ready
+
+Fired when the Content Translation dashboard is ready.

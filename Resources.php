@@ -93,10 +93,23 @@ $wgResourceModules['ext.cx.dashboard'] = array(
 		'ext.cx.source.selector',
 		'ext.cx.feedback',
 		'mediawiki.ui.button',
+		'mediawiki.Uri',
 	),
 	'messages' => array(
 		'cx-create-new-translation',
 		'cx-create-new-translation-desc',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.magnuslink'] = array(
+	'scripts' => array(
+		'dashboard/ext.cx.magnuslink.js',
+	),
+	'styles' => array(
+		'dashboard/styles/ext.cx.magnuslink.less',
+	),
+	'messages' => array(
+		'cx-magnus-tool-link-text',
 	),
 ) + $resourcePaths;
 
