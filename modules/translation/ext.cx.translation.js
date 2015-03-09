@@ -35,6 +35,7 @@
 			// No need to proceed.
 			return;
 		}
+
 		title = mw.Title.newFromText( mw.cx.targetTitle );
 
 		if ( title ) {
@@ -46,7 +47,7 @@
 	};
 
 	ContentTranslationEditor.prototype.render = function () {
-		var $content, $heading, $languageLabel, $subHeading;
+		var $heading, $languageLabel, $subHeading, $content;
 
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
@@ -97,12 +98,13 @@
 		/*jshint validthis:true */
 		$container = $( this );
 		selection = mw.cx.selection.get();
+
 		if ( selection ) {
 			anchorNode = selection.anchorNode;
 			focusNode = selection.focusNode;
 
-			// Make sure the entire selection is inside the container
-			// Only save the selection if it is
+			// Make sure the entire selection is inside the container.
+			// Only save the selection if it is.
 			if ( $.contains( $container[ 0 ], anchorNode ) &&
 				$.contains( $container[ 0 ], focusNode ) ) {
 				mw.cx.selection.save( 'translation', selection );
@@ -116,6 +118,7 @@
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.addSectionHeader, this ) );
 		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
+
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,
@@ -141,6 +144,7 @@
 		this.$container.on( 'mouseenter mouseleave', '.cx-segment', function () {
 			var $segment = $( this ),
 				segmentId = $segment.data( 'segmentid' );
+
 			$( '[data-segmentid="' + segmentId + '"]' ).toggleClass( 'cx-highlight' );
 		} );
 
@@ -162,30 +166,35 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var selection, $sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
+		var selection,
+			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 
 		mw.hook( 'mw.cx.translation.change' ).fire( $section );
 		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
+
 		// Translation filled up. Unbind click handler for the source section.
 		$sourceSection.unbind( 'click', sourceSectionClickHandler );
-		// And now onwards clicking on source section has same effect of clicking
-		// on target section.
+
+		// From now on, clicking on the source section
+		// has the same effect as clicking the target section
 		$sourceSection.on( 'click', function () {
 			mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 		} );
+
 		// If the section is editable, initiate an editor.
-		// Otherwise make it non-editable. Example: templates
+		// Otherwise make it non-editable. Example: templates.
 		if ( $sourceSection.data( 'editable' ) === false ) {
 			$section.removeAttr( 'contenteditable' );
 		} else {
 			$section.cxEditor();
 		}
 
-		// Set the focus on the new section
-		// Rely on browser behavior for setting cursor position
-		// Will generally go to beginning of section
+		// Set the focus on the new section.
+		// Rely on browser behavior for setting the cursor position.
+		// Will generally go to the beginning of the section.
 		$section[ 0 ].focus();
-		// Capture and save the new selection/cursor position
+
+		// Capture and save the new selection and cursor position
 		selection = mw.cx.selection.get();
 		mw.cx.selection.save( 'translation', selection );
 
@@ -197,7 +206,11 @@
 			if ( selection.trim() ) {
 				// In this case, user is interested in targetLanguage->targetLanguage
 				// dictionary lookup. Or synonyms.
-				mw.hook( 'mw.cx.select.word' ).fire( selection, mw.cx.targetLanguage, mw.cx.targetLanguage );
+				mw.hook( 'mw.cx.select.word' ).fire(
+					selection,
+					mw.cx.targetLanguage,
+					mw.cx.targetLanguage
+				);
 			}
 		} ) );
 
@@ -309,6 +322,7 @@
 
 		$currentSection = mw.cx.getTranslationSection( sectionId );
 		$previousSection = $currentSection.prev();
+
 		if (
 			$previousSection.is( '.placeholder' ) &&
 			this.isParentHeading(

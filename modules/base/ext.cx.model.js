@@ -28,5 +28,4 @@
 	// Default sitemapper. Only use this if you cannot get access to a sitemapper
 	// in other way. Do not confuse mw.cx.SiteMapper which is the module.
 	mw.cx.siteMapper = null;
-
 }( jQuery, mediaWiki ) );
