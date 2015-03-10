@@ -161,6 +161,7 @@
 	 * @param {string} language A language code
 	 * @param {jQuery} $element The element on which to set the label
 	 * @param {string} localStorageItem The localStorage item name that will be set to the language
+	 *     if localStorage is available.
 	 */
 	CXSourceSelector.prototype.setLanguage = function ( language, $element, localStorageItem ) {
 		$element
