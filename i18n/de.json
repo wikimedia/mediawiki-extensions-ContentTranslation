@@ -133,7 +133,7 @@
 	"cx-stats-published-translations-title": "Veröffentlichte Übersetzungen",
 	"cx-stats-draft-translations-title": "Übersetzungen in Vorbereitung",
 	"cx-stats-published-translators-title": "Anzahl der Übersetzer",
-	"cx-draft-discard-confirmaton-message": "Bist du dir sicher, dass du diese Übersetzung dauerhaft löschen möchtest?",
+	"cx-draft-discard-confirmation-message": "Bist du dir sicher, dass du diese Übersetzung dauerhaft löschen möchtest?",
 	"cx-draft-cancel-button-label": "Abbrechen",
 	"cx-draft-discard-button-label": "Übersetzung löschen",
 	"cx-beta-feature-enabled-notification": "Die Inhaltsübersetzung wurde in diesem Wiki aktiviert.",

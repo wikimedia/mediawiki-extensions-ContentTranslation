@@ -107,7 +107,7 @@
 	"cx-stats-published-translations-title": "Bản dịch đã xuất bản",
 	"cx-stats-draft-translations-title": "Bản dịch đang tiến hành",
 	"cx-stats-published-translators-title": "Số biên dịch viên",
-	"cx-draft-discard-confirmaton-message": "Bạn có chắc chắn muốn xóa luôn bản dịch này?",
+	"cx-draft-discard-confirmation-message": "Bạn có chắc chắn muốn xóa luôn bản dịch này?",
 	"cx-draft-cancel-button-label": "Hủy bỏ",
 	"cx-draft-discard-button-label": "Xóa bản dịch",
 	"cx-beta-feature-enabled-notification": "Biên dịch nội dung được kích hoạt trên wiki này.",

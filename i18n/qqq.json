@@ -158,7 +158,7 @@
 	"cx-stats-published-translations-title": "Section title for published translation stats",
 	"cx-stats-draft-translations-title": "Section title for translations in draft(in progress) state stats",
 	"cx-stats-published-translators-title": "Section title for stats about number of translators who published articles across languages",
-	"cx-draft-discard-confirmaton-message": "Confirmation message when user attempts to delete a translation on the dashboard.\n\nYou can use <nowiki>{{GENDER:|you}}</nowiki>.",
+	"cx-draft-discard-confirmation-message": "Confirmation message when user attempts to delete a translation on the dashboard.\n\nYou can use <nowiki>{{GENDER:|you}}</nowiki>.",
 	"cx-draft-cancel-button-label": "Cancel button label\n{{Identical|Cancel}}",
 	"cx-draft-discard-button-label": "Label for delete button",
 	"cx-beta-feature-enabled-notification": "Notification shown when Content Translation enabled for a user. This is a tooltip text shown next to the beta feature link in the page.",

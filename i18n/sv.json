@@ -136,7 +136,7 @@
 	"cx-stats-published-translations-title": "Publicerade översättningar",
 	"cx-stats-draft-translations-title": "Pågående översättningar",
 	"cx-stats-published-translators-title": "Antal översättare",
-	"cx-draft-discard-confirmaton-message": "Är du säker på att du vill ta bort denna översättning permanent?",
+	"cx-draft-discard-confirmation-message": "Är du säker på att du vill ta bort denna översättning permanent?",
 	"cx-draft-cancel-button-label": "Avbryt",
 	"cx-draft-discard-button-label": "Radera översättning",
 	"cx-campaign-no-thanks": "Nej tack"

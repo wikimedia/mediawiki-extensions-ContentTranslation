@@ -153,7 +153,7 @@
 	"cx-stats-published-translations-title": "תרגומים שפורסמו",
 	"cx-stats-draft-translations-title": "תרגום בתהליך עבודה",
 	"cx-stats-published-translators-title": "מספר המתרגמים",
-	"cx-draft-discard-confirmaton-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
+	"cx-draft-discard-confirmation-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",

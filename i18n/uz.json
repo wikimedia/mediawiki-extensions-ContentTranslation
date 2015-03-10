@@ -100,7 +100,7 @@
 	"cx-stats-published-translations-title": "Chop etilgan tarjimalar",
 	"cx-stats-draft-translations-title": "Tarjima qilish jarayonida",
 	"cx-stats-published-translators-title": "Tarjimonlar soni",
-	"cx-draft-discard-confirmaton-message": "Ushbu tarjimani butunlay o‘chirmoqchi ekanligingizga aminmisiz?",
+	"cx-draft-discard-confirmation-message": "Ushbu tarjimani butunlay o‘chirmoqchi ekanligingizga aminmisiz?",
 	"cx-draft-cancel-button-label": "Bekor qilish",
 	"cx-draft-discard-button-label": "Tarjimani o‘chirish",
 	"cx-beta-feature-enabled-notification": ""

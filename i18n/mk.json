@@ -147,7 +147,7 @@
 	"cx-stats-published-translations-title": "Објавени преводи",
 	"cx-stats-draft-translations-title": "Преводи во тек",
 	"cx-stats-published-translators-title": "Број на преведувачи",
-	"cx-draft-discard-confirmaton-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
+	"cx-draft-discard-confirmation-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Избриши го преводот",
 	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики.",
