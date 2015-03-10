@@ -222,8 +222,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			);
 			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetTitle );
 		}
-
-		$translation = new ContentTranslation\Translation( array(
+		$translation = array(
 			'sourceTitle' => $params['sourcetitle'],
 			'targetTitle' => $params['title'],
 			'sourceLanguage' => $params['from'],
@@ -231,15 +230,19 @@ class ApiContentTranslationPublish extends ApiBase {
 			'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
 				$params['from'], $params['sourcetitle']
 			),
-			'targetURL' => $targetURL,
 			'status' => $params['status'],
 			'progress' => $params['progress'],
-			// XXX Do not overwrite startedTranslator when we have "draft save" feature.
+			// XXX Do not overwrite startedTranslator when we have collaborative editing!
 			'startedTranslator' => $translator->getGlobalUserId(),
 			'lastUpdatedTranslator' => $translator->getGlobalUserId(),
-		) );
-		$translation->save();
-		$translationId = $translation->getTranslationId();
+		);
+		// Save targetURL only when the status is published.
+		if ( $params['status'] === 'published' ) {
+			$translation['targetURL'] = $targetURL;
+		};
+		$cxtranslation = new ContentTranslation\Translation( $translation );
+		$cxtranslation->save();
+		$translationId = $cxtranslation->getTranslationId();
 		$translator->addTranslation(  $translationId );
 		if ( $params['status'] === 'draft' ) {
 			// Save the draft

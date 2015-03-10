@@ -9,7 +9,7 @@ class Translation {
 		$this->translation = $translation;
 	}
 
-	public function save() {
+	public function create() {
 		$dbw = Database::getConnection( DB_MASTER );
 		$values = array(
 			'translation_source_title' => $this->translation['sourceTitle'],
@@ -17,25 +17,59 @@ class Translation {
 			'translation_source_language' => $this->translation['sourceLanguage'],
 			'translation_target_language' => $this->translation['targetLanguage'],
 			'translation_source_url' => $this->translation['sourceURL'],
-			'translation_target_url' => $this->translation['targetURL'],
 			'translation_status' => $this->translation['status'],
-			// XXX do not overwrite when we have "draft save" feature.
-			'translation_start_timestamp' => $dbw->timestamp(),
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $this->translation['progress'],
-			'translation_started_by' => $this->translation['startedTranslator'],
 			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
 		);
-		$dbw->upsert(
+		$values['translation_start_timestamp'] = $dbw->timestamp();
+		$values['translation_started_by'] = $this->translation['startedTranslator'];
+		if ( $this->translation['status'] === 'published' ) {
+			$values['translation_target_url'] = $this->translation['targetURL'];
+		}
+		$dbw->insert(
 			'cx_translations',
-			$values,
-			array( 'translation_id' ),
 			$values,
 			__METHOD__
 		);
+		$this->translation['id'] = $dbw->insertId();
+	}
 
-		if ( !isset( $this->translation['id'] ) ) {
-			$this->translation['id'] = $dbw->insertId();
+	public function update() {
+		$dbw = Database::getConnection( DB_MASTER );
+		$values = array(
+			'translation_source_title' => $this->translation['sourceTitle'],
+			'translation_target_title' => $this->translation['targetTitle'],
+			'translation_source_language' => $this->translation['sourceLanguage'],
+			'translation_target_language' => $this->translation['targetLanguage'],
+			'translation_source_url' => $this->translation['sourceURL'],
+			'translation_status' => $this->translation['status'],
+			'translation_last_updated_timestamp' => $dbw->timestamp(),
+			'translation_progress' => $this->translation['progress'],
+			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
+		);
+		if ( $this->translation['status'] === 'published' ) {
+			$values['translation_target_url'] = $this->translation['targetURL'];
+		}
+		$dbw->update(
+			'cx_translations',
+			$values,
+			array( 'translation_id' => $this->translation['id'] ),
+			__METHOD__
+		);
+	}
+
+	public function save() {
+		$existingTranslation = Translation::find(
+			$this->translation['sourceLanguage'],
+			$this->translation['targetLanguage'],
+			$this->translation['sourceTitle']
+		);
+		if ( $existingTranslation === null ) {
+			$this->create();
+		} else {
+			$this->translation['id'] = $existingTranslation->getTranslationId();
+			$this->update();
 		}
 	}
 
@@ -187,8 +221,8 @@ class Translation {
 			'progress' => $row->translation_progress,
 			'startedTranslator' => $row->translation_started_by,
 			'lastUpdatedTranslator' => $row->translation_last_update_by,
-			'draftContent' =>  isset( $row->draft_content ) ? $row->draft_content: null,
-			'draftTimestamp' =>  isset( $row->draft_timestamp ) ? $row->draft_timestamp: null,
+			'draftContent' => isset( $row->draft_content ) ? $row->draft_content: null,
+			'draftTimestamp' => isset( $row->draft_timestamp ) ? $row->draft_timestamp: null,
 		) );
 
 		return $translation;
