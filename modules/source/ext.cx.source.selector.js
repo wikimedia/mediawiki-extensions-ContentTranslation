@@ -173,6 +173,8 @@
 		if ( window.localStorage ) {
 			localStorage.setItem( localStorageItem, language );
 		}
+
+		this.updatePreviousLanguages( language );
 	};
 
 	/**
@@ -920,6 +922,21 @@
 		$( 'body' ).append( this.$dialog );
 
 		this.prefill();
+	};
+
+	/**
+	 * Update the ULS previous language setting.
+	 * @param {string} language A language code
+	 */
+	CXSourceSelector.prototype.updatePreviousLanguages = function ( language ) {
+		var previousLanguages = mw.uls.getPreviousLanguages();
+
+		if ( $.inArray( language, previousLanguages ) > -1 ) {
+			return;
+		}
+
+		previousLanguages.push( language );
+		mw.uls.setPreviousLanguages( previousLanguages );
 	};
 
 	/**
