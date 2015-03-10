@@ -28,7 +28,7 @@ class SpecialContentTranslation extends SpecialPage {
 	public function enableCXBetaFeature() {
 		$user = $this->getUser();
 		$out = $this->getOutput();
-		$user->setOption( 'cx', 1 );
+		$user->setOption( 'cx', '1' );
 		$user->saveSettings();
 		$out->addModules( 'ext.cx.beta.notification' );
 	}
