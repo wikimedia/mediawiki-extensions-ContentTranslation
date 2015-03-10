@@ -157,6 +157,25 @@
 	};
 
 	/**
+	 * Sets the source or the target language.
+	 * @param {string} language A language code
+	 * @param {jQuery} $element The element on which to set the label
+	 * @param {string} localStorageItem The localStorage item name that will be set to the language
+	 */
+	CXSourceSelector.prototype.setLanguage = function ( language, $element, localStorageItem ) {
+		$element
+			.prop( {
+				lang: language,
+				dir: $.uls.data.getDir( language )
+			} )
+			.text( $.uls.data.getAutonym( language ) );
+
+		if ( window.localStorage ) {
+			localStorage.setItem( localStorageItem, language );
+		}
+	};
+
+	/**
 	 * Get the current source language code.
 	 * @return {string} Language code. Empty string if not set.
 	 */
@@ -169,16 +188,7 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
-		this.$sourceLanguage
-			.prop( {
-				lang: language,
-				dir: $.uls.data.getDir( language )
-			} )
-			.text( $.uls.data.getAutonym( language ) );
-
-		if ( window.localStorage ) {
-			localStorage.setItem( 'cxSourceLanguage', language );
-		}
+		this.setLanguage( language, this.$sourceLanguage, 'cxSourceLanguage' );
 	};
 
 	/**
@@ -194,16 +204,7 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setTargetLanguage = function ( language ) {
-		this.$targetLanguage
-			.prop( {
-				lang: language,
-				dir: $.uls.data.getDir( language )
-			} )
-			.text( $.uls.data.getAutonym( language ) );
-
-		if ( window.localStorage ) {
-			localStorage.setItem( 'cxTargetLanguage', language );
-		}
+		this.setLanguage( language, this.$targetLanguage, 'cxTargetLanguage' );
 	};
 
 	/**
