@@ -320,7 +320,7 @@
 	};
 
 	/**
-	 * Show the confirmaton dialog for discarding a translaton.
+	 * Show the confirmation dialog for discarding a translation.
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.showDiscardConfirmation = function () {
@@ -352,7 +352,7 @@
 				.append( $discardButton, $cancelButton );
 			$message = $( '<div>' )
 				.addClass( 'cx-draft-discard-dialog__message' )
-				.text( mw.msg( 'cx-draft-discard-confirmaton-message' ) );
+				.text( mw.msg( 'cx-draft-discard-confirmation-message' ) );
 			$( 'body' ).append( this.$confirmationDialog.append( $message, $actions ) );
 		}
 
