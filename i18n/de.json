@@ -107,6 +107,8 @@
 	"apihelp-query+contenttranslation-param-translationid": "Übersetzungskennung.",
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
+	"apihelp-cxconfiguration-param-from": "Der Quell-Sprachcode.",
+	"apihelp-cxconfiguration-param-to": "Der Ziel-Sprachcode.",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
