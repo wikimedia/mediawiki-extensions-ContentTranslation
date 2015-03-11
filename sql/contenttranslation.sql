@@ -21,7 +21,7 @@ CREATE TABLE /*_*/cx_translations (
     -- source of the page as full canonical url -- https://www.mediawiki.org/wiki/Help:CxIsPage
     translation_source_url text binary not null,
     -- link to the draft/published target
-    translation_target_url text binary not null,
+    translation_target_url text binary default null,
     -- Status of translation - Draft or published status.
     -- There is no final status. A published translation can be draft again to update again
     translation_status enum('draft', 'published') default null,
