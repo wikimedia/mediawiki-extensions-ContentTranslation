@@ -98,8 +98,9 @@ class Translation {
 
 	public static function delete( $translationId ) {
 		$dbw = Database::getConnection( DB_MASTER );
-		$dbw->delete(
+		$dbw->update(
 			'cx_translations',
+			array( 'translation_status' => 'deleted' ),
 			array( 'translation_id' => $translationId ),
 			__METHOD__
 		);
