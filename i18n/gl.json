@@ -10,6 +10,7 @@
 		]
 	},
 	"cx": "Traducir a páxina",
+	"cx-javascript": "Esta ferramenta non funciona sen JavaScript.",
 	"cx-error-server-connection": "Erro: Non se puido conectar có servidor",
 	"cx-desc": "Facilita a tradución de páxinas de contido",
 	"cx-header-progressbar-text": "$1% traducido",
@@ -23,10 +24,12 @@
 	"cx-publish-button-publishing": "Publicando...",
 	"cx-publish-summary": "Creada como tradución da páxina \"$1\"",
 	"cx-publish-gt-move-page-title": "Mover esta páxina",
+	"cx-translation-add-translation": "+ Engadir tradución",
 	"tag-contenttranslation": "Tradución de contido",
 	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta Content Translation",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á túa lingua. Comeza as traducións dende [[Special:MyContributions|your contributions page]], e edítaas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles só en certas linguas.",
+	"cx-entrypoint-dialog-button-translate-from": "Traducir do $1",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
 	"cx-tools-instructions-text1": "{{GENDER:|Engada}} parágrafos á tradución",
 	"cx-tools-instructions-text2": "{{GENDER:|Non}} é necesario engadilos todos",
@@ -53,8 +56,11 @@
 	"cx-publish-captcha-title": "Pregunta de seguridade",
 	"cx-translation-filter-all-translations": "Todas as traducións",
 	"cx-translation-filter-published-translations": "Traducións publicadas",
+	"cx-translation-filter-from-any-language": "De calquera lingua",
+	"cx-translation-filter-to-any-language": "A calquera lingua",
 	"cx-create-new-translation": "Crear unha nova tradución",
 	"cx-save-draft-saving": "Gardando...",
+	"cx-contributions": "Nova contribución",
 	"cx-contributions-translation": "Tradución",
 	"cx-contributions-media": "Cargar un ficheiro multimedia",
 	"cx-discard-translation": "Descartar tradución",
@@ -69,5 +75,6 @@
 	"cx-stats-published-translators-title": "Número de tradutores",
 	"cx-draft-discard-confirmation-message": "Está seguro de querer borrar de forma permanente esta tradución?",
 	"cx-draft-cancel-button-label": "Cancelar",
-	"cx-draft-discard-button-label": "Borrar tradución"
+	"cx-draft-discard-button-label": "Borrar tradución",
+	"cx-campaign-no-thanks": "Non, grazas"
 }
