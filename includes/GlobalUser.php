@@ -28,11 +28,11 @@ class GlobalUser {
 	 * @return GlobalUser
 	 */
 	public static function newFromId( $id ) {
-		$user = null;
-
 		// Use CentralAuth if available. Use local user to ease testing.
 		if ( class_exists( '\CentralAuthUser' ) ) {
 			$user = \CentralAuthUser::newFromId( $id );
+		} else {
+			$user = \User::newFromId( $id );
 		}
 
 		if ( $user === null ) {
