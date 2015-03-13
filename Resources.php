@@ -614,7 +614,7 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 		'cx-translation-status-draft',
 		'cx-translation-status-deleted',
 		'cx-translation-status-published',
-		'cx-draft-discard-confirmaton-message',
+		'cx-draft-discard-confirmation-message',
 		'cx-draft-cancel-button-label',
 		'cx-draft-discard-button-label',
 	),
