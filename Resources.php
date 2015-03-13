@@ -707,6 +707,15 @@ $wgResourceModules['ext.cx.widgets.overlay'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.widgets.callout'] = array(
+	'scripts' => array(
+		'widgets/callout/ext.cx.callout.js',
+	),
+	'styles' => array(
+		'widgets/callout/ext.cx.callout.css',
+	),
+) + $resourcePaths;
+
 $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
 	$resourcePaths = array(
 		'localBasePath' => __DIR__,
