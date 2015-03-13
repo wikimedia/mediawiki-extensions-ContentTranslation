@@ -138,6 +138,7 @@
 	"cx-translation-status-draft": "התחיל",
 	"cx-translation-status-published": "פורסם",
 	"cx-translation-status-deleted": "נמחק",
+	"cx-magnus-tool-link-text": "למצוא ערכים שחסרים בשפה שלך",
 	"apihelp-cxdelete-description": "מחיקת תרגום במצב טיוטה שנוצר באמצעות ההרחבה ContentTranslation.",
 	"apihelp-cxdelete-param-from": "קוד שפת המקור.",
 	"apihelp-cxdelete-param-to": "קוד שפת היעד.",

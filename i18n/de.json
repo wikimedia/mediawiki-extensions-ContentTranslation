@@ -122,6 +122,7 @@
 	"cx-translation-status-draft": "In Bearbeitung",
 	"cx-translation-status-published": "Veröffentlicht",
 	"cx-translation-status-deleted": "Gelöscht",
+	"cx-magnus-tool-link-text": "Artikel finden, die in deiner Sprache fehlen",
 	"apihelp-cxdelete-param-from": "Der Quellsprachcode.",
 	"apihelp-cxdelete-param-to": "Der Zielsprachcode.",
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",

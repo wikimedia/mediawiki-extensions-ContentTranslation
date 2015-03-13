@@ -156,5 +156,6 @@
 	"cx-draft-discard-confirmation-message": "¿Está seguro que desea eliminar permanentemente esta traducción?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar la página de traducción",
-	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenido en este wiki."
+	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenido en este wiki.",
+	"cx-campaign-no-thanks": "No, gracias"
 }
