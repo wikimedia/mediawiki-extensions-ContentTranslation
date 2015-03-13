@@ -106,7 +106,20 @@ class Translation {
 		);
 	}
 
+	/**
+	 * Get the stats for all translations in draft or published status
+	 */
 	public static function getStats() {
+		return array_merge( Translation::getDraftStats(), Translation::getPublishedStats() );
+	}
+
+	/**
+	 * Get the stats for all translations in draft status and not having
+	 * any published URL.
+	 * If the translation is with draft status and has a target_url it
+	 * was published atleast once.
+	 */
+	public static function getDraftStats() {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$rows = $dbr->select(
 			'cx_translations',
@@ -117,7 +130,51 @@ class Translation {
 				'COUNT(*) AS count',
 				'COUNT(DISTINCT translation_started_by) AS translators',
 			),
-			'',
+			array(
+				'translation_status' => 'draft',
+				'translation_target_url IS NULL'
+			),
+			__METHOD__,
+			array(
+				'GROUP BY' => array(
+					'translation_source_language',
+					'translation_target_language',
+					'translation_status'
+				),
+			)
+		);
+
+		$result = array();
+		foreach ( $rows as $row ) {
+			$result[] = (array) $row;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get the stats for all translations in published status or having
+	 * a published URL.
+	 * If the translation has a target_url it was published atleast once.
+	 */
+	public static function getPublishedStats() {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$rows = $dbr->select(
+			'cx_translations',
+			array(
+				'translation_source_language as sourceLanguage',
+				'translation_target_language as targetLanguage',
+				"'published' as status",
+				'COUNT(*) AS count',
+				'COUNT(DISTINCT translation_started_by) AS translators',
+			),
+			$dbr->makeList(
+				array(
+					'translation_status' => 'published',
+					'translation_target_url IS NOT NULL',
+				),
+				LIST_OR
+			),
 			__METHOD__,
 			array(
 				'GROUP BY' => array(
