@@ -132,6 +132,7 @@
 	"cx-translation-status-draft": "Во тек",
 	"cx-translation-status-published": "Објавено",
 	"cx-translation-status-deleted": "Избришано",
+	"cx-magnus-tool-link-text": "Најдете статии што недостасуваат на вашиот јазик",
 	"apihelp-cxdelete-description": "Бришење на нацрт-превод, создаден користејќи до додатокот за превод на содржини.",
 	"apihelp-cxdelete-param-from": "Код на изворниот јазик.",
 	"apihelp-cxdelete-param-to": "Код на целниот јазик.",

@@ -139,6 +139,7 @@
 	"cx-translation-status-draft": "进行中",
 	"cx-translation-status-published": "已发布",
 	"cx-translation-status-deleted": "已删除",
+	"cx-magnus-tool-link-text": "查找您的语言缺失的条目",
 	"apihelp-cxdelete-description": "删除一个处在草稿阶段、使用内容翻译扩展创建的翻译。",
 	"apihelp-cxdelete-param-from": "源语言代码。",
 	"apihelp-cxdelete-param-to": "目标语言代码。",
