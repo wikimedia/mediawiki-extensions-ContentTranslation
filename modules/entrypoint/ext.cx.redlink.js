@@ -23,14 +23,33 @@
 	 * @return {string[]} target languages
 	 */
 	function getSuggestedTargetLanguages( availableTargetLanguages ) {
-		var possibleTargetLanguages = [],
+		var specialCode, specialCodes, specialCodeIndex,
+			uniquePossibleTargetLanguages,
+			possibleTargetLanguages = [],
 			pageLanguage = mw.config.get( 'wgPageContentLanguage' );
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
 		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
 
-		return $.grep( mw.cx.unique( possibleTargetLanguages ), function ( language ) {
+		// Replace possibly non-standard, macro and duplicate language codes
+		// with normalized counterparts
+		specialCodes = {
+			// Suggest both varieties of Norwegian when requesting macro Norwegian
+			'no': [ 'nb', 'nn' ]
+		};
+
+		for ( specialCode in specialCodes ) {
+			specialCodeIndex = possibleTargetLanguages.indexOf( specialCode );
+			if ( specialCodeIndex > -1 ) {
+				possibleTargetLanguages.splice( specialCodeIndex, 1 );
+				$.merge( possibleTargetLanguages, specialCodes[ specialCode ] );
+			}
+		}
+
+		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
+
+		return $.grep( uniquePossibleTargetLanguages, function ( language ) {
 			return (
 				$.inArray( language, availableTargetLanguages ) > -1 &&
 				language !== pageLanguage
