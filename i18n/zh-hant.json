@@ -5,7 +5,8 @@
 			"Liuxinyu970226",
 			"Spring Roll Conan",
 			"Cwlin0416",
-			"LNDDYL"
+			"LNDDYL",
+			"Wehwei"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -43,9 +44,8 @@
 	"cx-tools-link-remove": "移除連結",
 	"cx-tools-mt-provider-title": "來自 $1",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 個分類|0=沒有分類}}",
-	"cx-stats-page-title": "頁面",
-	"cx-stats-from": "來源語言",
 	"cx-stats-unknown": "不明",
 	"cx-warning-unsaved-translation": "您有尚未儲存的翻譯。",
-	"cx-sourceselector-dialog-target-language-label": "目標："
+	"cx-sourceselector-dialog-target-language-label": "目標：",
+	"cx-magnus-tool-link-text": "找尋你選定語言的缺失項目"
 }

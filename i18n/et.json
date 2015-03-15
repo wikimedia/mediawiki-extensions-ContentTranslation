@@ -9,7 +9,7 @@
 	"cx-javascript": "See tööriist ei toimi ilma JavaScriptita.",
 	"cx-license-agreement": "Kui klõpsad nuppu \"$1\", nõustud [//wikimediafoundation.org/wiki/Terms_of_Use kasutustingimustega] ja annad nõusoleku tõlkeriistaga tehtud kaastöö pöördumatuks avaldamiseks litsentside [https://creativecommons.org/licences/by-sa/3.0/deed.et CC BY-SA 3.0] ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alusel. Mõistad seejuures, et autorile viitamiseks piisab litsentsi CC BY-SA 3.0 järgi hüperlingist või internetiaadressist.",
 	"cx-error-server-connection": "Tõrge: Serveriga ei saa ühendust.",
-	"cx-desc": "Tööriist, mis võimaldab toimetajatel tõlkida lehekülgi ühest keelest teise masintõlke või muude tõlketööriistade abiga.",
+	"cx-desc": "Teeb sisulehekülgede tõlkimise lihtsaks.",
 	"cx-header-progressbar-text": "$1% tõlgitud",
 	"cx-header-progressbar-text-mt": "($1% masintõlkest)",
 	"cx-header-translation-center": "Tõlkekeskus",
@@ -138,7 +138,7 @@
 	"cx-stats-published-translations-title": "Avaldatud tõlked",
 	"cx-stats-draft-translations-title": "Pooleliolevad tõlked",
 	"cx-stats-published-translators-title": "Tõlkijate arv",
-	"cx-draft-discard-confirmaton-message": "Kas oled kindel, et tahad selle tõlke jäädavalt kustutada?",
+	"cx-draft-discard-confirmation-message": "Kas oled kindel, et tahad selle tõlke jäädavalt kustutada?",
 	"cx-draft-cancel-button-label": "Loobu",
 	"cx-draft-discard-button-label": "Kustuta tõlge"
 }

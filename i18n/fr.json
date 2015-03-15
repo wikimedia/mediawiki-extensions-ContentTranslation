@@ -14,7 +14,8 @@
 			"Orikrin1998",
 			"Weft",
 			"Element303",
-			"Nicolapps"
+			"Nicolapps",
+			"Thibaut120094"
 		]
 	},
 	"cx": "Traduire la page",
@@ -132,6 +133,7 @@
 	"cx-translation-status-draft": "En cours",
 	"cx-translation-status-published": "Publié",
 	"cx-translation-status-deleted": "Supprimé",
+	"cx-magnus-tool-link-text": "Trouver des articles manquants dans votre langue",
 	"apihelp-cxdelete-param-from": "Le code de langue source.",
 	"apihelp-cxdelete-param-to": "Le code de langue cible.",
 	"apihelp-cxdelete-param-sourcetitle": "Le titre de la page source.",
@@ -144,7 +146,7 @@
 	"cx-stats-published-translations-title": "Traductions publiées",
 	"cx-stats-draft-translations-title": "Traductions en cours",
 	"cx-stats-published-translators-title": "Nombre de traducteurs",
-	"cx-draft-discard-confirmaton-message": "Êtes-vous sûr de que vouloir supprimer définitivement cette traduction ?",
+	"cx-draft-discard-confirmation-message": "Êtes-vous sûr de que vouloir supprimer définitivement cette traduction ?",
 	"cx-draft-cancel-button-label": "Annuler",
 	"cx-draft-discard-button-label": "Supprimer la traduction"
 }
