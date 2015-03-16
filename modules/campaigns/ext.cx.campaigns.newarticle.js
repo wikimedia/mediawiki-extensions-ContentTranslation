@@ -8,11 +8,12 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	function showInvitation() {
-		var $base, $banner, campaign, cxLink, $cancel, $tryCX;
+	var campaign = 'newarticle';
 
-		campaign = 'newarticle';
-		$base = $( '#pt-betafeatures' );
+	function showInvitation() {
+		var $banner, $trigger, cxLink, $cancel, $tryCX;
+
+		$trigger = $( '#pt-betafeatures' );
 		cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
 			targettitle: mw.config.get( 'wgPageName' ),
@@ -26,30 +27,21 @@
 		$banner = $( '<div>' )
 			.addClass( 'cx-campaign-newarticle' )
 			.append(
-				$( '<div>' ).addClass( 'cx-campaign-newarticle__caret' ),
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__logo' ),
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__message' ).html(
 					mw.message( 'cx-campaign-newarticle-notice' ).parse()
 				),
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__actions' ).append( $cancel, $tryCX )
-			)
-			.hide();
-		$( 'body' ).append( $banner );
+			);
 
-		function position() {
-			// Animation complete. Otherwise the position calculation is wrong
-			$banner.css( {
-					left: $base.offset().left - 350
-				} )
-				.find( '.cx-campaign-newarticle__caret' ).css( {
-					left: $base.offset().left - $banner.offset().left
-				} );
-		}
+		$trigger.callout( {
+			trigger: 'auto',
+			gravity: $.fn.callout.autoNEW,
+			content: $banner
+		} );
 
-		$banner.show( 'fast', position );
-		$( window ).resize( $.debounce( 250, position ) );
 		$cancel.on( 'click', function () {
-			$banner.remove();
+			$trigger.callout( 'hide' );
 			$.cookie(
 				'cx_campaign_' + campaign + '_hide', 1, {
 					expires: 30,

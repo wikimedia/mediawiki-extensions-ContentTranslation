@@ -1,47 +1,8 @@
-@import "../../base/styles/grid/agora-grid";
 @import "mediawiki.mixins";
 
 .cx-campaign-newarticle {
-	.mw-ui-grid;
-	.mw-ui-one-third;
 	color: #333;
-	position: absolute;
-	overflow: visible;
-	top: 50px;
-	min-width: 400px;
-	padding: 20px;
 	background: white;
-	border: 1px solid #ccc;
-	border-bottom-width: 3px;
-	border-radius: 3px;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-	max-width: 500px;
-
-	&__caret {
-		position: absolute;
-		top: 0;
-	}
-
-	&__caret::after {
-		border-bottom: 12px solid white;
-		border-left: 12px solid transparent;
-		border-right: 12px solid transparent;
-		content: "";
-		display: inline-block;
-		position: absolute;
-		top: -12px;
-		margin-left: 1px;
-	}
-
-	&__caret::before {
-		border-bottom: 13px solid #888;
-		border-left: 13px solid transparent;
-		border-right: 13px solid transparent;
-		content: "";
-		display: inline-block;
-		position: absolute;
-		top: -13px;
-	}
 
 	&__logo {
 		.background-image('images/cx-announcement-icon.gif');

@@ -703,6 +703,7 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 		'jquery.client',
 		'mediawiki.util',
 		'jquery.throttle-debounce',
+		'ext.cx.widgets.callout',
 	),
 	'messages' => array(
 		'cx-campaign-newarticle-notice',
