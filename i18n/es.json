@@ -140,6 +140,7 @@
 	"cx-translation-status-draft": "En proceso",
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Borrado",
+	"cx-magnus-tool-link-text": "Encontrar artículos faltantes en tu idioma",
 	"apihelp-cxdelete-param-from": "El código del idioma de origen.",
 	"apihelp-cxdelete-param-to": "El código del idioma de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "El título de la página de origen.",
@@ -157,5 +158,6 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar la página de traducción",
 	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenido en este wiki.",
-	"cx-campaign-no-thanks": "No, gracias"
+	"cx-campaign-no-thanks": "No, gracias",
+	"cx-campaign-try": "Prueba la traducción de contenidos"
 }

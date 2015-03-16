@@ -28,6 +28,7 @@
 	"tag-contenttranslation": "Tradución de contido",
 	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta Content Translation",
 	"cx-source-loading": "Cargando \"$1\"",
+	"cx-beta": "Tradución de Contido",
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á túa lingua. Comeza as traducións dende [[Special:MyContributions|your contributions page]], e edítaas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles só en certas linguas.",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir do $1",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
@@ -45,6 +46,8 @@
 	"cx-tools-link-remove": "Eliminar a ligazón",
 	"cx-tools-mt-clear-translation": "Limpar parágrafo",
 	"cx-tools-mt-restore": "Restaurar",
+	"cx-tools-mt-provider-title": "Dende $1",
+	"cx-tools-mt-not-available": "Non dispoñible para $1",
 	"cx-stats-unknown": "descoñecido",
 	"cx-tools-reference-title": "Referencia",
 	"cx-tools-reference-remove": "Eliminar referencia",
@@ -56,6 +59,7 @@
 	"cx-publish-captcha-title": "Pregunta de seguridade",
 	"cx-translation-filter-all-translations": "Todas as traducións",
 	"cx-translation-filter-published-translations": "Traducións publicadas",
+	"cx-translation-filter-draft-translations": "Traducións en progreso",
 	"cx-translation-filter-from-any-language": "De calquera lingua",
 	"cx-translation-filter-to-any-language": "A calquera lingua",
 	"cx-create-new-translation": "Crear unha nova tradución",
@@ -63,6 +67,7 @@
 	"cx-contributions": "Nova contribución",
 	"cx-contributions-translation": "Tradución",
 	"cx-contributions-media": "Cargar un ficheiro multimedia",
+	"cx-publishing-dialog-keep-button": "Gardar ambas versións",
 	"cx-discard-translation": "Descartar tradución",
 	"cx-translation-status-draft": "En progreso",
 	"cx-translation-status-published": "Publicado",
@@ -76,5 +81,6 @@
 	"cx-draft-discard-confirmation-message": "Está seguro de querer borrar de forma permanente esta tradución?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Borrar tradución",
-	"cx-campaign-no-thanks": "Non, grazas"
+	"cx-campaign-no-thanks": "Non, grazas",
+	"cx-campaign-try": "Probar a Tradución de Contido"
 }
