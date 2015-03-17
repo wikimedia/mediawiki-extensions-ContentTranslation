@@ -189,7 +189,7 @@
 	 * @return {Object|null}
 	 */
 	ReferenceCard.prototype.getReferenceData = function ( referenceId ) {
-		var $sourceReference, i, mwData, $referenceSiblings;
+		var $sourceReference, i, mwData, $sibling, $referenceSiblings, id;
 
 		$sourceReference = $( document.getElementById( referenceId ) );
 		if ( !$sourceReference.is( '[typeof*="mw:Extension/ref"]' ) ) {
@@ -197,19 +197,16 @@
 			return null;
 		}
 
-		mwData = $sourceReference.data( 'mw' );
-		if ( mwData && mwData.body ) {
-			return mwData;
-		}
-
 		$referenceSiblings = $( '[typeof*="mw:Extension/references"]' )
 			.find( 'a[href="#' + referenceId + '"]' )
-			.siblings();
+			.siblings()
+			.addBack(); // Including self
+
 		for ( i = 0; i < $referenceSiblings.length; i++ ) {
-			mwData = this.getReferenceData(
-				$( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' )
-			);
-			if ( mwData ) {
+			id = $( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' );
+			$sibling = $( document.getElementById( id ) );
+			mwData = $sibling.data( 'mw' );
+			if ( mwData && mwData.body ) {
 				return mwData;
 			}
 		}
