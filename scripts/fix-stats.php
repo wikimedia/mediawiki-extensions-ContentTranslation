@@ -99,7 +99,7 @@ class CxFixStats extends Maintenance {
 
 		// ALERT: assumes certain URL pattern
 		$cutoff = strpos( $url, '/wiki/' ) + 6;
-		$name = substr( $url, $cutoff );
+		$name = rawurldecode( substr( $url, $cutoff ) );
 
 		$title = Title::newFromText( $name );
 		if ( !$title ) {
