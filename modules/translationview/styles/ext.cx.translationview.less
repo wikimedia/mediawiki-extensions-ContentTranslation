@@ -16,16 +16,12 @@ h2 {
 	margin-bottom: 10px;
 }
 
-.cx-column--source p,
-.cx-column--translation p {
-	margin-top: 1.2em;
-}
-
 /**
  * Container for the translation widget
  */
 .cx-widget {
 	.mw-ui-grid;
+
 	color: @gray-darker;
 	background: white;
 	padding-bottom: 50px;
@@ -41,6 +37,7 @@ h2 {
 .cx-widget__columns {
 	margin-top: 100px;
 	min-height: 100vh;
+
 	&.disabled {
 		pointer-events: none;
 		opacity: 0.5;
@@ -55,6 +52,14 @@ h2 {
 	.mw-ui-item;
 	.mw-ui-one-third;
 	.mw-ui-gutter(3%);
+
+	.cx-column__content {
+		table,
+		figure,
+		figure[typeof*='mw:Image'] {
+			float: none;
+		}
+	}
 }
 
 .cx-column--source,
@@ -69,6 +74,10 @@ h2 {
 
 	&[dir="ltr"] figcaption {
 		/* @noflip */ text-align: left;
+	}
+
+	p {
+		margin-top: 1.2em;
 	}
 
 	.cx-column__sub-heading {
@@ -87,6 +96,7 @@ h2 {
 
 .cx-column--tools {
 	.mw-ui-one-whole(@palm);
+
 	background: #f0f0f0;
 	min-height: 100vh;
 	position: relative;
@@ -107,11 +117,12 @@ h2 {
 
 .suggestion {
 	.mw-ui-item;
+	.mw-ui-one-half(@palm);
+
 	background: white;
 	border: 1px solid #cccccc;
 	padding: 10px;
 	margin: 2px 0;
-	.mw-ui-one-half(@palm);
 }
 
 .stick-to-side() {
@@ -135,10 +146,4 @@ h2 {
 	&:hover {
 		max-height: 50%;
 	}
-}
-
-.cx-column .cx-column__content table,
-.cx-column .cx-column__content figure,
-.cx-column .cx-column__content figure[typeof*='mw:Image'] {
-	float: none;
 }
