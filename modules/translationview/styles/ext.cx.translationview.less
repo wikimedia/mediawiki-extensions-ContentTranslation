@@ -61,6 +61,16 @@ h2 {
 .cx-column--translation {
 	.mw-ui-one-half(@palm);
 
+	// Make sure that the captions are aligned according to the column's language
+	// rather than the wiki's content language
+	&[dir="rtl"] figcaption {
+		/* @noflip */ text-align: right;
+	}
+
+	&[dir="ltr"] figcaption {
+		/* @noflip */ text-align: left;
+	}
+
 	.cx-column__sub-heading {
 		.mw-ui-item;
 		.mw-ui-one-whole;
