@@ -1,0 +1,221 @@
+.cx-callout {
+	color: #333;
+	position: absolute;
+	overflow: visible;
+	padding: 20px;
+	background: white;
+	border: 1px solid #ccc;
+	border-bottom-width: 3px;
+	border-radius: 3px;
+	max-width: 500px;
+	z-index: 100000;
+}
+
+/* @noflip */.cx-callout-w::after, .cx-callout-w::before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-w::after {
+	border-color: transparent;
+	border-right-color: #fff;
+	border-width: 12px;
+	margin-top: -12px;
+}
+/* @noflip */.cx-callout-w::before {
+	border-color: transparent;
+	border-right-color: #ccc;
+	border-width: 13px;
+	margin-top: -13px;
+}
+
+/* @noflip */.cx-callout-e:after, .cx-callout-e:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-e:after {
+	border-color: transparent;
+	border-left-color: #fff;
+	border-width: 12px;
+	margin-top: -12px;
+}
+/* @noflip */.cx-callout-e:before {
+	border-color: transparent;
+	border-left-color: #ccc;
+	border-width: 13px;
+	margin-top: -13px;
+}
+
+/* @noflip */.cx-callout-n:after, .cx-callout-n:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-n:after {
+	border-color: transparent;
+	border-bottom-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-n:before {
+	border-color: transparent;
+	border-bottom-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* @noflip */ .cx-callout-nw:after, .cx-callout-nw:before {
+	bottom: 100%;
+	left: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-nw:after {
+	border-color: transparent;
+	border-bottom-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-nw:before {
+	border-color: transparent;
+	border-bottom-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* @noflip */.cx-callout-ne:after {
+	bottom: 100%;
+	right: 11px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-ne:before {
+	bottom: 100%;
+	right: 10px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-ne:after {
+	border-color: transparent;
+	border-bottom-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-ne:before {
+	border-color: transparent;
+	border-bottom-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* @noflip */.cx-callout-s:after, .cx-callout-s:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-s:after {
+	border-color: transparent;
+	border-top-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-s:before {
+	border-color: transparent;
+	border-top-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* @noflip */.cx-callout-sw:after, .cx-callout-sw:before {
+	top: 100%;
+	left: 10px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-sw:after {
+	border-color: transparent;
+	border-top-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-sw:before {
+	border-color: transparent;
+	border-top-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* @noflip */.cx-callout-se:after, .cx-callout-se:before {
+	top: 100%;
+	right: 10px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+/* @noflip */.cx-callout-se:after {
+	border-color: transparent;
+	border-top-color: #fff;
+	border-width: 12px;
+	margin-left: -12px;
+}
+
+/* @noflip */.cx-callout-se:before {
+	border-color: transparent;
+	border-top-color: #ccc;
+	border-width: 13px;
+	margin-left: -13px;
+}
