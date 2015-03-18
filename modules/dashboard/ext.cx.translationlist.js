@@ -161,7 +161,9 @@
 				.addClass( 'image' );
 			$progressbar = $( '<div>' )
 				.addClass( 'progressbar' )
-				.cxProgressBar( { weights: progress } );
+				.cxProgressBar( {
+					weights: progress
+				} );
 			$imageBlock.append( $image, $progressbar );
 			this.showTitleImage( translation );
 
@@ -330,8 +332,7 @@
 		deferred = $.Deferred();
 
 		if ( !this.$overlay ) {
-			this.$overlay = $( '<div>' )
-				.addClass( 'cx-overlay' );
+			this.$overlay = mw.cx.widgets.overlay();
 			$( 'body' ).append( this.$overlay );
 		}
 

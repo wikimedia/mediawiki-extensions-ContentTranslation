@@ -626,8 +626,7 @@
 		} );
 
 		if ( !this.$overlay ) {
-			this.$overlay = $( '<div>' )
-				.addClass( 'cx-sourceselector-dialog__overlay' );
+			this.$overlay = mw.cx.widgets.overlay();
 			$( 'body' ).append( this.$overlay );
 		}
 

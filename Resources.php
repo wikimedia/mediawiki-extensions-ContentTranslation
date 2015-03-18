@@ -205,6 +205,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'ext.uls.mediawiki',
 		'jquery.uls.compact',
 		'mediawiki.ui.button',
+		'ext.cx.widgets.overlay',
 	),
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',
@@ -616,6 +617,7 @@ $wgResourceModules['ext.cx.translationlist'] = array(
 		'ext.cx.progressbar',
 		'ext.cx.util',
 		'jquery.uls.data',
+		'ext.cx.widgets.overlay',
 	),
 	'messages' => array(
 		'cx-translation-filter-all-translations',
@@ -707,6 +709,15 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 		'cx-campaign-no-thanks',
 		'cx-campaign-try',
 	)
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.widgets.overlay'] = array(
+	'scripts' => array(
+		'widgets/overlay/ext.cx.overlay.js',
+	),
+	'styles' => array(
+		'widgets/overlay/ext.cx.overlay.less',
+	),
 ) + $resourcePaths;
 
 $wgHooks['ResourceLoaderTestModules'][] = function ( array &$modules ) {
