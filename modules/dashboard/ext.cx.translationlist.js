@@ -315,6 +315,12 @@
 					.then( function ( response ) {
 						if ( response.cxdelete.result === 'success' ) {
 							translationList.markTranslationAsDeleted( translation );
+							mw.hook( 'mw.cx.translation.deleted' ).fire(
+								translation.sourceLanguage,
+								translation.targetLanguage,
+								translation.sourceTitle,
+								translation.targetTitle
+							);
 						}
 					} );
 			} );

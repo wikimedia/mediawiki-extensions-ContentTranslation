@@ -261,6 +261,7 @@
 		mw.hook( 'mw.cx.translation.published' ).fire(
 			mw.cx.sourceLanguage,
 			mw.cx.targetLanguage,
+			mw.cx.sourceTitle,
 			this.targetTitle
 		);
 		mw.cx.dirty = false;
@@ -278,6 +279,12 @@
 			targetTitle: this.targetTitle,
 			error: details
 		};
+		mw.hook( 'mw.cx.translation.publish.error' ).fire(
+			mw.cx.sourceLanguage,
+			mw.cx.targetLanguage,
+			mw.cx.sourceTitle,
+			this.targetTitle
+		);
 		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 		mw.log( '[CX] Error while publishing:', code, trace );
 	};
