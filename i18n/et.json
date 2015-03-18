@@ -25,7 +25,7 @@
 	"cx-publish-gt-first-step-title": "Tõlge on avaldatud mustandina läbivaatamiseks sinu kasutajaleheküljel.",
 	"cx-publish-gt-first-step-description": "Klõpsa selles menüüs nuppu \"{{int:vector-action-move}}\", et teha sisu kõikidele kättesaadavaks tavalise leheküljena.",
 	"cx-publish-gt-move-page-title": "Teisalda see lehekülg",
-	"cx-publish-gt-move-page-description": "Vali nimeruum \"(Artiklid)\" ja anna leheküljele õige pealkiri.",
+	"cx-publish-gt-move-page-description": "Vali nimeruum \"{{int:blanknamespace}}\" ja pane leheküljele sobiv pealkiri.",
 	"cx-publish-gt-moved-title": "Tõlgitud lehekülg on teisaldatud",
 	"cx-publish-gt-moved-description": "Klõpsa lingile, et lugeda ja täiendada tõlgitud lehekülge",
 	"cx-publish-gt-published-title": "Õnnitleme! Lehekülg on avaldatud.",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Metalhead64",
-			"Kghbln"
+			"Kghbln",
+			"Inkowik"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -107,8 +108,15 @@
 	"apihelp-query+contenttranslation-param-translationid": "Übersetzungskennung.",
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
+	"apihelp-query+contenttranslationstats-example-1": "Bezieht Statistiken zur Inhaltsübersetzung für alle Sprachen.",
 	"apihelp-cxconfiguration-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxconfiguration-param-to": "Der Ziel-Sprachcode.",
+	"apihelp-query+cxpublishedtranslations-description": "Bezieht Informationen über veröffentlichte Übersetzungen",
+	"apihelp-query+cxpublishedtranslations-param-from": "Sprachcode der Quelle.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Sprachcode des Ziels.",
+	"apihelp-query+cxpublishedtranslations-example-1": "Bezieht alle veröffentlichten Übersetzungen.",
+	"apihelp-query+cxpublishedtranslations-example-2": "Bezieht alle veröffentlichten Übersetzungen aus dem Englischen",
+	"apihelp-query+cxpublishedtranslations-example-3": "Bezieht alle veröffentlichten Übersetzungen vom Englischen ins Spanische.",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
@@ -123,6 +131,7 @@
 	"cx-translation-status-published": "Veröffentlicht",
 	"cx-translation-status-deleted": "Gelöscht",
 	"cx-magnus-tool-link-text": "Artikel finden, die in deiner Sprache fehlen",
+	"apihelp-cxdelete-description": "Löscht einen Übersetzungsentwurf, der mit Hilfe der Inhaltsübersetzung erstellt wurde.",
 	"apihelp-cxdelete-param-from": "Der Quellsprachcode.",
 	"apihelp-cxdelete-param-to": "Der Zielsprachcode.",
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",

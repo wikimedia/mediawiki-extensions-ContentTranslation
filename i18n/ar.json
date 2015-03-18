@@ -3,7 +3,8 @@
 		"authors": [
 			"Reem AK",
 			"زكريا",
-			"سامي الرحيلي"
+			"سامي الرحيلي",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -13,6 +14,7 @@
 	"cx-header-progressbar-text": "ترجم $1%",
 	"cx-header-progressbar-text-mt": "($1% ترجمة آلية)",
 	"cx-header-translation-center": "مركز الترجمة",
+	"cx-header-new-translation": "ترجمة جديدة",
 	"cx-header-all-translations": "كل الترجمات",
 	"cx-source-view-page": "عرض الصفحة",
 	"cx-publish-page-success": "نشرت الصفحة في $1",
@@ -61,10 +63,6 @@
 	"cx-tools-mt-not-available": "غير متوفر ب$1",
 	"cx-tools-mt-dont-use": "لا تستخدم الترجمة الآلية",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
-	"cx-stats-page-title": "صفحة",
-	"cx-stats-from": "اللغة المصدر",
-	"cx-stats-to": "اللغة الهدف",
-	"cx-stats-pages-title": "الصفحات المترجمة",
 	"cx-stats-unknown": "غير معروف",
 	"cx-stats-summary": "{{PLURAL:$1|صفحة واحدة|$1/$2 من الصفحات ($3%)}} في النطاق الرئيسي.",
 	"cx-tools-reference-title": "مرجع",
@@ -75,9 +73,16 @@
 	"cx-error-page-not-found": "لم يعثر على صفحة \"$1\" في ويكيبيديا $2",
 	"cx-sourceselector-dialog-new-translation": "ترجمة جديدة",
 	"cx-sourceselector-dialog-button-start-translation": "ابدأ الترجمة",
+	"cx-sourceselector-dialog-button-cancel": "ألغ",
 	"cx-sourceselector-dialog-source-language-label": "مصدر:",
 	"cx-sourceselector-dialog-target-language-label": "هدف:",
 	"cx-mt-abuse-warning-title": "ترجمتك بها $1% من النص المترجم آليا دون تغيير",
 	"cx-mt-abuse-warning-text": "تقدم الترجمة الآلية نموذجا فقط. عليك التحقق من دقة المحتوى وسلامة اللغة.",
-	"cx-publish-captcha-title": "سؤال الأمان"
+	"cx-publish-captcha-title": "سؤال الأمان",
+	"cx-translation-filter-all-translations": "كل الترجمات",
+	"cx-translation-filter-published-translations": "الترجمات المنشورة",
+	"cx-create-new-translation": "أنشأ ترجمة جديدة",
+	"cx-contributions-media": "ارفع ملف وسائط",
+	"cx-stats-published-translators-title": "عدد المترجمين",
+	"cx-draft-cancel-button-label": "ألغ"
 }

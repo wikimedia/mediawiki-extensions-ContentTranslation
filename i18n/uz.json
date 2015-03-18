@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"6ahodir",
-			"Sociologist"
+			"Sociologist",
+			"Nemo bis"
 		]
 	},
 	"cx": "Tarjima sahifasi",
@@ -23,9 +24,9 @@
 	"cx-publish-gt-moved-title": "Tarjima qilingan sahifa ko‘chirildi",
 	"cx-publish-gt-published-title": "Tarbiklaymiz, sahifa chop etildi",
 	"cx-translation-add-translation": "+ Tarjima qo‘shish",
-	"tag-contenttranslation": "",
+	"tag-contenttranslation": "MatnTarjima",
 	"cx-source-loading": "$1 yuklanyapti",
-	"cx-beta": "",
+	"cx-beta": "Matnni tarjima qilish",
 	"cx-entrypoint-title": "Ushbu sahifani $1ga tarjima qilish",
 	"cx-entrypoint-dialog-title-in": "$1dagi yangi sahifa sarlavhasi:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Noldan yaratildi",
@@ -57,8 +58,8 @@
 	"cx-sourceselector-dialog-new-translation": "Yangi tarjima",
 	"cx-sourceselector-dialog-button-start-translation": "Tarjimani boshlash",
 	"cx-sourceselector-dialog-button-cancel": "Bekor qilish",
-	"cx-sourceselector-dialog-source-language-label": "",
-	"cx-sourceselector-dialog-target-language-label": "",
+	"cx-sourceselector-dialog-source-language-label": "Manba:",
+	"cx-sourceselector-dialog-target-language-label": "Mo‘ljal:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Manba sahifasini izlash",
 	"cx-sourceselector-dialog-error-page-exists": "Sahifa $2da [$1 allaqachon mavjud].",
 	"cx-publish-captcha-title": "Xavsizlik savoli",
@@ -85,7 +86,7 @@
 	"cx-translation-status-draft": "Tarjima qilinyapti",
 	"cx-translation-status-published": "Chop etilgan",
 	"cx-translation-status-deleted": "O‘chirilgan",
-	"apihelp-cxdelete-description": "",
+	"apihelp-cxdelete-description": "Matn tarjima kengaytmasi yordamida yaratilgan qoralama tarjimasini o‘chirish.",
 	"apihelp-cxdelete-param-from": "Manba til kodi.",
 	"apihelp-cxdelete-param-to": "Mo‘ljal til kodi.",
 	"apihelp-cxdelete-param-sourcetitle": "Manba sahifasining sarlavhasi.",
@@ -103,5 +104,5 @@
 	"cx-draft-discard-confirmation-message": "Ushbu tarjimani butunlay o‘chirmoqchi ekanligingizga aminmisiz?",
 	"cx-draft-cancel-button-label": "Bekor qilish",
 	"cx-draft-discard-button-label": "Tarjimani o‘chirish",
-	"cx-beta-feature-enabled-notification": ""
+	"cx-beta-feature-enabled-notification": "Ushbu Vikida Matn Tarjima faollashtirildi."
 }
