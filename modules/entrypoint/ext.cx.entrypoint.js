@@ -137,9 +137,9 @@
 	CXEntryPoint.prototype.hide = function () {
 		if ( this.shown ) {
 			this.$dialog.hide();
+			mw.hook( 'mw.cx.cta.reject' ).fire( this.options.entryPointName );
+			this.shown = false;
 		}
-
-		this.shown = false;
 	};
 
 	/**
@@ -154,7 +154,8 @@
 			sourceTitle,
 			this.$titleInput.val(),
 			sourceLanguage,
-			this.options.targetLanguage
+			this.options.targetLanguage,
+			this.options.entryPointName
 		);
 	};
 

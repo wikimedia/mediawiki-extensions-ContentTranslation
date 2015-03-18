@@ -56,10 +56,16 @@
 					path: '/'
 				}
 			);
+			// Campaign or call to action was rejected by the user.
+			mw.hook( 'mw.cx.cta.reject' ).fire( campaign );
 		} );
 		$tryCX.on( 'click', function () {
 			location.href = cxLink;
+			// We need to log this using eventlogging, but since we are navigating away
+			// we cannot do it reliably here(See https://phabricator.wikimedia.org/T44815).
+			// We will do it at the resulting page
 		} );
+		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
 	}
 
 	$( function () {
