@@ -106,6 +106,7 @@ class ContentTranslationHooks {
 	 */
 	public static function addEventLogging( array &$schemas ) {
 		$schemas['ContentTranslation'] = 7146627;
+		$schemas['ContentTranslationCTA'] = 11616099;
 	}
 
 	/**
@@ -159,7 +160,7 @@ class ContentTranslationHooks {
 	 * Hook: EditPage::showEditForm:initial
 	 */
 	public static function newArticleCampign( EditPage $newPage, OutputPage $out ) {
-		global $wgContentTranslationCampaigns;
+		global $wgContentTranslationCampaigns, $wgContentTranslationEventLogging;
 		$user = $out->getUser();
 
 		if (
@@ -171,6 +172,12 @@ class ContentTranslationHooks {
 			BetaFeatures::isFeatureEnabled( $user, 'cx' )
 		) {
 			return true;
+		}
+
+		// If EventLogging integration is enabled, load the event logging functions module
+		// to measure and analyse the usage of this entry point.
+		if ( $wgContentTranslationEventLogging ) {
+			$out->addModules( 'ext.cx.eventlogging' );
 		}
 
 		$out->addModules( 'ext.cx.campaigns.newarticle' );

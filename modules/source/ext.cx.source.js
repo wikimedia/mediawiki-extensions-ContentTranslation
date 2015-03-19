@@ -28,9 +28,10 @@
 	}
 
 	ContentTranslationSource.prototype.init = function () {
-		mw.cx.sourceTitle = new mw.Uri().query.page;
-		mw.cx.targetLanguage = new mw.Uri().query.to;
-		mw.cx.sourceLanguage = new mw.Uri().query.from;
+		var query = new mw.Uri().query;
+		mw.cx.sourceTitle = query.page;
+		mw.cx.targetLanguage = query.to;
+		mw.cx.sourceLanguage = query.from;
 
 		if ( mw.user.isAnon() ) {
 			mw.hook( 'mw.cx.error.anonuser' ).fire();
@@ -44,6 +45,10 @@
 		this.render();
 		this.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
 		this.listen();
+
+		if ( query.campaign ) {
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+		}
 	};
 
 	/**

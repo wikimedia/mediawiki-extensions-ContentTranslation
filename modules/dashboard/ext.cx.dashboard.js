@@ -72,6 +72,9 @@
 		sourceSelectorOptions.sourceTitle = query.page;
 		sourceSelectorOptions.targetTitle = query.targettitle;
 		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
+		if ( query.campaign ) {
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+		}
 	};
 
 	$.fn.cxDashboard = function ( siteMapper, options ) {

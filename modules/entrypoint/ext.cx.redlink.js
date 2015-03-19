@@ -11,6 +11,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var campaign = 'redinterlanguagelink';
 	/**
 	 * Get the list of target languages that should be suggested
 	 * to the current user:
@@ -140,6 +141,8 @@
 			return;
 		}
 
+		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
+
 		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];
 
 		mw.loader.using( dependencies, function () {
@@ -159,7 +162,8 @@
 					$pLangList.prepend( $newItem );
 					$newItem.cxEntryPoint( {
 						targetLanguage: code,
-						left: cxEntryPointDialogLeft
+						left: cxEntryPointDialogLeft,
+						entryPointName: campaign
 					} );
 				}
 			} );
