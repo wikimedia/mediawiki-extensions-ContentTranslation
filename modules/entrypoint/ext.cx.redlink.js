@@ -31,7 +31,9 @@
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
+
 		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
+		$.merge( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
 
 		// Replace possibly non-standard, macro and duplicate language codes
 		// with normalized counterparts
