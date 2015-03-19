@@ -45,7 +45,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|Націсьніце}} на параграфы для перакладу",
 	"cx-tools-instructions-text2": "{{GENDER:|Вам}} не патрэбна дадаваць іх усе",
 	"cx-tools-instructions-text3": "{{GENDER:|Зрабіце}} так, каб тэкст чытаўся натуральна",
-	"cx-tools-instructions-text4": "Машынны пераклад карысны, але {{GENDER:|Вам}} неабходна будзе праверыць памылкі, каб зрабіць тэкст дакладнейшым.",
+	"cx-tools-instructions-text4": "Машынны пераклад карысны, але {{GENDER:|Вам}} неабходна будзе праверыць тэкст, каб зрабіць яго дакладнейшым.",
 	"cx-tools-instructions-text5": "{{GENDER:|Апублікаваць}} пераклад",
 	"cx-tools-instructions-text6": "Калі {{GENDER:|Вы}} задаволеныя вынікам, націсьніце «{{int:cx-publish-button}}».",
 	"cx-tools-searchbox-text": "Пошук слова",

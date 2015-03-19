@@ -8,9 +8,7 @@
 	"cx-publish-gt-move-page-title": "Premesti stranicu",
 	"cx-tools-link-add": "Dodaj veze",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=Nema kategorija}}",
-	"cx-stats-page-title": "Stranica",
-	"cx-stats-from": "Izvorni jezik",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|stranice|stranica}} ($3%) u glavnom imenskom prostoru.",
+	"cx-stats-summary": "$1/$2 {{PLURAL:$1|stranica|stranice}} ($3%) u glavnom imenskom prostoru na ovom vikiju.",
 	"cx-warning-unsaved-translation": "Imate nesačuvan prevod.",
 	"cx-sourceselector-dialog-button-cancel": "Otkaži",
 	"cx-save-draft-saving": "Čuvanje..."

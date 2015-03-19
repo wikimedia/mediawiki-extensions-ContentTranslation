@@ -82,7 +82,11 @@
 	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
 	"apihelp-cxpublish-param-title": "De Övverschreff vun dä Sigg, met dä jät jedonn wähde sull.",
 	"apihelp-cxpublish-param-categories": "De Saachjroppe, woh di öffentlesch jemahte Sigg dren kumme sull.",
+	"apihelp-query+contenttranslation-param-translationid": "De Kännong vu dä Övversäzong.",
+	"apihelp-query+contenttranslation-example-2": "Holl de vörjschlahre Övversäzong övver de Kännong.",
 	"apihelp-query+cxpublishedtranslations-description": "Holl Aanjahbe övver alle öffentlesch jemaate Övversäzonge",
+	"apihelp-query+cxpublishedtranslations-param-from": "Et Köözel för de Quälleschprohch",
+	"apihelp-query+cxpublishedtranslations-param-to": "Et Köözel för de Zihlschprohch",
 	"apihelp-query+cxpublishedtranslations-example-1": "Holl alle öffentlesch jemaate Övversäzonge",
 	"apihelp-query+cxpublishedtranslations-example-2": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche",
 	"apihelp-query+cxpublishedtranslations-example-3": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche ent Schpahnesche",
@@ -99,6 +103,7 @@
 	"cx-translation-status-draft": "En Ärbeijd",
 	"cx-translation-status-published": "Öffentlesch jemaach",
 	"cx-translation-status-deleted": "Fottjeschmeße",
+	"cx-magnus-tool-link-text": "Fengk Atikelle, di en Dinger schrohch fähle",
 	"apihelp-cxdelete-param-sourcetitle": "De Övverschreff vun dä Sigg zom Övversäze.",
 	"cx-translation-already-in-progress": "Heh di Övversäzong wood {{GENDER:$1|vum|vum|vumm Metmaacher|vun dä|vum}} $1 aanjevange.",
 	"cx-publishing-dialog-publish-draft-button": "Als ene Äntworf öffentlesch maache",
@@ -106,7 +111,8 @@
 	"cx-stats-published-translations-title": "Veröffentleschte Övversäzonge",
 	"cx-stats-draft-translations-title": "Övversäzonge en Ärbeid",
 	"cx-stats-published-translators-title": "De Aanzahl Övversäzonge",
-	"cx-draft-discard-confirmaton-message": "Wells De heh di Övversäzong verhaftesch fott schmiiße",
+	"cx-draft-discard-confirmation-message": "Wells De heh di Övversäzong verhaftesch fott schmiiße",
 	"cx-draft-cancel-button-label": "Ophüre!",
-	"cx-draft-discard-button-label": "De Övversäzong fott schmiiße"
+	"cx-draft-discard-button-label": "De Övversäzong fott schmiiße",
+	"cx-campaign-no-thanks": "Nää, dat welle mer nit"
 }
