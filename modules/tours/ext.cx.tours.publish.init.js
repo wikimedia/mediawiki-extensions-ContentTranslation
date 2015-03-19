@@ -28,7 +28,7 @@
 		mw.guidedTour.setTourCookie( 'cxpublish', 'suggestmovestart' );
 	}
 
-	mw.hook( 'mw.cx.translation.published' ).add( function ( sourceLanguage, targetLanguage, title ) {
+	mw.hook( 'mw.cx.translation.published' ).add( function ( sourceLanguage, targetLanguage, sourceTitle, title ) {
 		initGuidedTourAfterPublish( title );
 	} );
 }( jQuery, mediaWiki ) );

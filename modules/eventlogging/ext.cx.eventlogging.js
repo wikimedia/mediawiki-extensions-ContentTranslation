@@ -10,6 +10,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var saveCount = 0;
 	/**
 	 * ContentTranslation event logger
 	 */
@@ -23,27 +24,123 @@
 		 */
 		listen: function () {
 			// Register handlers for event logging triggers
-			mw.hook( 'mw.cx.translation.published' ).add( $.proxy( this.translatedPageCreated, this ) );
+			mw.hook( 'mw.cx.translation.published' ).add( $.proxy( this.published, this ) );
+			mw.hook( 'mw.cx.translation.publish.error' ).add( $.proxy( this.publishFailed, this ) );
+			mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.saved, this ) );
+			mw.hook( 'mw.cx.translation.continued' ).add( $.proxy( this.continued, this ) );
+			mw.hook( 'mw.cx.translation.deleted' ).add( $.proxy( this.deleted, this ) );
 			mw.hook( 'mw.cx.cta.shown' ).add( $.proxy( this.ctaShown, this ) );
 			mw.hook( 'mw.cx.cta.accept' ).add( $.proxy( this.ctaAccept, this ) );
 			mw.hook( 'mw.cx.cta.reject' ).add( $.proxy( this.ctaReject, this ) );
 		},
 
+
 		/**
 		 * Log creation of translated page.
 		 * @param {string} contentLanguage source language
 		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
 		 */
-		translatedPageCreated: function ( contentLanguage, targetLanguage ) {
+		published: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
 			mw.track( 'event.ContentTranslation', {
 				version: 1,
 				token: mw.user.id(),
-				action: 'create-translated-page',
-				contentLanguage: contentLanguage,
-				targetLanguage: targetLanguage
+				session: mw.user.sessionId(),
+				action: 'publish',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle
 			} );
 		},
 
+		/**
+		 * Log publish failures
+		 * @param {string} contentLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 */
+		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'publish-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle
+			} );
+		},
+
+		/**
+		 * Log saving(draft) of translated page.
+		 * @param {string} contentLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 */
+		saved: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
+			if ( saveCount ) {
+				return;
+			}
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'save',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle
+			} );
+			saveCount++;
+		},
+
+		/**
+		 * Log continuing translation
+		 * @param {string} contentLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 */
+		continued: function ( sourceLanguage, targetLanguage, sourceTitle ) {
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'continue',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle
+			} );
+		},
+
+		/**
+		 * Log deletion of translated page.
+		 * @param {string} contentLanguage Source language code
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 */
+		deleted: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'delete',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+			} );
+		},
+
+		/**
+		 * CTA is shown.
+		 * @param {string} campaign
+		 */
 		ctaShown: function ( campaign ) {
 			mw.track( 'event.ContentTranslationCTA', {
 				version: 1,

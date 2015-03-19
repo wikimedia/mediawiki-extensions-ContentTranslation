@@ -153,6 +153,11 @@
 			$section.attr( 'data-cx-draft', true );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
+		mw.hook( 'mw.cx.translation.continued' ).fire(
+			mw.cx.sourceLanguage,
+			mw.cx.targetLanguage,
+			mw.cx.sourceTitle
+		);
 	};
 
 	/**
@@ -185,7 +190,12 @@
 		api.postWithToken( 'edit', apiParams, {
 			timeout: 100 * 1000 // in milliseconds
 		} ).done( function () {
-			mw.hook( 'mw.cx.translation.saved' ).fire();
+			mw.hook( 'mw.cx.translation.saved' ).fire(
+				mw.cx.sourceLanguage,
+				mw.cx.targetLanguage,
+				mw.cx.sourceTitle,
+				targetTitle
+			);
 			timer = setInterval( function () {
 				mw.hook( 'mw.cx.translation.save' ).fire();
 			}, 5 * 60 * 1000 );

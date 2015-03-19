@@ -102,7 +102,19 @@ Tools manager listen for this so that it can stop showing the loading indicator.
 ## mw.cx.translation.published
 
 Fires when the article is published successfully.
-Example subsciber is event logging (analytics) module.
+Example subscriber is event logging (analytics) module.
+
+## mw.cx.translation.publish.error
+
+Fires when publishing failed
+
+## mw.cx.translation.continued
+
+Fires when a saved translation is continuing
+
+## mw.cx.translation.deleted
+
+Fires when a saved translation is deleted
 
 ## mw.cx.translation.add
 
