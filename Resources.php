@@ -211,6 +211,7 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'jquery.uls.compact',
 		'mediawiki.ui.button',
 		'ext.cx.widgets.overlay',
+		'ext.cx.pageselector',
 	),
 	'messages' => array(
 		'cx-sourceselector-dialog-new-translation',
@@ -226,6 +227,18 @@ $wgResourceModules['ext.cx.source.selector'] = array(
 		'cx-sourceselector-dialog-error-no-source-article',
 		'cx-license-agreement',
 		'cx-error-server-connection',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.pageselector'] = array(
+	'scripts' =>  array(
+		'widgets/pageselector/ext.cx.pageselector.js'
+	),
+	'styles' => array(
+		'widgets/pageselector/ext.cx.pageselector.less',
+	),
+	'dependencies' => array(
+		'mediawiki.api',
 	),
 ) + $resourcePaths;
 
