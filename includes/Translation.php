@@ -139,7 +139,6 @@ class Translation {
 				'GROUP BY' => array(
 					'translation_source_language',
 					'translation_target_language',
-					'translation_status'
 				),
 			)
 		);
@@ -180,7 +179,6 @@ class Translation {
 				'GROUP BY' => array(
 					'translation_source_language',
 					'translation_target_language',
-					'translation_status'
 				),
 			)
 		);
