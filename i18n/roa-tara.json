@@ -4,5 +4,11 @@
 			"Joetaras"
 		]
 	},
-	"cx-discard-translation": "Scitte 'a traduzione"
+	"cx": "Pàgene de traduzione",
+	"cx-javascript": "Stu strumende non ge funzione senze JavaScript.",
+	"cx-discard-translation": "Scitte 'a traduzione",
+	"cx-draft-cancel-button-label": "Annulle",
+	"cx-campaign-newarticle-notice": "Mò tu puè pure ccrejà 'nu condenute nuève da <b>traducere</b>! Vuè ccu pruève 'u strumende Traduzione d'u Condenute in test?",
+	"cx-campaign-no-thanks": "None, grazie",
+	"cx-campaign-try": "Pruève Traduzione d'u Condenute"
 }

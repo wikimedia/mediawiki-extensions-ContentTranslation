@@ -19,6 +19,8 @@
 	"cx-publish-button": "Iwwersetzung publizéieren",
 	"cx-publish-button-publishing": "Gëtt publizéiert...",
 	"cx-publish-summary": "Ugeluecht duerch d'Iwwersetze vun der Säit \"$1\"",
+	"cx-publish-gt-no-permission-to-move-description": "Frot w.e.g. en experimentéierte Benotzer vun dësem Site fir Iech ze hëllefen Är Iwwersetzung nozekucken a fir se am Haaptnummraum ze publizéieren.",
+	"cx-publish-gt-first-step-title": "D'Iwwersetzung gouf als Brouillon op Ärer Benotzersäit publizéiert fir nogekuckt ze ginn",
 	"cx-publish-gt-move-page-title": "D'Säit réckelen",
 	"cx-publish-gt-moved-title": "Déi iwwersat Säit gouf geréckelt",
 	"cx-publish-gt-moved-description": "Klickt op dëse Link fir Är nei iwwersat Säit ze liesen an ze verbesseren",
@@ -54,6 +56,7 @@
 	"cx-tools-mt-provider-title": "Vu(n) $1",
 	"cx-tools-mt-not-available": "Net disponibel fir $1",
 	"cx-tools-mt-dont-use": "Benotzt keng Maschinneniwwersetzung",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 Kategorie|$1 Kategorien|0=Keng Kategorien}}",
 	"cx-stats-title": "Statistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-stats-unknown": "onbekannt",
 	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum vun dëser Wiki.",
@@ -68,6 +71,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Vun:",
 	"cx-sourceselector-dialog-target-language-label": "Op:",
 	"cx-sourceselector-dialog-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
+	"cx-sourceselector-dialog-error-no-source-article": "D'Säit déi soll iwwersat gi gëtt et net op $1",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-publish-captcha-title": "Sécherheetsfro",
 	"cx-translation-filter-all-translations": "All Iwwersetzungen",
@@ -77,6 +81,7 @@
 	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
 	"cx-create-new-translation": "Nei Iwwersetzung uleeën",
 	"apihelp-query+cxpublishedtranslations-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+cxpublishedtranslations-example-1": "All publizéiert Iwwersetzunge siche goen",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Virun enger Mimutt|Viru(n) $1 Minutte|0=Elo grad}} gespäichert",
 	"cx-save-draft-saving": "Späicheren...",
 	"cx-save-draft-tooltip": "Brouillone vun Iwwersetzunge ginn automatesch gespäichert",
@@ -87,6 +92,7 @@
 	"cx-publishing-dialog-keep-button": "Béid Versioune behalen",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
 	"cx-discard-translation": "Iwwersetzung verwerfen",
+	"cx-translation-status-draft": "Am Gaang",
 	"cx-translation-status-published": "Verëffentlecht",
 	"cx-translation-status-deleted": "Geläscht",
 	"cx-magnus-tool-link-text": "Artikele fannen déi an Ärer Sprooch feelen",
@@ -99,5 +105,6 @@
 	"cx-draft-discard-confirmation-message": "Sidd Dir sécher datt Dir dës Iwwersetzung definitiv läsche wëllt?",
 	"cx-draft-cancel-button-label": "Ofbriechen",
 	"cx-draft-discard-button-label": "Iwwersetzung läschen",
-	"cx-campaign-no-thanks": "Nee, merci"
+	"cx-campaign-no-thanks": "Nee, merci",
+	"cx-campaign-try": "Probéiert d'Iwwersetzung vum Inhalt"
 }

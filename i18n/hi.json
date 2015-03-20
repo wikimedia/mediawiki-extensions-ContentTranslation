@@ -4,6 +4,9 @@
 			"Phoenix303"
 		]
 	},
+	"cx-tools-link-title": "कड़ी",
+	"cx-tools-link-add": "कड़ी जोड़ें",
+	"cx-tools-link-remove": "कड़ी हटाए",
 	"apihelp-cxpublish-param-wpCaptchaId": "कैप्चा आईडी (एक कैप्चा प्रतिक्रिया को सहेजते समय)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "कैप्चा के लिए जवाब (एक कैप्चा प्रतिक्रिया को सहेजते समय)",
 	"apihelp-query+contenttranslation-param-translationid": "अनुवाद आईडी।"

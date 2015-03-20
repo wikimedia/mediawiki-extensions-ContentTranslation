@@ -2,12 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Mantak111",
-			"Aswanas"
+			"Aswanas",
+			"Pofka"
 		]
 	},
+	"cx-beta": "Turinio vertimas",
 	"cx-tools-instructions-text5": "Publikuoti vertimą",
+	"cx-stats-title": "Turinio vertimo statistika",
+	"apihelp-query+contenttranslation-param-translationid": "Vertimo ID.",
 	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų  kalbų porų",
 	"cx-translation-already-in-progress": "Tai yra $1 tęsiamas vertimas",
 	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad  suderinote su vartotoju, kuris išvertė  esamą vertimą.",
-	"cx-publishing-dialog-publish-draft-button": "Paskelbti kaip projektą"
+	"cx-publishing-dialog-publish-draft-button": "Paskelbti kaip projektą",
+	"cx-stats-draft-translations-title": "Vertimų progresas",
+	"cx-campaign-no-thanks": "Ne, ačiū",
+	"cx-campaign-try": "Išbandykite turinio vertimą"
 }
