@@ -11,7 +11,8 @@
 			"Metalhead64",
 			"Liuxinyu970226",
 			"Nike",
-			"KuboF"
+			"KuboF",
+			"Nemo bis"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -163,7 +164,7 @@
 	"cx-draft-cancel-button-label": "Cancel button label\n{{Identical|Cancel}}",
 	"cx-draft-discard-button-label": "Label for delete button",
 	"cx-beta-feature-enabled-notification": "Notification shown when Content Translation enabled for a user. This is a tooltip text shown next to the beta feature link in the page.",
-	"cx-campaign-newarticle-notice": "Text shown in the dialog inviting editors to try Content Translation beta feature",
-	"cx-campaign-no-thanks": "Button label to cancel Content Translation invite",
+	"cx-campaign-newarticle-notice": "Text shown in the dialog inviting editors to try the Content Translation beta feature",
+	"cx-campaign-no-thanks": "Button label to cancel Content Translation invite\n{{Identical|No thanks}}",
 	"cx-campaign-try": "Button label to try Content Translation beta feature"
 }
