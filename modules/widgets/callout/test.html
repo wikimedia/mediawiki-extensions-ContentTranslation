@@ -1,0 +1,111 @@
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type='text/javascript' src='ext.cx.callout.js'></script>
+	<link rel="stylesheet" href="ext.cx.callout.css" type="text/css" />
+	<style>
+		body {
+			background-color: steelblue;
+		}
+
+		a {
+			max-width: 300px;
+			font-size: 3em;
+			color: #fff;
+			position: absolute;
+			text-decoration: none;
+		}
+
+		a.zero {
+			top: 10%;
+			left: 40%;
+		}
+
+		a.one {
+			top: 10%;
+			left: 50%;
+		}
+
+		a.eleven {
+			top: 10%;
+			left: 30%;
+		}
+
+		a.two {
+			top: 30%;
+			left: 60%;
+		}
+
+		a.ten {
+			top: 30%;
+			left: 20%;
+		}
+
+		a.three {
+			top: 50%;
+			left: 60%;
+		}
+
+		a.nine {
+			top: 50%;
+			left: 20%;
+		}
+
+		a.four {
+			top: 70%;
+			left: 60%;
+		}
+
+		a.eight {
+			top: 70%;
+			left: 20%;
+		}
+
+		a.five {
+			top: 80%;
+			left: 50%;
+		}
+
+		a.seven {
+			top: 80%;
+			left: 30%;
+		}
+
+		a.six {
+			top: 80%;
+			left: 40%;
+		}
+
+	</style>
+</head>
+
+<body>
+	<a href="#" data-type='0' class="zero">12</a>
+	<a href="#" data-type='1' class="one">1</a>
+	<a href="#" data-type='2' class="two">2</a>
+	<a href="#" data-type='3' class="three">3</a>
+	<a href="#" data-type='4' class="four">4</a>
+	<a href="#" data-type='5' class="five">5</a>
+	<a href="#" data-type='6' class="six">6</a>
+	<a href="#" data-type='7' class="seven">7</a>
+	<a href="#" data-type='8' class="eight">8</a>
+	<a href="#" data-type='9' class="nine">9</a>
+	<a href="#" data-type='10' class="ten">10</a>
+	<a href="#" data-type='11' class="eleven">11</a>
+</body>
+<script>
+	$( function () {
+		$( 'a' ).each( function () {
+			var $link = $( this );
+			$link.callout( {
+				content: 'Type: ' + $link.attr( 'class' ),
+				trigger: 'auto',
+				direction: $link.attr( 'data-type' ) + ''
+			} );
+		} );
+	} )
+
+</script>
+
+</html>
