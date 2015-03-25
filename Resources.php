@@ -668,6 +668,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 	'dependencies' => array(
 		'ext.cx.sitemapper',
 		'ext.cx.util',
+		'chart.js'
 	),
 	'messages' => array(
 		'cx-stats-table-source-target',
@@ -676,8 +677,19 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'cx-stats-published-translations-title',
 		'cx-stats-draft-translations-title',
 		'cx-stats-published-translators-title',
+		'cx-trend-all-translations',
+		'cx-trend-translations-to',
 	)
 ) + $resourcePaths;
+
+$wgResourceModules['chart.js'] = array(
+	'localBasePath' => $dir . '/lib',
+	'remoteExtPath' => 'ContentTranslation/lib',
+	'scripts' => array(
+		'chart.js/Chart.Core.js',
+		'chart.js/Chart.Line.js',
+	),
+);
 
 $wgResourceModules['ext.cx.beta.notification'] = array(
 	'scripts' => array(

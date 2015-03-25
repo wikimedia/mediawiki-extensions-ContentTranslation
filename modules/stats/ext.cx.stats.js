@@ -11,11 +11,31 @@
 
 	var max = 0;
 
+	/**
+	 * Get the Content Translation stats
+	 */
 	function getCXStats() {
 		var api = new mw.Api();
 		return api.get( {
 			action: 'query',
 			list: 'contenttranslationstats'
+		} );
+	}
+
+	/**
+	 * Get the Content Translation trend for the given target language.
+	 * Fetch the number of translations to the given language.
+	 * @param {string} targetLanguage Target language code
+	 * @return {jQuery.Promise}
+	 */
+	function getCXTrends( targetLanguage ) {
+		var api = new mw.Api();
+		return api.get( {
+			action: 'query',
+			list: 'contenttranslationlangtrend',
+			target: targetLanguage
+		} ).then( function ( response ) {
+			return response.query.contenttranslationlangtrend;
 		} );
 	}
 
@@ -155,11 +175,53 @@
 		return createStatsTable( table );
 	}
 
+	/**
+	 * Fill the data in languageData to match with totalData length
+	 * @param {[Object]} totalData Array of total translation trend data
+	 * @param {[Object]} totalData Array of translations to a particular language
+	 * @return {[Object]} Array of translations to a particular language, after padding
+	 */
+	function mergeAndFill( totalData, languageData ) {
+		var i, padding = [];
+
+		if ( totalData.length === languageData.length ) {
+			return languageData;
+		}
+
+		// Fill at the beginning if languageData is not starting
+		// when totalData starts
+		for ( i = 0; i < totalData.length; i++ ) {
+			if ( !languageData || languageData.length === 0 ) {
+				break;
+			}
+			if ( totalData[ i ].date === languageData[ 0 ].date ) {
+				languageData = padding.concat( languageData );
+			} else {
+				padding.push( {
+					date: totalData[ i ].date,
+					count: 0
+				} );
+			}
+		}
+
+		// Fill at the end if languageData is shorter than totalData
+		for ( i = languageData.length; i < totalData.length; i++ ) {
+			languageData.push( {
+				date: totalData[ i ].date,
+				count: languageData.length ? languageData[ i - 1 ].count : 0
+			} );
+		}
+
+		return languageData;
+	}
+
 	$( function () {
+		var $canvas, ctx, cxTrendGraph,
+			$container = $( '#bodyContent' );
+
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
 		getCXStats().then( function ( data ) {
-			var $container = $( '#bodyContent' );
 			$container.append(
 				$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
 				prepareTranslationsTable( data.query.contenttranslationstats, 'published' ),
@@ -168,6 +230,55 @@
 				$( '<h2>' ).text( mw.msg( 'cx-stats-published-translators-title' ) ),
 				prepareTranslatorsTable( data.query.contenttranslationstats, 'published' )
 			);
+		} );
+
+		$canvas = $( '<canvas>' ).attr( {
+			id: 'cxtrend',
+			width: $container.width(),
+			height: 400
+		} );
+
+		$container.append( $( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas ) );
+		ctx = $canvas[ 0 ].getContext( '2d' );
+
+		// TODO: Add a language selector to choose any language
+		$.when(
+			getCXTrends(),
+			getCXTrends( mw.config.get( 'wgContentLanguage' ) )
+		).done( function ( totalTrend, languageTrend ) {
+			var data;
+
+			languageTrend = mergeAndFill( totalTrend, languageTrend );
+			data = {
+				labels: $.map( totalTrend, function ( data ) {
+					return data.date;
+				} ),
+				datasets: [
+					{
+						label: mw.message( 'cx-trend-all-translations' ).escaped(),
+						strokeColor: '#FD6E8A',
+						pointColor: '#FD6E8A',
+						data: $.map( totalTrend, function ( data ) {
+							return data.count;
+						} )
+					},
+					{
+						label: mw.message( 'cx-trend-translations-to',
+							$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) ).escaped(),
+						strokeColor: '#80B3FF',
+						pointColor: '#80B3FF',
+						data: $.map( languageTrend, function ( data ) {
+							return data.count;
+						} )
+					}
+				]
+			};
+			/*global Chart:false */
+			cxTrendGraph = new Chart( ctx ).Line( data, {
+				datasetFill: false,
+				legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+			} );
+			$container.find( '.cx-stats-trend' ).append( cxTrendGraph.generateLegend() );
 		} );
 	} );
 }( jQuery, mediaWiki ) );

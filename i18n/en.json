@@ -124,6 +124,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Fetch all published translations",
 	"apihelp-query+cxpublishedtranslations-example-2": "Fetch all published translations, translated from English",
 	"apihelp-query+cxpublishedtranslations-example-3": "Fetch all published translations, translated from English to Spanish",
+	"apihelp-query+contenttranslationlangtrend-param-source": "The source language code.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "The target language code.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "The interval for calculating the trend. Can be 'week' or 'month'.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Fetch the publishing trend for the language pair es-ca with weekly intervals",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Fetch the publishing trend for all languages",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
@@ -159,5 +164,7 @@
 	"cx-beta-feature-enabled-notification": "Content Translation has been activated in this wiki.",
 	"cx-campaign-newarticle-notice": "Now you can also create new content by <b>translating</b>! Do you want to try the Content Translation beta tool?",
 	"cx-campaign-no-thanks": "No, thanks",
-	"cx-campaign-try": "Try Content Translation"
+	"cx-campaign-try": "Try Content Translation",
+	"cx-trend-all-translations": "All translations",
+	"cx-trend-translations-to": "Translations to $1 language"
 }

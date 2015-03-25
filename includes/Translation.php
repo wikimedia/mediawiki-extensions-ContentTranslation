@@ -191,6 +191,81 @@ class Translation {
 		return $result;
 	}
 
+	/**
+	 * Get time-wise cumulative number of translations for given
+	 * language pairs, with given interval
+	 */
+	public static function getTrend ( $source, $target, $interval ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		$publishedCondition = $dbr->makeList(
+			array(
+				'translation_status' => 'published',
+				'translation_target_url IS NOT NULL',
+			),
+			LIST_OR
+		);
+
+		$groupBy = null;
+
+		if ( $interval === 'week' ) {
+			$groupBy = array(
+				'GROUP BY' => array(
+					'YEARWEEK(translation_last_updated_timestamp)',
+				),
+			);
+		} elseif ( $interval === 'month' ) {
+			$groupBy = array(
+				'GROUP BY' => array(
+					'YEAR(translation_last_updated_timestamp), MONTH(translation_last_updated_timestamp)',
+					),
+			);
+		}
+
+		$conditions = array( $publishedCondition );
+
+		if ( $source !== null ) {
+			$conditions['translation_source_language'] = $source;
+		}
+
+		if ( $target !== null ) {
+			$conditions['translation_target_language'] = $target;
+		}
+
+		$rows = $dbr->select(
+			array( 'translations' => 'cx_translations' ),
+			array(
+				"DATE_FORMAT( translations.translation_last_updated_timestamp, '%Y-%m-%d' ) AS date",
+				'(' . $dbr->selectSQLText(
+					'cx_translations',
+					'count(*)',
+					$dbr->makeList( array(
+						'translation_last_updated_timestamp <= MAX(translations.translation_last_updated_timestamp)',
+						$dbr->makeList( $conditions, LIST_AND ),
+					),
+					LIST_AND )
+				) . ') translatons_count',
+			),
+			$dbr->makeList( $conditions, LIST_AND ),
+			__METHOD__,
+			$groupBy
+		);
+
+		$result = array();
+		foreach ( $rows as $row ) {
+			$result[] = array(
+				'date' => $interval === 'week' ?
+					// Week start date
+					date( 'Y-m-d', strtotime( $row->date . ' - ' .
+						date( 'w', strtotime( $row->date ) ) . ' days' ) ) :
+					date( 'Y-m', strtotime( $row->date ) ),
+				'count' => $row->translatons_count,
+			);
+		}
+
+		return $result;
+	}
+
 	public function getTranslationId() {
 		return $this->translation['id'];
 	}

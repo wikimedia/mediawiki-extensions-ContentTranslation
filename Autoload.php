@@ -16,6 +16,7 @@ $wgAutoloadClasses += array(
 	'ApiContentTranslationDelete' => "$dir/api/ApiContentTranslationDelete.php",
 	'ApiQueryContentTranslation' => "$dir/api/ApiQueryContentTranslation.php",
 	'ApiQueryContentTranslationStats' => "$dir/api/ApiQueryContentTranslationStats.php",
+	'ApiQueryContentTranslationLanguageTrend' =>"$dir/api/ApiQueryContentTranslationLanguageTrend.php",
 	'ApiQueryPublishedTranslations' => "$dir/api/ApiQueryPublishedTranslations.php",
 	'ContentTranslationHooks' => "$dir/ContentTranslation.hooks.php",
 	'ContentTranslation\Database' => "$dir/includes/Database.php",

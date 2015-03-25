@@ -131,6 +131,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+cxpublishedtranslations-example-2": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+cxpublishedtranslations-example-3": "{{doc-apihelp-example|query+contenttranslation}}",
+	"apihelp-query+contenttranslationlangtrend-param-source": "{{doc-apihelp-param|query+contenttranslationlangtrend|source}}",
+	"apihelp-query+contenttranslationlangtrend-param-target": "{{doc-apihelp-param|query+contenttranslationlangtrend|target}}",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "{{doc-apihelp-param|query+cxpublishedtranslations|interval}}",
+	"apihelp-query+contenttranslationlangtrend-example-1": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
+	"apihelp-query+contenttranslationlangtrend-example-2": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
 	"cx-save-draft-save-success": "\"Saved\" refers to a draft of a translated page that was saved recently.",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
@@ -166,5 +171,7 @@
 	"cx-beta-feature-enabled-notification": "Notification shown when Content Translation enabled for a user. This is a tooltip text shown next to the beta feature link in the page.",
 	"cx-campaign-newarticle-notice": "Text shown in the dialog inviting editors to try the Content Translation beta feature",
 	"cx-campaign-no-thanks": "Button label to cancel Content Translation invite\n{{Identical|No thanks}}",
-	"cx-campaign-try": "Button label to try Content Translation beta feature"
+	"cx-campaign-try": "Button label to try Content Translation beta feature",
+	"cx-trend-all-translations": "Label shown in the legend section Content translation trends(graph visualization)",
+	"cx-trend-translations-to": "Label shown in the legend section Content translation trends(graph visualization)\n$1 - language name"
 }
