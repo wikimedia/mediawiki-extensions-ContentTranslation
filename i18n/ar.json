@@ -64,7 +64,6 @@
 	"cx-tools-mt-dont-use": "لا تستخدم الترجمة الآلية",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
 	"cx-stats-unknown": "غير معروف",
-	"cx-stats-summary": "{{PLURAL:$1|صفحة واحدة|$1/$2 من الصفحات ($3%)}} في النطاق الرئيسي.",
 	"cx-tools-reference-title": "مرجع",
 	"cx-tools-reference-remove": "أزل المرجع",
 	"cx-tools-link-instruction-shortcut": "لفتح أي وصلة، انقرها مع ضغط زر التحويل (شيفت)",

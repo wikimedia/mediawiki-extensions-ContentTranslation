@@ -52,7 +52,6 @@
 	"cx-tools-mt-provider-title": "Z $1",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategoria|$1 kategorie|$1 kategorii|0=Brak kategorii}}",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|strona|stron}} ($3%) w przestrzeni głównej tej wiki.",
 	"cx-tools-reference-title": "Przypis",
 	"cx-tools-reference-remove": "Usuń przypis",
 	"cx-tools-link-hover-tooltip": "Kliknij, aby otworzyć",

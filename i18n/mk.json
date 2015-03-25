@@ -64,7 +64,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
 	"cx-stats-title": "Статистики за преводот на содржини",
 	"cx-stats-unknown": "непознат",
-	"cx-stats-summary": "$1 од $2 {{PLURAL:$1|страница|страници}} ($3%) во главниот именски простор на ова вики.",
 	"cx-tools-reference-title": "Навод",
 	"cx-tools-reference-remove": "Отстрани навод",
 	"cx-tools-link-instruction-shortcut": "Shift + стиснете на некоја врска за да ја отворите",

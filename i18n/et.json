@@ -65,7 +65,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Üks kategooria|$1 kategooriat|0=Kategooriad puuduvad}}",
 	"cx-stats-title": "Sisutõlke arvandmestik",
 	"cx-stats-unknown": "tundmatu",
-	"cx-stats-summary": "Selle viki põhinimeruumi {{PLURAL:$1|ühest|$1}} leheküljest $2 ($3%).",
 	"cx-tools-reference-title": "Viide",
 	"cx-tools-reference-remove": "Eemalda viide",
 	"cx-tools-link-instruction-shortcut": "Avamiseks hoia all tõstuklahvi ja klõpsa mis tahes linki",

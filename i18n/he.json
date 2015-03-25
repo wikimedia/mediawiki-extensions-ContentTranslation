@@ -70,7 +70,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|קטגוריה אחת|$1 קטגוריות|0=אין קטגוריות}}",
 	"cx-stats-title": "סטטיסטיקות של תרגום תוכן",
 	"cx-stats-unknown": "אינה ידועה",
-	"cx-stats-summary": "{{PLURAL:$1|דף אחד מתוך $2|$1 דפים מתוך $2}} ($3%) במרחב הראשי בוויקי הזה.",
 	"cx-tools-reference-title": "הערת שוליים",
 	"cx-tools-reference-remove": "הסרת הערת שוליים",
 	"cx-tools-link-instruction-shortcut": "יש ללחוץ על קישור עם שיפט כדי לפתוח אותו",

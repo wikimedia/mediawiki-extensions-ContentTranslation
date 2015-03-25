@@ -60,7 +60,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 санат|$1 санат|0=Санаттары жоқ}}",
 	"cx-stats-title": "Мазмұн аудару статистикалары",
 	"cx-stats-unknown": "белгісіз",
-	"cx-stats-summary": "Бұл уикиде $1/$2 {{PLURAL:$1|бет|бет}} ($3%) негізгі есім кеңістігінде.",
 	"cx-tools-reference-title": "Дереккөз",
 	"cx-tools-reference-remove": "Дереккөзді аластау",
 	"cx-tools-link-instruction-shortcut": "Ашу үшін Shift пернесін басып тұрып кез-келген сілтемені шертіңіз",

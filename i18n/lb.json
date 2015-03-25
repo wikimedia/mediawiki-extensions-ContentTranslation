@@ -59,7 +59,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 Kategorie|$1 Kategorien|0=Keng Kategorien}}",
 	"cx-stats-title": "Statistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-stats-unknown": "onbekannt",
-	"cx-stats-summary": "{{PLURAL:$1|Eng/$2 Säit|$1/$2 Säiten}} ($3%) am Haaptnummraum vun dëser Wiki.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz ewechhuelen",
 	"cx-tools-link-hover-tooltip": "Klickt fir opzemaachen",

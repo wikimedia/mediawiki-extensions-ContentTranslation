@@ -66,7 +66,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Eine Kategorie|$1 Kategorien|0=Keine Kategorien}}",
 	"cx-stats-title": "Statistiken zu Inhaltsübersetzungen",
 	"cx-stats-unknown": "unbekannt",
-	"cx-stats-summary": "$1 von $2 {{PLURAL:$1|Seite|Seiten}} ($3%) im Hauptnamensraum in diesem Wiki.",
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-remove": "Referenz entfernen",
 	"cx-tools-link-instruction-shortcut": "Umschalttaste drücken sowie einen beliebigen Link anklicken, um diesen zu öffnen",

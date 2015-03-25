@@ -58,7 +58,6 @@
 	"cx-tools-mt-dont-use": "機械翻訳を使用しないでください",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 件のカテゴリ}}",
 	"cx-stats-unknown": "不明",
-	"cx-stats-summary": "標準名前空間の $1/$2 {{PLURAL:$2|ページ}} ($3%)",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
 	"cx-sourceselector-dialog-button-start-translation": "翻訳を開始",
 	"cx-sourceselector-dialog-button-cancel": "キャンセル",

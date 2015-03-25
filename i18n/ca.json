@@ -73,7 +73,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categories|0=No hi ha categories}}",
 	"cx-stats-title": "Les vostres estadístiques de traducció",
 	"cx-stats-unknown": "desconegut",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|pàgina|pàgines}} ($3%) en l'espai principal en aquest wiki.",
 	"cx-tools-reference-title": "Referència",
 	"cx-tools-reference-remove": "Esborra la referència",
 	"cx-tools-link-instruction-shortcut": "Feu Shift + clic a qualsevol enllaç per obrir-lo",

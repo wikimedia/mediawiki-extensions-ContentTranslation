@@ -70,7 +70,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorie|0=Nessuna categoria}}",
 	"cx-stats-title": "Statistiche Traduzione Contenuti",
 	"cx-stats-unknown": "sconosciuta",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|pagina|pagine}} ($3%) nel namespace principale in questo wiki.",
 	"cx-tools-reference-title": "Riferimento",
 	"cx-tools-reference-remove": "Rimuovi riferimento",
 	"cx-tools-link-instruction-shortcut": "Maiusc + clic su qualsiasi collegamento per aprirlo",

@@ -64,7 +64,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 катэгорыя|$1 катэгорыі|$1 катэгорыяў|0=няма катэгорыяў}}",
 	"cx-stats-title": "Статыстыка перакладу зьместу",
 	"cx-stats-unknown": "невядома",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|старонка|старонкі|старонак}} ($3%) у асноўнай прасторы назваў гэтай вікі.",
 	"cx-tools-reference-title": "Зноска",
 	"cx-tools-reference-remove": "Выдаліць зноску",
 	"cx-tools-link-instruction-shortcut": "Shift + пстрык на любой спасылцы, каб адкрыць",

@@ -71,7 +71,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1个分类|0=没有分类}}",
 	"cx-stats-title": "内容翻译统计",
 	"cx-stats-unknown": "未知",
-	"cx-stats-summary": "在此wiki的$1/$2个主名字空间中的{{PLURAL:$1|页面}}（$3%）。",
 	"cx-tools-reference-title": "参考资料",
 	"cx-tools-reference-remove": "移除参考资料",
 	"cx-tools-link-instruction-shortcut": "Shift+点击任何连接打开",

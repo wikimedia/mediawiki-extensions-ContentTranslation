@@ -59,7 +59,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 luokka|$1 luokkaa|0=Ei luokkia}}",
 	"cx-stats-title": "Käännetyn sisällön tilastot",
 	"cx-stats-unknown": "tuntematon",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|sivu|sivua}} ($3%) päänimiavaruudessa.",
 	"cx-tools-reference-title": "Vite",
 	"cx-tools-reference-remove": "Poista viite",
 	"cx-tools-link-instruction-shortcut": "Avaa mikä tahansa linkki napsauttamalla shift-pohjassa",

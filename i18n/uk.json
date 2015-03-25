@@ -71,7 +71,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорія|$1 категорії|$1 категорій|0=Немає категорій}}",
 	"cx-stats-title": "Статистика Перекладу вмісту",
 	"cx-stats-unknown": "невідомо",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|сторінка|сторінки|сторінок}} ($3%) в основному просторі у цій вікі.",
 	"cx-tools-reference-title": "Примітка",
 	"cx-tools-reference-remove": "Вилучити примітку",
 	"cx-tools-link-instruction-shortcut": "Shift + клік на будь-яке посилання, щоб відкрити",

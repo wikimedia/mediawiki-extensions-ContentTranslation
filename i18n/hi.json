@@ -65,7 +65,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 श्रेणी|$1 श्रेणियाँ|0=कोई श्रेणी नहीं}}",
 	"cx-stats-title": "सामग्री अनुवाद सांख्यिकी",
 	"cx-stats-unknown": "अज्ञात",
-	"cx-stats-summary": "इस विकि में मुख्य नामस्थान में $1/$2 {{PLURAL:$1|पृष्ठ}} ($3%) हैं।",
 	"cx-tools-reference-title": "सन्दर्भ",
 	"cx-tools-reference-remove": "सन्दर्भ हटायें",
 	"cx-tools-link-instruction-shortcut": "किसी भी कड़ी को खोलने के लिए शिफ्ट कुँजी (Shift) के साध दबायें।",
