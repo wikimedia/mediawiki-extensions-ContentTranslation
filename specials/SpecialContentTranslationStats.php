@@ -28,32 +28,6 @@ class SpecialContentTranslationStats extends SpecialPage {
 
 		// @TODO better to return title => stats iterator
 		$stats = ContentTranslation\Stats::getStats();
-		$out->addHtml( $this->getPagesSummary( $stats ) );
 		$out->addModules( 'ext.cx.stats' );
-	}
-
-	private function getPagesSummary( $pages ) {
-		$total = $main = 0;
-
-		foreach ( $pages as $row ) {
-			$title = Title::newFromRow( $row );
-
-			$total++;
-			if ( $title->inNamespace( NS_MAIN ) ) {
-				$main++;
-			}
-		}
-
-		if ( $total > 0 ) {
-			$percentage = round( $main / $total * 100 );
-		} else {
-			$percentage = 0;
-		}
-
-		$summary = wfMessage( 'cx-stats-summary' )
-			->numParams( $main, $total, $percentage )
-			->parse();
-
-		return $summary;
 	}
 }
