@@ -173,7 +173,6 @@ $wgResourceModules['ext.cx.source'] = array(
 	),
 	'styles' => array(
 		'source/styles/ext.cx.source.less',
-		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
 		'ext.cx.util',
@@ -183,6 +182,7 @@ $wgResourceModules['ext.cx.source'] = array(
 		'mediawiki.api',
 		'mediawiki.jqueryMsg',
 		'mediawiki.util',
+		'ext.cx.widgets.spinner',
 	),
 	'messages' => array(
 		'cx-source-view-page',
@@ -272,7 +272,6 @@ $wgResourceModules['ext.cx.tools'] = array(
 	),
 	'styles' => array(
 		'tools/styles/ext.cx.tools.less',
-		'base/styles/ext.cx.spinner.less',
 	),
 	'dependencies' => array(
 		'ext.cx.feedback',
@@ -291,6 +290,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.util.selection',
 		'jquery.uls.data',
 		'mediawiki.jqueryMsg',
+		'ext.cx.widgets.spinner',
 	),
 ) + $resourcePaths;
 
@@ -731,6 +731,12 @@ $wgResourceModules['ext.cx.widgets.overlay'] = array(
 	),
 	'styles' => array(
 		'widgets/overlay/ext.cx.overlay.less',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.widgets.spinner'] = array(
+	'styles' => array(
+		'widgets/spinner/ext.cx.spinner.less',
 	),
 ) + $resourcePaths;
 
