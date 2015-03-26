@@ -36,7 +36,7 @@
 
 		$trigger.callout( {
 			trigger: 'auto',
-			gravity: $.fn.callout.autoNEW,
+			direction: $.fn.callout.autoDirection( '1' ),
 			content: $banner
 		} );
 
