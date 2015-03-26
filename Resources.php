@@ -668,7 +668,8 @@ $wgResourceModules['ext.cx.stats'] = array(
 	'dependencies' => array(
 		'ext.cx.sitemapper',
 		'ext.cx.util',
-		'chart.js'
+		'chart.js',
+		'jquery.uls.data'
 	),
 	'messages' => array(
 		'cx-stats-table-source-target',
