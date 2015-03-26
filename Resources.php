@@ -53,10 +53,10 @@ $wgResourceModules['ext.cx.feedback'] = array(
 		'ext.cx.model',
 	),
 	'scripts' => array(
-		'base/ext.cx.feedback.js',
+		'widgets/feedback/ext.cx.feedback.js',
 	),
 	'styles' => array(
-		'base/styles/ext.cx.feedback.less',
+		'widgets/feedback/styles/ext.cx.feedback.less',
 	),
 	'messages' => array(
 		'cx-feedback-link',
