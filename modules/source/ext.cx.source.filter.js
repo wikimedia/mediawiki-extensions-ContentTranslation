@@ -81,14 +81,20 @@
 
 			mwData = $template.data( 'mw' );
 
-			if ( !mwData || mwData.parts.length > 1 ) {
-				// Either the template is missing mw data or having multiple parts.
-				// At present, we cannot handle them.
+			if ( !mwData ) {
+				mw.log( '[CX] Skipping template!' );
+				return;
+			}
+
+			if ( mwData.parts.length > 1 ) {
+				// This is compound content block that include output from several transclusions
+				// At present, we cannot provide edit support to them.
+				// See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content
 				// An example:
 				// {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
 				// in enwiki:Debian, Timeline table.
-				mw.log( '[CX] Skipping template!' );
-
+				mw.log( '[CX] Removing multi-part template' );
+				sourceFilter.removeTemplate( $template );
 				return;
 			}
 
