@@ -116,9 +116,15 @@ class ContentTranslationHooks {
 	 * @param SpecialPage $page
 	 */
 	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
+		global $wgContentTranslationEventLogging;
+
 		if ( $user->getId() === $page->getUser()->getId() &&
 			ContentTranslationHooks::isEnabledForUser( $user )
 		) {
+			// If EventLogging integration is enabled, load the event logging functions module
+			if ( $wgContentTranslationEventLogging ) {
+				$page->getOutput()->addModules( 'ext.cx.eventlogging' );
+			}
 			$page->getOutput()->addModules( 'ext.cx.contributions.init' );
 		}
 	}
