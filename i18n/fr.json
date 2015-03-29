@@ -16,7 +16,8 @@
 			"Element303",
 			"Nicolapps",
 			"Thibaut120094",
-			"Brunoperel"
+			"Brunoperel",
+			"Abaddon1337"
 		]
 	},
 	"cx": "Traduire la page",
@@ -133,6 +134,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Récupérer toutes les traductions publiées",
 	"apihelp-query+cxpublishedtranslations-example-2": "Récupérer toutes les traductions publiées, traduites de l’anglais",
 	"apihelp-query+cxpublishedtranslations-example-3": "Récupérer toutes les traductions publiées, traduites de l’anglais en espagnol",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Le code de langue source.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Le code de langue cible.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "L’intervalle pour calculer la tendance. Peut être soit 'week' soit 'month'.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Récupère la tendance de publication pour la paire de langues es-ca avec des intervalles hebdomadaires",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Récupérer la tendance de publication pour toutes les langues",
 	"cx-save-draft-save-success": "Enregistré il y a {{PLURAL:$1|une minute|$1 minutes|0=à l’instant}}",
 	"cx-save-draft-saving": "Enregistrement en cours…",
 	"cx-save-draft-tooltip": "Les brouillons de traduction sont enregistrés automatiquement",
@@ -168,5 +174,7 @@
 	"cx-beta-feature-enabled-notification": "Traduction de contenu a été activé sur ce wiki.",
 	"cx-campaign-newarticle-notice": "Maintenant, vous pouvez aussi créer un nouveau contenu en <b>traduisant</b> ! Voulez-vous essayer l’outil de Traduction de contenu en version bêta ?",
 	"cx-campaign-no-thanks": "Non merci",
-	"cx-campaign-try": "Essayer Traduction de contenu"
+	"cx-campaign-try": "Essayer Traduction de contenu",
+	"cx-trend-all-translations": "Toutes les traductions",
+	"cx-trend-translations-to": "Traductions vers la langue $1"
 }

@@ -1,8 +1,36 @@
 {
 	"@metadata": {
 		"authors": [
-			"Babanwalia"
+			"Babanwalia",
+			"Satdeep gill"
 		]
 	},
-	"cx-tools-mt-provider-title": "$1 ਤੋਂ"
+	"cx": "ਸਫ਼ਾ ਅਨੁਵਾਦ ਕਰੋ",
+	"cx-header-progressbar-text": "$1% ਅਨੁਵਾਦਿਤ",
+	"cx-header-progressbar-text-mt": "(ਮਸ਼ੀਨ ਅਨੁਵਾਦ ਦੇ ਨਾਲ $1)",
+	"cx-header-translation-center": "ਅਨੁਵਾਦ ਕੇਂਦਰ",
+	"cx-header-new-translation": "ਨਵਾਂ ਅਨੁਵਾਦ",
+	"cx-header-all-translations": "ਸਾਰੇ ਅਨੁਵਾਦ",
+	"cx-publish-button": "ਅਨੁਵਾਦ ਛਾਪੋ",
+	"cx-publish-button-publishing": "ਛਾਪਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+	"cx-publish-summary": "\"$1\" ਸਫ਼ੇ ਨੂੰ ਅਨੁਵਾਦ ਕਰਕੇ ਬਣਾਇਆ ਗਿਆ",
+	"cx-publish-gt-move-page-title": "ਸਫ਼ਾ ਭੇਜੋ",
+	"cx-publish-gt-moved-title": "ਅਨੁਵਾਦਿਤ ਸਫ਼ਾ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਸੀ",
+	"cx-translation-add-translation": "+ਅਨੁਵਾਦ ਜੋੜੋ",
+	"tag-contenttranslation": "ਸਮਗਰੀ ਅਨੁਵਾਦ",
+	"cx-beta": "ਸਮਗਰੀ ਅਨੁਵਾਦ",
+	"cx-entrypoint-title": "ਇਸ ਸਫ਼ੇ ਨੂੰ $1 ਉੱਤੇ ਅਨੁਵਾਦ ਕਰੋ",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ਇਹ ਸਫ਼ਾ $1 ਵਿੱਚ ਹਾਲੇ ਮੌਜੂਦ ਨਹੀਂ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸਨੂੰ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+	"cx-entrypoint-dialog-title-in": "$1 ਵਿੱਚ ਨਵੇਂ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ:",
+	"cx-entrypoint-dialog-button-translate-from": "$1 ਤੋਂ ਅਨੁਵਾਦ ਕਰੋ",
+	"cx-tools-instructions-text5": "ਅਨੁਵਾਦ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ",
+	"cx-tools-searchbox-text": "ਸ਼ਬਦ ਲੱਭੋ",
+	"cx-tools-dictionary-title": "ਪਰਿਭਾਸ਼ਾ",
+	"cx-tools-mt-provider-title": "$1 ਤੋਂ",
+	"cx-stats-published-translators-title": "ਅਨੁਵਾਦ ਦੀ ਗਿਣਤੀ",
+	"cx-draft-discard-button-label": "ਅਨੁਵਾਦ ਮਿਟਾਓ",
+	"cx-campaign-no-thanks": "ਨਹੀਂ, ਸ਼ੁਕਰੀਆ",
+	"cx-campaign-try": "ਸਮਗਰੀ ਅਨੁਵਾਦ ਅਜ਼ਮਾਓ",
+	"cx-trend-all-translations": "ਸਾਰੇ ਅਨੁਵਾਦ",
+	"cx-trend-translations-to": "$1 ਭਾਸ਼ਾ ਵਿੱਚ ਕੀਤੇ ਅਨੁਵਾਦ"
 }

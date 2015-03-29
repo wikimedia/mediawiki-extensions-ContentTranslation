@@ -118,6 +118,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Дај ги сите објавени преводи",
 	"apihelp-query+cxpublishedtranslations-example-2": "Дај ги сите објавени преводи, преведени од англиски",
 	"apihelp-query+cxpublishedtranslations-example-3": "Дај ги сите објавени преводи, преведени од англиски на шпански",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Код на изворниот јазик.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Код на целниот јазик.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервалот за пресметување на тежнеењето. Може да биде „недела“ или „месец“.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Испис на тежнеењето на објавувања за јазичниот пар es-ca со неделни интервали",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Испис на тежнеењето на објавувања за сите јазици",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Зачувано пред една минута|Зачувано пред $1 минути|0=Штотуку зачувано}}",
 	"cx-save-draft-saving": "Зачувувам...",
 	"cx-save-draft-tooltip": "Нацрт-преводите се зачувуваат автоматски",
@@ -153,5 +158,7 @@
 	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики.",
 	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <b>преведување</b>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
 	"cx-campaign-no-thanks": "Не, благодарам",
-	"cx-campaign-try": "Пробајте го „Превод на содржини“"
+	"cx-campaign-try": "Пробајте го „Превод на содржини“",
+	"cx-trend-all-translations": "Сите преводи",
+	"cx-trend-translations-to": "Преводи на $1"
 }

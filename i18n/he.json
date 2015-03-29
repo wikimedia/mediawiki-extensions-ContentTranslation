@@ -124,6 +124,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "אחזור כל התרגומים שפורסמו",
 	"apihelp-query+cxpublishedtranslations-example-2": "אחזור כל התרגומים מאנגלית שפורסמו",
 	"apihelp-query+cxpublishedtranslations-example-3": "אחזור כל התרגומים מאנגלית לספרדית שפורסמו",
+	"apihelp-query+contenttranslationlangtrend-param-source": "קוד שפת המקור.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "קוד שפת היעד.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "המרווח לחישוב המגמה. יכול להיות 'week' (שבוע) או 'month' (חודש).",
+	"apihelp-query+contenttranslationlangtrend-example-1": "אחזור מגמת הפרסום עבור זוג השפות es-ca (מספרדית לקטלאנית) עם מרווחים שבועיים",
+	"apihelp-query+contenttranslationlangtrend-example-2": "אזחור מגמת הפרסום עבור כל השפות",
 	"cx-save-draft-save-success": "נשמר {{PLURAL:$1|לפני דקה|לפני $1 דקות|0=זה עתה}}",
 	"cx-save-draft-saving": "שמירה...",
 	"cx-save-draft-tooltip": "טיוטות של תרגומים נשמרות אוטומטית",
@@ -159,5 +164,7 @@
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
 	"cx-campaign-newarticle-notice": "עכשיו אפשר ליצור תוכן חדש באמצעות <b>תרגום</b>! האם ברצונך לנסות את כלי תרגום התוכן?",
 	"cx-campaign-no-thanks": "לא, תודה",
-	"cx-campaign-try": "לנסות את כלי תרגום התוכן"
+	"cx-campaign-try": "לנסות את כלי תרגום התוכן",
+	"cx-trend-all-translations": "כל התרגומים",
+	"cx-trend-translations-to": "תרגומים ל$1"
 }

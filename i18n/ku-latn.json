@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"George Animal"
+			"George Animal",
+			"Bikarhêner"
 		]
 	},
-	"cx-draft-discard-button-label": "Wergerê jê bibe"
+	"apihelp-query+contenttranslationlangtrend-param-source": "Koda zimanê çavkanî",
+	"cx-magnus-tool-link-text": "Di zimanê xwe de nivîsarên kêm bibîne",
+	"cx-draft-discard-button-label": "Wergerê jê bibe",
+	"cx-campaign-no-thanks": "Na, spas",
+	"cx-trend-all-translations": "Hemû werger"
 }

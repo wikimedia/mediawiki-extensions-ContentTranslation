@@ -6,7 +6,8 @@
 			"Fúlvio",
 			"Vitorvicentevalente",
 			"Imperadeiro90",
-			"Fernandofelippe"
+			"Fernandofelippe",
+			"Fabulous"
 		]
 	},
 	"cx": "Traduzir página",
@@ -109,6 +110,10 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Obter todas as traduções publicadas",
 	"apihelp-query+cxpublishedtranslations-example-2": "Obter todas as traduções publicadas, traduzidas de inglês",
 	"apihelp-query+cxpublishedtranslations-example-3": "Obter todas as traduções publicadas, traduzidas de inglês para espanhol.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "O código da língua-alvo.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "O intervalo para o cálculo de tendência. Pode ser 'semanal' ou 'mensal'.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Buscar a tendência de publicação para o par de línguas es-ca com intervalos semanais",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Buscar a tendência de publicação para todas as línguas",
 	"cx-save-draft-save-success": "Gravada {{PLURAL:$1|há um minuto|há $1 minutos ago|0=agora}}",
 	"cx-save-draft-saving": "A gravar...",
 	"cx-save-draft-tooltip": "Os rascunhos são gravados automaticamente",
@@ -138,5 +143,7 @@
 	"cx-beta-feature-enabled-notification": "A Content Translation foi ativada nesta wiki.",
 	"cx-campaign-newarticle-notice": "Agora também pode criar novos conteúdos ao <b>traduzir</b>! Quer experimentar a nova ferramenta beta de Tradução de Conteúdo?",
 	"cx-campaign-no-thanks": "Não, obrigado",
-	"cx-campaign-try": "Experimente a Tradução de Conteúdo"
+	"cx-campaign-try": "Experimente a Tradução de Conteúdo",
+	"cx-trend-all-translations": "Todas as traduções",
+	"cx-trend-translations-to": "Traduções para $1"
 }

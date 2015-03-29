@@ -8,7 +8,7 @@
 	"cx-javascript": "Dat heh Deihd et nit der ohne JavaSkrep.",
 	"cx-license-agreement": "Wann De op „$1“ kleks, bes De met dä [//wikimediafoundation.org/wiki/Terms_of_Use/ksh Bedengonge för der Jebruch] ennverschtande un jiß Ding Beijdrähsch frei onger dä Lezänze [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0] un [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"GNU Free Documentation License.\">GFDL</i>] un schtemms zoh, dat De dänn nieh mieh widerschpräsche kanns un dat ene Lenk udder en <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Uniform Ressource Locator\">URL</i> jenöhsch, öm Dinge Nahme als Schriiver udder Uurhävver ze nänne.",
 	"cx-error-server-connection": "Fähler: Kunnt kein Verbendung nohm ẞööver krijje.",
-	"cx-desc": "E Wärkzüsch för vun eine Schprohch en en andere ze övversäze un derbei op de Hölp vun Maschihne_Övversäzonge un ander Meddel zohzejrihfe.",
+	"cx-desc": "E Wärkzüsch för Sigge vun eine Schprohch en en andere ze övversäze un derbei op de Hölp vun Maschihne_Övversäzonge un ander Meddel zohzejrihfe.",
 	"cx-header-progressbar-text": "$1% övversaz",
 	"cx-header-progressbar-text-mt": "($1% vun de automatteshe Övversäzong)",
 	"cx-header-translation-center": "Et Övversäzongs_Zäntrom",
@@ -91,6 +91,10 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Holl alle öffentlesch jemaate Övversäzonge",
 	"apihelp-query+cxpublishedtranslations-example-2": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche",
 	"apihelp-query+cxpublishedtranslations-example-3": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche ent Schpahnesche",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Et Köözel för de orschpönglesche Schprohch",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Et Köözel för de Zihl_Schprohch",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "De Zigg för der  trend. Kann „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">week</code>“ (Woch) udder „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">month</code>“ (Mohnd) sinn.\n<!--\nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Apihelp-query%2Bcontenttranslationlangtrend-param-interval/en\n-->",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Holl der   publishing trend för alle Schprohche",
 	"cx-save-draft-save-success": "Jrahd {{PLURAL:$1|vör en Menott|vör $1 Menotte|jäz}} jeseschert",
 	"cx-save-draft-saving": "Ben aam Afseschere{{int:ellipsis}}",
 	"cx-save-draft-tooltip": "Äntwörf vun Övversäzonge wäde automattesch jeseschert.",
@@ -115,5 +119,7 @@
 	"cx-draft-discard-confirmation-message": "Wells De heh di Övversäzong verhaftesch fott schmiiße",
 	"cx-draft-cancel-button-label": "Ophüre!",
 	"cx-draft-discard-button-label": "De Övversäzong fott schmiiße",
-	"cx-campaign-no-thanks": "Nää, dat welle mer nit"
+	"cx-campaign-no-thanks": "Nää, dat welle mer nit",
+	"cx-trend-all-translations": "Alle Övversäzonge",
+	"cx-trend-translations-to": "Övversäzonge en de Schprohch: $1\n<!--  \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Cx-trend-translations-to/ksh\n-->"
 }

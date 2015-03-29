@@ -3,7 +3,8 @@
 		"authors": [
 			"Withoutaname",
 			"Minh Nguyen",
-			"Max20091"
+			"Max20091",
+			"Dinhxuanduyet"
 		]
 	},
 	"cx": "Dịch trang",
@@ -57,7 +58,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 thể loại|0=Không có thể loại}}",
 	"cx-stats-title": "Thống kê Biên dịch nội dung",
 	"cx-stats-unknown": "không rõ",
-	"cx-stats-summary": "$1/$2 trang ($3%) trong không gian tên chính trên wiki này.",
 	"cx-tools-reference-title": "Chú thích",
 	"cx-tools-reference-remove": "Xóa chú thích",
 	"cx-tools-link-instruction-shortcut": "Giữ Shift và nhấn chuột vào một liên kết để mở",
@@ -86,6 +86,8 @@
 	"cx-create-new-translation": "Tạo bản dịch mới",
 	"apihelp-cxpublish-param-html": "Nội dung để lưu.",
 	"apihelp-cxpublish-param-sourcetitle": "Tên trang nguồn.",
+	"apihelp-query+contenttranslationstats-example-1": "Nhận thống kê dịch nội dung cho tất cả các ngôn ngữ.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "mã ngôn ngữ của nguồn",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Lưu cách đây một phút|Lưu cách đây $1 phút|0=Vừa lưu}}",
 	"cx-save-draft-saving": "Đang lưu…",
 	"cx-save-draft-tooltip": "Bản dịch nháp được lưu tự động",
@@ -99,6 +101,7 @@
 	"cx-translation-status-draft": "Đang tiến hành",
 	"cx-translation-status-published": "Đã xuất bản",
 	"cx-translation-status-deleted": "Đã xóa",
+	"cx-magnus-tool-link-text": "Tìm các bài viết bị thiếu trong ngôn ngữ của bạn",
 	"cx-publishing-dialog-publish-draft-button": "Xuất bản bản nháp",
 	"cx-feedback-link": "Gửi phản hồi",
 	"cx-stats-table-source-target": "Nguồn↓ / Đích→",
@@ -113,5 +116,6 @@
 	"cx-beta-feature-enabled-notification": "Biên dịch nội dung được kích hoạt trên wiki này.",
 	"cx-campaign-newarticle-notice": "Bây giờ bạn có cũng có thể tạo nội dung mới bằng cách <b>biên dịch</b>! Bạn có muốn thử công cụ Biên dịch nội dung (beta)?",
 	"cx-campaign-no-thanks": "Thôi",
-	"cx-campaign-try": "Thử Biên dịch nội dung"
+	"cx-campaign-try": "Thử Biên dịch nội dung",
+	"cx-trend-translations-to": "Các bản dịch sang ngôn ngữ $1"
 }
