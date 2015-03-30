@@ -255,9 +255,9 @@ class Translation {
 		foreach ( $rows as $row ) {
 			$result[] = array(
 				'date' => $interval === 'week' ?
-					// Week start date
-					date( 'Y-m-d', strtotime( $row->date . ' - ' .
-						date( 'w', strtotime( $row->date ) ) . ' days' ) ) :
+					// Week end date
+					date( 'Y-m-d', strtotime( $row->date . ' + ' .
+						( 6 - date( 'w', strtotime( $row->date ) ) ) . ' days' ) ) :
 					date( 'Y-m', strtotime( $row->date ) ),
 				'count' => $row->translatons_count,
 			);
