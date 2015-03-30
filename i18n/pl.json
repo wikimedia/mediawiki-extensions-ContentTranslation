@@ -9,7 +9,8 @@
 			"Matik7",
 			"Py64",
 			"Darellur",
-			"Sp5uhe"
+			"Sp5uhe",
+			"VerMa"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -79,6 +80,8 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Źródłowy kod języka.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Docelowy kod języka.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Pobierz wszystkie opublikowane tłumaczenia",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Źródłowy kod języka.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Docelowy kod języka.",
 	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
 	"cx-save-draft-saving": "Zapisywanie...",
 	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
@@ -99,5 +102,7 @@
 	"cx-draft-discard-confirmation-message": "Czy na pewno chcesz trwale usunąć to tłumaczenie?",
 	"cx-draft-cancel-button-label": "Anuluj",
 	"cx-draft-discard-button-label": "Usuń tłumaczenie",
-	"cx-campaign-no-thanks": "Nie, dziękuję"
+	"cx-campaign-no-thanks": "Nie, dziękuję",
+	"cx-trend-all-translations": "Wszystkie tłumaczenia",
+	"cx-trend-translations-to": "Tłumaczenia na język $1"
 }
