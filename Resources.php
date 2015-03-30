@@ -464,9 +464,9 @@ $wgResourceModules['ext.cx.tools.categories'] = array(
 ) + $resourcePaths;
 
 $wgResourceModules['ext.cx.progressbar'] = array(
-	'scripts' => 'tools/ext.cx.progressbar.js',
+	'scripts' => 'widgets/progressbar/ext.cx.progressbar.js',
 	'styles' => array(
-		'tools/styles/ext.cx.progressbar.less',
+		'widgets/progressbar/ext.cx.progressbar.less',
 	),
 	'messages' => array(
 		'cx-header-progressbar-text',
