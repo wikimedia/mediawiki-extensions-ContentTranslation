@@ -71,6 +71,7 @@ $GLOBALS['wgHooks']['SpecialContributionsBeforeMainOutput'][] =
 	'ContentTranslationHooks::addNewContributionButton';
 $GLOBALS['wgHooks']['ListDefinedTags'][] = 'ContentTranslationHooks::registerTags';
 $GLOBALS['wgHooks']['ChangeTagsListActive'][] = 'ContentTranslationHooks::registerTags';
+$GLOBALS['wgHooks']['UserSaveOptions'][] =  'ContentTranslationHooks::onSaveOptions';
 $GLOBALS['wgHooks']['EditPage::showEditForm:initial'][] =
 	'ContentTranslationHooks::newArticleCampign';
 $GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =

@@ -1,0 +1,81 @@
+/**
+ * Content Translation invitation from the 'contributions' link in pages.
+ *
+ * @file
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0+
+ */
+( function ( $, mw ) {
+	'use strict';
+
+	var campaign = 'contributionsmenu';
+
+	function showInvitation() {
+		var callout, $menu, $trigger, cxLink, $myContributions, $myTranslations, $myUploads;
+
+		$trigger = $( '#pt-mycontris a' );
+		cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+			campaign: campaign,
+			to: mw.config.get( 'wgContentLanguage' )
+		} );
+
+		$myContributions = $( '<li>' )
+			.addClass( 'cx-campaign-contributions' )
+			.append(
+				$( '<a>' )
+				.text( mw.msg( 'cx-campaign-contributionsmenu-mycontributions' ) )
+				.attr( 'href', $trigger.attr( 'href' ) )
+			);
+		$myTranslations = $( '<li>' )
+			.addClass( 'cx-campaign-translations' )
+			.append(
+				$( '<a>' )
+				.text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
+				.attr( 'href', cxLink )
+			);
+		if ( $( '.mw-special-Preferences' ).length ) {
+			$myTranslations.addClass( 'cx-campaign-new-beta-feature' );
+		}
+		$myUploads = $( '<li>' )
+			.addClass( 'cx-campaign-uploads' )
+			.append(
+				$( '<a>' )
+				.text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
+				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
+			);
+		$menu = $( '<ul>' )
+			.append( $myContributions, $myTranslations, $myUploads );
+		$trigger.callout( {
+			trigger: 'manual',
+			classes: 'cx-campaign-contributionsmenu',
+			gravity: $.fn.callout.autoNEW,
+			content: $menu
+		} );
+
+		callout = $trigger.data( 'callout' );
+
+		function show() {
+			callout.show();
+			callout.$dialog.on( 'mouseleave', function () {
+				callout.hide();
+			} );
+			// Not measuring the shown menu events since there will be a lot-since the
+			// trigger is 'hover'. But can be easily track if somebody use it to
+			// reach CX
+		}
+		$trigger.on( 'mouseover', show );
+		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
+			// Show after a few milliseconds to get all position calculation correct
+			setTimeout( show, 500 );
+			mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
+		} );
+	}
+
+	$( function () {
+		var blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
+		if ( !$.client.test( blacklist, null, true ) ) {
+			showInvitation();
+		}
+	} );
+
+}( jQuery, mediaWiki ) );

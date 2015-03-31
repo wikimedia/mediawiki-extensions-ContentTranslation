@@ -729,6 +729,32 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 	)
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.betafeature.init'] = array(
+	'scripts' => array(
+		'campaigns/ext.cx.betafeature.init.js',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.campaigns.contributionsmenu'] = array(
+	'scripts' => array(
+		'campaigns/ext.cx.campaigns.contributionsmenu.js',
+	),
+	'styles' => array(
+		'campaigns/styles/ext.cx.campaigns.contributionsmenu.less',
+	),
+	'dependencies' => array(
+		'mediawiki.ui.button',
+		'jquery.client',
+		'mediawiki.util',
+		'ext.cx.widgets.callout',
+	),
+	'messages' => array(
+		'cx-campaign-contributionsmenu-mycontributions',
+		'cx-campaign-contributionsmenu-mytranslations',
+		'cx-campaign-contributionsmenu-myuploads',
+	)
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.widgets.overlay'] = array(
 	'scripts' => array(
 		'widgets/overlay/ext.cx.overlay.js',

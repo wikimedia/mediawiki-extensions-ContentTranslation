@@ -63,6 +63,9 @@ class ContentTranslationHooks {
 			$out->addModules( 'ext.cx.redlink' );
 		}
 
+		// Add a hover menu for contributions link in personal tool bar
+		$out->addModules( 'ext.cx.campaigns.contributionsmenu' );
+
 		// The current guided tours are only for the user namespace,
 		// so load the module only there.
 		// In the future there may be guided tours in other namespaces,
@@ -187,6 +190,28 @@ class ContentTranslationHooks {
 		}
 
 		$out->addModules( 'ext.cx.campaigns.newarticle' );
+	}
+
+	/**
+	 * Hook: User::UserSaveOptions
+	 */
+	public static function onSaveOptions( $user, &$saveOptions ) {
+		$out = RequestContext::getMain()->getOutput();
+
+		if (
+			$saveOptions['cx'] &&
+			!isset( $saveOptions['cx-know'] ) &&
+			!$out->getTitle()->isSpecial( 'ContentTranslation' )
+		) {
+			$out->addModules(
+				array( 'ext.cx.betafeature.init', 'ext.cx.campaigns.contributionsmenu' )
+			);
+			// This make sure the auto-open contribution menu shown exactly once.
+			// and it is not in Special:CX
+			$saveOptions['cx-know'] = true;
+		}
+
+		return true;
 	}
 
 	/**

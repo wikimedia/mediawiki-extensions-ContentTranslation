@@ -169,6 +169,9 @@
 	"cx-campaign-newarticle-notice": "Now you can also create new content by <b>translating</b>! Do you want to try the Content Translation beta tool?",
 	"cx-campaign-no-thanks": "No, thanks",
 	"cx-campaign-try": "Try Content Translation",
+	"cx-campaign-contributionsmenu-mycontributions": "Contributions",
+	"cx-campaign-contributionsmenu-mytranslations": "Translations",
+	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
 	"cx-trend-all-translations": "All translations",
 	"cx-trend-translations-to": "Translations to $1 language"
 }
