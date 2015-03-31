@@ -8,16 +8,14 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var entrypointName = 'contributions-page';
 	/**
 	 * @class
 	 */
-	function CXContributions( element, options ) {
+	function CXContributions( element ) {
 		this.$element = $( element );
-		this.options = $.extend( {}, $.fn.cxContributions.defaults, options );
+		this.$container = null;
 		this.init();
-
-		this.$trigger = null;
-		this.$menu = null;
 	}
 
 	/**
@@ -29,66 +27,59 @@
 	};
 
 	CXContributions.prototype.render = function () {
-		var $menuContainer;
-
-		this.$trigger = $( '<button>' )
-			.text( mw.msg( 'cx-contributions' ) )
-			.addClass( 'mw-ui-button mw-ui-progressive' )
-			.addClass( 'cx-contributions__trigger' );
-
-		this.$menu = $( '<ul>' )
-			.addClass( 'cx-contributions__menu' );
-		this.$menu.hide();
-
-		this.$menu.append(
-			$.map( this.getActivities(), function ( item ) {
-				return $( '<li>' ).text( item.text ).data( 'url', item.url );
-			} )
-		);
-
-		$menuContainer = $( '<div>' )
+		var $sectionHeader;
+		$sectionHeader = $( '<h1>' )
+			.text( mw.msg( 'cx-contributions-new-contributions' ) );
+		this.$container = $( '<div>' )
 			.addClass( 'cx-contributions' )
-			.append( this.$trigger, this.$menu );
+			.append( $.map( this.getActivities(), function ( item ) {
+				return $( '<button>' )
+					.addClass( item.class )
+					.text( item.text )
+					.attr( 'title', item.tooltip )
+					.data( 'url', item.url );
+			} ) );
 
-		this.$element.append( $menuContainer );
+		this.$element.append( $sectionHeader, this.$container );
+		mw.hook( 'mw.cx.cta.shown' ).fire( entrypointName );
 	};
+
+	/**
+	 * A weak and inaccurate way to guess if this user has done
+	 * any contribution using CX.
+	 * @return {boolean}
+	 */
+	function isNewToCX() {
+		return $( '.mw-tag-marker-contenttranslation' ).length === 0;
+	}
 
 	CXContributions.prototype.getActivities = function () {
 		return [
 			{
-				text: mw.msg( 'cx-contributions-translation' ),
-				url: mw.util.getUrl( 'Special:ContentTranslation' )
+				text: mw.msg( 'cx-contributions-new-article' ),
+				class: 'cx-contributions-new-article',
+				url: mw.util.getUrl( 'Special:WantedPages' ),
+				tooltip: mw.msg( 'cx-contributions-new-article-tooltip' )
 			},
 			{
-				text: mw.msg( 'cx-contributions-media' ),
-				url: 'https://commons.wikimedia.org/wiki/Special:UploadWizard'
-			}
+				text: mw.msg( 'cx-contributions-upload' ),
+				class: 'cx-contributions-upload',
+				url: 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
+				tooltip: mw.msg( 'cx-contributions-upload-tooltip' )
+			},
+			{
+				text: mw.msg( 'cx-contributions-translation' ),
+				class: 'cx-contributions-translation ' + ( isNewToCX() ? 'cx-contributions-new' : '' ),
+				url: mw.util.getUrl( 'Special:ContentTranslation', {
+					campaign: entrypointName
+				} ),
+				tooltip: mw.msg( 'cx-contributions-translation-tooltip' )
+			},
 		];
 	};
 
 	CXContributions.prototype.listen = function () {
-		var menu = this.$menu;
-
-		menu.toggle = function ( e ) {
-			if ( menu.is( ':hidden' ) ) {
-				menu.show();
-				$( document ).one( 'click', function () {
-					menu.hide();
-				} );
-			} else {
-				menu.hide();
-			}
-
-			e.stopPropagation();
-		};
-
-		menu.on( 'click', '> li', this.startActivity );
-
-		this.$trigger.one( 'click', function () {
-			menu.css( 'min-width', $( this ).css( 'width' ) );
-		} );
-		this.$trigger.on( 'click', menu.toggle );
-
+		this.$container.on( 'click', '> button', this.startActivity );
 	};
 
 	CXContributions.prototype.startActivity = function () {
@@ -108,7 +99,5 @@
 			}
 		} );
 	};
-
-	$.fn.cxContributions.defaults = {};
 
 }( jQuery, mediaWiki ) );

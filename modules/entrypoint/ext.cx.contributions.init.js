@@ -12,7 +12,7 @@
 		var $element = $( '<span>' );
 
 		$element.cxContributions();
-		$element.insertBefore( $( '.mw-contributions-form' ) );
+		$( '#firstHeading' ).before( $element );
 	} );
 
 }( jQuery ) );

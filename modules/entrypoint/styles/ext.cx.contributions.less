@@ -1,37 +1,58 @@
 @import "mediawiki.mixins";
 
 .cx-contributions {
-	position: relative;
-}
-
-.cx-contributions__trigger {
-	&:after {
-		padding-left: 10px;
-		display: inline-block;
-		height: 10px;
-		width: 20px;
-		content: '';
-		// PNG currently broken due to different size
-		.background-image-svg('../images/dropdown.svg', '../images/dropdown.png');
-		background-position: right center;
-		background-repeat: no-repeat;
-	}
-}
-
-.cx-contributions__menu {
-	position: absolute;
-	border: 1px solid #ccc;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-	list-style: none;
-	margin: 0;
-	color: black;
-	background-color: white;
-	&> li {
-		padding: 5px;
-	}
-
-	&> li:hover {
+	padding: 0;
+	margin: 30px 0;
+	button {
+		position: relative;
+		margin: 0;
+		padding: 50px 20px 10px 10px;
 		cursor: pointer;
-		background-color: darken( white, 10% );
+		background-color: #fff;
+		background-repeat: no-repeat;
+		background-position: 50% 20%;
+		background-size: 32px;
+		border: 1px solid #ccc;
+		font-size: 1em;
+		min-width: 150px;
+
+		&:first-child {
+			border-radius: 2px 0 0 2px;
+			border-right: 0;
+		}
+		&:last-child {
+			border-radius: 0 2px 2px 0;
+			border-left: 0;
+		}
+		&:hover {
+			background-color: #eee;
+		}
+		&.cx-contributions-new-article {
+			.background-image-svg('../images/editarticle.svg', '../images/editarticle.png');
+		}
+		&.cx-contributions-translation {
+			.background-image-svg('../images/translation.svg', '../images/translation.png');
+		}
+		&.cx-contributions-upload {
+			.background-image-svg('../images/upload.svg', '../images/upload.png');
+		}
+		&.cx-contributions-new::before {
+			content: "";
+			position: absolute;
+			top: 0%;
+			right: 0;
+			width: 0;
+			height: 0;
+			border-top: 21px solid #4682B4;
+			border-left: 22px solid transparent;
+		}
+		&.cx-contributions-new::after {
+			content: "*";
+			position: absolute;
+			color: #fff;
+			top: 0%;
+			right: 10px;
+			width: 0%;
+		}
 	}
 }

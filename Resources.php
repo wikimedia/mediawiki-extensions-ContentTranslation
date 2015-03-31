@@ -26,9 +26,13 @@ $wgResourceModules['ext.cx.contributions'] = array(
 		'mediawiki.ui.button',
 	),
 	'messages' => array(
-		'cx-contributions',
+		'cx-contributions-new-contributions',
+		'cx-contributions-new-article',
 		'cx-contributions-translation',
-		'cx-contributions-media',
+		'cx-contributions-upload',
+		'cx-contributions-new-article-tooltip',
+		'cx-contributions-translation-tooltip',
+		'cx-contributions-upload-tooltip',
 	),
 ) + $resourcePaths;
 
