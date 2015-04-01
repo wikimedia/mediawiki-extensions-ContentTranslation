@@ -140,7 +140,7 @@
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-contributions-new-contributions": "Header text shown in [[Special:Contributions]]",
-	"cx-contributions-new-article": "Button label tooltip",
+	"cx-contributions-new-article": "Button label tooltip\n{{Identical|New page}}",
 	"cx-contributions-translation": "Button label tooltip",
 	"cx-contributions-upload": "Button label tooltip",
 	"cx-publishing-dialog-message": "Message that shows in the publishing options dialog when there is an existing page with the same title already published.\n\nParameters:\n* $1 - The link to the existing page with just the title as text.",

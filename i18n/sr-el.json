@@ -4,12 +4,20 @@
 			"Milicevic01"
 		]
 	},
+	"cx-javascript": "Ova alatka ne radi bez javaskripte.",
+	"cx-license-agreement": "Pritiskom na „$1“ prihvatate [//wikimediafoundation.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo prihvatate da se vaš doprinos sa prevodilačkom alatkom objavi pod licencama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] i slažete se da je navođenje hiperveze ili URL adrese dovoljno pripisivanje po licenci CC BY-SA 3.0.",
+	"cx-desc": "Pojednostavljeno prevođenje stranica",
+	"cx-header-progressbar-text": "$1% prevedeno",
 	"cx-header-new-translation": "Novi prevod",
+	"cx-header-all-translations": "Svi prevodi",
 	"cx-publish-gt-move-page-title": "Premesti stranicu",
 	"cx-tools-link-add": "Dodaj veze",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=Nema kategorija}}",
 	"cx-warning-unsaved-translation": "Imate nesačuvan prevod.",
 	"cx-sourceselector-dialog-button-cancel": "Otkaži",
+	"cx-sourceselector-dialog-source-language-label": "Od:",
+	"cx-sourceselector-dialog-target-language-label": "Za:",
 	"cx-save-draft-saving": "Čuvanje...",
+	"cx-draft-cancel-button-label": "Otkaži",
 	"cx-campaign-no-thanks": "Ne, hvala"
 }
