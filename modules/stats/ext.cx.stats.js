@@ -219,11 +219,19 @@
 		var $canvas, ctx, cxTrendGraph,
 			$container = $( '#bodyContent' );
 
+		$canvas = $( '<canvas>' ).attr( {
+			id: 'cxtrend',
+			width: $container.width(),
+			height: 400
+		} );
+
+		$container.append(
+			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
+			$( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas ) );
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
 		getCXStats().then( function ( data ) {
 			$container.append(
-				$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
 				prepareTranslationsTable( data.query.contenttranslationstats, 'published' ),
 				$( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-title' ) ),
 				prepareTranslationsTable( data.query.contenttranslationstats, 'draft' ),
@@ -232,13 +240,6 @@
 			);
 		} );
 
-		$canvas = $( '<canvas>' ).attr( {
-			id: 'cxtrend',
-			width: $container.width(),
-			height: 400
-		} );
-
-		$container.append( $( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas ) );
 		ctx = $canvas[ 0 ].getContext( '2d' );
 
 		// TODO: Add a language selector to choose any language
