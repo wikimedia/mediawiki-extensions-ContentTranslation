@@ -109,18 +109,32 @@
 	};
 
 	/**
-	 * Add the reference list, usually at the end of translation
+	 * Add the reference list(s), usually at the end of translation
 	 */
 	ReferenceCard.prototype.addReferenceList = function () {
-		var $referenceList;
+		var $referenceLists, $parentSection;
 
-		$referenceList = $( '[typeof*="mw:Extension/references"]' );
+		// There can be multiple reference lists grouped for notes and references
+		// For example see enwiki:Hydrogen
+		$referenceLists = $( '[typeof*="mw:Extension/references"]' );
 
-		if ( $referenceList.length === 1 ) {
-			// Only one reference list - means the target reference list not added yet.
-			mw.hook( 'mw.cx.translation.add' ).fire( $referenceList.parent().attr( 'id' ), 'click' );
+		if ( !$( '.cx-column--translation [typeof*="mw:Extension/references"]' ).length ) {
+			// Target reference list not added yet.
+			$referenceLists.each( function ( key, referenceList ) {
+				var $referenceList = $( referenceList );
+
+				if ( $referenceList.parent().is( '.cx-column__content' ) ) {
+					// Reference list is the section,
+					$parentSection = $referenceList;
+				} else {
+					// Reference list not the section, it is wrapped inside.
+					$parentSection = $referenceList.parent();
+				}
+				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'click' );
+			} );
 		}
 	};
+
 	/**
 	 * Start presenting the reference card
 	 * @param {string} referenceId The reference element Identifier.
