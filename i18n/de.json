@@ -155,6 +155,9 @@
 	"cx-campaign-newarticle-notice": "Jetzt kannst du auch neuen Inhalt durch <b>Übersetzungen</b> erstellen! Möchtest du das Beta-Tool „Inhaltsübersetzung“ ausprobieren?",
 	"cx-campaign-no-thanks": "Nein danke",
 	"cx-campaign-try": "Inhaltsübersetzung ausprobieren",
+	"cx-campaign-contributionsmenu-mycontributions": "Beiträge",
+	"cx-campaign-contributionsmenu-mytranslations": "Übersetzungen",
+	"cx-campaign-contributionsmenu-myuploads": "Hochgeladene Medien",
 	"cx-trend-all-translations": "Alle Übersetzungen",
 	"cx-trend-translations-to": "Übersetzungen in die Sprache $1"
 }

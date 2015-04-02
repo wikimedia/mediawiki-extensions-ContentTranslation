@@ -131,8 +131,12 @@
 	"cx-save-draft-saving": "Збереження…",
 	"cx-save-draft-tooltip": "Чернетки перекладів зберігаються автоматично",
 	"cx-contributions-new-contributions": "Новий внесок",
+	"cx-contributions-new-article": "Нова сторінка",
 	"cx-contributions-translation": "Переклад",
-	"cx-contributions-upload": "Завантажити медіа-файл",
+	"cx-contributions-upload": "Завантажити медіафайл",
+	"cx-contributions-new-article-tooltip": "Почати написання нової сторінки",
+	"cx-contributions-translation-tooltip": "Переклад існуючих сторінок",
+	"cx-contributions-upload-tooltip": "Завантажити фото-, аудіо- та відеофайли для використання на сторінках.",
 	"cx-publishing-dialog-message": "Сторінка $1 вже існує. Її поточний вміст буде замінено на Ваш переклад. Все одно хочете опублікувати?",
 	"cx-publishing-dialog-keep-button": "Зберегти обидві версії",
 	"cx-publishing-dialog-publish-anyway-button": "Опублікувати в будь-якому випадку",
@@ -163,6 +167,9 @@
 	"cx-campaign-newarticle-notice": "Тепер Ви можете створювати нові сторінки шляхом <b>перекладу</b>! Чи не хотіли б Ви спробувати нову бета-функцію «Переклад вмісту»?",
 	"cx-campaign-no-thanks": "Ні, дякую.",
 	"cx-campaign-try": "Спробувати Переклад вмісту",
+	"cx-campaign-contributionsmenu-mycontributions": "Внесок",
+	"cx-campaign-contributionsmenu-mytranslations": "Переклади",
+	"cx-campaign-contributionsmenu-myuploads": "Завантажені медіафайли",
 	"cx-trend-all-translations": "Усі переклади",
 	"cx-trend-translations-to": "Переклади на мову: $1"
 }

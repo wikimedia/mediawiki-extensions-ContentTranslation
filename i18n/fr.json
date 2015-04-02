@@ -17,7 +17,8 @@
 			"Nicolapps",
 			"Thibaut120094",
 			"Brunoperel",
-			"Abaddon1337"
+			"Abaddon1337",
+			"Ltrlg"
 		]
 	},
 	"cx": "Traduire la page",
@@ -143,8 +144,12 @@
 	"cx-save-draft-saving": "Enregistrement en cours…",
 	"cx-save-draft-tooltip": "Les brouillons de traduction sont enregistrés automatiquement",
 	"cx-contributions-new-contributions": "Nouvelle contribution",
+	"cx-contributions-new-article": "Nouvelle page",
 	"cx-contributions-translation": "Traduction",
-	"cx-contributions-upload": "Télécharger le fichier de média",
+	"cx-contributions-upload": "Téléverser des médias",
+	"cx-contributions-new-article-tooltip": "Commencer à rédiger une nouvelle page",
+	"cx-contributions-translation-tooltip": "Traduire des pages existantes",
+	"cx-contributions-upload-tooltip": "Téléverser des images, bandes son et vidéos pour compléter les pages",
 	"cx-publishing-dialog-message": "La page $1 existe déjà. Le contenu actuel sera remplacé par votre traduction. Voulez-vous publier tout de même ?",
 	"cx-publishing-dialog-keep-button": "Garder les deux versions",
 	"cx-publishing-dialog-publish-anyway-button": "Publier tout de même",
