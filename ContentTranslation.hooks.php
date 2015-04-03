@@ -201,7 +201,8 @@ class ContentTranslationHooks {
 		$out = RequestContext::getMain()->getOutput();
 
 		if (
-			$saveOptions['cx'] &&
+			isset( $saveOptions['cx'] ) &&
+			$saveOptions['cx'] === '1' &&
 			!isset( $saveOptions['cx-know'] ) &&
 			!$out->getTitle()->isSpecial( 'ContentTranslation' )
 		) {
@@ -211,6 +212,7 @@ class ContentTranslationHooks {
 			// This make sure the auto-open contribution menu shown exactly once.
 			// and it is not in Special:CX
 			$saveOptions['cx-know'] = true;
+
 		}
 
 		return true;
