@@ -60,12 +60,14 @@
 
 		callout = $trigger.data( 'callout' );
 
+		function hide() {
+			callout.hide();
+		}
+
 		function show() {
 			callout.show();
-			callout.$dialog.on( 'mouseleave', function () {
-				callout.hide();
-			} );
-
+			callout.$dialog.one( 'mouseleave', hide );
+			$( document ).one( 'click', hide );
 			// Not measuring the shown menu events because the trigger is 'hover'
 			// and there will be a lot of them.
 			// But can be easily track if somebody use it to reach CX.
