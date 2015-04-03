@@ -163,6 +163,9 @@
 	"cx-campaign-newarticle-notice": "ตอนนี้คุณสามารถสร้างเนื้อหาใหม่ได้ด้วย<b>การแปล</b>! คุณต้องการลองใช้เครื่องมือการแปลเนื้อหารุ่นบีตาหรือไม่?",
 	"cx-campaign-no-thanks": "ไม่ ขอบคุณ",
 	"cx-campaign-try": "ลองใช้การแปลเนื้อหา",
+	"cx-campaign-contributionsmenu-mycontributions": "การมีส่วนร่วม",
+	"cx-campaign-contributionsmenu-mytranslations": "การแปล",
+	"cx-campaign-contributionsmenu-myuploads": "สื่อที่อัปโหลด",
 	"cx-trend-all-translations": "การแปลทั้งหมด",
 	"cx-trend-translations-to": "การแปลเป็นภาษา$1"
 }

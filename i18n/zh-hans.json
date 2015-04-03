@@ -170,6 +170,9 @@
 	"cx-campaign-newarticle-notice": "您现在也可以通过<b>翻译</b>创建新的内容！您是否希望尝试内容翻译测试工具？",
 	"cx-campaign-no-thanks": "不，谢谢",
 	"cx-campaign-try": "尝试内容翻译",
+	"cx-campaign-contributionsmenu-mycontributions": "贡献",
+	"cx-campaign-contributionsmenu-mytranslations": "翻译",
+	"cx-campaign-contributionsmenu-myuploads": "上传的媒体",
 	"cx-trend-all-translations": "所有翻译",
 	"cx-trend-translations-to": "至$1语言的翻译"
 }

@@ -7,7 +7,8 @@
 			"아라",
 			"Namoroka",
 			"Tyey",
-			"Kwj2772"
+			"Kwj2772",
+			"SeoJeongHo"
 		]
 	},
 	"cx": "문서 번역",
@@ -41,5 +42,8 @@
 	"cx-tools-view-guidelines": "번역 지침 보기",
 	"cx-tools-link-title": "링크",
 	"cx-tools-link-add": "링크 추가",
-	"cx-tools-link-remove": "링크 제거"
+	"cx-tools-link-remove": "링크 제거",
+	"cx-campaign-contributionsmenu-mycontributions": "기부",
+	"cx-campaign-contributionsmenu-mytranslations": "변역들",
+	"cx-campaign-contributionsmenu-myuploads": "미디어 업로드"
 }

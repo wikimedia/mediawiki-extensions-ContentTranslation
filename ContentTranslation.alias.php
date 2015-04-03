@@ -115,6 +115,12 @@ $specialPageAliases['sv'] = array(
 	'ContentTranslationStats' => array( 'Innehållsöversättningsstatistik' ),
 );
 
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'ContentTranslation' => array( 'Переклад_вмісту' ),
+	'ContentTranslationStats' => array( 'Статистика_Перекладу_вмісту' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'ContentTranslation' => array( 'Dịch_nội_dung' ),

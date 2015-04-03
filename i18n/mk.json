@@ -163,6 +163,9 @@
 	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <b>преведување</b>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
 	"cx-campaign-no-thanks": "Не, благодарам",
 	"cx-campaign-try": "Пробајте го „Превод на содржини“",
+	"cx-campaign-contributionsmenu-mycontributions": "Придонеси",
+	"cx-campaign-contributionsmenu-mytranslations": "Преводи",
+	"cx-campaign-contributionsmenu-myuploads": "Подигнати податотеки",
 	"cx-trend-all-translations": "Сите преводи",
 	"cx-trend-translations-to": "Преводи на $1"
 }

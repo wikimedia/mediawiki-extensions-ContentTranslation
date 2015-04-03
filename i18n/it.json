@@ -123,9 +123,13 @@
 	"cx-save-draft-save-success": "Salvato {{PLURAL:$1|un minuto fa,|$1 minuti fa|0=proprio ora}}",
 	"cx-save-draft-saving": "Salvataggio in corso...",
 	"cx-save-draft-tooltip": "Le bozze di traduzione sono salvate automaticamente",
-	"cx-contributions": "Nuovo contributo",
+	"cx-contributions-new-contributions": "Nuovo contributo",
+	"cx-contributions-new-article": "Nuova pagina",
 	"cx-contributions-translation": "Traduzione",
-	"cx-contributions-media": "Carica un file multimediale",
+	"cx-contributions-upload": "Carica un file multimediale",
+	"cx-contributions-new-article-tooltip": "Inizia a scrivere una nuova pagina",
+	"cx-contributions-translation-tooltip": "Traduci pagine esistenti",
+	"cx-contributions-upload-tooltip": "Carica immagini, audio e video da utilizzare nelle pagine",
 	"cx-publishing-dialog-message": "La pagina $1 esiste già. Il contenuto attuale verrà sostituito con la tua traduzione. Vuoi pubblicare comunque?",
 	"cx-publishing-dialog-keep-button": "Mantieni entrambe le versioni",
 	"cx-publishing-dialog-publish-anyway-button": "Pubblica comunque",
@@ -154,5 +158,9 @@
 	"cx-draft-discard-button-label": "Cancella traduzione",
 	"cx-beta-feature-enabled-notification": "Il Content Translation è stato attivato in questo wiki.",
 	"cx-campaign-no-thanks": "No, grazie",
-	"cx-campaign-try": "Prova Traduzione Contenuti"
+	"cx-campaign-try": "Prova Traduzione Contenuti",
+	"cx-campaign-contributionsmenu-mycontributions": "Contributi",
+	"cx-campaign-contributionsmenu-mytranslations": "Traduzioni",
+	"cx-campaign-contributionsmenu-myuploads": "File multimediali caricati",
+	"cx-trend-all-translations": "Tutte le traduzioni"
 }
