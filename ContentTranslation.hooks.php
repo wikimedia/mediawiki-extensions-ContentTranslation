@@ -59,7 +59,9 @@ class ContentTranslationHooks {
 			$out->addModules( 'ext.cx.eventlogging' );
 		}
 
-		if ( $title->inNamespace( NS_MAIN ) ) {
+		if ( $title->inNamespace( NS_MAIN ) &&
+			Action::getActionName( $out->getContext() ) === 'view'
+		) {
 			$out->addModules( 'ext.cx.redlink' );
 		}
 
