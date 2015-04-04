@@ -157,9 +157,12 @@
 			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
 				if ( mw.cx.dirty ) {
 					mw.hook( 'mw.cx.translation.save' ).fire();
+					// If we leave the page immediately the above save may not happen.
+					// So, stay or leave?
+					return mw.msg( 'cx-warning-unsaved-translation' );
+				} else {
+					return;
 				}
-
-				return;
 			}
 
 			weights = getTranslationWeights( getSectionsWithContent() );
