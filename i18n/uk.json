@@ -97,7 +97,7 @@
 	"cx-translation-filter-from-any-language": "З будь-якої мови",
 	"cx-translation-filter-to-any-language": "На будь-яку мову",
 	"cx-create-new-translation": "Створити новий переклад",
-	"cx-create-new-translation-desc": "Створіть сторінки для тем, які не існують Вашою мовою. Це просто з допомогою наших інструментів перекладу.\n[https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Дізнатися більше]",
+	"cx-create-new-translation-desc": "Створіть сторінки для тем, які не існують Вашою мовою. Це просто з допомогою наших інструментів перекладу.\n[https://uk.wikipedia.org/wiki/Project:Переклад Дізнатися більше]",
 	"apihelp-cxpublish-description": "Збереження сторінки, створеної у розширенні Перекладу вмісту.",
 	"apihelp-cxpublish-param-title": "Заголовок сторінки для виконання дій.",
 	"apihelp-cxpublish-param-html": "Вміст, який потрібно зберегти.",

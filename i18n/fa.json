@@ -4,7 +4,8 @@
 			"Armin1392",
 			"Alirezaaa",
 			"Reza1615",
-			"Saeidpourbabak"
+			"Saeidpourbabak",
+			"Danialbehzadi"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -42,12 +43,7 @@
 	"cx-tools-mt-dont-use": "ار ترجمهٔ ماشینی استفاده نکنید",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 رده|$1 رده|0=بدون رده}}",
 	"cx-stats-title": "آمار ترجمه محتوی",
-	"cx-stats-page-title": "صفحه",
-	"cx-stats-from": "زبان مبدأ",
-	"cx-stats-to": "زبان مقصد",
-	"cx-stats-pages-title": "صفحهٔ ترجمه‌شده",
 	"cx-stats-unknown": "ناشناخته",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|صفحه|صفحه}} ($3%) در فضای نام اصلی",
 	"cx-tools-reference-title": "منبع",
 	"cx-tools-reference-remove": "حذف منبع",
 	"cx-tools-link-instruction-shortcut": "برای باز شدن Shift + بر روی هر پیوندی کلیک کنید",
@@ -60,5 +56,8 @@
 	"cx-sourceselector-dialog-source-language-label": "از:",
 	"cx-sourceselector-dialog-target-language-label": "به:",
 	"cx-sourceselector-dialog-source-title-placeholder": "جستجو برای صفحهٔ مبدأ",
-	"cx-sourceselector-dialog-target-title-placeholder": "ترجمهٔ عنوان (اگر با مبدأ متفاوت است)"
+	"cx-sourceselector-dialog-target-title-placeholder": "ترجمهٔ عنوان (اگر با مبدأ متفاوت است)",
+	"cx-campaign-contributionsmenu-mycontributions": "مشارکت‌ها",
+	"cx-campaign-contributionsmenu-mytranslations": "ترجمه‌ها",
+	"cx-campaign-contributionsmenu-myuploads": "بارگذاری رسانه"
 }

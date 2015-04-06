@@ -108,5 +108,6 @@
 	"apihelp-query+contenttranslation-example-1": "वर्तमान सदस्य द्वारा आरम्भ किये गये अनुवाद प्राप्त करें",
 	"apihelp-query+contenttranslation-example-2": "आईडी द्वारा प्रालेखित अनुवाद प्राप्त करें",
 	"apihelp-query+contenttranslation-example-3": "दिये गयी भाषा युग्म के मध्य दिये गये शीर्षक के लिए कोई भी अनुवाद प्राप्त करें",
-	"apihelp-query+contenttranslationstats-example-1": "सभी भाषाओं के लिए सामग्री अनुवाद सांख्यिकी प्राप्त करें।"
+	"apihelp-query+contenttranslationstats-example-1": "सभी भाषाओं के लिए सामग्री अनुवाद सांख्यिकी प्राप्त करें।",
+	"cx-campaign-contributionsmenu-mytranslations": "अनुवाद"
 }

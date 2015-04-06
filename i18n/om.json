@@ -8,6 +8,11 @@
 	"cx-sourceselector-dialog-new-translation": "Hiikaa haaraa",
 	"cx-sourceselector-dialog-button-start-translation": "Hiikuu jalqabi",
 	"cx-sourceselector-dialog-source-language-label": "Madda",
+	"cx-contributions-new-article": "Fuula haaraa",
+	"cx-contributions-upload": "Miidiyaa ol fe'i",
 	"cx-magnus-tool-link-text": "Barruuwwan afaan keetin hin jirre barbaadi",
-	"cx-campaign-no-thanks": "Lakki, galatoomi."
+	"cx-campaign-no-thanks": "Lakki, galatoomi.",
+	"cx-campaign-contributionsmenu-mycontributions": "Gumaacha",
+	"cx-campaign-contributionsmenu-mytranslations": "Hiikuu",
+	"cx-campaign-contributionsmenu-myuploads": "Miidiyaa ol fe'ame"
 }

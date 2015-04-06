@@ -10,7 +10,8 @@
 			"Максим777",
 			"Batumski brodyaga",
 			"Dicto23456",
-			"Kaganer"
+			"Kaganer",
+			"Mariya"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -130,9 +131,13 @@
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",
-	"cx-contributions": "Новый вклад",
+	"cx-contributions-new-contributions": "Новый вклад",
+	"cx-contributions-new-article": "Новая страница",
 	"cx-contributions-translation": "Перевод",
-	"cx-contributions-media": "Добавление медиа-файла",
+	"cx-contributions-upload": "Добавление медиа-файла",
+	"cx-contributions-new-article-tooltip": "Создать новую страницу",
+	"cx-contributions-translation-tooltip": "Перевести существующие страницы",
+	"cx-contributions-upload-tooltip": "Загрузить картинки, аудио и видео для использования на странице",
 	"cx-publishing-dialog-message": "Страница $1 уже существует. Её нынешнее содержание будет заменено на ваш перевод. Всё равно хотите опубликовать?",
 	"cx-publishing-dialog-keep-button": "Сохранить обе версии",
 	"cx-publishing-dialog-publish-anyway-button": "Опубликовать в любом случае",
@@ -162,5 +167,8 @@
 	"cx-beta-feature-enabled-notification": "Расширение перевода материалов («Content Translation») было включено в этом вики-проекте.",
 	"cx-campaign-newarticle-notice": "Теперь вы можете также создать новые материалы путём <b>перевода</b>! Хотите попробовать бета-версию инструмента по переводу материалов?",
 	"cx-campaign-no-thanks": "Нет, спасибо",
-	"cx-campaign-try": "Попробовать перевод материалов («Content Translation»)"
+	"cx-campaign-try": "Попробовать перевод материалов («Content Translation»)",
+	"cx-campaign-contributionsmenu-mycontributions": "Вклад",
+	"cx-campaign-contributionsmenu-mytranslations": "переводы",
+	"cx-campaign-contributionsmenu-myuploads": "Закруженные файлы мультимедиа"
 }

@@ -18,7 +18,9 @@
 			"Thibaut120094",
 			"Brunoperel",
 			"Abaddon1337",
-			"Ltrlg"
+			"Ltrlg",
+			"Mattho69",
+			"Trizek"
 		]
 	},
 	"cx": "Traduire la page",
@@ -52,7 +54,7 @@
 	"tag-contenttranslation-description": "Le contenu a été traduit dans une autre langue en utilisant l’outil de Traduction de contenu.",
 	"cx-source-loading": "Chargement de $1",
 	"cx-beta": "Traduction du contenu",
-	"cx-beta-desc": "Un outil pour traduire rapidement les pages dans votre langue. Démarrez les traductions de [[Special:MyContributions|votre page de contributions]], et modifiez-les avec notre éditeur côte à côte conçu spécialement pour la traduction. Certains des outils peuvent n’être disponibles que pour certaines langues.",
+	"cx-beta-desc": "Un outil pour traduire rapidement les pages dans votre langue. Démarrez les traductions de [[Spécial:Contribitions|votre page de contributions]], et modifiez-les avec notre éditeur côte à côte conçu spécialement pour la traduction. Certains des outils peuvent n’être disponibles que pour certaines langues.",
 	"cx-entrypoint-title": "Traduire cette page en $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Cette page n’existe pas encore en $1.<br />\nVoulez-{{GENDER:|vous}} la créer ?",
 	"cx-entrypoint-dialog-title-in": "Titre pour la nouvelle page en $1 :",
@@ -107,7 +109,7 @@
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
 	"cx-create-new-translation": "Créer une nouvelle traduction",
-	"cx-create-new-translation-desc": "Créer des pages pour les sujets qui n’existent pas dans votre langue. C’est facile avec l’aide de nos outils de traduction. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate En savoir plus]",
+	"cx-create-new-translation-desc": "Créer des pages pour les sujets qui n’existent pas dans votre langue. C’est facile avec l’aide de nos outils de traduction. [https://fr.wikipedia.org/wiki/Aide:ContentTranslation En savoir plus]",
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
 	"apihelp-cxpublish-param-title": "Le titre de la page sur laquelle effectuer les actions.",
 	"apihelp-cxpublish-param-html": "Le contenu à enregistrer.",
@@ -115,7 +117,7 @@
 	"apihelp-cxpublish-param-to": "Le code de langue cible.",
 	"apihelp-cxpublish-param-sourcetitle": "Le titre de la page source.",
 	"apihelp-cxpublish-param-sourcerevision": "La révision de la page source.",
-	"apihelp-cxpublish-param-status": "Si | brouillon », la traduction sera enregistrée comme brouillon. Si « publié », la traduction sera publiée.",
+	"apihelp-cxpublish-param-status": "Si \"draft\", la traduction sera enregistrée comme brouillon. Si \"published\", la traduction sera publiée.",
 	"apihelp-cxpublish-param-categories": "Les catégories à ajouter à la page publiée.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (quand enregistré avec une réponse captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Répondre au captcha (en enregistrant avec une réponse de captcha).",
@@ -166,7 +168,7 @@
 	"cx-translation-already-in-progress": "En cours de traduction par $1.",
 	"cx-translation-already-in-progress-collaborate": "Veuillez vous assurer que vous êtes coordonné avec l’utilisateur qui a effectué la traduction actuelle.",
 	"cx-publishing-dialog-publish-draft-button": "Publier en brouillon",
-	"cx-feedback-link": "Donner un commentaire",
+	"cx-feedback-link": "Faire un retour",
 	"cx-stats-table-source-target": "Source↓ / Cible→",
 	"cx-stats-table-source-total": "Total (Source)",
 	"cx-stats-table-target-total": "Total (Objectif)",
@@ -180,6 +182,9 @@
 	"cx-campaign-newarticle-notice": "Maintenant, vous pouvez aussi créer un nouveau contenu en <b>traduisant</b> ! Voulez-vous essayer l’outil de Traduction de contenu en version bêta ?",
 	"cx-campaign-no-thanks": "Non merci",
 	"cx-campaign-try": "Essayer Traduction de contenu",
+	"cx-campaign-contributionsmenu-mycontributions": "Contributions",
+	"cx-campaign-contributionsmenu-mytranslations": "Traductions",
+	"cx-campaign-contributionsmenu-myuploads": "Fichiers téléversés",
 	"cx-trend-all-translations": "Toutes les traductions",
 	"cx-trend-translations-to": "Traductions vers la langue $1"
 }

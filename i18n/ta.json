@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"ElangoRamanujam"
+			"ElangoRamanujam",
+			"மதனாஹரன்"
 		]
 	},
 	"cx-header-new-translation": "புதிய மொழிபெயர்ப்பு",
@@ -13,5 +14,6 @@
 	"cx-sourceselector-dialog-button-cancel": "இரத்து செய்க",
 	"cx-sourceselector-dialog-target-language-label": "பெறுநர்:",
 	"cx-translation-filter-all-translations": "அனைத்து மொழிபெயர்ப்புகள்",
-	"cx-create-new-translation": "புது மொழிபெயர்ப்பை உருவாக்குக"
+	"cx-create-new-translation": "புது மொழிபெயர்ப்பை உருவாக்குக",
+	"cx-campaign-contributionsmenu-mycontributions": "பங்களிப்புகள்"
 }

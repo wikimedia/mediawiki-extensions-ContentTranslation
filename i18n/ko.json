@@ -43,6 +43,11 @@
 	"cx-tools-link-title": "링크",
 	"cx-tools-link-add": "링크 추가",
 	"cx-tools-link-remove": "링크 제거",
+	"cx-contributions-new-article": "새로운 페이지",
+	"cx-contributions-upload": "미디어 업로드",
+	"cx-contributions-new-article-tooltip": "새로운 페이지 쓰기",
+	"cx-contributions-translation-tooltip": "기존 페이지를 번역",
+	"cx-contributions-upload-tooltip": "이 페이지에 쓸 사진, 소리, 그리고 영상을 업로드",
 	"cx-campaign-contributionsmenu-mycontributions": "기부",
 	"cx-campaign-contributionsmenu-mytranslations": "변역들",
 	"cx-campaign-contributionsmenu-myuploads": "미디어 업로드"

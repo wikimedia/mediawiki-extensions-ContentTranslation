@@ -29,6 +29,12 @@ $specialPageAliases['arz'] = array(
 	'ContentTranslationStats' => array( 'احصاءات_ترجمه_المحتوى' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'ContentTranslation' => array( 'مهتوایی_ترجمه' ),
+	'ContentTranslationStats' => array( 'ContentTranslationStats' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'ContentTranslation' => array( 'Inhaltsübersetzung' ),

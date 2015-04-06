@@ -86,8 +86,10 @@
 	"cx-save-draft-saving": "Zapisywanie...",
 	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
 	"cx-contributions-new-contributions": "Nowy wkład",
+	"cx-contributions-new-article": "Nowa strona",
 	"cx-contributions-translation": "Tłumaczenie",
 	"cx-contributions-upload": "Prześlij plik multimedialny",
+	"cx-contributions-translation-tooltip": "Tłumaczenie istniejących stron",
 	"cx-publishing-dialog-message": "Strona $1 już istnieje. Obecna treść zostanie zastąpiona twoim tłumaczeniem. Czy mimo to chcesz je opublikować?",
 	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje",
 	"cx-magnus-tool-link-text": "Znajdź brakujące artykuły w Twoim języku",
@@ -103,6 +105,8 @@
 	"cx-draft-cancel-button-label": "Anuluj",
 	"cx-draft-discard-button-label": "Usuń tłumaczenie",
 	"cx-campaign-no-thanks": "Nie, dziękuję",
+	"cx-campaign-contributionsmenu-mytranslations": "Tłumaczenia",
+	"cx-campaign-contributionsmenu-myuploads": "Przesłane pliki multimedialne",
 	"cx-trend-all-translations": "Wszystkie tłumaczenia",
 	"cx-trend-translations-to": "Tłumaczenia na język $1"
 }

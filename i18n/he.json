@@ -169,6 +169,9 @@
 	"cx-campaign-newarticle-notice": "עכשיו אפשר ליצור תוכן חדש באמצעות <b>תרגום</b>! האם ברצונך לנסות את כלי תרגום התוכן?",
 	"cx-campaign-no-thanks": "לא, תודה",
 	"cx-campaign-try": "לנסות את כלי תרגום התוכן",
+	"cx-campaign-contributionsmenu-mycontributions": "תרומות",
+	"cx-campaign-contributionsmenu-mytranslations": "תרגומים",
+	"cx-campaign-contributionsmenu-myuploads": "מדיה שהעלית",
 	"cx-trend-all-translations": "כל התרגומים",
 	"cx-trend-translations-to": "תרגומים ל$1"
 }

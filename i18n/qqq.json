@@ -174,7 +174,7 @@
 	"cx-campaign-no-thanks": "Button label to cancel Content Translation invite\n{{Identical|No thanks}}",
 	"cx-campaign-try": "Button label to try Content Translation beta feature",
 	"cx-campaign-contributionsmenu-mycontributions": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to [[Special:MyContributions]]",
-	"cx-campaign-contributionsmenu-mytranslations": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Content Translation dashboard",
+	"cx-campaign-contributionsmenu-mytranslations": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Content Translation dashboard\n{{Identical|Translation}}",
 	"cx-campaign-contributionsmenu-myuploads": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Special:MyUploads in commons",
 	"cx-trend-all-translations": "Label shown in the legend section Content translation trends(graph visualization)",
 	"cx-trend-translations-to": "Label shown in the legend section Content translation trends(graph visualization)\n$1 - language name"
