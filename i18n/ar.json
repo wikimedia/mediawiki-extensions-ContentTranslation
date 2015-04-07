@@ -4,7 +4,8 @@
 			"Reem AK",
 			"زكريا",
 			"سامي الرحيلي",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Yahya Sakhnini"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -81,7 +82,7 @@
 	"cx-translation-filter-all-translations": "كل الترجمات",
 	"cx-translation-filter-published-translations": "الترجمات المنشورة",
 	"cx-create-new-translation": "أنشأ ترجمة جديدة",
-	"cx-contributions-media": "ارفع ملف وسائط",
+	"cx-contributions-upload": "ارفع وسائط",
 	"cx-stats-published-translators-title": "عدد المترجمين",
 	"cx-draft-cancel-button-label": "ألغ"
 }

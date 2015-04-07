@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Shirayuki",
-			"SkyDaisy9"
+			"SkyDaisy9",
+			"Mfuji"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -40,7 +41,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "このページは $1 版にはまだありません。 {{GENDER:|あなた}}がそれをつくりませんか。",
 	"cx-entrypoint-dialog-button-translate-from": "$1 から翻訳",
 	"cx-special-login-error": "このページを翻訳するには、ログインしてください。[$1 ログイン]",
-	"cx-tools-instructions-text1": "翻訳する段落を{{GENDER:|追加}}",
+	"cx-tools-instructions-text1": "段落を{{GENDER:|クリック}}して翻訳",
 	"cx-tools-instructions-text2": "{{GENDER:|}}すべての段落を追加する必要はありません",
 	"cx-tools-instructions-text4": "機械翻訳は有用ですが、{{GENDER:|}}正確なものにするため誤りを訂正する必要があります。",
 	"cx-tools-instructions-text6": "{{GENDER:|}}結果に問題がない場合は、「{{int:cs-publish-button}}」を押してください。",
@@ -52,11 +53,11 @@
 	"cx-tools-link-remove": "リンクを除去",
 	"cx-tools-mt-title": "機械翻訳",
 	"cx-tools-mt-use-source": "原文を使用",
-	"cx-tools-mt-clear-translation": "翻訳を消去",
+	"cx-tools-mt-clear-translation": "段落を消去",
 	"cx-tools-mt-restore": "復元",
 	"cx-tools-mt-provider-title": "$1 から",
 	"cx-tools-mt-dont-use": "機械翻訳を使用しないでください",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 件のカテゴリ}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|カテゴリ $1 件}}",
 	"cx-stats-unknown": "不明",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
 	"cx-sourceselector-dialog-button-start-translation": "翻訳を開始",

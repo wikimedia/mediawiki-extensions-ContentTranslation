@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chuvash2014"
+		]
+	},
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категори|$1 категорисем|0=Çук категорисем}}"
+}

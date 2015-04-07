@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"KuboF"
+			"KuboF",
+			"Amire80"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -64,7 +65,6 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorio|$1 kategorioj|0=Neniu kategorio}}",
 	"cx-stats-title": "Statistiko pri tradukado de enhavo",
 	"cx-stats-unknown": "nekonata",
-	"cx-stats-summary": "$1/$2 {{PLURAL:$1|paĝo|paĝoj}} ($3%) en la ĉefa nomspaco en tiu ĉi vikio.",
 	"cx-tools-reference-title": "Referenco",
 	"cx-tools-reference-remove": "Forigi referencon",
 	"cx-tools-link-instruction-shortcut": "Majuskliga klavo + klako malfermos ligilon",
@@ -112,9 +112,9 @@
 	"cx-save-draft-save-success": "Konservita {{PLURAL:$1|antaŭ minuto|antaŭ $1 minutoj|0=ĵus nun}}",
 	"cx-save-draft-saving": "Konservado...",
 	"cx-save-draft-tooltip": "Malnetoj de tradukaĵoj estas konservataj aŭtomate",
-	"cx-contributions": "Nova kontribuo",
+	"cx-contributions-new-contributions": "Nova kontribuo",
 	"cx-contributions-translation": "Traduko",
-	"cx-contributions-media": "Alŝuti plurmedian dosieron",
+	"cx-contributions-upload": "Alŝuti plurmedian dosieron",
 	"cx-publishing-dialog-message": "La paĝo $1 jam ekzistas. Ĝia nuntempa enhavo estos anstataŭigita per via traduko. Ĉu vi daŭre volas publikigi ĝin?",
 	"cx-publishing-dialog-keep-button": "Teni ambaŭ versiojn",
 	"cx-publishing-dialog-publish-anyway-button": "Tamen publikigi",
@@ -137,7 +137,10 @@
 	"cx-stats-published-translations-title": "Publikigitaj tradukoj",
 	"cx-stats-draft-translations-title": "Prilaborataj tradukoj",
 	"cx-stats-published-translators-title": "Nombro de tradukintoj",
-	"cx-draft-discard-confirmaton-message": "Ĉu vi vere volas nerestarigeble forigi tiun ĉi tradukon?",
+	"cx-draft-discard-confirmation-message": "Ĉu vi vere volas nerestarigeble forigi tiun ĉi tradukon?",
 	"cx-draft-cancel-button-label": "Nuligi",
-	"cx-draft-discard-button-label": "Forigi tradukon"
+	"cx-draft-discard-button-label": "Forigi tradukon",
+	"cx-campaign-newarticle-notice": "Nun vi ankaŭ povas krei novan enhavon <b>tradukante</b>! Ĉu vi volas provi la EnhavTradukado beta-ilon?",
+	"cx-campaign-no-thanks": "Ne, dankon",
+	"cx-campaign-try": "Provi EnhavTradukadon"
 }
