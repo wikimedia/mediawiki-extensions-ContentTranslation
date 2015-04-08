@@ -82,7 +82,18 @@
 	"cx-translation-filter-all-translations": "كل الترجمات",
 	"cx-translation-filter-published-translations": "الترجمات المنشورة",
 	"cx-create-new-translation": "أنشأ ترجمة جديدة",
+	"cx-contributions-new-contributions": "مساهمة جديدة",
+	"cx-contributions-new-article": "صفحة جديدة",
+	"cx-contributions-translation": "الترجمة",
 	"cx-contributions-upload": "ارفع وسائط",
+	"cx-contributions-new-article-tooltip": "ابدأ كتابة صفحة جديدة",
+	"cx-contributions-translation-tooltip": "ترجم صفحات موجودة",
+	"cx-stats-published-translations-title": "ترجمات منشورة",
 	"cx-stats-published-translators-title": "عدد المترجمين",
-	"cx-draft-cancel-button-label": "ألغ"
+	"cx-draft-cancel-button-label": "ألغ",
+	"cx-draft-discard-button-label": "احذف الترجمة",
+	"cx-beta-feature-enabled-notification": "فُعلت ترجمة المحتوى على هذا الويكي.",
+	"cx-campaign-try": "جرب ترجمة المحتوى",
+	"cx-campaign-contributionsmenu-myuploads": "الوسائط المرفوعة",
+	"cx-trend-all-translations": "كل الترجمات"
 }

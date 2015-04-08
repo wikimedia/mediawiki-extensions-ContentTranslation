@@ -7,9 +7,12 @@
 	},
 	"apihelp-query+contenttranslationlangtrend-param-source": "Koda zimanê çavkanî",
 	"cx-contributions-new-article": "Rûpela nû",
+	"cx-contributions-upload": "Medya bar bike",
 	"cx-contributions-translation-tooltip": "Rûpelên hene wergerîne",
 	"cx-magnus-tool-link-text": "Di zimanê xwe de nivîsarên kêm bibîne",
 	"cx-draft-discard-button-label": "Wergerê jê bibe",
 	"cx-campaign-no-thanks": "Na, spas",
+	"cx-campaign-contributionsmenu-mytranslations": "Werger",
+	"cx-campaign-contributionsmenu-myuploads": "Medya bar bike",
 	"cx-trend-all-translations": "Hemû werger"
 }
