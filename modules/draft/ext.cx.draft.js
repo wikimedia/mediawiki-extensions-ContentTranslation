@@ -218,6 +218,10 @@
 			.remove();
 		// Remove placeholder sections
 		$content.find( '.placeholder' ).remove();
+		// Remove all highlighting before saving
+		$content
+			.find( '.cx-highlight, .cx-highlight--blue, .cx-highlight--lightblue' )
+			.removeClass( 'cx-highlight cx-highlight--blue cx-highlight--lightblue' );
 		return $content.html();
 	}
 
