@@ -187,6 +187,7 @@ $wgResourceModules['ext.cx.source'] = array(
 		'mediawiki.jqueryMsg',
 		'mediawiki.util',
 		'ext.cx.widgets.spinner',
+		'mediawiki.skinning.content.parsoid',
 	),
 	'messages' => array(
 		'cx-source-view-page',
