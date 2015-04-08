@@ -137,12 +137,6 @@
 			}
 		} );
 
-		// Highlight corresponding links in source and translation columns
-		this.$container.on( 'mouseenter mouseleave', 'a', function () {
-			$( '[data-linkid="' + $( this ).data( 'linkid' ) + '"]' )
-				.toggleClass( 'cx-highlight' );
-		} );
-
 		// Highlight segment pairs
 		this.$container.on( 'mouseenter mouseleave', '.cx-segment', function () {
 			var $segment = $( this ),
