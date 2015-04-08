@@ -39,7 +39,6 @@ class ContentTranslationHooks {
 			BetaFeatures::isFeatureEnabled( $user, 'cx' );
 	}
 
-
 	/**
 	 * Hook: BeforePageDisplay
 	 */
@@ -65,7 +64,7 @@ class ContentTranslationHooks {
 			$out->addModules( 'ext.cx.redlink' );
 		}
 
-		// Add a hover menu for contributions link in personal tool bar
+		// Add a hover menu for the contributions link in personal toolbar
 		$out->addModules( 'ext.cx.campaigns.contributionsmenu' );
 
 		// The current guided tours are only for the user namespace,
@@ -147,13 +146,13 @@ class ContentTranslationHooks {
 			$wgContentTranslationBrowserBlacklist,
 			$wgContentTranslationTargetNamespace;
 
-		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
-		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
+		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationCampaigns'] = $wgContentTranslationCampaigns;
 		$vars['wgContentTranslationBrowserBlacklist'] = $wgContentTranslationBrowserBlacklist;
+		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 	}
 
 	/**
@@ -170,8 +169,9 @@ class ContentTranslationHooks {
 	/**
 	 * Hook: EditPage::showEditForm:initial
 	 */
-	public static function newArticleCampign( EditPage $newPage, OutputPage $out ) {
+	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
 		global $wgContentTranslationCampaigns, $wgContentTranslationEventLogging;
+
 		$user = $out->getUser();
 
 		if (
@@ -209,10 +209,10 @@ class ContentTranslationHooks {
 			$out->addModules(
 				array( 'ext.cx.betafeature.init', 'ext.cx.campaigns.contributionsmenu' )
 			);
+
 			// This make sure the auto-open contribution menu shown exactly once.
 			// and it is not in Special:CX
 			$saveOptions['cx-know'] = true;
-
 		}
 
 		return true;
@@ -286,5 +286,4 @@ class ContentTranslationHooks {
 			),
 		) + $resourcePaths;
 	}
-
 }
