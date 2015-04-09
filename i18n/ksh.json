@@ -124,6 +124,9 @@
 	"cx-draft-cancel-button-label": "Ophüre!",
 	"cx-draft-discard-button-label": "De Övversäzong fott schmiiße",
 	"cx-campaign-no-thanks": "Nää, dat welle mer nit",
+	"cx-campaign-contributionsmenu-mycontributions": "Beijdrähsch",
+	"cx-campaign-contributionsmenu-mytranslations": "Övversäzonge",
+	"cx-campaign-contributionsmenu-myuploads": "Huhjelahde Datteije",
 	"cx-trend-all-translations": "Alle Övversäzonge",
 	"cx-trend-translations-to": "Övversäzonge en de Schprohch: $1\n<!--  \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Cx-trend-translations-to/ksh\n-->"
 }

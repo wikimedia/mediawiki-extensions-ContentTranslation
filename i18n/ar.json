@@ -76,6 +76,7 @@
 	"cx-sourceselector-dialog-button-cancel": "ألغ",
 	"cx-sourceselector-dialog-source-language-label": "مصدر:",
 	"cx-sourceselector-dialog-target-language-label": "هدف:",
+	"cx-sourceselector-dialog-source-title-placeholder": "ابحث عن الصفحة المصدر",
 	"cx-mt-abuse-warning-title": "ترجمتك بها $1% من النص المترجم آليا دون تغيير",
 	"cx-mt-abuse-warning-text": "تقدم الترجمة الآلية نموذجا فقط. عليك التحقق من دقة المحتوى وسلامة اللغة.",
 	"cx-publish-captcha-title": "سؤال الأمان",
@@ -84,7 +85,7 @@
 	"cx-create-new-translation": "أنشأ ترجمة جديدة",
 	"cx-contributions-new-contributions": "مساهمة جديدة",
 	"cx-contributions-new-article": "صفحة جديدة",
-	"cx-contributions-translation": "الترجمة",
+	"cx-contributions-translation": "ترجمة",
 	"cx-contributions-upload": "ارفع وسائط",
 	"cx-contributions-new-article-tooltip": "ابدأ كتابة صفحة جديدة",
 	"cx-contributions-translation-tooltip": "ترجم صفحات موجودة",
@@ -94,6 +95,8 @@
 	"cx-draft-discard-button-label": "احذف الترجمة",
 	"cx-beta-feature-enabled-notification": "فُعلت ترجمة المحتوى على هذا الويكي.",
 	"cx-campaign-try": "جرب ترجمة المحتوى",
+	"cx-campaign-contributionsmenu-mycontributions": "مساهمات",
+	"cx-campaign-contributionsmenu-mytranslations": "ترجمات",
 	"cx-campaign-contributionsmenu-myuploads": "الوسائط المرفوعة",
 	"cx-trend-all-translations": "كل الترجمات"
 }
