@@ -3,6 +3,7 @@
 .cx-contributions {
 	padding: 0;
 	margin: 30px 0;
+
 	button {
 		position: relative;
 		margin: 0;
@@ -20,22 +21,28 @@
 			border-radius: 2px 0 0 2px;
 			border-right: 0;
 		}
+
 		&:last-child {
 			border-radius: 0 2px 2px 0;
 			border-left: 0;
 		}
+
 		&:hover {
 			background-color: #eee;
 		}
+
 		&.cx-contributions-new-article {
 			.background-image-svg('../images/editarticle.svg', '../images/editarticle.png');
 		}
+
 		&.cx-contributions-translation {
 			.background-image-svg('../images/translation.svg', '../images/translation.png');
 		}
+
 		&.cx-contributions-upload {
 			.background-image-svg('../images/upload.svg', '../images/upload.png');
 		}
+
 		&.cx-contributions-new::before {
 			content: "";
 			position: absolute;
@@ -46,6 +53,7 @@
 			border-top: 21px solid #4682B4;
 			border-left: 22px solid transparent;
 		}
+
 		&.cx-contributions-new::after {
 			content: "*";
 			position: absolute;
