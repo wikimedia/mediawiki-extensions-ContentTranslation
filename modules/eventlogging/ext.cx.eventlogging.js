@@ -61,8 +61,9 @@
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title
+		 * @param {string} trace Error trace
 		 */
-		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
+		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
 			mw.track( 'event.ContentTranslation', {
 				version: 1,
 				token: mw.user.id(),
@@ -72,6 +73,17 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle
+			} );
+			mw.track( 'event.ContentTranslationError', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: 'publish-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				trace: trace.substring( 0, 500 )
 			} );
 		},
 

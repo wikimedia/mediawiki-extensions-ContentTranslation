@@ -112,6 +112,7 @@ class ContentTranslationHooks {
 	public static function addEventLogging( array &$schemas ) {
 		$schemas['ContentTranslation'] = 11628043;
 		$schemas['ContentTranslationCTA'] = 11616099;
+		$schemas['ContentTranslationError'] = 11767097;
 	}
 
 	/**

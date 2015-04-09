@@ -283,7 +283,8 @@
 			mw.cx.sourceLanguage,
 			mw.cx.targetLanguage,
 			mw.cx.sourceTitle,
-			this.targetTitle
+			this.targetTitle,
+			JSON.stringify( details )
 		);
 		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 		mw.log( '[CX] Error while publishing:', code, trace );
