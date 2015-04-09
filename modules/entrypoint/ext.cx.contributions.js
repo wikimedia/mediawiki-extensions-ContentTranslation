@@ -9,6 +9,7 @@
 	'use strict';
 
 	var entrypointName = 'contributions-page';
+
 	/**
 	 * @class
 	 */
@@ -23,21 +24,24 @@
 	 */
 	CXContributions.prototype.init = function () {
 		this.render();
-		this.listen();
 	};
 
 	CXContributions.prototype.render = function () {
 		var $sectionHeader;
+
 		$sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
+
 		this.$container = $( '<div>' )
 			.addClass( 'cx-contributions' )
 			.append( $.map( this.getActivities(), function ( item ) {
-				return $( '<button>' )
+				return $( '<a>' )
 					.addClass( item.class )
 					.text( item.text )
-					.attr( 'title', item.tooltip )
-					.data( 'url', item.url );
+					.attr( {
+						title: item.tooltip,
+						href: item.url
+					} );
 			} ) );
 
 		this.$element.append( $sectionHeader, this.$container );
@@ -76,14 +80,6 @@
 				tooltip: mw.msg( 'cx-contributions-translation-tooltip' )
 			},
 		];
-	};
-
-	CXContributions.prototype.listen = function () {
-		this.$container.on( 'click', '> button', this.startActivity );
-	};
-
-	CXContributions.prototype.startActivity = function () {
-		location.href = $( this ).data( 'url' );
 	};
 
 	/**
