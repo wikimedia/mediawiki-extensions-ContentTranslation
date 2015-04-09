@@ -44,7 +44,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
-			throw new MWException( $req->getContent() );
+			throw new MWException( $status );
 		}
 
 		return $req->getContent();
