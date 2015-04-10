@@ -73,7 +73,7 @@ $GLOBALS['wgHooks']['ListDefinedTags'][] = 'ContentTranslationHooks::registerTag
 $GLOBALS['wgHooks']['ChangeTagsListActive'][] = 'ContentTranslationHooks::registerTags';
 $GLOBALS['wgHooks']['UserSaveOptions'][] =  'ContentTranslationHooks::onSaveOptions';
 $GLOBALS['wgHooks']['EditPage::showEditForm:initial'][] =
-	'ContentTranslationHooks::newArticleCampign';
+	'ContentTranslationHooks::newArticleCampaign';
 $GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
 	'ContentTranslationHooks::onResourceLoaderTestModules';
 
