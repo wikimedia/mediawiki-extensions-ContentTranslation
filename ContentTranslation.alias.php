@@ -74,6 +74,12 @@ $specialPageAliases['lb'] = array(
 	'ContentTranslationStats' => array( 'Statistiken_iwwer_d\'Iwwersetze_vun_Inhalter' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'ContentTranslation' => array( 'والریاری_مینونه،_سی_ایکس' ),
+	'ContentTranslationStats' => array( 'گوته_یاری_والرشتن_مینونه،_گوته_کاری_سی_ایکس' ),
+);
+
 /** Malagasy (Malagasy) */
 $specialPageAliases['mg'] = array(
 	'ContentTranslation' => array( 'FandikanaVontoatiny' ),

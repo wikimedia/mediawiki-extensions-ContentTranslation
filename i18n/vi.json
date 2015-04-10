@@ -94,7 +94,7 @@
 	"cx-translation-filter-from-any-language": "Từ bất cứ ngôn ngữ nào",
 	"cx-translation-filter-to-any-language": "Sang bất cứ ngôn ngữ nào",
 	"cx-create-new-translation": "Tạo bản dịch mới",
-	"cx-create-new-translation-desc": "Tạo các bài viết mới về những chủ đề chưa có ở ngôn ngữ của bạn. Mọi thứ sẽ trở nên dễ dàng hơn với sự hỗ trợ của các công cụ biên dịch của chúng tôi. [https://vi.wikipedia.org/wiki/Wikipedia:Biên dịch#Làm thế nào để biên dịch Tìm hiểu thêm]",
+	"cx-create-new-translation-desc": "Tạo các bài viết mới về những chủ đề chưa có ở ngôn ngữ của bạn. Mọi thứ sẽ trở nên dễ dàng hơn với sự hỗ trợ của các công cụ biên dịch của chúng tôi. [{{fullurle:Project:Biên_dịch}}#{{anchorencode:Làm_thế_nào_để_biên_dịch}} Tìm hiểu thêm]",
 	"apihelp-cxpublish-description": "Lưu một trang được tạo bởi phần mở rộng Biên dịch nội dung.",
 	"apihelp-cxpublish-param-title": "Tiêu đề của trang chịu tác động của tác vụ này.",
 	"apihelp-cxpublish-param-html": "Nội dung để lưu.",

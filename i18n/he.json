@@ -7,7 +7,8 @@
 			"Yona b",
 			"Ronel1",
 			"Guycn2",
-			"Danny-w"
+			"Danny-w",
+			"LaG roiL"
 		]
 	},
 	"cx": "תרגום דף",
@@ -51,7 +52,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|לחץ|לחצי}} על פסקאות כדי לתרגם",
 	"cx-tools-instructions-text2": "לא צריך להוסיף את כולן",
 	"cx-tools-instructions-text3": "{{GENDER:|תעשה|תעשי}} את הטקסט קריא וטבעי",
-	"cx-tools-instructions-text4": "תרגום מכונה זה דבר שימושי, אבל יהיה {{GENDER:|אתה צריך|את צריכה}} לתקן את הטקסט כדי שהתרגום יהיה מדויק.",
+	"cx-tools-instructions-text4": "תרגום מכונה זה דבר שימושי, אבל {{GENDER:|תצטרך|תצטרכי}} לתקן את הטקסט כדי שהתרגום יהיה מדויק.",
 	"cx-tools-instructions-text5": "{{GENDER:|פרסם|פרסמי}} את התרגום",
 	"cx-tools-instructions-text6": "כאשר {{GENDER:|תהיה|תהיי}} מרוצה מהתוצאה, {{GENDER:|לחץ|לחצי}} על \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "חיפוש מילה",
@@ -137,7 +138,7 @@
 	"cx-contributions-translation": "תרגום",
 	"cx-contributions-upload": "העלאת מדיה",
 	"cx-contributions-new-article-tooltip": "כתיבת דף חדש",
-	"cx-contributions-translation-tooltip": "תרגום דף קיים",
+	"cx-contributions-translation-tooltip": "תרגום דפים קיימים",
 	"cx-contributions-upload-tooltip": "העלאת תמונות, אודיו ווידאו לדפים",
 	"cx-publishing-dialog-message": "הדף $1 כבר קיים. התוכן הנוכחי יוחלף בתרגום שלך. האם לפרסם אותו?",
 	"cx-publishing-dialog-keep-button": "לשמור את שתי הגרסאות",
@@ -160,7 +161,7 @@
 	"cx-stats-table-source-total": "סה\"כ (מקור)",
 	"cx-stats-table-target-total": "סה\"כ (יעד)",
 	"cx-stats-published-translations-title": "תרגומים שפורסמו",
-	"cx-stats-draft-translations-title": "תרגום בתהליך עבודה",
+	"cx-stats-draft-translations-title": "תרגומים בעבודה",
 	"cx-stats-published-translators-title": "מספר המתרגמים",
 	"cx-draft-discard-confirmation-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
