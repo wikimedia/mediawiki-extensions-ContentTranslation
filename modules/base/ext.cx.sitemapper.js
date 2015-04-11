@@ -155,7 +155,7 @@
 		var slug, now, name, options, domain;
 
 		now = new Date();
-		slug = mw.Title.newFromText( sourceTitle ).getName();
+		slug = mw.Title.newFromText( sourceTitle ).getMain();
 		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
 		domain = location.hostname.indexOf( '.' ) > 0 ?
 			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
