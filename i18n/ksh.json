@@ -94,6 +94,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Et Köözel för de orschpönglesche Schprohch",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Et Köözel för de Zihl_Schprohch",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "De Zigg för der  trend. Kann „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">week</code>“ (Woch) udder „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">month</code>“ (Mohnd) sinn.\n<!--\nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Apihelp-query%2Bcontenttranslationlangtrend-param-interval/en\n-->",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Holl der Tränd för et Veröffentlesche vun däm Schprohche-Paa „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">es-ca</code>“ en wöschentleche Rötsche.",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Holl der   publishing trend för alle Schprohche",
 	"cx-save-draft-save-success": "Jrahd {{PLURAL:$1|vör en Menott|vör $1 Menotte|jäz}} jeseschert",
 	"cx-save-draft-saving": "Ben aam Afseschere{{int:ellipsis}}",

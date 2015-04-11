@@ -11,8 +11,9 @@
 	"cx-warning-unsaved-translation": "თქვენ გაქვთ დაუმახსოვრებელი თარგმანები.",
 	"cx-translation-filter-draft-translations": "ითარგმნება",
 	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება",
-	"cx-contributions": "ახალი წვლილი",
+	"cx-contributions-new-contributions": "ახალი წვლილი",
+	"cx-contributions-new-article": "ახალი გვერდი",
 	"cx-contributions-translation": "თარგმანი",
-	"cx-contributions-media": "მედია-ფაილის ატვირთვა",
+	"cx-contributions-upload": "ფაილის ატვირთვა",
 	"cx-draft-cancel-button-label": "გაუქმება"
 }
