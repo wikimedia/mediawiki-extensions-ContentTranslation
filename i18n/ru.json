@@ -128,6 +128,11 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Выборка всех опубликованных переводов",
 	"apihelp-query+cxpublishedtranslations-example-2": "Выборка всех опубликованных переводов, переведённых с английского",
 	"apihelp-query+cxpublishedtranslations-example-3": "Выборка всех опубликованных переводов, переведённых с английского на испанский",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Код языка источника.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Код целевого языка.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервал вычисления тенденции. Может быть \"week\" или \"month\".",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Выборка тенденции публикации для пары языков es-ca с недельным интервалом",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Выборка тенденции публикации для всех языков",
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",
@@ -170,5 +175,7 @@
 	"cx-campaign-try": "Попробовать перевод материалов («Content Translation»)",
 	"cx-campaign-contributionsmenu-mycontributions": "Вклад",
 	"cx-campaign-contributionsmenu-mytranslations": "переводы",
-	"cx-campaign-contributionsmenu-myuploads": "Закруженные файлы мультимедиа"
+	"cx-campaign-contributionsmenu-myuploads": "Закруженные файлы мультимедиа",
+	"cx-trend-all-translations": "Все переводы",
+	"cx-trend-translations-to": "Переводы на $1"
 }

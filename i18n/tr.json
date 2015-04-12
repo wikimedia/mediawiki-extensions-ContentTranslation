@@ -36,5 +36,6 @@
 	"cx-sourceselector-dialog-source-language-label": "Kaynak:",
 	"cx-publish-captcha-title": "Güvenlik sorusu",
 	"cx-translation-filter-draft-translations": "Devam eden çeviriler",
-	"apihelp-cxpublish-param-to": "Hedef dil kodu."
+	"apihelp-cxpublish-param-to": "Hedef dil kodu.",
+	"cx-campaign-contributionsmenu-mycontributions": "Katkılarım"
 }
