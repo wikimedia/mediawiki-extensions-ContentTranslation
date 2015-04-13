@@ -489,6 +489,7 @@ $wgResourceModules['ext.cx.draft'] = array(
 	'dependencies' => array(
 		'ext.cx.model',
 		'mediawiki.api.edit',
+		'jquery.throttle-debounce',
 	),
 	'messages' => array(
 		'cx-save-draft-saving',
