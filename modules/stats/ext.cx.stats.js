@@ -12,10 +12,11 @@
 	var max = 0;
 
 	/**
-	 * Get the Content Translation stats
+	 * Get the Content Translation stats.
 	 */
 	function getCXStats() {
 		var api = new mw.Api();
+
 		return api.get( {
 			action: 'query',
 			list: 'contenttranslationstats'
@@ -30,6 +31,7 @@
 	 */
 	function getCXTrends( targetLanguage ) {
 		var api = new mw.Api();
+
 		return api.get( {
 			action: 'query',
 			list: 'contenttranslationlangtrend',
@@ -49,17 +51,18 @@
 
 	function jsonToTable( records, status, property ) {
 		var i, j, record, srcLen, trgLen,
-			table = [],
 			sourceLanguages = [],
-			targetLanguages = [];
+			targetLanguages = [],
+			table = [];
 
 		max = 0;
+
 		for ( i = 0; i < records.length; i++ ) {
 			sourceLanguages.push( records[ i ].sourceLanguage );
 			targetLanguages.push( records[ i ].targetLanguage );
 		}
 
-		// remove duplicates
+		// Remove duplicates
 		sourceLanguages = mw.cx.unique( sourceLanguages ).sort();
 		targetLanguages = mw.cx.unique( targetLanguages ).sort();
 		srcLen = sourceLanguages.length;
@@ -68,11 +71,13 @@
 		for ( i = 0; i <= srcLen; i++ ) {
 			for ( j = 0; j <= trgLen; j++ ) {
 				table[ i ] = table[ i ] || [];
+
 				if ( i === 0 && j === 0 ) {
 					table[ 0 ][ 0 ] = mw.msg(
 						'cx-stats-table-source-target' );
 					continue;
 				}
+
 				if ( i === 0 ) {
 					table[ 0 ][ j ] = $( '<a>' )
 						.attr( {
@@ -87,6 +92,7 @@
 						.text( targetLanguages[ j - 1 ] );
 					continue;
 				}
+
 				if ( j === 0 ) {
 					table[ i ][ 0 ] = sourceLanguages[ i - 1 ];
 					continue;
@@ -101,12 +107,15 @@
 
 				table[ i ][ j ] = record[ 0 ] && record[ 0 ][ property ] || 0;
 				table[ i ][ j ] = parseInt( table[ i ][ j ], 10 );
+
 				// Keep track of max value of translation in any language pair.
-				// Required for coloring
+				// Required for coloring.
 				max = table[ i ][ j ] > max ? table[ i ][ j ] : max;
+
 				// Total(to)
 				table[ i ][ trgLen + 1 ] = table[ i ][ trgLen + 1 ] || 0;
 				table[ i ][ trgLen + 1 ] += table[ i ][ j ];
+
 				// Total(from)
 				table[ srcLen + 1 ] = table[ srcLen + 1 ] || [];
 				table[ srcLen + 1 ][ j ] = table[ srcLen + 1 ][ j ] || 0;
@@ -126,10 +135,13 @@
 	}
 
 	function createStatsTable( table ) {
-		var i, j, $table, $thead, $tbody, $headerRow,
-			$row, division, value, $td;
+		var i, j, division,
+			$table, $thead, $tbody, $headerRow,
+			$row, value, $td;
+
 		// Categorize the translations to 4 sets for coloring
 		division = max / 4;
+
 		$table = $( '<table>' )
 			.addClass( 'cx-stats' );
 
@@ -139,25 +151,31 @@
 
 		for ( i = 0; i < table.length; i++ ) {
 			$row = $( '<tr>' );
+
 			for ( j = 0; j < table[ i ].length; j++ ) {
 				value = table[ i ][ j ];
+
 				if ( value instanceof jQuery ) {
 					$td = $( '<td>' ).append( value );
 				} else {
 					$td = $( '<td>' ).text( value === 0 ? '' : mw.language.convertNumber( value ) );
 				}
+
 				if ( i > 0 && j > 0 && i < table.length - 1 && j <
 					table[ i ].length - 1 && value > 0 ) {
 					$td.addClass( 'cx-stat-color-' + parseInt( value / division, 10 ) );
 				}
+
 				$row.append( $td );
 			}
+
 			if ( i === 0 ) {
 				$thead.append( $row );
 			} else {
 				$tbody.append( $row );
 			}
 		}
+
 		$table.append( $thead, $tbody );
 
 		return $table;
@@ -176,13 +194,14 @@
 	}
 
 	/**
-	 * Fill the data in languageData to match with totalData length
+	 * Fill the data in languageData to match with totalData length.
 	 * @param {[Object]} totalData Array of total translation trend data
 	 * @param {[Object]} totalData Array of translations to a particular language
 	 * @return {[Object]} Array of translations to a particular language, after padding
 	 */
 	function mergeAndFill( totalData, languageData ) {
-		var i, padding = [];
+		var i,
+			padding = [];
 
 		if ( totalData.length === languageData.length ) {
 			return languageData;
@@ -194,6 +213,7 @@
 			if ( !languageData || languageData.length === 0 ) {
 				break;
 			}
+
 			if ( totalData[ i ].date === languageData[ 0 ].date ) {
 				languageData = padding.concat( languageData );
 			} else {
@@ -216,7 +236,7 @@
 	}
 
 	$( function () {
-		var $canvas, ctx, cxTrendGraph,
+		var $canvas, ctx,
 			$container = $( '#bodyContent' );
 
 		$canvas = $( '<canvas>' ).attr( {
@@ -227,7 +247,8 @@
 
 		$container.append(
 			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
-			$( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas ) );
+			$( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas )
+		);
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
 		getCXStats().then( function ( data ) {
@@ -247,7 +268,7 @@
 			getCXTrends(),
 			getCXTrends( mw.config.get( 'wgContentLanguage' ) )
 		).done( function ( totalTrend, languageTrend ) {
-			var data;
+			var data, cxTrendGraph;
 
 			languageTrend = mergeAndFill( totalTrend, languageTrend );
 			data = {
@@ -264,8 +285,10 @@
 						} )
 					},
 					{
-						label: mw.message( 'cx-trend-translations-to',
-							$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) ) ).escaped(),
+						label: mw.message(
+							'cx-trend-translations-to',
+							$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+						).escaped(),
 						strokeColor: '#80B3FF',
 						pointColor: '#80B3FF',
 						data: $.map( languageTrend, function ( data ) {
@@ -274,11 +297,13 @@
 					}
 				]
 			};
+
 			/*global Chart:false */
 			cxTrendGraph = new Chart( ctx ).Line( data, {
 				datasetFill: false,
 				legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
 			} );
+
 			$container.find( '.cx-stats-trend' ).append( cxTrendGraph.generateLegend() );
 		} );
 	} );
