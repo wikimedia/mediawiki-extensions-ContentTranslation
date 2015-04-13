@@ -71,9 +71,10 @@
 	"cx-create-new-translation": "নতুন অনুবাদ তৈরি করুন",
 	"cx-save-draft-save-success": "{{PLURAL:$1|এক মিনিট আগে|$1 মিনিট আগে|0=এইমাত্র}} সংরক্ষিত",
 	"cx-save-draft-saving": "সংরক্ষণ করা হচ্ছে ...",
-	"cx-contributions": "নতুন অবদান",
+	"cx-contributions-new-contributions": "নতুন অবদান",
+	"cx-contributions-new-article": "নতুন পাতা",
 	"cx-contributions-translation": "অনুবাদ",
-	"cx-contributions-media": "মিডিয়া ফাইল আপলোড করুন",
+	"cx-contributions-upload": "মিডিয়া আপলোড করুন",
 	"cx-translation-status-draft": "অগ্রগতি",
 	"cx-translation-status-published": "প্রকাশিত",
 	"cx-translation-status-deleted": "অপসারিত",
@@ -86,5 +87,8 @@
 	"cx-beta-feature-enabled-notification": "বিষয়বস্তু অনুবাদ এই উইকিতে সক্রিয় করা হয়েছে।",
 	"cx-campaign-newarticle-notice": "এখন আপনিও <b>অনুবাদ করার</b> দ্বারা নতুন বিষয়বস্তু তৈরি করতে পারেন! আপনি কি বিষয়বস্তু অনুবাদের বেটা সরঞ্জামটি ব্যবহার করতে চান?",
 	"cx-campaign-no-thanks": "না, ধন্যবাদ",
-	"cx-campaign-try": "বিষয়বস্তু অনুবাদ ব্যবহার করুন"
+	"cx-campaign-try": "বিষয়বস্তু অনুবাদ ব্যবহার করুন",
+	"cx-campaign-contributionsmenu-mycontributions": "অবদান",
+	"cx-campaign-contributionsmenu-mytranslations": "অনুবাদ",
+	"cx-campaign-contributionsmenu-myuploads": "আপলোডকৃত মিডিয়া"
 }
