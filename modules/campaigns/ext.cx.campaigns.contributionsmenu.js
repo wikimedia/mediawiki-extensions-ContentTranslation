@@ -44,8 +44,8 @@
 			.addClass( 'cx-campaign-uploads' )
 			.append(
 				$( '<a>' )
-				.text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
-				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
+					.text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
+					.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 			);
 
 		$menu = $( '<ul>' )
@@ -70,7 +70,7 @@
 			$( document ).one( 'click', hide );
 			// Not measuring the shown menu events because the trigger is 'hover'
 			// and there will be a lot of them.
-			// But can be easily track if somebody use it to reach CX.
+			// But it can be easily tracked if somebody uses it to reach CX.
 		}
 
 		$trigger.on( 'mouseover', show );
@@ -89,5 +89,4 @@
 			showInvitation();
 		}
 	} );
-
 }( jQuery, mediaWiki ) );
