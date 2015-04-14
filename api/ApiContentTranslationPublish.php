@@ -18,36 +18,62 @@
 class ApiContentTranslationPublish extends ApiBase {
 
 	/**
+	 * @var VirtualRESTServiceClient
+	 */
+	protected $serviceClient;
+
+	public function __construct( ApiMain $main, $name ) {
+		global $wgContentTranslationParsoid;
+		parent::__construct( $main, $name );
+		$this->serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
+		$parsoidConfig = $wgContentTranslationParsoid;
+		$this->serviceClient->mount( '/parsoid/', new ParsoidVirtualRESTService( array(
+			'URL' => $parsoidConfig['url'],
+			'prefix' => $parsoidConfig['prefix'],
+			'timeout' => $parsoidConfig['timeout'],
+		) ) );
+	}
+
+	private function requestParsoid( $method, $path, $params ) {
+		$request = array(
+			'method' => $method,
+			'url' => '/parsoid/local/v1/' . $path
+		);
+		if ( $method === 'GET' ) {
+			$request['query'] = $params;
+		} else {
+			$request['body'] = $params;
+		}
+		$response = $this->serviceClient->run( $request );
+		if ( $response['code'] === 200 && $response['error'] === '' ) {
+			return $response['body'];
+		} elseif ( $response['error'] !== '' ) {
+			$this->dieUsage( 'parsoidserver-http-error: ' . $response['code'], $response['error'] );
+		} else { // error null, code not 200
+			$this->dieUsage( 'parsoidserver-http: HTTP ' . $response['code'], $response['code'] );
+		}
+	}
+
+	/**
 	 * Converts html to wikitext
 	 *
 	 * @param Title $title
 	 * @param string $html
-	 * @return Status
-	 * @throw MWException
+	 * @return string wikitext
 	 */
 	protected function convertHtmlToWikitext( Title $title, $html ) {
-		global $wgContentTranslationParsoid;
-
-		$conf = $wgContentTranslationParsoid;
-		$page = urlencode( $title->getPrefixedDBkey() );
-
-		$req = MWHttpRequest::factory(
-			"{$conf['url']}/{$conf['prefix']}/$page",
+		$wikitext = $this->requestParsoid(
+			'POST',
+			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
 			array(
-				'method' => 'POST',
-				'postData' => array(
-					'content' => $html,
-				),
-				'timeout' => $conf['timeout'],
+				'html' => $html,
+				'oldid' => $parserParams['oldid'],
 			)
 		);
-
-		$status = $req->execute();
-		if ( !$status->isOK() ) {
-			throw new MWException( $status );
+		if ( $wikitext === false ) {
+			$this->dieUsage( 'Error contacting the Parsoid server', 'parsoidserver' );
 		}
-
-		return $req->getContent();
+		return $wikitext;
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
