@@ -50,7 +50,7 @@ CREATE TABLE /*_*/cx_drafts (
     -- Draft Id - foreign key to cx_translations.translation_id
     draft_id int primary key not null,
     -- Draft save timestamp
-    draft_timestamp  varchar(14) binary not null,
+    draft_timestamp varchar(14) binary not null,
     -- Translation draft content
     draft_content mediumblob
 ) /*$wgDBTableOptions*/;
