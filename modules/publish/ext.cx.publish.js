@@ -63,7 +63,7 @@
 						} );
 				}
 				// Any other failure
-				self.fail( 'cxpublish', '[CX] Unexpected error while publishing: ' + response.cxpublish );
+				self.onFail( 'cxpublish', '[CX] Unexpected error while publishing: ' + response.cxpublish );
 			} ).fail( function ( code, details ) {
 				self.onFail( code, details );
 			} ).always( function () {
