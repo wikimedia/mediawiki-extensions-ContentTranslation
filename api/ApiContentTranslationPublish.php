@@ -155,6 +155,10 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
 		}
 
+		if ( trim( $params['html'] ) === '' ) {
+			$this->dieUsage( 'html cannot be empty', 'invalidhtml' );
+		}
+
 		if ( $params['status'] === 'draft' ) {
 			$this->saveAsDraft();
 		} else {
