@@ -18,6 +18,8 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 вече съществува] на $2",
 	"cx-translation-filter-all-translations": "Всички преводи",
 	"cx-draft-cancel-button-label": "Отказване",
+	"cx-campaign-newarticle-notice": "Сега бихте могли да създадете ново съдържание като използвате автоматичен <b>превод</b>! Искате ли да опитате Бета версията за автоматичен превод?",
 	"cx-campaign-no-thanks": "Не, благодаря",
+	"cx-campaign-try": "Опитай Превод",
 	"cx-trend-all-translations": "Всички преводи"
 }
