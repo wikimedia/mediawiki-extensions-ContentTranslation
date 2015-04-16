@@ -69,6 +69,22 @@
 	}
 
 	/**
+	 * Check if the template contains <references> transclusion
+	 * @param {jQuery} $template
+	 * @return {boolean} Whether the template contains <references> or not.
+	 */
+	function hasReferences( $template ) {
+		if (
+			$template.is( '[typeof*="mw:Extension/references"]' ) ||
+			$template.find( '[typeof*="mw:Extension/references"]' ).length
+		) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Filter the templates present in the source article based on the configuration.
 	 * @param {Object} [configuration]
 	 */
@@ -122,6 +138,13 @@
 
 			if ( isInlineTemplate( $template ) ) {
 				mw.log( '[CX] Keeping inline template: ' + templateName );
+				return;
+			}
+			// Check whether this template contains <references>.
+			// If so, let it pass even without being whitelisted in the template configuration
+			// because we want references to appear in the published translation.
+			if ( hasReferences( $template ) ) {
+				mw.log( '[CX] Keeping references transclusion: ' + templateName );
 			} else {
 				mw.log( '[CX] Removing template: ' + templateName );
 				sourceFilter.removeTemplate( $template );
