@@ -38,28 +38,27 @@ class Translator {
 
 	/**
 	 * Get a translation by translation id for the translator
-	 * @return Translation
+	 * @param int $translationId
+	 * @return Translation|null
 	 */
 	public function getTranslation( $translationId ) {
 		$dbr = Database::getConnection( DB_SLAVE );
-		$rows = $dbr->select(
-			array( 'cx_translations', 'cx_translators', 'cx_drafts' ),
+		$row = $dbr->selectRow(
+			array( 'cx_drafts', 'cx_translators', 'cx_translations' ),
 			'*',
 			array(
-				'translator_translation_id' => $translationId,
-				'draft_id' => $translationId,
-				'translator_user_id' => $this->getGlobalUserId()
+				 'translator_user_id' => $this->getGlobalUserId(),
+				 'translator_translation_id' => $translationId,
+				 'translator_translation_id = draft_id',
+				 'translator_translation_id = translation_id',
 			),
 			__METHOD__
 		);
 
-		$result = array();
-		foreach ( $rows as $row ) {
-			$result[] = Translation::newFromRow( $row );
+		if ( $row ) {
+			return Translation::newFromRow( $row );
 		}
-		if ( count( $result ) > 0 ) {
-			return $result[0];
-		}
+
 		return null;
 	}
 
