@@ -81,7 +81,7 @@ $GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
 
 $GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
 $GLOBALS['wgContentTranslationParsoid'] = array(
-	'url' => 'http://parsoid.wmflabs.org/',
+	'url' => 'http://parsoid-lb.eqiad.wikimedia.org/',
 	'timeout' => 100 * 1000, // Parsoid timeout in milliseconds
 	'prefix' => 'enwiki',
 );
