@@ -67,7 +67,6 @@ class ApiContentTranslationPublish extends ApiBase {
 			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
 			array(
 				'html' => $html,
-				'oldid' => $parserParams['oldid'],
 			)
 		);
 		if ( $wikitext === false ) {
