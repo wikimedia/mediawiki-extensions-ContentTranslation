@@ -20,11 +20,6 @@ class ContentTranslationHooks {
 	public static function isEnabledForUser( User $user ) {
 		global $wgContentTranslationAsBetaFeature;
 
-		// Not available for blocked users.
-		if ( $user->isBlocked() ) {
-			return false;
-		}
-
 		// CX is currently restricted to only logged in users
 		if ( $user->isAnon() ) {
 			return false;
