@@ -116,6 +116,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Bezieht alle veröffentlichten Übersetzungen.",
 	"apihelp-query+cxpublishedtranslations-example-2": "Bezieht alle veröffentlichten Übersetzungen aus dem Englischen",
 	"apihelp-query+cxpublishedtranslations-example-3": "Bezieht alle veröffentlichten Übersetzungen vom Englischen ins Spanische.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Der Quell-Sprachcode.",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
