@@ -11,6 +11,7 @@ class Translation {
 
 	public function create() {
 		$dbw = Database::getConnection( DB_MASTER );
+
 		$values = array(
 			'translation_source_title' => $this->translation['sourceTitle'],
 			'translation_target_title' => $this->translation['targetTitle'],
@@ -22,21 +23,26 @@ class Translation {
 			'translation_progress' => $this->translation['progress'],
 			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
 		);
+
 		$values['translation_start_timestamp'] = $dbw->timestamp();
 		$values['translation_started_by'] = $this->translation['startedTranslator'];
+
 		if ( $this->translation['status'] === 'published' ) {
 			$values['translation_target_url'] = $this->translation['targetURL'];
 		}
+
 		$dbw->insert(
 			'cx_translations',
 			$values,
 			__METHOD__
 		);
+
 		$this->translation['id'] = $dbw->insertId();
 	}
 
 	public function update() {
 		$dbw = Database::getConnection( DB_MASTER );
+
 		$values = array(
 			'translation_source_title' => $this->translation['sourceTitle'],
 			'translation_target_title' => $this->translation['targetTitle'],
@@ -48,9 +54,11 @@ class Translation {
 			'translation_progress' => $this->translation['progress'],
 			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
 		);
+
 		if ( $this->translation['status'] === 'published' ) {
 			$values['translation_target_url'] = $this->translation['targetURL'];
 		}
+
 		$dbw->update(
 			'cx_translations',
 			$values,
@@ -65,6 +73,7 @@ class Translation {
 			$this->translation['targetLanguage'],
 			$this->translation['sourceTitle']
 		);
+
 		if ( $existingTranslation === null ) {
 			$this->create();
 		} else {
@@ -75,29 +84,36 @@ class Translation {
 
 	public static function find( $sourceLanguage, $targetLanguage, $title ) {
 		$dbr = Database::getConnection( DB_SLAVE );
+
 		$values = array(
 			'translation_source_language' => $sourceLanguage,
 			'translation_target_language' => $targetLanguage,
 			'translation_source_title' => $title
 		);
+
 		$rows = $dbr->select(
 			'cx_translations',
 			'*',
 			$values,
 			__METHOD__
 		);
+
 		$result = array();
+
 		foreach ( $rows as $row ) {
 			$result[] = Translation::newFromRow( $row );
 		}
+
 		if ( count( $result ) > 0 ) {
 			return $result[0];
 		}
+
 		return null;
 	}
 
 	public static function delete( $translationId ) {
 		$dbw = Database::getConnection( DB_MASTER );
+
 		$dbw->update(
 			'cx_translations',
 			array( 'translation_status' => 'deleted' ),
@@ -107,7 +123,7 @@ class Translation {
 	}
 
 	/**
-	 * Get the stats for all translations in draft or published status
+	 * Get the stats for all translations in draft or published status.
 	 */
 	public static function getStats() {
 		return array_merge( Translation::getDraftStats(), Translation::getPublishedStats() );
@@ -121,6 +137,7 @@ class Translation {
 	 */
 	public static function getDraftStats() {
 		$dbr = Database::getConnection( DB_SLAVE );
+
 		$rows = $dbr->select(
 			'cx_translations',
 			array(
@@ -144,6 +161,7 @@ class Translation {
 		);
 
 		$result = array();
+
 		foreach ( $rows as $row ) {
 			$result[] = (array) $row;
 		}
@@ -158,6 +176,7 @@ class Translation {
 	 */
 	public static function getPublishedStats() {
 		$dbr = Database::getConnection( DB_SLAVE );
+
 		$rows = $dbr->select(
 			'cx_translations',
 			array(
@@ -193,9 +212,9 @@ class Translation {
 
 	/**
 	 * Get time-wise cumulative number of translations for given
-	 * language pairs, with given interval
+	 * language pairs, with given interval.
 	 */
-	public static function getTrend ( $source, $target, $interval ) {
+	public static function getTrend( $source, $target, $interval ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$publishedCondition = $dbr->makeList(
@@ -218,7 +237,7 @@ class Translation {
 			$groupBy = array(
 				'GROUP BY' => array(
 					'YEAR(translation_last_updated_timestamp), MONTH(translation_last_updated_timestamp)',
-					),
+				),
 			);
 		}
 
@@ -272,6 +291,7 @@ class Translation {
 
 	public static function newFromId( $translationId ) {
 		$dbr = Database::getConnection( DB_SLAVE );
+
 		$rows = $dbr->select(
 			array( 'cx_translations', 'cx_drafts' ),
 			'*',
@@ -281,10 +301,13 @@ class Translation {
 			),
 			__METHOD__
 		);
+
 		$result = array();
+
 		foreach ( $rows as $row ) {
 			$result[] = Translation::newFromRow( $row );
 		}
+
 		return $result;
 	}
 
@@ -300,16 +323,21 @@ class Translation {
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$conditions = array( 'translation_status' => 'published' );
+
 		if ( $from ) {
 			$conditions['translation_source_language'] = $from;
 		}
+
 		if ( $to ) {
 			$conditions['translation_target_language'] = $to;
 		}
+
 		$options = array ( 'LIMIT' => $limit );
+
 		if ( $offset ) {
 			$options['OFFSET'] = $offset;
 		}
+
 		$rows = $dbr->select(
 			'cx_translations',
 			array(
@@ -325,12 +353,15 @@ class Translation {
 			__METHOD__,
 			$options
 		);
+
 		$result = array();
+
 		foreach ( $rows as $row ) {
 			$translation = (array) $row;
 			$translation['stats'] = json_decode( $translation['stats'] );
 			$result[] = $translation;
 		}
+
 		return $result;
 	}
 
