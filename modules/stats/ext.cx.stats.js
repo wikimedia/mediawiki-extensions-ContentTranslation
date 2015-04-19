@@ -57,9 +57,9 @@
 
 		max = 0;
 
-		for ( i = 0; i < records.length; i++ ) {
-			sourceLanguages.push( records[ i ].sourceLanguage );
-			targetLanguages.push( records[ i ].targetLanguage );
+		for ( i = 0; i < records.pages.length; i++ ) {
+			sourceLanguages.push( records.pages[ i ].sourceLanguage );
+			targetLanguages.push( records.pages[ i ].targetLanguage );
 		}
 
 		// Remove duplicates
@@ -99,7 +99,7 @@
 				}
 
 				record = findLanguagePair(
-					records,
+					records.pages,
 					sourceLanguages[ i - 1 ],
 					targetLanguages[ j - 1 ],
 					status
@@ -135,10 +135,22 @@
 			}
 		}
 
-		if ( property !== 'translators' ) {
-			table[ 0 ][ trgLen + 1 ] = mw.msg( 'cx-stats-table-source-total' );
-			table[ srcLen + 1 ][ 0 ] = mw.msg( 'cx-stats-table-target-total' );
+		if ( property === 'translators' ) {
+			table[ srcLen + 1 ] = [];
+
+			for ( i = 0; i < trgLen; i++ ) {
+				table[ srcLen + 1 ][ i + 1 ] = records.translators.to[ targetLanguages[ i ] ] || 0;
+			}
+
+			for ( i = 0; i < srcLen; i++ ) {
+				table[ i + 1 ][ trgLen + 1 ] = records.translators.from[ sourceLanguages[ i ] ] || 0;
+			}
+
+			table[ srcLen + 1 ][ trgLen + 1 ] = records.translators.total;
 		}
+
+		table[ 0 ][ trgLen + 1 ] = mw.msg( 'cx-stats-table-source-total' );
+		table[ srcLen + 1 ][ 0 ] = mw.msg( 'cx-stats-table-target-total' );
 
 		return table;
 	}
