@@ -112,24 +112,33 @@
 				// Required for coloring.
 				max = table[ i ][ j ] > max ? table[ i ][ j ] : max;
 
-				// Total(to)
-				table[ i ][ trgLen + 1 ] = table[ i ][ trgLen + 1 ] || 0;
-				table[ i ][ trgLen + 1 ] += table[ i ][ j ];
+				// Translators must come from the database directly,
+				// so that a translator who translated to or from several
+				// languages won't be counted twice
+				if ( property !== 'translators' ) {
+					// Total(to)
+					table[ i ][ trgLen + 1 ] = table[ i ][ trgLen + 1 ] || 0;
+					table[ i ][ trgLen + 1 ] += table[ i ][ j ];
 
-				// Total(from)
-				table[ srcLen + 1 ] = table[ srcLen + 1 ] || [];
-				table[ srcLen + 1 ][ j ] = table[ srcLen + 1 ][ j ] || 0;
-				table[ srcLen + 1 ][ j ] += table[ i ][ j ];
+					// Total(from)
+					table[ srcLen + 1 ] = table[ srcLen + 1 ] || [];
+					table[ srcLen + 1 ][ j ] = table[ srcLen + 1 ][ j ] || 0;
+					table[ srcLen + 1 ][ j ] += table[ i ][ j ];
+				}
 			}
 
-			// Total translations
-			table[ srcLen + 1 ] = table[ srcLen + 1 ] || [];
-			table[ srcLen + 1 ][ trgLen + 1 ] = table[ srcLen + 1 ][ trgLen + 1 ] || 0;
-			table[ srcLen + 1 ][ trgLen + 1 ] += table[ i ][ trgLen + 1 ];
+			if ( property !== 'translators' ) {
+				// Total translations
+				table[ srcLen + 1 ] = table[ srcLen + 1 ] || [];
+				table[ srcLen + 1 ][ trgLen + 1 ] = table[ srcLen + 1 ][ trgLen + 1 ] || 0;
+				table[ srcLen + 1 ][ trgLen + 1 ] += table[ i ][ trgLen + 1 ];
+			}
 		}
 
-		table[ 0 ][ trgLen + 1 ] = mw.msg( 'cx-stats-table-source-total' );
-		table[ srcLen + 1 ][ 0 ] = mw.msg( 'cx-stats-table-target-total' );
+		if ( property !== 'translators' ) {
+			table[ 0 ][ trgLen + 1 ] = mw.msg( 'cx-stats-table-source-total' );
+			table[ srcLen + 1 ][ 0 ] = mw.msg( 'cx-stats-table-target-total' );
+		}
 
 		return table;
 	}
