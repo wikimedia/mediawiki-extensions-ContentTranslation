@@ -85,4 +85,77 @@ class Translator {
 
 		return $result;
 	}
+
+	/**
+	 * Get the stats for all translator counts.
+	 */
+	public static function getStats() {
+		return array(
+			'from' => Translator::getTranslatorsCount( 'source' ),
+			'to' =>  Translator::getTranslatorsCount( 'target' ),
+			'total' => Translator::getTotalTranslatorsCount(),
+		);
+	}
+
+	/**
+	 * Get the stats for translator count to or from a language.
+	 * @param string $direction source or target
+	 * @return Array Number of translators indexed by language code
+	 */
+	public static function getTranslatorsCount( $direction ) {
+		$directionField = array(
+			'source' => 'translation_source_language',
+			'target' => 'translation_target_language',
+		);
+
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		$table = 'cx_translations';
+		$fields = array(
+			"$directionField[$direction] as language",
+			'COUNT(DISTINCT translation_started_by) AS translators',
+		);
+		$conds = $dbr->makeList(
+			array(
+				'translation_status' => 'published',
+				'translation_target_url IS NOT NULL',
+			),
+			LIST_OR
+		);
+		$options = array(
+			'GROUP BY' => $directionField[$direction],
+		);
+
+		$rows = $dbr->select( $table, $fields, $conds, __METHOD__, $options );
+
+		$result = array();
+
+		foreach ( $rows as $row ) {
+			$result[$row->language] = $row->translators;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get the total count of users who published a translation.
+	 * @return Integer Number of translators
+	 */
+	public static function getTotalTranslatorsCount() {
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		$table = 'cx_translations';
+		$fields = array(
+			'COUNT(DISTINCT translation_started_by) AS translators',
+		);
+		$conds = $dbr->makeList(
+			array(
+				'translation_status' => 'published',
+				'translation_target_url IS NOT NULL',
+			),
+			LIST_OR
+		);
+
+		return $dbr->selectField( $table, $fields, $conds, __METHOD__ );
+	}
 }
