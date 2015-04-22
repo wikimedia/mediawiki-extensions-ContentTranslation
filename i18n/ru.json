@@ -11,7 +11,8 @@
 			"Batumski brodyaga",
 			"Dicto23456",
 			"Kaganer",
-			"Mariya"
+			"Mariya",
+			"Marat-avgust"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -85,7 +86,7 @@
 	"cx-sourceselector-dialog-button-cancel": "Отмена",
 	"cx-sourceselector-dialog-source-language-label": "С:",
 	"cx-sourceselector-dialog-target-language-label": "На:",
-	"cx-sourceselector-dialog-source-title-placeholder": "Поиск исходной страницы.",
+	"cx-sourceselector-dialog-source-title-placeholder": "Поиск исходной страницы",
 	"cx-sourceselector-dialog-target-title-placeholder": "Переведённое название (если отличается от исходного)",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Это название уже используется в [$1 $2] для [$3 другой страницы]",
 	"cx-sourceselector-dialog-error-page-exists": "Страница [$1 уже существует] в $2",
@@ -174,7 +175,7 @@
 	"cx-campaign-no-thanks": "Нет, спасибо",
 	"cx-campaign-try": "Попробовать перевод материалов («Content Translation»)",
 	"cx-campaign-contributionsmenu-mycontributions": "Вклад",
-	"cx-campaign-contributionsmenu-mytranslations": "переводы",
+	"cx-campaign-contributionsmenu-mytranslations": "Переводы",
 	"cx-campaign-contributionsmenu-myuploads": "Закруженные файлы мультимедиа",
 	"cx-trend-all-translations": "Все переводы",
 	"cx-trend-translations-to": "Переводы на $1"
