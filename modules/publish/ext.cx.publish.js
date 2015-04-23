@@ -63,7 +63,7 @@
 						} );
 				}
 				// Any other failure
-				self.onFail( 'cxpublish', '[CX] Unexpected error while publishing: ' + response.cxpublish );
+				self.onFail( 'cxpublish', response.cxpublish );
 			} ).fail( function ( code, details ) {
 				self.onFail( code, details );
 			} ).always( function () {
@@ -269,6 +269,8 @@
 
 	/**
 	 * Failure handler for publishing
+	 * @param {string} code
+	 * @param {object} details
 	 */
 	CXPublish.prototype.onFail = function ( code, details ) {
 		var trace = {
