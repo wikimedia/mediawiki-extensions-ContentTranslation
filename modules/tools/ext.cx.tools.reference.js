@@ -132,7 +132,7 @@
 					// Reference list not the section, it is wrapped inside.
 					$parentSection = $referenceList.parent();
 				}
-				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'click' );
+				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'reference' );
 			} );
 		}
 	};
