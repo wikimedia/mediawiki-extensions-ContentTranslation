@@ -166,9 +166,16 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var selection,
-			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
+		var selection, $sourceSection;
 
+		if ( !$section || !$section.length ) {
+			// Empty references in some articles cause this.
+			// Example: See Notes section in
+			// https://fr.wikipedia.org/w/index.php?title=Dong_Qichang&oldid=100845438
+			return;
+		}
+
+		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 		mw.hook( 'mw.cx.translation.change' ).fire( $section );
 		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 
