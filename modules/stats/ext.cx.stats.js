@@ -257,12 +257,34 @@
 	}
 
 	$( function () {
-		var $canvas, ctx,
-			$container = $( '#bodyContent' );
+		var $canvas, ctx, cxLink,
+			$header = $( '<div>' ).addClass( 'cx-widget__header' ),
+			$container = $( '<div>' ).addClass( 'cx-stats-container' );
+
+		// Set the global siteMapper for code which we cannot inject it
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+		$( 'body' ).append(
+			$( '<div>' ).addClass( 'cx-widget' )
+			.append( $header, $container )
+		);
+		$header.cxHeader( mw.cx.siteMapper );
+
+		if ( mw.user.options.get( 'cx' ) !== '1' ) {
+			cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+				campaign: 'cxstats',
+				targettitle: mw.config.get( 'wgPageName' ),
+				to: mw.config.get( 'wgContentLanguage' )
+			} );
+
+			$( '.cx-header__bar' ).hide();
+			mw.hook( 'mw.cx.error' ).fire( mw.message( 'cx-stats-try-contenttranslation', cxLink ) );
+		} else {
+			$header.find( '.cx-header__translation-center a' ).text( mw.msg( 'cx-header-new-translation' ) );
+		}
 
 		$canvas = $( '<canvas>' ).attr( {
 			id: 'cxtrend',
-			width: $container.width(),
+			width: $container.width() - 100, // Leave a 100px margin at right
 			height: 400
 		} );
 
@@ -270,6 +292,7 @@
 			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
 			$( '<div>' ).addClass( 'cx-stats-trend' ).append( $canvas )
 		);
+
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
 		getCXStats().then( function ( data ) {

@@ -173,5 +173,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Translations",
 	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
 	"cx-trend-all-translations": "All translations",
-	"cx-trend-translations-to": "Translations to $1 language"
+	"cx-trend-translations-to": "Translations to $1 language",
+	"cx-stats-try-contenttranslation": "Content Translation is a tool to create new pages by translating from other languages. [$1 Try Content Translation]"
 }

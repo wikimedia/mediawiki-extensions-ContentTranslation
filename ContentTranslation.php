@@ -146,8 +146,8 @@ $GLOBALS['wgContentTranslationAsBetaFeature'] = true;
  */
 $GLOBALS['wgContentTranslationTargetNamespace'] = 'Main';
 
-// List of campaigns enabled. Available campaigns: 'newarticle'
-$GLOBALS['wgContentTranslationCampaigns'] = array();
+// List of campaigns enabled. Available campaigns: newarticle, cxstats
+$GLOBALS['wgContentTranslationCampaigns'] = array( 'cxstats' );
 
 /*
  * Whether the Magnus tool to find missing articles to be enabled or not.

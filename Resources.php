@@ -674,6 +674,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 	'dependencies' => array(
 		'ext.cx.sitemapper',
 		'ext.cx.util',
+		'ext.cx.header',
 		'chart.js',
 		'jquery.uls.data'
 	),
@@ -686,6 +687,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'cx-stats-published-translators-title',
 		'cx-trend-all-translations',
 		'cx-trend-translations-to',
+		'cx-stats-try-contenttranslation',
 	)
 ) + $resourcePaths;
 
