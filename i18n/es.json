@@ -42,7 +42,7 @@
 	"cx-publish-gt-moved-title": "La página traducida fue movida",
 	"cx-publish-gt-moved-description": "Haz clic en este enlace para leer y mejorar tu nueva página traducida",
 	"cx-publish-gt-published-title": "Felicitaciones, la página se ha publicado",
-	"cx-publish-gt-published-description": "Tu puedes hacer clic en \"{{int:vector-view-edit}}\" para seguir mejorando la página. Asegúrate de que se lea de forma natural.",
+	"cx-publish-gt-published-description": "Puedes pulsar en «{{int:vector-view-edit}}» para seguir mejorando la página. Asegúrate de que se lea con naturalidad.",
 	"cx-translation-add-translation": "+ Añadir traducción",
 	"cx-translation-target-page-exists": "Ya existe una página titulada [$1 $2] en el wiki de destino. Considera cambiar el nombre de la página.",
 	"tag-contenttranslation": "Traducción de contenido",

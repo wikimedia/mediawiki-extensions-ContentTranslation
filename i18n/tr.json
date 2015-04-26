@@ -3,7 +3,8 @@
 		"authors": [
 			"Joseph",
 			"Sayginer",
-			"Violetanka"
+			"Violetanka",
+			"Ömer Berkay"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -35,7 +36,15 @@
 	"cx-sourceselector-dialog-button-start-translation": "Çevirmeye başla",
 	"cx-sourceselector-dialog-source-language-label": "Kaynak:",
 	"cx-publish-captcha-title": "Güvenlik sorusu",
+	"cx-translation-filter-all-translations": "Tüm çeviriler",
+	"cx-translation-filter-published-translations": "Yayınlanan çeviriler",
 	"cx-translation-filter-draft-translations": "Devam eden çeviriler",
+	"cx-translation-filter-from-any-language": "Herhangi bir dilden",
+	"cx-translation-filter-to-any-language": "Herhangi bir dil için",
+	"cx-create-new-translation": "Yeni çeviri oluştur",
+	"cx-create-new-translation-desc": "Senin dilinde bulunmayan konular için sayfalar oluştur. Çeviri araçlarının yardımı ile çok kolay.\n[https://tr.wikipedia.org/wiki/Vikipedi:%C3%87eviri_grubu daha fazla bilgi]",
 	"apihelp-cxpublish-param-to": "Hedef dil kodu.",
+	"apihelp-cxpublish-param-sourcetitle": "Kaynak sayfanın başlığı",
+	"apihelp-cxpublish-param-sourcerevision": "Kaynak sayfanın gözden geçirilmesi.",
 	"cx-campaign-contributionsmenu-mycontributions": "Katkılarım"
 }
