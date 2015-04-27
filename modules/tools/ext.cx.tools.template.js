@@ -45,7 +45,12 @@
 		$( '[about="' + aboutAttr + '"]' ).each( function ( index, fragment ) {
 			var $fragment = $( fragment );
 
-			if ( $fragment.attr( 'data-mw' ) ) {
+			if (
+				// Not all fragments are mw:Transclusion
+				// See https://phabricator.wikimedia.org/T97220
+				$fragment.is( '[typeof*="mw:Transclusion"]' ) &&
+				$fragment.attr( 'data-mw' )
+			) {
 				templateData = $fragment.data( 'mw' );
 			}
 		} );
@@ -136,17 +141,17 @@
 		this.templateData = this.getTemplateData();
 		this.templateMapping = this.getTemplateMapping();
 
-		if ( !this.templateData || this.templateData.parts.length > 1 ) {
-			// Either the template is missing mw data or having multiple
-			// parts. At present, we cannot handle them.
+		if ( !this.templateData || ( this.templateData.parts && this.templateData.parts.length > 1 ) ) {
+			// Either the template is missing mw data or having multiple parts.
+			// At present, we cannot handle them.
 			// An example: {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
 			// in enwiki:Debian, Timeline table.
 			mw.log( '[CX] Skipping template. Missing template data.' );
-
 			return;
 		}
 
 		this.templateTitle = this.templateData.parts[ 0 ].template.target.wt;
+
 		this.getTargetTemplate()
 			.done( function ( targetTitleData ) {
 				var pageId = Object.keys( targetTitleData.pages )[ 0 ];
