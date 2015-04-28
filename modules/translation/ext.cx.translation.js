@@ -166,7 +166,7 @@
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
-		var selection, $sourceSection;
+		var $sourceSection;
 
 		if ( !$section || !$section.length ) {
 			// Empty references in some articles cause this.
@@ -195,15 +195,6 @@
 		} else {
 			$section.cxEditor();
 		}
-
-		// Set the focus on the new section.
-		// Rely on browser behavior for setting the cursor position.
-		// Will generally go to the beginning of the section.
-		$section[ 0 ].focus();
-
-		// Capture and save the new selection and cursor position
-		selection = mw.cx.selection.get();
-		mw.cx.selection.save( 'translation', selection );
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
@@ -238,7 +229,7 @@
 		sourceId,
 		origin
 	) {
-		var $sourceSection, $section, $clone;
+		var $sourceSection, $section, $clone, selection;
 
 		$sourceSection = mw.cx.getSourceSection( sourceId );
 		$section = mw.cx.getTranslationSection( sourceId );
@@ -284,6 +275,16 @@
 			$section = mw.cx.getTranslationSection( sourceId );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 		}
+		// Set the focus on the new section.
+		// Rely on browser behavior for setting the cursor position.
+		// Will generally go to the beginning of the section.
+		if ( origin !== 'reference' ) {
+			// Do not focus reference. Page will scroll.
+			$section.focus();
+			// Capture and save the new selection and cursor position
+			selection = mw.cx.selection.get();
+			mw.cx.selection.save( 'translation', selection );
+		}
 	};
 
 	/**
@@ -324,7 +325,7 @@
 	 * Fill in the preceding parent heading, if not yet filled
 	 * @param {string} sectionId Source section Id
 	 */
-	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId ) {
+	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId, origin ) {
 		var $currentSection, $previousSection;
 
 		$currentSection = mw.cx.getTranslationSection( sectionId );
@@ -337,7 +338,7 @@
 				$currentSection.data( 'cx-section-type' )
 			)
 		) {
-			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), 'click' );
+			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), origin );
 		}
 	};
 
