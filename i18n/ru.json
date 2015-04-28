@@ -12,7 +12,8 @@
 			"Dicto23456",
 			"Kaganer",
 			"Mariya",
-			"Marat-avgust"
+			"Marat-avgust",
+			"Putnik"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -160,7 +161,7 @@
 	"cx-translation-already-in-progress": "Это перевод, начатый участником $1.",
 	"cx-translation-already-in-progress-collaborate": "Пожалуйста, договоритесь с участником, который начал этот перевод.",
 	"cx-publishing-dialog-publish-draft-button": "Опубликовать как черновик",
-	"cx-feedback-link": "Послать отзыв",
+	"cx-feedback-link": "Отправить отзыв",
 	"cx-stats-table-source-target": "Источник↓ / Цель→",
 	"cx-stats-table-source-total": "Всего (источник)",
 	"cx-stats-table-target-total": "Всего (цель)",
