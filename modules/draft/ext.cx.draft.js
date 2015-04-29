@@ -34,29 +34,52 @@
 	};
 
 	/**
+	 * Get the content to save. Clean up the content by removing
+	 * all unwanted classes and placeholders.
+	 * @return {string} HTML to save
+	 */
+	ContentTranslationDraft.prototype.getContent = function () {
+		var $content;
+
+		$content = $( '.cx-column--translation .cx-column__content' ).clone();
+		// Remove placeholder sections
+		$content.find( '.placeholder' ).remove();
+		// Remove empty sections.
+		$content.find( mw.cx.getSectionSelector() ).each( function () {
+			var $section = $( this );
+
+			if ( !$.trim( $section.text() ) ) {
+				$section.remove();
+			}
+		} );
+		// Remove all highlighting before saving
+		$content
+			.find( '.cx-highlight, .cx-highlight--blue, .cx-highlight--lightblue' )
+			.removeClass( 'cx-highlight cx-highlight--blue cx-highlight--lightblue' );
+
+		return $content.html();
+	};
+
+	function checkAndsave() {
+		if ( mw.cx.dirty ) {
+			mw.hook( 'mw.cx.translation.save' ).fire();
+		}
+	}
+
+	/**
 	 * Event bindings
 	 */
 	ContentTranslationDraft.prototype.listen = function () {
-		var save;
-
-		save = function ( weights ) {
-			if ( weights && weights.any === 0 || !mw.cx.dirty ) {
-				return;
-			}
-
-			mw.hook( 'mw.cx.translation.save' ).fire();
-		};
-
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 		// Save the draft on progress events, but not in all progress
 		// events. Use a few seconds delay.
-		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, save ) );
+		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, checkAndsave ) );
 
 		// Save when CTRL+S is pressed.
 		$( document ).on( 'keydown', function ( e ) {
 			if ( e.ctrlKey && e.which === 83 ) {
 				e.preventDefault();
-				mw.hook( 'mw.cx.translation.save' ).fire();
+				checkAndsave();
 				return false;
 			}
 		} );
@@ -164,21 +187,20 @@
 	 * Save the translation
 	 */
 	ContentTranslationDraft.prototype.save = function () {
-		var draftContent, targetTitle, params, apiParams,
+		var targetTitle, params, apiParams,
 			api = new mw.Api();
 
 		if ( this.disabled ) {
 			return;
 		}
 		targetTitle = $( '.cx-column--translation > h2' ).text();
-		draftContent = $( '.cx-column--translation .cx-column__content' ).clone();
 		clearInterval( timer );
 		params = {
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
 			title: targetTitle,
-			html: prepareTranslationForSave( draftContent ),
+			html: this.getContent(),
 			status: 'draft',
 			sourcerevision: mw.cx.sourceRevision,
 			progress: JSON.stringify( mw.cx.getProgress() )
@@ -197,33 +219,12 @@
 				targetTitle
 			);
 			timer = setInterval( function () {
-				mw.hook( 'mw.cx.translation.save' ).fire();
+				checkAndsave();
 			}, 5 * 60 * 1000 );
 		} ).fail( function () {
 			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 		} );
 	};
-
-	/**
-	 * Prepare the translated content for publishing by removing
-	 * unwanted parts.
-	 * @return {string} processed html
-	 */
-	function prepareTranslationForSave( $content ) {
-		// Remove empty sections.
-		$content
-			.filter( function () {
-				return !$.trim( $( this ).text() ) && $( this ).children().length;
-			} )
-			.remove();
-		// Remove placeholder sections
-		$content.find( '.placeholder' ).remove();
-		// Remove all highlighting before saving
-		$content
-			.find( '.cx-highlight, .cx-highlight--blue, .cx-highlight--lightblue' )
-			.removeClass( 'cx-highlight cx-highlight--blue cx-highlight--lightblue' );
-		return $content.html();
-	}
 
 	$( function () {
 		var drafId, draft;
