@@ -164,7 +164,7 @@
 			path: mw.config.get( 'wgCookiePath' ),
 			// Use Domain cookie. Example: domain=.wikipedia.org
 			domain: domain,
-			expires: new Date( now.getTime() + ( 5 * 60 * 1000 ) ) // 5 mins from now.
+			expires: new Date( now.getTime() + ( 3600 * 1000 ) ) // 1 hour from now.
 		};
 
 		// At this point, the translator saw the license agreement.
