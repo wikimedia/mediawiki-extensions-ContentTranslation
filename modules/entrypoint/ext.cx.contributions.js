@@ -78,7 +78,7 @@
 					campaign: entrypointName
 				} ),
 				tooltip: mw.msg( 'cx-contributions-translation-tooltip' )
-			},
+			}
 		];
 	};
 

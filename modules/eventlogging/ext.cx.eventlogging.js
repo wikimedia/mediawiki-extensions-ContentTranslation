@@ -34,7 +34,6 @@
 			mw.hook( 'mw.cx.cta.reject' ).add( $.proxy( this.ctaReject, this ) );
 		},
 
-
 		/**
 		 * Log creation of translated page.
 		 * @param {string} contentLanguage source language
@@ -145,7 +144,7 @@
 				sourceLanguage: sourceLanguage,
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
-				targetTitle: targetTitle,
+				targetTitle: targetTitle
 			} );
 		},
 

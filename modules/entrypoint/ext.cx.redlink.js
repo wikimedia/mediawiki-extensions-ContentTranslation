@@ -39,7 +39,7 @@
 		// with normalized counterparts
 		specialCodes = {
 			// Suggest both varieties of Norwegian when requesting macro Norwegian
-			'no': [ 'nb', 'nn' ]
+			no: [ 'nb', 'nn' ]
 		};
 
 		for ( specialCode in specialCodes ) {
