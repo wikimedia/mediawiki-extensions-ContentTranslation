@@ -56,7 +56,7 @@ class ContentTranslationHooks {
 		if ( $title->inNamespace( NS_MAIN ) &&
 			$title->exists()
 		) {
-			$out->addModules( 'ext.cx.redlink' );
+			$out->addModules( 'ext.cx.interlanguagelink' );
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar

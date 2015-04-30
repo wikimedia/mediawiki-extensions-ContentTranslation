@@ -556,9 +556,9 @@ $wgResourceModules['ext.cx.eventlogging'] = array(
 	),
 ) + $resourcePaths;
 
-$wgResourceModules['ext.cx.redlink'] = array(
-	'scripts' => 'entrypoint/ext.cx.redlink.js',
-	'styles' => 'entrypoint/styles/ext.cx.redlink.less',
+$wgResourceModules['ext.cx.interlanguagelink'] = array(
+	'scripts' => 'entrypoint/ext.cx.interlanguagelink.js',
+	'styles' => 'entrypoint/styles/ext.cx.interlanguagelink.less',
 	'messages' => array(
 		'cx-entrypoint-title',
 	),

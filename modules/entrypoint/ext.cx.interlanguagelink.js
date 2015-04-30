@@ -11,7 +11,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var campaign = 'redinterlanguagelink';
+	var campaign = 'interlanguagelink';
 	/**
 	 * Get the list of target languages that should be suggested
 	 * to the current user:
@@ -100,7 +100,7 @@
 		return $( 'li.interlanguage-link.interwiki-' + code ).length === 1;
 	}
 
-	function createRedInterlanguageItem( code ) {
+	function createCXInterlanguageItem( code ) {
 		var $link, $item, autonym;
 
 		// Optimization: if it's just the user language,
@@ -134,7 +134,7 @@
 		return $item;
 	}
 
-	function prepareRedInterLanguageLinks( availableTargetLanguages ) {
+	function prepareCXInterLanguageLinks( availableTargetLanguages ) {
 		var $newItem, $pLangList, dependencies, suggestedTargetLanguages;
 
 		suggestedTargetLanguages = getSuggestedTargetLanguages( availableTargetLanguages );
@@ -160,7 +160,7 @@
 			$pLangList = $( '#p-lang ul' );
 			$.each( suggestedTargetLanguages, function ( i, code ) {
 				if ( !pageInLanguageExists( code ) ) {
-					$newItem = createRedInterlanguageItem( code );
+					$newItem = createCXInterlanguageItem( code );
 					$pLangList.prepend( $newItem );
 					$newItem.cxEntryPoint( {
 						targetLanguage: code,
@@ -174,7 +174,7 @@
 
 	$( function () {
 		getAvailableTargetLanguages().then( function ( availableTargetLanguages ) {
-			prepareRedInterLanguageLinks( availableTargetLanguages );
+			prepareCXInterLanguageLinks( availableTargetLanguages );
 		} );
 	} );
 }( jQuery, mediaWiki ) );
