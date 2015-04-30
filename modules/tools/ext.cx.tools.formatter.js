@@ -39,18 +39,40 @@
 			orderedlist: this.$card.find( '.card__format--orderedlist' ),
 			unorderedlist: this.$card.find( '.card__format--unorderedlist' )
 		};
+
+		if ( window.chrome ) {
+			// Following controls work only in Chrome.
+			this.$buttons.orderedlist.hide();
+			this.$buttons.unorderedlist.hide();
+		}
+
 		this.$card.hide();
 	};
+
+	/**
+	 * Get command state for the given command
+	 * @param {string} command Example: bold, italic.
+	 * @return {boolean} whether the selection has the command applied or not.
+	 */
+	function getCommandState( command ) {
+		// queryCommandEnabled returns a Boolean value that indicates whether a specified
+		// command can be successfully executed using execCommand, or queried
+		// given the current state of the document.
+		// https://docs.webplatform.org/wiki/dom/TextRange/queryCommandEnabled
+		// Also see list of contenteditable browser inconsistencies
+		// https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md
+		return document.queryCommandEnabled( command ) && document.queryCommandState( command );
+	}
 
 	/**
 	 * Show the card.
 	 */
 	FormatTool.prototype.show = function () {
 		// Highlight the buttons based on the current state of the selection
-		this.$buttons.bold.toggleClass( 'highlight', document.queryCommandState( 'bold' ) );
-		this.$buttons.italic.toggleClass( 'highlight', document.queryCommandState( 'italic' ) );
-		this.$buttons.orderedlist.toggleClass( 'highlight', document.queryCommandState( 'insertOrderedList' ) );
-		this.$buttons.unorderedlist.toggleClass( 'highlight', document.queryCommandState( 'insertUnorderedList' ) );
+		this.$buttons.bold.toggleClass( 'highlight', getCommandState( 'bold' ) );
+		this.$buttons.italic.toggleClass( 'highlight', getCommandState( 'italic' ) );
+		this.$buttons.orderedlist.toggleClass( 'highlight', getCommandState( 'insertOrderedList' ) );
+		this.$buttons.unorderedlist.toggleClass( 'highlight', getCommandState( 'insertUnorderedList' ) );
 		this.$card.show();
 		this.onShow();
 	};
@@ -182,14 +204,7 @@
 		// Capture the selection
 		mw.cx.selection.save( 'format', mw.cx.selection.get() );
 		this.listen();
-
-		// Format tool is shown only in Chrome. It is show in other browsers
-		// if URL hash contains beta
-		if ( window.chrome || location.hash.match( /beta/ ) ) {
-			this.show();
-		} else {
-			this.stop();
-		}
+		this.show();
 	};
 
 	FormatTool.prototype.stop = function () {
