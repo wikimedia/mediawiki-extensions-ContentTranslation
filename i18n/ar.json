@@ -96,6 +96,7 @@
 	"cx-contributions-translation-tooltip": "ترجم صفحات موجودة",
 	"cx-publishing-dialog-keep-button": "ابق النسختين",
 	"cx-publishing-dialog-publish-anyway-button": "انشر على أية حال",
+	"cx-discard-translation": "تجاهل الترجمة",
 	"cx-translation-status-published": "منشورة",
 	"cx-translation-status-deleted": "محذوفة",
 	"cx-magnus-tool-link-text": "ابحث عن مقالات غير موجودة في لغتك",
@@ -110,5 +111,6 @@
 	"cx-campaign-contributionsmenu-mycontributions": "مساهمات",
 	"cx-campaign-contributionsmenu-mytranslations": "ترجمات",
 	"cx-campaign-contributionsmenu-myuploads": "الوسائط المرفوعة",
-	"cx-trend-all-translations": "كل الترجمات"
+	"cx-trend-all-translations": "كل الترجمات",
+	"cx-trend-translations-to": "الترجمات إلى اللغة $1"
 }
