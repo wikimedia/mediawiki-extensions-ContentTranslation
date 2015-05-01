@@ -3,7 +3,8 @@
 		"authors": [
 			"Frettie",
 			"Mormegil",
-			"Utar"
+			"Utar",
+			"YjM"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -18,7 +19,7 @@
 	"cx-source-view-page": "zobrazit stránku",
 	"cx-publish-page-success": "Stránka zveřejněna na $1",
 	"cx-publish-page-error": "Chyba při ukládání stránky.",
-	"cx-publish-button": "Publikovat překlad",
+	"cx-publish-button": "Zveřejnit překlad",
 	"cx-publish-button-publishing": "Zveřejňuje se…",
 	"cx-publish-summary": "Vytvořeno překladem stránky „$1“",
 	"cx-publish-gt-move-page-title": "Přesunout stránku",
@@ -85,6 +86,7 @@
 	"cx-translation-filter-to-any-language": "Do jakéhokoliv jazyka",
 	"cx-create-new-translation": "Vytvořit nový překlad",
 	"cx-create-new-translation-desc": "Vytvářejte stránky na témata, které zatím ve vašem jazyce neexistují. S pomocí našich překladatelských nástrojů je to snadné. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Dozvěďte se více]",
+	"apihelp-cxpublish-description": "Uložit stránku vytvořenou pomocí rozšíření ContentTranslation.",
 	"apihelp-cxpublish-param-html": "Obsah k uložení.",
 	"apihelp-cxpublish-param-from": "Kód zdrojového jazyka.",
 	"apihelp-cxpublish-param-to": "Kód cílového jazyka.",

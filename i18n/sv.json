@@ -116,6 +116,7 @@
 	"apihelp-query+contenttranslationstats-example-1": "Hämta statistik för innehållsöversättningar på alla språk",
 	"apihelp-cxconfiguration-param-from": "Källans språkkod.",
 	"apihelp-cxconfiguration-param-to": "Målets språkkod.",
+	"apihelp-query+cxpublishedtranslations-description": "Hämta information om alla publicerade översättningar",
 	"apihelp-query+cxpublishedtranslations-param-from": "Källans språkkod",
 	"apihelp-query+cxpublishedtranslations-param-to": "Målets språkkod",
 	"apihelp-query+cxpublishedtranslations-example-1": "Hämta alla publicerade översättningar",

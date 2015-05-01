@@ -26,7 +26,7 @@
 	"cx-publish-button-publishing": "發佈中...",
 	"cx-publish-summary": "經由翻譯頁面 “$1” 建立",
 	"cx-publish-gt-no-permission-to-move-description": "請尋求此網站有經驗的用戶來幫助覆核您的翻譯並將其發佈至主名字空間。",
-	"cx-publish-gt-first-step-title": "譯文已作為草稿發佈至您的用戶頁以供覆核",
+	"cx-publish-gt-first-step-title": "譯文已作為草稿發佈至您的使用者頁面以供覆核",
 	"cx-publish-gt-move-page-title": "移動此頁面",
 	"cx-publish-gt-move-page-description": "選擇「{{int:blanknamespace}}」命名空間並給予適當的標題。",
 	"cx-publish-gt-moved-title": "翻譯頁面已移動",
