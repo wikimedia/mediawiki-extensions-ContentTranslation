@@ -5,7 +5,8 @@
 			"M G Harish",
 			"Omshivaprakash",
 			"Teju2friends",
-			"Vikashegde"
+			"Vikashegde",
+			"Yogesh"
 		]
 	},
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
@@ -84,7 +85,7 @@
 	"cx-sourceselector-dialog-error-page-and-title-exist": "ಈ ಶೀರ್ಷಿಕೆಯನ್ನು ಈಗಾಗಲೇ [$1 $2] ನಲಿ ಇದಕ್ಕಾಗಿ ಬಳಸಲಾಗಿದೆ [$3 ಒಂದು ಬೇರೆ ಪುಟ]",
 	"cx-sourceselector-dialog-error-page-exists": "ಪುಟ  [$1ಈಗಾಗಲೇ ಲಭ್ಯವಿದೆ] $2 ನಲ್ಲಿ",
 	"cx-sourceselector-dialog-error-title-in-use": "ಹೊಸ ಪುಟದ ಶೀರ್ಷಿಕೆ [$1 ಈಗಾಗಲೇ ಬಳಕೆಯಲ್ಲಿದೆ]",
-	"cx-sourceselector-dialog-error-no-source-article": "ಅನುವಾದಕ್ಕೆ ಪುಟ $1 ರಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ",
+	"cx-sourceselector-dialog-error-no-source-article": "ಅನುವಾದಕ್ಕೆ ಪುಟ $1 ನಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ",
 	"cx-mt-abuse-warning-title": "ನಿಮ್ಮ ಅನುವಾದ $1% ರಷ್ಟು ಬದಲಾವಣೆ ಮಾಡಲಾರದ ಯಾಂತ್ರಿಕ-ಅನುವಾದದ ಪಠ್ಯ ಹೊಂದಿದೆ",
 	"cx-mt-abuse-warning-text": "ಯಾಂತ್ರಿಕ ಅನುವಾದಗಳನ್ನು ಕೇವಲ ಟೆಂಪ್ಲೇಟ್‌ ಆಗಿ ನೀಡಲಾಗಿದೆ. ನೀವು ವಿಷಯವು ನಿಖರವಾಗಿದೆ ಮತ್ತು ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಸಹಜವಾಗಿ ಓದಲ್ಪಡುತ್ತದೆಂದು ಖಾತ್ರಿ ಪಡಿಸಿಕೊಳ್ಳಬೇಕು.",
 	"cx-publish-captcha-title": "ಸುರಕ್ಷತೆ ಪ್ರಶ್ನೆ",
