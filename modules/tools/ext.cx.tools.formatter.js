@@ -40,7 +40,7 @@
 			unorderedlist: this.$card.find( '.card__format--unorderedlist' )
 		};
 
-		if ( window.chrome ) {
+		if ( !window.chrome ) {
 			// Following controls work only in Chrome.
 			this.$buttons.orderedlist.hide();
 			this.$buttons.unorderedlist.hide();
