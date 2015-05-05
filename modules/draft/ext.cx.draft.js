@@ -77,8 +77,8 @@
 
 		// Save when CTRL+S is pressed.
 		$( document ).on( 'keydown', function ( e ) {
-			if ( e.ctrlKey && e.which === 83 ) {
-				e.preventDefault();
+			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
+			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
 				checkAndsave();
 				return false;
 			}
