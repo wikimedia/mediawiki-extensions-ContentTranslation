@@ -137,6 +137,12 @@ $GLOBALS['wgContentTranslationTranslateInTarget'] = false;
 $GLOBALS['wgContentTranslationAsBetaFeature'] = true;
 
 /*
+ * The default source language.
+ * English is the default.
+ */
+$GLOBALS['wgContentTranslationDefaultSourceLanguage'] = 'en';
+
+/*
  * Target namespace to publish articles. Values can be 'Main'
  * or any valid Namespace without leading column.
  * Example: 'User', 'MediaWiki', 'Draft'
