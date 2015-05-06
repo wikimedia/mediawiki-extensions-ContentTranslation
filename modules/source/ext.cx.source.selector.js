@@ -189,7 +189,15 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
+		// Don't let the same languages be selected as source and target.
+		// Instead, do what the user probably means and swap them.
+		if ( language === this.getTargetLanguage() ) {
+			this.setTargetLanguage( this.getSourceLanguage() );
+		}
+
 		this.setLanguage( language, this.$sourceLanguage, 'cxSourceLanguage' );
+
+		this.fillTargetLanguages();
 	};
 
 	/**
@@ -213,17 +221,24 @@
 	 * language tools compatible with the source language.
 	 */
 	CXSourceSelector.prototype.fillTargetLanguages = function () {
-		var cxSourceSelector = this,
+		var targetLanguageCodes, sourceLanguage,
+			cxSourceSelector = this,
 			targetUlsClass = 'cx-sourceselector-uls-target';
 
 		// Delete the old target ULS
 		$( '.' + targetUlsClass ).remove();
 		this.$targetLanguage.data( 'uls', null );
 
+		// Don't let the target be the same as source
+		sourceLanguage = this.getSourceLanguage();
+		targetLanguageCodes = jQuery.grep( this.targetLanguages, function( language ) {
+			return language !== sourceLanguage;
+		} );
+
 		// Create a new target ULS
 		this.$targetLanguage.uls( {
-			languages: getAutonyms( this.targetLanguages ),
-			menuWidth: getUlsMenuWidth( this.targetLanguages.length ),
+			languages: getAutonyms( targetLanguageCodes ),
+			menuWidth: getUlsMenuWidth( targetLanguageCodes.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.targetLanguageChangeHandler( language );
 				cxSourceSelector.updatePreviousLanguages( language );
@@ -233,7 +248,7 @@
 			},
 			quickList: function () {
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
-					return cxSourceSelector.targetLanguages.indexOf( n ) !== -1;
+					return targetLanguageCodes.indexOf( n ) !== -1;
 				} );
 			},
 			compact: true
@@ -751,9 +766,6 @@
 
 		// Set the source language
 		this.setSourceLanguage( sourceLanguage );
-
-		// Fill in the target languages
-		this.fillTargetLanguages();
 
 		// Set the target language
 		this.setTargetLanguage( targetLanguage );
