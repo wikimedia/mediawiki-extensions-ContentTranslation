@@ -731,6 +731,12 @@ $wgResourceModules['ext.cx.campaigns.newarticle'] = array(
 	)
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.campaigns.newarticle.veloader'] = array(
+	'scripts' => array(
+		'campaigns/ext.cx.campaigns.newarticle.veloader.js',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.betafeature.init'] = array(
 	'scripts' => array(
 		'campaigns/ext.cx.betafeature.init.js',

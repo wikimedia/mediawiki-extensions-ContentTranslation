@@ -38,13 +38,26 @@ class ContentTranslationHooks {
 	 * Hook: BeforePageDisplay
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
-		global $wgContentTranslationEventLogging;
+		global $wgContentTranslationEventLogging, $wgContentTranslationCampaigns;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
 		// Check if CX is available for current user.
 		if ( !self::isEnabledForUser( $user ) ) {
+			if (
+				!$title->exists() &&
+				in_array( 'newarticle', $wgContentTranslationCampaigns ) &&
+				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
+				!$user->isAnon()
+			) {
+				$out->addModules( 'ext.cx.campaigns.newarticle.veloader' );
+
+				if ( $wgContentTranslationEventLogging ) {
+					$out->addModules( 'ext.cx.eventlogging' );
+				}
+			}
+
 			return;
 		}
 
