@@ -11,7 +11,8 @@
 			"Darellur",
 			"Sp5uhe",
 			"VerMa",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Halibutt"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -30,6 +31,8 @@
 	"cx-publish-button": "Publikuj tłumaczenie",
 	"cx-publish-button-publishing": "Publikowanie...",
 	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
+	"cx-publish-gt-no-permission-to-move-description": "Poproś doświadczonego użytkownika by sprawdził twoje tłumaczenie i opublikował je w przestrzeni głównej.",
+	"cx-publish-gt-first-step-title": "Tłumaczenie zostało zapisane na twojej podstronie jako szkic do przejrzenia.",
 	"cx-publish-gt-move-page-title": "Przenieś tę stronę",
 	"cx-publish-gt-moved-title": "Tłumaczona strona została przeniesiona",
 	"cx-publish-gt-moved-description": "Kliknij, aby przeczytać i poprawić swoją nowo przetłumaczoną stronę",
@@ -86,6 +89,7 @@
 	"cx-translation-filter-from-any-language": "Z dowolnego języka",
 	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Utwórz nowe tłumaczenie",
+	"apihelp-cxpublish-param-to": "Kod języka docelowego.",
 	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
 	"apihelp-query+contenttranslation-param-translationid": "ID tłumaczenia.",
 	"apihelp-query+contenttranslation-example-1": "Pokaż tłumaczenia rozpoczęte przez tego użytkownika.",
@@ -109,6 +113,7 @@
 	"cx-contributions-upload-tooltip": "Załaduj ilustracje, audio lub video, których użyjesz na stronie",
 	"cx-publishing-dialog-message": "Strona $1 już istnieje. Obecna treść zostanie zastąpiona twoim tłumaczeniem. Czy mimo to chcesz je opublikować?",
 	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje",
+	"cx-publishing-dialog-publish-anyway-button": "Zapisz i tak",
 	"cx-discard-translation": "Odrzuć tłumaczenie",
 	"cx-translation-status-draft": "W trakcie",
 	"cx-translation-status-published": "Opublikowano",

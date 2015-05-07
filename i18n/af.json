@@ -63,7 +63,7 @@
 	"cx-tools-mt-not-available": "Nie beskikbaar vir $1 nie",
 	"cx-tools-mt-dont-use": "Moenie outomatiese vertaling gebruik nie",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorie|$1 kategorieë|0=Geen kategorieë}}",
-	"cx-stats-title": "Certaalstatistieke",
+	"cx-stats-title": "Vertaalstatistieke",
 	"cx-stats-unknown": "onbekend",
 	"cx-tools-reference-title": "Verwysing",
 	"cx-tools-reference-remove": "Verwyder verwysing",
