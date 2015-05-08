@@ -10,11 +10,13 @@ class RedLinkPage
   button(:uls_more_languages, class: 'uls-more-languages')
 
   div(:article_content, id: 'mw-content-text')
+  div(:contributions_popover, class: 'cx-campaign-contributionsmenu')
   div(:dialog_heading, class: 'cx-entrypoint-dialog__heading')
   div(:input_label, class: 'cx-entrypoint-dialog__title-label')
 
   text_field(:translated_title, css: '.cx-entrypoint-dialog__title-box-block input')
 
+  li(:personal_contributions_link, id: 'pt-mycontris')
   li(:red_interlanguage_link_item, class: 'cx-new-interlanguage-link')
 
   span(:trigger_cog, class: 'uls-settings-trigger')
