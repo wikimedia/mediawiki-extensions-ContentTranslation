@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"C.R."
+		]
+	},
+	"cx": "Traduce 'a paggena",
+	"cx-javascript": "Stu strumento non funziona senza 'o JavaScript.",
+	"cx-error-server-connection": "Errore: Nun se può cullegà 'o server.",
+	"cx-desc": "'O facisse semplice 'e tradurre 'e paggene 'e cuntenute",
+	"cx-header-progressbar-text": "$1% tradotto",
+	"cx-header-progressbar-text-mt": "($1% d' 'a traduziona automatica)"
+}
