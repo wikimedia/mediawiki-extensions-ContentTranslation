@@ -9,5 +9,14 @@
 	"cx-error-server-connection": "Errore: Nun se può cullegà 'o server.",
 	"cx-desc": "'O facisse semplice 'e tradurre 'e paggene 'e cuntenute",
 	"cx-header-progressbar-text": "$1% tradotto",
-	"cx-header-progressbar-text-mt": "($1% d' 'a traduziona automatica)"
+	"cx-header-progressbar-text-mt": "($1% d' 'a traduziona automatica)",
+	"cx-header-translation-center": "Centro 'e traduzione",
+	"cx-header-new-translation": "Traduzione nova",
+	"cx-header-all-translations": "Tuttuquante traduziune",
+	"cx-source-view-page": "vire 'a paggena",
+	"cx-publish-page-success": "Paggena pubblicata ncopp'a $1",
+	"cx-publish-page-error": "Errore pe' tramente ca se steva 'astipà 'a paggena.",
+	"cx-publish-button": "Pubblica traduzione",
+	"cx-publish-button-publishing": "Pubbrecanno...",
+	"cx-publish-summary": "Criata d' 'a traduzione d' 'a paggena \"$1\""
 }
