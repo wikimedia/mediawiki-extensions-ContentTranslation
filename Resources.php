@@ -759,7 +759,10 @@ $wgResourceModules['ext.cx.campaigns.contributionsmenu'] = array(
 	'messages' => array(
 		'cx-campaign-contributionsmenu-mycontributions',
 		'cx-campaign-contributionsmenu-mytranslations',
+		'cx-campaign-contributionsmenu-translate-instead',
+		'cx-campaign-contributionsmenu-might-be-available',
 		'cx-campaign-contributionsmenu-myuploads',
+		'quotation-marks',
 	)
 ) + $resourcePaths;
 
