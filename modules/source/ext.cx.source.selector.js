@@ -174,8 +174,6 @@
 		if ( window.localStorage ) {
 			localStorage.setItem( localStorageItem, language );
 		}
-
-		this.updatePreviousLanguages( language );
 	};
 
 	/**
@@ -228,6 +226,7 @@
 			menuWidth: getUlsMenuWidth( this.targetLanguages.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.targetLanguageChangeHandler( language );
+				cxSourceSelector.updatePreviousLanguages( language );
 			},
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
@@ -303,6 +302,7 @@
 		if ( language === this.getSourceLanguage() ) {
 			return;
 		}
+
 		this.setTargetLanguage( language );
 		this.check();
 	};
@@ -727,43 +727,27 @@
 	};
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
-		var contentLanguage,
-			storedTargetLanguage, targetLanguage,
-			storedSourceLanguage, sourceLanguage;
+		var storedTargetLanguage, storedSourceLanguage,
+			targetLanguage, sourceLanguage, i;
 
-		// If there is a target language code in localStorage, use that.
-		// Otherwise default to wiki content language.
 		if ( window.localStorage ) {
 			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
-		}
-
-		contentLanguage = mw.config.get( 'wgContentLanguage' );
-		targetLanguage = storedTargetLanguage || contentLanguage;
-
-		// If there is a source language code in localStorage and it is valid
-		// for the target language, use that.
-		// Otherwise use the first valid source language.
-		if ( window.localStorage ) {
 			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
-
-			if ( this.isValidSource( storedSourceLanguage, targetLanguage ) ) {
-				sourceLanguage = storedSourceLanguage;
-			}
 		}
 
-		if ( !sourceLanguage ) {
-			if ( $.inArray( contentLanguage, this.sourceLanguages ) > -1 ) {
-				// If the content language is available as a possible source language,
-				// set it as the source, because the user probably wants to translate from it
-				sourceLanguage = contentLanguage;
-			} else {
-				// Give up: just set the first available source language
-				sourceLanguage = this.sourceLanguages[ 0 ];
-			}
-		}
+		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
+		sourceLanguage = storedSourceLanguage ||
+			mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
 
-		if ( sourceLanguage === targetLanguage ) {
-			targetLanguage = this.targetLanguages[ 0 ];
+		// Shouldn't Happen, but just in case something is invalid - pick some other language
+		for ( i = 0; i < this.sourceLanguages.length; i++ ) {
+			if ( sourceLanguage !== targetLanguage &&
+				this.isValidSource( sourceLanguage, targetLanguage )
+			) {
+				break;
+			}
+
+			sourceLanguage = this.sourceLanguages[ i ];
 		}
 
 		// Set the source language
@@ -812,6 +796,7 @@
 			menuWidth: getUlsMenuWidth( this.sourceLanguages.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.sourceLanguageChangeHandler( language );
+				cxSourceSelector.updatePreviousLanguages( language );
 			},
 			onReady: function () {
 				this.$menu.addClass( 'cx-sourceselector-uls-source' );
