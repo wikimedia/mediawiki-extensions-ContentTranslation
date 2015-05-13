@@ -90,7 +90,7 @@
 	"cx-translation-filter-from-any-language": "Къайсы болса да бир тилден",
 	"cx-translation-filter-to-any-language": "Къайсы болса да бир тилге",
 	"cx-create-new-translation": "Джангы кёчюрме къура",
-	"cx-create-new-translation-desc": "Сизни тилигизде болмгаъан темалагъа бетле къурагъых. Кёчюрюу адырны болушлугъу бла ол тынчды. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Кёбюрек бил]",
+	"cx-create-new-translation-desc": "Сизни тилигизде болмагъан темалагъа бетле къурагъыз. Кёчюрюу адырны болушлугъу бла ол тынчды. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Кёбюрек бил]",
 	"apihelp-cxpublish-description": "Content Translation къошакъ программа бла къуралгъан бетни сакълау.",
 	"apihelp-cxpublish-param-title": "Этимле этилинник бетни башлыгъы.",
 	"apihelp-cxpublish-param-html": "Сакъланыллыкъ контент.",

@@ -173,6 +173,8 @@
 	"cx-campaign-try": "尝试内容翻译",
 	"cx-campaign-contributionsmenu-mycontributions": "贡献",
 	"cx-campaign-contributionsmenu-mytranslations": "翻译",
+	"cx-campaign-contributionsmenu-translate-instead": "翻译而不从头开始写",
+	"cx-campaign-contributionsmenu-might-be-available": "$1可能已有其他语言版本",
 	"cx-campaign-contributionsmenu-myuploads": "上传的媒体",
 	"cx-trend-all-translations": "所有翻译",
 	"cx-trend-translations-to": "至$1语言的翻译"

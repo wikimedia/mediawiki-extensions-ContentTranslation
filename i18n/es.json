@@ -177,6 +177,8 @@
 	"cx-campaign-try": "Prueba la traducción de contenidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuciones",
 	"cx-campaign-contributionsmenu-mytranslations": "Traducciones",
+	"cx-campaign-contributionsmenu-translate-instead": "Traduce en vez de escribir desde cero",
+	"cx-campaign-contributionsmenu-might-be-available": "Puede que $1 ya esté disponible en otros idiomas",
 	"cx-campaign-contributionsmenu-myuploads": "Multimedia",
 	"cx-trend-all-translations": "Todas las traducciones",
 	"cx-trend-translations-to": "Traducciones al idioma $1"
