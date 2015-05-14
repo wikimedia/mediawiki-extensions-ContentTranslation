@@ -172,6 +172,8 @@
 	"cx-campaign-try": "לנסות את כלי תרגום התוכן",
 	"cx-campaign-contributionsmenu-mycontributions": "תרומות",
 	"cx-campaign-contributionsmenu-mytranslations": "תרגומים",
+	"cx-campaign-contributionsmenu-translate-instead": "לתרגם במקום לכתוב מאפס",
+	"cx-campaign-contributionsmenu-might-be-available": "ייתכן שהדף $1 כבר קיים בשפות אחרות",
 	"cx-campaign-contributionsmenu-myuploads": "מדיה שהעלית",
 	"cx-trend-all-translations": "כל התרגומים",
 	"cx-trend-translations-to": "תרגומים ל$1"

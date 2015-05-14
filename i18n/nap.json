@@ -6,6 +6,7 @@
 	},
 	"cx": "Traduce 'a paggena",
 	"cx-javascript": "Stu strumento non funziona senza 'o JavaScript.",
+	"cx-license-agreement": "Facenno click 'o buttone \"$1\", accettate tutt' 'e [//wikimediafoundation.org/wiki/Terms_of_Use Térmene 'e Condizione d'uso] e accettate irrevocabilmente 'e lassà 'e cuntribbute vuoste c' 'o strumiento 'e traduzione, ch' 'e licienze [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], int'a consapevolezza ca nu cullegamento ipertestuale o n'URL fosse buono abbastanza pe' ve putè dà attribuzione comme fosse CC BY-SA 3.0.",
 	"cx-error-server-connection": "Errore: Nun se può cullegà 'o server.",
 	"cx-desc": "'O facisse semplice 'e tradurre 'e paggene 'e cuntenute",
 	"cx-header-progressbar-text": "$1% tradotto",
@@ -18,5 +19,9 @@
 	"cx-publish-page-error": "Errore pe' tramente ca se steva 'astipà 'a paggena.",
 	"cx-publish-button": "Pubblica traduzione",
 	"cx-publish-button-publishing": "Pubbrecanno...",
-	"cx-publish-summary": "Criata d' 'a traduzione d' 'a paggena \"$1\""
+	"cx-publish-summary": "Criata d' 'a traduzione d' 'a paggena \"$1\"",
+	"cx-publish-gt-no-permission-to-move-description": "Pe' piacere, addimannate n'utente sperto 'e stu sito 'e v'aiutà pe' putè cuntrullà 'a traduzione e 'a putè pubbrecà dint'o namespace prencepale.",
+	"cx-publish-gt-first-step-title": "'A traduzione è stata pubbrecata comme fosse na bozza comme sottopaggena r' 'a paggena vuosta utente pe' putè fà cuntrollo",
+	"cx-publish-gt-first-step-description": "Facite click ncopp'aziune \"{{int:vector-action-move}}\" dint' 'o menu ccà abbascio pe' putè lassà 'e cuntenute comme disponibbele a tutt'utente comme fosse na paggena normale.",
+	"cx-publish-gt-move-page-title": "Spusta 'a paggena"
 }
