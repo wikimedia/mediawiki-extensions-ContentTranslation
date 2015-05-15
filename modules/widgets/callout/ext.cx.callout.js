@@ -1,9 +1,7 @@
 /**
  * A Callout dialog widget with jQuery.
  * Copyright (c) 2015 Santhosh Thottingal <santhosh.thottingal@gmail.com>
- * released under the MIT license MIT License.
- *
- * Borrows positioning concepts from Tipsy by Jason Frame
+ * released under the MIT license.
  */
 ( function ( $ ) {
 	'use strict';
@@ -17,6 +15,39 @@
 
 	/**
 	 * Callout class
+	 *
+	 * @param {HTMLElement} element The trigger element to which callout attaches.
+	 * @param {Object} options Options object
+	 * @param {String|Function} options.direction Direction of callout.
+	 *     Imagine the callout is along with the direction of a clock handle with the tip at top of
+	 *     the handle.
+	 *         11  12  1
+	 *	       ________
+	 *	   10 |        | 2
+	 *	   9  |    .   | 3
+	 *	   8  |________| 4
+	 *	       7  6   5
+	 *     Possible directions are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.
+	 *     Direction 12 is same as position 0.
+	 *     It is also possible to give a preferred direction using $.fn.callout.autoDirection
+	 *     Example: $.fn.callout.autoDirection( '0' )
+	 *     This will make the callout below the trigger with its tip pointing upwards
+	 *            *
+	 *     ______/\______
+	 *     |             |
+	 *     _______________
+	 *     This will make the callout left of the trigger with its tip pointing 3'O clock direction
+	 *     Example: $.fn.callout.autoDirection( '0' )
+	 *      ______
+	 *      |     |
+	 *      |      > *
+	 *      |_____|
+	 *     Auto direction will change direction if screen space is not available.
+	 * @param {Number} options.offset Offset of the dialog from the trigger
+	 * @param {Number} options.opacity Opacity of callout
+	 * @param {String} options.trigger Trigger: available options: hover, click,
+	 *     and auto(show automatically without any trigger).
+	 *     Any other value will assume the client of this libary will take care of show/hide
 	 */
 	function Callout( element, options ) {
 		this.$element = $( element );
@@ -38,10 +69,6 @@
 
 		$dialog = this.dialog();
 		$dialog.find( '.cx-callout-content' ).empty().append( content );
-		$dialog[ 0 ].className = 'cx-callout'; // reset classname in case of dynamic type
-		if ( this.options.classes ) {
-			$dialog.addClass( this.options.classes );
-		}
 		$dialog.remove().css( {
 			top: 0,
 			left: 0,
@@ -80,11 +107,15 @@
 		} );
 
 		$dialog = this.dialog();
-		direction = $.isFunction( this.options.direction ) ? this.options.direction.call( this.$element[ 0 ] ) : this.options.direction;
+		direction = $.isFunction( this.options.direction ) ?
+			this.options.direction.call( this.$element[ 0 ] ) :
+			this.options.direction;
 		// Attach css classes before checking height/width so they
 		// can be applied.
 		$dialog.removeClass().addClass( 'cx-callout cx-callout-' + direction );
-
+		if ( this.options.classes ) {
+			$dialog.addClass( this.options.classes );
+		}
 		actualWidth = $dialog[ 0 ].offsetWidth;
 		actualHeight = $dialog[ 0 ].offsetHeight;
 		switch ( direction ) {
@@ -179,9 +210,8 @@
 		if ( this.options.trigger === 'hover' ) {
 			this.$element.on( 'mouseenter', function () {
 				self.show();
-			} );
-			this.$element.on( 'mouseleave', function () {
-				self.hide();
+				self.$dialog.one( 'mouseleave', $.proxy( self.hide, self ) );
+				$( document ).one( 'click', $.proxy( self.hide, self ) );
 			} );
 		}
 		if ( this.options.trigger === 'click' ) {
@@ -237,11 +267,12 @@
 				data = $this.data( 'callout' );
 
 			if ( !data ) {
-				$this.data( 'callout', ( data = new Callout( this, options ) ) );
+				data = new Callout( this, options );
+				$this.data( 'callout', data );
 			}
 
 			if ( typeof options === 'string' ) {
-				data[ options ].call( $this );
+				data[ options ]();
 			}
 		} );
 	};
@@ -249,9 +280,9 @@
 	/**
 	 * Return a closure that can calculate a good direction based on the arguments.
 	 *
-	 * @param {string} prefer - the direction to prefer.  if there are no viewable region
-	 *     edges effecting the callouts's direction.  e.g. '3', '6', 9'
-	 * @return {function}
+	 * @param {string} prefer - the direction to prefer. if there are no viewable region
+	 *     edges effecting the callouts's direction.  e.g. '3', '6', '9'
+	 * @return {Function}
 	 */
 	$.fn.callout.autoDirection = function ( prefer ) {
 		return function () {
@@ -311,14 +342,7 @@
 	};
 
 	$.fn.callout.defaults = {
-		// direction of callout. Imagine the callout is along with the direction of a
-		// clock handle with the tip as tip of handle.
-		// Possible directions are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12.
-		// It is also possible to give a preferred direction using $.fn.callout.autoDirection
-		// Example: $.fn.callout.autoDirection( 100, '0' ),
-		// Auto direction will change direction if screen space is not available.
 		direction: $.fn.callout.autoDirection( '0' ),
-		// Offset of dialog from the trigger
 		offset: 10,
 		opacity: 1.0,
 		trigger: 'hover'
