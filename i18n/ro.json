@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minisarm"
+			"Minisarm",
+			"ImGelu"
 		]
 	},
-	"cx": "Traducere pagină"
+	"cx": "Traducere pagină",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 ar putea fi deja disponibil în alte limbi"
 }

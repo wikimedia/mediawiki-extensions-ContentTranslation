@@ -163,5 +163,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 könnte bereits in anderen Sprachen verfügbar sein",
 	"cx-campaign-contributionsmenu-myuploads": "Hochgeladene Medien",
 	"cx-trend-all-translations": "Alle Übersetzungen",
-	"cx-trend-translations-to": "Übersetzungen in die Sprache $1"
+	"cx-trend-translations-to": "Übersetzungen in die Sprache $1",
+	"cx-stats-try-contenttranslation": "Inhaltsübersetzung ist ein Werkzeug zur Erstellung neuer Seiten durch das Übersetzen von anderen Sprachen. [$1 Inhaltsübersetzung ausprobieren]"
 }

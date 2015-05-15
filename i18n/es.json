@@ -39,7 +39,7 @@
 	"cx-publish-gt-first-step-description": "Haga clic en \"{{int:vector-action-move}}\" debajo de este menú para que el contenido esté disponible para todos los usuarios como una página normal.",
 	"cx-publish-gt-move-page-title": "Trasladar la página",
 	"cx-publish-gt-move-page-description": "Selecciona el espacio de nombres «{{int:blanknamespace}}» y dale un título adecuado a la página.",
-	"cx-publish-gt-moved-title": "La página traducida fue movida",
+	"cx-publish-gt-moved-title": "Se trasladó la página traducida",
 	"cx-publish-gt-moved-description": "Haz clic en este enlace para leer y mejorar tu nueva página traducida",
 	"cx-publish-gt-published-title": "Felicitaciones, la página se ha publicado",
 	"cx-publish-gt-published-description": "Puedes pulsar en «{{int:vector-view-edit}}» para seguir mejorando la página. Asegúrate de que se lea con naturalidad.",

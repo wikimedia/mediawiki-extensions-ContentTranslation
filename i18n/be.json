@@ -1,8 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Artificial123"
+			"Artificial123",
+			"Maksim L."
 		]
 	},
-	"cx-tools-link-add": "Дадаць спасылку"
+	"cx": "Перакласці старонку",
+	"cx-javascript": "Гэты інструмент не працуе без JavaScript.",
+	"cx-desc": "Дазваляе лёгка перакласці змест старонак",
+	"cx-header-progressbar-text": "$1% перакладзена",
+	"cx-header-all-translations": "Усе пераклады",
+	"cx-source-view-page": "прагляд старонкі",
+	"cx-publish-page-error": "Памылка пры захаванні старонкі.",
+	"cx-source-loading": "Загрузка $1",
+	"cx-tools-link-add": "Дадаць спасылку",
+	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы",
+	"cx-trend-all-translations": "Усе пераклады"
 }
