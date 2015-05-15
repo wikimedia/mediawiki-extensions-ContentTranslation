@@ -89,36 +89,22 @@
 			.append( $myContributions, $myTranslations, $myUploads );
 
 		$trigger.callout( {
-			trigger: 'manual',
+			trigger: 'hover',
 			classes: 'cx-campaign-contributionsmenu',
-			gravity: $.fn.callout.autoNEW,
+			direction: $.fn.callout.autoDirection( '1' ),
 			content: $menu
 		} );
 
 		callout = $trigger.data( 'callout' );
 
-		function hide() {
-			callout.hide();
-		}
-
-		function show() {
-			callout.show();
-			callout.$dialog.one( 'mouseleave', hide );
-			$( document ).one( 'click', hide );
-			// Not measuring the shown menu events because the trigger is 'hover'
-			// and there will be a lot of them.
-			// But it can be easily tracked if somebody uses it to reach CX.
-		}
-
-		function ctaShow() {
+		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
 			// Show after a few milliseconds to get all position calculation correct
-			setTimeout( show, 500 );
+			setTimeout( function () {
+				callout.show();
+			}, 500 );
 			mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
-		}
+		} );
 
-		$trigger.on( 'mouseover', show );
-
-		mw.hook( 'mw.cx.betafeature.enabled' ).add( ctaShow );
 	}
 
 	$( function () {
