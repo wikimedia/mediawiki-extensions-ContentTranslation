@@ -8,7 +8,8 @@
 			"Namoroka",
 			"Tyey",
 			"Kwj2772",
-			"SeoJeongHo"
+			"SeoJeongHo",
+			"LiteHell"
 		]
 	},
 	"cx": "문서 번역",
@@ -81,5 +82,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "변역들",
 	"cx-campaign-contributionsmenu-myuploads": "미디어 업로드",
 	"cx-trend-all-translations": "모든 번역",
-	"cx-trend-translations-to": "$1어로 번역"
+	"cx-trend-translations-to": "$1어로 번역",
+	"cx-stats-try-contenttranslation": "내용 번역은 다른 언어에서 번역하여 새로운 문서를 만드는 도구입니다."
 }

@@ -4,13 +4,14 @@
 			"Frettie",
 			"Mormegil",
 			"Utar",
-			"YjM"
+			"YjM",
+			"Matěj Suchánek"
 		]
 	},
 	"cx": "Přeložit stránku",
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu.",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
-	"cx-desc": "Nástroj, který umožňuje editorům překládat stránky z jednoho jazyka do jiného s pomocí strojového překladu a ostatních nástrojů pro překlad",
+	"cx-desc": "Zjednodušuje překlad obsahových stránek",
 	"cx-header-progressbar-text": "$1 % přeloženo",
 	"cx-header-progressbar-text-mt": "($1 % s pomocí strojového překladu)",
 	"cx-header-translation-center": "Překladatelské centrum",
@@ -30,7 +31,7 @@
 	"tag-contenttranslation-description": "Obsah stránky byl přeložen z jiného jazyka pomocí nástroje Content Translation.",
 	"cx-source-loading": "Načítá se $1",
 	"cx-beta": "Překlad obsahu",
-	"cx-beta-desc": "Nástroj pro rychlý překlad stránek do vašeho jazyka. Zahajte překlady [[Speciální:MyContributions|stránky Příspěvky]] a upravujte je pomocí našeho editoru speciálně navrženého pro překládání, který vám zobrazí zdrojový a výsledný text vedle sebe. Některé překladatelské nástroje mohou být ale k dispozici pouze pro konkrétní jazyky.",
+	"cx-beta-desc": "Nástroj pro rychlý překlad stránek do vašeho jazyka. Zahajte překlady ze [[Special:MyContributions|stránky Příspěvky]] a upravujte je pomocí našeho editoru speciálně navrženého pro překládání, který vám zobrazí zdrojový a výsledný text vedle sebe. Některé překladatelské nástroje ale mohou být k dispozici pouze pro konkrétní jazyky.",
 	"cx-entrypoint-title": "Přeložit tuto stránku do jazyka $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tato stránka zatím v jazyce $1 neexistuje. {{GENDER:|Chcete}} ji založit?",
 	"cx-entrypoint-dialog-title-in": "Název pro novou stránku v jazyce $1:",

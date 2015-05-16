@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Misosoof",
-			"Pikne"
+			"Pikne",
+			"Adeliine"
 		]
 	},
 	"cx": "Lehekülje tõlkimine",
@@ -109,12 +110,25 @@
 	"apihelp-query+contenttranslation-example-2": "Hangi tõlkemustand identifikaatori järgi.",
 	"apihelp-query+contenttranslation-example-3": "Hangi tõlge mis tahes keeles antud keelepaari ja pealkirja järgi.",
 	"apihelp-query+contenttranslationstats-example-1": "Hangi sisutõlke arvandmed kõikide keelte kohta.",
+	"apihelp-cxconfiguration-param-from": "Lähtekeele kood.",
+	"apihelp-cxconfiguration-param-to": "Sihtkeele kood.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Lähtekeele kood.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Sihtkeele kood.",
+	"apihelp-query+cxpublishedtranslations-example-1": "Tõmba kõik avaldatud tõlked",
+	"apihelp-query+cxpublishedtranslations-example-2": "Tõmba kõik avaldatud tõlkeid, mis on tõlgitud inglise keelest",
+	"apihelp-query+cxpublishedtranslations-example-3": "Tõmba kõik avaldatud tõlkeid, mis on tõlgitud inglise keelest hispaania keelde",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Lähtekeele kood.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Sihtkeele kood.",
 	"cx-save-draft-save-success": "Salvestatud {{PLURAL:$1|minut tagasi|$1 minutit tagasi|0=just praegu}}",
 	"cx-save-draft-saving": "Salvestamine...",
 	"cx-save-draft-tooltip": "Tõlkemustandid salvestatakse automaatselt",
 	"cx-contributions-new-contributions": "Uus kaastöö",
+	"cx-contributions-new-article": "Uus lehekülg",
 	"cx-contributions-translation": "Tõlkimine",
 	"cx-contributions-upload": "Laadi üles meediafail",
+	"cx-contributions-new-article-tooltip": "Alusta kirjutamist uuele leheküljele",
+	"cx-contributions-translation-tooltip": "Tõlgi olemasolevaid lehekülgi",
+	"cx-contributions-upload-tooltip": "Laadi üles pilte, helisid ja videoid lehekülgede illustreerimiseks",
 	"cx-publishing-dialog-message": "Lehekülg $1 on juba olemas. Praegune sisu asendatakse sinu tõlkega. Kas sa soovid selle ikkagi avaldada?",
 	"cx-publishing-dialog-keep-button": "Säilita mõlemad versioonid",
 	"cx-publishing-dialog-publish-anyway-button": "Avalda ikkagi",
@@ -122,6 +136,7 @@
 	"cx-translation-status-draft": "Pooleli",
 	"cx-translation-status-published": "Avaldatud",
 	"cx-translation-status-deleted": "Kustutatud",
+	"cx-magnus-tool-link-text": "Leia sinu keeles puuduvaid lehekülgi",
 	"apihelp-cxdelete-description": "Kustuta sisutõlke tarkvaralisaga loodud mustand.",
 	"apihelp-cxdelete-param-from": "Lähtekeele kood.",
 	"apihelp-cxdelete-param-to": "Sihtkeele kood.",
@@ -139,5 +154,16 @@
 	"cx-stats-published-translators-title": "Tõlkijate arv",
 	"cx-draft-discard-confirmation-message": "Kas oled kindel, et tahad selle tõlke jäädavalt kustutada?",
 	"cx-draft-cancel-button-label": "Loobu",
-	"cx-draft-discard-button-label": "Kustuta tõlge"
+	"cx-draft-discard-button-label": "Kustuta tõlge",
+	"cx-beta-feature-enabled-notification": "Content Translation on selles vikis kasutusvalmis.",
+	"cx-campaign-newarticle-notice": "Nüüd saad luua uut sisu ka <b>tõlkides</b>! Kas soovid proovida tööriista Content Translation beetaversiooni?",
+	"cx-campaign-no-thanks": "Ei, tänan",
+	"cx-campaign-try": "Proovi tööriista Content Translation",
+	"cx-campaign-contributionsmenu-mycontributions": "Kaastöö",
+	"cx-campaign-contributionsmenu-mytranslations": "Tõlked",
+	"cx-campaign-contributionsmenu-translate-instead": "Tõlgi, selle asemel et nullist kirjutada",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 võib juba teistes keeltes saadaval olla",
+	"cx-campaign-contributionsmenu-myuploads": "Üleslaaditud meediafailid",
+	"cx-trend-all-translations": "Kõik tõlked",
+	"cx-trend-translations-to": "Tõlked $1 keelde"
 }

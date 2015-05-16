@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Edinwiki"
+		]
+	},
+	"cx": "Prevedi stranicu",
+	"cx-javascript": "Ova alatka ne radi bez javaskripte.",
+	"cx-license-agreement": "Pritiskom na \"$1\" prihvatate [//wikimediafoundation.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo prihvatate da se vaš doprinos sa prevodilačkom alatkom objavi pod licencama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] i slažete se da je navođenje linka ili URL adrese dovoljno pripisivanje po licenci CC BY-SA 3.0.",
+	"cx-error-server-connection": "Greška: Nije se bilo moguće spojiti spojiti sa serverom.",
+	"cx-desc": "Olakšava prijevod stranica",
+	"cx-header-progressbar-text": "Prevedeno: $1%",
+	"cx-header-progressbar-text-mt": "($1% automatski prevedeno)",
+	"cx-header-translation-center": "Centralno mjesto za prijevod",
+	"cx-header-new-translation": "Novi prijevod",
+	"cx-header-all-translations": "Svi prijevodi",
+	"cx-source-view-page": "pogledaj stranicu",
+	"cx-publish-page-success": "Stranica objavljena $1",
+	"cx-publish-page-error": "Greška pri spremanju stranice.",
+	"cx-publish-button": "Objavi prijevod",
+	"cx-publish-button-publishing": "Objavljivanje u toku...",
+	"cx-publish-summary": "Napravljeno prevođenjem stranice \"$1\""
+}

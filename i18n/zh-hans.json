@@ -177,5 +177,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1可能已有其他语言版本",
 	"cx-campaign-contributionsmenu-myuploads": "上传的媒体",
 	"cx-trend-all-translations": "所有翻译",
-	"cx-trend-translations-to": "至$1语言的翻译"
+	"cx-trend-translations-to": "至$1语言的翻译",
+	"cx-stats-try-contenttranslation": "内容翻译是一个通过从其他语言版翻译创建新页面的工具。[$1 尝试内容翻译]"
 }

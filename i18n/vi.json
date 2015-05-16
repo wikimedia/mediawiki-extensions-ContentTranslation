@@ -5,7 +5,8 @@
 			"Minh Nguyen",
 			"Max20091",
 			"Dinhxuanduyet",
-			"Quenhitran"
+			"Quenhitran",
+			"KhangND"
 		]
 	},
 	"cx": "Dịch trang",
@@ -171,5 +172,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Bản dịch",
 	"cx-campaign-contributionsmenu-myuploads": "Phương tiện tải lên",
 	"cx-trend-all-translations": "Tất cả các bản dịch",
-	"cx-trend-translations-to": "Các bản dịch sang ngôn ngữ $1"
+	"cx-trend-translations-to": "Các bản dịch sang ngôn ngữ $1",
+	"cx-stats-try-contenttranslation": "Biên dịch Nội dung là một công cụ tạo trang mới bằng cách dịch từ các ngôn ngữ khác. [$1 Thử nghiệm Biên dịch Nội dung]"
 }
