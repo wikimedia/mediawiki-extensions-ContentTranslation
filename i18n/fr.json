@@ -20,7 +20,8 @@
 			"Abaddon1337",
 			"Ltrlg",
 			"Mattho69",
-			"Trizek"
+			"Trizek",
+			"Lucky"
 		]
 	},
 	"cx": "Traduire la page",
@@ -184,6 +185,8 @@
 	"cx-campaign-try": "Essayer Traduction de contenu",
 	"cx-campaign-contributionsmenu-mycontributions": "Contributions",
 	"cx-campaign-contributionsmenu-mytranslations": "Traductions",
+	"cx-campaign-contributionsmenu-translate-instead": "Traduire plutôt que d'écrire en partant de rien",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 est peut-être déjà disponible dans d'autres langues",
 	"cx-campaign-contributionsmenu-myuploads": "Fichiers téléversés",
 	"cx-trend-all-translations": "Toutes les traductions",
 	"cx-trend-translations-to": "Traductions vers la langue $1"

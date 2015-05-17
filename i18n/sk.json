@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sudo77(new)"
+			"Sudo77(new)",
+			"Kusavica"
 		]
 	},
 	"cx": "Preložiť stránku",
-	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu."
+	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu.",
+	"cx-translation-add-translation": "+ Pridať preklad",
+	"cx-sourceselector-dialog-button-cancel": "Zrušiť",
+	"cx-draft-cancel-button-label": "Zrušiť",
+	"cx-campaign-no-thanks": "Nie, vďaka"
 }
