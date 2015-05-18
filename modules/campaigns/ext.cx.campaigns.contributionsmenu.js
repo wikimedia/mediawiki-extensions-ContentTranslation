@@ -11,9 +11,11 @@
 	var campaign = 'contributionsmenu';
 
 	function isPageCreation() {
+		var uri = mw.Uri();
+
 		return mw.config.get( 'wgArticleId' ) === 0 &&
 			mw.config.get( 'wgNamespaceNumber' ) === 0 &&
-			mw.config.get( 'wgAction' ) !== 'view';
+			( mw.config.get( 'wgAction' ) === 'edit' || uri.query.veaction === 'edit' );
 	}
 
 	function getTranslationsItem() {
@@ -112,6 +114,15 @@
 
 		if ( !$.client.test( blacklist, null, true ) ) {
 			showInvitation();
+
+			// Show it after creating a new article using VE
+			mw.hook( 've.activationComplete' ).add( function () {
+				var $trigger;
+
+				$trigger = $( '#pt-mycontris a' );
+				$trigger.data( 'callout' ).$dialog.find( 'li.cx-campaign-translations' )
+					.replaceWith( getTranslationsItem() );
+			} );
 		}
 	} );
 }( jQuery, mediaWiki ) );
