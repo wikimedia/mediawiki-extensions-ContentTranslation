@@ -248,12 +248,6 @@
 		// The dialog will be unitialized until the first click.
 		this.$trigger.click( $.proxy( this.show, this ) );
 
-		// Source title input input (search titles)
-		this.$sourceTitleInput.on(
-			'input',
-			$.debounce( 100, false, $.proxy( this.searchHandler, this ) )
-		);
-
 		// Source title input or target title input, input or search (check)
 		this.$dialog.on(
 			'input blur',
@@ -290,6 +284,11 @@
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
 		this.setSourceLanguage( language );
+		this.$sourceTitleInput.attr( {
+			lang: language,
+			dir: $.uls.data.getDir( language )
+		} );
+		this.$sourcePageSelector.setApi( this.siteMapper.getApi( language ) );
 		this.check();
 	};
 
@@ -840,7 +839,9 @@
 		$sourceTitleInputContainer = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
 			.append( this.$sourceTitleInput );
-
+		this.$sourcePageSelector = new mw.PageSelector( this.$sourceTitleInput, {
+			api: this.siteMapper.getApi( this.getSourceLanguage() )
+		} );
 		this.$targetTitleInput = $( '<input>' )
 			.attr( {
 				name: 'targetTitle',
