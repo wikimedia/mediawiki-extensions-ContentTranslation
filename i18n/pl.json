@@ -81,7 +81,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Z:",
 	"cx-sourceselector-dialog-target-language-label": "Na:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Szukaj strony oryginalnej",
-	"cx-sourceselector-dialog-target-title-placeholder": "Tytuł tłumaczenia (jeżeli różni się od źródła)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Tytuł tłumaczenia",
 	"cx-sourceselector-dialog-error-page-exists": "Strona [$1 już istnieje] w $2",
 	"cx-sourceselector-dialog-error-no-source-article": "Strona do tłumaczenia nie istnieje w $1",
 	"cx-publish-captcha-title": "Pytanie zabezpieczające",

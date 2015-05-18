@@ -174,5 +174,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "Pode que $1 xa esté dispoñible en outros idiomas",
 	"cx-campaign-contributionsmenu-myuploads": "Ficheiros multimedia cargados",
 	"cx-trend-all-translations": "Todas as traducións",
-	"cx-trend-translations-to": "Traducións ao $1"
+	"cx-trend-translations-to": "Traducións ao $1",
+	"cx-stats-try-contenttranslation": "A Tradución de Contido é unha ferramenta para crear novas páxinas traducindo dende outras linguas. [$1 Probe a Tradución de Contido]"
 }

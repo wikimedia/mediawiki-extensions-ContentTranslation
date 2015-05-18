@@ -78,7 +78,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Lähtekeel:",
 	"cx-sourceselector-dialog-target-language-label": "Sihtkeel:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Otsi lähtelehekülge",
-	"cx-sourceselector-dialog-target-title-placeholder": "Tõlke pealkiri (kui erineb lähtekeeles)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Tõlke pealkiri",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "See pealkiri on antud keeles ([$1 $2]) juba kasutusel [$3 teise lehekülje pealkirjana].",
 	"cx-sourceselector-dialog-error-page-exists": "Lehekülg on antud keeles ($2) [$1 juba olemas].",
 	"cx-sourceselector-dialog-error-title-in-use": "Uue lehekülje pealkiri on [$1 juba kasutusel]",

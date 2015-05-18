@@ -4,5 +4,8 @@
 			"Nirjal stha"
 		]
 	},
-	"cx-campaign-contributionsmenu-translate-instead": "शुन्य देखि लेख्नु भन्दा अनुवाद गर्ने"
+	"cx-sourceselector-dialog-target-title-placeholder": "अनुवाद शिर्षक",
+	"cx-campaign-contributionsmenu-translate-instead": "शुन्य देखि लेख्नु भन्दा अनुवाद गर्ने",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 अन्य भाषाहरूमा समेत उपलब्ध हुन सक्छ",
+	"cx-stats-try-contenttranslation": "सामग्री अनुवादक एउटा औजार हो जसले अन्य भाषाबाट अनुवाद गरि नयाँ पृष्ठ तयार गर्ने गर्दछ् ।  [$1 सामग्री अनुवादक प्रयोग गर्नुहोस्]"
 }

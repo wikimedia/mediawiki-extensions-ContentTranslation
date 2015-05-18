@@ -79,7 +79,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Von:",
 	"cx-sourceselector-dialog-target-language-label": "Nach:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Suche nach der Quellseite",
-	"cx-sourceselector-dialog-target-title-placeholder": "Übersetzungstitel (falls unterschiedlich von der Quelle)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Übersetzungstitel",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Dieser Titel wird bereits auf [$1 $2] für [$3 eine andere Seite] verwendet",
 	"cx-sourceselector-dialog-error-page-exists": "Die Seite ist bereits auf $2 [$1 vorhanden]",
 	"cx-sourceselector-dialog-error-title-in-use": "Der Titel für die neue Seite ist [$1 bereits in Verwendung]",

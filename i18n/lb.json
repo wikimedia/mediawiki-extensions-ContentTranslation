@@ -70,7 +70,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Vun:",
 	"cx-sourceselector-dialog-target-language-label": "Op:",
 	"cx-sourceselector-dialog-source-title-placeholder": "No der Quell-Säit sichen",
-	"cx-sourceselector-dialog-target-title-placeholder": "Iwwersetzungstitel (wa verschidde vun der Quell)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Iwwersetzungstitel",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Dëse Titel gëtt schonn op [$1 $2] fir [$3 eng aner Säit] benotzt",
 	"cx-sourceselector-dialog-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
