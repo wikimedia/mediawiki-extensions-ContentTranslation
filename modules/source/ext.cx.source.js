@@ -91,11 +91,12 @@
 	 * Render the source content column.
 	 */
 	ContentTranslationSource.prototype.render = function () {
-		var $languageLabel, $articleLink, $subHeading, title;
+		var sourceLanguageDir, $languageLabel, $articleLink, userLanguage, $subHeading, title;
 
+		sourceLanguageDir = $.uls.data.getDir( mw.cx.sourceLanguage );
 		this.$container.prop( {
 			lang: mw.cx.sourceLanguage,
-			dir: $.uls.data.getDir( mw.cx.sourceLanguage )
+			dir: sourceLanguageDir
 		} );
 
 		title = mw.Title.newFromText( mw.cx.sourceTitle );
@@ -112,6 +113,10 @@
 			.text( mw.cx.sourceTitle );
 
 		$languageLabel = $( '<span>' )
+			.prop( {
+				lang: mw.cx.sourceLanguage,
+				dir: sourceLanguageDir
+			} )
 			.addClass( 'cx-column__language-label' )
 			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
 
@@ -125,7 +130,12 @@
 				.text( mw.msg( 'cx-source-view-page' ) )
 			);
 
+		userLanguage = mw.config.get( 'wgUserLanguage' );
 		$subHeading = $( '<div>' )
+			.prop( {
+				lang: userLanguage,
+				dir: $.uls.data.getDir( userLanguage )
+			} )
 			.addClass( 'cx-column__sub-heading' )
 			.append( $languageLabel, $articleLink );
 

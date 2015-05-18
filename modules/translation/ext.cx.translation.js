@@ -47,12 +47,13 @@
 	};
 
 	ContentTranslationEditor.prototype.render = function () {
-		var $heading, $languageLabel, $subHeading, $content;
+		var targetLanguageDir, $heading, $languageLabel, userLanguage, $subHeading, $content;
 
+		targetLanguageDir = $.uls.data.getDir( mw.cx.targetLanguage );
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
 				lang: mw.cx.targetLanguage,
-				dir: $.uls.data.getDir( mw.cx.targetLanguage )
+				dir: targetLanguageDir
 			} );
 		}
 
@@ -70,14 +71,25 @@
 		if ( mw.cx.targetLanguage ) {
 			this.$container.prop( {
 				lang: mw.cx.targetLanguage,
-				dir: $.uls.data.getDir( mw.cx.targetLanguage )
+				dir: targetLanguageDir
 			} );
 
 			$languageLabel = $( '<span>' )
+				.prop( {
+					lang: mw.cx.targetLanguage,
+					dir: targetLanguageDir
+				} )
 				.addClass( 'cx-column__language-label' )
 				.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
 
+			// This is UI, and the UI language is not necessarily
+			// the same as the target language
+			userLanguage = mw.config.get( 'wgUserLanguage' );
 			$subHeading = $( '<div>' )
+				.prop( {
+					lang: userLanguage,
+					dir: $.uls.data.getDir( userLanguage )
+				} )
 				.addClass( 'cx-column__sub-heading' )
 				.append( $languageLabel );
 
