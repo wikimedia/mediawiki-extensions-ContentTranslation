@@ -7,8 +7,18 @@
 	},
 	"cx": "Preložiť stránku",
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu.",
+	"cx-header-new-translation": "Nový preklad",
+	"cx-header-all-translations": "Všetky preklady",
 	"cx-translation-add-translation": "+ Pridať preklad",
+	"cx-tools-mt-restore": "Obnoviť",
+	"cx-warning-unsaved-translation": "Máte neuložené preklady.",
 	"cx-sourceselector-dialog-button-cancel": "Zrušiť",
+	"cx-sourceselector-dialog-source-language-label": "Z:",
+	"cx-sourceselector-dialog-target-language-label": "Do:",
+	"cx-publish-captcha-title": "Bezpečnostná otázka",
+	"cx-save-draft-saving": "Ukladanie...",
 	"cx-draft-cancel-button-label": "Zrušiť",
-	"cx-campaign-no-thanks": "Nie, vďaka"
+	"cx-draft-discard-button-label": "Vymazať preklad",
+	"cx-campaign-no-thanks": "Nie, vďaka",
+	"cx-trend-all-translations": "Všetky preklady"
 }

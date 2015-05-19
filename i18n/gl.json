@@ -81,7 +81,7 @@
 	"cx-sourceselector-dialog-source-language-label": "De:",
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Buscar a páxina orixinal",
-	"cx-sourceselector-dialog-target-title-placeholder": "Tradución do título (se é diferente do orixinal)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Título da tradución",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Este título xa está ocupado en [$1 $2] por [$3 unha páxina diferente]",
 	"cx-sourceselector-dialog-error-page-exists": "A páxina [$1 xa existe] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "O título da páxina nova [$1 xa está en uso]",

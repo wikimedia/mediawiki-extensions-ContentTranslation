@@ -15,7 +15,8 @@
 			"Pginer",
 			"JasterTDC",
 			"Awesomecat5",
-			"Jduranboger"
+			"Jduranboger",
+			"Ryo567"
 		]
 	},
 	"cx": "Traducir página",
@@ -90,7 +91,7 @@
 	"cx-sourceselector-dialog-source-language-label": "De:",
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Buscar la página original",
-	"cx-sourceselector-dialog-target-title-placeholder": "Título de la traducción (si es diferente del original)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Título de la traducción",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Este título ya está usado en [$1 $2] por [$3 una página diferente]",
 	"cx-sourceselector-dialog-error-page-exists": "La página [$1 ya existe] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "El título de la página nueva [$1 ya está en uso]",

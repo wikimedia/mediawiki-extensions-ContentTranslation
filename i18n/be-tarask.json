@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Renessaince",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Jim-by"
 		]
 	},
 	"cx": "Перакласьці старонку",
@@ -77,7 +78,7 @@
 	"cx-sourceselector-dialog-source-language-label": "З:",
 	"cx-sourceselector-dialog-target-language-label": "На:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Пошук крынічнай старонкі",
-	"cx-sourceselector-dialog-target-title-placeholder": "Перакладзены загаловак (калі адрозьніваецца ад арыгіналу)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Перакладзены загаловак",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Гэтая назва ўжо выкарыстоўваецца ў [$1 $2] для [$3 іншай старонкі]",
 	"cx-sourceselector-dialog-error-page-exists": "Гэтая старонка [$1 ўжо існуе] ў $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Назва для новай старонкі [$1 ўжо выкарыстоўваецца]",
@@ -105,7 +106,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Адказ на капчу (пры захаваньні з запытам капчы).",
 	"apihelp-query+contenttranslation-description": "Запыт да базы зьвестак Content Translation дзеля перакладаў.",
 	"apihelp-query+contenttranslation-param-translationid": "Id перакладу.",
-	"apihelp-query+contenttranslation-example-1": "Атрымаць пераклады, запачаткаваныя цяперашнім карыстальнікам.",
+	"apihelp-query+contenttranslation-example-1": "Атрымаць пераклады, распачатыя цяперашнім карыстальнікам.",
 	"apihelp-query+contenttranslation-example-2": "Атрымаць чарнавік перакладаў па id.",
 	"apihelp-query+contenttranslation-example-3": "Знайсьці любы пераклад для дадзенай назвы між зададзенай моўнай парай",
 	"apihelp-query+contenttranslationstats-example-1": "Атрымаць статыстыку перакладу зьместу для ўсіх моваў.",
@@ -170,5 +171,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 можа ўжо быць даступным на іншых мовах",
 	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мэдыяфайлы",
 	"cx-trend-all-translations": "Усе пераклады",
-	"cx-trend-translations-to": "Пераклады на мову: $1"
+	"cx-trend-translations-to": "Пераклады на мову: $1",
+	"cx-stats-try-contenttranslation": "Пераклад зьместу — гэта інструмэнт для стварэньня новых старонак з дапамогай перакладу зь іншых моваў. [$1 Паспрабаваць пераклад зьместу]"
 }

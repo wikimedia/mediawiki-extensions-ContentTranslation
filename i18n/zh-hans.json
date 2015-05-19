@@ -84,7 +84,7 @@
 	"cx-sourceselector-dialog-source-language-label": "从：",
 	"cx-sourceselector-dialog-target-language-label": "至：",
 	"cx-sourceselector-dialog-source-title-placeholder": "搜索来源页面",
-	"cx-sourceselector-dialog-target-title-placeholder": "译文标题（如果与来源页面不同）",
+	"cx-sourceselector-dialog-target-title-placeholder": "译文标题",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "此标题已被[$3 不同页面]用于[$1 $2]",
 	"cx-sourceselector-dialog-error-page-exists": "页面[$1 已存在]$2语言版",
 	"cx-sourceselector-dialog-error-title-in-use": "新页面的标题[$1 已被使用]",
