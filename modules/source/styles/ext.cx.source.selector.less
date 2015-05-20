@@ -101,6 +101,16 @@
 			background-size: 20px;
 			padding: 2px 2px 2px 30px;
 		}
+
+		// Make sure that the placeholder has a consistent alignment,
+		// so it won't be in opposite ends when the languages' direction is different
+		&::-moz-placeholder {
+			text-align: left;
+		}
+
+		&::-webkit-input-placeholder {
+			text-align: left;
+		}
 	}
 }
 
