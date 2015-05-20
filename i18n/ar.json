@@ -5,7 +5,8 @@
 			"زكريا",
 			"سامي الرحيلي",
 			"محمد أحمد عبد الفتاح",
-			"Yahya Sakhnini"
+			"Yahya Sakhnini",
+			"Amire80"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -75,8 +76,8 @@
 	"cx-sourceselector-dialog-new-translation": "ترجمة جديدة",
 	"cx-sourceselector-dialog-button-start-translation": "ابدأ الترجمة",
 	"cx-sourceselector-dialog-button-cancel": "ألغ",
-	"cx-sourceselector-dialog-source-language-label": "مصدر:",
-	"cx-sourceselector-dialog-target-language-label": "هدف:",
+	"cx-sourceselector-dialog-source-language-label": "من:",
+	"cx-sourceselector-dialog-target-language-label": "إلى:",
 	"cx-sourceselector-dialog-source-title-placeholder": "ابحث عن الصفحة المصدر",
 	"cx-sourceselector-dialog-target-title-placeholder": "عنوان الترجمة (إذا اختلف عن المصدر)",
 	"cx-mt-abuse-warning-title": "ترجمتك بها $1% من النص المترجم آليا دون تغيير",

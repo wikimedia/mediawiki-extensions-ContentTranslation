@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"KartikMistry",
-			"Ashok modhvadia"
+			"Ashok modhvadia",
+			"Dsvyas"
 		]
 	},
 	"cx": "ભાષાંતર પાનું",
@@ -37,7 +38,7 @@
 	"cx-source-loading": "$1 લાવે છે",
 	"cx-beta": "લેખ ભાષાંતર",
 	"cx-beta-desc": "આ સાધન લેખોને તમારી ભાષામાં ભાષાંતર કરવામાં મદદ કરે છે. [[Special:MyContributions|તમારાં યોગદાનો પાનાં]] પરથી ભાષાંતર કરવાની શરુઆત કરો, અને ભાષાંતર માટે ખાસ બનાવેલ સંપાદક વડે તેમાં ફેરફાર કરો. અમુક સાધનો કદાચ અમુક ભાષાઓ માટે જ પ્રાપ્ત હશે.",
-	"cx-entrypoint-title": "આ પાનાનું $1 પર ભાષાંતર કરો",
+	"cx-entrypoint-title": "આ પાનાનું $1માં ભાષાંતર કરો",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1 માં આ પાનું હજુ અસ્તિત્વ ધરાવતું નથી. શું {{GENDER:|તમે}} તેને બનાવવા માંગો છો?",
 	"cx-entrypoint-dialog-title-in": "$1 માં નવા પાનાનું શિર્ષક:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "શરુઆતથી બનાવો",

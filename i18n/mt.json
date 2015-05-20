@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leli Forte"
+			"Leli Forte",
+			"Amire80"
 		]
 	},
 	"cx": "Ittraduċi l-paġna",
@@ -30,8 +31,7 @@
 	"cx-translation-target-page-exists": "Diġà teżisti paġna bit-titlu [$1 $2] fil-wiki fejn ħa tidher il-paġna. Ara tistax tagħti l-paġna titlu differenti.",
 	"tag-contenttranslation": "TraduzzjoniKontenuti",
 	"cx-source-loading": "Tiela' $1",
-	"cx-red-interlanguage-link-preference": "Traduzzjoni tal-kontenut",
-	"cx-red-interlanguage-link-preference-beta-desc": "Turi ħolqa ħamra mal-lingwa tiegħek fil-lista tal-ħoloq tal-lingwi jekk il-paġna tkun għadha ma ġietx tradotta għall-lingwa tiegħek u tgħinek biex tittraduċi l-paġna għal-lingwa tiegħek permezz ta' interface komdu għat-traduzzjoni.",
+	"cx-beta": "Traduzzjoni tal-kontenut",
 	"cx-entrypoint-title": "Ittraduċi din il-paġni għal $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Din il-paġna għadha ma teżistix f' $1. Trid toħloqha?",
 	"cx-entrypoint-dialog-title-in": "Titlu għall-paġna ġdida f' $1:",
@@ -58,12 +58,7 @@
 	"cx-tools-mt-not-available": "Mhux disponibbli għal $1",
 	"cx-tools-mt-dont-use": "Tużax traduzzjoni awtomatika",
 	"cx-stats-title": "Statistiki tat-traduzzjoni tal-kontenut",
-	"cx-stats-page-title": "Paġna",
-	"cx-stats-from": "Lingwa tas-sors",
-	"cx-stats-to": "Lingwa tad-destinazzjoni",
-	"cx-stats-pages-title": "Paġni tradotti",
 	"cx-stats-unknown": "mhux magħrufa",
-	"cx-stats-summary": "{{PLURAL:$1|Paġna waħda|$1/$2 paġni ($3 %)}} fin-namespace prinċipali.",
 	"cx-tools-reference-title": "Referenza",
 	"cx-tools-reference-remove": "Neħħi referenza",
 	"cx-tools-link-instruction-shortcut": "Agħfas ix-shift + ikklikkja kwalunkwe ħolqa biex tiftaħha",
@@ -72,8 +67,8 @@
 	"cx-error-page-not-found": "Il-paġna \"$1\" ma nstabitx fil-Wikipedija bil-lingwa $2",
 	"cx-sourceselector-dialog-new-translation": "Traduzzjoni ġdida",
 	"cx-sourceselector-dialog-button-start-translation": "Ibda ttraduċi",
-	"cx-sourceselector-dialog-source-language-label": "Sors:",
-	"cx-sourceselector-dialog-target-language-label": "Destinazzjoni:",
+	"cx-sourceselector-dialog-source-language-label": "Minn:",
+	"cx-sourceselector-dialog-target-language-label": "Lil:",
 	"cx-mt-abuse-warning-title": "It-traduzzjoni tiegħek fiha $1% ta' test tradott awtomatikament li mhux modifikat",
 	"cx-mt-abuse-warning-text": "It-traduzzjonijiet awtomatiċi jagħtuk biss abbozz. Trid taċċerta li l-kontenut hu preċiż u jinqara b'mod mexxej bil-lingwa tiegħek.",
 	"cx-publish-captcha-title": "Mistoqsija tas-sigurtà"

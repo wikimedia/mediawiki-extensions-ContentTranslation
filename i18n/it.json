@@ -82,7 +82,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Da:",
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Ricerca per pagina originale",
-	"cx-sourceselector-dialog-target-title-placeholder": "Titolo traduzione (se diverso da quello di origine)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Titolo della traduzione",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Questo titolo è già utilizzato in [$1 $2] per [$3 un'altra pagina]",
 	"cx-sourceselector-dialog-error-page-exists": "La pagina [$1 esiste già] in $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Il titolo della nuova pagina è [$1 già in uso]",

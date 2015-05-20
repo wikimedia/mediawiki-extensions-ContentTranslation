@@ -81,7 +81,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "להתחיל לתרגם",
 	"cx-sourceselector-dialog-button-cancel": "ביטול",
 	"cx-sourceselector-dialog-source-language-label": "מ־:",
-	"cx-sourceselector-dialog-target-language-label": "אל:",
+	"cx-sourceselector-dialog-target-language-label": "ל־:",
 	"cx-sourceselector-dialog-source-title-placeholder": "חיפוש דף המקור",
 	"cx-sourceselector-dialog-target-title-placeholder": "כותרת לדף המתורגם",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "הכותרת הזאת כבר משמשת [$3 דך אחר] ב[$1 $2]",
