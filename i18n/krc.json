@@ -76,7 +76,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Къайдан:",
 	"cx-sourceselector-dialog-target-language-label": "Къайры:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Къайнакъ бетни излеу",
-	"cx-sourceselector-dialog-target-title-placeholder": "Кёчюрюлген ат (къайнакъдагъындан башхасы бар эсе)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Кёчюрюлген ат",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Бу ат [$1 $2] джибериуде [$3 башха бет] ючюн хайырландырылады",
 	"cx-sourceselector-dialog-error-page-exists": "Бет $2 тилде $1 барды",
 	"cx-sourceselector-dialog-error-title-in-use": "Джангы бетни аты [$1 энди хайырланады]",

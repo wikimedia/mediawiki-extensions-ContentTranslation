@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Slashme",
-			"Winstonza"
+			"Winstonza",
+			"Amire80"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -77,7 +78,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Vanaf:",
 	"cx-sourceselector-dialog-target-language-label": "Na:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Soek bronbladsy",
-	"cx-sourceselector-dialog-target-title-placeholder": "Titel van vertaling (indien anders as bron)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Titel van vertaling",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Hierdie titel bestaan reeds in [$1 $2] vir [$3 'n ander bladsy]",
 	"cx-sourceselector-dialog-error-page-exists": "Die artikel [$1 bestaan reeds] in $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Die titel vir die nuwe bladsy is [$1 reeds in gebruik]",

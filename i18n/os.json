@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amikeco"
+		]
+	},
+	"cx-header-progressbar-text": "$1% тæлмацгонд",
+	"cx-header-new-translation": "Ног тæлмац",
+	"cx-header-all-translations": "Æппæт тæлмацтæ",
+	"cx-source-view-page": "фен фарс",
+	"cx-tools-link-title": "Ӕрвитæн",
+	"cx-tools-link-add": "Бафтау æрвитæн",
+	"cx-tools-link-remove": "Схаф æрвитæн",
+	"cx-sourceselector-dialog-new-translation": "Ног тæлмац",
+	"cx-sourceselector-dialog-button-cancel": "Нæ хъæуы",
+	"cx-sourceselector-dialog-source-language-label": "Кæцæй:",
+	"cx-sourceselector-dialog-target-language-label": "Кæцырдæм:",
+	"cx-translation-filter-all-translations": "Æппæт тæлмацтæ",
+	"cx-translation-filter-to-any-language": "Цыфæнды æвзагмæ",
+	"cx-draft-cancel-button-label": "Нæ хъæуы",
+	"cx-campaign-contributionsmenu-mytranslations": "Тæлмацтæ"
+}

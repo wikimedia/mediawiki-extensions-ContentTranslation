@@ -76,7 +76,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Од:",
 	"cx-sourceselector-dialog-target-language-label": "На:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Пребарај ја изворната страница",
-	"cx-sourceselector-dialog-target-title-placeholder": "Преведен наслов (ако е различен од изворниот)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Преведен наслов",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Насловот веќе се користи на [$1 $2] за [$3 друга страница]",
 	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 веќе постои] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Насловот за новата страница е [$1 веќе зафатен]",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Phoenix303",
-			"संजीव कुमार"
+			"संजीव कुमार",
+			"Amire80"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -77,7 +78,7 @@
 	"cx-sourceselector-dialog-source-language-label": "प्रेषक:",
 	"cx-sourceselector-dialog-target-language-label": "प्राप्तकर्ता:",
 	"cx-sourceselector-dialog-source-title-placeholder": "स्रोत पृष्ठ के लिए खोजें",
-	"cx-sourceselector-dialog-target-title-placeholder": "शीर्षक का अनुवाद (यदि स्रोत से भिन्न है)",
+	"cx-sourceselector-dialog-target-title-placeholder": "शीर्षक का अनुवाद",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "यह शीर्षक [$3 किसी अन्य पृष्ठ] के लिए [$1 $2] में पहले से ही काम में लिया गया है।",
 	"cx-sourceselector-dialog-error-page-exists": "$2 में पृष्ठ [$1 पहले से मौजूद] है",
 	"cx-sourceselector-dialog-error-title-in-use": "नये पृष्ठ का शीर्षक [$1 पहले से उपयोग] हो रहा है",

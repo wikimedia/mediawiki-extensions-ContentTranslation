@@ -110,8 +110,11 @@
 	"apihelp-query+contenttranslation-example-2": "Hangi tõlkemustand identifikaatori järgi.",
 	"apihelp-query+contenttranslation-example-3": "Hangi tõlge mis tahes keeles antud keelepaari ja pealkirja järgi.",
 	"apihelp-query+contenttranslationstats-example-1": "Hangi sisutõlke arvandmed kõikide keelte kohta.",
+	"apihelp-cxconfiguration-description": "Too sisutõlke konfiguratsiooni json antud keelepaari jaoks",
 	"apihelp-cxconfiguration-param-from": "Lähtekeele kood.",
 	"apihelp-cxconfiguration-param-to": "Sihtkeele kood.",
+	"apihelp-cxconfiguration-example-1": "Too sisutõlke konfiguratsiooni json hispaania-katalaani keelepaari jaoks",
+	"apihelp-query+cxpublishedtranslations-description": "Too teave kõikide avaldatud tõlgete kohta.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähtekeele kood.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Sihtkeele kood.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Tõmba kõik avaldatud tõlked",
@@ -119,6 +122,9 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Tõmba kõik avaldatud tõlkeid, mis on tõlgitud inglise keelest hispaania keelde",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Lähtekeele kood.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Sihtkeele kood.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Trendi arvutamise intervall. Võib olla 'nädal' või 'kuu'.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Too keelepaari es-ca avaldamistrend nädalaste intervallidega.",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Too kõikide keelte avaldamistrendid",
 	"cx-save-draft-save-success": "Salvestatud {{PLURAL:$1|minut tagasi|$1 minutit tagasi|0=just praegu}}",
 	"cx-save-draft-saving": "Salvestamine...",
 	"cx-save-draft-tooltip": "Tõlkemustandid salvestatakse automaatselt",
@@ -165,5 +171,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 võib juba teistes keeltes saadaval olla",
 	"cx-campaign-contributionsmenu-myuploads": "Üleslaaditud meediafailid",
 	"cx-trend-all-translations": "Kõik tõlked",
-	"cx-trend-translations-to": "Tõlked sihtkeelde ($1)"
+	"cx-trend-translations-to": "Tõlked sihtkeelde ($1)",
+	"cx-stats-try-contenttranslation": "Sisutõlge on tööriist uute lehekülgede loomiseks teistest keeltest tõlkimise abil. [$1 Proovi sisutõlget]"
 }
