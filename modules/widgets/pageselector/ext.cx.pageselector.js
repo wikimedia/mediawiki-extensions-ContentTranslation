@@ -72,7 +72,7 @@
 		var self = this;
 
 		this.getPages( this.$input.val().trim() ).then( function ( items ) {
-			var page, pageId, pages, $resultItem;
+			var page, pageId, pages, $resultItem, $description;
 
 			pages = items.query.pages;
 			self.$menu.empty().attr( {
@@ -82,12 +82,15 @@
 
 			for ( pageId in pages ) {
 				page = pages[ pageId ];
+				$description = $( '<div>' )
+					.addClass( 'mw-page-description' )
+					.text( page.terms ? page.terms.description : '' );
 				$resultItem = $( '<li>' )
+					.data( 'page-title', page.title )
 					.append(
 						$( '<div>' ).addClass( 'mw-page-title' ).text( page.title ),
-						$( '<div>' ).addClass( 'mw-page-description' ).text( page.terms.description )
-					)
-					.data( 'page-title', page.title );
+						$description
+					);
 				if ( page.thumbnail ) {
 					$resultItem.css( {
 						'background-image': 'url(' + page.thumbnail.source + ')',
@@ -179,6 +182,8 @@
 			$items = $menu.find( '> li' );
 			if ( $items.length ) {
 				self.show();
+			} else {
+				return;
 			}
 			currentItem = $menu.find( '> li.mw-pageselector-selected' ).index();
 

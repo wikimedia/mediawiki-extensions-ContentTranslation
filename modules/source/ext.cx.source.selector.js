@@ -270,14 +270,19 @@
 	 * Listen for events.
 	 */
 	CXSourceSelector.prototype.listen = function () {
+		var self = this;
 		// Open or close the dialog when clicking the link.
 		// The dialog will be unitialized until the first click.
 		this.$trigger.click( $.proxy( this.show, this ) );
 
-		// Source title input or target title input, input or search (check)
-		this.$dialog.on(
-			'input blur',
-			'.cx-sourceselector-dialog__title',
+		this.$sourceTitleInput.on( 'input', function () {
+			self.$translateFromButton.prop( 'disabled', false );
+			// Hide any previous errors.
+			self.$messageBar.hide();
+		} );
+
+		// Target title input (check)
+		this.$targetTitleInput.on( 'input blur',
 			$.debounce( 600, false, $.proxy( this.check, this ) )
 		);
 
@@ -719,8 +724,9 @@
 	 * Does nothing if source page does not exist.
 	 */
 	CXSourceSelector.prototype.startPageInCX = function () {
-		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper;
+		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper, selector;
 
+		selector = this;
 		siteMapper = this.siteMapper;
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
@@ -732,6 +738,8 @@
 			originalSourceTitle
 		).done( function ( sourceTitle ) {
 			if ( sourceTitle === false ) {
+				selector.showSourceTitleError( sourceLanguage );
+				selector.$sourceTitleInput.focus();
 				return;
 			}
 
