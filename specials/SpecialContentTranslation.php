@@ -36,6 +36,10 @@ class SpecialContentTranslation extends SpecialPage {
 	public function isValidCampaign( $campaign ) {
 		global $wgContentTranslationCampaigns;
 
+		if (  $this->getUser()->isAnon() ) {
+			// Campigns are only for logged in users.
+			return false;
+		}
 		return $campaign !== null && in_array( $campaign, $wgContentTranslationCampaigns );
 	}
 
