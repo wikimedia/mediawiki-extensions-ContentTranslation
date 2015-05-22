@@ -157,26 +157,6 @@
 	};
 
 	/**
-	 * Sets the source or the target language.
-	 * @param {string} language A language code
-	 * @param {jQuery} $element The element on which to set the label
-	 * @param {string} localStorageItem The localStorage item name that will be set to the language
-	 *     if localStorage is available.
-	 */
-	CXSourceSelector.prototype.setLanguage = function ( language, $element, localStorageItem ) {
-		$element
-			.prop( {
-				lang: language,
-				dir: $.uls.data.getDir( language )
-			} )
-			.text( $.uls.data.getAutonym( language ) );
-
-		if ( window.localStorage ) {
-			localStorage.setItem( localStorageItem, language );
-		}
-	};
-
-	/**
 	 * Get the current source language code.
 	 * @return {string} Language code. Empty string if not set.
 	 */
@@ -189,14 +169,24 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
+		var langProps;
 		// Don't let the same languages be selected as source and target.
 		// Instead, do what the user probably means and swap them.
 		if ( language === this.getTargetLanguage() ) {
 			this.setTargetLanguage( this.getSourceLanguage() );
 		}
 
-		this.setLanguage( language, this.$sourceLanguage, 'cxSourceLanguage' );
+		langProps = {
+			lang: language,
+			dir: $.uls.data.getDir( language )
+		};
 
+		this.$sourceTitleInput.prop( langProps );
+		this.$sourceLanguage.prop( langProps )
+			.text( $.uls.data.getAutonym( language ) );
+		if ( window.localStorage ) {
+			localStorage.setItem( 'cxSourceLanguage', language );
+		}
 		this.fillTargetLanguages();
 	};
 
@@ -213,7 +203,17 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setTargetLanguage = function ( language ) {
-		this.setLanguage( language, this.$targetLanguage, 'cxTargetLanguage' );
+		var langProps = {
+			lang: language,
+			dir: $.uls.data.getDir( language )
+		};
+
+		this.$targetTitleInput.prop( langProps );
+		this.$targetLanguage.prop( langProps )
+			.text( $.uls.data.getAutonym( language ) );
+		if ( window.localStorage ) {
+			localStorage.setItem( 'cxTargetLanguage', language );
+		}
 	};
 
 	/**
@@ -231,7 +231,7 @@
 
 		// Don't let the target be the same as source
 		sourceLanguage = this.getSourceLanguage();
-		targetLanguageCodes = jQuery.grep( this.targetLanguages, function( language ) {
+		targetLanguageCodes = jQuery.grep( this.targetLanguages, function ( language ) {
 			return language !== sourceLanguage;
 		} );
 
@@ -838,8 +838,6 @@
 			.addClass( 'cx-sourceselector-dialog__language' )
 			.append( this.$targetLanguage );
 
-		this.setDefaultLanguages();
-
 		this.$sourceTitleInput = $( '<input>' )
 			.attr( {
 				name: 'sourceTitle',
@@ -879,6 +877,8 @@
 				$targetLanguageContainer,
 				$targetTitleInputContainer
 			);
+
+		this.setDefaultLanguages();
 
 		this.$messageBar = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__messagebar' );
