@@ -125,6 +125,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Källans språkkod.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Målets språkkod.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Intervallet för beräkning av trenden. Kan vara en \"vecka\" eller \"månad\".",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Hämta publiceringstrenden för alla språk",
 	"cx-save-draft-save-success": "Sparades {{PLURAL:$1|en minut sedan|$1 minuter sedan|0=just nu}}",
 	"cx-save-draft-saving": "Sparar...",
 	"cx-save-draft-tooltip": "Översättningsutkast sparas automatiskt.",
@@ -166,6 +167,8 @@
 	"cx-campaign-try": "Prova innehållsöversättning",
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
 	"cx-campaign-contributionsmenu-mytranslations": "Översättningar",
+	"cx-campaign-contributionsmenu-translate-instead": "Översätt istället för att börja från början",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 kanske redan finns tillgänglig på andra språk",
 	"cx-campaign-contributionsmenu-myuploads": "Uppladdad media",
 	"cx-trend-all-translations": "Alla översättningar",
 	"cx-trend-translations-to": "Översättningar till språket $1"

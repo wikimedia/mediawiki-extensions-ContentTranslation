@@ -8,7 +8,8 @@
 			"Captantrips",
 			"Mavrikant",
 			"Stultiwikia",
-			"Watermelon juice"
+			"Watermelon juice",
+			"Meelo"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -83,7 +84,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Kaynak:",
 	"cx-sourceselector-dialog-target-language-label": "Hedef:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Kaynak sayfa ara",
-	"cx-sourceselector-dialog-target-title-placeholder": "Çeviri başlığı (eğer kaynaktan farklıysa)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Çeviri başlığı",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Bu başlık zaten [$1 $2] bağlantısında [$3 başka bir sayfa] için kullanılıyor.",
 	"cx-sourceselector-dialog-error-page-exists": "Sayfa $2 dilinde [$1 zaten mevcut]",
 	"cx-sourceselector-dialog-error-title-in-use": "Yeni sayfa için seçilen başlık [$1 zaten kullanımda]",
@@ -97,7 +98,7 @@
 	"cx-translation-filter-from-any-language": "Herhangi bir dilden",
 	"cx-translation-filter-to-any-language": "Herhangi bir dile",
 	"cx-create-new-translation": "Yeni çeviri oluştur",
-	"cx-create-new-translation-desc": "Senin dilinde bulunmayan konular için sayfalar oluştur. Çeviri araçlarının yardımı ile çok kolay.\n[https://tr.wikipedia.org/wiki/Vikipedi:%C3%87eviri_grubu daha fazla bilgi]",
+	"cx-create-new-translation-desc": "Senin dilinde bulunmayan konular için sayfalar oluştur. Çeviri araçlarımızın yardımı ile çok kolay.\n[https://tr.wikipedia.org/wiki/Vikipedi:%C3%87eviri_grubu Daha fazla bilgi edinin].",
 	"apihelp-cxpublish-description": "İçerik Çevirmeni uzantısıyla yaratılan bir sayfayı kaydet.",
 	"apihelp-cxpublish-param-title": "Eylemlerin gerçekleştirileceği sayfanın başlığı.",
 	"apihelp-cxpublish-param-html": "Kaydedilecek içerik.",
@@ -147,7 +148,7 @@
 	"cx-translation-status-draft": "Çalışma sürüyor",
 	"cx-translation-status-published": "Yayınlandı",
 	"cx-translation-status-deleted": "Silindi",
-	"cx-magnus-tool-link-text": "Kendi dilinizde eksik olan makaleleri bulun",
+	"cx-magnus-tool-link-text": "Kendi dilinizde eksik olan maddeleri bulun",
 	"apihelp-cxdelete-description": "İçerik Çevirmeni uzantısı ile yaratılan bir taslak çeviriyi sil.",
 	"apihelp-cxdelete-param-from": "Kaynak dil kodu.",
 	"apihelp-cxdelete-param-to": "Hedef dil kodu.",
@@ -175,5 +176,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1, başka dillerde zaten mevcut olabilir",
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
 	"cx-trend-all-translations": "Tüm çeviriler",
-	"cx-trend-translations-to": "$1 diline yapılan çeviriler"
+	"cx-trend-translations-to": "$1 diline yapılan çeviriler",
+	"cx-stats-try-contenttranslation": "İçerik Çevirmeni, diğer dillerden çeviri yaparak yeni sayfalar oluşturmaya yarayan bir araçtır. [$1 İçerik Çevirmeni'ni deneyin]"
 }

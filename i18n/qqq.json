@@ -87,7 +87,7 @@
 	"cx-sourceselector-dialog-button-start-translation": "Button label for translation selector. Clicking on it starts a new translation in Special:ContentTranslation.",
 	"cx-sourceselector-dialog-button-cancel": "Button label for translation selector. Clicking on it cancels new translation and hides dialog. Only appears when translation selector is presented as a dialog.\n{{Identical|Cancel}}",
 	"cx-sourceselector-dialog-source-language-label": "Label text for source language and title selector.\n{{Identical|From}}",
-	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.\n{{Identical|Target}}",
+	"cx-sourceselector-dialog-target-language-label": "Label text for target language and title selector.\n{{Identical|To}}",
 	"cx-sourceselector-dialog-source-title-placeholder": "Placeholder for the source title input. Provides prompt to search for source title.",
 	"cx-sourceselector-dialog-target-title-placeholder": "Placeholder for the target title input. Provides prompt to enter translation title (optional).",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "An error message that indicates that there is page in the target wiki with the same title as the proposed source title and the target title is used elsewhere.\n\nParameters:\n* $1 - link to existing target page.\n* $2 - target language name.\n* $3 - link to article using proposed target title.",

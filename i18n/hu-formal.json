@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tacsipacsi"
+		]
+	},
+	"cx-license-agreement": "A „$1” gombra való kattintással elfogadja a [//wikimediafoundation.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulását a fordítói eszközzel nyilvánosságra hozza a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt, azzal a kitétellel, hogy a hivatkozás vagy URL elegendő a CC BY-SA 3.0-ban foglalt Nevezd meg! feltételnek.",
+	"cx-publish-gt-no-permission-to-move-description": "Kérje meg az oldal egy tapasztaltabb felhasználóját, hogy segítsen átnézni a fordítását és tegye közzé a szócikknévtérben.",
+	"cx-publish-gt-first-step-title": "Ezt a fordítást felülvizsgálatra piszkozatként tette közzé a szerkesztői oldalán.",
+	"cx-publish-gt-first-step-description": "Kattintson az „{{int:vector-action-move}}” gombra ez alatt a menü alatt, hogy elérhetővé tegye a tartalmat a többi felhasználó számára is egy szokásos lapként.",
+	"cx-publish-gt-move-page-description": "Válassza ki a „{{int:blanknamespace}}” névteret, majd adjon egy megfelelő címet a lapnak.",
+	"cx-publish-gt-moved-title": "A lefordított oldalt áthelyezte",
+	"cx-publish-gt-moved-description": "Kattintson erre a linkre, hogy elolvassa vagy javítsa az új lefordított lapot",
+	"cx-publish-gt-published-title": "Gratulálok, az oldat közzétette",
+	"cx-publish-gt-published-description": "Kattintson a „{{int:vector-view-edit}}” gombra, hogy tovább javítsa az oldalt. Figyeljen arra, hogy a szöveg természetes legyen.",
+	"cx-translation-target-page-exists": "Egy [$1 $2] című lap már létezik a célwikin. Fontolja meg, hogy egy másik címet ad neki.",
+	"cx-beta-desc": "Egy eszköz, mellyel gyorsan lefordíthat lapokat az anyanyelvére. Kezdje el a fordítását a [[Special:MyContributions|közreműködési lapján]], majd szerkessze meg a kifejezetten fordítási célra kifejlesztett szerkesztőnkkel. Néhány eszköz esetleg csak bizonyos nyelveken elérhető.",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ez az oldal még nem létezik $1 nyelven. Létre akarja hozni?",
+	"cx-special-login-error": "Jelentkezzen be, hogy lefordítsa ezt a lapot. [$1 Bejelentkezés]",
+	"cx-tools-instructions-text1": "Kattintson egy bekezdésre a fordításhoz",
+	"cx-tools-instructions-text2": "Nem szükséges az összeset lefordítania.",
+	"cx-tools-instructions-text3": "Úgy írjon, hogy az könnyen olvasható és értelmezhető legyen.",
+	"cx-tools-instructions-text4": "A gépi fordítás hasznos, de vizsgálja felül a szöveget, hogy pontos-e.",
+	"cx-tools-instructions-text6": "Amikor elégedett az eredménnyel, kattintson a „{{int:cx-publish-button}}” gombra.",
+	"cx-stats-title": "Tartalomfordítási statisztikája",
+	"cx-mt-abuse-warning-title": "A fordítása $1% módosítatlan gépi fordítású szöveget tartalmaz.",
+	"cx-mt-abuse-warning-text": "A gépi fordítás csak mintaként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
+	"cx-create-new-translation-desc": "Hozzon létre szócikkeket olyan témákról, amik még nem léteznek a maga nyelvén. Ez egyszerű a fordítóeszközeinkkel. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate További információk (angolul)]",
+	"apihelp-cxpublish-param-status": "Ha „draft”, akkor a fordítás piszkozatként lesz elmentve. Ha „published”, akkor a fordítást egyúttal közzé is teszi.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captchaazonosító (amikor captcha megválaszolásával ment).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Válasz a captchára (amikor captcha megválaszolásával ment).",
+	"cx-publishing-dialog-message": "A(z) $1 lap már létezik. A jelenlegi tartalmat felül fogja írni a fordításával. Biztosan közzé akarja tenni?",
+	"cx-magnus-tool-link-text": "A maga nyelvén hiányzó szócikkek keresése",
+	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
+	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
+	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
+}
