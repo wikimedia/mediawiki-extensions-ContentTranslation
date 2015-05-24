@@ -8,6 +8,7 @@
 	},
 	"cx": "გვერდის თარგმნა",
 	"cx-javascript": "ეს ხელსაწყო JavaScript-ის გარეშე არ მუშაობს.",
+	"cx-license-agreement": "ღილაკზე „$1“ დაკლიკებით, თქვენ ეთანხმებით [//wikimediafoundation.org/wiki/Terms_of_Use გამოყენების პირობებს] და უპირობოთ ეთანხმებით თქვენი წვლილის პუბლიკაციას თარგმნის ხელსაწყოსთან ერთად [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 ლიცენზიას] და [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], იმ გაგებით, რომ ჰიპერბმულის ან URL გადაცემა საკმარისია CC BY-SA 3.0 ატრიბუციისათვის.",
 	"cx-error-server-connection": "შეცდომა: სერვერთან დავავშირება ვერ მოხერხდა.",
 	"cx-desc": "ამარტივებს გვერდის შიგთავსის თარგმნას",
 	"cx-header-progressbar-text": "ნათარგმნია $1%",
@@ -21,7 +22,9 @@
 	"cx-publish-button": "თარგმანის გამოქვეყნება",
 	"cx-publish-button-publishing": "გამოქვეყნება...",
 	"cx-publish-summary": "შექმნილია გვერდის თარგმნით \"$1\"",
+	"cx-publish-gt-no-permission-to-move-description": "გთხოვთ, ამ საიტის ვინმე გამოცდილ მომხმარებელს სთხოვეთ, რომ დაგეხმარონ, რათა შეამოწმონ თქვენი თარგმანი და გამოაქვეყნონ იგი ძირითად სივრცეში.",
 	"cx-publish-gt-first-step-title": "თარგმანი იყო გამოქვეყნებული როგორც მონახაზი თქვენ მომხმარებლის ქვეგვერდზე შემდგომი გადახედისთვის.",
+	"cx-publish-gt-first-step-description": "დააკლიკეთ \"{{int:vector-action-move}}\" ამ მენიუს ქვეშ, რათა მისი შემცველობა გახადოთ ხელმისაწვდომი ყველა მომხმარებელისათვის ჩვეულებრივი გვერდის სახით.",
 	"cx-publish-gt-move-page-title": "გვერდის გადატანა",
 	"cx-publish-gt-move-page-description": "აირჩიეთ სახელთა სივრცე „{{int:blanknamespace}}“ და მიეცით სწორი სათაური თქვენი გვერდისთვის.",
 	"cx-publish-gt-moved-title": "ნათარგმნი გვერდი გადატანილია",
@@ -34,6 +37,7 @@
 	"tag-contenttranslation-description": "შემცვლელობა იყო თარგმნილი სხვა ენიდან Content Translation tool-ის მეშვეობით.",
 	"cx-source-loading": "იტვირთება $1",
 	"cx-beta": "შიგთავსის თარგმნა",
+	"cx-beta-desc": "ხელსაწყო გვერდების სწრაფი თარგმნისათვის თქვენ ენაზე. დაიწყეთ თარგმანი [[Special:MyContributions|თქვენი წვლილის გვერდიდან]] და ჩაასწორეთ იგი ჩვენს რედაქტორში თარგმისათვის სპეციალურად პროექტირებულ გვერდი-გვერდში. ზოგიერთი ხელსაწყო შესაძლოა ხელმისაწვდომი გახდეს მხოლოდ განსაზღვრული ენებისათვის.",
 	"cx-entrypoint-title": "ამ გვერდის თარგმნა $1-ზე",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ეს გვერდი $1-ზე ჯერ არ არსებობს. {{GENDER:|თქვენ}} გსუურთ მისი შექმნა ?",
 	"cx-entrypoint-dialog-title-in": "ახალი გვერდის სათაური $1-სთვის:",
@@ -80,6 +84,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "ახალი გვერდის სათაური [$1 უკვე გამოიყენება]",
 	"cx-sourceselector-dialog-error-no-source-article": "ეს სათარგმნი გვერდი $1-ში არ არსებობს",
 	"cx-mt-abuse-warning-title": "თქვენი თარგმანი შეიცავს ტექსტის მანქანური თარგმნის შეუცვლელ $1%",
+	"cx-mt-abuse-warning-text": "მანქანური თარგმანები წარმოდგენილია მხოლოდ თარგის სახით. თქვენ უნდა დარწმუნდეთ, რომ კონტენტი ზუსტია და ბუნებრივად იკითხება თქვენ ენაზე.",
 	"cx-publish-captcha-title": "საიდუმლო კითხვა",
 	"cx-translation-filter-all-translations": "ყველა თარგმანი",
 	"cx-translation-filter-published-translations": "გამოქვეყნებული თარგმანები",
@@ -166,5 +171,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "შესაძლოა სტატია $1 არსებობს სხვა ენებზე",
 	"cx-campaign-contributionsmenu-myuploads": "ატვირთული ფაილები",
 	"cx-trend-all-translations": "ყველა თარგმანი",
-	"cx-trend-translations-to": "თარგმანები $1 ენაზე"
+	"cx-trend-translations-to": "თარგმანები $1 ენაზე",
+	"cx-stats-try-contenttranslation": "Content Translation არის ახალი გვერდების შესაქმნელად განკუთვნილი ხელსაწყო სხვა ენებიდან თარგმნის დახმარებით. [$1 Try Content Translation]"
 }

@@ -34,5 +34,15 @@
 	"tag-contenttranslation": "TraduzioneCuntenute",
 	"tag-contenttranslation-description": "'O cuntenuto è stato tradotto 'a nata llengua ausanno 'o strumiento Traduzione 'e Cuntenute.",
 	"cx-source-loading": "Carrecanno $1",
-	"cx-beta": "Traduzione 'e Cuntenute"
+	"cx-beta": "Traduzione 'e Cuntenute",
+	"cx-beta-desc": "Nu strumiento pe' putè traducere ampress ampress paggene int'a llengua r' 'a toja. Accumminciate 'a traduzione 'a [[Special:MyContributions|'e cuntribbute vuoste 'e paggena]], e cagnatevelle cu l'editore nuosto side-by-side disegnato specialmente pe' ffà 'a traduzione. Cocche strumiento putesse sta a disposizione surtanto pe' llengue specifiche.",
+	"cx-entrypoint-title": "Traduce sta paggena a $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sta paggena nun esiste ancora dint'a $1. {{GENDER:|'A vulite}} crià?",
+	"cx-entrypoint-dialog-title-in": "Titolo p' 'a paggena nuova int'a $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Crea partenn' 'a zero",
+	"cx-entrypoint-dialog-button-translate-from": "Traduce 'a $1",
+	"cx-special-login-error": "Vuje avite essere trasuto int' 'o sistema pe' putè traducere sta paggena. [$1 Log in]",
+	"cx-tools-instructions-text1": "{{GENDER:|Cliccate}} 'e paragrafe a traducere",
+	"cx-tools-instructions-text2": "Nun avite abbesuogno 'e ll'azzeccà tuttuquante",
+	"cx-tools-instructions-text3": "{{GENDER:|Facite}} ca 'o testo se putesse lieggere naturalmente"
 }
