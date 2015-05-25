@@ -27,7 +27,7 @@
 		this.$statusFilter = null;
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
-		this.$translationFilterContainer = null;
+		this.$header = null;
 		this.$confirmationDialog = null;
 		this.$overlay = null;
 		this.init();
@@ -57,7 +57,7 @@
 		this.translations = translations;
 
 		if ( translations.length > 0 ) {
-			this.$translationFilterContainer.show();
+			this.$header.show();
 		}
 
 		this.listTranslations( translations );
@@ -115,7 +115,7 @@
 	 * Show a title image of the translation based on source title.
 	 * @param {Object} translation
 	 */
-	CXTranslationList.prototype.showTitleImage = function ( translation ) {
+	CXTranslationList.prototype.showTitleImage = function ( translation, type ) {
 		this.getLinkImage( translation.sourceLanguage, translation.sourceTitle )
 			.done( function ( response ) {
 				var pageId, page, imgSrc;
@@ -124,7 +124,7 @@
 				page = response.query.pages[ pageId ];
 				if ( page.thumbnail ) {
 					imgSrc = page.thumbnail.source;
-					$( '#' + translation.id ).find( '.image' ).attr( 'src', imgSrc );
+					$( '#' + type + translation.id ).find( '.image' ).attr( 'src', imgSrc );
 				}
 			} );
 	};
@@ -136,9 +136,10 @@
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
 		var i, translation, progress, $translation, $titleLanguageBlock,
 			$translationLink, translationLinkUrl,
-			$sourceLanguage, $targetLanguage,
+			$sourceLanguage, $targetLanguage, $languageContainer,
 			$imageBlock, $lastUpdated, $image, $status, $progressbar,
-			$actionsTrigger, $menu, $menuContainer, $deleteTranslation;
+			$actionsTrigger, $menu, $menuContainer, $deleteTranslation,
+			$translations = [];
 
 		for ( i = 0; i < translations.length; i++ ) {
 			translation = translations[ i ];
@@ -150,13 +151,13 @@
 			}
 
 			$translation = $( '<div>' )
-				.addClass( 'translation' )
-				.attr( 'id', translation.id );
+				.addClass( 'cx-tlitem' )
+				.attr( 'id', 'translation' + translation.id );
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
 				.text( moment( translation.lastUpdateTimeStamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
 			$imageBlock = $( '<div>' )
-				.addClass( 'image-block' );
+				.addClass( 'cx-tlitem__image' );
 			$image = $( '<img>' )
 				.addClass( 'image' );
 			$progressbar = $( '<div>' )
@@ -164,8 +165,8 @@
 				.cxProgressBar( {
 					weights: progress
 				} );
-			$imageBlock.append( $image, $progressbar );
-			this.showTitleImage( translation );
+			$imageBlock.append( $image );
+			this.showTitleImage( translation, 'translation' );
 
 			if ( translation.status === 'draft' ) {
 				translationLinkUrl = new mw.Uri( mw.cx.siteMapper.getCXUrl(
@@ -192,11 +193,14 @@
 				} );
 
 			$sourceLanguage = $( '<div>' )
-				.addClass( 'source-language' )
+				.addClass( 'cx-tlitem__languages__language cx-tlitem__languages__language--source' )
 				.text( $.uls.data.getAutonym( translation.sourceLanguage ) );
 			$targetLanguage = $( '<div>' )
-				.addClass( 'target-language' )
+				.addClass( 'cx-tlitem__languages__language cx-tlitem__languages__language--target' )
 				.text( $.uls.data.getAutonym( translation.targetLanguage ) );
+			$languageContainer = $( '<div>' )
+				.addClass( 'cx-tlitem__languages' )
+				.append( $sourceLanguage, $targetLanguage );
 			$status = $( '<div>' )
 				.addClass( 'status status-' + translation.status )
 				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
@@ -204,7 +208,7 @@
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
 				$actionsTrigger = $( '<div>' )
-					.addClass( 'actions-menu-trigger' )
+					.addClass( 'cx-tlitem__actions__trigger' )
 					.text( '…' );
 				$deleteTranslation = $( '<li>' )
 					.addClass( 'cx-discard-translation' )
@@ -213,24 +217,40 @@
 				$menu = $( '<ul>' )
 					.append( $deleteTranslation );
 				$menuContainer = $( '<div>' )
-					.addClass( 'actions-menu-container' )
+					.addClass( 'cx-tlitem__actions' )
 					.append( $actionsTrigger, $menu );
 			} else {
 				$menuContainer = $();
 			}
 
 			$titleLanguageBlock = $( '<div>' )
-				.addClass( 'title-language-block' )
-				.append( $translationLink, $sourceLanguage, $targetLanguage, $status, $menuContainer );
+				.addClass( 'cx-tlitem__details' )
+				.append( $translationLink, $progressbar, $lastUpdated, $languageContainer );
 			$translation.append(
-				$lastUpdated,
+				$menuContainer,
 				$imageBlock,
 				$titleLanguageBlock
 			);
-			this.$container.append( $translation );
+
+			$translations.push( $translation );
 
 			// Store reference to the DOM node
 			translation.$element = $translation;
+		}
+
+		if ( $translations.length ) {
+			this.$container.append( $( '<div>' )
+				.addClass( 'cx-translationlist' )
+				.append( $translations )
+			);
+		} else {
+			this.$container.append( $( '<div>' )
+				.addClass( 'cx-translationlist-empty' )
+				.append(
+					$( '<div>' ).addClass( 'cx-translationlist-empty__img' ),
+					$( '<div>' ).addClass( 'cx-translationlist-empty__title' ).text( mw.msg( 'cx-translationlist-empty-title' ) ),
+					$( '<div>' ).addClass( 'cx-translationlist-empty__desc' ).text( mw.msg( 'cx-translationlist-empty-desc' ) )
+				) );
 		}
 	};
 
@@ -247,21 +267,25 @@
 	};
 
 	CXTranslationList.prototype.render = function () {
-		this.$translationFilterContainer = $( '<div>' )
+		var $sourceLanguageContainer, $targetLanguageContainer;
+
+		this.$header = $( '<div>' )
 			.addClass( 'translation-filter' );
-
-		this.$statusFilter = createSelect(
-			'translation-status-filter', {
-				'': mw.msg( 'cx-translation-filter-all-translations' ),
-				published: mw.msg( 'cx-translation-filter-published-translations' ),
-				draft: mw.msg( 'cx-translation-filter-draft-translations' )
-			}
-		);
-
-		// By default select the 'draft' translations.
-		// We expect users to look for draft translations
-		// to complete them as the regular behavior.
-		this.$statusFilter.val( 'draft' );
+		this.$cta = $( '<div>' ).addClass( 'cx-cta' );
+		this.$newTranslationButton = $( '<button>' )
+			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-constructive' )
+			.text( mw.msg( 'cx-create-new-translation' ) );
+		this.$cta.append( this.$newTranslationButton );
+		this.$statusFilter = $( '<span>' )
+			.addClass( 'cx-statusfilter' )
+			.append(
+				$( '<span>' )
+				.addClass( 'cx-status cx-status--draft cx-status--selected mw-ui-input' )
+				.text( mw.msg( 'cx-translation-filter-draft-translations' ) ),
+				$( '<span>' )
+				.addClass( 'cx-status cx-status--published mw-ui-input' )
+				.text( mw.msg( 'cx-translation-filter-published-translations' ) )
+			);
 
 		this.$sourceLanguageFilter = createSelect(
 			'translation-source-language-filter', {
@@ -275,15 +299,37 @@
 			}
 		);
 
-		this.$translationFilterContainer.append(
+		$sourceLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-source-container' )
+			.append(
+				this.$sourceLanguageFilter,
+				$( '<div>' ).addClass( 'translation-language-select-content' )
+				.text( mw.msg( 'cx-translation-filter-from-any-language' ) ),
+				$( '<div>' ).addClass( 'translation-language-select-arrow' )
+			);
+
+		$targetLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-target-container' )
+			.append(
+				this.$targetLanguageFilter,
+				$( '<div>' ).addClass( 'translation-language-select-content' )
+				.text( mw.msg( 'cx-translation-filter-to-any-language' ) ),
+				$( '<div>' ).addClass( 'translation-language-select-arrow' )
+			);
+
+		this.$header.append(
 			this.$statusFilter,
-			this.$sourceLanguageFilter,
-			this.$targetLanguageFilter
+			$( '<div>' ).addClass( 'translation-language-filter' ).append(
+				$sourceLanguageContainer,
+				$( '<div>' ).addClass( 'translation-language-arrow' ),
+				$targetLanguageContainer
+			),
+			this.$cta
 		);
 
 		// Hide the filters till we see there are translations to list.
-		this.$translationFilterContainer.hide();
-		this.$container.append( this.$translationFilterContainer );
+		this.$header.hide();
+		this.$container.append( this.$header );
 	};
 
 	CXTranslationList.prototype.listen = function () {
@@ -292,39 +338,90 @@
 
 		setFilter = $.proxy( this.setFilter, this );
 
-		this.$statusFilter.on( 'change', function () {
-			setFilter( 'status', $( this ).val() );
+		this.$statusFilter.click( '.cx-status', function ( e ) {
+			var $filter = $( e.target );
+			translationList.$statusFilter
+				.find( '.cx-status--selected' )
+				.removeClass( 'cx-status--selected' );
+
+			$filter.addClass( 'cx-status--selected' );
+
+			if ( $filter.is( '.cx-status--draft' ) ) {
+				setFilter( 'status', 'draft' );
+			} else if ( $filter.is( '.cx-status--published' ) ) {
+				setFilter( 'status', 'published' );
+			}
 		} );
 
 		this.$sourceLanguageFilter.on( 'change', function () {
-			setFilter( 'sourceLanguage', $( this ).val() );
+			var code = $( this ).val();
+			setFilter( 'sourceLanguage', code );
+
+			translationList.$sourceLanguageFilter
+				.siblings( '.translation-language-select-content' )
+				.text( $.uls.data.getAutonym( code ) );
 		} );
 
 		this.$targetLanguageFilter.on( 'change', function () {
-			setFilter( 'targetLanguage', $( this ).val() );
+			var code = $( this ).val();
+			setFilter( 'targetLanguage', code );
+			translationList.$targetLanguageFilter
+				.siblings( '.translation-language-select-content' )
+				.text( $.uls.data.getAutonym( code ) );
 		} );
 
-		this.$container.on( 'click', '.cx-discard-translation', function () {
-			var translation = $( this ).data( 'translation' );
+		this.$container.on( 'click', '.cx-discard-translation', function ( e ) {
+			e.stopPropagation();
 
-			translationList.showDiscardConfirmation( translation ).then( function ( answer ) {
-				if ( !answer ) {
-					return;
-				}
-				translationList.discardTranslation( translation )
-					.then( function ( response ) {
-						if ( response.cxdelete.result === 'success' ) {
-							translationList.markTranslationAsDeleted( translation );
-							mw.hook( 'mw.cx.translation.deleted' ).fire(
-								translation.sourceLanguage,
-								translation.targetLanguage,
-								translation.sourceTitle,
-								translation.targetTitle
-							);
-						}
-					} );
+			var translation = $( e.target ).data( 'translation' );
+
+			translationList.showDiscardConfirmation( translation ).done( function () {
+				translationList.discardTranslation( translation ).done( function ( response ) {
+					if ( response.cxdelete.result !== 'success' ) {
+						return;
+					}
+					translationList.markTranslationAsDeleted( translation );
+					mw.hook( 'mw.cx.translation.deleted' ).fire(
+						translation.sourceLanguage,
+						translation.targetLanguage,
+						translation.sourceTitle,
+						translation.targetTitle
+					);
+				} );
 			} );
 		} );
+
+		this.$container.on( 'click', '.cx-tlitem', function () {
+			location.href = $( this ).find( '.source-title' ).attr( 'href' );
+		} );
+		this.initSourceSelector();
+
+		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+	};
+
+	CXTranslationList.prototype.initSourceSelector = function () {
+		var query, sourceSelectorOptions = {};
+
+		query = new mw.Uri().query;
+		sourceSelectorOptions.sourceLanguage = query.from;
+		sourceSelectorOptions.targetLanguage = query.to;
+		sourceSelectorOptions.sourceTitle = query.page;
+		sourceSelectorOptions.targetTitle = query.targettitle;
+		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
+		if ( query.campaign ) {
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+		}
+	};
+
+	CXTranslationList.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop(),
+			offsetTop = this.$container.offset().top;
+
+		if ( scrollTop > offsetTop ) {
+			this.$container.addClass( 'sticky' );
+		} else if ( scrollTop <= offsetTop ) {
+			this.$container.removeClass( 'sticky' );
+		}
 	};
 
 	/**
@@ -364,14 +461,14 @@
 		}
 
 		$cancelButton.one( 'click', function () {
-			deferred.resolve( false );
+			deferred.reject();
 			translationList.$confirmationDialog.hide();
 			translationList.$overlay.hide();
 			$discardButton.off( 'click' );
 		} );
 
 		$discardButton.one( 'click', function () {
-			deferred.resolve( true );
+			deferred.resolve();
 			translationList.$confirmationDialog.hide();
 			translationList.$overlay.hide();
 			$cancelButton.off( 'click' );
@@ -388,14 +485,14 @@
 	 * @param {Object} translation
 	 */
 	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
-		$( '#' + translation.id )
+		$( '#translation' + translation.id )
 			.addClass( 'cx-translation-deleted' )
 			.find( '.status' )
 			.removeClass( 'status-draft status-published' )
 			.addClass( 'status-deleted' )
 			.text( mw.msg( 'cx-translation-status-deleted' ) )
 			.end()
-			.find( '.actions-menu-container' )
+			.find( '.cx-tlitem__actions' )
 			.remove()
 			.end()
 			.find( '.source-title' )
@@ -419,10 +516,6 @@
 	};
 
 	CXTranslationList.prototype.setFilter = function ( type, value ) {
-		if ( value === '' ) {
-			value = null;
-		}
-
 		this.filters[ type ] = value;
 		this.applyFilters( this.filters, this.translations );
 	};
@@ -439,7 +532,7 @@
 				filterProp = keys[ j ];
 				filterValue = filters[ filterProp ];
 
-				if ( filterValue === null ) {
+				if ( filterValue === null || filterValue === '' ) {
 					continue;
 				}
 

@@ -183,22 +183,20 @@
 				"ext.cx.header",
 				"ext.cx.sitemapper",
 				"ext.cx.translationlist",
-				"ext.cx.source.selector",
 				"ext.cx.feedback",
 				"mediawiki.ui.button",
 				"mediawiki.Uri"
 			],
 			"messages": [
 				"cx-create-new-translation",
-				"cx-create-new-translation-desc"
+				"cx-dashboard-sidebar-title",
+				"cx-dashboard-sidebar-information",
+				"cx-dashboard-sidebar-feedback"
 			]
 		},
 		"ext.cx.magnuslink": {
 			"scripts": [
 				"dashboard/ext.cx.magnuslink.js"
-			],
-			"styles": [
-				"dashboard/styles/ext.cx.magnuslink.less"
 			],
 			"messages": [
 				"cx-magnus-tool-link-text"
@@ -716,10 +714,13 @@
 				"ext.cx.progressbar",
 				"ext.cx.util",
 				"jquery.uls.data",
-				"ext.cx.widgets.overlay"
+				"ext.cx.widgets.overlay",
+				"ext.cx.source.selector"
 			],
 			"messages": [
-				"cx-translation-filter-all-translations",
+				"cx-dashboard-header",
+				"cx-create-new-translation",
+				"cx-translation-filter-suggested-translations",
 				"cx-translation-filter-published-translations",
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-from-any-language",
@@ -730,7 +731,9 @@
 				"cx-translation-status-published",
 				"cx-draft-discard-confirmation-message",
 				"cx-draft-cancel-button-label",
-				"cx-draft-discard-button-label"
+				"cx-draft-discard-button-label",
+				"cx-translationlist-empty-title",
+				"cx-translationlist-empty-desc"
 			]
 		},
 		"ext.cx.translation.conflict": {

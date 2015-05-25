@@ -19,6 +19,7 @@
 		this.options = $.extend( true, {}, $.fn.cxDashboard.defaults, options );
 		this.siteMapper = siteMapper;
 		this.$header = null;
+		this.$sidebar = null;
 		this.$translationList = null;
 		this.$newTranslationButton = null;
 		this.init();
@@ -35,45 +36,82 @@
 	 * Initialize the components
 	 */
 	CXDashboard.prototype.initComponents = function () {
-		this.$header.cxHeader( this.siteMapper );
 		this.$translationList.cxTranslationList( this.siteMapper );
 	};
 
+	CXDashboard.prototype.getSidebarItems = function () {
+		return [
+			{
+				class: 'cx-sidebar__link cx-sidebar__link--information',
+				href: 'https://www.mediawiki.org/wiki/ContentTranslation',
+				label: mw.msg( 'cx-dashboard-sidebar-information' )
+			},
+			{
+				class: 'cx-sidebar__link cx-sidebar__link--feedback',
+				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
+				label: mw.msg( 'cx-dashboard-sidebar-feedback' )
+			}
+		];
+	};
+
+	CXDashboard.prototype.buildSidebar = function () {
+		var $header, i, items, $links = [];
+
+		$header = $( '<div>' )
+			.addClass( 'cx-sidebar__title' )
+			.text( mw.msg( 'cx-dashboard-sidebar-title' ) );
+
+		items = this.getSidebarItems();
+		$links = $( '<ul>' );
+		for ( i = 0; i < items.length; i++ ) {
+			$links.append(
+				$( '<li>' ).append(
+					$( '<a>' )
+					.addClass( items[ i ].class )
+					.text( items[ i ].label )
+					.prop( {
+						target: '_blank',
+						href: items[ i ].href
+					} )
+				)
+			);
+		}
+
+		return $( '<div>' )
+			.addClass( 'cx-sidebar' )
+			.append( $header, $links );
+	};
+
 	CXDashboard.prototype.render = function () {
-		var $content, $newTranslationContainer, $newTranslationDesc;
+		this.$header = $( '<div>' )
+			.addClass( 'cx-header--dashboard' );
 
-		this.$header = $( '<div>' ).addClass( 'cx-widget__header' );
-		$newTranslationContainer = $( '<div>' ).addClass( 'cx-cta' );
+		this.$header.cxHeader( this.siteMapper, mw.msg( 'cx-dashboard-header' ) );
+		this.$translationList = $( '<div>' )
+			.addClass( 'cx-translationlist-container' );
+		this.$sidebar = $( '<div>' )
+			.addClass( 'cx-dashboard__sidebar' )
+			.append( this.buildSidebar() );
 
-		this.$translationList = $( '<div>' ).addClass( 'cx-translationlist' );
-		$content = $( '<div>' ).addClass( 'cx-widget' )
-			.append( this.$header, $newTranslationContainer, this.$translationList );
+		this.$dashboard = $( '<div>' )
+			.addClass( 'cx-dashboard' )
+			.append( this.$translationList, this.$sidebar );
 
-		this.$container.append( $content );
-		this.$newTranslationButton = $( '<button>' )
-			.addClass( 'cx-cta__action mw-ui-button mw-ui-big mw-ui-progressive' )
-			.text( mw.msg( 'cx-create-new-translation' ) );
-		$newTranslationDesc = $( '<div>' )
-			.addClass( 'cx-cta___description' )
-			.html( mw.message( 'cx-create-new-translation-desc' ).parse() );
-
-		$newTranslationContainer.append( this.$newTranslationButton, $newTranslationDesc );
-
-		this.$container.cxFeedback();
+		this.$container.append( this.$header, this.$dashboard );
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var query,
-			sourceSelectorOptions = {};
+		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+	};
 
-		query = new mw.Uri().query;
-		sourceSelectorOptions.sourceLanguage = query.from;
-		sourceSelectorOptions.targetLanguage = query.to;
-		sourceSelectorOptions.sourceTitle = query.page;
-		sourceSelectorOptions.targetTitle = query.targettitle;
-		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
-		if ( query.campaign ) {
-			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+	CXDashboard.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop(),
+			offsetTop = this.$dashboard.offset().top;
+
+		if ( scrollTop > offsetTop ) {
+			this.$sidebar.addClass( 'sticky' );
+		} else if ( scrollTop <= offsetTop ) {
+			this.$sidebar.removeClass( 'sticky' );
 		}
 	};
 

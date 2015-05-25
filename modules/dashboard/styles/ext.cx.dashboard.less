@@ -1,7 +1,8 @@
 @import "../../widgets/common/ext.cx.common";
+@import "mediawiki.mixins";
 
-h2 {
-	color: @gray-darker;
+body {
+	background-color: #f0f0f0;
 }
 
 .cx-column__title {
@@ -9,31 +10,75 @@ h2 {
 	font-family: 'Linux Libertine', Georgia, Times, serif;
 }
 
-.cx-cta {
-	.mw-ui-item;
-	.mw-ui-one-whole;
-	padding: 50px;
-	background-color: #fff;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+.cx-dashboard {
+	padding: 20px 50px;
+	color: @gray-darker;
+}
 
-	.cx-cta__action {
-		.mw-ui-one-quarter;
-	}
+.cx-dashboard__sidebar {
+	.mw-ui-one-third;
+	float: right;
+	position: relative;
 
-	.cx-cta___description {
-		.mw-ui-three-quarters;
-		font-size: 18px;
-		line-height: 22px;
-		padding: 2px 20px;
-	}
-
-	.cx-feedback {
-		right: 10px;
+	&.sticky {
+		margin-right: 15px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		.cx-sidebar {
+			min-height: 100vh;
+		}
 	}
 }
 
-// Do not display the header bar containing the link to dashboard in dashboard page.
-.cx-header__bar {
-	display: none;
+.cx-sidebar {
+	background-color: #fff;
+	padding: 20px;
+	min-height: 85vh;
+	width: 100%;
+	margin-right: 50px;
+	ul {
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid #ddd;
+
+		li {
+			border-bottom: 1px solid #ddd;
+			padding: 10px 0;
+			list-style: none;
+		}
+	}
+
+	&__link {
+		color: #07e;
+		font-size: 12px;
+	}
+
+	&__title {
+		font-size: 16px;
+		padding-bottom: 15px;
+	}
+}
+
+.cx-header--dashboard {
+	background: white;
+	border-bottom: 1px solid #ddd;
+
+	.cx-header__title {
+		overflow: hidden;
+		float: none;
+	}
+
+	// Do not display the header bar containing the link to dashboard in dashboard page.
+	.cx-header__bar {
+		display: none;
+	}
+}
+
+.translation-source-language-filter,
+.translation-target-language-filter {
+	background-color: #fff;
+	option {
+		padding: 5px;
+	}
 }

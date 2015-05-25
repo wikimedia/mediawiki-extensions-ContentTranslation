@@ -19,12 +19,14 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslationHeader( element, siteMapper ) {
+	function ContentTranslationHeader( element, siteMapper, headerText ) {
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
 		this.$saveStatus = null;
 		this.$publishButton = null;
 		this.$infoBar = null;
+
+		this.headerText = headerText || mw.msg( 'cx' );
 
 		this.init();
 	}
@@ -179,7 +181,8 @@
 			.addClass( 'cx-header__logo' );
 		$titleText = $( '<span>' )
 			.addClass( 'cx-header__title-text' )
-			.text( mw.msg( 'cx' ) );
+			.text( this.headerText );
+
 		$headerTitle = $( '<div>' )
 			.addClass( 'cx-header__title' )
 			.append( $logo, $titleText );
@@ -229,14 +232,14 @@
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @return {jQuery}
 	 */
-	$.fn.cxHeader = function ( siteMapper ) {
+	$.fn.cxHeader = function ( siteMapper, headerText ) {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxHeader' );
 
 			if ( !data ) {
 				$this.data(
-					'cxHeader', ( data = new ContentTranslationHeader( this, siteMapper ) )
+					'cxHeader', ( data = new ContentTranslationHeader( this, siteMapper, headerText ) )
 				);
 			}
 		} );

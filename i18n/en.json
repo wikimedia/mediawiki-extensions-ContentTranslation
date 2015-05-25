@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"JarrettMunton",
 			"Joel Sahleen",
 			"Kartik Mistry",
 			"Nemo bis",
@@ -15,6 +16,7 @@
 		]
 	},
 	"cx": "Translate page",
+	"cx-dashboard-header": "Translations",
 	"cx-javascript": "This tool does not work without JavaScript.",
 	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL sufficient for CC BY-SA 3.0 attribution.",
 	"cx-error-server-connection": "Error: Could not connect to the server.",
@@ -96,13 +98,15 @@
 	"cx-mt-abuse-warning-title": "Your translation {{PLURAL:$1|contains}} $1% of unmodified machine-translated text",
 	"cx-mt-abuse-warning-text": "Machine translations are provided only as a starting point. You need to make sure that the content is accurate and reads naturally in your language.",
 	"cx-publish-captcha-title": "Security question",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Need}} help with translations?",
+	"cx-dashboard-sidebar-information": "Know more about this feature",
+	"cx-dashboard-sidebar-feedback": "Give us feedback",
 	"cx-translation-filter-all-translations": "All translations",
-	"cx-translation-filter-published-translations": "Published translations",
-	"cx-translation-filter-draft-translations": "In progress translations",
+	"cx-translation-filter-published-translations": "Published",
+	"cx-translation-filter-draft-translations": "In progress",
 	"cx-translation-filter-from-any-language": "From any language",
 	"cx-translation-filter-to-any-language": "To any language",
-	"cx-create-new-translation": "Create new translation",
-	"cx-create-new-translation-desc": "Create pages for topics that do not exist in your language. It is easy with the help of our translation tools. [{{int:cx-tools-view-guidelines-link}} Learn more]",
+	"cx-create-new-translation": "Start a new translation",
 	"apihelp-cxpublish-description": "Save a page created using the Content Translation extension.",
 	"apihelp-cxpublish-param-title": "The title of the page to perform actions on.",
 	"apihelp-cxpublish-param-html": "The content to save.",
@@ -201,5 +205,7 @@
 	"echo-category-title-cx": "Translations",
 	"echo-pref-tooltip-cx": "Notify me about my translations created using Content Translation tool",
 	"cx-notification-first-translation": "Congratulations for your first translation! Find more pages to translate at [[Special:MyContributions|your contributions page]].",
-	"cx-notification-first-translation-email-subject": "Congratulations for your first translation"
+	"cx-notification-first-translation-email-subject": "Congratulations for your first translation",
+	"cx-translationlist-empty-title": "Nothing to translate?",
+	"cx-translationlist-empty-desc": "Start your translation now and continue it anytime"
 }

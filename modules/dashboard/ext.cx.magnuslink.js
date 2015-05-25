@@ -14,7 +14,7 @@
 
 	function getMagnusToolLink() {
 		var uri, contentLanguage, previousLanguages,
-			sourceLanguage, targetLanguage, $link, $linkContainer;
+			sourceLanguage, targetLanguage, $link;
 
 		uri = new mw.Uri( toolLink );
 
@@ -45,20 +45,17 @@
 		}
 
 		$link = $( '<a>' )
+			.addClass( 'cx-sidebar__link cx-sidebar__link--magnus' )
 			.text( mw.msg( 'cx-magnus-tool-link-text' ) )
 			.prop( {
 				target: '_blank',
 				href: uri.toString()
 			} );
 
-		$linkContainer = $( '<div>' )
-			.addClass( 'cx-magnus-link' )
-			.append( $link );
-
-		return $linkContainer;
+		return $link;
 	}
 
 	mw.hook( 'mw.cx.dashboard.ready' ).add( function () {
-		$( '.cx-cta' ).append( getMagnusToolLink() );
+		$( '.cx-sidebar ul' ).append( $( '<li>' ).append( getMagnusToolLink() ) );
 	} );
 }( jQuery, mediaWiki ) );

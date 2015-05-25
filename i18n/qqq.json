@@ -16,10 +16,12 @@
 			"Umherirrender",
 			"Purodha",
 			"Tacsipacsi",
-			"سامي الرحيلي"
+			"سامي الرحيلي",
+			"JarrettMunton"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
+	"cx-dashboard-header": "Title to be displayed in header while viewing the dashboard",
 	"cx-javascript": "Error message shown when JavaScript is not enabled in the browser.",
 	"cx-license-agreement": "License agreement for the contributions using Content Translation tool. This is legal text and be careful. You may point the license URLs to a Wikipedia page in your language if it exists. Parameters:\n* $1 - Label of the button that starts the translation tool.",
 	"cx-error-server-connection": "Error message shown when connection to the Content Translation server has failed.",
@@ -101,13 +103,15 @@
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",
+	"cx-dashboard-sidebar-title": "Title of the sidebar of the dashboard widget",
+	"cx-dashboard-sidebar-information": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with information about Content Translation.",
+	"cx-dashboard-sidebar-feedback": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with a page to allow user feedback",
 	"cx-translation-filter-all-translations": "Shown in translation filter in Content Translation dashboard. Selects all translations by the current translator.\n{{Identical|All translations}}",
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
 	"cx-translation-filter-draft-translations": "Shown in translation filter in Content Translation dashboard. Selects all draft translations by the current translator. Specifically, \"in progress\" does '''not''' necessarily mean that a person is working on a translation at that moment.",
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
 	"cx-translation-filter-to-any-language": "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
-	"cx-create-new-translation-desc": "Description about what the Content Translation tool does. The link may point to a translation help page in your language. Refers to {{msg-mw|cx-tools-view-guidelines-link}}.",
 	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",
 	"apihelp-cxpublish-param-title": "{{doc-apihelp-param|cxpublish|title}}",
 	"apihelp-cxpublish-param-html": "{{doc-apihelp-param|cxpublish|html}}",
@@ -206,5 +210,7 @@
 	"echo-category-title-cx": "Title of CX Echo notifications. Shown in [[Special:Preferences]] page to configure notifications\n{{Identical|Translation}}",
 	"echo-pref-tooltip-cx": "A tooltip text about CX notifcations.Shown in [[Special:Preferences]] page to configure notifications",
 	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubitions link.",
-	"cx-notification-first-translation-email-subject": "Email subject to congratulate the user for first published translation."
+	"cx-notification-first-translation-email-subject": "Email subject to congratulate the user for first published translation.",
+	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",
+	"cx-translationlist-empty-desc": "A brief description show when there is no translations by current user"
 }
