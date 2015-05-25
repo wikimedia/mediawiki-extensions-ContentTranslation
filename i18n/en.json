@@ -21,7 +21,7 @@
 	"cx-header-all-translations": "All translations",
 	"cx-source-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1",
-	"cx-publish-page-error": "Error while saving page.",
+	"cx-publish-page-error": "An error occurred while saving the page. Please try to publish the page again.",
 	"cx-publish-button": "Publish translation",
 	"cx-publish-button-publishing": "Publishing...",
 	"cx-publish-summary": "Created by translating the page \"$1\"",
