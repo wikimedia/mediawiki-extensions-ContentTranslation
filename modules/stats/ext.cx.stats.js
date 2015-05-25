@@ -274,16 +274,14 @@
 		}
 
 		if ( !mw.user.isAnon() && mw.user.options.get( 'cx' ) !== '1' ) {
-			if ( !mw.user.isAnon() ) {
-				cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
-					campaign: 'cxstats',
-					targettitle: mw.config.get( 'wgPageName' ),
-					to: mw.config.get( 'wgContentLanguage' )
-				} );
+			cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+				campaign: 'cxstats',
+				targettitle: mw.config.get( 'wgPageName' ),
+				to: mw.config.get( 'wgContentLanguage' )
+			} );
 
-				$( '.cx-header__bar' ).hide();
-				mw.hook( 'mw.cx.error' ).fire( mw.message( 'cx-stats-try-contenttranslation', cxLink ) );
-			}
+			$( '.cx-header__bar' ).hide();
+			mw.hook( 'mw.cx.error' ).fire( mw.message( 'cx-stats-try-contenttranslation', cxLink ) );
 		} else {
 			$header.find( '.cx-header__translation-center a' ).text( mw.msg( 'cx-header-new-translation' ) );
 		}
