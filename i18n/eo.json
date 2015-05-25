@@ -77,7 +77,7 @@
 	"cx-sourceselector-dialog-source-language-label": "De:",
 	"cx-sourceselector-dialog-target-language-label": "Al:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Serĉi fontan paĝon",
-	"cx-sourceselector-dialog-target-title-placeholder": "Titolo de la traduko (se alia ol en fonta lingvo)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Titolo de la traduko",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Tiu ĉi titolo jam estas uzata en [$1 $2] por [$3 alia paĝo]",
 	"cx-sourceselector-dialog-error-page-exists": "La paĝo [$1 jam ekzistas] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "La titolo por la nova paĝo [$1 jam estas uzata]",
@@ -153,7 +153,10 @@
 	"cx-campaign-try": "Provi EnhavTradukadon",
 	"cx-campaign-contributionsmenu-mycontributions": "Kontribuoj",
 	"cx-campaign-contributionsmenu-mytranslations": "Tradukoj",
+	"cx-campaign-contributionsmenu-translate-instead": "Traduku anstataŭ verki dekomence",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 povas jam disponebli en aliaj lingvoj",
 	"cx-campaign-contributionsmenu-myuploads": "Alŝutitaj plurmediaĵoj",
 	"cx-trend-all-translations": "Ĉiuj tradukoj",
-	"cx-trend-translations-to": "Tradukoj al $1"
+	"cx-trend-translations-to": "Tradukoj al $1",
+	"cx-stats-try-contenttranslation": "EnhavTradukado estas ilo por krei novajn paĝojn per tradukado de aliaj lingvoj. [$1 Provu EnhavTradukadon]"
 }

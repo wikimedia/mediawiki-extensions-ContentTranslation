@@ -77,7 +77,7 @@
 	"cx-sourceselector-dialog-source-language-label": "Dari:",
 	"cx-sourceselector-dialog-target-language-label": "Ke:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Cari laman sumber",
-	"cx-sourceselector-dialog-target-title-placeholder": "Tajuk terjemahan (jika berbeza dari sumber)",
+	"cx-sourceselector-dialog-target-title-placeholder": "Tajuk terjemahan",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Tajuk ini sudah digunakan di [$1 $2] untuk [$3 laman yang beza]",
 	"cx-sourceselector-dialog-error-page-exists": "Laman ini [$1 sudah wujud] di $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Tajuk untuk laman baru [$1 sudah sedang digunakan]",
