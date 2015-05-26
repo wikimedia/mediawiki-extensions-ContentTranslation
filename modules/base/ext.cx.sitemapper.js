@@ -11,6 +11,22 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	// Some wikis have domain names that do not match the content language.
+	// See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
+	// NOTE: Keep list of mapping in sync with includes/SiteMapper.php
+	var languageToWikiDomainMapping = {
+		bho: 'bh',
+		'crh-latn': 'crh',
+		gsw: 'als',
+		sgs: 'bat-smg',
+		'be-tarask': 'be-x-old',
+		vro: 'fiu-vro',
+		rup: 'roa-rup',
+		lzh: 'zh-classical',
+		nan: 'zh-min-nan',
+		yue: 'zh-yue'
+	};
+
 	/**
 	 * Handles providing urls to different wikis.
 	 * @class
@@ -26,7 +42,10 @@
 	 * @return {mediawiki.Api}
 	 */
 	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
-		var url = this.config.api.replace( '$1', language );
+		var url;
+
+		language = languageToWikiDomainMapping[ language ] || language;
+		url = this.config.api.replace( '$1', language );
 		return new mw.Api( {
 			ajax: {
 				url: url
@@ -46,6 +65,7 @@
 		var base = this.config.view,
 			extra = '';
 
+		language = languageToWikiDomainMapping[ language ] || language;
 		if ( params && !$.isEmptyObject( params ) ) {
 			base = this.config.action || this.config.view;
 			extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
