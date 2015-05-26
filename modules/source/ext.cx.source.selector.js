@@ -170,6 +170,7 @@
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
 		var langProps;
+
 		// Don't let the same languages be selected as source and target.
 		// Instead, do what the user probably means and swap them.
 		if ( language === this.getTargetLanguage() ) {
@@ -849,9 +850,7 @@
 		$sourceTitleInputContainer = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
 			.append( this.$sourceTitleInput );
-		this.$sourcePageSelector = new mw.PageSelector( this.$sourceTitleInput, {
-			api: this.siteMapper.getApi( this.getSourceLanguage() )
-		} );
+
 		this.$targetTitleInput = $( '<input>' )
 			.attr( {
 				name: 'targetTitle',
@@ -879,6 +878,10 @@
 			);
 
 		this.setDefaultLanguages();
+
+		this.$sourcePageSelector = new mw.PageSelector( this.$sourceTitleInput, {
+			api: this.siteMapper.getApi( this.getSourceLanguage() )
+		} );
 
 		this.$messageBar = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__messagebar' );
