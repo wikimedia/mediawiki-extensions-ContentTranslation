@@ -176,5 +176,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
 	"cx-trend-all-translations": "All translations",
 	"cx-trend-translations-to": "Translations to $1 language",
-	"cx-stats-try-contenttranslation": "Content Translation is a tool to create new pages by translating from other languages. [$1 Try Content Translation]"
+	"cx-stats-try-contenttranslation": "Content Translation is a tool to create new pages by translating from other languages. [$1 Try Content Translation]",
+	"cx-stats-published-target-source": "Translations to",
+	"cx-stats-published-source-target": "Translations from",
+	"cx-stats-draft-target-source": "Translations in progress to",
+	"cx-stats-draft-source-target": "Translations in progress from",
+	"cx-stats-tabs-expand": "View all languages",
+	"cx-stats-total-published": "Total published",
+	"cx-stats-monthly-published": "Last month",
+	"cx-stats-weekly-published": "Last week",
+	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 translations}}"
 }

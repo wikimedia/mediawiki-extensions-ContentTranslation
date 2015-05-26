@@ -181,5 +181,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Special:MyUploads in commons",
 	"cx-trend-all-translations": "Label shown in the legend section Content translation trends(graph visualization)",
 	"cx-trend-translations-to": "Label shown in the legend section Content translation trends(graph visualization)\n$1 - language name",
-	"cx-stats-try-contenttranslation": "A message shown in [[Special:CXStats]] for users not enabled Content Translation . \n$1 - link to enable Content Translation beta feature and go to Content Translation dashboard"
+	"cx-stats-try-contenttranslation": "A message shown in [[Special:CXStats]] for users not enabled Content Translation . \n$1 - link to enable Content Translation beta feature and go to Content Translation dashboard",
+	"cx-stats-published-target-source": "A message shown in [[Special:CXStats]]",
+	"cx-stats-published-source-target": "A message shown in [[Special:CXStats]]",
+	"cx-stats-draft-target-source": "A message shown in [[Special:CXStats]]",
+	"cx-stats-draft-source-target": "A message shown in [[Special:CXStats]]",
+	"cx-stats-tabs-expand": "A message shown in [[Special:CXStats]] to expand the charts to see all languages. This is a link label",
+	"cx-stats-total-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
+	"cx-stats-monthly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
+	"cx-stats-weekly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
+	"cx-stats-local-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics. $1 is a number, and $2 is language name(autonym).",
+	"cx-stats-grouping-title": "Title text for language grouping based on number of translations. $1 is number of translations"
 }
