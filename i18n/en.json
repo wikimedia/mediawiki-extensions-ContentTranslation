@@ -96,7 +96,7 @@
 	"cx-translation-filter-from-any-language": "From any language",
 	"cx-translation-filter-to-any-language": "To any language",
 	"cx-create-new-translation": "Create new translation",
-	"cx-create-new-translation-desc": "Create pages for topics that do not exist in your language. It is easy with the help of our translation tools. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Learn more]",
+	"cx-create-new-translation-desc": "Create pages for topics that do not exist in your language. It is easy with the help of our translation tools. [{{int:cx-tools-view-guidelines-link}} Learn more]",
 	"apihelp-cxpublish-description": "Save a page created using the Content Translation extension.",
 	"apihelp-cxpublish-param-title": "The title of the page to perform actions on.",
 	"apihelp-cxpublish-param-html": "The content to save.",
