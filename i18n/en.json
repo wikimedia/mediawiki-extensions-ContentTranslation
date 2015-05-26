@@ -88,7 +88,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "The title for the new page is [$1 already in use]",
 	"cx-sourceselector-dialog-error-no-source-article": "The page to translate does not exist in $1",
 	"cx-mt-abuse-warning-title": "Your translation contains $1% of unmodified machine-translated text",
-	"cx-mt-abuse-warning-text": "Machine translations are provided only as a template. You need to make sure that the content is accurate and reads naturally in your language.",
+	"cx-mt-abuse-warning-text": "Machine translations are provided only as a starting point. You need to make sure that the content is accurate and reads naturally in your language.",
 	"cx-publish-captcha-title": "Security question",
 	"cx-translation-filter-all-translations": "All translations",
 	"cx-translation-filter-published-translations": "Published translations",
