@@ -9,6 +9,26 @@
 	padding: 0;
 }
 
+.card__add-reference {
+	@vertical-margin: 10px;
+	@horizontal-margin: 15px;
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	float: none;
+	padding: @vertical-margin @horizontal-margin;
+	font-size: large;
+	color: #565656; // TODO Should come from library?
+	.background-image-svg('../images/add.svg', '../images/add.png');
+	background-color: #FFF;
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	background-size: 15px;
+	padding: 5px 10px 5px 32px;
+	cursor: pointer;
+	clear: both;
+	border-top: 1px solid #dddddd;
+}
+
 .card__remove-reference {
 	@vertical-margin: 10px;
 	@horizontal-margin: 15px;

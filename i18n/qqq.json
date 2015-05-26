@@ -79,6 +79,7 @@
 	"cx-stats-title": "The title for the Special:ContentTranslationStats special page.",
 	"cx-stats-unknown": "Text when the source or target language is unknown. An adjective that describes the language.\n{{Identical|Unknown}}",
 	"cx-tools-reference-title": "Title of Reference (footnote) tool card on Special:ContentTranslation.\n{{Identical|Reference}}",
+	"cx-tools-reference-add": "Text shown in the reference tool card. Clicking on it will add the reference in the cursor position.",
 	"cx-tools-reference-remove": "Text shown in the reference tool card. Clicking on it removes the reference in the context.",
 	"cx-tools-link-instruction-shortcut": "Text explaining the shortcut for opening a link. Appears in the link tool card.",
 	"cx-tools-link-hover-tooltip": "Tooltip text shown when the mouse is over the link with shift or control key is pressed.",

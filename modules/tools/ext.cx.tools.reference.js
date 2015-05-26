@@ -18,6 +18,7 @@
 	function ReferenceCard() {
 		this.$card = null;
 		this.$removeReference = null;
+		this.$addReference = null;
 		this.$reference = null;
 	}
 
@@ -30,6 +31,9 @@
 
 		this.$card = $( '<div>' )
 			.addClass( 'card reference' );
+		this.$addReference = $( '<div>' )
+			.addClass( 'card__add-reference' )
+			.text( mw.msg( 'cx-tools-reference-add' ) );
 		this.$removeReference = $( '<div>' )
 			.addClass( 'card__remove-reference' )
 			.text( mw.msg( 'cx-tools-reference-remove' ) );
@@ -49,7 +53,7 @@
 		$referenceInfo.append( $( '<div>' )
 			.addClass( 'card__reference-content' ) );
 
-		$referenceInfo.append( this.$removeReference );
+		$referenceInfo.append( this.$addReference, this.$removeReference );
 		this.$card.append( $referenceInfo );
 		this.listen();
 		return this.$card;
@@ -71,6 +75,32 @@
 			this.$reference.remove();
 			this.stop();
 		}
+	};
+
+	/**
+	 * Add the reference to the cursor position in translation
+	 */
+	ReferenceCard.prototype.addReference = function () {
+		var $reference, referenceId, targetReferenceId;
+
+		mw.cx.selection.restore( 'translation' );
+		$reference = this.$reference.clone();
+		referenceId = $reference.prop( 'id' );
+		targetReferenceId = 'cx' + referenceId;
+		$reference.attr( {
+			'id': targetReferenceId,
+			'data-sourceid': referenceId
+		} );
+		mw.cx.selection.pasteHTML( $reference[ 0 ].outerHTML );
+		// Adapt references.
+		this.adaptReference( targetReferenceId );
+		// Click handler for references.
+		$( document.getElementById( targetReferenceId ) )
+			.on( 'click', referenceClickHandler )
+			// Mark it readonly
+			.attr( 'contenteditable', false );
+
+		this.stop();
 	};
 
 	/**
@@ -157,10 +187,15 @@
 			.text( $sourceReference.text() );
 		this.$card.find( '.card__reference-content' )
 			.html( referenceContent );
-		if ( $targetReference.length ) {
+
+		if ( $targetReference.length && language === mw.cx.targetLanguage ) {
 			this.$reference = $targetReference;
 			this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
-		} else {
+			this.$addReference.remove();
+		}
+		if ( $sourceReference.length && language === mw.cx.sourceLanguage ) {
+			this.$reference = $sourceReference;
+			this.$addReference.on( 'click', $.proxy( this.addReference, this ) );
 			this.$removeReference.remove();
 		}
 		this.$card.find( '.card__title--language' )
@@ -247,6 +282,7 @@
 		if ( !mwData || !mwData.body ) {
 			return;
 		}
+
 		$referenceContent = $( '<div>' ).html( mwData.body.html );
 		/*
 		Reference template expands in references section as below
@@ -287,7 +323,10 @@
 				referenceId;
 
 			// Click handler for references.
-			$reference.on( 'click', referenceClickHandler );
+			$reference
+				.on( 'click', referenceClickHandler )
+				// Mark it readonly
+				.attr( 'contenteditable', false );
 			if ( isRestoredFromDraft ) {
 				// This section is restored from draft. No need of reference adaptation.
 				return;

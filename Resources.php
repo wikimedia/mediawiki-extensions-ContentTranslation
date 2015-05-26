@@ -448,6 +448,7 @@ $wgResourceModules['ext.cx.tools.reference'] = array(
 	),
 	'messages' => array(
 		'cx-tools-reference-title',
+		'cx-tools-reference-add',
 		'cx-tools-reference-remove',
 	),
 	'dependencies' => array(
