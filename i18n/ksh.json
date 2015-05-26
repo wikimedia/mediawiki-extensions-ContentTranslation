@@ -90,7 +90,7 @@
 	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
 	"cx-translation-filter-to-any-language": "En jejde Schprohch",
 	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
-	"cx-create-new-translation-desc": "Lääsch Sigge aan för Tehme, di en Dinge Schprohch noch nit vörkumme. Dadd_es leisch met onsere Övversäzongs_Wärkzüsch. Loor derför op di Sigg https://en.wikipedia.org/wiki/Project:Translation#How_to_translate<nowiki />, doh kanns De mih dövver erus fenge.",
+	"cx-create-new-translation-desc": "Lääsch Sigge aan för Tehme, di en Dinge Schprohch noch nit vörkumme. Dadd_es leisch met onsere Övversäzongs_Wärkzüsch. Loor derför op di Sigg {{int:cx-tools-view-guidelines-link}}<!--  -->, doh kanns De mih dövver erus fenge.",
 	"apihelp-cxpublish-description": "onn en Sigg aßhallde, di met däm Wärkzüsch ContentTranslation aanjelaht wood.",
 	"apihelp-cxpublish-param-title": "De Övverschreff vun dä Sigg, met dä jät jedonn wähde sull.",
 	"apihelp-cxpublish-param-html": "Dä Enhalld för zom faßhallde.",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"V.narsikar"
+			"V.narsikar",
+			"NehalDaveND"
 		]
 	},
 	"cx": "भाषांतरासाठीचे पान",
@@ -23,5 +24,12 @@
 	"cx-tools-instructions-text5": "जर आपण मिळालेल्या निकालाने खुश असाल तर,{{int:cx-publish-button}} टिचकून नविन पान तयार करा.",
 	"cx-tools-dictionary-title": "व्याख्या",
 	"cx-tools-link-title": "दुवा",
-	"cx-tools-link-remove": "दुवा काढा"
+	"cx-tools-link-remove": "दुवा काढा",
+	"cx-tools-mt-restore": "पुनर्स्थापन करा",
+	"cx-sourceselector-dialog-button-cancel": "रद्द करा",
+	"cx-sourceselector-dialog-source-language-label": "प्रेषक:",
+	"cx-sourceselector-dialog-target-language-label": "प्रति:",
+	"cx-save-draft-saving": "जतन करीत आहे...",
+	"cx-contributions-new-article": "नवीन पृष्ठ",
+	"cx-contributions-translation": "भाषांतर"
 }

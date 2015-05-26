@@ -9,7 +9,8 @@
 			"Mavrikant",
 			"Stultiwikia",
 			"Watermelon juice",
-			"Meelo"
+			"Meelo",
+			"Arystanbek"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -24,7 +25,7 @@
 	"cx-header-all-translations": "Tüm çeviriler",
 	"cx-source-view-page": "sayfayı görüntüle",
 	"cx-publish-page-success": "Sayfa şurada yayınlandı $1",
-	"cx-publish-page-error": "Sayfa kaydedilirken hata oluştu.",
+	"cx-publish-page-error": "Bir hata sayfası kaydedilirken hata oluştu. Sayfayı yeniden yayımlamayı deneyin.",
 	"cx-publish-button": "Çeviriyi yayınla",
 	"cx-publish-button-publishing": "Yayınlanıyor...",
 	"cx-publish-summary": "\"$1\" sayfasının çevrilmesiyle oluşturuldu.",
@@ -107,7 +108,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "Kaynak sayfanın başlığı",
 	"apihelp-cxpublish-param-sourcerevision": "Kaynak sayfanın gözden geçirilmesi.",
 	"apihelp-cxpublish-param-status": "Eğer \"draft\" ise, çeviri taslak olarak kaydedilecek. Eğer \"published\" ise, çeviri yayınlanacak.",
-	"apihelp-cxpublish-param-categories": "Yayınlanan sayfaya eklenecek kategoriler.",
+	"apihelp-cxpublish-param-categories": "Yayınlanan sayfanın ekleneceği kategoriler.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (captcha cevabı ile kaydederken)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Captcha'ya cevap (captcha cevabı ile kaydederken)",
 	"apihelp-query+contenttranslation-description": "Çeviriler için İçerik Çevirmeni veritabanına sorgula.",
@@ -173,6 +174,7 @@
 	"cx-campaign-try": "İçerik Çevirmeni'ni dene",
 	"cx-campaign-contributionsmenu-mycontributions": "Katkılarım",
 	"cx-campaign-contributionsmenu-mytranslations": "Çeviriler",
+	"cx-campaign-contributionsmenu-translate-instead": "Tercüme sıfırdan yazmak yerine",
 	"cx-campaign-contributionsmenu-might-be-available": "$1, başka dillerde zaten mevcut olabilir",
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
 	"cx-trend-all-translations": "Tüm çeviriler",

@@ -18,7 +18,7 @@
 	"cx-header-all-translations": "Kõik tõlked",
 	"cx-source-view-page": "vaata lehekülge",
 	"cx-publish-page-success": "Lehekülg avaldatud asukohas $1",
-	"cx-publish-page-error": "Tõrge lehekülje salvestamisel",
+	"cx-publish-page-error": "Tõrge lehekülje salvestamisel. Palun proovi uuesti lehekülge avaldada.",
 	"cx-publish-button": "Avalda tõlge",
 	"cx-publish-button-publishing": "Avaldamine...",
 	"cx-publish-summary": "Loodud lehekülje \"$1\" tõlkimisel",
