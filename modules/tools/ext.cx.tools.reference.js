@@ -51,6 +51,11 @@
 		$referenceInfo.append( $( '<div>' )
 			.addClass( 'card__reference-number' ) );
 		$referenceInfo.append( $( '<div>' )
+			// By default the reference is in the source language and direction
+			.prop( {
+				lang: mw.cx.sourceLanguage,
+				dir: $.uls.data.getDir( mw.cx.sourceLanguage )
+			} )
 			.addClass( 'card__reference-content' ) );
 
 		$referenceInfo.append( this.$addReference, this.$removeReference );
