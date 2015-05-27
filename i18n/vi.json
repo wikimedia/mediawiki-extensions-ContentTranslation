@@ -6,7 +6,8 @@
 			"Max20091",
 			"Dinhxuanduyet",
 			"Quenhitran",
-			"KhangND"
+			"KhangND",
+			"Darcy Le"
 		]
 	},
 	"cx": "Dịch trang",
@@ -87,7 +88,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Tên trang mới đã [$1 đang được sử dụng]",
 	"cx-sourceselector-dialog-error-no-source-article": "Trang gốc không tồn tại trong $1",
 	"cx-mt-abuse-warning-title": "Bản dịch của bạn có $1% là văn bản dịch máy không được sửa đổi",
-	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được dùng làm mẫu. Bạn phải chắc chắn rằng nội dung chính xác và lưu loát trong ngôn ngữ của bạn.",
+	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm, gởi ý. Bạn cần phải chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.",
 	"cx-publish-captcha-title": "Hình CAPTCHA",
 	"cx-translation-filter-all-translations": "Tất cả bản dịch",
 	"cx-translation-filter-published-translations": "Bản dịch đã xuất bản",
@@ -95,7 +96,7 @@
 	"cx-translation-filter-from-any-language": "Từ bất cứ ngôn ngữ nào",
 	"cx-translation-filter-to-any-language": "Sang bất cứ ngôn ngữ nào",
 	"cx-create-new-translation": "Tạo bản dịch mới",
-	"cx-create-new-translation-desc": "Tạo các bài viết mới về những chủ đề chưa có ở ngôn ngữ của bạn. Mọi thứ sẽ trở nên dễ dàng hơn với sự hỗ trợ của các công cụ biên dịch của chúng tôi. [{{fullurle:Project:Biên dịch}}#{{anchorencode:Làm thế nào để biên dịch}} Tìm hiểu thêm]",
+	"cx-create-new-translation-desc": "Tạo các bài viết về những chủ đề chưa có ở ngôn ngữ của bạn. Mọi thứ sẽ trở nên dễ dàng hơn với sự hỗ trợ của các công cụ biên dịch của chúng tôi. [{{fullurle:Project:Biên dịch}}#{{anchorencode:Làm thế nào để biên dịch}} Tìm hiểu thêm]",
 	"apihelp-cxpublish-description": "Lưu một trang được tạo bởi phần mở rộng Biên dịch nội dung.",
 	"apihelp-cxpublish-param-title": "Tiêu đề của trang chịu tác động của tác vụ này.",
 	"apihelp-cxpublish-param-html": "Nội dung để lưu.",

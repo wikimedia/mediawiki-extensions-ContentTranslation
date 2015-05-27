@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nirjal stha",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"बिप्लब आनन्द"
 		]
 	},
 	"cx": "पाना अनुवाद गर्नुहोस्",
@@ -16,18 +17,23 @@
 	"cx-header-all-translations": "सबै अनुवादहरू",
 	"cx-source-view-page": "पृष्ठ हेर्ने",
 	"cx-publish-page-success": " $1मा पाना प्रकाशीत भयो",
-	"cx-publish-page-error": "पाना सङ्ग्रह गर्दा त्रुटि ।",
+	"cx-publish-page-error": "पृष्ठ सङ्ग्रह गर्दा त्रुटि देखियो। कृपया सङ्ग्रह गर्नका लागि पुन प्रयास गर्नुहोला।",
 	"cx-publish-button": "अनुवाद प्रकाशीत गर्नुहोस",
 	"cx-publish-button-publishing": "प्रकाशन गर्दै...",
+	"cx-publish-summary": "\"$1\" पृष्ठलाई अनुवाद गरि सृजना गरियो",
 	"cx-publish-gt-move-page-title": "पृष्ठ सार्नुहोस्",
 	"cx-publish-gt-moved-title": "अनुवाद गरिएको लेख सारिएको छ",
+	"cx-publish-gt-published-title": "बधाई छ, यो पृष्ठ प्रकासित गरिएको छ",
 	"cx-translation-add-translation": "+ अनुवाद थप्नुहोस्",
 	"tag-contenttranslation": "सामग्रीअनुवाद",
 	"cx-source-loading": "$1 खोल्दै",
 	"cx-beta": "सामग्री अनुवाद",
 	"cx-entrypoint-title": "यो लेखलाई $1 मा अनुवाद गर्नुहोस्",
+	"cx-entrypoint-dialog-title-in": "$1 को लागि नयाँ पृष्ठ शीर्षक:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "सुरु देखि सिर्जना गर्नुहोस्",
 	"cx-entrypoint-dialog-button-translate-from": "$1 बाट अनुवाद गर्नुहोस",
+	"cx-special-login-error": "पृष्ठ अनुवाद गर्नका लागि तपाईंले प्रवेश गर्नु अनिवार्य छ। [$1 लगइन]",
+	"cx-tools-instructions-text1": "अनुवाद गर्नका लागि हर्रफमा {{GENDER:|क्लिक}} गर्नुहोस",
 	"cx-tools-searchbox-text": "शब्द खोज्नुहोस्",
 	"cx-tools-dictionary-title": "परिभाषा",
 	"cx-tools-link-title": "लिङ्क",

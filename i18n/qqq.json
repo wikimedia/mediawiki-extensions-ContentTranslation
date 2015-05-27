@@ -14,7 +14,8 @@
 			"KuboF",
 			"Nemo bis",
 			"Umherirrender",
-			"Purodha"
+			"Purodha",
+			"Tacsipacsi"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -105,7 +106,7 @@
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
 	"cx-translation-filter-to-any-language": "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
-	"cx-create-new-translation-desc": "Description about what the Content Translation tool does. The link may point to a translation help page in your language.",
+	"cx-create-new-translation-desc": "Description about what the Content Translation tool does. The link may point to a translation help page in your language. Refers to {{msg-mw|cx-tools-view-guidelines-link}}.",
 	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",
 	"apihelp-cxpublish-param-title": "{{doc-apihelp-param|cxpublish|title}}",
 	"apihelp-cxpublish-param-html": "{{doc-apihelp-param|cxpublish|html}}",
