@@ -27,7 +27,9 @@
 		var apiParams,
 			self = this;
 
-		this.targetTitle = ( params && params.title ) || $( '.cx-column--translation > h2' ).text();
+		this.targetTitle = ( params && params.title ) ||
+			$( '.cx-column--translation > h2' ).text();
+
 		apiParams = $.extend( {}, params, {
 			action: 'cxpublish',
 			from: mw.cx.sourceLanguage,
@@ -44,7 +46,6 @@
 		this.$trigger.prop( 'disabled', true ).text( mw.msg( 'cx-publish-button-publishing' ) );
 
 		return this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
-
 			apiParams.title = self.targetTitle = title;
 
 			return new mw.Api().postWithToken( 'edit', apiParams, {
@@ -54,14 +55,17 @@
 			} ).done( function ( response ) {
 				if ( response.cxpublish.result === 'success' ) {
 					self.onSuccess();
+
 					return;
 				}
+
 				if ( response.cxpublish.edit.captcha ) {
 					return self.captchaHandler( response.cxpublish.edit.captcha )
 						.then( function ( captchaResult ) {
 							return self.publish( $.extend( params, captchaResult ) );
 						} );
 				}
+
 				// Any other failure
 				self.onFail( 'cxpublish', response.cxpublish );
 			} ).fail( function ( code, details ) {
@@ -127,7 +131,7 @@
 	};
 
 	/**
-	 * Checks to see if there is already a published article with the title
+	 * Checks to see if there is already a published article with the title.
 	 * @param {string} title The title to check
 	 * @return {jQuery.promise}
 	 */
@@ -153,7 +157,7 @@
 	};
 
 	/**
-	 * Generate an alternate title in case of title collision
+	 * Generate an alternate title in case of title collision.
 	 * @param {string} title The title
 	 * @return {string}
 	 */
@@ -162,6 +166,7 @@
 
 		username = mw.user.getName();
 		mwTitle = mw.Title.newFromText( title );
+
 		if ( mwTitle && mwTitle.getNamespaceId() === 2 ) {
 			return increaseVersion( title );
 		} else {
@@ -179,19 +184,23 @@
 		var self = this;
 
 		title = mw.cx.SiteMapper.prototype.getTargetTitle( title );
+
 		return this.titleExists( title ).then( function ( titleExists ) {
 			var $dialog;
 
 			if ( !titleExists ) {
 				return title;
 			}
+
 			// Show a dialog to decide what to do now
 			self.$trigger.cxPublishingDialog();
 			$dialog = self.$trigger.data( 'cxPublishingDialog' );
+
 			return $dialog.listen().then( function ( overwrite ) {
 				if ( overwrite ) {
 					return title;
 				}
+
 				return getAlternateTitle( title );
 			} );
 		} );
@@ -216,26 +225,29 @@
 	}
 
 	/**
-	 * Get categories for the current translation pair
+	 * Get categories for the current translation pair.
 	 * @return {string[]} Category titles
 	 */
 	CXPublish.prototype.getCategories = function () {
-		var i, sortedKeys, categoryTitles, targetCategories;
+		var targetCategories, sortedKeys, categoryTitles, i;
 
 		targetCategories = mw.cx.categoryTool.categories.target;
 		if ( !targetCategories ) {
 			return [];
 		}
+
 		sortedKeys = Object.keys( targetCategories ).sort();
 		categoryTitles = [];
+
 		for ( i = 0; i < sortedKeys.length; i++ ) {
 			categoryTitles.push( targetCategories[ sortedKeys[ i ] ] );
 		}
+
 		return categoryTitles;
 	};
 
 	/**
-	 * Get the current translation content
+	 * Get the current translation content.
 	 * @return {string}
 	 */
 	CXPublish.prototype.getContent = function () {
@@ -245,12 +257,13 @@
 	};
 
 	/**
-	 * Success handler for publishing
+	 * Success handler for publishing.
 	 */
 	CXPublish.prototype.onSuccess = function () {
 		$( '.cx-column--translation > h2' )
 			.text( this.targetTitle )
 			.keepAlignment();
+
 		mw.hook( 'mw.cx.success' )
 			.fire( mw.message( 'cx-publish-page-success',
 				$( '<a>' ).attr( {
@@ -258,17 +271,19 @@
 					target: '_blank'
 				} ).text( this.targetTitle )[ 0 ].outerHTML
 			) );
+
 		mw.hook( 'mw.cx.translation.published' ).fire(
 			mw.cx.sourceLanguage,
 			mw.cx.targetLanguage,
 			mw.cx.sourceTitle,
 			this.targetTitle
 		);
+
 		mw.cx.dirty = false;
 	};
 
 	/**
-	 * Failure handler for publishing
+	 * Failure handler for publishing.
 	 * @param {string} code
 	 * @param {object} details
 	 */
@@ -281,6 +296,7 @@
 			targetTitle: this.targetTitle,
 			error: details
 		};
+
 		mw.hook( 'mw.cx.translation.publish.error' ).fire(
 			mw.cx.sourceLanguage,
 			mw.cx.targetLanguage,
@@ -288,27 +304,28 @@
 			this.targetTitle,
 			JSON.stringify( details )
 		);
+
 		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 		mw.log( '[CX] Error while publishing:', code, trace );
 	};
 
 	/**
-	 * Prepare the translated content for publishing by removing
-	 * unwanted parts.
+	 * Prepare the translated content for publishing by removing unwanted parts.
 	 * @return {string} processed html
 	 */
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {
+		// Remove the wrapper tags that are added to the highlighting segments
 		$content.find( '.cx-segment' ).replaceWith( function () {
 			return $( this ).html();
 		} );
-		$content.find( 'link, title' ).remove();
 
-		// Remove placeholder sections
-		$content.find( '.placeholder' ).remove();
-		// Remove empty sections.
+		// Remove unnecessary elements
+		$content.find( 'link, title, .placeholder' ).remove();
+
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var $section = $( this );
-			// Firefox inserts <br type="_moz"> in Content ediables while clearing the content
+
+			// Firefox inserts <br type="_moz"> in contenteditables while clearing the content
 			// to keep the height and caret. https://bugzilla.mozilla.org/show_bug.cgi?id=414223
 			// It is not guaranted that the type attribute will be present.
 			// Remove them. But do not remove breaks from paragraphs. They can be intentional
@@ -316,6 +333,8 @@
 			if ( $section.is( 'h1, h2, h3, h4, h5, h6' ) ) {
 				$section.find( 'br' ).remove();
 			}
+
+			// Remove empty sections
 			if ( !$.trim( $section.text() ) ) {
 				$section.remove();
 			}
@@ -328,7 +347,7 @@
 	mw.cx.publish = CXPublish;
 
 	$( function () {
-		var cxPublish, $publishButton;
+		var $publishButton, cxPublish;
 
 		$publishButton = $( '.cx-header__publish .cx-header__publish-button' );
 		cxPublish = new mw.cx.publish( $publishButton );
