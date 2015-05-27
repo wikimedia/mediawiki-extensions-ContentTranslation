@@ -70,7 +70,8 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationUseMagnusTool;
+		global $wgContentTranslationUseMagnusTool,
+			$wgContentTranslationTranslateInTarget;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
@@ -93,6 +94,12 @@ class SpecialContentTranslation extends SpecialPage {
 
 		if ( $hasToken ) {
 			$out->addModules( 'ext.cx.translationview' );
+
+			// If Wikibase is installed, load the module for linking
+			// the published article with the source article
+			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
+				$out->addModules( 'ext.cx.wikibase.link' );
+			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
 			if ( $wgContentTranslationUseMagnusTool ) {
