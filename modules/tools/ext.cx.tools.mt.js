@@ -43,6 +43,14 @@
 
 				if ( $.isEmptyObject( MTControlCard.providers ) ) {
 					MTControlCard.provider = noMT;
+					// For languages with different directionality,
+					// provide disable MT as default option. It gives
+					// an empty editor to translator.
+					if ( $.uls.data.getDir( mw.cx.sourceLanguage ) !==
+						$.uls.data.getDir( mw.cx.targetLanguage )
+					) {
+						MTControlCard.provider = disableMT;
+					}
 				} else {
 					// TODO Consider user preferences
 					MTControlCard.provider = MTControlCard.providers[ 0 ];
