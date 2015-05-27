@@ -308,7 +308,14 @@
 		// Remove empty sections.
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var $section = $( this );
-
+			// Firefox inserts <br type="_moz"> in Content ediables while clearing the content
+			// to keep the height and caret. https://bugzilla.mozilla.org/show_bug.cgi?id=414223
+			// It is not guaranted that the type attribute will be present.
+			// Remove them. But do not remove breaks from paragraphs. They can be intentional
+			// line breaks.
+			if ( $section.is( 'h1, h2, h3, h4, h5, h6' ) ) {
+				$section.find( 'br' ).remove();
+			}
 			if ( !$.trim( $section.text() ) ) {
 				$section.remove();
 			}
