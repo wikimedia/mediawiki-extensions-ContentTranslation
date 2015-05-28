@@ -3,7 +3,8 @@
 		"authors": [
 			"Slashme",
 			"Winstonza",
-			"Amire80"
+			"Amire80",
+			"Purodha"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -100,7 +101,7 @@
 	"apihelp-cxpublish-param-to": "Die kode vir die teikentaal.",
 	"apihelp-cxpublish-param-sourcetitle": "Die titel van die bronartikel.",
 	"apihelp-cxpublish-param-sourcerevision": "Die weergawe van die bronartikel.",
-	"apihelp-cxpublish-param-status": "indien \"konsep\" gekies word, sal die vertaling as 'n konsep gestoor word. Indien \"gepubliseer\" gekies word, sal die vertaling gepubliseer word.",
+	"apihelp-cxpublish-param-status": "indien \"draft\" gekies word, sal die vertaling as 'n konsep gestoor word. Indien \"published\" gekies word, sal die vertaling gepubliseer word.",
 	"apihelp-cxpublish-param-categories": "Die kategorieë wat tot die gepubliseerde bladsy toegevoeg moet word.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (wanneer daar met 'n captcha antwoord gestoor word).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwoord op die captcha (wanneer daar met 'n captcha antwoord gestoor word)",

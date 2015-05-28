@@ -3,7 +3,8 @@
 		"authors": [
 			"Danmichaelo",
 			"Laaknor",
-			"Jeblad"
+			"Jeblad",
+			"Purodha"
 		]
 	},
 	"cx": "Oversett side",
@@ -100,7 +101,7 @@
 	"apihelp-cxpublish-param-to": "Språkkoden på målet.",
 	"apihelp-cxpublish-param-sourcetitle": "Tittelen på kilden.",
 	"apihelp-cxpublish-param-sourcerevision": "Revisjonen på kilden.",
-	"apihelp-cxpublish-param-status": "Hvis «utkast», så vil oversettelsen bli lagret som utkast. Hvis «publisert», så vil oversettelsen bli publisert.",
+	"apihelp-cxpublish-param-status": "Hvis «draft», så vil oversettelsen bli lagret som utkast. Hvis «published», så vil oversettelsen bli publisert.",
 	"apihelp-cxpublish-param-categories": "Kategoriene som skal legges til på den publiserte siden.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (når det lagres med en captcha respons).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar på captcha (når det lagres med en captcha respons).",

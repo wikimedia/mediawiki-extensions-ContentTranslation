@@ -3,7 +3,8 @@
 		"authors": [
 			"Misosoof",
 			"Pikne",
-			"Adeliine"
+			"Adeliine",
+			"Metsavend"
 		]
 	},
 	"cx": "Lehekülje tõlkimine",
@@ -37,7 +38,7 @@
 	"tag-contenttranslation-description": "Sisu tõlgiti teisest keelest sisutõlke tööriista kasutades.",
 	"cx-source-loading": "Lehekülje \"$1\" laadimine",
 	"cx-beta": "Sisutõlge",
-	"cx-beta-desc": "Tööriist, mille abil saad leheküljed kiiresti enda keelde tõlkida. Alusta tõlkeid [[Special:MyContributions|enda kaastöö leheküljelt]] ja toimeta neid just tõlkimiseks loodud võrdleva toimetustööristaga. Mõned tööriistad on saadaval vaid osas keeltes.",
+	"cx-beta-desc": "Tööriist, mille abil saad leheküljed kiiresti enda keelde tõlkida. Alusta tõlkeid [[Special:MyContributions|enda kaastöö leheküljelt]] ja toimeta neid just tõlkimiseks loodud võrdleva toimetustööriistaga. Mõned vahendid on saadaval vaid osas keeltes.",
 	"cx-entrypoint-title": "Tõlgi see lehekülg antud keelde ($1)",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Seda lehekülge ei ole veel antud keeles ($1). Kas tahad selle luua?",
 	"cx-entrypoint-dialog-title-in": "Uue lehe pealkiri antud keeles ($1):",
@@ -67,6 +68,7 @@
 	"cx-stats-title": "Sisutõlke arvandmestik",
 	"cx-stats-unknown": "tundmatu",
 	"cx-tools-reference-title": "Viide",
+	"cx-tools-reference-add": "Lisa viide",
 	"cx-tools-reference-remove": "Eemalda viide",
 	"cx-tools-link-instruction-shortcut": "Avamiseks hoia all tõstuklahvi ja klõpsa mis tahes linki",
 	"cx-tools-link-hover-tooltip": "Klõpsa avamiseks",
@@ -84,7 +86,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Uue lehekülje pealkiri on [$1 juba kasutusel]",
 	"cx-sourceselector-dialog-error-no-source-article": "Valitud keeles ($1) puudub tõlgitav lehekülg.",
 	"cx-mt-abuse-warning-title": "Sinu tõlkest $1% on muutmata masintõlgitud tekst.",
-	"cx-mt-abuse-warning-text": "Masintõlkeid pakutakse vaid šabloonina. Pead veenduma, et sisu on täpne ning sinu keeles arusaadav ja loomulik.",
+	"cx-mt-abuse-warning-text": "Masintõlkeid pakutakse vaid lähtematerjalina. Pead hoolitsema, et sisu on täpne ning sinu keeles arusaadav ja loomulik.",
 	"cx-publish-captcha-title": "Turvaküsimus",
 	"cx-translation-filter-all-translations": "Kõik tõlked",
 	"cx-translation-filter-published-translations": "Avaldatud tõlked",
@@ -92,7 +94,7 @@
 	"cx-translation-filter-from-any-language": "Mistahes keelest",
 	"cx-translation-filter-to-any-language": "Mistahes keelde",
 	"cx-create-new-translation": "Loo uus tõlge",
-	"cx-create-new-translation-desc": "Loo leheküljed teemadel, mis sinu keeles puuduvad. See on lihtne meie tõlketööriistadega.\n[https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Loe lähemalt]",
+	"cx-create-new-translation-desc": "Loo leheküljed teemadel, mis sinu keeles puuduvad. See on lihtne meie tõlketööriistadega.\n[{{int:cx-tools-view-guidelines-link}} Loe lähemalt]",
 	"apihelp-cxpublish-description": "Sisutõlke tarkvaralisaga loodud lehekülje salvestamine.",
 	"apihelp-cxpublish-param-title": "Lehekülg, millel toimingud sooritada; pealkiri.",
 	"apihelp-cxpublish-param-html": "Sisu salvestamiseks.",

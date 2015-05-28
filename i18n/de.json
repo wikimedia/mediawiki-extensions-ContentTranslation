@@ -4,7 +4,8 @@
 			"Metalhead64",
 			"Kghbln",
 			"Inkowik",
-			"Tiin"
+			"Tiin",
+			"Purodha"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -102,7 +103,7 @@
 	"apihelp-cxpublish-param-to": "Der Ziel-Sprachcode.",
 	"apihelp-cxpublish-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-cxpublish-param-sourcerevision": "Die Version der Quellseite.",
-	"apihelp-cxpublish-param-status": "Falls „Entwurf“, wird die Übersetzung als Entwurf gespeichert. Falls „veröffentlicht“, wird die Übersetzung veröffentlicht.",
+	"apihelp-cxpublish-param-status": "Falls „draft“, wird die Übersetzung als Entwurf gespeichert. Falls „published“, wird die Übersetzung veröffentlicht.",
 	"apihelp-cxpublish-param-categories": "Die Kategorien, die in die veröffentlichte Seite eingesetzt werden sollen.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",

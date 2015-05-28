@@ -13,7 +13,8 @@
 			"Kaganer",
 			"Mariya",
 			"Marat-avgust",
-			"Putnik"
+			"Putnik",
+			"Purodha"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -110,7 +111,7 @@
 	"apihelp-cxpublish-param-to": "Код целевого языка.",
 	"apihelp-cxpublish-param-sourcetitle": "Название исходной страницы.",
 	"apihelp-cxpublish-param-sourcerevision": "Версия исходной страницы.",
-	"apihelp-cxpublish-param-status": "Если «черновик», перевод будет сохранен как черновик. Если «опубликовано», перевод будет опубликован.",
+	"apihelp-cxpublish-param-status": "Если «draft», перевод будет сохранен как черновик. Если «published», перевод будет опубликован.",
 	"apihelp-cxpublish-param-categories": "Категории, в которые будет добавлена опубликованная страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчи (при сохранении с показом капчи).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ответ на капчу (при сохранении с показом капчи).",
