@@ -26,7 +26,7 @@
 		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
 		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",
 		"ResourceLoaderTestModules": "ContentTranslationHooks::onResourceLoaderTestModules",
-		"ListDefinedTags":"ContentTranslationHooks::registerTags",
+		"ListDefinedTags": "ContentTranslationHooks::registerTags",
 		"ChangeTagsListActive": "ContentTranslationHooks::registerTags"
 	},
 	"APIModules": {
@@ -763,5 +763,6 @@
 		"ContentTranslationTranslateInTarget": false,
 		"ContentTranslationAsBetaFeature": true,
 		"ContentTranslationTargetNamespace": "Main"
-	}
+	},
+	"manifest_version": 1
 }
