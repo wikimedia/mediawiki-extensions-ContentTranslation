@@ -25,7 +25,7 @@
 	"cx-header-all-translations": "Tüm çeviriler",
 	"cx-source-view-page": "sayfayı görüntüle",
 	"cx-publish-page-success": "Sayfa şurada yayınlandı $1",
-	"cx-publish-page-error": "Bir hata sayfası kaydedilirken hata oluştu. Sayfayı yeniden yayımlamayı deneyin.",
+	"cx-publish-page-error": "Sayfa kaydedilirken hata oluştu. Sayfayı yeniden yayımlamayı deneyin.",
 	"cx-publish-button": "Çeviriyi yayınla",
 	"cx-publish-button-publishing": "Yayınlanıyor...",
 	"cx-publish-summary": "\"$1\" sayfasının çevrilmesiyle oluşturuldu.",
