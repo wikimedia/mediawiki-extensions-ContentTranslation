@@ -535,6 +535,18 @@ $wgResourceModules['ext.cx.publish'] = array(
 	),
 ) + $resourcePaths;
 
+$wgResourceModules['ext.cx.wikibase.link'] = array(
+	'scripts' => array(
+		'publish/ext.cx.wikibase.link.js',
+	),
+	'dependencies' => array(
+		'wikibase.api.RepoApi',
+		'wikibase.client.getMwApiForRepo',
+		'wikibase.client.PageConnector',
+		'wikibase.client.currentSite',
+	),
+) + $resourcePaths;
+
 $wgResourceModules['ext.cx.publish.dialog'] = array(
 	'scripts' => array(
 		'publish/ext.cx.publish.dialog.js',
