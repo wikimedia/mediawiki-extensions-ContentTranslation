@@ -72,7 +72,7 @@
 	"cx-contributions-upload": "Postavi datoteku",
 	"cx-contributions-new-article-tooltip": "Započnite pisati novu stranicu",
 	"cx-contributions-translation-tooltip": "Prevedite postojeće stranice",
-	"cx-contributions-upload-tooltip": "Postavite slike, zvučne i video zapise",
+	"cx-contributions-upload-tooltip": "Postavite slike, zvučne i video zapise za korištenje na stranicama",
 	"cx-publishing-dialog-message": "Stranica $1 već postoji. Trenutačni sadržaj biti će zamijenjen Vašim prijevodom. Želite li je svejedno objaviti?",
 	"cx-publishing-dialog-keep-button": "Zadrži obje inačice",
 	"cx-publishing-dialog-publish-anyway-button": "Svejedno objavi",
