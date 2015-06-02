@@ -32,7 +32,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 			'mediawiki.page.startup',
 			'mediawiki.page.ready',
 		) );
-		$out->addModules( array('ext.cx.header' , 'ext.cx.stats' ) );
+		$out->addModules( array( 'ext.cx.header' , 'ext.cx.stats' ) );
 		// Load legacy modules if any, for the skin.
 		// Some wikis have Common.js scripts that depend on this module.
 		$defaultSkinModules = $skin->getDefaultModules();

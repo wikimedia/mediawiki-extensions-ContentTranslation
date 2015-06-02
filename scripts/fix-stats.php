@@ -161,7 +161,7 @@ class CxFixStats extends Maintenance {
 		$conds[] = 'rev_id = ct_rev_id';
 		$conds['ct_tag'] = 'contenttranslation';
 
-		$field = $dbr->selectField( array( 'revision', 'change_tag'), 'ct_tag', $conds, __METHOD__ );
+		$field = $dbr->selectField( array( 'revision', 'change_tag' ), 'ct_tag', $conds, __METHOD__ );
 		return $field === 'contenttranslation';
 	}
 }
