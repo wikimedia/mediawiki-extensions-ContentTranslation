@@ -71,7 +71,7 @@
 	"cx-translation-filter-from-any-language": "No jebkuras valodas",
 	"cx-translation-filter-to-any-language": "Uz jebkuru valodu",
 	"cx-create-new-translation": "Izveidot jaunu tulkojumu",
-	"cx-create-new-translation-desc": "Veido lapas par tēmām, kas nav tavā valodā. Ar mūsu tulkošanas rīkiem tas ir pavisam viegli. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Uzzināt vairāk]",
+	"cx-create-new-translation-desc": "Veido lapas par tēmām, kas nav tavā valodā. Ar mūsu tulkošanas rīkiem tas ir pavisam viegli. [{{int:cx-tools-view-guidelines-link}} Uzzināt vairāk]",
 	"apihelp-cxpublish-param-html": "Saglabājamais saturs.",
 	"apihelp-cxpublish-param-from": "Avota valodas kods.",
 	"apihelp-cxpublish-param-to": "Mērķa valodas kods.",
