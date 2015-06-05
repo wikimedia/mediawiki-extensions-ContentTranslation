@@ -314,11 +314,6 @@
 	 * @return {string} processed html
 	 */
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {
-		// Remove the wrapper tags that are added to the highlighting segments
-		$content.find( '.cx-segment' ).replaceWith( function () {
-			return $( this ).html();
-		} );
-
 		// Remove unnecessary elements
 		$content.find( 'link, title, .placeholder' ).remove();
 
@@ -333,6 +328,11 @@
 			if ( $section.is( 'h1, h2, h3, h4, h5, h6' ) ) {
 				$section.find( 'br' ).remove();
 			}
+
+			// Remove the wrapper tags that are added to the highlighting segments
+			$section.find( '.cx-segment' ).replaceWith( function () {
+				return $( this ).html();
+			} );
 
 			// Remove empty sections
 			if ( !$.trim( $section.text() ) ) {
