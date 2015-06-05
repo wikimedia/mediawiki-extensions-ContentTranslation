@@ -189,16 +189,20 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $editStatus === 'Success' ) {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
-				ChangeTags::addTags(
-					'contenttranslation',
-					null,
-					intval( $saveresult['edit']['newrevid'] ),
-					null,
-					FormatJson::encode( array(
-						'from' => $params['from'],
-						'to' => $params['to'],
-					) )
-				);
+				// Add the tags post-send, after RC row insertion
+				$revId = intval( $saveresult['edit']['newrevid'] );
+				DeferredUpdates::addCallableUpdate( function() use ( $revId, $params ) {
+					ChangeTags::addTags(
+						'contenttranslation',
+						null,
+						$revId,
+						null,
+						FormatJson::encode( array(
+							'from' => $params['from'],
+							'to' => $params['to'],
+						) )
+					);
+				} );
 			}
 
 			$result = array(
