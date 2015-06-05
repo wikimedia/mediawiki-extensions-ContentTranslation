@@ -76,8 +76,8 @@ $specialPageAliases['lb'] = array(
 
 /** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
-	'ContentTranslation' => array( 'والریاری_مینونه،_سی_ایکس' ),
-	'ContentTranslationStats' => array( 'گوته_یاری_والرشتن_مینونه،_گوته_کاری_سی_ایکس' ),
+	'ContentTranslation' => array( 'والریاری_مینونە', 'سی_ایکس' ),
+	'ContentTranslationStats' => array( 'گوتە_یاری_ڤالئرشتئن_مینونە', 'گوتە_کاری_سی_ئیکس' ),
 );
 
 /** Malagasy (Malagasy) */

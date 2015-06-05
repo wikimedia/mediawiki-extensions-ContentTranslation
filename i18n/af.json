@@ -4,7 +4,8 @@
 			"Slashme",
 			"Winstonza",
 			"Amire80",
-			"Purodha"
+			"Purodha",
+			"Fwolff"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -19,7 +20,7 @@
 	"cx-header-all-translations": "Alle vertalings",
 	"cx-source-view-page": "Wys bladsy",
 	"cx-publish-page-success": "Bladsy is by $1 gepubliseer",
-	"cx-publish-page-error": "Fout: bladsy kon nie gestoor word nie.",
+	"cx-publish-page-error": "'n Fout het voorgekom toe die bladsy gestoor is. Probeer gerus om die bladsy weer te publiseer.",
 	"cx-publish-button": "Publiseer vertaling",
 	"cx-publish-button-publishing": "Besig om te publiseer…",
 	"cx-publish-summary": "Geskep deur die bladsy \"$1\" te vertaal",
@@ -68,6 +69,7 @@
 	"cx-stats-title": "Vertaalstatistieke",
 	"cx-stats-unknown": "onbekend",
 	"cx-tools-reference-title": "Verwysing",
+	"cx-tools-reference-add": "Voeg verwysing by",
 	"cx-tools-reference-remove": "Verwyder verwysing",
 	"cx-tools-link-instruction-shortcut": "Shift + klik enige skakel om oop te maak",
 	"cx-tools-link-hover-tooltip": "Klik om oop te maak",
@@ -85,7 +87,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Die titel vir die nuwe bladsy is [$1 reeds in gebruik]",
 	"cx-sourceselector-dialog-error-no-source-article": "Die bladsy wat jy wil vertaal bestaan nog nie in $1 nie",
 	"cx-mt-abuse-warning-title": "Jou vertaling bevat $1% ongewysigde outomaties vertaalde teks",
-	"cx-mt-abuse-warning-text": "Die outomatiese vertalings word net as 'n sjabloon verskaf. Jy moet seker maak dat die inhoud akuraat is, en natuurlik in jou taal voorkom.",
+	"cx-mt-abuse-warning-text": "Die outomatiese vertalings word net as 'n beginpunt verskaf. Maak seker dat die inhoud akkuraat is, en natuurlik in jou taal voorkom.",
 	"cx-publish-captcha-title": "Sekuriteitsvraag",
 	"cx-translation-filter-all-translations": "Alle vertalings",
 	"cx-translation-filter-published-translations": "Gepubliseerde vertalings",
@@ -93,7 +95,7 @@
 	"cx-translation-filter-from-any-language": "Vanaf enige taal",
 	"cx-translation-filter-to-any-language": "Na enige taal",
 	"cx-create-new-translation": "Skep 'n nuwe vertaling",
-	"cx-create-new-translation-desc": "Skep artikels oor onderwerpe wat nog nie in jou taal bestaan nie. Dis maklik met ons vertaalgereedskap. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Learn more]",
+	"cx-create-new-translation-desc": "Skep artikels oor onderwerpe wat nog nie in jou taal bestaan nie. Dis maklik met ons vertaalgereedskap. [{{int:cx-tools-view-guidelines-link}} Meer inligting]",
 	"apihelp-cxpublish-description": "Stoor 'n bladsy wat deur die Inhoudsvertaling werktuig geskep is.",
 	"apihelp-cxpublish-param-title": "Die titel van die bladsy waarmee iets gedoen word.",
 	"apihelp-cxpublish-param-html": "Die inhoud wat gestoor moet word.",
@@ -102,7 +104,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "Die titel van die bronartikel.",
 	"apihelp-cxpublish-param-sourcerevision": "Die weergawe van die bronartikel.",
 	"apihelp-cxpublish-param-status": "indien \"draft\" gekies word, sal die vertaling as 'n konsep gestoor word. Indien \"published\" gekies word, sal die vertaling gepubliseer word.",
-	"apihelp-cxpublish-param-categories": "Die kategorieë wat tot die gepubliseerde bladsy toegevoeg moet word.",
+	"apihelp-cxpublish-param-categories": "Die kategorieë waarin die gepubliseerde bladsy geplaas moet word.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (wanneer daar met 'n captcha antwoord gestoor word).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwoord op die captcha (wanneer daar met 'n captcha antwoord gestoor word)",
 	"apihelp-query+contenttranslation-description": "Soek vir vertalings in die Inhoudsvertalingsdatabasis.",
@@ -168,7 +170,10 @@
 	"cx-campaign-try": "Probeer Inhoudsvertaling uit",
 	"cx-campaign-contributionsmenu-mycontributions": "Bydraes",
 	"cx-campaign-contributionsmenu-mytranslations": "Vertalings",
+	"cx-campaign-contributionsmenu-translate-instead": "Vertaal eerder as om van voor af te skryf",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 is dalk reeds beskikbaar in ander tale",
 	"cx-campaign-contributionsmenu-myuploads": "Opgelaaide media",
 	"cx-trend-all-translations": "Alle vertalings",
-	"cx-trend-translations-to": "Vertalings na $1 taal"
+	"cx-trend-translations-to": "Vertalings na $1",
+	"cx-stats-try-contenttranslation": "Inhoudvertaling is gereedskap om nuwe bladsye te skep deur uit ander tale te vertaal. [$1 Probeer Inhoudvertaling]"
 }

@@ -40,7 +40,7 @@
 	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta de tradución de contido",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-beta": "Tradución de contido",
-	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á súa lingua. Comeza as traducións desde a súa [[Special:MyContributions|páxina de contribucións]] e edíteas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles unicamente en certas linguas.",
+	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á súa lingua. Inicie as traducións desde a súa [[Special:MyContributions|páxina de contribucións]] e edíteas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles unicamente en certas linguas.",
 	"cx-entrypoint-title": "Traducir esta páxina ao $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta páxina aínda non existe en $1. {{GENDER:|Quere}} creala?",
 	"cx-entrypoint-dialog-title-in": "Título da páxina nova en $1:",
