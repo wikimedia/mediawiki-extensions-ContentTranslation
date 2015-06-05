@@ -1,4 +1,4 @@
-@firefox @en.wikipedia.beta.wmflabs.org
+@firefox @language_screenshot @en.wikipedia.beta.wmflabs.org
 Feature: Content translation screenshots
 
   These are scenarios for auto-translated screenshots for the ContentTranslation manual.
@@ -6,7 +6,6 @@ Feature: Content translation screenshots
   Background:
     Given I am logged in
 
-  @screenshots
   Scenario: Hover over the contributions link
     Given I am at a wiki page
     When I hover over the Contributions link in the personal menu
