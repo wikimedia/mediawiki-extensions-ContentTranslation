@@ -87,6 +87,14 @@ class SpecialContentTranslation extends SpecialPage {
 				// User has a token. Enabled cx for the user in this wiki.
 				$this->enableCXBetaFeature();
 			} else {
+				if ( $campaign ) {
+					// Show login page if the URL has campaign parameter
+					$out->showPermissionsErrorPage(
+						array( array( 'badaccess-groups' ) ),
+						'edit'
+					);
+					return;
+				}
 				$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
 				return;
 			}
