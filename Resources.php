@@ -702,7 +702,8 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'ext.cx.util',
 		'ext.cx.header',
 		'chart.js',
-		'jquery.uls.data'
+		'jquery.uls.data',
+		'ext.cx.widgets.spinner',
 	),
 	'messages' => array(
 		'cx-stats-table-source-target',
@@ -714,6 +715,17 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'cx-trend-all-translations',
 		'cx-trend-translations-to',
 		'cx-stats-try-contenttranslation',
+		'cx-stats-published-target-source',
+		'cx-stats-published-source-target',
+		'cx-stats-draft-target-source',
+		'cx-stats-draft-source-target',
+		'cx-stats-tabs-expand',
+		'cx-stats-total-published',
+		'cx-stats-monthly-published',
+		'cx-stats-weekly-published',
+		'cx-stats-local-published',
+		'cx-stats-grouping-title',
+		'percent',
 	)
 ) + $resourcePaths;
 
