@@ -190,8 +190,8 @@
 	"cx-stats-draft-source-target": "A message shown in [[Special:CXStats]]",
 	"cx-stats-tabs-expand": "A message shown in [[Special:CXStats]] to expand the charts to see all languages. This is a link label",
 	"cx-stats-total-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
-	"cx-stats-monthly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
-	"cx-stats-weekly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
-	"cx-stats-local-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics. $1 is a number, and $2 is language name(autonym).",
+	"cx-stats-monthly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics\n{{Identical|Last month}}",
+	"cx-stats-weekly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics\n{{Identical|Last week}}",
+	"cx-stats-local-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics. $1 is a number, and $2 is language name (autonym).",
 	"cx-stats-grouping-title": "Title text for language grouping based on number of translations. $1 is number of translations"
 }

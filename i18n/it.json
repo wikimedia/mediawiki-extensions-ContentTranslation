@@ -8,7 +8,8 @@
 			"Macofe",
 			"Ricordisamoa",
 			"Nivit",
-			"Mpiva"
+			"Mpiva",
+			"Alexmar983"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -164,5 +165,13 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Contributi",
 	"cx-campaign-contributionsmenu-mytranslations": "Traduzioni",
 	"cx-campaign-contributionsmenu-myuploads": "File multimediali caricati",
-	"cx-trend-all-translations": "Tutte le traduzioni"
+	"cx-trend-all-translations": "Tutte le traduzioni",
+	"cx-stats-published-source-target": "Traduzioni da",
+	"cx-stats-draft-source-target": "Traduzioni in corso da",
+	"cx-stats-tabs-expand": "Visualizza tutte le lingue",
+	"cx-stats-total-published": "Totale pubblicato",
+	"cx-stats-monthly-published": "Ultimo mese",
+	"cx-stats-weekly-published": "Ultima settimana",
+	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzioni}}"
 }

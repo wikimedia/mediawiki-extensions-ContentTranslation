@@ -178,5 +178,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "מדיה שהעלית",
 	"cx-trend-all-translations": "כל התרגומים",
 	"cx-trend-translations-to": "תרגומים ל$1",
-	"cx-stats-try-contenttranslation": "תרגום תוכן (Content Translation) הוא כלי ליצירת דפים חדשים באמצעות תרגום משפות אחרות [$1 נסו את תרגום תוכן]"
+	"cx-stats-try-contenttranslation": "תרגום תוכן (Content Translation) הוא כלי ליצירת דפים חדשים באמצעות תרגום משפות אחרות [$1 נסו את תרגום תוכן]",
+	"cx-stats-published-target-source": "תרגומים ל־",
+	"cx-stats-published-source-target": "תרגומים מ־",
+	"cx-stats-draft-target-source": "תרגומים שהתחילו ל־",
+	"cx-stats-draft-source-target": "תרגומים שהתחילו מ־",
+	"cx-stats-tabs-expand": "הצגת כל השפות",
+	"cx-stats-total-published": "סה\"כ פורסמו",
+	"cx-stats-monthly-published": "בחודש שעבר",
+	"cx-stats-weekly-published": "בשבוע שעבר",
+	"cx-stats-local-published": "$1 ב{{GRAMMAR:תחילית|$2}}",
+	"cx-stats-grouping-title": "{{PLURAL:$1|תרגום אחד|$1 תרגומים}}"
 }

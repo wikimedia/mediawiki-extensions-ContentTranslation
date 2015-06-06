@@ -186,5 +186,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Multimedia",
 	"cx-trend-all-translations": "Todas las traducciones",
 	"cx-trend-translations-to": "Traducciones al idioma $1",
-	"cx-stats-try-contenttranslation": "La traducción de contenidos es una herramienta para crear páginas nuevas traduciéndolas de otros idiomas. [$1 Prueba la traducción de contenidos]"
+	"cx-stats-try-contenttranslation": "La traducción de contenidos es una herramienta para crear páginas nuevas traduciéndolas de otros idiomas. [$1 Prueba la traducción de contenidos]",
+	"cx-stats-published-target-source": "Traducciones al",
+	"cx-stats-published-source-target": "Traducciones del",
+	"cx-stats-draft-target-source": "Traducciones en proceso al",
+	"cx-stats-draft-source-target": "Traducciones en proceso del",
+	"cx-stats-tabs-expand": "Ver todos los idiomas",
+	"cx-stats-total-published": "Total publicado",
+	"cx-stats-monthly-published": "Último mes",
+	"cx-stats-weekly-published": "Última semana",
+	"cx-stats-local-published": "$1 en $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducción|$1 traducciones}}"
 }

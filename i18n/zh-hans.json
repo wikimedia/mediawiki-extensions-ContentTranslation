@@ -179,5 +179,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "上传的媒体",
 	"cx-trend-all-translations": "所有翻译",
 	"cx-trend-translations-to": "至$1语言的翻译",
-	"cx-stats-try-contenttranslation": "内容翻译是一个通过从其他语言版翻译创建新页面的工具。[$1 尝试内容翻译]"
+	"cx-stats-try-contenttranslation": "内容翻译是一个通过从其他语言版翻译创建新页面的工具。[$1 尝试内容翻译]",
+	"cx-stats-published-target-source": "翻译至",
+	"cx-stats-published-source-target": "翻译自",
+	"cx-stats-draft-target-source": "正在翻译至",
+	"cx-stats-draft-source-target": "正在翻译自",
+	"cx-stats-tabs-expand": "查看所有语言",
+	"cx-stats-total-published": "总计发布",
+	"cx-stats-monthly-published": "上月",
+	"cx-stats-weekly-published": "上周",
+	"cx-stats-local-published": "$2中的$1",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1次翻译}}"
 }

@@ -129,5 +129,15 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 ass eventuell schonn an anere Sproochen disponibel",
 	"cx-campaign-contributionsmenu-myuploads": "Eropgeluede Mediefichieren",
 	"cx-trend-all-translations": "All Iwwersetzungen",
-	"cx-trend-translations-to": "Iwwersetzungen an déi $1 Sprooch"
+	"cx-trend-translations-to": "Iwwersetzungen an déi $1 Sprooch",
+	"cx-stats-published-target-source": "Iwwersetzungen op",
+	"cx-stats-published-source-target": "Iwwersetzunge vu(n)",
+	"cx-stats-draft-target-source": "Iwwersetzungen am Gaang op",
+	"cx-stats-draft-source-target": "Iwwersetzungen am Gaang vu(n)",
+	"cx-stats-tabs-expand": "All Sprooche weisen",
+	"cx-stats-total-published": "Total publizéiert",
+	"cx-stats-monthly-published": "Leschte Mount",
+	"cx-stats-weekly-published": "Lescht Woch",
+	"cx-stats-local-published": "$1 op $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}"
 }

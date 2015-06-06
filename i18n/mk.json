@@ -171,5 +171,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Подигнати податотеки",
 	"cx-trend-all-translations": "Сите преводи",
 	"cx-trend-translations-to": "Преводи на $1",
-	"cx-stats-try-contenttranslation": "„Преведување на содржини“ е алатка за создавање на нови страници со преведување од други јазици. [$1 Пробајте го Преведувањето на содржини]"
+	"cx-stats-try-contenttranslation": "„Преведување на содржини“ е алатка за создавање на нови страници со преведување од други јазици. [$1 Пробајте го Преведувањето на содржини]",
+	"cx-stats-published-target-source": "Преводи на",
+	"cx-stats-published-source-target": "Преводи од",
+	"cx-stats-draft-target-source": "Преводи во тек на",
+	"cx-stats-draft-source-target": "Преводи во тек од",
+	"cx-stats-tabs-expand": "Погл. сите јазици",
+	"cx-stats-total-published": "Вкупно објавени",
+	"cx-stats-monthly-published": "Минатиот месец",
+	"cx-stats-weekly-published": "Минатата седмица",
+	"cx-stats-local-published": "$1 на $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 преводи}}"
 }
