@@ -69,7 +69,8 @@
 			lastWeekTotal, lastWeekLangTotal, weekTrend = 0,
 			weekLangTrend = 0,
 			lastWeekLangTranslations, prevWeekLangTotal, lastWeekTranslations,
-			prevWeekTotal, prevWeekTranslations, prevWeekLangTranslations;
+			prevWeekTotal, prevWeekTranslations, prevWeekLangTranslations,
+			fmt = mw.language.convertNumber;
 
 		if ( this.totalTranslationTrend.length < 3 ) {
 			// Trend calculation works if we have enough data
@@ -104,25 +105,44 @@
 		$total = $( '<div>' )
 			.addClass( 'cx-stats-box' )
 			.append(
-				$( '<div>' ).addClass( 'cx-stats-box__title' ).text( mw.msg( 'cx-stats-total-published' ) ),
-				$( '<div>' ).addClass( 'cx-stats-box__total' ).text( total ),
-				$( '<div>' ).addClass( 'cx-stats-box__localtotal' )
-				.text( mw.msg( 'cx-stats-local-published', langTotal, localLanguage ) )
+				$( '<div>' )
+					.addClass( 'cx-stats-box__title' )
+					.text( mw.msg( 'cx-stats-total-published' ) ),
+				$( '<div>' )
+					.addClass( 'cx-stats-box__total' )
+					.text( fmt( total ) ),
+				$( '<div>' )
+					.addClass( 'cx-stats-box__localtotal' )
+					.text( mw.msg(
+						'cx-stats-local-published',
+						fmt( langTotal ),
+						fmt( localLanguage )
+					)
+				)
 			);
 
 		$weeklyStats = $( '<div>' )
 			.addClass( 'cx-stats-box' )
 			.append(
-				$( '<div>' ).addClass( 'cx-stats-box__title' ).text( mw.msg( 'cx-stats-weekly-published' ) ),
+				$( '<div>' )
+					.addClass( 'cx-stats-box__title' )
+					.text( mw.msg( 'cx-stats-weekly-published' ) ),
 				$( '<div>' ).append(
-					$( '<span>' ).addClass( 'cx-stats-box__total' ).text( lastWeekTranslations ),
 					$( '<span>' )
-					.addClass( 'cx-stats-box__trend ' + ( weekTrend >= 0 ? 'increase' : 'decrease' ) )
-					.text( mw.msg( 'percent', weekTrend ) )
+						.addClass( 'cx-stats-box__total' )
+						.text( fmt( lastWeekTranslations ) ),
+					$( '<span>' )
+						.addClass( 'cx-stats-box__trend ' + ( weekTrend >= 0 ? 'increase' : 'decrease' ) )
+						.text( mw.msg( 'percent', fmt( weekTrend ) ) )
 				),
-				$( '<div>' ).addClass( 'cx-stats-box__localtotal' )
-				.text( mw.msg( 'cx-stats-local-published',
-					lastWeekLangTranslations + '(' + mw.msg( 'percent', weekLangTrend ) + ')', localLanguage ) )
+				$( '<div>' )
+					.addClass( 'cx-stats-box__localtotal' )
+					.text( mw.msg(
+						'cx-stats-local-published',
+						fmt( lastWeekLangTranslations ) + ' ('
+							+ mw.msg( 'percent', fmt( weekLangTrend ) ) + ')',
+						localLanguage
+					) )
 			);
 		this.$highlights.append( $total, $weeklyStats );
 	};
@@ -219,7 +239,8 @@
 			$callout,
 			$row, width, max = 0,
 			$tail, tailWidth = 0,
-			tail;
+			tail,
+			fmt = mw.language.convertNumber;
 
 		$chart = $( '<div>' ).addClass( 'cx-stats-chart' );
 
@@ -250,7 +271,7 @@
 				max = Math.ceil( model[ i ][ property ] / 100 ) * 100;
 				$rows.push( $( '<div>' )
 					.addClass( 'cx-stats-chart__row seperator' )
-					.text( mw.msg( 'cx-stats-grouping-title', mw.language.convertNumber( max ) ) ) );
+					.text( mw.msg( 'cx-stats-grouping-title', fmt( max ) ) ) );
 			}
 
 			$callout = $( '<table>' ).addClass( 'cx-stats-chart__callout' );
@@ -273,8 +294,12 @@
 				}
 
 				$callout.append( $( '<tr>' ).append(
-					$( '<td>' ).addClass( 'cx-stats-chart__callout-count' ).text( translations[ j ][ property ] ),
-					$( '<td>' ).addClass( 'cx-stats-chart__callout-lang' ).text( $.uls.data.getAutonym( translations[ j ][
+					$( '<td>' )
+						.addClass( 'cx-stats-chart__callout-count' )
+						.text( fmt( translations[ j ][ property ] ) ),
+					$( '<td>' )
+						.addClass( 'cx-stats-chart__callout-lang' )
+						.text( $.uls.data.getAutonym( translations[ j ][
 							direction === 'to' ? 'sourceLanguage' : 'targetLanguage' ] ) )
 				) );
 			}
@@ -299,9 +324,15 @@
 			}
 
 			$row.append(
-				$( '<span>' ).addClass( 'cx-stats-chart__langcode' ).text( model[ i ].language ),
-				$( '<span>' ).addClass( 'cx-stats-chart__autonym' ).text( $.uls.data.getAutonym( model[ i ].language ) ),
-				$( '<span>' ).addClass( 'cx-stats-chart__total' ).text( model[ i ][ property ] ),
+				$( '<span>' )
+					.addClass( 'cx-stats-chart__langcode' )
+					.text( model[ i ].language ),
+				$( '<span>' )
+					.addClass( 'cx-stats-chart__autonym' )
+					.text( $.uls.data.getAutonym( model[ i ].language ) ),
+				$( '<span>' )
+					.addClass( 'cx-stats-chart__total' )
+					.text( fmt( model[ i ][ property ] ) ),
 				$translations
 			);
 
