@@ -21,7 +21,8 @@
 			"Ltrlg",
 			"Mattho69",
 			"Trizek",
-			"Lucky"
+			"Lucky",
+			"ProfGra"
 		]
 	},
 	"cx": "Traduire la page",
@@ -191,5 +192,10 @@
 	"cx-campaign-contributionsmenu-myuploads": "Fichiers téléversés",
 	"cx-trend-all-translations": "Toutes les traductions",
 	"cx-trend-translations-to": "Traductions vers la langue $1",
-	"cx-stats-try-contenttranslation": "L'outil de traduction est un nouvel outil permettant de créer des articles à partir d'articles écrits dans une autre langue. [$1 Essayer l'outil de traduction]"
+	"cx-stats-try-contenttranslation": "L'outil de traduction est un nouvel outil permettant de créer des articles à partir d'articles écrits dans une autre langue. [$1 Essayer l'outil de traduction]",
+	"cx-stats-published-target-source": "Traductions en",
+	"cx-stats-draft-target-source": "Traductions en cours vers",
+	"cx-stats-total-published": "Total des publications",
+	"cx-stats-monthly-published": "Le mois dernier",
+	"cx-stats-local-published": "$1 en $2"
 }

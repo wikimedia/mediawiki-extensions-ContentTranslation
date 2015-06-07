@@ -16,5 +16,5 @@
 	"cx-stats-monthly-published": "Nakaaging bulan",
 	"cx-stats-weekly-published": "Nakaaging semana",
 	"cx-stats-local-published": "$1 sa $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na mga dakit-taramon}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na dakit-taramon|$1 na mga dakit-taramon}}}}"
 }

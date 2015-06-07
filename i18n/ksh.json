@@ -65,6 +65,7 @@
 	"cx-stats-title": "Schtateßteke vun de ContentTranslation",
 	"cx-stats-unknown": "onbikannt",
 	"cx-tools-reference-title": "Fohßnoht",
+	"cx-tools-reference-add": "Donn en Fohßnuht derbei",
 	"cx-tools-reference-remove": "De Fohßnoht fott schmiiße",
 	"cx-tools-link-instruction-shortcut": "Donn öhnds_ene Lengk zersamme met dä Jruhßschreff_Taß aankleke.",
 	"cx-tools-link-hover-tooltip": "Zom Opmaache aanklecke.",
@@ -91,7 +92,7 @@
 	"cx-translation-filter-to-any-language": "En jejde Schprohch",
 	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
 	"cx-create-new-translation-desc": "Lääsch Sigge aan för Tehme, di en Dinge Schprohch noch nit vörkumme. Dadd_es leisch met onsere Övversäzongs_Wärkzüsch. Loor derför op di Sigg [{{int:cx-tools-view-guidelines-link}}]<!--  -->, doh kanns De mih dövver erus fenge.",
-	"apihelp-cxpublish-description": "onn en Sigg aßhallde, di met däm Wärkzüsch ContentTranslation aanjelaht wood.",
+	"apihelp-cxpublish-description": "Donn en Sigg faßhallde, di met däm Wärkzüsch ContentTranslation aanjelaht wood.",
 	"apihelp-cxpublish-param-title": "De Övverschreff vun dä Sigg, met dä jät jedonn wähde sull.",
 	"apihelp-cxpublish-param-html": "Dä Enhalld för zom faßhallde.",
 	"apihelp-cxpublish-param-from": "Et Köözel för de Quälleschprohch.",
@@ -170,5 +171,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Huhjelahde Datteije",
 	"cx-trend-all-translations": "Alle Övversäzonge",
 	"cx-trend-translations-to": "Övversäzonge en de Schprohch: $1\n<!--  \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Cx-trend-translations-to/ksh\n-->",
-	"cx-stats-try-contenttranslation": "De  Content Translation es e Wärkzüsch woh mer eu Sigge met mäht, endäm_mer uß annder schprohche övversaz. [$1 {{int:Cx-campaign-try}}]."
+	"cx-stats-try-contenttranslation": "De  Content Translation es e Wärkzüsch woh mer eu Sigge met mäht, endäm_mer uß annder schprohche övversaz. [$1 {{int:Cx-campaign-try}}].",
+	"cx-stats-published-target-source": "Övversäzonge op",
+	"cx-stats-published-source-target": "Övversäzonge uß",
+	"cx-stats-draft-target-source": "Övversäzonge en Ärbeid noh",
+	"cx-stats-draft-source-target": "Övversäzonge en Ärbeid vun <!-- [[Thread:Support/About MediaWiki:Cx-stats-draft-source-target/ksh]]  -->",
+	"cx-stats-tabs-expand": "För alle Schprohche",
+	"cx-stats-total-published": "Ennsjesammp öffentlesch jemaat",
+	"cx-stats-monthly-published": "Läzde Mohnd",
+	"cx-stats-weekly-published": "Läzde Woch",
+	"cx-stats-local-published": "$1 op $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|Ein Övversäzong|$1 Övversäzonge|Kein Övversäzong}}"
 }

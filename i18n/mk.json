@@ -181,5 +181,5 @@
 	"cx-stats-monthly-published": "Минатиот месец",
 	"cx-stats-weekly-published": "Минатата седмица",
 	"cx-stats-local-published": "$1 на $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 преводи}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}"
 }
