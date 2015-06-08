@@ -322,7 +322,13 @@ class Translation {
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
 		$dbr = Database::getConnection( DB_SLAVE );
-		$conditions = array( 'translation_status' => 'published' );
+		$conditions = array( $dbr->makeList(
+			array(
+				'translation_status' => 'published',
+				'translation_target_url IS NOT NULL',
+			),
+			LIST_OR
+		) );
 
 		if ( $from ) {
 			$conditions['translation_source_language'] = $from;
