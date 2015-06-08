@@ -94,6 +94,11 @@
 		$section.find( 'img' ).each( function () {
 			var $image = $( this );
 
+			$image.on( 'click', function ( event ) {
+				// Avoid opening images by clicking.
+				event.preventDefault();
+			} );
+
 			getImageNamespaceTranslation( targetLanguage )
 				.done( function ( translatedNamespace ) {
 					var resource;

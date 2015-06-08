@@ -11,141 +11,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var cache = {};
-	/**
-	 * Link Card
-	 * @class
-	 * @param {mw.cx.SiteMapper} siteMapper
-	 */
-	function LinkCard( siteMapper ) {
-		this.$card = null;
-		this.$removeLink = null;
-		this.$addLink = null;
-		this.$link = null;
-		this.$sourceLinkCard = null;
-		this.$targetLinkCard = null;
-
-		this.siteMapper = siteMapper;
-	}
-
-	/**
-	 * Get a link card
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getLinkCard = function () {
-		var $card,
-			$imageContainer, $linkContainer,
-			$cardHeader, $linkInfo;
-
-		$card = $( '<div>' )
-			.addClass( 'card' );
-
-		$imageContainer = $( '<div>' )
-			.addClass( 'card__link-image-container' );
-
-		$linkInfo = $( '<div>' )
-			.addClass( 'card__link-info' );
-
-		$cardHeader = $( '<div>' )
-			.addClass( 'card__link-header' );
-		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title' )
-			.text( mw.msg( 'cx-tools-link-title' ) ) );
-		$cardHeader.append( $( '<div>' )
-			.addClass( 'card__title--language' ) );
-
-		$linkInfo.append( $cardHeader );
-
-		$linkContainer = $( '<div>' )
-			.addClass( 'card__link-container' );
-
-		$linkContainer.append( $( '<a>' )
-			.addClass( 'card__link-text' ) );
-
-		$linkInfo.append( $linkContainer );
-
-		$card.append( $imageContainer, $linkInfo );
-
-		return $card;
-	};
-
-	/**
-	 * Get a source link card
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getSourceLinkCard = function () {
-		var $linkInstructionSection, $linkInstructionShortcut;
-
-		this.$sourceLinkCard = this.getLinkCard();
-		this.$sourceLinkCard.find( '.card__title--language' )
-			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
-		$linkInstructionSection = $( '<div>' )
-			.addClass( 'card__link-instruction' );
-		$linkInstructionShortcut = $( '<div>' )
-			.addClass( 'shortcut-info' )
-			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
-		$linkInstructionSection.append( $linkInstructionShortcut );
-		this.$sourceLinkCard.find( '.card__link-info' ).append( $linkInstructionSection );
-
-		return this.$sourceLinkCard.hide();
-	};
-
-	/**
-	 * Get a target link card
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getTargetLinkCard = function () {
-		this.$targetLinkCard = this.getLinkCard();
-		this.$targetLinkCard.find( '.card__title--language' )
-			.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
-		this.$removeLink = $( '<div>' )
-			.addClass( 'card__remove-link' )
-			.text( mw.msg( 'cx-tools-link-remove' ) );
-		this.$addLink = $( '<div>' )
-			.addClass( 'card__add-link' )
-			.text( mw.msg( 'cx-tools-link-add' ) );
-		this.$targetLinkCard.find( '.card__link-info' )
-			.append( this.$addLink, this.$removeLink );
-
-		return this.$targetLinkCard.hide();
-	};
-
-	/**
-	 * Get all applicable cards.
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getCard = function () {
-		this.$card = $( '<div>' )
-			.addClass( 'cards link' );
-		this.$card.append( this.getSourceLinkCard() );
-		this.$card.append( this.getTargetLinkCard() );
-		this.listen();
-
-		return this.$card.hide();
-	};
-
-	/**
-	 * Removes a link if the link is an editable target link
-	 * If the link is a source link, removes the corresponding
-	 * editable target link.
-	 * @return {boolean}
-	 */
-	LinkCard.prototype.removeLink = function () {
-		var $targetLink, $parentSection = null;
-
-		if ( this.isSourceLink() ) {
-			$targetLink = this.getTargetLink();
-			if ( $targetLink ) {
-				this.$link = $targetLink.first();
-			}
-		}
-
-		if ( this.isEditableTargetLink() ) {
-			$parentSection = this.$link.parents( '[contenteditable]' );
-			$parentSection.trigger( 'input' );
-			this.$link.before( this.$link.text() ).remove();
-			this.stop();
-		}
+	var cache = {
+		linkPairs: {}
 	};
 
 	/**
@@ -158,7 +25,7 @@
 	function getLink( api, title, language ) {
 		var request;
 
-		// Normalize
+		// Normalize the title
 		title = mw.Title.newFromText( title ).toString();
 		if ( cache[ title ] && cache[ title ][ language ] ) {
 			return cache[ title ][ language ].promise();
@@ -178,6 +45,7 @@
 			cache: true
 		} );
 
+		// Keep the request in cache
 		cache[ title ] = cache[ title ] || {};
 		cache[ title ][ language ] = request;
 
@@ -185,24 +53,12 @@
 	}
 
 	/**
-	 * Event listeners
-	 */
-	LinkCard.prototype.listen = function () {
-		var linkCard = this;
-
-		// Bring the card to front when clicked
-		this.$card.on( 'click', '.card:first', function () {
-			$( this ).insertAfter( linkCard.$card.find( '.card:last' ) );
-		} );
-	};
-
-	/**
-	 * Adapt the given title to a target language
+	 * Fetch the link pairs
 	 * @param {string|string[]} titles A title as string or array of titles
 	 * @param {string} language Language to which the links are to be adapted
 	 * @return {jQuery.Promise}
 	 */
-	LinkCard.prototype.adapt = function ( titles, language ) {
+	function fetchLinkPairs( titles, language ) {
 		var apiLanguage,
 			deferred = $.Deferred();
 
@@ -216,10 +72,11 @@
 			apiLanguage = mw.cx.sourceLanguage;
 		}
 
-		this.siteMapper.getApi( apiLanguage ).get( {
+		mw.cx.siteMapper.getApi( apiLanguage ).get( {
 			action: 'query',
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
+			lllimit: titles.length, // TODO: Default is 10 and max is 500. Do we need more than 500?
 			lllang: language,
 			redirects: true,
 			format: 'json'
@@ -231,32 +88,37 @@
 			var redirects,
 				linkPairs = {};
 
-			if ( response.query ) {
-				redirects = jQuery.extend( {}, response.query.redirects );
-
-				$.each( response.query.pages, function ( pageId, page ) {
-					var i, key, title;
-
-					for ( i in redirects ) {
-						if ( redirects[ i ].to === page.title ) {
-							key = redirects[ i ].from;
-							break;
-						}
-					}
-
-					if ( !key ) {
-						key = page.title;
-					}
-
-					title = mw.Title.newFromText( key );
-
-					if ( title ) {
-						linkPairs[ title.getPrefixedDb() ] = page.langlinks &&
-							page.langlinks[ 0 ][ '*' ];
-					}
-				} );
+			if ( !response.query ) {
+				deferred.resolve( {} );
+				return;
 			}
+			redirects = jQuery.extend( {}, response.query.redirects );
 
+			$.each( response.query.pages, function ( pageId, page ) {
+				var i, key, title;
+
+				for ( i in redirects ) {
+					// Locate the title in redirects, if any.
+					if ( redirects[ i ].to === page.title ) {
+						key = redirects[ i ].from;
+						break;
+					}
+				}
+
+				if ( !key ) {
+					key = page.title;
+				}
+
+				title = mw.Title.newFromText( key );
+
+				if ( title ) {
+					linkPairs[ title.toString() ] = page.langlinks &&
+						page.langlinks[ 0 ][ '*' ];
+				}
+			} );
+
+			// Add it to the cache
+			cache.linkPairs = $.extend( cache.linkPairs, linkPairs );
 			deferred.resolve( linkPairs );
 		} ).fail( function ( error ) {
 			mw.log( 'Error while adapting links:' + error );
@@ -265,15 +127,6 @@
 		} );
 
 		return deferred.promise();
-	};
-
-	/**
-	 * Remove the leading ./ added by parsoid.
-	 * @param {string} href Link target
-	 * @return {string} Cleaned up href
-	 */
-	function cleanupLinkHref( href ) {
-		return href && href.replace( /^\.*\//, '' );
 	}
 
 	/**
@@ -285,6 +138,7 @@
 
 		if ( window.getSelection ) {
 			selection = window.getSelection();
+
 			if ( selection.rangeCount ) {
 				parent = selection.getRangeAt( 0 ).commonAncestorContainer;
 				if ( parent.nodeType !== 1 ) {
@@ -292,11 +146,14 @@
 				}
 			}
 		} else if ( document.selection ) {
+			// IE < 9. Unlikely since we do not support old IE browsers as of now.
 			selection = document.selection;
+
 			if ( selection.type !== 'Control' ) {
 				parent = selection.createRange().parentElement();
 			}
 		}
+
 		return $( parent );
 	}
 
@@ -311,282 +168,604 @@
 		if ( !selection || !selection.toString().length ) {
 			return false;
 		}
+
 		$parent = getSelectionParent();
 
+		// Check if parent is editable
 		if ( $parent.is( '[contenteditable="false"]' ) ) {
 			return false;
 		}
+
 		// Check if the text selected is text of a link. If so, that substring
 		// of link text is not a valid text of any link card related actions.
 		if ( $parent.is( '.cx-target-link' ) || $parent.parents( '.cx-target-link' ).length ) {
 			return false;
 		}
+
 		// Check if parent is already a section. Happens when translator clear the section
 		// and start from empty paragraph. No segments there, just a section parent.
 		if ( $parent.is( mw.cx.getSectionSelector() ) ) {
 			return true;
 		}
+
 		// Get parent section
 		$parentSection = $parent.parents( '[contenteditable]' );
 		// Check if that section is editable
 		return $parentSection.prop( 'contenteditable' );
 	}
 
-	/**
-	 * Create a wiki internal link with given link text and target and paste it into
-	 * current selection in translation column.
-	 *
-	 * @param {string} linkText Link display text
-	 * @param {string} title Link target
-	 * @param {string} [id] Link id
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.createInternalLink = function ( linkText, title, id ) {
-		var $link, $parentSection;
+	function removeAllHighlights() {
+		// Remove existing highlights from source and translation columns. From
+		// all sections.
+		$( '.cx-link' ).removeClass( 'cx-highlight--blue cx-highlight--lightblue' );
+		$( '.cx-target-link' ).removeClass( 'cx-highlight--blue cx-highlight--lightblue' );
+	}
 
+	/**
+	 * CXLink class. Represents a generic link in CX. It can be a source or target link.
+	 * It may not correspond to a link that exist in document.
+	 * @param {Element} [link] An <a> element
+	 * @param {Object} [options] Optional options object
+	 */
+	function CXLink( link, options ) {
+		this.$link = $( link );
+		this.options = $.extend( true, {}, CXLink.defaults, options );
+		this.siteMapper = this.options.siteMapper;
+		this.title = null;
+		this.page = null;
+		this.id = null;
+	}
+
+	CXLink.prototype.getId = function () {
+		return this.id || this.$link.data( 'linkid' );
+	};
+
+	CXLink.prototype.getLink = function () {
+		return this.$link;
+	};
+
+	CXLink.prototype.setId = function ( id ) {
+		this.id = id;
+	};
+
+	CXLink.prototype.makeRedLink = function () {
+		var selection;
+
+		if ( !this.$link || !this.$link.length ) {
+			// See if there is a selection
+			mw.cx.selection.restore( 'translation' );
+			selection = mw.cx.selection.get();
+			// Is this selection valid and editable?
+			if ( isValidSelection( selection ) ) {
+				this.$link = this.createLink();
+			} else {
+				return;
+			}
+		}
+		this.$link.removeClass( 'cx-target-link-unadapted' ).addClass( 'new' );
+	};
+
+	CXLink.prototype.isRedLink = function () {
+		return this.$link.is( '.new' );
+	};
+
+	CXLink.prototype.setTitle = function ( title ) {
+		this.title = title;
+	};
+
+	CXLink.prototype.getLanguage = function () {
+		return this.language;
+	};
+
+	CXLink.prototype.getTitle = function () {
+		if ( this.title ) {
+			return this.title;
+		}
+
+		// It is a bit odd to use title property as mediawiki Title,
+		// but it is a valid case for mediawiki links.
+		this.title = this.$link ? this.$link.prop( 'title' ) : null;
+
+		return this.title;
+	};
+
+	/**
+	 * Convert a current selection if present, if editable to a link
+	 */
+	CXLink.prototype.createLink = function () {
+		var $link, selection;
+
+		// Restore the selection
+		mw.cx.selection.restore( 'translation' );
+		selection = mw.cx.selection.get();
 		$link = $( '<a>' )
 			.addClass( 'cx-target-link' )
-			.text( linkText )
+			.text( selection.toString() )
 			.attr( {
-				href: title,
+				title: this.title,
+				href: this.title,
 				rel: 'mw:WikiLink'
 			} );
 
-		if ( id ) {
-			$link.attr( 'data-linkid', id );
-		}
-
+		$link.attr( 'data-linkid', this.getId() );
 		mw.cx.selection.pasteHTML( $link[ 0 ].outerHTML );
-
-		$parentSection = $( '.cx-target-link[data-linkid="' + id + '"]' )
-			.parents( '[contenteditable]' );
-		$parentSection.trigger( 'input' );
+		// Where did it go?
+		$link = $( '.cx-column--translation a[data-linkid="' + this.getId() + '"]' );
+		$link.cxTargetLink();
+		this.$link.parents( '[contenteditable]' ).trigger( 'input' );
 
 		return $link;
 	};
 
-	/**
-	 * Make the given element to be an external link to a page in given language.
-	 * @param {jQuery} $link Link element
-	 * @param {string} target The page title in the target wikis
-	 * @param {string} language Language code of target wikis
-	 */
-	LinkCard.prototype.createExternalLink = function ( $link, target, language ) {
-		// Normalize the text for display and href
-		var title = mw.Title.newFromText( target );
+	CXLink.prototype.fetchLinkData = function () {
+		var api, title, self = this,
+			language = this.getLanguage();
 
-		title = title ? title.getPrefixedText() : target;
-
-		this.setLinkAttributes( $link, title, language );
-	};
-
-	/**
-	 * Prepare the link card for the source language
-	 * @param {string} title The title
-	 * @param {string} language Source language code
-	 */
-	LinkCard.prototype.prepareSourceLinkCard = function ( title, language ) {
-		var api,
-			linkCard = this;
-
+		title = this.getTitle();
 		if ( !title ) {
 			return;
 		}
 
 		api = this.siteMapper.getApi( language );
-		getLink( api, title, language ).done( function ( response ) {
-			var imgSrc, pageId, page;
+		return getLink( api, title, language ).then( function ( response ) {
+			var pageId;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
 			if ( pageId === '-1' ) {
-				if ( linkCard.$link ) {
-					linkCard.$link.addClass( 'new' );
-				}
-
-				return;
+				// Page does not exist.
+				return false;
 			}
-
-			page = response.query.pages[ pageId ];
-			linkCard.createExternalLink(
-				linkCard.$sourceLinkCard.find( '.card__link-text' ),
-				page.title,
-				language
-			);
-
-			if ( page.thumbnail ) {
-				imgSrc = page.thumbnail.source;
-				linkCard.$sourceLinkCard.find( '.card__link-image-container' )
-					.append( $( '<img>' ).attr( 'src', imgSrc ) );
-			}
-
-			linkCard.$sourceLinkCard.show();
-			linkCard.$card.show();
-			linkCard.onShow();
+			self.page = response.query.pages[ pageId ];
+			self.page.language = language;
+			return self.page;
 		} );
 	};
 
 	/**
-	 * Prepare the link card for the target language
-	 * @param {string} title The title
-	 * @param {string} language Target language code
+	 * Get a link card
+	 * @return {jQuery}
 	 */
-	LinkCard.prototype.prepareTargetLinkCard = function ( title, language ) {
-		var api,
-			linkCard = this;
+	CXLink.prototype.getLinkCard = function () {
+		var $card, $link, $markMissingLink, self,
+			$imageContainer, $linkContainer,
+			$cardHeader, $linkInfo;
+
+		self = this;
+		$card = $( '<div>' )
+			.addClass( 'card' );
+
+		$imageContainer = $( '<div>' )
+			.addClass( 'card__link-image-container' );
+		if ( this.page ) {
+			if ( this.page.thumbnail ) {
+				$imageContainer.append( $( '<img>' ).attr( 'src', this.page.thumbnail.source ) );
+			}
+		} else {
+			if ( this.isRedLink() ) {
+				$card.addClass( 'redlink' );
+			} else {
+				$card.addClass( 'missinglink' );
+			}
+		}
+
+		$linkInfo = $( '<div>' )
+			.addClass( 'card__link-info' );
+
+		$cardHeader = $( '<div>' )
+			.addClass( 'card__link-header' );
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title' )
+			.text(
+				this.page ?
+				mw.msg( 'cx-tools-link-title' ) :
+				mw.msg( 'cx-tools-missing-link-title' )
+			)
+		);
+		$cardHeader.append( $( '<div>' )
+			.addClass( 'card__title--language' ) );
+
+		$linkInfo.append( $cardHeader );
+
+		$linkContainer = $( '<div>' )
+			.addClass( 'card__link-container' );
+
+		if ( this.page ) {
+			$link = $( '<a>' )
+				.addClass( 'card__link-text' )
+				.text( this.page.title )
+				.prop( {
+					lang: this.page.language,
+					dir: $.uls.data.getDir( this.page.language ),
+					target: '_blank',
+					href: this.siteMapper.getPageUrl( this.page.language, this.page.title )
+				} );
+			$linkContainer.append( $link );
+			$linkInfo.append( $linkContainer );
+		} else {
+			if ( this.isRedLink() ) {
+				// This link opens Special:CX with this missing page to help translate it
+				$link = $( '<a>' )
+					.addClass( 'card__link-text new' )
+					.text( this.getTitle() )
+					.prop( {
+						lang: this.getLanguage(),
+						dir: $.uls.data.getDir( this.getLanguage() ),
+						target: '_blank',
+						title: mw.msg( 'cx-tools-missing-link-tooltip' ),
+						href: new mw.Uri().extend( {
+							page: this.getTitle()
+						} ).toString()
+					} );
+				$linkContainer.append( $link );
+			} else {
+				$linkContainer.text( mw.msg( 'cx-tools-missing-link-text' ) );
+				$markMissingLink = $( '<div>' )
+					.addClass( 'card__mark-missing-link' )
+					.text( mw.msg( 'cx-tools-missing-link-mark-link' ) )
+					.on( 'click', function () {
+						self.makeRedLink();
+						// Avoid bubbling
+						return false;
+					} );
+			}
+			$linkInfo.append( $linkContainer, $markMissingLink );
+		}
+
+		$card.append( $imageContainer, $linkInfo );
+
+		return $card;
+	};
+
+	function CXSourceLink( link, options ) {
+		CXLink.call( this, link, options );
+		this.language = mw.cx.sourceLanguage;
+		this.init();
+	}
+
+	// CXSourceLink inherits CXLink
+	CXSourceLink.prototype = new CXLink();
+
+	CXSourceLink.prototype.init = function () {
+		var self = this;
+		this.$link.addClass( 'cx-source-link' );
+		this.listen();
+
+		if ( this.$link.length ) {
+			this.fetchLinkData().then( function ( page ) {
+				if ( !page ) {
+					// Mark the link in source content as missing link.
+					self.makeRedLink();
+				}
+			} );
+		}
+	};
+
+	/**
+	 * Get the target link instance for the link
+	 * @return {CXTargetLink}
+	 */
+	CXSourceLink.prototype.getTargetLink = function () {
+		var $targetLink, targetLink;
+
+		if ( this.targetLink ) {
+			return this.targetLink;
+		}
+
+		$targetLink = $( '.cx-target-link[data-linkid="' + this.getId() + '"]' );
+
+		// It is not necessary that the link exists in the document.
+		// We create CXSourceLink instances out of titles(Either searched or selected)
+		if ( !$targetLink.length ) {
+			targetLink = new CXTargetLink();
+			targetLink.setTitle( this.getTitle() );
+			targetLink.setId( this.getId() );
+			return targetLink;
+		}
+
+		return $targetLink.cxTargetLink().data( 'cxTargetLink' );
+	};
+
+	CXSourceLink.prototype.getCard = function () {
+		var $linkInstructionSection, $linkInstructionShortcut;
+
+		this.$card = this.getLinkCard();
+
+		this.$card.find( '.card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
+
+		$linkInstructionSection = $( '<div>' )
+			.addClass( 'card__link-instruction' );
+		$linkInstructionShortcut = $( '<div>' )
+			.addClass( 'shortcut-info' )
+			.text( mw.msg( 'cx-tools-link-instruction-shortcut' ) );
+		$linkInstructionSection.append( $linkInstructionShortcut );
+
+		this.$card.find( '.card__link-info' ).append( $linkInstructionSection );
+
+		return this.$card;
+	};
+
+	CXSourceLink.prototype.highlight = function () {
+		// Remove existing highlights from source and translation columns. From
+		// all sections.
+		removeAllHighlights();
+		this.$link.addClass( 'cx-highlight--blue' );
+		this.getTargetLink().getLink().addClass( 'cx-highlight--lightblue' );
+	};
+
+	/**
+	 * Event handler for the links in source column.
+	 */
+	CXSourceLink.prototype.listen = function () {
+		var self = this;
+
+		// Middle click handler for links
+		this.$link.on( 'mousedown', function ( button ) {
+			var url,
+				$link = $( this );
+
+			if ( button.which === 2 ) {
+				url = self.siteMapper.getPageUrl(
+					mw.cx.sourceLanguage, $link.prop( 'title' )
+				);
+				open( url, '_blank' );
+
+				return false;
+			}
+		} );
+
+		this.$link.on( 'click', function ( e ) {
+			var selection, url;
+
+			// Allow link exploration
+			if ( e.shiftKey || e.ctrlKey ) {
+				url = self.siteMapper.getPageUrl(
+					mw.cx.sourceLanguage, self.$link.prop( 'title' )
+				);
+				window.open( url, '_blank' );
+				return false;
+			}
+
+			mw.hook( 'mw.cx.select.link' ).fire( self.$link, mw.cx.sourceLanguage );
+			self.highlight();
+			selection = mw.cx.selection.get();
+			// Is this selection valid and editable?
+			if ( isValidSelection( selection ) ) {
+				self.createLink();
+			}
+
+			// Avoid bubbling. This can bubble to a translation section focus and
+			// cause link card going away.
+			return false;
+		} );
+	};
+
+	/**
+	 * Target link class - A link in translation section
+	 * @param {Element} [link]
+	 * @param {Object} [options]
+	 */
+	function CXTargetLink( link, options ) {
+		CXLink.call( this, link, options );
+		this.language = mw.cx.targetLanguage;
+		this.init();
+	}
+
+	// CXTargetLink inherits CXLink
+	CXTargetLink.prototype = new CXLink();
+
+	CXTargetLink.prototype.init = function () {
+		this.adapt();
+		this.listen();
+		this.sourceLink = this.getSourceLink();
+	};
+
+	CXTargetLink.prototype.removeLink = function () {
+		// Remove the link
+		this.$link.after( this.$link.text() ).remove();
+		// There is no link now. Stop showing the card.
+		this.$card.hide();
+		// restore the selection
+		mw.cx.selection.restore( 'translation' );
+	};
+
+	/**
+	 * Get the source link instance for the link
+	 * @return {CXSourceLink}
+	 */
+	CXTargetLink.prototype.getSourceLink = function () {
+		var $sourceLink, sourceLink;
+
+		$sourceLink = $( '.cx-column--source .cx-link[data-linkid="' + this.getId() + '"]' );
+
+		// It is not necessary that the link exists in the document.
+		// We create CXSourceLink instances out of titles(Either searched or selected)
+		if ( !$sourceLink.length ) {
+			sourceLink = new CXSourceLink();
+			sourceLink.setTitle( this.getTitle() );
+			sourceLink.setId( this.getId() );
+			return sourceLink;
+		}
+
+		return $sourceLink.cxSourceLink().data( 'cxSourceLink' );
+	};
+
+	CXTargetLink.prototype.getCard = function () {
+		var self = this;
+
+		this.$card = this.getLinkCard();
+		this.$addLink = this.$removeLink = $( [] );
+
+		this.$card.find( '.card__title--language' )
+			.text( $.uls.data.getAutonym( mw.cx.targetLanguage ) );
+
+		if ( !this.$link.length ) {
+			this.$addLink = $( '<div>' )
+				.addClass( 'card__add-link' )
+				.text( mw.msg( 'cx-tools-link-add' ) )
+				.on( 'click', function () {
+					self.createLink();
+					// Avoid bubbling
+					return false;
+				} );
+		} else {
+			this.$removeLink = $( '<div>' )
+				.addClass( 'card__remove-link' )
+				.text( mw.msg( 'cx-tools-link-remove' ) )
+				.on( 'click', $.proxy( this.removeLink, this ) );
+		}
+
+		this.$card.find( '.card__link-info' )
+			.append( this.$addLink, this.$removeLink );
+
+		return this.$card;
+	};
+
+	/**
+	 * Adapt the link to the target language.
+	 * Assmes cache.linkPairs are already populated.
+	 */
+	CXTargetLink.prototype.adapt = function () {
+		var title = this.getTitle();
 
 		if ( !title ) {
 			return;
 		}
 
-		api = this.siteMapper.getApi( language );
-		getLink( api, title, language ).done( function ( response ) {
-			var pageId, page, selection, imgSrc;
+		if ( this.$link.hasClass( 'cx-target-link' ) ) {
+			// Already adapted. Can be restrored from a saved translation(draft)
+			this.adapted = true;
+			this.fetchLinkData();
+			return;
+		}
 
-			pageId = Object.keys( response.query.pages )[ 0 ];
-			if ( pageId === '-1' ) {
-				linkCard.$targetLinkCard.hide();
-				return;
+		title = mw.Title.newFromText( title ).toString();
+
+		if ( cache.linkPairs[ title ] ) {
+			this.title = cache.linkPairs[ title ];
+			this.$link.prop( {
+				href: this.title,
+				title: this.title
+			} );
+			this.adapted = true;
+			this.fetchLinkData();
+		} else {
+			this.adapted = false;
+			this.markUnAdapted();
+		}
+
+		this.$link.addClass( 'cx-target-link' );
+	};
+
+	CXTargetLink.prototype.markUnAdapted = function () {
+		this.$link.addClass( 'cx-target-link-unadapted' );
+	};
+
+	CXTargetLink.prototype.highlight = function () {
+		removeAllHighlights();
+		this.$link.addClass( 'cx-highlight--blue' );
+		this.getSourceLink().getLink().addClass( 'cx-highlight--lightblue' );
+	};
+
+	/**
+	 * Event handler for the links in translation column.
+	 */
+	CXTargetLink.prototype.listen = function () {
+		var self = this;
+
+		// Middle click handler for links
+		this.$link.on( 'mousedown', function ( button ) {
+			var url,
+				$link = $( this );
+
+			if ( button.which === 2 ) {
+				url = self.siteMapper.getPageUrl(
+					mw.cx.targetLanguage, $link.prop( 'title' )
+				);
+				open( url, '_blank' );
+
+				return false;
 			}
-			page = response.query.pages[ pageId ];
-			selection = mw.cx.selection.get();
+		} );
 
-			linkCard.createExternalLink(
-				linkCard.$targetLinkCard.find( '.card__link-text' ),
-				page.title,
-				language
-			);
+		this.$link.on( 'click', function () {
+			mw.hook( 'mw.cx.select.link' ).fire( self.$link, mw.cx.targetLanguage );
+			self.highlight();
+			// Avoid bubbling. This can bubble to a translation section focus and
+			// cause link card going away.
+			return false;
+		} );
+	};
 
-			if ( isValidSelection( selection ) ) {
-				// Some text selected in translation column and it has a link.
-				// Set up the add link button.
-				linkCard.$addLink.click( function () {
-					mw.cx.selection.restore( 'translation' );
-					linkCard.createInternalLink( selection.toString(), page.title );
-				} );
+	$.fn.cxTargetLink = function ( options ) {
+		return this.each( function () {
+			var $this = $( this ),
+				data = $this.data( 'cxTargetLink' );
 
-				// Show the add link button
-				linkCard.$addLink.show();
-
-				// Hide the remove link button
-				linkCard.$removeLink.hide();
-			} else {
-				// Make sure this target link is not deleted.
-				// The valid page id above might be from cache.
-				if ( !linkCard.getTargetLink() ) {
-					linkCard.$targetLinkCard.hide();
-					return;
-				}
-				// Nothing selected. Hide the add link button.
-				linkCard.$addLink.hide();
-				linkCard.$removeLink.click( function () {
-					mw.cx.selection.restore( 'translation' );
-					linkCard.removeLink();
-				} );
+			if ( !data ) {
+				$this.data( 'cxTargetLink', ( data = new CXTargetLink( this, options ) ) );
 			}
 
-			if ( !linkCard.$link ) {
-				// There is no link to remove. Card came from search.
-				// Prepare add link
-				linkCard.$addLink.click( function () {
-					mw.cx.selection.restore( 'translation' );
-					linkCard.createInternalLink( selection.toString(), page.title );
-				} );
+			if ( typeof options === 'string' ) {
+				data[ options ].call( $this );
+			}
+		} );
+	};
 
-				// Show the add link button
-				linkCard.$addLink.show();
-				// Hide the remove link button
-				linkCard.$removeLink.hide();
+	$.fn.cxSourceLink = function ( options ) {
+		return this.each( function () {
+			var $this = $( this ),
+				data = $this.data( 'cxSourceLink' );
+
+			if ( !data ) {
+				$this.data( 'cxSourceLink', ( data = new CXSourceLink( this, options ) ) );
 			}
 
-			if ( page.thumbnail ) {
-				imgSrc = page.thumbnail.source;
-				linkCard.$targetLinkCard.find( '.card__link-image-container' )
-					.append( $( '<img>' ).attr( 'src', imgSrc ) );
+			if ( typeof options === 'string' ) {
+				data[ options ].call( $this );
 			}
+		} );
+	};
 
-			linkCard.$targetLinkCard.show();
-			linkCard.$card.show();
-			linkCard.onShow();
+	// Default options for CXLink
+	CXLink.defaults = {
+		siteMapper: mw.cx.siteMapper
+	};
+
+	/**
+	 * Link Card
+	 * @class
+	 */
+	function LinkCard() {
+		this.$card = null;
+		this.sourceLink = null;
+		this.targetLink = null;
+	}
+
+	/**
+	 * Get all applicable cards.
+	 * @return {jQuery}
+	 */
+	LinkCard.prototype.getCard = function () {
+		this.$card = $( '<div>' )
+			.addClass( 'cards link' );
+
+		this.listen();
+
+		return this.$card;
+	};
+
+	LinkCard.prototype.listen = function () {
+		var self = this;
+
+		// Bring the card to front when clicked
+		this.$card.on( 'click', '.card:first', function () {
+			$( this ).insertAfter( self.$card.find( '.card:last' ) );
 		} );
 	};
 
 	LinkCard.prototype.onShow = function () {
 		mw.hook( 'mw.cx.tools.shown' ).fire( true );
-	};
-
-	/**
-	 * For the link, get the corresponding link in source section.
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getSourceLink = function () {
-		var $sourceLink;
-
-		if ( !this.$link ) {
-			return null;
-		}
-
-		$sourceLink = $( '.cx-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
-
-		return $sourceLink.length ? $sourceLink : null;
-	};
-
-	/**
-	 * For the link, get the corresponding link in target section.
-	 * @return {jQuery}
-	 */
-	LinkCard.prototype.getTargetLink = function () {
-		var $targetLink;
-
-		if ( !this.$link ) {
-			return null;
-		}
-
-		$targetLink = $( '.cx-target-link[data-linkid="' + this.$link.data( 'linkid' ) + '"]' );
-
-		return $targetLink.length ? $targetLink : null;
-	};
-
-	/**
-	 * Check if the link is an editable link in target section
-	 * @return {boolean}
-	 */
-	LinkCard.prototype.isEditableTargetLink = function () {
-
-		// Check to make sure we have a link
-		if ( !this.$link ) {
-			return false;
-		}
-
-		// Check if the link is a target link
-		if ( !this.$link.is( '.cx-target-link' ) ) {
-			return false;
-		}
-
-		// Check if the link itself is non editable. Happens in the case of
-		// non-editable inline templates
-		if ( this.$link.is( '[contenteditable="false"]' ) ) {
-			return false;
-		}
-
-		// Check to make sure none of the link's parents are not contenteditable
-		if ( this.$link.parents( '[contenteditable="false"]' ).length > 0 ) {
-			return false;
-		}
-
-		return true;
-	};
-
-	/**
-	 * Check if the link, the click of which caused the current link card
-	 * is a link in source section.
-	 * @return {boolean}
-	 */
-	LinkCard.prototype.isSourceLink = function () {
-		if ( !this.$link ) {
-			return false;
-		}
-
-		return this.$link.is( '.cx-link' );
 	};
 
 	/**
@@ -598,8 +777,10 @@
 	 */
 	function getValidTitle( text ) {
 		var title = text.trim();
+
 		title = mw.Title.newFromText( title );
-		title = title && title.toString();
+		title = title && title.getPrefixedText();
+
 		return title;
 	}
 
@@ -612,141 +793,66 @@
 	 * @param {string} [language] The language where the link points to.
 	 */
 	LinkCard.prototype.start = function ( link, language ) {
-		var selection, title, targetTitle, sourceTitle, $targetLink, $sourceLink,
-			self = this;
-
-		// If language is not given, use target language
-		language = language || mw.cx.targetLanguage;
-
-		// Capture the current selection
-		selection = mw.cx.selection.get();
-
-		// If the link is a source link, restore the selection
-		// in the translation column
-		if ( language === mw.cx.sourceLanguage ) {
-			mw.cx.selection.restore( 'translation' );
-		}
+		var self = this,
+			$link, title;
 
 		// link can be link text or jQuery link object
 		if ( typeof link === 'string' ) {
 			title = getValidTitle( link );
 		} else {
-			title = cleanupLinkHref( link.attr( 'href' ) );
-			this.$link = link;
+			$link = link;
 		}
-
-		// Do we have a valid title now?
-		if ( !title ) {
-			this.stop();
-			return;
-		}
-
-		this.highlightLink();
-		if ( language === mw.cx.targetLanguage ) {
-			targetTitle = title;
+		// If the link is a source link, restore the selection
+		// in the translation column
+		if ( language === mw.cx.sourceLanguage ) {
+			if ( $link ) {
+				this.sourceLink = $link.cxSourceLink().data( 'cxSourceLink' );
+			} else {
+				// Text selection in source content. Nothing to do.
+				this.stop();
+				return;
+			}
+			this.targetLink = this.sourceLink.getTargetLink();
 		} else {
-			sourceTitle = title;
+			if ( $link ) {
+				this.targetLink = $link.cxTargetLink().data( 'cxTargetLink' );
+			} else {
+				// Text selection
+				this.targetLink = new CXTargetLink();
+				this.targetLink.setTitle( title );
+				// A sufficiently good random id
+				this.targetLink.setId( new Date().valueOf() );
+			}
+			this.sourceLink = this.targetLink.getSourceLink();
 		}
 
-		if ( !targetTitle ) {
-			$targetLink = this.getTargetLink();
-			if ( $targetLink ) {
-				targetTitle = $targetLink.attr( 'href' );
-				self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-				self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
-			} else {
-				this.adapt( sourceTitle, mw.cx.targetLanguage )
-					.done( function ( linkPairs ) {
-						targetTitle = linkPairs[ sourceTitle ];
-						self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-						self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
-						// If text is selected, and the link clicked is source language,
-						// create a new internal link in the translation section
-						if ( isValidSelection( selection ) && self.$link ) {
-							self.createInternalLink( selection.toString(), targetTitle, self.$link.data( 'linkid' ) );
-						}
-					} );
-			}
-		}
-
-		if ( !sourceTitle ) {
-			$sourceLink = this.getSourceLink();
-			if ( $sourceLink ) {
-				sourceTitle = cleanupLinkHref( $sourceLink.attr( 'href' ) );
-				self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-				self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
-			} else {
-				this.adapt( targetTitle, mw.cx.sourceLanguage )
-					.done( function ( linkPairs ) {
-						sourceTitle = linkPairs[ targetTitle ];
-						self.prepareSourceLinkCard( sourceTitle, mw.cx.sourceLanguage );
-						self.prepareTargetLinkCard( targetTitle, mw.cx.targetLanguage );
-					} );
-			}
-		}
+		// Fetch the link data and show the card in correct order - Source card and then
+		// target card.
+		$.when( this.sourceLink.fetchLinkData(), this.targetLink.fetchLinkData() )
+			.then( function ( sourceLink, targetLink ) {
+				if ( !sourceLink && !targetLink ) {
+					// Missing link for both source and target. Dont show the card.
+					self.stop();
+					return;
+				}
+				self.$card.append( self.sourceLink.getCard(), self.targetLink.getCard() );
+				self.$card.show();
+				self.onShow();
+			} );
 	};
 
 	/**
 	 * Remove the card
 	 */
 	LinkCard.prototype.removeCard = function () {
-		this.removeLinkHighlight();
+		removeAllHighlights();
 		this.$card.remove();
 	};
 
 	LinkCard.prototype.stop = function () {
 		this.removeCard();
 		mw.hook( 'mw.cx.tools.shown' ).fire( false );
-	};
 
-	/**
-	 * Highlight the current link pairs.
-	 */
-	LinkCard.prototype.highlightLink = function () {
-		var $connectedLink;
-
-		if ( this.$link ) {
-			this.$link.addClass( 'cx-highlight--blue' );
-
-			if ( this.isSourceLink() ) {
-				$connectedLink = this.getTargetLink();
-			} else {
-				$connectedLink = this.getSourceLink();
-			}
-
-			// Both methods above can return null, so we need to check if we have a link
-			if ( $connectedLink ) {
-				$connectedLink.addClass( 'cx-highlight--lightblue' );
-			}
-		}
-	};
-
-	/**
-	 * Remove highlight from the current link pairs.
-	 */
-	LinkCard.prototype.removeLinkHighlight = function () {
-		if ( this.$link ) {
-			$( '[data-linkid="' + this.$link.data( 'linkid' ) + '"]' )
-				.removeClass( 'cx-highlight--blue cx-highlight--lightblue' );
-		}
-	};
-
-	/**
-	 * Modify the link with appropriate attributes.
-	 * @param {jQuery} $link The anchor object.
-	 * @param {string} title Article title.
-	 * @param {string} language The wiki language.
-	 */
-	LinkCard.prototype.setLinkAttributes = function ( $link, title, language ) {
-		$link
-			.text( title )
-			.prop( {
-				title: title,
-				lang: language,
-				dir: $.uls.data.getDir( language ),
-				target: '_blank',
-				href: this.siteMapper.getPageUrl( language, title )
-			} );
 	};
 
 	LinkCard.prototype.getTriggerEvents = function () {
@@ -759,66 +865,26 @@
 	};
 
 	/**
-	 * Click handler for the links in translation column.
+	 * Adapt links in a section
+	 * @param {jQuery} $section The section.
 	 */
-	function linkClickHandler() {
-		/*jshint validthis:true */
-		var $link = $( this ),
-			linkType = $link.parent().attr( 'typeof' );
-
-		// Avoid reference links and images
-		if ( linkType !== 'mw:Extension/ref' &&
-			linkType !== 'mw:Image/Thumb'
-		) {
-			mw.hook( 'mw.cx.select.link' ).fire( $link );
-		}
-
-		return false;
-	}
-
 	function adaptLinks( $section ) {
-		// WHYYYYYYY?
-		// @todo refactor to avoid global reference
-		var linkAdaptor = new LinkCard( mw.cx.siteMapper ),
-			$links,
-			sourceTitles;
-
-		// Handle clicks on the section, including future links
-		$section.on( 'click', 'a', linkClickHandler );
-
-		if ( $section.data( 'cx-draft' ) === true ) {
-			// This section is restored from draft. No need of link adaptation.
-			return;
-		}
+		var $links,
+			sourceLinkTargets = [];
 
 		$links = $section.find( 'a[rel="mw:WikiLink"]' );
 
-		// Collect all sourceTitles;
-		sourceTitles = $links.map( function () {
-			var href = $( this ).attr( 'href' );
-			return cleanupLinkHref( href );
-		} ).get();
-
-		// This callback is called after we have fetched the interwiki links. It
-		// updates the href appropriate for target language or removes the link.
-		function apply( adaptations ) {
-			$links.map( function () {
-				var $link = $( this ),
-					href = $link.attr( 'href' );
-
-				// Identify this link as an adapted link in translation
-				$link.removeClass( 'cx-link' ).addClass( 'cx-target-link' );
-
-				href = cleanupLinkHref( href );
-				if ( adaptations[ href ] ) {
-					$link.prop( 'href', adaptations[ href ] );
-				} else {
-					// Remove the link
-					$link.after( $( this ).text() ).remove();
-				}
-			} );
+		if ( !$section.data( 'cx-draft' ) ) {
+			// Collect all source titles
+			sourceLinkTargets = $links.map( function () {
+				return $( this ).attr( 'title' );
+			} ).get();
 		}
-		linkAdaptor.adapt( sourceTitles, mw.cx.targetLanguage ).done( apply );
+
+		fetchLinkPairs( sourceLinkTargets, mw.cx.targetLanguage )
+			.done( function () {
+				$links.cxTargetLink();
+			} );
 	}
 
 	mw.cx.tools.link = LinkCard;

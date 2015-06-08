@@ -1,4 +1,5 @@
 @import "../../widgets/common/ext.cx.common";
+@import "../../widgets/common/ext.cx.highlight";
 @import "mediawiki.mixins";
 
 .cards.link {
@@ -9,7 +10,7 @@
 	// Make sure the container has enough space to do the
 	// animation of second card. Height of one card = 100px
 	// For animation 60 px.
-	min-height: 160px;
+	min-height: 170px;
 
 	.card {
 		.mw-ui-item;
@@ -76,8 +77,8 @@
 
 .card__link-image-container {
 	.mw-ui-item;
-	.mw-ui-one-quarter;
-	min-height: 100px;
+	.mw-ui-three-tenths;
+	min-height: 125px;
 	background-color: #FFFFFF;
 	overflow: hidden;
 	padding: 0;
@@ -100,7 +101,7 @@
 
 .card__link-info {
 	.mw-ui-item;
-	.mw-ui-three-quarters;
+	.mw-ui-seven-tenths;
 	background-color: #FFFFFF;
 	padding: 0;
 
@@ -111,12 +112,57 @@
 		text-overflow: ellipsis;
 		padding: 4px;
 		padding-bottom: 15px;
+		min-height: 65px;
 
 		.card__link-text {
 			color: #0645ad;
 			font-size: large;
 			white-space: nowrap;
 		}
+	}
+
+	.card__missing-link-message {
+		margin: 0;
+		padding: 0;
+		font-size: medium;
+	}
+}
+
+.card.missinglink {
+	.card__link-image-container  {
+		.background-image-svg('../images/question-mark.svg', '../images/question-mark.png');
+		background-repeat: no-repeat;
+		background-color: #fbfbfb;
+		background-position: center center;
+		border-right: 1px solid #eeeeee;
+	}
+
+	.card__add-link,
+	.card__remove-link {
+		display: none;
+	}
+}
+
+.card.redlink {
+	.card__link-image-container {
+		.background-image-svg('../images/link_flagged_lightgray.svg', '../images/link_flagged_lightgray.png');
+		background-repeat: no-repeat;
+		background-color: #fbfbfb;
+		background-position: center center;
+		border-right: 1px solid #eeeeee;
+	}
+
+	.card__link-text {
+		color: red;
+	}
+
+	.card__add-link,
+	.card__mark-missing-link {
+		display: none;
+	}
+
+	.card__remove-link {
+		display: block;
 	}
 }
 
@@ -133,4 +179,26 @@
 		font-size: small;
 		color: #aaaaaa;
 	}
+}
+
+[contenteditable]:focus .cx-link {
+	cursor: pointer;
+}
+
+// Links that cannot be adapted will be represented in gray with a dashed underline.
+[contenteditable]:focus .cx-target-link-unadapted {
+	// The dashed underline will only appear for the links on the current paragraph.
+	// Links from other paragraphs will not show the dashed underline to avoid too much visual noise.
+	color: #ccc;
+	border-bottom: 1px dashed #ccc;
+	cursor: pointer;
+
+	&:hover {
+		color: #252525;
+	}
+}
+
+.card__mark-missing-link {
+	.card__add-link;
+	.background-image-svg('../images/flag_gray.svg', '../images/flag_gray.png');
 }

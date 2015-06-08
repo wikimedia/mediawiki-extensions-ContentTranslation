@@ -403,6 +403,10 @@ $wgResourceModules['ext.cx.tools.link'] = array(
 		'cx-tools-link-add',
 		'cx-tools-link-remove',
 		'cx-tools-link-instruction-shortcut',
+		'cx-tools-missing-link-title',
+		'cx-tools-missing-link-text',
+		'cx-tools-missing-link-tooltip',
+		'cx-tools-missing-link-mark-link',
 	),
 	'dependencies' => array(
 		'ext.cx.tools.manager',

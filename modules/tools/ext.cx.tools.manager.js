@@ -86,7 +86,13 @@
 
 		for ( index in tools ) {
 			// Call the render function on the current setting module
-			this.showCard( tools[ index ], data );
+			try {
+				this.showCard( tools[ index ], data );
+			} catch ( e ) {
+				// Unhandled errors will unbind the hook handler. Avoid it.
+				mw.log( e.stack );
+				this.hideCard( tools[ index ] );
+			}
 		}
 	};
 

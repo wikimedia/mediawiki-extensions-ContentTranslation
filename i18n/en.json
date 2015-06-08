@@ -187,5 +187,9 @@
 	"cx-stats-monthly-published": "Last month",
 	"cx-stats-weekly-published": "Last week",
 	"cx-stats-local-published": "$1 in $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 translation|$1 translations}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 translation|$1 translations}}",
+	"cx-tools-missing-link-text": "Mark missing pages to encourage their creation.",
+	"cx-tools-missing-link-tooltip": "Translate (in new window)",
+	"cx-tools-missing-link-title": "Missing link",
+	"cx-tools-missing-link-mark-link": "Mark as missing"
 }

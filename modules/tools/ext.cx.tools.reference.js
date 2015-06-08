@@ -315,6 +315,9 @@
 		var $reference = $( this );
 		mw.hook( 'mw.cx.select.reference' ).fire(
 			$reference.data( 'sourceid' ), mw.cx.targetLanguage );
+
+		// Avoid bubbling of event.
+		return false;
 	}
 
 	function processReferences( $section ) {

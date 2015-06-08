@@ -193,7 +193,7 @@
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection.trim() ) {
-				mw.hook( 'mw.cx.select.word' ).fire( selection );
+				mw.hook( 'mw.cx.select.word' ).fire( selection, mw.cx.sourceLanguage );
 			}
 		} );
 
@@ -212,47 +212,12 @@
 			}
 
 			// Avoid all reference links
-			if ( $link.parent().attr( 'typeof' ) !== 'mw:Extension/ref' ) {
-				mw.hook( 'mw.cx.select.link' ).fire( $link, mw.cx.sourceLanguage );
-			} else {
+			if ( $link.parent().attr( 'typeof' ) === 'mw:Extension/ref' ) {
 				mw.hook( 'mw.cx.select.reference' ).fire( $link.parent().prop( 'id' ), mw.cx.sourceLanguage );
 			}
 
 			// Disable link click
 			return false;
-		} );
-
-		// Middle click handler for links
-		this.$content.on( 'mousedown', 'a', function ( button ) {
-			var url,
-				$link = $( this );
-
-			if ( button.which === 2 ) {
-				url = self.siteMapper.getPageUrl(
-					mw.cx.sourceLanguage, cleanupLinkHref( $link.attr( 'href' ) )
-				);
-				window.open( url, '_blank' );
-
-				return false;
-			}
-		} );
-
-		this.$content.on( 'mouseenter', 'a', function ( e ) {
-			var $link = $( this ),
-				linkid = $( this ).data( 'linkid' );
-
-			$( '[data-linkid="' + linkid + '"]' ).addClass( 'cx-highlight' );
-
-			if ( e.shiftKey || e.ctrlKey ) {
-				$link.attr( 'title', mw.msg( 'cx-tools-link-hover-tooltip' ) );
-			}
-		} );
-
-		this.$content.on( 'mouseleave', 'a', function () {
-			var $link = $( this ),
-				linkid = $link.data( 'linkid' );
-
-			$( '[data-linkid="' + linkid + '"]' ).removeClass( 'cx-highlight' );
 		} );
 
 		// Highlight segment pairs
