@@ -8,6 +8,7 @@
 	"cx-header-all-translations": "Itzulpen guztiak",
 	"cx-translation-add-translation": "+ Gehitu itzulpena",
 	"cx-source-loading": "$1 kargatzen",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|Kategoria $1|$1 kategoria|0=Ez dago kategoriarik}}",
 	"cx-sourceselector-dialog-new-translation": "Itzulpen berria",
 	"cx-sourceselector-dialog-button-start-translation": "Hasi itzultzen",
 	"cx-sourceselector-dialog-button-cancel": "Utzi",
@@ -19,7 +20,18 @@
 	"cx-create-new-translation": "Sortu itzulpen berria",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Duela minutu bat|Duela $1 minutu|0=Oraintxe bertan}} gordea",
 	"cx-save-draft-saving": "Gordetzen...",
-	"cx-contributions": "Ekarpen berria",
+	"cx-contributions-new-contributions": "Ekarpen berria",
+	"cx-contributions-new-article": "Orrialde berria",
 	"cx-contributions-translation": "Itzulpena",
-	"cx-discard-translation": "Baztertu itzulpena"
+	"cx-contributions-upload": "Igo fitxategia",
+	"cx-contributions-new-article-tooltip": "Has zaitez orrialde berria idazten",
+	"cx-contributions-translation-tooltip": "Itzuli existitzen diren orriak",
+	"cx-contributions-upload-tooltip": "Igo itzazu irudiak, audioak eta bideoak orrialdeetan erabiltzeko",
+	"cx-discard-translation": "Baztertu itzulpena",
+	"cx-draft-cancel-button-label": "Utzi",
+	"cx-campaign-no-thanks": "Ez, eskerrik asko",
+	"cx-campaign-contributionsmenu-mycontributions": "Ekarpenak",
+	"cx-campaign-contributionsmenu-mytranslations": "Itzulpenak",
+	"cx-stats-tabs-expand": "Ikusi hizkuntza guztiak",
+	"cx-stats-grouping-title": "{{PLURAL:$1|Itzulpen $1|$1 itzulpen}}"
 }

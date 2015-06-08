@@ -11,7 +11,8 @@
 			"Robin0van0der0vliet",
 			"Southparkfan",
 			"M!dgard",
-			"Romaine"
+			"Romaine",
+			"Rangekill"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -181,5 +182,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Geüploade media",
 	"cx-trend-all-translations": "Alle vertalingen",
 	"cx-trend-translations-to": "Vertalingen naar het $1",
-	"cx-stats-try-contenttranslation": "Content Translation is een hulpmiddel om nieuwe pagina's aan te maken door vanuit andere talen te vertalen. [$1 Probeer Content Translation]"
+	"cx-stats-try-contenttranslation": "Content Translation is een hulpmiddel om nieuwe pagina's aan te maken door vanuit andere talen te vertalen. [$1 Probeer Content Translation]",
+	"cx-stats-published-target-source": "Vertalingen",
+	"cx-stats-published-source-target": "Vertalingen van",
+	"cx-stats-draft-target-source": "Vertalingen in de voortgang van het",
+	"cx-stats-draft-source-target": "Vertalingen in de voortgang van de",
+	"cx-stats-tabs-expand": "Bekijk alle talen",
+	"cx-stats-total-published": "Totaal uitgegeven",
+	"cx-stats-monthly-published": "Afgelopen maand",
+	"cx-stats-weekly-published": "Afgelopen week",
+	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 vertaling|$ vertalingen}}"
 }

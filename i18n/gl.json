@@ -176,5 +176,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Ficheiros multimedia cargados",
 	"cx-trend-all-translations": "Todas as traducións",
 	"cx-trend-translations-to": "Traducións ao $1",
-	"cx-stats-try-contenttranslation": "A Tradución de Contido é unha ferramenta para crear novas páxinas traducindo dende outras linguas. [$1 Probe a Tradución de Contido]"
+	"cx-stats-try-contenttranslation": "A Tradución de Contido é unha ferramenta para crear novas páxinas traducindo dende outras linguas. [$1 Probe a Tradución de Contido]",
+	"cx-stats-published-target-source": "Traducións ó",
+	"cx-stats-published-source-target": "Traducións do",
+	"cx-stats-draft-target-source": "Traducións en progreso ó",
+	"cx-stats-draft-source-target": "Traducións en progreso do",
+	"cx-stats-tabs-expand": "Ver todos os idiomas",
+	"cx-stats-total-published": "Total publicado",
+	"cx-stats-monthly-published": "Último mes",
+	"cx-stats-weekly-published": "Última semana",
+	"cx-stats-local-published": "$1 en $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradución|$1 traducións}}"
 }
