@@ -169,12 +169,22 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
-		var langProps;
+		var langProps, currentSource;
 
 		// Don't let the same languages be selected as source and target.
-		// Instead, do what the user probably means and swap them.
+		// Instead, do what the user probably means: either swap them if
+		// it's valid, or pick the first of the common languages in ULS.
 		if ( language === this.getTargetLanguage() ) {
-			this.setTargetLanguage( this.getSourceLanguage() );
+			currentSource = this.getSourceLanguage();
+
+			if ( this.isValidTarget( currentSource ) ) {
+				this.setTargetLanguage( currentSource );
+			} else {
+				this.setTargetLanguage(
+					this.$targetLanguage.data( 'uls' ).options.quickList()[ 0 ]
+				);
+			}
+
 		}
 
 		langProps = {
