@@ -68,6 +68,7 @@
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
 	"cx-stats-unknown": "غير معروف",
 	"cx-tools-reference-title": "مرجع",
+	"cx-tools-reference-add": "إضافة مرجع",
 	"cx-tools-reference-remove": "أزل المرجع",
 	"cx-tools-link-instruction-shortcut": "لفتح أي وصلة، انقرها مع ضغط زر التحويل (شيفت)",
 	"cx-tools-link-hover-tooltip": "انقر للفتح",
@@ -92,8 +93,11 @@
 	"cx-translation-filter-from-any-language": "من أية لغة",
 	"cx-translation-filter-to-any-language": "إلى أية لغة",
 	"cx-create-new-translation": "أنشأ ترجمة جديدة",
+	"apihelp-cxpublish-description": "يحفظ صفحة أنشأت بواسطة امتداد ترجمة المحتوى.",
 	"apihelp-cxpublish-param-html": "المحتوى الذي سيحفظ.",
 	"apihelp-cxpublish-param-categories": "التصنيفات التي ستوضع في الصفحة المنشورة.",
+	"apihelp-query+contenttranslation-description": "الاستعلام عن الترجمات في قاعدة بيانات ترجمة المحتوى.",
+	"apihelp-query+contenttranslation-param-translationid": "معرف الترجمة.",
 	"cx-save-draft-saving": "جار الحفظ",
 	"cx-contributions-new-contributions": "مساهمة جديدة",
 	"cx-contributions-new-article": "صفحة جديدة",
@@ -126,5 +130,9 @@
 	"cx-campaign-contributionsmenu-myuploads": "الوسائط المرفوعة",
 	"cx-trend-all-translations": "كل الترجمات",
 	"cx-trend-translations-to": "الترجمات إلى اللغة $1",
-	"cx-stats-try-contenttranslation": "ترجمة المحتوى هي أداة لإنشاء الصفحات بالترجمة من لغات أخرى. [$1 جرب ترجمة المحتوى]"
+	"cx-stats-try-contenttranslation": "ترجمة المحتوى هي أداة لإنشاء الصفحات بالترجمة من لغات أخرى. [$1 جرب ترجمة المحتوى]",
+	"cx-stats-tabs-expand": "اعرض كل اللغات",
+	"cx-stats-monthly-published": "الشهر الماضي",
+	"cx-stats-weekly-published": "الأسبوع الماضي",
+	"cx-stats-local-published": "$1 في $2"
 }
