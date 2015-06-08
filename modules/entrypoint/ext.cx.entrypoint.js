@@ -34,6 +34,7 @@
 	 * Initialize the plugin.
 	 */
 	CXEntryPoint.prototype.init = function () {
+		this.renderDialog();
 		this.listen();
 	};
 
@@ -41,57 +42,15 @@
 	 * Listen for events.
 	 */
 	CXEntryPoint.prototype.listen = function () {
-		var entryPoint = this;
+		var self = this;
 
-		// Hide the dialog when clicking outside it
-		$( 'html' ).click( function () {
-			entryPoint.hide();
-		} );
-
-		// Open or close the dialog when clicking the link.
-		// The dialog will be unitialized until the first click.
-		this.$trigger.click( function ( e ) {
+		this.$trigger.on( 'click', function ( e ) {
+			e.stopPropagation();
 			e.preventDefault();
-			e.stopPropagation();
-
-			// jquery.uls.data is needed for autonyms
-			mw.loader.using( 'jquery.uls.data', function () {
-				if ( !entryPoint.$dialog ) {
-					entryPoint.renderDialog();
-					entryPoint.listenForDialog();
-				}
-
-				entryPoint.toggle();
-			} );
+			self.toggle();
 		} );
 	};
 
-	/**
-	 * Listen for events in the CX entry point dialog.
-	 */
-	CXEntryPoint.prototype.listenForDialog = function () {
-		var entryPoint = this;
-
-		this.$actionScratch.click( function () {
-			var title, url;
-
-			title = entryPoint.$titleInput.val() || mw.config.get( 'wgTitle' );
-			url = entryPoint.siteMapper.getPageUrl( entryPoint.options.targetLanguage, title );
-			location.href = url;
-		} );
-
-		this.$actionTranslate.click( $.proxy( this.startPageInCX, this ) );
-
-		this.$dialog.click( function ( e ) {
-			e.stopPropagation();
-		} );
-
-		this.$closeIcon.click( $.proxy( this.hide, this ) );
-	};
-
-	/**
-	 * Show or Hide the CX entry point dialog based on current state
-	 */
 	CXEntryPoint.prototype.toggle = function () {
 		if ( this.shown ) {
 			this.hide();
@@ -100,46 +59,33 @@
 		}
 	};
 
+	CXEntryPoint.prototype.startFromScratch = function () {
+		var title, url;
+
+		title = this.$titleInput.val() || mw.config.get( 'wgTitle' );
+		url = this.siteMapper.getPageUrl( this.options.targetLanguage, title );
+		location.href = url;
+	};
+
 	/**
 	 * Show the entry point dialog
 	 */
 	CXEntryPoint.prototype.show = function () {
-		this.$dialog.show();
+		this.$trigger.callout( 'show' );
 		this.shown = true;
-		this.position();
 		this.$titleInput.focus();
+		this.$closeIcon.one( 'click', $.proxy( this.hide, this ) );
+		this.$actionTranslate.one( 'click', $.proxy( this.startPageInCX, this ) );
+		this.$actionScratch.one( 'click', $.proxy( this.startFromScratch, this ) );
 	};
 
 	/**
-	 * Position the entry point dialog.
-	 */
-	CXEntryPoint.prototype.position = function () {
-		var dialogTop, dialogLeft,
-			dir = $( 'html' ).prop( 'dir' );
-
-		// The default is to place the dialog near the element that triggers it
-		dialogTop = this.options.top || this.$trigger.offset().top;
-		dialogLeft = this.options.left || this.$trigger.offset().left;
-
-		if ( dir === 'rtl' ) {
-			dialogLeft = dialogLeft - this.$dialog.width();
-		}
-
-		this.$dialog.css( {
-			top: dialogTop,
-			left: dialogLeft
-		} );
-	};
-
-	/**
-	 * Hide the entry point dialog.
+	 * Hide the entry point dialog
 	 */
 	CXEntryPoint.prototype.hide = function () {
-		if ( this.shown ) {
-			this.$dialog.hide();
-			mw.hook( 'mw.cx.cta.reject' ).fire( this.options.entryPointName );
-			this.shown = false;
-		}
+		this.$trigger.callout( 'hide' );
+		mw.hook( 'mw.cx.cta.reject' ).fire( this.options.entryPointName );
+		this.shown = false;
 	};
 
 	/**
@@ -163,18 +109,18 @@
 	 * Render the CX entry point dialog.
 	 */
 	CXEntryPoint.prototype.renderDialog = function () {
-		var $actions, $titleBoxBlock,
+		var $actions, $titleBoxBlock, $dialog, self,
 			$heading, $titleLabel, $license, translateButtonLabel,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
 			currentTitle = mw.config.get( 'wgTitle' );
 
-		this.$dialog = $( '<div>' )
-			.prop( 'id', 'cx-entrypoint-dialog-' + this.options.targetLanguage )
-			.addClass( 'cx-entrypoint-dialog' )
-			.hide();
+		self = this;
+		$dialog = $( '<div>' )
+			.prop( 'id', 'cx-entrypoint-dialog-' + this.options.targetLanguage );
 
 		this.$closeIcon = $( '<span>' )
-			.addClass( 'icon-close' );
+			.addClass( 'icon-close' )
+			.on( 'click', $.proxy( this.hide, this ) );
 
 		// Uses .html because of <br /> in the message
 		$heading = $( '<div>' )
@@ -217,9 +163,14 @@
 			.addClass( 'cx-entrypoint-dialog__actions' )
 			.append( this.$actionScratch, this.$actionTranslate );
 
-		this.$dialog.append( $heading, $titleLabel, $titleBoxBlock, $license, $actions );
+		$dialog.append( $heading, $titleLabel, $titleBoxBlock, $license, $actions );
 
-		$( 'body' ).append( this.$dialog );
+		this.$trigger.callout( {
+			trigger: 'manual',
+			content: $dialog,
+			direction: $.fn.callout.autoDirection( '9' ),
+			classes: 'cx-entrypoint-dialog'
+		} );
 	};
 
 	/**

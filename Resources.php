@@ -622,6 +622,7 @@ $wgResourceModules['ext.cx.entrypoint'] = array(
 		'jquery.uls.data',
 		'mediawiki.Uri',
 		'mediawiki.jqueryMsg',
+		'ext.cx.widgets.callout',
 	),
 ) + $resourcePaths;
 

@@ -117,7 +117,7 @@
 				href: mw.util.getUrl(
 					'Special:ContentTranslation', {
 						page: mw.config.get( 'wgTitle' ),
-						lang: code
+						to: code
 					}
 				),
 				title: mw.msg( 'cx-entrypoint-title', autonym ),

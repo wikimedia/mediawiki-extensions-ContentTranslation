@@ -140,7 +140,7 @@
 			break;
 		case '2':
 			position = {
-				top: pos.top,
+				top: pos.top - pos.height / 2,
 				left: pos.left - actualWidth - this.options.offset
 			};
 			break;
@@ -152,7 +152,7 @@
 			break;
 		case '4':
 			position = {
-				top: pos.top + pos.height - actualHeight,
+				top: pos.top + pos.height - actualHeight + this.options.offset,
 				left: pos.left - actualWidth - this.options.offset
 			};
 			break;
@@ -176,7 +176,7 @@
 			break;
 		case '8':
 			position = {
-				top: pos.top + pos.height - actualHeight,
+				top: pos.top + pos.height - actualHeight + this.options.offset,
 				left: pos.left + pos.width + this.options.offset
 			};
 			break;
@@ -188,7 +188,7 @@
 			break;
 		case '10':
 			position = {
-				top: pos.top,
+				top: pos.top - pos.height / 2,
 				left: pos.left + pos.width + this.options.offset
 			};
 			break;
