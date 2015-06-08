@@ -93,7 +93,7 @@
 		referenceId = $reference.prop( 'id' );
 		targetReferenceId = 'cx' + referenceId;
 		$reference.attr( {
-			'id': targetReferenceId,
+			id: targetReferenceId,
 			'data-sourceid': referenceId
 		} );
 		mw.cx.selection.pasteHTML( $reference[ 0 ].outerHTML );

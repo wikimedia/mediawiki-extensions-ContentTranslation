@@ -166,7 +166,7 @@
 				{
 					title: mw.msg( 'cx-stats-draft-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'draft', 'count' )
-							},
+				},
 				{
 					title: mw.msg( 'cx-stats-draft-source-target' ),
 					content: this.drawTranslationsChart( 'from', 'draft', 'count' )
@@ -386,7 +386,7 @@
 					data: $.map( this.totalTranslationTrend, function ( data ) {
 						return data.count;
 					} )
-					},
+				},
 				{
 					label: mw.message(
 						'cx-trend-translations-to',
@@ -397,8 +397,8 @@
 					data: $.map( this.languageTranslatonTrend, function ( data ) {
 						return data.count;
 					} )
-					}
-				]
+				}
+			]
 		};
 
 		/*global Chart:false */
@@ -430,7 +430,6 @@
 			this.sourceTargetModel[ status ][ sourceLanguage ].push( record );
 			this.targetSourceModel[ status ][ targetLanguage ].push( record );
 		}
-
 
 		for ( status in this.sourceTargetModel ) {
 			tempModel = this.sourceTargetModel[ status ];
