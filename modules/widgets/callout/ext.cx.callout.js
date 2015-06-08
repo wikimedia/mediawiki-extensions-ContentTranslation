@@ -209,7 +209,11 @@
 
 		if ( this.options.trigger === 'hover' ) {
 			this.$element.on( 'mouseenter', function () {
+				// Hide all other cx-callouts
+				$( '.cx-callout' ).hide();
 				self.show();
+				// On mouse enter of siblings, hide.
+				self.$element.siblings().one( 'mouseenter', $.proxy( self.hide, self ) );
 				self.$dialog.one( 'mouseleave', $.proxy( self.hide, self ) );
 				$( document ).one( 'click', $.proxy( self.hide, self ) );
 			} );

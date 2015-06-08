@@ -310,18 +310,13 @@
 					.text( '…' )
 					.css( 'width', tailWidth + '%' );
 				$translations.append( $tail );
-				/*jslint loopfunc: true */
-				$tail.callout( {
-						trigger: 'manual',
-						direction: $.fn.callout.autoDirection( '0' ),
-						content: $callout
-					} ).on( 'mouseenter', function () {
-						$( this ).callout( 'show' );
-					} )
-					.on( 'mouseleave', function () {
-						$( this ).callout( 'hide' );
-					} );
 			}
+
+			$translations.find( '.cx-stats-chart__bar' ).last().callout( {
+				trigger: 'hover',
+				direction: $.fn.callout.autoDirection( '0' ),
+				content: $callout
+			} );
 
 			$row.append(
 				$( '<span>' )

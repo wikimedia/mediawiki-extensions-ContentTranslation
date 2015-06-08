@@ -65,7 +65,7 @@
 			$myContributions, $myTranslations, $myUploads,
 			$menu, callout;
 
-		$trigger = $( '#pt-mycontris a' );
+		$trigger = $( '#pt-mycontris' );
 
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
