@@ -280,7 +280,7 @@
 		selection = mw.cx.selection.get();
 		$link = $( '<a>' )
 			.addClass( 'cx-target-link' )
-			.text( selection.toString() )
+			.text( selection.toString() || cache.linkPairs[ this.title ] || this.title )
 			.attr( {
 				title: this.title,
 				href: this.title,
@@ -404,9 +404,9 @@
 						} ).toString()
 					} );
 
-			$linkContainer
-				.prop( linkLanguageProps )
-				.append( $link );
+				$linkContainer
+					.prop( linkLanguageProps )
+					.append( $link );
 			} else {
 				userLanguage = mw.config.get( 'wgUserLanguage' );
 
@@ -478,7 +478,7 @@
 		// We create CXSourceLink instances out of titles(Either searched or selected)
 		if ( !$targetLink.length ) {
 			targetLink = new CXTargetLink();
-			targetLink.setTitle( this.getTitle() );
+			targetLink.setTitle( cache.linkPairs[ this.getTitle() ] || this.getTitle() );
 			targetLink.setId( this.getId() );
 			return targetLink;
 		}
@@ -890,21 +890,23 @@
 	 * @param {jQuery} $section The section.
 	 */
 	function adaptLinks( $section ) {
-		var $links,
-			sourceLinkTargets = [];
+		var $sourceLinks, $targetLinks, $sourceSection, sourceLinkTargets = [];
 
-		$links = $section.find( 'a[rel="mw:WikiLink"]' );
-
+		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
+		$sourceLinks = $sourceSection.find( 'a[rel="mw:WikiLink"]' );
+		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
 		if ( !$section.data( 'cx-draft' ) ) {
 			// Collect all source titles
-			sourceLinkTargets = $links.map( function () {
+			sourceLinkTargets = $sourceLinks.map( function () {
 				return $( this ).attr( 'title' );
 			} ).get();
 		}
 
+		// Adapt the links to target language.
 		fetchLinkPairs( sourceLinkTargets, mw.cx.targetLanguage )
 			.done( function () {
-				$links.cxTargetLink();
+				$sourceLinks.cxSourceLink();
+				$targetLinks.cxTargetLink();
 			} );
 	}
 
