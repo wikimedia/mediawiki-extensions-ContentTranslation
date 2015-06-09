@@ -704,6 +704,7 @@ $wgResourceModules['ext.cx.stats'] = array(
 		'chart.js',
 		'jquery.uls.data',
 		'ext.cx.widgets.spinner',
+		'ext.cx.widgets.callout',
 	),
 	'messages' => array(
 		'cx-stats-table-source-target',
