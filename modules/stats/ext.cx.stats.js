@@ -237,6 +237,7 @@
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
 		var $chart, $bar, translations, $translations, model, i, j, $rows = [],
 			$callout,
+			$total,
 			$row, width, max = 0,
 			$tail, tailWidth = 0,
 			tail,
@@ -318,6 +319,22 @@
 				content: $callout
 			} );
 
+			$total = $( '<span>' )
+				.addClass( 'cx-stats-chart__total' )
+				.text( fmt( model[ i ][ property ] ) );
+
+			if ( direction === 'to' ) {
+				$total = $( '<a>' )
+					.addClass( 'cx-stats-chart__total' )
+					.prop( 'href', mw.cx.siteMapper.getPageUrl(
+						model[ i ].language, 'Special:NewPages', { tagfilter: 'contenttranslation' }
+					) )
+					.text( fmt( model[ i ][ property ] ) );
+			} else {
+				$total = $( '<span>' )
+					.addClass( 'cx-stats-chart__total' )
+					.text( fmt( model[ i ][ property ] ) );
+			}
 			$row.append(
 				$( '<span>' )
 					.addClass( 'cx-stats-chart__langcode' )
@@ -325,9 +342,7 @@
 				$( '<span>' )
 					.addClass( 'cx-stats-chart__autonym' )
 					.text( $.uls.data.getAutonym( model[ i ].language ) ),
-				$( '<span>' )
-					.addClass( 'cx-stats-chart__total' )
-					.text( fmt( model[ i ][ property ] ) ),
+				$total,
 				$translations
 			);
 
