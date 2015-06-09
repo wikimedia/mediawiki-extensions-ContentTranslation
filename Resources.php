@@ -296,6 +296,7 @@ $wgResourceModules['ext.cx.tools'] = array(
 		'ext.cx.progressbar',
 		'ext.cx.tools.dictionary',
 		'ext.cx.tools.formatter',
+		'ext.cx.tools.gallery',
 		'ext.cx.tools.images',
 		'ext.cx.tools.instructions',
 		'ext.cx.tools.link',
@@ -471,6 +472,12 @@ $wgResourceModules['ext.cx.tools.template'] = array(
 $wgResourceModules['ext.cx.tools.images'] = array(
 	'scripts' => array(
 		'tools/ext.cx.tools.images.js',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['ext.cx.tools.gallery'] = array(
+	'scripts' => array(
+		'tools/ext.cx.tools.gallery.js',
 	),
 ) + $resourcePaths;
 
