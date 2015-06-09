@@ -14,7 +14,13 @@
 	 * Link the source and target articles in the Wikibase repo
 	 */
 	var addWikibaseLink = function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
-		var sourceApi;
+		var title, sourceApi;
+
+		// Link only pages in the main space
+		title = new mw.Title( sourceTitle );
+		if ( title.getNamespaceId() !== 0 ) {
+			return;
+		}
 
 		sourceApi = mw.cx.siteMapper.getApi( mw.cx.sourceLanguage );
 
