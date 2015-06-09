@@ -16,8 +16,8 @@
 	"cx-license-agreement": "לחיצה על מקש \"$1\" מהווה את הסכמתך ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] ואת הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
 	"cx-desc": "מקלה על תרגום דפי תוכן",
-	"cx-header-progressbar-text": "תורגמו $1%",
-	"cx-header-progressbar-text-mt": "($1% תרגום מכונה)",
+	"cx-header-progressbar-text": "{{PLURAL:$1|תורגם|תורגמו}} $1%",
+	"cx-header-progressbar-text-mt": "{{PLURAL:$1|($1% תרגום מכונה)}}",
 	"cx-header-translation-center": "מרכז התרגום",
 	"cx-header-new-translation": "תרגום חדש",
 	"cx-header-all-translations": "כל התרגומים",
@@ -89,7 +89,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "הדף [$1 כבר קיים] ב{{GRAMMAR:תחילית|$2}}",
 	"cx-sourceselector-dialog-error-title-in-use": "כותרת הדף החדש [$1 כבר תפוסה]",
 	"cx-sourceselector-dialog-error-no-source-article": "הדף שרצית לתרגם אינו קיים ב{{GRAMMAR:תחילית|$1}}",
-	"cx-mt-abuse-warning-title": "התרגום שלך מכיל $1% של טקסט לא ערוך מתרגום מכונה",
+	"cx-mt-abuse-warning-title": "התרגום שלך {{PLURAL:$1|מכיל}} $1% של טקסט לא ערוך מתרגום מכונה",
 	"cx-mt-abuse-warning-text": "תרגומי מכונה ניתנים רק בתור משהו שאפשר להתחיל ממנו. חובתך לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.",
 	"cx-publish-captcha-title": "שאלת אבטחה",
 	"cx-translation-filter-all-translations": "כל התרגומים",
@@ -188,5 +188,9 @@
 	"cx-stats-monthly-published": "בחודש שעבר",
 	"cx-stats-weekly-published": "בשבוע שעבר",
 	"cx-stats-local-published": "$1 ב{{GRAMMAR:תחילית|$2}}",
-	"cx-stats-grouping-title": "{{PLURAL:$1|תרגום אחד|$1 תרגומים}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|תרגום אחד|$1 תרגומים}}",
+	"cx-tools-missing-link-text": "{{GENDER:|סמן|סמני}} דפים חסרים כדי לעודד את יצירתם.",
+	"cx-tools-missing-link-tooltip": "תרגום (בחלון חדש)",
+	"cx-tools-missing-link-title": "קישור חסר",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|סמן|סמני}} בתור חסר"
 }

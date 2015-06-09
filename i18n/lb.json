@@ -139,5 +139,6 @@
 	"cx-stats-monthly-published": "Leschte Mount",
 	"cx-stats-weekly-published": "Lescht Woch",
 	"cx-stats-local-published": "$1 op $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}",
+	"cx-tools-missing-link-title": "Link feelt"
 }

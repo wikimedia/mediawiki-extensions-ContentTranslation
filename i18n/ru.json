@@ -14,7 +14,8 @@
 			"Mariya",
 			"Marat-avgust",
 			"Putnik",
-			"Purodha"
+			"Purodha",
+			"Александр Сигачёв"
 		]
 	},
 	"cx": "Перевести страницу",
@@ -95,7 +96,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страница [$1 уже существует] в $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Название для новой страницы [$1 уже используется]",
 	"cx-sourceselector-dialog-error-no-source-article": "Эта переводимая страница не существует в $1",
-	"cx-mt-abuse-warning-title": "Ваш перевод содержит $1% неизмененного машинного перевода текста",
+	"cx-mt-abuse-warning-title": "Ваш перевод содержит $1% неизменённого машинного перевода",
 	"cx-mt-abuse-warning-text": "Машинные переводы предоставляются только в качестве отправной точки. Вам нужно убедиться, что контент является точным и естественно читается на вашем языке.",
 	"cx-publish-captcha-title": "Секретный вопрос",
 	"cx-translation-filter-all-translations": "Все переводы",
@@ -184,5 +185,14 @@
 	"cx-campaign-contributionsmenu-myuploads": "Загруженные файлы мультимедиа",
 	"cx-trend-all-translations": "Все переводы",
 	"cx-trend-translations-to": "Переводы на $1",
-	"cx-stats-try-contenttranslation": "Content Translation — это инструмент для создания новых страниц при помощи перевода с других языков. [$1 Попробовать Content Translation]"
+	"cx-stats-try-contenttranslation": "Content Translation — это инструмент для создания новых страниц при помощи перевода с других языков. [$1 Попробовать Content Translation]",
+	"cx-stats-published-target-source": "Переводы на",
+	"cx-stats-published-source-target": "Переводы с",
+	"cx-stats-draft-target-source": "Незаконченные переводы на",
+	"cx-stats-draft-source-target": "Незаконченныые переводы с",
+	"cx-stats-tabs-expand": "На всех языках",
+	"cx-stats-total-published": "Всего опубликовано",
+	"cx-stats-monthly-published": "В прошлом месяце",
+	"cx-stats-weekly-published": "На прошлой неделе",
+	"cx-stats-local-published": "$1 - $2"
 }

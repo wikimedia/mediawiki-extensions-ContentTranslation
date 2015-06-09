@@ -8,7 +8,8 @@
 			"BaconSenpai",
 			"Iwan Novirion",
 			"Kenrick95",
-			"Fate Kage"
+			"Fate Kage",
+			"Bennylin"
 		]
 	},
 	"cx": "Terjemahkan halaman",
@@ -69,7 +70,7 @@
 	"cx-tools-mt-not-available": "Tidak tersedia untuk $1",
 	"cx-tools-mt-dont-use": "Jangan gunakan terjemahan mesin",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|0=Tidak ada kategori}}",
-	"cx-stats-title": "Statistik Penerjemahan Konten",
+	"cx-stats-title": "Statistik penerjemahan konten",
 	"cx-stats-unknown": "tak diketahui",
 	"cx-tools-reference-title": "Referensi",
 	"cx-tools-reference-add": "Tambah referensi",

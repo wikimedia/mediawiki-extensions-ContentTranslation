@@ -9,8 +9,8 @@
 	"cx-license-agreement": "Стискајќи на копчето „$1“, се согласувате со [//wikimediafoundation.org/wiki/Terms_of_Use/mk Условите на употреба] и неотповикливо потврдувате дека ги објавувате вашите придонеси направени со преводната алатка под лиценцата [https://creativecommons.org/licenses/by-sa/3.0/deed.mk CC BY-SA 3.0] и [//mk.wikipedia.org/wiki/Википедија:Текст_на_ГНУ-овата_лиценца_за_слободна_документација ГЛСД], и со разбирање дека хиперврската или URL-адресата претставуваат достатно наведување на изворот според CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: Не можев да се поврзам со опслужувачот.",
 	"cx-desc": "Овозможува лесно преведување на содржински страници",
-	"cx-header-progressbar-text": "$1% преведено",
-	"cx-header-progressbar-text-mt": "($1% од машински превод)",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|преведено}}",
+	"cx-header-progressbar-text-mt": "($1% од {{PLURAL:$1|машински превод}})",
 	"cx-header-translation-center": "Преводен центар",
 	"cx-header-new-translation": "Нов превод",
 	"cx-header-all-translations": "Сите преводи",
@@ -82,7 +82,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 веќе постои] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Насловот за новата страница е [$1 веќе зафатен]",
 	"cx-sourceselector-dialog-error-no-source-article": "Страницата за преведување не постои на $1",
-	"cx-mt-abuse-warning-title": "Вашиот превод содржи $1% неизменет машински преведен текст",
+	"cx-mt-abuse-warning-title": "Вашиот превод {{PLURAL:$1|содржи}} $1% неизменет машински преведен текст",
 	"cx-mt-abuse-warning-text": "Машинските преводи се даваат само како појдовни. На вас е да се погрижите преводот да биде точен и да го прилагодите за да изгледа природно на вашиот јазик.",
 	"cx-publish-captcha-title": "Безбедносно прашање",
 	"cx-translation-filter-all-translations": "Сите преводи",
@@ -181,5 +181,9 @@
 	"cx-stats-monthly-published": "Минатиот месец",
 	"cx-stats-weekly-published": "Минатата седмица",
 	"cx-stats-local-published": "$1 на $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
+	"cx-tools-missing-link-text": "Означете ги страници што недостигаат за да поттикнете нивно создавање.",
+	"cx-tools-missing-link-tooltip": "Преведете (во нов прозорец)",
+	"cx-tools-missing-link-title": "Врска што недостига",
+	"cx-tools-missing-link-mark-link": "Означи дека негостига"
 }

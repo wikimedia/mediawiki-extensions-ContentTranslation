@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Silovan"
+		]
+	},
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|თანგილი რე}}",
+	"cx-stats-tabs-expand": "არძო ნინაშ ძირაფა",
+	"cx-stats-total-published": "ედომუშამო გობჟინაფილი",
+	"cx-stats-monthly-published": "ულირ თუთა",
+	"cx-stats-weekly-published": "ულირ მარა",
+	"cx-stats-local-published": "$1 $2-ს"
+}

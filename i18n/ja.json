@@ -3,7 +3,8 @@
 		"authors": [
 			"Shirayuki",
 			"SkyDaisy9",
-			"Mfuji"
+			"Mfuji",
+			"Kzhr"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -18,7 +19,7 @@
 	"cx-header-all-translations": "全翻訳結果",
 	"cx-source-view-page": "ページを閲覧",
 	"cx-publish-page-success": "ページを公開しました。：$1",
-	"cx-publish-page-error": "ページの保存エラーです。",
+	"cx-publish-page-error": "ページの保存エラーです。保存し直してください。",
 	"cx-publish-button": "翻訳を公開する",
 	"cx-publish-button-publishing": "発行中です…",
 	"cx-publish-summary": "ページ「$1」の翻訳に伴い作成",

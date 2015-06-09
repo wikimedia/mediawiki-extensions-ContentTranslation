@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"ElangoRamanujam",
-			"மதனாஹரன்"
+			"மதனாஹரன்",
+			"Mahir78"
 		]
 	},
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|translated}}",
+	"cx-header-progressbar-text-mt": "($1% from {{PLURAL:$1|machine translation}})",
 	"cx-header-new-translation": "புதிய மொழிபெயர்ப்பு",
 	"cx-publish-gt-moved-title": "மொழிபெயர்க்கப்பட்ட பக்கம் நகர்த்தப்பட்டது",
 	"cx-tools-mt-restore": "மீட்டெடுக்கவும்",

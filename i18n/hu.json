@@ -173,5 +173,8 @@
 	"cx-campaign-contributionsmenu-myuploads": "Feltöltött média",
 	"cx-trend-all-translations": "Összes fordítás",
 	"cx-trend-translations-to": "Fordítások $1 nyelvre",
-	"cx-stats-try-contenttranslation": "A Tartalomfordító eszköz segítségével új oldalak hozhatók létre más nyelven létező oldalak lefordításával. [$1 A Tartalomfordító kipróbálása]"
+	"cx-stats-try-contenttranslation": "A Tartalomfordító eszköz segítségével új oldalak hozhatók létre más nyelven létező oldalak lefordításával. [$1 A Tartalomfordító kipróbálása]",
+	"cx-tools-missing-link-tooltip": "Fordítás (új ablakban)",
+	"cx-tools-missing-link-title": "Hiányzó hivatkozás",
+	"cx-tools-missing-link-mark-link": "Megjelölés hiányzóként"
 }
