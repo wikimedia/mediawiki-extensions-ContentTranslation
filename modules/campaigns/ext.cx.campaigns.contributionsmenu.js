@@ -60,12 +60,9 @@
 		return $item;
 	}
 
-	function showInvitation() {
-		var $trigger,
-			$myContributions, $myTranslations, $myUploads,
+	function attachMenu( $trigger ) {
+		var $myContributions, $myTranslations, $myUploads,
 			$menu, callout;
-
-		$trigger = $( '#pt-mycontris' );
 
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
@@ -110,18 +107,19 @@
 	}
 
 	$( function () {
-		var blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
+		var $trigger,
+			blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
 
 		if ( !$.client.test( blacklist, null, true ) ) {
-			showInvitation();
+			$trigger = $( '#pt-mycontris' );
 
-			// Show it after creating a new article using VE
+			attachMenu( $trigger );
+
+			// Change the menu when creating a new article using VE
 			mw.hook( 've.activationComplete' ).add( function () {
-				var $trigger;
-
-				$trigger = $( '#pt-mycontris a' );
-				$trigger.data( 'callout' ).$dialog.find( 'li.cx-campaign-translations' )
-					.replaceWith( getTranslationsItem() );
+				// Rebuild menu
+				$trigger.removeData( 'callout' );
+				attachMenu( $trigger );
 			} );
 		}
 	} );
