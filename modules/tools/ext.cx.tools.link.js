@@ -362,11 +362,19 @@
 			)
 		);
 		$cardHeader.append( $( '<div>' )
+			.prop( {
+				lang: this.page.language,
+				dir: $.uls.data.getDir( this.page.language )
+			} )
 			.addClass( 'card__title--language' ) );
 
 		$linkInfo.append( $cardHeader );
 
 		$linkContainer = $( '<div>' )
+			.prop( {
+				lang: this.page.language,
+				dir: $.uls.data.getDir( this.page.language )
+			} )
 			.addClass( 'card__link-container' );
 
 		if ( this.page ) {
@@ -374,8 +382,6 @@
 				.addClass( 'card__link-text' )
 				.text( this.page.title )
 				.prop( {
-					lang: this.page.language,
-					dir: $.uls.data.getDir( this.page.language ),
 					target: '_blank',
 					href: this.siteMapper.getPageUrl( this.page.language, this.page.title )
 				} );
