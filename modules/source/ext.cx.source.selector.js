@@ -474,7 +474,7 @@
 			action: 'query',
 			prop: 'langlinks',
 			titles: sourceTitle,
-			lllang: targetLanguage,
+			lllang: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
 			lllimit: 1,
 			redirects: true,
 			format: 'json'
