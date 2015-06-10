@@ -182,8 +182,8 @@
 	"cx-stats-weekly-published": "Läzde Woch",
 	"cx-stats-local-published": "$1 op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Ein Övversäzong|$1 Övversäzonge|Kein Övversäzong}}",
-	"cx-tools-missing-link-text": "Makkehr de fählende Sigge, öm de Trumm ze kloppe, dat aanjelaht wähde.",
+	"cx-tools-missing-link-text": "Makkehr de fählende Sigge, öm de Trumm ze kloppe, dat aanjelaht wähde.{{GENDER:}}",
 	"cx-tools-missing-link-tooltip": "Övversäze — em neue Finster",
 	"cx-tools-missing-link-title": "Dä Lengk fählt",
-	"cx-tools-missing-link-mark-link": "Makkehr de fählende Sigge"
+	"cx-tools-missing-link-mark-link": "Makkehr de fählende Sigge{{GENDER:}}"
 }

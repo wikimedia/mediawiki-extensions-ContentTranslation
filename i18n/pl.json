@@ -191,5 +191,7 @@
 	"cx-stats-tabs-expand": "Zobacz wszystkie języki",
 	"cx-stats-monthly-published": "Ostatni miesiąc",
 	"cx-stats-weekly-published": "Ostatni tydzień",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tłumaczenie|$1 tłumaczenia|$1 tłumaczeń}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tłumaczenie|$1 tłumaczenia|$1 tłumaczeń}}",
+	"cx-tools-missing-link-tooltip": "Przetłumacz (w nowym oknie)",
+	"cx-tools-missing-link-title": "Brakujący link"
 }

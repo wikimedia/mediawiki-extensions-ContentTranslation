@@ -173,5 +173,7 @@
 	"cx-stats-monthly-published": "Ultimo mese",
 	"cx-stats-weekly-published": "Ultima settimana",
 	"cx-stats-local-published": "$1 in $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzioni}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzione|$1 traduzioni}}",
+	"cx-tools-missing-link-tooltip": "Traduci (in una nuova finestra)",
+	"cx-tools-missing-link-title": "Collegamento mancante"
 }

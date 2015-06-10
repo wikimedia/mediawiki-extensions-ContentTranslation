@@ -98,6 +98,8 @@
 	"apihelp-cxpublish-param-categories": "التصنيفات التي ستوضع في الصفحة المنشورة.",
 	"apihelp-query+contenttranslation-description": "الاستعلام عن الترجمات في قاعدة بيانات ترجمة المحتوى.",
 	"apihelp-query+contenttranslation-param-translationid": "معرف الترجمة.",
+	"apihelp-query+cxpublishedtranslations-example-1": "الحصول على كل الترجمات المنشورة",
+	"apihelp-query+cxpublishedtranslations-example-2": "الحصول على كل الترجمات المنشورة، المترجمة من الإنجليزية",
 	"cx-save-draft-saving": "جار الحفظ",
 	"cx-contributions-new-contributions": "مساهمة جديدة",
 	"cx-contributions-new-article": "صفحة جديدة",
@@ -131,8 +133,16 @@
 	"cx-trend-all-translations": "كل الترجمات",
 	"cx-trend-translations-to": "الترجمات إلى اللغة $1",
 	"cx-stats-try-contenttranslation": "ترجمة المحتوى هي أداة لإنشاء الصفحات بالترجمة من لغات أخرى. [$1 جرب ترجمة المحتوى]",
+	"cx-stats-published-target-source": "الترجمات إلى",
+	"cx-stats-published-source-target": "الترجمات من",
+	"cx-stats-draft-target-source": "الترجمات الجاري العمل عليها إلى",
+	"cx-stats-draft-source-target": "الترجمات الجاري العمل عليها من",
 	"cx-stats-tabs-expand": "اعرض كل اللغات",
+	"cx-stats-total-published": "العدد الكلي المنشور",
 	"cx-stats-monthly-published": "الشهر الماضي",
 	"cx-stats-weekly-published": "الأسبوع الماضي",
-	"cx-stats-local-published": "$1 في $2"
+	"cx-stats-local-published": "$1 في $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|لا ترجمات|ترجمة واحدة|ترجمتين|1$ ترجمات|$1 ترجمة}}",
+	"cx-tools-missing-link-tooltip": "ترجم (في نافذة جديدة)",
+	"cx-tools-missing-link-title": "وصلة مفقودة"
 }

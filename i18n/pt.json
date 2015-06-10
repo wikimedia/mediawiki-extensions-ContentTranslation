@@ -17,8 +17,8 @@
 	"cx-license-agreement": "Ao clicar no botão \"$1\", concorda com as nossas [//wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use Condições de uso] e em, irrevogavelmente, publicar a sua contribuição sob as licenças [//creativecommons.org/licenses/by-sa/3.0 CC BY-SA 3.0] e [//pt.wikipedia.org/wiki/Wikipédia:GNU_Free_Documentation_License GFDL], com o entendimento de que uma hiperligação ou URL é suficiente para uma atribuição CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
 	"cx-desc": "Torna mais fácil traduzir o conteúdo das páginas",
-	"cx-header-progressbar-text": "$1% traduzido",
-	"cx-header-progressbar-text-mt": "($1% a partir da tradução automática)",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduzido}}",
+	"cx-header-progressbar-text-mt": "($1% a partir da {{PLURAL:$1|tradução automática}})",
 	"cx-header-translation-center": "Centro de tradução",
 	"cx-header-new-translation": "Nova tradução",
 	"cx-header-all-translations": "Todas as traduções",
@@ -169,7 +169,7 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar tradução",
 	"cx-beta-feature-enabled-notification": "A Content Translation foi ativada nesta wiki.",
-	"cx-campaign-newarticle-notice": "Agora também pode criar novos conteúdos ao <b>traduzir</b>! Quer experimentar a nova ferramenta beta de Tradução de Conteúdo?",
+	"cx-campaign-newarticle-notice": "Agora também pode criar novas páginas ao <strong>traduzir</strong>! Quer experimentar a nova ferramenta beta de Tradução de Conteúdo?",
 	"cx-campaign-no-thanks": "Não, obrigado",
 	"cx-campaign-try": "Experimente a Tradução de Conteúdo",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuições",
@@ -189,5 +189,9 @@
 	"cx-stats-monthly-published": "Último mês",
 	"cx-stats-weekly-published": "Última semana",
 	"cx-stats-local-published": "$1 em $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradução|$1 traduções}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradução|$1 traduções}}",
+	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} página como em falta para encorajar a sua criação.",
+	"cx-tools-missing-link-tooltip": "Traduzir (numa nova janela)",
+	"cx-tools-missing-link-title": "Ligação em falta",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como em falta"
 }

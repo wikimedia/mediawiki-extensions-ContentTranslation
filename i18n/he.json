@@ -168,7 +168,7 @@
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
-	"cx-campaign-newarticle-notice": "עכשיו אפשר ליצור תוכן חדש באמצעות <b>תרגום</b>! האם ברצונך לנסות את כלי תרגום התוכן?",
+	"cx-campaign-newarticle-notice": "עכשיו אפשר ליצור דפים חדשים באמצעות <strong>תרגום</strong>! האם ברצונך לנסות את גרסת הבטא של כלי תרגום התוכן?",
 	"cx-campaign-no-thanks": "לא, תודה",
 	"cx-campaign-try": "לנסות את כלי תרגום התוכן",
 	"cx-campaign-contributionsmenu-mycontributions": "תרומות",
@@ -189,7 +189,7 @@
 	"cx-stats-weekly-published": "בשבוע שעבר",
 	"cx-stats-local-published": "$1 ב{{GRAMMAR:תחילית|$2}}",
 	"cx-stats-grouping-title": "{{PLURAL:$1|תרגום אחד|$1 תרגומים}}",
-	"cx-tools-missing-link-text": "{{GENDER:|סמן|סמני}} דפים חסרים כדי לעודד את יצירתם.",
+	"cx-tools-missing-link-text": "{{GENDER:|סמן|סמני}} שהדף חסר כדי לעודד את יצירתו.",
 	"cx-tools-missing-link-tooltip": "תרגום (בחלון חדש)",
 	"cx-tools-missing-link-title": "קישור חסר",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|סמן|סמני}} בתור חסר"

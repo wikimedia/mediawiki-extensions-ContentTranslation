@@ -191,6 +191,6 @@
 	"cx-stats-total-published": "Totaal aantal gepubliceerd",
 	"cx-stats-monthly-published": "Afgelopen maand",
 	"cx-stats-weekly-published": "Afgelopen week",
-	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-local-published": "$1 in het $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 vertaling|$1 vertalingen}}"
 }

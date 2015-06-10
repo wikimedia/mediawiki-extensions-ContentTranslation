@@ -189,5 +189,9 @@
 	"cx-stats-monthly-published": "上月",
 	"cx-stats-weekly-published": "上周",
 	"cx-stats-local-published": "$2中的$1",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1次翻译}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1次翻译}}",
+	"cx-tools-missing-link-text": "标记丢失页面以鼓励创建它们。",
+	"cx-tools-missing-link-tooltip": "翻译（在新窗口）",
+	"cx-tools-missing-link-title": "丢失链接",
+	"cx-tools-missing-link-mark-link": "标记为丢失"
 }

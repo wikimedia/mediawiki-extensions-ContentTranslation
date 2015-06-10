@@ -186,5 +186,9 @@
 	"cx-stats-monthly-published": "Último mes",
 	"cx-stats-weekly-published": "Última semana",
 	"cx-stats-local-published": "$1 en $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradución|$1 traducións}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradución|$1 traducións}}",
+	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} a páxina para indicar que falta para fomentar a súa creación.",
+	"cx-tools-missing-link-tooltip": "Traducir (nunha xanela nova)",
+	"cx-tools-missing-link-title": "Ligazón que falta",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como que falta"
 }
