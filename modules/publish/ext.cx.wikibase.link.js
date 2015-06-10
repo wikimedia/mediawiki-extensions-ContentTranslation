@@ -17,7 +17,7 @@
 		var title, sourceApi;
 
 		// Link only pages in the main space
-		title = new mw.Title( sourceTitle );
+		title = new mw.Title( targetTitle );
 		if ( title.getNamespaceId() !== 0 ) {
 			return;
 		}
