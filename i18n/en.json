@@ -4,6 +4,7 @@
 			"Amire80",
 			"Joel Sahleen",
 			"Kartik Mistry",
+			"Nemo bis",
 			"Pau Giner",
 			"Santhosh.thottingal",
 			"Sucheta Ghoshal"
@@ -167,7 +168,7 @@
 	"cx-draft-cancel-button-label": "Cancel",
 	"cx-draft-discard-button-label": "Delete translation",
 	"cx-beta-feature-enabled-notification": "Content Translation has been activated in this wiki.",
-	"cx-campaign-newarticle-notice": "Now you can also create new content by <b>translating</b>! Do you want to try the Content Translation beta tool?",
+	"cx-campaign-newarticle-notice": "Now you can also create new pages by <strong>translating</strong>! Do you want to try the Content Translation beta tool?",
 	"cx-campaign-no-thanks": "No, thanks",
 	"cx-campaign-try": "Try Content Translation",
 	"cx-campaign-contributionsmenu-mycontributions": "Contributions",
