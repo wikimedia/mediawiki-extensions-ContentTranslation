@@ -4,10 +4,13 @@
 			"ElangoRamanujam",
 			"மதனாஹரன்",
 			"Mahir78",
-			"Shrikarsan"
+			"Shrikarsan",
+			"Sundar"
 		]
 	},
 	"cx": "பக்கத்தை மொழிபெயர்",
+	"cx-error-server-connection": "பிழை: தரவுதளத்துடன் தொடர்புகொள்ள முடியவில்லை.",
+	"cx-desc": "உரைப்பக்கங்களை மொழிபெயர்க்க எளிதாக்குகிறது",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|translated}}",
 	"cx-header-progressbar-text-mt": "($1% from {{PLURAL:$1|machine translation}})",
 	"cx-header-translation-center": "மொழிபெயர்ப்பு மையம்",

@@ -131,6 +131,7 @@
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
+	"cx-save-draft-error": "Beim Speichern der Seite ist ein Fehler aufgetreten.",
 	"cx-contributions-new-contributions": "Neuer Beitrag",
 	"cx-contributions-new-article": "Neue Seite",
 	"cx-contributions-translation": "Übersetzung",
@@ -189,5 +190,9 @@
 	"cx-tools-missing-link-text": "Die Seite als fehlend {{GENDER:|markieren}}, um ihre Erstellung zu ermutigen.",
 	"cx-tools-missing-link-tooltip": "Übersetzen (in neuem Fenster)",
 	"cx-tools-missing-link-title": "Fehlender Link",
-	"cx-tools-missing-link-mark-link": "Als fehlend {{GENDER:|markieren}}"
+	"cx-tools-missing-link-mark-link": "Als fehlend {{GENDER:|markieren}}",
+	"echo-category-title-cx": "Übersetzungen",
+	"echo-pref-tooltip-cx": "Benachrichtige mich über meine Übersetzungen, die mithilfe des Werkzeugs „Inhaltsübersetzung“ erstellt wurden",
+	"cx-notification-first-translation": "Herzlichen Glückwunsch zu deiner ersten Übersetzung! Finde mehr zu übersetzende Seiten bei [[Special:MyContributions|deiner Beitragsseite]].",
+	"cx-notification-first-translation-email-subject": "Herzlichen Glückwunsch zu deiner ersten Übersetzung"
 }

@@ -182,8 +182,12 @@
 	"cx-stats-weekly-published": "Ол бир ыйыкъда",
 	"cx-stats-local-published": "$1 тиден — $2 тилге",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 кёчюрме}}",
-	"cx-tools-missing-link-text": "Къуралырларын джол бирир ючюн алкъын болмагъан бетлени белгиле.",
+	"cx-tools-missing-link-text": "Къуралырларын джол бирир ючюн алкъын болмагъан бетлени {{GENDER:|белгиле}}.",
 	"cx-tools-missing-link-tooltip": "Кёчюр (джангы терезеде)",
 	"cx-tools-missing-link-title": "Ычхындырылгъан джибериу",
-	"cx-tools-missing-link-mark-link": "Ычхындырылгъан джибериуча белгиле"
+	"cx-tools-missing-link-mark-link": "Ычхындырылгъан джибериуча белгиле",
+	"echo-category-title-cx": "Кёчюрюуле",
+	"echo-pref-tooltip-cx": "Content Translation адыр бла къуралгъан кёчюрюулерими юсюнден билдир.",
+	"cx-notification-first-translation": "Биринчи кёчюрюу бла алгъышлайбыз! [[Special:MyContributions|Къошум бетигизде]] кёчюрюр ючюн энтда бетле табыгъыз.",
+	"cx-notification-first-translation-email-subject": "Биринчи кёчюрюу бла алгъышлайбыз"
 }

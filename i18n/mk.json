@@ -161,7 +161,7 @@
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Избриши го преводот",
 	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики.",
-	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <b>преведување</b>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
+	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <strong>преведување</strong>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
 	"cx-campaign-no-thanks": "Не, благодарам",
 	"cx-campaign-try": "Пробајте го „Превод на содржини“",
 	"cx-campaign-contributionsmenu-mycontributions": "Придонеси",
@@ -182,8 +182,12 @@
 	"cx-stats-weekly-published": "Минатата седмица",
 	"cx-stats-local-published": "$1 на $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
-	"cx-tools-missing-link-text": "Означете ги страници што недостигаат за да поттикнете нивно создавање.",
+	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницита што недостигаат за да поттикнете нејзино создавање.",
 	"cx-tools-missing-link-tooltip": "Преведете (во нов прозорец)",
 	"cx-tools-missing-link-title": "Врска што недостига",
-	"cx-tools-missing-link-mark-link": "Означи дека негостига"
+	"cx-tools-missing-link-mark-link": "Означи дека недостига",
+	"echo-category-title-cx": "Преводи",
+	"echo-pref-tooltip-cx": "Известувај ме за моите преводи направени со алатката „Превод на содржини“",
+	"cx-notification-first-translation": "Ви честитаме за вашиот прв превод! Повеќе страници за преведување ќе најдете на вашата [[Special:MyContributions|страница со придонеси]].",
+	"cx-notification-first-translation-email-subject": "Честитки за вашиот прв превод"
 }

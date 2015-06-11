@@ -176,7 +176,7 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar traducción",
 	"cx-beta-feature-enabled-notification": "Se ha activado la traducción de contenidos en este wiki.",
-	"cx-campaign-newarticle-notice": "Ahora puedes crear contenidos nuevos <b>traduciéndolos</b>. ¿Quieres probar la herramienta beta de traducción de contenidos?",
+	"cx-campaign-newarticle-notice": "Ahora puedes crear páginas nuevas <strong>traduciéndolas</strong>. ¿Quieres probar la herramienta beta de traducción de contenidos?",
 	"cx-campaign-no-thanks": "No, gracias",
 	"cx-campaign-try": "Prueba la traducción de contenidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuciones",
@@ -197,8 +197,8 @@
 	"cx-stats-weekly-published": "Última semana",
 	"cx-stats-local-published": "$1 en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducción|$1 traducciones}}",
-	"cx-tools-missing-link-text": "Marca las páginas faltantes para fomentar su creación.",
+	"cx-tools-missing-link-text": "{{GENDER:|Marca}} la página como faltante para fomentar su creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (en una ventana nueva)",
 	"cx-tools-missing-link-title": "Enlace faltante",
-	"cx-tools-missing-link-mark-link": "Marcar como faltante"
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como faltante"
 }

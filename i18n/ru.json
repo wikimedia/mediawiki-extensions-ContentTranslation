@@ -175,7 +175,7 @@
 	"cx-draft-cancel-button-label": "Отмена",
 	"cx-draft-discard-button-label": "Удалить перевод",
 	"cx-beta-feature-enabled-notification": "Расширение «Перевод содержания» (Content Translation) было включено в этом вики-проекте.",
-	"cx-campaign-newarticle-notice": "Теперь вы можете также создать новые материалы путём <b>перевода</b>! Хотите попробовать бета-версию инструмента перевода?",
+	"cx-campaign-newarticle-notice": "Теперь вы можете также создавать новые страницы путём <strong>перевода</strong>! Хотите попробовать бета-версию инструмента перевода?",
 	"cx-campaign-no-thanks": "Нет, спасибо",
 	"cx-campaign-try": "Попробовать инструмент перевода",
 	"cx-campaign-contributionsmenu-mycontributions": "Вклад",
@@ -196,8 +196,12 @@
 	"cx-stats-weekly-published": "На прошлой неделе",
 	"cx-stats-local-published": "$1 - $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 перевод|$1 перевода|$1 переводов}}",
-	"cx-tools-missing-link-text": "Отметьте недостающие страницы, чтобы стимулировать их создание.",
+	"cx-tools-missing-link-text": "{{GENDER:|Отметьте}} страницу как недостающую, чтобы стимулировать её создание.",
 	"cx-tools-missing-link-tooltip": "Перевести (в новом окне)",
 	"cx-tools-missing-link-title": "Отсутствующая ссылка",
-	"cx-tools-missing-link-mark-link": "Отметить как отсутствующую"
+	"cx-tools-missing-link-mark-link": "Отметить как отсутствующую",
+	"echo-category-title-cx": "Переводы",
+	"echo-pref-tooltip-cx": "Уведомлять меня о моих переводах, созданных с использованием инструмента перевода содержимого.",
+	"cx-notification-first-translation": "Поздравляем вас с первым переводом! Найдите ещё страницы для перевода на [[Special:MyContributions|вашей странице вклада]].",
+	"cx-notification-first-translation-email-subject": "Поздравляем вас с первым переводом"
 }
