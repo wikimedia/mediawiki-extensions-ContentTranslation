@@ -519,6 +519,7 @@ $wgResourceModules['ext.cx.draft'] = array(
 	'messages' => array(
 		'cx-save-draft-saving',
 		'cx-save-draft-save-success',
+		'cx-save-draft-error',
 		'cx-save-draft-tooltip',
 	),
 ) + $resourcePaths;

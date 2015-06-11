@@ -222,7 +222,7 @@
 				checkAndsave();
 			}, 5 * 60 * 1000 );
 		} ).fail( function () {
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
 		} );
 	};
 
