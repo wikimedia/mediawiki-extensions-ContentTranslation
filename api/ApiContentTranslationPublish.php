@@ -168,10 +168,11 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function publish() {
 		$params = $this->extractRequestParams();
+		$user = $this->getUser();
 
 		$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
 			$params['title'],
-			$this->getUser()->getName()
+			$user->getName()
 		);
 		$title = Title::newFromText( $targetTitle );
 
@@ -213,6 +214,12 @@ class ApiContentTranslationPublish extends ApiBase {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
 			}
 			$this->saveTranslationHistory( $params );
+			// Notify user about milestones
+			$translator = new ContentTranslation\Translator( $user );
+			if ( $translator->getTranslationsCount() === 1 ) {
+				ContentTranslation\Notification::firstTranslation( $user );
+			}
+			// TODO: Add other milestones
 		} else {
 			$result = array(
 				'result' => 'error',

@@ -196,5 +196,10 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Mark}} the page as missing to encourage its creation.",
 	"cx-tools-missing-link-tooltip": "Translate (in new window)",
 	"cx-tools-missing-link-title": "Missing link",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Mark}} as missing"
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Mark}} as missing",
+	"cx-tools-missing-link-mark-link": "Mark as missing",
+	"echo-category-title-cx": "Translations",
+	"echo-pref-tooltip-cx": "Notify me about my translations created using Content Translation tool",
+	"cx-notification-first-translation": "Congratulations for your first translation! Find more pages to translate at [[Special:MyContributions|your contributions page]].",
+	"cx-notification-first-translation-email-subject": "Congratulations for your first translation"
 }

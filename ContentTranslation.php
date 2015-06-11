@@ -76,9 +76,11 @@ $GLOBALS['wgHooks']['EditPage::showEditForm:initial'][] =
 	'ContentTranslationHooks::newArticleCampaign';
 $GLOBALS['wgHooks']['ResourceLoaderTestModules'][] =
 	'ContentTranslationHooks::onResourceLoaderTestModules';
-
+$GLOBALS['wgHooks']['BeforeCreateEchoEvent'][] = 'ContentTranslationHooks::onBeforeCreateEchoEvent';
+$GLOBALS['wgHooks']['EchoGetDefaultNotifiedUsers'][] =
+	'ContentTranslationHooks::onEchoGetDefaultNotifiedUsers';
 // Globals for this extension
-
+$GLOBALS['wgDefaultUserOptions']['echo-subscriptions-web-cx'] = true;
 $GLOBALS['wgContentTranslationExperimentalFeatures'] = false;
 $GLOBALS['wgContentTranslationParsoid'] = array(
 	'url' => 'http://parsoid-lb.eqiad.wikimedia.org/',

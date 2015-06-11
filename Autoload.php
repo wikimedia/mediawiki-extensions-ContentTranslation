@@ -22,6 +22,7 @@ $wgAutoloadClasses += array(
 	'ContentTranslation\Database' => "$dir/includes/Database.php",
 	'ContentTranslation\Draft' => "$dir/includes/Draft.php",
 	'ContentTranslation\GlobalUser' => "$dir/includes/GlobalUser.php",
+	'ContentTranslation\Notification' => "$dir/includes/Notification.php",
 	'ContentTranslation\SiteMapper' => "$dir/includes/SiteMapper.php",
 	'ContentTranslation\Stats' => "$dir/includes/Stats.php",
 	'ContentTranslation\Translation' => "$dir/includes/Translation.php",

@@ -230,6 +230,58 @@ class ContentTranslationHooks {
 	}
 
 	/**
+	* Add notification events to Echo
+	*
+	* @param array $notifications array of Echo notifications
+	* @param array $notificationCategories array of Echo notification categories
+	* @param array $icons array of icon details
+	*/
+	public static function onBeforeCreateEchoEvent(
+		&$notifications, &$notificationCategories, &$icons
+	) {
+		$notificationCategories['cx'] = array(
+			'priority' => 3,
+			'tooltip' => 'echo-pref-tooltip-cx',
+		);
+
+		$notifications['cx-first-translation'] = array(
+			'category' => 'cx',
+			'group' => 'positive',
+			'formatter-class' => 'EchoBasicFormatter',
+			'title-message' => 'cx-notification-first-translation',
+			'email-subject-message' => 'cx-notification-first-translation-email-subject',
+			'icon' => 'cx',
+		);
+
+		$icons['cx'] = array(
+			'path' => 'ContentTranslation/images/cx-notification-green.svg',
+		);
+
+	}
+
+	/**
+	* Add user to be notified on echo event
+	* @param EchoEvent $event
+	* @param array $users
+	* @return bool
+	*/
+	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
+		switch ( $event->getType() ) {
+			case 'cx-first-translation':
+				$extra = $event->getExtra();
+				if ( !isset( $extra['recipient'] ) ) {
+					break;
+				}
+				$recipientId = $extra['recipient'];
+				$recipient = User::newFromId( $recipientId );
+				$users[$recipientId] = $recipient;
+				break;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Hook: ResourceLoaderTestModules
 	 */
 	public static function onResourceLoaderTestModules( array &$modules ) {

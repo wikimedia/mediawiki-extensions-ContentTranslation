@@ -87,6 +87,33 @@ class Translator {
 	}
 
 	/**
+	 * Get the number of published translation by current translator.
+	 * @return Integer
+	 */
+	public function getTranslationsCount() {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$count = $dbr->selectField(
+			array( 'cx_translators', 'cx_translations' ),
+			'count(*)',
+			array(
+				'translator_user_id' => $this->getGlobalUserId(),
+				'translator_translation_id = translation_id',
+				// And it is published
+				$dbr->makeList(
+					array(
+						'translation_status' => 'published',
+						'translation_target_url IS NOT NULL',
+					),
+					LIST_OR
+				)
+			),
+			__METHOD__
+		);
+
+		return intval( $count );
+	}
+
+	/**
 	 * Get the stats for all translator counts.
 	 */
 	public static function getStats() {
