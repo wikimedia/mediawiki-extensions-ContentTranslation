@@ -328,7 +328,7 @@
 	CXLink.prototype.getLinkCard = function () {
 		var $card, $link, $markMissingLink, self,
 			$imageContainer, $linkContainer,
-			$cardHeader, $linkInfo;
+			$cardHeader, linkLanguage, linkLanguageProps, userLanguage, $linkInfo;
 
 		self = this;
 		$card = $( '<div>' )
@@ -361,21 +361,20 @@
 				mw.msg( 'cx-tools-missing-link-title' )
 			)
 		);
+
+		linkLanguage = this.getLanguage();
+		linkLanguageProps = {
+			lang: linkLanguage,
+			dir: $.uls.data.getDir( linkLanguage )
+		};
+
 		$cardHeader.append( $( '<div>' )
-			.prop( {
-				lang: this.page.language,
-				dir: $.uls.data.getDir( this.page.language )
-			} )
+			.prop( linkLanguageProps )
 			.addClass( 'card__title--language' ) );
 
 		$linkInfo.append( $cardHeader );
 
-		$linkContainer = $( '<div>' )
-			.prop( {
-				lang: this.page.language,
-				dir: $.uls.data.getDir( this.page.language )
-			} )
-			.addClass( 'card__link-container' );
+		$linkContainer = $( '<div>' ).addClass( 'card__link-container' );
 
 		if ( this.page ) {
 			$link = $( '<a>' )
@@ -385,7 +384,11 @@
 					target: '_blank',
 					href: this.siteMapper.getPageUrl( this.page.language, this.page.title )
 				} );
-			$linkContainer.append( $link );
+
+			$linkContainer
+				.prop( linkLanguageProps )
+				.append( $link );
+
 			$linkInfo.append( $linkContainer );
 		} else {
 			if ( this.isRedLink() ) {
@@ -394,17 +397,29 @@
 					.addClass( 'card__link-text new' )
 					.text( this.getTitle() )
 					.prop( {
-						lang: this.getLanguage(),
-						dir: $.uls.data.getDir( this.getLanguage() ),
 						target: '_blank',
 						title: mw.msg( 'cx-tools-missing-link-tooltip' ),
 						href: new mw.Uri().extend( {
 							page: this.getTitle()
 						} ).toString()
 					} );
-				$linkContainer.append( $link );
+
+			$linkContainer
+				.prop( linkLanguageProps )
+				.append( $link );
 			} else {
-				$linkContainer.text( mw.msg( 'cx-tools-missing-link-text' ) );
+				userLanguage = mw.config.get( 'wgUserLanguage' );
+
+				// This is not really a link,
+				// but a message that suggests to add a red link,
+				// so it must be in the UI language
+				$linkContainer
+					.prop( {
+						lang: userLanguage,
+						dir: $.uls.data.getDir( userLanguage )
+					} )
+					.text( mw.msg( 'cx-tools-missing-link-text' ) );
+
 				$markMissingLink = $( '<div>' )
 					.addClass( 'card__mark-missing-link' )
 					.text( mw.msg( 'cx-tools-missing-link-mark-link' ) )
