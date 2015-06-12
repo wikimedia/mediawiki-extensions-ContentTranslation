@@ -135,6 +135,7 @@
 	"cx-save-draft-save-success": "Gravada {{PLURAL:$1|há um minuto|há $1 minutos ago|0=agora}}",
 	"cx-save-draft-saving": "A gravar...",
 	"cx-save-draft-tooltip": "Os rascunhos são gravados automaticamente",
+	"cx-save-draft-error": "Ocorreu um erro ao gravar a página.",
 	"cx-contributions-new-contributions": "Nova contribuição",
 	"cx-contributions-new-article": "Nova página",
 	"cx-contributions-translation": "Tradução",
@@ -193,5 +194,9 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} página como em falta para encorajar a sua criação.",
 	"cx-tools-missing-link-tooltip": "Traduzir (numa nova janela)",
 	"cx-tools-missing-link-title": "Ligação em falta",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como em falta"
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como em falta",
+	"echo-category-title-cx": "Traduções",
+	"echo-pref-tooltip-cx": "Notificar-me sobre as minhas traduções criadas com a ferramenta de Tradução de Conteúdo",
+	"cx-notification-first-translation": "Parabéns pela sua primeira tradução! Encontre mais páginas para traduzir na [[Special:MyContributions|sua página de contribuições]].",
+	"cx-notification-first-translation-email-subject": "Parabéns pela sua primeira tradução"
 }

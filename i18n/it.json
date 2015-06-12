@@ -126,6 +126,7 @@
 	"cx-save-draft-save-success": "Salvato {{PLURAL:$1|un minuto fa,|$1 minuti fa|0=proprio ora}}",
 	"cx-save-draft-saving": "Salvataggio in corso...",
 	"cx-save-draft-tooltip": "Le bozze di traduzione sono salvate automaticamente",
+	"cx-save-draft-error": "Si è verificato un errore durante il salvataggio della pagina.",
 	"cx-contributions-new-contributions": "Nuovo contributo",
 	"cx-contributions-new-article": "Nuova pagina",
 	"cx-contributions-translation": "Traduzione",

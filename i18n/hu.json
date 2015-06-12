@@ -176,5 +176,6 @@
 	"cx-stats-try-contenttranslation": "A Tartalomfordító eszköz segítségével új oldalak hozhatók létre más nyelven létező oldalak lefordításával. [$1 A Tartalomfordító kipróbálása]",
 	"cx-tools-missing-link-tooltip": "Fordítás (új ablakban)",
 	"cx-tools-missing-link-title": "Hiányzó hivatkozás",
-	"cx-tools-missing-link-mark-link": "Megjelölés hiányzóként"
+	"cx-tools-missing-link-mark-link": "Megjelölés hiányzóként",
+	"echo-category-title-cx": "Fordítások"
 }

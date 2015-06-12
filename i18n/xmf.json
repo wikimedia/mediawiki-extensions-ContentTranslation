@@ -9,5 +9,6 @@
 	"cx-stats-total-published": "ედომუშამო გობჟინაფილი",
 	"cx-stats-monthly-published": "ულირ თუთა",
 	"cx-stats-weekly-published": "ულირ მარა",
-	"cx-stats-local-published": "$1 $2-ს"
+	"cx-stats-local-published": "$1 $2-ს",
+	"echo-category-title-cx": "ნოთანგუეფი"
 }

@@ -98,6 +98,7 @@
 	"apihelp-cxpublish-param-categories": "التصنيفات التي ستوضع في الصفحة المنشورة.",
 	"apihelp-query+contenttranslation-description": "الاستعلام عن الترجمات في قاعدة بيانات ترجمة المحتوى.",
 	"apihelp-query+contenttranslation-param-translationid": "معرف الترجمة.",
+	"apihelp-query+contenttranslation-example-2": "الحصول على الترجمات بالمعرف.",
 	"apihelp-query+cxpublishedtranslations-example-1": "الحصول على كل الترجمات المنشورة",
 	"apihelp-query+cxpublishedtranslations-example-2": "الحصول على كل الترجمات المنشورة، المترجمة من الإنجليزية",
 	"cx-save-draft-saving": "جار الحفظ",
@@ -144,5 +145,7 @@
 	"cx-stats-local-published": "$1 في $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|لا ترجمات|ترجمة واحدة|ترجمتين|1$ ترجمات|$1 ترجمة}}",
 	"cx-tools-missing-link-tooltip": "ترجم (في نافذة جديدة)",
-	"cx-tools-missing-link-title": "وصلة مفقودة"
+	"cx-tools-missing-link-title": "وصلة مفقودة",
+	"echo-category-title-cx": "الترجمات",
+	"cx-notification-first-translation-email-subject": "تهانينا على ترجمتك الأولى"
 }

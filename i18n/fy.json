@@ -35,6 +35,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategory|$1 kategoryen|0=Gjin kategoryen}}",
 	"cx-stats-unknown": "ûnbekend",
 	"cx-tools-reference-title": "Referinsje",
+	"cx-tools-reference-add": "Referinsje tafoegje",
 	"cx-tools-reference-remove": "Referinsje fuortsmite",
 	"cx-sourceselector-dialog-new-translation": "Nije oersetting",
 	"cx-sourceselector-dialog-button-cancel": "Annulearje",
@@ -68,5 +69,8 @@
 	"cx-draft-discard-button-label": "Oersetting fuortsmite",
 	"cx-campaign-contributionsmenu-mycontributions": "Bydragen",
 	"cx-campaign-contributionsmenu-mytranslations": "Oersettings",
-	"cx-trend-all-translations": "Alle oersettings"
+	"cx-trend-all-translations": "Alle oersettings",
+	"cx-stats-local-published": "$1 yn it $2",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 oersetting|$1 oersettings}}",
+	"echo-category-title-cx": "Oersettings"
 }

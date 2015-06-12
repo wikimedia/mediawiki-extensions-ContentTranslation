@@ -172,7 +172,7 @@
 	"cx-draft-cancel-button-label": "Annuleren",
 	"cx-draft-discard-button-label": "Vertaling verwijderen",
 	"cx-beta-feature-enabled-notification": "Content Translation is niet geactiveerd op deze wiki.",
-	"cx-campaign-newarticle-notice": "Nu kunt u ook nieuwe inhoud maken door <b>vertaling</b>! Wilt u de Content Translation tool (beta) proberen?",
+	"cx-campaign-newarticle-notice": "Nu kunt u ook nieuwe pagina's maken door <strong>vertaling</strong>! Wilt u de Content Translation tool (beta) proberen?",
 	"cx-campaign-no-thanks": "Nee, bedankt",
 	"cx-campaign-try": "Probeer Content Translation",
 	"cx-campaign-contributionsmenu-mycontributions": "Bijdragen",
@@ -192,5 +192,7 @@
 	"cx-stats-monthly-published": "Afgelopen maand",
 	"cx-stats-weekly-published": "Afgelopen week",
 	"cx-stats-local-published": "$1 in het $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 vertaling|$1 vertalingen}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 vertaling|$1 vertalingen}}",
+	"cx-tools-missing-link-tooltip": "Vertalen (in nieuw venster)",
+	"echo-category-title-cx": "Vertalingen"
 }

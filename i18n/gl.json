@@ -132,6 +132,7 @@
 	"cx-save-draft-save-success": "Gardado {{PLURAL:$1|hai un minuto|hai $1 minutos|0=agora mesmo}}",
 	"cx-save-draft-saving": "Gardando...",
 	"cx-save-draft-tooltip": "Os borradores de tradución gárdanse automaticamente",
+	"cx-save-draft-error": "Produciuse un erro ao gardar a páxina.",
 	"cx-contributions-new-contributions": "Nova contribución",
 	"cx-contributions-new-article": "Páxina nova",
 	"cx-contributions-translation": "Tradución",
@@ -166,7 +167,7 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Borrar a tradución",
 	"cx-beta-feature-enabled-notification": "Activouse a tradución de contidos neste wiki.",
-	"cx-campaign-newarticle-notice": "Agora tamén pode crear contidos novos <b>traducindo</b>! Quere probar a ferramenta experimental de tradución de contidos?",
+	"cx-campaign-newarticle-notice": "Agora tamén pode crear contidos novos <strong>traducindo</strong>! Quere probar a ferramenta experimental de Tradución de Contidos?",
 	"cx-campaign-no-thanks": "Non, grazas",
 	"cx-campaign-try": "Probar a tradución de contidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribucións",
@@ -190,5 +191,9 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} a páxina para indicar que falta para fomentar a súa creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (nunha xanela nova)",
 	"cx-tools-missing-link-title": "Ligazón que falta",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como que falta"
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como faltante",
+	"echo-category-title-cx": "Traducións",
+	"echo-pref-tooltip-cx": "Notificarme sobre as miñas traducións creadas empregando a ferramenta de Tradución de Contido",
+	"cx-notification-first-translation": "Noraboa pola súa primeira tradución! Pode atopar máis páxinas para traducir [[Special:MyContributions|na súa páxina de contribucións]].",
+	"cx-notification-first-translation-email-subject": "Noraboa pola súa primeira tradución"
 }

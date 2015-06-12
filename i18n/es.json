@@ -200,5 +200,9 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Marca}} la página como faltante para fomentar su creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (en una ventana nueva)",
 	"cx-tools-missing-link-title": "Enlace faltante",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como faltante"
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} como faltante",
+	"echo-category-title-cx": "Traducciones",
+	"echo-pref-tooltip-cx": "Notificarme sobre mis traducciones creadas utilizando la herramienta de traducción de contenidos",
+	"cx-notification-first-translation": "Felicitaciones por tu primera traducción. Encuentra más páginas que traducir en la [[Special:MyContributions|página de tus contribuciones]].",
+	"cx-notification-first-translation-email-subject": "Felicitaciones por tu primera traducción"
 }
