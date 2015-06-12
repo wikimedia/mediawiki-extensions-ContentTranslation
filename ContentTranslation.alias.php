@@ -133,6 +133,12 @@ $specialPageAliases['uk'] = array(
 	'ContentTranslationStats' => array( 'Статистика_Перекладу_вмісту' ),
 );
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = array(
+	'ContentTranslation' => array( 'ترجمہ_مواد', 'تم' ),
+	'ContentTranslationStats' => array( 'شماریات_ترجمہ_مواد', 'شماریات_تم' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'ContentTranslation' => array( 'Dịch_nội_dung' ),
