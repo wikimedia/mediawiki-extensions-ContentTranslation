@@ -68,7 +68,7 @@
 			.addClass( 'cx-campaign-contributions' )
 			.append( $( '<a>' )
 				.text( mw.msg( 'cx-campaign-contributionsmenu-mycontributions' ) )
-				.attr( 'href', $trigger.attr( 'href' ) )
+				.attr( 'href', $trigger.find( 'a' ).attr( 'href' ) )
 			);
 
 		$myTranslations = getTranslationsItem();
