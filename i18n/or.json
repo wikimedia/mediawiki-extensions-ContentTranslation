@@ -1,23 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"ଆଶୁତୋଷ କର"
+			"ଆଶୁତୋଷ କର",
+			"Psubhashish"
 		]
 	},
 	"cx": "ପୃଷ୍ଠାଟି ଅନୁବାଦ କରନ୍ତୁ",
 	"cx-javascript": "ଏହି ଟୁଲଟି ଜାଭାସ୍କ୍ରିପ୍ଟ ବିନା କାମ କରିବ ନାହିଁ",
 	"cx-error-server-connection": "ଅସୁବିଧା : ସର୍ଭର ସହ ସଂଯୋଗ କରାଯାଇପାରିଲା ନାହିଁ ।",
 	"cx-header-progressbar-text": "$1% ଅନୁବାଦିତ",
-	"cx-header-translation-center": "ଅନୁବାଦନ କେନ୍ଦ୍ର",
+	"cx-header-translation-center": "ଅନୁବାଦ କେନ୍ଦ୍ର",
 	"cx-header-new-translation": "ନୂଆ ଅନୁବାଦ",
-	"cx-header-all-translations": "ସବୁ ଅନୁବାଦନ",
+	"cx-header-all-translations": "ସବୁ ଅନୁବାଦ",
 	"cx-source-view-page": "ପୃଷ୍ଠା ଦେଖନ୍ତୁ",
 	"cx-publish-page-error": "ପୃଷ୍ଠାଟି ସାଇତିଲା ବେଲକୁ ତ୍ରୁଟିହେଲା",
-	"cx-publish-button": "ଅନୁବାଦ ପ୍ରକାଶନ କରନ୍ତୁ",
+	"cx-publish-button": "ଅନୁବାଦ ପ୍ରକାଶ କରନ୍ତୁ",
 	"cx-publish-button-publishing": "ପ୍ରକାଶିତ ହେଉଛି...",
 	"cx-publish-gt-move-page-title": "ପୃଷ୍ଠାଟିକୁ ହଟେଇ ଦିଅନ୍ତୁ",
 	"cx-publish-gt-moved-title": "ଅନୁବାଦିତ ପୃଷ୍ଠାଟି ହଟେଇଦିଆ ଯାଇଥିଲା",
-	"cx-publish-gt-moved-description": "ଏହି ଲିଙ୍କଟିକୁ ଯାଇ ଆପଣ ଅନୁବାଦନ କରିଥିବା ପୃଷ୍ଠାଟି ପଢନ୍ତୁ ଓ ସୁଧାର ଅଣନ୍ତୁ",
+	"cx-publish-gt-moved-description": "ଏହି ଲିଙ୍କକୁ ଯାଇ ଆପଣ ଅନୁବାଦ କରିଥିବା ପୃଷ୍ଠାଟି ପଢ଼ି ଓ ସୁଧାରନ୍ତୁ",
 	"cx-publish-gt-published-title": "ବଧାଇ, ପୃଷ୍ଠାଟି ପ୍ରକାଶିତ ହେଲା.",
 	"cx-translation-add-translation": "+ ଅନୁବାଦ ଯୋଗକରନ୍ତୁ",
 	"cx-entrypoint-dialog-button-create-from-scratch": "ଆରମ୍ଭରୁ ତିଆରି କର",
@@ -40,7 +41,7 @@
 	"cx-translation-filter-draft-translations": "କାମ ଚାଲୁଥିବା ଅନୁବାଦନଗୁଡିକ",
 	"cx-translation-filter-from-any-language": "ଯେକୌଣସି ଭାଷାରୁ",
 	"cx-translation-filter-to-any-language": "ଯେକୌଣସି ଭାଷାକୁ",
-	"cx-create-new-translation": "ନୂଆ ଅନୁବାଦନ ତିଆରି କରନ୍ତୁ",
+	"cx-create-new-translation": "ନୂଆ ଅନୁବାଦ କରନ୍ତୁ",
 	"apihelp-cxpublish-param-from": "ଉତ୍ପତ୍ତି ଭାଷା କୋଡ",
 	"apihelp-cxpublish-param-to": "ଗନ୍ତବ୍ୟ ଭାଷା କୋଡ",
 	"apihelp-cxconfiguration-param-from": "ଉତ୍ପତ୍ତି ଭାଷା କୋଡ",
