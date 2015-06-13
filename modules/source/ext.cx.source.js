@@ -165,13 +165,34 @@
 	}
 
 	ContentTranslationSource.prototype.showLoadingIndicator = function () {
-		var $loadingIndicator, $loadingIndicatorText, $loadingIndicatorSpinner;
+		var $loadingIndicator,
+			$sourceTitle, userLanguage, $loadingIndicatorText,
+			$loadingIndicatorSpinner;
 
 		$loadingIndicator = $( '<div>' )
 			.addClass( 'cx-column__loading-indicator' );
+
+		$sourceTitle = $( '<span>' )
+			.prop( {
+				lang: mw.cx.sourceLanguage,
+				dir: $.uls.data.getDir( mw.cx.sourceLanguage )
+			} )
+			.text( mw.cx.sourceTitle );
+
+		userLanguage = mw.config.get( 'wgUserLanguage' );
 		$loadingIndicatorText = $( '<div>' )
+			.prop( {
+				lang: userLanguage,
+				dir: $.uls.data.getDir( userLanguage )
+			} )
 			.addClass( 'cx-column__loading-indicator--text' )
-			.text( mw.msg( 'cx-source-loading', mw.cx.sourceTitle ) );
+			.text( mw.msg( 'cx-source-loading' ) );
+
+		// Escaping tricks
+		$loadingIndicatorText.html(
+			$loadingIndicatorText.html().replace( '$1', $sourceTitle.get( 0 ).outerHTML )
+		);
+
 		$loadingIndicatorSpinner = $( '<div>' )
 			.addClass( 'cx-spinner' )
 			.append(
