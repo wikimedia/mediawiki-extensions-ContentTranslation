@@ -4,7 +4,8 @@
 			"Shirayuki",
 			"SkyDaisy9",
 			"Mfuji",
-			"Kzhr"
+			"Kzhr",
+			"W.CC"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -40,6 +41,8 @@
 	"cx-beta-desc": "ページをあなたの使用言語にすばやく翻訳するツールです。 [[Special:MyContributions|あなたの投稿記録]]、から翻訳を始めてください。そしてそれらを翻訳のために特別設計されたこの並列エディタで編集してください。特別な言語にしか使用できないツールもあるかもしれません。",
 	"cx-entrypoint-title": "このページを$1に翻訳",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "このページは $1 版にはまだありません。 {{GENDER:|あなた}}がそれをつくりませんか。",
+	"cx-entrypoint-dialog-title-in": "$1 での新しいページ名 :",
+	"cx-entrypoint-dialog-button-create-from-scratch": "新規作成",
 	"cx-entrypoint-dialog-button-translate-from": "$1 から翻訳",
 	"cx-special-login-error": "このページを翻訳するには、ログインしてください。[$1 ログイン]",
 	"cx-tools-instructions-text1": "段落を{{GENDER:|クリック}}して翻訳",
@@ -60,7 +63,11 @@
 	"cx-tools-mt-dont-use": "機械翻訳を使用しないでください",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|カテゴリ $1 件}}",
 	"cx-stats-unknown": "不明",
+	"cx-tools-reference-title": "脚注",
+	"cx-tools-reference-add": "脚注を追加",
+	"cx-tools-reference-remove": "脚注を除去",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
+	"cx-sourceselector-dialog-new-translation": "新しい翻訳",
 	"cx-sourceselector-dialog-button-start-translation": "翻訳を開始",
 	"cx-sourceselector-dialog-button-cancel": "キャンセル",
 	"cx-sourceselector-dialog-source-language-label": "翻訳元:",

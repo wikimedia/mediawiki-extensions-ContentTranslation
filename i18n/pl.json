@@ -139,6 +139,7 @@
 	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
 	"cx-save-draft-saving": "Zapisywanie...",
 	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
+	"cx-save-draft-error": "Wystąpił błąd podczas zapisywania strony.",
 	"cx-contributions-new-contributions": "Nowy wkład",
 	"cx-contributions-new-article": "Nowa strona",
 	"cx-contributions-translation": "Tłumaczenie",
@@ -193,5 +194,7 @@
 	"cx-stats-weekly-published": "Ostatni tydzień",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tłumaczenie|$1 tłumaczenia|$1 tłumaczeń}}",
 	"cx-tools-missing-link-tooltip": "Przetłumacz (w nowym oknie)",
-	"cx-tools-missing-link-title": "Brakujący link"
+	"cx-tools-missing-link-title": "Brakujący link",
+	"echo-category-title-cx": "Tłumaczenia",
+	"cx-notification-first-translation-email-subject": "Gratulujemy pierwszego tłumaczenia"
 }

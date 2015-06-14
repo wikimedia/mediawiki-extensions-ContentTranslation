@@ -10,7 +10,8 @@
 			"Stultiwikia",
 			"Watermelon juice",
 			"Meelo",
-			"Arystanbek"
+			"Arystanbek",
+			"Uğurkent"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -180,5 +181,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
 	"cx-trend-all-translations": "Tüm çeviriler",
 	"cx-trend-translations-to": "$1 diline yapılan çeviriler",
-	"cx-stats-try-contenttranslation": "İçerik Çevirmeni, diğer dillerden çeviri yaparak yeni sayfalar oluşturmaya yarayan bir araçtır. [$1 İçerik Çevirmeni'ni deneyin]"
+	"cx-stats-try-contenttranslation": "İçerik Çevirmeni, diğer dillerden çeviri yaparak yeni sayfalar oluşturmaya yarayan bir araçtır. [$1 İçerik Çevirmeni'ni deneyin]",
+	"cx-stats-monthly-published": "Geçen ay",
+	"cx-stats-weekly-published": "Geçen hafta"
 }

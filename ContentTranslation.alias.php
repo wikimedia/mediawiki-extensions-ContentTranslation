@@ -74,7 +74,7 @@ $specialPageAliases['lb'] = array(
 	'ContentTranslationStats' => array( 'Statistiken_iwwer_d\'Iwwersetze_vun_Inhalter' ),
 );
 
-/** Northern Luri (لوری مینجایی) */
+/** Northern Luri (لۊری شومالی) */
 $specialPageAliases['lrc'] = array(
 	'ContentTranslation' => array( 'والریاری_مینونە', 'سی_ایکس' ),
 	'ContentTranslationStats' => array( 'گوتە_یاری_ڤالئرشتئن_مینونە', 'گوتە_کاری_سی_ئیکس' ),

@@ -8,8 +8,8 @@
 	"cx-javascript": "Dëse Programm funktionéiert net ouni JavaScript",
 	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
 	"cx-desc": "Mécht et einfach fir Säite mat Inhalt z'iwwersetzen.",
-	"cx-header-progressbar-text": "$1% iwwersat",
-	"cx-header-progressbar-text-mt": "($1% Maschinneniwwersetzung)",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iwwersat}}",
+	"cx-header-progressbar-text-mt": "($1% vun der {{PLURAL:$1|Maschinneniwwersetzung}})",
 	"cx-header-translation-center": "Iwwersetzungszentral",
 	"cx-header-new-translation": "Nei Iwwersetzung",
 	"cx-header-all-translations": "All Iwwersetzungen",
@@ -76,7 +76,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
 	"cx-sourceselector-dialog-error-no-source-article": "D'Säit déi soll iwwersat gi gëtt et net op $1",
-	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung si(nn) $1% onverännerten Text aus Maschinnen-Iwwersetzung",
+	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung {{PLURAL:$1|ass|si(nn)}} $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-publish-captcha-title": "Sécherheetsfro",
 	"cx-translation-filter-all-translations": "All Iwwersetzungen",
 	"cx-translation-filter-published-translations": "Publizéiert Iwwersetzungen",
@@ -94,6 +94,7 @@
 	"cx-save-draft-save-success": "{{PLURAL:$1|Virun enger Mimutt|Viru(n) $1 Minutte|0=Elo grad}} gespäichert",
 	"cx-save-draft-saving": "Späicheren...",
 	"cx-save-draft-tooltip": "Brouillone vun Iwwersetzunge ginn automatesch gespäichert",
+	"cx-save-draft-error": "Beim Späichere vun der Säit ass e Feeler geschitt.",
 	"cx-contributions-new-contributions": "Nei Kontributioun",
 	"cx-contributions-new-article": "Nei Säit",
 	"cx-contributions-translation": "Iwwersetzung",
@@ -140,5 +141,8 @@
 	"cx-stats-weekly-published": "Lescht Woch",
 	"cx-stats-local-published": "$1 op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}",
-	"cx-tools-missing-link-title": "Link feelt"
+	"cx-tools-missing-link-title": "Link feelt",
+	"echo-category-title-cx": "Iwwersetzungen",
+	"cx-notification-first-translation": "Gratulatioun fir Är éischt Iwwersetzung! Dir fannt méi Säite fir z'iwwersetzen op [[Special:MyContributions|Ärer Kontributiounssäit]].",
+	"cx-notification-first-translation-email-subject": "Gratulatioun fir Är éischt Iwwersetzung"
 }
