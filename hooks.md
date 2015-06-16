@@ -39,11 +39,6 @@ Parameters:
 
 Used to trigger the publish action.
 
-## mw.cx.search.link
-
-This is fired when a link title is searched in tools search box.
-The search string is passed as an argument. Example subscribers are link and dictionary tools.
-
 ## mw.cx.search.word
 
 This is fired when a word is searched in the tools search box.

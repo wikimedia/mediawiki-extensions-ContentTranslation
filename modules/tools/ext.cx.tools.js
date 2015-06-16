@@ -99,7 +99,6 @@
 		var text = this.$searchInput.val().trim().toLowerCase();
 
 		mw.hook( 'mw.cx.search.word' ).fire( text );
-		mw.hook( 'mw.cx.search.link' ).fire( text );
 	};
 
 	ContentTranslationTools.prototype.updateSearch = function ( word ) {

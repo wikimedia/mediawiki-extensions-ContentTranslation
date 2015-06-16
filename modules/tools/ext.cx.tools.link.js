@@ -246,9 +246,8 @@
 				return;
 			}
 		}
-
 		this.$link
-			.attr( 'rel', 'mw:WikiLink' )
+			.prop( 'rel', 'mw:WikiLink' )
 			.removeClass( 'cx-target-link-unadapted' )
 			.addClass( 'new' );
 	};
@@ -865,11 +864,9 @@
 			this.sourceLink = this.targetLink.getSourceLink();
 		}
 
-		// Fetch the link data and show the card in correct order - Source card and then
-		// target card.
 		this.sourceLink.fetchLinkData().done( function ( page ) {
 			if ( page ) {
-				self.$card.append( self.sourceLink.getCard() );
+				self.$card.prepend( self.sourceLink.getCard() );
 			}
 		} );
 
@@ -891,20 +888,293 @@
 	LinkCard.prototype.stop = function () {
 		this.removeCard();
 		mw.hook( 'mw.cx.tools.shown' ).fire( false );
-
 	};
 
 	LinkCard.prototype.getTriggerEvents = function () {
 		return [
 			'mw.cx.select.link', // Select a link by clicking - in translation or source
-			'mw.cx.search.link', // Search a link title using search box
 			'mw.cx.select.word', // Select a word using mouse or keyboard - in translation or source
 			'mw.cx.search.word' // Search a word title using search box
 		];
 	};
 
 	/**
-	 * Adapt links in a section.
+	 * Tool to add internal or external link to the selection
+	 * or at cursor position
+	 */
+	function LinkerTool() {
+		this.$card = null;
+		this.selection = null;
+	}
+
+	/**
+	 * Prepare the tool card
+	 * @return {jQuery}
+	 */
+	LinkerTool.prototype.getCard = function () {
+		this.$pageSelectorButton = $( '<button>' )
+			.prop( 'disabled', true )
+			.addClass( 'mw-ui-button mw-ui-progressive' )
+			.text( mw.msg( 'cx-tools-link-apply' ) );
+		this.$internalLink = $( '<span>' )
+			.addClass( 'linker-internal' )
+			.text( mw.msg( 'cx-tools-link-internal-link' ) );
+		this.$externalLink = $( '<span>' )
+			.addClass( 'linker-external linker-inactive' )
+			.text( mw.msg( 'cx-tools-link-external-link' ) );
+		this.$compactTrigger = $( '<div>' )
+			.addClass( 'linker-trigger' )
+			.text( mw.msg( 'cx-tools-link-to-another-page' ) );
+		this.$header = $( '<div>' )
+			.addClass( 'linker-header' )
+			.append( this.$internalLink, this.$externalLink, this.$pageSelectorButton );
+		this.$searchInput = $( '<input>' )
+			.attr( {
+				type: 'search',
+				placeholder: mw.msg( 'cx-tools-link-internal-link-placeholder' )
+			} )
+			.addClass( 'linker-search' );
+		this.$externalLinkInput = $( '<input>' )
+			.addClass( 'linker-external-link' )
+			.prop( {
+				type: 'url',
+				placeholder: mw.msg( 'cx-tools-link-external-link-placeholder' )
+			} )
+			.hide();
+		this.$card = $( '<div>' )
+			.addClass( 'card linker' )
+			.append( this.$compactTrigger, this.$header, this.$searchInput, this.$externalLinkInput )
+			.hide();
+
+		this.$targetPageSelector = new mw.PageSelector( this.$searchInput, {
+			api: mw.cx.siteMapper.getApi( mw.cx.targetLanguage ),
+			showMissingPage: true
+		} );
+
+		return this.$card;
+	};
+
+	/**
+	 * Create a link. It can be external link or internal link
+	 * @param  {String} target Target title
+	 * @param  {type} type  Link type: 'external' or 'internal'
+	 */
+	LinkerTool.prototype.createLink = function ( target, type ) {
+		var $link;
+
+		if ( type === 'internal' ) {
+			if ( this.$link ) {
+				$link = this.$link;
+				// Change the link target
+				$link.prop( {
+						href: target.title,
+						title: target.title
+					} )
+					.removeData( 'cxTargetLink' ) // Unbind
+					.cxTargetLink();
+			} else {
+				$link = $( '.cx-selection' );
+				// Convert the selection to a mw link.
+				$link.prop( {
+						rel: 'mw:WikiLink',
+						href: target.title,
+						title: target.title
+					} )
+					.text( this.selection || target.title )
+					.addClass( 'cx-link cx-target-link' )
+					.removeClass( 'cx-selection cx-highlight--blue' )
+					.cxTargetLink();
+			}
+
+			if ( target.missing ) {
+				// Make it red.
+				$link.data( 'cxTargetLink' ).makeRedLink();
+			}
+		} else {
+			$link = $( '.cx-selection' );
+			$link.text( this.selection || target )
+				.addClass( 'external' )
+				.removeClass( 'cx-selection cx-highlight--blue' )
+				.prop( {
+					href: target,
+					title: target
+				} );
+		}
+
+		// Something changed. Notify.
+		$link.parents( '[contenteditable]' ).trigger( 'input' );
+		// Set the cursor at the end of inserted link.
+		mw.cx.selection.setCursorAfter( 'translation' );
+	};
+
+	/**
+	 * Expand the linker tool card
+	 */
+	LinkerTool.prototype.expand = function () {
+		var self = this;
+
+		this.$card.addClass( 'linker-expanded' );
+		if ( this.selection ) {
+			this.$searchInput.val( this.selection ).select();
+		}
+		mw.cx.selection.wrap(
+			'translation',
+			$( '<a>' ).addClass( 'cx-selection cx-highlight--blue' )[ 0 ]
+		);
+		this.$searchInput.focus();
+		$.when.apply( $, this.getTargetPagesForSource() ).done( function () {
+			var pages = arguments;
+			self.$targetPageSelector.buildMenu( pages );
+			self.$targetPageSelector.show();
+		} );
+		// Without this the page selector will consume click and close
+		return false;
+	};
+
+	LinkerTool.prototype.listen = function () {
+		var self = this,
+			linkType = 'internal';
+
+		$( '.cx-selection' ).replaceWith( function () {
+			return $( this ).html();
+		} );
+
+		this.$compactTrigger.on( 'click', $.proxy( this.expand, this ) );
+		this.$searchInput.on( 'focus', function () {
+			self.$pageSelectorButton.prop( 'disabled', false );
+		} );
+
+		this.$externalLinkInput.on( 'focus', function () {
+			self.$pageSelectorButton.prop( 'disabled', false );
+		} ).on( 'keypress', function ( e ) {
+			if ( e.which === 13 ) {
+				self.createLink( self.$targetPageSelector.getSelectedPage(), 'external' );
+			}
+		} );
+		this.$internalLink.on( 'click', function () {
+			self.$externalLink.addClass( 'linker-inactive' );
+			self.$internalLink.removeClass( 'linker-inactive' );
+			self.$searchInput.show().focus();
+			self.$externalLinkInput.hide();
+			linkType = 'internal';
+		} );
+
+		this.$externalLink.on( 'click', function () {
+			self.$internalLink.addClass( 'linker-inactive' );
+			self.$externalLink.removeClass( 'linker-inactive' );
+			self.$searchInput.hide();
+			self.$externalLinkInput.show().focus();
+			linkType = 'external';
+		} );
+
+		this.$pageSelectorButton.on( 'click', function () {
+			if ( linkType === 'internal' ) {
+				self.createLink( self.$targetPageSelector.getSelectedPage(), linkType );
+			} else {
+				self.createLink( self.$externalLinkInput.val(), linkType );
+			}
+		} );
+
+		//  Expand the linker tool when CTRL+K is pressed.
+		$( document ).on( 'keydown', function ( e ) {
+			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 75 ) {
+				self.expand();
+				return false;
+			}
+		} );
+	};
+
+	/**
+	 * Get the parent of the selection
+	 * @return {jQuery}
+	 */
+	LinkerTool.prototype.getParentSection = function () {
+		var $selectionParent = $( mw.cx.selection.getParent( 'translation' ) );
+		return $selectionParent.closest( mw.cx.getSectionSelector() );
+	};
+
+	/**
+	 * Get the source section corresponding to parent of the selection
+	 * @return {jQuery}
+	 */
+	LinkerTool.prototype.getParentSourceSection = function () {
+		return mw.cx.getSourceSection( this.getParentSection().data( 'source' ) );
+	};
+
+	/**
+	 * Get all the target pages for the titles in source section
+	 * @return {[jQuery.Promise]}
+	 */
+	LinkerTool.prototype.getTargetPagesForSource = function () {
+		var $sourceSection, $sourceLinks, pagePromises = [];
+
+		$sourceSection = this.getParentSourceSection();
+		$sourceLinks = $sourceSection.find( '.cx-source-link' );
+		pagePromises.push( $.Deferred().resolve( {
+			title: this.$searchInput.val(),
+			missing: !!this.$searchInput.val()
+		} ).promise() );
+		$sourceLinks.each( function () {
+			var pagePromise, sourceLink;
+			sourceLink = $( this ).data( 'cxSourceLink' );
+			if ( sourceLink ) {
+				pagePromise = sourceLink.getTargetLink().fetchLinkData();
+				// TODO: Remove duplicates?
+				if ( pagePromise ) {
+					pagePromises.push( pagePromise );
+				}
+			}
+		} );
+		return pagePromises;
+	};
+
+	/**
+	 * Show the link tool card
+	 */
+	LinkerTool.prototype.show = function () {
+		this.$card.show();
+		this.onShow();
+	};
+
+	LinkerTool.prototype.start = function ( selection ) {
+		if ( typeof selection === 'string' ) {
+			// Capture the selection
+			this.selection = selection;
+		} else if ( selection.jquery && selection.is( 'a' ) ) {
+			this.$link = selection;
+		}
+		this.show();
+		this.listen();
+	};
+
+	LinkerTool.prototype.onShow = function () {
+		mw.hook( 'mw.cx.tools.shown' ).fire( true );
+	};
+
+	LinkerTool.prototype.stop = function () {
+		this.removeCard();
+		mw.hook( 'mw.cx.tools.shown' ).fire( false );
+	};
+
+	/**
+	 * Remove the card
+	 */
+	LinkerTool.prototype.removeCard = function () {
+		this.$card.remove();
+	};
+
+	LinkerTool.prototype.getTriggerEvents = function () {
+		return [
+			'mw.cx.translation.focus',
+			'mw.cx.translation.change',
+			'mw.cx.select.link', // Select a link by clicking - in translation or source
+			'mw.cx.select.word', // Select a word using mouse or keyboard - in translation or source
+			'mw.cx.search.word' // Search a word title using search box
+		];
+	};
+
+	/**
+	 * Adapt links in a section
 	 * @param {jQuery} $section The section.
 	 */
 	function adaptLinks( $section ) {
@@ -916,7 +1186,7 @@
 
 		// Collect all source links' titles
 		sourceLinkTargets = $sourceLinks.map( function () {
-			return $( this ).attr( 'title' );
+			return $( this ).prop( 'title' );
 		} ).get();
 
 		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
@@ -929,7 +1199,8 @@
 			} );
 	}
 
-	mw.cx.tools.link = LinkCard;
+	mw.cx.tools.linkcard = LinkCard;
+	mw.cx.tools.linkercard = LinkerTool;
 
 	$( function () {
 		mw.hook( 'mw.cx.translation.postMT' ).add( adaptLinks );

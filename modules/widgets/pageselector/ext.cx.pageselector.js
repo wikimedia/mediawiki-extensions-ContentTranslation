@@ -12,6 +12,7 @@
 	function MediaWikiPageSelector( input, options ) {
 		this.$input = $( input );
 		this.options = $.extend( {}, mw.PageSelector.defaults, options );
+		this.selectedPage = null;
 		this.render();
 		this.listen();
 	}
@@ -20,10 +21,12 @@
 	 * Render the page selector
 	 */
 	MediaWikiPageSelector.prototype.render = function () {
-		this.$menu = $( '<ul>' )
-			.addClass( 'mw-pageselector-menu' )
-			.hide();
-
+		this.$menu = $( '.mw-pageselector-menu' ).empty().hide();
+		if ( !this.$menu.length ) {
+			this.$menu = $( '<ul>' )
+				.addClass( 'mw-pageselector-menu' )
+				.hide();
+		}
 		// Append it to the body
 		$( 'body' ).append( this.$menu );
 	};
@@ -68,39 +71,67 @@
 		} );
 	};
 
+	MediaWikiPageSelector.prototype.buildMenu = function ( pages ) {
+		var page, pageId, $resultItem, $description, thumbnailHeight, thumbnailWidth;
+
+		this.$menu.empty().attr( {
+			lang: this.$input.attr( 'lang' ),
+			dir: this.$input.attr( 'dir' )
+		} );
+
+		if ( !pages && this.options.showMissingPage ) {
+			pages = [ {
+				title: this.$input.val(),
+				missing: true
+			} ];
+		}
+
+		for ( pageId in pages ) {
+			page = pages[ pageId ];
+			if ( !page.title ) {
+				// Invalid page?
+				continue;
+			}
+			$description = $( '<div>' )
+				.addClass( 'mw-page-description' )
+				.text( page.terms ? page.terms.description : '' );
+			$resultItem = $( '<li>' )
+				.data( 'page', page )
+				.append(
+					$( '<div>' ).addClass( 'mw-page-title' ).text( page.title ),
+					$description
+				);
+			if ( page.missing ) {
+				$resultItem.addClass( 'mw-page-missing' );
+				$description.text( mw.msg( 'mw-pageselector-missing' ) );
+			}
+			if ( page.thumbnail ) {
+				thumbnailWidth = page.thumbnail.width;
+				thumbnailHeight = page.thumbnail.height;
+				if ( thumbnailWidth > 50 ) {
+					thumbnailWidth = 50;
+				}
+				if ( thumbnailHeight > 50 ) {
+					thumbnailHeight = 50;
+				}
+				$resultItem.css( {
+					'background-image': 'url(' + page.thumbnail.source + ')',
+					'background-size': thumbnailWidth + 'px ' + thumbnailHeight + 'px'
+				} );
+			}
+			this.$menu.append( $resultItem );
+		}
+
+	};
+
 	MediaWikiPageSelector.prototype.search = function () {
 		var self = this;
 
 		this.getPages( this.$input.val().trim() ).then( function ( items ) {
-			var page, pageId, pages, $resultItem, $description;
+			var pages = items.query.pages;
 
-			pages = items.query.pages;
-			self.$menu.empty().attr( {
-				lang: self.$input.attr( 'lang' ),
-				dir: self.$input.attr( 'dir' )
-			} );
-
-			for ( pageId in pages ) {
-				page = pages[ pageId ];
-				$description = $( '<div>' )
-					.addClass( 'mw-page-description' )
-					.text( page.terms ? page.terms.description : '' );
-				$resultItem = $( '<li>' )
-					.data( 'page-title', page.title )
-					.append(
-						$( '<div>' ).addClass( 'mw-page-title' ).text( page.title ),
-						$description
-					);
-				if ( page.thumbnail ) {
-					$resultItem.css( {
-						'background-image': 'url(' + page.thumbnail.source + ')',
-						'background-size': page.thumbnail.width + 'px ' + page.thumbnail.height + 'px'
-					} );
-				}
-				self.$menu.append( $resultItem );
-			}
-
-			if ( pages ) {
+			self.buildMenu( pages );
+			if ( pages || self.options.showMissingPage ) {
 				self.show();
 			} else {
 				self.hide();
@@ -113,24 +144,27 @@
 	 * @param {jQuery} $item Menu item
 	 */
 	MediaWikiPageSelector.prototype.select = function ( $item ) {
-		this.$input.val( $item.data( 'page-title' ) ).focus();
+		this.selectedPage = $item.data( 'page' );
+		this.$input.val( this.selectedPage.title ).focus();
+	};
+
+	MediaWikiPageSelector.prototype.getSelectedPage = function () {
+		return this.selectedPage;
 	};
 
 	/**
-	 * Show the menu when there is something in input field
+	 * Show the menu and position it relative to the input field.
 	 */
 	MediaWikiPageSelector.prototype.show = function () {
 		var offset;
 
-		if ( this.$input.val().trim() ) {
-			offset = this.$input.offset();
-			this.$menu
-				.css( {
-					left: offset.left,
-					top: offset.top
-				} )
-				.show();
-		}
+		offset = this.$input.offset();
+		this.$menu
+			.css( {
+				left: offset.left,
+				top: offset.top
+			} )
+			.show();
 	};
 
 	/*
@@ -222,6 +256,8 @@
 		// API to use for querying pages. By default queries the same wiki
 		// To query other wikis, set the ajax URL to mw.Api.
 		// Example: mw.Api( { ajax: { url: apiURL } } )
-		api: new mw.Api()
+		api: new mw.Api(),
+		// Show a missing page if search did not return any page.
+		showMissingPage: false
 	};
 }( jQuery, mediaWiki ) );

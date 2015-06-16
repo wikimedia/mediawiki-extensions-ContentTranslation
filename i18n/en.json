@@ -209,5 +209,12 @@
 	"cx-notification-hundredth-translation": "You just made 100 translations! That is a remarkable achievement. Share the word to other editors.",
 	"cx-notification-hundredth-translation-email-subject": "Congratulations for your one hundredth translation",
 	"cx-translationlist-empty-title": "Nothing to translate?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Start}} your translation now and continue it anytime."
+	"cx-translationlist-empty-desc": "{{GENDER:|Start}} your translation now and continue it anytime.",
+	"cx-tools-link-internal-link": "Link to page",
+	"cx-tools-link-internal-link-placeholder": "Find page to link",
+	"cx-tools-link-external-link": "External",
+	"cx-tools-link-external-link-placeholder": "Add external link",
+	"cx-tools-link-to-another-page": "Link to another page",
+	"cx-tools-link-apply": "Done",
+	"mw-pageselector-missing": "Page does not exist"
 }

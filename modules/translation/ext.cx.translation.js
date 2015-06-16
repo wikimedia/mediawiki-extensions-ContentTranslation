@@ -210,8 +210,13 @@
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
-		$section.on( 'click keyup', $.debounce( 250, function () {
+		$section.on( 'click keyup', $.debounce( 250, function ( e ) {
 			var selection = window.getSelection().toString();
+
+			// Control or alt key press events can be ignored
+			if ( e.metaKey || e.ctrlKey && !e.altKey ) {
+				return;
+			}
 
 			if ( selection.trim() ) {
 				// In this case, user is interested in targetLanguage->targetLanguage

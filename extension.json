@@ -318,6 +318,9 @@
 			"styles": [
 				"widgets/pageselector/ext.cx.pageselector.less"
 			],
+			"messages": [
+				"mw-pageselector-missing"
+			],
 			"dependencies": [
 				"mediawiki.api"
 			]
@@ -469,7 +472,8 @@
 				"tools/ext.cx.tools.link.js"
 			],
 			"styles": [
-				"tools/styles/ext.cx.tools.link.less"
+				"tools/styles/ext.cx.tools.link.less",
+				"tools/styles/ext.cx.tools.linker.less"
 			],
 			"messages": [
 				"cx-tools-link-title",
@@ -479,9 +483,17 @@
 				"cx-tools-missing-link-title",
 				"cx-tools-missing-link-text",
 				"cx-tools-missing-link-tooltip",
-				"cx-tools-missing-link-mark-link"
+				"cx-tools-missing-link-mark-link",
+				"cx-tools-link-internal-link",
+				"cx-tools-link-internal-link-placeholder",
+				"cx-tools-link-external-link",
+				"cx-tools-link-external-link-placeholder",
+				"cx-tools-link-to-another-page",
+				"cx-tools-link-apply"
 			],
 			"dependencies": [
+				"ext.cx.pageselector",
+				"ext.cx.tools.manager",
 				"ext.cx.tools.card",
 				"ext.cx.tools.manager",
 				"jquery.uls.data",

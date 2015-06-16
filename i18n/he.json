@@ -204,5 +204,12 @@
 	"cx-notification-hundredth-translation": "עשית 100 תרגומים! זה הישג מרשים. זה הזמן לספר על כך לעורכים אחרים.",
 	"cx-notification-hundredth-translation-email-subject": "ברכות על התרגום המאה שלך",
 	"cx-translationlist-empty-title": "לא מצאת מה לתרגם?",
-	"cx-translationlist-empty-desc": "{{GENDER:|התחל|התחילי}} את התרגום שלך עכשיו {{GENDER:|והמשך|והמשיכי}} אותו בכל זמן."
+	"cx-translationlist-empty-desc": "{{GENDER:|התחל|התחילי}} את התרגום שלך עכשיו {{GENDER:|והמשך|והמשיכי}} אותו בכל זמן.",
+	"cx-tools-link-internal-link": "קישור לדף",
+	"cx-tools-link-internal-link-placeholder": "מציאת דף לקישור",
+	"cx-tools-link-external-link": "חיצוני",
+	"cx-tools-link-external-link-placeholder": "הוספת קישור חיצוני",
+	"cx-tools-link-to-another-page": "קישור לדף אחר",
+	"cx-tools-link-apply": "בוצע",
+	"mw-pageselector-missing": "הדף אינו קיים"
 }

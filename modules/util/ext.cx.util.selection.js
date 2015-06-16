@@ -201,6 +201,37 @@
 		}
 	};
 
+	/**
+	 * Place the cursor after the selection.
+	 * @param {string} key key for the range to restore
+	 */
+	Selection.prototype.setCursorAfter = function ( key ) {
+		var range, selection;
+
+		this.restore( key );
+		selection = this.get();
+		if ( selection.rangeCount ) {
+			range = selection.getRangeAt( 0 );
+			range.collapse( false );
+			selection.removeAllRanges();
+			selection.addRange( range );
+		}
+	};
+
+	/**
+	 * Wrap the selection corresponding to the given key with the given element
+	 * @param {string} key, the key for the saved selection range
+	 * @param  {Element} element The element that wraps the selection
+	 */
+	Selection.prototype.wrap = function ( key, element ) {
+		var range;
+
+		range = this.ranges[ key ];
+		if ( range ) {
+			range.surroundContents( element );
+		}
+	};
+
 	mw.cx.selection = new Selection();
 
 }( mediaWiki ) );
