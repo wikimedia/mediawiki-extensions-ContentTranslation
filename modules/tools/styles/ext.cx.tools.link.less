@@ -183,20 +183,24 @@
 	}
 }
 
-[contenteditable]:focus .cx-link {
-	cursor: pointer;
-}
-
-// Links that cannot be adapted will be represented in gray with a dashed underline.
-[contenteditable]:focus .cx-target-link-unadapted {
+[contenteditable] {
+	// Links that cannot be adapted will be represented in gray with a dashed underline.
 	// The dashed underline will only appear for the links on the current paragraph.
 	// Links from other paragraphs will not show the dashed underline to avoid too much visual noise.
-	color: #ccc;
-	border-bottom: 1px dashed #ccc;
-	cursor: pointer;
+	&:focus .cx-target-link-unadapted {
+		border-bottom: 1px dashed #ccc;
+	}
 
-	&:hover {
-		color: #252525;
+	.cx-target-link-unadapted {
+		color: #ccc;
+
+		&:hover {
+			color: #252525;
+		}
+	}
+
+	.cx-link {
+		cursor: pointer;
 	}
 }
 
