@@ -7,11 +7,12 @@
 	},
 	"cx": "Rûpelê wergerîne",
 	"cx-javascript": "Ev amûr bê JavaScriptê kar nake.",
-	"cx-header-progressbar-text": "1% hatiye wergerandin",
+	"cx-header-progressbar-text": "$1% hatiye {{PLURAL:$1|wergerandin}}",
 	"cx-header-translation-center": "Navenda wergerandinê",
 	"cx-header-new-translation": "Wergera nû",
 	"cx-header-all-translations": "Hemû werger",
 	"cx-source-view-page": "rûpelê bibîne",
+	"cx-publish-button-publishing": "Tê weşandin...",
 	"cx-publish-gt-moved-title": "Navê rûpela wergerandî hate guherandin",
 	"cx-translation-add-translation": "+ Wergerê lê zêde bike",
 	"cx-source-loading": "$1 tê barkirin",
@@ -22,6 +23,7 @@
 	"cx-tools-link-title": "Girêdan",
 	"cx-tools-link-add": "Girêdanê lê zêde bike",
 	"cx-tools-link-remove": "Girêdanê jê bibe",
+	"cx-tools-mt-clear-translation": "Paragrafê paqij bike",
 	"cx-tools-mt-provider-title": "Ji $1",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategor|0=Kategorî tune ne}}",
 	"cx-stats-unknown": "nenas",
@@ -53,5 +55,7 @@
 	"cx-campaign-no-thanks": "Na, spas",
 	"cx-campaign-contributionsmenu-mytranslations": "Werger",
 	"cx-campaign-contributionsmenu-myuploads": "Medya bar bike",
-	"cx-trend-all-translations": "Hemû werger"
+	"cx-trend-all-translations": "Hemû werger",
+	"cx-stats-monthly-published": "Hefteya dawî",
+	"echo-category-title-cx": "Werger"
 }

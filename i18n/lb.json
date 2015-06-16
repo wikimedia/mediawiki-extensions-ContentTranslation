@@ -141,6 +141,7 @@
 	"cx-stats-weekly-published": "Lescht Woch",
 	"cx-stats-local-published": "$1 op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}",
+	"cx-tools-missing-link-tooltip": "Iwwersetzen (an enger neier Fënster)",
 	"cx-tools-missing-link-title": "Link feelt",
 	"echo-category-title-cx": "Iwwersetzungen",
 	"cx-notification-first-translation": "Gratulatioun fir Är éischt Iwwersetzung! Dir fannt méi Säite fir z'iwwersetzen op [[Special:MyContributions|Ärer Kontributiounssäit]].",

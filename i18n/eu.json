@@ -4,6 +4,7 @@
 			"Subi"
 		]
 	},
+	"cx-header-progressbar-text": "%$1 {{PLURAL:$1|itzulita}}",
 	"cx-header-new-translation": "Itzulpen berria",
 	"cx-header-all-translations": "Itzulpen guztiak",
 	"cx-translation-add-translation": "+ Gehitu itzulpena",
@@ -33,5 +34,7 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Ekarpenak",
 	"cx-campaign-contributionsmenu-mytranslations": "Itzulpenak",
 	"cx-stats-tabs-expand": "Ikusi hizkuntza guztiak",
-	"cx-stats-grouping-title": "{{PLURAL:$1|Itzulpen $1|$1 itzulpen}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|Itzulpen $1|$1 itzulpen}}",
+	"cx-tools-missing-link-tooltip": "Itzuli (leiho berrian)",
+	"echo-category-title-cx": "Itzulpenak"
 }
