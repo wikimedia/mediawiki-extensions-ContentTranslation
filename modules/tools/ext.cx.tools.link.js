@@ -269,6 +269,11 @@
 		return this.title;
 	};
 
+	CXLink.prototype.getTargetTitle = function () {
+		var targetTitle = cache.linkPairs[ this.getTitle() ] || this.getTitle();
+		return mw.Title.newFromText( targetTitle ).getPrefixedText();
+	};
+
 	/**
 	 * Convert a current selection if present, if editable to a link
 	 */
@@ -280,10 +285,10 @@
 		selection = mw.cx.selection.get();
 		$link = $( '<a>' )
 			.addClass( 'cx-target-link' )
-			.text( selection.toString() || cache.linkPairs[ this.title ] || this.title )
+			.text( selection.toString() || this.getTargetTitle() )
 			.attr( {
-				title: this.title,
-				href: this.title,
+				title: this.getTargetTitle(),
+				href: this.getTargetTitle(),
 				rel: 'mw:WikiLink'
 			} );
 
@@ -297,6 +302,10 @@
 		return $link;
 	};
 
+	/**
+	 * Fetch the details about a page.
+	 * @return {jQuery.Promise}
+	 */
 	CXLink.prototype.fetchLinkData = function () {
 		var api, title, self = this,
 			language = this.getLanguage();
@@ -395,12 +404,12 @@
 				// This link opens Special:CX with this missing page to help translate it
 				$link = $( '<a>' )
 					.addClass( 'card__link-text new' )
-					.text( this.getTitle() )
+					.text( mw.Title.newFromText( this.getTitle() ).getPrefixedText() )
 					.prop( {
 						target: '_blank',
 						title: mw.msg( 'cx-tools-missing-link-tooltip' ),
 						href: new mw.Uri().extend( {
-							page: this.getTitle()
+							targettitle: this.getTitle()
 						} ).toString()
 					} );
 
@@ -800,7 +809,7 @@
 		var title = text.trim();
 
 		title = mw.Title.newFromText( title );
-		title = title && title.getPrefixedText();
+		title = title && title.toString();
 
 		return title;
 	}
@@ -849,17 +858,17 @@
 
 		// Fetch the link data and show the card in correct order - Source card and then
 		// target card.
-		$.when( this.sourceLink.fetchLinkData(), this.targetLink.fetchLinkData() )
-			.then( function ( sourceLink, targetLink ) {
-				if ( !sourceLink && !targetLink ) {
-					// Missing link for both source and target. Dont show the card.
-					self.stop();
-					return;
-				}
-				self.$card.append( self.sourceLink.getCard(), self.targetLink.getCard() );
-				self.$card.show();
-				self.onShow();
-			} );
+		this.sourceLink.fetchLinkData().done( function ( page ) {
+			if ( page ) {
+				self.$card.append( self.sourceLink.getCard() );
+			}
+		} );
+
+		this.targetLink.fetchLinkData().done( function () {
+			self.$card.append( self.targetLink.getCard() );
+			self.$card.show();
+			self.onShow();
+		} );
 	};
 
 	/**
