@@ -206,6 +206,18 @@
 			progress: JSON.stringify( mw.cx.getProgress() )
 		};
 
+		if ( !params.html ) {
+			// There's no content to save,
+			// but don't let the save initiator wait infinitely
+			mw.hook( 'mw.cx.translation.saved' ).fire(
+				mw.cx.sourceLanguage,
+				mw.cx.targetLanguage,
+				mw.cx.sourceTitle,
+				targetTitle
+			);
+
+			return;
+		}
 		apiParams = $.extend( {}, params, {
 			action: 'cxpublish'
 		} );
