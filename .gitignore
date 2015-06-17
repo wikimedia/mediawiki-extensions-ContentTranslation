@@ -7,3 +7,4 @@
 docs/
 composer.lock
 vendor/
+node_modules/
