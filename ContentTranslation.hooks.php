@@ -253,6 +253,24 @@ class ContentTranslationHooks {
 			'icon' => 'cx',
 		);
 
+		$notifications['cx-tenth-translation'] = array(
+			'category' => 'cx',
+			'group' => 'positive',
+			'formatter-class' => 'EchoBasicFormatter',
+			'title-message' => 'cx-notification-tenth-translation',
+			'email-subject-message' => 'cx-notification-tenth-translation-email-subject',
+			'icon' => 'cx',
+		);
+
+		$notifications['cx-hundredth-translation'] = array(
+			'category' => 'cx',
+			'group' => 'positive',
+			'formatter-class' => 'EchoBasicFormatter',
+			'title-message' => 'cx-notification-hundredth-translation',
+			'email-subject-message' => 'cx-notification-hundredth-translation-email-subject',
+			'icon' => 'cx',
+		);
+
 		$icons['cx'] = array(
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
 		);
@@ -268,6 +286,8 @@ class ContentTranslationHooks {
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
 			case 'cx-first-translation':
+			case 'cx-tenth-translation':
+			case 'cx-hundredth-translation':
 				$extra = $event->getExtra();
 				if ( !isset( $extra['recipient'] ) ) {
 					break;

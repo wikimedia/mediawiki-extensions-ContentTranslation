@@ -207,5 +207,9 @@
 	"cx-notification-first-translation": "Congratulations for your first translation! Find more pages to translate at [[Special:MyContributions|your contributions page]].",
 	"cx-notification-first-translation-email-subject": "Congratulations for your first translation",
 	"cx-translationlist-empty-title": "Nothing to translate?",
-	"cx-translationlist-empty-desc": "Start your translation now and continue it anytime"
+	"cx-translationlist-empty-desc": "Start your translation now and continue it anytime",
+	"cx-notification-tenth-translation": "Congratulations for your tenth translation! You are becoming an expert translator. Keep up the good work!",
+	"cx-notification-tenth-translation-email-subject": "Congratulations for your tenth translation",
+	"cx-notification-hundredth-translation": "You just made 100 translations! That is a remarkable achievement. Share the word to other editors.",
+	"cx-notification-hundredth-translation-email-subject": "Congratulations for your one hundredth translation"
 }

@@ -9,6 +9,7 @@
  * - Categories are hidden in <nowiki> if the page is not published to the main space.
  * - Information about the translated page is saved to the central ContentTranslation database.
  * - When relevant, values of MediaWiki CAPTCHA can be sent.
+ * - When relevant, Echo notifications about publishing milestones will be sent.
  * This borrows heavily from ApiVisualEditorEdit.
  *
  * @file
@@ -215,11 +216,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 			$this->saveTranslationHistory( $params );
 			// Notify user about milestones
-			$translator = new ContentTranslation\Translator( $user );
-			if ( $translator->getTranslationsCount() === 1 ) {
-				ContentTranslation\Notification::firstTranslation( $user );
-			}
-			// TODO: Add other milestones
+			$this->notifyTranslator();
 		} else {
 			$result = array(
 				'result' => 'error',
@@ -228,6 +225,27 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	/**
+	 * Notify user about milestones.
+	 */
+	public function notifyTranslator() {
+		$user = $this->getUser();
+		$translator = new ContentTranslation\Translator( $user );
+		$translationCount = $translator->getTranslationsCount();
+
+		switch ( $translationCount ) {
+			case 1:
+				ContentTranslation\Notification::firstTranslation( $user );
+				break;
+			case 10:
+				ContentTranslation\Notification::tenthTranslation( $user );
+				break;
+			case 100:
+				ContentTranslation\Notification::hundredthTranslation( $user );
+				break;
+		}
 	}
 
 	public function saveAsDraft() {
