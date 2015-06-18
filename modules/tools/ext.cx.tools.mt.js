@@ -11,11 +11,62 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var cache = {}, // MT requests cache
+	var
+		cxserverToken = {
+			expires: undefined,
+			jwt: undefined,
+			promise: undefined
+		},
+		cache = {}, // MT requests cache
 		providerIdPrefix = 'cx-provider-',
 		disableMT = 'disable-mt',
 		noMT = 'no-mt',
 		sourceMT = 'source-mt';
+
+	/**
+	 * Fetch token for authentication with cxserver.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	function getCXServerToken() {
+		var now = Math.floor( Date.now() / 1000 );
+
+		// If request in progress, wait for it
+		if ( cxserverToken.promise ) {
+			return cxserverToken.promise;
+		}
+
+		// Return cached token if fresh and not expiring soon.
+		// And hope that client clock is at correct time.
+		if (
+			cxserverToken.expires !== undefined &&
+			cxserverToken.expires + 5 < now
+		) {
+			return $.Deferred().resolve( cxserverToken.jwt );
+		}
+
+		// (Re-)fetch cxserver token
+		cxserverToken.promise = (new mw.Api())
+			.postWithToken( 'edit', { action: 'cxtoken' } )
+			.always( function () {
+				cxserverToken.promise = undefined;
+			} )
+			.then(
+				function ( response ) {
+					cxserverToken.jwt = response.jwt;
+					cxserverToken.expires = response.exp;
+
+					return response.jwt;
+				},
+				// Not all MT services require token, so let the caller try
+				// with empty token to see if it fails.
+				function () {
+					return $.Deferred().resolve( '' );
+				}
+			);
+
+		return cxserverToken.promise;
+	}
 
 	/**
 	 * Get the registry of machine translation providers
@@ -80,8 +131,15 @@
 			$provider: MTControlCard.provider
 		} );
 
-		return $.post( mtURL, sourceHtml ).then( null, function () {
-			return $.Deferred().reject( 'service-failure', arguments ).promise();
+		return getCXServerToken().then( function ( token ) {
+			return $.ajax( {
+				type: 'post',
+				url: mtURL,
+				data: sourceHtml,
+				headers: { Authorization: token }
+			} ).then( null, function () {
+				return $.Deferred().reject( 'service-failure', arguments ).promise();
+			} );
 		} );
 	}
 

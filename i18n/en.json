@@ -139,6 +139,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "The interval for calculating the trend. Can be 'week' or 'month'.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Fetch the publishing trend for the language pair es-ca with weekly intervals",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Fetch the publishing trend for all languages",
+	"apihelp-cxtoken-example-1": "Fetch the authentication token for cxserver",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",

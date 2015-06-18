@@ -37,7 +37,8 @@
 	"APIModules": {
 		"cxpublish": "ApiContentTranslationPublish",
 		"cxdelete": "ApiContentTranslationDelete",
-		"cxconfiguration": "ApiContentTranslationConfiguration"
+		"cxconfiguration": "ApiContentTranslationConfiguration",
+		"cxtoken": "ApiContentTranslationToken"
 	},
 	"APIListModules": {
 		"contenttranslation": "ApiQueryContentTranslation",
@@ -54,11 +55,12 @@
 	},
 	"AutoloadClasses": {
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
-		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
 		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
+		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
+		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
 		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
-		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
+		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
 		"ContentTranslation\\Database": "includes/Database.php",
@@ -104,6 +106,11 @@
 		"ContentTranslationUseMagnusTool": true,
 		"ContentTranslationBrowserBlacklist": {
 			"msie": [ [ "<", 10 ] ]
+		},
+		"ContentTranslationCXServerAuth": {
+			"algorithm": "HS256",
+			"key": "",
+			"age": "3600"
 		}
 	},
 	"ResourceModules": {
