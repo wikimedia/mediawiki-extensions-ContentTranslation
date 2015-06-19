@@ -34,7 +34,7 @@
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
 		this.$graph = $( '<canvas>' ).attr( {
 			id: 'cxtrend',
-			width: this.$container.width() - 100, // Leave a 100px margin at right
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
 			height: 400
 		} );
 
