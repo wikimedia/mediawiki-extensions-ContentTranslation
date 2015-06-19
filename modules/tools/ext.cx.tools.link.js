@@ -688,6 +688,7 @@
 	};
 
 	CXTargetLink.prototype.markUnAdapted = function () {
+		// All these unadapted links will be converted to plain text while publishing
 		this.$link.addClass( 'cx-target-link-unadapted' );
 	};
 

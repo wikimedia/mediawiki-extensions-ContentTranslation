@@ -334,6 +334,11 @@
 				return $( this ).html();
 			} );
 
+			// All unadapted links are unwrapped
+			$section.find( '.cx-target-link-unadapted' ).replaceWith( function () {
+				return $( this ).html();
+			} );
+
 			// Remove empty sections
 			if ( !$.trim( $section.text() ) ) {
 				$section.remove();
