@@ -20,8 +20,8 @@
 		"composer/installers": ">=1.0.1"
 	},
 	"require-dev": {
-		"jakub-onderka/php-parallel-lint": "0.8.*",
-		"mediawiki/mediawiki-codesniffer": "0.2.0"
+		"jakub-onderka/php-parallel-lint": "0.9",
+		"mediawiki/mediawiki-codesniffer": "0.3.0"
 	},
 	"scripts": {
 		"test": [
