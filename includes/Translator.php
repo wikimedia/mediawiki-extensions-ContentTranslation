@@ -31,7 +31,7 @@ class Translator {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->delete(
 			'cx_translators',
-			array( 'translator_translation_id' => $translationId  ),
+			array( 'translator_translation_id' => $translationId ),
 			__METHOD__
 		);
 	}

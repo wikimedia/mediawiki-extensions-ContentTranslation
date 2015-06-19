@@ -56,7 +56,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 					$translation->translation
 				);
 			} else {
-				$this->dieUsage( 'Draft does not exist', $params['translationid']  );
+				$this->dieUsage( 'Draft does not exist', $params['translationid'] );
 			}
 		} else {
 			$translator = new ContentTranslation\Translator( $user );

@@ -338,7 +338,7 @@ class Translation {
 			$conditions['translation_target_language'] = $to;
 		}
 
-		$options = array ( 'LIMIT' => $limit );
+		$options = array( 'LIMIT' => $limit );
 
 		if ( $offset ) {
 			$options['OFFSET'] = $offset;

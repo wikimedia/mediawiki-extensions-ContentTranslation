@@ -283,7 +283,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$cxtranslation = new ContentTranslation\Translation( $translation );
 		$cxtranslation->save();
 		$translationId = $cxtranslation->getTranslationId();
-		$translator->addTranslation(  $translationId );
+		$translator->addTranslation( $translationId );
 		if ( $params['status'] === 'draft' ) {
 			// Save the draft
 			ContentTranslation\Draft::save( $translationId, $params['html'] );

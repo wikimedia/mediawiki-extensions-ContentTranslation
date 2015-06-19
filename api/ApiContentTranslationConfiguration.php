@@ -18,7 +18,7 @@ class ApiContentTranslationConfiguration extends ApiBase {
 		$params = $this->extractRequestParams();
 		$source = $params['from'];
 		$target = $params['to'];
-		if ( !Language::isValidBuiltInCode( $source ) || !Language::isValidBuiltInCode( $target )  ) {
+		if ( !Language::isValidBuiltInCode( $source ) || !Language::isValidBuiltInCode( $target ) ) {
 			$this->dieUsage( 'Invalid language', 'invalidlanguage' );
 		}
 		// Read common configuraiton

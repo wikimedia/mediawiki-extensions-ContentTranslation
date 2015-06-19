@@ -34,7 +34,7 @@ class Stats {
 				'ct_params',
 				'rev_user',
 			),
-			array (
+			array(
 				'ct_tag' => 'contenttranslation',
 				'rev_id = ct_rev_id',
 				'rev_page = page_id',
