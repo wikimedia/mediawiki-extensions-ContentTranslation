@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sudo77(new)",
-			"Kusavica"
+			"Kusavica",
+			"Teslaton"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -42,5 +43,7 @@
 	"cx-draft-cancel-button-label": "Zrušiť",
 	"cx-draft-discard-button-label": "Vymazať preklad",
 	"cx-campaign-no-thanks": "Nie, vďaka",
-	"cx-trend-all-translations": "Všetky preklady"
+	"cx-trend-all-translations": "Všetky preklady",
+	"echo-category-title-cx": "preklady",
+	"echo-pref-tooltip-cx": "Upozornite ma na preklady vytvorené pomocou nástroja Content Translation"
 }

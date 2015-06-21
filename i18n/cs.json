@@ -137,5 +137,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Překlady",
 	"cx-campaign-contributionsmenu-myuploads": "Načtené soubory",
 	"cx-trend-all-translations": "Všechny překlady",
-	"cx-trend-translations-to": "Překlady do jazyka $1"
+	"cx-trend-translations-to": "Překlady do jazyka $1",
+	"echo-category-title-cx": "překlady",
+	"echo-pref-tooltip-cx": "Upozorněte mě o mých překladech vytvořených pomocí nástroje Překlad obsahu"
 }

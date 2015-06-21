@@ -146,7 +146,7 @@
 	"cx-save-draft-error": "Error message shown if saving page draft failed.",
 	"cx-contributions-new-contributions": "Header text shown in [[Special:Contributions]]",
 	"cx-contributions-new-article": "Button label tooltip\n{{Identical|New page}}",
-	"cx-contributions-translation": "Button label tooltip",
+	"cx-contributions-translation": "Button label tooltip\n{{Identical|Translation}}",
 	"cx-contributions-upload": "Button label tooltip",
 	"cx-contributions-new-article-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
 	"cx-contributions-translation-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",

@@ -10,7 +10,8 @@
 			"Kwj2772",
 			"SeoJeongHo",
 			"LiteHell",
-			"콩가루"
+			"콩가루",
+			"Alex00728"
 		]
 	},
 	"cx": "문서 번역",
@@ -104,5 +105,6 @@
 	"cx-stats-try-contenttranslation": "내용 번역은 다른 언어에서 번역하여 새로운 문서를 만드는 도구입니다.",
 	"cx-stats-tabs-expand": "모든 언어 보기",
 	"cx-stats-monthly-published": "지난 달",
-	"cx-stats-weekly-published": "지난 주"
+	"cx-stats-weekly-published": "지난 주",
+	"echo-category-title-cx": "번역"
 }

@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hugo.arg"
+		]
+	},
+	"cx": "Pargoldītė poslapi",
+	"cx-header-new-translation": "Naus pargoldīms",
+	"cx-header-all-translations": "Vėsė pargoldīmā",
+	"cx-source-view-page": "veizietė poslapi",
+	"cx-publish-page-success": "Poslapis paskelbts $1",
+	"cx-publish-button": "Skelbtė pargoldīma",
+	"cx-publish-button-publishing": "Vīkst skelbėms...",
+	"cx-publish-summary": "Poslapis padėrbts pargoldont poslapi „$1“",
+	"cx-translation-add-translation": "Pridietė pargoldīma",
+	"cx-entrypoint-dialog-button-translate-from": "Pargoldītė ėš $1",
+	"cx-tools-instructions-text5": "Skelbtė pargoldīma",
+	"cx-tools-searchbox-text": "Ėiškuotė žuodė",
+	"cx-tools-link-title": "Nūruoda",
+	"cx-tools-link-add": "Pridietė nūruoda",
+	"cx-tools-link-remove": "Ėšjėmtė nūruoda",
+	"cx-tools-mt-title": "Mašėnėnis pargoldīms",
+	"cx-tools-mt-provider-title": "Ėš $1",
+	"cx-sourceselector-dialog-new-translation": "Naus pargoldīms",
+	"cx-sourceselector-dialog-button-start-translation": "Pradietė pargoldīma",
+	"cx-sourceselector-dialog-button-cancel": "Pabengtė",
+	"cx-sourceselector-dialog-source-language-label": "Ėšː",
+	"cx-sourceselector-dialog-target-language-label": "Inː",
+	"cx-sourceselector-dialog-target-title-placeholder": "Pargoldėma ožvadėnėms",
+	"cx-translation-filter-all-translations": "Vėsė pargoldīmā"
+}
