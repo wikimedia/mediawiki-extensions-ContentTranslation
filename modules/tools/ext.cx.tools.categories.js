@@ -546,7 +546,7 @@
 			action: 'query',
 			titles: categoryTitles.join( '|' ),
 			prop: 'langlinks',
-			lllang: language,
+			lllang: mw.cx.siteMapper.getWikiDomainCode( language ),
 			lllimit: 100,
 			redirects: true,
 			format: 'json'

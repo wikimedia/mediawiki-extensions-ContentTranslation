@@ -77,7 +77,7 @@
 			titles: titles.join( '|' ),
 			prop: 'langlinks',
 			lllimit: titles.length, // TODO: Default is 10 and max is 500. Do we need more than 500?
-			lllang: language,
+			lllang: mw.cx.siteMapper.getWikiDomainCode( language ),
 			redirects: true,
 			format: 'json'
 		}, {

@@ -11,21 +11,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	// Some wikis have domain names that do not match the content language.
-	// See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
-	// NOTE: Keep list of mapping in sync with includes/SiteMapper.php
-	var languageToWikiDomainMapping = {
-		bho: 'bh',
-		'crh-latn': 'crh',
-		gsw: 'als',
-		sgs: 'bat-smg',
-		'be-tarask': 'be-x-old',
-		vro: 'fiu-vro',
-		rup: 'roa-rup',
-		lzh: 'zh-classical',
-		nan: 'zh-min-nan',
-		yue: 'zh-yue'
-	};
 
 	/**
 	 * Handles providing urls to different wikis.
@@ -35,6 +20,31 @@
 		this.config = siteconfig;
 	};
 
+
+	/**
+	 * Some wikis have domain names that do not match the content language.
+	 * See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
+	 * NOTE: Keep list of mapping in sync with includes/SiteMapper.php
+	 * @param {string} language Language code
+	 * @return {string}
+	 */
+	mw.cx.SiteMapper.prototype.getWikiDomainCode = function ( language ) {
+		var languageToWikiDomainMapping = {
+			bho: 'bh',
+			'crh-latn': 'crh',
+			gsw: 'als',
+			sgs: 'bat-smg',
+			'be-tarask': 'be-x-old',
+			vro: 'fiu-vro',
+			rup: 'roa-rup',
+			lzh: 'zh-classical',
+			nan: 'zh-min-nan',
+			yue: 'zh-yue'
+		};
+
+		return languageToWikiDomainMapping[ language ] || language;
+	};
+
 	/**
 	 * Get the API for a remote wiki.
 	 *
@@ -42,10 +52,10 @@
 	 * @return {mediawiki.Api}
 	 */
 	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
-		var url;
+		var url, domain;
 
-		language = languageToWikiDomainMapping[ language ] || language;
-		url = this.config.api.replace( '$1', language );
+		domain = this.getWikiDomainCode( language );
+		url = this.config.api.replace( '$1', domain );
 		return new mw.Api( {
 			ajax: {
 				url: url
@@ -63,15 +73,16 @@
 	 */
 	mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 		var base = this.config.view,
+			domain,
 			extra = '';
 
-		language = languageToWikiDomainMapping[ language ] || language;
+		domain = this.getWikiDomainCode( language );
 		if ( params && !$.isEmptyObject( params ) ) {
 			base = this.config.action || this.config.view;
 			extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
 		}
 
-		return base.replace( '$1', language ).replace( '$2', title ) + extra;
+		return base.replace( '$1', domain ).replace( '$2', title ) + extra;
 	};
 
 	/**
