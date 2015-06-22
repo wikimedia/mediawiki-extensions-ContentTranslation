@@ -38,6 +38,9 @@
 	"cx-tools-link-title": "Poveznica",
 	"cx-tools-link-add": "Dodaj poveznicu",
 	"cx-tools-link-remove": "Ukloni poveznicu",
+	"cx-tools-mt-title": "Strojno prevođenje",
+	"cx-tools-mt-use-source": "Rabi izvorni tekst",
+	"cx-tools-mt-not-available": "Nije dostupan za $1",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=nema kategorija}}",
 	"cx-tools-reference-title": "Izvori",
 	"cx-tools-reference-add": "Dodaj izvor",
@@ -55,6 +58,8 @@
 	"cx-sourceselector-dialog-error-page-exists": "Stranica [$1 već postoji]",
 	"cx-sourceselector-dialog-error-title-in-use": "Naslov za novu stranicu je već [$1 u uporabi]",
 	"cx-sourceselector-dialog-error-no-source-article": "Stranica za prijevod ne postoji u traženom jeziku ($1)",
+	"cx-mt-abuse-warning-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1% nepromijenjenog teksta strojnog prevoditelja",
+	"cx-mt-abuse-warning-text": "Strojni prijevodi služe samo kao polazište. Budite sigurni da je sadržaj točan i razumljiv u Vašem jeziku.",
 	"cx-publish-captcha-title": "Sigurnosno pitanje",
 	"cx-translation-filter-all-translations": "Svi prijevodi",
 	"cx-translation-filter-published-translations": "Objavljeni prijevodi",
@@ -97,5 +102,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Prijevodi",
 	"cx-campaign-contributionsmenu-might-be-available": "Moguće je da je $1 dostupan na drugim jezicima",
 	"cx-campaign-contributionsmenu-myuploads": "Postavljene datoteke",
-	"cx-trend-all-translations": "Svi prijevodi"
+	"cx-trend-all-translations": "Svi prijevodi",
+	"cx-notification-first-translation": "Čestitke na prvom prijevodu! Prevedite još stranica s [[Special:MyContributions|popisa Vaših doprinosa]].",
+	"cx-notification-first-translation-email-subject": "Čestitke na prvom prijevodu"
 }

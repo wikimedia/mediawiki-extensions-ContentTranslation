@@ -48,6 +48,7 @@
 	"cx-tools-mt-clear-translation": "ליידיגן פאראגראף",
 	"cx-tools-mt-restore": "צוריקשטעלן",
 	"cx-tools-mt-provider-title": "פֿון $1",
+	"cx-tools-mt-not-available": "נישט פאראן פאר $1",
 	"cx-tools-mt-dont-use": "נישט ניצן מאשין־איבערזעצונג",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 קאטעגאריע|$1 קאטעגאריעס|0=קיין קאטעגאריעס}}",
 	"cx-stats-title": "אינהאלט־איבערזעצונג סטאטיסטיק",

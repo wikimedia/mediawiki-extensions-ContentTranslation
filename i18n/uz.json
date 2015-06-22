@@ -3,7 +3,8 @@
 		"authors": [
 			"6ahodir",
 			"Sociologist",
-			"Nemo bis"
+			"Nemo bis",
+			"Таржимон"
 		]
 	},
 	"cx": "Tarjima sahifasi",
@@ -78,8 +79,12 @@
 	"cx-save-draft-saving": "Saqlanyapti...",
 	"cx-save-draft-tooltip": "Tarjima qoralamalari avtomatik ravishda saqlandi",
 	"cx-contributions-new-contributions": "Yangi hissa",
+	"cx-contributions-new-article": "Yangi sahifa",
 	"cx-contributions-translation": "Tarjima",
-	"cx-contributions-upload": "Media faylni yuklash",
+	"cx-contributions-upload": "Fayl yuklash",
+	"cx-contributions-new-article-tooltip": "Yangi sahifa yaratish",
+	"cx-contributions-translation-tooltip": "Mavjud sahifalarni tarjima qilish",
+	"cx-contributions-upload-tooltip": "Tasvir, audio va video fayl yuklash",
 	"cx-publishing-dialog-keep-button": "Ikkala variantni ham saqlash",
 	"cx-publishing-dialog-publish-anyway-button": "Baribir nashr etish",
 	"cx-discard-translation": "Tarjimani oʻchirish",
