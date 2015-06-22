@@ -197,7 +197,7 @@
 	"cx-stats-total-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics",
 	"cx-stats-monthly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics\n{{Identical|Last month}}",
 	"cx-stats-weekly-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics\n{{Identical|Last week}}",
-	"cx-stats-local-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics. $1 is a number, and $2 is language name (autonym).",
+	"cx-stats-local-published": "A message shown in [[Special:CXStats]] as highlights of CX analytics. $1 is a number, $2 is language name (autonym), $3 is percentage.",
 	"cx-stats-grouping-title": "Title text for language grouping based on number of translations. $1 is number of translations",
 	"cx-tools-missing-link-text": "Message with instructions for marking links as missing",
 	"cx-tools-missing-link-tooltip": "Tooltip that shows when hovering over target link card link when working with missing links.\nClicking on link opens a new translation view for the missing link.",

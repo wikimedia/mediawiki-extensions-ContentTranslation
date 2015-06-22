@@ -192,7 +192,7 @@
 	"cx-stats-total-published": "Total published",
 	"cx-stats-monthly-published": "Last month",
 	"cx-stats-weekly-published": "Last week",
-	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-local-published": "$1 ($3) in $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 translation|$1 translations}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Mark}} the page as missing to encourage its creation.",
 	"cx-tools-missing-link-tooltip": "Translate (in new window)",

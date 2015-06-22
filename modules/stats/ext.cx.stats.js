@@ -70,6 +70,7 @@
 			weekLangTrend = 0,
 			lastWeekLangTranslations, prevWeekLangTotal, lastWeekTranslations,
 			prevWeekTotal, prevWeekTranslations, prevWeekLangTranslations,
+			$parenthesizedTrend, $trendInLanguage,
 			fmt = mw.language.convertNumber;
 
 		if ( this.totalTranslationTrend.length < 3 ) {
@@ -121,6 +122,23 @@
 				)
 			);
 
+		$parenthesizedTrend = $( '<span>' )
+			// This is needed to show the minus sign on the correct side
+			.prop( 'dir', 'ltr' )
+			.text( mw.msg( 'percent', fmt( weekLangTrend ) ) );
+		$trendInLanguage = $( '<div>' )
+			.addClass( 'cx-stats-box__localtotal' )
+			.text( mw.msg(
+				'cx-stats-local-published',
+				fmt( lastWeekLangTranslations ),
+				localLanguage,
+				'$3'
+			) );
+		$trendInLanguage.html( $trendInLanguage.html().replace(
+			'$3',
+			$parenthesizedTrend.get( 0 ).outerHTML
+		) );
+
 		$weeklyStats = $( '<div>' )
 			.addClass( 'cx-stats-box' )
 			.append(
@@ -131,18 +149,16 @@
 					$( '<span>' )
 						.addClass( 'cx-stats-box__total' )
 						.text( fmt( lastWeekTranslations ) ),
+					// nbsp is needed for separation between the numbers.
+					// Without it the numbers appear in the wrong order in RTL environments.
 					$( '<span>' )
+						.html( '&#160;' ),
+					$( '<span>' )
+						.prop( 'dir', 'ltr' )
 						.addClass( 'cx-stats-box__trend ' + ( weekTrend >= 0 ? 'increase' : 'decrease' ) )
 						.text( mw.msg( 'percent', fmt( weekTrend ) ) )
 				),
-				$( '<div>' )
-					.addClass( 'cx-stats-box__localtotal' )
-					.text( mw.msg(
-						'cx-stats-local-published',
-						fmt( lastWeekLangTranslations ) + ' ('
-							+ mw.msg( 'percent', fmt( weekLangTrend ) ) + ')',
-						localLanguage
-					) )
+				$trendInLanguage
 			);
 		this.$highlights.append( $total, $weeklyStats );
 	};
