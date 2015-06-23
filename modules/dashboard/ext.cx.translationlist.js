@@ -135,6 +135,7 @@
 	 */
 	CXTranslationList.prototype.listTranslations = function ( translations ) {
 		var i, translation, progress, $translation, $titleLanguageBlock,
+			sourceDir, targetDir,
 			$translationLink, translationLinkUrl,
 			$sourceLanguage, $targetLanguage, $languageContainer,
 			$imageBlock, $lastUpdated, $image, $status, $progressbar,
@@ -183,19 +184,30 @@
 				translationLinkUrl = translation.targetURL;
 			}
 
+			sourceDir = $.uls.data.getDir( translation.sourceLanguage );
+			targetDir = $.uls.data.getDir( translation.targetLanguage );
+
 			$translationLink = $( '<a>' )
 				.addClass( 'source-title' )
 				.text( translation.sourceTitle )
 				.attr( {
 					lang: translation.sourceLanguage,
-					dir: $.uls.data.getDir( translation.sourceLanguage ),
+					dir: sourceDir,
 					href: translationLinkUrl
 				} );
 
 			$sourceLanguage = $( '<div>' )
+				.prop( {
+					lang: translation.sourceLanguage,
+					dir: sourceDir
+				} )
 				.addClass( 'cx-tlitem__languages__language cx-tlitem__languages__language--source' )
 				.text( $.uls.data.getAutonym( translation.sourceLanguage ) );
 			$targetLanguage = $( '<div>' )
+				.prop( {
+					lang: translation.targetLanguage,
+					dir: targetDir
+				} )
 				.addClass( 'cx-tlitem__languages__language cx-tlitem__languages__language--target' )
 				.text( $.uls.data.getAutonym( translation.targetLanguage ) );
 			$languageContainer = $( '<div>' )
