@@ -11,7 +11,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-
 	/**
 	 * Handles providing urls to different wikis.
 	 * @class
@@ -19,7 +18,6 @@
 	mw.cx.SiteMapper = function ( siteconfig ) {
 		this.config = siteconfig;
 	};
-
 
 	/**
 	 * Some wikis have domain names that do not match the content language.
