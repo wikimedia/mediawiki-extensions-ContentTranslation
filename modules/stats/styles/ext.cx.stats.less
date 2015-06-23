@@ -172,6 +172,11 @@
 			font-weight: bold;
 		}
 
+		&__total,
+		&__trend {
+			unicode-bidi: embed;
+		}
+
 		&__total {
 			font-size: 2em;
 			font-weight: bold;
@@ -179,10 +184,11 @@
 
 		&__trend {
 			font-size: 1.5em;
-			padding-left: 5px;
+
 			&.increase {
 				color: green;
 			}
+
 			&.decrease {
 				color: red;
 			}
