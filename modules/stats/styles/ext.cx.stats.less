@@ -3,10 +3,12 @@
 .cx-stats-container {
 	.mw-ui-item;
 	.mw-ui-one-whole;
+
 	padding: 0 50px;
 	clear: both;
 	background-color: #f6f6f6;
 	min-height: 100vh;
+
 	h1,
 	h2 {
 		margin-top: 1em;
@@ -15,20 +17,19 @@
 }
 
 .cx-header__publish {
-
-	// Do not display the publish button in stats page.
+	// Do not display the publish button in stats page
 	display: none;
 }
 
 .cx-header__translation-center a::before {
-
-	// Do not display arrow to dashboard.
+	// Do not display arrow to dashboard
 	display: none;
 }
 
 .cx-stats-tabs-container {
 	.mw-ui-item;
 	.mw-ui-one-whole;
+
 	border: 1px solid #eee;
 	padding: 0;
 	background-color: #fff;
@@ -39,6 +40,7 @@
 	padding: 0;
 	list-style: none;
 	border-bottom: 1px solid #eee;
+
 	li {
 		background: none;
 		color: @gray-dark;
@@ -69,6 +71,7 @@
 
 .cx-stats-tabs-toggle-all {
 	.mw-ui-one-whole;
+
 	cursor: s-resize;
 	border-top: 1px solid #eee;
 	padding: 10px;
@@ -76,23 +79,27 @@
 
 .cx-stats-chart {
 	.mw-ui-one-whole;
+
 	&__row {
 		.mw-ui-item;
 		height: 30px;
 		padding: 0;
 		margin: 0;
-		&.seperator {
+
+		&.separator {
 			text-align: center;
 			border-bottom: 2px solid @gray;
 			margin-bottom: 1em;
 		}
 	}
+
 	&__langcode {
 		.mw-ui-one-twelfth;
 		text-align: right;
 		text-transform: uppercase;
 		color: @gray;
 	}
+
 	&__autonym {
 		.mw-ui-one-twelfth;
 		color: @gray-darker;
@@ -100,6 +107,7 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
+
 	&__total,
 	&__total:visited {
 		.mw-ui-one-twelfth;
@@ -108,9 +116,11 @@
 		border-right: 1px solid @gray;
 		height: 30px;
 	}
+
 	&__bars {
 		.mw-ui-nine-twelfths;
 	}
+
 	&__bar {
 		float: left;
 		height: 20px;
@@ -123,6 +133,7 @@
 		text-transform: uppercase;
 		color: #fff;
 		text-overflow: ellipsis;
+
 		&.tail {
 			cursor: pointer;
 			text-align: center;
@@ -145,21 +156,27 @@
 .cx-stats-highlights {
 	.mw-ui-item;
 	.mw-ui-two-thirds;
+
 	margin-top: 50px;
+
 	.cx-stats-box {
 		.mw-ui-one-quarter;
+
 		background-color: #fff;
 		margin-right: 50px;
 		padding: 10px;
 		border: 1px solid #999;
+
 		&__title {
 			font-size: 1em;
 			font-weight: bold;
 		}
+
 		&__total {
 			font-size: 2em;
 			font-weight: bold;
 		}
+
 		&__trend {
 			font-size: 1.5em;
 			padding-left: 5px;
@@ -170,6 +187,7 @@
 				color: red;
 			}
 		}
+
 		&__localtotal {
 			color: @gray-dark;
 			font-size: 1em;

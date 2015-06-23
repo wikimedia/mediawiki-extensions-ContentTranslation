@@ -271,7 +271,7 @@
 			) {
 				max = Math.ceil( model[ i ][ property ] / 100 ) * 100;
 				$rows.push( $( '<div>' )
-					.addClass( 'cx-stats-chart__row seperator' )
+					.addClass( 'cx-stats-chart__row separator' )
 					.text( mw.msg( 'cx-stats-grouping-title', fmt( max ) ) ) );
 			}
 
