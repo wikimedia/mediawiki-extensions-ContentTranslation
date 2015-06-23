@@ -341,6 +341,10 @@
 					.text( model[ i ].language ),
 				$( '<span>' )
 					.addClass( 'cx-stats-chart__autonym' )
+					.prop( {
+						dir: $.uls.data.getDir( model[ i ].language ),
+						lang: model[ i ].language
+					} )
 					.text( $.uls.data.getAutonym( model[ i ].language ) ),
 				$total,
 				$translations
