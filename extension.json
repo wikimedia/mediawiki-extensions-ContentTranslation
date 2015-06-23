@@ -372,6 +372,7 @@
 				"ext.cx.tools.dictionary",
 				"ext.cx.tools.formatter",
 				"ext.cx.tools.gallery",
+				"ext.cx.tools.poem",
 				"ext.cx.tools.images",
 				"ext.cx.tools.instructions",
 				"ext.cx.tools.link",
@@ -541,6 +542,11 @@
 		"ext.cx.tools.gallery": {
 			"scripts": [
 				"tools/ext.cx.tools.gallery.js"
+			]
+		},
+		"ext.cx.tools.poem": {
+			"scripts": [
+				"tools/ext.cx.tools.poem.js"
 			]
 		},
 		"ext.cx.tools.categories": {
