@@ -9,10 +9,13 @@
 			"Ricordisamoa",
 			"Nivit",
 			"Mpiva",
-			"Alexmar983"
+			"Alexmar983",
+			"Amire80",
+			"Federico Mugnaini"
 		]
 	},
 	"cx": "Traduci pagina",
+	"cx-dashboard-header": "Traduzioni",
 	"cx-javascript": "Questo strumento non funziona senza JavaScript.",
 	"cx-license-agreement": "Cliccando sul pulsante \"$1\", accetti tutti i [//wikimediafoundation.org/wiki/Terms_of_Use Termini e Condizioni d'uso] e irrevocabilmente accetti di rilasciare i tuoi contributi realizzati con lo strumento di traduzione, con licenze [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], nella consapevolezza che un collegamento ipertestuale o un URL è sufficiente per l'attribuzione in CC BY-SA 3.0.",
 	"cx-error-server-connection": "Errore: impossibile connettersi al server.",
@@ -93,13 +96,15 @@
 	"cx-mt-abuse-warning-title": "La tua traduzione contiene per il $1% testo tradotto automaticamente e da te non modificato",
 	"cx-mt-abuse-warning-text": "Le traduzioni automatiche sono fornite solo come punto di partenza. È necessario assicurarsi che il contenuto sia accurato e scorrevole da leggere nella tua lingua.",
 	"cx-publish-captcha-title": "Domanda di sicurezza",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Need}} serve un aiuto in una traduzione?",
+	"cx-dashboard-sidebar-information": "Ulteriori informazioni riguardanti questa caratteristica",
+	"cx-dashboard-sidebar-feedback": "Inviaci un feedback",
 	"cx-translation-filter-all-translations": "Tutte le traduzioni",
-	"cx-translation-filter-published-translations": "Traduzioni pubblicate",
-	"cx-translation-filter-draft-translations": "Traduzioni in corso",
+	"cx-translation-filter-published-translations": "Pubblicati/te",
+	"cx-translation-filter-draft-translations": "In corso",
 	"cx-translation-filter-from-any-language": "Da qualsiasi lingua",
 	"cx-translation-filter-to-any-language": "Verso qualsiasi lingua",
-	"cx-create-new-translation": "Crea una nuova traduzione",
-	"cx-create-new-translation-desc": "Crea pagine per argomenti che non esistono nella tua lingua. È facile, con l'aiuto dei nostri strumenti di traduzione. [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Per saperne di più]",
+	"cx-create-new-translation": "Inizia una nuova traduzione",
 	"apihelp-cxpublish-description": "Salva una pagina creata utilizzando l'estensione Traduzione Contenuto.",
 	"apihelp-cxpublish-param-title": "Il titolo della pagina su cui eseguire operazioni.",
 	"apihelp-cxpublish-param-html": "Il contenuto da salvare.",
@@ -174,8 +179,10 @@
 	"cx-stats-total-published": "Totale pubblicato",
 	"cx-stats-monthly-published": "Ultimo mese",
 	"cx-stats-weekly-published": "Ultima settimana",
-	"cx-stats-local-published": "$1 in $2",
+	"cx-stats-local-published": "$1 ($3) in $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzione|$1 traduzioni}}",
 	"cx-tools-missing-link-tooltip": "Traduci (in una nuova finestra)",
-	"cx-tools-missing-link-title": "Collegamento mancante"
+	"cx-tools-missing-link-title": "Collegamento mancante",
+	"cx-translationlist-empty-title": "Niente da tradurre?",
+	"cx-translationlist-empty-desc": "Comincia la tua traduzione ora e continuala quando vuoi"
 }

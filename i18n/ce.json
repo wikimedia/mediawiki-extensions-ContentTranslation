@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Умар"
+			"Умар",
+			"Amire80"
 		]
 	},
 	"cx": "АгӀо гочъяр",
@@ -125,7 +126,7 @@
 	"cx-stats-total-published": "Массо арахецнарш",
 	"cx-stats-monthly-published": "Баханчу баттахь",
 	"cx-stats-weekly-published": "Даханчу кӀирнахь",
-	"cx-stats-local-published": "$1 - $2",
+	"cx-stats-local-published": "$1 ($3) - $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 гочдар}}",
 	"cx-tools-missing-link-tooltip": "Гочъе (керлачу корехь)",
 	"cx-tools-missing-link-title": "Йоцу хьажорг",

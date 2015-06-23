@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geopoet"
+			"Geopoet",
+			"Amire80"
 		]
 	},
 	"cx-tools-reference-add": "Idugang ang toltolan",
 	"cx-sourceselector-dialog-target-title-placeholder": "Titulo kan dakit-taramon",
-	"cx-create-new-translation-desc": "Magmukna nin mga pahina para sa mga tema na dae pa eksistido sa saindong lengguwahe. Ini pasilon sa tabang kan satuyang mga gamit sa dakit-taramon. [{{int:cx-tools-view-guidelines-link}} Makanuod nin kadagdagan]",
 	"cx-stats-published-target-source": "Mga Dakit-taramon sa",
 	"cx-stats-published-source-target": "Mga Dakit-taramon gikan sa",
 	"cx-stats-draft-target-source": "Mga dakit-taramon nakaprogreso sa",
@@ -15,6 +15,6 @@
 	"cx-stats-total-published": "Kagabsang naipublikar",
 	"cx-stats-monthly-published": "Nakaaging bulan",
 	"cx-stats-weekly-published": "Nakaaging semana",
-	"cx-stats-local-published": "$1 sa $2",
+	"cx-stats-local-published": "$1 ($3) sa $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na dakit-taramon|$1 na mga dakit-taramon}}}}"
 }

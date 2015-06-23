@@ -22,10 +22,12 @@
 			"Mattho69",
 			"Trizek",
 			"Lucky",
-			"ProfGra"
+			"ProfGra",
+			"Amire80"
 		]
 	},
 	"cx": "Traduire la page",
+	"cx-dashboard-header": "Traductions",
 	"cx-javascript": "Cet outil ne fonctionne pas sans JavaScript.",
 	"cx-license-agreement": "En cliquant sur le bouton « $1 », vous acceptez les [//wikimediafoundation.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement de mettre vos contributions dans l’outil de traduction sous [https://creativecommons.org/licenses/by-sa/3.0/ la licence CC BY-SA 3.0] et [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] avec l’accord qu’un hyperlien ou une URL  correspondant à l’attribution pour CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erreur : Impossible de se connecter au serveur.",
@@ -106,13 +108,15 @@
 	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1% de texte traduit automatiquement et non modifié",
 	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme modèle. Vous devez vous assurer que le contenu est exact et se lit de façon naturelle dans votre langue.",
 	"cx-publish-captcha-title": "Question de sécurité",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Besoin}} d'aide pour les traductions ?",
+	"cx-dashboard-sidebar-information": "En savoir plus sur cette fonctionnalité",
+	"cx-dashboard-sidebar-feedback": "Faites-nous part de vos commentaires",
 	"cx-translation-filter-all-translations": "Toutes les traductions",
-	"cx-translation-filter-published-translations": "Traductions publiées",
-	"cx-translation-filter-draft-translations": "Traductions en cours",
+	"cx-translation-filter-published-translations": "Publiées",
+	"cx-translation-filter-draft-translations": "En cours",
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
-	"cx-create-new-translation": "Créer une nouvelle traduction",
-	"cx-create-new-translation-desc": "Créer des pages pour les sujets qui n’existent pas dans votre langue. C’est facile avec l’aide de nos outils de traduction. [https://fr.wikipedia.org/wiki/Aide:ContentTranslation En savoir plus]",
+	"cx-create-new-translation": "Démarer une nouvelle traduction",
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
 	"apihelp-cxpublish-param-title": "Le titre de la page sur laquelle effectuer les actions.",
 	"apihelp-cxpublish-param-html": "Le contenu à enregistrer.",
@@ -202,7 +206,7 @@
 	"cx-stats-total-published": "Total des publications",
 	"cx-stats-monthly-published": "Le mois dernier",
 	"cx-stats-weekly-published": "La semaine dernière",
-	"cx-stats-local-published": "$1 en $2",
+	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduction|$1 traductions}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Marquer}} la page comme manquante pour encourager sa création.",
 	"cx-tools-missing-link-tooltip": "Traduire (dans une nouvelle fenêtre)",
@@ -211,5 +215,7 @@
 	"echo-category-title-cx": "Traductions",
 	"echo-pref-tooltip-cx": "Me notifier sur mes traductions créés en utilisant l'outil de traduction",
 	"cx-notification-first-translation": "Félicitations pour votre première traduction ! Trouver plus d'articles à traduire sur [[Special:MyContributions|votre liste de contributions]].",
-	"cx-notification-first-translation-email-subject": "Félicitations pour votre première traduction."
+	"cx-notification-first-translation-email-subject": "Félicitations pour votre première traduction.",
+	"cx-translationlist-empty-title": "Rien à traduire ?",
+	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez"
 }

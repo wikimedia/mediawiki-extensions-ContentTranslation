@@ -67,7 +67,6 @@
 	"cx-translation-filter-from-any-language": "Iz bilo kojeg jezika",
 	"cx-translation-filter-to-any-language": "Na bilo koji jezik",
 	"cx-create-new-translation": "Stvorite novi prijevod",
-	"cx-create-new-translation-desc": "Napravite članke o temama koji ne postoje u Vašem jeziku. Vrlo je jednostavno uz pomoć alata za prevođenje. [{{int:cx-tools-view-guidelines-link}} Više informacija]",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Spremljeno prije minutu|Spremljeno prije $1 minute|Spremljeno prije $1 minuta|0=Upravo spremljeno}}",
 	"cx-save-draft-saving": "Spremam...",
 	"cx-save-draft-tooltip": "Skice prevođenja automatski su spremljene",

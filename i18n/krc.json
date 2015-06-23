@@ -91,7 +91,6 @@
 	"cx-translation-filter-from-any-language": "Къайсы болса да бир тилден",
 	"cx-translation-filter-to-any-language": "Къайсы болса да бир тилге",
 	"cx-create-new-translation": "Джангы кёчюрме къура",
-	"cx-create-new-translation-desc": "Сизни тилигизде болмагъан темалагъа бетле къурагъыз. Кёчюрюу адырны болушлугъу бла ол тынчды. [{{int:cx-tools-view-guidelines-link}} Кёбюрек бил]",
 	"apihelp-cxpublish-description": "Content Translation къошакъ программа бла къуралгъан бетни сакълау.",
 	"apihelp-cxpublish-param-title": "Этимле этилинник бетни башлыгъы.",
 	"apihelp-cxpublish-param-html": "Сакъланыллыкъ контент.",

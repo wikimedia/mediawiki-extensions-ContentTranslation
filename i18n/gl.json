@@ -6,10 +6,12 @@
 			"Elisardojm",
 			"Breogan2008",
 			"Fisterraeomar",
-			"Banjo"
+			"Banjo",
+			"Amire80"
 		]
 	},
 	"cx": "Traducir unha páxina",
+	"cx-dashboard-header": "Traducións",
 	"cx-javascript": "Esta ferramenta non funciona sen JavaScript.",
 	"cx-license-agreement": "Ao premer no botón \"$1\", acepta os [//wikimediafoundation.org/wiki/Terms_of_Use/gl termos de uso] e acepta liberar irrevogablemente a súa contribución coa ferramenta de tradución baixo a [https://creativecommons.org/licenses/by-sa/3.0/deed.gl licenza CC BY-SA 3.0] e a [//gl.wikipedia.org/wiki/Wikipedia:Texto_da_Licenza_de_documentación_libre_de_GNU GFDL], entendendo que unha hiperligazón ou enderezo URL é recoñecemento abondo baixo a licenza CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erro: Non se puido conectar co servidor.",
@@ -90,13 +92,15 @@
 	"cx-mt-abuse-warning-title": "A súa tradución {{PLURAL:$1|contén}} un $1% de texto traducido automaticamente sen modificar",
 	"cx-mt-abuse-warning-text": "As traducións automáticas son útiles só como punto de comezo. Ten que asegurarse de que o contido sexa preciso e de que o texto soe natural na súa lingua.",
 	"cx-publish-captcha-title": "Pregunta de seguridade",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Fai}} falta axuda coas traducións?",
+	"cx-dashboard-sidebar-information": "Saber máis desta característica",
+	"cx-dashboard-sidebar-feedback": "Déixenos comentarios",
 	"cx-translation-filter-all-translations": "Todas as traducións",
-	"cx-translation-filter-published-translations": "Traducións publicadas",
-	"cx-translation-filter-draft-translations": "Traducións en progreso",
+	"cx-translation-filter-published-translations": "Publicado",
+	"cx-translation-filter-draft-translations": "En progreso",
 	"cx-translation-filter-from-any-language": "De calquera lingua",
 	"cx-translation-filter-to-any-language": "A calquera lingua",
-	"cx-create-new-translation": "Crear unha nova tradución",
-	"cx-create-new-translation-desc": "Crea páxinas sobre temas que non existen na súa lingua. É doado coa axuda das nosas ferramentas de tradución. [{{int:cx-tools-view-guidelines-link}} Máis información]",
+	"cx-create-new-translation": "Comezar unha nova tradución",
 	"apihelp-cxpublish-description": "Gardar unha páxina creada coa extensión de tradución de contidos.",
 	"apihelp-cxpublish-param-title": "Título da páxina na que se realizarán as accións.",
 	"apihelp-cxpublish-param-html": "Contido a gardar.",
@@ -186,7 +190,7 @@
 	"cx-stats-total-published": "Total publicado",
 	"cx-stats-monthly-published": "Último mes",
 	"cx-stats-weekly-published": "Última semana",
-	"cx-stats-local-published": "$1 en $2",
+	"cx-stats-local-published": "$1 en $2 ($3)",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradución|$1 traducións}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} a páxina para indicar que falta para fomentar a súa creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (nunha xanela nova)",
@@ -195,5 +199,7 @@
 	"echo-category-title-cx": "Traducións",
 	"echo-pref-tooltip-cx": "Notificarme sobre as miñas traducións creadas empregando a ferramenta de Tradución de Contido",
 	"cx-notification-first-translation": "Noraboa pola súa primeira tradución! Pode atopar máis páxinas para traducir [[Special:MyContributions|na súa páxina de contribucións]].",
-	"cx-notification-first-translation-email-subject": "Noraboa pola súa primeira tradución"
+	"cx-notification-first-translation-email-subject": "Noraboa pola súa primeira tradución",
+	"cx-translationlist-empty-title": "Non hai nada que traducir?",
+	"cx-translationlist-empty-desc": "Comece a súa tradución e continúe en calquera momento"
 }

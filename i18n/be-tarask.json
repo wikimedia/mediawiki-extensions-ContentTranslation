@@ -3,7 +3,8 @@
 		"authors": [
 			"Renessaince",
 			"Red Winged Duck",
-			"Jim-by"
+			"Jim-by",
+			"Amire80"
 		]
 	},
 	"cx": "Перакласьці старонку",
@@ -93,7 +94,6 @@
 	"cx-translation-filter-from-any-language": "Зь любой мовы",
 	"cx-translation-filter-to-any-language": "На любую мову",
 	"cx-create-new-translation": "Стварыць новы пераклад",
-	"cx-create-new-translation-desc": "Стварайце старонкі для тэмаў, якія не існуюць на Вашай мове. З дапамогай нашых прыладаў перакладу гэта проста. [{{int:cx-tools-view-guidelines-link}} Даведацца болей]",
 	"apihelp-cxpublish-description": "Захаваньне старонкі, створанай з дапамогай пашырэньня перакладу зьместу.",
 	"apihelp-cxpublish-param-title": "Назва старонкі, на якой будуць выкананыя дзеяньні.",
 	"apihelp-cxpublish-param-html": "Зьмест для захаваньня.",
@@ -183,7 +183,7 @@
 	"cx-stats-total-published": "Агулам апублікавана",
 	"cx-stats-monthly-published": "Апошні месяц",
 	"cx-stats-weekly-published": "Мінулы тыдзень",
-	"cx-stats-local-published": "$1 — $2",
+	"cx-stats-local-published": "$1 ($3) — $2",
 	"cx-stats-grouping-title": "$1 {{PLURAL:$1|пераклад|пераклады|перакладаў}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Пазначце}} старонку як адсутную, каб падахвоціць да яе стварэньня.",
 	"cx-tools-missing-link-tooltip": "Перакласьці (у новым акне)",

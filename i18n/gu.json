@@ -3,7 +3,8 @@
 		"authors": [
 			"KartikMistry",
 			"Ashok modhvadia",
-			"Dsvyas"
+			"Dsvyas",
+			"Amire80"
 		]
 	},
 	"cx": "ભાષાંતર પાનું",
@@ -93,7 +94,6 @@
 	"cx-translation-filter-from-any-language": "કોઇપણ ભાષામાંથી",
 	"cx-translation-filter-to-any-language": "કોઇપણ ભાષા પર",
 	"cx-create-new-translation": "નવું ભાષાંતર બનાવો",
-	"cx-create-new-translation-desc": "તમારી ભાષામાં ન હોય એવાં લેખો બનાવો. અમારા ભાષાંતર સાધનોની મદદ વડે તે સરળ છે. [{{int:cx-tools-view-guidelines-link}} વધુ જાણો]",
 	"apihelp-cxpublish-param-html": "સંગ્રહવા માટેની વિગત.",
 	"apihelp-cxpublish-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-cxpublish-param-to": "લક્ષ્ય ભાષા કોડ.",
@@ -168,7 +168,7 @@
 	"cx-stats-total-published": "કુલ પ્રકાશિત",
 	"cx-stats-monthly-published": "છેલ્લો મહિનો",
 	"cx-stats-weekly-published": "છેલ્લું અઠવાડિયું",
-	"cx-stats-local-published": "$2માં $1",
+	"cx-stats-local-published": "$2માં $1 ($3)",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 ભાષાંતર|$1 ભાષાંતરો}}",
 	"cx-tools-missing-link-text": "નવું પાનું બનાવવા માટે પાનાંને ખૂટતા પાનાં તરીકે {{GENDER:|નિશાનીત}} કરો.",
 	"cx-tools-missing-link-tooltip": "ભાષાંતર (નવી વિન્ડોમાં)",

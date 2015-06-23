@@ -93,7 +93,6 @@
 	"cx-translation-filter-from-any-language": "ნებისმიერი ენიდან",
 	"cx-translation-filter-to-any-language": "ნებისმიერ ენაზე",
 	"cx-create-new-translation": "ახალი თარგმანის შექმნა",
-	"cx-create-new-translation-desc": "შექმენით გვერდები თემებისთვის, რომლებიც არ არსებობს თქვენ ენაზე. ეს მარტივია ჩვენი თარგმნის ხელსაწყოს დახმარებით.\n[{{int:cx-tools-view-guidelines-link}} წაიკითხე მეტი]",
 	"apihelp-cxpublish-description": "Content Translation-ის გაფართოების მეშვეობით შექმნილი გვერდის შენახვა.",
 	"apihelp-cxpublish-param-title": "გვერდის სათაური, რომელზედაც განხორციელებული იქნება მოქმედება.",
 	"apihelp-cxpublish-param-html": "შიგთავსი შენახვისათვის",

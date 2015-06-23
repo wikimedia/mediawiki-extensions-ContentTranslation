@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Purodha"
+			"Purodha",
+			"Amire80"
 		]
 	},
 	"cx": "Sigg övversäze",
@@ -91,7 +92,6 @@
 	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
 	"cx-translation-filter-to-any-language": "En jejde Schprohch",
 	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
-	"cx-create-new-translation-desc": "Lääsch Sigge aan för Tehme, di en Dinge Schprohch noch nit vörkumme. Dadd_es leisch met onsere Övversäzongs_Wärkzüsch. Loor derför op di Sigg [{{int:cx-tools-view-guidelines-link}}]<!--  -->, doh kanns De mih dövver erus fenge.",
 	"apihelp-cxpublish-description": "Donn en Sigg faßhallde, di met däm Wärkzüsch ContentTranslation aanjelaht wood.",
 	"apihelp-cxpublish-param-title": "De Övverschreff vun dä Sigg, met dä jät jedonn wähde sull.",
 	"apihelp-cxpublish-param-html": "Dä Enhalld för zom faßhallde.",
@@ -180,7 +180,7 @@
 	"cx-stats-total-published": "Ennsjesammp öffentlesch jemaat",
 	"cx-stats-monthly-published": "Läzde Mohnd",
 	"cx-stats-weekly-published": "Läzde Woch",
-	"cx-stats-local-published": "$1 op $2",
+	"cx-stats-local-published": "$1 ($3) op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Ein Övversäzong|$1 Övversäzonge|Kein Övversäzong}}",
 	"cx-tools-missing-link-text": "Makkehr de fählende Sigge, öm de Trumm ze kloppe, dat aanjelaht wähde.{{GENDER:}}",
 	"cx-tools-missing-link-tooltip": "Övversäze — em neue Finster",

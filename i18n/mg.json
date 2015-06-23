@@ -86,12 +86,11 @@
 	"cx-mt-abuse-warning-text": "Natao hanombohana fotsiny ny dikan-teny ataon'ny milina. Mila marininao ny votoatiny mba hamakiana azy amin'ny fomba natoraly.",
 	"cx-publish-captcha-title": "Fanontaniana antoka",
 	"cx-translation-filter-all-translations": "Dikanteny rehetra",
-	"cx-translation-filter-published-translations": "Dikanteny navoaka",
-	"cx-translation-filter-draft-translations": "Dikanteny an-dalam-panatanterahana",
+	"cx-translation-filter-published-translations": "Navoaka",
+	"cx-translation-filter-draft-translations": "an-dalam-panatanterahana",
 	"cx-translation-filter-from-any-language": "Avy amin'ny teny na inona na inona",
 	"cx-translation-filter-to-any-language": "Amin'ny teny na inona na inona",
 	"cx-create-new-translation": "Hamorona dikanteny vaovao",
-	"cx-create-new-translation-desc": "Hamorona pejy ho ana lohahevitra tsy mbola misy amin'ny teninao. mora atao izany amin'ny alalan'ny fitaovam-pandikanay. [{{int:cx-tools-view-guidelines-link}} Hahafantatra be kokoa]",
 	"apihelp-cxpublish-description": "Mitahiry pejy amin'ny alalan'ny fanitarana Fandikam-botoatiny.",
 	"apihelp-cxpublish-param-title": "Lohatenim-pejy hampiharana ny asa.",
 	"apihelp-cxpublish-param-html": "Votoatiny hotahirizina.",
@@ -190,5 +189,6 @@
 	"echo-category-title-cx": "Dikanteny",
 	"echo-pref-tooltip-cx": "Hampahafantatra ahy mikasika ny dikanteny noforonina tamin'ny alalan'i Fandikam-botoatiny",
 	"cx-notification-first-translation": "Arahabaina ho an'ny dikanteninao voalohany! Mahità pejy hafa be kokoa hodikaina eo amin'ny [[Special:MyContributions|lisitry ny fandraisan'anjaranao]]",
-	"cx-notification-first-translation-email-subject": "Arahabaina ho an'ny dikanteninao voalohany"
+	"cx-notification-first-translation-email-subject": "Arahabaina ho an'ny dikanteninao voalohany",
+	"cx-translationlist-empty-title": "Tsy mahita izay hodikaina?"
 }

@@ -8,7 +8,8 @@
 			"Olvin",
 			"Ypryima",
 			"Lxlalexlxl",
-			"Piramidion"
+			"Piramidion",
+			"Amire80"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -98,7 +99,6 @@
 	"cx-translation-filter-from-any-language": "З будь-якої мови",
 	"cx-translation-filter-to-any-language": "На будь-яку мову",
 	"cx-create-new-translation": "Створити новий переклад",
-	"cx-create-new-translation-desc": "Створіть сторінки для тем, які не існують Вашою мовою. Це просто з допомогою наших інструментів перекладу.\n[{{int:cx-tools-view-guidelines-link}} Дізнатися більше]",
 	"apihelp-cxpublish-description": "Збереження сторінки, створеної у розширенні Перекладу вмісту.",
 	"apihelp-cxpublish-param-title": "Заголовок сторінки для виконання дій.",
 	"apihelp-cxpublish-param-html": "Вміст, який потрібно зберегти.",
@@ -188,7 +188,7 @@
 	"cx-stats-total-published": "Усього опубліковано",
 	"cx-stats-monthly-published": "Минулого місяця",
 	"cx-stats-weekly-published": "Минулого тижня",
-	"cx-stats-local-published": "$1 — $2",
+	"cx-stats-local-published": "$1 ($3) — $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 переклад|$1 переклади|$1 перекладів}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Позначте}} сторінку, як відсутню, щоб заохотити до її створення.",
 	"cx-tools-missing-link-tooltip": "Перекласти (у новому вікні)",

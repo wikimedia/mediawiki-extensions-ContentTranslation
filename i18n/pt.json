@@ -9,7 +9,8 @@
 			"Fernandofelippe",
 			"Fabulous",
 			"Waldir",
-			"Macofe"
+			"Macofe",
+			"Amire80"
 		]
 	},
 	"cx": "Traduzir página",
@@ -99,7 +100,6 @@
 	"cx-translation-filter-from-any-language": "De qualquer idioma",
 	"cx-translation-filter-to-any-language": "Para qualquer idioma",
 	"cx-create-new-translation": "Criar nova tradução",
-	"cx-create-new-translation-desc": "Crie páginas no seu idioma sobre tópicos que não existem ainda. É fácil com a ajuda das nossas ferramentas de tradução. [{{int:cx-tools-view-guidelines-link}} Saiba mais]",
 	"apihelp-cxpublish-description": "Gravar uma página criada usando a extensão de tradução de conteúdo.",
 	"apihelp-cxpublish-param-title": "O título da página a executar as ações.",
 	"apihelp-cxpublish-param-html": "O conteúdo a gravar.",
@@ -189,7 +189,7 @@
 	"cx-stats-total-published": "Total de publicadas",
 	"cx-stats-monthly-published": "Último mês",
 	"cx-stats-weekly-published": "Última semana",
-	"cx-stats-local-published": "$1 em $2",
+	"cx-stats-local-published": "$1 ($3) em $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradução|$1 traduções}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} página como em falta para encorajar a sua criação.",
 	"cx-tools-missing-link-tooltip": "Traduzir (numa nova janela)",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Amire80"
 		]
 	},
 	"cx": "Säit iwwersetzen",
@@ -33,6 +34,7 @@
 	"tag-contenttranslation-description": "Den Inhalt gouf vun enger anerer Sprooch mat Hëllef vum 'Content Translation Tool' iwwersat.",
 	"cx-source-loading": "$1 lueden",
 	"cx-beta": "Iwwersetzung vum Inhalt",
+	"cx-beta-desc": "En Tool fir séier Säiten an Är Sprooch z'iwwersetzen. Fänkt Iwwersetzungen op der Säit vun [[Special:MyContributions|Äre Kontributiounen]] un an ännert se mat eisem 'side-by-side' Editeur dee Speziell fir esou Iwwersetzunge gemaach gouf. Verschidde Funktioune sinn nëmme fir spezifesch Sproochen disponibel.",
 	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Dës Säit gëtt et op $1 nach net.<br />\nWëllt {{GENDER:|Dir}} se uleeën?",
 	"cx-entrypoint-dialog-title-in": "Titel fir déi nei Säit op $1:",
@@ -64,6 +66,7 @@
 	"cx-tools-reference-title": "Referenz",
 	"cx-tools-reference-add": "Referenz derbäisetzen",
 	"cx-tools-reference-remove": "Referenz ewechhuelen",
+	"cx-tools-link-instruction-shortcut": "Shift + op e Link klicke fir opzemaachen",
 	"cx-tools-link-hover-tooltip": "Klickt fir opzemaachen",
 	"cx-warning-unsaved-translation": "Dir hutt net gespäichert Iwwersetzungen.",
 	"cx-error-page-not-found": "D'Säit \"$1\" konnt op der $2 Wikipedia net fonnt ginn",
@@ -95,6 +98,7 @@
 	"apihelp-cxpublish-param-categories": "D'Kategorie fir déi publizéiert Säiten dran ze setzen.",
 	"apihelp-query+contenttranslation-param-translationid": "Iwwersetzungs ID.",
 	"apihelp-query+contenttranslation-example-1": "Iwwersetzunge kréien déi den aktuelle Benotzer ugefaang huet.",
+	"apihelp-query+contenttranslationstats-example-1": "Statistike vum Iwwersetze vun Inhalter fir all Sprooche kréien.",
 	"apihelp-cxconfiguration-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-cxconfiguration-param-to": "De Sproochcode vum Zil.",
 	"apihelp-query+cxpublishedtranslations-param-from": "De Sproochcode vun der Quell.",
@@ -155,7 +159,7 @@
 	"cx-stats-total-published": "Total publizéiert",
 	"cx-stats-monthly-published": "Leschte Mount",
 	"cx-stats-weekly-published": "Lescht Woch",
-	"cx-stats-local-published": "$1 op $2",
+	"cx-stats-local-published": "$1 ($3) op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}",
 	"cx-tools-missing-link-tooltip": "Iwwersetzen (an enger neier Fënster)",
 	"cx-tools-missing-link-title": "Link feelt",

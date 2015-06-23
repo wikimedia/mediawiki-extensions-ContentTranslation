@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Amire80"
 		]
 	},
 	"cx": "Преведување на страница",
+	"cx-dashboard-header": "Преводи",
 	"cx-javascript": "Оваа алатка не работи без JavaScript.",
 	"cx-license-agreement": "Стискајќи на копчето „$1“, се согласувате со [//wikimediafoundation.org/wiki/Terms_of_Use/mk Условите на употреба] и неотповикливо потврдувате дека ги објавувате вашите придонеси направени со преводната алатка под лиценцата [https://creativecommons.org/licenses/by-sa/3.0/deed.mk CC BY-SA 3.0] и [//mk.wikipedia.org/wiki/Википедија:Текст_на_ГНУ-овата_лиценца_за_слободна_документација ГЛСД], и со разбирање дека хиперврската или URL-адресата претставуваат достатно наведување на изворот според CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: Не можев да се поврзам со опслужувачот.",
@@ -85,13 +87,15 @@
 	"cx-mt-abuse-warning-title": "Вашиот превод {{PLURAL:$1|содржи}} $1% неизменет машински преведен текст",
 	"cx-mt-abuse-warning-text": "Машинските преводи се даваат само како појдовни. На вас е да се погрижите преводот да биде точен и да го прилагодите за да изгледа природно на вашиот јазик.",
 	"cx-publish-captcha-title": "Безбедносно прашање",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Ви треба}} помош со преводите?",
+	"cx-dashboard-sidebar-information": "Дознајте повеќе за функцијава",
+	"cx-dashboard-sidebar-feedback": "Дајте ваше мислење",
 	"cx-translation-filter-all-translations": "Сите преводи",
-	"cx-translation-filter-published-translations": "Објавени преводи",
-	"cx-translation-filter-draft-translations": "Преводи во тек",
+	"cx-translation-filter-published-translations": "Објавени",
+	"cx-translation-filter-draft-translations": "Во тек",
 	"cx-translation-filter-from-any-language": "Од било кој јазик",
 	"cx-translation-filter-to-any-language": "На било кој јазик",
-	"cx-create-new-translation": "Направи нов превод",
-	"cx-create-new-translation-desc": "Направете страници за теми што не постојат на вашиот јазик. Ова ќе го постигнете лесно со помош на нашите преводни алатки. [{{int:cx-tools-view-guidelines-link}} Дознајте повеќе]",
+	"cx-create-new-translation": "Започни нов превод",
 	"apihelp-cxpublish-description": "Зачувај страница создадена со додатокот „Превод на содржини“.",
 	"apihelp-cxpublish-param-title": "Насловот на страницата врз која ќе се вршат дејства.",
 	"apihelp-cxpublish-param-html": "Содржината што треба да се зачува.",
@@ -181,7 +185,7 @@
 	"cx-stats-total-published": "Вкупно објавени",
 	"cx-stats-monthly-published": "Минатиот месец",
 	"cx-stats-weekly-published": "Минатата седмица",
-	"cx-stats-local-published": "$1 на $2",
+	"cx-stats-local-published": "$1 ($3) на $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницита што недостигаат за да поттикнете нејзино создавање.",
 	"cx-tools-missing-link-tooltip": "Преведете (во нов прозорец)",
@@ -190,5 +194,7 @@
 	"echo-category-title-cx": "Преводи",
 	"echo-pref-tooltip-cx": "Известувај ме за моите преводи направени со алатката „Превод на содржини“",
 	"cx-notification-first-translation": "Ви честитаме за вашиот прв превод! Повеќе страници за преведување ќе најдете на вашата [[Special:MyContributions|страница со придонеси]].",
-	"cx-notification-first-translation-email-subject": "Честитки за вашиот прв превод"
+	"cx-notification-first-translation-email-subject": "Честитки за вашиот прв превод",
+	"cx-translationlist-empty-title": "Немате ништо за преведување?",
+	"cx-translationlist-empty-desc": "Започнете со преводот сега и продолжете во било кое време"
 }

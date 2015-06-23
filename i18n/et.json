@@ -94,7 +94,6 @@
 	"cx-translation-filter-from-any-language": "Mistahes keelest",
 	"cx-translation-filter-to-any-language": "Mistahes keelde",
 	"cx-create-new-translation": "Loo uus tõlge",
-	"cx-create-new-translation-desc": "Loo leheküljed teemadel, mis sinu keeles puuduvad. See on lihtne meie tõlketööriistadega.\n[{{int:cx-tools-view-guidelines-link}} Loe lähemalt]",
 	"apihelp-cxpublish-description": "Sisutõlke tarkvaralisaga loodud lehekülje salvestamine.",
 	"apihelp-cxpublish-param-title": "Lehekülg, millel toimingud sooritada; pealkiri.",
 	"apihelp-cxpublish-param-html": "Sisu salvestamiseks.",

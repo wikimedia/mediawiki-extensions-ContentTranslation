@@ -66,7 +66,6 @@
 	"cx-publish-captcha-title": "보안 질문",
 	"cx-translation-filter-all-translations": "전체 번역",
 	"cx-create-new-translation": "새 번역 만들기",
-	"cx-create-new-translation-desc": "귀하가 사용하고 있는 언어로 존재하지 않는 주제에 대한 페이지를 만듭니다. 저희의 번역 도구의 도움을 받으면 쉽습니다. [{{int:cd-tools-view-guidelines-link}} 더 알아보기]",
 	"cx-save-draft-save-success": "{{PLURAL:$1|1분 전|$1분 전|0=방금}} 저장함",
 	"cx-save-draft-saving": "저장 중...",
 	"cx-save-draft-tooltip": "번역 초안은 자동으로 저장됩니다",

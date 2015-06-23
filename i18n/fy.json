@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Amire80"
 		]
 	},
 	"cx": "Side oersette",
@@ -70,7 +71,7 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Bydragen",
 	"cx-campaign-contributionsmenu-mytranslations": "Oersettings",
 	"cx-trend-all-translations": "Alle oersettings",
-	"cx-stats-local-published": "$1 yn it $2",
+	"cx-stats-local-published": "$1 ($3) yn it $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 oersetting|$1 oersettings}}",
 	"echo-category-title-cx": "Oersettings"
 }

@@ -4,7 +4,8 @@
 			"Danmichaelo",
 			"Laaknor",
 			"Jeblad",
-			"Purodha"
+			"Purodha",
+			"Amire80"
 		]
 	},
 	"cx": "Oversett side",
@@ -94,7 +95,6 @@
 	"cx-translation-filter-from-any-language": "Fra ethvert språk",
 	"cx-translation-filter-to-any-language": "Til ethvert språk",
 	"cx-create-new-translation": "Ny oversettelse",
-	"cx-create-new-translation-desc": "Opprett sider for emner som ikke eksisterer i språket ditt. Oversettelsesverktøyene våre gjør det enkelt. [https://no.wikipedia.org/wiki/Wikipedia:Oversettelse#Hvordan_oversette Lær mer]",
 	"apihelp-cxpublish-description": "Lagre en side som er lagd med bruk av oversettelsesutvidelsen.",
 	"apihelp-cxpublish-param-title": "Tittelen på siden du vil bruke.",
 	"apihelp-cxpublish-param-html": "Innholdet som skal lagres.",
@@ -184,7 +184,7 @@
 	"cx-stats-total-published": "Totalt publisert",
 	"cx-stats-monthly-published": "Siste måned",
 	"cx-stats-weekly-published": "Siste uke",
-	"cx-stats-local-published": "$1 i $2",
+	"cx-stats-local-published": "$1 ($3) i $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 oversettelse|$1 oversettelser}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Merk}} siden mangler for å oppmuntre til opprettelse.",
 	"cx-tools-missing-link-tooltip": "Oversett (i nytt vindu)",
