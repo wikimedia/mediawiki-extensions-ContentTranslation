@@ -8,3 +8,5 @@ Runa Bhattacharjee <runabh@gmail.com>
 Santhosh Thottingal <santhosh.thottingal@gmail.com>
 Siebrand Mazeland <s.mazeland@xs4all.nl>
 Sucheta Ghoshal <sucheta.ghoshal@gmail.com>
+
+Chart.js library by Nick Downie: https://github.com/nnnick/Chart.js
