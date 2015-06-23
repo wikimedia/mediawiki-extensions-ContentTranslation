@@ -48,7 +48,8 @@ $specialPageAliases['diq'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'ContentTranslation' => array( 'ترجمه_محتوا' ),
+	'ContentTranslation' => array( 'ترجمهٔ_محتوا', 'ترجمه_محتوا' ),
+	'ContentTranslation' => array( 'آمار_ترجمهٔ_محتوا', 'آمار_ترجمه_محتوا' ),
 );
 
 /** Hebrew (עברית) */
