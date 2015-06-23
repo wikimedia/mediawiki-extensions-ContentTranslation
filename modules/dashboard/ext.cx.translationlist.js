@@ -53,14 +53,9 @@
 		translations = $.map( translations, function ( e ) {
 			return e.translation;
 		} );
-
 		this.translations = translations;
-
-		if ( translations.length > 0 ) {
-			this.$header.show();
-		}
-
-		this.listTranslations( translations );
+		this.$header.show();
+		this.listTranslations( this.translations );
 		this.filters.status = 'draft';
 		this.applyFilters( this.filters, translations );
 
