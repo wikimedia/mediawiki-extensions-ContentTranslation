@@ -4,7 +4,8 @@
 			"Misosoof",
 			"Pikne",
 			"Adeliine",
-			"Metsavend"
+			"Metsavend",
+			"Avjoska"
 		]
 	},
 	"cx": "Lehekülje tõlkimine",
@@ -192,5 +193,7 @@
 	"echo-category-title-cx": "Tõlked",
 	"echo-pref-tooltip-cx": "Teavita mind tõlgetest, mille olen loonud sisutõlke tööriistaga.",
 	"cx-notification-first-translation": "Palju õnne esimese tõlke puhul! Rohkem lehekülgi, mida tõlkida, leiad [[Special:MyContributions|oma kaastöö leheküljelt]].",
-	"cx-notification-first-translation-email-subject": "Palju õnne esimese tõlke puhul"
+	"cx-notification-first-translation-email-subject": "Palju õnne esimese tõlke puhul",
+	"cx-notification-hundredth-translation-email-subject": "Õnnitlused sajanda tõlke puhul",
+	"cx-translationlist-empty-title": "Pole midagi tõlkida?"
 }

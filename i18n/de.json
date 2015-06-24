@@ -199,10 +199,10 @@
 	"echo-pref-tooltip-cx": "Benachrichtige mich über meine Übersetzungen, die mithilfe des Werkzeugs „Inhaltsübersetzung“ erstellt wurden",
 	"cx-notification-first-translation": "Herzlichen Glückwunsch zu deiner ersten Übersetzung! Finde mehr zu übersetzende Seiten bei [[Special:MyContributions|deiner Beitragsseite]].",
 	"cx-notification-first-translation-email-subject": "Herzlichen Glückwunsch zu deiner ersten Übersetzung",
-	"cx-translationlist-empty-title": "Nichts zu übersetzen?",
-	"cx-translationlist-empty-desc": "Beginne jetzt deine Übersetzung und mache jederzeit weiter",
 	"cx-notification-tenth-translation": "Herzlichen Glückwunsch zu deiner zehnten Übersetzung! Du wirst ein erfahrener Übersetzer. Behalte die gute Arbeit bei!",
 	"cx-notification-tenth-translation-email-subject": "Herzlichen Glückwunsch zu deiner zehnten Übersetzung",
 	"cx-notification-hundredth-translation": "Du hast soeben 100 Übersetzungen durchgeführt! Dies ist eine bemerkenswerte Leistung. Teile das Wort mit anderen Autoren.",
-	"cx-notification-hundredth-translation-email-subject": "Herzlichen Glückwunsch zu deiner einhundertsten Übersetzung"
+	"cx-notification-hundredth-translation-email-subject": "Herzlichen Glückwunsch zu deiner einhundertsten Übersetzung",
+	"cx-translationlist-empty-title": "Nichts zu übersetzen?",
+	"cx-translationlist-empty-desc": "{{GENDER:|Beginne}} jetzt deine Übersetzung und mache jederzeit weiter."
 }

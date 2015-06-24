@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Sigg övversäze",
+	"cx-dashboard-header": "Övversäzonge",
 	"cx-javascript": "Dat heh Deihd et nit der ohne JavaSkrep.",
 	"cx-license-agreement": "Wann De op „$1“ kleks, bes De met dä [//wikimediafoundation.org/wiki/Terms_of_Use/ksh Bedengonge för der Jebruch] ennverschtande un jiß Ding Beijdrähsch frei onger dä Lezänze [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0] un [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"GNU Free Documentation License.\">GFDL</i>] un schtemms zoh, dat De dänn nieh mieh widerschpräsche kanns un dat ene Lenk udder en <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Uniform Ressource Locator\">URL</i> jenöhsch, öm Dinge Nahme als Schriiver udder Uurhävver ze nänne.",
 	"cx-error-server-connection": "Fähler: Kunnt kein Verbendung nohm ẞööver krijje.",
@@ -86,9 +87,11 @@
 	"cx-mt-abuse-warning-title": "En dä Övversäzong heh {{PLURAL:$1|es $1%|sinn_er $1%|sinn_er kein}} onveränderte Maschihne-Övversäzonge dren.",
 	"cx-mt-abuse-warning-text": "Maschihne_Övversäzonge wähde blohß als ene Aanfang derbei jejovve. Do moß verhaftesch sällver derför sorrje, dat Ding Övversäzong akkerahd es un en Dinge Schprohch paß.",
 	"cx-publish-captcha-title": "Zor Sescherheit:",
+	"cx-dashboard-sidebar-title": "Bruchs De Hölp met dem Övversäze?",
+	"cx-dashboard-sidebar-feedback": "Jevv ons Rökmäldonge",
 	"cx-translation-filter-all-translations": "Alle Övversäzonge",
-	"cx-translation-filter-published-translations": "Veröffentleschte Övversäzonge",
-	"cx-translation-filter-draft-translations": "Övversäzonge en Ärbeid",
+	"cx-translation-filter-published-translations": "Öffentlesch jemaat",
+	"cx-translation-filter-draft-translations": "En Ärbeid",
 	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
 	"cx-translation-filter-to-any-language": "En jejde Schprohch",
 	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
@@ -185,5 +188,9 @@
 	"cx-tools-missing-link-text": "Makkehr de fählende Sigge, öm de Trumm ze kloppe, dat aanjelaht wähde.{{GENDER:}}",
 	"cx-tools-missing-link-tooltip": "Övversäze — em neue Finster",
 	"cx-tools-missing-link-title": "Dä Lengk fählt",
-	"cx-tools-missing-link-mark-link": "Makkehr de fählende Sigge{{GENDER:}}"
+	"cx-tools-missing-link-mark-link": "Makkehr de fählende Sigge{{GENDER:}}",
+	"cx-notification-tenth-translation": "Mer jrattolehre för Ding zehnte Övversäzong! You are becoming an expert translator. Keep up the good work!",
+	"cx-notification-tenth-translation-email-subject": "Mer jrattolehre för Ding zehnte Övversäzong",
+	"cx-notification-hundredth-translation-email-subject": "Mer jrattolehre för Ding hondertste Övversäzong",
+	"cx-translationlist-empty-title": "Nix doh zom Övversäze?"
 }

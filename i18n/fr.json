@@ -216,6 +216,10 @@
 	"echo-pref-tooltip-cx": "Me notifier sur mes traductions créés en utilisant l'outil de traduction",
 	"cx-notification-first-translation": "Félicitations pour votre première traduction ! Trouver plus d'articles à traduire sur [[Special:MyContributions|votre liste de contributions]].",
 	"cx-notification-first-translation-email-subject": "Félicitations pour votre première traduction.",
+	"cx-notification-tenth-translation": "Félicitations pour votre dixième traduction ! Vous devenez un traducteur expert. Continuez ainsi !",
+	"cx-notification-tenth-translation-email-subject": "Félicitations pour votre dixième traduction",
+	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C'est une réalisation remarquable. Dîtes-le à d'autres contributeurs.",
+	"cx-notification-hundredth-translation-email-subject": "Félicitations pour votre centième traduction",
 	"cx-translationlist-empty-title": "Rien à traduire ?",
 	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez"
 }

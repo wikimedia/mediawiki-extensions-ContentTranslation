@@ -190,7 +190,7 @@
 	"cx-stats-total-published": "Total publicado",
 	"cx-stats-monthly-published": "Último mes",
 	"cx-stats-weekly-published": "Última semana",
-	"cx-stats-local-published": "$1 en $2 ($3)",
+	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradución|$1 traducións}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} a páxina para indicar que falta para fomentar a súa creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (nunha xanela nova)",

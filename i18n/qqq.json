@@ -211,10 +211,10 @@
 	"echo-pref-tooltip-cx": "A tooltip text about CX notifcations.Shown in [[Special:Preferences]] page to configure notifications",
 	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubitions link.",
 	"cx-notification-first-translation-email-subject": "Email subject to congratulate the user for first published translation.",
-	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",
-	"cx-translationlist-empty-desc": "A brief description show when there is no translations by current user",
 	"cx-notification-tenth-translation": "Echo notification congratulating the user for tenth published translation.",
 	"cx-notification-tenth-translation-email-subject": "Email subject to congratulate the user for tenth published translation.",
 	"cx-notification-hundredth-translation": "Echo notification congratulating the user for hundred published translation.",
-	"cx-notification-hundredth-translation-email-subject": "Email subject to congratulate the user for hundred published translation."
+	"cx-notification-hundredth-translation-email-subject": "Email subject to congratulate the user for hundred published translation.",
+	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",
+	"cx-translationlist-empty-desc": "A brief description show when there is no translations by current user"
 }

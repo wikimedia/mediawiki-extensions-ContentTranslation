@@ -195,6 +195,10 @@
 	"echo-pref-tooltip-cx": "Известувај ме за моите преводи направени со алатката „Превод на содржини“",
 	"cx-notification-first-translation": "Ви честитаме за вашиот прв превод! Повеќе страници за преведување ќе најдете на вашата [[Special:MyContributions|страница со придонеси]].",
 	"cx-notification-first-translation-email-subject": "Честитки за вашиот прв превод",
+	"cx-notification-tenth-translation": "Ви честитаме на вашиот десетти превод! Станувате опитен преведувач. Продолжете така!",
+	"cx-notification-tenth-translation-email-subject": "Честитки за вашиот десетти превод",
+	"cx-notification-hundredth-translation": "Штотуку направивте 100 преводи! Тоа е исклучително достигнување. Споделете го ова со други уредници.",
+	"cx-notification-hundredth-translation-email-subject": "Честитки за вашиот стоти превод",
 	"cx-translationlist-empty-title": "Немате ништо за преведување?",
 	"cx-translationlist-empty-desc": "Започнете со преводот сега и продолжете во било кое време"
 }
