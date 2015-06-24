@@ -342,6 +342,15 @@ class ContentTranslationHooks {
 			),
 		) + $resourcePaths;
 
+		$modules['qunit']['ext.cx.draft.test'] = array(
+			'scripts' => array(
+				'tests/qunit/draft/ext.cx.draft.test.js',
+			),
+			'dependencies' => array(
+				'ext.cx.draft',
+			),
+		) + $resourcePaths;
+
 		$modules['qunit']['ext.cx.tools.tests'] = array(
 			'scripts' => array(
 				'tests/qunit/tools/ext.cx.tools.template.test.js',

@@ -38,8 +38,8 @@
 	};
 
 	mw.cx.getSourceSection = function ( id ) {
-		// Sanity check, id should be either a number or prefixed with cx
-		if ( !id || ( isNaN( id ) && id.indexOf( 'cx' ) !== 0 ) ) {
+		// Sanity check, id should be either a number or prefixed with mw
+		if ( !id || ( isNaN( id ) && id.indexOf( 'mw' ) !== 0 ) ) {
 			return $( [] );
 		} else {
 			return $( document.getElementById( id ) );
@@ -48,7 +48,7 @@
 
 	mw.cx.getTranslationSection = function ( id ) {
 		// Sanity check
-		if ( isNaN( id ) ) {
+		if (  !id || isNaN( id ) && id.indexOf( 'mw' ) !== 0 ) {
 			return $( [] );
 		} else {
 			return $( document.getElementById( 'cx' + id ) );
