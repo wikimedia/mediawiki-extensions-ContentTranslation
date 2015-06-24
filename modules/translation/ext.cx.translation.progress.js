@@ -88,7 +88,7 @@
 		$sections.each( function () {
 			var weight, state, $section = $( this );
 
-			weight = $section.data( 'cx-weight' );
+			weight = $section.attr( 'data-cx-weight' );
 			weights.any += weight;
 
 			state = $section.data( 'cx-state' );
