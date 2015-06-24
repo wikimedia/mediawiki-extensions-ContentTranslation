@@ -105,6 +105,8 @@
 			// Mark it readonly
 			.attr( 'contenteditable', false );
 
+		// Make sure we add reference list since we added a reference just now.
+		this.addReferenceList();
 		this.stop();
 	};
 
