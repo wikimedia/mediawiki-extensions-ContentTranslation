@@ -123,7 +123,7 @@
 				$( '<div>' )
 					.addClass( 'cx-stats-box__localtotal' )
 					.text( mw.msg(
-						'cx-stats-local-published',
+						'cx-stats-local-published-number',
 						fmt( langTotal ),
 						fmt( localLanguage )
 					)

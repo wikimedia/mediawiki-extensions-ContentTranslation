@@ -791,6 +791,7 @@
 				"cx-stats-total-published",
 				"cx-stats-monthly-published",
 				"cx-stats-weekly-published",
+				"cx-stats-local-published-number",
 				"cx-stats-local-published",
 				"cx-stats-grouping-title",
 				"percent"
