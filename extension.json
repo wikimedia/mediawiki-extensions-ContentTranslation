@@ -26,7 +26,6 @@
 		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
 		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
-		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",
 		"ResourceLoaderTestModules": "ContentTranslationHooks::onResourceLoaderTestModules",
 		"ListDefinedTags": "ContentTranslationHooks::registerTags",
 		"ChangeTagsListActive": "ContentTranslationHooks::registerTags",
