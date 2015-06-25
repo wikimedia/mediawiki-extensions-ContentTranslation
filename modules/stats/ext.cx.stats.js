@@ -64,20 +64,25 @@
 		} );
 	};
 
+	/**
+	 * Render the boxes at the top with the most interesting recent data.
+	 */
 	CXStats.prototype.renderHighlights = function () {
-		var total, langTotal, $total, $weeklyStats, localLanguage, langTrendLength, totalTrendLength,
-			lastWeekTotal, lastWeekLangTotal, weekTrend = 0,
-			weekLangTrend = 0,
-			lastWeekLangTranslations, prevWeekLangTotal, lastWeekTranslations,
-			prevWeekTotal, prevWeekTranslations, prevWeekLangTranslations,
+		var weekTrend, weekLangTrend, totalTrendLength, langTrendLength, localLanguage, total,
+			lastWeekTotal, prevWeekTotal, lastWeekTranslations, prevWeekTranslations,
+			langTotal, lastWeekLangTotal, prevWeekLangTotal,
+			lastWeekLangTranslations, prevWeekLangTranslations,
+			$total, $weeklyStats,
 			$parenthesizedTrend, $trendInLanguage,
-			fmt = mw.language.convertNumber;
+			fmt = mw.language.convertNumber; // Shortcut
 
 		if ( this.totalTranslationTrend.length < 3 ) {
-			// Trend calculation works if we have enough data
+			// Trend calculation works only if we have enough data
 			return;
 		}
 
+		weekTrend = 0;
+		weekLangTrend = 0;
 		totalTrendLength = this.totalTranslationTrend.length;
 		langTrendLength = this.languageTranslatonTrend.length;
 		localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
@@ -89,7 +94,8 @@
 		prevWeekTranslations = prevWeekTotal -
 			this.totalTranslationTrend[ totalTrendLength - 4 ].count;
 		if ( prevWeekTranslations ) {
-			weekTrend = ( ( lastWeekTranslations - prevWeekTranslations ) / prevWeekTranslations ) * 100;
+			weekTrend = ( lastWeekTranslations - prevWeekTranslations ) /
+				prevWeekTranslations * 100;
 		}
 		weekTrend = parseInt( weekTrend );
 
@@ -97,9 +103,11 @@
 		lastWeekLangTotal = this.languageTranslatonTrend[ langTrendLength - 2 ].count;
 		prevWeekLangTotal = this.languageTranslatonTrend[ langTrendLength - 3 ].count;
 		lastWeekLangTranslations = lastWeekLangTotal - prevWeekLangTotal;
-		prevWeekLangTranslations = prevWeekLangTotal - this.languageTranslatonTrend[ langTrendLength - 4 ].count;
+		prevWeekLangTranslations = prevWeekLangTotal -
+			this.languageTranslatonTrend[ langTrendLength - 4 ].count;
 		if ( prevWeekLangTranslations ) {
-			weekLangTrend = ( lastWeekLangTranslations - prevWeekLangTranslations ) / prevWeekLangTranslations * 100;
+			weekLangTrend = ( lastWeekLangTranslations - prevWeekLangTranslations ) /
+				prevWeekLangTranslations * 100;
 		}
 		weekLangTrend = parseInt( weekLangTrend );
 
@@ -160,6 +168,7 @@
 				),
 				$trendInLanguage
 			);
+
 		this.$highlights.append( $total, $weeklyStats );
 	};
 
