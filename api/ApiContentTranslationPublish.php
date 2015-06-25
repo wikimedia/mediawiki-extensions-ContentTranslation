@@ -231,6 +231,11 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * Notify user about milestones.
 	 */
 	public function notifyTranslator() {
+		// Check if Echo is available. If not, skip.
+		if ( !class_exists( 'EchoEvent' ) ) {
+			return;
+		}
+
 		$user = $this->getUser();
 		$translator = new ContentTranslation\Translator( $user );
 		$translationCount = $translator->getTranslationsCount();
