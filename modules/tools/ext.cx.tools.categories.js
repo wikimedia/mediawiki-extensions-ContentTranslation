@@ -12,7 +12,7 @@
 	'use strict';
 
 	/**
-	 * Handles the jump between category counter and listing
+	 * Handles the jump between category counter and listing.
 	 *
 	 * @param {Event} e The click event
 	 * @return {boolean} false
@@ -48,12 +48,13 @@
 	}
 
 	/**
-	 * Initializes the category counter
+	 * Initializes the category counter.
 	 */
 	CXCategoryCounter.prototype.init = function () {
 		var count = 0;
 
 		this.$view = this.getView();
+
 		if ( this.language === mw.cx.sourceLanguage &&
 			this.categoryTool.categories.source !== null
 		) {
@@ -68,7 +69,7 @@
 	};
 
 	/**
-	 * Retrieves the view for the category counter
+	 * Retrieves the view for the category counter.
 	 *
 	 * @return {jQuery}
 	 */
@@ -76,7 +77,9 @@
 		var $view, $button, $icon, $count;
 
 		$view = $( '<div>' )
-			.prop( languageProps( $( 'html' ).prop( 'lang' ) ) )
+			// The container is in a content column, but it has UI strings,
+			// so the container is in the user language.
+			.prop( languageProps( mw.config.get( 'wgUserLanguage' ) ) )
 			.addClass( 'cx-category-widget cx-category-counter' );
 
 		$button = $( '<button>' )
@@ -107,7 +110,7 @@
 	};
 
 	/**
-	 * Updates the count shown in the category counter
+	 * Updates the count shown in the category counter.
 	 *
 	 * @param {integer} count The category count
 	 */
@@ -133,7 +136,7 @@
 	}
 
 	/**
-	 * Initializes the category listing
+	 * Initializes the category listing.
 	 */
 	CXCategoryListing.prototype.init = function () {
 		this.$view = this.getView();
@@ -184,7 +187,7 @@
 	};
 
 	/**
-	 * Handles click events on source list items
+	 * Handles click events on source list items.
 	 *
 	 * @param {Event} e The click event
 	 */
@@ -219,7 +222,7 @@
 	}
 
 	/**
-	 * Handles click events on the remove span inside target list items
+	 * Handles click events on the remove span inside target list items.
 	 *
 	 * @param {Event} e The click event
 	 */
@@ -252,7 +255,7 @@
 	}
 
 	/**
-	 * Highlights the category and connected category list items
+	 * Highlights the category and connected category list items.
 	 */
 	function highlightCategory() {
 		/*jshint validthis:true */
@@ -270,7 +273,7 @@
 	}
 
 	/**
-	 * Remove the highlight on the category and connected category list items
+	 * Remove the highlight on the category and connected category list items.
 	 */
 	function removeCategoryHighlight() {
 		/*jshint validthis:true */
@@ -288,17 +291,19 @@
 	}
 
 	/**
-	 * Gets the view for the category listing
+	 * Gets the view for the category listing.
 	 *
 	 * @return {jQuery}
 	 */
 	CXCategoryListing.prototype.getView = function () {
-		var categoryTool, $view, $anchor, $icon, $categoryList, $noCategories;
+		var categoryTool, $view, $icon, $categoryList, $anchor, $noCategories;
 
 		categoryTool = this.categoryTool;
 
 		$view = $( '<div>' )
-			.prop( languageProps( $( 'html' ).prop( 'lang' ) ) )
+			// The container may show UI messages, so it's in the user language.
+			// The categories names are in the language of the column's content.
+			.prop( languageProps( mw.config.get( 'wgUserLanguage' ) ) )
 			.addClass( 'cx-category-widget cx-category-listing' );
 		$icon = $( '<span>' ).addClass( 'cx-category-icon' );
 		$categoryList = $( '<ul>' )
@@ -335,13 +340,13 @@
 	};
 
 	/**
-	 * Adds categories to the category listing
+	 * Adds categories to the category listing.
 	 *
 	 * @param {object} categories A key value object with ids and titles
 	 * @param {boolean} clear A flag to clear existing categories
 	 */
 	CXCategoryListing.prototype.addCategories = function ( categories, clear ) {
-		var keys, i, $categoryList;
+		var $categoryList, keys, i;
 
 		if ( !categories ) {
 			return;
@@ -361,7 +366,7 @@
 	};
 
 	/**
-	 * Creates a source category list item
+	 * Creates a source category list item.
 	 *
 	 * @param {string} id The category id
 	 * @param {string} title The category title
@@ -380,14 +385,14 @@
 	}
 
 	/**
-	 * Creates a target category list item
+	 * Creates a target category list item.
 	 *
 	 * @param {string} id The category id
 	 * @param {string} title The category title
 	 * @return {jQuery}
 	 */
 	function createTargetCategoryListItem( id, title ) {
-		var extract, $listItem, $span;
+		var extract, $listItem, $categoryRemove;
 
 		extract = title.match( /^.*:(.*)$/ );
 		$listItem = $( '<li>' )
@@ -395,16 +400,16 @@
 			.attr( 'cx-category-id', id )
 			.text( extract[ 1 ] );
 
-		$span = $( '<span>' )
+		$categoryRemove = $( '<span>' )
 			.addClass( 'cx-category-remove' );
 
-		$listItem.append( $span );
+		$listItem.append( $categoryRemove );
 
 		return $listItem;
 	}
 
 	/**
-	 * Ads a category to the category list
+	 * Ads a category to the category list.
 	 *
 	 * @param {string} id The category id
 	 * @param {string} title The category title
@@ -416,6 +421,7 @@
 
 		if ( this.language === mw.cx.sourceLanguage ) {
 			$categoryListItem = createSourceCategoryListItem( id, title );
+
 			if ( !this.categoryTool.categories.adapted[ id ] ) {
 				$categoryListItem.addClass( 'cx-category-disabled' );
 			}
@@ -427,7 +433,7 @@
 	};
 
 	/**
-	 * CX Category Tool Class
+	 * CX Category Tool Class.
 	 * @class
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
@@ -437,12 +443,13 @@
 			target: null,
 			adapted: null
 		};
+
 		this.widgets = {};
 		this.siteMapper = siteMapper;
 	}
 
 	/**
-	 * Creates id of specified width from number using the padding character
+	 * Creates id of specified width from number using the padding character.
 	 *
 	 * @param {integer} number The number to make the id from
 	 * @param {integer} width The desired width of the id
@@ -454,12 +461,15 @@
 
 		character = character || '0';
 		number = String( number );
-		output = number.length >= width ? number : new Array( width - number.length + 1 ).join( character ) + number;
+		output = number.length >= width ?
+			number :
+			new Array( width - number.length + 1 ).join( character ) + number;
+
 		return 'cxCategory' + output;
 	}
 
 	/**
-	 * Retrieves categories for the source article
+	 * Retrieves categories for the source article.
 	 *
 	 * @param {string} title The article title
 	 * @param {string} language The article language
@@ -467,8 +477,8 @@
 	 */
 	CXCategoryTool.prototype.getArticleCategories = function ( title, language ) {
 		var categoryTool,
-			categories = {},
-			deferred = $.Deferred();
+			deferred = $.Deferred(),
+			categories = {};
 
 		if ( this.categories.source !== null ) {
 			deferred.resolve( this.categories.source );
@@ -502,6 +512,7 @@
 					categories[ categoryId ] = object.title;
 				} );
 			}
+
 			categoryTool.categories.source = categories;
 			deferred.resolve( categories );
 		} ).fail( function ( error ) {
@@ -514,7 +525,7 @@
 	};
 
 	/**
-	 * Adapts a set of categories
+	 * Adapts a set of categories.
 	 *
 	 * @param {object} categories A key value listing of ids and titles
 	 * @param {string} language The language for adaptation
@@ -522,9 +533,9 @@
 	 */
 	CXCategoryTool.prototype.adaptCategories = function ( categories, language ) {
 		var categoryTool,
-			categoryId,
 			categoryTitles,
 			inverted,
+			categoryId,
 			deferred = $.Deferred();
 
 		if ( this.categories.adapted !== null ) {
@@ -584,9 +595,11 @@
 			}
 
 			categoryTool.categories.adapted = adaptedCategories;
+
 			if ( categoryTool.categories.target === null ) {
 				categoryTool.categories.target = $.extend( {}, adaptedCategories );
 			}
+
 			deferred.resolve( adaptedCategories );
 		} ).fail( function ( error ) {
 			mw.log( '[CX] Error adapting categories ' + error );
@@ -597,7 +610,8 @@
 	};
 
 	/**
-	 * Retrieves the categories
+	 * Retrieves the categories.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXCategoryTool.prototype.getCategories = function () {
@@ -616,7 +630,7 @@
 	};
 
 	/**
-	 * Initalizes UI widgets and attaches them to DOM
+	 * Initalizes UI widgets and attaches them to DOM.
 	 *
 	 * @param {string} column The name of the column to initialize widgets for
 	 */
@@ -635,7 +649,7 @@
 	};
 
 	/**
-	 * Attaches UI widgets to DOM
+	 * Attaches UI widgets to DOM.
 	 *
 	 * @param {string} column The name of the column to attach widgets to
 	 */
@@ -660,7 +674,7 @@
 	};
 
 	/**
-	 * Shows UI widgets
+	 * Shows UI widgets.
 	 *
 	 * @param {string} column The name of the column to show widgets for
 	 */
@@ -687,17 +701,20 @@
 		sitemapper = new mw.cx.SiteMapper(
 			mw.config.get( 'wgContentTranslationSiteTemplates' )
 		);
+
 		// The module will be loaded in the context of Unit tests too, there
 		// source language may not set. Check and abort if that is the case.
 		if ( !mw.cx.sourceLanguage ) {
 			return;
 		}
+
 		// Expose the CXCategoryTool (required by publishing)
 		mw.cx.categoryTool = new CXCategoryTool( sitemapper );
 		mw.cx.categoryTool.getCategories().done( function ( categories ) {
 			mw.hook( 'mw.cx.source.loaded' ).add( function () {
 				mw.cx.categoryTool.initializeWidgets( 'source' );
 				mw.cx.categoryTool.initializeWidgets( 'translation' );
+
 				if ( Object.keys( categories.source ).length > 0 ) {
 					mw.cx.categoryTool.attachWidgets( 'source' );
 					mw.cx.categoryTool.showWidgets( 'source' );
@@ -709,5 +726,4 @@
 			} );
 		} );
 	} );
-
 }( jQuery, mediaWiki ) );
