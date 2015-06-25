@@ -893,5 +893,6 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "ContentTranslation/modules"
-	}
+	},
+	"manifest_version": 1
 }
