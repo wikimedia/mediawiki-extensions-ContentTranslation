@@ -73,6 +73,7 @@
 			langTotal, lastWeekLangTotal, prevWeekLangTotal,
 			lastWeekLangTranslations, prevWeekLangTranslations,
 			$total, $weeklyStats,
+			weekLangTrendText, weekTrendText, weekTrendClass,
 			$parenthesizedTrend, $trendInLanguage,
 			fmt = mw.language.convertNumber; // Shortcut
 
@@ -130,10 +131,25 @@
 				)
 			);
 
+		weekLangTrendText = mw.msg( 'percent', fmt( weekLangTrend ) );
+		if ( weekLangTrend >= 0 ) {
+			// Add the plus sign to make clear that it's an increase
+			weekLangTrendText = '+' + weekLangTrendText;
+		}
+
+		weekTrendText = mw.msg( 'percent', fmt( weekTrend ) );
+		if ( weekTrend >= 0 ) {
+			// Add the plus sign to make clear that it's an increase
+			weekTrendText = '+' + weekTrendText;
+			weekTrendClass = 'increase';
+		} else {
+			weekTrendClass = 'decrease';
+		}
+
 		$parenthesizedTrend = $( '<span>' )
-			// This is needed to show the minus sign on the correct side
+			// This is needed to show the plus or minus sign on the correct side
 			.prop( 'dir', 'ltr' )
-			.text( mw.msg( 'percent', fmt( weekLangTrend ) ) );
+			.text( weekLangTrendText );
 		$trendInLanguage = $( '<div>' )
 			.addClass( 'cx-stats-box__localtotal' )
 			.text( mw.msg(
@@ -163,8 +179,8 @@
 						.html( '&#160;' ),
 					$( '<span>' )
 						.prop( 'dir', 'ltr' )
-						.addClass( 'cx-stats-box__trend ' + ( weekTrend >= 0 ? 'increase' : 'decrease' ) )
-						.text( mw.msg( 'percent', fmt( weekTrend ) ) )
+						.addClass( 'cx-stats-box__trend ' + weekTrendClass )
+						.text( weekTrendText )
 				),
 				$trendInLanguage
 			);
