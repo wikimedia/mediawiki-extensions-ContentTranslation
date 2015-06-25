@@ -5,6 +5,7 @@
 		]
 	},
 	"cx": "مخ ژباړل",
+	"cx-dashboard-header": "ژباړې",
 	"cx-desc": "د مخونو د مېنځپانگې ژباړه آسانه کوي",
 	"cx-header-progressbar-text-mt": "($1% له {{PLURAL:$1|ماشيني ژباړې}} څخه)",
 	"cx-header-new-translation": "نوې ژباړه",
@@ -29,11 +30,14 @@
 	"cx-stats-unknown": "ناجوت",
 	"cx-sourceselector-dialog-button-cancel": "ناگارل",
 	"cx-sourceselector-dialog-source-language-label": "لېږونکی:",
+	"cx-dashboard-sidebar-title": "په ژباړو کې {{GENDER:|مرسته غواړې}} ؟",
+	"cx-dashboard-sidebar-information": "د دې ځانتيا په اړه نور څه پوهېدل",
 	"cx-translation-filter-all-translations": "ټولې ژباړې",
-	"cx-translation-filter-published-translations": "خپرې شوې ژباړې",
+	"cx-translation-filter-published-translations": "خپور شو",
+	"cx-translation-filter-draft-translations": "د پرمختگ په بهير کې",
 	"cx-translation-filter-from-any-language": "له هر يوې ژبې څخه",
 	"cx-translation-filter-to-any-language": "په هر يوې ژبې کې",
-	"cx-create-new-translation": "نوې ژباړې جوړول",
+	"cx-create-new-translation": "يوه نوې ژباړه پيلول",
 	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
 	"cx-contributions-new-article": "نوی مخ",
 	"cx-contributions-translation": "ژباړه",
@@ -57,5 +61,6 @@
 	"cx-stats-monthly-published": "تېره مياشت",
 	"cx-stats-weekly-published": "تېره اونۍ",
 	"cx-tools-missing-link-tooltip": "ژباړل (په نوې کړکۍ کې)",
-	"echo-category-title-cx": "ژباړې"
+	"echo-category-title-cx": "ژباړې",
+	"cx-translationlist-empty-title": "آيا د ژباړلو لپاره څه نشته؟"
 }

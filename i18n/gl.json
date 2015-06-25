@@ -200,6 +200,10 @@
 	"echo-pref-tooltip-cx": "Notificarme sobre as miñas traducións creadas empregando a ferramenta de Tradución de Contido",
 	"cx-notification-first-translation": "Noraboa pola súa primeira tradución! Pode atopar máis páxinas para traducir [[Special:MyContributions|na súa páxina de contribucións]].",
 	"cx-notification-first-translation-email-subject": "Noraboa pola súa primeira tradución",
+	"cx-notification-tenth-translation": "Noraboa pola súa décima tradución! Estase a converter nun tradutor experto. Continúe co bo traballo!",
+	"cx-notification-tenth-translation-email-subject": "Noraboa pola súa décima tradución",
+	"cx-notification-hundredth-translation": "Xa fixo 100 traducións! Iso é un logro considerable. Compártao con outros usuarios.",
+	"cx-notification-hundredth-translation-email-subject": "Noraboa pola súa tradución número 100",
 	"cx-translationlist-empty-title": "Non hai nada que traducir?",
-	"cx-translationlist-empty-desc": "Comece a súa tradución e continúe en calquera momento"
+	"cx-translationlist-empty-desc": "{{GENDER:|Comece}} a súa tradución agora e continúe en calquera momento."
 }

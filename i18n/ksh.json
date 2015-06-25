@@ -88,13 +88,14 @@
 	"cx-mt-abuse-warning-text": "Maschihne_Övversäzonge wähde blohß als ene Aanfang derbei jejovve. Do moß verhaftesch sällver derför sorrje, dat Ding Övversäzong akkerahd es un en Dinge Schprohch paß.",
 	"cx-publish-captcha-title": "Zor Sescherheit:",
 	"cx-dashboard-sidebar-title": "Bruchs De Hölp met dem Övversäze?",
+	"cx-dashboard-sidebar-information": "Donn mih övver dat Jannze heh weße",
 	"cx-dashboard-sidebar-feedback": "Jevv ons Rökmäldonge",
 	"cx-translation-filter-all-translations": "Alle Övversäzonge",
 	"cx-translation-filter-published-translations": "Öffentlesch jemaat",
 	"cx-translation-filter-draft-translations": "En Ärbeid",
 	"cx-translation-filter-from-any-language": "Uß jehde Schprohch",
 	"cx-translation-filter-to-any-language": "En jejde Schprohch",
-	"cx-create-new-translation": "Donn en neu Övversäzong aanlähje",
+	"cx-create-new-translation": "Donn en neu Övversäzong bejenne",
 	"apihelp-cxpublish-description": "Donn en Sigg faßhallde, di met däm Wärkzüsch ContentTranslation aanjelaht wood.",
 	"apihelp-cxpublish-param-title": "De Övverschreff vun dä Sigg, met dä jät jedonn wähde sull.",
 	"apihelp-cxpublish-param-html": "Dä Enhalld för zom faßhallde.",
@@ -192,5 +193,6 @@
 	"cx-notification-tenth-translation": "Mer jrattolehre för Ding zehnte Övversäzong! You are becoming an expert translator. Keep up the good work!",
 	"cx-notification-tenth-translation-email-subject": "Mer jrattolehre för Ding zehnte Övversäzong",
 	"cx-notification-hundredth-translation-email-subject": "Mer jrattolehre för Ding hondertste Övversäzong",
-	"cx-translationlist-empty-title": "Nix doh zom Övversäze?"
+	"cx-translationlist-empty-title": "Nix doh zom Övversäze?",
+	"cx-translationlist-empty-desc": "Bejenn Ding Övversäzong jäz. De kanns jehderzigg drahn wigger maache.{{GENDER:|}}"
 }

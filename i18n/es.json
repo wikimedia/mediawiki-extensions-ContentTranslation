@@ -213,5 +213,5 @@
 	"cx-notification-hundredth-translation": "¡Acabas de hacer 100 traducciones! Un logro notable. Compártelo con otros editores.",
 	"cx-notification-hundredth-translation-email-subject": "Felicitaciones por tu centécima traducción",
 	"cx-translationlist-empty-title": "¿Nada que traducir?",
-	"cx-translationlist-empty-desc": "Comienza la traducción ahora y continúa en cualquier momento"
+	"cx-translationlist-empty-desc": "{{GENDER:|Comienza}} la traducción ahora y continúa en cualquier momento."
 }

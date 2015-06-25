@@ -75,7 +75,6 @@
 	"cx-translation-filter-from-any-language": "Са било ког језика",
 	"cx-translation-filter-to-any-language": "У било који језик",
 	"cx-create-new-translation": "Направи нови превод",
-	"cx-create-new-translation-desc": "Направите странице за теме које не постоје на вашем језику. Уз помоћ наше преводилачког алата. [{{int:cx-tools-view-guidelines-link}} Сазнајте више]",
 	"apihelp-cxpublish-param-from": "Код изворног језика.",
 	"apihelp-cxpublish-param-to": "Код циљног језика.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов изворне странице.",
@@ -122,5 +121,13 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Преводи",
 	"cx-campaign-contributionsmenu-myuploads": "Отпреми датотеку",
 	"cx-trend-all-translations": "Сви преводи",
-	"cx-trend-translations-to": "Преводи на $1"
+	"cx-trend-translations-to": "Преводи на $1",
+	"cx-stats-published-target-source": "Преводи на",
+	"cx-stats-published-source-target": "Преводи са",
+	"cx-stats-draft-target-source": "Преводи у току на",
+	"cx-stats-draft-source-target": "Преводи у току на са",
+	"cx-stats-tabs-expand": "Види све језике",
+	"cx-stats-total-published": "Укупно објављено",
+	"cx-stats-monthly-published": "Прошлог месеца",
+	"cx-stats-weekly-published": "Прошле недеље"
 }

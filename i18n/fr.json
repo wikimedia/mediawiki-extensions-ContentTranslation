@@ -23,7 +23,8 @@
 			"Trizek",
 			"Lucky",
 			"ProfGra",
-			"Amire80"
+			"Amire80",
+			"Yodaspirine"
 		]
 	},
 	"cx": "Traduire la page",
@@ -221,5 +222,5 @@
 	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C'est une réalisation remarquable. Dîtes-le à d'autres contributeurs.",
 	"cx-notification-hundredth-translation-email-subject": "Félicitations pour votre centième traduction",
 	"cx-translationlist-empty-title": "Rien à traduire ?",
-	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez"
+	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez."
 }

@@ -217,5 +217,5 @@
 	"cx-notification-hundredth-translation": "Echo notification congratulating the user for hundred published translation.",
 	"cx-notification-hundredth-translation-email-subject": "Email subject to congratulate the user for hundred published translation.",
 	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",
-	"cx-translationlist-empty-desc": "A brief description show when there is no translations by current user"
+	"cx-translationlist-empty-desc": "A brief description show when there are no translations by current user"
 }
