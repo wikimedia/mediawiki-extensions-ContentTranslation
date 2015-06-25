@@ -15,7 +15,7 @@
 		this.sourceTargetModel = {};
 		this.targetSourceModel = {};
 		this.totalTranslationTrend = null;
-		this.languageTranslatonTrend = null;
+		this.languageTranslationTrend = null;
 		this.$highlights = null;
 		this.$graph = null;
 	}
@@ -50,8 +50,8 @@
 			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) )
 		).done( function ( totalTrend, languageTrend ) {
 			self.totalTranslationTrend = totalTrend;
-			self.languageTranslatonTrend = languageTrend;
-			self.languageTranslatonTrend = mergeAndFill( totalTrend, languageTrend );
+			self.languageTranslationTrend = languageTrend;
+			self.languageTranslationTrend = mergeAndFill( totalTrend, languageTrend );
 			self.renderHighlights();
 			self.drawGraph();
 		} );
@@ -85,7 +85,7 @@
 		weekTrend = 0;
 		weekLangTrend = 0;
 		totalTrendLength = this.totalTranslationTrend.length;
-		langTrendLength = this.languageTranslatonTrend.length;
+		langTrendLength = this.languageTranslationTrend.length;
 		localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
 		total = this.totalTranslationTrend[ totalTrendLength - 1 ].count;
 
@@ -100,12 +100,12 @@
 		}
 		weekTrend = parseInt( weekTrend );
 
-		langTotal = this.languageTranslatonTrend[ langTrendLength - 1 ].count;
-		lastWeekLangTotal = this.languageTranslatonTrend[ langTrendLength - 2 ].count;
-		prevWeekLangTotal = this.languageTranslatonTrend[ langTrendLength - 3 ].count;
+		langTotal = this.languageTranslationTrend[ langTrendLength - 1 ].count;
+		lastWeekLangTotal = this.languageTranslationTrend[ langTrendLength - 2 ].count;
+		prevWeekLangTotal = this.languageTranslationTrend[ langTrendLength - 3 ].count;
 		lastWeekLangTranslations = lastWeekLangTotal - prevWeekLangTotal;
 		prevWeekLangTranslations = prevWeekLangTotal -
-			this.languageTranslatonTrend[ langTrendLength - 4 ].count;
+			this.languageTranslationTrend[ langTrendLength - 4 ].count;
 		if ( prevWeekLangTranslations ) {
 			weekLangTrend = ( lastWeekLangTranslations - prevWeekLangTranslations ) /
 				prevWeekLangTranslations * 100;
@@ -449,7 +449,7 @@
 					).escaped(),
 					strokeColor: '#80B3FF',
 					pointColor: '#80B3FF',
-					data: $.map( this.languageTranslatonTrend, function ( data ) {
+					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data.count;
 					} )
 				}
