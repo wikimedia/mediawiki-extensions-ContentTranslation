@@ -873,6 +873,9 @@
 			],
 			"styles": [
 				"widgets/overlay/ext.cx.overlay.less"
+			],
+			"dependencies": [
+				"ext.cx.model"
 			]
 		},
 		"ext.cx.widgets.spinner": {
