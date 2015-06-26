@@ -185,6 +185,7 @@
 	"cx-stats-total-published": "Вкупно објавени",
 	"cx-stats-monthly-published": "Минатиот месец",
 	"cx-stats-weekly-published": "Минатата седмица",
+	"cx-stats-local-published-number": "$1 на $2",
 	"cx-stats-local-published": "$1 ($3) на $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницита што недостигаат за да поттикнете нејзино создавање.",
@@ -200,5 +201,5 @@
 	"cx-notification-hundredth-translation": "Штотуку направивте 100 преводи! Тоа е исклучително достигнување. Споделете го ова со други уредници.",
 	"cx-notification-hundredth-translation-email-subject": "Честитки за вашиот стоти превод",
 	"cx-translationlist-empty-title": "Немате ништо за преведување?",
-	"cx-translationlist-empty-desc": "Започнете со преводот сега и продолжете во било кое време"
+	"cx-translationlist-empty-desc": "{{GENDER:|Започнете}} со преводот сега и продолжете во било кое време"
 }

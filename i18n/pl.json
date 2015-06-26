@@ -98,6 +98,7 @@
 	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% maszynowo tłumaczonego niezmienionego tekstu.",
 	"cx-mt-abuse-warning-text": "Tłumaczenia maszynowe są podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
 	"cx-publish-captcha-title": "Pytanie zabezpieczające",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Potrzebujesz}} pomocy przy tłumaczeniu?",
 	"cx-translation-filter-all-translations": "Wszystkie tłumaczenia",
 	"cx-translation-filter-published-translations": "Tłumaczenia opublikowane",
 	"cx-translation-filter-draft-translations": "W trakcie",

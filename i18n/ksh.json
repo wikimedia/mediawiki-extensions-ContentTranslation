@@ -184,6 +184,7 @@
 	"cx-stats-total-published": "Ennsjesammp öffentlesch jemaat",
 	"cx-stats-monthly-published": "Läzde Mohnd",
 	"cx-stats-weekly-published": "Läzde Woch",
+	"cx-stats-local-published-number": "$1 op $2",
 	"cx-stats-local-published": "$1 ($3) op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Ein Övversäzong|$1 Övversäzonge|Kein Övversäzong}}",
 	"cx-tools-missing-link-text": "Makkehr de fählende Sigge, öm de Trumm ze kloppe, dat aanjelaht wähde.{{GENDER:}}",

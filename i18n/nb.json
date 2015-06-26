@@ -10,6 +10,7 @@
 		]
 	},
 	"cx": "Oversett side",
+	"cx-dashboard-header": "Oversettelser",
 	"cx-javascript": "Dette verktøyet virker ikke uten JavaScript.",
 	"cx-license-agreement": "Ved å klikke på «$1» knappen så sier du deg enig i [//wikimediafoundation.org/wiki/Terms_of_Use bruksvilkårene] og du godtar uten begrensinger å frigi dine bidrag med dette oversettelsesverktøyet under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], og forstår at en hyperlenke eller URL er tilstrekkelig kreditering under CC BY-SA 3.0.",
 	"cx-error-server-connection": "Feil: Kunne ikke koble til tjener.",
@@ -185,6 +186,7 @@
 	"cx-stats-total-published": "Totalt publisert",
 	"cx-stats-monthly-published": "Siste måned",
 	"cx-stats-weekly-published": "Siste uke",
+	"cx-stats-local-published-number": "$1 av $2",
 	"cx-stats-local-published": "$1 ($3) i $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 oversettelse|$1 oversettelser}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Merk}} siden mangler for å oppmuntre til opprettelse.",

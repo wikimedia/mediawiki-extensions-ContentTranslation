@@ -189,6 +189,7 @@
 	"cx-stats-total-published": "العدد الكلي المنشور",
 	"cx-stats-monthly-published": "الشهر الماضي",
 	"cx-stats-weekly-published": "الأسبوع الماضي",
+	"cx-stats-local-published-number": "$1 في $2",
 	"cx-stats-local-published": "$1 ($3) في $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|لا ترجمات|ترجمة واحدة|ترجمتين|1$ ترجمات|$1 ترجمة}}",
 	"cx-tools-missing-link-text": "{{GENDER:|الإشارة}} إلى أن الصفحة ناقصة للحث على إنشائها",
@@ -204,5 +205,5 @@
 	"cx-notification-hundredth-translation": "هنيئا بترجمتك المئة! إنه لإنجاز كبير، أعلنه للمحررين...",
 	"cx-notification-hundredth-translation-email-subject": "هنيئا بترجمتك المئة",
 	"cx-translationlist-empty-title": "أما من مواد للترجمة؟",
-	"cx-translationlist-empty-desc": "أنشئ ترجمتك الآن وأكملها متى شئت"
+	"cx-translationlist-empty-desc": "أنشئ ترجمتك الآن وأكملها متى شئت."
 }

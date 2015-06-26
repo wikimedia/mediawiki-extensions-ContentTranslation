@@ -37,6 +37,7 @@
 	"tag-contenttranslation": "內容翻譯",
 	"cx-source-loading": "正在載入$1",
 	"cx-beta": "內容翻譯",
+	"cx-beta-desc": "一個迅速將頁面翻譯至您使用的語言的工具。從[[Special:MyContributions|您的貢獻頁面]]开始翻譯，並透過我們特别為翻譯工作設計的並排編輯器編輯它們。一些工具可能只對特定語言可用。",
 	"cx-entrypoint-title": "翻譯本頁為 $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此頁面於$1尚無存在。{{GENDER:|您}}希望建立之？",
 	"cx-entrypoint-dialog-title-in": "於$1新頁面標題：",

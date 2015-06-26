@@ -56,6 +56,7 @@
 	"cx-stats-unknown": "непознато",
 	"cx-tools-reference-title": "Референца",
 	"cx-tools-reference-remove": "Уклони референцу",
+	"cx-tools-link-hover-tooltip": "Кликните да бисте отворили",
 	"cx-warning-unsaved-translation": "Имате несачуван превод.",
 	"cx-sourceselector-dialog-new-translation": "Нови превод",
 	"cx-sourceselector-dialog-button-start-translation": "Почни превођење",
@@ -67,7 +68,8 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страница [$1 већ постоји] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Наслов за нову страницу је [$1 већ у употреби]",
 	"cx-sourceselector-dialog-error-no-source-article": "Наведена страница не постоји на $1",
-	"cx-mt-abuse-warning-title": "Ваш превод садржи $1% неизмењеног машинског превода",
+	"cx-mt-abuse-warning-title": "Ваш превод {{PLURAL:$1|садржи}} $1% неизмењеног машинског превода",
+	"cx-mt-abuse-warning-text": "Машински превод је само полазна тачка, морате се постарати да садржај буде тачан и разумљив на вашем језику.",
 	"cx-publish-captcha-title": "Сигурносно питање",
 	"cx-translation-filter-all-translations": "Сви преводи",
 	"cx-translation-filter-published-translations": "Објављени преводи",
@@ -94,7 +96,7 @@
 	"cx-contributions-upload": "Отпреми датотеку",
 	"cx-contributions-new-article-tooltip": "Почни нову страницу",
 	"cx-contributions-translation-tooltip": "Преведи постојећу страницу",
-	"cx-contributions-upload-tooltip": "Отпреми слике, музику и видео за коришћење у страницам",
+	"cx-contributions-upload-tooltip": "Отпреми слике, музику и видео за коришћење у страницама",
 	"cx-publishing-dialog-message": "Страница $1 већ постоји. Постојећи садржај ће бити замењен вашим преводом. Желите ли да наставите?",
 	"cx-publishing-dialog-keep-button": "Задржи обе верзије",
 	"cx-publishing-dialog-publish-anyway-button": "Свеједно објави",
@@ -129,5 +131,7 @@
 	"cx-stats-tabs-expand": "Види све језике",
 	"cx-stats-total-published": "Укупно објављено",
 	"cx-stats-monthly-published": "Прошлог месеца",
-	"cx-stats-weekly-published": "Прошле недеље"
+	"cx-stats-weekly-published": "Прошле недеље",
+	"cx-notification-first-translation": "Честитке на првом преводу! Пронађите још страница за превод у [[Special:MyContributions|вашим доприносима]].",
+	"cx-notification-first-translation-email-subject": "Честитке на првом преводу!"
 }

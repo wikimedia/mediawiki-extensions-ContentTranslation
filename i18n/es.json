@@ -16,7 +16,8 @@
 			"JasterTDC",
 			"Awesomecat5",
 			"Jduranboger",
-			"Ryo567"
+			"Ryo567",
+			"Chris TR"
 		]
 	},
 	"cx": "Traducir página",
@@ -198,6 +199,7 @@
 	"cx-stats-total-published": "Total publicado",
 	"cx-stats-monthly-published": "Último mes",
 	"cx-stats-weekly-published": "Última semana",
+	"cx-stats-local-published-number": "$1 en $2",
 	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducción|$1 traducciones}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Marca}} la página como faltante para fomentar su creación.",

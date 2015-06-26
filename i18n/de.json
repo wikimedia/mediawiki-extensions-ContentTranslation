@@ -189,6 +189,7 @@
 	"cx-stats-total-published": "Insgesamt veröffentlicht",
 	"cx-stats-monthly-published": "Letzten Monat",
 	"cx-stats-weekly-published": "Letzte Woche",
+	"cx-stats-local-published-number": "$1 auf $2",
 	"cx-stats-local-published": "$1 ($3) auf $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Eine Übersetzung|$1 Übersetzungen}}",
 	"cx-tools-missing-link-text": "Die Seite als fehlend {{GENDER:|markieren}}, um ihre Erstellung zu ermutigen.",
