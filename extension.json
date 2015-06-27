@@ -115,8 +115,8 @@
 				"entrypoint/styles/ext.cx.contributions.less"
 			],
 			"dependencies": [
-				"mediawiki.util",
-				"mediawiki.ui.button"
+				"mediawiki.ui.button",
+				"mediawiki.util"
 			],
 			"messages": [
 				"cx-contributions-new-contributions",
@@ -164,10 +164,10 @@
 				"translationview/styles/ext.cx.translationview.less"
 			],
 			"dependencies": [
-				"ext.cx.model",
 				"ext.cx.header",
-				"ext.cx.source",
-				"ext.cx.sitemapper"
+				"ext.cx.model",
+				"ext.cx.sitemapper",
+				"ext.cx.source"
 			]
 		},
 		"ext.cx.dashboard": {
@@ -178,13 +178,13 @@
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
 			"dependencies": [
-				"ext.cx.model",
+				"ext.cx.feedback",
 				"ext.cx.header",
+				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.translationlist",
-				"ext.cx.feedback",
-				"mediawiki.ui.button",
-				"mediawiki.Uri"
+				"mediawiki.Uri",
+				"mediawiki.ui.button"
 			],
 			"messages": [
 				"cx-create-new-translation",
@@ -235,8 +235,8 @@
 			"dependencies": [
 				"mediawiki.Uri",
 				"mediawiki.jqueryMsg",
-				"mediawiki.util",
-				"mediawiki.ui.button"
+				"mediawiki.ui.button",
+				"mediawiki.util"
 			],
 			"messages": [
 				"cx",
@@ -260,13 +260,13 @@
 			],
 			"dependencies": [
 				"ext.cx.util",
+				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"mediawiki.Title",
 				"mediawiki.Uri",
 				"mediawiki.api",
 				"mediawiki.jqueryMsg",
 				"mediawiki.util",
-				"ext.cx.widgets.spinner",
 				"mediawiki.skinning.content.parsoid"
 			],
 			"messages": [
@@ -284,13 +284,13 @@
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
+				"ext.cx.pageselector",
+				"ext.cx.widgets.overlay",
+				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
-				"ext.uls.mediawiki",
 				"jquery.uls.compact",
-				"mediawiki.ui.button",
-				"ext.cx.widgets.overlay",
-				"ext.cx.pageselector"
+				"mediawiki.ui.button"
 			],
 			"messages": [
 				"cx-sourceselector-dialog-new-translation",
@@ -368,6 +368,7 @@
 			"dependencies": [
 				"ext.cx.feedback",
 				"ext.cx.progressbar",
+				"ext.cx.tools.categories",
 				"ext.cx.tools.dictionary",
 				"ext.cx.tools.formatter",
 				"ext.cx.tools.gallery",
@@ -379,11 +380,10 @@
 				"ext.cx.tools.mtabuse",
 				"ext.cx.tools.reference",
 				"ext.cx.tools.template",
-				"ext.cx.tools.categories",
 				"ext.cx.util.selection",
+				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
-				"mediawiki.jqueryMsg",
-				"ext.cx.widgets.spinner"
+				"mediawiki.jqueryMsg"
 			]
 		},
 		"ext.cx.tools.card": {
@@ -410,8 +410,8 @@
 				"cx-tools-view-guidelines-link"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
 				"ext.cx.tools.card",
+				"ext.cx.tools.manager",
 				"mediawiki.jqueryMsg"
 			]
 		},
@@ -429,8 +429,8 @@
 				"cx-tools-view-guidelines-link"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
-				"ext.cx.tools.card"
+				"ext.cx.tools.card",
+				"ext.cx.tools.manager"
 			]
 		},
 		"ext.cx.tools.formatter": {
@@ -441,8 +441,8 @@
 				"tools/styles/ext.cx.tools.formatter.less"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
-				"ext.cx.tools.card"
+				"ext.cx.tools.card",
+				"ext.cx.tools.manager"
 			]
 		},
 		"ext.cx.tools.dictionary": {
@@ -456,8 +456,8 @@
 				"cx-tools-dictionary-title"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
-				"ext.cx.tools.card"
+				"ext.cx.tools.card",
+				"ext.cx.tools.manager"
 			]
 		},
 		"ext.cx.tools.link": {
@@ -478,8 +478,8 @@
 				"cx-tools-missing-link-mark-link"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
 				"ext.cx.tools.card",
+				"ext.cx.tools.manager",
 				"jquery.uls.data",
 				"mediawiki.Title"
 			]
@@ -501,12 +501,12 @@
 				"cx-tools-mt-dont-use"
 			],
 			"dependencies": [
-				"ext.cx.translationview",
 				"ext.cx.model",
 				"ext.cx.source",
 				"ext.cx.tools.card",
 				"ext.cx.tools.manager",
 				"ext.cx.translation",
+				"ext.cx.translationview",
 				"ext.cx.util"
 			]
 		},
@@ -523,8 +523,8 @@
 				"cx-tools-reference-remove"
 			],
 			"dependencies": [
-				"ext.cx.tools.manager",
 				"ext.cx.tools.card",
+				"ext.cx.tools.manager",
 				"ext.cx.util"
 			]
 		},
@@ -592,11 +592,11 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"json",
-				"mediawiki.api.edit",
 				"ext.cx.publish.dialog",
 				"ext.cx.sitemapper",
-				"ext.cx.tours.publish.init"
+				"ext.cx.tours.publish.init",
+				"json",
+				"mediawiki.api.edit"
 			],
 			"messages": [
 				"cx-publish-page-success",
@@ -611,9 +611,9 @@
 			],
 			"dependencies": [
 				"wikibase.api.RepoApi",
+				"wikibase.client.currentSite",
 				"wikibase.client.getMwApiForRepo",
-				"wikibase.client.PageConnector",
-				"wikibase.client.currentSite"
+				"wikibase.client.PageConnector"
 			]
 		},
 		"ext.cx.publish.dialog": {
@@ -672,10 +672,10 @@
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
+				"ext.cx.widgets.callout",
 				"jquery.uls.data",
 				"mediawiki.Uri",
-				"mediawiki.jqueryMsg",
-				"ext.cx.widgets.callout"
+				"mediawiki.jqueryMsg"
 			]
 		},
 		"ext.guidedTour.tour.cxpublish": {
@@ -709,12 +709,12 @@
 				"dashboard/styles/ext.cx.translationlist.less"
 			],
 			"dependencies": [
-				"moment",
 				"ext.cx.progressbar",
+				"ext.cx.source.selector",
 				"ext.cx.util",
-				"jquery.uls.data",
 				"ext.cx.widgets.overlay",
-				"ext.cx.source.selector"
+				"jquery.uls.data",
+				"moment"
 			],
 			"messages": [
 				"cx-dashboard-header",
@@ -764,13 +764,13 @@
 				"stats/styles/ext.cx.stats.less"
 			],
 			"dependencies": [
+				"chart.js",
+				"ext.cx.header",
 				"ext.cx.sitemapper",
 				"ext.cx.util",
-				"ext.cx.header",
-				"chart.js",
-				"jquery.uls.data",
+				"ext.cx.widgets.callout",
 				"ext.cx.widgets.spinner",
-				"ext.cx.widgets.callout"
+				"jquery.uls.data"
 			],
 			"messages": [
 				"cx-stats-table-source-target",
@@ -823,11 +823,11 @@
 				"campaigns/styles/ext.cx.campaigns.newarticle.less"
 			],
 			"dependencies": [
-				"mediawiki.ui.button",
+				"ext.cx.widgets.callout",
 				"jquery.client",
-				"mediawiki.util",
 				"jquery.throttle-debounce",
-				"ext.cx.widgets.callout"
+				"mediawiki.ui.button",
+				"mediawiki.util"
 			],
 			"messages": [
 				"cx-campaign-newarticle-notice",
@@ -853,10 +853,10 @@
 				"campaigns/styles/ext.cx.campaigns.contributionsmenu.less"
 			],
 			"dependencies": [
-				"mediawiki.ui.button",
+				"ext.cx.widgets.callout",
 				"jquery.client",
-				"mediawiki.util",
-				"ext.cx.widgets.callout"
+				"mediawiki.ui.button",
+				"mediawiki.util"
 			],
 			"messages": [
 				"cx-campaign-contributionsmenu-mycontributions",
