@@ -99,6 +99,8 @@
 	"cx-mt-abuse-warning-text": "Tłumaczenia maszynowe są podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
 	"cx-publish-captcha-title": "Pytanie zabezpieczające",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potrzebujesz}} pomocy przy tłumaczeniu?",
+	"cx-dashboard-sidebar-information": "Dowiedz się więcej o tej funkcji",
+	"cx-dashboard-sidebar-feedback": "Prześlij nam swoją opinię",
 	"cx-translation-filter-all-translations": "Wszystkie tłumaczenia",
 	"cx-translation-filter-published-translations": "Tłumaczenia opublikowane",
 	"cx-translation-filter-draft-translations": "W trakcie",

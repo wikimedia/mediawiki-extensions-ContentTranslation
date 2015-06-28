@@ -117,7 +117,7 @@
 	"cx-translation-filter-draft-translations": "En cours",
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
-	"cx-create-new-translation": "Démarer une nouvelle traduction",
+	"cx-create-new-translation": "Débuter une nouvelle traduction",
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
 	"apihelp-cxpublish-param-title": "Le titre de la page sur laquelle effectuer les actions.",
 	"apihelp-cxpublish-param-html": "Le contenu à enregistrer.",

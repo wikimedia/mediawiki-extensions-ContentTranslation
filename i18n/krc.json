@@ -184,6 +184,7 @@
 	"cx-stats-total-published": "Бютеулей публикация этилгенди",
 	"cx-stats-monthly-published": "Алгъыннгы айда",
 	"cx-stats-weekly-published": "Ол бир ыйыкъда",
+	"cx-stats-local-published-number": "$2 тилде $1",
 	"cx-stats-local-published": "$1 ($3) — $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 кёчюрме}}",
 	"cx-tools-missing-link-text": "Къуралырларын джол бирир ючюн алкъын болмагъан бетлени {{GENDER:|белгиле}}.",
@@ -193,5 +194,6 @@
 	"echo-category-title-cx": "Кёчюрюуле",
 	"echo-pref-tooltip-cx": "Content Translation адыр бла къуралгъан кёчюрюулерими юсюнден билдир.",
 	"cx-notification-first-translation": "Биринчи кёчюрюу бла алгъышлайбыз! [[Special:MyContributions|Къошум бетигизде]] кёчюрюр ючюн энтда бетле табыгъыз.",
-	"cx-notification-first-translation-email-subject": "Биринчи кёчюрюу бла алгъышлайбыз"
+	"cx-notification-first-translation-email-subject": "Биринчи кёчюрюу бла алгъышлайбыз",
+	"cx-notification-tenth-translation-email-subject": "Онунчу кёчюрюу бла алгъышлайбыз"
 }

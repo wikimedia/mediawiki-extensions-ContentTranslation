@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vaishali Parab"
+		]
+	},
+	"cx-dashboard-header": "अणकार",
+	"cx-dashboard-sidebar-title": "{{लिंग:|जाय}} अणकाराक मदत जाय?",
+	"cx-translation-filter-published-translations": "प्रकाशीत",
+	"cx-translation-filter-draft-translations": "विकास चालू आसा",
+	"cx-create-new-translation": "नवो अणकार सुरू करचो",
+	"cx-stats-local-published-number": "$1हांतूत$2",
+	"cx-stats-local-published": "$1 ($3) हातूंत $2",
+	"cx-notification-tenth-translation": "तुज्या धाव्या अणकाराखातीर परबीं! आता तूं अणकारपी जाला. हें बरें काम अशेंच चालू दवर!",
+	"cx-translationlist-empty-title": "अणकार करपा सारकें कांय ना?"
+}

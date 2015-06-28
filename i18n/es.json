@@ -110,7 +110,7 @@
 	"cx-translation-filter-draft-translations": "En proceso",
 	"cx-translation-filter-from-any-language": "De cualquier idioma",
 	"cx-translation-filter-to-any-language": "A cualquier idioma",
-	"cx-create-new-translation": "Comienza una nueva traducción",
+	"cx-create-new-translation": "Comienza una traducción nueva",
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
 	"apihelp-cxpublish-param-title": "Título de la página en la que se realizarán las acciones.",
 	"apihelp-cxpublish-param-html": "El contenido que guardar.",
@@ -213,7 +213,7 @@
 	"cx-notification-tenth-translation": "Felicitaciones por tu décima traducción. Te estás convirtiendo en un traductor experto. ¡Sigue así!",
 	"cx-notification-tenth-translation-email-subject": "Felicitaciones por tu décima traducción",
 	"cx-notification-hundredth-translation": "¡Acabas de hacer 100 traducciones! Un logro notable. Compártelo con otros editores.",
-	"cx-notification-hundredth-translation-email-subject": "Felicitaciones por tu centécima traducción",
+	"cx-notification-hundredth-translation-email-subject": "Felicitaciones por tu centésima traducción",
 	"cx-translationlist-empty-title": "¿Nada que traducir?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Comienza}} la traducción ahora y continúa en cualquier momento."
+	"cx-translationlist-empty-desc": "{{GENDER:|Comienza}} la traducción ahora y continúala en cualquier momento."
 }

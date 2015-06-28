@@ -6,6 +6,7 @@
 		]
 	},
 	"cx": "Rûpelê wergerîne",
+	"cx-dashboard-header": "Werger",
 	"cx-javascript": "Ev amûr bê JavaScriptê kar nake.",
 	"cx-header-progressbar-text": "$1% hatiye {{PLURAL:$1|wergerandin}}",
 	"cx-header-translation-center": "Navenda wergerandinê",
@@ -39,6 +40,7 @@
 	"cx-translation-filter-all-translations": "Hemû werger",
 	"cx-translation-filter-from-any-language": "Ji her zimanî",
 	"cx-translation-filter-to-any-language": "Ber bi her zimanî ve",
+	"cx-create-new-translation": "Dest bi wergerek nû bike",
 	"apihelp-cxpublish-param-html": "Naveroka bê wergerandin.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Koda zimanê çavkanî",
 	"cx-save-draft-saving": "Tê tomarkirin...",

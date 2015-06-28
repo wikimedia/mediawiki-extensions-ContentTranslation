@@ -190,7 +190,8 @@
 	"cx-stats-total-published": "公開総数",
 	"cx-stats-monthly-published": "先月",
 	"cx-stats-weekly-published": "先週",
-	"cx-stats-local-published": "$2には$1",
+	"cx-stats-local-published-number": "$2版の$1",
+	"cx-stats-local-published": "$2には$1($3)",
 	"cx-stats-grouping-title": "$1件の翻訳",
 	"cx-tools-missing-link-text": "ページの改善が促進されていないものとしてページを{{GENDER:|マーク}}",
 	"cx-tools-missing-link-tooltip": "翻訳（新しいウィンドウ）",
@@ -200,6 +201,10 @@
 	"echo-pref-tooltip-cx": "コンテンツ翻訳ツールを利用して作成された自身の翻訳について通知する",
 	"cx-notification-first-translation": "初めての翻訳、おめでとうございます！[[Special:MyContributions|あなたの投稿記録ページ]]で翻訳できるページをさらに探せます！",
 	"cx-notification-first-translation-email-subject": "初めての翻訳、おめでとうございます",
+	"cx-notification-tenth-translation": "10回目の翻訳おめでとうございます！あなたは翻訳のエキスパートになりつつあります。この調子でどんどん行きましょう！",
+	"cx-notification-tenth-translation-email-subject": "10回目の翻訳おめでとうございます",
+	"cx-notification-hundredth-translation": "100回の翻訳を達成しました！とても評価されるべきことです。他の翻訳者にこの事を伝えましょう。",
+	"cx-notification-hundredth-translation-email-subject": "100回目の翻訳おめでとうございます",
 	"cx-translationlist-empty-title": "翻訳するページが見つかりませんか？",
-	"cx-translationlist-empty-desc": "今すぐ翻訳を初めていつでも再開する"
+	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}いつでも再開する"
 }
