@@ -26,7 +26,7 @@
 		var request;
 
 		// Normalize the title
-		title = mw.Title.newFromText( title ).toString();
+		title = mw.Title.newFromText( title ).toText();
 		if ( cache[ title ] && cache[ title ][ language ] ) {
 			return cache[ title ][ language ].promise();
 		}
@@ -112,7 +112,7 @@
 				title = mw.Title.newFromText( key );
 
 				if ( title ) {
-					linkPairs[ title.toString() ] = page.langlinks &&
+					linkPairs[ title.toText() ] = page.langlinks &&
 						page.langlinks[ 0 ][ '*' ];
 				}
 			} );
@@ -271,7 +271,7 @@
 
 	CXLink.prototype.getTargetTitle = function () {
 		var targetTitle = cache.linkPairs[ this.getTitle() ] || this.getTitle();
-		return mw.Title.newFromText( targetTitle ).getPrefixedText();
+		return mw.Title.newFromText( targetTitle ).toText();
 	};
 
 	/**
@@ -404,7 +404,7 @@
 				// This link opens Special:CX with this missing page to help translate it
 				$link = $( '<a>' )
 					.addClass( 'card__link-text new' )
-					.text( mw.Title.newFromText( this.getTitle() ).getPrefixedText() )
+					.text( mw.Title.newFromText( this.getTitle() ).toText() )
 					.prop( {
 						target: '_blank',
 						title: mw.msg( 'cx-tools-missing-link-tooltip' ),
@@ -669,7 +669,7 @@
 			return;
 		}
 
-		title = mw.Title.newFromText( title ).toString();
+		title = mw.Title.newFromText( title ).toText();
 
 		if ( cache.linkPairs[ title ] ) {
 			this.title = cache.linkPairs[ title ];
@@ -810,7 +810,7 @@
 		var title = text.trim();
 
 		title = mw.Title.newFromText( title );
-		title = title && title.toString();
+		title = title && title.toText();
 
 		return title;
 	}
