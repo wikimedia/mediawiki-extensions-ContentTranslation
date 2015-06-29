@@ -4,11 +4,13 @@
 .cx-cta {
 	.mw-ui-item;
 	.mw-ui-one-whole;
+
 	padding: 20px 0;
 	float: left;
 	font-size: 16px;
 	background-color: #f0f0f0;
 	z-index: 100;
+
 	&__new-translation:before {
 		content: "";
 		display: inline-block;
@@ -25,12 +27,14 @@
 .cx-translationlist-container {
 	.mw-ui-item;
 	.mw-ui-two-thirds;
+
 	padding: 0;
 	background-color: #f0f0f0;
 }
 
 .cx-tlitem {
 	.mw-ui-one-whole;
+
 	padding: 12px;
 	background-color: #fff;
 	border-top: 1px solid #ddd;
@@ -106,6 +110,7 @@
 
 	.cx-tlitem__image {
 		.mw-ui-one-sixth;
+
 		padding: 0;
 		width: 120px;
 
@@ -125,6 +130,7 @@
 
 	.cx-tlitem__details {
 		.mw-ui-one-half;
+
 		position: relative;
 		height: 100px;
 		font-size: 12px;
@@ -156,11 +162,13 @@
 
 		.source-title {
 			.mw-ui-one-whole;
+
 			font-size: large;
 			color: #333;
 			text-decoration: none;
 			text-align: left; // To ensure consistent alignment in RTL and LTR
 			padding-left: 0;
+
 			&.disabled  {
 				pointer-events: none;
 				cursor: default;
@@ -234,6 +242,7 @@
 
 .translation-filter {
 	.mw-ui-one-whole;
+
 	background-color: #f0f0f0;
 	padding: 0px;
 	margin-bottom: 20px;
@@ -278,7 +287,7 @@
 			position: relative;
 
 			select {
-				// border necessary to adjust height
+				// The border is necessary to adjust height
 				border: 1px solid transparent;
 				opacity: 0;
 				width: 100%;
@@ -373,6 +382,7 @@
 
 .cx-draft-discard-dialog {
 	.mw-ui-item;
+
 	color: #333;
 	position: fixed;
 	min-width: 500px;
@@ -385,13 +395,17 @@
 	top: 30%;
 	left: 30%;
 	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
 	&__message {
 		padding: 25px;
 		font-size: large;
 	}
+
 	&__actions {
 		.mw-ui-one-whole;
+
 		padding: 20px;
+
 		button {
 			float: right;
 			padding-right: 20px;
@@ -401,8 +415,10 @@
 
 .cx-translationlist-empty {
 	.mw-ui-item;
+
 	color: #999;
 	text-align: center;
+
 	&__img {
 		.background-image-svg('../images/cx-circle.svg', '../images/cx-circle.png');
 		background-repeat: no-repeat;
@@ -411,11 +427,13 @@
 		border-right: 1px solid #eeeeee;
 		padding: 50px 0;
 	}
+
 	&__title {
 		margin-top: 20px;
 		font-size: larger;
 		font-weight: bold;
 	}
+
 	&__desc {
 		margin-top: 20px;
 		font-size: normal;
