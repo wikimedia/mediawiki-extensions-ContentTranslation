@@ -193,9 +193,7 @@
 	FormatTool.prototype.start = function ( section ) {
 		this.$section = section.jquery ? section : getParentSection();
 
-		if ( $.isEmpty( this.$section ) ||
-			this.$section.is( 'h1, h2, h3, h4, h5, h6, figure, table' )
-		) {
+		if ( this.$section.is( 'h1, h2, h3, h4, h5, h6, figure, table' ) ) {
 			// Do not show formatting tool for headers, figures and tables.
 			this.stop();
 			return;
