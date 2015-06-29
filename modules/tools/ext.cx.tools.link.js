@@ -896,23 +896,26 @@
 	};
 
 	/**
-	 * Adapt links in a section
+	 * Adapt links in a section.
 	 * @param {jQuery} $section The section.
 	 */
 	function adaptLinks( $section ) {
-		var $sourceLinks, $targetLinks, $sourceSection, sourceLinkTargets = [];
+		var $sourceSection, $sourceLinks, $targetLinks,
+			sourceLinkTargets = [];
 
 		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 		$sourceLinks = $sourceSection.find( 'a[rel="mw:WikiLink"]' );
-		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
+
 		if ( !$section.data( 'cx-draft' ) ) {
-			// Collect all source titles
+			// Collect all source links' titles
 			sourceLinkTargets = $sourceLinks.map( function () {
 				return $( this ).attr( 'title' );
 			} ).get();
 		}
 
-		// Adapt the links to target language.
+		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
+
+		// Adapt the links to target language
 		fetchLinkPairs( sourceLinkTargets, mw.cx.targetLanguage )
 			.done( function () {
 				$sourceLinks.cxSourceLink();
