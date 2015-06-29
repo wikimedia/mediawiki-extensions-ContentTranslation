@@ -913,6 +913,10 @@
 			} ).get();
 		}
 
+		if ( !sourceLinkTargets.length ) {
+			return;
+		}
+
 		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
 
 		// Adapt the links to target language
