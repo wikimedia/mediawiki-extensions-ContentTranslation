@@ -16,13 +16,13 @@
 	};
 
 	/**
-	 * Get the link data for a given title and language.
+	 * Get the link details for a given title and language such as page thumbnail image.
 	 * @param {mediawiki.Api} api
 	 * @param {string} title
 	 * @param {string} language
 	 * @return {jQuery.Promise}
 	 */
-	function getLink( api, title, language ) {
+	function getLinkDetails( api, title, language ) {
 		var request;
 
 		// Normalize the title
@@ -316,7 +316,7 @@
 		}
 
 		api = this.siteMapper.getApi( language );
-		return getLink( api, title, language ).then( function ( response ) {
+		return getLinkDetails( api, title, language ).then( function ( response ) {
 			var pageId;
 
 			pageId = Object.keys( response.query.pages )[ 0 ];
