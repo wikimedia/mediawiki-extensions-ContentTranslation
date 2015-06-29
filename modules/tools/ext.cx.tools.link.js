@@ -62,6 +62,10 @@
 		var apiLanguage,
 			deferred = $.Deferred();
 
+		if ( !titles || !titles.length ) {
+			return deferred.resolve( {} ).promise();
+		}
+
 		if ( !$.isArray( titles ) ) {
 			titles = new Array( titles );
 		}
@@ -906,16 +910,10 @@
 		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 		$sourceLinks = $sourceSection.find( 'a[rel="mw:WikiLink"]' );
 
-		if ( !$section.data( 'cx-draft' ) ) {
-			// Collect all source links' titles
-			sourceLinkTargets = $sourceLinks.map( function () {
-				return $( this ).attr( 'title' );
-			} ).get();
-		}
-
-		if ( !sourceLinkTargets.length ) {
-			return;
-		}
+		// Collect all source links' titles
+		sourceLinkTargets = $sourceLinks.map( function () {
+			return $( this ).attr( 'title' );
+		} ).get();
 
 		$targetLinks = $section.find( 'a[rel="mw:WikiLink"]' );
 
