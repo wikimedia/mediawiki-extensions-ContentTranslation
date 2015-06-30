@@ -246,7 +246,11 @@
 				return;
 			}
 		}
-		this.$link.removeClass( 'cx-target-link-unadapted' ).addClass( 'new' );
+
+		this.$link
+			.attr( 'rel', 'mw:WikiLink' )
+			.removeClass( 'cx-target-link-unadapted' )
+			.addClass( 'new' );
 	};
 
 	CXLink.prototype.isRedLink = function () {
