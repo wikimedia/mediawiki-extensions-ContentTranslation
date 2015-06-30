@@ -102,9 +102,9 @@
 		"ContentTranslationCampaigns": [ "cxstats", "newarticle" ],
 		"@ContentTranslationUseMagnusTool":"Whether the Magnus tool to find missing articles to be enabled or not. This is initially made to experiment with an article comparison tool at http://tools.wmflabs.org/not-in-the-other-language/ See https://phabricator.wikimedia.org/T76843",
 		"ContentTranslationUseMagnusTool": true,
-		"ContentTranslationBrowserBlacklist": [ {
+		"ContentTranslationBrowserBlacklist": {
 			"msie": [ [ "<", 10 ] ]
-		} ]
+		}
 	},
 	"ResourceModules": {
 		"ext.cx.contributions": {
