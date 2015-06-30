@@ -17,7 +17,8 @@
 			"Awesomecat5",
 			"Jduranboger",
 			"Ryo567",
-			"Chris TR"
+			"Chris TR",
+			"Ncontinanza"
 		]
 	},
 	"cx": "Traducir página",
@@ -146,6 +147,7 @@
 	"cx-save-draft-save-success": "Guardado {{PLURAL:$1|hace un minuto|hace $1 minutos|0=hace instantes}}",
 	"cx-save-draft-saving": "Guardando...",
 	"cx-save-draft-tooltip": "Los borradores de traducción se guardan automáticamente",
+	"cx-save-draft-error": "Se produjo un error al guardar la página.",
 	"cx-contributions-new-contributions": "Contribución nueva",
 	"cx-contributions-new-article": "Página nueva",
 	"cx-contributions-translation": "Traducción",

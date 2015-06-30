@@ -162,7 +162,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 ترجمہ|$1 تراجم}}",
 	"cx-tools-missing-link-tooltip": "ترجمہ (نئی ونڈو میں)",
 	"cx-tools-missing-link-title": "غیر موجود ربط",
-	"cx-tools-missing-link-mark-link": "بطور غیر موجود نشان زد کریں",
+	"cx-tools-missing-link-mark-link": "بطور غیر موجود{{GENDER:|نشان زد}} کریں",
 	"echo-category-title-cx": "ترجمے",
 	"echo-pref-tooltip-cx": "آلہ ترجمہ مواد کے ذریعہ میرے تخلیق کردہ تراجم کے بارے میں مجھے اطلاع دیں",
 	"cx-notification-first-translation": "ترجمہ کی پہلی کوشش پر مبارک باد قبول فرمائیں! مزید ترجمہ کرنے کے لیے [[Special:MyContributions|اپنی شراکتوں کے صفحہ]] پر صفحات تلاش کریں۔",
