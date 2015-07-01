@@ -47,6 +47,11 @@
 				label: mw.msg( 'cx-dashboard-sidebar-information' )
 			},
 			{
+				class: 'cx-sidebar__link cx-sidebar__link--stats',
+				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
+				label: mw.msg( 'cx-dashboard-sidebar-stats' )
+			},
+			{
 				class: 'cx-sidebar__link cx-sidebar__link--feedback',
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-feedback' )

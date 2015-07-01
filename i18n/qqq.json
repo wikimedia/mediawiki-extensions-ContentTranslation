@@ -105,6 +105,7 @@
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",
 	"cx-dashboard-sidebar-title": "Title of the sidebar of the dashboard widget",
 	"cx-dashboard-sidebar-information": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with information about Content Translation.",
+	"cx-dashboard-sidebar-stats": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with Special:ContentTranslationStats in the same wiki.",
 	"cx-dashboard-sidebar-feedback": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with a page to allow user feedback",
 	"cx-translation-filter-all-translations": "Shown in translation filter in Content Translation dashboard. Selects all translations by the current translator.\n{{Identical|All translations}}",
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
