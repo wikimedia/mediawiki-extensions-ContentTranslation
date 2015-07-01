@@ -616,7 +616,6 @@
 		if ( !mw.user.isAnon() && mw.user.options.get( 'cx' ) !== '1' ) {
 			cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 				campaign: 'cxstats',
-				targettitle: mw.config.get( 'wgPageName' ),
 				to: mw.config.get( 'wgContentLanguage' )
 			} );
 
