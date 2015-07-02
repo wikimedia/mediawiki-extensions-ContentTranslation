@@ -197,6 +197,21 @@
 					href: translationLinkUrl
 				} );
 
+			// If the translated title is different from the source title,
+			// show it near the source title
+			if ( translation.sourceTitle !== translation.targetTitle ) {
+				$translationLink.append(
+					$( '<span>' ).html( '&#160;' ), // nbsp to ensure separation between words
+					$( '<span>' )
+						.prop( {
+							lang: translation.targetLanguage,
+							dir: targetDir,
+						} )
+						.addClass( 'target-title' )
+						.text( translation.targetTitle )
+				);
+			}
+
 			$sourceLanguage = $( '<div>' )
 				.prop( {
 					lang: translation.sourceLanguage,
