@@ -38,10 +38,10 @@
 	"cx-publish-gt-published-description": "「{{int:vector-view-edit}}」をクリックすることで、このページを継続して編集できます。自然に読める翻訳か確認してください。",
 	"cx-translation-add-translation": "+ 翻訳を追加",
 	"cx-translation-target-page-exists": "[$1 $2]の題名を冠するページが翻訳作成先のウィキに既にあります。現在のページには別の題名をつけてみてください。",
-	"tag-contenttranslation": "本文翻訳",
-	"tag-contenttranslation-description": "この記事内容は本文翻訳ツールを使用して他の言語から翻訳されました。",
+	"tag-contenttranslation": "内容翻訳",
+	"tag-contenttranslation-description": "この記事内容は内容翻訳ツールを使用して他の言語から翻訳されました。",
 	"cx-source-loading": "$1 を読み込み中",
-	"cx-beta": "本文翻訳",
+	"cx-beta": "内容翻訳",
 	"cx-beta-desc": "ページをあなたの使用言語にすばやく翻訳するツールです。 [[Special:MyContributions|あなたの投稿記録]]、から翻訳を始めてください。そしてそれらを翻訳のために特別設計されたこの並列エディタで編集してください。特別な言語にしか使用できないツールもあるかもしれません。",
 	"cx-entrypoint-title": "このページを$1に翻訳",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "このページは $1 版にはまだありません。 {{GENDER:|あなた}}がそれをつくりませんか。",
@@ -167,7 +167,7 @@
 	"cx-stats-published-translations-title": "公開済みの翻訳",
 	"cx-stats-draft-translations-title": "進行中の翻訳",
 	"cx-stats-published-translators-title": "翻訳者数",
-	"cx-draft-discard-confirmation-message": "本当にこの翻訳を永久に削除しますか？",
+	"cx-draft-discard-confirmation-message": "本当にこの翻訳を完全に削除しますか？",
 	"cx-draft-cancel-button-label": "キャンセル",
 	"cx-draft-discard-button-label": "翻訳を削除",
 	"cx-beta-feature-enabled-notification": "このwikiでコンテンツ翻訳が有効化されました",
@@ -191,7 +191,7 @@
 	"cx-stats-monthly-published": "先月",
 	"cx-stats-weekly-published": "先週",
 	"cx-stats-local-published-number": "$2版の$1",
-	"cx-stats-local-published": "$2には$1($3)",
+	"cx-stats-local-published": "$2版には$1($3)",
 	"cx-stats-grouping-title": "$1件の翻訳",
 	"cx-tools-missing-link-text": "ページの改善が促進されていないものとしてページを{{GENDER:|マーク}}",
 	"cx-tools-missing-link-tooltip": "翻訳（新しいウィンドウ）",
@@ -206,5 +206,5 @@
 	"cx-notification-hundredth-translation": "100回の翻訳を達成しました！とても評価されるべきことです。他の翻訳者にこの事を伝えましょう。",
 	"cx-notification-hundredth-translation-email-subject": "100回目の翻訳おめでとうございます",
 	"cx-translationlist-empty-title": "翻訳するページが見つかりませんか？",
-	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}いつでも再開する"
+	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}、いつでも翻訳を再開する"
 }
