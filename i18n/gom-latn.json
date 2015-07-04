@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"The Discoverer"
+		]
+	},
+	"cx": "Panache onnkar kor",
+	"cx-dashboard-header": "Onnkaram",
+	"cx-dashboard-sidebar-title": "Onnkar korpak adar {{GENDER:|zai}}?",
+	"cx-translation-filter-published-translations": "Prokaxit",
+	"cx-translation-filter-draft-translations": "Chalu asa",
+	"cx-create-new-translation": "Novem onnkar suru kor",
+	"cx-stats-local-published-number": "$2 an $1",
+	"cx-stats-local-published": "$2 an $1 ($3)",
+	"cx-notification-first-translation-email-subject": "Tuji poili onnkarakhatir tuka porbim",
+	"cx-notification-tenth-translation": "Tujea dhavi onnkarakhatir porbim! Tum ek boro onnkarpi zatai.\nHem borem kam oxench chalu dovor!",
+	"cx-notification-tenth-translation-email-subject": "Tujea dhavi onnkarakhatir porbim!",
+	"cx-translationlist-empty-title": "Onnkar korpak kai na?"
+}

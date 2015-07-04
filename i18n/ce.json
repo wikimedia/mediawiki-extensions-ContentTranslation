@@ -8,6 +8,7 @@
 	"cx": "АгӀо гочъяр",
 	"cx-dashboard-header": "Гочдарш",
 	"cx-javascript": "ХӀокху гӀирсо JavaScript йоцуш болх цабо.",
+	"cx-license-agreement": "Кнопка «$1» тӀетаӀина, хьо реза хуьйлу [//wikimediafoundation.org/wiki/Terms_of_Use Лелоран хьолан] цул совнах билламза реза хуьйла гочдаран гӀирсаца бина хьайн къинхьегам арахеца [https://creativecommons.org/licenses/by-sa/3.0/  CC BY-SA 3.0] а, [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] а лицензица, гиперхьажорг я URL билгал йичахьана CC BY-SA 3.0 атрибуцин тоьуш хилар хууш а долуш.",
 	"cx-error-server-connection": "ГӀалат: Серверах тасадала цаделира.",
 	"cx-desc": "Таро хуьлуьйту агӀона чулацам атта гоч бан",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Гочдина}} $1%",
@@ -68,6 +69,8 @@
 	"cx-sourceselector-dialog-source-title-placeholder": "ДӀайолалун агӀо лахар",
 	"cx-sourceselector-dialog-target-title-placeholder": "Гочйина цӀе",
 	"cx-publish-captcha-title": "Къайла хаттар",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Оьший}} гӀо гочъеш?",
+	"cx-dashboard-sidebar-information": "ХӀокху функцех лаьцна мадарра",
 	"cx-dashboard-sidebar-feedback": "Лохьа тхоьга хьайн зӀе",
 	"cx-translation-filter-all-translations": "Массо а гочдарш",
 	"cx-translation-filter-published-translations": "Арахецнарш",
@@ -87,7 +90,7 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Ӏалашонан меттан код.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Хьостан меттан код.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Ӏалашонан меттан код.",
-	"cx-save-draft-save-success": "Ӏалашйнарш {{PLURAL:$1|минот хьалха0=хӀинца}}",
+	"cx-save-draft-save-success": "Ӏалашйина {{PLURAL:$1|$1 минот}} хьалха",
 	"cx-save-draft-saving": "Ӏалашъяр...",
 	"cx-contributions-new-contributions": "Керла къинхьегам",
 	"cx-contributions-new-article": "Керла агӀо",
@@ -138,5 +141,6 @@
 	"cx-tools-missing-link-title": "Йоцу хьажорг",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Юхадаккха}} йоцуш санна",
 	"echo-category-title-cx": "Гочдарш",
-	"cx-translationlist-empty-title": "ХӀума дац гочдан?"
+	"cx-translationlist-empty-title": "ХӀума дац гочдан?",
+	"cx-translationlist-empty-desc": "ХӀинца гочдар {{GENDER:|долина}}, муьлхачу хенахь чекхдаккха."
 }

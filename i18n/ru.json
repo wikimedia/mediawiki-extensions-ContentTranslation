@@ -15,7 +15,8 @@
 			"Marat-avgust",
 			"Putnik",
 			"Purodha",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Умар"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -99,6 +100,7 @@
 	"cx-mt-abuse-warning-title": "Ваш перевод {{PLURAL:$1|содержит}} $1% неизменённого машинного перевода текста",
 	"cx-mt-abuse-warning-text": "Машинные переводы предоставляются только в качестве отправной точки. Вам нужно убедиться, что перевод является точным, естественно читается на вашем языке.",
 	"cx-publish-captcha-title": "Защитный вопрос",
+	"cx-dashboard-sidebar-information": "Подробнее об этой функции",
 	"cx-translation-filter-all-translations": "Все переводы",
 	"cx-translation-filter-published-translations": "Опубликованные",
 	"cx-translation-filter-draft-translations": "Незаконченные",

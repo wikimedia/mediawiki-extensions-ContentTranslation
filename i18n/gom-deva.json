@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vaishali Parab"
+			"Vaishali Parab",
+			"The Discoverer"
 		]
 	},
 	"cx-dashboard-header": "अणकार",
-	"cx-dashboard-sidebar-title": "{{लिंग:|जाय}} अणकाराक मदत जाय?",
+	"cx-dashboard-sidebar-title": "अणकाराक आदार {{लिंग:|जाय}}?",
 	"cx-translation-filter-published-translations": "प्रकाशीत",
 	"cx-translation-filter-draft-translations": "विकास चालू आसा",
 	"cx-create-new-translation": "नवो अणकार सुरू करचो",
