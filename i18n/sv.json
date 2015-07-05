@@ -10,7 +10,8 @@
 			"Ainali",
 			"Hannibal-reserv",
 			"Amire80",
-			"Josve05a"
+			"Josve05a",
+			"Rockyfelle"
 		]
 	},
 	"cx": "Översätt sida",
@@ -99,7 +100,7 @@
 	"cx-dashboard-sidebar-information": "Läs mer om denna funktion",
 	"cx-dashboard-sidebar-feedback": "Ge oss återkoppling",
 	"cx-translation-filter-all-translations": "Alla översättningar",
-	"cx-translation-filter-published-translations": "Publicerade",
+	"cx-translation-filter-published-translations": "Publicerad",
 	"cx-translation-filter-draft-translations": "Pågående",
 	"cx-translation-filter-from-any-language": "Från alla språk",
 	"cx-translation-filter-to-any-language": "Till alla språk",
@@ -206,7 +207,7 @@
 	"cx-notification-first-translation-email-subject": "Grattis till din första översättning",
 	"cx-notification-tenth-translation": "Grattis till ditt tionde översättning! Du börjar att bli en expertöversättare. Fortsätt så!",
 	"cx-notification-tenth-translation-email-subject": "Grattis till din tionde översättning",
-	"cx-notification-hundredth-translation": "Du har precis gjort 100 översättningar! Det är en anmärkningsvärd prestation. Berätta det gärna för andra redigerare.",
+	"cx-notification-hundredth-translation": "Du har precis gjort 100 översättningar! Det är en anmärkningsvärd prestation. Berätta det för andra redigerare.",
 	"cx-notification-hundredth-translation-email-subject": "Grattis till din hundrade översättning",
 	"cx-translationlist-empty-title": "Ingenting att översätta?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Påbörja}} din översättning nu och fortsätt på den när som helst."
