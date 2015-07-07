@@ -20,6 +20,7 @@
 		]
 	},
 	"cx": "Перевод страницы",
+	"cx-dashboard-header": "Переводы",
 	"cx-javascript": "Этот инструмент не работает без JavaScript.",
 	"cx-license-agreement": "Нажав на кнопку «$1», вы соглашаетесь с [//wikimediafoundation.org/wiki/Terms_of_Use Условиями использования] и безоговорочно соглашаетесь на публикацию вашего вклада с инструментом перевода под [https://creativecommons.org/licenses/by-sa/3.0/ лицензией CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] с пониманием того, что указание гиперссылки или URL достаточно для атрибуции по CC BY-SA 3.0.",
 	"cx-error-server-connection": "Ошибка. Не удалось подключиться к серверу.",
@@ -100,7 +101,9 @@
 	"cx-mt-abuse-warning-title": "Ваш перевод {{PLURAL:$1|содержит}} $1% неизменённого машинного перевода текста",
 	"cx-mt-abuse-warning-text": "Машинные переводы предоставляются только в качестве отправной точки. Вам нужно убедиться, что перевод является точным, естественно читается на вашем языке.",
 	"cx-publish-captcha-title": "Защитный вопрос",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Нужна}} помощь с переводами?",
 	"cx-dashboard-sidebar-information": "Подробнее об этой функции",
+	"cx-dashboard-sidebar-feedback": "Оставьте отзыв",
 	"cx-translation-filter-all-translations": "Все переводы",
 	"cx-translation-filter-published-translations": "Опубликованные",
 	"cx-translation-filter-draft-translations": "Незаконченные",
@@ -205,5 +208,7 @@
 	"echo-category-title-cx": "Переводы",
 	"echo-pref-tooltip-cx": "Уведомлять меня о моих переводах, созданных с использованием инструмента перевода содержимого.",
 	"cx-notification-first-translation": "Поздравляем вас с первым переводом! Найдите ещё страницы для перевода на [[Special:MyContributions|вашей странице вклада]].",
-	"cx-notification-first-translation-email-subject": "Поздравляем вас с первым переводом"
+	"cx-notification-first-translation-email-subject": "Поздравляем вас с первым переводом",
+	"cx-notification-tenth-translation-email-subject": "Поздравляем вас с десятым переводом",
+	"cx-translationlist-empty-title": "Нечего переводить?"
 }
