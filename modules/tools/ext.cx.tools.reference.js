@@ -323,7 +323,20 @@
 	}
 
 	function processReferences( $section ) {
-		var $sourceSection, referenceAdaptor, isRestoredFromDraft;
+		var $sourceSection, referenceAdaptor, isRestoredFromDraft, $referenceLists;
+
+		$referenceLists = $( '[typeof*="mw:Extension/references"]' );
+		if ( !$referenceLists.length ) {
+			// No reference list! There can be multiple reasons for this.
+			// (a) Reference list section uses a template that we cannot adapt & filtered out from source.
+			// (b) References are in a multi-part template that we cannot process at this point.
+			// Or other unknown reason. But if we adapt a reference without a reference list at the
+			// translation, parsoid will fail causing a publishing failure. That is serious issue and
+			// we work around it by removing all references.
+			mw.log( '[CX] References list not found in source article. References will be removed' );
+			$section.find( '[typeof*="mw:Extension/ref"]' ).remove();
+			return;
+		}
 
 		isRestoredFromDraft = $section.data( 'cx-draft' ) === true;
 
