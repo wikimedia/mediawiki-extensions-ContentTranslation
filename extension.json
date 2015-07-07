@@ -99,7 +99,10 @@
 		"ContentTranslationDefaultSourceLanguage": "en",
 		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be 'Main' or any valid Namespace without leading column.",
 		"ContentTranslationTargetNamespace": "Main",
-		"ContentTranslationCampaigns": [ "cxstats", "newarticle" ],
+		"ContentTranslationCampaigns": {
+			"cxstats": true,
+			"newarticle": true
+		},
 		"@ContentTranslationUseMagnusTool":"Whether the Magnus tool to find missing articles to be enabled or not. This is initially made to experiment with an article comparison tool at http://tools.wmflabs.org/not-in-the-other-language/ See https://phabricator.wikimedia.org/T76843",
 		"ContentTranslationUseMagnusTool": true,
 		"ContentTranslationBrowserBlacklist": {

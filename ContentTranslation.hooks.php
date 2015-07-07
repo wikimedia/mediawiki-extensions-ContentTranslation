@@ -47,7 +47,7 @@ class ContentTranslationHooks {
 		if ( !self::isEnabledForUser( $user ) ) {
 			if (
 				!$title->exists() &&
-				in_array( 'newarticle', $wgContentTranslationCampaigns ) &&
+				$wgContentTranslationCampaigns['newarticle'] &&
 				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
 				!$user->isAnon()
 			) {
@@ -186,7 +186,7 @@ class ContentTranslationHooks {
 		$user = $out->getUser();
 
 		if (
-			!in_array( 'newarticle', $wgContentTranslationCampaigns ) ||
+			!$wgContentTranslationCampaigns['newarticle'] ||
 			$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) ||
 			$newPage->mTitle->exists() ||
 			!$newPage->mTitle->inNamespace( NS_MAIN ) ||

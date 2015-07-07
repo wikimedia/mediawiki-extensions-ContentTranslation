@@ -613,7 +613,10 @@
 			$( '.cx-header__bar' ).hide();
 		}
 
-		if ( !mw.user.isAnon() && mw.user.options.get( 'cx' ) !== '1' ) {
+		if ( !mw.user.isAnon() &&
+			mw.config.get( 'wgContentTranslationCampaigns' ).cxstats &&
+			mw.user.options.get( 'cx' ) !== '1'
+		) {
 			cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 				campaign: 'cxstats',
 				to: mw.config.get( 'wgContentLanguage' )
