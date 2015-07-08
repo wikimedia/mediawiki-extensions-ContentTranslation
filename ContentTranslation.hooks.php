@@ -67,6 +67,7 @@ class ContentTranslationHooks {
 		}
 
 		if ( $title->inNamespace( NS_MAIN ) &&
+			Action::getActionName( $out->getContext() ) === 'view' &&
 			$title->exists()
 		) {
 			$out->addModules( 'ext.cx.interlanguagelink' );
