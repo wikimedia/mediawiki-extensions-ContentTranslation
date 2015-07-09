@@ -40,7 +40,9 @@ class SpecialContentTranslation extends SpecialPage {
 			// Campigns are only for logged in users.
 			return false;
 		}
-		return $campaign !== null && in_array( $campaign, $wgContentTranslationCampaigns );
+		return $campaign !== null
+			&& isset( $wgContentTranslationCampaigns[$campaign] )
+			&& $wgContentTranslationCampaigns[$campaign];
 	}
 
 	/**
