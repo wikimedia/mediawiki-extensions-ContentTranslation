@@ -69,6 +69,7 @@
 	"cx-sourceselector-dialog-target-language-label": "ور ته:",
 	"cx-sourceselector-dialog-source-title-placeholder": "د سرچينې مخ لپاره پلټل",
 	"cx-sourceselector-dialog-target-title-placeholder": "د ژباړې سرليک",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "دا سرليک له پخوا څخه [$1 $2] [$3 يو بل مخ] لپاره کارېدلی",
 	"cx-sourceselector-dialog-error-page-exists": "د [$1 مخ] له پخوا څخه په $2 کې شته",
 	"cx-dashboard-sidebar-title": "په ژباړو کې {{GENDER:|مرسته غواړې}} ؟",
 	"cx-dashboard-sidebar-information": "د دې ځانتيا په اړه نور څه پوهېدل",
