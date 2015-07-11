@@ -155,9 +155,6 @@
 	"cx-translation-already-in-progress-collaborate": "Бу кёчюрюуню башлагъан къошулуучу бла сёлешиб келишигиз.",
 	"cx-publishing-dialog-publish-draft-button": "Черновикча публикация эт",
 	"cx-feedback-link": "Оюм ий",
-	"cx-stats-table-source-target": "Къайнакъ↓ / Ышан→",
-	"cx-stats-table-source-total": "Бютеу (къайнакъ)",
-	"cx-stats-table-target-total": "Бютеу (ышан)",
 	"cx-stats-published-translations-title": "Публикация этилген кёчюрмеле",
 	"cx-stats-draft-translations-title": "Этиле тургъан кёчюрюуле",
 	"cx-stats-published-translators-title": "Кёчюрмелени саны",
@@ -195,5 +192,8 @@
 	"echo-pref-tooltip-cx": "Content Translation адыр бла къуралгъан кёчюрюулерими юсюнден билдир.",
 	"cx-notification-first-translation": "Биринчи кёчюрюу бла алгъышлайбыз! [[Special:MyContributions|Къошум бетигизде]] кёчюрюр ючюн энтда бетле табыгъыз.",
 	"cx-notification-first-translation-email-subject": "Биринчи кёчюрюу бла алгъышлайбыз",
-	"cx-notification-tenth-translation-email-subject": "Онунчу кёчюрюу бла алгъышлайбыз"
+	"cx-notification-tenth-translation-email-subject": "Онунчу кёчюрюу бла алгъышлайбыз",
+	"cx-notification-hundredth-translation-email-subject": "Джюзюнчю кёчюрюу бла алгъышлайбыз",
+	"cx-translationlist-empty-title": "Кёчюрюрге джукъ джокъмуду?",
+	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр."
 }
