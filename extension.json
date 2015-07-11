@@ -782,9 +782,6 @@
 				"jquery.uls.data"
 			],
 			"messages": [
-				"cx-stats-table-source-target",
-				"cx-stats-table-source-total",
-				"cx-stats-table-target-total",
 				"cx-stats-published-translations-title",
 				"cx-stats-draft-translations-title",
 				"cx-stats-published-translators-title",
