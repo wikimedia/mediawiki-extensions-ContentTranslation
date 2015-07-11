@@ -761,7 +761,8 @@
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
 		var storedTargetLanguage, storedSourceLanguage,
-			targetLanguage, sourceLanguage, i;
+			targetLanguage, sourceLanguage,
+			commonSourceLanguages, i;
 
 		if ( window.localStorage ) {
 			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
@@ -769,24 +770,28 @@
 		}
 
 		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
-		sourceLanguage = storedSourceLanguage ||
-			mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
+		sourceLanguage = storedSourceLanguage;
 
-		// Shouldn't Happen, but just in case something is invalid - pick some other language
-		for ( i = 0; i < this.sourceLanguages.length; i++ ) {
-			if ( sourceLanguage !== targetLanguage &&
-				this.isValidSource( sourceLanguage, targetLanguage )
-			) {
-				break;
+		if ( !sourceLanguage ) {
+			commonSourceLanguages = this.$sourceLanguage.data( 'uls' ).options.quickList();
+
+			for ( i = 0; i < commonSourceLanguages.length; i++ ) {
+				if ( commonSourceLanguages[ i ] !== targetLanguage &&
+					this.isValidSource( commonSourceLanguages[ i ], targetLanguage )
+				) {
+					sourceLanguage = commonSourceLanguages[ i ];
+
+					break;
+				}
 			}
-
-			sourceLanguage = this.sourceLanguages[ i ];
 		}
 
-		// Set the source language
-		this.setSourceLanguage( sourceLanguage );
+		// Still couldn't find a valid source language?
+		if ( !sourceLanguage ) {
+			sourceLanguage = mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
+		}
 
-		// Set the target language
+		this.setSourceLanguage( sourceLanguage );
 		this.setTargetLanguage( targetLanguage );
 	};
 
