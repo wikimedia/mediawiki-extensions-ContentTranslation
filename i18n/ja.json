@@ -7,7 +7,8 @@
 			"Kzhr",
 			"W.CC",
 			"Kanon und wikipedia",
-			"Sujiniku"
+			"Sujiniku",
+			"아라"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -86,7 +87,7 @@
 	"cx-sourceselector-dialog-source-title-placeholder": "ソースページを検索",
 	"cx-sourceselector-dialog-target-title-placeholder": "翻訳のタイトル",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "タイトルはすでに$3別のページで$1 $2に使われています",
-	"cx-sourceselector-dialog-error-page-exists": "ページは$2に$1既に存在します",
+	"cx-sourceselector-dialog-error-page-exists": "ページは$2に[$1 既に存在します]",
 	"cx-sourceselector-dialog-error-title-in-use": "そのタイトルは既に$1使用されています",
 	"cx-sourceselector-dialog-error-no-source-article": "ページの翻訳は$1には存在しません",
 	"cx-mt-abuse-warning-title": "あなたの翻訳は$1%の手がつけられてい無い機械翻訳を{{PLURAL:$1|含んでいます}}",
@@ -161,9 +162,6 @@
 	"cx-translation-already-in-progress-collaborate": "現行版の翻訳者と調整するようにしてください。",
 	"cx-publishing-dialog-publish-draft-button": "下書きとして公開",
 	"cx-feedback-link": "フィードバックする",
-	"cx-stats-table-source-target": "翻訳元↓ / 翻訳先→",
-	"cx-stats-table-source-total": "合計 （翻訳元）",
-	"cx-stats-table-target-total": "合計（翻訳先）",
 	"cx-stats-published-translations-title": "公開済みの翻訳",
 	"cx-stats-draft-translations-title": "進行中の翻訳",
 	"cx-stats-published-translators-title": "翻訳者数",
