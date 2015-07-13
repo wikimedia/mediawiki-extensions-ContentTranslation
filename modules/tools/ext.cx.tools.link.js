@@ -320,7 +320,7 @@
 
 		title = this.getTitle();
 		if ( !title ) {
-			return;
+			return $.Deferred().reject().promise();
 		}
 
 		api = this.siteMapper.getApi( language );
