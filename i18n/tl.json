@@ -3,7 +3,8 @@
 		"authors": [
 			"Leeheonjin",
 			"Sky Harbor",
-			"Jewel457"
+			"Jewel457",
+			"Jojit fb"
 		]
 	},
 	"cx": "Isalin ang pahina",
@@ -88,7 +89,7 @@
 	"cx-mt-abuse-warning-title": "Ang iyong salinwika ay {{PLURAL:$1|naglalaman}} ng $1% ng di-nabagong tekstong isinalinwika gamit ang makina",
 	"cx-mt-abuse-warning-text": "Inilaan lang ang mga makinang salinwika bilang panimulang punto. Kinakailangan mong tiyakin na ang nilalaman ay tumpak at likas na nababasa sa iyong wika.",
 	"cx-publish-captcha-title": "Katanungang pangkatiyakan",
-	"cx-dashboard-sidebar-title": "{{KASARIAN:|Nangangailangan}} ng tulong sa salinwika?",
+	"cx-dashboard-sidebar-title": "Nangangailangan ng tulong sa salinwika?",
 	"cx-dashboard-sidebar-information": "Higit pang alamin ang tungkol sa tampok na ito",
 	"cx-dashboard-sidebar-feedback": "Bigyan kami ng katugunan",
 	"cx-translation-filter-all-translations": "Lahat ng mga salin",
@@ -154,9 +155,6 @@
 	"cx-translation-already-in-progress-collaborate": "Mangyaring makipag-ugnayan sa tagagamit ng nagsalin ng kasalukuyang salin.",
 	"cx-publishing-dialog-publish-draft-button": "Itala bilang burador",
 	"cx-feedback-link": "Magbigay ng komentaryo",
-	"cx-stats-table-source-target": "Pinagmulan↓ / Patutunguhan→",
-	"cx-stats-table-source-total": "Kabuuan (Pinagmulan)",
-	"cx-stats-table-target-total": "Kabuuan (Patutunguhan)",
 	"cx-stats-published-translations-title": "Mga saling itinala",
 	"cx-stats-draft-translations-title": "Mga saling isinasagawa",
 	"cx-stats-published-translators-title": "Bilang ng mga tagapag-salinwika",
@@ -198,5 +196,5 @@
 	"cx-notification-hundredth-translation": "Nakagawa ka ng 100 salinwika! Iyon ang kasiya-siyang pagtamo. Ibahagi ang pagbati sa ibang mga tagapamatnugot.",
 	"cx-notification-hundredth-translation-email-subject": "Binabati kita sa iyong ika-isandaang pag-salinwika",
 	"cx-translationlist-empty-title": "Walang isasalinwika?",
-	"cx-translationlist-empty-desc": "{{KASARIAN:|Simulan}} na ngayon ang iyong salinwika at ituloy ito sa kahit na anong oras."
+	"cx-translationlist-empty-desc": "Simulan na ngayon ang iyong pagsasalinwika at ituloy ito sa kahit na anong oras."
 }
