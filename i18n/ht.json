@@ -1,8 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tisave"
+			"Tisave",
+			"Bfpage"
 		]
 	},
-	"cx-sourceselector-dialog-target-title-placeholder": "Tit tradiksyon a"
+	"cx-dashboard-header": "Tradiksyon",
+	"cx-sourceselector-dialog-target-title-placeholder": "Tit tradiksyon a",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Bezwen}} ede ak tradiksyon?",
+	"cx-dashboard-sidebar-information": "Konnen plis sou karakteristik sa a",
+	"cx-dashboard-sidebar-feedback": "Ban nou fidbak",
+	"cx-translation-filter-published-translations": "Pibliye",
+	"cx-translation-filter-draft-translations": "In progress",
+	"cx-create-new-translation": "Kòmanse yon nouvo tradiksyon",
+	"cx-stats-local-published-number": "$1 nan $2",
+	"cx-stats-local-published": "$1 ($3) nan $2",
+	"cx-notification-tenth-translation": "Konpliman pou dizyèm tradiksyon ou! Ou ap vin yon tradiktè ekspè. Kenbe travay la bon!",
+	"cx-notification-tenth-translation-email-subject": "Konpliman pou dizyèm tradiksyon ou",
+	"cx-notification-hundredth-translation": "Ou jis te fè 100 tradiksyon! Sa se yon siksè remakab. Ou ta dwe pataje sa a siksè ak lòt editè.",
+	"cx-notification-hundredth-translation-email-subject": "Konpliman pou ou youn tradiksyon santyèm",
+	"cx-translationlist-empty-title": "Pa gen anyen yo tradui?"
 }

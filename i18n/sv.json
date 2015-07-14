@@ -181,7 +181,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 kanske redan finns tillgänglig på andra språk",
 	"cx-campaign-contributionsmenu-myuploads": "Uppladdad media",
 	"cx-trend-all-translations": "Alla översättningar",
-	"cx-trend-translations-to": "Översättningar till språket $1",
+	"cx-trend-translations-to": "Översättningar till $1",
 	"cx-stats-try-contenttranslation": "Innehållsöversättning är ett verktyg för att skapa nya sidor genom att översätta från andra språk. [$1 Prova Innehållsöversättning]",
 	"cx-stats-published-target-source": "Översättningar till",
 	"cx-stats-published-source-target": "Översättningar från",
