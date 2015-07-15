@@ -160,13 +160,11 @@
 			clear: both;
 		}
 
-		.source-title {
+		.translation-link {
 			.mw-ui-one-whole;
 
 			font-size: large;
-			color: #333;
 			text-decoration: none;
-			text-align: left; // To ensure consistent alignment in RTL and LTR
 			padding-left: 0;
 
 			&.disabled  {
@@ -174,9 +172,22 @@
 				cursor: default;
 			}
 
+			.source-title {
+				color: #333;
+			}
+
 			.target-title {
 				color: #BBB;
 				padding-left: 1em;
+			}
+
+			.source-title,
+			.target-title {
+				// This needs to be "isolate" and not "embed",
+				// because both titles can be in the same direction
+				unicode-bidi: -moz-isolate;
+				unicode-bidi: -webkit-isolate;
+				unicode-bidi: isolate;
 			}
 		}
 
