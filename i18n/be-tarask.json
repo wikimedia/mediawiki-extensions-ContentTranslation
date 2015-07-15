@@ -86,7 +86,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Назва для новай старонкі [$1 ўжо выкарыстоўваецца]",
 	"cx-sourceselector-dialog-error-no-source-article": "Гэтая старонка для перакладу не існуе ў $1",
 	"cx-mt-abuse-warning-title": "Ваш пераклад {{PLURAL:$1|зьмяшчае}} $1% нязьмененага машыннага перакладу тэксту",
-	"cx-mt-abuse-warning-text": "Машынныя пераклады прадастаўленыя толькі як шаблён. Вам неабходна пераканацца, што зьмест дакладны і гучыць Вашай мовай натуральна.",
+	"cx-mt-abuse-warning-text": "Машынны пераклад пададзены толькі як чарнавік. Вам неабходна пераканацца, што зьмест дакладны і гучыць Вашай мовай натуральна.",
 	"cx-publish-captcha-title": "Сакрэтнае пытаньне",
 	"cx-translation-filter-all-translations": "Усе пераклады",
 	"cx-translation-filter-published-translations": "Апублікаванае",

@@ -96,7 +96,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
 	"cx-sourceselector-dialog-error-no-source-article": "Strona do tłumaczenia nie istnieje po $1",
 	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% maszynowo tłumaczonego niezmienionego tekstu.",
-	"cx-mt-abuse-warning-text": "Tłumaczenia maszynowe są podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
+	"cx-mt-abuse-warning-text": "Tłumaczenie maszynowe jest podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i w Twoim języku brzmi naturalnie.",
 	"cx-publish-captcha-title": "Pytanie zabezpieczające",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potrzebujesz}} pomocy przy tłumaczeniu?",
 	"cx-dashboard-sidebar-information": "Dowiedz się więcej o tej funkcji",

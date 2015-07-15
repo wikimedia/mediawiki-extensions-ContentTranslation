@@ -83,7 +83,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
 	"cx-sourceselector-dialog-error-no-source-article": "D'Säit déi soll iwwersat gi gëtt et net op $1",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung {{PLURAL:$1|ass|si(nn)}} $1% onverännerten Text aus Maschinnen-Iwwersetzung",
-	"cx-mt-abuse-warning-text": "Maschinneniwwersetzunge gi just als Ausgangspunkt geliwwert. Dir musst Iech vergewësseren datt den Inhalt appropriéiert ass an datt e sech natierlech liese léist.",
+	"cx-mt-abuse-warning-text": "Maschinneniwwersetzung gëtt just als Ausgangspunkt geliwwert. Dir musst Iech vergewësseren datt den Inhalt appropriéiert ass an datt e sech an Ärer Sprooch natierlech liese léist.",
 	"cx-publish-captcha-title": "Sécherheetsfro",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Braucht}} Dir Hëllef mat den Iwwersetzungen?",
 	"cx-dashboard-sidebar-information": "Méi iwwer dës Funktioun wëssen",

@@ -9,7 +9,8 @@
 			"Vitor Mazuco",
 			"He7d3r",
 			"Fasouzafreitas",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"TheGabrielZaum"
 		]
 	},
 	"cx": "Traduzir página",
@@ -98,7 +99,6 @@
 	"cx-translation-filter-from-any-language": "De qualquer idioma",
 	"cx-translation-filter-to-any-language": "Para qualquer idioma",
 	"cx-create-new-translation": "Criar uma nova tradução",
-	"cx-create-new-translation-desc": "Crie páginas dos verbetes que não existem em seu idioma. Isso é fácil com a ajuda das nossas ferramentas de tradução.[https://en.wikipedia.org/wiki/Project:Translation#How_to_translate Leia mais]",
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",
 	"apihelp-cxpublish-param-title": "O título da página em questão.",
 	"apihelp-cxpublish-param-html": "O conteúdo a ser salvo.",
@@ -109,7 +109,7 @@
 	"apihelp-cxpublish-param-status": "Se \"rascunho\", a tradução será salva como rascunho. Se \"publicado\", a tradução será publicada.",
 	"apihelp-cxpublish-param-categories": "As categorias a serem adicionadas à página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quando salvar com uma resposta captcha).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "Responda ao captcha (quando salvar com uma resposta captcha).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Responde ao captcha (ao salvar com uma resposta captcha).",
 	"apihelp-query+contenttranslation-description": "Pesquisar o banco de dados por traduções do Tradutor de Conteúdo",
 	"apihelp-query+contenttranslation-param-translationid": "Id de tradução.",
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo usuário atual.",
@@ -158,9 +158,6 @@
 	"cx-translation-already-in-progress-collaborate": "Por favor, certifique-se de coordenar com o usuários que traduziu a tradução atual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar um rascunho",
 	"cx-feedback-link": "Dê sua opinião",
-	"cx-stats-table-source-target": "Origem↓ / Destino→",
-	"cx-stats-table-source-total": "Total (Fonte)",
-	"cx-stats-table-target-total": "Total (Destino)",
 	"cx-stats-published-translations-title": "Traduções publicadas",
 	"cx-stats-draft-translations-title": "Traduções em andamento",
 	"cx-stats-published-translators-title": "Número de tradutores",

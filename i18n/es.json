@@ -101,7 +101,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "El título de la página nueva [$1 ya está en uso]",
 	"cx-sourceselector-dialog-error-no-source-article": "La página por traducir no existe en $1",
 	"cx-mt-abuse-warning-title": "Tu traducción {{PLURAL:$1|contiene}} $1 % de texto traducido automáticamente sin modificar",
-	"cx-mt-abuse-warning-text": "Las traducciones automáticas se proveen sólo como punto de partida. Tienes que asegurarte de que el contenido sea preciso y que se lea naturalmente en tu idioma.",
+	"cx-mt-abuse-warning-text": "La traducción automática se provee sólo como punto de partida. Tienes que asegurarte de que el contenido sea preciso y que se lea naturalmente en tu idioma.",
 	"cx-publish-captcha-title": "Pregunta de seguridad",
 	"cx-dashboard-sidebar-title": "¿{{GENDER:|Necesitas}} ayuda con las traducciones?",
 	"cx-dashboard-sidebar-information": "Más información sobre esta funcionalidad",
