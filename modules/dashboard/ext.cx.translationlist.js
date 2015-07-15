@@ -441,8 +441,13 @@
 		} );
 
 		this.$container.on( 'click', '.cx-tlitem', function () {
+			if ( $( this ).hasClass( 'cx-translation-deleted' ) ) {
+				return;
+			}
+
 			location.href = $( this ).find( '.source-title' ).attr( 'href' );
 		} );
+
 		this.initSourceSelector();
 
 		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
