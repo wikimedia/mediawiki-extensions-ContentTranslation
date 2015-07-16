@@ -7,7 +7,7 @@
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	max-width: 500px;
-	z-index: 100000;
+	z-index: 999;
 }
 
 .cx-callout::after, .cx-callout::before  {
