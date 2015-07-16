@@ -189,13 +189,18 @@
 			}
 
 			$translationLink = $( '<a>' )
-				.addClass( 'source-title' )
-				.text( translation.sourceTitle )
-				.attr( {
-					lang: translation.sourceLanguage,
-					dir: sourceDir,
-					href: translationLinkUrl
-				} );
+				.addClass( 'translation-link' )
+				.prop( 'href', translationLinkUrl )
+				// It must be a separate element to ensure
+				// separation from the target title
+				.append( $( '<span>' )
+					.text( translation.sourceTitle )
+					.addClass( 'source-title' )
+					.prop( {
+						lang: translation.sourceLanguage,
+						dir: sourceDir
+					} )
+				);
 
 			// If the translated title is different from the source title,
 			// show it near the source title
@@ -445,7 +450,7 @@
 				return;
 			}
 
-			location.href = $( this ).find( '.source-title' ).attr( 'href' );
+			location.href = $( this ).find( '.translation-link' ).attr( 'href' );
 		} );
 
 		this.initSourceSelector();
@@ -552,7 +557,7 @@
 			.find( '.cx-tlitem__actions' )
 			.remove()
 			.end()
-			.find( '.source-title' )
+			.find( '.translation-link' )
 			.addClass( 'disabled' );
 	};
 
