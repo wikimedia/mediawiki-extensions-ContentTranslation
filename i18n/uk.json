@@ -9,7 +9,8 @@
 			"Ypryima",
 			"Lxlalexlxl",
 			"Piramidion",
-			"Amire80"
+			"Amire80",
+			"Ckromnaya"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -163,9 +164,6 @@
 	"cx-translation-already-in-progress-collaborate": "Будь ласка, переконайтеся, що Ви домовилися з користувачем, який почав нинішній переклад.",
 	"cx-publishing-dialog-publish-draft-button": "Опублікувати як чернетку",
 	"cx-feedback-link": "Надіслати відгук",
-	"cx-stats-table-source-target": "Джерело↓ / Ціль→",
-	"cx-stats-table-source-total": "Усього (Джерело)",
-	"cx-stats-table-target-total": "Усього (Ціль)",
 	"cx-stats-published-translations-title": "Опубліковані переклади",
 	"cx-stats-draft-translations-title": "Переклади в процесі",
 	"cx-stats-published-translators-title": "Кількість перекладачів",
@@ -208,5 +206,6 @@
 	"cx-notification-hundredth-translation": "Ви зробили 100 перекладів! Це прекрасне досягнення. Поділіться з іншими редакторами.",
 	"cx-notification-hundredth-translation-email-subject": "Вітаємо із сотим перекладом",
 	"cx-translationlist-empty-title": "Ні́чого перекладати?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Почніть}} свій переклад зараз і продовжіть його у будь-який час."
+	"cx-translationlist-empty-desc": "{{GENDER:|Почніть}} свій переклад зараз і продовжіть його у будь-який час.",
+	"cx-tools-link-external-link": "Зовнішні"
 }

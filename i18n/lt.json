@@ -201,5 +201,12 @@
 	"cx-notification-hundredth-translation": "Jūs ką tik atlikote 100 vertimų! Tai įsimintinas pasiekimas. Pasidalinkite su kitais vertėjais.",
 	"cx-notification-hundredth-translation-email-subject": "Sveikiname su Jūsų šimtuoju vertimu",
 	"cx-translationlist-empty-title": "Nėra, ko versti?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Pradėkite}} savo vertimą dabar ir pratęskite bet kuriuo metu."
+	"cx-translationlist-empty-desc": "{{GENDER:|Pradėkite}} savo vertimą dabar ir pratęskite bet kuriuo metu.",
+	"cx-tools-link-internal-link": "Puslapio nuoroda",
+	"cx-tools-link-internal-link-placeholder": "Nuoroda puslapio į kurį nukreipti",
+	"cx-tools-link-external-link": "Išorinė",
+	"cx-tools-link-external-link-placeholder": "Pridėti išorinę nuorodą",
+	"cx-tools-link-to-another-page": "Nuoroda į kitą puslapį",
+	"cx-tools-link-apply": "Atlikta",
+	"mw-pageselector-missing": "Puslapis neegzistuoja"
 }

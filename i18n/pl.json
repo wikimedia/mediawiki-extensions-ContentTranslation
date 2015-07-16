@@ -96,7 +96,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
 	"cx-sourceselector-dialog-error-no-source-article": "Strona do tłumaczenia nie istnieje po $1",
 	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% maszynowo tłumaczonego niezmienionego tekstu.",
-	"cx-mt-abuse-warning-text": "Tłumaczenie maszynowe jest podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i w Twoim języku brzmi naturalnie.",
+	"cx-mt-abuse-warning-text": "Tłumaczenie maszynowe jest podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
 	"cx-publish-captcha-title": "Pytanie zabezpieczające",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potrzebujesz}} pomocy przy tłumaczeniu?",
 	"cx-dashboard-sidebar-information": "Dowiedz się więcej o tej funkcji",
@@ -209,5 +209,9 @@
 	"cx-notification-hundredth-translation": "Zrobiłeś właśnie 100 tłumaczeń! To duże osiągnięcie. Podziel się tym z innymi edytorami.",
 	"cx-notification-hundredth-translation-email-subject": "Gratulujemy setnego tłumaczenia",
 	"cx-translationlist-empty-title": "Nie ma nic do przetłumaczenia?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Rozpocznij}} tłumaczenie i kontynuuj je później."
+	"cx-translationlist-empty-desc": "{{GENDER:|Rozpocznij}} tłumaczenie i kontynuuj je później.",
+	"cx-tools-link-external-link-placeholder": "Dodaj link zewnętrzny",
+	"cx-tools-link-to-another-page": "Link do innej strony",
+	"cx-tools-link-apply": "Gotowe",
+	"mw-pageselector-missing": "Strona nie istnieje"
 }

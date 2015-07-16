@@ -24,7 +24,8 @@
 			"Lucky",
 			"ProfGra",
 			"Amire80",
-			"Yodaspirine"
+			"Yodaspirine",
+			"Wladek92"
 		]
 	},
 	"cx": "Traduire la page",
@@ -220,5 +221,12 @@
 	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C'est une réalisation remarquable. Dîtes-le à d'autres contributeurs.",
 	"cx-notification-hundredth-translation-email-subject": "Félicitations pour votre centième traduction",
 	"cx-translationlist-empty-title": "Rien à traduire ?",
-	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez."
+	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez.",
+	"cx-tools-link-internal-link": "Lien vers la page",
+	"cx-tools-link-internal-link-placeholder": "Trouver la page à relier",
+	"cx-tools-link-external-link": "Externe",
+	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",
+	"cx-tools-link-to-another-page": "Lien vers une autre page",
+	"cx-tools-link-apply": "Fait",
+	"mw-pageselector-missing": "La page n’existe pas"
 }

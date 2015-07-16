@@ -162,9 +162,6 @@
 	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با کاربری که ترجمهٔ فعلی را انجام داده ارتباط حاصل کرده‌اید.",
 	"cx-publishing-dialog-publish-draft-button": "انتشار به‌عنوان پیش‌نویس",
 	"cx-feedback-link": "بازخورد دهید",
-	"cx-stats-table-source-target": "منبع↓ / هدف←",
-	"cx-stats-table-source-total": "همه (منبع)",
-	"cx-stats-table-target-total": "همه (هدف)",
 	"cx-stats-published-translations-title": "ترجمه‌های منتشرشده",
 	"cx-stats-draft-translations-title": "ترجمه‌های در حال انجام",
 	"cx-stats-published-translators-title": "تعداد مترجم‌ها",
@@ -207,5 +204,8 @@
 	"cx-notification-hundredth-translation": "شما ۱۰۰ ترجمه انجام داده‌اید! این یک موفقیت بزرگ است. آن را با دیگران با اشتراک بگذارید.",
 	"cx-notification-hundredth-translation-email-subject": "ممنون بابت یک‌صدمین ترجمه‌یتان",
 	"cx-translationlist-empty-title": "چیزی برای ترجمه وجود ندارد؟",
-	"cx-translationlist-empty-desc": "ترجمهٔ خود را الآن {{GENDER:|شروع کنید}} و هر زمانی ادامه دهید."
+	"cx-translationlist-empty-desc": "ترجمهٔ خود را الآن {{GENDER:|شروع کنید}} و هر زمانی ادامه دهید.",
+	"cx-tools-link-external-link": "خارجی",
+	"cx-tools-link-apply": "انجام شد",
+	"mw-pageselector-missing": "صفحه وجود ندارد"
 }

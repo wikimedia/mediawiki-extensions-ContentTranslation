@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chorobek",
-			"Amire80"
+			"Amire80",
+			"Janatkg"
 		]
 	},
 	"cx": "Баракты которуу",
@@ -47,5 +48,6 @@
 	"cx-stats-title": "Мазмунду которуу статистикасы",
 	"cx-stats-unknown": "белгисиз",
 	"cx-tools-reference-title": "Эскертме",
-	"cx-tools-reference-remove": "Эскертмени алып салуу"
+	"cx-tools-reference-remove": "Эскертмени алып салуу",
+	"cx-trend-translations-to": "$1 тилиндеги котормолор"
 }
