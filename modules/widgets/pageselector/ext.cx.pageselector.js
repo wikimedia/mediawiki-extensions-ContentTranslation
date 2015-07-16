@@ -115,8 +115,7 @@
 					thumbnailHeight = 50;
 				}
 				$resultItem.css( {
-					'background-image': 'url(' + page.thumbnail.source + ')',
-					'background-size': thumbnailWidth + 'px ' + thumbnailHeight + 'px'
+					'background-image': 'url(' + page.thumbnail.source + ')'
 				} );
 			}
 			this.$menu.append( $resultItem );
