@@ -63,6 +63,12 @@ $specialPageAliases['hsb'] = array(
 	'ContentTranslation' => array( 'Wobsahowe_přełožowanje' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'ContentTranslation' => array( 'TraduzioneContenuti' ),
+	'ContentTranslationStats' => array( 'StatisticheTraduzioneContenuti' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'ContentTranslation' => array( '내용번역' ),
