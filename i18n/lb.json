@@ -179,5 +179,9 @@
 	"cx-notification-hundredth-translation": "Dir hutt 100 Iwwersetzunge gemaach! Dat ass eng respektabel Leeschtung. Deelt aneren Auteuren dat matt.",
 	"cx-notification-hundredth-translation-email-subject": "Gratulatioun fir Är honnertst Iwwersetzung",
 	"cx-translationlist-empty-title": "Näischt z'iwwersetzen?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Fänkt}} Är Iwwersetzung elo un a fuert da viru wann Dir Zäit hutt."
+	"cx-translationlist-empty-desc": "{{GENDER:|Fänkt}} Är Iwwersetzung elo un a fuert da viru wann Dir Zäit hutt.",
+	"cx-tools-link-external-link": "Extern",
+	"cx-tools-link-external-link-placeholder": "Externe Link derbäisetzen",
+	"cx-tools-link-apply": "Fäerdeg",
+	"mw-pageselector-missing": "Säit gëtt et net"
 }

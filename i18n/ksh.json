@@ -193,5 +193,8 @@
 	"cx-notification-hundredth-translation": "Do häs jrahd 100 Övversäzonge jemaat!\nDadd_es öhndlesch jät jedonn.\nVerzäll dat dä anndere Metmaacher!",
 	"cx-notification-hundredth-translation-email-subject": "Mer jrattolehre för Ding hondertste Övversäzong",
 	"cx-translationlist-empty-title": "Nix doh zom Övversäze?",
-	"cx-translationlist-empty-desc": "Bejenn Ding Övversäzong jäz. De kanns jehderzigg drahn wigger maache.{{GENDER:|}}"
+	"cx-translationlist-empty-desc": "Bejenn Ding Övversäzong jäz. De kanns jehderzigg drahn wigger maache.{{GENDER:|}}",
+	"cx-tools-link-to-another-page": "Lengk op en ennder Sigg",
+	"cx-tools-link-apply": "Jedonn",
+	"mw-pageselector-missing": "Di Sigg jidd_et nit"
 }

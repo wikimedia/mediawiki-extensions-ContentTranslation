@@ -6,7 +6,8 @@
 			"Jeblad",
 			"Purodha",
 			"Amire80",
-			"Josve05a"
+			"Josve05a",
+			"Kingu"
 		]
 	},
 	"cx": "Oversett side",
@@ -157,9 +158,6 @@
 	"cx-translation-already-in-progress-collaborate": "Vær vennlig å forsikre deg om at du koordinerer med brukeren som oversatte den nåværende oversettelsen.",
 	"cx-publishing-dialog-publish-draft-button": "Publiser som utkast",
 	"cx-feedback-link": "Gi tilbakemelding",
-	"cx-stats-table-source-target": "Kilde↓ / Mål→",
-	"cx-stats-table-source-total": "Totalt (Kilde)",
-	"cx-stats-table-target-total": "Totalt (Mål)",
 	"cx-stats-published-translations-title": "Publiserte oversettelser",
 	"cx-stats-draft-translations-title": "Oversettelser under arbeid",
 	"cx-stats-published-translators-title": "Antall oversettere",
@@ -196,5 +194,9 @@
 	"echo-category-title-cx": "Oversettelser",
 	"echo-pref-tooltip-cx": "Varsle meg om mine oversettelser som er skapt med Innholdsoversettelse-verktøyet",
 	"cx-notification-first-translation": "Gratulerer med din første oversettelse! Finn flere sider å oversette på [[Special:MyContributions| din bidragsside]].",
-	"cx-notification-first-translation-email-subject": "Gratulerer med din første oversettelse"
+	"cx-notification-first-translation-email-subject": "Gratulerer med din første oversettelse",
+	"cx-tools-link-internal-link": "Lenk til side",
+	"cx-tools-link-external-link-placeholder": "Legg til ekstern lenke",
+	"cx-tools-link-apply": "Ferdig",
+	"mw-pageselector-missing": "Siden finnes ikke"
 }

@@ -165,7 +165,7 @@
 	"cx-publishing-dialog-message": "La page $1 existe déjà. Le contenu actuel sera remplacé par votre traduction. Voulez-vous publier tout de même ?",
 	"cx-publishing-dialog-keep-button": "Garder les deux versions",
 	"cx-publishing-dialog-publish-anyway-button": "Publier tout de même",
-	"cx-discard-translation": "Écarter la traduction",
+	"cx-discard-translation": "Annuler la traduction",
 	"cx-translation-status-draft": "En cours",
 	"cx-translation-status-published": "Publié",
 	"cx-translation-status-deleted": "Supprimé",

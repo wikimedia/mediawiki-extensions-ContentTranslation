@@ -5,7 +5,8 @@
 			"Winstonza",
 			"Amire80",
 			"Purodha",
-			"Fwolff"
+			"Fwolff",
+			"Oesjaar"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -95,7 +96,6 @@
 	"cx-translation-filter-from-any-language": "Vanaf enige taal",
 	"cx-translation-filter-to-any-language": "Na enige taal",
 	"cx-create-new-translation": "Skep 'n nuwe vertaling",
-	"cx-create-new-translation-desc": "Skep artikels oor onderwerpe wat nog nie in jou taal bestaan nie. Dis maklik met ons vertaalgereedskap. [{{int:cx-tools-view-guidelines-link}} Meer inligting]",
 	"apihelp-cxpublish-description": "Stoor 'n bladsy wat deur die Inhoudsvertaling werktuig geskep is.",
 	"apihelp-cxpublish-param-title": "Die titel van die bladsy waarmee iets gedoen word.",
 	"apihelp-cxpublish-param-html": "Die inhoud wat gestoor moet word.",
@@ -155,9 +155,6 @@
 	"cx-translation-already-in-progress-collaborate": "Maak asb. seker dat jy koördineer met die gebruiker wat die huidige vertaling gedoen het.",
 	"cx-publishing-dialog-publish-draft-button": "Publiseer as konsepartikel",
 	"cx-feedback-link": "Gee terugvoer",
-	"cx-stats-table-source-target": "Bron↓ / Teiken→",
-	"cx-stats-table-source-total": "Totaal (Bron)",
-	"cx-stats-table-target-total": "Totaal (Teiken)",
 	"cx-stats-published-translations-title": "Gepubliseerde vertalings",
 	"cx-stats-draft-translations-title": "Vertalings in wording",
 	"cx-stats-published-translators-title": "Aantal vertalers",
@@ -176,5 +173,11 @@
 	"cx-trend-all-translations": "Alle vertalings",
 	"cx-trend-translations-to": "Vertalings na $1",
 	"cx-stats-try-contenttranslation": "Inhoudvertaling is gereedskap om nuwe bladsye te skep deur uit ander tale te vertaal. [$1 Probeer Inhoudvertaling]",
-	"cx-stats-tabs-expand": "Sien alle tale"
+	"cx-stats-tabs-expand": "Sien alle tale",
+	"cx-tools-link-internal-link": "Skakel na bladsy",
+	"cx-tools-link-internal-link-placeholder": "Vind bladsy na die skakel",
+	"cx-tools-link-external-link": "Eksterne",
+	"cx-tools-link-external-link-placeholder": "Voeg eksterne skakel by.",
+	"cx-tools-link-to-another-page": "Skakel na 'n ander bladsy.",
+	"cx-tools-link-apply": "Gedoen"
 }
