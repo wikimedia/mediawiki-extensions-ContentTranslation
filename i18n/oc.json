@@ -7,7 +7,7 @@
 	},
 	"cx": "Traduire la pagina",
 	"cx-desc": "Una aisina que permet als editors de tradusir las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
-	"cx-header-progressbar-text": "$1% traduch",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradusit}}",
 	"cx-header-translation-center": "Centre de traduccions",
 	"cx-source-view-page": "afichar la pagina",
 	"cx-publish-page-success": "Pagina publicada sus $1",

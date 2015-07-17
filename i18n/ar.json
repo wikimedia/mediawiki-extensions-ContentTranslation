@@ -202,5 +202,12 @@
 	"cx-notification-hundredth-translation": "هنيئا بترجمتك المئة! إنه لإنجاز كبير، أعلنه للمحررين...",
 	"cx-notification-hundredth-translation-email-subject": "هنيئا بترجمتك المئة",
 	"cx-translationlist-empty-title": "أما من مواد للترجمة؟",
-	"cx-translationlist-empty-desc": "أنشئ ترجمتك الآن وأكملها متى شئت."
+	"cx-translationlist-empty-desc": "أنشئ ترجمتك الآن وأكملها متى شئت.",
+	"cx-tools-link-internal-link": "اربط مع الصفحة",
+	"cx-tools-link-internal-link-placeholder": "ابحث عن الصفحة لوصلها",
+	"cx-tools-link-external-link": "خارجية",
+	"cx-tools-link-external-link-placeholder": "أضف وصلة خارجية",
+	"cx-tools-link-to-another-page": "وصلة لصفحة أخرى",
+	"cx-tools-link-apply": "تم",
+	"mw-pageselector-missing": "الصفحة غير موجودة"
 }

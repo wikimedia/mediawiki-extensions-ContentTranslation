@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fohanno",
-			"Y-M D"
+			"Y-M D",
+			"Ash Crow"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
@@ -43,8 +44,6 @@
 	"cx-tools-mt-restore": "Assevel",
 	"cx-tools-mt-not-available": "N'eus ket evit ar $1",
 	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
-	"cx-stats-page-title": "Pajenn",
-	"cx-stats-pages-title": "Pajennoù troet",
 	"cx-stats-unknown": "dianav",
 	"cx-tools-reference-title": "Daveenn",
 	"cx-tools-reference-remove": "Lemel an daveenn",
@@ -56,5 +55,9 @@
 	"cx-sourceselector-dialog-button-cancel": "Nullañ",
 	"cx-publish-captcha-title": "Goulenn surentez",
 	"cx-translation-filter-all-translations": "An holl droidigezhioù",
-	"cx-contributions-translation": "Troidigezh"
+	"cx-contributions-translation": "Troidigezh",
+	"cx-tools-link-internal-link": "Liamm ouzh ar pajenn",
+	"cx-tools-link-external-link": "Diavaez",
+	"cx-tools-link-apply": "Graet",
+	"mw-pageselector-missing": "Ar bajenn-mañ n'eus ket anezhi"
 }

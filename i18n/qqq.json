@@ -217,9 +217,9 @@
 	"cx-translationlist-empty-desc": "A brief description shown when there is no translation by current user",
 	"cx-tools-link-internal-link": "Label shown in link tool card. Prompts to enter an internal link. Please try to make translation short.",
 	"cx-tools-link-internal-link-placeholder": "Placeholder text for the input field to enter an internal link",
-	"cx-tools-link-external-link": "Label shown in link tool card. Prompts to enter an external link. Please try to make translation short.",
+	"cx-tools-link-external-link": "Label shown in link tool card. Prompts to enter an external link. Please try to make translation short.\n{{Identical|External}}",
 	"cx-tools-link-external-link-placeholder": "Placeholder text for the input field to enter an external link",
 	"cx-tools-link-to-another-page": "Opens a tool that allows linking to any internal or external page.",
-	"cx-tools-link-apply": "Button label to apply the link selection from link tool card",
+	"cx-tools-link-apply": "Button label to apply the link selection from link tool card\n{{Identical|Done}}",
 	"mw-pageselector-missing": "Message shown in page selector when the search did not fetch any result"
 }
