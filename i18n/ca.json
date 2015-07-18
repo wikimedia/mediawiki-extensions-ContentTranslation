@@ -11,7 +11,8 @@
 			"Macofe",
 			"Davidpar",
 			"Adriabages",
-			"Vriullop"
+			"Vriullop",
+			"F3RaN"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -43,6 +44,7 @@
 	"cx-translation-add-translation": "+ Afegeix una traducció",
 	"cx-translation-target-page-exists": "Una pàgina amb el títol [$1 $2] existeix en el wiki de destinació. Considereu donar a la pàgina un títol diferent.",
 	"tag-contenttranslation": "traducció de contingut",
+	"tag-contenttranslation-description": "El contingut va ser traduït des d'un altre idioma amb l'eina de Traducció de contingut.",
 	"cx-source-loading": "S'està carregant $1",
 	"cx-beta": "Traducció de contingut",
 	"cx-beta-desc": "Una eina per traduir ràpidament les pàgines en el seu idioma. Inicia traduccions des de la [[Special:MyContributions|teva pàgina de contribucions]] i editar-les amb el nostre editor de doble columna dissenyat especialment per a traduccions. Algunes de les eines poden estar disponibles només per a llengües específiques.",
@@ -75,6 +77,7 @@
 	"cx-stats-title": "Estadístiques de traducció",
 	"cx-stats-unknown": "desconegut",
 	"cx-tools-reference-title": "Referència",
+	"cx-tools-reference-add": "Afegiu una referència",
 	"cx-tools-reference-remove": "Esborra la referència",
 	"cx-tools-link-instruction-shortcut": "Feu Shift + clic a qualsevol enllaç per obrir-lo",
 	"cx-tools-link-hover-tooltip": "Feu clic per obrir",
@@ -91,9 +94,10 @@
 	"cx-sourceselector-dialog-error-page-exists": "L'article [$1 ja existeix] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "El títol escollit per a l'article ja [$1 està en ús]",
 	"cx-sourceselector-dialog-error-no-source-article": "L'article a traduir no existeix en $1",
-	"cx-mt-abuse-warning-title": "Un $1% de la seva traducció és text traduït automàticament que no s'ha modificat",
+	"cx-mt-abuse-warning-title": "La seva traducció conté un $1% de text traduït automàticament que no s'ha modificat",
 	"cx-mt-abuse-warning-text": "Les traduccions automàtiques només s'han d'utilitzar com a plantilles. Heu de tenir cura del contingut i assegurar-vos que les traduccions són acurades i naturals en la vostra llengua.",
 	"cx-publish-captcha-title": "Pregunta de seguretat",
+	"cx-dashboard-sidebar-stats": "Estadístiques",
 	"cx-translation-filter-all-translations": "Totes les traduccions",
 	"cx-translation-filter-published-translations": "Publicat",
 	"cx-translation-filter-draft-translations": "En curs",
@@ -153,9 +157,6 @@
 	"cx-translation-already-in-progress-collaborate": "Assegureu-vos que us coordineu amb l'usuari que va traduir el contingut actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar com a esborrany",
 	"cx-feedback-link": "Doneu la vostra opinió",
-	"cx-stats-table-source-target": "Origen ↓ / Destí→",
-	"cx-stats-table-source-total": "Total (Origen)",
-	"cx-stats-table-target-total": "Total (Destí)",
 	"cx-stats-published-translations-title": "Traduccions publicades",
 	"cx-stats-draft-translations-title": "Traduccions en curs",
 	"cx-stats-published-translators-title": "Nombre de traductors",
@@ -171,5 +172,11 @@
 	"cx-campaign-contributionsmenu-myuploads": "Fitxers multimèdia carregats",
 	"cx-trend-all-translations": "Totes les traduccions",
 	"cx-trend-translations-to": "Traduccions a «$1»",
-	"echo-category-title-cx": "Traduccions"
+	"echo-category-title-cx": "Traduccions",
+	"cx-tools-link-internal-link": "Enllaça amb la pàgina",
+	"cx-tools-link-internal-link-placeholder": "Trobar la pàgina a enllaçar",
+	"cx-tools-link-external-link": "Externs",
+	"cx-tools-link-external-link-placeholder": "Afegir enllaç extern",
+	"cx-tools-link-apply": "Fet",
+	"mw-pageselector-missing": "La pàgina no existeix"
 }

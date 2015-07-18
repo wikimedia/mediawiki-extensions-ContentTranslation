@@ -77,7 +77,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Naslov za novu stranicu je već [$1 u uporabi]",
 	"cx-sourceselector-dialog-error-no-source-article": "Stranica za prijevod ne postoji u traženom jeziku ($1)",
 	"cx-mt-abuse-warning-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1% nepromijenjenog teksta strojnog prevoditelja",
-	"cx-mt-abuse-warning-text": "Strojni prijevodi služe samo kao polazište. Budite sigurni da je sadržaj točan i razumljiv u Vašem jeziku.",
+	"cx-mt-abuse-warning-text": "Strojni prijevodi su predviđeni samo kao pomoć. Imajte u vidu da sadržaj bude točan i razumljiv u Vašem jeziku.",
 	"cx-publish-captcha-title": "Sigurnosno pitanje",
 	"cx-dashboard-sidebar-title": "Pomoć oko prijevoda?",
 	"cx-dashboard-sidebar-information": "Saznajte više o ovoj mogućnosti",

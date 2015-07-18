@@ -105,6 +105,7 @@
 	"cx-publish-captcha-title": "Pregunta de seguridad",
 	"cx-dashboard-sidebar-title": "¿{{GENDER:|Necesitas}} ayuda con las traducciones?",
 	"cx-dashboard-sidebar-information": "Más información sobre esta funcionalidad",
+	"cx-dashboard-sidebar-stats": "Estadísticas",
 	"cx-dashboard-sidebar-feedback": "Danos tu opinión",
 	"cx-translation-filter-all-translations": "Todas las traducciones",
 	"cx-translation-filter-published-translations": "Publicadas",

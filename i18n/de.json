@@ -7,7 +7,8 @@
 			"Tiin",
 			"Purodha",
 			"Amire80",
-			"Geitost"
+			"Geitost",
+			"Macofe"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -94,6 +95,7 @@
 	"cx-publish-captcha-title": "Sicherheitsfrage",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Brauchst}} du Hilfe bei Übersetzungen?",
 	"cx-dashboard-sidebar-information": "Mehr über diese Funktion erfahren",
+	"cx-dashboard-sidebar-stats": "Statistiken",
 	"cx-dashboard-sidebar-feedback": "Gib uns eine Rückmeldung",
 	"cx-translation-filter-all-translations": "Alle Übersetzungen",
 	"cx-translation-filter-published-translations": "Veröffentlicht",

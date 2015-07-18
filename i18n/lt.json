@@ -92,6 +92,7 @@
 	"cx-publish-captcha-title": "Saugumo klausimas",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Reikia}} pagalbos su vertimais?",
 	"cx-dashboard-sidebar-information": "Sužinokite daugiau apie šią funkciją",
+	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-dashboard-sidebar-feedback": "Pateikite atsiliepimą",
 	"cx-translation-filter-all-translations": "Visi vertimai",
 	"cx-translation-filter-published-translations": "Publikuota",

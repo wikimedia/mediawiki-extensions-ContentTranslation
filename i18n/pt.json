@@ -97,6 +97,7 @@
 	"cx-publish-captcha-title": "Pergunta de segurança",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Precisa}} de ajuda com as traduções?",
 	"cx-dashboard-sidebar-information": "Saber mais sobre esta funcionalidade",
+	"cx-dashboard-sidebar-stats": "Estatísticas",
 	"cx-dashboard-sidebar-feedback": "Dê-nos a sua opinião",
 	"cx-translation-filter-all-translations": "Todas as traduções",
 	"cx-translation-filter-published-translations": "Publicadas",
@@ -206,5 +207,9 @@
 	"cx-notification-hundredth-translation": "Acabou de fazer 100 traduções! É um feito notável. Partilhe o acontecimento com outros editores.",
 	"cx-notification-hundredth-translation-email-subject": "Parabéns pela sua centésima tradução",
 	"cx-translationlist-empty-title": "Nada para traduzir?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Inicie}} a sua tradução agora e continue a qualquer altura."
+	"cx-translationlist-empty-desc": "{{GENDER:|Inicie}} a sua tradução agora e continue a qualquer altura.",
+	"cx-tools-link-external-link": "Externo",
+	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
+	"cx-tools-link-apply": "Feito",
+	"mw-pageselector-missing": "A página não existe"
 }

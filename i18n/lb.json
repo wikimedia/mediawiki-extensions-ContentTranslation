@@ -87,6 +87,7 @@
 	"cx-publish-captcha-title": "Sécherheetsfro",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Braucht}} Dir Hëllef mat den Iwwersetzungen?",
 	"cx-dashboard-sidebar-information": "Méi iwwer dës Funktioun wëssen",
+	"cx-dashboard-sidebar-stats": "Statistiken",
 	"cx-dashboard-sidebar-feedback": "Gitt eis Feedback",
 	"cx-translation-filter-all-translations": "All Iwwersetzungen",
 	"cx-translation-filter-published-translations": "Publizéiert",
@@ -180,8 +181,11 @@
 	"cx-notification-hundredth-translation-email-subject": "Gratulatioun fir Är honnertst Iwwersetzung",
 	"cx-translationlist-empty-title": "Näischt z'iwwersetzen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Fänkt}} Är Iwwersetzung elo un a fuert da viru wann Dir Zäit hutt.",
+	"cx-tools-link-internal-link": "Mat der Säit verlinken",
+	"cx-tools-link-internal-link-placeholder": "Säit fanne fir ze verlinken",
 	"cx-tools-link-external-link": "Extern",
 	"cx-tools-link-external-link-placeholder": "Externe Link derbäisetzen",
+	"cx-tools-link-to-another-page": "Mat enger anerer Säit verlinken",
 	"cx-tools-link-apply": "Fäerdeg",
 	"mw-pageselector-missing": "Säit gëtt et net"
 }

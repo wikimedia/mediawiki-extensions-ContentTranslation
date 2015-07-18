@@ -95,6 +95,7 @@
 	"cx-publish-captcha-title": "שאלת אבטחה",
 	"cx-dashboard-sidebar-title": "{{GENDER:|צריך|צריכה}} עזרה עם תרגומים?",
 	"cx-dashboard-sidebar-information": "מידע נוסף על התכונה הזאת",
+	"cx-dashboard-sidebar-stats": "סטטיסטיקות",
 	"cx-dashboard-sidebar-feedback": "שליחת משוב",
 	"cx-translation-filter-all-translations": "כל התרגומים",
 	"cx-translation-filter-published-translations": "התפרסמו",

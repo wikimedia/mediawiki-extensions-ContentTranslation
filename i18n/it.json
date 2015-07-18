@@ -98,6 +98,7 @@
 	"cx-publish-captcha-title": "Domanda di sicurezza",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Need}} serve un aiuto in una traduzione?",
 	"cx-dashboard-sidebar-information": "Ulteriori informazioni riguardanti questa caratteristica",
+	"cx-dashboard-sidebar-stats": "Statistiche",
 	"cx-dashboard-sidebar-feedback": "Inviaci un feedback",
 	"cx-translation-filter-all-translations": "Tutte le traduzioni",
 	"cx-translation-filter-published-translations": "Pubblicati/te",
@@ -156,9 +157,6 @@
 	"cx-translation-already-in-progress-collaborate": "Assicurati di coordinarti con l'utente che ha eseguito la traduzione attuale.",
 	"cx-publishing-dialog-publish-draft-button": "Pubblica come bozza",
 	"cx-feedback-link": "Dai il tuo feedback",
-	"cx-stats-table-source-target": "Origine↓ / Destinazione→",
-	"cx-stats-table-source-total": "Totale (Origine)",
-	"cx-stats-table-target-total": "Totale (Destinazione)",
 	"cx-stats-published-translations-title": "Traduzioni pubblicate",
 	"cx-stats-draft-translations-title": "Traduzioni in corso",
 	"cx-stats-published-translators-title": "Numero di traduttori",
@@ -195,5 +193,8 @@
 	"cx-notification-hundredth-translation": "Hai appena fatto 100 traduzioni! Tutto ciò è un risultato notevole. Condividi la notizia con gli altri editori.",
 	"cx-notification-hundredth-translation-email-subject": "Congratulazioni per la tua centesima traduzione",
 	"cx-translationlist-empty-title": "Niente da tradurre?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Inizia}} la tua traduzione ora e continuala quando vuoi"
+	"cx-translationlist-empty-desc": "{{GENDER:|Inizia}} la tua traduzione ora e continuala quando vuoi",
+	"cx-tools-link-external-link": "Esterno",
+	"cx-tools-link-apply": "Fatto",
+	"mw-pageselector-missing": "La pagina non esiste"
 }

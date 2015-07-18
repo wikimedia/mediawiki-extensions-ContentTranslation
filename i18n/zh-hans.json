@@ -97,6 +97,7 @@
 	"cx-publish-captcha-title": "安全问题",
 	"cx-dashboard-sidebar-title": "{{GENDER:|需要}}翻译的帮助么？",
 	"cx-dashboard-sidebar-information": "了解关于此功能的更多信息",
+	"cx-dashboard-sidebar-stats": "统计",
 	"cx-dashboard-sidebar-feedback": "向我们提供反馈",
 	"cx-translation-filter-all-translations": "所有翻译",
 	"cx-translation-filter-published-translations": "已发布",
