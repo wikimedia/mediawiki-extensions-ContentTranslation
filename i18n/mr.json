@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"V.narsikar",
-			"NehalDaveND"
+			"NehalDaveND",
+			"Anuragbihani94"
 		]
 	},
 	"cx": "भाषांतरासाठीचे पान",
@@ -31,5 +32,8 @@
 	"cx-sourceselector-dialog-target-language-label": "प्रति:",
 	"cx-save-draft-saving": "जतन करीत आहे...",
 	"cx-contributions-new-article": "नवीन पृष्ठ",
-	"cx-contributions-translation": "भाषांतर"
+	"cx-contributions-translation": "भाषांतर",
+	"cx-tools-link-internal-link": "पानास जोडा",
+	"cx-tools-link-apply": "झाले",
+	"mw-pageselector-missing": "पान अस्तित्वात नाही"
 }

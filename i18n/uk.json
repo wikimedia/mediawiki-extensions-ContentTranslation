@@ -10,7 +10,8 @@
 			"Lxlalexlxl",
 			"Piramidion",
 			"Amire80",
-			"Ckromnaya"
+			"Ckromnaya",
+			"Base"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -97,6 +98,7 @@
 	"cx-publish-captcha-title": "Секретне запитання",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Потрібна}} допомога з перекладами?",
 	"cx-dashboard-sidebar-information": "Дізнайтеся більше про цю функцію",
+	"cx-dashboard-sidebar-stats": "Статистика",
 	"cx-dashboard-sidebar-feedback": "Напишіть нам відгук",
 	"cx-translation-filter-all-translations": "Усі переклади",
 	"cx-translation-filter-published-translations": "Опубліковано",

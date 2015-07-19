@@ -162,5 +162,12 @@
 	"cx-notification-hundredth-translation": "방금 100개의 번역을 마치셨습니다! 이것은 굉장한 달성입니다. 다른 편집자들과 말을 나누세요.",
 	"cx-notification-hundredth-translation-email-subject": "당신의 백 번째 번역을 축하합니다",
 	"cx-translationlist-empty-title": "번역할 것이 없습니까?",
-	"cx-translationlist-empty-desc": "당신의 번역을 지금 시작하고 언제든지 이어하세요."
+	"cx-translationlist-empty-desc": "당신의 번역을 지금 시작하고 언제든지 이어하세요.",
+	"cx-tools-link-internal-link": "문서에 링크",
+	"cx-tools-link-internal-link-placeholder": "링크로 문서 찾기",
+	"cx-tools-link-external-link": "바깥",
+	"cx-tools-link-external-link-placeholder": "바깥 링크 추가",
+	"cx-tools-link-to-another-page": "다른 문서에 링크",
+	"cx-tools-link-apply": "완료",
+	"mw-pageselector-missing": "문서가 존재하지 않습니다"
 }

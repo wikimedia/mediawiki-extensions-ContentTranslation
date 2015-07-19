@@ -13,7 +13,8 @@
 			"M!dgard",
 			"Romaine",
 			"Rangekill",
-			"Amire80"
+			"Amire80",
+			"FabianRM"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -96,10 +97,11 @@
 	"cx-sourceselector-dialog-error-title-in-use": "De titel van de nieuwe pagina [$1 wordt al gebruikt]",
 	"cx-sourceselector-dialog-error-no-source-article": "De te vertalen pagina bestaat niet in $1",
 	"cx-mt-abuse-warning-title": "Uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde machinevertaalde tekst",
-	"cx-mt-abuse-warning-text": "Machinevertalingen zijn alleen bedoeld als een startpunt. U moet er zelf voor zorgen dat de inhoud correct is en op natuurlijke manier in uw eigen taal te lezen is.",
+	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen.",
 	"cx-publish-captcha-title": "Beveiligingsvraag",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Hulp}} nodig bij het vertalen?",
 	"cx-dashboard-sidebar-information": "Meer informatie over deze functie",
+	"cx-dashboard-sidebar-stats": "Statistieken",
 	"cx-dashboard-sidebar-feedback": "Terugkoppeling geven",
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Gepubliceerd",
@@ -167,9 +169,6 @@
 	"cx-translation-already-in-progress-collaborate": "Zorg ervoor dat u uw bewerkingen coördineert met de gebruiker die de huidige vertaling heeft vertaald.",
 	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren",
 	"cx-feedback-link": "Feedback geven",
-	"cx-stats-table-source-target": "Bron↓ / Doel→",
-	"cx-stats-table-source-total": "Totaal (bron)",
-	"cx-stats-table-target-total": "Totaal (doel)",
 	"cx-stats-published-translations-title": "Gepubliceerde vertalingen",
 	"cx-stats-draft-translations-title": "Vertalingen worden uitgevoerd",
 	"cx-stats-published-translators-title": "Aantal vertalers",
@@ -207,5 +206,6 @@
 	"cx-notification-first-translation": "Gefeliciteerd met uw eerste vertaling! Vind meer te vertalen pagina's in [[Special:MyContributions|uw bijdragenpagina]].",
 	"cx-notification-first-translation-email-subject": "Gefeliciteerd met uw eerste vertaling",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
-	"cx-translationlist-empty-desc": "Begin uw vertaling nu en u kunt er altijd later mee doorgaan"
+	"cx-translationlist-empty-desc": "Begin uw vertaling nu en u kunt er altijd later mee doorgaan",
+	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen"
 }

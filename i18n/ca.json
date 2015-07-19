@@ -95,7 +95,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "El títol escollit per a l'article ja [$1 està en ús]",
 	"cx-sourceselector-dialog-error-no-source-article": "L'article a traduir no existeix en $1",
 	"cx-mt-abuse-warning-title": "La seva traducció conté un $1% de text traduït automàticament que no s'ha modificat",
-	"cx-mt-abuse-warning-text": "Les traduccions automàtiques només s'han d'utilitzar com a plantilles. Heu de tenir cura del contingut i assegurar-vos que les traduccions són acurades i naturals en la vostra llengua.",
+	"cx-mt-abuse-warning-text": "La traducció automàtica proposada cal utilitzar-la com a esbós. Cal que verifiqueu que el contingut sigui acurat i soni natural en la vostra llengua.",
 	"cx-publish-captcha-title": "Pregunta de seguretat",
 	"cx-dashboard-sidebar-stats": "Estadístiques",
 	"cx-translation-filter-all-translations": "Totes les traduccions",
@@ -177,6 +177,7 @@
 	"cx-tools-link-internal-link-placeholder": "Trobar la pàgina a enllaçar",
 	"cx-tools-link-external-link": "Externs",
 	"cx-tools-link-external-link-placeholder": "Afegir enllaç extern",
+	"cx-tools-link-to-another-page": "Enllaçar a una altra pàgina",
 	"cx-tools-link-apply": "Fet",
 	"mw-pageselector-missing": "La pàgina no existeix"
 }

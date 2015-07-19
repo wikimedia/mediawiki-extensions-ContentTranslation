@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Asoxor"
+			"Asoxor",
+			"Pirehelokan"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -70,6 +71,7 @@
 	"cx-publish-captcha-title": "پرسیاری ئاسایشی",
 	"cx-dashboard-sidebar-title": "یارمەتیت پێویستە بۆ وەرگێڕانەکان؟",
 	"cx-dashboard-sidebar-information": "سەبارەت بەم ئامرازە زۆرتر بزانە",
+	"cx-dashboard-sidebar-stats": "ئامارەکان",
 	"cx-translation-filter-all-translations": "هەموو وەرگێڕانەکان",
 	"cx-translation-filter-published-translations": "بڵاوکراو",
 	"cx-translation-filter-from-any-language": "لە ھەر زمانێکەوە",
@@ -127,5 +129,11 @@
 	"cx-notification-first-translation": "پیرۆزت بێت یەکەم وەرگێڕانت! لە [[Special:MyContributions|پەڕەی بەشدارییەکانتدا]] پەڕەی دیکەش بدۆزەرەوە بۆ وەرگێڕان.",
 	"cx-notification-first-translation-email-subject": "پیرۆزبایی بۆ یەکەم وەرگێڕانت",
 	"cx-translationlist-empty-title": "ھیچ نییە بۆ وەرگێڕان؟",
-	"cx-translationlist-empty-desc": "ھەر ئێستا وەرگێڕانی خۆت دەست پێ بکە و ھەر کاتێک ویستت درێژەی پێ بدە."
+	"cx-translationlist-empty-desc": "ھەر ئێستا وەرگێڕانی خۆت دەست پێ بکە و ھەر کاتێک ویستت درێژەی پێ بدە.",
+	"cx-tools-link-internal-link": "بەستەر بدە بۆ پەڕە",
+	"cx-tools-link-internal-link-placeholder": "پەڕە بۆ بەستەردان بدۆزەرەوە",
+	"cx-tools-link-external-link": "دەرەکی",
+	"cx-tools-link-external-link-placeholder": "بەستەری دەرەکی زیاد بکە",
+	"cx-tools-link-apply": "کرا",
+	"mw-pageselector-missing": "پەڕە بوونی نیە"
 }
