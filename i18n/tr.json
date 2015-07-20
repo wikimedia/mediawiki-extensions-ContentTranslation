@@ -98,6 +98,7 @@
 	"cx-publish-captcha-title": "Güvenlik sorusu",
 	"cx-dashboard-sidebar-title": "Çeviriler için yardıma mı {{GENDER:|ihtiyacınız}} var?",
 	"cx-dashboard-sidebar-information": "Bu özellikle ilgili daha fazlasını bilin",
+	"cx-dashboard-sidebar-stats": "İstatistikler",
 	"cx-dashboard-sidebar-feedback": "Bize geri bildirimde bulunun",
 	"cx-translation-filter-all-translations": "Tüm çeviriler",
 	"cx-translation-filter-published-translations": "Yayınlanan çeviriler",

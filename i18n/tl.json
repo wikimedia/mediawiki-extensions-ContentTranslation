@@ -201,7 +201,7 @@
 	"cx-notification-hundredth-translation": "Nakagawa ka ng 100 salinwika! Iyon ang kasiya-siyang pagtamo. Ibahagi ang pagbati sa ibang mga tagapamatnugot.",
 	"cx-notification-hundredth-translation-email-subject": "Binabati kita sa iyong ika-isandaang pag-salinwika",
 	"cx-translationlist-empty-title": "Walang isasalinwika?",
-	"cx-translationlist-empty-desc": "Simulan na ngayon ang iyong pagsasalinwika at ituloy ito sa kahit na anong oras.",
+	"cx-translationlist-empty-desc": "{{GENDER:|Simulan}} mo na ngayon ang iyong salinwika at maaari mo itong ituloy kahit kailan.",
 	"cx-tools-link-internal-link": "Kawing sa pahina",
 	"cx-tools-link-internal-link-placeholder": "Maghanap ng pahinang maikakawing",
 	"cx-tools-link-external-link": "Panlabas",

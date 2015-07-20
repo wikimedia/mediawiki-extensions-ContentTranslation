@@ -54,6 +54,7 @@
 	"cx-tools-mt-not-available": "ТӀе цакхочу $1",
 	"cx-tools-mt-dont-use": "Ма леладе зорбанан гоч",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категори|$1 категореш|0=Категореш яц}}",
+	"cx-stats-title": "(«Content Translation») чулацаман гочдаран статистика",
 	"cx-stats-unknown": "хууш дац",
 	"cx-tools-reference-title": "Билгалдаккхар",
 	"cx-tools-reference-add": "ТӀетоха хьост",

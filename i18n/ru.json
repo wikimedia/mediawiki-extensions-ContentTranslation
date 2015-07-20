@@ -103,6 +103,7 @@
 	"cx-publish-captcha-title": "Защитный вопрос",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Нужна}} помощь с переводами?",
 	"cx-dashboard-sidebar-information": "Подробнее об этой функции",
+	"cx-dashboard-sidebar-stats": "Статистика",
 	"cx-dashboard-sidebar-feedback": "Оставьте отзыв",
 	"cx-translation-filter-all-translations": "Все переводы",
 	"cx-translation-filter-published-translations": "Опубликованные",
@@ -212,5 +213,7 @@
 	"cx-notification-hundredth-translation": "Вы только что сделали 100 переводов! Это замечательное достижение. Поделитесь этим с другими редакторами.",
 	"cx-notification-hundredth-translation-email-subject": "Поздравляем вас с сотым переводом",
 	"cx-translationlist-empty-title": "Нечего переводить?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время."
+	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время.",
+	"cx-tools-link-apply": "Готово",
+	"mw-pageselector-missing": "Страница не существует"
 }

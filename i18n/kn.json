@@ -6,7 +6,8 @@
 			"Omshivaprakash",
 			"Teju2friends",
 			"Vikashegde",
-			"Yogesh"
+			"Yogesh",
+			"Ananth subray"
 		]
 	},
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
@@ -89,6 +90,7 @@
 	"cx-mt-abuse-warning-title": "ನಿಮ್ಮ ಅನುವಾದ $1% ರಷ್ಟು ಬದಲಾವಣೆ ಮಾಡಲಾರದ ಯಾಂತ್ರಿಕ-ಅನುವಾದದ ಪಠ್ಯ {{PLURAL:$1|ಹೊಂದಿದೆ}}",
 	"cx-mt-abuse-warning-text": "ಯಾಂತ್ರಿಕ ಅನುವಾದಗಳನ್ನು ಕೇವಲ ಟೆಂಪ್ಲೇಟ್‌ ಆಗಿ ನೀಡಲಾಗಿದೆ. ನೀವು ವಿಷಯವು ನಿಖರವಾಗಿದೆ ಮತ್ತು ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಸಹಜವಾಗಿ ಓದಲ್ಪಡುತ್ತದೆಂದು ಖಾತ್ರಿ ಪಡಿಸಿಕೊಳ್ಳಬೇಕು.",
 	"cx-publish-captcha-title": "ಸುರಕ್ಷತೆ ಪ್ರಶ್ನೆ",
+	"cx-dashboard-sidebar-stats": "ಅಂಕಿಅಂಶಗಳು",
 	"cx-translation-filter-all-translations": "ಎಲ್ಲಾ ಅನುವಾದಗಳು",
 	"cx-translation-filter-published-translations": "ಪ್ರಕಟಿತಗೊಂಡವು",
 	"cx-translation-filter-draft-translations": "ಕಾರ್ಯ ಪ್ರಗತಿಯಲ್ಲಿರುವವು",
@@ -150,9 +152,6 @@
 	"cx-translation-already-in-progress-collaborate": "ಸಧ್ಯದ ಅನುವಾದವನ್ನು ಮಾಡಿದ ಬಳಕೆದಾರರೊಂದಿಗೆ ನೀವು ಕೈ ಜೋಡಿಸುತ್ತೀರೆಂದು ದಯವಿಟ್ಟು ಖಾತ್ರಿಗೊಳಿಸಿಕೊಳ್ಳಿ.",
 	"cx-publishing-dialog-publish-draft-button": "ಕರಡಾಗಿ ಪ್ರಕಟಿಸು",
 	"cx-feedback-link": "ಅಭಿಪ್ರಾಯ ತಿಳಿಸಿ",
-	"cx-stats-table-source-target": "ಮೂಲ↓ / ಉದ್ದೇಶಿತ→",
-	"cx-stats-table-source-total": "ಒಟ್ಟು (ಮೂಲ)",
-	"cx-stats-table-target-total": "ಒಟ್ಟು (ಉದ್ದೇಶಿತ)",
 	"cx-stats-published-translations-title": "ಪ್ರಕಟಗೊಂಡ ಅನುವಾದಗಳು",
 	"cx-stats-draft-translations-title": "ಪ್ರಗತಿಯಲ್ಲಿರುವ ಅನುವಾದಗಳು",
 	"cx-stats-published-translators-title": "ಅನುವಾದಕರ ಸಂಖ್ಯೆ",
@@ -164,5 +163,9 @@
 	"cx-campaign-no-thanks": "ಬೇಡ, ಧನ್ಯವಾದಗಳು",
 	"cx-campaign-try": "ವಿಷಯ ಅನುವಾದ ಪ್ರಯತ್ನಿಸಿ",
 	"cx-trend-all-translations": "ಎಲ್ಲಾ ಅನುವಾದಗಳು",
-	"cx-trend-translations-to": "$1 ಭಾಷೆಗೆ ಅನುವಾದಗಳು"
+	"cx-trend-translations-to": "$1 ಭಾಷೆಗೆ ಅನುವಾದಗಳು",
+	"cx-tools-link-external-link": "ಬಾಹ್ಯ",
+	"cx-tools-link-external-link-placeholder": "ಬಾಹ್ಯ ಸಂಪರ್ಕ ಸೇರಿಸು",
+	"cx-tools-link-apply": "ಮುಗಿಯಿತು",
+	"mw-pageselector-missing": "ಪುಟವು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ"
 }
