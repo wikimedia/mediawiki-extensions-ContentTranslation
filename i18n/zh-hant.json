@@ -94,6 +94,7 @@
 	"cx-publish-captcha-title": "安全問題",
 	"cx-dashboard-sidebar-title": "{{GENDER:|需要}}協助翻譯嗎？",
 	"cx-dashboard-sidebar-information": "瞭解有關此功能的詳情",
+	"cx-dashboard-sidebar-stats": "統計資訊",
 	"cx-dashboard-sidebar-feedback": "給我們一些意見回饋",
 	"cx-translation-filter-all-translations": "所有翻譯",
 	"cx-translation-filter-published-translations": "已發佈",
@@ -203,5 +204,12 @@
 	"cx-notification-hundredth-translation": "您剛完成 100 次翻譯！這是一個卓越的成就。請與其他編輯人員分享您的成就。",
 	"cx-notification-hundredth-translation-email-subject": "恭喜您完成第一百次翻譯",
 	"cx-translationlist-empty-title": "沒什麼好翻譯的？",
-	"cx-translationlist-empty-desc": "現在{{GENDER:|開始}}您的翻譯並隨時繼續。"
+	"cx-translationlist-empty-desc": "現在{{GENDER:|開始}}您的翻譯並隨時繼續。",
+	"cx-tools-link-internal-link": "連結至頁面",
+	"cx-tools-link-internal-link-placeholder": "尋找頁面至連結",
+	"cx-tools-link-external-link": "外部",
+	"cx-tools-link-external-link-placeholder": "加入外部連結",
+	"cx-tools-link-to-another-page": "連結至其他頁面",
+	"cx-tools-link-apply": "完成",
+	"mw-pageselector-missing": "頁面不存在"
 }

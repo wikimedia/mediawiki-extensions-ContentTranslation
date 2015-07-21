@@ -47,7 +47,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Magsalin mula sa $1",
 	"cx-special-login-error": "Dapat na naka log in bago makapagsalin sa pahinang ito. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|I-klik}} ang mga talata upang maisalin",
-	"cx-tools-instructions-text2": "Hindi {{GENDER:|mo}} kailanang idagdag ang lahat",
+	"cx-tools-instructions-text2": "Hindi {{GENDER:|mo}} kailangang dagdagan ang lahat",
 	"cx-tools-instructions-text3": "{{GENDER:|Gawin}} ang teksto upang likas itong mababasa",
 	"cx-tools-instructions-text4": "Kapaki-pakinabang ang de-makinang pagsasalin ngunit kailangan {{GENDER:|mong}} rebisahin ang teksto upang maiwasto ito.",
 	"cx-tools-instructions-text5": "{{GENDER:|Ilimbag}} ang salinwika",

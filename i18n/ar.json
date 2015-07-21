@@ -6,7 +6,8 @@
 			"سامي الرحيلي",
 			"محمد أحمد عبد الفتاح",
 			"Yahya Sakhnini",
-			"Amire80"
+			"Amire80",
+			"Mervat Salman"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -93,6 +94,7 @@
 	"cx-publish-captcha-title": "سؤال الأمان",
 	"cx-dashboard-sidebar-title": "{{GENDER:|مساعدة}} على الترجمة؟",
 	"cx-dashboard-sidebar-information": "اعرف المزيد عن هذه الخاصية",
+	"cx-dashboard-sidebar-stats": "إحصائيات",
 	"cx-dashboard-sidebar-feedback": "رد علينا",
 	"cx-translation-filter-all-translations": "كل الترجمات",
 	"cx-translation-filter-published-translations": "المنشورة",

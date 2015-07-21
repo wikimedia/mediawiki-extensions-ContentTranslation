@@ -194,7 +194,9 @@
 	"cx-notification-hundredth-translation-email-subject": "Congratulazioni per la tua centesima traduzione",
 	"cx-translationlist-empty-title": "Niente da tradurre?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Inizia}} la tua traduzione ora e continuala quando vuoi",
+	"cx-tools-link-internal-link": "Collegamento alla pagina",
 	"cx-tools-link-external-link": "Esterno",
+	"cx-tools-link-external-link-placeholder": "Aggiungere link esterno",
 	"cx-tools-link-apply": "Fatto",
 	"mw-pageselector-missing": "La pagina non esiste"
 }
