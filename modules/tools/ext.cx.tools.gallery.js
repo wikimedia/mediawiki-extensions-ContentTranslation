@@ -13,7 +13,7 @@
 
 	function adaptGallery( $section ) {
 		var i, $sourceSection, galleryData, galleryWikiMarkup = '',
-			imageItems, caption, imageIndex = 0;
+			imageItems, caption, imageTitle, imageIndex = 0;
 
 		if ( !$section.is( '[typeof*="mw:Extension/gallery"]' ) ) {
 			return;
@@ -29,8 +29,13 @@
 				// FIXME: Copying plain text of gallery text will definitely lose the html
 				// mark up in translation. What we need is Wikitext of the translated HTML.
 				// That require a restbase api call.
+				imageTitle = imageItems[ i ].split( '|' )[ 0 ];
+				// Change the image namespace to canonical File: namespace.
+				// TODO: We can use the localized namespace in target language with the
+				// help of an API query.
+				imageTitle = imageTitle.replace( /(.+:)/, 'File:' );
 				caption = $section.find( '.gallerytext' ).eq( imageIndex ).text().trim();
-				imageItems[ i ] = [ imageItems[ i ].split( '|' )[ 0 ], caption ].join( '|' );
+				imageItems[ i ] = [ imageTitle, caption ].join( '|' );
 				imageIndex++;
 			}
 		}
