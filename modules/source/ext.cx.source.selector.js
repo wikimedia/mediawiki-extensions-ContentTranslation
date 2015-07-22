@@ -257,6 +257,15 @@
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
 			},
+			onVisible: function () {
+				if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
+					this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
+				} else {
+					this.left = this.$element.offset().left;
+				}
+
+				this.$menu.css( this.position() );
+			},
 			quickList: function () {
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
 					return targetLanguageCodes.indexOf( n ) !== -1;
@@ -610,19 +619,13 @@
 	 * Show the CXSourceSelector.
 	 */
 	CXSourceSelector.prototype.show = function () {
-		var sourceUls, targetUls,
-			$container = this.options.container;
+		var $container = this.options.container;
 
 		if ( $container && $container instanceof jQuery ) {
 			this.showAsEmbedded( $container );
 		} else {
 			this.showAsDialog();
 		}
-
-		sourceUls = this.$sourceLanguage.data( 'uls' );
-		sourceUls.left = this.$sourceLanguage.offset().left;
-		targetUls = this.$targetLanguage.data( 'uls' );
-		targetUls.left = this.$targetLanguage.offset().left;
 
 		this.$sourceTitleInput.focus();
 	};
@@ -835,6 +838,15 @@
 			},
 			onReady: function () {
 				this.$menu.addClass( 'cx-sourceselector-uls-source' );
+			},
+			onVisible: function () {
+				if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
+					this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
+				} else {
+					this.left = this.$element.offset().left;
+				}
+
+				this.$menu.css( this.position() );
 			},
 			quickList: function () {
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
