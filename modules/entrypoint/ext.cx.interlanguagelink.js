@@ -101,7 +101,7 @@
 	}
 
 	function createCXInterlanguageItem( code ) {
-		var $link, $item, autonym;
+		var from, $link, $item, autonym;
 
 		// Optimization: if it's just the user language,
 		// get the autonym from an available variable.
@@ -112,11 +112,19 @@
 			autonym = $.uls.data.getAutonym( code );
 		}
 
+		// TODO: This should be done more robustly.
+		// We can't use something like wgContentLanguage because this
+		// will fail for a wiki like simple.wikipedia.org, where
+		// the content language is the same as on en.wikipedia.org,
+		// as well as some other edge cases.
+		from = mw.config.get( 'wgServerName' ).split( '.' )[ 0 ];
+
 		$link = $( '<a>' )
 			.prop( {
 				href: mw.util.getUrl(
 					'Special:ContentTranslation', {
 						page: mw.config.get( 'wgTitle' ),
+						from: from,
 						to: code
 					}
 				),
