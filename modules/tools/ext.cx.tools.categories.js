@@ -375,7 +375,9 @@
 	function createSourceCategoryListItem( id, title ) {
 		var extract, $listItem;
 
-		extract = title.match( /^.*:(.*)$/ );
+		// mw.Title cannot be used because of
+		// https://phabricator.wikimedia.org/T106644
+		extract = title.match( /^.+?:(.*)$/ );
 		$listItem = $( '<li>' )
 			.addClass( 'cx-category cx-category--source' )
 			.attr( 'cx-category-id', id )
@@ -394,7 +396,9 @@
 	function createTargetCategoryListItem( id, title ) {
 		var extract, $listItem, $categoryRemove;
 
-		extract = title.match( /^.*:(.*)$/ );
+		// mw.Title cannot be used because of
+		// https://phabricator.wikimedia.org/T106644
+		extract = title.match( /^.+?:(.*)$/ );
 		$listItem = $( '<li>' )
 			.addClass( 'cx-category cx-category--translation' )
 			.attr( 'cx-category-id', id )
