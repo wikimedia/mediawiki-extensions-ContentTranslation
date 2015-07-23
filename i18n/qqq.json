@@ -146,6 +146,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "{{doc-apihelp-param|query+cxpublishedtranslations|interval}}",
 	"apihelp-query+contenttranslationlangtrend-example-1": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
 	"apihelp-query+contenttranslationlangtrend-example-2": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
+	"apihelp-cxtoken-example-1": "{{doc-apihelp-example|cxtoken}}",
 	"cx-save-draft-save-success": "\"Saved\" refers to a draft of a translated page that was saved recently.",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
