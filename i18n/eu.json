@@ -87,5 +87,6 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|Itzulpen $1|$1 itzulpen}}",
 	"cx-tools-missing-link-tooltip": "Itzuli (leiho berrian)",
 	"echo-category-title-cx": "Itzulpenak",
-	"cx-translationlist-empty-title": "Itzultzeko ezer ez?"
+	"cx-translationlist-empty-title": "Itzultzeko ezer ez?",
+	"cx-tools-link-apply": "Egina"
 }

@@ -42,7 +42,7 @@
 	"cx-publish-gt-published-description": "Ви можете натиснути «{{int:vector-view-edit}}», щоб продовжити покращення сторінки. Переконайтесь, що вона читається природно.",
 	"cx-translation-add-translation": "+ Додати переклад",
 	"cx-translation-target-page-exists": "Сторінка з назвою [$1 $2] вже існує в цільовій вікі. Подумайте, може підійде інакша назва?",
-	"tag-contenttranslation": "Переклад вмісту",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Переклад вмісту]]",
 	"tag-contenttranslation-description": "Вміст було перекладено з іншої мови за допомогою інструменту Переклад вмісту.",
 	"cx-source-loading": "Завантаження $1",
 	"cx-beta": "Переклад вмісту",
@@ -138,6 +138,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Інтервал обчислення тренду. Може бути «week» або «month».",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Вибірка тренду публікацій для пари мов es-ca з тижневим інтервалом",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Вибірка тренду публікацій для усіх мов",
+	"apihelp-cxtoken-example-1": "Отримати токен автентифікації для cxserver",
 	"cx-save-draft-save-success": "Збережено {{PLURAL:$1|хвилину тому|$1 хвилини тому|$1 хвилин тому|0=щойно}}",
 	"cx-save-draft-saving": "Збереження…",
 	"cx-save-draft-tooltip": "Чернетки перекладів зберігаються автоматично",
@@ -209,5 +210,11 @@
 	"cx-notification-hundredth-translation-email-subject": "Вітаємо із сотим перекладом",
 	"cx-translationlist-empty-title": "Ні́чого перекладати?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Почніть}} свій переклад зараз і продовжіть його у будь-який час.",
-	"cx-tools-link-external-link": "Зовнішні"
+	"cx-tools-link-internal-link": "Посилання на сторінку",
+	"cx-tools-link-internal-link-placeholder": "Знайти сторінку, на яку треба дати посилання",
+	"cx-tools-link-external-link": "Зовнішні",
+	"cx-tools-link-external-link-placeholder": "Додати зовнішнє посилання",
+	"cx-tools-link-to-another-page": "Посилання на іншу сторінку",
+	"cx-tools-link-apply": "Готово",
+	"mw-pageselector-missing": "Сторінка не існує"
 }

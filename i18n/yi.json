@@ -129,6 +129,7 @@
 	"cx-stats-published-translators-title": "צאל איבערזעצער",
 	"cx-draft-cancel-button-label": "אַנולירן",
 	"cx-draft-discard-button-label": "אויסמעקן איבערזעצונג",
+	"cx-campaign-try": "פרובירט אינהאלט־איבערזעצונג",
 	"cx-campaign-contributionsmenu-mycontributions": "בײַשטײַערונגען",
 	"cx-campaign-contributionsmenu-mytranslations": "איבערזעצונגען",
 	"cx-campaign-contributionsmenu-translate-instead": "איבערזעצן ענדערשט אנהייבן פון אלף",
@@ -148,5 +149,14 @@
 	"cx-tools-missing-link-tooltip": "איבערזעצן (אין א נײַעם פענצטער)",
 	"cx-tools-missing-link-title": "פעלנדיקער לינק",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|מארקירן}} ווי פעלנדיק",
-	"echo-category-title-cx": "איבערזעצונגען"
+	"echo-category-title-cx": "איבערזעצונגען",
+	"cx-notification-first-translation-email-subject": "מזל טוב צו דער ערשטער איבערזעצונג",
+	"cx-notification-tenth-translation-email-subject": "מזל טוב צו דער צענטער איבערזעצונג",
+	"cx-notification-hundredth-translation-email-subject": "מזל טוב צו דער הונדערטער איבערזעצונג",
+	"cx-translationlist-empty-title": "נישטא וואס איבערצוזעצן?",
+	"cx-tools-link-internal-link": "לינק צו בלאט",
+	"cx-tools-link-external-link": "דרויסנדיק",
+	"cx-tools-link-to-another-page": "לינק צו אן אנדער בלאט",
+	"cx-tools-link-apply": "ערליידיקט",
+	"mw-pageselector-missing": "בלאט עקזיסטירט נישט"
 }

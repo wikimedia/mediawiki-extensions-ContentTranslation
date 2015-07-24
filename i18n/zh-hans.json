@@ -41,7 +41,7 @@
 	"cx-publish-gt-published-description": "您可点击“{{int:vector-view-edit}}”保持改进页面。确保它读起来顺口。",
 	"cx-translation-add-translation": "+加入翻译",
 	"cx-translation-target-page-exists": "带[$1 $2]标题的页面已存在于目标wiki。考虑提供不同标题的页面。",
-	"tag-contenttranslation": "内容翻译",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|内容翻译]]",
 	"tag-contenttranslation-description": "内容是通过内容翻译工具从另一语言翻译而来的。",
 	"cx-source-loading": "正在载入$1",
 	"cx-beta": "内容翻译",

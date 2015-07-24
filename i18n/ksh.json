@@ -195,6 +195,10 @@
 	"cx-notification-hundredth-translation-email-subject": "Mer jrattolehre för Ding hondertste Övversäzong",
 	"cx-translationlist-empty-title": "Nix doh zom Övversäze?",
 	"cx-translationlist-empty-desc": "Bejenn Ding Övversäzong jäz. De kanns jehderzigg drahn wigger maache.{{GENDER:|}}",
+	"cx-tools-link-internal-link": "Lengk op",
+	"cx-tools-link-internal-link-placeholder": "Fengk en Sigg, öm ene Lengk drop ze säze",
+	"cx-tools-link-external-link": "Ußßerhallef",
+	"cx-tools-link-external-link-placeholder": "Donn ene Lengk noh ußerhallef derbei",
 	"cx-tools-link-to-another-page": "Lengk op en ennder Sigg",
 	"cx-tools-link-apply": "Jedonn",
 	"mw-pageselector-missing": "Di Sigg jidd_et nit"

@@ -5,9 +5,11 @@
 			"Amire80"
 		]
 	},
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Dakit-taramon_nin_laman]]",
 	"cx-tools-reference-add": "Idugang ang toltolan",
 	"cx-sourceselector-dialog-target-title-placeholder": "Titulo kan dakit-taramon",
 	"cx-dashboard-sidebar-stats": "Estadistika",
+	"apihelp-cxtoken-example-1": "Pakidaraha an panusing patotoo para sa cxserver",
 	"cx-stats-published-target-source": "Mga Dakit-taramon sa",
 	"cx-stats-published-source-target": "Mga Dakit-taramon gikan sa",
 	"cx-stats-draft-target-source": "Mga dakit-taramon nakaprogreso sa",
