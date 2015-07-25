@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Zeljko.filipin",
-			"MaGa"
+			"MaGa",
+			"Srdjan m"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -12,7 +13,7 @@
 	"cx-license-agreement": "Klikom na \"$1\" pristajete na [//wikimediafoundation.org/wiki/Terms_of_Use uvjete korištenja] i neopozivo prihvaćate da se vaš doprinos s alatom za prevođenje objavi pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] i slažete se da je navođenje poveznice ili adrese dovoljno pripisivanje po licenciji CC BY-SA 3.0.",
 	"cx-error-server-connection": "Greška: ne mogu se spojiti na poslužitelj.",
 	"cx-desc": "Omogućava jednostavno prevođenje stranica",
-	"cx-header-progressbar-text": "Prevedeno $1%",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",
 	"cx-header-progressbar-text-mt": "($1% uz pomoć strojnog prevoditelja)",
 	"cx-header-translation-center": "Centar prevođenja",
 	"cx-header-new-translation": "Novi prijevod",

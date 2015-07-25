@@ -49,7 +49,7 @@
 	"cx-translation-add-translation": "This appears in the empty paragraph in the translation column. Clicking the paragraph adds an automatic translation of the corresponding source paragraph. The plus sign is used as an icon that hints that something is being added.",
 	"cx-translation-target-page-exists": "A warning that is shown if a user tries to translate a page with a title that already exists in the target wiki. $1 is a URL to the target page and $2 is the target page title.",
 	"cx-descriptionpagelink": "A title of a page that describes the Content Translation on the local wiki. Used to link the revision tag that appears on pages like RecentChanges.",
-	"tag-contenttranslation": "A short description of the contenttranslation revision tag. It appears in the edit summary when a translated page is created. It doesn't have to be CamelCase.",
+	"tag-contenttranslation": "A short description of the contenttranslation revision tag. It appears in the edit summary when a translated page is created. It doesn't have to be CamelCase. The link target must remain <nowiki>{{MediaWiki:cx-descriptionpagelink}}</nowiki>. To customize the actual page to which it points, change the MediaWiki:cx-descriptionpagelink message on your wiki.",
 	"tag-contenttranslation-description": "A brief sentence to explain the use of the contenttranslation revision tag. This appears on [[Special:Tags]].",
 	"cx-source-loading": "Status text shown in the source pane while the page is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded\n{{Identical|Loading}}",
 	"cx-beta": "Beta feature title. Appears in the beta tab in user preferences.",

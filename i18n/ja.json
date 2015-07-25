@@ -40,7 +40,7 @@
 	"cx-publish-gt-published-description": "「{{int:vector-view-edit}}」をクリックすることで、このページを引き続き編集できます。自然に読める翻訳か確認してください。",
 	"cx-translation-add-translation": "+ 翻訳を追加",
 	"cx-translation-target-page-exists": "[$1 $2]の題名を冠するページが翻訳作成先のウィキに既にあります。現在のページには別の題名をつけてみてください。",
-	"tag-contenttranslation": "コンテンツ翻訳",
+	"tag-contenttranslation": "本文翻訳",
 	"tag-contenttranslation-description": "この記事の内容はコンテンツ翻訳ツールを使用して他の言語から翻訳されました。",
 	"cx-source-loading": "$1 を読み込み中",
 	"cx-beta": "コンテンツ翻訳",

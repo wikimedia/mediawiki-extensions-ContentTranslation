@@ -44,7 +44,7 @@
 	"cx-publish-gt-published-description": "Możesz kliknąć „{{int:vector-view-edit}}”, aby rozwijać tę stronę. Upewnij się, że dobrze się ją czyta.",
 	"cx-translation-add-translation": "+ Dodaj tłumaczenie",
 	"cx-translation-target-page-exists": "Strona o tytule [$1 $2] już istnieje na docelowej wiki. Rozważ nadanie swojej stronie innego tytułu.",
-	"tag-contenttranslation": "Tłumaczenie treści",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tłumaczenie treści]]",
 	"tag-contenttranslation-description": "Zawartość strony przetłumaczono przy pomocy narzędzia Tłumaczenie Treści.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie Treści",
