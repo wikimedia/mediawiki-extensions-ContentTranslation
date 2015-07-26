@@ -68,7 +68,7 @@
 	"cx-tools-mt-clear-translation": "段落を消去",
 	"cx-tools-mt-restore": "復元",
 	"cx-tools-mt-provider-title": "$1 から",
-	"cx-tools-mt-not-available": "$1へは機械翻訳不可能",
+	"cx-tools-mt-not-available": "$1へは機械翻訳は利用できません。",
 	"cx-tools-mt-dont-use": "機械翻訳を使用しないでください",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|カテゴリ $1 件}}",
 	"cx-stats-title": "コンテンツ翻訳統計",

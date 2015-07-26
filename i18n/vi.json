@@ -90,7 +90,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Tên trang mới đã [$1 đang được sử dụng]",
 	"cx-sourceselector-dialog-error-no-source-article": "Trang gốc không tồn tại trong $1",
 	"cx-mt-abuse-warning-title": "Bản dịch của bạn có $1% là văn bản dịch máy không được sửa đổi",
-	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm, gởi ý. Bạn cần phải chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.",
+	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm. Bạn cần phải chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.",
 	"cx-publish-captcha-title": "Hình CAPTCHA",
 	"cx-dashboard-sidebar-title": "Cần trợ giúp biên dịch?",
 	"cx-dashboard-sidebar-information": "Tìm hiểu thêm về tính năng này",
@@ -199,5 +199,18 @@
 	"echo-category-title-cx": "Bản dịch",
 	"echo-pref-tooltip-cx": "Báo cho tôi về những bản dịch tôi tạo ra qua công cụ Biên dịch nội dung",
 	"cx-notification-first-translation": "Chào mừng vì bản dịch đầu tiên của bạn! Tìm thêm trang để biên dịch tại [[Special:MyContributions|trang đóng góp của bạn]].",
-	"cx-notification-first-translation-email-subject": "Chào mừng vì bản dịch đầu tiên của bạn"
+	"cx-notification-first-translation-email-subject": "Chào mừng vì bản dịch đầu tiên của bạn",
+	"cx-notification-tenth-translation": "Chào mừng vì bản dịch thứ 10 của bạn! Bạn dần dần thông thạo về việc biên dịch. Cứ tiếp tục biên dịch nhé!",
+	"cx-notification-tenth-translation-email-subject": "Chào mừng vì bản dịch thứ 10 của bạn",
+	"cx-notification-hundredth-translation": "Bạn vừa đạt được 100 bản dịch! Hay quá! Hãy cho những người khác biết về công cụ biên dịch này.",
+	"cx-notification-hundredth-translation-email-subject": "Chào mừng vì bản dịch thứ 100 của bạn",
+	"cx-translationlist-empty-title": "Không còn gì để dịch?",
+	"cx-translationlist-empty-desc": "Bắt đầu bản dịch ngay bây giờ và lúc nào dịch tiếp.",
+	"cx-tools-link-internal-link": "Đặt liên kết với trang",
+	"cx-tools-link-internal-link-placeholder": "Tìm trang để đặt liên kết",
+	"cx-tools-link-external-link": "Bên ngoài",
+	"cx-tools-link-external-link-placeholder": "Đặt liên kết ngoài",
+	"cx-tools-link-to-another-page": "Đặt liên kết đến trang khác",
+	"cx-tools-link-apply": "Xong",
+	"mw-pageselector-missing": "Trang không tồn tại"
 }

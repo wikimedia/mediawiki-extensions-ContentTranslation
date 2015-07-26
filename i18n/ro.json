@@ -3,7 +3,8 @@
 		"authors": [
 			"Minisarm",
 			"ImGelu",
-			"KlaudiuMihaila"
+			"KlaudiuMihaila",
+			"Wintereu"
 		]
 	},
 	"cx": "Traducere pagină",
@@ -32,7 +33,7 @@
 	"cx-publish-gt-moved-description": "Faceți clic pe această legătură pentru a lectura și îmbunătăți noua pagină tradusă",
 	"cx-publish-gt-published-title": "Felicitări, pagina a fost publicată",
 	"cx-translation-add-translation": "+ Adaugă traducere",
-	"tag-contenttranslation": "Traducerea conținutului",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traducerea conținutului]]",
 	"cx-source-loading": "Se încarcă $1",
 	"cx-beta": "Traducerea conținutului",
 	"cx-entrypoint-dialog-title-in": "Titlul pentru noua pagină în $1:",
@@ -84,9 +85,6 @@
 	"apihelp-cxdelete-param-from": "Codul limbii sursă.",
 	"apihelp-cxdelete-param-to": "Codul limbii destinație.",
 	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă.",
-	"cx-stats-table-source-target": "Sursă↓ / Destinație→",
-	"cx-stats-table-source-total": "Total (Sursă)",
-	"cx-stats-table-target-total": "Total (Destinație)",
 	"cx-stats-published-translations-title": "Traduceri publicate",
 	"cx-stats-published-translators-title": "Număr de traducători",
 	"cx-campaign-no-thanks": "Nu, mulțumesc",
