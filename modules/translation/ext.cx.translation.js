@@ -265,39 +265,27 @@
 					'data-cx-state': 'source'
 				} );
 
-			if ( origin === 'mt-user-disabled' ) {
+			if ( origin === 'mt-user-disabled' || origin === 'clear' ) {
 				$clone.attr( 'data-cx-state', 'empty' );
-				if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
-					// Clear figure caption alone.
-					$clone.find( 'figcaption' ).empty();
+				if ( $sourceSection.is( 'figure' ) ) {
+					if ( origin === 'clear' ) {
+						// When clearing figures, replace it with placeholder.
+						$clone = getPlaceholder( sourceId ).attr( 'data-cx-section-type', 'figure' );
+					} else {
+						// Clear figure caption alone.
+						$clone.find( 'figcaption' ).empty();
+					}
 				} else if ( $sourceSection.is( 'ul, ol' ) ) {
-					$clone = $sourceSection.clone();
 					// Explicit contenteditable attribute helps to place the cursor
-					// in empty UL.
+					// in empty <ul> or <ol>.
 					$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
 				} else {
 					$clone.empty();
 				}
 			}
-
-			if ( origin === 'clear' ) {
-				$clone.attr( 'data-cx-state', 'empty' );
-				if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
-					// When clearing figures, replace it with placeholder.
-					$clone = getPlaceholder( sourceId )
-						.attr( 'data-cx-section-type', $sourceSection.prop( 'tagName' ) );
-				} else if ( $sourceSection.is( 'ul, ol' ) ) {
-					$clone = $sourceSection.clone();
-					// Explicit contenteditable attribute helps to place the cursor
-					// in empty UL.
-					$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
-				} else {
-					$clone.empty();
-				}
-			} // else: service-failure, non-editable, mt-not-available
+			// else: service-failure, non-editable, mt-not-available
 			// Replace the placeholder with a translatable element
 			$section.replaceWith( $clone );
-
 			// $section was replaced. Get the updated instance.
 			$section = mw.cx.getTranslationSection( sourceId );
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
