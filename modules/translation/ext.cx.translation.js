@@ -270,6 +270,11 @@
 				if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
 					// Clear figure caption alone.
 					$clone.find( 'figcaption' ).empty();
+				} else if ( $sourceSection.is( 'ul, ol' ) ) {
+					$clone = $sourceSection.clone();
+					// Explicit contenteditable attribute helps to place the cursor
+					// in empty UL.
+					$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
 				} else {
 					$clone.empty();
 				}
@@ -281,6 +286,11 @@
 					// When clearing figures, replace it with placeholder.
 					$clone = getPlaceholder( sourceId )
 						.attr( 'data-cx-section-type', $sourceSection.prop( 'tagName' ) );
+				} else if ( $sourceSection.is( 'ul, ol' ) ) {
+					$clone = $sourceSection.clone();
+					// Explicit contenteditable attribute helps to place the cursor
+					// in empty UL.
+					$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
 				} else {
 					$clone.empty();
 				}
