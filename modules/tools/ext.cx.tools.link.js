@@ -797,8 +797,11 @@
 		var self = this;
 
 		// Bring the card to front when clicked
-		this.$card.on( 'click', '.card:first', function () {
-			$( this ).insertAfter( self.$card.find( '.card:last' ) );
+		this.$card.on( 'click', '.card:first', function ( e ) {
+			if ( !$( e.target ).is( 'a' ) ) {
+				// We should not swap the cards when click was on the link in the card.
+				$( this ).insertAfter( self.$card.find( '.card:last' ) );
+			}
 		} );
 	};
 
