@@ -1057,7 +1057,10 @@
 			self.$pageSelectorButton.prop( 'disabled', false );
 		} ).on( 'keypress', function ( e ) {
 			if ( e.which === 13 ) {
-				self.createLink( self.$targetPageSelector.getSelectedPage(), 'external' );
+				if ( linkType === 'external' ) {
+					self.createLink( self.$externalLinkInput.val(), linkType );
+				}
+				// TODO: Add internal link also on enter keypress.
 			}
 		} );
 		this.$internalLink.on( 'click', function () {
