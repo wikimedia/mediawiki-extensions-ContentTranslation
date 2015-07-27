@@ -915,6 +915,7 @@
 	 * @return {jQuery}
 	 */
 	LinkerTool.prototype.getCard = function () {
+		var self = this;
 		this.$pageSelectorButton = $( '<button>' )
 			.prop( 'disabled', true )
 			.addClass( 'mw-ui-button mw-ui-progressive' )
@@ -951,7 +952,10 @@
 
 		this.$targetPageSelector = new mw.PageSelector( this.$searchInput, {
 			api: mw.cx.siteMapper.getApi( mw.cx.targetLanguage ),
-			showMissingPage: true
+			showMissingPage: true,
+			onSelect: function ( selectedPage ) {
+				self.createLink( selectedPage, 'internal' );
+			}
 		} );
 
 		return this.$card;

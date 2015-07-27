@@ -244,6 +244,9 @@
 			if ( event.keyCode === 13 ) {
 				// Enter key handler
 				self.hide();
+				if ( self.options.onSelect ) {
+					self.options.onSelect.call( self, self.getSelectedPage() );
+				}
 				return false;
 			}
 		} );
@@ -257,6 +260,8 @@
 		// Example: mw.Api( { ajax: { url: apiURL } } )
 		api: new mw.Api(),
 		// Show a missing page if search did not return any page.
-		showMissingPage: false
+		showMissingPage: false,
+		// Callback when a page is selected
+		onSelect: null
 	};
 }( jQuery, mediaWiki ) );
