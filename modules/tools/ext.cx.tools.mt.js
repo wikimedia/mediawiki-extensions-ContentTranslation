@@ -46,8 +46,10 @@
 		}
 
 		// (Re-)fetch cxserver token
-		cxserverToken.promise = (new mw.Api())
-			.postWithToken( 'edit', { action: 'cxtoken' } )
+		cxserverToken.promise = ( new mw.Api() )
+			.postWithToken( 'edit', {
+				action: 'cxtoken'
+			} )
 			.always( function () {
 				cxserverToken.promise = undefined;
 			} )
@@ -136,7 +138,9 @@
 				type: 'post',
 				url: mtURL,
 				data: sourceHtml,
-				headers: { Authorization: token }
+				headers: {
+					Authorization: token
+				}
 			} ).then( null, function () {
 				return $.Deferred().reject( 'service-failure', arguments ).promise();
 			} );

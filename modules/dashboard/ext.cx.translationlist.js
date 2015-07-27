@@ -210,7 +210,7 @@
 					$( '<span>' )
 						.prop( {
 							lang: translation.targetLanguage,
-							dir: targetDir,
+							dir: targetDir
 						} )
 						.addClass( 'target-title' )
 						.text( translation.targetTitle )
