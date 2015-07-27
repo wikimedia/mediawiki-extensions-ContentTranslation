@@ -38,7 +38,7 @@
 	"cx-publish-gt-published-description": "يمكنك نقر \"{{int:vector-view-edit}}\" لإتمام تنقيح الصفحة. تأكد من سهولة قراءتها.",
 	"cx-translation-add-translation": "+ أضف ترجمة",
 	"cx-translation-target-page-exists": "الويكي الهدف فيه صفحة بعنوان [$1 $2]. اختر عنوانا مختلفا للصفحة.",
-	"tag-contenttranslation": "ترجمة المحتوى",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ترجمة المحتوى]]",
 	"tag-contenttranslation-description": "جرت ترجمة المحتوى من لغة أخرى باستخدام أداة ترجمة المحتوى.",
 	"cx-source-loading": "تحميل $1",
 	"cx-beta": "ترجمة المحتوى",
