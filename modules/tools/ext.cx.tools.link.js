@@ -973,6 +973,8 @@
 						href: target.title,
 						title: target.title
 					} )
+					// Remove the classes that represent a different state for link.
+					.removeClass( 'cx-selection cx-highlight--blue new cx-target-link-unadapted' )
 					.removeData( 'cxTargetLink' ) // Unbind
 					.cxTargetLink();
 			} else {
