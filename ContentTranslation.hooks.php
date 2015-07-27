@@ -25,6 +25,10 @@ class ContentTranslationHooks {
 			return false;
 		}
 
+		if ( $user->isBlocked() ) {
+			return false;
+		}
+
 		if ( !$wgContentTranslationAsBetaFeature ) {
 			return true;
 		}
