@@ -70,8 +70,6 @@
 				self.onFail( 'cxpublish', response.cxpublish );
 			} ).fail( function ( code, details ) {
 				self.onFail( code, details );
-			} ).always( function () {
-				self.$trigger.prop( 'disabled', true ).text( mw.msg( 'cx-publish-button' ) );
 			} );
 		} );
 	};
@@ -280,6 +278,12 @@
 		);
 
 		mw.cx.dirty = false;
+
+		// Disable the Publish button
+		// and change its label back from "Publishing..." to "Publish"
+		this.$trigger
+			.prop( 'disabled', true )
+			.text( mw.msg( 'cx-publish-button' ) );
 	};
 
 	/**
@@ -307,6 +311,12 @@
 
 		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
 		mw.log( '[CX] Error while publishing:', code, trace );
+
+		// Enable the Publish button to allow retrying,
+		// and set the label back to "Publish"
+		this.$trigger
+			.prop( 'disabled', false )
+			.text( mw.msg( 'cx-publish-button' ) );
 	};
 
 	/**
