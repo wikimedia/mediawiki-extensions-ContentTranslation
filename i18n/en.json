@@ -117,6 +117,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "The title of the source page.",
 	"apihelp-cxpublish-param-sourcerevision": "The revision of the source page.",
 	"apihelp-cxpublish-param-status": "If \"draft\", translation will be saved as draft. If \"published\", translation will be published.",
+	"apihelp-cxpublish-param-progress": "Information about translation completion (progress). JSON with the keys 'any', 'human', 'mt' and 'mtSectionsCount'. The keys' values are percentages.",
 	"apihelp-cxpublish-param-categories": "The categories to put the published page in.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (when saving with a captcha response).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Answer to the captcha (when saving with a captcha response).",

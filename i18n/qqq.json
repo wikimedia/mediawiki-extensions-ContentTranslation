@@ -122,6 +122,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "{{doc-apihelp-param|cxpublish|sourcetitle}}",
 	"apihelp-cxpublish-param-sourcerevision": "{{doc-apihelp-param|cxpublish|sourcerevision}}",
 	"apihelp-cxpublish-param-status": "{{doc-important|DO NOT translate \"draft\" and \"published\" which are enclosed in quotation marks.}}\n\n{{doc-apihelp-param|cxpublish|status}}",
+	"apihelp-cxpublish-param-progress": "{{doc-important|DO NOT translate \"any\", \"human\", \"mt\", and \"mtSectionsCount\".}}\n\n{{doc-apihelp-param|cxpublish|progress}}",
 	"apihelp-cxpublish-param-categories": "{{doc-apihelp-param|cxpublish|categories}}",
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
