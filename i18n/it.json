@@ -42,7 +42,7 @@
 	"cx-publish-gt-published-description": "Puoi cliccare su \"{{int:vector-view-edit}}\" per continuare a migliorare la pagina. Assicurati che sia leggibile con naturalezza.",
 	"cx-translation-add-translation": "+ Aggiungi traduzione",
 	"cx-translation-target-page-exists": "Esiste già una pagina con titolo [$1 $2] nel wiki di destinazione. Considera la possibilità di dare alla pagina un titolo diverso.",
-	"tag-contenttranslation": "TraduzioneContenuti",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraduzioneContenuti]]",
 	"tag-contenttranslation-description": "Il contenuto è stato tradotto da un'altra lingua usando lo strumento Traduzione Contenuti.",
 	"cx-source-loading": "Caricamento $1",
 	"cx-beta": "Traduzione Contenuti",

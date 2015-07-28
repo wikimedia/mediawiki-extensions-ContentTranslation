@@ -29,7 +29,7 @@
 	"cx-header-all-translations": "Wszystkie tłumaczenia",
 	"cx-source-view-page": "zobacz stronę",
 	"cx-publish-page-success": "Strona opublikowana w $1",
-	"cx-publish-page-error": "Podczas zapisywania strony wystąpił błąd. Spróbuj opublikować stronę jeszcze raz.",
+	"cx-publish-page-error": "Podczas publikowania tłumaczenia wystąpił błąd. Spróbuj opublikować stronę jeszcze raz. Błąd: $1",
 	"cx-publish-button": "Opublikuj tłumaczenie",
 	"cx-publish-button-publishing": "Publikowanie...",
 	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
