@@ -631,7 +631,8 @@
 				"cx-publish-page-success",
 				"cx-publish-page-error",
 				"cx-publish-button-publishing",
-				"cx-publish-captcha-title"
+				"cx-publish-captcha-title",
+				"unknown-error"
 			]
 		},
 		"ext.cx.wikibase.link": {

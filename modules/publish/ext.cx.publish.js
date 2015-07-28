@@ -292,7 +292,9 @@
 	 * @param {object} details
 	 */
 	CXPublish.prototype.onFail = function ( code, details ) {
-		var trace = {
+		var trace, error;
+
+		trace = {
 			sourceLanguage: mw.cx.sourceLanguage,
 			targetLanguage: mw.cx.targetLanguage,
 			sourceTitle: mw.cx.sourceTitle,
@@ -309,7 +311,20 @@
 			JSON.stringify( details )
 		);
 
-		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error' ) );
+		// Try providing useful error information. "Unknown" by default.
+		error = mw.msg( 'unknown-error' );
+		if ( details.error && details.error.info ) {
+			// {"servedby":"mw####","error":{"code":"blocked","info":"You have been blocked from editing",
+			// "*":"See ...
+			error = details.error.info;
+		} else if ( details.edit ) {
+			// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
+			error = JSON.stringify( details.edit );
+		} else if ( details.textStatus ) {
+			// {"xhr":{"readyState":0,"status":0,"statusText":"timeout"},"textStatus":"timeout",...
+			error = details.textStatus;
+		}
+		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error', error ) );
 		mw.log( '[CX] Error while publishing:', code, trace );
 
 		// Enable the Publish button to allow retrying,

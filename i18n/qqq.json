@@ -33,7 +33,7 @@
 	"cx-header-all-translations": "A link at the top of the translation interface to the main Special:ContentTranslation page that lists all translations by the user.\n{{Identical|All translations}}",
 	"cx-source-view-page": "A link that points to the source page under the heading of the source column.\n{{Identical|View page}}",
 	"cx-publish-page-success": "Message shown when page is published successfully. Parameters:\n* $1 - Link to the published page",
-	"cx-publish-page-error": "Error message to display when page saving fails.",
+	"cx-publish-page-error": "Error message to display when page saving fails.\n* $1 - Error details",
 	"cx-publish-button": "Publish button text in [[Special:ContentTranslation]].\n\nAlso used in {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-publish-button-publishing": "Publish button text in [[Special:ContentTranslation]], shown while publishing is in progress. Replaces {{msg-mw|cx-publish-button}}.\n{{Identical|Publishing}}",
 	"cx-publish-summary": "This is an automatic edit summary for pages that were created by [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source page name",
