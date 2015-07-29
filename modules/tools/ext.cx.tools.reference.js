@@ -128,7 +128,7 @@
 	 * See https://phabricator.wikimedia.org/T88290
 	 * and https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
 	 * @param {string} referenceId The reference element Identifier.
-	 * @return {string} The HTML content of the reference.
+	 * @return {string|null} The HTML content of the reference.
 	 */
 	ReferenceCard.prototype.getReferenceContent = function ( referenceId ) {
 		var reference, referenceContentElement;
@@ -138,7 +138,7 @@
 			return null;
 		}
 		// Support traditional reference handling by Parsoid
-		if ( reference.body.html ) {
+		if ( reference.body && reference.body.html ) {
 			return reference.body.html;
 		}
 
@@ -226,28 +226,11 @@
 	/**
 	 * For the given reference id, get the reference data
 	 *
-	 * This is very easy in the cases one reference used only once in the page.
-	 * Such a reference link will have data-mw carrying the data.
-	 *
-	 * But when the same reference used in multiple places, this is tricky.
-	 * The page will have the following markup(example) at the end of page, saying all these 3
-	 * references are same. One of these links will have reference data. Not necessarily
-	 * first one. So we have to iterate through all these siblings and find which one has
-	 * reference data.
-	 *
-	 * Example from Antipasto article from eswiki:
-	 * <li about="#cite_note-Jöel-1" data-parsoid="{}" id="130">
-	 * <span data-parsoid="{}" rel="mw:referencedBy">↑
-	 * <a class="cx-link" data-linkid="132" data-parsoid="{}" href="#cite_ref-Jöel-1-0">1.0</a>
-	 * <a class="cx-link" data-linkid="133" data-parsoid="{}" href="#cite_ref-Jöel-1-1">1.1</a>
-	 * <a class="cx-link" data-linkid="134" data-parsoid="{}" href="#cite_ref-Jöel-1-2">1.2</a>
-	 * </span>
-	 * </li>
 	 * @param {string} referenceId
 	 * @return {Object|null}
 	 */
 	ReferenceCard.prototype.getReferenceData = function ( referenceId ) {
-		var $sourceReference, i, mwData, $sibling, $referenceSiblings, id;
+		var $sourceReference;
 
 		$sourceReference = $( document.getElementById( referenceId ) );
 		if ( !$sourceReference.is( '[typeof*="mw:Extension/ref"]' ) ) {
@@ -255,22 +238,7 @@
 			return null;
 		}
 
-		$referenceSiblings = $( '[typeof*="mw:Extension/references"]' )
-			.find( 'a[href="#' + referenceId + '"]' )
-			.siblings()
-			.addBack(); // Including self
-
-		for ( i = 0; i < $referenceSiblings.length; i++ ) {
-			id = $( $referenceSiblings[ i ] ).attr( 'href' ).replace( '#', '' );
-			$sibling = $( document.getElementById( id ) );
-			mwData = $sibling.data( 'mw' );
-			if ( mwData && mwData.body ) {
-				return mwData;
-			}
-		}
-
-		// Did not see a case where we still not find reference data, but...
-		return null;
+		return $sourceReference.data( 'mw' );
 	};
 
 	/**
@@ -278,36 +246,56 @@
 	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
 	 * We copy the data-mw that was adapted using the template configuration at
 	 * ext.cx.source.filter.js#adaptTemplate to the $references' mwData.body.html
+	 *
 	 * @param {string} referenceId
 	 */
 	ReferenceCard.prototype.adaptReference = function ( referenceId ) {
 		var $referenceContent, $targetReference,
-			mwData, adaptedData;
+			mwData;
 
 		$targetReference = $( document.getElementById( 'cx' + referenceId ) );
 		mwData = this.getReferenceData( referenceId );
-		if ( !mwData || !mwData.body ) {
+		if ( !mwData ) {
+			// This is almost impossible. Since every reference will have mw-data as
+			// Parsoid DOM Spec
 			return;
 		}
+		mwData.body = mwData.body || {};
+		if ( !mwData.body.id ) {
+			/*
+			Every reference must have a data-mw.body with id poiting to the item
+			in References section. In general, we can just get copy the data-mw
+			from the source reference. But there are cases it wont be filled in source reference.
+			Example: When reference is reused more than once, the second reference might not have
+			the data-mw.body.id. We need to find that id by looking at references section.
+			To understand this, consider this example reference.
 
-		$referenceContent = $( '<div>' ).html( mwData.body.html );
-		/*
-		Reference template expands in references section as below
-		<ol about="#mwt11" typeof="mw:Extension/references">
-			<li about="#cite_note-1" id="cite_note-1">
-				<span rel="mw:referencedBy">
-					<a href="#cite_ref-1-0">↑</a>
+			<span about="#mwt6" class="reference" id="cite_ref-three_3-0" rel="dc:references" typeof="mw:Extension/Ref"
+			    data-mw='{"name": "ref", "attrs": {"name": "three"}, "body":{"id":"mw-reference-text-cite_three-3"}}'>
+			  <a href="#cite_note-three-3">[3]</a>
+			</span>
+			When reused, note that body.id is missing.
+			<span about="#mwt8" class="reference" id="cite_ref-three_3-1" rel="dc:references" typeof="mw:Extension/ref"
+			    data-mw='{"name":"ref", "attrs":{"name":"three"}}'>
+			  <a href="#cite_note-three-3">[3]</a>
+			</span>
+			Reference template expands in references section as below
+			<ol about="#mwt11" typeof="mw:Extension/references">
+			<li about="#cite_note-three-3" id="cite_note-three-3">
+				<span rel="mw:referencedBy">↑
+					<a href="#cite_ref-three_3-0">3.0</a>
+					<a href="#cite_ref-three_3-1">3.1</a>
 				</span>
-				<span>Reference content html goes here</span>
-		</li>
-		*/
-		adaptedData = $( '[typeof*="mw:Extension/references"]' )
-			.find( 'a[href="#' + referenceId + '"]' )
-			.parent()
-			.next()
-			.data( 'mw' );
-		$referenceContent.children().attr( 'data-mw', JSON.stringify( adaptedData ) );
-		mwData.body.html = $referenceContent.html();
+				<span id="mw-reference-text-cite_note-three-3" class="mw-reference-text" data-parsoid="{}">Three</span>
+				</li>
+			</li>
+			*/
+			$referenceContent = $( '[typeof*="mw:Extension/references"]' )
+				.find( 'a[href="#' + referenceId + '"]' )
+				.closest( 'li' )
+				.find( '.mw-reference-text' );
+			mwData.body.id = $referenceContent.prop( 'id' );
+		}
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 		this.addReferenceList();
 	};
