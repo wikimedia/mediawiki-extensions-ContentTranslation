@@ -100,10 +100,10 @@
 			this.$targetTitleInput.val( this.options.targetTitle ).trigger( 'input' );
 		}
 
-		// If any of the values are already present,
+		// If all of the values are already present,
 		// show the dialog and initiate a validation.
-		if ( this.options.sourceLanguage || this.options.targetLanguage ||
-			this.options.sourceTitle || this.options.targetTitle
+		if ( this.options.sourceLanguage && this.options.targetLanguage &&
+			this.options.sourceTitle
 		) {
 			this.show();
 			this.check();
