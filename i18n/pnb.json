@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Khalid Mahmood"
+		]
+	},
+	"cx-javascript": "ایہ اوزار جاواسکرپٹ بنا کم نہیں کردا۔",
+	"cx-error-server-connection": "غلطی: سرور نال نہیں جڑ سکدا۔",
+	"cx-header-translation-center": "بولی وٹاندرا گڑھ",
+	"cx-header-new-translation": "نواں بولی وٹاندرا",
+	"cx-header-all-translations": "سارے بولی بولی وٹاندرے",
+	"cx-source-view-page": "صفہ ویکھو",
+	"cx-publish-page-success": "صفہ 1$ تے چھپیا",
+	"cx-publish-page-error": "بولی وٹاندرا چھاپدیاں اک غلطی ہوئی۔ صفہ فیر چھاپن دی کوشش کرو۔ غلطی: $1",
+	"cx-publish-button": "بولی وٹاندرا چھاپو",
+	"cx-publish-gt-move-page-title": "ایس صفے نوں لے چلو",
+	"cx-publish-gt-moved-title": "ایہ بولی پلٹیا صفہ کتے ہور پیج دتا گیا اے۔"
+}

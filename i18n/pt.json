@@ -26,7 +26,7 @@
 	"cx-header-all-translations": "Todas as traduções",
 	"cx-source-view-page": "ver página",
 	"cx-publish-page-success": "Página publicada em $1",
-	"cx-publish-page-error": "Ocorreu um erro ao gravar a página. Tente publicar a página novamente, por favor.",
+	"cx-publish-page-error": "Ocorreu um erro ao publicar a tradução. Tente publicar a página novamente, por favor. Erro: $1",
 	"cx-publish-button": "Publicar tradução",
 	"cx-publish-button-publishing": "A publicar...",
 	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",

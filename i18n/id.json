@@ -9,7 +9,8 @@
 			"Iwan Novirion",
 			"Kenrick95",
 			"Fate Kage",
-			"Bennylin"
+			"Bennylin",
+			"Mirws"
 		]
 	},
 	"cx": "Terjemahkan halaman",
@@ -40,7 +41,7 @@
 	"cx-publish-gt-published-description": "Anda dapat mengeklik \"{{int:vector-view-edit}}\" untuk tetap mengembangkan halaman. Pastikan terjemahan terasa alami.",
 	"cx-translation-add-translation": "+ Tambahkan terjemahan",
 	"cx-translation-target-page-exists": "Sebuah halaman dengan judul [$1 $2] sudah tersedia di wiki tujuan. Pertimbangkan untuk memberikan judul yang berbeda untuk halaman Anda.",
-	"tag-contenttranslation": "PenerjemahanKonten",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Konten ini diterjemahkan dari bahasa lain menggunakan alat Penerjemahan Konten.",
 	"cx-source-loading": "Memuat $1",
 	"cx-beta": "Penerjemahan Konten",

@@ -20,7 +20,7 @@
 	"cx-header-all-translations": "Усе пераклады",
 	"cx-source-view-page": "прагляд старонкі",
 	"cx-publish-page-success": "Старонка апублікаваная на $1",
-	"cx-publish-page-error": "Памылка падчас захаваньня старонкі. Калі ласка, паспрабуйце яшчэ раз.",
+	"cx-publish-page-error": "Адбылася памылка падчас публікацыі перакладу. Калі ласка, паспрабуйце яшчэ раз. Памылка: $1",
 	"cx-publish-button": "Апублікаваць пераклад",
 	"cx-publish-button-publishing": "Публікацыя…",
 	"cx-publish-summary": "Створана перакладам старонкі «$1»",

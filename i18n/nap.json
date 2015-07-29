@@ -66,5 +66,13 @@
 	"cx-sourceselector-dialog-source-language-label": "'A:",
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Ascìa p' 'a paggena sorgente",
-	"cx-sourceselector-dialog-target-title-placeholder": "Strumiento 'e traduzzione"
+	"cx-sourceselector-dialog-target-title-placeholder": "Strumiento 'e traduzzione",
+	"cx-contributions-new-article": "Paggena nòva",
+	"cx-contributions-translation": "Traduzione",
+	"cx-publishing-dialog-publish-anyway-button": "Pubbreca comunque",
+	"cx-discard-translation": "Scitte 'a traduzione",
+	"cx-translation-status-draft": "'N prugresso",
+	"cx-translation-status-published": "Pubbrecato 'a",
+	"cx-translation-status-deleted": "Canciellato",
+	"cx-draft-cancel-button-label": "Canciella"
 }
