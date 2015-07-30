@@ -113,6 +113,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "来源页面的标题。",
 	"apihelp-cxpublish-param-sourcerevision": "来源页面的修订版本。",
 	"apihelp-cxpublish-param-status": "如果为<kbd>draft</kbd>，翻译将被保存为草稿。如果为<kbd>published</kbd>，翻译将被发布。",
+	"apihelp-cxpublish-param-progress": "有关翻译完成（进度）的信息。JSON带关键词<code>any</code>、<code>human</code>、<code>mt</code>和<code>mtSectionsCount</code>。关键词的值都是百分比。",
 	"apihelp-cxpublish-param-categories": "要放进发布页面的分类。",
 	"apihelp-cxpublish-param-wpCaptchaId": "验证码ID（当带验证码保存时）。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "回答验证码（当带验证码保存时）。",
