@@ -22,7 +22,9 @@
 			steps = 0;
 
 		$section = $( this );
-		$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
+		// Get the source section. We don't use $section.data('source') because that
+		// won't reflect updated data-source values(probably from section restore attempt)
+		$sourceSection = mw.cx.getSourceSection( $section.attr( 'data-source' ) );
 
 		if ( $section.is( '.placeholder' ) ) {
 			$section.css( {
