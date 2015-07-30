@@ -216,20 +216,29 @@ class ContentTranslationHooks {
 	public static function onSaveOptions( $user, &$saveOptions ) {
 		$out = RequestContext::getMain()->getOutput();
 
-		if (
-			isset( $saveOptions['cx'] ) &&
-			$saveOptions['cx'] === '1' &&
-			!isset( $saveOptions['cx-know'] ) &&
-			!$out->getTitle()->isSpecial( 'ContentTranslation' )
-		) {
-			$out->addModules(
-				array( 'ext.cx.betafeature.init', 'ext.cx.campaigns.contributionsmenu' )
-			);
-
-			// This make sure the auto-open contribution menu shown exactly once.
-			// and it is not in Special:CX
-			$saveOptions['cx-know'] = true;
+		if ( !isset( $saveOptions['cx'] ) || $saveOptions['cx'] !== 1 ) {
+			// Not using ContentTranslation; bail.
+			return true;
 		}
+
+		if ( isset( $saveOptions['cx-know'] ) ) {
+			// The auto-open contribution menu has already been shown; bail.
+			return true;
+		}
+
+		$title = $out->getTitle();
+		if ( $title && $title->isSpecial( 'ContentTranslation' ) ) {
+			// Don't show the menu on Special:ContentTranslation.
+			return true;
+		}
+
+		// Show the auto-open contribution menu and set the cx-know preference
+		// as true to prevent it from being automatically shown in the future.
+		$out->addModules( array(
+			'ext.cx.betafeature.init',
+			'ext.cx.campaigns.contributionsmenu',
+		) );
+		$saveOptions['cx-know'] = true;
 
 		return true;
 	}
