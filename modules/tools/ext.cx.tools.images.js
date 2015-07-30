@@ -92,13 +92,17 @@
 		var targetLanguage = mw.cx.targetLanguage;
 
 		$section.find( 'img' ).each( function () {
-			var $image = $( this );
+			var $sourceSection, $sourceImage, $image = $( this );
 
+			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
+			$sourceImage = $sourceSection.find( '#' + $image.prop( 'id' ) );
 			$image.on( 'click', function ( event ) {
 				// Avoid opening images by clicking.
 				event.preventDefault();
 			} );
-
+			// Copy data-mw if any from source image.
+			// Math extension, for example, carry the equation to render in its data-mw
+			$image.attr( 'data-mw', $sourceImage.attr( 'data-mw' ) );
 			getImageNamespaceTranslation( targetLanguage )
 				.done( function ( translatedNamespace ) {
 					var resource;
@@ -109,7 +113,10 @@
 					if ( resource ) {
 						resource = resource.replace( /(\.\/)*(.+)(:)/g,
 							'$1' + translatedNamespace + '$3' );
-						$image.attr( 'resource', resource );
+						$image.prop( {
+							resource: resource,
+							id: 'cx' + $sourceImage.prop( 'id' )
+						} );
 						// If the image has a parent link, correct its link target
 						$image.parents( 'a' ).attr( 'href', resource );
 					}
