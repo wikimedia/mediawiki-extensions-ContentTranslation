@@ -376,8 +376,18 @@
 
 		// Set the global engine
 		// TODO This should be saved in a preference or a cookie
-		MTControlCard.provider = providerId;
-
+		if ( MTControlCard.provider !== providerId ) {
+			MTControlCard.provider = providerId;
+			// Apply this choice to the current section.
+			if ( providerId === sourceMT ) {
+				this.useSource();
+			} else if ( providerId === disableMT ) {
+				this.clearTranslation();
+			} else {
+				// Must be an MT engine. Restore.
+				this.restoreTranslation();
+			}
+		}
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
 	};
