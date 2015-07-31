@@ -113,7 +113,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "All publizéiert Iwwersetzunge siche goen",
 	"apihelp-query+contenttranslationlangtrend-param-source": "De Sproochcode vun der Quell.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "De Sproochcode vum Zil.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "Den Intervall fir d'Berechne vum Trend. Ka 'Woch' oder 'Mount' sinn.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Den Intervall fir d'Berechne vum Trend. Ka <kbd>Woch</kbd> oder <kbd>Mount</kbd> sinn.",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Virun enger Mimutt|Viru(n) $1 Minutte|0=Elo grad}} gespäichert",
 	"cx-save-draft-saving": "Späicheren...",
 	"cx-save-draft-tooltip": "Brouillone vun Iwwersetzunge ginn automatesch gespäichert",
