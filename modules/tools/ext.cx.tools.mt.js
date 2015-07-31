@@ -230,7 +230,6 @@
 
 	/**
 	 * A plugin that performs machine translation on a section element.
-	 * @param {text} text
 	 * @return {jQuery}
 	 */
 	$.fn.machineTranslate = function () {
