@@ -392,15 +392,25 @@
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
 	};
 
+	/*
+	 * Toggle the section highlight.
+	 */
+	MTControlCard.prototype.toggleSectionHighlight = function () {
+		this.$section.toggleClass( 'cx-highlight' );
+	};
+
 	MTControlCard.prototype.listen = function () {
 		this.actions.$source
-			.on( 'click', $.proxy( this.useSource, this ) );
+			.on( 'click', $.proxy( this.useSource, this ) )
+			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 
 		this.actions.$clear
-			.on( 'click', $.proxy( this.clearTranslation, this ) );
+			.on( 'click', $.proxy( this.clearTranslation, this ) )
+			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 
 		this.actions.$restore
-			.on( 'click', $.proxy( this.restoreTranslation, this ) );
+			.on( 'click', $.proxy( this.restoreTranslation, this ) )
+			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
@@ -474,7 +484,8 @@
 			.on( 'click', function () {
 				cxMtCard.selectProvider( id );
 				mw.cx.selection.restore( 'translation' );
-			} );
+			} )
+			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
