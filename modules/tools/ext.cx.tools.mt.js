@@ -390,6 +390,9 @@
 		}
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
+
+		// Restore the selection
+		mw.cx.selection.restore( 'translation' );
 	};
 
 	/*
@@ -400,6 +403,8 @@
 	};
 
 	MTControlCard.prototype.listen = function () {
+		var self = this;
+
 		this.actions.$source
 			.on( 'click', $.proxy( this.useSource, this ) )
 			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
@@ -411,11 +416,29 @@
 		this.actions.$restore
 			.on( 'click', $.proxy( this.restoreTranslation, this ) )
 			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
+
+		this.$providerSelectorTrigger
+			.on( 'click', function ( e ) {
+				self.$providersMenu.toggle();
+				e.stopPropagation();
+			} );
+
+		this.$providersMenu.find( '.card__providers-menu-item' )
+			.on( 'click', function () {
+				self.selectProvider( $( this ).data( 'provider' ) );
+			} )
+			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
+
+		// Hide the dropdown on clicking outside of it
+		$( 'html' ).on( 'click', function ( e ) {
+			if ( !e.isDefaultPrevented() ) {
+				self.$providersMenu.hide();
+			}
+		} );
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider,
-			cxMtCard = this;
+		var provider;
 
 		this.$providersMenu = $( '<ul>' )
 			.addClass( 'card__providers-menu' )
@@ -438,19 +461,7 @@
 			this.getProviderItem( disableMT )
 		);
 
-		this.$providerSelectorTrigger
-			.on( 'click', function ( e ) {
-				cxMtCard.$providersMenu.toggle();
-				e.stopPropagation();
-			} )
-			.after( this.$providersMenu );
-
-		// Hide the dropdown on clicking outside of it
-		$( 'html' ).on( 'click', function ( e ) {
-			if ( !e.isDefaultPrevented() ) {
-				cxMtCard.$providersMenu.hide();
-			}
-		} );
+		this.$providerSelectorTrigger.after( this.$providersMenu );
 	};
 
 	/**
@@ -473,19 +484,17 @@
 
 	/**
 	 * Get a menu item for the providers list.
-	 * @param {string} id Provider id.
+	 * @param {string} providerId Provider id.
 	 * @return {jQuery}
 	 */
-	MTControlCard.prototype.getProviderItem = function ( id ) {
-		var cxMtCard = this;
+	MTControlCard.prototype.getProviderItem = function ( providerId ) {
 		return $( '<li>' )
-			.text( this.getProviderTitle( id ) )
-			.prop( 'id', providerIdPrefix + id )
-			.on( 'click', function () {
-				cxMtCard.selectProvider( id );
-				mw.cx.selection.restore( 'translation' );
-			} )
-			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
+			.text( this.getProviderTitle( providerId ) )
+			.addClass( 'card__providers-menu-item' )
+			.attr( {
+				id: providerIdPrefix + providerId,
+				'data-provider': providerId
+			} );
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
