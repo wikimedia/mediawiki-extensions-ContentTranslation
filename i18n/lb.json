@@ -101,6 +101,7 @@
 	"apihelp-cxpublish-param-to": "De Sproochcode vum Zil.",
 	"apihelp-cxpublish-param-sourcetitle": "Den Titel vun der Quellsäit.",
 	"apihelp-cxpublish-param-sourcerevision": "D'Versioun vun der Quellsäit.",
+	"apihelp-cxpublish-param-progress": "Informatioun iwwer de Fortschrëtt vun der iwwersetzung. JSON mat de Schlësselen <code>any</code>, <code>human</code>, <code>mt</code> an <code>mtSectionsCount</code>. D'Wäerter vun de Schlëssele si Prozenter.",
 	"apihelp-cxpublish-param-categories": "D'Kategorie fir déi publizéiert Säiten dran ze setzen.",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Äntwert op de Captcha (beim Späichere vun enger Captcha-Äntwert).",
 	"apihelp-query+contenttranslation-param-translationid": "Iwwersetzungs ID.",

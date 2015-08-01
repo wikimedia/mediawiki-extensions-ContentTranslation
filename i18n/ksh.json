@@ -33,7 +33,7 @@
 	"cx-publish-gt-published-description": "Donn op „{{int:vector-view-edit}}“ kleke, öm di Sigg noch bäßer ze maache. Lohr drop, dat mer se joht lässe kann!",
 	"cx-translation-add-translation": "+ Donn en Övversäzong derbei",
 	"cx-translation-target-page-exists": "En Sigg met dä Övverschreff [$1 $2] es ald em Wikki, wo di övversaz Sigg hen sull. Övverlääsch Der, dä Sigg en ander Övverschreff ze jävve.",
-	"tag-contenttranslation": "ContentTranslation",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Enhalltssigge Övversäze]]",
 	"tag-contenttranslation-description": "Dä Ennhald wohd met däm Wärkzüsch ContentTranslation uss_enne andere Schprohch övversaz.",
 	"cx-source-loading": "Ben di Sigg „$1“ aam lahde.",
 	"cx-beta": "ContentTranslation",
