@@ -129,7 +129,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Uzmi sve objavljene prijevode, prevedene s engleskog na španski",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Izvorni jezički kôd.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Ciljni jezički kôd.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "Interval za izračunavanje trenda. Može biti \"sedmica\" ili \"mjesec\".",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Interval za izračunavanje trenda. Može biti <kbd>sedmica</kbd> ili <kbd>mjesec</kbd>.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Uzmi trend objavljivanja za jezički par španskog i katalonskog u sedmičnom intervalu",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Uzmi trend objavljivanja za sve jezike",
 	"apihelp-cxtoken-example-1": "Preuzmi žeton za autentičnost za cxserver",
