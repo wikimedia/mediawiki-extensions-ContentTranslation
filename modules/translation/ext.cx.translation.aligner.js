@@ -86,14 +86,14 @@
 			// equal height for all kinds of section pairs.
 			// Experiments shows a few pixels difference.
 			// Here we do it by 10px steps till we reach equal height.
-			while ( sectionHeight !== sourceSectionHeight ) {
+			while ( parseInt( sectionHeight, 10 ) !== parseInt( sourceSectionHeight, 10 ) ) {
 				sectionHeight = sectionHeight + 10;
 				$sourceSection.css( 'min-height', sectionHeight );
 				$section.css( 'min-height', sectionHeight );
 				sectionHeight = $section.height();
 				sourceSectionHeight = $sourceSection.height();
 
-				if ( steps++ === 10 ) {
+				if ( steps++ === 5 ) {
 					mw.track( 'Alignment attempt is not succeeding. Aborting.' );
 					break;
 				}
