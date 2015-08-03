@@ -31,7 +31,10 @@
 
 		uri.extend( {
 			lang1: sourceLanguage,
-			lang2: targetLanguage
+			lang2: targetLanguage,
+			proj1: 'wiki',
+			proj2: 'wiki',
+			targets: 'source'
 		} );
 
 		// The algorithm for guessing the source and target languages is very basic
