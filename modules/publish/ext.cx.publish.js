@@ -375,6 +375,9 @@
 			if ( !$.trim( $section.text() ) ) {
 				$section.remove();
 			}
+
+			// Remove attributes added by CX
+			$section.removeAttr( 'data-cx-weight data-cx-state data-source data-seqid contenteditable' );
 		} );
 
 		return $content.html();
