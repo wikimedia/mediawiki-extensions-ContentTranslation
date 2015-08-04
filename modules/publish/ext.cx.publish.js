@@ -367,10 +367,8 @@
 			// Browsers add spans with inline styles during free editing the content.
 			// For example, Chrome adds <span> on enter key press and copies current css styles to inline
 			// styles.
-			$section.find( 'span' ).replaceWith( function () {
-				if ( !!$( this ).attr( 'style' ) ) {
-					return $( this ).html();
-				}
+			$section.find( 'span[style]' ).replaceWith( function () {
+				return $( this ).html();
 			} );
 
 			// Remove empty sections
