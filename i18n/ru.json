@@ -214,6 +214,9 @@
 	"cx-notification-hundredth-translation-email-subject": "Поздравляем вас с сотым переводом",
 	"cx-translationlist-empty-title": "Нечего переводить?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время.",
+	"cx-tools-link-external-link": "Внешняя",
+	"cx-tools-link-external-link-placeholder": "Добавить внешнюю ссылку",
+	"cx-tools-link-to-another-page": "Ссылка на другую страницу",
 	"cx-tools-link-apply": "Готово",
 	"mw-pageselector-missing": "Страница не существует"
 }

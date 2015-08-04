@@ -118,6 +118,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "બધાં પ્રકાશિત ભાષાંતરો મેળવો",
 	"apihelp-query+contenttranslationlangtrend-param-source": "સ્રોત ભાષાનો કોડ.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "લક્ષ્ય ભાષાનો કોડ.",
+	"apihelp-cxtoken-example-1": "cxserver માંથી સત્તાધિકરણ ટોકન મેળવો",
 	"cx-save-draft-save-success": "સંગ્રહેલ {{PLURAL:$1|મિનિટ પહેલાં|$1 મિનિટ્સ પહેલાં|0=હમણાં જ}}",
 	"cx-save-draft-saving": "સંગ્રહ કરે છે...",
 	"cx-save-draft-tooltip": "ભાષાંતર મુસદાઓ આપમેળે સંગ્રહ થાય છે",
