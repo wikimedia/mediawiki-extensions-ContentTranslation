@@ -390,9 +390,6 @@
 		}
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
-
-		// Restore the selection
-		mw.cx.selection.restore( 'translation' );
 	};
 
 	/*
@@ -426,6 +423,8 @@
 		this.$providersMenu.find( '.card__providers-menu-item' )
 			.on( 'click', function () {
 				self.selectProvider( $( this ).data( 'provider' ) );
+				// Restore the selection
+				mw.cx.selection.restore( 'translation' );
 			} )
 			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 
