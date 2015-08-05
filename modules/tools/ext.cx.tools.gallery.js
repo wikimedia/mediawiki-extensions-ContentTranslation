@@ -51,6 +51,8 @@
 		// </gallery>
 		// Make the images readonly. We can only adapt them. Not allowing edits.
 		$section.find( 'li' ).attr( 'contenteditable', false );
+		// And make the links open in new tab
+		$section.find( 'a' ).attr( 'target', '_blank' );
 	}
 
 	$( function () {
