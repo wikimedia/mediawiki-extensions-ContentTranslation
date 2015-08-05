@@ -377,7 +377,12 @@
 			}
 
 			// Remove attributes added by CX
-			$section.removeAttr( 'data-cx-weight data-cx-state data-source data-seqid contenteditable' );
+			$section.removeAttr( 'data-cx-weight data-cx-state data-source data-seqid data-cx-draft contenteditable' );
+
+			// Remove identifiers added by CX
+			if ( $section.prop( 'id' ).indexOf( 'cx' ) === 0 ) {
+				$section.removeAttr( 'id' );
+			}
 		} );
 
 		return $content.html();
