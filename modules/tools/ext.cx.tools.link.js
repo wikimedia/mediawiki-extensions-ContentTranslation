@@ -398,6 +398,7 @@
 				.text( this.page.title )
 				.prop( {
 					target: '_blank',
+					title: this.page.title,
 					href: this.siteMapper.getPageUrl( this.page.language, this.page.title )
 				} );
 
