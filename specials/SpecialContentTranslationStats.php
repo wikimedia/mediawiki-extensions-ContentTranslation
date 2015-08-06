@@ -38,7 +38,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$defaultSkinModules = $skin->getDefaultModules();
 		$out->addModules( $defaultSkinModules['legacy'] );
 
-		wfRunHooks( 'BeforePageDisplay', array( &$out, &$skin ) );
+		Hooks::run( 'BeforePageDisplay', array( &$out, &$skin ) );
 
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
