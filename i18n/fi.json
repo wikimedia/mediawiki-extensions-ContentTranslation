@@ -3,7 +3,8 @@
 		"authors": [
 			"Nike",
 			"Pxos",
-			"MrTapsa"
+			"MrTapsa",
+			"Pitke"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -17,7 +18,7 @@
 	"cx-header-all-translations": "Kaikki käännökset",
 	"cx-source-view-page": "näytä sivu",
 	"cx-publish-page-success": "Sivu on julkaistu nimellä $1",
-	"cx-publish-page-error": "Sivun tallentaminen epäonnistui. Yritä julkaista sivu uudestaan.",
+	"cx-publish-page-error": "Käännöksen tallentaminen epäonnistui. Yritä julkaista käännös uudestaan. Virhe: $1",
 	"cx-publish-button": "Julkaise käännös",
 	"cx-publish-button-publishing": "Julkaistaan...",
 	"cx-publish-summary": "Luotu kääntämällä sivu ”$1”",
@@ -36,7 +37,7 @@
 	"tag-contenttranslation-description": "Sisältö on käännetty toisesta kielestä Content Translation -työkalulla.",
 	"cx-source-loading": "Ladataan sivua $1",
 	"cx-beta": "Sisällön kääntäminen",
-	"cx-beta-desc": "Työkalu, jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita kääntäminen [[Special:MyContributions|omat muokkaukset -sivulta]] ja muokkaa niitä meidän kääntämiseen suunnitellulla käännösmuokkaimella. Joitakin työkaluja voi olla käytettävissä vain tietyillä kielillä.",
+	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Omat muokkaukset -sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
 	"cx-entrypoint-title": "Käännä tämä sivu kielelle $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1.\n{{GENDER:|Haluatko}} luoda sen?",
 	"cx-entrypoint-dialog-title-in": "Sivun otsikko kielellä $1:",
@@ -84,6 +85,7 @@
 	"cx-translation-filter-from-any-language": "Mistä tahansa kielestä",
 	"cx-translation-filter-to-any-language": "Mihin tahansa kieleen",
 	"cx-create-new-translation": "Aloita uusi käännöstyö",
+	"apihelp-cxpublish-param-status": "Jos <kbd>draft</kbd>, käännös tallennetaan luonnoksena. Jos <kbd>published</kbd>, käännös julkaistaan.",
 	"cx-save-draft-saving": "Tallennetaan...",
 	"cx-contributions-new-contributions": "Uusi sisältö",
 	"cx-contributions-new-article": "Uusi sivu",
