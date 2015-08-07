@@ -883,6 +883,7 @@
 				"ext.cx.widgets.callout",
 				"jquery.client",
 				"mediawiki.ui.button",
+				"mediawiki.Uri",
 				"mediawiki.util"
 			],
 			"messages": [
