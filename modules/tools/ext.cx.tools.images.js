@@ -113,7 +113,7 @@
 					if ( resource ) {
 						resource = resource.replace( /(\.\/)*(.+)(:)/g,
 							'$1' + translatedNamespace + '$3' );
-						$image.prop( {
+						$image.attr( {
 							resource: resource,
 							id: 'cx' + $sourceImage.prop( 'id' )
 						} );
