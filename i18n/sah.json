@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"HalanTul"
+		]
+	},
+	"cx": "Сирэй тылбааһа",
+	"cx-dashboard-header": "Тылбаас",
+	"cx-javascript": "Бу тэрил JavaScript баар буоллаҕына үлэлиир",
+	"cx-license-agreement": "Бу баттамы «$1» баттааҥҥын [//wikimediafoundation.org/wiki/Terms_of_Use Туһаныы усулуобуйатын] кытта уонна суруйбуккун туох да хос усулуобуйата суох [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] уонна [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] лиссиэнсийэлэринэн бэчээттииргэ сөбүлэһэҕин. CC BY-SA 3.0 лиссиэнсийэҕэ гиперсигэ уонна  URL сөптөөх атрибут буолалларын өйдүөхтээхин.",
+	"cx-error-server-connection": "Алҕас: Сиэрбэри кытта ситиминэһэр сатаммата.",
+	"cx-desc": "Судургутук тылбаастыыры хааччыйар",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|тылбаастаммыт}}",
+	"cx-header-progressbar-text-mt": "($1% from {{PLURAL:$1|массыына тылбааһа}})",
+	"cx-header-translation-center": "Тылбаас киинэ",
+	"cx-header-new-translation": "Саҥа тылбаас",
+	"cx-header-all-translations": "Бары тылбаастар",
+	"cx-source-view-page": "сирэйи көрүү",
+	"cx-publish-page-success": "Сирэй манна баар $1",
+	"cx-publish-page-error": "Тылбааһы бигэргэтэргэ алҕас таҕыста. Бука диэн хатылаан көр. Алҕас: $1",
+	"cx-publish-button": "Тылбааһы бэчээттээһин",
+	"cx-publish-button-publishing": "Бэчээттээһин...",
+	"cx-publish-summary": "«$1» сирэйи тылбаастаан оҥоһуллубут",
+	"cx-publish-gt-no-permission-to-move-description": "Бука диэн уопуттаах кыттааччыларга этэн, тылбааскын тургуталларын уонна бэчээттииллэрин ситис.",
+	"cx-publish-gt-first-step-title": "Тылбаас эн тус сирэйиҥ салаатын быһыытынан бэчээттэннэ, салгыы тургутуллуохтаах",
+	"cx-publish-gt-first-step-description": "Бу анныгар баар «{{int:vector-action-move}}» диэни баттаатаххына, бу матырыйаал атын сирэйдэр курдук дьоҥҥо көстөр буолуо.",
+	"cx-publish-gt-move-page-title": "Сирэй аатын уларыт",
+	"cx-publish-gt-move-page-description": "Аатын далын тал «{{int:blanknamespace}}» уонна сөп түбэһэр ааттаа.",
+	"cx-publish-gt-moved-title": "Тылбаастаммыт сирэй аата уларыйда",
+	"cx-publish-gt-moved-description": "Бу сигэни баттаан соторутааҥы тылбаастаргын тупсарыаххын сөп",
+	"cx-publish-gt-published-title": "Эҕэрдэ! Сирэй бэчээттэннэ"
+}
