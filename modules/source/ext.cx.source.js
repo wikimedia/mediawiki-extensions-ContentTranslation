@@ -107,7 +107,7 @@
 
 		this.$title = $( '<h2>' )
 			.attr( {
-				id: 'cx-source-title'
+				id: 'mwcx-source-title'
 			} )
 			.addClass( 'cx-column__title' )
 			.text( mw.cx.sourceTitle );

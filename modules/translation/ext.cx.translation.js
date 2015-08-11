@@ -59,7 +59,7 @@
 
 		$heading = $( '<h2>' )
 			.attr( {
-				'data-source': 'cx-source-title',
+				'data-source': 'mwcx-source-title',
 				contenteditable: true
 			} )
 			.addClass( 'cx-column__title' )
