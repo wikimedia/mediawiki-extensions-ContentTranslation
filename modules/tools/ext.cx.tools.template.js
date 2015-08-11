@@ -213,9 +213,9 @@
 
 		if ( $section.is( '[typeof*="mw:Transclusion"]' ) ) {
 			templates.push( $section );
-		} else {
-			templates = $section.find( '[typeof*="mw:Transclusion"]' );
 		}
+		templates.push( $section.find( '[typeof*="mw:Transclusion"]' ) );
+
 		$.each( templates, function () {
 			var template = new TemplateTool( this );
 
