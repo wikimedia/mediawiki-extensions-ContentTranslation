@@ -92,10 +92,14 @@
 		var targetLanguage = mw.cx.targetLanguage;
 
 		$section.find( 'img' ).each( function () {
-			var $sourceSection, $sourceImage, $image = $( this );
+			var imageId, $sourceSection, $sourceImage, $image = $( this );
 
+			imageId = $image.prop( 'id' );
+			if ( !imageId ) {
+				return;
+			}
 			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
-			$sourceImage = $sourceSection.find( '#' + $image.prop( 'id' ) );
+			$sourceImage = $sourceSection.find( '#' + imageId );
 			$image.on( 'click', function ( event ) {
 				// Avoid opening images by clicking.
 				event.preventDefault();
