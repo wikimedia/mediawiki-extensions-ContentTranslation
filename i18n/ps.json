@@ -26,9 +26,11 @@
 	"cx-publish-gt-moved-description": "د خپل نوي ژباړل شوي مخ د لوستلو او لا ښه کولو لپاره په دې تړنې کېښکاږئ",
 	"cx-publish-gt-published-title": "بختور دې وي، ستاسې مخ خپور شو",
 	"cx-translation-add-translation": "+ ژباړه ورگډول",
+	"cx-translation-target-page-exists": "په دې ويکي کې د [$1 $2] په سرليک يو مخ شته. مخ ته مو په يو بېل سرليک ټاکلو باندې غور وکړئ.",
 	"tag-contenttranslation": "د مېنځپانگې ژباړه",
 	"cx-source-loading": "$1 رابرسېرېږي",
 	"cx-beta": "د مېنځپانگې ژباړه",
+	"cx-beta-desc": "ستاسې په ژبه کې د مخونو د ژباړې چټک اوزار. د [[Special:MyContributions|خپلو ونډو]] له مخونو څخه مو ژباړې پيل کړئ او بيا يې د ژباړې لپاره زموږ د ځانگړي سکښتل شوي څنگ - په - څنگ سمونگر په مرسته سمونې ترسره کړئ. کېدای شي ځينې اوزارونه يوازې په ځينو ځانگړو ژبو کې وي.",
 	"cx-entrypoint-title": "دا مخ $1 ته ژباړل",
 	"cx-entrypoint-dialog-title-in": "په $1 ژبه د نوي مخ سرليک:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "له پيل څخه ژباړه کول",
@@ -162,5 +164,6 @@
 	"cx-notification-hundredth-translation": "دم گړۍ ستاسې 100 ژباړې پوره شوې! دا يوه بېسارې ترلاسنه ده. دا خبر له نورو سمونگرانو سره شريک کړئ.",
 	"cx-notification-hundredth-translation-email-subject": "ستاسې سلمې ژباړې پخاطر مبارکي درته وايم",
 	"cx-translationlist-empty-title": "آيا د ژباړلو لپاره څه نشته؟",
-	"cx-translationlist-empty-desc": "خپله ژباړه همدا اوس {{GENDER:|پيلولی}} او هر بل وخت يې مخ ته غځولی شئ."
+	"cx-translationlist-empty-desc": "خپله ژباړه همدا اوس {{GENDER:|پيلولی}} او هر بل وخت يې مخ ته غځولی شئ.",
+	"cx-tools-link-to-another-page": "يو بل مخ ته تړنه"
 }

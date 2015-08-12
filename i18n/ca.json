@@ -129,7 +129,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Recupera totes les traduccions publicades, traduïdes de l'anglès a l'espanyol",
 	"apihelp-query+contenttranslationlangtrend-param-source": "El codi de la llengua d'origen.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "El codi de la llengua de destí.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "L'interval per calcular-ne la tendència. Pot ser 'setmana' o 'mes'.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "L'interval per calcular-ne la tendència. Pot ser <kbd>week</kbd> (setmana) o <kbd>month</kbd>(mes).",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Recupera la tendència de publicació de totes les llengües",
 	"cx-save-draft-save-success": "Desat {{PLURAL:$1|fa un minut|$1 fa uns minuts|0=ara mateix}}",
 	"cx-save-draft-saving": "S’està desant…",

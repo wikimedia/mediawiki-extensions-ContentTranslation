@@ -88,6 +88,7 @@
 	"cx-publish-captcha-title": "Таша соруу",
 	"cx-dashboard-sidebar-title": "Кёчюрюу бла болушлукъ {{GENDER:|керекмиди}}?",
 	"cx-dashboard-sidebar-information": "Функцияны юсюнден кёбюрек окъу",
+	"cx-dashboard-sidebar-stats": "Статистика",
 	"cx-dashboard-sidebar-feedback": "Оюмунгу билдир",
 	"cx-translation-filter-all-translations": "Бютеу кёчюрюуле",
 	"cx-translation-filter-published-translations": "Публикация этилгенле",
@@ -195,5 +196,7 @@
 	"cx-notification-tenth-translation-email-subject": "Онунчу кёчюрюу бла алгъышлайбыз",
 	"cx-notification-hundredth-translation-email-subject": "Джюзюнчю кёчюрюу бла алгъышлайбыз",
 	"cx-translationlist-empty-title": "Кёчюрюрге джукъ джокъмуду?",
-	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр."
+	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр.",
+	"cx-tools-link-apply": "Тындырылды",
+	"mw-pageselector-missing": "Быллай бет джокъду"
 }
