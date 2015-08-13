@@ -42,6 +42,7 @@
 	},
 	"APIListModules": {
 		"contenttranslation": "ApiQueryContentTranslation",
+		"contenttranslationsuggestions": "ApiQueryContentTranslationSuggestions",
 		"contenttranslationstats": "ApiQueryContentTranslationStats",
 		"contenttranslationlangtrend": "ApiQueryContentTranslationLanguageTrend",
 		"cxpublishedtranslations": "ApiQueryPublishedTranslations"
@@ -60,6 +61,7 @@
 		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
 		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
+		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
 		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
@@ -71,6 +73,9 @@
 		"ContentTranslation\\SiteMapper": "includes/SiteMapper.php",
 		"ContentTranslation\\Stats": "includes/Stats.php",
 		"ContentTranslation\\Translation": "includes/Translation.php",
+		"ContentTranslation\\Suggestion": "includes/Suggestion.php",
+		"ContentTranslation\\SuggestionList": "includes/SuggestionList.php",
+		"ContentTranslation\\SuggestionListManager": "includes/SuggestionListManager.php",
 		"ContentTranslation\\Translator": "includes/Translator.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
@@ -128,7 +133,8 @@
 			"algorithm": "HS256",
 			"key": "",
 			"age": "3600"
-		}
+		},
+		"ContentTranslationEnableSuggestions": false
 	},
 	"ResourceModules": {
 		"ext.cx.contributions": {

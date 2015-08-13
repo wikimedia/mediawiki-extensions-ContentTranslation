@@ -3,17 +3,29 @@ namespace ContentTranslation;
 
 class SiteMapper {
 	/**
+	 * Get the the domain code matching language
+	 *
+	 * @param string $language Language code (MediaWiki internal format)
+	 * @return string
+	 */
+	public static function getDomainCode( $language ) {
+		global $wgContentTranslationDomainCodeMapping;
+
+		if ( isset( $wgContentTranslationDomainCodeMapping[$language] ) ) {
+			return $wgContentTranslationDomainCodeMapping[$language];
+		}
+
+		return $domain;
+	}
+
+
+	/**
 	 * Get the page URL constructed from the domain template of sites
 	 */
 	public static function getPageURL( $language, $title ) {
-		global $wgContentTranslationSiteTemplates,
-			$wgContentTranslationDomainCodeMapping;
+		global $wgContentTranslationSiteTemplates;
 
-		if ( isset( $wgContentTranslationDomainCodeMapping[$language] ) ) {
-			$domain = $wgContentTranslationDomainCodeMapping[$language];
-		} else {
-			$domain = $language;
-		}
+		$domain = self::getDomainCode( $language );
 
 		return str_replace(
 			array( '$1', '$2' ),

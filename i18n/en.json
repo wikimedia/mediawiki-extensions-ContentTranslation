@@ -183,5 +183,6 @@
 	"cx-tools-link-external-link-placeholder": "Add external link",
 	"cx-tools-link-to-another-page": "Link to another page",
 	"cx-tools-link-apply": "Done",
-	"mw-pageselector-missing": "Page does not exist"
+	"mw-pageselector-missing": "Page does not exist",
+	"cx-suggestionlist-featured": "Featured article"
 }
