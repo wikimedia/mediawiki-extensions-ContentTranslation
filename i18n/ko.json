@@ -12,7 +12,8 @@
 			"LiteHell",
 			"콩가루",
 			"Alex00728",
-			"Bluemersen"
+			"Bluemersen",
+			"Hwangjy9"
 		]
 	},
 	"cx": "문서 번역",
@@ -59,6 +60,7 @@
 	"cx-tools-instructions-text6": "결과에 만족한다면, \"{{int:cx-publish-button}}\"를 누르세요.",
 	"cx-tools-searchbox-text": "낱말 검색",
 	"cx-tools-view-guidelines": "번역 지침 보기",
+	"cx-tools-dictionary-title": "정의",
 	"cx-tools-link-title": "링크",
 	"cx-tools-link-add": "링크 추가",
 	"cx-tools-link-remove": "링크 제거",
@@ -95,6 +97,7 @@
 	"cx-publish-captcha-title": "보안 질문",
 	"cx-dashboard-sidebar-title": "번역에 도움이 {{GENDER:|필요합니까}}?",
 	"cx-dashboard-sidebar-information": "이 기능에 대해 더 알아보기",
+	"cx-dashboard-sidebar-stats": "통계",
 	"cx-dashboard-sidebar-feedback": "피드백을 주세요",
 	"cx-translation-filter-all-translations": "모든 번역",
 	"cx-translation-filter-published-translations": "게시됨",
