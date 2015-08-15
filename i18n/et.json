@@ -177,7 +177,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Üleslaaditud meediafailid",
 	"cx-trend-all-translations": "Kõik tõlked",
 	"cx-trend-translations-to": "Tõlked sihtkeelde ($1)",
-	"cx-stats-try-contenttranslation": "Sisutõlge on tööriist uute lehekülgede loomiseks teistest keeltest tõlkimise abil. [$1 Proovi sisutõlget]",
+	"cx-stats-try-contenttranslation": "Sisutõlge on tööriist uute lehekülgede loomiseks teistest keeltest tõlkimise teel. [$1 Proovi sisutõlget]",
 	"cx-stats-published-target-source": "Sihtkeele järgi",
 	"cx-stats-published-source-target": "Lähtekeele järgi",
 	"cx-stats-draft-target-source": "Sihtkeele järgi",

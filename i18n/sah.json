@@ -127,6 +127,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Тылбаастанар тыл куода.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Тылбаастыыр тылыҥ куода.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Тренд суоттааһынын интервала. <kbd>week</kbd> (нэдиэлэ) биитэр <kbd>month</kbd> (ый) буолуон сөп.",
+	"apihelp-query+contenttranslationlangtrend-example-1": "Es-ca тыллар паараларыгар бэчээттэммити трендин нэдиэлэннэн суоттааһын",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Бары тылларга бэчээттээһин трендэ",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Биир мүнүүтэ|$1 мүнүүтэ}} ынараа өттүгэр",
 	"cx-save-draft-saving": "Харайылла турар...",
