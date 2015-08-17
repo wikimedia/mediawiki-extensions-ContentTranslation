@@ -42,7 +42,7 @@
 	"cx-publish-gt-published-description": "Sayfaı geliştirmek için \"{{int:vector-view-edit}}\" tuşuna basabilirsiniz. Akışın doğal olduğundan emin olun.",
 	"cx-translation-add-translation": "+ Çeviri ekle",
 	"cx-translation-target-page-exists": "Hedef vikide [$1 $2] başlığı mevcut. Sayfaya başka bir başlık vermeyi düşünebilirsiniz.",
-	"tag-contenttranslation": "İçerikÇevirmeni",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|İçerik Çevirmeni]]",
 	"tag-contenttranslation-description": "İçerik, İçerik Çevirmeni aracı kullanılarak başka bir dilden çevrilmiştir.",
 	"cx-source-loading": "$1 yükleniyor",
 	"cx-beta": "İçerik Çevirmeni",

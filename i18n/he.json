@@ -86,7 +86,7 @@
 	"cx-sourceselector-dialog-target-language-label": "ל־:",
 	"cx-sourceselector-dialog-source-title-placeholder": "חיפוש דף המקור",
 	"cx-sourceselector-dialog-target-title-placeholder": "כותרת לדף המתורגם",
-	"cx-sourceselector-dialog-error-page-and-title-exist": "הכותרת הזאת כבר משמשת [$3 דך אחר] ב[$1 $2]",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "הכותרת הזאת כבר משמשת [$3 דף אחר] ב[$1 $2]",
 	"cx-sourceselector-dialog-error-page-exists": "הדף [$1 כבר קיים] ב{{GRAMMAR:תחילית|$2}}",
 	"cx-sourceselector-dialog-error-title-in-use": "כותרת הדף החדש [$1 כבר תפוסה]",
 	"cx-sourceselector-dialog-error-no-source-article": "הדף שרצית לתרגם אינו קיים ב{{GRAMMAR:תחילית|$1}}",
