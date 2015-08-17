@@ -108,6 +108,11 @@
 	"cx-translation-filter-all-translations": "All translations",
 	"cx-translation-filter-published-translations": "Published",
 	"cx-translation-filter-draft-translations": "In progress",
+	"cx-translation-filter-suggested-translations": "Suggestions",
+	"cx-suggestionlist-empty-title": "Sorry, no articles to suggest",
+	"cx-suggestionlist-empty-desc": "You can pick any topic of your choice when starting a new translation",
+	"cx-suggestionlist-featured": "Featured",
+	"cx-suggestionlist-view-source-page": "View source page",
 	"cx-translation-filter-from-any-language": "From any language",
 	"cx-translation-filter-to-any-language": "To any language",
 	"cx-create-new-translation": "Start a new translation",
@@ -183,6 +188,5 @@
 	"cx-tools-link-external-link-placeholder": "Add external link",
 	"cx-tools-link-to-another-page": "Link to another page",
 	"cx-tools-link-apply": "Done",
-	"mw-pageselector-missing": "Page does not exist",
-	"cx-suggestionlist-featured": "Featured article"
+	"mw-pageselector-missing": "Page does not exist"
 }

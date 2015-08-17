@@ -135,17 +135,23 @@ class CXManageLists extends Maintenance {
 	}
 
 	protected function createFeaturedSuggestions( $pages ) {
+		$featureListName = 'cx-suggestionlist-featured';
 		$sourceLanguage = $this->getOption( 'source' );
 		$targetLanguage = $this->getOption( 'target' );
 
 		$manager = new SuggestionListManager();
-		$list = new SuggestionList( array(
-			'type' => SuggestionList::TYPE_FEATURED,
-			'name' => 'featured',
-			'public' => true,
-		) );
+		$list = $manager->getListByName( $featureListName );
 
-		$listId = $manager->insertList( $list );
+		if ( $list === null ) {
+			$list = new SuggestionList( array(
+				'type' => SuggestionList::TYPE_FEATURED,
+				'name' => $featureListName,
+				'public' => true,
+			) );
+			$listId = $manager->insertList( $list );
+		} else {
+			$listId = $list->getId();
+		}
 		$suggestion = array();
 
 		foreach ( $pages as $page ) {

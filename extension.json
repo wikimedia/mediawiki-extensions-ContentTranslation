@@ -214,6 +214,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.source.selector",
 				"ext.cx.translationlist",
+				"ext.cx.suggestionlist",
 				"mediawiki.Uri",
 				"mediawiki.ui.button"
 			],
@@ -785,6 +786,24 @@
 				"cx-draft-discard-button-label",
 				"cx-translationlist-empty-title",
 				"cx-translationlist-empty-desc"
+			]
+		},
+		"ext.cx.suggestionlist": {
+			"scripts": [
+				"dashboard/ext.cx.suggestionlist.js"
+			],
+			"styles": [
+				"dashboard/styles/ext.cx.suggestionlist.less"
+			],
+			"dependencies": [
+				"ext.cx.util",
+				"jquery.uls.data"
+			],
+			"messages": [
+				"cx-suggestionlist-empty-title",
+				"cx-suggestionlist-empty-desc",
+				"cx-suggestionlist-view-source-page",
+				"cx-suggestionlist-featured"
 			]
 		},
 		"ext.cx.translation.conflict": {

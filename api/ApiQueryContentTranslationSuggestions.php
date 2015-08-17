@@ -58,22 +58,19 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				'displayName' => $list->getDisplayNameMessage( $this->getContext() )->text(),
 				'name' => $list->getName(),
 				'type' => $list->getType(),
+				'suggestions' => array(),
 			);
+			foreach ( $data['suggestions'] as $suggestion ) {
+				$lists[$suggestion->getListId()]['suggestions'][] = array(
+					'title' => $suggestion->getTitle()->getPrefixedText(),
+					'sourceLanguage' => $suggestion->getSourceLanguage(),
+					'targetLanguage' => $suggestion->getTargetLanguage(),
+					'listId' => $suggestion->getListId(),
+				);
+			}
 		}
 
 		$result->addValue( array( 'query', $this->getModuleName() ), 'lists', $lists );
-
-		$suggestions = array();
-		foreach ( $data['suggestions'] as $suggestion ) {
-			$suggestions[] = array(
-				'name' => $suggestion->getTitle()->getPrefixedText(),
-				'sourceLanguage' => $suggestion->getSourceLanguage(),
-				'targetLanguage' => $suggestion->getTargetLanguage(),
-				'listId' => $suggestion->getListId(),
-			);
-		}
-
-		$result->addValue( array( 'query', $this->getModuleName() ), 'suggestions', $suggestions );
 	}
 
 	public function getAllowedParams() {
