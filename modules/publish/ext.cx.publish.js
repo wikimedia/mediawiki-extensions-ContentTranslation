@@ -303,6 +303,10 @@
 			error: details
 		};
 
+		if ( details.exception instanceof Error ) {
+			details.exception = details.exception.toString();
+		}
+
 		mw.hook( 'mw.cx.translation.publish.error' ).fire(
 			mw.cx.sourceLanguage,
 			mw.cx.targetLanguage,
