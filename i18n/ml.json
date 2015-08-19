@@ -16,7 +16,7 @@
 	"cx-header-all-translations": "എല്ലാ പരിഭാഷകളും",
 	"cx-source-view-page": "താൾ കാണുക",
 	"cx-publish-page-success": "താൾ $1 ആയി പ്രസിദ്ധീകരിച്ചിരിക്കുന്നു",
-	"cx-publish-page-error": "താൾ സംരക്ഷിക്കുന്നതിൽ പിഴവുണ്ടായി.",
+	"cx-publish-page-error": "താൾ സംരക്ഷിക്കുന്നതിൽ പിഴവുണ്ടായി. വീണ്ടും ശ്രമിക്കുക. പിഴവ്: $1",
 	"cx-publish-button": "പരിഭാഷ പ്രസിദ്ധീകരിക്കുക",
 	"cx-publish-button-publishing": "പ്രസിദ്ധീകരിക്കുന്നു...",
 	"cx-publish-summary": "\"$1\" എന്ന താൾ പരിഭാഷപ്പെടുത്തിയത്.",

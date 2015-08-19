@@ -14,7 +14,8 @@
 			"Romaine",
 			"Rangekill",
 			"Amire80",
-			"FabianRM"
+			"FabianRM",
+			"Santhosh.thottingal"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -30,7 +31,7 @@
 	"cx-header-all-translations": "Alle vertalingen",
 	"cx-source-view-page": "pagina bekijken",
 	"cx-publish-page-success": "Pagina gepubliceerd op $1",
-	"cx-publish-page-error": "Er is een fout opgetreden tijdens het opslaan van de pagina. Probeer de pagina opnieuw te publiceren.",
+	"cx-publish-page-error": "Er is een fout opgetreden tijdens het opslaan van de pagina. Probeer de pagina opnieuw te publiceren. Fout: $1",
 	"cx-publish-button": "Vertaling publiceren",
 	"cx-publish-button-publishing": "Bezig met publiceren...",
 	"cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",

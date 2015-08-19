@@ -5,7 +5,8 @@
 			"संजीव कुमार",
 			"Amire80",
 			"Hindustanilanguage",
-			"NehalDaveND"
+			"NehalDaveND",
+			"Santhosh.thottingal"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -20,7 +21,7 @@
 	"cx-header-all-translations": "सभी अनुवाद",
 	"cx-source-view-page": "पृष्ठ देखें",
 	"cx-publish-page-success": "पृष्ठ $1 पर प्रकाशित हुआ।",
-	"cx-publish-page-error": "पृष्ठ सहेजते समय एक त्रुटि आ गयी। कृपया पृष्ठ को पुनः प्रकाशित करने का प्रयास करें।",
+	"cx-publish-page-error": "पृष्ठ सहेजते समय एक त्रुटि आ गयी। कृपया पृष्ठ को पुनः प्रकाशित करने का प्रयास करें। त्रुटि: $1",
 	"cx-publish-button": "अनुवाद प्रकाशित करें",
 	"cx-publish-button-publishing": "प्रकाशित हो रहा है...",
 	"cx-publish-summary": "\"$1\" पृष्ठ का अनुवाद करके निर्मित किया गया",
@@ -95,7 +96,6 @@
 	"cx-translation-filter-from-any-language": "किसी अन्य भाषा से",
 	"cx-translation-filter-to-any-language": "किसी भी भाषा को",
 	"cx-create-new-translation": "नया अनुवाद निर्मित करें",
-	"cx-create-new-translation-desc": "उन शीर्षकों के लिए पृष्ठ निर्मित करेम जो आपकी भाषा में उपलब्ध नहीं हैं। यह हमारे अनुवाद उपकरण के माध्यम से बनाना आसान रहेगा। [{{int:cx-tools-view-guidelines-link}} और अधिक जानें]",
 	"apihelp-cxpublish-description": "सामग्री_अनुवाद_विस्तार के उपयोग से निर्मित पृष्ठ को सहेजें।",
 	"apihelp-cxpublish-param-title": "पृष्ठ का शीर्षक निष्पादन कार्यों को चालु रखने के लिए है।",
 	"apihelp-cxpublish-param-html": "सामग्री सहेजने के लिए",
@@ -155,9 +155,6 @@
 	"cx-translation-already-in-progress-collaborate": "कृपया सुनिश्चित कर लें कि आप उस सदस्य के साथ समन्वय स्थापित करते हो जिन्होंने वर्तमान अनुवाद को अनूदित किया है।",
 	"cx-publishing-dialog-publish-draft-button": "बतौर मसौदा प्रकाशित करें",
 	"cx-feedback-link": "प्रतिक्रिया प्रदान करें",
-	"cx-stats-table-source-target": "स्रोत↓ / लक्ष्य→",
-	"cx-stats-table-source-total": "कुल (स्रोत)",
-	"cx-stats-table-target-total": "कुल (लक्ष्य)",
 	"cx-stats-published-translations-title": "प्रकाशित अनुवाद",
 	"cx-stats-draft-translations-title": "चालू अनुवाद",
 	"cx-stats-published-translators-title": "अनुवादकों की संख्या",

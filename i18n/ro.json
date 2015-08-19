@@ -58,6 +58,7 @@
 	"cx-publish-captcha-title": "Întrebare de securitate",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Aveți}} nevoie de ajutor pentru a traduce?",
 	"cx-dashboard-sidebar-information": "Aflați mai multe despre această funcție",
+	"cx-dashboard-sidebar-stats": "Statistici",
 	"cx-dashboard-sidebar-feedback": "Oferiți-ne părerea dumnevoastră",
 	"cx-translation-filter-all-translations": "Toate traducerile",
 	"cx-translation-filter-published-translations": "Publicate",
@@ -87,12 +88,14 @@
 	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă.",
 	"cx-stats-published-translations-title": "Traduceri publicate",
 	"cx-stats-published-translators-title": "Număr de traducători",
+	"cx-draft-discard-button-label": "Șterge traducere",
 	"cx-campaign-no-thanks": "Nu, mulțumesc",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuții",
 	"cx-campaign-contributionsmenu-mytranslations": "Traduceri",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 ar putea fi deja disponibil în alte limbi",
 	"cx-trend-all-translations": "Toate traducerile",
 	"cx-trend-translations-to": "Traduceri în $1",
+	"cx-stats-monthly-published": "Ultima lună",
 	"cx-tools-missing-link-tooltip": "Traducere (în fereastră nouă)",
 	"echo-category-title-cx": "Traduceri",
 	"echo-pref-tooltip-cx": "Notifică-mă despre traducerile mele create cu unealta de Traducere a conținutului",
@@ -103,5 +106,7 @@
 	"cx-notification-hundredth-translation": "Tocmai ați realizat 100 de traduceri! Este remarcabil. Anunțați și alți editori despre această realizare.",
 	"cx-notification-hundredth-translation-email-subject": "Felicitări pentru cea de-a o suta traducere",
 	"cx-translationlist-empty-title": "Nimic de tradus?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Începeți}} traducerea acum și continuați-o oricând."
+	"cx-translationlist-empty-desc": "{{GENDER:|Începeți}} traducerea acum și continuați-o oricând.",
+	"cx-tools-link-apply": "Realizat",
+	"mw-pageselector-missing": "Pagina nu există"
 }

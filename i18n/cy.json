@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Thefartydoctor",
-			"Robin Owain"
+			"Robin Owain",
+			"Santhosh.thottingal"
 		]
 	},
 	"cx": "Cyfieithu'r dudalen",
@@ -17,7 +18,7 @@
 	"cx-header-all-translations": "Cyfieithiadau cyfan",
 	"cx-source-view-page": "Gweld y dudalen",
 	"cx-publish-page-success": "Cyhoeddwyd y dudalen am $1",
-	"cx-publish-page-error": "Cafwyd gwall wrth gadw'r ddalen. Ceisiwch eto.",
+	"cx-publish-page-error": "Cafwyd gwall wrth gadw'r ddalen. Ceisiwch eto. Gwall: $1",
 	"cx-publish-button": "Cyhoeddi'r cyfieithiad",
 	"cx-publish-button-publishing": "Yn cyhoeddi...",
 	"cx-publish-summary": "Creuwyd gan cyfieithu'r dudalen \"$1\"",

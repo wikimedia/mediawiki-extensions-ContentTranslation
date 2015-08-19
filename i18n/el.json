@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Glavkos",
-			"Geraki"
+			"Geraki",
+			"Stam.nikos"
 		]
 	},
 	"cx": "Μετάφραση σελίδας",
@@ -85,6 +86,7 @@
 	"cx-mt-abuse-warning-title": "Η μετάφρασή σας περιέχει $1% μη τροποποιημένη αυτόματη μετάφραση κειμένου",
 	"cx-mt-abuse-warning-text": "Οι αυτόματες μεταφράσεις παρέχονται μόνο ως πρότυπο. Θα πρέπει να βεβαιωθείτε ότι το περιεχόμενο είναι ακριβές και διαβάζεται φυσικά στη γλώσσα σας.",
 	"cx-publish-captcha-title": "Ερώτηση ασφαλείας",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Χρειάζεστε}} βοήθεια με τις μεταφράσεις;",
 	"cx-translation-filter-all-translations": "Όλες οι μεταφράσεις",
 	"cx-translation-filter-published-translations": "Δημοσιεύθηκε",
 	"cx-translation-filter-draft-translations": "Σε εξέλιξη",
@@ -139,5 +141,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Μεταφράσεις",
 	"cx-campaign-contributionsmenu-myuploads": "Ανεβασμένα πολυμέσα",
 	"cx-trend-all-translations": "Όλες οι μεταφράσεις",
-	"cx-trend-translations-to": "Μεταφράσεις στη γλώσσα $1"
+	"cx-trend-translations-to": "Μεταφράσεις στη γλώσσα $1",
+	"cx-tools-missing-link-text": "{{GENDER:|Σημειώστε}} τη σελίδα ότι λείπει για να ενθαρρύνετε τη δημιουργία της."
 }
