@@ -134,11 +134,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$api->execute();
 
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			return $api->getResult()->getResultData();
-		} else {
-			return $api->getResultData();
-		}
+		return $api->getResult()->getResultData();
 	}
 
 	public function execute() {
