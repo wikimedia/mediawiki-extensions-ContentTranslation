@@ -47,7 +47,8 @@
 		"cxpublishedtranslations": "ApiQueryPublishedTranslations"
 	},
 	"MessagesDirs": {
-		"ContentTranslation": "i18n"
+		"ContentTranslation": "i18n",
+		"ContentTranslationApi": "i18n/api"
 	},
 	"SpecialPages": {
 		"ContentTranslation": "SpecialContentTranslation",
