@@ -292,22 +292,51 @@
 		} );
 
 		this.$sourceLanguageFilter.on( 'change', function () {
-			var code = $( this ).val();
+			var $selector,
+				code = $( this ).val();
 
 			setFilter( 'sourceLanguage', code );
 
-			self.$sourceLanguageFilter
-				.siblings( '.translation-language-select-content' )
-				.text( $.uls.data.getAutonym( code ) );
+			$selector = self.$sourceLanguageFilter
+				.siblings( '.translation-language-select-content' );
+
+			if ( code === '' ) {
+				$selector
+					.text( mw.msg( 'cx-translation-filter-from-any-language' ) )
+					.removeProp( 'lang' )
+					.removeProp( 'dir' );
+			} else {
+				$selector
+					.text( $.uls.data.getAutonym( code ) )
+					.prop( {
+						lang: code,
+						dir: $.uls.data.getDir( code )
+					} );
+			}
 		} );
 
 		this.$targetLanguageFilter.on( 'change', function () {
-			var code = $( this ).val();
+			var $selector,
+				code = $( this ).val();
 
 			setFilter( 'targetLanguage', code );
-			self.$targetLanguageFilter
-				.siblings( '.translation-language-select-content' )
-				.text( $.uls.data.getAutonym( code ) );
+
+			$selector = self.$targetLanguageFilter
+				.siblings( '.translation-language-select-content' );
+
+			if ( code === '' ) {
+				$selector
+					.text( mw.msg( 'cx-translation-filter-to-any-language' ) )
+					.removeProp( 'lang' )
+					.removeProp( 'dir' );
+			} else {
+				$selector
+					.text( $.uls.data.getAutonym( code ) )
+					.prop( {
+						lang: code,
+						dir: $.uls.data.getDir( code )
+					} );
+			}
 		} );
 
 		this.initSourceSelector();
