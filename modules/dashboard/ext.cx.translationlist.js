@@ -14,29 +14,64 @@
 	 *
 	 * @class
 	 */
-	function CXTranslationList( $container, translations, siteMapper ) {
-		this.$container = $container;
+	function CXTranslationList( element, siteMapper ) {
+		this.$container = $( element );
 		this.siteMapper = siteMapper;
-		this.translations = translations;
+		this.translations = [];
 		this.filters = {
 			status: null,
 			sourceLanguage: null,
 			targetLanguage: null
 		};
 
+		this.$statusFilter = null;
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$header = null;
 		this.$confirmationDialog = null;
 		this.$overlay = null;
 
+		this.init();
+		this.render();
 		this.listen();
 	}
 
 	CXTranslationList.prototype.init = function () {
-		this.listTranslations();
+		var translationList = this;
+
+		this.getTranslations().done( function ( response ) {
+			translationList.getTranslationsCallback(
+				response.query.contenttranslation.translations
+			);
+		} );
+	};
+
+	/**
+	 * Populates various UI components with data in the given translations.
+	 */
+	CXTranslationList.prototype.getTranslationsCallback = function ( translations ) {
+		var sourceLanguages, targetLanguages;
+
+		// Remove unnecessary object wrapping to get plain list of objects
+		translations = $.map( translations, function ( e ) {
+			return e.translation;
+		} );
+
+		this.translations = translations;
+		this.$header.show();
+		this.listTranslations( this.translations );
 		this.filters.status = 'draft';
-		this.applyFilters( this.filters );
+		this.applyFilters( this.filters, translations );
+
+		sourceLanguages = $.map( translations, function ( e ) {
+			return e.sourceLanguage;
+		} );
+		this.populateLanguageFilter( this.$sourceLanguageFilter, mw.cx.unique( sourceLanguages ) );
+
+		targetLanguages = $.map( translations, function ( e ) {
+			return e.targetLanguage;
+		} );
+		this.populateLanguageFilter( this.$targetLanguageFilter, mw.cx.unique( targetLanguages ) );
 	};
 
 	/**
@@ -63,6 +98,20 @@
 	};
 
 	/**
+	 * Get all the translations of given user.
+	 * @return {jQuery.Promise}
+	 */
+	CXTranslationList.prototype.getTranslations = function () {
+		var api = new mw.Api();
+
+		return api.get( {
+			action: 'query',
+			list: 'contenttranslation',
+			format: 'json'
+		} );
+	};
+
+	/**
 	 * Show a title image of the translation based on source title.
 	 * @param {Object} translation
 	 */
@@ -82,8 +131,9 @@
 
 	/**
 	 * List all translations.
+	 * @param {Object[]} translations
 	 */
-	CXTranslationList.prototype.listTranslations = function () {
+	CXTranslationList.prototype.listTranslations = function ( translations ) {
 		var i, translation, progress, $translation,
 			$lastUpdated, $imageBlock, $image, $progressbar,
 			sourceDir, targetDir,
@@ -93,8 +143,8 @@
 			$titleLanguageBlock,
 			$translations = [];
 
-		for ( i = 0; i < this.translations.length; i++ ) {
-			translation = this.translations[ i ];
+		for ( i = 0; i < translations.length; i++ ) {
+			translation = translations[ i ];
 
 			try {
 				progress = JSON.parse( translation.progress );
@@ -246,8 +296,130 @@
 		}
 	};
 
+	CXTranslationList.prototype.populateLanguageFilter = function ( $filter, languages ) {
+		var i;
+
+		for ( i = 0; i < languages.length; i++ ) {
+			$filter.append( $( '<option>' )
+				// Todo: use translated language name
+				.text( $.uls.data.getAutonym( languages[ i ] ) )
+				.attr( 'value', languages[ i ] )
+			);
+		}
+	};
+
+	CXTranslationList.prototype.render = function () {
+		var $sourceLanguageContainer, $targetLanguageContainer;
+
+		this.$header = $( '<div>' )
+			.addClass( 'translation-filter' );
+
+		this.$newTranslationButton = $( '<button>' )
+			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-constructive' )
+			.text( mw.msg( 'cx-create-new-translation' ) );
+		this.$cta = $( '<div>' )
+			.addClass( 'cx-cta' )
+			.append( this.$newTranslationButton );
+
+		this.$statusFilter = $( '<span>' )
+			.addClass( 'cx-statusfilter' )
+			.append(
+				$( '<span>' )
+					.addClass( 'cx-status cx-status--draft cx-status--selected mw-ui-input' )
+					.text( mw.msg( 'cx-translation-filter-draft-translations' ) ),
+				$( '<span>' )
+					.addClass( 'cx-status cx-status--published mw-ui-input' )
+					.text( mw.msg( 'cx-translation-filter-published-translations' ) )
+			);
+
+		this.$sourceLanguageFilter = createSelect(
+			'translation-source-language-filter', {
+				'': mw.msg( 'cx-translation-filter-from-any-language' )
+			}
+		);
+
+		this.$targetLanguageFilter = createSelect(
+			'translation-target-language-filter', {
+				'': mw.msg( 'cx-translation-filter-to-any-language' )
+			}
+		);
+
+		$sourceLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-source-container' )
+			.append(
+				this.$sourceLanguageFilter,
+				$( '<div>' )
+					.addClass( 'translation-language-select-content' )
+					.text( mw.msg( 'cx-translation-filter-from-any-language' ) ),
+				$( '<div>' )
+					.addClass( 'translation-language-select-arrow' )
+			);
+
+		$targetLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-target-container' )
+			.append(
+				this.$targetLanguageFilter,
+				$( '<div>' )
+					.addClass( 'translation-language-select-content' )
+					.text( mw.msg( 'cx-translation-filter-to-any-language' ) ),
+				$( '<div>' ).addClass( 'translation-language-select-arrow' )
+			);
+
+		this.$header.append(
+			this.$statusFilter,
+			$( '<div>' ).addClass( 'translation-language-filter' ).append(
+				$sourceLanguageContainer,
+				$( '<div>' ).addClass( 'translation-language-arrow' ),
+				$targetLanguageContainer
+			),
+			this.$cta
+		);
+
+		// Hide the filters till we see there are translations to list.
+		this.$header.hide();
+		this.$container.append( this.$header );
+	};
+
 	CXTranslationList.prototype.listen = function () {
-		var translationList = this;
+		var setFilter,
+			translationList = this;
+
+		setFilter = $.proxy( this.setFilter, this );
+
+		this.$statusFilter.click( '.cx-status', function ( e ) {
+			var $filter = $( e.target );
+
+			translationList.$statusFilter
+				.find( '.cx-status--selected' )
+				.removeClass( 'cx-status--selected' );
+
+			$filter.addClass( 'cx-status--selected' );
+
+			if ( $filter.is( '.cx-status--draft' ) ) {
+				setFilter( 'status', 'draft' );
+			} else if ( $filter.is( '.cx-status--published' ) ) {
+				setFilter( 'status', 'published' );
+			}
+		} );
+
+		this.$sourceLanguageFilter.on( 'change', function () {
+			var code = $( this ).val();
+
+			setFilter( 'sourceLanguage', code );
+
+			translationList.$sourceLanguageFilter
+				.siblings( '.translation-language-select-content' )
+				.text( $.uls.data.getAutonym( code ) );
+		} );
+
+		this.$targetLanguageFilter.on( 'change', function () {
+			var code = $( this ).val();
+
+			setFilter( 'targetLanguage', code );
+			translationList.$targetLanguageFilter
+				.siblings( '.translation-language-select-content' )
+				.text( $.uls.data.getAutonym( code ) );
+		} );
 
 		this.$container.on( 'click', '.cx-discard-translation', function ( e ) {
 			var translation;
@@ -281,7 +453,25 @@
 			location.href = $( this ).find( '.translation-link' ).attr( 'href' );
 		} );
 
+		this.initSourceSelector();
+
 		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+	};
+
+	CXTranslationList.prototype.initSourceSelector = function () {
+		var query,
+			sourceSelectorOptions = {};
+
+		query = new mw.Uri().query;
+		sourceSelectorOptions.sourceLanguage = query.from;
+		sourceSelectorOptions.targetLanguage = query.to;
+		sourceSelectorOptions.sourceTitle = query.page;
+		sourceSelectorOptions.targetTitle = query.targettitle;
+		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
+
+		if ( query.campaign ) {
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+		}
 	};
 
 	CXTranslationList.prototype.scroll = function () {
@@ -387,12 +577,17 @@
 		return new mw.Api().postWithToken( 'edit', apiParams );
 	};
 
-	CXTranslationList.prototype.applyFilters = function ( filters ) {
+	CXTranslationList.prototype.setFilter = function ( type, value ) {
+		this.filters[ type ] = value;
+		this.applyFilters( this.filters, this.translations );
+	};
+
+	CXTranslationList.prototype.applyFilters = function ( filters, translations ) {
 		var i, translation, visible, j, filterProp, filterValue,
 			keys = Object.keys( filters );
 
-		for ( i = 0; i < this.translations.length; i++ ) {
-			translation = this.translations[ i ];
+		for ( i = 0; i < translations.length; i++ ) {
+			translation = translations[ i ];
 
 			visible = true;
 			for ( j = 0; j < keys.length; j++ ) {
@@ -414,5 +609,35 @@
 		}
 	};
 
-	mw.cx.CXTranslationList = CXTranslationList;
+	/**
+	 * Creates a jQuery select element from given options.
+	 * @param {string} classes
+	 * @param {Object} options
+	 * @return {jQuery}
+	 */
+	function createSelect( classes, options ) {
+		var i, value, key,
+			keys = Object.keys( options ),
+			$select = $( '<select>' ).addClass( classes );
+
+		for ( i = 0; i < keys.length; i++ ) {
+			value = keys[ i ];
+			key = options[ value ];
+
+			$select.append( $( '<option>' ).text( key ).attr( 'value', value ) );
+		}
+
+		return $select;
+	}
+
+	$.fn.cxTranslationList = function ( siteMapper ) {
+		return this.each( function () {
+			var $this = $( this ),
+				data = $this.data( 'cxtranslationlist' );
+
+			if ( !data ) {
+				$this.data( 'cx', ( data = new CXTranslationList( this, siteMapper ) ) );
+			}
+		} );
+	};
 }( jQuery, mediaWiki ) );
