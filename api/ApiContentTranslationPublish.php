@@ -217,8 +217,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 			$this->saveTranslationHistory( $params );
 			// Notify user about milestones
-			// Temporary fix for T109063 and T108559
-			// $this->notifyTranslator();
+			$this->notifyTranslator();
 		} else {
 			$result = array(
 				'result' => 'error',
