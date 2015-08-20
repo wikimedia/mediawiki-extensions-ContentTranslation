@@ -192,6 +192,7 @@
 				"ext.cx.header",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
+				"ext.cx.source.selector",
 				"ext.cx.translationlist",
 				"mediawiki.Uri",
 				"mediawiki.ui.button"
@@ -201,7 +202,13 @@
 				"cx-dashboard-sidebar-title",
 				"cx-dashboard-sidebar-information",
 				"cx-dashboard-sidebar-stats",
-				"cx-dashboard-sidebar-feedback"
+				"cx-dashboard-sidebar-feedback",
+				"cx-create-new-translation",
+				"cx-translation-filter-suggested-translations",
+				"cx-translation-filter-published-translations",
+				"cx-translation-filter-draft-translations",
+				"cx-translation-filter-from-any-language",
+				"cx-translation-filter-to-any-language"
 			]
 		},
 		"ext.cx.magnuslink": {
@@ -740,7 +747,6 @@
 			],
 			"dependencies": [
 				"ext.cx.progressbar",
-				"ext.cx.source.selector",
 				"ext.cx.util",
 				"ext.cx.widgets.overlay",
 				"jquery.uls.data",
@@ -748,12 +754,6 @@
 			],
 			"messages": [
 				"cx-dashboard-header",
-				"cx-create-new-translation",
-				"cx-translation-filter-suggested-translations",
-				"cx-translation-filter-published-translations",
-				"cx-translation-filter-draft-translations",
-				"cx-translation-filter-from-any-language",
-				"cx-translation-filter-to-any-language",
 				"cx-discard-translation",
 				"cx-translation-status-draft",
 				"cx-translation-status-deleted",

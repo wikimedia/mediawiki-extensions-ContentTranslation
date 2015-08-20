@@ -5,9 +5,27 @@ body {
 	background-color: #f0f0f0;
 }
 
-.cx-column__title {
-	font-size: 2.2em;
-	font-family: 'Linux Libertine', Georgia, Times, serif;
+.cx-cta {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+
+	padding: 20px 0;
+	float: left;
+	font-size: 16px;
+	background-color: #f0f0f0;
+	z-index: 100;
+
+	&__new-translation:before {
+		content: "";
+		display: inline-block;
+		vertical-align: baseline;
+		height: 16px;
+		width: 16px;
+		margin-right: 5px;
+		.background-image-svg('../images/plus_white.svg', '../images/plus_white.png');
+		background-size: 16px 16px;
+		background-repeat: no-repeat;
+	}
 }
 
 .cx-dashboard {
@@ -100,6 +118,148 @@ body {
 	background-color: #fff;
 	option {
 		padding: 5px;
+	}
+}
+
+.translation-filter {
+	.mw-ui-one-whole;
+
+	background-color: #f0f0f0;
+	padding: 0px;
+	margin-bottom: 20px;
+
+	.cx-statusfilter {
+		float: left;
+		border: 1px solid #656565;
+		border-radius: 2px;
+		overflow: hidden;
+
+		:first-child {
+			border-left: 0px;
+		}
+
+		.cx-status {
+			overflow: hidden;
+			float: left;
+			border-left: 1px solid #656565;
+			cursor: pointer;
+
+			padding: 10px;
+			background-color: white;
+			color: #333;
+
+			&--selected {
+				background-color: #656565;
+				color: #fff;
+			}
+		}
+	}
+
+	.translation-language-filter {
+		float: right;
+		border: 1px solid #9D9D9D;
+		border-radius: 2px;
+		background: #fff;
+		padding: 0;
+
+		.translation-language-source-container,
+		.translation-language-target-container {
+			height: 37px;
+			position: relative;
+
+			select {
+				// The border is necessary to adjust height
+				border: 1px solid transparent;
+				opacity: 0;
+				width: 100%;
+				height: 37px;
+				position: absolute;
+				cursor: pointer;
+			}
+
+			.translation-language-select-content {
+				margin: 0 4px 0 8px;
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				height: 37px;
+				line-height: 37px;
+				color: #333;
+			}
+
+			.translation-language-select-arrow {
+				position: relative;
+				float: left;
+				width: 0;
+				top: 50%;
+				margin-right: 23px;
+
+				&:after,
+				&:before {
+					border: 7px solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+				}
+
+				&:after {
+					border-top-color: #fff;
+					top: -6px
+				}
+
+				&:before {
+					border-top-color: #888888;
+					top: -2px;
+				}
+			}
+		}
+
+		.translation-language-source-container {
+			float: left;
+		}
+
+		.translation-language-target-container {
+			float: right;
+		}
+
+		.translation-language-arrow {
+			position: relative;
+			float: left;
+			width: 0;
+			height: 37px;
+			margin-right: 16px;
+		}
+
+		.translation-language-arrow:after,
+		.translation-language-arrow:before {
+			left: 100%;
+			top: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		.translation-language-arrow:after {
+			border-color: rgba(255, 255, 255, 0);
+			border-left-color: #fff;
+			border-width: 18px;
+			border-left-width: 12px;
+			margin-top: -18px;
+		}
+
+		.translation-language-arrow:before {
+			border-color: rgba(157,157,157, 0);
+			border-left-color: #9D9D9D;
+			border-width: 19px;
+			border-left-width: 13px;
+			margin-top: -19px;
+		}
 	}
 }
 
