@@ -296,6 +296,14 @@
 				.find( '.mw-reference-text' );
 			mwData.body.id = $referenceContent.prop( 'id' );
 		}
+		// Make sure that the data-mw.body.id points to an element that exists. Otherwise
+		// remove that reference. This happens when references in source article changed
+		// and the reference in draft translation no longer points to a valid reference.
+		// See T109574
+		if ( mwData.body.id && !document.getElementById( mwData.body.id ) ) {
+			$targetReference.remove();
+			return;
+		}
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 		this.addReferenceList();
 	};
