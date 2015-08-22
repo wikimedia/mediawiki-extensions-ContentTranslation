@@ -37,7 +37,7 @@
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prevod sadržaja.",
 	"cx-source-loading": "Učitavam $1",
 	"cx-beta": "Prevod sadržaja",
-	"cx-beta-desc": "Alat za brzo prevođenje stranica na svoj jezik. Počnite da prevodite [[Special:MyContributions|svoje doprinose]] i uređujte ih pomoću našeg uporednog uređivača koji je posebno napravljen za prevođenje. Moguće je da neki alati budu dostupni samo za određene jezike.",
+	"cx-beta-desc": "Alat za brzo prevođenje stranica na vaš jezik. Počnite da prevodite [[Special:MyContributions|svoje doprinose]] i uređujte ih pomoću našeg uporednog uređivača koji je posebno napravljen za prevođenje. Moguće je da neki alati budu dostupni samo za određene jezike.",
 	"cx-entrypoint-title": "Prevedi ovu stranicu na $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ova stranica još ne postoji u $1. Želite li je napraviti?",
 	"cx-entrypoint-dialog-title-in": "Naslov nove stranice na jeziku $1:",
