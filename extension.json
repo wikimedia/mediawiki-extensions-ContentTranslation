@@ -297,6 +297,13 @@
 				"login"
 			]
 		},
+		"ext.cx.header.skin": {
+			"skinStyles": {
+				"vector": [
+					"header/styles/ext.cx.header.vector.less"
+				]
+			}
+		},
 		"ext.cx.source": {
 			"scripts": [
 				"source/ext.cx.source.js",
