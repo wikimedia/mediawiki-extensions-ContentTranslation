@@ -51,6 +51,9 @@
 		} );
 	};
 
+	/**
+	 * Toggle the entry point dialog.
+	 */
 	CXEntryPoint.prototype.toggle = function () {
 		if ( this.shown ) {
 			this.hide();
@@ -59,16 +62,8 @@
 		}
 	};
 
-	CXEntryPoint.prototype.startFromScratch = function () {
-		var title, url;
-
-		title = this.$titleInput.val() || mw.config.get( 'wgTitle' );
-		url = this.siteMapper.getPageUrl( this.options.targetLanguage, title );
-		location.href = url;
-	};
-
 	/**
-	 * Show the entry point dialog
+	 * Show the entry point dialog.
 	 */
 	CXEntryPoint.prototype.show = function () {
 		this.$trigger.callout( 'show' );
@@ -80,7 +75,7 @@
 	};
 
 	/**
-	 * Hide the entry point dialog
+	 * Hide the entry point dialog.
 	 */
 	CXEntryPoint.prototype.hide = function () {
 		this.$trigger.callout( 'hide' );
@@ -89,7 +84,18 @@
 	};
 
 	/**
-	 * Start a new page translation in Special:CX
+	 * Go to creating the article using the usual wiki editor.
+	 */
+	CXEntryPoint.prototype.startFromScratch = function () {
+		var title, url;
+
+		title = this.$titleInput.val() || mw.config.get( 'wgTitle' );
+		url = this.siteMapper.getPageUrl( this.options.targetLanguage, title );
+		location.href = url;
+	};
+
+	/**
+	 * Start a new page translation in Special:CX.
 	 */
 	CXEntryPoint.prototype.startPageInCX = function () {
 		var sourceLanguage = mw.config.get( 'wgContentLanguage' ),
@@ -109,12 +115,11 @@
 	 * Render the CX entry point dialog.
 	 */
 	CXEntryPoint.prototype.renderDialog = function () {
-		var $actions, $titleBoxBlock, $dialog, self,
-			$heading, $titleLabel, $license, translateButtonLabel,
+		var $dialog, $heading, $titleLabel, $titleBoxBlock,
+			translateButtonLabel, $license, $actions,
 			targetAutonym = $.uls.data.getAutonym( this.options.targetLanguage ),
 			currentTitle = mw.config.get( 'wgTitle' );
 
-		self = this;
 		$dialog = $( '<div>' )
 			.prop( 'id', 'cx-entrypoint-dialog-' + this.options.targetLanguage );
 
