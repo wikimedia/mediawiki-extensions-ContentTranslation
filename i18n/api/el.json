@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Geraki",
+			"Glavkos"
+		]
+	},
+	"apihelp-cxpublish-description": "Αποθηκεύσετε μια σελίδα που δημιουργήσατε, χρησιμοποιώντας την επέκταση Μετάφραση Περιεχομένου.",
+	"apihelp-cxpublish-param-title": "Ο τίτλος της σελίδας στην οποία θα γίνουν ενέργειες.",
+	"apihelp-cxpublish-param-html": "Το περιεχόμενο για αποθήκευση.",
+	"apihelp-cxpublish-param-from": "Ο κωδικός της γλώσσας πηγής.",
+	"apihelp-cxpublish-param-to": "Ο κωδικός της γλώσσας στόχου.",
+	"apihelp-cxpublish-param-sourcetitle": "Ο τίτλος της σελίδας πηγής.",
+	"apihelp-cxpublish-param-sourcerevision": "Η αναθεώρηση της σελίδας πηγής.",
+	"apihelp-cxpublish-param-status": "Αν είναι <kbd>προσχέδιο</kbd>, η μετάφραση θα αποθηκευτεί ως προσχέδιο. Αν είναι <kbd>δημοσιευμένο</kbd>, η μετάφραση θα δημοσιευθεί.",
+	"apihelp-cxconfiguration-param-from": "Ο κωδικός της γλώσσας πηγής.",
+	"apihelp-cxconfiguration-param-to": "Ο κωδικός της γλώσσας στόχου.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Ο κωδικός της γλώσσας στόχου.",
+	"apihelp-cxdelete-description": "Διαγράψετε μια πρόχειρη μετάφραση που δημιουργήθηκε χρησιμοποιώντας την επέκταση Μετάφραση Περιεχομένου."
+}

@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"सरोज कुमार ढकाल"
+		]
+	},
+	"apihelp-cxpublish-param-html": "सङ्ग्रह गर्नुपर्ने सामग्री ।",
+	"apihelp-cxpublish-param-from": "स्रोत भाषाको कोड ।",
+	"apihelp-cxpublish-param-to": "लक्षित भाषाको कोड ।",
+	"apihelp-cxpublish-param-sourcetitle": "स्रोत लेखको शीर्षक ।",
+	"apihelp-cxpublish-param-sourcerevision": "स्रोत लेखको संस्करण।",
+	"apihelp-query+contenttranslation-param-translationid": "अनुवाद ID ।",
+	"apihelp-query+contenttranslation-example-2": "अनुवाद ड्राफ्ट ID को आधारमा लिनुहोस्",
+	"apihelp-cxconfiguration-param-from": "स्रोत भाषाको कोड ।",
+	"apihelp-cxconfiguration-param-to": "लक्षित भाषाको कोड ।",
+	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषाको कोड ।",
+	"apihelp-query+cxpublishedtranslations-param-to": "लक्षित भाषाको कोड ।",
+	"apihelp-query+cxpublishedtranslations-example-1": "सबै प्रकाशित अनुवादहरू खोज्नुहोस्",
+	"apihelp-query+contenttranslationlangtrend-param-source": "स्रोत भाषाको कोड ।",
+	"apihelp-query+contenttranslationlangtrend-param-target": "लक्षित भाषाको कोड ।",
+	"apihelp-cxdelete-param-from": "स्रोत भाषाको कोड ।",
+	"apihelp-cxdelete-param-to": "लक्षित भाषाको कोड ।",
+	"apihelp-cxdelete-param-sourcetitle": "स्रोत लेखको शीर्षक ।"
+}

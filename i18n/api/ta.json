@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Keyaar",
+			"Shrikarsan"
+		]
+	},
+	"apihelp-cxpublish-description": "உள்ளடக்க மொழிபெயர்ப்பு நீட்டிப்பில் உருவாக்கிய ஒரு பக்கத்தை சேமிக்கவும்.",
+	"apihelp-cxpublish-param-from": "மூல மொழிக் குறியீடு",
+	"apihelp-cxpublish-param-to": "இலக்கு மொழிக் குறியீடு",
+	"apihelp-cxpublish-param-sourcetitle": "மூலப்பக்கத்தின் தலைப்பு",
+	"apihelp-query+cxpublishedtranslations-param-to": "இலக்கு மொழிக் குறியீடு",
+	"apihelp-cxdelete-param-from": "மூல மொழிக் குறியீடு",
+	"apihelp-cxdelete-param-to": "இலக்கு மொழிக் குறியீடு",
+	"apihelp-cxdelete-param-sourcetitle": "மூலப்பக்கத்தின் தலைப்பு"
+}

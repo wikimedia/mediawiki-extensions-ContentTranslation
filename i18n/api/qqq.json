@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Santhosh.thottingal"
+			"Santhosh.thottingal",
+			"Amire80",
+			"Liuxinyu970226"
 		]
 	},
 	"apihelp-cxpublish-description": "{{doc-apihelp-description|cxpublish}}",
@@ -17,7 +19,7 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
 	"apihelp-query+contenttranslation-description": "{{doc-apihelp-description|query+contenttranslation}}",
-	"apihelp-query+contenttranslation-param-translationid": "{{doc-apihelp-param|query+contenttranslation}}",
+	"apihelp-query+contenttranslation-param-translationid": "{{doc-apihelp-param|query+contenttranslation|translationid}}",
 	"apihelp-query+contenttranslation-example-1": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-2": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-3": "{{doc-apihelp-example|query+contenttranslation}}",

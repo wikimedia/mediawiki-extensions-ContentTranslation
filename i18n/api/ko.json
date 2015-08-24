@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bluemersen",
+			"Kurousagi",
+			"아라"
+		]
+	},
+	"apihelp-cxpublish-description": "내용 번역 확장 기능을 사용해 만든 문서를 저장합니다.",
+	"apihelp-cxpublish-param-title": "동작을 수행할 문서의 제목.",
+	"apihelp-cxpublish-param-html": "저장할 내용입니다.",
+	"apihelp-cxpublish-param-from": "원본 언어 코드입니다.",
+	"apihelp-cxpublish-param-to": "대상 언어 코드입니다.",
+	"apihelp-cxpublish-param-sourcetitle": "원문의 제목입니다.",
+	"apihelp-cxpublish-param-sourcerevision": "원문의 버전입니다.",
+	"apihelp-cxpublish-param-status": "<kbd>draft</kbd>라면, 번역이 초안으로 저장됩니다. <kbd>published</kbd>라면, 번역이 글로 출시됩니다.",
+	"apihelp-cxpublish-param-categories": "게시된 문서를 넣을 분류들.",
+	"apihelp-query+contenttranslation-param-translationid": "번역 ID.",
+	"apihelp-query+contenttranslation-example-1": "이 유저가 만든 번역을 가져오기.",
+	"apihelp-cxconfiguration-param-from": "원본 언어 코드.",
+	"apihelp-cxconfiguration-param-to": "대상 언어 코드.",
+	"apihelp-query+cxpublishedtranslations-param-from": "원문 언어 코드.",
+	"apihelp-query+cxpublishedtranslations-param-to": "번역문 언어 코드.",
+	"apihelp-cxdelete-param-from": "원본 언어 코드.",
+	"apihelp-cxdelete-param-to": "대상 언어 코드."
+}
