@@ -12,7 +12,7 @@
 	'use strict';
 
 	/**
-	 * Handles providing urls to different wikis.
+	 * Handles providing URLs to different wikis.
 	 * @class
 	 */
 	mw.cx.SiteMapper = function ( siteconfig ) {
@@ -42,6 +42,7 @@
 
 		domain = this.getWikiDomainCode( language );
 		url = this.config.api.replace( '$1', domain );
+
 		return new mw.Api( {
 			ajax: {
 				url: url
@@ -58,8 +59,8 @@
 	 * @return {string}
 	 */
 	mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
-		var base = this.config.view,
-			domain,
+		var domain,
+			base = this.config.view,
 			extra = '';
 
 		domain = this.getWikiDomainCode( language );
@@ -72,7 +73,7 @@
 	};
 
 	/**
-	 * Get a URL to an article in a wiki for a given language.
+	 * Get the cxserver URL for the current site.
 	 *
 	 * @param {string} module CXServer module path
 	 * @param {Object} [params]
@@ -89,15 +90,14 @@
 	};
 
 	/**
-	 * Get the target title to publish based on per wiki configuration.
+	 * Get the target title to publish based on the wiki configuration.
 	 * @param {string} title
 	 * @return {string} target title
 	 */
 	mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
 		var targetTitle, targetNameSpace;
 
-		// If the title is already in the
-		// user namespace just return it.
+		// If the title is already in the user namespace, just return it
 		if ( new mw.Title( title ).getNamespaceId() === 2 ) {
 			return title;
 		}
@@ -119,8 +119,8 @@
 	};
 
 	/**
-	 * Do the content translation by going to Special:CX with the given
-	 * source-target title and target language.
+	 * Get the URL for Special:CX on the needed wiki
+	 * according to given source and target title and the target language.
 	 *
 	 * @param {string} sourceTitle
 	 * @param {string} targetTitle
@@ -135,7 +135,7 @@
 		targetLanguage,
 		campaign
 	) {
-		var cxPage, uri, queryParams;
+		var cxPage, queryParams, uri;
 
 		cxPage = 'Special:ContentTranslation';
 		queryParams = {
@@ -148,6 +148,7 @@
 		if ( campaign ) {
 			queryParams.campaign = campaign;
 		}
+
 		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
 			uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
 			$.extend( uri.query, queryParams );
@@ -160,7 +161,7 @@
 
 	/**
 	 * Set CX Token in a cookie.
-	 * This token guarantees that the translator read the license agreement
+	 * This token guarantees that the translator reads the license agreement
 	 * and starts translating from CX dashboard enabled as beta feature
 	 * from any wiki under the top domain.
 	 *
@@ -169,24 +170,22 @@
 	 * @param {string} sourceTitle Source title
 	 */
 	mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
-		var slug, now, name, options, domain;
+		var now, slug, name, domain, options;
 
 		now = new Date();
 		slug = mw.Title.newFromText( sourceTitle ).getMain();
 		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
 		domain = location.hostname.indexOf( '.' ) > 0 ?
 			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
-			null; // Mostly domains like "localhost"
+			null; // Mostly for domains like "localhost"
 		options = {
 			path: mw.config.get( 'wgCookiePath' ),
-			// Use Domain cookie. Example: domain=.wikipedia.org
-			domain: domain,
-			expires: new Date( now.getTime() + ( 3600 * 1000 ) ) // 1 hour from now.
+			domain: domain, // Use domain cookie. Example: domain=.wikipedia.org
+			expires: new Date( now.getTime() + ( 3600 * 1000 ) ) // 1 hour from now
 		};
 
 		// At this point, the translator saw the license agreement.
 		// Save that information in a domain cookie.
 		$.cookie( name, true, options );
 	};
-
 }( jQuery, mediaWiki ) );
