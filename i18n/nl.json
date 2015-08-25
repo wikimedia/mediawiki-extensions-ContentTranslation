@@ -54,7 +54,7 @@
 	"cx-entrypoint-title": "Pagina vertalen naar het $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Deze pagina bestaat nog niet in $1. Wilt u deze pagina aanmaken?",
 	"cx-entrypoint-dialog-title-in": "Titel van de nieuwe pagina in $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Beginnen vanuit het niets",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Nieuwe pagina beginnen",
 	"cx-entrypoint-dialog-button-translate-from": "Vertalen vanaf $1",
 	"cx-special-login-error": "U moet aangemeld zijn om in deze pagina te vertalen. [$1 Aanmelden]",
 	"cx-tools-instructions-text1": "Klik de alinea's aan om ze te vertalen",
