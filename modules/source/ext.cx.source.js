@@ -63,7 +63,7 @@
 			cxSource = this;
 
 		fetchPageUrl = this.siteMapper.getCXServerUrl( '/page/$language/$title', {
-			$language: language,
+			$language: this.siteMapper.getWikiDomainCode( language ),
 			$title: title
 		} );
 
