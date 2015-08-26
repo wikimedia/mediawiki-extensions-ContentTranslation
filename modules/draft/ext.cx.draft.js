@@ -127,6 +127,7 @@
 				deferred.resolve( null );
 			}
 		} );
+
 		return deferred.promise();
 	};
 
@@ -333,6 +334,7 @@
 			return;
 		}
 		apiParams = $.extend( {}, params, {
+			assert: 'user',
 			action: 'cxpublish'
 		} );
 		api.postWithToken( 'edit', apiParams, {
@@ -347,8 +349,12 @@
 			timer = setInterval( function () {
 				checkAndsave();
 			}, 5 * 60 * 1000 );
-		} ).fail( function () {
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
+		} ).fail( function ( errorCode ) {
+			if ( errorCode === 'assertuserfailed' ) {
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
+			} else {
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
+			}
 		} );
 	};
 

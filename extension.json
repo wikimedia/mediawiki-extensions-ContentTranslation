@@ -614,9 +614,10 @@
 				"jquery.throttle-debounce"
 			],
 			"messages": [
-				"cx-save-draft-saving",
-				"cx-save-draft-save-success",
+				"cx-lost-session-draft",
 				"cx-save-draft-error",
+				"cx-save-draft-save-success",
+				"cx-save-draft-saving",
 				"cx-save-draft-tooltip"
 			]
 		},
@@ -636,10 +637,11 @@
 				"mediawiki.api.edit"
 			],
 			"messages": [
-				"cx-publish-page-success",
-				"cx-publish-page-error",
+				"cx-lost-session-publish",
 				"cx-publish-button-publishing",
 				"cx-publish-captcha-title",
+				"cx-publish-page-error",
+				"cx-publish-page-success",
 				"unknown-error"
 			]
 		},

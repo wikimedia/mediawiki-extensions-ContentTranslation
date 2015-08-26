@@ -31,6 +31,8 @@
 	"cx-publish-page-error": "An error occurred while publishing the translation. Please try to publish the page again. Error: $1",
 	"cx-publish-button": "Publish translation",
 	"cx-publish-button-publishing": "Publishing...",
+	"cx-lost-session-draft": "Your session has expired. Your edits cannot be saved unless you log in again in another window.",
+	"cx-lost-session-publish": "Your session has expired. You cannot publish the translation until you log in again in another window.",
 	"cx-publish-summary": "Created by translating the page \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Please ask an experienced user of this site to help you review your translation and publish it in the main space.",
 	"cx-publish-gt-first-step-title": "The translation has been published as a draft under your user page for review",
