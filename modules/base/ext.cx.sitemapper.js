@@ -22,23 +22,11 @@
 	/**
 	 * Some wikis have domain names that do not match the content language.
 	 * See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
-	 * NOTE: Keep list of mapping in sync with includes/SiteMapper.php
 	 * @param {string} language Language code
 	 * @return {string}
 	 */
 	mw.cx.SiteMapper.prototype.getWikiDomainCode = function ( language ) {
-		var languageToWikiDomainMapping = {
-			bho: 'bh',
-			'crh-latn': 'crh',
-			gsw: 'als',
-			sgs: 'bat-smg',
-			'be-tarask': 'be-x-old',
-			vro: 'fiu-vro',
-			rup: 'roa-rup',
-			lzh: 'zh-classical',
-			nan: 'zh-min-nan',
-			yue: 'zh-yue'
-		};
+		var languageToWikiDomainMapping = mw.config.get( 'wgContentTranslationDomainCodeMapping' );
 
 		return languageToWikiDomainMapping[ language ] || language;
 	};
