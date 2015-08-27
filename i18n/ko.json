@@ -22,7 +22,7 @@
 	"cx-javascript": "이 도구는 자바스크립트 없이 사용할 수 없습니다.",
 	"cx-license-agreement": "\"$1\" 버튼을 클릭하면, 당신은 [//wikimediafoundation.org/wiki/Terms_of_Use 이용약관]에 동의하는 것으로 간주됩니다. 또한 CC BY-SA 3.0 저작자 표시에 하이퍼링크나 URL을 이용하는 것이 충분함을 이해하며, 번역도구를 통한 당신의 기여를 [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 라이센스]와 [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]로 배포하는 것에 동의하는 것으로 간주됩니다. 이 동의는 철회할 수 없습니다.",
 	"cx-error-server-connection": "오류: 서버에 연결할 수 없습니다.",
-	"cx-desc": "문서의 내용을 번역하기 쉽게 합니다",
+	"cx-desc": "문서의 내용을 번역하기 쉽도록 합니다",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|번역됨}}",
 	"cx-header-progressbar-text-mt": "({{PLURAL:$1|기계 번역}}에서 $1%)",
 	"cx-header-translation-center": "번역 센터",
