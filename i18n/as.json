@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bishnu Saikia"
+			"Bishnu Saikia",
+			"Gitartha.bordoloi"
 		]
 	},
-	"cx-translation-filter-all-translations": "সমূহ অনুবাদ"
+	"cx-translation-filter-all-translations": "সমূহ অনুবাদ",
+	"cx-campaign-contributionsmenu-mycontributions": "বৰঙণি",
+	"cx-campaign-contributionsmenu-mytranslations": "অনুবাদ",
+	"cx-campaign-contributionsmenu-myuploads": "আপল'ড কৰা মিডিয়া"
 }
