@@ -43,7 +43,9 @@
 	 */
 	CXDashboard.prototype.initLists = function () {
 		this.renderTranslations();
-		this.renderTranslationSuggestions();
+		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+			this.renderTranslationSuggestions();
+		}
 	};
 
 	/**
@@ -170,19 +172,23 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var $sourceLanguageContainer, $filterTabs, $targetLanguageContainer;
+		var $sourceLanguageContainer, $targetLanguageContainer,
+			$filterTabs = [];
 
-		$filterTabs = [
-			$( '<span>' )
+		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+			$filterTabs.push( $( '<span>' )
 				.addClass( 'cx-filter cx-suggestions mw-ui-input' )
-				.text( mw.msg( 'cx-translation-filter-suggested-translations' ) ),
-			$( '<span>' )
-				.addClass( 'cx-filter cx-filter--draft cx-filter--selected mw-ui-input' )
-				.text( mw.msg( 'cx-translation-filter-draft-translations' ) ),
-			$( '<span>' )
-				.addClass( 'cx-filter cx-filter--published mw-ui-input' )
-				.text( mw.msg( 'cx-translation-filter-published-translations' ) )
-		];
+				.text( mw.msg( 'cx-translation-filter-suggested-translations' ) ) );
+		}
+
+		$filterTabs.push( $( '<span>' )
+			.addClass( 'cx-filter cx-filter--draft cx-filter--selected mw-ui-input' )
+			.text( mw.msg( 'cx-translation-filter-draft-translations' ) ) );
+
+		$filterTabs.push( $( '<span>' )
+			.addClass( 'cx-filter cx-filter--published mw-ui-input' )
+			.text( mw.msg( 'cx-translation-filter-published-translations' ) ) );
+
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
 		this.$newTranslationButton = $( '<button>' )
 			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-constructive' )
@@ -318,7 +324,9 @@
 			this.translationList.filters[ type ] = value;
 			this.translationList.applyFilters( this.translationList.filters );
 			this.translationList.$translationsList.show();
-			this.suggestionList.$suggestionList.hide();
+			if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+				this.suggestionList.$suggestionList.hide();
+			}
 		}
 	};
 

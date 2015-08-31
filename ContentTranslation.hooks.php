@@ -164,6 +164,7 @@ class ContentTranslationHooks {
 	public static function addConfig( array &$vars ) {
 		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationDomainCodeMapping,
+			$wgContentTranslationEnableSuggestions,
 			$wgContentTranslationExperimentalFeatures,
 			$wgContentTranslationDatabase,
 			$wgContentTranslationSiteTemplates,
@@ -174,6 +175,7 @@ class ContentTranslationHooks {
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
+		$vars['wgContentTranslationEnableSuggestions'] = $wgContentTranslationEnableSuggestions;
 		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
 		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
