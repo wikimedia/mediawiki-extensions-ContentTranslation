@@ -270,16 +270,21 @@ class Translation {
 			$groupBy
 		);
 
+		$prev = 0;
 		$result = array();
 		foreach ( $rows as $row ) {
+			$count = (int)$row->translatons_count;
 			$result[] = array(
 				'date' => $interval === 'week' ?
 					// Week end date
 					date( 'Y-m-d', strtotime( $row->date . ' + ' .
 						( 6 - date( 'w', strtotime( $row->date ) ) ) . ' days' ) ) :
 					date( 'Y-m', strtotime( $row->date ) ),
-				'count' => $row->translatons_count,
+				'count' => $count,
+				'delta' => $count - $prev,
 			);
+
+			$prev = $count;
 		}
 
 		return $result;

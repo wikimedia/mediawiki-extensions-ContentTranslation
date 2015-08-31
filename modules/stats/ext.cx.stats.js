@@ -53,7 +53,7 @@
 			self.languageTranslationTrend = languageTrend;
 			self.languageTranslationTrend = mergeAndFill( totalTrend, languageTrend );
 			self.renderHighlights();
-			self.drawGraph();
+			self.drawGraph( 'count' );
 		} );
 		this.getCXStats().then( function ( data ) {
 			if ( !data || !data.query ) {
@@ -77,7 +77,7 @@
 			$parenthesizedTrend, $trendInLanguage,
 			fmt = mw.language.convertNumber; // Shortcut
 
-		if ( this.totalTranslationTrend.length < 3 ) {
+		if ( this.totalTranslationTrend.length < 4 ) {
 			// Trend calculation works only if we have enough data
 			return;
 		}
@@ -424,7 +424,7 @@
 		} );
 	};
 
-	CXStats.prototype.drawGraph = function () {
+	CXStats.prototype.drawGraph = function ( type ) {
 		var data, cxTrendGraph, ctx;
 
 		ctx = this.$graph[ 0 ].getContext( '2d' );
@@ -439,7 +439,7 @@
 					strokeColor: '#FD6E8A',
 					pointColor: '#FD6E8A',
 					data: $.map( this.totalTranslationTrend, function ( data ) {
-						return data.count;
+						return data[type];
 					} )
 				},
 				{
@@ -450,7 +450,7 @@
 					strokeColor: '#80B3FF',
 					pointColor: '#80B3FF',
 					data: $.map( this.languageTranslationTrend, function ( data ) {
-						return data.count;
+						return data[type];
 					} )
 				}
 			]
@@ -474,7 +474,7 @@
 		this.targetSourceModel.draft = {};
 		this.sourceTargetModel.published = {};
 		this.targetSourceModel.published = {};
-		// sourceModel['count']={};
+
 		for ( i = 0; i < records.pages.length; i++ ) {
 			record = records.pages[ i ];
 			status = record.status;
