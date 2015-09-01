@@ -15,7 +15,7 @@ class SiteMapper {
 			return $wgContentTranslationDomainCodeMapping[$language];
 		}
 
-		return $domain;
+		return $language;
 	}
 
 

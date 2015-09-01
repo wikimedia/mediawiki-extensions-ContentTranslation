@@ -123,8 +123,8 @@ class CXManageLists extends Maintenance {
 			if ( !isset( $data['continue'] ) || count( $pages ) > 5000 ) {
 				break;
 			} else {
-				unset( $param['llcontinue'] );
-				unset( $param['gcmcontinue'] );
+				unset( $params['llcontinue'] );
+				unset( $params['gcmcontinue'] );
 				$params += $data['continue'];
 			}
 		}
