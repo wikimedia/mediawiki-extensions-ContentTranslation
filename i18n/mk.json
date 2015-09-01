@@ -171,5 +171,6 @@
 	"cx-tools-link-external-link-placeholder": "Додај надворешна врска",
 	"cx-tools-link-to-another-page": "Врска до друга страница",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Страницата не постои"
+	"mw-pageselector-missing": "Страницата не постои",
+	"cx-suggestionlist-featured": "Избрана статија"
 }

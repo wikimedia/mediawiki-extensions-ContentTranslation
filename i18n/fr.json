@@ -194,5 +194,6 @@
 	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",
 	"cx-tools-link-to-another-page": "Lien vers une autre page",
 	"cx-tools-link-apply": "Fait",
-	"mw-pageselector-missing": "La page n’existe pas"
+	"mw-pageselector-missing": "La page n’existe pas",
+	"cx-suggestionlist-featured": "Article en vedette"
 }

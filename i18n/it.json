@@ -12,7 +12,8 @@
 			"Alexmar983",
 			"Amire80",
 			"Federico Mugnaini",
-			"Fringio"
+			"Fringio",
+			"Statix64"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -179,5 +180,6 @@
 	"cx-tools-link-external-link-placeholder": "Aggiungere link esterno",
 	"cx-tools-link-to-another-page": "Collegamento a un'altra pagina",
 	"cx-tools-link-apply": "Fatto",
-	"mw-pageselector-missing": "La pagina non esiste"
+	"mw-pageselector-missing": "La pagina non esiste",
+	"cx-suggestionlist-featured": "Voce in vetrina"
 }

@@ -161,7 +161,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducció|$1 traduccions}}",
 	"cx-tools-missing-link-tooltip": "Tradueix (en una finestra nova)",
 	"cx-tools-missing-link-title": "Hi manca un enllaç",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Marca-ho}} que hi manca",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Mark}} com que hi manca",
 	"echo-category-title-cx": "Traduccions",
 	"echo-pref-tooltip-cx": "Notifica'm de les meves traduccions creades fent servir l'eina Content Translation",
 	"cx-notification-first-translation-email-subject": "Enhorabona per la vostra primera traducció",

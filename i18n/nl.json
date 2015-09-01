@@ -171,5 +171,6 @@
 	"cx-notification-first-translation-email-subject": "Gefeliciteerd met uw eerste vertaling",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
 	"cx-translationlist-empty-desc": "Begin uw vertaling nu en u kunt er altijd later mee doorgaan",
-	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen"
+	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen",
+	"cx-suggestionlist-featured": "Etalage-artikel"
 }
