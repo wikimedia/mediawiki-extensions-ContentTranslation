@@ -27,6 +27,7 @@ class CxFixStats extends Maintenance {
 		);
 
 		$this->resets = array();
+		$this->tags = array();
 	}
 
 	public function execute() {
@@ -50,26 +51,65 @@ class CxFixStats extends Maintenance {
 				$row->translation_target_title,
 				$row->translation_target_language
 			);
+
 			$this->output( "$name ({$row->translation_status})\n" );
 			$this->checkTargetUrl( $row );
-
 		}
 
-		$count = count( $this->resets );
+		$this->changeStatus( $this->resets, $this->dryrun );
+		$this->addTags( $this->tags, $this->dryrun );
+	}
+
+	protected function changeStatus( $resets, $dry ) {
+		$count = count( $resets );
 		if ( !$count ) {
-			$this->output( "No changes to do\n" );
+			$this->output( "No changes to do to the central database\n" );
+
 			return;
 		}
 
-		if ( $this->dryrun ) {
+		if ( $dry ) {
 			$this->output( "$count rows would be updated to set target_url to null\n" );
-		} else {
-			$this->output( "$count rows ARE updated to set target_url to null\n" );
-			$db->update(
-				'cx_translations',
-				array( 'translation_target_url' => null ),
-				array( 'translation_id' => $this->resets ),
-				__METHOD__
+
+			return;
+		}
+
+		$this->output( "$count rows ARE updated to set target_url to null\n" );
+		$db->update(
+			'cx_translations',
+			array( 'translation_target_url' => null ),
+			array( 'translation_id' => $resets ),
+			__METHOD__
+		);
+	}
+
+	protected function addTags( $items, $dry ) {
+		$count = count( $items );
+		if ( !$count ) {
+			$this->output( "No revisions to tag\n" );
+
+			return;
+		}
+
+		if ( $dry ) {
+			$this->output( "$count revisions would be tagged\n" );
+
+			return;
+		}
+
+		$this->output( "$count rows are tagged\n" );
+
+		foreach ( $items as $item ) {
+			list( $row, $revId ) = $item;
+			ChangeTags::addTags(
+				'contenttranslation',
+				null,
+				$revId,
+				null,
+				FormatJson::encode( array(
+					'from' => $row->translation_source_language,
+					'to' => $row->translation_target_language,
+				) )
 			);
 		}
 	}
@@ -116,14 +156,27 @@ class CxFixStats extends Maintenance {
 		if ( $title->exists() ) {
 			if ( $this->hasCxTag( $title, $row ) ) {
 				if ( $row->translation_status === 'draft' ) {
-					$this->output( "\\- E20 Page currently exists but status is draft\n" );
+					$this->output( "\\- E20 Page exists but status is draft\n" );
 				} else {
 					// status=published and page created with CX, the ideal case
 				}
 			} elseif ( $title->isRedirect() ) {
 				$this->output( "\\- E22 Page is a redirect\n" );
 			} else {
-				$this->output( "\\- E24 Page currently exists but not created with CX\n" );
+				$user = ContentTranslation\GlobalUser::newFromId( $row->translation_started_by );
+				$userName = $user->getName();
+				$revId = $this->findRevisionToTag(
+					$title,
+					$userName,
+					$row->translation_last_updated_timestamp
+				);
+
+				if ( $revId !== false ) {
+					$this->output( "\\- E25 Page exists but no tag. Can tag rev $revId by $userName.\n" );
+					$this->tags[] = array( $row, $revId );
+				} else {
+					$this->output( "\\- E24 Page exists but no tag.\n" );
+				}
 			}
 
 			return;
@@ -163,6 +216,28 @@ class CxFixStats extends Maintenance {
 
 		$field = $dbr->selectField( array( 'revision', 'change_tag' ), 'ct_tag', $conds, __METHOD__ );
 		return $field === 'contenttranslation';
+	}
+
+	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
+		$dbr = wfGetDB( DB_SLAVE );
+
+		// Allow one minute slack
+		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;
+
+		$tables = array( 'revision', 'change_tag' );
+
+		$conds = array();
+		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
+		$conds['rev_page'] = $title->getArticleId();
+		$conds['rev_user_text'] = $name;
+
+		// Take the oldest timestamp by the author
+		$options = array(
+			'ORDER BY' => 'rev_timestamp ASC'
+		);
+
+		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options );
+		return $revId;
 	}
 }
 
