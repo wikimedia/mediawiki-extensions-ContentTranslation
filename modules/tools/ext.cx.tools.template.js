@@ -209,18 +209,19 @@
 	 * @param {jQuery} $section Content translation section
 	 */
 	function processTemplates( $section ) {
-		var templates = [];
+		var i, template, templates = [];
 
 		if ( $section.is( '[typeof*="mw:Transclusion"]' ) ) {
 			templates.push( $section );
 		}
-		templates.push( $section.find( '[typeof*="mw:Transclusion"]' ) );
-
-		$.each( templates, function () {
-			var template = new TemplateTool( this );
-
+		templates = templates.concat(
+			// Convert the internal templates to a js array
+			$.makeArray( $section.find( '[typeof*="mw:Transclusion"]' ) )
+		);
+		for ( i = 0; i < templates.length; i++ ) {
+			template = new TemplateTool( templates[ i ] );
 			template.process();
-		} );
+		}
 	}
 
 	if ( typeof QUnit !== undefined ) {
