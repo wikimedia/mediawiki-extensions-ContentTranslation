@@ -26,6 +26,7 @@
 	"cx-publish-gt-moved-title": "ទំព័របកប្រែត្រូវបានប្ដូរទីតាំងហើយ",
 	"cx-publish-gt-moved-description": "ចុចលើតំណភ្ជាប់នេះដើម្បីអាននិងកែលម្អទំព័រដែលអ្នកបានបកប្រែថ្មីៗ",
 	"cx-publish-gt-published-title": "សូមអបអរសាទរ! ទំព័រនេះត្រូវបានបោះផ្សាយហើយ",
+	"cx-publish-gt-published-description": "អ្នកអាចចុច \"{{int:vector-view-edit}}\" ដើម្បីកែលម្អទំព័រនេះ។ សូមប្រាកដថាអត្ថបទនេះអានមិនឆ្គង។",
 	"cx-translation-add-translation": "+ បន្ថែម​ការ​បក​ប្រែ",
 	"cx-translation-target-page-exists": "ទំព័រដែលមានចំណងជើង [$1 $2] មានហើយនៅក្នុងវិគីគោលដៅ។ សូមពិចារណាដាក់ចំណងជើងផ្សេងមួយដល់ទំព័រនេះ។",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ការបកប្រែខ្លឹមសារ]]",
@@ -164,5 +165,6 @@
 	"cx-tools-link-external-link-placeholder": "បន្ថែមតំណភ្ជាប់ក្រៅ",
 	"cx-tools-link-to-another-page": "តភ្ជាប់ទៅកាន់ទំព័រមួយទៀត",
 	"cx-tools-link-apply": "រួចរាល់ហើយ",
-	"mw-pageselector-missing": "ទំព័រមិនទាន់មាននៅឡើយទេ"
+	"mw-pageselector-missing": "ទំព័រមិនទាន់មាននៅឡើយទេ",
+	"cx-suggestionlist-featured": "អត្ថបទឆ្នើម"
 }
