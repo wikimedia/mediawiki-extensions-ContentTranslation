@@ -10,7 +10,8 @@
 			"Sujiniku",
 			"아라",
 			"Takot",
-			"2nd-player"
+			"2nd-player",
+			"Otokoume"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -179,5 +180,6 @@
 	"cx-tools-link-external-link-placeholder": "外部リンクを追加",
 	"cx-tools-link-to-another-page": "別のページにリンク",
 	"cx-tools-link-apply": "完了",
-	"mw-pageselector-missing": "ページが存在しません"
+	"mw-pageselector-missing": "ページが存在しません",
+	"cx-suggestionlist-featured": "秀逸な記事"
 }

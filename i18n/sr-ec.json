@@ -9,7 +9,7 @@
 	"cx": "Преведи страницу",
 	"cx-dashboard-header": "Преводи",
 	"cx-javascript": "Ова алатка не ради без јаваскрипте.",
-	"cx-license-agreement": "Притиском на „$1“ прихватате [//wikimediafoundation.org/wiki/Terms_of_Use услове коришћења] и неопозиво прихватате да се ваш допринос са преводилачком алатком објави под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] и слажете се да је навођење хипервезе или УРЛ адресе довољно приписивање по лиценци CC BY-SA 3.0.",
+	"cx-license-agreement": "Притиском на „$1“ прихватате [//wikimediafoundation.org/wiki/Terms_of_Use услове коришћења] и неопозиво прихватате да се Ваш допринос са преводилачком алатком објави под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] и слажете се да је навођење хипервезе или УРЛ адресе довољно приписивање по лиценци CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: повезивање са сервером није успело.",
 	"cx-desc": "Поједностављено превођење страница",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|преведено}}",
