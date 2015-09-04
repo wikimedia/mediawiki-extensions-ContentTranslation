@@ -24,15 +24,59 @@ class ApiContentTranslationPublish extends ApiBase {
 	protected $serviceClient;
 
 	public function __construct( ApiMain $main, $name ) {
-		global $wgContentTranslationParsoid;
 		parent::__construct( $main, $name );
 		$this->serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
-		$parsoidConfig = $wgContentTranslationParsoid;
-		$this->serviceClient->mount( '/parsoid/', new ParsoidVirtualRESTService( array(
-			'URL' => $parsoidConfig['url'],
-			'prefix' => $parsoidConfig['prefix'],
-			'timeout' => $parsoidConfig['timeout'],
-		) ) );
+		$this->serviceClient->mount( '/parsoid/', $this->getVRSObject() );
+	}
+
+	/**
+	 * Creates the virtual REST service object to be used in CX's API calls. The
+	 * method determines whether to instantiate a ParsoidVirtualRESTService or a
+	 * RestbaseVirtualRESTService object based on configuration directives: if
+	 * $wgVirtualRestConfig['modules']['restbase'] is defined, RESTBase is chosen,
+	 * otherwise Parsoid is used (either by using the MW Core config, or the
+	 * CX-local one).
+	 *
+	 * @return VirtualRESTService the VirtualRESTService object to use
+	 */
+	private function getVRSObject() {
+		// the params array to create the service object with
+		$params = array();
+		// the VRS class to use, defaults to Parsoid
+		$class = 'ParsoidVirtualRESTService';
+		// the global virtual rest service config object, if any
+		$vrs = $this->getConfig()->get( 'VirtualRestConfig' );
+		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
+			// if restbase is available, use it
+			$params = $vrs['modules']['restbase'];
+			$class = 'RestbaseVirtualRESTService';
+			// remove once VE generates restbase paths
+			$params['parsoidCompat'] = true;
+		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
+			// there's a global parsoid config, use it next
+			$params = $vrs['modules']['parsoid'];
+		} else {
+			// no global modules defined, fall back to old defaults
+			$config = $this->getConfig()->get( 'ContentTranslationParsoid' );
+			$params = array(
+				'URL' => $config['url'],
+				'prefix' => $config['prefix'],
+				'domain' => $config['domain'],
+				'timeout' => $config['timeout'],
+			);
+		}
+		// merge the global and service-specific params
+		if ( isset( $vrs['global'] ) ) {
+			$params = array_merge( $vrs['global'], $params );
+		}
+		// set up cookie forwarding
+		if ( $params['forwardCookies'] && !User::isEveryoneAllowed( 'read' ) ) {
+			$params['forwardCookies'] = RequestContext::getMain()->getRequest()->getHeader( 'Cookie' );
+		} else {
+			$params['forwardCookies'] = false;
+		}
+		// create the VRS object and return it
+		return new $class( $params );
 	}
 
 	private function requestParsoid( $method, $path, $params ) {
