@@ -89,7 +89,8 @@
 	 * Render the source content column.
 	 */
 	ContentTranslationSource.prototype.render = function () {
-		var sourceLanguageDir, $languageLabel, $articleLink, userLanguage, $subHeading, title;
+		var sourceLanguageDir, title, namespace,
+			$languageLabel, $articleLink, userLanguage, $subHeading;
 
 		sourceLanguageDir = $.uls.data.getDir( mw.cx.sourceLanguage );
 		this.$container.prop( {
@@ -101,6 +102,18 @@
 
 		if ( title ) {
 			mw.cx.sourceTitle = title.getPrefixedText();
+
+			if ( title.getNamespaceId() ) { // Non-main
+				// mw.Title's getPrefixedText() adds the localized namespace name,
+				// but it's localized for the current wiki's content language,
+				// and here we need the source. See
+				// https://phabricator.wikimedia.org/T86744
+				// Avoid this problem for non-main-space pages by taking
+				// the namespace name from the current source title.
+				namespace = mw.cx.sourceTitle.match( '.+?:' )[ 0 ];
+
+				mw.cx.sourceTitle = namespace + title.getNameText();
+			}
 		}
 
 		this.$title = $( '<h2>' )
