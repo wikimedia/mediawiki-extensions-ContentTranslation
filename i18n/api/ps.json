@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahmed-Najib-Biabani-Ibrahimkhel"
+		]
+	},
+	"apihelp-cxpublish-param-html": "د خوندي کولو مېنځپانگه.",
+	"apihelp-cxpublish-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-cxpublish-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-cxpublish-param-sourcetitle": "د سرچينې مخ سرليک.",
+	"apihelp-cxpublish-param-sourcerevision": "د سرچينې مخ مخکتنه.",
+	"apihelp-query+contenttranslation-param-translationid": "د ژباړې پېژند.",
+	"apihelp-query+contenttranslation-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-query+contenttranslation-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-query+contenttranslation-example-2": "د پېژند له مخې د ژباړې گارليکونه ترلاسه کول.",
+	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
+	"apihelp-cxconfiguration-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-cxconfiguration-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-query+cxpublishedtranslations-description": "د ټولو خپرو شويو ژباړو مالومات راغونډول",
+	"apihelp-query+cxpublishedtranslations-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-query+cxpublishedtranslations-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-query+cxpublishedtranslations-example-1": "ټولې خپرې شوې ژباړې راغونډول",
+	"apihelp-query+cxpublishedtranslations-example-2": "له انگرېزي څخه ژباړل شوې، ټولې ژباړې راغونډول",
+	"apihelp-query+cxpublishedtranslations-example-3": "له انگرېزي څخه هسپاني ته ژباړل شوې، ټولې ژباړې راغونډول",
+	"apihelp-query+contenttranslationlangtrend-param-source": "د سرچينې د ژبې کوډ.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "د موخې د ژبې کوډ.",
+	"apihelp-cxdelete-param-from": "د سرچينې د ژبې کوډ",
+	"apihelp-cxdelete-param-to": "د موخې د ژبې کوډ",
+	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک"
+}
