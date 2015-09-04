@@ -59,8 +59,7 @@
 	 *     identify the host wiki.
 	 */
 	ContentTranslationSource.prototype.fetchPage = function ( title, language ) {
-		var fetchPageUrl,
-			cxSource = this;
+		var fetchPageUrl;
 
 		fetchPageUrl = this.siteMapper.getCXServerUrl( '/page/$language/$title', {
 			$language: this.siteMapper.getWikiDomainCode( language ),
@@ -76,7 +75,6 @@
 					mw.hook( 'mw.cx.error' ).fire(
 						mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
 					);
-					cxSource.showSourceSelector();
 				} else {
 					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 				}
