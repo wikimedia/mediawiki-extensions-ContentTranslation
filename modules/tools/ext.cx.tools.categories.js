@@ -35,6 +35,18 @@
 	}
 
 	/**
+	 * Get an element that adds space between the different parts
+	 * of the category tag.
+	 * This is needed because adding this space using CSS can give
+	 * an incorrect result when RTL is involved:
+	 * e.g. margin-left will not be flipped correctly if
+	 * the target language is French, but the UI language is Hebrew.
+	 */
+	function getCategorySpacer() {
+		return $( '<span>' ).addClass( 'cx-category__spacer' );
+	}
+
+	/**
 	 * CXCategoryCounter Class
 	 * @class
 	 * @param {string} language The language for the counter
@@ -394,7 +406,10 @@
 	 * @return {jQuery}
 	 */
 	function createTargetCategoryListItem( id, title ) {
-		var extract, $listItem, $categoryRemove;
+		var extract, $categoryRemove, $listItem;
+
+		$categoryRemove = $( '<span>' )
+			.addClass( 'cx-category-remove' );
 
 		// mw.Title cannot be used because of
 		// https://phabricator.wikimedia.org/T106644
@@ -402,12 +417,8 @@
 		$listItem = $( '<li>' )
 			.addClass( 'cx-category cx-category--translation' )
 			.attr( 'cx-category-id', id )
-			.text( extract[ 1 ] );
-
-		$categoryRemove = $( '<span>' )
-			.addClass( 'cx-category-remove' );
-
-		$listItem.append( $categoryRemove );
+			.text( extract[ 1 ] )
+			.append( getCategorySpacer(), $categoryRemove );
 
 		return $listItem;
 	}
