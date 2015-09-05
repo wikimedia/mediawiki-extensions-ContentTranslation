@@ -23,6 +23,8 @@
 	"apihelp-query+contenttranslation-param-from": "{{doc-apihelp-param|query+contenttranslation|from}}",
 	"apihelp-query+contenttranslation-param-to": "{{doc-apihelp-param|query+contenttranslation|to}}",
 	"apihelp-query+contenttranslation-param-sourcetitle": "{{doc-apihelp-param|query+contenttranslation|sourcetitle}}",
+	"apihelp-query+contenttranslation-param-limit": "{{doc-apihelp-param|query+contenttranslation|limit}}",
+	"apihelp-query+contenttranslation-param-offset": "{{doc-apihelp-param|query+contenttranslation|offset}}",
 	"apihelp-query+contenttranslation-example-1": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-2": "{{doc-apihelp-example|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-example-3": "{{doc-apihelp-example|query+contenttranslation}}",
