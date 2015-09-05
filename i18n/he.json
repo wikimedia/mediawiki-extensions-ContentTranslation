@@ -154,7 +154,7 @@
 	"cx-stats-total-published": "סה\"כ פורסמו",
 	"cx-stats-monthly-published": "בחודש שעבר",
 	"cx-stats-weekly-published": "בשבוע שעבר",
-	"cx-stats-local-published-number": "$1 ב$2",
+	"cx-stats-local-published-number": "$1 ב{{GRAMMAR:תחילית|$2}}",
 	"cx-stats-local-published": "$1 ($3) ב{{GRAMMAR:תחילית|$2}}",
 	"cx-stats-grouping-title": "{{PLURAL:$1|תרגום אחד|$1 תרגומים}}",
 	"cx-tools-missing-link-text": "{{GENDER:|סמן|סמני}} שהדף חסר כדי לעודד את יצירתו.",

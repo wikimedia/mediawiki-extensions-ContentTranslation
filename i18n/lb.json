@@ -20,6 +20,8 @@
 	"cx-publish-page-error": "Feeler beim Publizéiere vun der Iwwersetzung. Probéiert w.e.g. d'Säit nach eng Kéier ze publizéieren. Feeler: $1",
 	"cx-publish-button": "Iwwersetzung publizéieren",
 	"cx-publish-button-publishing": "Gëtt publizéiert...",
+	"cx-lost-session-draft": "Är Sessioun ass ofgelaf. Är Ännerunge kënnen net gespäichert ginn, et sief Dir loggt Iech an enger anerer Fënster nees an.",
+	"cx-lost-session-publish": "Är Sessioun ass ofgelaf. Dir kënnt d'Iwwersetzung net publizéieren bis Dir Iech nees an enger anerer Fënster aloggt.",
 	"cx-publish-summary": "Ugeluecht duerch d'Iwwersetze vun der Säit \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Frot w.e.g. en experimentéierte Benotzer vun dësem Site fir Iech ze hëllefen Är Iwwersetzung nozekucken a fir se am Haaptnummraum ze publizéieren.",
 	"cx-publish-gt-first-step-title": "D'Iwwersetzung gouf als Brouillon op Ärer Benotzersäit publizéiert fir nogekuckt ze ginn",

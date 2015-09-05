@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sator"
+		]
+	},
+	"apihelp-cxpublish-description": "Gorde Content Translation hedapena erabila sortutako orria.",
+	"apihelp-cxpublish-param-from": "Jatorrizko hizkuntzaren kodea",
+	"apihelp-cxpublish-param-to": "Helburu den hizkuntzaren kodea",
+	"apihelp-cxpublish-param-sourcetitle": "Jatorrizko orriaren titulua",
+	"apihelp-query+contenttranslation-param-translationid": "Itzulpen IDa",
+	"apihelp-query+contenttranslation-param-from": "Jatorrizko hizkuntzaren kodea",
+	"apihelp-query+contenttranslation-param-to": "Helburu den hizkuntzaren kodea",
+	"apihelp-cxconfiguration-param-to": "Helburu den hizkuntzaren kodea",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Helburu den hizkuntzaren kodea",
+	"apihelp-query+cxpublishedtranslations-param-from": "Jatorrizko hizkuntzaren kodea",
+	"apihelp-query+cxpublishedtranslations-param-to": "Helburu den hizkuntzaren kodea",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Jatorrizko hizkuntzaren kodea",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Helburu den hizkuntzaren kodea",
+	"apihelp-cxdelete-param-from": "Jatorrizko hizkuntzaren kodea"
+}
