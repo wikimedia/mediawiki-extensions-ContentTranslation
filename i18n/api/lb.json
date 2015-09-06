@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"apihelp-cxpublish-param-title": "Den Titel vun der Säit op där Aktioune gemaach solle ginn.",
+	"apihelp-cxpublish-param-html": "Den Inhalt fir ze späicheren.",
+	"apihelp-cxpublish-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-cxpublish-param-to": "De Sproochcode vum Zil.",
+	"apihelp-cxpublish-param-sourcetitle": "Den Titel vun der Quellsäit.",
+	"apihelp-cxpublish-param-sourcerevision": "D'Versioun vun der Quellsäit.",
+	"apihelp-cxpublish-param-progress": "Informatioun iwwer de Fortschrëtt vun der iwwersetzung. JSON mat de Schlësselen <code>any</code>, <code>human</code>, <code>mt</code> an <code>mtSectionsCount</code>. D'Wäerter vun de Schlëssele si Prozenter.",
+	"apihelp-cxpublish-param-categories": "D'Kategorie fir déi publizéiert Säiten dran ze setzen.",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Äntwert op de Captcha (beim Späichere vun enger Captcha-Äntwert).",
+	"apihelp-query+contenttranslation-param-translationid": "Iwwersetzungs ID.",
+	"apihelp-query+contenttranslation-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-query+contenttranslation-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+contenttranslation-example-1": "Iwwersetzunge kréien déi den aktuelle Benotzer ugefaang huet.",
+	"apihelp-query+contenttranslationstats-example-1": "Statistike vum Iwwersetze vun Inhalter fir all Sprooche kréien.",
+	"apihelp-cxconfiguration-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-cxconfiguration-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+cxpublishedtranslations-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-query+cxpublishedtranslations-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+cxpublishedtranslations-example-1": "All publizéiert Iwwersetzunge siche goen",
+	"apihelp-query+contenttranslationlangtrend-param-source": "De Sproochcode vun der Quell.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "De Sproochcode vum Zil.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Den Intervall fir d'Berechne vum Trend. Ka <kbd>Woch</kbd> oder <kbd>Mount</kbd> sinn.",
+	"apihelp-cxdelete-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-cxdelete-param-to": "De Sproochcode vum Zil.",
+	"apihelp-cxdelete-param-sourcetitle": "Den Titel vun der Quellsäit."
+}
