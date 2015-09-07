@@ -211,10 +211,94 @@ class Translation {
 	}
 
 	/**
+	 * Get time-wise cumulative number of drafts for given
+	 * language pairs, with given interval.
+	 * @param string $source Source language code
+	 * @param string $target Target language code
+	 * @param string $interval 'weekly' or 'monthly' trend
+	 * @return array
+	 */
+	public static function getDraftTrend( $source, $target, $interval ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		$draftCondition = $dbr->makeList(
+			array(
+				'translation_status' => 'draft',
+				'translation_target_url IS NULL'
+			),
+			LIST_AND
+		);
+
+		$conditions = array();
+		$conditions[] = $draftCondition;
+		if ( $source !== null ) {
+			$conditions['translation_source_language'] = $source;
+		}
+		if ( $target !== null ) {
+			$conditions['translation_target_language'] = $target;
+		}
+
+		$options = null;
+		if ( $interval === 'week' ) {
+			 $options = array(
+				'GROUP BY' => array(
+					'YEARWEEK(translation_last_updated_timestamp)',
+				),
+			);
+		} elseif ( $interval === 'month' ) {
+			 $options = array(
+				'GROUP BY' => array(
+					'YEAR(translation_last_updated_timestamp), MONTH(translation_last_updated_timestamp)',
+				),
+			);
+		}
+
+		$subQuery = $dbr->selectSQLText(
+			'cx_translations',
+			'count(*)',
+			$dbr->makeList( array(
+				'translation_last_updated_timestamp <= MAX(translations.translation_last_updated_timestamp)',
+				$dbr->makeList( $conditions, LIST_AND ),
+			),
+			LIST_AND )
+		);
+
+		$rows = $dbr->select(
+			array( 'translations' => 'cx_translations' ),
+			array(
+				"translations.translation_last_updated_timestamp AS date",
+				'(' . $subQuery . ') translatons_count',
+			),
+			$dbr->makeList( $conditions, LIST_AND ),
+			__METHOD__,
+			$options
+		);
+
+		$prev = 0;
+		$result = array();
+		foreach ( $rows as $row ) {
+			$count = (int)$row->translatons_count;
+			$result[] = array(
+				'date' => $interval === 'week' ?
+					// Week end date
+					date( 'Y-m-d', strtotime( $row->date . ' + ' .
+						( 6 - date( 'w', strtotime( $row->date ) ) ) . ' days' ) ) :
+					date( 'Y-m', strtotime( $row->date ) ),
+				'count' => $count,
+				'delta' => $count - $prev,
+			);
+
+			$prev = $count;
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Get time-wise cumulative number of translations for given
 	 * language pairs, with given interval.
 	 */
-	public static function getTrend( $source, $target, $interval ) {
+	public static function getPublishTrend( $source, $target, $interval ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$publishedCondition = $dbr->makeList(
@@ -224,50 +308,48 @@ class Translation {
 			),
 			LIST_OR
 		);
+		$conditions = array();
+		$conditions[] = $publishedCondition;
+		if ( $source !== null ) {
+			$conditions['translation_source_language'] = $source;
+		}
+		if ( $target !== null ) {
+			$conditions['translation_target_language'] = $target;
+		}
 
-		$groupBy = null;
-
+		$options = null;
 		if ( $interval === 'week' ) {
-			$groupBy = array(
+			$options = array(
 				'GROUP BY' => array(
 					'YEARWEEK(translation_last_updated_timestamp)',
 				),
 			);
 		} elseif ( $interval === 'month' ) {
-			$groupBy = array(
+			$options = array(
 				'GROUP BY' => array(
 					'YEAR(translation_last_updated_timestamp), MONTH(translation_last_updated_timestamp)',
 				),
 			);
 		}
 
-		$conditions = array( $publishedCondition );
-
-		if ( $source !== null ) {
-			$conditions['translation_source_language'] = $source;
-		}
-
-		if ( $target !== null ) {
-			$conditions['translation_target_language'] = $target;
-		}
-
+		$subQuery = $dbr->selectSQLText(
+			'cx_translations',
+			'count(*)',
+			$dbr->makeList( array(
+				'translation_last_updated_timestamp <= MAX(translations.translation_last_updated_timestamp)',
+				$dbr->makeList( $conditions, LIST_AND ),
+			),
+			LIST_AND )
+		);
 		$rows = $dbr->select(
 			array( 'translations' => 'cx_translations' ),
 			array(
-				"DATE_FORMAT( translations.translation_last_updated_timestamp, '%Y-%m-%d' ) AS date",
-				'(' . $dbr->selectSQLText(
-					'cx_translations',
-					'count(*)',
-					$dbr->makeList( array(
-						'translation_last_updated_timestamp <= MAX(translations.translation_last_updated_timestamp)',
-						$dbr->makeList( $conditions, LIST_AND ),
-					),
-					LIST_AND )
-				) . ') translatons_count',
+				"translations.translation_last_updated_timestamp AS date",
+				'(' . $subQuery . ') translatons_count',
 			),
 			$dbr->makeList( $conditions, LIST_AND ),
 			__METHOD__,
-			$groupBy
+			$options
 		);
 
 		$prev = 0;
@@ -323,7 +405,7 @@ class Translation {
 	 * @param string $to Target language code
 	 * @param int $limit Number of records to fetch atmost
 	 * @param in $offset Offset from which at most $limit records to fetch
-	 * @return array[]
+	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
 		$dbr = Database::getConnection( DB_SLAVE );
