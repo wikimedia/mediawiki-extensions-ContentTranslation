@@ -26,7 +26,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function __construct( ApiMain $main, $name ) {
 		parent::__construct( $main, $name );
 		$this->serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
-		$this->serviceClient->mount( '/parsoid/', $this->getVRSObject() );
+		$this->serviceClient->mount( '/restbase/', $this->getVRSObject() );
 	}
 
 	/**
@@ -49,12 +49,12 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
 			// if restbase is available, use it
 			$params = $vrs['modules']['restbase'];
+			$params['parsoidCompat'] = false; // backward compatibility
 			$class = 'RestbaseVirtualRESTService';
-			// remove once VE generates restbase paths
-			$params['parsoidCompat'] = true;
 		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
 			// there's a global parsoid config, use it next
 			$params = $vrs['modules']['parsoid'];
+			$params['restbaseCompat'] = true;
 		} else {
 			// no global modules defined, fall back to old defaults
 			$config = $this->getConfig()->get( 'ContentTranslationParsoid' );
@@ -63,6 +63,9 @@ class ApiContentTranslationPublish extends ApiBase {
 				'prefix' => $config['prefix'],
 				'domain' => $config['domain'],
 				'timeout' => $config['timeout'],
+				'HTTPProxy' => $config['HTTPProxy'],
+				'forwardCookies' => $config['forwardCookies'],
+				'restbaseCompat' => true
 			);
 		}
 		// merge the global and service-specific params
@@ -79,10 +82,10 @@ class ApiContentTranslationPublish extends ApiBase {
 		return new $class( $params );
 	}
 
-	private function requestParsoid( $method, $path, $params ) {
+	private function requestRestbase( $method, $path, $params ) {
 		$request = array(
 			'method' => $method,
-			'url' => '/parsoid/local/v1/' . $path
+			'url' => '/restbase/local/v1/' . $path
 		);
 		if ( $method === 'GET' ) {
 			$request['query'] = $params;
@@ -107,7 +110,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * @return string wikitext
 	 */
 	protected function convertHtmlToWikitext( Title $title, $html ) {
-		$wikitext = $this->requestParsoid(
+		$wikitext = $this->requestRestbase(
 			'POST',
 			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
 			array(
