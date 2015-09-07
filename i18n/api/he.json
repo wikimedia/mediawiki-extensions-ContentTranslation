@@ -21,6 +21,8 @@
 	"apihelp-query+contenttranslation-param-from": "קוד שפת המקור.",
 	"apihelp-query+contenttranslation-param-to": "קוד שפת היעד.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "כותרת דף המקור.",
+	"apihelp-query+contenttranslation-param-limit": "המספר המרבי של התרגומים לאחזור. בררת המחדל היא 100.",
+	"apihelp-query+contenttranslation-param-offset": "מאיזו תוצאה להתחיל (לא חובה).",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
 	"apihelp-query+contenttranslation-example-3": "חיפוש כל תרגום עבור הכותרת הנתונה בין זוג השפות הנתונות",

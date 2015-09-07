@@ -21,6 +21,8 @@
 	"apihelp-query+contenttranslation-param-from": "Код на изворниот јазик.",
 	"apihelp-query+contenttranslation-param-to": "Код на целниот јазик.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Наслов на изворната страница.",
+	"apihelp-query+contenttranslation-param-limit": "Максимален број на преводи што треба да се дадат. По основно: 100.",
+	"apihelp-query+contenttranslation-param-offset": "Отстапка во множеството резултати (незадолжително).",
 	"apihelp-query+contenttranslation-example-1": "Дај преводи започнати од тековниот корисник.",
 	"apihelp-query+contenttranslation-example-2": "Дај недовршени преводи по назнака.",
 	"apihelp-query+contenttranslation-example-3": "Најдете било кој превод за дадениот наслов помеѓу даден јазичен пар",
