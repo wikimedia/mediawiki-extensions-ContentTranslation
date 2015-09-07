@@ -63,23 +63,33 @@ class Translator {
 	}
 
 	/**
+	 * @param int $limit How many results to return
+	 * @param string [$offset] Offset condition (timestamp)
 	 * @return Translation[]
 	 */
-	public function getAllTranslations() {
+	public function getAllTranslations( $limit, $offset = null ) {
+		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_SLAVE );
-		$rows = $dbr->select(
-			array( 'cx_translations', 'cx_translators' ),
-			'*',
-			array(
-				'translator_translation_id = translation_id',
-				'translator_user_id' => $this->getGlobalUserId()
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'translation_last_updated_timestamp DESC' )
+
+		$tables = array( 'cx_translations', 'cx_translators' );
+		$fields = '*';
+		$conds = array(
+			'translator_translation_id = translation_id',
+			'translator_user_id' => $this->getGlobalUserId()
+		);
+		if ( $offset !== null ) {
+			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );
+			$conds[] = "translation_last_updated_timestamp < $ts";
+		}
+		$options = array(
+			'ORDER BY' => 'translation_last_updated_timestamp DESC',
+			'LIMIT' => $limit,
 		);
 
+		$res = $dbr->select( $tables, $fields, $conds, __METHOD__, $options );
+
 		$result = array();
-		foreach ( $rows as $row ) {
+		foreach ( $res as $row ) {
 			$result[] = Translation::newFromRow( $row );
 		}
 

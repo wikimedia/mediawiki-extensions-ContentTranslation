@@ -28,7 +28,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 	/**
 	 * @param ApiPageSet $resultPageSet
-	 * TODO: Use the limit parameter
 	 */
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
@@ -46,6 +45,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				$params['to']
 			);
 		}
+
 		if ( $params['translationid'] ) {
 			$translator = new ContentTranslation\Translator( $user );
 			$translation = $translator->getTranslation( $params['translationid'] );
@@ -58,15 +58,26 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			} else {
 				$this->dieUsage( 'Draft does not exist', $params['translationid'] );
 			}
-		} else {
-			$translator = new ContentTranslation\Translator( $user );
-			$translations = $translator->getAllTranslations();
-			$result->addValue(
-				array( 'query', 'contenttranslation' ),
-				'translations',
-				$translations
-			);
+
+			return;
 		}
+
+		// The main case, no filters
+		$translator = new ContentTranslation\Translator( $user );
+		$translations = $translator->getAllTranslations( $params['limit'], $params['offset'] );
+
+		// We will have extra continue in case the last batch is exactly the size of the limit
+		$count = count( $translations );
+		if ( $count === $params['limit'] ) {
+			$offset = $translations[$count - 1]->translation['lastUpdateTimeStamp'];
+			$this->setContinueEnumParameter( 'offset', $offset );
+		}
+
+		$result->addValue(
+			array( 'query', 'contenttranslation' ),
+			'translations',
+			$translations
+		);
 	}
 
 	/**
@@ -104,14 +115,18 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			),
 			'sourcetitle' => array(
 				ApiBase::PARAM_TYPE => 'string',
-			),/*
+			),
 			'limit' => array(
-				ApiBase::PARAM_DFLT => 10,
+				ApiBase::PARAM_DFLT => 100,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			),*/
+			),
+			'offset' => array(
+				ApiBase::PARAM_DFLT => null,
+				ApiBase::PARAM_TYPE => 'string',
+			),
 		);
 		return $allowedParams;
 	}
