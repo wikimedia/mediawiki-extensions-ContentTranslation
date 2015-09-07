@@ -28,6 +28,8 @@
 	"apihelp-query+contenttranslation-param-from": "The source language code.",
 	"apihelp-query+contenttranslation-param-to": "The target language code.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "The title of the source page.",
+	"apihelp-query+contenttranslation-param-limit": "The maximum number of translations to fetch. The default is 100.",
+	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by ID.",
 	"apihelp-query+contenttranslation-example-3": "Find any translation for the given title between given language pair",
