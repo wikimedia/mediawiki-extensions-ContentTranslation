@@ -134,6 +134,13 @@ class SpecialContentTranslation extends SpecialPage {
 
 		Hooks::run( 'BeforePageDisplay', array( &$out, &$skin ) );
 
+		// T111668: Make sure we generate the personal tools
+		// before we output the head, as extensions may add
+		// things using the PersonalUrls hook.
+		$toolbarList = Html::rawElement( 'ul',
+				null,
+				$skin->getPersonalToolsList() );
+
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'noscript',
@@ -141,9 +148,6 @@ class SpecialContentTranslation extends SpecialPage {
 			$this->msg( 'cx-javascript' )->text()
 		) );
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
-		$toolbarList = Html::rawElement( 'ul',
-			null,
-			$skin->getPersonalToolsList() );
 		$out->addHTML( Html::rawElement( 'div',
 			array( 'id' => 'p-personal' ),
 			$toolbarList ) );
