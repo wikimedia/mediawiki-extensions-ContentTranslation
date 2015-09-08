@@ -89,7 +89,6 @@
 	"config": {
 		"ContentTranslationExperimentalFeatures": false,
 		"ContentTranslationDomainCodeMapping": {
-			"be-tarask": "be-x-old",
 			"bho": "bh",
 			"crh-latn": "crh",
 			"gsw": "als",
