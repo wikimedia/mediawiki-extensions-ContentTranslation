@@ -16,6 +16,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Iwwersetzungs ID.",
 	"apihelp-query+contenttranslation-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-query+contenttranslation-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Den Titel vun der Quellsäit.",
 	"apihelp-query+contenttranslation-example-1": "Iwwersetzunge kréien déi den aktuelle Benotzer ugefaang huet.",
 	"apihelp-query+contenttranslationstats-example-1": "Statistike vum Iwwersetze vun Inhalter fir all Sprooche kréien.",
 	"apihelp-cxconfiguration-param-from": "De Sproochcode vun der Quell.",

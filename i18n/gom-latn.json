@@ -15,5 +15,10 @@
 	"cx-notification-first-translation-email-subject": "Tuji poili onnkarakhatir tuka porbim",
 	"cx-notification-tenth-translation": "Tujea dhavi onnkarakhatir porbim! Tum ek boro onnkarpi zatai.\nHem borem kam oxench chalu dovor!",
 	"cx-notification-tenth-translation-email-subject": "Tujea dhavi onnkarakhatir porbim!",
-	"cx-translationlist-empty-title": "Onnkar korpak kai na?"
+	"cx-translationlist-empty-title": "Onnkar korpak kai na?",
+	"cx-tools-link-external-link": "Bhailem",
+	"cx-tools-link-external-link-placeholder": "Bhaili zoddni zod",
+	"cx-tools-link-to-another-page": "Dusrea panak zod",
+	"cx-tools-link-apply": "Zalem",
+	"mw-pageselector-missing": "Pan ostitvant na"
 }

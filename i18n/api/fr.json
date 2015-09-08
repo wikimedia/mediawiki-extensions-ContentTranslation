@@ -23,7 +23,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Répondre au captcha (en enregistrant avec une réponse de captcha).",
 	"apihelp-query+contenttranslation-description": "Interroger la base de données de traduction du contenu pour les traductions",
 	"apihelp-query+contenttranslation-param-translationid": "Id de traduction.",
-	"apihelp-query+contenttranslation-param-from": "Le code langue source.",
+	"apihelp-query+contenttranslation-param-from": "Le code de la langue source.",
 	"apihelp-query+contenttranslation-param-to": "Le code langue cible.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Le titre de la page source.",
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
