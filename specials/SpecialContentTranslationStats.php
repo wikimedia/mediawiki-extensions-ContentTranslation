@@ -39,7 +39,9 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$out->addModules( $defaultSkinModules['legacy'] );
 
 		Hooks::run( 'BeforePageDisplay', array( &$out, &$skin ) );
-
+		$toolbarList = Html::rawElement( 'ul',
+			null,
+			$skin->getPersonalToolsList() );
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'noscript',
@@ -47,9 +49,6 @@ class SpecialContentTranslationStats extends SpecialPage {
 			$this->msg( 'cx-javascript' )->text()
 		) );
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
-		$toolbarList = Html::rawElement( 'ul',
-			null,
-			$skin->getPersonalToolsList() );
 		$out->addHTML( Html::rawElement( 'div',
 			array( 'id' => 'p-personal' ),
 			$toolbarList ) );
