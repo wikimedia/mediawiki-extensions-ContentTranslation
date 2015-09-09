@@ -861,6 +861,13 @@
 				this.stop();
 				return;
 			}
+
+			if ( this.sourceLink.isRedLink() ) {
+				// Red link in source. Nothing to do.
+				this.stop();
+				return;
+			}
+
 			this.targetLink = this.sourceLink.getTargetLink();
 		} else {
 			if ( $link ) {
