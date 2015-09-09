@@ -95,6 +95,7 @@
 	"cx-translation-filter-all-translations": "Toles traducciones",
 	"cx-translation-filter-published-translations": "Espublizaes",
 	"cx-translation-filter-draft-translations": "En progresu",
+	"cx-suggestionlist-featured": "Artículu destacáu",
 	"cx-translation-filter-from-any-language": "De cualquier llingua",
 	"cx-translation-filter-to-any-language": "A cualquier llingua",
 	"cx-create-new-translation": "Principiar una traducción nueva",
@@ -170,6 +171,5 @@
 	"cx-tools-link-external-link-placeholder": "Amestar un enllaz esternu",
 	"cx-tools-link-to-another-page": "Enllazar a otra páxina",
 	"cx-tools-link-apply": "Fecho",
-	"mw-pageselector-missing": "La páxina nun esiste",
-	"cx-suggestionlist-featured": "Artículu destacáu"
+	"mw-pageselector-missing": "La páxina nun esiste"
 }

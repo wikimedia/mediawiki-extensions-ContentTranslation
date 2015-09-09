@@ -110,6 +110,7 @@
 	"cx-translation-filter-all-translations": "Все переводы",
 	"cx-translation-filter-published-translations": "Опубликованные",
 	"cx-translation-filter-draft-translations": "Незаконченные",
+	"cx-suggestionlist-featured": "Избранная статья",
 	"cx-translation-filter-from-any-language": "С любого языка",
 	"cx-translation-filter-to-any-language": "На любой язык",
 	"cx-create-new-translation": "Начать новый перевод",
@@ -185,6 +186,5 @@
 	"cx-tools-link-external-link-placeholder": "Добавить внешнюю ссылку",
 	"cx-tools-link-to-another-page": "Ссылка на другую страницу",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Страница не существует",
-	"cx-suggestionlist-featured": "Избранная статья"
+	"mw-pageselector-missing": "Страница не существует"
 }

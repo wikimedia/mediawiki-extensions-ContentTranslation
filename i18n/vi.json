@@ -101,6 +101,7 @@
 	"cx-translation-filter-all-translations": "Tất cả bản dịch",
 	"cx-translation-filter-published-translations": "Đã xuất bản",
 	"cx-translation-filter-draft-translations": "Đang tiến hành",
+	"cx-suggestionlist-featured": "Bài viết chọn lọc",
 	"cx-translation-filter-from-any-language": "Từ bất cứ ngôn ngữ nào",
 	"cx-translation-filter-to-any-language": "Sang bất cứ ngôn ngữ nào",
 	"cx-create-new-translation": "Bắt đầu bản dịch mới",
@@ -176,6 +177,5 @@
 	"cx-tools-link-external-link-placeholder": "Đặt liên kết ngoài",
 	"cx-tools-link-to-another-page": "Đặt liên kết đến trang khác",
 	"cx-tools-link-apply": "Xong",
-	"mw-pageselector-missing": "Trang không tồn tại",
-	"cx-suggestionlist-featured": "Bài viết chọn lọc"
+	"mw-pageselector-missing": "Trang không tồn tại"
 }

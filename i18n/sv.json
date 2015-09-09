@@ -103,6 +103,7 @@
 	"cx-translation-filter-all-translations": "Alla översättningar",
 	"cx-translation-filter-published-translations": "Publicerade",
 	"cx-translation-filter-draft-translations": "Pågående",
+	"cx-suggestionlist-featured": "Utmärkt artikel",
 	"cx-translation-filter-from-any-language": "Från alla språk",
 	"cx-translation-filter-to-any-language": "Till alla språk",
 	"cx-create-new-translation": "Skapa en ny översättning",
@@ -178,6 +179,5 @@
 	"cx-tools-link-external-link-placeholder": "Lägg till extern länk",
 	"cx-tools-link-to-another-page": "Länka till en annan sida",
 	"cx-tools-link-apply": "Klar",
-	"mw-pageselector-missing": "Sidan finns inte",
-	"cx-suggestionlist-featured": "Utmärkt artikel"
+	"mw-pageselector-missing": "Sidan finns inte"
 }

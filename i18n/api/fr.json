@@ -26,6 +26,7 @@
 	"apihelp-query+contenttranslation-param-from": "Le code de la langue source.",
 	"apihelp-query+contenttranslation-param-to": "Le code langue cible.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Le titre de la page source.",
+	"apihelp-query+contenttranslation-param-limit": "Le nombre maximum de traductions à atteindre. La valeur par défaut est 100 .",
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par id.",
 	"apihelp-query+contenttranslation-example-3": "Trouver une traduction pour le titre fourni entre la paire de langues donnée",

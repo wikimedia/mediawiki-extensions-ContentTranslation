@@ -90,6 +90,7 @@
 	"cx-translation-filter-all-translations": "​ការបកប្រែទាំងអស់",
 	"cx-translation-filter-published-translations": "បានបោះផ្សាយ",
 	"cx-translation-filter-draft-translations": "កំពុងបកប្រែ",
+	"cx-suggestionlist-featured": "អត្ថបទឆ្នើម",
 	"cx-translation-filter-from-any-language": "ពីភាសាណាមួយ",
 	"cx-translation-filter-to-any-language": "ទៅកាន់ភាសាណាមួយ",
 	"cx-create-new-translation": "ចាប់ផ្ដើមការបកប្រែថ្មី",
@@ -165,6 +166,5 @@
 	"cx-tools-link-external-link-placeholder": "បន្ថែមតំណភ្ជាប់ក្រៅ",
 	"cx-tools-link-to-another-page": "តភ្ជាប់ទៅកាន់ទំព័រមួយទៀត",
 	"cx-tools-link-apply": "រួចរាល់ហើយ",
-	"mw-pageselector-missing": "ទំព័រមិនទាន់មាននៅឡើយទេ",
-	"cx-suggestionlist-featured": "អត្ថបទឆ្នើម"
+	"mw-pageselector-missing": "ទំព័រមិនទាន់មាននៅឡើយទេ"
 }

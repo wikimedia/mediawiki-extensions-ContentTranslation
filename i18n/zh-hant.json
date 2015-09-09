@@ -101,6 +101,7 @@
 	"cx-translation-filter-all-translations": "所有翻譯",
 	"cx-translation-filter-published-translations": "已發佈",
 	"cx-translation-filter-draft-translations": "進行中",
+	"cx-suggestionlist-featured": "精選文章",
 	"cx-translation-filter-from-any-language": "從任何語言",
 	"cx-translation-filter-to-any-language": "至任何語言",
 	"cx-create-new-translation": "開始新翻譯",
@@ -176,6 +177,5 @@
 	"cx-tools-link-external-link-placeholder": "加入外部連結",
 	"cx-tools-link-to-another-page": "連結至其他頁面",
 	"cx-tools-link-apply": "完成",
-	"mw-pageselector-missing": "頁面不存在",
-	"cx-suggestionlist-featured": "精選文章"
+	"mw-pageselector-missing": "頁面不存在"
 }

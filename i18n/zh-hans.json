@@ -104,6 +104,7 @@
 	"cx-translation-filter-all-translations": "所有翻译",
 	"cx-translation-filter-published-translations": "已发布",
 	"cx-translation-filter-draft-translations": "进行中",
+	"cx-suggestionlist-featured": "特色条目",
 	"cx-translation-filter-from-any-language": "从任何语言",
 	"cx-translation-filter-to-any-language": "至任何语言",
 	"cx-create-new-translation": "开始新翻译",
@@ -179,6 +180,5 @@
 	"cx-tools-link-external-link-placeholder": "添加外部链接",
 	"cx-tools-link-to-another-page": "链接至其他页面",
 	"cx-tools-link-apply": "完成",
-	"mw-pageselector-missing": "页面不存在",
-	"cx-suggestionlist-featured": "特色条目"
+	"mw-pageselector-missing": "页面不存在"
 }

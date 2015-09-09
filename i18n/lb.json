@@ -94,6 +94,7 @@
 	"cx-translation-filter-all-translations": "All Iwwersetzungen",
 	"cx-translation-filter-published-translations": "Publizéiert",
 	"cx-translation-filter-draft-translations": "Am Gaang",
+	"cx-suggestionlist-featured": "Recommandéierten Artikel",
 	"cx-translation-filter-from-any-language": "Aus iergendenger Sprooch",
 	"cx-translation-filter-to-any-language": "An iergendeng Sprooch",
 	"cx-create-new-translation": "Eng nei Iwwersetzung ufänken",
@@ -167,6 +168,5 @@
 	"cx-tools-link-external-link-placeholder": "Externe Link derbäisetzen",
 	"cx-tools-link-to-another-page": "Mat enger anerer Säit verlinken",
 	"cx-tools-link-apply": "Fäerdeg",
-	"mw-pageselector-missing": "Säit gëtt et net",
-	"cx-suggestionlist-featured": "Recommandéierten Artikel"
+	"mw-pageselector-missing": "Säit gëtt et net"
 }

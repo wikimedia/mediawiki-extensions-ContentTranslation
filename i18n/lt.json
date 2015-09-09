@@ -99,6 +99,7 @@
 	"cx-translation-filter-all-translations": "Visi vertimai",
 	"cx-translation-filter-published-translations": "Publikuota",
 	"cx-translation-filter-draft-translations": "Verčiama",
+	"cx-suggestionlist-featured": "Rinktinis straipsnis",
 	"cx-translation-filter-from-any-language": "Iš bet kokios kalbos",
 	"cx-translation-filter-to-any-language": "Į bet kokią kalbą",
 	"cx-create-new-translation": "Pradėti naują vertimą",
@@ -174,6 +175,5 @@
 	"cx-tools-link-external-link-placeholder": "Pridėti išorinę nuorodą",
 	"cx-tools-link-to-another-page": "Nuoroda į kitą puslapį",
 	"cx-tools-link-apply": "Atlikta",
-	"mw-pageselector-missing": "Puslapis neegzistuoja",
-	"cx-suggestionlist-featured": "Rinktinis straipsnis"
+	"mw-pageselector-missing": "Puslapis neegzistuoja"
 }

@@ -101,6 +101,7 @@
 	"cx-translation-filter-all-translations": "Todas as traducións",
 	"cx-translation-filter-published-translations": "Publicadas",
 	"cx-translation-filter-draft-translations": "En progreso",
+	"cx-suggestionlist-featured": "Artigo destacado",
 	"cx-translation-filter-from-any-language": "De calquera lingua",
 	"cx-translation-filter-to-any-language": "A calquera lingua",
 	"cx-create-new-translation": "Comezar unha nova tradución",
@@ -176,6 +177,5 @@
 	"cx-tools-link-external-link-placeholder": "Engada unha ligazón externa",
 	"cx-tools-link-to-another-page": "Ligazón cara a outra páxina",
 	"cx-tools-link-apply": "Feito",
-	"mw-pageselector-missing": "A páxina non existe",
-	"cx-suggestionlist-featured": "Artigo destacado"
+	"mw-pageselector-missing": "A páxina non existe"
 }

@@ -107,6 +107,7 @@
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Gepubliceerd",
 	"cx-translation-filter-draft-translations": "In bewerking",
+	"cx-suggestionlist-featured": "Etalage-artikel",
 	"cx-translation-filter-from-any-language": "Uit elke taal",
 	"cx-translation-filter-to-any-language": "Naar elke taal",
 	"cx-create-new-translation": "Nieuwe vertaling beginnen",
@@ -171,6 +172,5 @@
 	"cx-notification-first-translation-email-subject": "Gefeliciteerd met uw eerste vertaling",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
 	"cx-translationlist-empty-desc": "Begin uw vertaling nu en u kunt er altijd later mee doorgaan",
-	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen",
-	"cx-suggestionlist-featured": "Etalage-artikel"
+	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen"
 }
