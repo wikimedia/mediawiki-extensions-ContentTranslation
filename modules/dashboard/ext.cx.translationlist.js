@@ -264,7 +264,7 @@
 		} else {
 			this.$translationsList = this.buildEmptyTranslationList();
 		}
-		this.$container.append(	this.$translationsList.hide() );
+		this.$container.append( this.$translationsList.hide() );
 	};
 
 	CXTranslationList.prototype.buildEmptyTranslationList = function () {
