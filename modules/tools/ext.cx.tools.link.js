@@ -566,6 +566,13 @@
 
 			mw.hook( 'mw.cx.select.link' ).fire( self.$link, mw.cx.sourceLanguage );
 			self.highlight();
+
+			// User clicked red link in source text. We do not have enough info to
+			// create any link in the target language.
+			if ( self.isRedLink() ) {
+				return false;
+			}
+
 			selection = mw.cx.selection.get();
 			// Is this selection valid and editable?
 			if ( isValidSelection( selection ) ) {
