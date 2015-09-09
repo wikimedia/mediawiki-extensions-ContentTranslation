@@ -1,29 +1,9 @@
 @import "../../widgets/common/ext.cx.common";
+@import "ext.cx.lists.common";
 @import "mediawiki.mixins";
 
-.cx-translationlist-container {
-	.mw-ui-item;
-	.mw-ui-two-thirds;
-
-	padding: 0 10px 0 0;
-	background-color: #f0f0f0;
-}
-
 .cx-tlitem {
-	.mw-ui-one-whole;
-
-	padding: 12px;
-	background-color: #fff;
-	border-top: 1px solid #ddd;
 	cursor: pointer;
-
-	&:hover {
-		background-color: #EFF3FB;
-
-		.cx-tlitem__languages .cx-tlitem__languages__language--source:after {
-			border-left-color: #EFF3FB;
-		}
-	}
 
 	&.cx-translation-deleted {
 		opacity: 0.5;
@@ -85,26 +65,6 @@
 		}
 	}
 
-	.cx-tlitem__image {
-		.mw-ui-one-sixth;
-
-		padding: 0;
-		width: 120px;
-
-		.image {
-			height: 100px;
-			width: 100px;
-
-			&:empty {
-				.background-image-svg('../../tools/images/link_lightgray.svg', '../images/link_lightgray.png');
-				background-repeat: no-repeat;
-				background-color: #fbfbfb;
-				background-position: center center;
-				border-right: 1px solid #eeeeee;
-			}
-		}
-	}
-
 	.cx-tlitem__details {
 		.mw-ui-four-fifths;
 
@@ -135,6 +95,7 @@
 		.last-updated {
 			color: #565656;
 			clear: both;
+			padding: 10px 0;
 		}
 
 		.translation-link {
@@ -176,44 +137,6 @@
 			color: #565656;
 		}
 
-		.cx-tlitem__languages {
-			position: absolute;
-			bottom: 0;
-
-			&__language {
-				position: relative;
-				margin-right: 20px;
-				padding: 0 10px 0 0;
-				float: left;
-				color: #555;
-			}
-
-			&__language:after,
-			&__language:before {
-				left: 100%;
-				top: 50%;
-				border: solid transparent;
-				content: " ";
-				height: 0;
-				width: 0;
-				position: absolute;
-				pointer-events: none;
-			}
-
-			&__language--source:after {
-				border-color: rgba(255, 255, 255, 0);
-				border-left-color: #fff;
-				border-width: 5px;
-				margin-top: -5px;
-			}
-
-			&__language--source:before {
-				border-color: rgba(85, 85, 85, 0);
-				border-left-color: #555;
-				border-width: 7px;
-				margin-top: -7px;
-			}
-		}
 		.status-deleted {
 			color: #ff3300;
 		}
@@ -224,13 +147,8 @@
 	}
 }
 
-.cx-translationlist-container.sticky .translation-filter {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	width: 66%;
-	padding-left: 50px;
+.cx-tlitem__languages .cx-tlitem__languages__language--source:after {
+	border-left-color: #EFF3FB;
 }
 
 .cx-draft-discard-dialog {
@@ -264,32 +182,5 @@
 			float: right;
 			padding-right: 20px;
 		}
-	}
-}
-
-.cx-translationlist-empty {
-	.mw-ui-item;
-
-	color: #999;
-	text-align: center;
-
-	&__img {
-		.background-image-svg('../images/cx-circle.svg', '../images/cx-circle.png');
-		background-repeat: no-repeat;
-		background-color: #f0f0f0;
-		background-position: top;
-		border-right: 1px solid #eeeeee;
-		padding: 50px 0;
-	}
-
-	&__title {
-		margin-top: 20px;
-		font-size: larger;
-		font-weight: bold;
-	}
-
-	&__desc {
-		margin-top: 20px;
-		font-size: normal;
 	}
 }

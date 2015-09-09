@@ -50,6 +50,24 @@ class SuggestionListManager {
 		);
 	}
 
+	public function getListByName( $name, $owner = 0 ) {
+		$dbr = Database::getConnection( DB_MASTER );
+		$row = $dbr->selectRow(
+			'cx_lists',
+			'*',
+			array(
+				'cxl_name' => $name,
+				'cxl_owner' => $owner,
+			),
+			__METHOD__
+		);
+
+		if ( $row ) {
+			return SuggestionList::newFromRow( $row );
+		}
+		return null;
+	}
+
 	/**
 	 * Add suggestions to database.
 	 *

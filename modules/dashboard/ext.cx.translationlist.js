@@ -14,10 +14,11 @@
 	 *
 	 * @class
 	 */
-	function CXTranslationList( $container, translations, siteMapper ) {
+	function CXTranslationList( $container, siteMapper ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
-		this.translations = translations;
+		this.translations = null;
+		this.$translationsList = $( [] );
 		this.filters = {
 			status: null,
 			sourceLanguage: null,
@@ -33,15 +34,46 @@
 		this.listen();
 	}
 
+	/**
+	 * Get all the translations of given user.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	CXTranslationList.prototype.getTranslations = function () {
+		var api = new mw.Api(),
+			deferred = $.Deferred();
+
+		api.get( {
+			list: 'contenttranslation'
+		} ).done( function ( response ) {
+			var translations = response.query.contenttranslation.translations;
+			// Remove unnecessary object wrapping to get plain list of objects
+			translations = $.map( translations, function ( e ) {
+				return e.translation;
+			} );
+			deferred.resolve( translations );
+		} );
+
+		return deferred.promise();
+	};
+
 	CXTranslationList.prototype.init = function () {
 		this.listTranslations();
+		this.sourceLanguages = $.map( this.translations, function ( e ) {
+			return e.sourceLanguage;
+		} );
+		this.sourceLanguages = mw.cx.unique( this.sourceLanguages );
+		this.targetLanguages = $.map( this.translations, function ( e ) {
+			return e.targetLanguage;
+		} );
+		this.targetLanguages = mw.cx.unique( this.targetLanguages );
 		this.filters.status = 'draft';
 		this.applyFilters( this.filters );
 	};
 
 	/**
 	 * Get the thumbnail image of the given link.
-	 * @param {string} id translation id
+	 *
 	 * @param {string} language
 	 * @param {string} title Title
 	 * @return {jQuery.Promise}
@@ -53,8 +85,7 @@
 			prop: 'pageimages',
 			piprop: 'thumbnail',
 			pithumbsize: 150,
-			redirects: true,
-			format: 'json'
+			redirects: true
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
@@ -86,7 +117,7 @@
 	CXTranslationList.prototype.listTranslations = function () {
 		var i, translation, progress, $translation,
 			$lastUpdated, $imageBlock, $image, $progressbar,
-			sourceDir, targetDir,
+			sourceDir, targetDir, $targetTitle,
 			translationLinkUrl, $translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer, $status,
 			$actionsTrigger, $deleteTranslation, $menu, $menuContainer,
@@ -155,15 +186,16 @@
 			// If the translated title is different from the source title,
 			// show it near the source title
 			if ( translation.sourceTitle !== translation.targetTitle ) {
+				$targetTitle = $( '<span>' )
+					.prop( {
+						lang: translation.targetLanguage,
+						dir: targetDir
+					} )
+					.addClass( 'target-title' )
+					.text( translation.targetTitle );
 				$translationLink.append(
 					$( '<span>' ).html( '&#160;' ), // nbsp to ensure separation between words
-					$( '<span>' )
-						.prop( {
-							lang: translation.targetLanguage,
-							dir: targetDir
-						} )
-						.addClass( 'target-title' )
-						.text( translation.targetTitle )
+					$targetTitle
 				);
 			}
 
@@ -226,24 +258,31 @@
 		}
 
 		if ( $translations.length ) {
-			this.$container.append( $( '<div>' )
+			this.$translationsList = $( '<div>' )
 				.addClass( 'cx-translationlist' )
-				.append( $translations )
-			);
+				.append( $translations );
 		} else {
-			this.$container.append( $( '<div>' )
-				.addClass( 'cx-translationlist-empty' )
-				.append(
-					$( '<div>' )
-						.addClass( 'cx-translationlist-empty__img' ),
-					$( '<div>' )
-						.addClass( 'cx-translationlist-empty__title' )
-						.text( mw.msg( 'cx-translationlist-empty-title' ) ),
-					$( '<div>' )
-						.addClass( 'cx-translationlist-empty__desc' )
-						.text( mw.msg( 'cx-translationlist-empty-desc' ) )
-				) );
+			this.$translationsList = this.buildEmptyTranslationList();
 		}
+		this.$container.append(	this.$translationsList.hide() );
+	};
+
+	CXTranslationList.prototype.buildEmptyTranslationList = function () {
+		var $img, $title, $desc;
+
+		$img = $( '<div>' )
+			.addClass( 'cx-translationlist-empty__img' );
+		$title = $( '<div>' )
+			.addClass( 'cx-translationlist-empty__title' )
+			.text( mw.msg( 'cx-translationlist-empty-title' ) );
+		$desc = $( '<div>' )
+			.addClass( 'cx-translationlist-empty__desc' )
+			.text( mw.msg( 'cx-translationlist-empty-desc' ) );
+		return $( '<div>' )
+			.addClass( 'cx-translationlist cx-translationlist-empty' )
+			.append(
+				$img, $title, $desc
+			);
 	};
 
 	CXTranslationList.prototype.listen = function () {
@@ -273,7 +312,7 @@
 			} );
 		} );
 
-		this.$container.on( 'click', '.cx-tlitem', function () {
+		this.$container.on( 'click', '.cx-translationlist > .cx-tlitem', function () {
 			if ( $( this ).hasClass( 'cx-translation-deleted' ) ) {
 				return;
 			}

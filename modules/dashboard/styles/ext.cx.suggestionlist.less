@@ -1,0 +1,45 @@
+@import "../../widgets/common/ext.cx.common";
+@import "ext.cx.lists.common";
+@import "mediawiki.mixins";
+
+.cx-slitem__desc {
+	color: #555;
+	font-size: 1.2em;
+	padding: 10px 0;
+	clear: both;
+}
+
+.cx-slitem__details {
+	.mw-ui-four-fifths;
+	position: relative;
+	height: 100px;
+	font-size: 12px;
+
+	.cx-slitem__translation-link {
+		.mw-ui-one-whole;
+		font-size: large;
+		text-decoration: none;
+		padding-left: 0;
+		cursor: pointer;
+
+		.source-title {
+			color: #333;
+		}
+	}
+
+	.cx-slitem__meta {
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.cx-sltag--featured {
+	width: auto;
+	float: left;
+	color: #00af89;
+	// This need to be in green backgound, but for now we have
+	// everything as featured.
+	padding: 2px;
+	border-radius: 1px;
+	font-size: small;
+}

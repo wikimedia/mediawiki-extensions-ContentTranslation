@@ -757,7 +757,8 @@
 				sourceTitle,
 				targetTitle,
 				sourceLanguage,
-				targetLanguage
+				targetLanguage,
+				selector.options.campaign
 			);
 		} );
 	};
@@ -974,6 +975,8 @@
 		previousLanguages.push( language );
 		mw.uls.setPreviousLanguages( previousLanguages );
 	};
+
+	mw.cx.CXSourceSelector = CXSourceSelector;
 
 	/**
 	 * CXEntryPoint Plugin
