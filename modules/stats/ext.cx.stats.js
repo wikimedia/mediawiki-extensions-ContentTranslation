@@ -297,10 +297,10 @@
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
 		var $chart, $bar, translations, $translations, model, i, j, $rows = [],
 			$callout,
-			$total,
 			$row, width, max = 0,
 			$tail, tailWidth = 0,
 			tail,
+			$langCode, $autonym, $total, $rowLabelContainer,
 			fmt = mw.language.convertNumber;
 
 		$chart = $( '<div>' ).addClass( 'cx-stats-chart' );
@@ -379,6 +379,24 @@
 				content: $callout
 			} );
 
+			$langCode = $( '<span>' )
+				.addClass( 'cx-stats-chart__langcode' )
+				// Always Latin (like English).
+				// Make sure it's aligned correctly on all screen sizes.
+				.prop( {
+					lang: 'en',
+					dir: 'ltr'
+				} )
+				.text( model[ i ].language );
+
+			$autonym  = $( '<span>' )
+				.addClass( 'cx-stats-chart__autonym' )
+				.prop( {
+					lang: model[ i ].language,
+					dir: $.uls.data.getDir( model[ i ].language )
+				} )
+				.text( $.uls.data.getAutonym( model[ i ].language ) );
+
 			$total = $( '<span>' )
 				.addClass( 'cx-stats-chart__total' )
 				.text( fmt( model[ i ][ property ] ) );
@@ -397,23 +415,16 @@
 					.addClass( 'cx-stats-chart__total' )
 					.text( fmt( model[ i ][ property ] ) );
 			}
-			$row.append(
-				$( '<span>' )
-					.addClass( 'cx-stats-chart__langcode' )
-					.text( model[ i ].language ),
-				$( '<span>' )
-					.addClass( 'cx-stats-chart__autonym' )
-					.prop( {
-						dir: $.uls.data.getDir( model[ i ].language ),
-						lang: model[ i ].language
-					} )
-					.text( $.uls.data.getAutonym( model[ i ].language ) ),
-				$total,
-				$translations
-			);
+
+			$rowLabelContainer = $( '<span>' )
+				.addClass( 'cx-stats-chart__row-label-container' )
+				.append( $langCode, $autonym, $total );
+
+			$row.append( $rowLabelContainer, $translations );
 
 			$rows.push( $row );
 		}
+
 		$chart.append( $rows );
 
 		return $chart;

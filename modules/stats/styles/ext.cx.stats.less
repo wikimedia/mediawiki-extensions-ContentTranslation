@@ -93,25 +93,33 @@
 		}
 	}
 
+	&__row-label-container {
+		.mw-ui-one-quarter;
+	}
+
 	&__langcode {
-		.mw-ui-one-twelfth;
+		.mw-ui-one-quarter;
 		text-align: right;
 		text-transform: uppercase;
+		font-size: 0.9em;
 		color: @gray;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__autonym {
-		.mw-ui-one-twelfth;
+		.mw-ui-one-half;
+		text-align: left;
 		color: @gray-darker;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		font-weight: bold;
 		white-space: nowrap;
-		text-overflow: ellipsis;
-		text-align: left;
 	}
 
 	&__total,
 	&__total:visited {
-		.mw-ui-one-twelfth;
+		.mw-ui-one-quarter;
 		color: @gray;
 		text-align: right;
 		border-right: 1px solid @gray;
