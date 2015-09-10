@@ -32,8 +32,14 @@
 				$( '<div>' ).addClass( 'bounce3' )
 			);
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
-		this.$graph = $( '<canvas>' ).attr( {
-			id: 'cxtrend',
+		this.$cumlativeGraph = $( '<canvas>' ).attr( {
+			id: 'cxcumulative',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$languageCumulativeGraph = $( '<canvas>' ).attr( {
+			id: 'cxlangcumulative',
 			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
 			height: 400
 		} );
@@ -42,18 +48,32 @@
 			$spinner,
 			this.$highlights,
 			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
-			$( '<div>' ).addClass( 'cx-stats-trend' ).append( this.$graph )
+			$( '<div>' )
+				.addClass( 'cx-stats-graph cx-stats-cumulative-total' )
+				.append( this.$cumlativeGraph ),
+			$( '<h2>' ).text( mw.message(
+				'cx-trend-translations-to',
+				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+			).escaped() ),
+			$( '<div>' )
+				.addClass( 'cx-stats-graph cx-stats-cumulative-lang' )
+				.append( this.$languageCumulativeGraph )
 		);
 
 		$.when(
 			this.getCXTrends(),
 			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) )
 		).done( function ( totalTrend, languageTrend ) {
-			self.totalTranslationTrend = totalTrend;
-			self.languageTranslationTrend = languageTrend;
-			self.languageTranslationTrend = mergeAndFill( totalTrend, languageTrend );
+			self.totalTranslationTrend = totalTrend.translations;
+			self.languageTranslationTrend = languageTrend.translations;
+			self.languageTranslationTrend = mergeAndFill( self.totalTranslationTrend, self.languageTranslationTrend );
+
+			self.totalDraftTrend = mergeAndFill( self.totalTranslationTrend, totalTrend.drafts );
+			self.languageDraftTrend = mergeAndFill( self.languageTranslationTrend, languageTrend.drafts );
+			self.languageDraftTrend = mergeAndFill( self.totalDraftTrend, self.languageDraftTrend );
 			self.renderHighlights();
-			self.drawGraph( 'count' );
+			self.drawCumulativeGraph( 'count' );
+			self.drawLanguageCumulativeGraph( 'count' );
 		} );
 		this.getCXStats().then( function ( data ) {
 			if ( !data || !data.query ) {
@@ -127,8 +147,7 @@
 						'cx-stats-local-published-number',
 						fmt( langTotal ),
 						fmt( localLanguage )
-					)
-				)
+					) )
 			);
 
 		weekLangTrendText = mw.msg( 'percent', fmt( weekLangTrend ) );
@@ -368,7 +387,9 @@
 				$total = $( '<a>' )
 					.addClass( 'cx-stats-chart__total' )
 					.prop( 'href', mw.cx.siteMapper.getPageUrl(
-						model[ i ].language, 'Special:NewPages', { tagfilter: 'contenttranslation' }
+						model[ i ].language, 'Special:NewPages', {
+							tagfilter: 'contenttranslation'
+						}
 					) )
 					.text( fmt( model[ i ][ property ] ) );
 			} else {
@@ -424,10 +445,10 @@
 		} );
 	};
 
-	CXStats.prototype.drawGraph = function ( type ) {
-		var data, cxTrendGraph, ctx;
+	CXStats.prototype.drawCumulativeGraph = function ( type ) {
+		var data, cxCumulativeGraph, ctx;
 
-		ctx = this.$graph[ 0 ].getContext( '2d' );
+		ctx = this.$cumlativeGraph[ 0 ].getContext( '2d' );
 
 		data = {
 			labels: $.map( this.totalTranslationTrend, function ( data ) {
@@ -435,34 +456,88 @@
 			} ),
 			datasets: [
 				{
-					label: mw.message( 'cx-trend-all-translations' ).escaped(),
-					strokeColor: '#FD6E8A',
-					pointColor: '#FD6E8A',
+					label: mw.msg( 'cx-trend-all-translations' ),
+					fillColor: '#347BFF',
+					strokeColor: '#347BFF',
+					pointColor: '#347BFF',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#347BFF',
 					data: $.map( this.totalTranslationTrend, function ( data ) {
-						return data[type];
+						return data[ type ];
 					} )
 				},
 				{
-					label: mw.message(
-						'cx-trend-translations-to',
-						$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-					).escaped(),
-					strokeColor: '#80B3FF',
-					pointColor: '#80B3FF',
-					data: $.map( this.languageTranslationTrend, function ( data ) {
-						return data[type];
+					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					fillColor: '#777',
+					strokeColor: '#777',
+					pointColor: '#777',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#777',
+					data: $.map( this.totalDraftTrend, function ( data ) {
+						return data[ type ];
 					} )
 				}
 			]
 		};
 
 		/*global Chart:false */
-		cxTrendGraph = new Chart( ctx ).Line( data, {
+		cxCumulativeGraph = new Chart( ctx ).Line( data, {
+			responsive: true,
 			datasetFill: false,
 			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
 		} );
 
-		this.$container.find( '.cx-stats-trend' ).append( cxTrendGraph.generateLegend() );
+		this.$container.find( '.cx-stats-cumulative-total' ).append( cxCumulativeGraph.generateLegend() );
+	};
+
+	CXStats.prototype.drawLanguageCumulativeGraph = function ( type ) {
+		var data, cxCumulativeGraph, ctx;
+
+		ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
+
+		data = {
+			labels: $.map( this.totalTranslationTrend, function ( data ) {
+				return data.date;
+			} ),
+			datasets: [
+				{
+					label: mw.message(
+						'cx-trend-translations-to',
+						$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+					).escaped(),
+					strokeColor: '#347BFF',
+					pointColor: '#347BFF',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#347BFF',
+					data: $.map( this.languageTranslationTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					strokeColor: '#777',
+					pointColor: '#777',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#777',
+					data: $.map( this.languageDraftTrend, function ( data ) {
+						return data[ type ];
+					} )
+				}
+			]
+		};
+
+		/*global Chart:false */
+		cxCumulativeGraph = new Chart( ctx ).Line( data, {
+			datasetFill: false,
+			responsive: true,
+			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		} );
+
+		this.$container.find( '.cx-stats-cumulative-lang' ).append( cxCumulativeGraph.generateLegend() );
 	};
 
 	CXStats.prototype.transformJsonToModel = function ( records ) {
@@ -557,8 +632,7 @@
 	 * @return {[Object]} Array of translations to a particular language, after padding
 	 */
 	function mergeAndFill( totalData, languageData ) {
-		var i,
-			padding = [];
+		var i;
 
 		if ( totalData.length === languageData.length ) {
 			return languageData;
@@ -570,23 +644,18 @@
 			if ( !languageData || languageData.length === 0 ) {
 				break;
 			}
-
-			if ( totalData[ i ].date === languageData[ 0 ].date ) {
-				languageData = padding.concat( languageData );
-			} else {
-				padding.push( {
-					date: totalData[ i ].date,
-					count: 0
+			if ( languageData[ i ] && new Date( totalData[ i ].date ) > new Date( languageData[ i ].date ) ) {
+				totalData.splice( i, 0, {
+					date: languageData[ i ].date,
+					count: totalData[ i - 1 ] ? totalData[ i - 1 ].count : 0
 				} );
 			}
-		}
-
-		// Fill at the end if languageData is shorter than totalData
-		for ( i = languageData.length; i < totalData.length; i++ ) {
-			languageData.push( {
-				date: totalData[ i ].date,
-				count: languageData.length ? languageData[ i - 1 ].count : 0
-			} );
+			if ( !languageData[ i ] || new Date( totalData[ i ].date ) < new Date( languageData[ i ].date ) ) {
+				languageData.splice( i, 0, {
+					date: totalData[ i ].date,
+					count: languageData[ i - 1 ] ? languageData[ i - 1 ].count : 0
+				} );
+			}
 		}
 
 		return languageData;

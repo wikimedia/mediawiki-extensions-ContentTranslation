@@ -12,6 +12,8 @@
  *
  * @ingroup API ContentTranslationAPI
  */
+use ContentTranslation\Translation;
+
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 
 	public function __construct( $query, $moduleName ) {
@@ -32,7 +34,11 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		$result->addValue(
 			array( 'query' ),
 			'contenttranslationlangtrend',
-			ContentTranslation\Translation::getTrend( $source, $target, $interval )
+			array(
+				'translations' =>
+					Translation::getPublishTrend( $source, $target, $interval ),
+				'drafts' => Translation::getDraftTrend( $source, $target, $interval )
+			)
 		);
 	}
 
