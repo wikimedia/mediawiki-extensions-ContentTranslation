@@ -96,9 +96,9 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
 			return $response['body'];
 		} elseif ( $response['error'] !== '' ) {
-			$this->dieUsage( 'parsoidserver-http-error: ' . $response['code'], $response['error'] );
+			$this->dieUsage( 'restbase-http-error: ' . $response['code'], $response['error'] );
 		} else { // error null, code not 200
-			$this->dieUsage( 'parsoidserver-http: HTTP ' . $response['code'], $response['code'] );
+			$this->dieUsage( 'restbase-http: HTTP ' . $response['code'], $response['code'] );
 		}
 	}
 
