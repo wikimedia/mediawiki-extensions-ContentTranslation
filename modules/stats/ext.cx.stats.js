@@ -65,12 +65,11 @@
 			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) )
 		).done( function ( totalTrend, languageTrend ) {
 			self.totalTranslationTrend = totalTrend.translations;
-			self.languageTranslationTrend = languageTrend.translations;
-			self.languageTranslationTrend = mergeAndFill( self.totalTranslationTrend, self.languageTranslationTrend );
+			self.totalDraftTrend = totalTrend.drafts;
 
-			self.totalDraftTrend = mergeAndFill( self.totalTranslationTrend, totalTrend.drafts );
-			self.languageDraftTrend = mergeAndFill( self.languageTranslationTrend, languageTrend.drafts );
-			self.languageDraftTrend = mergeAndFill( self.totalDraftTrend, self.languageDraftTrend );
+			self.languageTranslationTrend = languageTrend.translations;
+			self.languageDraftTrend = languageTrend.drafts;
+			self.languageDeletionTrend = languageTrend.deletions;
 			self.renderHighlights();
 			self.drawCumulativeGraph( 'count' );
 			self.drawLanguageCumulativeGraph( 'count' );
@@ -88,49 +87,41 @@
 	 * Render the boxes at the top with the most interesting recent data.
 	 */
 	CXStats.prototype.renderHighlights = function () {
-		var weekTrend, weekLangTrend, totalTrendLength, langTrendLength, localLanguage, total,
-			lastWeekTotal, prevWeekTotal, lastWeekTranslations, prevWeekTranslations,
-			langTotal, lastWeekLangTotal, prevWeekLangTotal,
-			lastWeekLangTranslations, prevWeekLangTranslations,
+		var getTrend, info, infoLanguage, localLanguage,
 			$total, $weeklyStats,
 			weekLangTrendText, weekTrendText, weekTrendClass,
 			$parenthesizedTrend, $trendInLanguage,
 			fmt = mw.language.convertNumber; // Shortcut
 
-		if ( this.totalTranslationTrend.length < 4 ) {
-			// Trend calculation works only if we have enough data
+		getTrend = function( data ) {
+			var total, trend, thisWeek;
+
+			if ( data.length < 3 ) {
+				return;
+			}
+
+			thisWeek = data.length - 1;
+
+			total = data[ thisWeek ].count;
+			trend =
+			( data[ thisWeek - 1 ].delta - data[ thisWeek - 2 ].delta ) /
+			data[ thisWeek - 2 ].delta * 100;
+			trend = parseInt( trend );
+
+			return {
+				total: total,
+				trend: trend,
+				lastWeek: data[ thisWeek - 1 ].delta
+			};
+		};
+
+		localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
+		info = getTrend( this.totalTranslationTrend );
+		infoLanguage = getTrend( this.languageTranslationTrend );
+
+		if ( !info || !infoLanguage ) {
 			return;
 		}
-
-		weekTrend = 0;
-		weekLangTrend = 0;
-		totalTrendLength = this.totalTranslationTrend.length;
-		langTrendLength = this.languageTranslationTrend.length;
-		localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
-		total = this.totalTranslationTrend[ totalTrendLength - 1 ].count;
-
-		lastWeekTotal = this.totalTranslationTrend[ totalTrendLength - 2 ].count;
-		prevWeekTotal = this.totalTranslationTrend[ totalTrendLength - 3 ].count;
-		lastWeekTranslations = lastWeekTotal - prevWeekTotal;
-		prevWeekTranslations = prevWeekTotal -
-			this.totalTranslationTrend[ totalTrendLength - 4 ].count;
-		if ( prevWeekTranslations ) {
-			weekTrend = ( lastWeekTranslations - prevWeekTranslations ) /
-				prevWeekTranslations * 100;
-		}
-		weekTrend = parseInt( weekTrend );
-
-		langTotal = this.languageTranslationTrend[ langTrendLength - 1 ].count;
-		lastWeekLangTotal = this.languageTranslationTrend[ langTrendLength - 2 ].count;
-		prevWeekLangTotal = this.languageTranslationTrend[ langTrendLength - 3 ].count;
-		lastWeekLangTranslations = lastWeekLangTotal - prevWeekLangTotal;
-		prevWeekLangTranslations = prevWeekLangTotal -
-			this.languageTranslationTrend[ langTrendLength - 4 ].count;
-		if ( prevWeekLangTranslations ) {
-			weekLangTrend = ( lastWeekLangTranslations - prevWeekLangTranslations ) /
-				prevWeekLangTranslations * 100;
-		}
-		weekLangTrend = parseInt( weekLangTrend );
 
 		$total = $( '<div>' )
 			.addClass( 'cx-stats-box' )
@@ -140,24 +131,24 @@
 					.text( mw.msg( 'cx-stats-total-published' ) ),
 				$( '<div>' )
 					.addClass( 'cx-stats-box__total' )
-					.text( fmt( total ) ),
+					.text( fmt( info.total ) ),
 				$( '<div>' )
 					.addClass( 'cx-stats-box__localtotal' )
 					.text( mw.msg(
 						'cx-stats-local-published-number',
-						fmt( langTotal ),
+						fmt( infoLanguage.total ),
 						fmt( localLanguage )
 					) )
 			);
 
-		weekLangTrendText = mw.msg( 'percent', fmt( weekLangTrend ) );
-		if ( weekLangTrend >= 0 ) {
+		weekLangTrendText = mw.msg( 'percent', fmt( infoLanguage.trend ) );
+		if ( infoLanguage.trend >= 0 ) {
 			// Add the plus sign to make clear that it's an increase
 			weekLangTrendText = '+' + weekLangTrendText;
 		}
 
-		weekTrendText = mw.msg( 'percent', fmt( weekTrend ) );
-		if ( weekTrend >= 0 ) {
+		weekTrendText = mw.msg( 'percent', fmt( info.trend ) );
+		if ( info.trend >= 0 ) {
 			// Add the plus sign to make clear that it's an increase
 			weekTrendText = '+' + weekTrendText;
 			weekTrendClass = 'increase';
@@ -173,7 +164,7 @@
 			.addClass( 'cx-stats-box__localtotal' )
 			.text( mw.msg(
 				'cx-stats-local-published',
-				fmt( lastWeekLangTranslations ),
+				fmt( infoLanguage.lastWeek ),
 				localLanguage,
 				'$3'
 			) );
@@ -191,7 +182,7 @@
 				$( '<div>' ).append(
 					$( '<span>' )
 						.addClass( 'cx-stats-box__total' )
-						.text( fmt( lastWeekTranslations ) ),
+						.text( fmt( info.lastWeek ) ),
 					// nbsp is needed for separation between the numbers.
 					// Without it the numbers appear in the wrong order in RTL environments.
 					$( '<span>' )
@@ -509,10 +500,32 @@
 		ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
 		data = {
-			labels: $.map( this.totalTranslationTrend, function ( data ) {
+			labels: $.map( this.languageTranslationTrend, function ( data ) {
 				return data.date;
 			} ),
 			datasets: [
+				{
+					label: mw.msg( 'cx-stats-draft-translations-title' ),
+					strokeColor: '#777',
+					pointColor: '#777',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#777',
+					data: $.map( this.languageDraftTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label: mw.msg( 'cx-trend-deletions' ),
+					strokeColor: '#FF0000',
+					pointColor: '#FF0000',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#FF0000',
+					data: $.map( this.languageDeletionTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
 				{
 					label: mw.message(
 						'cx-trend-translations-to',
@@ -524,17 +537,6 @@
 					pointHighlightFill: '#fff',
 					pointHighlightStroke: '#347BFF',
 					data: $.map( this.languageTranslationTrend, function ( data ) {
-						return data[ type ];
-					} )
-				},
-				{
-					label:  mw.msg( 'cx-stats-draft-translations-title' ),
-					strokeColor: '#777',
-					pointColor: '#777',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#777',
-					data: $.map( this.languageDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
 				}
@@ -634,42 +636,6 @@
 		}
 		// a must be equal to b
 		return 0;
-	}
-
-	/**
-	 * Fill the data in languageData to match with totalData length.
-	 * @param {[Object]} totalData Array of total translation trend data
-	 * @param {[Object]} totalData Array of translations to a particular language
-	 * @return {[Object]} Array of translations to a particular language, after padding
-	 */
-	function mergeAndFill( totalData, languageData ) {
-		var i;
-
-		if ( totalData.length === languageData.length ) {
-			return languageData;
-		}
-
-		// Fill at the beginning if languageData is not starting
-		// when totalData starts
-		for ( i = 0; i < totalData.length; i++ ) {
-			if ( !languageData || languageData.length === 0 ) {
-				break;
-			}
-			if ( languageData[ i ] && new Date( totalData[ i ].date ) > new Date( languageData[ i ].date ) ) {
-				totalData.splice( i, 0, {
-					date: languageData[ i ].date,
-					count: totalData[ i - 1 ] ? totalData[ i - 1 ].count : 0
-				} );
-			}
-			if ( !languageData[ i ] || new Date( totalData[ i ].date ) < new Date( languageData[ i ].date ) ) {
-				languageData.splice( i, 0, {
-					date: totalData[ i ].date,
-					count: languageData[ i - 1 ] ? languageData[ i - 1 ].count : 0
-				} );
-			}
-		}
-
-		return languageData;
 	}
 
 	$( function () {

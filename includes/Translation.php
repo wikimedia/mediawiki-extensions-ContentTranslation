@@ -278,12 +278,8 @@ class Translation {
 		$result = array();
 		foreach ( $rows as $row ) {
 			$count = (int)$row->translatons_count;
-			$result[] = array(
-				'date' => $interval === 'week' ?
-					// Week end date
-					date( 'Y-m-d', strtotime( $row->date . ' + ' .
-						( 6 - date( 'w', strtotime( $row->date ) ) ) . ' days' ) ) :
-					date( 'Y-m', strtotime( $row->date ) ),
+			$time = self::getResultTime( $row->date, $interval );
+			$result[$time] = array(
 				'count' => $count,
 				'delta' => $count - $prev,
 			);
@@ -292,6 +288,68 @@ class Translation {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Get time-wise cumulative number of deletions for given
+	 * language pairs, with given interval.
+	 */
+	public static function getDeletionTrend( $interval ) {
+		$dbr = wfGetDB( DB_SLAVE );
+
+		$conditions = array(
+			'ct_tag' => 'contenttranslation',
+			'ar_rev_id = ct_rev_id'
+		);
+		$groupBy = null;
+
+		if ( $interval === 'week' ) {
+			$groupBy = array(
+				'GROUP BY' => array(
+					'YEARWEEK(ar_timestamp)',
+				),
+			);
+		} elseif ( $interval === 'month' ) {
+			$groupBy = array(
+				'GROUP BY' => array(
+					'YEAR(ar_timestamp), MONTH(ar_timestamp)',
+				),
+			);
+		}
+
+		$rows = $dbr->select(
+			array( 'change_tag', 'archive' ),
+			array( 'ar_timestamp', 'count(ar_page_id) as count' ),
+			$conditions,
+			__METHOD__,
+			$groupBy
+		);
+
+		$prev = 0;
+		$count = 0;
+		$result = array();
+		foreach ( $rows as $row ) {
+			$count += (int)$row->count;
+			$time = self::getResultTime( $row->ar_timestamp, $interval );
+			$result[$time] = array(
+				'count' => $count,
+				'delta' => $count - $prev,
+			);
+			$prev = $count;
+		}
+
+		return $result;
+	}
+
+	protected static function getResultTime( $timestamp, $interval ) {
+		$unix = wfTimestamp( TS_UNIX, $timestamp );
+		if ( $interval === 'week' ) {
+			$n = 7 - date( 'w', $unix );
+			$unix = strtotime( "+$n days", $unix );
+			return date( 'Y-m-d', $unix );
+		} else {
+			return date( 'Y-m', $unix );
+		}
 	}
 
 	/**
@@ -356,12 +414,8 @@ class Translation {
 		$result = array();
 		foreach ( $rows as $row ) {
 			$count = (int)$row->translatons_count;
-			$result[] = array(
-				'date' => $interval === 'week' ?
-					// Week end date
-					date( 'Y-m-d', strtotime( $row->date . ' + ' .
-						( 6 - date( 'w', strtotime( $row->date ) ) ) . ' days' ) ) :
-					date( 'Y-m', strtotime( $row->date ) ),
+			$time = self::getResultTime( $row->date, $interval );
+			$result[$time] = array(
 				'count' => $count,
 				'delta' => $count - $prev,
 			);

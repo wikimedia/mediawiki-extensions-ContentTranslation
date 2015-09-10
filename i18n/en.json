@@ -155,6 +155,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 might be already available in other languages",
 	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
 	"cx-trend-all-translations": "All translations",
+	"cx-trend-deletions": "Deleted translations",
 	"cx-trend-translations-to": "Translations to $1",
 	"cx-stats-try-contenttranslation": "Content Translation is a tool to create new pages by translating from other languages. [$1 Try Content Translation]",
 	"cx-stats-published-target-source": "Translations to",

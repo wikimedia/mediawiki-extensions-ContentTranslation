@@ -31,15 +31,80 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 			$target = $params['target'];
 		}
 		$interval = $params['interval'];
-		$result->addValue(
-			array( 'query' ),
-			'contenttranslationlangtrend',
-			array(
-				'translations' =>
-					Translation::getPublishTrend( $source, $target, $interval ),
-				'drafts' => Translation::getDraftTrend( $source, $target, $interval )
-			)
+
+		$data = array(
+			'translations' => Translation::getPublishTrend( $source, $target, $interval ),
+			'drafts' => Translation::getDraftTrend( $source, $target, $interval ),
 		);
+
+		if ( $target !== null ) {
+			// We can give deletion rates for only local wiki. We cannot give
+			// deletion stats for all wikis.
+			$data['deletions'] = Translation::getDeletionTrend( $interval );
+		}
+
+		$out = $this->addMissingDates( $data, $interval );
+		$result->addValue( array( 'query' ), 'contenttranslationlangtrend', $out );
+	}
+
+	public function addMissingDates( $data, $interval ) {
+		$min = PHP_INT_MAX;
+		$max = 0;
+		foreach ( $data as $column ) {
+			foreach ( array_keys( $column ) as $date ) {
+				$min = min( $min, strtotime( $date ) );
+				$max = max( $max, strtotime( $date ) );
+			}
+		}
+
+		$counts = array();
+		foreach ( array_keys( $data ) as $type ) {
+			$counts[$type] = 0;
+		}
+
+		$steps = $this->getSteps( $min, $max, $interval );
+
+		$out = array();
+		foreach ( $steps as $step ) {
+			foreach ( $data as $type => $column ) {
+				if ( isset( $column[$step] ) ) {
+					$column[$step]['date'] = $step;
+					$out[$type][] = $column[$step];
+					$counts[$type] = $column[$step]['count'];
+				} else {
+					$out[$type][] = array(
+						'count' => $counts[$type],
+						'delta' => 0,
+						'date' => $step,
+					);
+				}
+			}
+		}
+
+		return $out;
+	}
+
+	protected function getSteps( $min, $max, $interval ) {
+		$steps = array();
+		while ( true ) {
+			// Lets not overflow
+			$min = min( $min, $max );
+			if ( $interval === 'month' ) {
+				$uniq = $label = date( 'Y-m', $min );
+			} else {
+				$uniq = date( 'Y-W', $min );
+				$label = date( 'Y-m-d', $min );
+			}
+
+			$steps[$uniq] = $label;
+
+			if ( $min === $max ) {
+				break;
+			}
+			$min += 3600 * 24;
+		}
+
+		return $steps;
 	}
 
 	public function getAllowedParams() {
