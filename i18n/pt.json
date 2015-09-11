@@ -102,6 +102,8 @@
 	"cx-translation-filter-all-translations": "Todas as traduções",
 	"cx-translation-filter-published-translations": "Publicadas",
 	"cx-translation-filter-draft-translations": "Em andamento",
+	"cx-translation-filter-suggested-translations": "Sugestões",
+	"cx-suggestionlist-featured": "Destacada",
 	"cx-translation-filter-from-any-language": "De qualquer idioma",
 	"cx-translation-filter-to-any-language": "Para qualquer idioma",
 	"cx-create-new-translation": "Iniciar nova tradução",

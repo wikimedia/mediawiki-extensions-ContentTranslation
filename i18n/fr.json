@@ -119,6 +119,8 @@
 	"cx-translation-filter-all-translations": "Toutes les traductions",
 	"cx-translation-filter-published-translations": "Publiées",
 	"cx-translation-filter-draft-translations": "En cours",
+	"cx-translation-filter-suggested-translations": "Suggestions",
+	"cx-suggestionlist-featured": "En vedette",
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
 	"cx-create-new-translation": "Débuter une nouvelle traduction",
@@ -194,6 +196,5 @@
 	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",
 	"cx-tools-link-to-another-page": "Lien vers une autre page",
 	"cx-tools-link-apply": "Fait",
-	"mw-pageselector-missing": "La page n’existe pas",
-	"cx-suggestionlist-featured": "Article en vedette"
+	"mw-pageselector-missing": "La page n’existe pas"
 }

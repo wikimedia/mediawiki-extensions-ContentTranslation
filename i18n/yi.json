@@ -87,6 +87,7 @@
 	"cx-translation-filter-all-translations": "אַלע איבערזעצונגען",
 	"cx-translation-filter-published-translations": "פֿאַרעפֿנטלעכט",
 	"cx-translation-filter-draft-translations": "אין באארבעטונג",
+	"cx-suggestionlist-featured": "רעקאמנדירט",
 	"cx-translation-filter-from-any-language": "פון יעדער שפראך",
 	"cx-translation-filter-to-any-language": "צו יעדער שפראך",
 	"cx-create-new-translation": "אנהייבן א נײַע איבערזעצונג",
@@ -105,7 +106,7 @@
 	"cx-translation-status-draft": "אין באארבעטונג",
 	"cx-translation-status-published": "פֿאַרעפֿנטלעכט",
 	"cx-translation-status-deleted": "אויסגעמעקט",
-	"cx-magnus-tool-link-text": "טרעפן ארטיקלען וואס פעלן אין אייער שפראך",
+	"cx-magnus-tool-link-text": "טרעפן בלעטער וואס פעלן אין אייער שפראך",
 	"cx-feedback-link": "פארזארגן פידבעק",
 	"cx-stats-published-translations-title": "פארעפנטלעכע איבערזעצונגען",
 	"cx-stats-published-translators-title": "צאל איבערזעצער",
@@ -143,6 +144,5 @@
 	"cx-tools-link-external-link-placeholder": "צולייגן דרויסנדיקן לינק",
 	"cx-tools-link-to-another-page": "לינק צו אן אנדער בלאט",
 	"cx-tools-link-apply": "ערליידיקט",
-	"mw-pageselector-missing": "בלאט עקזיסטירט נישט",
-	"cx-suggestionlist-featured": "רעקאמאנדירטער ארטיקל"
+	"mw-pageselector-missing": "בלאט עקזיסטירט נישט"
 }

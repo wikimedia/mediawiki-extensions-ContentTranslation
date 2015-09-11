@@ -99,6 +99,11 @@
 	"cx-translation-filter-all-translations": "Kõik tõlked",
 	"cx-translation-filter-published-translations": "Avaldatud",
 	"cx-translation-filter-draft-translations": "Pooleliolev",
+	"cx-translation-filter-suggested-translations": "Soovitused",
+	"cx-suggestionlist-empty-title": "Tõlkesoovitused puuduvad kahjuks",
+	"cx-suggestionlist-empty-desc": "Saad alustada uut tõlget mis tahes meelepärasel teemal.",
+	"cx-suggestionlist-featured": "Eeskujulik",
+	"cx-suggestionlist-view-source-page": "Vaata lähtekeelset lehekülge",
 	"cx-translation-filter-from-any-language": "Mistahes keelest",
 	"cx-translation-filter-to-any-language": "Mistahes keelde",
 	"cx-create-new-translation": "Alusta uut tõlget",
@@ -174,6 +179,5 @@
 	"cx-tools-link-external-link-placeholder": "Lisa välislink",
 	"cx-tools-link-to-another-page": "Lingi teisele leheküljele",
 	"cx-tools-link-apply": "Valmis",
-	"mw-pageselector-missing": "Lehekülge pole olemas.",
-	"cx-suggestionlist-featured": "Eeskujulik artikkel"
+	"mw-pageselector-missing": "Lehekülge pole olemas."
 }

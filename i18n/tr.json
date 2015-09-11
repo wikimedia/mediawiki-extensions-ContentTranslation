@@ -12,7 +12,8 @@
 			"Meelo",
 			"Arystanbek",
 			"Uğurkent",
-			"McAang"
+			"McAang",
+			"KorkmazO"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -104,6 +105,7 @@
 	"cx-translation-filter-all-translations": "Tüm çeviriler",
 	"cx-translation-filter-published-translations": "Yayınlanan çeviriler",
 	"cx-translation-filter-draft-translations": "Devam eden çeviriler",
+	"cx-suggestionlist-empty-title": "Üzgünüz, önerilecek sayfa yok",
 	"cx-translation-filter-from-any-language": "Herhangi bir dilden",
 	"cx-translation-filter-to-any-language": "Herhangi bir dile",
 	"cx-create-new-translation": "Yeni çeviri oluştur",

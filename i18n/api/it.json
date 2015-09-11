@@ -4,7 +4,8 @@
 			"FRacco",
 			"Fringio",
 			"Gianfranco",
-			"Mpiva"
+			"Mpiva",
+			"Macofe"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva una pagina creata utilizzando l'estensione Traduzione Contenuto.",
@@ -21,6 +22,9 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Risposta al captcha (quando si salva con un quesito captcha).",
 	"apihelp-query+contenttranslation-description": "Interroga il database del Content Translation per le traduzioni.",
 	"apihelp-query+contenttranslation-param-translationid": "Id della traduzione.",
+	"apihelp-query+contenttranslation-param-from": "Il codice della lingua di origine.",
+	"apihelp-query+contenttranslation-param-to": "Il codice della lingua di destinazione.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Il titolo della pagina di origine.",
 	"apihelp-query+contenttranslation-example-1": "Vedi le traduzioni avviate dall'utente corrente.",
 	"apihelp-query+contenttranslation-example-2": "Vedi bozze traduzioni per ID.",
 	"apihelp-query+contenttranslation-example-3": "Trova qualsiasi traduzione per il dato titolo per coppia di lingue",
@@ -29,6 +33,8 @@
 	"apihelp-cxconfiguration-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxconfiguration-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-cxconfiguration-example-1": "Cerca nel json di configurazione del Content Translation per la coppia di lingue Spagnolo-Catalano.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Il codice della lingua di origine.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-query+cxpublishedtranslations-description": "Recupera tutte le informazioni delle traduzioni pubblicate",
 	"apihelp-query+cxpublishedtranslations-param-from": "Il codice della lingua di origine.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Il codice della lingua di destinazione.",

@@ -95,6 +95,11 @@
 	"cx-translation-filter-all-translations": "Tutt' 'e traduziune",
 	"cx-translation-filter-published-translations": "Pubbrecate",
 	"cx-translation-filter-draft-translations": "'N prugresso",
+	"cx-translation-filter-suggested-translations": "Suggerimente",
+	"cx-suggestionlist-empty-title": "Spiacente, nun ce stanno paggene a ve proporre",
+	"cx-suggestionlist-empty-desc": "Putite scegliere qualunque tema 'e scelta vosta quanno accumminciate na traduzione",
+	"cx-suggestionlist-featured": "'N vetrina",
+	"cx-suggestionlist-view-source-page": "Vide 'a sorgente 'e paggena",
 	"cx-translation-filter-from-any-language": "'A na lengua qualunque",
 	"cx-translation-filter-to-any-language": "Mmerz'a na lengua qualunque",
 	"cx-create-new-translation": "Accummencia na traduzione",
@@ -116,7 +121,7 @@
 	"cx-translation-status-draft": "'N prugresso",
 	"cx-translation-status-published": "Pubbrecato 'a",
 	"cx-translation-status-deleted": "Canciellato",
-	"cx-magnus-tool-link-text": "Ascìa articule ca nun esistono dint' 'a lengua vosta",
+	"cx-magnus-tool-link-text": "Ascìa paggene ca nun esistono dint' 'a lengua vosta",
 	"cx-translation-already-in-progress": "Chest'è na traduzione ncurzo 'a $1.",
 	"cx-translation-already-in-progress-collaborate": "Assicurateve 'e ve coordinà cu l'utente c'ave ratto 'a traduzione 'e mò.",
 	"cx-publishing-dialog-publish-draft-button": "Pubbreca comm'a na bozza",
@@ -170,6 +175,5 @@
 	"cx-tools-link-external-link-placeholder": "Azzecca nu link 'e ffore",
 	"cx-tools-link-to-another-page": "Collegamiento a n'ata paggena",
 	"cx-tools-link-apply": "Fatto",
-	"mw-pageselector-missing": "'A paggena nun esiste",
-	"cx-suggestionlist-featured": "Voce 'n vetrina"
+	"mw-pageselector-missing": "'A paggena nun esiste"
 }
