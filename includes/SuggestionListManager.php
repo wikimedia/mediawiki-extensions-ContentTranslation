@@ -50,6 +50,22 @@ class SuggestionListManager {
 		);
 	}
 
+	public function removeTitles( $sourceLanguage, array $titles ) {
+		if ( count( $titles ) === 0 ) {
+			return;
+		}
+
+		$dbw = Database::getConnection( DB_MASTER );
+		$dbw->delete(
+			'cx_suggestions',
+			array(
+				'cxs_title' => $titles,
+				'cxs_source_language' => $sourceLanguage,
+			),
+			__METHOD__
+		);
+	}
+
 	public function getListByName( $name, $owner = 0 ) {
 		$dbr = Database::getConnection( DB_MASTER );
 		$row = $dbr->selectRow(
@@ -102,7 +118,7 @@ class SuggestionListManager {
 		}
 	}
 
-	public function getRelevantSuggestions( Translator $translators, $from, $to ) {
+	public function getRelevantSuggestions( Translator $translators, $from, $to, $limit ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$lists = array();
@@ -131,7 +147,7 @@ class SuggestionListManager {
 			);
 
 			$options = array(
-				'LIMIT' => '10',
+				'LIMIT' => $limit,
 				'ORDER BY' => 'RAND()'
 			);
 

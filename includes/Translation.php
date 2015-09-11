@@ -82,13 +82,19 @@ class Translation {
 		}
 	}
 
-	public static function find( $sourceLanguage, $targetLanguage, $title ) {
+	/*
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @param string|string[] $titles
+	 * @return Translation|Translation[]|null Translation
+	 */
+	public static function find( $sourceLanguage, $targetLanguage, $titles ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$values = array(
 			'translation_source_language' => $sourceLanguage,
 			'translation_target_language' => $targetLanguage,
-			'translation_source_title' => $title
+			'translation_source_title' => $titles
 		);
 
 		$rows = $dbr->select(
@@ -104,11 +110,11 @@ class Translation {
 			$result[] = Translation::newFromRow( $row );
 		}
 
-		if ( count( $result ) > 0 ) {
-			return $result[0];
+		if ( !is_array( $titles ) ) {
+			return isset( $result[0] ) ? $result[0]: null;
 		}
 
-		return null;
+		return $result;
 	}
 
 	public static function delete( $translationId ) {

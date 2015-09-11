@@ -18,6 +18,19 @@ class SiteMapper {
 		return $language;
 	}
 
+	/**
+	 * Get the API URL constructed from the domain template of sites
+	 */
+	public static function getApiURL( $language, $params = null ) {
+		global $wgContentTranslationSiteTemplates;
+
+		$domain = self::getDomainCode( $language );
+		// $wgContentTranslationSiteTemplates['api'] is protocol relative path
+		$url = 'https:' . str_replace( '$1', $domain, $wgContentTranslationSiteTemplates['api'] );
+		$url = wfAppendQuery( $url, $params );
+
+		return $url;
+	}
 
 	/**
 	 * Get the page URL constructed from the domain template of sites

@@ -8,7 +8,9 @@
  */
 
 use ContentTranslation\Translator;
+use ContentTranslation\Translation;
 use ContentTranslation\SuggestionListManager;
+use ContentTranslation\SiteMapper;
 
 /**
  * Api module for querying translation suggestions.
@@ -50,9 +52,27 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 		$translator = new Translator( $user );
 		$manager = new SuggestionListManager();
-		$data = $manager->getRelevantSuggestions( $translator, $params['from'], $params['to'] );
+		$data = $manager->getRelevantSuggestions(
+			$translator,
+			$params['from'],
+			$params['to'],
+			$params['limit']
+		);
 
 		$lists = array();
+		$suggestions = $data['suggestions'];
+
+		// Find the titles to filter out from suggestions.
+		$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
+		$existingTitles = $this->getExistingTitles( $suggestions );
+		$suggestions = $this->filterSuggestions(
+			$suggestions,
+			array_merge( $existingTitles, $ongoingTranslations )
+		);
+
+		// Remove the Suggestions that are no longer valid.
+		$this->removeInvalidSuggestions( $params['from'], $existingTitles );
+
 		foreach ( $data['lists'] as $list ) {
 			$lists[$list->getId()] = array(
 				'displayName' => $list->getDisplayNameMessage( $this->getContext() )->text(),
@@ -60,7 +80,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				'type' => $list->getType(),
 				'suggestions' => array(),
 			);
-			foreach ( $data['suggestions'] as $suggestion ) {
+			foreach ( $suggestions as $suggestion ) {
 				$lists[$suggestion->getListId()]['suggestions'][] = array(
 					'title' => $suggestion->getTitle()->getPrefixedText(),
 					'sourceLanguage' => $suggestion->getSourceLanguage(),
@@ -69,8 +89,80 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				);
 			}
 		}
-
 		$result->addValue( array( 'query', $this->getModuleName() ), 'lists', $lists );
+	}
+
+	private function getOngoingTranslations( array $suggestions ) {
+		$params = $this->extractRequestParams();
+		$sourceLanguage = $params['from'];
+		$targetLanguage = $params['to'];
+		$ongoingTranslationTitles = array();
+		foreach ( $suggestions as $suggestion ) {
+			$titles[] = $suggestion->getTitle()->getPrefixedText();
+		}
+		$translations = Translation::find( $sourceLanguage, $targetLanguage, $titles );
+		foreach ( $translations as $translation ) {
+			// $translation['sourceTitle'] is prefixed title with spaces
+			$ongoingTranslationTitles[] = $translation->translation['sourceTitle'];
+		}
+		return $ongoingTranslationTitles;
+	}
+
+	private function getExistingTitles( array $suggestions ) {
+		$params = $this->extractRequestParams();
+		$titles = array();
+		$sourceLanguage = $params['from'];
+		$targetLanguage = $params['to'];
+		$domain = SiteMapper::getDomainCode( $sourceLanguage );
+		$existingTitles = array();
+		foreach ( $suggestions as $suggestion ) {
+			$titles[] = $suggestion->getTitle()->getPrefixedText();
+		}
+		$params = array(
+			'action' => 'query',
+			'format' => 'json',
+			'titles' => implode( '|', $titles ),
+			'prop' => 'langlinks',
+			'lllimit' => $params['limit'],
+			'lllang' => SiteMapper::getDomainCode( $targetLanguage ),
+			'redirects' => true
+		);
+		$apiUrl = SiteMapper::getApiURL( $sourceLanguage, $params );
+		$json = Http::get( $apiUrl );
+		$response = FormatJson::decode( $json, true );
+		if ( !isset( $response['query'] ) || !isset( $response['query']['pages'] ) ) {
+			// Something wrong with response. Should we throw exception?
+			return $existingTitles;
+		}
+
+		$pages = $response['query']['pages'];
+		foreach ( $pages as $page ) {
+			if ( isset( $page['langlinks'] ) ) {
+				// API returns titles in PrefixedText format
+				$existingTitles[] = $page['title'];
+			}
+		}
+
+		return $existingTitles;
+	}
+
+	private function filterSuggestions( array $suggestions, array $titlesToFilter ) {
+		return array_filter( $suggestions,
+			function( $suggestion ) use( $titlesToFilter ) {
+				return !in_array(
+					$suggestion->getTitle()->getPrefixedText(),
+					$titlesToFilter
+				);
+			}
+		);
+	}
+
+	private function removeInvalidSuggestions( $sourceLanguage, array $existingTitles ) {
+		DeferredUpdates::addCallableUpdate( function() use ( $sourceLanguage, $existingTitles ) {
+			// Remove the already existing links from cx_suggestion table
+			$manager = new SuggestionListManager();
+			$manager->removeTitles( $sourceLanguage, $existingTitles );
+		} );
 	}
 
 	public function getAllowedParams() {
@@ -82,6 +174,13 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			'to' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
+			),
+			'limit' => array(
+				ApiBase::PARAM_DFLT => 10,
+				ApiBase::PARAM_TYPE => 'limit',
+				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
+				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			),
 		);
 		return $allowedParams;
