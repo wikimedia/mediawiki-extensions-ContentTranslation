@@ -78,12 +78,13 @@
 	 * @param {string} title Title
 	 * @return {jQuery.Promise}
 	 */
-	CXTranslationList.prototype.getLinkImage = function ( language, title ) {
+	CXTranslationList.prototype.getLinkImages = function ( language, titles ) {
 		return this.siteMapper.getApi( language ).get( {
 			action: 'query',
-			titles: title,
+			titles: titles.join( '|' ),
 			prop: 'pageimages',
 			piprop: 'thumbnail',
+			pilimit: 50, // maximum
 			pithumbsize: 150,
 			redirects: true
 		}, {
@@ -91,24 +92,47 @@
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} );
+
+		// @todo: handle continue
 	};
 
 	/**
-	 * Show a title image of the translation based on source title.
-	 * @param {Object} translation
+	 * Show a title image of the translations based on source title.
+	 * @param {Object[]} translations
 	 */
-	CXTranslationList.prototype.showTitleImage = function ( translation, type ) {
-		this.getLinkImage( translation.sourceLanguage, translation.sourceTitle )
-			.done( function ( response ) {
-				var pageId, page, imgSrc;
+	CXTranslationList.prototype.showTitleImages = function ( translations ) {
+		var apply,
+			self = this,
+			queries = {},
+			map = {};
 
-				pageId = Object.keys( response.query.pages )[ 0 ];
-				page = response.query.pages[ pageId ];
-				if ( page.thumbnail ) {
-					imgSrc = page.thumbnail.source;
-					$( '#' + type + translation.id ).find( '.image' ).attr( 'src', imgSrc );
-				}
+		$.each( translations, function ( index, translation ) {
+			var language = self.siteMapper.getWikiDomainCode( translation.sourceLanguage );
+
+			queries[ language ] = queries[ language ] || [];
+			queries[ language ].push( translation.sourceTitle );
+
+			// So that we can easily find the element in the callback
+			if ( !map[ translation.sourceTitle ] ) {
+				// Same source title might be translated to multiple languages.
+				map[ translation.sourceTitle ] = [];
+			}
+			map[ translation.sourceTitle ].push( translation.$image );
+		} );
+
+		apply = function ( page ) {
+			if ( page.thumbnail ) {
+				$.each( map[ page.title ], function ( i, item ) {
+					item.attr( 'src', page.thumbnail.source );
+				} );
+			}
+		};
+
+		$.each( queries, function ( language, titles ) {
+			self.getLinkImages( language, titles ).done( function ( response ) {
+				$.map( response.query.pages, apply );
 			} );
+		} );
 	};
 
 	/**
@@ -134,8 +158,7 @@
 			}
 
 			$translation = $( '<div>' )
-				.addClass( 'cx-tlitem' )
-				.attr( 'id', 'translation' + translation.id );
+				.addClass( 'cx-tlitem' );
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
 				.text( moment( translation.lastUpdateTimeStamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
@@ -149,7 +172,6 @@
 					weights: progress
 				} );
 			$imageBlock.append( $image );
-			this.showTitleImage( translation, 'translation' );
 
 			sourceDir = $.uls.data.getDir( translation.sourceLanguage );
 			targetDir = $.uls.data.getDir( translation.targetLanguage );
@@ -253,14 +275,16 @@
 
 			$translations.push( $translation );
 
-			// Store reference to the DOM node
+			// Store reference to the DOM nodes
 			translation.$element = $translation;
+			translation.$image = $image;
 		}
 
-		if ( $translations.length ) {
+		if ( this.translations.length ) {
 			this.$translationsList = $( '<div>' )
 				.addClass( 'cx-translationlist' )
 				.append( $translations );
+			this.showTitleImages( this.translations );
 		} else {
 			this.$translationsList = this.buildEmptyTranslationList();
 		}
