@@ -12,7 +12,8 @@
 			"Takot",
 			"2nd-player",
 			"Otokoume",
-			"Fryed-peach"
+			"Fryed-peach",
+			"青子守歌"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -26,7 +27,7 @@
 	"cx-header-translation-center": "翻訳センター",
 	"cx-header-new-translation": "新しく翻訳する",
 	"cx-header-all-translations": "全翻訳",
-	"cx-source-view-page": "記事を閲覧",
+	"cx-source-view-page": "ページを閲覧",
 	"cx-publish-page-success": "ページを公開しました：$1",
 	"cx-publish-page-error": "翻訳記事の公開中にエラーが発生しました。公開し直してください。エラー:$1",
 	"cx-publish-button": "翻訳を公開する",
@@ -151,7 +152,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "翻訳",
 	"cx-campaign-contributionsmenu-translate-instead": "一から書く代わりに翻訳する",
 	"cx-campaign-contributionsmenu-might-be-available": "$1は既に他の言語に存在するかもしれません",
-	"cx-campaign-contributionsmenu-myuploads": "メディアをアップロード",
+	"cx-campaign-contributionsmenu-myuploads": "アップロードされたメディア",
 	"cx-trend-all-translations": "全翻訳",
 	"cx-trend-translations-to": "$1版への翻訳",
 	"cx-stats-try-contenttranslation": "コンテンツ翻訳ツールは、他の言語から翻訳することによって新しいページを作成することのできるツールです。[$1 コンテンツ翻訳を試す]",
