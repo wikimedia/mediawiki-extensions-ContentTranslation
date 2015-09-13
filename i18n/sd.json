@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sindhu"
+			"Sindhu",
+			"Mehtab ahmed"
 		]
 	},
 	"cx-publish-page-error": "صفحي کي محسوس ڪرڻ دوران غلطي واقع ٿي ، مهربان صفحي کي ٻيهر شايع ڪرڻ جي ڪوشش ڪريو",
 	"cx-tools-reference-add": "حوالو جوڙيو",
 	"cx-mt-abuse-warning-text": "مشيني ترجما فقط شروعاتي نقطي طور مهيا ڪيل آهن. توهان کي پڪ ڪرڻ گھرجي ته مواد درست آهي ۽ توهان جي ٻوليءَ ۾ قدرتي طور پڙهي سگھجي ٿو.",
-	"cx-create-new-translation-desc": "موضوعن لاءِ صفحا ٺاهيو جيڪي اوهان جي ٻوليءَ ۾ وجود نه ٿا رکن. اهو اسان جي ترجمي جي اوزارن جي مدد سان آسان آهي. [{{int:cx-tools-view-guidelines-link}} وڌيڪ سکو]",
-	"apihelp-cxpublish-param-categories": "زمرو جنهن ۾ شايع ٿيل صفحو رکڻو آهي"
+	"cx-magnus-tool-link-text": "توهان جي ٻولي ۾ نه لڀندڙ صفحا ڳولهيو"
 }

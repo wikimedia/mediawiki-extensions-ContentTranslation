@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mashoi7"
+		]
+	},
+	"apihelp-query+contenttranslation-param-from": "Lähtekielen koudu.",
+	"apihelp-query+contenttranslation-param-to": "Kohtehkielen koudu.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Lähtehsivun rubriekku.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Lähtehkielen koudu.",
+	"apihelp-cxdelete-param-from": "Lähtehkielen koudu.",
+	"apihelp-cxdelete-param-to": "Kohtehkielen koudu.",
+	"apihelp-cxdelete-param-sourcetitle": "Lähtehsivun rubriekku."
+}
