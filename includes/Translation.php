@@ -221,16 +221,16 @@ class Translation {
 			'ct_tag' => 'contenttranslation',
 			'ar_rev_id = ct_rev_id'
 		);
-		$groupBy = null;
 
+		$options = null;
 		if ( $interval === 'week' ) {
-			$groupBy = array(
+			$options = array(
 				'GROUP BY' => array(
 					'YEARWEEK(ar_timestamp)',
 				),
 			);
 		} elseif ( $interval === 'month' ) {
-			$groupBy = array(
+			$options = array(
 				'GROUP BY' => array(
 					'YEAR(ar_timestamp), MONTH(ar_timestamp)',
 				),
@@ -242,10 +242,9 @@ class Translation {
 			array( 'ar_timestamp', 'count(ar_page_id) as count' ),
 			$conditions,
 			__METHOD__,
-			$groupBy
+			$options
 		);
 
-		$prev = 0;
 		$count = 0;
 		$result = array();
 		foreach ( $rows as $row ) {
@@ -253,9 +252,8 @@ class Translation {
 			$time = self::getResultTime( $row->ar_timestamp, $interval );
 			$result[$time] = array(
 				'count' => $count,
-				'delta' => $count - $prev,
+				'delta' => (int)$row->count,
 			);
-			$prev = $count;
 		}
 
 		return $result;
