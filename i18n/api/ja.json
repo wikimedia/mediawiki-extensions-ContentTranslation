@@ -12,8 +12,8 @@
 	"apihelp-cxpublish-param-html": "保存するコンテンツ",
 	"apihelp-cxpublish-param-from": "翻訳元の言語コード",
 	"apihelp-cxpublish-param-to": "翻訳先の言語コード",
-	"apihelp-cxpublish-param-sourcetitle": "ソースページのページ名",
-	"apihelp-cxpublish-param-sourcerevision": "修正されたソースページ",
+	"apihelp-cxpublish-param-sourcetitle": "翻訳元のページ名",
+	"apihelp-cxpublish-param-sourcerevision": "翻訳元ページの版",
 	"apihelp-cxpublish-param-status": "<kbd>draft</kbd>とすると、翻訳は下書きとして保存されます。<kbd>publshed</kbd>とすると、翻訳は公開されます。",
 	"apihelp-cxpublish-param-progress": "翻訳の完了状況（進捗）についての情報。<code>any</code>、<code>human</code>、<code>mt</code>そして<code>mtSectionsCount</code>のキーを含むJSONです。これらのキーの値は百分率で表されます。",
 	"apihelp-cxpublish-param-categories": "公開されたページにつけるカテゴリ",
@@ -23,7 +23,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "翻訳ID",
 	"apihelp-query+contenttranslation-param-from": "ソースの言語コード。",
 	"apihelp-query+contenttranslation-param-to": "翻訳作成先の言語コード。",
-	"apihelp-query+contenttranslation-param-sourcetitle": "ソースページのページ名。",
+	"apihelp-query+contenttranslation-param-sourcetitle": "翻訳元のページ名。",
 	"apihelp-query+contenttranslation-example-1": "現在のユーザによって始められた翻訳を取得",
 	"apihelp-query+contenttranslation-example-2": "IDで翻訳の下書きを取得",
 	"apihelp-query+contenttranslation-example-3": "与えられたページ名について言語間の翻訳を探す",
@@ -49,6 +49,6 @@
 	"apihelp-cxdelete-description": "コンテンツ翻訳拡張を利用して作成された下書きの翻訳を削除",
 	"apihelp-cxdelete-param-from": "翻訳元の言語コード",
 	"apihelp-cxdelete-param-to": "翻訳先の言語コード",
-	"apihelp-cxdelete-param-sourcetitle": "ソースページのページ名",
+	"apihelp-cxdelete-param-sourcetitle": "翻訳元のページ名",
 	"apihelp-cxdelete-example-1": "与えられた言語間のページ名に関連する下書きを削除"
 }

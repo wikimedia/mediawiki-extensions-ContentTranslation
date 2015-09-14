@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Candalua"
 		]
 	},
 	"cx": "Traduce 'a paggena",
@@ -142,6 +143,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 putesse stà già a disposizione int'a ll'ati llengue",
 	"cx-campaign-contributionsmenu-myuploads": "File multimediale carrecate",
 	"cx-trend-all-translations": "Tutt' 'e traduziune",
+	"cx-trend-deletions": "Scanciella traduzioni",
 	"cx-trend-translations-to": "Traduziune 'n lengua $1",
 	"cx-stats-try-contenttranslation": "Traduzione 'e Cuntenute è nu tool ca criasse 'e paggene facenno 'a traduzione 'a ll'ati llengue. [$1 Prova Content Translation]",
 	"cx-stats-published-target-source": "Traduziune mmerz'a",

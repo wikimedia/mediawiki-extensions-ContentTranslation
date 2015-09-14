@@ -22,6 +22,7 @@
 	"apihelp-query+contenttranslation-param-from": "源语言代码。",
 	"apihelp-query+contenttranslation-param-to": "目标语言代码。",
 	"apihelp-query+contenttranslation-param-sourcetitle": "来源页面的标题。",
+	"apihelp-query+contenttranslation-param-limit": "要检索的翻译的最大数量。默认为100。",
 	"apihelp-query+contenttranslation-example-1": "获取由当前用户作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
 	"apihelp-query+contenttranslation-example-3": "查找指定的语言对中给定标题的任何翻译",

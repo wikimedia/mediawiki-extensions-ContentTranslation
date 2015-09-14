@@ -96,6 +96,11 @@
 	"cx-translation-filter-all-translations": "Сите преводи",
 	"cx-translation-filter-published-translations": "Објавени",
 	"cx-translation-filter-draft-translations": "Во тек",
+	"cx-translation-filter-suggested-translations": "Предлози",
+	"cx-suggestionlist-empty-title": "За жал, нема предложени страници",
+	"cx-suggestionlist-empty-desc": "Можете да изберете било која тема по ваша желба кога почнувате нов превод",
+	"cx-suggestionlist-featured": "Избрана",
+	"cx-suggestionlist-view-source-page": "Погл. изворната страница",
 	"cx-translation-filter-from-any-language": "Од било кој јазик",
 	"cx-translation-filter-to-any-language": "На било кој јазик",
 	"cx-create-new-translation": "Започни нов превод",
@@ -117,7 +122,7 @@
 	"cx-translation-status-draft": "Во тек",
 	"cx-translation-status-published": "Објавено",
 	"cx-translation-status-deleted": "Избришано",
-	"cx-magnus-tool-link-text": "Најдете статии што недостасуваат на вашиот јазик",
+	"cx-magnus-tool-link-text": "Најдете страници што недостасуваат на вашиот јазик",
 	"cx-translation-already-in-progress": "Ова е превод во тек на $1.",
 	"cx-translation-already-in-progress-collaborate": "Не заборавајте да се усогласите со корисникот што го направил тековниот превод.",
 	"cx-publishing-dialog-publish-draft-button": "Објави како нацрт",
@@ -171,6 +176,5 @@
 	"cx-tools-link-external-link-placeholder": "Додај надворешна врска",
 	"cx-tools-link-to-another-page": "Врска до друга страница",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Страницата не постои",
-	"cx-suggestionlist-featured": "Избрана статија"
+	"mw-pageselector-missing": "Страницата не постои"
 }
