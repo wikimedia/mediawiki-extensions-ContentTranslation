@@ -194,6 +194,11 @@
 				target: '_blank',
 				title: mw.msg( 'cx-suggestionlist-view-source-page' )
 			} )
+			.click( function ( e ) {
+				// Do not propagate to the parent suggestion item. Prevent opening
+				// source selector.
+				e.stopPropagation();
+			} )
 			.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--source' )
 			.text( $.uls.data.getAutonym( suggestion.sourceLanguage ) );
 
@@ -286,14 +291,14 @@
 	 * Event handlers
 	 */
 	CXSuggestionList.prototype.listen = function () {
-		this.$container.on( 'click', '.cx-suggestionlist .cx-slitem__translation-link', function () {
+		this.$container.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
 			var cxSelector, suggestion;
 
 			cxSelector = $( this ).data( 'cxsourceselector' );
 			if ( cxSelector ) {
 				cxSelector.prefill();
 			} else {
-				suggestion = $( this ).data( 'suggestion' );
+				suggestion = $( this ).find( '.cx-slitem__translation-link' ).data( 'suggestion' );
 				$( this ).cxSourceSelector( {
 					sourceLanguage: suggestion.sourceLanguage,
 					targetLanguage: suggestion.targetLanguage,
