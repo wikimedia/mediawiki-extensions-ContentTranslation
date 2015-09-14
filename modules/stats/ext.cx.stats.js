@@ -44,6 +44,18 @@
 			height: 400
 		} );
 
+		this.$translatonTrendBarChart = $( '<canvas>' ).attr( {
+			id: 'cxtrendchart',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$langTranslatonTrendBarChart = $( '<canvas>' ).attr( {
+			id: 'cxlangtrendchart',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
 		this.$container.append(
 			$spinner,
 			this.$highlights,
@@ -57,7 +69,18 @@
 			).escaped() ),
 			$( '<div>' )
 				.addClass( 'cx-stats-graph cx-stats-cumulative-lang' )
-				.append( this.$languageCumulativeGraph )
+				.append( this.$languageCumulativeGraph ),
+			$( '<h2>' ).text( mw.msg( 'cx-trend-published-translations-title' ) ),
+			$( '<div>' )
+				.addClass( 'cx-stats-graph cx-stats-trend-total' )
+				.append( this.$translatonTrendBarChart ),
+			$( '<h2>' ).text( mw.message(
+				'cx-trend-translations-to-title',
+				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+			).escaped() ),
+			$( '<div>' )
+				.addClass( 'cx-stats-graph cx-stats-trend-lang' )
+				.append( this.$langTranslatonTrendBarChart )
 		);
 
 		$.when(
@@ -73,6 +96,8 @@
 			self.renderHighlights();
 			self.drawCumulativeGraph( 'count' );
 			self.drawLanguageCumulativeGraph( 'count' );
+			self.drawTranslationTrend();
+			self.drawLangTranslationTrend();
 		} );
 		this.getCXStats().then( function ( data ) {
 			if ( !data || !data.query ) {
@@ -93,7 +118,7 @@
 			$parenthesizedTrend, $trendInLanguage,
 			fmt = mw.language.convertNumber; // Shortcut
 
-		getTrend = function( data ) {
+		getTrend = function ( data ) {
 			var total, trend, thisWeek;
 
 			if ( data.length < 3 ) {
@@ -459,7 +484,6 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-trend-all-translations' ),
-					fillColor: '#347BFF',
 					strokeColor: '#347BFF',
 					pointColor: '#347BFF',
 					pointStrokeColor: '#fff',
@@ -471,7 +495,6 @@
 				},
 				{
 					label:  mw.msg( 'cx-stats-draft-translations-title' ),
-					fillColor: '#777',
 					strokeColor: '#777',
 					pointColor: '#777',
 					pointStrokeColor: '#fff',
@@ -518,10 +541,10 @@
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
 					strokeColor: '#FF0000',
-					pointColor: '#FF0000',
+					pointColor: 'FF0000',
 					pointStrokeColor: '#fff',
 					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#FF0000',
+					pointHighlightStroke: 'FF0000',
 					data: $.map( this.languageDeletionTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -551,6 +574,114 @@
 		} );
 
 		this.$container.find( '.cx-stats-cumulative-lang' ).append( cxCumulativeGraph.generateLegend() );
+	};
+
+	CXStats.prototype.drawTranslationTrend = function () {
+		var data, cxTrendChart, ctx, type = 'delta';
+
+		ctx = this.$translatonTrendBarChart[ 0 ].getContext( '2d' );
+		data = {
+			labels: $.map( this.totalTranslationTrend, function ( data ) {
+				return data.date;
+			} ),
+			datasets: [
+				{
+					label: mw.msg( 'cx-trend-all-translations' ),
+					strokeColor: '#347BFF',
+					fillColor: '#347BFF',
+					pointColor: '#347BFF',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#347BFF',
+					data: $.map( this.totalTranslationTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					strokeColor: '#777',
+					fillColor: '#777',
+					pointColor: '#777',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#777',
+					data: $.map( this.totalDraftTrend, function ( data ) {
+						return data[ type ];
+					} )
+				}
+			]
+		};
+
+		/*global Chart:false */
+		cxTrendChart = new Chart( ctx ).Bar( data, {
+			responsive: true,
+			barDatasetSpacing: 0,
+			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		} );
+
+		this.$container.find( '.cx-stats-trend-total' ).append( cxTrendChart.generateLegend() );
+	};
+
+	CXStats.prototype.drawLangTranslationTrend = function () {
+		var ctx, data, cxTrendChart,
+			type = 'delta';
+
+		ctx = this.$langTranslatonTrendBarChart[ 0 ].getContext( '2d' );
+		data = {
+			labels: $.map( this.languageTranslationTrend, function ( data ) {
+				return data.date;
+			} ),
+			datasets: [
+				{
+					label: mw.message(
+						'cx-trend-translations-to',
+						$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+					).escaped(),
+					strokeColor: '#347BFF',
+					fillColor: '#347BFF',
+					pointColor: '#347BFF',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#347BFF',
+					data: $.map( this.languageTranslationTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					strokeColor: '#777',
+					fillColor: '#777',
+					pointColor: '#777',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#777',
+					data: $.map( this.languageDraftTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label:  mw.msg( 'cx-trend-deletions' ),
+					strokeColor: '#FF0000',
+					fillColor: '#FF0000',
+					pointColor: '#FF0000',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#FF0000',
+					data: $.map( this.languageDeletionTrend, function ( data ) {
+						return data[ type ];
+					} )
+				}
+			]
+		};
+
+		/*global Chart:false */
+		cxTrendChart = new Chart( ctx ).Bar( data, {
+			responsive: true,
+			barDatasetSpacing: 0,
+			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		} );
+
+		this.$container.find( '.cx-stats-trend-lang' ).append( cxTrendChart.generateLegend() );
 	};
 
 	CXStats.prototype.transformJsonToModel = function ( records ) {

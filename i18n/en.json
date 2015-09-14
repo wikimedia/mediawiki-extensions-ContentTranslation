@@ -169,6 +169,8 @@
 	"cx-stats-local-published-number": "$1 in $2",
 	"cx-stats-local-published": "$1 ($3) in $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 translation|$1 translations}}",
+	"cx-trend-published-translations-title": "Translation trend",
+	"cx-trend-translations-to-title": "Translation trend to $1",
 	"cx-tools-missing-link-text": "{{GENDER:|Mark}} the page as missing to encourage its creation.",
 	"cx-tools-missing-link-tooltip": "Translate (in new window)",
 	"cx-tools-missing-link-title": "Missing link",
