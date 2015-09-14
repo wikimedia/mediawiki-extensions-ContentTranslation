@@ -160,6 +160,22 @@
 
 .cx-stats-graph {
 	background-color: #fff;
+	border: 1px solid #999;
+
+	// Legend styling
+	li {
+		display: inline;
+		padding-right: 20px;
+
+		&:before {
+			content: '\25A0';
+			max-width: 0;
+			max-height: 0;
+			left: -10px;
+			top: 0;
+			font-size: 20px;
+		}
+	}
 }
 
 .cx-stats-highlights {

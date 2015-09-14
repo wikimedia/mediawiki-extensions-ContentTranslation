@@ -867,6 +867,8 @@
 				"cx-stats-local-published-number",
 				"cx-stats-local-published",
 				"cx-stats-grouping-title",
+				"cx-trend-published-translations-title",
+				"cx-trend-translations-to-title",
 				"percent"
 			]
 		},
@@ -875,7 +877,8 @@
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
 				"chart.js/Chart.Core.js",
-				"chart.js/Chart.Line.js"
+				"chart.js/Chart.Line.js",
+				"chart.js/Chart.Bar.js"
 			]
 		},
 		"ext.cx.beta.notification": {
