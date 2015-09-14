@@ -541,10 +541,10 @@
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
 					strokeColor: '#FF0000',
-					pointColor: 'FF0000',
+					pointColor: '#FF0000',
 					pointStrokeColor: '#fff',
 					pointHighlightFill: '#fff',
-					pointHighlightStroke: 'FF0000',
+					pointHighlightStroke: '#FF0000',
 					data: $.map( this.languageDeletionTrend, function ( data ) {
 						return data[ type ];
 					} )
