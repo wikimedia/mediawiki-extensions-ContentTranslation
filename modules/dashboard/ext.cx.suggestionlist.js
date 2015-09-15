@@ -19,7 +19,7 @@
 		this.$container = $container;
 		this.siteMapper = siteMapper;
 		this.suggestions = null;
-		this.$suggestionList = $( [] );
+		this.$suggestionList = null;
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$header = null;
@@ -27,25 +27,57 @@
 		this.$overlay = null;
 		this.suggestionFrom = null;
 		this.suggestionTo = null;
+		this.sourceLanguages = null;
+		this.targetLanguages = null;
+		this.shown = false;
 		this.listen();
 	}
 
 	CXSuggestionList.prototype.init = function () {
-		var lists, list, listId,
-			storedTargetLanguage, storedSourceLanguage,
-			self = this;
+		this.initLanguages();
+	};
 
-		// TODO: Refactor this to a method that abstracts the language calculation
+	CXSuggestionList.prototype.initLanguages = function () {
+		var storedTargetLanguage, storedSourceLanguage;
+
 		try {
 			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
 			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
 		} catch ( e ) {
 			// Local storage disabled?
 		}
-		this.suggestionFrom = storedSourceLanguage || 'en';
-		this.suggestionTo = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
+		// Try to get all possble languages.
+		this.sourceLanguages = [
+			storedSourceLanguage,
+			storedTargetLanguage,
+			'en',
+			mw.config.get( 'wgContentLanguage' ),
+			mw.config.get( 'wgUserLanguage' )
+		];
+		// Also add ULS defined common languages.
+		this.sourceLanguages = this.sourceLanguages.concat( mw.uls.getFrequentLanguageList() );
+		// Get unique list.
+		this.sourceLanguages = mw.cx.unique( this.sourceLanguages );
+		this.targetLanguages = this.sourceLanguages;
+		// At the end, this list will have some items.
+		this.suggestionFrom = this.sourceLanguages[ 0 ];
+		this.suggestionTo = this.sourceLanguages[ 1 ];
+		// If suggestionTo is undefined, nothing breaks. The selector will show
+		// 'To any language'
+	};
 
+	CXSuggestionList.prototype.initLists = function () {
+		var lists, list, listId,
+			self = this;
+
+		if ( !this.$suggestionList ) {
+			this.$suggestionList = $( '<div>' ).addClass( 'cx-suggestionlist' );
+			this.$container.append( this.$suggestionList.hide() );
+		}
 		this.getSuggestionLists( this.suggestionFrom, this.suggestionTo ).done( function ( response ) {
+			if ( self.$suggestionList ) {
+				self.$suggestionList.empty();
+			}
 			self.suggestions = response.query.contenttranslationsuggestions;
 			lists = self.suggestions.lists;
 			for ( listId in lists ) {
@@ -78,6 +110,47 @@
 			from: from,
 			to: to
 		} );
+	};
+
+	/**
+	 * Sets the source language.
+	 * @param {string} language A language code
+	 */
+	CXSuggestionList.prototype.setSourceLanguage = function ( language ) {
+		if ( this.suggestionFrom === language ) {
+			return;
+		}
+		this.suggestionFrom = language;
+		if ( this.shown ) {
+			this.initLists();
+		}
+	};
+
+	/**
+	 * Sets the target language.
+	 * @param {string} language A language code
+	 */
+	CXSuggestionList.prototype.setTargetLanguage = function ( language ) {
+		if ( this.suggestionTo === language ) {
+			return;
+		}
+		this.suggestionTo = language;
+		if ( this.shown ) {
+			this.initLists();
+		}
+	};
+
+	CXSuggestionList.prototype.show = function () {
+		this.initLists();
+		this.$suggestionList.show();
+		this.shown = true;
+	};
+
+	CXSuggestionList.prototype.hide = function () {
+		if ( this.$suggestionList ) {
+			this.$suggestionList.hide();
+		}
+		this.shown = false;
 	};
 
 	/**
@@ -139,14 +212,11 @@
 		}
 
 		if ( $suggestions.length ) {
-			this.$suggestionList = $( '<div>' )
-				.addClass( 'cx-suggestionlist' )
-				.append( $suggestions );
+			this.$suggestionList.append( $suggestions );
 		} else {
 			// Show empty suggestion list
-			this.$suggestionList = this.buildEmptySuggestionList();
+			this.$suggestionList.append( this.buildEmptySuggestionList() );
 		}
-		this.$container.append( this.$suggestionList.hide() );
 	};
 
 	/**
@@ -240,37 +310,6 @@
 		return $suggestion;
 	};
 
-	CXSuggestionList.prototype.applyFilters = function ( filters ) {
-		var lists, i, j, keys, visible, filterProp, filterValue, suggestion, list, listId;
-
-		lists = this.suggestions.lists;
-		for ( listId in lists ) {
-			if ( lists.hasOwnProperty( listId ) ) {
-				list = lists[ listId ];
-				for ( i = 0; i < list.suggestions.length; i++ ) {
-					suggestion = list.suggestions[ i ];
-					visible = true;
-					for ( j = 0; j < keys.length; j++ ) {
-						filterProp = keys[ j ];
-						filterValue = filters[ filterProp ];
-
-						if ( filterValue === null || filterValue === '' ) {
-							continue;
-						}
-
-						visible = visible && suggestion[ filterProp ] === filterValue;
-					}
-
-					if ( visible ) {
-						suggestion.$element.show();
-					} else {
-						suggestion.$element.hide();
-					}
-				}
-			}
-		}
-	};
-
 	CXSuggestionList.prototype.buildEmptySuggestionList = function () {
 		var $img, $title, $desc;
 
@@ -283,7 +322,7 @@
 			.addClass( 'cx-suggestionlist-empty__desc' )
 			.text( mw.msg( 'cx-suggestionlist-empty-desc' ) );
 		return $( '<div>' )
-			.addClass( 'cx-suggestionlist cx-suggestionlist-empty' )
+			.addClass( 'cx-suggestionlist-empty' )
 			.append( $img, $title, $desc );
 	};
 
