@@ -104,6 +104,8 @@
 	"cx-translation-filter-all-translations": "Усі переклади",
 	"cx-translation-filter-published-translations": "Опубліковано",
 	"cx-translation-filter-draft-translations": "У процесі",
+	"cx-suggestionlist-empty-title": "На жаль, немає запропонованих сторінок",
+	"cx-suggestionlist-featured": "Обрана стаття",
 	"cx-translation-filter-from-any-language": "З будь-якої мови",
 	"cx-translation-filter-to-any-language": "На будь-яку мову",
 	"cx-create-new-translation": "Почати новий переклад",
@@ -146,6 +148,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "Стаття $1 вже може існувати іншими мовами",
 	"cx-campaign-contributionsmenu-myuploads": "Завантажені медіафайли",
 	"cx-trend-all-translations": "Усі переклади",
+	"cx-trend-deletions": "Вилучені переклади",
 	"cx-trend-translations-to": "Переклади на мову: $1",
 	"cx-stats-try-contenttranslation": "Переклад вмісту — це інструмент створення нових сторінок шляхом перекладу з інших мов. [$1 Спробувати Переклад вмісту]",
 	"cx-stats-published-target-source": "Переклади на",
@@ -179,6 +182,5 @@
 	"cx-tools-link-external-link-placeholder": "Додати зовнішнє посилання",
 	"cx-tools-link-to-another-page": "Посилання на іншу сторінку",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Сторінка не існує",
-	"cx-suggestionlist-featured": "Обрана стаття"
+	"mw-pageselector-missing": "Сторінка не існує"
 }

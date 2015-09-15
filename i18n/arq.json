@@ -1,15 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Oldstoneage"
+			"Oldstoneage",
+			"Hussam"
 		]
 	},
 	"cx": "طرجم الپاجة",
 	"cx-javascript": "هاد الآدة ما تمشيش بلا جافاسكريبت.",
 	"cx-tools-reference-add": "زيد وتيقة",
 	"cx-magnus-tool-link-text": "صيب آرتيكلات مخصوصة فل ويكي تاعك",
-	"cx-stats-table-source-total": "المجموع (مصدر)",
-	"cx-stats-table-target-total": "المجموع (اللوغة المطرجَم ليها)",
 	"cx-stats-published-translations-title": "طرجمات منشورين",
 	"cx-stats-draft-translations-title": "طرجمات راهم ف`الصنعة",
 	"cx-stats-published-translators-title": "التعداد تاع الطرجامين",
@@ -19,5 +18,6 @@
 	"cx-beta-feature-enabled-notification": "الطرجمة تاع المحتاوا راه مآكتيفي في هاد الويكي.",
 	"cx-campaign-newarticle-notice": "ضركا تنجم تاني تخلق محتاوا جديد ب`<b>الطرجمة</b>! راك حاب تسيّي السيستام تاع الطرجمة تاع المحتاوا الّي راه فل بيطا؟",
 	"cx-campaign-no-thanks": "لا، صجّيت",
-	"cx-campaign-try": "واه راني حاب نسيّي"
+	"cx-campaign-try": "واه راني حاب نسيّي",
+	"cx-trend-deletions": "طرجمة ممحية"
 }
