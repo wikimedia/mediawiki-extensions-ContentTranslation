@@ -25,7 +25,7 @@
 		mw.cx.sourceTitle = 'Han Feizi';
 		categoryTool.getCategories()
 			.then( function () {
-				assert.equal( Object.keys( categoryTool.categories.source ).length, 4 );
+				assert.equal( Object.keys( categoryTool.categories.source ).length, 5 );
 				assert.equal( Object.keys( categoryTool.categories.adapted ).length, 1 );
 				assert.equal( Object.keys( categoryTool.categories.target ).length, 1 );
 				done();
