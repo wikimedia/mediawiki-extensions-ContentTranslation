@@ -102,6 +102,8 @@
 	"cx-translation-filter-all-translations": "همهٔ ترجمه‌ها",
 	"cx-translation-filter-published-translations": "منتشر شده",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
+	"cx-translation-filter-suggested-translations": "پیشنهادها",
+	"cx-suggestionlist-featured": "برگزیده",
 	"cx-translation-filter-from-any-language": "از هر زبانی",
 	"cx-translation-filter-to-any-language": "به هر زبانی",
 	"cx-create-new-translation": "ترجمه‌ای جدید شروع کنید",

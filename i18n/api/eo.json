@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"KuboF"
+		]
+	},
+	"apihelp-cxpublish-description": "Konservi la paĝon kreitan per etendaĵo por Tradukado de Enhavo.",
+	"apihelp-cxpublish-param-title": "Titolo de la prilaborota paĝo",
+	"apihelp-cxpublish-param-html": "La enhavo por konservi.",
+	"apihelp-cxpublish-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-cxpublish-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-cxpublish-param-sourcetitle": "Titolo de la fonta paĝo.",
+	"apihelp-cxpublish-param-sourcerevision": "Revizia numero de la fonta paĝo.",
+	"apihelp-cxpublish-param-status": "Se <kbd>draft</kbd>, la traduko konserviĝos kiel malneto. Se <kbd>published</kbd>, la traduko publikiĝos.",
+	"apihelp-cxpublish-param-categories": "Kategorioj, en kiujn estos aldonita publikigita paĝo.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Identigilo de Captcha (por konservi kun captcha-respondo).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Respondo al captcha (por konservi kun captcha-respondo).",
+	"apihelp-query+contenttranslation-description": "Informpeti datumbazon de Tradukado de enhavo pri tradukoj.",
+	"apihelp-query+contenttranslation-param-translationid": "Identigilo de traduko.",
+	"apihelp-query+contenttranslation-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-query+contenttranslation-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Titolo de la fonta paĝo.",
+	"apihelp-query+contenttranslation-example-1": "Ricevi tradukojn komencitajn de aktuala uzanto.",
+	"apihelp-query+contenttranslation-example-2": "Ricevi tradukajn malnetojn laŭ identigilo.",
+	"apihelp-query+contenttranslation-example-3": "Trovi ajnan tradukon por la petita titolo inter la petita lingva paro",
+	"apihelp-query+contenttranslationstats-example-1": "Ricevi statistikojn de tradukado de enhavo por ĉiuj lingvoj.",
+	"apihelp-cxconfiguration-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-cxconfiguration-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Lingvokodo de la fonta lingvo.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Lingvokodo de la cela lingvo.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "La intervalo por kalkuli  la tendencon. Ĝi povas esti <kbd>week</kbd> (semajno) aŭ <kbd>month</kbd> (monato).",
+	"apihelp-cxdelete-description": "Forigi malnetan tradukon kreitan per la etendaĵo por tradukado de enhavo.",
+	"apihelp-cxdelete-param-from": "Lingvokodo de la fonta lingvo.",
+	"apihelp-cxdelete-param-to": "Lingvokodo de la cela lingvo.",
+	"apihelp-cxdelete-param-sourcetitle": "Titolo de la fonta paĝo.",
+	"apihelp-cxdelete-example-1": "Forigi malneton asociigitan kun la lingva paro kaj titolo."
+}
