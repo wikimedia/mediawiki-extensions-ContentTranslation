@@ -241,6 +241,9 @@
 			"scripts": [
 				"dashboard/ext.cx.magnuslink.js"
 			],
+			"dependencies": [
+				"ext.cx.sitemapper"
+			],
 			"messages": [
 				"cx-magnus-tool-link-text"
 			]

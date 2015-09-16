@@ -30,8 +30,8 @@
 			contentLanguage;
 
 		uri.extend( {
-			lang1: sourceLanguage,
-			lang2: targetLanguage,
+			lang1: mw.cx.siteMapper.getWikiDomainCode( sourceLanguage ),
+			lang2: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
 			proj1: 'wiki',
 			proj2: 'wiki',
 			targets: 'source'
