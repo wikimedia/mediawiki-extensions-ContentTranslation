@@ -39,9 +39,19 @@
 	}
 
 	DictionaryCard.prototype.getCard = function () {
-		var $titleRow, $title, $languageSelector,
+		var sourceLangProps, targetLangProps,
+			$title, $languageSelector, $titleRow,
 			$headword, $expand,
 			targetAutonym = $.uls.data.getAutonym( mw.cx.targetLanguage );
+
+		sourceLangProps = {
+			lang: mw.cx.sourceLanguage,
+			dir: $.uls.data.getDir( mw.cx.sourceLanguage )
+		};
+		targetLangProps = {
+			lang: mw.cx.targetLanguage,
+			dir: $.uls.data.getDir( mw.cx.targetLanguage )
+		};
 
 		this.$card = $( '<div>' )
 			.addClass( 'card dictionary' );
@@ -52,6 +62,7 @@
 
 		$languageSelector = $( '<div>' )
 			.addClass( 'card__title-language-selector' )
+			.prop( targetLangProps )
 			.text( targetAutonym );
 
 		$titleRow = $( '<div>' )
@@ -59,12 +70,15 @@
 			.append( $title, $languageSelector );
 
 		$headword = $( '<div>' )
+			.prop( sourceLangProps )
 			.addClass( 'card__headword' );
 
 		this.$definition = $( '<div>' )
+			.prop( sourceLangProps )
 			.addClass( 'card__definition' ); // TODO
 
 		this.$translationsBlock = $( '<div>' )
+			.prop( targetLangProps )
 			.addClass( 'card__translations' );
 
 		$expand = $( '<div>' )
