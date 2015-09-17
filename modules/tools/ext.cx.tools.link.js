@@ -212,11 +212,17 @@
 	 * @param {Object} [options] Optional options object
 	 */
 	function CXLink( link, options ) {
+		options = $.extend( true, {}, CXLink.defaults, options );
+
 		this.$link = $( link );
-		this.options = $.extend( true, {}, CXLink.defaults, options );
-		this.siteMapper = this.options.siteMapper;
+		this.siteMapper = options.siteMapper;
+		// The link text and title attribute (they are the same)
 		this.title = null;
+		// Details about the actual target page.
+		// page.title is title of the actual page.
 		this.page = null;
+		// Unique id which connects source and target titles together.
+		// There might be multiple target links corresponding to the same source link.
 		this.id = null;
 	}
 
@@ -290,6 +296,7 @@
 		// Restore the selection
 		mw.cx.selection.restore( 'translation' );
 		selection = mw.cx.selection.get();
+
 		$link = $( '<a>' )
 			.addClass( 'cx-target-link' )
 			.text( selection.toString() || this.getTargetTitle() )
@@ -570,6 +577,13 @@
 			// User clicked red link in source text. We do not have enough info to
 			// create any link in the target language.
 			if ( self.isRedLink() ) {
+				return false;
+			}
+
+			// User click a blue link in source, which has no equivalent in target
+			// language. Prevent creation of a such link.
+			if ( !self.getTargetLink().page ) {
+				mw.log( '[CX] link does not exist in target' );
 				return false;
 			}
 
