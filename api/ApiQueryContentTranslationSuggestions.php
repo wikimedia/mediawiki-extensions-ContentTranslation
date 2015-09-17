@@ -97,6 +97,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
 		$ongoingTranslationTitles = array();
+		$titles = array();
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
