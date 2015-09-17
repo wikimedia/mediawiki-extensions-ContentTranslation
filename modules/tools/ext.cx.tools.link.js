@@ -241,7 +241,7 @@
 			selection = mw.cx.selection.get();
 			// Is this selection valid and editable?
 			if ( isValidSelection( selection ) ) {
-				this.$link = this.createLink();
+				this.$link = this.createLinkFromLink();
 			} else {
 				return;
 			}
@@ -284,7 +284,7 @@
 	/**
 	 * Convert a current selection if present, if editable to a link
 	 */
-	CXLink.prototype.createLink = function () {
+	CXLink.prototype.createLinkFromLink = function () {
 		var $link, selection;
 
 		// Restore the selection
@@ -576,7 +576,7 @@
 			selection = mw.cx.selection.get();
 			// Is this selection valid and editable?
 			if ( isValidSelection( selection ) ) {
-				self.createLink();
+				self.createLinkFromLink();
 			}
 
 			// Avoid bubbling. This can bubble to a translation section focus and
@@ -649,7 +649,7 @@
 				.addClass( 'card__add-link' )
 				.text( mw.msg( 'cx-tools-link-add' ) )
 				.on( 'click', function () {
-					self.createLink();
+					self.createLinkFromLink();
 					// Avoid bubbling
 					return false;
 				} );
@@ -969,7 +969,7 @@
 			api: mw.cx.siteMapper.getApi( mw.cx.targetLanguage ),
 			showMissingPage: true,
 			onSelect: function ( selectedPage ) {
-				self.createLink( selectedPage, 'internal' );
+				self.createLinkWithTool( selectedPage, 'internal' );
 			}
 		} );
 
@@ -981,7 +981,7 @@
 	 * @param  {String} target Target title
 	 * @param  {type} type  Link type: 'external' or 'internal'
 	 */
-	LinkerTool.prototype.createLink = function ( target, type ) {
+	LinkerTool.prototype.createLinkWithTool = function ( target, type ) {
 		var $link;
 
 		if ( type === 'internal' ) {
@@ -1073,7 +1073,7 @@
 		} ).on( 'keypress', function ( e ) {
 			if ( e.which === 13 ) {
 				if ( linkType === 'external' ) {
-					self.createLink( self.$externalLinkInput.val(), linkType );
+					self.createLinkWithTool( self.$externalLinkInput.val(), linkType );
 				}
 				// TODO: Add internal link also on enter keypress.
 			}
@@ -1096,9 +1096,9 @@
 
 		this.$pageSelectorButton.on( 'click', function () {
 			if ( linkType === 'internal' ) {
-				self.createLink( self.$targetPageSelector.getSelectedPage(), linkType );
+				self.createLinkWithTool( self.$targetPageSelector.getSelectedPage(), linkType );
 			} else {
-				self.createLink( self.$externalLinkInput.val(), linkType );
+				self.createLinkWithTool( self.$externalLinkInput.val(), linkType );
 			}
 		} );
 
