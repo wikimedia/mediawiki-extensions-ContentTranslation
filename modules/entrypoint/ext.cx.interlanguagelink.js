@@ -1,5 +1,7 @@
 /**
- * Adds an interlanguage links to suggestion translation.
+ * ContentTranslation Tools
+ * A tool that allows editors to translate pages from one language
+ * to another with the help of machine translation and other translation tools
  *
  * @file
  * @ingroup Extensions
@@ -17,9 +19,11 @@
 	 * - Accept-Language.
 	 * - Browser interface language.
 	 * This will probably include more languages in the future.
+	 * @param {String[]} availableTargetLanguages A list of target languages
+	 *     that are supported by this instance.
 	 * @return {string[]} target languages
 	 */
-	function getSuggestedTargetLanguages() {
+	function getSuggestedTargetLanguages( availableTargetLanguages ) {
 		var specialCode, specialCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
 			possibleTargetLanguages = [],
@@ -49,8 +53,42 @@
 		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
 
 		return $.grep( uniquePossibleTargetLanguages, function ( language ) {
-			return language !== pageLanguage;
+			return (
+				$.inArray( language, availableTargetLanguages ) > -1 &&
+				language !== pageLanguage
+			);
 		} );
+	}
+
+	/**
+	 * Get the list of target languages that this instance of CX supports.
+	 * @return {jQuery.Promise}
+	 */
+	function getAvailableTargetLanguages() {
+		var languagePairsAPIUrl, deferred;
+
+		// Optimization: creating the cxserver URL without sitemapper
+		// to avoid loading the sitemapper module just for this.
+		languagePairsAPIUrl =
+			mw.config.get( 'wgContentTranslationSiteTemplates' ).cx + '/languagepairs';
+
+		deferred = $.Deferred();
+
+		$.get( languagePairsAPIUrl )
+			.done( function ( response ) {
+				deferred.resolve( response.target || [] );
+			} )
+			.fail( function ( response ) {
+				mw.log(
+					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
+					response.statusText + ' (' + response.status + '). ' +
+					response.responseText
+				);
+
+				deferred.reject();
+			} );
+
+		return deferred.promise();
 	}
 
 	/**
@@ -104,10 +142,10 @@
 		return $item;
 	}
 
-	function prepareCXInterLanguageLinks() {
+	function prepareCXInterLanguageLinks( availableTargetLanguages ) {
 		var $newItem, $pLangList, dependencies, suggestedTargetLanguages;
 
-		suggestedTargetLanguages = getSuggestedTargetLanguages();
+		suggestedTargetLanguages = getSuggestedTargetLanguages( availableTargetLanguages );
 
 		if ( !suggestedTargetLanguages.length ) {
 			return;
@@ -115,7 +153,6 @@
 
 		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
 
-		// TODO: load only after a click
 		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];
 
 		mw.loader.using( dependencies, function () {
@@ -144,6 +181,8 @@
 	}
 
 	$( function () {
-		prepareCXInterLanguageLinks();
+		getAvailableTargetLanguages().then( function ( availableTargetLanguages ) {
+			prepareCXInterLanguageLinks( availableTargetLanguages );
+		} );
 	} );
 }( jQuery, mediaWiki ) );
