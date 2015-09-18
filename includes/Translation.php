@@ -89,8 +89,11 @@ class Translation {
 	 * @return Translation|Translation[]|null Translation
 	 */
 	public static function find( $sourceLanguage, $targetLanguage, $titles ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		if ( $titles === null || empty( $titles ) ) {
+			return null;
+		}
 
+		$dbr = Database::getConnection( DB_SLAVE );
 		$values = array(
 			'translation_source_language' => $sourceLanguage,
 			'translation_target_language' => $targetLanguage,
