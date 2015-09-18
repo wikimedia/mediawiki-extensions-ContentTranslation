@@ -35,6 +35,7 @@
 	"apihelp-cxconfiguration-example-1": "{{doc-apihelp-example|cxconfiguration}}",
 	"apihelp-query+contenttranslationsuggestions-param-from": "{{doc-apihelp-example|query+contenttranslationsuggestions|from}}",
 	"apihelp-query+contenttranslationsuggestions-param-to": "{{doc-apihelp-example|query+contenttranslationsuggestions|to}}",
+	"apihelp-query+contenttranslationsuggestions-param-limit": "{{doc-apihelp-example|query+contenttranslationsuggestions|limit}}",
 	"apihelp-query+contenttranslationsuggestions-example-1": "{{doc-apihelp-example|query+contenttranslationsuggestions}}",
 	"apihelp-query+cxpublishedtranslations-description": "{{doc-apihelp-description|query+cxpublishedtranslations}}",
 	"apihelp-query+cxpublishedtranslations-param-from": "{{doc-apihelp-param|query+cxpublishedtranslations|from}}",

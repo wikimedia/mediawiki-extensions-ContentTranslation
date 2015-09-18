@@ -40,6 +40,7 @@
 	"apihelp-cxconfiguration-example-1": "Fetch the Content Translation configuration json for Spanish-Catalan language pair",
 	"apihelp-query+contenttranslationsuggestions-param-from": "The source language code.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "The target language code.",
+	"apihelp-query+contenttranslationsuggestions-param-limit": "The maximum number of translation suggestions to fetch.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Fetch pages suggested for translation from English (en) to Spanish (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Fetch all published translations information",
 	"apihelp-query+cxpublishedtranslations-param-from": "The source language code.",
