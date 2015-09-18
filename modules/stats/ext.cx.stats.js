@@ -119,7 +119,8 @@
 			fmt = mw.language.convertNumber; // Shortcut
 
 		getTrend = function ( data ) {
-			var total, trend, thisWeek;
+			var thisWeek, total, trend,
+				oneWeekAgoDelta, twoWeeksAgoDelta;
 
 			if ( data.length < 3 ) {
 				return;
@@ -128,15 +129,21 @@
 			thisWeek = data.length - 1;
 
 			total = data[ thisWeek ].count;
-			trend =
-			( data[ thisWeek - 1 ].delta - data[ thisWeek - 2 ].delta ) /
-			data[ thisWeek - 2 ].delta * 100;
-			trend = parseInt( trend );
+
+			oneWeekAgoDelta = data[ thisWeek - 1 ].delta;
+			twoWeeksAgoDelta = data[ thisWeek - 2 ].delta;
+
+			if ( twoWeeksAgoDelta ) {
+				trend = ( oneWeekAgoDelta - twoWeeksAgoDelta ) / twoWeeksAgoDelta * 100;
+				trend = parseInt( trend, 10 );
+			} else {
+				trend = oneWeekAgoDelta ? 100 : 0;
+			}
 
 			return {
 				total: total,
 				trend: trend,
-				lastWeek: data[ thisWeek - 1 ].delta
+				lastWeek: oneWeekAgoDelta
 			};
 		};
 
