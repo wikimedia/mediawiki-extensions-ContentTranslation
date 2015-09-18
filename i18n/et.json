@@ -160,6 +160,8 @@
 	"cx-stats-local-published-number": "$1 antud keeles ($2)",
 	"cx-stats-local-published": "$1 ($3) antud keeles ($2)",
 	"cx-stats-grouping-title": "$1 {{PLURAL:$1|tõlge|tõlget}}",
+	"cx-trend-published-translations-title": "Tõlgete ajaline jaotus",
+	"cx-trend-translations-to-title": "Tõlgete ajaline jaotus ($1)",
 	"cx-tools-missing-link-text": "{{GENDER:|Märgi}} lehekülg puuduvaks, et innustada selle loomist.",
 	"cx-tools-missing-link-tooltip": "Tõlgi (uues aknas)",
 	"cx-tools-missing-link-title": "Puuduv link",
