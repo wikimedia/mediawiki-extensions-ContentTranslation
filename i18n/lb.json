@@ -153,6 +153,8 @@
 	"cx-stats-local-published-number": "$1 op $2",
 	"cx-stats-local-published": "$1 ($3) op $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Eng Iwwersetzung|$1 Iwwersetzungen}}",
+	"cx-trend-published-translations-title": "Iwwersetzungstrend",
+	"cx-trend-translations-to-title": "Iwwersetzungstrend fir $1",
 	"cx-tools-missing-link-tooltip": "Iwwersetzen (an enger neier Fënster)",
 	"cx-tools-missing-link-title": "Link feelt",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Markéiere}} wéi wann et feelt",

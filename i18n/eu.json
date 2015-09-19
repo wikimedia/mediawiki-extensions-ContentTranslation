@@ -16,6 +16,7 @@
 	"cx-publish-button": "Itzulpena argitaratu",
 	"cx-publish-button-publishing": "Argitaratzen...",
 	"cx-publish-gt-move-page-title": "Orrialde hau mugitu",
+	"cx-publish-gt-published-title": "Zorionak, orria publikatua izan da",
 	"cx-translation-add-translation": "+ Gehitu itzulpena",
 	"cx-source-loading": "$1 kargatzen",
 	"cx-entrypoint-dialog-button-translate-from": "$1(e)tik itzuli",
@@ -67,7 +68,7 @@
 	"cx-discard-translation": "Baztertu itzulpena",
 	"cx-translation-status-published": "Argitaratua",
 	"cx-translation-status-deleted": "Ezabatua",
-	"cx-magnus-tool-link-text": "Bilatu zure hizkuntzan falta diren artikuluak",
+	"cx-magnus-tool-link-text": "Bilatu zure hizkuntzan falta diren orria",
 	"cx-stats-published-translations-title": "Argitaratutako itzulpenak",
 	"cx-stats-draft-translations-title": "Itzulpenak egin bidean",
 	"cx-stats-published-translators-title": "Itzultzaile kopurua",
@@ -83,8 +84,11 @@
 	"cx-stats-monthly-published": "Azken hilabetea",
 	"cx-stats-weekly-published": "Azken astea",
 	"cx-stats-grouping-title": "{{PLURAL:$1|Itzulpen $1|$1 itzulpen}}",
+	"cx-tools-missing-link-text": "{{GENDER:|Markatu}} orria faltan bezala haren sorkuntza sustatzeko.",
 	"cx-tools-missing-link-tooltip": "Itzuli (leiho berrian)",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Markatu}} faltan bezala",
 	"echo-category-title-cx": "Itzulpenak",
 	"cx-translationlist-empty-title": "Itzultzeko ezer ez?",
+	"cx-tools-link-to-another-page": "Beste orri bati lotu",
 	"cx-tools-link-apply": "Egina"
 }

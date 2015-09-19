@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Koroğlu"
+			"Koroğlu",
+			"Alp Er Tunqa"
 		]
 	},
 	"cx-dashboard-header": "چئویرمه‌لر",
+	"cx-contributions-upload": "یۆکله‌مه‌لر",
+	"cx-campaign-contributionsmenu-mycontributions": "چالیشمالار",
 	"cx-campaign-contributionsmenu-mytranslations": "چئویرمه‌لر",
+	"cx-campaign-contributionsmenu-myuploads": "یۆکله‌مه‌لر",
 	"echo-category-title-cx": "چئویرمه‌لر"
 }
