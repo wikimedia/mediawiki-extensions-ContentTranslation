@@ -6,7 +6,8 @@
 			"Imperadeiro90",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Macofe"
+			"Macofe",
+			"Jkb8"
 		]
 	},
 	"apihelp-cxpublish-description": "Gravar uma página criada usando a extensão de tradução de conteúdo.",
@@ -25,6 +26,7 @@
 	"apihelp-query+contenttranslation-param-from": "O código do idioma de origem.",
 	"apihelp-query+contenttranslation-param-to": "O código do idioma de destino.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "O título da página de origem.",
+	"apihelp-query+contenttranslation-param-limit": "O número máximo de traduções para buscar.",
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo utilizador atual.",
 	"apihelp-query+contenttranslation-example-2": "Obtém rascunhos por ID.",
 	"apihelp-query+contenttranslation-example-3": "Encontrar qualquer tradução para o título especificado entre o par de idiomas especificado",
@@ -35,6 +37,7 @@
 	"apihelp-cxconfiguration-example-1": "Obter a configuração json do Tradutor de Conteúdo para o par Espanhol-Catalão",
 	"apihelp-query+contenttranslationsuggestions-param-from": "O código do idioma de origem.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "O código do idioma de destino.",
+	"apihelp-query+contenttranslationsuggestions-param-limit": "O número máximo de sugestões de traduções para buscar.",
 	"apihelp-query+cxpublishedtranslations-description": "Obter toda a informação sobre traduções publicadas",
 	"apihelp-query+cxpublishedtranslations-param-from": "O código do idioma de origem.",
 	"apihelp-query+cxpublishedtranslations-param-to": "O código do idioma de destino.",

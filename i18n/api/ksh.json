@@ -17,6 +17,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "De Antwood obb et <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span>, wam_mer beim Affschpeijschere met ene Antwood obb e <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span> es.",
 	"apihelp-query+contenttranslation-description": "Befrohch de Dahtebank vun de Övversäzonge met däm Wärkzüsch zom Enhalltssigge Övversäze noh Övversäzonge.",
 	"apihelp-query+contenttranslation-param-translationid": "De Kännong vu dä Övversäzong.",
+	"apihelp-query+contenttranslation-param-limit": "Nit mih, wi esu vill Övversäzonge ußjävve.",
 	"apihelp-query+contenttranslation-example-1": "Holl de Övversäzonge, di vum aktoälle Metmaacher bejunne wohde sin.",
 	"apihelp-query+contenttranslation-example-2": "Holl de vörjschlahre Övversäzong övver de Kännong.",
 	"apihelp-query+contenttranslation-example-3": "Fengk de Övversäzonge för en aanjejovve Övverschrevv un e aanjejovve Paa vun Schprohche.",

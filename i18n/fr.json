@@ -25,7 +25,8 @@
 			"ProfGra",
 			"Amire80",
 			"Yodaspirine",
-			"Wladek92"
+			"Wladek92",
+			"Orlodrim"
 		]
 	},
 	"cx": "Traduire la page",
@@ -120,6 +121,7 @@
 	"cx-translation-filter-published-translations": "Publiées",
 	"cx-translation-filter-draft-translations": "En cours",
 	"cx-translation-filter-suggested-translations": "Suggestions",
+	"cx-suggestionlist-empty-title": "Désolé, aucune page à suggérer",
 	"cx-suggestionlist-featured": "En vedette",
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
