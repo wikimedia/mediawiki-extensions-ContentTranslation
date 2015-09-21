@@ -852,10 +852,13 @@
 				"jquery.uls.data"
 			],
 			"messages": [
+				"cx-stats-all-translations-title",
+				"cx-stats-published-translations-label",
 				"cx-stats-published-translations-title",
 				"cx-stats-draft-translations-title",
+				"cx-stats-draft-translations-label",
+				"cx-stats-new-draft-translations-label",
 				"cx-stats-published-translators-title",
-				"cx-trend-all-translations",
 				"cx-trend-deletions",
 				"cx-trend-translations-to",
 				"cx-stats-try-contenttranslation",

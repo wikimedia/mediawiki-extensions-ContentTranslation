@@ -32,7 +32,7 @@
 				$( '<div>' ).addClass( 'bounce3' )
 			);
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
-		this.$cumlativeGraph = $( '<canvas>' ).attr( {
+		this.$cumulativeGraph = $( '<canvas>' ).attr( {
 			id: 'cxcumulative',
 			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
 			height: 400
@@ -59,10 +59,10 @@
 		this.$container.append(
 			$spinner,
 			this.$highlights,
-			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
+			$( '<h2>' ).text( mw.msg( 'cx-stats-all-translations-title' ) ),
 			$( '<div>' )
 				.addClass( 'cx-stats-graph cx-stats-cumulative-total' )
-				.append( this.$cumlativeGraph ),
+				.append( this.$cumulativeGraph ),
 			$( '<h2>' ).text( mw.message(
 				'cx-trend-translations-to',
 				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
@@ -244,7 +244,7 @@
 					content: this.drawTranslationsChart( 'from', 'published', 'count' )
 				}
 			] ),
-			$( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-title' ) ),
+			$( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-label' ) ),
 			createTabs( 'cx-stats-draft', [
 				{
 					title: mw.msg( 'cx-stats-draft-target-source' ),
@@ -482,7 +482,7 @@
 	CXStats.prototype.drawCumulativeGraph = function ( type ) {
 		var data, cxCumulativeGraph, ctx;
 
-		ctx = this.$cumlativeGraph[ 0 ].getContext( '2d' );
+		ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
 		data = {
 			labels: $.map( this.totalTranslationTrend, function ( data ) {
@@ -490,7 +490,7 @@
 			} ),
 			datasets: [
 				{
-					label: mw.msg( 'cx-trend-all-translations' ),
+					label: mw.msg( 'cx-stats-published-translations-label' ),
 					strokeColor: '#347BFF',
 					pointColor: '#347BFF',
 					pointStrokeColor: '#fff',
@@ -501,7 +501,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					label:  mw.msg( 'cx-stats-draft-translations-label' ),
 					strokeColor: '#777',
 					pointColor: '#777',
 					pointStrokeColor: '#fff',
@@ -535,7 +535,18 @@
 			} ),
 			datasets: [
 				{
-					label: mw.msg( 'cx-stats-draft-translations-title' ),
+					label: mw.msg( 'cx-stats-published-translations-label' ),
+					strokeColor: '#347BFF',
+					pointColor: '#347BFF',
+					pointStrokeColor: '#fff',
+					pointHighlightFill: '#fff',
+					pointHighlightStroke: '#347BFF',
+					data: $.map( this.languageTranslationTrend, function ( data ) {
+						return data[ type ];
+					} )
+				},
+				{
+					label: mw.msg( 'cx-stats-draft-translations-label' ),
 					strokeColor: '#777',
 					pointColor: '#777',
 					pointStrokeColor: '#fff',
@@ -553,20 +564,6 @@
 					pointHighlightFill: '#fff',
 					pointHighlightStroke: '#FF0000',
 					data: $.map( this.languageDeletionTrend, function ( data ) {
-						return data[ type ];
-					} )
-				},
-				{
-					label: mw.message(
-						'cx-trend-translations-to',
-						$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-					).escaped(),
-					strokeColor: '#347BFF',
-					pointColor: '#347BFF',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#347BFF',
-					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
 				}
@@ -593,7 +590,7 @@
 			} ),
 			datasets: [
 				{
-					label: mw.msg( 'cx-trend-all-translations' ),
+					label: mw.msg( 'cx-stats-published-translations-label' ),
 					strokeColor: '#347BFF',
 					fillColor: '#347BFF',
 					pointColor: '#347BFF',
@@ -605,7 +602,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					label:  mw.msg( 'cx-stats-new-draft-translations-label' ),
 					strokeColor: '#777',
 					fillColor: '#777',
 					pointColor: '#777',
@@ -640,10 +637,7 @@
 			} ),
 			datasets: [
 				{
-					label: mw.message(
-						'cx-trend-translations-to',
-						$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-					).escaped(),
+					label: mw.msg( 'cx-stats-published-translations-label' ),
 					strokeColor: '#347BFF',
 					fillColor: '#347BFF',
 					pointColor: '#347BFF',
@@ -655,7 +649,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-stats-draft-translations-title' ),
+					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					strokeColor: '#777',
 					fillColor: '#777',
 					pointColor: '#777',
@@ -667,7 +661,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-trend-deletions' ),
+					label: mw.msg( 'cx-trend-deletions' ),
 					strokeColor: '#FF0000',
 					fillColor: '#FF0000',
 					pointColor: '#FF0000',
@@ -729,6 +723,7 @@
 					} );
 				}
 			}
+
 			tempModel = this.targetSourceModel[ status ];
 			this.targetSourceModel[ status ] = [];
 			for ( language in tempModel ) {
