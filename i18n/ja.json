@@ -153,7 +153,6 @@
 	"cx-campaign-contributionsmenu-translate-instead": "一から書く代わりに翻訳する",
 	"cx-campaign-contributionsmenu-might-be-available": "$1は既に他の言語に存在するかもしれません",
 	"cx-campaign-contributionsmenu-myuploads": "アップロードされたメディア",
-	"cx-trend-all-translations": "全翻訳",
 	"cx-trend-deletions": "削除された翻訳",
 	"cx-trend-translations-to": "$1版への翻訳",
 	"cx-stats-try-contenttranslation": "コンテンツ翻訳ツールは、他の言語から翻訳することによって新しいページを作成することのできるツールです。[$1 コンテンツ翻訳を試す]",
