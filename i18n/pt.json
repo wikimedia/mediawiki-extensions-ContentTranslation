@@ -10,7 +10,8 @@
 			"Fabulous",
 			"Waldir",
 			"Macofe",
-			"Amire80"
+			"Amire80",
+			"Jkb8"
 		]
 	},
 	"cx": "Traduzir página",
@@ -160,8 +161,8 @@
 	"cx-stats-local-published-number": "$1 em $2",
 	"cx-stats-local-published": "$1 ($3) em $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradução|$1 traduções}}",
-	"cx-trend-published-translations-title": "Tendência de tradução",
-	"cx-trend-translations-to-title": "Tendência de tradução para $1",
+	"cx-trend-published-translations-title": "Traduções todas as semanas",
+	"cx-trend-translations-to-title": "Traduções todas a semanas para $1",
 	"cx-tools-missing-link-text": "{{GENDER:|Marcar}} página como em falta para encorajar a sua criação.",
 	"cx-tools-missing-link-tooltip": "Traduzir (numa nova janela)",
 	"cx-tools-missing-link-title": "Ligação em falta",

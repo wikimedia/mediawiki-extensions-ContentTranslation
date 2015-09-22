@@ -6,7 +6,8 @@
 			"Gomoko",
 			"Momo50WM",
 			"Weft",
-			"Wladek92"
+			"Wladek92",
+			"Orlodrim"
 		]
 	},
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
@@ -26,10 +27,12 @@
 	"apihelp-query+contenttranslation-param-from": "Le code de la langue source.",
 	"apihelp-query+contenttranslation-param-to": "Le code langue cible.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Le titre de la page source.",
-	"apihelp-query+contenttranslation-param-limit": "Le nombre maximum de traductions à atteindre. La valeur par défaut est 100 .",
+	"apihelp-query+contenttranslation-param-limit": "Le nombre maximum de traductions à renvoyer.",
+	"apihelp-query+contenttranslation-param-offset": "Position à partir de laquelle renvoyer les résultats (facultatif).",
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par id.",
 	"apihelp-query+contenttranslation-example-3": "Trouver une traduction pour le titre fourni entre la paire de langues donnée",
+	"apihelp-query+contenttranslationstats-description": "Obtenir des statistiques sur la traduction de contenu.",
 	"apihelp-query+contenttranslationstats-example-1": "Obtenir des statistiques de traduction du contenu pour toutes les langues.",
 	"apihelp-cxconfiguration-description": "Récupérer le JSON de configuration de la Traduction de contenu pour la paire de langues donnée",
 	"apihelp-cxconfiguration-param-from": "Le code langue source.",
@@ -37,6 +40,7 @@
 	"apihelp-cxconfiguration-example-1": "Récupérer le json de configuration de la Traduction de contenu pour la paire de langues Espagnol-Catalan",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Le code langue source.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Le code langue cible.",
+	"apihelp-query+contenttranslationsuggestions-param-limit": "Le nombre maximal de suggestions de traduction à renvoyer.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Obtenir les pages suggérées pour la traduction de l'anglais (en) à l'espagnol (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Récupérer les informations sur les traductions publiées",
 	"apihelp-query+cxpublishedtranslations-param-from": "Le code langue source.",

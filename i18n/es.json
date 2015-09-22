@@ -176,7 +176,7 @@
 	"cx-stats-local-published-number": "$1 en $2",
 	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducción|$1 traducciones}}",
-	"cx-trend-published-translations-title": "Tendencia de traducción",
+	"cx-trend-published-translations-title": "Traducciones de cada semana",
 	"cx-trend-translations-to-title": "Traducciones de cada semana al $1",
 	"cx-tools-missing-link-text": "{{GENDER:|Marca}} la página como faltante para fomentar su creación.",
 	"cx-tools-missing-link-tooltip": "Traducir (en una ventana nueva)",
