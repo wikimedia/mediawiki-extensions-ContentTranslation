@@ -29,7 +29,10 @@ class SpecialContentTranslation extends SpecialPage {
 		$user = $this->getUser();
 		$out = $this->getOutput();
 		$user->setOption( 'cx', '1' );
-		$user->saveSettings();
+		// Promise to persist the setting post-send
+		DeferredUpdates::addCallableUpdate( function() use ( $user ) {
+			$user->saveSettings();
+		} );
 		$out->addModules( 'ext.cx.beta.notification' );
 	}
 
