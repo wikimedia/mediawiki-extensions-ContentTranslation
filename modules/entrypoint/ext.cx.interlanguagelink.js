@@ -19,11 +19,9 @@
 	 * - Accept-Language.
 	 * - Browser interface language.
 	 * This will probably include more languages in the future.
-	 * @param {String[]} availableTargetLanguages A list of target languages
-	 *     that are supported by this instance.
 	 * @return {string[]} target languages
 	 */
-	function getSuggestedTargetLanguages( availableTargetLanguages ) {
+	function getSuggestedTargetLanguages() {
 		var specialCode, specialCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
 			possibleTargetLanguages = [],
@@ -53,42 +51,10 @@
 		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
 
 		return $.grep( uniquePossibleTargetLanguages, function ( language ) {
-			return (
-				$.inArray( language, availableTargetLanguages ) > -1 &&
-				language !== pageLanguage
-			);
+			return language !== pageLanguage &&
+				// Known language for ULS
+				language !== $.uls.data.getAutonym( language );
 		} );
-	}
-
-	/**
-	 * Get the list of target languages that this instance of CX supports.
-	 * @return {jQuery.Promise}
-	 */
-	function getAvailableTargetLanguages() {
-		var languagePairsAPIUrl, deferred;
-
-		// Optimization: creating the cxserver URL without sitemapper
-		// to avoid loading the sitemapper module just for this.
-		languagePairsAPIUrl =
-			mw.config.get( 'wgContentTranslationSiteTemplates' ).cx + '/languagepairs';
-
-		deferred = $.Deferred();
-
-		$.get( languagePairsAPIUrl )
-			.done( function ( response ) {
-				deferred.resolve( response.target || [] );
-			} )
-			.fail( function ( response ) {
-				mw.log(
-					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
-					response.statusText + ' (' + response.status + '). ' +
-					response.responseText
-				);
-
-				deferred.reject();
-			} );
-
-		return deferred.promise();
 	}
 
 	/**
@@ -181,8 +147,6 @@
 	}
 
 	$( function () {
-		getAvailableTargetLanguages().then( function ( availableTargetLanguages ) {
-			prepareCXInterLanguageLinks( availableTargetLanguages );
-		} );
+		prepareCXInterLanguageLinks();
 	} );
 }( jQuery, mediaWiki ) );
