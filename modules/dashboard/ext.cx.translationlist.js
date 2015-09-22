@@ -14,11 +14,12 @@
 	 *
 	 * @class
 	 */
-	function CXTranslationList( $container, siteMapper ) {
+	function CXTranslationList( $container, type, siteMapper ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
-		this.translations = null;
-		this.$translationsList = $( [] );
+		this.translations = [];
+		this.type = type;
+		this.$translationsList = null;
 		this.filters = {
 			status: null,
 			sourceLanguage: null,
@@ -30,8 +31,12 @@
 		this.$header = null;
 		this.$confirmationDialog = null;
 		this.$overlay = null;
-
+		this.active = false;
+		this.promise = null;
+		this.queryContinue = null;
+		this.hasMore = true;
 		this.listen();
+		this.init();
 	}
 
 	/**
@@ -40,35 +45,79 @@
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.getTranslations = function () {
-		var api = new mw.Api(),
-			deferred = $.Deferred();
+		var self = this,
+			params,
+			api = new mw.Api();
 
-		api.get( {
-			list: 'contenttranslation'
-		} ).done( function ( response ) {
-			var translations = response.query.contenttranslation.translations;
+		if ( this.promise ) {
+			// Avoid duplicate API requests.
+			return this.promise;
+		}
+
+		if ( this.hasMore === false ) {
+			return $.Deferred().resolve( [] );
+		}
+
+		params = $.extend( {
+			list: 'contenttranslation',
+			type: this.type,
+			limit: 15
+		}, this.queryContinue );
+
+		this.promise = api.get( params ).then( function ( response ) {
+			self.promise = null;
+			self.queryContinue = response.continue;
+			self.hasMore = !!response.continue;
+			if ( response.query.contenttranslation.languages ) {
+				self.languages = response.query.contenttranslation.languages;
+			}
+
 			// Remove unnecessary object wrapping to get plain list of objects
-			translations = $.map( translations, function ( e ) {
+			return $.map( response.query.contenttranslation.translations, function ( e ) {
 				return e.translation;
 			} );
-			deferred.resolve( translations );
 		} );
 
-		return deferred.promise();
+		return this.promise;
 	};
 
 	CXTranslationList.prototype.init = function () {
-		this.listTranslations();
-		this.sourceLanguages = $.map( this.translations, function ( e ) {
-			return e.sourceLanguage;
+		this.$translationsList = $( '<div>' )
+			.addClass( 'cx-translationlist' );
+		this.$container.append( this.$translationsList );
+	};
+
+	CXTranslationList.prototype.getLanguages = function () {
+		var self = this;
+
+		if ( this.languages ) {
+			return $.Deferred().resolve( this.languages );
+		}
+
+		return this.loadItems().then( function () {
+			return self.languages;
 		} );
-		this.sourceLanguages = mw.cx.unique( this.sourceLanguages );
-		this.targetLanguages = $.map( this.translations, function ( e ) {
-			return e.targetLanguage;
+	};
+
+	CXTranslationList.prototype.loadItems = function () {
+		var promise, self = this;
+
+		if ( this.promise ) {
+			return this.promise;
+		}
+		promise = this.getTranslations();
+		promise.done( function ( translations ) {
+			if ( !translations.length ) {
+				return;
+			}
+
+			self.translations = self.translations.concat( translations );
+			self.renderTranslations( translations );
+		} ).fail( function () {
+			this.promise = null;
 		} );
-		this.targetLanguages = mw.cx.unique( this.targetLanguages );
-		this.filters.status = 'draft';
-		this.applyFilters( this.filters );
+
+		return promise;
 	};
 
 	/**
@@ -123,7 +172,11 @@
 		apply = function ( page ) {
 			if ( page.thumbnail ) {
 				$.each( map[ page.title ], function ( i, item ) {
-					item.attr( 'src', page.thumbnail.source );
+
+					item.css( {
+						'background-image': 'url(' + page.thumbnail.source + ')'
+					} );
+
 				} );
 			}
 		};
@@ -135,12 +188,26 @@
 		} );
 	};
 
+	CXTranslationList.prototype.show = function () {
+		this.active = true;
+		this.$translationsList.show();
+
+		if ( !this.translations.length ) {
+			this.loadItems();
+		}
+	};
+
+	CXTranslationList.prototype.hide = function () {
+		this.active = false;
+		this.$translationsList.hide();
+	};
+
 	/**
 	 * List all translations.
 	 */
-	CXTranslationList.prototype.listTranslations = function () {
+	CXTranslationList.prototype.renderTranslations = function ( translations ) {
 		var i, translation, progress, $translation,
-			$lastUpdated, $imageBlock, $image, $progressbar,
+			$lastUpdated, $image, $progressbar,
 			sourceDir, targetDir, $targetTitle,
 			translationLinkUrl, $translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer, $status,
@@ -148,8 +215,8 @@
 			$titleLanguageBlock,
 			$translations = [];
 
-		for ( i = 0; i < this.translations.length; i++ ) {
-			translation = this.translations[ i ];
+		for ( i = 0; i < translations.length; i++ ) {
+			translation = translations[ i ];
 
 			try {
 				progress = JSON.parse( translation.progress );
@@ -162,16 +229,13 @@
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
 				.text( moment( translation.lastUpdateTimeStamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
-			$imageBlock = $( '<div>' )
+			$image = $( '<div>' )
 				.addClass( 'cx-tlitem__image' );
-			$image = $( '<img>' )
-				.addClass( 'image' );
 			$progressbar = $( '<div>' )
 				.addClass( 'progressbar' )
 				.cxProgressBar( {
 					weights: progress
 				} );
-			$imageBlock.append( $image );
 
 			sourceDir = $.uls.data.getDir( translation.sourceLanguage );
 			targetDir = $.uls.data.getDir( translation.targetLanguage );
@@ -269,7 +333,7 @@
 
 			$translation.append(
 				$menuContainer,
-				$imageBlock,
+				$image,
 				$titleLanguageBlock
 			);
 
@@ -280,15 +344,8 @@
 			translation.$image = $image;
 		}
 
-		if ( this.translations.length ) {
-			this.$translationsList = $( '<div>' )
-				.addClass( 'cx-translationlist' )
-				.append( $translations );
-			this.showTitleImages( this.translations );
-		} else {
-			this.$translationsList = this.buildEmptyTranslationList();
-		}
-		this.$container.append( this.$translationsList.hide() );
+		this.$translationsList.append( $translations );
+		this.showTitleImages( this.translations );
 	};
 
 	CXTranslationList.prototype.buildEmptyTranslationList = function () {
@@ -310,7 +367,8 @@
 	};
 
 	CXTranslationList.prototype.listen = function () {
-		var translationList = this;
+		var translationList = this,
+			scrollHandler;
 
 		this.$container.on( 'click', '.cx-discard-translation', function ( e ) {
 			var translation;
@@ -344,17 +402,29 @@
 			location.href = $( this ).find( '.translation-link' ).attr( 'href' );
 		} );
 
-		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+		// Attach a scroll handler
+		scrollHandler = $.throttle( 250, $.proxy( this.scroll, this ) );
+		$( window ).scroll( scrollHandler );
 	};
 
 	CXTranslationList.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			offsetTop = this.$container.offset().top;
+		var $window, scrollTop, windowHeight, offsetTop;
+		if ( !this.active ) {
+			return;
+		}
+		$window = $( window );
+		scrollTop = $window.scrollTop();
+		windowHeight = $window.height();
+		offsetTop = this.$container.offset().top;
 
 		if ( scrollTop > offsetTop ) {
 			this.$container.addClass( 'sticky' );
 		} else if ( scrollTop <= offsetTop ) {
 			this.$container.removeClass( 'sticky' );
+		}
+		// Load next batch of items on scroll.
+		if ( scrollTop + windowHeight + 100 > $( document ).height() ) {
+			this.loadItems();
 		}
 	};
 

@@ -20,7 +20,7 @@
 		this.siteMapper = siteMapper;
 		this.$header = null;
 		this.$sidebar = null;
-		this.translationList = null;
+		this.lists = {};
 		this.$translationListContainer = null;
 		this.$newTranslationButton = null;
 		this.$filter = null;
@@ -46,6 +46,7 @@
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			this.renderTranslationSuggestions();
 		}
+		this.setActiveList( 'draft' );
 	};
 
 	/**
@@ -56,7 +57,7 @@
 	 * @param {String} selected Selected language code
 	 */
 	CXDashboard.prototype.populateLanguageFilter = function ( $filter, languages, selected ) {
-		var i, label;
+		var i, label, $options = [];
 
 		$filter.empty();
 
@@ -65,27 +66,27 @@
 		} else {
 			label = mw.msg( 'cx-translation-filter-to-any-language' );
 		}
-		$filter.append( $( '<option>' )
+		$options.push( $( '<option>' )
 			.text( label )
 			.attr( 'value', '' )
 		);
 
 		for ( i = 0; i < languages.length; i++ ) {
-			$filter.append( $( '<option>' )
+			$options.push( $( '<option>' )
 				// Todo: use translated language name
 				.text( $.uls.data.getAutonym( languages[ i ] ) )
 				.prop( 'selected', selected === languages[ i ] )
 				.attr( 'value', languages[ i ] )
 			);
 		}
+		$filter.append( $options ).show();
 	};
 
 	/**
 	 * Populates various UI components with data in the given translation suggestions.
 	 */
 	CXDashboard.prototype.renderTranslationSuggestions = function () {
-		this.suggestionList = new mw.cx.CXSuggestionList( this.$translationListContainer, this.siteMapper );
-		this.suggestionList.init();
+		this.lists.suggestions = new mw.cx.CXSuggestionList( this.$translationListContainer, this.siteMapper );
 	};
 
 	/**
@@ -93,18 +94,16 @@
 	 * TODO: Refactor this to move some logic to translationlist module
 	 */
 	CXDashboard.prototype.renderTranslations = function () {
-		var self = this;
-		this.translationList = new mw.cx.CXTranslationList(
+		this.lists.draft = new mw.cx.CXTranslationList(
 			this.$translationListContainer,
+			'draft',
 			this.siteMapper
 		);
-		this.translationList.getTranslations().done( function ( translations ) {
-			self.translationList.translations = translations;
-			self.translationList.init();
-			if ( translations.length ) {
-				self.setFilter( 'status', 'draft' );
-			}
-		} );
+		this.lists.published = new mw.cx.CXTranslationList(
+			this.$translationListContainer,
+			'published',
+			this.siteMapper
+		);
 	};
 
 	CXDashboard.prototype.getSidebarItems = function () {
@@ -234,6 +233,22 @@
 			.append( this.$listHeader );
 	};
 
+	CXDashboard.prototype.setActiveList = function ( type ) {
+		var self = this;
+		this.activeList = type;
+		$.each( this.lists, function ( name, list ) {
+			if ( name === type ) {
+				list.show();
+				list.getLanguages().done( function ( languages ) {
+					self.populateLanguageFilter( self.$sourceLanguageFilter, languages, list.filters.sourceLanguage );
+					self.populateLanguageFilter( self.$targetLanguageFilter, languages, list.filters.targetLanguage );
+				} );
+			} else {
+				list.hide();
+			}
+		} );
+	};
+
 	CXDashboard.prototype.listen = function () {
 		var setFilter,
 			self = this;
@@ -255,11 +270,11 @@
 			$filter.addClass( 'cx-filter--selected' );
 
 			if ( $filter.is( '.cx-filter--draft' ) ) {
-				setFilter( 'status', 'draft' );
+				self.setActiveList( 'draft' );
 			} else if ( $filter.is( '.cx-filter--published' ) ) {
-				setFilter( 'status', 'published' );
+				self.setActiveList( 'published' );
 			} else if ( $filter.is( '.cx-suggestions' ) ) {
-				setFilter( 'suggestions', 'all' );
+				self.setActiveList( 'suggestions' );
 			}
 		} );
 
@@ -281,49 +296,9 @@
 	};
 
 	CXDashboard.prototype.setFilter = function ( type, value ) {
-		if ( type === 'status' ) {
-			this.translationList.$translationsList.show();
-			if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-				this.suggestionList.hide();
-			}
-			this.populateLanguageFilter(
-				this.$sourceLanguageFilter,
-				this.translationList.sourceLanguages,
-				this.translationList.filters.sourceLanguage
-			);
-			this.populateLanguageFilter(
-				this.$targetLanguageFilter,
-				this.translationList.targetLanguages,
-				this.translationList.filters.targetLanguage
-			);
-			this.translationList.filters[ type ] = value;
-			this.translationList.applyFilters( this.translationList.filters );
-		}
-		if ( type === 'suggestions' ) {
-			this.translationList.$translationsList.hide();
-			this.suggestionList.show();
-			this.populateLanguageFilter(
-				this.$sourceLanguageFilter,
-				this.suggestionList.sourceLanguages,
-				this.suggestionList.suggestionFrom
-			);
-			this.populateLanguageFilter(
-				this.$targetLanguageFilter,
-				this.suggestionList.targetLanguages,
-				this.suggestionList.suggestionTo
-			);
-		}
-		if ( type === 'sourceLanguage' || type === 'targetLanguage' ) {
-			this.translationList.filters[ type ] = value;
-			this.translationList.applyFilters( this.translationList.filters );
-			if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-				if ( type === 'sourceLanguage' ) {
-					this.suggestionList.setSourceLanguage( value );
-				} else {
-					this.suggestionList.setTargetLanguage( value );
-				}
-			}
-		}
+		var list = this.lists[ this.activeList ];
+		list.filters[ type ] = value;
+		list.applyFilters( list.filters );
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {

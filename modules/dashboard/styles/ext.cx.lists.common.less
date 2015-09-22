@@ -9,7 +9,8 @@
 	&:hover {
 		background-color: #eff3fb;
 
-		.cx-tlitem__languages__language--source:after {
+		.cx-tlitem__languages__language--source:after ,
+		.cx-slitem__languages__language--source:after {
 			border-left-color: #eff3fb;
 		}
 	}
@@ -85,18 +86,10 @@
 .cx-slitem__image {
 	.mw-ui-one-sixth;
 	padding: 0;
-	width: 120px;
-
-	.image {
-		height: 100px;
-		width: 100px;
-
-		&:empty {
-			.background-image-svg('../../tools/images/link_lightgray.svg', '../../tools/images/link_lightgray.png');
-			background-repeat: no-repeat;
-			background-color: #fbfbfb;
-			background-position: center center;
-			border-right: 1px solid #eee;
-		}
-	}
+	width: 100px;
+	min-height: 100px;
+	.background-image-svg('../../tools/images/link_lightgray.svg', '../../tools/images/link_lightgray.png');
+	background-repeat: no-repeat;
+	background-color: #fbfbfb;
+	background-position: center center;
 }

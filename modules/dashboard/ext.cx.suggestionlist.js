@@ -18,23 +18,40 @@
 	function CXSuggestionList( $container, siteMapper ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
-		this.suggestions = null;
+		this.suggestions = [];
 		this.$suggestionList = null;
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$header = null;
 		this.$confirmationDialog = null;
 		this.$overlay = null;
-		this.suggestionFrom = null;
-		this.suggestionTo = null;
-		this.sourceLanguages = null;
-		this.targetLanguages = null;
-		this.shown = false;
+		this.sourceLanguage = null;
+		this.targetLanguage = null;
+		this.languages = [];
+		this.promise = null;
+		this.queryContinue = null;
+		this.hasMore = true;
+		this.lists = {};
+		this.active = false;
+		this.filters = {
+			sourceLanguage: null,
+			targetLanguage: null
+		};
+		this.seed = null;
 		this.listen();
+		this.init();
 	}
 
 	CXSuggestionList.prototype.init = function () {
+		this.seed = parseInt( Math.random() * 10000, 10 );
+		this.$suggestionList = $( '<div>' ).addClass( 'cx-suggestionlist' );
+		this.$emptySuggestionList = this.buildEmptySuggestionList();
+		this.$container.append( this.$suggestionList, this.$emptySuggestionList );
 		this.initLanguages();
+	};
+
+	CXSuggestionList.prototype.getLanguages = function () {
+		return $.Deferred().resolve( this.languages );
 	};
 
 	CXSuggestionList.prototype.initLanguages = function () {
@@ -47,7 +64,7 @@
 			// Local storage disabled?
 		}
 		// Try to get all possble languages.
-		this.sourceLanguages = [
+		this.languages = [
 			storedSourceLanguage,
 			storedTargetLanguage,
 			'en',
@@ -55,35 +72,37 @@
 			mw.config.get( 'wgUserLanguage' )
 		];
 		// Also add ULS defined common languages.
-		this.sourceLanguages = this.sourceLanguages.concat( mw.uls.getFrequentLanguageList() );
+		this.languages = this.languages.concat( mw.uls.getFrequentLanguageList() );
 		// Get unique list.
-		this.sourceLanguages = mw.cx.unique( this.sourceLanguages );
-		this.targetLanguages = this.sourceLanguages;
+		this.languages = mw.cx.unique( this.languages );
 		// At the end, this list will have some items.
-		this.suggestionFrom = this.sourceLanguages[ 0 ];
-		this.suggestionTo = this.sourceLanguages[ 1 ];
+		this.filters = {
+			sourceLanguage: this.languages[ 0 ],
+			targetLanguage: this.languages[ 1 ]
+		};
 		// If suggestionTo is undefined, nothing breaks. The selector will show
 		// 'To any language'
 	};
 
-	CXSuggestionList.prototype.initLists = function () {
-		var lists, list, listId,
+	CXSuggestionList.prototype.loadItems = function () {
+		var lists, list, listId, promise,
 			self = this;
 
-		if ( !this.$suggestionList ) {
-			this.$suggestionList = $( '<div>' ).addClass( 'cx-suggestionlist' );
-			this.$container.append( this.$suggestionList.hide() );
+		if ( this.promise ) {
+			return this.promise;
 		}
-		this.getSuggestionLists( this.suggestionFrom, this.suggestionTo ).done( function ( response ) {
-			if ( self.$suggestionList ) {
-				self.$suggestionList.empty();
+		promise = this.getSuggestionLists();
+		promise.done( function ( suggestions ) {
+			if ( !suggestions ) {
+				return;
 			}
-			self.suggestions = response.query.contenttranslationsuggestions;
-			lists = self.suggestions.lists;
+			lists = suggestions.lists;
+			self.lists = $.extend( self.lists, lists );
 			for ( listId in lists ) {
 				if ( lists.hasOwnProperty( listId ) ) {
 					list = lists[ listId ];
 					if ( list.name === 'cx-suggestionlist-featured' ) {
+						self.suggestions = self.suggestions.concat( list.suggestions );
 						// Show the suggestions items.
 						self.listSuggestions( list.suggestions );
 					}
@@ -93,7 +112,11 @@
 					} */
 				}
 			}
+		} ).fail( function () {
+			this.promise = null;
 		} );
+
+		return promise;
 	};
 
 	/**
@@ -101,71 +124,95 @@
 	 *
 	 * @return {jQuery.Promise}
 	 */
-	CXSuggestionList.prototype.getSuggestionLists = function ( from, to ) {
-		var api = new mw.Api();
+	CXSuggestionList.prototype.getSuggestionLists = function () {
+		var self = this,
+			params,
+			api = new mw.Api();
 
-		return api.get( {
+		if ( this.promise ) {
+			// Avoid duplicate API requests.
+			return this.promise;
+		}
+		if ( this.hasMore === false ) {
+			return $.Deferred().resolve( [] );
+		}
+		params = $.extend( {
 			action: 'query',
 			list: 'contenttranslationsuggestions',
-			from: from,
-			to: to
+			from: this.filters.sourceLanguage,
+			to: this.filters.targetLanguage,
+			limit: 10,
+			seed: this.seed
+		}, this.queryContinue );
+		this.promise = api.get( params ).then( function ( response ) {
+			self.promise = null;
+			self.queryContinue = response.continue;
+			self.hasMore = !!response.continue;
+			return response.query.contenttranslationsuggestions;
 		} );
-	};
 
-	/**
-	 * Sets the source language.
-	 * @param {string} language A language code
-	 */
-	CXSuggestionList.prototype.setSourceLanguage = function ( language ) {
-		if ( this.suggestionFrom === language ) {
-			return;
-		}
-		this.suggestionFrom = language;
-		if ( this.shown ) {
-			this.initLists();
-		}
-	};
-
-	/**
-	 * Sets the target language.
-	 * @param {string} language A language code
-	 */
-	CXSuggestionList.prototype.setTargetLanguage = function ( language ) {
-		if ( this.suggestionTo === language ) {
-			return;
-		}
-		this.suggestionTo = language;
-		if ( this.shown ) {
-			this.initLists();
-		}
+		return this.promise;
 	};
 
 	CXSuggestionList.prototype.show = function () {
-		this.initLists();
+		this.active = true;
 		this.$suggestionList.show();
-		this.shown = true;
+		if ( !this.lists.length ) {
+			this.loadItems();
+		}
 	};
 
 	CXSuggestionList.prototype.hide = function () {
-		if ( this.$suggestionList ) {
-			this.$suggestionList.hide();
+		this.active = false;
+		this.$suggestionList.hide();
+	};
+
+	CXSuggestionList.prototype.applyFilters = function ( filters ) {
+		var i, suggestion, visible, j, filterProp, filterValue, emptyList = true,
+			keys = Object.keys( filters );
+
+		for ( i = 0; i < this.suggestions.length; i++ ) {
+			suggestion = this.suggestions[ i ];
+
+			visible = true;
+			for ( j = 0; j < keys.length; j++ ) {
+				filterProp = keys[ j ];
+				filterValue = filters[ filterProp ];
+
+				if ( filterValue === null || filterValue === '' ) {
+					continue;
+				}
+
+				visible = visible && suggestion[ filterProp ] === filterValue;
+			}
+
+			if ( visible ) {
+				emptyList = false;
+				suggestion.$element.show();
+			} else {
+				suggestion.$element.hide();
+			}
 		}
-		this.shown = false;
+		if ( emptyList ) {
+			this.hasMore = true;
+			this.loadItems();
+		}
 	};
 
 	/**
 	 * Get the thumbnail image and description of the given title.
 	 *
 	 * @param {string} language The language of the title.
-	 * @param {string} title Title
+	 * @param {string[]} titles Title
 	 * @return {jQuery.Promise}
 	 */
-	CXSuggestionList.prototype.getPageDetails = function ( language, title ) {
+	CXSuggestionList.prototype.getPageDetails = function ( language, titles ) {
 		return this.siteMapper.getApi( language ).get( {
 			action: 'query',
-			titles: title,
+			titles: titles.join( '|' ),
 			prop: [ 'pageimages', 'pageterms' ].join( '|' ),
 			piprop: 'thumbnail',
+			pilimit: 50, // maximum
 			pithumbsize: 150,
 			redirects: true
 		}, {
@@ -180,21 +227,45 @@
 	 *
 	 * @param {Object} suggestion
 	 */
-	CXSuggestionList.prototype.showTitleImageAndDesc = function ( suggestion ) {
-		this.getPageDetails( suggestion.sourceLanguage, suggestion.title )
-			.done( function ( response ) {
-				var pageId, page, imgSrc;
+	CXSuggestionList.prototype.showTitleImageAndDesc = function ( suggestions ) {
+		var apply,
+			self = this,
+			queries = {},
+			map = {};
 
-				pageId = Object.keys( response.query.pages )[ 0 ];
-				page = response.query.pages[ pageId ];
+		// TODO: We dont need this grouping since suggestions are fetched for a fixed language pair
+		$.each( suggestions, function ( index, suggestion ) {
+			var language = self.siteMapper.getWikiDomainCode( suggestion.sourceLanguage );
+
+			queries[ language ] = queries[ language ] || [];
+			queries[ language ].push( suggestion.title );
+
+			// So that we can easily find the element in the callback
+			if ( !map[ suggestion.title ] ) {
+				// Same source title might be translated to multiple languages.
+				map[ suggestion.title ] = [];
+			}
+			map[ suggestion.title ].push( suggestion );
+		} );
+
+		apply = function ( page ) {
+			$.each( map[ page.title ], function ( i, item ) {
 				if ( page.thumbnail ) {
-					imgSrc = page.thumbnail.source;
-					suggestion.$element.find( '.image' ).attr( 'src', imgSrc );
+					item.$image.css( {
+						'background-image': 'url(' + page.thumbnail.source + ')'
+					} );
 				}
-				if ( page.terms && page.terms.description ) {
-					suggestion.$element.find( '.cx-slitem__desc' ).text( page.terms.description );
+				if ( page.terms ) {
+					item.$desc.text( page.terms.description ).show();
 				}
 			} );
+		};
+
+		$.each( queries, function ( language, titles ) {
+			self.getPageDetails( language, titles ).done( function ( response ) {
+				$.map( response.query.pages, apply );
+			} );
+		} );
 	};
 
 	/**
@@ -210,13 +281,8 @@
 			$suggestion = this.buildSuggestionItem( suggestion );
 			$suggestions.push( $suggestion );
 		}
-
-		if ( $suggestions.length ) {
-			this.$suggestionList.append( $suggestions );
-		} else {
-			// Show empty suggestion list
-			this.$suggestionList.append( this.buildEmptySuggestionList() );
-		}
+		this.$suggestionList.append( $suggestions );
+		this.showTitleImageAndDesc( suggestions );
 	};
 
 	/**
@@ -225,7 +291,7 @@
 	 * @return {jQuery}
 	 */
 	CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
-		var $imageBlock, $image, $desc, $featured,
+		var $image, $desc, $featured,
 			sourceDir, targetDir, $targetLanguage,
 			$translationLink, $suggestion, $metaDataContainer,
 			$sourceLanguage, $languageContainer,
@@ -234,14 +300,10 @@
 		$suggestion = $( '<div>' )
 			.addClass( 'cx-slitem' )
 			.attr( 'id', suggestion.id );
-		$imageBlock = $( '<div>' )
+		$image = $( '<div>' )
 			.addClass( 'cx-slitem__image' );
-		$image = $( '<img>' )
-			.addClass( 'image' );
-		$imageBlock.append( $image );
 		sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
 		targetDir = $.uls.data.getDir( suggestion.targetLanguage );
-
 		$translationLink = $( '<div>' )
 			.addClass( 'cx-slitem__translation-link' )
 			.attr( 'data-suggestion', JSON.stringify( suggestion ) )
@@ -284,13 +346,13 @@
 			.addClass( 'cx-slitem__languages' )
 			.append( $sourceLanguage, $targetLanguage );
 
-		$desc = $( '<div>' ).addClass( 'cx-slitem__desc' );
+		$desc = $( '<div>' ).addClass( 'cx-slitem__desc' ).hide();
 
 		$featured = $( [] );
-		if ( this.suggestions.lists[ suggestion.listId ].name === 'cx-suggestionlist-featured' ) {
+		if ( this.lists[ suggestion.listId ].name === 'cx-suggestionlist-featured' ) {
 			$featured = $( '<div>' )
 				.addClass( 'cx-sltag cx-sltag--featured' )
-				.text( mw.msg( this.suggestions.lists[ suggestion.listId ].displayName ) );
+				.text( mw.msg( this.lists[ suggestion.listId ].displayName ) );
 		}
 		$metaDataContainer = $( '<div>' )
 			.addClass( 'cx-slitem__meta' )
@@ -301,12 +363,14 @@
 			.append( $translationLink, $desc, $metaDataContainer );
 
 		$suggestion.append(
-			$imageBlock,
+			$image,
 			$titleLanguageBlock
 		);
 		// Store reference to the DOM node
 		suggestion.$element = $suggestion;
-		this.showTitleImageAndDesc( suggestion );
+		suggestion.$desc = $desc;
+		suggestion.$image = $image;
+
 		return $suggestion;
 	};
 
@@ -323,7 +387,8 @@
 			.text( mw.msg( 'cx-suggestionlist-empty-desc' ) );
 		return $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty' )
-			.append( $img, $title, $desc );
+			.append( $img, $title, $desc )
+			.hide();
 	};
 
 	/**
@@ -334,6 +399,7 @@
 			var cxSelector, suggestion;
 
 			cxSelector = $( this ).data( 'cxsourceselector' );
+
 			if ( cxSelector ) {
 				cxSelector.prefill();
 			} else {
@@ -354,13 +420,25 @@
 	 * Scroll handler for the suggestions
 	 */
 	CXSuggestionList.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			offsetTop = this.$container.offset().top;
+		var $window, scrollTop, windowHeight, offsetTop;
+
+		if ( !this.active ) {
+			return;
+		}
+		$window = $( window );
+		scrollTop = $window.scrollTop();
+		windowHeight = $window.height();
+		offsetTop = this.$container.offset().top;
 
 		if ( scrollTop > offsetTop ) {
 			this.$container.addClass( 'sticky' );
 		} else if ( scrollTop <= offsetTop ) {
 			this.$container.removeClass( 'sticky' );
+		}
+
+		// Load next batch of items on scroll.
+		if ( scrollTop + windowHeight + 100 > $( document ).height() ) {
+			this.loadItems();
 		}
 	};
 
