@@ -67,20 +67,29 @@ class Translator {
 	 * @param string [$offset] Offset condition (timestamp)
 	 * @return Translation[]
 	 */
-	public function getAllTranslations( $limit, $offset = null ) {
+	public function getAllTranslations(
+		$limit,
+		$offset = null,
+		$type = null
+	) {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$tables = array( 'cx_translations', 'cx_translators' );
 		$fields = '*';
+
 		$conds = array(
 			'translator_translation_id = translation_id',
 			'translator_user_id' => $this->getGlobalUserId()
 		);
+		if ( $type !== null ) {
+			$conds['translation_status'] = $type;
+		}
 		if ( $offset !== null ) {
 			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );
 			$conds[] = "translation_last_updated_timestamp < $ts";
 		}
+
 		$options = array(
 			'ORDER BY' => 'translation_last_updated_timestamp DESC',
 			'LIMIT' => $limit,
@@ -91,6 +100,35 @@ class Translator {
 		$result = array();
 		foreach ( $res as $row ) {
 			$result[] = Translation::newFromRow( $row );
+		}
+
+		return $result;
+	}
+
+	public function getLanguages( $type ) {
+		// Note: there is no index on translation_last_updated_timestamp
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		$queries = array();
+		foreach ( array( 'source', 'target' ) as $field ) {
+			$tables = array( 'cx_translations', 'cx_translators' );
+			$field = "translation_{$field}_language as code";
+			$conds = array(
+				'translator_translation_id = translation_id',
+				'translator_user_id' => $this->getGlobalUserId()
+			);
+			if ( $type !== null ) {
+				$conds['translation_status'] = $type;
+			}
+
+			$queries[] = $dbr->selectSqlText( $tables, $field, $conds, __METHOD__ );
+		}
+
+		$res = $dbr->query( $dbr->unionQueries( $queries, false ) );
+
+		$result = array();
+		foreach ( $res as $row ) {
+			$result[] = $row->code;
 		}
 
 		return $result;

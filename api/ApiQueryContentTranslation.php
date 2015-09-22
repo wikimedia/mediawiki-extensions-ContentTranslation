@@ -64,7 +64,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 		// The main case, no filters
 		$translator = new ContentTranslation\Translator( $user );
-		$translations = $translator->getAllTranslations( $params['limit'], $params['offset'] );
+		$translations = $translator->getAllTranslations(
+			$params['limit'],
+			$params['offset'],
+			$params['type']
+		);
 
 		// We will have extra continue in case the last batch is exactly the size of the limit
 		$count = count( $translations );
@@ -78,6 +82,15 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			'translations',
 			$translations
 		);
+
+		// Simple optimization
+		if ( $params['offset'] === null ) {
+			$result->addValue(
+				array( 'query', 'contenttranslation' ),
+				'languages',
+				$translator->getLanguages( $params['type'] )
+			);
+		}
 	}
 
 	/**
@@ -126,6 +139,10 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			'offset' => array(
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_TYPE => 'string',
+			),
+			'type' => array(
+				ApiBase::PARAM_DFLT => null,
+				ApiBase::PARAM_TYPE => array( 'draft', 'published' ),
 			),
 		);
 		return $allowedParams;

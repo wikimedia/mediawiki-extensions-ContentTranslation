@@ -56,11 +56,18 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			$translator,
 			$params['from'],
 			$params['to'],
-			$params['limit']
+			$params['limit'],
+			$params['offset'],
+			$params['seed']
 		);
 
 		$lists = array();
 		$suggestions = $data['suggestions'];
+
+		if ( !count( $suggestions ) ) {
+			$result->addValue( array( 'query', $this->getModuleName() ), 'lists', array() );
+			return;
+		}
 
 		// Find the titles to filter out from suggestions.
 		$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
@@ -89,6 +96,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				);
 			}
 		}
+
+		if ( count( $suggestions ) ) {
+			$this->setContinueEnumParameter( 'offset', $params['limit'] + $params['offset'] );
+		}
 		$result->addValue( array( 'query', $this->getModuleName() ), 'lists', $lists );
 	}
 
@@ -97,7 +108,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
 		$ongoingTranslationTitles = array();
-		$titles = array();
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
@@ -182,6 +192,14 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
+			),
+			'offset' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_DFLT => null,
+			),
+			'seed' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_DFLT => null,
 			),
 		);
 		return $allowedParams;

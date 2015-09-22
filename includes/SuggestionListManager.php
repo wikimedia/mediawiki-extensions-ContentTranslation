@@ -118,7 +118,14 @@ class SuggestionListManager {
 		}
 	}
 
-	public function getRelevantSuggestions( Translator $translators, $from, $to, $limit ) {
+	public function getRelevantSuggestions(
+		Translator $translators,
+		$from,
+		$to,
+		$limit,
+		$offset,
+		$seed
+	) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$lists = array();
@@ -146,10 +153,16 @@ class SuggestionListManager {
 				'cxs_target_language' => array( $to, '*' ),
 			);
 
+			$seed = (int)$seed;
+
 			$options = array(
 				'LIMIT' => $limit,
-				'ORDER BY' => 'RAND()'
+				'ORDER BY' => "RAND( $seed )"
 			);
+
+			if ( $offset ) {
+				$options['OFFSET'] = $offset;
+			}
 
 			$res = $dbw->select( 'cx_suggestions', '*', $conds, __METHOD__, $options );
 
