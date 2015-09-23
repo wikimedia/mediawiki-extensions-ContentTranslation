@@ -302,7 +302,8 @@
 				"vector": [
 					"header/styles/ext.cx.header.vector.less"
 				]
-			}
+			},
+			"position": "top"
 		},
 		"ext.cx.source": {
 			"scripts": [
