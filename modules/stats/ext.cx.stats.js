@@ -32,79 +32,25 @@
 				$( '<div>' ).addClass( 'bounce3' )
 			);
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
-		this.$cumulativeGraph = $( '<canvas>' ).attr( {
-			id: 'cxcumulative',
-			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
-			height: 400
-		} );
-
-		this.$languageCumulativeGraph = $( '<canvas>' ).attr( {
-			id: 'cxlangcumulative',
-			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
-			height: 400
-		} );
-
-		this.$translatonTrendBarChart = $( '<canvas>' ).attr( {
-			id: 'cxtrendchart',
-			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
-			height: 400
-		} );
-
-		this.$langTranslatonTrendBarChart = $( '<canvas>' ).attr( {
-			id: 'cxlangtrendchart',
-			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
-			height: 400
-		} );
-
-		this.$container.append(
-			$spinner,
-			this.$highlights,
-			$( '<h2>' ).text( mw.msg( 'cx-stats-all-translations-title' ) ),
-			$( '<div>' )
-				.addClass( 'cx-stats-graph cx-stats-cumulative-total' )
-				.append( this.$cumulativeGraph ),
-			$( '<h2>' ).text( mw.message(
-				'cx-trend-translations-to',
-				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-			).escaped() ),
-			$( '<div>' )
-				.addClass( 'cx-stats-graph cx-stats-cumulative-lang' )
-				.append( this.$languageCumulativeGraph ),
-			$( '<h2>' ).text( mw.msg( 'cx-trend-published-translations-title' ) ),
-			$( '<div>' )
-				.addClass( 'cx-stats-graph cx-stats-trend-total' )
-				.append( this.$translatonTrendBarChart ),
-			$( '<h2>' ).text( mw.message(
-				'cx-trend-translations-to-title',
-				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-			).escaped() ),
-			$( '<div>' )
-				.addClass( 'cx-stats-graph cx-stats-trend-lang' )
-				.append( this.$langTranslatonTrendBarChart )
-		);
+		this.$container.append( $spinner, this.$highlights );
 
 		$.when(
 			this.getCXTrends(),
-			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) )
-		).done( function ( totalTrend, languageTrend ) {
+			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) ),
+			this.getCXStats()
+		).done( function ( totalTrend, languageTrend, stats ) {
+			// Remove spinner
+			$spinner.remove();
+
 			self.totalTranslationTrend = totalTrend.translations;
 			self.totalDraftTrend = totalTrend.drafts;
-
 			self.languageTranslationTrend = languageTrend.translations;
 			self.languageDraftTrend = languageTrend.drafts;
 			self.languageDeletionTrend = languageTrend.deletions;
+			self.transformJsonToModel( stats[ 0 ].query.contenttranslationstats );
+			// Now render them all
 			self.renderHighlights();
-			self.drawCumulativeGraph( 'count' );
-			self.drawLanguageCumulativeGraph( 'count' );
-			self.drawTranslationTrend();
-			self.drawLangTranslationTrend();
-		} );
-		this.getCXStats().then( function ( data ) {
-			if ( !data || !data.query ) {
-				return;
-			}
-			$spinner.remove();
-			self.drawCharts( data.query.contenttranslationstats );
+			self.render();
 		} );
 	};
 
@@ -230,11 +176,90 @@
 		this.$highlights.append( $total, $weeklyStats );
 	};
 
-	CXStats.prototype.drawCharts = function ( stats ) {
-		this.transformJsonToModel( stats );
-		this.$container.append(
-			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ),
-			createTabs( 'cx-stats-published', [
+	CXStats.prototype.render = function () {
+		var self = this;
+
+		this.$cumulativeGraph = $( '<canvas>' ).attr( {
+			id: 'cxcumulative',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$languageCumulativeGraph = $( '<canvas>' ).attr( {
+			id: 'cxlangcumulative',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$translatonTrendBarChart = $( '<canvas>' ).attr( {
+			id: 'cxtrendchart',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$langTranslatonTrendBarChart = $( '<canvas>' ).attr( {
+			id: 'cxlangtrendchart',
+			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
+			height: 400
+		} );
+
+		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-all-translations-title' ) ) );
+		this.createTabs(
+			'cx-graph-total',
+			[
+				{
+					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
+					content: $( '<div>' )
+						.addClass( 'cx-stats-graph cx-stats-cumulative-total' )
+						.append( this.$cumulativeGraph ),
+					onVisible: function () {
+						self.drawCumulativeGraph( 'count' );
+					}
+				},
+				{
+					title: mw.msg( 'cx-stats-weekly-trend-tab-title' ),
+					content: $( '<div>' )
+						.addClass( 'cx-stats-graph cx-stats-trend-total' )
+						.append( this.$translatonTrendBarChart ),
+					onVisible: function () {
+						self.drawTranslationTrend();
+					}
+				}
+			]
+		);
+
+		this.$container.append( $( '<h2>' ).text( mw.message(
+			'cx-trend-translations-to',
+			$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+		).escaped() ) );
+		this.createTabs(
+			'cx-graph-language',
+			[
+				{
+					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
+					content: $( '<div>' )
+						.addClass( 'cx-stats-graph cx-stats-cumulative-lang' )
+						.append( this.$languageCumulativeGraph ),
+					onVisible: function () {
+						self.drawLanguageCumulativeGraph( 'count' );
+					}
+				},
+				{
+					title: mw.msg( 'cx-stats-weekly-trend-tab-title' ),
+					content: $( '<div>' )
+						.addClass( 'cx-stats-graph cx-stats-trend-lang' )
+						.append( this.$langTranslatonTrendBarChart ),
+					onVisible: function () {
+						self.drawLangTranslationTrend();
+					}
+				}
+			]
+		);
+
+		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ) );
+		this.createTabs(
+			'cx-stats-published',
+			[
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'published', 'count' )
@@ -243,9 +268,14 @@
 					title: mw.msg( 'cx-stats-published-source-target' ),
 					content: this.drawTranslationsChart( 'from', 'published', 'count' )
 				}
-			] ),
-			$( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-label' ) ),
-			createTabs( 'cx-stats-draft', [
+			],
+			true
+		);
+
+		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-label' ) ) );
+		this.createTabs(
+			'cx-stats-draft',
+			[
 				{
 					title: mw.msg( 'cx-stats-draft-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'draft', 'count' )
@@ -254,9 +284,14 @@
 					title: mw.msg( 'cx-stats-draft-source-target' ),
 					content: this.drawTranslationsChart( 'from', 'draft', 'count' )
 				}
-			] ),
-			$( '<h2>' ).text( mw.msg( 'cx-stats-published-translators-title' ) ),
-			createTabs( 'cx-stats-translators', [
+			],
+			true
+		);
+
+		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-published-translators-title' ) ) );
+		this.createTabs(
+			'cx-stats-translators',
+			[
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'published', 'translators' )
@@ -265,57 +300,78 @@
 					title: mw.msg( 'cx-stats-published-source-target' ),
 					content: this.drawTranslationsChart( 'from', 'published', 'translators' )
 				}
-			] )
+			],
+			true
 		);
 	};
 
-	function createTabs( id, items ) {
-		var $container, $content, i, $tabs, $tab, $expand;
+	/**
+	 * Create a tabbed container for holding related stats.
+	 *
+	 * @param {string} tabGroupId Tab group id
+	 * @param {Object[]} items
+	 * @param {boolean} expandable
+	 */
+	CXStats.prototype.createTabs = function ( tabGroupId, items, expandable ) {
+		var $tabContainer, $content, i, $tabs, $tab, $expand;
 
-		$container = $( '<div>' ).addClass( 'cx-stats-tabs-container' );
+		$tabContainer = $( '<div>' ).addClass( 'cx-stats-tabs-container' );
 		$tabs = $( '<ul>' ).addClass( 'cx-stats-tabs' );
-		$container.append( $tabs );
+		$tabContainer.append( $tabs );
+		this.$container.append( $tabContainer );
 		for ( i = 0; i < items.length; i++ ) {
 			$tab = $( '<li>' )
 				.addClass( 'cx-stats-tabs-tabtitle' )
-				.data( 'tab', id + 'tab-' + i )
+				.attr( 'about', tabGroupId + 'tab-' + i )
+				.attr( 'data-itemid', i )
 				.text( items[ i ].title );
 			$content = items[ i ].content
-				.attr( 'id', id + 'tab-' + i )
+				.attr( 'id', tabGroupId + 'tab-' + i )
 				.addClass( 'cx-stats-tabs-tab-content cx-stats-tabs-collapsed' );
-
+			$tabs.append( $tab );
+			$tabContainer.append( $content );
 			if ( i === 0 ) {
 				$tab.addClass( 'cx-stats-tabs-current' );
 				$content.addClass( 'cx-stats-tabs-current' );
+				if (  items[ i ].onVisible ) {
+					items[ i ].onVisible.apply( this );
+					items[ i ].onVisible = null;
+				}
 			}
-
-			$tabs.append( $tab );
-			$container.append( $content );
 		}
 
 		// Click handler for tabs
 		$tabs.find( 'li' ).click( function () {
-			var tabId = $( this ).data( 'tab' );
+			var onVisible,
+				$this = $( this ),
+				tabId = $( this ).attr( 'about' ),
+				itemId = $this.data( 'itemid' );
 
 			$tabs.find( 'li' ).removeClass( 'cx-stats-tabs-current' );
-			$container.find( '.cx-stats-tabs-tab-content' )
+			$tabContainer.find( '.cx-stats-tabs-tab-content' )
 				.removeClass( 'cx-stats-tabs-current' );
 			$( this ).addClass( 'cx-stats-tabs-current' );
 			$( '#' + tabId ).addClass( 'cx-stats-tabs-current' );
+
+			onVisible = items[ itemId ].onVisible;
+			if ( onVisible ) {
+				onVisible.apply( this );
+				items[ itemId ].onVisible = null;
+			}
 		} );
-
-		$expand = $( '<a>' )
-			.addClass( 'cx-stats-tabs-toggle-all' )
-			.text( mw.msg( 'cx-stats-tabs-expand' ) )
-			.click( function () {
-				$container.find( '.cx-stats-tabs-tab-content' )
-					.removeClass( 'cx-stats-tabs-collapsed' );
-				$( this ).remove();
-			} );
-		$container.append( $expand );
-
-		return $container;
-	}
+		if ( expandable ) {
+			$expand = $( '<a>' )
+				.addClass( 'cx-stats-tabs-toggle-all' )
+				.text( mw.msg( 'cx-stats-tabs-expand' ) )
+				.click( function () {
+					$tabContainer
+						.find( '.cx-stats-tabs-tab-content' )
+						.removeClass( 'cx-stats-tabs-collapsed' );
+					$( this ).remove();
+				} );
+			$tabContainer.append( $expand );
+		}
+	};
 
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
 		var $chart, $bar, translations, $translations, model, i, j, $rows = [],
@@ -412,7 +468,7 @@
 				} )
 				.text( model[ i ].language );
 
-			$autonym  = $( '<span>' )
+			$autonym = $( '<span>' )
 				.addClass( 'cx-stats-chart__autonym' )
 				.prop( {
 					lang: model[ i ].language,
@@ -457,7 +513,9 @@
 	 * Get the Content Translation stats.
 	 */
 	CXStats.prototype.getCXStats = function () {
-		return ( new mw.Api() ).get( {
+		var api = new mw.Api();
+
+		return api.get( {
 			action: 'query',
 			list: 'contenttranslationstats'
 		} );
@@ -501,7 +559,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-stats-draft-translations-label' ),
+					label: mw.msg( 'cx-stats-draft-translations-label' ),
 					strokeColor: '#777',
 					pointColor: '#777',
 					pointStrokeColor: '#fff',
@@ -602,7 +660,7 @@
 					} )
 				},
 				{
-					label:  mw.msg( 'cx-stats-new-draft-translations-label' ),
+					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					strokeColor: '#777',
 					fillColor: '#777',
 					pointColor: '#777',

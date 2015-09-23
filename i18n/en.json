@@ -144,6 +144,8 @@
 	"cx-stats-draft-translations-label": "Translations in progress",
 	"cx-stats-new-draft-translations-label": "New translations in progress",
 	"cx-stats-published-translators-title": "Number of translators",
+	"cx-stats-cumulative-tab-title": "Total",
+	"cx-stats-weekly-trend-tab-title": "Per week",
 	"cx-draft-discard-confirmation-message": "Are you sure you want to permanently delete this translation?",
 	"cx-draft-cancel-button-label": "Cancel",
 	"cx-draft-discard-button-label": "Delete translation",

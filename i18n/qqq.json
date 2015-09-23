@@ -85,6 +85,8 @@
 	"cx-tools-categories-count-message": "Indicates the number of categories associated with the page.\n\nDisplayed at the top of source and translation columns in [[Special:ContentTranslation]].\n\nParameters:\n* $1 - number of categories\n{{Identical|Category}}",
 	"cx-stats-title": "The title for the Special:ContentTranslationStats special page.",
 	"cx-stats-unknown": "Text when the source or target language is unknown. An adjective that describes the language.\n{{Identical|Unknown}}",
+	"cx-stats-cumulative-tab-title": "Title of cumulative stats tabs in [[Special:ContentTranslationStats]]",
+	"cx-stats-weekly-trend-tab-title": "Title of weekly trend stats tabs in [[Special:ContentTranslationStats]]",
 	"cx-tools-reference-title": "Title of Reference (footnote) tool card on Special:ContentTranslation.\n{{Identical|Reference}}",
 	"cx-tools-reference-add": "Text shown in the reference tool card. Clicking on it will add the reference in the cursor position.",
 	"cx-tools-reference-remove": "Text shown in the reference tool card. Clicking on it removes the reference in the context.",

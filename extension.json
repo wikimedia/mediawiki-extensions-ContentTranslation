@@ -883,7 +883,9 @@
 				"cx-stats-grouping-title",
 				"cx-trend-published-translations-title",
 				"cx-trend-translations-to-title",
-				"percent"
+				"percent",
+				"cx-stats-cumulative-tab-title",
+				"cx-stats-weekly-trend-tab-title"
 			]
 		},
 		"chart.js": {
