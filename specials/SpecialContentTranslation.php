@@ -105,6 +105,9 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 		}
 
+		// Preloading to avoid FOUC
+		$out->addModuleStyles( 'ext.cx.header.skin' );
+
 		if ( $hasToken ) {
 			$out->addModules( 'ext.cx.translationview' );
 
