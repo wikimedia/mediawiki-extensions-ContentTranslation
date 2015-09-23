@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kosovastar",
+			"Kushtrim"
+		]
+	},
+	"apihelp-cxpublish-description": "Ruaj faqen e krijuar duke përdorur veglën \"Përkthyesi i Përmbajtjes\"",
+	"apihelp-cxpublish-param-title": "Titulli i faqes ku doni ti kryeni veprimet.",
+	"apihelp-cxpublish-param-html": "Përmbajtja për tu ruajtur.",
+	"apihelp-cxpublish-param-from": "Kodi i gjuhës prej nga ështe marrë burimi.",
+	"apihelp-cxpublish-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-cxpublish-param-sourcetitle": "Titulli i faqes burimore.",
+	"apihelp-cxpublish-param-sourcerevision": "Rishikimi i faqes burimore.",
+	"apihelp-cxpublish-param-status": "Nëse \"draft\", përkthimi do të ruhet si draft. Nëse \"Publikuar\", përkthimi do të publikohet.",
+	"apihelp-cxpublish-param-categories": "Kategoritë që duhet të shtohen në faqen e publikuar.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (Kur bëhet ruajtja me Captcha përgjigje)",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Përgjigju Captcha's( kur bëhet ruajtja me Captcha përgjigje)",
+	"apihelp-query+contenttranslation-param-translationid": "ID e përkthimit.",
+	"apihelp-query+contenttranslation-param-from": "Kodi i burimit të gjuhës.",
+	"apihelp-query+contenttranslation-param-limit": "Numri maksimal i përkthimeve për të marrë.",
+	"apihelp-query+contenttranslation-example-1": "Merri përkthimet e filluara nga përdoruesi aktual.",
+	"apihelp-query+contenttranslation-example-2": "Merri përkthimet draft prej ID.",
+	"apihelp-cxconfiguration-param-from": "Kodi i gjuhës prej nga ështe marrë burimi.",
+	"apihelp-cxconfiguration-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Kodi i burimit të gjuhës.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-query+cxpublishedtranslations-description": "Merri informatat e të gjitha përkthimeve të publikuara",
+	"apihelp-query+cxpublishedtranslations-param-from": "Kodi i gjuhës prej nga ështe marrë burimi.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-query+cxpublishedtranslations-param-limit": "Numri maksimal i përkthimeve për të marrë.",
+	"apihelp-query+cxpublishedtranslations-example-1": "Merri të gjitha përkthimet e publikuara",
+	"apihelp-query+cxpublishedtranslations-example-2": "Merri të gjitha përkthimet e publikuara, të përkthyera nga gjuha Angleze",
+	"apihelp-query+cxpublishedtranslations-example-3": "Merri të gjitha përkthimet e publikuara, të përkthyera nga gjuha Angleze në atë Spanjolle",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Kodi i gjuhës prej nga ështe marrë burimi.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Intervali për të kalkuluar prirjen. Mund të jetë 'javë' apo 'muaj'",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Merri prirjet e publikuara për të gjitha gjuhët",
+	"apihelp-cxdelete-description": "Shlyeni një përkthim draft të krijuar duke përdorur veglën \"Përkthyesi i Përmbajtjes\"",
+	"apihelp-cxdelete-param-from": "Kodi i gjuhës prej nga ështe marrë burimi.",
+	"apihelp-cxdelete-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
+	"apihelp-cxdelete-param-sourcetitle": "Titulli i faqes burimore."
+}

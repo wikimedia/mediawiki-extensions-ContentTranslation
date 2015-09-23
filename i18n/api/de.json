@@ -31,6 +31,7 @@
 	"apihelp-cxconfiguration-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxconfiguration-param-to": "Der Ziel-Sprachcode.",
 	"apihelp-cxconfiguration-example-1": "Ruft das Konfigurations-JSON der Inhaltsübersetzung für das Sprachpaar Spanisch-Katalanisch ab",
+	"apihelp-query+contenttranslationsuggestions-description": "Ruft Vorschlagslisten für die Inhaltsübersetzung ab.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Ursprünglicher Sprachcode.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Ziel-Sprachcode.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Vorgeschlagene Seiten laden für die Übersetzung von Englisch (en) in Spanisch (es).",

@@ -150,6 +150,7 @@
 	"cx-trend-deletions": "Traduções eliminadas",
 	"cx-trend-translations-to": "Traduções para $1",
 	"cx-stats-try-contenttranslation": "Tradução de Contéudo é uma ferramenta para criar novas páginas através da tradução de outros idiomas. [$1 Experimente]",
+	"cx-stats-published-translations-label": "Traduções publicadas",
 	"cx-stats-published-target-source": "Traduções para",
 	"cx-stats-published-source-target": "Traduções de",
 	"cx-stats-draft-target-source": "Traduções em progresso para",

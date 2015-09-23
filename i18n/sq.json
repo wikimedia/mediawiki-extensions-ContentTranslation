@@ -117,6 +117,8 @@
 	"cx-feedback-link": "Ofro feedback",
 	"cx-stats-published-translations-title": "Përkthimet e publikuara",
 	"cx-stats-draft-translations-title": "Përkthime në progres",
+	"cx-stats-draft-translations-label": "Përkthime në progres",
+	"cx-stats-new-draft-translations-label": "Përkthime të reja në progres",
 	"cx-stats-published-translators-title": "Numri i përkthyesve",
 	"cx-draft-discard-confirmation-message": "Jeni i sigurt se doni ta fshini përgjithmonë këtë përkthim?",
 	"cx-draft-cancel-button-label": "Anulo",
@@ -130,6 +132,9 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Përkthe, në vend se të shkruani nga e para",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 mund te jetë i përkthyer në gjuhë tjera",
 	"cx-campaign-contributionsmenu-myuploads": "Media-t e ngarkuara",
-	"cx-trend-all-translations": "Të gjitha përkthimet",
-	"cx-trend-translations-to": "Përkthimet në gjuhën $1"
+	"cx-trend-deletions": "Përkthime të fshira",
+	"cx-trend-translations-to": "Përkthimet në gjuhën $1",
+	"cx-stats-all-translations-title": "Përkthime totale për të gjitha gjuhët",
+	"cx-stats-published-translations-label": "Përkthime të publikuara",
+	"cx-trend-translations-to-title": "Përkthime çdo javë të $1"
 }

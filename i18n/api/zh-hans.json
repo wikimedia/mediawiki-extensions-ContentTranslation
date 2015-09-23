@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-example-1": "获取由当前用户作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
 	"apihelp-query+contenttranslation-example-3": "查找指定的语言对中给定标题的任何翻译",
+	"apihelp-query+contenttranslationstats-description": "获取内容翻译统计。",
 	"apihelp-query+contenttranslationstats-example-1": "获取所有语言的内容翻译统计信息。",
 	"apihelp-cxconfiguration-description": "为指定的语言配对获取内容翻译配置json",
 	"apihelp-cxconfiguration-param-from": "源语言代码。",
