@@ -732,6 +732,7 @@
 			],
 			"dependencies": [
 				"ext.cx.util",
+				"jquery.uls.data",
 				"ext.uls.init",
 				"mediawiki.jqueryMsg"
 			]
