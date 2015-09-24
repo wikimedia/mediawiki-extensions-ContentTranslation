@@ -130,6 +130,12 @@ body {
 	padding-left: 50px;
 }
 
+.cx-translationlist-container.sticky {
+	// Occupy the place the place that would become empty when the header starts
+	// floating when the page is scrolled. This prevents a jump of the content.
+	padding-top: 120px;
+}
+
 .translation-source-language-filter,
 .translation-target-language-filter {
 	background-color: #fff;
@@ -146,7 +152,6 @@ body {
 
 	background-color: #f0f0f0;
 	padding: 0px;
-	margin-bottom: 20px;
 
 	.cx-filters {
 		.mw-ui-one-half;
