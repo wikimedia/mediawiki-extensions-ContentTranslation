@@ -6,7 +6,8 @@
 			"Kaganer",
 			"Okras",
 			"Sunpriat",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"INS Pirat"
 		]
 	},
 	"apihelp-cxpublish-description": "Сохранение страницы, созданной с помощью расширения Перевод содержания.",
@@ -32,6 +33,7 @@
 	"apihelp-cxconfiguration-param-from": "Код исходного языка.",
 	"apihelp-cxconfiguration-param-to": "Код целевого языка.",
 	"apihelp-cxconfiguration-example-1": "Выборка конфигурации JSON для «испанско-каталонской» языковой пары.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Код исходного языка.",
 	"apihelp-query+cxpublishedtranslations-description": "Выборка всей опубликованной информации о переводах",
 	"apihelp-query+cxpublishedtranslations-param-from": "Код языка источника.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код целевого языка.",
