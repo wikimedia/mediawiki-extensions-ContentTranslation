@@ -272,7 +272,7 @@
 			true
 		);
 
-		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-label' ) ) );
+		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-title' ) ) );
 		this.createTabs(
 			'cx-stats-draft',
 			[
