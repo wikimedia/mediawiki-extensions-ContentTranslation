@@ -43,6 +43,7 @@ body {
 		position: fixed;
 		top: 0;
 		right: 0;
+
 		.cx-sidebar {
 			min-height: 100vh;
 		}
@@ -55,6 +56,7 @@ body {
 	min-height: 85vh;
 	width: 100%;
 	margin-right: 50px;
+
 	ul {
 		margin: 0;
 		padding: 0;
@@ -93,6 +95,7 @@ body {
 	.cx-sidebar__link--feedback {
 		.background-image-svg('../images/cx-discuss.svg', '../images/cx-discuss.png');
 	}
+
 	.cx-sidebar__link--magnus {
 		.background-image-svg('../images/cx-find-missing.svg', '../images/cx-find-missing.png');
 	}
@@ -125,9 +128,13 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1000;
+
+	// .cx-tlitem__actions__trigger has a zindex of 100 and the ULS from language filters
+	// has a z-index of 1000. So a number in between is chosen.
+	z-index: 200;
 	width: 66%;
 	padding-left: 50px;
+	padding-right: 15px;
 }
 
 .cx-translationlist-container.sticky {
@@ -140,7 +147,6 @@ body {
 .translation-target-language-filter {
 	background-color: #fff;
 	font-size: 1em;
-	padding-right: 23px;
 
 	option {
 		font-size: 1em;
@@ -151,7 +157,7 @@ body {
 	.mw-ui-one-whole;
 
 	background-color: #f0f0f0;
-	padding: 0px;
+	padding: 0;
 
 	.cx-filters {
 		.mw-ui-one-half;
@@ -185,63 +191,40 @@ body {
 	.translation-language-filter {
 		.mw-ui-one-half;
 		float: right;
-		border: 1px solid #9D9D9D;
+		border: 1px solid #9d9d9d;
 		border-radius: 2px;
 		background: #fff;
 		padding: 0;
 
+		.translation-source-language-filter,
+		.translation-target-language-filter {
+			padding: 10px;
+			line-height: 1em;
+		}
+
 		.translation-language-source-container,
 		.translation-language-target-container {
-			height: 37px;
 			position: relative;
 			width: 45%;
-			select {
-				// The border is necessary to adjust height
-				border: 1px solid transparent;
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				width: 100%;
-				height: 37px;
-				position: absolute;
-				cursor: pointer;
-			}
-
-			.translation-language-select-arrow {
-				position: relative;
-				float: right;
-				width: 0;
-				top: 50%;
-				margin-right: 23px;
-
-				&:after,
-				&:before {
-					border: 7px solid transparent;
-					content: " ";
-					height: 0;
-					width: 0;
-					position: absolute;
-					pointer-events: none;
-				}
-
-				&:after {
-					border-top-color: #fff;
-					top: -6px
-				}
-
-				&:before {
-					border-top-color: #888888;
-					top: -2px;
-				}
-			}
+			cursor: pointer;
 		}
 
-		.translation-language-source-container {
-			float: left;
+		.translation-language-source-container:after,
+		.translation-language-target-container:after {
+			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
+			content: "";
+			display: inline-block;
+			width: 20px;
+			height: 12px;
+			right: 2px;
+			position: absolute;
+			bottom: 50%;
+			margin-bottom: -6px;
 		}
 
+		.translation-language-source-container,
 		.translation-language-target-container {
-			float: right;
+			float: left;
 		}
 
 		.translation-language-arrow {
@@ -274,7 +257,7 @@ body {
 
 		.translation-language-arrow:before {
 			border-color: rgba(157,157,157, 0);
-			border-left-color: #9D9D9D;
+			border-left-color: #9d9d9d;
 			border-width: 19px;
 			border-left-width: 13px;
 			margin-top: -19px;

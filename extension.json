@@ -220,6 +220,7 @@
 				"ext.cx.source.selector",
 				"ext.cx.translationlist",
 				"ext.cx.suggestionlist",
+				"ext.uls.mediawiki",
 				"mediawiki.Uri",
 				"mediawiki.ui.button"
 			],

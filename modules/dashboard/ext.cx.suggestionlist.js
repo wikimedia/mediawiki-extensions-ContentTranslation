@@ -50,10 +50,6 @@
 		this.initLanguages();
 	};
 
-	CXSuggestionList.prototype.getLanguages = function () {
-		return $.Deferred().resolve( this.languages );
-	};
-
 	CXSuggestionList.prototype.initLanguages = function () {
 		var storedTargetLanguage, storedSourceLanguage;
 

@@ -50,36 +50,23 @@
 	};
 
 	/**
-	 * Populate the language filter
+	 * Set the language filter label
 	 *
-	 * @param {jQuery} $filter Source filter or target filter to fill
-	 * @param {String[]} languages Array of language codes
+	 * @param {jQuery} $filter Source filter or target filter
 	 * @param {String} selected Selected language code
 	 */
-	CXDashboard.prototype.populateLanguageFilter = function ( $filter, languages, selected ) {
-		var i, label, $options = [];
+	CXDashboard.prototype.setLanguageFilterLabel = function ( $filter, selected ) {
+		var label;
 
-		$filter.empty();
-
-		if ( $filter.is( '.translation-source-language-filter' ) ) {
+		if ( selected ) {
+			label = $.uls.data.getAutonym( selected );
+		} else if ( $filter.is( '.translation-source-language-filter' ) ) {
 			label = mw.msg( 'cx-translation-filter-from-any-language' );
 		} else {
 			label = mw.msg( 'cx-translation-filter-to-any-language' );
 		}
-		$options.push( $( '<option>' )
-			.text( label )
-			.attr( 'value', '' )
-		);
 
-		for ( i = 0; i < languages.length; i++ ) {
-			$options.push( $( '<option>' )
-				// Todo: use translated language name
-				.text( $.uls.data.getAutonym( languages[ i ] ) )
-				.prop( 'selected', selected === languages[ i ] )
-				.attr( 'value', languages[ i ] )
-			);
-		}
-		$filter.append( $options ).show();
+		$filter.text( label );
 	};
 
 	/**
@@ -201,22 +188,19 @@
 			.addClass( 'cx-filters' )
 			.append( $filterTabs );
 
-		this.$sourceLanguageFilter = $( '<select>' ).addClass( 'translation-source-language-filter' );
-		this.$targetLanguageFilter = $( '<select>' ).addClass( 'translation-target-language-filter' );
+		this.$sourceLanguageFilter = $( '<div>' )
+			.addClass( 'translation-source-language-filter' );
+		this.$targetLanguageFilter = $( '<div>' )
+			.addClass( 'translation-target-language-filter' );
+		this.setLanguageFilterLabel( this.$sourceLanguageFilter );
+		this.setLanguageFilterLabel( this.$targetLanguageFilter );
 		$sourceLanguageContainer = $( '<div>' )
 			.addClass( 'translation-language-source-container' )
-			.append(
-				this.$sourceLanguageFilter,
-				$( '<div>' )
-				.addClass( 'translation-language-select-arrow' )
-			);
+			.append( this.$sourceLanguageFilter );
 
 		$targetLanguageContainer = $( '<div>' )
 			.addClass( 'translation-language-target-container' )
-			.append(
-				this.$targetLanguageFilter,
-				$( '<div>' ).addClass( 'translation-language-select-arrow' )
-			);
+			.append( this.$targetLanguageFilter );
 
 		this.$listHeader.append(
 			this.$filter,
@@ -239,10 +223,8 @@
 		$.each( this.lists, function ( name, list ) {
 			if ( name === type ) {
 				list.show();
-				list.getLanguages().done( function ( languages ) {
-					self.populateLanguageFilter( self.$sourceLanguageFilter, languages, list.filters.sourceLanguage );
-					self.populateLanguageFilter( self.$targetLanguageFilter, languages, list.filters.targetLanguage );
-				} );
+				self.setLanguageFilterLabel( self.$sourceLanguageFilter, list.filters.sourceLanguage );
+				self.setLanguageFilterLabel( self.$targetLanguageFilter, list.filters.targetLanguage );
 			} else {
 				list.hide();
 			}
@@ -278,16 +260,30 @@
 			}
 		} );
 
-		this.$sourceLanguageFilter.on( 'change', function () {
-			var code = $( this ).val();
-
-			setFilter( 'sourceLanguage', code );
+		this.$sourceLanguageFilter.uls( {
+			onSelect: function ( language ) {
+				setFilter( 'sourceLanguage', language );
+			},
+			menuWidth: 'medium',
+			left: this.$sourceLanguageFilter.offset().left,
+			quickList: function () {
+				// TODO: We might need a smarter list here including previous translation
+				// languages.
+				return mw.uls.getFrequentLanguageList();
+			},
+			compact: true
 		} );
 
-		this.$targetLanguageFilter.on( 'change', function () {
-			var code = $( this ).val();
-
-			setFilter( 'targetLanguage', code );
+		this.$targetLanguageFilter.uls( {
+			onSelect: function ( language ) {
+				setFilter( 'targetLanguage', language );
+			},
+			menuWidth: 'medium',
+			left: this.$targetLanguageFilter.offset().left,
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList();
+			},
+			compact: true
 		} );
 
 		this.initSourceSelector();
@@ -299,6 +295,8 @@
 		var list = this.lists[ this.activeList ];
 		list.filters[ type ] = value;
 		list.applyFilters( list.filters );
+		this.setLanguageFilterLabel( this.$sourceLanguageFilter, list.filters.sourceLanguage );
+		this.setLanguageFilterLabel( this.$targetLanguageFilter, list.filters.targetLanguage );
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {

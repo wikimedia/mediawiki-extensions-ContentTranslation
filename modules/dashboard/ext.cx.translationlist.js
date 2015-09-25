@@ -87,18 +87,6 @@
 		this.$container.append( this.$translationsList );
 	};
 
-	CXTranslationList.prototype.getLanguages = function () {
-		var self = this;
-
-		if ( this.languages ) {
-			return $.Deferred().resolve( this.languages );
-		}
-
-		return this.loadItems().then( function () {
-			return self.languages;
-		} );
-	};
-
 	CXTranslationList.prototype.loadItems = function () {
 		var promise, self = this;
 
