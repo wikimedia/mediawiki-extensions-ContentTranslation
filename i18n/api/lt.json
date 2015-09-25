@@ -30,6 +30,7 @@
 	"apihelp-cxconfiguration-param-from": "Originalo kalbos kodas.",
 	"apihelp-cxconfiguration-param-to": "Kalbos, į kurią verčiama, kodas.",
 	"apihelp-cxconfiguration-example-1": "Gauti Turinio vertimo konfigūracijos JSON Ispanų-Katalonų kalbų porai",
+	"apihelp-query+contenttranslationsuggestions-description": "Gauti pasiūlymų sąrašus Turinio vertimui.",
 	"apihelp-query+cxpublishedtranslations-description": "Iškviesti visų paskelbtų vertimų informaciją",
 	"apihelp-query+cxpublishedtranslations-param-from": "Originalo kalbos kodas.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kalbos, į kurią verčiama, kodas.",

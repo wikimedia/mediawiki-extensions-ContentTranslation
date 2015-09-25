@@ -132,6 +132,8 @@
 	"cx-stats-draft-translations-label": "Преводи во тек",
 	"cx-stats-new-draft-translations-label": "Нови преводи во тек",
 	"cx-stats-published-translators-title": "Број на преведувачи",
+	"cx-stats-cumulative-tab-title": "Вкупно",
+	"cx-stats-weekly-trend-tab-title": "Неделно",
 	"cx-draft-discard-confirmation-message": "Дали сте сигурни дека сакате трајно да го избришете преводов?",
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Избриши го преводот",

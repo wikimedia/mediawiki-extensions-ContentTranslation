@@ -139,6 +139,7 @@
 	"cx-stats-draft-translations-label": "Tłumaczenia w toku",
 	"cx-stats-new-draft-translations-label": "Nowe tłumaczenia w toku",
 	"cx-stats-published-translators-title": "Liczba tłumaczy",
+	"cx-stats-cumulative-tab-title": "Razem",
 	"cx-draft-discard-confirmation-message": "Czy na pewno chcesz trwale usunąć to tłumaczenie?",
 	"cx-draft-cancel-button-label": "Anuluj",
 	"cx-draft-discard-button-label": "Usuń tłumaczenie",

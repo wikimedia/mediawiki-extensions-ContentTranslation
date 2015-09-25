@@ -141,6 +141,8 @@
 	"cx-stats-published-translations-title": "公開済みの翻訳",
 	"cx-stats-draft-translations-title": "進行中の翻訳",
 	"cx-stats-published-translators-title": "翻訳者数",
+	"cx-stats-cumulative-tab-title": "合計",
+	"cx-stats-weekly-trend-tab-title": "週ごと",
 	"cx-draft-discard-confirmation-message": "本当にこの翻訳を完全に削除しますか？",
 	"cx-draft-cancel-button-label": "キャンセル",
 	"cx-draft-discard-button-label": "翻訳を削除",

@@ -138,6 +138,8 @@
 	"cx-stats-draft-translations-label": "תרגומים בעבודה",
 	"cx-stats-new-draft-translations-label": "תרגומים חדשים בעבודה",
 	"cx-stats-published-translators-title": "מספר המתרגמים",
+	"cx-stats-cumulative-tab-title": "סה\"כ",
+	"cx-stats-weekly-trend-tab-title": "לשבוע",
 	"cx-draft-discard-confirmation-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",

@@ -120,6 +120,8 @@
 	"cx-stats-draft-translations-label": "Përkthime në progres",
 	"cx-stats-new-draft-translations-label": "Përkthime të reja në progres",
 	"cx-stats-published-translators-title": "Numri i përkthyesve",
+	"cx-stats-cumulative-tab-title": "Gjithsej",
+	"cx-stats-weekly-trend-tab-title": "Në javë",
 	"cx-draft-discard-confirmation-message": "Jeni i sigurt se doni ta fshini përgjithmonë këtë përkthim?",
 	"cx-draft-cancel-button-label": "Anulo",
 	"cx-draft-discard-button-label": "Fshini përkthimin",

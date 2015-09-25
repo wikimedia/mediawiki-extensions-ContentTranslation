@@ -5,7 +5,8 @@
 			"Aswanas",
 			"Pofka",
 			"Hugo.arg",
-			"Albertas"
+			"Albertas",
+			"Zygimantus"
 		]
 	},
 	"cx": "Versti puslapį",
@@ -100,10 +101,10 @@
 	"cx-translation-filter-published-translations": "Publikuota",
 	"cx-translation-filter-draft-translations": "Verčiama",
 	"cx-translation-filter-suggested-translations": "Pasiūlymai",
-	"cx-suggestionlist-empty-title": "Atsiprašome, nėra puslapių, kuriuos būtų galima pasiūlyti",
+	"cx-suggestionlist-empty-title": "Atsiprašome, nėra pasiūlytinų puslapių",
 	"cx-suggestionlist-empty-desc": "Galite pasirinkti bet kurią temą, kai pradedate naują vertimą",
 	"cx-suggestionlist-featured": "Rinktinis",
-	"cx-suggestionlist-view-source-page": "Peržiūrėti šaltinio puslapį",
+	"cx-suggestionlist-view-source-page": "Peržiūrėti kodo puslapį",
 	"cx-translation-filter-from-any-language": "Iš bet kokios kalbos",
 	"cx-translation-filter-to-any-language": "Į bet kokią kalbą",
 	"cx-create-new-translation": "Pradėti naują vertimą",
