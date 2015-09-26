@@ -136,6 +136,8 @@
 	"cx-stats-draft-translations-label": "Vertimai apdorojami",
 	"cx-stats-new-draft-translations-label": "Nauji vertimai apdorojami",
 	"cx-stats-published-translators-title": "Vertėjų skaičius",
+	"cx-stats-cumulative-tab-title": "Iš viso",
+	"cx-stats-weekly-trend-tab-title": "Per savaitę",
 	"cx-draft-discard-confirmation-message": "Ar tikrai šį vertimą norite panaikinti visam laikui?",
 	"cx-draft-cancel-button-label": "Atšaukti",
 	"cx-draft-discard-button-label": "Ištrinti vertimą",

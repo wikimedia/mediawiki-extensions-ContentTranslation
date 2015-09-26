@@ -129,6 +129,7 @@
 	"cx-stats-published-translations-title": "প্রকাশিত অনুবাদ",
 	"cx-stats-draft-translations-title": "অনুবাদ চলছে",
 	"cx-stats-published-translators-title": "অনুবাদকের সংখ্যা",
+	"cx-stats-cumulative-tab-title": "মোট",
 	"cx-draft-discard-confirmation-message": "আপনি কি স্থায়ীভাবে এই অনুবাদ মুছে ফেলার ব্যাপারে নিশ্চিত?",
 	"cx-draft-cancel-button-label": "বাতিল",
 	"cx-draft-discard-button-label": "অনুবাদ অপসারণ করুন",

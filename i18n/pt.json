@@ -135,6 +135,8 @@
 	"cx-stats-published-translations-title": "Traduções publicadas",
 	"cx-stats-draft-translations-title": "Traduções em andamento",
 	"cx-stats-published-translators-title": "Número de tradutores",
+	"cx-stats-cumulative-tab-title": "Total",
+	"cx-stats-weekly-trend-tab-title": "Por semana",
 	"cx-draft-discard-confirmation-message": "Tem certeza de que pretende eliminar permanentemente esta tradução?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Eliminar tradução",

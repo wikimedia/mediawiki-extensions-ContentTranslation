@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Babanwalia",
-			"Satdeep gill"
+			"Satdeep gill",
+			"ਪ੍ਰਚਾਰਕ"
 		]
 	},
 	"cx": "ਸਫ਼ਾ ਅਨੁਵਾਦ ਕਰੋ",
@@ -56,10 +57,6 @@
 	"cx-sourceselector-dialog-target-language-label": "ਵੱਲ:",
 	"cx-sourceselector-dialog-source-title-placeholder": "ਸਰੋਤ ਸਫ਼ੇ ਦੀ ਖੋਜ ਕਰੋ",
 	"cx-sourceselector-dialog-target-title-placeholder": "ਅਨੁਵਾਦ ਸਿਰਲੇਖ",
-	"apihelp-query+cxpublishedtranslations-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-query+cxpublishedtranslations-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-query+contenttranslationlangtrend-param-source": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-query+contenttranslationlangtrend-param-target": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"cx-save-draft-save-success": "{{PLURAL:$1|ਇੱਕ ਮਿੰਟ ਪਹਿਲਾਂ|$1 ਮਿੰਟ ਪਹਿਲਾਂ|0=ਹੁਣੇ}} ਸਾਂਭਿਆ ਗਿਆ",
 	"cx-save-draft-saving": "ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
 	"cx-contributions-new-contributions": "ਨਵਾਂ ਯੋਗਦਾਨ",
@@ -73,9 +70,7 @@
 	"cx-translation-status-draft": "ਕੰਮ ਚੱਲ ਰਿਹਾ ਹੈ",
 	"cx-translation-status-published": "ਪ੍ਰਕਾਸ਼ਿਤ",
 	"cx-translation-status-deleted": "ਮਿਟਾਏ ਗਏ",
-	"cx-magnus-tool-link-text": "ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਵਿੱਚ ਗ਼ੈਰ-ਮੌਜੂਦਾ ਲੇਖਾਂ ਨੂੰ ਲੱਭੋ",
-	"apihelp-cxdelete-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-cxdelete-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"cx-magnus-tool-link-text": "ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਗ਼ੈਰ-ਮੌਜੂਦਾ ਲੇਖਾਂ ਨੂੰ ਲੱਭੋ",
 	"cx-publishing-dialog-publish-draft-button": "ਖਰੜੇ ਦੇ ਤੌਰ ਉੱਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ",
 	"cx-feedback-link": "ਸਲਾਹ ਦੇਵੋ",
 	"cx-stats-published-translations-title": "ਪ੍ਰਕਾਸ਼ਿਤ ਅਨੁਵਾਦ",
@@ -89,7 +84,6 @@
 	"cx-campaign-contributionsmenu-mycontributions": "ਯੋਗਦਾਨ",
 	"cx-campaign-contributionsmenu-mytranslations": "ਅਨੁਵਾਦ",
 	"cx-campaign-contributionsmenu-myuploads": "ਅਪਲੋਡ ਕੀਤਾ ਗਿਆ ਮੀਡੀਆ",
-	"cx-trend-all-translations": "ਸਾਰੇ ਅਨੁਵਾਦ",
 	"cx-trend-translations-to": "$1 ਭਾਸ਼ਾ ਵਿੱਚ ਕੀਤੇ ਅਨੁਵਾਦ",
 	"cx-stats-published-target-source": "ਵਿੱਚ ਅਨੁਵਾਦ",
 	"cx-stats-published-source-target": "ਤੋਂ ਅਨੁਵਾਦ"
