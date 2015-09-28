@@ -101,8 +101,6 @@
 		title = mw.Title.newFromText( mw.cx.sourceTitle );
 
 		if ( title ) {
-			mw.cx.sourceTitle = title.getPrefixedText();
-
 			if ( title.getNamespaceId() ) { // Non-main
 				// mw.Title's getPrefixedText() adds the localized namespace name,
 				// but it's localized for the current wiki's content language,
@@ -113,6 +111,9 @@
 				namespace = mw.cx.sourceTitle.match( '.+?:' )[ 0 ];
 
 				mw.cx.sourceTitle = namespace + title.getNameText();
+			} else {
+				// In the main space, normalize simply
+				mw.cx.sourceTitle = title.getPrefixedText();
 			}
 		}
 
