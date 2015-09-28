@@ -37,22 +37,27 @@
 		return sectionTypes.join( ',' );
 	};
 
+	/**
+	 * Get the source section by a given Id. These Ids are generated
+	 * by parsoid. Usually it is prefixed with 'mw'. But it is not
+	 * guaranteed. Sometimes templates assign their own ids to sections.
+	 * See T112253
+	 *
+	 * @param  {string} id Source section id.
+	 * @return {jQuery}
+	 */
 	mw.cx.getSourceSection = function ( id ) {
-		// Sanity check, id should be either a number or prefixed with mw
-		if ( !id || ( isNaN( id ) && id.indexOf( 'mw' ) !== 0 ) ) {
-			return $( [] );
-		} else {
-			return $( document.getElementById( id ) );
-		}
+		return $( document.getElementById( id ) );
 	};
 
+	/**
+	 * Get the target section by a given source section Id.
+	 *
+	 * @param  {string} id Source section id.
+	 * @return {jQuery}
+	 */
 	mw.cx.getTranslationSection = function ( id ) {
-		// Sanity check
-		if (  !id || isNaN( id ) && id.indexOf( 'mw' ) !== 0 ) {
-			return $( [] );
-		} else {
-			return $( document.getElementById( 'cx' + id ) );
-		}
+		return $( document.getElementById( 'cx' + id ) );
 	};
 
 	/**
