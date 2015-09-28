@@ -209,7 +209,7 @@ class CxFixStats extends Maintenance {
 		$dbr = wfGetDB( DB_SLAVE );
 		$conds = array();
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
-		#$conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
+		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['rev_page'] = $title->getArticleId();
 		$conds[] = 'rev_id = ct_rev_id';
 		$conds['ct_tag'] = 'contenttranslation';
