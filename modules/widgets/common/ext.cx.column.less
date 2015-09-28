@@ -1,0 +1,83 @@
+// Common styles for source or tanslation columns of translation view
+@import "ext.cx.common";
+
+.cx-widget__columns {
+	margin-top: 100px;
+	min-height: 100vh;
+
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+
+.cx-column {
+	.mw-ui-item;
+	.mw-ui-one-third;
+	.mw-ui-gutter(3%);
+}
+
+.cx-column__sub-heading {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 5px 0;
+	line-height: 2em;
+}
+
+.cx-column__content {
+	line-height: 1.5em;
+	clear: both;
+	word-wrap: break-word;
+	position: relative;
+
+	table,
+	figure,
+	figure[typeof*='mw:Image'] {
+		float: none;
+	}
+}
+
+.cx-column__language-label,
+.cx-column__sub-heading__view-page {
+	.mw-ui-one-half;
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-height: 3em;
+}
+
+.cx-column__language-label {
+	text-align: left;
+	color: @gray-dark;
+}
+
+.cx-column__title {
+	font-size: 2.2em;
+	color: @gray-darker;
+	font-family: 'Linux Libertine', Georgia, Times, serif;
+	margin-bottom: 10px;
+}
+
+.stick-to-side() {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+.stick-to-bottom() {
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.05);
+	max-height: 20%;
+	min-height: 3em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: max-height 0.25s;
+
+	&:hover {
+		max-height: 50%;
+	}
+}

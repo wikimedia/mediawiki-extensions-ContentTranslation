@@ -1,16 +1,5 @@
-@import "../../widgets/common/ext.cx.common";
+@import "../../widgets/common/ext.cx.column";
 @import "../../widgets/common/ext.cx.highlight";
-
-.cx-column--source {
-	.cx-column__language-label,
-	.cx-column__sub-heading__view-page {
-		.mw-ui-one-half;
-		padding: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		max-height: 3em;
-	}
-}
 
 .cx-column__loading-indicator {
 	margin-top: 100px;
@@ -19,5 +8,5 @@
 .cx-column__loading-indicator--text {
 	padding-top: 20px;
 	text-align: center;
-	color: #565656;
+	color: @gray-dark;
 }
