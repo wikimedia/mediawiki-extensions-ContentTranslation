@@ -11,7 +11,8 @@
 			"Fasouzafreitas",
 			"Vitorvicentevalente",
 			"TheGabrielZaum",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Rhcastilhos"
 		]
 	},
 	"cx": "Traduzir página",
@@ -74,7 +75,6 @@
 	"cx-tools-mt-dont-use": "Não usar tradução automática",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorias|0=Sem categorias}}",
 	"cx-stats-title": "Estatísticas do Tradutor de Conteúdo",
-	"cx-stats-unknown": "desconhecido",
 	"cx-tools-reference-title": "Referência",
 	"cx-tools-reference-add": "Adicionar referência",
 	"cx-tools-reference-remove": "Remover referência",
@@ -136,6 +136,7 @@
 	"cx-stats-published-translations-title": "Traduções publicadas",
 	"cx-stats-draft-translations-title": "Traduções em andamento",
 	"cx-stats-published-translators-title": "Número de tradutores",
+	"cx-stats-cumulative-tab-title": "Total",
 	"cx-draft-discard-confirmation-message": "Tem certeza de que pretende eliminar permanentemente esta tradução?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Apagar tradução",
@@ -156,7 +157,6 @@
 	"cx-stats-draft-source-target": "Traduções em andamento de",
 	"cx-stats-tabs-expand": "Ver todos os idiomas",
 	"cx-stats-total-published": "Total publicado",
-	"cx-stats-monthly-published": "Último mês",
 	"cx-stats-weekly-published": "Última Semana",
 	"cx-stats-local-published-number": "$1 em $2",
 	"cx-stats-local-published": "$1 ($3) em $2",

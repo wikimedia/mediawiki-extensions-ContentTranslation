@@ -21,7 +21,7 @@
 	"cx-publish-page-success": "Faqja e publikuar në $1",
 	"cx-publish-page-error": "Gabim gjatë ruajtjes së faqes",
 	"cx-publish-button": "Publiko përkthimin",
-	"cx-publish-button-publishing": "Duke u publikuar...",
+	"cx-publish-button-publishing": "Duke publikuar...",
 	"cx-publish-summary": "Krijuar nga përkthimi i faqes \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Ju lutem kërkoni ndihmë nga një përdorues me eksperiencë në këtë faqe, që të shqyrtojë përkthimin tuaj dhe ta publikoj atë ne hapësirën kryesore",
 	"cx-publish-gt-first-step-title": "Përkthimi juaj është publikuar si draft nën faqen e përdoruesit për tu shqyrtuar",
@@ -29,7 +29,7 @@
 	"cx-publish-gt-move-page-title": "Zhvendose faqen",
 	"cx-publish-gt-move-page-description": "Selektoni \"{{int:hapësirë e zbrazët për emërtim}}\" për t'i dhënë një emër të përshtatshëm faqes suaj.",
 	"cx-publish-gt-moved-title": "Faqja e përkthyer është lëvizur",
-	"cx-publish-gt-moved-description": "Kliko këtë link për të lexuar dhe përmirësuar faqen tuaj të përkthyer",
+	"cx-publish-gt-moved-description": "Kliko këtë link, për ta lexuar dhe përmirësuar faqen tënde të re të përkthyer",
 	"cx-publish-gt-published-title": "Urime, faqja është publikuar",
 	"cx-publish-gt-published-description": "Ju mund të klikoni \"{{int:vektori-shiko-edito}}\" për të përmirësuar faqen. Sigurohuni që ajo të jetë e lexueshme.",
 	"cx-translation-add-translation": "+Shtoni përkthim",
@@ -65,7 +65,6 @@
 	"cx-tools-mt-dont-use": "Mos e përdorni përkthimin e makinës",
 	"cx-tools-categories-count-message": "{{Shumës:$1|$1 kategori|$1 kategori|0=Nuk ka kategori}}",
 	"cx-stats-title": "Statistikat e përmbajtjes së përkthimit",
-	"cx-stats-unknown": "e panjohur",
 	"cx-tools-reference-title": "Burimi",
 	"cx-tools-reference-remove": "Heqni referencën",
 	"cx-tools-link-instruction-shortcut": "Mbani Shift + klikoni për të hapur një link",
@@ -137,6 +136,5 @@
 	"cx-trend-deletions": "Përkthime të fshira",
 	"cx-trend-translations-to": "Përkthimet në gjuhën $1",
 	"cx-stats-all-translations-title": "Përkthime totale për të gjitha gjuhët",
-	"cx-stats-published-translations-label": "Përkthime të publikuara",
-	"cx-trend-translations-to-title": "Përkthime çdo javë të $1"
+	"cx-stats-published-translations-label": "Përkthime të publikuara"
 }
