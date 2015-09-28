@@ -153,12 +153,13 @@
 
 		this.$content = $( '<div>' )
 			.addClass( 'cx-column__content' );
-
 		this.$container.append( this.$title, $subHeading, this.$content );
 		this.showLoadingIndicator();
 	};
 
 	ContentTranslationSource.prototype.load = function ( content ) {
+		var self = this;
+
 		this.$content.html( content.segmentedContent );
 
 		// @todo figure out what should be done here
@@ -171,6 +172,18 @@
 		} catch ( e ) {
 			mw.log( 'Could not load ext.cite.style, References will fallback to default style' );
 		}
+
+		// Set absolute URLs for source links href attributes so that the links
+		// point to correct wiki instead of relative URL to current wiki
+		this.$content.find( 'a[rel="mw:WikiLink"]' ).each( function () {
+			var url,
+				$link = $( this );
+
+			url = self.siteMapper.getPageUrl(
+				mw.cx.sourceLanguage, cleanupLinkHref( $link.attr( 'href' ) )
+			);
+			$link.attr( 'href', url );
+		} );
 	};
 
 	/**
@@ -224,8 +237,6 @@
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		var self = this;
-
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
 		// Apply source filter plugin to the content
 		this.$content.cxFilterSource();
@@ -237,17 +248,11 @@
 		} );
 
 		this.$content.on( 'click', 'a', function ( e ) {
-			var url,
-				$link = $( this );
+			var $link = $( this );
 
 			// Allow link exploration
 			if ( e.shiftKey || e.ctrlKey ) {
-				url = self.siteMapper.getPageUrl(
-					mw.cx.sourceLanguage, cleanupLinkHref( $link.attr( 'href' ) )
-				);
-				window.open( url, '_blank' );
-
-				return false;
+				return true;
 			}
 
 			// Avoid all reference links
