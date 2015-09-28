@@ -33,7 +33,6 @@
 				width: $sourceSection.width(),
 				'margin-top': $sourceSection.css( 'margin-top' ),
 				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
-				display: 'block',
 				float: $sourceSection.css( 'float' ),
 				clear: $sourceSection.css( 'clear' ),
 				position: $sourceSection.css( 'position' )
