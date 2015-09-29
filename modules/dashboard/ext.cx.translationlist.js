@@ -35,8 +35,8 @@
 		this.promise = null;
 		this.queryContinue = null;
 		this.hasMore = true;
-		this.listen();
 		this.init();
+		this.listen();
 	}
 
 	/**
@@ -370,11 +370,10 @@
 		var translationList = this,
 			scrollHandler;
 
-		this.$container.on( 'click', '.cx-discard-translation', function ( e ) {
+		this.$translationsList.on( 'click', '.cx-discard-translation', function ( e ) {
 			var translation;
 
 			e.stopPropagation();
-
 			translation = $( e.target ).data( 'translation' );
 
 			translationList.showDiscardConfirmation( translation ).done( function () {
@@ -394,7 +393,7 @@
 			} );
 		} );
 
-		this.$container.on( 'click', '.cx-translationlist > .cx-tlitem', function () {
+		this.$translationsList.on( 'click', '.cx-tlitem', function () {
 			if ( $( this ).hasClass( 'cx-translation-deleted' ) ) {
 				return;
 			}
@@ -490,7 +489,7 @@
 	 * @param {Object} translation
 	 */
 	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
-		$( '#translation' + translation.id )
+		translation.$element
 			.addClass( 'cx-translation-deleted' )
 			.find( '.status' )
 			.removeClass( 'status-draft status-published' )
