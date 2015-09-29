@@ -9,7 +9,7 @@
 .card__title-row {
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	color: #c9c9c9; // TODO Should come from library?
+	color: @gray;
 	font-size: medium;
 	padding-top: 8px;
 }
@@ -24,7 +24,7 @@
 	font-size: x-large;
 	font-weight: lighter;
 	line-height: 1.5em;
-	color: #565656; // TODO Should come from library?
+	color: @gray-dark;
 }
 
 .card__definition {
@@ -35,7 +35,7 @@
 	float: none; // XXX why would it be needed?
 	padding: @vertical-margin @horizontal-margin;
 	line-height: 1.5em;
-	color: #565656; // TODO Should come from library?
+	color: @gray-dark;
 }
 
 .card__translations {
@@ -55,8 +55,8 @@
 		border-radius: 2px;
 
 		&:hover {
-			background-color: #f0f0f0;
-			color: #252525;
+			background-color: @gray-light;
+			color: @gray-darker;
 		}
 	}
 }

@@ -45,7 +45,7 @@
 	float: none;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
-	color: #565656; // TODO Should come from library?
+	color: @gray-dark;
 	.background-image-svg('../images/clear.svg', '../images/clear.png');
 	background-repeat: no-repeat;
 	background-color: #FFFFFF;
@@ -64,7 +64,7 @@
 	.mw-ui-one-whole;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
-	color: #565656; // TODO Should come from library?
+	color: @gray-dark;
 	.background-image-svg('../images/add.svg', '../images/add.png');
 	background-repeat: no-repeat;
 	background-position: left 10px center;
@@ -93,7 +93,7 @@
 	&:empty {
 		.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
 		background-repeat: no-repeat;
-		background-color: #fbfbfb;
+		background-color: @gray-lighter;
 		background-position: center center;
 		border-right: 1px solid #eeeeee;
 	}
@@ -134,7 +134,7 @@
 	.card__link-image-container  {
 		.background-image-svg('../images/question-mark.svg', '../images/question-mark.png');
 		background-repeat: no-repeat;
-		background-color: #fbfbfb;
+		background-color: @gray-lighter;
 		background-position: center center;
 		border-right: 1px solid #eeeeee;
 	}
@@ -149,7 +149,7 @@
 	.card__link-image-container {
 		.background-image-svg('../images/link_flagged_lightgray.svg', '../images/link_flagged_lightgray.png');
 		background-repeat: no-repeat;
-		background-color: #fbfbfb;
+		background-color: @gray-lighter;
 		background-position: center center;
 		border-right: 1px solid #eeeeee;
 	}
@@ -171,7 +171,7 @@
 .card__link-instruction {
 	.mw-ui-item;
 	.mw-ui-one-whole;
-	color: #565656;
+	color: @gray-dark;
 	font-size: large;
 	border-top: 1px solid #dddddd;
 	clear: both;
@@ -195,7 +195,7 @@
 		color: #777;
 
 		&:hover {
-			color: #252525;
+			color: @gray-darker;
 		}
 	}
 
