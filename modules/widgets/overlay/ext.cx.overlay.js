@@ -1,8 +1,4 @@
 /**
- * ContentTranslation Tools
- * A tool that allows editors to translate pages from one language
- * to another with the help of machine translation and other translation tools
- *
  * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
@@ -11,16 +7,36 @@
 ( function ( $, mw ) {
 	'use strict';
 	mw.cx.widgets = mw.cx.widgets || {};
+
 	/**
-	 * Generate an overlay element.
-	 * Usage:
-	 *  var $overlay = mw.cx.widgets.overlay()
-	 *  $(body).append( $overlay ); // Applies overlay
-	 *  $overlay.hide(); // Hide the overlay
-	 * @return {jQuery} the overlay element
+	 * An overlay UI for the page.
 	 */
-	mw.cx.widgets.overlay = function () {
-		return $( '<div>' )
-			.addClass( 'cx-overlay' );
+	function CXOverlay() {
+		this.$overlay = null;
+		this.init();
+	}
+
+	CXOverlay.prototype.init = function () {
+		this.$overlay = $( '<div>' ).addClass( 'cx-overlay' );
+
+		if ( !$( '.cx-overlay' ).length ) {
+			$( 'body' ).append( this.$overlay );
+		}
 	};
+
+	CXOverlay.prototype.show = function () {
+		this.$overlay.show();
+
+		// If the page scrolls, prevent scroll temporary.
+		if ( document.body.scrollHeight > document.body.clientHeight ) {
+			$( 'body' ).addClass( 'cx-noscroll' );
+		}
+	};
+
+	CXOverlay.prototype.hide = function () {
+		this.$overlay.hide();
+		$( 'body' ).removeClass( 'cx-noscroll' );
+	};
+
+	mw.cx.widgets.overlay = CXOverlay;
 }( jQuery, mediaWiki ) );

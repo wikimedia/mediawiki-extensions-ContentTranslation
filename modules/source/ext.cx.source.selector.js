@@ -30,7 +30,7 @@
 		this.$messageBar = null;
 		this.$sourceTitleInput = null;
 		this.$targetTitleInput = null;
-		this.$overlay = null;
+		this.overlay = null;
 		this.init();
 	}
 
@@ -657,12 +657,11 @@
 			left: left
 		} );
 
-		if ( !this.$overlay ) {
-			this.$overlay = mw.cx.widgets.overlay();
-			$( 'body' ).append( this.$overlay );
+		if ( !this.overlay ) {
+			this.overlay = new mw.cx.widgets.overlay();
 		}
 
-		this.$overlay.show();
+		this.overlay.show();
 		this.$dialog.show();
 	};
 
@@ -687,7 +686,7 @@
 		this.$messageBar.hide();
 
 		if ( !this.options.container ) {
-			this.$overlay.hide();
+			this.overlay.hide();
 			this.$dialog.hide();
 		}
 	};

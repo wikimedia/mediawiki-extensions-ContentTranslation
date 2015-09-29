@@ -30,7 +30,6 @@
 		this.$targetLanguageFilter = null;
 		this.$header = null;
 		this.$confirmationDialog = null;
-		this.$overlay = null;
 		this.active = false;
 		this.promise = null;
 		this.queryContinue = null;
@@ -427,14 +426,11 @@
 	 */
 	CXTranslationList.prototype.showDiscardConfirmation = function () {
 		var deferred, $cancelButton, $discardButton, $actions, $message,
-			translationList = this;
+			overlay, translationList = this;
 
 		deferred = $.Deferred();
 
-		if ( !this.$overlay ) {
-			this.$overlay = mw.cx.widgets.overlay();
-			$( 'body' ).append( this.$overlay );
-		}
+		overlay = new mw.cx.widgets.overlay();
 
 		if ( this.$confirmationDialog ) {
 			$cancelButton = this.$confirmationDialog.find( '.cx-draft-discard-dialog__cancel' );
@@ -461,18 +457,18 @@
 		$cancelButton.one( 'click', function () {
 			deferred.reject();
 			translationList.$confirmationDialog.hide();
-			translationList.$overlay.hide();
+			overlay.hide();
 			$discardButton.off( 'click' );
 		} );
 
 		$discardButton.one( 'click', function () {
 			deferred.resolve();
 			translationList.$confirmationDialog.hide();
-			translationList.$overlay.hide();
+			overlay.hide();
 			$cancelButton.off( 'click' );
 		} );
 
-		this.$overlay.show();
+		overlay.show();
 		this.$confirmationDialog.show();
 
 		return deferred.promise();
