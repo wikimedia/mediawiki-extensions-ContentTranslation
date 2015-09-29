@@ -654,8 +654,7 @@
 
 		this.$dialog.css( {
 			top: top,
-			left: left,
-			'z-index': 100
+			left: left
 		} );
 
 		if ( !this.$overlay ) {
