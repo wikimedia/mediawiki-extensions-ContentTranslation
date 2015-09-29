@@ -22,15 +22,27 @@
 	 * @return {string[]} target languages
 	 */
 	function getSuggestedTargetLanguages() {
-		var specialCode, specialCodes, specialCodeIndex,
+		var i, specialCode, specialCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
+			acceptLanguages,
 			possibleTargetLanguages = [],
 			pageLanguage = mw.config.get( 'wgPageContentLanguage' );
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
 
-		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
+		acceptLanguages = mw.uls.getAcceptLanguageList();
+		// Accept language codes can have country extensions like en-US.
+		// So remove them so that it is like domain code format.
+		for ( i = 0; i < acceptLanguages.length; i++ ) {
+			// be-tarask has hyphen in the code
+			if ( acceptLanguages[ i ] === 'be-tarask' ) {
+				continue;
+			}
+			acceptLanguages[ i ] = acceptLanguages[ i ].split( '-' )[ 0 ];
+		}
+
+		$.merge( possibleTargetLanguages, acceptLanguages );
 		$.merge( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
 
 		// Replace possibly non-standard, macro and duplicate language codes
@@ -51,9 +63,7 @@
 		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
 
 		return $.grep( uniquePossibleTargetLanguages, function ( language ) {
-			return language !== pageLanguage &&
-				// Known language for ULS
-				language !== $.uls.data.getAutonym( language );
+			return language !== pageLanguage;
 		} );
 	}
 
@@ -77,7 +87,6 @@
 		} else {
 			autonym = $.uls.data.getAutonym( code );
 		}
-
 		// TODO: This should be done more robustly.
 		// We can't use something like wgContentLanguage because this
 		// will fail for a wiki like simple.wikipedia.org, where
@@ -119,6 +128,8 @@
 
 		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
 
+		// We load the below modules only when required to show gray interlanguage links.
+		// This is important since gray interlanguage links appear in along with articles.
 		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];
 
 		mw.loader.using( dependencies, function () {
@@ -133,7 +144,9 @@
 
 			$pLangList = $( '#p-lang ul' );
 			$.each( suggestedTargetLanguages, function ( i, code ) {
-				if ( !pageInLanguageExists( code ) ) {
+				// Code should not be a language in which page exists.
+				// Also it should be known language for ULS.
+				if ( !pageInLanguageExists( code ) && code !== $.uls.data.getAutonym( code ) ) {
 					$newItem = createCXInterlanguageItem( code );
 					$pLangList.prepend( $newItem );
 					$newItem.cxEntryPoint( {
