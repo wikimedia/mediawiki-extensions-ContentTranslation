@@ -7,7 +7,8 @@
 			"Breogan2008",
 			"Fisterraeomar",
 			"Banjo",
-			"Amire80"
+			"Amire80",
+			"Macofe"
 		]
 	},
 	"cx": "Traducir unha páxina",
@@ -151,7 +152,7 @@
 	"cx-trend-deletions": "Traducións borradas",
 	"cx-trend-translations-to": "Traducións ao $1",
 	"cx-stats-try-contenttranslation": "A tradución de contido é unha ferramenta para crear novas páxinas traducindo desde outras linguas. [$1 Probe a tradución de contido]",
-	"cx-stats-all-translations-title": "Total de traduccións a todos os idiomas",
+	"cx-stats-all-translations-title": "Traduccións a todos os idiomas",
 	"cx-stats-published-translations-label": "Traducións publicadas",
 	"cx-stats-published-target-source": "Traducións ao",
 	"cx-stats-published-source-target": "Traducións do",

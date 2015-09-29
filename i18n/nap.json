@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"C.R.",
-			"Candalua"
+			"Candalua",
+			"Macofe"
 		]
 	},
 	"cx": "Traduce 'a paggena",
@@ -148,7 +149,7 @@
 	"cx-trend-deletions": "Scanciella traduzioni",
 	"cx-trend-translations-to": "Traduziune 'n lengua $1",
 	"cx-stats-try-contenttranslation": "Traduzione 'e Cuntenute è nu tool ca criasse 'e paggene facenno 'a traduzione 'a ll'ati llengue. [$1 Prova Content Translation]",
-	"cx-stats-all-translations-title": "Tuttuquante traduziune 'n tuttuquante llengue",
+	"cx-stats-all-translations-title": "Traduziune 'n tuttuquante llengue",
 	"cx-stats-published-translations-label": "Traduziune pubbrecate",
 	"cx-stats-published-target-source": "Traduziune mmerz'a",
 	"cx-stats-published-source-target": "Traduziune 'a",
