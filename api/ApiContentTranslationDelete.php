@@ -25,7 +25,7 @@ class ApiContentTranslationDelete extends ApiBase {
 		$translation = $translation->translation;
 		$translationId = $translation['id'];
 		if ( $translationId === null ||
-			$translator->getGlobalUserId() !== intval( $translation['startedTranslator'] ) ) {
+			$translator->getGlobalUserId() !== intval( $translation['lastUpdatedTranslator'] ) ) {
 			// Translation does not exist or belong to another translator
 			$this->dieUsageMsg( array( 'invalidtitle', $params['sourcetitle'] ) );
 		}
