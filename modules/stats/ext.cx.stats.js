@@ -454,6 +454,7 @@
 
 			$translations.find( '.cx-stats-chart__bar' ).last().callout( {
 				trigger: 'hover',
+				classes: 'cx-stats-chart__callout-container',
 				direction: $.fn.callout.autoDirection( '0' ),
 				content: $callout
 			} );
