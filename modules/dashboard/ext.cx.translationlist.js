@@ -84,7 +84,7 @@
 	CXTranslationList.prototype.init = function () {
 		this.$translationsList = $( '<div>' )
 			.addClass( 'cx-translationlist' );
-		this.$container.append( this.$translationsList );
+		this.$container.append( this.$translationsList, this.$emptyTranslationsList );
 	};
 
 	CXTranslationList.prototype.loadItems = function () {
@@ -95,10 +95,13 @@
 		}
 		promise = this.getTranslations();
 		promise.done( function ( translations ) {
-			if ( !translations.length ) {
+			self.translations = self.translations.concat( translations );
+
+			if ( !self.translations.length ) {
+				self.$emptyTranslationsList = self.buildEmptyTranslationList();
+				self.$translationsList.append( self.$emptyTranslationsList );
 				return;
 			}
-
 			self.translations = self.translations.concat( translations );
 			self.renderTranslations( translations );
 		} ).fail( function () {
@@ -339,6 +342,9 @@
 	CXTranslationList.prototype.buildEmptyTranslationList = function () {
 		var $img, $title, $desc;
 
+		if ( this.$emptyTranslationsList ) {
+			return this.$emptyTranslationsList;
+		}
 		$img = $( '<div>' )
 			.addClass( 'cx-translationlist-empty__img' );
 		$title = $( '<div>' )

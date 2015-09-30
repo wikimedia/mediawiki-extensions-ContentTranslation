@@ -24,7 +24,6 @@
 		this.$targetLanguageFilter = null;
 		this.$header = null;
 		this.$confirmationDialog = null;
-		this.$overlay = null;
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
 		this.languages = [];
@@ -45,8 +44,7 @@
 	CXSuggestionList.prototype.init = function () {
 		this.seed = parseInt( Math.random() * 10000, 10 );
 		this.$suggestionList = $( '<div>' ).addClass( 'cx-suggestionlist' );
-		this.$emptySuggestionList = this.buildEmptySuggestionList();
-		this.$container.append( this.$suggestionList, this.$emptySuggestionList );
+		this.$container.append( this.$suggestionList );
 		this.initLanguages();
 	};
 
@@ -89,10 +87,14 @@
 		}
 		promise = this.getSuggestionLists();
 		promise.done( function ( suggestions ) {
-			if ( !suggestions ) {
-				return;
-			}
 			lists = suggestions.lists;
+			if ( !lists || !Object.keys( lists ).length ) {
+				self.$emptySuggestionList = self.buildEmptySuggestionList();
+				self.$suggestionList.append( self.$emptySuggestionList );
+				self.$emptySuggestionList.show();
+			} else if ( self.$emptySuggestionList ) {
+				self.$emptySuggestionList.hide();
+			}
 			self.lists = $.extend( self.lists, lists );
 			for ( listId in lists ) {
 				if ( lists.hasOwnProperty( listId ) ) {
@@ -153,7 +155,7 @@
 	CXSuggestionList.prototype.show = function () {
 		this.active = true;
 		this.$suggestionList.show();
-		if ( !this.lists.length ) {
+		if ( !Object.keys( this.lists ).length ) {
 			this.loadItems();
 		}
 	};
@@ -163,36 +165,49 @@
 		this.$suggestionList.hide();
 	};
 
-	CXSuggestionList.prototype.applyFilters = function ( filters ) {
-		var i, suggestion, visible, j, filterProp, filterValue, emptyList = true,
-			keys = Object.keys( filters );
+	/**
+	 * Match the suggestion with the current filter.
+	 * @param  {Object} suggestion
+	 * @return {Boolean}
+	 */
+	CXSuggestionList.prototype.matchesFilter = function ( suggestion ) {
+		var j, visible = true,
+			filterProp, filterValue,
+			keys = Object.keys( this.filters );
+
+		for ( j = 0; j < keys.length; j++ ) {
+			filterProp = keys[ j ];
+			filterValue = this.filters[ filterProp ];
+
+			if ( filterValue === null || filterValue === '' ) {
+				continue;
+			}
+			visible = visible && suggestion[ filterProp ] === filterValue;
+		}
+
+		return visible;
+	};
+
+	CXSuggestionList.prototype.applyFilters = function () {
+		var i, suggestion, visible;
 
 		for ( i = 0; i < this.suggestions.length; i++ ) {
 			suggestion = this.suggestions[ i ];
 
-			visible = true;
-			for ( j = 0; j < keys.length; j++ ) {
-				filterProp = keys[ j ];
-				filterValue = filters[ filterProp ];
-
-				if ( filterValue === null || filterValue === '' ) {
-					continue;
-				}
-
-				visible = visible && suggestion[ filterProp ] === filterValue;
-			}
-
+			visible = this.matchesFilter( suggestion );
 			if ( visible ) {
-				emptyList = false;
 				suggestion.$element.show();
 			} else {
 				suggestion.$element.hide();
 			}
 		}
-		if ( emptyList ) {
-			this.hasMore = true;
-			this.loadItems();
+		// Reset the ongoing request trackers
+		this.hasMore = true;
+		this.promise = null;
+		if ( this.$emptySuggestionList ) {
+			this.$emptySuggestionList.hide();
 		}
+		this.loadItems();
 	};
 
 	/**
@@ -273,7 +288,6 @@
 
 		for ( i = 0; i < suggestions.length; i++ ) {
 			suggestion = suggestions[ i ];
-			suggestion.id = 'suggestion' + i;
 			$suggestion = this.buildSuggestionItem( suggestion );
 			$suggestions.push( $suggestion );
 		}
@@ -366,13 +380,18 @@
 		suggestion.$element = $suggestion;
 		suggestion.$desc = $desc;
 		suggestion.$image = $image;
-
+		if ( !this.matchesFilter( suggestion ) ) {
+			suggestion.$element.hide();
+		}
 		return $suggestion;
 	};
 
 	CXSuggestionList.prototype.buildEmptySuggestionList = function () {
 		var $img, $title, $desc;
 
+		if ( this.$emptySuggestionList ) {
+			return this.$emptySuggestionList;
+		}
 		$img = $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty__img' );
 		$title = $( '<div>' )
@@ -383,8 +402,7 @@
 			.text( mw.msg( 'cx-suggestionlist-empty-desc' ) );
 		return $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty' )
-			.append( $img, $title, $desc )
-			.hide();
+			.append( $img, $title, $desc );
 	};
 
 	/**
