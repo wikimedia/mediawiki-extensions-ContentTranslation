@@ -3,7 +3,8 @@
 		"authors": [
 			"Fohanno",
 			"Y-M D",
-			"Ash Crow"
+			"Ash Crow",
+			"Amire80"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
@@ -44,7 +45,6 @@
 	"cx-tools-mt-restore": "Assevel",
 	"cx-tools-mt-not-available": "N'eus ket evit ar $1",
 	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
-	"cx-stats-unknown": "dianav",
 	"cx-tools-reference-title": "Daveenn",
 	"cx-tools-reference-remove": "Lemel an daveenn",
 	"cx-tools-link-hover-tooltip": "Klikañ evit digeriñ",
@@ -53,6 +53,8 @@
 	"cx-sourceselector-dialog-new-translation": "Troidigezh nevez",
 	"cx-sourceselector-dialog-button-start-translation": "Kregiñ da dreiñ",
 	"cx-sourceselector-dialog-button-cancel": "Nullañ",
+	"cx-sourceselector-dialog-source-language-label": "Eus",
+	"cx-sourceselector-dialog-target-language-label": "Da :",
 	"cx-publish-captcha-title": "Goulenn surentez",
 	"cx-translation-filter-all-translations": "An holl droidigezhioù",
 	"cx-contributions-translation": "Troidigezh",

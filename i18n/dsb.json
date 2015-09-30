@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"Amire80"
 		]
 	},
 	"cx": "Bok pśełožyś",
@@ -13,7 +14,7 @@
 	"cx-publish-page-error": "Zmólka pśi składowanju boka.",
 	"cx-publish-button": "Pśełožk wózjawiś",
 	"cx-publish-summary": "Pśez pśełožowanje boka \"$1\" napórany",
-	"tag-contenttranslation": "Wopśimjeśowy pśełožk",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Wopśimjeśowy pśełožk]]",
 	"cx-source-loading": "$1 se zacytujo",
 	"cx-special-login-error": "Musyš pśizjawjony byś, aby w toś tom boku pśełožył.",
 	"cx-tools-instructions-text1": "Pśidaj wótstawki, kótarež maju se pśełožowaś.",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bishnu Saikia",
-			"Gitartha.bordoloi"
+			"Gitartha.bordoloi",
+			"Amire80"
 		]
 	},
 	"cx": "পৃষ্ঠা অনুবাদ কৰক",
@@ -24,6 +25,7 @@
 	"cx-publish-gt-published-title": "অভিনন্দন, পৃষ্ঠাটো প্ৰকাশিত হৈছে",
 	"cx-translation-add-translation": "+ অনুবাদ যোগ কৰক",
 	"cx-translation-target-page-exists": "লক্ষ্য ৱিকিত [$1 $2] নামৰ এটা পৃষ্ঠা আছেই। পৃষ্ঠাটোৰ অন্য এটা শিৰোনাম দিয়াৰ কথা বিবেচনা কৰক।",
+	"cx-tools-link-title": "সংযোগ",
 	"cx-translation-filter-all-translations": "সমূহ অনুবাদ",
 	"cx-campaign-contributionsmenu-mycontributions": "বৰঙণি",
 	"cx-campaign-contributionsmenu-mytranslations": "অনুবাদ",

@@ -149,6 +149,7 @@
 	"cx-trend-translations-to": "الترجمات إلى $1",
 	"cx-stats-try-contenttranslation": "ترجمة المحتوى هي أداة لإنشاء الصفحات بالترجمة من لغات أخرى. [$1 جرب ترجمة المحتوى]",
 	"cx-stats-all-translations-title": "إجمالي الترجمات لكل اللغات",
+	"cx-stats-published-translations-label": "الترجمات المنشورة",
 	"cx-stats-published-target-source": "الترجمات إلى",
 	"cx-stats-published-source-target": "الترجمات من",
 	"cx-stats-draft-target-source": "الترجمات الجاري العمل عليها إلى",

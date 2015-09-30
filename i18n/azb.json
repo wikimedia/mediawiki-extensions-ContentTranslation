@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Koroğlu",
-			"Alp Er Tunqa"
+			"Alp Er Tunqa",
+			"Amire80"
 		]
 	},
 	"cx-dashboard-header": "چئویرمه‌لر",
+	"cx-tools-link-title": "باغلانتی",
 	"cx-contributions-upload": "یۆکله‌مه‌لر",
 	"cx-campaign-contributionsmenu-mycontributions": "چالیشمالار",
 	"cx-campaign-contributionsmenu-mytranslations": "چئویرمه‌لر",

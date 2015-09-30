@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mavrikant",
-			"Wertuose"
+			"Wertuose",
+			"Amire80"
 		]
 	},
 	"cx-header-new-translation": "Tərcüməyə başla",
@@ -11,9 +12,9 @@
 	"cx-tools-link-add": "Keçid əlavə et",
 	"cx-tools-mt-title": "Maşın tərcümə",
 	"cx-sourceselector-dialog-button-cancel": "Ləğv et",
+	"cx-suggestionlist-featured": "Seçilmiş",
 	"cx-contributions-new-contributions": "Yeni töhfə",
 	"cx-contributions-new-article": "Yeni səhifə",
 	"cx-contributions-translation": "Tərcümə",
-	"cx-contributions-upload": "Mediafayl yüklə",
-	"cx-suggestionlist-featured": "Seçilmiş məqalə"
+	"cx-contributions-upload": "Mediafayl yüklə"
 }

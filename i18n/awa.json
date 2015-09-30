@@ -1,40 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"1AnuraagPandey"
+			"1AnuraagPandey",
+			"Amire80"
 		]
 	},
 	"cx-header-translation-center": "अनुवाद केन्द्र",
 	"cx-header-new-translation": "नवाँ अनुवाद",
 	"cx-header-all-translations": "कुल अनुवाद",
 	"cx-source-view-page": "पृष्ठ देखा जाए",
+	"cx-tools-link-title": "लिङ्क",
 	"cx-publish-captcha-title": "सुरक्षा प्रश्न",
 	"cx-translation-filter-all-translations": "कुल अनुवाद",
 	"cx-translation-filter-published-translations": "प्रकाशित अनुवाद",
 	"cx-translation-filter-draft-translations": "क्रियमाण अनुवाद",
 	"cx-translation-filter-from-any-language": "कवनो अन्य भाषा से",
 	"cx-translation-filter-to-any-language": "कवनो भी भाषा कय",
-	"cx-create-new-translation": "नया अनुवाद निर्मित करा जाए",
-	"cx-create-new-translation-desc": "उन शीर्षकों के लिए पृष्ठ निर्मित करेम जो आपकी भाषा में उपलब्ध नहीं हैं। यह हमारे अनुवाद उपकरण के माध्यम से बनाना आसान रहेगा। [https://en.wikipedia.org/wiki/Project:Translation#How_to_translate और अधिक जानें]",
-	"apihelp-cxpublish-description": "सामग्री_अनुवाद_विस्तार के उपयोग से निर्मित पृष्ठ को सहेजें।",
-	"apihelp-cxpublish-param-title": "पृष्ठ का शीर्षक निष्पादन कार्यों को चालु रखने के लिए है।",
-	"apihelp-cxpublish-param-html": "सामग्री सहेजने के लिए",
-	"apihelp-cxpublish-param-from": "स्रोत भाषा कुट",
-	"apihelp-cxpublish-param-to": "लक्ष्य भाषा कुट",
-	"apihelp-cxpublish-param-sourcetitle": "स्रोत पृष्ठ का शीर्षक",
-	"apihelp-cxpublish-param-sourcerevision": "स्रोत पृष्ठ का पुनरीक्षण",
-	"apihelp-cxpublish-param-status": "यदि \"draft\", अनुवाद को प्रालेख के रूप में सहेजा जायेगा। यदि \"published\", अनुवाद को प्रकाशित किया जायेगा।",
-	"apihelp-cxpublish-param-categories": "प्रकाशित पृष्ठ पर जोड़ी जाने वाली श्रेणियाँ।",
-	"apihelp-cxpublish-param-wpCaptchaId": "यंत्रमानव मनुष्य विभेदक पता (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
-	"apihelp-cxpublish-param-wpCaptchaWord": "यंत्रमानव मनुष्य विभेदक के लिए उत्तर (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
-	"apihelp-query+contenttranslation-description": "अनुवाद के लिए सामग्री_अनुवाद_डेटाबेस पर प्रश्न",
-	"apihelp-query+contenttranslation-param-translationid": "अनुवाद पता।",
-	"apihelp-query+contenttranslation-example-1": "वर्तमान सदस्य द्वारा आरम्भ किये गये अनुवाद प्राप्त करें",
-	"apihelp-query+contenttranslation-example-2": "आईडी द्वारा प्रालेखित अनुवाद प्राप्त करें",
-	"apihelp-query+contenttranslation-example-3": "दिये गयी भाषा युग्म के मध्य दिये गये शीर्षक के लिए कोई भी अनुवाद प्राप्त करें",
-	"apihelp-query+contenttranslationstats-example-1": "सभी भाषाओं के लिए सामग्री अनुवाद सांख्यिकी प्राप्त करें।",
-	"apihelp-cxconfiguration-param-from": "स्रोत भाषा कुट ।",
-	"apihelp-cxconfiguration-param-to": "स्रोत भाषा कुट",
-	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषा कोड",
-	"apihelp-query+cxpublishedtranslations-param-to": "लक्ष्य भाषा कोड"
+	"cx-create-new-translation": "नया अनुवाद निर्मित करा जाए"
 }

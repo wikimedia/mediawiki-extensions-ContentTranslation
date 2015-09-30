@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Bedynokue.nart",
-			"TheRossatron"
+			"TheRossatron",
+			"Amire80"
 		]
 	},
-	"cx-dashboard-header": "Зэредзэк1хэр",
+	"cx-dashboard-header": "ЗэредзэкӀхэр",
 	"cx-dashboard-sidebar-title": "Зэредзэк1хэмк1э 1эпы1эгъу горэм {{GENDER:|уфая}}?",
 	"cx-translation-filter-published-translations": "Къыдэгъэк1ыгъэу щыт",
 	"cx-create-new-translation": "Зэредзэк1 горэ егъажь",

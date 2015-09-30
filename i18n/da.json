@@ -4,7 +4,8 @@
 			"Christian List",
 			"Cgtdk",
 			"Gorbi",
-			"MGA73"
+			"MGA73",
+			"Amire80"
 		]
 	},
 	"cx": "Oversæt side",
@@ -34,7 +35,7 @@
 	"cx-publish-gt-published-description": "Du kan klikke på \"{{int:vector-view-edit}}\" for at fortsætte med at forbedre siden. Sørg for at den virker naturlig at læse.",
 	"cx-translation-add-translation": "+ Tilføj oversættelse",
 	"cx-translation-target-page-exists": "Der findes en side med titlen [$1 $2] på målwikien. Overvej at give siden en anden titel.",
-	"tag-contenttranslation": "Indholdsoversættelse",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Indholdsoversættelse]]",
 	"tag-contenttranslation-description": "Indholdet blev oversat fra et andet sprog ved hjælp af indholdsoversættelsesværktøjet.",
 	"cx-source-loading": "Indlæser $1",
 	"cx-beta": "Indholdsoversættelse",
@@ -66,7 +67,6 @@
 	"cx-tools-mt-dont-use": "Brug ikke maskinoversættelse",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Ingen kategorier}}",
 	"cx-stats-title": "Statistik for indholdsoversættelser",
-	"cx-stats-unknown": "ukendt",
 	"cx-tools-reference-title": "Reference",
 	"cx-tools-reference-remove": "Fjern reference",
 	"cx-tools-link-instruction-shortcut": "Skift + klik på et link for at åbne",
@@ -93,17 +93,6 @@
 	"cx-translation-filter-from-any-language": "Fra ethvert sprog",
 	"cx-translation-filter-to-any-language": "Til ethvert sprog",
 	"cx-create-new-translation": "Opret ny oversættelse",
-	"cx-create-new-translation-desc": "Opret sider til emner, der ikke findes på dit sprog. Det er nemt ved hjælp af vores oversættelsesværktøjer. [https://da.wikipedia.org/wiki/Wikipedia:Overs%C3%A6ttelser læs mere]",
-	"apihelp-cxpublish-description": "Gem en side der er oprettet ved hjælp af udvidelsen indholdsoversættelse.",
-	"apihelp-cxpublish-param-title": "Titlen på den side der skal udføres handlinger på.",
-	"apihelp-cxpublish-param-html": "Det indhold der skal gemmes.",
-	"apihelp-cxpublish-param-from": "Sprogkoden på kilden.",
-	"apihelp-cxpublish-param-to": "Sprogkoden på målet.",
-	"apihelp-cxpublish-param-sourcetitle": "Titlen på kildesiden.",
-	"apihelp-cxpublish-param-categories": "De kategorier der skal føjes til den udgivne side.",
-	"apihelp-query+contenttranslation-description": "Spørg indholdsoversættelses-databasen om oversættelser.",
-	"apihelp-query+contenttranslation-example-1": "Hent oversættelser startet af den aktuelle bruger.",
-	"apihelp-query+contenttranslationstats-example-1": "Hent statistik på indholdsoversættelser for alle sprog.",
 	"cx-save-draft-saving": "Gemmer...",
 	"cx-contributions-new-contributions": "Nyt bidrag",
 	"cx-contributions-new-article": "Ny side",
@@ -123,6 +112,5 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
 	"cx-campaign-contributionsmenu-mytranslations": "Oversættelser",
 	"cx-campaign-contributionsmenu-myuploads": "Uploadede medier",
-	"cx-trend-all-translations": "Alle oversættelser",
 	"cx-trend-translations-to": "Oversættelser til $1"
 }

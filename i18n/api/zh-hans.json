@@ -33,6 +33,7 @@
 	"apihelp-cxconfiguration-param-from": "源语言代码。",
 	"apihelp-cxconfiguration-param-to": "目标语言代码。",
 	"apihelp-cxconfiguration-example-1": "为西班牙语-加泰罗尼亚语语言配对获取内容翻译配置json",
+	"apihelp-query+contenttranslationsuggestions-description": "获取用于内容翻译的建议列表。",
 	"apihelp-query+contenttranslationsuggestions-param-from": "源语言代码。",
 	"apihelp-query+contenttranslationsuggestions-param-to": "目标语言代码。",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "要检索的翻译建议的最大数量。",

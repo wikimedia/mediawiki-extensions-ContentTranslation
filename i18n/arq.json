@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Oldstoneage",
-			"Hussam"
+			"Hussam",
+			"Amire80"
 		]
 	},
 	"cx": "طرجم الپاجة",
 	"cx-javascript": "هاد الآدة ما تمشيش بلا جافاسكريبت.",
+	"cx-tools-link-title": "وصيل",
 	"cx-tools-reference-add": "زيد وتيقة",
 	"cx-magnus-tool-link-text": "صيب آرتيكلات مخصوصة فل ويكي تاعك",
 	"cx-stats-published-translations-title": "طرجمات منشورين",

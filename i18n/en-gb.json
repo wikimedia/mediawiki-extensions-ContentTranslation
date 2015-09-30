@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Shirayuki",
-			"Chase me ladies, I'm the Cavalry"
+			"Chase me ladies, I'm the Cavalry",
+			"Amire80"
 		]
 	},
+	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licence] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-header-translation-center": "Translation centre",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages."
 }

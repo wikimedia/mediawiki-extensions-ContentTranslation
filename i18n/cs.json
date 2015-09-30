@@ -6,7 +6,8 @@
 			"Utar",
 			"YjM",
 			"Matěj Suchánek",
-			"Littledogboy"
+			"Littledogboy",
+			"Amire80"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -124,6 +125,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Překlady",
 	"cx-campaign-contributionsmenu-myuploads": "Načtené soubory",
 	"cx-trend-translations-to": "Překlady do jazyka $1",
+	"cx-stats-weekly-published": "Poslední týden",
 	"cx-tools-missing-link-title": "Odkazovaná stránka neexistuje",
 	"echo-category-title-cx": "překlady",
 	"echo-pref-tooltip-cx": "Upozorněte mě o mých překladech vytvořených pomocí nástroje Překlad obsahu",

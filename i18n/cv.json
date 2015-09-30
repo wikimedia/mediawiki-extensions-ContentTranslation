@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chuvash2014"
+			"Chuvash2014",
+			"Amire80"
 		]
 	},
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категори|$1 категорисем|0=Çук категорисем}}",
+	"cx-sourceselector-dialog-button-cancel": "Пăрахăçла",
 	"cx-trend-translations-to": "$1 çине куçарнисем"
 }

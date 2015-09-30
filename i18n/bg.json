@@ -3,7 +3,8 @@
 		"authors": [
 			"Mitzev",
 			"DCLXVI",
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"Amire80"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -11,7 +12,7 @@
 	"cx-license-agreement": "С натискане на бутона \"$1\" вие се съгласявате с [//wikimediafoundation.org/wiki/Terms_of_Use Условията за ползване] и безусловно се съгласявате с публикуване на вашите приноси чрез инструмента за превод под [https://creativecommons.org/licenses/by-sa/3.0/ условията на лиценза CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] с разбирането на това, че дадена хипервръзка или URL е достатъчна за приписване на CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: Не успяхте да се свържете със сървъра.",
 	"cx-desc": "Позволява лесно превеждане на съдържанието на страници",
-	"cx-header-progressbar-text": "Преведени $1%",
+	"cx-header-progressbar-text": "{{PLURAL:$1|Преведен|Преведени}} $1%",
 	"cx-header-progressbar-text-mt": "($1% машинен превод)",
 	"cx-header-translation-center": "Център за преводи",
 	"cx-header-new-translation": "Нов превод",
@@ -67,6 +68,5 @@
 	"cx-campaign-no-thanks": "Не, благодаря",
 	"cx-campaign-try": "Опитай Превод",
 	"cx-campaign-contributionsmenu-mycontributions": "Приноси",
-	"cx-campaign-contributionsmenu-mytranslations": "Преводи",
-	"cx-trend-all-translations": "Всички преводи"
+	"cx-campaign-contributionsmenu-mytranslations": "Преводи"
 }

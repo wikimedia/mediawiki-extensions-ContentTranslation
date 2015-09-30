@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Илья Драконов"
+			"Илья Драконов",
+			"Amire80"
 		]
 	},
+	"cx-tools-link-title": "съвѧꙁь",
 	"cx-tools-link-internal-link": "Ссылка на страницу",
 	"cx-tools-link-external-link-placeholder": "Добавить внешнюю ссылку",
 	"cx-tools-link-apply": "Сделано",

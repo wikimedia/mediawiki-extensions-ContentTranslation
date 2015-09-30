@@ -25,7 +25,7 @@
 	"cx-publish-gt-move-page-title": "АгӀон цӀе хийца",
 	"cx-publish-gt-moved-title": "Гоч йина агӀона цӀе хийцина",
 	"cx-translation-add-translation": "+ ТӀетоха гоч",
-	"tag-contenttranslation": "ГочЧулацам",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ГочЧулацам]]",
 	"cx-source-loading": "Чуйолуш $1",
 	"cx-beta": "Чулацам гочбан",
 	"cx-beta-desc": "АгӀонаш сиха гочяран гӀирс. Доладе гочдар [[Special:MyContributions|хьайн къинхьегаман]] чура агӀонаш тӀера, тае иза керлачу леррина гочдаран йина йолчу тадар чохь «дуьхь дуьхьала». Цхьаболу гӀирсаш къасттина меттанашкахь бен болх ца беш хила мега.",
