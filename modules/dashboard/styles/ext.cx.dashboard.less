@@ -196,21 +196,22 @@ body {
 		background: #fff;
 		padding: 0;
 
+		.translation-language-source-container,
+		.translation-language-target-container {
+			position: relative;
+			width: 45%;
+			cursor: pointer;
+			float: left;
+		}
+
 		.translation-source-language-filter,
 		.translation-target-language-filter {
 			padding: 10px;
 			line-height: 1em;
 		}
 
-		.translation-language-source-container,
-		.translation-language-target-container {
-			position: relative;
-			width: 45%;
-			cursor: pointer;
-		}
-
-		.translation-language-source-container:after,
-		.translation-language-target-container:after {
+		.translation-source-language-filter:after,
+		.translation-target-language-filter:after {
 			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
 			content: "";
 			display: inline-block;
@@ -220,11 +221,6 @@ body {
 			position: absolute;
 			bottom: 50%;
 			margin-bottom: -6px;
-		}
-
-		.translation-language-source-container,
-		.translation-language-target-container {
-			float: left;
 		}
 
 		.translation-language-arrow {
