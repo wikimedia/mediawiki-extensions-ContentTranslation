@@ -312,8 +312,10 @@
 			.attr( 'id', suggestion.id );
 		$image = $( '<div>' )
 			.addClass( 'cx-slitem__image' );
+
 		sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
 		targetDir = $.uls.data.getDir( suggestion.targetLanguage );
+
 		$translationLink = $( '<div>' )
 			.addClass( 'cx-slitem__translation-link' )
 			.attr( 'data-suggestion', JSON.stringify( suggestion ) )
@@ -346,8 +348,8 @@
 
 		$targetLanguage = $( '<div>' )
 			.prop( {
-				lang: suggestion.targetlanguage,
-				dir: sourceDir
+				lang: suggestion.targetLanguage,
+				dir: targetDir
 			} )
 			.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--target' )
 			.text( $.uls.data.getAutonym( suggestion.targetLanguage ) );
@@ -356,7 +358,13 @@
 			.addClass( 'cx-slitem__languages' )
 			.append( $sourceLanguage, $targetLanguage );
 
-		$desc = $( '<div>' ).addClass( 'cx-slitem__desc' ).hide();
+		$desc = $( '<div>' )
+			.prop( {
+				lang: suggestion.sourceLanguage,
+				dir: sourceDir
+			} )
+			.addClass( 'cx-slitem__desc' )
+			.hide();
 
 		$featured = $( [] );
 		if ( this.lists[ suggestion.listId ].name === 'cx-suggestionlist-featured' ) {
