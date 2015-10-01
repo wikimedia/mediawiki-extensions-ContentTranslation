@@ -224,7 +224,7 @@ class CxFixStats extends Maintenance {
 		// Allow one minute slack
 		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;
 
-		$tables = array( 'revision', 'change_tag' );
+		$tables = array( 'revision' );
 
 		$conds = array();
 		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
