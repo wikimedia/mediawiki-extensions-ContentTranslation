@@ -51,6 +51,7 @@
 					return;
 				}
 			}
+
 			deferred.resolve( imageNameSpace );
 		} ).fail( function () {
 			// Fallback to canonical name
@@ -61,13 +62,15 @@
 	}
 
 	/**
-	 * Check if an image is coming from Commons or not. Uses
-	 * the URL pattern image source,
+	 * Check if an image is coming from Commons or not.
+	 * Uses the URL pattern of the common file repository to determine
+	 * whether the image is stored there.
 	 *
 	 * @param {jQuery} $image
 	 * @return {boolean}
 	 */
 	function isCommonsImage( $image ) {
+		// TODO Make non-Wikimedia specific
 		if ( $image.attr( 'src' ).indexOf( '//upload.wikimedia.org/wikipedia/commons/' ) === 0 ) {
 			return true;
 		}
@@ -76,7 +79,7 @@
 	}
 
 	/**
-	 * Remove all non-Commons images since we cannot use it in target wiki.
+	 * Remove all non-Commons images since we cannot use them in target wiki.
 	 */
 	function removeNonCommonsImages() {
 		$( '[typeof*="mw:Image/Thumb"] img' ).each( function () {
@@ -89,38 +92,42 @@
 	}
 
 	function adaptImage( $section ) {
-		var targetLanguage = mw.cx.targetLanguage;
-
 		$section.find( 'img' ).each( function () {
-			var imageId, $sourceSection, $sourceImage, $image = $( this );
+			var imageId, $sourceSection, $sourceImage,
+				$image = $( this );
 
 			imageId = $image.prop( 'id' );
 			if ( !imageId ) {
 				return;
 			}
+
 			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
 			$sourceImage = $sourceSection.find( '#' + imageId );
 			$image.on( 'click', function ( event ) {
 				// Avoid opening images by clicking.
 				event.preventDefault();
 			} );
+
 			// Copy data-mw if any from source image.
-			// Math extension, for example, carry the equation to render in its data-mw
+			// Math extension's images, for example, carry the equation to render in its data-mw.
 			$image.attr( 'data-mw', $sourceImage.attr( 'data-mw' ) );
-			getImageNamespaceTranslation( targetLanguage )
+
+			getImageNamespaceTranslation( mw.cx.targetLanguage )
 				.done( function ( translatedNamespace ) {
 					var resource;
 
 					resource = $image.attr( 'resource' );
 					// Example replacement:
-					// ./Archivo:ImageName to ./Fitxer:ImageName
+					// ./Archivo:ImageName (es) to ./Fitxer:ImageName (ca)
 					if ( resource ) {
 						resource = resource.replace( /(\.\/)*(.+)(:)/g,
 							'$1' + translatedNamespace + '$3' );
+
 						$image.attr( {
 							resource: resource,
 							id: 'cx' + $sourceImage.prop( 'id' )
 						} );
+
 						// If the image has a parent link, correct its link target
 						$image.parents( 'a' ).attr( 'href', resource );
 					}
