@@ -378,7 +378,7 @@
 			$callout,
 			$row, width, max = 0,
 			$tail, tailWidth = 0,
-			tail,
+			tail, langCode,
 			$langCode, $autonym, $total, $rowLabelContainer,
 			fmt = mw.language.convertNumber;
 
@@ -417,15 +417,18 @@
 			$callout = $( '<table>' ).addClass( 'cx-stats-chart__callout' );
 			for ( j = 0; j < translations.length; j++ ) {
 				width = ( translations[ j ][ property ] / max ) * 100;
+				langCode = translations[ j ][ ( direction === 'to' ? 'sourceLanguage' : 'targetLanguage' ) ];
 
 				if ( width > 2 || j === 0 ) {
 					// languages with more than 2% are represented in chart.
 					$bar = $( '<span>' )
 						.addClass( 'cx-stats-chart__bar' )
+						.prop( {
+							lang: 'en',
+							dir: 'ltr'
+						} )
 						.css( 'width', parseInt( width ) + '%' )
-						.text( translations[ j ][ (
-								direction === 'to' ? 'sourceLanguage' : 'targetLanguage' )
-							] );
+						.text( langCode );
 
 					$translations.append( $bar );
 				} else {
@@ -439,8 +442,11 @@
 						.text( fmt( translations[ j ][ property ] ) ),
 					$( '<td>' )
 						.addClass( 'cx-stats-chart__callout-lang' )
-						.text( $.uls.data.getAutonym( translations[ j ][
-							direction === 'to' ? 'sourceLanguage' : 'targetLanguage' ] ) )
+						.prop( {
+							lang: langCode,
+							dir: $.uls.data.getDir( langCode )
+						} )
+						.text( $.uls.data.getAutonym( langCode ) )
 				) );
 			}
 
