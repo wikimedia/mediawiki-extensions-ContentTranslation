@@ -728,6 +728,11 @@
 		"ext.cx.interlanguagelink": {
 			"scripts": "entrypoint/ext.cx.interlanguagelink.js",
 			"styles": "entrypoint/styles/ext.cx.interlanguagelink.less",
+			"skinStyles": {
+				"vector": [
+					"entrypoint/styles/ext.cx.interlanguagelink.vector.less"
+				]
+			},
 			"messages": [
 				"cx-entrypoint-title"
 			],
