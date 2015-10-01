@@ -91,6 +91,37 @@
 		} );
 	}
 
+	/**
+	 * Adapt the image's alignment settings for the target language.
+	 * @param {jQuery} $image
+	 */
+	function adaptImageAlignment( $image ) {
+		var $figure;
+
+		if ( $.uls.data.getDir( mw.cx.sourceLanguage ) ===
+			$.uls.data.getDir( mw.cx.targetLanguage )
+		) {
+			// If the target language's direction is the same,
+			// there's nothing to do
+			return;
+		}
+
+		$figure = $image.parents( 'figure' );
+
+		// If the image has an explicit alignment class in HTML,
+		// this means that it has explicit alignment defined in
+		// wiki syntax.
+		// It must be explicitly flipped if the target language's direction
+		// is different.
+		if ( $figure.hasClass( 'mw-halign-right' ) ) {
+			$figure.removeClass( 'mw-halign-right' );
+			$figure.addClass( 'mw-halign-left' );
+		} else if ( $figure.hasClass( 'mw-halign-left' ) ) {
+			$figure.removeClass( 'mw-halign-left' );
+			$figure.addClass( 'mw-halign-right' );
+		}
+	}
+
 	function adaptImage( $section ) {
 		$section.find( 'img' ).each( function () {
 			var imageId, $sourceSection, $sourceImage,
@@ -111,6 +142,8 @@
 			// Copy data-mw if any from source image.
 			// Math extension's images, for example, carry the equation to render in its data-mw.
 			$image.attr( 'data-mw', $sourceImage.attr( 'data-mw' ) );
+
+			adaptImageAlignment( $image );
 
 			getImageNamespaceTranslation( mw.cx.targetLanguage )
 				.done( function ( translatedNamespace ) {
