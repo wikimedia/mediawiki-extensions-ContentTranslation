@@ -160,6 +160,7 @@
 	"cx-stats-tabs-expand": "Sien alle tale",
 	"cx-stats-total-published": "Totaal gepubliseer",
 	"cx-stats-weekly-published": "Laas week",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 vertaling|$1 vertalings}}",
 	"cx-tools-missing-link-tooltip": "Vertaal (in nuwe venster)",
 	"cx-tools-missing-link-title": "Ontbrekende skakel",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Merk}} as ontbrekend",

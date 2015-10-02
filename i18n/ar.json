@@ -100,6 +100,8 @@
 	"cx-translation-filter-published-translations": "المنشورة",
 	"cx-translation-filter-draft-translations": "الحالية",
 	"cx-translation-filter-suggested-translations": "اقتراحات",
+	"cx-suggestionlist-empty-desc": "يمكنك أن تختار أي موضوع عند بدء ترجمة جديدة",
+	"cx-suggestionlist-featured": "المميزة",
 	"cx-suggestionlist-view-source-page": "اعرض الصفحة المصدر",
 	"cx-translation-filter-from-any-language": "من أية لغة",
 	"cx-translation-filter-to-any-language": "إلى أية لغة",

@@ -24,7 +24,7 @@
 	"apihelp-query+contenttranslation-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-query+contenttranslation-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Tên trang gốc.",
-	"apihelp-query+contenttranslation-param-limit": "Số bản dịch tối đa để lấy. Mặc định là 100.",
+	"apihelp-query+contenttranslation-param-limit": "Số bản dịch tối đa để lấy.",
 	"apihelp-query+contenttranslation-param-offset": "Độ chệch vào kết quả (tùy chọn).",
 	"apihelp-query+contenttranslation-example-1": "Liệt kê các bản dịch do người dùng hiện tại bắt đầu.",
 	"apihelp-query+contenttranslation-example-2": "Hiển thị trang nháp của bản dịch theo ID.",

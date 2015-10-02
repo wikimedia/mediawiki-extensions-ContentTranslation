@@ -135,6 +135,7 @@
 	"cx-stats-draft-translations-title": "진행 중인 번역",
 	"cx-stats-draft-translations-label": "진행 중인 번역",
 	"cx-stats-published-translators-title": "번역자 수",
+	"cx-stats-cumulative-tab-title": "합계",
 	"cx-draft-discard-confirmation-message": "이 번역을 영구적으로 삭제하겠습니까?",
 	"cx-draft-cancel-button-label": "취소",
 	"cx-draft-discard-button-label": "번역 삭제",
