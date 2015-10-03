@@ -50,6 +50,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "用于计算趋势的间隔。可以是<kbd>week</kbd>或<kbd>month</kbd>。",
 	"apihelp-query+contenttranslationlangtrend-example-1": "取得用于语言配对es-ca的发布趋势，隔周一次",
 	"apihelp-query+contenttranslationlangtrend-example-2": "取得用于所有语言的发布趋势",
+	"apihelp-cxtoken-description": "获取JWT令牌以与cxserver一起验证。",
 	"apihelp-cxtoken-example-1": "从cxserver检索身份验证令牌",
 	"apihelp-cxdelete-description": "删除一个处在草稿阶段、使用内容翻译扩展创建的翻译。",
 	"apihelp-cxdelete-param-from": "源语言代码。",
