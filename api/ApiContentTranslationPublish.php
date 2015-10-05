@@ -26,6 +26,9 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function __construct( ApiMain $main, $name ) {
 		parent::__construct( $main, $name );
 		$this->serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
+		// Mounted at /restbase/ because it is a service speaking the
+		// RESTBase v1 API -- but the service responding to these API
+		// requests could be either Parsoid or RESTBase.
 		$this->serviceClient->mount( '/restbase/', $this->getVRSObject() );
 	}
 
@@ -82,6 +85,8 @@ class ApiContentTranslationPublish extends ApiBase {
 		return new $class( $params );
 	}
 
+	// Make a RESTBase v1 API request (which could be to either Parsoid or
+	// RESTBase; the VRS makes these appear identical).
 	private function requestRestbase( $method, $path, $params ) {
 		$request = array(
 			'method' => $method,
@@ -96,9 +101,9 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
 			return $response['body'];
 		} elseif ( $response['error'] !== '' ) {
-			$this->dieUsage( 'restbase-http-error: ' . $response['code'], $response['error'] );
+			$this->dieUsage( 'docserver-http-error: ' . $response['code'], $response['error'] );
 		} else { // error null, code not 200
-			$this->dieUsage( 'restbase-http: HTTP ' . $response['code'], $response['code'] );
+			$this->dieUsage( 'docserver-http: HTTP ' . $response['code'], $response['code'] );
 		}
 	}
 
@@ -119,7 +124,9 @@ class ApiContentTranslationPublish extends ApiBase {
 			)
 		);
 		if ( $wikitext === false ) {
-			$this->dieUsage( 'Error contacting the Parsoid server', 'parsoidserver' );
+			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );
+			$name = $vrsInfo[1] ? $vrsInfo[1]->getName() : 'unknown VRS service';
+			$this->dieUsage( 'Error contacting ' . $name, 'docserver' );
 		}
 		return $wikitext;
 	}
@@ -227,7 +234,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		try {
 			$wikitext = $this->convertHtmlToWikitext( $title, $params['html'] );
 		} catch ( MWException $e ) {
-			$this->dieUsage( $e->getMessage(), 'parsoidserver' );
+			$this->dieUsage( $e->getMessage(), 'docserver' );
 		}
 
 		$saveresult = $this->saveWikitext( $title, $wikitext, $params );
