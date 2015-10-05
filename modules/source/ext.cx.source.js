@@ -166,12 +166,8 @@
 		this.$content.find( 'base' ).detach();
 
 		mw.hook( 'mw.cx.source.ready' ).fire();
-		// Try to load ext.cite.style module. If Cite extension is not present, this can fail.
-		try {
-			mw.loader.using( 'ext.cite.style' );
-		} catch ( e ) {
-			mw.log( 'Could not load ext.cite.style, References will fallback to default style' );
-		}
+		// Try to load Cite styles. Silently ignored if not installed.
+		mw.loader.load( 'ext.cite.style' );
 
 		// Set absolute URLs for source links href attributes so that the links
 		// point to correct wiki instead of relative URL to current wiki
