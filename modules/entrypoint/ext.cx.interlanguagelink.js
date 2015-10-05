@@ -79,14 +79,7 @@
 	function createCXInterlanguageItem( code ) {
 		var from, $link, $item, autonym;
 
-		// Optimization: if it's just the user language,
-		// get the autonym from an available variable.
-		// Otherwise, get it from uls.data, which should be loaded by now.
-		if ( code === mw.config.get( 'wgUserLanguage' ) ) {
-			autonym = mw.config.get( 'wgULSCurrentAutonym' );
-		} else {
-			autonym = $.uls.data.getAutonym( code );
-		}
+		autonym = $.uls.data.getAutonym( code );
 		// TODO: This should be done more robustly.
 		// We can't use something like wgContentLanguage because this
 		// will fail for a wiki like simple.wikipedia.org, where
