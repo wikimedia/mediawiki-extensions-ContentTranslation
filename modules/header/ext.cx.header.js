@@ -22,7 +22,7 @@
 	function ContentTranslationHeader( element, siteMapper, headerText ) {
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
-		this.$saveStatus = null;
+		this.$draftStatus = null;
 		this.$publishButton = null;
 		this.$infoBar = null;
 
@@ -132,6 +132,7 @@
 	};
 
 	ContentTranslationHeader.prototype.listen = function () {
+		var self = this;
 		this.$publishButton.on( 'click', function () {
 			mw.hook( 'mw.cx.publish' ).fire();
 		} );
@@ -146,19 +147,31 @@
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
 		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.checkTargetTitle, this ) );
+
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.updateSaveStatus, this, 'progress' ) );
 		mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.updateSaveStatus, this, 'success' ) );
+		mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.updateSaveStatus, this, 'fail' ) );
+
+		mw.hook( 'mw.cx.draft.restoring' ).add( function () {
+			self.$draftStatus.text( mw.msg( 'cx-draft-restoring' ) );
+		} );
+		mw.hook( 'mw.cx.draft.restored' ).add( function () {
+			self.$draftStatus.text( mw.msg( 'cx-draft-restored' ) );
+		} );
+		mw.hook( 'mw.cx.draft.restore-failed' ).add( function () {
+			self.$draftStatus.text( mw.msg( 'cx-draft-restore-failed' ) );
+		} );
 	};
 
 	ContentTranslationHeader.prototype.updateSaveStatus = function ( status ) {
-		var $status = this.$saveStatus,
+		var $status = this.$draftStatus,
 			minutes = 0;
 
 		$status.attr( 'title', mw.msg( 'cx-save-draft-tooltip' ) );
 		clearTimeout( timer );
 		if ( status === 'progress' ) {
 			$status.text( mw.msg( 'cx-save-draft-saving' ) );
-		} else {
+		} else if ( status === 'success' ) {
 			$status.text( mw.msg( 'cx-save-draft-save-success', 0 ) );
 			timer = setInterval( function () {
 				minutes++;
@@ -166,8 +179,11 @@
 					mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
 				);
 			}, 60 * 1000 );
+		} else if ( status === 'fail' ) {
+			$status.text( mw.msg( 'cx-save-draft-error' ) );
 		}
 	};
+
 	/**
 	 * Render the header
 	 */
@@ -200,8 +216,8 @@
 			.addClass( 'cx-header__translation-center' )
 			.append( $translationCenterLink );
 
-		this.$saveStatus = $( '<div>' )
-			.addClass( 'cx-header__save-status' );
+		this.$draftStatus = $( '<div>' )
+			.addClass( 'cx-header__draft-status' );
 
 		this.$publishButton = $( '<button>' )
 			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-constructive' )
@@ -214,7 +230,7 @@
 
 		$headerBar = $( '<div>' )
 			.addClass( 'cx-header__bar' )
-			.append( $translationCenter, this.$saveStatus, $publishArea );
+			.append( $translationCenter, this.$draftStatus, $publishArea );
 
 		this.$infoBar = $( '<div>' )
 			.addClass( 'cx-header__infobar' )

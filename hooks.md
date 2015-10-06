@@ -155,6 +155,22 @@ Fired to request saving a translation as a draft.
 
 Fired after a translation was successfully saved as a draft.
 
+## mw.cx.translation.save-failed
+
+Fired after a translation save failed
+
+## mw.cx.draft.restoring
+
+Fired when the draft translation restore started
+
+## mw.cx.draft.restored
+
+Fired when the draft translation restore finished successfully
+
+## mw.cx.draft.restore-failed
+
+Fired when the draft translation restore failed.
+
 # mw.cx.dashboard.ready
 
 Fired when the Content Translation dashboard is ready.

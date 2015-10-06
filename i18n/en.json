@@ -192,5 +192,8 @@
 	"cx-tools-link-external-link-placeholder": "Add external link",
 	"cx-tools-link-to-another-page": "Link to another page",
 	"cx-tools-link-apply": "Done",
-	"mw-pageselector-missing": "Page does not exist"
+	"mw-pageselector-missing": "Page does not exist",
+	"cx-draft-restoring": "Loading the saved translation...",
+	"cx-draft-restored": "Saved translation loaded.",
+	"cx-draft-restore-failed": "Failed to load the saved translation!"
 }

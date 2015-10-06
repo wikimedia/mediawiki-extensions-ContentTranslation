@@ -138,6 +138,7 @@
 		var self = this,
 			api = new mw.Api();
 
+		mw.hook( 'mw.cx.draft.restoring' ).fire();
 		// TODO: The fetch can start immediately when the module loaded
 		// Only the restoring part need to delay till placeholders are rendered.
 		// Now there is a visible delay between placeholder rendering and restoring draft.
@@ -155,6 +156,7 @@
 			self.$draft = $( draftContent );
 			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
 				self.restore();
+				mw.hook( 'mw.cx.draft.restored' ).fire();
 			} );
 		} ).fail( function () {
 			var uri = new mw.Uri();
@@ -162,6 +164,7 @@
 			// Wrong draft id passed.
 			delete uri.query.draft;
 			location.href = uri.toString();
+			mw.hook( 'mw.cx.draft.restore-failed' ).fire();
 		} );
 	};
 
@@ -352,9 +355,8 @@
 		} ).fail( function ( errorCode ) {
 			if ( errorCode === 'assertuserfailed' ) {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
-			} else {
-				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
 			}
+			mw.hook( 'mw.cx.translation.save-failed' ).fire();
 		} );
 	};
 
