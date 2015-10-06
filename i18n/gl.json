@@ -137,6 +137,8 @@
 	"cx-stats-draft-translations-label": "Traducións en progreso",
 	"cx-stats-new-draft-translations-label": "Novas traducións en progreso",
 	"cx-stats-published-translators-title": "Número de tradutores",
+	"cx-stats-cumulative-tab-title": "Total",
+	"cx-stats-weekly-trend-tab-title": "Por semana",
 	"cx-draft-discard-confirmation-message": "Está {{GENDER:|seguro|segura}} de querer borrar de forma permanente esta tradución?",
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Borrar a tradución",

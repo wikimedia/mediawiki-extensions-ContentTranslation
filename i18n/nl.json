@@ -152,6 +152,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Geüploade media",
 	"cx-trend-translations-to": "Vertalingen naar het $1",
 	"cx-stats-try-contenttranslation": "Content Translation is een hulpmiddel om nieuwe pagina's aan te maken door vanuit andere talen te vertalen. [$1 Probeer Content Translation]",
+	"cx-stats-published-translations-label": "Gepubliceerde vertalingen",
 	"cx-stats-published-target-source": "Vertalingen naar",
 	"cx-stats-published-source-target": "Vertalingen vanuit het",
 	"cx-stats-draft-target-source": "Vertalingen in bewerking naar",
