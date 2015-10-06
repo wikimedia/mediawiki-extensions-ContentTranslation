@@ -220,14 +220,7 @@
 			$loadingIndicatorText.html().replace( '$1', $sourceTitle.get( 0 ).outerHTML )
 		);
 
-		$loadingIndicatorSpinner = $( '<div>' )
-			.addClass( 'cx-spinner' )
-			.append(
-				$( '<div>' ).addClass( 'bounce1' ),
-				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' )
-			);
-
+		$loadingIndicatorSpinner = mw.cx.widgets.spinner();
 		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
 		this.$content.append( $loadingIndicator );
 	};

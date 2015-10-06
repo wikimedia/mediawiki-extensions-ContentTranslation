@@ -148,14 +148,7 @@
 	}
 
 	function markMTLoading( $section ) {
-		$section
-			.empty()
-			.addClass( 'cx-spinner' )
-			.append(
-				$( '<div>' ).addClass( 'bounce1' ),
-				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' )
-			);
+		$section.empty().append( mw.cx.widgets.spinner() );
 	}
 
 	/**

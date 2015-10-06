@@ -24,13 +24,7 @@
 		var self = this,
 			$spinner;
 
-		$spinner = $( '<div>' )
-			.addClass( 'cx-spinner cx-spinner--tools' )
-			.append(
-				$( '<div>' ).addClass( 'bounce1' ),
-				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' )
-			);
+		$spinner = mw.cx.widgets.spinner();
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
 		this.$container.append( $spinner, this.$highlights );
 

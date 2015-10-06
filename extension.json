@@ -977,6 +977,9 @@
 			]
 		},
 		"ext.cx.widgets.spinner": {
+			"scripts": [
+				"widgets/spinner/ext.cx.spinner.js"
+			],
 			"styles": [
 				"widgets/spinner/ext.cx.spinner.less"
 			]

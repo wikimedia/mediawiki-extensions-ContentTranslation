@@ -46,7 +46,7 @@
 	};
 
 	ContentTranslationTools.prototype.render = function () {
-		var $progressBar, $searchBox, $loadingIndicator;
+		var $progressBar, $searchBox;
 
 		$progressBar = $( '<div>' )
 			.addClass( 'cx-header__progressbar' )
@@ -75,25 +75,11 @@
 			.append( $searchBox )
 			.cxFeedback();
 
-		$loadingIndicator = getLoadingIndicator();
-
 		this.$container.append(
 			$progressBar,
-			this.$toolsContainer,
-			$loadingIndicator
+			this.$toolsContainer
 		);
 	};
-
-	function getLoadingIndicator() {
-		return $( '<div>' )
-			.addClass( 'cx-spinner cx-spinner--tools' )
-			.append(
-				$( '<div>' ).addClass( 'bounce1' ),
-				$( '<div>' ).addClass( 'bounce2' ),
-				$( '<div>' ).addClass( 'bounce3' )
-			)
-			.hide();
-	}
 
 	ContentTranslationTools.prototype.doSearch = function () {
 		var text = this.$searchInput.val().trim().toLowerCase();
