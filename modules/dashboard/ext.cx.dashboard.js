@@ -42,11 +42,29 @@
 	 * Initialize the components
 	 */
 	CXDashboard.prototype.initLists = function () {
+		var storedSourceLanguage,
+			query = new mw.Uri().query;
+
 		this.renderTranslations();
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			this.renderTranslationSuggestions();
+		} else {
+			return;
 		}
-		this.setActiveList( 'draft' );
+
+		try {
+			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
+		} catch ( e ) {
+			// Local storage disabled?
+		}
+
+		// Show suggestions tab by default when user is coming from a campaign
+		// entry point and does not have any previous cx source language.
+		if ( query.campaign && !storedSourceLanguage ) {
+			this.setActiveList( 'suggestions' );
+		} else {
+			this.setActiveList( 'draft' );
+		}
 	};
 
 	/**
@@ -164,12 +182,12 @@
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			$filterTabs.push( $( '<span>' )
-				.addClass( 'cx-filter cx-suggestions mw-ui-input' )
+				.addClass( 'cx-filter cx-filter--suggestions mw-ui-input' )
 				.text( mw.msg( 'cx-translation-filter-suggested-translations' ) ) );
 		}
 
 		$filterTabs.push( $( '<span>' )
-			.addClass( 'cx-filter cx-filter--draft cx-filter--selected mw-ui-input' )
+			.addClass( 'cx-filter cx-filter--draft mw-ui-input' )
 			.text( mw.msg( 'cx-translation-filter-draft-translations' ) ) );
 
 		$filterTabs.push( $( '<span>' )
@@ -219,7 +237,14 @@
 
 	CXDashboard.prototype.setActiveList = function ( type ) {
 		var self = this;
+
 		this.activeList = type;
+		this.$filter
+			.find( '.cx-filter--selected' )
+			.removeClass( 'cx-filter--selected' );
+		this.$filter
+			.find( '.cx-filter--' + type )
+			.addClass( 'cx-filter--selected' );
 		$.each( this.lists, function ( name, list ) {
 			if ( name === type ) {
 				list.show();
@@ -255,7 +280,7 @@
 				self.setActiveList( 'draft' );
 			} else if ( $filter.is( '.cx-filter--published' ) ) {
 				self.setActiveList( 'published' );
-			} else if ( $filter.is( '.cx-suggestions' ) ) {
+			} else if ( $filter.is( '.cx-filter--suggestions' ) ) {
 				self.setActiveList( 'suggestions' );
 			}
 		} );
