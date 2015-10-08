@@ -14,7 +14,8 @@
 			"Tar Lócesilion",
 			"Halibutt",
 			"Lantuszka",
-			"The Polish"
+			"The Polish",
+			"Expert3222"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -190,5 +191,8 @@
 	"cx-tools-link-external-link-placeholder": "Dodaj link zewnętrzny",
 	"cx-tools-link-to-another-page": "Link do innej strony",
 	"cx-tools-link-apply": "Gotowe",
-	"mw-pageselector-missing": "Strona nie istnieje"
+	"mw-pageselector-missing": "Strona nie istnieje",
+	"cx-draft-restoring": "Wczytywanie zapisanego tłumaczenia...",
+	"cx-draft-restored": "Wczytano zapisane tłumaczenie.",
+	"cx-draft-restore-failed": "Nie udało się wczytać zapisanego tłumaczenia!"
 }

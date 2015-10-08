@@ -186,5 +186,8 @@
 	"cx-tools-link-external-link-placeholder": "הוספת קישור חיצוני",
 	"cx-tools-link-to-another-page": "קישור לדף אחר",
 	"cx-tools-link-apply": "בוצע",
-	"mw-pageselector-missing": "הדף אינו קיים"
+	"mw-pageselector-missing": "הדף אינו קיים",
+	"cx-draft-restoring": "טעינת תרגום שמור...",
+	"cx-draft-restored": "תרגום שמור נטען.",
+	"cx-draft-restore-failed": "טעינת תרגום שמור לא עבדה!"
 }

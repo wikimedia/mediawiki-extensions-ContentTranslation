@@ -185,5 +185,8 @@
 	"cx-tools-link-external-link-placeholder": "Aggiungere link esterno",
 	"cx-tools-link-to-another-page": "Collegamento a un'altra pagina",
 	"cx-tools-link-apply": "Fatto",
-	"mw-pageselector-missing": "La pagina non esiste"
+	"mw-pageselector-missing": "La pagina non esiste",
+	"cx-draft-restoring": "Caricamento delle traduzioni salvate...",
+	"cx-draft-restored": "Traduzioni salvate caricate.",
+	"cx-draft-restore-failed": "Non è stato possibile caricare le traduzioni salvate!"
 }

@@ -186,5 +186,8 @@
 	"cx-tools-link-external-link-placeholder": "Weblink hinzufügen",
 	"cx-tools-link-to-another-page": "Auf eine andere Seite verlinken",
 	"cx-tools-link-apply": "Fertig",
-	"mw-pageselector-missing": "Die Seite ist nicht vorhanden"
+	"mw-pageselector-missing": "Die Seite ist nicht vorhanden",
+	"cx-draft-restoring": "Lade die gespeicherte Übersetzung …",
+	"cx-draft-restored": "Gespeicherte Übersetzung geladen.",
+	"cx-draft-restore-failed": "Das Laden der gespeicherten Übersetzung ist fehlgeschlagen!"
 }

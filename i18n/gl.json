@@ -186,5 +186,8 @@
 	"cx-tools-link-external-link-placeholder": "Engada unha ligazón externa",
 	"cx-tools-link-to-another-page": "Ligazón cara a outra páxina",
 	"cx-tools-link-apply": "Feito",
-	"mw-pageselector-missing": "A páxina non existe"
+	"mw-pageselector-missing": "A páxina non existe",
+	"cx-draft-restoring": "Cargando a tradución gardada...",
+	"cx-draft-restored": "Cargouse a tradución gardada.",
+	"cx-draft-restore-failed": "Erro ó cargar a tradución gardada!"
 }

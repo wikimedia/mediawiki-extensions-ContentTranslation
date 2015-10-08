@@ -107,7 +107,9 @@
 	"cx-translation-filter-draft-translations": "У процесі",
 	"cx-translation-filter-suggested-translations": "Пропозиції",
 	"cx-suggestionlist-empty-title": "На жаль, немає запропонованих сторінок",
+	"cx-suggestionlist-empty-desc": "Починаючи новий переклад, Ви можете взяти будь-яку тему за Вашим вибором",
 	"cx-suggestionlist-featured": "Вибрані",
+	"cx-suggestionlist-view-source-page": "Переглянути вихідну сторінку",
 	"cx-translation-filter-from-any-language": "З будь-якої мови",
 	"cx-translation-filter-to-any-language": "На будь-яку мову",
 	"cx-create-new-translation": "Почати новий переклад",
@@ -188,5 +190,8 @@
 	"cx-tools-link-external-link-placeholder": "Додати зовнішнє посилання",
 	"cx-tools-link-to-another-page": "Посилання на іншу сторінку",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Сторінка не існує"
+	"mw-pageselector-missing": "Сторінка не існує",
+	"cx-draft-restoring": "Завантаження збереженого перекладу…",
+	"cx-draft-restored": "Збережений переклад завантажено.",
+	"cx-draft-restore-failed": "Не вдалося завантажити збережений переклад!"
 }
