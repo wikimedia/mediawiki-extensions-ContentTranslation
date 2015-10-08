@@ -92,6 +92,7 @@
 		if ( this.promise ) {
 			return this.promise;
 		}
+
 		promise = this.getTranslations();
 		promise.done( function ( translations ) {
 			self.translations = self.translations.concat( translations );
@@ -335,7 +336,7 @@
 		}
 
 		this.$translationsList.append( $translations );
-		this.showTitleImages( this.translations );
+		this.showTitleImages( translations );
 	};
 
 	CXTranslationList.prototype.buildEmptyTranslationList = function () {
