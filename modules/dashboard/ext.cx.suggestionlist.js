@@ -26,7 +26,6 @@
 		this.$confirmationDialog = null;
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
-		this.languages = [];
 		this.promise = null;
 		this.queryContinue = null;
 		this.hasMore = true;
@@ -49,7 +48,8 @@
 	};
 
 	CXSuggestionList.prototype.initLanguages = function () {
-		var storedTargetLanguage, storedSourceLanguage;
+		var storedTargetLanguage, storedSourceLanguage,
+			query = new mw.Uri().query;
 
 		try {
 			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
@@ -57,25 +57,18 @@
 		} catch ( e ) {
 			// Local storage disabled?
 		}
-		// Try to get all possble languages.
-		this.languages = [
-			storedSourceLanguage,
-			storedTargetLanguage,
-			'en',
-			mw.config.get( 'wgContentLanguage' ),
-			mw.config.get( 'wgUserLanguage' )
-		];
-		// Also add ULS defined common languages.
-		this.languages = this.languages.concat( mw.uls.getFrequentLanguageList() );
-		// Get unique list.
-		this.languages = mw.cx.unique( this.languages );
-		// At the end, this list will have some items.
+
+		// Find a sensible language pair.
+		this.sourceLanguage = query.from || storedSourceLanguage || 'en';
+		this.targetLanguage = query.to || storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
+		if ( this.sourceLanguage === this.targetLanguage ) {
+			this.targetLanguage = 'es';
+			// In case this is also same as source language, nothing breaks.
+		}
 		this.filters = {
-			sourceLanguage: this.languages[ 0 ],
-			targetLanguage: this.languages[ 1 ]
+			sourceLanguage: this.sourceLanguage,
+			targetLanguage: this.targetLanguage
 		};
-		// If suggestionTo is undefined, nothing breaks. The selector will show
-		// 'To any language'
 	};
 
 	CXSuggestionList.prototype.loadItems = function () {
@@ -112,6 +105,9 @@
 			}
 		} ).fail( function () {
 			this.promise = null;
+			self.$emptySuggestionList = self.buildEmptySuggestionList();
+			self.$suggestionList.append( self.$emptySuggestionList );
+			self.$emptySuggestionList.show();
 		} );
 
 		return promise;
