@@ -180,7 +180,7 @@
 	 * @return {number} return.done.data The page id
 	 */
 	TemplateTool.prototype.getTargetTemplate = function () {
-		// todo: avoid direct access to globals
+		// TODO: Avoid direct access to globals
 		var api = mw.cx.siteMapper.getApi( mw.cx.targetLanguage );
 
 		// Note that we use canonical namespace 'Template' for title.

@@ -162,7 +162,7 @@
 
 		this.$content.html( content.segmentedContent );
 
-		// @todo figure out what should be done here
+		// TODO: Figure out what should be done here
 		this.$content.find( 'base' ).detach();
 
 		mw.hook( 'mw.cx.source.ready' ).fire();

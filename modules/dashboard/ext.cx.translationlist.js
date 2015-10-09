@@ -133,7 +133,7 @@
 			cache: true
 		} );
 
-		// @todo: handle continue
+		// TODO: Handle continue
 	};
 
 	/**

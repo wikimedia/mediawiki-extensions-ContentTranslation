@@ -116,7 +116,7 @@
 			return cache[ word ][ from ][ to ][ provider ];
 		}
 
-		// todo: refactor to avoid global access
+		// TODO: Refactor to avoid global access
 		dictUrl = this.siteMapper.getCXServerUrl( '/dictionary/$word/$from/$to/$provider', {
 			$word: word,
 			$from: from,
@@ -148,7 +148,7 @@
 			return deferred.resolve( cachedProviders );
 		}
 
-		// todo: refactor to avoid global access
+		// TODO: Refactor to avoid global access
 		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/dictionary/$from/$to', {
 			$from: from,
 			$to: to
@@ -248,7 +248,7 @@
 			.done( function ( providers ) {
 				var provider;
 
-				// TODO: Now we use the first one, If there is a selector UI for this,
+				// TODO: Now we use the first one. If there is a selector UI for this,
 				// this will come from selected provider.
 				provider = providers[ 0 ];
 				// Try to get a translation.

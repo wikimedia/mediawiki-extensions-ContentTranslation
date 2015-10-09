@@ -135,7 +135,7 @@
 			this.hideCard( this.options.defaultTool );
 		}
 
-		// @todo: refactor to avoid global access
+		// TODO: Refactor to avoid global access
 		tool = new mw.cx.tools[ toolName ]( mw.cx.siteMapper );
 
 		this.$container.append( tool.getCard() );

@@ -84,7 +84,7 @@
 			return $.Deferred().resolve();
 		}
 
-		// @todo refactor
+		// TODO: Refactor
 		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
 			$from: from,
 			$to: to
@@ -105,7 +105,7 @@
 						MTControlCard.provider = disableMT;
 					}
 				} else {
-					// TODO Consider user preferences
+					// TODO: Consider user preferences
 					MTControlCard.provider = MTControlCard.providers[ 0 ];
 				}
 			} )
@@ -126,7 +126,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	function doMT( sourceLang, targetLang, sourceHtml ) {
-		// @todo refactor
+		// TODO: Refactor
 		var mtURL = mw.cx.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
 			$from: sourceLang,
 			$to: targetLang,
@@ -368,7 +368,7 @@
 		$providerItem.addClass( 'selected' );
 
 		// Set the global engine
-		// TODO This should be saved in a preference or a cookie
+		// TODO: This should be saved in a preference or a cookie
 		if ( MTControlCard.provider !== providerId ) {
 			MTControlCard.provider = providerId;
 			// Apply this choice to the current section.

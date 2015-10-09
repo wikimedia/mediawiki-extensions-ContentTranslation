@@ -30,7 +30,7 @@
 			return deferred.resolve( cachedNamespaces[ targetLanguage ] ).promise();
 		}
 
-		// @todo refactor to avoid global reference
+		// TODO: Refactor to avoid global reference
 		mw.cx.siteMapper.getApi( targetLanguage ).get( {
 			action: 'query',
 			meta: 'siteinfo',
@@ -70,7 +70,7 @@
 	 * @return {boolean}
 	 */
 	function isCommonsImage( $image ) {
-		// TODO Make non-Wikimedia specific
+		// TODO: Make non-Wikimedia specific
 		if ( $image.attr( 'src' ).indexOf( '//upload.wikimedia.org/wikipedia/commons/' ) === 0 ) {
 			return true;
 		}
