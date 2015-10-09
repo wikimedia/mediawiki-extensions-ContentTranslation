@@ -16,19 +16,24 @@
 	 */
 	function showConflictHandler( translation ) {
 		var $header, $columns, $conflictInfo, $info,
-			$collaborate, $action, $userLink;
+			$collaborate, $action, name, gender, $userPage;
 
 		$columns = $( '.cx-widget__columns' );
 		$header = $( '.cx-header' );
-		$userLink = $( '<a>' ).attr( {
-			href: mw.util.getUrl( 'User:' + translation.translatorName )
-		} ).text( translation.translatorName )[ 0 ].outerHTML;
+
+		name = translation.translatorName;
+		gender = translation.translatorGender;
+
+		$userPage = $( '<a>' )
+			.text( name )
+			.prop( 'href', mw.util.getUrl( 'User:' + name ) );
+
 		$info = $( '<div>' )
 			.addClass( 'cx-conflict-info' )
-			.html( mw.message( 'cx-translation-already-in-progress', $userLink ).parse() );
+			.msg( 'cx-translation-already-in-progress', $userPage, gender );
 		$collaborate = $( '<div>' )
 			.addClass( 'cx-conflict-info' )
-			.text( mw.msg( 'cx-translation-already-in-progress-collaborate' ) );
+			.msg( 'cx-translation-already-in-progress-collaborate', gender );
 		$action = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-create-new-translation' )
 			.text( mw.msg( 'cx-create-new-translation' ) );

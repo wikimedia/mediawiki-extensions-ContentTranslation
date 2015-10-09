@@ -939,6 +939,9 @@
 			"styles": [
 				"translation/styles/ext.cx.translation.conflict.less"
 			],
+			"dependencies": [
+				"mediawiki.jqueryMsg"
+			],
 			"messages": [
 				"cx-translation-already-in-progress",
 				"cx-translation-already-in-progress-collaborate",

@@ -116,8 +116,15 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $translation !== null ) {
 			$translator = $translation->translation['lastUpdatedTranslator'];
 			$centralIdLookup = CentralIdLookup::factory();
-			$translation->translation['translatorName'] =
-				$centralIdLookup->nameFromCentralId( $translator );
+			// $user can be null, but should never happen in our case because
+			// we redirect translators to the target wiki, and they cannot do
+			// translations without logging in.
+			$user = $centralIdLookup->localUserFromCentralId( $translator );
+			$gender = GenderCache::singleton()->getGenderOf( $user, __METHOD__ );
+
+			$translation->translation['translatorName'] = $user->getName();
+			$translation->translation['translatorGender'] = $gender;
+
 			$result->addValue(
 				array( 'query', 'contenttranslation' ),
 				'translation', $translation->translation
