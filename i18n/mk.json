@@ -180,5 +180,8 @@
 	"cx-tools-link-external-link-placeholder": "Додај надворешна врска",
 	"cx-tools-link-to-another-page": "Врска до друга страница",
 	"cx-tools-link-apply": "Готово",
-	"mw-pageselector-missing": "Страницата не постои"
+	"mw-pageselector-missing": "Страницата не постои",
+	"cx-draft-restoring": "Го вчитувам зачуваниот превод...",
+	"cx-draft-restored": "Зачуваниот превод е вчитан.",
+	"cx-draft-restore-failed": "Не успеав да вчитам зачуваниот превод!"
 }

@@ -183,5 +183,8 @@
 	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
 	"cx-tools-link-to-another-page": "Ligação para outra página",
 	"cx-tools-link-apply": "Feito",
-	"mw-pageselector-missing": "A página não existe"
+	"mw-pageselector-missing": "A página não existe",
+	"cx-draft-restoring": "A carregar a tradução guardada...",
+	"cx-draft-restored": "Tradução guardada carregada.",
+	"cx-draft-restore-failed": "Ocorreu um erro ao carregar a tradução guardada!"
 }

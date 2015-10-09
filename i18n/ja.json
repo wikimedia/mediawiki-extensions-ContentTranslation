@@ -192,6 +192,6 @@
 	"cx-tools-link-to-another-page": "別のページにリンク",
 	"cx-tools-link-apply": "完了",
 	"mw-pageselector-missing": "ページが存在しません",
-	"cx-draft-restoring": "保存された翻訳をロード中...",
-	"cx-draft-restore-failed": "保存された翻訳のロードに失敗しました！"
+	"cx-draft-restoring": "保存された翻訳を読み込み中...",
+	"cx-draft-restore-failed": "保存された翻訳の読み込みに失敗しました！"
 }
