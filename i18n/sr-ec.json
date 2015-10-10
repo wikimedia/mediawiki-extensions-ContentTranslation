@@ -3,7 +3,8 @@
 		"authors": [
 			"Milicevic01",
 			"Nikola Smolenski",
-			"Srdjan m"
+			"Srdjan m",
+			"Сербијана"
 		]
 	},
 	"cx": "Преведи страницу",
@@ -66,7 +67,6 @@
 	"cx-tools-mt-dont-use": "Не користи машински превод",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорија|$1 категорије|$1 категорија|0=Нема категорија}}",
 	"cx-stats-title": "Статистика превођења",
-	"cx-stats-unknown": "непознато",
 	"cx-tools-reference-title": "Референца",
 	"cx-tools-reference-add": "Додај референцу",
 	"cx-tools-reference-remove": "Уклони референцу",
@@ -123,7 +123,10 @@
 	"cx-feedback-link": "Повратне информације",
 	"cx-stats-published-translations-title": "Објављени преводи",
 	"cx-stats-draft-translations-title": "Преводи у току",
+	"cx-stats-draft-translations-label": "Преводи у току",
+	"cx-stats-new-draft-translations-label": "Нови преводи у току",
 	"cx-stats-published-translators-title": "Број преводилаца",
+	"cx-stats-cumulative-tab-title": "Укупно",
 	"cx-draft-discard-confirmation-message": "Да ли сигурно желите да обришете овај превод?",
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Обриши превод",
@@ -136,7 +139,6 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Преводите уместо да пишете из нова",
 	"cx-campaign-contributionsmenu-might-be-available": "Могуће је да је $1 доступан на другим језицима",
 	"cx-campaign-contributionsmenu-myuploads": "Отпреми датотеку",
-	"cx-trend-all-translations": "Сви преводи",
 	"cx-trend-translations-to": "Преводи на $1",
 	"cx-stats-try-contenttranslation": "Превод садржаја је алат за стварање нових страница превођењем са других језика. [$1 Испробај Превод садржаја]",
 	"cx-stats-published-target-source": "Преводи на",
@@ -145,7 +147,6 @@
 	"cx-stats-draft-source-target": "Преводи у току са",
 	"cx-stats-tabs-expand": "Види све језике",
 	"cx-stats-total-published": "Укупно објављено",
-	"cx-stats-monthly-published": "Прошлог месеца",
 	"cx-stats-weekly-published": "Прошле недеље",
 	"cx-stats-local-published-number": "$1 на $2",
 	"cx-stats-local-published": "$1 ($3) на $2",
@@ -170,5 +171,8 @@
 	"cx-tools-link-external-link-placeholder": "Додај спољашњу везу",
 	"cx-tools-link-to-another-page": "Веза до друге странице",
 	"cx-tools-link-apply": "Урађено",
-	"mw-pageselector-missing": "Страница не постоји"
+	"mw-pageselector-missing": "Страница не постоји",
+	"cx-draft-restoring": "Учитавање сачуваног превода...",
+	"cx-draft-restored": "Сачувани превод учитан.",
+	"cx-draft-restore-failed": "Неуспјело учитавање сачуваног превода!"
 }
