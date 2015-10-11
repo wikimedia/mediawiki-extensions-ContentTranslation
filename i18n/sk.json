@@ -39,11 +39,11 @@
 	"cx-publish-captcha-title": "Bezpečnostná otázka",
 	"cx-create-new-translation": "Vytvoriť nový preklad",
 	"cx-save-draft-saving": "Ukladanie...",
-	"cx-magnus-tool-link-text": "Hľadajte články, ktoré vo vašom jazyku doteraz chýbajú",
+	"cx-contributions-new-article": "Nová stránka",
+	"cx-magnus-tool-link-text": "Hľadajte stránky, ktoré vo vašom jazyku doteraz chýbajú",
 	"cx-draft-cancel-button-label": "Zrušiť",
 	"cx-draft-discard-button-label": "Vymazať preklad",
 	"cx-campaign-no-thanks": "Nie, vďaka",
-	"cx-trend-all-translations": "Všetky preklady",
 	"echo-category-title-cx": "preklady",
 	"echo-pref-tooltip-cx": "Upozornite ma na preklady vytvorené pomocou nástroja Content Translation"
 }
