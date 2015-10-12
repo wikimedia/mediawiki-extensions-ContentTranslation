@@ -120,7 +120,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
 			array(
 				'html' => $html,
-				'scrubWikitext' => 1,
+				'scrub_wikitext' => 1,
 			)
 		);
 		if ( $wikitext === false ) {
