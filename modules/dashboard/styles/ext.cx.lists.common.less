@@ -1,25 +1,31 @@
+@import "../../widgets/common/ext.cx.common";
+
 .cx-tlitem,
 .cx-slitem {
 	.mw-ui-one-whole;
 	padding: 12px;
 	background-color: #fff;
-	border-top: 1px solid #ddd;
+	border: 1px solid #ddd;
+	border-bottom: 0;
 	cursor: pointer;
 
 	&:hover {
 		background-color: #eff3fb;
 
-		.cx-tlitem__languages__language--source:after ,
+		.cx-tlitem__languages__language--source:after,
 		.cx-slitem__languages__language--source:after {
 			border-left-color: #eff3fb;
 		}
+	}
+
+	&:last-child {
+		border: 1px solid #ddd;
 	}
 }
 
 .cx-translationlist-empty,
 .cx-suggestionlist-empty {
 	.mw-ui-item;
-
 	color: #999;
 	text-align: center;
 
@@ -28,7 +34,7 @@
 		background-repeat: no-repeat;
 		background-color: #f0f0f0;
 		background-position: top;
-		border-right: 1px solid #eeeeee;
+		border-right: 1px solid #eee;
 		padding: 50px 0;
 	}
 
@@ -47,6 +53,7 @@
 .cx-tlitem__languages,
 .cx-slitem__languages {
 	float: left;
+
 	&__language {
 		position: relative;
 		margin-right: 20px;

@@ -113,6 +113,8 @@
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
 	"cx-translation-filter-draft-translations": "Shown in translation filter in Content Translation dashboard. Selects all draft translations by the current translator. Specifically, \"in progress\" does '''not''' necessarily mean that a person is working on a translation at that moment.",
 	"cx-translation-filter-suggested-translations": "Shown in translation filter in Content Translation dashboard. Once selected it shows translation suggestion\n{{Identical|Suggestion}}",
+	"cx-suggestionlist-favorite": "Title for the translation suggestions marked as favorite",
+	"cx-suggestionlist-title": "Title for the translation suggestions",
 	"cx-suggestionlist-empty-title": "Title text shown when there is no translation suggestions by the current user",
 	"cx-suggestionlist-empty-desc": "A brief description shown when there is no translation suggestions by current user",
 	"cx-suggestionlist-featured": "A type of a suggested page to translate\n{{Identical|Featured}}",

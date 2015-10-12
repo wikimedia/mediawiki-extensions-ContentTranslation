@@ -5,6 +5,8 @@ namespace ContentTranslation;
 class SuggestionList {
 	const TYPE_DEFAULT = 0;
 	const TYPE_FEATURED = 1;
+	const TYPE_DISCARDED = 2;
+	const TYPE_FAVORITE = 3;
 
 	protected $id;
 	protected $name;

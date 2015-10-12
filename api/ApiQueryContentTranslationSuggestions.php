@@ -32,7 +32,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 	/**
 	 * @param ApiPageSet $resultPageSet
-	 * TODO: Use the limit parameter
 	 */
 	private function run( $resultPageSet = null ) {
 		$config = $this->getConfig();
@@ -42,8 +41,9 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
-
-		if ( $params['from'] === $params['to'] ) {
+		$from = $params['from'];
+		$to = $params['to'];
+		if ( $from === $to ) {
 			$this->dieUsage(
 				'Source and target languages cannot be the same. Use from, to API params.',
 				'invalidparam'
@@ -52,33 +52,53 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 		$translator = new Translator( $user );
 		$manager = new SuggestionListManager();
-		$data = $manager->getRelevantSuggestions(
-			$translator,
-			$params['from'],
-			$params['to'],
+		// Get non-personalized suggestions
+		$data = $manager->getPublicSuggestions(
+			$from,
+			$to,
 			$params['limit'],
 			$params['offset'],
 			$params['seed']
 		);
 
+		// Get personalized suggestions.
+		// We do not want to send personalized suggestions in paginated results
+		// other than the first page. Hence checking offset.
+		if ( $params['offset'] === null ) {
+			$personalizedSuggestions = $manager->getPersonalizedSuggestions(
+				$translator->getGlobalUserId(),
+				$from,
+				$to
+			);
+			if ( count( $personalizedSuggestions['lists'] ) ) {
+				// Merge the personal lists to public lists. There won't be duplicates
+				// because the list of lists is an associative array with listId as a key.
+				$data['lists'] = array_merge( $data['lists'], $personalizedSuggestions['lists'] );
+				$data['suggestions'] = array_merge(
+					$data['suggestions'],
+					$personalizedSuggestions['suggestions']
+				);
+			}
+		}
+
 		$lists = array();
 		$suggestions = $data['suggestions'];
 
-		if ( !count( $suggestions ) ) {
-			$result->addValue( array( 'query', $this->getModuleName() ), 'lists', array() );
-			return;
+		if ( count( $suggestions ) ) {
+			// Find the titles to filter out from suggestions.
+			$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
+			$existingTitles = $this->getExistingTitles( $suggestions );
+			$discardedSuggestions = $manager->getDiscardedSuggestions(
+				$translator->getGlobalUserId(), $from, $to
+			);
+			$suggestions = $this->filterSuggestions(
+				$suggestions,
+				array_merge( $existingTitles, $ongoingTranslations, $discardedSuggestions )
+			);
+
+			// Remove the Suggestions that are no longer valid.
+			$this->removeInvalidSuggestions( $from, $existingTitles );
 		}
-
-		// Find the titles to filter out from suggestions.
-		$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
-		$existingTitles = $this->getExistingTitles( $suggestions );
-		$suggestions = $this->filterSuggestions(
-			$suggestions,
-			array_merge( $existingTitles, $ongoingTranslations )
-		);
-
-		// Remove the Suggestions that are no longer valid.
-		$this->removeInvalidSuggestions( $params['from'], $existingTitles );
 
 		foreach ( $data['lists'] as $list ) {
 			$lists[$list->getId()] = array(
@@ -88,6 +108,9 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				'suggestions' => array(),
 			);
 			foreach ( $suggestions as $suggestion ) {
+				if ( $list->getId() !== $suggestion->getListId() ) {
+					continue;
+				}
 				$lists[$suggestion->getListId()]['suggestions'][] = array(
 					'title' => $suggestion->getTitle()->getPrefixedText(),
 					'sourceLanguage' => $suggestion->getSourceLanguage(),
@@ -104,6 +127,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	private function getOngoingTranslations( array $suggestions ) {
+		$titles = array();
+		if ( !count( $suggestions ) ) {
+			return $titles;
+		}
+
 		$params = $this->extractRequestParams();
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
@@ -120,8 +148,12 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	private function getExistingTitles( array $suggestions ) {
-		$params = $this->extractRequestParams();
 		$titles = array();
+		if ( !count( $suggestions ) ) {
+			return $titles;
+		}
+
+		$params = $this->extractRequestParams();
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
 		$domain = SiteMapper::getDomainCode( $sourceLanguage );

@@ -108,6 +108,8 @@
 	"cx-translation-filter-published-translations": "Published",
 	"cx-translation-filter-draft-translations": "In progress",
 	"cx-translation-filter-suggested-translations": "Suggestions",
+	"cx-suggestionlist-favorite": "For later",
+	"cx-suggestionlist-title": "More suggestions",
 	"cx-suggestionlist-empty-title": "Sorry, no pages to suggest",
 	"cx-suggestionlist-empty-desc": "You can pick any topic of your choice when starting a new translation",
 	"cx-suggestionlist-featured": "Featured",

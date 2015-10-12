@@ -40,7 +40,8 @@
 		"cxpublish": "ApiContentTranslationPublish",
 		"cxdelete": "ApiContentTranslationDelete",
 		"cxconfiguration": "ApiContentTranslationConfiguration",
-		"cxtoken": "ApiContentTranslationToken"
+		"cxtoken": "ApiContentTranslationToken",
+		"cxsuggestionlist": "ApiContentTranslationSuggestionList"
 	},
 	"APIListModules": {
 		"contenttranslation": "ApiQueryContentTranslation",
@@ -61,6 +62,7 @@
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
 		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
 		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
+		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
 		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
 		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
@@ -825,6 +827,8 @@
 				"jquery.uls.data"
 			],
 			"messages": [
+				"cx-suggestionlist-favorite",
+				"cx-suggestionlist-title",
 				"cx-suggestionlist-empty-title",
 				"cx-suggestionlist-empty-desc",
 				"cx-suggestionlist-view-source-page",

@@ -2,6 +2,11 @@
 @import "ext.cx.lists.common";
 @import "mediawiki.mixins";
 
+.cx-suggestionlist h2 {
+	float: left;
+	border-bottom: none;
+}
+
 .cx-slitem__desc {
 	color: #555;
 	font-size: 1.2em;
@@ -11,12 +16,11 @@
 }
 
 .cx-slitem__details {
-	.mw-ui-four-fifths;
-
+	.mw-ui-four-sixths;
 	padding-left: 15px;
 	position: relative;
 	height: 100px;
-	font-size: small;;
+	font-size: small;
 
 	.cx-slitem__translation-link {
 		.mw-ui-one-whole;
@@ -36,10 +40,44 @@
 	}
 }
 
+.cx-slitem__actions {
+	.mw-ui-one-sixth;
+	float: right;
+}
+
+.cx-slitem__action {
+	padding: 0 10px;
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	&--discard {
+		background-size: 16px;
+		.background-image-svg('../../tools/images/clear.svg', '../../tools/images/clear.png');
+	}
+
+	&--nonfavorite,
+	&--favorite {
+		background-size: 24px;
+	}
+
+	&--favorite {
+		.background-image-svg('../images/star.svg', '../images/star.png');
+	}
+
+	&--nonfavorite,
+	&--favorite:hover {
+		.background-image-svg('../images/star-green.svg', '../images/star-green.png');
+	}
+}
+
 .cx-sltag--featured {
 	width: auto;
 	float: left;
 	color: #00af89;
+
 	// This need to be in green backgound, but for now we have
 	// everything as featured.
 	padding: 0 2px;
