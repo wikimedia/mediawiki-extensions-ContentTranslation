@@ -160,7 +160,7 @@
 	"cx-stats-local-published-number": "$1 на $2",
 	"cx-stats-local-published": "$1 ($3) на $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
-	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницита што недостигаат за да поттикнете нејзино создавање.",
+	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницата дека недостига за да поттикнете нејзино создавање.",
 	"cx-tools-missing-link-tooltip": "Преведете (во нов прозорец)",
 	"cx-tools-missing-link-title": "Врска што недостига",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Означи}} дека недостига",

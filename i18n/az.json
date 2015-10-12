@@ -6,15 +6,24 @@
 			"Amire80"
 		]
 	},
+	"cx": "Səhifəni tərcümə et",
+	"cx-dashboard-header": "Tərcümələr",
+	"cx-javascript": "Bu alət JavaScript olmadan işləmir.",
+	"cx-error-server-connection": "Səhv: Serverə qoşulmaq mümkün olmadı.",
+	"cx-header-progressbar-text": "{{PLURAL:$1|Tərcümə}} $1% icra edilib",
+	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|maşın tərcüməsi}})",
+	"cx-header-translation-center": "Tərcümə mərkəzi",
 	"cx-header-new-translation": "Tərcüməyə başla",
 	"cx-header-all-translations": "Bütün tərcümələr",
 	"cx-source-view-page": "səhifəyə bax",
 	"cx-tools-link-add": "Keçid əlavə et",
-	"cx-tools-mt-title": "Maşın tərcümə",
+	"cx-tools-mt-title": "Maşın tərcüməsi",
 	"cx-sourceselector-dialog-button-cancel": "Ləğv et",
 	"cx-suggestionlist-featured": "Seçilmiş",
 	"cx-contributions-new-contributions": "Yeni töhfə",
 	"cx-contributions-new-article": "Yeni səhifə",
 	"cx-contributions-translation": "Tərcümə",
-	"cx-contributions-upload": "Mediafayl yüklə"
+	"cx-contributions-upload": "Mediafayl yüklə",
+	"cx-draft-cancel-button-label": "İmtina",
+	"cx-draft-discard-button-label": "Tərcüməni sil"
 }

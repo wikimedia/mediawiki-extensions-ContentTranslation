@@ -52,6 +52,7 @@
 	"cx-translation-filter-all-translations": "Itzulpen guztiak",
 	"cx-translation-filter-published-translations": "Argitaratuak",
 	"cx-translation-filter-draft-translations": "Egiten",
+	"cx-translation-filter-suggested-translations": "Iradokizunak",
 	"cx-translation-filter-from-any-language": "Edozein hizkuntzatatik",
 	"cx-translation-filter-to-any-language": "Edozein hizkuntzatara",
 	"cx-create-new-translation": "Sortu itzulpen berria",
@@ -65,6 +66,7 @@
 	"cx-contributions-translation-tooltip": "Itzuli existitzen diren orriak",
 	"cx-contributions-upload-tooltip": "Igo itzazu irudiak, audioak eta bideoak orrialdeetan erabiltzeko",
 	"cx-discard-translation": "Baztertu itzulpena",
+	"cx-translation-status-draft": "Egiten",
 	"cx-translation-status-published": "Argitaratua",
 	"cx-translation-status-deleted": "Ezabatua",
 	"cx-magnus-tool-link-text": "Bilatu zure hizkuntzan falta diren orria",
@@ -78,7 +80,7 @@
 	"cx-campaign-no-thanks": "Ez, eskerrik asko",
 	"cx-campaign-contributionsmenu-mycontributions": "Ekarpenak",
 	"cx-campaign-contributionsmenu-mytranslations": "Itzulpenak",
-	"cx-trend-translations-to": "$1 hitzuntzarako itzulpenak",
+	"cx-trend-translations-to": "$1rako itzulpenak",
 	"cx-stats-published-translations-label": "Argitaratutako itzulpenak",
 	"cx-stats-tabs-expand": "Ikusi hizkuntza guztiak",
 	"cx-stats-total-published": "Guztira argitaratuak",
@@ -90,5 +92,6 @@
 	"echo-category-title-cx": "Itzulpenak",
 	"cx-translationlist-empty-title": "Itzultzeko ezer ez?",
 	"cx-tools-link-to-another-page": "Beste orri bati lotu",
-	"cx-tools-link-apply": "Egina"
+	"cx-tools-link-apply": "Egina",
+	"cx-draft-restored": "Gorde kargatutako itzulpena."
 }

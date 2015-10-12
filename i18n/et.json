@@ -183,5 +183,8 @@
 	"cx-tools-link-external-link-placeholder": "Lisa välislink",
 	"cx-tools-link-to-another-page": "Lingi teisele leheküljele",
 	"cx-tools-link-apply": "Valmis",
-	"mw-pageselector-missing": "Lehekülge pole olemas."
+	"mw-pageselector-missing": "Lehekülge pole olemas.",
+	"cx-draft-restoring": "Salvestatud tõlke laadimine...",
+	"cx-draft-restored": "Laaditi salvestatud tõlge.",
+	"cx-draft-restore-failed": "Salvestatud tõlget ei õnnestunud laadida!"
 }

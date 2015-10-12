@@ -179,5 +179,8 @@
 	"cx-tools-link-external-link-placeholder": "Amestar un enllaz esternu",
 	"cx-tools-link-to-another-page": "Enllazar a otra páxina",
 	"cx-tools-link-apply": "Fecho",
-	"mw-pageselector-missing": "La páxina nun esiste"
+	"mw-pageselector-missing": "La páxina nun esiste",
+	"cx-draft-restoring": "Cargando la traducción guardada...",
+	"cx-draft-restored": "Cargóse la traducción guardada.",
+	"cx-draft-restore-failed": "Nun pudo cargase la traducción guardada."
 }

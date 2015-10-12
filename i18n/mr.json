@@ -33,9 +33,13 @@
 	"cx-save-draft-saving": "जतन करीत आहे...",
 	"cx-contributions-new-article": "नवीन पृष्ठ",
 	"cx-contributions-translation": "भाषांतर",
+	"cx-stats-new-draft-translations-label": "नविन भाषांतर प्रगतीपथावर आहे",
 	"cx-trend-deletions": "वगळलेली भाषांतरे",
 	"cx-stats-all-translations-title": "सर्व भाषांत भाषांतर करा",
 	"cx-tools-link-internal-link": "पानास जोडा",
 	"cx-tools-link-apply": "झाले",
-	"mw-pageselector-missing": "पान अस्तित्वात नाही"
+	"mw-pageselector-missing": "पान अस्तित्वात नाही",
+	"cx-draft-restoring": "जतन केलेल्या भाषांतराचे भारण करीत आहे...",
+	"cx-draft-restored": "जतन केलेल्या भाषांतराचे भारण केले.",
+	"cx-draft-restore-failed": "जतन केलेल्या भाषांतराचे भारण करण्यात अयशस्वी."
 }
