@@ -204,5 +204,8 @@
 	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",
 	"cx-tools-link-to-another-page": "Lien vers une autre page",
 	"cx-tools-link-apply": "Fait",
-	"mw-pageselector-missing": "La page n’existe pas"
+	"mw-pageselector-missing": "La page n’existe pas",
+	"cx-draft-restoring": "Chargement de la traduction enregistrée…",
+	"cx-draft-restored": "Traduction enregistrée chargée.",
+	"cx-draft-restore-failed": "Échec au chargement de la traduction enregistrée !"
 }
