@@ -1,8 +1,7 @@
 class RedLinkPage
   include PageObject
-  include URL
 
-  page_url URL.url('Red interlanguage link test')
+  page_url 'Red_interlanguage_link_test'
 
   button(:translate_from, class: 'cx-entrypoint-dialog-button-translate-from')
   button(:create_from_scratch, class: 'cx-entrypoint-dialog-button-create-from-scratch')
@@ -23,32 +22,22 @@ class RedLinkPage
 
   text_field(:language_filter, id: 'languagefilter')
 
-  def create_page(text)
-    if ENV['MEDIAWIKI_API_URL'].nil?
-      abort 'Environment variable MEDIAWIKI_API_URL must be set'
-    end
-
-    client = MediawikiApi::Client.new(ENV['MEDIAWIKI_API_URL'])
-    client.log_in(ENV['MEDIAWIKI_USER'], ENV['MEDIAWIKI_PASSWORD'])
-    client.create_page('Red interlanguage link test', text)
-  end
-
   def blue_interlanguage_item_with_autonym(autonym)
-    @browser.li(class: 'interlanguage-link', text: autonym)
+    browser.li(class: 'interlanguage-link', text: autonym)
   end
 
   def dialog_close_button
-    @browser.span(css: '.cx-entrypoint-dialog:not(.hidden) .icon-close')
+    browser.span(css: '.cx-entrypoint-dialog:not(.hidden) .icon-close')
   end
 
   def page_creation_dialog(autonym)
     codes = {
       'Nederlands' => 'nl'
     }
-    @browser.div(id: "cx-entrypoint-dialog-#{codes[autonym]}")
+    browser.div(id: "cx-entrypoint-dialog-#{codes[autonym]}")
   end
 
   def red_interlanguage_item_with_autonym(autonym)
-    @browser.li(class: 'cx-new-interlanguage-link', text: autonym)
+    browser.li(class: 'cx-new-interlanguage-link', text: autonym)
   end
 end

@@ -1,7 +1,7 @@
 class ContentTranslationPage
   include PageObject
-  include URL
-  page_url URL.url('Special:ContentTranslation?<%=params[:extra]%>')
+
+  page_url 'Special:ContentTranslation?<%=params[:extra]%>'
 
   a(:user_name, class: 'cx-header__user-details__user-name')
 
@@ -21,7 +21,7 @@ class ContentTranslationPage
   # so we use JavaScript.
   # The element is selected by a jQuery selector.
   def set_element_text(selector, text)
-    @browser.execute_script("$( '#{selector}' ).text( '#{text}' )")
+    browser.execute_script("$( '#{selector}' ).text( '#{text}' )")
   end
 
   def empty_translation_editor
@@ -31,7 +31,7 @@ class ContentTranslationPage
   end
 
   def column(column_type)
-    @browser.div(class: "cx-column--#{column_type}")
+    browser.div(class: "cx-column--#{column_type}")
   end
 
   def language_label(column_type)

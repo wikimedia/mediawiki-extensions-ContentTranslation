@@ -1,10 +1,12 @@
 When(/^I am on a page with an interlanguage link to "(.+?)"$/) do |code|
-  on(RedLinkPage).create_page("This is a red interlanguage link test page. [[#{code}:Target]]")
+  api.create_page 'Red_interlanguage_link_test',
+                  "This is a red interlanguage link test page. [[#{code}:Target]]"
   visit(RedLinkPage)
 end
 
 When(/^I am on a page without interlanguage links$/) do
-  on(RedLinkPage).create_page('This is a red interlanguage link test page without links.')
+  api.create_page 'Red_interlanguage_link_test',
+                  'This is a red interlanguage link test page without links.'
   visit(RedLinkPage)
 end
 
