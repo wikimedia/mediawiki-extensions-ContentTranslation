@@ -256,6 +256,8 @@
 			.prop( 'rel', 'mw:WikiLink' )
 			.removeClass( 'cx-target-link-unadapted' )
 			.addClass( 'new' );
+
+		this.$link.parents( '[contenteditable]' ).trigger( 'input' );
 	};
 
 	CXLink.prototype.isRedLink = function () {
