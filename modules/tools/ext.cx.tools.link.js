@@ -984,6 +984,7 @@
 		this.$targetPageSelector = new mw.PageSelector( this.$searchInput, {
 			api: mw.cx.siteMapper.getApi( mw.cx.targetLanguage ),
 			showMissingPage: true,
+			missingPageMessage: 'cx-tools-link-add-as-missing',
 			onSelect: function ( selectedPage ) {
 				self.createLinkWithTool( selectedPage, 'internal' );
 			}

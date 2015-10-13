@@ -543,6 +543,7 @@
 				"cx-tools-link-external-link",
 				"cx-tools-link-external-link-placeholder",
 				"cx-tools-link-to-another-page",
+				"cx-tools-link-add-as-missing",
 				"cx-tools-link-apply"
 			],
 			"dependencies": [

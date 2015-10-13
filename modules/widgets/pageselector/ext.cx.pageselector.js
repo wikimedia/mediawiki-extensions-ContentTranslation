@@ -103,7 +103,7 @@
 				);
 			if ( page.missing ) {
 				$resultItem.addClass( 'mw-page-missing' );
-				$description.text( mw.msg( 'mw-pageselector-missing' ) );
+				$description.text( mw.msg( this.options.missingPageMessage ) );
 			}
 			if ( page.thumbnail ) {
 				thumbnailWidth = page.thumbnail.width;
@@ -261,6 +261,8 @@
 		api: new mw.Api(),
 		// Show a missing page if search did not return any page.
 		showMissingPage: false,
+		// The message to show if an item for a missing page is shown.
+		missingPageMessage: 'mw-pageselector-missing',
 		// Callback when a page is selected
 		onSelect: null
 	};
