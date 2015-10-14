@@ -123,7 +123,7 @@
 	"cx-translation-status-draft": "進行中",
 	"cx-translation-status-published": "已發佈",
 	"cx-translation-status-deleted": "已刪除",
-	"cx-magnus-tool-link-text": "尋找你使用的語言缺少的項目",
+	"cx-magnus-tool-link-text": "尋找缺少你使用的語言的頁面",
 	"cx-translation-already-in-progress": "此頁面目前正在由 $1 翻譯。",
 	"cx-translation-already-in-progress-collaborate": "請確認您已與目前已翻譯此部份的使用者協調過。",
 	"cx-publishing-dialog-publish-draft-button": " 以草稿發佈",
