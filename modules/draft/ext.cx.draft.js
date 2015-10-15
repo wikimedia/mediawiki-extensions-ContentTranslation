@@ -66,7 +66,7 @@
 		return $content.html();
 	};
 
-	function checkAndsave() {
+	function checkAndSave() {
 		if ( mw.cx.dirty ) {
 			mw.hook( 'mw.cx.translation.save' ).fire();
 		}
@@ -79,13 +79,13 @@
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 		// Save the draft on progress events, but not in all progress
 		// events. Use a few seconds delay.
-		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, checkAndsave ) );
+		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, checkAndSave ) );
 
 		// Save when CTRL+S is pressed.
 		$( document ).on( 'keydown', function ( e ) {
 			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
 			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
-				checkAndsave();
+				checkAndSave();
 				return false;
 			}
 		} );
@@ -350,7 +350,7 @@
 				targetTitle
 			);
 			timer = setInterval( function () {
-				checkAndsave();
+				checkAndSave();
 			}, 5 * 60 * 1000 );
 		} ).fail( function ( errorCode ) {
 			if ( errorCode === 'assertuserfailed' ) {
