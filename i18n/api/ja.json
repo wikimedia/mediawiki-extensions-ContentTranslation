@@ -52,6 +52,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "トレンドを計算するための間隔です。<kbd>week</kbd>か<kbd>month</kbd>に設定できます。",
 	"apihelp-query+contenttranslationlangtrend-example-1": "es-ca言語間の週ごとの公開トレンドを取得",
 	"apihelp-query+contenttranslationlangtrend-example-2": "全ての言語の公開トレンドを取得",
+	"apihelp-cxtoken-description": "cxserverの認証のためのJWTトークンを取得する。",
 	"apihelp-cxtoken-example-1": "cxserverの認証トークンを入手する",
 	"apihelp-cxdelete-description": "コンテンツ翻訳拡張を利用して作成された下書きの翻訳を削除",
 	"apihelp-cxdelete-param-from": "翻訳元の言語コード",

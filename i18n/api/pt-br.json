@@ -3,7 +3,8 @@
 		"authors": [
 			"Dianakc",
 			"Rodrigo Padula",
-			"TheGabrielZaum"
+			"TheGabrielZaum",
+			"Almondega"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",
@@ -13,7 +14,7 @@
 	"apihelp-cxpublish-param-to": "O código do idioma de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "O título da página de origem.",
 	"apihelp-cxpublish-param-sourcerevision": "A revisão da página de origem.",
-	"apihelp-cxpublish-param-status": "Se \"rascunho\", a tradução será salva como rascunho. Se \"publicado\", a tradução será publicada.",
+	"apihelp-cxpublish-param-status": "Se <kbd>rascunho</kbd>, a tradução será salva como rascunho. Se <kbd>publicado</kbd>, a tradução será publicada.",
 	"apihelp-cxpublish-param-categories": "As categorias a serem adicionadas à página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Responde ao captcha (ao salvar com uma resposta captcha).",
