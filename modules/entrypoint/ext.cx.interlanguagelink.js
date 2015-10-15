@@ -12,6 +12,7 @@
 	'use strict';
 
 	var campaign = 'interlanguagelink';
+
 	/**
 	 * Get the list of target languages that should be suggested
 	 * to the current user:
@@ -22,7 +23,7 @@
 	 * @return {string[]} target languages
 	 */
 	function getSuggestedTargetLanguages() {
-		var i, specialCode, specialCodes, specialCodeIndex,
+		var i, splitCode, splitCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
 			acceptLanguages,
 			possibleTargetLanguages = [],
@@ -47,16 +48,18 @@
 
 		// Replace possibly non-standard, macro and duplicate language codes
 		// with normalized counterparts
-		specialCodes = {
-			// Suggest both varieties of Norwegian when requesting macro Norwegian
+		splitCodes = {
+			// Suggest both varieties of Belarusian when requesting 'be'
+			be: [ 'be', 'be-tarask' ],
+			// Suggest both varieties of Norwegian when requesting 'no'
 			no: [ 'nb', 'nn' ]
 		};
 
-		for ( specialCode in specialCodes ) {
-			specialCodeIndex = possibleTargetLanguages.indexOf( specialCode );
+		for ( splitCode in splitCodes ) {
+			specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
 			if ( specialCodeIndex > -1 ) {
 				possibleTargetLanguages.splice( specialCodeIndex, 1 );
-				$.merge( possibleTargetLanguages, specialCodes[ specialCode ] );
+				$.merge( possibleTargetLanguages, splitCodes[ splitCode ] );
 			}
 		}
 
@@ -73,7 +76,11 @@
 	 * @return {boolean}
 	 */
 	function pageInLanguageExists( code ) {
-		return $( 'li.interlanguage-link.interwiki-' + code ).length === 1;
+		var domainCode;
+
+		domainCode = mw.cx.siteMapper.getWikiDomainCode( code );
+
+		return $( 'li.interlanguage-link.interwiki-' + domainCode ).length === 1;
 	}
 
 	function createCXInterlanguageItem( code ) {
@@ -153,6 +160,8 @@
 	}
 
 	$( function () {
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+
 		prepareCXInterLanguageLinks();
 	} );
 }( jQuery, mediaWiki ) );

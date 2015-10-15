@@ -741,9 +741,10 @@
 				"cx-entrypoint-title"
 			],
 			"dependencies": [
+				"ext.cx.sitemapper",
 				"ext.cx.util",
-				"jquery.uls.data",
 				"ext.uls.init",
+				"jquery.uls.data",
 				"mediawiki.jqueryMsg"
 			]
 		},
