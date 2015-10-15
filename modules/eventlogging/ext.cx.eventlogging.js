@@ -32,6 +32,8 @@
 			mw.hook( 'mw.cx.cta.shown' ).add( $.proxy( this.ctaShown, this ) );
 			mw.hook( 'mw.cx.cta.accept' ).add( $.proxy( this.ctaAccept, this ) );
 			mw.hook( 'mw.cx.cta.reject' ).add( $.proxy( this.ctaReject, this ) );
+			mw.hook( 'mw.cx.draft.restore-failed' ).add( $.proxy( this.restoreFailed, this ) );
+			mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.saveFailed, this ) );
 		},
 
 		/**
@@ -56,7 +58,8 @@
 
 		/**
 		 * Log publish failures
-		 * @param {string} contentLanguage source language
+		 *
+		 * @param {string} sourceLanguage source language
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title
@@ -87,8 +90,55 @@
 		},
 
 		/**
+		 * Log save failures
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {string} trace Error trace
+		 */
+		saveFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
+			mw.track( 'event.ContentTranslationError', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: 'save-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				trace: trace.substring( 0, 500 )
+			} );
+		},
+
+		/**
+		 * Log translation restore failures
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {string} trace Error trace
+		 */
+		restoreFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
+			mw.track( 'event.ContentTranslationError', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: 'restore-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				trace: trace.substring( 0, 500 )
+			} );
+		},
+
+		/**
 		 * Log saving(draft) of translated page.
-		 * @param {string} contentLanguage source language
+		 *
+		 * @param {string} sourceLanguage source language
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title
@@ -111,8 +161,9 @@
 		},
 
 		/**
-		 * Log continuing translation
-		 * @param {string} contentLanguage source language
+		 * Log continuing translation.
+		 *
+		 * @param {string} sourceLanguage source language
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 */
@@ -130,7 +181,8 @@
 
 		/**
 		 * Log deletion of translated page.
-		 * @param {string} contentLanguage Source language code
+		 *
+		 * @param {string} sourceLanguage Source language code
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title

@@ -158,13 +158,24 @@
 				self.restore();
 				mw.hook( 'mw.cx.draft.restored' ).fire();
 			} );
-		} ).fail( function () {
+		} ).fail( function ( errorCode, details ) {
 			var uri = new mw.Uri();
 
 			// Wrong draft id passed.
 			delete uri.query.draft;
 			location.href = uri.toString();
-			mw.hook( 'mw.cx.draft.restore-failed' ).fire();
+
+			if ( details.exception instanceof Error ) {
+				details.exception = details.exception.toString();
+			}
+			details.errorCode = errorCode;
+			mw.hook( 'mw.cx.draft.restore-failed' ).fire(
+				mw.cx.sourceLanguage,
+				mw.cx.targetLanguage,
+				mw.cx.sourceTitle,
+				this.targetTitle,
+				JSON.stringify( details )
+			);
 		} );
 	};
 
@@ -352,11 +363,21 @@
 			timer = setInterval( function () {
 				checkAndSave();
 			}, 5 * 60 * 1000 );
-		} ).fail( function ( errorCode ) {
+		} ).fail( function ( errorCode, details ) {
 			if ( errorCode === 'assertuserfailed' ) {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
 			}
-			mw.hook( 'mw.cx.translation.save-failed' ).fire();
+			if ( details.exception instanceof Error ) {
+				details.exception = details.exception.toString();
+			}
+			details.errorCode = errorCode;
+			mw.hook( 'mw.cx.translation.save-failed' ).fire(
+				mw.cx.sourceLanguage,
+				mw.cx.targetLanguage,
+				mw.cx.sourceTitle,
+				this.targetTitle,
+				JSON.stringify( details )
+			);
 		} );
 	};
 
