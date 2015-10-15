@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Frettie",
+			"Mormegil",
+			"Utar",
+			"YjM"
+		]
+	},
+	"apihelp-cxpublish-description": "Uložit stránku vytvořenou pomocí rozšíření ContentTranslation.",
+	"apihelp-cxpublish-param-html": "Obsah k uložení.",
+	"apihelp-cxpublish-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxpublish-param-to": "Kód cílového jazyka.",
+	"apihelp-cxpublish-param-sourcetitle": "Název zdrojové stránky.",
+	"apihelp-cxpublish-param-sourcerevision": "Revize zdrojové stránky.",
+	"apihelp-cxpublish-param-categories": "Kategorie, které budou přidány k publikované stránce.",
+	"apihelp-cxpublish-param-wpCaptchaId": "ID Captchy (v případě, že ukládáte s Captchou)",
+	"apihelp-query+contenttranslation-param-translationid": "ID překladu.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Kód zdrojového jazyka.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Kód cílového jazyka.",
+	"apihelp-cxdelete-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxdelete-param-to": "Kód cílového jazyka.",
+	"apihelp-cxdelete-param-sourcetitle": "Název zdrojové stránky."
+}

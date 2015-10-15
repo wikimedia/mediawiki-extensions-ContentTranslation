@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"KlaudiuMihaila"
+		]
+	},
+	"apihelp-cxpublish-param-from": "Codul limbii sursă.",
+	"apihelp-cxpublish-param-to": "Codul limbii destinație.",
+	"apihelp-cxpublish-param-sourcetitle": "Titlul paginii sursă.",
+	"apihelp-cxpublish-param-sourcerevision": "Versiunea paginii sursă.",
+	"apihelp-cxconfiguration-param-from": "Codul limbii sursă.",
+	"apihelp-cxconfiguration-param-to": "Codul limbii destinație.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Codul limbii sursă.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Codul limbii destinație.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Codul limbii sursă.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Codul limbii destinație.",
+	"apihelp-cxdelete-param-from": "Codul limbii sursă.",
+	"apihelp-cxdelete-param-to": "Codul limbii destinație.",
+	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă."
+}

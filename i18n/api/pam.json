@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Leeheonjin"
+		]
+	},
+	"apihelp-cxpublish-param-html": "Ing laman para isikap.",
+	"apihelp-cxpublish-param-from": "Ing kodigong amanung penibatan.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Ing kodigong amanung penibatan."
+}

@@ -18,7 +18,6 @@
 	"cx-tools-link-remove": "परिसन्धिः निष्कास्यताम्",
 	"cx-tools-mt-restore": "पुनस्स्थाप्यताम्",
 	"cx-tools-mt-provider-title": "$1 इत्यस्याः",
-	"cx-stats-unknown": "अज्ञातम्",
 	"cx-tools-reference-title": "सन्दर्भः",
 	"cx-tools-reference-remove": "सन्दर्भः निष्कास्यताम्",
 	"cx-sourceselector-dialog-new-translation": "नवीनः अनुवादः",
@@ -33,11 +32,8 @@
 	"cx-contributions-new-article": "नवीनपृष्ठम्",
 	"cx-contributions-translation": "अनुवादः",
 	"cx-translation-status-deleted": "अपाकृतम्",
-	"cx-stats-table-source-total": "योगः (स्रोतः)",
-	"cx-stats-table-target-total": "योगः (लक्ष्यम्)",
 	"cx-draft-cancel-button-label": "निरस्यताम्",
 	"cx-draft-discard-button-label": "अनुवादः अपाक्रियताम्",
 	"cx-campaign-contributionsmenu-mycontributions": "योगदानानि",
-	"cx-campaign-contributionsmenu-mytranslations": "अनुवादाः",
-	"cx-trend-all-translations": "सर्वे अनुवादाः"
+	"cx-campaign-contributionsmenu-mytranslations": "अनुवादाः"
 }

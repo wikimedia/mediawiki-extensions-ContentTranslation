@@ -8,13 +8,11 @@
 		]
 	},
 	"cx-translation-filter-draft-translations": "පරිවර්තන ප්‍රගතිය",
-	"apihelp-query+contenttranslation-example-3": "දී ඇති භාෂා ද්විත්වය අතර දී ඇති මාතෘකාව සදහා ඕනෑම පරිවර්තනයක් සොයන්න.",
 	"cx-contributions-new-article": "නව පිටුවක්",
 	"cx-translation-already-in-progress": "මෙය $1 විසින් සිදුකරමින් පවතින පරිවර්තනයකි.",
 	"cx-stats-try-contenttranslation": "අන්තර්ගත පරිවර්තනය යනු වෙනත් භාෂා වලින් ඇති පිටු පරිවර්තන කරමින් නව පිටු සෑදීම සදහා ඇති යෙදවුමකි. [$1 අන්තර්ගත පරිවර්තනය උත්සාහ කරන්න]",
 	"cx-stats-published-source-target": "පරිවර්ථනය",
 	"cx-stats-draft-target-source": "පරිවර්ථන ක්‍රියාවලිය සිදුවෙමින් පවතින්නේ",
 	"cx-stats-tabs-expand": "සියලුම භාෂා පෙන්වන්න",
-	"cx-stats-monthly-published": "පෙර මාසය",
 	"cx-stats-weekly-published": "පසුගිය සතිය"
 }

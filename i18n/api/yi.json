@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"פוילישער"
+		]
+	},
+	"apihelp-cxpublish-description": "היט אויף א בלאט געשאפן מיט דער אינהאלט־איבערזעצונג פארברייטערונג.",
+	"apihelp-cxpublish-param-title": "דער טיטל פונעם בלאט אויף וואס מען זאל אויספירן פעולות.",
+	"apihelp-cxpublish-param-html": "דעם אינהאלט אויפצוהיטן.",
+	"apihelp-cxpublish-param-from": "דער קוואלשפראך קאד.",
+	"apihelp-cxpublish-param-to": "צילשפראך קאד",
+	"apihelp-cxpublish-param-sourcetitle": "טיטל פונעם קוואלבלאט.",
+	"apihelp-cxpublish-param-sourcerevision": "ווערסיע פונעם קוואלבלאט.",
+	"apihelp-cxpublish-param-status": "ווען <kbd>draft</kbd>, וועט מען אויפהיטן איבערזעצונג ווי אנווארף. ווען <kbd>published</kbd>, וועט מען  פארעפנטלעכן איבערזעצונג.",
+	"apihelp-cxpublish-param-categories": "די קאטעגאריעס אין וואס מ׳זאל אריינלייגן דעם פארעפנטלעכנעם בלאט.",
+	"apihelp-query+contenttranslation-param-translationid": "איבערזעצונג אידענטיפיצירער.",
+	"apihelp-cxconfiguration-param-from": "קוואלשפראך קאד.",
+	"apihelp-cxconfiguration-param-to": "צילשפראך קאד",
+	"apihelp-query+cxpublishedtranslations-param-from": "קוואלשפראך קאד.",
+	"apihelp-query+cxpublishedtranslations-param-to": "צילשפראך קאד",
+	"apihelp-query+contenttranslationlangtrend-param-source": "קוואלשפראך קאד.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "צילשפראך קאד",
+	"apihelp-cxdelete-param-from": "קוואלשפראך קאד.",
+	"apihelp-cxdelete-param-to": "צילשפראך קאד.",
+	"apihelp-cxdelete-param-sourcetitle": "טיטל פונעם קוואלבלאט."
+}

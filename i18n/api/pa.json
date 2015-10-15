@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Satdeep gill"
+		]
+	},
+	"apihelp-query+cxpublishedtranslations-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+cxpublishedtranslations-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslationlangtrend-param-source": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslationlangtrend-param-target": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxdelete-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxdelete-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।"
+}

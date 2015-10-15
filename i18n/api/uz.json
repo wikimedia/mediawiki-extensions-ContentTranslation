@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sociologist",
+			"Таржимон"
+		]
+	},
+	"apihelp-cxpublish-param-html": "Saqlash uchun matn.",
+	"apihelp-cxpublish-param-from": "Manba til kodi.",
+	"apihelp-cxpublish-param-to": "Mo‘ljal til kodi.",
+	"apihelp-cxpublish-param-sourcetitle": "Manba sahifasining sarlavhasi.",
+	"apihelp-query+contenttranslation-param-translationid": "Tarjima identifikatsiyasi.",
+	"apihelp-query+contenttranslation-example-2": "Tarjmia qoralamasini identifikatsiya nomeri bo‘yicha olish.",
+	"apihelp-cxdelete-description": "Matn Tarjimasi («Content Translation») kengaytmasi yordamida yaratilgan qoralama tarjimani o‘chirish.",
+	"apihelp-cxdelete-param-from": "Manba til kodi.",
+	"apihelp-cxdelete-param-to": "Mo‘ljal til kodi.",
+	"apihelp-cxdelete-param-sourcetitle": "Manba sahifasining sarlavhasi.",
+	"apihelp-cxdelete-example-1": "Bu til juftligi va sarlavhasi bilan bog‘liq qoralamani o‘chirish."
+}

@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
+	"apihelp-cxpublish-description": "Мазмұн аудару кеңейтілімін қолданып жасалған бетті сақтаңыз.",
+	"apihelp-cxpublish-param-title": "Әрекетті орындау үшін бет атауы.",
+	"apihelp-cxpublish-param-html": "Сақтау үшін мәтін.",
+	"apihelp-cxpublish-param-from": "Қайнар тіл коды.",
+	"apihelp-cxpublish-param-to": "Нысана тіл коды.",
+	"apihelp-cxpublish-param-sourcetitle": "Қайнар бетінің атауы.",
+	"apihelp-cxpublish-param-sourcerevision": "Қайнар беттің нұсқасы.",
+	"apihelp-cxpublish-param-status": "Егер «шимай бет» болса, аударма шимай бетте сақталады. Егер «жарияланған» болса, аударма жарияланады.",
+	"apihelp-cxpublish-param-categories": "Санаттар жарияланған беттен қосылатын болады.",
+	"apihelp-query+contenttranslation-param-translationid": "Аударма ID-і.",
+	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез-келген аударманы берілген атаудан табу",
+	"apihelp-query+contenttranslationstats-example-1": "Барлық тілтердің Мазмұн аударма статистикаларын алу.",
+	"apihelp-cxconfiguration-param-from": "Қайнар тіл коды.",
+	"apihelp-cxconfiguration-param-to": "Нысана тіл коды.",
+	"apihelp-query+cxpublishedtranslations-description": "Барлық аударылған мәліметтерден таңдау",
+	"apihelp-query+cxpublishedtranslations-param-from": "Қайнар тіл коды.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Нысана тіл коды.",
+	"apihelp-query+cxpublishedtranslations-example-1": "Барлық жарияланған аудармалардан таңдау",
+	"apihelp-query+cxpublishedtranslations-example-2": "Ағылшыншадан аударылған, барлық жарияланған аудармалардан таңдау",
+	"apihelp-query+cxpublishedtranslations-example-3": "Испаншадан аударылған, барлық жарияланған аудармалардан таңдау",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Қайнар тіл коды.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Нысана тіл коды.",
+	"apihelp-cxdelete-description": "Мазмұн аудару кеңейтілімін қолданып жасаған шимай аудармаларды жою",
+	"apihelp-cxdelete-param-from": "Қайнар тіл коды.",
+	"apihelp-cxdelete-param-to": "Нысана тіл коды.",
+	"apihelp-cxdelete-param-sourcetitle": "Қайнар бетінің атауы."
+}

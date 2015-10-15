@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stisc-14"
+		]
+	},
+	"apihelp-query+contenttranslationlangtrend-param-source": "Le code source du langage.",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Attrape la tendance de l'édition pour toutes les langues"
+}

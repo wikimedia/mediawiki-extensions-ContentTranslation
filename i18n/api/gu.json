@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ashok modhvadia",
+			"KartikMistry"
+		]
+	},
+	"apihelp-cxpublish-param-html": "સંગ્રહવા માટેની વિગત.",
+	"apihelp-cxpublish-param-from": "સ્રોત ભાષા કોડ.",
+	"apihelp-cxpublish-param-to": "લક્ષ્ય ભાષા કોડ.",
+	"apihelp-cxpublish-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક.",
+	"apihelp-cxpublish-param-sourcerevision": "સ્રોત પાનાંની આવૃત્તિ.",
+	"apihelp-cxpublish-param-wpCaptchaId": "કેપ્ચા ઓળખ (જ્યારે તમે કેપ્ચા સાથે સંગ્રહ કરો છો).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "કેપ્ચાનો જવાબ આપો (જ્યારે તમે કેપ્ચા સાથે સંગ્રહ કરો છો).",
+	"apihelp-query+contenttranslation-description": "ભાષાંતરો માટે ડેટાબેઝમાંથી શોધો.",
+	"apihelp-query+contenttranslation-param-translationid": "ભાષાંતર ઓળખ.",
+	"apihelp-query+contenttranslation-example-1": "હાલના સભ્ય દ્વારા શરુ કરેલ ભાષાંતરો મેળવો.",
+	"apihelp-query+contenttranslation-example-2": "ઓળખ વડે ભાષાંતરો મેળવો.",
+	"apihelp-cxconfiguration-param-from": "સ્રોત ભાષા કોડ.",
+	"apihelp-cxconfiguration-param-to": "લક્ષ્ય ભાષા કોડ.",
+	"apihelp-query+cxpublishedtranslations-description": "બધાં પ્રકાશિત ભાષાંતરોની માહિતી મેળવો",
+	"apihelp-query+cxpublishedtranslations-param-from": "સ્રોત ભાષા કોડ.",
+	"apihelp-query+cxpublishedtranslations-param-to": "લક્ષ્ય ભાષા કોડ.",
+	"apihelp-query+cxpublishedtranslations-example-1": "બધાં પ્રકાશિત ભાષાંતરો મેળવો",
+	"apihelp-query+contenttranslationlangtrend-param-source": "સ્રોત ભાષાનો કોડ.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "લક્ષ્ય ભાષાનો કોડ.",
+	"apihelp-cxtoken-example-1": "cxserver માંથી સત્તાધિકરણ ટોકન મેળવો",
+	"apihelp-cxdelete-param-from": "સ્રોત ભાષા કોડ.",
+	"apihelp-cxdelete-param-to": "લક્ષ્ય ભાષા કોડ.",
+	"apihelp-cxdelete-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક."
+}

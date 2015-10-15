@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Рустам Нурыев"
+		]
+	},
+	"apihelp-cxpublish-description": "ЭстәлекТәржемсеһе ҡушымтаһы ярҙамында төҙөлгән битте яҙҙырып ҡуйыу",
+	"apihelp-cxpublish-param-title": "Ғәмәл атҡарыласаҡ биттең исеме",
+	"apihelp-cxpublish-param-html": "Яҙырып ҡуйыу өсөн эстәлек.",
+	"apihelp-cxpublish-param-from": "Баштағы телдең коды.",
+	"apihelp-cxpublish-param-to": "Төбәлгән тел коды",
+	"apihelp-cxpublish-param-sourcetitle": "Башланғыс биттең исеме.",
+	"apihelp-cxpublish-param-sourcerevision": "Башланғыс биттең төрө",
+	"apihelp-cxpublish-param-categories": "Баҫылған биткә өҫтәләсәк категориялар",
+	"apihelp-cxconfiguration-param-from": "Баштағы телдең коды.",
+	"apihelp-cxconfiguration-param-to": "Төбәлгән тел коды.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Баштағы телдең коды.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Төбәлгән телдең коды.",
+	"apihelp-cxdelete-param-from": "Баштағы телдең коды.",
+	"apihelp-cxdelete-param-to": "Төбәлгән тел коды."
+}

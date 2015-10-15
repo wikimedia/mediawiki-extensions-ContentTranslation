@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jonbg",
+			"Maxí"
+		]
+	},
+	"apihelp-cxpublish-description": "Vista síðu sem var búin til með Content Translation viðbótinni.",
+	"apihelp-cxpublish-param-html": "Efnið til að vista.",
+	"apihelp-cxpublish-param-from": "Kóði frummálsins.",
+	"apihelp-cxpublish-param-to": "Kóði markmálsins.",
+	"apihelp-cxpublish-param-sourcetitle": "Titill frumgreinarinnar.",
+	"apihelp-cxpublish-param-categories": "Flokkarnir sem á að setja útgefnu síðuna í.",
+	"apihelp-cxconfiguration-param-from": "Kóði frummálsins.",
+	"apihelp-cxconfiguration-param-to": "Kóði markmálsins.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Kóði frummálsins.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Kóði markmálsins.",
+	"apihelp-query+cxpublishedtranslations-example-1": "Sækja allar útgefnar þýðingar",
+	"apihelp-query+cxpublishedtranslations-example-2": "Sækja allar útgefnar þýðingar úr ensku",
+	"apihelp-query+cxpublishedtranslations-example-3": "Sækja allar útgefnar þýðingar úr ensku á spænsku",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Kóði frummálsins.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Kóði markmálsins.",
+	"apihelp-cxdelete-description": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
+	"apihelp-cxdelete-param-from": "Kóði frummálsins.",
+	"apihelp-cxdelete-param-to": "Kóði markmálsins.",
+	"apihelp-cxdelete-param-sourcetitle": "Titill upprunagreinarinnar.",
+	"apihelp-cxdelete-example-1": "Eyða drögum sem tengjast þessu málapari og titli."
+}

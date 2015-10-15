@@ -64,7 +64,6 @@
 	"cx-tools-mt-dont-use": "Älä käytä konekäännöstä",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 luokka|$1 luokkaa|0=Ei luokkia}}",
 	"cx-stats-title": "Käännetyn sisällön tilastot",
-	"cx-stats-unknown": "tuntematon",
 	"cx-tools-reference-title": "Viite",
 	"cx-tools-reference-add": "Lisää viite",
 	"cx-tools-reference-remove": "Poista viite",

@@ -66,7 +66,6 @@
 	"cx-tools-mt-dont-use": "Ikkje bruk maskinomsetjing",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategoriar|0=Ingen kategoriar}}",
 	"cx-stats-title": "Statistikk for innhaldsomsetjingar",
-	"cx-stats-unknown": "ukjend",
 	"cx-tools-reference-title": "Referanse",
 	"cx-tools-reference-remove": "Slett referanse",
 	"cx-tools-link-instruction-shortcut": "Skift + klikk for å opne lenkjer",
@@ -84,7 +83,6 @@
 	"cx-sourceselector-dialog-error-page-exists": "Denne sida [$1 finst allereie] på $2",
 	"cx-translation-filter-all-translations": "Alle omsetjingar",
 	"cx-translation-filter-published-translations": "Publiserte omsetjingar",
-	"apihelp-cxconfiguration-param-from": "Koda for kjeldespråket",
 	"cx-save-draft-saving": "Lagrar …",
 	"cx-save-draft-tooltip": "Omsetjingsutkast vert lagra automatisk",
 	"cx-contributions-new-contributions": "Nytt bidrag",
@@ -97,9 +95,6 @@
 	"cx-translation-status-draft": "Under arbeid",
 	"cx-translation-status-published": "Publiser",
 	"cx-translation-status-deleted": "Sletta",
-	"apihelp-cxdelete-param-from": "Koda for kjeldespråket",
-	"apihelp-cxdelete-param-to": "Koda for målspråket",
-	"apihelp-cxdelete-param-sourcetitle": "Tittelen åt kjeldesida.",
 	"cx-stats-published-translations-title": "Publiserte omsetjingar",
 	"cx-stats-draft-translations-title": "Omsetjingar undervegs",
 	"cx-draft-cancel-button-label": "Avbryt",
@@ -109,6 +104,5 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
 	"cx-campaign-contributionsmenu-mytranslations": "Omsetjingar",
 	"cx-campaign-contributionsmenu-myuploads": "Opplasta mediefiler",
-	"cx-trend-all-translations": "Alle omsetjingar",
 	"cx-trend-translations-to": "Omsetjingar til $1"
 }

@@ -68,7 +68,6 @@
 	"cx-tools-mt-dont-use": "यांत्रिक अनुवाद का उपयोग न करें",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 श्रेणी|$1 श्रेणियाँ|0=कोई श्रेणी नहीं}}",
 	"cx-stats-title": "सामग्री अनुवाद सांख्यिकी",
-	"cx-stats-unknown": "अज्ञात",
 	"cx-tools-reference-title": "सन्दर्भ",
 	"cx-tools-reference-add": "सन्दर्भ जोड़ें",
 	"cx-tools-reference-remove": "सन्दर्भ हटायें",
@@ -133,7 +132,6 @@
 	"cx-campaign-contributionsmenu-translate-instead": "प्रारंभ से लिखने के बजाय अनुवाद करें",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 शायद पहले ही से अन्य भाषाओं में मौजूद है",
 	"cx-campaign-contributionsmenu-myuploads": "अपलोड किया गया मीडिया",
-	"cx-trend-all-translations": "सभी अनुवाद",
 	"cx-trend-translations-to": "$1 भाषा में किए गए अनुवाद",
 	"cx-stats-try-contenttranslation": "सामग्री अनुवाद अन्य भाषाओं से अनुवाद करके नये पृष्ठ निर्मित करने वाला एक उपकरण है। [$1 सामग्री अनुवाद से प्रयास करें।]"
 }

@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Muhammad Shuaib",
+			"Obaid Raza",
+			"عرفان ارشد"
+		]
+	},
+	"apihelp-cxpublish-description": "ترجمہ مواد توسیع کے ذریعہ تخلیق کردہ صفحہ کو محفوظ کریں۔",
+	"apihelp-cxpublish-param-from": "ماخذ زبان کا کوڈ",
+	"apihelp-cxpublish-param-to": "ہدف زبان کا کوڈ",
+	"apihelp-cxpublish-param-sourcetitle": "ماخذ صفحہ کا عنوان",
+	"apihelp-cxpublish-param-sourcerevision": "ماخذ صفحہ کی نظر ثانی",
+	"apihelp-cxconfiguration-param-from": "ماخذ زبان کا کوڈ",
+	"apihelp-cxconfiguration-param-to": "ہدف زبان کا کوڈ",
+	"apihelp-query+cxpublishedtranslations-param-from": "ماخذ زبان کا کوڈ",
+	"apihelp-query+cxpublishedtranslations-param-to": "ہدف زبان کا کوڈ",
+	"apihelp-query+cxpublishedtranslations-example-1": "تمام شائع شدہ تراجم حاصل کریں",
+	"apihelp-query+cxpublishedtranslations-example-2": "انگریزی سے ترجمہ شدہ تمام تراجم حاصل کریں",
+	"apihelp-query+contenttranslationlangtrend-param-source": "ماخذ زبان کا کوڈ",
+	"apihelp-query+contenttranslationlangtrend-param-target": "ہدف زبان کا کوڈ",
+	"apihelp-cxdelete-param-from": "ماخذ زبان کا کوڈ",
+	"apihelp-cxdelete-param-to": "ہدف زبان کا کوڈ",
+	"apihelp-cxdelete-param-sourcetitle": "ماخذ صفحہ کا عنوان"
+}

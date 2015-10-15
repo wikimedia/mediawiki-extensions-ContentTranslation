@@ -76,7 +76,6 @@
 	"cx-tools-mt-dont-use": "Makine çevirisi kullanma",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategori|0=Kategorisiz}}",
 	"cx-stats-title": "İçerik Çevirmeni istatistikleri",
-	"cx-stats-unknown": "bilinmeyen",
 	"cx-tools-reference-title": "Kaynak",
 	"cx-tools-reference-add": "Kaynak ekle",
 	"cx-tools-reference-remove": "Kaynağı kaldır",
@@ -146,9 +145,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Tercüme sıfırdan yazmak yerine",
 	"cx-campaign-contributionsmenu-might-be-available": "$1, başka dillerde zaten mevcut olabilir",
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
-	"cx-trend-all-translations": "Tüm çeviriler",
 	"cx-trend-translations-to": "$1 diline yapılan çeviriler",
 	"cx-stats-try-contenttranslation": "İçerik Çevirmeni, diğer dillerden çeviri yaparak yeni sayfalar oluşturmaya yarayan bir araçtır. [$1 İçerik Çevirmeni'ni deneyin]",
-	"cx-stats-monthly-published": "Geçen ay",
 	"cx-stats-weekly-published": "Geçen hafta"
 }

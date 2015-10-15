@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Asoxor"
+		]
+	},
+	"apihelp-cxconfiguration-param-from": "کۆدی زمانی سەرچاوە.",
+	"apihelp-cxconfiguration-param-to": "کۆدی زمانی مەبەست.",
+	"apihelp-cxdelete-param-from": "کۆدی زمانی سەرچاوە.",
+	"apihelp-cxdelete-param-to": "کۆدی زمانی مەبەست.",
+	"apihelp-cxdelete-param-sourcetitle": "سەرناوی پەڕەی سەرچاوە."
+}

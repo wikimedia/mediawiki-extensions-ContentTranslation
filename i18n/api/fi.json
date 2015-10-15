@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pitke"
+		]
+	},
+	"apihelp-cxpublish-param-status": "Jos <kbd>draft</kbd>, käännös tallennetaan luonnoksena. Jos <kbd>published</kbd>, käännös julkaistaan."
+}

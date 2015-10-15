@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeblad"
+		]
+	},
+	"apihelp-cxconfiguration-param-from": "Koda for kjeldespråket",
+	"apihelp-cxdelete-param-from": "Koda for kjeldespråket",
+	"apihelp-cxdelete-param-to": "Koda for målspråket",
+	"apihelp-cxdelete-param-sourcetitle": "Tittelen åt kjeldesida."
+}
