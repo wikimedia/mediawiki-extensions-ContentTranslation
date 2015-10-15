@@ -54,7 +54,7 @@
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var $section = $( this );
 
-			if ( !$.trim( $section.text() ) ) {
+			if ( !$.trim( $section.text() ) && !$section.children().length ) {
 				$section.remove();
 			}
 		} );
