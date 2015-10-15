@@ -381,7 +381,7 @@
 			} );
 
 			// Remove empty sections
-			if ( !$.trim( $section.text() && !$section.children().length ) ) {
+			if ( !$.trim( $section.text() ) && !$section.children().length ) {
 				$section.remove();
 			}
 
