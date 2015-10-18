@@ -155,5 +155,8 @@
 	"cx-tools-link-external-link-placeholder": "Сыртқы сілтеме қосу",
 	"cx-tools-link-to-another-page": "Басқа бетке сілтеу",
 	"cx-tools-link-apply": "Бітті",
-	"mw-pageselector-missing": "Бет жоқ"
+	"mw-pageselector-missing": "Бет жоқ",
+	"cx-draft-restoring": "Сақталған аударма оқылып жатыр...",
+	"cx-draft-restored": "Сақталған аударма жүктелді.",
+	"cx-draft-restore-failed": "Сақталған аударма жүктелмеді!"
 }

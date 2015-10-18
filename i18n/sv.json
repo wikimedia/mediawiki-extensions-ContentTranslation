@@ -189,5 +189,8 @@
 	"cx-tools-link-external-link-placeholder": "Lägg till extern länk",
 	"cx-tools-link-to-another-page": "Länka till en annan sida",
 	"cx-tools-link-apply": "Klar",
-	"mw-pageselector-missing": "Sidan finns inte"
+	"mw-pageselector-missing": "Sidan finns inte",
+	"cx-draft-restoring": "Läser in den sparade översättningen...",
+	"cx-draft-restored": "Den sparade översättningen lästes in.",
+	"cx-draft-restore-failed": "Kunde inte läsa in den sparade översättning!"
 }
