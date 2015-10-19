@@ -29,6 +29,7 @@
 
 	ContentTranslationSource.prototype.init = function () {
 		var query = new mw.Uri().query;
+
 		mw.cx.sourceTitle = query.page;
 		mw.cx.targetLanguage = query.to;
 		mw.cx.sourceLanguage = query.from;
@@ -37,7 +38,12 @@
 			mw.hook( 'mw.cx.error.anonuser' ).fire();
 			return;
 		}
-		if ( !mw.cx.sourceTitle || !mw.cx.sourceLanguage || !mw.cx.targetLanguage ) {
+
+		if ( !mw.cx.sourceTitle ||
+			!mw.cx.sourceLanguage ||
+			!mw.cx.targetLanguage ||
+			( mw.Title.newFromText( mw.cx.sourceTitle ) === null )
+		) {
 			this.showDashboard();
 			return;
 		}
@@ -99,22 +105,19 @@
 		} );
 
 		title = mw.Title.newFromText( mw.cx.sourceTitle );
+		if ( title.getNamespaceId() ) { // Non-main
+			// mw.Title's getPrefixedText() adds the localized namespace name,
+			// but it's localized for the current wiki's content language,
+			// and here we need the source. See
+			// https://phabricator.wikimedia.org/T86744
+			// Avoid this problem for non-main-space pages by taking
+			// the namespace name from the current source title.
+			namespace = mw.cx.sourceTitle.match( '.+?:' )[ 0 ];
 
-		if ( title ) {
-			if ( title.getNamespaceId() ) { // Non-main
-				// mw.Title's getPrefixedText() adds the localized namespace name,
-				// but it's localized for the current wiki's content language,
-				// and here we need the source. See
-				// https://phabricator.wikimedia.org/T86744
-				// Avoid this problem for non-main-space pages by taking
-				// the namespace name from the current source title.
-				namespace = mw.cx.sourceTitle.match( '.+?:' )[ 0 ];
-
-				mw.cx.sourceTitle = namespace + title.getNameText();
-			} else {
-				// In the main space, normalize simply
-				mw.cx.sourceTitle = title.getPrefixedText();
-			}
+			mw.cx.sourceTitle = namespace + title.getNameText();
+		} else {
+			// In the main space, normalize simply
+			mw.cx.sourceTitle = title.getPrefixedText();
 		}
 
 		this.$title = $( '<h2>' )
