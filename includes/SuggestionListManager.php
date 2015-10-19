@@ -65,22 +65,33 @@ class SuggestionListManager {
 		);
 	}
 
-	public function getListByName( $name, $owner = 0 ) {
+	protected function getListByConds( array $conds ) {
 		$dbr = Database::getConnection( DB_MASTER );
-		$row = $dbr->selectRow(
-			'cx_lists',
-			'*',
-			array(
-				'cxl_name' => $name,
-				'cxl_owner' => $owner,
-			),
-			__METHOD__
-		);
+		$row = $dbr->selectRow( 'cx_lists', '*', $conds, __METHOD__ );
 
 		if ( $row ) {
 			return SuggestionList::newFromRow( $row );
 		}
+
 		return null;
+	}
+
+	public function getListByName( $name, $owner = 0 ) {
+		$conds = array(
+			'cxl_name' => $name,
+			'cxl_owner' => $owner,
+		);
+
+		return $this->getListByConds( $conds );
+	}
+
+	public function getListById( $id ) {
+		$conds = array(
+			'cxl_id' => $id,
+			'cxl_owner' => 0,
+		);
+
+		return $this->getListByConds( $conds );
 	}
 
 	/**
@@ -241,7 +252,30 @@ class SuggestionListManager {
 	 * @param int $seed Seed to use with randomizing of results.
 	 * @return array Lists and suggestions
 	 */
-	public function getPublicSuggestions( $from, $to, $limit, $offset, $seed ) {
+	public function getPublicSuggestions( $from, $to, $limit ) {
+		return $this->getSuggestionsByType(
+			array(
+				SuggestionList::TYPE_CATEGORY,
+				SuggestionList::TYPE_FEATURED
+			),
+			$from,
+			$to,
+			$limit
+		 );
+	}
+
+	/**
+	 * Get public suggestions by list type
+	 *
+	 * @param string $type List type.
+	 * @param string $from Source language code.
+	 * @param string $to Target language code.
+	 * @param int $limit How many suggestions to fetch.
+	 * @param int $offset Offset from the beginning to fetch.
+	 * @param int $seed Seed to use with randomizing of results.
+	 * @return array Lists and suggestions
+	 */
+	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$lists = array();
@@ -251,45 +285,72 @@ class SuggestionListManager {
 			'cx_lists',
 			'*',
 			array(
-				'cxl_type' => SuggestionList::TYPE_FEATURED,
+				'cxl_type' => $type,
 				'cxl_public' => true,
 			),
-			__METHOD__
+			__METHOD__,
+			array(
+				'ORDER BY' => 'cxl_type desc'
+			)
 		);
 
 		foreach ( $res as $row ) {
 			$list = SuggestionList::newFromRow( $row );
 			$lists[$list->getId()] = $list;
-		}
-
-		if ( count( $lists ) ) {
-			$conds = array(
-				'cxs_list_id' => array_keys( $lists ),
-				'cxs_source_language' => $from,
-				'cxs_target_language' => array( $to, '*' ),
+			$suggestions = array_merge(
+				$suggestions,
+				$this->getSuggestionsInList( $list->getId(), $from, $to, $limit, $offset, $seed )
 			);
-
-			$seed = (int)$seed;
-
-			$options = array(
-				'LIMIT' => $limit,
-				'ORDER BY' => "RAND( $seed )"
-			);
-
-			if ( $offset ) {
-				$options['OFFSET'] = $offset;
-			}
-
-			$res = $dbw->select( 'cx_suggestions', '*', $conds, __METHOD__, $options );
-
-			foreach ( $res as $row ) {
-				$suggestions[] = Suggestion::newFromRow( $row );
-			}
 		}
 
 		return array(
 			'lists' => $lists,
 			'suggestions' => $suggestions,
 		);
+	}
+
+	/**
+	 * Get the suggestions by list id
+	 *
+	 * @param string $listId List id.
+	 * @param string $from Source language code.
+	 * @param string $to Target language code.
+	 * @param int $limit How many suggestions to fetch.
+	 * @param int $offset Offset from the beginning to fetch.
+	 * @param int $seed Seed to use with randomizing of results.
+	 * @return Suggestion[] Suggestions
+	 */
+	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
+		$suggestions = array();
+		$dbr = Database::getConnection( DB_MASTER );
+
+		$seed = (int)$seed;
+
+		$options = array(
+			'LIMIT' => $limit,
+			'ORDER BY' => "RAND( $seed )"
+		);
+
+		if ( $offset ) {
+			$options['OFFSET'] = $offset;
+		}
+
+		$res = $dbr->select(
+			array( 'cx_suggestions' ),
+			'*',
+			array(
+				'cxs_source_language' => $from,
+				'cxs_target_language' => $to,
+				'cxs_list_id' => $listId
+			),
+			__METHOD__,
+			$options
+		);
+
+		foreach ( $res as $row ) {
+			$suggestions[] = Suggestion::newFromRow( $row );
+		}
+
+		return $suggestions;
 	}
 }

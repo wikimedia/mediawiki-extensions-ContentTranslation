@@ -50,6 +50,12 @@ class CXManageLists extends Maintenance {
 			true,
 			true
 		);
+		$this->addOption(
+			'type',
+			'Type of the list. Allowed values: (a) featured (b) category',
+			true,
+			true
+		);
 	}
 
 	public function execute() {
@@ -57,6 +63,7 @@ class CXManageLists extends Maintenance {
 		$sourceDomain = SiteMapper::getDomainCode( $this->getOption( 'source' ) );
 		$targetDomain = SiteMapper::getDomainCode( $this->getOption( 'target' ) );
 		$category = $this->getOption( 'category' );
+		$type = $this->getOption( 'type' );
 
 		if ( $this->dryrun ) {
 			$this->output( "DRY-RUN mode: actions are NOT executed\n" );
@@ -70,7 +77,11 @@ class CXManageLists extends Maintenance {
 		$count = count( $pages );
 
 		if ( !$this->dryrun ) {
-			$this->createFeaturedSuggestions( $pages );
+			if ( $type === 'featured' ) {
+				$this->createFeaturedSuggestions( $pages );
+			} elseif ( $type === 'category' ) {
+				$this->createCategoryList( $category, $pages );
+			}
 			$this->output( "$count pages added to the list successfully.\n" );
 		} else {
 			$this->output( "Found $count pages:\n" );
@@ -136,16 +147,31 @@ class CXManageLists extends Maintenance {
 
 	protected function createFeaturedSuggestions( $pages ) {
 		$featureListName = 'cx-suggestionlist-featured';
+		$type = SuggestionList::TYPE_FEATURED;
+		$this->createPublicList( $featureListName, $type, $pages );
+	}
+
+	protected function createCategoryList( $category, $pages ) {
+		$name = $category;
+		$type = SuggestionList::TYPE_CATEGORY;
+		$this->createPublicList( $name, $type, $pages );
+	}
+
+	protected function createPublicList( $name, $type, $pages ) {
+		if ( !count( $pages ) ) {
+			return;
+		}
+
 		$sourceLanguage = $this->getOption( 'source' );
 		$targetLanguage = $this->getOption( 'target' );
 
 		$manager = new SuggestionListManager();
-		$list = $manager->getListByName( $featureListName );
+		$list = $manager->getListByName( $name );
 
 		if ( $list === null ) {
 			$list = new SuggestionList( array(
-				'type' => SuggestionList::TYPE_FEATURED,
-				'name' => $featureListName,
+				'type' => $type,
+				'name' => $name,
 				'public' => true,
 			) );
 			$listId = $manager->insertList( $list );

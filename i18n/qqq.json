@@ -202,5 +202,8 @@
 	"mw-pageselector-missing": "Message shown in page selector when the search did not fetch any result",
 	"cx-draft-restoring": "Message indicating the saved translation being fetched.",
 	"cx-draft-restored": "Message indicating that the saved translation was fetched.",
-	"cx-draft-restore-failed": "Message indicating that the fetching of saved translation failed."
+	"cx-draft-restore-failed": "Message indicating that the fetching of saved translation failed.",
+	"cx-suggestionlist-expand": "Label for the suggestions list expand trigger",
+	"cx-suggestionlist-collapse": "Label for the suggestions list collapse trigger",
+	"cx-suggestionlist-refresh": "Label for the suggestions list refresh trigger"
 }

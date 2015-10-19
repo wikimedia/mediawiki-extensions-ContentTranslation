@@ -3,10 +3,13 @@
 namespace ContentTranslation;
 
 class SuggestionList {
+	// List types. Make sure to add them in ext.cx.suggestionlist.js to
+	// achieve wanted display order.
 	const TYPE_DEFAULT = 0;
 	const TYPE_FEATURED = 1;
 	const TYPE_DISCARDED = 2;
 	const TYPE_FAVORITE = 3;
+	const TYPE_CATEGORY = 4;
 
 	protected $id;
 	protected $name;
@@ -75,12 +78,16 @@ class SuggestionList {
 		return $this->name;
 	}
 
+	/**
+	 * @return \Message
+	 */
 	public function getDisplayNameMessage( \IContextSource $context ) {
-		if ( $this->getType() === self::TYPE_FEATURED ) {
-			return $context->msg( 'cx-suggestionlist-featured' );
+		$message = $context->msg( $this->getName() );
+		if ( $message->exists() ) {
+			return $message;
+		} else {
+			return new \RawMessage( \Title::newFromText( $this->getName() )->getText() );
 		}
-
-		return new \RawMessage( $this->getName() );
 	}
 
 	public function getInfo() {
@@ -112,7 +119,7 @@ class SuggestionList {
 			return self::TYPE_DEFAULT;
 		}
 
-		return $this->type;
+		return (int)$this->type;
 	}
 
 	/**

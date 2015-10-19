@@ -38,45 +38,59 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		if ( !$config->get( 'ContentTranslationEnableSuggestions' ) ) {
 			$this->dieUsage( 'Suggestions not enabled for this wiki', 'suggestionsdisabled' );
 		}
+
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
+
 		$from = $params['from'];
 		$to = $params['to'];
 		if ( $from === $to ) {
 			$this->dieUsage(
-				'Source and target languages cannot be the same. Use from, to API params.',
+				'Source and target languages cannot be the same',
 				'invalidparam'
 			);
 		}
-
+		$data = null;
 		$translator = new Translator( $user );
 		$manager = new SuggestionListManager();
-		// Get non-personalized suggestions
-		$data = $manager->getPublicSuggestions(
-			$from,
-			$to,
-			$params['limit'],
-			$params['offset'],
-			$params['seed']
-		);
 
 		// Get personalized suggestions.
 		// We do not want to send personalized suggestions in paginated results
 		// other than the first page. Hence checking offset.
-		if ( $params['offset'] === null ) {
+		if ( $params['listid'] !== null ) {
+			$list = $manager->getListById( $params['listid'] );
+			if ( $list === null ) {
+				$this->dieUsage( 'Invalid list id', 'invalidparam' );
+			}
+
+			$suggestions = $manager->getSuggestionsInList(
+				$list->getId(),
+				$from,
+				$to,
+				$params['limit'],
+				$params['offset'],
+				$params['seed']
+			);
+			$data = array(
+				'lists' => array( $list ),
+				'suggestions' => $suggestions,
+			);
+		} else {
 			$personalizedSuggestions = $manager->getPersonalizedSuggestions(
 				$translator->getGlobalUserId(),
 				$from,
 				$to
 			);
+			// Get non-personalized suggestions
+			$publicSuggestions = $manager->getPublicSuggestions( $from, $to, $params['limit'] );
 			if ( count( $personalizedSuggestions['lists'] ) ) {
 				// Merge the personal lists to public lists. There won't be duplicates
 				// because the list of lists is an associative array with listId as a key.
-				$data['lists'] = array_merge( $data['lists'], $personalizedSuggestions['lists'] );
+				$data['lists'] = array_merge( $personalizedSuggestions['lists'], $publicSuggestions['lists'] );
 				$data['suggestions'] = array_merge(
-					$data['suggestions'],
-					$personalizedSuggestions['suggestions']
+					$personalizedSuggestions['suggestions'],
+					$publicSuggestions['suggestions']
 				);
 			}
 		}
@@ -218,6 +232,9 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'listid' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
 			'limit' => array(
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
@@ -227,11 +244,9 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			),
 			'offset' => array(
 				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_DFLT => null,
 			),
 			'seed' => array(
 				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_DFLT => null,
 			),
 		);
 		return $allowedParams;
