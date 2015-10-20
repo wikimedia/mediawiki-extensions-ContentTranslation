@@ -138,6 +138,8 @@
 	"cx-stats-draft-translations-label": "Traduzioni in corso",
 	"cx-stats-new-draft-translations-label": "Nuove traduzioni in corso",
 	"cx-stats-published-translators-title": "Numero di traduttori",
+	"cx-stats-cumulative-tab-title": "Totale",
+	"cx-stats-weekly-trend-tab-title": "Per settimana",
 	"cx-draft-discard-confirmation-message": "Sei sicuro di voler cancellare definitivamente questa traduzione?",
 	"cx-draft-cancel-button-label": "Annulla",
 	"cx-draft-discard-button-label": "Cancella traduzione",
