@@ -47,5 +47,8 @@
 	"apihelp-cxdelete-param-from": "Originalo kalbos kodas.",
 	"apihelp-cxdelete-param-to": "Kalbos, į kurią verčiama, kodas.",
 	"apihelp-cxdelete-param-sourcetitle": "Šaltinio puslapio pavadinimas.",
-	"apihelp-cxdelete-example-1": "Ištrinti juodraštį, susijusį su konkrečių kalbų pora ir pavadinimu."
+	"apihelp-cxdelete-example-1": "Ištrinti juodraštį, susijusį su konkrečių kalbų pora ir pavadinimu.",
+	"apihelp-cxsuggestionlist-param-listname": "Pasiūlymo sąrašo pavadinimas.",
+	"apihelp-cxsuggestionlist-param-titles": "Puslapio pavadinimai.",
+	"apihelp-cxsuggestionlist-param-from": "Originalo kalbos kodas."
 }

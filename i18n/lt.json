@@ -100,6 +100,8 @@
 	"cx-translation-filter-published-translations": "Publikuota",
 	"cx-translation-filter-draft-translations": "Verčiama",
 	"cx-translation-filter-suggested-translations": "Pasiūlymai",
+	"cx-suggestionlist-favorite": "Vėliau",
+	"cx-suggestionlist-title": "Daugiau pasiūlymų",
 	"cx-suggestionlist-empty-title": "Atsiprašome, nėra pasiūlytinų puslapių",
 	"cx-suggestionlist-empty-desc": "Galite pasirinkti bet kurią temą, kai pradedate naują vertimą",
 	"cx-suggestionlist-featured": "Rinktinis",

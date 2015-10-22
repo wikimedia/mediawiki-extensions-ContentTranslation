@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robin0van0der0vliet",
-			"Romaine"
+			"Romaine",
+			"Siebrand"
 		]
 	},
 	"apihelp-cxpublish-description": "Sla een aangemaakte pagina op met behulp van de Content Translation-extensie.",
@@ -41,5 +42,12 @@
 	"apihelp-cxdelete-param-from": "De code van de brontaal.",
 	"apihelp-cxdelete-param-to": "De code van de doeltaal.",
 	"apihelp-cxdelete-param-sourcetitle": "De titel van de bronpagina.",
-	"apihelp-cxdelete-example-1": "Verwijder een conceptversie geassocieerd met een bepaalde talencombinatie en de titel."
+	"apihelp-cxdelete-example-1": "Verwijder een conceptversie geassocieerd met een bepaalde talencombinatie en de titel.",
+	"apihelp-cxsuggestionlist-example-1": "Voeg een paginanaam aan een lijst toe als suggestie van Engels (en) naar Spaans (es). Als de lijst niet al bestaat, wordt een nieuwe lijst aangemaakt.",
+	"apihelp-cxsuggestionlist-description": "Suggestielijsten beheren. Suggesties toevoegen aan of verwijderen uit suggestielijsten.",
+	"apihelp-cxsuggestionlist-param-listname": "Lijstnaam voor suggestie.",
+	"apihelp-cxsuggestionlist-param-listaction": "Op de lijst uit te voeren handeling.",
+	"apihelp-cxsuggestionlist-param-titles": "Paginanamen.",
+	"apihelp-cxsuggestionlist-param-from": "De brontaalcode.",
+	"apihelp-cxsuggestionlist-param-to": "De doeltaalcode."
 }

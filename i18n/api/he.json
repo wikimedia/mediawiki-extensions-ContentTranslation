@@ -56,5 +56,12 @@
 	"apihelp-cxdelete-param-from": "קוד שפת המקור.",
 	"apihelp-cxdelete-param-to": "קוד שפת היעד.",
 	"apihelp-cxdelete-param-sourcetitle": "כותרת דף המקור.",
-	"apihelp-cxdelete-example-1": "מחיקת טיוטה שמשויכת לזוג שפות וכותרת."
+	"apihelp-cxdelete-example-1": "מחיקת טיוטה שמשויכת לזוג שפות וכותרת.",
+	"apihelp-cxsuggestionlist-example-1": "הוספת הכותרת בתור הצעה מאנגלית (en) לספרדית (es) לרשימה. אם הרשימה אינה קיימת, תיווצר רשימה חדשה.",
+	"apihelp-cxsuggestionlist-description": "ניהול רשימות ההצעות. הוספת הצעות לרשימות והסרתן.",
+	"apihelp-cxsuggestionlist-param-listname": "שם רשימת הצעות.",
+	"apihelp-cxsuggestionlist-param-listaction": "פעולה שתבוצע על הרשימה.",
+	"apihelp-cxsuggestionlist-param-titles": "כותרות דפים.",
+	"apihelp-cxsuggestionlist-param-from": "קוד שפת המקור.",
+	"apihelp-cxsuggestionlist-param-to": "קוד שפת היעד."
 }

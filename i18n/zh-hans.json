@@ -104,6 +104,8 @@
 	"cx-translation-filter-published-translations": "已发布",
 	"cx-translation-filter-draft-translations": "进行中",
 	"cx-translation-filter-suggested-translations": "建议",
+	"cx-suggestionlist-favorite": "供以后用",
+	"cx-suggestionlist-title": "更多建议",
 	"cx-suggestionlist-empty-title": "对不起，没有页面建议",
 	"cx-suggestionlist-empty-desc": "当您开始一个新翻译时，您可以选择您想要的任何话题",
 	"cx-suggestionlist-featured": "特色",

@@ -50,5 +50,8 @@
 	"apihelp-cxdelete-param-from": "Źródłowy kod języka.",
 	"apihelp-cxdelete-param-to": "Docelowy kod język.",
 	"apihelp-cxdelete-param-sourcetitle": "Tytuł strony źródłowej.",
-	"apihelp-cxdelete-example-1": "Usuń wersję roboczą połączoną z danym językiem i tytułem."
+	"apihelp-cxdelete-example-1": "Usuń wersję roboczą połączoną z danym językiem i tytułem.",
+	"apihelp-cxsuggestionlist-param-titles": "Tytuły stron.",
+	"apihelp-cxsuggestionlist-param-from": "Kod języka źródłowego.",
+	"apihelp-cxsuggestionlist-param-to": "Kod języka docelowego."
 }

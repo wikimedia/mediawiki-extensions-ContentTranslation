@@ -102,6 +102,8 @@
 	"cx-translation-filter-published-translations": "התפרסמו",
 	"cx-translation-filter-draft-translations": "בעבודה",
 	"cx-translation-filter-suggested-translations": "הצעות",
+	"cx-suggestionlist-favorite": "מאוחר יותר",
+	"cx-suggestionlist-title": "עוד הצעות",
 	"cx-suggestionlist-empty-title": "סליחה, אין דפים להציע",
 	"cx-suggestionlist-empty-desc": "{{GENDER:|אתה יכול|את יכולה}} לבחור כל נושא {{GENDER:|כשאתה מתחיל|כשאת מתחילה}} תרגום חדש",
 	"cx-suggestionlist-featured": "מומלץ",

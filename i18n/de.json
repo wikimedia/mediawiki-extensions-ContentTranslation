@@ -102,6 +102,8 @@
 	"cx-translation-filter-published-translations": "Veröffentlicht",
 	"cx-translation-filter-draft-translations": "In Vorbereitung",
 	"cx-translation-filter-suggested-translations": "Vorschläge",
+	"cx-suggestionlist-favorite": "Für später",
+	"cx-suggestionlist-title": "Weitere Vorschläge",
 	"cx-suggestionlist-empty-title": "Leider sind keine Seiten vorzuschlagen",
 	"cx-suggestionlist-empty-desc": "Du kannst ein beliebiges Thema deiner Wahl beim Beginnen einer neuen Übersetzung auswählen",
 	"cx-suggestionlist-featured": "Ausgezeichnet",

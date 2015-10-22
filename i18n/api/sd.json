@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sindhu"
+			"Sindhu",
+			"Mehtab ahmed"
 		]
 	},
-	"apihelp-cxpublish-param-categories": "زمرو جنهن ۾ شايع ٿيل صفحو رکڻو آهي"
+	"apihelp-cxpublish-param-categories": "زمرو جنهن ۾ شايع ٿيل صفحو رکڻو آهي",
+	"apihelp-cxsuggestionlist-param-listname": "تجويز فهرست جو نالو.",
+	"apihelp-cxsuggestionlist-param-titles": "صفحن جا عنوان.",
+	"apihelp-cxsuggestionlist-param-from": "ذريعاتي ٻولي جو ڪوڊ.",
+	"apihelp-cxsuggestionlist-param-to": "مقصود ٻولي جو ڪوڊ."
 }

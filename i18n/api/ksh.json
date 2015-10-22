@@ -45,5 +45,11 @@
 	"apihelp-cxdelete-param-from": "Et Köözel för de Quälleschprohch.",
 	"apihelp-cxdelete-param-to": "Et Köözel för de Zihlschprohch.",
 	"apihelp-cxdelete-param-sourcetitle": "De Övverschreff vun dä Sigg zom Övversäze.",
-	"apihelp-cxdelete-example-1": "Schmiis ene Äntworf fott med ene aanjejovve Övverschrevv un enem aanjejovve Paa vun Schprohche."
+	"apihelp-cxdelete-example-1": "Schmiis ene Äntworf fott med ene aanjejovve Övverschrevv un enem aanjejovve Paa vun Schprohche.",
+	"apihelp-cxsuggestionlist-example-1": "Donn en Övverschreff als ene Vörschlach för vum änglesche (<code>en</code>) ent schpahnesche (<code>es</code>) en di Leß. Wann et se noch nit jitt, weet se aanjelaat.",
+	"apihelp-cxsuggestionlist-param-listname": "Der Nahme för di Leß met Vörschlähsch.",
+	"apihelp-cxsuggestionlist-param-listaction": "Wat met dä Leß jedonn wähde sull.",
+	"apihelp-cxsuggestionlist-param-titles": "Övverschreffte vun Sigge",
+	"apihelp-cxsuggestionlist-param-from": "Et Köözel för de Quälleschprohch.",
+	"apihelp-cxsuggestionlist-param-to": "Et Köözel för de Zihlschprohch."
 }

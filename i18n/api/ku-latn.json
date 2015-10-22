@@ -6,5 +6,7 @@
 		]
 	},
 	"apihelp-cxpublish-param-html": "Naveroka bê wergerandin.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Koda zimanê çavkanî"
+	"apihelp-query+contenttranslationlangtrend-param-source": "Koda zimanê çavkanî",
+	"apihelp-cxsuggestionlist-param-titles": "Sernavên rûpelê.",
+	"apihelp-cxsuggestionlist-param-from": "Koda zimanê çavkanî."
 }

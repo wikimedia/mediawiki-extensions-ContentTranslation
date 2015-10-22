@@ -176,5 +176,7 @@
 	"cx-tools-link-to-another-page": "Mat enger anerer Säit verlinken",
 	"cx-tools-link-apply": "Fäerdeg",
 	"mw-pageselector-missing": "Säit gëtt et net",
-	"cx-draft-restored": "Gespäichert Iwwersetzung gelueden."
+	"cx-draft-restoring": "Déi gespäichert Iwwersetzung lueden...",
+	"cx-draft-restored": "Gespäichert Iwwersetzung gelueden.",
+	"cx-draft-restore-failed": "Déi gespäichert Iwwersetzung konnt net geluede ginn!"
 }

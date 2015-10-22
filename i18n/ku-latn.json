@@ -37,6 +37,7 @@
 	"cx-sourceselector-dialog-target-language-label": "Bo:",
 	"cx-sourceselector-dialog-target-title-placeholder": "Sernavê wergerê",
 	"cx-translation-filter-all-translations": "Hemû werger",
+	"cx-translation-filter-suggested-translations": "Pêşniyarî",
 	"cx-translation-filter-from-any-language": "Ji her zimanî",
 	"cx-translation-filter-to-any-language": "Ber bi her zimanî ve",
 	"cx-create-new-translation": "Dest bi wergerek nû bike",
@@ -47,7 +48,7 @@
 	"cx-contributions-new-article-tooltip": "Dest bi nivîsîna rûpeleka nû bike",
 	"cx-contributions-translation-tooltip": "Rûpelên hene wergerîne",
 	"cx-translation-status-deleted": "Hate jêbirin",
-	"cx-magnus-tool-link-text": "Di zimanê xwe de nivîsarên kêm bibîne",
+	"cx-magnus-tool-link-text": "Di zimanê xwe de rûpelên kêm bibîne",
 	"cx-stats-published-translators-title": "Hejmara wergêran",
 	"cx-stats-cumulative-tab-title": "Tevahî",
 	"cx-draft-cancel-button-label": "Betal bike",
@@ -56,5 +57,11 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Werger",
 	"cx-campaign-contributionsmenu-myuploads": "Medya bar bike",
 	"cx-trend-deletions": "Wergerên jêbirî",
-	"echo-category-title-cx": "Werger"
+	"cx-stats-tabs-expand": "Hemû zimanan nîşan bide",
+	"echo-category-title-cx": "Werger",
+	"cx-tools-link-apply": "Çêbû",
+	"mw-pageselector-missing": "Rûpel tune",
+	"cx-draft-restoring": "Wergerên tomarkirî tên barkirin...",
+	"cx-draft-restored": "Wergera tomarkirî hat barkirin.",
+	"cx-draft-restore-failed": "Barkirina wergerên tomarkirî bi ser neketǃ"
 }
