@@ -56,5 +56,12 @@
 	"apihelp-cxdelete-param-from": "Код на изворниот јазик.",
 	"apihelp-cxdelete-param-to": "Код на целниот јазик.",
 	"apihelp-cxdelete-param-sourcetitle": "Наслов на изворната страница.",
-	"apihelp-cxdelete-example-1": "Избриши нацрт за даден јазичен пар и наслов."
+	"apihelp-cxdelete-example-1": "Избриши нацрт за даден јазичен пар и наслов.",
+	"apihelp-cxsuggestionlist-example-1": "Додавање наслов во список како предлог за преведување од англиски (en) на шпански (es). Доколку списокот сè уште не постои, ќе се создаде нов список.",
+	"apihelp-cxsuggestionlist-description": "Раководење со список на предлози. Додавање на предлози во списоци и нивно отстранување.",
+	"apihelp-cxsuggestionlist-param-listname": "Назив на списокот со предлози.",
+	"apihelp-cxsuggestionlist-param-listaction": "Дејство за извршување врз списокот.",
+	"apihelp-cxsuggestionlist-param-titles": "Наслови на страници.",
+	"apihelp-cxsuggestionlist-param-from": "Код на изворниот јазик.",
+	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик."
 }

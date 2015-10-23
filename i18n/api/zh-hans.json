@@ -57,7 +57,7 @@
 	"apihelp-cxdelete-param-to": "目标语言代码。",
 	"apihelp-cxdelete-param-sourcetitle": "来源页面的标题。",
 	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。",
-	"apihelp-cxsuggestionlist-example-1": "添加标题作为从英语（en）至西班牙语（es）的建议至列表。如果列表尚不存在，将创建一个新的列表。",
+	"apihelp-cxsuggestionlist-example-1": "添加标题至列表，作为从英语（en）翻译至西班牙语（es）的建议。如果列表尚不存在，将创建一个新的列表。",
 	"apihelp-cxsuggestionlist-description": "管理建议列表。添加、移除建议至建议列表",
 	"apihelp-cxsuggestionlist-param-listname": "建议列表名称。",
 	"apihelp-cxsuggestionlist-param-titles": "页面标题。",

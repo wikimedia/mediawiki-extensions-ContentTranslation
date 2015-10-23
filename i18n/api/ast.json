@@ -56,5 +56,12 @@
 	"apihelp-cxdelete-param-from": "Códigu de la llingua d'orixe.",
 	"apihelp-cxdelete-param-to": "Códigu de la llingua de destín.",
 	"apihelp-cxdelete-param-sourcetitle": "Títulu de la páxina d'orixe.",
-	"apihelp-cxdelete-example-1": "Desaniciar un borrador asociáu con un par de llingües y títulu determinaos."
+	"apihelp-cxdelete-example-1": "Desaniciar un borrador asociáu con un par de llingües y títulu determinaos.",
+	"apihelp-cxsuggestionlist-example-1": "Amiesta un títulu a una llista como suxerencia pa traducir del inglés (en) al castellanu (es). Si la llista nun esiste yá, crearáse una nueva llista.",
+	"apihelp-cxsuggestionlist-description": "Xestionar les llistes de suxerencies. Amestar suxerencies a les llistes y desaniciales.",
+	"apihelp-cxsuggestionlist-param-listname": "Nome de la llista de suxerencies.",
+	"apihelp-cxsuggestionlist-param-listaction": "Aición a facer na llista.",
+	"apihelp-cxsuggestionlist-param-titles": "Títulos de páxina.",
+	"apihelp-cxsuggestionlist-param-from": "El códigu de la llingua d'orixe.",
+	"apihelp-cxsuggestionlist-param-to": "El códigu de la llingua de destín."
 }

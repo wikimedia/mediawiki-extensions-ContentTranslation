@@ -54,5 +54,12 @@
 	"apihelp-cxdelete-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxdelete-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-cxdelete-param-sourcetitle": "Il titolo della pagina di origine.",
-	"apihelp-cxdelete-example-1": "Elimina una bozza associata a una data coppia di lingue e un dato titolo."
+	"apihelp-cxdelete-example-1": "Elimina una bozza associata a una data coppia di lingue e un dato titolo.",
+	"apihelp-cxsuggestionlist-example-1": "Aggiunge un titolo a un elenco di suggerimenti per tradurre dall'inglese (en) allo spagnolo (es). Se la lista non esiste già, sarà creato un nuovo elenco.",
+	"apihelp-cxsuggestionlist-description": "Gestisce gli elenchi dei suggerimenti. Aggiunge e rimuove suggerimenti dalle liste.",
+	"apihelp-cxsuggestionlist-param-listname": "Nome dell'elenco suggerimenti.",
+	"apihelp-cxsuggestionlist-param-listaction": "Azione da eseguire sull'elenco.",
+	"apihelp-cxsuggestionlist-param-titles": "Titoli di pagine.",
+	"apihelp-cxsuggestionlist-param-from": "Il codice della lingua di origine.",
+	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione."
 }

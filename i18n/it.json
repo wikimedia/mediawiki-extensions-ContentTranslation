@@ -105,6 +105,8 @@
 	"cx-translation-filter-published-translations": "Pubblicate",
 	"cx-translation-filter-draft-translations": "In corso",
 	"cx-translation-filter-suggested-translations": "Suggerimenti",
+	"cx-suggestionlist-favorite": "Per dopo",
+	"cx-suggestionlist-title": "Altri suggerimenti",
 	"cx-suggestionlist-empty-title": "Spiacenti, nessuna voce da suggerire",
 	"cx-suggestionlist-featured": "In vetrina",
 	"cx-translation-filter-from-any-language": "Da qualsiasi lingua",

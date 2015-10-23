@@ -96,6 +96,8 @@
 	"cx-translation-filter-published-translations": "Објавени",
 	"cx-translation-filter-draft-translations": "Во тек",
 	"cx-translation-filter-suggested-translations": "Предлози",
+	"cx-suggestionlist-favorite": "За подоцна",
+	"cx-suggestionlist-title": "Повеќе предлози",
 	"cx-suggestionlist-empty-title": "За жал, нема предложени страници",
 	"cx-suggestionlist-empty-desc": "Можете да изберете било која тема по ваша желба кога почнувате нов превод",
 	"cx-suggestionlist-featured": "Избрана",

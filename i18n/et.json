@@ -99,6 +99,8 @@
 	"cx-translation-filter-published-translations": "Avaldatud",
 	"cx-translation-filter-draft-translations": "Pooleliolev",
 	"cx-translation-filter-suggested-translations": "Soovitused",
+	"cx-suggestionlist-favorite": "Hilisemaks",
+	"cx-suggestionlist-title": "Veel soovitusi",
 	"cx-suggestionlist-empty-title": "Tõlkesoovitused puuduvad kahjuks",
 	"cx-suggestionlist-empty-desc": "Saad alustada uut tõlget mis tahes meelepärasel teemal.",
 	"cx-suggestionlist-featured": "Eeskujulik",
