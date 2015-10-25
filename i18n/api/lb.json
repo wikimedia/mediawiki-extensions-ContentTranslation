@@ -34,5 +34,6 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Den Intervall fir d'Berechne vum Trend. Ka <kbd>Woch</kbd> oder <kbd>Mount</kbd> sinn.",
 	"apihelp-cxdelete-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-cxdelete-param-to": "De Sproochcode vum Zil.",
-	"apihelp-cxdelete-param-sourcetitle": "Den Titel vun der Quellsäit."
+	"apihelp-cxdelete-param-sourcetitle": "Den Titel vun der Quellsäit.",
+	"apihelp-cxsuggestionlist-param-titles": "Säitennimm."
 }

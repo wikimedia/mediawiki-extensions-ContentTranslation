@@ -45,6 +45,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "检索所有已发布译文",
 	"apihelp-query+cxpublishedtranslations-example-2": "检索所有翻译自英语的已发布译文",
 	"apihelp-query+cxpublishedtranslations-example-3": "检索所有翻译自英语至西班牙语的已发布译文",
+	"apihelp-query+contenttranslationlangtrend-description": "按时段查询用于翻译数量的内容翻译数据库。",
 	"apihelp-query+contenttranslationlangtrend-param-source": "源语言代码。",
 	"apihelp-query+contenttranslationlangtrend-param-target": "目标语言代码。",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "用于计算趋势的间隔。可以是<kbd>week</kbd>或<kbd>month</kbd>。",
@@ -58,8 +59,9 @@
 	"apihelp-cxdelete-param-sourcetitle": "来源页面的标题。",
 	"apihelp-cxdelete-example-1": "删除指定语言组合及标题的草稿。",
 	"apihelp-cxsuggestionlist-example-1": "添加标题至列表，作为从英语（en）翻译至西班牙语（es）的建议。如果列表尚不存在，将创建一个新的列表。",
-	"apihelp-cxsuggestionlist-description": "管理建议列表。添加、移除建议至建议列表",
+	"apihelp-cxsuggestionlist-description": "管理建议列表。添加建议至列表并移除它们。",
 	"apihelp-cxsuggestionlist-param-listname": "建议列表名称。",
+	"apihelp-cxsuggestionlist-param-listaction": "要在列表上执行的操作。",
 	"apihelp-cxsuggestionlist-param-titles": "页面标题。",
 	"apihelp-cxsuggestionlist-param-from": "来源语言代码。",
 	"apihelp-cxsuggestionlist-param-to": "目标语言代码。"

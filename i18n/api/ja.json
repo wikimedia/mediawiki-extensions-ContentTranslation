@@ -4,7 +4,8 @@
 			"2nd-player",
 			"Kanon und wikipedia",
 			"Sujiniku",
-			"Takot"
+			"Takot",
+			"Otokoume"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -21,8 +22,8 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Captchaへの応答 (Captchaで保存時)",
 	"apihelp-query+contenttranslation-description": "翻訳についてコンテンツ翻訳データベースに問い合わせる",
 	"apihelp-query+contenttranslation-param-translationid": "翻訳ID",
-	"apihelp-query+contenttranslation-param-from": "ソースの言語コード。",
-	"apihelp-query+contenttranslation-param-to": "翻訳作成先の言語コード。",
+	"apihelp-query+contenttranslation-param-from": "翻訳元の言語コード。",
+	"apihelp-query+contenttranslation-param-to": "翻訳先の言語コード。",
 	"apihelp-query+contenttranslation-param-sourcetitle": "翻訳元のページ名。",
 	"apihelp-query+contenttranslation-param-limit": "取得する翻訳の最大数。",
 	"apihelp-query+contenttranslation-example-1": "現在のユーザによって始められた翻訳を取得",
@@ -35,8 +36,8 @@
 	"apihelp-cxconfiguration-param-to": "翻訳先の言語コード",
 	"apihelp-cxconfiguration-example-1": "スペイン語ーカタルーニャ語間のコンテンツ翻訳設定のjsonを入手する",
 	"apihelp-query+contenttranslationsuggestions-description": "コンテンツ翻訳の候補一覧を取得。",
-	"apihelp-query+contenttranslationsuggestions-param-from": "ソースの言語コード。",
-	"apihelp-query+contenttranslationsuggestions-param-to": "翻訳作成先の言語コード。",
+	"apihelp-query+contenttranslationsuggestions-param-from": "翻訳元の言語コード。",
+	"apihelp-query+contenttranslationsuggestions-param-to": "翻訳先の言語コード。",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "取得する翻訳の候補の最大数。",
 	"apihelp-query+contenttranslationsuggestions-example-1": "英語 (en) から スペイン語 (es) への翻訳候補ページを取得する。",
 	"apihelp-query+cxpublishedtranslations-description": "全ての公開済み翻訳情報を入手する",
@@ -58,5 +59,9 @@
 	"apihelp-cxdelete-param-from": "翻訳元の言語コード",
 	"apihelp-cxdelete-param-to": "翻訳先の言語コード",
 	"apihelp-cxdelete-param-sourcetitle": "翻訳元のページ名",
-	"apihelp-cxdelete-example-1": "与えられた言語間のページ名に関連する下書きを削除"
+	"apihelp-cxdelete-example-1": "与えられた言語間のページ名に関連する下書きを削除",
+	"apihelp-cxsuggestionlist-description": "提案の追加や削除をリストから管理できます。",
+	"apihelp-cxsuggestionlist-param-titles": "ページ名。",
+	"apihelp-cxsuggestionlist-param-from": "翻訳元の言語コード。",
+	"apihelp-cxsuggestionlist-param-to": "翻訳先の言語コード。"
 }

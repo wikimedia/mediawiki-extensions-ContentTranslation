@@ -6,7 +6,8 @@
 			"Sayginer",
 			"Stultiwikia",
 			"Watermelon juice",
-			"Ömer Berkay"
+			"Ömer Berkay",
+			"Mizunee"
 		]
 	},
 	"apihelp-cxpublish-description": "İçerik Çevirmeni uzantısıyla yaratılan bir sayfayı kaydet.",
@@ -48,5 +49,6 @@
 	"apihelp-cxdelete-param-from": "Kaynak dil kodu.",
 	"apihelp-cxdelete-param-to": "Hedef dil kodu.",
 	"apihelp-cxdelete-param-sourcetitle": "Kaynak sayfanın başlığı.",
-	"apihelp-cxdelete-example-1": "Verilen dil ikilisi ve başlıkla ilişkilendirilen bir taslağı sil."
+	"apihelp-cxdelete-example-1": "Verilen dil ikilisi ve başlıkla ilişkilendirilen bir taslağı sil.",
+	"apihelp-cxsuggestionlist-param-titles": "Sayfa başlıkları"
 }

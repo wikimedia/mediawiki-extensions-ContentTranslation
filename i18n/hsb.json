@@ -7,6 +7,8 @@
 		]
 	},
 	"cx": "Stronu přełožić",
+	"cx-dashboard-header": "Přełožki",
+	"cx-javascript": "To njefunguje bjez JavaScripta.",
 	"cx-desc": "Nastroj, kotryž wobdźěłarjam zmóžnja, strony z jedneje rěče do druheje z pomocu mašinoweho přełožowanja a druhich přełožowanskich nastrojow přełožować",
 	"cx-header-progressbar-text": "$1 % přełožene.",
 	"cx-header-translation-center": "Přełožowanske srjedźišćo",
@@ -50,5 +52,6 @@
 	"cx-sourceselector-dialog-button-start-translation": "Přełožowanje započeć",
 	"cx-sourceselector-dialog-button-cancel": "Přetorhnyć",
 	"cx-sourceselector-dialog-source-language-label": "Wot:",
-	"cx-sourceselector-dialog-source-title-placeholder": "Pytanje za žórłowej stronu"
+	"cx-sourceselector-dialog-source-title-placeholder": "Pytanje za žórłowej stronu",
+	"cx-dashboard-sidebar-stats": "Statistika"
 }

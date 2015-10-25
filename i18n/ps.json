@@ -33,7 +33,7 @@
 	"cx-beta-desc": "ستاسې په ژبه کې د مخونو د ژباړې چټک اوزار. د [[Special:MyContributions|خپلو ونډو]] له مخونو څخه مو ژباړې پيل کړئ او بيا يې د ژباړې لپاره زموږ د ځانگړي سکښتل شوي څنگ - په - څنگ سمونگر په مرسته سمونې ترسره کړئ. کېدای شي ځينې اوزارونه يوازې په ځينو ځانگړو ژبو کې وي.",
 	"cx-entrypoint-title": "دا مخ $1 ته ژباړل",
 	"cx-entrypoint-dialog-title-in": "په $1 ژبه د نوي مخ سرليک:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "له پيل څخه ژباړه کول",
+	"cx-entrypoint-dialog-button-create-from-scratch": "له پيل څخه ژباړل",
 	"cx-entrypoint-dialog-button-translate-from": "له $1 څخه ژباړل",
 	"cx-tools-instructions-text1": "د ژباړلو لپاره پر پاراگرافونو {{GENDER:|کېښکاږئ}}",
 	"cx-tools-instructions-text2": "{{GENDER:|تاسې}} اړ نه ياست چې ټول په يوځای ورگډ کړئ",

@@ -18,5 +18,8 @@
 	"apihelp-query+contenttranslationlangtrend-param-target": "Ӏалашонан меттан код.",
 	"apihelp-cxdelete-param-from": "Хьостан меттан код.",
 	"apihelp-cxdelete-param-to": "Ӏалашонан меттан код.",
-	"apihelp-cxdelete-param-sourcetitle": "ДӀайолалун агӀон цӀе."
+	"apihelp-cxdelete-param-sourcetitle": "ДӀайолалун агӀон цӀе.",
+	"apihelp-cxsuggestionlist-param-titles": "АгӀона цӀе.",
+	"apihelp-cxsuggestionlist-param-from": "ДӀаболалун меттан код.",
+	"apihelp-cxsuggestionlist-param-to": "Ӏалашонан меттан код."
 }

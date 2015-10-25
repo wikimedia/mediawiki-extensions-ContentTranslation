@@ -44,5 +44,7 @@
 	"apihelp-cxdelete-param-from": "El codi de la llengua origen.",
 	"apihelp-cxdelete-param-to": "El codi de la llengua de destí.",
 	"apihelp-cxdelete-param-sourcetitle": "El títol de la pàgina d'origen.",
-	"apihelp-cxdelete-example-1": "Suprimeix un esborrany associat amb el parell de llengua donat i títol."
+	"apihelp-cxdelete-example-1": "Suprimeix un esborrany associat amb el parell de llengua donat i títol.",
+	"apihelp-cxsuggestionlist-param-from": "El codi de la llengua d'origen.",
+	"apihelp-cxsuggestionlist-param-to": "El codi de la llengua de destí."
 }

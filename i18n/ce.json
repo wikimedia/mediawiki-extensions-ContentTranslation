@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Умар",
-			"Amire80"
+			"Amire80",
+			"Исмаил Садуев"
 		]
 	},
 	"cx": "АгӀо гочъяр",
@@ -77,6 +78,8 @@
 	"cx-translation-filter-published-translations": "Арахецнарш",
 	"cx-translation-filter-draft-translations": "Даланзарш",
 	"cx-translation-filter-suggested-translations": "ДӀаалар",
+	"cx-suggestionlist-favorite": "ТӀаьхьена",
+	"cx-suggestionlist-title": "Кхин кховдорш",
 	"cx-suggestionlist-featured": "Хаьржина",
 	"cx-translation-filter-from-any-language": "Муьлхачу маттера",
 	"cx-translation-filter-to-any-language": "Муьлхачу матте",
@@ -88,7 +91,7 @@
 	"cx-contributions-translation": "Гоч",
 	"cx-contributions-upload": "Медиафайл тӀетохар",
 	"cx-contributions-new-article-tooltip": "Кхолла керла агӀо",
-	"cx-contributions-translation-tooltip": "Гочъе йолуш йолу агӀо",
+	"cx-contributions-translation-tooltip": "Йолуш йолу агӀо гочъян",
 	"cx-publishing-dialog-keep-button": "Шеа верси Ӏалашъян",
 	"cx-publishing-dialog-publish-anyway-button": "ХӀуъа хилча а арахеца",
 	"cx-discard-translation": "ДӀадаккха гочдар",

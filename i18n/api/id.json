@@ -5,7 +5,8 @@
 			"Ilham",
 			"Iwan Novirion",
 			"Kenrick95",
-			"William Surya Permana"
+			"William Surya Permana",
+			"WongKentir"
 		]
 	},
 	"apihelp-cxpublish-description": "Simpan halaman yang dibuat menggunakan ekstensi Penerjemahan Konten.",
@@ -46,5 +47,6 @@
 	"apihelp-cxdelete-param-from": "Kode bahasa sumber.",
 	"apihelp-cxdelete-param-to": "Kode bahasa tujuan.",
 	"apihelp-cxdelete-param-sourcetitle": "Judul halaman sumber.",
-	"apihelp-cxdelete-example-1": "Hapus konsep yang berhubungan dengan pasangan bahasa dan judul yang diberikan."
+	"apihelp-cxdelete-example-1": "Hapus konsep yang berhubungan dengan pasangan bahasa dan judul yang diberikan.",
+	"apihelp-cxsuggestionlist-param-titles": "Judul halaman"
 }

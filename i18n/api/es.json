@@ -58,5 +58,8 @@
 	"apihelp-cxdelete-param-from": "El código del idioma de origen.",
 	"apihelp-cxdelete-param-to": "El código del idioma de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "El título de la página de origen.",
-	"apihelp-cxdelete-example-1": "Eliminar un borrador asociado con el título y el par de idiomas especificados."
+	"apihelp-cxdelete-example-1": "Eliminar un borrador asociado con el título y el par de idiomas especificados.",
+	"apihelp-cxsuggestionlist-param-titles": "Títulos de página.",
+	"apihelp-cxsuggestionlist-param-from": "El código del idioma de origen.",
+	"apihelp-cxsuggestionlist-param-to": "El código del idioma de destino."
 }
