@@ -594,31 +594,47 @@
 	};
 
 	CXSuggestionList.prototype.showEmptySuggestionList = function () {
-		var $img, $title, $desc, listId = emptyListName;
+		var $img, $title, $desc,
+			listId = emptyListName;
 
 		if ( !this.lists[ listId ] ) {
 			this.lists[ listId ] = {
 				name: listId
 			};
+
 			$img = $( '<div>' )
 				.addClass( 'cx-suggestionlist-empty__img' );
+
 			$title = $( '<div>' )
 				.addClass( 'cx-suggestionlist-empty__title' )
 				.text( mw.msg( 'cx-suggestionlist-empty-title' ) );
+
 			$desc = $( '<div>' )
 				.addClass( 'cx-suggestionlist-empty__desc' )
 				.text( mw.msg( 'cx-suggestionlist-empty-desc' ) );
+
 			this.lists[ listId ].$list = $( '<div>' )
 				.addClass( 'cx-suggestionlist-empty' )
 				.append( $img, $title, $desc );
+
+			$desc.after( $( '<div>' )
+				.addClass( 'cx-suggestionlist-empty__recommend' )
+				.append( $( '<a>' )
+					.text( mw.msg( 'cx-suggestionlist-empty-desc-recommend-link-text' ) )
+					.prop( 'href', 'http://recommend.wmflabs.org' )
+				)
+			);
+
 			this.$container.append( this.lists[ listId ].$list );
 		}
+
 		// Hide all other lists, if any.
 		$.each( this.lists, function ( index, list ) {
 			if ( list.$list ) {
 				list.$list.hide();
 			}
 		} );
+
 		this.lists[ listId ].$list.show();
 	};
 

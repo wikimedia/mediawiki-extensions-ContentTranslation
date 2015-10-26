@@ -835,6 +835,7 @@
 				"cx-suggestionlist-expand",
 				"cx-suggestionlist-featured",
 				"cx-suggestionlist-refresh",
+				"cx-suggestionlist-empty-desc-recommend-link-text",
 				"cx-suggestionlist-view-source-page"
 			]
 		},

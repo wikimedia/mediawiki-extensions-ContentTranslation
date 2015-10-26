@@ -117,6 +117,7 @@
 	"cx-suggestionlist-title": "Title for the translation suggestions",
 	"cx-suggestionlist-empty-title": "Title text shown when there is no translation suggestions by the current user",
 	"cx-suggestionlist-empty-desc": "A brief description shown when there is no translation suggestions by current user",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "The link text to the [http://recommend.wmflabs.org/ experimental recommend.wmflabs tool].",
 	"cx-suggestionlist-featured": "A type of a suggested page to translate\n{{Identical|Featured}}",
 	"cx-suggestionlist-view-source-page": "Tooltip text in for source language label for every suggestion item displayed.",
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
