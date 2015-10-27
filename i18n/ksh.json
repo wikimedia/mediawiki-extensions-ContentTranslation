@@ -182,5 +182,8 @@
 	"cx-tools-link-external-link-placeholder": "Donn ene Lengk noh ußerhallef derbei",
 	"cx-tools-link-to-another-page": "Lengk obb en annder Sigg",
 	"cx-tools-link-apply": "Jedonn",
-	"mw-pageselector-missing": "Di Sigg jidd_et nit"
+	"mw-pageselector-missing": "Di Sigg jidd_et nit",
+	"cx-draft-restoring": "De faßjehallde Övversäzong weed jelahde&nbsp;&hellip;",
+	"cx-draft-restored": "De faßjehallde Övversäzong wood jelahde.",
+	"cx-draft-restore-failed": "De faßjehallde Övversäzong kunnt nit jelahde wähde."
 }

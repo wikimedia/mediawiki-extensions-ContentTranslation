@@ -106,6 +106,8 @@
 	"cx-translation-filter-published-translations": "Publicadas",
 	"cx-translation-filter-draft-translations": "Em andamento",
 	"cx-translation-filter-suggested-translations": "Sugestões",
+	"cx-suggestionlist-favorite": "Para mais tarde",
+	"cx-suggestionlist-title": "Mais sugestões",
 	"cx-suggestionlist-empty-title": "Desculpe, não há páginas para sugerir",
 	"cx-suggestionlist-empty-desc": "Pode escolher qualquer tópico de sua preferência ao iniciar uma nova tradução",
 	"cx-suggestionlist-featured": "Destacado",
