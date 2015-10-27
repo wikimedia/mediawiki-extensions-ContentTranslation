@@ -40,7 +40,6 @@ class CxFixStats extends Maintenance {
 		}
 
 		$db = ContentTranslation\Database::getConnection( DB_MASTER );
-
 		$translations = $this->getRelevantTranslations( $db );
 
 		foreach ( $translations as $row ) {
@@ -75,6 +74,7 @@ class CxFixStats extends Maintenance {
 		}
 
 		$this->output( "$count rows ARE updated to set target_url to null\n" );
+		$db = ContentTranslation\Database::getConnection( DB_MASTER );
 		$db->update(
 			'cx_translations',
 			array( 'translation_target_url' => null ),
