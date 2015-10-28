@@ -35,5 +35,7 @@
 	"apihelp-cxdelete-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-cxdelete-param-to": "De Sproochcode vum Zil.",
 	"apihelp-cxdelete-param-sourcetitle": "Den Titel vun der Quellsäit.",
-	"apihelp-cxsuggestionlist-param-titles": "Säitennimm."
+	"apihelp-cxsuggestionlist-param-titles": "Säitennimm.",
+	"apihelp-cxsuggestionlist-param-from": "De Sproochcode vun der Quell.",
+	"apihelp-cxsuggestionlist-param-to": "De Sproochcode vum Zil."
 }
