@@ -10,13 +10,21 @@
 	'use strict';
 
 	// Name of the empty list, used to show when there is no suggestions
-	var emptyListName = 'cx-suggestionlist-empty';
+	var
+		emptyListName = 'cx-suggestionlist-empty',
+		listTypes = {
+			TYPE_DEFAULT: 0,
+			TYPE_FEATURED: 1,
+			TYPE_DISCARDED: 2,
+			TYPE_FAVORITE: 3,
+			TYPE_CATEGORY: 4
+		};
 
 	/**
 	 * CXSuggestionList
 	 *
 	 * @param {jQuery} $container The container for this suggestion list
-	 * @param {Object} The stitempper instance
+	 * @param {Object} siteMapper
 	 * @class
 	 */
 	function CXSuggestionList( $container, siteMapper ) {
@@ -25,9 +33,6 @@
 		this.suggestions = [];
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
-		this.promise = null;
-		this.queryContinue = null;
-		this.hasMore = true;
 		this.lists = {};
 		this.active = false;
 		this.filters = {
@@ -68,17 +73,28 @@
 		};
 	};
 
-	CXSuggestionList.prototype.loadItems = function () {
-		var lists, list, listId, promise,
+	/**
+	 * @param {Object} [list]
+	 */
+	CXSuggestionList.prototype.loadItems = function ( list ) {
+		var lists, promise,
 			isEmpty = true,
 			self = this;
 
-		if ( this.promise ) {
-			return this.promise;
+		if ( !list ) {
+			// Initial load, load available lists and couple of suggestions for them
+			promise = this.getSuggestionLists();
+		} else {
+			// Afterwards, suggestions are loaded per list
+			if ( list.promise ) {
+				return;
+			}
+
+			promise = this.loadSuggestionsForList( list );
 		}
-		promise = this.getSuggestionLists();
+
 		promise.done( function ( suggestions ) {
-			var i, listIds;
+			var i, list, listId, listIds;
 
 			lists = suggestions.lists;
 			// Hide empty list, if any
@@ -86,21 +102,18 @@
 				self.lists[ emptyListName ].$list.hide();
 			}
 
-			listIds = Object.keys( lists );
-			// Sort the items based on type. Descending order.
-			// When we have many lists, we will require more intellignet list sorting
-			listIds.sort( function ( a, b ) {
-				return lists[ a ].type < lists[ b ].type;
-			} );
-
+			listIds = self.sortLists( lists );
 			for ( i = 0; i < listIds.length; i++ ) {
 				listId = listIds[ i ];
 				list = lists[ listId ];
 				if ( self.lists[ listId ] ) {
 					// Add new set of suggestions to existing list
-					self.lists[ listId ].suggestions.concat( list.suggestions );
+					self.lists[ listId ].suggestions =
+						self.lists[ listId ].suggestions.concat( list.suggestions );
 				} else {
 					// Add as new list
+					list.id = listId;
+					list.seed = self.seed;
 					self.lists[ listId ] = list;
 				}
 				if ( self.lists[ listId ].suggestions.length ) {
@@ -114,7 +127,6 @@
 				self.showEmptySuggestionList();
 			}
 		} ).fail( function () {
-			self.promise = null;
 			// Show empty list
 			self.showEmptySuggestionList();
 		} );
@@ -128,36 +140,57 @@
 	 * @return {jQuery.Promise}
 	 */
 	CXSuggestionList.prototype.getSuggestionLists = function () {
-		var self = this,
-			params,
+		var params,
 			api = new mw.Api();
 
-		if ( this.promise ) {
-			// Avoid duplicate API requests.
-			return this.promise;
-		}
-		if ( this.hasMore === false ) {
-			// This method is supposed to call only if we there are items to fetch
+		params = {
+			action: 'query',
+			list: 'contenttranslationsuggestions',
+			from: this.filters.sourceLanguage,
+			to: this.filters.targetLanguage,
+			limit: 4,
+			seed: this.seed
+		};
+
+		return api.get( params ).then( function ( response ) {
+			return response.query.contenttranslationsuggestions;
+		} );
+	};
+
+	/**
+	 * Get all the translation suggestion lists of given user.
+	 *
+	 * @param {Object} list
+	 * @return {jQuery.Promise}
+	 */
+	CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
+		var params,
+			api = new mw.Api();
+
+
+		if ( list.hasMore === false ) {
+			// This method is supposed to be called only if we there are items to fetch
 			return $.Deferred().reject();
 		}
 
 		params = $.extend( {
 			action: 'query',
 			list: 'contenttranslationsuggestions',
+			listid: list.id,
 			from: this.filters.sourceLanguage,
 			to: this.filters.targetLanguage,
 			limit: 10,
-			seed: this.seed
-		}, this.queryContinue );
+			seed: list.seed
+		}, list.queryContinue );
 
-		this.promise = api.get( params ).then( function ( response ) {
-			self.promise = null;
-			self.queryContinue = response.continue;
-			self.hasMore = !!response.continue;
+		list.promise = api.get( params ).then( function ( response ) {
+			list.promise = undefined;
+			list.queryContinue = response.continue;
+			list.hasMore = !!response.continue;
 			return response.query.contenttranslationsuggestions;
 		} );
 
-		return this.promise;
+		return list.promise;
 	};
 
 	CXSuggestionList.prototype.show = function () {
@@ -197,10 +230,6 @@
 			}
 		} );
 		this.lists = {};
-		// Reset the ongoing request trackers
-		this.hasMore = true;
-		this.queryContinue = null;
-		this.promise = null;
 		this.loadItems();
 	};
 
@@ -230,7 +259,7 @@
 	/**
 	 * Show a title image of the translation based on source title.
 	 *
-	 * @param {Object} suggestion
+	 * @param {Object} suggestions
 	 */
 	CXSuggestionList.prototype.showTitleImageAndDesc = function ( suggestions ) {
 		var apply,
@@ -254,6 +283,9 @@
 		} );
 
 		apply = function ( page ) {
+			if ( !map[ page.title ] ) {
+				return;
+			}
 			$.each( map[ page.title ], function ( i, item ) {
 				if ( page.thumbnail ) {
 					item.$image.css( {
@@ -292,8 +324,9 @@
 		// Create the list container if not present already.
 		if ( !list.$list ) {
 			list.$list = $( '<div>' )
+				.attr( 'data-listid', listId )
 				.addClass( 'cx-suggestionlist ' + list.name );
-			$listHeading = $( '<h2>' ).text( mw.msg( list.name ) );
+			$listHeading = $( '<h2>' ).text( list.displayName );
 			list.$list.append( $listHeading );
 
 			if ( addtoTop && this.$container.find( '.cx-suggestionlist' ).length ) {
@@ -312,7 +345,19 @@
 			$suggestions.push( $suggestion );
 		}
 		this.showTitleImageAndDesc( suggestions );
-		list.$list.append( $suggestions );
+
+		// Insert after last suggestion, but before any buttons etc.
+		if ( list.$list.find( '.cx-slitem:last' ).length ) {
+			list.$list.find( '.cx-slitem:last' ).after( $suggestions );
+		} else {
+			list.$list.append( $suggestions );
+		}
+
+		if ( list.type === listTypes.TYPE_CATEGORY && list.suggestions.length > 2 ) {
+			this.makeExpandableList( listId );
+		} else if ( list.type === listTypes.TYPE_FEATURED ) {
+			this.addRefreshTrigger( listId );
+		}
 	};
 
 	/**
@@ -390,13 +435,13 @@
 			.one( 'click', $.proxy( this.discardSuggestion, this, suggestion ) );
 
 		$featured = $( [] );
-		if ( this.lists[ suggestion.listId ].name === 'cx-suggestionlist-featured' ) {
+		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FEATURED ) {
 			$featured = $( '<div>' )
 				.addClass( 'cx-sltag cx-sltag--featured' )
-				.text( mw.msg( this.lists[ suggestion.listId ].displayName ) );
+				.text( this.lists[ suggestion.listId ].displayName );
 		}
 
-		if ( this.lists[ suggestion.listId ].name === 'cx-suggestionlist-favorite' ) {
+		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FAVORITE ) {
 			$discardAction.hide();
 			$favoriteAction = $( '<div>' )
 				.addClass( 'cx-slitem__action cx-slitem__action--nonfavorite' )
@@ -619,7 +664,8 @@
 	 * Scroll handler for the suggestions
 	 */
 	CXSuggestionList.prototype.scroll = function () {
-		var $window, scrollTop, windowHeight, offsetTop;
+		var expandedListId, $expandedList, $window, triggerPos,
+			scrollTop, windowHeight, offsetTop, visibleArea, $loadTrigger;
 
 		if ( !this.active ) {
 			return;
@@ -628,17 +674,125 @@
 		scrollTop = $window.scrollTop();
 		windowHeight = $window.height();
 		offsetTop = this.$container.offset().top;
-
+		visibleArea = windowHeight + scrollTop;
 		if ( scrollTop > offsetTop ) {
 			this.$container.addClass( 'sticky' );
 		} else if ( scrollTop <= offsetTop ) {
 			this.$container.removeClass( 'sticky' );
 		}
 
-		// Load next batch of items on scroll.
-		if ( this.hasMore && scrollTop + windowHeight + 100 > $( document ).height() ) {
-			this.loadItems();
+		// Load next batch of items when loadTrigger is in viewpot
+		$expandedList = this.$container.find( '.cx-suggestionlist--expanded' );
+		$loadTrigger = $expandedList.find( '.cx-suggestionlist__collapse' );
+
+		if ( !$loadTrigger.length ) {
+			return;
 		}
+
+		triggerPos = $loadTrigger.offset().top + $loadTrigger.outerHeight();
+		expandedListId = $expandedList.data( 'listid' );
+		if (
+			expandedListId &&
+			this.lists[ expandedListId ].hasMore !== false &&
+			visibleArea >= triggerPos && scrollTop <= triggerPos
+		) {
+			this.loadItems( this.lists[ expandedListId ] );
+		}
+	};
+
+	/**
+	 * Sort the lists in their logical order to display.
+	 *
+	 * @param  {Object[]} lists
+	 * @return {number[]} Orderded list ids.
+	 */
+	CXSuggestionList.prototype.sortLists = function ( lists ) {
+		var order, ids;
+
+		order = {};
+		order[ listTypes.TYPE_FAVORITE ] = 0;
+		order[ listTypes.TYPE_DISCARDED ] = 1;
+		order[ listTypes.TYPE_CATEGORY ] = 2;
+		order[ listTypes.TYPE_FEATURED ] = 3;
+		order[ listTypes.TYPE_DEFAULT ] = 4;
+
+		ids = Object.keys( lists ).sort( function ( a, b ) {
+			return order[ lists[ a ].type ] - order[ lists[ b ].type ];
+		} );
+
+		return ids;
+	};
+
+	/**
+	 * Make the list expandable and collapsable.
+	 *
+	 * @param {string} listId
+	 */
+	CXSuggestionList.prototype.makeExpandableList = function ( listId ) {
+		var self = this,
+			list = this.lists[ listId ];
+		if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ||
+			list.$list.is( '.cx-suggestionlist--expanded' )
+		) {
+			return;
+		}
+
+		list.$list.append( $( '<div>' )
+			.addClass( 'cx-suggestionlist__expand' )
+			.text( mw.msg( 'cx-suggestionlist-expand' ) )
+			.on( 'click', function () {
+				if ( $( this ).is( '.cx-suggestionlist__expand' ) ) {
+					$( this ).text( mw.msg( 'cx-suggestionlist-collapse' ) );
+					// Collapse all expended lists.
+					self.$container.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
+				} else {
+					$( this ).text( mw.msg( 'cx-suggestionlist-expand' ) );
+				}
+				$( this )
+					.toggleClass( 'cx-suggestionlist__collapse cx-suggestionlist__expand' )
+					.parent()
+					.toggleClass( 'cx-suggestionlist--collapsed cx-suggestionlist--expanded' );
+
+			} )
+		);
+		list.$list.addClass( 'cx-suggestionlist--collapsed' );
+	};
+
+	/**
+	 * Make the list refreshable
+	 *
+	 * @param {string} listId
+	 */
+	CXSuggestionList.prototype.addRefreshTrigger = function ( listId ) {
+		var i, suggestion,
+			self = this,
+			list = this.lists[ listId ];
+
+		if ( list.$list.find( '.cx-suggestionlist__refresh' ).length ) {
+			return;
+		}
+
+		list.$list.append( $( '<div>' )
+			.addClass( 'cx-suggestionlist__refresh' )
+			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
+			.on( 'click', function () {
+				if ( list.suggestions ) {
+					for ( i = 0; i < list.suggestions.length; i++ ) {
+						suggestion = list.suggestions[ i ];
+						suggestion.$element.hide();
+					}
+				}
+				list.suggestions = [];
+				// Do not run out of suggestions
+				list.seed = parseInt( Math.random() * 10000, 10 );
+				list.queryContinue = undefined;
+				list.hasMore = true;
+				// FIXME: Till the new items arrive, this list will become empty.
+				// May be we need to keep the height of container and show a loading
+				// indicator?
+				self.loadItems( list );
+			} )
+		);
 	};
 
 	mw.cx.CXSuggestionList = CXSuggestionList;

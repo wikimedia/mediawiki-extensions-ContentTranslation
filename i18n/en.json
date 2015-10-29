@@ -197,5 +197,8 @@
 	"mw-pageselector-missing": "Page does not exist",
 	"cx-draft-restoring": "Loading the saved translation...",
 	"cx-draft-restored": "Saved translation loaded.",
-	"cx-draft-restore-failed": "Failed to load the saved translation!"
+	"cx-draft-restore-failed": "Failed to load the saved translation!",
+	"cx-suggestionlist-expand": "View all",
+	"cx-suggestionlist-collapse": "View less",
+	"cx-suggestionlist-refresh": "Refresh suggestions"
 }

@@ -7,6 +7,29 @@
 	border-bottom: none;
 }
 
+.cx-suggestionlist--collapsed {
+	// First item is heading and then next 2 items.
+	// So hide all items starting at 4th child.
+	.cx-slitem:nth-child(n+4) {
+		display: none;
+	}
+}
+
+.cx-suggestionlist__collapse,
+.cx-suggestionlist__expand,
+.cx-suggestionlist__refresh {
+	.mw-ui-one-whole;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	font-size: medium;
+	text-align: center;
+	&:hover {
+		background-color: #eff3fb;
+	}
+}
+
 .cx-slitem__desc {
 	color: #555;
 	font-size: 1.2em;

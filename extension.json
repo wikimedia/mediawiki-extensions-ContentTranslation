@@ -827,12 +827,13 @@
 				"jquery.uls.data"
 			],
 			"messages": [
-				"cx-suggestionlist-favorite",
-				"cx-suggestionlist-title",
-				"cx-suggestionlist-empty-title",
+				"cx-suggestionlist-collapse",
 				"cx-suggestionlist-empty-desc",
-				"cx-suggestionlist-view-source-page",
-				"cx-suggestionlist-featured"
+				"cx-suggestionlist-empty-title",
+				"cx-suggestionlist-expand",
+				"cx-suggestionlist-featured",
+				"cx-suggestionlist-refresh",
+				"cx-suggestionlist-view-source-page"
 			]
 		},
 		"ext.cx.translation.conflict": {
