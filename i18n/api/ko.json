@@ -3,7 +3,8 @@
 		"authors": [
 			"Bluemersen",
 			"Kurousagi",
-			"아라"
+			"아라",
+			"Yearning"
 		]
 	},
 	"apihelp-cxpublish-description": "내용 번역 확장 기능을 사용해 만든 문서를 저장합니다.",
@@ -22,5 +23,8 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "원문 언어 코드.",
 	"apihelp-query+cxpublishedtranslations-param-to": "번역문 언어 코드.",
 	"apihelp-cxdelete-param-from": "원본 언어 코드.",
-	"apihelp-cxdelete-param-to": "대상 언어 코드."
+	"apihelp-cxdelete-param-to": "대상 언어 코드.",
+	"apihelp-cxsuggestionlist-param-titles": "문서 제목.",
+	"apihelp-cxsuggestionlist-param-from": "원문 언어 코드.",
+	"apihelp-cxsuggestionlist-param-to": "대상 언어 코드."
 }

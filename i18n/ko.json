@@ -14,7 +14,8 @@
 			"Alex00728",
 			"Bluemersen",
 			"Hwangjy9",
-			"Kurousagi"
+			"Kurousagi",
+			"Yearning"
 		]
 	},
 	"cx": "문서 번역",
@@ -106,6 +107,8 @@
 	"cx-translation-filter-published-translations": "게시됨",
 	"cx-translation-filter-draft-translations": "진행 중",
 	"cx-translation-filter-suggested-translations": "제안",
+	"cx-suggestionlist-favorite": "나중에",
+	"cx-suggestionlist-title": "다른 제안",
 	"cx-translation-filter-from-any-language": "어느 언어에서",
 	"cx-translation-filter-to-any-language": "어느 언어로",
 	"cx-create-new-translation": "새 번역 시작하기",

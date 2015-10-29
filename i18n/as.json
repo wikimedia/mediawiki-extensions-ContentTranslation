@@ -3,7 +3,8 @@
 		"authors": [
 			"Bishnu Saikia",
 			"Gitartha.bordoloi",
-			"Amire80"
+			"Amire80",
+			"Dibya Dutta"
 		]
 	},
 	"cx": "পৃষ্ঠা অনুবাদ কৰক",
@@ -27,6 +28,8 @@
 	"cx-translation-target-page-exists": "লক্ষ্য ৱিকিত [$1 $2] নামৰ এটা পৃষ্ঠা আছেই। পৃষ্ঠাটোৰ অন্য এটা শিৰোনাম দিয়াৰ কথা বিবেচনা কৰক।",
 	"cx-tools-link-title": "সংযোগ",
 	"cx-translation-filter-all-translations": "সমূহ অনুবাদ",
+	"cx-suggestionlist-favorite": "পিছৰ বাবে",
+	"cx-suggestionlist-title": "অধিক পৰামৰ্শ",
 	"cx-campaign-contributionsmenu-mycontributions": "বৰঙণি",
 	"cx-campaign-contributionsmenu-mytranslations": "অনুবাদ",
 	"cx-campaign-contributionsmenu-myuploads": "আপল'ড কৰা মিডিয়া"

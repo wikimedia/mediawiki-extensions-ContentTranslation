@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Angpradesh"
+		]
+	},
+	"apihelp-cxsuggestionlist-example-1": "बाद लेली",
+	"apihelp-cxsuggestionlist-param-listaction": "क्रिया, सूची पर प्रदर्शन करलऽ जैतै.",
+	"apihelp-cxsuggestionlist-param-titles": "पन्ना शीर्षक",
+	"apihelp-cxsuggestionlist-param-from": "स्रोत भाषा कोड",
+	"apihelp-cxsuggestionlist-param-to": "लक्ष्य भाषा कोड"
+}

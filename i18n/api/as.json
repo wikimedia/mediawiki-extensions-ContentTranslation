@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dibya Dutta"
+		]
+	},
+	"apihelp-cxsuggestionlist-param-listname": "পৰামৰ্শ তালিকাৰ নাম।",
+	"apihelp-cxsuggestionlist-param-listaction": "তালিকাত কৰিবলগীয়া কাৰ্য।",
+	"apihelp-cxsuggestionlist-param-titles": "পৃষ্ঠাৰ শিৰোনাম।",
+	"apihelp-cxsuggestionlist-param-from": "উৎস ভাষাৰ সংকেত।",
+	"apihelp-cxsuggestionlist-param-to": "লক্ষ্য ভাষাৰ সংকেত।"
+}
