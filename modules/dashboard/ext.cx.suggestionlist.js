@@ -325,7 +325,13 @@
 			list.$list = $( '<div>' )
 				.attr( 'data-listid', listId )
 				.addClass( 'cx-suggestionlist ' + list.name );
-			$listHeading = $( '<h2>' ).text( list.displayName );
+
+			if ( list.type === listTypes.TYPE_FEATURED ) {
+				// No need to show heading for misc fallback suggestions shown at the end.
+				$listHeading = $( '<h2>' );
+			} else {
+				$listHeading = $( '<h2>' ).text( list.displayName );
+			}
 			list.$list.append( $listHeading );
 
 			if ( addtoTop && this.$container.find( '.cx-suggestionlist' ).length ) {
