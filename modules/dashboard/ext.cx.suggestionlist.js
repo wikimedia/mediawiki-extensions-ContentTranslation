@@ -167,7 +167,6 @@
 		var params,
 			api = new mw.Api();
 
-
 		if ( list.hasMore === false ) {
 			// This method is supposed to be called only if we there are items to fetch
 			return $.Deferred().reject();
@@ -729,33 +728,46 @@
 	 * @param {string} listId
 	 */
 	CXSuggestionList.prototype.makeExpandableList = function ( listId ) {
-		var self = this,
-			list = this.lists[ listId ];
+		var list = this.lists[ listId ];
+
 		if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ||
 			list.$list.is( '.cx-suggestionlist--expanded' )
 		) {
 			return;
 		}
 
+		list.$list.find( 'h2' ).on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) );
+
 		list.$list.append( $( '<div>' )
 			.addClass( 'cx-suggestionlist__expand' )
 			.text( mw.msg( 'cx-suggestionlist-expand' ) )
-			.on( 'click', function () {
-				if ( $( this ).is( '.cx-suggestionlist__expand' ) ) {
-					$( this ).text( mw.msg( 'cx-suggestionlist-collapse' ) );
-					// Collapse all expended lists.
-					self.$container.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
-				} else {
-					$( this ).text( mw.msg( 'cx-suggestionlist-expand' ) );
-				}
-				$( this )
-					.toggleClass( 'cx-suggestionlist__collapse cx-suggestionlist__expand' )
-					.parent()
-					.toggleClass( 'cx-suggestionlist--collapsed cx-suggestionlist--expanded' );
-
-			} )
+			.on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) )
 		);
+		// By default, the list is collapsed.
 		list.$list.addClass( 'cx-suggestionlist--collapsed' );
+	};
+
+	/**
+	 * Expand of collapse the list with the given listId.
+	 *
+	 * @param  {string} listId List identifier.
+	 */
+	CXSuggestionList.prototype.expandOrCollapse = function ( listId ) {
+		var $trigger,
+			list = this.lists[ listId ];
+
+		$trigger = list.$list.find( '.cx-suggestionlist__expand, .cx-suggestionlist__collapse' );
+
+		if ( $trigger.is( '.cx-suggestionlist--collapsed' ) ) {
+			$trigger.text( mw.msg( 'cx-suggestionlist-collapse' ) );
+			// Collapse all expended lists.
+			this.$container.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
+		} else {
+			$trigger.text( mw.msg( 'cx-suggestionlist-expand' ) );
+		}
+
+		$trigger.toggleClass( 'cx-suggestionlist__collapse cx-suggestionlist__expand' );
+		list.$list.toggleClass( 'cx-suggestionlist--collapsed cx-suggestionlist--expanded' );
 	};
 
 	/**
