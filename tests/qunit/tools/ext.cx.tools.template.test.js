@@ -68,7 +68,7 @@
 		} );
 	} );
 
-	QUnit.test( 'Template name adapatation', function ( assert ) {
+	QUnit.test( 'Template name adaptation', function ( assert ) {
 		var $fixture = $( '#qunit-fixture' );
 
 		QUnit.expect( 2 );
