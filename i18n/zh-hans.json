@@ -193,5 +193,8 @@
 	"mw-pageselector-missing": "页面不存在",
 	"cx-draft-restoring": "正在加载保存的翻译...",
 	"cx-draft-restored": "保存的翻译已加载。",
-	"cx-draft-restore-failed": "无法加载保存的翻译！"
+	"cx-draft-restore-failed": "无法加载保存的翻译！",
+	"cx-suggestionlist-expand": "查看全部",
+	"cx-suggestionlist-collapse": "查看更少",
+	"cx-suggestionlist-refresh": "刷新建议"
 }

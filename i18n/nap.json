@@ -186,5 +186,8 @@
 	"mw-pageselector-missing": "'A paggena nun esiste",
 	"cx-draft-restoring": "Carrecanno 'a traduzione sarvata...",
 	"cx-draft-restored": "Traduzione sarvata carrecata mò.",
-	"cx-draft-restore-failed": "Scassaje quanno se tentava 'e carrecà 'a traduzione sarvata!"
+	"cx-draft-restore-failed": "Scassaje quanno se tentava 'e carrecà 'a traduzione sarvata!",
+	"cx-suggestionlist-expand": "Vide tutte",
+	"cx-suggestionlist-collapse": "Vide meno",
+	"cx-suggestionlist-refresh": "Arrifresca 'e suggerimente"
 }

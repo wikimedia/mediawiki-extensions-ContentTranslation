@@ -185,5 +185,8 @@
 	"mw-pageselector-missing": "Di Sigg jidd_et nit",
 	"cx-draft-restoring": "De faßjehallde Övversäzong weed jelahde&nbsp;&hellip;",
 	"cx-draft-restored": "De faßjehallde Övversäzong wood jelahde.",
-	"cx-draft-restore-failed": "De faßjehallde Övversäzong kunnt nit jelahde wähde."
+	"cx-draft-restore-failed": "De faßjehallde Övversäzong kunnt nit jelahde wähde.",
+	"cx-suggestionlist-expand": "Alles belohre",
+	"cx-suggestionlist-collapse": "Winnijer aanzeije",
+	"cx-suggestionlist-refresh": "Neu aanzeije"
 }

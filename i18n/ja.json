@@ -197,5 +197,6 @@
 	"mw-pageselector-missing": "ページが存在しません",
 	"cx-draft-restoring": "保存された翻訳を読み込み中...",
 	"cx-draft-restored": "保存された翻訳を読み込みました。",
-	"cx-draft-restore-failed": "保存された翻訳の読み込みに失敗しました！"
+	"cx-draft-restore-failed": "保存された翻訳の読み込みに失敗しました！",
+	"cx-suggestionlist-expand": "すべて表示"
 }

@@ -104,7 +104,9 @@
 	"cx-translation-filter-all-translations": "Tüm çeviriler",
 	"cx-translation-filter-published-translations": "Yayınlanan çeviriler",
 	"cx-translation-filter-draft-translations": "Devam eden çeviriler",
+	"cx-translation-filter-suggested-translations": "Öneriler",
 	"cx-suggestionlist-empty-title": "Üzgünüz, önerilecek sayfa yok",
+	"cx-suggestionlist-featured": "Seçkin",
 	"cx-translation-filter-from-any-language": "Herhangi bir dilden",
 	"cx-translation-filter-to-any-language": "Herhangi bir dile",
 	"cx-create-new-translation": "Yeni çeviri oluştur",
@@ -147,5 +149,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
 	"cx-trend-translations-to": "$1 diline yapılan çeviriler",
 	"cx-stats-try-contenttranslation": "İçerik Çevirmeni, diğer dillerden çeviri yaparak yeni sayfalar oluşturmaya yarayan bir araçtır. [$1 İçerik Çevirmeni'ni deneyin]",
-	"cx-stats-weekly-published": "Geçen hafta"
+	"cx-stats-weekly-published": "Geçen hafta",
+	"cx-tools-missing-link-text": "Sayfanın açılmasını teşvik etmek için eksik olarak {{GENDER:|işaretle}}.",
+	"cx-tools-missing-link-title": "Eksik bağlantı",
+	"cx-tools-missing-link-mark-link": "Eksik olarak {{GENDER:|işaretle}}",
+	"cx-tools-link-internal-link": "Sayfaya bağlantı ver",
+	"cx-tools-link-internal-link-placeholder": "Bağlantı vermek için sayfa bulun",
+	"cx-tools-link-external-link": "Dış bağlantı",
+	"cx-tools-link-external-link-placeholder": "Dış bağlantı ekle",
+	"cx-tools-link-to-another-page": "Başka bir sayfaya bağlantı ver",
+	"cx-tools-link-apply": "Tamam",
+	"mw-pageselector-missing": "Sayfa mevcut değil"
 }

@@ -105,6 +105,8 @@
 	"cx-translation-filter-published-translations": "Publicerade",
 	"cx-translation-filter-draft-translations": "Pågående",
 	"cx-translation-filter-suggested-translations": "Förslag",
+	"cx-suggestionlist-favorite": "Tills senare",
+	"cx-suggestionlist-title": "Fler förslag",
 	"cx-suggestionlist-empty-title": "Tyvärr, inga sidor att föreslå",
 	"cx-suggestionlist-empty-desc": "Du kan välja ett valfritt ämne när du påbörjar en ny översättning",
 	"cx-suggestionlist-featured": "Utmärkt",
@@ -192,5 +194,8 @@
 	"mw-pageselector-missing": "Sidan finns inte",
 	"cx-draft-restoring": "Läser in den sparade översättningen...",
 	"cx-draft-restored": "Den sparade översättningen lästes in.",
-	"cx-draft-restore-failed": "Kunde inte läsa in den sparade översättning!"
+	"cx-draft-restore-failed": "Kunde inte läsa in den sparade översättning!",
+	"cx-suggestionlist-expand": "Visa alla",
+	"cx-suggestionlist-collapse": "Visa färre",
+	"cx-suggestionlist-refresh": "Uppdatera förslag"
 }

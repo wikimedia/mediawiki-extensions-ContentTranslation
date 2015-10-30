@@ -192,5 +192,8 @@
 	"mw-pageselector-missing": "La pagina non esiste",
 	"cx-draft-restoring": "Caricamento delle traduzioni salvate...",
 	"cx-draft-restored": "Traduzioni salvate caricate.",
-	"cx-draft-restore-failed": "Non è stato possibile caricare le traduzioni salvate!"
+	"cx-draft-restore-failed": "Non è stato possibile caricare le traduzioni salvate!",
+	"cx-suggestionlist-expand": "Mostra tutto",
+	"cx-suggestionlist-collapse": "Mostra meno",
+	"cx-suggestionlist-refresh": "Aggiorna suggerimenti"
 }

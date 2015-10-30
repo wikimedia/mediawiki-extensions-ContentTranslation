@@ -191,5 +191,8 @@
 	"mw-pageselector-missing": "הדף אינו קיים",
 	"cx-draft-restoring": "טעינת תרגום שמור...",
 	"cx-draft-restored": "תרגום שמור נטען.",
-	"cx-draft-restore-failed": "טעינת תרגום שמור לא עבדה!"
+	"cx-draft-restore-failed": "טעינת תרגום שמור לא עבדה!",
+	"cx-suggestionlist-expand": "להציג הכול",
+	"cx-suggestionlist-collapse": "להציג פחות",
+	"cx-suggestionlist-refresh": "לרענן הצעות"
 }
