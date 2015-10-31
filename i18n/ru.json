@@ -199,5 +199,8 @@
 	"mw-pageselector-missing": "Страница не существует",
 	"cx-draft-restoring": "Загрузка сохранённых переводов…",
 	"cx-draft-restored": "Сохранённые переводы загружены.",
-	"cx-draft-restore-failed": "Не удалось загрузить сохранённый перевод!"
+	"cx-draft-restore-failed": "Не удалось загрузить сохранённый перевод!",
+	"cx-suggestionlist-expand": "Посмотреть все",
+	"cx-suggestionlist-collapse": "Показать компактно",
+	"cx-suggestionlist-refresh": "Обновить предложения"
 }

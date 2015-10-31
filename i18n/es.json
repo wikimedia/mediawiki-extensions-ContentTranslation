@@ -201,5 +201,8 @@
 	"mw-pageselector-missing": "La página no existe",
 	"cx-draft-restoring": "Cargando la traducción guardada...",
 	"cx-draft-restored": "Se cargó la traducción guardada.",
-	"cx-draft-restore-failed": "No se pudo cargar la traducción guardada."
+	"cx-draft-restore-failed": "No se pudo cargar la traducción guardada.",
+	"cx-suggestionlist-expand": "Ver todas",
+	"cx-suggestionlist-collapse": "Ver menos",
+	"cx-suggestionlist-refresh": "Actualizar sugerencias"
 }

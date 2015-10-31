@@ -180,5 +180,8 @@
 	"mw-pageselector-missing": "Säit gëtt et net",
 	"cx-draft-restoring": "Déi gespäichert Iwwersetzung lueden...",
 	"cx-draft-restored": "Gespäichert Iwwersetzung gelueden.",
-	"cx-draft-restore-failed": "Déi gespäichert Iwwersetzung konnt net geluede ginn!"
+	"cx-draft-restore-failed": "Déi gespäichert Iwwersetzung konnt net geluede ginn!",
+	"cx-suggestionlist-expand": "All weisen",
+	"cx-suggestionlist-collapse": "Manner weisen",
+	"cx-suggestionlist-refresh": "Virschléi aktualiséieren"
 }

@@ -188,5 +188,8 @@
 	"mw-pageselector-missing": "Lehekülge pole olemas.",
 	"cx-draft-restoring": "Salvestatud tõlke laadimine...",
 	"cx-draft-restored": "Laaditi salvestatud tõlge.",
-	"cx-draft-restore-failed": "Salvestatud tõlget ei õnnestunud laadida!"
+	"cx-draft-restore-failed": "Salvestatud tõlget ei õnnestunud laadida!",
+	"cx-suggestionlist-expand": "Vaata kõiki",
+	"cx-suggestionlist-collapse": "Vaata vähem",
+	"cx-suggestionlist-refresh": "Värskenda soovitusi"
 }

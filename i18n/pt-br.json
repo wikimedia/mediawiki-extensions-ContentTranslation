@@ -13,7 +13,8 @@
 			"TheGabrielZaum",
 			"TheEduGobi",
 			"Rhcastilhos",
-			"Almondega"
+			"Almondega",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"cx": "Traduzir página",
@@ -179,5 +180,8 @@
 	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
 	"cx-tools-link-to-another-page": "Ligar para outra página",
 	"cx-tools-link-apply": "Concluído",
-	"mw-pageselector-missing": "Página inexistente"
+	"mw-pageselector-missing": "Página inexistente",
+	"cx-suggestionlist-expand": "Ver todas",
+	"cx-suggestionlist-collapse": "Ver menos",
+	"cx-suggestionlist-refresh": "Sugestões de atualização"
 }
