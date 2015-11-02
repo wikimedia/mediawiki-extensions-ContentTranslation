@@ -102,6 +102,7 @@
 	"cx-translation-filter-published-translations": "Publicadas",
 	"cx-translation-filter-draft-translations": "En progreso",
 	"cx-translation-filter-suggested-translations": "Suxestións",
+	"cx-suggestionlist-title": "Máis suxestións",
 	"cx-suggestionlist-empty-title": "Sentímolo, non hai ningunha páxina para suxerir",
 	"cx-suggestionlist-empty-desc": "Pode escoller calquera tema do seu interese cando comece unha nova tradución",
 	"cx-suggestionlist-featured": "Destacado",
@@ -189,5 +190,7 @@
 	"mw-pageselector-missing": "A páxina non existe",
 	"cx-draft-restoring": "Cargando a tradución gardada...",
 	"cx-draft-restored": "Cargouse a tradución gardada.",
-	"cx-draft-restore-failed": "Erro ó cargar a tradución gardada!"
+	"cx-draft-restore-failed": "Erro ó cargar a tradución gardada!",
+	"cx-suggestionlist-expand": "Ver todas",
+	"cx-suggestionlist-collapse": "Ver menos"
 }

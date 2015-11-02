@@ -8,6 +8,7 @@
 	},
 	"apihelp-cxpublish-param-categories": "زمرو جنهن ۾ شايع ٿيل صفحو رکڻو آهي",
 	"apihelp-cxsuggestionlist-param-listname": "تجويز فهرست جو نالو.",
+	"apihelp-cxsuggestionlist-param-listaction": "فهرست تي پيش ڪيو ويندڙ عمل.",
 	"apihelp-cxsuggestionlist-param-titles": "صفحن جا عنوان.",
 	"apihelp-cxsuggestionlist-param-from": "مصدر ٻوليءَ جو ڪوڊ.",
 	"apihelp-cxsuggestionlist-param-to": "مقصود ٻولي جو ڪوڊ."

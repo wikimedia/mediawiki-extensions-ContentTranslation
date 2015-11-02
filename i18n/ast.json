@@ -184,5 +184,8 @@
 	"mw-pageselector-missing": "La páxina nun esiste",
 	"cx-draft-restoring": "Cargando la traducción guardada...",
 	"cx-draft-restored": "Cargóse la traducción guardada.",
-	"cx-draft-restore-failed": "Nun pudo cargase la traducción guardada."
+	"cx-draft-restore-failed": "Nun pudo cargase la traducción guardada.",
+	"cx-suggestionlist-expand": "Ver toes",
+	"cx-suggestionlist-collapse": "Ver menos",
+	"cx-suggestionlist-refresh": "Anovar suxerencies"
 }

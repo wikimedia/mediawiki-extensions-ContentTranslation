@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Elisardojm",
-			"Toliño"
+			"Toliño",
+			"Banjo"
 		]
 	},
 	"apihelp-cxpublish-description": "Gardar unha páxina creada coa extensión de tradución de contidos.",
@@ -57,5 +58,8 @@
 	"apihelp-cxdelete-param-from": "Código da lingua de orixe.",
 	"apihelp-cxdelete-param-to": "Código da lingua de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "Título da páxina orixinal.",
-	"apihelp-cxdelete-example-1": "Borrar un borrador asociado ao título e ao par de linguas indicados."
+	"apihelp-cxdelete-example-1": "Borrar un borrador asociado ao título e ao par de linguas indicados.",
+	"apihelp-cxsuggestionlist-param-titles": "Títulos das páxinas.",
+	"apihelp-cxsuggestionlist-param-from": "Código da lingua de orixe.",
+	"apihelp-cxsuggestionlist-param-to": "Código da lingua de destino."
 }

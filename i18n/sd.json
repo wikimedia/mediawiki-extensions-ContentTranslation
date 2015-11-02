@@ -15,5 +15,8 @@
 	"cx-magnus-tool-link-text": "توهان جي ٻوليءَ ۾ غيرموجود صفحا لهو",
 	"cx-trend-deletions": "ڊاٺل ترجما",
 	"cx-draft-restoring": "سانڍيل ترجمو اتاريو پيو وڃي...",
-	"cx-draft-restore-failed": "سانڍيل ترجمو کلي نہ سگھيو."
+	"cx-draft-restore-failed": "سانڍيل ترجمو کلي نہ سگھيو.",
+	"cx-suggestionlist-expand": "سڀ ڏسو",
+	"cx-suggestionlist-collapse": "گھٽ مشاهدو ڪريو",
+	"cx-suggestionlist-refresh": "تجويزون تازيون ڪريو"
 }

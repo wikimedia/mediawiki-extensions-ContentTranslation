@@ -112,5 +112,8 @@
 	"echo-category-title-cx": "Tulkojumi",
 	"cx-tools-link-internal-link": "Saite uz lapu",
 	"cx-tools-link-to-another-page": "Saite uz citu lapu",
-	"mw-pageselector-missing": "Lapa nepastāv"
+	"mw-pageselector-missing": "Lapa nepastāv",
+	"cx-suggestionlist-expand": "Skatīt visus",
+	"cx-suggestionlist-collapse": "Skatīt mazāk",
+	"cx-suggestionlist-refresh": "Atsvaidzināt ieteikumus"
 }
