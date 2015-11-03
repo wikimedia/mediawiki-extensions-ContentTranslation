@@ -9,6 +9,7 @@
 	},
 	"cx": "Tarjima sahifasi",
 	"cx-javascript": "Ushbu asbob JavaScriptsiz ishlamaydi.",
+	"cx-license-agreement": "„$1“ tugmasini bosish orqali Siz [https://wikimediafoundation.org/wiki/Terms_of_Use foydalanish shartlariga] rozi ekanligingizni bildirasiz, jumladan tarjima asbobi yordamida kiritgan hissangiz [https://creativecommons.org/licenses/by-sa/3.0/deed.ru CC BY-SA 3.0] va [https://www.gnu.org/copyleft/fdl.html GFDL] litsenziyalari ostida qaytarishsiz nashr etilishiga qatʼiy rozilik bildirasiz. Shuningdek tushunib turibsizki, yuqoridagi CC BY-SA shartlari bajarilishi uchun ushbu sahifa yoki uning URL-manziliga havola koʻrsatilishi kifoya.",
 	"cx-error-server-connection": "Xatolik: Serverga ulanib bo‘lmadi.",
 	"cx-header-progressbar-text": "$1% tarjima qilindi",
 	"cx-header-progressbar-text-mt": "($1% tarjimani mashina qilgan)",

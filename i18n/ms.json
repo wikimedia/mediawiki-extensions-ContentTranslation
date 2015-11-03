@@ -57,7 +57,7 @@
 	"cx-tools-dictionary-title": "Takrif",
 	"cx-tools-link-title": "Pautan",
 	"cx-tools-link-add": "Tambah pautan",
-	"cx-tools-link-remove": "Keluar pautan",
+	"cx-tools-link-remove": "Keluarkan pautan",
 	"cx-tools-mt-title": "Terjemahan mesin",
 	"cx-tools-mt-use-source": "Gunakan teks sumber",
 	"cx-tools-mt-clear-translation": "Kosongkan perenggan",
@@ -185,5 +185,6 @@
 	"mw-pageselector-missing": "Laman tidak wujud",
 	"cx-draft-restoring": "Sedang memuat terjemahan yang disimpan...",
 	"cx-draft-restored": "Terjemahan yang disimpan termuat.",
-	"cx-draft-restore-failed": "Gagal memuatkan terjemahan yang disimpan!"
+	"cx-draft-restore-failed": "Gagal memuatkan terjemahan yang disimpan!",
+	"cx-suggestionlist-expand": "Paparkan semua"
 }
