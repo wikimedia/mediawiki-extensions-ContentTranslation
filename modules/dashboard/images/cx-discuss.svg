@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="86" height="64" viewBox="0 0 43 32">
-  <defs>
-    <style>
-
-      .cls-2 {
-        fill: #2460cf;
-      }
-    </style>
-  </defs>
-  <path d="M39.000,10.000 C39.000,10.000 39.000,28.000 39.000,28.000 C39.000,28.000 43.000,32.000 43.000,32.000 C43.000,32.000 15.000,32.000 15.000,32.000 C15.000,32.000 15.000,10.000 15.000,10.000 C15.000,10.000 39.000,10.000 39.000,10.000 ZM4.000,0.000 C4.000,0.000 29.000,0.000 29.000,0.000 C29.000,0.000 29.000,8.000 29.000,8.000 C29.000,8.000 13.000,8.000 13.000,8.000 C13.000,8.000 13.000,22.000 13.000,22.000 C13.000,22.000 -0.000,22.000 -0.000,22.000 C-0.000,22.000 4.095,18.000 4.095,18.000 C4.095,18.000 4.000,0.000 4.000,0.000 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="86" height="64" viewBox="0 0 43 32">
+    <defs>
+        <style>
+            .cls-2 { fill: #2460cf; }
+        </style>
+    </defs>
+    <path d="M39 10v18l4 4H15V10h24zM4 0h25v8H13v14H0l4.095-4L4 0z" id="path-1" class="cls-2" fill-rule="evenodd"/>
 </svg>

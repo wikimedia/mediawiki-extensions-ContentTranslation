@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="80" height="80" viewBox="0 0 40 40">
-  <defs>
-    <style>
-
-      .cls-2 {
-        fill: #2460cf;
-      }
-    </style>
-  </defs>
-  <path d="M20.000,0.000 C8.960,0.000 -0.000,8.960 -0.000,20.000 C-0.000,31.040 8.960,40.000 20.000,40.000 C31.040,40.000 40.000,31.040 40.000,20.000 C40.000,8.960 31.040,0.000 20.000,0.000 ZM22.000,30.000 C22.000,30.000 18.000,30.000 18.000,30.000 C18.000,30.000 18.000,18.000 18.000,18.000 C18.000,18.000 22.000,18.000 22.000,18.000 C22.000,18.000 22.000,30.000 22.000,30.000 ZM22.000,14.000 C22.000,14.000 18.000,14.000 18.000,14.000 C18.000,14.000 18.000,10.000 18.000,10.000 C18.000,10.000 22.000,10.000 22.000,10.000 C22.000,10.000 22.000,14.000 22.000,14.000 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="80" height="80" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-2 { fill: #2460cf; }
+        </style>
+    </defs>
+    <path d="M20 0C8.96 0 0 8.96 0 20s8.96 20 20 20 20-8.96 20-20S31.04 0 20 0zm2 30h-4V18h4v12zm0-16h-4v-4h4v4z" id="path-1" class="cls-2" fill-rule="evenodd"/>
 </svg>
