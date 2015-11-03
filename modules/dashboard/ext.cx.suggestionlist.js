@@ -39,13 +39,24 @@
 			sourceLanguage: null,
 			targetLanguage: null
 		};
+		this.$personalCollection = null;
+		this.$publicCollection = null;
 		this.seed = null;
 		this.listen();
 		this.init();
 	}
 
 	CXSuggestionList.prototype.init = function () {
+		var $publicCollectionTitle;
+
 		this.seed = parseInt( Math.random() * 10000, 10 );
+		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
+		this.$publicCollection = $( '<div>' )
+			.addClass( 'cx-suggestionlist__public' );
+		$publicCollectionTitle = $( '<h2>' )
+			.text( mw.msg( 'cx-suggestionlist-title' ) )
+			.addClass( 'cx-suggestionlist__public-title' );
+		this.$container.append( this.$personalCollection, $publicCollectionTitle, this.$publicCollection );
 		this.initLanguages();
 	};
 
@@ -309,9 +320,8 @@
 	 *
 	 * @param {string} listId
 	 * @param {Object[]} suggestions
-	 * @param {boolean} [addtoTop=false] Whether the list need to be added to top of all other lists.
 	 */
-	CXSuggestionList.prototype.insertSuggestionList = function ( listId, suggestions, addtoTop ) {
+	CXSuggestionList.prototype.insertSuggestionList = function ( listId, suggestions ) {
 		var i, list, $suggestion, $listHeading,
 			$suggestions = [];
 
@@ -326,19 +336,15 @@
 				.attr( 'data-listid', listId )
 				.addClass( 'cx-suggestionlist ' + list.name );
 
-			if ( list.type === listTypes.TYPE_FEATURED ) {
+			if ( list.type !== listTypes.TYPE_FEATURED ) {
 				// No need to show heading for misc fallback suggestions shown at the end.
-				$listHeading = $( '<h2>' );
-			} else {
 				$listHeading = $( '<h2>' ).text( list.displayName );
+				list.$list.append( $listHeading );
 			}
-			list.$list.append( $listHeading );
-
-			if ( addtoTop && this.$container.find( '.cx-suggestionlist' ).length ) {
-				this.$container.find( '.cx-suggestionlist:first' )
-					.before( list.$list );
+			if ( list.type === listTypes.TYPE_FAVORITE ) {
+				this.$personalCollection.append( list.$list );
 			} else {
-				this.$container.append( list.$list );
+				this.$publicCollection.append( list.$list );
 			}
 		} else {
 			// The list might be hidden if it became empty due to item removals.
@@ -358,7 +364,7 @@
 			list.$list.append( $suggestions );
 		}
 
-		if ( list.type === listTypes.TYPE_CATEGORY && list.suggestions.length > 2 ) {
+		if ( list.type === listTypes.TYPE_CATEGORY ) {
 			this.makeExpandableList( listId );
 		} else if ( list.type === listTypes.TYPE_FEATURED ) {
 			this.addRefreshTrigger( listId );
@@ -759,12 +765,13 @@
 		}
 
 		list.$list.find( 'h2' ).on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) );
-
-		list.$list.append( $( '<div>' )
-			.addClass( 'cx-suggestionlist__expand' )
-			.text( mw.msg( 'cx-suggestionlist-expand' ) )
-			.on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) )
-		);
+		if ( list.suggestions.length > 2 ) {
+			list.$list.append( $( '<div>' )
+				.addClass( 'cx-suggestionlist__expand' )
+				.text( mw.msg( 'cx-suggestionlist-expand' ) )
+				.on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) )
+			);
+		}
 		// By default, the list is collapsed.
 		list.$list.addClass( 'cx-suggestionlist--collapsed' );
 	};

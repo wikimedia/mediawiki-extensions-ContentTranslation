@@ -2,9 +2,25 @@
 @import "ext.cx.lists.common";
 @import "mediawiki.mixins";
 
-.cx-suggestionlist h2 {
-	float: left;
+.cx-suggestionlist {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+.cx-suggestionlist h2,
+.cx-suggestionlist__public-title {
+	.mw-ui-one-whole;
 	border-bottom: none;
+}
+
+.cx-suggestionlist__public {
+	.mw-ui-item;
+	padding: 0;
+	margin: 0;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
 }
 
 .cx-suggestionlist--expanded h2,
@@ -14,7 +30,7 @@
 	border: 1px solid #ddd;
 	border-bottom: 0;
 	padding: 10px;
-	margin: 20px 0 0 0;
+	margin: 0;
 	cursor: pointer;
 }
 
@@ -117,8 +133,4 @@
 	padding: 0 2px;
 	border-radius: 1px;
 	font-size: small;
-}
-
-.cx-suggestionlist-featured h2 {
-	margin-top: 20px;
 }

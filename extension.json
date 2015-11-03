@@ -836,7 +836,8 @@
 				"cx-suggestionlist-featured",
 				"cx-suggestionlist-refresh",
 				"cx-suggestionlist-empty-desc-recommend-link-text",
-				"cx-suggestionlist-view-source-page"
+				"cx-suggestionlist-view-source-page",
+				"cx-suggestionlist-title"
 			]
 		},
 		"ext.cx.translation.conflict": {
