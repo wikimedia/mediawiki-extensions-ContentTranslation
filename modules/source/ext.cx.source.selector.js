@@ -93,11 +93,11 @@
 		}
 
 		if ( this.options.sourceTitle ) {
-			this.$sourceTitleInput.val( this.options.sourceTitle ).trigger( 'input' );
+			this.$sourceTitleInput.val( this.options.sourceTitle );
 		}
 
 		if ( this.options.targetTitle ) {
-			this.$targetTitleInput.val( this.options.targetTitle ).trigger( 'input' );
+			this.$targetTitleInput.val( this.options.targetTitle );
 		}
 
 		// If all of the values are already present,
@@ -627,7 +627,13 @@
 			this.showAsDialog();
 		}
 
-		this.$sourceTitleInput.focus();
+		// If there is something in the source field, it is probably auto-filled,
+		// so go immediately to the target to save time
+		if ( this.options.sourceTitle ) {
+			this.$targetTitleInput.focus();
+		} else {
+			this.$sourceTitleInput.focus();
+		}
 	};
 
 	/**
