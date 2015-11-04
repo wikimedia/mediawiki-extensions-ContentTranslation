@@ -191,11 +191,13 @@
 	"cx-tools-link-external-link": "Zewnętrzne",
 	"cx-tools-link-external-link-placeholder": "Dodaj link zewnętrzny",
 	"cx-tools-link-to-another-page": "Link do innej strony",
+	"cx-tools-link-add-as-missing": "Dodaj brakujący link",
 	"cx-tools-link-apply": "Gotowe",
 	"mw-pageselector-missing": "Strona nie istnieje",
 	"cx-draft-restoring": "Wczytywanie zapisanego tłumaczenia...",
 	"cx-draft-restored": "Wczytano zapisane tłumaczenie.",
 	"cx-draft-restore-failed": "Nie udało się wczytać zapisanego tłumaczenia!",
 	"cx-suggestionlist-expand": "Pokaż wszystko",
-	"cx-suggestionlist-collapse": "Pokaż mniej"
+	"cx-suggestionlist-collapse": "Pokaż mniej",
+	"cx-suggestionlist-refresh": "Odśwież propozycje"
 }

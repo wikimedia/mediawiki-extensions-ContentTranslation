@@ -90,7 +90,9 @@
 	"cx-translation-filter-suggested-translations": "सूचना",
 	"cx-suggestionlist-favorite": "नंतर साठी",
 	"cx-suggestionlist-title": "अधिक सुचवण्या",
-	"cx-suggestionlist-empty-desc": "भाषांतर सुरु करण्यासाठी आपण आपल्या आवडीचा कोणताही विषय निवडू शकता",
+	"cx-suggestionlist-empty-title": "आत्ता काहीच सुचविण्या नाहीत",
+	"cx-suggestionlist-empty-desc": "आम्हास काहीच सुचवण्या सापडल्या नाहीत.आपण नंतर तपासू शकता किंवा संबंधित पाने आपण आमच्या शिफारस केलेल्या साधनाचा वापर करुन शोधु शकता (प्रायोगिक)",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "सुचवण्या बघा (प्रायोगिक)",
 	"cx-suggestionlist-featured": "विशेष",
 	"cx-suggestionlist-view-source-page": "स्रोत पान बघा",
 	"cx-translation-filter-from-any-language": "कोणत्याही भाषेतून",
@@ -165,9 +167,11 @@
 	"cx-tools-link-external-link": "बाह्य",
 	"cx-tools-link-external-link-placeholder": "बाह्य दुवे जोडा",
 	"cx-tools-link-to-another-page": "दुसऱ्या पानास दुवा",
+	"cx-tools-link-add-as-missing": "हरविलेला दुवा म्हणून जोडा",
 	"cx-tools-link-apply": "झाले",
 	"mw-pageselector-missing": "पान अस्तित्वात नाही",
 	"cx-draft-restoring": "जतन केलेल्या भाषांतराचे भारण करीत आहे...",
 	"cx-draft-restored": "जतन केलेल्या भाषांतराचे भारण केले.",
-	"cx-draft-restore-failed": "जतन केलेल्या भाषांतराचे भारण करण्यात अयशस्वी."
+	"cx-draft-restore-failed": "जतन केलेल्या भाषांतराचे भारण करण्यात अयशस्वी.",
+	"cx-suggestionlist-expand": "सर्व बघा"
 }

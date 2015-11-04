@@ -96,8 +96,11 @@
 	"cx-translation-filter-published-translations": "Publikigitaj",
 	"cx-translation-filter-draft-translations": "Prilaborataj",
 	"cx-translation-filter-suggested-translations": "Proponoj",
-	"cx-suggestionlist-empty-title": "Pardonu,estas neniuj paĝoj por proponi",
-	"cx-suggestionlist-empty-desc": "Vi povas elekti ajnan temon, kiam vi komencas novan tradukon",
+	"cx-suggestionlist-favorite": "Por poste",
+	"cx-suggestionlist-title": "Pliaj proponoj",
+	"cx-suggestionlist-empty-title": "Neniuj proponoj por nun",
+	"cx-suggestionlist-empty-desc": "Ni trovis neniun proponon. Vi povas kontroli poste aŭ trovi relevantaj paĝoj per nia rekomendilo (eksperimenta).",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Montri proponojn (eksperimenta)",
 	"cx-suggestionlist-featured": "Elstara",
 	"cx-suggestionlist-view-source-page": "Montri fontan paĝon",
 	"cx-translation-filter-from-any-language": "De ajna lingvo",
@@ -179,6 +182,13 @@
 	"cx-tools-link-external-link": "Ekstera",
 	"cx-tools-link-external-link-placeholder": "Aldoni eksteran ligilon",
 	"cx-tools-link-to-another-page": "Ligi al alia paĝo",
+	"cx-tools-link-add-as-missing": "Aldoni kiel mankantan ligilon",
 	"cx-tools-link-apply": "Apliki",
-	"mw-pageselector-missing": "Paĝo ne ekzistas"
+	"mw-pageselector-missing": "Paĝo ne ekzistas",
+	"cx-draft-restoring": "Ŝargado de konservita traduko...",
+	"cx-draft-restored": "Konservita traduko ŝargita.",
+	"cx-draft-restore-failed": "Malsukcesis ŝargo de konservita traduko!",
+	"cx-suggestionlist-expand": "Montri ĉiujn",
+	"cx-suggestionlist-collapse": "Montri malpli",
+	"cx-suggestionlist-refresh": "Aktualigi proponojn"
 }

@@ -8,7 +8,7 @@
 	},
 	"apihelp-cxpublish-description": "Sačuvajte članak napravljen uz pomoć Prevoditelja sadržaja.",
 	"apihelp-cxpublish-param-title": "Naslov stranice na kojoj će se raditi.",
-	"apihelp-cxpublish-param-html": "Sadržaj za spašavanje.",
+	"apihelp-cxpublish-param-html": "Sadržaj za sačuvati.",
 	"apihelp-cxpublish-param-from": "Izvorni jezički kôd.",
 	"apihelp-cxpublish-param-to": "Ciljni jezički kôd.",
 	"apihelp-cxpublish-param-sourcetitle": "Naslov izvornog članka.",
