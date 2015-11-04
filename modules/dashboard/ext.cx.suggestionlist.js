@@ -828,8 +828,6 @@
 	 * Make the list refreshable
 	 */
 	CXSuggestionList.prototype.addRefreshTrigger = function () {
-		var self = this;
-
 		if ( this.$suggestionsContainer.find( '.cx-suggestionlist__refresh' ).length ) {
 			return;
 		}
@@ -837,46 +835,54 @@
 		this.$publicCollectionContainer.append( $( '<div>' )
 			.addClass( 'cx-suggestionlist__refresh' )
 			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
-			.on( 'click', function () {
-				// Hide all other lists, if any.
-				$.each( self.lists, function ( index, list ) {
-					if ( list.$list &&
-						( list.type === listTypes.TYPE_FEATURED ||
-							list.type === listTypes.TYPE_PERSONALIZED
-						)
-					) {
-						self.refreshList( list.id );
-					}
-				} );
-			} )
+			.on( 'click', $.proxy( this.refreshPublicLists, this ) )
 		);
+	};
+
+	CXSuggestionList.prototype.refreshPublicLists = function () {
+		// Scroll the page up to the beginning of $publicCollection
+		$( 'html, body' ).animate( {
+			// 200 px subtracted to deal with the sticky header.
+			// It need not be 100% accurate. The idea is to scroll up
+			// so that the beginning of public collection is visible.
+			scrollTop: this.$publicCollectionContainer.offset().top - 200
+		}, 'slow' );
+
+		$.each( this.lists, function ( index, list ) {
+			if ( list.$list &&
+				( list.type === listTypes.TYPE_FEATURED ||
+					list.type === listTypes.TYPE_PERSONALIZED
+				)
+			) {
+				this.refreshList( list.id );
+			}
+		} );
 	};
 
 	/**
 	 * @param {string} listId
 	 */
 	CXSuggestionList.prototype.refreshList = function ( listId ) {
-		var i, suggestion, list = this.lists[ listId ];
+		var i, itemsToRemove = [],
+			list = this.lists[ listId ];
 
 		if ( !list ) {
 			return;
 		}
-
 		if ( list.suggestions ) {
-			for ( i = 0; i < list.suggestions.length; i++ ) {
-				suggestion = list.suggestions[ i ];
-				suggestion.$element.hide();
-			}
+			itemsToRemove = list.suggestions;
 		}
 		list.suggestions = [];
 		// Do not run out of suggestions
 		list.seed = parseInt( Math.random() * 10000, 10 );
 		list.queryContinue = undefined;
 		list.hasMore = true;
-		// FIXME: Till the new items arrive, this list will become empty.
-		// May be we need to keep the height of container and show a loading
-		// indicator?
-		this.loadItems( list );
+		// Remove the old items.
+		this.loadItems( list ).then( function () {
+			for ( i = 0; i < itemsToRemove.length; i++ ) {
+				itemsToRemove[ i ].$element.remove();
+			}
+		} );
 	};
 
 	mw.cx.CXSuggestionList = CXSuggestionList;
