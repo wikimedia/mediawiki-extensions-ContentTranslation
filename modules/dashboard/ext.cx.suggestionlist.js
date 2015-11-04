@@ -17,7 +17,8 @@
 			TYPE_FEATURED: 1,
 			TYPE_DISCARDED: 2,
 			TYPE_FAVORITE: 3,
-			TYPE_CATEGORY: 4
+			TYPE_CATEGORY: 4,
+			TYPE_PERSONALIZED: 5
 		};
 
 	/**
@@ -178,6 +179,14 @@
 		var params,
 			api = new mw.Api();
 
+		if ( list.id === 'trex' ) {
+			this.recommendtool = this.recommendtool || new mw.cx.recommendtool(
+				this.filters.sourceLanguage,
+				this.filters.targetLanguage
+			);
+			return this.recommendtool.getSuggestionList();
+		}
+
 		if ( list.hasMore === false ) {
 			// This method is supposed to be called only if we there are items to fetch
 			return $.Deferred().reject();
@@ -212,6 +221,9 @@
 		} );
 		if ( !Object.keys( this.lists ).length ) {
 			this.loadItems();
+			this.loadItems( {
+				id: 'trex'
+			} );
 		}
 	};
 
@@ -240,7 +252,11 @@
 			}
 		} );
 		this.lists = {};
+		this.recommendtool = null;
 		this.loadItems();
+		this.loadItems( {
+			id: 'trex'
+		} );
 	};
 
 	/**
@@ -336,7 +352,7 @@
 				.attr( 'data-listid', listId )
 				.addClass( 'cx-suggestionlist ' + list.name );
 
-			if ( list.type !== listTypes.TYPE_FEATURED ) {
+			if ( list.type !== listTypes.TYPE_FEATURED && list.type !== listTypes.TYPE_PERSONALIZED ) {
 				// No need to show heading for misc fallback suggestions shown at the end.
 				$listHeading = $( '<h2>' ).text( list.displayName );
 				list.$list.append( $listHeading );
@@ -366,8 +382,8 @@
 
 		if ( list.type === listTypes.TYPE_CATEGORY ) {
 			this.makeExpandableList( listId );
-		} else if ( list.type === listTypes.TYPE_FEATURED ) {
-			this.addRefreshTrigger( listId );
+		} else if ( list.type === listTypes.TYPE_FEATURED || list.type === listTypes.TYPE_PERSONALIZED ) {
+			this.addRefreshTrigger();
 		}
 	};
 
@@ -739,9 +755,10 @@
 		order = {};
 		order[ listTypes.TYPE_FAVORITE ] = 0;
 		order[ listTypes.TYPE_DISCARDED ] = 1;
-		order[ listTypes.TYPE_CATEGORY ] = 2;
-		order[ listTypes.TYPE_FEATURED ] = 3;
-		order[ listTypes.TYPE_DEFAULT ] = 4;
+		order[ listTypes.TYPE_PERSONALIZED ] = 2;
+		order[ listTypes.TYPE_CATEGORY ] = 3;
+		order[ listTypes.TYPE_FEATURED ] = 4;
+		order[ listTypes.TYPE_DEFAULT ] = 5;
 
 		ids = Object.keys( lists ).sort( function ( a, b ) {
 			return order[ lists[ a ].type ] - order[ lists[ b ].type ];
@@ -787,10 +804,10 @@
 
 		$trigger = list.$list.find( '.cx-suggestionlist__expand, .cx-suggestionlist__collapse' );
 
-		if ( $trigger.is( '.cx-suggestionlist--collapsed' ) ) {
-			$trigger.text( mw.msg( 'cx-suggestionlist-collapse' ) );
+		if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ) {
 			// Collapse all expended lists.
 			this.$container.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
+			$trigger.text( mw.msg( 'cx-suggestionlist-collapse' ) );
 		} else {
 			$trigger.text( mw.msg( 'cx-suggestionlist-expand' ) );
 		}
@@ -801,39 +818,57 @@
 
 	/**
 	 * Make the list refreshable
-	 *
-	 * @param {string} listId
 	 */
-	CXSuggestionList.prototype.addRefreshTrigger = function ( listId ) {
-		var i, suggestion,
-			self = this,
-			list = this.lists[ listId ];
+	CXSuggestionList.prototype.addRefreshTrigger = function () {
+		var self = this;
 
-		if ( list.$list.find( '.cx-suggestionlist__refresh' ).length ) {
+		if ( this.$container.find( '.cx-suggestionlist__refresh' ).length ) {
 			return;
 		}
 
-		list.$list.append( $( '<div>' )
+		this.$container.append( $( '<div>' )
 			.addClass( 'cx-suggestionlist__refresh' )
 			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
 			.on( 'click', function () {
-				if ( list.suggestions ) {
-					for ( i = 0; i < list.suggestions.length; i++ ) {
-						suggestion = list.suggestions[ i ];
-						suggestion.$element.hide();
+				// Hide all other lists, if any.
+				$.each( self.lists, function ( index, list ) {
+					if ( list.$list &&
+						( list.type === listTypes.TYPE_FEATURED ||
+							list.type === listTypes.TYPE_PERSONALIZED
+						)
+					) {
+						self.refreshList( list.id );
 					}
-				}
-				list.suggestions = [];
-				// Do not run out of suggestions
-				list.seed = parseInt( Math.random() * 10000, 10 );
-				list.queryContinue = undefined;
-				list.hasMore = true;
-				// FIXME: Till the new items arrive, this list will become empty.
-				// May be we need to keep the height of container and show a loading
-				// indicator?
-				self.loadItems( list );
+				} );
 			} )
 		);
+	};
+
+	/**
+	 * @param {string} listId
+	 */
+	CXSuggestionList.prototype.refreshList = function ( listId ) {
+		var i, suggestion, list = this.lists[ listId ];
+
+		if ( !list ) {
+			return;
+		}
+
+		if ( list.suggestions ) {
+			for ( i = 0; i < list.suggestions.length; i++ ) {
+				suggestion = list.suggestions[ i ];
+				suggestion.$element.hide();
+			}
+		}
+		list.suggestions = [];
+		// Do not run out of suggestions
+		list.seed = parseInt( Math.random() * 10000, 10 );
+		list.queryContinue = undefined;
+		list.hasMore = true;
+		// FIXME: Till the new items arrive, this list will become empty.
+		// May be we need to keep the height of container and show a loading
+		// indicator?
+		this.loadItems( list );
 	};
 
 	mw.cx.CXSuggestionList = CXSuggestionList;

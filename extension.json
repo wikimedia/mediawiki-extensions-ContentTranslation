@@ -826,6 +826,7 @@
 			],
 			"dependencies": [
 				"ext.cx.util",
+				"ext.cx.recommendtool.client",
 				"jquery.uls.data"
 			],
 			"messages": [
@@ -838,6 +839,11 @@
 				"cx-suggestionlist-empty-desc-recommend-link-text",
 				"cx-suggestionlist-view-source-page",
 				"cx-suggestionlist-title"
+			]
+		},
+		"ext.cx.recommendtool.client": {
+			"scripts": [
+				"dashboard/ext.cx.recommendtool.client.js"
 			]
 		},
 		"ext.cx.translation.conflict": {
