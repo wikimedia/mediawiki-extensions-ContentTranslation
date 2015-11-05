@@ -100,8 +100,12 @@
 	"cx-translation-filter-all-translations": "所有翻譯",
 	"cx-translation-filter-published-translations": "已發佈",
 	"cx-translation-filter-draft-translations": "進行中",
-	"cx-suggestionlist-empty-title": "很抱歉，無頁面建議。",
+	"cx-translation-filter-suggested-translations": "建議",
+	"cx-suggestionlist-title": "更多建議",
+	"cx-suggestionlist-empty-title": "目前無建議。",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "檢視建議（實驗）",
 	"cx-suggestionlist-featured": "特色",
+	"cx-suggestionlist-view-source-page": "檢視原始頁面",
 	"cx-translation-filter-from-any-language": "從任何語言",
 	"cx-translation-filter-to-any-language": "至任何語言",
 	"cx-create-new-translation": "開始新翻譯",
@@ -147,6 +151,7 @@
 	"cx-trend-deletions": "已刪除翻譯",
 	"cx-trend-translations-to": "翻譯為 $1",
 	"cx-stats-try-contenttranslation": "內容翻譯是一套工具可透過翻譯其他語言來建立新的頁面。 [$1 試試內容翻譯]",
+	"cx-stats-published-translations-label": "已發佈的翻譯",
 	"cx-stats-published-target-source": "翻譯至",
 	"cx-stats-published-source-target": "翻譯自",
 	"cx-stats-draft-target-source": "正在翻譯至",
@@ -177,5 +182,7 @@
 	"cx-tools-link-external-link-placeholder": "加入外部連結",
 	"cx-tools-link-to-another-page": "連結至其他頁面",
 	"cx-tools-link-apply": "完成",
-	"mw-pageselector-missing": "頁面不存在"
+	"mw-pageselector-missing": "頁面不存在",
+	"cx-draft-restoring": "已儲存的翻譯載入中...",
+	"cx-draft-restored": "儲存的翻譯已載入。"
 }
