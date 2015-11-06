@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nikola Smolenski",
-			"Srdjan m"
+			"Srdjan m",
+			"Сербијана"
 		]
 	},
 	"apihelp-cxpublish-description": "Сачувајте страницу направљену помоћу проширења за превод садржаја.",
@@ -12,7 +13,7 @@
 	"apihelp-cxpublish-param-to": "Код циљног језика.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов изворне странице.",
 	"apihelp-cxpublish-param-sourcerevision": "Ревизија изворне странице.",
-	"apihelp-cxpublish-param-status": "Ако је „нацрт“, превод ће бити сачуван као нацрт. Ако је „објављено“, превод ће бити објављен.",
+	"apihelp-cxpublish-param-status": "Ако је <kbd>draft</kbd>, превод ће бити сачуван као нацрт. Ако је <kbd>published</kbd>, превод ће бити објављен.",
 	"apihelp-cxpublish-param-categories": "Категорије за поставити у објављену страницу.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ИД капче (када сачувавате са капча одговором).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на капчу (када сачувавате са капча одговором).",
@@ -34,7 +35,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Узми све објављене преводе, преведене са енглеског на шпански",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Код изворног језика.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Код циљног језика.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервал за израчунавање тренда. Може бити „недеља“ или „месец“.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервал за израчунавање тренда. Може бити <kbd>недеља</kbd> или <kbd>месец</kbd>.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Узми тренд објављивања за језички пар шпанског и каталонског у недељном интервалу",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Узми тренд објављивања за све језике",
 	"apihelp-cxtoken-example-1": "Преузми жетон за аутентичност за цеикс-сервер",

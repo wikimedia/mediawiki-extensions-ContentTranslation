@@ -8,7 +8,8 @@
 			"Ronel1",
 			"Guycn2",
 			"Danny-w",
-			"LaG roiL"
+			"LaG roiL",
+			"ערן"
 		]
 	},
 	"cx": "תרגום דף",
@@ -104,7 +105,7 @@
 	"cx-translation-filter-suggested-translations": "הצעות",
 	"cx-suggestionlist-favorite": "מאוחר יותר",
 	"cx-suggestionlist-title": "עוד הצעות",
-	"cx-suggestionlist-empty-title": "אין הצעטת עכשיו",
+	"cx-suggestionlist-empty-title": "אין הצעות עכשיו",
 	"cx-suggestionlist-empty-desc": "לא מצאנו הצעות. אפשר לנסות מאוחר יותר, או למצוא דפים באמצעות כלי ההצעות החיצוני שלנו (ניסיוני).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "הצגת הצעות (ניסיוני)",
 	"cx-suggestionlist-featured": "מומלץ",
