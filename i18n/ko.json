@@ -173,5 +173,6 @@
 	"cx-tools-link-external-link-placeholder": "바깥 링크 추가",
 	"cx-tools-link-to-another-page": "다른 문서에 링크",
 	"cx-tools-link-apply": "완료",
-	"mw-pageselector-missing": "문서가 존재하지 않습니다"
+	"mw-pageselector-missing": "문서가 존재하지 않습니다",
+	"cx-suggestionlist-expand": "모두 보기"
 }
