@@ -23,6 +23,7 @@
 	"apihelp-query+contenttranslation-param-from": "Ursprünglicher Sprachcode.",
 	"apihelp-query+contenttranslation-param-to": "Ziel-Sprachcode.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titel der Quellseite.",
+	"apihelp-query+contenttranslation-param-limit": "Die maximale Anzahl der abzurufenden Übersetzungen.",
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
 	"apihelp-query+contenttranslation-example-3": "Findet jede Übersetzung für den angegebenen Titel zwischen dem angegebenen Sprachpaar",
@@ -51,5 +52,6 @@
 	"apihelp-cxdelete-param-from": "Der Quellsprachcode.",
 	"apihelp-cxdelete-param-to": "Der Zielsprachcode.",
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",
-	"apihelp-cxdelete-example-1": "Löscht einen Entwurf in Verbindung mit dem angegebenen Sprachpaar und Titel."
+	"apihelp-cxdelete-example-1": "Löscht einen Entwurf in Verbindung mit dem angegebenen Sprachpaar und Titel.",
+	"apihelp-cxsuggestionlist-param-to": "Der Ziel-Sprachcode."
 }

@@ -108,8 +108,9 @@
 	"cx-translation-filter-suggested-translations": "Sugestões",
 	"cx-suggestionlist-favorite": "Para mais tarde",
 	"cx-suggestionlist-title": "Mais sugestões",
-	"cx-suggestionlist-empty-title": "Desculpe, não há páginas para sugerir",
-	"cx-suggestionlist-empty-desc": "Pode escolher qualquer tópico de sua preferência ao iniciar uma nova tradução",
+	"cx-suggestionlist-empty-title": "Nenhuma sugestão por agora",
+	"cx-suggestionlist-empty-desc": "Não encontramos nenhuma sugestão. Pode tentar mais tarde ou encontrar páginas relevantes com a nossa ferramenta de recomendação (experimental).",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Ver sugestões (experimental)",
 	"cx-suggestionlist-featured": "Destacado",
 	"cx-suggestionlist-view-source-page": "Ver página de origem",
 	"cx-translation-filter-from-any-language": "De qualquer idioma",
@@ -191,9 +192,13 @@
 	"cx-tools-link-external-link": "Externo",
 	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
 	"cx-tools-link-to-another-page": "Ligação para outra página",
+	"cx-tools-link-add-as-missing": "Adicionar como ligação em falta",
 	"cx-tools-link-apply": "Feito",
 	"mw-pageselector-missing": "A página não existe",
 	"cx-draft-restoring": "A carregar a tradução guardada...",
 	"cx-draft-restored": "Tradução guardada carregada.",
-	"cx-draft-restore-failed": "Ocorreu um erro ao carregar a tradução guardada!"
+	"cx-draft-restore-failed": "Ocorreu um erro ao carregar a tradução guardada!",
+	"cx-suggestionlist-expand": "Ver todas",
+	"cx-suggestionlist-collapse": "Ver menos",
+	"cx-suggestionlist-refresh": "Atualizar sugestões"
 }
