@@ -4,7 +4,8 @@
 			"Dinhxuanduyet",
 			"Max20091",
 			"Minh Nguyen",
-			"Quenhitran"
+			"Quenhitran",
+			"Nguyên Lê"
 		]
 	},
 	"apihelp-cxpublish-description": "Lưu một trang được tạo bởi phần mở rộng Biên dịch nội dung.",
@@ -54,5 +55,6 @@
 	"apihelp-cxdelete-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-cxdelete-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-cxdelete-param-sourcetitle": "Tên trang gốc.",
-	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn."
+	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn.",
+	"apihelp-cxsuggestionlist-param-from": "Mã ngôn ngữ gốc."
 }

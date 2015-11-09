@@ -57,5 +57,12 @@
 	"apihelp-cxdelete-param-from": "Код вихідної мови.",
 	"apihelp-cxdelete-param-to": "Код цільової мови.",
 	"apihelp-cxdelete-param-sourcetitle": "Назва вихідної сторінки.",
-	"apihelp-cxdelete-example-1": "Вилучити чернетку, пов'язану з даною парою мов і назвою."
+	"apihelp-cxdelete-example-1": "Вилучити чернетку, пов'язану з даною парою мов і назвою.",
+	"apihelp-cxsuggestionlist-example-1": "Додати назву до списку як пропозицію перекладу з англійської (en) на іспанську (es). Якщо список іще не існує, буде створено новий.",
+	"apihelp-cxsuggestionlist-description": "Керувати списками пропозицій. Внести пропозиції в списки і вилучити їх.",
+	"apihelp-cxsuggestionlist-param-listname": "Назва списку пропозицій.",
+	"apihelp-cxsuggestionlist-param-listaction": "Дія, що виконується зі списком.",
+	"apihelp-cxsuggestionlist-param-titles": "Назви сторінок.",
+	"apihelp-cxsuggestionlist-param-from": "Код вихідної мови.",
+	"apihelp-cxsuggestionlist-param-to": "Код цільової мови."
 }
