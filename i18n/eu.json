@@ -53,6 +53,7 @@
 	"cx-translation-filter-published-translations": "Argitaratuak",
 	"cx-translation-filter-draft-translations": "Egiten",
 	"cx-translation-filter-suggested-translations": "Iradokizunak",
+	"cx-suggestionlist-favorite": "Geroko",
 	"cx-translation-filter-from-any-language": "Edozein hizkuntzatatik",
 	"cx-translation-filter-to-any-language": "Edozein hizkuntzatara",
 	"cx-create-new-translation": "Sortu itzulpen berria",
@@ -94,5 +95,6 @@
 	"cx-tools-link-to-another-page": "Beste orri bati lotu",
 	"cx-tools-link-apply": "Egina",
 	"cx-draft-restored": "Gorde kargatutako itzulpena.",
-	"cx-suggestionlist-expand": "Ikusi dena"
+	"cx-suggestionlist-expand": "Ikusi dena",
+	"cx-suggestionlist-collapse": "Ikusi gutxiago"
 }
