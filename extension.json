@@ -101,10 +101,9 @@
 			"vro": "fiu-vro",
 			"yue": "zh-yue"
 		},
-		"ContentTranslationParsoid": {
-			"url": "http://parsoid-lb.eqiad.wikimedia.org/",
+		"ContentTranslationRESTBase": {
+			"url": "https://rest.wikimedia.org/",
 			"timeout": 100000,
-			"prefix": "enwiki",
 			"domain": "en.wikipedia.org",
 			"HTTPProxy": false,
 			"forwardCookies": false
