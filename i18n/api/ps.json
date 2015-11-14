@@ -28,5 +28,6 @@
 	"apihelp-query+contenttranslationlangtrend-param-target": "د موخې د ژبې کوډ.",
 	"apihelp-cxdelete-param-from": "د سرچينې د ژبې کوډ",
 	"apihelp-cxdelete-param-to": "د موخې د ژبې کوډ",
-	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک"
+	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک",
+	"apihelp-cxsuggestionlist-param-titles": "مخ سرليکونه."
 }

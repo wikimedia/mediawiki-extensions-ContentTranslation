@@ -15,7 +15,8 @@
 			"Halibutt",
 			"Lantuszka",
 			"The Polish",
-			"Expert3222"
+			"Expert3222",
+			"Mateon1"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -113,7 +114,7 @@
 	"cx-suggestionlist-title": "Więcej propozycji",
 	"cx-suggestionlist-empty-title": "Na razie brak propozycji",
 	"cx-suggestionlist-empty-desc": "Na razie brak propozycji. Możesz sprawdzić później lub znaleźć strony do przetłumaczenia za pomocą naszego rekomendowanego narzędzia (eksperymentalne).",
-	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobacz propozycje (eksperymentalne).",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobacz propozycje (eksperymentalne)",
 	"cx-suggestionlist-featured": "Wyróżniona",
 	"cx-suggestionlist-view-source-page": "Oglądanie strony źródłowej",
 	"cx-translation-filter-from-any-language": "Z dowolnego języka",
