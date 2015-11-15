@@ -102,9 +102,11 @@
 	"cx-translation-filter-published-translations": "Đã xuất bản",
 	"cx-translation-filter-draft-translations": "Đang tiến hành",
 	"cx-translation-filter-suggested-translations": "Gợi ý",
+	"cx-suggestionlist-favorite": "Lát nữa",
 	"cx-suggestionlist-title": "Thêm gợi ý",
 	"cx-suggestionlist-empty-title": "Hiện không có gợi ý nào",
 	"cx-suggestionlist-empty-desc": "Không tìm thấy gợi ý nào. Bạn có thể quay lại sau hoặc tìm các trang liên quan qua công cụ gợi ý của chúng tôi (thử nghiệm).",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Xem gợi ý (thử nghiệm)",
 	"cx-suggestionlist-featured": "Chọn lọc",
 	"cx-suggestionlist-view-source-page": "Xem trang gốc",
 	"cx-translation-filter-from-any-language": "Từ bất cứ ngôn ngữ nào",
@@ -186,7 +188,13 @@
 	"cx-tools-link-external-link": "Bên ngoài",
 	"cx-tools-link-external-link-placeholder": "Đặt liên kết ngoài",
 	"cx-tools-link-to-another-page": "Đặt liên kết đến trang khác",
+	"cx-tools-link-add-as-missing": "Thêm liên kết đỏ",
 	"cx-tools-link-apply": "Xong",
 	"mw-pageselector-missing": "Trang không tồn tại",
-	"cx-suggestionlist-expand": "Xem tất cả"
+	"cx-draft-restoring": "Đang tải bản dịch đã lưu…",
+	"cx-draft-restored": "Đã tải bản dịch đã lưu.",
+	"cx-draft-restore-failed": "Thất bại khi tải bản dịch đã lưu!",
+	"cx-suggestionlist-expand": "Xem tất cả",
+	"cx-suggestionlist-collapse": "Thu gọn",
+	"cx-suggestionlist-refresh": "Làm mới các gợi ý"
 }
