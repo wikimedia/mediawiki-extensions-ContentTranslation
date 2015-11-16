@@ -7,7 +7,9 @@
 			"YjM",
 			"Matěj Suchánek",
 			"Littledogboy",
-			"Amire80"
+			"Amire80",
+			"Cvanca",
+			"DaBler"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -87,6 +89,10 @@
 	"cx-translation-filter-all-translations": "Všechny překlady",
 	"cx-translation-filter-published-translations": "Zveřejněné",
 	"cx-translation-filter-draft-translations": "Rozdělané",
+	"cx-suggestionlist-favorite": "Na později",
+	"cx-suggestionlist-title": "Další návrhy",
+	"cx-suggestionlist-empty-title": "Pro tuto chvíli žádné návrhy",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobrazit návrhy (experimentální)",
 	"cx-translation-filter-from-any-language": "Z jakéhokoli jazyka",
 	"cx-translation-filter-to-any-language": "Do jakéhokoliv jazyka",
 	"cx-create-new-translation": "Začít nový překlad",
@@ -133,6 +139,7 @@
 	"cx-tools-link-internal-link-placeholder": "Najít stránku, na kterou chcete odkázat",
 	"cx-tools-link-external-link-placeholder": "Přidat externí odkaz",
 	"cx-tools-link-to-another-page": "Vložit odkaz na jinou stránku",
+	"cx-tools-link-add-as-missing": "Přidat jako chybějící odkaz",
 	"cx-tools-link-apply": "Hotovo",
 	"mw-pageselector-missing": "Stránka neexistuje"
 }
