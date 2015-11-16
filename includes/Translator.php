@@ -65,12 +65,16 @@ class Translator {
 	/**
 	 * @param int $limit How many results to return
 	 * @param string [$offset] Offset condition (timestamp)
+	 * @param string $from
+	 * @param string $to
 	 * @return Translation[]
 	 */
 	public function getAllTranslations(
 		$limit,
 		$offset = null,
-		$type = null
+		$type = null,
+		$from = null,
+		$to = null
 	) {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_SLAVE );
@@ -84,6 +88,12 @@ class Translator {
 		);
 		if ( $type !== null ) {
 			$conds['translation_status'] = $type;
+		}
+		if ( $from !== null ) {
+			$conds['translation_source_language'] = $from;
+		}
+		if ( $to !== null ) {
+			$conds['translation_target_language'] = $to;
 		}
 		if ( $offset !== null ) {
 			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );

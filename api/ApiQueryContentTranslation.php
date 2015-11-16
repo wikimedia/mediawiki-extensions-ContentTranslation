@@ -67,7 +67,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$translations = $translator->getAllTranslations(
 			$params['limit'],
 			$params['offset'],
-			$params['type']
+			$params['type'],
+			$params['from'],
+			$params['to']
 		);
 
 		// We will have extra continue in case the last batch is exactly the size of the limit
