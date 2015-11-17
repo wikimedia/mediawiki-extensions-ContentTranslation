@@ -13,7 +13,8 @@
 			"Arystanbek",
 			"Uğurkent",
 			"McAang",
-			"KorkmazO"
+			"KorkmazO",
+			"HakanIST"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -159,5 +160,7 @@
 	"cx-tools-link-external-link-placeholder": "Dış bağlantı ekle",
 	"cx-tools-link-to-another-page": "Başka bir sayfaya bağlantı ver",
 	"cx-tools-link-apply": "Tamam",
-	"mw-pageselector-missing": "Sayfa mevcut değil"
+	"mw-pageselector-missing": "Sayfa mevcut değil",
+	"cx-suggestionlist-expand": "Hepsini göster",
+	"cx-suggestionlist-collapse": "Azını göster"
 }

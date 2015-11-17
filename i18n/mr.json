@@ -134,14 +134,14 @@
 	"cx-campaign-contributionsmenu-might-be-available": "बहुतेक $1 हे दुसऱ्या भाषेत उपलब्ध असु शकते",
 	"cx-campaign-contributionsmenu-myuploads": "अपभारीलेली माध्यमे",
 	"cx-trend-deletions": "वगळलेली भाषांतरे",
-	"cx-trend-translations-to": "$1 ला भाषांतर करा",
+	"cx-trend-translations-to": "$1 भाषेत केलेली भाषांतरे",
 	"cx-stats-try-contenttranslation": "दुसऱ्या भाषेतुन नविन पानांचे भाषांतर करण्यासाठी आशय भाषांतर हे एक उपकरण आहे[$1 कंटेंट ट्रांसलेशन वापरण्याचा प्रयत्न करा]",
 	"cx-stats-all-translations-title": "सर्व भाषांत भाषांतर करा",
 	"cx-stats-published-translations-label": "प्रकाशित भाषांतरे",
-	"cx-stats-published-target-source": "भाषांतर ला",
+	"cx-stats-published-target-source": "भाषेत भाषांतर",
 	"cx-stats-published-source-target": "च्यापासुनची भाषांतरे",
-	"cx-stats-draft-target-source": "ला भाषांतर प्रगतीपथावर आहे",
-	"cx-stats-draft-source-target": "तुन भाषांतर प्रगतीपथावर आहे",
+	"cx-stats-draft-target-source": "भाषेत भाषांतर प्रगतीपथावर आहे",
+	"cx-stats-draft-source-target": "भाषेतूनचे भाषांतर प्रगतीपथावर आहे",
 	"cx-stats-tabs-expand": "सर्व भाषा बघा",
 	"cx-stats-total-published": "एकूण प्रकाशित",
 	"cx-stats-weekly-published": "मागील आठवडयात",
@@ -173,5 +173,6 @@
 	"cx-draft-restoring": "जतन केलेल्या भाषांतराचे भारण करीत आहे...",
 	"cx-draft-restored": "जतन केलेल्या भाषांतराचे भारण केले.",
 	"cx-draft-restore-failed": "जतन केलेल्या भाषांतराचे भारण करण्यात अयशस्वी.",
-	"cx-suggestionlist-expand": "सर्व बघा"
+	"cx-suggestionlist-expand": "सर्व बघा",
+	"cx-suggestionlist-collapse": "कमी बघा"
 }

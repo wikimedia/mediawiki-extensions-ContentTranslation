@@ -136,6 +136,7 @@
 	"cx-stats-draft-translations-title": "進行中的翻譯",
 	"cx-stats-new-draft-translations-label": "進行中的新翻譯",
 	"cx-stats-published-translators-title": "翻譯人員數",
+	"cx-stats-cumulative-tab-title": "總計",
 	"cx-draft-discard-confirmation-message": "您確定要永久刪除此翻譯？",
 	"cx-draft-cancel-button-label": "取消",
 	"cx-draft-discard-button-label": "刪除翻譯",
@@ -184,5 +185,6 @@
 	"cx-tools-link-apply": "完成",
 	"mw-pageselector-missing": "頁面不存在",
 	"cx-draft-restoring": "已儲存的翻譯載入中...",
-	"cx-draft-restored": "儲存的翻譯已載入。"
+	"cx-draft-restored": "儲存的翻譯已載入。",
+	"cx-suggestionlist-expand": "檢視全部"
 }
