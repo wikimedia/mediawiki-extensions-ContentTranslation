@@ -58,5 +58,11 @@
 	"apihelp-cxdelete-param-from": "Källans språkkod.",
 	"apihelp-cxdelete-param-to": "Målets språkkod.",
 	"apihelp-cxdelete-param-sourcetitle": "Källsidans titel.",
-	"apihelp-cxdelete-example-1": "Radera ett utkast förknippat med angivet språkpar och titel."
+	"apihelp-cxdelete-example-1": "Radera ett utkast förknippat med angivet språkpar och titel.",
+	"apihelp-cxsuggestionlist-example-1": "Lägg till en titel för en lista som ett förslag till att översätta från engelska (en) till spanska (es). Om listan inte redan finns kommer en ny lista att skapas.",
+	"apihelp-cxsuggestionlist-description": "Hantera förslagslistor. Lägg till förslag till listor och ta bort dem.",
+	"apihelp-cxsuggestionlist-param-listaction": "Åtgärder att utföra i listan.",
+	"apihelp-cxsuggestionlist-param-titles": "Sidtitlar.",
+	"apihelp-cxsuggestionlist-param-from": "Källans språkkod.",
+	"apihelp-cxsuggestionlist-param-to": "Målets språkkod."
 }
