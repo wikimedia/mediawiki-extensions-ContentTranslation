@@ -99,8 +99,9 @@
 	"cx-translation-filter-suggested-translations": "Cadangan",
 	"cx-suggestionlist-favorite": "Untuk masa kemudian",
 	"cx-suggestionlist-title": "Lebih lagi cadangan",
-	"cx-suggestionlist-empty-title": "Maaf, tiada laman-laman untuk dicadangkan",
-	"cx-suggestionlist-empty-desc": "Anda boleh memilih apa-apa topik pilihan sendiri apabila bermula terjemahan baru",
+	"cx-suggestionlist-empty-title": "Tiada cadangan pada masa ini",
+	"cx-suggestionlist-empty-desc": "Kami tidak mendapati cadangan. Anda boleh menyemak lagi nanti atau cari laman-laman berkaitan dengan alat pengesyoran kami (percubaan).",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Lihat cadangan-cadangan (percubaan)",
 	"cx-suggestionlist-featured": "Terketengah",
 	"cx-suggestionlist-view-source-page": "Lihat laman sumber",
 	"cx-translation-filter-from-any-language": "Dari apa-apa bahasa",
@@ -182,10 +183,13 @@
 	"cx-tools-link-external-link": "Luar",
 	"cx-tools-link-external-link-placeholder": "Tambah pautan luar",
 	"cx-tools-link-to-another-page": "Paut ke laman lain",
+	"cx-tools-link-add-as-missing": "Tambah sebagai pautan hilang",
 	"cx-tools-link-apply": "Selesai",
 	"mw-pageselector-missing": "Laman tidak wujud",
 	"cx-draft-restoring": "Sedang memuat terjemahan yang disimpan...",
 	"cx-draft-restored": "Terjemahan yang disimpan termuat.",
 	"cx-draft-restore-failed": "Gagal memuatkan terjemahan yang disimpan!",
-	"cx-suggestionlist-expand": "Paparkan semua"
+	"cx-suggestionlist-expand": "Paparkan semua",
+	"cx-suggestionlist-collapse": "Lihat kurang",
+	"cx-suggestionlist-refresh": "Muat semula cadangan"
 }
