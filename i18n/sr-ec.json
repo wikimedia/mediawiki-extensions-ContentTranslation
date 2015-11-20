@@ -175,5 +175,7 @@
 	"mw-pageselector-missing": "Страница не постоји",
 	"cx-draft-restoring": "Учитавање сачуваног превода...",
 	"cx-draft-restored": "Сачувани превод учитан.",
-	"cx-draft-restore-failed": "Неуспјело учитавање сачуваног превода!"
+	"cx-draft-restore-failed": "Неуспјело учитавање сачуваног превода!",
+	"cx-suggestionlist-expand": "Прикажи све",
+	"cx-suggestionlist-collapse": "Прикажи мање"
 }

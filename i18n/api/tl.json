@@ -42,5 +42,11 @@
 	"apihelp-cxdelete-param-from": "Kodigo ng wikang pinagmulan.",
 	"apihelp-cxdelete-param-to": "Kodigo ng wikang patutunguhan.",
 	"apihelp-cxdelete-param-sourcetitle": "Ang pamagat ng pahinang pinagmulan.",
-	"apihelp-cxdelete-example-1": "Burahin ang isang burador na may kinalaman sa ibinigay na tambalang wika at pamagat."
+	"apihelp-cxdelete-example-1": "Burahin ang isang burador na may kinalaman sa ibinigay na tambalang wika at pamagat.",
+	"apihelp-cxsuggestionlist-example-1": "Magdagdag ng isang pamagat sa isang talaan bilang mungkahi sa pagsalinwika mula Ingles (en) pa-Espanyol (es). Kung hindi na nairal pa ang talaan, malilikha ang bagong talaan.",
+	"apihelp-cxsuggestionlist-description": "Pangasiwaan ang mga talaang pang-mungkahi. Magdagdag ng mga mungkahi sa mga talaan at alisin ang mga iyon.",
+	"apihelp-cxsuggestionlist-param-listname": "Pang-mungkahing talaan ng pangalan.",
+	"apihelp-cxsuggestionlist-param-titles": "Mga pamagat ng pahina.",
+	"apihelp-cxsuggestionlist-param-from": "Ang kodigo ng wikang pinagmulan.",
+	"apihelp-cxsuggestionlist-param-to": "Ang kodigo ng patutunguhang wika."
 }
