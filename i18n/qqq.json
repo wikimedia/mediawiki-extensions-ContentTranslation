@@ -151,7 +151,7 @@
 	"cx-stats-draft-translations-label": "A label that describes the color in which the in-progress translations are shown in a chart.",
 	"cx-stats-new-draft-translations-label": "A label that describes the color in which the in-progress translations that were started in a given week are shown in a chart.",
 	"cx-stats-published-translators-title": "Section title for stats about number of translators who published articles across languages",
-	"cx-stats-cumulative-tab-title": "Title of cumulative stats tabs in [[Special:ContentTranslationStats]]",
+	"cx-stats-cumulative-tab-title": "Title of cumulative stats tabs in [[Special:ContentTranslationStats]]\n{{Identical|Total}}",
 	"cx-stats-weekly-trend-tab-title": "Title of weekly trend stats tabs in [[Special:ContentTranslationStats]]",
 	"cx-draft-discard-confirmation-message": "Confirmation message when user attempts to delete a translation on the dashboard.\n\nYou can use <nowiki>{{GENDER:|you}}</nowiki>.",
 	"cx-draft-cancel-button-label": "Cancel button label\n{{Identical|Cancel}}",
@@ -205,7 +205,7 @@
 	"cx-draft-restoring": "Message indicating the saved translation being fetched.",
 	"cx-draft-restored": "Message indicating that the saved translation was fetched.",
 	"cx-draft-restore-failed": "Message indicating that the fetching of saved translation failed.",
-	"cx-suggestionlist-expand": "Label for the suggestions list expand trigger",
+	"cx-suggestionlist-expand": "Label for the suggestions list expand trigger\n{{Identical|View all}}",
 	"cx-suggestionlist-collapse": "Label for the suggestions list collapse trigger",
 	"cx-suggestionlist-refresh": "Label for the suggestions list refresh trigger"
 }
