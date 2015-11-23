@@ -94,6 +94,7 @@
 
 	/**
 	 * @param {Object} [list]
+	 * @return {jQuery.Promise}
 	 */
 	CXSuggestionList.prototype.loadItems = function ( list ) {
 		var lists, promise,
@@ -112,7 +113,7 @@
 			promise = this.loadSuggestionsForList( list );
 		}
 
-		promise.done( function ( suggestions ) {
+		return promise.then( function ( suggestions ) {
 			var i, list, listId, listIds;
 
 			lists = suggestions.lists;
@@ -142,15 +143,31 @@
 				self.insertSuggestionList( listId, list.suggestions );
 			}
 
-			if ( isEmpty ) {
-				self.showEmptySuggestionList();
-			}
-		} ).fail( function () {
-			// Show empty list
-			self.showEmptySuggestionList();
+			return isEmpty;
 		} );
 
-		return promise;
+	};
+
+	/**
+	 * @return {jQuery.Promise}
+	 */
+	CXSuggestionList.prototype.loadAllSuggestions = function () {
+		var self = this;
+
+		return $.when(
+			this.loadItems(),
+			this.loadItems( {
+				id: 'trex'
+			} )
+		).then( function ( empty1, empty2 ) {
+			if ( empty1 && empty2 ) {
+				// If both are empty Show empty list information.
+				self.showEmptySuggestionList();
+			}
+		}, function () {
+			// On Fail, show empty list
+			self.showEmptySuggestionList();
+		} );
 	};
 
 	/**
@@ -223,10 +240,7 @@
 		this.active = true;
 		this.$suggestionsContainer.show();
 		if ( !Object.keys( this.lists ).length ) {
-			this.loadItems();
-			this.loadItems( {
-				id: 'trex'
-			} );
+			this.loadAllSuggestions();
 		}
 	};
 
@@ -255,10 +269,7 @@
 		this.$personalCollection.empty().show();
 		this.$publicCollection.empty().show();
 
-		this.loadItems();
-		this.loadItems( {
-			id: 'trex'
-		} );
+		this.loadAllSuggestions();
 	};
 
 	/**
