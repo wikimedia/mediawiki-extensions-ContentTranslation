@@ -316,7 +316,7 @@
 	 * Save the translation
 	 */
 	ContentTranslationDraft.prototype.save = function () {
-		var targetTitle, params, apiParams,
+		var targetTitle, params, apiParams, now,
 			api = new mw.Api();
 
 		if ( this.disabled ) {
@@ -347,6 +347,8 @@
 
 			return;
 		}
+
+		now = Date.now();
 		apiParams = $.extend( {}, params, {
 			assert: 'user',
 			action: 'cxpublish'
@@ -364,13 +366,24 @@
 				checkAndSave();
 			}, 5 * 60 * 1000 );
 		} ).fail( function ( errorCode, details ) {
+			var extra;
+
 			if ( errorCode === 'assertuserfailed' ) {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
 			}
+
+			extra = {
+				d: Date.now() - now,
+				s: params.html.length
+			};
+			// Hope these will be in the beginning of the string
+			details = $.extend( extra, details );
+
 			if ( details.exception instanceof Error ) {
 				details.exception = details.exception.toString();
 			}
 			details.errorCode = errorCode;
+
 			mw.hook( 'mw.cx.translation.save-failed' ).fire(
 				mw.cx.sourceLanguage,
 				mw.cx.targetLanguage,
