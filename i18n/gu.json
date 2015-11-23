@@ -98,8 +98,11 @@
 	"cx-translation-filter-published-translations": "પ્રકાશિત",
 	"cx-translation-filter-draft-translations": "પ્રગતિ પર",
 	"cx-translation-filter-suggested-translations": "સૂચનો",
-	"cx-suggestionlist-empty-title": "સૂચન માટે કોઇ પાનાંઓ નથી",
-	"cx-suggestionlist-empty-desc": "જ્યારે તમે નવું ભાષાંતર શરુ કરવા માંગો ત્યારે તમે કોઇ પણ વિષય પસંદ કરી શકો છો",
+	"cx-suggestionlist-favorite": "પછી",
+	"cx-suggestionlist-title": "વધુ સૂચનો",
+	"cx-suggestionlist-empty-title": "હાલમાં કોઇ સૂચનો નથી",
+	"cx-suggestionlist-empty-desc": "અમનો કોઇ સૂચન મળ્યું નથી. તમે પછી ચકાસી શકો છો અથવા પ્રાયોગિક સૂચન સાધનનો ઉપયોગ કરી શકો છો.",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "સૂચનો જુઓ ‍(પ્રાયોગિક)",
 	"cx-suggestionlist-featured": "રુપક",
 	"cx-suggestionlist-view-source-page": "સ્ત્રોત પાનું જુઓ",
 	"cx-translation-filter-from-any-language": "કોઇપણ ભાષામાંથી",
@@ -181,9 +184,13 @@
 	"cx-tools-link-external-link": "બાહ્ય",
 	"cx-tools-link-external-link-placeholder": "બાહ્ય કડી ઉમેરો",
 	"cx-tools-link-to-another-page": "બીજા પાનાં પર કડી ઉમેરો",
+	"cx-tools-link-add-as-missing": "લાલ કડી ઉમેરો",
 	"cx-tools-link-apply": "સંપન્ન",
 	"mw-pageselector-missing": "પાનું અસ્તિત્વ ધરાવતું નથી",
 	"cx-draft-restoring": "સંગ્રહ કરેલ ભાષાંતર લાવે છે...",
 	"cx-draft-restored": "સંગ્રહ કરેલ ભાષાંતર લવાયું.",
-	"cx-draft-restore-failed": "સંગ્રહ કરેલ ભાષાંતર લાવવામાં નિષ્ફળતા!"
+	"cx-draft-restore-failed": "સંગ્રહ કરેલ ભાષાંતર લાવવામાં નિષ્ફળતા!",
+	"cx-suggestionlist-expand": "બધુ જુઓ",
+	"cx-suggestionlist-collapse": "ઓછું જુઓ",
+	"cx-suggestionlist-refresh": "સૂચનો તાજા કરો"
 }

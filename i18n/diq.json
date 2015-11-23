@@ -41,7 +41,7 @@
 	"cx-tools-mt-restore": "Anewe ke",
 	"cx-tools-mt-provider-title": "$1'i ra",
 	"cx-tools-mt-not-available": "$1'ira theba çıniyo",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$ kategori|$1 kategoriy|0=kategoriy çıniyê}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|ju kategori|$1 kategoriy|0=kategoriy çıniyê}}",
 	"cx-stats-title": "İstatisiikê açarnayışê zerreki",
 	"cx-tools-reference-title": "Referans",
 	"cx-tools-reference-add": "referans cı ke",
