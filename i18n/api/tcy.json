@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Soundarya shetty s",
-			"రహ్మానుద్దీన్"
+			"రహ్మానుద్దీన్",
+			"Vishwanatha Badikana"
 		]
 	},
 	"apihelp-cxsuggestionlist-description": "ಪಟ್ಟಿದ ಸೂಚನೆನ್ ಕಾತೊನ್ಲೆ.ಸೂಚನೆನ್ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ ಬೊಕ್ಕ ಅವೆನ್ ದೆಪ್ಪುಲೆ",
 	"apihelp-cxsuggestionlist-param-listname": "ಸೂಚನೆ ಪಟ್ಟಿದ ಪುದರ್",
 	"apihelp-cxsuggestionlist-param-listaction": "ಪಟ್ಟಿಡ್ದ್ ಕ್ರಮ ಪ್ರಕಾರ ಮಲ್ಪೊಡಾಂಡ",
-	"apihelp-cxsuggestionlist-param-titles": "ಪಾಲೆದ ಪುದರ್",
-	"apihelp-cxsuggestionlist-param-from": "ಮೂಲ ಬಾಷೆದ ಕೋಡ್",
-	"apihelp-cxsuggestionlist-param-to": "ಬಾಷೆದ ಗುರ್ತದ ಕೋಡ್"
+	"apihelp-cxsuggestionlist-param-titles": "ಪುಟೊದ ಪುದರ್",
+	"apihelp-cxsuggestionlist-param-from": "ಮೂಲ ಬಾಸೆದ ಕೋಡ್",
+	"apihelp-cxsuggestionlist-param-to": "ಬಾಸೆದ ಗುರ್ತದ ಕೋಡ್"
 }

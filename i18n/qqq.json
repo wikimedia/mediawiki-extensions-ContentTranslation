@@ -17,7 +17,8 @@
 			"Purodha",
 			"Tacsipacsi",
 			"سامي الرحيلي",
-			"JarrettMunton"
+			"JarrettMunton",
+			"Srdjan m"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -130,7 +131,7 @@
 	"cx-contributions-new-contributions": "Header text shown in [[Special:Contributions]]",
 	"cx-contributions-new-article": "Button label tooltip\n{{Identical|New page}}",
 	"cx-contributions-translation": "Button label tooltip\n{{Identical|Translation}}",
-	"cx-contributions-upload": "Button label tooltip",
+	"cx-contributions-upload": "Used as a button label on <code>Special:Contributions/Username</code> if the user has enabled Content Translation. \"Upload\" is an action, as it leads to the [[:commons:Special:UploadWizard|Commons Upload Wizard]]; do not translate it as \"Uploaded media\".",
 	"cx-contributions-new-article-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
 	"cx-contributions-translation-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
 	"cx-contributions-upload-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
