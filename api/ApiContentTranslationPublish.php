@@ -35,41 +35,33 @@ class ApiContentTranslationPublish extends ApiBase {
 	/**
 	 * Creates the virtual REST service object to be used in CX's API calls. The
 	 * method determines whether to instantiate a ParsoidVirtualRESTService or a
-	 * RestbaseVirtualRESTService object based on configuration directives: if
-	 * $wgVirtualRestConfig['modules']['restbase'] is defined, RESTBase is chosen,
-	 * otherwise Parsoid is used (either by using the MW Core config, or the
-	 * CX-local one).
+	 * RestbaseVirtualRESTService object based on configuration directives:
+	 * if $wgVirtualRestConfig['modules']['restbase'] is defined, use RESTBase,
+	 * elseif $wgVirtualRestConfig['modules']['parsoid'] is defined, use Parsoid,
+	 * else RESTBase is used.
 	 *
 	 * @return VirtualRESTService the VirtualRESTService object to use
 	 */
 	private function getVRSObject() {
 		// the params array to create the service object with
 		$params = array();
-		// the VRS class to use, defaults to Parsoid
-		$class = 'ParsoidVirtualRESTService';
+		// the VRS class to use, defaults to RESTBase
+		$class = 'RestbaseVirtualRESTService';
 		// the global virtual rest service config object, if any
 		$vrs = $this->getConfig()->get( 'VirtualRestConfig' );
 		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
 			// if restbase is available, use it
 			$params = $vrs['modules']['restbase'];
 			$params['parsoidCompat'] = false; // backward compatibility
-			$class = 'RestbaseVirtualRESTService';
 		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
 			// there's a global parsoid config, use it next
 			$params = $vrs['modules']['parsoid'];
 			$params['restbaseCompat'] = true;
+			$class = 'ParsoidVirtualRESTService';
 		} else {
 			// no global modules defined, fall back to old defaults
-			$config = $this->getConfig()->get( 'ContentTranslationParsoid' );
-			$params = array(
-				'URL' => $config['url'],
-				'prefix' => $config['prefix'],
-				'domain' => $config['domain'],
-				'timeout' => $config['timeout'],
-				'HTTPProxy' => $config['HTTPProxy'],
-				'forwardCookies' => $config['forwardCookies'],
-				'restbaseCompat' => true
-			);
+			$params = $this->getConfig()->get( 'ContentTranslationRESTBase' );
+			$params['parsoidCompat'] = false;
 		}
 		// merge the global and service-specific params
 		if ( isset( $vrs['global'] ) ) {
