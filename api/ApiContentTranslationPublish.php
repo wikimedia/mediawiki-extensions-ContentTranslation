@@ -361,9 +361,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( $params['status'] === 'draft' ) {
 			// Save the draft
 			ContentTranslation\Draft::save( $translationId, $params['html'] );
-		} else {
-			// Delete the draft
-			ContentTranslation\Draft::delete( $translationId );
 		}
 	}
 
