@@ -40,24 +40,31 @@
 			sourceLanguage: null,
 			targetLanguage: null
 		};
+		this.$suggestionsContainer = null;
 		this.$personalCollection = null;
 		this.$publicCollection = null;
+		this.$publicCollectionContainer = null;
 		this.seed = null;
-		this.listen();
 		this.init();
+		this.listen();
 	}
 
 	CXSuggestionList.prototype.init = function () {
-		var $publicCollectionTitle;
-
 		this.seed = parseInt( Math.random() * 10000, 10 );
 		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
+		this.$publicCollectionContainer = $( '<div>' )
+			.addClass( 'cx-suggestionlist__public' )
+			.append( $( '<h2>' )
+				.text( mw.msg( 'cx-suggestionlist-title' ) )
+				.addClass( 'cx-suggestionlist__public-title' )
+			);
 		this.$publicCollection = $( '<div>' )
-			.addClass( 'cx-suggestionlist__public' );
-		$publicCollectionTitle = $( '<h2>' )
-			.text( mw.msg( 'cx-suggestionlist-title' ) )
-			.addClass( 'cx-suggestionlist__public-title' );
-		this.$container.append( this.$personalCollection, $publicCollectionTitle, this.$publicCollection );
+			.addClass( 'cx-suggestionlist__public-items' );
+		this.$publicCollectionContainer.append( this.$publicCollection ).hide();
+		this.$suggestionsContainer = $( '<div>' )
+			.addClass( 'cx-suggestionlist-container' )
+			.append( this.$personalCollection, this.$publicCollectionContainer );
+		this.$container.append( this.$suggestionsContainer );
 		this.initLanguages();
 	};
 
@@ -214,11 +221,7 @@
 
 	CXSuggestionList.prototype.show = function () {
 		this.active = true;
-		$.each( this.lists, function ( index, list ) {
-			if ( list.$list ) {
-				list.$list.show();
-			}
-		} );
+		this.$suggestionsContainer.show();
 		if ( !Object.keys( this.lists ).length ) {
 			this.loadItems();
 			this.loadItems( {
@@ -229,11 +232,7 @@
 
 	CXSuggestionList.prototype.hide = function () {
 		this.active = false;
-		$.each( this.lists, function ( index, list ) {
-			if ( list.$list ) {
-				list.$list.hide();
-			}
-		} );
+		this.$suggestionsContainer.hide();
 	};
 
 	CXSuggestionList.prototype.applyFilters = function () {
@@ -253,6 +252,9 @@
 		} );
 		this.lists = {};
 		this.recommendtool = null;
+		this.$personalCollection.empty().show();
+		this.$publicCollection.empty().show();
+
 		this.loadItems();
 		this.loadItems( {
 			id: 'trex'
@@ -360,6 +362,7 @@
 			if ( list.type === listTypes.TYPE_FAVORITE ) {
 				this.$personalCollection.append( list.$list );
 			} else {
+				this.$publicCollectionContainer.show();
 				this.$publicCollection.append( list.$list );
 			}
 		} else {
@@ -647,16 +650,10 @@
 				)
 			);
 
-			this.$container.append( this.lists[ listId ].$list );
+			this.$suggestionsContainer.append( this.lists[ listId ].$list );
 		}
-
-		// Hide all other lists, if any.
-		$.each( this.lists, function ( index, list ) {
-			if ( list.$list ) {
-				list.$list.hide();
-			}
-		} );
-
+		this.$personalCollection.hide();
+		this.$publicCollectionContainer.hide();
 		this.lists[ listId ].$list.show();
 	};
 
@@ -682,7 +679,7 @@
 	 * Event handlers
 	 */
 	CXSuggestionList.prototype.listen = function () {
-		this.$container.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
+		this.$suggestionsContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
 			var cxSelector, suggestion;
 
 			cxSelector = $( this ).data( 'cxsourceselector' );
@@ -806,7 +803,7 @@
 
 		if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ) {
 			// Collapse all expended lists.
-			this.$container.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
+			this.$suggestionsContainer.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
 			$trigger.text( mw.msg( 'cx-suggestionlist-collapse' ) );
 		} else {
 			$trigger.text( mw.msg( 'cx-suggestionlist-expand' ) );
@@ -822,11 +819,11 @@
 	CXSuggestionList.prototype.addRefreshTrigger = function () {
 		var self = this;
 
-		if ( this.$container.find( '.cx-suggestionlist__refresh' ).length ) {
+		if ( this.$suggestionsContainer.find( '.cx-suggestionlist__refresh' ).length ) {
 			return;
 		}
 
-		this.$container.append( $( '<div>' )
+		this.$publicCollectionContainer.append( $( '<div>' )
 			.addClass( 'cx-suggestionlist__refresh' )
 			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
 			.on( 'click', function () {
