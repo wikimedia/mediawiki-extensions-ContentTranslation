@@ -579,8 +579,10 @@
 					// We need to construct a dummy list for now to help the UI rendering.
 					favoriteListId = 'cx-suggestionlist-favorite';
 					self.lists[ favoriteListId ] = {
+						displayName: mw.msg( 'cx-suggestionlist-favorite' ),
 						name: favoriteListId,
-						suggestions: []
+						suggestions: [],
+						type: listTypes.TYPE_FAVORITE
 					};
 				}
 				suggestion.listId = favoriteListId;
