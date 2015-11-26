@@ -56,6 +56,12 @@ class CXManageLists extends Maintenance {
 			true,
 			true
 		);
+		$this->addOption(
+			'name',
+			'Display name of the suggestion list (plain text)',
+			false,
+			true
+		);
 	}
 
 	public function execute() {
@@ -167,11 +173,14 @@ class CXManageLists extends Maintenance {
 
 		$manager = new SuggestionListManager();
 		$list = $manager->getListByName( $name );
-
+		$displayName = $name;
+		if ( $this->hasOption( 'name' ) ) {
+			$displayName = $this->getOption( 'name' );
+		}
 		if ( $list === null ) {
 			$list = new SuggestionList( array(
 				'type' => $type,
-				'name' => $name,
+				'name' => $displayName,
 				'public' => true,
 			) );
 			$listId = $manager->insertList( $list );
