@@ -415,12 +415,14 @@ class Translation {
 		$rows = $dbr->select(
 			'cx_translations',
 			array(
+				'translation_id AS translationId',
 				'translation_source_title AS sourceTitle',
 				'translation_target_title AS targetTitle',
 				'translation_source_language AS sourceLanguage',
 				'translation_target_language AS targetLanguage',
 				'translation_source_url AS sourceURL',
 				'translation_target_url AS targetURL',
+				'translation_last_updated_timestamp AS publishedDate',
 				'translation_progress AS stats',
 			),
 			$conditions,
