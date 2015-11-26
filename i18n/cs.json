@@ -141,5 +141,7 @@
 	"cx-tools-link-to-another-page": "Vložit odkaz na jinou stránku",
 	"cx-tools-link-add-as-missing": "Přidat jako chybějící odkaz",
 	"cx-tools-link-apply": "Hotovo",
-	"mw-pageselector-missing": "Stránka neexistuje"
+	"mw-pageselector-missing": "Stránka neexistuje",
+	"cx-suggestionlist-expand": "Zobrazit vše",
+	"cx-suggestionlist-collapse": "Zobrazit méně"
 }
