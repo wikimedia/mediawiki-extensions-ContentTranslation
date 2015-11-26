@@ -142,6 +142,34 @@
 		"ContentTranslationEnableSuggestions": false
 	},
 	"ResourceModules": {
+		"Base64.js": {
+			"localBasePath": "lib",
+			"remoteExtPath": "ContentTranslation/lib",
+			"scripts": [
+				"Base64.js/base64.js"
+			]
+		},
+		"easy-deflate.core": {
+			"localBasePath": "lib",
+			"remoteExtPath": "ContentTranslation/lib",
+			"scripts": [
+				"Easy-Deflate/easydeflate.js",
+				"Easy-Deflate/typedarrays.js"
+			],
+			"dependencies": [
+				"Base64.js"
+			]
+		},
+		"easy-deflate.deflate": {
+			"localBasePath": "lib",
+			"remoteExtPath": "ContentTranslation/lib",
+			"scripts": [
+				"Easy-Deflate/deflate.js"
+			],
+			"dependencies": [
+				"easy-deflate.core"
+			]
+		},
 		"ext.cx.contributions": {
 			"scripts": [
 				"entrypoint/ext.cx.contributions.js"
@@ -647,6 +675,7 @@
 				"draft/ext.cx.draft.js"
 			],
 			"dependencies": [
+				"easy-deflate.deflate",
 				"ext.cx.model",
 				"mediawiki.api.edit",
 				"jquery.throttle-debounce"
@@ -670,6 +699,7 @@
 				"publish/styles/ext.cx.publish.less"
 			],
 			"dependencies": [
+				"easy-deflate.deflate",
 				"ext.cx.model",
 				"ext.cx.publish.dialog",
 				"ext.cx.sitemapper",

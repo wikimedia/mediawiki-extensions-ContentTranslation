@@ -39,12 +39,16 @@
 		};
 		publisher = new mw.cx.publish( $trigger );
 		publisher.captchaHandler = newCaptchaHandler;
+		publisher.getContent = function () {
+			return 'Content to publish';
+		};
 		publisher.titleExists = function () {
 			return $.Deferred().resolve( false );
 		};
 		publisher.onSuccess = function () {
 			assert.ok( true, 'Success handler was called' );
 		};
+		QUnit.stop();
 		publisher.publish( {
 			from: 'fi',
 			to: 'en',
@@ -56,6 +60,7 @@
 			mw.cx.publish.prototype.captchaHandler = oldCaptchaHandler;
 			mw.cx.publish.prototype.onSuccess = oldSuccessHandler;
 			mw.cx.publish.prototype.getTitle = oldTitleExists;
+			QUnit.start();
 		} );
 		server.requests[ 0 ].respond( 200, {
 				'Content-Type': 'application/json'

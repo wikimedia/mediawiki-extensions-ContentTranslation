@@ -223,8 +223,9 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( !$title ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
 		}
+
 		try {
-			$wikitext = $this->convertHtmlToWikitext( $title, $params['html'] );
+			$wikitext = $this->convertHtmlToWikitext( $title, $this->getHtml() );
 		} catch ( MWException $e ) {
 			$this->dieUsage( $e->getMessage(), 'docserver' );
 		}
@@ -305,6 +306,25 @@ class ApiContentTranslationPublish extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * Get the HTML content from request and abstract the compression it may have.
+	 * @return string The HTML content in the request. Decompressed, if it was compressed.
+	 */
+	protected function getHtml() {
+		$params = $this->extractRequestParams();
+		$data = $params['html'];
+
+		if ( substr( $params['html'], 0, 11 ) === 'rawdeflate,' ) {
+			$data = gzinflate( base64_decode( substr( $params[ 'html' ], 11 ) ) );
+			// gzinflate returns false on error.
+			if ( $data === false ) {
+				throw new InvalidArgumentException( 'Invalid HTML content.' );
+			}
+		}
+
+		return $data;
+	}
+
 	public function saveTranslationHistory( $params ) {
 		global $wgContentTranslationDatabase, $wgContentTranslationTranslateInTarget;
 
@@ -352,7 +372,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$translator->addTranslation( $translationId );
 		if ( $params['status'] === 'draft' ) {
 			// Save the draft
-			ContentTranslation\Draft::save( $translationId, $params['html'] );
+			ContentTranslation\Draft::save( $translationId, $this->getHtml() );
 		}
 	}
 

@@ -329,7 +329,7 @@
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
 			title: targetTitle,
-			html: this.getContent(),
+			html: EasyDeflate.deflate( this.getContent() ),
 			status: 'draft',
 			sourcerevision: mw.cx.sourceRevision,
 			progress: JSON.stringify( mw.cx.getProgress() )
