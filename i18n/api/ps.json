@@ -12,6 +12,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "د ژباړې پېژند.",
 	"apihelp-query+contenttranslation-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+contenttranslation-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "د سرچينې مخ سرليک.",
 	"apihelp-query+contenttranslation-example-2": "د پېژند له مخې د ژباړې گارليکونه ترلاسه کول.",
 	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
 	"apihelp-cxconfiguration-param-from": "د سرچينې د ژبې کوډ.",
@@ -29,6 +30,8 @@
 	"apihelp-cxdelete-param-from": "د سرچينې د ژبې کوډ",
 	"apihelp-cxdelete-param-to": "د موخې د ژبې کوډ",
 	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک",
+	"apihelp-cxsuggestionlist-param-listname": "د وړانديز لړليک نوم.",
 	"apihelp-cxsuggestionlist-param-titles": "مخ سرليکونه.",
-	"apihelp-cxsuggestionlist-param-from": "د سرچينې د ژبې کوډ."
+	"apihelp-cxsuggestionlist-param-from": "د سرچينې د ژبې کوډ.",
+	"apihelp-cxsuggestionlist-param-to": "د موخې د ژبې کوډ."
 }
