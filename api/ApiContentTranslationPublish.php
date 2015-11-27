@@ -257,6 +257,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
+				$params['targetRevisionId'] = $result['newrevid'];
 			}
 			$this->saveTranslationHistory( $params );
 			// Notify user about milestones
@@ -352,6 +353,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			'sourceTitle' => $params['sourcetitle'],
 			'targetTitle' => $params['title'],
 			'sourceLanguage' => $params['from'],
+			'sourceRevisionId' => $params['sourcerevision'],
 			'targetLanguage' => $params['to'],
 			'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
 				$params['from'], $params['sourcetitle']
@@ -365,6 +367,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		// Save targetURL only when the status is published.
 		if ( $params['status'] === 'published' ) {
 			$translation['targetURL'] = $targetURL;
+			$translation['targetRevisionId'] = $params['targetRevisionId'];
 		};
 		$cxtranslation = new ContentTranslation\Translation( $translation );
 		$cxtranslation->save();

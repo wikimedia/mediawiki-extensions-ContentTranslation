@@ -18,6 +18,10 @@ CREATE TABLE /*_*/cx_translations (
     translation_source_language varbinary(36) not null,
     -- Target language. language code
     translation_target_language varbinary(36) not null,
+    -- Revision id of source article
+    translation_source_revision_id INT UNSIGNED,
+    -- Revision id of published translation
+    translation_target_revision_id INT UNSIGNED,
     -- source of the page as full canonical url -- https://www.mediawiki.org/wiki/Help:CxIsPage
     translation_source_url text binary not null,
     -- link to the draft/published target

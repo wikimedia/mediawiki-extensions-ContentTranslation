@@ -17,6 +17,7 @@ class Translation {
 			'translation_target_title' => $this->translation['targetTitle'],
 			'translation_source_language' => $this->translation['sourceLanguage'],
 			'translation_target_language' => $this->translation['targetLanguage'],
+			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
 			'translation_source_url' => $this->translation['sourceURL'],
 			'translation_status' => $this->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
@@ -29,6 +30,7 @@ class Translation {
 
 		if ( $this->translation['status'] === 'published' ) {
 			$values['translation_target_url'] = $this->translation['targetURL'];
+			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
 		}
 
 		$dbw->insert(
@@ -48,6 +50,8 @@ class Translation {
 			'translation_target_title' => $this->translation['targetTitle'],
 			'translation_source_language' => $this->translation['sourceLanguage'],
 			'translation_target_language' => $this->translation['targetLanguage'],
+			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
+			'translation_target_revision_id' => $this->translation['targetRevisionId'],
 			'translation_source_url' => $this->translation['sourceURL'],
 			'translation_status' => $this->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
@@ -419,6 +423,8 @@ class Translation {
 				'translation_source_title AS sourceTitle',
 				'translation_target_title AS targetTitle',
 				'translation_source_language AS sourceLanguage',
+				'translation_source_revision_id AS sourceRevisionId',
+				'translation_target_revision_id AS targetRevisionId',
 				'translation_target_language AS targetLanguage',
 				'translation_source_url AS sourceURL',
 				'translation_target_url AS targetURL',
@@ -451,6 +457,8 @@ class Translation {
 			'targetTitle' => $row->translation_target_title,
 			'sourceLanguage' => $row->translation_source_language,
 			'targetLanguage' => $row->translation_target_language,
+			'sourceRevisionId' => $row->translation_source_revision_id,
+			'targetRevisionId' => $row->translation_target_revision_id,
 			'sourceURL' => $row->translation_source_url,
 			'targetURL' => $row->translation_target_url,
 			'status' => $row->translation_status,
