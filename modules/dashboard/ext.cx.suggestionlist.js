@@ -840,6 +840,7 @@
 	};
 
 	CXSuggestionList.prototype.refreshPublicLists = function () {
+		var self = this;
 		// Scroll the page up to the beginning of $publicCollection
 		$( 'html, body' ).animate( {
 			// 200 px subtracted to deal with the sticky header.
@@ -854,7 +855,7 @@
 					list.type === listTypes.TYPE_PERSONALIZED
 				)
 			) {
-				this.refreshList( list.id );
+				self.refreshList( list.id );
 			}
 		} );
 	};
