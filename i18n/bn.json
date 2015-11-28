@@ -100,8 +100,11 @@
 	"cx-translation-filter-published-translations": "প্রকাশিত",
 	"cx-translation-filter-draft-translations": "চলমান",
 	"cx-translation-filter-suggested-translations": "পরামর্শ",
-	"cx-suggestionlist-empty-title": "দুঃখিত, সুপারিশ করার মত কোন পাতা নেই",
-	"cx-suggestionlist-empty-desc": "একটি নতুন অনুবাদ শুরু করার সময় আপনি আপনার পছন্দমত যে কোন বিষয় বাছাই করতে পারেন",
+	"cx-suggestionlist-favorite": "পরের জন্য",
+	"cx-suggestionlist-title": "আরো পরামর্শ",
+	"cx-suggestionlist-empty-title": "এই মুহুর্তে কোন পরামর্শ নেই",
+	"cx-suggestionlist-empty-desc": "আমরা কোন পরামর্শ পাইনি। আপনি পরে পরীক্ষা করতে পারেন বা আমাদের সুপারিশ সরঞ্জাম ব্যবহার প্রাসঙ্গিক পৃষ্ঠাগুলি খুঁজে পেতে পারেন (পরীক্ষামূলক)।",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "পরামর্শগুলি দেখুন (পরীক্ষামূলক)",
 	"cx-suggestionlist-featured": "নির্বাচিত",
 	"cx-suggestionlist-view-source-page": "উৎস পাতা দেখুন",
 	"cx-translation-filter-from-any-language": "যে কোন ভাষা থেকে",
@@ -183,6 +186,13 @@
 	"cx-tools-link-external-link": "বাহ্যিক",
 	"cx-tools-link-external-link-placeholder": "বাহ্যিক লিঙ্ক যোগ করুন",
 	"cx-tools-link-to-another-page": "আরেকটি পাতার সাথে সংযোগ",
+	"cx-tools-link-add-as-missing": "অনুপস্থিত লিঙ্ক হিসাবে যোগ করুন",
 	"cx-tools-link-apply": "সম্পন্ন",
-	"mw-pageselector-missing": "পাতা বিদ্যমান নেই"
+	"mw-pageselector-missing": "পাতা বিদ্যমান নেই",
+	"cx-draft-restoring": "সংরক্ষিত অনুবাদ লোড করা হচ্ছে...",
+	"cx-draft-restored": "সংরক্ষিত অনুবাদ লোড করা হয়েছে।",
+	"cx-draft-restore-failed": "সংরক্ষিত অনুবাদ লোড করতে ব্যর্থ!",
+	"cx-suggestionlist-expand": "সব দেখুন",
+	"cx-suggestionlist-collapse": "কম দেখাও",
+	"cx-suggestionlist-refresh": "পরামর্শ পুনঃসতেজ করুন"
 }
