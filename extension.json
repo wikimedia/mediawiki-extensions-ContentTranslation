@@ -102,7 +102,7 @@
 			"yue": "zh-yue"
 		},
 		"ContentTranslationRESTBase": {
-			"url": "https://rest.wikimedia.org/",
+			"url": "https://rest.wikimedia.org",
 			"timeout": 100000,
 			"domain": "en.wikipedia.org",
 			"HTTPProxy": false,
