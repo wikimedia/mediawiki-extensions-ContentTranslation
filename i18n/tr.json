@@ -165,5 +165,6 @@
 	"cx-tools-link-apply": "Tamam",
 	"mw-pageselector-missing": "Sayfa mevcut değil",
 	"cx-suggestionlist-expand": "Hepsini göster",
-	"cx-suggestionlist-collapse": "Azını göster"
+	"cx-suggestionlist-collapse": "Azını göster",
+	"cx-suggestionlist-refresh": "Önerileri güncelle"
 }
