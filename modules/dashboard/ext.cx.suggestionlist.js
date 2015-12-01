@@ -363,7 +363,7 @@
 		if ( !list.$list ) {
 			list.$list = $( '<div>' )
 				.attr( 'data-listid', listId )
-				.addClass( 'cx-suggestionlist ' + list.name );
+				.addClass( 'cx-suggestionlist cx-suggestionlist-type-' + list.type );
 
 			if ( list.type !== listTypes.TYPE_FEATURED && list.type !== listTypes.TYPE_PERSONALIZED ) {
 				// No need to show heading for misc fallback suggestions shown at the end.
