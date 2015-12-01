@@ -296,10 +296,16 @@ class SuggestionListManager {
 
 		foreach ( $res as $row ) {
 			$list = SuggestionList::newFromRow( $row );
+			$suggestionsInList = $this->getSuggestionsInList(
+				$list->getId(), $from, $to, $limit, $offset, $seed
+			);
+			if ( !count( $suggestionsInList ) ) {
+				continue;
+			}
 			$lists[$list->getId()] = $list;
 			$suggestions = array_merge(
 				$suggestions,
-				$this->getSuggestionsInList( $list->getId(), $from, $to, $limit, $offset, $seed )
+				$suggestionsInList
 			);
 		}
 
