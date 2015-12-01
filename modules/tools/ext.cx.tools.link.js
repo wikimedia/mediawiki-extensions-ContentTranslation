@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -17,6 +16,7 @@
 
 	/**
 	 * Get the link details for a given title and language such as page thumbnail image.
+	 *
 	 * @param {mediawiki.Api} api
 	 * @param {string} title
 	 * @param {string} language
@@ -54,6 +54,7 @@
 
 	/**
 	 * Fetch the link pairs
+	 *
 	 * @param {string|string[]} titles A title as string or array of titles
 	 * @param {string} language Language to which the links are to be adapted
 	 * @return {jQuery.Promise}
@@ -135,6 +136,7 @@
 
 	/**
 	 * Returns the parent node of the current selection as jQuery object
+	 *
 	 * @return {jQuery}
 	 */
 	function getSelectionParent() {
@@ -163,7 +165,8 @@
 
 	/**
 	 * Tests whether the current selection is in a target segment
-	 * @param {object} selection, the selection to test
+	 *
+	 * @param {Object} selection the selection to test
 	 * @return {boolean}
 	 */
 	function isValidSelection( selection ) {
@@ -208,6 +211,7 @@
 	/**
 	 * CXLink class. Represents a generic link in CX. It can be a source or target link.
 	 * It may not correspond to a link that exist in document.
+	 *
 	 * @param {Element} [link] An <a> element
 	 * @param {Object} [options] Optional options object
 	 */
@@ -320,6 +324,7 @@
 
 	/**
 	 * Fetch the details about a page.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXLink.prototype.fetchLinkData = function () {
@@ -348,6 +353,7 @@
 
 	/**
 	 * Get a link card
+	 *
 	 * @return {jQuery}
 	 */
 	CXLink.prototype.getLinkCard = function () {
@@ -489,6 +495,7 @@
 
 	/**
 	 * Get the target link instance for the link
+	 *
 	 * @return {CXTargetLink}
 	 */
 	CXSourceLink.prototype.getTargetLink = function () {
@@ -603,6 +610,7 @@
 
 	/**
 	 * Target link class - A link in translation section
+	 *
 	 * @param {Element} [link]
 	 * @param {Object} [options]
 	 */
@@ -632,6 +640,7 @@
 
 	/**
 	 * Get the source link instance for the link
+	 *
 	 * @return {CXSourceLink}
 	 */
 	CXTargetLink.prototype.getSourceLink = function () {
@@ -796,6 +805,7 @@
 
 	/**
 	 * Link Card
+	 *
 	 * @class
 	 */
 	function LinkCard() {
@@ -806,6 +816,7 @@
 
 	/**
 	 * Get all applicable cards.
+	 *
 	 * @return {jQuery}
 	 */
 	LinkCard.prototype.getCard = function () {
@@ -837,6 +848,7 @@
 	 * Get a valid normalized title from the given text
 	 * If the text is not suitable for the title, return null;
 	 * Validation is done by mw.Title
+	 *
 	 * @param {string} text Text for the title.
 	 * @return {string|null}
 	 */
@@ -943,6 +955,7 @@
 
 	/**
 	 * Prepare the tool card
+	 *
 	 * @return {jQuery}
 	 */
 	LinkerTool.prototype.getCard = function () {
@@ -995,7 +1008,8 @@
 
 	/**
 	 * Create a link. It can be external link or internal link
-	 * @param  {String} target Target title
+	 *
+	 * @param  {string} target Target title
 	 * @param  {type} type  Link type: 'external' or 'internal'
 	 */
 	LinkerTool.prototype.createLinkWithTool = function ( target, type ) {
@@ -1130,6 +1144,7 @@
 
 	/**
 	 * Get the parent of the selection
+	 *
 	 * @return {jQuery}
 	 */
 	LinkerTool.prototype.getParentSection = function () {
@@ -1139,6 +1154,7 @@
 
 	/**
 	 * Get the source section corresponding to parent of the selection
+	 *
 	 * @return {jQuery}
 	 */
 	LinkerTool.prototype.getParentSourceSection = function () {
@@ -1147,7 +1163,8 @@
 
 	/**
 	 * Get all the target pages for the titles in source section
-	 * @return {[jQuery.Promise]}
+	 *
+	 * @return {jQuery.Promise}
 	 */
 	LinkerTool.prototype.getTargetPagesForSource = function () {
 		var $sourceSection, $sourceLinks, pagePromises = [];
@@ -1219,6 +1236,7 @@
 
 	/**
 	 * Adapt links in a section
+	 *
 	 * @param {jQuery} $section The section.
 	 */
 	function adaptLinks( $section ) {

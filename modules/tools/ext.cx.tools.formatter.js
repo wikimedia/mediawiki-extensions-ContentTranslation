@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -51,6 +50,7 @@
 
 	/**
 	 * Get command state for the given command
+	 *
 	 * @param {string} command Example: bold, italic.
 	 * @return {boolean} whether the selection has the command applied or not.
 	 */

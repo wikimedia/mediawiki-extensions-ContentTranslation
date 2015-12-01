@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -44,7 +43,8 @@
 
 	/**
 	 * Detects whether MT is abused or not.
-	 * @param {object} progress Translation progress in percentage.
+	 *
+	 * @param {Object} progress Translation progress in percentage.
 	 * @return {boolean}
 	 */
 	MTAbuseCard.prototype.isAbuse = function ( progress ) {

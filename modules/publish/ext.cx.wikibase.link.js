@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation - Link articles using Wikibase
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+

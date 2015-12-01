@@ -1,7 +1,6 @@
-/**
+/*!
  * Provides a dropdown entry point
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -51,6 +50,7 @@
 	/**
 	 * A weak and inaccurate way to guess if this user has done
 	 * any contribution using CX.
+	 *
 	 * @return {boolean}
 	 */
 	function isNewToCX() {

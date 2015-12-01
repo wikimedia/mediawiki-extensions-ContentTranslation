@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation extension
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -13,6 +12,7 @@
 
 	/**
 	 * Generate a jQuery selector for all possible sections.
+	 *
 	 * @return {string} the section selector string
 	 */
 	mw.cx.getSectionSelector = function () {
@@ -62,8 +62,9 @@
 
 	/**
 	 * Return array with duplicate items removed
-	 * @param {array} list List of strings, numbers or boolean
-	 * @return {array}
+	 *
+	 * @param {Array} list List of strings, numbers or boolean
+	 * @return {Array}
 	 */
 	mw.cx.unique = function ( list ) {
 		return $.grep( list, function ( v, k ) {

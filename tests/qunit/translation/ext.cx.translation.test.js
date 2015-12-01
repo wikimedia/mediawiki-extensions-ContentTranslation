@@ -1,5 +1,4 @@
-/**
- * @file
+/*!
  * @author Niklas Laxström
  * @license GPL-2.0+
  */

@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation extension - Translation listing in dashboard.
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -115,7 +114,7 @@
 	 * Get the thumbnail image of the given link.
 	 *
 	 * @param {string} language
-	 * @param {string} title Title
+	 * @param {string} titles Title
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.getLinkImages = function ( language, titles ) {
@@ -138,6 +137,7 @@
 
 	/**
 	 * Show a title image of the translations based on source title.
+	 *
 	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.showTitleImages = function ( translations ) {
@@ -423,6 +423,7 @@
 
 	/**
 	 * Show the confirmation dialog for discarding a translation.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXTranslationList.prototype.showDiscardConfirmation = function () {
@@ -477,6 +478,7 @@
 
 	/**
 	 * Mark the translation item in the translation list as deleted.
+	 *
 	 * @param {Object} translation
 	 */
 	CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
@@ -496,6 +498,7 @@
 
 	/**
 	 * Discard a translation.
+	 *
 	 * @param {Object} translation
 	 * @return {jQuery.Promise}
 	 */

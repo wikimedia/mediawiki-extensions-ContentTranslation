@@ -1,7 +1,6 @@
-/**
+/*!
  * QUnit tests for Content Translation.
  *
- * @file
  * @ingroup Extensions
  * @licence GPL-2.0+
  */

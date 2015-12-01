@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -20,6 +19,7 @@
 	/**
 	 * Get the namespace translation in a wiki.
 	 * Use the canonical name for lookup.
+	 *
 	 * @param {string} targetLanguage
 	 * @return {jQuery.Promise}
 	 */
@@ -93,6 +93,7 @@
 
 	/**
 	 * Adapt the image's alignment settings for the target language.
+	 *
 	 * @param {jQuery} $image
 	 */
 	function adaptImageAlignment( $image ) {

@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -39,6 +38,7 @@
 
 	/**
 	 * Renders the publishing options dialog.
+	 *
 	 * @param {string} title The title of the existing article
 	 */
 	CXPublishingDialog.prototype.render = function ( title ) {
@@ -83,6 +83,7 @@
 
 	/**
 	 * Sets the message for the publishing options dialog
+	 *
 	 * @param {string} title The title of the article to link in the message
 	 */
 	CXPublishingDialog.prototype.setMessage = function ( title ) {
@@ -122,6 +123,7 @@
 	 * An action is expected from user while it is shown. The code
 	 * that invoked this dialog will be waiting for this action.
 	 * Hence the method returns a jQuery Promise
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXPublishingDialog.prototype.listen = function () {
@@ -161,4 +163,4 @@
 			$this.data( 'cxPublishingDialog', new CXPublishingDialog( this ) );
 		} );
 	};
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

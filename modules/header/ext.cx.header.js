@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Translation view header
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -38,7 +37,8 @@
 
 	/**
 	 * Enable/Disable the publish button based on progress of translation.
-	 * @param {object} weights
+	 *
+	 * @param {Object} weights
 	 */
 	ContentTranslationHeader.prototype.setPublishButtonState = function ( weights ) {
 		this.$publishButton.show().prop( 'disabled', weights.any === 0 );
@@ -68,6 +68,7 @@
 
 	/**
 	 * Show a success message in the info bar.
+	 *
 	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
 	 */
 	ContentTranslationHeader.prototype.showSuccess = function ( message ) {
@@ -76,6 +77,7 @@
 
 	/**
 	 * Show an error message in the info bar.
+	 *
 	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
 	 */
 	ContentTranslationHeader.prototype.showError = function ( message ) {
@@ -245,6 +247,7 @@
 
 	/**
 	 * CX Header plugin. Prepares the Special:CX header and interactions.
+	 *
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @return {jQuery}
 	 */

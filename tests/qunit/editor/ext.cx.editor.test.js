@@ -1,5 +1,4 @@
-/**
- * @file
+/*!
  * @author Niklas Laxström
  * @license GPL-2.0+
  */
@@ -11,8 +10,8 @@
 	 * Testing persistent hooks is tricky. This should take care of the messy details.
 	 *
 	 * @param {string} hook Name of the hook.
-	 * @param {function} trigger Function to call to trigger an event.
-	 * @param {function} callback Function to bind to the hook.
+	 * @param {Function} callback Function to bind to the hook.
+	 * @param {Function} trigger Function to call to trigger an event.
 	 */
 	function triggerSafely( hook, callback, trigger ) {
 		// Fire wake even so we know we are not getting cached data,

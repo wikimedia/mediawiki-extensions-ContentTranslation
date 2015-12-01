@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation event logging.
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -38,7 +37,8 @@
 
 		/**
 		 * Log creation of translated page.
-		 * @param {string} contentLanguage source language
+		 *
+		 * @param {string} sourceLanguage source language
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title
@@ -202,6 +202,7 @@
 
 		/**
 		 * CTA is shown.
+		 *
 		 * @param {string} campaign
 		 */
 		ctaShown: function ( campaign ) {

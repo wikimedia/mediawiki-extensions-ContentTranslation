@@ -1,5 +1,4 @@
-/**
- * @file
+/*!
  * @author Joel Sahleen
  * @license GPL-2.0+
  */

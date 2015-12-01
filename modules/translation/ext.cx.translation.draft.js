@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation - Save translation as draft
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -54,6 +53,7 @@
 	/**
 	 * Get the content to save. Clean up the content by removing
 	 * all unwanted classes and placeholders.
+	 *
 	 * @return {string} HTML to save
 	 */
 	ContentTranslationDraft.prototype.getContent = function () {
@@ -114,6 +114,7 @@
 
 	/**
 	 * Find if there is a draft existing for the current title and language pair.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	ContentTranslationDraft.prototype.find = function () {
@@ -133,6 +134,7 @@
 
 	/**
 	 * Fetch a draft content and restore it.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	ContentTranslationDraft.prototype.fetch = function () {
@@ -182,6 +184,7 @@
 	 * Add an orphan translation. Orphan translation is a translation without
 	 * source section. We add a dummy source section for such cases. Dummy source section
 	 * is a placeholder - a white block in source column.
+	 *
 	 * @param {jQuery} $translation The translation to add.
 	 * @param {jQuery} $section Add it before/after this section.
 	 * @param {string} afterOrBefore Whether the orphan to be added after or before $section.

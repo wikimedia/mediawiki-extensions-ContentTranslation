@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -73,6 +72,7 @@
 	/**
 	 * Get the registry of machine translation providers
 	 * for a language pair from the CX server.
+	 *
 	 * @param {string} from Source language
 	 * @param {string} to Target language
 	 * @return {jQuery.Promise}
@@ -120,6 +120,7 @@
 
 	/**
 	 * Do machine translation.
+	 *
 	 * @param {string} sourceLang Source language
 	 * @param {string} targetLang Target language
 	 * @param {string} sourceHtml Content
@@ -153,8 +154,9 @@
 
 	/**
 	 * Clean up the section by removing data-parsoid and data-mw attributes
+	 *
 	 * @param {jQuery} $section
-	 * @retun {string}
+	 * @return {string}
 	 */
 	function getSimplifiedHTMLForMT( $section ) {
 		var $wrapper = $( '<div>' ).append( $section.clone() );
@@ -166,6 +168,7 @@
 
 	/**
 	 * Translate the given source section
+	 *
 	 * @param {jQuery} $section Source section to translate
 	 * @param {boolean} prefetch Whether the translation of next secton to be prefetched
 	 * @return {jQuery.Promise}
@@ -223,6 +226,7 @@
 
 	/**
 	 * A plugin that performs machine translation on a section element.
+	 *
 	 * @return {jQuery}
 	 */
 	$.fn.machineTranslate = function () {
@@ -458,6 +462,7 @@
 
 	/**
 	 * Get the text for the menu item in the providers list.
+	 *
 	 * @param {string} id Provider id.
 	 * @return {string}
 	 */
@@ -476,6 +481,7 @@
 
 	/**
 	 * Get a menu item for the providers list.
+	 *
 	 * @param {string} providerId Provider id.
 	 * @return {jQuery}
 	 */

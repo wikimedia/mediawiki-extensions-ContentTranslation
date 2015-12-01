@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation extension - Dashboard.
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -71,7 +70,7 @@
 	 * Set the language filter label
 	 *
 	 * @param {jQuery} $filter Source filter or target filter
-	 * @param {String} selected Selected language code
+	 * @param {string} selected Selected language code
 	 */
 	CXDashboard.prototype.setLanguageFilterLabel = function ( $filter, selected ) {
 		var label;

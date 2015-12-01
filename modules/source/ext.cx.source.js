@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -60,6 +59,7 @@
 	/**
 	 * Fetch the page with given title and language.
 	 * Response contains
+	 *
 	 * @param {string} title Title of the page to be fetched
 	 * @param {string} language Language of the page requested. This will be used to
 	 *     identify the host wiki.
@@ -187,6 +187,7 @@
 
 	/**
 	 * Remove the leading ./ added by parsoid.
+	 *
 	 * @param {string} href Link target
 	 * @return {string} Cleaned up href
 	 */

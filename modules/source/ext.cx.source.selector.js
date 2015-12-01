@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -13,6 +12,7 @@
 
 	/**
 	 * CXSourceSelector
+	 *
 	 * @class
 	 */
 	function CXSourceSelector( $trigger, siteMapper, options ) {
@@ -36,8 +36,9 @@
 
 	/**
 	 * Return an object of languages indexed by language code.
-	 * @param {array} languages An array of language codes.
-	 * return {object} Autonyms indexed by language code.
+	 *
+	 * @param {Array} languages An array of language codes.
+	 * @return {Object} autonyms indexed by language code.
 	 */
 	function getAutonyms( languages ) {
 		var i,
@@ -52,6 +53,7 @@
 
 	/**
 	 * Return the appropriate menuWidth parameter for a given language count.
+	 *
 	 * @param {number} languagesCount Number of languages
 	 * return {string} wide, medium or narrow
 	 */
@@ -112,6 +114,7 @@
 
 	/**
 	 * Get all the source and target languages.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXSourceSelector.prototype.getLanguagePairs = function () {
@@ -139,6 +142,7 @@
 	/**
 	 * Check whether a language is available as a target language
 	 * for the specified source language.
+	 *
 	 * @param {string} targetLanguage A language code.
 	 * @return {boolean} true if the target language is valid for the source language.
 	 */
@@ -149,7 +153,8 @@
 	/**
 	 * Check whether a language is available as a source language
 	 * for the specified target language.
-	 * @param {string} targetLanguage A language code.
+	 *
+	 * @param {string} sourceLanguage A language code.
 	 * @return {boolean} true if the target language is valid for the source language.
 	 */
 	CXSourceSelector.prototype.isValidSource = function ( sourceLanguage ) {
@@ -158,6 +163,7 @@
 
 	/**
 	 * Get the current source language code.
+	 *
 	 * @return {string} Language code. Empty string if not set.
 	 */
 	CXSourceSelector.prototype.getSourceLanguage = function () {
@@ -166,6 +172,7 @@
 
 	/**
 	 * Sets the source language.
+	 *
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
@@ -203,6 +210,7 @@
 
 	/**
 	 * Get the current target language code.
+	 *
 	 * @return {string} Language code. Empty string if not set.
 	 */
 	CXSourceSelector.prototype.getTargetLanguage = function () {
@@ -211,6 +219,7 @@
 
 	/**
 	 * Sets the target language.
+	 *
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setTargetLanguage = function ( language ) {
@@ -320,6 +329,7 @@
 
 	/**
 	 * Handles source language change.
+	 *
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
@@ -334,6 +344,7 @@
 
 	/**
 	 * Handles target language change.
+	 *
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.targetLanguageChangeHandler = function ( language ) {
@@ -420,11 +431,12 @@
 	/**
 	 * Checks to see if a title exists in the specified language wiki. Returns
 	 * the normalised title and resolves redirects.
+	 *
 	 * @param {string} language The language of the wiki to check
 	 * @param {string} title The title to look for
 	 * @return {jQuery.promise}
 	 * @return {Function} return.done If title exists
-	 * @return {String|false} return.done.title
+	 * @return {string|false} return.done.title
 	 */
 	CXSourceSelector.prototype.checkForTitle = function ( language, title ) {
 		var api = this.siteMapper.getApi( language );
@@ -466,6 +478,7 @@
 
 	/**
 	 * Checks for an equivalent page in the target wiki based on source title.
+	 *
 	 * @param {string} sourceLanguage the source language
 	 * @param {string} targetLanguage the target language
 	 * @param {string} sourceTitle the title to check
@@ -511,6 +524,7 @@
 
 	/**
 	 * Shows error for source page not existing.
+	 *
 	 * @param {string} sourceLanguage the source language language code
 	 */
 	CXSourceSelector.prototype.showSourceTitleError = function ( sourceLanguage ) {
@@ -528,6 +542,7 @@
 
 	/**
 	 * Shows error for target page existing and target title in use.
+	 *
 	 * @param {string} equivalentTargetPage the title of the existing page
 	 * @param {string} existingTargetTitle the title already in use
 	 */
@@ -558,6 +573,7 @@
 
 	/**
 	 * Shows error for page already existing in target.
+	 *
 	 * @param {string} equivalentTargetPage the title of the existing page
 	 */
 	CXSourceSelector.prototype.showPageExistsError = function ( equivalentTargetPage ) {
@@ -579,6 +595,7 @@
 
 	/**
 	 * Shows error for title already in use in target wiki.
+	 *
 	 * @param {string} existingTargetTitle the title already in use
 	 */
 	CXSourceSelector.prototype.showTitleInUseError = function ( existingTargetTitle ) {
@@ -598,6 +615,7 @@
 
 	/**
 	 * Shows error message for dialog.
+	 *
 	 * @param {mw.Message|text} message the message to show
 	 */
 	CXSourceSelector.prototype.showMessage = function ( message ) {
@@ -674,7 +692,8 @@
 	/**
 	 * Embeds source selector dialog inside the element
 	 * specified by $container.
-	 * @param {jQuery} $container, the container in which to embed the selector
+	 *
+	 * @param {jQuery} $container the container in which to embed the selector
 	 */
 	CXSourceSelector.prototype.showAsEmbedded = function ( $container ) {
 		$container.append( this.$dialog );
@@ -699,6 +718,7 @@
 
 	/**
 	 * Provides titles for autocompletion from given wiki.
+	 *
 	 * @param {string} language
 	 * @param {string} input
 	 * @return {jQuery.Deferred}
@@ -967,6 +987,7 @@
 
 	/**
 	 * Update the ULS previous language setting.
+	 *
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.updatePreviousLanguages = function ( language ) {

@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation - Section alignment plugin
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -107,8 +106,9 @@
 	/**
 	 * Tables does not have a min-height css property defined. We use
 	 * margin-bottom to keep the heights in sync
-	 * @param {jQuery} @sourceTable
-	 * @param {jQuery} @targetTable
+	 *
+	 * @param {jQuery} $sourceTable
+	 * @param {jQuery} $targetTable
 	 */
 	function keepTableAlignment( $sourceTable, $targetTable ) {
 		var sourceHeight, heightDiff, targetHeight;

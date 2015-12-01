@@ -1,12 +1,12 @@
-/**
+/*!
  * ContentTranslation Tools Manager
- * @file
+ *
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
-/**
+/*!
  * A tool can register as a CX tool card with this manager.
  * Example:
  * <code>
@@ -73,8 +73,8 @@
 
 	/**
 	 * Dispatch the events to appropriate cards
+	 *
 	 * @param {string} eventName event name
-	 * @param {Array|Object|string} The data passed by the event.
 	 */
 	CXToolManager.prototype.dispatch = function ( eventName ) {
 		var index, tools,
@@ -124,8 +124,9 @@
 
 	/**
 	 * Show a tool card.
-	 * @param {toolName} toolName tool name
-	 * @param {Array|Object|string} The data passed by the event.
+	 *
+	 * @param {toolName} toolName The tool name.
+	 * @param {Array|Object|string} data The data passed by the event.
 	 */
 	CXToolManager.prototype.showCard = function ( toolName, data ) {
 		var tool;
@@ -151,6 +152,7 @@
 
 	/**
 	 * Find intersection of two arrays
+	 *
 	 * @param {Array} array1
 	 * @param {Array} array2
 	 * @return {Array} intersection array
@@ -164,6 +166,7 @@
 	/**
 	 * Hide unrelated cards.
 	 * Find cards not having trigger events intersecton and hide them.
+	 *
 	 * @param {string} currentToolName current tool name
 	 */
 	CXToolManager.prototype.hideUnrelatedCards = function ( currentToolName ) {
@@ -193,6 +196,7 @@
 
 	/**
 	 * Hide a card.
+	 *
 	 * @param {string} toolName
 	 */
 	CXToolManager.prototype.hideCard = function ( toolName ) {

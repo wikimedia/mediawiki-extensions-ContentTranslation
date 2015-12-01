@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -175,6 +174,7 @@
 
 	/**
 	 * Post-process the section after MT is applied.
+	 *
 	 * @param {jQuery} $section
 	 */
 	ContentTranslationEditor.prototype.postProcessMT = function ( $section ) {
@@ -338,6 +338,7 @@
 
 	/**
 	 * Fill in the preceding parent heading, if not yet filled
+	 *
 	 * @param {string} sectionId Source section Id
 	 */
 	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId, origin ) {

@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -17,6 +16,7 @@
 	 * It determines the best course of action and implements it. Some possible
 	 * actions are to make the template non-editable, remove it or expand it as
 	 * inline content (destruction).
+	 *
 	 * @class
 	 */
 	function TemplateTool( element ) {
@@ -206,6 +206,7 @@
 
 	/**
 	 * Processes each template in given section.
+	 *
 	 * @param {jQuery} $section Content translation section
 	 */
 	function processTemplates( $section ) {

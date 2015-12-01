@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -18,6 +17,7 @@
 	/**
 	 * A plugin that adds text to an element,
 	 * converting explicit line endings to <br /> elements
+	 *
 	 * @param {string} text
 	 */
 	$.fn.multiline = function ( text ) {
@@ -99,6 +99,7 @@
 
 	/**
 	 * Do the dictionary translation
+	 *
 	 * @param {string} word The word to translate using a dictionary
 	 * @param {string} from Source language
 	 * @param {string} to Target language
@@ -136,6 +137,7 @@
 
 	/**
 	 * Get the registry of dictionary providers for a language pair from the CX server.
+	 *
 	 * @param {string} from Source language
 	 * @param {string} to Target language
 	 * @return {jQuery.Promise}

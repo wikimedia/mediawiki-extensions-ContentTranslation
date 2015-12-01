@@ -1,7 +1,6 @@
-/**
+/*!
  * Content Translation: Loader for the new article campaign for VisualEditor.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -14,6 +13,7 @@
 	/**
 	 * Fetch the source content filter configuration
 	 * for the given language pairs.
+	 *
 	 * @param {string} sourceLanguage
 	 * @param {string} targetLanguage
 	 * @return {jQuery.Promise}
@@ -42,6 +42,7 @@
 
 	/**
 	 * Simple check for inline templates.
+	 *
 	 * @param {jQuery} $template
 	 * @return {boolean} Whether the template is inline or not.
 	 */
@@ -70,6 +71,7 @@
 
 	/**
 	 * Check if the template contains <references> transclusion
+	 *
 	 * @param {jQuery} $template
 	 * @return {boolean} Whether the template contains <references> or not.
 	 */
@@ -86,6 +88,7 @@
 
 	/**
 	 * Filter the templates present in the source article based on the configuration.
+	 *
 	 * @param {Object} [configuration]
 	 */
 	CXSourceFilter.prototype.filter = function ( configuration ) {
@@ -163,6 +166,7 @@
 
 	/**
 	 * Remove a template.
+	 *
 	 * @param {jQuery} $template The main element of the template.
 	 */
 	CXSourceFilter.prototype.removeTemplate = function ( $template ) {
@@ -171,6 +175,7 @@
 
 	/**
 	 * Remove a timeline.
+	 *
 	 * @param {jQuery} $timelineMap The <map> element of the timeline.
 	 */
 	CXSourceFilter.prototype.removeTimeline = function ( $timelineMap ) {
@@ -181,6 +186,7 @@
 	 * Remove a DOM element and all elements that are related to it
 	 * according to the "about" attribute.
 	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content .
+	 *
 	 * @param {jQuery} $element
 	 */
 	CXSourceFilter.prototype.removeRelatedElements = function ( $element ) {

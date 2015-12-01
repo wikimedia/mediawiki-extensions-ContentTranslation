@@ -1,7 +1,6 @@
-/**
+/*!
  * Content Translation invitation from the 'contributions' link in pages.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

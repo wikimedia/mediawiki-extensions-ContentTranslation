@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation - Publish article
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -21,6 +20,7 @@
 
 	/**
 	 * @param {Object} params Parameters for the API module.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXPublish.prototype.publish = function ( params ) {
@@ -80,8 +80,8 @@
 	 * This method can be overridden if required. The captcha handler
 	 * should return a jQuery Promise and resolve with captcha result
 	 * parameters as key value pairs.
-	 * @param {object} captcha Result returned by MediaWiki api.
-	 * @param {object} params Original publish request params
+	 *
+	 * @param {Object} captcha Result returned by MediaWiki api.
 	 * @return {jQuery.promise}
 	 */
 	CXPublish.prototype.captchaHandler = function ( captcha ) {
@@ -131,6 +131,7 @@
 
 	/**
 	 * Checks to see if there is already a published article with the title.
+	 *
 	 * @param {string} title The title to check
 	 * @return {jQuery.promise}
 	 */
@@ -157,6 +158,7 @@
 
 	/**
 	 * Generate an alternate title in case of title collision.
+	 *
 	 * @param {string} title The title
 	 * @return {string}
 	 */
@@ -176,6 +178,7 @@
 	/**
 	 * Checks to see if there is already a published article with the title.
 	 * If exists ask the translator a resolution for the conflict.
+	 *
 	 * @param {string} title The title to check
 	 * @return {jQuery.Promise}
 	 */
@@ -207,6 +210,7 @@
 
 	/**
 	 * Increase the version number of a title starting with 1.
+	 *
 	 * @param {string} title The title to increase the version on.
 	 * @return {string}
 	 */
@@ -225,6 +229,7 @@
 
 	/**
 	 * Get categories for the current translation pair.
+	 *
 	 * @return {string[]} Category titles
 	 */
 	CXPublish.prototype.getCategories = function () {
@@ -247,6 +252,7 @@
 
 	/**
 	 * Get the current translation content.
+	 *
 	 * @return {string}
 	 */
 	CXPublish.prototype.getContent = function () {
@@ -289,8 +295,9 @@
 
 	/**
 	 * Failure handler for publishing.
+	 *
 	 * @param {string} code
-	 * @param {object} details
+	 * @param {Object} details
 	 */
 	CXPublish.prototype.onFail = function ( code, details ) {
 		var trace, error;
@@ -345,6 +352,7 @@
 
 	/**
 	 * Prepare the translated content for publishing by removing unwanted parts.
+	 *
 	 * @return {string} processed html
 	 */
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {

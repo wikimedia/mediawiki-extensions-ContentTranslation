@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation extension
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -13,6 +12,7 @@
 
 	/**
 	 * Handles providing URLs to different wikis.
+	 *
 	 * @class
 	 */
 	mw.cx.SiteMapper = function ( siteconfig ) {
@@ -22,6 +22,7 @@
 	/**
 	 * Some wikis have domain names that do not match the content language.
 	 * See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
+	 *
 	 * @param {string} language Language code
 	 * @return {string}
 	 */
@@ -35,7 +36,6 @@
 	 * Get the API for a remote wiki.
 	 *
 	 * @param {string} language Language code
-	 * @return {mediawiki.Api}
 	 */
 	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
 		var url, domain;
@@ -91,6 +91,7 @@
 
 	/**
 	 * Get the target title to publish based on the wiki configuration.
+	 *
 	 * @param {string} title
 	 * @return {string} target title
 	 */

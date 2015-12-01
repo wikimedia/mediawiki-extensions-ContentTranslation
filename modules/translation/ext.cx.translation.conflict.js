@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation - Translation conflict handler
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -12,6 +11,7 @@
 	/**
 	 * Show the information about translaton conflict with a button
 	 * to create a new translation on another topic.
+	 *
 	 * @param {Object} translation
 	 */
 	function showConflictHandler( translation ) {

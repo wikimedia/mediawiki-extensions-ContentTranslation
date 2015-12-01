@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation - Calculate the progress
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -18,6 +17,7 @@
 	/**
 	 * Get the total source weight.
 	 * This is only calculated once per session and cached, because the source doesn't change.
+	 *
 	 * @return {int} Total source weight
 	 */
 	function getTotalSourceWeight() {
@@ -47,6 +47,7 @@
 
 	/**
 	 * Calculate the percentage of machine translation out of the whole article.
+	 *
 	 * @return {Object} Map of weights
 	 * @return {number} return.any Weight of sections with content
 	 * @return {number} return.human Weight of sections with human modified content
@@ -107,6 +108,7 @@
 
 	/**
 	 * Return all translation sections that have any text.
+	 *
 	 * @return {jQuery}
 	 */
 	function getSectionsWithContent() {
@@ -115,6 +117,7 @@
 
 	/**
 	 * Update/Change handler for section.
+	 *
 	 * @param {jQuery} $section The source section
 	 */
 	function onSectionUpdate( $section ) {

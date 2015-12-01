@@ -1,7 +1,6 @@
-/**
+/*!
  * Content Translation invitation for editors while trying to create a new article.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

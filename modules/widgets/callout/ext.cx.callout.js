@@ -18,7 +18,7 @@
 	 *
 	 * @param {HTMLElement} element The trigger element to which callout attaches.
 	 * @param {Object} options Options object
-	 * @param {String|Function} options.direction Direction of callout.
+	 * @param {string|Function} options.direction Direction of callout.
 	 *     Imagine the callout is along with the direction of a clock handle with the tip at top of
 	 *     the handle.
 	 *         11  12  1
@@ -43,9 +43,9 @@
 	 *      |      > *
 	 *      |_____|
 	 *     Auto direction will change direction if screen space is not available.
-	 * @param {Number} options.offset Offset of the dialog from the trigger
-	 * @param {Number} options.opacity Opacity of callout
-	 * @param {String} options.trigger Trigger: available options: hover, click,
+	 * @param {number} options.offset Offset of the dialog from the trigger
+	 * @param {number} options.opacity Opacity of callout
+	 * @param {string} options.trigger Trigger: available options: hover, click,
 	 *     and auto(show automatically without any trigger).
 	 *     Any other value will assume the client of this libary will take care of show/hide
 	 */
@@ -252,6 +252,7 @@
 
 	/**
 	 * Construct and return the dialog
+	 *
 	 * @return {jQuery}
 	 */
 	Callout.prototype.dialog = function () {

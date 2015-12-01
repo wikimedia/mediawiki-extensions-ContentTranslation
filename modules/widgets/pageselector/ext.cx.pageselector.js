@@ -6,6 +6,7 @@
 
 	/**
 	 * MediaWikiPageSelector widget
+	 *
 	 * @param {jQuery|HTMLElement} input field
 	 * @param {Object} [options]
 	 */
@@ -33,6 +34,7 @@
 
 	/**
 	 * Set the API to use for querying pages.
+	 *
 	 * @param {mediawiki.Api} api MediaWiki API instance
 	 */
 	MediaWikiPageSelector.prototype.setApi = function ( api ) {
@@ -41,6 +43,7 @@
 
 	/**
 	 * Get the pages matching the given query
+	 *
 	 * @param {string} input The query string
 	 * @return {jQuery.Promise}
 	 */
@@ -140,6 +143,7 @@
 
 	/**
 	 * Select the given page
+	 *
 	 * @param {jQuery} $item Menu item
 	 */
 	MediaWikiPageSelector.prototype.select = function ( $item ) {

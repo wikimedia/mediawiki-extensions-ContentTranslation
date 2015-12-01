@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -20,6 +19,7 @@
 	 * - Accept-Language.
 	 * - Browser interface language.
 	 * This will probably include more languages in the future.
+	 *
 	 * @return {string[]} target languages
 	 */
 	function getSuggestedTargetLanguages() {
@@ -72,6 +72,7 @@
 
 	/**
 	 * Is there a page in the target language?
+	 *
 	 * @param {string} code
 	 * @return {boolean}
 	 */

@@ -1,7 +1,6 @@
-/**
+/*!
  * Provides entry point in Special:MyContributions
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

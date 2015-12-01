@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -13,6 +12,7 @@
 
 	/**
 	 * Reference Card
+	 *
 	 * @class
 	 */
 	function ReferenceCard() {
@@ -24,6 +24,7 @@
 
 	/**
 	 * Get the reference card
+	 *
 	 * @return {jQuery}
 	 */
 	ReferenceCard.prototype.getCard = function () {
@@ -127,6 +128,7 @@
 	 * linked by mw-data.body.id.
 	 * See https://phabricator.wikimedia.org/T88290
 	 * and https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
+	 *
 	 * @param {string} referenceId The reference element Identifier.
 	 * @return {string|null} The HTML content of the reference.
 	 */
@@ -176,6 +178,7 @@
 
 	/**
 	 * Start presenting the reference card
+	 *
 	 * @param {string} referenceId The reference element Identifier.
 	 * @param {string} language Language code of language where this reference exist.
 	 */

@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Selection Utility
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -24,7 +23,7 @@
 	 * Captures the current selection and returns it.
 	 * Cross-browser
 	 *
-	 * @return {object|false}
+	 * @return {Object|boolean}
 	 */
 	Selection.prototype.get = function () {
 		// Standards
@@ -43,8 +42,8 @@
 	 * Returns the range of a selection.
 	 * Cross-browser
 	 *
-	 * @param {object} selection, a selection object
-	 * @return {object|false}
+	 * @param {Object} selection a selection object
+	 * @return {Object|boolean}
 	 */
 	function getRange( selection ) {
 		// Standards
@@ -65,8 +64,8 @@
 	/**
 	 * Saves a selection range for later retrieval
 	 *
-	 * @param {string} key, the key to use for storage
-	 * @param {object} selection, the selection save the range from
+	 * @param {string} key the key to use for storage
+	 * @param {Object} selection the selection save the range from
 	 */
 	Selection.prototype.save = function ( key, selection ) {
 		this.ranges[ key ] = getRange( selection );
@@ -76,7 +75,7 @@
 	 * Sets focus on parent element of range
 	 * Required for restoring selections on FireFox
 	 *
-	 * @param {object} range The range to get parent from
+	 * @param {Object} range The range to get parent from
 	 */
 	function setFocusOnParentBlock( range ) {
 		var parent, cStyle;
@@ -93,9 +92,10 @@
 			parent.focus();
 		}
 	}
-	/*
+	/**
 	 * Get parent of the given range.
-	 * @param {object} range The range to get parent from
+	 *
+	 * @param {Object} range The range to get parent from
 	 */
 	function getRangeParent( range ) {
 		var parent;
@@ -113,7 +113,9 @@
 
 	/**
 	 * Returns the parent node of the current selection
-	 * @return {Element}
+	 *
+	 * @param {string} key
+	 * @return {Object|null}
 	 */
 	Selection.prototype.getParent = function ( key ) {
 		var range;
@@ -129,7 +131,7 @@
 	 * Restores a saved selection
 	 * Cross-browser.
 	 *
-	 * @param {string} key, the key for the saved selection range
+	 * @param {string} key the key for the saved selection range
 	 */
 	Selection.prototype.restore = function ( key ) {
 		var currentSelection, range;
@@ -162,8 +164,8 @@
 	 * and restores that range before pasting.
 	 * If no selection is specified, the current selection is used.
 	 *
-	 * @param {string} html, the html to paste
-	 * @param {string} rangeToRestore, key for the range to restore
+	 * @param {string} html the html to paste
+	 * @param {string} rangeToRestore key for the range to restore
 	 */
 	Selection.prototype.pasteHTML = function ( html, rangeToRestore ) {
 		var selection, range, el, frag, node, lastNode;
@@ -203,6 +205,7 @@
 
 	/**
 	 * Place the cursor after the selection.
+	 *
 	 * @param {string} key key for the range to restore
 	 */
 	Selection.prototype.setCursorAfter = function ( key ) {
@@ -220,7 +223,8 @@
 
 	/**
 	 * Wrap the selection corresponding to the given key with the given element
-	 * @param {string} key, the key for the saved selection range
+	 *
+	 * @param {string} key the key for the saved selection range
 	 * @param  {Element} element The element that wraps the selection
 	 */
 	Selection.prototype.wrap = function ( key, element ) {

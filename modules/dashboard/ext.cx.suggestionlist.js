@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation extension - Translation suggestions listing in dashboard.
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+

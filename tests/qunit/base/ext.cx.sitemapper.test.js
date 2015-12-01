@@ -1,5 +1,4 @@
-/**
- * @file
+/*!
  * @author Niklas Laxström
  * @license GPL-2.0+
  */
@@ -41,10 +40,10 @@
 		this.siteMapper.getApi( 'he' ).get( { action: 'testaction', format: 'json' } );
 		assert.strictEqual( server.requests.length, 1 );
 		assert.strictEqual(
-			server.requests[0].url,
+			server.requests[ 0 ].url,
 			'https://he.wikipedia.org/w/api.php?action=testaction&format=json'
 		);
 
-		server.requests[0].respond( 500 );
+		server.requests[ 0 ].respond( 500 );
 	} );
 }( jQuery, mediaWiki ) );

@@ -1,8 +1,7 @@
-/**
+/*!
  * A link from ContentTranslation dashboard to Magnus Manske's
  * tool for finding missing articles.
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+

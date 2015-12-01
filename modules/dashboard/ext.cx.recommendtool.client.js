@@ -1,11 +1,10 @@
-/**
+/*!
  * Module to interface with article recommendation tool AND to get seeds for the tool.
  *
  * The recommendation tool is also known as trex in this code.
  *
  * See http://recommend.wmflabs.org/ and https://github.com/ewulczyn/translation-recs-app
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+

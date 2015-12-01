@@ -1,7 +1,6 @@
-/**
+/*!
  * ContentTranslation Stats
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -525,6 +524,7 @@
 	/**
 	 * Get the Content Translation trend for the given target language.
 	 * Fetch the number of translations to the given language.
+	 *
 	 * @param {string} targetLanguage Target language code
 	 * @return {jQuery.Promise}
 	 */

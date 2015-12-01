@@ -1,9 +1,8 @@
-/**
+/*!
  * ContentTranslation Tools
  * A tool that allows editors to translate pages from one language
  * to another with the help of machine translation and other translation tools
  *
- * @file
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -48,6 +47,7 @@
 
 	/**
 	 * CXCategoryCounter Class
+	 *
 	 * @class
 	 * @param {string} language The language for the counter
 	 * @param {CXCategoryTool} categoryTool The CXCategoryTool
@@ -136,6 +136,7 @@
 
 	/**
 	 * CXCategoryListing Class
+	 *
 	 * @class
 	 * @param {string} language The language for the counter
 	 * @param {CXCategoryTool} categoryTool The CXCategoryTool
@@ -354,7 +355,7 @@
 	/**
 	 * Adds categories to the category listing.
 	 *
-	 * @param {object} categories A key value object with ids and titles
+	 * @param {Object} categories A key value object with ids and titles
 	 * @param {boolean} clear A flag to clear existing categories
 	 */
 	CXCategoryListing.prototype.addCategories = function ( categories, clear ) {
@@ -449,6 +450,7 @@
 
 	/**
 	 * CX Category Tool Class.
+	 *
 	 * @class
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
@@ -542,7 +544,7 @@
 	/**
 	 * Adapts a set of categories.
 	 *
-	 * @param {object} categories A key value listing of ids and titles
+	 * @param {Object} categories A key value listing of ids and titles
 	 * @param {string} language The language for adaptation
 	 * @return {jQuery.Promise}
 	 */
