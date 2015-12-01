@@ -842,7 +842,9 @@
 	};
 
 	CXSuggestionList.prototype.refreshPublicLists = function () {
-		var self = this;
+		var self = this,
+			categoryListCount = 2;
+
 		// Scroll the page up to the beginning of $publicCollection
 		$( 'html, body' ).animate( {
 			// 200 px subtracted to deal with the sticky header.
@@ -852,14 +854,20 @@
 		}, 'slow' );
 
 		$.each( this.lists, function ( index, list ) {
-			if ( list.$list &&
-				( list.type === listTypes.TYPE_FEATURED ||
-					list.type === listTypes.TYPE_PERSONALIZED
-				)
-			) {
+			if ( !list.$list ) {
+				return;
+			}
+
+			if ( list.type === listTypes.TYPE_FEATURED || list.type === listTypes.TYPE_PERSONALIZED ) {
 				self.refreshList( list.id );
+			} else if ( list.type === listTypes.TYPE_CATEGORY && categoryListCount ) {
+				// The first two lists shown will be removed.
+				list.$list.remove();
+				delete self.lists[ index ];
+				categoryListCount--;
 			}
 		} );
+
 	};
 
 	/**
