@@ -19,7 +19,7 @@
 	"cx-header-all-translations": "Allar þýðingar",
 	"cx-source-view-page": "skoða síðu",
 	"cx-publish-page-success": "Síða birt á $1",
-	"cx-publish-page-error": "Villa kom upp við vistun síðunnar. Vinsamlegast reyndu að gefa greinina út aftur.",
+	"cx-publish-page-error": "Villa kom upp við útgáfu þýðingarinnar. Vinsamlegast reyndu að gefa greinina út aftur. Villa: $1",
 	"cx-publish-button": "Gefa út þýðingu",
 	"cx-publish-button-publishing": "Gefur út...",
 	"cx-publish-summary": "Búið til með því að þýða síðuna \"$1\"",
