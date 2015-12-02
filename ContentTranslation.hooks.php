@@ -275,28 +275,25 @@ class ContentTranslationHooks {
 		$notifications['cx-first-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
-			'formatter-class' => 'EchoBasicFormatter',
+			'presentation-model' => 'EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-first-translation',
 			'email-subject-message' => 'cx-notification-first-translation-email-subject',
-			'icon' => 'cx',
 		);
 
 		$notifications['cx-tenth-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
-			'formatter-class' => 'EchoBasicFormatter',
+			'presentation-model' => 'EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-tenth-translation',
 			'email-subject-message' => 'cx-notification-tenth-translation-email-subject',
-			'icon' => 'cx',
 		);
 
 		$notifications['cx-hundredth-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
-			'formatter-class' => 'EchoBasicFormatter',
+			'presentation-model' => 'EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-hundredth-translation',
 			'email-subject-message' => 'cx-notification-hundredth-translation-email-subject',
-			'icon' => 'cx',
 		);
 
 		$icons['cx'] = array(

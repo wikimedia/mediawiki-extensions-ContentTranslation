@@ -81,6 +81,7 @@
 		"ContentTranslation\\SuggestionList": "includes/SuggestionList.php",
 		"ContentTranslation\\SuggestionListManager": "includes/SuggestionListManager.php",
 		"ContentTranslation\\Translator": "includes/Translator.php",
+		"EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
 	},
