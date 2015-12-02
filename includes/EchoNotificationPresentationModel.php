@@ -1,10 +1,12 @@
 <?php
 
+namespace ContentTranslation;
+
 /**
  * Class that returns structured data for the content translation echo events.
  * @see https://www.mediawiki.org/wiki/Echo_%28Notifications%29/New_formatter_system
  */
-class EchoNotificationPresentationModel extends EchoEventPresentationModel {
+class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 
 	public function getIconType() {
 		return 'cx';
