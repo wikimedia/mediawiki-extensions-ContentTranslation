@@ -1,7 +1,4 @@
 <?php
-
-use Firebase\JWT\JWT;
-
 /**
  * Module that provides JWT tokens to authenticate with cxserver.
  *
