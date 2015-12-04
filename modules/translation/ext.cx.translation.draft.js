@@ -396,16 +396,16 @@
 
 	mw.cx.ContentTranslationDraft = ContentTranslationDraft;
 	$( function () {
-		var drafId, draft;
+		var draftId, draft;
 
 		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
 			mw.log( 'The ext.cx.translation.draft module can only work if CX Database configured.' );
 			return;
 		}
 
-		drafId = new mw.Uri().query.draft;
-		draft = new ContentTranslationDraft( drafId );
-		if ( drafId ) {
+		draftId = new mw.Uri().query.draft;
+		draft = new ContentTranslationDraft( draftId );
+		if ( draftId ) {
 			draft.fetch();
 		}
 	} );
