@@ -58,7 +58,7 @@
 		}
 	];
 
-	QUnit.module( 'ext.cx.draft', QUnit.newMwEnvironment( {
+	QUnit.module( 'ext.cx.translation.draft', QUnit.newMwEnvironment( {
 		setup: function () {
 			mw.cx.ContentTranslationDraft.prototype.hasConflictingTranslation = function () {
 				return $.Deferred().resolve( false );

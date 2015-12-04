@@ -52,8 +52,8 @@
 			'ext.cx.publish'
 		];
 		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-			// CX Database configured. Load ext.cx.draft module.
-			modules.push( 'ext.cx.draft' );
+			// CX Database configured. Load ext.cx.translation.draft module.
+			modules.push( 'ext.cx.translation.draft' );
 		}
 
 		if ( mw.cx.sourceTitle ) {

@@ -218,7 +218,7 @@
 			$placeholderSection, orphans = [],
 			$lastPlaceholder;
 
-		// We cannot populate this early because this ext.cx.draft modules may be loaded before
+		// We cannot populate this early because this ext.cx.translation.draft modules may be loaded before
 		// source and target is ready.
 		if ( !this.$source || !this.$source.length ) {
 			this.$source = $( '.cx-column--source .cx-column__content' );
@@ -399,7 +399,7 @@
 		var drafId, draft;
 
 		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
-			mw.log( 'The ext.cx.drafts module can only work if CX Database configured.' );
+			mw.log( 'The ext.cx.translation.draft module can only work if CX Database configured.' );
 			return;
 		}
 

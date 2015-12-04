@@ -671,9 +671,9 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"ext.cx.draft": {
+		"ext.cx.translation.draft": {
 			"scripts": [
-				"draft/ext.cx.draft.js"
+				"translation/ext.cx.translation.draft.js"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
