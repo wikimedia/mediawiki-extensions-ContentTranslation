@@ -36,7 +36,7 @@
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
-			html: self.getContent(),
+			html: EasyDeflate.deflate( self.getContent() ),
 			status: 'published',
 			sourcerevision: mw.cx.sourceRevision,
 			categories: this.getCategories().join( '|' ),
