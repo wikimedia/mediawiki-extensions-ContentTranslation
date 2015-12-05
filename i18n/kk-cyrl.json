@@ -89,7 +89,9 @@
 	"cx-translation-filter-published-translations": "Жарияланды",
 	"cx-translation-filter-draft-translations": "Аударылып жатқан аудармалар",
 	"cx-translation-filter-suggested-translations": "Ұсыныстар",
-	"cx-suggestionlist-empty-title": "Кешіріңіз, ұсынуға беттер жоқ",
+	"cx-suggestionlist-title": "Басқа да ұсыныстар",
+	"cx-suggestionlist-empty-title": "Қазірге ұсыныстар жоқ",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Ұсыныстарды қарау (тәжірибелік)",
 	"cx-suggestionlist-featured": "Таңдаулы",
 	"cx-suggestionlist-view-source-page": "Қайнар бетін көру",
 	"cx-translation-filter-from-any-language": "Кез-келген тілден",
@@ -154,9 +156,13 @@
 	"cx-tools-link-external-link": "Сыртқы",
 	"cx-tools-link-external-link-placeholder": "Сыртқы сілтеме қосу",
 	"cx-tools-link-to-another-page": "Басқа бетке сілтеу",
+	"cx-tools-link-add-as-missing": "Қажет ететін сілтеме ретінде қосу",
 	"cx-tools-link-apply": "Бітті",
 	"mw-pageselector-missing": "Бет жоқ",
 	"cx-draft-restoring": "Сақталған аударма оқылып жатыр...",
 	"cx-draft-restored": "Сақталған аударма жүктелді.",
-	"cx-draft-restore-failed": "Сақталған аударма жүктелмеді!"
+	"cx-draft-restore-failed": "Сақталған аударма жүктелмеді!",
+	"cx-suggestionlist-expand": "Барлығын қарау",
+	"cx-suggestionlist-collapse": "Азырақ қарау",
+	"cx-suggestionlist-refresh": "Ұсыныстарды жаңарту"
 }

@@ -13,7 +13,8 @@
 			"Adriabages",
 			"Vriullop",
 			"F3RaN",
-			"Eduardo Martinez"
+			"Eduardo Martinez",
+			"Jaumeortola"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -174,7 +175,7 @@
 	"cx-stats-local-published-number": "$1 en $2",
 	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traducció|$1 traduccions}}",
-	"cx-tools-missing-link-text": "{{GENDER:|Marca}} que la pàgina no hi és per tal d'afavorir-ne la creació.",
+	"cx-tools-missing-link-text": "{{GENDER:|Marca}} que la pàgina no hi és per a afavorir-ne la creació.",
 	"cx-tools-missing-link-tooltip": "Tradueix (en una finestra nova)",
 	"cx-tools-missing-link-title": "Hi manca un enllaç",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Mark}} com que hi manca",

@@ -6,5 +6,9 @@
 		]
 	},
 	"cx-entrypoint-title": "Бу битне $1 теленә тәрҗемә итү",
-	"cx-contributions-new-contributions": "Яңа кертем"
+	"cx-contributions-new-contributions": "Яңа кертем",
+	"cx-campaign-contributionsmenu-mycontributions": "Кертем",
+	"cx-campaign-contributionsmenu-mytranslations": "Тәрҗемәләр",
+	"cx-campaign-contributionsmenu-myuploads": "Йөкләнелгән медиа",
+	"cx-stats-tabs-expand": "Бөтен телләрдә"
 }

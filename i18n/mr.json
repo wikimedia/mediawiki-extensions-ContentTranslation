@@ -26,7 +26,7 @@
 	"cx-publish-summary": "\"$1\" पानाचे भाषांतर करुन तयार झाले",
 	"cx-publish-gt-no-permission-to-move-description": "य संकेतस्थळावरच्या निष्णात सदस्यास आपले भाषांतराच्या पुनरावलोकनासाठी सांगा व मुख्य जागेत ते प्रकाशित करा.",
 	"cx-publish-gt-first-step-title": "ते भाषांतर आपल्या सदस्यपानावर, आराखडा म्हणून पुनरावलोकनासाठी प्रकाशित करण्यात आलेले आहे",
-	"cx-publish-gt-first-step-description": "सर्व सदस्यांना ते पान नियमितरुपाने उपलब्ध होण्यासाठी ह्या मेनुमध्ये असलेल्या \"{{int:vector-action-move}}\" क्रियेवर टिचका.",
+	"cx-publish-gt-first-step-description": "सर्व सदस्यांना ते पान नियमितरुपाने उपलब्ध होण्यासाठी या मेनुमध्ये असलेल्या \"{{int:vector-action-move}}\" या कळीवर टिचका.",
 	"cx-publish-gt-move-page-title": "हे पान स्थानांतरित करा",
 	"cx-publish-gt-move-page-description": "\"{{int:blanknamespace}}\"नामविश्व निवडुन आपल्या पानास यथायोग्य शिर्षक द्या.",
 	"cx-publish-gt-moved-title": "भाषांतरीत पानाचे स्थलांतर केल्या गेले",
