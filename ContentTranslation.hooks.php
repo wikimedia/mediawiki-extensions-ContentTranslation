@@ -171,7 +171,8 @@ class ContentTranslationHooks {
 			$wgContentTranslationCampaigns,
 			$wgContentTranslationBrowserBlacklist,
 			$wgContentTranslationDefaultSourceLanguage,
-			$wgContentTranslationTargetNamespace;
+			$wgContentTranslationTargetNamespace,
+			$wgContentTranslationCorpora;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
@@ -183,6 +184,7 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationBrowserBlacklist'] = $wgContentTranslationBrowserBlacklist;
 		$vars['wgContentTranslationDefaultSourceLanguage'] = $wgContentTranslationDefaultSourceLanguage;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
+		$vars['wgContentTranslationCorpora'] = $wgContentTranslationCorpora;
 	}
 
 	/**

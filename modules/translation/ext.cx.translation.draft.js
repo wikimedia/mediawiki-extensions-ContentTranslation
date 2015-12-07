@@ -430,19 +430,5 @@
 			);
 		} );
 	};
-
 	mw.cx.ContentTranslationDraft = ContentTranslationDraft;
-	$( function () {
-		var draft,
-			query = new mw.Uri().query;
-
-		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
-			mw.log( 'The ext.cx.translation.draft module can only work if CX Database configured.' );
-			return;
-		}
-		draft = new ContentTranslationDraft();
-		if ( query.to && query.from && query.page ) {
-			draft.init();
-		}
-	} );
 }( jQuery, mediaWiki ) );

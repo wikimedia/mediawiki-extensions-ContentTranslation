@@ -37,11 +37,12 @@
 		"EchoGetDefaultNotifiedUsers": "ContentTranslationHooks::onEchoGetDefaultNotifiedUsers"
 	},
 	"APIModules": {
-		"cxpublish": "ApiContentTranslationPublish",
-		"cxdelete": "ApiContentTranslationDelete",
 		"cxconfiguration": "ApiContentTranslationConfiguration",
-		"cxtoken": "ApiContentTranslationToken",
-		"cxsuggestionlist": "ApiContentTranslationSuggestionList"
+		"cxdelete": "ApiContentTranslationDelete",
+		"cxpublish": "ApiContentTranslationPublish",
+		"cxsave": "ApiContentTranslationSave",
+		"cxsuggestionlist": "ApiContentTranslationSuggestionList",
+		"cxtoken": "ApiContentTranslationToken"
 	},
 	"APIListModules": {
 		"contenttranslation": "ApiQueryContentTranslation",
@@ -62,6 +63,7 @@
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
 		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
 		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
+		"ApiContentTranslationSave": "api/ApiContentTranslationSave.php",
 		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
 		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
@@ -72,16 +74,18 @@
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
 		"ContentTranslation\\Database": "includes/Database.php",
 		"ContentTranslation\\Draft": "includes/Draft.php",
+		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
 		"ContentTranslation\\GlobalUser": "includes/GlobalUser.php",
 		"ContentTranslation\\Notification": "includes/Notification.php",
 		"ContentTranslation\\SiteMapper": "includes/SiteMapper.php",
 		"ContentTranslation\\Stats": "includes/Stats.php",
-		"ContentTranslation\\Translation": "includes/Translation.php",
 		"ContentTranslation\\Suggestion": "includes/Suggestion.php",
 		"ContentTranslation\\SuggestionList": "includes/SuggestionList.php",
 		"ContentTranslation\\SuggestionListManager": "includes/SuggestionListManager.php",
+		"ContentTranslation\\Translation": "includes/Translation.php",
+		"ContentTranslation\\TranslationUnit": "includes/TranslationUnit.php",
+		"ContentTranslation\\TranslationStorageManager": "includes/TranslationStorageManager.php",
 		"ContentTranslation\\Translator": "includes/Translator.php",
-		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
 	},
@@ -140,7 +144,8 @@
 			"key": "",
 			"age": "3600"
 		},
-		"ContentTranslationEnableSuggestions": false
+		"ContentTranslationEnableSuggestions": false,
+		"ContentTranslationCorpora": false
 	},
 	"ResourceModules": {
 		"Base64.js": {
@@ -703,6 +708,19 @@
 				"cx-draft-restoring",
 				"cx-draft-restored",
 				"cx-draft-restore-failed"
+			]
+		},
+		"ext.cx.translation.storage.init": {
+			"scripts": [
+				"translation/ext.cx.translation.storage.init.js"
+			]
+		},
+		"ext.cx.translation.storage": {
+			"scripts": [
+				"translation/ext.cx.translation.storage.js"
+			],
+			"dependencies": [
+				"easy-deflate.deflate"
 			]
 		},
 		"ext.cx.publish": {

@@ -65,5 +65,8 @@
 	"apihelp-cxsuggestionlist-param-listaction": "{{doc-apihelp-param|cxsuggestionlist|listaction}}",
 	"apihelp-cxsuggestionlist-param-titles": "{{doc-apihelp-param|cxsuggestionlist|titles}}",
 	"apihelp-cxsuggestionlist-param-from": "{{doc-apihelp-param|cxsuggestionlist|from}}",
-	"apihelp-cxsuggestionlist-param-to": "{{doc-apihelp-param|cxsuggestionlist|to}}"
+	"apihelp-cxsuggestionlist-param-to": "{{doc-apihelp-param|cxsuggestionlist|to}}",
+	"apihelp-cxsave-example-1": "{{doc-apihelp-description|cxsave}}",
+	"apihelp-cxsave-param-translationId": "{{doc-apihelp-param|cxsave|translationId}}",
+	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}"
 }

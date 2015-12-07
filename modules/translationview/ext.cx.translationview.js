@@ -48,12 +48,9 @@
 			'ext.cx.tools',
 			'ext.cx.translation',
 			'ext.cx.translation.progress',
-			'ext.cx.publish'
+			'ext.cx.publish',
+			'ext.cx.translation.storage.init'
 		];
-		if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-			// CX Database configured. Load ext.cx.translation.draft module.
-			modules.push( 'ext.cx.translation.draft' );
-		}
 
 		if ( mw.cx.sourceTitle ) {
 			mw.loader.using( modules ).then( function () {

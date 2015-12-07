@@ -247,7 +247,8 @@
 						.attr( {
 							id: 'cx' + sourceId,
 							'data-source': sourceId,
-							'data-cx-state': 'mt'
+							'data-cx-state': 'mt',
+							'data-cx-mt-provider': MTControlCard.provider
 						} )
 					);
 					// $section was replaced. Get the updated instance.
