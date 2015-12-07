@@ -13,26 +13,41 @@
 
 	/**
 	 * @class
-	 * @param {number} draftId Draft id
 	 */
-	function ContentTranslationDraft( draftId ) {
-		this.draftId = draftId;
+	function ContentTranslationDraft() {
 		this.$draft = null;
 		this.disabled = false;
 		this.$source = null;
 		this.$translation = null;
-		this.init();
 		this.listen();
 	}
 
+	/**
+	 * Initalize the draft storage.
+	 *
+	 * @return {jQuery.Promise}
+	 */
 	ContentTranslationDraft.prototype.init = function () {
 		var self = this;
-
-		this.hasConflictingTranslation().done( function ( translation ) {
-			if ( translation !== null ) {
+		// There is no known consumer for this return value. Just returning it
+		// to help testing in future.
+		return this.find().then( function ( translation ) {
+			if ( !translation ) {
+				return false;
+			}
+			// If this translation is draft and not by current user, there is an
+			// existing translation.
+			if ( translation.translatorName !== mw.user.getName() &&
+				translation.status === 'draft'
+			) {
 				self.showConflictWarning( translation );
 				self.disabled = true;
+				return false;
 			}
+			// Set the translationId
+			mw.cx.translationId = translation.id;
+			// Fetch the translation content
+			return self.fetch();
 		} );
 	};
 
@@ -101,53 +116,37 @@
 	 * Find if there is a draft existing for the current title and language pair.
 	 * @return {jQuery.Promise}
 	 */
-	ContentTranslationDraft.prototype.hasConflictingTranslation = function () {
-		var deferred = $.Deferred(),
-			api = new mw.Api();
+	ContentTranslationDraft.prototype.find = function () {
+		var api = new mw.Api();
 
-		api.get( {
+		return api.get( {
 			action: 'query',
 			list: 'contenttranslation',
 			sourcetitle: mw.cx.sourceTitle,
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			format: 'json'
-		} ).done( function ( response ) {
-			var translation;
-
-			translation = response.query && response.query.contenttranslation.translation;
-			// If this translation is draft and not by current user, there is an
-			// existing translation.
-			if ( translation &&
-				translation.translatorName !== mw.user.getName() &&
-				translation.status === 'draft'
-			) {
-				deferred.resolve( translation );
-			} else {
-				deferred.resolve( null );
-			}
+		} ).then( function ( response ) {
+			return response.query && response.query.contenttranslation.translation;
 		} );
-
-		return deferred.promise();
 	};
 
 	/**
 	 * Fetch a draft content and restore it.
+	 * @return {jQuery.Promise}
 	 */
 	ContentTranslationDraft.prototype.fetch = function () {
 		var self = this,
 			api = new mw.Api();
 
 		mw.hook( 'mw.cx.draft.restoring' ).fire();
-		// TODO: The fetch can start immediately when the module loaded
-		// Only the restoring part need to delay till placeholders are rendered.
-		// Now there is a visible delay between placeholder rendering and restoring draft.
-		api.get( {
+
+		return api.get( {
 			action: 'query',
 			list: 'contenttranslation',
-			translationid: this.draftId,
+			translationid: mw.cx.translationId,
 			format: 'json'
-		} ).done( function ( response ) {
+		} ).then( function ( response ) {
 			var translation, draftContent;
 
 			translation = response.query.contenttranslation.translation;
@@ -158,7 +157,7 @@
 				self.restore();
 				mw.hook( 'mw.cx.draft.restored' ).fire();
 			} );
-		} ).fail( function ( errorCode, details ) {
+		}, function ( errorCode, details ) {
 			var uri = new mw.Uri();
 
 			// Wrong draft id passed.
@@ -396,17 +395,16 @@
 
 	mw.cx.ContentTranslationDraft = ContentTranslationDraft;
 	$( function () {
-		var draftId, draft;
+		var draft,
+			query = new mw.Uri().query;
 
 		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
 			mw.log( 'The ext.cx.translation.draft module can only work if CX Database configured.' );
 			return;
 		}
-
-		draftId = new mw.Uri().query.draft;
-		draft = new ContentTranslationDraft( draftId );
-		if ( draftId ) {
-			draft.fetch();
+		draft = new ContentTranslationDraft();
+		if ( query.to && query.from && query.page ) {
+			draft.init();
 		}
 	} );
 }( jQuery, mediaWiki ) );

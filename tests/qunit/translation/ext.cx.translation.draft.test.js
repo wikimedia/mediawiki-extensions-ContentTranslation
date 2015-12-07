@@ -60,9 +60,6 @@
 
 	QUnit.module( 'ext.cx.translation.draft', QUnit.newMwEnvironment( {
 		setup: function () {
-			mw.cx.ContentTranslationDraft.prototype.hasConflictingTranslation = function () {
-				return $.Deferred().resolve( false );
-			};
 			this.cxDraft = new mw.cx.ContentTranslationDraft();
 		}
 	} ) );
