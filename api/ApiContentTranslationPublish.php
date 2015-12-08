@@ -381,9 +381,6 @@ class ApiContentTranslationPublish extends ApiBase {
 			'title' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
-			'token' => array(
-				ApiBase::PARAM_REQUIRED => true,
-			),
 			'html' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -415,14 +412,6 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function needsToken() {
 		return 'csrf';
-	}
-
-	public function getTokenSalt() {
-		return '';
-	}
-
-	public function mustBePosted() {
-		return true;
 	}
 
 	public function isWriteMode() {

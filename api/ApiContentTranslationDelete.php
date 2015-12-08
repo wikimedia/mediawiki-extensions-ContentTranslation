@@ -40,9 +40,6 @@ class ApiContentTranslationDelete extends ApiBase {
 
 	public function getAllowedParams() {
 		return array(
-			'token' => array(
-				ApiBase::PARAM_REQUIRED => true,
-			),
 			'from' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -57,14 +54,6 @@ class ApiContentTranslationDelete extends ApiBase {
 
 	public function needsToken() {
 		return 'csrf';
-	}
-
-	public function getTokenSalt() {
-		return '';
-	}
-
-	public function mustBePosted() {
-		return true;
 	}
 
 	public function isWriteMode() {
