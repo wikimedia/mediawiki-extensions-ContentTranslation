@@ -41,7 +41,7 @@
 	"cx-publish-gt-no-permission-to-move-description": "이 사이트의 숙련된 사용자에게 당신의 번역을 검토하고 일반 이름공간으로 이동하도록 요청하세요.",
 	"cx-publish-gt-first-step-title": "번역 검토를 위해 당신의 사용자 하위 문서에 초안으로 게시되었습니다",
 	"cx-publish-gt-first-step-description": "내용을 모든 사용자가 일반 문서로 볼 수 있게 하려면 이 메뉴의 \"{{int:vector-action-move}}\" 동작을 클릭하세요.",
-	"cx-publish-gt-move-page-title": "문서 옮기기",
+	"cx-publish-gt-move-page-title": "문서 이동",
 	"cx-publish-gt-move-page-description": "\"{{int:blanknamespace}}\" 이름공간을 고른 후 페이지에 적절한 제목을 붙이세요.",
 	"cx-publish-gt-moved-title": "번역된 문서는 이동되었습니다",
 	"cx-publish-gt-moved-description": "내가 번역한 새로운 문서를 읽고 개선하려면 이 링크를 클릭",

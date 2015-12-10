@@ -53,7 +53,7 @@
 	"tag-contenttranslation-description": "Zawartość strony przetłumaczono przy pomocy narzędzia Tłumaczenie Treści.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie Treści",
-	"cx-beta-desc": "Narzędzie do szybkiego tłumaczenia stron na Twój język. Rozpocznij tłumaczenie od [[Special:MyContributions|strony Twojego wkładu]], i edytuj ją wraz z naszym edytorem \"okno w okno\", dostosowanym specjalnie do tłumaczeń. Niektóre narzędzia mogą być dostępne tylko dla wybranych języków.",
+	"cx-beta-desc": "Narzędzie do szybkiego tłumaczenia stron na Twój język. Rozpocznij tłumaczenie od [[Special:MyContributions|strony Twojego wkładu]] i edytuj ją wraz z naszym edytorem „okno w okno”, dostosowanym specjalnie do tłumaczeń. Niektóre narzędzia mogą być dostępne tylko dla wybranych języków.",
 	"cx-entrypoint-title": "Przetłumacz tę stronę na $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Nie ma jeszcze tej strony w $1. Czy chcesz ją utworzyć?",
 	"cx-entrypoint-dialog-title-in": "Tytuł nowej strony w $1:",
