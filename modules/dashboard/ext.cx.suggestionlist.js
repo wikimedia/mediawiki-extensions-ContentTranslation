@@ -501,7 +501,7 @@
 			.append( $translationLink, $desc, $metaDataContainer );
 		$actions = $( '<div>' )
 			.addClass( 'cx-slitem__actions' )
-			.append( $discardAction, $favoriteAction );
+			.append( $favoriteAction, $discardAction );
 		$suggestion.append(
 			$image,
 			$titleLanguageBlock,

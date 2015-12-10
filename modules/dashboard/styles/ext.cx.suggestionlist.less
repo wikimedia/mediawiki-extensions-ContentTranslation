@@ -97,8 +97,11 @@
 .cx-slitem__actions {
 	.mw-ui-one-sixth;
 	float: right;
-	position: relative;
-	padding-top: 90px/2 - 30px/2;
+	min-height: 90px;
+	/* In supported browsers, center it */
+	display: flex;
+	justify-content: flex-end; /* align towards end */
+	align-items: center; /* align vertically */
 }
 
 .cx-slitem__action {
