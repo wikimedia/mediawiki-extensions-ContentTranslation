@@ -678,8 +678,9 @@
 			"dependencies": [
 				"easy-deflate.deflate",
 				"ext.cx.model",
+				"jquery.throttle-debounce",
 				"mediawiki.api.edit",
-				"jquery.throttle-debounce"
+				"mediawiki.user"
 			],
 			"messages": [
 				"cx-lost-session-draft",

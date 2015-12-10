@@ -15,9 +15,9 @@
 	 */
 	function ContentTranslationDraft() {
 		this.$draft = null;
+		this.$sourceColumn = null;
+		this.$translationColumn = null;
 		this.disabled = false;
-		this.$source = null;
-		this.$translation = null;
 		this.listen();
 	}
 
@@ -57,12 +57,11 @@
 	 * @return {string} HTML to save
 	 */
 	ContentTranslationDraft.prototype.getContent = function () {
-		var $content;
+		var $content, $translationColumn;
 
-		if ( !this.$translation || !this.$translation.length ) {
-			this.$translation = $( '.cx-column--translation .cx-column__content' );
-		}
-		$content = this.$translation.clone();
+		$translationColumn = this.$translationColumn ||
+			$( '.cx-column--translation .cx-column__content' );
+		$content = $translationColumn.clone();
 		// Remove placeholder sections
 		$content.find( '.placeholder' ).remove();
 		// Remove empty sections.
@@ -192,8 +191,8 @@
 	ContentTranslationDraft.prototype.addOrphanTranslation = function ( $translation, $section, afterOrBefore ) {
 		// Add a dummy source section
 		var $dummySourceSection = $( '<' + $translation.prop( 'tagName' ) + '>' )
-			.css( 'height', 1 ) // Non-zero height to avoid it ignored by keepAlignment plugin.
-			.attr( 'id', $translation.data( 'source' ) );
+			.css( 'height', 1 ) // Non-zero height to avoid it being ignored by keepAlignment plugin.
+			.prop( 'id', $translation.data( 'source' ) );
 
 		if ( afterOrBefore === 'after' ) {
 			$( '#' + $section.data( 'source' ) ).after( $dummySourceSection );
@@ -202,6 +201,7 @@
 			$( '#' + $section.data( 'source' ) ).before( $dummySourceSection );
 			$section.before( $translation );
 		}
+
 		// Annotate the section to indicate it was restored from draft
 		// so that certain adaptations can be skipped.
 		$translation.attr( {
@@ -209,6 +209,7 @@
 			'data-cx-draft': true,
 			'data-source': $dummySourceSection.prop( 'id' )
 		} ).keepAlignment();
+
 		mw.hook( 'mw.cx.translation.postMT' ).fire( $translation );
 	};
 
@@ -216,31 +217,54 @@
 	 * Restore this draft to the appropriate placeholders
 	 */
 	ContentTranslationDraft.prototype.restore = function () {
-		var i, j, $draftSection, sectionId, $section, $sourceSection,
-			$placeholderSection, orphans = [],
-			$lastPlaceholder;
+		var i, j, $sourceColumn, $translationColumn,
+			sectionId, sourceId, randomId,
+			$draftSection = [],
+			$section = [],
+			$sourceSection = [],
+			$placeholderSection = [],
+			orphans = [];
 
-		// We cannot populate this early because this ext.cx.translation.draft modules may be loaded before
-		// source and target is ready.
-		if ( !this.$source || !this.$source.length ) {
-			this.$source = $( '.cx-column--source .cx-column__content' );
-		}
-		if ( !this.$translation || !this.$translation.length ) {
-			this.$translation = $( '.cx-column--translation .cx-column__content' );
-		}
+		$sourceColumn = this.$sourceColumn ||
+			$( '.cx-column--source .cx-column__content' );
+		$translationColumn = this.$translationColumn ||
+			$( '.cx-column--translation .cx-column__content' );
+
 		for ( i = 0; i < this.$draft.length; i++ ) {
 			$draftSection = $( this.$draft[ i ] );
 			sectionId = $draftSection.prop( 'id' );
-			if ( !sectionId ) {
-				// Is this possible?
+			sourceId = $draftSection.data( 'source' );
+
+			// Skip "empty" sections. If there is no text, nothing to translate, nothing to lose.
+			if ( $draftSection.text() === '' ) {
 				continue;
 			}
-			$placeholderSection = this.$translation.find( '#' + sectionId );
-			$sourceSection = this.$source.find( '#' + $placeholderSection.data( 'source' ) );
+
+			if ( !sectionId ) {
+				// If people add new paragraphs, those do not have ids. We set the
+				// source attribute here; addOrphanTranslation will take care of the id.
+				randomId = mw.user.generateRandomSessionId();
+				$draftSection.data( 'source', randomId );
+
+				mw.log( 'Found novel section. Named it as cx' + randomId );
+
+				// Insert right after last matched section if possible
+				if ( $section.length ) {
+					this.addOrphanTranslation( $draftSection, $section, 'after' );
+				} else {
+					orphans.push( $draftSection );
+				}
+
+				continue;
+			}
+
+			// TODO: Must check that source section exists and act accordingly.
+			$placeholderSection = $translationColumn.find( '#' + sectionId );
+			$sourceSection = $sourceColumn.find( '#' + $placeholderSection.data( 'source' ) );
 			if ( !$placeholderSection.length ) {
 				// Support old sections with sequential idendifiers
-				$sourceSection = this.$source.find( '[data-seqid="' + $draftSection.data( 'source' ) + '"]' );
-				$placeholderSection = this.$translation.find( '#cx' +
+				$sourceSection = $sourceColumn.find( '[data-seqid="' + sourceId + '"]' );
+				$placeholderSection = $translationColumn.find( '#cx' +
 					$sourceSection.prop( 'id' )
 				);
 				sectionId = $placeholderSection.prop( 'id' );
@@ -249,61 +273,70 @@
 					$draftSection.prop( 'id', sectionId );
 				}
 			}
-			// If we still don't see the source section for this draft section, it means the
-			// source article changed.
+
+			// If we still don't see the source section for this draft section,
+			// it means that the source article has changed.
 			if ( !$placeholderSection.length ) {
 				mw.log( 'Source section not found for ' + $draftSection.prop( 'id' ) );
-				orphans.push( $draftSection );
+
+				// Insert right after last matched section if possible
+				if ( $section.length ) {
+					this.addOrphanTranslation( $draftSection, $section, 'after' );
+				} else {
+					orphans.push( $draftSection );
+				}
+
 				continue;
 			}
 
 			$placeholderSection.replaceWith( $draftSection );
-			// Get new section
-			$section = this.$translation.find( '#' + sectionId );
-			// Annotate the section to indicate it was restored from draft
-			// so that certain adaptations can be skipped.
+
+			// Get new section so that we can annotate the section to indicate it
+			// was restored from draft, so that certain adaptations can be skipped.
+			$section = $translationColumn.find( '#' + sectionId );
 			$section.attr( {
 				'data-cx-draft': true,
 				'data-source': $sourceSection.prop( 'id' )
 			} ).keepAlignment();
+
 			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-			// We have a matching source and target section. Get all orphan backlog added.
-			// We add them before this section.
+
+			// As a last resort, if we did not add orphans immediately, add them
+			// now before this section.
 			for ( j = 0; j < orphans.length; j++ ) {
 				this.addOrphanTranslation( orphans[ j ], $section );
 			}
-			// Clear the orphans array
 			orphans = [];
 		}
 
-		// Do we have any more orphans left out?
-		if ( orphans.length === this.$draft.length ) {
-			// Source article changed completely!
-			for ( j = 0; j < orphans.length; j++ ) {
-				// Add it after the first placeholder
-				$placeholderSection = this.$translation.find( '.placeholder:first' );
-				if ( $placeholderSection && $placeholderSection.length ) {
-					sectionId = orphans[ j ].prop( 'id' );
-					$sourceSection = this.$source.find( '#' + $placeholderSection.data( 'source' ) );
-					$placeholderSection.replaceWith( orphans[ j ] );
-					$section = this.$translation.find( '#' + sectionId );
-					$section.attr( {
-						id: 'cx' + $sourceSection.prop( 'id' ),
-						'data-cx-draft': true,
-						'data-source': $sourceSection.prop( 'id' )
-					} ).keepAlignment();
-					mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-				} else {
-					// We ran out of placeholders. Add orphan sections to end.
-					this.addOrphanTranslation( orphans[ j ], $section, 'after' );
-				}
-			}
-		} else {
-			// Add it after the last placeholder
-			$lastPlaceholder = this.$translation.find( '.placeholder:last' );
-			for ( j = 0; j < orphans.length; j++ ) {
-				// Add it after the last placeholder
-				this.addOrphanTranslation( orphans[ j ], $lastPlaceholder, 'after' );
+		// We should not have anything more to do here, except if were not able
+		// to match nothing at all. This could be due to a bug or if source article
+		// changed completely. Let's just add what we have to the translation column.
+
+		if ( orphans.length ) {
+			mw.log( 'Draft restoration failed. Dumping draft unaligned' );
+		}
+
+		// TODO: tell the user or log this event somehow?
+		for ( j = 0; j < orphans.length; j++ ) {
+			$placeholderSection = $translationColumn.find( '.placeholder:first' );
+			if ( $placeholderSection.length ) {
+				sectionId = orphans[ j ].prop( 'id' );
+				$sourceSection = $sourceColumn.find( '#' + $placeholderSection.data( 'source' ) );
+				$placeholderSection.replaceWith( orphans[ j ] );
+
+				$section = $translationColumn.find( '#' + sectionId );
+				$section.attr( {
+					id: 'cx' + $sourceSection.prop( 'id' ),
+					'data-cx-draft': true,
+					'data-source': $sourceSection.prop( 'id' )
+				} ).keepAlignment();
+
+				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
+			} else {
+				// We ran out of placeholders. Add orphan sections to end.
+				// TODO: $section might be empty if source article is empty.
+				this.addOrphanTranslation( orphans[ j ], $section, 'after' );
 			}
 		}
 
