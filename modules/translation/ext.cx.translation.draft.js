@@ -45,8 +45,10 @@
 			}
 			// Set the translationId
 			mw.cx.translationId = translation.id;
-			// Fetch the translation content
-			return self.fetch();
+			if ( translation.status !== 'deleted' ) {
+				// Fetch the translation content
+				return self.fetch();
+			}
 		} );
 	};
 
