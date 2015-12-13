@@ -22,7 +22,7 @@ class ApiContentTranslationToken extends ApiBase {
 		}
 
 		// Do not fatal out
-		if ( !class_exists( 'JWT' ) ) {
+		if ( !class_exists( 'Firebase\JWT\JWT' ) ) {
 			$this->dieUsage( 'JWT missing', 'token-impossible' );
 		}
 
