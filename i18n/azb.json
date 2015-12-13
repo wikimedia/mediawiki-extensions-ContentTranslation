@@ -6,8 +6,13 @@
 			"Amire80"
 		]
 	},
+	"cx": "چئویرمه صفحه‌سی",
 	"cx-dashboard-header": "چئویرمه‌لر",
 	"cx-tools-link-title": "باغلانتی",
+	"cx-dashboard-sidebar-title": "چئویرمه‌لرده کؤمک {{GENDER:|ایسته‌ییرسینیز}}؟",
+	"cx-translation-filter-from-any-language": "هر دیل‌دن",
+	"cx-translation-filter-to-any-language": "هر دیله",
+	"cx-create-new-translation": "یئنی چئویرمه باشلایین",
 	"cx-contributions-upload": "یۆکله‌مه‌لر",
 	"cx-campaign-contributionsmenu-mycontributions": "چالیشمالار",
 	"cx-campaign-contributionsmenu-mytranslations": "چئویرمه‌لر",
