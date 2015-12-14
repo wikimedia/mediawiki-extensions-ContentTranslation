@@ -194,13 +194,43 @@
 	};
 
 	/**
+	 * Go to translation view
+	 *
+	 * @param {Object} translation
+	 */
+	CXTranslationList.prototype.startTranslation = function ( translation ) {
+		if ( translation.status === 'deleted' ) {
+			return false;
+		}
+
+		if ( translation.status === 'draft' ) {
+			// Set CX token as cookie.
+			mw.cx.siteMapper.setCXToken(
+				translation.sourceLanguage,
+				translation.targetLanguage,
+				translation.sourceTitle
+			);
+			location.href = new mw.Uri( mw.cx.siteMapper.getCXUrl(
+				translation.sourceTitle,
+				translation.targetTitle,
+				translation.sourceLanguage,
+				translation.targetLanguage
+			) ).toString();
+		}
+
+		if ( translation.status === 'published' ) {
+			location.href = translation.targetURL;
+		}
+	};
+
+	/**
 	 * List all translations.
 	 */
 	CXTranslationList.prototype.renderTranslations = function ( translations ) {
 		var i, translation, progress, $translation,
 			$lastUpdated, $image, $progressbar,
 			sourceDir, targetDir, $targetTitle,
-			translationLinkUrl, $translationLink,
+			$translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer, $status,
 			$actionsTrigger, $deleteTranslation, $menu, $menuContainer,
 			$titleLanguageBlock,
@@ -216,7 +246,8 @@
 			}
 
 			$translation = $( '<div>' )
-				.addClass( 'cx-tlitem' );
+				.addClass( 'cx-tlitem' )
+				.data( 'translation', translation );
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
 				.text( moment( translation.lastUpdateTimeStamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
@@ -231,24 +262,8 @@
 			sourceDir = $.uls.data.getDir( translation.sourceLanguage );
 			targetDir = $.uls.data.getDir( translation.targetLanguage );
 
-			if ( translation.status === 'draft' ) {
-				translationLinkUrl = new mw.Uri( mw.cx.siteMapper.getCXUrl(
-					translation.sourceTitle,
-					translation.targetTitle,
-					translation.sourceLanguage,
-					translation.targetLanguage
-				) ).extend( {
-					draft: translation.status === 'draft' ? translation.id : undefined
-				} ).toString();
-			}
-
-			if ( translation.status === 'published' ) {
-				translationLinkUrl = translation.targetURL;
-			}
-
 			$translationLink = $( '<a>' )
 				.addClass( 'translation-link' )
-				.prop( 'href', translationLinkUrl )
 				// It must be a separate element to ensure
 				// separation from the target title
 				.append( $( '<span>' )
@@ -307,8 +322,7 @@
 					.text( '…' );
 				$deleteTranslation = $( '<li>' )
 					.addClass( 'cx-discard-translation' )
-					.text( mw.msg( 'cx-discard-translation' ) )
-					.data( 'translation', translation );
+					.text( mw.msg( 'cx-discard-translation' ) );
 				$menu = $( '<ul>' )
 					.append( $deleteTranslation );
 				$menuContainer = $( '<div>' )
@@ -361,22 +375,22 @@
 	};
 
 	CXTranslationList.prototype.listen = function () {
-		var translationList = this,
+		var self = this,
 			scrollHandler;
 
 		this.$translationsList.on( 'click', '.cx-discard-translation', function ( e ) {
 			var translation;
 
 			e.stopPropagation();
-			translation = $( e.target ).data( 'translation' );
+			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
 
-			translationList.showDiscardConfirmation( translation ).done( function () {
-				translationList.discardTranslation( translation ).done( function ( response ) {
+			self.showDiscardConfirmation( translation ).done( function () {
+				self.discardTranslation( translation ).done( function ( response ) {
 					if ( response.cxdelete.result !== 'success' ) {
 						return;
 					}
-
-					translationList.markTranslationAsDeleted( translation );
+					translation.status = 'deleted';
+					self.markTranslationAsDeleted( translation );
 					mw.hook( 'mw.cx.translation.deleted' ).fire(
 						translation.sourceLanguage,
 						translation.targetLanguage,
@@ -388,11 +402,7 @@
 		} );
 
 		this.$translationsList.on( 'click', '.cx-tlitem', function () {
-			if ( $( this ).hasClass( 'cx-translation-deleted' ) ) {
-				return;
-			}
-
-			location.href = $( this ).find( '.translation-link' ).attr( 'href' );
+			self.startTranslation( $( this ).data( 'translation' ) );
 		} );
 
 		// Attach a scroll handler

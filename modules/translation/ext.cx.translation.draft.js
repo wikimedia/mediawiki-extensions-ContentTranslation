@@ -161,12 +161,6 @@
 				mw.hook( 'mw.cx.draft.restored' ).fire();
 			} );
 		}, function ( errorCode, details ) {
-			var uri = new mw.Uri();
-
-			// Wrong draft id passed.
-			delete uri.query.draft;
-			location.href = uri.toString();
-
 			if ( details.exception instanceof Error ) {
 				details.exception = details.exception.toString();
 			}

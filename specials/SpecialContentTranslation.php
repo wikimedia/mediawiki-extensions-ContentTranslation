@@ -50,7 +50,7 @@ class SpecialContentTranslation extends SpecialPage {
 
 	/**
 	 * Check if the request has a token to use CX.
-	 * With a valid cx token or draft id, override beta feature settings.
+	 * With a valid cx token override beta feature settings.
 	 * @return bool
 	 */
 	public function hasToken() {
@@ -61,9 +61,6 @@ class SpecialContentTranslation extends SpecialPage {
 			return false;
 		}
 
-		if ( $request->getVal( 'draft' ) !== null ) {
-			return true;
-		}
 		$token = implode( '_', array(
 			'cx',
 			Title::newFromText( $title )->getDBkey(),
@@ -72,6 +69,29 @@ class SpecialContentTranslation extends SpecialPage {
 		) );
 
 		return $request->getCookie( $token, '' ) !== null;
+	}
+
+	/**
+	 * Check if the translation exist for the given language pairs
+	 * and source title in the request.
+	 * @return bool
+	 */
+	public function isExistingTranslation() {
+		$request = $this->getRequest();
+		$translation = ContentTranslation\Translation::find(
+			$request->getVal( 'from' ),
+			$request->getVal( 'to' ),
+			$request->getVal( 'page' )
+		);
+		if ( $translation !== null ) {
+			// Check if the translation belongs to the current user.
+			$user = $this->getUser();
+			$translator = new ContentTranslation\Translator( $user );
+			return $translator->getGlobalUserId() ===
+				intval( $translation->translation['lastUpdatedTranslator'] );
+		}
+
+		return false;
 	}
 
 	public function execute( $parameters ) {
@@ -84,6 +104,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$hasToken = $this->hasToken();
 		$campaign = $request->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
+		$isExistingTranslation = $this->isExistingTranslation();
 
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
@@ -107,7 +128,7 @@ class SpecialContentTranslation extends SpecialPage {
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'ext.cx.header.skin' );
 
-		if ( $hasToken ) {
+		if ( $hasToken || $isExistingTranslation ) {
 			$out->addModules( 'ext.cx.translationview' );
 
 			// If Wikibase is installed, load the module for linking
