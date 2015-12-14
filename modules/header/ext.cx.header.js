@@ -102,9 +102,9 @@
 			this.$infoBar.find( '.text' ).text( message );
 		}
 		if ( details ) {
-			this.$infoBar.find( '.details' ).html( details );
+			this.$infoBar.find( '.details' ).html( details ).show();
 		} else {
-			this.$infoBar.find( '.details' ).empty();
+			this.$infoBar.find( '.details' ).empty().hide();
 		}
 		this.$infoBar
 			.removeClass( 'cx-success cx-error' )
