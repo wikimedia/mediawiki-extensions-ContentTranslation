@@ -300,7 +300,7 @@
 	 * @param {Object} details
 	 */
 	CXPublish.prototype.onFail = function ( code, details ) {
-		var trace, error;
+		var trace, error, errorDetails;
 
 		trace = {
 			sourceLanguage: mw.cx.sourceLanguage,
@@ -333,13 +333,20 @@
 				// "*":"See ...
 				error = details.error.info;
 			} else if ( details.edit ) {
-				// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
-				error = JSON.stringify( details.edit );
+				// Handle abusefilter errors.
+				if ( details.edit.code.indexOf( 'abusefilter' ) === 0 ) {
+					error = details.edit.info;
+					errorDetails = details.edit.warning;
+				} else {
+					// Other errors
+					// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
+					error = JSON.stringify( details.edit );
+				}
 			} else if ( details.textStatus ) {
 				// {"xhr":{"readyState":0,"status":0,"statusText":"timeout"},"textStatus":"timeout",...
 				error = details.textStatus;
 			}
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error', error ) );
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error', error ), errorDetails );
 			mw.log( '[CX] Error while publishing:', code, trace );
 		}
 

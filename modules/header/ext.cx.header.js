@@ -77,11 +77,13 @@
 
 	/**
 	 * Show an error message in the info bar.
+	 * TODO: This error handling and display deserve its own module. Header module is inappropriate.
 	 *
 	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
+	 * @param {string} details The details of error in HTML.
 	 */
-	ContentTranslationHeader.prototype.showError = function ( message ) {
-		this.showMessage( 'cx-error', message );
+	ContentTranslationHeader.prototype.showError = function ( message, details ) {
+		this.showMessage( 'cx-error', message, details );
 	};
 
 	/**
@@ -91,14 +93,19 @@
 	 *
 	 * @param {string} type Message class.
 	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
+	 * @param {string} details The details of error in HTML.
 	 */
-	ContentTranslationHeader.prototype.showMessage = function ( type, message ) {
+	ContentTranslationHeader.prototype.showMessage = function ( type, message, details ) {
 		if ( message instanceof mw.Message ) {
 			this.$infoBar.find( '.text' ).html( message.parse() );
 		} else {
 			this.$infoBar.find( '.text' ).text( message );
 		}
-
+		if ( details ) {
+			this.$infoBar.find( '.details' ).html( details );
+		} else {
+			this.$infoBar.find( '.details' ).empty();
+		}
 		this.$infoBar
 			.removeClass( 'cx-success cx-error' )
 			.addClass( type )
@@ -238,6 +245,7 @@
 			.addClass( 'cx-header__infobar' )
 			.append( $( '<span>' ).addClass( 'text' ) )
 			.append( $( '<span>' ).addClass( 'remove' ) )
+			.append( $( '<div>' ).addClass( 'details' ) )
 			.hide();
 
 		this.$container
