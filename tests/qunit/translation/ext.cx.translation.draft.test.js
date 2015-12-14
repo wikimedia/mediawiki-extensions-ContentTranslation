@@ -69,10 +69,10 @@
 
 		for ( i = 0; i < tests.length; i++ ) {
 			this.cxDraft.$draft = $( tests[ i ].draft );
-			this.cxDraft.$source = $( tests[ i ].source );
-			this.cxDraft.$translation = $( tests[ i ].placeholders );
+			this.cxDraft.$sourceColumn = $( tests[ i ].source );
+			this.cxDraft.$translationColumn = $( tests[ i ].placeholders );
 			this.cxDraft.restore();
-			assert.equal( this.cxDraft.$translation.html(), tests[ i ].translation, tests[ i ].description );
+			assert.equal( this.cxDraft.$translationColumn.html(), tests[ i ].translation, tests[ i ].description );
 		}
 	} );
 }( jQuery, mediaWiki ) );
