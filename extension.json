@@ -148,6 +148,10 @@
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
 				"Base64.js/base64.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"easy-deflate.core": {
@@ -159,6 +163,10 @@
 			],
 			"dependencies": [
 				"Base64.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"easy-deflate.deflate": {
@@ -169,6 +177,10 @@
 			],
 			"dependencies": [
 				"easy-deflate.core"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.contributions": {
