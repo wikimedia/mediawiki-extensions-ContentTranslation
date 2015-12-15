@@ -354,8 +354,10 @@
 	 */
 	ContentTranslationDraft.prototype.save = function () {
 		var targetTitle, params, apiParams, now,
+			content,
 			api = new mw.Api();
 
+		content = this.getContent();
 		if ( this.disabled ) {
 			return;
 		}
@@ -366,13 +368,12 @@
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
 			title: targetTitle,
-			html: EasyDeflate.deflate( this.getContent() ),
 			status: 'draft',
 			sourcerevision: mw.cx.sourceRevision,
 			progress: JSON.stringify( mw.cx.getProgress() )
 		};
 
-		if ( !params.html ) {
+		if ( !content ) {
 			// There's no content to save,
 			// but don't let the save initiator wait infinitely
 			mw.hook( 'mw.cx.translation.saved' ).fire(
@@ -383,6 +384,8 @@
 			);
 
 			return;
+		} else {
+			params.html = EasyDeflate.deflate( content );
 		}
 
 		now = Date.now();
