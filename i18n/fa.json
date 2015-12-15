@@ -10,7 +10,8 @@
 			"Purodha",
 			"Amire80",
 			"فلورانس",
-			"Mahdy Saffar"
+			"Mahdy Saffar",
+			"Huji"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -104,8 +105,8 @@
 	"cx-translation-filter-published-translations": "منتشر شده",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
 	"cx-translation-filter-suggested-translations": "پیشنهادها",
-	"cx-suggestionlist-empty-title": "شرمنده، صفحه‌ای برای پیشنهاد وجود ندارد",
-	"cx-suggestionlist-empty-desc": "شما می‌توانید هر موضوعی بنا به انتخابتان برای شروع یک ترجمه جدید انتخاب کنید",
+	"cx-suggestionlist-empty-title": "چیزی برای پیشنهاد وجود ندارد",
+	"cx-suggestionlist-empty-desc": "چیزی برای پیشنهاد پیدا نکردیم. می‌توانید بعداً دوباره بررسی کنید یا با استفاده از ابزار پیشنهاددهندهٔ ما (که آزمایشی است) صفحه‌های مرتبط را پیدا کنید.",
 	"cx-suggestionlist-featured": "برگزیده",
 	"cx-suggestionlist-view-source-page": "نمایش مبدأ صفحه",
 	"cx-translation-filter-from-any-language": "از هر زبانی",
