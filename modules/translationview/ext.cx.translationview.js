@@ -11,34 +11,29 @@
 	'use strict';
 
 	/**
-	 * ContentTranslation
+	 * ContentTranslationView
 	 *
 	 * @class
 	 */
-	function ContentTranslation( element, siteMapper, options ) {
+	function ContentTranslationView( element, siteMapper ) {
 		this.$container = $( element );
 
 		this.$translation = null;
 		this.$header = null;
 		this.$source = null;
 		this.$tools = null;
-
-		this.options = $.extend( true, {}, $.fn.cx.defaults, options );
 		this.siteMapper = siteMapper;
-
-		this.init();
 	}
 
-	ContentTranslation.prototype.init = function () {
+	ContentTranslationView.prototype.init = function () {
 		this.render();
 		this.initComponents();
-		this.listen();
 	};
 
 	/**
 	 * Initialize the components
 	 */
-	ContentTranslation.prototype.initComponents = function () {
+	ContentTranslationView.prototype.initComponents = function () {
 		var cx = this,
 			modules;
 		this.$header.cxHeader( this.siteMapper );
@@ -60,7 +55,7 @@
 		}
 	};
 
-	ContentTranslation.prototype.render = function () {
+	ContentTranslationView.prototype.render = function () {
 		var $content;
 
 		$content = $( '<div>' ).addClass( 'cx-widget' )
@@ -72,7 +67,7 @@
 					$( '<div>' ).addClass( 'cx-column cx-column--translation' ),
 					$( '<div>' ).addClass( 'cx-column cx-column--tools' )
 				)
-		);
+			);
 
 		this.$container.append( $content );
 		this.$header = this.$container.find( '.cx-widget__header' );
@@ -81,45 +76,13 @@
 		this.$tools = this.$container.find( '.cx-column--tools' );
 	};
 
-	ContentTranslation.prototype.listen = function () {
-		$( window ).scroll( $.proxy( this.scroll, this ) );
-	};
-
-	ContentTranslation.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			// Use the top of source column as reference point
-			offsetTop = this.$source.offset().top;
-
-		if ( scrollTop > offsetTop ) {
-			this.$header.addClass( 'sticky' );
-			this.$tools.addClass( 'sticky' );
-		} else if ( scrollTop <= offsetTop ) {
-			this.$header.removeClass( 'sticky' );
-			this.$tools.removeClass( 'sticky' );
-		}
-	};
-
-	$.fn.cx = function ( siteMapper, options ) {
-		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'cx' );
-
-			if ( !data ) {
-				$this.data( 'cx', ( data = new ContentTranslation( this, siteMapper, options ) ) );
-			}
-
-			if ( typeof options === 'string' ) {
-				data[ options ].call( $this );
-			}
-		} );
-	};
-
-	$.fn.cx.defaults = {};
-
-	// Set the global siteMapper for code which we cannot inject it
-	mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
-
 	$( function () {
-		$( 'body' ).cx( mw.cx.siteMapper );
+		var cxview,
+			container = document.body;
+
+		// Set the global siteMapper for code which we cannot inject it
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+		cxview = new ContentTranslationView( container, mw.cx.siteMapper );
+		cxview.init();
 	} );
 }( jQuery, mediaWiki ) );

@@ -170,6 +170,7 @@
 		mw.hook( 'mw.cx.draft.restore-failed' ).add( function () {
 			self.$draftStatus.text( mw.msg( 'cx-draft-restore-failed' ) );
 		} );
+		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
 	};
 
 	ContentTranslationHeader.prototype.updateSaveStatus = function ( status ) {
@@ -251,6 +252,16 @@
 		this.$container
 			.addClass( 'cx-header' )
 			.append( $headerTitle, $headerBar, this.$infoBar );
+	};
+
+	ContentTranslationHeader.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop();
+
+		if ( scrollTop > 0 ) {
+			this.$container.addClass( 'sticky' );
+		} else {
+			this.$container.removeClass( 'sticky' );
+		}
 	};
 
 	/**

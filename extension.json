@@ -330,6 +330,7 @@
 				"header/styles/ext.cx.header.less"
 			],
 			"dependencies": [
+				"jquery.throttle-debounce",
 				"mediawiki.Uri",
 				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
@@ -491,6 +492,7 @@
 				"ext.cx.tools.template",
 				"ext.cx.util.selection",
 				"ext.cx.widgets.spinner",
+				"jquery.throttle-debounce",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg"
 			]

@@ -13,3 +13,26 @@
 	padding-bottom: 50px;
 	font-size: medium;
 }
+
+.stick-to-side() {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+.stick-to-bottom() {
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.05);
+	max-height: 20%;
+	min-height: 3em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: max-height 0.25s;
+
+	&:hover {
+		max-height: 50%;
+	}
+}

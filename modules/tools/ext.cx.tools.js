@@ -98,6 +98,17 @@
 	ContentTranslationTools.prototype.listen = function () {
 		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.updateSearch, this ) );
 		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.updateSearch, this ) );
+		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+	};
+
+	ContentTranslationTools.prototype.scroll = function () {
+		var scrollTop = $( window ).scrollTop();
+
+		if ( scrollTop > 0 ) {
+			this.$container.addClass( 'sticky' );
+		} else {
+			this.$container.removeClass( 'sticky' );
+		}
 	};
 
 	$.fn.cxTools = function () {
