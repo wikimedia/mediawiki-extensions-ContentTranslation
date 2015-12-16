@@ -124,7 +124,7 @@
 			prop: 'pageimages',
 			piprop: 'thumbnail',
 			pilimit: 50, // maximum
-			pithumbsize: 150,
+			pithumbsize: 100,
 			redirects: true
 		}, {
 			dataType: 'jsonp',
