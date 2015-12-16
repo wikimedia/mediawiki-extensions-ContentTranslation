@@ -13,9 +13,8 @@
 	 *
 	 * @class
 	 */
-	function CXDashboard( element, siteMapper, options ) {
+	function CXDashboard( element, siteMapper ) {
 		this.$container = $( element );
-		this.options = $.extend( true, {}, $.fn.cxDashboard.defaults, options );
 		this.siteMapper = siteMapper;
 		this.$header = null;
 		this.$sidebar = null;
@@ -27,7 +26,6 @@
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$cta = null;
-		this.init();
 	}
 
 	CXDashboard.prototype.init = function () {
@@ -340,37 +338,21 @@
 	};
 
 	CXDashboard.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			offsetTop = this.$dashboard.offset().top;
+		var scrollTop = $( window ).scrollTop();
 
-		if ( scrollTop > offsetTop ) {
+		if ( scrollTop > 0 ) {
 			this.$sidebar.addClass( 'sticky' );
-		} else if ( scrollTop <= offsetTop ) {
+		} else {
 			this.$sidebar.removeClass( 'sticky' );
 		}
 	};
 
-	$.fn.cxDashboard = function ( siteMapper, options ) {
-		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'cxdashboard' );
-
-			if ( !data ) {
-				$this.data( 'cx', ( data = new CXDashboard( this, siteMapper, options ) ) );
-			}
-
-			if ( typeof options === 'string' ) {
-				data[ options ].call( $this );
-			}
-		} );
-	};
-
-	$.fn.cxDashboard.defaults = {};
-
-	// Set the global siteMapper for code which we cannot inject it
-	mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
-
 	$( function () {
-		$( 'body' ).cxDashboard( mw.cx.siteMapper );
+		var dashboard;
+
+		// Set the global siteMapper for code which we cannot inject it
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+		dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
+		dashboard.init();
 	} );
 }( jQuery, mediaWiki ) );
