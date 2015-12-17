@@ -278,7 +278,7 @@
 	}
 
 	MTControlCard.prototype.getCard = function () {
-		var $titleRow, $title, $controlButtonsBlock, $bottom;
+		var $titleRow, $title, $controlButtonsBlock;
 
 		this.$card = $( '<div>' )
 			.addClass( 'card mt' );
@@ -314,14 +314,10 @@
 				this.actions.$clear
 			);
 
-		$bottom = $( '<div>' )
-			.addClass( 'card__bottom' );
-
 		this.$card.append(
 			$titleRow,
 			this.$providerSelectorTrigger,
-			$controlButtonsBlock,
-			$bottom
+			$controlButtonsBlock
 		);
 
 		this.buildProvidersMenu();

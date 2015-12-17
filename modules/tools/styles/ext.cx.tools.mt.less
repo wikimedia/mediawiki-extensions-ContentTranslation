@@ -93,16 +93,15 @@
 	.card__button-block {
 		.mw-ui-item;
 		.mw-ui-one-whole;
-		float: none; // XXX why would it be needed?
 		line-height: 1.5em;
 		color: @gray;
-		padding: 10px 0;
+		padding: 0;
 
 		.card__control-button {
-			line-height: 1.5em;
+			.mw-ui-one-half;
 			color: @gray-dark;
 			cursor: pointer;
-			padding: 5px 10px 0px 25px !important; /* grid override */
+			padding: 10px 10px 10px 25px; /* grid override */
 			border-top: 1px solid #dddddd;
 			border-left: 1px solid #dddddd;
 			background-repeat: no-repeat;
@@ -115,28 +114,17 @@
 		}
 
 		.cx-use-source {
-			.mw-ui-one-half;
 			.background-image-svg('../images/pasting.svg', '../images/pasting.png');
 		}
 
 		.cx-clear-translation {
-			.mw-ui-one-half;
 			.background-image-svg('../images/clear.svg', '../images/clear.png');
 		}
 
 		.cx-restore-translation {
-			.mw-ui-one-whole;
 			.background-image-svg('../images/arched-arrow-ltr.svg', '../images/arched-arrow-ltr.png');
 			border: none;
+			float: none;
 		}
-	}
-
-	.card__bottom {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-		float: none; // XXX why would it be needed?
-		clear: both;
-		padding: 5px;
-		text-align: center;
 	}
 }
