@@ -51,7 +51,6 @@ class Translation {
 			'translation_source_language' => $this->translation['sourceLanguage'],
 			'translation_target_language' => $this->translation['targetLanguage'],
 			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
-			'translation_target_revision_id' => $this->translation['targetRevisionId'],
 			'translation_source_url' => $this->translation['sourceURL'],
 			'translation_status' => $this->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
@@ -61,6 +60,7 @@ class Translation {
 
 		if ( $this->translation['status'] === 'published' ) {
 			$values['translation_target_url'] = $this->translation['targetURL'];
+			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
 		}
 
 		$dbw->update(
