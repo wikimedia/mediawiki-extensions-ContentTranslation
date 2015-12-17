@@ -33,7 +33,7 @@
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by ID.",
 	"apihelp-query+contenttranslation-example-3": "Find any translation for the given title between given language pair",
-	"apihelp-query+contenttranslationcorpora-description": "Get the section aligned parallel text for a given a translation. See also <code>list=cxpublishedtranslations</code>. Dumps are provided in different formats for high volume access.",
+	"apihelp-query+contenttranslationcorpora-description": "Get the section-aligned parallel text for a given translation. See also <code>list=cxpublishedtranslations</code>. Dumps are provided in different formats for high volume access.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID of the translation.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Whether to strip all HTML tags to return plaintext.",
 	"apihelp-query+contenttranslationstats-description": "Get Content Translation statistics.",
@@ -74,7 +74,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Page titles.",
 	"apihelp-cxsuggestionlist-param-from": "The source language code.",
 	"apihelp-cxsuggestionlist-param-to": "The target language code.",
-	"apihelp-cxsave-example-1": "Save the source and translation sections. The content must be JSON encoded string.",
+	"apihelp-cxsave-example-1": "Save the source and translation sections. The content must be JSON-encoded string.",
 	"apihelp-cxsave-param-translationId": "The translation ID",
-	"apihelp-cxsave-param-content": "JSON encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin"
 }
