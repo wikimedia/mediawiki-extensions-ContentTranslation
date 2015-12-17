@@ -46,9 +46,10 @@
 	},
 	"APIListModules": {
 		"contenttranslation": "ApiQueryContentTranslation",
-		"contenttranslationsuggestions": "ApiQueryContentTranslationSuggestions",
-		"contenttranslationstats": "ApiQueryContentTranslationStats",
+		"contenttranslationcorpora": "ApiQueryContentTranslationCorpora",
 		"contenttranslationlangtrend": "ApiQueryContentTranslationLanguageTrend",
+		"contenttranslationstats": "ApiQueryContentTranslationStats",
+		"contenttranslationsuggestions": "ApiQueryContentTranslationSuggestions",
 		"cxpublishedtranslations": "ApiQueryPublishedTranslations"
 	},
 	"MessagesDirs": {
@@ -67,11 +68,13 @@
 		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
 		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
+		"ApiQueryContentTranslationCorpora": "api/ApiQueryContentTranslationCorpora.php",
 		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
 		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
+		"ContentTranslation\\CorporaLookup": "includes/CorporaLookup.php",
 		"ContentTranslation\\Database": "includes/Database.php",
 		"ContentTranslation\\Draft": "includes/Draft.php",
 		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
