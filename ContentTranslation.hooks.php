@@ -335,15 +335,6 @@ class ContentTranslationHooks {
 			'remoteExtPath' => 'ContentTranslation',
 		);
 
-		$modules['qunit']['ext.cx.editor.tests'] = array(
-			'scripts' => array(
-				'tests/qunit/editor/ext.cx.editor.test.js',
-			),
-			'dependencies' => array(
-				'ext.cx.editor',
-			),
-		) + $resourcePaths;
-
 		$modules['qunit']['ext.cx.header.test'] = array(
 			'scripts' => array(
 				'tests/qunit/header/ext.cx.header.test.js',
