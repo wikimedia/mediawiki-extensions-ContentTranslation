@@ -285,7 +285,7 @@
 			prop: [ 'pageimages', 'pageterms' ].join( '|' ),
 			piprop: 'thumbnail',
 			pilimit: 50, // maximum
-			pithumbsize: 150,
+			pithumbsize: 100,
 			redirects: true
 		}, {
 			dataType: 'jsonp',
