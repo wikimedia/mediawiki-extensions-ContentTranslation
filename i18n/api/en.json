@@ -70,6 +70,8 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Action to be performed on the list.",
 	"apihelp-cxsuggestionlist-param-titles": "Page titles.",
 	"apihelp-cxsuggestionlist-param-from": "The source language code.",
-	"apihelp-cxsuggestionlist-param-to": "The target language code."
-
+	"apihelp-cxsuggestionlist-param-to": "The target language code.",
+	"apihelp-cxsave-example-1": "Save the source and translation sections. The content must be JSON encoded string.",
+	"apihelp-cxsave-param-translationId": "The translation ID",
+	"apihelp-cxsave-param-content": "JSON encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin"
 }
