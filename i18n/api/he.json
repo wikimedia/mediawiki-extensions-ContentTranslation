@@ -26,6 +26,9 @@
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
 	"apihelp-query+contenttranslation-example-3": "חיפוש כל תרגום עבור הכותרת הנתונה בין זוג השפות הנתונות",
+	"apihelp-query+contenttranslationcorpora-description": "קבלת טקסט מקביל מיושר־מקטעים לתרגום נתון. ר' גם <code>list=cxpublishedtranslations</code>. אפשר למצוא גם היטלים בתסדירים שונים למי שצריך גישה בנפחים גדולים.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "מזהה התרגום.",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "האם לסלק את כל תגי ה־HTML כדי להחזיר טקסט פשוט.",
 	"apihelp-query+contenttranslationstats-description": "קבלת סטטיסטיקות של תרגום תוכן.",
 	"apihelp-query+contenttranslationstats-example-1": "קבלת סטטיסטיקות של תרגום תוכן לכל השפות.",
 	"apihelp-cxconfiguration-description": "אחזור json של הגדרות תרגום תוכן עבור שפה נתונה",
@@ -63,5 +66,8 @@
 	"apihelp-cxsuggestionlist-param-listaction": "פעולה שתבוצע על הרשימה.",
 	"apihelp-cxsuggestionlist-param-titles": "כותרות דפים.",
 	"apihelp-cxsuggestionlist-param-from": "קוד שפת המקור.",
-	"apihelp-cxsuggestionlist-param-to": "קוד שפת היעד."
+	"apihelp-cxsuggestionlist-param-to": "קוד שפת היעד.",
+	"apihelp-cxsave-example-1": "שמירת מקטעי המקור והתרגום. התוכן צריך להיות מחרוזת מקודדת ב־JSON.",
+	"apihelp-cxsave-param-translationId": "מזהה התרגום",
+	"apihelp-cxsave-param-content": "נתוני מקטעים מקודדם ב־JSON. כל מקטע הוא עצם עם המפתחות הבאים: content‏, sectionId‏, sequenceId‏, sequenceId‏, origin"
 }

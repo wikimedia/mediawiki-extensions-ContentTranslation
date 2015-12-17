@@ -26,6 +26,9 @@
 	"apihelp-query+contenttranslation-example-1": "Obtener les traducciones aniciaes pol usuariu actual.",
 	"apihelp-query+contenttranslation-example-2": "Obtener borrador de traducciones por ID.",
 	"apihelp-query+contenttranslation-example-3": "Atopar cualquier traducción pal títulu dau ente'l par de llingües especificáu",
+	"apihelp-query+contenttranslationcorpora-description": "Algama'l testu paralelu alliniáu por seición d'una traducción determinada. Ver tamién <code>list=cxpublishedtranslations</code>. Úfrense volcaos en diferentes formatos p'accesu d'altu volume.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID de la traducción.",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "Si hai que cortar toles etiquetes HTML pa devolver testu planu.",
 	"apihelp-query+contenttranslationstats-description": "Recibir estadístiques de traducción de conteníu.",
 	"apihelp-query+contenttranslationstats-example-1": "Obtener estadístiques de Content Translation de toles llingües.",
 	"apihelp-cxconfiguration-description": "Obtener el json de configuración de Content Translation pal par de llingües dau",
@@ -63,5 +66,8 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Aición a facer na llista.",
 	"apihelp-cxsuggestionlist-param-titles": "Títulos de páxina.",
 	"apihelp-cxsuggestionlist-param-from": "El códigu de la llingua d'orixe.",
-	"apihelp-cxsuggestionlist-param-to": "El códigu de la llingua de destín."
+	"apihelp-cxsuggestionlist-param-to": "El códigu de la llingua de destín.",
+	"apihelp-cxsave-example-1": "Guardar les seiciones de fonte y traducción. El conteníu tien de ser una cadena codificada JSON",
+	"apihelp-cxsave-param-translationId": "L'ID de la traducción",
+	"apihelp-cxsave-param-content": "Datos de la seición codificaos en JSON. Cada seición ye un oxetu y tien les claves siguientes: content, sectionId, sequenceId, sequenceId, origin"
 }

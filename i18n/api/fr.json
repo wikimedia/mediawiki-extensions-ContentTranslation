@@ -69,5 +69,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Action à effectuer sur la liste.",
 	"apihelp-cxsuggestionlist-param-titles": "Titres de page.",
 	"apihelp-cxsuggestionlist-param-from": "Le code langue source.",
-	"apihelp-cxsuggestionlist-param-to": "Le code langue cible."
+	"apihelp-cxsuggestionlist-param-to": "Le code langue cible.",
+	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin"
 }

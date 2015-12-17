@@ -84,7 +84,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "La páxina [$1 yá esiste] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "El títulu escoyíu pa la páxina nueva [$1 yá ta n'usu]",
 	"cx-sourceselector-dialog-error-no-source-article": "A páxina a traducir nun esiste'n $1",
-	"cx-mt-abuse-warning-title": "La to traducción {{PLURAL:$1|contién}} un $1% de testu de traducción automática que nun se cambió",
+	"cx-mt-abuse-warning-title": "La to traducción {{PLURAL:$1|contien}} un $1% de testu de traducción automática que nun se cambió",
 	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida. Tienes d'asegurate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.",
 	"cx-publish-captcha-title": "Pregunta de seguridá",
 	"cx-dashboard-sidebar-title": "¿{{GENDER:|Necesites}} ayuda coles traducciones?",
