@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-example-1": "获取由当前用户作出的翻译。",
 	"apihelp-query+contenttranslation-example-2": "获取由ID作出的翻译草稿。",
 	"apihelp-query+contenttranslation-example-3": "查找指定的语言对中给定标题的任何翻译",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "翻译的ID。",
 	"apihelp-query+contenttranslationstats-description": "获取内容翻译统计。",
 	"apihelp-query+contenttranslationstats-example-1": "获取所有语言的内容翻译统计信息。",
 	"apihelp-cxconfiguration-description": "为指定的语言配对获取内容翻译配置json",
@@ -64,5 +65,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "要在列表上执行的操作。",
 	"apihelp-cxsuggestionlist-param-titles": "页面标题。",
 	"apihelp-cxsuggestionlist-param-from": "来源语言代码。",
-	"apihelp-cxsuggestionlist-param-to": "目标语言代码。"
+	"apihelp-cxsuggestionlist-param-to": "目标语言代码。",
+	"apihelp-cxsave-param-translationId": "翻译ID"
 }

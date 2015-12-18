@@ -21,6 +21,7 @@
 	"apihelp-query+contenttranslation-example-1": "Holl de Övversäzonge, di vum aktoälle Metmaacher bejunne wohde sin.",
 	"apihelp-query+contenttranslation-example-2": "Holl de vörjschlahre Övversäzong övver de Kännong.",
 	"apihelp-query+contenttranslation-example-3": "Fengk de Övversäzonge för en aanjejovve Övverschrevv un e aanjejovve Paa vun Schprohche.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Dä Övversäzong ier Kännong",
 	"apihelp-query+contenttranslationstats-description": "Donn de Schtateßteke vum Wärkzüsch zom Enhalltssigge Övversäze holle",
 	"apihelp-query+contenttranslationstats-example-1": "Holl Schtatesteke för de Övversäzonge mem Wärkzüsch zom Enhalltssigge Övversäze för alle Schprohche.",
 	"apihelp-cxconfiguration-description": "Holl de Enschtällonge för et Wärkzüsch zom Enhalltssigge Övversäze för dat aanjejovve Schprohchepaa em <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"JavaScript Object Notation\">JSON</i>-Fommaht.",
@@ -52,5 +53,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Wat met dä Leß jedonn wähde sull.",
 	"apihelp-cxsuggestionlist-param-titles": "Övverschreffte vun Sigge",
 	"apihelp-cxsuggestionlist-param-from": "Et Köözel för de Quälleschprohch.",
-	"apihelp-cxsuggestionlist-param-to": "Et Köözel för de Zihlschprohch."
+	"apihelp-cxsuggestionlist-param-to": "Et Köözel för de Zihlschprohch.",
+	"apihelp-cxsave-param-translationId": "Dä Övversäzong ier Kännong"
 }

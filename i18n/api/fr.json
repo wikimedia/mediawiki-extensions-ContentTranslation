@@ -32,6 +32,9 @@
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l'utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par id.",
 	"apihelp-query+contenttranslation-example-3": "Trouver une traduction pour le titre fourni entre la paire de langues donnée",
+	"apihelp-query+contenttranslationcorpora-description": "Obtenir le texte de la section en vis-à-vis pour une traduction donnée. Voir aussi <code>list=cxpublishedtranslations</code>. Des dumps sont fournis dans différents formats pour l’accès à de gros volumes.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID de la traduction.",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "Indique s’il faut enlever toutes les balises HTML et ne renvoyer que du texte brut.",
 	"apihelp-query+contenttranslationstats-description": "Obtenir des statistiques sur la traduction de contenu.",
 	"apihelp-query+contenttranslationstats-example-1": "Obtenir des statistiques de traduction du contenu pour toutes les langues.",
 	"apihelp-cxconfiguration-description": "Récupérer le JSON de configuration de la Traduction de contenu pour la paire de langues donnée",
@@ -70,5 +73,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Titres de page.",
 	"apihelp-cxsuggestionlist-param-from": "Le code langue source.",
 	"apihelp-cxsuggestionlist-param-to": "Le code langue cible.",
+	"apihelp-cxsave-example-1": "Enregistrer les sections source et traduction. Le contenu doit être une chaîne encodée en JSON.",
+	"apihelp-cxsave-param-translationId": "L’ID de traduction",
 	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin"
 }

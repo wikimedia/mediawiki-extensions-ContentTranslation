@@ -30,6 +30,7 @@
 	"apihelp-query+contenttranslation-example-1": "Ottieni traduzioni avviate dall'utente attuale.",
 	"apihelp-query+contenttranslation-example-2": "Ottieni bozze traduzioni per ID.",
 	"apihelp-query+contenttranslation-example-3": "Trova qualsiasi traduzione per il titolo indicato per coppia di lingue",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID della traduzione.",
 	"apihelp-query+contenttranslationstats-description": "Ottieni statistiche Traduzione Contenuti",
 	"apihelp-query+contenttranslationstats-example-1": "Vedi statistiche di traduzione contenuti per tutte le lingue.",
 	"apihelp-cxconfiguration-description": "Cerca nel json di configurazione del Content Translation per la coppia di lingue cercata.",
@@ -67,5 +68,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Azione da eseguire sull'elenco.",
 	"apihelp-cxsuggestionlist-param-titles": "Titoli di pagine.",
 	"apihelp-cxsuggestionlist-param-from": "Il codice della lingua di origine.",
-	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione."
+	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione.",
+	"apihelp-cxsave-param-translationId": "ID della traduzione"
 }
