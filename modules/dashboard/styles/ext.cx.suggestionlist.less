@@ -26,6 +26,12 @@
 	display: none;
 }
 
+// Do not display featured articles list when there are personalized suggestions.
+// Featured articles are just fallback.
+.cx-suggestionlist-type-5 ~ .cx-suggestionlist-type-1 {
+	display: none;
+}
+
 .cx-suggestionlist--expanded h2,
 .cx-suggestionlist--collapsed h2 {
 	.mw-ui-one-whole;
