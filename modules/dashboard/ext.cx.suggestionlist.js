@@ -18,7 +18,15 @@
 			TYPE_FAVORITE: 3,
 			TYPE_CATEGORY: 4,
 			TYPE_PERSONALIZED: 5
-		};
+		},
+		listOrder = {};
+
+	listOrder[ listTypes.TYPE_FAVORITE ] = 0;
+	listOrder[ listTypes.TYPE_DISCARDED ] = 1;
+	listOrder[ listTypes.TYPE_PERSONALIZED ] = 2;
+	listOrder[ listTypes.TYPE_CATEGORY ] = 3;
+	listOrder[ listTypes.TYPE_FEATURED ] = 4;
+	listOrder[ listTypes.TYPE_DEFAULT ] = 5;
 
 	/**
 	 * CXSuggestionList
@@ -357,6 +365,7 @@
 	 */
 	CXSuggestionList.prototype.insertSuggestionList = function ( listId, suggestions ) {
 		var i, list, $suggestion, $listHeading,
+			self = this,
 			$suggestions = [];
 
 		if ( !suggestions || !suggestions.length ) {
@@ -380,6 +389,9 @@
 			} else {
 				this.$publicCollectionContainer.show();
 				this.$publicCollection.append( list.$list );
+				this.$publicCollection.find( '.cx-suggestionlist' ).sort( function ( a, b ) {
+					return listCompare( self.lists[ a.dataset.listid ], self.lists[ b.dataset.listid ] );
+				} ).appendTo( this.$publicCollection );
 			}
 		} else {
 			// The list might be hidden if it became empty due to item removals.
@@ -765,22 +777,12 @@
 	 * @return {number[]} Orderded list ids.
 	 */
 	CXSuggestionList.prototype.sortLists = function ( lists ) {
-		var order, ids;
-
-		order = {};
-		order[ listTypes.TYPE_FAVORITE ] = 0;
-		order[ listTypes.TYPE_DISCARDED ] = 1;
-		order[ listTypes.TYPE_PERSONALIZED ] = 2;
-		order[ listTypes.TYPE_CATEGORY ] = 3;
-		order[ listTypes.TYPE_FEATURED ] = 4;
-		order[ listTypes.TYPE_DEFAULT ] = 5;
-
-		ids = Object.keys( lists ).sort( function ( a, b ) {
-			return order[ lists[ a ].type ] - order[ lists[ b ].type ];
-		} );
-
-		return ids;
+		return Object.keys( lists ).sort( listCompare );
 	};
+
+	function listCompare( listA, listB ) {
+		return listOrder[ listA.type ] > listOrder[ listB.type ];
+	}
 
 	/**
 	 * Make the list expandable and collapsable.
