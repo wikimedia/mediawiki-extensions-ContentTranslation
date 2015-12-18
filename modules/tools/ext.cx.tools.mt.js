@@ -138,7 +138,9 @@
 			return $.ajax( {
 				type: 'post',
 				url: mtURL,
-				data: sourceHtml,
+				data: {
+					html: sourceHtml
+				},
 				headers: {
 					Authorization: token
 				}
