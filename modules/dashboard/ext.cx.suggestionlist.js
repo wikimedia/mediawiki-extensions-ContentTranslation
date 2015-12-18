@@ -23,8 +23,8 @@
 
 	listOrder[ listTypes.TYPE_FAVORITE ] = 0;
 	listOrder[ listTypes.TYPE_DISCARDED ] = 1;
-	listOrder[ listTypes.TYPE_PERSONALIZED ] = 2;
-	listOrder[ listTypes.TYPE_CATEGORY ] = 3;
+	listOrder[ listTypes.TYPE_CATEGORY ] = 2;
+	listOrder[ listTypes.TYPE_PERSONALIZED ] = 3;
 	listOrder[ listTypes.TYPE_FEATURED ] = 4;
 	listOrder[ listTypes.TYPE_DEFAULT ] = 5;
 
