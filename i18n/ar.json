@@ -100,6 +100,7 @@
 	"cx-translation-filter-published-translations": "المنشورة",
 	"cx-translation-filter-draft-translations": "الحالية",
 	"cx-translation-filter-suggested-translations": "اقتراحات",
+	"cx-suggestionlist-title": "مزيد من الاقتراحات",
 	"cx-suggestionlist-empty-desc": "يمكنك أن تختار أي موضوع عند بدء ترجمة جديدة",
 	"cx-suggestionlist-featured": "المميزة",
 	"cx-suggestionlist-view-source-page": "اعرض الصفحة المصدر",
@@ -135,6 +136,7 @@
 	"cx-stats-new-draft-translations-label": "الترجمات الجديدة الجاري العمل عليها",
 	"cx-stats-published-translators-title": "عدد المترجمين",
 	"cx-stats-cumulative-tab-title": "الإجمالي",
+	"cx-stats-weekly-trend-tab-title": "لكل أسبوع",
 	"cx-draft-discard-confirmation-message": "أتريد حذف الترجمة نهائيا؟",
 	"cx-draft-cancel-button-label": "ألغ",
 	"cx-draft-discard-button-label": "احذف الترجمة",
@@ -182,5 +184,6 @@
 	"cx-tools-link-external-link-placeholder": "أضف وصلة خارجية",
 	"cx-tools-link-to-another-page": "وصلة لصفحة أخرى",
 	"cx-tools-link-apply": "تم",
-	"mw-pageselector-missing": "الصفحة غير موجودة"
+	"mw-pageselector-missing": "الصفحة غير موجودة",
+	"cx-suggestionlist-expand": "اعرض الكل"
 }

@@ -26,6 +26,8 @@
 	"apihelp-query+contenttranslation-example-1": "Дај преводи започнати од тековниот корисник.",
 	"apihelp-query+contenttranslation-example-2": "Дај недовршени преводи по назнака.",
 	"apihelp-query+contenttranslation-example-3": "Најдете било кој превод за дадениот наслов помеѓу даден јазичен пар",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Назнака на преводот.",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "Дали да се отстранат сите HTML-ознаки за да се даде прост текст.",
 	"apihelp-query+contenttranslationstats-description": "Дај статистики за преводот на содржини.",
 	"apihelp-query+contenttranslationstats-example-1": "Дава статистики за преведеност на содржините за сите јазици.",
 	"apihelp-cxconfiguration-description": "Дај ја поставеноста на JSON за Преведување на содржини за дадениот јазичен пар",
@@ -63,5 +65,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Дејство за извршување врз списокот.",
 	"apihelp-cxsuggestionlist-param-titles": "Наслови на страници.",
 	"apihelp-cxsuggestionlist-param-from": "Код на изворниот јазик.",
-	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик."
+	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик.",
+	"apihelp-cxsave-param-translationId": "Назнака на преводот."
 }

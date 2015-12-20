@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
 	"apihelp-query+contenttranslation-example-3": "Findet jede Übersetzung für den angegebenen Titel zwischen dem angegebenen Sprachpaar",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Kennung der Übersetzung.",
 	"apihelp-query+contenttranslationstats-example-1": "Bezieht Statistiken zur Inhaltsübersetzung für alle Sprachen.",
 	"apihelp-cxconfiguration-description": "Ruft das Konfigurations-JSON der Inhaltsübersetzung für das angegebene Sprachpaar ab",
 	"apihelp-cxconfiguration-param-from": "Der Quell-Sprachcode.",
@@ -54,6 +55,8 @@
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-cxdelete-example-1": "Löscht einen Entwurf in Verbindung mit dem angegebenen Sprachpaar und Titel.",
 	"apihelp-cxsuggestionlist-param-listname": "Name der Vorschlagsliste.",
+	"apihelp-cxsuggestionlist-param-titles": "Seitentitel.",
 	"apihelp-cxsuggestionlist-param-from": "Der Quell-Sprachcode.",
-	"apihelp-cxsuggestionlist-param-to": "Der Ziel-Sprachcode."
+	"apihelp-cxsuggestionlist-param-to": "Der Ziel-Sprachcode.",
+	"apihelp-cxsave-param-translationId": "Die Übersetzungskennung"
 }
