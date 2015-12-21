@@ -215,6 +215,12 @@
 			return $.Deferred().reject();
 		}
 
+		if ( !list.queryContinue ) {
+			// Along with list information, we had fetch 4 suggestions as well.
+			list.queryContinue = {
+				offset: 4
+			};
+		}
 		params = $.extend( {
 			action: 'query',
 			list: 'contenttranslationsuggestions',

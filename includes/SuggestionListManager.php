@@ -252,7 +252,7 @@ class SuggestionListManager {
 	 * @param int $seed Seed to use with randomizing of results.
 	 * @return array Lists and suggestions
 	 */
-	public function getPublicSuggestions( $from, $to, $limit ) {
+	public function getPublicSuggestions( $from, $to, $limit, $offset, $seed ) {
 		return $this->getSuggestionsByType(
 			array(
 				SuggestionList::TYPE_CATEGORY,
@@ -260,8 +260,10 @@ class SuggestionListManager {
 			),
 			$from,
 			$to,
-			$limit
-		 );
+			$limit,
+			$offset,
+			$seed
+		);
 	}
 
 	/**

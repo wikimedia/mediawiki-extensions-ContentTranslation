@@ -84,7 +84,13 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			);
 
 			// Get non-personalized suggestions
-			$publicSuggestions = $manager->getPublicSuggestions( $from, $to, $params['limit'] );
+			$publicSuggestions = $manager->getPublicSuggestions(
+				$from,
+				$to,
+				$params['limit'],
+				$params['offset'],
+				$params['seed']
+			);
 
 			// Merge the personal lists to public lists. There won't be duplicates
 			// because the list of lists is an associative array with listId as a key.
