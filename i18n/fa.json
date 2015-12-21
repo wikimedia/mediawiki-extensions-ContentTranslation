@@ -105,8 +105,11 @@
 	"cx-translation-filter-published-translations": "منتشر شده",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
 	"cx-translation-filter-suggested-translations": "پیشنهادها",
+	"cx-suggestionlist-favorite": "برای بعداً",
+	"cx-suggestionlist-title": "پیشنهادهای بیشتر",
 	"cx-suggestionlist-empty-title": "چیزی برای پیشنهاد وجود ندارد",
 	"cx-suggestionlist-empty-desc": "چیزی برای پیشنهاد پیدا نکردیم. می‌توانید بعداً دوباره بررسی کنید یا با استفاده از ابزار پیشنهاددهندهٔ ما (که آزمایشی است) صفحه‌های مرتبط را پیدا کنید.",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "دیدن پیشنهادها (اجرایی)",
 	"cx-suggestionlist-featured": "برگزیده",
 	"cx-suggestionlist-view-source-page": "نمایش مبدأ صفحه",
 	"cx-translation-filter-from-any-language": "از هر زبانی",
@@ -188,6 +191,13 @@
 	"cx-tools-link-external-link": "خارجی",
 	"cx-tools-link-external-link-placeholder": "اضافه پیوند خارجی",
 	"cx-tools-link-to-another-page": "پیوند به یک صفحه دیگر",
+	"cx-tools-link-add-as-missing": "افزودن پیوند ناموجود",
 	"cx-tools-link-apply": "انجام شد",
-	"mw-pageselector-missing": "صفحه وجود ندارد"
+	"mw-pageselector-missing": "صفحه وجود ندارد",
+	"cx-draft-restoring": "بارگیری ترجمهٔ ذخیره شده...",
+	"cx-draft-restored": "ذخیره ترجمه بارگذاری‌شده.",
+	"cx-draft-restore-failed": "خطا در بارگیری ذخیرهٔ ترجمه‌شده!",
+	"cx-suggestionlist-expand": "مشاهدهٔ همه",
+	"cx-suggestionlist-collapse": "مشاهدهٔ کمتر",
+	"cx-suggestionlist-refresh": "تازه‌سازی پیشنهادها"
 }

@@ -116,8 +116,10 @@
 	"cx-stats-published-translators-title": "צאל איבערזעצער",
 	"cx-stats-cumulative-tab-title": "סה\"כ",
 	"cx-stats-weekly-trend-tab-title": "א וואך",
+	"cx-draft-discard-confirmation-message": "זענט איר זיכער אז איר ווילט אויסמעקן די איבערזעצונג אויף אייביג?",
 	"cx-draft-cancel-button-label": "אַנולירן",
 	"cx-draft-discard-button-label": "אויסמעקן איבערזעצונג",
+	"cx-beta-feature-enabled-notification": "אינהאלט־איבערזעצונג איז געווארן אקטיווירט אין דער וויקי.",
 	"cx-campaign-no-thanks": "ניין, א דאנק",
 	"cx-campaign-try": "פרובירט אינהאלט־איבערזעצונג",
 	"cx-campaign-contributionsmenu-mycontributions": "בײַשטײַערונגען",
@@ -131,6 +133,8 @@
 	"cx-stats-published-translations-label": "פארעפנטלעכע איבערזעצונגען",
 	"cx-stats-published-target-source": "איבערזעצונגען צו",
 	"cx-stats-published-source-target": "איבערזעצונגען פון",
+	"cx-stats-draft-target-source": "איבערזעצונגען אנגעהויבן צו",
+	"cx-stats-draft-source-target": "איבערזעצונגען אנגעהויבן פֿון",
 	"cx-stats-tabs-expand": "באקוקן אַלע שפראַכן",
 	"cx-stats-total-published": "סה\"כ פארעפנטלעכט",
 	"cx-stats-weekly-published": "פֿאריגע וואך",
@@ -153,5 +157,6 @@
 	"cx-tools-link-apply": "ערליידיקט",
 	"mw-pageselector-missing": "בלאט עקזיסטירט נישט",
 	"cx-draft-restoring": "אנלאדן די אויפֿגעהיטענע איבערזעצונג…",
+	"cx-suggestionlist-expand": "באקוקן אלע",
 	"cx-suggestionlist-collapse": "ווײַזן ווינציקער"
 }

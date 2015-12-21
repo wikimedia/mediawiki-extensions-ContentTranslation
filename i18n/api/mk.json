@@ -26,6 +26,7 @@
 	"apihelp-query+contenttranslation-example-1": "Дај преводи започнати од тековниот корисник.",
 	"apihelp-query+contenttranslation-example-2": "Дај недовршени преводи по назнака.",
 	"apihelp-query+contenttranslation-example-3": "Најдете било кој превод за дадениот наслов помеѓу даден јазичен пар",
+	"apihelp-query+contenttranslationcorpora-description": "Добивање на напореден текст (пасус до пасус) за даден превод. Погледајте ја и <code>list=cxpublishedtranslations</code>. Има резервни складови во различни формати, наменети за високообемен пристап.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Назнака на преводот.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Дали да се отстранат сите HTML-ознаки за да се даде прост текст.",
 	"apihelp-query+contenttranslationstats-description": "Дај статистики за преводот на содржини.",
@@ -66,5 +67,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Наслови на страници.",
 	"apihelp-cxsuggestionlist-param-from": "Код на изворниот јазик.",
 	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик.",
-	"apihelp-cxsave-param-translationId": "Назнака на преводот."
+	"apihelp-cxsave-example-1": "Зачувај го изворниот и преведениот пасус. Содржината мора да биде низа кодирања во JSON.",
+	"apihelp-cxsave-param-translationId": "Назнака на преводот.",
+	"apihelp-cxsave-param-content": "Податоци од пасуси кодирани во JSON. Секој пасус претставува објект, и ги има следниве клучеви: content, sectionId, sequenceId, sequenceId, origin"
 }

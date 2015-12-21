@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"JinJian"
+		]
+	},
+	"cx-publish-button-publishing": "Ginmamantala...",
+	"cx-entrypoint-dialog-button-translate-from": "Ighubad tikang $1",
+	"cx-tools-searchbox-text": "Pagbiling hin pulong",
+	"cx-tools-link-title": "Sumpay",
+	"cx-tools-link-add": "Dugnga hin sumpay",
+	"cx-tools-link-remove": "Tanggala an sumpay",
+	"cx-tools-mt-provider-title": "Tikang $1",
+	"cx-sourceselector-dialog-source-language-label": "Tikang:",
+	"cx-sourceselector-dialog-target-language-label": "Pakadto:",
+	"cx-sourceselector-dialog-source-title-placeholder": "Pamilnga an tinikangan nga pakli",
+	"cx-sourceselector-dialog-target-title-placeholder": "Titulo han paghubad",
+	"cx-publish-captcha-title": "Pan-seguridad nga pakiana",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Kinahanglan}} mo hin bulig ha mga paghubad?",
+	"cx-translation-filter-suggested-translations": "Mga suhestyon",
+	"cx-suggestionlist-favorite": "Para nuruniyan",
+	"cx-translation-filter-from-any-language": "Tikang ha bisan ano nga yinaknan",
+	"cx-translation-filter-to-any-language": "Pakadto ha bisan ano nga yinaknan",
+	"cx-contributions-new-article": "Bag-o nga pakli",
+	"cx-contributions-translation": "Paghubad",
+	"cx-translation-status-deleted": "Ginpara",
+	"cx-campaign-no-thanks": "Diri, salamat nala"
+}
