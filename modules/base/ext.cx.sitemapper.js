@@ -152,7 +152,9 @@
 
 		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
 			uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
-			$.extend( uri.query, queryParams );
+			// Use mw.Uri().query for current URL also to retain any non-CX params
+			// in URL. A good example is debug=true param.
+			$.extend( uri.query, mw.Uri().query, queryParams );
 
 			return uri.toString();
 		}
