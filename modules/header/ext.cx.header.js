@@ -76,6 +76,15 @@
 	};
 
 	/**
+	 * Show a warning message in the info bar.
+	 *
+	 * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
+	 */
+	ContentTranslationHeader.prototype.showWarning = function ( message ) {
+		this.showMessage( 'cx-warning', message );
+	};
+
+	/**
 	 * Show an error message in the info bar.
 	 * TODO: This error handling and display deserve its own module. Header module is inappropriate.
 	 *
@@ -107,7 +116,7 @@
 			this.$infoBar.find( '.details' ).empty().hide();
 		}
 		this.$infoBar
-			.removeClass( 'cx-success cx-error' )
+			.removeClass( 'cx-success cx-error cx-warning' )
 			.addClass( type )
 			.show();
 	};
@@ -132,7 +141,7 @@
 				return;
 			}
 
-			mw.hook( 'mw.cx.error' ).fire( mw.message(
+			mw.hook( 'mw.cx.warning' ).fire( mw.message(
 				'cx-translation-target-page-exists',
 				viewTargetUrl,
 				mw.cx.targetTitle
@@ -152,6 +161,7 @@
 
 		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.setPublishButtonState, this ) );
 		mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
+		mw.hook( 'mw.cx.warning' ).add( $.proxy( this.showWarning, this ) );
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
