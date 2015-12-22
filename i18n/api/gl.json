@@ -25,9 +25,11 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Título da páxina orixinal.",
 	"apihelp-query+contenttranslation-param-limit": "Número máximo de traducións a obter.",
 	"apihelp-query+contenttranslation-param-offset": "Posición dentro do conxunto de resultados (opcional).",
+	"apihelp-query+contenttranslation-param-type": "Estado da tradución.",
 	"apihelp-query+contenttranslation-example-1": "Obter as traducións iniciadas polo usuario actual.",
 	"apihelp-query+contenttranslation-example-2": "Obter os borradores de tradución por identificador.",
 	"apihelp-query+contenttranslation-example-3": "Atopar calquera tradución do título especificado entre o par de linguas especificado",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Identificador da tradución.",
 	"apihelp-query+contenttranslationstats-description": "Obter estatísticas de tradución de contidos.",
 	"apihelp-query+contenttranslationstats-example-1": "Obter as estatísticas da tradución de contidos de todas as linguas.",
 	"apihelp-cxconfiguration-description": "Obter o json de configuración da tradución de contidos para o par de linguas especificado",
@@ -64,5 +66,6 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Acción a realizar na lista.",
 	"apihelp-cxsuggestionlist-param-titles": "Títulos das páxinas.",
 	"apihelp-cxsuggestionlist-param-from": "Código da lingua de orixe.",
-	"apihelp-cxsuggestionlist-param-to": "Código da lingua de destino."
+	"apihelp-cxsuggestionlist-param-to": "Código da lingua de destino.",
+	"apihelp-cxsave-param-translationid": "O identificador de tradución"
 }

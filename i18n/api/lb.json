@@ -18,6 +18,7 @@
 	"apihelp-query+contenttranslation-param-to": "De Sproochcode vum Zil.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Den Titel vun der Quellsäit.",
 	"apihelp-query+contenttranslation-param-limit": "Déi maximal Zuel vun Iwwersetzunge fir ofzeruffen.",
+	"apihelp-query+contenttranslation-param-type": "Status vun der Iwwersetzung.",
 	"apihelp-query+contenttranslation-example-1": "Iwwersetzunge kréien déi den aktuelle Benotzer ugefaang huet.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Nummer (ID) vun der Iwwersetzung.",
 	"apihelp-query+contenttranslationstats-description": "Statistike vun der Iwwersetzung vum Inhalt kréien.",
@@ -26,6 +27,7 @@
 	"apihelp-cxconfiguration-param-to": "De Sproochcode vum Zil.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "De Sproochcode vum Zil.",
+	"apihelp-query+contenttranslationsuggestions-param-listid": "Nëmme Virschléi vun enger bestëmmter Lëscht zréckginn",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "Déi maximal Zuel vun Iwwersetzungsvirschléi fir ofzeruffen.",
 	"apihelp-query+cxpublishedtranslations-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-query+cxpublishedtranslations-param-to": "De Sproochcode vum Zil.",
@@ -39,5 +41,5 @@
 	"apihelp-cxsuggestionlist-param-titles": "Säitennimm.",
 	"apihelp-cxsuggestionlist-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-cxsuggestionlist-param-to": "De Sproochcode vum Zil.",
-	"apihelp-cxsave-param-translationId": "D'Nummer (ID) vun der Iwwersetzung"
+	"apihelp-cxsave-param-translationid": "D'Nummer (ID) vun der Iwwersetzung"
 }

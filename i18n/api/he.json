@@ -68,6 +68,6 @@
 	"apihelp-cxsuggestionlist-param-from": "קוד שפת המקור.",
 	"apihelp-cxsuggestionlist-param-to": "קוד שפת היעד.",
 	"apihelp-cxsave-example-1": "שמירת מקטעי המקור והתרגום. התוכן צריך להיות מחרוזת מקודדת ב־JSON.",
-	"apihelp-cxsave-param-translationId": "מזהה התרגום",
+	"apihelp-cxsave-param-translationid": "מזהה התרגום",
 	"apihelp-cxsave-param-content": "נתוני מקטעים מקודדם ב־JSON. כל מקטע הוא עצם עם המפתחות הבאים: content‏, sectionId‏, sequenceId‏, sequenceId‏, origin"
 }

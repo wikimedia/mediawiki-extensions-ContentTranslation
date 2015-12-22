@@ -68,6 +68,6 @@
 	"apihelp-cxsuggestionlist-param-from": "El códigu de la llingua d'orixe.",
 	"apihelp-cxsuggestionlist-param-to": "El códigu de la llingua de destín.",
 	"apihelp-cxsave-example-1": "Guardar les seiciones de fonte y traducción. El conteníu tien de ser una cadena codificada JSON",
-	"apihelp-cxsave-param-translationId": "L'ID de la traducción",
+	"apihelp-cxsave-param-translationid": "L'ID de la traducción",
 	"apihelp-cxsave-param-content": "Datos de la seición codificaos en JSON. Cada seición ye un oxetu y tien les claves siguientes: content, sectionId, sequenceId, sequenceId, origin"
 }

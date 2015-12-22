@@ -74,6 +74,6 @@
 	"apihelp-cxsuggestionlist-param-from": "Le code langue source.",
 	"apihelp-cxsuggestionlist-param-to": "Le code langue cible.",
 	"apihelp-cxsave-example-1": "Enregistrer les sections source et traduction. Le contenu doit être une chaîne encodée en JSON.",
-	"apihelp-cxsave-param-translationId": "L’ID de traduction",
+	"apihelp-cxsave-param-translationid": "L’ID de traduction",
 	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin"
 }

@@ -68,6 +68,6 @@
 	"apihelp-cxsuggestionlist-param-from": "Код на изворниот јазик.",
 	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик.",
 	"apihelp-cxsave-example-1": "Зачувај го изворниот и преведениот пасус. Содржината мора да биде низа кодирања во JSON.",
-	"apihelp-cxsave-param-translationId": "Назнака на преводот.",
+	"apihelp-cxsave-param-translationid": "Назнака на преводот.",
 	"apihelp-cxsave-param-content": "Податоци од пасуси кодирани во JSON. Секој пасус претставува објект, и ги има следниве клучеви: content, sectionId, sequenceId, sequenceId, origin"
 }

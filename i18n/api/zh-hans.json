@@ -67,5 +67,5 @@
 	"apihelp-cxsuggestionlist-param-from": "来源语言代码。",
 	"apihelp-cxsuggestionlist-param-to": "目标语言代码。",
 	"apihelp-cxsave-example-1": "保存来源和翻译段落。内容必须为JSON编码的字符串。",
-	"apihelp-cxsave-param-translationId": "翻译ID"
+	"apihelp-cxsave-param-translationid": "翻译ID"
 }

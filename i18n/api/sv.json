@@ -26,9 +26,11 @@
 	"apihelp-query+contenttranslation-param-to": "Målets språkkod.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Källsidans titel.",
 	"apihelp-query+contenttranslation-param-limit": "Maximala antalet översättningar att hämta.",
+	"apihelp-query+contenttranslation-param-type": "Översättningens tillstånd.",
 	"apihelp-query+contenttranslation-example-1": "Få översättningar påbörjade av aktuell användare.",
 	"apihelp-query+contenttranslation-example-2": "Hämta översättningsutkast efter id.",
 	"apihelp-query+contenttranslation-example-3": "Hitta en översättning för angiven titel mellan språkparet",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Översättningens ID.",
 	"apihelp-query+contenttranslationstats-description": "Hämta statistik för innehållsöversättning",
 	"apihelp-query+contenttranslationstats-example-1": "Hämta statistik för innehållsöversättningar på alla språk",
 	"apihelp-cxconfiguration-description": "Hämta innehållsöversättningens JSON-konfiguration för angivet språkpar",
@@ -64,5 +66,8 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Åtgärder att utföra i listan.",
 	"apihelp-cxsuggestionlist-param-titles": "Sidtitlar.",
 	"apihelp-cxsuggestionlist-param-from": "Källans språkkod.",
-	"apihelp-cxsuggestionlist-param-to": "Målets språkkod."
+	"apihelp-cxsuggestionlist-param-to": "Målets språkkod.",
+	"apihelp-cxsave-example-1": "Spara källans och översättningens avsnitt. Innehållet måste vara en JSON-kodad sträng.",
+	"apihelp-cxsave-param-translationid": "Översättningens ID",
+	"apihelp-cxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: innehåll, avsnitts-ID, sekvens-ID, sekvens-ID, ursprung"
 }

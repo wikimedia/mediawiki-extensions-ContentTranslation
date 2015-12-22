@@ -58,5 +58,5 @@
 	"apihelp-cxsuggestionlist-param-titles": "Seitentitel.",
 	"apihelp-cxsuggestionlist-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxsuggestionlist-param-to": "Der Ziel-Sprachcode.",
-	"apihelp-cxsave-param-translationId": "Die Übersetzungskennung"
+	"apihelp-cxsave-param-translationid": "Die Übersetzungskennung"
 }

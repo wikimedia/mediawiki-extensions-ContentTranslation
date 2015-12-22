@@ -62,5 +62,5 @@
 	"apihelp-cxsuggestionlist-param-titles": "Названия страниц.",
 	"apihelp-cxsuggestionlist-param-from": "Код исходного языка.",
 	"apihelp-cxsuggestionlist-param-to": "Код целевого языка.",
-	"apihelp-cxsave-param-translationId": "Идентификатор перевода"
+	"apihelp-cxsave-param-translationid": "Идентификатор перевода"
 }

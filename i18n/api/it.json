@@ -69,5 +69,5 @@
 	"apihelp-cxsuggestionlist-param-titles": "Titoli di pagine.",
 	"apihelp-cxsuggestionlist-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione.",
-	"apihelp-cxsave-param-translationId": "ID della traduzione"
+	"apihelp-cxsave-param-translationid": "ID della traduzione"
 }
