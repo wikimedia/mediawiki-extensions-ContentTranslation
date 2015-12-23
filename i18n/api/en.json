@@ -79,7 +79,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Page titles.",
 	"apihelp-cxsuggestionlist-param-from": "The source language code.",
 	"apihelp-cxsuggestionlist-param-to": "The target language code.",
-	"apihelp-cxsave-description": "This module allows to safe draft translations by section to save bandwidth and to collect parallel corpora.",
+	"apihelp-cxsave-description": "This module allows to save draft translations by section to save bandwidth and to collect parallel corpora.",
 	"apihelp-cxsave-example-1": "Save the source and translation sections. The content must be JSON-encoded string.",
 	"apihelp-cxsave-param-translationid": "The translation ID",
 	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin"
