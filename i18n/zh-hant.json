@@ -7,7 +7,8 @@
 			"Cwlin0416",
 			"LNDDYL",
 			"Wehwei",
-			"Citizen01"
+			"Citizen01",
+			"Bowleerin"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -137,6 +138,7 @@
 	"cx-stats-new-draft-translations-label": "進行中的新翻譯",
 	"cx-stats-published-translators-title": "翻譯人員數",
 	"cx-stats-cumulative-tab-title": "總計",
+	"cx-stats-weekly-trend-tab-title": "每星期",
 	"cx-draft-discard-confirmation-message": "您確定要永久刪除此翻譯？",
 	"cx-draft-cancel-button-label": "取消",
 	"cx-draft-discard-button-label": "刪除翻譯",

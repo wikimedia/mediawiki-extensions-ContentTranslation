@@ -75,7 +75,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "{{doc-apihelp-param|cxsuggestionlist|titles}}",
 	"apihelp-cxsuggestionlist-param-from": "{{doc-apihelp-param|cxsuggestionlist|from}}",
 	"apihelp-cxsuggestionlist-param-to": "{{doc-apihelp-param|cxsuggestionlist|to}}",
-	"apihelp-cxsave-description": "{{doc-apihelp-description|cxsave}}",
+	"apihelp-cxsave-description": "{{doc-apihelp-description|cxsave}}\n\nFor an explanation of \"parallel corpora\" see [[:w:en:Parallel text|Parallel text]].",
 	"apihelp-cxsave-example-1": "{{doc-apihelp-example|cxsave}}",
 	"apihelp-cxsave-param-translationid": "{{doc-apihelp-param|cxsave|translationId}}",
 	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}"
