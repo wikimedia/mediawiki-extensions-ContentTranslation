@@ -73,7 +73,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Títulos das páxinas.",
 	"apihelp-cxsuggestionlist-param-from": "Código da lingua de orixe.",
 	"apihelp-cxsuggestionlist-param-to": "Código da lingua de destino.",
-	"apihelp-cxsave-description": "Este módulo permite salvar borradores de traducións por sección para aforrar ancho de banda e para recoller córpora paralelo.",
+	"apihelp-cxsave-description": "Este módulo permite gardar borradores de traducións por sección para aforrar ancho de banda e para recoller córpora paralelo.",
 	"apihelp-cxsave-example-1": "Gardar as seccións fonte e tradución. O contido debe ser unha cadea codificada en JSON.",
 	"apihelp-cxsave-param-translationid": "O identificador de tradución",
 	"apihelp-cxsave-param-content": "Datos de sección codificados en JSON. Cada sección é un obxecto e ten as seguintes chaves: content, sectionId, sequenceId, origin"
