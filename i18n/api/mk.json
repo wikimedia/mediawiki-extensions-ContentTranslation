@@ -30,6 +30,7 @@
 	"apihelp-query+contenttranslationcorpora-description": "Добивање на напореден текст (пасус до пасус) за даден превод. Погледајте ја и <code>list=cxpublishedtranslations</code>. Има резервни складови во различни формати, наменети за високообемен пристап.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Назнака на преводот.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Дали да се отстранат сите HTML-ознаки за да се даде прост текст.",
+	"apihelp-query+contenttranslationcorpora-param-types": "По основно, ќе ги добиете сите три од следниве (ако се достапни): изворен текст, машински превод и исправуваниот превод на корисникот. Овој параметар ви овозможува да не се даде некој од овие видови.",
 	"apihelp-query+contenttranslationstats-description": "Дај статистики за преводот на содржини.",
 	"apihelp-query+contenttranslationstats-example-1": "Дава статистики за преведеност на содржините за сите јазици.",
 	"apihelp-cxconfiguration-description": "Дај ја поставеноста на JSON за Преведување на содржини за дадениот јазичен пар",
@@ -42,6 +43,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-listid": "Давај предлози само од извесен список",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "Максимален број на преводни предлози што треба да се дадат.",
 	"apihelp-query+contenttranslationsuggestions-param-offset": "Од која положба да се даде исход.",
+	"apihelp-query+contenttranslationsuggestions-param-seed": "По основно, предлозите се даваат по произволен редослед. Ако сакате секој предлог да се дава само еднаш при употреба на ограничување и почетно место, ќе мора да укажете семе за сите тие барања.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Дај страницаи предложени за преведување од англиски (en) на шпански (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Дај ги информациите за сите објавени преводи",
 	"apihelp-query+cxpublishedtranslations-param-from": "Код на изворниот јазик.",
@@ -70,6 +72,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Наслови на страници.",
 	"apihelp-cxsuggestionlist-param-from": "Код на изворниот јазик.",
 	"apihelp-cxsuggestionlist-param-to": "Код на целниот јазик.",
+	"apihelp-cxsave-description": "Овој модул ви овозможува да зачувате недовршени преводи по поднаслов за заштеда на семрежен проток и поврзување на напоредни корпуси.",
 	"apihelp-cxsave-example-1": "Зачувај го изворниот и преведениот пасус. Содржината мора да биде низа кодирања во JSON.",
 	"apihelp-cxsave-param-translationid": "Назнака на преводот.",
 	"apihelp-cxsave-param-content": "Податоци од пасуси кодирани во JSON. Секој пасус претставува објект, и ги има следниве клучеви: content, sectionId, sequenceId, sequenceId, origin"
