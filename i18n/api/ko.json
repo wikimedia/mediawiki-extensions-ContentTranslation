@@ -20,6 +20,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "번역 ID.",
 	"apihelp-query+contenttranslation-param-type": "번역 상태",
 	"apihelp-query+contenttranslation-example-1": "이 유저가 만든 번역을 가져오기.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "번역 ID",
 	"apihelp-cxconfiguration-param-from": "원본 언어 코드.",
 	"apihelp-cxconfiguration-param-to": "대상 언어 코드.",
 	"apihelp-query+cxpublishedtranslations-param-from": "원문 언어 코드.",
@@ -28,5 +29,6 @@
 	"apihelp-cxdelete-param-to": "대상 언어 코드.",
 	"apihelp-cxsuggestionlist-param-titles": "문서 제목.",
 	"apihelp-cxsuggestionlist-param-from": "원문 언어 코드.",
-	"apihelp-cxsuggestionlist-param-to": "대상 언어 코드."
+	"apihelp-cxsuggestionlist-param-to": "대상 언어 코드.",
+	"apihelp-cxsave-description": "이 모듈은 대역폭을 저장하고 병렬 코퍼스를 수집하기 위해 문단별로 초안 번역을 저장할 수 있습니다."
 }
