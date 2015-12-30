@@ -92,7 +92,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 			if ( $interval === 'month' ) {
 				$uniq = $label = date( 'Y-m', $min );
 			} else {
-				$uniq = date( 'Y-W', $min );
+				$uniq = date( 'o-W', $min );
 				$label = date( 'Y-m-d', $min );
 			}
 
