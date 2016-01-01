@@ -9,7 +9,8 @@
 			"Littledogboy",
 			"Amire80",
 			"Cvanca",
-			"DaBler"
+			"DaBler",
+			"Danny B."
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -17,7 +18,7 @@
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu.",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
 	"cx-desc": "Zjednodušuje překlad obsahových stránek",
-	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|přeloženo|přeloženy|přeloženo}}",
+	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|přeloženo|přeložena|přeloženo}}",
 	"cx-header-progressbar-text-mt": "($1 % pomocí {{PLURAL:$1|strojového překladu}})",
 	"cx-header-translation-center": "Překladatelské centrum",
 	"cx-header-new-translation": "Nový překlad",
@@ -41,7 +42,7 @@
 	"cx-entrypoint-title": "Přeložit tuto stránku do jazyka $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tato stránka zatím v jazyce $1 neexistuje. {{GENDER:|Chcete}} ji založit?",
 	"cx-entrypoint-dialog-title-in": "Název pro novou stránku v jazyce $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Vytvořit od nuly",
+	"cx-entrypoint-dialog-button-create-from-scratch": "Vytvořit od základu",
 	"cx-entrypoint-dialog-button-translate-from": "Přeložit z jazyka $1",
 	"cx-special-login-error": "Pro překlad této stránky musíte být přihlášeni. [$1 Přihlásit se]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klikněte}} na odstavec, který {{GENDER:|chcete}} přeložit",
@@ -66,6 +67,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorie|$1 kategorie|$1 kategorií|0=Žádná kategorie}}",
 	"cx-stats-title": "Statistiky využití nástroje Content Translation",
 	"cx-tools-reference-title": "Reference",
+	"cx-tools-reference-add": "Přidat referenci",
 	"cx-tools-reference-remove": "Odstranit referenci",
 	"cx-tools-link-instruction-shortcut": "Otevřít odkaz pomocí Shift + kliknutí",
 	"cx-tools-link-hover-tooltip": "Klikněte pro otevření",
