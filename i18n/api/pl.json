@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-param-to": "Kod języka docelowego.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Tytuł strony źródłowej.",
 	"apihelp-query+contenttranslation-param-limit": "Maksymalna liczba zwracanych tłumaczeń.",
+	"apihelp-query+contenttranslation-param-type": "Stan tłumaczenia.",
 	"apihelp-query+contenttranslation-example-1": "Pokaż tłumaczenia rozpoczęte przez tego użytkownika.",
 	"apihelp-query+contenttranslation-example-2": "Uzyskaj tłumaczenia projektów według ich ID.",
 	"apihelp-query+contenttranslation-example-3": "Znajdź jakiekolwiek tłumaczenie tego tytułu w danych językach",
