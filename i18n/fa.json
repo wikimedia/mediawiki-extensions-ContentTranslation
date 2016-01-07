@@ -12,7 +12,8 @@
 			"فلورانس",
 			"Mahdy Saffar",
 			"Huji",
-			"Hosseinblue"
+			"Hosseinblue",
+			"Calak"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -122,7 +123,7 @@
 	"cx-save-draft-error": "خطایی هنگام ذخیرهٔ صفحه رخ داد.",
 	"cx-contributions-new-contributions": "مشارکت‌های جدید",
 	"cx-contributions-new-article": "صفحه جدید",
-	"cx-contributions-translation": "چاوواشەکِردن زوون",
+	"cx-contributions-translation": "ترجمه",
 	"cx-contributions-upload": "بارگذاری رسانه",
 	"cx-contributions-new-article-tooltip": "شروع نوشتن صفحه‌ای جدید",
 	"cx-contributions-translation-tooltip": "ترجمهٔ صفحه‌های موجود",
