@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zawthet"
+			"Zawthet",
+			"Ninjastrikers"
 		]
 	},
-	"tag-contenttranslation": "ကိုးကား"
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
+	"cx-contributions-new-contributions": "ဆောင်ရွက်ချက် အသစ်",
+	"cx-campaign-contributionsmenu-mycontributions": "ဆောင်ရွက်ချက်များ",
+	"cx-stats-tabs-expand": "ဘာသာစကားများ အားလုံးကို ကြည့်ရန်"
 }
