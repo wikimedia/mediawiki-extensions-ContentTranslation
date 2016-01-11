@@ -10,6 +10,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var cachedTemplates = {};
+
 	/**
 	 * TemplateTool encapsulates the handling of templates in translation.
 	 *
@@ -180,11 +182,18 @@
 	 * @return {number} return.done.data The page id
 	 */
 	TemplateTool.prototype.getTargetTemplate = function () {
+		var api, request,
+			cacheKey = mw.cx.targetLanguage + ':' + this.templateTitle;
+
+		if ( cachedTemplates[ cacheKey ] ) {
+			return cachedTemplates[ cacheKey ].promise();
+		}
+
 		// TODO: Avoid direct access to globals
-		var api = mw.cx.siteMapper.getApi( mw.cx.targetLanguage );
+		api = mw.cx.siteMapper.getApi( mw.cx.targetLanguage );
 
 		// Note that we use canonical namespace 'Template' for title.
-		return api.get( {
+		request = api.get( {
 			action: 'query',
 			titles: 'Template:' + this.templateTitle,
 			redirects: true,
@@ -199,9 +208,12 @@
 			if ( pageId === '-1' ) {
 				return $.Deferred().reject().promise();
 			}
-
 			return response.query;
-		} ).promise();
+		} );
+
+		cachedTemplates[ cacheKey ] = request;
+
+		return request.promise();
 	};
 
 	/**
