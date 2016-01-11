@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mogoeilor"
+			"Mogoeilor",
+			"Lakzon"
 		]
 	},
 	"cx-tools-link-title": "هوم پیوند",
@@ -15,5 +16,6 @@
 	"cx-sourceselector-dialog-source-language-label": "سرچشمه:",
 	"cx-sourceselector-dialog-target-language-label": "سی:",
 	"cx-sourceselector-dialog-source-title-placeholder": "پئی جوٙری سی بألگه سأرچئشمه",
-	"cx-publish-captcha-title": "پرسایشت امنیتی"
+	"cx-publish-captcha-title": "پرسایشت امنیتی",
+	"mw-pageselector-missing": "بلگه نیئش"
 }
