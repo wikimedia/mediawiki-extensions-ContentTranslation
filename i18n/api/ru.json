@@ -29,6 +29,7 @@
 	"apihelp-query+contenttranslation-param-to": "Код целевого языка.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Заголовок исходной страницы.",
 	"apihelp-query+contenttranslation-param-limit": "Максимальное количество возвращаемых переводов.",
+	"apihelp-query+contenttranslation-param-type": "Состояние перевода.",
 	"apihelp-query+contenttranslation-example-1": "Получить перевод, начатый текущим участником.",
 	"apihelp-query+contenttranslation-example-2": "Получить черновик перевода по ID.",
 	"apihelp-query+contenttranslation-example-3": "Найти перевод по названию и паре языков",
