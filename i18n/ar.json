@@ -166,7 +166,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|الترجمات: $1}}",
 	"cx-tools-missing-link-text": "{{GENDER:|الإشارة}} إلى أن الصفحة ناقصة للتنبيه إلى إنشائها",
 	"cx-tools-missing-link-tooltip": "ترجم (في نافذة جديدة)",
-	"cx-tools-missing-link-title": "وصلة مفقودة",
+	"cx-tools-missing-link-title": "وصلة ناقصة",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|الإشارة}} إلى أن الصفحة ناقصة",
 	"echo-category-title-cx": "الترجمات",
 	"echo-pref-tooltip-cx": "أعلمني عند إنشاء الصفحة بأداة ترجمة المحتوى",
@@ -183,6 +183,7 @@
 	"cx-tools-link-external-link": "خارجية",
 	"cx-tools-link-external-link-placeholder": "أضف وصلة خارجية",
 	"cx-tools-link-to-another-page": "وصلة لصفحة أخرى",
+	"cx-tools-link-add-as-missing": "أضف وصلة ناقصة",
 	"cx-tools-link-apply": "تم",
 	"mw-pageselector-missing": "الصفحة غير موجودة",
 	"cx-suggestionlist-expand": "اعرض الكل"

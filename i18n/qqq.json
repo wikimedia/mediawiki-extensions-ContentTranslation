@@ -167,7 +167,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "Appears under {{msg-mw|cx-campaign-contributionsmenu-translate-instead}}. $1 is the title of the article being created, in quotation marks.",
 	"cx-campaign-contributionsmenu-myuploads": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Special:MyUploads in commons",
 	"cx-trend-deletions": "Label shown in the legend section of [[Special:CXStats]] trends graph visualization",
-	"cx-trend-translations-to": "Label shown in the legend section of [[Special:CXStats]] trends graph visualization.\n* $1 - language name",
+	"cx-trend-translations-to": "Label shown in the legend section of [[Special:ContentTranslationStats]] trends graph visualization.\n* $1 - language name, which may contain the local equivalent of the noun \"language\" (nominative, whatever is the default; probably not suitable for use as adjective or attribute)",
 	"cx-stats-try-contenttranslation": "A message shown in [[Special:CXStats]] for users not enabled Content Translation . \n$1 - link to enable Content Translation beta feature and go to Content Translation dashboard",
 	"cx-stats-all-translations-title": "A title of a chart that shows the number of all published and in-progress translations to all languages.",
 	"cx-stats-published-translations-label": "A label in the legend of the chart that shows the number of all published and in-progress translations to all languages.",

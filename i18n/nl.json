@@ -15,7 +15,8 @@
 			"Rangekill",
 			"Amire80",
 			"FabianRM",
-			"Santhosh.thottingal"
+			"Santhosh.thottingal",
+			"Robin van der Vliet"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -46,7 +47,7 @@
 	"cx-publish-gt-published-description": "U kunt klikken op \"{{int:vector-view-edit}}\" om deze pagina te verbeteren. Wees er zeker van dat de tekst makkelijk te lezen is.",
 	"cx-translation-add-translation": "+ Vertaling toevoegen",
 	"cx-translation-target-page-exists": "Een pagina met de titel [$1 $2] bestaat reeds in de doelwiki. Overweeg de pagina een andere titel te geven.",
-	"tag-contenttranslation": "Vertaling",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Vertaling]]",
 	"tag-contenttranslation-description": "De inhoud werd vertaald uit een andere taal met behulp van de Content Translation tool.",
 	"cx-source-loading": "Bezig met laden van $1",
 	"cx-beta": "Vertaling van inhoud",
@@ -106,8 +107,10 @@
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Gepubliceerd",
 	"cx-translation-filter-draft-translations": "In bewerking",
+	"cx-translation-filter-suggested-translations": "Suggesties",
 	"cx-suggestionlist-favorite": "Voor later",
 	"cx-suggestionlist-title": "Meer suggesties",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "Suggesties weergeven (experimenteel)",
 	"cx-suggestionlist-featured": "Etalage-artikel",
 	"cx-translation-filter-from-any-language": "Uit elke taal",
 	"cx-translation-filter-to-any-language": "Naar elke taal",
@@ -174,5 +177,8 @@
 	"cx-notification-first-translation-email-subject": "Gefeliciteerd met uw eerste vertaling",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
 	"cx-translationlist-empty-desc": "Begin uw vertaling nu en u kunt er altijd later mee doorgaan",
-	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen"
+	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen",
+	"cx-suggestionlist-expand": "Alles weergeven",
+	"cx-suggestionlist-collapse": "Minder weergeven",
+	"cx-suggestionlist-refresh": "Suggesties vernieuwen"
 }
