@@ -29,6 +29,7 @@
 	"apihelp-query+contenttranslation-example-1": "Obter as traducións iniciadas polo usuario actual.",
 	"apihelp-query+contenttranslation-example-2": "Obter os borradores de tradución por identificador.",
 	"apihelp-query+contenttranslation-example-3": "Atopar calquera tradución do título especificado entre o par de linguas especificado",
+	"apihelp-query+contenttranslationcorpora-description": "Obter o texto da sección paralela para unha tradución dada. Vexa tamén <code>list=cxpublishedtranslations</code>. Proporciónanse volcados en diferentes formatos para accesos de alto volume.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Identificador da tradución.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Se eliminar todas as etiquetas HTML para devolver texto plano.",
 	"apihelp-query+contenttranslationcorpora-param-types": "Por defecto obterá os tres seguintes se están dispoñíbeis: texto fonte, tradución automática e a tradución amañada polo usuario. Este parámetro permítelle non devolver algún destes tipos.",
