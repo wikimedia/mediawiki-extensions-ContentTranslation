@@ -5,7 +5,7 @@
 			"Lakzon"
 		]
 	},
-	"cx": "چاوواشەکِردن وةڵگة",
+	"cx": "وەڵگە چاوواشآکە",
 	"cx-dashboard-header": "زوون چاوواشاکردن/تةرجؤمة",
 	"cx-javascript": "این ابزار بدون جاوااسکریپت کار نمی‌کند.",
 	"cx-license-agreement": "با کلیک بر دکمهٔ «$1» شما با [//wikimediafoundation.org/wiki/Terms_of_Use شرایط استفاده] موافقت می‌کند و تأیید می‌کنید که مشارکتتان را با ابزار ترجمه در [https://creativecommons.org/licenses/by-sa/3.0/ مجوز CC BY-SA 3.0] و [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] با درک این موضوع که یک پسوند برای نسبت دادن CC BY-SA 3.0 کافی است موافقت می‌کنید.",
@@ -51,7 +51,7 @@
 	"cx-save-draft-tooltip": "پیش‌نویس‌های ترجمه به صورت خودکار ذخیره شده است",
 	"cx-save-draft-error": "خطایی هنگام ذخیرهٔ صفحه رخ داد.",
 	"cx-contributions-new-contributions": "مشارکت‌های جدید",
-	"cx-contributions-new-article": "وةڵگة  تازۀ",
+	"cx-contributions-new-article": "وەڵگە  تازە",
 	"cx-contributions-translation": "زوون چاوواشاکردن/تةرجؤمة",
 	"cx-contributions-upload": "بارگذاری رسانه",
 	"cx-draft-cancel-button-label": "ئآهووسانن/لغو",
