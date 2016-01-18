@@ -6,6 +6,7 @@
 		]
 	},
 	"cx-license-agreement": "«$1» төймәсенә басып, сез бирелгән [//wikimediafoundation.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегезне [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензияләре] кысалары тарафыннан таратылуы белән килешәсез, монан шулай ук сез атрибуция өчен CC BY-SA 3.0 буенча бары сылтама кирәклеге генә булганын аңларга тиешсез.",
+	"cx-beta": "Эчтәлеген тәрҗемә итү",
 	"cx-entrypoint-title": "Бу битне $1 теленә тәрҗемә итү",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бит $1 телендә әлегә юк. {{GENDER:|Сез}} аны төзергә телисезме?",
 	"cx-entrypoint-dialog-title-in": "$1 телендәге яңа бит исеме:",
