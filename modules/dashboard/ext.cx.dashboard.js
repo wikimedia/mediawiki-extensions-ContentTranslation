@@ -57,7 +57,10 @@
 
 		// Show suggestions tab by default when user is coming from a campaign
 		// entry point and does not have any previous cx source language.
-		if ( query.campaign && !storedSourceLanguage ) {
+		if ( ( query.campaign && !storedSourceLanguage ) ||
+			// Show suggestions if URL has #suggestions
+			location.hash === '#suggestions'
+		) {
 			this.setActiveList( 'suggestions' );
 		} else {
 			this.setActiveList( 'draft' );
