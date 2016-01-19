@@ -20,6 +20,7 @@
 		this.$removeReference = null;
 		this.$addReference = null;
 		this.$reference = null;
+		this.referenceListAdded = false;
 	}
 
 	/**
@@ -155,6 +156,10 @@
 	ReferenceCard.prototype.addReferenceList = function () {
 		var $referenceLists, $parentSection;
 
+		// Make sure we add reference list since we added a reference just now.
+		if ( this.referenceListAdded ) {
+			return;
+		}
 		// There can be multiple reference lists grouped for notes and references
 		// For example see enwiki:Hydrogen
 		$referenceLists = $( '[typeof*="mw:Extension/references"]' );
@@ -174,6 +179,9 @@
 				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'reference' );
 			} );
 		}
+		// Mark that the reference list is added. This make sure that this method is called only once
+		// per translation session. Calling this function many times has performance cost.
+		this.referenceListAdded = true;
 	};
 
 	/**
@@ -308,6 +316,7 @@
 			return;
 		}
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
+		// Make sure we add reference list since we added a reference just now.
 		this.addReferenceList();
 	};
 
