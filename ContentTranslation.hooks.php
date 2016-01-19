@@ -288,6 +288,14 @@ class ContentTranslationHooks {
 			'email-subject-message' => 'cx-notification-hundredth-translation-email-subject',
 		);
 
+		$notifications['cx-suggestions-available'] = array(
+			'category' => 'cx',
+			'group' => 'positive',
+			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
+			'title-message' => 'cx-notification-suggestions-available',
+			'email-subject-message' => 'cx-notification-suggestions-available-email-subject',
+		);
+
 		$icons['cx'] = array(
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
 		);
@@ -305,6 +313,7 @@ class ContentTranslationHooks {
 			case 'cx-first-translation':
 			case 'cx-tenth-translation':
 			case 'cx-hundredth-translation':
+			case 'cx-suggestions-available':
 				$extra = $event->getExtra();
 				if ( !isset( $extra['recipient'] ) ) {
 					break;

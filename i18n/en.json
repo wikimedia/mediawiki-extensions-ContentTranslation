@@ -201,5 +201,7 @@
 	"cx-draft-restore-failed": "Failed to load the saved translation!",
 	"cx-suggestionlist-expand": "View all",
 	"cx-suggestionlist-collapse": "View less",
-	"cx-suggestionlist-refresh": "Refresh suggestions"
+	"cx-suggestionlist-refresh": "Refresh suggestions",
+	"cx-notification-suggestions-available": "Based on {{GENDER:$2|your}} previous translation of '''$1''', new suggestions are now available.",
+	"cx-notification-suggestions-available-email-subject": "Translation suggestions available"
 }

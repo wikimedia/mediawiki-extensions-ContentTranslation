@@ -42,4 +42,17 @@ class Notification {
 			)
 		) );
 	}
+
+	/**
+	 * Notify the user about the availability of personalized suggestions.
+	 */
+	public static function suggestionsAvailable( \User $recipient, $lastTranslationTitle ) {
+		\EchoEvent::create( array(
+			'type' => 'cx-suggestions-available',
+			'extra' => array(
+				'recipient' => $recipient->getId(),
+				'lastTranslationTitle' => $lastTranslationTitle
+			)
+		) );
+	}
 }

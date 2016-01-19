@@ -13,6 +13,13 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
+		if ( $this->type === 'cx-suggestions-available' )  {
+			return array(
+				'url' =>
+				\SpecialPage::getTitleFor( 'ContentTranslation', false, 'suggestions' )->getCanonicalURL(),
+				'label' => $this->msg( 'cx' )
+			);
+		}
 		// No primary link
 		return false;
 	}
@@ -27,7 +34,21 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 			'cx-first-translation' => 'cx-notification-first-translation',
 			'cx-tenth-translation' => 'cx-notification-tenth-translation',
 			'cx-hundredth-translation' => 'cx-notification-hundredth-translation',
+			'cx-suggestions-available' => 'cx-notification-suggestions-available'
 		);
 		return $map[ $this->type ];
+	}
+
+	public function getHeaderMessage() {
+		$key = $this->getHeaderMessageKey();
+		$msg = $this->msg( $key );
+		if ( $key === 'cx-notification-suggestions-available' ) {
+			$extra = $this->event->getExtra();
+			$msg->params(
+				$extra[ 'lastTranslationTitle' ],
+				$this->getViewingUserForGender()
+			);
+		}
+		return $msg;
 	}
 }

@@ -207,5 +207,7 @@
 	"cx-draft-restore-failed": "Message indicating that the fetching of saved translation failed.",
 	"cx-suggestionlist-expand": "Label for the suggestions list expand trigger\n{{Identical|View all}}",
 	"cx-suggestionlist-collapse": "Label for the suggestions list collapse trigger",
-	"cx-suggestionlist-refresh": "Label for the suggestions list refresh trigger"
+	"cx-suggestionlist-refresh": "Label for the suggestions list refresh trigger",
+	"cx-notification-suggestions-available": "Echo notification to inform the translator about the availability of personalized suggestions. \n\nParameters:\n* $1 - Source title of last translated page. \n* $2 - User name of current user.",
+	"cx-notification-suggestions-available-email-subject": "Email subject to inform the translator about the availability of personalized suggestions"
 }

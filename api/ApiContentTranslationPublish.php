@@ -276,6 +276,8 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * Notify user about milestones.
 	 */
 	public function notifyTranslator() {
+		$params = $this->extractRequestParams();
+
 		// Check if Echo is available. If not, skip.
 		if ( !class_exists( 'EchoEvent' ) ) {
 			return;
@@ -288,6 +290,9 @@ class ApiContentTranslationPublish extends ApiBase {
 		switch ( $translationCount ) {
 			case 1:
 				ContentTranslation\Notification::firstTranslation( $user );
+				break;
+			case 2:
+				ContentTranslation\Notification::suggestionsAvailable( $user, $params['sourcetitle'] );
 				break;
 			case 10:
 				ContentTranslation\Notification::tenthTranslation( $user );
