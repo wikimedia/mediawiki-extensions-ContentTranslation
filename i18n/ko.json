@@ -175,6 +175,7 @@
 	"cx-stats-total-published": "총 게시됨",
 	"cx-stats-weekly-published": "지난 주",
 	"cx-stats-local-published-number": "$2의 $1",
+	"cx-stats-local-published": "$1 ($3) $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 번역}}",
 	"cx-tools-missing-link-text": "문서의 번역을 장려하기 위해 문서를 {{GENDER:|없는 것으로}} 표시",
 	"cx-tools-missing-link-tooltip": "번역하기 (새 창에서)",
