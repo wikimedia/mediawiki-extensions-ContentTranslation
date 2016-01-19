@@ -184,7 +184,7 @@
 	"cx-tools-missing-link-text": "Message with instructions for marking links as missing",
 	"cx-tools-missing-link-tooltip": "Tooltip that shows when hovering over target link card link when working with missing links.\nClicking on link opens a new translation view for the missing link.",
 	"cx-tools-missing-link-title": "Title for target link card when card is used for working with missing links",
-	"cx-tools-missing-link-mark-link": "Text for an action link.",
+	"cx-tools-missing-link-mark-link": "Text for a link that marks a page that doesn't exist as a missing link. Basically, if the source text (that is being translated) has a link to a page which has no equivalent (via WikiData) in the target language, the link will not be automatically created in the translation. Instead, it will show as gray in the translation and the user needs to explicitly mark it as missing to have it appear as red link in the published translation.",
 	"echo-category-title-cx": "Title of CX Echo notifications. Shown in [[Special:Preferences]] page to configure notifications\n{{related|Echo-category-title}}\n{{Identical|Translation}}",
 	"echo-pref-tooltip-cx": "A tooltip text about CX notifcations.Shown in [[Special:Preferences]] page to configure notifications",
 	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubitions link.",
