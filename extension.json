@@ -16,9 +16,6 @@
 	"descriptionmsg": "cx-desc",
 	"license-name": "GPL-2.0+",
 	"type": "specialpage",
-	"ExtensionFunctions": [
-		"ContentTranslationHooks::onSetup"
-	],
 	"ExtensionMessagesFiles": {
 		"ContentTranslationAliases": "ContentTranslation.alias.php"
 	},
@@ -1081,5 +1078,6 @@
 		"localBasePath": "modules",
 		"remoteExtPath": "ContentTranslation/modules"
 	},
+	"load_composer_autoloader": true,
 	"manifest_version": 1
 }

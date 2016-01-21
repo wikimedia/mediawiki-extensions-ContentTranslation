@@ -10,16 +10,6 @@
 
 class ContentTranslationHooks {
 	/**
-	 * Extra setup in addition to extension.json.
-	 */
-	public static function onSetup() {
-		// Composer support
-		if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-			require_once __DIR__ . '/vendor/autoload.php';
-		}
-	}
-
-	/**
 	 * Utility function that checks whether CX is enabled for a given user.
 	 * Currently it checks that if CX is a beta feature, whether the user has
 	 * enabled it. Otherwise it is always enabled.
