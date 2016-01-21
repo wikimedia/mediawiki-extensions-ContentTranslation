@@ -163,8 +163,11 @@ class CxFixStats extends Maintenance {
 			} elseif ( $title->isRedirect() ) {
 				$this->output( "\\- E22 Page is a redirect\n" );
 			} else {
-				$user = ContentTranslation\GlobalUser::newFromId( $row->translation_started_by );
-				$userName = $user->getName();
+				$centralIdLookup = CentralIdLookup::factory();
+				$userName = $centralIdLookup->nameFromCentralId(
+					$row->translation_started_by,
+					CentralIdLookup::AUDIENCE_RAW
+				);
 				$revId = $this->findRevisionToTag(
 					$title,
 					$userName,

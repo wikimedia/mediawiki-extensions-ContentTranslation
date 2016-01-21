@@ -75,7 +75,6 @@
 		"ContentTranslation\\Database": "includes/Database.php",
 		"ContentTranslation\\Draft": "includes/Draft.php",
 		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
-		"ContentTranslation\\GlobalUser": "includes/GlobalUser.php",
 		"ContentTranslation\\Notification": "includes/Notification.php",
 		"ContentTranslation\\SiteMapper": "includes/SiteMapper.php",
 		"ContentTranslation\\Stats": "includes/Stats.php",

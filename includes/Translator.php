@@ -5,13 +5,22 @@
 namespace ContentTranslation;
 
 class Translator {
-	function __construct( \User $user ) {
-		// GlobalUser::newFromUser must be used so CentralAuth checks are done
-		$this->globalUser = GlobalUser::newFromUser( $user );
+
+	/**
+	 * @var \User
+	 */
+	private $user;
+
+	public function __construct( \User $user ) {
+		$this->user = $user;
 	}
 
 	public function getGlobalUserId() {
-		return $this->globalUser->getId();
+		$centralIdLookup = \CentralIdLookup::factory();
+		return $centralIdLookup->centralIdFromName(
+			$this->user->getName(),
+			\CentralIdLookup::AUDIENCE_RAW
+		);
 	}
 
 	public function addTranslation( $translationId ) {
