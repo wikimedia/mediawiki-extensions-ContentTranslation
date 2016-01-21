@@ -9,6 +9,7 @@
 		]
 	},
 	"cx": "Käännä sivu",
+	"cx-dashboard-header": "Käännökset",
 	"cx-javascript": "Tämä työkalu ei toimi ilman JavaScriptiä.",
 	"cx-error-server-connection": "Virhe: Yhdistäminen palvelimeen epäonnistui.",
 	"cx-desc": "Helpottaa sisällön kääntämistä",

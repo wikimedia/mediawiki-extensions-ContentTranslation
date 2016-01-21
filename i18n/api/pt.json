@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-param-to": "O código do idioma de destino.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "O título da página de origem.",
 	"apihelp-query+contenttranslation-param-limit": "O número máximo de traduções para buscar.",
+	"apihelp-query+contenttranslation-param-type": "Estado da tradução.",
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo utilizador atual.",
 	"apihelp-query+contenttranslation-example-2": "Obtém rascunhos por ID.",
 	"apihelp-query+contenttranslation-example-3": "Encontrar qualquer tradução para o título especificado entre o par de idiomas especificado",
