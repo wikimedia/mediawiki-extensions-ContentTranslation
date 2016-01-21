@@ -142,7 +142,6 @@
 	"cx-translation-status-draft": "In progress status label for the translation in the Content Translation dashboard. This means that the translation is stored internally as a draft, accessible only to the user who started it, and not published as a wiki page.",
 	"cx-translation-status-published": "Published status label for the translation in the Content Translation dashboard.\n{{Identical|Published}}",
 	"cx-translation-status-deleted": "Deleted status label for the translation in the Content Translation dashboard.\n{{Identical|Deleted}}",
-	"cx-magnus-tool-link-text": "A link text. If this link appears, it links to the ''[http://tools.wmflabs.org/not-in-the-other-language/ Not in your language]'' tool in WMF Labs.",
 	"cx-translation-already-in-progress": "Message shown when a second translator tries to translate the same page between same languages. \n\nParameters:\n* $1 - User name of first translator",
 	"cx-translation-already-in-progress-collaborate": "A message to collaborate with other translator. Shown when there is translation conflict.",
 	"cx-publishing-dialog-publish-draft-button": "Button label for publishing options dialog. Used if extension is not configured to publish to User namespace.",

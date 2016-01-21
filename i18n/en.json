@@ -136,7 +136,6 @@
 	"cx-translation-status-draft": "In progress",
 	"cx-translation-status-published": "Published",
 	"cx-translation-status-deleted": "Deleted",
-	"cx-magnus-tool-link-text": "Find pages missing in your language",
 	"cx-translation-already-in-progress": "This is an ongoing translation by $1.",
 	"cx-translation-already-in-progress-collaborate": "Please make sure you coordinate with the user who translated the current translation.",
 	"cx-publishing-dialog-publish-draft-button": "Publish as draft",

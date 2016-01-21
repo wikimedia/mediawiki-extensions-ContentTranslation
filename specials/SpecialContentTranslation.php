@@ -75,8 +75,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationUseMagnusTool,
-			$wgContentTranslationTranslateInTarget;
+		global $wgContentTranslationTranslateInTarget;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
@@ -118,9 +117,6 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
-			if ( $wgContentTranslationUseMagnusTool ) {
-				$out->addModules( 'ext.cx.magnuslink' );
-			}
 		}
 
 		$this->setHeaders();

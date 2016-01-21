@@ -134,8 +134,6 @@
 			"cxstats": true,
 			"newarticle": true
 		},
-		"@ContentTranslationUseMagnusTool":"Whether the Magnus tool to find missing articles to be enabled or not. This is initially made to experiment with an article comparison tool at http://tools.wmflabs.org/not-in-the-other-language/ See https://phabricator.wikimedia.org/T76843",
-		"ContentTranslationUseMagnusTool": true,
 		"ContentTranslationBrowserBlacklist": {
 			"msie": [ [ "<", 10 ] ]
 		},
@@ -282,17 +280,6 @@
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-from-any-language",
 				"cx-translation-filter-to-any-language"
-			]
-		},
-		"ext.cx.magnuslink": {
-			"scripts": [
-				"dashboard/ext.cx.magnuslink.js"
-			],
-			"dependencies": [
-				"ext.cx.sitemapper"
-			],
-			"messages": [
-				"cx-magnus-tool-link-text"
 			]
 		},
 		"ext.cx.util": {
