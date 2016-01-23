@@ -138,7 +138,6 @@
 	"cx-translation-status-draft": "진행 중",
 	"cx-translation-status-published": "게시됨",
 	"cx-translation-status-deleted": "삭제됨",
-	"cx-magnus-tool-link-text": "내 언어로 번역되지 않은 문서를 찾기",
 	"cx-translation-already-in-progress": "$1 사용자가 진행 중인 번역입니다.",
 	"cx-translation-already-in-progress-collaborate": "현재 번역을 진행중인 사용자와 소통하는 것을 잊지 마세요.",
 	"cx-publishing-dialog-publish-draft-button": "초안으로 게시",

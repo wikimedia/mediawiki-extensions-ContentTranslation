@@ -121,7 +121,6 @@
 	"cx-translation-status-draft": "Am Gaang",
 	"cx-translation-status-published": "Verëffentlecht",
 	"cx-translation-status-deleted": "Geläscht",
-	"cx-magnus-tool-link-text": "Säite fannen déi an Ärer Sprooch feelen",
 	"cx-translation-already-in-progress": "Dëst ass eng Iwwersetzung vum $1, déi net ofgeschloss ass.",
 	"cx-translation-already-in-progress-collaborate": "Vergewëssert Iech w.e.g. datt Dir Iech mat deem Benotzer koordinéiert deen déi aktuell Iwwersetzung gemaach huet.",
 	"cx-publishing-dialog-publish-draft-button": "Als Brouillon verëffentlechen",
@@ -185,5 +184,7 @@
 	"cx-draft-restore-failed": "Déi gespäichert Iwwersetzung konnt net geluede ginn!",
 	"cx-suggestionlist-expand": "All weisen",
 	"cx-suggestionlist-collapse": "Manner weisen",
-	"cx-suggestionlist-refresh": "Virschléi aktualiséieren"
+	"cx-suggestionlist-refresh": "Virschléi aktualiséieren",
+	"cx-notification-suggestions-available": "Op Basis vun {{GENDER:$2|Äre}} viregen Iwwersetzungen vu(n) '''$1''' sinn elo nei Proposen disponibel.",
+	"cx-notification-suggestions-available-email-subject": "Iwwersetzungsvirschléi disponibel"
 }

@@ -130,7 +130,6 @@
 	"cx-translation-status-draft": "In Bearbeitung",
 	"cx-translation-status-published": "Veröffentlicht",
 	"cx-translation-status-deleted": "Gelöscht",
-	"cx-magnus-tool-link-text": "Seiten finden, die in deiner Sprache fehlen",
 	"cx-translation-already-in-progress": "Dies ist eine laufende Übersetzung von $1.",
 	"cx-translation-already-in-progress-collaborate": "Bitte stelle sicher, dass du dich mit dem Benutzer abstimmst, der die aktuelle Übersetzung erstellt hat.",
 	"cx-publishing-dialog-publish-draft-button": "Als Entwurf veröffentlichen",
@@ -146,7 +145,7 @@
 	"cx-draft-cancel-button-label": "Abbrechen",
 	"cx-draft-discard-button-label": "Übersetzung löschen",
 	"cx-beta-feature-enabled-notification": "Die Inhaltsübersetzung wurde in diesem Wiki aktiviert.",
-	"cx-campaign-newarticle-notice": "Jetzt kannst du auch neue Seiten durch <strong>Übersetzungen</strong> erstellen! Möchtest du das Beta-Tool „Inhaltsübersetzung“ ausprobieren?",
+	"cx-campaign-newarticle-notice": "Das Erstellen von neuen Seiten durch <strong>Übersetzungen</strong> ist jetzt einfacher! Möchtest du das Beta-Tool „Inhaltsübersetzung“ ausprobieren?",
 	"cx-campaign-no-thanks": "Nein danke",
 	"cx-campaign-try": "Inhaltsübersetzung ausprobieren",
 	"cx-campaign-contributionsmenu-mycontributions": "Beiträge",
@@ -196,5 +195,7 @@
 	"cx-draft-restore-failed": "Das Laden der gespeicherten Übersetzung ist fehlgeschlagen!",
 	"cx-suggestionlist-expand": "Alle ansehen",
 	"cx-suggestionlist-collapse": "Weniger ansehen",
-	"cx-suggestionlist-refresh": "Vorschläge aktualisieren"
+	"cx-suggestionlist-refresh": "Vorschläge aktualisieren",
+	"cx-notification-suggestions-available": "Basierend auf {{GENDER:$2|deiner}} letzten Übersetzung von '''$1''' sind jetzt neue Vorschläge verfügbar.",
+	"cx-notification-suggestions-available-email-subject": "Verfügbare Übersetzungsvorschläge"
 }

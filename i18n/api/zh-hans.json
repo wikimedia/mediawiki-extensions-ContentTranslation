@@ -39,6 +39,7 @@
 	"apihelp-query+contenttranslationsuggestions-description": "获取用于内容翻译的建议列表。",
 	"apihelp-query+contenttranslationsuggestions-param-from": "源语言代码。",
 	"apihelp-query+contenttranslationsuggestions-param-to": "目标语言代码。",
+	"apihelp-query+contenttranslationsuggestions-param-listid": "只从特定列表中返回建议",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "要检索的翻译建议的最大数量。",
 	"apihelp-query+contenttranslationsuggestions-param-offset": "用于分页结果的抵消。",
 	"apihelp-query+contenttranslationsuggestions-example-1": "检索建议从英语（en）翻译至西班牙语（es）的页面。",

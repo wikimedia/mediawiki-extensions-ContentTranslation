@@ -131,7 +131,6 @@
 	"cx-translation-status-draft": "התחיל",
 	"cx-translation-status-published": "פורסם",
 	"cx-translation-status-deleted": "נמחק",
-	"cx-magnus-tool-link-text": "למצוא דפים שחסרים בשפה שלך",
 	"cx-translation-already-in-progress": "זה תרגום שנערך עכשיו על־ידי $1.",
 	"cx-translation-already-in-progress-collaborate": "אנא {{GENDER:|תאם|תאמי}} עם המשתמש שהתחיל את התרגום הנוכחי.",
 	"cx-publishing-dialog-publish-draft-button": "לפרסם כטיוטה",
@@ -147,7 +146,7 @@
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
-	"cx-campaign-newarticle-notice": "עכשיו {{GENDER:|אתה יכול|את יכולה}} ליצור דפים חדשים באמצעות <strong>תרגום</strong>! האם {{GENDER:|אתה|את}} רוצה לנסות את גרסת הבטא של כלי תרגום התוכן?",
+	"cx-campaign-newarticle-notice": "יצירת דפים חדשים באמצעות <strong>תרגום</strong> קלה יותר עכשיו! האם {{GENDER:|אתה|את}} רוצה לנסות את גרסת הבטא של כלי תרגום התוכן?",
 	"cx-campaign-no-thanks": "לא, תודה",
 	"cx-campaign-try": "לנסות את כלי תרגום התוכן",
 	"cx-campaign-contributionsmenu-mycontributions": "תרומות",
@@ -197,5 +196,7 @@
 	"cx-draft-restore-failed": "טעינת תרגום שמור לא עבדה!",
 	"cx-suggestionlist-expand": "להציג הכול",
 	"cx-suggestionlist-collapse": "להציג פחות",
-	"cx-suggestionlist-refresh": "לרענן הצעות"
+	"cx-suggestionlist-refresh": "לרענן הצעות",
+	"cx-notification-suggestions-available": "זמינות עכשיו הצעות חדשות בשבילך, שמבוססות על כך {{GENDER:$2|שתרגמת}} בעבר את '''$1'''.",
+	"cx-notification-suggestions-available-email-subject": "זמינות הצעות לתרגום"
 }

@@ -140,7 +140,6 @@
 	"cx-translation-status-draft": "En proceso",
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Borrado",
-	"cx-magnus-tool-link-text": "Encontrar páginas faltantes en tu idioma",
 	"cx-translation-already-in-progress": "Esta es una traducción en curso de $1.",
 	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinar con el usuario que hizo la traducción actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como borrador",
@@ -206,5 +205,7 @@
 	"cx-draft-restore-failed": "No se pudo cargar la traducción guardada.",
 	"cx-suggestionlist-expand": "Ver todas",
 	"cx-suggestionlist-collapse": "Ver menos",
-	"cx-suggestionlist-refresh": "Actualizar sugerencias"
+	"cx-suggestionlist-refresh": "Actualizar sugerencias",
+	"cx-notification-suggestions-available": "Basado en {{GENDER:$2|tu}} traducción anterior de '''$1''', nuevas sugerencias están disponibles ahora.",
+	"cx-notification-suggestions-available-email-subject": "Sugerencias de traducción disponibles"
 }

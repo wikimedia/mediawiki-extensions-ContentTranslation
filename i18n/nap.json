@@ -125,7 +125,6 @@
 	"cx-translation-status-draft": "'N prugresso",
 	"cx-translation-status-published": "Pubbrecato 'a",
 	"cx-translation-status-deleted": "Canciellato",
-	"cx-magnus-tool-link-text": "Ascìa paggene ca nun esistono dint' 'a lengua vosta",
 	"cx-translation-already-in-progress": "Chest'è na traduzione ncurzo 'a $1.",
 	"cx-translation-already-in-progress-collaborate": "Assicurateve 'e ve coordinà cu l'utente c'ave ratto 'a traduzione 'e mò.",
 	"cx-publishing-dialog-publish-draft-button": "Pubbreca comm'a na bozza",
@@ -191,5 +190,7 @@
 	"cx-draft-restore-failed": "Scassaje quanno se tentava 'e carrecà 'a traduzione sarvata!",
 	"cx-suggestionlist-expand": "Vide tutte",
 	"cx-suggestionlist-collapse": "Vide meno",
-	"cx-suggestionlist-refresh": "Arrifresca 'e suggerimente"
+	"cx-suggestionlist-refresh": "Arrifresca 'e suggerimente",
+	"cx-notification-suggestions-available": "Basato ncopp' 'a traduziona 'e primma {{GENDER:$2|vosta}} pe' '''$1''', suggerimente nuove songo mò a disposiziona.",
+	"cx-notification-suggestions-available-email-subject": "Suggerimente 'e traduziona disponibbele"
 }

@@ -132,7 +132,6 @@
 	"cx-translation-status-draft": "进行中",
 	"cx-translation-status-published": "已发布",
 	"cx-translation-status-deleted": "已删除",
-	"cx-magnus-tool-link-text": "查找您的语言缺失的页面",
 	"cx-translation-already-in-progress": "这里正在由$1翻译中。",
 	"cx-translation-already-in-progress-collaborate": "请确保您与做出当前翻译的用户协调一致。",
 	"cx-publishing-dialog-publish-draft-button": "作为草稿发布",
@@ -148,7 +147,7 @@
 	"cx-draft-cancel-button-label": "取消",
 	"cx-draft-discard-button-label": "删除翻译",
 	"cx-beta-feature-enabled-notification": "内容翻译已在此wiki激活。",
-	"cx-campaign-newarticle-notice": "您现在也可以通过<strong>翻译</strong>创建新的页面！您是否希望尝试内容翻译测试工具？",
+	"cx-campaign-newarticle-notice": "通过<strong>翻译</strong>创建新页面现在变得更容易了！您是否希望尝试内容翻译测试工具？",
 	"cx-campaign-no-thanks": "不，谢谢",
 	"cx-campaign-try": "尝试内容翻译",
 	"cx-campaign-contributionsmenu-mycontributions": "贡献",
@@ -198,5 +197,7 @@
 	"cx-draft-restore-failed": "无法加载保存的翻译！",
 	"cx-suggestionlist-expand": "查看全部",
 	"cx-suggestionlist-collapse": "查看更少",
-	"cx-suggestionlist-refresh": "刷新建议"
+	"cx-suggestionlist-refresh": "刷新建议",
+	"cx-notification-suggestions-available": "基于{{GENDER:$2|您}}之前对'''$1'''的翻译，现在有新的建议可用。",
+	"cx-notification-suggestions-available-email-subject": "翻译建议可用"
 }
