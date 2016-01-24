@@ -133,7 +133,6 @@
 	"cx-translation-status-draft": "Pågående",
 	"cx-translation-status-published": "Publicerad",
 	"cx-translation-status-deleted": "Raderad",
-	"cx-magnus-tool-link-text": "Hitta sidor som saknas på ditt språk",
 	"cx-translation-already-in-progress": "Detta är en pågående översättning av $1.",
 	"cx-translation-already-in-progress-collaborate": "Vänligen se till att du samordnar med användaren som översatte den nuvarande översättningen.",
 	"cx-publishing-dialog-publish-draft-button": "Publicera som utkast",
@@ -149,7 +148,7 @@
 	"cx-draft-cancel-button-label": "Avbryt",
 	"cx-draft-discard-button-label": "Radera översättning",
 	"cx-beta-feature-enabled-notification": "Innehållsöversättning har aktiverats på denna wiki.",
-	"cx-campaign-newarticle-notice": "Nu kan du också skapa nya sidor genom att <strong>översätta</strong>! Vill du prova på beta-verktyget innehållsöversättning?",
+	"cx-campaign-newarticle-notice": "Nu är det lättare att skapa nya sidor med <strong>översättning</strong>! Vill du prova på beta-verktyget Innehållsöversättning?",
 	"cx-campaign-no-thanks": "Nej tack",
 	"cx-campaign-try": "Prova innehållsöversättning",
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
@@ -199,5 +198,7 @@
 	"cx-draft-restore-failed": "Kunde inte läsa in den sparade översättning!",
 	"cx-suggestionlist-expand": "Visa alla",
 	"cx-suggestionlist-collapse": "Visa färre",
-	"cx-suggestionlist-refresh": "Uppdatera förslag"
+	"cx-suggestionlist-refresh": "Uppdatera förslag",
+	"cx-notification-suggestions-available": "Nu finns det nya förslag tillgängliga, baserat på {{GENDER:$2|din}} senaste översättning av '''$1'''.",
+	"cx-notification-suggestions-available-email-subject": "Tillgängliga översättningsförslag"
 }
