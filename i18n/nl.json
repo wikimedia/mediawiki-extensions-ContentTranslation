@@ -133,7 +133,6 @@
 	"cx-translation-status-draft": "Wordt uitgevoerd",
 	"cx-translation-status-published": "Gepubliceerd",
 	"cx-translation-status-deleted": "Verwijderd",
-	"cx-magnus-tool-link-text": "Vind artikelen die ontbreken in uw eigen taal",
 	"cx-translation-already-in-progress": "Dit is een lopende vertaling door $1.",
 	"cx-translation-already-in-progress-collaborate": "Zorg ervoor dat u uw bewerkingen coördineert met de gebruiker die de huidige vertaling heeft vertaald.",
 	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren",
@@ -182,5 +181,6 @@
 	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen",
 	"cx-suggestionlist-expand": "Alles weergeven",
 	"cx-suggestionlist-collapse": "Minder weergeven",
-	"cx-suggestionlist-refresh": "Suggesties vernieuwen"
+	"cx-suggestionlist-refresh": "Suggesties vernieuwen",
+	"cx-notification-suggestions-available-email-subject": "Vertaalsuggesties beschikbaar"
 }

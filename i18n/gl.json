@@ -130,7 +130,6 @@
 	"cx-translation-status-draft": "En progreso",
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Borrado",
-	"cx-magnus-tool-link-text": "Atopar páxinas que faltan na súa lingua",
 	"cx-translation-already-in-progress": "Esta é unha tradución en curso de $1.",
 	"cx-translation-already-in-progress-collaborate": "Asegúrese de coordinarse co usuario que fixo a tradución actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como borrador",
@@ -146,7 +145,7 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Borrar a tradución",
 	"cx-beta-feature-enabled-notification": "Activouse a tradución de contidos neste wiki.",
-	"cx-campaign-newarticle-notice": "Agora tamén pode crear páxinas novas <strong>traducindo</strong>! Quere probar a ferramenta experimental de tradución de contido?",
+	"cx-campaign-newarticle-notice": "Agora crear novas páxinas <strong>traducindo</strong> é máis doado! Quere probar a ferramenta experimental de tradución de contido?",
 	"cx-campaign-no-thanks": "Non, grazas",
 	"cx-campaign-try": "Probar a tradución de contidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribucións",
@@ -196,5 +195,7 @@
 	"cx-draft-restore-failed": "Erro ó cargar a tradución gardada!",
 	"cx-suggestionlist-expand": "Ver todas",
 	"cx-suggestionlist-collapse": "Ver menos",
-	"cx-suggestionlist-refresh": "Actualizar suxestións"
+	"cx-suggestionlist-refresh": "Actualizar suxestións",
+	"cx-notification-suggestions-available": "Baseadas na {{GENDER:$2|súa}} tradución anterior de '''$1''', novas suxerencias están dispoñibles agora.",
+	"cx-notification-suggestions-available-email-subject": "Suxerencias de traducción dispoñibles"
 }

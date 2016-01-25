@@ -123,7 +123,6 @@
 	"cx-translation-status-draft": "En progresu",
 	"cx-translation-status-published": "Espublizao",
 	"cx-translation-status-deleted": "Desaniciao",
-	"cx-magnus-tool-link-text": "Atopar páxines que falten na to llingua",
 	"cx-translation-already-in-progress": "Esta ye una traducción en progresu de $1.",
 	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinate col usuariu que creó la traducción actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como borrador",
@@ -139,7 +138,7 @@
 	"cx-draft-cancel-button-label": "Encaboxar",
 	"cx-draft-discard-button-label": "Desaniciar la traducción",
 	"cx-beta-feature-enabled-notification": "Activóse Content Translation nesta wiki.",
-	"cx-campaign-newarticle-notice": "Agora tamién pues crear páxines nueves <strong>traduciendoles</strong> ¿Quies probar la ferramienta beta Content Translation?",
+	"cx-campaign-newarticle-notice": "Agora ye más fácil crear páxines nueves <strong>traduciéndoles</strong> ¿Quies probar la ferramienta beta Content Translation?",
 	"cx-campaign-no-thanks": "Non, gracies",
 	"cx-campaign-try": "Probar Content Translation",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuciones",
@@ -189,5 +188,7 @@
 	"cx-draft-restore-failed": "Nun pudo cargase la traducción guardada.",
 	"cx-suggestionlist-expand": "Ver toes",
 	"cx-suggestionlist-collapse": "Ver menos",
-	"cx-suggestionlist-refresh": "Anovar suxerencies"
+	"cx-suggestionlist-refresh": "Anovar suxerencies",
+	"cx-notification-suggestions-available": "Basándose {{GENDER:$2|na to}} traducción anterior de '''$1''', agora tán disponibles nueves suxerencies.",
+	"cx-notification-suggestions-available-email-subject": "Suxerencies de traducción disponibles"
 }

@@ -163,7 +163,7 @@
 	"cx-draft-cancel-button-label": "Annuler",
 	"cx-draft-discard-button-label": "Supprimer la traduction",
 	"cx-beta-feature-enabled-notification": "Traduction de contenu a été activé sur ce wiki.",
-	"cx-campaign-newarticle-notice": "Maintenant, vous pouvez aussi créer de nouveaux articles en <strong>traduisant</strong> ! Voulez-vous essayer l’outil de traduction de contenu en version bêta ?",
+	"cx-campaign-newarticle-notice": "La création de nouvelles pages en <strong>traduisant</strong> est désormais plus facile ! Voulez-vous essayer l’outil de traduction de contenu en version bêta ?",
 	"cx-campaign-no-thanks": "Non merci",
 	"cx-campaign-try": "Essayer Traduction de contenu",
 	"cx-campaign-contributionsmenu-mycontributions": "Contributions",
@@ -214,5 +214,6 @@
 	"cx-suggestionlist-expand": "Afficher tout",
 	"cx-suggestionlist-collapse": "Afficher moins",
 	"cx-suggestionlist-refresh": "Rafraîchir les suggestions",
+	"cx-notification-suggestions-available": "En se basant sur {{GENDER:$2|votre}} traduction précédente de '''$1''', de nouvelles suggestions sont désormais disponibles.",
 	"cx-notification-suggestions-available-email-subject": "Des suggestions de traduction sont disponibles"
 }
