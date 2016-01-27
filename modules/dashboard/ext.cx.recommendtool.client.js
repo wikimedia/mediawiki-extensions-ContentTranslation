@@ -76,7 +76,8 @@
 				s: self.sourceLanguage,
 				t: self.targetLanguage,
 				article: seedPages.join( '|' ),
-				search: algorithm
+				search: algorithm,
+				application: 'CX'
 			} ).then( function ( response ) {
 				return self.adapt( response.articles, algorithm );
 			} );
