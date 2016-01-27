@@ -71,6 +71,7 @@
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
+		"ContentTranslation\\AbuseFilterCheck": "includes/AbuseFilterCheck.php",
 		"ContentTranslation\\CorporaLookup": "includes/CorporaLookup.php",
 		"ContentTranslation\\Database": "includes/Database.php",
 		"ContentTranslation\\Draft": "includes/Draft.php",
