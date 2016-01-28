@@ -474,6 +474,7 @@
 				"ext.cx.tools.images",
 				"ext.cx.tools.instructions",
 				"ext.cx.tools.link",
+				"ext.cx.tools.linter",
 				"ext.cx.tools.manager",
 				"ext.cx.tools.mt",
 				"ext.cx.tools.mtabuse",
@@ -531,6 +532,24 @@
 			"dependencies": [
 				"ext.cx.tools.card",
 				"ext.cx.tools.manager"
+			]
+		},
+		"ext.cx.tools.linter": {
+			"scripts": [
+				"tools/ext.cx.tools.linter.js"
+			],
+			"styles": [
+				"tools/styles/ext.cx.tools.linter.less"
+			],
+			"dependencies": [
+				"ext.cx.tools.card",
+				"ext.cx.tools.manager"
+			],
+			"messages": [
+				"cx-tools-linter-title",
+				"cx-tools-linter-content",
+				"cx-tools-linter-view-details",
+				"cx-tools-linter-hide-details"
 			]
 		},
 		"ext.cx.tools.formatter": {

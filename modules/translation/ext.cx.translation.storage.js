@@ -69,11 +69,20 @@
 			action: 'cxsave',
 			translationid: mw.cx.translationId,
 			content: EasyDeflate.deflate( JSON.stringify( sections ) )
-		} ).done( function () {
-			var i;
+		} ).done( function ( response ) {
+			var i, sectionId, $targetSection,
+				validations = response.cxsave.validations;
+
 			// Mark the sections saved
 			for ( i = 0; i < sections.length; i++ ) {
 				sections[ i ].saved = true;
+				sectionId = sections[ i ].sectionId;
+				$targetSection = mw.cx.getTranslationSection( sectionId );
+				if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
+					$targetSection.data( 'errors', validations[ sectionId ] );
+				} else {
+					$targetSection.removeData( 'errors' );
+				}
 			}
 		} );
 	};

@@ -212,5 +212,9 @@
 	"cx-suggestionlist-collapse": "Label for the suggestions list collapse trigger",
 	"cx-suggestionlist-refresh": "Label for the suggestions list refresh trigger",
 	"cx-notification-suggestions-available": "Echo notification to inform the translator about the availability of personalized suggestions. \n\nParameters:\n* $1 - Source title of last translated page. \n* $2 - User name of current user.",
-	"cx-notification-suggestions-available-email-subject": "Email subject to inform the translator about the availability of personalized suggestions"
+	"cx-notification-suggestions-available-email-subject": "Email subject to inform the translator about the availability of personalized suggestions",
+	"cx-tools-linter-title": "Linter card title",
+	"cx-tools-linter-content": "Detailed description about the abusefilter error. \n* $1 - Autonym of target language.",
+	"cx-tools-linter-view-details": "Label for abusefilter error hide/collapse link in linter card",
+	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card"
 }

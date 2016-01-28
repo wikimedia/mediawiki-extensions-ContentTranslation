@@ -31,8 +31,6 @@ class TranslationStorageManager {
 		);
 
 		$dbw->update( 'cx_corpora', $values, $conditions, __METHOD__ );
-
-		return $dbw->insertId();
 	}
 
 	/**
@@ -51,6 +49,7 @@ class TranslationStorageManager {
 			'cxc_content' => $translationUnit->getContent()
 		);
 		$dbw->insert( 'cx_corpora', $values, __METHOD__ );
+		return $dbw->insertId();
 	}
 
 	/**

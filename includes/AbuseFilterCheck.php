@@ -87,10 +87,10 @@ class AbuseFilterCheck {
 			$rulename = \AbuseFilter::$filters[$key]->af_public_comments;
 
 			if ( isset( $val['warn']['parameters'][0] ) ) {
-				$val['warning_html'] =
+				$val['warn']['messageHtml'] =
 					wfMessage( $val['warn']['parameters'][0] )
 						->params( $rulename )
-						->parsed();
+						->parse();
 			}
 
 			$results[$rulename] = $val;

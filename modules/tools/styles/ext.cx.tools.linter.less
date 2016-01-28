@@ -1,0 +1,59 @@
+@import "../../widgets/common/ext.cx.common";
+@import "mediawiki.mixins";
+
+.cx-linter-disallow,
+.cx-linter-error {
+	padding-left: 5px;
+	border-left: 2px solid red;
+}
+
+.cx-linter-warn {
+	padding-left: 5px;
+	border-left: 2px solid #FFB500;
+}
+
+.card__linter-header {
+	padding: 10px;
+}
+
+.card__linter-title {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	font-size: large;
+	font-weight: bold;
+	.background-image-svg('../images/flag_yellow.svg', '../images/flag_yellow.png');
+	background-repeat: no-repeat;
+	background-position: left 10px center;
+	background-size: 40px;
+	padding: 10px 15px 10px 50px;
+	border: none;
+	margin: 0;
+}
+
+.card__linter-content {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	color: #565656;
+	font-size: medium;
+	padding: 10px;
+	word-wrap: break-word;
+}
+
+.card__linter-see-details {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	cursor: pointer;
+	font-size: medium;
+	padding: 10px;
+}
+
+.card__linter-error-details {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding: 10px;
+	color: #565656;
+	font-size: small;
+	&--hidden {
+		display: none;
+	}
+}
