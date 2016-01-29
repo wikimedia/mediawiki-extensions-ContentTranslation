@@ -39,7 +39,7 @@ class Translation {
 			__METHOD__
 		);
 
-		$this->translation['id'] = $dbw->insertId();
+		$this->translation['id'] = (int)$dbw->insertId();
 	}
 
 	public function update() {
@@ -452,7 +452,7 @@ class Translation {
 	 */
 	public static function newFromRow( $row ) {
 		$translation = new Translation( array(
-			'id' => $row->translation_id,
+			'id' => (int)$row->translation_id,
 			'sourceTitle' => $row->translation_source_title,
 			'targetTitle' => $row->translation_target_title,
 			'sourceLanguage' => $row->translation_source_language,

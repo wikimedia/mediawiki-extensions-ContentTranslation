@@ -382,6 +382,12 @@ class ApiContentTranslationPublish extends ApiBase {
 			// Save the draft
 			ContentTranslation\Draft::save( $translationId, $this->getHtml() );
 		}
+
+		$result = array(
+			'translationid' => $translationId
+		);
+
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	public function getAllowedParams() {

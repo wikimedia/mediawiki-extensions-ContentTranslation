@@ -389,7 +389,7 @@
 		} );
 		api.postWithToken( 'edit', apiParams, {
 			timeout: 100 * 1000 // in milliseconds
-		} ).done( function () {
+		} ).done( function ( results ) {
 			mw.hook( 'mw.cx.translation.saved' ).fire(
 				mw.cx.sourceLanguage,
 				mw.cx.targetLanguage,
@@ -399,6 +399,11 @@
 			timer = setInterval( function () {
 				checkAndSave();
 			}, 5 * 60 * 1000 );
+
+			// If this is new translation, we don't have translationid before first save.
+			if ( results.cxpublish.translationid ) {
+				mw.cx.translationId = results.cxpublish.translationid;
+			}
 		} ).fail( function ( errorCode, details ) {
 			var extra;
 
