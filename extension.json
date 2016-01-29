@@ -141,8 +141,7 @@
 			"key": "",
 			"age": "3600"
 		},
-		"ContentTranslationEnableSuggestions": false,
-		"ContentTranslationCorpora": false
+		"ContentTranslationEnableSuggestions": false
 	},
 	"ResourceModules": {
 		"Base64.js": {

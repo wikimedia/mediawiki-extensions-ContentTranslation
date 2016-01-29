@@ -9,15 +9,13 @@
 
 	$( function () {
 		var storageModules = [
-			'ext.cx.translation.draft'
+			'ext.cx.translation.draft',
+			'ext.cx.translation.storage'
 		];
 
 		if ( mw.config.get( 'wgContentTranslationDatabase' ) === null ) {
 			mw.log( 'CX Database not configured' );
 			return;
-		}
-		if ( mw.config.get( 'wgContentTranslationCorpora' ) ) {
-			storageModules.push( 'ext.cx.translation.storage' );
 		}
 		// CX Database configured.
 		mw.loader.using( storageModules ).then( function () {
@@ -25,10 +23,8 @@
 
 			draft = new mw.cx.ContentTranslationDraft();
 			draft.init();
-			if ( mw.cx.ContentTranslationStorage ) {
-				storage = new mw.cx.ContentTranslationStorage();
-				storage.init();
-			}
+			storage = new mw.cx.ContentTranslationStorage();
+			storage.init();
 		} );
 	} );
 
