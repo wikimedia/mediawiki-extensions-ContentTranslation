@@ -21,106 +21,12 @@ class ApiContentTranslationPublish extends ApiBase {
 	/**
 	 * @var VirtualRESTServiceClient
 	 */
-	protected $serviceClient;
+	protected $restbaseClient;
 
 	public function __construct( ApiMain $main, $name ) {
 		parent::__construct( $main, $name );
-		$this->serviceClient = new VirtualRESTServiceClient( new MultiHttpClient( array() ) );
-		// Mounted at /restbase/ because it is a service speaking the
-		// RESTBase v1 API -- but the service responding to these API
-		// requests could be either Parsoid or RESTBase.
-		$this->serviceClient->mount( '/restbase/', $this->getVRSObject() );
-	}
-
-	/**
-	 * Creates the virtual REST service object to be used in CX's API calls. The
-	 * method determines whether to instantiate a ParsoidVirtualRESTService or a
-	 * RestbaseVirtualRESTService object based on configuration directives:
-	 * if $wgVirtualRestConfig['modules']['restbase'] is defined, use RESTBase,
-	 * elseif $wgVirtualRestConfig['modules']['parsoid'] is defined, use Parsoid,
-	 * else RESTBase is used.
-	 *
-	 * @return VirtualRESTService the VirtualRESTService object to use
-	 */
-	private function getVRSObject() {
-		// the params array to create the service object with
-		$params = array();
-		// the VRS class to use, defaults to RESTBase
-		$class = 'RestbaseVirtualRESTService';
-		// the global virtual rest service config object, if any
-		$vrs = $this->getConfig()->get( 'VirtualRestConfig' );
-		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
-			// if restbase is available, use it
-			$params = $vrs['modules']['restbase'];
-			$params['parsoidCompat'] = false; // backward compatibility
-		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
-			// there's a global parsoid config, use it next
-			$params = $vrs['modules']['parsoid'];
-			$params['restbaseCompat'] = true;
-			$class = 'ParsoidVirtualRESTService';
-		} else {
-			// no global modules defined, fall back to old defaults
-			$params = $this->getConfig()->get( 'ContentTranslationRESTBase' );
-			$params['parsoidCompat'] = false;
-		}
-		// merge the global and service-specific params
-		if ( isset( $vrs['global'] ) ) {
-			$params = array_merge( $vrs['global'], $params );
-		}
-		// set up cookie forwarding
-		if ( $params['forwardCookies'] && !User::isEveryoneAllowed( 'read' ) ) {
-			$params['forwardCookies'] = RequestContext::getMain()->getRequest()->getHeader( 'Cookie' );
-		} else {
-			$params['forwardCookies'] = false;
-		}
-		// create the VRS object and return it
-		return new $class( $params );
-	}
-
-	// Make a RESTBase v1 API request (which could be to either Parsoid or
-	// RESTBase; the VRS makes these appear identical).
-	private function requestRestbase( $method, $path, $params ) {
-		$request = array(
-			'method' => $method,
-			'url' => '/restbase/local/v1/' . $path
-		);
-		if ( $method === 'GET' ) {
-			$request['query'] = $params;
-		} else {
-			$request['body'] = $params;
-		}
-		$response = $this->serviceClient->run( $request );
-		if ( $response['code'] === 200 && $response['error'] === '' ) {
-			return $response['body'];
-		} elseif ( $response['error'] !== '' ) {
-			$this->dieUsage( 'docserver-http-error: ' . $response['code'], $response['error'] );
-		} else { // error null, code not 200
-			$this->dieUsage( 'docserver-http: HTTP ' . $response['code'], $response['code'] );
-		}
-	}
-
-	/**
-	 * Converts html to wikitext
-	 *
-	 * @param Title $title
-	 * @param string $html
-	 * @return string wikitext
-	 */
-	protected function convertHtmlToWikitext( Title $title, $html ) {
-		$wikitext = $this->requestRestbase(
-			'POST',
-			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
-			array(
-				'html' => $html,
-				'scrub_wikitext' => 1,
-			)
-		);
-		if ( $wikitext === false ) {
-			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );
-			$name = $vrsInfo[1] ? $vrsInfo[1]->getName() : 'unknown VRS service';
-			$this->dieUsage( 'Error contacting ' . $name, 'docserver' );
-		}
-		return $wikitext;
+		$config = RequestContext::getMain()->getConfig();
+		$this->restbaseClient = new ContentTranslation\RestbaseClient( $config );
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
@@ -225,7 +131,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		try {
-			$wikitext = $this->convertHtmlToWikitext( $title, $this->getHtml() );
+			$wikitext = $this->restbaseClient->convertHtmlToWikitext( $title, $this->getHtml() );
 		} catch ( MWException $e ) {
 			$this->dieUsage( $e->getMessage(), 'docserver' );
 		}

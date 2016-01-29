@@ -77,6 +77,7 @@
 		"ContentTranslation\\Draft": "includes/Draft.php",
 		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
 		"ContentTranslation\\Notification": "includes/Notification.php",
+		"ContentTranslation\\RestbaseClient": "includes/RestbaseClient.php",
 		"ContentTranslation\\SiteMapper": "includes/SiteMapper.php",
 		"ContentTranslation\\Stats": "includes/Stats.php",
 		"ContentTranslation\\Suggestion": "includes/Suggestion.php",
