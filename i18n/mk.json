@@ -124,7 +124,6 @@
 	"cx-translation-status-draft": "Во тек",
 	"cx-translation-status-published": "Објавено",
 	"cx-translation-status-deleted": "Избришано",
-	"cx-magnus-tool-link-text": "Најдете страници што недостасуваат на вашиот јазик",
 	"cx-translation-already-in-progress": "Ова е превод во тек на $1.",
 	"cx-translation-already-in-progress-collaborate": "Не заборавајте да се усогласите со корисникот што го направил тековниот превод.",
 	"cx-publishing-dialog-publish-draft-button": "Објави како нацрт",
@@ -140,7 +139,7 @@
 	"cx-draft-cancel-button-label": "Откажи",
 	"cx-draft-discard-button-label": "Избриши го преводот",
 	"cx-beta-feature-enabled-notification": "Преведување на содржини е активирано на ова вики.",
-	"cx-campaign-newarticle-notice": "Сега можете да создавате и нови содржини со <strong>преведување</strong>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
+	"cx-campaign-newarticle-notice": "Сега полесно можете да создавате и нови содржини со <strong>преведување</strong>! Дали би сакале сега да ја пробате бета-алатката „Превод на содржини“?",
 	"cx-campaign-no-thanks": "Не, благодарам",
 	"cx-campaign-try": "Пробајте го „Превод на содржини“",
 	"cx-campaign-contributionsmenu-mycontributions": "Придонеси",
@@ -190,5 +189,7 @@
 	"cx-draft-restore-failed": "Не успеав да вчитам зачуваниот превод!",
 	"cx-suggestionlist-expand": "Погл. сите",
 	"cx-suggestionlist-collapse": "Погл. помалку",
-	"cx-suggestionlist-refresh": "Превчитај предлози"
+	"cx-suggestionlist-refresh": "Превчитај предлози",
+	"cx-notification-suggestions-available": "Врз основа на {{GENDER:$2|Вашиот}} претходен превод на '''$1''', сега се достапни нови предлози.",
+	"cx-notification-suggestions-available-email-subject": "Достапни преводни предлози"
 }
