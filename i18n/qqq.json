@@ -184,7 +184,7 @@
 	"cx-tools-missing-link-tooltip": "Tooltip that shows when hovering over target link card link when working with missing links.\nClicking on link opens a new translation view for the missing link.",
 	"cx-tools-missing-link-title": "Title for target link card when card is used for working with missing links",
 	"cx-tools-missing-link-mark-link": "Text for an action link.",
-	"echo-category-title-cx": "Title of CX Echo notifications. Shown in [[Special:Preferences]] page to configure notifications\n{{Identical|Translation}}",
+	"echo-category-title-cx": "Title of CX Echo notifications. Shown in [[Special:Preferences]] page to configure notifications\n{{related|Echo-category-title}}\n{{Identical|Translation}}",
 	"echo-pref-tooltip-cx": "A tooltip text about CX notifcations.Shown in [[Special:Preferences]] page to configure notifications",
 	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubitions link.",
 	"cx-notification-first-translation-email-subject": "Email subject to congratulate the user for first published translation.",
