@@ -182,16 +182,16 @@
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			$filterTabs.push( $( '<span>' )
-				.addClass( 'cx-filter cx-filter--suggestions mw-ui-input' )
+				.addClass( 'cx-filter cx-filter--suggestions' )
 				.text( mw.msg( 'cx-translation-filter-suggested-translations' ) ) );
 		}
 
 		$filterTabs.push( $( '<span>' )
-			.addClass( 'cx-filter cx-filter--draft mw-ui-input' )
+			.addClass( 'cx-filter cx-filter--draft' )
 			.text( mw.msg( 'cx-translation-filter-draft-translations' ) ) );
 
 		$filterTabs.push( $( '<span>' )
-			.addClass( 'cx-filter cx-filter--published mw-ui-input' )
+			.addClass( 'cx-filter cx-filter--published' )
 			.text( mw.msg( 'cx-translation-filter-published-translations' ) ) );
 
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
