@@ -61,9 +61,15 @@ class SpecialContentTranslation extends SpecialPage {
 			return false;
 		}
 
+		// PHP mangles spaces so that foo%20bar is converted to foo_bar and that $_COOKIE['foo bar']
+		// *does not* work. Go figure. It also mangles periods, so that foo.bar is converted to
+		// foo_bar, but that *does* work because MediaWiki's getCookie transparently maps periods to
+		// underscores. If there is any further bugs reported about this, please use base64.
+		$title = strtr( $title, ' ', '_' );
+
 		$token = implode( '_', array(
 			'cx',
-			Title::newFromText( $title )->getDBkey(),
+			$title,
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
 		) );

@@ -173,11 +173,10 @@
 	 * @param {string} sourceTitle Source title
 	 */
 	mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
-		var now, slug, name, domain, options;
+		var now, name, domain, options;
 
 		now = new Date();
-		slug = mw.Title.newFromText( sourceTitle ).getMain();
-		name = [ 'cx', slug, sourceLanguage, targetLanguage ].join( '_' );
+		name = [ 'cx', sourceTitle, sourceLanguage, targetLanguage ].join( '_' );
 		domain = location.hostname.indexOf( '.' ) > 0 ?
 			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
 			null; // Mostly for domains like "localhost"
