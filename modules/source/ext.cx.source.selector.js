@@ -202,9 +202,7 @@
 		this.$sourceTitleInput.prop( langProps );
 		this.$sourceLanguage.prop( langProps )
 			.text( $.uls.data.getAutonym( language ) );
-		if ( window.localStorage ) {
-			localStorage.setItem( 'cxSourceLanguage', language );
-		}
+		mw.storage.set( 'cxSourceLanguage', language );
 		this.fillTargetLanguages();
 	};
 
@@ -231,9 +229,7 @@
 		this.$targetTitleInput.prop( langProps );
 		this.$targetLanguage.prop( langProps )
 			.text( $.uls.data.getAutonym( language ) );
-		if ( window.localStorage ) {
-			localStorage.setItem( 'cxTargetLanguage', language );
-		}
+		mw.storage.set( 'cxTargetLanguage', language );
 	};
 
 	/**
@@ -792,10 +788,8 @@
 			targetLanguage, sourceLanguage,
 			commonSourceLanguages, i;
 
-		if ( window.localStorage ) {
-			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
-			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
-		}
+		storedTargetLanguage = mw.storage.get( 'cxTargetLanguage' );
+		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
 
 		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
 		sourceLanguage = storedSourceLanguage;

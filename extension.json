@@ -261,10 +261,11 @@
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.source.selector",
-				"ext.cx.translationlist",
 				"ext.cx.suggestionlist",
+				"ext.cx.translationlist",
 				"ext.uls.mediawiki",
 				"mediawiki.Uri",
+				"mediawiki.storage",
 				"mediawiki.ui.button"
 			],
 			"messages": [
@@ -372,13 +373,14 @@
 				"source/styles/ext.cx.source.selector.less"
 			],
 			"dependencies": [
-				"ext.cx.sitemapper",
 				"ext.cx.pageselector",
+				"ext.cx.sitemapper",
 				"ext.cx.widgets.overlay",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
 				"jquery.uls.compact",
+				"mediawiki.storage",
 				"mediawiki.ui.button"
 			],
 			"messages": [
@@ -874,9 +876,10 @@
 				"dashboard/styles/ext.cx.suggestionlist.less"
 			],
 			"dependencies": [
-				"ext.cx.util",
 				"ext.cx.recommendtool.client",
-				"jquery.uls.data"
+				"ext.cx.util",
+				"jquery.uls.data",
+				"mediawiki.storage"
 			],
 			"messages": [
 				"cx-suggestionlist-collapse",

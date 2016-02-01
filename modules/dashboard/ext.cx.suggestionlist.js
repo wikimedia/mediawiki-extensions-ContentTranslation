@@ -79,12 +79,8 @@
 		var storedTargetLanguage, storedSourceLanguage,
 			query = new mw.Uri().query;
 
-		try {
-			storedTargetLanguage = localStorage.getItem( 'cxTargetLanguage' );
-			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
-		} catch ( e ) {
-			// Local storage disabled?
-		}
+		storedTargetLanguage = mw.storage.get( 'cxTargetLanguage' );
+		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
 
 		// Find a sensible language pair.
 		this.sourceLanguage = query.from || storedSourceLanguage || 'en';

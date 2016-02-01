@@ -49,11 +49,7 @@
 			return;
 		}
 
-		try {
-			storedSourceLanguage = localStorage.getItem( 'cxSourceLanguage' );
-		} catch ( e ) {
-			// Local storage disabled?
-		}
+		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
 
 		// Show suggestions tab by default when user is coming from a campaign
 		// entry point and does not have any previous cx source language.
