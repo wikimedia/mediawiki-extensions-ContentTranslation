@@ -16,7 +16,8 @@
 			"Hwangjy9",
 			"Kurousagi",
 			"Yearning",
-			"Revi"
+			"Revi",
+			"Joolee0104"
 		]
 	},
 	"cx": "페이지 번역",
@@ -32,7 +33,7 @@
 	"cx-header-all-translations": "모든 번역",
 	"cx-source-view-page": "문서 보기",
 	"cx-publish-page-success": "$1에 문서가 게시되었습니다",
-	"cx-publish-page-error": "문서를 저장하는 도중에 오류가 발생하였습니다. 다시 한 번 페이지를 게시하세요. 오류: $1",
+	"cx-publish-page-error": "문서를 게시하는 도중에 오류가 발생하였습니다. 다시 한 번 페이지를 게시하세요. 오류: $1",
 	"cx-publish-button": "번역 게시",
 	"cx-publish-button-publishing": "게시 중...",
 	"cx-lost-session-draft": "세션이 만료되었습니다. 다시 로그인하지 않으면 편집을 저장할 수 없습니다.",
