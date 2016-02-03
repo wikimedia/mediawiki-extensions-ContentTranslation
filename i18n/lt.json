@@ -128,7 +128,6 @@
 	"cx-translation-status-draft": "Pažanga",
 	"cx-translation-status-published": "Paskelbtas",
 	"cx-translation-status-deleted": "Ištrinta",
-	"cx-magnus-tool-link-text": "Rasti puslapius, kurių trūksta jūsų kalba",
 	"cx-translation-already-in-progress": "Tai yra $1 tęsiamas vertimas",
 	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad  suderinote su vartotoju, kuris išvertė  esamą vertimą.",
 	"cx-publishing-dialog-publish-draft-button": "Paskelbti kaip projektą",
@@ -194,5 +193,6 @@
 	"cx-draft-restore-failed": "Nepavyko įkelti išsaugoto vertimo!",
 	"cx-suggestionlist-expand": "Rodyti visus",
 	"cx-suggestionlist-collapse": "Rodyti mažiau",
-	"cx-suggestionlist-refresh": "Atnaujinti pasiūlymus"
+	"cx-suggestionlist-refresh": "Atnaujinti pasiūlymus",
+	"cx-notification-suggestions-available-email-subject": "Prieinami vertimų pasiūlymai"
 }
