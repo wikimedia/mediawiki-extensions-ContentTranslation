@@ -93,6 +93,9 @@
 	"cx-translation-filter-all-translations": "Svi prevodi",
 	"cx-translation-filter-published-translations": "Objavljeno",
 	"cx-translation-filter-draft-translations": "U toku",
+	"cx-translation-filter-suggested-translations": "Predlozi",
+	"cx-suggestionlist-title": "Još predloga",
+	"cx-suggestionlist-featured": "Izabrani",
 	"cx-translation-filter-from-any-language": "Sa bilo kog jezika",
 	"cx-translation-filter-to-any-language": "Na bilo koji jezik",
 	"cx-create-new-translation": "Započni novi prevod",
@@ -114,7 +117,6 @@
 	"cx-translation-status-draft": "U toku",
 	"cx-translation-status-published": "Objavljeno",
 	"cx-translation-status-deleted": "Obrisano",
-	"cx-magnus-tool-link-text": "Pronađite članke koji nedostaju na vašem jeziku",
 	"cx-translation-already-in-progress": "Ovu stranicu već prevodi $1.",
 	"cx-translation-already-in-progress-collaborate": "Nemojte zaboraviti da se uskladite sa korisnikom koji je napravio trenutni prevod.",
 	"cx-publishing-dialog-publish-draft-button": "Objavi kao nacrt",
@@ -166,5 +168,7 @@
 	"cx-tools-link-external-link-placeholder": "Dodaj spoljašnju vezu",
 	"cx-tools-link-to-another-page": "Veza do druge stranice",
 	"cx-tools-link-apply": "Urađeno",
-	"mw-pageselector-missing": "Stranica ne postoji"
+	"mw-pageselector-missing": "Stranica ne postoji",
+	"cx-suggestionlist-expand": "Prikaži sve",
+	"cx-suggestionlist-collapse": "Prikaži manje"
 }
