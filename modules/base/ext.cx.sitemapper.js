@@ -128,13 +128,15 @@
 	 * @param {string} sourceLanguage
 	 * @param {string} targetLanguage
 	 * @param {string} [campaign]
+	 * @param {string} [revision]
 	 */
 	mw.cx.SiteMapper.prototype.getCXUrl = function (
 		sourceTitle,
 		targetTitle,
 		sourceLanguage,
 		targetLanguage,
-		campaign
+		campaign,
+		revision
 	) {
 		var cxPage, queryParams, uri;
 
@@ -148,6 +150,9 @@
 
 		if ( campaign ) {
 			queryParams.campaign = campaign;
+		}
+		if ( revision ) {
+			queryParams.revision = revision;
 		}
 
 		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {

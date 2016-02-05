@@ -53,13 +53,12 @@ class Translator {
 	public function getTranslation( $translationId ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$row = $dbr->selectRow(
-			array( 'cx_drafts', 'cx_translators', 'cx_translations' ),
+			array( 'cx_translators', 'cx_translations' ),
 			'*',
 			array(
-				 'translator_user_id' => $this->getGlobalUserId(),
-				 'translator_translation_id' => $translationId,
-				 'translator_translation_id = draft_id',
-				 'translator_translation_id = translation_id',
+				'translator_user_id' => $this->getGlobalUserId(),
+				'translator_translation_id' => $translationId,
+				'translator_translation_id = translation_id',
 			),
 			__METHOD__
 		);

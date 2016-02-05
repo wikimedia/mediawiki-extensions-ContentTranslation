@@ -36,4 +36,31 @@ class Draft {
 			__METHOD__
 		);
 	}
+
+	/**
+	 * Fetch the draft for the given draftId
+	 * @param {int} $draftId
+	 * @return array|null
+	 */
+	public static function fetch( $draftId ) {
+		$dbw = Database::getConnection( DB_MASTER );
+		$row = $dbw->selectRow(
+			'cx_drafts',
+			'*',
+			array(
+				'draft_id' => $draftId,
+			),
+			__METHOD__
+		);
+
+		if ( $row ) {
+			return array(
+				'draftId' => $row->draft_id,
+				'draftContent' => $row->draft_content,
+				'draftTimestamp' => $row->draft_timestamp,
+			);
+		}
+
+		return null;
+	}
 }

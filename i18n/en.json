@@ -212,5 +212,6 @@
 	"cx-tools-linter-view-details": "View details",
 	"cx-tools-linter-hide-details": "Hide details",
 	"cx-translator-month-stats-label": "This month",
-	"cx-translator-total-translations-label": "Total"
+	"cx-translator-total-translations-label": "Total",
+	"cx-page-old-revision-loaded": "This translation is based on an older version of the content. The source page may have [$1 changed significantly]. You can continue this translation or start it again to use the updated content."
 }

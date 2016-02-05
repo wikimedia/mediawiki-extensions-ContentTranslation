@@ -723,7 +723,8 @@
 				"cx-save-draft-tooltip",
 				"cx-draft-restoring",
 				"cx-draft-restored",
-				"cx-draft-restore-failed"
+				"cx-draft-restore-failed",
+				"cx-page-old-revision-loaded"
 			]
 		},
 		"ext.cx.translation.storage.init": {

@@ -32,6 +32,7 @@
 		mw.cx.sourceTitle = query.page;
 		mw.cx.targetLanguage = query.to;
 		mw.cx.sourceLanguage = query.from;
+		mw.cx.sourceRevision = query.revision;
 
 		if ( mw.user.isAnon() ) {
 			mw.hook( 'mw.cx.error.anonuser' ).fire();
@@ -48,7 +49,7 @@
 		}
 
 		this.render();
-		this.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage );
+		this.fetchPage( mw.cx.sourceTitle, mw.cx.sourceLanguage, mw.cx.sourceRevision );
 		this.listen();
 
 		if ( query.campaign ) {
@@ -63,14 +64,24 @@
 	 * @param {string} title Title of the page to be fetched
 	 * @param {string} language Language of the page requested. This will be used to
 	 *     identify the host wiki.
+	 * @param {string} revision Source page revision id.
 	 */
-	ContentTranslationSource.prototype.fetchPage = function ( title, language ) {
-		var fetchPageUrl;
+	ContentTranslationSource.prototype.fetchPage = function ( title, language, revision ) {
+		var fetchParams, apiURL, fetchPageUrl;
 
-		fetchPageUrl = this.siteMapper.getCXServerUrl( '/page/$language/$title', {
+		fetchParams = {
 			$language: this.siteMapper.getWikiDomainCode( language ),
 			$title: title
-		} );
+		};
+		apiURL = '/page/$language/$title';
+
+		// If revision is requested, load that revision of page.
+		if ( revision ) {
+			fetchParams.$revision = revision;
+			apiURL += '/$revision';
+		}
+
+		fetchPageUrl = this.siteMapper.getCXServerUrl( apiURL, fetchParams );
 
 		$.get( fetchPageUrl )
 			.done( function ( response ) {

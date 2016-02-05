@@ -7,6 +7,12 @@
  * @license GPL-2.0+
  */
 
+use ContentTranslation\CorporaLookup;
+use ContentTranslation\Database;
+use ContentTranslation\Draft;
+use ContentTranslation\Translation;
+use ContentTranslation\Translator;
+
 /**
  * Api module for querying ContentTranslation.
  *
@@ -47,9 +53,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		if ( $params['translationid'] ) {
-			$translator = new ContentTranslation\Translator( $user );
+			$translator = new Translator( $user );
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
+				$translation->translation['translationUnits'] =
+					$this->getTranslationContent( $translation );
 				$result->addValue(
 					array( 'query', 'contenttranslation' ),
 					'translation',
@@ -63,7 +71,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		// The main case, no filters
-		$translator = new ContentTranslation\Translator( $user );
+		$translator = new Translator( $user );
 		$translations = $translator->getAllTranslations(
 			$params['limit'],
 			$params['offset'],
@@ -100,7 +108,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 */
 	public function find( $sourceTitle, $sourceLanguage, $targetLanguage ) {
 		$result = $this->getResult();
-		$translation = ContentTranslation\Translation::find(
+		$translation = Translation::find(
 			$sourceLanguage,
 			$targetLanguage,
 			$sourceTitle
@@ -116,6 +124,24 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			);
 		}
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	/**
+	 * @param Translation $translation
+	 * @return array
+	 */
+	protected function getTranslationContent( Translation $translation ) {
+		$db = Database::getConnection( DB_SLAVE );
+
+		$lookup = new CorporaLookup( $db );
+		$draft = Draft::fetch( $translation->getTranslationId() );
+		$content = $draft['draftContent'];
+		// If no content present in drafts table, try corpora table
+		if ( $content === null ) {
+			$content = $lookup->getByTranslationId( $translation->getTranslationId() );
+		}
+
+		return $content;
 	}
 
 	public function getAllowedParams() {
