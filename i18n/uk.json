@@ -134,7 +134,6 @@
 	"cx-translation-status-draft": "У процесі",
 	"cx-translation-status-published": "Опубліковано",
 	"cx-translation-status-deleted": "Вилучено",
-	"cx-magnus-tool-link-text": "Знайти сторінки, відсутні у Вашій мовній версії",
 	"cx-translation-already-in-progress": "Це переклад, початий $1.",
 	"cx-translation-already-in-progress-collaborate": "Будь ласка, переконайтеся, що Ви домовилися з користувачем, який почав нинішній переклад.",
 	"cx-publishing-dialog-publish-draft-button": "Опублікувати як чернетку",
@@ -150,7 +149,7 @@
 	"cx-draft-cancel-button-label": "Скасувати",
 	"cx-draft-discard-button-label": "Вилучити переклад",
 	"cx-beta-feature-enabled-notification": "Переклад вмісту було активовано у цій вікі.",
-	"cx-campaign-newarticle-notice": "Тепер Ви можете створювати нові сторінки шляхом <strong>перекладу</strong>! Хочете спробувати нову бета-функцію «Переклад вмісту»?",
+	"cx-campaign-newarticle-notice": "Створення нових сторінок шляхом <strong>перекладу</strong> тепер стало легшим! Хочете спробувати нову бета-функцію «Переклад вмісту»?",
 	"cx-campaign-no-thanks": "Ні, дякую.",
 	"cx-campaign-try": "Спробувати Переклад вмісту",
 	"cx-campaign-contributionsmenu-mycontributions": "Внесок",
@@ -200,5 +199,7 @@
 	"cx-draft-restore-failed": "Не вдалося завантажити збережений переклад!",
 	"cx-suggestionlist-expand": "Переглянути всі",
 	"cx-suggestionlist-collapse": "Показати компактно",
-	"cx-suggestionlist-refresh": "Оновити пропозиції"
+	"cx-suggestionlist-refresh": "Оновити пропозиції",
+	"cx-notification-suggestions-available": "Доступні нові пропозиції перекладу на основі {{GENDER:$2|Вашого}} попереднього перекладу '''$1'''.",
+	"cx-notification-suggestions-available-email-subject": "Доступні пропозиції перекладу"
 }
