@@ -57,6 +57,14 @@ class ApiContentTranslationSave extends ApiBase {
 			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
 				$this->dieUsage( 'Invalid section data' );
 			}
+			// Make sure all translation unit fields are defined.
+			if ( !isset( $tuData['sequenceId'] ) ) {
+				$tuData['sequenceId'] = null;
+			}
+			if ( !isset( $tuData['content'] ) ) {
+				// Content can be null in case translator clear the section.
+				$tuData['content'] = null;
+			}
 			$translationUnit = new TranslationUnit( $tuData );
 			TranslationStorageManager::save( $translationUnit );
 
