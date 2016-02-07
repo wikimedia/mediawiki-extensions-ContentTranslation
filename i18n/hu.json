@@ -3,7 +3,8 @@
 		"authors": [
 			"Csega",
 			"Tacsipacsi",
-			"ViDam"
+			"ViDam",
+			"Máté"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -94,6 +95,9 @@
 	"cx-translation-filter-all-translations": "Minden fordítás",
 	"cx-translation-filter-published-translations": "Közzétéve",
 	"cx-translation-filter-draft-translations": "Folyamatban",
+	"cx-translation-filter-suggested-translations": "Javaslatok",
+	"cx-suggestionlist-title": "További javaslatok",
+	"cx-suggestionlist-empty-title": "Jelenleg nincsenek javaslatok",
 	"cx-translation-filter-from-any-language": "Bármely nyelvről",
 	"cx-translation-filter-to-any-language": "Bármely nyelvre",
 	"cx-create-new-translation": "Új fordítás kezdése",
@@ -115,7 +119,6 @@
 	"cx-translation-status-draft": "Folyamatban",
 	"cx-translation-status-published": "Közzétéve",
 	"cx-translation-status-deleted": "Törölve",
-	"cx-magnus-tool-link-text": "A te nyelveden hiányzó szócikkek keresése",
 	"cx-translation-already-in-progress": "Ez egy folyamatban lévő fordítás, szerzője $1.",
 	"cx-translation-already-in-progress-collaborate": "Kérlek, győződj meg arról, hogy együttműködsz azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
 	"cx-publishing-dialog-publish-draft-button": "Közzététel piszkozatként",
@@ -167,5 +170,8 @@
 	"cx-tools-link-external-link-placeholder": "Külső hivatkozás hozzáadása",
 	"cx-tools-link-to-another-page": "Hivatkozás egy másik oldalra",
 	"cx-tools-link-apply": "Kész",
-	"mw-pageselector-missing": "A lap nem létezik"
+	"mw-pageselector-missing": "A lap nem létezik",
+	"cx-suggestionlist-expand": "Összes megtekintése",
+	"cx-suggestionlist-collapse": "Kevesebb megtekintése",
+	"cx-suggestionlist-refresh": "Javaslatok frissítése"
 }

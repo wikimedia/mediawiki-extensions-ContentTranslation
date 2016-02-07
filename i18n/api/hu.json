@@ -3,7 +3,8 @@
 		"authors": [
 			"Csega",
 			"Tacsipacsi",
-			"ViDam"
+			"ViDam",
+			"Máté"
 		]
 	},
 	"apihelp-cxpublish-description": "Egy Tartalomfordítóval létrehozott lap mentése.",
@@ -22,11 +23,14 @@
 	"apihelp-query+contenttranslation-example-1": "A jelenlegi felhasználó által elkezdett fordítások lekérése.",
 	"apihelp-query+contenttranslation-example-2": "Fordítási piszkozat lekérése azonosító alapján.",
 	"apihelp-query+contenttranslation-example-3": "Bármilyen fordítás keresése a megadott címmel a megadott nyelvpárban",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "A fordítás azonosítója.",
 	"apihelp-query+contenttranslationstats-example-1": "A Tartalomfordító statisztikáinak lekérdezése az összes nyelvre.",
 	"apihelp-cxconfiguration-description": "A Tartalomfordító konfigurációs JSON-fájljának lekérdezése egy adott nyelvpárra",
 	"apihelp-cxconfiguration-param-from": "A forrásnyelv kódja.",
 	"apihelp-cxconfiguration-param-to": "A célnyelv kódja.",
 	"apihelp-cxconfiguration-example-1": "A Tartalomfordító konfigurációs JSON-fájljának lekérdezése a spanyol–katalán nyelvpárra",
+	"apihelp-query+contenttranslationsuggestions-param-from": "A forrásnyelv kódja.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "A célnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-description": "Minden közzétett fordítási információ begyűjtése",
 	"apihelp-query+cxpublishedtranslations-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-param-to": "A célnyelv kódja.",
@@ -42,5 +46,7 @@
 	"apihelp-cxdelete-param-from": "A forrásnyelv kódja.",
 	"apihelp-cxdelete-param-to": "A célnyelv kódja.",
 	"apihelp-cxdelete-param-sourcetitle": "A forráscikk címe.",
-	"apihelp-cxdelete-example-1": "Egy adott nyelvpárral és címmel megadott piszkozat törlése."
+	"apihelp-cxdelete-example-1": "Egy adott nyelvpárral és címmel megadott piszkozat törlése.",
+	"apihelp-cxsuggestionlist-param-from": "A forrásnyelv kódja.",
+	"apihelp-cxsuggestionlist-param-to": "A célnyelv kódja."
 }

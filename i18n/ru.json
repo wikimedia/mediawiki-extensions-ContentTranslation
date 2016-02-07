@@ -203,5 +203,7 @@
 	"cx-draft-restore-failed": "Не удалось загрузить сохранённый перевод!",
 	"cx-suggestionlist-expand": "Посмотреть все",
 	"cx-suggestionlist-collapse": "Показать компактно",
-	"cx-suggestionlist-refresh": "Обновить предложения"
+	"cx-suggestionlist-refresh": "Обновить предложения",
+	"cx-notification-suggestions-available": "На основе {{GENDER:$2|вашего}} предыдущего перевода '''$1''' сейчас доступные новые предложения для вас.",
+	"cx-notification-suggestions-available-email-subject": "Доступны предложения по переводу"
 }
