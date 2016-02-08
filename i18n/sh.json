@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Srdjan m"
+			"Srdjan m",
+			"Conquistador"
 		]
 	},
+	"cx-sourceselector-dialog-button-cancel": "Otkaži",
+	"cx-draft-cancel-button-label": "Otkaži",
 	"cx-campaign-newarticle-notice": "Sad možete stvarati novi sadržaj i <b>prevodeći</b>! Želite li isprobati beta alat Prevoditelj sadržaja?",
 	"cx-campaign-no-thanks": "Ne, hvala",
 	"cx-campaign-try": "Isprobajte Prevoditelj sadržaja‏",
