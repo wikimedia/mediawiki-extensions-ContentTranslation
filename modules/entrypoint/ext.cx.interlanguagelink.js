@@ -127,8 +127,6 @@
 			return;
 		}
 
-		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
-
 		// We load the below modules only when required to show gray interlanguage links.
 		// This is important since gray interlanguage links appear in along with articles.
 		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];

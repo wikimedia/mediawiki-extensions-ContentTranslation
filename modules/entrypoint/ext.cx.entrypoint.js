@@ -71,6 +71,7 @@
 		this.$closeIcon.one( 'click', $.proxy( this.hide, this ) );
 		this.$actionTranslate.one( 'click', $.proxy( this.startPageInCX, this ) );
 		this.$actionScratch.one( 'click', $.proxy( this.startFromScratch, this ) );
+		mw.hook( 'mw.cx.cta.shown' ).fire( this.options.entryPointName );
 	};
 
 	/**
