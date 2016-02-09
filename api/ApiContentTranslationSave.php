@@ -8,6 +8,7 @@
 
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\Database;
+use ContentTranslation\Draft;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
@@ -53,11 +54,18 @@ class ApiContentTranslationSave extends ApiBase {
 		$translationUnits = $this->getTranslationUnits( $params['content'] );
 		$this->saveTranslationUnits( $translationUnits );
 		$validationResults = $this->validateTranslationUnits( $translationUnits );
+		$translationId = $this->translation->getTranslationId();
+
+		// Delete the record from cx_drafts table if exists.
+		// Now we have the translation stored in cx_corpora table.
+		DeferredUpdates::addCallableUpdate( function() use ( $translationId ) {
+			Draft::delete( $translationId );
+		} );
 
 		$result = array(
 			'result' => 'success',
 			'validations' => $validationResults,
-			'translationid' => $this->translation->getTranslationId()
+			'translationid' => $translationId
 		);
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
