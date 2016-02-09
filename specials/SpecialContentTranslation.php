@@ -126,7 +126,12 @@ class SpecialContentTranslation extends SpecialPage {
 					);
 					return;
 				}
-				$out->showErrorPage( 'nosuchspecialpage', 'nospecialpagetext' );
+				$out->showErrorPage(
+					'cx',
+					'cx-specialpage-enable-betafeature',
+					SpecialPage::getTitleFor( 'ContentTranslation' )
+						->getCanonicalURL( array( 'campaign' => 'specialcx' ) )
+				);
 				return;
 			}
 		}

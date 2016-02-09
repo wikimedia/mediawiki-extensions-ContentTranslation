@@ -132,6 +132,7 @@
 		"ContentTranslationTargetNamespace": "Main",
 		"ContentTranslationCampaigns": {
 			"cxstats": true,
+			"specialcx": true,
 			"newarticle": true
 		},
 		"ContentTranslationBrowserBlacklist": {
