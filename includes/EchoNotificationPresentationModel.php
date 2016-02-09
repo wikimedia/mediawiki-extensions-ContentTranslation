@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use SpecialPage;
+
 /**
  * Class that returns structured data for the content translation echo events.
  * @see https://www.mediawiki.org/wiki/Echo_%28Notifications%29/New_formatter_system
@@ -13,15 +15,26 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		if ( $this->type === 'cx-suggestions-available' )  {
+		if ( $this->type === 'cx-first-translation' )  {
+			$user =  $this->getViewingUserForGender();
+			$title = SpecialPage::getTitleFor( 'MyContributions', $user );
 			return array(
-				'url' =>
-				\SpecialPage::getTitleFor( 'ContentTranslation', false, 'suggestions' )->getCanonicalURL(),
+				'url' => $title->getCanonicalURL(),
+				'label' => $this->msg( 'cx-contributions-link' )
+			);
+		} elseif ( $this->type === 'cx-suggestions-available' )  {
+			$title = SpecialPage::getTitleFor( 'ContentTranslation', false, 'suggestions' );
+			return array(
+				'url' => $title->getCanonicalURL(),
 				'label' => $this->msg( 'cx' )
 			);
+		} else {
+			$title = SpecialPage::getTitleFor( 'ContentTranslation' );
+			return array(
+				'url' => $title->getCanonicalURL(),
+				'label' => $this->msg( 'cx-your-translations-link' )
+			);
 		}
-		// No primary link
-		return false;
 	}
 
 	/**
@@ -43,9 +56,12 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 		$key = $this->getHeaderMessageKey();
 		$msg = $this->msg( $key );
 		if ( $key === 'cx-notification-suggestions-available' ) {
-			$extra = $this->event->getExtra();
+			$truncatedTitle = $this->language->truncate(
+				$this->event->getExtraParam( 'lastTranslationTitle' ),
+				self::PAGE_NAME_RECOMMENDED_LENGTH
+			);
 			$msg->params(
-				$extra[ 'lastTranslationTitle' ],
+				$truncatedTitle,
 				$this->getViewingUserForGender()
 			);
 		}
