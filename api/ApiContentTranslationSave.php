@@ -6,8 +6,10 @@
  * @license GPL-2.0+
  */
 
+use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\Translation;
 use ContentTranslation\Database;
+use ContentTranslation\RestbaseClient;
 use ContentTranslation\Translator;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationStorageManager;
@@ -47,6 +49,9 @@ class ApiContentTranslationSave extends ApiBase {
 			// Translation does not exist or belong to another translator
 			$this->dieUsage( 'Invalid translation ID: ' . $params['translationid'] );
 		}
+
+		$validationResults = array();
+
 		foreach ( $translationUnits as $tuData ) {
 			$tuData['translationId'] = $translationId;
 			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
@@ -54,12 +59,36 @@ class ApiContentTranslationSave extends ApiBase {
 			}
 			$translationUnit = new TranslationUnit( $tuData );
 			TranslationStorageManager::save( $translationUnit );
+
+			$validationResults[$translationUnit->getSectionId()] =
+				$this->validateTranslationUnit(
+					\Title::newFromText( $translation['targetTitle'] ),
+					$translationUnit
+				);
 		}
 
 		$result = array(
-			'result' => 'success'
+			'result' => 'success',
+			'validations' => $validationResults
 		);
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	/**
+	 * Validate the section content using AbuseFilterCheck
+	 * @param \Title $title Target title
+	 * @param TranslationUnit $translationUnit
+	 * @return array List of any rule violations
+	 */
+	protected function validateTranslationUnit( \Title $title, TranslationUnit $translationUnit ) {
+		$checker = new AbuseFilterCheck();
+		$restbaseClient = new RestbaseClient( $this->getConfig() );
+		$sectionHTML = $translationUnit->getContent();
+
+		// The section content is HTML. AbuseFilter need wikitext.
+		$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
+
+		return $checker->checkSection( $this->getUser(), $title, $text );
 	}
 
 	public function getAllowedParams() {
