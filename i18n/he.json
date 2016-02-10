@@ -15,6 +15,7 @@
 	"cx": "תרגום דף",
 	"cx-dashboard-header": "תרגומים",
 	"cx-javascript": "הכלי הזה לא עובד ללא JavaScript.",
+	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|תרגום תוכן]] הוא כלי לתרגום מהיר של דפים לשפה שלך. [$1 נסו אותו עכשיו!]",
 	"cx-license-agreement": "{{GENDER:|כשאתה לוחץ|כשאת לוחצת}} על מקש \"$1\" {{GENDER:|אתה מסכים|את מסכימה}} ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ואתה נותן|ואת נותנת}} גם את הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
 	"cx-desc": "מקלה על תרגום דפי תוכן",

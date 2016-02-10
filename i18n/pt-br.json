@@ -14,7 +14,8 @@
 			"TheEduGobi",
 			"Rhcastilhos",
 			"Almondega",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Arthurteb303"
 		]
 	},
 	"cx": "Traduzir página",
@@ -130,7 +131,6 @@
 	"cx-translation-status-draft": "Em andamento",
 	"cx-translation-status-published": "Publicado",
 	"cx-translation-status-deleted": "Excluído",
-	"cx-magnus-tool-link-text": "Encontre artigos em falta no seu idioma",
 	"cx-translation-already-in-progress": "Esta é uma tradução em andamento por $1.",
 	"cx-translation-already-in-progress-collaborate": "Por favor, certifique-se de coordenar com o usuários que traduziu a tradução atual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar um rascunho",
@@ -173,6 +173,7 @@
 	"cx-notification-tenth-translation-email-subject": "Parabéns pela sua décima tradução",
 	"cx-notification-hundredth-translation": "Você acabou de fazer 100 traduções! Extraordinário. Compartilhe a palavra aos outros editores.",
 	"cx-notification-hundredth-translation-email-subject": "Parabéns pela sua centésima tradução",
+	"cx-contributions-link": "Contribuições",
 	"cx-translationlist-empty-title": "Nada para traduzir?",
 	"cx-tools-link-internal-link": "Ligação para página",
 	"cx-tools-link-internal-link-placeholder": "Encontrar página para ligar",

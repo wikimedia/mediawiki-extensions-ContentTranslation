@@ -188,6 +188,7 @@
 	"cx-notification-tenth-translation-email-subject": "Gratulujemy dziesiątego tłumaczenia",
 	"cx-notification-hundredth-translation": "Zrobiłeś właśnie 100 tłumaczeń! To duże osiągnięcie. Podziel się tym z innymi edytorami.",
 	"cx-notification-hundredth-translation-email-subject": "Gratulujemy setnego tłumaczenia",
+	"cx-your-translations-link": "{{GENDER:$1|Twoje tłumaczenia}}",
 	"cx-translationlist-empty-title": "Nie ma nic do przetłumaczenia?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Rozpocznij}} tłumaczenie i kontynuuj je później.",
 	"cx-tools-link-internal-link": "Powiąż ze stroną",
