@@ -582,9 +582,12 @@
 		api.postWithToken( 'edit', params ).done( function ( response ) {
 			var favoriteListId;
 			if ( response.cxsuggestionlist.result === 'success' ) {
-				suggestion.$element.slideUp( 'slow', function () {
-					$( this ).remove();
-				} );
+				suggestion.$element.addClass( 'cx-slideup-hide' );
+				suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+					function () {
+						$( this ).remove();
+					}
+				);
 
 				favoriteListId = self.getListId( 'cx-suggestionlist-favorite' );
 				suggestion.listId = favoriteListId;
@@ -628,14 +631,17 @@
 		};
 		api.postWithToken( 'edit', params ).done( function ( response ) {
 			if ( response.cxsuggestionlist.result === 'success' ) {
-				suggestion.$element.slideUp( 'slow', function () {
-					var favoriteListId;
-					$( this ).remove();
-					favoriteListId = self.getListId( 'cx-suggestionlist-favorite' );
-					if ( !self.lists[ favoriteListId ].$list.find( '.cx-slitem' ).length ) {
-						self.lists[ favoriteListId ].$list.hide();
+				suggestion.$element.addClass( 'cx-slidedown-hide' );
+				suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+					function () {
+						var favoriteListId;
+						$( this ).remove();
+						favoriteListId = self.getListId( 'cx-suggestionlist-favorite' );
+						if ( !self.lists[ favoriteListId ].$list.find( '.cx-slitem' ).length ) {
+							self.lists[ favoriteListId ].$list.hide();
+						}
 					}
-				} );
+				);
 				// Do we need to add to general suggestions?
 			}
 			// TODO: What happens if this fails?
