@@ -115,38 +115,14 @@
 		} else {
 			this.$infoBar.find( '.details' ).empty().hide();
 		}
-		this.$infoBar
-			.removeClass( 'cx-success cx-error cx-warning' )
-			.addClass( type )
-			.show();
+		this.clearMessages();
+		this.$infoBar.addClass( type ).show();
 	};
 
-	/**
-	 * Check whether a page with the same title already exists
-	 * and show a warning if needed.
-	 */
-	ContentTranslationHeader.prototype.checkTargetTitle = function () {
-		var api, viewTargetUrl;
-
-		api = this.siteMapper.getApi( mw.cx.targetLanguage );
-		viewTargetUrl = this.siteMapper.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle );
-
-		api.get( {
-			titles: mw.cx.targetTitle
-		}, {
-			dataType: 'jsonp'
-		} ).done( function ( response ) {
-			// If page doesn't exist, it's OK
-			if ( response.query.pages[ -1 ] ) {
-				return;
-			}
-
-			mw.hook( 'mw.cx.warning' ).fire( mw.message(
-				'cx-translation-target-page-exists',
-				viewTargetUrl,
-				mw.cx.targetTitle
-			) );
-		} );
+	ContentTranslationHeader.prototype.clearMessages = function () {
+		this.$infoBar
+			.removeClass( 'cx-success cx-error cx-warning' )
+			.hide();
 	};
 
 	ContentTranslationHeader.prototype.listen = function () {
@@ -164,12 +140,11 @@
 		mw.hook( 'mw.cx.warning' ).add( $.proxy( this.showWarning, this ) );
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
-		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( this.checkTargetTitle, this ) );
-		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.checkTargetTitle, this ) );
 
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.updateSaveStatus, this, 'progress' ) );
 		mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.updateSaveStatus, this, 'success' ) );
 		mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.updateSaveStatus, this, 'fail' ) );
+		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.clearMessages, this ) );
 
 		mw.hook( 'mw.cx.draft.restoring' ).add( function () {
 			self.$draftStatus.text( mw.msg( 'cx-draft-restoring' ) );

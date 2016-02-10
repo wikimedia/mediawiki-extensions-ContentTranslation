@@ -377,6 +377,7 @@
 			"dependencies": [
 				"ext.cx.pageselector",
 				"ext.cx.sitemapper",
+				"ext.cx.tools.validator",
 				"ext.cx.widgets.overlay",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
@@ -423,6 +424,7 @@
 			"dependencies": [
 				"ext.cx.editor",
 				"ext.cx.translation.progress",
+				"ext.cx.tools.validator",
 				"ext.cx.util",
 				"ext.cx.util.selection",
 				"jquery.throttle-debounce",
@@ -728,6 +730,7 @@
 				"ext.cx.publish.dialog",
 				"ext.cx.sitemapper",
 				"ext.cx.tours.publish.init",
+				"ext.cx.tools.validator",
 				"json",
 				"mediawiki.api.edit"
 			],
@@ -1035,6 +1038,14 @@
 				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
 				"quotation-marks"
+			]
+		},
+		"ext.cx.tools.validator": {
+			"scripts": [
+				"tools/ext.cx.tools.validator.js"
+			],
+			"dependencies": [
+				"ext.cx.sitemapper"
 			]
 		},
 		"ext.cx.widgets.overlay": {
