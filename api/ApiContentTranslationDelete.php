@@ -22,16 +22,24 @@ class ApiContentTranslationDelete extends ApiBase {
 			$params['to'],
 			$params['sourcetitle']
 		);
-		$translation = $translation->translation;
-		$translationId = $translation['id'];
+
+		$translationId = $translation->translation['id'];
 		if ( $translationId === null ||
-			$translator->getGlobalUserId() !== intval( $translation['lastUpdatedTranslator'] ) ) {
-			// Translation does not exist or belong to another translator
+			$translator->getGlobalUserId() !== intval( $translation->translation['lastUpdatedTranslator'] )
+		) {
+			// Translation does not exist or it belongs to another translator
 			$this->dieUsageMsg( array( 'invalidtitle', $params['sourcetitle'] ) );
 		}
-		ContentTranslation\Translator::removeTranslation( $translationId );
-		ContentTranslation\Translation::delete( $translationId );
-		ContentTranslation\Draft::delete( $translationId );
+
+		if ( $translation->translation['targetURL'] !== null ) {
+			// Translation was once published. Don't delete, move it to published status.
+			$translation->translation['status'] = 'published';
+			$translation->update();
+		} else {
+			ContentTranslation\Translator::removeTranslation( $translationId );
+			ContentTranslation\Translation::delete( $translationId );
+			ContentTranslation\Draft::delete( $translationId );
+		}
 		$result = array(
 			'result' => 'success'
 		);
