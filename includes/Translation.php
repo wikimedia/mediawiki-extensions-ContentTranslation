@@ -42,14 +42,11 @@ class Translation {
 		$this->translation['id'] = (int)$dbw->insertId();
 	}
 
-	public function update() {
+	public function update( array $options ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$values = array(
-			'translation_source_title' => $this->translation['sourceTitle'],
 			'translation_target_title' => $this->translation['targetTitle'],
-			'translation_source_language' => $this->translation['sourceLanguage'],
-			'translation_target_language' => $this->translation['targetLanguage'],
 			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
 			'translation_source_url' => $this->translation['sourceURL'],
 			'translation_status' => $this->translation['status'],
@@ -63,6 +60,11 @@ class Translation {
 			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
 		}
 
+		if ( isset( $options['freshTranslation'] ) && $options['freshTranslation'] === true ) {
+			$values['translation_start_timestamp'] = $dbw->timestamp();
+			$values['translation_started_by'] = $this->translation['startedTranslator'];
+		}
+
 		$dbw->update(
 			'cx_translations',
 			$values,
@@ -72,6 +74,8 @@ class Translation {
 	}
 
 	public function save() {
+		$freshTranslation = false;
+
 		$existingTranslation = Translation::find(
 			$this->translation['sourceLanguage'],
 			$this->translation['targetLanguage'],
@@ -81,8 +85,14 @@ class Translation {
 		if ( $existingTranslation === null ) {
 			$this->create();
 		} else {
+			$options = array();
+			if ( $existingTranslation->translation['status'] === 'deleted' ) {
+				// Existing translation is deleted, so this is a fresh start of same
+				// language pair and source title.
+				$options['freshTranslation'] = true;
+			}
 			$this->translation['id'] = $existingTranslation->getTranslationId();
-			$this->update();
+			$this->update( $options );
 		}
 	}
 
