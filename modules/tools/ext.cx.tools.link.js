@@ -1204,6 +1204,13 @@
 		} else if ( selection.jquery && selection.is( 'a' ) ) {
 			this.$link = selection;
 		}
+
+		// Do not show the tool for headings.
+		if ( this.getParentSection().is( 'h1, h2, h3, h4, h5, h6' ) ) {
+			this.stop();
+			return;
+		}
+
 		this.show();
 		this.listen();
 	};
