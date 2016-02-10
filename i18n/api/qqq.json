@@ -62,7 +62,7 @@
 	"apihelp-query+contenttranslationlangtrend-example-1": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
 	"apihelp-query+contenttranslationlangtrend-example-2": "{{doc-apihelp-example|query+contenttranslationlangtrend}}",
 	"apihelp-cxtoken-description": "\"[[:mw:Content_translation/cxserver|cxserver]]\" is a name of an internal software component, and probably shouldn't be translated.\n{{doc-apihelp-description|cxtoken}}",
-	"apihelp-cxtoken-example-1": "{{doc-apihelp-example|cxtoken}}",
+	"apihelp-cxtoken-example-1": "\"[[:mw:Content_translation/cxserver|cxserver]]\" is a name of an internal software component, and probably shouldn't be translated.\n{{doc-apihelp-example|cxtoken}}",
 	"apihelp-cxdelete-description": "{{doc-apihelp-description|cxdelete}}",
 	"apihelp-cxdelete-param-from": "{{doc-apihelp-param|cxdelete|from}}",
 	"apihelp-cxdelete-param-to": "{{doc-apihelp-param|cxdelete|to}}",
