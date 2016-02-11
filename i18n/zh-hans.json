@@ -10,7 +10,8 @@
 			"Fengchao",
 			"Duolaimi",
 			"Kuailong",
-			"Hanyanbo98"
+			"Hanyanbo98",
+			"Laisc7301"
 		]
 	},
 	"cx": "翻译页面",
@@ -183,7 +184,7 @@
 	"cx-notification-tenth-translation-email-subject": "祝贺您完成了您的第10次翻译",
 	"cx-notification-hundredth-translation": "您已完成100次翻译！这是个显著的成就。请与其他编辑者分享。",
 	"cx-notification-hundredth-translation-email-subject": "祝贺您完成了您的第100次翻译",
-	"cx-contributions-link": "贡献",
+	"cx-contributions-link": "您的贡献",
 	"cx-your-translations-link": "{{GENDER:$1|您的翻译}}",
 	"cx-translationlist-empty-title": "没有要翻译的内容么？",
 	"cx-translationlist-empty-desc": "现在{{GENDER:|开始}}您的翻译，并随时继续。",
