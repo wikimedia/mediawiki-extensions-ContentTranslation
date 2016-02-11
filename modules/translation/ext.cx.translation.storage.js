@@ -34,7 +34,7 @@
 			.find( '.cx-highlight, .cx-highlight--blue, .cx-highlight--lightblue' )
 			.removeClass( 'cx-highlight cx-highlight--blue cx-highlight--lightblue' );
 
-		return $content.html();
+		return $content[ 0 ].outerHTML;
 	};
 
 	ContentTranslationStorage.prototype.listen = function () {
