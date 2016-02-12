@@ -206,5 +206,9 @@
 	"cx-suggestionlist-collapse": "View less",
 	"cx-suggestionlist-refresh": "Refresh suggestions",
 	"cx-notification-suggestions-available": "Based on {{GENDER:$2|your}} previous translation of '''$1''', new suggestions are now available.",
-	"cx-notification-suggestions-available-email-subject": "Translation suggestions available"
+	"cx-notification-suggestions-available-email-subject": "Translation suggestions available",
+	"cx-tools-linter-title": "Content issues: $1",
+	"cx-tools-linter-content": "Content not meeting [//www.mediawiki.org/wiki/Content_translation/Abuse_filter the restrictions set by Wikipedia in $1] found. Please fix the issues before publishing the translation.",
+	"cx-tools-linter-view-details": "View details",
+	"cx-tools-linter-hide-details": "Hide details"
 }
