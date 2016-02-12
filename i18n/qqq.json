@@ -216,5 +216,7 @@
 	"cx-tools-linter-title": "Linter card title",
 	"cx-tools-linter-content": "Detailed description about the abusefilter error. \n* $1 - Autonym of target language.",
 	"cx-tools-linter-view-details": "Label for abusefilter error hide/collapse link in linter card",
-	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card"
+	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card",
+	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
+	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user."
 }

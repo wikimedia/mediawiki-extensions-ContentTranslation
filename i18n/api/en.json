@@ -82,5 +82,8 @@
 	"apihelp-cxsave-description": "This module allows to save draft translations by section to save bandwidth and to collect parallel corpora.",
 	"apihelp-cxsave-example-1": "Save the source and translation sections. The content must be JSON-encoded string.",
 	"apihelp-cxsave-param-translationid": "The translation ID",
-	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-query+cxtranslatorstats-description": "Fetch the translation statistics for the given user.",
+	"apihelp-query+cxtranslatorstats-param-translator": "The translator's user name. This parameter is optional. If not passed, the currently logged-in user will be used.",
+	"apihelp-query+cxtranslatorstats-example-1": "Fetch the translation statistics for the given user."
 }

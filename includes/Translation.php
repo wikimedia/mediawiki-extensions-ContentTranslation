@@ -292,7 +292,9 @@ class Translation {
 	 * @param string $interval 'weekly' or 'monthly' trend
 	 * @return array
 	 */
-	public static function getTrendByStatus( $source, $target, $status, $interval ) {
+	public static function getTrendByStatus(
+		$source, $target, $status, $interval, $translatorId
+	) {
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$conditions = array();
@@ -319,6 +321,9 @@ class Translation {
 		}
 		if ( $target !== null ) {
 			$conditions['translation_target_language'] = $target;
+		}
+		if ( $translatorId !== null ) {
+			$conditions['translation_last_update_by'] = $translatorId;
 		}
 		$options = null;
 		if ( $interval === 'week' ) {
