@@ -20,7 +20,7 @@
 		var publisher,
 			oldCaptchaHandler = mw.cx.publish.prototype.captchaHandler,
 			oldSuccessHandler = mw.cx.publish.prototype.onSuccess,
-			oldTitleExists = mw.cx.publish.prototype.titleExists,
+			oldTitleExists = mw.cx.publish.prototype.checkTargetTitle,
 			newCaptchaHandler,
 			server = this.server,
 			$trigger = $( '<div>' );
@@ -36,12 +36,12 @@
 				captchaKey: 1234565
 			} ).promise();
 		};
-		publisher = new mw.cx.publish( $trigger );
+		publisher = new mw.cx.publish( $trigger, this.sitemapper );
 		publisher.captchaHandler = newCaptchaHandler;
 		publisher.getContent = function () {
 			return 'Content to publish';
 		};
-		publisher.titleExists = function () {
+		publisher.checkTargetTitle = function () {
 			return $.Deferred().resolve( false );
 		};
 		publisher.onSuccess = function () {
@@ -58,7 +58,7 @@
 			assert.ok( true, 'Publishing was completed' );
 			mw.cx.publish.prototype.captchaHandler = oldCaptchaHandler;
 			mw.cx.publish.prototype.onSuccess = oldSuccessHandler;
-			mw.cx.publish.prototype.getTitle = oldTitleExists;
+			mw.cx.publish.prototype.titleExists = oldTitleExists;
 			QUnit.start();
 		} );
 		server.requests[ 0 ].respond( 200, {

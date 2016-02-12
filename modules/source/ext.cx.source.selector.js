@@ -31,6 +31,7 @@
 		this.$sourceTitleInput = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
+		this.validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
 		this.init();
 	}
 
@@ -382,7 +383,7 @@
 		}
 
 		// Perform multitude of validations for the titles
-		this.checkForTitle( sourceLanguage, sourceTitle ).done( function ( sourceTitle ) {
+		this.validator.isTitleExistInLanguage( sourceLanguage, sourceTitle ).then( function ( sourceTitle ) {
 			var titleCheck, translationCheck;
 
 			selector.$translateFromButton.prop( 'disabled', !sourceTitle );
@@ -394,9 +395,9 @@
 			}
 
 			// Whether the target title, if given, exists in the target wiki
-			titleCheck = selector.checkForTitle( targetLanguage, targetTitle );
+			titleCheck = selector.validator.isTitleExistInLanguage( targetLanguage, targetTitle );
 			// Whether the source already has a translation linked via language links
-			translationCheck = selector.checkForEquivalentTargetPage(
+			translationCheck = selector.validator.isTitleConnectedInLanguages(
 				sourceLanguage,
 				targetLanguage,
 				sourceTitle
@@ -422,100 +423,6 @@
 				}
 			} );
 		} );
-	};
-
-	/**
-	 * Checks to see if a title exists in the specified language wiki. Returns
-	 * the normalised title and resolves redirects.
-	 *
-	 * @param {string} language The language of the wiki to check
-	 * @param {string} title The title to look for
-	 * @return {jQuery.promise}
-	 * @return {Function} return.done If title exists
-	 * @return {string|false} return.done.title
-	 */
-	CXSourceSelector.prototype.checkForTitle = function ( language, title ) {
-		var api = this.siteMapper.getApi( language );
-
-		// Short circuit empty titles
-		if ( title === '' ) {
-			return $.Deferred().resolve( false ).promise();
-		}
-
-		// Reject titles with pipe in the name, as it has special meaning in the api
-		if ( /\|/.test( title ) ) {
-			return $.Deferred().resolve( false ).promise();
-		}
-
-		return api.get( {
-			action: 'query',
-			titles: title,
-			redirects: 1,
-			indexpageids: 1,
-			format: 'json'
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
-		} ).then( function ( response ) {
-			var pageid = response.query.pageids[ 0 ];
-
-			if ( response.query.pages[ pageid ].missing !== undefined ) {
-				return false;
-			}
-
-			if ( response.query.pages[ pageid ].invalid !== undefined ) {
-				return false;
-			}
-
-			return response.query.pages[ pageid ].title;
-		} );
-	};
-
-	/**
-	 * Checks for an equivalent page in the target wiki based on source title.
-	 *
-	 * @param {string} sourceLanguage the source language
-	 * @param {string} targetLanguage the target language
-	 * @param {string} sourceTitle the title to check
-	 * @return {jQuery.promise}
-	 */
-	CXSourceSelector.prototype.checkForEquivalentTargetPage = function (
-		sourceLanguage,
-		targetLanguage,
-		sourceTitle
-	) {
-		var api = this.siteMapper.getApi( sourceLanguage ),
-			$deferred = $.Deferred();
-
-		api.get( {
-			action: 'query',
-			prop: 'langlinks',
-			titles: sourceTitle,
-			lllang: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
-			lllimit: 1,
-			redirects: true,
-			format: 'json'
-		}, {
-			dataType: 'jsonp',
-			cache: true
-		} ).done( function ( response ) {
-			var equivalentTargetPage = false;
-
-			if ( response.query && response.query.pages ) {
-				$.each( response.query.pages, function ( pageId, page ) {
-					if ( page.langlinks ) {
-						equivalentTargetPage = page.langlinks[ 0 ][ '*' ];
-					}
-				} );
-			}
-
-			$deferred.resolve( equivalentTargetPage );
-		} ).fail( function () {
-			$deferred.resolve( false );
-		} );
-
-		return $deferred.promise();
 	};
 
 	/**
@@ -756,7 +663,7 @@
 		originalSourceTitle = this.$sourceTitleInput.val().trim();
 		targetTitle = this.$targetTitleInput.val().trim();
 
-		this.checkForTitle(
+		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
 			originalSourceTitle
 		).done( function ( sourceTitle ) {

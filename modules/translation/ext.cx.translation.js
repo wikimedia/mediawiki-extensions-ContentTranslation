@@ -15,9 +15,10 @@
 	 *
 	 * @class
 	 */
-	function ContentTranslationEditor( element, options ) {
+	function ContentTranslationEditor( element, siteMapper, options ) {
 		this.$container = $( element );
 		this.options = $.extend( true, {}, $.fn.cxTranslation.defaults, options );
+		this.siteMapper = siteMapper;
 		this.$title = null;
 		this.$content = null;
 		this.init();
@@ -124,12 +125,13 @@
 	}
 
 	ContentTranslationEditor.prototype.listen = function () {
-		var cxTranslation = this;
+		var cxTranslation = this,
+			validator = new mw.cx.ContentTranslationValidator( cxTranslation.siteMapper );
 
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.addSectionHeader, this ) );
 		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
-
+		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( validator.validateTargetTitle, validator ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,
@@ -162,14 +164,15 @@
 		// Capture translation selection on keyup and mouseup
 		this.$container.on( 'keyup mouseup', saveCursorPosition );
 
-		this.$title.on( 'blur', function () {
+		this.$title.on( 'blur keyup', $.debounce( 500, function () {
 			var title = cxTranslation.$title.text();
 
 			if ( title !== mw.cx.targetTitle ) {
 				mw.cx.targetTitle = cxTranslation.$title.text();
+				validator.validateTargetTitle();
 				mw.hook( 'mw.cx.translation.title.change' ).fire();
 			}
-		} );
+		} ) );
 	};
 
 	/**
@@ -447,13 +450,13 @@
 			.text( mw.msg( 'cx-translation-add-translation' ) );
 	}
 
-	$.fn.cxTranslation = function ( options ) {
+	$.fn.cxTranslation = function ( siteMapper, options ) {
 		return this.each( function () {
 			var $this = $( this ),
 				data = $this.data( 'cxTranslation' );
 
 			if ( !data ) {
-				$this.data( 'cxTranslation', ( data = new ContentTranslationEditor( this, options ) ) );
+				$this.data( 'cxTranslation', ( data = new ContentTranslationEditor( this, siteMapper, options ) ) );
 			}
 
 			if ( typeof options === 'string' ) {

@@ -13,9 +13,10 @@
 	 *
 	 * @class
 	 */
-	function CXPublish( $trigger ) {
+	function CXPublish( $trigger, siteMapper ) {
 		this.$trigger = $trigger;
 		this.targetTitle = null;
+		this.siteMapper = siteMapper;
 	}
 
 	/**
@@ -130,33 +131,6 @@
 	};
 
 	/**
-	 * Checks to see if there is already a published article with the title.
-	 *
-	 * @param {string} title The title to check
-	 * @return {jQuery.promise}
-	 */
-	CXPublish.prototype.titleExists = function ( title ) {
-		var api,
-			deferred = $.Deferred();
-
-		api = new mw.Api();
-
-		api.get( {
-			titles: title
-		}, {
-			dataType: 'jsonp'
-		} ).done( function ( response ) {
-			if ( response.query.pages[ -1 ] ) {
-				deferred.resolve( false );
-			} else {
-				deferred.resolve( true );
-			}
-		} );
-
-		return deferred.promise();
-	};
-
-	/**
 	 * Generate an alternate title in case of title collision.
 	 *
 	 * @param {string} title The title
@@ -183,11 +157,10 @@
 	 * @return {jQuery.Promise}
 	 */
 	CXPublish.prototype.checkTargetTitle = function ( title ) {
-		var self = this;
+		var self = this,
+			validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
 
-		title = mw.cx.SiteMapper.prototype.getTargetTitle( title );
-
-		return this.titleExists( title ).then( function ( titleExists ) {
+		return validator.isTitleExistInLanguage( mw.cx.targetLanguage, title ).then( function ( titleExists ) {
 			var $dialog;
 
 			if ( !titleExists ) {
@@ -416,10 +389,11 @@
 	mw.cx.publish = CXPublish;
 
 	$( function () {
-		var $publishButton, cxPublish;
+		var $publishButton, cxPublish, siteMapper;
 
+		siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 		$publishButton = $( '.cx-header__publish .cx-header__publish-button' );
-		cxPublish = new mw.cx.publish( $publishButton );
+		cxPublish = new mw.cx.publish( $publishButton, siteMapper );
 
 		mw.hook( 'mw.cx.publish' ).add( $.proxy( cxPublish.publish, cxPublish ) );
 	} );

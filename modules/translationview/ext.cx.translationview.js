@@ -49,7 +49,7 @@
 
 		if ( mw.cx.sourceTitle ) {
 			mw.loader.using( modules ).then( function () {
-				cx.$translation.cxTranslation();
+				cx.$translation.cxTranslation( cx.siteMapper );
 				cx.$tools.cxTools();
 			} );
 		}
