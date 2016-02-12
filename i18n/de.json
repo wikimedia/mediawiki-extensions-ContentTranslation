@@ -200,5 +200,9 @@
 	"cx-suggestionlist-collapse": "Weniger ansehen",
 	"cx-suggestionlist-refresh": "Vorschläge aktualisieren",
 	"cx-notification-suggestions-available": "Basierend auf {{GENDER:$2|deiner}} letzten Übersetzung von '''$1''' sind jetzt neue Vorschläge verfügbar.",
-	"cx-notification-suggestions-available-email-subject": "Verfügbare Übersetzungsvorschläge"
+	"cx-notification-suggestions-available-email-subject": "Verfügbare Übersetzungsvorschläge",
+	"cx-tools-linter-title": "Inhaltsprobleme: $1",
+	"cx-tools-linter-content": "Es wurde Inhalt gefunden, der nicht [//www.mediawiki.org/wiki/Content_translation/Abuse_filter den festgelegten Beschränkungen von Wikipedia in $1] entspricht. Bitte behebe die Probleme, bevor du die Übersetzung veröffentlichst.",
+	"cx-tools-linter-view-details": "Einzelheiten ansehen",
+	"cx-tools-linter-hide-details": "Einzelheiten ausblenden"
 }

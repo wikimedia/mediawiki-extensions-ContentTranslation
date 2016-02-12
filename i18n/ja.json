@@ -186,7 +186,7 @@
 	"cx-notification-tenth-translation-email-subject": "10回目の翻訳おめでとうございます",
 	"cx-notification-hundredth-translation": "100回の翻訳を達成しました！とても評価されるべきことです。他の翻訳者にこの事を伝えましょう。",
 	"cx-notification-hundredth-translation-email-subject": "100回目の翻訳おめでとうございます",
-	"cx-contributions-link": "投稿記録",
+	"cx-contributions-link": "あなたの投稿記録",
 	"cx-your-translations-link": "{{GENDER:$1|あなたの翻訳}}",
 	"cx-translationlist-empty-title": "翻訳するページが見つかりませんか？",
 	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}、いつでも翻訳を再開する",

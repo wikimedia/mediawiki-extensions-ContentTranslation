@@ -204,5 +204,7 @@
 	"cx-draft-restore-failed": "저장된 번역을 불러오지 못했습니다!",
 	"cx-suggestionlist-expand": "모두 보기",
 	"cx-suggestionlist-collapse": "뎔 보기",
-	"cx-suggestionlist-refresh": "추천 새로고침"
+	"cx-suggestionlist-refresh": "추천 새로고침",
+	"cx-tools-linter-view-details": "자세한 정보 보기",
+	"cx-tools-linter-hide-details": "자세한 정보 숨기기"
 }

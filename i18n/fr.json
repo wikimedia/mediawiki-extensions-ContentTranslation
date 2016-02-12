@@ -197,9 +197,9 @@
 	"cx-notification-first-translation-email-subject": "Félicitations pour votre première traduction.",
 	"cx-notification-tenth-translation": "Félicitations pour votre dixième traduction ! Vous devenez un traducteur expert. Continuez ainsi !",
 	"cx-notification-tenth-translation-email-subject": "Félicitations pour votre dixième traduction",
-	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C'est une réalisation remarquable. Dîtes-le à d'autres contributeurs.",
+	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C’est une réalisation remarquable. Partagez cette nouvelle avec d’autres contributeurs.",
 	"cx-notification-hundredth-translation-email-subject": "Félicitations pour votre centième traduction",
-	"cx-contributions-link": "Contributions",
+	"cx-contributions-link": "Vos contributions",
 	"cx-your-translations-link": "{{GENDER:$1|Vos traductions}}",
 	"cx-translationlist-empty-title": "Rien à traduire ?",
 	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez.",
@@ -218,5 +218,9 @@
 	"cx-suggestionlist-collapse": "Afficher moins",
 	"cx-suggestionlist-refresh": "Rafraîchir les suggestions",
 	"cx-notification-suggestions-available": "En se basant sur {{GENDER:$2|votre}} traduction précédente de '''$1''', de nouvelles suggestions sont désormais disponibles.",
-	"cx-notification-suggestions-available-email-subject": "Des suggestions de traduction sont disponibles"
+	"cx-notification-suggestions-available-email-subject": "Des suggestions de traduction sont disponibles",
+	"cx-tools-linter-title": "Problèmes de contenu : $1",
+	"cx-tools-linter-content": "Contenu non conforme aux [//www.mediawiki.org/wiki/Content_translation/Abuse_filter restrictions de Wikipédia en $1] trouvé. Veuillez corriger les problèmes avant de publier la traduction.",
+	"cx-tools-linter-view-details": "Afficher les détails",
+	"cx-tools-linter-hide-details": "Masquer les détails"
 }

@@ -197,5 +197,7 @@
 	"cx-suggestionlist-collapse": "أظهر أقل",
 	"cx-suggestionlist-refresh": "أنعش الاقتراحات",
 	"cx-notification-suggestions-available": "بناء على ترجم{{GENDER:$2|تك}} الآنفة لصفحة '''$1''' إليك اقتراحات جديدة.",
-	"cx-notification-suggestions-available-email-subject": "ما تسير من اقتراحات الترجمة"
+	"cx-notification-suggestions-available-email-subject": "ما تسير من اقتراحات الترجمة",
+	"cx-tools-linter-view-details": "أظهر التفاصيل",
+	"cx-tools-linter-hide-details": "أخف التفاصيل"
 }

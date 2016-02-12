@@ -174,12 +174,14 @@
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Indicar}} que falta",
 	"echo-category-title-cx": "Traducións",
 	"echo-pref-tooltip-cx": "Notificádeme sobre as traducións creadas por min mediante a ferramenta de tradución de contido",
-	"cx-notification-first-translation": "Noraboa pola súa primeira tradución! Pode atopar máis páxinas para traducir [[Special:MyContributions|na súa páxina de contribucións]].",
+	"cx-notification-first-translation": "Noraboa pola súa primeira tradución! Revise as súas contribucións e atope máis páxinas para traducir.",
 	"cx-notification-first-translation-email-subject": "Noraboa pola súa primeira tradución",
 	"cx-notification-tenth-translation": "Noraboa pola súa décima tradución! Estase a converter nun tradutor experto. Continúe co bo traballo!",
 	"cx-notification-tenth-translation-email-subject": "Noraboa pola súa décima tradución",
-	"cx-notification-hundredth-translation": "Xa fixo 100 traducións! Iso é un logro considerable. Compártao con outros usuarios.",
+	"cx-notification-hundredth-translation": "Xa fixo 100 traducións! Iso é un logro considerable. Comparta a nova con outros usuarios.",
 	"cx-notification-hundredth-translation-email-subject": "Noraboa pola súa centésima tradución",
+	"cx-contributions-link": "As túas contribucións",
+	"cx-your-translations-link": "{{GENDER:$1|As túas traducións}}",
 	"cx-translationlist-empty-title": "Non hai nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comece}} a súa tradución agora e continúe en calquera momento.",
 	"cx-tools-link-internal-link": "Ligazón a unha páxina",
@@ -197,5 +199,8 @@
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Actualizar suxestións",
 	"cx-notification-suggestions-available": "Baseadas na {{GENDER:$2|súa}} tradución anterior de '''$1''', novas suxerencias están dispoñibles agora.",
-	"cx-notification-suggestions-available-email-subject": "Suxerencias de traducción dispoñibles"
+	"cx-notification-suggestions-available-email-subject": "Suxerencias de traducción dispoñibles",
+	"cx-tools-linter-title": "Problemas de contido: $1",
+	"cx-tools-linter-view-details": "Ver detalles",
+	"cx-tools-linter-hide-details": "Agochar detalles"
 }
