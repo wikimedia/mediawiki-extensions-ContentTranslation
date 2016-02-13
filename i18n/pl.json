@@ -203,5 +203,7 @@
 	"cx-draft-restore-failed": "Nie udało się wczytać zapisanego tłumaczenia!",
 	"cx-suggestionlist-expand": "Pokaż wszystko",
 	"cx-suggestionlist-collapse": "Pokaż mniej",
-	"cx-suggestionlist-refresh": "Odśwież propozycje"
+	"cx-suggestionlist-refresh": "Odśwież propozycje",
+	"cx-tools-linter-view-details": "Pokaż szczegóły",
+	"cx-tools-linter-hide-details": "Ukryj szczegóły"
 }

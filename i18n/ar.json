@@ -180,6 +180,7 @@
 	"cx-notification-tenth-translation-email-subject": "هنيئا بترجمتك العاشرة",
 	"cx-notification-hundredth-translation": "هنيئا بترجمتك المئة! إنه لإنجاز كبير، أعلنه للمحررين...",
 	"cx-notification-hundredth-translation-email-subject": "هنيئا بترجمتك المئة",
+	"cx-contributions-link": "مساهماتك",
 	"cx-translationlist-empty-title": "أما من مواد للترجمة؟",
 	"cx-translationlist-empty-desc": "أنشئ ترجمتك الآن وأكملها متى شئت.",
 	"cx-tools-link-internal-link": "اربط مع الصفحة",
@@ -198,6 +199,7 @@
 	"cx-suggestionlist-refresh": "أنعش الاقتراحات",
 	"cx-notification-suggestions-available": "بناء على ترجم{{GENDER:$2|تك}} الآنفة لصفحة '''$1''' إليك اقتراحات جديدة.",
 	"cx-notification-suggestions-available-email-subject": "ما تسير من اقتراحات الترجمة",
+	"cx-tools-linter-title": "مشاكل المحتوى: $1",
 	"cx-tools-linter-view-details": "أظهر التفاصيل",
 	"cx-tools-linter-hide-details": "أخف التفاصيل"
 }

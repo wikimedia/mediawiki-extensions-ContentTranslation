@@ -13,7 +13,8 @@
 			"Amire80",
 			"Federico Mugnaini",
 			"Fringio",
-			"Statix64"
+			"Statix64",
+			"Wikitoni"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -205,5 +206,8 @@
 	"cx-suggestionlist-collapse": "Mostra meno",
 	"cx-suggestionlist-refresh": "Aggiorna suggerimenti",
 	"cx-notification-suggestions-available": "Basandoci sulla {{GENDER:$2|tua}} precedente traduzione di '''$1''', nuovi suggerimenti sono ora disponibili.",
-	"cx-notification-suggestions-available-email-subject": "Suggerimenti di traduzione disponibili"
+	"cx-notification-suggestions-available-email-subject": "Suggerimenti di traduzione disponibili",
+	"cx-tools-linter-title": "Problemi con il contenuto: $1",
+	"cx-tools-linter-view-details": "Visualizza dettagli",
+	"cx-tools-linter-hide-details": "Nascondi dettagli"
 }

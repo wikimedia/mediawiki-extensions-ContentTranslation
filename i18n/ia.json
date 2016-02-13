@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Julian Mendez"
 		]
 	},
 	"cx": "Traducer pagina",
@@ -71,5 +72,5 @@
 	"cx-tools-link-hover-tooltip": "Clicca pro aperir",
 	"cx-contributions-new-contributions": "Nove contribution",
 	"cx-contributions-translation": "Traduction",
-	"cx-contributions-upload": "Incargar file multimedial"
+	"cx-contributions-upload": "Incargar file multimedia"
 }

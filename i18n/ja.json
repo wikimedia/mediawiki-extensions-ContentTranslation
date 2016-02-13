@@ -205,5 +205,9 @@
 	"cx-suggestionlist-collapse": "表示数を減らす",
 	"cx-suggestionlist-refresh": "候補を更新",
 	"cx-notification-suggestions-available": "過去の{{GENDER:$2|あなたの}}'''$1'''における翻訳によって、新しい候補が利用できるようになりました。",
-	"cx-notification-suggestions-available-email-subject": "翻訳候補を使えます"
+	"cx-notification-suggestions-available-email-subject": "翻訳候補を使えます",
+	"cx-tools-linter-title": "コンテンツの問題点: $1",
+	"cx-tools-linter-content": "コンテンツが[//www.mediawiki.org/wiki/Content_translation/Abuse_filter ウィキペディアの$1において設定]されている制限を満たしていません。",
+	"cx-tools-linter-view-details": "詳細を表示",
+	"cx-tools-linter-hide-details": "詳細を非表示"
 }
