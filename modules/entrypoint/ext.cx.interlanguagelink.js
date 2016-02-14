@@ -25,26 +25,20 @@
 	function getSuggestedTargetLanguages() {
 		var i, splitCode, splitCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
-			acceptLanguages,
 			possibleTargetLanguages = [],
 			pageLanguage = mw.config.get( 'wgPageContentLanguage' );
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
 
-		acceptLanguages = mw.uls.getAcceptLanguageList();
-		// Accept language codes can have country extensions like en-US.
-		// So remove them so that it is like domain code format.
-		for ( i = 0; i < acceptLanguages.length; i++ ) {
-			// be-tarask has hyphen in the code
-			if ( acceptLanguages[ i ] === 'be-tarask' ) {
-				continue;
-			}
-			acceptLanguages[ i ] = acceptLanguages[ i ].split( '-' )[ 0 ];
-		}
-
-		$.merge( possibleTargetLanguages, acceptLanguages );
+		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
 		$.merge( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
+
+		// Language codes can have country extensions like en-US.
+		// Remove them so that it is like domain code format.
+		for ( i = 0; i < possibleTargetLanguages.length; i++ ) {
+			possibleTargetLanguages[ i ] = possibleTargetLanguages[ i ].split( '-' )[ 0 ];
+		}
 
 		// Replace possibly non-standard, macro and duplicate language codes
 		// with normalized counterparts
