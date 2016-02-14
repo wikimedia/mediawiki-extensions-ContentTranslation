@@ -190,6 +190,7 @@
 	"cx-notification-tenth-translation-email-subject": "Felicitaciones por tu décima traducción",
 	"cx-notification-hundredth-translation": "¡Acabas de hacer 100 traducciones! Un logro notable. Compártelo con otros editores.",
 	"cx-notification-hundredth-translation-email-subject": "Felicitaciones por tu centésima traducción",
+	"cx-contributions-link": "Tus contribuciones",
 	"cx-translationlist-empty-title": "¿Nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comienza}} la traducción ahora y continúala en cualquier momento.",
 	"cx-tools-link-internal-link": "Enlace a página",
@@ -207,5 +208,7 @@
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Actualizar sugerencias",
 	"cx-notification-suggestions-available": "Basado en {{GENDER:$2|tu}} traducción anterior de '''$1''', nuevas sugerencias están disponibles ahora.",
-	"cx-notification-suggestions-available-email-subject": "Sugerencias de traducción disponibles"
+	"cx-notification-suggestions-available-email-subject": "Sugerencias de traducción disponibles",
+	"cx-tools-linter-view-details": "Ver detalles",
+	"cx-tools-linter-hide-details": "Ocultar detalles"
 }

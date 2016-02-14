@@ -167,8 +167,10 @@
 	"cx-notification-first-translation-email-subject": "Gratulatioun fir Är éischt Iwwersetzung",
 	"cx-notification-tenth-translation": "Gratulatioun fir Är zéngt Iwwersetzung! Dir entwéckelt Iech zum experimentéierten Iwwersetzer. Maacht esou weider!",
 	"cx-notification-tenth-translation-email-subject": "Gratulatioun fir Är zéngt Iwwersetzung",
-	"cx-notification-hundredth-translation": "Dir hutt 100 Iwwersetzunge gemaach! Dat ass eng respektabel Leeschtung. Deelt aneren Auteuren dat matt.",
+	"cx-notification-hundredth-translation": "Dir hutt elo 100 Iwwersetzunge gemaach! Dat ass eng respektabel Leeschtung. Deelt déi Neiegkeet aneren Auteure matt.",
 	"cx-notification-hundredth-translation-email-subject": "Gratulatioun fir Är honnertst Iwwersetzung",
+	"cx-contributions-link": "Är Kontributiounen",
+	"cx-your-translations-link": "{{GENDER:$1|Är Iwwersetzungen}}",
 	"cx-translationlist-empty-title": "Näischt z'iwwersetzen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Fänkt}} Är Iwwersetzung elo un a fuert da viru wann Dir Zäit hutt.",
 	"cx-tools-link-internal-link": "Mat der Säit verlinken",
@@ -186,5 +188,7 @@
 	"cx-suggestionlist-collapse": "Manner weisen",
 	"cx-suggestionlist-refresh": "Virschléi aktualiséieren",
 	"cx-notification-suggestions-available": "Op Basis vun {{GENDER:$2|Äre}} viregen Iwwersetzungen vu(n) '''$1''' sinn elo nei Proposen disponibel.",
-	"cx-notification-suggestions-available-email-subject": "Iwwersetzungsvirschléi disponibel"
+	"cx-notification-suggestions-available-email-subject": "Iwwersetzungsvirschléi disponibel",
+	"cx-tools-linter-view-details": "Detailer weisen",
+	"cx-tools-linter-hide-details": "Detailer verstoppen"
 }
