@@ -57,22 +57,25 @@
 		}
 	];
 
-	QUnit.module( 'ext.cx.translation.draft', QUnit.newMwEnvironment( {
+	QUnit.module( 'ext.cx.translation.loader', QUnit.newMwEnvironment( {
 		setup: function () {
-			this.cxDraft = new mw.cx.ContentTranslationDraft();
+			this.translatonLoader = new mw.cx.ContentTranslationLoader();
 		}
 	} ) );
 
-	QUnit.test( 'Draft restore test', function ( assert ) {
+	QUnit.test( 'Translation daft restore test', function ( assert ) {
 		var i;
 		QUnit.expect( tests.length );
 
 		for ( i = 0; i < tests.length; i++ ) {
-			this.cxDraft.$draft = $( tests[ i ].draft );
-			this.cxDraft.$sourceColumn = $( tests[ i ].source );
-			this.cxDraft.$translationColumn = $( tests[ i ].placeholders );
-			this.cxDraft.restore();
-			assert.equal( this.cxDraft.$translationColumn.html(), tests[ i ].translation, tests[ i ].description );
+			this.translatonLoader.$draft = $( tests[ i ].draft );
+			this.translatonLoader.$sourceColumn = $( tests[ i ].source );
+			this.translatonLoader.$translationColumn = $( tests[ i ].placeholders );
+			this.translatonLoader.restore();
+			assert.equal(
+				this.translatonLoader.$translationColumn.html(),
+				tests[ i ].translation, tests[ i ].description
+			);
 		}
 	} );
 }( jQuery, mediaWiki ) );

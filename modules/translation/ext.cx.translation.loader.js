@@ -1,5 +1,5 @@
 /*!
- * ContentTranslation - Save translation as draft
+ * ContentTranslation - Fetch and restore a saved translation
  *
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
@@ -11,7 +11,7 @@
 	/**
 	 * @class
 	 */
-	function ContentTranslationDraft() {
+	function ContentTranslationLoader() {
 		this.$draft = null;
 		this.$sourceColumn = null;
 		this.$translationColumn = null;
@@ -19,11 +19,11 @@
 	}
 
 	/**
-	 * Initalize the draft storage.
+	 * Initalize loader
 	 *
 	 * @return {jQuery.Promise}
 	 */
-	ContentTranslationDraft.prototype.init = function () {
+	ContentTranslationLoader.prototype.init = function () {
 		var self = this;
 		// There is no known consumer for this return value. Just returning it
 		// to help testing in future.
@@ -55,7 +55,7 @@
 	 *
 	 * @return {string} HTML to save
 	 */
-	ContentTranslationDraft.prototype.getContent = function () {
+	ContentTranslationLoader.prototype.getContent = function () {
 		var $content, $translationColumn;
 
 		$translationColumn = this.$translationColumn ||
@@ -79,7 +79,7 @@
 		return $content.html();
 	};
 
-	ContentTranslationDraft.prototype.showConflictWarning = function ( translation ) {
+	ContentTranslationLoader.prototype.showConflictWarning = function ( translation ) {
 		mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
 			mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
 		} );
@@ -90,7 +90,7 @@
 	 *
 	 * @return {jQuery.Promise}
 	 */
-	ContentTranslationDraft.prototype.find = function () {
+	ContentTranslationLoader.prototype.find = function () {
 		var api = new mw.Api();
 
 		return api.get( {
@@ -110,7 +110,7 @@
 	 *
 	 * @return {jQuery.Promise}
 	 */
-	ContentTranslationDraft.prototype.fetch = function () {
+	ContentTranslationLoader.prototype.fetch = function () {
 		var self = this,
 			api = new mw.Api();
 
@@ -156,7 +156,7 @@
 	 * @param {jQuery} $section Add it before/after this section.
 	 * @param {string} afterOrBefore Whether the orphan to be added after or before $section.
 	 */
-	ContentTranslationDraft.prototype.addOrphanTranslation = function ( $translation, $section, afterOrBefore ) {
+	ContentTranslationLoader.prototype.addOrphanTranslation = function ( $translation, $section, afterOrBefore ) {
 		// Add a dummy source section
 		var $dummySourceSection = $( '<' + $translation.prop( 'tagName' ) + '>' )
 			.css( 'height', 1 ) // Non-zero height to avoid it being ignored by keepAlignment plugin.
@@ -184,7 +184,7 @@
 	/**
 	 * Restore this draft to the appropriate placeholders
 	 */
-	ContentTranslationDraft.prototype.restore = function () {
+	ContentTranslationLoader.prototype.restore = function () {
 		var i, j, $sourceColumn, $translationColumn,
 			sectionId, sourceId, randomId,
 			$draftSection = [],
@@ -315,5 +315,5 @@
 		);
 	};
 
-	mw.cx.ContentTranslationDraft = ContentTranslationDraft;
+	mw.cx.ContentTranslationLoader = ContentTranslationLoader;
 }( jQuery, mediaWiki ) );

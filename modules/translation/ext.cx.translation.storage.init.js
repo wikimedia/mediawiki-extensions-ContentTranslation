@@ -9,7 +9,7 @@
 
 	$( function () {
 		var storageModules = [
-			'ext.cx.translation.draft',
+			'ext.cx.translation.loader',
 			'ext.cx.translation.storage'
 		];
 
@@ -19,10 +19,10 @@
 		}
 		// CX Database configured.
 		mw.loader.using( storageModules ).then( function () {
-			var storage, draft;
+			var storage, translationLoader;
 
-			draft = new mw.cx.ContentTranslationDraft();
-			draft.init();
+			translationLoader = new mw.cx.ContentTranslationLoader();
+			translationLoader.init();
 			storage = new mw.cx.ContentTranslationStorage();
 			storage.init();
 		} );

@@ -705,15 +705,14 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"ext.cx.translation.draft": {
+		"ext.cx.translation.loader": {
 			"scripts": [
-				"translation/ext.cx.translation.draft.js"
+				"translation/ext.cx.translation.loader.js"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
 				"ext.cx.model",
-				"jquery.throttle-debounce",
-				"mediawiki.api.edit",
+				"mediawiki.api",
 				"mediawiki.user"
 			],
 			"messages": [
@@ -737,7 +736,9 @@
 				"translation/ext.cx.translation.storage.js"
 			],
 			"dependencies": [
-				"easy-deflate.deflate"
+				"easy-deflate.deflate",
+				"jquery.throttle-debounce",
+				"mediawiki.api.edit"
 			]
 		},
 		"ext.cx.publish": {
