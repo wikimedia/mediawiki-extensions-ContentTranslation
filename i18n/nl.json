@@ -128,7 +128,7 @@
 	"cx-contributions-new-article-tooltip": "Begin met het schrijven van een nieuwe pagina",
 	"cx-contributions-translation-tooltip": "Bestaande pagina's vertalen",
 	"cx-contributions-upload-tooltip": "Upload foto's, audio en video om die te gebruiken in pagina's",
-	"cx-publishing-dialog-message": "De pagina $1 bestaat al. De huidige inhoud zal worden vervangen door uw vertaling. Weet u zeker dat u het wilt publiceren?",
+	"cx-publishing-dialog-message": "De pagina $1 bestaat al. De huidige inhoud wordt vervangen door uw vertaling. Weet u zeker dat u het wilt publiceren?",
 	"cx-publishing-dialog-keep-button": "Beide versies behouden",
 	"cx-publishing-dialog-publish-anyway-button": "Toch publiceren",
 	"cx-discard-translation": "Vertaling verwijderen",
