@@ -208,6 +208,7 @@
 	"cx-notification-suggestions-available": "Basandoci sulla {{GENDER:$2|tua}} precedente traduzione di '''$1''', nuovi suggerimenti sono ora disponibili.",
 	"cx-notification-suggestions-available-email-subject": "Suggerimenti di traduzione disponibili",
 	"cx-tools-linter-title": "Problemi con il contenuto: $1",
+	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [//www.mediawiki.org/wiki/Content_translation/Abuse_filter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
 	"cx-tools-linter-view-details": "Visualizza dettagli",
 	"cx-tools-linter-hide-details": "Nascondi dettagli"
 }
