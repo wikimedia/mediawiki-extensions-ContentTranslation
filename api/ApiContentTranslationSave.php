@@ -84,11 +84,17 @@ class ApiContentTranslationSave extends ApiBase {
 		$checker = new AbuseFilterCheck();
 		$restbaseClient = new RestbaseClient( $this->getConfig() );
 		$sectionHTML = $translationUnit->getContent();
-
-		// The section content is HTML. AbuseFilter need wikitext.
-		$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
-
-		return $checker->checkSection( $this->getUser(), $title, $text );
+		$results = array();
+		// We need to catch any exceptions here - For example, if restbase is down
+		// it should not affect the saving of transations.
+		try {
+			// The section content is HTML. AbuseFilter need wikitext.
+			$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
+			$results = $checker->checkSection( $this->getUser(), $title, $text );
+		} catch ( Exception $e ) {
+			// Validation failed. But proceed.
+		}
+		return $results;
 	}
 
 	public function getAllowedParams() {
