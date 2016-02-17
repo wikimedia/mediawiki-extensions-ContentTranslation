@@ -296,6 +296,7 @@ class Translation {
 	/**
 	 * Get time-wise cumulative number of translations for given
 	 * language pairs, with given interval.
+	 *
 	 * @param string $source Source language code
 	 * @param string $target Target language code
 	 * @param string $status Status of translation. Either 'published' or 'draft'
@@ -399,7 +400,7 @@ class Translation {
 	 * @param string $from Source language code
 	 * @param string $to Target language code
 	 * @param int $limit Number of records to fetch atmost
-	 * @param in $offset Offset from which at most $limit records to fetch
+	 * @param int $offset Offset from which at most $limit records to fetch
 	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
