@@ -197,6 +197,7 @@
 	"cx-suggestionlist-refresh": "შეთავაზებების განახლება",
 	"cx-notification-suggestions-available": "{{GENDER:$2|თქვენი}} წინა თარგმანის '''$1''' გათვალისწინებით, თქვენთვის ხელმისაწვდომია ახალი შემოთავაზებები.",
 	"cx-notification-suggestions-available-email-subject": "ხელმისაწვდომია თარგმნის შემოთავაზებები",
+	"cx-tools-linter-title": "შინაარსობრივი საკითები: $1",
 	"cx-tools-linter-view-details": "დეტალების  ჩვენება",
 	"cx-tools-linter-hide-details": "დეტალების დამალვა"
 }

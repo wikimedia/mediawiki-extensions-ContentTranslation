@@ -198,6 +198,6 @@
 	"cx-suggestionlist-expand": "Alles weergeven",
 	"cx-suggestionlist-collapse": "Minder weergeven",
 	"cx-suggestionlist-refresh": "Suggesties vernieuwen",
-	"cx-notification-suggestions-available": "Gebaseerd op {{GENDER:$2|uw}} vorige vertaling van '''$1''' zijn er nu nieuwe suggesties beschikbaar.",
+	"cx-notification-suggestions-available": "Gebaseerd op {{GENDER:$2|uw}} vorige vertaling van '''$1''' zijn er nieuwe suggesties beschikbaar.",
 	"cx-notification-suggestions-available-email-subject": "Vertaalsuggesties beschikbaar"
 }
