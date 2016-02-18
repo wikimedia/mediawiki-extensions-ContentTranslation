@@ -20,7 +20,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Innehållsöversättning]] är ett verktyg för att snabbt översätta sidor till ditt språk. [$1 Prova nu!]",
 	"cx-license-agreement": "Genom att klicka på knappen \"$1\", går du med på [//wikimediafoundation.org/wiki/Terms_of_Use användarvilkoren] och släpper oåterkalleligen dina bidrag med översättningsverktyget under licensen [https://creativecommons.org/licenses/by-sa/3.0/deed.sv CC BY-SA 3.0] och [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] med förståelse om att en hyperlänk eller webbadress är tillräckligt för CC BY-SA 3.0 erkännande.",
 	"cx-error-server-connection": "Fel: Kunde inte ansluta till servern.",
-	"cx-desc": "Gör det enkelt att översätta innehållssidor",
+	"cx-desc": "Gör det enkelt att [[Special:ContentTranslation|översätta]] innehållssidor",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|översatt}}",
 	"cx-header-progressbar-text-mt": "($1 % från {{PLURAL:$1|maskinöversättning}})",
 	"cx-header-translation-center": "Översättningscenter",

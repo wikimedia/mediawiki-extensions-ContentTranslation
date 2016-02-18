@@ -69,10 +69,12 @@
 	"apihelp-cxdelete-example-1": "Radera ett utkast förknippat med angivet språkpar och titel.",
 	"apihelp-cxsuggestionlist-example-1": "Lägg till en titel för en lista som ett förslag till att översätta från engelska (en) till spanska (es). Om listan inte redan finns kommer en ny lista att skapas.",
 	"apihelp-cxsuggestionlist-description": "Hantera förslagslistor. Lägg till förslag till listor och ta bort dem.",
+	"apihelp-cxsuggestionlist-param-listname": "Namn på förslagslistan.",
 	"apihelp-cxsuggestionlist-param-listaction": "Åtgärder att utföra i listan.",
 	"apihelp-cxsuggestionlist-param-titles": "Sidtitlar.",
 	"apihelp-cxsuggestionlist-param-from": "Källans språkkod.",
 	"apihelp-cxsuggestionlist-param-to": "Målets språkkod.",
+	"apihelp-cxsave-description": "Denna modul låter översättningsutkast sparas efter avsnitt för att spara bandbredd och för att samla in parallell text.",
 	"apihelp-cxsave-example-1": "Spara källans och översättningens avsnitt. Innehållet måste vara en JSON-kodad sträng.",
 	"apihelp-cxsave-param-translationid": "Översättningens ID",
 	"apihelp-cxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: innehåll, avsnitts-ID, sekvens-ID, sekvens-ID, ursprung"
