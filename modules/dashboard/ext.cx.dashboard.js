@@ -128,12 +128,13 @@
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
-		var $header, i, items, $links = [];
+		var $header, $translator, i, items, $links = [];
 
 		$header = $( '<div>' )
 			.addClass( 'cx-sidebar__title' )
 			.text( mw.msg( 'cx-dashboard-sidebar-title' ) );
 
+		$translator = mw.cx.widgets.CXTranslator();
 		items = this.getSidebarItems();
 		$links = $( '<ul>' );
 		for ( i = 0; i < items.length; i++ ) {
@@ -152,7 +153,7 @@
 
 		return $( '<div>' )
 			.addClass( 'cx-sidebar' )
-			.append( $header, $links );
+			.append( $translator, $header, $links );
 	};
 
 	CXDashboard.prototype.render = function () {

@@ -33,8 +33,10 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		$interval = $params['interval'];
 
 		$data = array(
-			'translations' => Translation::getTrendByStatus( $source, $target, 'published', $interval ),
-			'drafts' => Translation::getTrendByStatus( $source, $target, 'draft', $interval ),
+			'translations' => Translation::getTrendByStatus(
+				$source, $target, 'published', $interval, null
+			),
+			'drafts' => Translation::getTrendByStatus( $source, $target, 'draft', $interval, null ),
 		);
 
 		if ( $target !== null ) {

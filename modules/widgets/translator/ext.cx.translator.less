@@ -1,0 +1,41 @@
+@import "../../widgets/common/ext.cx.common";
+@import "mediawiki.mixins";
+
+.cx-translator {
+	.mw-ui-item;
+	.mw-ui-one-whole;
+	padding-left: 40px;
+	margin-bottom: 10px;
+	.background-image-svg('images/user-small.svg', 'images/user-small.png');
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.cx-translator__header {
+	font-size: larger;
+	color: @gray-dark;
+	font-size: 1.5em;
+}
+
+.cx-translator__month-stats,
+.cx-translator__total-translations {
+	.mw-ui-one-half;
+	color: #565656;
+}
+
+.cx-translator__total-translations-count,
+.cx-translator__month-stats-count {
+	font-size: 2em;
+}
+
+.cx-translator__total-translations-label,
+.cx-translator__month-stats-label {
+	font-size: 1em;
+}
+
+#cxtranslatorstats {
+	.mw-ui-one-whole;
+	max-height: 50px;
+	background-color: #f0f0f0;
+}

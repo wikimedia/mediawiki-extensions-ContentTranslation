@@ -47,7 +47,8 @@
 		"contenttranslationlangtrend": "ApiQueryContentTranslationLanguageTrend",
 		"contenttranslationstats": "ApiQueryContentTranslationStats",
 		"contenttranslationsuggestions": "ApiQueryContentTranslationSuggestions",
-		"cxpublishedtranslations": "ApiQueryPublishedTranslations"
+		"cxpublishedtranslations": "ApiQueryPublishedTranslations",
+		"cxtranslatorstats": "ApiQueryTranslatorStats"
 	},
 	"MessagesDirs": {
 		"ContentTranslation": "i18n",
@@ -70,6 +71,7 @@
 		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
+		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
 		"ContentTranslation\\AbuseFilterCheck": "includes/AbuseFilterCheck.php",
 		"ContentTranslation\\CorporaLookup": "includes/CorporaLookup.php",
@@ -266,6 +268,7 @@
 				"ext.cx.source.selector",
 				"ext.cx.suggestionlist",
 				"ext.cx.translationlist",
+				"ext.cx.widgets.translator",
 				"ext.uls.mediawiki",
 				"mediawiki.Uri",
 				"mediawiki.storage",
@@ -1093,6 +1096,22 @@
 			],
 			"styles": [
 				"widgets/callout/ext.cx.callout.css"
+			]
+		},
+		"ext.cx.widgets.translator": {
+			"scripts": [
+				"widgets/translator/ext.cx.translator.js"
+			],
+			"styles": [
+				"widgets/translator/ext.cx.translator.less"
+			],
+			"messages":[
+				"cx-translator-month-stats-label",
+				"cx-translator-total-translations-label"
+			],
+			"dependencies": [
+				"chart.js",
+				"mediawiki.api"
 			]
 		}
 	},

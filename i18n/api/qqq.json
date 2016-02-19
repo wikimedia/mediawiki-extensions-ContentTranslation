@@ -78,5 +78,8 @@
 	"apihelp-cxsave-description": "{{doc-apihelp-description|cxsave}}\n\nFor an explanation of \"parallel corpora\" see [[:w:en:Parallel text|Parallel text]].",
 	"apihelp-cxsave-example-1": "{{doc-apihelp-example|cxsave}}",
 	"apihelp-cxsave-param-translationid": "{{doc-apihelp-param|cxsave|translationId}}",
-	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}"
+	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}",
+	"apihelp-query+cxtranslatorstats-description": "{{doc-apihelp-description|cxtranslatorstats}}",
+	"apihelp-query+cxtranslatorstats-param-translator": "{{doc-apihelp-param|cxtranslatorstats|translator}}",
+	"apihelp-query+cxtranslatorstats-example-1": "{{doc-apihelp-example|query+cxtranslatorstats}}"
 }
