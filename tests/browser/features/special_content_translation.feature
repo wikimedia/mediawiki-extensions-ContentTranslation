@@ -18,7 +18,6 @@ Feature: Content translation special page
       And I don't see the translation column
       And I don't see a "Publish Translation" button
 
-  @login
   Scenario: Logged in user viewing the special page for translation.
     Given I am logged in
     When I am translating the page "Bratislava" from English to Danish
@@ -44,14 +43,12 @@ Feature: Content translation special page
       And the translation progress bar is in 0% state
       And the text near the translation progress bar says "0% translated"
 
-  @login
   Scenario: Writing some translation text enables the "Publish Translation" button
     Given I am logged in
       And I am translating the page "Bratislava" from English to Danish
     When I write "Bratislava er hovedstad og største by i Slovakiet." in the editing area in the translation column
     Then the "Publish Translation" button is enabled
 
-  @login
   Scenario: Deleting the translation text disables the "Publish Translation" button
     Given I am logged in
       And I am translating the page "Bratislava" from English to Danish
@@ -59,7 +56,6 @@ Feature: Content translation special page
       And I empty the editing area in the translation column
     Then the "Publish Translation" button is disabled
 
-  @login
   Scenario: Writing some translation text and saving it
     Given I am logged in
       And I am translating the page "Bratislava" from English to Danish
@@ -67,7 +63,6 @@ Feature: Content translation special page
       And I press the "Publish Translation" button
     Then I see a notification bubble that begins with the words "Page published at"
 
-  @login
   Scenario: Writing some translation text and saving it
     Given I am logged in
       And I am translating the page "Bratislava" from English to Danish

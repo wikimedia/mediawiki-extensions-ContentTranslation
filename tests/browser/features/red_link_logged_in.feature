@@ -1,4 +1,4 @@
-@firefox @language-stage.wmflabs.org @login
+@firefox @language-stage.wmflabs.org
 Feature: New translation from interlanguage link
 
   As a registered wiki editor who uses a wiki in a different language
