@@ -12,7 +12,7 @@
 	"cx-javascript": "Гэтая прылада не працуе без JavaScript.",
 	"cx-license-agreement": "Націснуўшы кнопку «$1», Вы пагаджаецеся з [//wikimediafoundation.org/wiki/Terms_of_Use умовамі выкарыстаньня] і незваротна згаджаецеся на публікацыю вашага ўнёску з інструмэнтам перакладу пад [https://creativecommons.org/licenses/by-sa/3.0/ ліцэнзіяй CC BY-SA 3.0] і [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] з усьведамленьнем таго, што гіпэрспасылкі або URL дастаткова для атрыбуцыі паводле CC BY-SA 3.0.",
 	"cx-error-server-connection": "Памылка: немагчыма злучыцца з сэрвэрам.",
-	"cx-desc": "Робіць простым пераклад старонак зь зьместам",
+	"cx-desc": "Робіць простым [[Special:ContentTranslation|пераклад]] старонак зь зьместам",
 	"cx-header-progressbar-text": "$1 {{PLURAL:$1|перакладзена}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|машыннага перакладу}})",
 	"cx-header-translation-center": "Цэнтар перакладаў",

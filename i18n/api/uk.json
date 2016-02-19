@@ -76,5 +76,8 @@
 	"apihelp-cxsave-description": "Цей модуль дозволяє зберігати чернетки перекладів секція за секцією, аби зберегти смугу пропускання та зібрати паралельні корпуси.",
 	"apihelp-cxsave-example-1": "Зберегти секції з вихідним текстом та перекладом. Вміст має бути рядком у форматі JSON.",
 	"apihelp-cxsave-param-translationid": "Ідентифікатор перекладу",
-	"apihelp-cxsave-param-content": "Дані секції у форматі JSON. Кожна секція є об'єктом і має такі ключі: content, sectionId, sequenceId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "Дані секції у форматі JSON. Кожна секція є об'єктом і має такі ключі: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-query+cxtranslatorstats-description": "Отримати статистику перекладів для даного користувача.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Ім'я користувача (перекладача). Цей параметр необов'язковий. Якщо його не вказати, буде використано ім'я користувача, який на цей момент перебуває в системі.",
+	"apihelp-query+cxtranslatorstats-example-1": "Отримати статистику перекладу для даного користувача."
 }

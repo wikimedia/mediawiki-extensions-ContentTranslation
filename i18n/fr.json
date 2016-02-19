@@ -35,7 +35,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traduction de contenu]] est un outil pour traduire rapidement des pages dans votre langue. [$1 Essayez-le!]",
 	"cx-license-agreement": "En cliquant sur le bouton « $1 », vous acceptez les [//wikimediafoundation.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement de mettre vos contributions dans l’outil de traduction sous [https://creativecommons.org/licenses/by-sa/3.0/ la licence CC BY-SA 3.0] et [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] avec l’accord qu’un hyperlien ou une URL  correspondant à l’attribution pour CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erreur : Impossible de se connecter au serveur.",
-	"cx-desc": "Facilite la traduction de pages de contenu",
+	"cx-desc": "Facilite [[Special:ContentTranslation|la traduction]] de pages de contenu",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduit}}",
 	"cx-header-progressbar-text-mt": "($1% d’après la {{PLURAL:$1|traduction automatique}})",
 	"cx-header-translation-center": "Centre des traductions",
@@ -222,5 +222,7 @@
 	"cx-tools-linter-title": "Problèmes de contenu : $1",
 	"cx-tools-linter-content": "Contenu non conforme aux [//www.mediawiki.org/wiki/Content_translation/Abuse_filter restrictions de Wikipédia en $1] trouvé. Veuillez corriger les problèmes avant de publier la traduction.",
 	"cx-tools-linter-view-details": "Afficher les détails",
-	"cx-tools-linter-hide-details": "Masquer les détails"
+	"cx-tools-linter-hide-details": "Masquer les détails",
+	"cx-translator-month-stats-label": "Ce mois",
+	"cx-translator-total-translations-label": "Total"
 }

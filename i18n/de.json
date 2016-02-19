@@ -204,5 +204,7 @@
 	"cx-tools-linter-title": "Inhaltsprobleme: $1",
 	"cx-tools-linter-content": "Es wurde Inhalt gefunden, der nicht [//www.mediawiki.org/wiki/Content_translation/Abuse_filter den festgelegten Beschränkungen von Wikipedia in $1] entspricht. Bitte behebe die Probleme, bevor du die Übersetzung veröffentlichst.",
 	"cx-tools-linter-view-details": "Einzelheiten ansehen",
-	"cx-tools-linter-hide-details": "Einzelheiten ausblenden"
+	"cx-tools-linter-hide-details": "Einzelheiten ausblenden",
+	"cx-translator-month-stats-label": "Dieser Monat",
+	"cx-translator-total-translations-label": "Gesamt"
 }

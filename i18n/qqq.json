@@ -218,5 +218,5 @@
 	"cx-tools-linter-view-details": "Label for abusefilter error hide/collapse link in linter card",
 	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
-	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user."
+	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}"
 }

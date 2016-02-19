@@ -22,7 +22,7 @@
 	"cx-javascript": "このツールの動作には JavaScript が必要です。",
 	"cx-license-agreement": "［$1］ボタンをクリックすることで、あなたは [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] に同意し、また翻訳ツールによるあなたの作業を、ハイパーリンクや URL がクリエイティブコモンズ 表示-継承 3.0 の帰属表示として有効であることを理解したうえで、 [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] 及び [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] に基いてリリースすることを、事後に撤回することなく同意することになります。",
 	"cx-error-server-connection": "エラー: サーバーに接続できませんでした。",
-	"cx-desc": "記事のページが翻訳しやすくなります",
+	"cx-desc": "記事のページが[[Spacial:ContentTranslation|翻訳]]しやすくなります",
 	"cx-header-progressbar-text": "翻訳済み $1%",
 	"cx-header-progressbar-text-mt": "(機械翻訳比率 $1%)",
 	"cx-header-translation-center": "翻訳センター",

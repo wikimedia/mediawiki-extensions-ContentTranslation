@@ -81,5 +81,8 @@
 	"apihelp-cxsave-description": "Ce module permet d’enregistrer les brouillons de traduction par section pour économiser la bande passante et élaborer un corpus parallèle.",
 	"apihelp-cxsave-example-1": "Enregistrer les sections source et traduction. Le contenu doit être une chaîne encodée en JSON.",
 	"apihelp-cxsave-param-translationid": "L’ID de traduction",
-	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin",
+	"apihelp-query+cxtranslatorstats-description": "Récupérer les statistiques de traduction pour l’utilisateur donné.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Le nom d’utilisateur du traducteur. Ce paramètre est facultatif. S’il n’est pas fourni, l’utilisateur actuellement connecté sera utilisé.",
+	"apihelp-query+cxtranslatorstats-example-1": "Récupérer les statistiques de traduction pour l’utilisateur donné."
 }

@@ -51,7 +51,7 @@
 	"cx-sourceselector-dialog-target-language-label": "Bo:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Lêgerîna li rûpela çavkaniyê",
 	"cx-sourceselector-dialog-target-title-placeholder": "Sernavê wergerê",
-	"cx-sourceselector-dialog-error-no-source-article": "Rûpela ku bê wergerandindin li ser $1 tune ye",
+	"cx-sourceselector-dialog-error-no-source-article": "Rûpela ku bê wergerandin li ser $1 tune ye",
 	"cx-dashboard-sidebar-title": "Alîkarî bo {{GENDER:|wergeran}} hewce ye?",
 	"cx-dashboard-sidebar-stats": "Statîstîk",
 	"cx-translation-filter-all-translations": "Hemû werger",

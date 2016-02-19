@@ -6,8 +6,8 @@
 		]
 	},
 	"cx": "Traduire la pagina",
-	"cx-desc": "Una aisina que permet als editors de tradusir las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradusit}}",
+	"cx-desc": "Una aisina que permet als editors de traduire las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduch}}",
 	"cx-header-translation-center": "Centre de traduccions",
 	"cx-source-view-page": "afichar la pagina",
 	"cx-publish-page-success": "Pagina publicada sus $1",
@@ -16,12 +16,14 @@
 	"cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
 	"tag-contenttranslation": "Traduccion del contengut",
 	"cx-source-loading": "Telecargament de $1",
-	"cx-entrypoint-title": "Tradusir aquesta pagina en $1",
-	"cx-special-login-error": "Vos cal èsser connectat per tradusir aquesta pagina. [$1 Connexion]",
-	"cx-tools-instructions-text1": "{{GENDER:|Clicar}} los paragrafes de tradusir",
+	"cx-entrypoint-title": "Traduire aquesta pagina en $1",
+	"cx-special-login-error": "Vos cal èsser connectat per traduire aquesta pagina. [$1 Connexion]",
+	"cx-tools-instructions-text1": "{{GENDER:|Clicar}} los paragrafes de traduire",
 	"cx-tools-instructions-text2": "{{GENDER:|Avètz}} pas besonh de los apondre totes",
 	"cx-tools-instructions-text3": "{{GENDER:|Rendre}} lo tèxte legible d'un biais natural",
 	"cx-tools-instructions-text5": "{{GENDER:|Publicar}} la traduccion",
 	"cx-tools-searchbox-text": "Cercar un mot",
-	"cx-tools-view-guidelines": "{{GENDER:|Afichar}} las directivas de traduccion"
+	"cx-tools-view-guidelines": "{{GENDER:|Afichar}} las directivas de traduccion",
+	"cx-translator-month-stats-label": "Aqueste mes",
+	"cx-translator-total-translations-label": "Total"
 }

@@ -23,7 +23,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traduzione Contenuti]] è uno strumento per facilitare la traduzione nella tua lingua. [$1 Provalo ora!]",
 	"cx-license-agreement": "Cliccando sul pulsante \"$1\", accetti tutti i [//wikimediafoundation.org/wiki/Terms_of_Use Termini e Condizioni d'uso] e irrevocabilmente accetti di rilasciare i tuoi contributi realizzati con lo strumento di traduzione, con licenze [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], nella consapevolezza che un collegamento ipertestuale o un URL è sufficiente per l'attribuzione in CC BY-SA 3.0.",
 	"cx-error-server-connection": "Errore: impossibile connettersi al server.",
-	"cx-desc": "Rende semplice tradurre il contenuto delle pagine",
+	"cx-desc": "Rende semplice [[Special:ContentTranslation|tradurre]] il contenuto delle pagine",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradotto}}",
 	"cx-header-progressbar-text-mt": "($1% dalla {{PLURAL:$1|traduzione automatica}})",
 	"cx-header-translation-center": "Centro traduzioni",
