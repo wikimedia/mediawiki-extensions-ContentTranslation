@@ -73,6 +73,10 @@ class Translation {
 		);
 	}
 
+	/**
+	 * A convenient abstraction of create and update methods. Checks if
+	 * translation exists and chooses either of create or update actions.
+	 */
 	public function save() {
 		$freshTranslation = false;
 

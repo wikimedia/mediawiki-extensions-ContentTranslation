@@ -13,7 +13,6 @@
 	var totalSourceWeight = 0,
 		translationThreshold = 0.05;
 
-	mw.cx.dirty = false;
 	/**
 	 * Get the total source weight.
 	 * This is only calculated once per session and cached, because the source doesn't change.
@@ -127,7 +126,6 @@
 			return;
 		}
 
-		mw.cx.dirty = true;
 		$sourceSection = mw.cx.getTranslationSection( $section.data( 'source' ) );
 
 		translationLength = $section.text().length;
@@ -151,29 +149,5 @@
 		mw.hook( 'mw.cx.progress' ).fire( {
 			any: 0
 		} );
-		mw.hook( 'mw.cx.translation.saved' ).add( function () {
-			mw.cx.dirty = false;
-		} );
-		window.onbeforeunload = function () {
-			var weights;
-
-			if ( mw.config.get( 'wgContentTranslationDatabase' ) !== null ) {
-				if ( mw.cx.dirty ) {
-					mw.hook( 'mw.cx.translation.save' ).fire();
-					// If we leave the page immediately the above save may not happen.
-					// So, stay or leave?
-					return mw.msg( 'cx-warning-unsaved-translation' );
-				} else {
-					return;
-				}
-			}
-
-			weights = getTranslationWeights( getSectionsWithContent() );
-
-			// Check if there are unsaved human content
-			if ( weights.human > 0 ) {
-				return mw.msg( 'cx-warning-unsaved-translation' );
-			}
-		};
 	} );
 }( jQuery, mediaWiki ) );

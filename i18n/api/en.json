@@ -17,9 +17,6 @@
 	"apihelp-cxpublish-param-from": "The source language code.",
 	"apihelp-cxpublish-param-to": "The target language code.",
 	"apihelp-cxpublish-param-sourcetitle": "The title of the source page.",
-	"apihelp-cxpublish-param-sourcerevision": "The revision of the source page.",
-	"apihelp-cxpublish-param-status": "If <kbd>draft</kbd>, translation will be saved as draft. If <kbd>published</kbd>, translation will be published.",
-	"apihelp-cxpublish-param-progress": "Information about translation completion (progress). JSON with the keys <code>any</code>, <code>human</code>, <code>mt</code> and <code>mtSectionsCount</code>. The keys' values are percentages.",
 	"apihelp-cxpublish-param-categories": "The categories to put the published page in.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (when saving with a captcha response).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Answer to the captcha (when saving with a captcha response).",
@@ -85,5 +82,12 @@
 	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-query+cxtranslatorstats-description": "Fetch the translation statistics for the given user.",
 	"apihelp-query+cxtranslatorstats-param-translator": "The translator's user name. This parameter is optional. If not passed, the currently logged-in user will be used.",
-	"apihelp-query+cxtranslatorstats-example-1": "Fetch the translation statistics for the given user."
+	"apihelp-query+cxtranslatorstats-example-1": "Fetch the translation statistics for the given user.",
+	"apihelp-cxsave-param-sourcerevision": "The revision of the source page.",
+	"apihelp-cxsave-param-progress": "Information about translation completion (progress). JSON with the keys <code>any</code>, <code>human</code>, <code>mt</code> and <code>mtSectionsCount</code>. The keys' values are percentages.",
+	"apihelp-cxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-cxsave-param-title": "The title of the page to perform actions on.",
+	"apihelp-cxsave-param-from": "The source language code.",
+	"apihelp-cxsave-param-to": "The target language code.",
+	"apihelp-cxsave-param-sourcetitle": "The title of the source page."
 }

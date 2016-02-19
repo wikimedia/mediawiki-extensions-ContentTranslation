@@ -8,8 +8,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var timer;
-
 	/**
 	 * @class
 	 */
@@ -18,7 +16,6 @@
 		this.$sourceColumn = null;
 		this.$translationColumn = null;
 		this.disabled = false;
-		this.listen();
 	}
 
 	/**
@@ -80,31 +77,6 @@
 			.removeClass( 'cx-highlight cx-highlight--blue cx-highlight--lightblue' );
 
 		return $content.html();
-	};
-
-	function checkAndSave() {
-		if ( mw.cx.dirty ) {
-			mw.hook( 'mw.cx.translation.save' ).fire();
-		}
-	}
-
-	/**
-	 * Event bindings
-	 */
-	ContentTranslationDraft.prototype.listen = function () {
-		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
-		// Save the draft on progress events, but not in all progress
-		// events. Use a few seconds delay.
-		mw.hook( 'mw.cx.progress' ).add( $.debounce( 5000, checkAndSave ) );
-
-		// Save when CTRL+S is pressed.
-		$( document ).on( 'keydown', function ( e ) {
-			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
-			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
-				checkAndSave();
-				return false;
-			}
-		} );
 	};
 
 	ContentTranslationDraft.prototype.showConflictWarning = function ( translation ) {
@@ -343,94 +315,5 @@
 		);
 	};
 
-	/**
-	 * Save the translation
-	 */
-	ContentTranslationDraft.prototype.save = function () {
-		var targetTitle, params, apiParams, now,
-			content,
-			api = new mw.Api();
-
-		content = this.getContent();
-		if ( this.disabled ) {
-			return;
-		}
-		targetTitle = $( '.cx-column--translation > h2' ).text();
-		clearInterval( timer );
-		params = {
-			from: mw.cx.sourceLanguage,
-			to: mw.cx.targetLanguage,
-			sourcetitle: mw.cx.sourceTitle,
-			title: targetTitle,
-			status: 'draft',
-			sourcerevision: mw.cx.sourceRevision,
-			progress: JSON.stringify( mw.cx.getProgress() )
-		};
-
-		if ( !content ) {
-			// There's no content to save,
-			// but don't let the save initiator wait infinitely
-			mw.hook( 'mw.cx.translation.saved' ).fire(
-				mw.cx.sourceLanguage,
-				mw.cx.targetLanguage,
-				mw.cx.sourceTitle,
-				targetTitle
-			);
-
-			return;
-		} else {
-			params.html = EasyDeflate.deflate( content );
-		}
-
-		now = Date.now();
-		apiParams = $.extend( {}, params, {
-			assert: 'user',
-			action: 'cxpublish'
-		} );
-		api.postWithToken( 'edit', apiParams, {
-			timeout: 100 * 1000 // in milliseconds
-		} ).done( function ( results ) {
-			mw.hook( 'mw.cx.translation.saved' ).fire(
-				mw.cx.sourceLanguage,
-				mw.cx.targetLanguage,
-				mw.cx.sourceTitle,
-				targetTitle
-			);
-			timer = setInterval( function () {
-				checkAndSave();
-			}, 5 * 60 * 1000 );
-
-			// If this is new translation, we don't have translationid before first save.
-			if ( results.cxpublish.translationid ) {
-				mw.cx.translationId = results.cxpublish.translationid;
-			}
-		} ).fail( function ( errorCode, details ) {
-			var extra;
-
-			if ( errorCode === 'assertuserfailed' ) {
-				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
-			}
-
-			extra = {
-				d: Date.now() - now,
-				s: params.html.length
-			};
-			// Hope these will be in the beginning of the string
-			details = $.extend( extra, details );
-
-			if ( details.exception instanceof Error ) {
-				details.exception = details.exception.toString();
-			}
-			details.errorCode = errorCode;
-
-			mw.hook( 'mw.cx.translation.save-failed' ).fire(
-				mw.cx.sourceLanguage,
-				mw.cx.targetLanguage,
-				mw.cx.sourceTitle,
-				this.targetTitle,
-				JSON.stringify( details )
-			);
-		} );
-	};
 	mw.cx.ContentTranslationDraft = ContentTranslationDraft;
 }( jQuery, mediaWiki ) );

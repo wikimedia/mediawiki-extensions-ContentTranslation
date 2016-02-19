@@ -22,6 +22,10 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * @var VirtualRESTServiceClient
 	 */
 	protected $restbaseClient;
+	/**
+	 * @var Translation
+	 */
+	protected $translation;
 
 	public function __construct( ApiMain $main, $name ) {
 		parent::__construct( $main, $name );
@@ -30,27 +34,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
-		global $wgContentTranslationHighMTCategory;
-		$categories = array();
-
-		$sourceLink = '[[:' . $params['from']
-			. ':Special:Redirect/revision/'
-			. $params['sourcerevision']
-			. '|' . $params['sourcetitle'] . ']]';
-
-		if ( $params['categories'] ) {
-			$categories = explode( '|', $params['categories'] );
-		}
-
-		$progress = json_decode( $params['progress'], true );
-		if (
-			$progress &&
-			$wgContentTranslationHighMTCategory &&
-			$this->hasHighMT( $progress )
-		) {
-			$categories[] = $wgContentTranslationHighMTCategory;
-		}
-
+		$categories = $this->getCategories( $params );
 		if ( count( $categories ) ) {
 			$categoryText = "\n[[" . implode( "]]\n[[", $categories ) . ']]';
 			// If publishing to User namespace, wrap categories in <nowiki>
@@ -60,6 +44,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 			$wikitext .= $categoryText;
 		}
+
+		$sourceLink = '[[:' . $params['from']
+			. ':Special:Redirect/revision/'
+			. $this->translation->translation['sourceRevisionId']
+			. '|' . $params['sourcetitle'] . ']]';
 
 		$summary = $this->msg(
 			'cx-publish-summary',
@@ -89,6 +78,25 @@ class ApiContentTranslationPublish extends ApiBase {
 		return $api->getResult()->getResultData();
 	}
 
+	protected function getCategories( array $params ) {
+		global $wgContentTranslationHighMTCategory;
+		$categories = array();
+
+		if ( $params['categories'] ) {
+			$categories = explode( '|', $params['categories'] );
+		}
+
+		$progress = json_decode( $this->translation->translation['progress'], true );
+		if (
+			$progress &&
+			$wgContentTranslationHighMTCategory &&
+			$this->hasHighMT( $progress )
+		) {
+			$categories[] = $wgContentTranslationHighMTCategory;
+		}
+		return $categories;
+	}
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 
@@ -108,35 +116,52 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieUsage( 'html cannot be empty', 'invalidhtml' );
 		}
 
-		if ( $params['status'] === 'draft' ) {
-			$this->saveAsDraft();
-		} else {
-			$this->publish();
-		}
+		$this->publish();
 
 	}
 
 	public function publish() {
+		global $wgContentTranslationTranslateInTarget;
+
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
-		$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
-			$params['title'],
-			$user->getName()
-		);
-		$title = Title::newFromText( $targetTitle );
-
-		if ( !$title ) {
+		$targetTitle = Title::newFromText( $params['title'] );
+		if ( !$targetTitle ) {
 			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
 		}
 
+		$this->translation = ContentTranslation\Translation::find(
+			$params['from'],
+			$params['to'],
+			$params['sourcetitle']
+		);
+
+		if ( $this->translation === null ) {
+			// Translation does not exist
+			$this->dieUsage( 'Translation not found' );
+		}
+
+		$translator = new ContentTranslation\Translator( $user );
+
+		if ( $wgContentTranslationTranslateInTarget ) {
+			$targetPage = ContentTranslation\SiteMapper::getTargetTitle(
+				$params['title'],
+				$user->getName()
+			);
+
+			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetPage );
+		} else {
+			$targetURL = $targetTitle->getCanonicalUrl();
+		}
+
 		try {
-			$wikitext = $this->restbaseClient->convertHtmlToWikitext( $title, $this->getHtml() );
+			$wikitext = $this->restbaseClient->convertHtmlToWikitext( $targetTitle, $this->getHtml() );
 		} catch ( MWException $e ) {
 			$this->dieUsage( $e->getMessage(), 'docserver' );
 		}
 
-		$saveresult = $this->saveWikitext( $title, $wikitext, $params );
+		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
 		$editStatus = $saveresult['edit']['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -161,11 +186,18 @@ class ApiContentTranslationPublish extends ApiBase {
 				'result' => 'success',
 			);
 
+			$this->translation->translation['status'] = 'published';
+			$this->translation->translation['lastUpdatedTranslator'] = $translator->getGlobalUserId();
+			$this->translation->translation['targetURL'] = $targetURL;
+
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
-				$params['targetRevisionId'] = $result['newrevid'];
+				$this->translation->translation['targetRevisionId'] = $result['newrevid'];
 			}
-			$this->saveTranslationHistory( $params );
+
+			// Save the translation history.
+			$this->translation->save();
+
 			// Notify user about milestones
 			$this->notifyTranslator();
 		} else {
@@ -209,15 +241,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 	}
 
-	public function saveAsDraft() {
-		$params = $this->extractRequestParams();
-		$this->saveTranslationHistory( $params );
-		$result = array(
-			'result' => 'success',
-		);
-		$this->getResult()->addValue( null, $this->getModuleName(), $result );
-	}
-
 	/**
 	 * Get the HTML content from request and abstract the compression it may have.
 	 * @return string The HTML content in the request. Decompressed, if it was compressed.
@@ -237,65 +260,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		return $data;
 	}
 
-	public function saveTranslationHistory( $params ) {
-		global $wgContentTranslationDatabase, $wgContentTranslationTranslateInTarget;
-
-		if ( $wgContentTranslationDatabase === null ) {
-			// Central CX database not configured.
-			return;
-		}
-		$user = $this->getUser();
-		$translator = new ContentTranslation\Translator( $user );
-
-		if ( !$wgContentTranslationTranslateInTarget ) {
-			$targetTitle = Title::newFromText( $params['title'] );
-			if ( !$targetTitle ) {
-				throw new InvalidArgumentException( "Invalid target title given" );
-			}
-			$targetURL = $targetTitle->getCanonicalUrl();
-		} else {
-			$targetTitle = ContentTranslation\SiteMapper::getTargetTitle(
-				$params['title'],
-				$this->getUser()->getName()
-			);
-			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetTitle );
-		}
-		$translation = array(
-			'sourceTitle' => $params['sourcetitle'],
-			'targetTitle' => $params['title'],
-			'sourceLanguage' => $params['from'],
-			'sourceRevisionId' => $params['sourcerevision'],
-			'targetLanguage' => $params['to'],
-			'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
-				$params['from'], $params['sourcetitle']
-			),
-			'status' => $params['status'],
-			'progress' => $params['progress'],
-			// XXX Do not overwrite startedTranslator when we have collaborative editing!
-			'startedTranslator' => $translator->getGlobalUserId(),
-			'lastUpdatedTranslator' => $translator->getGlobalUserId(),
-		);
-		// Save targetURL only when the status is published.
-		if ( $params['status'] === 'published' ) {
-			$translation['targetURL'] = $targetURL;
-			$translation['targetRevisionId'] = $params['targetRevisionId'];
-		};
-		$cxtranslation = new ContentTranslation\Translation( $translation );
-		$cxtranslation->save();
-		$translationId = $cxtranslation->getTranslationId();
-		$translator->addTranslation( $translationId );
-		if ( $params['status'] === 'draft' ) {
-			// Save the draft
-			ContentTranslation\Draft::save( $translationId, $this->getHtml() );
-		}
-
-		$result = array(
-			'translationid' => $translationId
-		);
-
-		$this->getResult()->addValue( null, $this->getModuleName(), $result );
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'title' => array(
@@ -307,21 +271,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			'from' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
-			'progress' => array(
-				ApiBase::PARAM_REQUIRED => true,
-			),
 			'to' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'sourcetitle' => array(
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'sourcerevision' => array(
-				ApiBase::PARAM_REQUIRED => true,
-			),
-			'status' => array(
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => array( 'draft', 'published' ),
 			),
 			'categories' => null,
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
@@ -336,15 +290,6 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function isWriteMode() {
 		return true;
-	}
-
-	/**
-	 * @see ApiBase::getExamplesMessages()
-	 */
-	protected function getExamplesMessages() {
-		return array(
-			/** @todo Provide examples */
-		);
 	}
 
 	/**

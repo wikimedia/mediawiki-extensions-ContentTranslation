@@ -7,79 +7,72 @@
  */
 
 use ContentTranslation\AbuseFilterCheck;
-use ContentTranslation\Translation;
 use ContentTranslation\Database;
 use ContentTranslation\RestbaseClient;
-use ContentTranslation\Translator;
-use ContentTranslation\TranslationUnit;
+use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
+use ContentTranslation\TranslationUnit;
+use ContentTranslation\Translator;
 
 class ApiContentTranslationSave extends ApiBase {
 
+	/**
+	 * @var Translation
+	 */
+	protected $translation;
+
+	/**
+	 * @var Translator
+	 */
+	protected $translator;
+
 	public function execute() {
 		$params = $this->extractRequestParams();
+
 		$user = $this->getUser();
-		$content = null;
 		if ( $this->getUser()->isBlocked() ) {
 			$this->dieUsageMsg( 'blockedtext' );
 		}
 
-		if ( trim( $params['content'] ) === '' ) {
-			$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
+		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
+			$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
 		}
 
-		if ( substr( $params['content'], 0, 11 ) === 'rawdeflate,' ) {
-			$content = gzinflate( base64_decode( substr( $params[ 'content' ], 11 ) ) );
-			// gzinflate returns false on error.
-			if ( $content === false ) {
-				$this->dieUsage( 'Invalid section content' );
-			}
-		}
-		$translationUnits = json_decode( $content, true );
-		if ( !is_array( $translationUnits ) ) {
-			$this->dieUsage( 'content must be valid json array', 'invalidjson' );
+		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
+			$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
 		}
 
-		$translationId = $params['translationid'];
-		$translator = new Translator( $user );
-		$translation = $translator->getTranslation( $translationId );
-		$translation = $translation->translation;
-		if ( $translationId === null ||
-			$translator->getGlobalUserId() !== intval( $translation['lastUpdatedTranslator'] ) ) {
-			// Translation does not exist or belong to another translator
-			$this->dieUsage( 'Invalid translation ID: ' . $params['translationid'] );
+		$progress = FormatJson::decode( $params['progress'], true );
+		if ( !is_array( $progress ) ) {
+			$this->dieUsage( 'Invalid progress', 'invalidprogress' );
 		}
 
+		$this->translator = new Translator( $user );
+		$this->translation = $this->saveTranslation( $params );
+
+		$translationUnits = $this->getTranslationUnits( $params['content'] );
+		$this->saveTranslationUnits( $translationUnits );
+		$validationResults = $this->validateTranslationUnits( $translationUnits );
+
+		$result = array(
+			'result' => 'success',
+			'validations' => $validationResults,
+			'translationid' => $this->translation->getTranslationId()
+		);
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	protected function validateTranslationUnits( $translationUnits ) {
 		$validationResults = array();
-
-		foreach ( $translationUnits as $tuData ) {
-			$tuData['translationId'] = $translationId;
-			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
-				$this->dieUsage( 'Invalid section data' );
-			}
-			// Make sure all translation unit fields are defined.
-			if ( !isset( $tuData['sequenceId'] ) ) {
-				$tuData['sequenceId'] = null;
-			}
-			if ( !isset( $tuData['content'] ) ) {
-				// Content can be null in case translator clear the section.
-				$tuData['content'] = null;
-			}
-			$translationUnit = new TranslationUnit( $tuData );
-			TranslationStorageManager::save( $translationUnit );
-
+		foreach ( $translationUnits as $translationUnit ) {
 			$validationResults[$translationUnit->getSectionId()] =
 				$this->validateTranslationUnit(
-					\Title::newFromText( $translation['targetTitle'] ),
+					\Title::newFromText( $this->translation->translation['targetTitle'] ),
 					$translationUnit
 				);
 		}
 
-		$result = array(
-			'result' => 'success',
-			'validations' => $validationResults
-		);
-		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+		return $validationResults;
 	}
 
 	/**
@@ -105,15 +98,119 @@ class ApiContentTranslationSave extends ApiBase {
 		return $results;
 	}
 
+	protected function saveTranslation( array $params ) {
+		$translation = Translation::find(
+			$params['from'],
+			$params['to'],
+			$params['sourcetitle']
+		);
+
+		// First time save, add relevant fields
+		if ( !$translation ) {
+			$translation = array(
+				'sourceTitle' => $params['sourcetitle'],
+				'sourceLanguage' => $params['from'],
+				'targetLanguage' => $params['to'],
+				'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
+					$params['from'], $params['sourcetitle']
+				),
+				// If the translation exists, this field wont get updated.
+				'startedTranslator' => $this->translator->getGlobalUserId(),
+				'lastUpdatedTranslator' => $this->translator->getGlobalUserId(),
+			);
+		} else {
+			// Get the array out of the object. Bit confusing.
+			$translation = $translation->translation;
+		}
+
+		$owner = (int)$translation['lastUpdatedTranslator'];
+		$user = (int)$this->translator->getGlobalUserId();
+		if ( $owner !== $user ) {
+			$this->dieUsage( 'Another user is already translating this article', 'noaccess' );
+		}
+
+		// Update updateable fields
+		$translation['targetTitle'] = $params['title'];
+		$translation['sourceRevisionId'] = $params['sourcerevision'];
+		$translation['status'] = 'draft';
+		$translation['progress'] = $params['progress'];
+
+		$cxtranslation = new ContentTranslation\Translation( $translation );
+		$cxtranslation->save();
+
+		// Assosiate the translation with the translator
+		$translationId = $cxtranslation->getTranslationId();
+		$this->translator->addTranslation( $translationId );
+
+		return $cxtranslation;
+	}
+
+	protected function getTranslationUnits( $content ) {
+		$translationUnits = array();
+		if ( trim( $content ) === '' ) {
+			$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
+		}
+
+		if ( substr( $content, 0, 11 ) === 'rawdeflate,' ) {
+			$content = gzinflate( base64_decode( substr( $content, 11 ) ) );
+			// gzinflate returns false on error.
+			if ( $content === false ) {
+				$this->dieUsage( 'Invalid section content', 'invalidcontent' );
+			}
+		}
+
+		$units = json_decode( $content, true );
+		foreach ( $units as $tuData ) {
+			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
+				$this->dieUsage( 'Invalid section data', 'invalidcontent' );
+			}
+
+			// Make sure all translation unit fields are defined.
+			if ( !isset( $tuData['sequenceId'] ) ) {
+				$tuData['sequenceId'] = null;
+			}
+			if ( !isset( $tuData['content'] ) ) {
+				// Content can be null in case translator clear the section.
+				$tuData['content'] = null;
+			}
+
+			$tuData['translationId'] = $this->translation->getTranslationId();
+			$translationUnits[] = new TranslationUnit( $tuData );
+		}
+
+		return $translationUnits;
+	}
+
+	protected function saveTranslationUnits( $translationUnits ) {
+		foreach ( $translationUnits as $translationUnit ) {
+			TranslationStorageManager::save( $translationUnit );
+		}
+	}
+
 	public function getAllowedParams() {
 		return array(
-			'translationid' => array(
-				ApiBase::PARAM_TYPE => 'integer',
+			'from' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'to' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'sourcetitle' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'title' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'content' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'sourcerevision' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'progress' => array(
+				ApiBase::PARAM_REQUIRED => true,
+			)
 		);
 	}
 

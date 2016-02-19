@@ -13,9 +13,6 @@
 	"apihelp-cxpublish-param-from": "{{doc-apihelp-param|cxpublish|from}}",
 	"apihelp-cxpublish-param-to": "{{doc-apihelp-param|cxpublish|to}}",
 	"apihelp-cxpublish-param-sourcetitle": "{{doc-apihelp-param|cxpublish|sourcetitle}}",
-	"apihelp-cxpublish-param-sourcerevision": "{{doc-apihelp-param|cxpublish|sourcerevision}}",
-	"apihelp-cxpublish-param-status": "{{doc-important|DO NOT translate \"draft\" and \"published\" which are enclosed in quotation marks.}}\n\n{{doc-apihelp-param|cxpublish|status}}",
-	"apihelp-cxpublish-param-progress": "{{doc-important|DO NOT translate \"any\", \"human\", \"mt\", and \"mtSectionsCount\".}}\n\n{{doc-apihelp-param|cxpublish|progress}}",
 	"apihelp-cxpublish-param-categories": "{{doc-apihelp-param|cxpublish|categories}}",
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
@@ -81,5 +78,12 @@
 	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}",
 	"apihelp-query+cxtranslatorstats-description": "{{doc-apihelp-description|cxtranslatorstats}}",
 	"apihelp-query+cxtranslatorstats-param-translator": "{{doc-apihelp-param|cxtranslatorstats|translator}}",
-	"apihelp-query+cxtranslatorstats-example-1": "{{doc-apihelp-example|query+cxtranslatorstats}}"
+	"apihelp-query+cxtranslatorstats-example-1": "{{doc-apihelp-example|query+cxtranslatorstats}}",
+	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}",
+	"apihelp-cxsave-param-sourcerevision": "{{doc-apihelp-param|cxsave|sourcerevision}}",
+	"apihelp-cxsave-param-title": "{{doc-apihelp-param|cxsave|title}}",
+	"apihelp-cxsave-param-from": "{{doc-apihelp-param|cxsave|from}}",
+	"apihelp-cxsave-param-to": "{{doc-apihelp-param|cxsave|to}}",
+	"apihelp-cxsave-param-sourcetitle": "{{doc-apihelp-param|cxsave|sourcetitle}}",
+	"apihelp-cxsave-param-progress": "{{doc-important|DO NOT translate \"any\", \"human\", \"mt\", and \"mtSectionsCount\".}}\n\n{{doc-apihelp-param|cxsave|progress}}"
 }

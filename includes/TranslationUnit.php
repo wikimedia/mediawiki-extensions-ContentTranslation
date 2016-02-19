@@ -18,7 +18,9 @@ class TranslationUnit {
 	protected $timestamp;
 
 	public function __construct( array $params ) {
-		$this->translationId = (int)$params['translationId'];
+		if ( isset( $params['translationId'] ) ) {
+			$this->translationId = (int)$params['translationId'];
+		}
 		$this->sectionId = (string)$params['sectionId'];
 		$this->origin = (string)$params['origin'];
 		$this->sequenceId = (int)$params['sequenceId'];

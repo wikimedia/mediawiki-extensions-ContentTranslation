@@ -7,6 +7,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var timer, failCounter = 0;
+
 	/**
 	 * @class
 	 */
@@ -37,54 +39,150 @@
 		return $content[ 0 ].outerHTML;
 	};
 
-	ContentTranslationStorage.prototype.listen = function () {
-		var self = this;
-		mw.hook( 'mw.cx.translation.change' ).add( function ( $targetSection ) {
-			self.markForSave( $targetSection );
-		} );
+	ContentTranslationStorage.prototype.save = function () {
+		var sections;
 
-		mw.hook( 'mw.cx.translation.save' ).add( function () {
-			var sectionId, sections = [];
+		sections = this.getSectionsToSave();
+		if ( sections && sections.length ) {
+			this.saveSections( sections );
+		}
 
-			for ( sectionId in self.sections ) {
-				if ( !self.sections[ sectionId ].saved ) {
-					sections.push( self.sections[ sectionId ] );
-				}
-			}
-			self.saveSections( sections );
-		} );
 	};
 
-	ContentTranslationStorage.prototype.saveSections = function ( sections ) {
-		var api = new mw.Api();
+	ContentTranslationStorage.prototype.getSectionsToSave = function () {
+		var sectionId, sections = [];
 
-		if ( !mw.cx.translationId ) {
-			// A translation id is must to save translations. This must be set by
-			// the ext.cx.translation.draft module. And that module to be eventually
-			// merged to this module.
+		if ( this.disabled ) {
 			return;
 		}
 
-		return api.postWithToken( 'csrf', {
-			action: 'cxsave',
-			translationid: mw.cx.translationId,
-			content: EasyDeflate.deflate( JSON.stringify( sections ) )
-		} ).done( function ( response ) {
-			var i, sectionId, $targetSection,
-				validations = response.cxsave.validations;
+		for ( sectionId in this.sections ) {
+			if ( !this.sections[ sectionId ].saved ) {
+				sections.push( this.sections[ sectionId ] );
+			}
+		}
 
-			// Mark the sections saved
-			for ( i = 0; i < sections.length; i++ ) {
-				sections[ i ].saved = true;
-				sectionId = sections[ i ].sectionId;
-				$targetSection = mw.cx.getTranslationSection( sectionId );
-				if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
-					$targetSection.data( 'errors', validations[ sectionId ] );
-				} else {
-					$targetSection.removeData( 'errors' );
-				}
+		return sections;
+	};
+
+	ContentTranslationStorage.prototype.listen = function () {
+		var self = this;
+		mw.hook( 'mw.cx.translation.change' ).add( function ( $targetSection ) {
+			// Reset fail counter so that autosave if stopped can be restarted.
+			failCounter = 0;
+			self.markForSave( $targetSection );
+		} );
+
+		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
+
+		// Save when CTRL+S is pressed.
+		$( document ).on( 'keydown', function ( e ) {
+			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
+			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
+				self.save();
+				return false;
 			}
 		} );
+		$( window ).on( 'beforeunload', $.proxy( this.onPageUnload, this ) );
+	};
+
+	ContentTranslationStorage.prototype.onPageUnload = function () {
+		var sections;
+
+		sections = this.getSectionsToSave();
+		if ( sections && sections.length ) {
+			// Trigger save anyway.
+			this.save();
+			// Inform about sections not saved.
+			return mw.msg( 'cx-warning-unsaved-translation' );
+		} else {
+			return;
+		}
+	};
+
+	ContentTranslationStorage.prototype.saveSections = function ( sections ) {
+		var self = this,
+			api = new mw.Api();
+
+		clearInterval( timer );
+		return api.postWithToken( 'csrf', {
+			action: 'cxsave',
+			assert: 'user',
+			content: EasyDeflate.deflate( JSON.stringify( sections ) ),
+			from: mw.cx.sourceLanguage,
+			to: mw.cx.targetLanguage,
+			sourcetitle: mw.cx.sourceTitle,
+			title: mw.cx.targetTitle,
+			sourcerevision: mw.cx.sourceRevision,
+			progress: JSON.stringify( mw.cx.getProgress() )
+		} ).done( function ( response ) {
+			self.onSaveComplete( sections, response.cxsave );
+		} ).fail( function ( errorCode, details ) {
+			self.onSaveFailure( errorCode, details );
+		} ).always( function () {
+			if ( failCounter > 10 ) {
+				// If there are more than 10 save errors, stop autosave at timer triggers.
+				// It will get restarted on further translation edits.
+				// Show a bigger error message at this point.
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
+				return;
+			}
+			// Irrespective of success or fail, schedule next autosave
+			timer = setInterval( function () {
+				self.save();
+			}, 5 * 60 * 1000 );
+		} );
+	};
+
+	ContentTranslationStorage.prototype.onSaveComplete = function ( sections, saveResult ) {
+		var i, sectionId, $targetSection,
+			validations = saveResult.validations;
+
+		mw.cx.translationId = saveResult.translationid;
+
+		for ( i = 0; i < sections.length; i++ ) {
+			// Mark the sections saved
+			sections[ i ].saved = true;
+			sectionId = sections[ i ].sectionId;
+			$targetSection = mw.cx.getTranslationSection( sectionId );
+
+			// Annotate the section with errors.
+			if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
+				$targetSection.data( 'errors', validations[ sectionId ] );
+			} else {
+				$targetSection.removeData( 'errors' );
+			}
+		}
+
+		mw.hook( 'mw.cx.translation.saved' ).fire(
+			mw.cx.sourceLanguage,
+			mw.cx.targetLanguage,
+			mw.cx.sourceTitle,
+			mw.cx.targetTitle
+		);
+
+		// Reset fail counter.
+		failCounter = 0;
+	};
+
+	ContentTranslationStorage.prototype.onSaveFailure = function ( errorCode, details ) {
+		if ( errorCode === 'assertuserfailed' ) {
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-lost-session-draft' ) );
+		}
+
+		if ( details.exception instanceof Error ) {
+			details.exception = details.exception.toString();
+		}
+		details.errorCode = errorCode;
+
+		mw.hook( 'mw.cx.translation.save-failed' ).fire(
+			mw.cx.sourceLanguage,
+			mw.cx.targetLanguage,
+			mw.cx.sourceTitle,
+			mw.cx.targetTitle,
+			JSON.stringify( details )
+		);
+		failCounter++;
 	};
 
 	ContentTranslationStorage.prototype.markForSave = function ( $targetSection ) {

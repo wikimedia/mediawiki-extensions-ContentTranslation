@@ -47,6 +47,11 @@ class SiteMapper {
 		);
 	}
 
+	/**
+	 * @param string $title
+	 * @param string $username
+	 * @return string
+	 */
 	public static function getTargetTitle( $title, $userName ) {
 		global $wgContentTranslationTargetNamespace;
 

@@ -257,8 +257,6 @@
 			this.targetTitle
 		);
 
-		mw.cx.dirty = false;
-
 		// Disable the Publish button
 		// and change its label back from "Publishing..." to "Publish"
 		this.$trigger
