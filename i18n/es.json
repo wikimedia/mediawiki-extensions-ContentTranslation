@@ -27,7 +27,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducción de Contenidos]] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
 	"cx-license-agreement": "Al pulsar en el botón «$1» aceptarás las [//wikimediafoundation.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones con la herramienta de traducción en el marco de la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL], con el entendimiento de que un enlace o URL es suficiente para la atribución de esta licencia Creative Commons.",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
-	"cx-desc": "Facilita la traducción de páginas de contenido",
+	"cx-desc": "Facilita la [[Special:ContentTranslation|traducción]] de páginas de contenido",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traducido}}",
 	"cx-header-progressbar-text-mt": "($1 % de {{PLURAL:$1|traducción automática}})",
 	"cx-header-translation-center": "Centro de traducción",
@@ -213,5 +213,7 @@
 	"cx-notification-suggestions-available-email-subject": "Sugerencias de traducción disponibles",
 	"cx-tools-linter-title": "Problemas del contenido: $1",
 	"cx-tools-linter-view-details": "Ver detalles",
-	"cx-tools-linter-hide-details": "Ocultar detalles"
+	"cx-tools-linter-hide-details": "Ocultar detalles",
+	"cx-translator-month-stats-label": "Este mes",
+	"cx-translator-total-translations-label": "Total"
 }

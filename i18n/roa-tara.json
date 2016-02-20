@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joetaras"
+			"Joetaras",
+			"Macofe"
 		]
 	},
 	"cx": "Pàgene de traduzione",
 	"cx-dashboard-header": "Traduziune",
 	"cx-javascript": "Stu strumende non ge funzione senze JavaScript.",
 	"cx-error-server-connection": "Errore: Non ge te puè collegà a 'u server.",
-	"cx-desc": "Fà devendà facile traducere le vôsce",
+	"cx-desc": "Fà devendà facile [[Special:ContentTranslation|traducere]] le vôsce",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradotte}}",
 	"cx-header-progressbar-text-mt": "($1% da {{PLURAL:$1|traduzione d'a maghene}})",
 	"cx-header-translation-center": "Cendre de Traduzione",

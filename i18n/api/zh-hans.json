@@ -74,5 +74,7 @@
 	"apihelp-cxsave-example-1": "保存来源和翻译段落。内容必须为JSON编码的字符串。",
 	"apihelp-cxsave-param-translationid": "翻译ID",
 	"apihelp-cxsave-param-content": "JSON编码的段落数据。每个段落为一个目标，并拥有以下关键词：content、sectionId、sequenceId、sequenceId、origin",
-	"apihelp-query+cxtranslatorstats-param-translator": "翻译者的用户名。此参数可选。如果不通过，将使用当前登录的用户。"
+	"apihelp-query+cxtranslatorstats-description": "为指定用户检索翻译统计。",
+	"apihelp-query+cxtranslatorstats-param-translator": "翻译者的用户名。此参数可选。如果不通过，将使用当前登录的用户。",
+	"apihelp-query+cxtranslatorstats-example-1": "为指定用户检索翻译统计。"
 }

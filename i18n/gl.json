@@ -17,7 +17,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Tradución de Contidos]] é unha ferramenta para traducir rápidamente as páxinas á túa lingua. [$1 Próbao agora!]",
 	"cx-license-agreement": "Ao premer no botón \"$1\", acepta os [//wikimediafoundation.org/wiki/Terms_of_Use/gl termos de uso] e acepta liberar irrevogablemente a súa contribución coa ferramenta de tradución baixo a [https://creativecommons.org/licenses/by-sa/3.0/deed.gl licenza CC BY-SA 3.0] e a [//gl.wikipedia.org/wiki/Wikipedia:Texto_da_Licenza_de_documentación_libre_de_GNU GFDL], entendendo que unha hiperligazón ou enderezo URL é recoñecemento abondo baixo a licenza CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erro: Non se puido conectar co servidor.",
-	"cx-desc": "Facilita a tradución de páxinas de contido",
+	"cx-desc": "Facilita a [[Special:ContentTranslation|tradución]] de páxinas de contido",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traducido}}",
 	"cx-header-progressbar-text-mt": "($1% de {{PLURAL:$1|tradución automática}})",
 	"cx-header-translation-center": "Centro de tradución",

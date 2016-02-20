@@ -4,7 +4,8 @@
 			"Minisarm",
 			"ImGelu",
 			"KlaudiuMihaila",
-			"Wintereu"
+			"Wintereu",
+			"Macofe"
 		]
 	},
 	"cx": "Traducere pagină",
@@ -12,7 +13,7 @@
 	"cx-javascript": "Această unealtă nu funcționează fără JavaScript.",
 	"cx-license-agreement": "Apăsând butonul „$1”, sunteți de acord cu [//wikimediafoundation.org/wiki/Terms_of_Use Termenii de utilizare] și acceptați în mod irevocabil să vă eliberați contribuțiile din unealta de traducere sub licențele [https://creativecommons.org/licenses/by-sa/3.0/deed.ro CC BY-SA 3.0] și [//ro.wikipedia.org/wiki/Wikipedia:GNU_FDL GFDL], înțelegând că o hiperlegătură sau o adresă URL sunt suficiente pentru atribuirea operei conform CC BY-SA 3.0.",
 	"cx-error-server-connection": "Eroare: Imposibil de conectat la server.",
-	"cx-desc": "Uşurează traducerea paginilor de conținut",
+	"cx-desc": "Uşurează [[Special:ContentTranslation|traducerea]] paginilor de conținut",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradus}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|traduceri automate}})",
 	"cx-header-translation-center": "Centru de traduceri",
@@ -123,7 +124,6 @@
 	"cx-translation-status-draft": "În desfășurare",
 	"cx-translation-status-published": "Publicată",
 	"cx-translation-status-deleted": "Ștearsă",
-	"cx-magnus-tool-link-text": "Găsiți pagini care lipsesc în limba dumneavoastră",
 	"cx-translation-already-in-progress": "Aceasta este o traducere încă nefinalizată a utilizatorului $1.",
 	"cx-translation-already-in-progress-collaborate": "Asigurați-vă că vă coordonați cu persoana care a efectuat traducerea curentă.",
 	"cx-publishing-dialog-publish-draft-button": "Publică ca schiță",

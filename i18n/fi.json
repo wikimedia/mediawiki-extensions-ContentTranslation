@@ -113,5 +113,7 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Muokkaukset",
 	"cx-campaign-contributionsmenu-mytranslations": "Käännökset",
 	"cx-campaign-contributionsmenu-myuploads": "Tallennettu aineisto",
-	"cx-trend-translations-to": "Käännökset kielelle $1"
+	"cx-trend-translations-to": "Käännökset kielelle $1",
+	"cx-translator-month-stats-label": "Tässä kuussa",
+	"cx-translator-total-translations-label": "Yhteensä"
 }

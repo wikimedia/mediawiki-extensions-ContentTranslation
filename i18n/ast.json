@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"Macofe"
 		]
 	},
 	"cx": "Traducir la páxina",
@@ -9,7 +10,7 @@
 	"cx-javascript": "Esta ferramienta nun funciona sin JavaScript.",
 	"cx-license-agreement": "Al facer click nel botón «$1» aceutes les [//wikimediafoundation.org/wiki/Terms_of_Use condiciones d'usu] y permites, de mou non reversible, la distribución de les tos collaboraciones cola ferramienta de traducción baxo la [https://creativecommons.org/licenses/by-sa/3.0/ Llicencia CC BY-SA 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License llicencia GFDL], entendiendo qu'un hiperenllaz o URL ye bastante pa l'atribución como CC BY-SA 3.0.",
 	"cx-error-server-connection": "Error: Nun se pudo coneutar col sirvidor.",
-	"cx-desc": "Fai fácil traducir páxines de conteniu",
+	"cx-desc": "Fai fácil [[Special:ContentTranslation|traducir páxines de conteniu",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traducío}}",
 	"cx-header-progressbar-text-mt": "($1% de {{PLURAL:$1|traducción automática}})",
 	"cx-header-translation-center": "Centru de traducción",

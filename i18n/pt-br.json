@@ -15,7 +15,8 @@
 			"Rhcastilhos",
 			"Almondega",
 			"Eduardo Addad de Oliveira",
-			"Arthurteb303"
+			"Arthurteb303",
+			"Macofe"
 		]
 	},
 	"cx": "Traduzir página",
@@ -23,7 +24,7 @@
 	"cx-javascript": "Esta ferramenta não funciona sem JavaScript.",
 	"cx-license-agreement": "Ao clicar no botão \"$1\", você concorda com os [//wikimediafoundation.org/wiki/Terms_of_Use Termos de Uso] e você concorda irrevogavelmente a liberar suas contribuições com a ferramenta de tradução sob a [https://creativecommons.org/licenses/by-sa/3.0/ 3.0 Licença] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] com o entendimento de que um hiperlink ou URL suficiente para CC BY-SA 3.0 atribuição.",
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
-	"cx-desc": "Facilita a tradução do conteúdo de páginas",
+	"cx-desc": "Facilita a [[Special:ContentTranslation|tradução]] do conteúdo de páginas",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traduzido}}",
 	"cx-header-progressbar-text-mt": "($1 % de {{PLURAL:$1|tradução automática}})",
 	"cx-header-translation-center": "Centro de tradução",

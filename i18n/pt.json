@@ -21,7 +21,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Tradução de Conteúdo]] é uma ferramenta para traduzir rapidamente páginas para o seu idioma. [$1 Experimente-a agora!]",
 	"cx-license-agreement": "Ao clicar no botão \"$1\", concorda com as nossas [//wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use Condições de uso] e em, irrevogavelmente, publicar a sua contribuição sob as licenças [//creativecommons.org/licenses/by-sa/3.0 CC BY-SA 3.0] e [//pt.wikipedia.org/wiki/Wikipédia:GNU_Free_Documentation_License GFDL], com o entendimento de que uma hiperligação ou URL é suficiente para uma atribuição CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
-	"cx-desc": "Torna mais fácil traduzir o conteúdo das páginas",
+	"cx-desc": "Torna mais fácil [[Special:ContentTranslation|traduzir]] o conteúdo das páginas",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduzido}}",
 	"cx-header-progressbar-text-mt": "($1% a partir da {{PLURAL:$1|tradução automática}})",
 	"cx-header-translation-center": "Centro de tradução",
@@ -204,5 +204,7 @@
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Atualizar sugestões",
 	"cx-notification-suggestions-available": "Com base na {{GENDER:$2|sua}} tradução anterior de '''$1''', estão agora disponíveis novas propostas.",
-	"cx-notification-suggestions-available-email-subject": "Sugestões de tradução disponíveis"
+	"cx-notification-suggestions-available-email-subject": "Sugestões de tradução disponíveis",
+	"cx-translator-month-stats-label": "Este mês",
+	"cx-translator-total-translations-label": "Total"
 }
