@@ -14,7 +14,7 @@
 	"cx-publish-page-error": "Error al moment de l’enregistrament de la pagina.",
 	"cx-publish-button": "Publicar la traduccion",
 	"cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
-	"tag-contenttranslation": "Traduccion del contengut",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduccion del contengut]]",
 	"cx-source-loading": "Telecargament de $1",
 	"cx-entrypoint-title": "Traduire aquesta pagina en $1",
 	"cx-special-login-error": "Vos cal èsser connectat per traduire aquesta pagina. [$1 Connexion]",

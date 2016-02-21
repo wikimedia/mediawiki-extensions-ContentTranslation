@@ -13,7 +13,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|შინაარსის თარგმნა]] არის თქვენს ენაზე გვერდის სწრაფი თარგმნის ხელსაწყო. [$1 სცადეთ ახლავე!]",
 	"cx-license-agreement": "ღილაკზე „$1“ დაკლიკებით, თქვენ ეთანხმებით [//wikimediafoundation.org/wiki/Terms_of_Use გამოყენების პირობებს] და უპირობოთ ეთანხმებით თქვენი წვლილის პუბლიკაციას თარგმნის ხელსაწყოსთან ერთად [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 ლიცენზიას] და [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], იმ გაგებით, რომ ჰიპერბმულის ან URL გადაცემა საკმარისია CC BY-SA 3.0 ატრიბუციისათვის.",
 	"cx-error-server-connection": "შეცდომა: სერვერთან დავავშირება ვერ მოხერხდა.",
-	"cx-desc": "ამარტივებს გვერდის შიგთავსის თარგმნას",
+	"cx-desc": "ამარტივებს გვერდის შიგთავსის [[Special:ContentTranslation|თარგმნას]]",
 	"cx-header-progressbar-text": "{{PLURAL:$1|ნათარგმნია}} $1%",
 	"cx-header-progressbar-text-mt": "({{PLURAL:$1|მანქანური თარგმანის}} $1%)",
 	"cx-header-translation-center": "თარგმნის ცენტრი",
@@ -198,6 +198,9 @@
 	"cx-notification-suggestions-available": "{{GENDER:$2|თქვენი}} წინა თარგმანის '''$1''' გათვალისწინებით, თქვენთვის ხელმისაწვდომია ახალი შემოთავაზებები.",
 	"cx-notification-suggestions-available-email-subject": "ხელმისაწვდომია თარგმნის შემოთავაზებები",
 	"cx-tools-linter-title": "შინაარსობრივი საკითები: $1",
+	"cx-tools-linter-content": "შინაარსი არ აკმაყოფილებს მოთხოვნებს [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ვიკიპედიის მიერ დაწესებული შეზღუდვების გამო $1-ში]. გთხოვთ, თარგმანის გამოქვეყნებამდე მოაგვარეთ ეს პრობლემა.",
 	"cx-tools-linter-view-details": "დეტალების  ჩვენება",
-	"cx-tools-linter-hide-details": "დეტალების დამალვა"
+	"cx-tools-linter-hide-details": "დეტალების დამალვა",
+	"cx-translator-month-stats-label": "ეს თვე",
+	"cx-translator-total-translations-label": "სულ"
 }
