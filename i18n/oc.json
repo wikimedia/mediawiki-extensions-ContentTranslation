@@ -6,7 +6,7 @@
 		]
 	},
 	"cx": "Traduire la pagina",
-	"cx-desc": "Una aisina que permet als editors de traduire las paginas d'una lenga cap a una autra amb l'ajuda de sistèmas d'una traduccion automatica e d'autras aisinas de traduccion",
+	"cx-desc": "Facilita [[Special:ContentTranslation|la traduccion]] de paginas de contengut",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduch}}",
 	"cx-header-translation-center": "Centre de traduccions",
 	"cx-source-view-page": "afichar la pagina",
@@ -24,6 +24,7 @@
 	"cx-tools-instructions-text5": "{{GENDER:|Publicar}} la traduccion",
 	"cx-tools-searchbox-text": "Cercar un mot",
 	"cx-tools-view-guidelines": "{{GENDER:|Afichar}} las directivas de traduccion",
+	"cx-translationlist-empty-title": "Pas res a traduire?",
 	"cx-translator-month-stats-label": "Aqueste mes",
 	"cx-translator-total-translations-label": "Total"
 }

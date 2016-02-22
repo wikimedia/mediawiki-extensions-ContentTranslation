@@ -199,5 +199,7 @@
 	"cx-tools-linter-title": "Prubbleme 'e cuntenute: $1",
 	"cx-tools-linter-content": "Se so' truvate cuntenute ca nun sò bbuone annanz' 'o [//www.mediawiki.org/wiki/Content_translation/Abuse_filter lèmmeto ca mpizzaje Wikipedia int'a $1]. Pe' piacere accunciate sti prubbleme primm' 'e pubbrecà na traduziona.",
 	"cx-tools-linter-view-details": "Vire dettaglie",
-	"cx-tools-linter-hide-details": "Annascunne dettaglie"
+	"cx-tools-linter-hide-details": "Annascunne dettaglie",
+	"cx-translator-month-stats-label": "Chistu mese",
+	"cx-translator-total-translations-label": "Totale"
 }

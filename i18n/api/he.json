@@ -75,5 +75,8 @@
 	"apihelp-cxsave-description": "המודול הזה מאפשר לשמור טיוטות תרגומים לפי פסקה כדי לחסוך בתעבורה וללקט קורפוס מקביל.",
 	"apihelp-cxsave-example-1": "שמירת מקטעי המקור והתרגום. התוכן צריך להיות מחרוזת מקודדת ב־JSON.",
 	"apihelp-cxsave-param-translationid": "מזהה התרגום",
-	"apihelp-cxsave-param-content": "נתוני מקטעים מקודדם ב־JSON. כל מקטע הוא עצם עם המפתחות הבאים: content‏, sectionId‏, sequenceId‏, sequenceId‏, origin"
+	"apihelp-cxsave-param-content": "נתוני מקטעים מקודדם ב־JSON. כל מקטע הוא עצם עם המפתחות הבאים: content‏, sectionId‏, sequenceId‏, sequenceId‏, origin",
+	"apihelp-query+cxtranslatorstats-description": "קבלת סטטיסטיקות התרגום עבור המשתמש הנתון.",
+	"apihelp-query+cxtranslatorstats-param-translator": "שם המשתמש של המתרגם. לא חובה לתת את הפרמטר הזה. אם הוא לא נשלח, ישמש המשתמש הנוכחי.",
+	"apihelp-query+cxtranslatorstats-example-1": "אחזור סטטיסטיקת התרגום עבור המשתמש הנתון."
 }

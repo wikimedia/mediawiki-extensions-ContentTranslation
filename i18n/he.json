@@ -18,7 +18,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|תרגום תוכן]] הוא כלי לתרגום מהיר של דפים לשפה שלך. [$1 נסו אותו עכשיו!]",
 	"cx-license-agreement": "{{GENDER:|כשאתה לוחץ|כשאת לוחצת}} על מקש \"$1\" {{GENDER:|אתה מסכים|את מסכימה}} ל[//wikimediafoundation.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ואתה נותן|ואת נותנת}} גם את הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
-	"cx-desc": "מקלה על תרגום דפי תוכן",
+	"cx-desc": "מקלה על [[Special:ContentTranslation|תרגום]] דפי תוכן",
 	"cx-header-progressbar-text": "{{PLURAL:$1|תורגם|תורגמו}} $1%",
 	"cx-header-progressbar-text-mt": "{{PLURAL:$1|($1% תרגום מכונה)}}",
 	"cx-header-translation-center": "מרכז התרגום",
@@ -205,5 +205,7 @@
 	"cx-tools-linter-title": "בעיות תוכן: $1",
 	"cx-tools-linter-content": "נמצא תוכן שלא מתאים ל[//www.mediawiki.org/wiki/Content_translation/Abuse_filter כללים המוגדרים בוויקיפדיה ב$1]. נא לתקן את הבעיות לפני פרסום התרגום.",
 	"cx-tools-linter-view-details": "הצגת פרטים",
-	"cx-tools-linter-hide-details": "הסתרת פרטים"
+	"cx-tools-linter-hide-details": "הסתרת פרטים",
+	"cx-translator-month-stats-label": "החודש",
+	"cx-translator-total-translations-label": "סה\"כ"
 }
