@@ -945,6 +945,7 @@
 				"editor/ext.cx.editor.js"
 			],
 			"dependencies": [
+				"ext.cx.util.selection",
 				"jquery.throttle-debounce"
 			]
 		},

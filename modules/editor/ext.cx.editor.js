@@ -77,21 +77,30 @@
 	 * Bind event handlers.
 	 */
 	CXSectionEditor.prototype.listen = function () {
-		var cxEditor = this;
+		var self = this;
 
 		this.$editableElement.on( 'input', $.debounce( 200, false, function () {
 			// Delay the input handler check till user pauses typing.
 			// If this check is done every input,
 			// the responsiveness will get affected.
-			cxEditor.onChange();
+			self.onChange();
 		} ) );
 
-		// Disable pressing return key in headers and figure caption
-		if ( this.$editableElement.is( 'h1, h2, h3, h4, h5, h6, figcaption' ) ) {
-			this.$editableElement.keypress( function ( e ) {
-				return e.which !== 13; // Enter key code
-			} );
-		}
+		this.$editableElement.on( 'keypress', function ( e ) {
+			if ( e.which !== 13 ) {
+				return true;
+			}
+			// Disable pressing return key in headers and figure caption
+			if ( self.$editableElement.is( 'h1, h2, h3, h4, h5, h6, figcaption' ) ) {
+				return false;
+			}
+			if ( self.$editableElement.is( 'p, div' ) ) {
+				// insert 2 br tags (if only one br tag is inserted the cursor won't go to the second line)
+				mw.cx.selection.pasteHTML( '<br><br>' );
+				// prevent the default behaviour of return key pressed
+				return false;
+			}
+		} );
 
 		this.$editableElement
 			.on( 'paste', $.proxy( this.pasteHandler, this ) )
