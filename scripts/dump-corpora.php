@@ -40,7 +40,7 @@ class CXCorporaDump extends Maintenance {
 
 		$this->addOption(
 			'format',
-			'(optional) Dump format. Defaults to JSON.',
+			'(optional) Dump format. Available formats json (default) and tmx.',
 			false, /*required*/
 			true /*has arg*/
 		);
@@ -69,6 +69,8 @@ class CXCorporaDump extends Maintenance {
 		$split = $this->getOption( 'split-at', false );
 		$type = $plain ? 'text' : 'html';
 
+		$formatSpec = array( $format, $type );
+
 		$limit = 999999999;
 		$offset = 0;
 		$translations = Translation::getAllPublishedTranslations(
@@ -83,16 +85,30 @@ class CXCorporaDump extends Maintenance {
 		$lookup = new CorporaLookup( $db );
 		foreach ( $translations as &$translation ) {
 			$translation['corpora'] = $lookup->getByTranslationId( $translation['translationId'] );
-			if ( $plain ) {
-				foreach ( $translation['corpora'] as $id => $unit ) {
-					foreach ( $unit as $field => $value ) {
-						if ( !isset( $value['content'] ) ) {
-							continue;
-						}
 
-						$translation['corpora'][$id][$field]['content'] =
-							Sanitizer::stripAllTags( $value['content'] );
+			// Some general cleanup
+			foreach ( $translation['corpora'] as $id => $unit ) {
+				if ( !isset( $unit['user'] ) ) {
+					unset( $translation['corpora'][$id] );
+					continue;
+				}
+
+				unset( $translation['corpora'][$id]['source']['engine'] );
+				unset( $translation['corpora'][$id]['user']['engine'] );
+			}
+
+			if ( !$plain ) {
+				continue;
+			}
+
+			foreach ( $translation['corpora'] as $id => $unit ) {
+				foreach ( $unit as $field => $value ) {
+					if ( !isset( $value['content'] ) ) {
+						continue;
 					}
+
+					$translation['corpora'][$id][$field]['content'] =
+						Sanitizer::stripAllTags( $value['content'] );
 				}
 			}
 		}
@@ -101,7 +117,7 @@ class CXCorporaDump extends Maintenance {
 			$source = $sourceLanguage ?: '_';
 			$target = $targetLanguage ?: '_';
 			$filename = "cx-corpora.{$source}2{$target}.$type.$format";
-			$this->export( $format, $filename, $translations );
+			$this->export( $formatSpec, $filename, $translations, $source );
 
 			return;
 		}
@@ -114,7 +130,7 @@ class CXCorporaDump extends Maintenance {
 				}
 
 				$filename = "cx-corpora.{$sourceLanguage}2{$targetLanguage}.$type.$format";
-				$this->export( $format, $filename, $targets );
+				$this->export( $formatSpec, $filename, $targets, $sourceLanguage );
 				unset( $sorted[$targetLanguage][$sourceLanguage] );
 			}
 
@@ -132,14 +148,14 @@ class CXCorporaDump extends Maintenance {
 			}
 
 			$filename = "cx-corpora._2{$targetLanguage}.$type.$format";
-			$this->export( $format, $filename, $targets );
+			$this->export( $formatSpec, $filename, $targets, '_' );
 			unset( $sorted[$targetLanguage] );
 		}
 
 		if ( count( $sorted ) ) {
 			$targets = call_user_func_array( 'array_merge', $sorted );
 			$filename = "cx-corpora._2_.$type.$format";
-			$this->export( $format, $filename, $targets );
+			$this->export( $formatSpec, $filename, $targets, '_' );
 		}
 	}
 
@@ -163,27 +179,33 @@ class CXCorporaDump extends Maintenance {
 		return $sorted;
 	}
 
-	public function export( $format, $filename, array $targets ) {
-		if ( $format !== 'json' ) {
+	public function export( $formatSpec, $filename, array $targets, $sourceLanguage ) {
+		$data = null;
+
+		list( $format, $type ) = $formatSpec;
+
+		if ( $format === 'json' ) {
+			$data = $this->formatJSON( $targets );
+		} elseif ( $format === 'tmx' ) {
+			$data = $this->formatTMX( $targets, $sourceLanguage, $type );
+		} else {
 			$this->error( "Unknown output format\n", 1 );
 		}
 
-		$data = $this->formatJSON( $targets );
 		if ( $data ) {
 			file_put_contents( $filename, $data );
 			$this->output( "$filename\n" );
 		}
 	}
 
+	/**
+	 * @param array $targets
+	 * @return string|null
+	 */
 	public function formatJSON( array $targets ) {
 		$output = array();
 		foreach ( $targets as $translation ) {
 			foreach ( $translation['corpora'] as $id => $unit ) {
-				if ( !isset( $unit['user'] ) ) {
-					continue;
-				}
-
-				unset( $unit['source']['engine'], $unit['user']['engine'] );
 				unset( $unit['source']['timestamp'], $unit['user']['timestamp'], $unit['mt']['timestamp'] );
 
 				$globalId = "{$translation['translationId']}/$id";
@@ -203,6 +225,74 @@ class CXCorporaDump extends Maintenance {
 		} else {
 			return null;
 		}
+	}
+
+	/**
+	 * @param array $targets
+	 * @param string $sourceLanguage Language code.
+	 * @param string $type Either html or plain.
+	 * @return string|null
+	 */
+	public function formatTMX( array $targets, $sourceLanguage, $type ) {
+		if ( $type === 'html' ) {
+			$this->error( "TMX output format is only supported with plaintext\n", 1 );
+		}
+
+		$xml = new DOMDocument( '1.0', 'UTF-8' );
+		$spawn = function ( $tag, array $attributes = array() ) use ( $xml ) {
+			$element = $xml->createElement( $tag );
+			foreach ( $attributes as $key => $value ) {
+				$element->setAttribute( $key, $value );
+			}
+
+			return $element;
+		};
+
+		$tmx = $spawn( 'tmx', array( 'version' => '1.4' ) );
+		$xml->appendChild( $tmx );
+
+		$header = $spawn( 'header', array(
+			'creationtool' => 'dump-corpora.php / DOMDocument',
+			'creationtoolversion' => '1.0.0',
+			// Could be paragraph, but not guaranteed...
+			'segtype' => 'block',
+			'o-tmf' => 'sql',
+			'adminlang' => 'en',
+			'sourcelang' => $sourceLanguage === '_' ? '*all*' : $sourceLanguage,
+			'datatype' => 'plaintext',
+		) );
+		$tmx->appendChild( $header );
+
+		$body = $spawn( 'body' );
+		$tmx->appendChild( $body );
+
+		foreach ( $targets as $translation ) {
+			foreach ( $translation['corpora'] as $id => $units ) {
+				$tu = $spawn( 'tu', array( 'srclang' => $translation['sourceLanguage'] ) );
+				$body->appendChild( $tu );
+				foreach ( $units as $origin => $unit ) {
+					if ( $unit['content'] === null ) {
+						continue;
+					}
+					if ( $origin === 'source' ) {
+						$tuv = $spawn( 'tuv', array( 'xml:lang' => $translation['sourceLanguage'] ) );
+					} else {
+						$tuv = $spawn( 'tuv', array( 'xml:lang' => $translation['targetLanguage'] ) );
+					}
+					$tu->appendChild( $tuv );
+					$tuvProp = $spawn( 'prop', array( 'type' => 'origin' ) );
+					$tuvProp->appendChild( $xml->createTextNode( $origin ) );
+					$tuv->appendChild( $tuvProp );
+					$tuvSeg = $spawn( 'seg' );
+					$tuv->appendChild( $tuvSeg );
+					$tuvContent = $xml->createTextNode( $unit['content'] );
+					$tuvSeg->appendChild( $tuvContent );
+				}
+			}
+		}
+		// Format the output with indentation for readability
+		$xml->formatOutput = true;
+		return $xml->saveXML();
 	}
 }
 
