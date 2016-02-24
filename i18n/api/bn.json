@@ -47,5 +47,8 @@
 	"apihelp-cxdelete-param-from": "উৎস ভাষার কোড।",
 	"apihelp-cxdelete-param-to": "লক্ষ্য ভাষার কোড।",
 	"apihelp-cxdelete-param-sourcetitle": "উৎস পাতার শিরোনাম।",
-	"apihelp-cxdelete-example-1": "প্রদত্ত ভাষা যুগল এবং শিরোনাম সাথে যুক্ত একটি খসড়া অপসারণ করে।"
+	"apihelp-cxdelete-example-1": "প্রদত্ত ভাষা যুগল এবং শিরোনাম সাথে যুক্ত একটি খসড়া অপসারণ করে।",
+	"apihelp-cxsuggestionlist-param-titles": "পাতার শিরোনামগুলি।",
+	"apihelp-cxsuggestionlist-param-from": "উৎস ভাষার কোড।",
+	"apihelp-cxsuggestionlist-param-to": "লক্ষ্য ভাষার কোড।"
 }

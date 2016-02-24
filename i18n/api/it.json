@@ -70,5 +70,7 @@
 	"apihelp-cxsuggestionlist-param-titles": "Titoli di pagine.",
 	"apihelp-cxsuggestionlist-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione.",
-	"apihelp-cxsave-param-translationid": "ID della traduzione"
+	"apihelp-cxsave-param-translationid": "ID della traduzione",
+	"apihelp-query+cxtranslatorstats-description": "Recupera le statistiche di traduzione per l'utente indicato.",
+	"apihelp-query+cxtranslatorstats-example-1": "Recupera le statistiche di traduzione per l'utente indicato."
 }

@@ -15,7 +15,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|বিষয়বস্তু অনুবাদ]] একটি সরঞ্জাম যা আপনার ভাষা পৃষ্ঠায় অনুবাদ করা সহজ করে। [$1 এখনি ব্যবহার করুন!]",
 	"cx-license-agreement": "\"$1\" বোতাম ক্লিক করার দ্বারা, আপনি [//wikimediafoundation.org/wiki/Terms_of_Use ব্যবহারের শর্তাবলীর] সাথে সম্মত হচ্ছেন এবং আপনি অনুবাদ সরঞ্জামসহ আপনার অবদান [https://creativecommons.org/licenses/by-sa/3.0/deed.bn সিসি বাই-এস ৩.০ লাইসেন্স] এবং [//bn.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License জিএফডিএলের] অধীনে প্রকাশে সম্মত হচ্ছেন, এও বুঝতে পারছেন যে এটি একটি হাইপারলিংক বা ইউআরএল সিসি বাই-এস ৩.০ অ্যাট্রিবিউশনের জন্য যথেষ্ট।",
 	"cx-error-server-connection": "ত্রুটি: সার্ভারের সাথে সংযোগ করা যায় নি।",
-	"cx-desc": "বিষয়বস্তুর পাতা অনুবাদ করা সহজ করে তোলে",
+	"cx-desc": "বিষয়বস্তুর পাতা [[Special:ContentTranslation|অনুবাদ]] করা সহজ করে তোলে",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|অনূদিত হয়েছে}}",
 	"cx-header-progressbar-text-mt": "({{PLURAL:$1|যান্ত্রিক অনুবাদ}} থেকে $1%)",
 	"cx-header-translation-center": "অনুবাদ কেন্দ্র",
@@ -202,5 +202,7 @@
 	"cx-tools-linter-title": "বিষয়বস্তুর সমস্যা: $1",
 	"cx-tools-linter-content": "বিষয়বস্তু পাওয়যা গেছে যা [//www.mediawiki.org/wiki/Content_translation/Abuse_filter $1 উইকিপিডিয়া দ্বারা স্থাপিত সীমাবদ্ধতা] পূরণ করে না। দয়া করে অনুবাদ প্রকাশ করার আগে সমস্যা ঠিক করুন।",
 	"cx-tools-linter-view-details": "বিস্তারিত দেখুন",
-	"cx-tools-linter-hide-details": "বিস্তারিত লুকাও"
+	"cx-tools-linter-hide-details": "বিস্তারিত লুকাও",
+	"cx-translator-month-stats-label": "এই মাসে",
+	"cx-translator-total-translations-label": "মোট"
 }
