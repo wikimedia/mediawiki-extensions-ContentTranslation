@@ -89,7 +89,7 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @return array List of any rule violations
 	 */
 	protected function validateTranslationUnit( \Title $title, TranslationUnit $translationUnit ) {
-		$checker = new AbuseFilterCheck();
+		$checker = new AbuseFilterCheck( $this->getUser(), $title );
 		$restbaseClient = new RestbaseClient( $this->getConfig() );
 		$sectionHTML = $translationUnit->getContent();
 		$results = array();
@@ -98,7 +98,7 @@ class ApiContentTranslationSave extends ApiBase {
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.
 			$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
-			$results = $checker->checkSection( $this->getUser(), $title, $text );
+			$results = $checker->checkSection( $text );
 		} catch ( Exception $e ) {
 			// Validation failed. But proceed.
 		}

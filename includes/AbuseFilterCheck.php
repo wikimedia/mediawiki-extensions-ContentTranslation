@@ -27,37 +27,53 @@
 namespace ContentTranslation;
 
 class AbuseFilterCheck {
+	protected $user;
+	protected $title;
+	protected $titleResults;
+
+	/**
+	 * @param \User $user User performing the action
+	 * @param \Title $title Title to check
+	 */
+	public function __construct( \User $user, \Title $title ) {
+		$this->user = $user;
+		$this->title = $title;
+	}
+
 	/**
 	 * Check a title for any rule violations.
 	 *
-	 * @param \User $user User performing the action
-	 * @param \Title $title Title to check
 	 * @return array List of any rule violations
 	 */
-	public function checkTitle( \User $user, \Title $title ) {
+	public function checkTitle() {
 		if ( !class_exists( 'AbuseFilter' ) ) {
 			return array();
+		}
+
+		// Simple in-object caching
+		if ( is_array( $this->titleResults ) ) {
+			return $this->titleResults;
 		}
 
 		$vars = new \AbuseFilterVariableHolder();
 
 		$vars->addHolders(
-			\AbuseFilter::generateUserVars( $user ),
-			\AbuseFilter::generateTitleVars( $title, 'ARTICLE' )
+			\AbuseFilter::generateUserVars( $this->user ),
+			\AbuseFilter::generateTitleVars( $this->title, 'ARTICLE' )
 		);
 
-		return $this->getResults( $vars );
+		$this->titleResults = $this->getResults( $vars );
+
+		return $this->titleResults;
 	}
 
 	/**
 	 * Check some text for rule violations.
 	 *
-	 * @param \User $user User performing the action
-	 * @param \Title $title Title to check
 	 * @param string $text Text to check
 	 * @return array List of any rule violations
 	 */
-	public function checkSection( \User $user, \Title $title, $text ) {
+	public function checkSection( $text ) {
 		if ( !class_exists( 'AbuseFilter' ) ) {
 			return array();
 		}
@@ -65,18 +81,25 @@ class AbuseFilterCheck {
 		$vars = new \AbuseFilterVariableHolder();
 
 		$vars->addHolders(
-			\AbuseFilter::generateUserVars( $user ),
-			\AbuseFilter::generateTitleVars( $title, 'ARTICLE' ),
-			\AbuseFilter::getEditVars( $title )
+			\AbuseFilter::generateUserVars( $this->user ),
+			\AbuseFilter::generateTitleVars( $this->title, 'ARTICLE' ),
+			\AbuseFilter::getEditVars( $this->title )
 		);
 
 		$vars->setVar( 'action', 'edit' );
 		$vars->setVar( 'old_wikitext', '' );
 		$vars->setVar( 'new_wikitext', $text );
 
-		return $this->getResults( $vars );
+		$results = $this->getResults( $vars );
+		$results = array_diff_key( $results, $this->checkTitle() );
+
+		return $results;
 	}
 
+	/**
+	 * @param \AbuseFilterVariableHolder $vars
+	 * @return array
+	 */
 	protected function getResults( \AbuseFilterVariableHolder $vars ) {
 		$filters = \AbuseFilter::checkAllFilters( $vars );
 		$filters = array_keys( array_filter( $filters ) );
