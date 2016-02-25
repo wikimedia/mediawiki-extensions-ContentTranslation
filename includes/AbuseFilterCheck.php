@@ -79,13 +79,16 @@ class AbuseFilterCheck {
 		}
 
 		$vars = new \AbuseFilterVariableHolder();
-
+		// Add AbuseFilter variables. Note that we are adding the title
+		// here. That will cause filters about titles executed for every sections.
+		// But not passing title will cause content filters with namespace rules
+		// not to produce results. We will attempt to filter out title errors
+		// away with array_diff_key.
 		$vars->addHolders(
 			\AbuseFilter::generateUserVars( $this->user ),
 			\AbuseFilter::generateTitleVars( $this->title, 'ARTICLE' ),
 			\AbuseFilter::getEditVars( $this->title )
 		);
-
 		$vars->setVar( 'action', 'edit' );
 		$vars->setVar( 'old_wikitext', '' );
 		$vars->setVar( 'new_wikitext', $text );

@@ -64,12 +64,19 @@ class ApiContentTranslationSave extends ApiBase {
 
 	protected function validateTranslationUnits( $translationUnits ) {
 		$validationResults = array();
+
+		$title = \Title::newFromText( $this->translation->translation['targetTitle'] );
+		$checker = new AbuseFilterCheck( $this->getUser(), $title );
+
 		foreach ( $translationUnits as $translationUnit ) {
-			$validationResults[$translationUnit->getSectionId()] =
-				$this->validateTranslationUnit(
-					\Title::newFromText( $this->translation->translation['targetTitle'] ),
-					$translationUnit
-				);
+			$sectionId = $translationUnit->getSectionId();
+			if ( $sectionId === 'mwcx-source-title' ) {
+				$validationResults[$sectionId] =
+					$checker->checkTitle();
+			} else {
+				$validationResults[$sectionId] =
+					$this->validateTranslationUnit( $checker, $title, $translationUnit );
+			}
 		}
 
 		return $validationResults;
@@ -77,12 +84,14 @@ class ApiContentTranslationSave extends ApiBase {
 
 	/**
 	 * Validate the section content using AbuseFilterCheck
+	 * @param AbuseFilterCheck $checker
 	 * @param \Title $title Target title
 	 * @param TranslationUnit $translationUnit
 	 * @return array List of any rule violations
 	 */
-	protected function validateTranslationUnit( \Title $title, TranslationUnit $translationUnit ) {
-		$checker = new AbuseFilterCheck( $this->getUser(), $title );
+	protected function validateTranslationUnit(
+		AbuseFilterCheck $checker, \Title $title, TranslationUnit $translationUnit
+	) {
 		$restbaseClient = new RestbaseClient( $this->getConfig() );
 		$sectionHTML = $translationUnit->getContent();
 		$results = array();

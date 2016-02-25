@@ -59,6 +59,7 @@
 
 		$heading = $( '<h2>' )
 			.attr( {
+				id: 'cxmwcx-source-title',
 				'data-source': 'mwcx-source-title',
 				contenteditable: true
 			} )
@@ -172,7 +173,10 @@
 				validator.validateTargetTitle();
 				mw.hook( 'mw.cx.translation.title.change' ).fire();
 			}
-		} ) );
+		} ) ).on( 'click focus', function () {
+			// Just like sections, fire focus event.
+			mw.hook( 'mw.cx.translation.focus' ).fire( cxTranslation.$title );
+		} );
 	};
 
 	/**
