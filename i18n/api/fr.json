@@ -16,9 +16,6 @@
 	"apihelp-cxpublish-param-from": "Le code de langue source.",
 	"apihelp-cxpublish-param-to": "Le code de langue cible.",
 	"apihelp-cxpublish-param-sourcetitle": "Le titre de la page source.",
-	"apihelp-cxpublish-param-sourcerevision": "La révision de la page source.",
-	"apihelp-cxpublish-param-status": "Si <kbd>draft</kbd>, la traduction sera enregistrée comme brouillon. Si <kbd>published</kbd>, la traduction sera publiée.",
-	"apihelp-cxpublish-param-progress": "Information à propos de l’achèvement des traductions (progression). JSON avec les clés <code>any</code>, <code>human</code>, <code>mt</code> et <code>mtSectionsCount</code>. Les valeurs des clés sont en pourcentages.",
 	"apihelp-cxpublish-param-categories": "Les catégories à ajouter à la page publiée.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (quand enregistré avec une réponse captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Répondre au captcha (en enregistrant avec une réponse de captcha).",
@@ -84,5 +81,7 @@
 	"apihelp-cxsave-param-content": "Données de section encodées en JSON. Chaque section est un objet avec les clés suivantes : content, sectionId, sequenceId, origin",
 	"apihelp-query+cxtranslatorstats-description": "Récupérer les statistiques de traduction pour l’utilisateur donné.",
 	"apihelp-query+cxtranslatorstats-param-translator": "Le nom d’utilisateur du traducteur. Ce paramètre est facultatif. S’il n’est pas fourni, l’utilisateur actuellement connecté sera utilisé.",
-	"apihelp-query+cxtranslatorstats-example-1": "Récupérer les statistiques de traduction pour l’utilisateur donné."
+	"apihelp-query+cxtranslatorstats-example-1": "Récupérer les statistiques de traduction pour l’utilisateur donné.",
+	"apihelp-cxsave-param-sourcerevision": "La révision de la page source.",
+	"apihelp-cxsave-param-progress": "Information à propos de l’achèvement des traductions (progression). JSON avec les clés <code>any</code>, <code>human</code>, <code>mt</code> et <code>mtSectionsCount</code>. Les valeurs des clés sont en pourcentages."
 }

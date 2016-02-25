@@ -14,9 +14,6 @@
 	"apihelp-cxpublish-param-from": "Källans språkkod.",
 	"apihelp-cxpublish-param-to": "Målets språkkod.",
 	"apihelp-cxpublish-param-sourcetitle": "Källsidans titel.",
-	"apihelp-cxpublish-param-sourcerevision": "Källsidans sidversion",
-	"apihelp-cxpublish-param-status": "Om <kbd>draft</kbd>, kommer översättningen att sparas som ett utkast. Om <kbd>published</kbd>, kommer översättningen att publiceras.",
-	"apihelp-cxpublish-param-progress": "Information om översättningens framsteg. JSON med nycklarna <code>any</code>, <code>human</code>, <code>mt</code> och <code>mtSectionsCount</code>. The keys' values are percentages.",
 	"apihelp-cxpublish-param-categories": "Kategorierna att lägga till i den publicerade sidan.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
@@ -77,5 +74,7 @@
 	"apihelp-cxsave-description": "Denna modul låter översättningsutkast sparas efter avsnitt för att spara bandbredd och för att samla in parallell text.",
 	"apihelp-cxsave-example-1": "Spara källans och översättningens avsnitt. Innehållet måste vara en JSON-kodad sträng.",
 	"apihelp-cxsave-param-translationid": "Översättningens ID",
-	"apihelp-cxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: innehåll, avsnitts-ID, sekvens-ID, sekvens-ID, ursprung"
+	"apihelp-cxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: innehåll, avsnitts-ID, sekvens-ID, sekvens-ID, ursprung",
+	"apihelp-cxsave-param-sourcerevision": "Källsidans sidversion",
+	"apihelp-cxsave-param-progress": "Information om översättningens framsteg. JSON med nycklarna <code>any</code>, <code>human</code>, <code>mt</code> och <code>mtSectionsCount</code>. The keys' values are percentages."
 }

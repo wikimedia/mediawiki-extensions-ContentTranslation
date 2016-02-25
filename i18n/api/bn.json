@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "উৎস ভাষার কোড।",
 	"apihelp-cxpublish-param-to": "লক্ষ্য ভাষার কোড।",
 	"apihelp-cxpublish-param-sourcetitle": "উৎস পাতার শিরোনাম।",
-	"apihelp-cxpublish-param-sourcerevision": "উৎস পাতার সংশোধন।",
-	"apihelp-cxpublish-param-status": "যদি <kbd>খসড়া</kbd> হয়, অনুবাদ খসড়া হিসাবে সংরক্ষিত হবে। যদি <kbd>প্রকাশিত</kbd> হয়, অনুবাদ প্রকাশ করা হবে।",
-	"apihelp-cxpublish-param-progress": "অনুবাদ সমাপ্তির সম্পর্কিত তথ্য (অগ্রগতি)। <code>any</code>, <code>human</code>, <code>mt</code> এবং <code>mtSectionsCount</code> চাবিসহ JSON। চাবির মান শতাংশে।",
 	"apihelp-cxpublish-param-categories": "প্রকাশিত পাতায় রাখতে বিষয়শ্রেণীসমূহ।",
 	"apihelp-cxpublish-param-wpCaptchaId": "ক্যাপচা আইডি (একটি ক্যাপচাসহ সংরক্ষণের সময়)।",
 	"apihelp-cxpublish-param-wpCaptchaWord": "ক্যাপচার উত্তর (একটি ক্যাপচাসহ সংরক্ষণের সময়)।",
@@ -50,5 +47,7 @@
 	"apihelp-cxdelete-example-1": "প্রদত্ত ভাষা যুগল এবং শিরোনাম সাথে যুক্ত একটি খসড়া অপসারণ করে।",
 	"apihelp-cxsuggestionlist-param-titles": "পাতার শিরোনামগুলি।",
 	"apihelp-cxsuggestionlist-param-from": "উৎস ভাষার কোড।",
-	"apihelp-cxsuggestionlist-param-to": "লক্ষ্য ভাষার কোড।"
+	"apihelp-cxsuggestionlist-param-to": "লক্ষ্য ভাষার কোড।",
+	"apihelp-cxsave-param-sourcerevision": "উৎস পাতার সংশোধন।",
+	"apihelp-cxsave-param-progress": "অনুবাদ সমাপ্তির সম্পর্কিত তথ্য (অগ্রগতি)। <code>any</code>, <code>human</code>, <code>mt</code> এবং <code>mtSectionsCount</code> চাবিসহ JSON। চাবির মান শতাংশে।"
 }

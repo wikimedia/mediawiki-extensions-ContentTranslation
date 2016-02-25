@@ -206,5 +206,6 @@
 	"cx-tools-linter-view-details": "Einzelheiten ansehen",
 	"cx-tools-linter-hide-details": "Einzelheiten ausblenden",
 	"cx-translator-month-stats-label": "Dieser Monat",
-	"cx-translator-total-translations-label": "Gesamt"
+	"cx-translator-total-translations-label": "Gesamt",
+	"cx-page-old-revision-loaded": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte [$1 signifikant geändert] worden sein. Du kannst mit dieser Übersetzung fortfahren oder erneut anfangen, um den aktualisierten Inhalt zu verwenden."
 }

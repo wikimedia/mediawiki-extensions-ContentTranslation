@@ -13,8 +13,6 @@
 	"apihelp-cxpublish-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxpublish-param-to": "Der Ziel-Sprachcode.",
 	"apihelp-cxpublish-param-sourcetitle": "Der Titel der Quellseite.",
-	"apihelp-cxpublish-param-sourcerevision": "Die Version der Quellseite.",
-	"apihelp-cxpublish-param-status": "Falls <kbd>draft</kbd>, wird die Übersetzung als Entwurf gespeichert. Falls <kbd>published</kbd>, wird die Übersetzung veröffentlicht.",
 	"apihelp-cxpublish-param-categories": "Die Kategorien, die in die veröffentlichte Seite eingesetzt werden sollen.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
@@ -67,5 +65,10 @@
 	"apihelp-cxsave-param-translationid": "Die Übersetzungskennung",
 	"apihelp-query+cxtranslatorstats-description": "Ruft die Übersetzungsstatistiken für den angegebenen Benutzer ab.",
 	"apihelp-query+cxtranslatorstats-param-translator": "Der Benutzername des Übersetzers. Dieser Parameter ist optional. Falls nicht angegeben, wird der derzeit angemeldete Benutzer verwendet.",
-	"apihelp-query+cxtranslatorstats-example-1": "Ruft die Übersetzungsstatistiken für den angegebenen Benutzer ab."
+	"apihelp-query+cxtranslatorstats-example-1": "Ruft die Übersetzungsstatistiken für den angegebenen Benutzer ab.",
+	"apihelp-cxsave-param-sourcerevision": "Die Version der Quellseite.",
+	"apihelp-cxsave-param-title": "Der Titel der Seite, auf der die Aktionen ausgeführt werden sollen.",
+	"apihelp-cxsave-param-from": "Der Quell-Sprachcode.",
+	"apihelp-cxsave-param-to": "Der Ziel-Sprachcode.",
+	"apihelp-cxsave-param-sourcetitle": "Der Titel der Quellseite."
 }

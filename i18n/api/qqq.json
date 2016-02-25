@@ -79,11 +79,10 @@
 	"apihelp-query+cxtranslatorstats-description": "{{doc-apihelp-description|cxtranslatorstats}}",
 	"apihelp-query+cxtranslatorstats-param-translator": "{{doc-apihelp-param|cxtranslatorstats|translator}}",
 	"apihelp-query+cxtranslatorstats-example-1": "{{doc-apihelp-example|query+cxtranslatorstats}}",
-	"apihelp-cxsave-param-content": "{{doc-apihelp-param|cxsave|content}}",
 	"apihelp-cxsave-param-sourcerevision": "{{doc-apihelp-param|cxsave|sourcerevision}}",
+	"apihelp-cxsave-param-progress": "{{doc-important|DO NOT translate \"any\", \"human\", \"mt\", and \"mtSectionsCount\".}}\n\n{{doc-apihelp-param|cxsave|progress}}",
 	"apihelp-cxsave-param-title": "{{doc-apihelp-param|cxsave|title}}",
 	"apihelp-cxsave-param-from": "{{doc-apihelp-param|cxsave|from}}",
 	"apihelp-cxsave-param-to": "{{doc-apihelp-param|cxsave|to}}",
-	"apihelp-cxsave-param-sourcetitle": "{{doc-apihelp-param|cxsave|sourcetitle}}",
-	"apihelp-cxsave-param-progress": "{{doc-important|DO NOT translate \"any\", \"human\", \"mt\", and \"mtSectionsCount\".}}\n\n{{doc-apihelp-param|cxsave|progress}}"
+	"apihelp-cxsave-param-sourcetitle": "{{doc-apihelp-param|cxsave|sourcetitle}}"
 }

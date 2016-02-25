@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Robin0van0der0vliet",
-			"Amire80"
+			"Amire80",
+			"Robin van der Vliet"
 		]
 	},
 	"cx": "Side oersette",
+	"cx-dashboard-header": "Oersettings",
 	"cx-javascript": "Dizze tool wurket net sûnder JavaScript.",
-	"cx-header-progressbar-text": "$1% oerset",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oerset}}",
 	"cx-header-progressbar-text-mt": "($1% automatyske oersetting)",
 	"cx-header-translation-center": "Oersetsintrum",
 	"cx-header-new-translation": "Nije oersetting",

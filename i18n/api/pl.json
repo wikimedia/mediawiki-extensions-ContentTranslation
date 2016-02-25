@@ -15,9 +15,6 @@
 	"apihelp-cxpublish-param-from": "Kod języka źródłowego.",
 	"apihelp-cxpublish-param-to": "Kod języka docelowego.",
 	"apihelp-cxpublish-param-sourcetitle": "Tytuł strony źródłowej.",
-	"apihelp-cxpublish-param-sourcerevision": "Przegląd strony źródłowej.",
-	"apihelp-cxpublish-param-status": "Jeśli <kbd>wersja robocza</kbd> zostanie zapisana jako robocza. Jeśli <kbd>opublikowane<kbd> tłumaczenie zostanie opublikowane.",
-	"apihelp-cxpublish-param-progress": "Informacje o realizacji tłumaczenia (postępu prac). JSON z kluczami <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Wartości kluczy podane są jako procenty.",
 	"apihelp-cxpublish-param-categories": "Kategorie, w których zostanie opublikowana nowa strona.",
 	"apihelp-cxpublish-param-wpCaptchaId": "CAPTCHA ID (przy zapisywaniu odpowiedzi CAPTCHA)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Wpisz CAPTCHA (przy zapisywaniu odpowiedzi CAPTCHA)",
@@ -62,5 +59,7 @@
 	"apihelp-cxsuggestionlist-param-from": "Kod języka źródłowego.",
 	"apihelp-cxsuggestionlist-param-to": "Kod języka docelowego.",
 	"apihelp-query+cxtranslatorstats-description": "Zobacz statystyki tłumaczeń dla danego użytkownika.",
-	"apihelp-query+cxtranslatorstats-example-1": "Zobacz statystyki tłumaczeń dla danego użytkownika."
+	"apihelp-query+cxtranslatorstats-example-1": "Zobacz statystyki tłumaczeń dla danego użytkownika.",
+	"apihelp-cxsave-param-sourcerevision": "Przegląd strony źródłowej.",
+	"apihelp-cxsave-param-progress": "Informacje o realizacji tłumaczenia (postępu prac). JSON z kluczami <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Wartości kluczy podane są jako procenty."
 }

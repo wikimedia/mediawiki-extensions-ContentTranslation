@@ -11,9 +11,6 @@
 	"apihelp-cxpublish-param-from": "Код вихідної мови.",
 	"apihelp-cxpublish-param-to": "Код цільової мови.",
 	"apihelp-cxpublish-param-sourcetitle": "Заголовок вихідної сторінки.",
-	"apihelp-cxpublish-param-sourcerevision": "Версія вихідної сторінки.",
-	"apihelp-cxpublish-param-status": "Якщо <kbd>draft</kbd>, переклад буде збережено як чернетку. Якщо <kbd>published</kbd>, переклад буде опубліковано.",
-	"apihelp-cxpublish-param-progress": "Інформація про завершеність перекладу (прогрес). JSON з ключами <code>any</code>, <code>human</code>, <code>mt</code> і <code>mtSectionsCount</code>. Значеннями ключів є відсотки.",
 	"apihelp-cxpublish-param-categories": "Категорії, у які буде додана опублікована сторінка.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчі (при збереженні з показуванням капчі).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Відповідь на капчу (при збереженні з показуванням капчі).",
@@ -79,5 +76,11 @@
 	"apihelp-cxsave-param-content": "Дані секції у форматі JSON. Кожна секція є об'єктом і має такі ключі: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-query+cxtranslatorstats-description": "Отримати статистику перекладів для даного користувача.",
 	"apihelp-query+cxtranslatorstats-param-translator": "Ім'я користувача (перекладача). Цей параметр необов'язковий. Якщо його не вказати, буде використано ім'я користувача, який на цей момент перебуває в системі.",
-	"apihelp-query+cxtranslatorstats-example-1": "Отримати статистику перекладу для даного користувача."
+	"apihelp-query+cxtranslatorstats-example-1": "Отримати статистику перекладу для даного користувача.",
+	"apihelp-cxsave-param-sourcerevision": "Версія вихідної сторінки.",
+	"apihelp-cxsave-param-progress": "Інформація про завершеність перекладу (прогрес). JSON з ключами <code>any</code>, <code>human</code>, <code>mt</code> і <code>mtSectionsCount</code>. Значеннями ключів є відсотки.",
+	"apihelp-cxsave-param-title": "Назва сторінки, в якій мають бути виконані дії.",
+	"apihelp-cxsave-param-from": "Код вихідної мови.",
+	"apihelp-cxsave-param-to": "Код цільової мови.",
+	"apihelp-cxsave-param-sourcetitle": "Назва вихідної сторінки."
 }

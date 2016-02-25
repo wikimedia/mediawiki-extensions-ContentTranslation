@@ -3,7 +3,8 @@
 		"authors": [
 			"KuboF",
 			"Amire80",
-			"Macofe"
+			"Macofe",
+			"Robin van der Vliet"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -175,6 +176,7 @@
 	"cx-notification-tenth-translation-email-subject": "Gratulon por via deka traduko",
 	"cx-notification-hundredth-translation": "Vi ĵus faris vian 100an tradukon! Tio estas rimarkinda atingo. Sciigu aliajn kontribuantojn.",
 	"cx-notification-hundredth-translation-email-subject": "Gratulon por via centa traduko",
+	"cx-contributions-link": "Viaj kontribuoj",
 	"cx-your-translations-link": "{{GENDER:$1|Viaj tradukoj}}",
 	"cx-translationlist-empty-title": "Ĉu nenio por traduki?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Komencu}} vian tradukon nun kaj daŭrigu ĝin iam ajn.",
@@ -191,5 +193,8 @@
 	"cx-draft-restore-failed": "Malsukcesis ŝargo de konservita traduko!",
 	"cx-suggestionlist-expand": "Montri ĉiujn",
 	"cx-suggestionlist-collapse": "Montri malpli",
-	"cx-suggestionlist-refresh": "Aktualigi proponojn"
+	"cx-suggestionlist-refresh": "Aktualigi proponojn",
+	"cx-tools-linter-view-details": "Montri detalojn",
+	"cx-tools-linter-hide-details": "Kaŝi detalojn",
+	"cx-translator-total-translations-label": "Sumo"
 }

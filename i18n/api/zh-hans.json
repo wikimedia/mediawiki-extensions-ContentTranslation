@@ -11,9 +11,6 @@
 	"apihelp-cxpublish-param-from": "源语言代码。",
 	"apihelp-cxpublish-param-to": "目标语言代码。",
 	"apihelp-cxpublish-param-sourcetitle": "来源页面的标题。",
-	"apihelp-cxpublish-param-sourcerevision": "来源页面的修订版本。",
-	"apihelp-cxpublish-param-status": "如果为<kbd>draft</kbd>，翻译将被保存为草稿。如果为<kbd>published</kbd>，翻译将被发布。",
-	"apihelp-cxpublish-param-progress": "有关翻译完成（进度）的信息。JSON带关键词<code>any</code>、<code>human</code>、<code>mt</code>和<code>mtSectionsCount</code>。关键词的值都是百分比。",
 	"apihelp-cxpublish-param-categories": "要放进发布页面的分类。",
 	"apihelp-cxpublish-param-wpCaptchaId": "验证码ID（当带验证码保存时）。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "回答验证码（当带验证码保存时）。",
@@ -76,5 +73,7 @@
 	"apihelp-cxsave-param-content": "JSON编码的段落数据。每个段落为一个目标，并拥有以下关键词：content、sectionId、sequenceId、sequenceId、origin",
 	"apihelp-query+cxtranslatorstats-description": "为指定用户检索翻译统计。",
 	"apihelp-query+cxtranslatorstats-param-translator": "翻译者的用户名。此参数可选。如果不通过，将使用当前登录的用户。",
-	"apihelp-query+cxtranslatorstats-example-1": "为指定用户检索翻译统计。"
+	"apihelp-query+cxtranslatorstats-example-1": "为指定用户检索翻译统计。",
+	"apihelp-cxsave-param-sourcerevision": "来源页面的修订版本。",
+	"apihelp-cxsave-param-progress": "有关翻译完成（进度）的信息。JSON带关键词<code>any</code>、<code>human</code>、<code>mt</code>和<code>mtSectionsCount</code>。关键词的值都是百分比。"
 }

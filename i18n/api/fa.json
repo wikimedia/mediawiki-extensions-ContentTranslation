@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Ebraminio"
+			"Ebraminio",
+			"Ladsgroup"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -11,16 +12,20 @@
 	"apihelp-cxpublish-param-from": "کد زبانی مبدأ.",
 	"apihelp-cxpublish-param-to": "کد زبانی مقصد.",
 	"apihelp-cxpublish-param-sourcetitle": "عنوان صفحهٔ مبدأ.",
-	"apihelp-cxpublish-param-sourcerevision": "نسخهٔ صفحهٔ مبدأ.",
-	"apihelp-cxpublish-param-status": "اگر <kbd>draft</kbd>، ترجمه به‌عنوان پیش‌نویس ذخیره می‌شود. اگر <kbd>published</kbd>، ترجمه منتشر خواهد شد.",
 	"apihelp-cxpublish-param-categories": "رده‌هایی برای قرار دادن صفحه منتشر شده در آن.",
 	"apihelp-cxpublish-param-wpCaptchaId": "شناسته کپچا (هنگام ذخیرهٔ صفحه با یک پاسخ کپچا)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "پاسخ به کپچا (هنگام ذخیرهٔ یک پاسخ کپچا)",
 	"apihelp-query+contenttranslation-description": "پرس‌وجو پایگاه داده‌های ترجمهٔ محتویات برای ترجمه‌ها.",
 	"apihelp-query+contenttranslation-param-translationid": "شناسهٔ ترجمه.",
+	"apihelp-query+contenttranslation-param-from": "زبان مبدا",
+	"apihelp-query+contenttranslation-param-to": "کد زبان مقصد.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "عنوان صفحه مقصد",
+	"apihelp-query+contenttranslation-param-limit": "حداکثر مقادیر ترجمه برای گرفتن",
+	"apihelp-query+contenttranslation-param-type": "وضعیت ترجمه",
 	"apihelp-query+contenttranslation-example-1": "گرفتن ترجمه‌های شروع شده توسط کاربر فعلی.",
 	"apihelp-query+contenttranslation-example-2": "گرفتن ترجمه‌های پیش‌نویس توسط شناسه.",
 	"apihelp-query+contenttranslation-example-3": "یافتن هر ترجمهٔ عنوان داده شده بین جفت زبانی داده شده",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "شماره ترجمه",
 	"apihelp-query+contenttranslationstats-example-1": "گرفتن آمار ترجمهٔ محتویات برای همهٔ زبان‌ها.",
 	"apihelp-cxconfiguration-description": "آوردن پیکربندی جی‌سن مترجم محتویات برای جفت زبانی داده شده",
 	"apihelp-cxconfiguration-param-from": "کد زبانی مبدأ.",
@@ -41,5 +46,9 @@
 	"apihelp-cxdelete-param-from": "کد زبانی مبدأ.",
 	"apihelp-cxdelete-param-to": "کد زبانی مقصد.",
 	"apihelp-cxdelete-param-sourcetitle": "عنوان صفحهٔ مبدأ.",
-	"apihelp-cxdelete-example-1": "یک پیش‌نویس مربوط به جفت زبانی و عنوان داده شده را حذف کن."
+	"apihelp-cxdelete-example-1": "یک پیش‌نویس مربوط به جفت زبانی و عنوان داده شده را حذف کن.",
+	"apihelp-cxsuggestionlist-param-titles": "عنوان صفحات",
+	"apihelp-cxsuggestionlist-param-from": "کد زبان مبدا",
+	"apihelp-cxsuggestionlist-param-to": "کد زبان مقصد",
+	"apihelp-cxsave-param-sourcerevision": "نسخهٔ صفحهٔ مبدأ."
 }

@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "קוד שפת המקור.",
 	"apihelp-cxpublish-param-to": "קוד שפת היעד.",
 	"apihelp-cxpublish-param-sourcetitle": "כותרת דף המקור.",
-	"apihelp-cxpublish-param-sourcerevision": "גרסת דף המקור.",
-	"apihelp-cxpublish-param-status": "אם <kbd>draft</kbd>, התרגום יישמר בתור טיוטה. אם <kbd>published</kbd>, התרגום יפורסם.",
-	"apihelp-cxpublish-param-progress": "מידע על השלמת התרגום (התקדמות). JSON עם המפתחות <code>any</code>‏, <code>human</code>‏, <code>mt</code> ו־<code>mtSectionsCount</code>. הערכים של המפתחות הם אחוזים.",
 	"apihelp-cxpublish-param-categories": "הקטגוריות שהדף שיתפרסם יוכנס אליהן.",
 	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
@@ -78,5 +75,7 @@
 	"apihelp-cxsave-param-content": "נתוני מקטעים מקודדם ב־JSON. כל מקטע הוא עצם עם המפתחות הבאים: content‏, sectionId‏, sequenceId‏, sequenceId‏, origin",
 	"apihelp-query+cxtranslatorstats-description": "קבלת סטטיסטיקות התרגום עבור המשתמש הנתון.",
 	"apihelp-query+cxtranslatorstats-param-translator": "שם המשתמש של המתרגם. לא חובה לתת את הפרמטר הזה. אם הוא לא נשלח, ישמש המשתמש הנוכחי.",
-	"apihelp-query+cxtranslatorstats-example-1": "אחזור סטטיסטיקת התרגום עבור המשתמש הנתון."
+	"apihelp-query+cxtranslatorstats-example-1": "אחזור סטטיסטיקת התרגום עבור המשתמש הנתון.",
+	"apihelp-cxsave-param-sourcerevision": "גרסת דף המקור.",
+	"apihelp-cxsave-param-progress": "מידע על השלמת התרגום (התקדמות). JSON עם המפתחות <code>any</code>‏, <code>human</code>‏, <code>mt</code> ו־<code>mtSectionsCount</code>. הערכים של המפתחות הם אחוזים."
 }

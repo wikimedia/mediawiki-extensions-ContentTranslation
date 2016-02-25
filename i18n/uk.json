@@ -210,5 +210,6 @@
 	"cx-tools-linter-view-details": "Показати деталі",
 	"cx-tools-linter-hide-details": "Сховати деталі",
 	"cx-translator-month-stats-label": "Цього місяця",
-	"cx-translator-total-translations-label": "Всього"
+	"cx-translator-total-translations-label": "Всього",
+	"cx-page-old-revision-loaded": "Цей переклад заснований на старішій версії вмісту. Вихідна сторінка могла [$1 зазнати значних змін]. Ви можете продовжити цей переклад, або почати його заново, аби використати оновлений вміст."
 }

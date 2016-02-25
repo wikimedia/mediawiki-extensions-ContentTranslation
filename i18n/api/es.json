@@ -13,9 +13,6 @@
 	"apihelp-cxpublish-param-from": "El código del idioma de origen.",
 	"apihelp-cxpublish-param-to": "El código de idioma de la traducción.",
 	"apihelp-cxpublish-param-sourcetitle": "El título de la página original.",
-	"apihelp-cxpublish-param-sourcerevision": "La revisión de la página original.",
-	"apihelp-cxpublish-param-status": "Si el valor es <kbd>draft</kbd>, la traducción se guardará como borrador. Si es <kbd>published</kbd>, la traducción se publicará.",
-	"apihelp-cxpublish-param-progress": "Información sobre el progreso de traducción. JSON con las claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de las claves son porcentajes.",
 	"apihelp-cxpublish-param-categories": "Las categorías en las que se añadirán la página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (cuando se utiliza una respuesta captcha para el guardado).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respuesta al captcha (cuando se utiliza una respuesta captcha para el guardado).",
@@ -74,5 +71,7 @@
 	"apihelp-cxsave-param-translationid": "El identificador de traducción",
 	"apihelp-query+cxtranslatorstats-description": "Obtener las estadísticas de traducción de un usuario dado.",
 	"apihelp-query+cxtranslatorstats-param-translator": "El nombre de usuario del traductor. Este parámetro es opcional. Si no se proporciona, se usa el usuario conectado actualmente.",
-	"apihelp-query+cxtranslatorstats-example-1": "Obtener las estadísticas de traducción de un usuario dado."
+	"apihelp-query+cxtranslatorstats-example-1": "Obtener las estadísticas de traducción de un usuario dado.",
+	"apihelp-cxsave-param-sourcerevision": "La revisión de la página original.",
+	"apihelp-cxsave-param-progress": "Información sobre el progreso de traducción. JSON con las claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de las claves son porcentajes."
 }
