@@ -67,11 +67,20 @@
 
 	ContentTranslationStorage.prototype.listen = function () {
 		var self = this;
+
 		mw.hook( 'mw.cx.translation.change' ).add( function ( $targetSection ) {
-			// Reset fail counter so that autosave if stopped can be restarted.
-			failCounter = 0;
+			// Mark the section for saving. Not that this not debounced. Since we
+			// don't want to miss any section from save.
 			self.markForSave( $targetSection );
 		} );
+
+		mw.hook( 'mw.cx.translation.change' ).add( $.debounce( 1000, function () {
+			// Reset fail counter so that autosave if stopped can be restarted.
+			failCounter = 0;
+			// mw.cx.translation.change get fired for every changes in translation.
+			// We debounce the handler to reduce the excessive save API calls.
+			self.save();
+		} ) );
 
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 
