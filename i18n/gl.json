@@ -202,8 +202,10 @@
 	"cx-notification-suggestions-available": "Baseadas na {{GENDER:$2|súa}} tradución anterior de '''$1''', novas suxerencias están dispoñibles agora.",
 	"cx-notification-suggestions-available-email-subject": "Suxerencias de traducción dispoñibles",
 	"cx-tools-linter-title": "Problemas de contido: $1",
+	"cx-tools-linter-content": "Atopouse contido que non cumpre [//www.mediawiki.org/wiki/Content_translation/Abuse_filter as restriccións definidas pola Wikipedia en $1]. Por favor, arranxa estes problemas antes de publicar a tradución.",
 	"cx-tools-linter-view-details": "Ver detalles",
 	"cx-tools-linter-hide-details": "Agochar detalles",
 	"cx-translator-month-stats-label": "Este mes",
-	"cx-translator-total-translations-label": "Total"
+	"cx-translator-total-translations-label": "Total",
+	"cx-page-old-revision-loaded": "Esta tradución baséase nunha versión vella do contido. A páxina fonte pode [$1 ter cambiado significativamente]. Podes continuar esta tradución ou comezala de novo para empregar o contido actualizado."
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"KuboF"
+			"KuboF",
+			"Robin van der Vliet"
 		]
 	},
 	"apihelp-cxpublish-description": "Konservi la paĝon kreitan per etendaĵo por Tradukado de Enhavo.",
@@ -11,8 +12,6 @@
 	"apihelp-cxpublish-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-cxpublish-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-cxpublish-param-sourcetitle": "Titolo de la fonta paĝo.",
-	"apihelp-cxpublish-param-sourcerevision": "Revizia numero de la fonta paĝo.",
-	"apihelp-cxpublish-param-status": "Se <kbd>draft</kbd>, la traduko konserviĝos kiel malneto. Se <kbd>published</kbd>, la traduko publikiĝos.",
 	"apihelp-cxpublish-param-categories": "Kategorioj, en kiujn estos aldonita publikigita paĝo.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identigilo de Captcha (por konservi kun captcha-respondo).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respondo al captcha (por konservi kun captcha-respondo).",
@@ -38,5 +37,7 @@
 	"apihelp-cxdelete-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-cxdelete-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-cxdelete-param-sourcetitle": "Titolo de la fonta paĝo.",
-	"apihelp-cxdelete-example-1": "Forigi malneton asociigitan kun la lingva paro kaj titolo."
+	"apihelp-cxdelete-example-1": "Forigi malneton asociigitan kun la lingva paro kaj titolo.",
+	"apihelp-cxsave-param-sourcerevision": "Revizia numero de la fonta paĝo.",
+	"apihelp-cxsave-param-sourcetitle": "La titolo de la fontpaĝo."
 }

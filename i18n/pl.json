@@ -207,5 +207,6 @@
 	"cx-tools-linter-view-details": "Pokaż szczegóły",
 	"cx-tools-linter-hide-details": "Ukryj szczegóły",
 	"cx-translator-month-stats-label": "W tym miesiącu",
-	"cx-translator-total-translations-label": "Razem"
+	"cx-translator-total-translations-label": "Razem",
+	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenia lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść."
 }

@@ -188,5 +188,7 @@
 	"cx-draft-restore-failed": "De faßjehallde Övversäzong kunnt nit jelahde wähde.",
 	"cx-suggestionlist-expand": "Alles belohre",
 	"cx-suggestionlist-collapse": "Winnijer aanzeije",
-	"cx-suggestionlist-refresh": "Neu aanzeije"
+	"cx-suggestionlist-refresh": "Neu aanzeije",
+	"cx-translator-month-stats-label": "Diß Mohnd",
+	"cx-translator-total-translations-label": "Jesamp"
 }

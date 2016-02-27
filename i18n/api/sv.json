@@ -75,6 +75,13 @@
 	"apihelp-cxsave-example-1": "Spara källans och översättningens avsnitt. Innehållet måste vara en JSON-kodad sträng.",
 	"apihelp-cxsave-param-translationid": "Översättningens ID",
 	"apihelp-cxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: innehåll, avsnitts-ID, sekvens-ID, sekvens-ID, ursprung",
+	"apihelp-query+cxtranslatorstats-description": "Hämta översättningsstatistik för angiven användare.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Översättarens användarnamn. Denna parameter är valfri. Om inget giltigt värde anges kommer den aktuella inloggade användaren användas.",
+	"apihelp-query+cxtranslatorstats-example-1": "Hämta översättningsstatistik för angiven användare.",
 	"apihelp-cxsave-param-sourcerevision": "Källsidans sidversion",
-	"apihelp-cxsave-param-progress": "Information om översättningens framsteg. JSON med nycklarna <code>any</code>, <code>human</code>, <code>mt</code> och <code>mtSectionsCount</code>. The keys' values are percentages."
+	"apihelp-cxsave-param-progress": "Information om översättningens framsteg. JSON med nycklarna <code>any</code>, <code>human</code>, <code>mt</code> och <code>mtSectionsCount</code>. The keys' values are percentages.",
+	"apihelp-cxsave-param-title": "Titeln på sidan som åtgärder ska utföras på.",
+	"apihelp-cxsave-param-from": "Källans språkkod.",
+	"apihelp-cxsave-param-to": "Målets språkkod.",
+	"apihelp-cxsave-param-sourcetitle": "Källsidans titel."
 }

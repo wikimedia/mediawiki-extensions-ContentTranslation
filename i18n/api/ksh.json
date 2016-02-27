@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "Et Köözel för de Quälleschprohch.",
 	"apihelp-cxpublish-param-to": "Et Köözel för de Zihlschprohch.",
 	"apihelp-cxpublish-param-sourcetitle": "De Övverschreff för de Quällesigg.",
-	"apihelp-cxpublish-param-sourcerevision": "De Väsjohn fun de Quällesigg.",
-	"apihelp-cxpublish-param-status": "Nemm „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">draft</kbd>“, un de Övversäzong weed als ene Äntworf faßjehallde.\nNemm „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">published</kbd>“, un de Övversäzong weed veröffentlesch.",
 	"apihelp-cxpublish-param-categories": "De Saachjroppe, woh di öffentlesch jemahte Sigg dren kumme sull.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Däm <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span> sing Kännong, wam_mer beim Affschpeijschere met ene Antwood obb e <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span> es.",
 	"apihelp-cxpublish-param-wpCaptchaWord": "De Antwood obb et <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span>, wam_mer beim Affschpeijschere met ene Antwood obb e <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span> es.",
@@ -54,5 +52,9 @@
 	"apihelp-cxsuggestionlist-param-titles": "Övverschreffte vun Sigge",
 	"apihelp-cxsuggestionlist-param-from": "Et Köözel för de Quälleschprohch.",
 	"apihelp-cxsuggestionlist-param-to": "Et Köözel för de Zihlschprohch.",
-	"apihelp-cxsave-param-translationid": "Dä Övversäzong ier Kännong"
+	"apihelp-cxsave-param-translationid": "Dä Övversäzong ier Kännong",
+	"apihelp-cxsave-param-sourcerevision": "De Väsjohn fun de Quällesigg.",
+	"apihelp-cxsave-param-from": "Et Köözel för de Quälleschprohch.",
+	"apihelp-cxsave-param-to": "Et Köözel för de Zihlschprohch.",
+	"apihelp-cxsave-param-sourcetitle": "De Quällesigg ier Övverschreff ."
 }

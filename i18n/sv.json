@@ -207,5 +207,8 @@
 	"cx-tools-linter-title": "Innehållsproblem: $1",
 	"cx-tools-linter-content": "Innehåll som inte möter [//www.mediawiki.org/wiki/Content_translation/Abuse_filter begränsningarna som Wikipedia på $1 har satt] hittades. Åtgärda problemen innan du publicerar översättningen.",
 	"cx-tools-linter-view-details": "Visa detaljer",
-	"cx-tools-linter-hide-details": "Dölj detaljer"
+	"cx-tools-linter-hide-details": "Dölj detaljer",
+	"cx-translator-month-stats-label": "Denna månad",
+	"cx-translator-total-translations-label": "Totalt",
+	"cx-page-old-revision-loaded": "Denna översättning är baserad på en äldre version av innehållet. Källsidan kan ha [$1 ändrats avsevärt]. Du kan fortsätta på denna översättning eller börja om igen för att använda det uppdaterade innehållet."
 }

@@ -61,5 +61,8 @@
 	"apihelp-query+cxtranslatorstats-description": "Zobacz statystyki tłumaczeń dla danego użytkownika.",
 	"apihelp-query+cxtranslatorstats-example-1": "Zobacz statystyki tłumaczeń dla danego użytkownika.",
 	"apihelp-cxsave-param-sourcerevision": "Przegląd strony źródłowej.",
-	"apihelp-cxsave-param-progress": "Informacje o realizacji tłumaczenia (postępu prac). JSON z kluczami <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Wartości kluczy podane są jako procenty."
+	"apihelp-cxsave-param-progress": "Informacje o realizacji tłumaczenia (postępu prac). JSON z kluczami <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Wartości kluczy podane są jako procenty.",
+	"apihelp-cxsave-param-from": "Kod języka źródłowego.",
+	"apihelp-cxsave-param-to": "Kod języka docelowego.",
+	"apihelp-cxsave-param-sourcetitle": "Tytuł strony źródłowej."
 }

@@ -12,9 +12,6 @@
 	"apihelp-cxpublish-param-from": "Código da lingua de orixe.",
 	"apihelp-cxpublish-param-to": "Código da lingua de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "Título da páxina orixinal.",
-	"apihelp-cxpublish-param-sourcerevision": "Revisión da páxina orixinal.",
-	"apihelp-cxpublish-param-status": "Se o valor é <kbd>draft</kbd>, a tradución gardarase como borrador. Se o valor é <kbd>published</kbd>, a tradución publicarase.",
-	"apihelp-cxpublish-param-progress": "Información sobre o progreso da tradución. JSON coas claves <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. Os valores das claves son porcentaxes.",
 	"apihelp-cxpublish-param-categories": "Categorías ás que engadir a páxina publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identificador do captcha (ao gardar cunha resposta ao captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Resposta ao captcha (ao gardar cunha resposta ao captcha).",
@@ -77,5 +74,11 @@
 	"apihelp-cxsave-description": "Este módulo permite gardar borradores de traducións por sección para aforrar ancho de banda e para recoller córpora paralelo.",
 	"apihelp-cxsave-example-1": "Gardar as seccións fonte e tradución. O contido debe ser unha cadea codificada en JSON.",
 	"apihelp-cxsave-param-translationid": "O identificador de tradución",
-	"apihelp-cxsave-param-content": "Datos de sección codificados en JSON. Cada sección é un obxecto e ten as seguintes chaves: content, sectionId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "Datos de sección codificados en JSON. Cada sección é un obxecto e ten as seguintes chaves: content, sectionId, sequenceId, origin",
+	"apihelp-cxsave-param-sourcerevision": "Revisión da páxina orixinal.",
+	"apihelp-cxsave-param-progress": "Información sobre o progreso da tradución. JSON coas claves <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. Os valores das claves son porcentaxes.",
+	"apihelp-cxsave-param-title": "Título da páxina na que se realizarán as accións.",
+	"apihelp-cxsave-param-from": "Código da lingua de orixe.",
+	"apihelp-cxsave-param-to": "Código da lingua de destino.",
+	"apihelp-cxsave-param-sourcetitle": "Título da páxina orixinal."
 }

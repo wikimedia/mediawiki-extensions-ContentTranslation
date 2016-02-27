@@ -11,7 +11,7 @@
 		]
 	},
 	"apihelp-cxpublish-description": "Salva una pagina creata utilizzando l'estensione Traduzione Contenuto.",
-	"apihelp-cxpublish-param-title": "Il titolo della pagina su cui eseguire operazioni.",
+	"apihelp-cxpublish-param-title": "Il titolo della pagina su cui eseguire le azioni.",
 	"apihelp-cxpublish-param-html": "Il contenuto da salvare.",
 	"apihelp-cxpublish-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxpublish-param-to": "Il codice della lingua di destinazione.",
@@ -71,5 +71,9 @@
 	"apihelp-query+cxtranslatorstats-description": "Recupera le statistiche di traduzione per l'utente indicato.",
 	"apihelp-query+cxtranslatorstats-example-1": "Recupera le statistiche di traduzione per l'utente indicato.",
 	"apihelp-cxsave-param-sourcerevision": "La revisione della pagina di origine.",
-	"apihelp-cxsave-param-progress": "Informazione sulla completezza della traduzione (progresso). JSON con le chiavi <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. Il valori delle chiavi sono percentuali."
+	"apihelp-cxsave-param-progress": "Informazione sulla completezza della traduzione (progresso). JSON con le chiavi <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. Il valori delle chiavi sono percentuali.",
+	"apihelp-cxsave-param-title": "Il titolo della pagina su cui eseguire le azioni.",
+	"apihelp-cxsave-param-from": "Il codice della lingua di origine.",
+	"apihelp-cxsave-param-to": "Il codice della lingua di destinazione.",
+	"apihelp-cxsave-param-sourcetitle": "Il titolo della pagina di origine."
 }

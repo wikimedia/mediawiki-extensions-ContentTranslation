@@ -50,5 +50,9 @@
 	"apihelp-cxsuggestionlist-param-titles": "عنوان صفحات",
 	"apihelp-cxsuggestionlist-param-from": "کد زبان مبدا",
 	"apihelp-cxsuggestionlist-param-to": "کد زبان مقصد",
-	"apihelp-cxsave-param-sourcerevision": "نسخهٔ صفحهٔ مبدأ."
+	"apihelp-cxsave-param-sourcerevision": "نسخهٔ صفحهٔ مبدأ.",
+	"apihelp-cxsave-param-title": "عنوان صفحه برای انجام عمل روی آن",
+	"apihelp-cxsave-param-from": "کد زبان مبدا",
+	"apihelp-cxsave-param-to": "کد زبان مقصد",
+	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا"
 }

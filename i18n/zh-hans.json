@@ -209,5 +209,6 @@
 	"cx-tools-linter-view-details": "查看详情",
 	"cx-tools-linter-hide-details": "隐藏详情",
 	"cx-translator-month-stats-label": "本月",
-	"cx-translator-total-translations-label": "总计"
+	"cx-translator-total-translations-label": "总计",
+	"cx-page-old-revision-loaded": "此翻译基于内容的旧版本。源页面可能已经有[$1 显著更改]。您可以继续此次翻译，或重新开始它以使用更新的内容。"
 }
