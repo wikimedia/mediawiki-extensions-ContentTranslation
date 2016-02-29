@@ -68,7 +68,7 @@
 			var total, monthCount, ctx,
 				thisMonthKey = new Date().toISOString().slice( 0, 7 );
 
-			if ( !stats.cxtranslatorstats.publishTrend[ thisMonthKey ] ) {
+			if ( !Object.keys( stats.cxtranslatorstats.publishTrend ).length ) {
 				$widget.remove();
 				return;
 			}
