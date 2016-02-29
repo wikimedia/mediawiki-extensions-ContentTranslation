@@ -158,8 +158,10 @@
 			// Annotate the section with errors.
 			if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
 				$targetSection.data( 'errors', validations[ sectionId ] );
+				mw.hook( 'mw.cx.translation.validation.error' ).fire( $targetSection );
 			} else {
 				$targetSection.removeData( 'errors' );
+				mw.hook( 'mw.cx.translation.validation.success' ).fire( $targetSection );
 			}
 		}
 

@@ -178,3 +178,11 @@ Fired when the Content Translation dashboard is ready.
 # mw.cx.cta.shown
 
 Fired when the Content Translation entry point or campaign is shown. The unique campaign identifier is passed.
+
+## mw.cx.translation.validation.error
+
+Fired when there are AbuseFilter based validation errors for the section.
+
+## mw.cx.translation.validation.success
+
+Fired when there are no AbuseFilter based validation errors for the section.
