@@ -66,19 +66,24 @@
 			.append( $header, $monthStats, $total, $trend );
 		statsRequest.then( function ( stats ) {
 			var total, monthCount, ctx,
-				thisMonthKey = new Date().toISOString().slice( 0, 7 );
+				thisMonthKey = new Date().toISOString().slice( 0, 7 ),
+				lastMonthKey = Object.keys( stats.cxtranslatorstats.publishTrend ).slice( -1 ).pop();
 
-			if ( !Object.keys( stats.cxtranslatorstats.publishTrend ).length ) {
+			// lastMonthKey is for the month with non-zero contributions. It may be equal to
+			// thisMonthKey, but not guaranteed.
+			if ( !lastMonthKey ) {
+				// There is no month with non-zero contributions.
 				$widget.remove();
 				return;
 			}
-			total = stats.cxtranslatorstats.publishTrend[ thisMonthKey ].count;
-			monthCount = stats.cxtranslatorstats.publishTrend[ thisMonthKey ].delta;
+			total = stats.cxtranslatorstats.publishTrend[ lastMonthKey ].count || 0;
+			monthCount = stats.cxtranslatorstats.publishTrend[ thisMonthKey ] &&
+				stats.cxtranslatorstats.publishTrend[ thisMonthKey ].delta || 0;
 
 			$header.text( stats.cxtranslatorstats.translator );
 			$total.find( '.cx-translator__total-translations-count' ).text( total );
 			$monthStats.find( '.cx-translator__month-stats-count' )
-				.text( stats.cxtranslatorstats.publishTrend[ thisMonthKey ].delta );
+				.text( monthCount );
 
 			ctx = $trend[ 0 ].getContext( '2d' );
 			drawChart( ctx, stats );
