@@ -207,5 +207,6 @@
 	"cx-tools-linter-view-details": "הצגת פרטים",
 	"cx-tools-linter-hide-details": "הסתרת פרטים",
 	"cx-translator-month-stats-label": "החודש",
-	"cx-translator-total-translations-label": "סה\"כ"
+	"cx-translator-total-translations-label": "סה\"כ",
+	"cx-page-old-revision-loaded": "התרגום הזה מבוסס על גרסה ישנה יותר של התוכן. ייתכן שדף המקור [$1 השתנה משמעותית]. באפשרותך להמשיך את התרגום הזה או להתחיל אותו מחדש כדי להשתמש בתוכן המעודכן."
 }

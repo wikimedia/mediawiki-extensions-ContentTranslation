@@ -17,8 +17,6 @@
 	"apihelp-cxpublish-param-from": "Kaynak dil kodu.",
 	"apihelp-cxpublish-param-to": "Hedef dil kodu.",
 	"apihelp-cxpublish-param-sourcetitle": "Kaynak sayfanın başlığı",
-	"apihelp-cxpublish-param-sourcerevision": "Kaynak sayfanın gözden geçirilmesi.",
-	"apihelp-cxpublish-param-status": "Eğer \"draft\" ise, çeviri taslak olarak kaydedilecek. Eğer \"published\" ise, çeviri yayınlanacak.",
 	"apihelp-cxpublish-param-categories": "Yayınlanan sayfanın ekleneceği kategoriler.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (captcha cevabı ile kaydederken)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Captcha'ya cevap (captcha cevabı ile kaydederken)",
@@ -51,5 +49,9 @@
 	"apihelp-cxdelete-param-to": "Hedef dil kodu.",
 	"apihelp-cxdelete-param-sourcetitle": "Kaynak sayfanın başlığı.",
 	"apihelp-cxdelete-example-1": "Verilen dil ikilisi ve başlıkla ilişkilendirilen bir taslağı sil.",
-	"apihelp-cxsuggestionlist-param-titles": "Sayfa başlıkları."
+	"apihelp-cxsuggestionlist-param-titles": "Sayfa başlıkları.",
+	"apihelp-cxsave-param-sourcerevision": "Kaynak sayfanın gözden geçirilmesi.",
+	"apihelp-cxsave-param-from": "Kaynak dil kodu.",
+	"apihelp-cxsave-param-to": "Hedef dil kodu.",
+	"apihelp-cxsave-param-sourcetitle": "Kaynak sayfanın başlığı."
 }

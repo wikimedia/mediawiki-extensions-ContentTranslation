@@ -73,5 +73,9 @@
 	"apihelp-query+cxtranslatorstats-param-translator": "El nombre de usuario del traductor. Este parámetro es opcional. Si no se proporciona, se usa el usuario conectado actualmente.",
 	"apihelp-query+cxtranslatorstats-example-1": "Obtener las estadísticas de traducción de un usuario dado.",
 	"apihelp-cxsave-param-sourcerevision": "La revisión de la página original.",
-	"apihelp-cxsave-param-progress": "Información sobre el progreso de traducción. JSON con las claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de las claves son porcentajes."
+	"apihelp-cxsave-param-progress": "Información sobre el progreso de traducción. JSON con las claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de las claves son porcentajes.",
+	"apihelp-cxsave-param-title": "Título de la página en la que se realizarán las acciones.",
+	"apihelp-cxsave-param-from": "El código del idioma de origen.",
+	"apihelp-cxsave-param-to": "El código del idioma de destino.",
+	"apihelp-cxsave-param-sourcetitle": "El título de la página de origen."
 }

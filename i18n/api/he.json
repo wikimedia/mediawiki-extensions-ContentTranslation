@@ -77,5 +77,9 @@
 	"apihelp-query+cxtranslatorstats-param-translator": "שם המשתמש של המתרגם. לא חובה לתת את הפרמטר הזה. אם הוא לא נשלח, ישמש המשתמש הנוכחי.",
 	"apihelp-query+cxtranslatorstats-example-1": "אחזור סטטיסטיקת התרגום עבור המשתמש הנתון.",
 	"apihelp-cxsave-param-sourcerevision": "גרסת דף המקור.",
-	"apihelp-cxsave-param-progress": "מידע על השלמת התרגום (התקדמות). JSON עם המפתחות <code>any</code>‏, <code>human</code>‏, <code>mt</code> ו־<code>mtSectionsCount</code>. הערכים של המפתחות הם אחוזים."
+	"apihelp-cxsave-param-progress": "מידע על השלמת התרגום (התקדמות). JSON עם המפתחות <code>any</code>‏, <code>human</code>‏, <code>mt</code> ו־<code>mtSectionsCount</code>. הערכים של המפתחות הם אחוזים.",
+	"apihelp-cxsave-param-title": "כותרת הדף שהפעולה תבוצע עליה.",
+	"apihelp-cxsave-param-from": "קוד שפת המקור.",
+	"apihelp-cxsave-param-to": "קוד שפת היעד.",
+	"apihelp-cxsave-param-sourcetitle": "כותרת דף המקור."
 }

@@ -49,5 +49,6 @@
 	"apihelp-cxsuggestionlist-param-from": "উৎস ভাষার কোড।",
 	"apihelp-cxsuggestionlist-param-to": "লক্ষ্য ভাষার কোড।",
 	"apihelp-cxsave-param-sourcerevision": "উৎস পাতার সংশোধন।",
-	"apihelp-cxsave-param-progress": "অনুবাদ সমাপ্তির সম্পর্কিত তথ্য (অগ্রগতি)। <code>any</code>, <code>human</code>, <code>mt</code> এবং <code>mtSectionsCount</code> চাবিসহ JSON। চাবির মান শতাংশে।"
+	"apihelp-cxsave-param-progress": "অনুবাদ সমাপ্তির সম্পর্কিত তথ্য (অগ্রগতি)। <code>any</code>, <code>human</code>, <code>mt</code> এবং <code>mtSectionsCount</code> চাবিসহ JSON। চাবির মান শতাংশে।",
+	"apihelp-cxsave-param-from": "উৎস ভাষার কোড।"
 }
