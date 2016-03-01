@@ -11,7 +11,6 @@ namespace ContentTranslation;
 use ContentTranslation\TranslationUnit;
 
 class TranslationStorageManager {
-
 	/**
 	 * Update a translation unit.
 	 *
@@ -27,7 +26,11 @@ class TranslationStorageManager {
 		$conditions = array(
 			'cxc_translation_id' =>  $translationUnit->getTranslationId(),
 			'cxc_section_id' =>  $translationUnit->getSectionId(),
-			'cxc_origin' =>  $translationUnit->getOrigin()
+			'cxc_origin' =>  $translationUnit->getOrigin(),
+			// Sometimes we get "duplicates" entries which differ in timestamp.
+			// Then any updates to those sections would fail (duplicate key for
+			// a unique index), if we did not limit this call to only one of them.
+			'cxc_timestamp' => $translationUnit->getTimestamp(),
 		);
 
 		$dbw->update( 'cx_corpora', $values, $conditions, __METHOD__ );
@@ -83,7 +86,12 @@ class TranslationStorageManager {
 			'cxc_section_id' => $sectionId,
 			'cxc_origin' => $origin
 		);
-		$row = $dbr->selectRow( 'cx_corpora', '*', $conditions,	__METHOD__ );
+
+		$options = array(
+			'ORDER BY' => 'cxc_timestamp DESC',
+		);
+
+		$row = $dbr->selectRow( 'cx_corpora', '*', $conditions, __METHOD__, $options );
 
 		if ( $row ) {
 			return TranslationUnit::newFromRow( $row );
