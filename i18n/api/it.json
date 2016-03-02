@@ -69,6 +69,7 @@
 	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-cxsave-param-translationid": "ID della traduzione",
 	"apihelp-query+cxtranslatorstats-description": "Recupera le statistiche di traduzione per l'utente indicato.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Il nome utente del traduttore. Questo parametro è facoltativo. Se non valorizzato, verrà utilizzato l'utente attualmente connesso.",
 	"apihelp-query+cxtranslatorstats-example-1": "Recupera le statistiche di traduzione per l'utente indicato.",
 	"apihelp-cxsave-param-sourcerevision": "La revisione della pagina di origine.",
 	"apihelp-cxsave-param-progress": "Informazione sulla completezza della traduzione (progresso). JSON con le chiavi <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. Il valori delle chiavi sono percentuali.",
