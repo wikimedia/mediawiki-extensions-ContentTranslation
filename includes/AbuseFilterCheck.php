@@ -78,6 +78,12 @@ class AbuseFilterCheck {
 			return array();
 		}
 
+		if ( $text === null || mb_strlen( $text ) < 150 ) {
+			// Don't validate sections that are too short. The validations
+			// happen while editing is going on.
+			return array();
+		}
+
 		$vars = new \AbuseFilterVariableHolder();
 		// Add AbuseFilter variables. Note that we are adding the title
 		// here. That will cause filters about titles executed for every sections.
