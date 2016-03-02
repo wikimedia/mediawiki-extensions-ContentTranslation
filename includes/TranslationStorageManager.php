@@ -15,8 +15,9 @@ class TranslationStorageManager {
 	 * Update a translation unit.
 	 *
 	 * @param TranslationUnit $translationUnit
+	 * @param int $timestamp
 	 */
-	public static function update( TranslationUnit $translationUnit ) {
+	public static function update( TranslationUnit $translationUnit, $timestamp ) {
 		$dbw = Database::getConnection( DB_MASTER );
 		$values = array(
 			'cxc_sequence_id' => $translationUnit->getSequenceId(),
@@ -30,10 +31,10 @@ class TranslationStorageManager {
 			// Sometimes we get "duplicates" entries which differ in timestamp.
 			// Then any updates to those sections would fail (duplicate key for
 			// a unique index), if we did not limit this call to only one of them.
-			'cxc_timestamp' => $translationUnit->getTimestamp(),
+			'cxc_timestamp' => $dbw->timestamp( $timestamp ),
 		);
 
-		$dbw->update( 'cx_corpora', $values, $conditions, __METHOD__ );
+		$res = $dbw->update( 'cx_corpora', $values, $conditions, __METHOD__ );
 	}
 
 	/**
@@ -61,12 +62,14 @@ class TranslationStorageManager {
 	 * @param TranslationUnit $translationUnit
 	 */
 	public static function save( TranslationUnit $translationUnit ) {
-		if ( TranslationStorageManager::find(
+		$existing = TranslationStorageManager::find(
 			$translationUnit->getTranslationId(),
 			$translationUnit->getSectionId(),
 			$translationUnit->getOrigin()
-		) !== null ) {
-			TranslationStorageManager::update( $translationUnit );
+		);
+
+		if ( $existing !== null ) {
+			TranslationStorageManager::update( $translationUnit, $existing->getTimestamp() );
 		} else {
 			TranslationStorageManager::create( $translationUnit );
 		}
