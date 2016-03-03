@@ -22,8 +22,8 @@
 		$cardContent = $( '<div>' )
 			.addClass( 'card__linter-content' )
 			.prop( {
-				lang: mw.cx.sourceLanguage,
-				dir: $.uls.data.getDir( mw.cx.sourceLanguage )
+				lang: mw.cx.targetLanguage,
+				dir: $.uls.data.getDir( mw.cx.targetLanguage )
 			} )
 			.html(
 				mw.message( 'cx-tools-linter-content',
