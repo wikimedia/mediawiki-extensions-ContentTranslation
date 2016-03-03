@@ -433,28 +433,25 @@
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider;
+		var provider, items;
 
 		this.$providersMenu = $( '<ul>' )
 			.addClass( 'card__providers-menu' )
 			.hide();
 
+		items = MTControlCard.providers || [];
+		if ( items.indexOf( sourceMT ) < 0 ) {
+			items.push( sourceMT );
+		}
+		if ( items.indexOf( disableMT ) < 0 ) {
+			items.push( disableMT );
+		}
 		// Add available machine translation engines to the menu
-		for ( provider in MTControlCard.providers ) {
+		for ( provider in items ) {
 			this.$providersMenu.append(
-				this.getProviderItem(
-					MTControlCard.providers[ provider ],
-					mw.cx.sourceLanguage,
-					mw.cx.targetLanguage
-				)
+				this.getProviderItem( items[ provider ] )
 			);
 		}
-
-		// Add an item to disable machine translation for the language
-		this.$providersMenu.append(
-			this.getProviderItem( sourceMT ),
-			this.getProviderItem( disableMT )
-		);
 
 		this.$providerSelectorTrigger.after( this.$providersMenu );
 	};
