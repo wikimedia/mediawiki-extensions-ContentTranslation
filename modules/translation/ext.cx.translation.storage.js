@@ -114,6 +114,10 @@
 			api = new mw.Api();
 
 		clearInterval( timer );
+		// Starting the real save API call. Fire event so that we can show a progress
+		// indicator in UI.
+		mw.hook( 'mw.cx.translation.save-started' ).fire();
+
 		return api.postWithToken( 'csrf', {
 			action: 'cxsave',
 			assert: 'user',

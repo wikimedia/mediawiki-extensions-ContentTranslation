@@ -141,7 +141,7 @@
 		mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
 		mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
 
-		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.updateSaveStatus, this, 'progress' ) );
+		mw.hook( 'mw.cx.translation.save-started' ).add( $.proxy( this.updateSaveStatus, this, 'progress' ) );
 		mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.updateSaveStatus, this, 'success' ) );
 		mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.updateSaveStatus, this, 'fail' ) );
 		mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.clearMessages, this ) );
