@@ -631,7 +631,9 @@
 				"cx-tools-mt-restore",
 				"cx-tools-mt-provider-title",
 				"cx-tools-mt-not-available",
-				"cx-tools-mt-dont-use"
+				"cx-tools-mt-dont-use",
+				"cx-tools-mt-new-provider",
+				"cx-tools-mt-new-providers-available"
 			],
 			"dependencies": [
 				"ext.cx.model",

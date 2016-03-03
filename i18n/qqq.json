@@ -219,5 +219,7 @@
 	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
 	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}",
-	"cx-page-old-revision-loaded": "Warning message shown when the older revision of source page loaded"
+	"cx-page-old-revision-loaded": "Warning message shown when the older revision of source page loaded",
+	"cx-tools-mt-new-provider": "Label indicating the machine translation provider is a new option",
+	"cx-tools-mt-new-providers-available": "Label shown in machine translation card when there are new provider options"
 }

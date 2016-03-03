@@ -88,6 +88,12 @@
 			border-width: 11px;
 			margin-left: -11px;
 		}
+
+		.card__providers-menu-item--new {
+			padding-left: 10px;
+			color: #00af89;
+			font-size: 1em;
+		}
 	}
 
 	.card__button-block {
@@ -126,5 +132,23 @@
 			border: none;
 			float: none;
 		}
+	}
+
+	.card__title-row.card--new::before {
+		content: "";
+		width: 0px;
+		height: 0px;
+		float: right;
+		border-top: 30px solid #00af89;
+		border-left: 30px solid transparent;
+		position: relative;
+		top: -10px;
+		left: 5px;
+	}
+
+	.card__title-row.card--new > .card__new-providers {
+		padding: 0 5px 5px 5px;
+		color: #00af89;
+		font-size: 1em;
 	}
 }

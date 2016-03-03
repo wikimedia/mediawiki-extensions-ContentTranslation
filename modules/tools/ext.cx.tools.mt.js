@@ -433,13 +433,24 @@
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider, items;
+		var provider, items, nonDefaultMT, newProvider = false;
+
+		if ( MTControlCard.providers && MTControlCard.providers.length > 1 ) {
+			nonDefaultMT = true;
+			// There are more MT options or non default MT available. Announce.
+			this.$card.find( '.card__title-row' )
+				.addClass( 'card--new' )
+				.append( $( '<div>' )
+					.text( mw.msg( 'cx-tools-mt-new-providers-available' ) )
+					.addClass( 'card__new-providers' )
+				);
+		}
 
 		this.$providersMenu = $( '<ul>' )
 			.addClass( 'card__providers-menu' )
 			.hide();
 
-		items = MTControlCard.providers || [];
+		items = MTControlCard.providers.slice( 0 ); // Copy values.
 		if ( items.indexOf( sourceMT ) < 0 ) {
 			items.push( sourceMT );
 		}
@@ -448,8 +459,13 @@
 		}
 		// Add available machine translation engines to the menu
 		for ( provider in items ) {
+			if ( nonDefaultMT && [ sourceMT, disableMT, noMT ].indexOf( items[ provider ] ) < 0 ) {
+				newProvider = true;
+			} else {
+				newProvider = false;
+			}
 			this.$providersMenu.append(
-				this.getProviderItem( items[ provider ] )
+				this.getProviderItem( items[ provider ], newProvider )
 			);
 		}
 
@@ -481,14 +497,23 @@
 	 * @param {string} providerId Provider id.
 	 * @return {jQuery}
 	 */
-	MTControlCard.prototype.getProviderItem = function ( providerId ) {
-		return $( '<li>' )
+	MTControlCard.prototype.getProviderItem = function ( providerId, newProvider ) {
+		var $label, $new = $( [] );
+		$label = $( '<span>' )
 			.text( this.getProviderTitle( providerId ) )
 			.addClass( 'card__providers-menu-item' )
 			.attr( {
 				id: providerIdPrefix + providerId,
 				'data-provider': providerId
 			} );
+		if ( newProvider ) {
+			$new = $( '<span>' )
+				.text( mw.msg( 'cx-tools-mt-new-provider' ) )
+				.addClass( 'card__providers-menu-item--new' );
+		}
+
+		return $( '<li>' )
+			.append( $label, $new );
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
