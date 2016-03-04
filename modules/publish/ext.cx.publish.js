@@ -338,7 +338,7 @@
 		$content.find( 'link, title, .placeholder' ).remove();
 
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
-			var $section = $( this );
+			var attributesToRemove, $section = $( this );
 
 			// Firefox inserts <br type="_moz"> in contenteditables while clearing the content
 			// to keep the height and caret. https://bugzilla.mozilla.org/show_bug.cgi?id=414223
@@ -372,7 +372,11 @@
 			}
 
 			// Remove attributes added by CX
-			$section.removeAttr( 'data-cx-weight data-cx-state data-source data-seqid data-cx-draft contenteditable' );
+			attributesToRemove = [ 'data-cx-weight', 'data-cx-mt-provider', 'data-cx-state',
+				'data-source', 'data-seqid', 'data-cx-draft', 'contenteditable'
+			];
+			// removeAttr takes a space-separated list of attributes to remove.
+			$section.removeAttr( attributesToRemove.join( ' ' ) );
 
 			// Remove identifiers added by CX
 			if ( $section.prop( 'id' ).indexOf( 'cx' ) === 0 ) {
