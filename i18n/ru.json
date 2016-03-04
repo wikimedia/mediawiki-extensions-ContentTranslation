@@ -17,7 +17,8 @@
 			"Purodha",
 			"Александр Сигачёв",
 			"Умар",
-			"Iniquity"
+			"Iniquity",
+			"Jackie"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -209,6 +210,8 @@
 	"cx-suggestionlist-refresh": "Обновить предложения",
 	"cx-notification-suggestions-available": "На основе {{GENDER:$2|вашего}} предыдущего перевода '''$1''' сейчас доступные новые предложения для вас.",
 	"cx-notification-suggestions-available-email-subject": "Доступны предложения по переводу",
+	"cx-tools-linter-view-details": "Просмотреть подробности",
+	"cx-tools-linter-hide-details": "Скрыть подробности",
 	"cx-translator-month-stats-label": "В этом месяце",
 	"cx-translator-total-translations-label": "Всего"
 }
