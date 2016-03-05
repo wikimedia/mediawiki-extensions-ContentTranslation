@@ -75,7 +75,7 @@
 	"cx-tools-mt-use-source": "Usa il testo sorgente",
 	"cx-tools-mt-clear-translation": "Cancella la traduzione",
 	"cx-tools-mt-restore": "Ripristina",
-	"cx-tools-mt-provider-title": "Da $1",
+	"cx-tools-mt-provider-title": "Usa $1",
 	"cx-tools-mt-not-available": "Non disponibile per $1",
 	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorie|0=Nessuna categoria}}",

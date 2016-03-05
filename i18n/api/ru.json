@@ -17,9 +17,6 @@
 	"apihelp-cxpublish-param-from": "Код исходного языка.",
 	"apihelp-cxpublish-param-to": "Код целевого языка.",
 	"apihelp-cxpublish-param-sourcetitle": "Название исходной страницы.",
-	"apihelp-cxpublish-param-sourcerevision": "Версия исходной страницы.",
-	"apihelp-cxpublish-param-status": "Если <kbd>draft</kbd>, перевод будет сохранен как черновик. Если <kbd>published</kbd>, перевод будет опубликован.",
-	"apihelp-cxpublish-param-progress": "Информация о полноте перевода (progress). JSON с ключами <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Значения в процентах.",
 	"apihelp-cxpublish-param-categories": "Категории, в которые будет добавлена опубликованная страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчи (при сохранении с показом капчи).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ответ на капчу (при сохранении с показом капчи).",
@@ -59,9 +56,17 @@
 	"apihelp-cxdelete-param-to": "Код целевого языка.",
 	"apihelp-cxdelete-param-sourcetitle": "Заголовок исходной страницы.",
 	"apihelp-cxdelete-example-1": "Удалить черновик, связанный с данной парой языков и названием.",
+	"apihelp-cxsuggestionlist-param-listname": "Заголовок списка предложений.",
 	"apihelp-cxsuggestionlist-param-listaction": "Действие, которое требуется выполнить со списком.",
 	"apihelp-cxsuggestionlist-param-titles": "Названия страниц.",
 	"apihelp-cxsuggestionlist-param-from": "Код исходного языка.",
 	"apihelp-cxsuggestionlist-param-to": "Код целевого языка.",
-	"apihelp-cxsave-param-translationid": "Идентификатор перевода"
+	"apihelp-cxsave-description": "Этот модуль позволяет сохранять черновые переводы по разделам для экономии трафика и создания подборки текстов, переведённых на разные языки.",
+	"apihelp-cxsave-param-translationid": "Идентификатор перевода",
+	"apihelp-cxsave-param-sourcerevision": "Версия исходной страницы.",
+	"apihelp-cxsave-param-progress": "Информация о полноте перевода (progress). JSON с ключами <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Значения в процентах.",
+	"apihelp-cxsave-param-title": "Заголовок страницы, на которой будут произведены действия.",
+	"apihelp-cxsave-param-from": "Код исходного языка.",
+	"apihelp-cxsave-param-to": "Код целевого языка.",
+	"apihelp-cxsave-param-sourcetitle": "Заголовок исходной страницы."
 }

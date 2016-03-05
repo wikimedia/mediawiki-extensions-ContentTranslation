@@ -87,7 +87,7 @@
 	"cx-tools-mt-use-source": "Utiliser le texte source",
 	"cx-tools-mt-clear-translation": "Effacer le paragraphe",
 	"cx-tools-mt-restore": "Rétablir",
-	"cx-tools-mt-provider-title": "Par $1",
+	"cx-tools-mt-provider-title": "Utiliser $1",
 	"cx-tools-mt-not-available": "Non disponible pour $1",
 	"cx-tools-mt-dont-use": "Ne pas utiliser de traduction automatique",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 catégorie|$1 catégories|0=Aucune catégorie}}",
