@@ -19,7 +19,8 @@
 			"Revi",
 			"Joolee0104",
 			"Idh0854",
-			"Mooozi"
+			"Mooozi",
+			"HDNua"
 		]
 	},
 	"cx": "문서 번역",
@@ -76,11 +77,11 @@
 	"cx-tools-link-title": "링크",
 	"cx-tools-link-add": "링크 추가",
 	"cx-tools-link-remove": "링크 제거",
-	"cx-tools-mt-title": "기계 번역",
+	"cx-tools-mt-title": "자동 번역",
 	"cx-tools-mt-use-source": "원문 사용",
 	"cx-tools-mt-clear-translation": "문단 비우기",
 	"cx-tools-mt-restore": "복구하기",
-	"cx-tools-mt-provider-title": "$1에서",
+	"cx-tools-mt-provider-title": "$1 사용",
 	"cx-tools-mt-not-available": "$1에 사용할 수 없음",
 	"cx-tools-mt-dont-use": "기계 번역을 사용하지 않음",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|분류 $1개|분류 $1개|분류 없음}}",

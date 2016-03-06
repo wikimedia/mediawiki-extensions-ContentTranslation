@@ -63,11 +63,11 @@
 	"cx-tools-link-title": "লিঙ্ক",
 	"cx-tools-link-add": "লিঙ্ক যোগ করুন",
 	"cx-tools-link-remove": "লিঙ্ক সরান",
-	"cx-tools-mt-title": "যান্ত্রিক অনুবাদ",
+	"cx-tools-mt-title": "স্বয়ংক্রিয় অনুবাদ",
 	"cx-tools-mt-use-source": "উৎস লেখা ব্যবহার করুন",
 	"cx-tools-mt-clear-translation": "অনুচ্ছেদ পরিস্কার করুন",
 	"cx-tools-mt-restore": "পুনরুদ্ধার",
-	"cx-tools-mt-provider-title": "$1 থেকে",
+	"cx-tools-mt-provider-title": "$1 ব্যবহার করুন",
 	"cx-tools-mt-not-available": "$1 ভাষার জন্য উপলব্ধ নয়",
 	"cx-tools-mt-dont-use": "যান্ত্রিক অনুবাদ ব্যবহার করবেন না",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
@@ -204,5 +204,6 @@
 	"cx-tools-linter-view-details": "বিস্তারিত দেখুন",
 	"cx-tools-linter-hide-details": "বিস্তারিত লুকাও",
 	"cx-translator-month-stats-label": "এই মাসে",
-	"cx-translator-total-translations-label": "মোট"
+	"cx-translator-total-translations-label": "মোট",
+	"cx-page-old-revision-loaded": "এই অনুবাদটি বিষয়বস্তুর একটি পুরোনো সংস্করণের উপর ভিত্তি করে করা। উৎস পাতাটি [$1 উল্লেখযোগ্যভাবে পরিবর্তিত হতে পারে]। আপনি এই অনুবাদ করা অব্যাহত রাখতে পারেন বা হালনাগাদকৃত বিষয়বস্তু ব্যবহার করতে এটি আবার শুরু করতে পারেন।"
 }
