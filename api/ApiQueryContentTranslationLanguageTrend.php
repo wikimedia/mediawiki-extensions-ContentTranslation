@@ -55,10 +55,12 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		foreach ( $data as $column ) {
 			foreach ( array_keys( $column ) as $date ) {
 				$min = min( $min, strtotime( $date ) );
-				$max = max( $max, strtotime( $date ) );
 			}
 		}
-
+		// We need statistics till the end of the ongoing week.
+		$unix = wfTimestamp( TS_UNIX );
+		$n = 7 - date( 'w', $unix );
+		$max = strtotime( "+$n days", $unix );
 		$counts = array();
 		foreach ( array_keys( $data ) as $type ) {
 			$counts[$type] = 0;
