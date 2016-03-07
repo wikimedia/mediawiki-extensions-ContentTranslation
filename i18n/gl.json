@@ -69,7 +69,7 @@
 	"cx-tools-mt-use-source": "Usar o texto orixinal",
 	"cx-tools-mt-clear-translation": "Borrar o parágrafo",
 	"cx-tools-mt-restore": "Restaurar",
-	"cx-tools-mt-provider-title": "Desde $1",
+	"cx-tools-mt-provider-title": "Usar $1",
 	"cx-tools-mt-not-available": "Non dispoñible para o $1",
 	"cx-tools-mt-dont-use": "Non usar a tradución automática",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoría|$1 categorías|0=Sen categorías}}",
