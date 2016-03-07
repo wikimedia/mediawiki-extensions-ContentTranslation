@@ -97,6 +97,7 @@
 			if ( self.$editableElement.is( 'p, div' ) ) {
 				// insert 2 br tags (if only one br tag is inserted the cursor won't go to the second line)
 				mw.cx.selection.pasteHTML( '<br><br>' );
+				self.onChange();
 				// prevent the default behaviour of return key pressed
 				return false;
 			}
