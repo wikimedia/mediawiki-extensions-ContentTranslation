@@ -72,7 +72,7 @@
 	"cx-tools-mt-use-source": "Använd källtext",
 	"cx-tools-mt-clear-translation": "Töm stycket",
 	"cx-tools-mt-restore": "Återställ",
-	"cx-tools-mt-provider-title": "Från $1",
+	"cx-tools-mt-provider-title": "Använd $1",
 	"cx-tools-mt-not-available": "Inte tillgängligt för $1",
 	"cx-tools-mt-dont-use": "Använd inte maskinöversättningar",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Inga kategorier}}",

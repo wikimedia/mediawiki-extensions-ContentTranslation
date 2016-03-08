@@ -60,7 +60,7 @@
 	"cx-tools-mt-use-source": "Koristi izvorni tekst",
 	"cx-tools-mt-clear-translation": "Očisti pasus",
 	"cx-tools-mt-restore": "Povrati",
-	"cx-tools-mt-provider-title": "Od $1",
+	"cx-tools-mt-provider-title": "Korišćen $1",
 	"cx-tools-mt-not-available": "Nije dostupno za $1",
 	"cx-tools-mt-dont-use": "Ne koristi mašinski prevod",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=Nema kategorija}}",
