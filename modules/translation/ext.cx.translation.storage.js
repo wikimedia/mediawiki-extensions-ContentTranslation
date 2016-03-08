@@ -85,6 +85,14 @@
 
 		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 
+		mw.hook( 'mw.cx.draft.restoring' ).add( function () {
+			// Do not save while restoring is being attempted
+			self.disabled = true;
+		} );
+		mw.hook( 'mw.cx.draft.restored' ).add( function () {
+			self.disabled = false;
+		} );
+
 		// Save when CTRL+S is pressed.
 		$( document ).on( 'keydown', function ( e ) {
 			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
