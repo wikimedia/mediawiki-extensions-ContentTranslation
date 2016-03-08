@@ -204,8 +204,11 @@
 					$lastRestoredSection = this.addOprhanTranslationUnit(
 						sourceSectionId, $lastRestoredSection, 'after'
 					);
+				} else {
+					// No lastRestoredSection, So add and keep it in orphans array
+					// to try later.
+					orphans.push( sourceSectionId );
 				}
-				orphans.push( sourceSectionId );
 			} else {
 				$lastRestoredSection = $restoredSection;
 				// As a last resort, if we did not add orphans immediately, add them
@@ -213,6 +216,7 @@
 				for ( i = 0; i < orphans.length; i++ ) {
 					$lastRestoredSection = this.addOprhanTranslationUnit( orphans[ i ], $lastRestoredSection );
 					if ( $restoredSection && $restoredSection.length ) {
+						// Remove it from the orphans array.
 						orphans.splice( i, 1 );
 					}
 				}
