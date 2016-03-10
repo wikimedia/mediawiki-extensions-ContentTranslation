@@ -8,7 +8,8 @@
 			"Yahya Sakhnini",
 			"Amire80",
 			"Mervat Salman",
-			"Meno25"
+			"Meno25",
+			"Maroen1990"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -175,11 +176,11 @@
 	"cx-tools-missing-link-mark-link": "{{GENDER:|الإشارة}} إلى أن الصفحة ناقصة",
 	"echo-category-title-cx": "الترجمات",
 	"echo-pref-tooltip-cx": "أعلمني عند إنشاء الصفحة بأداة ترجمة المحتوى",
-	"cx-notification-first-translation": "هنيئا بترجمتك الأولى! اطلع على صفحات أخرى للترجمة في صفحة [[Special:MyContributions|مساهماتك]]",
+	"cx-notification-first-translation": "هنيئا بترجمتك الأولى!تحقق من مساهماتك واعثر على مزيد من الصفحات لترجمتها.",
 	"cx-notification-first-translation-email-subject": "تهانينا على ترجمتك الأولى",
 	"cx-notification-tenth-translation": "هنيئا بترجمتك العاشرة! لقد صرت مترجما متمرسا، فاستمر...",
 	"cx-notification-tenth-translation-email-subject": "هنيئا بترجمتك العاشرة",
-	"cx-notification-hundredth-translation": "هنيئا بترجمتك المئة! إنه لإنجاز كبير، أعلنه للمحررين...",
+	"cx-notification-hundredth-translation": "هنيئا بترجمتك المئة!إنه لإنجاز كبير، شاركه مع المحررين...",
 	"cx-notification-hundredth-translation-email-subject": "هنيئا بترجمتك المئة",
 	"cx-contributions-link": "مساهماتك",
 	"cx-your-translations-link": "{{GENDER:$1|ترجماتك|ترجماتكِ}}",
