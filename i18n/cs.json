@@ -37,7 +37,7 @@
 	"cx-publish-gt-first-step-title": "Překlad byl zveřejněn jako návrh ke kontrole na vaší uživatelské stránce",
 	"cx-publish-gt-first-step-description": "Klikněte na tlačítko \"{{int:vektor-akce-tah}}\" pod tímto menu, aby obsah byl k dispozici pro všechny uživatele jako běžná stránka.",
 	"cx-publish-gt-move-page-title": "Přesunout stránku",
-	"cx-publish-gt-move-page-description": "Vyberte \"{{int:blanknamespace}}\" jmený prostor a dejte vaší stránce vhodný název.",
+	"cx-publish-gt-move-page-description": "Vyberte jmenný prostor „{{int:blanknamespace}}“ a dejte své stránce vhodný název.",
 	"cx-publish-gt-moved-title": "Přeložená stránka byla přesunuta",
 	"cx-publish-gt-moved-description": "Klikněte zde pro přečtení a vylepšení nově přeložené stránky",
 	"cx-publish-gt-published-title": "Gratulujeme, stránka byla zveřejněna",

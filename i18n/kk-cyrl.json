@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Batyrbek.kz"
 		]
 	},
 	"cx": "Бетті аудару",
@@ -149,7 +150,7 @@
 	"cx-tools-missing-link-mark-link": "Қажет деп {{GENDER:|белгілеу}}",
 	"echo-category-title-cx": "Аудармалар",
 	"echo-pref-tooltip-cx": "Мазмұн аудару құралын қолданып жасаған аудармаларым туралы маған ескерт",
-	"cx-notification-first-translation": "Сіздің бірінші аудармаңызды құттықтаймыз! Үлестеріңізді тексеріңіз және тағы да аударуға беттерді табу.",
+	"cx-notification-first-translation": "Алғашқы аудармаңызбен құттықтаймыз! Үлестеріңізді тексеріңіз және тағы да аударуға болатын беттерді табыңыз.",
 	"cx-notification-first-translation-email-subject": "Бірінші аудармаңыз үшін құттықтаймыз.",
 	"cx-notification-tenth-translation": "Сіздің оныншы аударма жариялағаныңызды құттықтаймыз! Сіз сарапшы аудармашыға айнала аласыз. Бұл бетіңізден таймаңыз!",
 	"cx-notification-tenth-translation-email-subject": "Оныншы аудармаңыз үшін құттықтаймыз.",
