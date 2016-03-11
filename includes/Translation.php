@@ -42,7 +42,7 @@ class Translation {
 		$this->translation['id'] = (int)$dbw->insertId();
 	}
 
-	public function update( array $options ) {
+	public function update( array $options = null ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$values = array(
