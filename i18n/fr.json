@@ -26,7 +26,8 @@
 			"Amire80",
 			"Yodaspirine",
 			"Wladek92",
-			"Orlodrim"
+			"Orlodrim",
+			"Kvardek du"
 		]
 	},
 	"cx": "Traduire la page",
@@ -71,7 +72,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Créer à partir de zéro",
 	"cx-entrypoint-dialog-button-translate-from": "Traduire depuis $1",
 	"cx-special-login-error": "Vous devez être connecté pour traduire cette page. [$1 Connexion]",
-	"cx-tools-instructions-text1": "{{GENDER:|Cliquer}} les paragraphes à traduire",
+	"cx-tools-instructions-text1": "{{GENDER:|Cliquer}} sur les paragraphes à traduire",
 	"cx-tools-instructions-text2": "{{GENDER:|Vous}} n’avez pas besoin de tous les ajouter",
 	"cx-tools-instructions-text3": "{{GENDER:|Rendre}} le texte lisible de façon naturelle",
 	"cx-tools-instructions-text4": "La traduction automatique est utile mais {{GENDER:|vous}} devrez vérifier le texte pour le rendre correct.",
@@ -106,8 +107,8 @@
 	"cx-sourceselector-dialog-target-language-label": "À :",
 	"cx-sourceselector-dialog-source-title-placeholder": "Rechercher la page source",
 	"cx-sourceselector-dialog-target-title-placeholder": "Titre de la traduction",
-	"cx-sourceselector-dialog-error-page-and-title-exist": "Ce titre est déjà utilisé dans [$1 $2] pour [$3 une autre page]",
-	"cx-sourceselector-dialog-error-page-exists": "La page [$1 existe déjà] dans $2",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "Ce titre est déjà utilisé en [$1 $2] pour [$3 une autre page]",
+	"cx-sourceselector-dialog-error-page-exists": "La page [$1 existe déjà] en $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Le titre de la nouvelle page est [$1 déjà utilisé]",
 	"cx-sourceselector-dialog-error-no-source-article": "La page à traduire n’existe pas dans $1",
 	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1% de texte traduit automatiquement et non modifié",
