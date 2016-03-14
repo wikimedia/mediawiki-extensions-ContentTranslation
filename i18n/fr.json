@@ -27,7 +27,8 @@
 			"Yodaspirine",
 			"Wladek92",
 			"Orlodrim",
-			"Kvardek du"
+			"Kvardek du",
+			"Cl3m3n7"
 		]
 	},
 	"cx": "Traduire la page",
@@ -226,5 +227,7 @@
 	"cx-tools-linter-hide-details": "Masquer les détails",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",
-	"cx-page-old-revision-loaded": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative]. Vous pouvez continuer cette traduction ou la recommencer pour utiliser le contenu mis à jour."
+	"cx-page-old-revision-loaded": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative]. Vous pouvez continuer cette traduction ou la recommencer pour utiliser le contenu mis à jour.",
+	"cx-tools-mt-new-provider": "nouveau",
+	"cx-tools-mt-new-providers-available": "avec les nouvelles options"
 }

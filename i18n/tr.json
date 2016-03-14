@@ -155,6 +155,8 @@
 	"cx-tools-missing-link-text": "Sayfanın açılmasını teşvik etmek için eksik olarak {{GENDER:|işaretle}}.",
 	"cx-tools-missing-link-title": "Eksik bağlantı",
 	"cx-tools-missing-link-mark-link": "Eksik olarak {{GENDER:|işaretle}}",
+	"echo-category-title-cx": "Çeviriler",
+	"echo-pref-tooltip-cx": "İçerik Çevirmeni ile oluşturulmuş çevirilerim hakkında bana bildirim gönder",
 	"cx-tools-link-internal-link": "Sayfaya bağlantı ver",
 	"cx-tools-link-internal-link-placeholder": "Bağlantı vermek için sayfa bulun",
 	"cx-tools-link-external-link": "Dış bağlantı",

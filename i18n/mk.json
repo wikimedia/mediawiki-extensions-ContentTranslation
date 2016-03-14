@@ -59,11 +59,11 @@
 	"cx-tools-link-title": "Врска",
 	"cx-tools-link-add": "Додај врска",
 	"cx-tools-link-remove": "Отстрани врска",
-	"cx-tools-mt-title": "Машински превод",
+	"cx-tools-mt-title": "Автоматски превод",
 	"cx-tools-mt-use-source": "Користи го изворниот текст",
 	"cx-tools-mt-clear-translation": "Тргни го пасусот",
 	"cx-tools-mt-restore": "Возобнови",
-	"cx-tools-mt-provider-title": "Од $1",
+	"cx-tools-mt-provider-title": "Користи $1",
 	"cx-tools-mt-not-available": "Не е достапно за $1",
 	"cx-tools-mt-dont-use": "Не користи машински превод",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
@@ -201,5 +201,7 @@
 	"cx-tools-linter-hide-details": "Скриј подробности",
 	"cx-translator-month-stats-label": "Месецов",
 	"cx-translator-total-translations-label": "Вкупно",
-	"cx-page-old-revision-loaded": "Ова е превод на постара верзија на содржината. Изворната страница може да се има [$1 значајно променето]. Можете да продолжите со овој превод или да почнете одново, со поновата содржина."
+	"cx-page-old-revision-loaded": "Ова е превод на постара верзија на содржината. Изворната страница може да се има [$1 значајно променето]. Можете да продолжите со овој превод или да почнете одново, со поновата содржина.",
+	"cx-tools-mt-new-provider": "ново",
+	"cx-tools-mt-new-providers-available": "со нови можности"
 }

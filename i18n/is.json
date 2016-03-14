@@ -4,7 +4,8 @@
 			"Maxí",
 			"Snævar",
 			"Amire80",
-			"Jonbg"
+			"Jonbg",
+			"Sveinn í Felli"
 		]
 	},
 	"cx": "Þýða síðu",
@@ -60,7 +61,7 @@
 	"cx-tools-mt-use-source": "Nota frumtextann",
 	"cx-tools-mt-clear-translation": "Eyða málsgrein",
 	"cx-tools-mt-restore": "Endurheimta",
-	"cx-tools-mt-provider-title": "Frá $1",
+	"cx-tools-mt-provider-title": "Nota $1",
 	"cx-tools-mt-not-available": "Ekki til fyrir $1",
 	"cx-tools-mt-dont-use": "Ekki nota vélþýðingu",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 flokkur|$1 flokkar|0=Enginn flokkur}}",
@@ -87,8 +88,8 @@
 	"cx-mt-abuse-warning-text": "Vélþýðingar eru gefnar bara sem útgangspunktur. Þú þarft að tryggja að innihaldið sé rétt og textinn auðlesinn á þínu tungumáli.",
 	"cx-publish-captcha-title": "Öryggisspurning",
 	"cx-translation-filter-all-translations": "Allar þýðingar",
-	"cx-translation-filter-published-translations": "Útgefnar þýðingar",
-	"cx-translation-filter-draft-translations": "Þýðingar í vinnslu",
+	"cx-translation-filter-published-translations": "Útgefið",
+	"cx-translation-filter-draft-translations": "Í vinnslu",
 	"cx-translation-filter-from-any-language": "Úr einhverju tungumáli",
 	"cx-translation-filter-to-any-language": "Yfir á eitthvert tungumál",
 	"cx-create-new-translation": "Búa til nýja þýðingu",
@@ -110,7 +111,6 @@
 	"cx-translation-status-draft": "Í vinnslu",
 	"cx-translation-status-published": "Útgefið",
 	"cx-translation-status-deleted": "Eytt",
-	"cx-magnus-tool-link-text": "Finna greinar sem vantar á þínu máli",
 	"cx-translation-already-in-progress": "Þessi þýðing er í vinnslu hjá $1.",
 	"cx-publishing-dialog-publish-draft-button": "Gefa út sem drög",
 	"cx-feedback-link": "Senda ábendingar",

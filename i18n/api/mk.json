@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "Код на изворниот јазик.",
 	"apihelp-cxpublish-param-to": "Код на целниот јазик.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов на изворната страница.",
-	"apihelp-cxpublish-param-sourcerevision": "Преработка на изворната страница.",
-	"apihelp-cxpublish-param-status": "Ако е <kbd>нацрт</kbd>, преводот ќе се зачува како нацрт. Ако е <kbd>објавен</kbd>, преводот ќе биде објавен.",
-	"apihelp-cxpublish-param-progress": "Информации за потполноста на преводот (напредок). JSON со клучевите <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Вредностите на клучевите се постотоци.",
 	"apihelp-cxpublish-param-categories": "Категориите што треба да се стават во објавената страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Назнака за сликичка за проверка (кога зачувувате со одѕив од сликичка).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на сликичката (кога зачувувате со одѕив од сликичка).",
@@ -75,5 +72,14 @@
 	"apihelp-cxsave-description": "Овој модул ви овозможува да зачувате недовршени преводи по поднаслов за заштеда на семрежен проток и поврзување на напоредни корпуси.",
 	"apihelp-cxsave-example-1": "Зачувај го изворниот и преведениот пасус. Содржината мора да биде низа кодирања во JSON.",
 	"apihelp-cxsave-param-translationid": "Назнака на преводот.",
-	"apihelp-cxsave-param-content": "Податоци од пасуси кодирани во JSON. Секој пасус претставува објект, и ги има следниве клучеви: content, sectionId, sequenceId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "Податоци од пасуси кодирани во JSON. Секој пасус претставува објект, и ги има следниве клучеви: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-query+cxtranslatorstats-description": "Приказ на преводна статистика за дадениот корисник.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Корисничко име на преведувачот. Овој параметар е незадолжителен. Ако не е зададен, ќе се земе тековно најавениот корисник..",
+	"apihelp-query+cxtranslatorstats-example-1": "Приказ на преводна статистика за дадениот корисник.",
+	"apihelp-cxsave-param-sourcerevision": "Преработка на изворната страница.",
+	"apihelp-cxsave-param-progress": "Информации за потполноста на преводот (напредок). JSON со клучевите <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Вредностите на клучевите се постотоци.",
+	"apihelp-cxsave-param-title": "Насловот на страницата врз која ќе се вршат дејства.",
+	"apihelp-cxsave-param-from": "Код на изворниот јазик.",
+	"apihelp-cxsave-param-to": "Код на целниот јазик.",
+	"apihelp-cxsave-param-sourcetitle": "Наслов на изворната страница."
 }
