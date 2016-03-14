@@ -74,6 +74,10 @@ class ApiContentTranslationSave extends ApiBase {
 		$validationResults = array();
 
 		$title = \Title::newFromText( $this->translation->translation['targetTitle'] );
+		if ( !$title ) {
+			return $validationResults;
+		}
+
 		$checker = new AbuseFilterCheck( $this->getUser(), $title );
 
 		foreach ( $translationUnits as $translationUnit ) {
