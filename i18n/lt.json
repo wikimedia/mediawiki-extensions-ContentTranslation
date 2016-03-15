@@ -200,5 +200,6 @@
 	"cx-tools-linter-view-details": "Žiūrėti detales",
 	"cx-tools-linter-hide-details": "Slėpti detales",
 	"cx-translator-month-stats-label": "Šis mėnuo",
-	"cx-translator-total-translations-label": "Iš viso"
+	"cx-translator-total-translations-label": "Iš viso",
+	"cx-tools-mt-new-provider": "naujas"
 }

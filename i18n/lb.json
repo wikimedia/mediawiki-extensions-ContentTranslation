@@ -192,5 +192,7 @@
 	"cx-tools-linter-view-details": "Detailer weisen",
 	"cx-tools-linter-hide-details": "Detailer verstoppen",
 	"cx-translator-month-stats-label": "Dëse Mount",
-	"cx-translator-total-translations-label": "Total"
+	"cx-translator-total-translations-label": "Total",
+	"cx-tools-mt-new-provider": "nei",
+	"cx-tools-mt-new-providers-available": "mat neien Optiounen"
 }

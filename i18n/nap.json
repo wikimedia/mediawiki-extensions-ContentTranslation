@@ -202,5 +202,7 @@
 	"cx-tools-linter-hide-details": "Annascunne dettaglie",
 	"cx-translator-month-stats-label": "Chistu mese",
 	"cx-translator-total-translations-label": "Totale",
-	"cx-page-old-revision-loaded": "Sta traduziona piglia bbase ncopp'a na verziona viecchia d' 'o contenuto. 'A paggena sorgente putess'avé [$1 cagnato assaje]. Putite cuntinuà sta traduziona o accummencià sta paggena n'atavota pe' puté ausà 'e cuntenute agghiurnate."
+	"cx-page-old-revision-loaded": "Sta traduziona piglia bbase ncopp'a na verziona viecchia d' 'o contenuto. 'A paggena sorgente putess'avé [$1 cagnato assaje]. Putite cuntinuà sta traduziona o accummencià sta paggena n'atavota pe' puté ausà 'e cuntenute agghiurnate.",
+	"cx-tools-mt-new-provider": "nuovo",
+	"cx-tools-mt-new-providers-available": "cu' opzione nuove"
 }

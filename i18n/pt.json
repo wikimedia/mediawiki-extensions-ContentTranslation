@@ -206,5 +206,7 @@
 	"cx-notification-suggestions-available": "Com base na {{GENDER:$2|sua}} tradução anterior de '''$1''', estão agora disponíveis novas propostas.",
 	"cx-notification-suggestions-available-email-subject": "Sugestões de tradução disponíveis",
 	"cx-translator-month-stats-label": "Este mês",
-	"cx-translator-total-translations-label": "Total"
+	"cx-translator-total-translations-label": "Total",
+	"cx-tools-mt-new-provider": "nova",
+	"cx-tools-mt-new-providers-available": "com novas opções"
 }
