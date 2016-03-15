@@ -77,6 +77,9 @@ class ApiContentTranslationSave extends ApiBase {
 		$checker = new AbuseFilterCheck( $this->getUser(), $title );
 
 		foreach ( $translationUnits as $translationUnit ) {
+			if ( !$translationUnit->getValidate() ) {
+				continue;
+			}
 			$sectionId = $translationUnit->getSectionId();
 			if ( $sectionId === 'mwcx-source-title' ) {
 				$validationResults[$sectionId] =
@@ -190,7 +193,9 @@ class ApiContentTranslationSave extends ApiBase {
 				// Content can be null in case translator clear the section.
 				$tuData['content'] = null;
 			}
-
+			if ( !isset( $tuData['validate'] ) ) {
+				$tuData['validate'] = false;
+			}
 			$tuData['translationId'] = $this->translation->getTranslationId();
 			$translationUnits[] = new TranslationUnit( $tuData );
 		}

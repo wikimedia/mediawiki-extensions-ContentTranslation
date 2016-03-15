@@ -16,6 +16,7 @@ class TranslationUnit {
 	protected $sequenceId;
 	protected $content;
 	protected $timestamp;
+	protected $validate;
 
 	public function __construct( array $params ) {
 		if ( isset( $params['translationId'] ) ) {
@@ -29,6 +30,9 @@ class TranslationUnit {
 			$this->timestamp = (int)$params['timestamp'];
 		} else {
 			$this->timestamp = wfTimestamp();
+		}
+		if ( isset( $params['validate'] ) ) {
+			$this->validate = (bool)$params['validate'];
 		}
 	}
 
@@ -71,5 +75,9 @@ class TranslationUnit {
 
 	public function getContent() {
 		return $this->content;
+	}
+
+	public function getValidate() {
+		return $this->validate;
 	}
 }
