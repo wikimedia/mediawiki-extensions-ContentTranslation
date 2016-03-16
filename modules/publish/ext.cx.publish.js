@@ -38,10 +38,7 @@
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
 			html: EasyDeflate.deflate( self.getContent() ),
-			status: 'published',
-			sourcerevision: mw.cx.sourceRevision,
-			categories: this.getCategories().join( '|' ),
-			progress: JSON.stringify( mw.cx.getProgress() )
+			categories: this.getCategories().join( '|' )
 		} );
 
 		// Disable the trigger button
