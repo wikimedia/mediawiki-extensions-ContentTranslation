@@ -18,6 +18,7 @@
 
 	ContentTranslationStorage.prototype.init = function () {
 		this.sections = {};
+		this.validationTracker = {};
 		this.listen();
 	};
 
@@ -163,8 +164,10 @@
 			if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
 				$targetSection.data( 'errors', validations[ sectionId ] );
 				mw.hook( 'mw.cx.translation.validation.error' ).fire( $targetSection );
+				this.validationTracker[ sectionId ].error = true;
 			} else {
 				$targetSection.removeData( 'errors' );
+				this.validationTracker[ sectionId ].error = false;
 				mw.hook( 'mw.cx.translation.validation.success' ).fire( $targetSection );
 			}
 		}
@@ -201,7 +204,8 @@
 	};
 
 	ContentTranslationStorage.prototype.markForSave = function ( $targetSection ) {
-		var $sourceSection, sourceSectionId, targetSectionId, sequenceId, state, origin;
+		var $sourceSection, sourceSectionId, targetSectionId, sequenceId, state, origin,
+			validate;
 
 		targetSectionId = $targetSection.attr( 'id' );
 		state = $targetSection.data( 'cx-state' );
@@ -214,19 +218,37 @@
 			origin = 'user';
 		}
 		sequenceId = $sourceSection.data( 'seqid' );
+
+		// To avoid large number of validations, we set validation flag in every 10th change of
+		// section or if the section has error. Or if the section has validation error.
+		this.validationTracker[ sourceSectionId ] = this.validationTracker[ sourceSectionId ] || {
+			count: 1,
+			error: false
+		};
+		validate = this.validationTracker[ sourceSectionId ].count % 10 === 0 ||
+			this.validationTracker[ sourceSectionId ].error ||
+			state === 'mt';
+
+		if ( !$targetSection.is( 'p, #cxmwcx-source-title' ) ) {
+			// Avoid validating sections that are not paragraphs or target title.
+			validate = false;
+		}
+		this.validationTracker[ sourceSectionId ].count++;
+
 		this.sections[ targetSectionId ] = {
 			content: this.getContent( $targetSection ),
 			sectionId: sourceSectionId, // source section id is the canonical section id.
 			saved: false,
+			validate: validate,
 			sequenceId: sequenceId,
 			origin: origin
 		};
-
 		// Source sections are saved only once.
 		this.sections[ sourceSectionId ] = this.sections[ sourceSectionId ] || {
 			content: this.getContent( $sourceSection ),
 			sectionId: sourceSectionId,
 			saved: false,
+			validate: false,
 			sequenceId: sequenceId,
 			origin: 'source'
 		};
