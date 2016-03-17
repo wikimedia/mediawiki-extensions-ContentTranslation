@@ -52,7 +52,7 @@
 	"cx-tools-mt-use-source": "د سرچينې متن کارول",
 	"cx-tools-mt-clear-translation": "پاراگراف سپينول",
 	"cx-tools-mt-restore": "بيازېرمل",
-	"cx-tools-mt-provider-title": "د $1 لخوا",
+	"cx-tools-mt-provider-title": "$1 کارول",
 	"cx-tools-mt-not-available": "د $1 لپاره نشته",
 	"cx-tools-mt-dont-use": "ماشيني ژباړه مه کاروه",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 وېشنيزه|$1 وېشنيزې|0=بې وېشنيزو}}",
@@ -169,5 +169,6 @@
 	"mw-pageselector-missing": "پدې نوم مخ نشته",
 	"cx-suggestionlist-expand": "ټول کتل",
 	"cx-suggestionlist-collapse": "لږ کتل",
-	"cx-suggestionlist-refresh": "وړانديزونه بياتاندول"
+	"cx-suggestionlist-refresh": "وړانديزونه بياتاندول",
+	"cx-tools-mt-new-provider": "نوی"
 }

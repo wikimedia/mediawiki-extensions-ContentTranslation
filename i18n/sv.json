@@ -49,7 +49,7 @@
 	"tag-contenttranslation-description": "Innehållet är översatt från ett annat språk med hjälp av verktyget Innehållsöversättning.",
 	"cx-source-loading": "Läser in $1",
 	"cx-beta": "Innehållsöversättning",
-	"cx-beta-desc": "Ett verktyg för att snabbt översätta sidor till ditt språk. Börja översättningar från [[Special:MyContributions|dina bidragssida]], och redigera dem med vår sida-vid-sida-editor som är särskilt utformad för översättning. Några av verktygen kan vara tillgängliga endast för vissa språk.",
+	"cx-beta-desc": "Ett verktyg för att snabbt översätta sidor till ditt språk. Börja översättningar från [[Special:MyContributions|dina bidragssida]], och redigera dem med vår sida-vid-sida-redigerare som är särskilt utformad för översättning. Några av verktygen kan vara tillgängliga endast för vissa språk.",
 	"cx-entrypoint-title": "Översätt denna sida till $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denna sida finns inte på $1 ännu.<br />\nVill {{GENDER|du}} skapa den?",
 	"cx-entrypoint-dialog-title-in": "Titel för den nya sidan på $1:",

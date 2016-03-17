@@ -8,7 +8,6 @@
 	"apihelp-cxpublish-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-cxpublish-param-to": "د موخې د ژبې کوډ.",
 	"apihelp-cxpublish-param-sourcetitle": "د سرچينې مخ سرليک.",
-	"apihelp-cxpublish-param-sourcerevision": "د سرچينې مخ مخکتنه.",
 	"apihelp-query+contenttranslation-param-translationid": "د ژباړې پېژند.",
 	"apihelp-query+contenttranslation-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+contenttranslation-param-to": "د موخې د ژبې کوډ.",
@@ -33,5 +32,7 @@
 	"apihelp-cxsuggestionlist-param-listname": "د وړانديز لړليک نوم.",
 	"apihelp-cxsuggestionlist-param-titles": "مخ سرليکونه.",
 	"apihelp-cxsuggestionlist-param-from": "د سرچينې د ژبې کوډ.",
-	"apihelp-cxsuggestionlist-param-to": "د موخې د ژبې کوډ."
+	"apihelp-cxsuggestionlist-param-to": "د موخې د ژبې کوډ.",
+	"apihelp-cxsave-param-sourcerevision": "د سرچينې مخ مخکتنه.",
+	"apihelp-cxsave-param-to": "د موخې د ژبې کوډ."
 }
