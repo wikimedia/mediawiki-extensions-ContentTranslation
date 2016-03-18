@@ -433,7 +433,8 @@
 	};
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider, items, nonDefaultMT, newProvider = false;
+		var provider, items = [],
+			nonDefaultMT, newProvider = false;
 
 		if ( MTControlCard.providers && MTControlCard.providers.length > 1 ) {
 			nonDefaultMT = true;
@@ -450,7 +451,9 @@
 			.addClass( 'card__providers-menu' )
 			.hide();
 
-		items = MTControlCard.providers.slice( 0 ); // Copy values.
+		if ( MTControlCard.providers ) {
+			items = MTControlCard.providers.slice( 0 ); // Copy values.
+		}
 		if ( items.indexOf( sourceMT ) < 0 ) {
 			items.push( sourceMT );
 		}
