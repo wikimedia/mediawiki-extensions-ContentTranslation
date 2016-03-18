@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Futhark1988"
 		]
 	},
 	"cx-license-agreement": "A „$1” gombra való kattintással elfogadja a [//wikimediafoundation.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulását a fordítói eszközzel nyilvánosságra hozza a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt, azzal a kitétellel, hogy a hivatkozás vagy URL elegendő a CC BY-SA 3.0-ban foglalt Nevezd meg! feltételnek.",
@@ -26,8 +27,8 @@
 	"cx-mt-abuse-warning-title": "A fordítása $1% módosítatlan gépi fordítású szöveget tartalmaz.",
 	"cx-mt-abuse-warning-text": "A gépi fordítás csak kiindulásként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
 	"cx-publishing-dialog-message": "A(z) $1 lap már létezik. A jelenlegi tartalmat felül fogja írni a fordításával. Biztosan közzé akarja tenni?",
-	"cx-magnus-tool-link-text": "A maga nyelvén hiányzó szócikkek keresése",
 	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
 	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
-	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
+	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?",
+	"cx-tools-mt-new-provider": "új"
 }
