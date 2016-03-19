@@ -203,5 +203,7 @@
 	"cx-tools-linter-view-details": "დეტალების  ჩვენება",
 	"cx-tools-linter-hide-details": "დეტალების დამალვა",
 	"cx-translator-month-stats-label": "ეს თვე",
-	"cx-translator-total-translations-label": "სულ"
+	"cx-translator-total-translations-label": "სულ",
+	"cx-tools-mt-new-provider": "ახალი",
+	"cx-tools-mt-new-providers-available": "ახალი კონფიგურაციებით"
 }
