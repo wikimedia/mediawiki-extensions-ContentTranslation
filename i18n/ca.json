@@ -210,5 +210,7 @@
 	"cx-tools-linter-hide-details": "Amaga els detalls",
 	"cx-translator-month-stats-label": "Aquest mes",
 	"cx-translator-total-translations-label": "Total",
-	"cx-page-old-revision-loaded": "Aquesta traducció es basa en una versió antiga del contingut. La pàgina font pot [$1 haver canviat de forma significativa]. Podeu continuar la traducció o tornar-la a començar fent servir el contingut actualitzat."
+	"cx-page-old-revision-loaded": "Aquesta traducció es basa en una versió antiga del contingut. La pàgina font pot [$1 haver canviat de forma significativa]. Podeu continuar la traducció o tornar-la a començar fent servir el contingut actualitzat.",
+	"cx-tools-mt-new-provider": "nova",
+	"cx-tools-mt-new-providers-available": "amb noves opcions"
 }

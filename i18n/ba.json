@@ -3,7 +3,8 @@
 		"authors": [
 			"Sagan",
 			"Рустам Нурыев",
-			"Amire80"
+			"Amire80",
+			"Айсар"
 		]
 	},
 	"cx": "Тәржемә ителә торған биттәр",
@@ -98,7 +99,6 @@
 	"cx-translation-status-draft": "Эшләнелә",
 	"cx-translation-status-published": "Баҫтырылды",
 	"cx-translation-status-deleted": "Юйылған",
-	"cx-magnus-tool-link-text": "Башҡорт теле бүлегендә булмаған мәҡәләләрҙе табырға",
 	"cx-translation-already-in-progress": "Ҡатнашыусы $1 башлаған тәржемә.",
 	"cx-publishing-dialog-publish-draft-button": "Ҡаралама итеп баҫтырырға",
 	"cx-feedback-link": "Баһалама ебәрергә",
@@ -116,5 +116,6 @@
 	"cx-campaign-contributionsmenu-might-be-available": "Бәлки, $1 мәҡәләһе башҡа телдәрҙә барҙыр",
 	"cx-campaign-contributionsmenu-myuploads": "Тейәлгән медиа-файлдар",
 	"cx-trend-translations-to": "$1 теленә тәржемәләр",
-	"cx-stats-try-contenttranslation": "Эстәлек Тәржемәһе икенсе телдәрҙән тәржемә ярҙамында яңы мәҡәләләр төҙөүсе ҡоралнәмә.  [$1 Эстәлек Тәржемәһен һынап ҡара]"
+	"cx-stats-try-contenttranslation": "Эстәлек Тәржемәһе икенсе телдәрҙән тәржемә ярҙамында яңы мәҡәләләр төҙөүсе ҡоралнәмә.  [$1 Эстәлек Тәржемәһен һынап ҡара]",
+	"cx-tools-mt-new-provider": "яңы"
 }

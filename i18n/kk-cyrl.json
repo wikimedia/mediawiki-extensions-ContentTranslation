@@ -55,11 +55,11 @@
 	"cx-tools-link-title": "Сілтеме",
 	"cx-tools-link-add": "Сілтеме қосу",
 	"cx-tools-link-remove": "Сілтемені аластау",
-	"cx-tools-mt-title": "Машиналық аударма",
+	"cx-tools-mt-title": "Автоматты аударма",
 	"cx-tools-mt-use-source": "Қайнар мәтінін қолдану",
 	"cx-tools-mt-clear-translation": "Тармақты тазалау",
 	"cx-tools-mt-restore": "Қалпына келтіру",
-	"cx-tools-mt-provider-title": "$1 дегеннен",
+	"cx-tools-mt-provider-title": "Қолдану: $1",
 	"cx-tools-mt-not-available": "$1 тілі үшін қол жетімді емес",
 	"cx-tools-mt-dont-use": "Машиналық аудармаларды қолданбаңыз",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 санат|$1 санат|0=Санаттары жоқ}}",
@@ -177,5 +177,7 @@
 	"cx-tools-linter-view-details": "Егжей-тегжейін көру",
 	"cx-tools-linter-hide-details": "Егжей-тегжейін жасыру",
 	"cx-translator-month-stats-label": "Бұл айда",
-	"cx-translator-total-translations-label": "Барлығы"
+	"cx-translator-total-translations-label": "Барлығы",
+	"cx-tools-mt-new-provider": "жаңа",
+	"cx-tools-mt-new-providers-available": "жаңа опцияларымен"
 }

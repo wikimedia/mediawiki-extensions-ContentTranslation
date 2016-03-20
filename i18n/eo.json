@@ -196,5 +196,6 @@
 	"cx-suggestionlist-refresh": "Aktualigi proponojn",
 	"cx-tools-linter-view-details": "Montri detalojn",
 	"cx-tools-linter-hide-details": "Kaŝi detalojn",
-	"cx-translator-total-translations-label": "Sumo"
+	"cx-translator-total-translations-label": "Sumo",
+	"cx-tools-mt-new-provider": "nova"
 }
