@@ -206,5 +206,8 @@
 	"cx-tools-linter-view-details": "Xem chi tiết",
 	"cx-tools-linter-hide-details": "Ẩn chi tiết",
 	"cx-translator-month-stats-label": "Tháng này",
-	"cx-translator-total-translations-label": "Tổng cộng"
+	"cx-translator-total-translations-label": "Tổng cộng",
+	"cx-page-old-revision-loaded": "Bản dịch này dựa trên một phiên bản cũ hơn của nội dung. Trang gốc có thể đã [$1 thay đổi đáng kể]. Bạn có thể dịch tiếp dùng bản dịch này hoặc bắt đầu lại để sử dụng nội dung được cập nhật.",
+	"cx-tools-mt-new-provider": "mới",
+	"cx-tools-mt-new-providers-available": "có tùy chọn mới"
 }
