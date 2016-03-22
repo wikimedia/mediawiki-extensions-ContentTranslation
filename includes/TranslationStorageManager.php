@@ -57,6 +57,21 @@ class TranslationStorageManager {
 	}
 
 	/**
+	 * Delete translation units associated with the given translation identifier.
+	 *
+	 * @param int $translationId
+	 */
+	public static function deleteTranslationUnits( $translationId ) {
+		$dbw = Database::getConnection( DB_MASTER );
+
+		$conditions = array(
+			'cxc_translation_id' => $translationId,
+		);
+
+		$dbw->delete( 'cx_corpora', $conditions, __METHOD__ );
+	}
+
+	/**
 	 * Save the translation unit.
 	 * If the record exist, update it, otherwise create.
 	 *

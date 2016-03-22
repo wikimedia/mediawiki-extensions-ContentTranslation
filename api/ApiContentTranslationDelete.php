@@ -6,6 +6,12 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
+
+use ContentTranslation\Draft;
+use ContentTranslation\Translation;
+use ContentTranslation\TranslationStorageManager;
+use ContentTranslation\Translator;
+
 class ApiContentTranslationDelete extends ApiBase {
 
 	public function execute() {
@@ -16,8 +22,8 @@ class ApiContentTranslationDelete extends ApiBase {
 			$this->dieUsageMsg( 'blockedtext' );
 		}
 
-		$translator = new ContentTranslation\Translator( $user );
-		$translation = ContentTranslation\Translation::find(
+		$translator = new Translator( $user );
+		$translation = Translation::find(
 			$params['from'],
 			$params['to'],
 			$params['sourcetitle']
@@ -36,9 +42,10 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translation->translation['status'] = 'published';
 			$translation->update();
 		} else {
-			ContentTranslation\Translator::removeTranslation( $translationId );
-			ContentTranslation\Translation::delete( $translationId );
-			ContentTranslation\Draft::delete( $translationId );
+			Translator::removeTranslation( $translationId );
+			Translation::delete( $translationId );
+			Draft::delete( $translationId );
+			TranslationStorageManager::deleteTranslationUnits( $translationId );
 		}
 		$result = array(
 			'result' => 'success'
