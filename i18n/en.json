@@ -215,5 +215,6 @@
 	"cx-translator-total-translations-label": "Total",
 	"cx-page-old-revision-loaded": "This translation is based on an older version of the content. The source page may have [$1 changed significantly]. You can continue this translation or start it again to use the updated content.",
 	"cx-tools-mt-new-provider": "new",
-	"cx-tools-mt-new-providers-available": "with new options"
+	"cx-tools-mt-new-providers-available": "with new options",
+	"cx-continue-translation": "Continue translation"
 }

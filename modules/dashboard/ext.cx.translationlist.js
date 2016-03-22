@@ -198,29 +198,23 @@
 	 *
 	 * @param {Object} translation
 	 */
-	CXTranslationList.prototype.startTranslation = function ( translation ) {
+	CXTranslationList.prototype.continueTranslation = function ( translation ) {
 		if ( translation.status === 'deleted' ) {
 			return false;
 		}
 
-		if ( translation.status === 'draft' ) {
-			// Set CX token as cookie.
-			mw.cx.siteMapper.setCXToken(
-				translation.sourceLanguage,
-				translation.targetLanguage,
-				translation.sourceTitle
-			);
-			location.href = new mw.Uri( mw.cx.siteMapper.getCXUrl(
-				translation.sourceTitle,
-				translation.targetTitle,
-				translation.sourceLanguage,
-				translation.targetLanguage
-			) ).toString();
-		}
-
-		if ( translation.status === 'published' ) {
-			location.href = translation.targetURL;
-		}
+		// Set CX token as cookie.
+		mw.cx.siteMapper.setCXToken(
+			translation.sourceLanguage,
+			translation.targetLanguage,
+			translation.sourceTitle
+		);
+		location.href = new mw.Uri( mw.cx.siteMapper.getCXUrl(
+			translation.sourceTitle,
+			translation.targetTitle,
+			translation.sourceLanguage,
+			translation.targetLanguage
+		) ).toString();
 	};
 
 	/**
@@ -233,6 +227,7 @@
 			$translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer, $status,
 			$actionsTrigger, $deleteTranslation, $menu, $menuContainer,
+			$continueTranslation,
 			$titleLanguageBlock,
 			$translations = [];
 
@@ -315,23 +310,26 @@
 				.addClass( 'status status-' + translation.status )
 				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
 
+			$actionsTrigger = $( '<div>' )
+				.addClass( 'cx-tlitem__actions__trigger' )
+				.text( '…' );
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
-				$actionsTrigger = $( '<div>' )
-					.addClass( 'cx-tlitem__actions__trigger' )
-					.text( '…' );
 				$deleteTranslation = $( '<li>' )
 					.addClass( 'cx-discard-translation' )
 					.text( mw.msg( 'cx-discard-translation' ) );
 				$menu = $( '<ul>' )
 					.append( $deleteTranslation );
-				$menuContainer = $( '<div>' )
-					.addClass( 'cx-tlitem__actions' )
-					.append( $actionsTrigger, $menu );
-			} else {
-				$menuContainer = $();
+			} else if ( translation.status === 'published' ) {
+				$continueTranslation = $( '<li>' )
+					.addClass( 'cx-continue-translation' )
+					.text( mw.msg( 'cx-continue-translation' ) );
+				$menu = $( '<ul>' )
+					.append( $continueTranslation );
 			}
-
+			$menuContainer = $( '<div>' )
+				.addClass( 'cx-tlitem__actions' )
+				.append( $actionsTrigger, $menu );
 			$titleLanguageBlock = $( '<div>' )
 				.addClass( 'cx-tlitem__details' )
 				.append( $translationLink, $progressbar, $lastUpdated, $languageContainer );
@@ -401,8 +399,22 @@
 			} );
 		} );
 
+		this.$translationsList.on( 'click', '.cx-continue-translation', function ( e ) {
+			var translation;
+
+			e.stopPropagation();
+			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
+			self.continueTranslation( translation );
+			return false;
+		} );
+
 		this.$translationsList.on( 'click', '.cx-tlitem', function () {
-			self.startTranslation( $( this ).data( 'translation' ) );
+			var translation = $( this ).data( 'translation' );
+			if ( translation.status === 'published' ) {
+				location.href = translation.targetURL;
+			} else {
+				self.continueTranslation( translation );
+			}
 		} );
 
 		// Attach a scroll handler
