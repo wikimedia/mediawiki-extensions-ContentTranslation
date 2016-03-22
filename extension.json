@@ -642,7 +642,8 @@
 				"ext.cx.tools.manager",
 				"ext.cx.translation",
 				"ext.cx.translationview",
-				"ext.cx.util"
+				"ext.cx.util",
+				"mediawiki.storage"
 			]
 		},
 		"ext.cx.tools.reference": {
