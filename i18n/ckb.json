@@ -3,7 +3,8 @@
 		"authors": [
 			"Asoxor",
 			"Pirehelokan",
-			"Amire80"
+			"Amire80",
+			"Sarchia"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -44,6 +45,7 @@
 	"cx-tools-link-title": "گرێدان",
 	"cx-tools-link-add": "گرێدان زیاد بکە",
 	"cx-tools-link-remove": "گرێدان لاببە",
+	"cx-tools-mt-title": "وەرگێڕانی خۆکار",
 	"cx-tools-mt-use-source": "دەقی سەرچاوە بە کار بھێنە",
 	"cx-tools-mt-clear-translation": "پەرەگراف بسڕەوە",
 	"cx-tools-mt-restore": "بیھێنەرەوە",
@@ -102,7 +104,6 @@
 	"cx-translation-status-draft": "لەژێر کاردا",
 	"cx-translation-status-published": "بڵاوکراو",
 	"cx-translation-status-deleted": "سڕراو",
-	"cx-magnus-tool-link-text": "ئەو وتارانە بدۆزەرەوە کە لە زمانەکەتدا نین",
 	"cx-publishing-dialog-publish-draft-button": "وەک پێشنووسێک بڵاوی بکەرەوە",
 	"cx-stats-published-translations-title": "وەرگێڕانە بڵاوکراوەکان",
 	"cx-stats-draft-translations-title": "ئەو وەرگێڕانانەی لەژێر کاردان",

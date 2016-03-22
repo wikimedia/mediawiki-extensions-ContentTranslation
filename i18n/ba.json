@@ -12,7 +12,7 @@
 	"cx": "Тәржемә ителә торған биттәр",
 	"cx-dashboard-header": "Тәржемәләр",
 	"cx-javascript": "Был ҡорал JavaScript-һыҙ эшләмәй.",
-	"cx-license-agreement": "«$1» төймәһенә баҫып, һеҙ бирелгән [//wikimediafoundation.org/wiki/Terms_of_Use Ҡулланыу шарттары] менән килешүегеҙҙе һәм берһүҙһеҙ барлыҡ тәржемә ҡоралы ярҙамында эшегеҙҙе баҫтырырға ризалашаһығыҙ  [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензиялары] атрибуция өсөн CC BY-SA 3.0 буйынса бары гиперһылтанма йәки URL күрһәтеү кәрәгенсә етеүен аңларға кәрәк.",
+	"cx-license-agreement": "«$1» төймәһенә баҫып, һеҙ бирелгән [//wikimediafoundation.org/wiki/Terms_of_Use Ҡулланыу шарттары] менән килешүегеҙҙе һәм бер һүҙһеҙ барлыҡ тәржемә ҡоралы ярҙамында эшегеҙҙе баҫтырырға ризалашаһығыҙ  [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензиялары] атрибуция өсөн CC BY-SA 3.0 буйынса бары гиперһылтанма йәки URL күрһәтеү кәрәгенсә етеүен аңларға кәрәк.",
 	"cx-error-server-connection": "Сервер менән бәйләнеш булдырып булманы",
 	"cx-desc": "Бит эстәлеген[[Special:ContentTranslation|Тәржемәләргә]] еңел мөмкинселлек бирә.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|тәржемә ителгән}}",
