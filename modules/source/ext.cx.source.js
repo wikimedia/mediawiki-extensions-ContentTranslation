@@ -71,7 +71,7 @@
 
 		fetchParams = {
 			$language: this.siteMapper.getWikiDomainCode( language ),
-			$title: title
+			$title: new mw.Title( title ).getPrefixedDb()
 		};
 		apiURL = '/page/$language/$title';
 
