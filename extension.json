@@ -890,6 +890,7 @@
 			"messages": [
 				"cx-dashboard-header",
 				"cx-discard-translation",
+				"cx-continue-translation",
 				"cx-translation-status-draft",
 				"cx-translation-status-deleted",
 				"cx-translation-status-published",

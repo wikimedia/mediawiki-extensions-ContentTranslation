@@ -42,15 +42,19 @@
 			li {
 				padding: 5px 30px;
 				cursor: pointer;
-				.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
 				background-repeat: no-repeat;
 				background-position: center left;
 				background-size: 30px 20px;
-
+			}
+			.cx-discard-translation {
+				.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
 				&:hover {
 					.background-image-svg('../images/trash_orange.svg', '../images/trash_orange.png');
 					background-color: darken( white, 5% );
 				}
+			}
+			.cx-continue-translation {
+				.background-image-svg('../images/edit.svg', '../images/edit.png');
 			}
 		}
 
