@@ -20,8 +20,8 @@
 		providerIdPrefix = 'cx-provider-',
 		disableMT = 'disable-mt',
 		noMT = 'no-mt',
-		sourceMT = 'source-mt';
-
+		sourceMT = 'source-mt',
+		translationOptions = [ disableMT, noMT, sourceMT ];
 	/**
 	 * Fetch token for authentication with cxserver.
 	 *
@@ -78,7 +78,8 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getProviders( from, to ) {
-		var fetchProvidersUrl;
+		var fetchProvidersUrl,
+			translationPreference;
 
 		if ( MTControlCard.provider ) {
 			return $.Deferred().resolve();
@@ -93,20 +94,27 @@
 		return $.get( fetchProvidersUrl )
 			.done( function ( response ) {
 				MTControlCard.providers = response.mt;
+				translationPreference = mw.storage.get( getMTProviderStorageKey() );
+				if ( MTControlCard.providers.indexOf( translationPreference ) < 0 &&
+					translationOptions.indexOf( translationPreference ) < 0 ) {
+					// Stored MT preference is not available now.
+					translationPreference = null;
+				}
 
 				if ( $.isEmptyObject( MTControlCard.providers ) ) {
-					MTControlCard.provider = noMT;
+					MTControlCard.provider = translationPreference || noMT;
 					// For languages with different directionality,
 					// provide disable MT as default option. It gives
 					// an empty editor to translator.
 					if ( $.uls.data.getDir( mw.cx.sourceLanguage ) !==
 						$.uls.data.getDir( mw.cx.targetLanguage )
 					) {
-						MTControlCard.provider = disableMT;
+						MTControlCard.provider = translationPreference || disableMT;
 					}
 				} else {
-					// TODO: Consider user preferences
-					MTControlCard.provider = MTControlCard.providers[ 0 ];
+					// There are MT providers. If there is a saved mt provider preference
+					// select that from the providers. Otherwise select the first one.
+					MTControlCard.provider = translationPreference || MTControlCard.providers[ 0 ];
 				}
 			} )
 			.fail( function ( response ) {
@@ -116,6 +124,17 @@
 					response.responseText
 				);
 			} );
+	}
+
+	/**
+	 * Get the localStorage key for the MT preference
+	 *
+	 * @return {string} The storage key.
+	 */
+	function getMTProviderStorageKey() {
+		return [
+			'cxMTProvider', mw.cx.sourceLanguage, mw.cx.targetLanguage
+		].join( '-' );
 	}
 
 	/**
@@ -371,7 +390,6 @@
 		$providerItem.addClass( 'selected' );
 
 		// Set the global engine
-		// TODO: This should be saved in a preference or a cookie
 		if ( MTControlCard.provider !== providerId ) {
 			MTControlCard.provider = providerId;
 			// Apply this choice to the current section.
@@ -383,6 +401,10 @@
 				// Must be an MT engine. Restore.
 				this.restoreTranslation();
 			}
+
+			// Save the current provider
+			mw.storage.set( getMTProviderStorageKey(), providerId );
+
 		}
 		// Set the main label
 		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
@@ -434,9 +456,17 @@
 
 	MTControlCard.prototype.buildProvidersMenu = function () {
 		var provider, items = [],
-			nonDefaultMT, newProvider = false;
+			nonDefaultMT, translationPreference, newProvider = false;
 
-		if ( MTControlCard.providers && MTControlCard.providers.length > 1 ) {
+		translationPreference = mw.storage.get( getMTProviderStorageKey() );
+
+		if (
+			// If there are more than one provider
+			MTControlCard.providers && MTControlCard.providers.length > 1 &&
+			// If there is no stored preference or preference is not a MT engine
+			( translationPreference === null ||
+				translationOptions.indexOf( translationPreference ) >= 0 )
+		) {
 			nonDefaultMT = true;
 			// There are more MT options or non default MT available. Announce.
 			this.$card.find( '.card__title-row' )
@@ -462,7 +492,7 @@
 		}
 		// Add available machine translation engines to the menu
 		for ( provider in items ) {
-			if ( nonDefaultMT && [ sourceMT, disableMT, noMT ].indexOf( items[ provider ] ) < 0 ) {
+			if ( nonDefaultMT && translationOptions.indexOf( items[ provider ] ) < 0 ) {
 				newProvider = true;
 			} else {
 				newProvider = false;
