@@ -18,7 +18,8 @@
 			"Александр Сигачёв",
 			"Умар",
 			"Iniquity",
-			"Jackie"
+			"Jackie",
+			"Лилиә"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -214,5 +215,8 @@
 	"cx-tools-linter-view-details": "Просмотреть подробности",
 	"cx-tools-linter-hide-details": "Скрыть подробности",
 	"cx-translator-month-stats-label": "В этом месяце",
-	"cx-translator-total-translations-label": "Всего"
+	"cx-translator-total-translations-label": "Всего",
+	"cx-tools-mt-new-provider": "яңы",
+	"cx-tools-mt-new-providers-available": "яңы опциялар менән",
+	"cx-continue-translation": "Тәржемәне дауам итергә"
 }

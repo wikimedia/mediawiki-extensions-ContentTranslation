@@ -10,13 +10,16 @@
 	"apihelp-cxpublish-param-from": "來源語言代碼。",
 	"apihelp-cxpublish-param-to": "目標語言代碼。",
 	"apihelp-cxpublish-param-sourcetitle": "來源頁面的標題。",
-	"apihelp-cxpublish-param-sourcerevision": "來源頁面的修訂。",
-	"apihelp-cxpublish-param-status": "若為 <kbd>draft</kbd>，翻譯將會被儲存為草稿。 若為 <kbd>published</kbd>，翻譯將會被發佈。",
 	"apihelp-cxpublish-param-categories": "要置於已發佈頁面的分類。",
 	"apihelp-cxpublish-param-wpCaptchaId": "驗證碼 ID (當使用驗證碼儲存時)。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "回答驗證碼 (當使用驗證碼儲存時)。",
 	"apihelp-query+contenttranslation-description": "查詢內容翻譯資料庫的翻譯。",
 	"apihelp-query+contenttranslation-param-translationid": "翻譯 ID。",
+	"apihelp-query+contenttranslation-param-from": "來源語言代碼。",
+	"apihelp-query+contenttranslation-param-to": "目標語言代碼。",
+	"apihelp-query+contenttranslation-param-sourcetitle": "來源頁面標題。",
+	"apihelp-query+contenttranslation-param-limit": "要取得的翻譯數量上限。",
+	"apihelp-query+contenttranslation-param-type": "翻譯的狀態。",
 	"apihelp-query+contenttranslation-example-1": "取得目前使用者所發起的翻譯。",
 	"apihelp-query+contenttranslation-example-2": "依 ID 取得翻譯草稿。",
 	"apihelp-query+contenttranslation-example-3": "搜尋指定標題於語言組合的任何翻譯",
@@ -40,5 +43,6 @@
 	"apihelp-cxdelete-param-from": "來源語言代碼。",
 	"apihelp-cxdelete-param-to": "目標語言代碼。",
 	"apihelp-cxdelete-param-sourcetitle": "來源頁面的標題。",
-	"apihelp-cxdelete-example-1": "刪除指定語言與標題的草稿"
+	"apihelp-cxdelete-example-1": "刪除指定語言與標題的草稿",
+	"apihelp-cxsave-param-sourcerevision": "來源頁面的修訂。"
 }
