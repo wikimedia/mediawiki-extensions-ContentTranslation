@@ -162,9 +162,8 @@
 
 		apply = function ( page ) {
 			if ( page.thumbnail ) {
-				$.each( map[ page.title ], function ( i, item ) {
-
-					item.css( {
+				$.each( map[ page.title ], function ( i, $image ) {
+					$image.css( {
 						'background-image': 'url(' + page.thumbnail.source + ')'
 					} );
 
@@ -174,7 +173,18 @@
 
 		$.each( queries, function ( language, titles ) {
 			self.getLinkImages( language, titles ).done( function ( response ) {
-				$.map( response.query.pages, apply );
+				var i,
+					redirects = jQuery.extend( {}, response.query.redirects ),
+					pages = response.query.pages;
+
+				$.each( pages, function ( pageId, page ) {
+					for ( i in redirects ) {
+						if ( redirects[ i ].to === page.title ) {
+							page.title = redirects[ i ].from;
+						}
+					}
+					apply( page );
+				} );
 			} );
 		} );
 	};

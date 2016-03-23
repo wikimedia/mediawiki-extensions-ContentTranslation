@@ -348,7 +348,18 @@
 
 		$.each( queries, function ( language, titles ) {
 			self.getPageDetails( language, titles ).done( function ( response ) {
-				$.map( response.query.pages, apply );
+				var i,
+					redirects = jQuery.extend( {}, response.query.redirects ),
+					pages = response.query.pages;
+
+				$.each( pages, function ( pageId, page ) {
+					for ( i in redirects ) {
+						if ( redirects[ i ].to === page.title ) {
+							page.title = redirects[ i ].from;
+						}
+					}
+					apply( page );
+				} );
 			} );
 		} );
 	};
