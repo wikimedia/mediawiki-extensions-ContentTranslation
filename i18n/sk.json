@@ -3,7 +3,8 @@
 		"authors": [
 			"Sudo77(new)",
 			"Kusavica",
-			"Teslaton"
+			"Teslaton",
+			"Urbanecm"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -25,6 +26,7 @@
 	"cx-publish-gt-moved-title": "Preložená stránka bola presunutá",
 	"cx-publish-gt-published-title": "Gratulujeme, stránka bola zverejnená",
 	"cx-translation-add-translation": "+ Pridať preklad",
+	"cx-beta-desc": "Nástroj pre rýchly preklad stránok do vášho jazyka. Zahájte preklady zo stránky Príspevky a upravte ich pomocou nášho editora špeciálne navrhnutého na prekladanie, ktorý vám zobrazí zdrojový a výsledný text vedľa seba. Niektoré prekladateľské nástroje ale môžu byť k dispozícii len pre konkrétne jazyky.",
 	"cx-tools-searchbox-text": "Vyhľadať slovo",
 	"cx-tools-dictionary-title": "Definícia",
 	"cx-tools-link-title": "Odkaz",
@@ -40,7 +42,6 @@
 	"cx-create-new-translation": "Vytvoriť nový preklad",
 	"cx-save-draft-saving": "Ukladanie...",
 	"cx-contributions-new-article": "Nová stránka",
-	"cx-magnus-tool-link-text": "Hľadajte stránky, ktoré vo vašom jazyku doteraz chýbajú",
 	"cx-draft-cancel-button-label": "Zrušiť",
 	"cx-draft-discard-button-label": "Vymazať preklad",
 	"cx-campaign-no-thanks": "Nie, vďaka",

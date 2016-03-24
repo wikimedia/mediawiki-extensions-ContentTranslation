@@ -203,5 +203,6 @@
 	"cx-translator-total-translations-label": "Вкупно",
 	"cx-page-old-revision-loaded": "Ова е превод на постара верзија на содржината. Изворната страница може да се има [$1 значајно променето]. Можете да продолжите со овој превод или да почнете одново, со поновата содржина.",
 	"cx-tools-mt-new-provider": "ново",
-	"cx-tools-mt-new-providers-available": "со нови можности"
+	"cx-tools-mt-new-providers-available": "со нови можности",
+	"cx-continue-translation": "Продолжи со превод"
 }

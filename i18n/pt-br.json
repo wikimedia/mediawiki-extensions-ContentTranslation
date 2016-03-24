@@ -16,7 +16,8 @@
 			"Almondega",
 			"Eduardo Addad de Oliveira",
 			"Arthurteb303",
-			"Macofe"
+			"Macofe",
+			"Luk3"
 		]
 	},
 	"cx": "Traduzir página",
@@ -185,5 +186,6 @@
 	"mw-pageselector-missing": "Página inexistente",
 	"cx-suggestionlist-expand": "Ver todas",
 	"cx-suggestionlist-collapse": "Ver menos",
-	"cx-suggestionlist-refresh": "Sugestões de atualização"
+	"cx-suggestionlist-refresh": "Sugestões de atualização",
+	"cx-continue-translation": "Continuar tradução"
 }

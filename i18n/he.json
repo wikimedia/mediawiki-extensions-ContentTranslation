@@ -210,5 +210,6 @@
 	"cx-translator-total-translations-label": "סה\"כ",
 	"cx-page-old-revision-loaded": "התרגום הזה מבוסס על גרסה ישנה יותר של התוכן. ייתכן שדף המקור [$1 השתנה משמעותית]. באפשרותך להמשיך את התרגום הזה או להתחיל אותו מחדש כדי להשתמש בתוכן המעודכן.",
 	"cx-tools-mt-new-provider": "חדש",
-	"cx-tools-mt-new-providers-available": "יש אפשרויות חדשות"
+	"cx-tools-mt-new-providers-available": "יש אפשרויות חדשות",
+	"cx-continue-translation": "להמשיך לתרגם"
 }
