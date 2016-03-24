@@ -862,7 +862,6 @@
 			"messages": [
 				"vector-action-move",
 				"vector-view-edit",
-				"cx-publish-gt-no-permission-to-move-title",
 				"cx-publish-gt-no-permission-to-move-description",
 				"cx-publish-gt-first-step-title",
 				"cx-publish-gt-first-step-description",
