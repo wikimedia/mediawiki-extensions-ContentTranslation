@@ -5,7 +5,8 @@
 			"Pxos",
 			"MrTapsa",
 			"Pitke",
-			"Stryn"
+			"Stryn",
+			"Mikahama"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -115,5 +116,6 @@
 	"cx-campaign-contributionsmenu-myuploads": "Tallennettu aineisto",
 	"cx-trend-translations-to": "Käännökset kielelle $1",
 	"cx-translator-month-stats-label": "Tässä kuussa",
-	"cx-translator-total-translations-label": "Yhteensä"
+	"cx-translator-total-translations-label": "Yhteensä",
+	"cx-tools-mt-new-provider": "uusi"
 }

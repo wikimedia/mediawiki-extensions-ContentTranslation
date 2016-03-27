@@ -15,7 +15,7 @@
 	"cx-dashboard-header": "Oversettelser",
 	"cx-javascript": "Dette verktøyet virker ikke uten JavaScript.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Innholdsoversettelse]] er et verktøy for å raskt oversette sider til ditt språk. [$1 Prøv det nå!]",
-	"cx-license-agreement": "Ved å klikke på «$1» knappen så sier du deg enig i [//wikimediafoundation.org/wiki/Terms_of_Use bruksvilkårene] og du godtar uten begrensinger å frigi dine bidrag med dette oversettelsesverktøyet under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], og forstår at en hyperlenke eller URL er tilstrekkelig kreditering under CC BY-SA 3.0.",
+	"cx-license-agreement": "Ved å klikke på «$1»-knappen godtar du [//wikimediafoundation.org/wiki/Terms_of_Use bruksvilkårene] og du samtykker ugjenkallelig til å frigi bidragene dine gjort med dette oversettelsesverktøyet under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], inneforstått med at en hyperlenke eller URL er tilstrekkelig kreditering under CC BY-SA 3.0.",
 	"cx-error-server-connection": "Feil: Kunne ikke koble til tjener.",
 	"cx-desc": "Gjør det enkelt å [[Special:ContentTranslation|oversette]] innholdssider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oversatt}}",
@@ -65,11 +65,11 @@
 	"cx-tools-link-title": "Lenke",
 	"cx-tools-link-add": "Legg til lenke",
 	"cx-tools-link-remove": "Fjern lenke",
-	"cx-tools-mt-title": "Maskinoversettelse",
+	"cx-tools-mt-title": "Automatisk oversettelse",
 	"cx-tools-mt-use-source": "Bruk kildetekst",
 	"cx-tools-mt-clear-translation": "Slett paragraf",
 	"cx-tools-mt-restore": "Gjenopprett",
-	"cx-tools-mt-provider-title": "Fra $1",
+	"cx-tools-mt-provider-title": "Bruk $1",
 	"cx-tools-mt-not-available": "Ikke tilgjengelig for $1",
 	"cx-tools-mt-dont-use": "Ikke bruk maskinoversettelse",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Ingen kategorier}}",
@@ -206,5 +206,8 @@
 	"cx-tools-linter-view-details": "Vis detaljer",
 	"cx-tools-linter-hide-details": "Skjul detaljer",
 	"cx-translator-month-stats-label": "Denne måned",
-	"cx-translator-total-translations-label": "Totalt"
+	"cx-translator-total-translations-label": "Totalt",
+	"cx-tools-mt-new-provider": "ny",
+	"cx-tools-mt-new-providers-available": "med nye valg",
+	"cx-continue-translation": "Fortsett oversettelse"
 }

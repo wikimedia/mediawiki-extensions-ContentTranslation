@@ -24,6 +24,7 @@
 	"apihelp-query+contenttranslation-example-1": "বর্তমান ব্যবহারকারীর দ্বারা অনুবাদ শুরু করে।",
 	"apihelp-query+contenttranslation-example-2": "আইডি দ্বারা অনুবাদের খসড়া দেয়।",
 	"apihelp-query+contenttranslation-example-3": "প্রদত্ত ভাষা যুগল মধ্যে দেওয়া শিরোনাম জন্য কোন অনুবাদ খোঁজে",
+	"apihelp-query+contenttranslationstats-description": "বিষয়বস্তু অনুবাদ পরিসংখ্যান পান।",
 	"apihelp-query+contenttranslationstats-example-1": "সব ভাষার জন্য বিষয়বস্তু অনুবাদ পরিসংখ্যান পান।",
 	"apihelp-cxconfiguration-description": "প্রদত্ত ভাষা যুগল জন্য বিষয়বস্তু অনুবাদ কনফিগারেশন JSON নিয়ে আসে",
 	"apihelp-cxconfiguration-param-from": "উৎস ভাষার কোড।",
