@@ -99,9 +99,10 @@
 					}
 				),
 				title: mw.msg( 'cx-entrypoint-title', autonym ),
-				lang: code,
-				dir: 'auto'
+				lang: code
 			} )
+			// T130390: must be attr
+			.attr( 'dir', 'auto' )
 			.addClass( 'new' )
 			.text( autonym );
 
