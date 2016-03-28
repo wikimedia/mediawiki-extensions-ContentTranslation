@@ -209,5 +209,6 @@
 	"cx-translator-total-translations-label": "Total",
 	"cx-page-old-revision-loaded": "Esta tradución baséase nunha versión vella do contido. A páxina fonte pode [$1 ter cambiado significativamente]. Podes continuar esta tradución ou comezala de novo para empregar o contido actualizado.",
 	"cx-tools-mt-new-provider": "nova",
-	"cx-tools-mt-new-providers-available": "con novas opcións"
+	"cx-tools-mt-new-providers-available": "con novas opcións",
+	"cx-continue-translation": "Continuar a tradución"
 }

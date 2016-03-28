@@ -14,7 +14,8 @@
 			"Huji",
 			"Hosseinblue",
 			"Calak",
-			"Ladsgroup"
+			"Ladsgroup",
+			"Arian Ar"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -71,7 +72,7 @@
 	"cx-tools-link-title": "پیوند",
 	"cx-tools-link-add": "افزودن پیوند",
 	"cx-tools-link-remove": "حذف پیوند",
-	"cx-tools-mt-title": "ترجمهٔ ماشینی",
+	"cx-tools-mt-title": "ترجمهٔ خودکار",
 	"cx-tools-mt-use-source": "استفاده از متن مرجع",
 	"cx-tools-mt-clear-translation": "پاک کردن پاراگراف",
 	"cx-tools-mt-restore": "بازگردانی",

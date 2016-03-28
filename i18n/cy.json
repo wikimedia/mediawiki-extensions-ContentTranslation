@@ -4,7 +4,8 @@
 			"Thefartydoctor",
 			"Robin Owain",
 			"Santhosh.thottingal",
-			"Amire80"
+			"Amire80",
+			"Dafyddt"
 		]
 	},
 	"cx": "Cyfieithu'r dudalen",
@@ -25,7 +26,7 @@
 	"cx-publish-button": "Cyhoeddi'r cyfieithiad",
 	"cx-publish-button-publishing": "Yn cyhoeddi...",
 	"cx-lost-session-draft": "Daeth eich sisiwn i ben. Ni ellir wrbed eich gwaith oni bai eich bod yn mewngofnodi mewn ffenestr arall.",
-	"cx-publish-summary": "Creuwyd gan cyfieithu'r dudalen \"$1\"",
+	"cx-publish-summary": "Creuwyd drwy gyfieithu'r dudalen \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Gofynwch i un o ddefnyddwyr profiadol y wefan hon i adolygu'ch cyfieithiad a'i gyhoeddi yn y prif le.",
 	"cx-publish-gt-first-step-title": "Cyhoeddwyd y cyfieithiad fel drafft dan eich tudalen defnyddiwr, ar gyfer ei adolygu",
 	"cx-publish-gt-first-step-description": "Dewisiwch: \"{{int:vector-action-move}}\"  dan y fwydlen hon er mwyn gwneud y cynnwys yn weladwy i bawb, fel y dudalen arferol.",
