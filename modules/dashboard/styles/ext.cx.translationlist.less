@@ -17,11 +17,15 @@
 		z-index: 100;
 
 		.cx-tlitem__actions__trigger {
-			font-size: larger;
-			font-weight: 800;
-			color: #565656;
 			cursor: pointer;
-			padding: 0 5px;
+			padding: 12px;
+			.background-image-svg('../images/elipses.svg', '../images/elipses.png');
+			background-repeat: no-repeat;
+			background-position: center left;
+			background-size: 24px;
+			&:hover {
+				background-color: #eee;
+			}
 		}
 
 		ul {

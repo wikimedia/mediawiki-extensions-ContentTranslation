@@ -321,8 +321,7 @@
 				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
 
 			$actionsTrigger = $( '<div>' )
-				.addClass( 'cx-tlitem__actions__trigger' )
-				.text( '…' );
+				.addClass( 'cx-tlitem__actions__trigger' );
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
 				$deleteTranslation = $( '<li>' )
