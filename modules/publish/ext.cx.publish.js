@@ -302,7 +302,7 @@
 				error = details.error.info;
 			} else if ( details.edit ) {
 				// Handle abusefilter errors.
-				if ( details.edit.code.indexOf( 'abusefilter' ) === 0 ) {
+				if ( details.edit.code && details.edit.code.indexOf( 'abusefilter' ) === 0 ) {
 					error = details.edit.info;
 					errorDetails = details.edit.warning;
 				} else {
