@@ -93,7 +93,7 @@
 
 		return $.get( fetchProvidersUrl )
 			.done( function ( response ) {
-				MTControlCard.providers = response.mt;
+				MTControlCard.providers = response.mt || [];
 				translationPreference = mw.storage.get( getMTProviderStorageKey() );
 				if ( MTControlCard.providers.indexOf( translationPreference ) < 0 &&
 					translationOptions.indexOf( translationPreference ) < 0 ) {
