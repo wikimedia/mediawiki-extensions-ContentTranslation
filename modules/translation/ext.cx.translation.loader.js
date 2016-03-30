@@ -236,16 +236,27 @@
 			}
 		}
 
-		if ( orphans.length && !this.originalRevision ) {
-			mw.log( 'Draft restoration failed. Loading older revision.' );
-			window.location = mw.cx.siteMapper.getCXUrl(
-				mw.cx.sourceTitle,
-				mw.cx.targetTitle,
-				mw.cx.sourceLanguage,
-				mw.cx.targetLanguage,
-				null, // campaign
-				this.translation.sourceRevisionId
-			);
+		if ( orphans.length ) {
+			if ( !this.originalRevision ) {
+				mw.log( 'Draft restoration failed. Loading older revision.' );
+				window.location = mw.cx.siteMapper.getCXUrl(
+					mw.cx.sourceTitle,
+					mw.cx.targetTitle,
+					mw.cx.sourceLanguage,
+					mw.cx.targetLanguage,
+					null, // campaign
+					this.translation.sourceRevisionId
+				);
+			} else {
+				// Already using old source revision, still not able to restore.
+				mw.hook( 'mw.cx.draft.restore-failed' ).fire(
+					mw.cx.sourceLanguage,
+					mw.cx.targetLanguage,
+					mw.cx.sourceTitle,
+					this.targetTitle,
+					'Couldn\'t restore against the old source revision: ' + this.translation.sourceRevisionId
+				);
+			}
 		} else {
 			mw.hook( 'mw.cx.draft.restored' ).fire();
 		}
