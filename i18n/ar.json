@@ -207,6 +207,7 @@
 	"cx-tools-linter-hide-details": "أخف التفاصيل",
 	"cx-translator-month-stats-label": "هذا الشهر",
 	"cx-translator-total-translations-label": "الإجمالي",
+	"cx-page-old-revision-loaded": "النص المترجم منه [$1 تغير] ويمكنك إكمال ترجمته أو البدء ثانية لترجمة ما تغير.",
 	"cx-tools-mt-new-provider": "جديد",
 	"cx-tools-mt-new-providers-available": "مع خيارات جديدة",
 	"cx-continue-translation": "واصل الترجمة"
