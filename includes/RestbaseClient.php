@@ -71,7 +71,9 @@ class RestbaseClient {
 
 	// Make a RESTBase v1 API request (which could be to either Parsoid or
 	// RESTBase; the VRS makes these appear identical).
-	private function requestRestbase( $method, $path, $params ) {
+	private function requestRestbase( $method, $path, $params, $reqheaders = [] ) {
+		global $wgVersion;
+
 		$request = array(
 			'method' => $method,
 			'url' => '/restbase/local/v1/' . $path
@@ -81,6 +83,8 @@ class RestbaseClient {
 		} else {
 			$request['body'] = $params;
 		}
+
+		$reqheaders['User-Agent'] = 'ContentTranslation-MediaWiki/' . $wgVersion;
 		$response = $this->serviceClient->run( $request );
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
 			return $response['body'];
