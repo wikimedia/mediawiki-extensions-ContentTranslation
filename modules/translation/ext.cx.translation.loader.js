@@ -16,7 +16,7 @@
 		this.translationUnits = null;
 		this.$sourceColumn = null;
 		this.$translationColumn = null;
-		this.disabled = false;
+		this.originalRevision = false;
 	}
 
 	/**
@@ -38,7 +38,6 @@
 				translation.status === 'draft'
 			) {
 				self.showConflictWarning( translation );
-				self.disabled = true;
 				return false;
 			}
 			// Set the translationId
@@ -99,9 +98,19 @@
 				self.translationUnits = self.getTranslationUnits( self.translationUnits );
 			}
 			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
+				if ( parseInt( self.translation.sourceRevisionId ) === parseInt( mw.cx.sourceRevision ) ||
+					// Very old drafts will have revision id as 0. Consider them as original source for
+					// the translation and use agressive section restore algorithm
+					parseInt( self.translation.sourceRevisionId ) === 0
+				) {
+					// Since we are using older revision, the original revision used for translation,
+					// use agressive section restore algorithm.
+					self.originalRevision = true;
+				}
 				self.restore();
-				mw.hook( 'mw.cx.draft.restored' ).fire();
-				if ( self.translation.sourceRevisionId !== mw.cx.sourceRevision ) {
+				if ( self.originalRevision && new mw.Uri().query.revision ) {
+					// Show a message to translator that we loaded an older revision of
+					// source article.
 					self.showOldRevisionWarning();
 				}
 			} );
@@ -125,7 +134,7 @@
 
 		diffUrl = mw.cx.siteMapper.getPageUrl( mw.cx.sourceLanguage, mw.cx.sourceTitle, {
 			type: 'revision',
-			diff: mw.cx.sourceRevision,
+			diff: 'cur',
 			oldid: this.translation.sourceRevisionId
 		} );
 		mw.hook( 'mw.cx.warning' ).fire( mw.message( 'cx-page-old-revision-loaded', diffUrl ) );
@@ -200,7 +209,7 @@
 			if ( !$restoredSection ) {
 				mw.log( 'Source section not found for ' + sourceSectionId );
 				// Insert right after last matched section if possible
-				if ( $lastRestoredSection && $lastRestoredSection.length ) {
+				if ( this.originalRevision && $lastRestoredSection && $lastRestoredSection.length ) {
 					$lastRestoredSection = this.addOprhanTranslationUnit(
 						sourceSectionId, $lastRestoredSection, 'after'
 					);
@@ -213,6 +222,10 @@
 				$lastRestoredSection = $restoredSection;
 				// As a last resort, if we did not add orphans immediately, add them
 				// now before this section.
+				if ( !this.originalRevision ) {
+					// Dont use orphan sections unless we are using old source article
+					continue;
+				}
 				for ( i = 0; i < orphans.length; i++ ) {
 					$lastRestoredSection = this.addOprhanTranslationUnit( orphans[ i ], $lastRestoredSection );
 					if ( $restoredSection && $restoredSection.length ) {
@@ -223,7 +236,7 @@
 			}
 		}
 
-		if ( orphans.length ) {
+		if ( orphans.length && !this.originalRevision ) {
 			mw.log( 'Draft restoration failed. Loading older revision.' );
 			window.location = mw.cx.siteMapper.getCXUrl(
 				mw.cx.sourceTitle,
@@ -233,6 +246,8 @@
 				null, // campaign
 				this.translation.sourceRevisionId
 			);
+		} else {
+			mw.hook( 'mw.cx.draft.restored' ).fire();
 		}
 
 		mw.hook( 'mw.cx.translation.continued' ).fire(
