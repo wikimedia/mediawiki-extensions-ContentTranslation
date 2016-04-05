@@ -7,7 +7,8 @@
 			"Айсар",
 			"Азат Хәлилов",
 			"Янмурза Баки",
-			"Лилиә"
+			"Лилиә",
+			"Ләйсән"
 		]
 	},
 	"cx": "Тәржемә ителә торған биттәр",
@@ -131,7 +132,7 @@
 	"cx-translation-status-published": "Баҫтырылды",
 	"cx-translation-status-deleted": "Юйылған",
 	"cx-translation-already-in-progress": "Ҡатнашыусы $1 башлаған тәржемә.",
-	"cx-translation-already-in-progress-collaborate": "Был тәржемәне башлаған ҡатнашыусы менән килешеп һөйләшегеҙ, зинһар?",
+	"cx-translation-already-in-progress-collaborate": "Был тәржемәне башлаған ҡатнашыусы менән килешеп һөйләшегеҙ.",
 	"cx-publishing-dialog-publish-draft-button": "Ҡаралама итеп баҫтырырға",
 	"cx-feedback-link": "Баһалама ебәрергә",
 	"cx-stats-published-translations-title": "Баҫтырылған тәржемәләр",
