@@ -83,7 +83,9 @@ class RestbaseClient {
 		} else {
 			$request['body'] = $params;
 		}
-
+		// See https://www.mediawiki.org/wiki/Specs/HTML/1.2.1
+		$reqheaders['Accept'] =
+			'text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/HTML/1.2.1"';
 		$reqheaders['User-Agent'] = 'ContentTranslation-MediaWiki/' . $wgVersion;
 		$response = $this->serviceClient->run( $request );
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
