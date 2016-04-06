@@ -132,7 +132,7 @@
 	"cx-translation-status-draft": "進行中",
 	"cx-translation-status-published": "已發佈",
 	"cx-translation-status-deleted": "已刪除",
-	"cx-translation-already-in-progress": "此頁面目前正在由 $1 翻譯。",
+	"cx-translation-already-in-progress": "此頁面目前正在{{GENDER:$2|由}} $1 翻譯。",
 	"cx-translation-already-in-progress-collaborate": "請確認您已與目前已翻譯此部份的使用者協調過。",
 	"cx-publishing-dialog-publish-draft-button": " 以草稿發佈",
 	"cx-feedback-link": "提供意見回饋",

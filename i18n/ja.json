@@ -137,7 +137,7 @@
 	"cx-translation-status-draft": "進行中",
 	"cx-translation-status-published": "公開済み",
 	"cx-translation-status-deleted": "削除",
-	"cx-translation-already-in-progress": "これは$1によって進行中の翻訳です。",
+	"cx-translation-already-in-progress": "これは $1 {{GENDER:$2|によって}}進行中の翻訳です。",
 	"cx-translation-already-in-progress-collaborate": "現行版の翻訳者と調整するようにしてください。",
 	"cx-publishing-dialog-publish-draft-button": "下書きとして公開",
 	"cx-feedback-link": "フィードバックする",
