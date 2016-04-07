@@ -128,7 +128,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$targetTitle = Title::newFromText( $params['title'] );
 		if ( !$targetTitle ) {
-			$this->dieUsageMsg( 'invalidtitle', $params['title'] );
+			$this->dieUsageMsg( array( 'invalidtitle', $params['title'] ) );
 		}
 
 		$this->translation = ContentTranslation\Translation::find(
