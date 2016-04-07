@@ -29,7 +29,8 @@
 			"Orlodrim",
 			"Kvardek du",
 			"Cl3m3n7",
-			"C13m3n7"
+			"C13m3n7",
+			"Verdy p"
 		]
 	},
 	"cx": "Traduire la page",
@@ -152,7 +153,7 @@
 	"cx-translation-status-draft": "En cours",
 	"cx-translation-status-published": "Publié",
 	"cx-translation-status-deleted": "Supprimé",
-	"cx-translation-already-in-progress": "En cours de traduction {{GENDER:$2|par}} $1.",
+	"cx-translation-already-in-progress": "Il y a une traduction en cours par {{GENDER:$2|$1}}.",
 	"cx-translation-already-in-progress-collaborate": "Veuillez vous assurer que vous êtes coordonné avec l’utilisat{{GENDER:$1|eur|rice}} qui a effectué la traduction actuelle.",
 	"cx-publishing-dialog-publish-draft-button": "Publier en brouillon",
 	"cx-feedback-link": "Faire un retour",

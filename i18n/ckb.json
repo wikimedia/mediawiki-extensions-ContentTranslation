@@ -51,6 +51,7 @@
 	"cx-tools-mt-restore": "بیھێنەرەوە",
 	"cx-tools-mt-provider-title": "لە $1 ەوە",
 	"cx-tools-mt-not-available": "لەبەردەستدا نییە بۆ $1",
+	"cx-tools-mt-dont-use": "ئامێری وەرگێڕان بەکارمەھێنە",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|پۆل|0=بەبێ پۆل}}",
 	"cx-stats-title": "ئامارەکانی «وەرگێڕانی ناوەرۆک»",
 	"cx-tools-reference-title": "ژێدەر",
@@ -75,6 +76,7 @@
 	"cx-dashboard-sidebar-title": "یارمەتیت پێویستە بۆ وەرگێڕانەکان؟",
 	"cx-dashboard-sidebar-information": "سەبارەت بەم ئامرازە زۆرتر بزانە",
 	"cx-dashboard-sidebar-stats": "ئامارەکان",
+	"cx-dashboard-sidebar-feedback": "فیدباکمان پێ بدە",
 	"cx-translation-filter-all-translations": "هەموو وەرگێڕانەکان",
 	"cx-translation-filter-published-translations": "بڵاوکراو",
 	"cx-translation-filter-draft-translations": "لەژێر کاردا",
@@ -144,5 +146,6 @@
 	"cx-tools-link-apply": "کرا",
 	"mw-pageselector-missing": "پەڕە بوونی نیە",
 	"cx-suggestionlist-refresh": "نوێ کردنەوەی پێشنیارەکان",
-	"cx-translator-month-stats-label": "ئەم مانگە"
+	"cx-translator-month-stats-label": "ئەم مانگە",
+	"cx-translator-total-translations-label": "سەرجەم"
 }
