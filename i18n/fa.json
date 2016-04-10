@@ -212,5 +212,8 @@
 	"cx-tools-linter-view-details": "مشاهده جزئیات",
 	"cx-tools-linter-hide-details": "پنهان‌سازی جزئیات",
 	"cx-translator-month-stats-label": "این ماه",
-	"cx-translator-total-translations-label": "مجموع"
+	"cx-translator-total-translations-label": "مجموع",
+	"cx-tools-mt-new-provider": "تازه",
+	"cx-tools-mt-new-providers-available": "با گزینه‌های تازه",
+	"cx-continue-translation": "ادامهٔ ترجمه"
 }

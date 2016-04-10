@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Ebraminio",
-			"Ladsgroup"
+			"Ladsgroup",
+			"Mahdy Saffar"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -31,6 +32,8 @@
 	"apihelp-cxconfiguration-param-from": "کد زبانی مبدأ.",
 	"apihelp-cxconfiguration-param-to": "کد زبانی مقصد.",
 	"apihelp-cxconfiguration-example-1": "آوردن پیکربندی جی‌سن مترجم محتویات برای جفت زبانی اسپانیایی-کاتالان",
+	"apihelp-query+contenttranslationsuggestions-param-from": "کد زبانی مبدأ.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "کد زبانی مقصد.",
 	"apihelp-query+cxpublishedtranslations-description": "آوردن اطلاعات همهٔ ترجمه‌های منتشر شده",
 	"apihelp-query+cxpublishedtranslations-param-from": "کد زبانی مبدأ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "کد زبانی مقصد.",
