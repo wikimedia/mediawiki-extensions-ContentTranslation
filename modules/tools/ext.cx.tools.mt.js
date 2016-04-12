@@ -492,6 +492,10 @@
 		}
 		// Add available machine translation engines to the menu
 		for ( provider in items ) {
+			if ( !items.hasOwnProperty( provider ) ) {
+				continue;
+			}
+
 			if ( nonDefaultMT && translationOptions.indexOf( items[ provider ] ) < 0 ) {
 				newProvider = true;
 			} else {
