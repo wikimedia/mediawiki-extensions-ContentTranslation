@@ -196,6 +196,7 @@ class ContentTranslationHooks {
 
 		if (
 			!$wgContentTranslationCampaigns['newarticle'] ||
+			!$wgContentTranslationCampaigns['europeana2802016'] ||
 			$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) ||
 			$newPage->mTitle->exists() ||
 			!$newPage->mTitle->inNamespace( NS_MAIN ) ||

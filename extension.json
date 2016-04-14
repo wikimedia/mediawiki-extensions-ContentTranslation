@@ -137,7 +137,8 @@
 		"ContentTranslationCampaigns": {
 			"cxstats": true,
 			"specialcx": true,
-			"newarticle": true
+			"newarticle": true,
+			"europeana2802016": true
 		},
 		"ContentTranslationBrowserBlacklist": {
 			"msie": [ [ "<", 10 ] ]
