@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ଆଶୁତୋଷ କର",
-			"Psubhashish"
+			"Psubhashish",
+			"MKar"
 		]
 	},
 	"cx": "ପୃଷ୍ଠାଟି ଅନୁବାଦ କରନ୍ତୁ",
@@ -24,7 +25,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "ଆରମ୍ଭରୁ ତିଆରି କର",
 	"cx-tools-searchbox-text": "ଶବ୍ଦ ଖୋଜନ୍ତୁ",
 	"cx-tools-link-title": "ଲିଙ୍କ",
-	"cx-tools-link-add": "ଲିଙ୍କ ଯୋଡନ୍ତୁ",
+	"cx-tools-link-add": "ଲିଙ୍କ ଯୋଡ଼ନ୍ତୁ",
 	"cx-tools-link-remove": "ଲିଙ୍କ ହଟେଇଦିଅନ୍ତୁ",
 	"cx-tools-mt-restore": "ପୁନଃସ୍ଥାପନ",
 	"cx-tools-reference-title": "ଆଧାର",
@@ -49,7 +50,6 @@
 	"cx-translation-status-draft": "କାମ ଚାଲୁଅଛି",
 	"cx-translation-status-published": "ପ୍ରକାଶିତ ହେଲା",
 	"cx-translation-status-deleted": "ଲିଭାଯାଇଛି",
-	"cx-magnus-tool-link-text": "ମୋ ଭାଷାରେ ନଥିବା ଲେଖାଗୁଡିକ ଖୋଜନ୍ତୁ",
 	"cx-feedback-link": "ମତାମତ ଦିଅନ୍ତୁ",
 	"cx-stats-published-translators-title": "ଅନୁବାଦକମାନଙ୍କ ସଙ୍ଖ୍ୟା",
 	"cx-draft-cancel-button-label": "ନାକଚ",
