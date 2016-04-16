@@ -5,7 +5,8 @@
 			"Tacsipacsi",
 			"ViDam",
 			"Máté",
-			"Grin"
+			"Grin",
+			"Wolf Rex"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -128,8 +129,8 @@
 	"cx-translation-status-draft": "Folyamatban",
 	"cx-translation-status-published": "Közzétéve",
 	"cx-translation-status-deleted": "Törölve",
-	"cx-translation-already-in-progress": "Ez egy folyamatban lévő fordítás, szerzője $1.",
-	"cx-translation-already-in-progress-collaborate": "Kérlek, győződj meg arról, hogy együttműködsz azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
+	"cx-translation-already-in-progress": "Ez egy folyamatban lévő fordítás, {{GENDER:$2|szerzője}} $1.",
+	"cx-translation-already-in-progress-collaborate": "Kérlek, győződj meg arról, hogy együttműködsz azzal a {{GENDER:$1|felhasználóval}}, aki a jelenlegi fordítást készítette.",
 	"cx-publishing-dialog-publish-draft-button": "Közzététel piszkozatként",
 	"cx-feedback-link": "Visszajelzés küldése",
 	"cx-stats-published-translations-title": "Közzétett fordítások",
@@ -179,7 +180,7 @@
 	"cx-notification-hundredth-translation": "Épp most készült el a 100. fordításod! Ez egy figyelemreméltó eredmény. Oszd meg ezt a többi szerkesztővel is!",
 	"cx-notification-hundredth-translation-email-subject": "Gratuláció a századik fordításodhoz",
 	"cx-contributions-link": "Közreműködéseid",
-	"cx-your-translations-link": "Fordításaid",
+	"cx-your-translations-link": "{{GENDER:$1|Fordításaid}}",
 	"cx-translationlist-empty-title": "Nincs mit fordítanod?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Kezdd el}} a fordításodat most, és folytasd bármikor.",
 	"cx-tools-link-internal-link": "Link egy lapra",
