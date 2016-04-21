@@ -71,7 +71,8 @@
 
 		fetchParams = {
 			$language: this.siteMapper.getWikiDomainCode( language ),
-			$title: new mw.Title( title ).getPrefixedDb()
+			// Manual normalisation to avoid redirects on spaces but not to break namespaces
+			$title: title.replace( / /g, '_' )
 		};
 		apiURL = '/page/$language/$title';
 
