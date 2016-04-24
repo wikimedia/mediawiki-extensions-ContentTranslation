@@ -138,7 +138,7 @@
 	"cx-translation-status-draft": "در حال انجام",
 	"cx-translation-status-published": "منتشر شده",
 	"cx-translation-status-deleted": "حذف شده",
-	"cx-translation-already-in-progress": "این یک ترجمهٔ در حال انجام توسط $1 است.",
+	"cx-translation-already-in-progress": "این یک ترجمهٔ در حال انجام {{GENDER:$2|توسط}} $1 است.",
 	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با کاربری که ترجمهٔ فعلی را انجام داده ارتباط حاصل کرده‌اید.",
 	"cx-publishing-dialog-publish-draft-button": "انتشار به‌عنوان پیش‌نویس",
 	"cx-feedback-link": "بازخورد دهید",

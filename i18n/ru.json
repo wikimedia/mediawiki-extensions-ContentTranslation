@@ -218,7 +218,7 @@
 	"cx-translator-month-stats-label": "В этом месяце",
 	"cx-translator-total-translations-label": "Всего",
 	"cx-page-old-revision-loaded": "Этот перевод основан на старой версии содержимого. Исходная страница могла [$1 существенно измениться]. Вы можете продолжить этот перевод или начать его заново, чтобы использовать обновленное содержимое.",
-	"cx-tools-mt-new-provider": "яңы",
-	"cx-tools-mt-new-providers-available": "яңы опциялар менән",
-	"cx-continue-translation": "Тәржемәне дауам итергә"
+	"cx-tools-mt-new-provider": "новый",
+	"cx-tools-mt-new-providers-available": "с новыми параметрами",
+	"cx-continue-translation": "Продолжить перевод"
 }
