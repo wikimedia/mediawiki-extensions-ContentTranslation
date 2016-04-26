@@ -4,12 +4,13 @@
 			"Рустам Нурыев",
 			"Азат Хәлилов",
 			"Янмурза Баки",
-			"Sagan"
+			"Sagan",
+			"Ләйсән"
 		]
 	},
 	"apihelp-cxpublish-description": "ЭстәлекТәржемсеһе ҡушымтаһы ярҙамында төҙөлгән битте яҙҙырып ҡуйыу",
 	"apihelp-cxpublish-param-title": "Ғәмәл атҡарыласаҡ биттең исеме",
-	"apihelp-cxpublish-param-html": "Яҙырып ҡуйыу өсөн эстәлек.",
+	"apihelp-cxpublish-param-html": "Яҙҙырып ҡуйыу өсөн эстәлек.",
 	"apihelp-cxpublish-param-from": "Баштағы телдең коды.",
 	"apihelp-cxpublish-param-to": "Төбәлгән тел коды",
 	"apihelp-cxpublish-param-sourcetitle": "Башланғыс биттең исеме.",
