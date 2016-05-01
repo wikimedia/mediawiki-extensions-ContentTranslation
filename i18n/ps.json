@@ -110,7 +110,7 @@
 	"cx-translation-status-draft": "د پرمختگ په بهير کې",
 	"cx-translation-status-published": "خپاره شوي",
 	"cx-translation-status-deleted": "ړنگ شو",
-	"cx-translation-already-in-progress": "همدا ژباړه د $1 لخوا د ژباړې په بهير کې ده.",
+	"cx-translation-already-in-progress": "همدا ژباړه د $1 {{GENDER:$2|لخوا}} د ژباړې په بهير کې ده.",
 	"cx-publishing-dialog-publish-draft-button": "د گارليک په توگه خپرول",
 	"cx-feedback-link": "نظر مو ورکړئ",
 	"cx-stats-published-translations-title": "خپرې شوې ژباړې",

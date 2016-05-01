@@ -88,7 +88,7 @@
 	"cx-sourceselector-dialog-target-language-label": "Кемгә:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Баштағы битте эҙләү",
 	"cx-sourceselector-dialog-target-title-placeholder": "Тәржемә ителгән атама",
-	"cx-sourceselector-dialog-error-page-and-title-exist": "[$3 икенсе бит] өсөн [$1 $2]-дә был исем ҡулланыла башлаған",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "Был исем [$3 башҡа бит] өсөн [$1 $2] ҡулланыла инде",
 	"cx-sourceselector-dialog-error-page-exists": "$2-гә бит [$1 булдырылған]",
 	"cx-sourceselector-dialog-error-title-in-use": "Яңы бит өсөн исем [$1 ҡулланыла инде]",
 	"cx-sourceselector-dialog-error-no-source-article": "Тәржемә итеү бите $1-дә юҡ",
