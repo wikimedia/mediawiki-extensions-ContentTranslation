@@ -4,7 +4,8 @@
 			"Fohanno",
 			"Y-M D",
 			"Ash Crow",
-			"Amire80"
+			"Amire80",
+			"Pymouss"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
@@ -58,7 +59,10 @@
 	"cx-publish-captcha-title": "Goulenn surentez",
 	"cx-translation-filter-all-translations": "An holl droidigezhioù",
 	"cx-suggestionlist-empty-title": "Kinnig ebet evit poent",
+	"cx-contributions-new-contributions": "Degasadenn nevez",
+	"cx-contributions-new-article": "Pajenn nevez",
 	"cx-contributions-translation": "Troidigezh",
+	"cx-contributions-upload": "Kargañ ur restr",
 	"cx-tools-link-internal-link": "Liamm ouzh ar pajenn",
 	"cx-tools-link-external-link": "Diavaez",
 	"cx-tools-link-apply": "Graet",
