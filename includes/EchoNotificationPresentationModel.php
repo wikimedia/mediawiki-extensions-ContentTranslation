@@ -18,22 +18,22 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 		if ( $this->type === 'cx-first-translation' )  {
 			$user =  $this->getViewingUserForGender();
 			$title = SpecialPage::getTitleFor( 'Contributions', $user );
-			return array(
+			return [
 				'url' => $title->getCanonicalURL(),
 				'label' => $this->msg( 'cx-contributions-link' )
-			);
+			];
 		} elseif ( $this->type === 'cx-suggestions-available' )  {
 			$title = SpecialPage::getTitleFor( 'ContentTranslation', false, 'suggestions' );
-			return array(
+			return [
 				'url' => $title->getCanonicalURL(),
 				'label' => $this->msg( 'cx' )
-			);
+			];
 		} else {
 			$title = SpecialPage::getTitleFor( 'ContentTranslation' );
-			return array(
+			return [
 				'url' => $title->getCanonicalURL(),
 				'label' => $this->msg( 'cx-your-translations-link' )
-			);
+			];
 		}
 	}
 
@@ -43,12 +43,12 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 	protected function getHeaderMessageKey() {
 		// The messages already exist and have translations, so in this
 		// case we want to map the messages to the existing old messsage
-		$map = array(
+		$map = [
 			'cx-first-translation' => 'cx-notification-first-translation',
 			'cx-tenth-translation' => 'cx-notification-tenth-translation',
 			'cx-hundredth-translation' => 'cx-notification-hundredth-translation',
 			'cx-suggestions-available' => 'cx-notification-suggestions-available'
-		);
+		];
 		return $map[ $this->type ];
 	}
 

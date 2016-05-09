@@ -9,14 +9,14 @@ class SuggestionListManager {
 	 */
 	public function insertList( SuggestionList $list ) {
 		$dbw = Database::getConnection( DB_MASTER );
-		$values = array(
+		$values = [
 			'cxl_id' => $list->getId(),
 			'cxl_owner' => $list->getOwner(),
 			'cxl_public' => (int)$list->isPublic(),
 			'cxl_name' => $list->getName(),
 			'cxl_info' => $list->getInfo(),
 			'cxl_type' => $list->getType(),
-		);
+		];
 
 		if ( $list->getStartTime() !== null ) {
 			$values['cxl_start_time'] = $dbw->timestamp( $list->getStartTime() );
@@ -35,16 +35,16 @@ class SuggestionListManager {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->delete(
 			'cx_suggestions',
-			array(
+			[
 				'cxs_list_id' => $this->getId(),
-			),
+			],
 			__METHOD__
 		);
 		$dbw->delete(
 			'cx_lists',
-			array(
+			[
 				'cxl_id' => $this->getId()
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -57,10 +57,10 @@ class SuggestionListManager {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->delete(
 			'cx_suggestions',
-			array(
+			[
 				'cxs_title' => $titles,
 				'cxs_source_language' => $sourceLanguage,
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -77,19 +77,19 @@ class SuggestionListManager {
 	}
 
 	public function getListByName( $name, $owner = 0 ) {
-		$conds = array(
+		$conds = [
 			'cxl_name' => $name,
 			'cxl_owner' => $owner,
-		);
+		];
 
 		return $this->getListByConds( $conds );
 	}
 
 	public function getListById( $id ) {
-		$conds = array(
+		$conds = [
 			'cxl_id' => $id,
 			'cxl_owner' => 0,
-		);
+		];
 
 		return $this->getListByConds( $conds );
 	}
@@ -103,7 +103,7 @@ class SuggestionListManager {
 	 * @return Title[] String array of titles.
 	 */
 	public function getDiscardedSuggestions( $owner, $from, $to ) {
-		$titles = array();
+		$titles = [];
 		$listName = 'cx-suggestionlist-discarded';
 
 		$suggestions = $this->getSuggestionsByListName( $owner, $listName, $from, $to );
@@ -124,7 +124,7 @@ class SuggestionListManager {
 	 * @return array Lists and suggestions
 	 */
 	public function getFavoriteSuggestions( $owner, $from, $to ) {
-		$lists = array();
+		$lists = [];
 		$listName = 'cx-suggestionlist-favorite';
 		$favoriteList = $this->getListByName( $listName, $owner );
 		$suggestions = $this->getSuggestionsByListName( $owner, $listName, $from, $to );
@@ -133,10 +133,10 @@ class SuggestionListManager {
 			$lists[] = $favoriteList;
 		}
 
-		return array(
+		return [
 			'lists' => $lists,
 			'suggestions' => $suggestions,
-		);
+		];
 	}
 
 	/**
@@ -149,18 +149,18 @@ class SuggestionListManager {
 	 * @return Suggestion[] Suggestions
 	 */
 	private function getSuggestionsByListName( $owner, $listName, $from, $to ) {
-		$suggestions = array();
+		$suggestions = [];
 		$dbr = Database::getConnection( DB_MASTER );
 		$res = $dbr->select(
-			array( 'cx_suggestions', 'cx_lists' ),
-			array( 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ),
-			array(
+			[ 'cx_suggestions', 'cx_lists' ],
+			[ 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ],
+			[
 				'cxl_name' => $listName,
 				'cxl_owner' => $owner,
 				'cxs_source_language' => $from,
 				'cxs_target_language' => $to,
 				'cxs_list_id = cxl_id',
-			),
+			],
 			__METHOD__
 		);
 
@@ -181,24 +181,24 @@ class SuggestionListManager {
 
 		$batchSize = 100;
 		while ( count( $suggestions ) > 0 ) {
-			$values = array();
+			$values = [];
 			$batch = array_splice( $suggestions, 0, $batchSize );
 
-			$values = array();
+			$values = [];
 			foreach ( $batch as $suggestion ) {
-				$values[] = array(
+				$values[] = [
 					'cxs_list_id' => $suggestion->getListId(),
 					'cxs_title' => $suggestion->getTitle()->getPrefixedText(),
 					'cxs_source_language' => $suggestion->getSourceLanguage(),
 					'cxs_target_language' => $suggestion->getTargetLanguage(),
-				);
+				];
 			}
 
 			$dbw->insert(
 				'cx_suggestions',
 				$values,
 				__METHOD__,
-				array( 'IGNORE' )
+				[ 'IGNORE' ]
 			);
 
 			wfWaitForSlaves();
@@ -214,12 +214,12 @@ class SuggestionListManager {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		foreach ( $suggestions as $suggestion ) {
-			$values = array(
+			$values = [
 				'cxs_list_id' => $suggestion->getListId(),
 				'cxs_title' => $suggestion->getTitle()->getPrefixedText(),
 				'cxs_source_language' => $suggestion->getSourceLanguage(),
 				'cxs_target_language' => $suggestion->getTargetLanguage(),
-			);
+			];
 			$dbw->delete(
 				'cx_suggestions',
 				$values,
@@ -254,10 +254,10 @@ class SuggestionListManager {
 	 */
 	public function getPublicSuggestions( $from, $to, $limit, $offset, $seed ) {
 		return $this->getSuggestionsByType(
-			array(
+			[
 				SuggestionList::TYPE_CATEGORY,
 				SuggestionList::TYPE_FEATURED
-			),
+			],
 			$from,
 			$to,
 			$limit,
@@ -280,20 +280,20 @@ class SuggestionListManager {
 	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
-		$lists = array();
-		$suggestions = array();
+		$lists = [];
+		$suggestions = [];
 
 		$res = $dbw->select(
 			'cx_lists',
 			'*',
-			array(
+			[
 				'cxl_type' => $type,
 				'cxl_public' => true,
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'ORDER BY' => 'cxl_type desc'
-			)
+			]
 		);
 
 		foreach ( $res as $row ) {
@@ -311,10 +311,10 @@ class SuggestionListManager {
 			);
 		}
 
-		return array(
+		return [
 			'lists' => $lists,
 			'suggestions' => $suggestions,
-		);
+		];
 	}
 
 	/**
@@ -329,28 +329,28 @@ class SuggestionListManager {
 	 * @return Suggestion[] Suggestions
 	 */
 	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
-		$suggestions = array();
+		$suggestions = [];
 		$dbr = Database::getConnection( DB_MASTER );
 
 		$seed = (int)$seed;
 
-		$options = array(
+		$options = [
 			'LIMIT' => $limit,
 			'ORDER BY' => "RAND( $seed )"
-		);
+		];
 
 		if ( $offset ) {
 			$options['OFFSET'] = $offset;
 		}
 
 		$res = $dbr->select(
-			array( 'cx_suggestions' ),
+			[ 'cx_suggestions' ],
 			'*',
-			array(
+			[
 				'cxs_source_language' => $from,
 				'cxs_target_language' => $to,
 				'cxs_list_id' => $listId
-			),
+			],
 			__METHOD__,
 			$options
 		);

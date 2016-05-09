@@ -23,7 +23,7 @@ class RestbaseClient {
 
 	public function __construct( $config ) {
 		$this->config = $config;
-		$this->serviceClient = new \VirtualRESTServiceClient( new \MultiHttpClient( array() ) );
+		$this->serviceClient = new \VirtualRESTServiceClient( new \MultiHttpClient( [] ) );
 		// Mounted at /restbase/ because it is a service speaking the
 		// RESTBase v1 API -- but the service responding to these API
 		// requests could be either Parsoid or RESTBase.
@@ -42,7 +42,7 @@ class RestbaseClient {
 	 */
 	private function getVRSObject() {
 		// the params array to create the service object with
-		$params = array();
+		$params = [];
 		// the VRS class to use, defaults to RESTBase
 		$class = 'RestbaseVirtualRESTService';
 		// the global virtual rest service config object, if any
@@ -74,10 +74,10 @@ class RestbaseClient {
 	private function requestRestbase( $method, $path, $params, $reqheaders = [] ) {
 		global $wgVersion;
 
-		$request = array(
+		$request = [
 			'method' => $method,
 			'url' => '/restbase/local/v1/' . $path
-		);
+		];
 		if ( $method === 'GET' ) {
 			$request['query'] = $params;
 		} else {
@@ -108,10 +108,10 @@ class RestbaseClient {
 		$wikitext = $this->requestRestbase(
 			'POST',
 			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
-			array(
+			[
 				'html' => $html,
 				'scrub_wikitext' => 1,
-			)
+			]
 		);
 		if ( $wikitext === false ) {
 			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );

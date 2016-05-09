@@ -102,20 +102,20 @@ class ContentTranslationHooks {
 
 		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/images";
 
-		$prefs['cx'] = array(
+		$prefs['cx'] = [
 			'label-message' => 'cx-beta',
 			'desc-message' => 'cx-beta-desc',
-			'screenshot' => array(
+			'screenshot' => [
 				'ltr' => "$imageDir/cx-icon-ltr.svg",
 				'rtl' => "$imageDir/cx-icon-rtl.svg",
-			),
+			],
 			'info-link' => 'https://www.mediawiki.org/wiki/Content_translation',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Content_translation',
-			'requirements' => array(
+			'requirements' => [
 				'javascript' => true,
 				'blacklist' => $wgContentTranslationBrowserBlacklist,
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -239,10 +239,10 @@ class ContentTranslationHooks {
 
 		// Show the auto-open contribution menu and set the cx-know preference
 		// as true to prevent it from being automatically shown in the future.
-		$out->addModules( array(
+		$out->addModules( [
 			'ext.cx.betafeature.init',
 			'ext.cx.campaigns.contributionsmenu',
-		) );
+		] );
 		$saveOptions['cx-know'] = true;
 
 		return true;
@@ -258,46 +258,46 @@ class ContentTranslationHooks {
 	public static function onBeforeCreateEchoEvent(
 		&$notifications, &$notificationCategories, &$icons
 	) {
-		$notificationCategories['cx'] = array(
+		$notificationCategories['cx'] = [
 			'priority' => 3,
 			'tooltip' => 'echo-pref-tooltip-cx',
-		);
+		];
 
-		$notifications['cx-first-translation'] = array(
+		$notifications['cx-first-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-first-translation',
 			'email-subject-message' => 'cx-notification-first-translation-email-subject',
-		);
+		];
 
-		$notifications['cx-tenth-translation'] = array(
+		$notifications['cx-tenth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-tenth-translation',
 			'email-subject-message' => 'cx-notification-tenth-translation-email-subject',
-		);
+		];
 
-		$notifications['cx-hundredth-translation'] = array(
+		$notifications['cx-hundredth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-hundredth-translation',
 			'email-subject-message' => 'cx-notification-hundredth-translation-email-subject',
-		);
+		];
 
-		$notifications['cx-suggestions-available'] = array(
+		$notifications['cx-suggestions-available'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-suggestions-available',
 			'email-subject-message' => 'cx-notification-suggestions-available-email-subject',
-		);
+		];
 
-		$icons['cx'] = array(
+		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
-		);
+		];
 
 	}
 
@@ -330,68 +330,68 @@ class ContentTranslationHooks {
 	 * Hook: ResourceLoaderTestModules
 	 */
 	public static function onResourceLoaderTestModules( array &$modules ) {
-		$resourcePaths = array(
+		$resourcePaths = [
 			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'ContentTranslation',
-		);
+		];
 
-		$modules['qunit']['ext.cx.header.test'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.header.test'] = [
+			'scripts' => [
 				'tests/qunit/header/ext.cx.header.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.header',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 
-		$modules['qunit']['ext.cx.publish.test'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.publish.test'] = [
+			'scripts' => [
 				'tests/qunit/publish/ext.cx.publish.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.publish',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 
-		$modules['qunit']['ext.cx.translation.loader.test'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.translation.loader.test'] = [
+			'scripts' => [
 				'tests/qunit/translation/ext.cx.translation.loader.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.translation.loader',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 
-		$modules['qunit']['ext.cx.tools.tests'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.tools.tests'] = [
+			'scripts' => [
 				'tests/qunit/tools/ext.cx.tools.template.test.js',
 				'tests/qunit/tools/ext.cx.tools.mtabuse.test.js',
 				'tests/qunit/tools/ext.cx.tools.categories.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.model',
 				'ext.cx.tools.template',
 				'ext.cx.tools.mtabuse',
 				'ext.cx.tools.categories',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 
-		$modules['qunit']['ext.cx.translation.tests'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.translation.tests'] = [
+			'scripts' => [
 				'tests/qunit/translation/ext.cx.translation.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.translation',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 
-		$modules['qunit']['ext.cx.sitemapper.test'] = array(
-			'scripts' => array(
+		$modules['qunit']['ext.cx.sitemapper.test'] = [
+			'scripts' => [
 				'tests/qunit/base/ext.cx.sitemapper.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.cx.sitemapper',
-			),
-		) + $resourcePaths;
+			],
+		] + $resourcePaths;
 	}
 }

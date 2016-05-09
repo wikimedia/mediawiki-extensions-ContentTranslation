@@ -27,11 +27,11 @@ class Translator {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->replace(
 			'cx_translators',
-			array( 'translator_user_id', 'translator_translation_id' ),
-			array(
+			[ 'translator_user_id', 'translator_translation_id' ],
+			[
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id' => $translationId,
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -40,7 +40,7 @@ class Translator {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->delete(
 			'cx_translators',
-			array( 'translator_translation_id' => $translationId ),
+			[ 'translator_translation_id' => $translationId ],
 			__METHOD__
 		);
 	}
@@ -53,13 +53,13 @@ class Translator {
 	public function getTranslation( $translationId ) {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$row = $dbr->selectRow(
-			array( 'cx_translators', 'cx_translations' ),
+			[ 'cx_translators', 'cx_translations' ],
 			'*',
-			array(
+			[
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id' => $translationId,
 				'translator_translation_id = translation_id',
-			),
+			],
 			__METHOD__
 		);
 
@@ -87,13 +87,13 @@ class Translator {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_SLAVE );
 
-		$tables = array( 'cx_translations', 'cx_translators' );
+		$tables = [ 'cx_translations', 'cx_translators' ];
 		$fields = '*';
 
-		$conds = array(
+		$conds = [
 			'translator_translation_id = translation_id',
 			'translator_user_id' => $this->getGlobalUserId()
-		);
+		];
 		if ( $type !== null ) {
 			$conds['translation_status'] = $type;
 		}
@@ -108,14 +108,14 @@ class Translator {
 			$conds[] = "translation_last_updated_timestamp < $ts";
 		}
 
-		$options = array(
+		$options = [
 			'ORDER BY' => 'translation_last_updated_timestamp DESC',
 			'LIMIT' => $limit,
-		);
+		];
 
 		$res = $dbr->select( $tables, $fields, $conds, __METHOD__, $options );
 
-		$result = array();
+		$result = [];
 		foreach ( $res as $row ) {
 			$result[] = Translation::newFromRow( $row );
 		}
@@ -127,14 +127,14 @@ class Translator {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_SLAVE );
 
-		$queries = array();
-		foreach ( array( 'source', 'target' ) as $field ) {
-			$tables = array( 'cx_translations', 'cx_translators' );
+		$queries = [];
+		foreach ( [ 'source', 'target' ] as $field ) {
+			$tables = [ 'cx_translations', 'cx_translators' ];
 			$field = "translation_{$field}_language as code";
-			$conds = array(
+			$conds = [
 				'translator_translation_id = translation_id',
 				'translator_user_id' => $this->getGlobalUserId()
-			);
+			];
 			if ( $type !== null ) {
 				$conds['translation_status'] = $type;
 			}
@@ -144,7 +144,7 @@ class Translator {
 
 		$res = $dbr->query( $dbr->unionQueries( $queries, false ) );
 
-		$result = array();
+		$result = [];
 		foreach ( $res as $row ) {
 			$result[] = $row->code;
 		}
@@ -159,20 +159,20 @@ class Translator {
 	public function getTranslationsCount() {
 		$dbr = Database::getConnection( DB_SLAVE );
 		$count = $dbr->selectField(
-			array( 'cx_translators', 'cx_translations' ),
+			[ 'cx_translators', 'cx_translations' ],
 			'count(*)',
-			array(
+			[
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id = translation_id',
 				// And it is published
 				$dbr->makeList(
-					array(
+					[
 						'translation_status' => 'published',
 						'translation_target_url IS NOT NULL',
-					),
+					],
 					LIST_OR
 				)
-			),
+			],
 			__METHOD__
 		);
 
@@ -183,11 +183,11 @@ class Translator {
 	 * Get the stats for all translator counts.
 	 */
 	public static function getStats() {
-		return array(
+		return [
 			'from' => Translator::getTranslatorsCount( 'source' ),
 			'to' =>  Translator::getTranslatorsCount( 'target' ),
 			'total' => Translator::getTotalTranslatorsCount(),
-		);
+		];
 	}
 
 	/**
@@ -196,32 +196,32 @@ class Translator {
 	 * @return Array Number of translators indexed by language code
 	 */
 	public static function getTranslatorsCount( $direction ) {
-		$directionField = array(
+		$directionField = [
 			'source' => 'translation_source_language',
 			'target' => 'translation_target_language',
-		);
+		];
 
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$table = 'cx_translations';
-		$fields = array(
+		$fields = [
 			"$directionField[$direction] as language",
 			'COUNT(DISTINCT translation_started_by) AS translators',
-		);
+		];
 		$conds = $dbr->makeList(
-			array(
+			[
 				'translation_status' => 'published',
 				'translation_target_url IS NOT NULL',
-			),
+			],
 			LIST_OR
 		);
-		$options = array(
+		$options = [
 			'GROUP BY' => $directionField[$direction],
-		);
+		];
 
 		$rows = $dbr->select( $table, $fields, $conds, __METHOD__, $options );
 
-		$result = array();
+		$result = [];
 
 		foreach ( $rows as $row ) {
 			$result[$row->language] = $row->translators;
@@ -238,14 +238,14 @@ class Translator {
 		$dbr = Database::getConnection( DB_SLAVE );
 
 		$table = 'cx_translations';
-		$fields = array(
+		$fields = [
 			'COUNT(DISTINCT translation_started_by) AS translators',
-		);
+		];
 		$conds = $dbr->makeList(
-			array(
+			[
 				'translation_status' => 'published',
 				'translation_target_url IS NOT NULL',
-			),
+			],
 			LIST_OR
 		);
 

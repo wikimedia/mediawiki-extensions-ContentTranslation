@@ -34,7 +34,7 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translator->getGlobalUserId() !== intval( $translation->translation['lastUpdatedTranslator'] )
 		) {
 			// Translation does not exist or it belongs to another translator
-			$this->dieUsageMsg( array( 'invalidtitle', $params['sourcetitle'] ) );
+			$this->dieUsageMsg( [ 'invalidtitle', $params['sourcetitle'] ] );
 		}
 
 		if ( $translation->translation['targetURL'] !== null ) {
@@ -47,24 +47,24 @@ class ApiContentTranslationDelete extends ApiBase {
 			Draft::delete( $translationId );
 			TranslationStorageManager::deleteTranslationUnits( $translationId );
 		}
-		$result = array(
+		$result = [
 			'result' => 'success'
-		);
+		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'from' => array(
+		return [
+			'from' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'sourcetitle' => array(
+			],
+			'sourcetitle' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 
 	public function needsToken() {
@@ -79,9 +79,9 @@ class ApiContentTranslationDelete extends ApiBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=cxdelete&from=en&to=es&sourcetitle=Food' => 'apihelp-cxdelete-example-1'
-		);
+		];
 	}
 
 }

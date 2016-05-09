@@ -16,11 +16,11 @@ use ContentTranslation\CorporaLookup;
  * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslationCorpora extends ApiQueryBase {
-	protected $types = array(
+	protected $types = [
 		CorporaLookup::TYPE_SOURCE,
 		CorporaLookup::TYPE_MT,
 		CorporaLookup::TYPE_USER,
-	);
+	];
 
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -37,7 +37,7 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 			$data = $this->stripHtml( $data );
 		}
 
-		$result->addValue( array( 'query', $this->getModuleName() ), 'sections', $data );
+		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $data );
 	}
 
 	protected function filterTypes( array $data, array $prop ) {
@@ -65,21 +65,21 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		$params = array(
-			'translationid' => array(
+		$params = [
+			'translationid' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'striphtml' => array(
+			],
+			'striphtml' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-			'types' => array(
-				ApiBase::PARAM_TYPE => array( 'source', 'mt', 'user' ),
+			],
+			'types' => [
+				ApiBase::PARAM_TYPE => [ 'source', 'mt', 'user' ],
 				ApiBase::PARAM_DFLT => 'source|mt|user',
 				ApiBase::PARAM_ISMULTI => true,
-			),
-		);
+			],
+		];
 
 		return $params;
 	}

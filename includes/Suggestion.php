@@ -20,12 +20,12 @@ class Suggestion {
 	 * @return SuggestionList
 	 */
 	public static function newFromRow( $row ) {
-		$params = array(
+		$params = [
 			'listId' => $row->cxs_list_id,
 			'title' => $row->cxs_title,
 			'sourceLanguage' => $row->cxs_source_language,
 			'targetLanguage' => $row->cxs_target_language,
-		);
+		];
 
 		return new Suggestion( $params );
 	}

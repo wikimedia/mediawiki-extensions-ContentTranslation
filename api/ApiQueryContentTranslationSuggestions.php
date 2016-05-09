@@ -72,10 +72,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				$params['offset'],
 				$params['seed']
 			);
-			$data = array(
-				'lists' => array( $list ),
+			$data = [
+				'lists' => [ $list ],
 				'suggestions' => $suggestions,
-			);
+			];
 		} else {
 			$personalizedSuggestions = $manager->getPersonalizedSuggestions(
 				$translator->getGlobalUserId(),
@@ -101,7 +101,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			);
 		}
 
-		$lists = array();
+		$lists = [];
 		$suggestions = $data['suggestions'];
 
 		if ( count( $suggestions ) ) {
@@ -121,33 +121,33 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		}
 
 		foreach ( $data['lists'] as $list ) {
-			$lists[$list->getId()] = array(
+			$lists[$list->getId()] = [
 				'displayName' => $list->getDisplayNameMessage( $this->getContext() )->text(),
 				'name' => $list->getName(),
 				'type' => $list->getType(),
-				'suggestions' => array(),
-			);
+				'suggestions' => [],
+			];
 			foreach ( $suggestions as $suggestion ) {
 				if ( $list->getId() !== $suggestion->getListId() ) {
 					continue;
 				}
-				$lists[$suggestion->getListId()]['suggestions'][] = array(
+				$lists[$suggestion->getListId()]['suggestions'][] = [
 					'title' => $suggestion->getTitle()->getPrefixedText(),
 					'sourceLanguage' => $suggestion->getSourceLanguage(),
 					'targetLanguage' => $suggestion->getTargetLanguage(),
 					'listId' => $suggestion->getListId(),
-				);
+				];
 			}
 		}
 
 		if ( count( $suggestions ) ) {
 			$this->setContinueEnumParameter( 'offset', $params['limit'] + $params['offset'] );
 		}
-		$result->addValue( array( 'query', $this->getModuleName() ), 'lists', $lists );
+		$result->addValue( [ 'query', $this->getModuleName() ], 'lists', $lists );
 	}
 
 	private function getOngoingTranslations( array $suggestions ) {
-		$titles = array();
+		$titles = [];
 		if ( !count( $suggestions ) ) {
 			return $titles;
 		}
@@ -155,7 +155,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
-		$ongoingTranslationTitles = array();
+		$ongoingTranslationTitles = [];
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
@@ -168,7 +168,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	private function getExistingTitles( array $suggestions ) {
-		$titles = array();
+		$titles = [];
 		if ( !count( $suggestions ) ) {
 			return $titles;
 		}
@@ -177,11 +177,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
 		$domain = SiteMapper::getDomainCode( $sourceLanguage );
-		$existingTitles = array();
+		$existingTitles = [];
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
-		$params = array(
+		$params = [
 			'action' => 'query',
 			'format' => 'json',
 			'titles' => implode( '|', $titles ),
@@ -189,7 +189,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			'lllimit' => $params['limit'],
 			'lllang' => SiteMapper::getDomainCode( $targetLanguage ),
 			'redirects' => true
-		);
+		];
 		$apiUrl = SiteMapper::getApiURL( $sourceLanguage, $params );
 		$json = Http::get( $apiUrl );
 		$response = FormatJson::decode( $json, true );
@@ -229,39 +229,39 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = array(
-			'from' => array(
+		$allowedParams = [
+			'from' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'listid' => array(
+			],
+			'listid' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'limit' => array(
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			),
-			'offset' => array(
+			],
+			'offset' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'seed' => array(
+			],
+			'seed' => [
 				ApiBase::PARAM_TYPE => 'integer',
-			),
-		);
+			],
+		];
 		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=contenttranslationsuggestions&from=en&to=es' =>
 				'apihelp-query+contenttranslationsuggestions-example-1',
-		);
+		];
 	}
 }

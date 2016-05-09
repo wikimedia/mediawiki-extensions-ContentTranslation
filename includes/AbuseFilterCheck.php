@@ -47,7 +47,7 @@ class AbuseFilterCheck {
 	 */
 	public function checkTitle() {
 		if ( !class_exists( 'AbuseFilter' ) ) {
-			return array();
+			return [];
 		}
 
 		// Simple in-object caching
@@ -75,13 +75,13 @@ class AbuseFilterCheck {
 	 */
 	public function checkSection( $text ) {
 		if ( !class_exists( 'AbuseFilter' ) ) {
-			return array();
+			return [];
 		}
 
 		if ( $text === null || mb_strlen( $text ) < 150 ) {
 			// Don't validate sections that are too short. The validations
 			// happen while editing is going on.
-			return array();
+			return [];
 		}
 
 		$vars = new \AbuseFilterVariableHolder();
@@ -114,7 +114,7 @@ class AbuseFilterCheck {
 		$filters = array_keys( array_filter( $filters ) );
 		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
 
-		$results = array();
+		$results = [];
 		foreach ( $actions as $key => $val ) {
 			$rulename = \AbuseFilter::$filters[$key]->af_public_comments;
 

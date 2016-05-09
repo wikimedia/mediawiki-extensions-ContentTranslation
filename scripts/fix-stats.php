@@ -26,8 +26,8 @@ class CxFixStats extends Maintenance {
 			'(optional) Also execute actions'
 		);
 
-		$this->resets = array();
-		$this->tags = array();
+		$this->resets = [];
+		$this->tags = [];
 	}
 
 	public function execute() {
@@ -77,8 +77,8 @@ class CxFixStats extends Maintenance {
 		$db = ContentTranslation\Database::getConnection( DB_MASTER );
 		$db->update(
 			'cx_translations',
-			array( 'translation_target_url' => null ),
-			array( 'translation_id' => $resets ),
+			[ 'translation_target_url' => null ],
+			[ 'translation_id' => $resets ],
 			__METHOD__
 		);
 	}
@@ -106,17 +106,17 @@ class CxFixStats extends Maintenance {
 				null,
 				$revId,
 				null,
-				FormatJson::encode( array(
+				FormatJson::encode( [
 					'from' => $row->translation_source_language,
 					'to' => $row->translation_target_language,
-				) )
+				] )
 			);
 		}
 	}
 
 	protected function getRelevantTranslations( $db ) {
 		$fields = '*';
-		$conds = array();
+		$conds = [];
 
 		if ( $GLOBALS['wgContentTranslationTranslateInTarget'] ) {
 			$conds['translation_target_language'] = $GLOBALS['wgLanguageCode'];
@@ -176,7 +176,7 @@ class CxFixStats extends Maintenance {
 
 				if ( $revId !== false ) {
 					$this->output( "\\- E25 Page exists but no tag. Can tag rev $revId by $userName.\n" );
-					$this->tags[] = array( $row, $revId );
+					$this->tags[] = [ $row, $revId ];
 				} else {
 					$this->output( "\\- E24 Page exists but no tag.\n" );
 				}
@@ -186,7 +186,7 @@ class CxFixStats extends Maintenance {
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
-		$conds = array();
+		$conds = [];
 		# Assuming timestamps are in the correct format already
 		$conds[] = 'log_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['log_namespace'] = $title->getNamespace();
@@ -210,14 +210,14 @@ class CxFixStats extends Maintenance {
 
 	protected function hasCxTag( Title $title, $row ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$conds = array();
+		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
 		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['rev_page'] = $title->getArticleId();
 		$conds[] = 'rev_id = ct_rev_id';
 		$conds['ct_tag'] = 'contenttranslation';
 
-		$field = $dbr->selectField( array( 'revision', 'change_tag' ), 'ct_tag', $conds, __METHOD__ );
+		$field = $dbr->selectField( [ 'revision', 'change_tag' ], 'ct_tag', $conds, __METHOD__ );
 		return $field === 'contenttranslation';
 	}
 
@@ -227,17 +227,17 @@ class CxFixStats extends Maintenance {
 		// Allow one minute slack
 		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;
 
-		$tables = array( 'revision' );
+		$tables = [ 'revision' ];
 
-		$conds = array();
+		$conds = [];
 		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
 		$conds['rev_page'] = $title->getArticleId();
 		$conds['rev_user_text'] = $name;
 
 		// Take the oldest timestamp by the author
-		$options = array(
+		$options = [
 			'ORDER BY' => 'rev_timestamp ASC'
-		);
+		];
 
 		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options );
 		return $revId;

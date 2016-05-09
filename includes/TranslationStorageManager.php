@@ -19,12 +19,12 @@ class TranslationStorageManager {
 	 * @param int $timestamp
 	 */
 	private static function update( \IDatabase $db, TranslationUnit $translationUnit, $timestamp ) {
-		$values = array(
+		$values = [
 			'cxc_sequence_id' => $translationUnit->getSequenceId(),
 			'cxc_timestamp' => $db->timestamp(),
 			'cxc_content' => $translationUnit->getContent()
-		);
-		$conditions = array(
+		];
+		$conditions = [
 			'cxc_translation_id' =>  $translationUnit->getTranslationId(),
 			'cxc_section_id' =>  $translationUnit->getSectionId(),
 			'cxc_origin' =>  $translationUnit->getOrigin(),
@@ -32,7 +32,7 @@ class TranslationStorageManager {
 			// Then any updates to those sections would fail (duplicate key for
 			// a unique index), if we did not limit this call to only one of them.
 			'cxc_timestamp' => $db->timestamp( $timestamp ),
-		);
+		];
 
 		$db->update( 'cx_corpora', $values, $conditions, __METHOD__ );
 	}
@@ -44,14 +44,14 @@ class TranslationStorageManager {
 	 * @param TranslationUnit $translationUnit
 	 */
 	private static function create( \IDatabase $db, TranslationUnit $translationUnit ) {
-		$values = array(
+		$values = [
 			'cxc_translation_id' => $translationUnit->getTranslationId(),
 			'cxc_section_id' => $translationUnit->getSectionId(),
 			'cxc_origin' => $translationUnit->getOrigin(),
 			'cxc_sequence_id' => $translationUnit->getSequenceId(),
 			'cxc_timestamp' => $db->timestamp(),
 			'cxc_content' => $translationUnit->getContent()
-		);
+		];
 
 		$db->insert( 'cx_corpora', $values, __METHOD__ );
 	}
@@ -64,9 +64,9 @@ class TranslationStorageManager {
 	public static function deleteTranslationUnits( $translationId ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
-		$conditions = array(
+		$conditions = [
 			'cxc_translation_id' => $translationId,
-		);
+		];
 
 		$dbw->delete( 'cx_corpora', $conditions, __METHOD__ );
 	}
@@ -81,15 +81,15 @@ class TranslationStorageManager {
 		$db = Database::getConnection( DB_MASTER );
 
 		$db->doAtomicSection( __METHOD__, function ( $db ) use ( $translationUnit ) {
-			$conditions = array(
+			$conditions = [
 				'cxc_translation_id' => $translationUnit->getTranslationId(),
 				'cxc_section_id' => $translationUnit->getSectionId(),
 				'cxc_origin' => $translationUnit->getOrigin()
-			);
+			];
 			// (At least attempt to) avoid inserting duplicate records in case
 			// of race condition between the select query and the insert query,
 			// resulting duplicate record error.
-			$options = array( 'FOR UPDATE' );
+			$options = [ 'FOR UPDATE' ];
 
 			$existing = self::doFind( $db, $conditions, $options, __METHOD__ );
 
@@ -112,13 +112,13 @@ class TranslationStorageManager {
 	public static function find( $translationId, $sectionId, $origin ) {
 		$db = Database::getConnection( DB_SLAVE );
 
-		$conditions = array(
+		$conditions = [
 			'cxc_translation_id' => $translationId,
 			'cxc_section_id' => $sectionId,
 			'cxc_origin' => $origin
-		);
+		];
 
-		return self::doFind( $db, $conditions, array(), __METHOD__ );
+		return self::doFind( $db, $conditions, [], __METHOD__ );
 	}
 
 	private static function doFind( $db, $conditions, $options, $method ) {

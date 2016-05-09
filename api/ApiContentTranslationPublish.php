@@ -55,12 +55,12 @@ class ApiContentTranslationPublish extends ApiBase {
 			$sourceLink
 		)->inContentLanguage()->text();
 
-		$apiParams = array(
+		$apiParams = [
 			'action' => 'edit',
 			'title' => $title->getPrefixedDBkey(),
 			'text' => $wikitext,
 			'summary' => $summary,
-		);
+		];
 
 		$request = $this->getRequest();
 
@@ -80,7 +80,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	protected function getCategories( array $params ) {
 		global $wgContentTranslationHighMTCategory;
-		$categories = array();
+		$categories = [];
 
 		if ( $params['categories'] ) {
 			$categories = explode( '|', $params['categories'] );
@@ -128,7 +128,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$targetTitle = Title::newFromText( $params['title'] );
 		if ( !$targetTitle ) {
-			$this->dieUsageMsg( array( 'invalidtitle', $params['title'] ) );
+			$this->dieUsageMsg( [ 'invalidtitle', $params['title'] ] );
 		}
 
 		$this->translation = ContentTranslation\Translation::find(
@@ -174,17 +174,17 @@ class ApiContentTranslationPublish extends ApiBase {
 						null,
 						$revId,
 						null,
-						FormatJson::encode( array(
+						FormatJson::encode( [
 							'from' => $params['from'],
 							'to' => $params['to'],
-						) )
+						] )
 					);
 				} );
 			}
 
-			$result = array(
+			$result = [
 				'result' => 'success',
-			);
+			];
 
 			$this->translation->translation['status'] = 'published';
 			$this->translation->translation['lastUpdatedTranslator'] = $translator->getGlobalUserId();
@@ -201,10 +201,10 @@ class ApiContentTranslationPublish extends ApiBase {
 			// Notify user about milestones
 			$this->notifyTranslator();
 		} else {
-			$result = array(
+			$result = [
 				'result' => 'error',
 				'edit' => $saveresult['edit']
-			);
+			];
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
@@ -261,27 +261,27 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'title' => array(
+		return [
+			'title' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'html' => array(
+			],
+			'html' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'from' => array(
+			],
+			'from' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'sourcetitle' => array(
+			],
+			'sourcetitle' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
+			],
 			'categories' => null,
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
 			'wpCaptchaId' => null,
 			'wpCaptchaWord' => null,
-		);
+		];
 	}
 
 	public function needsToken() {

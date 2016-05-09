@@ -17,7 +17,7 @@ class Database {
 			? wfGetLBFactory()->getExternalLB( $wgContentTranslationCluster )
 			: wfGetLB( $wgContentTranslationDatabase );
 
-		return $lb->getConnectionRef( $type, array(), $wgContentTranslationDatabase );
+		return $lb->getConnectionRef( $type, [], $wgContentTranslationDatabase );
 	}
 
 }

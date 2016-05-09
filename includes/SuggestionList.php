@@ -57,7 +57,7 @@ class SuggestionList {
 	 * @return SuggestionList
 	 */
 	public static function newFromRow( $row ) {
-		$params = array(
+		$params = [
 			'id' => $row->cxl_id,
 			'name' => $row->cxl_name,
 			'info' => $row->cxl_info,
@@ -65,7 +65,7 @@ class SuggestionList {
 			'startTime' => $row->cxl_start_time,
 			'endTime' => $row->cxl_end_time,
 			'type' => $row->cxl_type,
-		);
+		];
 
 		return new SuggestionList( $params );
 	}

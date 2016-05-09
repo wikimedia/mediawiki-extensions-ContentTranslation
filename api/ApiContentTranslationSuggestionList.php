@@ -32,17 +32,17 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$listId = $list->getId();
 		}
 
-		$suggestions = array();
+		$suggestions = [];
 		foreach ( $params['titles'] as $page ) {
 			if ( !Title::newFromText( $page ) ) {
-				$this->dieUsageMsg( array( 'invalidtitle', $page ) );
+				$this->dieUsageMsg( [ 'invalidtitle', $page ] );
 			}
-			$suggestions[] = new Suggestion( array(
+			$suggestions[] = new Suggestion( [
 				'listId' => $listId,
 				'title' => $page,
 				'sourceLanguage' => $params['from'],
 				'targetLanguage' => $params['to']
-			) );
+			] );
 		}
 
 		if ( $params['listaction'] === 'add' ) {
@@ -51,9 +51,9 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$manager->removeSuggestions( $suggestions );
 		}
 
-		$result = array(
+		$result = [
 			'result' => 'success'
-		);
+		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
@@ -67,42 +67,42 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$type = SuggestionList::TYPE_FAVORITE;
 		}
 
-		$list = new SuggestionList( array(
+		$list = new SuggestionList( [
 			'type' => $type,
 			'name' => $listName,
 			'public' => false,
 			'owner'  => $translator->getGlobalUserId(),
-		) );
+		] );
 		return $manager->insertList( $list );
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'listname' => array(
+		return [
+			'listname' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'listaction' => array(
+			],
+			'listaction' => [
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => array( 'add', 'remove' ),
-			),
-			'titles' => array(
+				ApiBase::PARAM_TYPE => [ 'add', 'remove' ],
+			],
+			'titles' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'from' => array(
+			],
+			'from' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'token' => array(
+			],
+			'token' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 
 	public function needsToken() {
@@ -114,10 +114,10 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=cxsuggestionlist&listname=List&listaction=add&' .
 				'titles=Title&from=en&to=es&token=123ABC'
 				=> 'apihelp-cxsuggestionlist-example-1'
-		);
+		];
 	}
 }

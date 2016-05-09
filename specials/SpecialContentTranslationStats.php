@@ -27,34 +27,34 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 		// Default modules copied from OutputPage::addDefaultModules
-		$out->addModules( array(
+		$out->addModules( [
 			'mediawiki.user',
 			'mediawiki.page.startup',
 			'mediawiki.page.ready',
-		) );
+		] );
 
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'ext.cx.header.skin' );
 
-		$out->addModules( array( 'ext.cx.header', 'ext.cx.stats' ) );
+		$out->addModules( [ 'ext.cx.header', 'ext.cx.stats' ] );
 		// Load legacy modules if any, for the skin.
 		// Some wikis have Common.js scripts that depend on this module.
 		$defaultSkinModules = $skin->getDefaultModules();
 		$out->addModules( $defaultSkinModules['legacy'] );
 
-		Hooks::run( 'BeforePageDisplay', array( &$out, &$skin ) );
+		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
 		$toolbarList = Html::rawElement( 'ul',
 			null,
 			$skin->getPersonalToolsList() );
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'noscript',
-			array(),
+			[],
 			$this->msg( 'cx-javascript' )->text()
 		) );
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
 		$out->addHTML( Html::rawElement( 'div',
-			array( 'id' => 'p-personal' ),
+			[ 'id' => 'p-personal' ],
 			$toolbarList ) );
 
 		$out->addHTML( $skin->bottomScripts() );

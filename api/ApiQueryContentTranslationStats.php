@@ -21,21 +21,21 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 	public function execute() {
 		$result = $this->getResult();
 		$result->addValue(
-			array( 'query', 'contenttranslationstats' ),
+			[ 'query', 'contenttranslationstats' ],
 			'pages',
 			ContentTranslation\Translation::getStats()
 		);
 		$result->addValue(
-			array( 'query', 'contenttranslationstats' ),
+			[ 'query', 'contenttranslationstats' ],
 			'translators',
 			ContentTranslation\Translator::getStats()
 		);
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=contenttranslationstats' =>
 				'apihelp-query+contenttranslationstats-example-1',
-		);
+		];
 	}
 }

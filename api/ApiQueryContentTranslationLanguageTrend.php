@@ -32,12 +32,12 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		}
 		$interval = $params['interval'];
 
-		$data = array(
+		$data = [
 			'translations' => Translation::getTrendByStatus(
 				$source, $target, 'published', $interval, null
 			),
 			'drafts' => Translation::getTrendByStatus( $source, $target, 'draft', $interval, null ),
-		);
+		];
 
 		if ( $target !== null ) {
 			// We can give deletion rates for only local wiki. We cannot give
@@ -46,7 +46,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		}
 
 		$out = $this->addMissingDates( $data, $interval );
-		$result->addValue( array( 'query' ), 'contenttranslationlangtrend', $out );
+		$result->addValue( [ 'query' ], 'contenttranslationlangtrend', $out );
 	}
 
 	public function addMissingDates( $data, $interval ) {
@@ -61,14 +61,14 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		$unix = wfTimestamp( TS_UNIX );
 		$n = 7 - date( 'w', $unix );
 		$max = strtotime( "+$n days", $unix );
-		$counts = array();
+		$counts = [];
 		foreach ( array_keys( $data ) as $type ) {
 			$counts[$type] = 0;
 		}
 
 		$steps = $this->getSteps( $min, $max, $interval );
 
-		$out = array();
+		$out = [];
 		foreach ( $steps as $step ) {
 			foreach ( $data as $type => $column ) {
 				if ( isset( $column[$step] ) ) {
@@ -76,11 +76,11 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 					$out[$type][] = $column[$step];
 					$counts[$type] = $column[$step]['count'];
 				} else {
-					$out[$type][] = array(
+					$out[$type][] = [
 						'count' => $counts[$type],
 						'delta' => 0,
 						'date' => $step,
-					);
+					];
 				}
 			}
 		}
@@ -89,7 +89,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 	}
 
 	protected function getSteps( $min, $max, $interval ) {
-		$steps = array();
+		$steps = [];
 		while ( true ) {
 			// Lets not overflow
 			$min = min( $min, $max );
@@ -112,29 +112,29 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = array(
-			'source' => array(
+		$allowedParams = [
+			'source' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
-			),
-			'target' => array(
+			],
+			'target' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
-			),
-			'interval' => array(
+			],
+			'interval' => [
 				ApiBase::PARAM_DFLT => 'week',
-				ApiBase::PARAM_TYPE => array( 'week','month' ),
-			)
-		);
+				ApiBase::PARAM_TYPE => [ 'week','month' ],
+			]
+		];
 		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=contenttranslationlangtrend&source=es&target=ca&interval=week' =>
 				'apihelp-query+contenttranslationlangtrend-example-1',
 			'action=query&list=contenttranslationlangtrend' =>
 				'apihelp-query+contenttranslationlangtrend-example-2',
-		);
+		];
 	}
 }

@@ -38,27 +38,27 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		// if there is not translation in that month. ApiQueryContentTranslationLanguageTrend
 		// has utility methods to fill it. But it is not important for the graph we render
 		// from the output of this data.
-		$result = array(
+		$result = [
 			'translator' => $user->getName(),
 			'translatorId' => $translatorId,
 			'publishTrend' => $publishedStats,
-		);
+		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = array(
-			'translator' => array(
+		$allowedParams = [
+			'translator' => [
 				ApiBase::PARAM_TYPE => 'string',
-			)
-		);
+			]
+		];
 		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=cxtranslatorstats&translator=TranslatorName' =>
 				'apihelp-query+cxtranslatorstats-example-1',
-		);
+		];
 	}
 }

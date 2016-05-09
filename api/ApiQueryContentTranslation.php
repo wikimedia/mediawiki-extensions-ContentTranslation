@@ -59,7 +59,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				$translation->translation['translationUnits'] =
 					$this->getTranslationContent( $translation );
 				$result->addValue(
-					array( 'query', 'contenttranslation' ),
+					[ 'query', 'contenttranslation' ],
 					'translation',
 					$translation->translation
 				);
@@ -88,7 +88,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		$result->addValue(
-			array( 'query', 'contenttranslation' ),
+			[ 'query', 'contenttranslation' ],
 			'translations',
 			$translations
 		);
@@ -96,7 +96,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// Simple optimization
 		if ( $params['offset'] === null ) {
 			$result->addValue(
-				array( 'query', 'contenttranslation' ),
+				[ 'query', 'contenttranslation' ],
 				'languages',
 				$translator->getLanguages( $params['type'] )
 			);
@@ -126,7 +126,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$translation->translation['translatorGender'] = $gender;
 
 			$result->addValue(
-				array( 'query', 'contenttranslation' ),
+				[ 'query', 'contenttranslation' ],
 				'translation', $translation->translation
 			);
 		}
@@ -152,46 +152,46 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = array(
-			'translationid' => array(
+		$allowedParams = [
+			'translationid' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'from' => array(
+			],
+			'from' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'sourcetitle' => array(
+			],
+			'sourcetitle' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'limit' => array(
+			],
+			'limit' => [
 				ApiBase::PARAM_DFLT => 100,
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
-			),
-			'offset' => array(
+			],
+			'offset' => [
 				ApiBase::PARAM_DFLT => null,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'type' => array(
+			],
+			'type' => [
 				ApiBase::PARAM_DFLT => null,
-				ApiBase::PARAM_TYPE => array( 'draft', 'published' ),
-			),
-		);
+				ApiBase::PARAM_TYPE => [ 'draft', 'published' ],
+			],
+		];
 		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=contenttranslation' =>
 				'apihelp-query+contenttranslation-example-1',
 			'action=query&list=contenttranslation&translationid=94' =>
 				'apihelp-query+contenttranslation-example-2',
 			'action=query&list=contenttranslation&from=en&to=es&sourcetitle=Hibiscus' =>
 				'apihelp-query+contenttranslation-example-3',
-		);
+		];
 	}
 }

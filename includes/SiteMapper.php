@@ -41,8 +41,8 @@ class SiteMapper {
 		$domain = self::getDomainCode( $language );
 
 		return str_replace(
-			array( '$1', '$2' ),
-			array( $domain, $title ),
+			[ '$1', '$2' ],
+			[ $domain, $title ],
 			$wgContentTranslationSiteTemplates['view']
 		);
 	}

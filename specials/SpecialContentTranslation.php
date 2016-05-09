@@ -67,12 +67,12 @@ class SpecialContentTranslation extends SpecialPage {
 		// underscores. If there is any further bugs reported about this, please use base64.
 		$title = strtr( $title, ' ', '_' );
 
-		$token = implode( '_', array(
+		$token = implode( '_', [
 			'cx',
 			$title,
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
-		) );
+		] );
 
 		return $request->getCookie( $token, '' ) !== null;
 	}
@@ -121,7 +121,7 @@ class SpecialContentTranslation extends SpecialPage {
 				if ( $campaign ) {
 					// Show login page if the URL has campaign parameter
 					$out->showPermissionsErrorPage(
-						array( array( 'badaccess-groups' ) ),
+						[ [ 'badaccess-groups' ] ],
 						'edit'
 					);
 					return;
@@ -130,7 +130,7 @@ class SpecialContentTranslation extends SpecialPage {
 					'cx',
 					'cx-specialpage-enable-betafeature',
 					SpecialPage::getTitleFor( 'ContentTranslation' )
-						->getCanonicalURL( array( 'campaign' => 'specialcx' ) )
+						->getCanonicalURL( [ 'campaign' => 'specialcx' ] )
 				);
 				return;
 			}
@@ -155,18 +155,18 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->setArticleBodyOnly( true );
 
 		// Default modules copied from OutputPage::addDefaultModules
-		$out->addModules( array(
+		$out->addModules( [
 			'mediawiki.user',
 			'mediawiki.page.startup',
 			'mediawiki.page.ready',
-		) );
+		] );
 
 		// Load legacy modules if any, for the skin.
 		// Some wikis have Common.js scripts that depend on this module.
 		$defaultSkinModules = $skin->getDefaultModules();
 		$out->addModules( $defaultSkinModules['legacy'] );
 
-		Hooks::run( 'BeforePageDisplay', array( &$out, &$skin ) );
+		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
 
 		// T111668: Make sure we generate the personal tools
 		// before we output the head, as extensions may add
@@ -178,12 +178,12 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'noscript',
-			array(),
+			[],
 			$this->msg( 'cx-javascript' )->text()
 		) );
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
 		$out->addHTML( Html::rawElement( 'div',
-			array( 'id' => 'p-personal' ),
+			[ 'id' => 'p-personal' ],
 			$toolbarList ) );
 
 		$out->addHTML( $skin->bottomScripts() );

@@ -41,14 +41,14 @@ class TranslationUnit {
 	 * @return TranslationUnit
 	 */
 	public static function newFromRow( $row ) {
-		$params = array(
+		$params = [
 			'translationId' => $row->cxc_translation_id,
 			'sectionId' => $row->cxc_section_id,
 			'origin' => $row->cxc_origin,
 			'sequenceId' => $row->cxc_sequence_id,
 			'content' => $row->cxc_content,
 			'timestamp' => $row->cxc_timestamp,
-		);
+		];
 
 		return new self( $params );
 	}

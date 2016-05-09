@@ -52,25 +52,25 @@ class ApiContentTranslationConfiguration extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'from' => array(
+		return [
+			'from' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'string',
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	* @see ApiBase::getExamplesMessages()
 	*/
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=cxconfiguration&from=es&to=ca'
 			=> 'apihelp-cxconfiguration-example-1',
-		);
+		];
 	}
 }

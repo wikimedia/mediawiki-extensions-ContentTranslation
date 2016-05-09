@@ -62,16 +62,16 @@ class ApiContentTranslationSave extends ApiBase {
 			Draft::delete( $translationId );
 		} );
 
-		$result = array(
+		$result = [
 			'result' => 'success',
 			'validations' => $validationResults,
 			'translationid' => $translationId
-		);
+		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	protected function validateTranslationUnits( $translationUnits ) {
-		$validationResults = array();
+		$validationResults = [];
 
 		$title = \Title::newFromText( $this->translation->translation['targetTitle'] );
 		if ( !$title ) {
@@ -109,7 +109,7 @@ class ApiContentTranslationSave extends ApiBase {
 	) {
 		$restbaseClient = new RestbaseClient( $this->getConfig() );
 		$sectionHTML = $translationUnit->getContent();
-		$results = array();
+		$results = [];
 		// We need to catch any exceptions here - For example, if restbase is down
 		// it should not affect the saving of transations.
 		try {
@@ -131,7 +131,7 @@ class ApiContentTranslationSave extends ApiBase {
 
 		// First time save, add relevant fields
 		if ( !$translation ) {
-			$translation = array(
+			$translation = [
 				'sourceTitle' => $params['sourcetitle'],
 				'sourceLanguage' => $params['from'],
 				'targetLanguage' => $params['to'],
@@ -141,7 +141,7 @@ class ApiContentTranslationSave extends ApiBase {
 				// If the translation exists, this field wont get updated.
 				'startedTranslator' => $this->translator->getGlobalUserId(),
 				'lastUpdatedTranslator' => $this->translator->getGlobalUserId(),
-			);
+			];
 		} else {
 			// Get the array out of the object. Bit confusing.
 			$translation = $translation->translation;
@@ -170,7 +170,7 @@ class ApiContentTranslationSave extends ApiBase {
 	}
 
 	protected function getTranslationUnits( $content ) {
-		$translationUnits = array();
+		$translationUnits = [];
 		if ( trim( $content ) === '' ) {
 			$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
 		}
@@ -214,30 +214,30 @@ class ApiContentTranslationSave extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'from' => array(
+		return [
+			'from' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'to' => array(
+			],
+			'to' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'sourcetitle' => array(
+			],
+			'sourcetitle' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'title' => array(
+			],
+			'title' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'content' => array(
+			],
+			'content' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'sourcerevision' => array(
+			],
+			'sourcerevision' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'progress' => array(
+			],
+			'progress' => [
 				ApiBase::PARAM_REQUIRED => true,
-			)
-		);
+			]
+		];
 	}
 
 	public function needsToken() {

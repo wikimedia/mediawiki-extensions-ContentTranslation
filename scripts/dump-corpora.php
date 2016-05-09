@@ -57,8 +57,8 @@ class CXCorporaDump extends Maintenance {
 			'(optional) Strip away html.'
 		);
 
-		$this->resets = array();
-		$this->tags = array();
+		$this->resets = [];
+		$this->tags = [];
 	}
 
 	public function execute() {
@@ -69,7 +69,7 @@ class CXCorporaDump extends Maintenance {
 		$split = $this->getOption( 'split-at', false );
 		$type = $plain ? 'text' : 'html';
 
-		$formatSpec = array( $format, $type );
+		$formatSpec = [ $format, $type ];
 
 		$limit = 999999999;
 		$offset = 0;
@@ -160,17 +160,17 @@ class CXCorporaDump extends Maintenance {
 	}
 
 	public function sortTranslations( $translations ) {
-		$sorted = array();
+		$sorted = [];
 		foreach ( $translations as $translation ) {
 			$sourceLanguage = $translation['sourceLanguage'];
 			$targetLanguage = $translation['targetLanguage'];
 
 			if ( !isset( $sorted[$targetLanguage] ) ) {
-				$sorted[$targetLanguage] = array();
+				$sorted[$targetLanguage] = [];
 			}
 
 			if ( !isset( $sorted[$targetLanguage][$sourceLanguage] ) ) {
-				$sorted[$targetLanguage][$sourceLanguage] = array();
+				$sorted[$targetLanguage][$sourceLanguage] = [];
 			}
 
 			$sorted[$targetLanguage][$sourceLanguage][] = $translation;
@@ -203,20 +203,20 @@ class CXCorporaDump extends Maintenance {
 	 * @return string|null
 	 */
 	public function formatJSON( array $targets ) {
-		$output = array();
+		$output = [];
 		foreach ( $targets as $translation ) {
 			foreach ( $translation['corpora'] as $id => $unit ) {
 				unset( $unit['source']['timestamp'], $unit['user']['timestamp'], $unit['mt']['timestamp'] );
 
 				$globalId = "{$translation['translationId']}/$id";
-				$output[] = array(
+				$output[] = [
 					'id' => $globalId,
 					'sourceLanguage' => $translation['sourceLanguage'],
 					'targetLanguage' => $translation['targetLanguage'],
 					'source' => $unit['source'],
 					'mt' => $unit['mt'],
 					'target' => $unit['user'],
-				);
+				];
 			}
 		}
 
@@ -239,7 +239,7 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		$xml = new DOMDocument( '1.0', 'UTF-8' );
-		$spawn = function ( $tag, array $attributes = array() ) use ( $xml ) {
+		$spawn = function ( $tag, array $attributes = [] ) use ( $xml ) {
 			$element = $xml->createElement( $tag );
 			foreach ( $attributes as $key => $value ) {
 				$element->setAttribute( $key, $value );
@@ -248,10 +248,10 @@ class CXCorporaDump extends Maintenance {
 			return $element;
 		};
 
-		$tmx = $spawn( 'tmx', array( 'version' => '1.4' ) );
+		$tmx = $spawn( 'tmx', [ 'version' => '1.4' ] );
 		$xml->appendChild( $tmx );
 
-		$header = $spawn( 'header', array(
+		$header = $spawn( 'header', [
 			'creationtool' => 'dump-corpora.php / DOMDocument',
 			'creationtoolversion' => '1.0.0',
 			// Could be paragraph, but not guaranteed...
@@ -260,7 +260,7 @@ class CXCorporaDump extends Maintenance {
 			'adminlang' => 'en',
 			'sourcelang' => $sourceLanguage === '_' ? '*all*' : $sourceLanguage,
 			'datatype' => 'plaintext',
-		) );
+		] );
 		$tmx->appendChild( $header );
 
 		$body = $spawn( 'body' );
@@ -268,19 +268,19 @@ class CXCorporaDump extends Maintenance {
 
 		foreach ( $targets as $translation ) {
 			foreach ( $translation['corpora'] as $id => $units ) {
-				$tu = $spawn( 'tu', array( 'srclang' => $translation['sourceLanguage'] ) );
+				$tu = $spawn( 'tu', [ 'srclang' => $translation['sourceLanguage'] ] );
 				$body->appendChild( $tu );
 				foreach ( $units as $origin => $unit ) {
 					if ( $unit['content'] === null ) {
 						continue;
 					}
 					if ( $origin === 'source' ) {
-						$tuv = $spawn( 'tuv', array( 'xml:lang' => $translation['sourceLanguage'] ) );
+						$tuv = $spawn( 'tuv', [ 'xml:lang' => $translation['sourceLanguage'] ] );
 					} else {
-						$tuv = $spawn( 'tuv', array( 'xml:lang' => $translation['targetLanguage'] ) );
+						$tuv = $spawn( 'tuv', [ 'xml:lang' => $translation['targetLanguage'] ] );
 					}
 					$tu->appendChild( $tuv );
-					$tuvProp = $spawn( 'prop', array( 'type' => 'origin' ) );
+					$tuvProp = $spawn( 'prop', [ 'type' => 'origin' ] );
 					$tuvProp->appendChild( $xml->createTextNode( $origin ) );
 					$tuv->appendChild( $tuvProp );
 					$tuvSeg = $spawn( 'seg' );

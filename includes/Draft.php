@@ -8,15 +8,15 @@ namespace ContentTranslation;
 class Draft {
 	public static function save( $translationId, $content ) {
 		$dbw = Database::getConnection( DB_MASTER );
-		$values = array(
+		$values = [
 			'draft_id' => $translationId,
 			'draft_content' => $content,
 			'draft_timestamp' => $dbw->timestamp(),
-		);
+		];
 		$dbw->upsert(
 			'cx_drafts',
 			$values,
-			array( 'draft_id' ),
+			[ 'draft_id' ],
 			$values,
 			__METHOD__
 		);
@@ -30,9 +30,9 @@ class Draft {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->delete(
 			'cx_drafts',
-			array(
+			[
 				'draft_id' => $draftId,
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -47,18 +47,18 @@ class Draft {
 		$row = $dbw->selectRow(
 			'cx_drafts',
 			'*',
-			array(
+			[
 				'draft_id' => $draftId,
-			),
+			],
 			__METHOD__
 		);
 
 		if ( $row ) {
-			return array(
+			return [
 				'draftId' => $row->draft_id,
 				'draftContent' => $row->draft_content,
 				'draftTimestamp' => $row->draft_timestamp,
-			);
+			];
 		}
 
 		return null;

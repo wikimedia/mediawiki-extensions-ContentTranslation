@@ -36,11 +36,11 @@ class ApiContentTranslationToken extends ApiBase {
 
 		$exp = time() + $config['age'];
 
-		$token = array(
+		$token = [
 			'sub' => $user->getName(),
 			'iat' => time(),
 			'exp' => $exp,
-		);
+		];
 
 		$jwt = JWT::encode( $token, $key, $algorithm );
 
@@ -53,8 +53,8 @@ class ApiContentTranslationToken extends ApiBase {
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=cxtoken&token=123ABC' => 'apihelp-cxtoken-example-1'
-		);
+		];
 	}
 }

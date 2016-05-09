@@ -103,9 +103,9 @@ class CXManageLists extends Maintenance {
 	protected function getUntranslatedPages( $apiUrl, $category, $targetDomain ) {
 		$this->output( "Fetching pages from $category not present in $targetDomain ..." );
 
-		$pages = array();
+		$pages = [];
 
-		$params = array(
+		$params = [
 			'action' => 'query',
 			'format' => 'json',
 			'generator' => 'categorymembers',
@@ -117,7 +117,7 @@ class CXManageLists extends Maintenance {
 			'lllang' => $targetDomain,
 			'lllimit' => 500,
 			'continue' => '',
-		);
+		];
 
 		while ( true ) {
 			$url = $apiUrl . http_build_query( $params );
@@ -126,7 +126,7 @@ class CXManageLists extends Maintenance {
 
 			if ( !isset( $data['query'] ) ) {
 				$this->output( "\t[FAIL]\n" );
-				return array();
+				return [];
 			}
 
 			$pagesInCategory = $data['query']['pages'];
@@ -178,24 +178,24 @@ class CXManageLists extends Maintenance {
 			$displayName = $this->getOption( 'name' );
 		}
 		if ( $list === null ) {
-			$list = new SuggestionList( array(
+			$list = new SuggestionList( [
 				'type' => $type,
 				'name' => $displayName,
 				'public' => true,
-			) );
+			] );
 			$listId = $manager->insertList( $list );
 		} else {
 			$listId = $list->getId();
 		}
-		$suggestion = array();
+		$suggestion = [];
 
 		foreach ( $pages as $page ) {
-			$suggestions[] = new Suggestion( array(
+			$suggestions[] = new Suggestion( [
 				'listId' => $listId,
 				'title' => $page,
 				'sourceLanguage' => $sourceLanguage,
 				'targetLanguage' => $targetLanguage,
-			) );
+			] );
 		}
 
 		$manager->addSuggestions( $suggestions );
