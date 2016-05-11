@@ -516,6 +516,10 @@
 	 * @return {string}
 	 */
 	MTControlCard.prototype.getProviderTitle = function ( id ) {
+		var providerLabels = {
+			Yandex: 'Yandex.Translate'
+		};
+
 		if ( id === disableMT ) {
 			return mw.msg( 'cx-tools-mt-dont-use' );
 		} else if ( id === noMT ) {
@@ -524,7 +528,7 @@
 			// FIXME: message reuse
 			return mw.msg( 'cx-tools-mt-use-source' );
 		} else {
-			return mw.msg( 'cx-tools-mt-provider-title', id );
+			return mw.msg( 'cx-tools-mt-provider-title', providerLabels[ id ] || id );
 		}
 	};
 
