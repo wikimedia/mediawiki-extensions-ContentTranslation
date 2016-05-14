@@ -109,7 +109,7 @@
 	"cx-suggestionlist-favorite": "以后再说",
 	"cx-suggestionlist-title": "更多建议",
 	"cx-suggestionlist-empty-title": "现在没有建议",
-	"cx-suggestionlist-empty-desc": "我们没有找到任何建议。您可以稍后再看，或使用我们的推荐工具查找相关页面（实验性）。",
+	"cx-suggestionlist-empty-desc": "我们找不到建议。您可以稍后再看，或使用我们的推荐工具查找相关页面（实验性）。",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "查看建议（实验）",
 	"cx-suggestionlist-featured": "特色",
 	"cx-suggestionlist-view-source-page": "查看来源页面",
