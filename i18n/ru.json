@@ -213,6 +213,7 @@
 	"cx-notification-suggestions-available": "На основе {{GENDER:$2|вашего}} предыдущего перевода '''$1''' сейчас доступные новые предложения для вас.",
 	"cx-notification-suggestions-available-email-subject": "Доступны предложения по переводу",
 	"cx-tools-linter-title": "Проблемы с содержимым: $1",
+	"cx-tools-linter-content": "Обнаружено содержимое, не соответствующее [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ограничениям, установленным Википедией на $1]. Пожалуйста, исправьте ошибки перед публикацией перевода.",
 	"cx-tools-linter-view-details": "Просмотреть подробности",
 	"cx-tools-linter-hide-details": "Скрыть подробности",
 	"cx-translator-month-stats-label": "В этом месяце",

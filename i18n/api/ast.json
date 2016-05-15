@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "Códigu de la llingua d'orixe.",
 	"apihelp-cxpublish-param-to": "Códigu de la llingua de destín.",
 	"apihelp-cxpublish-param-sourcetitle": "Títulu de la páxina d'orixe.",
-	"apihelp-cxpublish-param-sourcerevision": "Revisión de la páxina d'orixe.",
-	"apihelp-cxpublish-param-status": "Si ye <kbd>draft</kbd>, la traducción guardaráse como borrador. Si ye <kbd>published</kbd>, la traducción publicaráse.",
-	"apihelp-cxpublish-param-progress": "Información tocante al progresu de traducción. Ye JSON coles claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de les claves son porcentaxes.",
 	"apihelp-cxpublish-param-categories": "Categoríes nes que poner la páxina publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (al guardar con una respuesta al captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respuesta al captcha (al guardar con una respuesta al captcha).",
@@ -75,5 +72,14 @@
 	"apihelp-cxsave-description": "Esti módulu permite guardar borradores de traducciones por sección p'aforrar anchor de banda y pa collechar córpora paralelos.",
 	"apihelp-cxsave-example-1": "Guardar les seiciones de fonte y traducción. El conteníu tien de ser una cadena codificada JSON",
 	"apihelp-cxsave-param-translationid": "L'ID de la traducción",
-	"apihelp-cxsave-param-content": "Datos de la seición codificaos en JSON. Cada seición ye un oxetu y tien les claves siguientes: content, sectionId, sequenceId, sequenceId, origin"
+	"apihelp-cxsave-param-content": "Datos de la seición codificaos en JSON. Cada seición ye un oxetu y tien les claves siguientes: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-query+cxtranslatorstats-description": "Llograr les estadístiques de traducción d'un usuariu determináu.",
+	"apihelp-query+cxtranslatorstats-param-translator": "El nome d'usuariu del traductor. Esti parámetru ye opcional. Si nun s'apurre, úsase l'usuariu conectáu anguaño.",
+	"apihelp-query+cxtranslatorstats-example-1": "Llograr les estadístiques de traducción d'un usuariu determináu.",
+	"apihelp-cxsave-param-sourcerevision": "Revisión de la páxina d'orixe.",
+	"apihelp-cxsave-param-progress": "Información tocante al progresu de traducción. Ye JSON coles claves <code>any</code>, <code>human</code>, <code>mt</code> y <code>mtSectionsCount</code>. Los valores de les claves son porcentaxes.",
+	"apihelp-cxsave-param-title": "Títulu de la páxina onde van facese les aiciones.",
+	"apihelp-cxsave-param-from": "Códigu de la llingua d'orixe.",
+	"apihelp-cxsave-param-to": "Códigu de la llingua de destín.",
+	"apihelp-cxsave-param-sourcetitle": "Títulu de la páxina d'orixe."
 }

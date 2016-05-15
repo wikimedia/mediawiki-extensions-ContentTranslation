@@ -5,7 +5,8 @@
 			"DCLXVI",
 			"Vodnokon4e",
 			"Amire80",
-			"Spiritia"
+			"Spiritia",
+			"Лорд Бъмбъри"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -21,7 +22,7 @@
 	"cx-header-new-translation": "Нов превод",
 	"cx-header-all-translations": "Всички преводи",
 	"cx-source-view-page": "Преглед на страницата",
-	"cx-publish-page-success": "Страницата е публикувана в $1",
+	"cx-publish-page-success": "Страницата е публикувана като $1",
 	"cx-publish-page-error": "Възникна грешка при съхраняването на страницата. Моля, опитайте публикуването на страницата отново. Грешка: $1",
 	"cx-publish-button": "Публикуване на превода",
 	"cx-publish-button-publishing": "Публикуване...",

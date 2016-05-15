@@ -4,7 +4,8 @@
 			"G1m",
 			"Gertakapllani",
 			"Kushtrim",
-			"Kosovastar"
+			"Kosovastar",
+			"Olsi"
 		]
 	},
 	"cx": "Përkthe faqen",
@@ -95,7 +96,7 @@
 	"cx-save-draft-save-success": "E ruajtur {{PLURAL:$1|para një minuti|$1 minuti më parë|0=tani}}",
 	"cx-save-draft-saving": "Duke ruajtur...",
 	"cx-save-draft-tooltip": "Draftet e përkthimeve ruhen automatikisht",
-	"cx-contributions-new-contributions": "Kontributë e re.",
+	"cx-contributions-new-contributions": "Kontributi i ri",
 	"cx-contributions-new-article": "Faqe e re",
 	"cx-contributions-translation": "Përkthimi",
 	"cx-contributions-upload": "Ngarkoni media",
@@ -109,7 +110,6 @@
 	"cx-translation-status-draft": "Në progres",
 	"cx-translation-status-published": "Publikuar!",
 	"cx-translation-status-deleted": "E Fshirë",
-	"cx-magnus-tool-link-text": "Gjeni faqet që mungojnë në gjuhën tuaj",
 	"cx-translation-already-in-progress": "Ky është një përkthim në vijim nga $1.",
 	"cx-translation-already-in-progress-collaborate": "Ju lutem kontaktoni me përdoruesin i cili e ka përkthyer versionin aktual.",
 	"cx-publishing-dialog-publish-draft-button": "Publiko si draft",
