@@ -20,6 +20,14 @@ use ContentTranslation\Database;
 use ContentTranslation\Translation;
 
 class CXCorporaDump extends Maintenance {
+	private static $sinkTypes = [
+		'file' => [ 'DumpFileOutput', '' ],
+		'gzip' => [ 'DumpGZipOutput', '.gz' ],
+		'bzip2' => [ 'DumpBZip2Output', '.bz2' ],
+		'dbzip2' => [ 'DumpDBZip2Output', '.bz2' ],
+		'7zip' => [ 'Dump7ZipOutput', '.7z' ],
+	];
+
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = 'Script to produce parallel corpora dumps from CX translations.';
@@ -46,6 +54,20 @@ class CXCorporaDump extends Maintenance {
 		);
 
 		$this->addOption(
+			'compression',
+			'(optional) Compression. Available formats gzip, bzip2, dbzip2, 7zip.',
+			false, /*required*/
+			true /*has arg*/
+		);
+
+		$this->addOption(
+			'outputdir',
+			'(optional) Location to place the file(s). Defaults to current working directory.',
+			false, /*required*/
+			true /*has arg*/
+		);
+
+		$this->addOption(
 			'split-at',
 			'(optional) If there are more than this published articles, also create split dumps.',
 			false, /*required*/
@@ -61,15 +83,38 @@ class CXCorporaDump extends Maintenance {
 		$this->tags = [];
 	}
 
+	private function getPath( $source, $target ) {
+		$path = $this->path;
+		$source = $source ?: '_';
+		$target = $target ?: '_';
+		$type = $this->type;
+		$format = $this->format;
+		$ext = self::$sinkTypes[$this->sinkType][1];
+
+		return "$path/cx-corpora.{$source}2{$target}.$type.$format$ext";
+	}
+
+	private function getSink( $path ) {
+		$class = self::$sinkTypes[$this->sinkType][0];
+		return new $class( $path );
+	}
+
 	public function execute() {
 		$sourceLanguage = $this->getOption( 'source-language', false );
 		$targetLanguage = $this->getOption( 'target-language', false );
-		$format = $this->getOption( 'format', 'json' );
 		$plain = $this->getOption( 'plaintext', false );
 		$split = $this->getOption( 'split-at', false );
-		$type = $plain ? 'text' : 'html';
 
-		$formatSpec = [ $format, $type ];
+		$this->format = $this->getOption( 'format', 'json' );
+		$this->type = $plain ? 'text' : 'html';
+		$this->path = $this->getOption( 'outputdir', '.' );
+		$this->sinkType = $this->getOption( 'compression', 'file' );
+
+		if ( !isset( self::$sinkTypes[ $this->sinkType ] ) ) {
+			$this->error( 'Unknown compression format given.', 1 );
+		}
+
+		$formatSpec = [ $this->format, $this->type ];
 
 		$limit = 999999999;
 		$offset = 0;
@@ -114,10 +159,8 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		if ( !$split ) {
-			$source = $sourceLanguage ?: '_';
-			$target = $targetLanguage ?: '_';
-			$filename = "cx-corpora.{$source}2{$target}.$type.$format";
-			$this->export( $formatSpec, $filename, $translations, $source );
+			$path = $this->getPath( $sourceLanguage, $targetLanguage );
+			$this->export( $formatSpec, $path, $translations, $sourceLanguage ?: '_' );
 
 			return;
 		}
@@ -129,8 +172,8 @@ class CXCorporaDump extends Maintenance {
 					continue;
 				}
 
-				$filename = "cx-corpora.{$sourceLanguage}2{$targetLanguage}.$type.$format";
-				$this->export( $formatSpec, $filename, $targets, $sourceLanguage );
+				$path = $this->getPath( $sourceLanguage, $targetLanguage );
+				$this->export( $formatSpec, $path, $targets, $sourceLanguage );
 				unset( $sorted[$targetLanguage][$sourceLanguage] );
 			}
 
@@ -147,15 +190,16 @@ class CXCorporaDump extends Maintenance {
 				continue;
 			}
 
-			$filename = "cx-corpora._2{$targetLanguage}.$type.$format";
-			$this->export( $formatSpec, $filename, $targets, '_' );
+			$path = $this->getPath( false, $targetLanguage );
+			$this->export( $formatSpec, $path, $targets, '_' );
 			unset( $sorted[$targetLanguage] );
 		}
 
 		if ( count( $sorted ) ) {
 			$targets = call_user_func_array( 'array_merge', $sorted );
-			$filename = "cx-corpora._2_.$type.$format";
-			$this->export( $formatSpec, $filename, $targets, '_' );
+
+			$path = $this->getPath( false, false );
+			$this->export( $formatSpec, $path, $targets, '_' );
 		}
 	}
 
@@ -179,7 +223,7 @@ class CXCorporaDump extends Maintenance {
 		return $sorted;
 	}
 
-	public function export( $formatSpec, $filename, array $targets, $sourceLanguage ) {
+	public function export( $formatSpec, $path, array $targets, $sourceLanguage ) {
 		$data = null;
 
 		list( $format, $type ) = $formatSpec;
@@ -193,8 +237,9 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		if ( $data ) {
-			file_put_contents( $filename, $data );
-			$this->output( "$filename\n" );
+			$sink = $this->getSink( $path );
+			$sink->write( $data );
+			$this->output( $sink->getFilenames() . "\n" );
 		}
 	}
 
