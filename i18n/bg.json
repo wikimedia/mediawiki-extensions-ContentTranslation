@@ -6,7 +6,8 @@
 			"Vodnokon4e",
 			"Amire80",
 			"Spiritia",
-			"Лорд Бъмбъри"
+			"Лорд Бъмбъри",
+			"Ket"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -132,7 +133,7 @@
 	"cx-translation-already-in-progress": "Това е текущ превод, започнат {{GENDER:$2|от}} $1",
 	"cx-translation-already-in-progress-collaborate": "Моля, координирайте се с {{GENDER:$1|потребителят, който е започнал|потребителката, която е започнала}} настоящия превод.",
 	"cx-publishing-dialog-publish-draft-button": "Публикуване като чернова",
-	"cx-feedback-link": "Предоставете ни своята обратна връзка",
+	"cx-feedback-link": "Дайте ваше мнение",
 	"cx-stats-published-translations-title": "Публикувани преводи",
 	"cx-stats-draft-translations-title": "Незавършени преводи",
 	"cx-stats-draft-translations-label": "Незавършени преводи",
