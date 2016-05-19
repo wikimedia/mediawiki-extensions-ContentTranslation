@@ -47,12 +47,16 @@ class ContentTranslationHooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
-		// Check if CX is available for current user.
+		// Load the new article campaign for VisualEditor if it's relevant.
+		// Done separately from loading the newarticle campaign for the
+		// wiki syntax editor because of the different actions with which
+		// the editing page is loaded.
 		if ( !self::isEnabledForUser( $user ) ) {
 			if (
 				!$title->exists() &&
 				$wgContentTranslationCampaigns['newarticle'] &&
 				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
+				$title->inNamespace( NS_MAIN ) &&
 				!$user->isAnon()
 			) {
 				$out->addModules( 'ext.cx.campaigns.newarticle.veloader' );
