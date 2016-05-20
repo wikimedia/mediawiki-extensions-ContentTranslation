@@ -32,6 +32,7 @@
 	"cx-beta": "د مېنځپانگې ژباړه",
 	"cx-beta-desc": "ستاسې په ژبه کې د مخونو د ژباړې چټک اوزار. د [[Special:MyContributions|خپلو ونډو]] له مخونو څخه مو ژباړې پيل کړئ او بيا يې د ژباړې لپاره زموږ د ځانگړي سکښتل شوي څنگ - په - څنگ سمونگر په مرسته سمونې ترسره کړئ. کېدای شي ځينې اوزارونه يوازې په ځينو ځانگړو ژبو کې وي.",
 	"cx-entrypoint-title": "دا مخ $1 ته ژباړل",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "په $1 کې  لا تر اوسه پورې دا مخ نشته. ايا {{GENDER:|تاسو}} غواړئ چې همدا جوړ کړئ؟",
 	"cx-entrypoint-dialog-title-in": "په $1 ژبه د نوي مخ سرليک:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "له پيل څخه ژباړل",
 	"cx-entrypoint-dialog-button-translate-from": "له $1 څخه ژباړل",
@@ -67,8 +68,8 @@
 	"cx-sourceselector-dialog-new-translation": "نوې ژباړه",
 	"cx-sourceselector-dialog-button-start-translation": "ژباړه پيلول",
 	"cx-sourceselector-dialog-button-cancel": "ناگارل",
-	"cx-sourceselector-dialog-source-language-label": "ور څخه:",
-	"cx-sourceselector-dialog-target-language-label": "ور ته:",
+	"cx-sourceselector-dialog-source-language-label": "له:",
+	"cx-sourceselector-dialog-target-language-label": "په:",
 	"cx-sourceselector-dialog-source-title-placeholder": "د سرچينې مخ لپاره پلټل",
 	"cx-sourceselector-dialog-target-title-placeholder": "د ژباړې سرليک",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "دا سرليک له پخوا څخه [$1 $2] [$3 يو بل مخ] لپاره کارېدلی",
@@ -170,5 +171,6 @@
 	"cx-suggestionlist-expand": "ټول کتل",
 	"cx-suggestionlist-collapse": "لږ کتل",
 	"cx-suggestionlist-refresh": "وړانديزونه بياتاندول",
+	"cx-translator-month-stats-label": "دا مياشت",
 	"cx-tools-mt-new-provider": "نوی"
 }
