@@ -276,8 +276,7 @@
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
 					return targetLanguageCodes.indexOf( n ) !== -1;
 				} );
-			},
-			compact: true
+			}
 		} );
 	};
 
@@ -778,8 +777,7 @@
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
 					return cxSourceSelector.sourceLanguages.indexOf( n ) !== -1;
 				} );
-			},
-			compact: true
+			}
 		} );
 
 		$sourceLanguageContainer = $( '<div>' )
