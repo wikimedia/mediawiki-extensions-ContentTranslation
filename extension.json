@@ -1060,6 +1060,7 @@
 			"dependencies": [
 				"ext.cx.widgets.callout",
 				"jquery.client",
+				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
 				"mediawiki.Uri",
 				"mediawiki.util"
