@@ -387,7 +387,6 @@
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
-				"jquery.uls.compact",
 				"mediawiki.storage",
 				"mediawiki.ui.button"
 			],
