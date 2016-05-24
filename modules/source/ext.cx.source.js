@@ -209,7 +209,7 @@
 
 	ContentTranslationSource.prototype.showLoadingIndicator = function () {
 		var $loadingIndicator,
-			$sourceTitle, userLanguage, $loadingIndicatorText,
+			$sourceTitle, userLanguage, $loadingIndicatorContent,
 			$loadingIndicatorSpinner;
 
 		$loadingIndicator = $( '<div>' )
@@ -223,21 +223,16 @@
 			.text( mw.cx.sourceTitle );
 
 		userLanguage = mw.config.get( 'wgUserLanguage' );
-		$loadingIndicatorText = $( '<div>' )
+		$loadingIndicatorContent = $( '<div>' )
 			.prop( {
 				lang: userLanguage,
 				dir: $.uls.data.getDir( userLanguage )
 			} )
 			.addClass( 'cx-column__loading-indicator--text' )
-			.text( mw.msg( 'cx-source-loading' ) );
-
-		// Escaping tricks
-		$loadingIndicatorText.html(
-			$loadingIndicatorText.html().replace( '$1', $sourceTitle.get( 0 ).outerHTML )
-		);
+			.append( mw.message( 'cx-source-loading', $sourceTitle ).parseDom() );
 
 		$loadingIndicatorSpinner = mw.cx.widgets.spinner();
-		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorText );
+		$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorContent );
 		this.$content.append( $loadingIndicator );
 	};
 
