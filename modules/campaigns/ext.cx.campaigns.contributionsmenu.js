@@ -34,10 +34,10 @@
 
 			$expansion = $( '<div>' )
 				.addClass( 'cx-campaign-contributionsmenu__expansion' )
-				.html( mw.msg(
+				.append( mw.message(
 					'cx-campaign-contributionsmenu-might-be-available',
-					$pageTitle[ 0 ].outerHTML
-				) );
+					$pageTitle
+				).parseDom() );
 
 			cxUrlParams.targettitle = mw.config.get( 'wgTitle' );
 		} else {
