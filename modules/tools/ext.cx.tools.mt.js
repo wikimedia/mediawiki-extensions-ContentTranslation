@@ -46,7 +46,7 @@
 
 		// (Re-)fetch cxserver token
 		cxserverToken.promise = ( new mw.Api() )
-			.postWithToken( 'edit', {
+			.postWithToken( 'csrf', {
 				action: 'cxtoken'
 			} )
 			.always( function () {

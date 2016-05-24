@@ -47,7 +47,7 @@
 		return this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
 			apiParams.title = self.targetTitle = title;
 
-			return new mw.Api().postWithToken( 'edit', apiParams, {
+			return new mw.Api().postWithToken( 'csrf', apiParams, {
 				// A bigger timeout since publishing after converting html to wikitext
 				// parsoid is not a fast operation.
 				timeout: 100 * 1000 // in milliseconds
