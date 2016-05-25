@@ -258,7 +258,7 @@
 			menuWidth: getUlsMenuWidth( targetLanguageCodes.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.targetLanguageChangeHandler( language );
-				cxSourceSelector.updatePreviousLanguages( language );
+				mw.uls.addPreviousLanguage( language );
 			},
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
@@ -759,7 +759,7 @@
 			menuWidth: getUlsMenuWidth( this.sourceLanguages.length ),
 			onSelect: function ( language ) {
 				cxSourceSelector.sourceLanguageChangeHandler( language );
-				cxSourceSelector.updatePreviousLanguages( language );
+				mw.uls.addPreviousLanguage( language );
 			},
 			onReady: function () {
 				this.$menu.addClass( 'cx-sourceselector-uls-source' );
@@ -882,22 +882,6 @@
 		$( 'body' ).append( this.$dialog );
 
 		this.prefill();
-	};
-
-	/**
-	 * Update the ULS previous language setting.
-	 *
-	 * @param {string} language A language code
-	 */
-	CXSourceSelector.prototype.updatePreviousLanguages = function ( language ) {
-		var previousLanguages = mw.uls.getPreviousLanguages();
-
-		if ( $.inArray( language, previousLanguages ) > -1 ) {
-			return;
-		}
-
-		previousLanguages.push( language );
-		mw.uls.setPreviousLanguages( previousLanguages );
 	};
 
 	mw.cx.CXSourceSelector = CXSourceSelector;

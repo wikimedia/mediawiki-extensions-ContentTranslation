@@ -384,6 +384,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.tools.validator",
 				"ext.cx.widgets.overlay",
+				"ext.uls.init",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
