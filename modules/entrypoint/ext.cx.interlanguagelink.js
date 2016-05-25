@@ -82,12 +82,14 @@
 		var from, $link, $item, autonym;
 
 		autonym = $.uls.data.getAutonym( code );
-		// TODO: This should be done more robustly.
 		// We can't use something like wgContentLanguage because this
 		// will fail for a wiki like simple.wikipedia.org, where
 		// the content language is the same as on en.wikipedia.org,
-		// as well as some other edge cases.
+		// as well as some other edge cases. But we use the known
+		// mappings to do backwards conversion for known problematic
+		// domains.
 		from = mw.config.get( 'wgServerName' ).split( '.' )[ 0 ];
+		from = mw.cx.siteMapper.getLanguageCodeForWikiDomain( from );
 
 		$link = $( '<a>' )
 			.prop( {
