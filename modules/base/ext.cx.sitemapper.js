@@ -32,6 +32,20 @@
 		return languageToWikiDomainMapping[ language ] || language;
 	};
 
+	mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain ) {
+		var code,
+			mapping = mw.config.get( 'wgContentTranslationDomainCodeMapping' );
+
+		$.each( mapping, function ( propertyName, valueOfProperty ) {
+			if ( domain === valueOfProperty ) {
+				code = propertyName;
+				return false;
+			}
+		} );
+
+		return code || domain;
+	};
+
 	/**
 	 * Get the API for a remote wiki.
 	 *

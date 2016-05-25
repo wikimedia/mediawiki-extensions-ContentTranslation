@@ -8,6 +8,10 @@
 
 	QUnit.module( 'ext.cx.sitemapper', QUnit.newMwEnvironment( {
 		setup: function () {
+			mw.config.set( 'wgContentTranslationDomainCodeMapping', {
+				nb: 'no'
+			} );
+
 			this.siteMapper = new mw.cx.SiteMapper( {
 				view: 'https://$1.wikipedia.org/wiki/$2',
 				api: 'https://$1.wikipedia.org/w/api.php',
@@ -15,6 +19,22 @@
 			} );
 		}
 	} ) );
+
+	QUnit.test( 'getLanguageCodeForWikiDomain', function ( assert ) {
+		QUnit.expect( 2 );
+
+		assert.strictEqual(
+			this.siteMapper.getLanguageCodeForWikiDomain( 'no' ),
+			'nb',
+			'no is mapped to nb'
+		);
+
+		assert.strictEqual(
+			this.siteMapper.getLanguageCodeForWikiDomain( 'fi' ),
+			'fi',
+			'fi stays fi'
+		);
+	} );
 
 	QUnit.test( 'getPageUrl', function ( assert ) {
 		QUnit.expect( 2 );
