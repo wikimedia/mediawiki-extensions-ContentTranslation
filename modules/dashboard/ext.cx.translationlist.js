@@ -541,7 +541,7 @@
 			sourcetitle: translation.sourceTitle
 		};
 
-		return new mw.Api().postWithToken( 'edit', apiParams );
+		return new mw.Api().postWithToken( 'csrf', apiParams );
 	};
 
 	CXTranslationList.prototype.applyFilters = function ( filters ) {
