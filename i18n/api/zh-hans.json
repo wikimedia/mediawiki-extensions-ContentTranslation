@@ -49,7 +49,7 @@
 	"apihelp-query+cxpublishedtranslations-param-limit": "检索翻译的最大数量。",
 	"apihelp-query+cxpublishedtranslations-example-1": "检索所有已发布译文",
 	"apihelp-query+cxpublishedtranslations-example-2": "检索所有翻译自英语的已发布译文",
-	"apihelp-query+cxpublishedtranslations-example-3": "检索所有从英语翻译至西班牙语的已发布译文",
+	"apihelp-query+cxpublishedtranslations-example-3": "检索所有从英语翻译至西班牙语的已发布翻译",
 	"apihelp-query+contenttranslationlangtrend-description": "查询指定时段内容翻译数据库的翻译数量。",
 	"apihelp-query+contenttranslationlangtrend-param-source": "源语言代码。",
 	"apihelp-query+contenttranslationlangtrend-param-target": "目标语言代码。",
