@@ -85,6 +85,11 @@
 			return $.Deferred().resolve();
 		}
 
+		// This is for backwards compatibility with old drafts. For example
+		// we have lots of drafts stored with language code "no".
+		from = mw.cx.siteMapper.getLanguageCodeForWikiDomain( from );
+		to = mw.cx.siteMapper.getLanguageCodeForWikiDomain( to );
+
 		// TODO: Refactor
 		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
 			$from: from,
@@ -148,8 +153,10 @@
 	function doMT( sourceLang, targetLang, sourceHtml ) {
 		// TODO: Refactor
 		var mtURL = mw.cx.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
-			$from: sourceLang,
-			$to: targetLang,
+			// This is for backwards compatibility with old drafts. For example
+			// we have lots of drafts stored with language code "no".
+			$from: mw.cx.siteMapper.getLanguageCodeForWikiDomain( sourceLang ),
+			$to: mw.cx.siteMapper.getLanguageCodeForWikiDomain( targetLang ),
 			$provider: MTControlCard.provider
 		} );
 
