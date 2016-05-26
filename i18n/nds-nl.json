@@ -84,6 +84,10 @@
 	"cx-mt-abuse-warning-title": "Joew vertaling besteet veur $1% uut niet-an-epasten masinevertalingen",
 	"cx-mt-abuse-warning-text": "Masinevertalingen bin allinnig bedoeld as n startpunt. Je mutten der zelf veur zörgen dat de inhoud klopt en op n natuurlike wieze in joew eigen taal te lezen is.",
 	"cx-publish-captcha-title": "Beveiligingsvrage",
+	"cx-dashboard-sidebar-title": "{{GENDER:|He'j}} hulpe neudig bie t vertalen?",
+	"cx-dashboard-sidebar-information": "Meer informasie over disse funksie",
+	"cx-dashboard-sidebar-stats": "Staotistieken",
+	"cx-dashboard-sidebar-feedback": "Kommentaar geven",
 	"cx-translation-filter-all-translations": "Alle vertalingen",
 	"cx-translation-filter-published-translations": "Uutebröchten vertalingen",
 	"cx-translation-filter-draft-translations": "Vertalingen in wörding",
@@ -107,7 +111,6 @@
 	"cx-translation-status-draft": "Wördt uutevoerd",
 	"cx-translation-status-published": "Uutebröcht!",
 	"cx-translation-status-deleted": "Vortedaon",
-	"cx-magnus-tool-link-text": "Vien artikels die ontbreken in joew eigen taal",
 	"cx-translation-already-in-progress": "Dit is n lopende vertaling van $1.",
 	"cx-translation-already-in-progress-collaborate": "Zörg derveur da'j joew bewarkingen aofstemmen mit de gebruker die disse vertaling ummezet hef.",
 	"cx-publishing-dialog-publish-draft-button": "Uutbrengen as konsept",
@@ -128,5 +131,7 @@
 	"cx-campaign-contributionsmenu-might-be-available": "$1 is misschien al beschikbaor in aandere talen",
 	"cx-campaign-contributionsmenu-myuploads": "Op-elaojen media",
 	"cx-trend-translations-to": "Vertalingen naor t $1",
-	"cx-stats-try-contenttranslation": "Inhoudsvertaling is n hulpmiddel um nieje ziejen an te maken deur vanuut aandere talen te vertalen. [$1 Inhoudsvertaling uutproberen]"
+	"cx-stats-try-contenttranslation": "Inhoudsvertaling is n hulpmiddel um nieje ziejen an te maken deur vanuut aandere talen te vertalen. [$1 Inhoudsvertaling uutproberen]",
+	"cx-translationlist-empty-title": "Niks te vertalen?",
+	"cx-translationlist-empty-desc": "{{GENDER:|Begin}} noen mit vertalen en gao op elk moment veerder."
 }
