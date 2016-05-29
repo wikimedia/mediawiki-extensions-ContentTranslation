@@ -131,8 +131,8 @@
 	"cx-translation-status-draft": "Đang tiến hành",
 	"cx-translation-status-published": "Đã xuất bản",
 	"cx-translation-status-deleted": "Đã xóa",
-	"cx-translation-already-in-progress": "Trang này đang được $1 biên dịch.",
-	"cx-translation-already-in-progress-collaborate": "Xin vui lòng hợp tác với người dùng đã tạo ra bản dịch hiện tại.",
+	"cx-translation-already-in-progress": "Trang này đang được {{GENDER:$2}}$1 biên dịch.",
+	"cx-translation-already-in-progress-collaborate": "Xin vui lòng hợp tác với {{GENDER:$1}}người dùng đã tạo ra bản dịch hiện tại.",
 	"cx-publishing-dialog-publish-draft-button": "Xuất bản bản nháp",
 	"cx-feedback-link": "Gửi phản hồi",
 	"cx-stats-published-translations-title": "Bản dịch đã xuất bản",
@@ -209,5 +209,6 @@
 	"cx-translator-total-translations-label": "Tổng cộng",
 	"cx-page-old-revision-loaded": "Bản dịch này dựa trên một phiên bản cũ hơn của nội dung. Trang gốc có thể đã [$1 thay đổi đáng kể]. Bạn có thể dịch tiếp dùng bản dịch này hoặc bắt đầu lại để sử dụng nội dung được cập nhật.",
 	"cx-tools-mt-new-provider": "mới",
-	"cx-tools-mt-new-providers-available": "có tùy chọn mới"
+	"cx-tools-mt-new-providers-available": "có tùy chọn mới",
+	"cx-continue-translation": "Dịch tiếp"
 }
