@@ -179,6 +179,11 @@
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
 		var langProps, currentSource;
 
+		// Do not allow selection of invalid source languages under any circumstances
+		if ( !this.isValidSource( language ) ) {
+			return;
+		}
+
 		// Don't let the same languages be selected as source and target.
 		// Instead, do what the user probably means: either swap them if
 		// it's valid, or pick the first of the common languages in ULS.
@@ -226,6 +231,10 @@
 			lang: language,
 			dir: $.uls.data.getDir( language )
 		};
+
+		if ( !this.isValidTarget( language ) ) {
+			return;
+		}
 
 		this.$targetTitleInput.prop( langProps );
 		this.$targetLanguage.prop( langProps )
@@ -700,7 +709,7 @@
 		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
 		sourceLanguage = storedSourceLanguage;
 
-		if ( !sourceLanguage ) {
+		if ( !this.isValidSource( sourceLanguage ) ) {
 			commonSourceLanguages = this.$sourceLanguage.data( 'uls' ).options.quickList();
 
 			for ( i = 0; i < commonSourceLanguages.length; i++ ) {
@@ -715,7 +724,7 @@
 		}
 
 		// Still couldn't find a valid source language?
-		if ( !sourceLanguage ) {
+		if ( !this.isValidSource( sourceLanguage ) ) {
 			sourceLanguage = mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
 		}
 
