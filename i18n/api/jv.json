@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"apihelp-cxpublish-description": "Simpen kaca sing digawé sarana jabungan Pertalan Isi.",
+	"apihelp-cxpublish-param-title": "Sesirahing kaca sing arep digarap.",
+	"apihelp-cxpublish-param-html": "Isi sing arep disimpen.",
+	"apihelp-cxpublish-param-from": "Kodhé basa sumber.",
+	"apihelp-cxpublish-param-to": "Kodhé basa tujuan.",
+	"apihelp-cxpublish-param-sourcetitle": "Sesirahing kaca sumber",
+	"apihelp-cxpublish-param-categories": "Kategori kanggo ndèkèk kaca sing wis terbit",
+	"apihelp-query+contenttranslation-param-from": "Kodhé basa sumber.",
+	"apihelp-query+contenttranslation-param-to": "Kodhé basa tujuan.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Sesirahing kaca sumber.",
+	"apihelp-cxconfiguration-param-from": "Kodhé basa sumber.",
+	"apihelp-cxconfiguration-param-to": "Kodhé basa tujuan.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Kodhé basa sumber.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Kodhé basa tujuan."
+}
