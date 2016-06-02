@@ -146,9 +146,13 @@
 	"cx-tools-missing-link-title": "פעלנדיקער לינק",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|מארקירן}} ווי פעלנדיק",
 	"echo-category-title-cx": "איבערזעצונגען",
+	"cx-notification-first-translation": "מזל טוב צו אייער ערשטער איבערזעצונג! קאנטראלירט אייערע ביישטייערונגען און טרעפט נאך בלעטער איבערצוזעצן.",
 	"cx-notification-first-translation-email-subject": "מזל טוב צו דער ערשטער איבערזעצונג",
 	"cx-notification-tenth-translation-email-subject": "מזל טוב צו דער צענטער איבערזעצונג",
+	"cx-notification-hundredth-translation": "איר האט שוין געמאכט 100 איבערזעצונגען! דאס איז א מערקווירדיקער אויפֿטו. טיילט אייער נייעס מיט אנדערע רעדאקטירער.",
 	"cx-notification-hundredth-translation-email-subject": "מזל טוב צו דער הונדערטער איבערזעצונג",
+	"cx-contributions-link": "אייערע בײשטײערונגען",
+	"cx-your-translations-link": "{{GENDER:$1|אייערע איבערזעצונגען}}",
 	"cx-translationlist-empty-title": "נישטא וואס איבערצוזעצן?",
 	"cx-tools-link-internal-link": "לינק צו בלאט",
 	"cx-tools-link-internal-link-placeholder": "טרעפן בלאט צו פארלינקען",
@@ -159,5 +163,9 @@
 	"mw-pageselector-missing": "בלאט עקזיסטירט נישט",
 	"cx-draft-restoring": "אנלאדן די אויפֿגעהיטענע איבערזעצונג…",
 	"cx-suggestionlist-expand": "באקוקן אלע",
-	"cx-suggestionlist-collapse": "ווײַזן ווינציקער"
+	"cx-suggestionlist-collapse": "ווײַזן ווינציקער",
+	"cx-translator-total-translations-label": "סה\"כ",
+	"cx-tools-mt-new-provider": "נײַ",
+	"cx-tools-mt-new-providers-available": "מיט נייע אפציעס",
+	"cx-continue-translation": "פארטזעצן איבערזעצונג"
 }

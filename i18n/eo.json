@@ -194,8 +194,10 @@
 	"cx-suggestionlist-expand": "Montri ĉiujn",
 	"cx-suggestionlist-collapse": "Montri malpli",
 	"cx-suggestionlist-refresh": "Aktualigi proponojn",
+	"cx-tools-linter-title": "Problemoj kun la enhavo: $1",
 	"cx-tools-linter-view-details": "Montri detalojn",
 	"cx-tools-linter-hide-details": "Kaŝi detalojn",
+	"cx-translator-month-stats-label": "Ĉi tiu monato",
 	"cx-translator-total-translations-label": "Sumo",
 	"cx-tools-mt-new-provider": "nova"
 }
