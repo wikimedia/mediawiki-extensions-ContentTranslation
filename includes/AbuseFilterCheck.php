@@ -110,6 +110,8 @@ class AbuseFilterCheck {
 	 * @return array
 	 */
 	protected function getResults( \AbuseFilterVariableHolder $vars ) {
+		static $seriousActions = [ 'warn', 'block', 'disallow', 'degroup' ];
+
 		$filters = \AbuseFilter::checkAllFilters( $vars );
 		$filters = array_keys( array_filter( $filters ) );
 		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
@@ -117,6 +119,12 @@ class AbuseFilterCheck {
 		$results = [];
 		foreach ( $actions as $key => $val ) {
 			$rulename = \AbuseFilter::$filters[$key]->af_public_comments;
+
+			// No point alerting the user about non-serious actions. T136596
+			$actionsForRule = array_keys( $val );
+			if ( array_intersect( $seriousActions, $actionsForRule ) === [] ) {
+				continue;
+			}
 
 			if ( isset( $val['warn']['parameters'][0] ) ) {
 				$val['warn']['messageHtml'] =
