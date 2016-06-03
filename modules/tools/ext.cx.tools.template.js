@@ -54,6 +54,8 @@
 				$fragment.attr( 'data-mw' )
 			) {
 				templateData = $fragment.data( 'mw' );
+				// Exit.
+				return false;
 			}
 		} );
 
@@ -111,8 +113,10 @@
 	 * Adapt the template name to the equivalent in the target wiki
 	 */
 	TemplateTool.prototype.adaptTitle = function ( targetTitle ) {
-		// Update the name of the template
-		this.templateData.parts[ 0 ].template.target.wt = targetTitle;
+		var templateName;
+		// Update the name of the template. We need template name without namespace
+		templateName = targetTitle.split( ':' )[ 1 ] || targetTitle;
+		this.templateData.parts[ 0 ].template.target.wt = templateName;
 		this.$template.attr( 'data-mw', JSON.stringify( this.templateData ) );
 	};
 
