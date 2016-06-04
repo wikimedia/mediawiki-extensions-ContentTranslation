@@ -95,6 +95,7 @@
 	"cx-stats-local-published": "$2 de $1 ($3)",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 açarnayış|$1 açarnayışi}}",
 	"echo-category-title-cx": "Çarnayişi",
+	"cx-your-translations-link": "{{GENDER:$1|Açarnayışê şıma}}",
 	"cx-translationlist-empty-title": "Theba çıniyo açerneyo?",
 	"cx-tools-link-external-link": "Grey teberi",
 	"cx-tools-link-to-another-page": "Juna pela rê gre bıde",
