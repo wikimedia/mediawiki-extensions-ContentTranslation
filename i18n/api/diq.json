@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kumkumuk"
+		]
+	},
+	"apihelp-cxpublish-description": "Derganiya Zerrek Açarnayoğinya vıraşte yu peler qeyd ke",
+	"apihelp-cxpublish-param-title": "Sernamey timar kerdışa peler",
+	"apihelp-cxpublish-param-html": "Qeyd kerden Zerrek",
+	"apihelp-cxpublish-param-from": "Çıme qodê zıwani",
+	"apihelp-cxpublish-param-to": "Hedef Çımey zıwani",
+	"apihelp-cxpublish-param-sourcetitle": "Sernameu pelada çımi",
+	"apihelp-cxpublish-param-categories": "Kategoriya ke debiy çapkerdena pela"
+}
