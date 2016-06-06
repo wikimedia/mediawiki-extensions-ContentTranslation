@@ -11,7 +11,7 @@
 	'use strict';
 
 	var targetTemplateNamespace = {},
-		cachedTemplates = {};
+		cachedTemplateRequests = {};
 
 	/**
 	 * TemplateTool encapsulates the handling of templates in translation.
@@ -72,7 +72,7 @@
 	 */
 	function getTemplateNamespaceTranslation( language ) {
 		if ( targetTemplateNamespace[ language ] ) {
-			return $.Deferred().resolve( targetTemplateNamespace[ language ] );
+			return $.Deferred().resolve( targetTemplateNamespace[ language ] ).promise();
 		}
 
 		// TODO: Refactor to avoid global reference
@@ -185,8 +185,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	TemplateTool.prototype.process = function () {
-		var templateTool = this,
-			deferred = $.Deferred();
+		var self = this;
 
 		this.templateData = this.getTemplateData();
 		this.templateMapping = this.getTemplateMapping();
@@ -197,29 +196,25 @@
 			// An example: {{Version |o |1.1}}{{efn-ua |Due to an incident ...<ref name="releases" />}}
 			// in enwiki:Debian, Timeline table.
 			mw.log( '[CX] Skipping template. Missing template data.' );
-			return;
+			return $.Deferred().resolve().promise();
 		}
 
 		this.templateTitle = this.templateData.parts[ 0 ].template.target.wt;
 
-		this.getTargetTemplate()
-			.done( function ( targetTitleData ) {
-				var pageId = Object.keys( targetTitleData.pages )[ 0 ];
-
-				templateTool.markReadOnly();
-				if ( templateTool.templateMapping ) {
-					templateTool.adapt();
+		return this.getTargetTemplate()
+			.then( function ( targetTitle ) {
+				self.markReadOnly();
+				if ( self.templateMapping ) {
+					self.adapt();
+				} else if ( targetTitle ) {
+					self.adaptTitle( targetTitle );
 				} else {
-					templateTool.adaptTitle( targetTitleData.pages[ pageId ].title );
+					self.deconstruct();
 				}
-				deferred.resolve();
 			} )
 			.fail( function () {
-				templateTool.deconstruct();
-				deferred.resolve();
+				self.deconstruct();
 			} );
-
-		return deferred.promise();
 	};
 
 	/**
@@ -233,17 +228,19 @@
 		var api, request,
 			cacheKey = mw.cx.targetLanguage + ':' + this.templateTitle;
 
-		if ( cachedTemplates[ cacheKey ] ) {
-			return cachedTemplates[ cacheKey ].promise();
+		if ( cachedTemplateRequests[ cacheKey ] ) {
+			return cachedTemplateRequests[ cacheKey ];
 		}
 
 		// TODO: Avoid direct access to globals
-		api = mw.cx.siteMapper.getApi( mw.cx.targetLanguage );
+		api = mw.cx.siteMapper.getApi( mw.cx.sourceLanguage );
 
 		// Note that we use canonical namespace 'Template' for title.
 		request = api.get( {
 			action: 'query',
 			titles: 'Template:' + this.templateTitle,
+			prop: 'langlinks',
+			lllang: mw.cx.siteMapper.getWikiDomainCode( mw.cx.targetLanguage ),
 			redirects: true,
 			format: 'json'
 		}, {
@@ -251,17 +248,17 @@
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} ).then( function ( response ) {
-			var pageId = Object.keys( response.query.pages )[ 0 ];
-
-			if ( pageId === '-1' ) {
-				return $.Deferred().reject().promise();
+			var page,
+				pageId = Object.keys( response.query.pages )[ 0 ];
+			page = response.query.pages[ pageId ];
+			if ( page && page.langlinks ) {
+				return page.langlinks[ 0 ][ '*' ];
 			}
-			return response.query;
 		} );
 
-		cachedTemplates[ cacheKey ] = request;
+		cachedTemplateRequests[ cacheKey ] = request;
 
-		return request.promise();
+		return request;
 	};
 
 	/**
