@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"apihelp-query+contenttranslation-example-2": "Obténer los borrolhons de traduccion per id.",
+	"apihelp-query+cxpublishedtranslations-description": "Recuperar las informacions sus las traduccions publicadas",
+	"apihelp-query+cxpublishedtranslations-example-1": "Recuperar totas las traduccions publicadas"
+}
