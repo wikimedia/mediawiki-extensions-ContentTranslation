@@ -254,6 +254,7 @@
 		// Delete the old target ULS
 		$( '.' + targetUlsClass ).remove();
 		this.$targetLanguage.data( 'uls', null );
+		this.$targetLanguage.off( 'click' );
 
 		// Don't let the target be the same as source
 		sourceLanguage = this.getSourceLanguage();
