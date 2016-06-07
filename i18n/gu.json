@@ -127,7 +127,7 @@
 	"cx-translation-status-draft": "પ્રગતિ પર",
 	"cx-translation-status-published": "પ્રકાશિત",
 	"cx-translation-status-deleted": "દૂર કરેલ",
-	"cx-translation-already-in-progress": "$1 {{GENDER:$2દ્વારા}} આ પાનાંનું ભાષાંતર ચાલુ છે.",
+	"cx-translation-already-in-progress": "$1 {{GENDER:$2|દ્વારા}} આ પાનાંનું ભાષાંતર ચાલુ છે.",
 	"cx-translation-already-in-progress-collaborate": "મહેરબાની કરીને હાલમાં આ પાનાંનું ભાષાંતર કરી રહેલ {{GENDER:$1|સભ્ય}} સાથે સંકલન કરો.",
 	"cx-publishing-dialog-publish-draft-button": "મુસદા તરીકે પ્રકાશિત કરો",
 	"cx-feedback-link": "પ્રતિભાવ આપો",
