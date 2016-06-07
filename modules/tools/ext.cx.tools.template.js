@@ -10,7 +10,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var cachedTemplates = {};
+	var targetTemplateNamespace = {},
+		cachedTemplates = {};
 
 	/**
 	 * TemplateTool encapsulates the handling of templates in translation.
@@ -63,6 +64,41 @@
 	};
 
 	/**
+	 * Get the namespace translation in a wiki.
+	 * Uses the canonical name for lookup.
+	 *
+	 * @param {string} language
+	 * @return {jQuery.Promise}
+	 */
+	function getTemplateNamespaceTranslation( language ) {
+		if ( targetTemplateNamespace[ language ] ) {
+			return $.Deferred().resolve( targetTemplateNamespace[ language ] );
+		}
+
+		// TODO: Refactor to avoid global reference
+		return mw.cx.siteMapper.getApi( language ).get( {
+			action: 'query',
+			meta: 'siteinfo',
+			siprop: 'namespaces',
+			format: 'json'
+		}, {
+			dataType: 'jsonp',
+			// This prevents warnings about the unrecognized parameter "_"
+			cache: true
+		} ).then( function ( response ) {
+			var namespaceId, namespaceObj;
+
+			for ( namespaceId in response.query.namespaces ) {
+				namespaceObj = response.query.namespaces[ namespaceId ];
+				if ( namespaceObj.canonical === 'Template' ) {
+					targetTemplateNamespace[ language ] = namespaceObj[ '*' ];
+					return targetTemplateNamespace[ language ];
+				}
+			}
+		} );
+	}
+
+	/**
 	 * Get the template mapping if any set by source.filter module
 	 */
 	TemplateTool.prototype.getTemplateMapping = function () {
@@ -113,11 +149,19 @@
 	 * Adapt the template name to the equivalent in the target wiki
 	 */
 	TemplateTool.prototype.adaptTitle = function ( targetTitle ) {
-		var templateName;
+		var self = this;
 		// Update the name of the template. We need template name without namespace
-		templateName = targetTitle.split( ':' )[ 1 ] || targetTitle;
-		this.templateData.parts[ 0 ].template.target.wt = templateName;
-		this.$template.attr( 'data-mw', JSON.stringify( this.templateData ) );
+		getTemplateNamespaceTranslation( mw.cx.targetLanguage )
+			.done( function ( translatedNamespace ) {
+				var templateName;
+
+				templateName = targetTitle.replace(
+					new RegExp( '^' + mw.RegExp.escape( translatedNamespace + ':' ) ),
+					''
+				);
+				self.templateData.parts[ 0 ].template.target.wt = templateName;
+				self.$template.attr( 'data-mw', JSON.stringify( self.templateData ) );
+			} );
 	};
 
 	/**

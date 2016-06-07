@@ -668,6 +668,9 @@
 		"ext.cx.tools.template": {
 			"scripts": [
 				"tools/ext.cx.tools.template.js"
+			],
+			"dependencies": [
+				"mediawiki.RegExp"
 			]
 		},
 		"ext.cx.tools.images": {
