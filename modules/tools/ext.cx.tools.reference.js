@@ -162,9 +162,9 @@
 		}
 		// There can be multiple reference lists grouped for notes and references
 		// For example see enwiki:Hydrogen
-		$referenceLists = $( '[typeof*="mw:Extension/references"]' );
+		$referenceLists = $( '[typeof~="mw:Extension/references"]' );
 
-		if ( !$( '.cx-column--translation [typeof*="mw:Extension/references"]' ).length ) {
+		if ( !$( '.cx-column--translation [typeof~="mw:Extension/references"]' ).length ) {
 			// Target reference list not added yet.
 			$referenceLists.each( function ( key, referenceList ) {
 				var $referenceList = $( referenceList );
@@ -244,7 +244,7 @@
 		var $sourceReference;
 
 		$sourceReference = $( document.getElementById( referenceId ) );
-		if ( !$sourceReference.is( '[typeof*="mw:Extension/ref"]' ) ) {
+		if ( !$sourceReference.is( '[typeof~="mw:Extension/ref"]' ) ) {
 			mw.log( '[CX] Possible exploitation attempt via references. Reference ignored.' );
 			return null;
 		}
@@ -301,7 +301,7 @@
 				</li>
 			</li>
 			*/
-			$referenceContent = $( '[typeof*="mw:Extension/references"]' )
+			$referenceContent = $( '[typeof~="mw:Extension/references"]' )
 				.find( 'a[href="#' + referenceId + '"]' )
 				.closest( 'li' )
 				.find( '.mw-reference-text' );
@@ -333,7 +333,7 @@
 	function processReferences( $section ) {
 		var $sourceSection, referenceAdaptor, isRestoredFromDraft, $referenceLists;
 
-		$referenceLists = $( '[typeof*="mw:Extension/references"]' );
+		$referenceLists = $( '[typeof~="mw:Extension/references"]' );
 		if ( !$referenceLists.length ) {
 			// No reference list! There can be multiple reasons for this.
 			// (a) Reference list section uses a template that we cannot adapt & filtered out from source.
@@ -342,14 +342,14 @@
 			// translation, parsoid will fail causing a publishing failure. That is serious issue and
 			// we work around it by removing all references.
 			mw.log( '[CX] References list not found in source article. References will be removed' );
-			$section.find( '[typeof*="mw:Extension/ref"]' ).remove();
+			$section.find( '[typeof~="mw:Extension/ref"]' ).remove();
 			return;
 		}
 
 		isRestoredFromDraft = $section.data( 'cx-draft' ) === true;
 
 		referenceAdaptor = new ReferenceCard();
-		$section.find( '[typeof*="mw:Extension/ref"]' ).each( function () {
+		$section.find( '[typeof~="mw:Extension/ref"]' ).each( function () {
 			var $reference = $( this ),
 				referenceId;
 
@@ -369,7 +369,7 @@
 			referenceAdaptor.adaptReference( referenceId );
 		} );
 
-		if ( !isRestoredFromDraft && $section.is( '[typeof="mw:Extension/references"]' ) ) {
+		if ( !isRestoredFromDraft && $section.is( '[typeof~="mw:Extension/references"]' ) ) {
 			// It is references listing. Copy data-mw that we strip before MT.
 			// See https://phabricator.wikimedia.org/T75121 and
 			// https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Ref_and_References
