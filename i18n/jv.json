@@ -35,7 +35,7 @@
 	"cx-publish-gt-published-description": "Sampéyan bisa mencèt \"{{int:vector-view-edit}}\" murih panggah mbecikaké kaca. Pesthèkaké pertalan sampéyan kawaca kanthi alami.",
 	"cx-translation-add-translation": "+ Tambah pertalan",
 	"cx-translation-target-page-exists": "Kaca mawa sesirah [$1 $2] wis ana ing wiki tujuan. Jajal timbang-timbanga nganggo sesirah sing béda tumrap kaca iki.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|PertalanIsi]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Pertalan Isi]]",
 	"tag-contenttranslation-description": "Isi kaca iki dipertal saka basa liya sarana piranti Pertalan Isi.",
 	"cx-source-loading": "Ngamot $1",
 	"cx-beta": "Pertalan Isi",
