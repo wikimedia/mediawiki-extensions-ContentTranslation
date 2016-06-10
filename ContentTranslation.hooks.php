@@ -265,6 +265,7 @@ class ContentTranslationHooks {
 		$notifications['cx-first-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
+			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-first-translation',
 			'email-subject-message' => 'cx-notification-first-translation-email-subject',
@@ -273,6 +274,7 @@ class ContentTranslationHooks {
 		$notifications['cx-tenth-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
+			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-tenth-translation',
 			'email-subject-message' => 'cx-notification-tenth-translation-email-subject',
@@ -281,6 +283,7 @@ class ContentTranslationHooks {
 		$notifications['cx-hundredth-translation'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
+			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-hundredth-translation',
 			'email-subject-message' => 'cx-notification-hundredth-translation-email-subject',
@@ -289,6 +292,7 @@ class ContentTranslationHooks {
 		$notifications['cx-suggestions-available'] = array(
 			'category' => 'cx',
 			'group' => 'positive',
+			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 			'title-message' => 'cx-notification-suggestions-available',
 			'email-subject-message' => 'cx-notification-suggestions-available-email-subject',
