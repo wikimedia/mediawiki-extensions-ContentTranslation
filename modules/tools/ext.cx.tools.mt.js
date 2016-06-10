@@ -279,14 +279,14 @@
 							'data-cx-mt-provider': MTControlCard.provider
 						} )
 					);
-					// $section was replaced. Get the updated instance.
-					$section = mw.cx.getTranslationSection( sourceId );
 				}
 			} )
 			.fail( function ( reason ) {
 				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, reason );
 			} )
 			.always( function () {
+				// $section was replaced. Get the updated instance.
+				$section = mw.cx.getTranslationSection( sourceId );
 				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
 			} );
 
