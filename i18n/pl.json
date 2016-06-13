@@ -16,7 +16,8 @@
 			"Lantuszka",
 			"The Polish",
 			"Expert3222",
-			"Mateon1"
+			"Mateon1",
+			"Matma Rex"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -75,7 +76,7 @@
 	"cx-tools-mt-title": "Tłumaczenie automatyczne",
 	"cx-tools-mt-use-source": "Użyj tekstu źródłowego",
 	"cx-tools-mt-clear-translation": "Wyczyść akapit",
-	"cx-tools-mt-restore": "Odtwórz",
+	"cx-tools-mt-restore": "Przywróć",
 	"cx-tools-mt-provider-title": "Użyj $1",
 	"cx-tools-mt-not-available": "Tłumaczenie maszynowe na $1 niedostępne",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
