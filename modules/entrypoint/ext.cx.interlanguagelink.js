@@ -131,6 +131,8 @@
 		mw.loader.using( dependencies, function () {
 			var cxEntryPointDialogLeft,
 				cxEntryPointDialogOffset = 5,
+				count = 0,
+				maxListSize = 3,
 				$contentText = $( '#mw-content-text' ),
 				contentTextLeft = $contentText.offset().left;
 
@@ -150,6 +152,10 @@
 						left: cxEntryPointDialogLeft,
 						entryPointName: campaign
 					} );
+					count++;
+					if ( count === maxListSize ) {
+						return false;
+					}
 				}
 			} );
 		} );
