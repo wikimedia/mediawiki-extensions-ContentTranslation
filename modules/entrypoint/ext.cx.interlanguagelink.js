@@ -115,10 +115,10 @@
 		return $item;
 	}
 
-	function prepareCXInterLanguageLinks( availableTargetLanguages ) {
+	function prepareCXInterLanguageLinks() {
 		var $newItem, $pLangList, dependencies, suggestedTargetLanguages;
 
-		suggestedTargetLanguages = getSuggestedTargetLanguages( availableTargetLanguages );
+		suggestedTargetLanguages = getSuggestedTargetLanguages();
 
 		if ( !suggestedTargetLanguages.length ) {
 			return;
