@@ -351,6 +351,7 @@ class ContentTranslationHooks {
 		$modules['qunit']['ext.cx.publish.test'] = [
 			'scripts' => [
 				'tests/qunit/publish/ext.cx.publish.test.js',
+				'tests/qunit/publish/ext.cx.publish.prepare.test.js',
 			],
 			'dependencies' => [
 				'ext.cx.publish',

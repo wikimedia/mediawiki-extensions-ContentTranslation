@@ -335,7 +335,7 @@
 		$content.find( 'link, title, .placeholder' ).remove();
 
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
-			var attributesToRemove, $section = $( this );
+			var attributesToRemove, classesToRemove, $section = $( this );
 
 			// Firefox inserts <br type="_moz"> in contenteditables while clearing the content
 			// to keep the height and caret. https://bugzilla.mozilla.org/show_bug.cgi?id=414223
@@ -370,15 +370,24 @@
 
 			// Remove attributes added by CX
 			attributesToRemove = [ 'data-cx-weight', 'data-cx-mt-provider', 'data-cx-state',
-				'data-source', 'data-seqid', 'data-cx-draft', 'contenteditable'
-			];
+				'data-source', 'data-sourceid', 'data-linkid', 'data-seqid', 'data-cx-draft', 'contenteditable'
+			].join( ' ' );
+			// Remove classes added by CX
+			classesToRemove = [ 'cx-link', 'cx-target-link', 'cx-source-link', 'cx-highlight' ]
+				.join( ' ' );
 			// removeAttr takes a space-separated list of attributes to remove.
-			$section.removeAttr( attributesToRemove.join( ' ' ) );
+			$section.removeAttr( attributesToRemove )
+				.removeClass( classesToRemove )
+				.find( '*' )
+				.removeAttr( attributesToRemove )
+				.removeClass( classesToRemove );
 
 			// Remove identifiers added by CX
 			if ( $section.prop( 'id' ).indexOf( 'cx' ) === 0 ) {
 				$section.removeAttr( 'id' );
 			}
+			// Remove the min-height set by section alignment feature.
+			$section.css( 'min-height', '' );
 		} );
 
 		return $content.html();
