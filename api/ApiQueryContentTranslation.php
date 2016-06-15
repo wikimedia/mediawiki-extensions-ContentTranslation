@@ -40,16 +40,16 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$result = $this->getResult();
 		$user = $this->getUser();
 
-		if ( $user->isAnon() ) {
-			$this->dieUsage( 'To view your translations, you must log in', 'notloggedin' );
-		}
-
 		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
 			return $this->find(
 				$params['sourcetitle'],
 				$params['from'],
 				$params['to']
 			);
+		}
+
+		if ( $user->isAnon() ) {
+			$this->dieUsage( 'To view your translations, you must log in', 'notloggedin' );
 		}
 
 		if ( $params['translationid'] ) {
