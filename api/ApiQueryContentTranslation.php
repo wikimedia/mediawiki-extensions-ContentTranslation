@@ -83,7 +83,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// We will have extra continue in case the last batch is exactly the size of the limit
 		$count = count( $translations );
 		if ( $count === $params['limit'] ) {
-			$offset = $translations[$count - 1]->translation['lastUpdateTimeStamp'];
+			$offset = $translations[$count - 1]->translation['lastUpdateTimestamp'];
 			$this->setContinueEnumParameter( 'offset', $offset );
 		}
 
