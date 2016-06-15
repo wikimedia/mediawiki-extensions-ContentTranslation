@@ -21,7 +21,8 @@
 			"Idh0854",
 			"Mooozi",
 			"HDNua",
-			"Ykhwong"
+			"Ykhwong",
+			"Ellif"
 		]
 	},
 	"cx": "문서 번역",
@@ -144,8 +145,8 @@
 	"cx-translation-status-draft": "진행 중",
 	"cx-translation-status-published": "게시됨",
 	"cx-translation-status-deleted": "삭제됨",
-	"cx-translation-already-in-progress": "$1 사용자가 진행 중인 번역입니다.",
-	"cx-translation-already-in-progress-collaborate": "현재판의 번역자와 꼭 합의를 보도록 하세요.",
+	"cx-translation-already-in-progress": "$1 {{GENDER:$2|사용자}}가 진행 중인 번역입니다.",
+	"cx-translation-already-in-progress-collaborate": "현재판의 {{GENDER:$1|번역자}}와 협조하도록 해 주세요.",
 	"cx-publishing-dialog-publish-draft-button": "초안으로 게시",
 	"cx-feedback-link": "피드백 제공",
 	"cx-stats-published-translations-title": "게시된 번역",
