@@ -696,9 +696,26 @@
 	 * Assmes cache.linkPairs are already populated.
 	 */
 	CXTargetLink.prototype.adapt = function () {
-		var title = this.getTitle();
+		var targetHref,
+			title = this.getTitle();
+
+		// The href value of the links should be relative URLs.
+		// We had made the URLs absolute in source link to support opening in new tabs.
+		// If the href URL is absolute, magic links like ISBN won't work.
+		if ( this.$link && this.$link.attr( 'href' ) ) {
+			targetHref = this.$link.attr( 'href' )
+				.replace( this.siteMapper.getPageUrl( mw.cx.sourceLanguage, '' ), '' );
+		}
+		// This is a minimal support for Magic links
+		// https://www.mediawiki.org/wiki/Specs/HTML/1.2.1#Magic_links
+		// XXX: Add an ISBN tool card
+		// XXX: Adapt the Special:BookSource prefix of href with target language
+		// namespace and alias.
+		this.$link.prop( 'href', targetHref );
 
 		if ( !title ) {
+			// Links like ISBN(Magic links) usually does not have title attribute
+			// and there is nothing left to adapt.
 			return;
 		}
 
@@ -714,7 +731,6 @@
 		if ( cache.linkPairs[ title ] ) {
 			this.title = cache.linkPairs[ title ];
 			this.$link.prop( {
-				href: this.title,
 				title: this.title
 			} );
 			this.adapted = true;
