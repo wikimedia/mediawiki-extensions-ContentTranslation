@@ -930,12 +930,16 @@
 			if ( page ) {
 				self.$card.prepend( self.sourceLink.getCard() );
 			}
+		} ).fail( function () {
+			self.stop();
 		} );
 
 		this.targetLink.fetchLinkData().done( function () {
 			self.$card.append( self.targetLink.getCard() );
 			self.$card.show();
 			self.onShow();
+		} ).fail( function () {
+			self.stop();
 		} );
 	};
 
