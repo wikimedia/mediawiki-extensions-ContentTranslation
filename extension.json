@@ -644,11 +644,10 @@
 			"messages": [
 				"cx-tools-mt-title",
 				"cx-tools-mt-use-source",
-				"cx-tools-mt-clear-translation",
-				"cx-tools-mt-restore",
+				"cx-tools-mt-reset",
 				"cx-tools-mt-provider-title",
-				"cx-tools-mt-not-available",
 				"cx-tools-mt-dont-use",
+				"cx-tools-mt-set-default",
 				"cx-tools-mt-new-provider",
 				"cx-tools-mt-new-providers-available"
 			],

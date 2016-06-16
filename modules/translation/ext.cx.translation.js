@@ -130,6 +130,7 @@
 			validator = new mw.cx.ContentTranslationValidator( cxTranslation.siteMapper );
 
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
+		// Translate the section header along with a section if it is preceding.
 		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.addSectionHeader, this ) );
 		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
 		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( validator.validateTargetTitle, validator ) );
@@ -247,66 +248,16 @@
 	 * Update the translation section with the machine translation template.
 	 *
 	 * @param {string} sourceId source section identifier
-	 * @param {string} origin Event source or reason
 	 */
-	ContentTranslationEditor.prototype.applyTranslationTemplate = function (
-		sourceId,
-		origin
-	) {
-		var $sourceSection, $section, $clone, selection;
+	ContentTranslationEditor.prototype.applyTranslationTemplate = function ( sourceId ) {
+		var mt;
 
-		$sourceSection = mw.cx.getSourceSection( sourceId );
-		$section = mw.cx.getTranslationSection( sourceId );
-
-		if ( origin === 'click' || origin === 'restore' ) {
-			// On failure this fires a hook which this method listens to.
-			// For that there is the else branch. On success this also sets the
-			// data-cx-state to 'mt'.
-			$sourceSection.machineTranslate();
-		} else {
-			$clone = $sourceSection
-				.clone()
-				.attr( {
-					id: 'cx' + sourceId,
-					'data-source': sourceId,
-					'data-cx-state': 'source'
-				} );
-
-			if ( origin === 'mt-user-disabled' || origin === 'clear' ) {
-				$clone.attr( 'data-cx-state', 'empty' );
-				if ( $sourceSection.is( 'figure' ) ) {
-					if ( origin === 'clear' ) {
-						// When clearing figures, replace it with placeholder.
-						$clone = getPlaceholder( sourceId ).attr( 'data-cx-section-type', 'figure' );
-					} else {
-						// Clear figure caption alone.
-						$clone.find( 'figcaption' ).empty();
-					}
-				} else if ( $sourceSection.is( 'ul, ol' ) ) {
-					// Explicit contenteditable attribute helps to place the cursor
-					// in empty <ul> or <ol>.
-					$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
-				} else {
-					$clone.empty();
-				}
-			}
-			// else: service-failure, non-editable, mt-not-available
-			// Replace the placeholder with a translatable element
-			$section.replaceWith( $clone );
-			// $section was replaced. Get the updated instance.
-			$section = mw.cx.getTranslationSection( sourceId );
-			mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-		}
-		// Set the focus on the new section.
-		// Rely on browser behavior for setting the cursor position.
-		// Will generally go to the beginning of the section.
-		if ( origin !== 'reference' ) {
-			// Do not focus reference. Page will scroll.
-			$section.focus();
-			// Capture and save the new selection and cursor position
-			selection = mw.cx.selection.get();
-			mw.cx.selection.save( 'translation', selection );
-		}
+		mt = new mw.cx.MachineTranslation( sourceId, {
+			siteMapper: this.siteMapper
+		} );
+		mt.init().then( function () {
+			mt.translate();
+		} );
 	};
 
 	/**
@@ -348,7 +299,7 @@
 	 *
 	 * @param {string} sectionId Source section Id
 	 */
-	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId, origin ) {
+	ContentTranslationEditor.prototype.addSectionHeader = function ( sectionId ) {
 		var $currentSection, $previousSection;
 
 		$currentSection = mw.cx.getTranslationSection( sectionId );
@@ -361,7 +312,7 @@
 				$currentSection.data( 'cx-section-type' )
 			)
 		) {
-			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ), origin );
+			mw.hook( 'mw.cx.translation.add' ).fire( $previousSection.data( 'source' ) );
 		}
 	};
 

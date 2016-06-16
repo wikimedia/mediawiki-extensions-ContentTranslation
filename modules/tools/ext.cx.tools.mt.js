@@ -16,18 +16,108 @@
 			jwt: undefined,
 			promise: undefined
 		},
-		cache = {}, // MT requests cache
-		providerIdPrefix = 'cx-provider-',
-		disableMT = 'disable-mt',
+		mtProvidersRequestCache = {},
+		mtRequestCache = {}, // MT requests cache
 		noMT = 'no-mt',
-		sourceMT = 'source-mt',
-		translationOptions = [ disableMT, noMT, sourceMT ];
+		resetMT = 'reset-mt',
+		sourceMT = 'source-mt';
+
+	/**
+	 * Machine Translation functionality related to a section
+	 *
+	 * @class
+	 * @param {string} sourceId Source section id
+	 * @param {Object} options Options
+	 */
+	function MachineTranslation( sourceId, options ) {
+		this.sourceId = sourceId;
+		this.$targetSection = null;
+		this.$sourceSection = null;
+		this.options = $.extend( {}, mw.cx.MachineTranslation.defaults, options );
+		this.siteMapper = this.options.siteMapper;
+		this.sourceLanguage = this.options.sourceLanguage;
+		this.targetLanguage = this.options.targetLanguage;
+		this.translationStorage = {}; // Remember the translation between provider switching.
+		// This is for backwards compatibility with old drafts. For example
+		// we have lots of drafts stored with language code "no".
+		this.sourceLanguage = this.siteMapper.getLanguageCodeForWikiDomain( this.sourceLanguage );
+		this.targetLanguage = this.siteMapper.getLanguageCodeForWikiDomain( this.targetLanguage );
+		this.translationOptions = [ sourceMT, noMT ];
+		// Available providers
+		this.providers = null;
+		// The current selected provider
+		this.provider = null;
+	}
+
+	MachineTranslation.prototype.init = function () {
+		var self = this;
+
+		if ( this.providers ) {
+			// An already initialized instance.
+			return $.Deferred().resolve();
+		}
+		this.$sourceSection = mw.cx.getSourceSection( this.sourceId );
+		this.$targetSection = mw.cx.getTranslationSection( this.sourceId );
+		this.translationStorage = {};
+
+		// A validation for the passed sourceId - See if a section exists.
+		if ( !this.$sourceSection || !this.$sourceSection.length ) {
+			return $.Deferred().reject();
+		}
+
+		// Validate whether a corresponding target section exists.
+		// It may happen in case of template generated sections in source that we filter out.
+		// Or when target section is not ready yet.
+		if ( !this.$targetSection || !this.$targetSection.length ) {
+			return $.Deferred().reject();
+		}
+
+		return this.getProviders().then( function ( providers ) {
+			var cxState, mtProvider;
+
+			self.providers = providers;
+			// Also try to infer the provider from the section if it is restored.
+			mtProvider = self.$targetSection.data( 'cx-mt-provider' );
+			cxState = self.$targetSection.data( 'cx-state' );
+
+			if ( cxState === 'empty' ) {
+				self.provider = noMT;
+			} else if ( cxState === 'source' ) {
+				self.provider = sourceMT;
+			} else {
+				self.provider = mtProvider || self.getPreferredProvider();
+			}
+
+			mw.log( '[CX][MT] Initialized MT for section ' + self.sourceId +
+				' with provider ' + self.provider );
+		} );
+	};
+
+	/**
+	 * Change the MT provider. Also save the current translation for future
+	 * switching back.
+	 *
+	 * @param {string} newProvider New provider id
+	 */
+	MachineTranslation.prototype.changeProvider = function ( newProvider ) {
+		if ( newProvider === resetMT ) {
+			this.translationStorage = {};
+		} else {
+			// Remember the section HTML
+			this.translationStorage[ this.provider ] = this.$targetSection[ 0 ].outerHTML;
+		}
+
+		this.provider = newProvider;
+
+		mw.log( '[CX][MT] Switched provider from ' + this.provider + ' to ' + newProvider );
+	};
+
 	/**
 	 * Fetch token for authentication with cxserver.
 	 *
 	 * @return {jQuery.Promise}
 	 */
-	function getCXServerToken() {
+	MachineTranslation.prototype.getCXServerToken = function () {
 		var now = Math.floor( Date.now() / 1000 );
 
 		// If request in progress, wait for it
@@ -52,8 +142,7 @@
 			.always( function () {
 				cxserverToken.promise = undefined;
 			} )
-			.then(
-				function ( response ) {
+			.then( function ( response ) {
 					cxserverToken.jwt = response.jwt;
 					cxserverToken.expires = response.exp;
 
@@ -67,118 +156,57 @@
 			);
 
 		return cxserverToken.promise;
-	}
+	};
 
 	/**
-	 * Get the registry of machine translation providers
-	 * for a language pair from the CX server.
+	 * Translate the given source section
 	 *
-	 * @param {string} from Source language
-	 * @param {string} to Target language
 	 * @return {jQuery.Promise}
 	 */
-	function getProviders( from, to ) {
-		var fetchProvidersUrl,
-			translationPreference;
+	MachineTranslation.prototype.getTranslatedSection = function () {
+		var mtURL, sourceContent, sectionTranslationRequest;
 
-		if ( MTControlCard.provider ) {
-			return $.Deferred().resolve();
+		mtURL = this.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
+			$from: this.sourceLanguage,
+			$to: this.targetLanguage,
+			$provider: this.provider
+		} );
+
+		if ( this.$sourceSection.data( 'editable' ) === false ) {
+			return $.Deferred().reject();
 		}
 
-		// This is for backwards compatibility with old drafts. For example
-		// we have lots of drafts stored with language code "no".
-		from = mw.cx.siteMapper.getLanguageCodeForWikiDomain( from );
-		to = mw.cx.siteMapper.getLanguageCodeForWikiDomain( to );
+		sectionTranslationRequest = mtRequestCache[ this.sourceId ] &&
+			mtRequestCache[ this.sourceId ][ this.provider ];
 
-		// TODO: Refactor
-		fetchProvidersUrl = mw.cx.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
-			$from: from,
-			$to: to
-		} );
+		if ( !sectionTranslationRequest ) {
+			sourceContent = this.getSimplifiedHTMLForMT( this.$sourceSection );
+			sectionTranslationRequest =
+				this.getCXServerToken().then( function ( token ) {
+					var req = {
+						type: 'post',
+						url: mtURL,
+						data: {
+							html: sourceContent
+						},
+						headers: {
+							Authorization: token
+						}
+					};
+					return $.ajax( req ).then( function ( response ) {
+						// Translation is sent as json string
+						// Automatically parsed by jQuery into object
+						// Html is inside contents field
+						return response.contents;
+					} );
+				} );
+			// Put that in cache.
+			mtRequestCache[ this.sourceId ] = mtRequestCache[ this.sourceId ] || {};
+			mtRequestCache[ this.sourceId ][ this.provider ] = sectionTranslationRequest;
+		}
 
-		return $.get( fetchProvidersUrl )
-			.done( function ( response ) {
-				MTControlCard.providers = response.mt || [];
-				translationPreference = mw.storage.get( getMTProviderStorageKey() );
-				if ( MTControlCard.providers.indexOf( translationPreference ) < 0 &&
-					translationOptions.indexOf( translationPreference ) < 0 ) {
-					// Stored MT preference is not available now.
-					translationPreference = null;
-				}
-
-				if ( $.isEmptyObject( MTControlCard.providers ) ) {
-					MTControlCard.provider = translationPreference || noMT;
-					// For languages with different directionality,
-					// provide disable MT as default option. It gives
-					// an empty editor to translator.
-					if ( $.uls.data.getDir( mw.cx.sourceLanguage ) !==
-						$.uls.data.getDir( mw.cx.targetLanguage )
-					) {
-						MTControlCard.provider = translationPreference || disableMT;
-					}
-				} else {
-					// There are MT providers. If there is a saved mt provider preference
-					// select that from the providers. Otherwise select the first one.
-					MTControlCard.provider = translationPreference || MTControlCard.providers[ 0 ];
-				}
-			} )
-			.fail( function ( response ) {
-				mw.log(
-					'Error getting translation providers from ' + fetchProvidersUrl + ' . ' +
-					response.statusText + ' (' + response.status + '). ' +
-					response.responseText
-				);
-			} );
-	}
-
-	/**
-	 * Get the localStorage key for the MT preference
-	 *
-	 * @return {string} The storage key.
-	 */
-	function getMTProviderStorageKey() {
-		return [
-			'cxMTProvider', mw.cx.sourceLanguage, mw.cx.targetLanguage
-		].join( '-' );
-	}
-
-	/**
-	 * Do machine translation.
-	 *
-	 * @param {string} sourceLang Source language
-	 * @param {string} targetLang Target language
-	 * @param {string} sourceHtml Content
-	 * @return {jQuery.Promise}
-	 */
-	function doMT( sourceLang, targetLang, sourceHtml ) {
-		// TODO: Refactor
-		var mtURL = mw.cx.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
-			// This is for backwards compatibility with old drafts. For example
-			// we have lots of drafts stored with language code "no".
-			$from: mw.cx.siteMapper.getLanguageCodeForWikiDomain( sourceLang ),
-			$to: mw.cx.siteMapper.getLanguageCodeForWikiDomain( targetLang ),
-			$provider: MTControlCard.provider
-		} );
-
-		return getCXServerToken().then( function ( token ) {
-			return $.ajax( {
-				type: 'post',
-				url: mtURL,
-				data: {
-					html: sourceHtml
-				},
-				headers: {
-					Authorization: token
-				}
-			} ).then( null, function () {
-				return $.Deferred().reject( 'service-failure', arguments ).promise();
-			} );
-		} );
-	}
-
-	function markMTLoading( $section ) {
-		$section.empty().append( mw.cx.widgets.spinner() );
-	}
+		return sectionTranslationRequest;
+	};
 
 	/**
 	 * Clean up the section by removing data-parsoid and data-mw attributes
@@ -186,125 +214,248 @@
 	 * @param {jQuery} $section
 	 * @return {string}
 	 */
-	function getSimplifiedHTMLForMT( $section ) {
+	MachineTranslation.prototype.getSimplifiedHTMLForMT = function ( $section ) {
 		var $wrapper = $( '<div>' ).append( $section.clone() );
 
 		$wrapper.find( '*' ).removeAttr( 'data-parsoid data-mw' );
 
 		return $wrapper.html();
-	}
-
-	/**
-	 * Translate the given source section
-	 *
-	 * @param {jQuery} $section Source section to translate
-	 * @param {boolean} prefetch Whether the translation of next secton to be prefetched
-	 * @return {jQuery.Promise}
-	 */
-	function translateSection( $section, prefetch ) {
-		var sectionId, sourceContent, sectionTranslationRequest,
-			$nextSection,
-			provider = MTControlCard.provider;
-
-		if ( !provider ) {
-			// Provider information not ready. Fetch it and call this method again.
-			return getProviders( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function () {
-				translateSection( $section );
-			} );
-		}
-
-		if ( provider === disableMT ) {
-			return $.Deferred().reject( 'mt-user-disabled' ).promise();
-		}
-
-		if ( provider === noMT ) {
-			return $.Deferred().reject( 'mt-not-available' ).promise();
-		}
-
-		if ( provider === sourceMT ) {
-			return $.Deferred().reject( 'mt-not-available' ).promise();
-		}
-
-		if ( $section.data( 'editable' ) === false ) {
-			return $.Deferred().reject( 'non-editable' ).promise();
-		}
-
-		sectionId = $section.prop( 'id' );
-		sourceContent = getSimplifiedHTMLForMT( $section );
-		sectionTranslationRequest = cache[ sectionId ] && cache[ sectionId ][ provider ];
-
-		if ( !sectionTranslationRequest ) {
-			sectionTranslationRequest =
-				doMT( mw.cx.sourceLanguage, mw.cx.targetLanguage, sourceContent );
-			// Put that in cache.
-			cache[ sectionId ] = cache[ sectionId ] || {};
-			cache[ sectionId ][ provider ] = sectionTranslationRequest;
-		}
-
-		if ( prefetch ) {
-			$nextSection = $section.next();
-
-			if ( $nextSection.length ) {
-				translateSection( $nextSection );
-			}
-		}
-
-		return sectionTranslationRequest;
-	}
-
-	/**
-	 * A plugin that performs machine translation on a section element.
-	 *
-	 * @return {jQuery}
-	 */
-	$.fn.machineTranslate = function () {
-		var $sourceSection = $( this ),
-			prefetch = true,
-			sourceId = $sourceSection.prop( 'id' ),
-			$section = mw.cx.getTranslationSection( sourceId );
-
-		markMTLoading( $section );
-		translateSection( $sourceSection, prefetch )
-			.done( function ( translation ) {
-				if ( translation ) {
-					// Translation is sent as json string
-					// Automatically parsed by jQuery into object
-					// Html is inside contents field
-					$section.replaceWith( $( translation.contents )
-						.children()
-						.attr( {
-							id: 'cx' + sourceId,
-							'data-source': sourceId,
-							'data-cx-state': 'mt',
-							'data-cx-mt-provider': MTControlCard.provider
-						} )
-					);
-				}
-			} )
-			.fail( function ( reason ) {
-				mw.hook( 'mw.cx.translation.add' ).fire( sourceId, reason );
-			} )
-			.always( function () {
-				// $section was replaced. Get the updated instance.
-				$section = mw.cx.getTranslationSection( sourceId );
-				mw.hook( 'mw.cx.translation.postMT' ).fire( $section );
-			} );
-
-		return this;
 	};
 
+	MachineTranslation.prototype.markMTLoading = function () {
+		this.$targetSection.empty().append( mw.cx.widgets.spinner() );
+	};
+
+	MachineTranslation.prototype.setFocus = function () {
+		var scrollTop;
+
+		// Get the current scroll top position to restore this position.
+		scrollTop = $( document ).scrollTop();
+		// Note that if the section is not editable - if its contenteditable attribute
+		// value is false, we cannot focus on it.
+		this.$targetSection.focus();
+		// Capture and save the new selection and cursor position
+		mw.cx.selection.save( 'translation', mw.cx.selection.get() );
+		// Avoid page scrolling while setting focus.
+		window.scrollTo( 0, scrollTop );
+	};
+
+	MachineTranslation.prototype.useSource = function () {
+		var $clone;
+
+		if ( this.translationStorage[ this.provider ] ) {
+			this.$targetSection.replaceWith( $( this.translationStorage[ this.provider ] ) );
+		} else {
+			$clone = this.$sourceSection.clone()
+				.attr( {
+					id: 'cx' + this.sourceId,
+					'data-source': this.sourceId,
+					'data-cx-state': 'source'
+				} );
+		}
+		this.replaceSectionWith( $clone );
+	};
+
+	MachineTranslation.prototype.clearSection = function () {
+		var $clone;
+
+		if ( this.translationStorage[ this.provider ] ) {
+			this.replaceSectionWith( $( this.translationStorage[ this.provider ] ) );
+		} else {
+			$clone = this.$sourceSection.clone()
+				.attr( {
+					id: 'cx' + this.sourceId,
+					'data-source': this.sourceId,
+					'data-cx-state': 'empty'
+				} );
+			if ( this.$sourceSection.is( 'figure' ) ) {
+				// Clear figure caption alone.
+				$clone.find( 'figcaption' ).empty();
+			} else if ( this.$sourceSection.is( 'ul, ol' ) ) {
+				// Explicit contenteditable attribute helps to place the cursor
+				// in empty <ul> or <ol>.
+				$clone.prop( 'contenteditable', true ).find( 'li' ).empty();
+			} else {
+				$clone.empty();
+			}
+			this.replaceSectionWith( $clone );
+		}
+	};
+
+	/**
+	 * Replace the translation section with the given content.
+	 * Update the references, fire the postMT event, and set the focus.
+	 *
+	 * @param {jQuery} $content The jQuery object to replace the section.
+	 */
+	MachineTranslation.prototype.replaceSectionWith = function ( $content ) {
+		// Replace the placeholder with a translatable element
+		this.$targetSection.replaceWith( $content );
+		// $section was replaced. Get the updated instance.
+		this.$targetSection = mw.cx.getTranslationSection( this.sourceId );
+		mw.hook( 'mw.cx.translation.postMT' ).fire( this.$targetSection );
+		this.setFocus();
+	};
+
+	MachineTranslation.prototype.reset = function () {
+		this.provider = this.getPreferredProvider();
+		this.translate();
+	};
+
+	MachineTranslation.prototype.translate = function () {
+		var self = this;
+
+		//  Use source content as translation template
+		if ( this.provider === sourceMT ) {
+			return this.useSource();
+		}
+
+		// No translation template
+		if ( this.provider === noMT ) {
+			return this.clearSection();
+		}
+
+		// Reset the translation to the unmodified MT from current provider.
+		if ( this.provider === resetMT ) {
+			return this.reset();
+		}
+		this.markMTLoading();
+		// Check if there is any user edited version of this MT
+		if ( self.translationStorage[ self.provider ] ) {
+			self.replaceSectionWith( $( self.translationStorage[ self.provider ] ) );
+		} else {
+			this.getTranslatedSection( this.$sourceSection )
+				.done( function ( translation ) {
+					if ( !translation || !translation.length ) {
+						return self.useSource();
+					}
+
+					// Use fresh copy
+					self.replaceSectionWith( $( translation )
+						.children()
+						.attr( {
+							id: 'cx' + self.sourceId,
+							'data-source': self.sourceId,
+							'data-cx-state': 'mt',
+							'data-cx-mt-provider': self.provider
+						} ) );
+				} ).fail( function () {
+					return self.useSource();
+				} ).always( function () {
+					var $nextSection = self.$targetSection.next();
+					// Initiate the request for next section. Translation prefetch.
+					if ( $nextSection.is( '.placeholder' ) ) {
+						initTranslationRequest( $nextSection.data( 'source' ) );
+					}
+				} );
+		}
+	};
+
+	/**
+	 * Get the registry of machine translation providers
+	 * for a language pair from the CX server.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	MachineTranslation.prototype.getProviders = function () {
+		var fetchProvidersUrl, cacheKey;
+
+		cacheKey = this.sourceLanguage + '-' + this.targetLanguage;
+		if ( mtProvidersRequestCache[ cacheKey ] ) {
+			return mtProvidersRequestCache[ cacheKey ];
+		}
+
+		fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
+			$from: this.sourceLanguage,
+			$to: this.targetLanguage
+		} );
+
+		mtProvidersRequestCache[ cacheKey ] = $.get( fetchProvidersUrl )
+			.then( function ( response ) {
+				return response.mt || [];
+			} );
+		return mtProvidersRequestCache[ cacheKey ];
+	};
+
+	/**
+	 * Get the localStorage key for the MT preference.
+	 *
+	 * @return {string} The storage key.
+	 */
+	MachineTranslation.prototype.getMTProviderStorageKey = function () {
+		return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage
+				].join( '-' );
+	};
+
+	/**
+	 * Set the default MT provider preference. This preference get saved in
+	 * localStorage.
+	 *
+	 * @param {string} provider MT provider id
+	 */
+	MachineTranslation.prototype.setDefaultProvider = function ( provider ) {
+		this.provider = provider;
+		mw.storage.set( this.getMTProviderStorageKey(), this.provider );
+	};
+
+	/**
+	 * Get the preferred provider for this section.
+	 *
+	 * @return {string} Provider id.
+	 */
+	MachineTranslation.prototype.getPreferredProvider = function () {
+		var storedMTPreference;
+
+		storedMTPreference = mw.storage.get( this.getMTProviderStorageKey() );
+		if ( this.providers.indexOf( storedMTPreference ) >= 0 ||
+			this.translationOptions.indexOf( storedMTPreference ) >= 0 ) {
+			// Stored MT preference is available.
+			return storedMTPreference;
+		}
+
+		if ( $.isEmptyObject( this.providers ) ) {
+			// For languages with different directionality, provide noMT
+			// as default option. It gives an empty editor to translator.
+			// We access languages from this.options since this.sourceLanguage and
+			// this.targetLanguage are wiki domain codes and therefore nonstandard.
+			if ( $.uls.data.getDir( this.options.sourceLanguage ) !==
+				$.uls.data.getDir( this.options.targetLanguage )
+			) {
+				return noMT;
+			} else {
+				return sourceMT;
+			}
+		} else {
+			// There are MT providers. Select the first one.
+			return this.providers[ 0 ];
+		}
+	};
+
+	mw.cx.MachineTranslation = MachineTranslation;
+	// Sensible defaults for the MachineTranslation class
+	mw.cx.MachineTranslation.defaults = {
+		siteMapper: mw.cx.siteMapper,
+		sourceLanguage: mw.cx.sourceLanguage,
+		targetLanguage: mw.cx.targetLanguage
+	};
+
+	/**
+	 * MT Control card
+	 */
 	function MTControlCard() {
-		this.$section = null;
+		this.mt = null;
+		this.$targetSection = null;
+		this.$sourceSection = null;
 		this.$card = null;
 		this.$translations = null;
 		this.$providersMenu = null;
-		this.actions = {
-			$restore: null,
-			$clear: null,
-			$source: null
-		};
 	}
 
+	/**
+	 * Prepare and return the card template.
+	 *
+	 * @return {jQuery}
+	 */
 	MTControlCard.prototype.getCard = function () {
 		var $titleRow, $title, $controlButtonsBlock;
 
@@ -322,33 +473,21 @@
 		this.$providerSelectorTrigger = $( '<div>' )
 			.addClass( 'card__trigger' );
 
-		this.actions.$restore = $( '<div>' )
-			.addClass( 'card__control-button cx-restore-translation' )
-			.text( mw.msg( 'cx-tools-mt-restore' ) );
-
-		this.actions.$source = $( '<div>' )
-			.addClass( 'card__control-button cx-use-source' )
-			.text( mw.msg( 'cx-tools-mt-use-source' ) );
-
-		this.actions.$clear = $( '<div>' )
-			.addClass( 'card__control-button cx-clear-translation' )
-			.text( mw.msg( 'cx-tools-mt-clear-translation' ) );
+		this.$keepDefault = $( '<div>' )
+			.addClass( 'card__control-button cx-mt-set-default' )
+			.text( mw.msg( 'cx-tools-mt-set-default' ) )
+			.hide();
 
 		$controlButtonsBlock = $( '<div>' )
 			.addClass( 'card__button-block' )
-			.append( // Object.values would be nice here
-				this.actions.$restore,
-				this.actions.$source,
-				this.actions.$clear
-			);
+			.append( this.$keepDefault );
 
 		this.$card.append(
 			$titleRow,
 			this.$providerSelectorTrigger,
 			$controlButtonsBlock
 		);
-
-		this.buildProvidersMenu();
+		this.$providersMenu = $( [] );
 
 		this.listen();
 
@@ -356,88 +495,24 @@
 	};
 
 	/**
-	 * Update the section with text from source,
-	 * not applying machine translation.
+	 * Select a given provider id for the current section.
+	 *
+	 * @param {string} providerId Provider id
 	 */
-	MTControlCard.prototype.useSource = function () {
-		var sourceId = this.$section.data( 'source' );
-		// Use the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'source' );
-	};
-
-	/**
-	 * Update the section with text from source,
-	 * apply machine translation,
-	 * and hide the restore button.
-	 */
-	MTControlCard.prototype.restoreTranslation = function () {
-		var sourceId = this.$section.data( 'source' );
-		// Use the source without machine translation
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'restore' );
-		this.stop();
-	};
-
-	/**
-	 * Clear the translation text.
-	 */
-	MTControlCard.prototype.clearTranslation = function () {
-		var sourceId = this.$section.data( 'source' );
-
-		mw.hook( 'mw.cx.translation.add' ).fire( sourceId, 'clear' );
-	};
-
-	MTControlCard.prototype.selectProvider = function ( providerId ) {
-		var $providerItem = $( '#' + providerIdPrefix + providerId );
-
+	MTControlCard.prototype.onProviderSelect = function ( providerId ) {
 		// Hide the menu
 		this.$providersMenu.hide();
 
-		// Mark the selected item
-		this.$providersMenu.find( 'li' ).removeClass( 'selected' );
-		$providerItem.addClass( 'selected' );
-
-		// Set the global engine
-		if ( MTControlCard.provider !== providerId ) {
-			MTControlCard.provider = providerId;
-			// Apply this choice to the current section.
-			if ( providerId === sourceMT ) {
-				this.useSource();
-			} else if ( providerId === disableMT ) {
-				this.clearTranslation();
-			} else {
-				// Must be an MT engine. Restore.
-				this.restoreTranslation();
-			}
-
-			// Save the current provider
-			mw.storage.set( getMTProviderStorageKey(), providerId );
-
-		}
 		// Set the main label
-		this.$providerSelectorTrigger.text( this.getProviderTitle( providerId ) );
-	};
+		this.$providerSelectorTrigger.text( this.getProviderLabel( providerId ) );
 
-	/*
-	 * Toggle the section highlight.
-	 */
-	MTControlCard.prototype.toggleSectionHighlight = function () {
-		this.$section.toggleClass( 'cx-highlight' );
+		// Apply the selected provider to the current section.
+		this.mt.changeProvider( providerId );
+		this.mt.translate();
 	};
 
 	MTControlCard.prototype.listen = function () {
 		var self = this;
-
-		this.actions.$source
-			.on( 'click', $.proxy( this.useSource, this ) )
-			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
-
-		this.actions.$clear
-			.on( 'click', $.proxy( this.clearTranslation, this ) )
-			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
-
-		this.actions.$restore
-			.on( 'click', $.proxy( this.restoreTranslation, this ) )
-			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
 
 		this.$providerSelectorTrigger
 			.on( 'click', function ( e ) {
@@ -445,37 +520,32 @@
 				e.stopPropagation();
 			} );
 
-		this.$providersMenu.find( '.card__providers-menu-item' )
-			.on( 'click', function () {
-				self.selectProvider( $( this ).data( 'provider' ) );
-				// Restore the selection
-				mw.cx.selection.restore( 'translation' );
-			} )
-			.on( 'mouseenter mouseleave', $.proxy( this.toggleSectionHighlight, this ) );
-
 		// Hide the dropdown on clicking outside of it
 		$( 'html' ).on( 'click', function ( e ) {
 			if ( !e.isDefaultPrevented() ) {
 				self.$providersMenu.hide();
 			}
 		} );
+
+		this.$keepDefault.on( 'click', function () {
+			self.mt.setDefaultProvider( self.mt.provider );
+			self.$keepDefault.hide();
+		} );
 	};
 
-	MTControlCard.prototype.buildProvidersMenu = function () {
-		var provider, items = [],
-			nonDefaultMT, translationPreference, newProvider = false;
+	MTControlCard.prototype.buildProvidersMenu = function ( providers ) {
+		var i, self = this,
+			nonDefaultMT = false,
+			newProvider = false;
 
-		translationPreference = mw.storage.get( getMTProviderStorageKey() );
+		this.$providersMenu = $( '<ul>' )
+			.addClass( 'card__providers-menu' )
+			.hide();
 
-		if (
-			// If there are more than one provider
-			MTControlCard.providers && MTControlCard.providers.length > 1 &&
-			// If there is no stored preference or preference is not a MT engine
-			( translationPreference === null ||
-				translationOptions.indexOf( translationPreference ) >= 0 )
+		if ( this.mt.translationOptions.indexOf( this.mt.providers[ 0 ] ) === 0 &&
+			this.mt.translationOptions.indexOf( this.mt.provider ) >= 0
 		) {
 			nonDefaultMT = true;
-			// There are more MT options or non default MT available. Announce.
 			this.$card.find( '.card__title-row' )
 				.addClass( 'card--new' )
 				.append( $( '<div>' )
@@ -484,59 +554,50 @@
 				);
 		}
 
-		this.$providersMenu = $( '<ul>' )
-			.addClass( 'card__providers-menu' )
-			.hide();
+		if ( !this.$targetSection.data( 'cx-state' ) ) {
+			providers.unshift( resetMT );
+		}
 
-		if ( MTControlCard.providers ) {
-			items = MTControlCard.providers.slice( 0 ); // Copy values.
-		}
-		if ( items.indexOf( sourceMT ) < 0 ) {
-			items.push( sourceMT );
-		}
-		if ( items.indexOf( disableMT ) < 0 ) {
-			items.push( disableMT );
-		}
 		// Add available machine translation engines to the menu
-		for ( provider in items ) {
-			if ( !items.hasOwnProperty( provider ) ) {
-				continue;
-			}
-
-			if ( nonDefaultMT && translationOptions.indexOf( items[ provider ] ) < 0 ) {
-				newProvider = true;
-			} else {
-				newProvider = false;
-			}
+		for ( i = 0; i < providers.length; i++ ) {
+			newProvider = nonDefaultMT && this.mt.translationOptions.indexOf( providers[ i ] ) < 0;
 			this.$providersMenu.append(
-				this.getProviderItem( items[ provider ], newProvider )
+				this.getProviderMenuItem( providers[ i ], newProvider )
 			);
 		}
 
+		// Set the main label
+		this.$providerSelectorTrigger.text( this.getProviderLabel( this.mt.provider ) );
+
+		if ( this.mt.provider !== this.mt.getPreferredProvider() ) {
+			this.$keepDefault.show();
+		} else {
+			this.$keepDefault.hide();
+		}
+
 		this.$providerSelectorTrigger.after( this.$providersMenu );
+
+		this.$providersMenu.find( '.card__providers-menu-item' )
+			.on( 'click', function () {
+				self.onProviderSelect( $( this ).data( 'provider' ) );
+			} );
 	};
 
 	/**
 	 * Get the text for the menu item in the providers list.
 	 *
-	 * @param {string} id Provider id.
+	 * @param {string} providerId Provider id.
 	 * @return {string}
 	 */
-	MTControlCard.prototype.getProviderTitle = function ( id ) {
+	MTControlCard.prototype.getProviderLabel = function ( providerId ) {
 		var providerLabels = {
-			Yandex: 'Yandex.Translate'
+			Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
+			'no-mt': mw.msg( 'cx-tools-mt-dont-use' ),
+			'source-mt': mw.msg( 'cx-tools-mt-use-source' ),
+			'reset-mt': mw.msg( 'cx-tools-mt-reset' )
 		};
 
-		if ( id === disableMT ) {
-			return mw.msg( 'cx-tools-mt-dont-use' );
-		} else if ( id === noMT ) {
-			return mw.msg( 'cx-tools-mt-not-available', $.uls.data.getAutonym( mw.cx.targetLanguage ) );
-		} else if ( id === sourceMT ) {
-			// FIXME: message reuse
-			return mw.msg( 'cx-tools-mt-use-source' );
-		} else {
-			return mw.msg( 'cx-tools-mt-provider-title', providerLabels[ id ] || id );
-		}
+		return providerLabels[ providerId ] || mw.msg( 'cx-tools-mt-provider-title', providerId );
 	};
 
 	/**
@@ -545,61 +606,56 @@
 	 * @param {string} providerId Provider id.
 	 * @return {jQuery}
 	 */
-	MTControlCard.prototype.getProviderItem = function ( providerId, newProvider ) {
-		var $label, $new = $( [] );
+	MTControlCard.prototype.getProviderMenuItem = function ( providerId, newProvider ) {
+		var $label,
+			providerIdPrefix = 'cx-provider-',
+			selected = '',
+			$new = $( [] );
+
 		$label = $( '<span>' )
-			.text( this.getProviderTitle( providerId ) )
-			.addClass( 'card__providers-menu-item' )
-			.attr( {
-				id: providerIdPrefix + providerId,
-				'data-provider': providerId
-			} );
+			.text( this.getProviderLabel( providerId ) );
+
 		if ( newProvider ) {
 			$new = $( '<span>' )
 				.text( mw.msg( 'cx-tools-mt-new-provider' ) )
 				.addClass( 'card__providers-menu-item--new' );
 		}
 
+		// Mark the selected item
+		if ( providerId === this.mt.provider ) {
+			selected = 'selected';
+		}
+
 		return $( '<li>' )
+			.addClass( [
+				'card__providers-menu-item', selected, providerIdPrefix + providerId
+			].join( ' ' ) )
+			.attr( 'data-provider', providerId )
 			.append( $label, $new );
 	};
 
 	MTControlCard.prototype.start = function ( $section ) {
-		var state,
-			provider = MTControlCard.provider;
+		var self = this,
+			sourceId;
 
-		this.$section = $section;
-		this.selectProvider( provider );
+		this.$targetSection = $section;
+		sourceId = this.$targetSection.data( 'source' );
+		this.$sourceSection = mw.cx.getSourceSection( sourceId );
+		this.mt = this.$sourceSection.data( 'cxmt' );
 
-		// Hide or disable action buttons depending on the state.
-		// Disabling is achieved by changing style. Actions are
-		// only disabled if they were already executed and no changes
-		// have been done after that. Hence there is no need to actually
-		// prevent doing them again.
-		state = $section.data( 'cx-state' );
-
-		if (
-			state === 'mt' ||
-			provider === disableMT ||
-			provider === sourceMT ||
-			provider === noMT
-		) {
-			this.actions.$restore.hide();
-		} else {
-			this.actions.$restore.show();
+		if ( !this.mt ) {
+			this.mt = new MachineTranslation( sourceId );
+			this.$sourceSection.data( 'cxmt', this.mt );
 		}
 
-		if ( state === 'empty' ) {
-			this.actions.$clear.addClass( 'card__control-button--disabled' );
-		} else {
-			this.actions.$clear.removeClass( 'card__control-button--disabled' );
-		}
+		this.mt.init().then( function () {
+			var menuItems = self.mt.providers.concat(
+				self.mt.translationOptions.filter( function ( item ) {
+					return self.mt.providers.indexOf( item ) < 0;
+				} ) );
 
-		if ( state === 'source' ) {
-			this.actions.$source.addClass( 'card__control-button--disabled' );
-		} else {
-			this.actions.$source.removeClass( 'card__control-button--disabled' );
-		}
+			self.buildProvidersMenu( menuItems );
+		} );
 
 		this.$card.show();
 		this.onShow();
@@ -623,9 +679,29 @@
 
 	mw.cx.tools.mt = MTControlCard;
 
+	function initTranslationRequest( sourceSectionId ) {
+		var mt;
+		mt = new MachineTranslation( sourceSectionId );
+		mt.init().then( function () {
+			// Make sure that the current provider is an MT service.
+			if ( mt.provider === sourceMT || mt.provider === noMT || mt.provider === resetMT ) {
+				return;
+			}
+			// If so, start an MT request.
+			mt.getTranslatedSection();
+		} );
+		mw.log( '[CX][MT] Prefetching MT for section ' + sourceSectionId );
+	}
+
 	$( function () {
-		mw.hook( 'mw.cx.source.ready' ).add( $.proxy( function () {
-			translateSection( $( '.cx-column__content' ).find( mw.cx.getSectionSelector() ).first(), true );
-		}, this ) );
+		mw.hook( 'mw.cx.source.ready' ).add( function () {
+			var $firstSection;
+
+			// Initiate the request for first section. Translation prefetch.
+			$firstSection = $( '.cx-column--source .cx-column__content' )
+				.find( mw.cx.getSectionSelector() )
+				.first();
+			initTranslationRequest( $firstSection.prop( 'id' ) );
+		} );
 	} );
 }( jQuery, mediaWiki ) );

@@ -114,8 +114,6 @@ Fires when a saved translation is deleted
 ## mw.cx.translation.add
 
 Used to trigger the pre-translation for a source section. Source section id is passed as argument.
-Second argument is a string which explains what action is appropriate. Known values are:
-clear, click, mt-not-available, mt-user-disabled, non-editable, restore, service-failure.
 
 ## mw.cx.translation.change
 

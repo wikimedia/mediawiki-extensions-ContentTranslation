@@ -176,7 +176,7 @@
 					// Reference list not the section, it is wrapped inside.
 					$parentSection = $referenceList.parent();
 				}
-				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'reference' );
+				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ) );
 			} );
 		}
 		// Mark that the reference list is added. This make sure that this method is called only once
