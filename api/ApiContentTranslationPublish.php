@@ -144,6 +144,12 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$translator = new ContentTranslation\Translator( $user );
 
+		$owner = (int)$this->translation->translation['lastUpdatedTranslator'];
+		$userId = (int)$translator->getGlobalUserId();
+		if ( $owner !== $userId ) {
+			$this->dieUsage( 'Translation not owned by current user.', 'noaccess' );
+		}
+
 		if ( $wgContentTranslationTranslateInTarget ) {
 			$targetPage = ContentTranslation\SiteMapper::getTargetTitle(
 				$params['title'],
