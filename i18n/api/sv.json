@@ -52,6 +52,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Hämta alla publicerade översättningar",
 	"apihelp-query+cxpublishedtranslations-example-2": "Hämta alla publicerade översättningar, översatta från engelska",
 	"apihelp-query+cxpublishedtranslations-example-3": "Hämta alla publicerade översättningar, översatta från engelska till spanska",
+	"apihelp-query+contenttranslationlangtrend-description": "Fråga databasen för Innehållsöversättning om antalet översättningar efter tidsperiod.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Källans språkkod.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Målets språkkod.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Intervallet för beräkning av trenden. Kan vara en <kbd>vecka</kbd> eller <kbd>månad</kbd>.",
