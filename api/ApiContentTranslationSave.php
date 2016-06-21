@@ -153,7 +153,7 @@ class ApiContentTranslationSave extends ApiBase {
 
 		$owner = (int)$translation['lastUpdatedTranslator'];
 		$user = (int)$this->translator->getGlobalUserId();
-		if ( $owner !== $user ) {
+		if ( $owner !== $user && $translation['status'] === 'draft' ) {
 			$this->dieUsage( 'Another user is already translating this article', 'noaccess' );
 		}
 
