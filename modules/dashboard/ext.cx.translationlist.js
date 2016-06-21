@@ -255,7 +255,7 @@
 				.data( 'translation', translation );
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
-				.text( moment( translation.lastUpdateTimeStamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
+				.text( moment( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
 			$image = $( '<div>' )
 				.addClass( 'cx-tlitem__image' );
 			$progressbar = $( '<div>' )
