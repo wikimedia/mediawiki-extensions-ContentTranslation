@@ -1,0 +1,29 @@
+{
+	"templates": {
+		"Cite web": {
+			"targetname": "Dyf gwe",
+			"editable": false,
+			"parameters": {
+				"url": "url",
+				"title": "teitl",
+				"author": "awdur",
+				"date": "dyddiad",
+				"month": "mis",
+				"year": "blwyddyn",
+				"work": "gwaith",
+				"location": "lleoliad",
+				"page": "tudalen",
+				"pages": "tudalennau",
+				"format": "fformat",
+				"archive-url": "urlarchif",
+				"archiveurl": "urlarchif",
+				"archive-date": "dyddiadarchif",
+				"archivedate": "dyddiadarchif",
+				"publisher": "cyhoeddwr",
+				"quote": "dyfyniad",
+				"access-date": "dyddiadcyrchiad",
+				"accessdate":  "dyddiadcyrchiad"
+			}
+		}
+	}
+}
