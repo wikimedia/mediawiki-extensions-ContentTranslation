@@ -14,7 +14,8 @@
 			"Vriullop",
 			"F3RaN",
 			"Eduardo Martinez",
-			"Jaumeortola"
+			"Jaumeortola",
+			"Medol"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -179,7 +180,7 @@
 	"cx-tools-missing-link-title": "Hi manca un enllaç",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Mark}} com que hi manca",
 	"echo-category-title-cx": "Traduccions",
-	"echo-pref-tooltip-cx": "Notifica'm de les meves traduccions creades fent servir l'eina Content Translation",
+	"echo-pref-tooltip-cx": "Notifica'm de les meves traduccions amb l'eina Content Translation",
 	"cx-notification-first-translation": "Enhorabona per la vostra primera traducció! Trobeu més pàgines per traduir a la [[Special:MyContributions|vostra pàgina de contribucions]].",
 	"cx-notification-first-translation-email-subject": "Enhorabona per la vostra primera traducció",
 	"cx-notification-tenth-translation": "Enhorabona per la vostra desena traducció! Us esteu tornant en un traductor expert. Endavant amb la bona feina!",
