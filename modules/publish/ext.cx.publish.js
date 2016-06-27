@@ -347,9 +347,12 @@
 			}
 
 			// Remove the wrapper tags that are added to the highlighting segments
-			$section.find( '.cx-segment' ).replaceWith( function () {
-				return $( this ).html();
-			} );
+			$section.find( '.cx-segment' )
+				.replaceWith( function () {
+					return $( this ).html();
+				} )
+				// If the section is empty, replaceWith will not affect it. Force removal.
+				.remove();
 
 			// All unadapted links are unwrapped
 			$section.find( '.cx-target-link-unadapted' ).replaceWith( function () {
