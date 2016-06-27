@@ -127,7 +127,6 @@
 	"cx-translation-status-draft": "U tijeku",
 	"cx-translation-status-published": "Objavljeno",
 	"cx-translation-status-deleted": "Izbrisano",
-	"cx-magnus-tool-link-text": "Pronađi stranice koje nedostaju u Vašem jeziku",
 	"cx-translation-already-in-progress": "Prijevod u tijeku suradnika $1.",
 	"cx-translation-already-in-progress-collaborate": "Nemojte zaboraviti usuglasiti se sa suradnikom koji je napravio trenutačni prijevod.",
 	"cx-publishing-dialog-publish-draft-button": "Objavi kao skicu",
@@ -193,5 +192,7 @@
 	"cx-draft-restore-failed": "Nije moguće učitati spremljeni prijevod!",
 	"cx-suggestionlist-expand": "Vidi sve",
 	"cx-suggestionlist-collapse": "Vidi manje",
-	"cx-suggestionlist-refresh": "Osvježi prijedloge"
+	"cx-suggestionlist-refresh": "Osvježi prijedloge",
+	"cx-translator-month-stats-label": "Ovaj mjesec",
+	"cx-translator-total-translations-label": "Ukupno"
 }

@@ -12,7 +12,8 @@
 			"DaBler",
 			"Danny B.",
 			"Clon",
-			"Urbanecm"
+			"Urbanecm",
+			"Dvorapa"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -173,7 +174,7 @@
 	"cx-tools-missing-link-title": "Odkazovaná stránka neexistuje",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Vložit}} červený odkaz",
 	"echo-category-title-cx": "překlady",
-	"echo-pref-tooltip-cx": "Upozorněte mě o mých překladech vytvořených pomocí nástroje Překlad obsahu",
+	"echo-pref-tooltip-cx": "Upozorněte mě o mých překladech vytvořených pomocí nástroje Překlad obsahu.",
 	"cx-notification-first-translation": "Gratulujeme vám k vašemu prvnímu překladu. Podívejte se na své příspěvky a najděte další stránky k překladu.",
 	"cx-notification-first-translation-email-subject": "Gratulujeme vám k vašemu prvnímu překladu.",
 	"cx-notification-tenth-translation": "Gratulujeme vám k vašemu desátému překladu. Stává se z vás překladatel. Jen tak dál!",

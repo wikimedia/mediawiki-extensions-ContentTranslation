@@ -7,7 +7,8 @@
 			"Amire80",
 			"Spiritia",
 			"Лорд Бъмбъри",
-			"Ket"
+			"Ket",
+			"Guycn2"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -173,7 +174,7 @@
 	"cx-tools-missing-link-title": "Липсваща връзка",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Отбележете}} като липсваща",
 	"echo-category-title-cx": "Преводи",
-	"echo-pref-tooltip-cx": "Искам известия за моите преводи, създадени с инструмента „Превод на съдържание“",
+	"echo-pref-tooltip-cx": "Искам известия за моите преводи, създадени с инструмента „Превод на съдържание“.",
 	"cx-notification-first-translation": "Поздравления за първия ви превод! Проверете приносите си и открийте още страници за превеждане.",
 	"cx-notification-first-translation-email-subject": "Поздравления за първия ви превод!",
 	"cx-notification-tenth-translation": "Поздравления за десетия ви превод! Ставате експерт-преводач. Продължавайте все така!",
