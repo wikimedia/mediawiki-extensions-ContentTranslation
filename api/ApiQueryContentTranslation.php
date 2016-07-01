@@ -113,6 +113,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$targetLanguage,
 			$sourceTitle
 		);
+
 		if ( $translation !== null ) {
 			$translator = $translation->translation['lastUpdatedTranslator'];
 			$centralIdLookup = CentralIdLookup::factory();
@@ -124,13 +125,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 			$translation->translation['translatorName'] = $user->getName();
 			$translation->translation['translatorGender'] = $gender;
-
 			$result->addValue(
 				[ 'query', 'contenttranslation' ],
 				'translation', $translation->translation
 			);
 		}
-		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	/**
