@@ -124,7 +124,7 @@
 	"cx-contributions-upload": "Načíst soubor",
 	"cx-contributions-new-article-tooltip": "Začít psát novou stránku",
 	"cx-contributions-translation-tooltip": "Přeložit stávající stránky",
-	"cx-contributions-upload-tooltip": "Načíst obrázky a audio a video soubory, aby mohly být využity na stránkách",
+	"cx-contributions-upload-tooltip": "Načíst obrázky, audio a video soubory, aby mohly být využity na stránkách",
 	"cx-publishing-dialog-message": "Stránky $1 již existuje. Aktuální obsah bude nahrazen vaším překladem. Chcete jej přesto publikovat?",
 	"cx-publishing-dialog-keep-button": "Zachovat obě verze",
 	"cx-publishing-dialog-publish-anyway-button": "Přesto publikovat",

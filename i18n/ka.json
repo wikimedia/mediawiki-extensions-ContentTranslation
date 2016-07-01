@@ -128,8 +128,8 @@
 	"cx-translation-status-draft": "პროცესშია",
 	"cx-translation-status-published": "გამოქვეყნდა",
 	"cx-translation-status-deleted": "წაიშალა",
-	"cx-translation-already-in-progress": "ეს მიმდინარე თარგმანი დაიწყო $1.",
-	"cx-translation-already-in-progress-collaborate": "გთხოვთ, მოელაპარეკეთ მომხმარებელს, რომელმაც ეს თარგმანი დაიწყო.",
+	"cx-translation-already-in-progress": "ეს მიმდინარე თარგმანი დაიწყო {{GENDER:$2|მომხმარებელმა}} $1.",
+	"cx-translation-already-in-progress-collaborate": "გთხოვთ, მოელაპარეკეთ {{GENDER:$1|მომხმარებელს}}, რომელმაც ეს თარგმანი დაიწყო.",
 	"cx-publishing-dialog-publish-draft-button": "გამოაქვეყნე როგორც მონახაზი",
 	"cx-feedback-link": "უკუკავშირის მიწოდება",
 	"cx-stats-published-translations-title": "გამოქვეყნებული თარგმანები",
@@ -171,7 +171,7 @@
 	"cx-tools-missing-link-title": "არარსებული ბმული",
 	"cx-tools-missing-link-mark-link": "არარსებულად {{GENDER:|მონიშვნა}}",
 	"echo-category-title-cx": "თარგმანები",
-	"echo-pref-tooltip-cx": "შემატყობინეთ ჩემს მიერ შიგთავსის თარგმნის ხელსაწყოთი შექმნილი თარგმანების შესახებ",
+	"echo-pref-tooltip-cx": "შემატყობინეთ ჩემს მიერ შიგთავსის თარგმნის ხელსაწყოთი შექმნილი თარგმანების შესახებ.",
 	"cx-notification-first-translation": "გილოცავთ თქვენ პირველ თარგმანს! გადახედეთ თქვენ წვლილს და იპოვეთ უფრო მეტი სათარგმნი გვერდი.",
 	"cx-notification-first-translation-email-subject": "გილოცავთ პირველ თარგმანს",
 	"cx-notification-tenth-translation": "გილოცავთ თქვენ მეათე თარგმანს! თქვენ თარგმნის ექსპერტი ხდებით. ასე გააგრძელეთ!",
@@ -205,5 +205,6 @@
 	"cx-translator-month-stats-label": "ეს თვე",
 	"cx-translator-total-translations-label": "სულ",
 	"cx-tools-mt-new-provider": "ახალი",
-	"cx-tools-mt-new-providers-available": "ახალი კონფიგურაციებით"
+	"cx-tools-mt-new-providers-available": "ახალი კონფიგურაციებით",
+	"cx-continue-translation": "თარგმნის გაგრძელება"
 }
