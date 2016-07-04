@@ -3,7 +3,8 @@
 		"authors": [
 			"Koroğlu",
 			"Alp Er Tunqa",
-			"Amire80"
+			"Amire80",
+			"Ilğım"
 		]
 	},
 	"cx": "چئویرمه صفحه‌سی",
@@ -22,6 +23,9 @@
 	"cx-contributions-new-article": "یئنی صفحه",
 	"cx-contributions-translation": "چئویرمه",
 	"cx-contributions-upload": "یۆکله‌مه‌لر",
+	"cx-campaign-newarticle-notice": "<strong>چئویره‌رک</strong> یئنی صفحه‌لر یاراتماق داها آسانلاشیبدیر! مؤحتوا چئویرن بِتا آلتینی ایمتیحان ائتمک ایسترمیسینیز؟",
+	"cx-campaign-no-thanks": "یوْخ٬ ساغ اوْل",
+	"cx-campaign-try": "مؤحتوا چئویرنی ایمتیحان ائت",
 	"cx-campaign-contributionsmenu-mycontributions": "چالیشمالار",
 	"cx-campaign-contributionsmenu-mytranslations": "چئویرمه‌لر",
 	"cx-campaign-contributionsmenu-myuploads": "یۆکله‌مه‌لر",

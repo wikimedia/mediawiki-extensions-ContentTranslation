@@ -13,7 +13,8 @@
 			"Danny B.",
 			"Clon",
 			"Urbanecm",
-			"Dvorapa"
+			"Dvorapa",
+			"Walter Klosse"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -201,5 +202,8 @@
 	"cx-tools-linter-view-details": "Zobrazit detaily",
 	"cx-tools-linter-hide-details": "Skrýt detaily",
 	"cx-translator-month-stats-label": "Tento měsíc",
-	"cx-translator-total-translations-label": "Celkem"
+	"cx-translator-total-translations-label": "Celkem",
+	"cx-tools-mt-new-provider": "nový",
+	"cx-tools-mt-new-providers-available": "s novým nastavením",
+	"cx-continue-translation": "Pokračovat v překladu"
 }
