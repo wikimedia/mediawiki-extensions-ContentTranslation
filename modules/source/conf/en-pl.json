@@ -1,0 +1,11 @@
+{
+	"templates": {
+		"Sfn": {
+			"targetname": "Odn",
+			"editable": false,
+			"parameters": {
+				"p": "s"
+			}
+		}
+	}
+}
