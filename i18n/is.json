@@ -12,7 +12,7 @@
 	"cx-javascript": "Þetta verkfæri virkar ekki ef slökkt er á JavaScript.",
 	"cx-license-agreement": "Með því að smella á „$1“-hnappinn samþykkir þú notendaskilmálana [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] og þú samþykkir óafturkræft að framlög þín gerð með þýðingarverkfærinu verði gefin út undir leyfunum [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] og að tengill eða vefslóð uppfylli kröfur CC BY-SA 3.0-leyfisins um tilvitnun.",
 	"cx-error-server-connection": "Villa: tókst ekki að tengjast þjóninum.",
-	"cx-desc": "Auðveldar þýðingu síðna með innihaldi",
+	"cx-desc": "Auðveldar [[Special:ContentTranslation|þýðingu]] síðna með innihaldi",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|þýtt}}",
 	"cx-header-progressbar-text-mt": "($1% með {{PLURAL:$1|vélþýðingu}})",
 	"cx-header-translation-center": "Þýðingarmiðstöð",
@@ -111,7 +111,7 @@
 	"cx-translation-status-draft": "Í vinnslu",
 	"cx-translation-status-published": "Útgefið",
 	"cx-translation-status-deleted": "Eytt",
-	"cx-translation-already-in-progress": "Þessi þýðing er í vinnslu hjá $1.",
+	"cx-translation-already-in-progress": "Þessi þýðing er í vinnslu {{GENDER:$2|hjá}} $1.",
 	"cx-publishing-dialog-publish-draft-button": "Gefa út sem drög",
 	"cx-feedback-link": "Senda ábendingar",
 	"cx-stats-published-translations-title": "Útgefnar þýðingar",
@@ -146,6 +146,6 @@
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Tilkynna}} að þetta vanti",
 	"echo-category-title-cx": "Þýðingar",
 	"echo-pref-tooltip-cx": "Tilkynna mér um þýðingar mínar gerðar með þýðingarverkfæri innihalds",
-	"cx-notification-first-translation": "Til hamingju með fyrstu þýðingu þína! Þú getur fundið fleiri síður til að þýða á [[Special:MyContributions|framlagasíðunni þinni]].",
+	"cx-notification-first-translation": "Til hamingju með fyrstu þýðinguna þína! Athugaðu breytingarnar þínar og finndu fleiri síður til að þýða.",
 	"cx-notification-first-translation-email-subject": "Til hamingju með fyrstu þýðingu þína"
 }
