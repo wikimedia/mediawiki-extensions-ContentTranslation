@@ -48,6 +48,10 @@ class ApiContentTranslationSave extends ApiBase {
 			$this->dieUsage( 'Invalid progress', 'invalidprogress' );
 		}
 
+		if ( $user->pingLimiter( 'cxsave' ) ) {
+			$this->dieUsageMsg( 'actionthrottledtext' );
+		}
+
 		$this->translator = new Translator( $user );
 		$this->translation = $this->saveTranslation( $params );
 
