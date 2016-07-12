@@ -44,7 +44,7 @@
 	"cx-stats-draft-source-target": "Traduccions en progrès de",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduccion|$1 traduccions}}",
 	"echo-category-title-cx": "Traduccions",
-	"echo-pref-tooltip-cx": "Me notificar sus mas traduccions creadas en utilizant l'aisina de traduccion",
+	"echo-pref-tooltip-cx": "Me notificar sus mas traduccions creadas en utilizant l'aisina de traduccion de contengut.",
 	"cx-your-translations-link": "{{GENDER:$1|Vòstras traduccions}}",
 	"cx-translationlist-empty-title": "Pas res a traduire ?",
 	"cx-translator-month-stats-label": "Aqueste mes",
