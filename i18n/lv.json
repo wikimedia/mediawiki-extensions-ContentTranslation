@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Papuass"
+			"Papuass",
+			"Silraks"
 		]
 	},
 	"cx": "Tulkot lapu",
@@ -124,6 +125,7 @@
 	"cx-tools-missing-link-title": "Trūkst saites",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Atzimēt}} kā trūkstošu",
 	"echo-category-title-cx": "Tulkojumi",
+	"cx-contributions-link": "Devums",
 	"cx-translationlist-empty-title": "Nav nekā ko tulkot?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Sāc}} tulkot tagad un turpini jebkurā brīdī.",
 	"cx-tools-link-internal-link": "Saite uz lapu",
@@ -138,6 +140,8 @@
 	"cx-suggestionlist-expand": "Skatīt visus",
 	"cx-suggestionlist-collapse": "Skatīt mazāk",
 	"cx-suggestionlist-refresh": "Atsvaidzināt ieteikumus",
+	"cx-tools-linter-view-details": "Skatīt detaļas",
+	"cx-tools-linter-hide-details": "Paslēpt detaļas",
 	"cx-translator-month-stats-label": "Šomēnes",
 	"cx-translator-total-translations-label": "Kopā",
 	"cx-continue-translation": "Turpināt tulkošanu"

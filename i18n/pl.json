@@ -17,7 +17,8 @@
 			"The Polish",
 			"Expert3222",
 			"Mateon1",
-			"Matma Rex"
+			"Matma Rex",
+			"Woytecr"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -139,8 +140,8 @@
 	"cx-translation-status-draft": "W trakcie",
 	"cx-translation-status-published": "Opublikowano",
 	"cx-translation-status-deleted": "Usunięto",
-	"cx-translation-already-in-progress": "$1 właśnie tłumaczy tę stronę.",
-	"cx-translation-already-in-progress-collaborate": "Upewnij się, że uzgodniłeś zmianę z {{GENDER:|użytkownikiem}}, {{GENDER:|który}} {{GENDER:|przetłumaczył}} obecną wersję.",
+	"cx-translation-already-in-progress": "To jest trwające tłumaczenie {{GENDER:$2|przez}} $1.",
+	"cx-translation-already-in-progress-collaborate": "Upewnij się, że uzgodniłeś zmianę z {{GENDER:$1|użytkownikiem|użytkowniczką}}, {{GENDER:$1|który|która}} {{GENDER:$1|przetłumaczył|przetłumaczyła}} obecną wersję.",
 	"cx-publishing-dialog-publish-draft-button": "Opublikuj szkic",
 	"cx-feedback-link": "Prześlij opinię",
 	"cx-stats-published-translations-title": "Opublikowane tłumaczenia",
@@ -183,7 +184,7 @@
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Oznacz}} jako brakujący",
 	"echo-category-title-cx": "Tłumaczenia",
 	"echo-pref-tooltip-cx": "Powiadamiaj mnie o moich tłumaczeniach, które zostały utworzone za pomocą narzędzia do tłumaczenia treści.",
-	"cx-notification-first-translation": "Gratulujemy pierwszego tłumaczenia! Znajdź więcej stron do tłumaczenia na [[Special:MyContributions|stronie Twojego wkładu]].",
+	"cx-notification-first-translation": "Gratulujemy pierwszego tłumaczenia! Sprawdź swój wkład i znajdź więcej stron do przetłumaczenia.",
 	"cx-notification-first-translation-email-subject": "Gratulujemy pierwszego tłumaczenia",
 	"cx-notification-tenth-translation": "Gratulujemy dziesiątego tłumaczenia! Stajesz się ekspertem tłumaczeń. Oby tak dalej!",
 	"cx-notification-tenth-translation-email-subject": "Gratulujemy dziesiątego tłumaczenia",
