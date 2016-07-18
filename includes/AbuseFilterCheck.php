@@ -118,7 +118,7 @@ class AbuseFilterCheck {
 
 		$results = [];
 		foreach ( $actions as $key => $val ) {
-			$rulename = \AbuseFilter::$filters[$key]->af_public_comments;
+			$rulename = \AbuseFilter::getFilter( $key )->af_public_comments;
 
 			// No point alerting the user about non-serious actions. T136596
 			$actionsForRule = array_keys( $val );
