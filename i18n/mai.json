@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"बिप्लब आनन्द"
+		]
+	},
+	"cx": "पृष्ठ अनुवाद करी",
+	"cx-dashboard-header": "अनुवाद",
+	"cx-javascript": "ई उपकरण जाभास्क्रिप्ट बिना काम नै करत।",
+	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|साममाग्री अनुवादक]] एक साधन छी, जहि सँ कोनो भी लेख जल्दी सँ अहाँक भाषामे अनुवाद करि देत। [$1 एक बेर उपयोग करी!]",
+	"cx-license-agreement": "ई \"$1\" बटन पर क्लिक करि अहाँ [//wikimediafoundation.org/wiki/Terms_of_Use उपयोगक शर्तसभ] सँ सहमति प्रदान करति छी तथा अहाँ अपरिवर्तनीय ढङ्ग सँ अपन योगदानसभके अनुवाद उपकरणसभ सहित [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 अनुज्ञप्ति] आ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जिएफडिएल]क अन्तर्गत जारी करैक सहमति प्रदान करति छी। अहिमे अहाँ ई बात सँ सहमत छी कि सिसि बाय-एसएस ३.० क लेल एक हाइपरलिङ्क अथवा युआरएल सँ स्पष्ट होएत।",
+	"cx-error-server-connection": "त्रुटि: सर्वर सँ सम्पर्क नै भ सकल।",
+	"cx-desc": "सामग्री पृष्ठसभ [[Special:ContentTranslation|अनुवाद]] करैलेल आसान बनबैत अछि",
+	"cx-header-progressbar-text": "$१% {{PLURAL:$1|अनुवादित}}",
+	"cx-header-progressbar-text-mt": "($१% सँ {{PLURAL:$1|यन्त्र अनुवाद}})",
+	"cx-header-translation-center": "अनुवाद केन्द्र",
+	"cx-header-new-translation": "नव अनुवाद",
+	"cx-header-all-translations": "सभ अनुवाद",
+	"cx-source-view-page": "पृष्ठ देखी",
+	"cx-publish-page-success": "पृष्ठ $1 पर प्रकाशित भेल।",
+	"cx-publish-page-error": "पृष्ठ सङ्ग्रह करैत समय एक त्रुटि आबि गेल । कृपया पृष्ठ पुनः प्रकाशित करैक प्रयास करी। त्रुटि: $1",
+	"cx-publish-button": "अनुवाद प्रकाशित करी",
+	"cx-publish-button-publishing": "प्रकाशित भ रहल अछि...",
+	"cx-publish-gt-move-page-title": "पृष्ठके नाम बदली",
+	"cx-publish-gt-move-page-description": "कृपया \"{{int:blanknamespace}}\" नामस्थान चुनी आ अपन पृष्ठके  उपयुक्त शीर्षक दी।",
+	"cx-publish-gt-moved-title": "अनुवाद कएल पृष्ठ स्थानान्तरित कएल गेल"
+}
