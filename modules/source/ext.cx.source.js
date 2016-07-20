@@ -180,7 +180,6 @@
 		// TODO: Figure out what should be done here
 		this.$content.find( 'base' ).detach();
 
-		mw.hook( 'mw.cx.source.ready' ).fire();
 		// Try to load Cite styles. Silently ignored if not installed.
 		mw.loader.load( 'ext.cite.style' );
 
