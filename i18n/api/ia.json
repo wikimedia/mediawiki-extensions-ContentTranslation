@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-cxpublish-description": "Salveguardar un pagina create con le extension Content Translation.",
+	"apihelp-cxpublish-param-title": "Le titulo del pagina sur le qual exequer actiones.",
+	"apihelp-cxpublish-param-html": "Le contento a salveguardar.",
+	"apihelp-cxpublish-param-from": "Le codice del lingua de origine.",
+	"apihelp-cxpublish-param-to": "Le codice del lingua de destination.",
+	"apihelp-cxpublish-param-sourcetitle": "Le titulo del pagina de origine.",
+	"apihelp-cxpublish-param-categories": "Le categorias in le qual mitter le pagina publicate."
+}
