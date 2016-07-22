@@ -55,7 +55,7 @@
 	"cx-publish-gt-published-title": "축하합니다! 문서가 게시되었습니다",
 	"cx-publish-gt-published-description": "문서를 계속 개선하려면 \"{{int:vector-view-edit}}\"을 클릭하면 됩니다. 문서가 자연스럽게 읽히도록 해주세요.",
 	"cx-translation-add-translation": "+ 번역 추가",
-	"cx-translation-target-page-exists": "[$1 $2] 이(가) 제목인 페이지가 이미 대상 위키에 있습니다. 번역에 다른 제목을 붙이세요.",
+	"cx-translation-target-page-exists": "[$1 $2]이(가) 제목인 페이지가 이미 대상 위키에 있습니다. 번역에 다른 제목을 붙이세요.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|내용 번역]]",
 	"tag-contenttranslation-description": "이 글은 내용 번역 도구를 사용하여 다른 언어에서 번역되었습니다.",
 	"cx-source-loading": "$1 문서를 불러오는 중",
