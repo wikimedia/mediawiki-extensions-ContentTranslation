@@ -20,7 +20,6 @@
 		this.options = $.extend( {}, options );
 		this.siteMapper = siteMapper;
 
-		this.languagePairs = null;
 		this.sourceLanguages = [];
 		this.targetLanguages = [];
 
@@ -126,7 +125,6 @@
 
 		return $.get( languagePairsAPIUrl )
 			.done( function ( response ) {
-				cxSourceSelector.languagePairs = response;
 				cxSourceSelector.targetLanguages = response.target;
 				cxSourceSelector.sourceLanguages = response.source;
 			} )
