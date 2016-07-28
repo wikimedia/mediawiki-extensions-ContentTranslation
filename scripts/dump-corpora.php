@@ -266,7 +266,13 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		if ( $output ) {
-			return FormatJson::encode( $output, true, FormatJson::ALL_OK );
+			// MediaWiki has a workaround that cleans up formatting with a regexp
+			// with certain PHP versions. As $output can be huge, it will run out
+			// of memory trying to do that. In this case, it is better to skip
+			// pretty formatting than to have nothing at all.
+			$prettyFormat = json_encode( [], JSON_PRETTY_PRINT ) === '[]';
+
+			return FormatJson::encode( $output, $prettyFormat, FormatJson::ALL_OK );
 		} else {
 			return null;
 		}
