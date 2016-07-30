@@ -209,7 +209,7 @@
 	"cx-draft-restore-failed": "저장된 번역을 불러오지 못했습니다!",
 	"cx-suggestionlist-expand": "모두 보기",
 	"cx-suggestionlist-collapse": "줄여서 보기",
-	"cx-suggestionlist-refresh": "제안 변경",
+	"cx-suggestionlist-refresh": "제안 새로 고침",
 	"cx-notification-suggestions-available": "'''$1'''의 {{GENDER:$2|여러분}}의 이전 번역에 근거하여, 이제는 새로운 제안을 이용할 수 있습니다.",
 	"cx-tools-linter-title": "내용 문제점: $1",
 	"cx-tools-linter-content": "내용은 [//www.mediawiki.org/wiki/Content_translation/Abuse_filter 위키백과의 $1에서 설정한 제한]에 충족하고 있지 않습니다. 번역을 내놓기 전에 문제점을 바로잡아 주세요.",
