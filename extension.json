@@ -224,6 +224,10 @@
 		"ext.cx.model": {
 			"scripts": [
 				"base/ext.cx.model.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.feedback": {
@@ -295,6 +299,10 @@
 			],
 			"dependencies": [
 				"ext.cx.model"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.util.selection": {
@@ -311,6 +319,10 @@
 				"mediawiki.Uri",
 				"mediawiki.api",
 				"mediawiki.Title"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.header": {
@@ -337,6 +349,10 @@
 				"cx-special-login-error",
 				"cx-translation-target-page-exists",
 				"login"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.header.skin": {
@@ -1001,6 +1017,10 @@
 				"cx-trend-deletions",
 				"cx-trend-translations-to",
 				"percent"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"chart.js": {
@@ -1010,6 +1030,10 @@
 				"chart.js/Chart.Core.js",
 				"chart.js/Chart.Line.js",
 				"chart.js/Chart.Bar.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.beta.notification": {
@@ -1102,6 +1126,10 @@
 			],
 			"styles": [
 				"widgets/spinner/ext.cx.spinner.less"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.widgets.callout": {
@@ -1110,6 +1138,10 @@
 			],
 			"styles": [
 				"widgets/callout/ext.cx.callout.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.widgets.translator": {
