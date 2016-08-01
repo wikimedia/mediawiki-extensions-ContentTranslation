@@ -93,7 +93,7 @@
 	"cx-translation-filter-from-any-language": "Nga çdo gjuhë",
 	"cx-translation-filter-to-any-language": "Për çdo gjuhë",
 	"cx-create-new-translation": "Krijo përkthim të ri",
-	"cx-save-draft-save-success": "E ruajtur {{PLURAL:$1|para një minuti|$1 minuti më parë|0=tani}}",
+	"cx-save-draft-save-success": "E ruajtur {{PLURAL:$1|para një minuti|$1 minuta më parë|0=tani}}",
 	"cx-save-draft-saving": "Duke ruajtur...",
 	"cx-save-draft-tooltip": "Draftet e përkthimeve ruhen automatikisht",
 	"cx-contributions-new-contributions": "Kontributi i ri",
