@@ -731,6 +731,7 @@
 		if ( cache.linkPairs[ title ] ) {
 			this.title = cache.linkPairs[ title ];
 			this.$link.prop( {
+				href: this.title,
 				title: this.title
 			} );
 			this.adapted = true;
