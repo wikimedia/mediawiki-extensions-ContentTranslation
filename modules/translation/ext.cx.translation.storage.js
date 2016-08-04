@@ -75,7 +75,7 @@
 			self.markForSave( $targetSection );
 		} );
 
-		mw.hook( 'mw.cx.translation.change' ).add( $.debounce( 1000, function () {
+		mw.hook( 'mw.cx.translation.change' ).add( $.debounce( 3000, function () {
 			// Reset fail counter so that autosave if stopped can be restarted.
 			failCounter = 0;
 			// mw.cx.translation.change get fired for every changes in translation.
