@@ -14,7 +14,8 @@
 			"Uğurkent",
 			"McAang",
 			"KorkmazO",
-			"HakanIST"
+			"HakanIST",
+			"MrSchipunov"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -70,11 +71,10 @@
 	"cx-tools-link-remove": "Bağlantıyı kaldır",
 	"cx-tools-mt-title": "Makine çevirisi",
 	"cx-tools-mt-use-source": "Kaynak metni yapıştır",
-	"cx-tools-mt-clear-translation": "Paragrafı temizle",
-	"cx-tools-mt-restore": "Geri getir",
+	"cx-tools-mt-reset": "Çeviriyi sıfırla",
 	"cx-tools-mt-provider-title": "$1 sayfasından",
-	"cx-tools-mt-not-available": "$1 dili için kullanılabilir değil",
 	"cx-tools-mt-dont-use": "Makine çevirisi kullanma",
+	"cx-tools-mt-set-default": "Varsayılan olarak kalsın",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategori|0=Kategorisiz}}",
 	"cx-stats-title": "İçerik Çevirmeni istatistikleri",
 	"cx-tools-reference-title": "Kaynak",

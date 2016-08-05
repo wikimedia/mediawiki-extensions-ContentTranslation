@@ -4,7 +4,8 @@
 			"KuboF",
 			"Amire80",
 			"Macofe",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Lucas"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -62,10 +63,8 @@
 	"cx-tools-link-remove": "Forigi ligilon",
 	"cx-tools-mt-title": "Maŝina traduko",
 	"cx-tools-mt-use-source": "Uzi fontan tekston",
-	"cx-tools-mt-clear-translation": "Malplenigi paragrafon",
-	"cx-tools-mt-restore": "Restarigi",
+	"cx-tools-mt-reset": "Nuligi tradukon",
 	"cx-tools-mt-provider-title": "De $1",
-	"cx-tools-mt-not-available": "Ne disponebla por $1",
 	"cx-tools-mt-dont-use": "Ne uzi maŝinan tradukon",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorio|$1 kategorioj|0=Neniu kategorio}}",
 	"cx-stats-title": "Statistiko pri EnhavTradukado",
@@ -171,11 +170,8 @@
 	"echo-category-title-cx": "Tradukoj",
 	"echo-pref-tooltip-cx": "Sciigu min pri miaj tradukoj kreitaj per la ilo EnhavTradukado",
 	"cx-notification-first-translation": "Gratulon por via unua traduko! Kontrolu viajn kontribuojn kaj trovu pliajn paĝojn por traduki.",
-	"cx-notification-first-translation-email-subject": "Gratulon por via unua traduko",
 	"cx-notification-tenth-translation": "Gratulon por via deka traduko! Vi fariĝas sperta tradukisto. Plutenu la bonan laboron!",
-	"cx-notification-tenth-translation-email-subject": "Gratulon por via deka traduko",
 	"cx-notification-hundredth-translation": "Vi ĵus faris vian 100an tradukon! Tio estas rimarkinda atingo. Sciigu aliajn kontribuantojn.",
-	"cx-notification-hundredth-translation-email-subject": "Gratulon por via centa traduko",
 	"cx-contributions-link": "Viaj kontribuoj",
 	"cx-your-translations-link": "{{GENDER:$1|Viaj tradukoj}}",
 	"cx-translationlist-empty-title": "Ĉu nenio por traduki?",

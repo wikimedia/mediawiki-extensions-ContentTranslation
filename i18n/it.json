@@ -75,6 +75,7 @@
 	"cx-tools-mt-use-source": "Usa il testo di origine",
 	"cx-tools-mt-provider-title": "Usa $1",
 	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
+	"cx-tools-mt-set-default": "Tieni come predefinito",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorie|0=Nessuna categoria}}",
 	"cx-stats-title": "Statistiche di traduzione delle voci",
 	"cx-tools-reference-title": "Riferimento",
