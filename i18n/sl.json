@@ -1,10 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
+	"cx-header-new-translation": "Nov prevod",
+	"cx-publish-page-success": "Stran objavljena na naslovu $1",
+	"cx-publish-summary": "Ustvarjeno s prevodom strani »$1«",
+	"cx-publish-gt-published-title": "Čestitamo, stran je objavljena",
+	"cx-sourceselector-dialog-new-translation": "Nov prevod",
+	"cx-sourceselector-dialog-error-page-exists": "Ta stran v jeziku $2 že obstaja [$1]",
+	"cx-save-draft-error": "Pri shranjevanju strani je prišlo do napake.",
 	"cx-campaign-newarticle-notice": "Ustvarjanje novih strani s <strong>prevajanjem</strong> je sedaj lažje! Želite preizkusiti preizkusno orodje Prevajanje vsebine?",
 	"cx-campaign-no-thanks": "Ne, hvala",
-	"cx-campaign-try": "Preizkusi Prevajanje vsebine"
+	"cx-campaign-try": "Preizkusi Prevajanje vsebine",
+	"cx-tools-link-internal-link": "Povezava na stran",
+	"cx-tools-link-internal-link-placeholder": "Poišči stran za povezavo",
+	"cx-tools-link-to-another-page": "Povezava na drugo stran",
+	"mw-pageselector-missing": "Stran ne obstaja"
 }
