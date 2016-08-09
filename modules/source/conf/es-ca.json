@@ -7,27 +7,6 @@
 		"Listaref": {
 			"targetname": "Referències",
 			"editable": false
-		},
-		"Cita noticia": {
-			"targetname": "Ref-notícia",
-			"editable": false,
-			"parameters": {
-				"agencia": "agència",
-				"apellidos": "cognom",
-				"autor": "autor",
-				"coautores": "coautors",
-				"editorial": "editorial",
-				"enlaceautor": "enllaçautor",
-				"fechaacceso": "consulta",
-				"formato": "format",
-				"idioma": "llengua",
-				"nombre": "nom",
-				"periódico": "obra",
-				"página": "pàgines",
-				"páginas": "pàgines",
-				"título": "títol",
-				"url": "url"
-			}
 		}
 	}
 }

@@ -11,7 +11,8 @@
 	'use strict';
 
 	var targetTemplateNamespaceRequestCache = {},
-		cachedTemplateRequests = {};
+		cachedTemplateRequests = {},
+		cachedTemplateDataAPIRequests = {};
 
 	/**
 	 * TemplateTool encapsulates the handling of templates in translation.
@@ -22,11 +23,15 @@
 	 *
 	 * @class
 	 */
-	function TemplateTool( element ) {
+	function TemplateTool( element, options ) {
 		this.$template = $( element );
 		this.templateData = null;
 		this.templateTitle = null;
 		this.templateMapping = null;
+		this.options = $.extend( {}, mw.cx.TemplateTool.defaults, options );
+		this.siteMapper = this.options.siteMapper;
+		this.sourceLanguage = this.options.sourceLanguage;
+		this.targetLanguage = this.options.targetLanguage;
 	}
 
 	/**
@@ -41,7 +46,7 @@
 	 * Get the template data from source section. Target section
 	 * might not have it always.
 	 */
-	TemplateTool.prototype.getTemplateData = function () {
+	TemplateTool.prototype.getSourceTemplateData = function () {
 		var templateData,
 			aboutAttr = this.$template.attr( 'about' );
 
@@ -64,21 +69,123 @@
 	};
 
 	/**
+	 * Get the template data from target language wiki using TemplateData extension.
+	 * If template data does not exist for the template, we extract the parameters
+	 * using the source code of the template as fallback.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	TemplateTool.prototype.getTargetTemplateData = function () {
+		var self = this;
+
+		if ( cachedTemplateDataAPIRequests[ this.templateTitle ] ) {
+			return cachedTemplateDataAPIRequests[ this.templateTitle ];
+		}
+
+		cachedTemplateDataAPIRequests[ this.templateTitle ] =
+			this.getTemplateNamespaceTranslation( self.targetLanguage ).then( function ( namespace ) {
+				var targetName = namespace + ':' + self.templateTitle;
+
+				return self.siteMapper.getApi( self.targetLanguage ).get( {
+					action: 'templatedata',
+					titles: targetName,
+					redirects: true,
+					format: 'json'
+				}, {
+					dataType: 'jsonp',
+					// This prevents warnings about the unrecognized parameter "_"
+					cache: true
+				} ).then( function ( response ) {
+					var pageId, templateData;
+
+					pageId = Object.keys( response.pages )[ 0 ];
+					templateData = response.pages[ pageId ];
+
+					if ( !templateData ) {
+						return self.getTemplateParamsUsingSource( targetName );
+					}
+
+					return templateData;
+				} );
+			} );
+
+		return cachedTemplateDataAPIRequests[ this.templateTitle ];
+	};
+
+	/**
+	 * Fetch the template source code and extract the template parameters
+	 * from it.
+	 *
+	 * @param {string} targetName Target Template name
+	 * @return {Object}
+	 */
+	TemplateTool.prototype.getTemplateParamsUsingSource = function ( targetName ) {
+		var self = this;
+
+		return self.siteMapper.getApi( self.targetLanguage ).get( {
+			action: 'query',
+			titles: targetName,
+			redirects: true,
+			prop: 'revisions',
+			rvprop: 'content',
+			indexpageids: '1'
+		}, {
+			dataType: 'jsonp',
+			// This prevents warnings about the unrecognized parameter "_"
+			cache: true
+		} ).then( function ( resp ) {
+			var pageContent = '';
+
+			if (
+				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions &&
+				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ]
+			) {
+				pageContent = resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ][ '*' ];
+			}
+
+			return {
+				params: self.extractParametersFromTemplateCode( pageContent )
+			};
+		} );
+	};
+
+	/**
+	 * Retrieve template parameters from the template code.
+	 *
+	 * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
+	 *
+	 * @param {string} templateCode Source of the template.
+	 * @return {Object} An associative array of parameters that appear in the template code
+	 */
+	TemplateTool.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
+		var matches,
+			paramNames = {},
+			paramExtractor = /{{3,}(.*?)[<|}]/mg;
+
+		while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
+			if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
+				paramNames[ $.trim( matches[ 1 ] ) ] = true;
+			}
+		}
+
+		return paramNames;
+	};
+
+	/**
 	 * Get the namespace translation in a wiki.
 	 * Uses the canonical name for lookup.
 	 *
 	 * @param {string} language
 	 * @return {jQuery.Promise}
 	 */
-	function getTemplateNamespaceTranslation( language ) {
+	TemplateTool.prototype.getTemplateNamespaceTranslation = function ( language ) {
 		var request;
 
 		if ( targetTemplateNamespaceRequestCache[ language ] ) {
 			return targetTemplateNamespaceRequestCache[ language ];
 		}
 
-		// TODO: Refactor to avoid global reference
-		request = mw.cx.siteMapper.getApi( language ).get( {
+		request = this.siteMapper.getApi( language ).get( {
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces',
@@ -100,29 +207,68 @@
 		targetTemplateNamespaceRequestCache[ language ] = request;
 
 		return request;
-	}
+	};
 
 	/**
 	 * Get the template mapping if any set by source.filter module
 	 */
 	TemplateTool.prototype.getTemplateMapping = function () {
-		return this.$template.data( 'template-mapping' );
+		var self = this;
+
+		return this.getTargetTemplateData().then( function ( templateData ) {
+			templateData.cxMapping = self.$template.data( 'template-mapping' ) || {};
+			return templateData;
+		} );
 	};
 
 	/**
 	 * Adapt a template using template mapping
+	 *
+	 * @return {jQuery.Promise}
 	 */
 	TemplateTool.prototype.adapt = function () {
+		var self = this;
 		mw.log( '[CX] Adapting template ' + this.templateTitle + ' based on mapping.' );
-		// Update the name of the template
-		this.templateData.parts[ 0 ].template.target.wt = this.templateMapping.targetname;
-		this.templateData.parts[ 0 ].template.params = this.getTargetParams( this.getSourceParams() );
-		this.$template.attr( 'data-mw', JSON.stringify( this.templateData ) );
 
 		// Make templates uneditable unless whitelisted
 		if ( !this.templateMapping.editable ) {
 			this.$template.data( 'editable', false );
 		}
+
+		// Update the name of the template
+		return this.getTemplateNamespaceTranslation( this.targetLanguage )
+			.then( function ( translatedNamespace ) {
+				var templateName, targetParams, targetName;
+
+				targetName = self.templateMapping.cxMapping.targetname || self.templateMapping.title;
+				if ( !targetName ) {
+					return false;
+				}
+
+				targetParams = self.getAdaptedTargetParams( self.getSourceParams() );
+				if ( $.isEmptyObject( targetParams ) ) {
+					return false;
+				}
+
+				// So we were able to map at least one parameter to the target template.
+				// TODO: Should we check for all params mapping based on count match of
+				// source and target template params?
+
+				templateName = targetName.replace(
+					new RegExp( '^' + mw.RegExp.escape( translatedNamespace + ':' ) ),
+					''
+				);
+
+				self.templateData.parts[ 0 ].template.target.wt = templateName;
+				self.templateData.parts[ 0 ].template.params = targetParams;
+
+				self.$template.attr( {
+					typeof: 'mw:Transclusion',
+					'data-mw': JSON.stringify( self.templateData )
+				} );
+
+				return true;
+			} );
 	};
 
 	/**
@@ -139,27 +285,50 @@
 	 *
 	 * @return {Object} Target parameters - key-value pairs.
 	 */
-	TemplateTool.prototype.getTargetParams = function ( sourceParams ) {
+	TemplateTool.prototype.getAdaptedTargetParams = function ( sourceParams ) {
 		var targetParams = {},
 			self = this;
 
 		// Update the template parameters
 		$.each( sourceParams, function ( key, value ) {
-			// Drop empty parameters
-			// TODO: Shouldn't we only do this if the parameter is named?
-			// I can imagine {{Foo||baz}} breaks badly if we remove the one from middle.
-			if ( $.trim( value ) === '' ) {
+			var normalizedKey;
+
+			if ( !isNaN( key ) ) {
+				// Key is like "1" or "2" etc. Unnamed params.
+				targetParams[ key ] = value;
 				return;
 			}
 
-			// Copy over other parameters, but map known keys
-			if ( self.templateMapping.parameters &&
-				self.templateMapping.parameters[ key ] !== undefined
-			) {
-				key = self.templateMapping.parameters[ key ];
+			// Check if a CX defined mapping exist for this param.
+			if ( self.templateMapping.cxMapping.parameters &&
+				self.templateMapping.cxMapping.parameters[ key ] ) {
+				targetParams[ self.templateMapping.cxMapping.parameters[ key ] ] = value;
+				return;
 			}
 
-			targetParams[ key ] = value;
+			if ( !self.templateMapping.params ) {
+				return;
+			}
+
+			normalizedKey = key.toLowerCase().replace( /[\s+_-]+/g, '' );
+			// Search in the aliases for a match - case insensitive.
+			$.each( self.templateMapping.params, function ( paramName, param ) {
+				var i, normalizedCandidates = [],
+					candidates;
+
+				candidates = param.aliases || [];
+				candidates.push( paramName );
+
+				for ( i = 0; i < candidates.length; i++ ) {
+					normalizedCandidates.push(
+						candidates[ i ].toLowerCase().replace( /[\s+_-]+/g, '' )
+					);
+				}
+
+				if ( normalizedCandidates.indexOf( normalizedKey ) >= 0 ) {
+					targetParams[ paramName ] = value;
+				}
+			} );
 		} );
 
 		return targetParams;
@@ -171,7 +340,7 @@
 	TemplateTool.prototype.adaptTitle = function ( targetTitle ) {
 		var self = this;
 		// Update the name of the template. We need template name without namespace
-		getTemplateNamespaceTranslation( mw.cx.targetLanguage )
+		return this.getTemplateNamespaceTranslation( this.targetLanguage )
 			.done( function ( translatedNamespace ) {
 				var templateName;
 
@@ -192,6 +361,7 @@
 
 		mw.log( '[CX] Marking template ' + this.templateTitle + ' read only.' );
 		templateFragments = this.$template.attr( 'about' );
+
 		if ( templateFragments ) {
 			$( '[about="' + templateFragments + '"]' ).prop( 'contenteditable', false );
 		}
@@ -207,8 +377,7 @@
 	TemplateTool.prototype.process = function () {
 		var self = this;
 
-		this.templateData = this.getTemplateData();
-		this.templateMapping = this.getTemplateMapping();
+		this.templateData = this.getSourceTemplateData();
 
 		if ( !this.templateData || ( this.templateData.parts && this.templateData.parts.length > 1 ) ) {
 			// Either the template is missing mw data or having multiple parts.
@@ -219,17 +388,22 @@
 			return $.Deferred().resolve().promise();
 		}
 
+		// Remove the typeof attribute for now. We will set it once we successfully adapt the template
+		// Otherwise, parsoid will fail fatally while parsing.
+		this.$template.removeAttr( 'typeof' );
 		this.templateTitle = this.templateData.parts[ 0 ].template.target.wt;
 
-		return this.getTargetTemplate()
-			.then( function ( targetTitle ) {
+		return this.getTemplateMapping()
+			.then( function ( targetTemplateData ) {
+				self.templateMapping = targetTemplateData;
 				self.markReadOnly();
-				if ( self.templateMapping ) {
-					self.adapt();
-				} else if ( targetTitle ) {
-					self.adaptTitle( targetTitle );
-				} else {
-					self.deconstruct();
+
+				if ( targetTemplateData ) {
+					self.adapt().then( function ( adaptResult ) {
+						if ( !adaptResult ) {
+							self.deconstruct();
+						}
+					} );
 				}
 			} )
 			.fail( function () {
@@ -253,14 +427,14 @@
 		}
 
 		// TODO: Avoid direct access to globals
-		api = mw.cx.siteMapper.getApi( mw.cx.sourceLanguage );
+		api = this.siteMapper.getApi( this.sourceLanguage );
 
 		// Note that we use canonical namespace 'Template' for title.
 		request = api.get( {
 			action: 'query',
 			titles: 'Template:' + this.templateTitle,
 			prop: 'langlinks',
-			lllang: mw.cx.siteMapper.getWikiDomainCode( mw.cx.targetLanguage ),
+			lllang: this.siteMapper.getWikiDomainCode( this.targetLanguage ),
 			redirects: true,
 			format: 'json'
 		}, {
@@ -281,6 +455,13 @@
 		return request;
 	};
 
+	mw.cx.TemplateTool = TemplateTool;
+	mw.cx.TemplateTool.defaults = {
+		siteMapper: mw.cx.siteMapper,
+		sourceLanguage: mw.cx.sourceLanguage,
+		targetLanguage: mw.cx.targetLanguage
+	};
+
 	/**
 	 * Processes each template in given section.
 	 *
@@ -289,22 +470,17 @@
 	function processTemplates( $section ) {
 		var i, template, templates = [];
 
-		if ( $section.is( '[typeof*="mw:Transclusion"]' ) ) {
+		if ( $section.is( '[typeof~="mw:Transclusion"]' ) ) {
 			templates.push( $section );
 		}
 		templates = templates.concat(
 			// Convert the internal templates to a js array
-			$.makeArray( $section.find( '[typeof*="mw:Transclusion"]' ) )
+			$.makeArray( $section.find( '[typeof~="mw:Transclusion"]' ) )
 		);
 		for ( i = 0; i < templates.length; i++ ) {
-			template = new TemplateTool( templates[ i ] );
+			template = new mw.cx.TemplateTool( templates[ i ] );
 			template.process();
 		}
-	}
-
-	if ( typeof QUnit !== undefined ) {
-		// Expose this module for unit testing
-		mw.cx.TemplateTool = TemplateTool;
 	}
 
 	$( function () {

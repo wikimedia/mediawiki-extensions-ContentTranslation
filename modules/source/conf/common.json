@@ -3,10 +3,6 @@
 		"Reflist": {
 			"targetname": "Reflist",
 			"editable": false
-		},
-		"Cite web": {
-			"targetname": "Cite web",
-			"editable": false
 		}
 	}
 }
