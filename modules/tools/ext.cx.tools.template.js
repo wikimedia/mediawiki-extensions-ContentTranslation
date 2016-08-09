@@ -10,7 +10,7 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var targetTemplateNamespace = {},
+	var targetTemplateNamespaceRequestCache = {},
 		cachedTemplateRequests = {};
 
 	/**
@@ -71,12 +71,14 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getTemplateNamespaceTranslation( language ) {
-		if ( targetTemplateNamespace[ language ] ) {
-			return $.Deferred().resolve( targetTemplateNamespace[ language ] ).promise();
+		var request;
+
+		if ( targetTemplateNamespaceRequestCache[ language ] ) {
+			return targetTemplateNamespaceRequestCache[ language ];
 		}
 
 		// TODO: Refactor to avoid global reference
-		return mw.cx.siteMapper.getApi( language ).get( {
+		request = mw.cx.siteMapper.getApi( language ).get( {
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces',
@@ -91,11 +93,13 @@
 			for ( namespaceId in response.query.namespaces ) {
 				namespaceObj = response.query.namespaces[ namespaceId ];
 				if ( namespaceObj.canonical === 'Template' ) {
-					targetTemplateNamespace[ language ] = namespaceObj[ '*' ];
-					return targetTemplateNamespace[ language ];
+					return namespaceObj[ '*' ];
 				}
 			}
 		} );
+		targetTemplateNamespaceRequestCache[ language ] = request;
+
+		return request;
 	}
 
 	/**
