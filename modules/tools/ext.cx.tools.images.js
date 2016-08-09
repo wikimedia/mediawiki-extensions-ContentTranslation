@@ -14,7 +14,7 @@
 	 * Canonical namespace for images.
 	 */
 	var imageNameSpace = 'File',
-		cachedNamespaces = {};
+		cachedNamespaceRequests = {};
 
 	/**
 	 * Get the namespace translation in a wiki.
@@ -24,14 +24,14 @@
 	 * @return {jQuery.Promise}
 	 */
 	function getImageNamespaceTranslation( targetLanguage ) {
-		var deferred = $.Deferred();
+		var request;
 
-		if ( cachedNamespaces[ targetLanguage ] ) {
-			return deferred.resolve( cachedNamespaces[ targetLanguage ] ).promise();
+		if ( cachedNamespaceRequests[ targetLanguage ] ) {
+			return cachedNamespaceRequests[ targetLanguage ];
 		}
 
 		// TODO: Refactor to avoid global reference
-		mw.cx.siteMapper.getApi( targetLanguage ).get( {
+		request = mw.cx.siteMapper.getApi( targetLanguage ).get( {
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces',
@@ -40,25 +40,21 @@
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
-		} ).done( function ( response ) {
+		} ).then( function ( response ) {
 			var namespaceId, namespaceObj;
 
 			for ( namespaceId in response.query.namespaces ) {
 				namespaceObj = response.query.namespaces[ namespaceId ];
 				if ( namespaceObj.canonical === imageNameSpace ) {
-					cachedNamespaces[ targetLanguage ] = namespaceObj[ '*' ];
-					deferred.resolve( cachedNamespaces[ targetLanguage ] );
-					return;
+					return namespaceObj[ '*' ];
 				}
 			}
 
-			deferred.resolve( imageNameSpace );
-		} ).fail( function () {
-			// Fallback to canonical name
-			deferred.resolve( imageNameSpace );
+			return imageNameSpace;
 		} );
 
-		return deferred.promise();
+		cachedNamespaceRequests[ targetLanguage ] = request;
+		return request;
 	}
 
 	/**
