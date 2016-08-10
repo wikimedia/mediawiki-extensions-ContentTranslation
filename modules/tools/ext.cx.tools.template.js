@@ -113,13 +113,35 @@
 	 * Adapt a template using template mapping
 	 */
 	TemplateTool.prototype.adapt = function () {
-		var targetParams = {},
-			templateTool = this,
-			sourceParams = this.templateData.parts[ 0 ].template.params;
-
 		mw.log( '[CX] Adapting template ' + this.templateTitle + ' based on mapping.' );
 		// Update the name of the template
 		this.templateData.parts[ 0 ].template.target.wt = this.templateMapping.targetname;
+		this.templateData.parts[ 0 ].template.params = this.getTargetParams( this.getSourceParams() );
+		this.$template.attr( 'data-mw', JSON.stringify( this.templateData ) );
+
+		// Make templates uneditable unless whitelisted
+		if ( !this.templateMapping.editable ) {
+			this.$template.data( 'editable', false );
+		}
+	};
+
+	/**
+	 * Get the source parameters for the template
+	 *
+	 * @return {Object} Source parameters - key-value pairs.
+	 */
+	TemplateTool.prototype.getSourceParams = function () {
+		return this.templateData.parts[ 0 ].template.params;
+	};
+
+	/**
+	 * Get the target parameters for the template after mapping
+	 *
+	 * @return {Object} Target parameters - key-value pairs.
+	 */
+	TemplateTool.prototype.getTargetParams = function ( sourceParams ) {
+		var targetParams = {},
+			self = this;
 
 		// Update the template parameters
 		$.each( sourceParams, function ( key, value ) {
@@ -131,22 +153,16 @@
 			}
 
 			// Copy over other parameters, but map known keys
-			if ( templateTool.templateMapping.parameters &&
-				templateTool.templateMapping.parameters[ key ] !== undefined
+			if ( self.templateMapping.parameters &&
+				self.templateMapping.parameters[ key ] !== undefined
 			) {
-				key = templateTool.templateMapping.parameters[ key ];
+				key = self.templateMapping.parameters[ key ];
 			}
 
 			targetParams[ key ] = value;
 		} );
 
-		this.templateData.parts[ 0 ].template.params = targetParams;
-		this.$template.attr( 'data-mw', JSON.stringify( this.templateData ) );
-
-		// Make templates uneditable unless whitelisted
-		if ( !this.templateMapping.editable ) {
-			this.$template.data( 'editable', false );
-		}
+		return targetParams;
 	};
 
 	/**

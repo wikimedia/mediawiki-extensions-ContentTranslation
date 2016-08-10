@@ -111,7 +111,7 @@
 				templateTool.process().then( function () {
 					var i, key, mappedKey,
 						templateData = $template.data( 'mw' ),
-						templateKeys = Object.keys( templateData.parts[ 0 ].template.params ),
+						templateKeys = Object.keys( templateTool.getSourceParams() ),
 						templateMapping = $template.data( 'template-mapping' ),
 						templateMappingKeys = Object.keys( templateMapping.parameters );
 
