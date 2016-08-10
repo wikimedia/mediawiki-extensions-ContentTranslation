@@ -9,6 +9,7 @@
 	},
 	"cx": "چئویرمه صفحه‌سی",
 	"cx-dashboard-header": "چئویرمه‌لر",
+	"cx-publish-page-error": "چئویرمه‌نی یاییملایارکن بیر خطا باش وئردی. لۆطفاً یئنه صفحه‌نی یاییملاماغا چالیشین. خطا: $1",
 	"cx-publish-summary": "«$1» صفحه‌سی‌نین چئویریلمه‌سی‌له یارادیلدی.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|محتوا چئویرمه‌سی]]",
 	"cx-beta": "محتوا چئویرمه‌سی",
