@@ -21,6 +21,7 @@
 	"cx": "ページの翻訳",
 	"cx-dashboard-header": "翻訳",
 	"cx-javascript": "このツールの動作には JavaScript が必要です。",
+	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|コンテンツ翻訳]]はページをあなたの言語へ素早く翻訳するためのツールです。[$1 今すぐ試してみましょう！]",
 	"cx-license-agreement": "［$1］ボタンをクリックすることで、あなたは [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] に同意し、また翻訳ツールによるあなたの作業を、ハイパーリンクや URL がクリエイティブコモンズ 表示-継承 3.0 の帰属表示として有効であることを理解したうえで、 [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] 及び [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] に基いてリリースすることを、事後に撤回することなく同意することになります。",
 	"cx-error-server-connection": "エラー: サーバーに接続できませんでした。",
 	"cx-desc": "記事のページが[[Special:ContentTranslation|翻訳]]しやすくなります",
@@ -73,11 +74,10 @@
 	"cx-tools-link-remove": "リンクを除去",
 	"cx-tools-mt-title": "機械翻訳",
 	"cx-tools-mt-use-source": "翻訳元の文を使用",
-	"cx-tools-mt-clear-translation": "段落を消去",
-	"cx-tools-mt-restore": "復元",
+	"cx-tools-mt-reset": "翻訳をリセット",
 	"cx-tools-mt-provider-title": "$1 を使用",
-	"cx-tools-mt-not-available": "$1へは機械翻訳は利用できません。",
 	"cx-tools-mt-dont-use": "機械翻訳を使用しないでください。",
+	"cx-tools-mt-set-default": "既定として保持",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1件のカテゴリ|0=カテゴリなし}}",
 	"cx-stats-title": "コンテンツ翻訳統計",
 	"cx-tools-reference-title": "脚注",
@@ -207,5 +207,10 @@
 	"cx-tools-linter-content": "コンテンツが[//www.mediawiki.org/wiki/Content_translation/Abuse_filter ウィキペディアの$1において設定]されている制限を満たしていません。",
 	"cx-tools-linter-view-details": "詳細を表示",
 	"cx-tools-linter-hide-details": "詳細を非表示",
-	"cx-translator-month-stats-label": "今月"
+	"cx-translator-month-stats-label": "今月",
+	"cx-translator-total-translations-label": "合計",
+	"cx-page-old-revision-loaded": "この訳文は古い版の内容に基づいています。元ページは[$1 大きく変わっている]可能性があります。この翻訳を続けることもできますし、更新された内容をもとにもう一度始めることもできます。",
+	"cx-tools-mt-new-provider": "新規",
+	"cx-tools-mt-new-providers-available": "新規オプションあり",
+	"cx-continue-translation": "翻訳を続行"
 }

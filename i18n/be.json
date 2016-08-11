@@ -37,5 +37,7 @@
 	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] існуе ў мэтавай Вікі. Разглядзіце пытанне аб прадастаўленні старонкі іншай назвы.",
 	"cx-source-loading": "Загрузка $1",
 	"cx-tools-link-add": "Дадаць спасылку",
-	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы"
+	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы",
+	"cx-tools-mt-new-providers-available": "з новымі настройкамі",
+	"cx-continue-translation": "Працягваць пераклад"
 }
