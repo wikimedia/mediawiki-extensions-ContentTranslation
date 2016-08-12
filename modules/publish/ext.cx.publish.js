@@ -373,7 +373,8 @@
 
 			// Remove attributes added by CX
 			attributesToRemove = [ 'data-cx-weight', 'data-cx-mt-provider', 'data-cx-state',
-				'data-source', 'data-sourceid', 'data-linkid', 'data-seqid', 'data-cx-draft', 'contenteditable'
+				'data-source', 'data-sourceid', 'data-linkid', 'data-seqid', 'data-cx-draft',
+				'data-template-mapping', 'contenteditable'
 			].join( ' ' );
 			// Remove classes added by CX
 			classesToRemove = [ 'cx-link', 'cx-target-link', 'cx-source-link', 'cx-highlight' ]
