@@ -62,7 +62,7 @@
 	"cx-beta": "내용 번역",
 	"cx-beta-desc": "문서를 사용자의 언어로 빠르게 번역하기 위한 도구입니다. [[Special:MyContributions|사용자의 기여 목록]]에서 번역을 시작하고, 번역을 위해 특별히 설계된 나란히 보여주는 편집기로 편집해보세요. 일부 도구들은 특정 언어에서만 이용이 가능할 수 있습니다.",
 	"cx-entrypoint-title": "$1로 이 문서 번역",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "이 문서는 아직 $1로 존재하지 않습니다. 만들겠습니까?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "이 문서는 아직 $1(으)로 존재하지 않습니다. 만들겠습니까?",
 	"cx-entrypoint-dialog-title-in": "$1의 새 문서 제목:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "처음부터 만들기",
 	"cx-entrypoint-dialog-button-translate-from": "$1에서 번역",
