@@ -28,21 +28,24 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$out->setArticleBodyOnly( true );
 		// Default modules copied from OutputPage::addDefaultModules
 		$out->addModules( [
+			'site',
 			'mediawiki.user',
 			'mediawiki.page.startup',
-			'mediawiki.page.ready',
 		] );
 
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'ext.cx.header.skin' );
 
 		$out->addModules( [ 'ext.cx.header', 'ext.cx.stats' ] );
-		// Load legacy modules if any, for the skin.
-		// Some wikis have Common.js scripts that depend on this module.
-		$defaultSkinModules = $skin->getDefaultModules();
-		$out->addModules( $defaultSkinModules['legacy'] );
+		// Add skin specific modules
+		$modules = $skin->getDefaultModules();
+		foreach ( $modules as $group ) {
+			$out->addModules( $group );
+		}
 
 		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
+		$skin->setupSkinUserCss( $out );
+
 		$toolbarList = Html::rawElement( 'ul',
 			null,
 			$skin->getPersonalToolsList() );

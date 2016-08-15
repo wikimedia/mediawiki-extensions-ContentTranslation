@@ -156,17 +156,19 @@ class SpecialContentTranslation extends SpecialPage {
 
 		// Default modules copied from OutputPage::addDefaultModules
 		$out->addModules( [
+			'site',
 			'mediawiki.user',
 			'mediawiki.page.startup',
-			'mediawiki.page.ready',
 		] );
 
-		// Load legacy modules if any, for the skin.
-		// Some wikis have Common.js scripts that depend on this module.
-		$defaultSkinModules = $skin->getDefaultModules();
-		$out->addModules( $defaultSkinModules['legacy'] );
+		// Add skin specific modules
+		$modules = $skin->getDefaultModules();
+		foreach ( $modules as $group ) {
+			$out->addModules( $group );
+		}
 
 		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
+		$skin->setupSkinUserCss( $out );
 
 		// T111668: Make sure we generate the personal tools
 		// before we output the head, as extensions may add
