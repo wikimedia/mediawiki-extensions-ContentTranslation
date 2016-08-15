@@ -161,9 +161,16 @@
 		} );
 	}
 
-	$( function () {
+	function init() {
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 
 		prepareCXInterLanguageLinks();
-	} );
+	}
+
+	// Early execute of init
+	if ( document.readyState === 'interactive' ) {
+		init();
+	} else {
+		$( document ).ready( init );
+	}
 }( jQuery, mediaWiki ) );
