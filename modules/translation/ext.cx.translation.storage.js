@@ -7,7 +7,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var timer, failCounter = 0;
+	var timer, saveRequest,
+		failCounter = 0;
 
 	/**
 	 * @class
@@ -122,12 +123,15 @@
 		var self = this,
 			api = new mw.Api();
 
-		clearInterval( timer );
 		// Starting the real save API call. Fire event so that we can show a progress
 		// indicator in UI.
 		mw.hook( 'mw.cx.translation.save-started' ).fire();
 
-		return api.postWithToken( 'csrf', {
+		if ( saveRequest ) {
+			saveRequest.abort();
+		}
+
+		saveRequest = api.postWithToken( 'csrf', {
 			action: 'cxsave',
 			assert: 'user',
 			content: EasyDeflate.deflate( JSON.stringify( sections ) ),
@@ -140,8 +144,11 @@
 		} ).done( function ( response ) {
 			self.onSaveComplete( sections, response.cxsave );
 		} ).fail( function ( errorCode, details ) {
-			self.onSaveFailure( errorCode, details );
+			if ( details.exception !== 'abort' ) {
+				self.onSaveFailure( errorCode, details );
+			}
 		} ).always( function () {
+			saveRequest = null;
 			if ( failCounter > 10 ) {
 				// If there are more than 10 save errors, stop autosave at timer triggers.
 				// It will get restarted on further translation edits.
@@ -150,7 +157,8 @@
 				return;
 			}
 			// Irrespective of success or fail, schedule next autosave
-			timer = setInterval( function () {
+			clearTimeout( timer );
+			timer = setTimeout( function () {
 				self.save();
 			}, 5 * 60 * 1000 );
 		} );
