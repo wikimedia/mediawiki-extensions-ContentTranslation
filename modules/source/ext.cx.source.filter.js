@@ -77,8 +77,8 @@
 	 */
 	function hasReferences( $template ) {
 		if (
-			$template.is( '[typeof*="mw:Extension/references"]' ) ||
-			$template.find( '[typeof*="mw:Extension/references"]' ).length
+			$template.is( '[typeof~="mw:Extension/references"]' ) ||
+			$template.find( '[typeof~="mw:Extension/references"]' ).length
 		) {
 			return true;
 		}
@@ -94,7 +94,7 @@
 	CXSourceFilter.prototype.filter = function ( configuration ) {
 		var sourceFilter = this;
 
-		this.$container.find( '[typeof*="mw:Transclusion"]' ).each( function () {
+		this.$container.find( '[typeof~="mw:Transclusion"]' ).each( function () {
 			var title, mwData, templateName, templateConf,
 				$template = $( this );
 
@@ -156,7 +156,7 @@
 
 		// Remove <timeline> sections.
 		// Maybe in the future they can be adapted.
-		this.$container.find( '[typeof*="mw:Extension/timeline"]' ).each( function () {
+		this.$container.find( '[typeof~="mw:Extension/timeline"]' ).each( function () {
 			mw.log( '[CX] Removing timeline.' );
 			sourceFilter.removeTimeline( $( this ) );
 		} );
