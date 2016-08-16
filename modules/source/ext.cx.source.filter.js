@@ -70,21 +70,28 @@
 	}
 
 	/**
-	 * Check if the template contains <references> transclusion
+	 * Check if the template contains <references> transclusion in itself, in
+	 * its children, or in the related elements.
 	 *
 	 * @param {jQuery} $template
 	 * @return {boolean} Whether the template contains <references> or not.
 	 */
-	function hasReferences( $template ) {
-		if (
-			$template.is( '[typeof~="mw:Extension/references"]' ) ||
-			$template.find( '[typeof~="mw:Extension/references"]' ).length
-		) {
-			return true;
-		}
+	CXSourceFilter.prototype.hasReferences = function ( $template ) {
+		var hasReference = false,
+			$relatedElements = this.getRelatedElements( $template );
 
-		return false;
-	}
+		$relatedElements.each( function () {
+			if (
+				$( this ).is( '[typeof~="mw:Extension/references"]' ) ||
+				$( this ).find( '[typeof~="mw:Extension/references"]' ).length
+			) {
+				hasReference = true;
+				return false;
+			}
+		} );
+
+		return hasReference;
+	};
 
 	/**
 	 * Filter the templates present in the source article based on the configuration.
@@ -146,7 +153,7 @@
 			// Check whether this template contains <references>.
 			// If so, let it pass even without being whitelisted in the template configuration
 			// because we want references to appear in the published translation.
-			if ( hasReferences( $template ) ) {
+			if ( sourceFilter.hasReferences( $template ) ) {
 				mw.log( '[CX] Keeping references transclusion: ' + templateName );
 			} else {
 				mw.log( '[CX] Removing template: ' + templateName );
@@ -170,7 +177,7 @@
 	 * @param {jQuery} $template The main element of the template.
 	 */
 	CXSourceFilter.prototype.removeTemplate = function ( $template ) {
-		this.removeRelatedElements( $template );
+		this.getRelatedElements( $template ).remove();
 	};
 
 	/**
@@ -179,17 +186,17 @@
 	 * @param {jQuery} $timelineMap The <map> element of the timeline.
 	 */
 	CXSourceFilter.prototype.removeTimeline = function ( $timelineMap ) {
-		this.removeRelatedElements( $timelineMap );
+		this.getRelatedElements( $timelineMap ).remove();
 	};
 
 	/**
-	 * Remove a DOM element and all elements that are related to it
+	 * Get a DOM element and all elements that are related to it
 	 * according to the "about" attribute.
 	 * See https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec#Transclusion_content .
 	 *
 	 * @param {jQuery} $element
 	 */
-	CXSourceFilter.prototype.removeRelatedElements = function ( $element ) {
+	CXSourceFilter.prototype.getRelatedElements = function ( $element ) {
 		var about;
 
 		// Templates and some other special elements, such as <timeline>s,
@@ -200,15 +207,12 @@
 		about = $element.attr( 'about' );
 
 		if ( about ) {
-			// Remove all the related elements.
-			// This is supposed to include the main element,
-			// because all the elements in the group are
-			// supposed to have the same "about" value.
-			this.$container.find( '[about="' + about + '"]' ).remove();
-		} else {
-			// If there is no about value, just remove this element.
-			$element.remove();
+			// This will include the main element,
+			// because all the elements in the group have the same "about" value.
+			return this.$container.find( '[about="' + about + '"]' );
 		}
+		// If there is no about value, just return this element.
+		return $element;
 	};
 
 	CXSourceFilter.prototype.listen = function () {
