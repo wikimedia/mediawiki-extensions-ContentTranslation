@@ -139,7 +139,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $this->translation === null ) {
 			// Translation does not exist
-			$this->dieUsage( 'Translation not found' );
+			$this->dieUsage( 'Translation not found', 'translationnotfound' );
 		}
 
 		$translator = new ContentTranslation\Translator( $user );
