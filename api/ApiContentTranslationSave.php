@@ -56,7 +56,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$this->translation = $this->saveTranslation( $params );
 
 		$translationUnits = $this->getTranslationUnits( $params['content'] );
-		$this->saveTranslationUnits( $translationUnits );
+		$this->saveTranslationUnits( $translationUnits, $this->translation );
 		$validationResults = $this->validateTranslationUnits( $translationUnits );
 		$translationId = $this->translation->getTranslationId();
 
@@ -126,6 +126,11 @@ class ApiContentTranslationSave extends ApiBase {
 		return $results;
 	}
 
+	/**
+	 * @param array $params
+	 * @return Translation
+	 * @throws UsageException
+	 */
 	protected function saveTranslation( array $params ) {
 		$translation = Translation::find(
 			$params['from'],
@@ -211,9 +216,14 @@ class ApiContentTranslationSave extends ApiBase {
 		return $translationUnits;
 	}
 
-	protected function saveTranslationUnits( $translationUnits ) {
+	/**
+	 * @param $translationUnits
+	 * @param Translation $translation Recently saved parent translation object
+	 */
+	protected function saveTranslationUnits( $translationUnits, Translation $translation ) {
+		$newTranslation = $translation->lastSaveWasCreate();
 		foreach ( $translationUnits as $translationUnit ) {
-			TranslationStorageManager::save( $translationUnit );
+			TranslationStorageManager::save( $translationUnit, $newTranslation );
 		}
 	}
 

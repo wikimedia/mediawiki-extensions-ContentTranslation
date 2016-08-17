@@ -37,7 +37,7 @@ class TranslationUnit {
 	}
 
 	/**
-	 * @param stdClass $row
+	 * @param \stdClass $row
 	 * @return TranslationUnit
 	 */
 	public static function newFromRow( $row ) {

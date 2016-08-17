@@ -5,6 +5,8 @@
 namespace ContentTranslation;
 
 class Translation {
+	private $lastSaveWasCreate = false;
+
 	function __construct( $translation ) {
 		$this->translation = $translation;
 	}
@@ -78,8 +80,6 @@ class Translation {
 	 * translation exists and chooses either of create or update actions.
 	 */
 	public function save() {
-		$freshTranslation = false;
-
 		$existingTranslation = Translation::find(
 			$this->translation['sourceLanguage'],
 			$this->translation['targetLanguage'],
@@ -88,6 +88,7 @@ class Translation {
 
 		if ( $existingTranslation === null ) {
 			$this->create();
+			$this->lastSaveWasCreate = true;
 		} else {
 			$options = [];
 			if ( $existingTranslation->translation['status'] === 'deleted' ) {
@@ -97,7 +98,15 @@ class Translation {
 			}
 			$this->translation['id'] = $existingTranslation->getTranslationId();
 			$this->update( $options );
+			$this->lastSaveWasCreate = false;
 		}
+	}
+
+	/**
+	 * @return bool Whether the last save() call on this object instance made a new row
+	 */
+	public function lastSaveWasCreate() {
+		return $this->lastSaveWasCreate;
 	}
 
 	/*
