@@ -100,7 +100,10 @@
 		attachTo: cactions,
 		position: 'leftBottom',
 		titlemsg: 'cx-publish-gt-first-step-title',
-		descriptionmsg: 'cx-publish-gt-first-step-description',
+		description: mw.message(
+				'cx-publish-gt-first-step-description',
+				$( '#ca-edit a' ).text()
+			).parse(),
 		onShow: function () {
 			var $cactions = $( cactions ),
 				$actionsMenu = $cactions.find( '.menu' );
@@ -163,7 +166,10 @@
 		attachTo: editElement,
 		position: 'bottom',
 		titlemsg: 'cx-publish-gt-published-title',
-		descriptionmsg: 'cx-publish-gt-published-description',
+		description: mw.message(
+			'cx-publish-gt-published-description',
+			$( '#ca-move a' ).text()
+		).parse(),
 		onShow: deletePublishCookie,
 		buttons: [ {
 			action: 'end'
