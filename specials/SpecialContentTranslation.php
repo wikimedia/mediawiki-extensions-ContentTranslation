@@ -101,7 +101,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationTranslateInTarget;
+		global $wgContentTranslationTranslateInTarget, $wgULSPosition;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
@@ -111,6 +111,10 @@ class SpecialContentTranslation extends SpecialPage {
 		$campaign = $request->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
 		$isExistingTranslation = $this->isExistingTranslation();
+
+		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
+		$wgULSPosition = 'personal';
+		$out->addJsConfigVars( [ 'wgULSPosition' => 'personal' ] );
 
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
