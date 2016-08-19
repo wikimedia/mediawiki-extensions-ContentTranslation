@@ -16,6 +16,8 @@
 	"cx-header-new-translation": "Tərcüməyə başla",
 	"cx-header-all-translations": "Bütün tərcümələr",
 	"cx-source-view-page": "səhifəyə bax",
+	"cx-beta": "Məzmun tərcüməsi",
+	"cx-beta-desc": "Başqa dildəki səhifələri öz dilinizə asanlıqla tərcümə etmək üçün alət. Tərcümələrə [[Special:MyContributions|öz fəaliyət səhifənizdən]] başlaya bilər və tərcümə üçün xüsusi yaratdığımız yanbayan redaktə pəncərələri vasitəsilə redaktə edə bilərsiniz. Bəzi funksiyalar yalnız müəyyən dillərdə istifadəyə açıqdır.",
 	"cx-tools-link-add": "Keçid əlavə et",
 	"cx-tools-mt-title": "Maşın tərcüməsi",
 	"cx-sourceselector-dialog-button-cancel": "Ləğv et",
