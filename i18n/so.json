@@ -42,6 +42,8 @@
 	"cx-entrypoint-dialog-title-in": "Ciwaanka ee bogga cusub ka dhig $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Eber ka biloow",
 	"cx-entrypoint-dialog-button-translate-from": "Ka biloow turjimid $1",
+	"cx-tools-mt-use-source": "Adeegso isla qoraalka",
+	"cx-tools-mt-provider-title": "Adeegso $1",
 	"cx-stats-title": "Tirakoobka wax turjumidda",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Ma}} u baahantahay caawinaad turjumaad?",
 	"cx-dashboard-sidebar-information": "Ogoow macluumaadka dheeraadka ah ee qaabkaan",
@@ -61,7 +63,6 @@
 	"cx-contributions-upload": "Gali fayl",
 	"cx-translation-status-draft": "Howl socota",
 	"cx-translation-status-published": "Bandhigid",
-	"cx-magnus-tool-link-text": "Raadi bogagga ka maqan luqadaada",
 	"cx-stats-published-translations-title": "Turjumaadii waa la faafiyay",
 	"cx-stats-draft-translations-title": "Waxaa socota turjumaad",
 	"cx-stats-new-draft-translations-label": "Waxaa socota howsha turjumaad cusub",
@@ -70,5 +71,6 @@
 	"cx-stats-draft-target-source": "Turjumaad ayaa ku socota",
 	"cx-stats-total-published": "Wadarta la faafiyay",
 	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
-	"cx-notification-first-translation-email-subject": "Hambalyo ku saabsan turjumidaadii ugu horaysay"
+	"cx-page-old-revision-loaded": "Qoraalka laga soo turjumayo [$1 bedel] waad sii dhamaystiri kartaa turjumiddiisa ama mar kale baad dib u bilaabi kartaa si aad u turjunto wixii iska bedelay.",
+	"cx-tools-mt-new-provider": "cusub"
 }
