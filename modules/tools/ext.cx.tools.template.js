@@ -134,16 +134,18 @@
 			// This prevents warnings about the unrecognized parameter "_"
 			cache: true
 		} ).then( function ( resp ) {
-			var pageContent = '';
+			var title, pageContent = '';
 
 			if (
 				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions &&
 				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ]
 			) {
 				pageContent = resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ][ '*' ];
+				title = resp.query.pages[ resp.query.pageids[ 0 ] ].title;
 			}
 
 			return {
+				title: title,
 				params: self.extractParametersFromTemplateCode( pageContent )
 			};
 		} );
@@ -238,16 +240,22 @@
 		// Update the name of the template
 		return this.getTemplateNamespaceTranslation( this.targetLanguage )
 			.then( function ( translatedNamespace ) {
-				var templateName, targetParams, targetName;
+				var templateName, sourceParams, targetParams, targetName;
 
 				targetName = self.templateMapping.cxMapping.targetname || self.templateMapping.title;
 				if ( !targetName ) {
 					return false;
 				}
+				sourceParams = self.getSourceParams();
+				targetParams = self.getAdaptedTargetParams( sourceParams );
 
-				targetParams = self.getAdaptedTargetParams( self.getSourceParams() );
-				if ( $.isEmptyObject( targetParams ) ) {
-					return false;
+				if ( !$.isEmptyObject( sourceParams ) && $.isEmptyObject( targetParams ) ) {
+					if ( self.templateMapping.params && Object( self.templateMapping.params ).length > 0 ) {
+						// Checking whether there is any params defined for target template.
+						// It is possible that source template definition has params and target
+						// does not have any. Mapping failed only when target has some params.
+						return false;
+					}
 				}
 
 				// So we were able to map at least one parameter to the target template.

@@ -331,8 +331,8 @@
 	 * @return {string} processed html
 	 */
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {
-		// Remove unnecessary elements
-		$content.find( 'link, title, .placeholder' ).remove();
+		// Remove all placeholders
+		$content.find( '.placeholder' ).remove();
 
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var attributesToRemove, classesToRemove, $section = $( this );
