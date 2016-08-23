@@ -335,25 +335,6 @@
 	};
 
 	/**
-	 * Adapt the template name to the equivalent in the target wiki
-	 */
-	TemplateTool.prototype.adaptTitle = function ( targetTitle ) {
-		var self = this;
-		// Update the name of the template. We need template name without namespace
-		return this.getTemplateNamespaceTranslation( this.targetLanguage )
-			.done( function ( translatedNamespace ) {
-				var templateName;
-
-				templateName = targetTitle.replace(
-					new RegExp( '^' + mw.RegExp.escape( translatedNamespace + ':' ) ),
-					''
-				);
-				self.templateData.parts[ 0 ].template.target.wt = templateName;
-				self.$template.attr( 'data-mw', JSON.stringify( self.templateData ) );
-			} );
-	};
-
-	/**
 	 * Marks template non-editable.
 	 */
 	TemplateTool.prototype.markReadOnly = function () {
