@@ -21,8 +21,14 @@ class SpecialContentTranslationStats extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
+		global $wgULSPosition;
+
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
+
+		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
+		$wgULSPosition = 'personal';
+		$out->addJsConfigVars( [ 'wgULSPosition' => 'personal' ] );
 
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
