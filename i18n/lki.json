@@ -26,7 +26,7 @@
 	"cx-publish-summary": "ایجاد شده توسط ترجمهٔ وةڵگة «$1»",
 	"cx-publish-gt-no-permission-to-move-description": "لطفاً از یک کاربر مجرب این وب‌گاه برای کمک در بازبینی ترجمه و انتشار آن به فضای اصلی خواهش کنید.",
 	"cx-publish-gt-first-step-title": "این ترجمه به‌عنوان یک پیش‌نویس در زیرصفحهٔ شما برای بازبینی منتشر شد",
-	"cx-publish-gt-first-step-description": "بر عمل «{{int:vector-action-move}}» زیر این منو برای ارائهٔ محتویات به همهٔ کاربران به‌عنوان یک صفحهٔ عادی کلیک کنید.",
+	"cx-publish-gt-first-step-description": "بر عمل «$1» زیر این منو برای ارائهٔ محتویات به همهٔ کاربران به‌عنوان یک صفحهٔ عادی کلیک کنید.",
 	"cx-publish-gt-move-page-title": "اێ وەڵگە جاووآز کە",
 	"cx-publish-gt-move-page-description": "فضای نام «{{int:blanknamespace}}» را انتخاب کنید و به صفحه‌یتان عنوان مناسب بدهید.",
 	"cx-publish-gt-moved-title": "صفحهٔ ترجمه‌شده منتقل شده است",
