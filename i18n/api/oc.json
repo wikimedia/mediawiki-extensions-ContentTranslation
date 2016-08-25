@@ -4,14 +4,22 @@
 			"Cedric31"
 		]
 	},
+	"apihelp-cxpublish-param-from": "Lo còdi de lenga font.",
 	"apihelp-query+contenttranslation-description": "Interrogar la basa de donadas de traduccion del contengut per las traduccions",
+	"apihelp-query+contenttranslation-param-from": "Lo còdi de la lenga font.",
 	"apihelp-query+contenttranslation-param-limit": "Lo nombre maximum de traduccions de renviar.",
 	"apihelp-query+contenttranslation-example-1": "Obténer las traduccions començadas per l'utilizaire actual.",
 	"apihelp-query+contenttranslation-example-2": "Obténer los borrolhons de traduccion per id.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Lo còdi de lenga font.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Obténer las paginas suggeridas per la traduccion de l'anglés (en) a l'espanhòl (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Recuperar las informacions sus las traduccions publicadas",
+	"apihelp-query+cxpublishedtranslations-param-from": "Lo còdi de lenga font.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Lo nombre maximal de traduccions d'obténer.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Recuperar totas las traduccions publicadas",
 	"apihelp-query+cxpublishedtranslations-example-2": "Recuperar totas las traduccions publicadas, traduitas de l’anglés",
-	"apihelp-query+cxpublishedtranslations-example-3": "Recuperar totas las traduccions publicadas, traduitas de l’anglés en espanhòl"
+	"apihelp-query+cxpublishedtranslations-example-3": "Recuperar totas las traduccions publicadas, traduitas de l’anglés en espanhòl",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Lo còdi de lenga font.",
+	"apihelp-cxdelete-param-from": "Lo còdi de lenga font.",
+	"apihelp-cxsuggestionlist-param-from": "Lo còdi de lenga font.",
+	"apihelp-cxsave-param-from": "Lo còdi de lenga font."
 }

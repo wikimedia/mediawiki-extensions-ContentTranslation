@@ -12,7 +12,7 @@
 	"cx-error-server-connection": "Kļūda: Nevarēja izveidot savienojumu ar serveri.",
 	"cx-desc": "Padara vienkāršāku satura lapu tulkošanu",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iztulkoti|iztulkots|iztulkoti}}",
-	"cx-header-progressbar-text-mt": "($1% no mašīntulkojuma)",
+	"cx-header-progressbar-text-mt": "($1% no {{PLURAL:$1|mašīntulkojumiem|mašīntulkojuma|mašīntulkojumiem}})",
 	"cx-header-translation-center": "Tulkojumu centrs",
 	"cx-header-new-translation": "Jauns tulkojums",
 	"cx-header-all-translations": "Visi tulkojumi",
