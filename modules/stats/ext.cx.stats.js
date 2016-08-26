@@ -198,8 +198,7 @@
 
 		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-all-translations-title' ) ) );
 		this.createTabs(
-			'cx-graph-total',
-			[
+			'cx-graph-total', [
 				{
 					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
 					content: $( '<div>' )
@@ -226,8 +225,7 @@
 			$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
 		).escaped() ) );
 		this.createTabs(
-			'cx-graph-language',
-			[
+			'cx-graph-language', [
 				{
 					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
 					content: $( '<div>' )
@@ -251,8 +249,7 @@
 
 		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-published-translations-title' ) ) );
 		this.createTabs(
-			'cx-stats-published',
-			[
+			'cx-stats-published', [
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'published', 'count' )
@@ -267,8 +264,7 @@
 
 		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-draft-translations-title' ) ) );
 		this.createTabs(
-			'cx-stats-draft',
-			[
+			'cx-stats-draft', [
 				{
 					title: mw.msg( 'cx-stats-draft-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'draft', 'count' )
@@ -283,8 +279,7 @@
 
 		this.$container.append( $( '<h2>' ).text( mw.msg( 'cx-stats-published-translators-title' ) ) );
 		this.createTabs(
-			'cx-stats-translators',
-			[
+			'cx-stats-translators', [
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
 					content: this.drawTranslationsChart( 'to', 'published', 'translators' )
@@ -326,7 +321,7 @@
 			if ( i === 0 ) {
 				$tab.addClass( 'cx-stats-tabs-current' );
 				$content.addClass( 'cx-stats-tabs-current' );
-				if (  items[ i ].onVisible ) {
+				if ( items[ i ].onVisible ) {
 					items[ i ].onVisible.apply( this );
 					items[ i ].onVisible = null;
 				}
@@ -550,22 +545,24 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					strokeColor: '#347BFF',
-					pointColor: '#347BFF',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#347BFF',
+					fill: false,
+					borderColor: '#347BFF',
+					pointBorderColor: '#347BFF',
+					pointBackgroundColor: '#347BFF',
+					pointHoverBackgroundColor: '#FFFFFF',
+					pointHoverBorderColor: '#347BFF',
 					data: $.map( this.totalTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
-					strokeColor: '#777',
-					pointColor: '#777',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#777',
+					fill: false,
+					borderColor: '#777',
+					pointBorderColor: '#777',
+					pointBackgroundColor: '#777',
+					pointHoverBackgroundColor: '#FFFFFF',
+					pointHoverBorderColor: '#777',
 					data: $.map( this.totalDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -574,13 +571,12 @@
 		};
 
 		/*global Chart:false */
-		cxCumulativeGraph = new Chart( ctx ).Line( data, {
-			responsive: true,
-			datasetFill: false,
-			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		cxCumulativeGraph = new Chart( ctx, {
+			type: 'line',
+			data: data,
+			options: {}
 		} );
 
-		this.$container.find( '.cx-stats-cumulative-total' ).append( cxCumulativeGraph.generateLegend() );
 	};
 
 	CXStats.prototype.drawLanguageCumulativeGraph = function ( type ) {
@@ -595,33 +591,36 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					strokeColor: '#347BFF',
-					pointColor: '#347BFF',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#347BFF',
+					fill: false,
+					borderColor: '#347BFF',
+					pointBorderColor: '#347BFF',
+					pointBackgroundColor: '#347BFF',
+					pointHoverBackgroundColor: '#FFFFFF',
+					pointHoverBorderColor: '#347BFF',
 					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
-					strokeColor: '#777',
-					pointColor: '#777',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#777',
+					fill: false,
+					borderColor: '#777',
+					pointBorderColor: '#777',
+					pointBackgroundColor: '#777',
+					pointHoverBackgroundColor: '#FFFFFF',
+					pointHoverBorderColor: '#777',
 					data: $.map( this.languageDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
-					strokeColor: '#FF0000',
-					pointColor: '#FF0000',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#FF0000',
+					fill: false,
+					borderColor: '#FF0000',
+					pointBorderColor: '#FF0000',
+					pointBackgroundColor: '#FF0000',
+					pointHoverBackgroundColor: '#FFFFFF',
+					pointHoverBorderColor: '#FF0000',
 					data: $.map( this.languageDeletionTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -630,13 +629,12 @@
 		};
 
 		/*global Chart:false */
-		cxCumulativeGraph = new Chart( ctx ).Line( data, {
-			datasetFill: false,
-			responsive: true,
-			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		cxCumulativeGraph = new Chart( ctx, {
+			type: 'line',
+			data: data,
+			options: {}
 		} );
 
-		this.$container.find( '.cx-stats-cumulative-lang' ).append( cxCumulativeGraph.generateLegend() );
 	};
 
 	CXStats.prototype.drawTranslationTrend = function () {
@@ -650,24 +648,18 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					strokeColor: '#347BFF',
-					fillColor: '#347BFF',
-					pointColor: '#347BFF',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#347BFF',
+					borderColor: '#347BFF',
+					backgroundColor: '#347BFF',
+					borderWidth: 1,
 					data: $.map( this.totalTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
-					strokeColor: '#777',
-					fillColor: '#777',
-					pointColor: '#777',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#777',
+					borderColor: '#777',
+					backgroundColor: '#777',
+					borderWidth: 1,
 					data: $.map( this.totalDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -676,13 +668,12 @@
 		};
 
 		/*global Chart:false */
-		cxTrendChart = new Chart( ctx ).Bar( data, {
-			responsive: true,
-			barDatasetSpacing: 0,
-			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		cxTrendChart = new Chart( ctx, {
+			type: 'bar',
+			data: data,
+			options: {}
 		} );
 
-		this.$container.find( '.cx-stats-trend-total' ).append( cxTrendChart.generateLegend() );
 	};
 
 	CXStats.prototype.drawLangTranslationTrend = function () {
@@ -697,36 +688,27 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					strokeColor: '#347BFF',
-					fillColor: '#347BFF',
-					pointColor: '#347BFF',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#347BFF',
+					borderColor: '#347BFF',
+					backgroundColor: '#347BFF',
+					borderWidth: 1,
 					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
-					strokeColor: '#777',
-					fillColor: '#777',
-					pointColor: '#777',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#777',
+					borderColor: '#777',
+					backgroundColor: '#777',
+					borderWidth: 1,
 					data: $.map( this.languageDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
-					strokeColor: '#FF0000',
-					fillColor: '#FF0000',
-					pointColor: '#FF0000',
-					pointStrokeColor: '#fff',
-					pointHighlightFill: '#fff',
-					pointHighlightStroke: '#FF0000',
+					borderColor: '#FF0000',
+					backgroundColor: '#FF0000',
+					borderWidth: 1,
 					data: $.map( this.languageDeletionTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -735,13 +717,11 @@
 		};
 
 		/*global Chart:false */
-		cxTrendChart = new Chart( ctx ).Bar( data, {
-			responsive: true,
-			barDatasetSpacing: 0,
-			legendTemplate: '<ul><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+		cxTrendChart = new Chart( ctx, {
+			type: 'bar',
+			data: data,
+			options: {}
 		} );
-
-		this.$container.find( '.cx-stats-trend-lang' ).append( cxTrendChart.generateLegend() );
 	};
 
 	CXStats.prototype.transformJsonToModel = function ( records ) {
