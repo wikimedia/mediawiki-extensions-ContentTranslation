@@ -31,6 +31,7 @@
 	"apihelp-query+contenttranslationcorpora-description": "Hämta den avsnittsjusterade parallella texten för en vald översättning. Se även <code>list=cxpublishedtranslations</code>. Dumpar finns tillgängliga i olika format för åtkomst med hög volym.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Översättningens ID.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Om alla HTML-taggar ska tas bort för att returnera ren text.",
+	"apihelp-query+contenttranslationcorpora-param-types": "Som standard får du alla tre följande alternativ om de är tillgängliga: källtexten, maskinöversättning och användarens efterredigerade översättning. Denna parameter låter dig att inte returnera vissa av dessa typer.",
 	"apihelp-query+contenttranslationstats-description": "Hämta statistik för innehållsöversättning",
 	"apihelp-query+contenttranslationstats-example-1": "Hämta statistik för innehållsöversättningar på alla språk",
 	"apihelp-cxconfiguration-description": "Hämta innehållsöversättningens JSON-konfiguration för angivet språkpar",

@@ -8,7 +8,8 @@
 			"Spiritia",
 			"Лорд Бъмбъри",
 			"Ket",
-			"Guycn2"
+			"Guycn2",
+			"StanProg"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -67,8 +68,10 @@
 	"cx-tools-link-remove": "Премахване на препратка",
 	"cx-tools-mt-title": "Машинен превод",
 	"cx-tools-mt-use-source": "Използвай изходния текст",
+	"cx-tools-mt-reset": "Връщане на превода в изходно положение",
 	"cx-tools-mt-provider-title": "Използвай превод от $1",
 	"cx-tools-mt-dont-use": "Не използвай машинен превод",
+	"cx-tools-mt-set-default": "Съхраняване като стойност по подразбиране",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|0=Няма категории}}",
 	"cx-stats-title": "Статистики за инструмента „Превод на съдържание“",
 	"cx-tools-reference-title": "Източник",
