@@ -43,8 +43,8 @@ class Draft {
 	 * @return array|null
 	 */
 	public static function fetch( $draftId ) {
-		$dbw = Database::getConnection( DB_MASTER );
-		$row = $dbw->selectRow(
+		$dbr = Database::getConnection( DB_SLAVE );
+		$row = $dbr->selectRow(
 			'cx_drafts',
 			'*',
 			[
