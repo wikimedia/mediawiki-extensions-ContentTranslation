@@ -13,13 +13,15 @@
 	"apihelp-cxpublish-param-from": "A forrásszöveg nyelvkódja.",
 	"apihelp-cxpublish-param-to": "A célnyelv kódja.",
 	"apihelp-cxpublish-param-sourcetitle": "A forráslap címe.",
-	"apihelp-cxpublish-param-sourcerevision": "A forráslap lapváltozata.",
-	"apihelp-cxpublish-param-status": "Ha <kbd>draft</kbd>, akkor a fordítás piszkozatként lesz elmentve. Ha <kbd>published</kbd>, akkor a fordítást egyúttal közzé is teszed.",
 	"apihelp-cxpublish-param-categories": "Kategóriák, amelyekben a közzétett cikk szerepelni fog.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captchaazonosító (amikor captcha megválaszolásával mentesz).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Válasz a captchára (amikor captcha megválaszolásával mentesz).",
 	"apihelp-query+contenttranslation-description": "A Tartalomfordító adatbázisának lekérdezése fordításokért.",
 	"apihelp-query+contenttranslation-param-translationid": "Fordításazonosító (ID).",
+	"apihelp-query+contenttranslation-param-from": "A forrásnyelv kódja.",
+	"apihelp-query+contenttranslation-param-to": "A célnyelv kódja.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "A forráslap címe.",
+	"apihelp-query+contenttranslation-param-type": "A fordítás állapota.",
 	"apihelp-query+contenttranslation-example-1": "A jelenlegi felhasználó által elkezdett fordítások lekérése.",
 	"apihelp-query+contenttranslation-example-2": "Fordítási piszkozat lekérése azonosító alapján.",
 	"apihelp-query+contenttranslation-example-3": "Bármilyen fordítás keresése a megadott címmel a megadott nyelvpárban",
@@ -48,5 +50,9 @@
 	"apihelp-cxdelete-param-sourcetitle": "A forráscikk címe.",
 	"apihelp-cxdelete-example-1": "Egy adott nyelvpárral és címmel megadott piszkozat törlése.",
 	"apihelp-cxsuggestionlist-param-from": "A forrásnyelv kódja.",
-	"apihelp-cxsuggestionlist-param-to": "A célnyelv kódja."
+	"apihelp-cxsuggestionlist-param-to": "A célnyelv kódja.",
+	"apihelp-cxsave-param-sourcerevision": "A forráslap lapváltozata.",
+	"apihelp-cxsave-param-from": "A forrásnyelv kódja.",
+	"apihelp-cxsave-param-to": "A célnyelv kódja.",
+	"apihelp-cxsave-param-sourcetitle": "A forráslap címe."
 }

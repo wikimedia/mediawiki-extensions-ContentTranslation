@@ -66,6 +66,7 @@
 	"cx-tools-mt-reset": "Nuligi tradukon",
 	"cx-tools-mt-provider-title": "De $1",
 	"cx-tools-mt-dont-use": "Ne uzi maŝinan tradukon",
+	"cx-tools-mt-set-default": "Lasi defaŭlta",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorio|$1 kategorioj|0=Neniu kategorio}}",
 	"cx-stats-title": "Statistiko pri EnhavTradukado",
 	"cx-tools-reference-title": "Referenco",

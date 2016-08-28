@@ -73,7 +73,7 @@
 	"cx-tools-mt-reset": "Återställ översättning",
 	"cx-tools-mt-provider-title": "Använd $1",
 	"cx-tools-mt-dont-use": "Använd inte maskinöversättningar",
-	"cx-tools-mt-set-default": "Låt detta vara standard",
+	"cx-tools-mt-set-default": "Behåll som standard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Inga kategorier}}",
 	"cx-stats-title": "Statistik för innehållsöversättning",
 	"cx-tools-reference-title": "Referens",

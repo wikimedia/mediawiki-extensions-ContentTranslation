@@ -35,6 +35,7 @@
 	"apihelp-cxsuggestionlist-param-from": "Çıme qodê zıwani.",
 	"apihelp-cxsuggestionlist-param-to": "Hedef Çımey zıwani",
 	"apihelp-cxsave-param-translationid": "ID'a açarnayışi",
+	"apihelp-cxsave-param-sourcerevision": "Revizyona pera çımi.",
 	"apihelp-cxsave-param-from": "Çıme qodê zıwani",
 	"apihelp-cxsave-param-to": "Hedef Çımey zıwani",
 	"apihelp-cxsave-param-sourcetitle": "Sernamey pelada çımi"
