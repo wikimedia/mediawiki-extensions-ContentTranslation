@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Moilleadóir"
+		]
+	},
+	"cx-publish-button-publishing": "Ag foilsiú...",
+	"cx-translation-filter-published-translations": "Foilsithe",
+	"cx-translation-status-published": "Foilsithe",
+	"cx-publishing-dialog-publish-draft-button": "Foilsigh mar dréacht",
+	"cx-stats-published-translations-title": "Aistriúcháin foilsithe",
+	"cx-stats-published-translations-label": "Aistriúcháin foilsithe",
+	"cx-stats-total-published": "Iomlán foilsithe"
+}

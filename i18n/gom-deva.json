@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Vaishali Parab",
-			"The Discoverer"
+			"The Discoverer",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"cx-dashboard-header": "अणकार",
-	"cx-dashboard-sidebar-title": "अणकाराक आदार {{लिंग:|जाय}}?",
+	"cx-dashboard-sidebar-title": "अणकाराक आदार {{GENDER:|जाय}}?",
 	"cx-translation-filter-published-translations": "प्रकाशीत",
 	"cx-translation-filter-draft-translations": "विकास चालू आसा",
 	"cx-create-new-translation": "नवो अणकार सुरू करचो",
