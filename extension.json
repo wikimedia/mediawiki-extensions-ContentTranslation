@@ -1024,9 +1024,7 @@
 			"localBasePath": "lib",
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
-				"chart.js/Chart.Core.js",
-				"chart.js/Chart.Line.js",
-				"chart.js/Chart.Bar.js"
+				"chart.js/Chart.js"
 			],
 			"targets": [
 				"desktop",
