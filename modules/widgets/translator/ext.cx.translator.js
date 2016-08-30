@@ -17,8 +17,9 @@
 			labels: Object.keys( stats.cxtranslatorstats.publishTrend ),
 			datasets: [
 				{
-					strokeColor: '#347BFF',
-					fillColor: '#347BFF',
+					borderColor: '#347BFF',
+					backgroundColor: '#347BFF',
+					borderWidth: 1,
 					data: $.map( stats.cxtranslatorstats.publishTrend, function ( data ) {
 						return data.delta;
 					} )
@@ -26,11 +27,44 @@
 			]
 		};
 		/*global Chart:false */
-		cxTrendChart = new Chart( ctx ).Bar( data, {
-			responsive: true,
-			barDatasetSpacing: 1,
-			showScale: false,
-			showTooltips: false
+		cxTrendChart = cxTrendChart = new Chart( ctx, {
+			type: 'bar',
+			data: data,
+			options: {
+				scales: {
+					xAxes: [ {
+						scaleLabel: {
+							display: false
+						},
+						gridLines: {
+							display: false
+						},
+						ticks: {
+							display: false
+						}
+					} ],
+					yAxes: [ {
+						scaleLabel: {
+							display: false
+						},
+						gridLines: {
+							display: false
+						},
+						ticks: {
+							display: false
+						}
+					} ]
+				},
+				title: {
+					display: false
+				},
+				tooltips: {
+					enabled: false
+				},
+				legend: {
+					display: false
+				}
+			}
 		} );
 	}
 
