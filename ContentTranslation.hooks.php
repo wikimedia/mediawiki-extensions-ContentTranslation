@@ -202,8 +202,8 @@ class ContentTranslationHooks {
 			!$wgContentTranslationCampaigns['newarticle'] ||
 			!$wgContentTranslationCampaigns['europeana2802016'] ||
 			$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) ||
-			$newPage->mTitle->exists() ||
-			!$newPage->mTitle->inNamespace( NS_MAIN ) ||
+			$newPage->getTitle()->exists() ||
+			!$newPage->getTitle()->inNamespace( NS_MAIN ) ||
 			$user->isAnon() ||
 			BetaFeatures::isFeatureEnabled( $user, 'cx' )
 		) {
