@@ -6,7 +6,8 @@
 			"KlaudiuMihaila",
 			"Wintereu",
 			"Macofe",
-			"Strainu"
+			"Strainu",
+			"XXN"
 		]
 	},
 	"cx": "Traducere pagină",
@@ -167,7 +168,7 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Marcați}} pagina ca inexistentă pentru a încuraja crearea sa.",
 	"cx-tools-missing-link-tooltip": "Traducere (în fereastră nouă)",
 	"cx-tools-missing-link-title": "Legătură inexistentă",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Marchează}} ca inexstentă",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Marchează}} ca inexistentă",
 	"echo-category-title-cx": "Traduceri",
 	"echo-pref-tooltip-cx": "Notifică-mă despre traducerile mele create cu unealta de Traducere a conținutului",
 	"cx-notification-first-translation": "Felicitări pentru prima traducere! Căutați și alte pagini de tradus în [[Special:MyContributions|lista contribuțiilor dumneavoastră]].",
