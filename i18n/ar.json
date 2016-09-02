@@ -11,7 +11,8 @@
 			"Meno25",
 			"Maroen1990",
 			"Macofe",
-			"Shbib Al-Subaie"
+			"Shbib Al-Subaie",
+			"Izoozo"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -73,6 +74,7 @@
 	"cx-tools-mt-reset": "أعد ضبط الترجمة",
 	"cx-tools-mt-provider-title": "استخدم $1",
 	"cx-tools-mt-dont-use": "لا تستخدم الترجمة الآلية",
+	"cx-tools-mt-set-default": "حفظ كقيمة افتراضية",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|لا تصنيف|تصنيف واحد|تصنيفان|$1 تصنيفات|$1 تصنيفا|$1 تصنيف}}",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
 	"cx-tools-reference-title": "مرجع",
