@@ -138,7 +138,7 @@
 	"cx-stats-published-translators-title": "Počet prekladateľov",
 	"cx-stats-cumulative-tab-title": "Celkovo",
 	"cx-stats-weekly-trend-tab-title": "Za týždeň",
-	"cx-draft-discard-confirmation-message": "Jste si {{GENDER:|istý|istá}}, že chcete natrvalo zmazať tento preklad?",
+	"cx-draft-discard-confirmation-message": "Ste si {{GENDER:|istý|istá}}, že chcete natrvalo zmazať tento preklad?",
 	"cx-draft-cancel-button-label": "Zrušiť",
 	"cx-draft-discard-button-label": "Vymazať preklad",
 	"cx-beta-feature-enabled-notification": "Content Translation bol aktivovaný na tejto wiki.",
