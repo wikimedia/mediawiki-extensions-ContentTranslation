@@ -369,6 +369,8 @@
 			// If source section has zero height, do not add a placeholder
 			// Zero height means either the section is empty or invisible.
 			if ( $sourceSection.height() === 0 ) {
+				// Hide the section to avoid the margin, if any, take up space.
+				$sourceSection.hide();
 				continue;
 			}
 			sourceSectionId = $sourceSection.attr( 'id' );
