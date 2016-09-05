@@ -498,6 +498,7 @@
 				"ext.cx.tools.linter",
 				"ext.cx.tools.manager",
 				"ext.cx.tools.mt",
+				"ext.cx.tools.mt.card",
 				"ext.cx.tools.mtabuse",
 				"ext.cx.tools.reference",
 				"ext.cx.tools.template",
@@ -638,8 +639,18 @@
 			"scripts": [
 				"tools/ext.cx.tools.mt.js"
 			],
+			"dependencies": [
+				"ext.cx.model",
+				"ext.cx.util",
+				"mediawiki.storage"
+			]
+		},
+		"ext.cx.tools.mt.card": {
+			"scripts": [
+				"tools/ext.cx.tools.mt.card.js"
+			],
 			"styles": [
-				"tools/styles/ext.cx.tools.mt.less"
+				"tools/styles/ext.cx.tools.mt.card.less"
 			],
 			"messages": [
 				"cx-tools-mt-title",
@@ -653,13 +664,9 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"ext.cx.source",
 				"ext.cx.tools.card",
 				"ext.cx.tools.manager",
-				"ext.cx.translation",
-				"ext.cx.translationview",
-				"ext.cx.util",
-				"mediawiki.storage"
+				"ext.cx.tools.mt"
 			]
 		},
 		"ext.cx.tools.reference": {
