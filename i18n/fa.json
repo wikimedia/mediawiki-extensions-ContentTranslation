@@ -15,7 +15,8 @@
 			"Hosseinblue",
 			"Calak",
 			"Ladsgroup",
-			"Arian Ar"
+			"Arian Ar",
+			"درفش کاویانی"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -74,7 +75,7 @@
 	"cx-tools-link-remove": "حذف پیوند",
 	"cx-tools-mt-title": "ترجمهٔ خودکار",
 	"cx-tools-mt-use-source": "استفاده از متن مرجع",
-	"cx-tools-mt-provider-title": "از $1",
+	"cx-tools-mt-provider-title": "استفاده از $1",
 	"cx-tools-mt-dont-use": "از ترجمهٔ ماشینی استفاده نکن",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 رده|$1 رده|0=بدون رده}}",
 	"cx-stats-title": "آمار مترجم محتویات",
@@ -136,7 +137,7 @@
 	"cx-translation-status-published": "منتشر شده",
 	"cx-translation-status-deleted": "حذف شده",
 	"cx-translation-already-in-progress": "این یک ترجمهٔ در حال انجام {{GENDER:$2|توسط}} $1 است.",
-	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با کاربری که ترجمهٔ فعلی را انجام داده ارتباط حاصل کرده‌اید.",
+	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با {{GENDER:$1|کاربری}} که ترجمهٔ فعلی را انجام داده ارتباط حاصل کرده‌اید.",
 	"cx-publishing-dialog-publish-draft-button": "انتشار به‌عنوان پیش‌نویس",
 	"cx-feedback-link": "بازخورد دهید",
 	"cx-stats-published-translations-title": "ترجمه‌های منتشرشده",
@@ -178,7 +179,7 @@
 	"cx-tools-missing-link-title": "پیوند ناموجود",
 	"cx-tools-missing-link-mark-link": "به‌عنوان ناموجود {{GENDER:|نشان کن}}",
 	"echo-category-title-cx": "ترجمه‌ها",
-	"echo-pref-tooltip-cx": "اخطار کردن دربارهٔ ترجمه‌های ایجاد شده به کمک ابزار مترجم محتویات",
+	"echo-pref-tooltip-cx": "دربارهٔ ترجمه‌هایی که به‌کمک ابزار مترجم محتویات ایجاد کردم، مرا مطلع کن.",
 	"cx-notification-first-translation": "اولین ترجمهٔ شما را تبریک می‌گوییم! صفحه‌های بیشتر برای ترجمه را در صفحهٔ مشارکت‌هایتان بیابید.",
 	"cx-notification-tenth-translation": "ممنون بابت دهمین ترجمه‌یتان! شما الآن یک مترجم حرفه‌ای شدید. به کار خوبتان ادامه دهید!",
 	"cx-notification-hundredth-translation": "شما ۱۰۰ ترجمه انجام داده‌اید! این یک موفقیت بزرگ است. آن را با دیگران با اشتراک بگذارید.",
