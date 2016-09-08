@@ -89,8 +89,7 @@
 				return self.siteMapper.getApi( self.targetLanguage ).get( {
 					action: 'templatedata',
 					titles: targetName,
-					redirects: true,
-					format: 'json'
+					redirects: true
 				}, {
 					dataType: 'jsonp',
 					// This prevents warnings about the unrecognized parameter "_"
@@ -190,8 +189,7 @@
 		request = this.siteMapper.getApi( language ).get( {
 			action: 'query',
 			meta: 'siteinfo',
-			siprop: 'namespaces',
-			format: 'json'
+			siprop: 'namespaces'
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
@@ -424,8 +422,7 @@
 			titles: 'Template:' + this.templateTitle,
 			prop: 'langlinks',
 			lllang: this.siteMapper.getWikiDomainCode( this.targetLanguage ),
-			redirects: true,
-			format: 'json'
+			redirects: true
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"

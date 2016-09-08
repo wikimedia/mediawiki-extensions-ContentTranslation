@@ -640,8 +640,7 @@
 			action: 'opensearch',
 			search: input,
 			namespace: 0,
-			suggest: true,
-			format: 'json'
+			suggest: true
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"

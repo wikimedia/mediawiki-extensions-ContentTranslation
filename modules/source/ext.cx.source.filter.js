@@ -24,8 +24,7 @@
 		return api.get( {
 			action: 'cxconfiguration',
 			from: sourceLanguage,
-			to: targetLanguage,
-			format: 'json'
+			to: targetLanguage
 		} );
 	}
 

@@ -34,8 +34,7 @@
 		request = mw.cx.siteMapper.getApi( targetLanguage ).get( {
 			action: 'query',
 			meta: 'siteinfo',
-			siprop: 'namespaces',
-			format: 'json'
+			siprop: 'namespaces'
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"

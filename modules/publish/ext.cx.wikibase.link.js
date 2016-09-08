@@ -29,8 +29,7 @@
 		sourceApi.get( {
 			action: 'query',
 			meta: 'siteinfo',
-			siprop: 'general',
-			format: 'json'
+			siprop: 'general'
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"

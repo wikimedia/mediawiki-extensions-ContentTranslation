@@ -32,8 +32,7 @@
 			action: 'query',
 			titles: title,
 			redirects: 1,
-			indexpageids: 1,
-			format: 'json'
+			indexpageids: 1
 		}, {
 			dataType: 'jsonp',
 			// This prevents warnings about the unrecognized parameter "_"
@@ -74,8 +73,7 @@
 			titles: sourceTitle,
 			lllang: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
 			lllimit: 1,
-			redirects: true,
-			format: 'json'
+			redirects: true
 		}, {
 			dataType: 'jsonp',
 			cache: true
