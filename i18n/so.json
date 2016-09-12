@@ -23,7 +23,7 @@
 	"cx-publish-summary": "Samee turjumidda bogga \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Ka dalbo isticmaale khibrad u leh webkaan si uu kaaga caawiyo tifaftiridda si uu ugu faafiyo meelaha barkulanka.",
 	"cx-publish-gt-first-step-title": "Waxaa lagu kaydiyay turjumiddii bogga isticmaalaha kuu gaarka ah si loo tifaftiro",
-	"cx-publish-gt-first-step-description": "Guji \"$1\" ee ka midka ah liiskaan si aad ugu ogolaato waxa ku jira dhammaan isticmaalayaasha si bog caadi ah camal.",
+	"cx-publish-gt-first-step-description": "Guji \"$1\" ee ka midka ah liiskaan si aad ugu ogolaato waxa ku jira dhammaan isticmaalayaasha si bog caadi ah oo kale.",
 	"cx-publish-gt-move-page-title": "Wareeji bogga",
 	"cx-publish-gt-move-page-description": "Dooro \"{{int:blanknamespace}}\" xarun magaceed ee sii boggaada ciwaan.",
 	"cx-publish-gt-moved-title": "Boggii turjunaa waa la wareejiyay",
@@ -42,9 +42,15 @@
 	"cx-entrypoint-dialog-title-in": "Ciwaanka ee bogga cusub ka dhig $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Eber ka biloow",
 	"cx-entrypoint-dialog-button-translate-from": "Ka biloow turjimid $1",
+	"cx-tools-instructions-text4": "Turjumaadd aaladeed waa mid wax tar leh  laakiin waa in {{GENDER:|aad}} saxdaa qaladaadka suurtagalka ah.",
+	"cx-tools-mt-title": "Turjumaad aaladeed",
 	"cx-tools-mt-use-source": "Adeegso isla qoraalka",
 	"cx-tools-mt-provider-title": "Adeegso $1",
+	"cx-tools-mt-dont-use": "Ha adeegsan turjumad aaladeed",
 	"cx-stats-title": "Tirakoobka wax turjumidda",
+	"cx-sourceselector-dialog-error-page-and-title-exist": "Ciwaankaan horay baa loo adeegsaday [$1 $2] si [$3 ka bedelan bogga]",
+	"cx-sourceselector-dialog-error-title-in-use": "Ciwaanka boggaan cusub waa [$1 la adeegsaday mar hore]",
+	"cx-mt-abuse-warning-title": "Turjumaaddaadii {{PLURAL:$1|waa}} $1% qoraal si aaladeed loo turjumay iyada oo aan la bedelin",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Ma}} u baahantahay caawinaad turjumaad?",
 	"cx-dashboard-sidebar-information": "Ogoow macluumaadka dheeraadka ah ee qaabkaan",
 	"cx-dashboard-sidebar-stats": "Tirakoob",
@@ -72,5 +78,6 @@
 	"cx-stats-total-published": "Wadarta la faafiyay",
 	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
 	"cx-page-old-revision-loaded": "Qoraalka laga soo turjumayo [$1 bedel] waad sii dhamaystiri kartaa turjumiddiisa ama mar kale baad dib u bilaabi kartaa si aad u turjunto wixii iska bedelay.",
-	"cx-tools-mt-new-provider": "cusub"
+	"cx-tools-mt-new-provider": "cusub",
+	"cx-tools-mt-new-providers-available": "La socdaan dooqyo cusub"
 }

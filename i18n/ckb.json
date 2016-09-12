@@ -4,7 +4,8 @@
 			"Asoxor",
 			"Pirehelokan",
 			"Amire80",
-			"Sarchia"
+			"Sarchia",
+			"Muhammed taha"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -47,7 +48,7 @@
 	"cx-tools-link-remove": "گرێدان لاببە",
 	"cx-tools-mt-title": "وەرگێڕانی خۆکار",
 	"cx-tools-mt-use-source": "دەقی سەرچاوە بە کار بھێنە",
-	"cx-tools-mt-provider-title": "لە $1 ەوە",
+	"cx-tools-mt-provider-title": "$1 بەکاربھێنە",
 	"cx-tools-mt-dont-use": "ئامێری وەرگێڕان بەکارمەھێنە",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|پۆل|0=بەبێ پۆل}}",
 	"cx-stats-title": "ئامارەکانی «وەرگێڕانی ناوەرۆک»",
@@ -139,7 +140,7 @@
 	"cx-tools-missing-link-tooltip": "وەربگێڕە (لە پەنجەرەیەکی نوێدا)",
 	"cx-tools-missing-link-title": "بەستەری ونبوو",
 	"echo-category-title-cx": "وەرگێڕانەکان",
-	"cx-notification-first-translation": "پیرۆزت بێت یەکەم وەرگێڕانت! لە [[Special:MyContributions|پەڕەی بەشدارییەکانتدا]] پەڕەی دیکەش بدۆزەرەوە بۆ وەرگێڕان.",
+	"cx-notification-first-translation": "پیرۆزت بێت یەکەم وەرگێڕانت! لە بەشدارییەکانت دڵنیا ببەرەوە و پەڕەی زیاتر بدۆزەرەوە بۆ وەرگێڕان.",
 	"cx-translationlist-empty-title": "ھیچ نییە بۆ وەرگێڕان؟",
 	"cx-translationlist-empty-desc": "ھەر ئێستا وەرگێڕانی خۆت دەست پێ بکە و ھەر کاتێک ویستت درێژەی پێ بدە.",
 	"cx-tools-link-internal-link": "بەستەر بدە بۆ پەڕە",
