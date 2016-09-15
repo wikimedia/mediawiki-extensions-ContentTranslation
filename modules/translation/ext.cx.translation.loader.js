@@ -68,8 +68,7 @@
 			list: 'contenttranslation',
 			sourcetitle: mw.cx.sourceTitle,
 			from: mw.cx.sourceLanguage,
-			to: mw.cx.targetLanguage,
-			format: 'json'
+			to: mw.cx.targetLanguage
 		} ).then( function ( response ) {
 			return response.query && response.query.contenttranslation.translation;
 		} );
@@ -89,8 +88,7 @@
 		return api.get( {
 			action: 'query',
 			list: 'contenttranslation',
-			translationid: mw.cx.translationId,
-			format: 'json'
+			translationid: mw.cx.translationId
 		} ).then( function ( response ) {
 			self.translation = response.query.contenttranslation.translation;
 			self.translationUnits = self.translation.translationUnits;

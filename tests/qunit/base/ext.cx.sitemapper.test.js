@@ -57,7 +57,7 @@
 
 		QUnit.expect( 2 );
 
-		this.siteMapper.getApi( 'he' ).get( { action: 'testaction', format: 'json' } );
+		this.siteMapper.getApi( 'he' ).get( { action: 'testaction' } );
 		assert.strictEqual( server.requests.length, 1 );
 		assert.strictEqual(
 			server.requests[ 0 ].url,

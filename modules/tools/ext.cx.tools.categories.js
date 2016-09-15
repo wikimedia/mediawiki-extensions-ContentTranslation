@@ -509,8 +509,7 @@
 			clshow: '!hidden',
 			cllimit: 100,
 			indexpageids: true,
-			titles: title,
-			format: 'json'
+			titles: title
 		}, {
 			dataType: 'jsonp',
 			cache: true
@@ -576,8 +575,7 @@
 			prop: 'langlinks',
 			lllang: this.siteMapper.getWikiDomainCode( language ),
 			lllimit: 100,
-			redirects: true,
-			format: 'json'
+			redirects: true
 		}, {
 			dataType: 'jsonp',
 			cache: true
