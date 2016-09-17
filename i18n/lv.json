@@ -124,7 +124,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tulkojumi|$1 tulkojums|$1 tulkojumi}}",
 	"cx-tools-missing-link-tooltip": "Tulkot (jaunā logā)",
 	"cx-tools-missing-link-title": "Trūkst saites",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Atzimēt}} kā trūkstošu",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Atzīmēt}} kā trūkstošu",
 	"echo-category-title-cx": "Tulkojumi",
 	"cx-contributions-link": "Devums",
 	"cx-your-translations-link": "{{GENDER:$1|Tavi tulkojumi}}",
