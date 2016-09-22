@@ -317,21 +317,6 @@
 	};
 
 	/**
-	 * Handles searching for titles based on source title input.
-	 */
-	CXSourceSelector.prototype.searchHandler = function () {
-		var $input = this.$sourceTitleInput;
-
-		this.$messageBar.hide();
-		this.searchTitles(
-			this.getSourceLanguage(),
-			$input.val()
-		).done( function ( response ) {
-			$input.suggestions( 'suggestions', response[ 1 ] );
-		} );
-	};
-
-	/**
 	 * Handles source language change.
 	 *
 	 * @param {string} language Language code.
@@ -624,28 +609,6 @@
 			this.overlay.hide();
 			this.$dialog.hide();
 		}
-	};
-
-	/**
-	 * Provides titles for autocompletion from given wiki.
-	 *
-	 * @param {string} language
-	 * @param {string} input
-	 * @return {jQuery.Deferred}
-	 */
-	CXSourceSelector.prototype.searchTitles = function ( language, input ) {
-		var api = this.siteMapper.getApi( language );
-
-		return api.get( {
-			action: 'opensearch',
-			search: input,
-			namespace: 0,
-			suggest: true
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
-		} );
 	};
 
 	/**
