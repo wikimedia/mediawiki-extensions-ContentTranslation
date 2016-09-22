@@ -316,9 +316,9 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"mediawiki.Uri",
-				"mediawiki.api",
-				"mediawiki.Title"
+				"mediawiki.ForeignApi",
+				"mediawiki.Title",
+				"mediawiki.Uri"
 			],
 			"targets": [
 				"desktop",

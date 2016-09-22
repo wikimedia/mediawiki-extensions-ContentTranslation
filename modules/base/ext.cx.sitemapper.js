@@ -57,11 +57,7 @@
 		domain = this.getWikiDomainCode( language );
 		url = this.config.api.replace( '$1', domain );
 
-		return new mw.Api( {
-			ajax: {
-				url: url
-			}
-		} );
+		return new mw.ForeignApi( url, { anonymous: true } );
 	};
 
 	/**
