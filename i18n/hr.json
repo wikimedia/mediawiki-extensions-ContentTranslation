@@ -5,7 +5,8 @@
 			"Zeljko.filipin",
 			"MaGa",
 			"Srdjan m",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Ex13"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -61,9 +62,9 @@
 	"cx-tools-link-title": "Poveznica",
 	"cx-tools-link-add": "Dodaj poveznicu",
 	"cx-tools-link-remove": "Ukloni poveznicu",
-	"cx-tools-mt-title": "Strojno prevođenje",
+	"cx-tools-mt-title": "Automatski prijevod",
 	"cx-tools-mt-use-source": "Rabi izvorni tekst",
-	"cx-tools-mt-provider-title": "Pomoću $1",
+	"cx-tools-mt-provider-title": "Rabi $1",
 	"cx-tools-mt-dont-use": "Ne rabi strojno prevođenje",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=nema kategorija}}",
 	"cx-stats-title": "Statistika prijevoda sadržaja",
