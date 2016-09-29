@@ -193,8 +193,11 @@
 	FormatTool.prototype.start = function ( section ) {
 		this.$section = section.jquery ? section : getParentSection();
 
-		if ( this.$section.is( 'h1, h2, h3, h4, h5, h6, figure, table' ) ) {
+		if ( this.$section.is( 'h1, h2, h3, h4, h5, h6, figure, table' ) ||
+			!this.$section.is( '[contenteditable="true"]' )
+		) {
 			// Do not show formatting tool for headers, figures and tables.
+			// Or if the field is not editable.
 			this.stop();
 			return;
 		}
