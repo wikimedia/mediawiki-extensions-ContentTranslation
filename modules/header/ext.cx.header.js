@@ -215,7 +215,7 @@
 			.addClass( 'cx-header__draft-status' );
 
 		this.$publishButton = $( '<button>' )
-			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-constructive' )
+			.addClass( 'cx-header__publish-button mw-ui-button mw-ui-progressive' )
 			.prop( 'disabled', true )
 			.text( mw.msg( 'cx-publish-button' ) );
 

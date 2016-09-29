@@ -193,7 +193,7 @@
 
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
 		this.$newTranslationButton = $( '<button>' )
-			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-constructive' )
+			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-progressive' )
 			.text( mw.msg( 'cx-create-new-translation' ) );
 		this.$cta = $( '<div>' )
 			.addClass( 'cx-cta' )

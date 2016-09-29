@@ -103,7 +103,7 @@
 			.prop( 'type', 'text' );
 
 		$publishButton = $( '<button>' )
-			.addClass( 'cx-header__publish-captcha mw-ui-button mw-ui-constructive' )
+			.addClass( 'cx-header__publish-captcha mw-ui-button mw-ui-progressive' )
 			.text( mw.msg( 'cx-publish-button' ) );
 
 		$captchaForm.append( $captchaAnswer, $publishButton );
