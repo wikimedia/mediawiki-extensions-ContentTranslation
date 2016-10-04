@@ -98,25 +98,34 @@
 			redirects = jQuery.extend( {}, response.query.redirects );
 
 			$.each( response.query.pages, function ( pageId, page ) {
-				var i, key, title;
+				var i, redirectedSourceTitle, title;
+
+				if ( !page.langlinks ) {
+					return;
+				}
 
 				for ( i in redirects ) {
 					// Locate the title in redirects, if any.
 					if ( redirects[ i ].to === page.title ) {
-						key = redirects[ i ].from;
+						redirectedSourceTitle = redirects[ i ].from;
 						break;
 					}
 				}
 
-				if ( !key ) {
-					key = page.title;
+				// Add the redirected source title in link pair mapping.
+				if ( redirectedSourceTitle ) {
+					title = mw.Title.newFromText( redirectedSourceTitle );
 				}
-
-				title = mw.Title.newFromText( key );
-
 				if ( title ) {
-					linkPairs[ title.toText() ] = page.langlinks &&
-						page.langlinks[ 0 ][ '*' ];
+					linkPairs[ title.toText() ] = page.langlinks[ 0 ][ '*' ];
+				}
+				// Irrespective of redirect or not, add the original source title in link pair mapping.
+				// So if a paragraph has link to LuaJIT and Lua (programming language),
+				// both get resolved to Lua (programming language) mapped to hewiki:"לואה (שפת תכנות)"
+				// linkPairs will have keys for LuaJIT and Lua (programming language).
+				title = mw.Title.newFromText( page.title );
+				if ( title ) {
+					linkPairs[ title.toText() ] = page.langlinks[ 0 ][ '*' ];
 				}
 			} );
 
