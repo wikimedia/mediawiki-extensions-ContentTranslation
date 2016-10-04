@@ -14,7 +14,8 @@
 			"Federico Mugnaini",
 			"Fringio",
 			"Statix64",
-			"Wikitoni"
+			"Wikitoni",
+			"Selven"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -73,6 +74,7 @@
 	"cx-tools-link-remove": "Rimuovi collegamento",
 	"cx-tools-mt-title": "Traduzione automatica",
 	"cx-tools-mt-use-source": "Usa il testo di origine",
+	"cx-tools-mt-reset": "Resetta traduzione",
 	"cx-tools-mt-provider-title": "Usa $1",
 	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
 	"cx-tools-mt-set-default": "Tieni come predefinito",

@@ -65,6 +65,7 @@
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Šo nosaukumu jau izmanto [$1 $2] [$3 citai lapai]",
 	"cx-sourceselector-dialog-error-page-exists": "Lapa [$1 jau ir pieejama] $2 valodā",
 	"cx-publish-captcha-title": "Drošības jautājums",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Nepieciešama}} palīdzība ar tulkojumiem?",
 	"cx-dashboard-sidebar-information": "Uzzināt vairāk par šo funkciju",
 	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-dashboard-sidebar-feedback": "Sūtīt mums atsauksmes",

@@ -12,7 +12,8 @@
 			"Maroen1990",
 			"Macofe",
 			"Shbib Al-Subaie",
-			"Izoozo"
+			"Izoozo",
+			"ديفيد"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -22,7 +23,7 @@
 	"cx-license-agreement": "بضغطك على \"$1\" توافق على [//wikimediafoundation.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك تحت رخصتي [https://creativecommons.org/licenses/by-sa/3.0/deed.ar المشاع الإبداعي] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة] وعلى أن الإشارة إليها بوصلة أو مسار كافية لعزوها إليه وفق الرخصة الأولى.",
 	"cx-error-server-connection": "خطأ: تعذر الاتصال بالخادم.",
 	"cx-desc": "تسهل  [[Special:ContentTranslation|ترجمة]] صفحات المحتوى",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ترجمت}}",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|تُرجمت}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|ترجمة لآلية}})",
 	"cx-header-translation-center": "مركز الترجمة",
 	"cx-header-new-translation": "ترجمة جديدة",
