@@ -14,6 +14,13 @@
 		position: relative;
 		width: auto;
 		float: right;
+		/* This is needed in case the card title (a.translation-link) floats under
+		 * the menu and captures the click, making it impossible to use this menu.
+		 * If there is target title, it might render over the menu item. On the
+		 * other hand, too high z-index and we will start overlapping other things
+		 * such as echo notifications. Hopefully 1 is small enough to avoid that.
+		 */
+		z-index: 1;
 
 		.cx-tlitem__actions__trigger {
 			cursor: pointer;
