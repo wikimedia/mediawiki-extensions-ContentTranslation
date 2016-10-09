@@ -18,7 +18,8 @@
 			"Expert3222",
 			"Mateon1",
 			"Matma Rex",
-			"Woytecr"
+			"Woytecr",
+			"Rzuwig"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -81,7 +82,7 @@
 	"cx-tools-mt-provider-title": "Użyj $1",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategoria|$1 kategorie|$1 kategorii|0=Brak kategorii}}",
-	"cx-stats-title": "Statystyki Tłumaczenia Treści",
+	"cx-stats-title": "Statystyki tłumaczenia treści",
 	"cx-tools-reference-title": "Przypis",
 	"cx-tools-reference-add": "Dodaj przypis",
 	"cx-tools-reference-remove": "Usuń przypis",
