@@ -72,7 +72,7 @@
 		// Choose a random algorithm
 		algorithm = this.algorithms[ Math.floor( Math.random() * this.algorithms.length ) ];
 		return this.getSeedPages().then( function ( seedPages ) {
-			return $.get( 'https://recommend.wmflabs.org/api', {
+			return $.get( 'https://recommend.wmflabs.org/api/', {
 				s: self.sourceLanguage,
 				t: self.targetLanguage,
 				article: seedPages.join( '|' ),
