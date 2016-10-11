@@ -211,5 +211,6 @@
 	"cx-translator-month-stats-label": "W tym miesiącu",
 	"cx-translator-total-translations-label": "Razem",
 	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenia lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść.",
+	"cx-tools-mt-new-providers-available": "z nowych opcjami",
 	"cx-continue-translation": "Kontynuuj tłumaczenie"
 }
