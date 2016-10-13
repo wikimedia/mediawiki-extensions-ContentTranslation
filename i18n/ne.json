@@ -3,7 +3,8 @@
 		"authors": [
 			"Nirjal stha",
 			"सरोज कुमार ढकाल",
-			"बिप्लब आनन्द"
+			"बिप्लब आनन्द",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"cx": "पृष्ठ अनुवाद गर्नुहोस्",
@@ -39,7 +40,7 @@
 	"cx-tools-instructions-text2": "{{GENDER:|तपाईँ}}ले नै सबै थप्नु पर्ने आवश्यक छैन",
 	"cx-tools-instructions-text3": "पाठ पढ्दा प्राकृतिक लाग्ने {{GENDER:|बनाउनुहोस्}}",
 	"cx-tools-instructions-text5": "अनुवाद {{GENDER:|प्रकाशित}} गर्नुहोस्",
-	"cx-tools-instructions-text6": "जब {{GENDER:|तपाईँ}} नतिजासँग सन्तुष्ट हुनुहुन्छ तब \"{{int:cx-publish-button}}\" बटन थिच्नुहोस् ।",
+	"cx-tools-instructions-text6": "जब {{GENDER:|तपाईं}} नतिजासँग सन्तुष्ट हुनुहुन्छ तब \"{{int:cx-publish-button}}\" बटन थिच्नुहोस् ।",
 	"cx-tools-searchbox-text": "शब्द खोज्नुहोस्",
 	"cx-tools-view-guidelines": "अनुवाद मार्गनिर्देशन {{GENDER:|हेर्नुहोस}}",
 	"cx-tools-dictionary-title": "परिभाषा",
@@ -48,10 +49,7 @@
 	"cx-tools-link-remove": "लिङ्क हटाउनुहोस्",
 	"cx-tools-mt-title": "मेसिन अनुवाद",
 	"cx-tools-mt-use-source": "स्रोत पाठ प्रयोग गर्नुहोस्",
-	"cx-tools-mt-clear-translation": "प्याराग्राफ हटाउनुहोस्",
-	"cx-tools-mt-restore": "पूर्वावस्थामा ल्याउनुहोस्",
 	"cx-tools-mt-provider-title": " $1 बाट",
-	"cx-tools-mt-not-available": "$1 को लागि उपलब्ध छैन",
 	"cx-tools-mt-dont-use": "मेसिन अनुवाद प्रयोग गर्ने",
 	"cx-stats-title": "सामग्री अनुवाद तथ्याङ्कहरू",
 	"cx-tools-reference-title": "सन्दर्भ",
@@ -121,9 +119,6 @@
 	"cx-tools-missing-link-title": "छुटेको लिङ्क",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|चिनु}} रहेका छैनन्",
 	"echo-category-title-cx": "अनुवादहरू",
-	"cx-notification-first-translation-email-subject": "पहिलो अनुवादमा बधाई",
-	"cx-notification-tenth-translation-email-subject": "पहिलो दसौँ अनुवादमा बधाई",
-	"cx-notification-hundredth-translation-email-subject": "पहिलो सयौँ अनुवादमा बधाई",
 	"cx-translationlist-empty-title": "अनुवाद गर्नलाई केही छैन ?",
 	"cx-tools-link-internal-link": "पृष्ठसँग लिङ्क गर्नुहोस्",
 	"cx-tools-link-internal-link-placeholder": "जोड्नको लागि पाना खोज्नुहोस्",
