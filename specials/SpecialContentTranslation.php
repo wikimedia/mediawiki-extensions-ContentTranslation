@@ -141,10 +141,10 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		// Preloading to avoid FOUC
-		$out->addModuleStyles( 'ext.cx.header.skin' );
+		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
 
 		if ( $hasToken || $isExistingTranslation ) {
-			$out->addModules( 'ext.cx.translationview' );
+			$out->addModules( 'mw.cx.ui.TranslationView' );
 
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article

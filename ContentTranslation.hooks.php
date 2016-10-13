@@ -335,12 +335,12 @@ class ContentTranslationHooks {
 			'remoteExtPath' => 'ContentTranslation',
 		];
 
-		$modules['qunit']['ext.cx.header.test'] = [
+		$modules['qunit']['mw.cx.ui.Infobar.test'] = [
 			'scripts' => [
-				'tests/qunit/header/ext.cx.header.test.js',
+				'tests/qunit/ui/mw.cx.ui.Infobar.test.js',
 			],
 			'dependencies' => [
-				'ext.cx.header',
+				'mw.cx.ui.Infobar'
 			],
 		] + $resourcePaths;
 

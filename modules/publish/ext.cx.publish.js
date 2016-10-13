@@ -13,8 +13,8 @@
 	 *
 	 * @class
 	 */
-	function CXPublish( $trigger, siteMapper ) {
-		this.$trigger = $trigger;
+	function CXPublish( trigger, siteMapper ) {
+		this.trigger = trigger;
 		this.targetTitle = null;
 		this.siteMapper = siteMapper;
 	}
@@ -40,9 +40,6 @@
 			html: EasyDeflate.deflate( self.getContent() ),
 			categories: this.getCategories().join( '|' )
 		} );
-
-		// Disable the trigger button
-		this.$trigger.prop( 'disabled', true ).text( mw.msg( 'cx-publish-button-publishing' ) );
 
 		return this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
 			apiParams.title = self.targetTitle = title;
@@ -109,7 +106,7 @@
 		$captchaForm.append( $captchaAnswer, $publishButton );
 
 		// Show the captcha form
-		this.$trigger.after( $captchaForm );
+		this.trigger.$element.after( $captchaForm );
 
 		deferred = $.Deferred();
 
@@ -165,8 +162,8 @@
 			}
 
 			// Show a dialog to decide what to do now
-			self.$trigger.cxPublishingDialog();
-			$dialog = self.$trigger.data( 'cxPublishingDialog' );
+			self.trigger.$element.cxPublishingDialog();
+			$dialog = self.trigger.$element.data( 'cxPublishingDialog' );
 
 			return $dialog.listen().then( function ( overwrite ) {
 				if ( overwrite ) {
@@ -253,12 +250,6 @@
 			mw.cx.sourceTitle,
 			this.targetTitle
 		);
-
-		// Disable the Publish button
-		// and change its label back from "Publishing..." to "Publish"
-		this.$trigger
-			.prop( 'disabled', true )
-			.text( mw.msg( 'cx-publish-button' ) );
 	};
 
 	/**
@@ -317,12 +308,6 @@
 			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-publish-page-error', error ), errorDetails );
 			mw.log( '[CX] Error while publishing:', code, trace );
 		}
-
-		// Enable the Publish button to allow retrying,
-		// and set the label back to "Publish"
-		this.$trigger
-			.prop( 'disabled', false )
-			.text( mw.msg( 'cx-publish-button' ) );
 	};
 
 	/**
@@ -398,15 +383,5 @@
 	};
 
 	// Expose the CXPublish
-	mw.cx.publish = CXPublish;
-
-	$( function () {
-		var $publishButton, cxPublish, siteMapper;
-
-		siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
-		$publishButton = $( '.cx-header__publish .cx-header__publish-button' );
-		cxPublish = new mw.cx.publish( $publishButton, siteMapper );
-
-		mw.hook( 'mw.cx.publish' ).add( $.proxy( cxPublish.publish, cxPublish ) );
-	} );
+	mw.cx.Publish = CXPublish;
 }( jQuery, mediaWiki ) );

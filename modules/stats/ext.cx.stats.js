@@ -570,7 +570,7 @@
 			]
 		};
 
-		/*global Chart:false */
+		/* global Chart:false */
 		cxCumulativeGraph = new Chart( ctx, {
 			type: 'line',
 			data: data,
@@ -628,7 +628,7 @@
 			]
 		};
 
-		/*global Chart:false */
+		/* global Chart:false */
 		cxCumulativeGraph = new Chart( ctx, {
 			type: 'line',
 			data: data,
@@ -667,7 +667,7 @@
 			]
 		};
 
-		/*global Chart:false */
+		/* global Chart:false */
 		cxTrendChart = new Chart( ctx, {
 			type: 'bar',
 			data: data,
@@ -716,7 +716,7 @@
 			]
 		};
 
-		/*global Chart:false */
+		/* global Chart:false */
 		cxTrendChart = new Chart( ctx, {
 			type: 'bar',
 			data: data,
@@ -811,9 +811,10 @@
 	}
 
 	$( function () {
-		var cxLink, cxstats,
-			$header = $( '<div>' ).addClass( 'cx-widget__header' ),
-			$container = $( '<div>' ).addClass( 'cx-stats-container' );
+		var cxLink, cxstats, header, $header, $container;
+
+		$header = $( '<div>' ).addClass( 'cx-widget__header' );
+		$container = $( '<div>' ).addClass( 'cx-stats-container' );
 
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
@@ -821,7 +822,10 @@
 			$( '<div>' ).addClass( 'cx-widget' )
 			.append( $header, $container )
 		);
-		$header.cxHeader( mw.cx.siteMapper );
+		header = new mw.cx.ui.Header( {
+			siteMapper: this.siteMapper
+		} );
+		$header.append( header.$element );
 		cxstats = new CXStats( $container, {
 			siteMapper: new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) )
 		} );

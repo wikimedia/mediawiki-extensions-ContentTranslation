@@ -12,6 +12,8 @@
 	 * CXDashboard
 	 *
 	 * @class
+	 * @param {HTMLElement} element
+	 * @param {Object} siteMapper
 	 */
 	function CXDashboard( element, siteMapper ) {
 		this.$container = $( element );
@@ -110,17 +112,17 @@
 	CXDashboard.prototype.getSidebarItems = function () {
 		return [
 			{
-				class: 'cx-sidebar__link cx-sidebar__link--information',
+				'class': 'cx-sidebar__link cx-sidebar__link--information',
 				href: 'https://www.mediawiki.org/wiki/ContentTranslation',
 				label: mw.msg( 'cx-dashboard-sidebar-information' )
 			},
 			{
-				class: 'cx-sidebar__link cx-sidebar__link--stats',
+				'class': 'cx-sidebar__link cx-sidebar__link--stats',
 				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
 				label: mw.msg( 'cx-dashboard-sidebar-stats' )
 			},
 			{
-				class: 'cx-sidebar__link cx-sidebar__link--feedback',
+				'class': 'cx-sidebar__link cx-sidebar__link--feedback',
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-feedback' )
 			}
@@ -157,10 +159,17 @@
 	};
 
 	CXDashboard.prototype.render = function () {
+		var header;
+
 		this.$header = $( '<div>' )
 			.addClass( 'cx-header--dashboard' );
 
-		this.$header.cxHeader( this.siteMapper, mw.msg( 'cx-dashboard-header' ) );
+		header = new mw.cx.ui.Header( {
+			siteMapper: this.siteMapper,
+			titleText: mw.msg( 'cx-dashboard-header' )
+		} );
+
+		this.$header.append( header.$element );
 		this.$translationListContainer = this.buildTranslationList();
 		this.$sidebar = $( '<div>' )
 			.addClass( 'cx-dashboard__sidebar' )
