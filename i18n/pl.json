@@ -19,7 +19,8 @@
 			"Mateon1",
 			"Matma Rex",
 			"Woytecr",
-			"Rzuwig"
+			"Rzuwig",
+			"WTM"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -81,6 +82,7 @@
 	"cx-tools-mt-reset": "Zresetuj tłumaczenie",
 	"cx-tools-mt-provider-title": "Użyj $1",
 	"cx-tools-mt-dont-use": "Nie używaj tłumaczenia maszynowego",
+	"cx-tools-mt-set-default": "Zapisz jako wartość domyślna",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategoria|$1 kategorie|$1 kategorii|0=Brak kategorii}}",
 	"cx-stats-title": "Statystyki tłumaczenia treści",
 	"cx-tools-reference-title": "Przypis",
@@ -206,11 +208,13 @@
 	"cx-suggestionlist-collapse": "Pokaż mniej",
 	"cx-suggestionlist-refresh": "Odśwież propozycje",
 	"cx-tools-linter-title": "Problemy z zawartością: $1",
+	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
 	"cx-tools-linter-view-details": "Pokaż szczegóły",
 	"cx-tools-linter-hide-details": "Ukryj szczegóły",
 	"cx-translator-month-stats-label": "W tym miesiącu",
 	"cx-translator-total-translations-label": "Razem",
-	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenia lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść.",
+	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenie lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść.",
+	"cx-tools-mt-new-provider": "nowy",
 	"cx-tools-mt-new-providers-available": "z nowych opcjami",
 	"cx-continue-translation": "Kontynuuj tłumaczenie"
 }
