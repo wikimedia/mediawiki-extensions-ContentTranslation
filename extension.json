@@ -111,9 +111,9 @@
 			"yue": "zh-yue"
 		},
 		"ContentTranslationRESTBase": {
-			"url": "https://rest.wikimedia.org",
+			"url": "https://en.wikipedia.org/api/rest_#version#",
+			"fixedUrl": true,
 			"timeout": 100000,
-			"domain": "en.wikipedia.org",
 			"HTTPProxy": false,
 			"forwardCookies": false
 		},
