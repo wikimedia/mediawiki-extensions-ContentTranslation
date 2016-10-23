@@ -35,10 +35,6 @@
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces'
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} ).then( function ( response ) {
 			var namespaceId, namespaceObj;
 

@@ -38,10 +38,6 @@
 			piprop: 'thumbnail',
 			pithumbsize: 150,
 			redirects: true
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} );
 
 		// Keep the request in cache
@@ -83,10 +79,6 @@
 			lllimit: titles.length, // TODO: Default is 10 and max is 500. Do we need more than 500?
 			lllang: mw.cx.siteMapper.getWikiDomainCode( language ),
 			redirects: true
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} ).done( function ( response ) {
 			var redirects,
 				linkPairs = {};

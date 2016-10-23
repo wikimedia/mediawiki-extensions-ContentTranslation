@@ -67,10 +67,6 @@
 			list: 'prefixsearch',
 			pssearch: input,
 			pslimit: 10
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} );
 	};
 

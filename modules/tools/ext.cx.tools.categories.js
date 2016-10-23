@@ -510,9 +510,6 @@
 			cllimit: 100,
 			indexpageids: true,
 			titles: title
-		}, {
-			dataType: 'jsonp',
-			cache: true
 		} ).done( function ( response ) {
 			var pageId,
 				categoriesArray = [];
@@ -576,9 +573,6 @@
 			lllang: this.siteMapper.getWikiDomainCode( language ),
 			lllimit: 100,
 			redirects: true
-		}, {
-			dataType: 'jsonp',
-			cache: true
 		} ).done( function ( response ) {
 			var redirects,
 				adaptedCategories = {};

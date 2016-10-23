@@ -30,10 +30,6 @@
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'general'
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} ).done( function ( result ) {
 			var repoApi, targetWikiId, sourceWikiId, pageConnector;
 

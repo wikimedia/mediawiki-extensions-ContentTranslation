@@ -33,10 +33,6 @@
 			titles: title,
 			redirects: 1,
 			indexpageids: 1
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} ).then( function ( response ) {
 			var pageid = response.query.pageids[ 0 ];
 
@@ -74,9 +70,6 @@
 			lllang: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
 			lllimit: 1,
 			redirects: true
-		}, {
-			dataType: 'jsonp',
-			cache: true
 		} ).then( function ( response ) {
 			var equivalentTargetPage = false;
 

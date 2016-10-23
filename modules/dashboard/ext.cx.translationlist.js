@@ -126,10 +126,6 @@
 			pilimit: 50, // maximum
 			pithumbsize: 100,
 			redirects: true
-		}, {
-			dataType: 'jsonp',
-			// This prevents warnings about the unrecognized parameter "_"
-			cache: true
 		} );
 
 		// TODO: Handle continue
