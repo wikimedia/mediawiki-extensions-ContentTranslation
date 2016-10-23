@@ -61,7 +61,7 @@
 		assert.strictEqual( server.requests.length, 1 );
 		assert.strictEqual(
 			server.requests[ 0 ].url,
-			'https://he.wikipedia.org/w/api.php?action=testaction&format=json'
+			'https://he.wikipedia.org/w/api.php?action=testaction&format=json&origin=*'
 		);
 
 		server.requests[ 0 ].respond( 500 );
