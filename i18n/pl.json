@@ -207,6 +207,7 @@
 	"cx-suggestionlist-expand": "Pokaż wszystko",
 	"cx-suggestionlist-collapse": "Pokaż mniej",
 	"cx-suggestionlist-refresh": "Odśwież propozycje",
+	"cx-notification-suggestions-available": "Na podstawie {{GENDER:$2|Twojego}} poprzedniego tłumaczenia '''$1''', dostępne są nowe propozycje.",
 	"cx-tools-linter-title": "Problemy z zawartością: $1",
 	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
 	"cx-tools-linter-view-details": "Pokaż szczegóły",
