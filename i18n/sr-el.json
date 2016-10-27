@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Milicevic01",
-			"Srdjan m"
+			"Srdjan m",
+			"Сербијана"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -135,6 +136,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Otpremljene datoteke",
 	"cx-trend-translations-to": "Prevodi na $1",
 	"cx-stats-try-contenttranslation": "Prevod sadržaja je alat za stvaranje novih stranica prevođenjem sa drugih jezika. [$1 Isprobaj Prevod sadržaja]",
+	"cx-stats-all-translations-title": "Prevodi na sve jezike",
 	"cx-stats-published-target-source": "Prevodi na",
 	"cx-stats-published-source-target": "Prevodi sa",
 	"cx-stats-draft-target-source": "Prevodi u toku na",
