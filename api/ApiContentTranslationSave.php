@@ -7,7 +7,6 @@
  */
 
 use ContentTranslation\AbuseFilterCheck;
-use ContentTranslation\Database;
 use ContentTranslation\Draft;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\Translation;
