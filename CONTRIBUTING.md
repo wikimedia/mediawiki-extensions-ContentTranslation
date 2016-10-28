@@ -99,7 +99,7 @@ Document each hook that you add in the hooks.md file.
 ### Annotations
 
 We use the following annotations. They should be used in the order as they are described
-here, for consistency. See [JSDuck/Tags](https://github.com/senchalabs/jsduck/wiki/Tags)
+here, for consistency. See [JSDuck](https://github.com/senchalabs/jsduck/wiki)
 for more elaborate documentation.
 
 * @class Name (optional, guessed)
@@ -117,7 +117,7 @@ for more elaborate documentation.
 * @context {Type} Optional text.
 * @param {Type} name Optional text.
 * @emits name
-* @returns {Type} Optional text.
+* @return {Type} Optional text.
 * @chainable
 * @throws {Type}
 
