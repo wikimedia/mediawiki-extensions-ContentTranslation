@@ -216,15 +216,17 @@
 			} );
 		},
 
-		ctaAccept: function ( campaign, sourceLanguage, targetLanguage ) {
+		ctaAccept: function ( campaign, sourceLanguage, sourceTitle, targetLanguage ) {
 			mw.track( 'event.ContentTranslationCTA', {
 				version: 1,
 				cta: campaign,
 				action: 'accept',
+				token: mw.user.id(),
 				session: mw.user.sessionId(),
 				contentLanguage: mw.config.get( 'wgContentLanguage' ),
 				interfaceLanguage: mw.config.get( 'wgUserLanguage' ),
 				sourceLanguage: sourceLanguage,
+				sourceTitle: sourceTitle,
 				targetLanguage: targetLanguage
 			} );
 		},

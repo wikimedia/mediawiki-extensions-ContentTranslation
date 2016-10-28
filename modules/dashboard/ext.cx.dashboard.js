@@ -333,7 +333,7 @@
 		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
 
 		if ( query.campaign ) {
-			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.to );
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
 		}
 	};
 
