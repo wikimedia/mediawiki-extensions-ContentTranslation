@@ -84,7 +84,7 @@
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abrir",
 	"cx-tools-link-hover-tooltip": "Clique para abrir",
 	"cx-warning-unsaved-translation": "Não gravou a tradução.",
-	"cx-error-page-not-found": "A página \"$1\" não pôde ser encontrada na Wikipédia em $2",
+	"cx-error-page-not-found": "Não foi possível encontrar a página \"$1\" na Wikipédia em $2",
 	"cx-sourceselector-dialog-new-translation": "Nova tradução",
 	"cx-sourceselector-dialog-button-start-translation": "Começar a traduzir",
 	"cx-sourceselector-dialog-button-cancel": "Cancelar",
