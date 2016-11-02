@@ -19,7 +19,8 @@
 			"Умар",
 			"Iniquity",
 			"Jackie",
-			"Лилиә"
+			"Лилиә",
+			"Ole Yves"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -53,7 +54,7 @@
 	"cx-publish-gt-published-description": "Вы можете нажать кнопку «$1», чтобы продолжить улучшать страницу. Убедитесь, что она читается естественно.",
 	"cx-translation-add-translation": "+ Добавить перевод",
 	"cx-translation-target-page-exists": "В целевой вики уже существует страница с названием [$1 «$2»]. Попробуйте назвать страницу иначе.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Перевод содержания]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|перевод содержания]]",
 	"tag-contenttranslation-description": "Содержание было переведено с другого языка при помощи инструмента «Перевод содержания».",
 	"cx-source-loading": "Загрузка $1",
 	"cx-beta": "Перевод содержания",
