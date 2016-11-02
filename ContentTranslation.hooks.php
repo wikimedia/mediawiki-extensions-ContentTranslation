@@ -9,6 +9,16 @@
  */
 
 class ContentTranslationHooks {
+
+	/**
+	 * @param User $user
+	 *
+	 * @return bool
+	 */
+	private static function isBetaFeatureEnabled( User $user ) {
+		return class_exists( 'BetaFeatures' ) && BetaFeatures::isFeatureEnabled( $user, 'cx' );
+	}
+
 	/**
 	 * Utility function that checks whether CX is enabled for a given user.
 	 * Currently it checks that if CX is a beta feature, whether the user has
@@ -33,9 +43,7 @@ class ContentTranslationHooks {
 			return true;
 		}
 
-		return
-			class_exists( 'BetaFeatures' ) &&
-			BetaFeatures::isFeatureEnabled( $user, 'cx' );
+		return self::isBetaFeatureEnabled( $user );
 	}
 
 	/**
@@ -205,7 +213,7 @@ class ContentTranslationHooks {
 			$newPage->getTitle()->exists() ||
 			!$newPage->getTitle()->inNamespace( NS_MAIN ) ||
 			$user->isAnon() ||
-			BetaFeatures::isFeatureEnabled( $user, 'cx' )
+			self::isBetaFeatureEnabled( $user )
 		) {
 			return true;
 		}
