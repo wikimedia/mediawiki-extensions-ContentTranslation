@@ -79,7 +79,9 @@
 			extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
 		}
 
-		return base.replace( '$1', domain ).replace( '$2', title ) + extra;
+		return base
+			.replace( '$1', domain.replace( /\$/g, '$$$$' ) )
+			.replace( '$2', title.replace( /\$/g, '$$$$' ) ) + extra;
 	};
 
 	/**
