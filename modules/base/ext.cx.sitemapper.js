@@ -182,29 +182,36 @@
 	/**
 	 * Set CX Token in a cookie.
 	 * This token guarantees that the translator reads the license agreement
-	 * and starts translating from CX dashboard enabled as beta feature
-	 * from any wiki under the top domain.
+	 * and starts translating from CX dashboard enabled as beta feature.
+	 * It is recommended to configure the cookie domain.
 	 *
 	 * @param {string} sourceLanguage Source language
 	 * @param {string} targetLanguage Target language
 	 * @param {string} sourceTitle Source title
 	 */
 	mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
-		var now, name, domain, options;
+		var name, options;
 
-		now = new Date();
 		name = [ 'cx', sourceTitle, sourceLanguage, targetLanguage ].join( '_' );
-		domain = location.hostname.indexOf( '.' ) > 0 ?
-			'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
-			null; // Mostly for domains like "localhost"
+
 		options = {
-			path: mw.config.get( 'wgCookiePath' ),
-			domain: domain, // Use domain cookie. Example: domain=.wikipedia.org
-			expires: new Date( now.getTime() + ( 3600 * 1000 ) ) // 1 hour from now
+			prefix: '',
+			expires: 3600
 		};
 
+		// BC with old default behavior
+		if ( this.config.cookieDomain === null ) {
+			// Save that information in a domain cookie.
+			options.domain = location.hostname.indexOf( '.' ) > 0 ?
+				'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
+				null; // Mostly for domains like "localhost"
+		} else if ( typeof this.config.cookieDomain === 'string' ) {
+			// Explicit domain cookie, preferred way
+			options.domain = this.config.cookieDomain;
+		}
+		// Else: use whatever is the default
+
 		// At this point, the translator saw the license agreement.
-		// Save that information in a domain cookie.
-		$.cookie( name, true, options );
+		mw.cookie.set( name, true, options );
 	};
 }( jQuery, mediaWiki ) );
