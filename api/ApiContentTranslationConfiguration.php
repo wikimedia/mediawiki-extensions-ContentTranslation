@@ -19,7 +19,11 @@ class ApiContentTranslationConfiguration extends ApiBase {
 		$source = $params['from'];
 		$target = $params['to'];
 		if ( !Language::isValidBuiltInCode( $source ) || !Language::isValidBuiltInCode( $target ) ) {
-			$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
+			} else {
+				$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			}
 		}
 		// Read common configuraiton
 		$commonFileName =  __DIR__ . "/../modules/source/conf/common.json";

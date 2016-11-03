@@ -36,7 +36,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	private function run( $resultPageSet = null ) {
 		$config = $this->getConfig();
 		if ( !$config->get( 'ContentTranslationEnableSuggestions' ) ) {
-			$this->dieUsage( 'Suggestions not enabled for this wiki', 'suggestionsdisabled' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-suggestionsdisabled', 'suggestionsdisabled' );
+			} else {
+				$this->dieUsage( 'Suggestions not enabled for this wiki', 'suggestionsdisabled' );
+			}
 		}
 
 		$params = $this->extractRequestParams();
@@ -46,10 +50,14 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$from = $params['from'];
 		$to = $params['to'];
 		if ( $from === $to ) {
-			$this->dieUsage(
-				'Source and target languages cannot be the same',
-				'invalidparam'
-			);
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
+			} else {
+				$this->dieUsage(
+					'Source and target languages cannot be the same',
+					'invalidparam'
+				);
+			}
 		}
 		$data = null;
 		$translator = new Translator( $user );
@@ -61,7 +69,14 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		if ( $params['listid'] !== null ) {
 			$list = $manager->getListById( $params['listid'] );
 			if ( $list === null ) {
-				$this->dieUsage( 'Invalid list id', 'invalidparam' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError(
+						[ 'apierror-badparameter', $this->encodeParamName( 'listid' ) ],
+						'invalidparam'
+					);
+				} else {
+					$this->dieUsage( 'Invalid list id', 'invalidparam' );
+				}
 			}
 
 			$suggestions = $manager->getSuggestionsInList(

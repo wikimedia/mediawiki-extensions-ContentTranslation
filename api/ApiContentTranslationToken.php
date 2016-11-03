@@ -14,16 +14,24 @@ class ApiContentTranslationToken extends ApiBase {
 		$user = $this->getUser();
 
 		if ( $user->isBlocked() ) {
-			$this->dieUsageMsg( 'blockedtext' );
+			$this->dieBlocked( $user->getBlock() );
 		}
 
 		if ( !$user->isLoggedIn() ) {
-			$this->dieUsage( 'Must be logged in', 'token-impossible' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-mustbeloggedin-generic', 'token-impossible' );
+			} else {
+				$this->dieUsage( 'Must be logged in', 'token-impossible' );
+			}
 		}
 
 		// Do not fatal out
 		if ( !class_exists( 'Firebase\JWT\JWT' ) ) {
-			$this->dieUsage( 'JWT missing', 'token-impossible' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-jwtmissing', 'token-impossible' );
+			} else {
+				$this->dieUsage( 'JWT missing', 'token-impossible' );
+			}
 		}
 
 		$config = $this->getConfig()->get( 'ContentTranslationCXServerAuth' );
@@ -31,7 +39,11 @@ class ApiContentTranslationToken extends ApiBase {
 		$key = $config['key'];
 
 		if ( $key === '' ) {
-			$this->dieUsage( 'Key not configured', 'token-impossible' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-keynotconfigured', 'token-impossible' );
+			} else {
+				$this->dieUsage( 'Key not configured', 'token-impossible' );
+			}
 		}
 
 		$exp = time() + $config['age'];

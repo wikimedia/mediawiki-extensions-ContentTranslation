@@ -19,7 +19,7 @@ class ApiContentTranslationDelete extends ApiBase {
 		$user = $this->getUser();
 
 		if ( $user->isBlocked() ) {
-			$this->dieUsageMsg( 'blockedtext' );
+			$this->dieBlocked( $user->getBlock() );
 		}
 
 		$translator = new Translator( $user );
@@ -34,7 +34,11 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translator->getGlobalUserId() !== intval( $translation->translation['lastUpdatedTranslator'] )
 		) {
 			// Translation does not exist or it belongs to another translator
-			$this->dieUsageMsg( [ 'invalidtitle', $params['sourcetitle'] ] );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['sourcetitle'] ) ] );
+			} else {
+				$this->dieUsageMsg( [ 'invalidtitle', $params['sourcetitle'] ] );
+			}
 		}
 
 		if ( $translation->translation['targetURL'] !== null ) {

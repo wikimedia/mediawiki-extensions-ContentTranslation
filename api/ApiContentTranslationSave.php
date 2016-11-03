@@ -31,24 +31,40 @@ class ApiContentTranslationSave extends ApiBase {
 
 		$user = $this->getUser();
 		if ( $this->getUser()->isBlocked() ) {
-			$this->dieUsageMsg( 'blockedtext' );
+			$this->dieBlocked( $user->getBlock() );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
-			$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
+			} else {
+				$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
+			}
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
-			$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
+			} else {
+				$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
+			}
 		}
 
 		$progress = FormatJson::decode( $params['progress'], true );
 		if ( !is_array( $progress ) ) {
-			$this->dieUsage( 'Invalid progress', 'invalidprogress' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidprogress', 'invalidprogress' );
+			} else {
+				$this->dieUsage( 'Invalid progress', 'invalidprogress' );
+			}
 		}
 
 		if ( $user->pingLimiter( 'cxsave' ) ) {
-			$this->dieUsageMsg( 'actionthrottledtext' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-ratelimited' );
+			} else {
+				$this->dieUsageMsg( 'actionthrottledtext' );
+			}
 		}
 
 		$this->translator = new Translator( $user );
@@ -129,6 +145,7 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @param array $params
 	 * @return Translation
 	 * @throws UsageException
+	 * @throws ApiUsageException
 	 */
 	protected function saveTranslation( array $params ) {
 		$translation = Translation::find(
@@ -158,7 +175,11 @@ class ApiContentTranslationSave extends ApiBase {
 		$owner = (int)$translation['lastUpdatedTranslator'];
 		$user = (int)$this->translator->getGlobalUserId();
 		if ( $owner !== $user && $translation['status'] === 'draft' ) {
-			$this->dieUsage( 'Another user is already translating this article', 'noaccess' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-inuse', 'noaccess' );
+			} else {
+				$this->dieUsage( 'Another user is already translating this article', 'noaccess' );
+			}
 		}
 
 		// Update updateable fields
@@ -180,21 +201,33 @@ class ApiContentTranslationSave extends ApiBase {
 	protected function getTranslationUnits( $content ) {
 		$translationUnits = [];
 		if ( trim( $content ) === '' ) {
-			$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
+			} else {
+				$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
+			}
 		}
 
 		if ( substr( $content, 0, 11 ) === 'rawdeflate,' ) {
 			$content = gzinflate( base64_decode( substr( $content, 11 ) ) );
 			// gzinflate returns false on error.
 			if ( $content === false ) {
-				$this->dieUsage( 'Invalid section content', 'invalidcontent' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-cx-invalidsectioncontent', 'invalidcontent' );
+				} else {
+					$this->dieUsage( 'Invalid section content', 'invalidcontent' );
+				}
 			}
 		}
 
 		$units = json_decode( $content, true );
 		foreach ( $units as $tuData ) {
 			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
-				$this->dieUsage( 'Invalid section data', 'invalidcontent' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
+				} else {
+					$this->dieUsage( 'Invalid section data', 'invalidcontent' );
+				}
 			}
 
 			// Make sure all translation unit fields are defined.

@@ -101,19 +101,31 @@ class ApiContentTranslationPublish extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( $this->getUser()->isBlocked() ) {
-			$this->dieUsageMsg( 'blockedtext' );
+			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
-			$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
+			} else {
+				$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
+			}
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
-			$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
+			} else {
+				$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
+			}
 		}
 
 		if ( trim( $params['html'] ) === '' ) {
-			$this->dieUsage( 'html cannot be empty', 'invalidhtml' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-paramempty', 'html' ], 'invalidhtml' );
+			} else {
+				$this->dieUsage( 'html cannot be empty', 'invalidhtml' );
+			}
 		}
 
 		$this->publish();
@@ -128,7 +140,11 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$targetTitle = Title::newFromText( $params['title'] );
 		if ( !$targetTitle ) {
-			$this->dieUsageMsg( [ 'invalidtitle', $params['title'] ] );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
+			} else {
+				$this->dieUsageMsg( [ 'invalidtitle', $params['title'] ] );
+			}
 		}
 
 		$this->translation = ContentTranslation\Translation::find(
@@ -139,7 +155,11 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $this->translation === null ) {
 			// Translation does not exist
-			$this->dieUsage( 'Translation not found', 'translationnotfound' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
+			} else {
+				$this->dieUsage( 'Translation not found', 'translationnotfound' );
+			}
 		}
 
 		$translator = new ContentTranslation\Translator( $user );
@@ -147,7 +167,11 @@ class ApiContentTranslationPublish extends ApiBase {
 		$owner = (int)$this->translation->translation['lastUpdatedTranslator'];
 		$userId = (int)$translator->getGlobalUserId();
 		if ( $owner !== $userId ) {
-			$this->dieUsage( 'Translation not owned by current user.', 'noaccess' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-notowned', 'noaccess' );
+			} else {
+				$this->dieUsage( 'Translation not owned by current user.', 'noaccess' );
+			}
 		}
 
 		if ( $wgContentTranslationTranslateInTarget ) {
@@ -164,7 +188,13 @@ class ApiContentTranslationPublish extends ApiBase {
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext( $targetTitle, $this->getHtml() );
 		} catch ( MWException $e ) {
-			$this->dieUsage( $e->getMessage(), 'docserver' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError(
+					[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
+				);
+			} else {
+				$this->dieUsage( $e->getMessage(), 'docserver' );
+			}
 		}
 
 		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );

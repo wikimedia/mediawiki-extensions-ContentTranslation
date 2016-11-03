@@ -49,7 +49,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		if ( $user->isAnon() ) {
-			$this->dieUsage( 'To view your translations, you must log in', 'notloggedin' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
+			} else {
+				$this->dieUsage( 'To view your translations, you must log in', 'notloggedin' );
+			}
 		}
 
 		if ( $params['translationid'] ) {
@@ -64,7 +68,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 					$translation->translation
 				);
 			} else {
-				$this->dieUsage( 'Draft does not exist', $params['translationid'] );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
+				} else {
+					$this->dieUsage( 'Draft does not exist', 'missingdraft' );
+				}
 			}
 
 			return;

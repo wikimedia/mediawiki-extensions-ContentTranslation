@@ -90,5 +90,22 @@
 	"apihelp-cxsave-param-from": "The source language code.",
 	"apihelp-cxsave-param-to": "The target language code.",
 	"apihelp-cxsave-param-sourcetitle": "The title of the source page.",
-	"apihelp-cxsuggestionlist-example-1": "Add a title to a list as a suggestion to translate from English (en) to Spanish (es). If the list does not exist already, a new list will be created."
+	"apierror-cx-docserverexception": "Error converting HTML to wikitext: $1",
+	"apierror-cx-inuse": "Another user is already translating this article.",
+	"apierror-cx-invalidlanguage": "Invalid language.",
+	"apierror-cx-invalidprogress": "Invalid progress.",
+	"apierror-cx-invalidsectioncontent": "Invalid section content.",
+	"apierror-cx-invalidsectiondata": "Invalid section data.",
+	"apierror-cx-invalidsourcelanguage": "Invalid source language.",
+	"apierror-cx-invalidtargetlanguage": "Invalid target language.",
+	"apierror-cx-invalidtranslator": "Invalid translator name",
+	"apierror-cx-jwtmissing": "JWT missing.",
+	"apierror-cx-keynotconfigured": "Key not configured.",
+	"apierror-cx-missingdraft": "Draft does not exist.",
+	"apierror-cx-mustbeloggedin-suggestions": "You must be logged-in to manage your suggestions.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "To view your translations, you must log in.",
+	"apierror-cx-notowned": "Translation not owned by current user.",
+	"apierror-cx-samelanguages": "Source and target languages cannot be the same.",
+	"apierror-cx-suggestionsdisabled": "Suggestions not enabled for this wiki.",
+	"apierror-cx-translationnotfound": "Translation not found."
 }

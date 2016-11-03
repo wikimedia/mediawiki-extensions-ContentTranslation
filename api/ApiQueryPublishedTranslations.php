@@ -31,10 +31,18 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		$limit = $params['limit'];
 		$offset = $params['offset'];
 		if ( $from !== null && !Language::isValidBuiltInCode( $from ) ) {
-			$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
+			} else {
+				$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			}
 		}
 		if ( $to !== null && !Language::isValidBuiltInCode( $to ) ) {
-			$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
+			} else {
+				$this->dieUsage( 'Invalid language', 'invalidlanguage' );
+			}
 		}
 		$translations = ContentTranslation\Translation::getAllPublishedTranslations(
 			$from, $to, $limit, $offset
