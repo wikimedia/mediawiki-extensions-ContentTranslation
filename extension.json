@@ -122,9 +122,9 @@
 		"ContentTranslationEventLogging": false,
 		"ContentTranslationHighMTCategory": null,
 		"ContentTranslationSiteTemplates": {
-			"view": "//$1.wikipedia.org/wiki/$2",
-			"action": "//$1.wikipedia.org/w/index.php?title=$2",
-			"api": "//$1.wikipedia.org/w/api.php",
+			"view": "https://$1.wikipedia.org/wiki/$2",
+			"action": "https://$1.wikipedia.org/w/index.php?title=$2",
+			"api": "https://$1.wikipedia.org/w/api.php",
 			"cx": "http://localhost:8080/v1"
 		},
 		"@ContentTranslationTranslateInTarget": "Whether to open Special:ContentTranslation in the target wiki when clicking the button in the entry point. The domain will be based on $wgContentTranslationSiteTemplates. The default is to open Special:ContentTranslation on the same wiki",
