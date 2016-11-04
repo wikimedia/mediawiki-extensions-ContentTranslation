@@ -37,7 +37,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "$1 बाट अनुवाद गर्नुहोस",
 	"cx-special-login-error": "पृष्ठ अनुवाद गर्नका लागि तपाईंले प्रवेश गर्नु अनिवार्य छ। [$1 लगइन]",
 	"cx-tools-instructions-text1": "अनुवाद गर्नका लागि हर्रफमा {{GENDER:|क्लिक}} गर्नुहोस",
-	"cx-tools-instructions-text2": "{{GENDER:|तपाईँ}}ले नै सबै थप्नु पर्ने आवश्यक छैन",
+	"cx-tools-instructions-text2": "{{GENDER:|तपाईं}}ले नै सबै थप्नु पर्ने आवश्यक छैन",
 	"cx-tools-instructions-text3": "पाठ पढ्दा प्राकृतिक लाग्ने {{GENDER:|बनाउनुहोस्}}",
 	"cx-tools-instructions-text5": "अनुवाद {{GENDER:|प्रकाशित}} गर्नुहोस्",
 	"cx-tools-instructions-text6": "जब {{GENDER:|तपाईं}} नतिजासँग सन्तुष्ट हुनुहुन्छ तब \"{{int:cx-publish-button}}\" बटन थिच्नुहोस् ।",
