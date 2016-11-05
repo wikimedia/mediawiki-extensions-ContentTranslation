@@ -4,7 +4,8 @@
 			"Gorizon",
 			"Mirzali",
 			"Amire80",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"cx": "Pela açarnayışi",
@@ -23,7 +24,7 @@
 	"cx-publish-page-success": "$1'i vıraziyê",
 	"cx-publish-button": "Açarnayışi neşr ke",
 	"cx-publish-button-publishing": "Neşrêna...",
-	"cx-publish-summary": " \"$1\" ra açarnayışi ra pela vıraziyaya",
+	"cx-publish-summary": "Perra \"$1\" açarnayışi ra vıraziyaya",
 	"cx-publish-gt-move-page-title": "Pele bıkırışe",
 	"cx-translation-add-translation": "+ Açarnayış cı ke",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Açarnayoğé zerreki]]",
