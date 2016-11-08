@@ -566,7 +566,7 @@
 			}
 		}
 
-		this.siteMapper.getApi( mw.cx.sourceLanguage ).get( {
+		this.siteMapper.getApi( mw.cx.sourceLanguage ).post( {
 			action: 'query',
 			titles: categoryTitles.join( '|' ),
 			prop: 'langlinks',
