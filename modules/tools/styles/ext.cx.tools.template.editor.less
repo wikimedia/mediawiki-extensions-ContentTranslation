@@ -1,0 +1,87 @@
+@import "../../widgets/common/ext.cx.common";
+@import "mediawiki.mixins";
+
+.cx-template-editor {
+	position: absolute;
+	left: -20px;
+	width: 66vw;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	min-height: 200px;
+	z-index: 9; // The sticky header on the top of page is with z-index 10
+
+	.cx-template-editor-header {
+		.mw-ui-one-whole;
+		// close button
+		.cx-template-editor-close {
+			width: 24px;
+			height: 24px;
+			float: right;
+			cursor: pointer;
+			.background-image-svg(  '../images/clear.svg', '../images/clear.png');
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 16px;
+		}
+	}
+
+	.cx-template-editor-source-container,
+	.cx-template-editor-target-container {
+		.mw-ui-one-half;
+		height: 100%;
+	}
+
+	.cx-template-editor-source,
+	.cx-template-editor-target {
+		.mw-ui-one-whole;
+		width: 100%;
+		height: auto;
+		background-color: #fff;
+		padding: 0;
+		overflow-y: scroll;
+	}
+
+	.cx-template-editor-title {
+		.mw-ui-one-whole;
+		font-weight: bold;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 30px;
+		.background-image-svg(  '../images/template-puzzle-ltr.svg', '../images/template-puzzle-ltr.png');
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: 24px;
+	}
+
+	.cx-template-editor-param {
+		.mw-ui-one-whole;
+		padding: 5px 10px;
+		border-bottom: 1px solid #eee;
+	}
+
+	.cx-template-editor-param-title {
+		.mw-ui-one-whole;
+
+		.cx-template-editor-param-key {
+			font-weight: bold;
+		}
+
+		.cx-template-editor-param-desc {
+			.background-image-svg(  '../images/help.svg', '../images/help.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 16px;
+			padding: 0 10px;
+		}
+	}
+
+	.cx-template-editor-param-value {
+		.mw-ui-one-whole;
+		padding: 5px;
+		min-height: 35px;
+		overflow: auto;
+
+		&:focus {
+			outline: 1px solid #6698FF;
+		}
+	}
+}

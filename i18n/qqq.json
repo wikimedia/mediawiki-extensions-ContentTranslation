@@ -217,5 +217,10 @@
 	"cx-page-old-revision-loaded": "Warning message shown when the older revision of source page loaded",
 	"cx-tools-mt-new-provider": "Label indicating the machine translation provider is a new option\n{{Identical|New}}",
 	"cx-tools-mt-new-providers-available": "Label shown in machine translation card when there are new provider options",
-	"cx-continue-translation": "Menu item label shown for published translations to continue translations"
+	"cx-continue-translation": "Menu item label shown for published translations to continue translations",
+	"cx-tools-template-title": "Title of template tool card",
+	"cx-template-action-adapt": "Menu item label in template tool card",
+	"cx-template-action-keep-original": "Menu item label in template tool card",
+	"cx-template-action-skip": "Menu item label in template tool card",
+	"cx-template-not-available": "Text shown when a corresponding template not available in target language\n* $1 - Target language name"
 }

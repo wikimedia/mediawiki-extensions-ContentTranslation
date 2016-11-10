@@ -33,8 +33,12 @@
 
 	table,
 	figure,
-	figure[typeof*='mw:Image'] {
-		float: none;
+	figure[typeof*='mw:Image'],
+	& > [typeof='mw:Transclusion'] {
+		// We cannot allow floating sections since it will interfere with
+		// section alignment. Even if the elements has inline style for
+		// floating, override it.
+		float: none !important;
 	}
 }
 

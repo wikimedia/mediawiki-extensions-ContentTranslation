@@ -194,6 +194,11 @@
 			);
 			$link.attr( 'href', url );
 		} );
+
+		// Filter sections that we don't want or support.
+		this.filter().then( function () {
+			mw.hook( 'mw.cx.source.ready' ).fire();
+		} );
 	};
 
 	/**
@@ -235,10 +240,27 @@
 		this.$content.append( $loadingIndicator );
 	};
 
+	/**
+	 * Filter out sections in the source that we cannot support.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	ContentTranslationSource.prototype.filter = function () {
+		var self = this;
+
+		return mw.cx.getCXConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage )
+			.then( function ( response ) {
+				var removableSections = response.configuration.removableSections || [];
+
+				self.$content.find( removableSections.join( ', ' ) ).each( function () {
+					$( this ).remove();
+				} );
+			} );
+	};
+
 	ContentTranslationSource.prototype.listen = function () {
 		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
-		// Apply source filter plugin to the content
-		this.$content.cxFilterSource();
+
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();
 			if ( selection.trim() ) {

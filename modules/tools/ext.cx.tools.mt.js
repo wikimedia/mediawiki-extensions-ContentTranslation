@@ -72,6 +72,11 @@
 			return $.Deferred().reject();
 		}
 
+		if ( mw.cx.Template.static.isTemplate( this.$sourceSection ) ) {
+			// Template sections are not handled by MT tool.
+			return $.Deferred().reject();
+		}
+
 		return this.getProviders().then( function ( providers ) {
 			var cxState, mtProvider;
 

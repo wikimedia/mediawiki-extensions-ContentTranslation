@@ -14,6 +14,7 @@
 	 * Handles providing URLs to different wikis.
 	 *
 	 * @class
+	 * @param {Object} siteconfig
 	 */
 	mw.cx.SiteMapper = function ( siteconfig ) {
 		this.config = siteconfig;
@@ -50,6 +51,7 @@
 	 * Get the API for a remote wiki.
 	 *
 	 * @param {string} language Language code
+	 * @return {mw.ForeignApi} api
 	 */
 	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
 		var url, domain;
@@ -57,7 +59,9 @@
 		domain = this.getWikiDomainCode( language );
 		url = this.config.api.replace( '$1', domain );
 
-		return new mw.ForeignApi( url, { anonymous: true } );
+		return new mw.ForeignApi( url, {
+			anonymous: true
+		} );
 	};
 
 	/**
@@ -117,15 +121,15 @@
 
 		targetNameSpace = mw.config.get( 'wgContentTranslationTargetNamespace' );
 		switch ( targetNameSpace ) {
-		case 'Main':
-			targetTitle = title;
-			break;
-		case 'User':
-			targetTitle = 'User:' + mw.user.getName() + '/' + title;
-			break;
-		default:
-			targetTitle = targetNameSpace + ':' + title;
-			break;
+			case 'Main':
+				targetTitle = title;
+				break;
+			case 'User':
+				targetTitle = 'User:' + mw.user.getName() + '/' + title;
+				break;
+			default:
+				targetTitle = targetNameSpace + ':' + title;
+				break;
 		}
 
 		return targetTitle;
@@ -141,6 +145,7 @@
 	 * @param {string} targetLanguage
 	 * @param {string} [campaign]
 	 * @param {string} [revision]
+	 * @return {string} URL
 	 */
 	mw.cx.SiteMapper.prototype.getCXUrl = function (
 		sourceTitle,

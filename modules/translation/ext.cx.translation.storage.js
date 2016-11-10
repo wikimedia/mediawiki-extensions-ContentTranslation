@@ -175,13 +175,15 @@
 			sections[ i ].saved = true;
 			sectionId = sections[ i ].sectionId;
 			$targetSection = mw.cx.getTranslationSection( sectionId );
-
+			mw.log( '[CX] Section ' + sectionId + ' saved.' );
 			// Annotate the section with errors.
 			if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
 				$targetSection.data( 'errors', validations[ sectionId ] );
 				mw.hook( 'mw.cx.translation.validation.error' ).fire( $targetSection );
 				this.validationTracker[ sectionId ].error = true;
-			} else {
+				mw.log( '[CX] Section ' + sectionId + ' has validation errors.' + validations[ sectionId ] );
+			} else if ( this.validationTracker[ sectionId ].error ) {
+				// Fire this only when a previous error was there.
 				$targetSection.removeData( 'errors' );
 				this.validationTracker[ sectionId ].error = false;
 				mw.hook( 'mw.cx.translation.validation.success' ).fire( $targetSection );

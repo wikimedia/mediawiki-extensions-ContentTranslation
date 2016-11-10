@@ -10,6 +10,7 @@
 ( function ( mw, $ ) {
 	'use strict';
 
+	var cxConfigurationRequestCache = {};
 	/**
 	 * Generate a jQuery selector for all possible sections.
 	 *
@@ -69,6 +70,81 @@
 	mw.cx.unique = function ( list ) {
 		return $.grep( list, function ( v, k ) {
 			return $.inArray( v, list ) === k;
+		} );
+	};
+
+	/**
+	 * Fetch the source content filter configuration
+	 * for the given language pairs.
+	 *
+	 * @param {string} sourceLanguage
+	 * @param {string} targetLanguage
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.getCXConfiguration = function ( sourceLanguage, targetLanguage ) {
+		if ( cxConfigurationRequestCache[ sourceLanguage + targetLanguage ] ) {
+			return cxConfigurationRequestCache[ sourceLanguage + targetLanguage ];
+		}
+		cxConfigurationRequestCache[ sourceLanguage + targetLanguage ] = new mw.Api().get( {
+			action: 'cxconfiguration',
+			from: sourceLanguage,
+			to: targetLanguage,
+			format: 'json'
+		} );
+		return cxConfigurationRequestCache[ sourceLanguage + targetLanguage ];
+	};
+
+	/**
+	 * Fix the ids of given element and its children so that it does not conflict
+	 * with existing ids. This is done to html fragments recieved from parsoid.
+	 *
+	 * @param {jQuery} $element The element whose ids to be fixed
+	 * @param {string} prefix Prefix to use while fixing id
+	 */
+	mw.cx.fixIds = function ( $element, prefix ) {
+		$element.find( '[id]' ).add( $element ).each( function () {
+			this.id = prefix + '-' + this.id;
+		} );
+	};
+
+	/**
+	 * Convert given wikitext fragment to HTML
+	 *
+	 * @param {mw.cx.SiteMapper} siteMapper
+	 * @param {string} language
+	 * @param {string} wikitext
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext ) {
+		var url, domain;
+
+		domain = siteMapper.getWikiDomainCode( language );
+		url = siteMapper.config.restbase.replace( '$1', domain );
+		url += '/transform/wikitext/to/html';
+		// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+		return $.post( url, {
+			body_only: true,
+			wikitext: wikitext
+		} );
+	};
+
+	/**
+	 * Convert given HTML fragment to wikitext
+	 *
+	 * @param {mw.cx.SiteMapper} siteMapper
+	 * @param {string} language
+	 * @param {string} html
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.htmlToWikitext = function ( siteMapper, language, html ) {
+		var url, domain;
+
+		domain = siteMapper.getWikiDomainCode( language );
+		url = siteMapper.config.restbase.replace( '$1', domain );
+		url += '/transform/html/to/wikitext';
+
+		return $.post( url, {
+			html: html
 		} );
 	};
 }( mediaWiki, jQuery ) );

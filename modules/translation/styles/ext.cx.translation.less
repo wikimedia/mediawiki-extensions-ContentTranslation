@@ -6,8 +6,18 @@
 		outline: none;
 	}
 
-	[data-editable=false] {
-		 background-image: repeating-linear-gradient(135deg,#eee,#eee 5px,#ddd 5px,#ddd 10px);
+	// Templates
+	[data-template-state],
+	[typeof='mw:Transclusion'] {
+		&:focus {
+			border: 1px solid #6698FF;
+			background-color: #f8f8f8;
+		}
+
+		a {
+			// Disable all links inside a template.
+			pointer-events: none;
+		}
 	}
 }
 
@@ -18,22 +28,26 @@
 	font-weight: lighter;
 	color: transparent;
 	cursor: pointer;
+
 	.cx-spinner {
 		margin: 0 auto;
 	}
+
 	.cx-column--translation:hover &:first-child {
 		color: transparent;
-		background: transparent;
+		background-color: transparent;
 	}
 
 	&:first-child,
-	.cx-column--translation &:first-child:hover,
-	&:hover {
+	&:hover,
+	.cx-column--translation &:first-child:hover {
 		color: #AAA;
-		background: #f8f8f8;
+		background-color: #f8f8f8;
 		/* In supported browsers, center the placeholder text */
 		display: flex;
-		justify-content: center; /* align horizontally */
-		align-items: center; /* align vertically */
+		/* align horizontally */
+		justify-content: center;
+		/* align vertically */
+		align-items: center;
 	}
 }

@@ -8,15 +8,24 @@
 	// Make sure that the captions are aligned according to the column's language
 	// rather than the wiki's content language
 	&[dir="rtl"] figcaption {
-		/* @noflip */ text-align: right;
+		/* @noflip */
+		text-align: right;
 	}
 
 	&[dir="ltr"] figcaption {
-		/* @noflip */ text-align: left;
+		/* @noflip */
+		text-align: left;
 	}
 
 	p {
-		margin: 1.5em 0;
+		// Use margin-bottom alone for paragraphs to avoid problems explained at
+		// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
+		// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
+		margin: 0 0 1.5em;
+	}
+
+	ul {
+		margin: 0 0 0 1.6em;
 	}
 }
 
@@ -27,15 +36,14 @@
 	min-height: 100vh;
 	position: relative;
 	z-index: 20;
+	border-left: 1px solid #ccc;
 
 	&.sticky {
 		.stick-to-side;
-
 		@media @palm {
 			.stick-to-bottom;
 		}
 	}
-
 	@media @palm {
 		.stick-to-bottom;
 	}
