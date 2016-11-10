@@ -4,7 +4,8 @@
 			"Artificial123",
 			"Maksim L.",
 			"Amire80",
-			"SamGold"
+			"SamGold",
+			"Mechanizatar"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -36,7 +37,14 @@
 	"cx-translation-add-translation": "+ Дадаць пераклад",
 	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] існуе ў мэтавай Вікі. Разглядзіце пытанне аб прадастаўленні старонкі іншай назвы.",
 	"cx-source-loading": "Загрузка $1",
+	"cx-entrypoint-dialog-button-translate-from": "Перакласці з $1",
+	"cx-special-login-error": "Вы павінны ўвайсці, каб перакласці гэтую старонку. [$1 Увайсці]",
+	"cx-tools-dictionary-title": "Вызначэнне",
+	"cx-tools-link-title": "Спасылка",
 	"cx-tools-link-add": "Дадаць спасылку",
+	"cx-tools-link-remove": "Выдаліць спасылку",
+	"cx-tools-mt-title": "Аўтаматычны пераклад",
+	"cx-tools-mt-dont-use": "Не выкарыстоўваць машынны пераклад",
 	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы",
 	"cx-tools-mt-new-providers-available": "з новымі настройкамі",
 	"cx-continue-translation": "Працягваць пераклад"
