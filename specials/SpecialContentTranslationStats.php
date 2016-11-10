@@ -40,9 +40,9 @@ class SpecialContentTranslationStats extends SpecialPage {
 		] );
 
 		// Preloading to avoid FOUC
-		$out->addModuleStyles( 'ext.cx.header.skin' );
+		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
 
-		$out->addModules( [ 'ext.cx.header', 'ext.cx.stats' ] );
+		$out->addModules( 'ext.cx.stats' );
 		// Add skin specific modules
 		$modules = $skin->getDefaultModules();
 		foreach ( $modules as $group ) {

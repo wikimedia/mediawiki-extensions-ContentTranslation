@@ -18,9 +18,9 @@
 
 	QUnit.test( 'Publishing with Captcha handling', function ( assert ) {
 		var publisher,
-			oldCaptchaHandler = mw.cx.publish.prototype.captchaHandler,
-			oldSuccessHandler = mw.cx.publish.prototype.onSuccess,
-			oldTitleExists = mw.cx.publish.prototype.checkTargetTitle,
+			oldCaptchaHandler = mw.cx.Publish.prototype.captchaHandler,
+			oldSuccessHandler = mw.cx.Publish.prototype.onSuccess,
+			oldTitleExists = mw.cx.Publish.prototype.checkTargetTitle,
 			newCaptchaHandler,
 			server = this.server,
 			$trigger = $( '<div>' );
@@ -36,7 +36,7 @@
 				captchaKey: 1234565
 			} ).promise();
 		};
-		publisher = new mw.cx.publish( $trigger, this.sitemapper );
+		publisher = new mw.cx.Publish( $trigger, this.sitemapper );
 		publisher.captchaHandler = newCaptchaHandler;
 		publisher.getContent = function () {
 			return 'Content to publish';
@@ -56,19 +56,19 @@
 			html: '...'
 		} ).done( function () {
 			assert.ok( true, 'Publishing was completed' );
-			mw.cx.publish.prototype.captchaHandler = oldCaptchaHandler;
-			mw.cx.publish.prototype.onSuccess = oldSuccessHandler;
-			mw.cx.publish.prototype.titleExists = oldTitleExists;
+			mw.cx.Publish.prototype.captchaHandler = oldCaptchaHandler;
+			mw.cx.Publish.prototype.onSuccess = oldSuccessHandler;
+			mw.cx.Publish.prototype.titleExists = oldTitleExists;
 			QUnit.start();
 		} );
 		server.requests[ 0 ].respond( 200, {
-				'Content-Type': 'application/json'
-			},
+			'Content-Type': 'application/json'
+		},
 			'{ "cxpublish": { "result": "error", "edit": { "captcha": {"captchaKey":"1234565"} } } }'
 		);
 		server.requests[ 1 ].respond( 200, {
-				'Content-Type': 'application/json'
-			},
+			'Content-Type': 'application/json'
+		},
 			'{ "cxpublish": { "result": "success" } }'
 		);
 	} );

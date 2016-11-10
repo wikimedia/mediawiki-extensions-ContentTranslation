@@ -26,7 +26,7 @@
 		$fixture.load( testDataPath + 'draft-sample-1.html', function () {
 			var cleanedHTML, publisher;
 
-			publisher = new mw.cx.publish();
+			publisher = new mw.cx.Publish();
 			cleanedHTML = publisher.prepareTranslationForPublish( $fixture );
 			assert.strictEqual( $( cleanedHTML ).find( '[contenteditable]' ).length, 0,
 				'No contenteditable attributes left' );
