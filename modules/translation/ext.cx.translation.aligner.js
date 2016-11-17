@@ -15,13 +15,12 @@
 		// Figures in wiki pages have display style property as table.
 		// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
 		if ( typeof InstallTrigger !== 'undefined' ) {
-			return $table.outerHeight() + $table.find( 'caption' ).outerHeight();
-		} else {
-			return $table.outerHeight();
+			return parseInt( $table.outerHeight() + $table.find( 'caption' ).outerHeight(), 10 );
 		}
+		return parseInt( $table.outerHeight(), 10 );
 	}
 
-	function getFigureHeight( $table ) {
+	function getFigureHeight( $figure ) {
 		// Add figcaption height also to the placeholder height because Firefox ignores it
 		// while calculating height of figure. Set it as height instead of min-height since
 		// Firefox does not allow setting min-height for elements with display: table.
@@ -30,10 +29,9 @@
 		// Firefox fix for figure heights. Uses InstallTrigger for browser detection.
 		// See https://bugzilla.wikimedia.org/68498
 		if ( typeof InstallTrigger !== 'undefined' ) {
-			return $table.outerHeight() + $table.find( 'figcaption' ).outerHeight();
-		} else {
-			return $table.outerHeight();
+			return parseInt( $figure.outerHeight() + $figure.find( 'figcaption' ).outerHeight(), 10 );
 		}
+		return parseInt( $figure.outerHeight(), 10 );
 	}
 
 	function getTemplateHeight( $template ) {
@@ -52,7 +50,7 @@
 				}
 			} );
 
-		return height;
+		return parseInt( height, 10 );
 	}
 
 	/**
@@ -63,7 +61,7 @@
 	 * @param {jQuery} $targetTable
 	 */
 	function keepTableAlignment( $sourceTable, $targetTable ) {
-		var sourceHeight, heightDiff, targetHeight;
+		var sourceHeight, targetHeight, heightDiff;
 
 		// Source table can be a set of template fragments.
 		if ( $sourceTable.prop( 'tagName' ) !== 'TABLE' &&
@@ -89,109 +87,130 @@
 	}
 
 	/**
-	 * Keep the height of the source and translation sections equal
-	 * so that they will appear top-aligned.
+	 * @param {jQuery} $sourceFigure
+	 * @param {jQuery} $targetFigure
 	 */
-	$.fn.keepAlignment = function () {
-		var $section,
-			$sourceSection,
-			sectionHeight,
-			sourceSectionHeight,
-			sectionTagName,
-			steps = 0;
+	function keepFigureAlignment( $sourceFigure, $targetFigure ) {
+		var $source, $target;
 
-		$section = $( this );
-		// Get the source section. We don't use $section.data('source') because that
-		// won't reflect updated data-source values(probably from section restore attempt)
-		$sourceSection = mw.cx.getSourceSection( $section.attr( 'data-source' ) );
+		$source = $sourceFigure.find( 'figcaption' );
+		$target = $targetFigure.find( 'figcaption' );
+		keepAlignment( $source, $target );
+	}
 
-		if ( $section.is( '.placeholder' ) ) {
-			$section.css( {
-				// Copy a bunch of position-related attribute values
-				'min-height': $sourceSection.outerHeight(),
-				width: $sourceSection.width(),
-				'margin-top': $sourceSection.css( 'margin-top' ),
-				'margin-bottom': $sourceSection.css( 'margin-bottom' ),
-				float: $sourceSection.css( 'float' ),
-				clear: $sourceSection.css( 'clear' ),
-				position: $sourceSection.css( 'position' )
-			} );
-
-			if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
-				$section.css( {
-					height: getFigureHeight( $sourceSection )
-				} );
-			}
-			if ( $sourceSection.prop( 'tagName' ) === 'TABLE' ) {
-				$section.css( {
-					height: getTableHeight( $sourceSection )
-				} );
-			}
-
-			// If the source section is template, it can have fragments.
-			if ( $sourceSection.is( '[typeof*="mw:Transclusion"]' ) &&
-				$sourceSection.attr( 'data-mw' ) ) {
-				$section.css( {
-					width: '100%',
-					'min-height': getTemplateHeight( $sourceSection )
-				} );
-			}
-
-			return this;
+	function getHeight( $element ) {
+		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
+			return getFigureHeight( $element );
+		}
+		if ( $element.prop( 'tagName' ) === 'TABLE' ) {
+			return getTableHeight( $element );
 		}
 
-		sectionTagName = $section.prop( 'tagName' );
+		// If the source section is template, it can have fragments.
+		if ( $element.is( '[typeof*="mw:Transclusion"]' ) &&
+					$element.attr( 'data-mw' ) ) {
+			return getTemplateHeight( $element );
+		}
+		return parseInt( $element.height(), 10 );
+	}
+
+	function setHeight( $element, height ) {
+		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
+			$element.css( {
+				height: height
+			} );
+			return;
+		}
+
+		if ( $element.prop( 'tagName' ) === 'TABLE' ) {
+			$element.css( {
+				height: height
+			} );
+			return;
+		}
+
+		$element.css( {
+			'min-height': height
+		} );
+	}
+
+	/**
+	 * @param {jQuery} $source
+	 * @param {jQuery} $target
+	 * @return {null}
+	 */
+	function keepAlignment( $source, $target ) {
+		var sourceHeight, targetHeight,	sectionTagName,
+			steps = 0;
 
 		// Reset the min-height
-		$sourceSection.css( 'min-height', '' );
+		$source.css( 'min-height', '' );
+
+		if ( $target.is( '.placeholder' ) ) {
+			$target.css( {
+				// Copy a bunch of position-related attribute values
+				width: $source.width() || '100%',
+				'margin-top': $source.css( 'margin-top' ),
+				'margin-bottom': $source.css( 'margin-bottom' ),
+				'padding-top': $source.css( 'padding-top' ),
+				'padding-bottom': $source.css( 'padding-bottom' ),
+				'float': $source.css( 'float' ),
+				clear: $source.css( 'clear' ),
+				position: $source.css( 'position' )
+			} );
+
+			setHeight( $target, getHeight( $source ) );
+			return;
+		}
+
+		sectionTagName = $target.prop( 'tagName' );
 
 		if ( sectionTagName === 'TABLE' ) {
-			keepTableAlignment( $sourceSection, $section );
-			return this;
+			return keepTableAlignment( $source, $target );
 		}
 
 		if ( sectionTagName === 'FIGURE' ) {
-			$sourceSection = $sourceSection.find( 'figcaption' );
-			$section = $section.find( 'figcaption' );
+			return keepFigureAlignment( $source, $target );
 		}
 
-		sourceSectionHeight = $sourceSection.height();
-		sectionHeight = $section.height();
+		sourceHeight = getHeight( $source );
+		targetHeight = getHeight( $target );
 
-		// If the source section is template, it can have fragments.
-		if ( $sourceSection.is( '[typeof*="mw:Transclusion"]' ) &&
-			$sourceSection.attr( 'data-mw' ) ) {
-			sourceSectionHeight = getTemplateHeight( $sourceSection );
+		if ( !sourceHeight ) {
+			return;
 		}
 
-		if ( !sourceSectionHeight ) {
-			return this;
-		}
-
-		if ( sourceSectionHeight < sectionHeight ) {
-			$sourceSection.css( 'min-height', sectionHeight );
-			sourceSectionHeight = $sourceSection.height();
-			sectionHeight = $section.height();
-
-			// Fun stuff - setting a calculated min-height will not guarantee
-			// equal height for all kinds of section pairs.
-			// Experiments shows a few pixels difference.
-			// Here we do it by 10px steps till we reach equal height.
-			while ( parseInt( sectionHeight, 10 ) !== parseInt( sourceSectionHeight, 10 ) ) {
-				sectionHeight = sectionHeight + 10;
-				$sourceSection.css( 'min-height', sectionHeight );
-				$section.css( 'min-height', sectionHeight );
-				sectionHeight = $section.height();
-				sourceSectionHeight = $sourceSection.height();
-
-				if ( steps++ === 5 ) {
-					mw.track( 'Alignment attempt is not succeeding. Aborting.' );
-					break;
-				}
+		while ( targetHeight !== sourceHeight ) {
+			if ( sourceHeight < targetHeight ) {
+				setHeight( $source, targetHeight );
+			} else if ( sourceHeight > targetHeight ) {
+				setHeight( $target, sourceHeight );
 			}
-		} else if ( sourceSectionHeight > sectionHeight ) {
-			$section.css( 'min-height', sourceSectionHeight );
+			sourceHeight = getHeight( $source );
+			targetHeight = getHeight( $target );
+			if ( steps++ === 5 ) {
+				mw.track( 'Alignment attempt is not succeeding. Aborting.' );
+				break;
+			}
 		}
+	}
+
+	/**
+	 * Keep the height of the source and translation sections equal
+	 * so that they will appear top-aligned.
+	 *
+	 * @param {jQuery} [$source]
+	 * @param {jQuery} [$target]
+	 * @return {jQuery}
+	 */
+	$.fn.keepAlignment = function ( $source, $target ) {
+		var $targetSection;
+
+		$targetSection = $target || $( this );
+		// Get the source section. We don't use $section.data('source') because that
+		// won't reflect updated data-source values(probably from section restore attempt)
+		$source = $source || mw.cx.getSourceSection( $targetSection.attr( 'data-source' ) );
+		keepAlignment( $source,	$targetSection );
 
 		return this;
 	};

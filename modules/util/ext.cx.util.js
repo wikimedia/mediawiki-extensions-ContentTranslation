@@ -118,6 +118,11 @@
 	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext ) {
 		var url, domain;
 
+		if ( !wikitext || !wikitext.trim() || !/\{\{|[\[<>&'=#*]/.test( wikitext ) ) {
+			// Plan text. Does not contain wiki markup. Save api call.
+			return $.Deferred().resolve( wikitext ).promise();
+		}
+
 		domain = siteMapper.getWikiDomainCode( language );
 		url = siteMapper.config.restbase.replace( '$1', domain );
 		url += '/transform/wikitext/to/html';
@@ -138,6 +143,11 @@
 	 */
 	mw.cx.htmlToWikitext = function ( siteMapper, language, html ) {
 		var url, domain;
+
+		if ( !html || !html.trim() || !/<[a-zA-Z][\s\S]*>/i.test( html ) ) {
+			// Does not contain HTML elements. Save api call.
+			return $.Deferred().resolve( html ).promise();
+		}
 
 		domain = siteMapper.getWikiDomainCode( language );
 		url = siteMapper.config.restbase.replace( '$1', domain );

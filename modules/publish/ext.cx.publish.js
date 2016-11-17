@@ -318,6 +318,8 @@
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {
 		// Remove all placeholders
 		$content.find( '.placeholder' ).remove();
+		// Remove all unadaptable templates
+		$content.find( '.cx-unadaptable-template' ).remove();
 
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var attributesToRemove, classesToRemove, $section = $( this );
@@ -362,8 +364,9 @@
 				'data-template-mapping', 'data-template-state', 'contenteditable'
 			].join( ' ' );
 			// Remove classes added by CX
-			classesToRemove = [ 'cx-link', 'cx-target-link', 'cx-source-link', 'cx-highlight' ]
-				.join( ' ' );
+			classesToRemove = [ 'cx-link', 'cx-target-link', 'cx-source-link',
+				'cx-highlight', 'cx-unadaptable-template'
+			].join( ' ' );
 			// removeAttr takes a space-separated list of attributes to remove.
 			$section.removeAttr( attributesToRemove )
 				.removeClass( classesToRemove )

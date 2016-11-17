@@ -216,5 +216,8 @@
 	"cx-template-action-adapt": "Use equivalent template",
 	"cx-template-action-keep-original": "Keep original template",
 	"cx-template-action-skip": "Skip template",
-	"cx-template-not-available": "Not available in $1"
+	"cx-template-not-available": "Not available in $1",
+	"cx-translation-template-add-param": "+ Translate field",
+	"cx-translation-template-add-more": "Add more properties",
+	"cx-translation-template-select-param": "Select target field"
 }

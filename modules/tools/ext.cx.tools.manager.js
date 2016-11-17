@@ -80,7 +80,7 @@
 		var index, tools,
 			data = Array.prototype.slice.apply( arguments );
 
-		mw.log( '[CX] event:' + eventName + ' , data:' + data );
+		mw.log( '[CX] event:' + eventName + ' , data:' + JSON.stringify( data ) );
 		tools = this.eventRegistry[ eventName ];
 		data = data.splice( 1 );
 

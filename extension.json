@@ -654,7 +654,8 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"mediawiki.RegExp"
+				"mediawiki.RegExp",
+				"oojs-ui-widgets"
 			]
 		},
 		"ext.cx.tools.template.card": {
@@ -688,9 +689,14 @@
 			"dependencies": [
 				"ext.cx.model",
 				"ext.cx.util",
-				"ext.cx.widgets.overlay"
+				"ext.cx.widgets.overlay",
+				"mw.cx.widgets.TemplateParamOptionWidget"
 			],
-			"messages": []
+			"messages": [
+				"cx-translation-template-add-param",
+				"cx-translation-template-add-more",
+				"cx-translation-template-select-param"
+			]
 		},
 		"ext.cx.tools.images": {
 			"scripts": [
@@ -1264,6 +1270,17 @@
 			],
 			"dependencies": [
 				"mw.cx.ui"
+			]
+		},
+		"mw.cx.widgets.TemplateParamOptionWidget": {
+			"scripts": [
+				"widgets/templates/mw.cx.widgets.TemplateParamOptionWidget.js"
+			],
+			"styles": [
+				"widgets/templates/mw.cx.widgets.TemplateParamOptionWidget.less"
+			],
+			"dependencies": [
+				"oojs-ui-widgets"
 			]
 		}
 	},

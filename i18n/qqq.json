@@ -222,5 +222,8 @@
 	"cx-template-action-adapt": "Menu item label in template tool card",
 	"cx-template-action-keep-original": "Menu item label in template tool card",
 	"cx-template-action-skip": "Menu item label in template tool card",
-	"cx-template-not-available": "Text shown when a corresponding template not available in target language\n* $1 - Target language name"
+	"cx-template-not-available": "Text shown when a corresponding template not available in target language\n* $1 - Target language name",
+	"cx-translation-template-add-param": "Hover text for the template parameter placeholders",
+	"cx-translation-template-add-more": "Label for the control to add more template parameters.",
+	"cx-translation-template-select-param": "Label for the template param selector."
 }
