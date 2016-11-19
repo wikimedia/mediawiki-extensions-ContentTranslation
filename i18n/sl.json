@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dbc334",
-			"Eleassar"
+			"Eleassar",
+			"Janezdrilc"
 		]
 	},
 	"cx-header-new-translation": "Nov prevod",
@@ -15,6 +16,9 @@
 	"cx-campaign-newarticle-notice": "Ustvarjanje novih strani s <strong>prevajanjem</strong> je sedaj lažje! Želite preizkusiti preizkusno orodje Prevajanje vsebine?",
 	"cx-campaign-no-thanks": "Ne, hvala",
 	"cx-campaign-try": "Preizkusi Prevajanje vsebine",
+	"cx-campaign-contributionsmenu-mycontributions": "Prispevki",
+	"cx-campaign-contributionsmenu-mytranslations": "Prevodi",
+	"cx-campaign-contributionsmenu-myuploads": "Naložene datoteke",
 	"cx-tools-link-internal-link": "Povezava na stran",
 	"cx-tools-link-internal-link-placeholder": "Poišči stran za povezavo",
 	"cx-tools-link-to-another-page": "Povezava na drugo stran",
