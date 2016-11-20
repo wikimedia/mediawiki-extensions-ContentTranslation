@@ -130,7 +130,7 @@
 	"cx-translation-status-published": "Paskelbtas",
 	"cx-translation-status-deleted": "Ištrinta",
 	"cx-translation-already-in-progress": "Tai yra {{GENDER:$2|tebevykstantis}} $1 vertimas.",
-	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad suderinote [{GENDER:$1|su vartotoju}}, kuris išvertė esamą vertimą.",
+	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad suderinote {{GENDER:$1|su vartotoju, kuris|su vartotoja, kuri}} išvertė esamą vertimą.",
 	"cx-publishing-dialog-publish-draft-button": "Paskelbti kaip projektą",
 	"cx-feedback-link": "Pateikti atsiliepimą",
 	"cx-stats-published-translations-title": "Paskelbti vertimai",
@@ -200,6 +200,7 @@
 	"cx-tools-linter-hide-details": "Slėpti detales",
 	"cx-translator-month-stats-label": "Šis mėnuo",
 	"cx-translator-total-translations-label": "Iš viso",
+	"cx-page-old-revision-loaded": "Šis vertimas yra pagrįstas senesne turinio versija. Šaltinio puslapis galimai [$1 pasikeitė drastiškai]. Galite tęsti šį vertimą arba pradėti iš naujo ir naudoti atnaujintą turinį.",
 	"cx-tools-mt-new-provider": "naujas",
 	"cx-tools-mt-new-providers-available": "su naujais pasirinkimais",
 	"cx-continue-translation": "Tęsti vertimą"
