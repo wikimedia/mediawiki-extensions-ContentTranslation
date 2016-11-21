@@ -683,7 +683,6 @@
 		this.templateMapping = null;
 		this.options = $.extend( {}, mw.cx.TemplateTool.defaults, options );
 		this.siteMapper = this.options.siteMapper;
-		this.action = 'adapt';
 		this.status = null;
 		this.prepareEditor();
 	}
@@ -945,6 +944,7 @@
 		if ( this.targetTemplate.options.inline ) {
 			// just leave the template unchanged. Add a class.
 			this.targetTemplate.$template.addClass( 'cx-unadaptable-template' );
+			this.targetTemplate.$template.attr( 'data-template-state', 'keep-original' );
 		} else {
 			$new = $( '<div>' )
 				.addClass( 'placeholder cx-unadaptable-template' )
@@ -952,9 +952,32 @@
 					'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
 					'typeof': this.sourceTemplate.$template.attr( 'typeof' )
 				} );
-			this.replaceTargetTemplate( $new, 'adapt' );
+			this.replaceTargetTemplate( $new, 'unadaptable' );
 		}
 
+		this.onUpdate();
+	};
+
+	/**
+	 * Mark the template skipped. This is like a placeholder, ignored from
+	 * content to publish.
+	 */
+	TemplateTool.prototype.skip = function () {
+		var $new;
+
+		if ( this.targetTemplate.options.inline ) {
+			// just remove the inline template
+			this.targetTemplate.$template.remove();
+		} else {
+			$new = $( '<div>' )
+				.addClass( 'placeholder' )
+				.attr( {
+					'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
+					'typeof': this.sourceTemplate.$template.attr( 'typeof' )
+				} );
+			this.replaceTargetTemplate( $new, 'skip' );
+			this.onUpdate();
+		}
 	};
 
 	TemplateTool.prototype.onUpdate = function () {

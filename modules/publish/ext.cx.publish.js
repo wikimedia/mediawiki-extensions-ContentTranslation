@@ -318,8 +318,6 @@
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {
 		// Remove all placeholders
 		$content.find( '.placeholder' ).remove();
-		// Remove all unadaptable templates
-		$content.find( '.cx-unadaptable-template' ).remove();
 
 		$content.find( mw.cx.getSectionSelector() ).each( function () {
 			var attributesToRemove, classesToRemove, $section = $( this );
