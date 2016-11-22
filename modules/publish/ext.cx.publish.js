@@ -356,6 +356,11 @@
 				$section.remove();
 			}
 
+			// Avoid any template editor code leaking into published article.
+			if ( $section.is( '.cx-template-editor-target-container' ) ) {
+				$section.remove();
+			}
+
 			// Remove attributes added by CX
 			attributesToRemove = [ 'data-cx-weight', 'data-cx-mt-provider', 'data-cx-state',
 				'data-source', 'data-sourceid', 'data-linkid', 'data-seqid', 'data-cx-draft',
