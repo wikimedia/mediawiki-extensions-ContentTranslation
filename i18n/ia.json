@@ -28,7 +28,7 @@
 	"cx-publish-summary": "Create como traduction del pagina \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Per favor, demanda a un usator experte de iste sito de adjutar te a revider le traduction e de publicar lo in le spatio principal.",
 	"cx-publish-gt-first-step-title": "Le traduction ha essite provisorimente publicate como subpagina de tu pagina de usator, pro revision.",
-	"cx-publish-gt-first-step-description": "Clicca sur le action \"$1\" sub site menu pro render le contento disponibile pro tote le usatores como pagina normal.",
+	"cx-publish-gt-first-step-description": "Clicca sur le action \"$1\" sub iste menu pro render le contento disponibile pro tote le usatores como pagina normal.",
 	"cx-publish-gt-move-page-title": "Renominar le pagina",
 	"cx-publish-gt-move-page-description": "Selige le spatio de nomines \"{{int:blanknamespace}}\" e da un titulo appropriate a tu pagina.",
 	"cx-publish-gt-moved-title": "Le pagina traducite ha essite renominate",
