@@ -252,12 +252,38 @@
 	};
 
 	/**
+	 * Templates will have fragments and sometimes some of them will be
+	 * invisible elements holding mw-data. We cannot align target sections
+	 * against these 0-height fragments. Restoring is also problematic.
+	 * So we find a 0-height fragments to use for alignment and section
+	 * restore.
+	 *
+	 * @return {jQuery}
+	 */
+	Template.prototype.getFirstVisibleFragment = function () {
+		var $fragments, $fragment;
+
+		$fragments = this.getFragments();
+		$fragments.each( function ( index, fragment ) {
+			$fragment = $( fragment );
+
+			// Find a fragment with visible height
+			if ( $fragment.height() > 0 ) {
+				// break the loop
+				return false;
+			}
+		} );
+
+		return $fragment;
+	};
+
+	/**
 	 * Get the container to which the editor to append
 	 *
 	 * @return {jQuery}
 	 */
 	Template.prototype.getEditorContainer = function () {
-		var $fragments, $container;
+		var $container;
 
 		$container = this.$template;
 
@@ -266,16 +292,7 @@
 				this.$template.parents( mw.cx.getSectionSelector() );
 			$container = this.$parentSection;
 		} else {
-			$fragments = this.getFragments();
-			$fragments.each( function ( index, fragment ) {
-				var $fragment = $( fragment );
-
-				// Find a fragment with visible height
-				if ( $fragment.height() > 0 ) {
-					$container = $fragment;
-					return false;
-				}
-			} );
+			$container = this.getFirstVisibleFragment() || this.$template;
 		}
 
 		return $container;
@@ -925,7 +942,7 @@
 	TemplateTool.prototype.replaceTargetTemplate = function ( $newTemplate, state ) {
 		var sourceId, $new;
 
-		sourceId = this.sourceTemplate.$template.prop( 'id' );
+		sourceId = this.sourceTemplate.getFirstVisibleFragment().prop( 'id' );
 		$new = $newTemplate
 			.clone()
 			.attr( {
