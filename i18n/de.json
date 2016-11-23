@@ -205,5 +205,13 @@
 	"cx-page-old-revision-loaded": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte [$1 signifikant geändert] worden sein. Du kannst mit dieser Übersetzung fortfahren oder erneut anfangen, um den aktualisierten Inhalt zu verwenden.",
 	"cx-tools-mt-new-provider": "neu",
 	"cx-tools-mt-new-providers-available": "mit neuen Optionen",
-	"cx-continue-translation": "Übersetzung fortfahren"
+	"cx-continue-translation": "Übersetzung fortfahren",
+	"cx-tools-template-title": "Vorlage",
+	"cx-template-action-adapt": "Äquivalente Vorlage verwenden",
+	"cx-template-action-keep-original": "Originalvorlage behalten",
+	"cx-template-action-skip": "Vorlage überspringen",
+	"cx-template-not-available": "Nicht verfügbar auf $1",
+	"cx-translation-template-add-param": "+ Übersetzungsfeld",
+	"cx-translation-template-add-more": "Weitere Eigenschaften hinzufügen",
+	"cx-translation-template-select-param": "Zielfeld auswählen"
 }
