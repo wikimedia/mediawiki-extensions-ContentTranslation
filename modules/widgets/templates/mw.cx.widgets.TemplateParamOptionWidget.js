@@ -9,7 +9,7 @@
 ( function ( $, mw ) {
 	'use strict';
 	/**
-	 * Creates a  mw.cx.widgets.TemplateParamOptionWidget object.
+	 * Creates a mw.cx.widgets.TemplateParamOptionWidget object.
 	 *
 	 * @class
 	 * @extends OO.ui.MenuOptionWidget
