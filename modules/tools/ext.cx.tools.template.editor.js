@@ -282,7 +282,7 @@
 			$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
 		}
 
-		if ( targetKey ) {
+		if ( targetKey || !this.formFieldMap[ sourceKey ].source.length ) {
 			showField();
 		} else {
 			$field.one( 'click', showField );
