@@ -89,5 +89,6 @@
 	"apihelp-cxsave-param-title": "The title of the page to perform actions on.",
 	"apihelp-cxsave-param-from": "The source language code.",
 	"apihelp-cxsave-param-to": "The target language code.",
-	"apihelp-cxsave-param-sourcetitle": "The title of the source page."
+	"apihelp-cxsave-param-sourcetitle": "The title of the source page.",
+	"apihelp-cxsuggestionlist-example-1": "Add a title to a list as a suggestion to translate from English (en) to Spanish (es). If the list does not exist already, a new list will be created."
 }

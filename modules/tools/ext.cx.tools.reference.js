@@ -176,7 +176,7 @@
 					// Reference list not the section, it is wrapped inside.
 					$parentSection = $referenceList.parent();
 				}
-				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ) );
+				mw.hook( 'mw.cx.translation.add' ).fire( $parentSection.attr( 'id' ), 'references' );
 			} );
 		}
 		// Mark that the reference list is added. This make sure that this method is called only once
@@ -318,6 +318,8 @@
 		$targetReference.attr( 'data-mw', JSON.stringify( mwData ) );
 		// Make sure we add reference list since we added a reference just now.
 		this.addReferenceList();
+		// Fire and event indicating this particular reference was adapted.
+		mw.hook( 'mw.cx.adapted.reference' ).fire( mwData.body.id );
 	};
 
 	function referenceClickHandler() {

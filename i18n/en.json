@@ -211,5 +211,10 @@
 	"cx-page-old-revision-loaded": "This translation is based on an older version of the content. The source page may have [$1 changed significantly]. You can continue this translation or start it again to use the updated content.",
 	"cx-tools-mt-new-provider": "new",
 	"cx-tools-mt-new-providers-available": "with new options",
-	"cx-continue-translation": "Continue translation"
+	"cx-continue-translation": "Continue translation",
+	"cx-tools-template-title": "Template",
+	"cx-template-action-adapt": "Use equivalent template",
+	"cx-template-action-keep-original": "Keep original template",
+	"cx-template-action-skip": "Skip template",
+	"cx-template-not-available": "Not available in $1"
 }

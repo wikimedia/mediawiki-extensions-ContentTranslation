@@ -8,6 +8,86 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	function getTableHeight( $table ) {
+		// Add table caption height also to the placeholder height because Firefox ignores it
+		// while calculating height of figure. Set it as height instead of min-height since
+		// Firefox does not allow setting min-height for elements with display: table.
+		// Figures in wiki pages have display style property as table.
+		// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
+		if ( typeof InstallTrigger !== 'undefined' ) {
+			return $table.outerHeight() + $table.find( 'caption' ).outerHeight();
+		} else {
+			return $table.outerHeight();
+		}
+	}
+
+	function getFigureHeight( $table ) {
+		// Add figcaption height also to the placeholder height because Firefox ignores it
+		// while calculating height of figure. Set it as height instead of min-height since
+		// Firefox does not allow setting min-height for elements with display: table.
+		// Figures in wiki pages have display style property as table.
+		// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
+		// Firefox fix for figure heights. Uses InstallTrigger for browser detection.
+		// See https://bugzilla.wikimedia.org/68498
+		if ( typeof InstallTrigger !== 'undefined' ) {
+			return $table.outerHeight() + $table.find( 'figcaption' ).outerHeight();
+		} else {
+			return $table.outerHeight();
+		}
+	}
+
+	function getTemplateHeight( $template ) {
+		var height = 0,
+			aboutAttr = $template.attr( 'about' );
+
+		$template.parents( '.cx-column__content' ).find( '[about="' + aboutAttr + '"]' )
+			.each( function ( index, fragment ) {
+				var $fragment = $( fragment );
+				if ( $fragment.prop( 'tagName' ) === 'FIGURE' ) {
+					height += getFigureHeight( $fragment );
+				} else if ( $fragment.prop( 'tagName' ) === 'TABLE' ) {
+					height += getTableHeight( $fragment );
+				} else {
+					height += $fragment.outerHeight();
+				}
+			} );
+
+		return height;
+	}
+
+	/**
+	 * Tables does not have a min-height css property defined. We use
+	 * margin-bottom to keep the heights in sync
+	 *
+	 * @param {jQuery} $sourceTable
+	 * @param {jQuery} $targetTable
+	 */
+	function keepTableAlignment( $sourceTable, $targetTable ) {
+		var sourceHeight, heightDiff, targetHeight;
+
+		// Source table can be a set of template fragments.
+		if ( $sourceTable.prop( 'tagName' ) !== 'TABLE' &&
+			$sourceTable.is( '[typeof*="mw:Transclusion"]' ) &&
+			$sourceTable.attr( 'data-mw' ) ) {
+			sourceHeight = getTemplateHeight( $sourceTable );
+		} else {
+			sourceHeight = getTableHeight( $sourceTable );
+		}
+
+		targetHeight = getTableHeight( $targetTable );
+
+		if ( targetHeight > sourceHeight ) {
+			// 10 is just a margin we add to avoid 0 margin-bottom for table.
+			heightDiff = targetHeight - sourceHeight;
+			$sourceTable.css( 'margin-bottom', heightDiff + 10 );
+			$targetTable.css( 'margin-bottom', 10 );
+		} else {
+			heightDiff = sourceHeight - targetHeight;
+			$targetTable.css( 'margin-bottom', heightDiff + 10 );
+			$sourceTable.css( 'margin-bottom', 10 );
+		}
+	}
+
 	/**
 	 * Keep the height of the source and translation sections equal
 	 * so that they will appear top-aligned.
@@ -37,18 +117,23 @@
 				position: $sourceSection.css( 'position' )
 			} );
 
-			// Firefox fix for figure heights. Uses InstallTrigger for browser detection.
-			// See https://bugzilla.wikimedia.org/68498
-			if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' &&
-				typeof InstallTrigger !== 'undefined'
-			) {
+			if ( $sourceSection.prop( 'tagName' ) === 'FIGURE' ) {
 				$section.css( {
-					// Add figcaption height also to the placeholder height because Firefox ignores it
-					// while calculating height of figure. Set it as height instead of min-height since
-					// Firefox does not allow setting min-height for elements with display: table.
-					// Figures in wiki pages have display style property as table.
-					// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
-					height: $sourceSection.outerHeight() + $sourceSection.find( 'figcaption' ).outerHeight()
+					height: getFigureHeight( $sourceSection )
+				} );
+			}
+			if ( $sourceSection.prop( 'tagName' ) === 'TABLE' ) {
+				$section.css( {
+					height: getTableHeight( $sourceSection )
+				} );
+			}
+
+			// If the source section is template, it can have fragments.
+			if ( $sourceSection.is( '[typeof*="mw:Transclusion"]' ) &&
+				$sourceSection.attr( 'data-mw' ) ) {
+				$section.css( {
+					width: '100%',
+					'min-height': getTemplateHeight( $sourceSection )
 				} );
 			}
 
@@ -56,6 +141,9 @@
 		}
 
 		sectionTagName = $section.prop( 'tagName' );
+
+		// Reset the min-height
+		$sourceSection.css( 'min-height', '' );
 
 		if ( sectionTagName === 'TABLE' ) {
 			keepTableAlignment( $sourceSection, $section );
@@ -67,9 +155,14 @@
 			$section = $section.find( 'figcaption' );
 		}
 
-		$sourceSection.css( 'min-height', '' );
 		sourceSectionHeight = $sourceSection.height();
 		sectionHeight = $section.height();
+
+		// If the source section is template, it can have fragments.
+		if ( $sourceSection.is( '[typeof*="mw:Transclusion"]' ) &&
+			$sourceSection.attr( 'data-mw' ) ) {
+			sourceSectionHeight = getTemplateHeight( $sourceSection );
+		}
 
 		if ( !sourceSectionHeight ) {
 			return this;
@@ -102,30 +195,6 @@
 
 		return this;
 	};
-
-	/**
-	 * Tables does not have a min-height css property defined. We use
-	 * margin-bottom to keep the heights in sync
-	 *
-	 * @param {jQuery} $sourceTable
-	 * @param {jQuery} $targetTable
-	 */
-	function keepTableAlignment( $sourceTable, $targetTable ) {
-		var sourceHeight, heightDiff, targetHeight;
-
-		sourceHeight = $sourceTable.outerHeight();
-		targetHeight = $targetTable.outerHeight();
-
-		if ( targetHeight > sourceHeight ) {
-			// 10 is just a margin we add to avoid 0 margin-bottom for table.
-			heightDiff = targetHeight - sourceHeight;
-			$sourceTable.css( 'margin-bottom', heightDiff + 10 );
-			$targetTable.css( 'margin-bottom', 10 );
-		} else {
-			$targetTable.css( 'margin-bottom', heightDiff + 10 );
-			$sourceTable.css( 'margin-bottom', 10 );
-		}
-	}
 
 	$( function () {
 		// Window resize handler.

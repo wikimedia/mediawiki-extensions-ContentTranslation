@@ -126,7 +126,8 @@
 			"action": "//$1.wikipedia.org/w/index.php?title=$2",
 			"api": "//$1.wikipedia.org/w/api.php",
 			"cx": "http://localhost:8080/v1",
-			"cookieDomain": null
+			"cookieDomain": null,
+			"restbase": "//$1.wikipedia.org/api/rest_v1"
 		},
 		"@ContentTranslationTranslateInTarget": "Whether to open Special:ContentTranslation in the target wiki when clicking the button in the entry point. The domain will be based on $wgContentTranslationSiteTemplates. The default is to open Special:ContentTranslation on the same wiki",
 		"ContentTranslationTranslateInTarget": false,
@@ -318,8 +319,7 @@
 		},
 		"ext.cx.source": {
 			"scripts": [
-				"source/ext.cx.source.js",
-				"source/ext.cx.source.filter.js"
+				"source/ext.cx.source.js"
 			],
 			"styles": [
 				"source/styles/ext.cx.source.less"
@@ -456,6 +456,8 @@
 				"ext.cx.tools.mtabuse",
 				"ext.cx.tools.reference",
 				"ext.cx.tools.template",
+				"ext.cx.tools.template.card",
+				"ext.cx.tools.template.editor",
 				"ext.cx.util.selection",
 				"ext.cx.widgets.spinner",
 				"jquery.throttle-debounce",
@@ -647,10 +649,48 @@
 			"scripts": [
 				"tools/ext.cx.tools.template.js"
 			],
+			"styles": [
+				"tools/styles/ext.cx.tools.template.less"
+			],
 			"dependencies": [
 				"ext.cx.model",
 				"mediawiki.RegExp"
 			]
+		},
+		"ext.cx.tools.template.card": {
+			"scripts": [
+				"tools/ext.cx.tools.template.card.js"
+			],
+			"styles": [
+				"tools/styles/ext.cx.tools.template.card.less"
+			],
+			"dependencies": [
+				"ext.cx.model",
+				"ext.cx.util",
+				"ext.cx.tools.card",
+				"ext.cx.tools.manager"
+			],
+			"messages": [
+				"cx-tools-template-title",
+				"cx-template-action-adapt",
+				"cx-template-action-keep-original",
+				"cx-template-action-skip",
+				"cx-template-not-available"
+			]
+		},
+		"ext.cx.tools.template.editor": {
+			"scripts": [
+				"tools/ext.cx.tools.template.editor.js"
+			],
+			"styles": [
+				"tools/styles/ext.cx.tools.template.editor.less"
+			],
+			"dependencies": [
+				"ext.cx.model",
+				"ext.cx.util",
+				"ext.cx.widgets.overlay"
+			],
+			"messages": []
 		},
 		"ext.cx.tools.images": {
 			"scripts": [

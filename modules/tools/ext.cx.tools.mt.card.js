@@ -228,10 +228,11 @@
 				} ) );
 
 			self.buildProvidersMenu( menuItems );
+			self.$card.show();
+			self.onShow();
+		}, function () {
+			self.stop();
 		} );
-
-		this.$card.show();
-		this.onShow();
 	};
 
 	MTControlCard.prototype.stop = function () {

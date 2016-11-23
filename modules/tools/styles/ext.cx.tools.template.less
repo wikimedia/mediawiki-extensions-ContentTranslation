@@ -1,0 +1,35 @@
+@import "../../widgets/common/ext.cx.common";
+@import "mediawiki.mixins";
+
+.cx-column__content {
+	// Templates
+	[data-template-state],
+	[typeof='mw:Transclusion'] {
+		background-color: #f0f0f0;
+
+		&.cx-highlight:focus {
+			background-color: #bdd4ff;
+		}
+
+		&:hover {
+			outline: 1px solid #6698FF;
+
+		}
+
+		&.cx-template-editor-open {
+			background-color: #bdd4ff;
+			box-shadow: 0 0 0 2px #bdd4ff;
+			border-radius: 2px;
+		}
+
+		a {
+			// Disable all links inside a template.
+			pointer-events: none;
+		}
+	}
+
+	a[about] {
+		// Disable all links that are template fragments.
+		pointer-events: none;
+	};
+}

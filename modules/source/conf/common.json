@@ -1,4 +1,15 @@
 {
+	"removableSections": [
+		".noprint",
+		".nomobile",
+		".navbox",
+		".hatnote",
+		".metadata",
+		".sisterproject",
+		".vertical-navbox",
+		".sistersitebox",
+		"[typeof~='mw:Extension/timeline']"
+	],
 	"templates": {
 		"Reflist": {
 			"targetname": "Reflist",

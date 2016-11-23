@@ -121,4 +121,28 @@ class RestbaseClient {
 		}
 		return $wikitext;
 	}
+
+	/**
+	 * Converts wikitext to html
+	 *
+	 * @param Title $title
+	 * @param string $wikitext
+	 * @return string html
+	 */
+	public function convertWikitextToHtml( \Title $title, $wikitext ) {
+		$html = $this->requestRestbase(
+			'POST',
+			'transform/wikitext/to/html/' . urlencode( $title->getPrefixedDBkey() ),
+			[
+				'wikitext' => $wikitext,
+				'body_only' => 1,
+			]
+		);
+		if ( $html === false ) {
+			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );
+			$name = $vrsInfo[1] ? $vrsInfo[1]->getName() : 'unknown VRS service';
+			throw new \MWException( 'Error contacting ' . $name );
+		}
+		return $html;
+	}
 }

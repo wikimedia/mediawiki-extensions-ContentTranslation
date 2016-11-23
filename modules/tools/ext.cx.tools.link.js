@@ -1223,6 +1223,9 @@
 			this.selection = selection;
 		} else if ( selection.jquery && selection.is( 'a' ) ) {
 			this.$link = selection;
+		} else {
+			this.stop();
+			return;
 		}
 
 		// Do not show the tool for headings.
