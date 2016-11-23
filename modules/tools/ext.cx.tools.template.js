@@ -162,13 +162,18 @@
 	 * @return {jQuery}
 	 */
 	Template.static.getTemplateDef = function ( $template ) {
-		var $sourceTemplate = $( [] );
+		var aboutAttr,
+			$sourceTemplate = $( [] );
 
 		if ( !$template ) {
 			return $sourceTemplate;
 		}
 
-		mw.cx.Template.static.getFragments( $template ).each( function ( index, fragment ) {
+		aboutAttr = $template.attr( 'about' ) ||
+			mw.cx.getSourceSection( $template.data( 'source' ) ).attr( 'about' );
+
+		//  Template definition is usually at source template at source column
+		$( '[about="' + aboutAttr + '"]' ).each( function ( index, fragment ) {
 			var $fragment = $( fragment );
 
 			if (
@@ -203,34 +208,77 @@
 	};
 
 	/**
-	 * Get all DOM fragments for the given template
+	 * Get all associated DOM fragments for the given template
 	 *
-	 * @param  {jQuery} $template
 	 * @return {jQuery} Template fragments
 	 */
-	Template.static.getFragments = function ( $template ) {
+	Template.prototype.getFragments = function () {
 		var aboutAttr;
 
-		aboutAttr = $template.attr( 'about' ) ||
-			mw.cx.getSourceSection( $template.data( 'source' ) ).attr( 'about' );
-		return $( '[about="' + aboutAttr + '"]' );
+		aboutAttr = this.$template.attr( 'about' ) ||
+			mw.cx.getSourceSection( this.$template.data( 'source' ) ).attr( 'about' );
+
+		return this.$template
+			.parents( '.cx-column__content' )
+			.find( '[about="' + aboutAttr + '"]' );
 	};
 
 	/**
-	 * Get total height of the template
-	 *
-	 * @return {integer} Calculated total height of the template
+	 * Show this template. If it has fragments, show them too.
 	 */
-	Template.prototype.getHeight = function () {
-		var total = 0,
-			$fragments;
+	Template.prototype.show = function () {
+		if ( this.options.inline ) {
+			this.$parentSection = this.$parentSection ||
+				this.$template.parents( mw.cx.getSectionSelector() );
+			this.$parentSection.show();
+		} else {
+			this.$template.show();
+			this.getFragments( this.$template ).show();
+		}
+	};
 
-		$fragments = mw.cx.Template.static.getFragments( this.$template );
-		$fragments.each( function () {
-			total += $( this ).height();
-		} );
+	/**
+	 * Hide this template. If it has fragments, hide them too.
+	 */
+	Template.prototype.hide = function () {
+		if ( this.options.inline ) {
+			this.$parentSection = this.$parentSection ||
+				this.$template.parents( mw.cx.getSectionSelector() );
+			this.$parentSection.hide();
+		} else {
+			this.$template.hide();
+			this.getFragments( this.$template ).hide();
+		}
+	};
 
-		return total;
+	/**
+	 * Get the container to which the editor to append
+	 *
+	 * @return {jQuery}
+	 */
+	Template.prototype.getEditorContainer = function () {
+		var $fragments, $container;
+
+		$container = this.$template;
+
+		if ( this.options.inline ) {
+			this.$parentSection = this.$parentSection ||
+				this.$template.parents( mw.cx.getSectionSelector() );
+			$container = this.$parentSection;
+		} else {
+			$fragments = this.getFragments();
+			$fragments.each( function ( index, fragment ) {
+				var $fragment = $( fragment );
+
+				// Find a fragment with visible height
+				if ( $fragment.height() > 0 ) {
+					$container = $fragment;
+					return false;
+				}
+			} );
+		}
+
+		return $container;
 	};
 
 	/**

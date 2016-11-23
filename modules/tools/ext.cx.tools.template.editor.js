@@ -40,21 +40,13 @@
 	 * Initialize the template editor
 	 */
 	TemplateEditor.prototype.init = function () {
-		var sourceId, self = this;
+		var self = this;
 
 		this.$sourceTemplateContainer = this.buildSourceFormContainer();
 		this.$targetTemplateContainer = this.buildTargetFormContainer();
 
-		if ( this.targetTemplate.options.inline ) {
-			this.targetTemplate.$parentSection = this.targetTemplate.$template.parents( '[data-source]' );
-			sourceId = this.targetTemplate.$parentSection.data( 'source' );
-			this.sourceTemplate.$parentSection = $( document.getElementById( sourceId ) );
-			this.sourceTemplate.$parentSection.after( this.$sourceTemplateContainer );
-			this.targetTemplate.$parentSection.after( this.$targetTemplateContainer );
-		} else {
-			this.sourceTemplate.$template.after( this.$sourceTemplateContainer );
-			this.targetTemplate.$template.after( this.$targetTemplateContainer );
-		}
+		this.sourceTemplate.getEditorContainer().after( this.$sourceTemplateContainer );
+		this.targetTemplate.getEditorContainer().after( this.$targetTemplateContainer );
 
 		this.sourceTemplate.init().then( function () {
 			self.buildSourceTemplateForm();
@@ -497,14 +489,8 @@
 	 * Show the editor.
 	 */
 	TemplateEditor.prototype.show = function () {
-
-		if ( this.targetTemplate.options.inline ) {
-			this.targetTemplate.$parentSection.hide();
-			this.sourceTemplate.$parentSection.hide();
-		} else {
-			this.targetTemplate.$template.hide();
-			this.sourceTemplate.$template.hide();
-		}
+		this.targetTemplate.hide();
+		this.sourceTemplate.hide();
 
 		this.$sourceTemplateContainer.show();
 		this.$targetTemplateContainer.show();
@@ -527,13 +513,8 @@
 		this.$sourceTemplateContainer.hide();
 		this.$targetTemplateContainer.hide();
 
-		if ( this.targetTemplate.options.inline ) {
-			this.targetTemplate.$parentSection.show();
-			this.sourceTemplate.$parentSection.show();
-		} else {
-			this.targetTemplate.$template.show();
-			this.sourceTemplate.$template.show();
-		}
+		this.targetTemplate.show();
+		this.sourceTemplate.show();
 
 	};
 

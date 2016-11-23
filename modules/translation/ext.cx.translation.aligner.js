@@ -114,6 +114,40 @@
 		return parseInt( $element.height(), 10 );
 	}
 
+	function getDisplayStyles( $element ) {
+		var aboutAttr, $source;
+
+		// If the source section is template, it can have fragments.
+		if ( $element.is( '[typeof*="mw:Transclusion"]' ) &&
+			$element.attr( 'data-mw' )
+		) {
+			aboutAttr = $element.attr( 'about' );
+			$element.parents( '.cx-column__content' ).find( '[about="' + aboutAttr + '"]' )
+				.each( function ( index, fragment ) {
+					var $fragment = $( fragment );
+					// Find a fragment with visible height
+					if ( $fragment.height() > 0 ) {
+						$source = $fragment;
+						return true;
+					}
+				} );
+		} else {
+			$source = $element;
+		}
+
+		return {
+			// Copy a bunch of position-related attribute values
+			width: $source.width() || '100%',
+			'margin-top': $source.css( 'margin-top' ),
+			'margin-bottom': $source.css( 'margin-bottom' ),
+			'padding-top': $source.css( 'padding-top' ),
+			'padding-bottom': $source.css( 'padding-bottom' ),
+			'float': $source.css( 'float' ),
+			clear: $source.css( 'clear' ),
+			position: $source.css( 'position' )
+		};
+	}
+
 	function setHeight( $element, height ) {
 		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
 			$element.css( {
@@ -147,18 +181,7 @@
 		$source.css( 'min-height', '' );
 
 		if ( $target.is( '.placeholder' ) ) {
-			$target.css( {
-				// Copy a bunch of position-related attribute values
-				width: $source.width() || '100%',
-				'margin-top': $source.css( 'margin-top' ),
-				'margin-bottom': $source.css( 'margin-bottom' ),
-				'padding-top': $source.css( 'padding-top' ),
-				'padding-bottom': $source.css( 'padding-bottom' ),
-				'float': $source.css( 'float' ),
-				clear: $source.css( 'clear' ),
-				position: $source.css( 'position' )
-			} );
-
+			$target.css( getDisplayStyles( $source ) );
 			setHeight( $target, getHeight( $source ) );
 			return;
 		}
