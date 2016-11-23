@@ -5,7 +5,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
-( function ( $, mw ) {
+( function ( $, mw, OO ) {
 	'use strict';
 
 	/**
@@ -23,144 +23,144 @@
 		this.targetTemplate = targetTemplate;
 		this.options = options || {};
 		this.siteMapper = options.siteMapper;
-		this.$editor = null;
+		this.$closeButton = null;
 		this.$sourceTemplateForm = null;
 		this.$targetTemplateForm = null;
+		this.$sourceTemplateContainer = null;
+		this.$targetTemplateContainer = null;
 		this.templateValues = {};
+		this.formFieldMap = {};
 		this.changed = false;
+		this.initialized = false;
+		this.paramSelectors = [];
 		this.init();
 	}
-
-	TemplateEditor.static = {};
 
 	/**
 	 * Initialize the template editor
 	 */
 	TemplateEditor.prototype.init = function () {
-		var $header, $closeButton, $sourceTemplateContainer, $targetTemplateContainer,
-			self = this;
+		var sourceId, self = this;
 
-		this.$editor = $( '<div>' )
-			.addClass( 'cx-template-editor' )
-			.hide();
-		$closeButton = $( '<div>' )
-			.addClass( 'cx-template-editor-close' )
-			.click( $.proxy( this.close, this ) );
-		$header = $( '<div>' )
-			.addClass( 'cx-template-editor-header' )
-			.append( $closeButton );
+		this.$sourceTemplateContainer = this.buildSourceFormContainer();
+		this.$targetTemplateContainer = this.buildTargetFormContainer();
+
+		if ( this.targetTemplate.options.inline ) {
+			this.targetTemplate.$parentSection = this.targetTemplate.$template.parents( '[data-source]' );
+			sourceId = this.targetTemplate.$parentSection.data( 'source' );
+			this.sourceTemplate.$parentSection = $( document.getElementById( sourceId ) );
+			this.sourceTemplate.$parentSection.after( this.$sourceTemplateContainer );
+			this.targetTemplate.$parentSection.after( this.$targetTemplateContainer );
+		} else {
+			this.sourceTemplate.$template.after( this.$sourceTemplateContainer );
+			this.targetTemplate.$template.after( this.$targetTemplateContainer );
+		}
+
+		this.sourceTemplate.init().then( function () {
+			self.buildSourceTemplateForm();
+		} );
+		this.targetTemplate.init();
+
+		this.listen();
+	};
+
+	TemplateEditor.prototype.buildSourceFormContainer = function () {
 		this.$sourceTemplateForm = $( '<div>' )
 			.addClass( 'cx-template-editor-source' );
-		this.$targetTemplateForm = $( '<div>' )
-			.addClass( 'cx-template-editor-target' );
-		$sourceTemplateContainer = $( '<div>' )
+		return $( '<div>' )
 			.addClass( 'cx-template-editor-source-container' )
 			.attr( {
 				lang: this.sourceTemplate.language,
 				dir: $.uls.data.getDir( this.sourceTemplate.language )
 			} )
-			.append( this.$sourceTemplateForm );
-		$targetTemplateContainer = $( '<div>' )
+			.append( this.$sourceTemplateForm )
+			.hide();
+	};
+
+	TemplateEditor.prototype.buildTargetFormContainer = function () {
+		this.$closeButton = $( '<div>' )
+			.addClass( 'cx-template-editor-close' )
+			.click( $.proxy( this.close, this ) );
+
+		this.$targetTemplateForm = $( '<div>' )
+			.addClass( 'cx-template-editor-target' );
+
+		return	$( '<div>' )
 			.addClass( 'cx-template-editor-target-container' )
 			.attr( {
 				lang: this.targetTemplate.language,
 				dir: $.uls.data.getDir( this.targetTemplate.language )
 			} )
-			.append( this.$targetTemplateForm );
-		this.$editor.append(
-			$header,
-			$sourceTemplateContainer,
-			$targetTemplateContainer
-		);
-		this.sourceTemplate.$template.after( this.$editor );
-		this.sourceTemplate.init().then( function () {
-			self.prepareTemplateForm( self.sourceTemplate, 'source' );
-		} );
-		this.targetTemplate.init().then( function () {
-			self.prepareTemplateForm( self.targetTemplate, 'target' );
-		} );
-		this.listen();
+			.append( this.$closeButton, this.$targetTemplateForm )
+			.hide();
 	};
 
 	/**
-	 * Prepare the form with parameter and their values.
-	 *
-	 * @param {mw.cx.Template} template The template object from data-mw attribute
-	 * @param {string} type Whether the template is source or target
+	 * Prepare the source template form with parameter and their values.
 	 */
-	TemplateEditor.prototype.prepareTemplateForm = function ( template, type ) {
+	TemplateEditor.prototype.buildSourceTemplateForm = function () {
 		var $form, $editorTitle, $param, language, desc, sortedKeys,
 			self = this;
 
-		if ( type === 'source' ) {
-			$form = this.$sourceTemplateForm;
-			language = this.sourceTemplate.language;
-		} else {
-			$form = this.$targetTemplateForm;
-			language = this.targetTemplate.language;
-		}
+		$form = this.$sourceTemplateForm;
+		language = this.sourceTemplate.language;
 
-		$form.empty();
-		desc = template.templateData && template.templateData.description &&
-			template.templateData.description[ language ];
+		desc = this.sourceTemplate.templateData && this.sourceTemplate.templateData.description &&
+			this.sourceTemplate.templateData.description[ language ];
 		$editorTitle = $( '<div>' )
 			.addClass( 'cx-template-editor-title' )
 			.attr( 'title', desc )
-			.text( template.title );
-		$form.append( $editorTitle );
-		sortedKeys = ( template.templateData && template.templateData.paramOrder ) ||
-			Object.keys( template.params );
-		$.each( sortedKeys, function ( index, key ) {
-			var value, $key, $value, $desc = $( [] );
+			.text( this.sourceTemplate.title );
 
-			value = template.params[ key ];
-			if ( type === 'source' && !value.wt ) {
+		$form.append( $editorTitle );
+		sortedKeys = ( this.sourceTemplate.templateData && this.sourceTemplate.templateData.paramOrder ) ||
+			Object.keys( this.sourceTemplate.params );
+
+		$.each( sortedKeys, function ( index, key ) {
+			var value, $key, $value, $field, $desc = $( [] );
+
+			self.formFieldMap[ key ] = {};
+			value = self.sourceTemplate.params[ key ];
+
+			if ( !value.wt ) {
 				return true;
 			}
+
 			$key = $( '<span>' )
 				.attr( {
 					id: key
 				} )
 				.addClass( 'cx-template-editor-param-key' )
 				.text( ( value.label && value.label[ language ] ) || key );
+
 			if ( value.description && value.description[ language ] ) {
 				$desc = $( '<span>' )
 					.attr( {
-						'for': key,
+						'data-key': key,
 						title: value.description[ language ]
 					} )
 					.addClass( 'cx-template-editor-param-desc' );
 			}
+
 			$value = $( '<div>' )
 				.addClass( 'cx-template-editor-param-value' )
-				.attr( {
-					'for': key,
-					contenteditable: type === 'target'
-				} )
+				.attr( 'data-key', key )
 				.text( value.wt );
 
 			$param = $( '<div>' )
 				.addClass( 'cx-template-editor-param-title' )
 				.append( $key, $desc );
-			$form.append( $( '<div>' )
+			$field = $( '<div>' )
 				.addClass( 'cx-template-editor-param' )
-				.append( $param, $value )
-			);
+				.append( $param, $value );
+			$form.append( $field );
 
-			if ( template.params[ key ].html ) {
-				$value.html( template.params[ key ].html );
-				return;
-			}
-			if ( !value.wt ) {
+			self.formFieldMap[ key ].source = $field;
+			if ( self.sourceTemplate.params[ key ].html ) {
+				$value.html( self.sourceTemplate.params[ key ].html );
 				return;
 			}
 
-			if ( /\{\{|[\[<>&'=#*]/.test( value.wt ) === false ) {
-				// Plan text. Does not contain wiki markup. Save api calls.
-				template.params[ key ].html = value.wt;
-				$value.html( value.wt );
-				return;
-			}
 			$value.cxoverlay( {
 				showLoading: true
 			} );
@@ -170,87 +170,277 @@
 					// Parsoid sometimes wraps the html in <p> tags. we dont need that.
 					html = $( response ).html();
 				} catch ( error ) {
-					// It is not guaranteed that the response.contenttranslation.html is valid
-					// for sizzle.
-					html = response.contenttranslation.html;
+					// It is not guaranteed that the response html is valid for sizzle.
+					html = response;
 				}
-				template.params[ key ].html = html;
+				self.sourceTemplate.params[ key ].html = html;
 				$value.html( html );
-				mw.cx.fixIds( $value, template.$template.prop( 'id' ) + '-' + key );
-				// TODO: Do machine translation
+				mw.cx.fixIds( $value, self.sourceTemplate.$template.prop( 'id' ) + '-' + key );
 			} ).fail( function () {
 				$value.text( value.wt );
 			} ).always( function () {
 				$value.cxoverlay( 'hide' );
 			} );
 		} );
-		// Focus the first field.
-		if ( type === 'target' ) {
-			this.$targetTemplateForm.find( '[contenteditable="true"]' ).first().focus();
-		}
 	};
 
 	/**
-	 * Even handler registration
+	 * Prepare the form with parameter and their values.
+	 */
+	TemplateEditor.prototype.buildTargetTemplateForm = function () {
+		var $form, $editorTitle, language, desc, sortedSourceKeys,
+			self = this;
+
+		$form = this.$targetTemplateForm;
+		language = this.targetTemplate.language;
+
+		desc = self.targetTemplate.templateData && self.targetTemplate.templateData.description &&
+			self.targetTemplate.templateData.description[ language ];
+		$editorTitle = $( '<div>' )
+			.addClass( 'cx-template-editor-title' )
+			.attr( 'title', desc )
+			.text( self.targetTemplate.title );
+		$form.append( $editorTitle );
+		sortedSourceKeys = ( self.sourceTemplate.templateData && self.sourceTemplate.templateData.paramOrder ) ||
+				Object.keys( self.sourceTemplate.params );
+
+		$.each( sortedSourceKeys, function ( index, key ) {
+			var value = self.sourceTemplate.params[ key ];
+			if ( !value.wt ) {
+				return true;
+			}
+			self.addTemplateField( $form, key );
+		} );
+		self.addTemplateFieldAdder( $form );
+		$.fn.keepAlignment( this.$sourceTemplateContainer, this.$targetTemplateContainer );
+	};
+
+	/**
+	 * Add template param field to the given form
+	 *
+	 * @param {jQuery} $form The form to which the field to be added
+	 * @param {string} sourceKey Source key
+	 */
+	TemplateEditor.prototype.addTemplateField = function ( $form, sourceKey ) {
+		var selector, value, $value, $field, targetKey,
+			self = this;
+
+		this.targetTemplate.mapping = this.targetTemplate.mapping || {};
+		targetKey = this.targetTemplate.mapping[ sourceKey ];
+		value = this.targetTemplate.params[ targetKey ] || this.sourceTemplate.params[ sourceKey ];
+
+		$value = $( '<div>' )
+			.addClass( 'cx-template-editor-param-value' )
+			.attr( {
+				'data-key': sourceKey
+			} )
+			.html( value && ( value.html || value.wt ) );
+
+		// TODO: We can try MT for this template But that is for future.
+		$field = $( '<div>' )
+			.addClass( 'cx-template-editor-param cx-template-editor-placeholder' )
+			.attr( 'data-source', sourceKey )
+			.text( mw.msg( 'cx-translation-template-add-param' ) );
+
+		$form.append( $field );
+
+		if ( !this.formFieldMap[ sourceKey ] ) {
+			this.formFieldMap[ sourceKey ] = {
+				source: $( [] )
+			};
+		}
+		this.formFieldMap[ sourceKey ].target = $field;
+
+		function selectKey( option ) {
+			var key = option.data;
+
+			if ( !key ) {
+				return;
+			}
+			self.targetTemplate.mapping[ sourceKey ] = key;
+			$value.attr( {
+				contenteditable: true,
+				'data-key': key
+			} );
+			$value.trigger( 'input' );
+			self.syncParamSelectors();
+		}
+
+		function showField() {
+			selector = self.buildTemplateFieldSelector();
+			selector.getMenu().on( 'select', selectKey );
+			if ( targetKey ) {
+				// Preselect the value.
+				selector.getMenu().selectItemByData( targetKey );
+			}
+			$field
+				.empty()
+				.removeClass( 'cx-template-editor-placeholder' )
+				.append( selector.$element, $value );
+			self.syncParamSelectors();
+			$.fn.keepAlignment( self.formFieldMap[ sourceKey ].source, self.formFieldMap[ sourceKey ].target );
+			$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
+		}
+
+		if ( targetKey ) {
+			showField();
+		} else {
+			$field.one( 'click', showField );
+		}
+
+		// Keep the placeholder aligned
+		if ( sourceKey ) {
+			$.fn.keepAlignment( this.formFieldMap[ sourceKey ].source, this.formFieldMap[ sourceKey ].target );
+		}
+
+		if ( !value || value && value.html ) {
+			return;
+		}
+
+		// The html value is not available. We need to parse wikitext here.
+		$value.cxoverlay( {
+			showLoading: true
+		} );
+
+		mw.cx.wikitextToHTML( self.siteMapper, this.targetTemplate.language, value.wt ).then( function ( response ) {
+			var html;
+			try {
+				// Parsoid sometimes wraps the html in <p> tags. we dont need that.
+				html = $( response ).html();
+			} catch ( error ) {
+				// It is not guaranteed that the response html is valid for sizzle.
+				html = response;
+			}
+			$value.html( html );
+			mw.cx.fixIds( $value, self.targetTemplate.$template.prop( 'id' ) + '-' + targetKey );
+		} ).fail( function () {
+			$value.text( value.wt );
+		} ).always( function () {
+			$value.cxoverlay( 'hide' );
+			$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
+		} );
+
+	};
+
+	/**
+	 * Add a trigger to end of template form to add more template parameters
+	 */
+	TemplateEditor.prototype.addTemplateFieldAdder = function () {
+		var $adder,
+			self = this;
+
+		$adder = $( '<div>' )
+			.addClass( 'cx-template-editor-add-properties' )
+			.text( mw.msg( 'cx-translation-template-add-more' ) )
+			.on( 'click', function () {
+				self.addTemplateField( self.$targetTemplateForm, 'cx' + parseInt( Math.random() * 10000 ) );
+				$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
+			} );
+		this.$targetTemplateContainer.append( $adder );
+	};
+
+	/**
+	 * Build the selector (dropdown) for the template parameters
+	 *
+	 * @return {OO.ui.DropdownWidget} dropdown widget
+	 */
+	TemplateEditor.prototype.buildTemplateFieldSelector = function () {
+		var dropDown, sortedTargetKeys, language,
+			items = [],
+			self = this;
+
+		sortedTargetKeys = ( this.targetTemplate.templateData && this.targetTemplate.templateData.paramOrder ) ||
+			Object.keys( this.targetTemplate.params );
+		language = this.targetTemplate.language;
+
+		$.each( sortedTargetKeys, function ( index, key ) {
+			var value, option, $desc;
+
+			value = self.targetTemplate.params[ key ];
+			option = new mw.cx.widgets.TemplateParamOptionWidget( {
+				data: key,
+				classes: [ 'cx-template-editor-param-selector-item' ],
+				label: value.label && value.label[ language ] || key,
+				description: value.description && value.description[ language ]
+			} );
+			option.$element.append( $desc );
+			items.push( option );
+		} );
+
+		dropDown = new OO.ui.DropdownWidget( {
+			label: mw.msg( 'cx-translation-template-select-param' ),
+			classes: [ 'cx-template-editor-param-selector' ],
+			menu: {
+				items: items
+			}
+		} );
+
+		this.paramSelectors.push( dropDown );
+
+		return dropDown;
+	};
+
+	/**
+	 * Event handler registration
 	 */
 	TemplateEditor.prototype.listen = function () {
-		var self = this;
-
-		this.$targetTemplateForm.on( 'input', '.cx-template-editor-param-value',
-			$.debounce( 200, false, function () {
-				var $value = $( this ),
-					key = $value.attr( 'for' );
-				self.targetTemplate.params[ key ].html = $value.html();
-				self.targetTemplate.params[ key ].changed = true;
-				self.changed = true;
-			} )
+		this.$targetTemplateForm.on( 'input paste change', '.cx-template-editor-param-value',
+			$.debounce( 200, false, $.proxy( this.onParamEdit, this ) )
 		);
 	};
 
 	/**
-	 * Position the editor on top of the template.
+	 * Edit handler for the parametr values
+	 *
+	 * @param  {Event} event Edit event
 	 */
-	TemplateEditor.prototype.position = function () {
-		var top, sourceTemplateHeight, maxheight, viewportHeight;
+	TemplateEditor.prototype.onParamEdit = function ( event ) {
+		var $value, sourcekey, key;
 
-		sourceTemplateHeight = this.sourceTemplate.getHeight();
-		viewportHeight = $( window ).height();
+		$value = $( event.target );
+		key = $value.attr( 'data-key' );
+		this.targetTemplate.params[ key ].html = $value.html();
+		this.targetTemplate.params[ key ].changed = true;
+		this.changed = true;
 
-		if ( sourceTemplateHeight < 250 ) {
-			// Height for the inlie template editor is fixed at 250px;
-			maxheight = 250;
-		} else {
-			// Max height of the editor should never exceed the viewport height
-			// We use 90vh considering the floating header in translation view.
-			maxheight = sourceTemplateHeight > viewportHeight ?
-				( viewportHeight * 0.9 ) :
-				sourceTemplateHeight;
+		// Align the fields
+		sourcekey = $value.parent().data( 'source' );
+		if ( sourcekey ) {
+			$.fn.keepAlignment( this.formFieldMap[ sourcekey ].source, this.formFieldMap[ sourcekey ].target );
 		}
-
-		top = this.sourceTemplate.$template.offset().top - $( '.cx-column__content' ).offset().top;
-		if ( this.targetTemplate.options.inline ) {
-			top += sourceTemplateHeight; // Show the editor below the template.
-		}
-		this.$editor.css( {
-			top: top
-		} );
-		this.$sourceTemplateForm.css( {
-			'max-height': maxheight
-		} );
-		this.$targetTemplateForm.css( {
-			'max-height': maxheight
-		} );
+		$.fn.keepAlignment( this.$sourceTemplateContainer, this.$targetTemplateContainer );
 	};
 
 	/**
-	 * Show the editor.
+	 * Synchronize all parameter selectors by disabling items that are already chosen
 	 */
-	TemplateEditor.prototype.show = function () {
-		this.$editor.show();
-		this.position();
-		this.targetTemplate.$template.addClass( 'cx-template-editor-open' );
-		this.sourceTemplate.$template.addClass( 'cx-template-editor-open' );
-		this.prepareTemplateForm( this.targetTemplate || this.sourceTemplate, 'target' );
+	TemplateEditor.prototype.syncParamSelectors = function () {
+		var selectedKeys = [];
+
+		// Get all selected keys, and enable all options.
+		this.paramSelectors.forEach( function ( selector ) {
+			var selectedOption;
+
+			selectedOption = selector.getMenu().getSelectedItem();
+			if ( selectedOption ) {
+				selectedKeys.push( selectedOption.getData() );
+			}
+			selector.getMenu().getItems().forEach( function ( option ) {
+				option.setDisabled( false );
+			} );
+		} );
+
+		// Selectively disable the options that are already chosen
+		this.paramSelectors.forEach( function ( selector ) {
+			var selectedOption;
+
+			selectedOption = selector.getMenu().getSelectedItem();
+			selectedKeys.forEach( function ( key ) {
+				if ( !selectedOption || key !== selectedOption.getData() ) {
+					selector.getMenu().getItemFromData( key ).setDisabled( true );
+				}
+			} );
+		} );
 	};
 
 	/**
@@ -275,8 +465,6 @@
 					return;
 				}
 				queue = queue.then( function () {
-					// TODO: If we can identify that this value.html is just plaintext,
-					// we can save an api call here.
 					return mw.cx.htmlToWikitext( self.siteMapper, self.targetTemplate.language, value.html )
 						.done( function ( response ) {
 							value.wt = response;
@@ -289,8 +477,9 @@
 		queue = queue.then( function () {
 			return self.targetTemplate.getUpdatedTemplate().then( function ( $newTemplate ) {
 				self.changed = false;
+
 				if ( self.options.onUpdate ) {
-					self.options.onUpdate( $newTemplate );
+					self.options.onUpdate( $newTemplate, self.targetTemplate.mapping );
 				}
 
 				return $newTemplate;
@@ -305,17 +494,48 @@
 	};
 
 	/**
+	 * Show the editor.
+	 */
+	TemplateEditor.prototype.show = function () {
+
+		if ( this.targetTemplate.options.inline ) {
+			this.targetTemplate.$parentSection.hide();
+			this.sourceTemplate.$parentSection.hide();
+		} else {
+			this.targetTemplate.$template.hide();
+			this.sourceTemplate.$template.hide();
+		}
+
+		this.$sourceTemplateContainer.show();
+		this.$targetTemplateContainer.show();
+
+		if ( !this.initialized ) {
+			this.buildTargetTemplateForm( this.targetTemplate || this.sourceTemplate );
+			this.initialized = true;
+		}
+		$.fn.keepAlignment( this.$sourceTemplateContainer, this.$targetTemplateContainer );
+	};
+
+	/**
 	 * Close the editor. If any thing changed, trigger #save
 	 */
 	TemplateEditor.prototype.close = function () {
-		this.$editor.hide();
-		this.targetTemplate.$template.removeClass( 'cx-template-editor-open' );
-		this.sourceTemplate.$template.removeClass( 'cx-template-editor-open' );
-
 		if ( this.changed ) {
 			this.save();
 		}
+
+		this.$sourceTemplateContainer.hide();
+		this.$targetTemplateContainer.hide();
+
+		if ( this.targetTemplate.options.inline ) {
+			this.targetTemplate.$parentSection.show();
+			this.sourceTemplate.$parentSection.show();
+		} else {
+			this.targetTemplate.$template.show();
+			this.sourceTemplate.$template.show();
+		}
+
 	};
 
 	mw.cx.TemplateEditor = TemplateEditor;
-}( jQuery, mediaWiki ) );
+}( jQuery, mediaWiki, OO ) );

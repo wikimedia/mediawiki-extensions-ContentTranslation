@@ -5,27 +5,28 @@
 .cx-column--translation {
 	.mw-ui-one-half(@palm);
 
-	// Make sure that the captions are aligned according to the column's language
-	// rather than the wiki's content language
-	&[dir="rtl"] figcaption {
-		/* @noflip */
-		text-align: right;
-	}
+	.cx-column__content {
+		// Make sure that the captions are aligned according to the column's language
+		// rather than the wiki's content language
+		&[dir="rtl"] figcaption {
+			/* @noflip */
+			text-align: right;
+		}
 
-	&[dir="ltr"] figcaption {
-		/* @noflip */
-		text-align: left;
-	}
+		&[dir="ltr"] figcaption {
+			/* @noflip */
+			text-align: left;
+		}
 
-	p {
-		// Use margin-bottom alone for paragraphs to avoid problems explained at
-		// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
-		// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
-		margin: 0 0 1.5em;
-	}
-
-	ul {
-		margin: 0 0 0 1.6em;
+		& > p,
+		& > pre,
+		& > div,
+		& > ul {
+			// Use margin-bottom alone for paragraphs to avoid problems explained at
+			// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
+			// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
+			margin: 0 0 1.5em;
+		}
 	}
 }
 

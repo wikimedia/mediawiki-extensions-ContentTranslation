@@ -704,14 +704,16 @@
 				return mw.cx.getCXConfiguration(
 					self.sourceTemplate.language, self.targetTemplate.language
 				).then( function ( response ) {
-					var cxMapping, configuration;
+					var configuration, templateParamMapping;
 
 					configuration = response.configuration.templates || {};
-					cxMapping = configuration[ self.sourceTemplate.title ];
-					if ( cxMapping ) {
-						self.targetTemplate.templateData.cxMapping = cxMapping;
-					}
-					return self.targetTemplate.templateData;
+					templateParamMapping = configuration[ self.sourceTemplate.title ] &&
+						configuration[ self.sourceTemplate.title ].parameters;
+					return $.extend(
+						{},
+						templateParamMapping,
+						self.targetTemplate.$template.data( 'template-mapping' )
+					);
 				} );
 			} );
 		} );
@@ -725,21 +727,20 @@
 	TemplateTool.prototype.adapt = function () {
 		var self = this;
 
-		return this.getTemplateMapping().then( function ( templateMapping ) {
-			var sourceParams, targetParams;
-
-			self.templateMapping = templateMapping;
-			if ( !self.templateMapping ) {
+		return this.getTemplateMapping().then( function ( cxMapping ) {
+			if ( !self.targetTemplate.templateData ) {
 				return $.Deferred().reject().promise();
 			}
 
+			self.templateParamMapping = cxMapping;
 			mw.log( '[CX] Adapting template ' + self.sourceTemplate.title + ' using a mapping.' );
 
-			sourceParams = self.sourceTemplate.params;
-			targetParams = self.getAdaptedTargetParams( sourceParams );
-
-			if ( !$.isEmptyObject( sourceParams ) && $.isEmptyObject( targetParams ) ) {
-				if ( self.templateMapping.params && Object.keys( self.templateMapping.params ).length > 0 ) {
+			self.doFuzzyAdaptation();
+			// Here we can try loading a saved mapping
+			if ( !$.isEmptyObject( self.sourceTemplate.params ) && $.isEmptyObject( self.templateParamMapping ) ) {
+				if ( self.targetTemplate.templateData.params &&
+					Object.keys( self.targetTemplate.templateData.params ).length > 0
+				) {
 					// Checking whether there are any params defined for target template.
 					// It is possible that source template definition has params and target
 					// does not have any. Mapping failed only when target has some params.
@@ -751,61 +752,51 @@
 			// So we were able to map at least one parameter to the target template.
 			// TODO: Should we check for all params mapping based on count match of
 			// source and target template params?
-			if ( Object.keys( targetParams ).length > 0 ) {
+			if ( Object.keys( self.templateParamMapping ).length > 0 ) {
 				self.status = 'partially-adapted';
 			}
 
-			if ( Object.keys( targetParams ).length === Object.keys( sourceParams ).length ) {
+			if ( Object.keys( self.templateParamMapping ).length === Object.keys( self.sourceTemplate.params ).length ) {
 				// Fully adapted
 				self.status = 'adapted';
 			}
 
-			$.each( self.targetTemplate.params, function ( key ) {
-				if ( targetParams[ key ] && targetParams[ key ].wt ) {
-					self.targetTemplate.params[ key ].wt = targetParams[ key ].wt;
+			$.each( self.targetTemplate.templateData.params, function ( key ) {
+				if ( self.templateParamMapping[ key ] ) {
+					self.targetTemplate.templateData.params[ key ] =
+						self.sourceTemplate.params[ self.templateParamMapping[ key ] ];
 				}
 			} );
 
 			mw.log( '[CX] Template ' + self.sourceTemplate.title + ' adapted to ' + self.targetTemplate.title );
+			self.targetTemplate.mapping = self.templateParamMapping;
 			return self.targetTemplate;
 		} );
 	};
 
 	/**
 	 * Get the target parameters for the template after mapping
-	 *
-	 * @param {Object} sourceParams
-	 * @return {Object} Target parameters - key-value pairs.
 	 */
-	TemplateTool.prototype.getAdaptedTargetParams = function ( sourceParams ) {
-		var targetParams = {},
-			self = this;
+	TemplateTool.prototype.doFuzzyAdaptation = function () {
+		var	self = this;
 
 		// Update the template parameters
-		$.each( sourceParams, function ( key, value ) {
+		$.each( this.sourceTemplate.params, function ( key ) {
 			var normalizedKey;
 
 			if ( !isNaN( key ) ) {
 				// Key is like "1" or "2" etc. Unnamed params.
-				targetParams[ key ] = value;
+				self.templateParamMapping[ key ] = key;
 				return;
 			}
 
-			// Check if a CX defined mapping exist for this param.
-			if ( self.templateMapping.cxMapping &&
-				self.templateMapping.cxMapping.parameters &&
-				self.templateMapping.cxMapping.parameters[ key ] ) {
-				targetParams[ self.templateMapping.cxMapping.parameters[ key ] ] = value;
-				return;
-			}
-
-			if ( !self.templateMapping.params ) {
+			if ( !self.targetTemplate.templateData.params ) {
 				return;
 			}
 
 			normalizedKey = key.trim().toLowerCase().replace( /[\s+_-]+/g, '' );
 			// Search in the aliases for a match - case insensitive.
-			$.each( self.templateMapping.params, function ( paramName, param ) {
+			$.each( self.targetTemplate.templateData.params, function ( paramName, param ) {
 				var i, normalizedCandidate, candidates;
 
 				candidates = param.aliases || [];
@@ -814,15 +805,13 @@
 				for ( i = 0; i < candidates.length; i++ ) {
 					normalizedCandidate = candidates[ i ].trim().toLowerCase().replace( /[\s+_-]+/g, '' );
 					if ( normalizedCandidate === normalizedKey ) {
-						targetParams[ paramName ] = value;
+						self.templateParamMapping[ key ] = paramName;
 						// Break
 						return false;
 					}
 				}
 			} );
 		} );
-
-		return targetParams;
 	};
 
 	/**
@@ -840,8 +829,11 @@
 			this.sourceTemplate,
 			this.targetTemplate, {
 				siteMapper: self.siteMapper,
-				onUpdate: function ( $updatedTemplate ) {
+				onUpdate: function ( $updatedTemplate, templateParamMapping ) {
 					self.replaceTargetTemplate( $updatedTemplate, 'adapt' );
+					self.targetTemplate.$template.attr( {
+						'data-template-mapping': JSON.stringify( templateParamMapping )
+					} );
 					self.onUpdate();
 				}
 			}
@@ -911,6 +903,10 @@
 			this.targetTemplate.$template,
 			this.targetTemplate.options
 		);
+		// Update the reference in editor object
+		if ( this.editor ) {
+			this.editor.targetTemplate.$template = this.targetTemplate.$template;
+		}
 	};
 
 	/**
@@ -982,7 +978,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	TemplateTool.static.processTemplate = function ( $sourceTemplate, $targetTemplate, options ) {
-		var storedState, sourceTemplate, targetTemplate, templateTool;
+		var sourceTemplate, targetTemplate, templateTool;
 
 		if ( !$sourceTemplate.length ) {
 			return $.Deferred().resolve().promise();
@@ -996,7 +992,8 @@
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
 			siteMapper: mw.cx.siteMapper,
-			inline: options.inline
+			inline: options.inline,
+			editable: !options.references
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 
@@ -1014,13 +1011,6 @@
 			// The internal references are processed on demand when they get added to translation.
 			// See mw.cx.adapted.reference hook handler
 			return;
-		}
-
-		// Find what was the action used in previous save
-		storedState = $targetTemplate.data( 'template-state' );
-		if ( storedState ) {
-			// Stop here. Restored template.
-			return $.Deferred().resolve().promise();
 		}
 
 		// Not a processed template. Proceed with attempt to adapt.
@@ -1085,7 +1075,7 @@
 	 * @param {jQuery|string} section The translation source section or its id.
 	 */
 	TemplateTool.static.processBlockTemplate = function ( section ) {
-		var $targetTemplate, $sourceTemplate;
+		var $targetTemplate, $sourceTemplate, isReferencesBlock;
 
 		if ( section instanceof jQuery ) {
 			$targetTemplate = section;
@@ -1096,10 +1086,11 @@
 		// Source section and source template wont be same since the template
 		// with template definition may be another element with same about attribute.
 		$sourceTemplate = mw.cx.Template.static.getTemplateDef( $targetTemplate );
-		if ( mw.cx.Template.static.isTemplate( $sourceTemplate ) ) {
+		isReferencesBlock = mw.cx.TemplateTool.static.isReferencesBlock( $sourceTemplate );
+		if ( mw.cx.Template.static.isTemplate( $sourceTemplate ) || isReferencesBlock ) {
 			mw.cx.TemplateTool.static.processTemplate( $sourceTemplate, $targetTemplate, {
 				inline: false,
-				references: mw.cx.TemplateTool.static.isReferencesBlock( $sourceTemplate )
+				references: isReferencesBlock
 			} );
 		} else {
 			mw.cx.TemplateTool.static.processInlineTemplates( $targetTemplate );

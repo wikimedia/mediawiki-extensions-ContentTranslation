@@ -5,21 +5,21 @@
 	// Templates
 	[data-template-state],
 	[typeof='mw:Transclusion'] {
-		background-color: #f0f0f0;
+		background-color: @gray-lighter;
 
 		&.cx-highlight:focus {
 			background-color: #bdd4ff;
+			.background-image-svg(  '../images/edit.svg', '../images/edit.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 1.5em;
+			cursor: pointer;
+			opacity: 0.75;
 		}
 
 		&:hover {
 			outline: 1px solid #6698FF;
 
-		}
-
-		&.cx-template-editor-open {
-			background-color: #bdd4ff;
-			box-shadow: 0 0 0 2px #bdd4ff;
-			border-radius: 2px;
 		}
 
 		a {
