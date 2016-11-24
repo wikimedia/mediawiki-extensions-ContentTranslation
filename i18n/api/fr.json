@@ -7,7 +7,8 @@
 			"Momo50WM",
 			"Weft",
 			"Wladek92",
-			"Orlodrim"
+			"Orlodrim",
+			"Derugon"
 		]
 	},
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
@@ -87,5 +88,23 @@
 	"apihelp-cxsave-param-title": "Le titre de la page sur laquelle effectuer les actions.",
 	"apihelp-cxsave-param-from": "Le code de langue source.",
 	"apihelp-cxsave-param-to": "Le code de langue cible.",
-	"apihelp-cxsave-param-sourcetitle": "Le titre de la page source."
+	"apihelp-cxsave-param-sourcetitle": "Le titre de la page source.",
+	"apierror-cx-docserverexception": "Erreur lors de la conversion du HTML en source wiki: $1",
+	"apierror-cx-inuse": "Un autre utilisateur est déjà en train de traduire cet article.",
+	"apierror-cx-invalidlanguage": "Langue invalide.",
+	"apierror-cx-invalidprogress": "Progression invalide.",
+	"apierror-cx-invalidsectioncontent": "Contenu de section invalide.",
+	"apierror-cx-invalidsectiondata": "Données de section invalides.",
+	"apierror-cx-invalidsourcelanguage": "Langue origine invalide.",
+	"apierror-cx-invalidtargetlanguage": "Langue destination invalide.",
+	"apierror-cx-invalidtranslator": "Nom de traducteur invalide",
+	"apierror-cx-jwtmissing": "JWT manquant.",
+	"apierror-cx-keynotconfigured": "Touche non configurée.",
+	"apierror-cx-missingdraft": "Le brouillon n'existe pas.",
+	"apierror-cx-mustbeloggedin-suggestions": "Vous devez être connecté pour gérer vos suggestions.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Pour afficher vos traductions, vous devez vous connecter.",
+	"apierror-cx-notowned": "La traduction n'est pas celle de l'utilisateur courant.",
+	"apierror-cx-samelanguages": "Les langues origine et destination ne peuvent pas être les même.",
+	"apierror-cx-suggestionsdisabled": "Suggestions non activée pour ce wiki.",
+	"apierror-cx-translationnotfound": "Traduction non trouvée."
 }

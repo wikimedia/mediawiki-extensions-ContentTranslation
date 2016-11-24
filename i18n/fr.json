@@ -31,7 +31,8 @@
 			"Cl3m3n7",
 			"C13m3n7",
 			"Verdy p",
-			"A3nm"
+			"A3nm",
+			"Derugon"
 		]
 	},
 	"cx": "Traduire la page",
@@ -228,5 +229,13 @@
 	"cx-page-old-revision-loaded": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative]. Vous pouvez continuer cette traduction ou la recommencer pour utiliser le contenu mis à jour.",
 	"cx-tools-mt-new-provider": "nouveau",
 	"cx-tools-mt-new-providers-available": "avec les nouvelles options",
-	"cx-continue-translation": "Continuer la traduction"
+	"cx-continue-translation": "Continuer la traduction",
+	"cx-tools-template-title": "Modèle",
+	"cx-template-action-adapt": "Utiliser un modèle équivalent",
+	"cx-template-action-keep-original": "Garder le modèle d'origine",
+	"cx-template-action-skip": "Sauter le modèle",
+	"cx-template-not-available": "Non disponible pour $1",
+	"cx-translation-template-add-param": "+ Traduire le champ",
+	"cx-translation-template-add-more": "Ajouter plus de propriétés",
+	"cx-translation-template-select-param": "Sélectionner le champ de destination"
 }

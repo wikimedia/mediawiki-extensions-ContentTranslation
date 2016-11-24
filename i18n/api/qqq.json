@@ -94,7 +94,7 @@
 	"apierror-cx-invalidsourcelanguage": "{{doc-apierror}}",
 	"apierror-cx-invalidtargetlanguage": "{{doc-apierror}}",
 	"apierror-cx-invalidtranslator": "{{doc-apierror}}",
-	"apierror-cx-jwtmissing": "{{doc-apierror}}",
+	"apierror-cx-jwtmissing": "{{doc-apierror}}\n\n\"JWT\" is \"[https://jwt.io/ JSON web token]\", a technology for identifying users for web services.",
 	"apierror-cx-keynotconfigured": "{{doc-apierror}}",
 	"apierror-cx-missingdraft": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-suggestions": "{{doc-apierror}}",

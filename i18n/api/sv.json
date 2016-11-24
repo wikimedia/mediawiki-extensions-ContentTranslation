@@ -85,5 +85,11 @@
 	"apihelp-cxsave-param-title": "Titeln på sidan som åtgärder ska utföras på.",
 	"apihelp-cxsave-param-from": "Källans språkkod.",
 	"apihelp-cxsave-param-to": "Målets språkkod.",
-	"apihelp-cxsave-param-sourcetitle": "Källsidans titel."
+	"apihelp-cxsave-param-sourcetitle": "Källsidans titel.",
+	"apierror-cx-invalidlanguage": "Ogiltigt språk.",
+	"apierror-cx-invalidsourcelanguage": "Ogiltigt källspråk.",
+	"apierror-cx-invalidtargetlanguage": "Ogiltigt målspråk.",
+	"apierror-cx-invalidtranslator": "Ogiltigt översättarnamn",
+	"apierror-cx-samelanguages": "Käll- och målspråk kan inte vara detsamma.",
+	"apierror-cx-translationnotfound": "Översättning hittades inte."
 }

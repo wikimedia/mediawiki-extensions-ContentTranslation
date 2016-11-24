@@ -210,5 +210,13 @@
 	"cx-page-old-revision-loaded": "Esta tradução é baseada numa versão mais antiga do conteúdo. A página de origem pode ter sido [$1 alterada significativamente]. Pode continuar esta tradução ou iniciá-la novamente para utilizar o conteúdo atualizado.",
 	"cx-tools-mt-new-provider": "nova",
 	"cx-tools-mt-new-providers-available": "com novas opções",
-	"cx-continue-translation": "Continuar a tradução"
+	"cx-continue-translation": "Continuar a tradução",
+	"cx-tools-template-title": "Predefinição",
+	"cx-template-action-adapt": "Usar a predefinição equivalente",
+	"cx-template-action-keep-original": "Manter a predefinição original",
+	"cx-template-action-skip": "Ignorar a predefinição",
+	"cx-template-not-available": "Não está disponível em $1",
+	"cx-translation-template-add-param": "+ Traduzir campo",
+	"cx-translation-template-add-more": "Adicionar mais propriedades",
+	"cx-translation-template-select-param": "Selecionar o campo de destino"
 }

@@ -205,5 +205,13 @@
 	"cx-page-old-revision-loaded": "Esta tradución baséase nunha versión vella do contido. A páxina fonte pode [$1 ter cambiado significativamente]. Podes continuar esta tradución ou comezala de novo para empregar o contido actualizado.",
 	"cx-tools-mt-new-provider": "nova",
 	"cx-tools-mt-new-providers-available": "con novas opcións",
-	"cx-continue-translation": "Continuar a tradución"
+	"cx-continue-translation": "Continuar a tradución",
+	"cx-tools-template-title": "Modelo",
+	"cx-template-action-adapt": "Usar un modelo equivalente",
+	"cx-template-action-keep-original": "Manter o modelo orixinal",
+	"cx-template-action-skip": "Saltar modelo",
+	"cx-template-not-available": "Non dispoñible en $1",
+	"cx-translation-template-add-param": "+ Traducir campo",
+	"cx-translation-template-add-more": "Engadir máis propiedades",
+	"cx-translation-template-select-param": "Seleccionar o campo de destino"
 }

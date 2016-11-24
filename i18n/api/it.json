@@ -78,5 +78,20 @@
 	"apihelp-cxsave-param-title": "Il titolo della pagina su cui eseguire le azioni.",
 	"apihelp-cxsave-param-from": "Il codice della lingua di origine.",
 	"apihelp-cxsave-param-to": "Il codice della lingua di destinazione.",
-	"apihelp-cxsave-param-sourcetitle": "Il titolo della pagina di origine."
+	"apihelp-cxsave-param-sourcetitle": "Il titolo della pagina di origine.",
+	"apierror-cx-docserverexception": "Errore di conversione da HTML a wikitesto: $1",
+	"apierror-cx-inuse": "Un altro utente sta già traducendo questa voce.",
+	"apierror-cx-invalidlanguage": "Lingua non valida.",
+	"apierror-cx-invalidsectioncontent": "Contenuto della sezione non valido.",
+	"apierror-cx-invalidsectiondata": "Dati della sezione non validi.",
+	"apierror-cx-invalidsourcelanguage": "Lingua di origine non valida",
+	"apierror-cx-invalidtargetlanguage": "Lingua di destinazione non valida",
+	"apierror-cx-invalidtranslator": "Nome del traduttore non valido",
+	"apierror-cx-jwtmissing": "JWT mancante.",
+	"apierror-cx-keynotconfigured": "Chiave non configurata.",
+	"apierror-cx-missingdraft": "La bozza non esiste",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Per vedere le tue traduzioni, devi accedere.",
+	"apierror-cx-samelanguages": "Le lingue di origine e destinazione non possono essere le stesse.",
+	"apierror-cx-suggestionsdisabled": "I suggerimenti non sono abilitati per questo wiki.",
+	"apierror-cx-translationnotfound": "Traduzione non trovata."
 }

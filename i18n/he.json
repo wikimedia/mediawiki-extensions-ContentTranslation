@@ -206,5 +206,13 @@
 	"cx-page-old-revision-loaded": "התרגום הזה מבוסס על גרסה ישנה יותר של התוכן. ייתכן שדף המקור [$1 השתנה משמעותית]. באפשרותך להמשיך את התרגום הזה או להתחיל אותו מחדש כדי להשתמש בתוכן המעודכן.",
 	"cx-tools-mt-new-provider": "חדש",
 	"cx-tools-mt-new-providers-available": "יש אפשרויות חדשות",
-	"cx-continue-translation": "להמשיך לתרגם"
+	"cx-continue-translation": "להמשיך לתרגם",
+	"cx-tools-template-title": "תבנית",
+	"cx-template-action-adapt": "להשתמש בתבנית מתאימה",
+	"cx-template-action-keep-original": "לשמור על התבנית המקורית",
+	"cx-template-action-skip": "לדלג על התבנית",
+	"cx-template-not-available": "לא זמין ב$1",
+	"cx-translation-template-add-param": "+ לתרגם את הפרמטר",
+	"cx-translation-template-add-more": "פרמטרים נוספים",
+	"cx-translation-template-select-param": "{{GENDER:|בחר|בחרי}} את פרמטר היעד"
 }

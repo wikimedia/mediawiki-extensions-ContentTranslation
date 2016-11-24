@@ -217,5 +217,7 @@
 	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenie lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść.",
 	"cx-tools-mt-new-provider": "nowy",
 	"cx-tools-mt-new-providers-available": "z nowych opcjami",
-	"cx-continue-translation": "Kontynuuj tłumaczenie"
+	"cx-continue-translation": "Kontynuuj tłumaczenie",
+	"cx-tools-template-title": "Szablon",
+	"cx-translation-template-add-more": "Dodaj więcej właściwości"
 }

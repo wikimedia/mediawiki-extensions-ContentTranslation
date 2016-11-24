@@ -208,5 +208,13 @@
 	"cx-page-old-revision-loaded": "此翻译基于内容的旧版本。原始页面可能已有[$1 显著更改]。您可以继续此翻译，或再次开始以使用更新的内容。",
 	"cx-tools-mt-new-provider": "新",
 	"cx-tools-mt-new-providers-available": "通过新选项",
-	"cx-continue-translation": "继续翻译"
+	"cx-continue-translation": "继续翻译",
+	"cx-tools-template-title": "模板",
+	"cx-template-action-adapt": "使用等效的模板",
+	"cx-template-action-keep-original": "保持原有模板",
+	"cx-template-action-skip": "跳过模板",
+	"cx-template-not-available": "不可用于$1",
+	"cx-translation-template-add-param": "添加翻译失败",
+	"cx-translation-template-add-more": "添加更多属性",
+	"cx-translation-template-select-param": "选择目标字段"
 }

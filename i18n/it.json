@@ -212,5 +212,8 @@
 	"cx-page-old-revision-loaded": "Questa traduzione è basata su una vecchia versione del contenuto. La pagina di origine potrebbe essere stata [$1 modificata significativamente]. Puoi continuare questa traduzione o iniziare di nuovo utilizzando il contenuto aggiornato.",
 	"cx-tools-mt-new-provider": "nuovo",
 	"cx-tools-mt-new-providers-available": "con nuove opzioni",
-	"cx-continue-translation": "Continua traduzione"
+	"cx-continue-translation": "Continua traduzione",
+	"cx-template-not-available": "Non disponibile in $1",
+	"cx-translation-template-add-more": "Aggiungi altre proprietà",
+	"cx-translation-template-select-param": "Seleziona campo di destinazione"
 }

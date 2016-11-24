@@ -66,5 +66,18 @@
 	"apihelp-cxsave-param-progress": "Informacje o realizacji tłumaczenia (postępu prac). JSON z kluczami <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Wartości kluczy podane są jako procenty.",
 	"apihelp-cxsave-param-from": "Kod języka źródłowego.",
 	"apihelp-cxsave-param-to": "Kod języka docelowego.",
-	"apihelp-cxsave-param-sourcetitle": "Tytuł strony źródłowej."
+	"apihelp-cxsave-param-sourcetitle": "Tytuł strony źródłowej.",
+	"apierror-cx-docserverexception": "Błąd konwersji HTML do wikitekstu: $1",
+	"apierror-cx-inuse": "Ten artykuł już tłumaczony przez innego użytkownika.",
+	"apierror-cx-invalidlanguage": "Nieprawidłowy język.",
+	"apierror-cx-invalidprogress": "Nieprawidłowy postęp.",
+	"apierror-cx-invalidsectioncontent": "Nieprawidłowa treść sekcji.",
+	"apierror-cx-invalidsectiondata": "Nieprawidłowe dane sekcji.",
+	"apierror-cx-invalidsourcelanguage": "Nieprawidłowy język źródłowy.",
+	"apierror-cx-invalidtargetlanguage": "Nieprawidłowy język docelowy.",
+	"apierror-cx-invalidtranslator": "Nieprawidłowa nazwa tłumacz",
+	"apierror-cx-missingdraft": "Wersja robocza nie istnieje.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Aby zobaczyć swoje tłumaczenia, musisz się zalogować.",
+	"apierror-cx-samelanguages": "Język źródłowy i docelowy nie może być taki sam.",
+	"apierror-cx-translationnotfound": "Nie znaleziono tłumaczenia."
 }

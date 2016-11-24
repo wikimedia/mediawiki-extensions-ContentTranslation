@@ -192,5 +192,9 @@
 	"cx-translator-total-translations-label": "Total",
 	"cx-tools-mt-new-provider": "nei",
 	"cx-tools-mt-new-providers-available": "mat neien Optiounen",
-	"cx-continue-translation": "Mat der Iwwersetzung virufueren"
+	"cx-continue-translation": "Mat der Iwwersetzung virufueren",
+	"cx-tools-template-title": "Schabloun",
+	"cx-template-action-skip": "Schabloun iwwersprangen",
+	"cx-template-not-available": "Net disponibel an $1",
+	"cx-translation-template-select-param": "Zilfeld eraus sichen"
 }

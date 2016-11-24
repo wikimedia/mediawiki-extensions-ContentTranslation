@@ -218,12 +218,12 @@
 	"cx-tools-mt-new-provider": "Label indicating the machine translation provider is a new option\n{{Identical|New}}",
 	"cx-tools-mt-new-providers-available": "Label shown in machine translation card when there are new provider options",
 	"cx-continue-translation": "Menu item label shown for published translations to continue translations",
-	"cx-tools-template-title": "Title of template tool card",
-	"cx-template-action-adapt": "Menu item label in template tool card",
-	"cx-template-action-keep-original": "Menu item label in template tool card",
-	"cx-template-action-skip": "Menu item label in template tool card",
+	"cx-tools-template-title": "Title of template tool card\n{{Identical|Template}}",
+	"cx-template-action-adapt": "Menu item label in template tool card when adapting a template while translating. An \"equivalent\" template is a template in the target language to which there is a interlanguage link.",
+	"cx-template-action-keep-original": "Menu item label in template tool card when adapting a template while translating. Selecting this action will insert the wiki syntax of the original template in the original language as-is.",
+	"cx-template-action-skip": "Menu item label in template tool card when adapting a template while translating. Selecting this option will not insert any template.",
 	"cx-template-not-available": "Text shown when a corresponding template not available in target language\n* $1 - Target language name",
-	"cx-translation-template-add-param": "Hover text for the template parameter placeholders",
-	"cx-translation-template-add-more": "Label for the control to add more template parameters.",
+	"cx-translation-template-add-param": "Hover text for the template parameter placeholders. Shown in the form for translating the template parameters.",
+	"cx-translation-template-add-more": "Label for the control to add more template parameters. Shown at the bottom of the form for translating the template parameters.",
 	"cx-translation-template-select-param": "Label for the template param selector."
 }

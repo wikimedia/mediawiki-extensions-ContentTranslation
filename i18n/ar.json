@@ -210,5 +210,13 @@
 	"cx-page-old-revision-loaded": "النص المترجم منه [$1 تغير] ويمكنك إكمال ترجمته أو البدء ثانية لترجمة ما تغير.",
 	"cx-tools-mt-new-provider": "جديد",
 	"cx-tools-mt-new-providers-available": "مع خيارات جديدة",
-	"cx-continue-translation": "واصل الترجمة"
+	"cx-continue-translation": "واصل الترجمة",
+	"cx-tools-template-title": "قالب",
+	"cx-template-action-adapt": "استخدم القالب المكافئ",
+	"cx-template-action-keep-original": "احتفظ بالقالب الأصلي",
+	"cx-template-action-skip": "تجاوز القالب",
+	"cx-template-not-available": "غير متوفر في $1",
+	"cx-translation-template-add-param": "+ حقل ترجمة",
+	"cx-translation-template-add-more": "أضف المزيد من الخصائص",
+	"cx-translation-template-select-param": "اختر الحقل الهدف"
 }
