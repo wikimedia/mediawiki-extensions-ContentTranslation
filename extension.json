@@ -999,12 +999,13 @@
 			],
 			"dependencies": [
 				"chart.js",
-				"mw.cx.ui.Header",
 				"ext.cx.sitemapper",
 				"ext.cx.util",
 				"ext.cx.widgets.callout",
 				"ext.cx.widgets.spinner",
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"mediawiki.jqueryMsg",
+				"mw.cx.ui.Header"
 			],
 			"messages": [
 				"cx-stats-all-translations-title",
