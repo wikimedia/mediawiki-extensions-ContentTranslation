@@ -300,13 +300,15 @@
 	TemplateControlCard.prototype.markUndaptable = function () {
 		var actions = this.actions;
 
-		// Hide the menu item for 'Use equivalent'
 		if ( !this.templateTool.targetTemplate.title ) {
+			// Hide the menu item for 'Use equivalent'
 			actions = this.actions.slice( 1 );
-			this.card.$targetTemplateTitle.text(
-				mw.msg( 'cx-template-not-available', $.uls.data.getAutonym( mw.cx.targetLanguage ) )
+			this.card.$targetTemplateTitle.hide().after( $( '<div>' )
+				.addClass( 'card__template-target-missing' )
+				.text( mw.msg( 'cx-template-not-available', $.uls.data.getAutonym( mw.cx.targetLanguage ) ) )
 			);
 		}
+
 		this.buildActionsMenu( actions );
 	};
 
