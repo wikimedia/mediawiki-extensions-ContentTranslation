@@ -199,5 +199,13 @@
 	"cx-page-old-revision-loaded": "Esta traducción ta basada nuna versión anterior del conteníu. La páxina d'orixe puede que [$1 camudara significantemente]. Puedes siguir con esta traducción o principiar de nueves usando'l conteníu anováu.",
 	"cx-tools-mt-new-provider": "nueva",
 	"cx-tools-mt-new-providers-available": "con opciones nueves",
-	"cx-continue-translation": "Siguir cola traducción"
+	"cx-continue-translation": "Siguir cola traducción",
+	"cx-tools-template-title": "Plantía",
+	"cx-template-action-adapt": "Usar una plantía equivaliente",
+	"cx-template-action-keep-original": "Caltener la plantía orixinal",
+	"cx-template-action-skip": "Saltar la plantía",
+	"cx-template-not-available": "Nun ta disponible pal $1",
+	"cx-translation-template-add-param": "+ Traducir campu",
+	"cx-translation-template-add-more": "Amestar más propiedaes",
+	"cx-translation-template-select-param": "Seleicionar el campu de destín"
 }

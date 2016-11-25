@@ -200,5 +200,13 @@
 	"cx-page-old-revision-loaded": "Iste traduction se basa sur un version ancian del contento. Le pagina de origine poterea haber [$1 cambiate multo]. Tu pote continuar iste traduction o recomenciar lo pro usar le contento actual.",
 	"cx-tools-mt-new-provider": "nove",
 	"cx-tools-mt-new-providers-available": "con nove optiones",
-	"cx-continue-translation": "Continuar traduction"
+	"cx-continue-translation": "Continuar traduction",
+	"cx-tools-template-title": "Patrono",
+	"cx-template-action-adapt": "Usar un patrono equivalente",
+	"cx-template-action-keep-original": "Mantener le patrono original",
+	"cx-template-action-skip": "Saltar patrono",
+	"cx-template-not-available": "Non disponibile in $1",
+	"cx-translation-template-add-param": "+ Traducer campo",
+	"cx-translation-template-add-more": "Adder altere proprietates",
+	"cx-translation-template-select-param": "Selige campo de destination"
 }

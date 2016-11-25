@@ -194,7 +194,9 @@
 	"cx-tools-mt-new-providers-available": "mat neien Optiounen",
 	"cx-continue-translation": "Mat der Iwwersetzung virufueren",
 	"cx-tools-template-title": "Schabloun",
+	"cx-template-action-keep-original": "Original Schabloun halen",
 	"cx-template-action-skip": "Schabloun iwwersprangen",
 	"cx-template-not-available": "Net disponibel an $1",
+	"cx-translation-template-add-param": "+ Iwwersetzungsfeld",
 	"cx-translation-template-select-param": "Zilfeld eraus sichen"
 }

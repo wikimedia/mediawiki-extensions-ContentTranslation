@@ -206,5 +206,13 @@
 	"cx-page-old-revision-loaded": "Denne oversettelsen er basert på en eldre versjon av innholdet. Kildesiden kan ha [$1 blitt endret vesentlig]. Du kan fortsette denne oversettelsen eller begynne på nytt med det oppdaterte innholdet.",
 	"cx-tools-mt-new-provider": "ny",
 	"cx-tools-mt-new-providers-available": "med nye valg",
-	"cx-continue-translation": "Fortsett oversettelse"
+	"cx-continue-translation": "Fortsett oversettelse",
+	"cx-tools-template-title": "Mal",
+	"cx-template-action-adapt": "Bruk tilsvarende mal",
+	"cx-template-action-keep-original": "Behold opprinnelig mal",
+	"cx-template-action-skip": "Hopp over mal",
+	"cx-template-not-available": "Ikke tilgjengelig på $1",
+	"cx-translation-template-add-param": "+ Oversettelsesfelt",
+	"cx-translation-template-add-more": "Legg til flere egenskaper",
+	"cx-translation-template-select-param": "Velg målfelt"
 }

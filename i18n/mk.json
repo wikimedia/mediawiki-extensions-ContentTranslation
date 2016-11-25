@@ -199,5 +199,13 @@
 	"cx-page-old-revision-loaded": "Ова е превод на постара верзија на содржината. Изворната страница може да се има [$1 значајно променето]. Можете да продолжите со овој превод или да почнете одново, со поновата содржина.",
 	"cx-tools-mt-new-provider": "ново",
 	"cx-tools-mt-new-providers-available": "со нови можности",
-	"cx-continue-translation": "Продолжи со превод"
+	"cx-continue-translation": "Продолжи со превод",
+	"cx-tools-template-title": "Шаблон",
+	"cx-template-action-adapt": "Користи еквивалентен шаблон",
+	"cx-template-action-keep-original": "Задржи го изворниот шаблон",
+	"cx-template-action-skip": "Прескокни го шаблонов",
+	"cx-template-not-available": "Не е достапен на $1",
+	"cx-translation-template-add-param": "+ Поле за превод",
+	"cx-translation-template-add-more": "Додај уште својства",
+	"cx-translation-template-select-param": "Изберете го целното поле"
 }

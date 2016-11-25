@@ -210,7 +210,11 @@
 	"cx-tools-mt-new-providers-available": "med nya valmöjligheter",
 	"cx-continue-translation": "Fortsätt översätta",
 	"cx-tools-template-title": "Mall",
+	"cx-template-action-adapt": "Använd motsvarande mall",
+	"cx-template-action-keep-original": "Behåll originalmall",
 	"cx-template-action-skip": "Hoppa över mall",
 	"cx-template-not-available": "Inte tillgänglig på $1",
-	"cx-translation-template-add-param": "+ Översätt fält"
+	"cx-translation-template-add-param": "+ Översätt fält",
+	"cx-translation-template-add-more": "Lägg till fler egenskaper",
+	"cx-translation-template-select-param": "Välj målfält"
 }

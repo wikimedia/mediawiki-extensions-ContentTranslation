@@ -62,8 +62,10 @@
 	"cx-tools-link-remove": "Αφαίρεση συνδέσμου",
 	"cx-tools-mt-title": "Αυτόματη μετάφραση",
 	"cx-tools-mt-use-source": "Επικόλληση πηγαίου κειμένου",
+	"cx-tools-mt-reset": "Επανεκκίνηση μετάφρασης",
 	"cx-tools-mt-provider-title": "Χρήση $1",
 	"cx-tools-mt-dont-use": "Μην χρησιμοποιείτε αυτόματη μετάφραση",
+	"cx-tools-mt-set-default": "Διατήρηση ως προεπιλογή",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 κατηγορία|$1 κατηγορίες|0=Χωρίς κατηγορίες}}",
 	"cx-stats-title": "Στατιστικά Μετάφρασης Περιεχομένου",
 	"cx-tools-reference-title": "Παραπομπή",
@@ -198,5 +200,13 @@
 	"cx-page-old-revision-loaded": "Αυτή η μετάφραση βασίζεται σε μια παλαιότερη έκδοση του περιεχομένου. Η σελίδα πηγή μπορεί να έχει [$1 αλλάξει σημαντικά]. Μπορείτε να συνεχίσετε αυτή τη μετάφραση ή να αρχίσετε και πάλι για να χρησιμοποιήσετε το ενημερωμένο περιεχόμενο.",
 	"cx-tools-mt-new-provider": "νέα",
 	"cx-tools-mt-new-providers-available": "με νέες επιλογές",
-	"cx-continue-translation": "Συνέχεια μετάφρασης"
+	"cx-continue-translation": "Συνέχεια μετάφρασης",
+	"cx-tools-template-title": "Πρότυπο",
+	"cx-template-action-adapt": "Χρήση ισοδύναμου πρότυπου",
+	"cx-template-action-keep-original": "Χρήση αρχικού πρότυπου",
+	"cx-template-action-skip": "Παράλειψη προτύπου",
+	"cx-template-not-available": "Δεν είναι διαθέσιμο σε $1",
+	"cx-translation-template-add-param": "+ Μετάφραση πεδίου",
+	"cx-translation-template-add-more": "Προσθήκη περισσότερων ιδιοτήτων",
+	"cx-translation-template-select-param": "Επιλογή πεδίου προορισμού"
 }

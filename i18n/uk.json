@@ -210,5 +210,13 @@
 	"cx-page-old-revision-loaded": "Цей переклад заснований на старішій версії вмісту. Вихідна сторінка могла [$1 зазнати значних змін]. Ви можете продовжити цей переклад, або почати його заново, аби використати оновлений вміст.",
 	"cx-tools-mt-new-provider": "нове",
 	"cx-tools-mt-new-providers-available": "з новими опціями",
-	"cx-continue-translation": "Продовжити переклад"
+	"cx-continue-translation": "Продовжити переклад",
+	"cx-tools-template-title": "Шаблон",
+	"cx-template-action-adapt": "Використати еквівалентний шаблон",
+	"cx-template-action-keep-original": "Зберегти оригінальний шаблон",
+	"cx-template-action-skip": "Пропустити шаблон",
+	"cx-template-not-available": "Недоступно мовою «$1»",
+	"cx-translation-template-add-param": "+ Поле перекладу",
+	"cx-translation-template-add-more": "Додати більше властивостей",
+	"cx-translation-template-select-param": "Вибрати цільове поле"
 }

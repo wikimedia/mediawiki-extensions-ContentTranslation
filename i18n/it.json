@@ -213,7 +213,12 @@
 	"cx-tools-mt-new-provider": "nuovo",
 	"cx-tools-mt-new-providers-available": "con nuove opzioni",
 	"cx-continue-translation": "Continua traduzione",
+	"cx-tools-template-title": "Template",
+	"cx-template-action-adapt": "Usa un template equivalente",
+	"cx-template-action-keep-original": "Mantieni il template originale",
+	"cx-template-action-skip": "Salta template",
 	"cx-template-not-available": "Non disponibile in $1",
+	"cx-translation-template-add-param": "+ Campo traduzione",
 	"cx-translation-template-add-more": "Aggiungi altre proprietà",
 	"cx-translation-template-select-param": "Seleziona campo di destinazione"
 }

@@ -204,5 +204,11 @@
 	"cx-page-old-revision-loaded": "এই অনুবাদটি বিষয়বস্তুর একটি পুরোনো সংস্করণের উপর ভিত্তি করে করা। উৎস পাতাটি [$1 উল্লেখযোগ্যভাবে পরিবর্তিত হতে পারে]। আপনি এই অনুবাদ করা অব্যাহত রাখতে পারেন বা হালনাগাদকৃত বিষয়বস্তু ব্যবহার করতে এটি আবার শুরু করতে পারেন।",
 	"cx-tools-mt-new-provider": "নতুন",
 	"cx-tools-mt-new-providers-available": "নতুন বিকল্পসহ",
-	"cx-continue-translation": "অনুবাদ চালিয়ে যান"
+	"cx-continue-translation": "অনুবাদ চালিয়ে যান",
+	"cx-tools-template-title": "টেমপ্লেট",
+	"cx-template-action-adapt": "সমতুল্য টেমপ্লেট ব্যবহার করুন",
+	"cx-template-action-skip": "টেমপ্লেট এড়িয়ে যান",
+	"cx-template-not-available": "$1 ভাষায় উপলব্ধ নয়",
+	"cx-translation-template-add-param": "+ অনুবাদের ক্ষেত্র",
+	"cx-translation-template-select-param": "লক্ষ্য ক্ষেত্র নির্বাচন করুন"
 }

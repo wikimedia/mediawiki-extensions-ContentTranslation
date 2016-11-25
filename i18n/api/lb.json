@@ -42,8 +42,13 @@
 	"apihelp-cxsave-param-translationid": "D'Nummer (ID) vun der Iwwersetzung",
 	"apihelp-cxsave-param-sourcerevision": "D'Versioun vun der Quellsäit.",
 	"apihelp-cxsave-param-progress": "Informatioun iwwer de Fortschrëtt vun der iwwersetzung. JSON mat de Schlësselen <code>any</code>, <code>human</code>, <code>mt</code> an <code>mtSectionsCount</code>. D'Wäerter vun de Schlëssele si Prozenter.",
+	"apierror-cx-docserverexception": "Feeler beim ëmwandele vum HTML a Wikitext $1",
 	"apierror-cx-invalidlanguage": "net valabel Sprooch",
 	"apierror-cx-invalidsourcelanguage": "Net valabel Quellsäit",
+	"apierror-cx-invalidtargetlanguage": "Net valabel Zil-Sprooch.",
+	"apierror-cx-invalidtranslator": "Net valabelen Iwwersetzernumm",
+	"apierror-cx-jwtmissing": "JWT feelt.",
 	"apierror-cx-keynotconfigured": "Schlëssel dan net agestallt",
-	"apierror-cx-missingdraft": "Brouillon gëtt et net."
+	"apierror-cx-missingdraft": "Brouillon gëtt et net.",
+	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt."
 }
