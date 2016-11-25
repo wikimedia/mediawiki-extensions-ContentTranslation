@@ -364,7 +364,6 @@
 				"source/styles/ext.cx.source.selector.less"
 			],
 			"dependencies": [
-				"ext.cx.pageselector",
 				"ext.cx.sitemapper",
 				"ext.cx.tools.validator",
 				"ext.cx.widgets.overlay",
@@ -373,7 +372,8 @@
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
 				"mediawiki.storage",
-				"mediawiki.ui.button"
+				"mediawiki.ui.button",
+				"mw.cx.ui.PageSelectorWidget"
 			],
 			"messages": [
 				"cx-sourceselector-dialog-new-translation",
@@ -1908,6 +1908,17 @@
 			"dependencies": [
 				"oojs-ui-widgets",
 				"mw.cx.util"
+			]
+		},
+		"mw.cx.ui.PageSelectorWidget": {
+			"scripts": [
+				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
+			],
+			"styles": [
+				"ui/widgets/styles/mw.cx.ui.PageSelectorWidget.less"
+			],
+			"dependencies": [
+				"mediawiki.widgets"
 			]
 		}
 	},
