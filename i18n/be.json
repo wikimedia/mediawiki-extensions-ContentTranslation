@@ -12,7 +12,7 @@
 	"cx-dashboard-header": "Пераклады",
 	"cx-javascript": "Гэты інструмент не працуе без JavaScript.",
 	"cx-error-server-connection": "Памылка: не атрымалася падлучыцца да сервера.",
-	"cx-desc": "Лёгка [[Адмысловае:ContentTranslation|перакласці]] змест старонак",
+	"cx-desc": "Лёгка [[Special:ContentTranslation|перакласці]] змест старонак",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|перакладзена|}}",
 	"cx-header-progressbar-text-mt": "($1% з {{PLURAL:$1|машынны пераклад}})",
 	"cx-header-translation-center": "Цэнтр перакладаў",

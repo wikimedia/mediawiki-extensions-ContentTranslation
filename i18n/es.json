@@ -215,5 +215,11 @@
 	"cx-page-old-revision-loaded": "Esta traducción se basa en una versión anterior de los contenidos. La página de origen puede haber [$1 cambiado significativamente]. Puedes continuar esta traducción o empezarla de nuevo usando el contenido actualizado.",
 	"cx-tools-mt-new-provider": "nueva",
 	"cx-tools-mt-new-providers-available": "con opciones nuevas",
-	"cx-continue-translation": "Continuar la traducción"
+	"cx-continue-translation": "Continuar la traducción",
+	"cx-tools-template-title": "Plantilla",
+	"cx-template-action-adapt": "Utilizar la plantilla equivalente",
+	"cx-template-action-keep-original": "Mantener la plantilla original",
+	"cx-template-action-skip": "Omitir la plantilla",
+	"cx-template-not-available": "No disponible en $1",
+	"cx-translation-template-add-more": "Añadir más propiedades"
 }
