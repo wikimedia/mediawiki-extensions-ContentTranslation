@@ -77,5 +77,18 @@
 	"apihelp-cxsave-param-title": "Título de la página en la que se realizarán las acciones.",
 	"apihelp-cxsave-param-from": "El código del idioma de origen.",
 	"apihelp-cxsave-param-to": "El código del idioma de destino.",
-	"apihelp-cxsave-param-sourcetitle": "El título de la página de origen."
+	"apihelp-cxsave-param-sourcetitle": "El título de la página de origen.",
+	"apierror-cx-inuse": "Otro usuario ya está traduciendo este artículo.",
+	"apierror-cx-invalidlanguage": "Idioma no válido.",
+	"apierror-cx-invalidprogress": "Progreso no válido.",
+	"apierror-cx-invalidsectioncontent": "Contenido de sección no válido.",
+	"apierror-cx-invalidsectiondata": "Datos de sección no válidos.",
+	"apierror-cx-invalidsourcelanguage": "Idioma de origen no válido.",
+	"apierror-cx-invalidtargetlanguage": "Idioma de destino no válido.",
+	"apierror-cx-invalidtranslator": "Nombre de traductir no válido",
+	"apierror-cx-jwtmissing": "Falta JWT.",
+	"apierror-cx-keynotconfigured": "No se configuró la clave.",
+	"apierror-cx-missingdraft": "El borrador no existe.",
+	"apierror-cx-mustbeloggedin-suggestions": "Debes acceder para gestionar tus sugerencias.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Debes acceder para ver tus traducciones."
 }
