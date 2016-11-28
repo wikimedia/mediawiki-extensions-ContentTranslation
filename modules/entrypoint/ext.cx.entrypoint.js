@@ -12,6 +12,8 @@
 
 	/**
 	 * @class
+	 * @param {jQuery} $trigger
+	 * @param {Object} options
 	 */
 	function CXEntryPoint( $trigger, options ) {
 		this.$trigger = $( $trigger );
@@ -180,6 +182,8 @@
 
 	/**
 	 * CXEntryPoint plugin
+	 * @param {Object} options
+	 * @return {jQuery}
 	 */
 	$.fn.cxEntryPoint = function ( options ) {
 		return this.each( function () {

@@ -8,6 +8,10 @@
 
 	/**
 	 * Depending on type, return function call result or just the thing.
+	 *
+	 * @param {Mixed} thing
+	 * @param {Object} context
+	 * @return {Mixed} Function call result or thing.
 	 */
 	function maybeCall( thing, context ) {
 		return $.isFunction( thing ) ? ( thing.call( context ) ) : thing;
@@ -119,79 +123,79 @@
 		actualWidth = $dialog[ 0 ].offsetWidth;
 		actualHeight = $dialog[ 0 ].offsetHeight;
 		switch ( direction ) {
-		case '0':
-		case '12':
-			position = {
-				top: pos.top + pos.height + this.options.offset,
-				left: pos.left + pos.width / 2 - actualWidth / 2
-			};
-			break;
-		case '1':
-			position = {
-				top: pos.top + pos.height + this.options.offset,
-				left: pos.left + pos.width - actualWidth
-			};
-			break;
-		case '11':
-			position = {
-				top: pos.top + pos.height + this.options.offset,
-				left: pos.left
-			};
-			break;
-		case '2':
-			position = {
-				top: pos.top - pos.height / 2,
-				left: pos.left - actualWidth - this.options.offset
-			};
-			break;
-		case '3':
-			position = {
-				top: pos.top + pos.height / 2 - actualHeight / 2,
-				left: pos.left - actualWidth - this.options.offset
-			};
-			break;
-		case '4':
-			position = {
-				top: pos.top + pos.height - actualHeight + this.options.offset,
-				left: pos.left - actualWidth - this.options.offset
-			};
-			break;
-		case '5':
-			position = {
-				top: pos.top - actualHeight - this.options.offset,
-				left: pos.left + pos.width - actualWidth
-			};
-			break;
-		case '6':
-			position = {
-				top: pos.top - actualHeight - this.options.offset,
-				left: pos.left + pos.width / 2 - actualWidth / 2
-			};
-			break;
-		case '7':
-			position = {
-				top: pos.top - actualHeight - this.options.offset,
-				left: pos.left
-			};
-			break;
-		case '8':
-			position = {
-				top: pos.top + pos.height - actualHeight + this.options.offset,
-				left: pos.left + pos.width + this.options.offset
-			};
-			break;
-		case '9':
-			position = {
-				top: pos.top + pos.height / 2 - actualHeight / 2,
-				left: pos.left + pos.width + this.options.offset
-			};
-			break;
-		case '10':
-			position = {
-				top: pos.top - pos.height / 2,
-				left: pos.left + pos.width + this.options.offset
-			};
-			break;
+			case '0':
+			case '12':
+				position = {
+					top: pos.top + pos.height + this.options.offset,
+					left: pos.left + pos.width / 2 - actualWidth / 2
+				};
+				break;
+			case '1':
+				position = {
+					top: pos.top + pos.height + this.options.offset,
+					left: pos.left + pos.width - actualWidth
+				};
+				break;
+			case '11':
+				position = {
+					top: pos.top + pos.height + this.options.offset,
+					left: pos.left
+				};
+				break;
+			case '2':
+				position = {
+					top: pos.top - pos.height / 2,
+					left: pos.left - actualWidth - this.options.offset
+				};
+				break;
+			case '3':
+				position = {
+					top: pos.top + pos.height / 2 - actualHeight / 2,
+					left: pos.left - actualWidth - this.options.offset
+				};
+				break;
+			case '4':
+				position = {
+					top: pos.top + pos.height - actualHeight + this.options.offset,
+					left: pos.left - actualWidth - this.options.offset
+				};
+				break;
+			case '5':
+				position = {
+					top: pos.top - actualHeight - this.options.offset,
+					left: pos.left + pos.width - actualWidth
+				};
+				break;
+			case '6':
+				position = {
+					top: pos.top - actualHeight - this.options.offset,
+					left: pos.left + pos.width / 2 - actualWidth / 2
+				};
+				break;
+			case '7':
+				position = {
+					top: pos.top - actualHeight - this.options.offset,
+					left: pos.left
+				};
+				break;
+			case '8':
+				position = {
+					top: pos.top + pos.height - actualHeight + this.options.offset,
+					left: pos.left + pos.width + this.options.offset
+				};
+				break;
+			case '9':
+				position = {
+					top: pos.top + pos.height / 2 - actualHeight / 2,
+					left: pos.left + pos.width + this.options.offset
+				};
+				break;
+			case '10':
+				position = {
+					top: pos.top - pos.height / 2,
+					left: pos.left + pos.width + this.options.offset
+				};
+				break;
 		}
 
 		$dialog.css( position );
@@ -265,6 +269,9 @@
 
 	/**
 	 * The callout plugin
+	 *
+	 * @param {Object} options
+	 * @return {jQuery}
 	 */
 	$.fn.callout = function ( options ) {
 		return this.each( function () {

@@ -14,9 +14,12 @@
 	 * CXSourceSelector
 	 *
 	 * @class
+ 	 * @param {Element} trigger
+ 	 * @param {Object} siteMapper
+ 	 * @param {Object} options
 	 */
-	function CXSourceSelector( $trigger, siteMapper, options ) {
-		this.$trigger = $( $trigger );
+	function CXSourceSelector( trigger, siteMapper, options ) {
+		this.$trigger = $( trigger );
 		this.options = $.extend( {}, options );
 		this.siteMapper = siteMapper;
 
@@ -55,7 +58,7 @@
 	 * Return the appropriate menuWidth parameter for a given language count.
 	 *
 	 * @param {number} languagesCount Number of languages
-	 * return {string} wide, medium or narrow
+	 * @return {string} wide, medium or narrow
 	 */
 	function getUlsMenuWidth( languagesCount ) {
 		if ( languagesCount <= 12 ) {
@@ -348,6 +351,8 @@
 
 	/**
 	 * Handles Enter (Return) keypress.
+	 *
+	 * @param {jQuery.Event} e
 	 */
 	CXSourceSelector.prototype.enterKeyHandler = function ( e ) {
 		if ( e.which === 13 ) {
@@ -577,7 +582,7 @@
 		} );
 
 		if ( !this.overlay ) {
-			this.overlay = new mw.cx.widgets.overlay();
+			this.overlay = new mw.cx.widgets.Overlay();
 		}
 
 		this.overlay.show();
@@ -858,6 +863,8 @@
 
 	/**
 	 * CXEntryPoint Plugin
+	 * @param {Object} options
+	 * @return {jQuery}
 	 */
 	$.fn.cxSourceSelector = function ( options ) {
 		return this.each( function () {

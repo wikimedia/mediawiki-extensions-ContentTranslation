@@ -207,7 +207,7 @@
 			api = new mw.Api();
 
 		if ( list.id === 'trex' ) {
-			this.recommendtool = this.recommendtool || new mw.cx.recommendtool(
+			this.recommendtool = this.recommendtool || new mw.cx.Recommendtool(
 				this.filters.sourceLanguage,
 				this.filters.targetLanguage
 			);
@@ -360,6 +360,10 @@
 		} );
 	};
 
+	function listCompare( listA, listB ) {
+		return listOrder[ listA.type ] > listOrder[ listB.type ];
+	}
+
 	/**
 	 * List all suggestions.
 	 *
@@ -424,6 +428,7 @@
 	/**
 	 * Build the DOM for suggestion item
 	 *
+	 * @param {Object} suggestion
 	 * @return {jQuery}
 	 */
 	CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
@@ -792,10 +797,6 @@
 	CXSuggestionList.prototype.sortLists = function ( lists ) {
 		return Object.keys( lists ).sort( listCompare );
 	};
-
-	function listCompare( listA, listB ) {
-		return listOrder[ listA.type ] > listOrder[ listB.type ];
-	}
 
 	/**
 	 * Make the list expandable and collapsable.

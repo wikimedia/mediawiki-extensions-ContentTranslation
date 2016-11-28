@@ -11,6 +11,7 @@
 
 	/**
 	 * @class
+	 * @param {Element} element
 	 */
 	function CXContributions( element ) {
 		this.$element = $( element );
@@ -61,19 +62,19 @@
 		return [
 			{
 				text: mw.msg( 'cx-contributions-new-article' ),
-				class: 'cx-contributions-new-article',
+				'class': 'cx-contributions-new-article',
 				url: mw.util.getUrl( 'Special:WantedPages' ),
 				tooltip: mw.msg( 'cx-contributions-new-article-tooltip' )
 			},
 			{
 				text: mw.msg( 'cx-contributions-upload' ),
-				class: 'cx-contributions-upload',
+				'class': 'cx-contributions-upload',
 				url: 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
 				tooltip: mw.msg( 'cx-contributions-upload-tooltip' )
 			},
 			{
 				text: mw.msg( 'cx-contributions-translation' ),
-				class: 'cx-contributions-translation ' + ( isNewToCX() ? 'cx-contributions-new' : '' ),
+				'class': 'cx-contributions-translation ' + ( isNewToCX() ? 'cx-contributions-new' : '' ),
 				url: mw.util.getUrl( 'Special:ContentTranslation', {
 					campaign: entrypointName
 				} ),
@@ -84,6 +85,8 @@
 
 	/**
 	 * CXContributions entry point plugin
+	 * @param {Object} options
+	 * @return {jQuery}
 	 */
 	$.fn.cxContributions = function ( options ) {
 		return this.each( function () {

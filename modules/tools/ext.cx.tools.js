@@ -14,6 +14,7 @@
 	 * ContentTranslationTools
 	 *
 	 * @class
+	 * @param {Element} element
 	 */
 	function ContentTranslationTools( element ) {
 		this.$container = $( element );

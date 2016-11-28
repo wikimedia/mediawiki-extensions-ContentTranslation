@@ -45,29 +45,6 @@
 	}
 
 	/**
-	 * Calculate the percentage of machine translation out of the whole article.
-	 *
-	 * @return {Object} Map of weights
-	 * @return {number} return.any Weight of sections with content
-	 * @return {number} return.human Weight of sections with human modified content
-	 * @return {number} return.mt Weight of sections with unmodified mt content
-	 * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
-	 */
-	mw.cx.getProgress = function () {
-		var sourceWeight, weights;
-
-		sourceWeight = getTotalSourceWeight();
-		weights = getTranslationWeights( getSectionsWithContent() );
-		if ( sourceWeight > 0 ) {
-			weights.any /= sourceWeight;
-			weights.human /= sourceWeight;
-			weights.mt /= sourceWeight;
-		}
-
-		return weights;
-	};
-
-	/**
 	 * Calculate the percentage of machine translation for the given sections.
 	 *
 	 * @param {jQuery} $sections List of sections.
@@ -113,6 +90,29 @@
 	function getSectionsWithContent() {
 		return $( '.cx-column--translation [data-cx-weight]' );
 	}
+
+	/**
+	 * Calculate the percentage of machine translation out of the whole article.
+	 *
+	 * @return {Object} Map of weights
+	 * @return {number} return.any Weight of sections with content
+	 * @return {number} return.human Weight of sections with human modified content
+	 * @return {number} return.mt Weight of sections with unmodified mt content
+	 * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
+	 */
+	mw.cx.getProgress = function () {
+		var sourceWeight, weights;
+
+		sourceWeight = getTotalSourceWeight();
+		weights = getTranslationWeights( getSectionsWithContent() );
+		if ( sourceWeight > 0 ) {
+			weights.any /= sourceWeight;
+			weights.human /= sourceWeight;
+			weights.mt /= sourceWeight;
+		}
+
+		return weights;
+	};
 
 	/**
 	 * Update/Change handler for section.

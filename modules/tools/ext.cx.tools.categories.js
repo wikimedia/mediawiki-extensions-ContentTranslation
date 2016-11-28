@@ -40,6 +40,8 @@
 	 * an incorrect result when RTL is involved:
 	 * e.g. margin-left will not be flipped correctly if
 	 * the target language is French, but the UI language is Hebrew.
+	 *
+	 * @return {string}
 	 */
 	function getCategorySpacer() {
 		return $( '<span>' ).addClass( 'cx-category__spacer' );
@@ -207,7 +209,6 @@
 	function sourceClickHandler( e ) {
 		var $listItem, categoryId, categoryTool, title, count;
 
-		/*jshint validthis:true */
 		$listItem = $( this );
 		categoryId = $listItem.attr( 'cx-category-id' );
 		categoryTool = e.data.tool;
@@ -242,7 +243,6 @@
 	function targetClickHandler( e ) {
 		var $remove, $listItem, categoryId, categoryTool, count;
 
-		/*jshint validthis:true */
 		$remove = $( this );
 		$listItem = $remove.parent();
 		categoryId = $listItem.attr( 'cx-category-id' );
@@ -271,7 +271,6 @@
 	 * Highlights the category and connected category list items.
 	 */
 	function highlightCategory() {
-		/*jshint validthis:true */
 		var categoryId,
 			$category = $( this );
 
@@ -289,7 +288,6 @@
 	 * Remove the highlight on the category and connected category list items.
 	 */
 	function removeCategoryHighlight() {
-		/*jshint validthis:true */
 		var categoryId,
 			$category = $( this );
 

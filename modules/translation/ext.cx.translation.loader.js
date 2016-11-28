@@ -267,6 +267,26 @@
 	};
 
 	/**
+	 * Get html content of a translation unit to restore.
+	 *
+	 * @param {Object} translationUnit
+	 * @return {string} translation
+	 */
+	function getTranslation( translationUnit ) {
+		var translation;
+
+		if ( translationUnit.user && translationUnit.user.content ) {
+			translation = translationUnit.user.content;
+		} else if ( translationUnit.mt ) {
+			translation = translationUnit.mt.content;
+		} else if ( translationUnit.source ) {
+			translation = translationUnit.source.content;
+		}
+
+		return translation;
+	}
+
+	/**
 	 * Add an orphan translation unit. Orphan translation is a translation without
 	 * source section. We add a dummy source section for such cases. Dummy source section
 	 * is a placeholder - a white block in source column.
@@ -274,6 +294,7 @@
 	 * @param {string} sourceSectionId The translation unit id.
 	 * @param {jQuery} $section Add it before/after this section.
 	 * @param {string} afterOrBefore Whether the orphan to be added after or before $section.
+	 * @return {string} translation
 	 */
 	ContentTranslationLoader.prototype.addOprhanTranslationUnit = function ( sourceSectionId, $section, afterOrBefore ) {
 		var translationUnit, $translation, $dummySourceSection;
@@ -306,26 +327,6 @@
 
 		return $translation;
 	};
-
-	/**
-	 * Get html content of a translation unit to restore.
-	 *
-	 * @param {Object} translationUnit
-	 * @return {string}
-	 */
-	function getTranslation( translationUnit ) {
-		var translation;
-
-		if ( translationUnit.user && translationUnit.user.content ) {
-			translation = translationUnit.user.content;
-		} else if ( translationUnit.mt ) {
-			translation = translationUnit.mt.content;
-		} else if ( translationUnit.source ) {
-			translation = translationUnit.source.content;
-		}
-
-		return translation;
-	}
 
 	/**
 	 * Restore a section to the appropriate placeholders

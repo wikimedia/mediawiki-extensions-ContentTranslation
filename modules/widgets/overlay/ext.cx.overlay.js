@@ -9,6 +9,8 @@
 
 	/**
 	 * An overlay UI for the page.
+	 * @param {Element} element
+	 * @param {Object} options
 	 */
 	function CXOverlay( element, options ) {
 		this.$container = $( element || 'body' );
@@ -48,7 +50,7 @@
 		this.$container.removeClass( 'cx-noscroll' );
 	};
 
-	mw.cx.widgets.overlay = CXOverlay;
+	mw.cx.widgets.Overlay = CXOverlay;
 
 	$.fn.cxoverlay = function ( option ) {
 		return this.each( function () {
@@ -57,7 +59,7 @@
 				options = typeof option === 'object' && option;
 
 			if ( !data ) {
-				$this.data( 'cxoverlay', ( data = new mw.cx.widgets.overlay( this, options ) ) );
+				$this.data( 'cxoverlay', ( data = new mw.cx.widgets.Overlay( this, options ) ) );
 			}
 
 			if ( typeof option === 'string' ) {

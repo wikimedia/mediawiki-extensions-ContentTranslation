@@ -19,6 +19,7 @@
 	 * converting explicit line endings to <br /> elements
 	 *
 	 * @param {string} text
+	 * @return {jQuery}
 	 */
 	$.fn.multiline = function ( text ) {
 		this.text( text );

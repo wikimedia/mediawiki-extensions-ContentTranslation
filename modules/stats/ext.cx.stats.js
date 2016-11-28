@@ -361,6 +361,40 @@
 		}
 	};
 
+	/**
+	 * Sorts in descending order
+	 * @param {number} a
+	 * @param {number} b
+	 * @return {number}
+	 */
+	function sortByCount( a, b ) {
+		if ( parseInt( a.count ) > parseInt( b.count ) ) {
+			return -1;
+		}
+		if ( parseInt( a.count ) < parseInt( b.count ) ) {
+			return 1;
+		}
+		// a must be equal to b
+		return 0;
+	}
+
+	/**
+	 * Sorts in descending order
+	 * @param {number} a
+	 * @param {number} b
+	 * @return {number}
+	 */
+	function sortByTranslators( a, b ) {
+		if ( parseInt( a.translators ) > parseInt( b.translators ) ) {
+			return -1;
+		}
+		if ( parseInt( a.translators ) < parseInt( b.translators ) ) {
+			return 1;
+		}
+		// a must be equal to b
+		return 0;
+	}
+
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
 		var $chart, $bar, translations, $translations, model, i, j, $rows = [],
 			$callout,
@@ -506,6 +540,7 @@
 
 	/**
 	 * Get the Content Translation stats.
+	 * @return {jQuery.Promise}
 	 */
 	CXStats.prototype.getCXStats = function () {
 		var api = new mw.Api();
@@ -534,7 +569,7 @@
 	};
 
 	CXStats.prototype.drawCumulativeGraph = function ( type ) {
-		var data, cxCumulativeGraph, ctx;
+		var data, ctx;
 
 		ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
@@ -571,16 +606,16 @@
 		};
 
 		/* global Chart:false */
-		cxCumulativeGraph = new Chart( ctx, {
+		/* eslint no-new:off */
+		new Chart( ctx, {
 			type: 'line',
 			data: data,
 			options: {}
 		} );
-
 	};
 
 	CXStats.prototype.drawLanguageCumulativeGraph = function ( type ) {
-		var data, cxCumulativeGraph, ctx;
+		var data, ctx;
 
 		ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
@@ -629,16 +664,15 @@
 		};
 
 		/* global Chart:false */
-		cxCumulativeGraph = new Chart( ctx, {
+		new Chart( ctx, {
 			type: 'line',
 			data: data,
 			options: {}
 		} );
-
 	};
 
 	CXStats.prototype.drawTranslationTrend = function () {
-		var data, cxTrendChart, ctx, type = 'delta';
+		var data, ctx, type = 'delta';
 
 		ctx = this.$translatonTrendBarChart[ 0 ].getContext( '2d' );
 		data = {
@@ -668,16 +702,15 @@
 		};
 
 		/* global Chart:false */
-		cxTrendChart = new Chart( ctx, {
+		new Chart( ctx, {
 			type: 'bar',
 			data: data,
 			options: {}
 		} );
-
 	};
 
 	CXStats.prototype.drawLangTranslationTrend = function () {
-		var ctx, data, cxTrendChart,
+		var ctx, data,
 			type = 'delta';
 
 		ctx = this.$langTranslatonTrendBarChart[ 0 ].getContext( '2d' );
@@ -717,7 +750,7 @@
 		};
 
 		/* global Chart:false */
-		cxTrendChart = new Chart( ctx, {
+		new Chart( ctx, {
 			type: 'bar',
 			data: data,
 			options: {}
@@ -781,34 +814,6 @@
 			}
 		}
 	};
-
-	/**
-	 * Sorts in descending order
-	 */
-	function sortByTranslators( a, b ) {
-		if ( parseInt( a.translators ) > parseInt( b.translators ) ) {
-			return -1;
-		}
-		if ( parseInt( a.translators ) < parseInt( b.translators ) ) {
-			return 1;
-		}
-		// a must be equal to b
-		return 0;
-	}
-
-	/**
-	 * Sorts in descending order
-	 */
-	function sortByCount( a, b ) {
-		if ( parseInt( a.count ) > parseInt( b.count ) ) {
-			return -1;
-		}
-		if ( parseInt( a.count ) < parseInt( b.count ) ) {
-			return 1;
-		}
-		// a must be equal to b
-		return 0;
-	}
 
 	$( function () {
 		var cxLink, cxstats, header, $header, $container;

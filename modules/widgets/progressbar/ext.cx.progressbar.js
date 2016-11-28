@@ -14,6 +14,9 @@
 	 * ProgressBar
 	 *
 	 * @class
+	 *
+	 * @param {Element} element
+	 * @param {Object} options
 	 */
 	function ProgressBar( element, options ) {
 		this.$container = $( element );

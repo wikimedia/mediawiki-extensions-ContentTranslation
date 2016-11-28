@@ -155,6 +155,8 @@
 
 	/**
 	 * Shortcut key press handler
+	 * @param {jQuery.Event} e
+	 * @return {boolean}
 	 */
 	FormatTool.prototype.shortCutHandler = function ( e ) {
 		if ( e.ctrlKey && e.which === 66 ) {

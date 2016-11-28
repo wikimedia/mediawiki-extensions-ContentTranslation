@@ -148,11 +148,11 @@
 				cxserverToken.promise = undefined;
 			} )
 			.then( function ( response ) {
-					cxserverToken.jwt = response.jwt;
-					cxserverToken.expires = response.exp;
+				cxserverToken.jwt = response.jwt;
+				cxserverToken.expires = response.exp;
 
-					return response.jwt;
-				},
+				return response.jwt;
+			},
 				// Not all MT services require token, so let the caller try
 				// with empty token to see if it fails.
 				function () {
@@ -307,6 +307,20 @@
 		this.translate();
 	};
 
+	function initTranslationRequest( sourceSectionId ) {
+		var mt;
+		mt = new MachineTranslation( sourceSectionId );
+		mt.init().then( function () {
+			// Make sure that the current provider is an MT service.
+			if ( mt.provider === sourceMT || mt.provider === noMT || mt.provider === resetMT ) {
+				return;
+			}
+			// If so, start an MT request.
+			mt.getTranslatedSection();
+		} );
+		mw.log( '[CX][MT] Prefetching MT for section ' + sourceSectionId );
+	}
+
 	MachineTranslation.prototype.translate = function () {
 		var self = this;
 
@@ -389,7 +403,7 @@
 	 */
 	MachineTranslation.prototype.getMTProviderStorageKey = function () {
 		return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage
-				].join( '-' );
+		].join( '-' );
 	};
 
 	/**
@@ -443,20 +457,6 @@
 		sourceLanguage: mw.cx.sourceLanguage,
 		targetLanguage: mw.cx.targetLanguage
 	};
-
-	function initTranslationRequest( sourceSectionId ) {
-		var mt;
-		mt = new MachineTranslation( sourceSectionId );
-		mt.init().then( function () {
-			// Make sure that the current provider is an MT service.
-			if ( mt.provider === sourceMT || mt.provider === noMT || mt.provider === resetMT ) {
-				return;
-			}
-			// If so, start an MT request.
-			mt.getTranslatedSection();
-		} );
-		mw.log( '[CX][MT] Prefetching MT for section ' + sourceSectionId );
-	}
 
 	$( function () {
 		mw.hook( 'mw.cx.source.ready' ).add( function () {

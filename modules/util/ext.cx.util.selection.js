@@ -72,6 +72,26 @@
 	};
 
 	/**
+	 * Get parent of the given range.
+	 *
+	 * @param {Object} range The range to get parent from
+	 * @return {Object}
+	 */
+	function getRangeParent( range ) {
+		var parent;
+
+		if ( range.commonAncestorContainer ) {
+			parent = range.commonAncestorContainer;
+			if ( parent.nodeType !== 1 ) {
+				parent = parent.parentNode;
+			}
+		} else if ( range.parentElement ) {
+			parent = range.parentElement();
+		}
+		return parent;
+	}
+
+	/**
 	 * Sets focus on parent element of range
 	 * Required for restoring selections on FireFox
 	 *
@@ -91,24 +111,6 @@
 		if ( parent ) {
 			parent.focus();
 		}
-	}
-	/**
-	 * Get parent of the given range.
-	 *
-	 * @param {Object} range The range to get parent from
-	 */
-	function getRangeParent( range ) {
-		var parent;
-
-		if ( range.commonAncestorContainer ) {
-			parent = range.commonAncestorContainer;
-			if ( parent.nodeType !== 1 ) {
-				parent = parent.parentNode;
-			}
-		} else if ( range.parentElement ) {
-			parent = range.parentElement();
-		}
-		return parent;
 	}
 
 	/**
@@ -225,7 +227,7 @@
 	 * Wrap the selection corresponding to the given key with the given element
 	 *
 	 * @param {string} key the key for the saved selection range
-	 * @param  {Element} element The element that wraps the selection
+	 * @param {Element} element The element that wraps the selection
 	 */
 	Selection.prototype.wrap = function ( key, element ) {
 		var range;

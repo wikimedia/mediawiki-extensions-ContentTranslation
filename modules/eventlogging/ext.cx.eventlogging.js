@@ -244,7 +244,7 @@
 	};
 
 	$( function () {
-		/*jshint -W031*/
+		/* eslint no-new:off */
 		new ContentTranslationEventLogging();
 	} );
 }( jQuery, mediaWiki ) );

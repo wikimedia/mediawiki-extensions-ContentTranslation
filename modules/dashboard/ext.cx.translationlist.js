@@ -12,6 +12,9 @@
 	 * CXTranslationList
 	 *
 	 * @class
+	 * @param {jQuery} $container
+	 * @param {string} type
+	 * @param {Object} siteMapper
 	 */
 	function CXTranslationList( $container, type, siteMapper ) {
 		this.$container = $container;
@@ -206,7 +209,7 @@
 	 */
 	CXTranslationList.prototype.continueTranslation = function ( translation ) {
 		if ( translation.status === 'deleted' ) {
-			return false;
+			return;
 		}
 
 		// Set CX token as cookie.
@@ -225,13 +228,15 @@
 
 	/**
 	 * List all translations.
+	 *
+	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.renderTranslations = function ( translations ) {
 		var i, translation, progress, $translation,
 			$lastUpdated, $image, $progressbar,
 			sourceDir, targetDir, $targetTitle,
 			$translationLink,
-			$sourceLanguage, $targetLanguage, $languageContainer, $status,
+			$sourceLanguage, $targetLanguage, $languageContainer,
 			$actionsTrigger, $deleteTranslation, $menu, $menuContainer,
 			$continueTranslation,
 			$titleLanguageBlock,
@@ -311,10 +316,6 @@
 			$languageContainer = $( '<div>' )
 				.addClass( 'cx-tlitem__languages' )
 				.append( $sourceLanguage, $targetLanguage );
-
-			$status = $( '<div>' )
-				.addClass( 'status status-' + translation.status )
-				.text( mw.msg( 'cx-translation-status-' + translation.status ) );
 
 			$actionsTrigger = $( '<div>' )
 				.addClass( 'cx-tlitem__actions__trigger' );
@@ -459,7 +460,7 @@
 
 		deferred = $.Deferred();
 
-		overlay = new mw.cx.widgets.overlay();
+		overlay = new mw.cx.widgets.Overlay();
 
 		if ( this.$confirmationDialog ) {
 			$cancelButton = this.$confirmationDialog.find( '.cx-draft-discard-dialog__cancel' );

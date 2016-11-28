@@ -14,6 +14,10 @@
 	 * ContentTranslationEditor
 	 *
 	 * @class
+	 *
+	 * @param {element} element
+	 * @param {jQuery} siteMapper
+	 * @param {Object} options
 	 */
 	function ContentTranslationEditor( element, siteMapper, options ) {
 		this.$container = $( element );
@@ -108,7 +112,6 @@
 	function saveCursorPosition() {
 		var $container, selection, anchorNode, focusNode;
 
-		/*jshint validthis:true */
 		$container = $( this );
 		selection = mw.cx.selection.get();
 
@@ -179,6 +182,10 @@
 			mw.hook( 'mw.cx.translation.focus' ).fire( cxTranslation.$title );
 		} );
 	};
+
+	function sourceSectionClickHandler() {
+		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).click();
+	}
 
 	/**
 	 * Post-process the section after MT is applied.
@@ -318,7 +325,6 @@
 
 	function sectionClick() {
 		var sourceSectionId,
-			/*jshint validthis:true */
 			$currentSection = $( this );
 
 		sourceSectionId = $currentSection.data( 'source' );
@@ -328,28 +334,38 @@
 	}
 
 	function sectionMouseEnterHandler() {
-		/*jshint validthis:true */
 		mw.cx.getSourceSection( $( this ).data( 'source' ) ).addClass( 'cx-highlight' );
 	}
 
 	function sectionMouseLeaveHandler() {
-		/*jshint validthis:true */
 		mw.cx.getSourceSection( $( this ).data( 'source' ) ).removeClass( 'cx-highlight' );
 	}
 
-	function sourceSectionClickHandler() {
-		/*jshint validthis:true */
-		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).click();
-	}
-
 	function sourceSectionMouseEnterHandler() {
-		/*jshint validthis:true */
 		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).mouseenter();
 	}
 
 	function sourceSectionMouseLeaveHandler() {
-		/*jshint validthis:true */
 		mw.cx.getTranslationSection( $( this ).attr( 'id' ) ).mouseleave();
+	}
+
+	/**
+	 * Get a placeholder div for the given source section.
+	 *
+	 * @param {string} sourceSectionId
+	 * @return {jQuery} The placeholder jQuery object
+	 */
+	function getPlaceholder( sourceSectionId ) {
+		return $( '<div>' )
+			.addClass( 'placeholder' )
+			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
+			.on( 'click', sectionClick )
+			.attr( {
+				id: 'cx' + sourceSectionId,
+				'data-source': sourceSectionId
+			} )
+			.keepAlignment()
+			.text( mw.msg( 'cx-translation-add-translation' ) );
 	}
 
 	/**
@@ -387,25 +403,6 @@
 		// Append the placeholders to the translation column.
 		this.$container.find( '.cx-column__content' ).append( placeholders );
 	};
-
-	/**
-	 * Get a placeholder div for the given source section.
-	 *
-	 * @param {string} sourceSectionId
-	 * @return {jQuery} The placeholder jQuery object
-	 */
-	function getPlaceholder( sourceSectionId ) {
-		return $( '<div>' )
-			.addClass( 'placeholder' )
-			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
-			.on( 'click', sectionClick )
-			.attr( {
-				id: 'cx' + sourceSectionId,
-				'data-source': sourceSectionId
-			} )
-			.keepAlignment()
-			.text( mw.msg( 'cx-translation-add-translation' ) );
-	}
 
 	$.fn.cxTranslation = function ( siteMapper, options ) {
 		return this.each( function () {

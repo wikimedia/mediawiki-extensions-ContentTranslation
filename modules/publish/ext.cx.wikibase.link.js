@@ -11,6 +11,10 @@
 
 	/**
 	 * Link the source and target articles in the Wikibase repo
+	 * @param {string} sourceLanguage
+	 * @param {string} targetLanguage
+	 * @param {string} sourceTitle
+	 * @param {string} targetTitle
 	 */
 	var addWikibaseLink = function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
 		var title, sourceApi;
