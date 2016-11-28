@@ -321,17 +321,20 @@
 	 */
 	Template.prototype.onClick = function ( event ) {
 		event.stopPropagation();
-		if ( this.templateData && this.options.onEdit ) {
+
+		if ( this.options.onEdit ) {
+			// Template is editable
 			if ( this.$template.is( '.cx-highlight' ) ) {
 				this.options.onEdit.call( this );
 			}
-		} else {
-			mw.log( '[CX] Cannot activate editor for ' + this.title );
+
+			this.$template.toggleClass( 'cx-highlight' );
 		}
-		this.$template.toggleClass( 'cx-highlight' );
-		if ( !this.isSourceTemplate() ) {
+
+		if ( this.isTargetTemplate() ) {
 			mw.hook( 'mw.cx.translation.template.focus' ).fire( this.$template );
 		}
+
 		// Dont bubble this. Will cause section focus events and all.
 		return false;
 	};
@@ -349,13 +352,24 @@
 
 	/**
 	 * Whether the template is source template or not.
-	 * TODO: Should we just pass this as option to the constructor of this class
-	 * instead of referring a global mw.cx?
+	 * TODO: We should just pass this as option to the constructor of this class
+	 * instead of referring a global mw.cx
 	 *
 	 * @return {boolean}
 	 */
 	Template.prototype.isSourceTemplate = function () {
 		return this.language === mw.cx.sourceLanguage;
+	};
+
+	/**
+	 * Whether the template is target template or not.
+	 * TODO: We should just pass this as option to the constructor of this class
+	 * instead of referring a global mw.cx.
+	 *
+	 * @return {boolean}
+	 */
+	Template.prototype.isTargetTemplate = function () {
+		return this.language === mw.cx.targetLanguage;
 	};
 
 	/**
@@ -749,7 +763,6 @@
 		this.options = $.extend( {}, mw.cx.TemplateTool.defaults, options );
 		this.siteMapper = this.options.siteMapper;
 		this.status = null;
-		this.prepareEditor();
 	}
 
 	TemplateTool.static = {};
@@ -809,6 +822,8 @@
 					// It is possible that source template definition has params and target
 					// does not have any. Mapping failed only when target has some params.
 					mw.log( '[CX] None of template params were able to map for ' + self.sourceTemplate.title );
+					// Manually adaptable, but not automatically adaptable.
+					self.status = 'adaptable';
 					return $.Deferred().reject().promise();
 				}
 			}
@@ -817,7 +832,7 @@
 			// TODO: Should we check for all params mapping based on count match of
 			// source and target template params?
 			if ( Object.keys( self.templateParamMapping ).length > 0 ) {
-				self.status = 'partially-adapted';
+				self.status = 'adaptable';
 			}
 
 			if ( Object.keys( self.templateParamMapping ).length === Object.keys( self.sourceTemplate.params ).length ) {
@@ -889,6 +904,15 @@
 			// Qunit tests might note load this module.
 			return false;
 		}
+
+		if ( !this.isEditable() ) {
+			return false;
+		}
+
+		if ( this.editor ) {
+			return true;
+		}
+
 		this.editor = new mw.cx.TemplateEditor(
 			this.sourceTemplate,
 			this.targetTemplate, {
@@ -909,11 +933,12 @@
 	 * Editor request handler
 	 */
 	TemplateTool.prototype.onEdit = function () {
-		if ( this.targetTemplate.$template.data( 'template-state' ) !== 'adapt' ) {
-			// Editor is given only when 'adapt' is the option
-			return;
-		}
 		this.editor.show();
+	};
+
+	TemplateTool.prototype.isEditable = function () {
+		// Editor is given only when 'adapt' is the option
+		return this.status === 'adaptable' || this.status === 'adapted';
 	};
 
 	/**
@@ -1108,6 +1133,7 @@
 
 		return templateTool.adapt().then( function () {
 			// Successful adaptation.
+			templateTool.prepareEditor();
 			return templateTool.updateTargetTemplate();
 		}, function () {
 			// Adaptation failed.
