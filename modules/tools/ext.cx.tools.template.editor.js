@@ -352,8 +352,8 @@
 			option = new mw.cx.widgets.TemplateParamOptionWidget( {
 				data: key,
 				classes: [ 'cx-template-editor-param-selector-item' ],
-				label: value.label && value.label[ language ] || key,
-				description: value.description && value.description[ language ]
+				label: value && value.label && value.label[ language ] || key,
+				description: value && value.description && value.description[ language ] || ''
 			} );
 			option.$element.append( $desc );
 			items.push( option );
@@ -449,7 +449,7 @@
 		} );
 
 		$.each( this.targetTemplate.params, function ( key, value ) {
-			if ( value.changed ) {
+			if ( value && value.changed ) {
 				if ( !value.html || !isNaN( value.html ) ) {
 					// Value cleared/deleted/a number. Save an API call.
 					value.wt = value.html;
