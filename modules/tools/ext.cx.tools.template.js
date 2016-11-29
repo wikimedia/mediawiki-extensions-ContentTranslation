@@ -805,6 +805,8 @@
 		var self = this;
 
 		return this.getTemplateMapping().then( function ( cxMapping ) {
+			// Since templateData is initialized to {} if a corresponding template exists, this
+			// condition is true only if there is no equivalent template in the target language.
 			if ( !self.targetTemplate.templateData ) {
 				return $.Deferred().reject().promise();
 			}
