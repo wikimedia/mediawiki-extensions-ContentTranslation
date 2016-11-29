@@ -1,3 +1,4 @@
+@import "../../widgets/common/ext.cx.common";
 @import "mediawiki.mixins";
 
 .cx-campaign-contributionsmenu {
@@ -12,7 +13,7 @@
 		list-style: none;
 		padding: 5px 10px 5px 40px;
 		margin: 0;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid @gray;
 		min-width: 200px;
 		background-size: 24px;
 		background-position: left 10px center;
@@ -20,7 +21,7 @@
 
 		a {
 			text-decoration: none;
-			color: #565656;
+			color: @gray-dark;
 			display: block;
 		}
 
@@ -55,7 +56,7 @@
 
 			margin: 2px 5px 0 0;
 			padding: 5px 5px 5px 40px;
-			color: #555;
+			color: @gray-dark;
 			background-color: #ecf5ff;
 			font-size: small;
 		}

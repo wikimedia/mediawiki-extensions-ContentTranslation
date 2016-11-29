@@ -17,8 +17,8 @@
 			labels: Object.keys( stats.cxtranslatorstats.publishTrend ),
 			datasets: [
 				{
-					borderColor: '#347BFF',
-					backgroundColor: '#347BFF',
+					borderColor: '#36c',
+					backgroundColor: '#36c',
 					borderWidth: 1,
 					data: $.map( stats.cxtranslatorstats.publishTrend, function ( data ) {
 						return data.delta;

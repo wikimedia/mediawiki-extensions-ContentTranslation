@@ -1,4 +1,5 @@
 @import "mediawiki.mixins";
+@import "../../widgets/common/ext.cx.common";
 
 .mw-pageselector-menu {
 	position: absolute;
@@ -36,7 +37,7 @@
 	li.mw-page-missing {
 		.background-image-svg('../../tools/images/question-mark.svg', '../../tools/images/question-mark.png');
 		background-repeat: no-repeat;
-		background-color: #fbfbfb;
+		background-color: @gray-lighter;
 		background-position: top left;
 		border-right: 1px solid #eee;
 
@@ -48,6 +49,6 @@
 	.mw-page-description {
 		font-size: 0.8em;
 		line-height: 1em;
-		color: #555;
+		color: @gray-dark;
 	}
 }

@@ -546,11 +546,11 @@
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					fill: false,
-					borderColor: '#347BFF',
-					pointBorderColor: '#347BFF',
-					pointBackgroundColor: '#347BFF',
+					borderColor: '#36c',
+					pointBorderColor: '#36c',
+					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
-					pointHoverBorderColor: '#347BFF',
+					pointHoverBorderColor: '#36c',
 					data: $.map( this.totalTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -558,11 +558,11 @@
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
 					fill: false,
-					borderColor: '#777',
-					pointBorderColor: '#777',
-					pointBackgroundColor: '#777',
+					borderColor: '#72777d',
+					pointBorderColor: '#72777d',
+					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
-					pointHoverBorderColor: '#777',
+					pointHoverBorderColor: '#72777d',
 					data: $.map( this.totalDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -592,11 +592,11 @@
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					fill: false,
-					borderColor: '#347BFF',
-					pointBorderColor: '#347BFF',
-					pointBackgroundColor: '#347BFF',
+					borderColor: '#36c',
+					pointBorderColor: '#36c',
+					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
-					pointHoverBorderColor: '#347BFF',
+					pointHoverBorderColor: '#36c',
 					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -604,11 +604,11 @@
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
 					fill: false,
-					borderColor: '#777',
-					pointBorderColor: '#777',
-					pointBackgroundColor: '#777',
+					borderColor: '#72777d',
+					pointBorderColor: '#72777d',
+					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
-					pointHoverBorderColor: '#777',
+					pointHoverBorderColor: '#72777d',
 					data: $.map( this.languageDraftTrend, function ( data ) {
 						return data[ type ];
 					} )
@@ -648,8 +648,8 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					borderColor: '#347BFF',
-					backgroundColor: '#347BFF',
+					borderColor: '#36c',
+					backgroundColor: '#36c',
 					borderWidth: 1,
 					data: $.map( this.totalTranslationTrend, function ( data ) {
 						return data[ type ];
@@ -657,8 +657,8 @@
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
-					borderColor: '#777',
-					backgroundColor: '#777',
+					borderColor: '#72777d',
+					backgroundColor: '#72777d',
 					borderWidth: 1,
 					data: $.map( this.totalDraftTrend, function ( data ) {
 						return data[ type ];
@@ -688,8 +688,8 @@
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
-					borderColor: '#347BFF',
-					backgroundColor: '#347BFF',
+					borderColor: '#36c',
+					backgroundColor: '#36c',
 					borderWidth: 1,
 					data: $.map( this.languageTranslationTrend, function ( data ) {
 						return data[ type ];
@@ -697,8 +697,8 @@
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
-					borderColor: '#777',
-					backgroundColor: '#777',
+					borderColor: '#72777d',
+					backgroundColor: '#72777d',
 					borderWidth: 1,
 					data: $.map( this.languageDraftTrend, function ( data ) {
 						return data[ type ];
