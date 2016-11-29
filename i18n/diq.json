@@ -5,7 +5,8 @@
 			"Mirzali",
 			"Amire80",
 			"Kumkumuk",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Gırd"
 		]
 	},
 	"cx": "Pela açarnayışi",
@@ -92,6 +93,7 @@
 	"cx-contributions-new-article-tooltip": "Ju pera newi newe dere bınusnë",
 	"cx-contributions-translation-tooltip": "Pela ke esta ay açarne",
 	"cx-contributions-upload-tooltip": "Per dı kar finayışi rë rwsim,  veng u vidyo bıselagbë",
+	"cx-publishing-dialog-keep-button": "wurdna versiyona zi qeyd k",
 	"cx-publishing-dialog-publish-anyway-button": "Fına zi weşan",
 	"cx-discard-translation": "Açarnayışi mehesıbne",
 	"cx-translation-status-draft": "Rameno",
@@ -125,6 +127,8 @@
 	"cx-stats-published-translations-label": "Açarnayışa vıla ke",
 	"cx-stats-published-target-source": "Açarnayışê",
 	"cx-stats-published-source-target": "Açarnayışi ra",
+	"cx-stats-draft-target-source": "Dewam bıyaye açarnayışi",
+	"cx-stats-draft-source-target": "Dewam bıyaye açarnayışi ra",
 	"cx-stats-tabs-expand": "Zıwana pêron bıvin",
 	"cx-stats-total-published": "Pêro weşaniya",
 	"cx-stats-weekly-published": "Hefteyo Peyên",
@@ -159,5 +163,13 @@
 	"cx-translator-total-translations-label": "Pêro piya",
 	"cx-tools-mt-new-provider": "newe",
 	"cx-tools-mt-new-providers-available": "Weçeneganê neweya na",
-	"cx-continue-translation": "Açarnayışi dewam ke"
+	"cx-continue-translation": "Açarnayışi dewam ke",
+	"cx-tools-template-title": "Şablon",
+	"cx-template-action-adapt": "Ercê pê şablona bıkarnê",
+	"cx-template-action-keep-original": "Şablonê oricinali bışevekne (bıpawe)",
+	"cx-template-action-skip": "ravêr şabloni",
+	"cx-template-not-available": "$1'i dı theba çıniyo",
+	"cx-translation-template-add-param": "+Heruna açarnayışi",
+	"cx-translation-template-add-more": "Tayna xısusiyeti cık",
+	"cx-translation-template-select-param": "Heruna etiketi bıweçin"
 }
