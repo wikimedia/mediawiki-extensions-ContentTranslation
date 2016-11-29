@@ -113,7 +113,7 @@
 				);
 			} );
 		}, function () {
-			mw.log( '[CX] Target tempalate does not exist for ' + sourceTitle );
+			mw.log( '[CX] Target template does not exist for ' + sourceTitle );
 		} );
 
 		this.initPromise = this.initPromise.then( function () {
