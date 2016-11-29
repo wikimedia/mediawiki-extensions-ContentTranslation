@@ -826,7 +826,7 @@
 					mw.log( '[CX] None of template params were able to map for ' + self.sourceTemplate.title );
 					// Manually adaptable, but not automatically adaptable.
 					self.status = 'adaptable';
-					return $.Deferred().reject().promise();
+					return $.Deferred().resolve().promise();
 				}
 			}
 
