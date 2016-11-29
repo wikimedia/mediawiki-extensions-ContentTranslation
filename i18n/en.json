@@ -218,6 +218,6 @@
 	"cx-template-action-skip": "Skip template",
 	"cx-template-not-available": "Not available in $1",
 	"cx-translation-template-add-param": "+ Translate field",
-	"cx-translation-template-add-more": "Add more properties",
-	"cx-translation-template-select-param": "Select target field"
+	"cx-translation-template-add-more": "Add more fields",
+	"cx-translation-template-select-param": "Select target fields"
 }
