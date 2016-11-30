@@ -42,7 +42,7 @@
 			.addClass( 'cx-header__logo' );
 		$titleText = $( '<span>' )
 			.addClass( 'cx-header__title-text' )
-			.text( this.config.titleText || mw.msg( 'cx' ) );
+			.text( this.config.titleText || mw.msg( 'cx-stats-title' ) );
 
 		$headerTitle = $( '<div>' )
 			.addClass( 'cx-header__title' )

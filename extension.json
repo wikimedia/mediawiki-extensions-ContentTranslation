@@ -1024,6 +1024,7 @@
 				"cx-stats-published-translations-title",
 				"cx-stats-published-translators-title",
 				"cx-stats-tabs-expand",
+				"cx-stats-title",
 				"cx-stats-total-published",
 				"cx-stats-try-contenttranslation",
 				"cx-stats-weekly-published",
@@ -1217,7 +1218,6 @@
 				"ui/styles/mw.cx.ui.Header.less"
 			],
 			"messages": [
-				"cx",
 				"login"
 			],
 			"dependencies": [
