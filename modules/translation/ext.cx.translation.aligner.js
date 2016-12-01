@@ -86,18 +86,6 @@
 		}
 	}
 
-	/**
-	 * @param {jQuery} $sourceFigure
-	 * @param {jQuery} $targetFigure
-	 */
-	function keepFigureAlignment( $sourceFigure, $targetFigure ) {
-		var $source, $target;
-
-		$source = $sourceFigure.find( 'figcaption' );
-		$target = $targetFigure.find( 'figcaption' );
-		keepAlignment( $source, $target );
-	}
-
 	function getHeight( $element ) {
 		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
 			return getFigureHeight( $element );
@@ -112,6 +100,26 @@
 			return getTemplateHeight( $element );
 		}
 		return parseInt( $element.height(), 10 );
+	}
+
+	function setHeight( $element, height ) {
+		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
+			$element.css( {
+				height: height
+			} );
+			return;
+		}
+
+		if ( $element.prop( 'tagName' ) === 'TABLE' ) {
+			$element.css( {
+				height: height
+			} );
+			return;
+		}
+
+		$element.css( {
+			'min-height': height
+		} );
 	}
 
 	function getDisplayStyles( $element ) {
@@ -148,26 +156,6 @@
 		};
 	}
 
-	function setHeight( $element, height ) {
-		if ( $element.prop( 'tagName' ) === 'FIGURE' ) {
-			$element.css( {
-				height: height
-			} );
-			return;
-		}
-
-		if ( $element.prop( 'tagName' ) === 'TABLE' ) {
-			$element.css( {
-				height: height
-			} );
-			return;
-		}
-
-		$element.css( {
-			'min-height': height
-		} );
-	}
-
 	/**
 	 * @param {jQuery} $source
 	 * @param {jQuery} $target
@@ -193,6 +181,7 @@
 		}
 
 		if ( sectionTagName === 'FIGURE' ) {
+			/* eslint no-use-before-define:off */
 			return keepFigureAlignment( $source, $target );
 		}
 
@@ -216,6 +205,18 @@
 				break;
 			}
 		}
+	}
+
+	/**
+	 * @param {jQuery} $sourceFigure
+	 * @param {jQuery} $targetFigure
+	 */
+	function keepFigureAlignment( $sourceFigure, $targetFigure ) {
+		var $source, $target;
+
+		$source = $sourceFigure.find( 'figcaption' );
+		$target = $targetFigure.find( 'figcaption' );
+		keepAlignment( $source, $target );
 	}
 
 	/**

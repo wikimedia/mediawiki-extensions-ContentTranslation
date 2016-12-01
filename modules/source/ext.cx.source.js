@@ -13,6 +13,9 @@
 	/**
 	 * ContentTranslationSource
 	 *
+	 * @param {Element} element
+	 * @param {Object} siteMapper
+	 * @param {Object} options
 	 * @class
 	 */
 	function ContentTranslationSource( element, siteMapper, options ) {
@@ -172,6 +175,16 @@
 		this.showLoadingIndicator();
 	};
 
+	/**
+	 * Remove the leading ./ added by parsoid.
+	 *
+	 * @param {string} href Link target
+	 * @return {string} Cleaned up href
+	 */
+	function cleanupLinkHref( href ) {
+		return href && href.replace( /^\.*\//, '' );
+	}
+
 	ContentTranslationSource.prototype.load = function ( content ) {
 		var self = this;
 
@@ -200,16 +213,6 @@
 			mw.hook( 'mw.cx.source.ready' ).fire();
 		} );
 	};
-
-	/**
-	 * Remove the leading ./ added by parsoid.
-	 *
-	 * @param {string} href Link target
-	 * @return {string} Cleaned up href
-	 */
-	function cleanupLinkHref( href ) {
-		return href && href.replace( /^\.*\//, '' );
-	}
 
 	ContentTranslationSource.prototype.showLoadingIndicator = function () {
 		var $loadingIndicator,

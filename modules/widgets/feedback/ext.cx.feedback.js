@@ -13,6 +13,8 @@
 	 * ContentTranslationFeedback
 	 *
 	 * @class
+	 *
+	 * @param {Element} element
 	 */
 	function ContentTranslationFeedback( element ) {
 		this.$container = $( element );

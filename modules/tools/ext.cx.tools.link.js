@@ -293,7 +293,21 @@
 	};
 
 	/**
+	 * Target link class - A link in translation section
+	 *
+	 * @param {Element} [link]
+	 * @param {Object} [options]
+	 */
+	function CXTargetLink( link, options ) {
+		CXLink.call( this, link, options );
+		this.language = mw.cx.targetLanguage;
+		this.init();
+	}
+
+	/**
 	 * Convert a current selection if present, if editable to a link
+	 *
+	 * @return {string}
 	 */
 	CXLink.prototype.createLinkFromLink = function () {
 		var $link, selection;
@@ -606,18 +620,6 @@
 			return false;
 		} );
 	};
-
-	/**
-	 * Target link class - A link in translation section
-	 *
-	 * @param {Element} [link]
-	 * @param {Object} [options]
-	 */
-	function CXTargetLink( link, options ) {
-		CXLink.call( this, link, options );
-		this.language = mw.cx.targetLanguage;
-		this.init();
-	}
 
 	// CXTargetLink inherits CXLink
 	CXTargetLink.prototype = new CXLink();
@@ -1040,9 +1042,9 @@
 				$link = this.$link;
 				// Change the link target
 				$link.prop( {
-						href: target.title,
-						title: target.title
-					} )
+					href: target.title,
+					title: target.title
+				} )
 					// Remove the classes that represent a different state for link.
 					.removeClass( 'cx-selection cx-highlight--blue new cx-target-link-unadapted' )
 					.removeData( 'cxTargetLink' ) // Unbind
@@ -1051,10 +1053,10 @@
 				$link = $( '.cx-selection' );
 				// Convert the selection to a mw link.
 				$link.prop( {
-						rel: 'mw:WikiLink',
-						href: target.title,
-						title: target.title
-					} )
+					rel: 'mw:WikiLink',
+					href: target.title,
+					title: target.title
+				} )
 					.text( this.selection || target.title )
 					.addClass( 'cx-link cx-target-link' )
 					.removeClass( 'cx-selection cx-highlight--blue' )
@@ -1084,6 +1086,8 @@
 
 	/**
 	 * Expand the linker tool card
+	 *
+	 * @return {boolean} false
 	 */
 	LinkerTool.prototype.expand = function () {
 		var self = this;

@@ -13,6 +13,7 @@
 	/**
 	 * CXSectionEditor - Editor for each sections in the translation
 	 *
+	 * @param {Element} element
 	 * @class
 	 */
 	function CXSectionEditor( element ) {
@@ -50,6 +51,8 @@
 
 	/**
 	 * Paste handler. Adapts pasted text.
+	 * @param {jQuery.Event} e
+	 * @return {boolean}
 	 */
 	CXSectionEditor.prototype.pasteHandler = function ( e ) {
 		// Enforce plain text pasting
@@ -62,6 +65,8 @@
 
 	/**
 	 * Drop handler. Adapts pasted text.
+	 * @param {jQuery.Event} e
+	 * @return {boolean}
 	 */
 	CXSectionEditor.prototype.dropHandler = function ( e ) {
 		var text = e.originalEvent.dataTransfer.getData( 'text' ) ||
@@ -112,6 +117,7 @@
 	 * The CXSectionEditor plugin.
 	 * Sets common properties on all editable elements
 	 * in the translation column.
+	 * @return {jQuery}
 	 */
 	$.fn.cxEditor = function () {
 		return this.each( function () {

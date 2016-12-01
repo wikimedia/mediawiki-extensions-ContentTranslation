@@ -97,10 +97,10 @@
 
 	LinterCard.prototype.getTriggerEvents = function () {
 		return [
-				'mw.cx.translation.focus',
-				'mw.cx.translation.validation.success',
-				'mw.cx.translation.validation.error'
-			];
+			'mw.cx.translation.focus',
+			'mw.cx.translation.validation.success',
+			'mw.cx.translation.validation.error'
+		];
 	};
 
 	mw.cx.tools.linter = LinterCard;

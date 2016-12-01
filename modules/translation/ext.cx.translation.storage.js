@@ -27,6 +27,7 @@
 	 * Get the content to save. Clean up the content by removing
 	 * all unwanted classes and placeholders.
 	 *
+	 * @param {string} $section Section
 	 * @return {string} HTML to save
 	 */
 	ContentTranslationStorage.prototype.getContent = function ( $section ) {

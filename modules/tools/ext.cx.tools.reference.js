@@ -84,6 +84,15 @@
 		}
 	};
 
+	function referenceClickHandler() {
+		var $reference = $( this );
+		mw.hook( 'mw.cx.select.reference' ).fire(
+			$reference.data( 'sourceid' ), mw.cx.targetLanguage );
+
+		// Avoid bubbling of event.
+		return false;
+	}
+
 	/**
 	 * Add the reference to the cursor position in translation
 	 */
@@ -321,16 +330,6 @@
 		// Fire and event indicating this particular reference was adapted.
 		mw.hook( 'mw.cx.adapted.reference' ).fire( mwData.body.id );
 	};
-
-	function referenceClickHandler() {
-		/*jshint validthis:true */
-		var $reference = $( this );
-		mw.hook( 'mw.cx.select.reference' ).fire(
-			$reference.data( 'sourceid' ), mw.cx.targetLanguage );
-
-		// Avoid bubbling of event.
-		return false;
-	}
 
 	function processReferences( $section ) {
 		var $sourceSection, referenceAdaptor, isRestoredFromDraft, $referenceLists;

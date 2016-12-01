@@ -14,6 +14,7 @@
 	 * Handles show the publishing options dialog.
 	 *
 	 * @class
+	 * @param {Element} trigger
 	 */
 	function CXPublishingDialog( trigger ) {
 		this.$trigger = $( trigger );
@@ -42,9 +43,8 @@
 	 * @param {string} title The title of the existing article
 	 */
 	CXPublishingDialog.prototype.render = function ( title ) {
-		var $buttons, username, namespace;
+		var $buttons, namespace;
 
-		username = mw.user.getName();
 		namespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
 
 		this.$dialog = $( '<div>' )
@@ -156,6 +156,7 @@
 
 	/**
 	 * CXPublishingDialog Plugin
+	 * @return {jQuery}
 	 */
 	$.fn.cxPublishingDialog = function () {
 		return this.each( function () {

@@ -12,6 +12,8 @@
 	 * Handles the actual submission to the MediaWiki via the API, including captchas.
 	 *
 	 * @class
+	 * @param {Element} trigger
+	 * @param {Object} siteMapper
 	 */
 	function CXPublish( trigger, siteMapper ) {
 		this.trigger = trigger;
@@ -125,6 +127,25 @@
 	};
 
 	/**
+	 * Increase the version number of a title starting with 1.
+	 *
+	 * @param {string} title The title to increase the version on.
+	 * @return {string}
+	 */
+	function increaseVersion( title ) {
+		var match, version;
+
+		match = title.match( /^.*\((\d+)\)$/ );
+		if ( match ) {
+			version = parseInt( match[ 1 ], 10 ) + 1;
+
+			return title.replace( /\(\d+\)$/, '(' + version + ')' );
+		}
+
+		return title + ' (1)';
+	}
+
+	/**
 	 * Generate an alternate title in case of title collision.
 	 *
 	 * @param {string} title The title
@@ -174,25 +195,6 @@
 			} );
 		} );
 	};
-
-	/**
-	 * Increase the version number of a title starting with 1.
-	 *
-	 * @param {string} title The title to increase the version on.
-	 * @return {string}
-	 */
-	function increaseVersion( title ) {
-		var match, version;
-
-		match = title.match( /^.*\((\d+)\)$/ );
-		if ( match ) {
-			version = parseInt( match[ 1 ], 10 ) + 1;
-
-			return title.replace( /\(\d+\)$/, '(' + version + ')' );
-		}
-
-		return title + ' (1)';
-	}
 
 	/**
 	 * Get categories for the current translation pair.
@@ -312,7 +314,7 @@
 
 	/**
 	 * Prepare the translated content for publishing by removing unwanted parts.
-	 *
+	 * @param {jQuery} $content
 	 * @return {string} processed html
 	 */
 	CXPublish.prototype.prepareTranslationForPublish = function ( $content ) {

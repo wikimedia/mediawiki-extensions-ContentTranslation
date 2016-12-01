@@ -177,6 +177,7 @@
 	 * Get a menu item for the providers list.
 	 *
 	 * @param {string} providerId Provider id.
+	 * @param {boolean} newProvider Is Provider is new?
 	 * @return {jQuery}
 	 */
 	MTControlCard.prototype.getProviderMenuItem = function ( providerId, newProvider ) {

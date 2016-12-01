@@ -126,8 +126,8 @@
 		domain = siteMapper.getWikiDomainCode( language );
 		url = siteMapper.config.restbase.replace( '$1', domain );
 		url += '/transform/wikitext/to/html';
-		// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 		return $.post( url, {
+		/* eslint camelcase:off */
 			body_only: true,
 			wikitext: wikitext
 		} );

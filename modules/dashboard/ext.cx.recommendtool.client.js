@@ -16,6 +16,8 @@
 	 * RecommendTool
 	 *
 	 * @class
+	 * @param {string} from Source language
+	 * @param {string} to target language
 	 */
 	function RecommendTool( from, to ) {
 		this.sourceLanguage = from;
@@ -121,5 +123,5 @@
 		};
 	};
 
-	mw.cx.recommendtool = RecommendTool;
+	mw.cx.Recommendtool = RecommendTool;
 }( jQuery, mediaWiki ) );

@@ -12,7 +12,8 @@
 	mw.cx.widgets = mw.cx.widgets || {};
 
 	function drawChart( ctx, stats ) {
-		var cxTrendChart, data;
+		var data;
+
 		data = {
 			labels: Object.keys( stats.cxtranslatorstats.publishTrend ),
 			datasets: [
@@ -26,8 +27,9 @@
 				}
 			]
 		};
-		/*global Chart:false */
-		cxTrendChart = cxTrendChart = new Chart( ctx, {
+		/* global Chart:false */
+		/* eslint no-new:off */
+		new Chart( ctx, {
 			type: 'bar',
 			data: data,
 			options: {
