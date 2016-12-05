@@ -6,7 +6,8 @@
 			"Macofe",
 			"Robin van der Vliet",
 			"Lucas",
-			"Gamliel Fishkin"
+			"Gamliel Fishkin",
+			"Psychoslave"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -203,5 +204,12 @@
 	"cx-page-old-revision-loaded": "Tiu ĉi traduko baziĝas je malnova versio de la enhavo. La fonta paĝo povis [$1 signife ŝanĝiĝi]. Vi povas daŭrigi tiun ĉi tradukon aŭ rekomenci ĝin uzante la aktualigitan enhavon.",
 	"cx-tools-mt-new-provider": "nova",
 	"cx-tools-mt-new-providers-available": "kun novaj opcioj",
-	"cx-continue-translation": "Daŭrigi tradukon"
+	"cx-continue-translation": "Daŭrigi tradukon",
+	"cx-template-action-adapt": "Uzi ekvivalenta ŝablono",
+	"cx-template-action-keep-original": "Gardi originalan ŝablonon",
+	"cx-template-action-skip": "Malzorgi ŝablonon",
+	"cx-template-not-available": "Ne disponebla por $1",
+	"cx-translation-template-add-param": "+ Traduki kampon",
+	"cx-translation-template-add-more": "Aldoni pli da ecoj",
+	"cx-translation-template-select-param": "Elekti celan kampon"
 }

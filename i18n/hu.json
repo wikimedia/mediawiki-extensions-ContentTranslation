@@ -6,7 +6,8 @@
 			"ViDam",
 			"Máté",
 			"Grin",
-			"Wolf Rex"
+			"Wolf Rex",
+			"Dorgan"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -44,7 +45,7 @@
 	"tag-contenttranslation-description": "A tartalmat egy másik nyelvről fordították le a Tartalomfordító eszközzel.",
 	"cx-source-loading": "$1 betöltése",
 	"cx-beta": "Tartalomfordítás",
-	"cx-beta-desc": "Egy eszköz, mellyel gyorsan lefordíthatsz lapokat az anyanyelvedre. Kezdd el a fordításodat a [[Special:MyContributions|közreműködési lapodon]], majd szerkeszd meg a kifejezetten fordítási célra kifejlesztett szerkesztőnkkel. Néhány eszköz esetleg csak bizonyos nyelveken elérhető.",
+	"cx-beta-desc": "Egy eszköz, mellyel gyorsan lefordíthatsz lapokat az anyanyelvedre. Kezdd el a fordításodat a [[Special:MyContributions|közreműködési lapodon]], majd szerkeszd a kifejezetten fordítási célra kifejlesztett szerkesztőnkkel! Néhány eszköz csak bizonyos nyelveken érhető el.",
 	"cx-entrypoint-title": "Oldal fordítása $1 nyelvre",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ez az oldal még nem létezik $1 nyelven. Létre akarod hozni?",
 	"cx-entrypoint-dialog-title-in": "Az új oldal $1 címe:",
@@ -203,5 +204,9 @@
 	"cx-page-old-revision-loaded": "Ez a fordítás a lap egy régebbi változatán alapul. A forrás akár [$1 jelentősen megváltozhatott] azóta. Folytathatod ezt a fordítást vagy újrakezdheted a frissebb tartalommal.",
 	"cx-tools-mt-new-provider": "új",
 	"cx-tools-mt-new-providers-available": "új lehetőségekkel",
-	"cx-continue-translation": "Fordítás folytatása"
+	"cx-continue-translation": "Fordítás folytatása",
+	"cx-tools-template-title": "Sablon",
+	"cx-template-action-adapt": "Ekvivalens sablon használata",
+	"cx-template-action-keep-original": "Eredeti sablon megtartása",
+	"cx-template-action-skip": "Sablon mellőzése"
 }

@@ -14,7 +14,8 @@
 			"Clon",
 			"Urbanecm",
 			"Dvorapa",
-			"Walter Klosse"
+			"Walter Klosse",
+			"Martin Urbanec"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -71,10 +72,7 @@
 	"cx-tools-link-remove": "Odstranit odkaz",
 	"cx-tools-mt-title": "Strojový překlad",
 	"cx-tools-mt-use-source": "Vložit zdrojový text",
-	"cx-tools-mt-clear-translation": "Odstranit text odstavce",
-	"cx-tools-mt-restore": "Obnovit",
 	"cx-tools-mt-provider-title": "Použít $1",
-	"cx-tools-mt-not-available": "Pro jazyk $1 není k dispozici",
 	"cx-tools-mt-dont-use": "Nepoužívat strojový překlad",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorie|$1 kategorie|$1 kategorií|0=Žádná kategorie}}",
 	"cx-stats-title": "Statistiky využití nástroje Content Translation",
@@ -175,7 +173,7 @@
 	"cx-tools-missing-link-tooltip": "Přeložit (v novém okně)",
 	"cx-tools-missing-link-title": "Odkazovaná stránka neexistuje",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Vložit}} červený odkaz",
-	"echo-category-title-cx": "překlady",
+	"echo-category-title-cx": "aktivitu u překladů",
 	"echo-pref-tooltip-cx": "Upozorněte mě o mých překladech vytvořených pomocí nástroje Překlad obsahu.",
 	"cx-notification-first-translation": "Gratulujeme vám k vašemu prvnímu překladu. Podívejte se na své příspěvky a najděte další stránky k překladu.",
 	"cx-notification-tenth-translation": "Gratulujeme vám k vašemu desátému překladu. Stává se z vás překladatel. Jen tak dál!",
