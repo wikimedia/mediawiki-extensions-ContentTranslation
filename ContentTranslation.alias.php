@@ -35,6 +35,12 @@ $specialPageAliases['bgn'] = array(
 	'ContentTranslationStats' => array( 'ContentTranslationStats' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'ContentTranslation' => array( 'বিষয়বস্তু_অনুবাদ' ),
+	'ContentTranslationStats' => array( 'বিষয়বস্তু_অনুবাদের_পরিসংখ্যান' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'ContentTranslation' => array( 'Inhaltsübersetzung' ),
