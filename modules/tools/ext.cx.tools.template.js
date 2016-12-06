@@ -1036,7 +1036,13 @@
 		if ( this.targetTemplate.options.inline ) {
 			// just leave the template unchanged. Add a class.
 			this.targetTemplate.$template.addClass( 'cx-unadaptable-template' );
-			this.targetTemplate.$template.attr( 'data-template-state', 'keep-original' );
+			// Copy the attributes explicitly since we cannot assume they are present
+			// after MT of parent section.
+			this.targetTemplate.$template.attr( {
+				'data-template-state': 'keep-original',
+				'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
+				'typeof': this.sourceTemplate.$template.attr( 'typeof' )
+			} );
 		} else {
 			$new = $( '<div>' )
 				.addClass( 'placeholder cx-unadaptable-template' )
