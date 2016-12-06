@@ -209,6 +209,7 @@
 			mw.track( 'event.ContentTranslationCTA', {
 				version: 1,
 				cta: campaign,
+				token: mw.user.id(),
 				action: 'shown',
 				session: mw.user.sessionId(),
 				contentLanguage: mw.config.get( 'wgContentLanguage' ),
@@ -235,6 +236,7 @@
 			mw.track( 'event.ContentTranslationCTA', {
 				version: 1,
 				cta: campaign,
+				token: mw.user.id(),
 				action: 'reject',
 				session: mw.user.sessionId(),
 				contentLanguage: mw.config.get( 'wgContentLanguage' ),
