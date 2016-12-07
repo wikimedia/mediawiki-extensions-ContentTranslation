@@ -289,7 +289,7 @@
 
 		if ( this.options.inline ) {
 			this.$parentSection = this.$parentSection ||
-				this.$template.parents( mw.cx.getSectionSelector() );
+				this.$template.closest( mw.cx.getSectionSelector() );
 			$container = this.$parentSection;
 		} else {
 			$container = this.getFirstVisibleFragment() || this.$template;

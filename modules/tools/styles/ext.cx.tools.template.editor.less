@@ -4,11 +4,17 @@
 .cx-template-editor-source-container,
 .cx-template-editor-target-container {
 	.mw-ui-one-whole;
+	float: none;
 	height: 100%;
 	padding: 0 10px;
 	background-color: @gray-light;
 	border: 1px solid #ccc;
 	z-index: 9; // The sticky header on the top of page is with z-index 10
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 }
 
 // close button
