@@ -43,7 +43,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'eslint:main', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'eslint:main', 'jsonlint', 'stylelint', 'banana' ] );
 	grunt.registerTask( 'lint', [ 'eslint:main', 'jsonlint', 'stylelint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };
