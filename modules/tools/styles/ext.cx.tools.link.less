@@ -1,6 +1,6 @@
-@import "../../widgets/common/ext.cx.common";
-@import "../../widgets/common/ext.cx.highlight";
-@import "mediawiki.mixins";
+@import '../../widgets/common/ext.cx.common';
+@import '../../widgets/common/ext.cx.highlight';
+@import 'mediawiki.mixins';
 
 .cards.link {
 	animation-name: card-show-animation;
@@ -48,13 +48,13 @@
 	color: @gray-dark;
 	.background-image-svg('../images/clear.svg', '../images/clear.png');
 	background-repeat: no-repeat;
-	background-color: #FFFFFF;
+	background-color: #fff;
 	background-position: left 10px center;
 	background-size: 15px;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
 	clear: both;
-	border-top: 1px solid #dddddd;
+	border-top: 1px solid #ddd;
 }
 
 .card__add-link {
@@ -69,17 +69,17 @@
 	background-repeat: no-repeat;
 	background-position: left 10px center;
 	background-size: 15px;
-	background-color: #FFFFFF;
+	background-color: #fff;
 	padding: 5px 10px 5px 32px;
 	cursor: pointer;
-	border-top: 1px solid #dddddd;
+	border-top: 1px solid #ddd;
 }
 
 .card__link-image-container {
 	.mw-ui-item;
 	.mw-ui-three-tenths;
 	min-height: 125px;
-	background-color: #FFFFFF;
+	background-color: #fff;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
@@ -95,14 +95,14 @@
 		background-repeat: no-repeat;
 		background-color: @gray-lighter;
 		background-position: center center;
-		border-right: 1px solid #eeeeee;
+		border-right: 1px solid #eee;
 	}
 }
 
 .card__link-info {
 	.mw-ui-item;
 	.mw-ui-seven-tenths;
-	background-color: #FFFFFF;
+	background-color: #fff;
 	padding: 0;
 
 	.card__link-container {
@@ -131,12 +131,12 @@
 }
 
 .card.missinglink {
-	.card__link-image-container  {
+	.card__link-image-container {
 		.background-image-svg('../images/question-mark.svg', '../images/question-mark.png');
 		background-repeat: no-repeat;
 		background-color: @gray-lighter;
 		background-position: center center;
-		border-right: 1px solid #eeeeee;
+		border-right: 1px solid #eee;
 	}
 
 	.card__add-link,
@@ -151,11 +151,11 @@
 		background-repeat: no-repeat;
 		background-color: @gray-lighter;
 		background-position: center center;
-		border-right: 1px solid #eeeeee;
+		border-right: 1px solid #eee;
 	}
 
 	.card__link-text {
-		color: red;
+		color: #f00;
 	}
 
 	.card__add-link,
@@ -173,13 +173,13 @@
 	.mw-ui-one-whole;
 	color: @gray-dark;
 	font-size: large;
-	border-top: 1px solid #dddddd;
+	border-top: 1px solid #ddd;
 	clear: both;
 	padding-top: 10px;
 
 	.shortcut-info {
 		font-size: small;
-		color: #aaaaaa;
+		color: #aaa;
 	}
 }
 

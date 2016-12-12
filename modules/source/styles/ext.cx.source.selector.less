@@ -1,5 +1,5 @@
-@import "../../widgets/common/ext.cx.common";
-@import "mediawiki.mixins";
+@import '../../widgets/common/ext.cx.common';
+@import 'mediawiki.mixins';
 
 .cx-sourceselector-dialog {
 	.mw-ui-item;
@@ -8,12 +8,12 @@
 	position: absolute;
 	min-width: 650px;
 	max-width: 700px;
-	background: white;
+	background: #fff;
 	border: 1px solid #ddd;
 	border-bottom-width: 3px;
 	border-radius: 3px;
 	padding: 0;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px rgba( 0, 0, 0, 0.2 );
 	z-index: 1001;
 }
 
@@ -54,77 +54,11 @@
 	font-size: large;
 }
 
-.cx-sourceselector-dialog__language {
-	.mw-ui-item;
-	.mw-ui-three-twelfths;
-
-	button {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-
-		font-size: medium;
-		padding: 5px 10px;
-		background: #efefef;
-		position: relative;
-		cursor: pointer;
-		text-align: left;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-
-		&:after {
-			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
-			content: "";
-			display: inline-block;
-			width: 20px;
-			height: 12px;
-			right: 2px;
-			position: absolute;
-			bottom: 50%;
-			margin-bottom: -6px;
-		}
-	}
-}
-
-.cx-sourceselector-dialog__title {
-	.mw-ui-item;
-	.mw-ui-seven-twelfths;
-
-	input {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-
-		margin: 5px 10px 0;
-		font-size: medium;
-		-webkit-appearance: none;
-		border: none;
-		padding: 2px;
-
-		&[type=search] {
-			.background-image-svg('../../tools/images/search.svg', '../../tools/images/search.png');
-			background-position: left 5px center;
-			background-repeat: no-repeat;
-			background-size: 20px;
-			padding: 2px 2px 2px 30px;
-		}
-
-		// Make sure that the placeholder has a consistent alignment,
-		// so it won't be in opposite ends when the languages' direction is different
-		&::-moz-placeholder {
-			text-align: left;
-		}
-
-		&::-webkit-input-placeholder {
-			text-align: left;
-		}
-	}
-}
-
 .cx-sourceselector-dialog__messagebar {
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 10px;
-	background-color: #F7D358;
+	background-color: #f7d358;
 }
 
 .cx-sourceselector-dialog__actions {
@@ -148,6 +82,72 @@
 	color: #72777d;
 }
 
+.cx-sourceselector-dialog__language {
+	.mw-ui-item;
+	.mw-ui-three-twelfths;
+
+	button {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+
+		font-size: medium;
+		padding: 5px 10px;
+		background: #efefef;
+		position: relative;
+		cursor: pointer;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&:after {
+			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
+			content: '';
+			display: inline-block;
+			width: 20px;
+			height: 12px;
+			right: 2px;
+			position: absolute;
+			bottom: 50%;
+			margin-bottom: -6px;
+		}
+	}
+}
+
+.cx-sourceselector-dialog__title {
+	.mw-ui-item;
+	.mw-ui-seven-twelfths;
+
+	input {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+
+		margin: 5px 10px 0;
+		font-size: medium;
+		appearance: none;
+		border: none;
+		padding: 2px;
+
+		&[type='search'] {
+			.background-image-svg('../../tools/images/search.svg', '../../tools/images/search.png');
+			background-position: left 5px center;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			padding: 2px 2px 2px 30px;
+		}
+
+		// Make sure that the placeholder has a consistent alignment,
+		// so it won't be in opposite ends when the languages' direction is different
+		&::placeholder {
+			text-align: left;
+		}
+
+		&::input-placeholder {
+			text-align: left;
+		}
+	}
+}
+
 .uls-language-list a.cx-sourceselector-unavailable-target {
-	color: #bbccff;
+	color: #bcf;
 }

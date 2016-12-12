@@ -1,12 +1,12 @@
-@import "../../widgets/common/ext.cx.common";
-@import "mediawiki.mixins";
+@import '../../widgets/common/ext.cx.common';
+@import 'mediawiki.mixins';
 
-@text-highlight-color: #FEFCE0;
+@text-highlight-color: #fefce0;
 
 .cx-category-widget {
 	.mw-ui-item;
 	width: 100%;
-	padding: .2em;
+	padding: 0.2em;
 	.cx-category-icon {
 		display: block;
 		min-width: 1.5em;
@@ -26,9 +26,9 @@
 	.cx-category-counterbutton {
 		cursor: pointer;
 		padding-left: 0;
-		padding-top: .25em;
+		padding-top: 0.25em;
 		.cx-category-icon {
-			margin-right: .25em;
+			margin-right: 0.25em;
 			min-width: 1em;
 			min-height: 1em;
 			width: 1em;
@@ -37,25 +37,25 @@
 		}
 		.cx-category-counter-count {
 			margin-left: 1em;
-			margin-top: .5em;
+			margin-top: 0.5em;
 		}
 
 	}
 }
 
 .cx-category-listing {
-	padding: .2em;
+	padding: 0.2em;
 	margin-top: 1em;
-	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid #DDDDDD;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border: 1px solid #ddd;
 	border-radius: 2px;
 
 	.cx-category-nocategories {
-		padding-left: .5em;
+		padding-left: 0.5em;
 		display: inline-block;
 		margin-right: 1em;
-		color: #999999;
+		color: #999;
 	}
 
 	.cx-category-categorylist {
@@ -66,10 +66,10 @@
 		margin-left: 2em;
 
 		.cx-category {
-			border: 1px solid #C9C9C9;
+			border: 1px solid #c9c9c9;
 			border-radius: 2px;
-			padding-left: .25em;
-			padding-right: .25em;
+			padding-left: 0.25em;
+			padding-right: 0.25em;
 			display: inline-block;
 			margin: 0;
 			margin-right: 1em;
@@ -91,19 +91,19 @@
 			.cx-category-remove {
 				cursor: pointer;
 				display: inline-block;
-				min-height: .75em;
-				min-width: .75em;
-				width: .75em;
-				height: .75em;
+				min-height: 0.75em;
+				min-width: 0.75em;
+				width: 0.75em;
+				height: 0.75em;
 				background-repeat: no-repeat;
 				background-position: center;
-				background-size: .75em .75em;
+				background-size: 0.75em 0.75em;
 				.background-image-svg( '../images/clear.svg', '../images/clear.png' );
 			}
 		}
 
 		.cx-category-disabled {
-			color: #999999;
+			color: #999;
 			border: none;
 			cursor: default;
 		}
@@ -111,7 +111,7 @@
 		.cx-category-highlight {
 			.cx-category;
 			background-color: @text-highlight-color;
-			box-shadow: 0 1px 0 0 #C9C9C9;
+			box-shadow: 0 1px 0 0 #c9c9c9;
 			transition: all 0.15s;
 		}
 	}

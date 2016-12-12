@@ -1,21 +1,7 @@
-@import "mediawiki.mixins";
-@import "../../widgets/common/ext.cx.common";
+@import 'mediawiki.mixins';
+@import '../../widgets/common/ext.cx.common';
 
 .card.mt {
-	.card__title-row {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-		float: none; // XXX why would it be needed?
-		color: @gray;
-		padding-top: 8px;
-
-		.card__title {
-			.mw-ui-item;
-			.mw-ui-one-whole;
-			float: none; // XXX why would it be needed?
-		}
-	}
-
 	.card__trigger {
 		.mw-ui-item;
 		.mw-ui-two-thirds;
@@ -44,7 +30,7 @@
 		background-color: #fff;
 		border: 1px solid #aaa;
 		border-radius: 2px;
-		box-shadow: 0 1px 0 #C9C9C9;
+		box-shadow: 0 1px 0 #c9c9c9;
 		padding: 0;
 		z-index: 1;
 
@@ -58,8 +44,8 @@
 				background-position: right 4px center;
 			}
 			&:hover {
-				background-color: #6698FF;
-				color: #FFF;
+				background-color: #6698ff;
+				color: #fff;
 			}
 		}
 		:after,
@@ -104,7 +90,7 @@
 		.mw-ui-one-whole;
 		line-height: 1.5em;
 		color: @gray;
-		border-top: 1px solid #dddddd;
+		border-top: 1px solid #ddd;
 
 		.card__control-button {
 			.mw-ui-one-half;
@@ -132,6 +118,21 @@
 			float: none;
 		}
 	}
+
+	.card__title-row {
+		.mw-ui-item;
+		.mw-ui-one-whole;
+		float: none; // XXX why would it be needed?
+		color: @gray;
+		padding-top: 8px;
+
+		.card__title {
+			.mw-ui-item;
+			.mw-ui-one-whole;
+			float: none; // XXX why would it be needed?
+		}
+	}
+
 	.card__title-row.card--new:before {
 		content: '';
 		width: 0;
