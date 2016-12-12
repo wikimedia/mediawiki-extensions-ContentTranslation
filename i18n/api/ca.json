@@ -15,8 +15,6 @@
 	"apihelp-cxpublish-param-from": "Codi de la llengua origen.",
 	"apihelp-cxpublish-param-to": "Codi de la llengua destí.",
 	"apihelp-cxpublish-param-sourcetitle": "El títol de la pàgina d'origen.",
-	"apihelp-cxpublish-param-sourcerevision": "Edició de la pàgina origen.",
-	"apihelp-cxpublish-param-status": "Si \"draft\", la traducció es desarà com a esborrany. Si \"published\", la traducció es publicarà.",
 	"apihelp-cxpublish-param-categories": "Les categories que s'afegiran a l'article publicat.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identificació de captcha (en cas de guardar-lo amb una resposta de captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respon el captcha (en cas de guardar-ho amb una resposta de captcha).",
@@ -47,5 +45,7 @@
 	"apihelp-cxdelete-example-1": "Suprimeix un esborrany associat amb el parell de llengua donat i títol.",
 	"apihelp-cxsuggestionlist-param-titles": "Títols de pàgina.",
 	"apihelp-cxsuggestionlist-param-from": "El codi de la llengua d'origen.",
-	"apihelp-cxsuggestionlist-param-to": "El codi de la llengua de destí."
+	"apihelp-cxsuggestionlist-param-to": "El codi de la llengua de destí.",
+	"apihelp-cxsave-param-sourcerevision": "Edició de la pàgina origen.",
+	"apierror-cx-translationnotfound": "No s'ha trobat la traducció."
 }

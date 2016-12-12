@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Xuacu",
-			"Macofe"
+			"Macofe",
+			"Esbardu"
 		]
 	},
 	"cx": "Traducir la páxina",
 	"cx-dashboard-header": "Traducciones",
-	"cx-javascript": "Esta ferramienta nun funciona sin JavaScript.",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducción de Conteníos]] ye una ferramienta pa traducir páxines al to idioma desiguida. [$1 ¡Pruébalo agora!]",
+	"cx-javascript": "Esta ferramienta nun funciona ensin JavaScript.",
+	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducción de Conteníos]] ye una ferramienta pa traducir rápidamente páxines a la to llingua. [$1 ¡Pruébalo agora!]",
 	"cx-license-agreement": "Al facer click nel botón «$1» aceutes les [//wikimediafoundation.org/wiki/Terms_of_Use condiciones d'usu] y permites, de mou non reversible, la distribución de les tos collaboraciones cola ferramienta de traducción baxo la [https://creativecommons.org/licenses/by-sa/3.0/ Llicencia CC BY-SA 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License llicencia GFDL], entendiendo qu'un hiperenllaz o URL ye bastante pa l'atribución como CC BY-SA 3.0.",
 	"cx-error-server-connection": "Error: Nun se pudo coneutar col sirvidor.",
 	"cx-desc": "Fai fácil [[Special:ContentTranslation|traducir]] les páxines de conteníu",
