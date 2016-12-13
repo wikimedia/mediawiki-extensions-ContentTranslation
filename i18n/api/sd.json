@@ -48,5 +48,20 @@
 	"apihelp-cxsave-param-title": "ان صفحي جو عنوان جنھن تي عمل ڪيا ويندا.",
 	"apihelp-cxsave-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-cxsave-param-to": "مقصود ٻولي جو ڪوڊ.",
-	"apihelp-cxsave-param-sourcetitle": "ذريعاتي صفحي جو عنوان."
+	"apihelp-cxsave-param-sourcetitle": "ذريعاتي صفحي جو عنوان.",
+	"apierror-cx-invalidlanguage": "ناقابلِڪار ٻولي.",
+	"apierror-cx-invalidprogress": "ناقابلِڪار ترقي.",
+	"apierror-cx-invalidsectioncontent": "ناقابلِڪار سيڪشن مواد.",
+	"apierror-cx-invalidsectiondata": "ناقابلِڪار سيڪشن ڊيٽا",
+	"apierror-cx-invalidsourcelanguage": "ناقابلِڪار مصدر ٻولي.",
+	"apierror-cx-invalidtargetlanguage": "ناقابلِڪار مقصود ٻولي.",
+	"apierror-cx-invalidtranslator": "ناقابلِڪار ترجميڪار جو نالو",
+	"apierror-cx-jwtmissing": "JWT غيرموجود.",
+	"apierror-cx-missingdraft": "مسودو وجود نٿو رکي.",
+	"apierror-cx-mustbeloggedin-suggestions": "پنھنجون تجويزون سنڀالڻ لاءِ توھان کي لازماََ داخل ٿيڻو پوندو.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "پنھنجا ترجما ڏسڻ لاءِ توھان کي لازماََ داخل ٿيڻو پوندو.",
+	"apierror-cx-notowned": "ھاڻوڪي يوزر پاران اڻپنھنجايل ترجمو.",
+	"apierror-cx-samelanguages": "مصدر ۽ مقصود ٻوليون ساڳيون نٿون ٿي سگھن.",
+	"apierror-cx-suggestionsdisabled": "تجويزون ھن وڪيءَ تي فعال بڻيل نه آھن.",
+	"apierror-cx-translationnotfound": "ترجمو نه لڌو"
 }
