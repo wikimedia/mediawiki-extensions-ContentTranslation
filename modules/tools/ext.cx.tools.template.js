@@ -843,9 +843,14 @@
 			}
 
 			$.each( self.targetTemplate.templateData.params, function ( key ) {
+				var savedParamValue;
+
 				if ( self.templateParamMapping[ key ] ) {
+					savedParamValue = self.targetTemplate.templateData.params[ key ].wt;
 					self.targetTemplate.templateData.params[ key ] =
 						self.sourceTemplate.params[ self.templateParamMapping[ key ] ];
+					// In case of restored templates, there will be a wt value. Keep that.
+					self.targetTemplate.templateData.params[ key ].wt = savedParamValue;
 				}
 			} );
 
