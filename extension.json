@@ -1218,6 +1218,7 @@
 				"ui/styles/mw.cx.ui.Header.less"
 			],
 			"messages": [
+				"cx",
 				"login"
 			],
 			"dependencies": [
@@ -1265,7 +1266,8 @@
 				"ui/mw.cx.ui.Columns.js",
 				"ui/mw.cx.ui.SourceColumn.js",
 				"ui/mw.cx.ui.TranslationColumn.js",
-				"ui/mw.cx.ui.ToolsColumn.js"			],
+				"ui/mw.cx.ui.ToolsColumn.js"
+			],
 			"styles": [
 				"ui/styles/mw.cx.ui.Columns.less"
 			],

@@ -828,7 +828,8 @@
 			.append( $header, $container )
 		);
 		header = new mw.cx.ui.Header( {
-			siteMapper: this.siteMapper
+			siteMapper: this.siteMapper,
+			titleText: mw.msg( 'cx-stats-title' )
 		} );
 		$header.append( header.$element );
 		cxstats = new CXStats( $container, {
