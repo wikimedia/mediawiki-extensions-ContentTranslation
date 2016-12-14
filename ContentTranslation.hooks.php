@@ -373,10 +373,9 @@ class ContentTranslationHooks {
 
 		$modules['qunit']['ext.cx.tools.tests'] = [
 			'scripts' => [
-				// TODO: Following commented tests need to better rewritten using mockdata.
-				// 'tests/qunit/tools/ext.cx.tools.template.test.js',
+				'tests/qunit/tools/ext.cx.tools.template.test.js',
 				'tests/qunit/tools/ext.cx.tools.mtabuse.test.js',
-				// 'tests/qunit/tools/ext.cx.tools.categories.test.js',
+				'tests/qunit/tools/ext.cx.tools.categories.test.js',
 			],
 			'dependencies' => [
 				'ext.cx.model',
