@@ -22,7 +22,6 @@
 	function RecommendTool( from, to ) {
 		this.sourceLanguage = from;
 		this.targetLanguage = to;
-		this.algorithms = [ 'wiki', 'morelike' ];
 		this.seeds = null;
 	}
 
@@ -68,20 +67,21 @@
 	 * @return {jQuery.Promise}
 	 */
 	RecommendTool.prototype.getSuggestionList = function () {
-		var self = this,
-			algorithm;
+		var self = this;
 
-		// Choose a random algorithm
-		algorithm = this.algorithms[ Math.floor( Math.random() * this.algorithms.length ) ];
 		return this.getSeedPages().then( function ( seedPages ) {
-			return $.get( 'https://recommend.wmflabs.org/api/', {
-				s: self.sourceLanguage,
-				t: self.targetLanguage,
-				article: seedPages.join( '|' ),
+			var algorithms, algorithm;
+
+			algorithms = [ 'morelike', 'related_articles' ];
+			algorithm = algorithms[ Math.floor( Math.random() * algorithms.length ) ];
+			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
+				source: self.sourceLanguage,
+				target: self.targetLanguage,
+				seed: seedPages.join( '|' ),
 				search: algorithm,
 				application: 'CX'
-			} ).then( function ( response ) {
-				return self.adapt( response.articles, algorithm );
+			} ).then( function ( articles ) {
+				return self.adapt( articles, algorithm );
 			} );
 		} );
 	};
@@ -107,6 +107,7 @@
 				sourceLanguage: this.sourceLanguage,
 				targetLanguage: this.targetLanguage,
 				pageviews: articles[ i ].pageviews,
+				wikidataId: articles[ i ].wikidata_id,
 				listId: 'trex'
 			} );
 		}
