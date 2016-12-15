@@ -47,7 +47,7 @@
 	"cx-publish-gt-published-title": "Gratulujeme, stránka byla zveřejněna",
 	"cx-translation-add-translation": "+ Přidat překlad",
 	"cx-translation-target-page-exists": "Stránka s názvem [$1 $2] v cílové wiki existuje. Zvažte pro stránku jiný název.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Překlad obsahu]]",
+	"tag-contenttranslation": "editace z [[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Obsah stránky byl přeložen z jiného jazyka pomocí nástroje Content Translation.",
 	"cx-source-loading": "Načítá se $1",
 	"cx-beta": "Překlad obsahu",
