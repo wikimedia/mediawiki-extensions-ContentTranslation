@@ -6,13 +6,14 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var tests = [ {
-		description: 'All ids of source and draft match perfectly',
-		source: '<div><p id="mw1">Paragraph 1</p></div>',
-		placeholders: '<div><div id="cxmw1" data-source="mw1" class="placeholder"></div></div>',
-		draft: '<p id="cxmw1">PARAGRAPH 1</p>',
-		translation: '<p id="cxmw1" data-cx-draft="true" data-source="mw1">PARAGRAPH 1</p>'
-	},
+	var tests = [
+		{
+			description: 'All ids of source and draft match perfectly',
+			source: '<div><p id="mw1">Paragraph 1</p></div>',
+			placeholders: '<div><div id="cxmw1" data-source="mw1" class="placeholder"></div></div>',
+			draft: '<p id="cxmw1">PARAGRAPH 1</p>',
+			translation: '<p id="cxmw1" data-cx-draft="true" data-source="mw1">PARAGRAPH 1</p>'
+		},
 		{
 			description: 'All ids of source and draft match perfectly, Restoring old draft using sequence ids',
 			source: '<div><p id="mw1" data-seqid="1">Paragraph 1</p></div>',
