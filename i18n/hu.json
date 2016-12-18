@@ -7,7 +7,8 @@
 			"Máté",
 			"Grin",
 			"Wolf Rex",
-			"Dorgan"
+			"Dorgan",
+			"Tgr"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -208,5 +209,9 @@
 	"cx-tools-template-title": "Sablon",
 	"cx-template-action-adapt": "Ekvivalens sablon használata",
 	"cx-template-action-keep-original": "Eredeti sablon megtartása",
-	"cx-template-action-skip": "Sablon mellőzése"
+	"cx-template-action-skip": "Sablon mellőzése",
+	"cx-template-not-available": "Nem elérhető $1 nyelven",
+	"cx-translation-template-add-param": "+ Mező fordítása",
+	"cx-translation-template-add-more": "További mezők hozzáadása",
+	"cx-translation-template-select-param": "Célmező kiválasztása"
 }

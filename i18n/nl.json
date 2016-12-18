@@ -17,7 +17,8 @@
 			"FabianRM",
 			"Santhosh.thottingal",
 			"Robin van der Vliet",
-			"MrLeopold"
+			"MrLeopold",
+			"Mainframe98"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -214,5 +215,7 @@
 	"cx-page-old-revision-loaded": "Deze vertaling is gebaseerd op een oudere versie van de inhoud. De bronpagina kan [$1 sterk gewijzigd] zijn. U kunt doorgaan met de vertaling of opnieuw beginnen om de bijgewerkte inhoud te gebruiken.",
 	"cx-tools-mt-new-provider": "nieuw",
 	"cx-tools-mt-new-providers-available": "met nieuwe opties",
-	"cx-continue-translation": "Doorgaan met vertaling"
+	"cx-continue-translation": "Doorgaan met vertaling",
+	"cx-tools-template-title": "Sjabloon",
+	"cx-template-not-available": "Niet beschikbaar in $1"
 }
