@@ -1,4 +1,4 @@
-@import "../../widgets/common/ext.cx.common";
+@import '../../widgets/common/ext.cx.common';
 
 .cx-stats-container {
 	.mw-ui-item;
@@ -21,16 +21,6 @@
 	display: none;
 }
 
-.cx-header.sticky {
-	// Stats page does not have any sidebars. Show the header in full width.
-	.mw-ui-one-whole;
-}
-
-.cx-header__translation-center a::before {
-	// Do not display arrow to dashboard
-	display: none;
-}
-
 .cx-stats-tabs-container {
 	.mw-ui-item;
 	.mw-ui-one-whole;
@@ -38,40 +28,6 @@
 	border: 1px solid #eee;
 	padding: 0;
 	background-color: #fff;
-}
-
-.cx-stats-tabs {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	border-bottom: 1px solid #eee;
-
-	li {
-		background: none;
-		color: @gray-dark;
-		display: inline-block;
-		padding: 10px 15px;
-		cursor: pointer;
-	}
-
-	li.cx-stats-tabs-current {
-		border-bottom: 2px solid #36c;
-		color: @gray-darker;
-	}
-}
-
-.cx-stats-tabs-tab-content {
-	display: none;
-	padding: 15px;
-
-	&.cx-stats-tabs-current {
-		display: inherit;
-	}
-
-	&.cx-stats-tabs-collapsed {
-		max-height: 500px;
-		overflow: hidden;
-	}
 }
 
 .cx-stats-tabs-toggle-all {
@@ -161,6 +117,50 @@
 	}
 }
 
+.cx-header.sticky {
+	// Stats page does not have any sidebars. Show the header in full width.
+	.mw-ui-one-whole;
+}
+
+.cx-header__translation-center a:before {
+	// Do not display arrow to dashboard
+	display: none;
+}
+
+.cx-stats-tabs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-bottom: 1px solid #eee;
+
+	li {
+		background: none;
+		color: @gray-dark;
+		display: inline-block;
+		padding: 10px 15px;
+		cursor: pointer;
+	}
+
+	li.cx-stats-tabs-current {
+		border-bottom: 2px solid #36c;
+		color: @gray-darker;
+	}
+}
+
+.cx-stats-tabs-tab-content {
+	display: none;
+	padding: 15px;
+
+	&.cx-stats-tabs-current {
+		display: inherit;
+	}
+
+	&.cx-stats-tabs-collapsed {
+		max-height: 500px;
+		overflow: hidden;
+	}
+}
+
 .cx-stats-chart__callout-count {
 	text-align: right;
 }
@@ -222,11 +222,11 @@
 			font-size: 1.5em;
 
 			&.increase {
-				color: green;
+				color: #008000;
 			}
 
 			&.decrease {
-				color: red;
+				color: #f00;
 			}
 		}
 

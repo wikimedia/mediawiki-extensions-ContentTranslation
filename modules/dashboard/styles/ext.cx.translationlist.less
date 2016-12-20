@@ -1,6 +1,6 @@
-@import "../../widgets/common/ext.cx.common";
-@import "ext.cx.lists.common";
-@import "mediawiki.mixins";
+@import '../../widgets/common/ext.cx.common';
+@import 'ext.cx.lists.common';
+@import 'mediawiki.mixins';
 
 .cx-tlitem {
 	&.cx-translation-deleted {
@@ -60,7 +60,7 @@
 				.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
 				&:hover {
 					.background-image-svg('../images/trash_orange.svg', '../images/trash_orange.png');
-					background-color: darken( white, 5% );
+					background-color: darken( #fff, 5% );
 				}
 			}
 			.cx-continue-translation {
@@ -98,7 +98,7 @@
 				height: 6px;
 			}
 
-			.cx-progressbar__bar--mt{
+			.cx-progressbar__bar--mt {
 				height: 6px;
 				top: -6px;
 			}
@@ -119,7 +119,7 @@
 			text-decoration: none;
 			padding-left: 0;
 
-			&.disabled  {
+			&.disabled {
 				pointer-events: none;
 				cursor: default;
 			}
@@ -129,7 +129,7 @@
 			}
 
 			.target-title {
-				color: #BBB;
+				color: #bbb;
 				padding-left: 1em;
 			}
 
@@ -152,7 +152,7 @@
 		}
 
 		.status-deleted {
-			color: #ff3300;
+			color: #f30;
 		}
 
 		.status-published {
@@ -168,14 +168,14 @@
 	position: fixed;
 	min-width: 500px;
 	max-width: 600px;
-	background: white;
+	background: #fff;
 	border: 1px solid #ddd;
 	border-bottom-width: 3px;
 	border-radius: 3px;
 	padding: 0;
 	top: 30%;
 	left: 30%;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px rgba( 0, 0, 0, 0.2 );
 	z-index: 1000;
 
 	&__message {

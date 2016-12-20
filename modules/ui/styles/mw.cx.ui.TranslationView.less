@@ -1,5 +1,5 @@
-@import "../../widgets/common/ext.cx.common";
-@import "../../widgets/common/ext.cx.column";
+@import '../../widgets/common/ext.cx.column';
+@import '../../widgets/common/ext.cx.common';
 
 .cx-column--source,
 .cx-column--translation {
@@ -8,12 +8,12 @@
 	.cx-column__content {
 		// Make sure that the captions are aligned according to the column's language
 		// rather than the wiki's content language
-		&[dir="rtl"] figcaption {
+		&[dir='rtl'] figcaption {
 			/* @noflip */
 			text-align: right;
 		}
 
-		&[dir="ltr"] figcaption {
+		&[dir='ltr'] figcaption {
 			/* @noflip */
 			text-align: left;
 		}
@@ -43,10 +43,12 @@
 
 	&.sticky {
 		.stick-to-side;
+
 		@media @palm {
 			.stick-to-bottom;
 		}
 	}
+
 	@media @palm {
 		.stick-to-bottom;
 	}
@@ -56,8 +58,8 @@
 	.mw-ui-item;
 	.mw-ui-one-half(@palm);
 
-	background: white;
-	border: 1px solid #cccccc;
+	background: #fff;
+	border: 1px solid #ccc;
 	padding: 10px;
 	margin: 2px 0;
 }

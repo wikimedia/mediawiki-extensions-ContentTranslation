@@ -1,15 +1,15 @@
-@import "../../widgets/common/ext.cx.common";
+@import '../../widgets/common/ext.cx.common';
 
 .card {
-	background: #FFFFFF;
-	border: 1px solid #C9C9C9;
+	background: #fff;
+	border: 1px solid #c9c9c9;
 	border-radius: 2px;
-	box-shadow: 0 1px 0 #C9C9C9;
+	box-shadow: 0 1px 0 #c9c9c9;
 	margin-top: 15px;
 
 	&:hover {
-		border-color: #BBBBBB;
-		box-shadow: 0 1px 0 #BBBBBB;
+		border-color: #bbb;
+		box-shadow: 0 1px 0 #bbb;
 	}
 
 	/* Clearfix */
@@ -17,7 +17,7 @@
 		// Non empty content value aoids an Opera bug that creates space around
 		// clearfixed elements if the contenteditable attribute is also present
 		// somewhere in the HTML.
-		content: " ";
+		content: ' ';
 		visibility: hidden;
 		display: block;
 		height: 0;
@@ -29,7 +29,7 @@
 .card__title--language {
 	.mw-ui-item;
 	.mw-ui-one-half;
-	color: #aaaaaa;
+	color: #aaa;
 	padding: 4px;
 }
 
@@ -47,6 +47,6 @@
 
 	100% {
 		opacity: 1;
-		top: 0px;
+		top: 0;
 	}
 }

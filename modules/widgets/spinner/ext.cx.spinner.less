@@ -4,13 +4,13 @@
 	opacity: 0.8;
 
 	.bounce1 {
-		-webkit-animation-delay: -.33s;
-		animation-delay: -.33s;
+		-webkit-animation-delay: -0.33s;
+		animation-delay: -0.33s;
 	}
 
 	.bounce2 {
-		-webkit-animation-delay: -.16s;
-		animation-delay: -.16s;
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
 	}
 
 	> div {
@@ -27,28 +27,32 @@
 }
 
 @-webkit-keyframes bouncedelay {
-	0%, 100%, 80% {
-		-webkit-transform: scale(0.6);
-		transform: scale(0.6);
+	0%,
+	100%,
+	80% {
+		-webkit-transform: scale( 0.6 );
+		transform: scale( 0.6 );
 	}
 
 	40% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
+		-webkit-transform: scale( 1 );
+		transform: scale( 1 );
 		background-color: #bbb;
 	}
 }
 
 @keyframes bouncedelay {
-	0%, 100%, 80% {
-		-webkit-transform: scale(0.6);
-		-ms-transform: scale(0.6);
-		transform: scale(0.6);
+	0%,
+	100%,
+	80% {
+		-webkit-transform: scale( 0.6 );
+		-ms-transform: scale( 0.6 );
+		transform: scale( 0.6 );
 	}
 
 	40% {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
+		-webkit-transform: scale( 1 );
+		-ms-transform: scale( 1 );
+		transform: scale( 1 );
 	}
 }

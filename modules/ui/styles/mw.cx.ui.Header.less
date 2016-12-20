@@ -1,5 +1,5 @@
-@import "mediawiki.mixins";
-@import "../../widgets/common/ext.cx.common";
+@import 'mediawiki.mixins';
+@import '../../widgets/common/ext.cx.common';
 
 .cx-header {
 	transition: width 0.15s;
@@ -31,7 +31,6 @@
 	padding-top: 8px;
 }
 
-
 .cx-header__bar {
 	.mw-ui-item;
 	.mw-ui-one-whole;
@@ -39,7 +38,7 @@
 	border-top: 1px solid #eee;
 	padding-bottom: 10px;
 	padding-top: 15px;
-	box-shadow: 0 4px rgba(0,0,0,0.05);
+	box-shadow: 0 4px rgba( 0, 0, 0, 0.05 );
 }
 
 .cx-header__translation-center {
@@ -50,7 +49,7 @@
 		color: @gray-dark;
 
 		&:before {
-			content: "";
+			content: '';
 			display: inline-block;
 			border: 4px solid transparent;
 			border-right-color: @gray-dark;
@@ -68,11 +67,11 @@
 
 .cx-header.sticky {
 	.mw-ui-two-thirds;
-	position:fixed;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background: #fff;
-	background: rgba(255,255,255,0.95);
+	background: rgba( 255, 255, 255, 0.95 );
 	padding-top: 5px;
 	padding: 5px 0 0 0;
 	z-index: 10;
