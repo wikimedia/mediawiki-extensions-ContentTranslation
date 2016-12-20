@@ -379,6 +379,8 @@
 		this.$targetTemplateForm.on( 'input paste change', '.cx-template-editor-param-value',
 			$.debounce( 200, false, $.proxy( this.onParamEdit, this ) )
 		);
+
+		mw.hook( 'mw.cx.translation.focus' ).add( $.proxy( this.close, this ) );
 	};
 
 	/**
