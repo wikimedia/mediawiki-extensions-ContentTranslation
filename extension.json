@@ -150,7 +150,9 @@
 			"key": "",
 			"age": "3600"
 		},
-		"ContentTranslationEnableSuggestions": false
+		"ContentTranslationEnableSuggestions": false,
+		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
+		"RecommendToolAPIURL": "https://recommend-test.wmflabs.org/types/translation/v1/articles"
 	},
 	"ResourceModules": {
 		"Base64.js": {

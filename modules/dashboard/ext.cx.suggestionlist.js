@@ -726,7 +726,7 @@
 		var self = this;
 
 		this.$suggestionsContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
-			var cxSelector, suggestion, campaign;
+			var cxSelector, suggestion, campaign, type, algorithm;
 
 			cxSelector = $( this ).data( 'cxsourceselector' );
 
@@ -734,13 +734,18 @@
 				cxSelector.prefill();
 			} else {
 				suggestion = $( this ).find( '.cx-slitem__translation-link' ).data( 'suggestion' );
-				// Capture the list type for the campaign identifier
-				campaign = 'suggestions-type-' + self.lists[ suggestion.listId ].type;
+				// Capture the list type and algorithm if any, for the campaign identifier
+				type = self.lists[ suggestion.listId ].type;
+				campaign = [ 'suggestions-type', type ];
+				algorithm = self.lists[ suggestion.listId ].algorithm;
+				if ( algorithm ) {
+					campaign.push( algorithm );
+				}
 				$( this ).cxSourceSelector( {
 					sourceLanguage: suggestion.sourceLanguage,
 					targetLanguage: suggestion.targetLanguage,
 					sourceTitle: suggestion.title,
-					campaign: campaign
+					campaign: campaign.join( '-' )
 				} );
 			}
 		} );
