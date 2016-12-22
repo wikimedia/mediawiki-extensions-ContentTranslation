@@ -52,6 +52,12 @@ $specialPageAliases['diq'] = array(
 	'ContentTranslation' => array( 'AçarnayışêZerreki', 'AZ' ),
 );
 
+/** Spanish (Español) */
+$specialPageAliases['es'] = array(
+	'ContentTranslation' => array( 'Traducción_de_contenidos' ),
+	'ContentTranslationStats' => array( 'Estadísticas_de_traducción_de_contenidos' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'ContentTranslation' => array( 'ترجمهٔ_محتوا', 'ترجمه_محتوا' ),
