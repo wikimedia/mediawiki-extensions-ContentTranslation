@@ -18,12 +18,15 @@
 	"cx-publish-button-publishing": "Argitaratzen...",
 	"cx-publish-summary": "\"$1\" orrialdearen itzulpena eginez sortua",
 	"cx-publish-gt-move-page-title": "Orrialde hau mugitu",
+	"cx-publish-gt-moved-title": "Itzulitako orria mugitu egin da",
 	"cx-publish-gt-published-title": "Zorionak, orria publikatua izan da",
 	"cx-translation-add-translation": "+ Gehitu itzulpena",
 	"cx-source-loading": "$1 kargatzen",
+	"cx-beta": "Content Translation",
 	"cx-beta-desc": "Zeure hizkuntzara orrialdeak itzultzeko tresna bizkorra. Hasi itzulpenak [[Special:MyContributions|zure ekarpenen orrialdean]] eta editatu itzazu gure itzulpenerako bereziki prestatutako ondoan ondoko editorean. Baliteke zenbait tresna hizkuntza jakin batzuetan baino ez aurkitzea.",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Sortu hutsetik",
 	"cx-entrypoint-dialog-button-translate-from": "$1(e)tik itzuli",
+	"cx-tools-instructions-text5": "{{GENDER:|Argitaratu}} itzulpena",
 	"cx-tools-searchbox-text": "Bilatu hitz bat",
 	"cx-tools-dictionary-title": "Definizioa",
 	"cx-tools-link-title": "Lotura",
@@ -81,6 +84,7 @@
 	"cx-translation-status-draft": "Egiten",
 	"cx-translation-status-published": "Argitaratua",
 	"cx-translation-status-deleted": "Ezabatua",
+	"cx-publishing-dialog-publish-draft-button": "Argitaratu zirriborro bezala",
 	"cx-stats-published-translations-title": "Argitaratutako itzulpenak",
 	"cx-stats-draft-translations-title": "Itzulpenak egin bidean",
 	"cx-stats-new-draft-translations-label": "Itzulpen berriak egin bidean",
@@ -118,5 +122,6 @@
 	"cx-tools-linter-hide-details": "Xehetasunak ezkutatu",
 	"cx-translator-month-stats-label": "Hilabete honetan",
 	"cx-translator-total-translations-label": "Guztira",
-	"cx-tools-mt-new-provider": "berria"
+	"cx-tools-mt-new-provider": "berria",
+	"cx-tools-template-title": "Txantiloia"
 }
