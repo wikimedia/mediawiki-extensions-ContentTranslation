@@ -217,5 +217,10 @@
 	"cx-tools-mt-new-providers-available": "met nieuwe opties",
 	"cx-continue-translation": "Doorgaan met vertaling",
 	"cx-tools-template-title": "Sjabloon",
-	"cx-template-not-available": "Niet beschikbaar in $1"
+	"cx-template-action-adapt": "Gebruik equivalent sjabloon",
+	"cx-template-action-keep-original": "Bewaar originele sjabloon",
+	"cx-template-action-skip": "Sla sjabloon over",
+	"cx-template-not-available": "Niet beschikbaar in $1",
+	"cx-translation-template-add-more": "Voeg meer eigenschappen toe",
+	"cx-translation-template-select-param": "Selecteer doelveld"
 }
