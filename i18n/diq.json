@@ -6,7 +6,8 @@
 			"Amire80",
 			"Kumkumuk",
 			"1917 Ekim Devrimi",
-			"Gırd"
+			"Gırd",
+			"Gambollar"
 		]
 	},
 	"cx": "Pela açarnayışi",
@@ -23,8 +24,10 @@
 	"cx-header-all-translations": "Heme açarnayışi",
 	"cx-source-view-page": "pele bıvêne",
 	"cx-publish-page-success": "$1'i vıraziyê",
+	"cx-publish-page-error": "Açarnayış çap kerdış dı xeta veciya ya. Perer fınançap kerdışi bıcerebnê.  Xeta :$1",
 	"cx-publish-button": "Açarnayışi neşr ke",
 	"cx-publish-button-publishing": "Neşrêna...",
+	"cx-lost-session-draft": "Ronıştış qefılya/racneya. Juna pencere ra ronıştış nêakerê se vurnayışa şıma qeyd nêbena",
 	"cx-publish-summary": "Perra \"$1\" açarnayışi ra vıraziyaya",
 	"cx-publish-gt-move-page-title": "Pele bıkırışe",
 	"cx-publish-gt-moved-title": "Perra çerx bıyayi kırışiyè",
@@ -33,7 +36,7 @@
 	"cx-source-loading": "$1 Barbena",
 	"cx-beta": "Zerrek açarnayış",
 	"cx-beta-desc": "Yewna zıwand zerreki çerx kerdışda zıwan dê xorê yu haleta. [[Special:MyContributions|Prla iştirak da xora]] Açarnayışi baş bıkerê. Tay haleyi nışan bıyaye  zıwanan dê aktiv ê.",
-	"cx-entrypoint-title": "Pela açarne ena zuwan:$1",
+	"cx-entrypoint-title": "Perer bıçarnê ena zıwan :$1",
 	"cx-entrypoint-dialog-title-in": "Qandë per da newiy $1 zıwan dı serek:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Sıfır ra vıraze",
 	"cx-entrypoint-dialog-button-translate-from": "$1 ra açarne",
@@ -148,6 +151,7 @@
 	"cx-contributions-link": "İştiraqê to",
 	"cx-your-translations-link": "{{GENDER:$1|Açarnayışa to}}",
 	"cx-translationlist-empty-title": "Theba çıniyo açerneyo?",
+	"cx-translationlist-empty-desc": "{{GENDER:|Enewke}} açarnayış bıkerê,  çı mahal wazenê dewam kerê.",
 	"cx-tools-link-internal-link": "Pele rê gıre bıd",
 	"cx-tools-link-internal-link-placeholder": "Gre dayışi rê per bıvinê",
 	"cx-tools-link-external-link": "Grey teberi",
