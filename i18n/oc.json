@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jfblanc",
-			"Cedric31"
+			"Cedric31",
+			"Nicolas Eynaud"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -89,6 +90,7 @@
 	"cx-contributions-translation": "Traduccion",
 	"cx-contributions-upload": "Mandar de mèdias",
 	"cx-publishing-dialog-message": "La pagina $1 existís ja. Lo contengut actual serà remplaçat per vòstra traduccion. O volètz publicar malgrat tot ?",
+	"cx-publishing-dialog-keep-button": "Gardar lei doas versions",
 	"cx-publishing-dialog-publish-anyway-button": "Publicar malgrat tot",
 	"cx-discard-translation": "Abandonar la traduccion",
 	"cx-translation-status-draft": "En cors",
