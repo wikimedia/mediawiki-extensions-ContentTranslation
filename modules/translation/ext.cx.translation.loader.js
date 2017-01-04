@@ -185,10 +185,19 @@
 	};
 
 	/**
+	 * Get a section ID from the stored HTML.
+	 * @param {Object} unit Translation unit
+	 * @return {string} HTML id
+	 */
+	function getSectionId( unit ) {
+		return $( unit.content ).attr( 'id' );
+	}
+
+	/**
 	 * Restore this draft to the appropriate placeholders
 	 */
 	ContentTranslationLoader.prototype.restore = function () {
-		var i, sourceSectionId,
+		var i, unit, sectionId, sourceSectionId,
 			$restoredSection,
 			$lastRestoredSection,
 			orphans = [];
@@ -198,23 +207,34 @@
 		this.$translationColumn = this.$translationColumn ||
 			$( '.cx-column--translation .cx-column__content' );
 
-		for ( sourceSectionId in this.translationUnits ) {
+		for ( sectionId in this.translationUnits ) {
+			unit = this.translationUnits[ sectionId ];
+
+			// The cxc_section_id is declared as varbinary(30), so id's are truncated to
+			// this length. In this case, we can still recover the original id from the
+			// stored HTML.
+			if ( sectionId.length >= 30 ) {
+				sourceSectionId = getSectionId( unit.source );
+			} else {
+				sourceSectionId = sectionId;
+			}
+
 			if ( sourceSectionId === 'mwcx-source-title' ) {
 				this.restoreTitle();
 				continue;
 			}
-			$restoredSection = this.restoreSection( sourceSectionId );
+			$restoredSection = this.restoreSection( unit, sourceSectionId );
 			if ( !$restoredSection ) {
 				mw.log( 'Source section not found for ' + sourceSectionId );
 				// Insert right after last matched section if possible
 				if ( this.originalRevision && $lastRestoredSection && $lastRestoredSection.length ) {
-					$lastRestoredSection = this.addOprhanTranslationUnit(
-						sourceSectionId, $lastRestoredSection, 'after'
+					$lastRestoredSection = this.addOrphanTranslationUnit(
+						sourceSectionId, unit, $lastRestoredSection, 'after'
 					);
 				} else {
 					// No lastRestoredSection, So add and keep it in orphans array
 					// to try later.
-					orphans.push( sourceSectionId );
+					orphans.push( { id: sourceSectionId, unit: unit } );
 				}
 			} else {
 				$lastRestoredSection = $restoredSection;
@@ -225,7 +245,11 @@
 					continue;
 				}
 				for ( i = 0; i < orphans.length; i++ ) {
-					$lastRestoredSection = this.addOprhanTranslationUnit( orphans[ i ], $lastRestoredSection );
+					$lastRestoredSection = this.addOrphanTranslationUnit(
+						orphans[ i ].id,
+						orphans[ i ].unit,
+						$lastRestoredSection
+					);
 					if ( $restoredSection && $restoredSection.length ) {
 						// Remove it from the orphans array.
 						orphans.splice( i, 1 );
@@ -291,15 +315,20 @@
 	 * source section. We add a dummy source section for such cases. Dummy source section
 	 * is a placeholder - a white block in source column.
 	 *
-	 * @param {string} sourceSectionId The translation unit id.
+	 * @param {string} sourceSectionId The HTML id attribute of the source section.
+	 * @param {Object} translationUnit
 	 * @param {jQuery} $section Add it before/after this section.
 	 * @param {string} afterOrBefore Whether the orphan to be added after or before $section.
 	 * @return {string} translation
 	 */
-	ContentTranslationLoader.prototype.addOprhanTranslationUnit = function ( sourceSectionId, $section, afterOrBefore ) {
-		var translationUnit, $translation, $dummySourceSection;
+	ContentTranslationLoader.prototype.addOrphanTranslationUnit = function (
+		sourceSectionId,
+		translationUnit,
+		$section,
+		afterOrBefore
+	) {
+		var $translation, $dummySourceSection;
 
-		translationUnit = this.translationUnits[ sourceSectionId ];
 		$translation = $( getTranslation( translationUnit ) );
 
 		// Add a dummy source section
@@ -308,10 +337,10 @@
 			.prop( 'id', sourceSectionId );
 
 		if ( afterOrBefore === 'after' ) {
-			$( '#' + $section.data( 'source' ) ).after( $dummySourceSection );
+			mw.cx.getSourceSection( $section.data( 'source' ) ).after( $dummySourceSection );
 			$section.after( $translation );
 		} else {
-			$( '#' + $section.data( 'source' ) ).before( $dummySourceSection );
+			mw.cx.getSourceSection( $section.data( 'source' ) ).before( $dummySourceSection );
 			$section.before( $translation );
 		}
 
@@ -331,31 +360,31 @@
 	/**
 	 * Restore a section to the appropriate placeholders
 	 *
-	 * @param {string} sourceSectionId Souce section identifier
+	 * @param {Object} translationUnit
+	 * @param {string} sourceSectionId The source section HTML id attribute.
 	 * @return {jQuery|boolean} The restored section object or false if section not restored
 	 */
-	ContentTranslationLoader.prototype.restoreSection = function ( sourceSectionId ) {
-		var translationUnit, $translation, targetSectionId,
+	ContentTranslationLoader.prototype.restoreSection = function ( translationUnit, sourceSectionId ) {
+		var $translation, targetSectionId,
 			$section = [],
 			$sourceSection = [],
 			$placeholderSection = [];
 
-		translationUnit = this.translationUnits[ sourceSectionId ];
 		$translation = $( getTranslation( translationUnit ) );
-		$sourceSection = $( document.getElementById( sourceSectionId ) );
+		$sourceSection = mw.cx.getSourceSection( sourceSectionId );
 		targetSectionId = $translation.prop( 'id' );
 
 		// Find a placeholder in translation column. Make sure that it is indeed a placeholder.
 		// Don't overwrite on an existing section.
-		$placeholderSection = this.$translationColumn.find( '.placeholder#cx' + sourceSectionId );
+		$placeholderSection = this.$translationColumn.find( '.placeholder[id="cx' + sourceSectionId + '"]' );
 
 		if ( !$placeholderSection.length ) {
 			// Support old sections with sequential idendifiers
 			$sourceSection = this.$sourceColumn.find( '[data-seqid="' + translationUnit.sequenceId + '"]' );
 			if ( $sourceSection.length ) {
 				// Class is needed in selector to make sure it is indeed a placeholder.
-				$placeholderSection = this.$translationColumn.find( '.placeholder#cx' +
-					$sourceSection.prop( 'id' )
+				$placeholderSection = this.$translationColumn.find(
+					'.placeholder[id="cx' + $sourceSection.prop( 'id' ) + '"]'
 				);
 			}
 			targetSectionId = $placeholderSection.prop( 'id' );
