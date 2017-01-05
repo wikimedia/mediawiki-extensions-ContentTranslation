@@ -4,7 +4,8 @@
 			"Robin0van0der0vliet",
 			"Romaine",
 			"Siebrand",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Mainframe98"
 		]
 	},
 	"apihelp-cxpublish-description": "Sla een aangemaakte pagina op met behulp van de Content Translation-extensie.",
@@ -60,5 +61,9 @@
 	"apihelp-cxsave-param-title": "De titel van de pagina om acties op uit te voeren.",
 	"apihelp-cxsave-param-from": "De code van de brontaal.",
 	"apihelp-cxsave-param-to": "De code van de doeltaal.",
-	"apihelp-cxsave-param-sourcetitle": "De titel van de bronpagina."
+	"apihelp-cxsave-param-sourcetitle": "De titel van de bronpagina.",
+	"apierror-cx-invalidlanguage": "Ongeldige taal.",
+	"apierror-cx-invalidsourcelanguage": "Ongeldige brontaal.",
+	"apierror-cx-invalidtargetlanguage": "Ongeldige doeltaal.",
+	"apierror-cx-translationnotfound": "De vertaling is niet gevonden."
 }
