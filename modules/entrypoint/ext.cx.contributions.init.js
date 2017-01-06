@@ -7,7 +7,7 @@
 ( function ( $ ) {
 	'use strict';
 
-	$( document ).ready( function () {
+	$( function () {
 		var $element = $( '<span>' );
 
 		$element.cxContributions();
