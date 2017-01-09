@@ -10,7 +10,7 @@ conventions we use in the project.
 
 Please report bugs to [phabricator.wikimedia.org](https://phabricator.wikimedia.org)
 using the `mediawiki-extensions-contenttranslation` project. Don't worry about
-specifying prioriy or security.
+specifying priority or security.
 
 ## Running tests
 
