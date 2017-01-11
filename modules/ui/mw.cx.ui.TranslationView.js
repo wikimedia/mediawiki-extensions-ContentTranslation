@@ -22,6 +22,7 @@
 		this.config = $.extend( {}, config, {
 			continuous: true,
 			expanded: false,
+			scrollable: false,
 			items: [ this.header, this.columns ],
 			classes: [ 'cx-widget' ]
 		} );
