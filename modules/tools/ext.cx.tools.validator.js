@@ -29,22 +29,18 @@
 		}
 
 		return api.get( {
+			formatversion: 2,
 			action: 'query',
 			titles: title,
-			redirects: 1,
-			indexpageids: 1
+			redirects: 1
 		} ).then( function ( response ) {
-			var pageid = response.query.pageids[ 0 ];
+			var page = response.query.pages[ 0 ];
 
-			if ( response.query.pages[ pageid ].missing !== undefined ) {
+			if ( page.missing || page.invalid ) {
 				return false;
 			}
 
-			if ( response.query.pages[ pageid ].invalid !== undefined ) {
-				return false;
-			}
-
-			return response.query.pages[ pageid ].title;
+			return page.title;
 		} );
 	};
 
