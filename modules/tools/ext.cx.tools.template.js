@@ -450,21 +450,18 @@
 		var self = this;
 
 		return self.siteMapper.getApi( this.language ).get( {
+			formatversion: 2,
 			action: 'query',
 			titles: templateName,
 			redirects: true,
 			prop: 'revisions',
-			rvprop: 'content',
-			indexpageids: '1'
+			rvprop: 'content'
 		} ).then( function ( resp ) {
-			var title, pageContent = '';
+			var page = resp.query.pages[ 0 ], title, pageContent = '';
 
-			if (
-				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions &&
-				resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ]
-			) {
-				pageContent = resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ][ '*' ];
-				title = resp.query.pages[ resp.query.pageids[ 0 ] ].title;
+			if ( page.revisions && page.revisions[ 0 ] ) {
+				pageContent = page.revisions[ 0 ].content;
+				title = page.title;
 			}
 
 			return {

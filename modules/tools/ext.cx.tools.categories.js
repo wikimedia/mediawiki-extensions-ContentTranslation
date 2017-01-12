@@ -502,27 +502,21 @@
 		categoryTool = this;
 
 		this.siteMapper.getApi( language ).get( {
+			formatversion: 2,
 			action: 'query',
 			prop: 'categories',
 			clshow: '!hidden',
 			cllimit: 100,
-			indexpageids: true,
 			titles: title
 		} ).done( function ( response ) {
-			var pageId,
-				categoriesArray = [];
+			var categoriesArray = response.query.pages[ 0 ].categories || [];
 
-			if ( response.query ) {
-				pageId = response.query.pageids[ 0 ];
-				categoriesArray = response.query.pages[ pageId ].categories || [];
+			$.each( categoriesArray, function ( index, object ) {
+				var categoryId;
 
-				$.each( categoriesArray, function ( index, object ) {
-					var categoryId;
-
-					categoryId = makeCategoryId( index, 3, '0' );
-					categories[ categoryId ] = object.title;
-				} );
-			}
+				categoryId = makeCategoryId( index, 3, '0' );
+				categories[ categoryId ] = object.title;
+			} );
 
 			categoryTool.categories.source = categories;
 			deferred.resolve( categories );
