@@ -47,7 +47,7 @@
 
 		assert.strictEqual(
 			this.siteMapper.getPageUrl( 'fi', 'Longer title' ),
-			'https://fi.wikipedia.org/wiki/Longer title',
+			'https://fi.wikipedia.org/wiki/Longer_title',
 			'Title with space'
 		);
 	} );
