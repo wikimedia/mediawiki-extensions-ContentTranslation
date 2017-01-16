@@ -408,7 +408,7 @@
 
 		// Get new section so that we can annotate the section to indicate it
 		// was restored from draft, so that certain adaptations can be skipped.
-		$section = this.$translationColumn.find( '#' + targetSectionId );
+		$section = this.$translationColumn.find( '[id="' + targetSectionId + '"]' );
 		$section.attr( {
 			'data-cx-draft': true,
 			'data-source': sourceSectionId
