@@ -35,7 +35,8 @@
 			"Derugon",
 			"Frigory",
 			"Pols12",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"The RedBurn"
 		]
 	},
 	"cx": "Traduire la page",
@@ -214,7 +215,7 @@
 	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",
 	"cx-tools-link-to-another-page": "Lien vers une autre page",
 	"cx-tools-link-add-as-missing": "Ajouter comme lien manquant",
-	"cx-tools-link-apply": "Fait",
+	"cx-tools-link-apply": "Appliquer",
 	"mw-pageselector-missing": "La page n’existe pas",
 	"cx-draft-restoring": "Chargement de la traduction enregistrée…",
 	"cx-draft-restored": "Traduction enregistrée chargée.",

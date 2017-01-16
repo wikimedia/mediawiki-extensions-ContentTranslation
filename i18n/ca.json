@@ -21,6 +21,7 @@
 	"cx": "Tradueix la pàgina",
 	"cx-dashboard-header": "Traduccions",
 	"cx-javascript": "Aquesta eina no funciona sense JavaScript.",
+	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducció de continguts]] és una eina per a traduir ràpidament pàgines en la vostra llengua. [$1 Proveu-la ara!]",
 	"cx-license-agreement": "En clicar el botó «$1» esteu acceptant els [//wikimediafoundation.org/wiki/Terms_of_Use termes d'ús] i accepteu alliberar irrevocablement les vostres contribucions amb l'eina de traducció sota la [https://creativecommons.org/licenses/by-sa/3.0/deed.ca llicència CC BY-SA 3.0] i la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] entenent que un hiperenllaç o URL és suficient per l'atribució CC BY-SA 3.0.",
 	"cx-error-server-connection": "Error: No s'ha pogut connectar al servidor.",
 	"cx-desc": "Fa fàcil [[Special:ContentTranslation|traduir]] pàgines de contingut",
@@ -39,7 +40,7 @@
 	"cx-publish-summary": "Creada per traducció de la pàgina «$1»",
 	"cx-publish-gt-no-permission-to-move-description": "Si us plau, demaneu a un usuari experimentat d'aquest lloc perquè us ajudi a revisar la vostra traducció i us expliqui com publicar-la a l'espai principal.",
 	"cx-publish-gt-first-step-title": "La vostra traducció s'ha publicat com a esborrany en la vostra subpàgina d'usuari i resta pendent de la vostra revisió",
-	"cx-publish-gt-first-step-description": "Cliqueu a \"$1\" sota aquest menú per fer que el contingut estigui disponible per a tots els usuaris en una pàgina regular.",
+	"cx-publish-gt-first-step-description": "Cliqueu a l'acció «$1» sota aquest menú per fer que el contingut estigui disponible per a tots els usuaris en una pàgina regular.",
 	"cx-publish-gt-move-page-title": "Trasllada la pàgina",
 	"cx-publish-gt-move-page-description": "Selecciona l'espai de nom \"{{int:blanknamespace}}\" i dóna un títol apropiat a la teva pàgina.",
 	"cx-publish-gt-moved-title": "S'ha traslladat la pàgina traduïda.",
@@ -201,6 +202,7 @@
 	"cx-suggestionlist-expand": "Mostra-ho tot",
 	"cx-suggestionlist-collapse": "Mostra'n menys",
 	"cx-suggestionlist-refresh": "Actualitza els suggeriments",
+	"cx-notification-suggestions-available": "D'acord amb la {{GENDER:$2|vostra}} traducció anterior de '''$1''', s'han facilitat nous suggeriments.",
 	"cx-tools-linter-title": "Problemes amb el contingut: $1",
 	"cx-tools-linter-view-details": "Mostra els detalls",
 	"cx-tools-linter-hide-details": "Amaga els detalls",
@@ -215,5 +217,7 @@
 	"cx-template-action-keep-original": "Manté la plantilla original",
 	"cx-template-action-skip": "Omet la plantilla",
 	"cx-template-not-available": "No disponible en $1",
-	"cx-translation-template-add-param": "Tradueix el camp"
+	"cx-translation-template-add-param": "Tradueix el camp",
+	"cx-translation-template-add-more": "Afegeix més propietats",
+	"cx-translation-template-select-param": "Seleccioneu el camp de destinació"
 }
