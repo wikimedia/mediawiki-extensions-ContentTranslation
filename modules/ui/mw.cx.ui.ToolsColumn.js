@@ -19,7 +19,8 @@
 		this.config = $.extend( {}, config, {
 			continuous: false,
 			classes: [ 'cx-column', 'cx-column--tools' ],
-			expanded: false
+			expanded: false,
+			scrollable: false
 		} );
 		// Parent constructor
 		mw.cx.ui.ToolsColumn.parent.call( this, this.config );

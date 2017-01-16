@@ -21,7 +21,8 @@
 		this.config = $.extend( {}, config, {
 			continuous: true,
 			classes: [ 'cx-column', 'cx-column--translation' ],
-			expanded: false
+			expanded: false,
+			scrollable: false
 		} );
 		// Parent constructor
 		mw.cx.ui.TranslationColumn.parent.call( this, this.config );
