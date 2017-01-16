@@ -113,9 +113,10 @@
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @param {string} language
 	 * @param {string} wikitext
+	 * @param {string} [title]
 	 * @return {jQuery.Promise}
 	 */
-	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext ) {
+	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext, title ) {
 		var url, domain;
 
 		if ( !wikitext || !wikitext.trim() || !/\{\{|[\[<>&'=#*]/.test( wikitext ) ) {
@@ -126,6 +127,9 @@
 		domain = siteMapper.getWikiDomainCode( language );
 		url = siteMapper.config.restbase.replace( '$1', domain );
 		url += '/transform/wikitext/to/html';
+		if ( title ) {
+			url += '/' + title;
+		}
 		return $.post( url, {
 		/* eslint camelcase:off */
 			body_only: true,

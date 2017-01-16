@@ -672,7 +672,7 @@
 		wikitext = this.getWikitext();
 		mw.log( '[CX] Updated template: ' + wikitext );
 
-		return mw.cx.wikitextToHTML( this.siteMapper, this.language, wikitext )
+		return mw.cx.wikitextToHTML( this.siteMapper, this.language, wikitext, mw.cx.targetTitle )
 			.then( function ( response ) {
 				// TODO: Refactor this to a new method.
 				var $newTemplate, i, $new;
