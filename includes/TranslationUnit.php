@@ -22,7 +22,13 @@ class TranslationUnit {
 		if ( isset( $params['translationId'] ) ) {
 			$this->translationId = (int)$params['translationId'];
 		}
-		$this->sectionId = (string)$params['sectionId'];
+
+		// Truncate section id to fit in the database column. The frontend is aware of this
+		// limitation and checks the id from content itself if the length is 30 bytes. Also
+		// cxserver is aware of this limitation and it should not produce ids that are over
+		// 30 bytes. Also, the database does not actually complain unless it is in a strict
+		// mode, which is not yet the case for Wikimedia deployment.
+		$this->sectionId = substr( (string)$params['sectionId'], 0, 30 );
 		$this->origin = (string)$params['origin'];
 		$this->sequenceId = (int)$params['sequenceId'];
 		$this->content = (string)$params['content'];
