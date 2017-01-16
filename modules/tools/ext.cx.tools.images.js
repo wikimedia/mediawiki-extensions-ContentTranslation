@@ -125,7 +125,7 @@
 			}
 
 			$sourceSection = mw.cx.getSourceSection( $section.data( 'source' ) );
-			$sourceImage = $sourceSection.find( '#' + imageId );
+			$sourceImage = $sourceSection.find( '[id="' + imageId + '"]' );
 			$image.on( 'click', function ( event ) {
 				// Avoid opening images by clicking.
 				event.preventDefault();
