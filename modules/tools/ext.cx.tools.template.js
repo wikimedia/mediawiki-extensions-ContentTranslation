@@ -69,7 +69,7 @@
 		}
 
 		if ( mwData.parts.length > 1 ) {
-			mw.log( '[CX] Skipping multipart template for now: ' + mwData.parts[ 0 ].template.target.wt );
+			mw.log( '[CX] Skipping multipart template for now for Template#' + this.$template.attr( 'id' ) );
 			return $.Deferred().reject().promise();
 		}
 
