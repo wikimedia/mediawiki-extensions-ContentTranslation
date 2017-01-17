@@ -7,7 +7,8 @@
 			"Kumkumuk",
 			"1917 Ekim Devrimi",
 			"Gırd",
-			"Gambollar"
+			"Gambollar",
+			"Dılmıc"
 		]
 	},
 	"cx": "Pela açarnayışi",
@@ -77,7 +78,7 @@
 	"cx-dashboard-sidebar-stats": "İstatistiki",
 	"cx-dashboard-sidebar-feedback": "Marê waştış  peyd bırış",
 	"cx-translation-filter-all-translations": "Heme açarnayışi",
-	"cx-translation-filter-published-translations": "vılabiyayey",
+	"cx-translation-filter-published-translations": "Vet",
 	"cx-translation-filter-draft-translations": "Rameno",
 	"cx-translation-filter-suggested-translations": "Tavsiyeyan",
 	"cx-suggestionlist-favorite": "Semedê bahdoy",
@@ -106,7 +107,7 @@
 	"cx-publishing-dialog-publish-anyway-button": "Fına zi weşan",
 	"cx-discard-translation": "Açarnayışi mehesıbne",
 	"cx-translation-status-draft": "Rameno",
-	"cx-translation-status-published": "vılabiyayey",
+	"cx-translation-status-published": "Vet",
 	"cx-translation-status-deleted": "Esteriya",
 	"cx-translation-already-in-progress": "Ena açarnayışa {{GENDER:$2|terefë }} $1 ra dewam kena",
 	"cx-publishing-dialog-publish-draft-button": "Taslak deyne neşr kı",
