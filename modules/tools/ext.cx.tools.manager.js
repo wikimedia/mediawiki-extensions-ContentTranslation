@@ -57,7 +57,11 @@
 
 		this.$loadingIndicator = $( '.cx-tools__loading-indicator' );
 		$.each( mw.cx.tools, function ( toolName, tool ) {
-			var events = tool.prototype.getTriggerEvents();
+			var events;
+			if ( !tool.prototype || !tool.prototype.getTriggerEvents ) {
+				return;
+			}
+			events = tool.prototype.getTriggerEvents();
 
 			for ( index = 0; index < events.length; index++ ) {
 				if ( !cxToolManager.eventRegistry[ events[ index ] ] ) {

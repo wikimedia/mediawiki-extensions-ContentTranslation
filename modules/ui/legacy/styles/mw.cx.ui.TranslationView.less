@@ -1,0 +1,51 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.cx-column--source,
+.cx-column--translation {
+	.mw-ui-one-half(@palm);
+	.cx-column__content {
+		// Make sure that the captions are aligned according to the column's language
+		// rather than the wiki's content language
+		&[dir='rtl'] figcaption {
+			/* @noflip */
+			text-align: right;
+		}
+
+		&[dir='ltr'] figcaption {
+			/* @noflip */
+			text-align: left;
+		}
+
+		& > p,
+		& > table,
+		& > figure,
+		& > pre,
+		& > div,
+		& > ul {
+			// Use margin-bottom alone for paragraphs to avoid problems explained at
+			// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
+			// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
+			margin: 0 0 1.5em;
+		}
+		& > section {
+			// Avoid border collapse. See https://www.w3.org/TR/CSS2/box.html#collapsing-margins
+			overflow: auto;
+		}
+	}
+}
+
+.suggestion {
+	.mw-ui-item;
+	.mw-ui-one-half(@palm);
+
+	background-color: @white;
+	border: 1px solid #cccccc;
+	padding: 10px;
+	margin: 2px 0;
+}
+
+.cx-header__publish {
+	.mw-ui-item;
+	.mw-ui-one-third;
+	float: right;
+}

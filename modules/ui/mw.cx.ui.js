@@ -8,6 +8,8 @@
 ( function ( mw ) {
 	'use strict';
 
-	mw.cx.ui = {};
+	mw.cx.ui = {
+		mixin: {}
+	};
 
 }( mediaWiki ) );

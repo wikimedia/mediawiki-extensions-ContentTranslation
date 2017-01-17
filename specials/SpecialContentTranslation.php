@@ -101,7 +101,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function execute( $parameters ) {
-		global $wgContentTranslationTranslateInTarget, $wgULSPosition;
+		global $wgContentTranslationTranslateInTarget, $wgULSPosition, $wgContentTranslationVersion;
 
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
@@ -143,9 +143,13 @@ class SpecialContentTranslation extends SpecialPage {
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
 
+		$initModule = 'mw.cx.init.legacy';
+		// If request has param to use CX oojs based version, change init module.
+		if ( (int)$request->getVal( 'version' ) === 2 || (int)$wgContentTranslationVersion === 2 ) {
+			$initModule = 'mw.cx.init';
+		}
 		if ( $hasToken || $isExistingTranslation ) {
-			$out->addModules( 'mw.cx.ui.TranslationView' );
-
+			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {

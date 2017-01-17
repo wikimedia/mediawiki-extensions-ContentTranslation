@@ -1,0 +1,29 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+[contenteditable] {
+	.cx-target-link-unadapted {
+		color: #72777d;
+
+		&:hover {
+			color: @gray-darker;
+		}
+	}
+
+	.cx-link {
+		cursor: pointer;
+	}
+
+	// Links that cannot be adapted will be represented in gray with a dashed underline.
+	// The dashed underline will only appear for the links on the current paragraph.
+	// Links from other paragraphs will not show the dashed underline to avoid too much visual noise.
+	&:focus .cx-target-link-unadapted {
+		border-bottom: 1px dashed #ccc;
+	}
+}
+
+[rel='mw:ExtLink'] {
+	background-position: right center;
+	background-repeat: no-repeat;
+	.background-image-svg('../images/external_link.svg', '../images/external_link.png');
+	padding-right: 13px;
+}

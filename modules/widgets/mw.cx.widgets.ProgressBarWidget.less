@@ -1,0 +1,25 @@
+@import 'common/ext.cx.common.less';
+
+.cx-progressbar {
+	background-color: #dddddd;
+	transition: width 1s;
+
+	.cx-progressbar-total {
+		border: 0;
+		height: 4px;
+		.oo-ui-progressBarWidget-bar {
+			background-color: @color-primary;
+		}
+	}
+
+	.cx-progressbar-mt {
+		border: 0;
+		height: 4px;
+		top: -4px;
+		position: relative;
+		opacity: 0.5;
+		.oo-ui-progressBarWidget-bar {
+			background-color: @gray-dark;
+		}
+	}
+}

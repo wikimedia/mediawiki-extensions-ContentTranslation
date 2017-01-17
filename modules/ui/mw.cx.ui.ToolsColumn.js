@@ -1,41 +1,85 @@
-/*!
- * Translation container
+'use strict';
+
+/**
+ * Tools column
  *
- * @ingroup Extensions
- * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @class
+ * @param {Object} [config] Configuration object
  */
-( function ( $, mw, OO ) {
-	'use strict';
+mw.cx.ui.ToolsColumn = function ( config ) {
+	this.config = config;
+	this.progressBar = new mw.cx.widgets.ProgressBarWidget( config );
+	this.toolContainer = new OO.ui.StackLayout( {
+		continuous: true,
+		classes: [ 'cx-column--tools-container' ],
+		expanded: false,
+		padded: true
+	} );
+	// Configuration initialization
+	this.config = $.extend( {}, config, {
+		continuous: true,
+		classes: [ 'cx-column', 'cx-column--tools' ],
+		expanded: false,
+		scrollable: false,
+		padded: false,
+		items: [ this.progressBar, this.toolContainer ]
+	} );
+	// Parent constructor
+	mw.cx.ui.ToolsColumn.parent.call( this, this.config );
+	this.init();
+};
 
-	/**
-	 * Translation container
-	 *
-	 * @class
-	 * @param {Object} [config] Configuration object
-	 */
-	mw.cx.ui.ToolsColumn = function ( config ) {
-		// Configuration initialization
-		this.config = $.extend( {}, config, {
-			continuous: false,
-			classes: [ 'cx-column', 'cx-column--tools' ],
-			expanded: false,
-			scrollable: false
-		} );
-		// Parent constructor
-		mw.cx.ui.ToolsColumn.parent.call( this, this.config );
-		this.init();
-	};
+/* Setup */
 
-	/* Setup */
+OO.inheritClass( mw.cx.ui.ToolsColumn, OO.ui.StackLayout );
 
-	OO.inheritClass( mw.cx.ui.ToolsColumn, OO.ui.StackLayout );
+mw.cx.ui.ToolsColumn.prototype.init = function () {
+	mw.loader.using( 'mw.cx.tools', function () {
+		mw.log( '[CX] Initializing translation tool system' );
+	} );
+	this.listen();
+};
 
-	mw.cx.ui.ToolsColumn.prototype.init = function () {
-		var self = this;
-		mw.loader.using( 'ext.cx.tools', function () {
-			self.$element.cxTools();
-		} );
-	};
+mw.cx.ui.ToolsColumn.prototype.listen = function () {
+	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
+};
 
-}( jQuery, mediaWiki, OO ) );
+/**
+ * Show the tools associated with the translationUnit.
+ *
+ * @param {mw.cx.ui.TranslationUnit} translationUnit
+ */
+mw.cx.ui.ToolsColumn.prototype.showTools = function ( translationUnit ) {
+	var i, tools;
+
+	tools = translationUnit.getTools();
+	for ( i = 0; i < tools.length; i++ ) {
+		this.toolContainer.addItems( [ tools[ i ].getCard() ], tools[ i ].order );
+	}
+};
+
+/**
+ * Show a single tool in tools container
+ * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
+ * @param {integer} [index] Optional index - position in the items
+ */
+mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool, index ) {
+	this.toolContainer.addItems( [ tool.getCard() ], index || tool.order );
+};
+
+/**
+ * Hide all tools shown in the tools container
+ */
+mw.cx.ui.ToolsColumn.prototype.hideAllTools = function () {
+	this.toolContainer.clearItems();
+};
+
+mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {
+	var scrollTop = $( window ).scrollTop();
+
+	if ( scrollTop > 0 ) {
+		this.$element.addClass( 'sticky' );
+	} else {
+		this.$element.removeClass( 'sticky' );
+	}
+};

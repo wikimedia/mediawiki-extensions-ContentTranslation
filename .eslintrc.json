@@ -8,6 +8,7 @@
 	"globals": {
 		"mediaWiki": false,
 		"moment": false,
+		"mw": false,
 		"EasyDeflate": false,
 		"OO": false
 	},

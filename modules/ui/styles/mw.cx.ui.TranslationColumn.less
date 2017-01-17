@@ -1,0 +1,36 @@
+@import "../../widgets/common/ext.cx.common.less";
+@import "../../widgets/common/ext.cx.highlight.less";
+
+.cx-column--translation {
+	[contenteditable] {
+		outline: none;
+	}
+}
+
+.cx-placeholder,
+.placeholder {
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	font-weight: lighter;
+	color: transparent;
+	cursor: pointer;
+	.cx-spinner {
+		margin: 0 auto;
+	}
+	.cx-column--translation:hover &:first-child {
+		color: transparent;
+		background-color: transparent;
+	}
+
+	&:first-child,
+	.cx-column--translation &:first-child:hover,
+	&:hover {
+		color: #AAA;
+		background-color: #f8f8f8;
+		/* In supported browsers, center the placeholder text */
+		display: flex;
+		justify-content: center; /* align horizontally */
+		align-items: center; /* align vertically */
+	}
+}

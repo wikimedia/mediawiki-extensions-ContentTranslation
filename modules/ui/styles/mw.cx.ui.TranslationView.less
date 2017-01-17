@@ -1,10 +1,9 @@
-@import '../../widgets/common/ext.cx.column';
-@import '../../widgets/common/ext.cx.common';
+@import '../../widgets/common/ext.cx.common.less';
 
 .cx-column--source,
 .cx-column--translation {
 	.mw-ui-one-half(@palm);
-
+	.mw-ui-gutter(3%);
 	.cx-column__content {
 		// Make sure that the captions are aligned according to the column's language
 		// rather than the wiki's content language
@@ -29,28 +28,10 @@
 			// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
 			margin: 0 0 1.5em;
 		}
-	}
-}
-
-.cx-column--tools {
-	.mw-ui-one-whole(@palm);
-
-	background: #f0f0f0;
-	min-height: 100vh;
-	position: relative;
-	z-index: 20;
-	border-left: 1px solid #ccc;
-
-	&.sticky {
-		.stick-to-side;
-
-		@media @palm {
-			.stick-to-bottom;
+		& > section {
+			// Avoid border collapse. See https://www.w3.org/TR/CSS2/box.html#collapsing-margins
+			overflow: auto;
 		}
-	}
-
-	@media @palm {
-		.stick-to-bottom;
 	}
 }
 
@@ -58,8 +39,8 @@
 	.mw-ui-item;
 	.mw-ui-one-half(@palm);
 
-	background: #fff;
-	border: 1px solid #ccc;
+	background-color: @white;
+	border: 1px solid #cccccc;
 	padding: 10px;
 	margin: 2px 0;
 }

@@ -1,0 +1,38 @@
+@import '../../widgets/common/ext.cx.common.less';
+
+.cx-tools-link-image {
+	.mw-ui-three-tenths;
+	vertical-align: middle;
+	height: 100px;
+
+	&.cx-tools-link-image-empty {
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-position: center center;
+		.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
+	}
+}
+
+.cx-tools-link-info {
+	.mw-ui-seven-tenths;
+}
+
+.cx-tools-link-text {
+	padding: 10px;
+	vertical-align: top;
+	color: #0645ad;
+	font-size: large;
+}
+
+.cx-tools-link-desc {
+	padding: 10px;
+	vertical-align: top;
+	color: @gray-dark;
+}
+
+.cx-tools-link-add-button,
+.cx-tools-link-remove-button {
+	.mw-ui-one-half;
+	margin-right: 0;
+}

@@ -1,0 +1,23 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.cx-column--tools {
+	.mw-ui-one-whole(@palm);
+
+	background-color: #f0f0f0;
+	min-height: 100vh;
+	position: relative;
+	z-index: 20;
+	border-left: 1px solid #ccc;
+
+	&.sticky {
+		.stick-to-side;
+
+		@media @palm {
+			.stick-to-bottom;
+		}
+	}
+
+	@media @palm {
+		.stick-to-bottom;
+	}
+}

@@ -1,0 +1,71 @@
+@import 'common/ext.cx.common.less';
+
+.cx-card {
+	background-color: #fff;
+	border: 1px solid #c9c9c9;
+	border-radius: 2px;
+	box-shadow: 0 1px 0 #c9c9c9;
+	margin-bottom: 15px;
+
+	&:hover {
+		border-color: #bbb;
+		box-shadow: 0 1px 0 #bbb;
+	}
+
+	/* Clearfix */
+	&:after {
+		// Non empty content value aoids an Opera bug that creates space around
+		// clearfixed elements if the contenteditable attribute is also present
+		// somewhere in the HTML.
+		content: ' ';
+		visibility: hidden;
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+
+.cx-widget-translationtool-header {
+	.mw-ui-item;
+	padding: 5px 10px;
+	clear: both;
+}
+
+.cx-widget-translationtool-container {
+	.mw-ui-item;
+	padding: 5px 10px;
+	clear: both;
+}
+
+.cx-widget-translationtool-actions {
+	.mw-ui-item;
+	padding: 5px 10px;
+	clear: both;
+	border-top: 1px solid #eee;
+}
+
+.card__title,
+.card__title--language {
+	.mw-ui-item;
+	.mw-ui-one-half;
+	color: #aaa;
+	padding: 4px;
+}
+
+.card__title--language {
+	text-align: right;
+}
+
+/* Cards animation */
+@keyframes card-show-animation {
+	0% {
+		opacity: 0;
+		position: relative;
+		top: 15px;
+	}
+
+	100% {
+		opacity: 1;
+		top: 0;
+	}
+}
