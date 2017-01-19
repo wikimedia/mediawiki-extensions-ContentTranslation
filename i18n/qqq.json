@@ -223,7 +223,7 @@
 	"cx-template-action-keep-original": "Menu item label in template tool card when adapting a template while translating. Selecting this action will insert the wiki syntax of the original template in the original language as-is.",
 	"cx-template-action-skip": "Menu item label in template tool card when adapting a template while translating. Selecting this option will not insert any template.",
 	"cx-template-not-available": "Text shown when a corresponding template not available in target language\n* $1 - Target language name",
-	"cx-translation-template-add-param": "Hover text for the template parameter placeholders. Shown in the form for translating the template parameters.",
-	"cx-translation-template-add-more": "Label for the control to add more template parameters. Shown at the bottom of the form for translating the template parameters.",
-	"cx-translation-template-select-param": "Label for the template param selector."
+	"cx-translation-template-add-param": "Hover text for the template field placeholders. Shown in the form for translating the template fields. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}.",
+	"cx-translation-template-add-more": "Label for the control to add more template fields. Shown at the bottom of the form for translating the template parameters. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}",
+	"cx-translation-template-select-param": "Label for the template field selector. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}"
 }
