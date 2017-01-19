@@ -146,20 +146,14 @@
 /* @noflip */.cx-callout-1:after {
 	bottom: 100%;
 	right: 11px;
-}
-
-/* @noflip */.cx-callout-1:before {
-	bottom: 100%;
-	right: 10px;
-}
-
-/* @noflip */.cx-callout-1:after {
 	border-bottom-color: #fff;
 	border-width: 12px;
 	margin-left: -12px;
 }
 
 /* @noflip */.cx-callout-1:before {
+	bottom: 100%;
+	right: 10px;
 	border-bottom-color: #ccc;
 	border-width: 13px;
 	margin-left: -13px;
@@ -204,20 +198,14 @@
 /* @noflip */.cx-callout-5:after {
 	top: 100%;
 	right: 11px;
-}
-
-/* @noflip */.cx-callout-5:before {
-	top: 100%;
-	right: 10px;
-}
-
-/* @noflip */.cx-callout-5:after {
 	border-top-color: #fff;
 	border-width: 12px;
 	margin-left: -12px;
 }
 
 /* @noflip */.cx-callout-5:before {
+	top: 100%;
+	right: 10px;
 	border-top-color: #ccc;
 	border-width: 13px;
 	margin-left: -13px;
