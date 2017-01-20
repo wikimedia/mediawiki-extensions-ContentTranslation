@@ -214,6 +214,6 @@
 	"cx-template-action-skip": "לדלג על התבנית",
 	"cx-template-not-available": "לא זמין ב$1",
 	"cx-translation-template-add-param": "+ לתרגם את הפרמטר",
-	"cx-translation-template-add-more": "פרמטרים נוספים",
-	"cx-translation-template-select-param": "{{GENDER:|בחר|בחרי}} את פרמטר היעד"
+	"cx-translation-template-add-more": "{{GENDER:|הוסף|הוסיפי}} שדות",
+	"cx-translation-template-select-param": "{{GENDER:|בחר|בחרי}} את שדה היעד"
 }

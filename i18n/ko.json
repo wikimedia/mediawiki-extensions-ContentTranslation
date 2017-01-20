@@ -218,5 +218,6 @@
 	"cx-translator-total-translations-label": "합계",
 	"cx-page-old-revision-loaded": "이 번역은 오래된 판의 내용에 기반을 두고 있습니다. 원본 문서가 [$1 많이 바뀌었을 수 있습니다]. 이 번역을 계속하거나 업데이트된 내용을 사용하여 다시 시작할 수 있습니다.",
 	"cx-tools-mt-new-providers-available": "새 옵션을 사용하기",
-	"cx-continue-translation": "번역 계속"
+	"cx-continue-translation": "번역 계속",
+	"cx-translation-template-add-more": "필드 더 추가하기"
 }

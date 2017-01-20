@@ -203,5 +203,6 @@
 	"cx-page-old-revision-loaded": "Šis vertimas yra pagrįstas senesne turinio versija. Šaltinio puslapis galimai [$1 pasikeitė drastiškai]. Galite tęsti šį vertimą arba pradėti iš naujo ir naudoti atnaujintą turinį.",
 	"cx-tools-mt-new-provider": "naujas",
 	"cx-tools-mt-new-providers-available": "su naujais pasirinkimais",
-	"cx-continue-translation": "Tęsti vertimą"
+	"cx-continue-translation": "Tęsti vertimą",
+	"cx-translation-template-add-more": "Pridėti daugiau laukų"
 }

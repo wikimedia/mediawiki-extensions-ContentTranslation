@@ -91,5 +91,7 @@
 	"apierror-cx-missingdraft": "El borrador no existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debes acceder para gestionar tus sugerencias.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Debes acceder para ver tus traducciones.",
+	"apierror-cx-samelanguages": "El idioma de origen y el idioma de destino no pueden ser el mismo.",
+	"apierror-cx-suggestionsdisabled": "Las sugerencias no están habilitadas para este wiki.",
 	"apierror-cx-translationnotfound": "Traducción no encontrada."
 }
