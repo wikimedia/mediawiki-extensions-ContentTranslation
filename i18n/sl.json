@@ -207,6 +207,6 @@
 	"cx-template-action-skip": "Preskoči predlogo",
 	"cx-template-not-available": "Ni na voljo v {{GENDER:mestnik|$1}}",
 	"cx-translation-template-add-param": "+ Prevajalsko polje",
-	"cx-translation-template-add-more": "Dodaj več lastnosti",
-	"cx-translation-template-select-param": "Izberi ciljno polje"
+	"cx-translation-template-add-more": "Dodaj več polj",
+	"cx-translation-template-select-param": "Izberi ciljna polja"
 }

@@ -208,6 +208,6 @@
 	"cx-template-action-skip": "Saltar patrono",
 	"cx-template-not-available": "Non disponibile in $1",
 	"cx-translation-template-add-param": "+ Traducer campo",
-	"cx-translation-template-add-more": "Adder altere proprietates",
-	"cx-translation-template-select-param": "Selige campo de destination"
+	"cx-translation-template-add-more": "Adder plus campos",
+	"cx-translation-template-select-param": "Selige campos de destination"
 }
