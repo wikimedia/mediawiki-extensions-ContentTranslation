@@ -162,6 +162,6 @@
 	"cx-template-action-skip": "Sautar lo modèl",
 	"cx-template-not-available": "Pas disponible en $1",
 	"cx-translation-template-add-param": "+ Traduire lo camp",
-	"cx-translation-template-add-more": "Apondre mai de proprietats",
-	"cx-translation-template-select-param": "Seleccionar lo camp de destinacion"
+	"cx-translation-template-add-more": "Apondre mai de camps",
+	"cx-translation-template-select-param": "Seleccionar los camps de destinacion"
 }

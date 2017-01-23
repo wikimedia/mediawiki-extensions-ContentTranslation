@@ -224,6 +224,6 @@
 	"cx-template-action-skip": "Omitir la plantilla",
 	"cx-template-not-available": "No disponible en $1",
 	"cx-translation-template-add-param": "+ Traducir el campo",
-	"cx-translation-template-add-more": "Añadir más propiedades",
-	"cx-translation-template-select-param": "Elige el campo de destino"
+	"cx-translation-template-add-more": "Añadir campos",
+	"cx-translation-template-select-param": "Elegir los campos de destino"
 }
