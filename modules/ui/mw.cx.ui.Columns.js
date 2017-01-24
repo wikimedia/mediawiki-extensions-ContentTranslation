@@ -3,13 +3,14 @@
 /**
  *
  * @class
+ * @param {mw.cx.dm.Translation} translation
  * @param {Object} config
  */
-mw.cx.ui.Columns = function ( config ) {
+mw.cx.ui.Columns = function ( translation, config ) {
 	// Configuration initialization
 	this.config = config || {};
-	this.sourceColumn = new mw.cx.ui.SourceColumn( this.config );
-	this.translationColumn = new mw.cx.ui.TranslationColumn( this.config );
+	this.sourceColumn = new mw.cx.ui.SourceColumn( translation, this.config );
+	this.translationColumn = new mw.cx.ui.TranslationColumn( translation, this.config );
 	this.ToolsColumn = new mw.cx.ui.ToolsColumn( this.config );
 
 	// Parent constructor

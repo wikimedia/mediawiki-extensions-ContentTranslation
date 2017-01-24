@@ -36,12 +36,24 @@ OO.inheritClass( mw.cx.ui.ToolsColumn, OO.ui.StackLayout );
 mw.cx.ui.ToolsColumn.prototype.init = function () {
 	mw.loader.using( 'mw.cx.tools', function () {
 		mw.log( '[CX] Initializing translation tool system' );
-	} );
+		this.showInstructions();
+	}.bind( this ) );
 	this.listen();
 };
 
 mw.cx.ui.ToolsColumn.prototype.listen = function () {
 	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
+};
+
+/**
+ * Show the instructions card when translation is loaded.
+ */
+mw.cx.ui.ToolsColumn.prototype.showInstructions = function () {
+	var instructions = mw.cx.tools.translationToolFactory.create(
+		'instructions', null, this, this.config
+	);
+
+	this.showTool( instructions );
 };
 
 /**

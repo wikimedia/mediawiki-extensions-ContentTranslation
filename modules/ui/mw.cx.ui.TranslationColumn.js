@@ -4,9 +4,10 @@
  * Translation column
  *
  * @class
+ * @param {mw.cx.dm.Translation} translation
  * @param {Object} [config] Configuration object
  */
-mw.cx.ui.TranslationColumn = function ( config ) {
+mw.cx.ui.TranslationColumn = function ( translation, config ) {
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
@@ -17,7 +18,11 @@ mw.cx.ui.TranslationColumn = function ( config ) {
 	// Parent constructor
 	mw.cx.ui.TranslationColumn.parent.call( this, this.config );
 	this.siteMapper = config.siteMapper;
+	this.translation = translation;
 	this.init();
+	this.translation.connect( this, {
+		sourcePageReady: 'onSourcePageReady'
+	} );
 };
 /* Setup */
 
@@ -88,6 +93,20 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
 	this.$title = this.$element.find( '.cx-column__title' );
 
 	mw.hook( 'mw.cx.translation.ready' ).fire();
+};
+
+mw.cx.ui.TranslationColumn.prototype.onSourcePageReady = function() {
+	this.showCategories();
+};
+
+mw.cx.ui.TranslationColumn.prototype.showCategories = function () {
+	var categoryUI = new mw.cx.ui.Categories( {
+		page: this.translation.targetPage,
+		editable: true
+	} );
+	this.$content.before( categoryUI.getCategoryCount().$element );
+	this.$content.after( categoryUI.getCategoryListing().$element );
+	categoryUI.listen();
 };
 
 /**

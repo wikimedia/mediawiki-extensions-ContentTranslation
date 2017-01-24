@@ -4,9 +4,10 @@
  * Source article container
  *
  * @class
+ * @param {mw.cx.dm.Translation} translation
  * @param {Object} [config] Configuration object
  */
-mw.cx.ui.SourceColumn = function ( config ) {
+mw.cx.ui.SourceColumn = function ( translation, config ) {
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
@@ -17,9 +18,13 @@ mw.cx.ui.SourceColumn = function ( config ) {
 	// Parent constructor
 	mw.cx.ui.SourceColumn.parent.call( this, this.config );
 	this.siteMapper = config.siteMapper;
+	this.translation = translation;
 	this.loading = true;
 	this.$loadingIndicator = null;
 	this.init();
+	this.translation.connect( this, {
+		sourcePageReady: 'onSourcePageReady'
+	} );
 };
 
 /* Setup */
@@ -33,8 +38,8 @@ mw.cx.ui.SourceColumn.prototype.init = function () {
 };
 
 mw.cx.ui.SourceColumn.prototype.render = function () {
-	var sourceLanguageDir,
-		$languageLabel, $articleLink, userLanguage, $subHeading;
+	var sourceLanguageDir, $languageLabel, $articleLink,
+		userLanguage, $subHeading;
 
 	sourceLanguageDir = $.uls.data.getDir( this.config.sourceLanguage );
 	this.$element.prop( {
@@ -78,8 +83,28 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 
 	this.$content = $( '<div>' )
 		.addClass( 'cx-column__content' );
-	this.$element.append( this.$title, $subHeading, this.$content );
+
+	this.$element.append(
+		this.$title,
+		$subHeading,
+		this.$content
+	);
 	this.showLoadingIndicator();
+};
+
+mw.cx.ui.SourceColumn.prototype.onSourcePageReady = function() {
+	this.showCategories();
+};
+
+mw.cx.ui.SourceColumn.prototype.showCategories = function() {
+	var categoryUI = new mw.cx.ui.Categories( {
+		page: this.translation.sourcePage
+	} );
+	this.loading = false;
+	this.$loadingIndicator.remove();
+	this.$content.before( categoryUI.getCategoryCount().$element );
+	this.$content.after( categoryUI.getCategoryListing().$element );
+	categoryUI.listen();
 };
 
 /**
@@ -87,10 +112,6 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
  * @param {integer} position
  */
 mw.cx.ui.SourceColumn.prototype.add = function ( $translationUnit, position ) {
-	if ( this.loading ) {
-		this.loading = false;
-		this.$loadingIndicator.remove();
-	}
 	this.insertAt( position, $translationUnit );
 };
 

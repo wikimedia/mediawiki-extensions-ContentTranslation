@@ -37,21 +37,26 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @return {jQuery.Promise}
  */
 mw.cx.dm.Translation.prototype.init = function () {
-	var self = this;
 	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
-	return this.sourcePage.init().done( function () {
-		self.onSourcePageReady();
-	} );
+	return this.sourcePage.init().then( function () {
+		return this.onSourcePageReady().then( function() {
+			this.emit( 'sourcePageReady' );
+		}.bind( this ) );
+	}.bind( this ) );
 };
 
 /**
  * Handler for onSourcePageReady event.
+ * @return {jQuery.Promise}
  */
 mw.cx.dm.Translation.prototype.onSourcePageReady = function () {
 	mw.log( '[CX] Translation loaded', this );
 	this.setRevisionId( this.sourcePage.revisionId );
 	this.prepareTranslationUnits();
 	this.targetPage = new mw.cx.dm.TargetPage( this.config );
+	return this.sourcePage.getCategories().then( function( sourceCategories ) {
+		return this.targetPage.adaptCategoriesFrom( this.sourceLanguage, sourceCategories );
+	}.bind( this ) );
 };
 
 /**

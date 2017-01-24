@@ -26,6 +26,7 @@ mw.cx.dm.SourcePage = function SourcePage( config ) {
 	this.direction = null;
 	this.title = config.sourceTitle;
 	this.sourceRevision = config.sourceRevision;
+	this.requestManager = config.requestManager;
 	this.sections = [];
 	this.categories = [];
 };
@@ -35,15 +36,9 @@ mw.cx.dm.SourcePage = function SourcePage( config ) {
 OO.mixinClass( mw.cx.dm.SourcePage, OO.EventEmitter );
 
 mw.cx.dm.SourcePage.prototype.init = function () {
-	var self = this;
-
 	this.direction = $.uls.data.getDir( this.language );
 
-	return this.fetchPage( this.title, this.language, this.sourceRevision ).then( function () {
-		return self.getCategories().then( function ( categories ) {
-			self.categories = categories;
-		} );
-	} );
+	return this.fetchPage( this.title, this.language, this.sourceRevision );
 };
 
 /**
@@ -154,19 +149,9 @@ mw.cx.dm.SourcePage.prototype.filterSection = function ( section ) {
  * @return {jQuery.Promise}
  */
 mw.cx.dm.SourcePage.prototype.getCategories = function () {
-	return this.config.siteMapper.getApi( this.language ).get( {
-		action: 'query',
-		prop: 'categories',
-		clshow: '!hidden',
-		cllimit: 100,
-		indexpageids: true,
-		titles: this.title
-	} ).then( function ( response ) {
-		var pageId;
-
-		if ( response.query ) {
-			pageId = response.query.pageids[ 0 ];
-			return response.query.pages[ pageId ].categories || [];
-		}
-	} );
+	return this.requestManager.getCategories( this.language, this.title )
+		.then( function ( categoriesResult ) {
+			this.categories = categoriesResult.categories;
+			return this.categories;
+		}.bind( this ) );
 };

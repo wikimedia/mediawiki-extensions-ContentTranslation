@@ -25,6 +25,7 @@ mw.cx.MwApiRequestManager = function MwApiRequestManager( config ) {
 	this.linkCache = {};
 	this.imageCache = {};
 	this.titlePairCache = {};
+	this.categoryCache = {};
 };
 
 /**
@@ -56,6 +57,14 @@ mw.cx.MwApiRequestManager.prototype.init = function () {
 	this.titlePairCache[ this.targetLanguage ] = new mw.cx.TitlePairCache( {
 		sourceLanguage: this.targetLanguage,
 		targetLanguage: this.sourceLanguage,
+		siteMapper: this.siteMapper
+	} );
+	this.categoryCache[ this.sourceLanguage ] = new mw.cx.CategoryCache( {
+		language: this.sourceLanguage,
+		siteMapper: this.siteMapper
+	} );
+	this.categoryCache[ this.targetLanguage ] = new mw.cx.CategoryCache( {
+		language: this.targetLanguage,
 		siteMapper: this.siteMapper
 	} );
 };
@@ -106,4 +115,18 @@ mw.cx.MwApiRequestManager.prototype.getTitlePair = function ( language, title ) 
 		throw Error( '[CX] TitlePairCache not initialized for ' + language );
 	}
 	return this.titlePairCache[ language ].get( title );
+};
+
+mw.cx.MwApiRequestManager.prototype.getTitlePairs = function ( language, title ) {
+	if ( !this.titlePairCache[ language ] ) {
+		throw Error( '[CX] TitlePairCache not initialized for ' + language );
+	}
+	return this.titlePairCache[ language ].get( title );
+};
+
+mw.cx.MwApiRequestManager.prototype.getCategories = function ( language, title ) {
+	if ( !this.categoryCache[ language ] ) {
+		throw Error( '[CX] CategoryCache not initialized for ' + language );
+	}
+	return this.categoryCache[ language ].get( title );
 };

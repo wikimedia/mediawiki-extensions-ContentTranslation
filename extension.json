@@ -1293,6 +1293,7 @@
 		"mw.cx.cache": {
 			"scripts": [
 				"cache/mw.cx.ApiResponseCache.js",
+				"cache/mw.cx.CategoryCache.js",
 				"cache/mw.cx.LinkCache.js",
 				"cache/mw.cx.ImageInfoCache.js",
 				"cache/mw.cx.TitlePairCache.js"
@@ -1445,7 +1446,8 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"ext.cx.widgets.spinner"
+				"ext.cx.widgets.spinner",
+				"mw.cx.ui.Categories"
 			]
 		},
 		"mw.cx.ui.SourceColumn.legacy": {
@@ -1518,6 +1520,20 @@
 				"mw.cx.ui",
 				"mw.cx.widgets.ProgressBarWidget",
 				"mw.cx.tools.SearchTool"
+			]
+		},
+		"mw.cx.ui.Categories": {
+			"scripts": [
+				"ui/mw.cx.ui.Categories.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.Categories.less"
+			],
+			"dependencies": [
+				"mw.cx.ui"
+			],
+			"messages": [
+				"cx-tools-categories-count-message"
 			]
 		},
 		"mw.cx.ui.TranslationUnit": {

@@ -7,13 +7,10 @@
  */
 
 mw.cx.ui.TranslationView = function ( config ) {
-	this.header = new mw.cx.ui.Header( config );
-	this.columns = new mw.cx.ui.Columns( config );
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
 		expanded: false,
-		items: [ this.header, this.columns ],
 		classes: [ 'cx-widget' ],
 		scrollable: false,
 		padded: false
@@ -21,9 +18,6 @@ mw.cx.ui.TranslationView = function ( config ) {
 	// Parent constructor
 	mw.cx.ui.TranslationView.parent.call( this, this.config );
 	this.publishButton = null;
-	this.connect( this, {
-		change: 'onChange'
-	} );
 	this.init();
 };
 
@@ -33,8 +27,6 @@ OO.inheritClass( mw.cx.ui.TranslationView, OO.ui.StackLayout );
 OO.mixinClass( mw.cx.ui.TranslationUnit, OO.EventEmitter );
 
 mw.cx.ui.TranslationView.prototype.init = function () {
-	var self = this;
-
 	if ( mw.user.isAnon() ) {
 		mw.hook( 'mw.cx.error.anonuser' ).fire();
 		return;
@@ -52,12 +44,19 @@ mw.cx.ui.TranslationView.prototype.init = function () {
 		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
 	}
 
-	this.translation = new mw.cx.dm.Translation( this.config );
-	this.translation.init().then( function () {
-		self.loadTranslation();
-		self.showInstructions();
-	} );
+	this.header = new mw.cx.ui.Header( this.config );
 	this.preparePublishButton();
+
+	this.translation = new mw.cx.dm.Translation( this.config );
+	this.columns = new mw.cx.ui.Columns( this.translation, this.config );
+	this.addItems( [ this.header, this.columns ] );
+
+	this.translation.init().then( function () {
+		this.loadTranslation();
+	}.bind( this ) );
+	this.connect( this, {
+		change: 'onChange'
+	} );
 };
 
 /**
@@ -88,17 +87,6 @@ mw.cx.ui.TranslationView.prototype.showDashboard = function () {
 mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {
 	this.setupPublishButton();
 	this.attachPublishButton();
-};
-
-/**
- * Show the instructions card when translation is loaded.
- */
-mw.cx.ui.TranslationView.prototype.showInstructions = function () {
-	var instructions = mw.cx.tools.translationToolFactory.create(
-		'instructions', null, this,	this.config
-	);
-
-	this.columns.ToolsColumn.showTool( instructions );
 };
 
 mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
