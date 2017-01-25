@@ -1441,6 +1441,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
+				"oojs-ui.styles.icons-wikimedia",
 				"mw.cx.ui.Infobar"
 			],
 			"targets": [
