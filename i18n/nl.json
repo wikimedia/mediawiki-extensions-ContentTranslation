@@ -18,14 +18,15 @@
 			"Santhosh.thottingal",
 			"Robin van der Vliet",
 			"MrLeopold",
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
 	"cx": "Pagina vertalen",
 	"cx-dashboard-header": "Vertalingen",
 	"cx-javascript": "Dit programma werkt niet zonder JavaScript.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] is een programma om snel pagina's mee te vertalen in uw taal. [$1 Probeer het nu uit!]",
-	"cx-license-agreement": "Door te klikken op de knop \"$1\" gaat u onherroepelijk akkoord met de [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaarden] en gaat u akkoord met het vrijgeven van uw bijdragen met het vertaalprogramma onder de licentie [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0] en de [//nl.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] met dien verstande dat een koppeling of URL voldoende is voor naamsvermelding onder de CC-BY-SA 3.0-licentie.",
+	"cx-license-agreement": "Door te klikken op de knop \"$1\" gaat u akkoord met de [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaarden] en gaat u onherroepelijk akkoord met het vrijgeven van uw bijdragen met het vertaalprogramma onder de [https://creativecommons.org/licenses/by-sa/3.0/ licentie CC BY-SA 3.0] en de [//nl.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] met dien verstande dat een koppeling of URL voldoende is voor naamsvermelding onder de licentie CC BY-SA 3.0.",
 	"cx-error-server-connection": "Fout: verbinden met de server was niet mogelijk.",
 	"cx-desc": "Maakt het eenvoudig om inhoudelijke pagina's te [[Special:ContentTranslation|vertalen]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|vertaald}}",
@@ -221,6 +222,6 @@
 	"cx-template-action-keep-original": "Bewaar originele sjabloon",
 	"cx-template-action-skip": "Sla sjabloon over",
 	"cx-template-not-available": "Niet beschikbaar in $1",
-	"cx-translation-template-add-more": "Voeg meer eigenschappen toe",
-	"cx-translation-template-select-param": "Selecteer doelveld"
+	"cx-translation-template-add-more": "Voeg meer velden toe",
+	"cx-translation-template-select-param": "Selecteer doelvelden"
 }

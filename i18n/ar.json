@@ -217,6 +217,6 @@
 	"cx-template-action-skip": "تجاوز القالب",
 	"cx-template-not-available": "غير متوفر في $1",
 	"cx-translation-template-add-param": "+ حقل ترجمة",
-	"cx-translation-template-add-more": "أضف المزيد من الخصائص",
-	"cx-translation-template-select-param": "اختر الحقل الهدف"
+	"cx-translation-template-add-more": "أضف المزيد من الحقول",
+	"cx-translation-template-select-param": "اختر الحقول الهدف"
 }

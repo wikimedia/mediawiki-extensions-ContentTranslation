@@ -5,7 +5,8 @@
 			"Romaine",
 			"Siebrand",
 			"Robin van der Vliet",
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
 	"apihelp-cxpublish-description": "Sla een aangemaakte pagina op met behulp van de Content Translation-extensie.",
@@ -27,11 +28,11 @@
 	"apihelp-query+contenttranslation-example-2": "Geef de conceptvertalingen op basis van het ID.",
 	"apihelp-query+contenttranslation-example-3": "Zoek een vertaling voor de gegeven titel tussen de gegeven talencombinatie",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID van de vertaling.",
-	"apihelp-query+contenttranslationstats-example-1": "Geef statistieken voor alle talen van de Content Translation tool.",
-	"apihelp-cxconfiguration-description": "Geef de configuratie json van de Content Translation voor de gegeven talencombinatie",
+	"apihelp-query+contenttranslationstats-example-1": "Content Translation-statistieken ophalen voor alle talen.",
+	"apihelp-cxconfiguration-description": "De JSON van de Content Translation-configuratie ophalen voor het gegeven talenpaar.",
 	"apihelp-cxconfiguration-param-from": "De code van de brontaal.",
 	"apihelp-cxconfiguration-param-to": "De code van de doeltaal.",
-	"apihelp-cxconfiguration-example-1": "Geef de configuratie json van de Content Translation voor de talencombinatie Spaans-Catalaans",
+	"apihelp-cxconfiguration-example-1": "De JSON van de Content Translation-configuratie ophalen voor het talenpaar Spaans-Catalaans",
 	"apihelp-query+contenttranslationsuggestions-param-from": "De code van de brontaal.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "De code van de doeltaal.",
 	"apihelp-query+cxpublishedtranslations-description": "Geef alle informatie van gepubliceerde vertalingen",
