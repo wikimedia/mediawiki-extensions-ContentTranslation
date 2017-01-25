@@ -1581,8 +1581,12 @@
 			"styles": [
 				"ui/styles/mw.cx.ui.ToolsColumn.less"
 			],
+			"messages":[
+				"cx-feedback-link"
+			],
 			"dependencies": [
 				"mw.cx.ui",
+				"oojs-ui.styles.icons-alerts",
 				"mw.cx.widgets.ProgressBarWidget"
 			]
 		},

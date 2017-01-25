@@ -9,6 +9,15 @@
 mw.cx.ui.ToolsColumn = function ( config ) {
 	this.config = config;
 	this.progressBar = new mw.cx.widgets.ProgressBarWidget( config );
+	this.feedback = new OO.ui.ButtonWidget( {
+		label: mw.msg( 'cx-feedback-link' ),
+		icon: 'speechBubbles',
+		href: '//www.mediawiki.org/wiki/Talk:Content_translation',
+		target: '_blank',
+		framed: false,
+		classes: [ 'cx-feedback-link' ],
+		flags: [ 'progressive' ]
+	} );
 	this.toolContainer = new OO.ui.StackLayout( {
 		continuous: true,
 		classes: [ 'cx-column-tools-container' ],
@@ -22,7 +31,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		expanded: false,
 		scrollable: false,
 		padded: false,
-		items: [ this.progressBar, this.toolContainer ]
+		items: [ this.progressBar, this.toolContainer, this.feedback ]
 	} );
 	this.translation = null;
 	// Parent constructor
