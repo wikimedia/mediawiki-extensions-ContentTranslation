@@ -7,7 +7,8 @@
 			"Robin van der Vliet",
 			"Lucas",
 			"Gamliel Fishkin",
-			"Psychoslave"
+			"Psychoslave",
+			"NMaia"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -205,11 +206,12 @@
 	"cx-tools-mt-new-provider": "nova",
 	"cx-tools-mt-new-providers-available": "kun novaj opcioj",
 	"cx-continue-translation": "Daŭrigi tradukon",
+	"cx-tools-template-title": "Ŝablono",
 	"cx-template-action-adapt": "Uzi ekvivalenta ŝablono",
 	"cx-template-action-keep-original": "Gardi originalan ŝablonon",
 	"cx-template-action-skip": "Malzorgi ŝablonon",
 	"cx-template-not-available": "Ne disponebla por $1",
 	"cx-translation-template-add-param": "+ Traduki kampon",
-	"cx-translation-template-add-more": "Aldoni pli da ecoj",
-	"cx-translation-template-select-param": "Elekti celan kampon"
+	"cx-translation-template-add-more": "Aldoni pliajn kampojn",
+	"cx-translation-template-select-param": "Elekti celajn kampojn"
 }
