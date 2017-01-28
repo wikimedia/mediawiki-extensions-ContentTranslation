@@ -204,6 +204,7 @@
 	"cx-suggestionlist-refresh": "Actualitza els suggeriments",
 	"cx-notification-suggestions-available": "D'acord amb la {{GENDER:$2|vostra}} traducció anterior de '''$1''', s'han facilitat nous suggeriments.",
 	"cx-tools-linter-title": "Problemes amb el contingut: $1",
+	"cx-tools-linter-content": "S'ha trobat un contingut que no compleix amb les [//www.mediawiki.org/wiki/Content_translation/Abuse_filter restriccions definides per la Viquipèdia en $1]. Arregleu-ne els problemes abans de publicar la traducció.",
 	"cx-tools-linter-view-details": "Mostra els detalls",
 	"cx-tools-linter-hide-details": "Amaga els detalls",
 	"cx-translator-month-stats-label": "Aquest mes",
@@ -218,6 +219,6 @@
 	"cx-template-action-skip": "Omet la plantilla",
 	"cx-template-not-available": "No disponible en $1",
 	"cx-translation-template-add-param": "Tradueix el camp",
-	"cx-translation-template-add-more": "Afegeix més propietats",
-	"cx-translation-template-select-param": "Seleccioneu el camp de destinació"
+	"cx-translation-template-add-more": "Afegeix més camps",
+	"cx-translation-template-select-param": "Seleccioneu els camps de destinació"
 }
