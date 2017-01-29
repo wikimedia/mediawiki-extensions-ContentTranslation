@@ -74,7 +74,7 @@
 
 		mw.cx.siteMapper.getApi( apiLanguage ).get( {
 			action: 'query',
-			titles: titles.join( '|' ),
+			titles: titles,
 			prop: 'langlinks',
 			lllimit: titles.length, // TODO: Default is 10 and max is 500. Do we need more than 500?
 			lllang: mw.cx.siteMapper.getWikiDomainCode( language ),

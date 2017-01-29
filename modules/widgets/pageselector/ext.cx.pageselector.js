@@ -59,7 +59,7 @@
 			generator: 'prefixsearch',
 			gpssearch: input,
 			gpslimit: 10,
-			prop: [ 'pageimages', 'pageterms' ].join( '|' ),
+			prop: [ 'pageimages', 'pageterms' ],
 			piprop: 'thumbnail',
 			pithumbsize: 50,
 			pilimit: 10,
