@@ -35,13 +35,13 @@ you will need `ruby`, `gem`, and `jsduck` installed.
 You're mostly on your own here, but we can give some hints for Mac OS X.
 
 ##### Installing Gem in Mac OS X
-Ruby ships with OSX but may be outdated. Use [Homebrew](http://mxcl.github.com/homebrew/):
+Ruby ships with OSX but may be outdated. Use [Homebrew](https://mxcl.github.com/homebrew/):
 ```sh
 $ brew install ruby
 ```
 
 If you've never used `gem` before, don't forget to add the gem's bin to your
-`PATH` ([howto](http://stackoverflow.com/a/14138490/319266)).
+`PATH` ([howto](https://stackoverflow.com/a/14138490/319266)).
 
 ### Installing jsduck
 
