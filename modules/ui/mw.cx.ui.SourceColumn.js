@@ -39,8 +39,8 @@ mw.cx.ui.SourceColumn.prototype.init = function () {
 };
 
 mw.cx.ui.SourceColumn.prototype.render = function () {
-	var sourceLanguageDir, $languageLabel, $articleLink,
-		userLanguage, $subHeading;
+	var sourceLanguageDir, languageLabel, articleLink,
+		subHeading;
 
 	sourceLanguageDir = $.uls.data.getDir( this.config.sourceLanguage );
 	this.$element.prop( {
@@ -53,39 +53,30 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 		editable: false
 	} );
 
-	$languageLabel = $( '<span>' )
-		.prop( {
-			lang: mw.cx.sourceLanguage,
-			dir: sourceLanguageDir
-		} )
-		.addClass( 'cx-column__language-label' )
-		.text( $.uls.data.getAutonym( mw.cx.sourceLanguage ) );
+	languageLabel = new OO.ui.LabelWidget( {
+		label: $.uls.data.getAutonym( this.config.sourceLanguage ),
+		dir: sourceLanguageDir,
+		classes: [ 'cx-column-language-label' ]
+	} );
 
-	$articleLink = $( '<span>' )
-		.addClass( 'cx-column__sub-heading__view-page' )
-		.append( $( '<a>' )
-			.prop( {
-				href: this.config.siteMapper.getPageUrl( this.config.sourceLanguage, this.config.sourceTitle ),
-				target: '_blank'
-			} )
-			.text( mw.msg( 'cx-source-view-page' ) )
-		);
+	articleLink = new OO.ui.ButtonWidget( {
+		label: mw.msg( 'cx-source-view-page' ),
+		href: this.config.siteMapper.getPageUrl( this.config.sourceLanguage, this.config.sourceTitle ),
+		target: '_blank',
+		classes: [ 'cx-column-sub-heading-view-page' ],
+		framed: false,
+		flags: [ 'constructive' ]
+	} );
 
-	userLanguage = mw.config.get( 'wgUserLanguage' );
-	$subHeading = $( '<div>' )
-		.prop( {
-			lang: userLanguage,
-			dir: $.uls.data.getDir( userLanguage )
-		} )
-		.addClass( 'cx-column__sub-heading' )
-		.append( $languageLabel, $articleLink );
-
+	subHeading = new OO.ui.HorizontalLayout( {
+		classes: [ 'cx-column-sub-heading' ],
+		items: [ languageLabel, articleLink ]
+	} );
+	this.addItems( [ this.titleWidget, subHeading ] );
 	this.$content = $( '<div>' )
 		.addClass( 'cx-column__content' );
 
 	this.$element.append(
-		this.titleWidget.$element,
-		$subHeading,
 		this.$content
 	);
 	this.showLoadingIndicator();

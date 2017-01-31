@@ -39,7 +39,7 @@ mw.cx.ui.TranslationColumn.prototype.init = function () {
 };
 
 mw.cx.ui.TranslationColumn.prototype.render = function () {
-	var $languageLabel, userLanguage, $subHeading;
+	var languageLabel, subHeading;
 
 	this.titleWidget = new mw.cx.widgets.PageTitleWidget( {
 		value: this.config.targetTitle,
@@ -52,26 +52,17 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
 		this.emit( 'titleChange', this.titleWidget.getValue() );
 	}.bind( this ) );
 
-	$languageLabel = $( '<span>' )
-		.prop( {
-			lang: this.config.targetLanguage,
-			dir: this.direction
-		} )
-		.addClass( 'cx-column__language-label' )
-		.text( $.uls.data.getAutonym( this.config.targetLanguage ) );
+	languageLabel = new OO.ui.LabelWidget( {
+		label: $.uls.data.getAutonym( this.config.targetLanguage ),
+		dir: this.direction,
+		classes: [ 'cx-column-language-label' ]
+	} );
 
-	// This is UI, and the UI language is not necessarily
-	// the same as the target language
-	userLanguage = mw.config.get( 'wgUserLanguage' );
-	$subHeading = $( '<div>' )
-		.prop( {
-			lang: userLanguage,
-			dir: $.uls.data.getDir( userLanguage )
-		} )
-		.addClass( 'cx-column__sub-heading' )
-		.append( $languageLabel );
-
-	this.$element.append( $subHeading );
+	subHeading = new OO.ui.HorizontalLayout( {
+		classes: [ 'cx-column-sub-heading' ],
+		items: [ languageLabel ]
+	} );
+	this.addItems( [ subHeading ] );
 
 	this.$content = $( '<div>' ).addClass( 'cx-column__content' );
 	this.$element.append( this.$content );

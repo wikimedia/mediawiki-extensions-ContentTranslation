@@ -16,7 +16,8 @@
 	.mw-ui-one-third;
 }
 
-.cx-column__sub-heading {
+.cx-column__sub-heading,
+.cx-column-sub-heading {
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 5px 0;
@@ -36,17 +37,21 @@
 	}
 }
 
-.cx-column__language-label,
-.cx-column__sub-heading__view-page {
-	.mw-ui-one-half;
+.cx-column-language-label,
+.cx-column--language-label,
+.cx-column--sub-heading__view-page,
+.cx-column-sub-heading-view-page {
 	padding: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	max-height: 3em;
+	font-weight: normal;
 }
 
-.cx-column__language-label {
+.cx-column--language-label,
+.cx-column-language-label {
+	.mw-ui-one-half;
 	text-align: left;
 	color: @gray-dark;
 }
