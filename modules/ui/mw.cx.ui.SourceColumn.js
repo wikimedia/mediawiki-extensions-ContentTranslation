@@ -21,6 +21,7 @@ mw.cx.ui.SourceColumn = function ( translation, config ) {
 	this.translation = translation;
 	this.loading = true;
 	this.$loadingIndicator = null;
+	this.titleWidget = null;
 	this.init();
 	this.translation.connect( this, {
 		sourcePageReady: 'onSourcePageReady'
@@ -47,12 +48,10 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 		dir: sourceLanguageDir
 	} );
 
-	this.$title = $( '<h2>' )
-		.attr( {
-			id: 'mwcx-source-title'
-		} )
-		.addClass( 'cx-column__title' )
-		.text( this.config.sourceTitle );
+	this.titleWidget = new mw.cx.widgets.PageTitleWidget( {
+		value: this.config.sourceTitle,
+		editable: false
+	} );
 
 	$languageLabel = $( '<span>' )
 		.prop( {
@@ -85,7 +84,7 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 		.addClass( 'cx-column__content' );
 
 	this.$element.append(
-		this.$title,
+		this.titleWidget.$element,
 		$subHeading,
 		this.$content
 	);

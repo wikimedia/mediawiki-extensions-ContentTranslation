@@ -296,6 +296,18 @@
 				"mobile"
 			]
 		},
+		"mw.cx.util": {
+			"scripts": [
+				"util/mw.cx.util.js"
+			],
+			"dependencies": [
+				"ext.cx.model"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"ext.cx.util.selection": {
 			"scripts": [
 				"util/ext.cx.util.selection.js"
@@ -1447,7 +1459,8 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"ext.cx.widgets.spinner",
-				"mw.cx.ui.Categories"
+				"mw.cx.ui.Categories",
+				"mw.cx.widgets.PageTitleWidget"
 			]
 		},
 		"mw.cx.ui.SourceColumn.legacy": {
@@ -1479,7 +1492,8 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"ext.cx.widgets.spinner"
+				"ext.cx.widgets.spinner",
+				"mw.cx.widgets.PageTitleWidget"
 			]
 		},
 		"mw.cx.ui.TranslationColumn.legacy": {
@@ -1716,6 +1730,18 @@
 			],
 			"dependencies": [
 				"oojs-ui-widgets"
+			]
+		},
+		"mw.cx.widgets.PageTitleWidget": {
+			"scripts": [
+				"widgets/mw.cx.widgets.PageTitleWidget.js"
+			],
+			"styles": [
+				"widgets/mw.cx.widgets.PageTitleWidget.less"
+			],
+			"dependencies": [
+				"oojs-ui-widgets",
+				"mw.cx.util"
 			]
 		}
 	},

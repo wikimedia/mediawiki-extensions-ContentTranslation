@@ -19,6 +19,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	mw.cx.ui.TranslationView.parent.call( this, this.config );
 	this.publishButton = null;
 	this.init();
+	this.listen();
 };
 
 /* Setup */
@@ -54,8 +55,17 @@ mw.cx.ui.TranslationView.prototype.init = function () {
 	this.translation.init().then( function () {
 		this.loadTranslation();
 	}.bind( this ) );
+};
+
+/**
+ * Event handlers
+ */
+mw.cx.ui.TranslationView.prototype.listen = function () {
 	this.connect( this, {
 		change: 'onChange'
+	} );
+	this.columns.translationColumn.connect( this, {
+		titleChange: 'onTranslationTitleChange'
 	} );
 };
 
@@ -136,4 +146,19 @@ mw.cx.ui.TranslationView.prototype.publish = function () {
 	publisher.publish().always( function () {
 		self.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 	} );
+};
+
+/**
+ * Translation title change handler
+ * @param {string} changedTitle The new title
+ */
+mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changedTitle ) {
+	this.translation.setTargetTitle( changedTitle );
+	// Align translation titles when it get changed/being edited
+	mw.cx.alignSections(
+		this.columns.sourceColumn.titleWidget.$element,
+		this.columns.translationColumn.titleWidget.$element
+	);
+	// Translation title change is a change trigger for translation.
+	this.emit( 'change' );
 };
