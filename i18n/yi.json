@@ -91,6 +91,7 @@
 	"cx-suggestionlist-favorite": "פֿאר שפעטער",
 	"cx-suggestionlist-title": "נאך הצעות",
 	"cx-suggestionlist-empty-title": "קיין הצעות דערווייל",
+	"cx-suggestionlist-empty-desc-recommend-link-text": "באקוקן פֿארשלאגן (עקספערימענטאליש)",
 	"cx-suggestionlist-featured": "רעקאמנדירט",
 	"cx-suggestionlist-view-source-page": "באקוקן קוואלבלאט",
 	"cx-translation-filter-from-any-language": "פון יעדער שפראך",
@@ -168,6 +169,7 @@
 	"cx-draft-restored": "געשפייכלערטע איבערזעצונג געלאדן.",
 	"cx-suggestionlist-expand": "באקוקן אלע",
 	"cx-suggestionlist-collapse": "ווײַזן ווינציקער",
+	"cx-suggestionlist-refresh": "באפֿרישן פֿארשלאגן",
 	"cx-tools-linter-title": "אינהאלט פֿראגעס: $1",
 	"cx-tools-linter-view-details": "ווייזן פרטים",
 	"cx-tools-linter-hide-details": "באהאלטן פרטים",
@@ -176,5 +178,7 @@
 	"cx-tools-mt-new-provider": "נײַ",
 	"cx-tools-mt-new-providers-available": "מיט נייע אפציעס",
 	"cx-continue-translation": "פארטזעצן איבערזעצונג",
-	"cx-tools-template-title": "מוסטער"
+	"cx-tools-template-title": "מוסטער",
+	"cx-translation-template-add-more": "צולייגן נאך פֿעלדער",
+	"cx-translation-template-select-param": "קלויבט צילפֿעלדער"
 }
