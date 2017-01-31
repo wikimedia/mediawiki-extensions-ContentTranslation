@@ -123,7 +123,7 @@
 	CXTranslationList.prototype.getLinkImages = function ( language, titles ) {
 		return this.siteMapper.getApi( language ).get( {
 			action: 'query',
-			titles: titles.join( '|' ),
+			titles: titles,
 			prop: 'pageimages',
 			piprop: 'thumbnail',
 			pilimit: 50, // maximum

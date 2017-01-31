@@ -560,7 +560,7 @@
 
 		this.siteMapper.getApi( mw.cx.sourceLanguage ).post( {
 			action: 'query',
-			titles: categoryTitles.join( '|' ),
+			titles: categoryTitles,
 			prop: 'langlinks',
 			lllang: this.siteMapper.getWikiDomainCode( language ),
 			lllimit: 100,
