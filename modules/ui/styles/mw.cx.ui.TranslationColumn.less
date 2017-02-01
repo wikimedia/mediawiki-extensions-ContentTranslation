@@ -1,9 +1,26 @@
-@import "../../widgets/common/ext.cx.common.less";
-@import "../../widgets/common/ext.cx.highlight.less";
+@import '../../widgets/common/ext.cx.common.less';
+@import '../../widgets/common/ext.cx.highlight.less';
 
 .cx-column--translation {
 	[contenteditable] {
 		outline: none;
+	}
+
+	.cx-column-target-title {
+		padding: 0;
+		padding-top: 0.5em;
+		& > textarea {
+			padding: 0;
+			line-height: 1.4em;
+			text-align: left;
+			font-weight: normal;
+			margin: 0;
+			border: 0;
+			border-bottom: 1px solid #a2a9b1;
+			overflow: hidden;
+			padding-bottom: 0.17em;
+			height: 1.5em;
+		}
 	}
 }
 

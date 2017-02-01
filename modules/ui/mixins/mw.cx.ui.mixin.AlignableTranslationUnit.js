@@ -22,34 +22,8 @@ mw.cx.ui.mixin.AlignableTranslationUnit.prototype.getAlignableSections = functio
 };
 
 mw.cx.ui.mixin.AlignableTranslationUnit.prototype.align = function() {
-	var sections, sourceHeight, targetHeight,
-		$sourceSection, $translationSection,
-		steps = 0;
+	var sections;
 
 	sections = this.getAlignableSections();
-	$sourceSection = sections.source;
-	$translationSection = sections.target;
-	// Remove min-heights
-	$sourceSection.css( 'min-height', '' );
-	$translationSection.css( 'min-height', '' );
-
-	sourceHeight = $sourceSection[ 0 ].scrollHeight;
-	targetHeight = $translationSection[ 0 ].scrollHeight;
-
-	sourceHeight = parseInt( sourceHeight, 10 );
-	targetHeight = parseInt( targetHeight, 10 );
-
-	while ( sourceHeight !== targetHeight ) {
-		if ( targetHeight > sourceHeight ) {
-			$sourceSection.css( 'min-height', targetHeight );
-		} else {
-			$translationSection.css( 'min-height', sourceHeight );
-		}
-		sourceHeight = parseInt( $sourceSection[ 0 ].scrollHeight, 10 );
-		targetHeight = parseInt( $translationSection[ 0 ].scrollHeight, 10 );
-		if ( steps++ === 5 ) {
-			mw.track( 'Alignment attempt is not succeeding. Aborting.' );
-			break;
-		}
-	}
+	mw.cx.alignSections( sections.source, sections.target );
 };
