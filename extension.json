@@ -153,7 +153,7 @@
 		"ContentTranslationEnableSuggestions": false,
 		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
 		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
-		"ContentTranslationVersion": "2"
+		"ContentTranslationVersion": "1"
 	},
 	"ResourceModules": {
 		"Base64.js": {
