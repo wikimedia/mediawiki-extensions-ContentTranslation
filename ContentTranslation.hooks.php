@@ -410,7 +410,7 @@ class ContentTranslationHooks {
 				'modules/tests/dm/mw.cx.dm.LinkTranslationUnit.test.js',
 			],
 			'dependencies' => [
-				'mw.cx.dm.TranslationUnit',
+				'mw.cx.dm.TranslationUnits',
 				"mw.cx.MwApiRequestManager"
 			],
 		] + $resourcePaths;

@@ -1218,7 +1218,7 @@
 				"mw.cx.dm",
 				"mw.cx.dm.SourcePage",
 				"mw.cx.dm.TargetPage",
-				"mw.cx.dm.TranslationUnit"
+				"mw.cx.dm.TranslationUnits"
 			]
 		},
 		"mw.cx.dm.SourcePage": {
@@ -1238,19 +1238,72 @@
 				"mw.cx.dm"
 			]
 		},
+		"mw.cx.dm.TranslationUnits": {
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit",
+				"mw.cx.dm.ImageTranslationUnit",
+				"mw.cx.dm.SentenceTranslationUnit",
+				"mw.cx.dm.LinkTranslationUnit",
+				"mw.cx.dm.ReferenceTranslationUnit",
+				"mw.cx.dm.TemplateTranslationUnit",
+				"mw.cx.dm.SectionTranslationUnit"
+			]
+		},
 		"mw.cx.dm.TranslationUnit": {
 			"scripts": [
-				"dm/translationunits/mw.cx.dm.TranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.ImageTranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.LinkTranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.ReferenceTranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.SectionTranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.SentenceTranslationUnit.js",
-				"dm/translationunits/mw.cx.dm.TemplateTranslationUnit.js"
+				"dm/translationunits/mw.cx.dm.TranslationUnit.js"
 			],
 			"dependencies": [
 				"mw.cx.dm.TranslationUnitFactory",
 				"mw.cx.dm.SourcePage"
+			]
+		},
+		"mw.cx.dm.ImageTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.ImageTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.dm.SentenceTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.SentenceTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
+			]
+		},
+		"mw.cx.dm.TemplateTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.TemplateTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.dm.ReferenceTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.ReferenceTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
+			]
+		},
+		"mw.cx.dm.LinkTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.LinkTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
+			]
+		},
+		"mw.cx.dm.SectionTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.SectionTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
 			]
 		},
 		"mw.cx.dm.TranslationUnitFactory": {
@@ -1315,8 +1368,8 @@
 			"scripts": [
 				"cache/mw.cx.ApiResponseCache.js",
 				"cache/mw.cx.CategoryCache.js",
-				"cache/mw.cx.LinkCache.js",
 				"cache/mw.cx.ImageInfoCache.js",
+				"cache/mw.cx.LinkCache.js",
 				"cache/mw.cx.TitlePairCache.js"
 			],
 			"dependencies": [
@@ -1340,7 +1393,7 @@
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationUnit",
+				"mw.cx.ui.TranslationUnits",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Columns",
 				"ext.cx.model",
@@ -1559,21 +1612,78 @@
 				"cx-tools-categories-count-message"
 			]
 		},
+		"mw.cx.ui.TranslationUnits": {
+			"dependencies": [
+				"mw.cx.ui.TranslationUnitFactory",
+				"mw.cx.ui.TranslationUnit",
+				"mw.cx.ui.ImageTranslationUnit",
+				"mw.cx.ui.SectionTranslationUnit",
+				"mw.cx.ui.ReferenceTranslationUnit",
+				"mw.cx.ui.LinkTranslationUnit",
+				"mw.cx.ui.TemplateTranslationUnit",
+				"mw.cx.ui.SentenceTranslationUnit"
+			]
+		},
 		"mw.cx.ui.TranslationUnit": {
 			"scripts": [
-				"ui/translationunits/mw.cx.ui.TranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.ImageTranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.LinkTranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.ReferenceTranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.SectionTranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.SentenceTranslationUnit.js",
-				"ui/translationunits/mw.cx.ui.TemplateTranslationUnit.js"
+				"ui/translationunits/mw.cx.ui.TranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"mw.cx.ui.TranslationUnitFactory"
+			]
+		},
+		"mw.cx.ui.ImageTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.ImageTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"mw.cx.ui.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.ui.LinkTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.LinkTranslationUnit.js"
 			],
 			"styles":[
 				"ui/translationunits/styles/mw.cx.ui.LinkTranslationUnit.less"
 			],
 			"dependencies": [
-				"mw.cx.ui.TranslationUnitFactory",
+				"mw.cx.ui.TranslationUnit"
+			]
+		},
+		"mw.cx.ui.ReferenceTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.ReferenceTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui.TranslationUnit"
+			]
+		},
+		"mw.cx.ui.TemplateTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.TemplateTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.ui.SentenceTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.SentenceTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui.TranslationUnit"
+			]
+		},
+		"mw.cx.ui.SectionTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.SectionTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"mw.cx.ui.TranslationUnit",
 				"mw.cx.ui.mixin.AlignableTranslationUnit"
 			]
 		},
