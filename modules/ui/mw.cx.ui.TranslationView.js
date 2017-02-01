@@ -17,6 +17,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	} );
 	// Parent constructor
 	mw.cx.ui.TranslationView.parent.call( this, this.config );
+	this.translation = null;
 	this.publishButton = null;
 	this.init();
 	this.listen();
@@ -33,28 +34,26 @@ mw.cx.ui.TranslationView.prototype.init = function () {
 		return;
 	}
 
-	if ( !this.config.sourceTitle ||
-		!this.config.sourceLanguage ||
-		!this.config.targetLanguage ||
-		( mw.Title.newFromText( this.config.sourceTitle ) === null )
-	) {
-		this.showDashboard();
-		return;
-	}
 	if ( this.config.campaign ) {
 		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
 	}
+	this.render();
+};
 
+mw.cx.ui.TranslationView.prototype.render = function () {
 	this.header = new mw.cx.ui.Header( this.config );
 	this.preparePublishButton();
 
-	this.translation = new mw.cx.dm.Translation( this.config );
-	this.columns = new mw.cx.ui.Columns( this.translation, this.config );
+	this.columns = new mw.cx.ui.Columns( this.config );
 	this.addItems( [ this.header, this.columns ] );
+};
 
-	this.translation.init().then( function () {
-		this.loadTranslation();
-	}.bind( this ) );
+/**
+ * Show the categories in translationView
+ */
+mw.cx.ui.TranslationView.prototype.showCategories = function () {
+	this.columns.sourceColumn.showCategories();
+	this.columns.translationColumn.showCategories();
 };
 
 /**
@@ -68,13 +67,26 @@ mw.cx.ui.TranslationView.prototype.listen = function () {
 		titleChange: 'onTranslationTitleChange'
 	} );
 };
+/**
+ * Present the source article and section placeholders
+ * @param {mw.cx.dm.Translation} translation
+ */
+mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
+	this.translation = translation;
+	this.columns.setTranslation( this.translation );
+};
 
 /**
  * Present the source article and section placeholders
+ * @param {mw.cx.dm.Translation} translation
  */
 mw.cx.ui.TranslationView.prototype.loadTranslation = function () {
-	var i, j, translationUnits, subTranslationUnits, subTranslationUnit, translationUnit;
+	this.columns.sourceColumn.removeLoadingIndicator();
+	this.prepareTranslationUnitUIs();
+};
 
+mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
+	var i, j, translationUnits, subTranslationUnits, subTranslationUnit, translationUnit;
 	translationUnits = this.translation.getTranslationUnits();
 	for ( i = 0; i < translationUnits.length; i++ ) {
 		translationUnit = mw.cx.ui.translationUnitFactory.create( 'section', translationUnits[ i ], this, this.config );
@@ -88,10 +100,6 @@ mw.cx.ui.TranslationView.prototype.loadTranslation = function () {
 			subTranslationUnit.setParentTranslationUnit( translationUnit );
 		}
 	}
-};
-
-mw.cx.ui.TranslationView.prototype.showDashboard = function () {
-	location.href = mw.util.getUrl( 'Special:ContentTranslation' );
 };
 
 mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {

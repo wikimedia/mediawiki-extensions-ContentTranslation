@@ -4,10 +4,9 @@
  * Translation column
  *
  * @class
- * @param {mw.cx.dm.Translation} translation
  * @param {Object} [config] Configuration object
  */
-mw.cx.ui.TranslationColumn = function ( translation, config ) {
+mw.cx.ui.TranslationColumn = function ( config ) {
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
@@ -18,12 +17,9 @@ mw.cx.ui.TranslationColumn = function ( translation, config ) {
 	// Parent constructor
 	mw.cx.ui.TranslationColumn.parent.call( this, this.config );
 	this.siteMapper = config.siteMapper;
-	this.translation = translation;
+	this.translation = null;
 	this.titleWidget = null;
 	this.init();
-	this.translation.connect( this, {
-		sourcePageReady: 'onSourcePageReady'
-	} );
 };
 /* Setup */
 
@@ -70,13 +66,20 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
 	mw.hook( 'mw.cx.translation.ready' ).fire();
 };
 
-mw.cx.ui.TranslationColumn.prototype.onSourcePageReady = function() {
-	this.showCategories();
+/**
+ * Set the translation data model
+ * @param {mw.cx.dm.Translation} translation
+ */
+mw.cx.ui.TranslationColumn.prototype.setTranslation = function( translation ) {
+	this.translation = translation;
 };
 
+/**
+ * Show the adapted categories
+ */
 mw.cx.ui.TranslationColumn.prototype.showCategories = function () {
 	var categoryUI = new mw.cx.ui.Categories( {
-		page: this.translation.targetPage,
+		page: this.translation.getTargetPage(),
 		editable: true
 	} );
 	this.$content.before( categoryUI.getCategoryCount().$element );
@@ -85,6 +88,7 @@ mw.cx.ui.TranslationColumn.prototype.showCategories = function () {
 };
 
 /**
+ * Add a translation unit to the translation column
  * @param {jQuery} $translationUnit
  * @param {integer} position
  */

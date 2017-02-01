@@ -24,6 +24,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		padded: false,
 		items: [ this.progressBar, this.toolContainer ]
 	} );
+	this.translation = null;
 	// Parent constructor
 	mw.cx.ui.ToolsColumn.parent.call( this, this.config );
 	this.init();
@@ -43,6 +44,14 @@ mw.cx.ui.ToolsColumn.prototype.init = function () {
 
 mw.cx.ui.ToolsColumn.prototype.listen = function () {
 	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
+};
+
+/**
+ * Set the translation data model
+ * @param {mw.cx.dm.Translation} translation
+ */
+mw.cx.ui.ToolsColumn.prototype.setTranslation = function( translation ) {
+	this.translation = translation;
 };
 
 /**

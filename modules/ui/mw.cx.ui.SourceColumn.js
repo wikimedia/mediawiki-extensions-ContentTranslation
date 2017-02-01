@@ -4,10 +4,9 @@
  * Source article container
  *
  * @class
- * @param {mw.cx.dm.Translation} translation
- * @param {Object} [config] Configuration object
+  * @param {Object} [config] Configuration object
  */
-mw.cx.ui.SourceColumn = function ( translation, config ) {
+mw.cx.ui.SourceColumn = function ( config ) {
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
@@ -18,14 +17,11 @@ mw.cx.ui.SourceColumn = function ( translation, config ) {
 	// Parent constructor
 	mw.cx.ui.SourceColumn.parent.call( this, this.config );
 	this.siteMapper = config.siteMapper;
-	this.translation = translation;
+	this.translation = null;
 	this.loading = true;
 	this.$loadingIndicator = null;
 	this.titleWidget = null;
 	this.init();
-	this.translation.connect( this, {
-		sourcePageReady: 'onSourcePageReady'
-	} );
 };
 
 /* Setup */
@@ -61,7 +57,7 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 
 	articleLink = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-source-view-page' ),
-		href: this.config.siteMapper.getPageUrl( this.config.sourceLanguage, this.config.sourceTitle ),
+		href: this.siteMapper.getPageUrl( this.config.sourceLanguage, this.config.sourceTitle ),
 		target: '_blank',
 		classes: [ 'cx-column-sub-heading-view-page' ],
 		framed: false,
@@ -82,16 +78,10 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 	this.showLoadingIndicator();
 };
 
-mw.cx.ui.SourceColumn.prototype.onSourcePageReady = function() {
-	this.showCategories();
-};
-
 mw.cx.ui.SourceColumn.prototype.showCategories = function() {
 	var categoryUI = new mw.cx.ui.Categories( {
-		page: this.translation.sourcePage
+		page: this.translation.getSourcePage()
 	} );
-	this.loading = false;
-	this.$loadingIndicator.remove();
 	this.$content.before( categoryUI.getCategoryCount().$element );
 	this.$content.after( categoryUI.getCategoryListing().$element );
 	categoryUI.listen();
@@ -114,6 +104,14 @@ mw.cx.ui.SourceColumn.prototype.insertAt = function ( index, $element ) {
 	if ( index < lastIndex ) {
 		this.$content.children().eq( index ).before( this.$content.children().last() );
 	}
+};
+
+/**
+ * Set the translation data model
+ * @param {mw.cx.dm.Translation} translation
+ */
+mw.cx.ui.SourceColumn.prototype.setTranslation = function( translation ) {
+	this.translation = translation;
 };
 
 mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
@@ -142,4 +140,9 @@ mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
 	$loadingIndicatorSpinner = mw.cx.widgets.spinner();
 	this.$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorContent );
 	this.$element.append( this.$loadingIndicator );
+};
+
+mw.cx.ui.SourceColumn.prototype.removeLoadingIndicator = function () {
+	this.loading = false;
+	this.$loadingIndicator.remove();
 };

@@ -29,61 +29,12 @@ mw.cx.dm.SourcePage = function SourcePage( config ) {
 	this.requestManager = config.requestManager;
 	this.sections = [];
 	this.categories = [];
+	this.direction = $.uls.data.getDir( this.language );
 };
 
 /* Inheritance */
 
 OO.mixinClass( mw.cx.dm.SourcePage, OO.EventEmitter );
-
-mw.cx.dm.SourcePage.prototype.init = function () {
-	this.direction = $.uls.data.getDir( this.language );
-
-	return this.fetchPage( this.title, this.language, this.sourceRevision );
-};
-
-/**
- * Fetch the page with given title and language.
- * Response contains
- *
- * @param {string} title Title of the page to be fetched
- * @param {string} language Language of the page requested. This will be used to
- *     identify the host wiki.
- * @param {string} revision Source page revision id.
- * @return {jQuery.Promise}
- */
-mw.cx.dm.SourcePage.prototype.fetchPage = function ( title, language, revision ) {
-	var self = this,
-		fetchParams, apiURL, fetchPageUrl;
-
-	fetchParams = {
-		$language: this.config.siteMapper.getWikiDomainCode( language ),
-		// Manual normalisation to avoid redirects on spaces but not to break namespaces
-		$title: title.replace( / /g, '_' )
-	};
-	apiURL = '/page/$language/$title';
-
-	// If revision is requested, load that revision of page.
-	if ( revision ) {
-		fetchParams.$revision = revision;
-		apiURL += '/$revision';
-	}
-
-	fetchPageUrl = this.config.siteMapper.getCXServerUrl( apiURL, fetchParams );
-
-	return $.get( fetchPageUrl )
-		.done( function ( response ) {
-			self.sections = $.parseHTML( response.segmentedContent );
-			self.sourceRevision = response.revision;
-		} ).fail( function ( xhr ) {
-			if ( xhr.status === 404 ) {
-				mw.hook( 'mw.cx.error' ).fire(
-					mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
-				);
-			} else {
-				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
-			}
-		} );
-};
 
 /**
  * Get all block level sections in this page
@@ -92,6 +43,31 @@ mw.cx.dm.SourcePage.prototype.fetchPage = function ( title, language, revision )
  */
 mw.cx.dm.SourcePage.prototype.getSections = function () {
 	return this.getTranslatableSections();
+};
+
+/**
+ * Set all block level sections in this page
+ *
+ * @param {HTMLNode[]} sections Array of HTML Nodes
+ */
+mw.cx.dm.SourcePage.prototype.setSections = function ( sections ) {
+	this.sections = sections;
+};
+
+/**
+ * Get source revision
+ * @return {string} sourceRevision
+ */
+mw.cx.dm.SourcePage.prototype.getSourceRevision = function () {
+	return this.sourceRevision;
+};
+
+/**
+ * Set source revision
+ * @param {string} sourceRevision Source revision id
+ */
+mw.cx.dm.SourcePage.prototype.setSourceRevision = function ( sourceRevision ) {
+	this.sourceRevision = sourceRevision;
 };
 
 /**

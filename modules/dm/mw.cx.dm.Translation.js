@@ -33,33 +33,6 @@ mw.cx.dm.Translation = function mwcxTranslation( config ) {
 OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 
 /**
- * Initialize the translation
- * @return {jQuery.Promise}
- */
-mw.cx.dm.Translation.prototype.init = function () {
-	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
-	return this.sourcePage.init().then( function () {
-		return this.onSourcePageReady().then( function() {
-			this.emit( 'sourcePageReady' );
-		}.bind( this ) );
-	}.bind( this ) );
-};
-
-/**
- * Handler for onSourcePageReady event.
- * @return {jQuery.Promise}
- */
-mw.cx.dm.Translation.prototype.onSourcePageReady = function () {
-	mw.log( '[CX] Translation loaded', this );
-	this.setRevisionId( this.sourcePage.revisionId );
-	this.prepareTranslationUnits();
-	this.targetPage = new mw.cx.dm.TargetPage( this.config );
-	return this.sourcePage.getCategories().then( function( sourceCategories ) {
-		return this.targetPage.adaptCategoriesFrom( this.sourceLanguage, sourceCategories );
-	}.bind( this ) );
-};
-
-/**
  * Prepare translation unit data models from the source page.
  * It corresponds to each sections to translate.
  */
@@ -100,12 +73,38 @@ mw.cx.dm.Translation.prototype.setId = function ( id ) {
 	this.id = id;
 };
 
+mw.cx.dm.Translation.prototype.getSourcePage = function() {
+	return this.sourcePage;
+};
+
+/**
+ * Set source page
+ *
+ * @param {mw.cx.dm.SourcePage} sourcePage
+ */
+mw.cx.dm.Translation.prototype.setSourcePage = function ( sourcePage ) {
+	this.sourcePage = sourcePage;
+};
+
+mw.cx.dm.Translation.prototype.getTargetPage = function() {
+	return this.targetPage;
+};
+
+/**
+ * Set target page
+ *
+ * @param {mw.cx.dm.TargetPage} targetPage
+ */
+mw.cx.dm.Translation.prototype.setTargetPage = function ( targetPage ) {
+	this.targetPage = targetPage;
+};
+
 /**
  * Get revision id
  *
  * @return {string} revision Id
  */
-mw.cx.dm.Translation.prototype.getRevisionId = function () {
+mw.cx.dm.Translation.prototype.getSourceRevision = function () {
 	return this.revisionId;
 };
 
@@ -114,7 +113,7 @@ mw.cx.dm.Translation.prototype.getRevisionId = function () {
  *
  * @param {string} revisionId revision Id
  */
-mw.cx.dm.Translation.prototype.setRevisionId = function ( revisionId ) {
+mw.cx.dm.Translation.prototype.setSourceRevision = function ( revisionId ) {
 	this.revisionId = revisionId;
 };
 

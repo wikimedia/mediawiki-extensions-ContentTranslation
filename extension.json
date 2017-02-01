@@ -1285,10 +1285,19 @@
 				"ext.cx.model",
 				"mw.cx.ui",
 				"mw.cx.MwApiRequestManager",
-				"mw.cx.ui.TranslationView"
+				"mw.cx.init.Translation"
 			],
 			"targets": [
 				"desktop"
+			]
+		},
+		"mw.cx.init.Translation": {
+			"scripts": [
+				"mw.cx.init.Translation.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.Translation",
+				"mw.cx.ui.TranslationView"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {

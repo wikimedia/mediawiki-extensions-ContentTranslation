@@ -4,8 +4,9 @@
 
 ( function ( mw, $ ) {
 	'use strict';
+
 	function initCX() {
-		var cxview, query, requestManager, config;
+		var translation, query, requestManager, config;
 
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
@@ -15,6 +16,8 @@
 		mw.cx.sourceLanguage = query.from;
 		mw.cx.sourceRevision = query.revision;
 		mw.cx.targetTitle = query.targettitle || query.page;
+		// All these configuration in mw.cx is just for supporting legacy code.
+		// New code should get them from config injected to classes.
 
 		// Make them available in config.
 		config = {
@@ -30,12 +33,16 @@
 		requestManager.init();
 		config.requestManager = requestManager;
 
-		mw.cx.getCXConfiguration( config.sourceLanguage, config.targetLanguage ).then( function ( response ) {
-			$.extend( config, response.configuration );
-			cxview = new mw.cx.ui.TranslationView( config );
-			$( 'body' ).append( cxview.$element );
-		} );
+		if ( !config.sourceTitle || !config.sourceLanguage || !config.targetLanguage ||
+			( mw.Title.newFromText( config.sourceTitle ) === null )
+		) {
+			location.href = mw.util.getUrl( 'Special:ContentTranslation' );
+		} else {
+			translation = new mw.cx.init.Translation( config );
+			translation.init();
+		}
 	}
+
 	// On document ready, initialize.
 	$( initCX );
 }( mediaWiki, jQuery ) );
