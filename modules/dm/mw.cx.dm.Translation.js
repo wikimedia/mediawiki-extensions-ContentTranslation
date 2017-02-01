@@ -37,14 +37,19 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * It corresponds to each sections to translate.
  */
 mw.cx.dm.Translation.prototype.prepareTranslationUnits = function () {
-	var translatableSections, i;
+	var translatableSections, i, model;
+
 	translatableSections = this.sourcePage.getTranslatableSections();
 	// Use this for creating translation units. Once done, trigger translation view to
 	// render them in the appropriate columns.
 	// Use <section> tags to hold the sections in both columns;
 	for ( i = 0; i < translatableSections.length; i++ ) {
+		model = mw.cx.dm.modelRegistry.matchElement( translatableSections[ i ] );
+		if ( !model ) {
+			continue;
+		}
 		this.translationUnits[ i ] = mw.cx.dm.translationUnitFactory.create(
-			'section',
+			model,
 			this.config,
 			this,
 			translatableSections[ i ] );
