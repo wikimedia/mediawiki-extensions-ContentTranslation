@@ -11,7 +11,8 @@
 			"Duolaimi",
 			"Kuailong",
 			"Hanyanbo98",
-			"Laisc7301"
+			"Laisc7301",
+			"Arthur2e5"
 		]
 	},
 	"cx": "翻译页面",
@@ -119,7 +120,7 @@
 	"cx-save-draft-saving": "正在保存...",
 	"cx-save-draft-tooltip": "翻译草稿会自动保存",
 	"cx-save-draft-error": "保存页面时出错。",
-	"cx-contributions-new-contributions": "新贡献",
+	"cx-contributions-new-contributions": "新增贡献",
 	"cx-contributions-new-article": "新页面",
 	"cx-contributions-translation": "翻译",
 	"cx-contributions-upload": "上传媒体",

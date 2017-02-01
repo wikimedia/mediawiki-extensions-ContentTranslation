@@ -19,7 +19,8 @@
 			"Robin van der Vliet",
 			"MrLeopold",
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"QZanden"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -222,6 +223,7 @@
 	"cx-template-action-keep-original": "Bewaar originele sjabloon",
 	"cx-template-action-skip": "Sla sjabloon over",
 	"cx-template-not-available": "Niet beschikbaar in $1",
+	"cx-translation-template-add-param": "+ Vertaal veld",
 	"cx-translation-template-add-more": "Voeg meer velden toe",
 	"cx-translation-template-select-param": "Selecteer doelvelden"
 }
