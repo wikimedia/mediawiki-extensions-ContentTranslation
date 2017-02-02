@@ -34,7 +34,9 @@ mw.cx.tools.ReferenceTool.prototype.getActions = function () {
 	this.actions = [
 		this.removeReferenceButton
 	];
-
+	this.removeReferenceButton.connect( this, {
+		click: 'removeReference'
+	} );
 	return this.actions;
 };
 
