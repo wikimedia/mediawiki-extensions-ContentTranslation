@@ -102,20 +102,16 @@ mw.cx.dm.SourcePage.static.sectionTypes = [
  * @return {boolean} whether the section can be included or not.
  */
 mw.cx.dm.SourcePage.prototype.filterSection = function ( section ) {
-	var self = this;
-
 	if ( section.tagName &&
 		mw.cx.dm.SourcePage.static.sectionTypes.indexOf( section.tagName.toLowerCase() ) >= 0
 	) {
+		if ( $( section ).is( this.config.removableSections.join( ', ' ) ) ||
+			$( section ).children().is( this.config.removableSections.join( ', ' ) )
+		) {
+			return false;
+		}
 		return true;
 	}
-
-	if ( $( section ).is( self.config.removableSections.join( ', ' ) ) ||
-		$( section ).children().is( self.config.removableSections.join( ', ' ) )
-	) {
-		return true;
-	}
-
 	return false;
 };
 
