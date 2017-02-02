@@ -39,7 +39,9 @@ mw.cx.tools.LinkTool.prototype.getActions = function () {
 		framed: false,
 		classes: [ 'cx-tools-link-remove-button' ]
 	} );
-
+	this.removeLinkButton.connect( this, {
+		click: 'removeLink'
+	} );
 	this.actions = [
 		this.addLinkButton,
 		this.removeLinkButton
@@ -81,6 +83,11 @@ mw.cx.tools.LinkTool.prototype.getContent = function () {
 		}
 	} );
 	return panel.$element;
+};
+
+mw.cx.tools.LinkTool.prototype.removeLink = function () {
+	this.translationUnitUIModel.remove();
+	this.destroy();
 };
 
 /* Register */
