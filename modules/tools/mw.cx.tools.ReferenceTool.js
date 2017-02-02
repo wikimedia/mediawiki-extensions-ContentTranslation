@@ -14,6 +14,9 @@ mw.cx.tools.ReferenceTool = function CXReferenceTool( translationUnitUI, config 
 	config.order = 301;
 	// Parent constructor
 	mw.cx.tools.ReferenceTool.super.call( this, translationUnitUI, config );
+	this.translationUnitUIModel.connect( this, {
+		click: 'showTool'
+	} );
 };
 
 /* Inheritance */

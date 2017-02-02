@@ -16,6 +16,10 @@ mw.cx.tools.LinkTool = function CXLinkTool( translationUnit, config ) {
 	this.targetTitle = null;
 	// Parent constructor
 	mw.cx.tools.LinkTool.super.call( this, translationUnit, config );
+	this.translationUnitUIModel.connect( this, {
+		click: 'showTool',
+		focus: 'showTool'
+	} );
 };
 
 /* Inheritance */

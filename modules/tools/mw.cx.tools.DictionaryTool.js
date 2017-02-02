@@ -13,6 +13,9 @@ mw.cx.tools.DictionaryTool = function CXDictionaryTool( translationUnit, config 
 	this.translationUnit = translationUnit;
 	// Parent constructor
 	mw.cx.tools.DictionaryTool.super.call( this, translationUnit, config );
+	this.translationUnitUIModel.connect( this, {
+		select: 'onSelect'
+	} );
 };
 
 /* Inheritance */
@@ -27,8 +30,16 @@ mw.cx.tools.DictionaryTool.prototype.getActions = function () {
 	return [];
 };
 
+mw.cx.tools.DictionaryTool.prototype.onSelect = function ( selection ) {
+	this.content = selection;
+	// TODO: Sanitize content
+	if ( this.content && this.content.length < 1000 ) {
+		this.showTool();
+	}
+};
+
 mw.cx.tools.DictionaryTool.prototype.getContent = function () {
-	return 'Word meaning';
+	return 'Word meaning for ' + this.content;
 };
 
 /* Register */

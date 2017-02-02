@@ -120,10 +120,18 @@ mw.cx.dm.TranslationUnit.prototype.remove = function () {
 };
 
 /**
+ * Get a unique id for this translation unit
+ * @return {string}
+ */
+mw.cx.dm.TranslationUnit.prototype.getId = function () {
+	return this.constructor.static.name + '::' + this.sourceDocument.id;
+};
+
+/**
  * String representation of the translation unit instance. Useful for debugging.
  *
  * @return {string} String identified for the instance
  */
 mw.cx.dm.TranslationUnit.prototype.toString = function() {
-	return this.constructor.name + '::' + this.constructor.static.name + '::' + this.sourceDocument.id;
+	return this.constructor.name + '::' + this.getId();
 };

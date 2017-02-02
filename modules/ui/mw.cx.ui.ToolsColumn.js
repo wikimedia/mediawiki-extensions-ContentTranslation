@@ -89,6 +89,15 @@ mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool, index ) {
 };
 
 /**
+ * Hide this given tool
+ * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
+ */
+mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {
+	var items = this.toolContainer.getItemsFromData( tool.getData() );
+	this.toolContainer.removeItems( items );
+};
+
+/**
  * Hide all tools shown in the tools container
  */
 mw.cx.ui.ToolsColumn.prototype.hideAllTools = function () {

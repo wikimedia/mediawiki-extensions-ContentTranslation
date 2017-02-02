@@ -14,6 +14,9 @@ mw.cx.tools.SearchTool = function CXSearchTool( translationUnit, config ) {
 	this.config = config;
 	// Parent constructor
 	mw.cx.tools.InstructionsTool.super.call( this, translationUnit, config );
+	this.translationUnitUIModel.connect( this, {
+		click: 'showTool'
+	} );
 };
 
 /* Inheritance */

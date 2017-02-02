@@ -50,6 +50,14 @@ mw.cx.tools.TranslationTool.prototype.getActions = null;
  */
 mw.cx.tools.TranslationTool.prototype.getContent = null;
 
+mw.cx.tools.TranslationTool.prototype.getData = function () {
+	return this.constructor.static.name + '::' + this.translationUnitDataModel.getId();
+};
+
+mw.cx.tools.TranslationTool.prototype.showTool = function () {
+	this.translationUnitUIModel.view.columns.ToolsColumn.showTool( this );
+};
+
 mw.cx.tools.TranslationTool.prototype.destroy = function () {
 	if ( this.card ) {
 		this.card.$element.remove();

@@ -36,20 +36,38 @@ mw.cx.ui.TranslationUnit.prototype.getPlaceholderSection = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.listen = function () {
-	var self = this;
 	// Events
-	this.$sourceSection.on( 'mouseenter', $.proxy( this.onMouseOver, this ) );
-	this.$translationSection.on( 'mouseenter', $.proxy( this.onMouseOver, this ) );
+	this.$sourceSection.on( 'mouseenter', this.onMouseOver.bind( this ) );
+	this.$translationSection.on( 'mouseenter', this.onMouseOver.bind( this ) );
 
-	this.$sourceSection.on( 'mouseleave', $.proxy( this.onMouseLeave, this ) );
-	this.$translationSection.on( 'mouseleave', $.proxy( this.onMouseLeave, this ) );
+	this.$sourceSection.on( 'mouseleave', this.onMouseLeave.bind( this ) );
+	this.$translationSection.on( 'mouseleave', this.onMouseLeave.bind( this ) );
 
-	this.$sourceSection.on( 'click', $.proxy( this.onClick, this ) );
-	this.$translationSection.on( 'click', $.proxy( this.onClick, this ) );
-
+	this.$sourceSection.on( 'click', this.onClick.bind( this ) );
+	this.$translationSection.on( 'click', this.onClick.bind( this ) );
+	this.$translationSection.on( 'keyup mouseup',
+		OO.ui.debounce( this.onMouseUp.bind( this ), 250 )
+	);
 	this.$translationSection.on( 'input', function() {
-		self.emit( 'change' );
-	} );
+		this.emit( 'change' );
+	}.bind( this ) );
+	this.buildTools();
+};
+
+mw.cx.ui.TranslationUnit.prototype.onMouseUp = function ( event ) {
+	var selection;
+
+	// Control or alt key press events can be ignored
+	if ( event.metaKey || event.ctrlKey && !event.altKey ) {
+		return;
+	}
+
+	selection = window.getSelection().toString();
+	if ( selection.trim() ) {
+		this.emit( 'select', selection );
+	} else {
+		this.emit( 'focus' );
+	}
 };
 
 mw.cx.ui.TranslationUnit.prototype.onMouseOver = function () {
@@ -60,15 +78,11 @@ mw.cx.ui.TranslationUnit.prototype.onMouseLeave = function () {
 	this.removeHighlight();
 };
 
-mw.cx.ui.TranslationUnit.prototype.focus = function () {
-	this.onFocus();
+mw.cx.ui.TranslationUnit.prototype.onFocus = function () {
+	this.emit( 'focus' );
 };
 
-mw.cx.ui.TranslationUnit.prototype.showTools = function () {
-	this.view.columns.ToolsColumn.showTools( this );
-};
-
-mw.cx.ui.TranslationUnit.prototype.getTools = function () {
+mw.cx.ui.TranslationUnit.prototype.buildTools = function () {
 	var i, toolNames;
 
 	if ( this.tools ) {
@@ -119,7 +133,7 @@ mw.cx.ui.TranslationUnit.prototype.onClick = function ( event ) {
 	event.preventDefault();
 
 	// Show tools for this translation unit
-	this.showTools();
+	this.emit( 'click' );
 
 	return true;
 };
