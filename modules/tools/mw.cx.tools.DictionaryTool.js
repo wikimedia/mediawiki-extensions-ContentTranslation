@@ -4,18 +4,15 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.dm.TranslationUnit} translationUnit
- * @param {mw.cx.ui.TranslationView} translationView
+ * @param {mw.cx.ui.TranslationUnit} translationUnit
  * @param {Object} config
  */
-
-mw.cx.tools.DictionaryTool = function CXDictionaryTool( translationUnit, translationView, config ) {
+mw.cx.tools.DictionaryTool = function CXDictionaryTool( translationUnit, config ) {
 	config.order = 3;
 	config.title = 'Dictionary';
 	this.translationUnit = translationUnit;
-	this.translationView = translationView;
 	// Parent constructor
-	mw.cx.tools.DictionaryTool.super.call( this, translationUnit, translationView, config );
+	mw.cx.tools.DictionaryTool.super.call( this, translationUnit, config );
 };
 
 /* Inheritance */

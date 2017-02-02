@@ -37,7 +37,7 @@ mw.cx.dm.TranslationUnit = function TranslationUnit( config, translation, source
 	this.requestManager = config.requestManager;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
-
+	this.parentTranslationUnit = null;
 	// Parent constructor
 	mw.cx.dm.TranslationUnit.super.call( this );
 	this.connect( this, {
@@ -92,12 +92,31 @@ mw.cx.dm.TranslationUnit.prototype.getTranslationUnits = function() {
 	return this.translationUnits;
 };
 
+mw.cx.dm.TranslationUnit.prototype.getParentTranslationUnit = function () {
+	return this.parentTranslationUnit;
+};
+
+mw.cx.dm.TranslationUnit.prototype.setParentTranslationUnit = function ( translationUnit ) {
+	this.parentTranslationUnit = translationUnit;
+};
+
 /**
  * Whether the translation unit is editable
  * @return {boolean}
  */
 mw.cx.dm.TranslationUnit.prototype.isEditable = function () {
 	return true;
+};
+
+/**
+ * Remove the translation unit.
+ */
+mw.cx.dm.TranslationUnit.prototype.remove = function () {
+	if ( this.targetDocument ) {
+		this.targetDocument.remove();
+		this.emit( 'change' );
+		this.emit( 'remove' );
+	}
 };
 
 /**

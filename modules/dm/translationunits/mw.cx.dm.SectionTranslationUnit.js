@@ -46,6 +46,7 @@ mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceD
 			// Keep a map of DOM ids and translation units
 			this.subTranslationUnitModels[ children[ i ].id ] = subTranslationUnit;
 			this.translationUnits.push( subTranslationUnit );
+			subTranslationUnit.setParentTranslationUnit( this );
 		}
 		// Recursively search for sub translation units.
 		this.buildSubTranslationUnits( children[ i ] );

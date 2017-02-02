@@ -84,8 +84,7 @@ mw.cx.ui.TranslationUnit.prototype.getTools = function () {
 		}
 		this.tools.push( mw.cx.tools.translationToolFactory.create(
 			toolNames[ i ],
-			this.translationUnitModel,
-			this.view,
+			this, // The UI model
 			this.config
 		) );
 	}
@@ -140,6 +139,15 @@ mw.cx.ui.TranslationUnit.prototype.isEditable = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.onChange = function () {
+	this.view.emit( 'change' );
+};
+
+mw.cx.ui.TranslationUnit.prototype.remove = function () {
+	this.translationUnitModel.remove();
+	// TODO: This is not a contenteditable friendly remove operation and because of
+	// that undo/redo wont work. Use a contenteditable element removal by selecting
+	// the range for this element and remove
+	this.$translationSection.remove();
 	this.view.emit( 'change' );
 };
 

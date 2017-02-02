@@ -4,20 +4,20 @@
  * @class
  * @abstract
  * @constructor
- * @param {mw.cx.dm.TranslationUnit} translationUnit
- * @param {mw.cx.ui.TranslationView} translationView
+ * @param {mw.cx.ui.TranslationUnit} translationUnit
  * @param {Object} config
  * @cfg {string} title The title to be displayed for the tool card. If missing, header wont be displayed
  * @cfg {string} language The language name to be displayed in header of tool card
  * @cfg {number} order The position of the card in tools column. Cards will be arranged in this order.
  */
-mw.cx.tools.TranslationTool = function CXTranslationTool( translationUnit, translationView, config ) {
+mw.cx.tools.TranslationTool = function CXTranslationTool( translationUnit, config ) {
 	this.card = null;
 	this.title = config.title;
 	this.language = config.language;
 	this.order = config.order;
-	this.translationUnit = translationUnit;
-	this.translationView = translationView;
+	this.translationUnitUIModel = translationUnit;
+	this.translationUnitDataModel = translationUnit.translationUnitModel;
+	this.translationView = translationUnit.view;
 	this.actions = [];
 };
 
@@ -49,3 +49,10 @@ mw.cx.tools.TranslationTool.prototype.getActions = null;
  * @return {string|jQuery} Content as HTML or jQuery
  */
 mw.cx.tools.TranslationTool.prototype.getContent = null;
+
+mw.cx.tools.TranslationTool.prototype.destroy = function () {
+	if ( this.card ) {
+		this.card.$element.remove();
+		delete this.card;
+	}
+};

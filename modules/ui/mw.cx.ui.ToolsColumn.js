@@ -59,7 +59,7 @@ mw.cx.ui.ToolsColumn.prototype.setTranslation = function( translation ) {
  */
 mw.cx.ui.ToolsColumn.prototype.showInstructions = function () {
 	var instructions = mw.cx.tools.translationToolFactory.create(
-		'instructions', null, this, this.config
+		'instructions', this, this.config
 	);
 
 	this.showTool( instructions );
