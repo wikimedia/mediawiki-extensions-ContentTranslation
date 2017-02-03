@@ -11,14 +11,14 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 	this.progressBar = new mw.cx.widgets.ProgressBarWidget( config );
 	this.toolContainer = new OO.ui.StackLayout( {
 		continuous: true,
-		classes: [ 'cx-column--tools-container' ],
+		classes: [ 'cx-column-tools-container' ],
 		expanded: false,
 		padded: true
 	} );
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
-		classes: [ 'cx-column', 'cx-column--tools' ],
+		classes: [ 'cx-column', 'cx-column-tools' ],
 		expanded: false,
 		scrollable: false,
 		padded: false,
