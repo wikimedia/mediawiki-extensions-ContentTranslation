@@ -26,12 +26,10 @@ mw.cx.tools.TranslationTool = function CXTranslationTool( ui, config ) {
  * @return {mw.cx.widgets.TranslationToolWidget} The tool card
  */
 mw.cx.tools.TranslationTool.prototype.getCard = function() {
-	this.card = this.card || new mw.cx.widgets.TranslationToolWidget( {
+	this.card = this.card || new mw.cx.widgets.TranslationToolWidget( this, {
 		title: this.title,
 		language: this.language,
-		name: this.constructor.static.name,
-		toolContent: this.getContent(),
-		actions: this.getActions()
+		name: this.constructor.static.name
 	} );
 	return this.card;
 };
@@ -56,6 +54,16 @@ mw.cx.tools.TranslationTool.prototype.getData = function () {
 
 mw.cx.tools.TranslationTool.prototype.showTool = function () {
 	this.ui.view.columns.ToolsColumn.showTool( this );
+};
+
+/**
+ * Refresh the card rendering.
+ */
+mw.cx.tools.TranslationTool.prototype.refresh = function () {
+	var card = this.getCard();
+	if ( card ) {
+		card.render();
+	}
 };
 
 mw.cx.tools.TranslationTool.prototype.destroy = function () {
