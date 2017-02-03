@@ -1706,11 +1706,33 @@
 		},
 		"mw.cx.tools": {
 			"dependencies": [
+				"mw.cx.tools.MachineTranslationTool",
 				"mw.cx.tools.SearchTool",
 				"mw.cx.tools.ReferenceTool",
 				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.DictionaryTool",
 				"mw.cx.tools.LinkTool"
+			]
+		},
+		"mw.cx.tools.MachineTranslationTool": {
+			"scripts": [
+				"tools/mw.cx.tools.MachineTranslationTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.MachineTranslationTool.less"
+			],
+			"messages": [
+				"cx-tools-mt-title",
+				"cx-tools-mt-use-source",
+				"cx-tools-mt-reset",
+				"cx-tools-mt-provider-title",
+				"cx-tools-mt-dont-use",
+				"cx-tools-mt-set-default",
+				"cx-tools-mt-new-provider",
+				"cx-tools-mt-new-providers-available"
+			],
+			"dependencies": [
+				"mw.cx.tools.TranslationTool"
 			]
 		},
 		"mw.cx.tools.SearchTool": {
