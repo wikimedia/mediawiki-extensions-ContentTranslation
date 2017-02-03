@@ -4,13 +4,13 @@
  * Image translation unit
  *
  * @class
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
  * @param {Object} config
  */
-mw.cx.ui.ImageTranslationUnit = function CXImageTranslationUnit( translationUnitModel, view, config ) {
+mw.cx.ui.ImageTranslationUnit = function CXImageTranslationUnit( model, view, config ) {
 	// Parent constructor
-	mw.cx.ui.ImageTranslationUnit.parent.call( this, translationUnitModel, view, config );
+	mw.cx.ui.ImageTranslationUnit.parent.call( this, model, view, config );
 	// Mixin constructor
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
 };
@@ -26,10 +26,10 @@ mw.cx.ui.ImageTranslationUnit.static.matchRdfaTypes = [ 'mw:Image/Thumb' ];
 mw.cx.ui.ImageTranslationUnit.static.highlightClass = 'cx-image-highlight';
 
 mw.cx.ui.ImageTranslationUnit.prototype.init = function () {
-	if ( !this.translationUnitModel.sourceDocument.id ) {
+	if ( !this.model.sourceDocument.id ) {
 		throw Error( '[CX] Invalid source document' );
 	}
-	this.$sourceSection = $( this.translationUnitModel.sourceDocument );
+	this.$sourceSection = $( this.model.sourceDocument );
 	this.$translationSection = this.getTranslationSection();
 	this.adapt();
 	this.listen();
@@ -37,8 +37,8 @@ mw.cx.ui.ImageTranslationUnit.prototype.init = function () {
 
 mw.cx.ui.ImageTranslationUnit.prototype.adapt = function () {
 	// Adapt in general will be asynchronous operation
-	this.translationUnitModel.adapt();
-	this.setContent( this.translationUnitModel.targetDocument );
+	this.model.adapt();
+	this.setContent( this.model.targetDocument );
 };
 
 /**

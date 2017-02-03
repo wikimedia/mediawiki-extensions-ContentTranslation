@@ -4,17 +4,17 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} translationUnit
+ * @param {mw.cx.ui.TranslationUnit} ui
  * @param {Object} config
  */
-mw.cx.tools.SearchTool = function CXSearchTool( translationUnit, config ) {
+mw.cx.tools.SearchTool = function CXSearchTool( ui, config ) {
 	config.order = 0;
 	config.padded = false;
 	this.searchTool = null;
 	this.config = config;
 	// Parent constructor
-	mw.cx.tools.InstructionsTool.super.call( this, translationUnit, config );
-	this.translationUnitUIModel.connect( this, {
+	mw.cx.tools.InstructionsTool.super.call( this, ui, config );
+	this.ui.connect( this, {
 		click: 'showTool'
 	} );
 };

@@ -4,13 +4,13 @@
  * Reference translation unit
  *
  * @class
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
  * @param {Object} config
  */
-mw.cx.ui.ReferenceTranslationUnit = function ReferenceTranslationUnit( translationUnitModel, view, config ) {
+mw.cx.ui.ReferenceTranslationUnit = function ReferenceTranslationUnit( model, view, config ) {
 	// Parent constructor
-	mw.cx.ui.ReferenceTranslationUnit.parent.call( this, translationUnitModel, view, config );
+	mw.cx.ui.ReferenceTranslationUnit.parent.call( this, model, view, config );
 };
 
 /* Setup */
@@ -23,10 +23,10 @@ mw.cx.ui.ReferenceTranslationUnit.static.highlightClass = 'cx-highlight--lightbl
 mw.cx.ui.ReferenceTranslationUnit.static.tools = [ 'reference' ];
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.init = function () {
-	if ( !this.translationUnitModel.sourceDocument.id ) {
+	if ( !this.model.sourceDocument.id ) {
 		throw Error( '[CX] Invalid source document' );
 	}
-	this.$sourceSection = $( this.translationUnitModel.sourceDocument );
+	this.$sourceSection = $( this.model.sourceDocument );
 	this.$translationSection = this.getTranslationSection();
 	this.adapt();
 	this.listen();
@@ -40,7 +40,7 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.onParentTranslationStarted = functio
 };
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.getTranslationSection = function () {
-	return this.parentTranslationUnit.$translationSection.find( '#' + this.translationUnitModel.sourceDocument.id );
+	return this.parentTranslationUnit.$translationSection.find( '#' + this.model.sourceDocument.id );
 };
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.isEditable = function () {
@@ -49,8 +49,8 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.isEditable = function () {
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.adapt = function () {
 	// Adapt in general will be asynchronous operation
-	this.translationUnitModel.adapt();
-	this.setContent( this.translationUnitModel.targetDocument );
+	this.model.adapt();
+	this.setContent( this.model.targetDocument );
 };
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.setContent = function ( content ) {

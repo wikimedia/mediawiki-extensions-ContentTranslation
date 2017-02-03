@@ -4,11 +4,11 @@
  * TranslationView Header
  *
  * @class
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
  * @param {Object} config
  */
-mw.cx.ui.TranslationUnit = function TranslationUnit( translationUnitModel, view, config ) {
+mw.cx.ui.TranslationUnit = function TranslationUnit( model, view, config ) {
 	this.siteMapper = config.siteMapper;
 	this.config = config;
 	// Mixin constructor
@@ -17,7 +17,7 @@ mw.cx.ui.TranslationUnit = function TranslationUnit( translationUnitModel, view,
 	this.view = view;
 	this.translated = false;
 	this.translationUnits = [];
-	this.translationUnitModel = translationUnitModel;
+	this.model = model;
 	// Parent translation unit
 	this.parentTranslationUnit = null;
 	this.tools = null;
@@ -157,7 +157,7 @@ mw.cx.ui.TranslationUnit.prototype.onChange = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.remove = function () {
-	this.translationUnitModel.remove();
+	this.model.remove();
 	// TODO: This is not a contenteditable friendly remove operation and because of
 	// that undo/redo wont work. Use a contenteditable element removal by selecting
 	// the range for this element and remove

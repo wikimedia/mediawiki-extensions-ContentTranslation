@@ -4,17 +4,17 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} translationUnitUI
+ * @param {mw.cx.ui.TranslationUnit} ui
  * @param {Object} config
  */
-mw.cx.tools.ReferenceTool = function CXReferenceTool( translationUnitUI, config ) {
+mw.cx.tools.ReferenceTool = function CXReferenceTool( ui, config ) {
 	config.title = mw.msg( 'cx-tools-reference-title' );
 	config.name = 'reference';
 	config.language = config.targetLanguage;
 	config.order = 301;
 	// Parent constructor
-	mw.cx.tools.ReferenceTool.super.call( this, translationUnitUI, config );
-	this.translationUnitUIModel.connect( this, {
+	mw.cx.tools.ReferenceTool.super.call( this, ui, config );
+	this.ui.connect( this, {
 		click: 'showTool'
 	} );
 };
@@ -44,14 +44,14 @@ mw.cx.tools.ReferenceTool.prototype.getActions = function () {
 };
 
 mw.cx.tools.ReferenceTool.prototype.getContent = function () {
-	return this.translationUnitDataModel.getTargetHTMLContent();
+	return this.model.getTargetHTMLContent();
 };
 
 /**
  * Remove the reference
  */
 mw.cx.tools.ReferenceTool.prototype.removeReference = function () {
-	this.translationUnitUIModel.remove();
+	this.ui.remove();
 	this.destroy();
 };
 

@@ -4,13 +4,13 @@
  * Section translation unit
  *
  * @class
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
  * @param {Object} config
  */
-mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( translationUnitModel, view, config ) {
+mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( model, view, config ) {
 	// Parent constructor
-	mw.cx.ui.SectionTranslationUnit.parent.call( this, translationUnitModel, view, config );
+	mw.cx.ui.SectionTranslationUnit.parent.call( this, model, view, config );
 	// Mixin constructor
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
 };
@@ -37,12 +37,12 @@ mw.cx.ui.SectionTranslationUnit.prototype.render = function ( position ) {
  * @param {integer} [position] Optional position to add
  */
 mw.cx.ui.SectionTranslationUnit.prototype.addSourceSection = function ( position ) {
-	if ( this.translationUnitModel.sourceDocument.tagName === 'SECTION' ) {
+	if ( this.model.sourceDocument.tagName === 'SECTION' ) {
 		// If the sourceDocument is <section> dont wrap it.
-		this.$sourceSection = $( this.translationUnitModel.sourceDocument );
+		this.$sourceSection = $( this.model.sourceDocument );
 	} else {
 		// Wrap with <section> tag
-		this.$sourceSection = $( '<section>' ).html( this.translationUnitModel.sourceDocument );
+		this.$sourceSection = $( '<section>' ).html( this.model.sourceDocument );
 	}
 	// Add to the source column
 	this.view.columns.sourceColumn.add( this.$sourceSection, position );
@@ -54,10 +54,10 @@ mw.cx.ui.SectionTranslationUnit.prototype.addSourceSection = function ( position
  * @param {integer} [position] Optional position to add
  */
 mw.cx.ui.SectionTranslationUnit.prototype.addTranslationSection = function ( position ) {
-	if ( this.translationUnitModel.translationDocument ) {
+	if ( this.model.translationDocument ) {
 		this.translated = true;
 		this.$translationSection = $( '<section>' )
-			.html( this.translationUnitModel.translationDocument );
+			.html( this.model.translationDocument );
 	} else {
 		this.$translationSection = this.getPlaceholderSection();
 	}
@@ -85,8 +85,8 @@ mw.cx.ui.SectionTranslationUnit.prototype.onClick = function () {
 		return true;
 	}
 	// Adapt in general will be asynchronous operation
-	this.translationUnitModel.adapt();
-	this.setContent( this.translationUnitModel.targetDocument );
+	this.model.adapt();
+	this.setContent( this.model.targetDocument );
 
 	if ( this.isEditable() ) {
 		this.makeEditable( true );
@@ -131,7 +131,7 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
  */
 mw.cx.ui.SectionTranslationUnit.prototype.onChange = function () {
 	this.view.emit( 'change' );
-	this.translationUnits = this.buildSubTranslationUnits( this.translationUnitModel );
+	this.translationUnits = this.buildSubTranslationUnits( this.model );
 };
 
 /**
@@ -140,26 +140,26 @@ mw.cx.ui.SectionTranslationUnit.prototype.onChange = function () {
  * For example, links can get added to section and the corresponding translation unit
  * should reflect here.
  *
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @return {mw.cx.dm.TranslationUnit[]} Array of sub translation units
  */
-mw.cx.ui.SectionTranslationUnit.prototype.buildSubTranslationUnits = function ( translationUnitModel ) {
-	var subTranslationUnitModels, name, translationUnits = [], translationUnit, i;
+mw.cx.ui.SectionTranslationUnit.prototype.buildSubTranslationUnits = function ( model ) {
+	var submodels, name, translationUnits = [], translationUnit, i;
 
 	// XXX Code duplication with mw.cx.ui.TranslationView
-	subTranslationUnitModels = translationUnitModel.getTranslationUnits();
+	submodels = model.getTranslationUnits();
 
-	if ( !subTranslationUnitModels ) {
+	if ( !submodels ) {
 		return translationUnits;
 	}
 	// XXX have a way to avoid creating translation units for unchanged units
-	for ( i = 0; i < subTranslationUnitModels.length; i++ ) {
-		name = 	subTranslationUnitModels[ i ].constructor.static.name;
+	for ( i = 0; i < submodels.length; i++ ) {
+		name = submodels[ i ].constructor.static.name;
 		if ( !mw.cx.ui.translationUnitFactory.lookup( name ) ) {
 			continue;
 		}
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
-			name, subTranslationUnitModels[ i ], this.view, this.config
+			name, submodels[ i ], this.view, this.config
 		);
 		translationUnits.push( translationUnit );
 	}

@@ -4,16 +4,16 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} translationUnit
+ * @param {mw.cx.ui.TranslationUnit} ui
  * @param {Object} config
  */
-mw.cx.tools.DictionaryTool = function CXDictionaryTool( translationUnit, config ) {
+mw.cx.tools.DictionaryTool = function CXDictionaryTool( ui, config ) {
 	config.order = 3;
 	config.title = 'Dictionary';
-	this.translationUnit = translationUnit;
+	this.ui = ui;
 	// Parent constructor
-	mw.cx.tools.DictionaryTool.super.call( this, translationUnit, config );
-	this.translationUnitUIModel.connect( this, {
+	mw.cx.tools.DictionaryTool.super.call( this, ui, config );
+	this.ui.connect( this, {
 		select: 'onSelect'
 	} );
 };

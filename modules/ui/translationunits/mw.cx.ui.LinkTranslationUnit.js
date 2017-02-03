@@ -4,13 +4,13 @@
  * Link translation unit
  *
  * @class
- * @param {mw.cx.dm.TranslationUnit} translationUnitModel
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
  * @param {Object} config
  */
-mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( translationUnitModel, view, config ) {
+mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( model, view, config ) {
 	// Parent constructor
-	mw.cx.ui.LinkTranslationUnit.parent.call( this, translationUnitModel, view, config );
+	mw.cx.ui.LinkTranslationUnit.parent.call( this, model, view, config );
 	this.adapted = false;
 };
 
@@ -32,11 +32,11 @@ mw.cx.ui.LinkTranslationUnit.static.matchFunction = function ( node ) {
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.init = function () {
-	if ( !this.translationUnitModel.sourceDocument.id ) {
+	if ( !this.model.sourceDocument.id ) {
 		throw Error( '[CX] Invalid source document' );
 	}
-	this.$sourceSection = $( this.translationUnitModel.sourceDocument );
-	this.$translationSection = this.parentTranslationUnit.$translationSection.find( '#' + this.translationUnitModel.sourceDocument.id );
+	this.$sourceSection = $( this.model.sourceDocument );
+	this.$translationSection = this.parentTranslationUnit.$translationSection.find( '#' + this.model.sourceDocument.id );
 	this.adapt();
 	this.listen();
 };
@@ -56,10 +56,10 @@ mw.cx.ui.LinkTranslationUnit.prototype.getPlaceholderSection = function () {
 mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
 	var self = this;
 	// Adapt in general will be asynchronous operation
-	this.translationUnitModel.adapt().then( function() {
-		if ( !self.translationUnitModel.targetTitleMissing ) {
+	this.model.adapt().then( function() {
+		if ( !self.model.targetTitleMissing ) {
 			self.adapted = true;
-			self.setContent( self.translationUnitModel.targetDocument );
+			self.setContent( self.model.targetDocument );
 		} else {
 			self.markUnAdapted();
 		}
