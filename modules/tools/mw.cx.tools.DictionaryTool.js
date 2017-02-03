@@ -10,7 +10,6 @@
 mw.cx.tools.DictionaryTool = function CXDictionaryTool( ui, config ) {
 	config.order = 3;
 	config.title = 'Dictionary';
-	this.ui = ui;
 	// Parent constructor
 	mw.cx.tools.DictionaryTool.super.call( this, ui, config );
 	this.ui.connect( this, {
@@ -30,11 +29,22 @@ mw.cx.tools.DictionaryTool.prototype.getActions = function () {
 	return [];
 };
 
+/**
+ * Text selection handler
+ * @param  {string} selection Selected text
+ */
 mw.cx.tools.DictionaryTool.prototype.onSelect = function ( selection ) {
-	this.content = selection;
+	var selectionChanged = false;
 	// TODO: Sanitize content
-	if ( this.content && this.content.length < 1000 ) {
+	if ( selection && selection.length < 1000 ) {
+		if ( this.content && this.content !== selection ) {
+			selectionChanged = true;
+		}
+		this.content = selection;
 		this.showTool();
+	}
+	if ( selectionChanged ) {
+		this.refresh();
 	}
 };
 
