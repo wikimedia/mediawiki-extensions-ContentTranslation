@@ -219,5 +219,8 @@
 	"cx-tools-mt-new-providers-available": "z nowych opcjami",
 	"cx-continue-translation": "Kontynuuj tłumaczenie",
 	"cx-tools-template-title": "Szablon",
-	"cx-translation-template-add-more": "Dodaj więcej pól"
+	"cx-template-action-keep-original": "Zachowaj oryginalny szablon",
+	"cx-template-action-skip": "Pomiń szablon",
+	"cx-translation-template-add-more": "Dodaj więcej pól",
+	"cx-translation-template-select-param": "Wybierz docelowe pola"
 }
