@@ -12,7 +12,7 @@
 			.background-image-svg(  '../images/edit.svg', '../images/edit.png');
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: 1.5em;
+			background-size: 1.5em; /* stylelint-disable-line no-unsupported-browser-features */
 			cursor: pointer;
 			opacity: 0.75;
 		}
@@ -24,12 +24,12 @@
 
 		a {
 			// Disable all links inside a template.
-			pointer-events: none;
+			pointer-events: none; /* stylelint-disable-line no-unsupported-browser-features */
 		}
 	}
 
 	a[about] {
 		// Disable all links that are template fragments.
-		pointer-events: none;
+		pointer-events: none; /* stylelint-disable-line no-unsupported-browser-features */
 	};
 }

@@ -3,8 +3,8 @@
 @import 'mediawiki.mixins';
 
 .cards.link {
-	animation-name: card-show-animation;
-	animation-duration: 0.5s;
+	animation-name: card-show-animation; /* stylelint-disable-line no-unsupported-browser-features */
+	animation-duration: 0.5s; /* stylelint-disable-line no-unsupported-browser-features */
 	position: relative;
 	padding: 0;
 	// Make sure the container has enough space to do the
@@ -21,7 +21,7 @@
 			top: 0;
 			left: 0;
 			right: 0;
-			transition: top 0.15s;
+			transition: top 0.15s; /* stylelint-disable-line no-unsupported-browser-features */
 
 			// On mouse over of first card, push the second card a bit down.
 			&:hover + .card:nth-of-type(2) {
@@ -32,7 +32,7 @@
 		&:nth-of-type(2) {
 			position: relative;
 			top: 30px;
-			transition: top 0.3s;
+			transition: top 0.3s; /* stylelint-disable-line no-unsupported-browser-features */
 		}
 	}
 }
@@ -51,7 +51,7 @@
 	background-repeat: no-repeat;
 	background-color: #fff;
 	background-position: left 10px center;
-	background-size: 15px;
+	background-size: 15px; /* stylelint-disable-line no-unsupported-browser-features */
 	cursor: pointer;
 	clear: both;
 	border-top: 1px solid #ddd;
@@ -69,7 +69,7 @@
 	.background-image-svg('../images/add.svg', '../images/add.png');
 	background-repeat: no-repeat;
 	background-position: left 10px center;
-	background-size: 15px;
+	background-size: 15px; /* stylelint-disable-line no-unsupported-browser-features */
 	background-color: #fff;
 	cursor: pointer;
 	border-top: 1px solid #ddd;

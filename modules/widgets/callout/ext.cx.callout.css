@@ -17,7 +17,7 @@
 	height: 0;
 	width: 0;
 	position: absolute;
-	pointer-events: none;
+	pointer-events: none; /* stylelint-disable-line no-unsupported-browser-features */
 }
 
 /* @noflip */.cx-callout-2:after,

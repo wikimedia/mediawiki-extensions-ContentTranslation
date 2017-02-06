@@ -19,13 +19,13 @@
 }
 
 .stick-to-side() {
-	position: fixed;
+	position: fixed; /* stylelint-disable-line no-unsupported-browser-features */
 	top: 0;
 	right: 0;
 }
 
 .stick-to-bottom() {
-	position: fixed;
+	position: fixed; /* stylelint-disable-line no-unsupported-browser-features */
 	top: auto;
 	bottom: 0;
 	left: 0;
@@ -34,7 +34,7 @@
 	min-height: 3em;
 	overflow-x: hidden;
 	overflow-y: auto;
-	transition: max-height 0.25s;
+	transition: max-height 0.25s; /* stylelint-disable-line no-unsupported-browser-features */
 
 	&:hover {
 		max-height: 50%;

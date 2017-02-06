@@ -28,7 +28,7 @@
 			.background-image-svg('../images/elipses.svg', '../images/elipses.png');
 			background-repeat: no-repeat;
 			background-position: center left;
-			background-size: 24px;
+			background-size: 24px; /* stylelint-disable-line no-unsupported-browser-features */
 			&:hover {
 				background-color: #eee;
 			}
@@ -54,7 +54,7 @@
 				cursor: pointer;
 				background-repeat: no-repeat;
 				background-position: center left;
-				background-size: 30px 20px;
+				background-size: 30px 20px; /* stylelint-disable-line no-unsupported-browser-features */
 			}
 			.cx-discard-translation {
 				.background-image-svg('../images/trash_lightgray.svg', '../images/trash_lightgray.png');
@@ -120,7 +120,7 @@
 			padding-left: 0;
 
 			&.disabled {
-				pointer-events: none;
+				pointer-events: none; /* stylelint-disable-line no-unsupported-browser-features */
 				cursor: default;
 			}
 
@@ -165,7 +165,7 @@
 	.mw-ui-item;
 
 	color: #222;
-	position: fixed;
+	position: fixed; /* stylelint-disable-line no-unsupported-browser-features */
 	min-width: 500px;
 	max-width: 600px;
 	background: #fff;
