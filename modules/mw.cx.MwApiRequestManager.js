@@ -26,6 +26,7 @@ mw.cx.MwApiRequestManager = function MwApiRequestManager( config ) {
 	this.imageCache = {};
 	this.titlePairCache = {};
 	this.categoryCache = {};
+	this.namespaceCache = {};
 };
 
 /**
@@ -64,6 +65,14 @@ mw.cx.MwApiRequestManager.prototype.init = function () {
 		siteMapper: this.siteMapper
 	} );
 	this.categoryCache[ this.targetLanguage ] = new mw.cx.CategoryCache( {
+		language: this.targetLanguage,
+		siteMapper: this.siteMapper
+	} );
+	this.namespaceCache[ this.sourceLanguage ] = new mw.cx.NamespaceCache( {
+		language: this.targetLanguage,
+		siteMapper: this.siteMapper
+	} );
+	this.namespaceCache[ this.targetLanguage ] = new mw.cx.NamespaceCache( {
 		language: this.targetLanguage,
 		siteMapper: this.siteMapper
 	} );
@@ -117,6 +126,11 @@ mw.cx.MwApiRequestManager.prototype.getTitlePair = function ( language, title ) 
 	return this.titlePairCache[ language ].get( title );
 };
 
+/**
+ * @param {string} language Language code
+ * @param {string} title Title
+ * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
+ */
 mw.cx.MwApiRequestManager.prototype.getTitlePairs = function ( language, title ) {
 	if ( !this.titlePairCache[ language ] ) {
 		throw Error( '[CX] TitlePairCache not initialized for ' + language );
@@ -124,9 +138,26 @@ mw.cx.MwApiRequestManager.prototype.getTitlePairs = function ( language, title )
 	return this.titlePairCache[ language ].get( title );
 };
 
+/**
+ * @param {string} language Language code
+ * @param {string} title Title
+ * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
+ */
 mw.cx.MwApiRequestManager.prototype.getCategories = function ( language, title ) {
 	if ( !this.categoryCache[ language ] ) {
 		throw Error( '[CX] CategoryCache not initialized for ' + language );
 	}
 	return this.categoryCache[ language ].get( title );
+};
+
+/**
+ * @param {string} language Language code
+ * @param {string} canonicalNamespace Canonical namespace
+ * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
+ */
+mw.cx.MwApiRequestManager.prototype.getNamespaceAlias = function ( language, canonicalNamespace ) {
+	if ( !this.namespaceCache[ language ] ) {
+		throw Error( '[CX] namespaceCache not initialized for ' + language );
+	}
+	return this.namespaceCache[ language ].get( canonicalNamespace );
 };

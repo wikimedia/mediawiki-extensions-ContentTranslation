@@ -1370,6 +1370,7 @@
 				"cache/mw.cx.CategoryCache.js",
 				"cache/mw.cx.ImageInfoCache.js",
 				"cache/mw.cx.LinkCache.js",
+				"cache/mw.cx.NamespaceCache.js",
 				"cache/mw.cx.TitlePairCache.js"
 			],
 			"dependencies": [

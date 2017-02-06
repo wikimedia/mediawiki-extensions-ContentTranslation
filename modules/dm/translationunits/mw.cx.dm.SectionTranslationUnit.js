@@ -17,6 +17,10 @@ mw.cx.dm.SectionTranslationUnit = function SectionTranslationUnit( config, trans
 /* Inheritance */
 OO.inheritClass( mw.cx.dm.SectionTranslationUnit, mw.cx.dm.TranslationUnit );
 
+mw.cx.dm.SectionTranslationUnit.static.name = 'section';
+
+mw.cx.dm.SectionTranslationUnit.static.matchTagNames = mw.cx.dm.SourcePage.static.sectionTypes;
+
 mw.cx.dm.SectionTranslationUnit.prototype.init = function () {
 	this.buildSubTranslationUnits( this.sourceDocument );
 };
@@ -52,10 +56,6 @@ mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceD
 		this.buildSubTranslationUnits( children[ i ] );
 	}
 };
-
-mw.cx.dm.SectionTranslationUnit.static.name = 'section';
-
-mw.cx.dm.SectionTranslationUnit.static.matchTagNames = mw.cx.dm.SourcePage.static.sectionTypes;
 
 /**
  * Translate the section using machine translation if available

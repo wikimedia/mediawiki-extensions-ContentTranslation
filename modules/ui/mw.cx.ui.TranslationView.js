@@ -89,7 +89,9 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 	var i, j, translationUnits, subTranslationUnits, subTranslationUnit, translationUnit;
 	translationUnits = this.translation.getTranslationUnits();
 	for ( i = 0; i < translationUnits.length; i++ ) {
-		translationUnit = mw.cx.ui.translationUnitFactory.create( 'section', translationUnits[ i ], this, this.config );
+		translationUnit = mw.cx.ui.translationUnitFactory.create(
+			translationUnits[ i ].constructor.static.name, translationUnits[ i ], this, this.config
+		);
 		translationUnit.render( i );
 		subTranslationUnits = translationUnits[ i ].getTranslationUnits();
 		for ( j = 0; j < subTranslationUnits.length; j++ ) {
