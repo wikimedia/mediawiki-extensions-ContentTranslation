@@ -1715,6 +1715,7 @@
 				"mw.cx.tools.ReferenceTool",
 				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.DictionaryTool",
+				"mw.cx.tools.TemplateTool",
 				"mw.cx.tools.LinkTool"
 			]
 		},
@@ -1734,6 +1735,24 @@
 				"cx-tools-mt-set-default",
 				"cx-tools-mt-new-provider",
 				"cx-tools-mt-new-providers-available"
+			],
+			"dependencies": [
+				"mw.cx.tools.TranslationTool"
+			]
+		},
+		"mw.cx.tools.TemplateTool": {
+			"scripts": [
+				"tools/mw.cx.tools.TemplateTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.TemplateTool.less"
+			],
+			"messages": [
+				"cx-tools-template-title",
+				"cx-template-action-adapt",
+				"cx-template-action-keep-original",
+				"cx-template-action-skip",
+				"cx-template-not-available"
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool"
