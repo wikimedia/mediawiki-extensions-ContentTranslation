@@ -839,15 +839,21 @@
 				self.status = 'adapted';
 			}
 
-			$.each( self.targetTemplate.templateData.params, function ( key ) {
-				var savedParamValue;
+			$.each( self.sourceTemplate.templateData.params, function ( key ) {
+				var savedParamValue, mappedTargetKey;
 
-				if ( self.templateParamMapping[ key ] ) {
-					savedParamValue = self.targetTemplate.templateData.params[ key ].wt;
-					self.targetTemplate.templateData.params[ key ] =
-						self.sourceTemplate.params[ self.templateParamMapping[ key ] ];
+				mappedTargetKey = self.templateParamMapping[ key ];
+				if ( mappedTargetKey ) {
 					// In case of restored templates, there will be a wt value. Keep that.
-					self.targetTemplate.templateData.params[ key ].wt = savedParamValue;
+					savedParamValue = self.targetTemplate.templateData.params[ mappedTargetKey ] &&
+						self.targetTemplate.templateData.params[ mappedTargetKey ].wt;
+					// Copy the value from source template to target template
+					self.targetTemplate.templateData.params[ mappedTargetKey ] =
+						self.sourceTemplate.params[ key ];
+					// restore the old value
+					if ( savedParamValue ) {
+						self.targetTemplate.templateData.params[ mappedTargetKey ].wt = savedParamValue;
+					}
 				}
 			} );
 
