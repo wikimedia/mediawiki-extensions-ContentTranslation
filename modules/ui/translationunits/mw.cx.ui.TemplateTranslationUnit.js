@@ -25,4 +25,10 @@ mw.cx.ui.TemplateTranslationUnit.static.matchRdfaTypes = [ 'mw:Transclusion' ];
 
 mw.cx.ui.TemplateTranslationUnit.static.highlightClass = 'cx-template-highlight';
 
+mw.cx.ui.TemplateTranslationUnit.prototype.adapt = function () {
+	// Adapt in general will be asynchronous operation
+	this.model.adapt();
+	this.setContent( this.model.targetDocument );
+};
+
 mw.cx.ui.translationUnitFactory.register( mw.cx.ui.TemplateTranslationUnit );

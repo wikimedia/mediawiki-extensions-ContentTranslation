@@ -21,5 +21,25 @@ mw.cx.dm.TemplateTranslationUnit.static.matchRdfaTypes = [ 'mw:Transclusion' ];
 
 /* Methods */
 
+/**
+ * Translate the template
+ *
+ * @param {Element} sourceDocument Source section DOM Element
+ * @return {Element} Translated document
+ */
+mw.cx.dm.TemplateTranslationUnit.prototype.translate = function ( sourceDocument ) {
+	// TODO: Really do template adaptation
+	return sourceDocument.cloneNode( true );
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.dm.TemplateTranslationUnit.prototype.adapt = function () {
+	this.targetDocument = this.translate( this.sourceDocument );
+	// Udapte target id attributes
+	this.setTargetId();
+};
+
 /* Register */
 mw.cx.dm.modelRegistry.register( mw.cx.dm.TemplateTranslationUnit );
