@@ -163,7 +163,6 @@ class ApiContentTranslationSave extends ApiBase {
 				'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
 					$params['from'], $params['sourcetitle']
 				),
-				// If the translation exists, this field wont get updated.
 				'startedTranslator' => $this->translator->getGlobalUserId(),
 				'lastUpdatedTranslator' => $this->translator->getGlobalUserId(),
 			];
