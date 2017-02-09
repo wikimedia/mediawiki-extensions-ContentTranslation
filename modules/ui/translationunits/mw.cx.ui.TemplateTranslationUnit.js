@@ -22,13 +22,17 @@ OO.mixinClass( mw.cx.ui.TemplateTranslationUnit, mw.cx.ui.mixin.AlignableTransla
 mw.cx.ui.TemplateTranslationUnit.static.name = 'Template';
 
 mw.cx.ui.TemplateTranslationUnit.static.matchRdfaTypes = [ 'mw:Transclusion' ];
-
 mw.cx.ui.TemplateTranslationUnit.static.highlightClass = 'cx-template-highlight';
+mw.cx.ui.TemplateTranslationUnit.static.tools = [ 'template' ];
 
 mw.cx.ui.TemplateTranslationUnit.prototype.adapt = function () {
 	// Adapt in general will be asynchronous operation
 	this.model.adapt();
 	this.setContent( this.model.targetDocument );
+};
+
+mw.cx.ui.TemplateTranslationUnit.prototype.isEditable = function () {
+	return false;
 };
 
 mw.cx.ui.translationUnitFactory.register( mw.cx.ui.TemplateTranslationUnit );
