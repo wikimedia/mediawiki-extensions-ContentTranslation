@@ -13,6 +13,9 @@ mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( model, view, 
 	mw.cx.ui.SectionTranslationUnit.parent.call( this, model, view, config );
 	// Mixin constructor
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
+	this.connect( this, {
+		click: 'translate'
+	} );
 };
 
 /* Setup */
@@ -23,7 +26,7 @@ mw.cx.ui.SectionTranslationUnit.static.name = 'section';
 
 mw.cx.ui.SectionTranslationUnit.static.matchTagNames = [ 'section' ];
 mw.cx.ui.SectionTranslationUnit.static.highlightClass = 'cx-highlight';
-mw.cx.ui.SectionTranslationUnit.static.tools = [ 'search', 'formatter', 'machinetranslation', 'linker' ];
+mw.cx.ui.SectionTranslationUnit.static.tools = [ 'search', 'formatter', 'machinetranslation', 'dictionary' ];
 
 mw.cx.ui.SectionTranslationUnit.prototype.render = function ( position ) {
 	this.addSourceSection( position );
@@ -76,13 +79,14 @@ mw.cx.ui.SectionTranslationUnit.prototype.getPlaceholderSection = function () {
 };
 
 /**
- * @inheritDoc
+ * Translate the section.
+ * Either copy the source or use an MT tool to apply the initial translation
  */
-mw.cx.ui.SectionTranslationUnit.prototype.onClick = function () {
+mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	this.removeHighlight();
 
 	if ( this.translated ) {
-		return true;
+		return;
 	}
 	// Adapt in general will be asynchronous operation
 	this.model.adapt();

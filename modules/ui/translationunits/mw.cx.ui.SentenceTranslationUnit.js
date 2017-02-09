@@ -20,7 +20,7 @@ mw.cx.ui.SentenceTranslationUnit.static.name = 'sentence';
 
 mw.cx.ui.SentenceTranslationUnit.static.matchTagNames = [ 'span' ];
 mw.cx.ui.SentenceTranslationUnit.static.highlightClass = 'cx-highlight';
-mw.cx.ui.SentenceTranslationUnit.static.tools = [ 'search', 'formatter', 'machinetranslation', 'dictionary' ];
+mw.cx.ui.SentenceTranslationUnit.static.tools = [];
 
 /**
  * @inheritDoc
