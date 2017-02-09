@@ -27,18 +27,21 @@ mw.cx.ui.Header = function ( config ) {
 OO.inheritClass( mw.cx.ui.Header, OO.ui.PanelLayout );
 
 mw.cx.ui.Header.prototype.getContent = function () {
-	var $logo, $titleText, $headerTitle, $translationCenterLink, $translationCenter;
+	var logo, $titleText, $headerTitle, $translationCenterLink, $translationCenter;
 
-	$logo = $( '<a>' )
-		.prop( 'href', mw.config.get( 'wgScript' ) )
-		.addClass( 'cx-header__logo' );
+	logo = new OO.ui.ButtonWidget( {
+		href: mw.config.get( 'wgScript' ),
+		icon: 'logoWikipedia',
+		classes: [ 'cx-header__logo' ],
+		framed: false
+	} );
 	$titleText = $( '<span>' )
 		.addClass( 'cx-header__title-text' )
 		.text( this.config.titleText || mw.msg( 'cx' ) );
 
 	$headerTitle = $( '<div>' )
 		.addClass( 'cx-header__title' )
-		.append( $logo, $titleText );
+		.append( logo.$element, $titleText );
 
 	$translationCenterLink = $( '<a>' )
 		.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) )
