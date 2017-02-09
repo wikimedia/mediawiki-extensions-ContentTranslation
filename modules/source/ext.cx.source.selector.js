@@ -25,12 +25,12 @@
 
 		this.sourceLanguages = [];
 		this.targetLanguages = [];
-
+		this.sourceLanguage = null;
+		this.targetLanguage = null;
 		this.$dialog = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
 		this.$messageBar = null;
-		this.$sourceTitleInput = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
 		this.validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
@@ -76,11 +76,13 @@
 	 * Initialize the plugin.
 	 */
 	CXSourceSelector.prototype.init = function () {
-		var cxSourceSelector = this;
+		var self = this;
 
 		this.getLanguagePairs().then( function () {
-			cxSourceSelector.render();
-			cxSourceSelector.listen();
+			self.render();
+			self.setDefaultLanguages();
+			self.prefill();
+			self.listen();
 		} );
 
 	};
@@ -95,10 +97,6 @@
 
 		if ( this.options.targetLanguage ) {
 			this.targetLanguageChangeHandler( this.options.targetLanguage );
-		}
-
-		if ( this.options.sourceTitle ) {
-			this.$sourceTitleInput.val( this.options.sourceTitle );
 		}
 
 		if ( this.options.targetTitle ) {
@@ -169,7 +167,7 @@
 	 * @return {string} Language code. Empty string if not set.
 	 */
 	CXSourceSelector.prototype.getSourceLanguage = function () {
-		return this.$sourceLanguage.prop( 'lang' );
+		return this.sourceLanguage;
 	};
 
 	/**
@@ -200,16 +198,16 @@
 			}
 
 		}
-
+		this.sourceLanguage = language;
 		langProps = {
-			lang: language,
-			dir: $.uls.data.getDir( language )
+			lang: this.sourceLanguage,
+			dir: $.uls.data.getDir( this.sourceLanguage )
 		};
 
-		this.$sourceTitleInput.prop( langProps );
 		this.$sourceLanguage.prop( langProps )
-			.text( $.uls.data.getAutonym( language ) );
-		mw.storage.set( 'cxSourceLanguage', language );
+			.text( $.uls.data.getAutonym( this.sourceLanguage ) );
+		mw.storage.set( 'cxSourceLanguage', this.sourceLanguage );
+		this.sourcePageSelector.setLanguage( this.sourceLanguage );
 		this.fillTargetLanguages();
 	};
 
@@ -219,7 +217,7 @@
 	 * @return {string} Language code. Empty string if not set.
 	 */
 	CXSourceSelector.prototype.getTargetLanguage = function () {
-		return this.$targetLanguage.prop( 'lang' );
+		return this.targetLanguage;
 	};
 
 	/**
@@ -228,19 +226,20 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setTargetLanguage = function ( language ) {
-		var langProps = {
-			lang: language,
-			dir: $.uls.data.getDir( language )
-		};
+		var langProps;
 
 		if ( !this.isValidTarget( language ) ) {
 			return;
 		}
-
+		this.targetLanguage = language;
+		langProps = {
+			lang: this.targetLanguage,
+			dir: $.uls.data.getDir( this.targetLanguage )
+		};
 		this.$targetTitleInput.prop( langProps );
 		this.$targetLanguage.prop( langProps )
-			.text( $.uls.data.getAutonym( language ) );
-		mw.storage.set( 'cxTargetLanguage', language );
+			.text( $.uls.data.getAutonym( this.targetLanguage ) );
+		mw.storage.set( 'cxTargetLanguage', this.targetLanguage );
 	};
 
 	/**
@@ -300,7 +299,7 @@
 		// The dialog will be unitialized until the first click.
 		this.$trigger.click( $.proxy( this.show, this ) );
 
-		this.$sourceTitleInput.on( 'input', function () {
+		this.sourcePageSelector.on( 'change', function () {
 			self.$translateFromButton.prop( 'disabled', false );
 			// Hide any previous errors.
 			self.$messageBar.hide();
@@ -326,11 +325,7 @@
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
 		this.setSourceLanguage( language );
-		this.$sourceTitleInput.attr( {
-			lang: language,
-			dir: $.uls.data.getDir( language )
-		} );
-		this.$sourcePageSelector.setApi( this.siteMapper.getApi( language ) );
+		this.sourcePageSelector.setLanguage( language );
 		this.check();
 	};
 
@@ -366,7 +361,7 @@
 	CXSourceSelector.prototype.check = function () {
 		var sourceLanguage = this.getSourceLanguage(),
 			targetLanguage = this.getTargetLanguage(),
-			sourceTitle = this.$sourceTitleInput.val().trim(),
+			sourceTitle = this.sourcePageSelector.getQueryValue(),
 			targetTitle = this.$targetTitleInput.val().trim(),
 			selector = this;
 
@@ -550,7 +545,7 @@
 		if ( this.options.sourceTitle ) {
 			this.$targetTitleInput.focus();
 		} else {
-			this.$sourceTitleInput.focus();
+			this.sourcePageSelector.focus();
 		}
 	};
 
@@ -604,7 +599,7 @@
 	 * Cancels the translation starting process and hides the dialog.
 	 */
 	CXSourceSelector.prototype.cancel = function () {
-		this.$sourceTitleInput.val( '' );
+		this.sourcePageSelector.setValue( '' );
 		this.$targetTitleInput.val( '' );
 
 		this.$translateFromButton.prop( 'disabled', true );
@@ -634,7 +629,7 @@
 		siteMapper = this.siteMapper;
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
-		originalSourceTitle = this.$sourceTitleInput.val().trim();
+		originalSourceTitle = this.sourcePageSelector.getQueryValue();
 		targetTitle = this.$targetTitleInput.val().trim();
 
 		this.validator.isTitleExistInLanguage(
@@ -643,7 +638,7 @@
 		).done( function ( sourceTitle ) {
 			if ( sourceTitle === false ) {
 				selector.showSourceTitleError( sourceLanguage );
-				selector.$sourceTitleInput.focus();
+				selector.sourcePageSelector.focus();
 				return;
 			}
 
@@ -773,17 +768,17 @@
 			.addClass( 'cx-sourceselector-dialog__language' )
 			.append( this.$targetLanguage );
 
-		this.$sourceTitleInput = $( '<input>' )
-			.attr( {
-				name: 'sourceTitle',
-				type: 'search',
-				list: 'searchresults',
-				placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
-			} );
+		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
+			language: this.getSourceLanguage(),
+			siteMapper: this.siteMapper,
+			value: this.options.sourceTitle,
+			validateTitle: true,
+			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
+		} );
 
 		$sourceTitleInputContainer = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__title' )
-			.append( this.$sourceTitleInput );
+			.append( this.sourcePageSelector.$element );
 
 		this.$targetTitleInput = $( '<input>' )
 			.attr( {
@@ -810,12 +805,6 @@
 				$targetLanguageContainer,
 				$targetTitleInputContainer
 			);
-
-		this.setDefaultLanguages();
-
-		this.$sourcePageSelector = new mw.PageSelector( this.$sourceTitleInput, {
-			api: this.siteMapper.getApi( this.getSourceLanguage() )
-		} );
 
 		this.$messageBar = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__messagebar' );
@@ -855,8 +844,6 @@
 		);
 
 		$( 'body' ).append( this.$dialog );
-
-		this.prefill();
 	};
 
 	mw.cx.CXSourceSelector = CXSourceSelector;
