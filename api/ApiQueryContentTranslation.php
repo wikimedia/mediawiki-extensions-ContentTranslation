@@ -41,11 +41,13 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$user = $this->getUser();
 
 		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
-			return $this->find(
+			$this->find(
 				$params['sourcetitle'],
 				$params['from'],
 				$params['to']
 			);
+
+			return;
 		}
 
 		if ( $user->isAnon() ) {
