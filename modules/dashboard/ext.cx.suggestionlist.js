@@ -28,6 +28,25 @@
 	listOrder[ listTypes.TYPE_FEATURED ] = 4;
 	listOrder[ listTypes.TYPE_DEFAULT ] = 5;
 
+	function friendlyListTypeName( type ) {
+		switch ( type ) {
+			case listTypes.TYPE_DEFAULT:
+				return 'default';
+			case listTypes.TYPE_FEATURED:
+				return 'featured';
+			case listTypes.TYPE_DISCARDED:
+				return 'discarded';
+			case listTypes.TYPE_FAVORITE:
+				return 'favorite';
+			case listTypes.TYPE_CATEGORY:
+				return 'category';
+			case listTypes.TYPE_PERSONALIZED:
+				return 'personalized';
+			default:
+				return 'unknown';
+		}
+	}
+
 	/**
 	 * CXSuggestionList
 	 *
@@ -406,8 +425,14 @@
 		}
 
 		for ( i = 0; i < suggestions.length; i++ ) {
+			suggestions[ i ].rank = i;
+			suggestions[ i ].type = list.type;
+			suggestions[ i ].typeExtra = list.algorithm || '';
 			$suggestion = this.buildSuggestionItem( suggestions[ i ] );
 			$suggestions.push( $suggestion );
+			mw.hook( 'mw.cx.suggestion.action' ).fire( 'shown', suggestions[ i ].rank,
+				friendlyListTypeName( suggestions[ i ].type ), suggestions[ i ].typeExtra,
+				suggestions[ i ].sourceLanguage, suggestions[ i ].targetLanguage, suggestions[ i ].title );
 		}
 		this.showTitleImageAndDesc( suggestions );
 
@@ -563,6 +588,9 @@
 		};
 		api.postWithToken( 'edit', params ).done( function ( response ) {
 			if ( response.cxsuggestionlist.result === 'success' ) {
+				mw.hook( 'mw.cx.suggestion.action' ).fire( 'discard', suggestion.rank,
+					friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
+					suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
 				suggestion.$element.slideUp( 'slow', function () {
 					$( this ).remove();
 				} );
@@ -594,6 +622,9 @@
 		api.postWithToken( 'edit', params ).done( function ( response ) {
 			var favoriteListId;
 			if ( response.cxsuggestionlist.result === 'success' ) {
+				mw.hook( 'mw.cx.suggestion.action' ).fire( 'favorite', suggestion.rank,
+					friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
+					suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
 				suggestion.$element.addClass( 'cx-slideup-hide' );
 				suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
 					function () {
@@ -747,6 +778,9 @@
 					sourceTitle: suggestion.title,
 					campaign: campaign.join( '-' )
 				} );
+				mw.hook( 'mw.cx.suggestion.action' ).fire( 'accept', suggestion.rank,
+					friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
+					suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
 			}
 		} );
 
