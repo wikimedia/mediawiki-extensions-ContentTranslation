@@ -161,6 +161,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$result->addValue( [ 'query', $this->getModuleName() ], 'lists', $lists );
 	}
 
+	// TODO: This is misnamed. Translation::find returns all translations in any state.
 	private function getOngoingTranslations( array $suggestions ) {
 		$titles = [];
 		if ( !count( $suggestions ) ) {

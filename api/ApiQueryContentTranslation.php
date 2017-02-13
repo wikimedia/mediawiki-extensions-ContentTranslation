@@ -11,6 +11,7 @@ use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
 use ContentTranslation\Draft;
 use ContentTranslation\Translation;
+use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 
 /**
@@ -19,7 +20,6 @@ use ContentTranslation\Translator;
  * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
-
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName );
 	}
@@ -39,17 +39,17 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
+		$translator = new Translator( $user );
 
+		// Case A: Find a translation for given work
 		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
-			$this->find(
-				$params['sourcetitle'],
-				$params['from'],
-				$params['to']
-			);
+			$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
+			$this->find( $work, $translator );
 
 			return;
 		}
 
+		// Case B: Find a translation for given id
 		if ( $user->isAnon() ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
@@ -59,7 +59,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		if ( $params['translationid'] ) {
-			$translator = new Translator( $user );
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
 				$translation->translation['translationUnits'] =
@@ -80,8 +79,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		// The main case, no filters
-		$translator = new Translator( $user );
+		// Case C: Find list of translations
 		$translations = $translator->getAllTranslations(
 			$params['limit'],
 			$params['offset'],
@@ -116,30 +114,44 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	/**
 	 * Find a translation with any status for the given language pair and title.
 	 */
-	public function find( $sourceTitle, $sourceLanguage, $targetLanguage ) {
+	public function find( TranslationWork $work, Translator $translator ) {
 		$result = $this->getResult();
-		$translation = Translation::find(
-			$sourceLanguage,
-			$targetLanguage,
-			$sourceTitle
-		);
+		$translation = Translation::findForTranslator( $work, $translator );
 
-		if ( $translation !== null ) {
-			$translator = $translation->translation['lastUpdatedTranslator'];
-			$centralIdLookup = CentralIdLookup::factory();
-			// $user can be null, but should never happen in our case because
-			// we redirect translators to the target wiki, and they cannot do
-			// translations without logging in.
-			$user = $centralIdLookup->localUserFromCentralId( $translator );
-			$gender = GenderCache::singleton()->getGenderOf( $user, __METHOD__ );
-
-			$translation->translation['translatorName'] = $user->getName();
-			$translation->translation['translatorGender'] = $gender;
-			$result->addValue(
-				[ 'query', 'contenttranslation' ],
-				'translation', $translation->translation
-			);
+		// Check for other drafts. If one exists, return that to the UI which will then
+		// know to display an error to the user because we disallow two users to start
+		// drafts on the same translation work.
+		if ( $translation === null ) {
+			$translations = Translation::getConflictingTranslations( $work );
+			if ( $translations !== [] ) {
+				// Take the first one due to UI limitations
+				$translation = array_shift( $translations );
+			}
 		}
+
+		if ( $translation === null ) {
+			// Return empty result. The UI will treat it as a new translation.
+			return;
+		}
+
+		// Add name and gender information to the returned result. The UI can use this
+		// to display the conflict message.
+		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
+		$centralIdLookup = CentralIdLookup::factory();
+		// $user can be null, but should never happen in our case because
+		// we redirect translators to the target wiki, and they cannot do
+		// translations without logging in.
+		$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
+		$gender = GenderCache::singleton()->getGenderOf( $user, __METHOD__ );
+
+		$translation->translation['translatorName'] = $user->getName();
+		$translation->translation['translatorGender'] = $gender;
+
+		$result->addValue(
+			[ 'query', 'contenttranslation' ],
+			'translation',
+			$translation->translation
+		);
 	}
 
 	/**

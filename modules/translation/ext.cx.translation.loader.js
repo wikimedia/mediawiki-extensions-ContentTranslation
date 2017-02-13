@@ -32,15 +32,14 @@
 			if ( !translation ) {
 				return false;
 			}
-			// If this translation is draft and not by current user, there is an
-			// existing translation.
-			if ( translation.translatorName !== mw.user.getName() &&
-				translation.status === 'draft'
-			) {
+
+			// Do not allow two users to start a draft at the same time. The API only
+			// returns a translation with different translatorName if this is the case.
+			if ( translation.translatorName !== mw.user.getName() ) {
 				self.showConflictWarning( translation );
 				return false;
 			}
-			// Set the translationId
+
 			mw.cx.translationId = translation.id;
 			if ( translation.status !== 'deleted' ) {
 				// Fetch the translation content
