@@ -77,6 +77,7 @@ mw.cx.ui.Header.prototype.listen = function () {
 	} );
 	mw.hook( 'mw.cx.draft.restore-failed' ).add( function () {
 		self.$draftStatus.text( mw.msg( 'cx-draft-restore-failed' ) );
+		$( '.cx-widget__columns' ).addClass( 'disabled' );
 	} );
 	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
 };
