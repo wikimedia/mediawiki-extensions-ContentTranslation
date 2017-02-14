@@ -80,7 +80,7 @@ class Translation {
 	 * translation exists and chooses either of create or update actions.
 	 */
 	public function save() {
-		$existingTranslation = Translation::find(
+		$existingTranslation = self::find(
 			$this->translation['sourceLanguage'],
 			$this->translation['targetLanguage'],
 			$this->translation['sourceTitle']
