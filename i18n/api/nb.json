@@ -21,7 +21,7 @@
 	"apihelp-query+contenttranslation-param-to": "Språkkoden til målspråket.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Tittelen på kildesiden.",
 	"apihelp-query+contenttranslation-param-limit": "Maksimalt antall oversettelser som skal hentes.",
-	"apihelp-query+contenttranslation-example-1": "Hent oversettelser som er startet av nåværende bruker.",
+	"apihelp-query+contenttranslation-example-1": "Hent oversettelser som er startet av gjeldende bruker.",
 	"apihelp-query+contenttranslation-example-2": "Hent oversettelsesutkast med id",
 	"apihelp-query+contenttranslation-example-3": "Finn en oversettelse for gitt tittel mellom gitte språkpar",
 	"apihelp-query+contenttranslationstats-example-1": "Hent oversettelsesstatistikk for alle språk.",

@@ -25,7 +25,7 @@
 	"cx-publish-page-success": "Stranica objavljena $1",
 	"cx-publish-page-error": "Greška pri spremanju stranice. Pokušajte ponovo objaviti stranicu. Greška: $1",
 	"cx-publish-button": "Objavi prijevod",
-	"cx-publish-button-publishing": "Objavljivanje u toku...",
+	"cx-publish-button-publishing": "Objavljujem...",
 	"cx-lost-session-draft": "Vaša sesija je istekla. Vaše izmjene se nemogu sačuvati dok se neprijavite ponovo u novom prozoru.",
 	"cx-lost-session-publish": "Vaša sesija je istekla. Nemožete publicirati prijevode dok se neprijevite ponovo u novom prozoru.",
 	"cx-publish-summary": "Napravljeno prevođenjem stranice \"$1\"",
