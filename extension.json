@@ -76,6 +76,7 @@
 		"ContentTranslation\\AbuseFilterCheck": "includes/AbuseFilterCheck.php",
 		"ContentTranslation\\CorporaLookup": "includes/CorporaLookup.php",
 		"ContentTranslation\\Database": "includes/Database.php",
+		"ContentTranslation\\DateManipulator": "includes/DateManipulator.php",
 		"ContentTranslation\\Draft": "includes/Draft.php",
 		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
 		"ContentTranslation\\Notification": "includes/Notification.php",

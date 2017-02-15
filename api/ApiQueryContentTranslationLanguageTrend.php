@@ -13,6 +13,7 @@
  * @ingroup API ContentTranslationAPI
  */
 use ContentTranslation\Translation;
+use ContentTranslation\DateManipulator;
 
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 
@@ -50,65 +51,40 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 	}
 
 	public function addMissingDates( $data, $interval ) {
-		$min = PHP_INT_MAX;
-		$max = 0;
-		foreach ( $data as $column ) {
-			foreach ( array_keys( $column ) as $date ) {
-				$min = min( $min, strtotime( $date ) );
-			}
-		}
-		// We need statistics till the end of the ongoing week.
-		$unix = wfTimestamp( TS_UNIX );
-		$n = 7 - date( 'w', $unix );
-		$max = strtotime( "+$n days", $unix );
+		$dates = call_user_func_array( 'array_merge', array_map( 'array_keys', $data ) );
+
+		$dm = new DateManipulator( $interval );
+		$min = $dm->getIntervalIdentifier( min( $dates ) );
+		$max = $dm->getIntervalIdentifier( 0 ); // 0 means now
+
+		$steps = $dm->getSteps( $min, $max, $interval );
+
 		$counts = [];
 		foreach ( array_keys( $data ) as $type ) {
 			$counts[$type] = 0;
 		}
 
-		$steps = $this->getSteps( $min, $max, $interval );
-
 		$out = [];
-		foreach ( $steps as $step ) {
+		foreach ( $steps as $datetime ) {
 			foreach ( $data as $type => $column ) {
-				if ( isset( $column[$step] ) ) {
-					$column[$step]['date'] = $step;
-					$out[$type][] = $column[$step];
-					$counts[$type] = $column[$step]['count'];
+				$id = $datetime->format( 'U' );
+				$date = $datetime->format( 'Y-m-d' );
+
+				if ( isset( $column[$id] ) ) {
+					$column[$id]['date'] = $date;
+					$out[$type][] = $column[$id];
+					$counts[$type] = $column[$id]['count'];
 				} else {
 					$out[$type][] = [
 						'count' => $counts[$type],
 						'delta' => 0,
-						'date' => $step,
+						'date' => $date,
 					];
 				}
 			}
 		}
 
 		return $out;
-	}
-
-	protected function getSteps( $min, $max, $interval ) {
-		$steps = [];
-		while ( true ) {
-			// Lets not overflow
-			$min = min( $min, $max );
-			if ( $interval === 'month' ) {
-				$uniq = $label = date( 'Y-m', $min );
-			} else {
-				$uniq = date( 'o-W', $min );
-				$label = date( 'Y-m-d', $min );
-			}
-
-			$steps[$uniq] = $label;
-
-			if ( $min === $max ) {
-				break;
-			}
-			$min += 3600 * 24;
-		}
-
-		return $steps;
 	}
 
 	public function getAllowedParams() {
