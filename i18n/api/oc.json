@@ -4,6 +4,7 @@
 			"Cedric31"
 		]
 	},
+	"apihelp-cxpublish-param-title": "Lo títol de la pagina sus la quala cal efectuar las accions.",
 	"apihelp-cxpublish-param-from": "Lo còdi de lenga font.",
 	"apihelp-query+contenttranslation-description": "Interrogar la basa de donadas de traduccion del contengut per las traduccions",
 	"apihelp-query+contenttranslation-param-from": "Lo còdi de la lenga font.",
