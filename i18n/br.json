@@ -5,10 +5,12 @@
 			"Y-M D",
 			"Ash Crow",
 			"Amire80",
-			"Pymouss"
+			"Pymouss",
+			"Fulup"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
+	"cx-dashboard-header": "Troidigezhioù",
 	"cx-javascript": "N'a ket an ostilh-mañ en-dro panevet JavaScript.",
 	"cx-error-server-connection": "Fazi : Ne c'haller ket kevreañ ouzh ar servijer.",
 	"cx-header-progressbar-text": "$1% troet",
@@ -42,11 +44,10 @@
 	"cx-tools-link-add": "Ouzhpennañ ul liamm",
 	"cx-tools-link-remove": "Dilemel al liamm",
 	"cx-tools-mt-title": "Treiñ emgefre",
-	"cx-tools-mt-clear-translation": "Diverkañ ar rannbennad",
-	"cx-tools-mt-restore": "Assevel",
-	"cx-tools-mt-not-available": "N'eus ket evit ar $1",
+	"cx-tools-mt-provider-title": "Implijout $1",
 	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
 	"cx-tools-reference-title": "Daveenn",
+	"cx-tools-reference-add": "ouzhpennañ an daveenn",
 	"cx-tools-reference-remove": "Lemel an daveenn",
 	"cx-tools-link-hover-tooltip": "Klikañ evit digeriñ",
 	"cx-warning-unsaved-translation": "Chom a ra troidigezhioù n'int ket bet enrollet ganeoc'h.",
