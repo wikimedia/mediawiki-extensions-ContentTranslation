@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Bikarhêner"
+			"Bikarhêner",
+			"Ghybu"
 		]
 	},
 	"cx": "Rûpelê wergerîne",
@@ -41,7 +42,7 @@
 	"cx-tools-mt-set-default": "Wek standart bihêle",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategor|0=Kategorî tune ne}}",
 	"cx-stats-title": "Satîstîkên Wergerandina Naverokê",
-	"cx-tools-reference-title": "Referans",
+	"cx-tools-reference-title": "Çavkanî",
 	"cx-tools-reference-add": "Referansê lê zêde bike",
 	"cx-tools-reference-remove": "Referansê jê bibe",
 	"cx-warning-unsaved-translation": "Wergerên te yên netomarkirî hene.",

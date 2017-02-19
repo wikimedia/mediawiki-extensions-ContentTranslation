@@ -9,7 +9,8 @@
 			"Amire80",
 			"Geitost",
 			"Macofe",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Umherirrender"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -19,8 +20,8 @@
 	"cx-license-agreement": "Durch den Klick auf die Schaltfläche „$1“ stimmst du den [//wikimediafoundation.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu mit dem Verständnis, dass ein Hyperlink oder eine URL für eine CC-BY-SA-3.0-Namensnennung ausreichend ist.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
 	"cx-desc": "Ermöglicht die einfache [[Special:ContentTranslation|Übersetzung]] von Inhaltsseiten",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|übersetzt}}",
-	"cx-header-progressbar-text-mt": "($1% von der {{PLURAL:$1|Maschinenübersetzung}})",
+	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|übersetzt}}",
+	"cx-header-progressbar-text-mt": "($1 % von der {{PLURAL:$1|Maschinenübersetzung}})",
 	"cx-header-translation-center": "Übersetzungscenter",
 	"cx-header-new-translation": "Neue Übersetzung",
 	"cx-header-all-translations": "Alle Übersetzungen",
@@ -92,7 +93,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Die Seite ist bereits auf $2 [$1 vorhanden]",
 	"cx-sourceselector-dialog-error-title-in-use": "Der Titel für die neue Seite ist [$1 bereits in Verwendung]",
 	"cx-sourceselector-dialog-error-no-source-article": "Die zu übersetzende Seite ist nicht auf $1 vorhanden",
-	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1% unveränderten maschinenübersetzten Text",
+	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten maschinenübersetzten Text",
 	"cx-mt-abuse-warning-text": "Die Maschinenübersetzung wird nur als Startpunkt zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
 	"cx-publish-captcha-title": "Sicherheitsfrage",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Brauchst}} du Hilfe bei Übersetzungen?",
