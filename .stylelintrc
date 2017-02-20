@@ -1,6 +1,7 @@
 {
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
-		"no-unknown-animations": null
+		"no-unknown-animations": null,
+		"no-descending-specificity": null
 	}
 }
