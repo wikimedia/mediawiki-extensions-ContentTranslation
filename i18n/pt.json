@@ -217,6 +217,6 @@
 	"cx-template-action-skip": "Ignorar a predefinição",
 	"cx-template-not-available": "Não está disponível em $1",
 	"cx-translation-template-add-param": "+ Traduzir campo",
-	"cx-translation-template-add-more": "Adicionar mais propriedades",
-	"cx-translation-template-select-param": "Selecionar o campo de destino"
+	"cx-translation-template-add-more": "Adicionar mais campos",
+	"cx-translation-template-select-param": "Selecionar os campos de destino"
 }
