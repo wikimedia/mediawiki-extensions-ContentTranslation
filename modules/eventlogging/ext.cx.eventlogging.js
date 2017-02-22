@@ -33,6 +33,7 @@
 			mw.hook( 'mw.cx.cta.reject' ).add( $.proxy( this.ctaReject, this ) );
 			mw.hook( 'mw.cx.draft.restore-failed' ).add( $.proxy( this.restoreFailed, this ) );
 			mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.saveFailed, this ) );
+			mw.hook( 'mw.cx.suggestion.action' ).add( $.proxy( this.suggestionAction, this ) );
 		},
 
 		/**
@@ -241,6 +242,24 @@
 				session: mw.user.sessionId(),
 				contentLanguage: mw.config.get( 'wgContentLanguage' ),
 				interfaceLanguage: mw.config.get( 'wgUserLanguage' )
+			} );
+		},
+
+		suggestionAction: function ( action, rank, type, typeExtra, sourceLanguage, targetLanguage, sourceTitle ) {
+			mw.track( 'event.ContentTranslationSuggestion', {
+				version: 1,
+				session: mw.user.sessionId(),
+				token: mw.user.id(),
+				suggestionId: mw.user.id() + '-' + sourceTitle,
+				rank: rank,
+				type: type,
+				typeExtra: typeExtra,
+				action: action,
+				interfaceLanguage: mw.config.get( 'wgUserLanguage' ),
+				contentLanguage: mw.config.get( 'wgContentLanguage' ),
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle
 			} );
 		}
 	};
