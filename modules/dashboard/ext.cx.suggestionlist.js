@@ -586,7 +586,7 @@
 			from: suggestion.sourceLanguage,
 			to: suggestion.targetLanguage
 		};
-		api.postWithToken( 'edit', params ).done( function ( response ) {
+		api.postWithToken( 'csrf', params ).done( function ( response ) {
 			if ( response.cxsuggestionlist.result === 'success' ) {
 				mw.hook( 'mw.cx.suggestion.action' ).fire( 'discard', suggestion.rank,
 					friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
@@ -619,7 +619,7 @@
 			from: suggestion.sourceLanguage,
 			to: suggestion.targetLanguage
 		};
-		api.postWithToken( 'edit', params ).done( function ( response ) {
+		api.postWithToken( 'csrf', params ).done( function ( response ) {
 			var favoriteListId;
 			if ( response.cxsuggestionlist.result === 'success' ) {
 				mw.hook( 'mw.cx.suggestion.action' ).fire( 'favorite', suggestion.rank,
@@ -672,7 +672,7 @@
 			from: suggestion.sourceLanguage,
 			to: suggestion.targetLanguage
 		};
-		api.postWithToken( 'edit', params ).done( function ( response ) {
+		api.postWithToken( 'csrf', params ).done( function ( response ) {
 			if ( response.cxsuggestionlist.result === 'success' ) {
 				suggestion.$element.addClass( 'cx-slidedown-hide' );
 				suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
