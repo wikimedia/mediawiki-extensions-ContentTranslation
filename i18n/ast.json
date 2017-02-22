@@ -207,6 +207,6 @@
 	"cx-template-action-skip": "Saltar la plantía",
 	"cx-template-not-available": "Nun ta disponible pal $1",
 	"cx-translation-template-add-param": "+ Traducir campu",
-	"cx-translation-template-add-more": "Amestar más propiedaes",
-	"cx-translation-template-select-param": "Seleicionar el campu de destín"
+	"cx-translation-template-add-more": "Amestar más campos",
+	"cx-translation-template-select-param": "Seleicionar los campos de destín"
 }

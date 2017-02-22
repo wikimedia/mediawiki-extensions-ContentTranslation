@@ -206,6 +206,6 @@
 	"cx-template-action-skip": "Прескокни го шаблонов",
 	"cx-template-not-available": "Не е достапен на $1",
 	"cx-translation-template-add-param": "+ Поле за превод",
-	"cx-translation-template-add-more": "Додај уште својства",
-	"cx-translation-template-select-param": "Изберете го целното поле"
+	"cx-translation-template-add-more": "Додај уште полиња",
+	"cx-translation-template-select-param": "Изберете целни полиња"
 }
