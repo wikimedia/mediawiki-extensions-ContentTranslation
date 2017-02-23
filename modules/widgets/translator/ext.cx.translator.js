@@ -87,11 +87,7 @@
 			.addClass( 'cx-translator__total-translations-label' )
 			.text( mw.msg( 'cx-translator-total-translations-label' ) )
 		);
-		$trend = $( '<canvas>' ).attr( {
-			id: 'cxtranslatorstats',
-			width: '1000%', // Tricks Chart.js to scale down the graph 10 times
-			height: '100px'
-		} );
+		$trend = $( '<canvas>' ).addClass( 'cx-translatorstats' );
 		statsRequest = statsRequest || api.get( {
 			action: 'query',
 			list: 'cxtranslatorstats',
