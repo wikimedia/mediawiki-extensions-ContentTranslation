@@ -38,6 +38,13 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$publishedStats = Translation::getTrendByStatus(
 			null, null, 'published', 'month', $translatorId
 		);
+
+		$trend = [];
+		foreach ( $publishedStats as $key => $value ) {
+			$datetime = new DateTime( "@$key" );
+			$trend[ $datetime->format( 'Y-m-d' ) ] = $value;
+		}
+
 		// TODO: The $publishedStats does not contain data for all months,
 		// if there is not translation in that month. ApiQueryContentTranslationLanguageTrend
 		// has utility methods to fill it. But it is not important for the graph we render
@@ -45,7 +52,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$result = [
 			'translator' => $user->getName(),
 			'translatorId' => $translatorId,
-			'publishTrend' => $publishedStats,
+			'publishTrend' => $trend,
 		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}

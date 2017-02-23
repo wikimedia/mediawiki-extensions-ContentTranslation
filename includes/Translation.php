@@ -283,9 +283,10 @@ class Translation {
 
 		$count = 0;
 		$result = [];
+		$dm = new DateManipulator( $interval );
 		foreach ( $rows as $row ) {
 			$count += (int)$row->count;
-			$time = self::getResultTime( $row->ar_timestamp, $interval );
+			$time = $dm->getIntervalIdentifier( $row->ar_timestamp )->format( 'U' );
 			$result[$time] = [
 				'count' => $count,
 				'delta' => (int)$row->count,
@@ -293,17 +294,6 @@ class Translation {
 		}
 
 		return $result;
-	}
-
-	protected static function getResultTime( $timestamp, $interval ) {
-		$unix = wfTimestamp( TS_UNIX, $timestamp );
-		if ( $interval === 'week' ) {
-			$n = 7 - date( 'w', $unix );
-			$unix = strtotime( "+$n days", $unix );
-			return date( 'Y-m-d', $unix );
-		} else {
-			return date( 'Y-m', $unix );
-		}
 	}
 
 	/**
@@ -374,9 +364,10 @@ class Translation {
 
 		$count = 0;
 		$result = [];
+		$dm = new DateManipulator( $interval );
 		foreach ( $rows as $row ) {
 			$count += (int)$row->count;
-			$time = self::getResultTime( $row->date, $interval );
+			$time = $dm->getIntervalIdentifier( $row->date )->format( 'U' );
 			$result[$time] = [
 				'count' => $count,
 				'delta' => (int)$row->count,
