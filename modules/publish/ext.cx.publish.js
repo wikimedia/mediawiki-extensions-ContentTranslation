@@ -289,7 +289,9 @@
 		} else {
 			// Try providing useful error information. "Unknown" by default.
 			error = mw.msg( 'unknown-error' );
-			if ( details.error && details.error.info ) {
+			if ( code === 'invalidtitle' ) {
+				error = mw.message( 'title-invalid-characters', this.targetTitle ).text();
+			} else if ( details.error && details.error.info ) {
 				// {"servedby":"mw####","error":{"code":"blocked","info":"You have been blocked from editing",
 				// "*":"See ...
 				error = details.error.info;

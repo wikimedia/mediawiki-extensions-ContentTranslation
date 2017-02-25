@@ -793,7 +793,8 @@
 				"cx-publish-captcha-title",
 				"cx-publish-page-error",
 				"cx-publish-page-success",
-				"unknown-error"
+				"unknown-error",
+				"title-invalid-characters"
 			]
 		},
 		"ext.cx.wikibase.link": {
