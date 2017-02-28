@@ -122,7 +122,7 @@
 	"cx-translation-status-published": "Објављено",
 	"cx-translation-status-deleted": "Обрисано",
 	"cx-translation-already-in-progress": "Ову страницу већ {{GENDER:$2|преводи}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Немојте заборавити да се ускладите са корисником који је направио тренутни превод.",
+	"cx-translation-already-in-progress-collaborate": "Немојте заборавити да се ускладите са {{GENDER:$1|корисником}} који је направио тренутни превод.",
 	"cx-publishing-dialog-publish-draft-button": "Објави као нацрт",
 	"cx-feedback-link": "Повратне информације",
 	"cx-stats-published-translations-title": "Објављени преводи",
