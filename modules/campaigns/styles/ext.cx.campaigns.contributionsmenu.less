@@ -3,61 +3,61 @@
 
 .cx-campaign-contributionsmenu {
 	padding: 0;
+	font-size: 0.875em; /* equals `14px` similar to Notification Popups `font-size` */
 
 	ul {
-		padding: 0;
 		margin: 0;
+		padding: 0;
 	}
 
 	li {
-		list-style: none;
-		padding: 5px 10px 5px 40px;
+		list-style: none none;
+		min-width: 176px;
 		margin: 0;
-		border-bottom: 1px solid @gray;
-		min-width: 200px;
-		background-size: 24px;
-		background-position: left 10px center;
-		background-repeat: no-repeat;
+
+		&.cx-campaign-new-beta-feature {
+			.background-image-svg( '../images/blue-beta.svg', '../images/blue-beta.png' );
+			background-position: right 4px center;
+			background-repeat: no-repeat;
+			background-size: 20px;
+		}
 
 		a {
-			text-decoration: none;
-			color: @gray-dark;
+			background-position: left 8px center;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			color: #222;
 			display: block;
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			.transition( ~'background-color 100ms' );
 		}
 
 		&:hover {
-			background-color: #eee;
+			background-color: #eaecf0;
 		}
 
-		&.cx-campaign-contributions {
-			.background-image-svg('../images/userAvatar.svg', '../images/userAvatar.png');
+		&.cx-campaign-contributions a {
+			.background-image-svg( '../images/userAvatar.svg', '../images/userAvatar.png' );
 		}
 
-		&.cx-campaign-uploads {
-			.background-image-svg('../images/wikimediaCommons.svg', '../images/wikimediaCommons.png');
+		&.cx-campaign-uploads a {
+			.background-image-svg( '../images/wikimediaCommons.svg', '../images/wikimediaCommons.png' );
 		}
 
-		&.cx-campaign-translations {
-			.background-image-svg('../images/translation.svg', '../images/translation.png');
-		}
-
-		&.cx-campaign-new-beta-feature a {
-			.background-image-svg('../images/blue-beta.svg', '../images/blue-beta.png');
-			background-position: right center;
-			background-repeat: no-repeat;
-			background-size: 24px;
+		&.cx-campaign-translations a {
+			.background-image-svg( '../images/translation.svg', '../images/translation.png' );
 		}
 
 		.cx-campaign-contributionsmenu__expansion {
-			background-size: 24px;
-			background-position: left 10px center;
-			background-repeat: no-repeat;
-			.background-image-svg('../images/question.svg', '../images/question.png');
-
-			margin: 2px 5px 0 0;
-			padding: 5px 5px 5px 40px;
-			color: @gray-dark;
 			background-color: #ecf5ff;
+			.background-image-svg( '../images/question.svg', '../images/question.png' );
+			background-position: left 8px center;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			color: @gray-dark;
+			margin: 2px 5px 0 0;
+			padding: 8px 8px 8px 32px;
 			font-size: small;
 		}
 	}
