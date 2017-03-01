@@ -4,7 +4,7 @@
  */
 namespace ContentTranslation;
 
-use ConvertibleTimestamp;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 class DateManipulator {
 	const WEEK = 'week';
