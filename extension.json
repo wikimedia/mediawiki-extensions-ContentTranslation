@@ -204,7 +204,9 @@
 				"entrypoint/styles/ext.cx.contributions.less"
 			],
 			"dependencies": [
-				"mediawiki.ui.button",
+				"oojs-ui-core",
+				"oojs-ui.styles.icons-content",
+				"oojs-ui.styles.icons-editing-advanced",
 				"mediawiki.util"
 			],
 			"messages": [

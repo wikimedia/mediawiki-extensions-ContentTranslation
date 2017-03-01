@@ -1,5 +1,5 @@
 /*!
- * Provides a dropdown entry point
+ * Displays a set of entry points.
  *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
@@ -15,7 +15,6 @@
 	 */
 	function CXContributions( element ) {
 		this.$element = $( element );
-		this.$container = null;
 		this.init();
 	}
 
@@ -27,24 +26,26 @@
 	};
 
 	CXContributions.prototype.render = function () {
-		var $sectionHeader;
+		var $sectionHeader, contributionButtons, contributionButtonsGroup;
 
 		$sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		this.$container = $( '<div>' )
-			.addClass( 'cx-contributions' )
-			.append( $.map( this.getActivities(), function ( item ) {
-				return $( '<a>' )
-					.addClass( item.class )
-					.text( item.text )
-					.attr( {
-						title: item.tooltip,
-						href: item.url
-					} );
-			} ) );
+		contributionButtons = $.map( this.getActivities(), function ( item ) {
+			return new OO.ui.ButtonWidget( {
+				classes: [ 'cx-contributions-item' ].concat( item.classes ),
+				label: item.text,
+				icon: item.icon,
+				title: item.tooltip,
+				href: item.url
+			} );
+		} );
+		contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
+			classes: [ 'cx-contributions' ],
+			items: contributionButtons
+		} );
 
-		this.$element.append( $sectionHeader, this.$container );
+		this.$element.append( $sectionHeader, contributionButtonsGroup.$element );
 		mw.hook( 'mw.cx.cta.shown' ).fire( entrypointName );
 	};
 
@@ -62,19 +63,22 @@
 		return [
 			{
 				text: mw.msg( 'cx-contributions-new-article' ),
-				'class': 'cx-contributions-new-article',
+				classes: [ 'cx-contributions-new-article' ],
+				icon: 'article',
 				url: mw.util.getUrl( 'Special:WantedPages' ),
 				tooltip: mw.msg( 'cx-contributions-new-article-tooltip' )
 			},
 			{
 				text: mw.msg( 'cx-contributions-upload' ),
-				'class': 'cx-contributions-upload',
+				classes: [ 'cx-contributions-upload' ],
+				icon: 'upload',
 				url: 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
 				tooltip: mw.msg( 'cx-contributions-upload-tooltip' )
 			},
 			{
 				text: mw.msg( 'cx-contributions-translation' ),
-				'class': 'cx-contributions-translation ' + ( isNewToCX() ? 'cx-contributions-new' : '' ),
+				classes: [ 'cx-contributions-translation', ( isNewToCX() ? 'cx-contributions-new' : '' ) ],
+				icon: 'language',
 				url: mw.util.getUrl( 'Special:ContentTranslation', {
 					campaign: entrypointName
 				} ),
