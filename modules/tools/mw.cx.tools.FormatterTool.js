@@ -10,6 +10,7 @@
 mw.cx.tools.FormatterTool = function CXFormatterTool( ui, config ) {
 	config.order = 1;
 	config.title = 'Formatter';
+	this.selection = null;
 	// Parent constructor
 	mw.cx.tools.FormatterTool.super.call( this, ui, config );
 	this.ui.connect( this, {
@@ -53,13 +54,17 @@ mw.cx.tools.FormatterTool.prototype.getActions = function () {
 
 /**
  * Text selection handler
- * @param {string} selection Selected text
+ * @param {Selection} selectionObj Selection object
  */
-mw.cx.tools.FormatterTool.prototype.onSelect = function ( selection ) {
-	// TODO: We need the selection object rather than selection string here
+mw.cx.tools.FormatterTool.prototype.onSelect = function ( selectionObj ) {
+	var selection;
+
+	// TODO: Sanitize content
+	selection = selectionObj.toString();
 	if ( selection ) {
 		this.showTool();
 	}
+	this.selection = selectionObj;
 };
 
 mw.cx.tools.FormatterTool.prototype.getContent = function () {
