@@ -1360,7 +1360,19 @@
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationView"
+				"mw.cx.ui.TranslationView",
+				"mw.cx.TargetArticle"
+			]
+		},
+		"mw.cx.TargetArticle": {
+			"scripts": [
+				"mw.cx.TargetArticle.js"
+			],
+			"dependencies": [
+				"easy-deflate.deflate",
+				"mw.cx.dm.Translation",
+				"mw.cx.ui.TranslationView",
+				"mediawiki.api.edit"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {

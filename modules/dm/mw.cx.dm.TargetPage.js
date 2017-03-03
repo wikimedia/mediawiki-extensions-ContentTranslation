@@ -28,11 +28,32 @@ OO.mixinClass( mw.cx.dm.TargetPage, OO.EventEmitter );
 
 /**
  * Build the target document for publishing
+ * @param {mw.cx.dm.TranslationUnit[]} translationUnits
  */
-mw.cx.dm.TargetPage.prototype.build = function () {
+mw.cx.dm.TargetPage.prototype.build = function ( translationUnits ) {
+	var i, targetDoc,
+		wrapper = document.createElement( 'div' );
+
+	for ( i = 0; i < translationUnits.length; i++ ) {
+		targetDoc = translationUnits[ i ].getTargetDocument();
+		if ( !targetDoc ) {
+			continue;
+		}
+		wrapper.appendChild( targetDoc.cloneNode( true ) );
+	}
+
+	this.targetPageDocument = wrapper;
 };
 
-mw.cx.dm.TargetPage.prototype.publish = function () {};
+/**
+ * Get the HTML content for publishing
+ * @param {mw.cx.dm.Translation} translation
+ * @return {string}
+ */
+mw.cx.dm.TargetPage.prototype.getContent = function ( translation ) {
+	this.build( translation.getTranslationUnits() );
+	return this.targetPageDocument.innerHTML;
+};
 
 /**
  * Get categories for the target article.

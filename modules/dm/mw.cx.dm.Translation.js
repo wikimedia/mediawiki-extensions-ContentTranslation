@@ -60,6 +60,10 @@ mw.cx.dm.Translation.prototype.getTranslationUnits = function () {
 	return this.translationUnits;
 };
 
+mw.cx.dm.Translation.prototype.getTargetPage = function() {
+	return this.targetPage;
+};
+
 /**
  * Get Translation id
  *

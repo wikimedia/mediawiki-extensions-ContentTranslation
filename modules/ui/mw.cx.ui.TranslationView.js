@@ -18,6 +18,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	// Parent constructor
 	mw.cx.ui.TranslationView.parent.call( this, this.config );
 	this.translation = null;
+	this.targetArticle = null;
 	this.publishButton = null;
 	this.init();
 	this.listen();
@@ -119,7 +120,7 @@ mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
 		label: mw.msg( 'cx-publish-button' )
 	} );
 	this.publishButton.connect( this, {
-		click: 'onPublishButtonClick'
+		click: 'publish'
 	} );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		self.publishButton.setDisabled( weights.any === 0 );
@@ -140,22 +141,17 @@ mw.cx.ui.TranslationView.prototype.attachPublishButton = function () {
 	} ).$element );
 };
 
-mw.cx.ui.TranslationView.prototype.onPublishButtonClick = function () {
-	this.publish();
-};
-
 /**
  * Publish the translation
  */
 mw.cx.ui.TranslationView.prototype.publish = function () {
-	var publisher, self = this;
-
 	// Disable the trigger button
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button-publishing' ) );
-	publisher = new mw.cx.Publish( this.publishButton, this.config.siteMapper );
-	publisher.publish().always( function () {
-		self.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
-	} );
+	this.targetArticle = this.targetArticle ||
+		new mw.cx.TargetArticle( this.translation, this, this.config );
+	this.targetArticle.publish().always( function () {
+		this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
+	}.bind( this ) );
 };
 
 /**

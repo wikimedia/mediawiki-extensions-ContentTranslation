@@ -92,6 +92,10 @@ mw.cx.dm.TranslationUnit.prototype.getTranslationUnits = function() {
 	return this.translationUnits;
 };
 
+mw.cx.dm.TranslationUnit.prototype.getTargetDocument = function () {
+	return this.targetDocument;
+};
+
 mw.cx.dm.TranslationUnit.prototype.getParentTranslationUnit = function () {
 	return this.parentTranslationUnit;
 };
