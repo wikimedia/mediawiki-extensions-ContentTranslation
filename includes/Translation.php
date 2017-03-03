@@ -262,7 +262,7 @@ class Translation {
 		if ( $interval === 'week' ) {
 			$options = [
 				'GROUP BY' => [
-					'YEARWEEK(ar_timestamp)',
+					'YEARWEEK(ar_timestamp, 3)',
 				],
 			];
 		} elseif ( $interval === 'month' ) {
@@ -343,7 +343,7 @@ class Translation {
 		if ( $interval === 'week' ) {
 			$options = [
 				'GROUP BY' => [
-					'YEARWEEK(translation_last_updated_timestamp)',
+					'YEARWEEK(translation_last_updated_timestamp, 3)',
 				],
 			];
 		} elseif ( $interval === 'month' ) {
