@@ -212,6 +212,6 @@
 	"cx-template-action-skip": "Saltar modelo",
 	"cx-template-not-available": "Non dispoñible en $1",
 	"cx-translation-template-add-param": "+ Traducir campo",
-	"cx-translation-template-add-more": "Engadir máis propiedades",
-	"cx-translation-template-select-param": "Seleccionar o campo de destino"
+	"cx-translation-template-add-more": "Engadir máis campos",
+	"cx-translation-template-select-param": "Seleccionar os campos de destino"
 }
