@@ -41,24 +41,6 @@ CREATE TABLE /*_*/cx_translations (
     translation_last_update_by int
 ) /*$wgDBTableOptions*/;
 
-DROP TABLE IF EXISTS /*_*/cx_translators;
-CREATE TABLE /*_*/cx_translators (
-    -- Translators id - global user id
-    translator_user_id int not null,
-    -- Translation id - foreign key to translations.translation_id
-    translator_translation_id int not null
-) /*$wgDBTableOptions*/;
-
-DROP TABLE IF EXISTS /*_*/cx_drafts;
-CREATE TABLE /*_*/cx_drafts (
-    -- Draft Id - foreign key to cx_translations.translation_id
-    draft_id int primary key not null,
-    -- Draft save timestamp
-    draft_timestamp varchar(14) binary not null,
-    -- Translation draft content
-    draft_content mediumblob
-) /*$wgDBTableOptions*/;
-
 CREATE UNIQUE INDEX /*i*/cx_translation_ref ON /*_*/cx_translations (
     translation_source_title,
     translation_source_language,
@@ -72,7 +54,25 @@ CREATE INDEX /*i*/cx_translation_languages ON /*_*/cx_translations (
     translation_status
 );
 
+DROP TABLE IF EXISTS /*_*/cx_translators;
+CREATE TABLE /*_*/cx_translators (
+    -- Translators id - global user id
+    translator_user_id int not null,
+    -- Translation id - foreign key to translations.translation_id
+    translator_translation_id int not null
+) /*$wgDBTableOptions*/;
+
 CREATE UNIQUE INDEX /*i*/cx_translation_translators ON /*_*/cx_translators (
     translator_user_id,
     translator_translation_id
 );
+
+DROP TABLE IF EXISTS /*_*/cx_drafts;
+CREATE TABLE /*_*/cx_drafts (
+    -- Draft Id - foreign key to cx_translations.translation_id
+    draft_id int primary key not null,
+    -- Draft save timestamp
+    draft_timestamp varchar(14) binary not null,
+    -- Translation draft content
+    draft_content mediumblob
+) /*$wgDBTableOptions*/;
