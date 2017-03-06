@@ -16,11 +16,13 @@ class Translator {
 	}
 
 	public function getGlobalUserId() {
-		$centralIdLookup = \CentralIdLookup::factory();
-		return $centralIdLookup->centralIdFromName(
-			$this->user->getName(),
-			\CentralIdLookup::AUDIENCE_RAW
-		);
+		$lookup = \CentralIdLookup::factory();
+		$id = $lookup->centralIdFromLocalUser( $this->user, \CentralIdLookup::AUDIENCE_RAW );
+		if ( $id === 0 ) {
+			throw new \Exception( 'User account is not global' );
+		}
+
+		return $id;
 	}
 
 	public function addTranslation( $translationId ) {

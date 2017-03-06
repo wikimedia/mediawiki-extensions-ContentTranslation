@@ -59,10 +59,11 @@ CREATE TABLE /*_*/cx_drafts (
     draft_content mediumblob
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/cx_translation_pair ON /*_*/cx_translations (
+CREATE UNIQUE INDEX /*i*/cx_translation_ref ON /*_*/cx_translations (
     translation_source_title,
     translation_source_language,
-    translation_target_language
+    translation_target_language,
+    translation_started_by
 );
 
 CREATE INDEX /*i*/cx_translation_languages ON /*_*/cx_translations (

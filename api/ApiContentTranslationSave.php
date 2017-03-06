@@ -9,23 +9,14 @@
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\Draft;
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationUnit;
+use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 
 class ApiContentTranslationSave extends ApiBase {
-
-	/**
-	 * @var Translation
-	 */
-	protected $translation;
-
-	/**
-	 * @var Translator
-	 */
-	protected $translator;
-
 	public function execute() {
 		$params = $this->extractRequestParams();
 
@@ -67,13 +58,13 @@ class ApiContentTranslationSave extends ApiBase {
 			}
 		}
 
-		$this->translator = new Translator( $user );
-		$this->translation = $this->saveTranslation( $params );
+		$translator = new Translator( $user );
+		$translation = $this->saveTranslation( $params, $translator );
+		$translationId = $translation->getTranslationId();
 
-		$translationUnits = $this->getTranslationUnits( $params['content'] );
-		$this->saveTranslationUnits( $translationUnits, $this->translation );
-		$validationResults = $this->validateTranslationUnits( $translationUnits );
-		$translationId = $this->translation->getTranslationId();
+		$translationUnits = $this->getTranslationUnits( $params['content'], $translationId );
+		$this->saveTranslationUnits( $translationUnits, $translation );
+		$validationResults = $this->validateTranslationUnits( $translationUnits, $translation );
 
 		// Delete the record from cx_drafts table if exists.
 		// Now we have the translation stored in cx_corpora table.
@@ -89,10 +80,10 @@ class ApiContentTranslationSave extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
-	protected function validateTranslationUnits( $translationUnits ) {
+	protected function validateTranslationUnits( $translationUnits, Translation $translation ) {
 		$validationResults = [];
 
-		$title = \Title::newFromText( $this->translation->translation['targetTitle'] );
+		$title = \Title::newFromText( $translation->getData()['targetTitle'] );
 		if ( !$title ) {
 			return $validationResults;
 		}
@@ -143,61 +134,52 @@ class ApiContentTranslationSave extends ApiBase {
 
 	/**
 	 * @param array $params
-	 * @return Translation
-	 * @throws UsageException
-	 * @throws ApiUsageException
+	 * @param ContentTranslation\Translator $translator
+	 * @return ContentTranslation\Translation
 	 */
-	protected function saveTranslation( array $params ) {
-		$translation = Translation::find(
-			$params['from'],
-			$params['to'],
-			$params['sourcetitle']
-		);
+	protected function saveTranslation( array $params, Translator $translator ) {
+		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
+		$existingTranslation = Translation::findForTranslator( $work, $translator );
 
-		// First time save, add relevant fields
-		if ( !$translation ) {
-			$translation = [
-				'sourceTitle' => $params['sourcetitle'],
-				'sourceLanguage' => $params['from'],
-				'targetLanguage' => $params['to'],
-				'sourceURL' => ContentTranslation\SiteMapper::getPageURL(
-					$params['from'], $params['sourcetitle']
-				),
-				'startedTranslator' => $this->translator->getGlobalUserId(),
-				'lastUpdatedTranslator' => $this->translator->getGlobalUserId(),
-			];
+		if ( $existingTranslation ) {
+			$data = $existingTranslation->getData();
 		} else {
-			// Get the array out of the object. Bit confusing.
-			$translation = $translation->translation;
-		}
+			$translations = Translation::getConflictingTranslations( $work );
 
-		$owner = (int)$translation['lastUpdatedTranslator'];
-		$user = (int)$this->translator->getGlobalUserId();
-		if ( $owner !== $user && $translation['status'] === 'draft' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+			if ( $translations !== [] ) {
 				$this->dieWithError( 'apierror-cx-inuse', 'noaccess' );
-			} else {
-				$this->dieUsage( 'Another user is already translating this article', 'noaccess' );
 			}
+
+			// First time save, add relevant fields
+			$data = [
+				'sourceTitle' => $work->getPage(),
+				'sourceLanguage' => $work->getSourceLanguage(),
+				'targetLanguage' => $work->getTargetLanguage(),
+				'sourceURL' => SiteMapper::getPageURL(
+					$work->getSourceLanguage(),
+					$work->getPage()
+				),
+			];
 		}
 
 		// Update updateable fields
-		$translation['targetTitle'] = $params['title'];
-		$translation['sourceRevisionId'] = $params['sourcerevision'];
-		$translation['status'] = 'draft';
-		$translation['progress'] = $params['progress'];
+		$data['targetTitle'] = $params['title'];
+		$data['sourceRevisionId'] = $params['sourcerevision'];
+		$data['status'] = 'draft';
+		$data['progress'] = $params['progress'];
 
-		$cxtranslation = new ContentTranslation\Translation( $translation );
-		$cxtranslation->save();
+		// Save the translation
+		$translation = new Translation( $data );
+		$translation->save( $translator );
 
 		// Assosiate the translation with the translator
-		$translationId = $cxtranslation->getTranslationId();
-		$this->translator->addTranslation( $translationId );
+		$translationId = $translation->getTranslationId();
+		$translator->addTranslation( $translationId );
 
-		return $cxtranslation;
+		return $translation;
 	}
 
-	protected function getTranslationUnits( $content ) {
+	protected function getTranslationUnits( $content, $translationId ) {
 		$translationUnits = [];
 		if ( trim( $content ) === '' ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
@@ -240,7 +222,7 @@ class ApiContentTranslationSave extends ApiBase {
 			if ( !isset( $tuData['validate'] ) ) {
 				$tuData['validate'] = false;
 			}
-			$tuData['translationId'] = $this->translation->getTranslationId();
+			$tuData['translationId'] = $translationId;
 			$translationUnits[] = new TranslationUnit( $tuData );
 		}
 

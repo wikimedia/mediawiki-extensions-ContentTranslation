@@ -98,7 +98,6 @@
 	"apierror-cx-missingdraft": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-suggestions": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-viewtranslations": "{{doc-apierror}}",
-	"apierror-cx-notowned": "{{doc-apierror}}",
 	"apierror-cx-samelanguages": "{{doc-apierror}}",
 	"apierror-cx-suggestionsdisabled": "{{doc-apierror}}",
 	"apierror-cx-translationnotfound": "{{doc-apierror}}"

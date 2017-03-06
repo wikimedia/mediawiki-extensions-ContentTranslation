@@ -11,7 +11,7 @@ class Translation {
 		$this->translation = $translation;
 	}
 
-	public function create() {
+	public function create( Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$values = [
@@ -22,13 +22,12 @@ class Translation {
 			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
 			'translation_source_url' => $this->translation['sourceURL'],
 			'translation_status' => $this->translation['status'],
-			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $this->translation['progress'],
-			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
+			'translation_last_updated_timestamp' => $dbw->timestamp(),
+			'translation_last_update_by' => $translator->getGlobalUserId(),
+			'translation_start_timestamp' => $dbw->timestamp(),
+			'translation_started_by' => $translator->getGlobalUserId(),
 		];
-
-		$values['translation_start_timestamp'] = $dbw->timestamp();
-		$values['translation_started_by'] = $this->translation['startedTranslator'];
 
 		if ( $this->translation['status'] === 'published' ) {
 			$values['translation_target_url'] = $this->translation['targetURL'];
@@ -44,7 +43,7 @@ class Translation {
 		$this->translation['id'] = (int)$dbw->insertId();
 	}
 
-	public function update( array $options = null ) {
+	public function update( array $options = null, Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$values = [
@@ -64,7 +63,8 @@ class Translation {
 
 		if ( isset( $options['freshTranslation'] ) && $options['freshTranslation'] === true ) {
 			$values['translation_start_timestamp'] = $dbw->timestamp();
-			$values['translation_started_by'] = $this->translation['startedTranslator'];
+			// TODO: remove this code
+			$values['translation_started_by'] = $translator->getGlobalUserId();
 		}
 
 		$dbw->update(
@@ -79,15 +79,27 @@ class Translation {
 	 * A convenient abstraction of create and update methods. Checks if
 	 * translation exists and chooses either of create or update actions.
 	 */
-	public function save() {
-		$existingTranslation = self::find(
-			$this->translation['sourceLanguage'],
-			$this->translation['targetLanguage'],
-			$this->translation['sourceTitle']
-		);
+	public function save( Translator $translator ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+
+		// Temporary code to work with and without the new index.
+		// The old index cx_translation_pair was on (source title, source language,
+		// target language). Previously a row would get reused if a draft was deleted
+		// then subsequently restarted by a different user, with the new owner recorded
+		// in either started_by or updated_by (inconsistently).
+		if ( $dbr->indexExists( 'cx_translations', 'cx_translation_ref' ) ) {
+			$work = TranslationWork::newFromTranslation( $this );
+			$existingTranslation = self::findForTranslator( $work, $translator );
+		} else {
+			$existingTranslation = self::find(
+				$this->translation['sourceLanguage'],
+				$this->translation['targetLanguage'],
+				$this->translation['sourceTitle']
+			);
+		}
 
 		if ( $existingTranslation === null ) {
-			$this->create();
+			$this->create( $translator );
 			$this->lastSaveWasCreate = true;
 		} else {
 			$options = [];
@@ -97,7 +109,7 @@ class Translation {
 				$options['freshTranslation'] = true;
 			}
 			$this->translation['id'] = $existingTranslation->getTranslationId();
-			$this->update( $options );
+			$this->update( $options, $translator );
 			$this->lastSaveWasCreate = false;
 		}
 	}
@@ -109,7 +121,11 @@ class Translation {
 		return $this->lastSaveWasCreate;
 	}
 
-	/*
+	/**
+	 * Find a saved translation work.
+	 *
+	 * This can return multiple items if $titles is an array (even for the same work).
+	 *
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 * @param string|string[] $titles
@@ -145,6 +161,54 @@ class Translation {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Find a saved translation work for a given translator.
+	 *
+	 * There can only ever be one work returned by this method.
+	 *
+	 * @param TranslationWork $work
+	 * @param Translator $translator
+	 * @return Translation|null
+	 */
+	public static function findForTranslator( TranslationWork $work, Translator $translator ) {
+		$dbr = Database::getConnection( DB_SLAVE );
+		$values = [
+			'translation_source_language' => $work->getSourceLanguage(),
+			'translation_target_language' => $work->getTargetLanguage(),
+			'translation_source_title' => $work->getPage(),
+			'translation_started_by' => $translator->getGlobalUserId(),
+			'translation_last_update_by' => $translator->getGlobalUserId(),
+		];
+
+		$row = $dbr->selectRow( 'cx_translations', '*', $values, __METHOD__ );
+
+		return $row ? Translation::newFromRow( $row ) : null;
+	}
+
+	// Here we assume that the caller already checked that no draft for the
+	// user already exists.
+	public function getConflictingTranslations( TranslationWork $work ) {
+		// Use the fact that find returns all items when given array of titles.
+		$drafts = self::find(
+			$work->getSourceLanguage(),
+			$work->getTargetLanguage(),
+			[ $work->getPage() ]
+		);
+
+		$dbr = Database::getConnection( DB_SLAVE );
+		if ( $dbr->indexExists( 'cx_translations', 'cx_translation_ref' ) ) {
+			foreach ( $drafts as $index => $draft ) {
+				if ( $draft->getData()['status'] !== 'draft' ) {
+					unset( $drafts[$index] );
+				}
+			}
+
+			$drafts = array_values( $drafts );
+		}
+
+		return $drafts;
 	}
 
 	public static function delete( $translationId ) {
@@ -379,6 +443,15 @@ class Translation {
 
 	public function getTranslationId() {
 		return $this->translation['id'];
+	}
+
+	/**
+	 * Return the underlying data fields.
+	 *
+	 * @return array
+	 */
+	public function getData() {
+		return $this->translation;
 	}
 
 	public static function newFromId( $translationId ) {

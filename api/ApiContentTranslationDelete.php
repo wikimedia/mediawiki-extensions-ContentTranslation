@@ -9,11 +9,11 @@
 
 use ContentTranslation\Draft;
 use ContentTranslation\Translation;
+use ContentTranslation\TranslationWork;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\Translator;
 
 class ApiContentTranslationDelete extends ApiBase {
-
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
@@ -23,22 +23,13 @@ class ApiContentTranslationDelete extends ApiBase {
 		}
 
 		$translator = new Translator( $user );
-		$translation = Translation::find(
-			$params['from'],
-			$params['to'],
-			$params['sourcetitle']
-		);
+		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
+		$translation = Translation::findForTranslator( $work, $translator );
 
-		$translationId = $translation->translation['id'];
-		if ( $translationId === null ||
-			$translator->getGlobalUserId() !== intval( $translation->translation['lastUpdatedTranslator'] )
-		) {
-			// Translation does not exist or it belongs to another translator
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['sourcetitle'] ) ] );
-			} else {
-				$this->dieUsageMsg( [ 'invalidtitle', $params['sourcetitle'] ] );
-			}
+		if ( $translation === null ) {
+			$this->dieWithError(
+				[ 'apierror-invalidtitle', wfEscapeWikiText( $work->getPage() ) ]
+			);
 		}
 
 		if ( $translation->translation['targetURL'] !== null ) {
@@ -46,14 +37,14 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translation->translation['status'] = 'published';
 			$translation->update();
 		} else {
+			$translationId = $translation->getData()['id'];
 			Translator::removeTranslation( $translationId );
 			Translation::delete( $translationId );
 			Draft::delete( $translationId );
 			TranslationStorageManager::deleteTranslationUnits( $translationId );
 		}
-		$result = [
-			'result' => 'success'
-		];
+
+		$result = [ 'result' => 'success' ];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 

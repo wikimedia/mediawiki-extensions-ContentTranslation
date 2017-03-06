@@ -16,6 +16,11 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
+
+use ContentTranslation\Translation;
+use ContentTranslation\TranslationWork;
+use ContentTranslation\Translator;
+
 class ApiContentTranslationPublish extends ApiBase {
 
 	/**
@@ -147,31 +152,12 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 		}
 
-		$this->translation = ContentTranslation\Translation::find(
-			$params['from'],
-			$params['to'],
-			$params['sourcetitle']
-		);
+		$translator = new Translator( $user );
+		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
+		$this->translation = Translation::findForTranslator( $work, $translator );
 
 		if ( $this->translation === null ) {
-			// Translation does not exist
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
-			} else {
-				$this->dieUsage( 'Translation not found', 'translationnotfound' );
-			}
-		}
-
-		$translator = new ContentTranslation\Translator( $user );
-
-		$owner = (int)$this->translation->translation['lastUpdatedTranslator'];
-		$userId = (int)$translator->getGlobalUserId();
-		if ( $owner !== $userId ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-notowned', 'noaccess' );
-			} else {
-				$this->dieUsage( 'Translation not owned by current user.', 'noaccess' );
-			}
+			$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
 		}
 
 		if ( $wgContentTranslationTranslateInTarget ) {
@@ -223,7 +209,6 @@ class ApiContentTranslationPublish extends ApiBase {
 			];
 
 			$this->translation->translation['status'] = 'published';
-			$this->translation->translation['lastUpdatedTranslator'] = $translator->getGlobalUserId();
 			$this->translation->translation['targetURL'] = $targetURL;
 
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
@@ -232,7 +217,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 
 			// Save the translation history.
-			$this->translation->save();
+			$this->translation->save( $translator );
 
 			// Notify user about milestones
 			$this->notifyTranslator();
