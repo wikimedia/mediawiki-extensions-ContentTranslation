@@ -1719,7 +1719,8 @@
 				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.DictionaryTool",
 				"mw.cx.tools.TemplateTool",
-				"mw.cx.tools.LinkTool"
+				"mw.cx.tools.LinkTool",
+				"mw.cx.tools.FormatterTool"
 			]
 		},
 		"mw.cx.tools.MachineTranslationTool": {
@@ -1803,6 +1804,19 @@
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool"
+			]
+		},
+		"mw.cx.tools.FormatterTool": {
+			"scripts": [
+				"tools/mw.cx.tools.FormatterTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.FormatterTool.less"
+			],
+			"dependencies": [
+				"mw.cx.tools.TranslationTool",
+				"oojs-ui.styles.icons-editing-styling",
+				"oojs-ui.styles.icons-editing-list"
 			]
 		},
 		"mw.cx.tools.LinkTool": {
