@@ -218,6 +218,6 @@
 	"cx-template-action-skip": "Пропустити шаблон",
 	"cx-template-not-available": "Недоступно мовою «$1»",
 	"cx-translation-template-add-param": "+ Поле перекладу",
-	"cx-translation-template-add-more": "Додати більше властивостей",
-	"cx-translation-template-select-param": "Вибрати цільове поле"
+	"cx-translation-template-add-more": "Додати більше полів",
+	"cx-translation-template-select-param": "Вибрати цільові поля"
 }
