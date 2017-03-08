@@ -55,16 +55,16 @@ mw.cx.ui.TranslationUnit.prototype.listen = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.onMouseUp = function ( event ) {
-	var selection;
+	var selectionObj;
 
 	// Control or alt key press events can be ignored
 	if ( event.metaKey || event.ctrlKey && !event.altKey ) {
 		return;
 	}
 
-	selection = window.getSelection().toString();
-	if ( selection.trim() ) {
-		this.emit( 'select', selection );
+	selectionObj = window.getSelection();
+	if ( selectionObj && selectionObj.toString().trim() ) {
+		this.emit( 'select', selectionObj );
 	} else {
 		this.emit( 'focus' );
 	}

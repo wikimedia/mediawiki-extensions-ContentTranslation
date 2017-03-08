@@ -31,11 +31,13 @@ mw.cx.tools.DictionaryTool.prototype.getActions = function () {
 
 /**
  * Text selection handler
- * @param  {string} selection Selected text
+ * @param {Selection} selectionObj Selection object
  */
-mw.cx.tools.DictionaryTool.prototype.onSelect = function ( selection ) {
-	var selectionChanged = false;
+mw.cx.tools.DictionaryTool.prototype.onSelect = function ( selectionObj ) {
+	var selection, selectionChanged = false;
+
 	// TODO: Sanitize content
+	selection = selectionObj.toString();
 	if ( selection && selection.length < 1000 ) {
 		if ( this.content && this.content !== selection ) {
 			selectionChanged = true;
