@@ -1247,6 +1247,7 @@
 				"mw.cx.dm.ImageTranslationUnit",
 				"mw.cx.dm.SentenceTranslationUnit",
 				"mw.cx.dm.LinkTranslationUnit",
+				"mw.cx.dm.PoemTranslationUnit",
 				"mw.cx.dm.ReferenceTranslationUnit",
 				"mw.cx.dm.TemplateTranslationUnit",
 				"mw.cx.dm.SectionTranslationUnit"
@@ -1283,6 +1284,14 @@
 			],
 			"dependencies": [
 				"mw.cx.dm.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.dm.PoemTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.PoemTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
 			]
 		},
 		"mw.cx.dm.ReferenceTranslationUnit": {
@@ -1627,6 +1636,7 @@
 				"mw.cx.ui.TranslationUnit",
 				"mw.cx.ui.ImageTranslationUnit",
 				"mw.cx.ui.SectionTranslationUnit",
+				"mw.cx.ui.PoemTranslationUnit",
 				"mw.cx.ui.ReferenceTranslationUnit",
 				"mw.cx.ui.LinkTranslationUnit",
 				"mw.cx.ui.TemplateTranslationUnit",
@@ -1657,6 +1667,14 @@
 			],
 			"styles":[
 				"ui/translationunits/styles/mw.cx.ui.LinkTranslationUnit.less"
+			],
+			"dependencies": [
+				"mw.cx.ui.TranslationUnit"
+			]
+		},
+		"mw.cx.ui.PoemTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.PoemTranslationUnit.js"
 			],
 			"dependencies": [
 				"mw.cx.ui.TranslationUnit"

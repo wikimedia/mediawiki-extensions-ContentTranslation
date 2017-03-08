@@ -21,7 +21,6 @@ mw.cx.dm.SentenceTranslationUnit = function SentenceTranslationUnit( config, tra
 OO.inheritClass( mw.cx.dm.SentenceTranslationUnit, mw.cx.dm.TranslationUnit );
 
 mw.cx.dm.SentenceTranslationUnit.static.name = 'sentence';
-
 mw.cx.dm.SentenceTranslationUnit.static.matchTagNames = [ 'span' ];
 
 /**

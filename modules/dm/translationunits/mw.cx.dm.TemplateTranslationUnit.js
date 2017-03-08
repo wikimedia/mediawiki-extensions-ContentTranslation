@@ -16,7 +16,6 @@ mw.cx.dm.TemplateTranslationUnit = function CXTemplateTranslationUnit( config, t
 OO.inheritClass( mw.cx.dm.TemplateTranslationUnit, mw.cx.dm.TranslationUnit );
 
 mw.cx.dm.TemplateTranslationUnit.static.name = 'Template';
-
 mw.cx.dm.TemplateTranslationUnit.static.matchRdfaTypes = [ 'mw:Transclusion' ];
 
 /* Methods */
