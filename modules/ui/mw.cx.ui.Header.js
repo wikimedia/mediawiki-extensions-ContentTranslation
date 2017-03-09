@@ -11,7 +11,7 @@ mw.cx.ui.Header = function ( config ) {
 	// Configuration initialization
 	this.config = config || {};
 	this.$headerBar = null;
-	this.$infobar = null;
+	this.infobar = null;
 	// Parent constructor
 	mw.cx.ui.Header.parent.call( this, $.extend( {}, this.config, {
 		continuous: true,
@@ -59,7 +59,7 @@ mw.cx.ui.Header.prototype.getContent = function () {
 		.append( $translationCenter, this.$draftStatus );
 
 	this.infobar = new mw.cx.ui.Infobar( this.config );
-	return $( '<div>' ).append( $headerTitle, this.$headerBar, this.infobar.$infobar );
+	return $( '<div>' ).append( $headerTitle, this.$headerBar, this.infobar.$element );
 };
 
 mw.cx.ui.Header.prototype.listen = function () {

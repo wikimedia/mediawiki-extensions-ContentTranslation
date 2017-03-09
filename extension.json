@@ -1495,6 +1495,7 @@
 				"cx-translation-target-page-exists"
 			],
 			"dependencies": [
+				"mw.cx.widgets.MessageWidget",
 				"mw.cx.ui"
 			],
 			"targets": [
@@ -1953,6 +1954,25 @@
 			"dependencies": [
 				"oojs-ui-widgets",
 				"mw.cx.util"
+			]
+		},
+		"mw.cx.widgets.MessageWidget": {
+			"scripts": [
+				"widgets/mw.cx.widgets.MessageWidget.js"
+			],
+			"styles": [
+				"widgets/mw.cx.widgets.MessageWidget.less"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons",
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-interactions"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"mw.cx.ui.PageSelectorWidget": {

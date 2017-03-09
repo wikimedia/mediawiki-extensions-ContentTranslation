@@ -11,5 +11,6 @@
 	mw.cx.ui = {
 		mixin: {}
 	};
-
+	// FIXME: Remove after the widgets files moved to ui folder.
+	mw.cx.widgets = mw.cx.widgets || {};
 }( mediaWiki ) );
