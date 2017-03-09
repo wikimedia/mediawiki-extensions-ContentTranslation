@@ -809,7 +809,6 @@
 				"ext.cx.sitemapper",
 				"ext.cx.tours.publish.init",
 				"ext.cx.tools.validator",
-				"json",
 				"mediawiki.api.edit"
 			],
 			"messages": [
@@ -905,7 +904,6 @@
 			"scripts": "tours/ext.cx.tours.publish.js",
 			"dependencies": [
 				"ext.guidedTour",
-				"json",
 				"mediawiki.cookie",
 				"mediawiki.Title"
 			],
