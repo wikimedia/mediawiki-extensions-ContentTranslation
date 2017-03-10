@@ -45,7 +45,7 @@ mw.cx.widgets.PageTitleWidget.prototype.validate = function( value ) {
  * @fires enter If enter key is pressed and input is not multiline
  * @return {boolean}
  */
-OO.ui.TextInputWidget.prototype.onKeyPress = function ( e ) {
+mw.cx.widgets.PageTitleWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {
 		this.emit( 'enter', e );
 		return false;
