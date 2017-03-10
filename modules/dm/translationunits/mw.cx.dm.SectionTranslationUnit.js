@@ -18,7 +18,6 @@ mw.cx.dm.SectionTranslationUnit = function SectionTranslationUnit( config, trans
 OO.inheritClass( mw.cx.dm.SectionTranslationUnit, mw.cx.dm.TranslationUnit );
 
 mw.cx.dm.SectionTranslationUnit.static.name = 'section';
-
 mw.cx.dm.SectionTranslationUnit.static.matchTagNames = mw.cx.dm.SourcePage.static.sectionTypes;
 
 mw.cx.dm.SectionTranslationUnit.prototype.init = function () {
