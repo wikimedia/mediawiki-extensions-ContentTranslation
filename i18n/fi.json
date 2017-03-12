@@ -8,7 +8,8 @@
 			"Stryn",
 			"Mikahama",
 			"01miki10",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Putputi"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -102,6 +103,7 @@
 	"cx-translation-filter-from-any-language": "Mistä tahansa kielestä",
 	"cx-translation-filter-to-any-language": "Mihin tahansa kieleen",
 	"cx-create-new-translation": "Aloita uusi käännöstyö",
+	"cx-save-draft-save-success": "Tallennettu {{PLURAL:$1|minuutti sitten|$1 minuuttia sitten|0=juuri nyt}}",
 	"cx-save-draft-saving": "Tallennetaan...",
 	"cx-contributions-new-contributions": "Uusi sisältö",
 	"cx-contributions-new-article": "Uusi sivu",
