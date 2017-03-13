@@ -8,7 +8,6 @@
  */
 mw.cx.ui.ToolsColumn = function ( config ) {
 	this.config = config;
-	this.progressBar = new mw.cx.widgets.ProgressBarWidget( config );
 	this.feedback = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-feedback-link' ),
 		icon: 'speechBubbles',
@@ -31,7 +30,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		expanded: false,
 		scrollable: false,
 		padded: false,
-		items: [ this.progressBar, this.toolContainer, this.feedback ]
+		items: [ this.toolContainer, this.feedback ]
 	} );
 	this.translation = null;
 	// Parent constructor

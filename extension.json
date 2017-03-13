@@ -1609,8 +1609,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"oojs-ui.styles.icons-alerts",
-				"mw.cx.widgets.ProgressBarWidget"
+				"oojs-ui.styles.icons-alerts"
 			]
 		},
 		"mw.cx.ui.ToolsColumn.legacy": {
