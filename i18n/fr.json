@@ -42,7 +42,7 @@
 	"cx": "Traduire la page",
 	"cx-dashboard-header": "Traductions",
 	"cx-javascript": "Cet outil ne fonctionne pas sans JavaScript.",
-	"cx-specialpage-enable-betafeature": "L'[[mw:ContentTranslation|outil de traduction de contenu]] est un outil pour traduire rapidement des pages dans votre langue. [$1 Essayez-le !]",
+	"cx-specialpage-enable-betafeature": "L’[[mw:ContentTranslation|outil de traduction de contenu]] permet de traduire rapidement des pages dans votre langue. [$1 Essayez-le !]",
 	"cx-license-agreement": "En cliquant sur le bouton « $1 », vous acceptez les [//wikimediafoundation.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement que les contributions que vous effectuerez avec l’outil de traduction soient placées sous la [https://creativecommons.org/licenses/by-sa/3.0/ licence CC BY-SA 3.0] et sous la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ; vous acceptez également qu'un hyperlien ou un URL constituent une attribution suffisante au sens de la licence CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erreur : Impossible de se connecter au serveur.",
 	"cx-desc": "Facilite [[Special:ContentTranslation|la traduction]] de pages de contenu",
