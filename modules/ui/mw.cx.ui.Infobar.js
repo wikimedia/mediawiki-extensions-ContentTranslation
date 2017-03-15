@@ -56,7 +56,7 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
 mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details ) {
 	var messageWidget;
 
-	messageWidget = new mw.cx.widgets.MessageWidget( {
+	messageWidget = new mw.cx.ui.MessageWidget( {
 		message: message,
 		details: details,
 		type: type

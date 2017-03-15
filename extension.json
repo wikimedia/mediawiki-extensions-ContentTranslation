@@ -1495,7 +1495,7 @@
 				"cx-translation-target-page-exists"
 			],
 			"dependencies": [
-				"mw.cx.widgets.MessageWidget",
+				"mw.cx.ui.MessageWidget",
 				"mw.cx.ui"
 			],
 			"targets": [
@@ -1547,7 +1547,7 @@
 				"mw.cx.ui",
 				"ext.cx.widgets.spinner",
 				"mw.cx.ui.Categories",
-				"mw.cx.widgets.PageTitleWidget"
+				"mw.cx.ui.PageTitleWidget"
 			]
 		},
 		"mw.cx.ui.SourceColumn.legacy": {
@@ -1580,7 +1580,7 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"ext.cx.widgets.spinner",
-				"mw.cx.widgets.PageTitleWidget"
+				"mw.cx.ui.PageTitleWidget"
 			]
 		},
 		"mw.cx.ui.TranslationColumn.legacy": {
@@ -1622,7 +1622,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"mw.cx.widgets.ProgressBarWidget",
+				"mw.cx.ui.ProgressBarWidget",
 				"mw.cx.tools.SearchTool"
 			]
 		},
@@ -1676,7 +1676,7 @@
 				"ui/translationunits/mw.cx.ui.LinkTranslationUnit.js"
 			],
 			"styles":[
-				"ui/translationunits/styles/mw.cx.ui.LinkTranslationUnit.less"
+				"ui/styles/translationunits/mw.cx.ui.LinkTranslationUnit.less"
 			],
 			"dependencies": [
 				"mw.cx.ui.TranslationUnit"
@@ -1882,7 +1882,7 @@
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationToolFactory",
-				"mw.cx.widgets.TranslationToolWidget"
+				"mw.cx.ui.TranslationToolWidget"
 			]
 		},
 		"mw.cx.tools.ReferenceTool": {
@@ -1910,23 +1910,23 @@
 				"mw.cx.ui"
 			]
 		},
-		"mw.cx.widgets.TranslationToolWidget":{
+		"mw.cx.ui.TranslationToolWidget":{
 			"scripts": [
-				"widgets/mw.cx.widgets.TranslationToolWidget.js"
+				"ui/widgets/mw.cx.ui.TranslationToolWidget.js"
 			],
 			"styles": [
-				"widgets/mw.cx.widgets.TranslationToolWidget.less"
+				"ui/styles/widgets/mw.cx.ui.TranslationToolWidget.less"
 			],
 			"dependencies": [
 				"oojs-ui-widgets"
 			]
 		},
-		"mw.cx.widgets.ProgressBarWidget":{
+		"mw.cx.ui.ProgressBarWidget":{
 			"scripts": [
-				"widgets/mw.cx.widgets.ProgressBarWidget.js"
+				"ui/widgets/mw.cx.ui.ProgressBarWidget.js"
 			],
 			"styles": [
-				"widgets/mw.cx.widgets.ProgressBarWidget.less"
+				"ui/styles/widgets/mw.cx.ui.ProgressBarWidget.less"
 			],
 			"dependencies": [
 				"oojs-ui-widgets"
@@ -1943,24 +1943,24 @@
 				"oojs-ui-widgets"
 			]
 		},
-		"mw.cx.widgets.PageTitleWidget": {
+		"mw.cx.ui.PageTitleWidget": {
 			"scripts": [
-				"widgets/mw.cx.widgets.PageTitleWidget.js"
+				"ui/widgets/mw.cx.ui.PageTitleWidget.js"
 			],
 			"styles": [
-				"widgets/mw.cx.widgets.PageTitleWidget.less"
+				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less"
 			],
 			"dependencies": [
 				"oojs-ui-widgets",
 				"mw.cx.util"
 			]
 		},
-		"mw.cx.widgets.MessageWidget": {
+		"mw.cx.ui.MessageWidget": {
 			"scripts": [
-				"widgets/mw.cx.widgets.MessageWidget.js"
+				"ui/widgets/mw.cx.ui.MessageWidget.js"
 			],
 			"styles": [
-				"widgets/mw.cx.widgets.MessageWidget.less"
+				"ui/styles/widgets/mw.cx.ui.MessageWidget.less"
 			],
 			"dependencies": [
 				"mw.cx.ui",
@@ -1979,7 +1979,7 @@
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
 			],
 			"styles": [
-				"ui/widgets/styles/mw.cx.ui.PageSelectorWidget.less"
+				"ui/styles/widgets/mw.cx.ui.PageSelectorWidget.less"
 			],
 			"dependencies": [
 				"mediawiki.widgets"

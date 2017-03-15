@@ -11,13 +11,13 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-mw.cx.widgets.MessageWidget = function CXMessageWidget( config ) {
+mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	var iconMap;
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	mw.cx.widgets.MessageWidget.parent.call( this, config );
+	mw.cx.ui.MessageWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );
@@ -49,22 +49,22 @@ mw.cx.widgets.MessageWidget = function CXMessageWidget( config ) {
 
 /* Setup */
 
-OO.inheritClass( mw.cx.widgets.MessageWidget, OO.ui.Widget );
-OO.mixinClass( mw.cx.widgets.MessageWidget, OO.ui.mixin.ItemWidget );
-OO.mixinClass( mw.cx.widgets.MessageWidget, OO.ui.mixin.LabelElement );
-OO.mixinClass( mw.cx.widgets.MessageWidget, OO.ui.mixin.IconElement );
-OO.mixinClass( mw.cx.widgets.MessageWidget, OO.ui.mixin.FlaggedElement );
+OO.inheritClass( mw.cx.ui.MessageWidget, OO.ui.Widget );
+OO.mixinClass( mw.cx.ui.MessageWidget, OO.ui.mixin.ItemWidget );
+OO.mixinClass( mw.cx.ui.MessageWidget, OO.ui.mixin.LabelElement );
+OO.mixinClass( mw.cx.ui.MessageWidget, OO.ui.mixin.IconElement );
+OO.mixinClass( mw.cx.ui.MessageWidget, OO.ui.mixin.FlaggedElement );
 
 /* Methods */
 
 /**
  * Handle close icon clicks
  */
-mw.cx.widgets.MessageWidget.prototype.onCloseClick = function () {
+mw.cx.ui.MessageWidget.prototype.onCloseClick = function () {
 	this.$element.remove();
 };
 
-mw.cx.widgets.MessageWidget.prototype.composeMessage = function ( message, details ) {
+mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) {
 	var $message, $details;
 	$message = $( '<span>' ).addClass( 'cx-message-widget-message' );
 	$details = $( '<span>' ).addClass( 'cx-message-widget-details' );
