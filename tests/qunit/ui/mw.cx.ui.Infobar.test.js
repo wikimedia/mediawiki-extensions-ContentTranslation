@@ -13,24 +13,18 @@
 	QUnit.test( 'Show message with a string', function ( assert ) {
 		var infobar, $fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 4 );
-
 		infobar = new mw.cx.ui.Infobar();
 		$fixture.append( infobar.$element );
 
 		infobar.showMessage( 'test-class', 'Test <b>message</b>' );
-		assert.equal( infobar.$infobar.text(), 'Test <b>message</b>', 'Strings as escaped' );
-		assert.ok( infobar.$infobar.hasClass( 'cx-test-class' ) );
+		assert.equal( infobar.$element.text(), 'Test <b>message</b>', 'Strings as escaped' );
 
 		infobar.showMessage( 'changed-class', 'New message' );
-		assert.equal( infobar.$infobar.text(), 'New message', 'Message is updated' );
-		assert.ok( infobar.$infobar.hasClass( 'cx-changed-class' ) );
+		assert.equal( infobar.$element.text(), 'New message', 'Message is updated' );
 	} );
 
 	QUnit.test( 'Show message with a Message object', function ( assert ) {
 		var infobar, $fixture = $( '#qunit-fixture' );
-
-		QUnit.expect( 1 );
 
 		infobar = new mw.cx.ui.Infobar();
 		$fixture.append( infobar.$element );
@@ -39,7 +33,7 @@
 
 		infobar.showMessage( 'test-class', mw.message( 'cx-header-test', 'Kissa' ) );
 		// Taking a shortcut by testing the text content where html is dropped
-		assert.equal( infobar.$infobar.text(), 'Kissa is here', 'Html is accepted' );
+		assert.equal( infobar.$element.text(), 'Kissa is here', 'Html is accepted' );
 	} );
 
 }( jQuery, mediaWiki ) );

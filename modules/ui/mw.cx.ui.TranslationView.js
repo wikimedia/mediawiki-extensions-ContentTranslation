@@ -168,3 +168,13 @@ mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changed
 	// Translation title change is a change trigger for translation.
 	this.emit( 'change' );
 };
+
+/**
+ * Show a success/error message in the view
+ * @param {string} type Message class.
+ * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
+ * @param {string} details The details of error in HTML.
+ */
+mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, details ) {
+	this.header.infobar.showMessage( type, message, details );
+};

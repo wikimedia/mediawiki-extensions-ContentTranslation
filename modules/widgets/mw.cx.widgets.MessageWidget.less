@@ -1,0 +1,51 @@
+@import 'common/ext.cx.common.less';
+
+.cx-message-widget {
+	border-bottom: 1px solid #ddd;
+	min-height: 2em;
+	padding: 5px 10px;
+
+	.oo-ui-iconElement-icon {
+		display: inline-block;
+		float: left;
+		vertical-align: middle;
+	}
+
+	&.cx-message-error {
+		border: 1px solid #fac5c5;
+		background-color: #fae3e3;
+		text-shadow: 0 1px #fae3e3;
+
+		.details {
+			padding: 20px;
+		}
+	}
+
+	&.cx-message-success {
+		border-color: #b7fdb5;
+		background-color: #e1fddf;
+	}
+
+	&.cx-message-warning {
+		color: #705000;
+		border-color: #fde29b;
+		background-color: #fdf1d1;
+	}
+
+	.cx-message-widget-close {
+		right: 0;
+		top: 0;
+		position: absolute;
+	}
+
+	.cx-message-widget-message {
+		font-size: large;
+		color: @gray-darker;
+		padding-right: 10px;
+	}
+
+	.cx-message-widget-details {
+		font-size: normal;
+		color: @gray-dark;
+	}
+}
