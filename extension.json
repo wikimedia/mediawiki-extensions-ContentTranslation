@@ -1361,7 +1361,8 @@
 			"dependencies": [
 				"mw.cx.dm.Translation",
 				"mw.cx.ui.TranslationView",
-				"mw.cx.TargetArticle"
+				"mw.cx.TargetArticle",
+				"mw.cx.Translation"
 			]
 		},
 		"mw.cx.TargetArticle": {
@@ -1373,6 +1374,31 @@
 				"mw.cx.dm.Translation",
 				"mw.cx.ui.TranslationView",
 				"mediawiki.api.edit"
+			]
+		},
+		"mw.cx.Translation": {
+			"scripts": [
+				"mw.cx.Translation.js"
+			],
+			"messages": [
+				"cx-lost-session-draft",
+				"cx-save-draft-error",
+				"cx-save-draft-save-success",
+				"cx-save-draft-saving",
+				"cx-save-draft-tooltip",
+				"cx-draft-restoring",
+				"cx-draft-restored",
+				"cx-draft-restore-failed",
+				"cx-page-old-revision-loaded"
+			],
+			"dependencies": [
+				"easy-deflate.deflate",
+				"ext.cx.model",
+				"mediawiki.api",
+				"mediawiki.api.edit",
+				"mediawiki.user",
+				"mw.cx.dm.Translation",
+				"mw.cx.ui.TranslationView"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {

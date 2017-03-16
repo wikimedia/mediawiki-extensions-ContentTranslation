@@ -208,8 +208,6 @@ mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changed
 		this.columns.sourceColumn.titleWidget.$element,
 		this.columns.translationColumn.titleWidget.$element
 	);
-	// Translation title change is a change trigger for translation.
-	this.emit( 'change' );
 };
 
 /**
@@ -220,4 +218,14 @@ mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changed
  */
 mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, details ) {
 	this.header.infobar.showMessage( type, message, details );
+};
+
+mw.cx.ui.TranslationView.prototype.setStatusMessage = function ( message ) {
+	this.header.setStatusMessage( message );
+};
+
+mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation ) {
+	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
+		mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
+	} );
 };

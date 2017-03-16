@@ -76,13 +76,5 @@ mw.cx.dm.SectionTranslationUnit.prototype.adapt = function () {
 	this.setTargetId();
 };
 
-mw.cx.dm.TranslationUnit.prototype.onChange = function () {
-	this.save();
-};
-
-mw.cx.dm.SectionTranslationUnit.prototype.save = function () {
-	// TODO: use the storage manager instance to save the sections.
-};
-
 /* Register */
 mw.cx.dm.modelRegistry.register( mw.cx.dm.SectionTranslationUnit );

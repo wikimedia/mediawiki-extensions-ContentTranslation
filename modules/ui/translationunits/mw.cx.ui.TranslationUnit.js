@@ -167,7 +167,9 @@ mw.cx.ui.TranslationUnit.prototype.isEditable = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.onChange = function () {
+	this.model.emit( 'change' );
 	this.view.emit( 'change' );
+	this.buildSubTranslationUnits( this.model );
 };
 
 mw.cx.ui.TranslationUnit.prototype.remove = function () {
@@ -176,7 +178,7 @@ mw.cx.ui.TranslationUnit.prototype.remove = function () {
 	// that undo/redo wont work. Use a contenteditable element removal by selecting
 	// the range for this element and remove
 	this.$translationSection.remove();
-	this.view.emit( 'change' );
+	this.emit( 'change' );
 };
 
 mw.cx.ui.TranslationUnit.prototype.onParentTranslationStarted = function () {};
@@ -186,6 +188,39 @@ mw.cx.ui.TranslationUnit.prototype.setParentTranslationUnit = function ( transla
 	this.parentTranslationUnit.connect( this, {
 		translationStarted: 'onParentTranslationStarted'
 	} );
+};
+
+/**
+ * Build sub translation units.
+ * We might require to add and remove translation units as they get added or removed.
+ * For example, links can get added to section and the corresponding translation unit
+ * should reflect here.
+ *
+ * @param {mw.cx.dm.TranslationUnit} model
+ */
+mw.cx.ui.TranslationUnit.prototype.buildSubTranslationUnits = function ( model ) {
+	var submodels, name, translationUnit, i;
+
+	submodels = model.getTranslationUnits();
+
+	if ( !submodels ) {
+		return;
+	}
+
+	// XXX have a way to avoid creating translation units for unchanged units
+	for ( i = 0; i < submodels.length; i++ ) {
+		name = submodels[ i ].constructor.static.name;
+
+		translationUnit = mw.cx.ui.translationUnitFactory.create(
+			name,
+			submodels[ i ],
+			this.view,
+			this.toolFactory,
+			this.config
+		);
+		translationUnit.setParentTranslationUnit( this );
+		this.emit( 'subunit', translationUnit );
+	}
 };
 
 mw.cx.ui.TranslationUnit.prototype.toString = function() {

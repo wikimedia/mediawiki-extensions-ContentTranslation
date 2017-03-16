@@ -38,6 +38,8 @@ mw.cx.dm.TranslationUnit = function TranslationUnit( config, translation, source
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 	this.parentTranslationUnit = null;
+	// Source of the translation. Can be source, user, Apertium, Yandex etc
+	this.translationSource = null;
 	// Parent constructor
 	mw.cx.dm.TranslationUnit.super.call( this );
 	this.connect( this, {
@@ -55,22 +57,19 @@ OO.mixinClass( mw.cx.dm.TranslationUnit, OO.EventEmitter );
 mw.cx.dm.TranslationUnit.prototype.adapt = null;
 
 /**
- * Save this translation unit in backend database.
- * Section level translation units will be saved. Sub translation units
- * trigger saving of its parent units.
- * @inheritable
+ * Change handler
  */
-mw.cx.dm.TranslationUnit.prototype.save = function() {
+mw.cx.dm.TranslationUnit.prototype.onChange = function() {
 	var parentTranslationUnit;
 
 	parentTranslationUnit = this.getParentTranslationUnit();
 
 	if ( parentTranslationUnit ) {
-		parentTranslationUnit.save();
+		parentTranslationUnit.emit( 'change' );
+	} else {
+		this.translation.emit( 'change', this );
 	}
 };
-
-mw.cx.dm.TranslationUnit.prototype.onChange = null;
 
 /**
  * Change the element id of the translation copy. We follow a format where
@@ -90,6 +89,14 @@ mw.cx.dm.TranslationUnit.prototype.setTargetId = function () {
  */
 mw.cx.dm.TranslationUnit.prototype.getTranslationUnits = function() {
 	return this.translationUnits;
+};
+
+mw.cx.dm.TranslationUnit.prototype.getSourceDocument = function () {
+	return this.sourceDocument;
+};
+
+mw.cx.dm.TranslationUnit.prototype.setTargetDocument = function ( targetDocument ) {
+	this.targetDocument = targetDocument;
 };
 
 mw.cx.dm.TranslationUnit.prototype.getTargetDocument = function () {
@@ -128,7 +135,23 @@ mw.cx.dm.TranslationUnit.prototype.remove = function () {
  * @return {string}
  */
 mw.cx.dm.TranslationUnit.prototype.getId = function () {
-	return this.constructor.static.name + '::' + this.sourceDocument.id;
+	return this.constructor.static.name + '::' + this.getSectionId();
+};
+
+/**
+ * Get the id of the section
+ * @return {string}
+ */
+mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
+	return this.sourceDocument.id;
+};
+
+mw.cx.dm.TranslationUnit.prototype.getTranslationSource = function () {
+	return this.translationSource;
+};
+
+mw.cx.dm.TranslationUnit.prototype.setTranslationSource = function ( translationSource ) {
+	this.translationSource = translationSource;
 };
 
 /**
