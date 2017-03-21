@@ -93,7 +93,16 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
 			translationUnits[ i ].constructor.static.name, translationUnits[ i ], this, this.config
 		);
-		translationUnit.render( i );
+
+		// Initialize the translation unit
+		translationUnit.render();
+
+		// Make the sections visible
+		this.columns.sourceColumn.add( translationUnit.getSourceSection(), i );
+		this.columns.translationColumn.add( translationUnit.getTranslationSection(), i );
+		// Let the unit know it can align the sections
+		translationUnit.emit( 'resize' );
+
 		subTranslationUnits = translationUnits[ i ].getTranslationUnits();
 		for ( j = 0; j < subTranslationUnits.length; j++ ) {
 			subTranslationUnit = mw.cx.ui.translationUnitFactory.create(

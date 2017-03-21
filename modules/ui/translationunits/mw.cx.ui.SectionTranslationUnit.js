@@ -16,6 +16,9 @@ mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( model, view, 
 	this.connect( this, {
 		click: 'translate'
 	} );
+
+	// Properties
+	this.translated = !!this.model.translationDocument;
 };
 
 /* Setup */
@@ -28,44 +31,48 @@ mw.cx.ui.SectionTranslationUnit.static.matchTagNames = [ 'section' ];
 mw.cx.ui.SectionTranslationUnit.static.highlightClass = 'cx-highlight';
 mw.cx.ui.SectionTranslationUnit.static.tools = [ 'search', 'formatter', 'machinetranslation', 'dictionary' ];
 
-mw.cx.ui.SectionTranslationUnit.prototype.render = function ( position ) {
-	this.addSourceSection( position );
-	this.addTranslationSection( position );
+mw.cx.ui.SectionTranslationUnit.prototype.render = function () {
+	// XXX: The model is not yet ready when the constructor is called
+	this.$sourceSection = this.createSourceSection( this.model );
+	this.$translationSection = this.createTranslationSection( this.model );
+
 	this.listen();
 };
 
 /**
- * Add source section to source column.
- *
- * @param {integer} [position] Optional position to add
+ * @private
+ * @param {mw.cx.dm.TranslationUnit} model
+ * @return {jQuery}
  */
-mw.cx.ui.SectionTranslationUnit.prototype.addSourceSection = function ( position ) {
-	if ( this.model.sourceDocument.tagName === 'SECTION' ) {
+mw.cx.ui.SectionTranslationUnit.prototype.createSourceSection = function ( model ) {
+	if ( model.sourceDocument.tagName === 'SECTION' ) {
 		// If the sourceDocument is <section> dont wrap it.
-		this.$sourceSection = $( this.model.sourceDocument );
+		return $( model.sourceDocument );
 	} else {
 		// Wrap with <section> tag
-		this.$sourceSection = $( '<section>' ).html( this.model.sourceDocument );
+		return $( '<section>' ).html( model.sourceDocument );
 	}
-	// Add to the source column
-	this.view.columns.sourceColumn.add( this.$sourceSection, position );
 };
 
 /**
- * Add target section - Either a placeholder or target document if already translated.
- *
- * @param {integer} [position] Optional position to add
+ * @private
+ * @param {mw.cx.dm.TranslationUnit} model
+ * @return {jQuery}
  */
-mw.cx.ui.SectionTranslationUnit.prototype.addTranslationSection = function ( position ) {
-	if ( this.model.translationDocument ) {
-		this.translated = true;
-		this.$translationSection = $( '<section>' )
-			.html( this.model.translationDocument );
+mw.cx.ui.SectionTranslationUnit.prototype.createTranslationSection = function ( model ) {
+	if ( model.translationDocument ) {
+		return $( '<section>' ).html( model.translationDocument );
 	} else {
-		this.$translationSection = this.getPlaceholderSection();
+		return this.getPlaceholderSection();
 	}
-	this.view.columns.translationColumn.add( this.$translationSection, position );
-	this.emit( 'resize' );
+};
+
+mw.cx.ui.SectionTranslationUnit.prototype.getSourceSection = function () {
+	return this.$sourceSection;
+};
+
+mw.cx.ui.SectionTranslationUnit.prototype.getTranslationSection = function () {
+	return this.$translationSection;
 };
 
 /**
