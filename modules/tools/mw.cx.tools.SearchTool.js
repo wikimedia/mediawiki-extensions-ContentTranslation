@@ -13,7 +13,7 @@ mw.cx.tools.SearchTool = function CXSearchTool( ui, config ) {
 	this.searchTool = null;
 	this.config = config;
 	// Parent constructor
-	mw.cx.tools.InstructionsTool.super.call( this, ui, config );
+	mw.cx.tools.SearchTool.super.call( this, ui, config );
 	this.ui.connect( this, {
 		click: 'showTool'
 	} );
