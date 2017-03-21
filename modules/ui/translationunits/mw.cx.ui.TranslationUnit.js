@@ -91,8 +91,8 @@ mw.cx.ui.TranslationUnit.prototype.buildTools = function () {
 
 	this.tools = [];
 	toolNames = this.constructor.static.tools || [];
-	for ( i = 0; i < toolNames.length; i++ )	{
-		if ( !mw.cx.tools.translationToolFactory.lookup( toolNames[ i ] ) )	{
+	for ( i = 0; i < toolNames.length; i++ ) {
+		if ( !mw.cx.tools.translationToolFactory.lookup( toolNames[ i ] ) ) {
 			// Could not find a tool for the given name
 			continue;
 		}
@@ -125,7 +125,7 @@ mw.cx.ui.TranslationUnit.prototype.removeHighlight = function () {
 mw.cx.ui.TranslationUnit.prototype.onClick = function ( event ) {
 	this.highlight();
 
-	if ( !event.isDefaultPrevented() )	{
+	if ( !event.isDefaultPrevented() ) {
 		// This is the original translation unit where click was recieved.
 		this.view.columns.ToolsColumn.hideAllTools();
 	}
