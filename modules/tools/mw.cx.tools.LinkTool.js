@@ -4,22 +4,19 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  */
 
-mw.cx.tools.LinkTool = function CXLinkTool( ui, config ) {
+mw.cx.tools.LinkTool = function CXLinkTool( model, config ) {
 	config.order = 4;
 	config.title = 'Link';
 	config.language = config.targetLanguage;
+	// Parent constructor
+	mw.cx.tools.LinkTool.super.call( this, model, config );
+
 	this.sourceTitle = null;
 	this.targetTitle = null;
-	// Parent constructor
-	mw.cx.tools.LinkTool.super.call( this, ui, config );
-	this.ui.connect( this, {
-		click: 'showTool',
-		focus: 'showTool'
-	} );
 };
 
 /* Inheritance */
@@ -90,7 +87,7 @@ mw.cx.tools.LinkTool.prototype.getContent = function () {
 };
 
 mw.cx.tools.LinkTool.prototype.removeLink = function () {
-	this.ui.remove();
+	this.emit( 'remove' );
 	this.destroy();
 };
 

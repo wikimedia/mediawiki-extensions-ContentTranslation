@@ -6,13 +6,13 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( model, view, config ) {
-	// Parent constructor
-	mw.cx.ui.SectionTranslationUnit.parent.call( this, model, view, config );
-	// Mixin constructor
+mw.cx.ui.SectionTranslationUnit = function SectionTranslationUnit( model, view, toolFactory, config ) {
+	mw.cx.ui.SectionTranslationUnit.parent.call( this, model, view, toolFactory, config );
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
+
 	this.connect( this, {
 		click: 'translate'
 	} );
@@ -29,7 +29,12 @@ mw.cx.ui.SectionTranslationUnit.static.name = 'section';
 
 mw.cx.ui.SectionTranslationUnit.static.matchTagNames = [ 'section' ];
 mw.cx.ui.SectionTranslationUnit.static.highlightClass = 'cx-highlight';
-mw.cx.ui.SectionTranslationUnit.static.tools = [ 'search', 'formatter', 'machinetranslation', 'dictionary' ];
+mw.cx.ui.SectionTranslationUnit.static.tools = {
+	search: [ 'click' ],
+	formatter: [ 'select' ],
+	machinetranslation: [ 'click' ],
+	dictionary: [ 'select' ]
+};
 
 mw.cx.ui.SectionTranslationUnit.prototype.render = function () {
 	// XXX: The model is not yet ready when the constructor is called
@@ -157,21 +162,25 @@ mw.cx.ui.SectionTranslationUnit.prototype.onChange = function () {
 mw.cx.ui.SectionTranslationUnit.prototype.buildSubTranslationUnits = function ( model ) {
 	var submodels, name, translationUnits = [], translationUnit, i;
 
-	// XXX Code duplication with mw.cx.ui.TranslationView
 	submodels = model.getTranslationUnits();
 
 	if ( !submodels ) {
 		return translationUnits;
 	}
+
 	// XXX have a way to avoid creating translation units for unchanged units
 	for ( i = 0; i < submodels.length; i++ ) {
 		name = submodels[ i ].constructor.static.name;
-		if ( !mw.cx.ui.translationUnitFactory.lookup( name ) ) {
-			continue;
-		}
+
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
-			name, submodels[ i ], this.view, this.config
+			name,
+			submodels[ i ],
+			this.view,
+			this.toolFactory,
+			this.config
 		);
+		translationUnit.setParentTranslationUnit( this );
+		this.emit( 'subunit', translationUnit );
 		translationUnits.push( translationUnit );
 	}
 

@@ -4,17 +4,13 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  */
-mw.cx.tools.DictionaryTool = function CXDictionaryTool( ui, config ) {
+mw.cx.tools.DictionaryTool = function CXDictionaryTool( model, config ) {
 	config.order = 3;
 	config.title = 'Dictionary';
-	// Parent constructor
-	mw.cx.tools.DictionaryTool.super.call( this, ui, config );
-	this.ui.connect( this, {
-		select: 'onSelect'
-	} );
+	mw.cx.tools.DictionaryTool.super.call( this, model, config );
 };
 
 /* Inheritance */
@@ -43,7 +39,6 @@ mw.cx.tools.DictionaryTool.prototype.onSelect = function ( selectionObj ) {
 			selectionChanged = true;
 		}
 		this.content = selection;
-		this.showTool();
 	}
 	if ( selectionChanged ) {
 		this.refresh();

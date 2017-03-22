@@ -6,12 +6,11 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.ImageTranslationUnit = function CXImageTranslationUnit( model, view, config ) {
-	// Parent constructor
-	mw.cx.ui.ImageTranslationUnit.parent.call( this, model, view, config );
-	// Mixin constructor
+mw.cx.ui.ImageTranslationUnit = function CXImageTranslationUnit( model, view, toolFactory, config ) {
+	mw.cx.ui.ImageTranslationUnit.parent.call( this, model, view, toolFactory, config );
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
 };
 
@@ -22,8 +21,8 @@ OO.mixinClass( mw.cx.ui.ImageTranslationUnit, mw.cx.ui.mixin.AlignableTranslatio
 mw.cx.ui.ImageTranslationUnit.static.name = 'Image';
 mw.cx.ui.ImageTranslationUnit.static.tags = [ 'figure' ];
 mw.cx.ui.ImageTranslationUnit.static.matchRdfaTypes = [ 'mw:Image/Thumb' ];
-
 mw.cx.ui.ImageTranslationUnit.static.highlightClass = 'cx-image-highlight';
+mw.cx.ui.ImageTranslationUnit.static.tools = {};
 
 mw.cx.ui.ImageTranslationUnit.prototype.init = function () {
 	if ( !this.model.sourceDocument.id ) {

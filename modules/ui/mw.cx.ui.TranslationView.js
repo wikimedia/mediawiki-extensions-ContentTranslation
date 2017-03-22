@@ -87,11 +87,18 @@ mw.cx.ui.TranslationView.prototype.loadTranslation = function () {
 };
 
 mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
-	var i, j, translationUnits, subTranslationUnits, subTranslationUnit, translationUnit;
+	var i, translationUnits, translationUnit, toolFactory;
+
+	toolFactory = mw.cx.tools.translationToolFactory;
+
 	translationUnits = this.translation.getTranslationUnits();
 	for ( i = 0; i < translationUnits.length; i++ ) {
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
-			translationUnits[ i ].constructor.static.name, translationUnits[ i ], this, this.config
+			translationUnits[ i ].constructor.static.name,
+			translationUnits[ i ],
+			this,
+			toolFactory,
+			this.config
 		);
 
 		// Initialize the translation unit
@@ -102,16 +109,43 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 		this.columns.translationColumn.add( translationUnit.getTranslationSection(), i );
 		// Let the unit know it can align the sections
 		translationUnit.emit( 'resize' );
-
-		subTranslationUnits = translationUnits[ i ].getTranslationUnits();
-		for ( j = 0; j < subTranslationUnits.length; j++ ) {
-			subTranslationUnit = mw.cx.ui.translationUnitFactory.create(
-				subTranslationUnits[ j ].constructor.static.name,
-				subTranslationUnits[ j ], this, this.config
-			);
-			subTranslationUnit.setParentTranslationUnit( translationUnit );
-		}
+		this.setTranslationUnitListeners( translationUnit );
 	}
+};
+
+/**
+ * @private
+ * @param {mw.cx.dm.TranslationUnit} unit
+ */
+mw.cx.ui.TranslationView.prototype.setTranslationUnitListeners = function ( unit ) {
+	unit.connect( this, {
+		activate: 'setActiveTranslationUnit',
+		showTool: 'showTranslationTool',
+		subunit: 'setTranslationUnitListeners'
+	} );
+};
+
+/**
+ * @param {mw.cx.dm.TranslationUnit} unit
+ */
+mw.cx.ui.TranslationView.prototype.setActiveTranslationUnit = function ( unit ) {
+	if ( unit !== this.activeTranslationUnit ) {
+		this.columns.ToolsColumn.hideAllTools();
+		this.activeTranslationUnit = unit;
+	}
+};
+
+/**
+ * @private
+ * @param {mw.cx.tools.TranslationTool} tool
+ * @param {Selection} [data]
+ */
+mw.cx.ui.TranslationView.prototype.showTranslationTool = function ( tool, data ) {
+	// XXX
+	if ( data && tool.onSelect ) {
+		tool.onSelect( data );
+	}
+	this.columns.ToolsColumn.showTool( tool );
 };
 
 mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {

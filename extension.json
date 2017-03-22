@@ -1415,13 +1415,15 @@
 				"cx-publish-button-publishing"
 			],
 			"dependencies": [
-				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationUnits",
-				"mw.cx.ui.Header",
-				"mw.cx.ui.Columns",
 				"ext.cx.model",
+				"ext.cx.sitemapper",
 				"ext.cx.util",
-				"ext.cx.sitemapper"
+				"mw.cx.dm.Translation",
+				"mw.cx.tools.TranslationToolFactory",
+				"mw.cx.tools",
+				"mw.cx.ui.Columns",
+				"mw.cx.ui.Header",
+				"mw.cx.ui.TranslationUnits"
 			]
 		},
 		"mw.cx.ui.TranslationView.legacy": {
@@ -1742,14 +1744,14 @@
 		},
 		"mw.cx.tools": {
 			"dependencies": [
-				"mw.cx.tools.MachineTranslationTool",
-				"mw.cx.tools.SearchTool",
-				"mw.cx.tools.ReferenceTool",
-				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.DictionaryTool",
-				"mw.cx.tools.TemplateTool",
+				"mw.cx.tools.FormatterTool",
+				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.LinkTool",
-				"mw.cx.tools.FormatterTool"
+				"mw.cx.tools.MachineTranslationTool",
+				"mw.cx.tools.ReferenceTool",
+				"mw.cx.tools.SearchTool",
+				"mw.cx.tools.TemplateTool"
 			]
 		},
 		"mw.cx.tools.MachineTranslationTool": {
@@ -1881,7 +1883,6 @@
 				"tools/mw.cx.tools.TranslationTool.js"
 			],
 			"dependencies": [
-				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.ui.TranslationToolWidget"
 			]
 		},

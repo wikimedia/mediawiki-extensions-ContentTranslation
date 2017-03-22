@@ -4,18 +4,15 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  */
-mw.cx.tools.FormatterTool = function CXFormatterTool( ui, config ) {
+mw.cx.tools.FormatterTool = function CXFormatterTool( model, config ) {
 	config.order = 1;
 	config.title = 'Formatter';
+	mw.cx.tools.FormatterTool.super.call( this, model, config );
+
 	this.selection = null;
-	// Parent constructor
-	mw.cx.tools.FormatterTool.super.call( this, ui, config );
-	this.ui.connect( this, {
-		select: 'onSelect'
-	} );
 };
 
 /* Inheritance */
@@ -114,13 +111,6 @@ mw.cx.tools.FormatterTool.prototype.getActions = function () {
  * @param {Selection} selectionObj Selection object
  */
 mw.cx.tools.FormatterTool.prototype.onSelect = function ( selectionObj ) {
-	var selection;
-
-	// TODO: Sanitize content
-	selection = selectionObj.toString();
-	if ( selection ) {
-		this.showTool();
-	}
 	this.selection = selectionObj;
 };
 

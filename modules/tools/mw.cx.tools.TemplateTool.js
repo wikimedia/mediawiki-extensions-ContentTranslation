@@ -4,20 +4,16 @@
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  */
-mw.cx.tools.TemplateTool = function CXTemplateTool( ui, config ) {
+mw.cx.tools.TemplateTool = function CXTemplateTool( model, config ) {
 	config.title = mw.msg( 'cx-tools-template-title' );
-	config.name = 'template';
 	config.language = config.targetLanguage;
 	config.order = 6;
 	// Parent constructor
-	mw.cx.tools.TemplateTool.super.call( this, ui, config );
+	mw.cx.tools.TemplateTool.super.call( this, model, config );
 	this.templateActions = null;
-	this.ui.connect( this, {
-		click: 'showTool'
-	} );
 };
 
 /* Inheritance */

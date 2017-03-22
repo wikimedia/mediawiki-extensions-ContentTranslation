@@ -4,22 +4,26 @@
  * @class
  * @abstract
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  * @cfg {string} title The title to be displayed for the tool card. If missing, header wont be displayed
  * @cfg {string} language The language name to be displayed in header of tool card
  * @cfg {number} order The position of the card in tools column. Cards will be arranged in this order.
  */
-mw.cx.tools.TranslationTool = function CXTranslationTool( ui, config ) {
+mw.cx.tools.TranslationTool = function CXTranslationTool( model, config ) {
+	// Mixin constructor
+	OO.EventEmitter.call( this );
+
 	this.card = null;
 	this.title = config.title;
 	this.language = config.language;
 	this.order = config.order;
-	this.ui = ui;
-	this.model = ui.model;
-	this.translationView = ui.view;
+	this.model = model;
 	this.actions = [];
 };
+
+/* Setup */
+OO.mixinClass( mw.cx.tools.TranslationTool, OO.EventEmitter );
 
 /**
  * Build the tool card widget associated with the current translation unit
@@ -50,10 +54,6 @@ mw.cx.tools.TranslationTool.prototype.getContent = null;
 
 mw.cx.tools.TranslationTool.prototype.getData = function () {
 	return this.constructor.static.name + '::' + this.model.getId();
-};
-
-mw.cx.tools.TranslationTool.prototype.showTool = function () {
-	this.ui.view.columns.ToolsColumn.showTool( this );
 };
 
 /**

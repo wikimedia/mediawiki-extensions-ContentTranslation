@@ -6,10 +6,11 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.PoemTranslationUnit = function PoemTranslationUnit( model, view, config ) {
-	mw.cx.ui.PoemTranslationUnit.parent.call( this, model, view, config );
+mw.cx.ui.PoemTranslationUnit = function PoemTranslationUnit( model, view, toolFactory, config ) {
+	mw.cx.ui.PoemTranslationUnit.parent.call( this, model, view, toolFactory, config );
 };
 
 /* Setup */
@@ -17,8 +18,8 @@ OO.inheritClass( mw.cx.ui.PoemTranslationUnit, mw.cx.ui.TranslationUnit );
 
 mw.cx.ui.PoemTranslationUnit.static.name = 'poem';
 mw.cx.ui.PoemTranslationUnit.static.matchRdfaTypes = [ 'mw:Extension/poem' ];
-
 mw.cx.ui.PoemTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
+mw.cx.ui.PoemTranslationUnit.static.tools = {};
 
 mw.cx.ui.PoemTranslationUnit.prototype.init = function () {
 	// XXX: Why does this need to be repeated in every subclass?
