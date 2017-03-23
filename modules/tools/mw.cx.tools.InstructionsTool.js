@@ -37,13 +37,12 @@ var template = '<div>' +
  * @class
  * @extends mw.cx.tools.TranslationTool
  * @constructor
- * @param {mw.cx.ui.TranslationUnit} ui
+ * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
  */
-mw.cx.tools.InstructionsTool = function CXInstructionsTool( ui, config ) {
+mw.cx.tools.InstructionsTool = function CXInstructionsTool( model, config ) {
 	config.order = 2;
-	// Parent constructor
-	mw.cx.tools.InstructionsTool.super.call( this, ui, config );
+	mw.cx.tools.InstructionsTool.super.call( this, model, config );
 };
 
 /* Inheritance */

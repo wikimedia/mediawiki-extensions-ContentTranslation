@@ -6,11 +6,13 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( model, view, config ) {
-	// Parent constructor
-	mw.cx.ui.LinkTranslationUnit.parent.call( this, model, view, config );
+mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( model, view, toolFactory, config ) {
+	mw.cx.ui.LinkTranslationUnit.parent.call( this, model, view, toolFactory, config );
+
+	// Properties
 	this.adapted = false;
 };
 
@@ -18,11 +20,13 @@ mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( model, view, config
 OO.inheritClass( mw.cx.ui.LinkTranslationUnit, mw.cx.ui.TranslationUnit );
 
 mw.cx.ui.LinkTranslationUnit.static.name = 'link';
-
 mw.cx.ui.LinkTranslationUnit.static.matchTagNames = [ 'a' ];
 mw.cx.ui.LinkTranslationUnit.static.matchRdfaTypes = [ 'mw:WikiLink' ];
 mw.cx.ui.LinkTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
-mw.cx.ui.LinkTranslationUnit.static.tools = [ 'link' ];
+mw.cx.ui.LinkTranslationUnit.static.tools = {
+	link: [ 'click', 'focus' ]
+};
+
 /**
  * @inheritDoc
  */

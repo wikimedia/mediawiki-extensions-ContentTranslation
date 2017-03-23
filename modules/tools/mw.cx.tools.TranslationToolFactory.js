@@ -7,7 +7,6 @@
  * @constructor
  */
 mw.cx.tools.TranslationToolFactory = function CXTranslationToolFactory() {
-	// Parent constructor
 	mw.cx.tools.TranslationToolFactory.super.call( this );
 };
 

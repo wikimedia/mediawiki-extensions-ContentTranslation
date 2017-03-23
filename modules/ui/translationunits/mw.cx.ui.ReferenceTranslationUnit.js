@@ -6,11 +6,11 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.ReferenceTranslationUnit = function ReferenceTranslationUnit( model, view, config ) {
-	// Parent constructor
-	mw.cx.ui.ReferenceTranslationUnit.parent.call( this, model, view, config );
+mw.cx.ui.ReferenceTranslationUnit = function ReferenceTranslationUnit( model, view, toolFactory, config ) {
+	mw.cx.ui.ReferenceTranslationUnit.parent.call( this, model, view, toolFactory, config );
 };
 
 /* Setup */
@@ -20,7 +20,9 @@ mw.cx.ui.ReferenceTranslationUnit.static.name = 'reference';
 mw.cx.ui.ReferenceTranslationUnit.static.matchTagNames = [ 'span' ];
 mw.cx.ui.ReferenceTranslationUnit.static.matchRdfaTypes = [ 'dc:references', 'mw:Extension/ref' ];
 mw.cx.ui.ReferenceTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
-mw.cx.ui.ReferenceTranslationUnit.static.tools = [ 'reference' ];
+mw.cx.ui.ReferenceTranslationUnit.static.tools = {
+	reference: [ 'click' ]
+};
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.init = function () {
 	if ( !this.model.sourceDocument.id ) {

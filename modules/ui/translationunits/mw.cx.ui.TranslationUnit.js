@@ -6,21 +6,24 @@
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {mw.cx.ui.TranslationView} view
+ * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.TranslationUnit = function TranslationUnit( model, view, config ) {
-	this.siteMapper = config.siteMapper;
-	this.config = config;
+mw.cx.ui.TranslationUnit = function TranslationUnit( model, view, toolFactory, config ) {
 	// Mixin constructor
 	OO.EventEmitter.call( this );
+
+	this.siteMapper = config.siteMapper;
+	this.config = config;
 	// Configuration initialization
 	this.view = view;
 	this.translated = false;
 	this.translationUnits = [];
 	this.model = model;
+	this.toolFactory = toolFactory;
 	// Parent translation unit
 	this.parentTranslationUnit = null;
-	this.tools = null;
+	this.tools = this.buildTools();
 	this.connect( this, {
 		change: 'onChange'
 	} );
@@ -28,6 +31,9 @@ mw.cx.ui.TranslationUnit = function TranslationUnit( model, view, config ) {
 
 /* Setup */
 OO.mixinClass( mw.cx.ui.TranslationUnit, OO.EventEmitter );
+
+// Subclasses can define tools they want to show on different events
+mw.cx.ui.TranslationUnit.static.tools = {};
 
 mw.cx.ui.TranslationUnit.prototype.getPlaceholderSection = function () {
 	return $( '<section>' )
@@ -51,7 +57,6 @@ mw.cx.ui.TranslationUnit.prototype.listen = function () {
 	this.$translationSection.on( 'input', function() {
 		this.emit( 'change' );
 	}.bind( this ) );
-	this.buildTools();
 };
 
 mw.cx.ui.TranslationUnit.prototype.onMouseUp = function ( event ) {
@@ -82,27 +87,35 @@ mw.cx.ui.TranslationUnit.prototype.onFocus = function () {
 	this.emit( 'focus' );
 };
 
+/**
+ * @private
+ * @return {mw.cx.TranslationTools[]}
+ */
 mw.cx.ui.TranslationUnit.prototype.buildTools = function () {
-	var i, toolNames;
+	var tools, specs;
 
-	if ( this.tools ) {
-		return this.tools;
-	}
+	tools = [];
+	specs = this.constructor.static.tools || [];
 
-	this.tools = [];
-	toolNames = this.constructor.static.tools || [];
-	for ( i = 0; i < toolNames.length; i++ ) {
-		if ( !mw.cx.tools.translationToolFactory.lookup( toolNames[ i ] ) ) {
-			// Could not find a tool for the given name
-			continue;
-		}
-		this.tools.push( mw.cx.tools.translationToolFactory.create(
-			toolNames[ i ],
-			this, // The UI model
-			this.config
-		) );
-	}
+	$.each( specs, function ( toolName, events ) {
+		var tool = this.toolFactory.create( toolName, this.model, this.config );
+		tools.push( tool );
 
+		// Let the tool communicate back to us (XXX: should this happen via model?)
+		tool.connect( this, {
+			remove: 'remove'
+		} );
+
+		// Let the translation view know when we want to show a tool
+		$.each( events, function ( index, eventName ) {
+			this.on( eventName, 'emit', [ 'showTool', tool ], this );
+		}.bind( this ) );
+	}.bind( this ) );
+
+	return tools;
+};
+
+mw.cx.ui.TranslationUnit.prototype.getTools = function () {
 	return this.tools;
 };
 
@@ -126,13 +139,14 @@ mw.cx.ui.TranslationUnit.prototype.onClick = function ( event ) {
 	this.highlight();
 
 	if ( !event.isDefaultPrevented() ) {
-		// This is the original translation unit where click was recieved.
-		this.view.columns.ToolsColumn.hideAllTools();
+		// This is the original translation unit where click was received.
+		this.emit( 'activate', this );
 	}
+
 	// For all handlers for bubbled event, mark the event as prevented.
 	event.preventDefault();
 
-	// Show tools for this translation unit
+	// Other internal stuff
 	this.emit( 'click' );
 
 	return true;
