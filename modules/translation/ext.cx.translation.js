@@ -207,7 +207,7 @@
 		mw.hook( 'mw.cx.translation.focus' ).fire( $section );
 
 		// Translation filled up. Unbind click handler for the source section.
-		$sourceSection.unbind( 'click', sourceSectionClickHandler );
+		$sourceSection.off( 'click', sourceSectionClickHandler );
 
 		// From now on, clicking on the source section
 		// has the same effect as clicking the target section
