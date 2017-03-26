@@ -91,6 +91,7 @@
 	"cx-mt-abuse-warning-title": "आपके अनुवाद में $1% सामग्री असंशोधित यांत्रिक-अनुवाद पाठ की {{PLURAL:$1|है}}",
 	"cx-mt-abuse-warning-text": "यांत्रिक अनुवाद केवल शुरूआती बिन्दु के रूप में प्रदान किया गया है। आपको सुनिश्चित करना है कि यह सामग्री यथार्थ है और आपकी भाषा में स्वाभाविक रूप से पठनीय है।",
 	"cx-publish-captcha-title": "सुरक्षा प्रश्न",
+	"cx-dashboard-sidebar-information": "इस सुविधा के बारे में और जानें",
 	"cx-dashboard-sidebar-stats": "आंकड़े",
 	"cx-dashboard-sidebar-feedback": "प्रतिक्रिया दें",
 	"cx-translation-filter-all-translations": "सभी अनुवाद",
@@ -157,6 +158,7 @@
 	"cx-stats-weekly-published": "पिछले सप्ताह",
 	"cx-stats-local-published-number": "$2 में $1",
 	"cx-stats-local-published": "$2 में $1 ($3)",
+	"cx-tools-missing-link-tooltip": "अनुवाद (नये विंडो पर)",
 	"cx-tools-missing-link-title": "लापता कड़ी",
 	"echo-category-title-cx": "अनुवाद",
 	"cx-notification-hundredth-translation": "आपने कुल 100 अनुवाद किए हैं! यह एक याद रखने लायक लक्ष्य है। इस खबर को अन्य संपादकों के साथ बांटे।",
@@ -182,5 +184,6 @@
 	"cx-translator-total-translations-label": "कुल",
 	"cx-tools-mt-new-provider": "नया",
 	"cx-tools-mt-new-providers-available": "नए विकल्प के साथ",
-	"cx-continue-translation": "अनुवाद जारी रखें"
+	"cx-continue-translation": "अनुवाद जारी रखें",
+	"cx-tools-template-title": "साँचा"
 }

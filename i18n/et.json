@@ -65,6 +65,7 @@
 	"cx-tools-mt-use-source": "Kasuta lähteteksti",
 	"cx-tools-mt-provider-title": "$1",
 	"cx-tools-mt-dont-use": "Ära kasuta masintõlget",
+	"cx-tools-mt-set-default": "Sea vaikeväärtuseks",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Üks kategooria|$1 kategooriat|0=Kategooriad puuduvad}}",
 	"cx-stats-title": "Sisutõlke arvandmestik",
 	"cx-tools-reference-title": "Viide",
@@ -186,5 +187,14 @@
 	"cx-draft-restore-failed": "Salvestatud tõlget ei õnnestunud laadida!",
 	"cx-suggestionlist-expand": "Vaata kõiki",
 	"cx-suggestionlist-collapse": "Vaata vähem",
-	"cx-suggestionlist-refresh": "Värskenda soovitusi"
+	"cx-suggestionlist-refresh": "Värskenda soovitusi",
+	"cx-continue-translation": "Jätka tõlkimist",
+	"cx-tools-template-title": "Mall",
+	"cx-template-action-adapt": "Kasuta samaotstarbelist malli",
+	"cx-template-action-keep-original": "Säilita originaalmall",
+	"cx-template-action-skip": "Jäta mall vahele",
+	"cx-template-not-available": "Pole saadaval antud keeles ($1)",
+	"cx-translation-template-add-param": "+ Tõlgi väli",
+	"cx-translation-template-add-more": "Lisa veel välju",
+	"cx-translation-template-select-param": "Vali sihtväli"
 }
