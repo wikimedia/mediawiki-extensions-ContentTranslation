@@ -296,10 +296,10 @@
 			assert.assertTrue( !!adaptedTemplate, 'Template adapted.' );
 			assert.strictEqual(
 				adaptedTemplate.title,
-				'Taxocaixa',
-				'Template name changed to Taxocaixa.'
+				'Infotaula d\'ésser viu',
+				'Template name changed to Infotaula d\'ésser viu.'
 			);
-			assert.strictEqual( adaptedTemplate.params.name.wt,
+			assert.strictEqual( adaptedTemplate.params.binomial.wt.trim(),
 				'Tyrannosaurus rex',
 				'Name parameter mapped and adapted to target language'
 			);
