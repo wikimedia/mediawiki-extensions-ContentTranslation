@@ -1624,8 +1624,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"mw.cx.ui.ProgressBarWidget",
-				"mw.cx.tools.SearchTool"
+				"mw.cx.ui.ProgressBarWidget"
 			]
 		},
 		"mw.cx.ui.Categories": {
