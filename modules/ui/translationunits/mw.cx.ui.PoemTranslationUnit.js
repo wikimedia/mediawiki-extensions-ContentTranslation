@@ -5,12 +5,11 @@
  *
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
- * @param {mw.cx.ui.TranslationView} view
  * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.PoemTranslationUnit = function PoemTranslationUnit( model, view, toolFactory, config ) {
-	mw.cx.ui.PoemTranslationUnit.parent.call( this, model, view, toolFactory, config );
+mw.cx.ui.PoemTranslationUnit = function MwCxUiPoemTranslationUnit( model, toolFactory, config ) {
+	mw.cx.ui.PoemTranslationUnit.super.call( this, model, toolFactory, config );
 };
 
 /* Setup */

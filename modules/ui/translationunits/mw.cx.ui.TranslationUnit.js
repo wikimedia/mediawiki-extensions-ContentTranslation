@@ -5,18 +5,16 @@
  *
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
- * @param {mw.cx.ui.TranslationView} view
  * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.TranslationUnit = function TranslationUnit( model, view, toolFactory, config ) {
+mw.cx.ui.TranslationUnit = function MwCxUiTranslationUnit( model, toolFactory, config ) {
 	// Mixin constructor
 	OO.EventEmitter.call( this );
 
 	this.siteMapper = config.siteMapper;
 	this.config = config;
 	// Configuration initialization
-	this.view = view;
 	this.translated = false;
 	this.translationUnits = [];
 	this.model = model;
@@ -168,7 +166,6 @@ mw.cx.ui.TranslationUnit.prototype.isEditable = function () {
 
 mw.cx.ui.TranslationUnit.prototype.onChange = function () {
 	this.model.emit( 'change' );
-	this.view.emit( 'change' );
 	this.buildSubTranslationUnits( this.model );
 };
 
@@ -214,7 +211,6 @@ mw.cx.ui.TranslationUnit.prototype.buildSubTranslationUnits = function ( model )
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
 			name,
 			submodels[ i ],
-			this.view,
 			this.toolFactory,
 			this.config
 		);
