@@ -9,7 +9,7 @@
  * @constructor
  * @param {Object} config
  */
-mw.cx.dm.Translation = function mwcxTranslation( config ) {
+mw.cx.dm.Translation = function MwCxDmTranslation( config ) {
 	// Mixin constructor
 	OO.EventEmitter.call( this );
 	this.config = config;
@@ -24,7 +24,12 @@ mw.cx.dm.Translation = function mwcxTranslation( config ) {
 	this.revisionId = config.sourceRevision;
 	this.startDate = null;
 	this.status = 'draft';
-	this.progress = null;
+	this.progress = {
+		any: 0,
+		human: 0,
+		mt: 0,
+		mtSectionsCount: 0
+	};
 	this.translationUnits = [];
 };
 
@@ -108,12 +113,16 @@ mw.cx.dm.Translation.prototype.setTargetPage = function ( targetPage ) {
 	this.targetPage = targetPage;
 };
 
+mw.cx.dm.Translation.prototype.setTargetURL = function ( targetURL ) {
+	this.targetURL = targetURL;
+};
+
 /**
  * Get revision id
  *
  * @return {string} revision Id
  */
-mw.cx.dm.Translation.prototype.getSourceRevision = function () {
+mw.cx.dm.Translation.prototype.getSourceRevisionId = function () {
 	return this.revisionId;
 };
 
@@ -122,8 +131,17 @@ mw.cx.dm.Translation.prototype.getSourceRevision = function () {
  *
  * @param {string} revisionId revision Id
  */
-mw.cx.dm.Translation.prototype.setSourceRevision = function ( revisionId ) {
+mw.cx.dm.Translation.prototype.setSourceRevisionId = function ( revisionId ) {
 	this.revisionId = revisionId;
+};
+
+/**
+ * Set target revision id
+ *
+ * @param {string} revisionId revision Id
+ */
+mw.cx.dm.Translation.prototype.setTargetRevisionId = function ( revisionId ) {
+	this.targetRevisionId = revisionId;
 };
 
 /**
@@ -132,7 +150,21 @@ mw.cx.dm.Translation.prototype.setSourceRevision = function ( revisionId ) {
  * @param {string} title Translation Id
  */
 mw.cx.dm.Translation.prototype.setTargetTitle = function ( title ) {
+	if ( title === this.targetTitle ) {
+		// No title change
+		return;
+	}
 	this.targetTitle = title;
+	// Translation title change is a change trigger for translation.
+	this.emit( 'change' );
+};
+
+/**
+ * Get Translation title
+ * @return {string} Target title
+ */
+mw.cx.dm.Translation.prototype.getTargetTitle = function () {
+	return this.targetTitle;
 };
 
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
@@ -141,4 +173,8 @@ mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
 
 mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
 	this.progress = progress;
+};
+
+mw.cx.dm.Translation.prototype.getProgress = function () {
+	return this.progress;
 };

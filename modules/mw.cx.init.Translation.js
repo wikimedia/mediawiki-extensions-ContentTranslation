@@ -13,6 +13,7 @@ mw.cx.init.Translation = function MWCXInitTranslation( config ) {
 	this.targetLanguage = config.targetLanguage;
 	this.sourceRevision = config.sourceRevision;
 	this.translationView = null;
+	this.translationModel = null;
 	this.translation = null;
 };
 
@@ -38,9 +39,11 @@ mw.cx.init.Translation.prototype.init = function () {
 mw.cx.init.Translation.prototype.initTranslation = function () {
 	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
 	this.targetPage = new mw.cx.dm.TargetPage( this.config );
-	this.translation = new mw.cx.dm.Translation( this.config );
-	this.translation.setSourcePage( this.sourcePage );
-	this.translation.setTargetPage( this.targetPage );
+	this.translationModel = new mw.cx.dm.Translation( this.config );
+	this.translationModel.setSourcePage( this.sourcePage );
+	this.translationModel.setTargetPage( this.targetPage );
+
+	this.translation = new mw.cx.Translation( this.translationModel, this.translationView, this.config );
 	// Fetch the source page from cxserver. The content is segmented.
 	return this.fetchSourcePageContent(
 		this.sourceTitle, this.sourceLanguage, this.sourceRevision
@@ -57,10 +60,24 @@ mw.cx.init.Translation.prototype.initTranslation = function () {
 mw.cx.init.Translation.prototype.loadTranslation = function ( segmentedSourcePage ) {
 	this.sourcePage.setSections( $.parseHTML( segmentedSourcePage.segmentedContent ) );
 	this.sourcePage.setSourceRevision( segmentedSourcePage.revision );
-	this.translation.setSourceRevision( this.sourcePage.getSourceRevision() );
-	this.translation.prepareTranslationUnits();
-	this.translationView.setTranslation( this.translation );
-	this.translationView.loadTranslation();
+	this.config.sourceRevision = segmentedSourcePage.revision;
+	this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
+	this.translationModel.prepareTranslationUnits();
+
+	// Get the saved translation and set the properties in translation model
+	this.translation.getSavedTranslation().then( function( savedTranslation ) {
+		this.translationModel.setTargetURL( savedTranslation.targetURL );
+		this.translationModel.setStatus( savedTranslation.status );
+		this.translationModel.setTargetRevisionId( savedTranslation.targetRevisionId );
+		this.translationModel.setProgress( JSON.parse( savedTranslation.progress ) );
+		this.translationModel.setId( savedTranslation.id );
+		this.translationModel.setTargetTitle( savedTranslation.targetTitle );
+		// Restore each translation storage units against the source sections.
+		this.translation.restore( savedTranslation );
+	}.bind( this ) ).always( function() {
+		this.translationView.setTranslation( this.translationModel );
+		this.translationView.loadTranslation();
+	}.bind( this ) );
 };
 
 /**

@@ -26,36 +26,20 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
-			} else {
-				$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
-			} else {
-				$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
 		}
 
 		$progress = FormatJson::decode( $params['progress'], true );
 		if ( !is_array( $progress ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidprogress', 'invalidprogress' );
-			} else {
-				$this->dieUsage( 'Invalid progress', 'invalidprogress' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidprogress', 'invalidprogress' );
 		}
 
 		if ( $user->pingLimiter( 'cxsave' ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-ratelimited' );
-			} else {
-				$this->dieUsageMsg( 'actionthrottledtext' );
-			}
+			$this->dieWithError( 'apierror-ratelimited' );
 		}
 
 		$translator = new Translator( $user );
@@ -182,33 +166,21 @@ class ApiContentTranslationSave extends ApiBase {
 	protected function getTranslationUnits( $content, $translationId ) {
 		$translationUnits = [];
 		if ( trim( $content ) === '' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
-			} else {
-				$this->dieUsage( 'content cannot be empty', 'invalidcontent' );
-			}
+			$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
 		}
 
 		if ( substr( $content, 0, 11 ) === 'rawdeflate,' ) {
 			$content = gzinflate( base64_decode( substr( $content, 11 ) ) );
 			// gzinflate returns false on error.
 			if ( $content === false ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-cx-invalidsectioncontent', 'invalidcontent' );
-				} else {
-					$this->dieUsage( 'Invalid section content', 'invalidcontent' );
-				}
+				$this->dieWithError( 'apierror-cx-invalidsectioncontent', 'invalidcontent' );
 			}
 		}
 
 		$units = json_decode( $content, true );
 		foreach ( $units as $tuData ) {
 			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
-				} else {
-					$this->dieUsage( 'Invalid section data', 'invalidcontent' );
-				}
+				$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
 			}
 
 			// Make sure all translation unit fields are defined.

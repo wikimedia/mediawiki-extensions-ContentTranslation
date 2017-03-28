@@ -65,8 +65,8 @@ mw.cx.ui.SectionTranslationUnit.prototype.createSourceSection = function ( model
  * @return {jQuery}
  */
 mw.cx.ui.SectionTranslationUnit.prototype.createTranslationSection = function ( model ) {
-	if ( model.translationDocument ) {
-		return $( '<section>' ).html( model.translationDocument );
+	if ( model.targetDocument ) {
+		return $( '<section>' ).html( model.targetDocument );
 	} else {
 		return this.getPlaceholderSection();
 	}
@@ -140,51 +140,6 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
 	if ( !this.translated ) {
 		this.removeHighlight();
 	}
-};
-
-/**
- * @inheritDoc
- */
-mw.cx.ui.SectionTranslationUnit.prototype.onChange = function () {
-	this.view.emit( 'change' );
-	this.translationUnits = this.buildSubTranslationUnits( this.model );
-};
-
-/**
- * Build sub translation units.
- * We might require to add and remove translation units as they get added or removed.
- * For example, links can get added to section and the corresponding translation unit
- * should reflect here.
- *
- * @param {mw.cx.dm.TranslationUnit} model
- * @return {mw.cx.dm.TranslationUnit[]} Array of sub translation units
- */
-mw.cx.ui.SectionTranslationUnit.prototype.buildSubTranslationUnits = function ( model ) {
-	var submodels, name, translationUnits = [], translationUnit, i;
-
-	submodels = model.getTranslationUnits();
-
-	if ( !submodels ) {
-		return translationUnits;
-	}
-
-	// XXX have a way to avoid creating translation units for unchanged units
-	for ( i = 0; i < submodels.length; i++ ) {
-		name = submodels[ i ].constructor.static.name;
-
-		translationUnit = mw.cx.ui.translationUnitFactory.create(
-			name,
-			submodels[ i ],
-			this.view,
-			this.toolFactory,
-			this.config
-		);
-		translationUnit.setParentTranslationUnit( this );
-		this.emit( 'subunit', translationUnit );
-		translationUnits.push( translationUnit );
-	}
-
-	return translationUnits;
 };
 
 /* Register */
