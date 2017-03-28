@@ -35,7 +35,7 @@ class ApiContentTranslationDelete extends ApiBase {
 		if ( $translation->translation['targetURL'] !== null ) {
 			// Translation was once published. Don't delete, move it to published status.
 			$translation->translation['status'] = 'published';
-			$translation->update();
+			$translation->update( [], $translator );
 		} else {
 			$translationId = $translation->getData()['id'];
 			Translator::removeTranslation( $translationId );
