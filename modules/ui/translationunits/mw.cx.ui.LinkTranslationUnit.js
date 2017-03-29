@@ -5,12 +5,11 @@
  *
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
- * @param {mw.cx.ui.TranslationView} view
  * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.LinkTranslationUnit = function LinkTranslationUnit( model, view, toolFactory, config ) {
-	mw.cx.ui.LinkTranslationUnit.parent.call( this, model, view, toolFactory, config );
+mw.cx.ui.LinkTranslationUnit = function MwCxUiLinkTranslationUnit( model, toolFactory, config ) {
+	mw.cx.ui.LinkTranslationUnit.super.call( this, model, toolFactory, config );
 
 	// Properties
 	this.adapted = false;

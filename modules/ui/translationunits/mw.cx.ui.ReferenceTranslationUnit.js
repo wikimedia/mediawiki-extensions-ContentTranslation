@@ -5,12 +5,11 @@
  *
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
- * @param {mw.cx.ui.TranslationView} view
  * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.ReferenceTranslationUnit = function ReferenceTranslationUnit( model, view, toolFactory, config ) {
-	mw.cx.ui.ReferenceTranslationUnit.parent.call( this, model, view, toolFactory, config );
+mw.cx.ui.ReferenceTranslationUnit = function MwCxUiReferenceTranslationUnit( model, toolFactory, config ) {
+	mw.cx.ui.ReferenceTranslationUnit.super.call( this, model, toolFactory, config );
 };
 
 /* Setup */

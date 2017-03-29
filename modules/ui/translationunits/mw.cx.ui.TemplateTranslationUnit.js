@@ -5,12 +5,11 @@
  *
  * @class
  * @param {mw.cx.dm.TranslationUnit} model
- * @param {mw.cx.ui.TranslationView} view
  * @param {mw.cx.tools.TranslationToolFactory} toolFactory
  * @param {Object} config
  */
-mw.cx.ui.TemplateTranslationUnit = function CXTemplateTranslationUnit( model, view, toolFactory, config ) {
-	mw.cx.ui.TemplateTranslationUnit.parent.call( this, model, view, toolFactory, config );
+mw.cx.ui.TemplateTranslationUnit = function MwCxUiTemplateTranslationUnit( model, toolFactory, config ) {
+	mw.cx.ui.TemplateTranslationUnit.super.call( this, model, toolFactory, config );
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
 };
 

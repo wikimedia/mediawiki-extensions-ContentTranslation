@@ -6,7 +6,7 @@
  * @extends OO.Factory
  * @constructor
  */
-mw.cx.ui.TranslationUnitFactory = function CXTranslationUnitFactory() {
+mw.cx.ui.TranslationUnitFactory = function MwCxUiTranslationUnitFactory() {
 	// Parent constructor
 	mw.cx.ui.TranslationUnitFactory.super.call( this );
 };

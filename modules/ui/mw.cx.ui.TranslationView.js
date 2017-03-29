@@ -96,7 +96,6 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 		translationUnit = mw.cx.ui.translationUnitFactory.create(
 			translationUnits[ i ].constructor.static.name,
 			translationUnits[ i ],
-			this,
 			toolFactory,
 			this.config
 		);
@@ -120,6 +119,7 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 mw.cx.ui.TranslationView.prototype.setTranslationUnitListeners = function ( unit ) {
 	unit.connect( this, {
 		activate: 'setActiveTranslationUnit',
+		change: 'onChange',
 		showTool: 'showTranslationTool',
 		subunit: 'setTranslationUnitListeners'
 	} );
@@ -170,6 +170,9 @@ mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
 	} );
 };
 
+/**
+ * Call this whenever something changes in the translation that requires saving.
+ */
 mw.cx.ui.TranslationView.prototype.onChange = function () {
 	this.publishButton.setDisabled( false );
 };
@@ -208,6 +211,8 @@ mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changed
 		this.columns.sourceColumn.titleWidget.$element,
 		this.columns.translationColumn.titleWidget.$element
 	);
+	// Translation title change is a change trigger for translation.
+	this.onChange();
 };
 
 /**
