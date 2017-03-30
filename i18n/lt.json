@@ -7,7 +7,8 @@
 			"Hugo.arg",
 			"Albertas",
 			"Zygimantus",
-			"Eitvys200"
+			"Eitvys200",
+			"Homo"
 		]
 	},
 	"cx": "Versti puslapį",
@@ -122,7 +123,7 @@
 	"cx-contributions-new-article-tooltip": "Pradėti rašyti naują puslapį",
 	"cx-contributions-translation-tooltip": "Išversti esamus puslapius",
 	"cx-contributions-upload-tooltip": "Įkelti paveikslėlius, garso ir vaizdo įrašus naudoti puslapiuose",
-	"cx-publishing-dialog-message": "Puslapis $1 jau egzistuoja. Esamas turinys bus pakeistas jūsų vertimu. Ar vis tiek norite skelbti?",
+	"cx-publishing-dialog-message": "Puslapis $1 jau yra. Esamas turinys bus pakeistas jūsų išverstu tekstu. Ar vis tiek norite išsaugoti pakeitimus?",
 	"cx-publishing-dialog-keep-button": "Saugoti abi versijos",
 	"cx-publishing-dialog-publish-anyway-button": "Vis tiek skelbti",
 	"cx-discard-translation": "Atsisakyti vertimo",

@@ -77,7 +77,7 @@
 	"cx-tools-link-instruction-shortcut": "Avaa mikä tahansa linkki napsauttamalla sitä shift-näppäin pohjassa",
 	"cx-tools-link-hover-tooltip": "Avaa napsauttamalla",
 	"cx-warning-unsaved-translation": "Sinulla on tallentamattomia käännöksiä.",
-	"cx-error-page-not-found": "\"$1\" sivua ei löydy $2 Wikipediasta",
+	"cx-error-page-not-found": "Sivua ”$1” ei löydy Wikipediasta kielellä $2",
 	"cx-sourceselector-dialog-new-translation": "Uusi käännös",
 	"cx-sourceselector-dialog-button-start-translation": "Aloita kääntäminen",
 	"cx-sourceselector-dialog-button-cancel": "Peruuta",
