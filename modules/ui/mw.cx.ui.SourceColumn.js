@@ -32,6 +32,7 @@ mw.cx.ui.SourceColumn.prototype.init = function () {
 	this.render();
 	// Try to load Cite styles. Silently ignored if not installed.
 	mw.loader.load( 'ext.cite.style' );
+	mw.hook( 'mw.cx.error' ).add( $.proxy( this.removeLoadingIndicator, this ) );
 };
 
 mw.cx.ui.SourceColumn.prototype.render = function () {

@@ -1,155 +1,308 @@
 mw.cx.init = {};
 
 /**
- * Translation Initialization
- * @param {object} config Translation configuration
+ * This class loads translation documents (source and target) and sets up the main views and models.
+ *
+ * @class
+ *
+ * @constructor
+ * @param {mw.cx.dm.WikiPage} sourceWikiPage
+ * @param {mw.cx.dm.WikiPage} targetWikiPage
+ * @param {Object} services Standard services
  */
-mw.cx.init.Translation = function MWCXInitTranslation( config ) {
-	this.config = config;
-	this.siteMapper = config.siteMapper;
-	this.sourceTitle = config.sourceTitle;
-	this.targetTitle = config.targetTitle;
-	this.sourceLanguage = config.sourceLanguage;
-	this.targetLanguage = config.targetLanguage;
-	this.sourceRevision = config.sourceRevision;
+mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWikiPage, services ) {
+	this.sourceWikiPage = sourceWikiPage;
+	this.targetWikiPage = targetWikiPage;
+	this.services = services;
+
+	// BC with other code
+	this.config = services;
+	this.config.sourceTitle = sourceWikiPage.getTitle();
+	this.config.sourceLanguage = sourceWikiPage.getLanguage();
+	this.config.sourceRevision = sourceWikiPage.getRevision();
+	this.config.targetTitle = targetWikiPage.getTitle();
+	this.config.targetLanguage = targetWikiPage.getLanguage();
+
+	// @var {mw.cx.ui.TranslationView}
 	this.translationView = null;
+	// @var {mw.cx.dm.Translation}
 	this.translationModel = null;
+	// @var {mw.cx.Translation}
 	this.translation = null;
+	// @var {mw.cx.dm.SourcePage}
+	this.sourcePage = null;
+	// @var {mw.cx.dm.TargetPage}
+	this.targetPage = null;
 };
 
 /**
- * Initialize translation feature
- * @return {jQuery.Promise}
+ * Load all data necessary to start a translation.
  */
 mw.cx.init.Translation.prototype.init = function () {
 	this.translationView = new mw.cx.ui.TranslationView( this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.translationView );
 
-	return this.fetchCXConfiguration( this.sourceLanguage, this.targetLanguage ).then( function( response ) {
-		$.extend( this.config, response.configuration );
-		return this.initTranslation();
-	}.bind( this ) );
-};
-
-/**
- * Initialize the data models, fetch source page and present it to user.
- * @return {jQuery.Promise}
- */
-mw.cx.init.Translation.prototype.initTranslation = function () {
-	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
-	this.targetPage = new mw.cx.dm.TargetPage( this.config );
-	this.translationModel = new mw.cx.dm.Translation( this.config );
-	this.translationModel.setSourcePage( this.sourcePage );
-	this.translationModel.setTargetPage( this.targetPage );
-
-	this.translation = new mw.cx.Translation( this.translationModel, this.translationView, this.config );
-	// Fetch the source page from cxserver. The content is segmented.
-	return this.fetchSourcePageContent(
-		this.sourceTitle, this.sourceLanguage, this.sourceRevision
-	).then( function( segmentedSourcePage ) {
-		this.loadTranslation( segmentedSourcePage );
-		return this.fetchAndAdaptCategories();
-	}.bind( this ) );
-};
-
-/**
- * Load the translation from the fetched source page and present to translator
- * @param {object} segmentedSourcePage
- */
-mw.cx.init.Translation.prototype.loadTranslation = function ( segmentedSourcePage ) {
-	this.sourcePage.setSections( $.parseHTML( segmentedSourcePage.segmentedContent ) );
-	this.sourcePage.setSourceRevision( segmentedSourcePage.revision );
-	this.config.sourceRevision = segmentedSourcePage.revision;
-	this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
-	this.translationModel.prepareTranslationUnits();
-
-	// Get the saved translation and set the properties in translation model
-	this.translation.getSavedTranslation().then( function( savedTranslation ) {
-		this.translationModel.setTargetURL( savedTranslation.targetURL );
-		this.translationModel.setStatus( savedTranslation.status );
-		this.translationModel.setTargetRevisionId( savedTranslation.targetRevisionId );
-		this.translationModel.setProgress( JSON.parse( savedTranslation.progress ) );
-		this.translationModel.setId( savedTranslation.id );
-		this.translationModel.setTargetTitle( savedTranslation.targetTitle );
-		// Restore each translation storage units against the source sections.
-		this.translation.restore( savedTranslation );
-	}.bind( this ) ).always( function() {
-		this.translationView.setTranslation( this.translationModel );
-		this.translationView.loadTranslation();
-	}.bind( this ) );
-};
-
-/**
- * Fetch and adapt the categories for target language
- * @return {jQuery.Promise}
- */
-mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
-	return this.sourcePage.getCategories().then( function( sourceCategories ) {
-		return this.targetPage.adaptCategoriesFrom( this.sourceLanguage, sourceCategories )
-			.then( function() {
-				this.translationView.showCategories();
+	// Deferred.done is used to stop errors from bubbling to other error handlers.
+	// Can be rewritten when we have proper promises.
+	this.fetchConfiguration(
+		this.sourceWikiPage.getLanguage(),
+		this.targetWikiPage.getLanguage()
+	).then(
+		this.fetchConfigurationSuccess.bind( this ),
+		this.fetchConfigurationError.bind( this )
+	).done( function () {
+		this.fetchSourcePageContent( this.sourceWikiPage, this.services.siteMapper ).then(
+			this.fetchSourcePageContentSuccess.bind( this ),
+			this.fetchSourcePageContentError.bind( this )
+		).done( function () {
+			this.fetchDraftInformation(
+				this.sourceWikiPage,
+				this.targetWikiPage
+			).then(
+				this.fetchDraftInformationSuccess.bind( this ),
+				this.fetchDraftInformationError.bind( this )
+			).done( function ( draftId ) {
+				this.fetchDraft( draftId ).then(
+					this.fetchDraftSuccess.bind( this ),
+					this.fetchDraftError.bind( this )
+				).done( this.enableTranslation.bind( this ) );
 			}.bind( this ) );
+		}.bind( this ) );
 	}.bind( this ) );
 };
 
 /**
- * Attach the translation view to DOM
- * @param {mw.cx.ui.TranslationView} cxview
- */
-mw.cx.init.Translation.prototype.attachToDOM = function ( cxview ) {
-	$( 'body' ).append( cxview.$element );
-};
-
-/**
- * Fetch the page with given title and language.
- * Response contains
+ * Attach the translation view to DOM.
  *
- * @param {string} title Title of the page to be fetched
- * @param {string} language Language of the page requested. This will be used to
- *     identify the host wiki.
- * @param {string} revision Source page revision id.
- * @return {jQuery.Promise}
+ * @private
+ * @param {mw.cx.ui.TranslationView} view
  */
-mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( title, language, revision ) {
-	var fetchParams, apiURL, fetchPageUrl;
-
-	fetchParams = {
-		$language: this.siteMapper.getWikiDomainCode( language ),
-		// Manual normalisation to avoid redirects on spaces but not to break namespaces
-		$title: title.replace( / /g, '_' )
-	};
-	apiURL = '/page/$language/$title';
-
-	// If revision is requested, load that revision of page.
-	if ( revision ) {
-		fetchParams.$revision = revision;
-		apiURL += '/$revision';
-	}
-
-	fetchPageUrl = this.config.siteMapper.getCXServerUrl( apiURL, fetchParams );
-
-	return $.get( fetchPageUrl ).fail( function ( xhr ) {
-		if ( xhr.status === 404 ) {
-			mw.hook( 'mw.cx.error' ).fire(
-				mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
-			);
-		} else {
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
-		}
-	} );
+mw.cx.init.Translation.prototype.attachToDOM = function ( view ) {
+	$( 'body' ).append( view.$element );
 };
 
 /**
- * Fetch CX Language pair configuration
+ * Fetch language pair configuration from ContentTranslation extension API.
+ *
+ * @private
  * @param {string} sourceLanguage Source language
  * @param {string} targetLanguage Target language
- * @return {jQuery.Promise}
+ * @return {jQuery.Promise} Configuration settings as returned by the API.
  */
-mw.cx.init.Translation.prototype.fetchCXConfiguration = function ( sourceLanguage, targetLanguage ) {
+mw.cx.init.Translation.prototype.fetchConfiguration = function ( sourceLanguage, targetLanguage ) {
 	return new mw.Api().get( {
 		action: 'cxconfiguration',
 		from: sourceLanguage,
 		to: targetLanguage
 	} );
+};
+
+mw.cx.init.Translation.prototype.fetchConfigurationSuccess = function ( response ) {
+	$.extend( this.config, response.configuration );
+};
+
+mw.cx.init.Translation.prototype.fetchConfigurationError = function () {
+	// XXX
+	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch configuration for this language pair.' );
+};
+
+/**
+ * Fetch the source page content from cxserver.
+ *
+ * @private
+ * @param {mw.cx.dm.WikiPage} wikiPage
+ * @param {ext.cx.SiteMapper} siteMapper
+ * @return {jQuery.Promise}
+ */
+mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, siteMapper ) {
+	var fetchParams, apiURL, fetchPageUrl;
+
+	fetchParams = {
+		$language: siteMapper.getWikiDomainCode( wikiPage.getLanguage() ),
+		// Manual normalisation to avoid redirects on spaces but not to break namespaces
+		$title: wikiPage.getTitle().replace( / /g, '_' )
+	};
+
+	apiURL = '/page/$language/$title';
+
+	// If revision is requested, load that revision of page.
+	if ( wikiPage.getRevision() ) {
+		fetchParams.$revision = wikiPage.getRevision();
+		apiURL += '/$revision';
+	}
+
+	fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
+
+	return $.get( fetchPageUrl );
+};
+
+mw.cx.init.Translation.prototype.fetchSourcePageContentSuccess = function ( content ) {
+	// Update with revision information
+	this.sourceWikiPage = new mw.cx.dm.WikiPage(
+		this.sourceWikiPage.getTitle(),
+		this.sourceWikiPage.getLanguage(),
+		content.revision
+	);
+	// BC
+	this.config.sourceRevision = content.revision;
+
+	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
+	this.sourcePage.setSections( $.parseHTML( content.segmentedContent ) );
+
+	this.targetPage = new mw.cx.dm.TargetPage( this.config );
+
+	this.translationModel = new mw.cx.dm.Translation( this.config );
+	this.translationModel.setSourcePage( this.sourcePage );
+	this.translationModel.setTargetPage( this.targetPage );
+	this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
+	this.translationModel.prepareTranslationUnits();
+
+	this.translation = new mw.cx.Translation( this.translationModel, this.translationView, this.config );
+};
+
+mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( xhr ) {
+	if ( xhr.status === 404 ) {
+		mw.hook( 'mw.cx.error' ).fire(
+			mw.msg(
+				'cx-error-page-not-found',
+				this.sourceWikiPage.getTitle(),
+				$.uls.data.getAutonym( this.sourceWikiPage.getLanguage() )
+			)
+		);
+	} else {
+		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+	}
+};
+
+/**
+ * Find if there is a draft existing for the current title and language pair.
+ *
+ * @private
+ * @param {mw.cx.dm.WikiPage} sourceWikiPage
+ * @param {mw.cx.dm.WikiPage} targetWikiPage
+ * @return {jQuery.Promise} Information about an existing draft (if any) as returned by the API.
+ */
+mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceWikiPage, targetWikiPage ) {
+	return new mw.Api().get( {
+		action: 'query',
+		list: 'contenttranslation',
+		sourcetitle: sourceWikiPage.getTitle(),
+		from: sourceWikiPage.getLanguage(),
+		to: targetWikiPage.getLanguage()
+	} ).then( function ( response ) {
+		return response.query && response.query.contenttranslation.translation;
+	} );
+};
+
+/**
+ * Check whether an existing draft can be used.
+ *
+ * @private
+ * @param {Object} draft
+ * @return {jQuery.Promise} Draft id or null.
+ */
+mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft ) {
+	if ( !draft ) {
+		// No draft exists
+		return $.Deferred().resolve( null ).promise();
+	}
+
+	// Do not allow two users to start a draft at the same time. The API only
+	// returns a translation with different translatorName if this is the case.
+	if ( draft.translatorName !== mw.user.getName() ) {
+		this.translationView.showConflictWarning( draft );
+		// Stop further processing!
+		return $.Deferred().reject().promise();
+	}
+
+	// Don't restore deleted drafts
+	if ( draft.status !== 'deleted' ) {
+		return $.Deferred().resolve( draft.id ).promise();
+	}
+
+	return $.Deferred().resolve( null ).promise();
+};
+
+mw.cx.init.Translation.prototype.fetchDraftInformationError = function () {
+	// XXX
+	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch draft information.' );
+	mw.log( '[CX]', arguments );
+};
+
+/**
+ * Fetch the translation from database (if any exists)
+ *
+ * @private
+ * @param {string|null} draftId Id for saved draft
+ * @return {jQuery.Promise}
+ */
+mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
+	// In case there is no draft, skip loading it
+	if ( draftId === null ) {
+		return $.Deferred().resolve().promise();
+	}
+
+	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
+
+	return new mw.Api().get( {
+		action: 'query',
+		list: 'contenttranslation',
+		translationid: draftId
+	} ).then( function ( response ) {
+		return response.query.contenttranslation.translation;
+	} );
+};
+
+mw.cx.init.Translation.prototype.fetchDraftSuccess = function ( draft ) {
+	// In case there is no draft (see fetchDraft), there is nothing for us to do
+	if ( !draft ) {
+		return;
+	}
+
+	this.translationModel.setTargetURL( draft.targetURL );
+	this.translationModel.setStatus( draft.status );
+	this.translationModel.setTargetRevisionId( draft.targetRevisionId );
+	this.translationModel.setProgress( JSON.parse( draft.progress ) );
+	this.translationModel.setId( draft.id );
+	this.translationModel.setTargetTitle( draft.targetTitle );
+
+	// Restore each translation storage units against the source sections.
+	this.translation.restore( draft );
+	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restored' ) );
+};
+
+mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details ) {
+	if ( details.exception instanceof Error ) {
+		details.exception = details.exception.toString();
+	}
+	details.errorCode = errorCode;
+	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
+
+};
+
+/**
+ * Enables translation and starts post-load processes.
+ *
+ * @private
+ */
+mw.cx.init.Translation.prototype.enableTranslation = function () {
+	this.translationView.setTranslation( this.translationModel );
+	this.translationView.loadTranslation();
+	this.fetchAndAdaptCategories();
+};
+
+/**
+ * Fetch and adapt the categories.
+ * @return {jQuery.Promise}
+ */
+mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
+	return this.sourcePage.getCategories().then( function( sourceCategories ) {
+		return this.targetPage.adaptCategoriesFrom(
+			this.sourceWikiPage.getLanguage(),
+			sourceCategories
+		).then( function() {
+			this.translationView.showCategories();
+		}.bind( this ) );
+	}.bind( this ) );
 };

@@ -16,12 +16,14 @@
 
 /**
  * @class
- * @param {Object} config Configuration
+ * @param {string} sourceLanguage Language code
+ * @param {string} targetLanguage Language code
+ * @param {mw.cx.SiteMapper} siteMapper
  */
-mw.cx.MwApiRequestManager = function MwApiRequestManager( config ) {
-	this.sourceLanguage = config.sourceLanguage;
-	this.targetLanguage = config.targetLanguage;
-	this.siteMapper = config.siteMapper;
+mw.cx.MwApiRequestManager = function MwApiRequestManager( sourceLanguage, targetLanguage, siteMapper ) {
+	this.sourceLanguage = sourceLanguage;
+	this.targetLanguage = targetLanguage;
+	this.siteMapper = siteMapper;
 	this.linkCache = {};
 	this.imageCache = {};
 	this.titlePairCache = {};

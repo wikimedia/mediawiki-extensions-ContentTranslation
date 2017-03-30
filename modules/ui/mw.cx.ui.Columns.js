@@ -6,7 +6,7 @@
  * @param {mw.cx.dm.Translation} translation
  * @param {Object} config
  */
-mw.cx.ui.Columns = function ( translation, config ) {
+mw.cx.ui.Columns = function MwCxUiColumns( translation, config ) {
 	// Configuration initialization
 	this.config = config || {};
 	this.sourceColumn = new mw.cx.ui.SourceColumn( translation, this.config );

@@ -228,30 +228,6 @@ mw.cx.Translation.prototype.getTranslationUnitData = function ( translationUnit 
 	return records;
 };
 
-mw.cx.Translation.prototype.getSavedTranslation = function () {
-	return this.find().then( function( translation ) {
-		if ( !translation ) {
-			return $.Deferred().reject( false ).resolve();
-		}
-
-		// Do not allow two users to start a draft at the same time. The API only
-		// returns a translation with different translatorName if this is the case.
-		if ( translation.translatorName !== mw.user.getName() ) {
-			this.view.showConflictWarning( translation );
-			return $.Deferred().reject( false ).resolve();
-		}
-
-		if ( translation.status === 'deleted' ) {
-			// Deleted translation
-			return $.Deferred().reject( false ).resolve();
-		}
-			// Fetch the translation content
-		return this.fetch( translation.id ).then( function( fetchedTranslation ) {
-			return fetchedTranslation;
-		} );
-	}.bind( this ) );
-};
-
 /**
  * Restore the translation from database to translation view to continue.
  * @param {Object} savedTranslation
@@ -259,7 +235,6 @@ mw.cx.Translation.prototype.getSavedTranslation = function () {
 mw.cx.Translation.prototype.restore = function ( savedTranslation ) {
 	var i, translationUnits, sectionId, savedTranslationUnits, savedTranslationUnit, translationContent;
 
-	this.emit( 'restorestart' );
 	translationUnits = this.translation.getTranslationUnits();
 	savedTranslationUnits = savedTranslation.translationUnits;
 	for ( i = 0; i < translationUnits.length; i++ ) {
@@ -276,73 +251,4 @@ mw.cx.Translation.prototype.restore = function ( savedTranslation ) {
 		translationUnits[ i ].setTargetDocument( translationContent.content );
 	}
 	// TODO: Find out orphan translation units and handle them.
-	this.view.setStatusMessage( mw.msg( 'cx-draft-restored' ) );
-};
-
-/**
- * Fetch the translation from database to translation view to continue.
- * @param {string} translationId Translation id
- * @return {jQuery.Promise}
- */
-mw.cx.Translation.prototype.fetch = function ( translationId ) {
-	var api = new mw.Api();
-
-	this.emit( 'fetchstart' );
-	this.view.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
-	return api.get( {
-		action: 'query',
-		list: 'contenttranslation',
-		translationid: translationId
-	} ).then(
-		// Success handler
-		this.onFetchSuccess.bind( this ),
-		// Failure handler
-		this.onFetchFail.bind( this )
-	);
-};
-
-mw.cx.Translation.prototype.onFetchSuccess = function ( response ) {
-	var fetchedTranslation;
-	fetchedTranslation = response.query.contenttranslation.translation;
-	this.emit( 'fetchsuccess' );
-	return fetchedTranslation;
-};
-
-mw.cx.Translation.prototype.onFetchFail = function ( errorCode, details ) {
-	if ( details.exception instanceof Error ) {
-		details.exception = details.exception.toString();
-	}
-	details.errorCode = errorCode;
-	this.emit( 'fetcherror', this.translation, details );
-	this.view.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
-};
-
-/**
- * Find if there is a draft existing for the current title and language pair.
- *
- * @return {jQuery.Promise}
- */
-mw.cx.Translation.prototype.find = function () {
-	var api = new mw.Api();
-
-	return api.get( {
-		action: 'query',
-		list: 'contenttranslation',
-		sourcetitle: this.sourceTitle,
-		from: this.sourceLanguage,
-		to: this.targetLanguage
-	} ).then( function ( response ) {
-		return response.query && response.query.contenttranslation.translation;
-	} );
-};
-
-mw.cx.Translation.prototype.showOldRevisionWarning = function () {
-	var diffUrl;
-
-	diffUrl = this.siteMapper.getPageUrl( this.sourceLanguage, this.sourceTitle, {
-		type: 'revision',
-		diff: 'cur',
-		oldid: this.translation.sourceRevisionId
-	} );
-	this.view.showMessage( 'warning', mw.message( 'cx-page-old-revision-loaded', diffUrl ) );
 };

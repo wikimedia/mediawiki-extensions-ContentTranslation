@@ -1239,6 +1239,10 @@
 				"mw.cx.dm"
 			]
 		},
+		"mw.cx.dm.WikiPage": {
+			"scripts": "dm/mw.cx.dm.WikiPage.js",
+			"dependencies": "mw.cx.dm"
+		},
 		"mw.cx.dm.TranslationUnits": {
 			"dependencies": [
 				"mw.cx.dm.TranslationUnit",
@@ -1346,8 +1350,9 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"mw.cx.ui",
+				"ext.cx.sitemapper",
 				"mw.cx.MwApiRequestManager",
+				"mw.cx.dm.WikiPage",
 				"mw.cx.init.Translation"
 			],
 			"targets": [
@@ -1357,6 +1362,13 @@
 		"mw.cx.init.Translation": {
 			"scripts": [
 				"mw.cx.init.Translation.js"
+			],
+			"messages": [
+				"cx-draft-restore-failed",
+				"cx-draft-restored",
+				"cx-draft-restoring",
+				"cx-error-page-not-found",
+				"cx-error-server-connection"
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",
@@ -1386,14 +1398,10 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
-				"cx-draft-restoring",
-				"cx-draft-restored",
-				"cx-draft-restore-failed",
 				"cx-page-old-revision-loaded"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
-				"ext.cx.model",
 				"mediawiki.api",
 				"mediawiki.api.edit",
 				"mediawiki.user",
@@ -1522,8 +1530,6 @@
 				"ui/styles/mw.cx.ui.Infobar.less"
 			],
 			"messages": [
-				"cx-error-server-connection",
-				"cx-error-page-not-found",
 				"cx-header-new-translation",
 				"cx-header-all-translations",
 				"cx-special-login-error",
