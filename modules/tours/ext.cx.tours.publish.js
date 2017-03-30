@@ -50,7 +50,7 @@
 
 	function isMoveSuccessPage() {
 		return mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Movepage' &&
-			mediaWiki.guidedTour.hasQuery( { action: 'submit' } );
+			mw.guidedTour.hasQuery( { action: 'submit' } );
 	}
 
 	function isPublishedPage() {
@@ -70,7 +70,7 @@
 		return;
 	}
 
-	tour = new mediaWiki.guidedTour.TourBuilder( { name: 'cxpublish' } );
+	tour = new mw.guidedTour.TourBuilder( { name: 'cxpublish' } );
 	cactions = '#p-cactions';
 	$moveLink = $( '#ca-move a' );
 	editId = '#ca-edit';
