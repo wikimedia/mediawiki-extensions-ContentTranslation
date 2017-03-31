@@ -33,17 +33,6 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.init = function () {
 	this.listen();
 };
 
-/**
- * @inheritDoc
- */
-mw.cx.ui.ReferenceTranslationUnit.prototype.onParentTranslationStarted = function () {
-	this.init();
-};
-
-mw.cx.ui.ReferenceTranslationUnit.prototype.getTranslationSection = function () {
-	return this.parentTranslationUnit.$translationSection.find( '#' + this.model.sourceDocument.id );
-};
-
 mw.cx.ui.ReferenceTranslationUnit.prototype.isEditable = function () {
 	return true;
 };
@@ -60,14 +49,18 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.setContent = function ( content ) {
 	if ( !content ) {
 		return;
 	}
+	// Refresh reference
+	this.$translationSection = this.getTranslationSection();
 	attributes = $( content ).prop( 'attributes' );
 	// loop through attributes and apply them.
 	$.each( attributes, function() {
 		self.$translationSection.attr( this.name, this.value );
 	} );
+	// Refresh reference
+	this.$translationSection = this.getTranslationSection();
 	this.translated = true;
-	this.emit( 'translationStarted' );
-	this.emit( 'change' );
+	// Re attach event handlers
+	this.listen();
 };
 
 mw.cx.ui.ReferenceTranslationUnit.prototype.onChange = function () {

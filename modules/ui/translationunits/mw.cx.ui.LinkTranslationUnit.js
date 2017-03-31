@@ -38,17 +38,10 @@ mw.cx.ui.LinkTranslationUnit.prototype.init = function () {
 	if ( !this.model.sourceDocument.id ) {
 		throw Error( '[CX] Invalid source document' );
 	}
-	this.$sourceSection = $( this.model.sourceDocument );
-	this.$translationSection = this.parentTranslationUnit.$translationSection.find( '#' + this.model.sourceDocument.id );
+	this.$sourceSection = this.getSourceSection();
+	this.$translationSection = this.getTranslationSection();
 	this.adapt();
 	this.listen();
-};
-
-/**
- * @inheritDoc
- */
-mw.cx.ui.LinkTranslationUnit.prototype.onParentTranslationStarted = function () {
-	this.init();
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.getPlaceholderSection = function () {
@@ -77,15 +70,17 @@ mw.cx.ui.LinkTranslationUnit.prototype.markUnAdapted = function () {
 mw.cx.ui.LinkTranslationUnit.prototype.setContent = function ( content ) {
 	var attributes, self = this;
 
-	// TODO: We need to replace this.$translationSection in a more elegant way
 	this.$translationSection.html( content.text );
 	attributes = $( content ).prop( 'attributes' );
 	// loop through attributes and apply them.
 	$.each( attributes, function() {
 		self.$translationSection.attr( this.name, this.value );
 	} );
+	// Refresh reference
+	this.$translationSection = this.getTranslationSection();
 	this.translated = true;
-	this.emit( 'translationStarted' );
+	// Re attach event handlers
+	this.listen();
 	this.emit( 'change' );
 };
 

@@ -11,13 +11,9 @@
 mw.cx.ui.SectionTranslationUnit = function MwCxUiSectionTranslationUnit( model, toolFactory, config ) {
 	mw.cx.ui.SectionTranslationUnit.super.call( this, model, toolFactory, config );
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
-
 	this.connect( this, {
 		click: 'translate'
 	} );
-
-	// Properties
-	this.translated = !!this.model.translationDocument;
 };
 
 /* Setup */
@@ -96,12 +92,15 @@ mw.cx.ui.SectionTranslationUnit.prototype.getPlaceholderSection = function () {
 mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	this.removeHighlight();
 
-	if ( this.translated ) {
-		return;
+	if ( !this.isTranslated() ) {
+		// Adapt in general will be asynchronous operation
+		this.model.adapt();
+		this.setContent( this.model.targetDocument );
+		this.buildSubTranslationUnits( this.model );
+		this.emit( 'change' );
+	} else {
+		this.buildSubTranslationUnits( this.model );
 	}
-	// Adapt in general will be asynchronous operation
-	this.model.adapt();
-	this.setContent( this.model.targetDocument );
 
 	if ( this.isEditable() ) {
 		this.makeEditable( true );
@@ -114,13 +113,14 @@ mw.cx.ui.SectionTranslationUnit.prototype.setContent = function ( content ) {
 	}
 	this.removePlaceholder();
 	this.$translationSection.html( content );
-	this.translated = true;
-	this.emit( 'change' );
-	this.emit( 'translationStarted' );
 };
 
 mw.cx.ui.SectionTranslationUnit.prototype.removePlaceholder = function () {
 	this.$translationSection.removeClass( 'cx-placeholder' );
+};
+
+mw.cx.ui.SectionTranslationUnit.prototype.isTranslated = function () {
+	return !!this.model.targetDocument;
 };
 
 /**
