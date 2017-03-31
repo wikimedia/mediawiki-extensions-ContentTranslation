@@ -55,6 +55,12 @@ class SpecialContentTranslation extends SpecialPage {
 	 */
 	public function hasToken() {
 		$request = $this->getRequest();
+
+		if ( $this->getUser()->isAnon() ) {
+			// Tokens are valid only for logged in users.
+			return false;
+		}
+
 		$title = $request->getVal( 'page' );
 
 		if ( $title === null ) {
@@ -110,7 +116,6 @@ class SpecialContentTranslation extends SpecialPage {
 		$hasToken = $this->hasToken();
 		$campaign = $request->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
-		$isExistingTranslation = $this->isExistingTranslation();
 
 		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
 		$wgULSPosition = 'personal';
@@ -148,6 +153,8 @@ class SpecialContentTranslation extends SpecialPage {
 		if ( (int)$request->getVal( 'version' ) === 2 || (int)$wgContentTranslationVersion === 2 ) {
 			$initModule = 'mw.cx.init';
 		}
+
+		$isExistingTranslation = $this->isExistingTranslation();
 		if ( $hasToken || $isExistingTranslation ) {
 			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
