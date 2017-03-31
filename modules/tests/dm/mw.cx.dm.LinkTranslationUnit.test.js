@@ -1,12 +1,8 @@
 QUnit.module( 'mw.cx.dm.LinkTranslationUnit', QUnit.newMwEnvironment( {
 	setup: function () {
-		var sitemapper;
-
-		sitemapper = new mw.cx.SiteMapper(
+		this.siteMapper = new mw.cx.SiteMapper(
 			mw.config.get( 'wgContentTranslationSiteTemplates' )
 		);
-		this.config = {};
-		this.config.siteMapper = sitemapper;
 	}
 } ) );
 
@@ -50,10 +46,12 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 		sourceLinkDoc.title = tests[ i ].title;
 		sourceLinkDoc.href = tests[ i ].title;
 
-		config = $.extend( {}, this.config, {
+		// BC
+		config = {
 			sourceLanguage: tests[ i ].sourceLanguage,
-			targetLanguage: tests[ i ].targetLanguage
-		} );
+			targetLanguage: tests[ i ].targetLanguage,
+			siteMapper: this.siteMapper
+		};
 
 		// Set the response in cache so that network requests wont be initiated.
 		mockResponse = {};
@@ -63,7 +61,11 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 			missing: false
 		};
 
-		requestManager = new mw.cx.MwApiRequestManager( config );
+		requestManager = new mw.cx.MwApiRequestManager(
+			tests[ i ].sourceLanguage,
+			tests[ i ].targetLanguage,
+			this.siteMapper
+		);
 		requestManager.init();
 		requestManager.titlePairCache[ tests[ i ].sourceLanguage ].set( mockResponse );
 		config.requestManager = requestManager;

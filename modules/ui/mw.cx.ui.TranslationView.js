@@ -32,12 +32,8 @@ OO.mixinClass( mw.cx.ui.TranslationUnit, OO.EventEmitter );
 mw.cx.ui.TranslationView.prototype.init = function () {
 	if ( mw.user.isAnon() ) {
 		mw.hook( 'mw.cx.error.anonuser' ).fire();
-		return;
 	}
 
-	if ( this.config.campaign ) {
-		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
-	}
 	this.render();
 };
 

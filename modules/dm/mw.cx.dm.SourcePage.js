@@ -3,7 +3,6 @@
 /**
  * CX Source page
  *
- * @abstract
  * @mixins OO.EventEmitter
  *
  * @constructor
@@ -14,9 +13,7 @@
  * @cfg {string} sourceLanguage Source language code
  * @cfg {string} targetLanguage Target language code
  * @cfg {string} [sourceRevision] Source revision id
- * @cfg {string} [campaign] Campaign identifier
  * @cfg {Object} requestManager The MediaWiki api request manager instance
- * @cfg {string[]} removableSections Sections that can be removed from source page
  */
 mw.cx.dm.SourcePage = function SourcePage( config ) {
 	// Mixin constructor

@@ -57,7 +57,8 @@ mw.cx.dm.Translation.prototype.prepareTranslationUnits = function () {
 			model,
 			this.config,
 			this,
-			translatableSections[ i ] );
+			translatableSections[ i ]
+		);
 	}
 };
 
