@@ -26,7 +26,7 @@ mw.cx.ui.SectionTranslationUnit.static.matchTagNames = [ 'section' ];
 mw.cx.ui.SectionTranslationUnit.static.highlightClass = 'cx-highlight';
 mw.cx.ui.SectionTranslationUnit.static.tools = {
 	search: [ 'click' ],
-	formatter: [ 'select' ],
+	formatter: [ 'select', 'click', 'focus' ],
 	machinetranslation: [ 'click' ],
 	dictionary: [ 'select' ]
 };

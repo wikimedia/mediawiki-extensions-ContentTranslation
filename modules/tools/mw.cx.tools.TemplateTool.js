@@ -10,7 +10,7 @@
 mw.cx.tools.TemplateTool = function CXTemplateTool( model, config ) {
 	config.title = mw.msg( 'cx-tools-template-title' );
 	config.language = config.targetLanguage;
-	config.order = 6;
+	config.order = 70;
 	// Parent constructor
 	mw.cx.tools.TemplateTool.super.call( this, model, config );
 	this.templateActions = null;

@@ -8,7 +8,7 @@
  * @param {Object} config
  */
 mw.cx.tools.SearchTool = function CXSearchTool( model, config ) {
-	config.order = 0;
+	config.order = 10;
 	config.padded = false;
 	this.searchTool = null;
 	this.config = config;

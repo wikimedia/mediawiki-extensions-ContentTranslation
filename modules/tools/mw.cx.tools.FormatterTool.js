@@ -8,7 +8,7 @@
  * @param {Object} config
  */
 mw.cx.tools.FormatterTool = function CXFormatterTool( model, config ) {
-	config.order = 1;
+	config.order = 20;
 	config.title = 'Formatter';
 	mw.cx.tools.FormatterTool.super.call( this, model, config );
 

@@ -9,7 +9,7 @@
  */
 
 mw.cx.tools.LinkTool = function CXLinkTool( model, config ) {
-	config.order = 4;
+	config.order = 50;
 	config.title = 'Link';
 	config.language = config.targetLanguage;
 	// Parent constructor

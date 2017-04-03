@@ -11,7 +11,7 @@ mw.cx.tools.ReferenceTool = function CXReferenceTool( model, config ) {
 	config.title = mw.msg( 'cx-tools-reference-title' );
 	config.name = 'reference';
 	config.language = config.targetLanguage;
-	config.order = 301;
+	config.order = 60;
 	// Parent constructor
 	mw.cx.tools.ReferenceTool.super.call( this, model, config );
 };

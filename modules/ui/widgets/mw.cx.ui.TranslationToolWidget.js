@@ -42,6 +42,8 @@ mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translat
 		.addClass( 'cx-widget-translationtool-actions' );
 
 	this.$element.append( this.$header,	this.$information, this.$actions );
+	// Set the display order in tools column
+	this.$element.css( 'order', translationTool.order );
 	this.render();
 };
 

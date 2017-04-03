@@ -83,17 +83,16 @@ mw.cx.ui.ToolsColumn.prototype.showTools = function ( translationUnit ) {
 
 	tools = translationUnit.getTools();
 	for ( i = 0; i < tools.length; i++ ) {
-		this.toolContainer.addItems( [ tools[ i ].getCard() ], tools[ i ].order );
+		this.toolContainer.addItems( [ tools[ i ].getCard() ] );
 	}
 };
 
 /**
  * Show a single tool in tools container
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
- * @param {integer} [index] Optional index - position in the items
  */
-mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool, index ) {
-	this.toolContainer.addItems( [ tool.getCard() ], index || tool.order );
+mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
+	this.toolContainer.addItems( [ tool.getCard() ] );
 };
 
 /**

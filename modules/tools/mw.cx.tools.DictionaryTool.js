@@ -8,7 +8,7 @@
  * @param {Object} config
  */
 mw.cx.tools.DictionaryTool = function CXDictionaryTool( model, config ) {
-	config.order = 3;
+	config.order = 80;
 	config.title = 'Dictionary';
 	mw.cx.tools.DictionaryTool.super.call( this, model, config );
 };

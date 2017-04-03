@@ -11,7 +11,7 @@ mw.cx.tools.MachineTranslationTool = function CXMachineTranslationTool( model, c
 	config.title = mw.msg( 'cx-tools-mt-title' );
 	config.name = 'machinetranslation';
 	config.language = config.targetLanguage;
-	config.order = 5;
+	config.order = 40;
 	// Parent constructor
 	mw.cx.tools.MachineTranslationTool.super.call( this, model, config );
 };

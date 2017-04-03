@@ -41,7 +41,7 @@ var template = '<div>' +
  * @param {Object} config
  */
 mw.cx.tools.InstructionsTool = function CXInstructionsTool( model, config ) {
-	config.order = 2;
+	config.order = 30;
 	mw.cx.tools.InstructionsTool.super.call( this, model, config );
 };
 
