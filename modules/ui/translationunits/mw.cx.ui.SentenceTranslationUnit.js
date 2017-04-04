@@ -37,11 +37,4 @@ mw.cx.ui.SentenceTranslationUnit.prototype.init = function () {
 	this.listen();
 };
 
-/**
- * @inheritDoc
- */
-mw.cx.ui.SentenceTranslationUnit.prototype.onParentTranslationStarted = function () {
-	this.init();
-};
-
 mw.cx.ui.translationUnitFactory.register( mw.cx.ui.SentenceTranslationUnit );

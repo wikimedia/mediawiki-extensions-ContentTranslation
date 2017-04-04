@@ -21,39 +21,7 @@ mw.cx.dm.SectionTranslationUnit.static.name = 'section';
 mw.cx.dm.SectionTranslationUnit.static.matchTagNames = mw.cx.dm.SourcePage.static.sectionTypes;
 
 mw.cx.dm.SectionTranslationUnit.prototype.init = function () {
-	this.buildSubTranslationUnits( this.sourceDocument );
-};
-
-/**
- * Section is the top most translation unit. Build and initialize its sub translation units.
- *
- * @param {Element} sourceDocument Source section DOM Element
- */
-mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceDocument ) {
-	var i, model, children, subTranslationUnit;
-
-	children = sourceDocument.children;
-
-	if ( !children ) {
-		return;
-	}
-
-	for ( i = 0; i < children.length; i++ ) {
-		model = mw.cx.dm.modelRegistry.matchElement( children[ i ] );
-		// Check if there is a translation unit defined for this child
-		if ( model ) {
-			subTranslationUnit = mw.cx.dm.translationUnitFactory.create(
-				model, this.config, this.translation, children[ i ]
-			);
-
-			// Keep a map of DOM ids and translation units
-			this.subTranslationUnitModels[ children[ i ].id ] = subTranslationUnit;
-			this.translationUnits.push( subTranslationUnit );
-			subTranslationUnit.setParentTranslationUnit( this );
-		}
-		// Recursively search for sub translation units.
-		this.buildSubTranslationUnits( children[ i ] );
-	}
+	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
 };
 
 /**

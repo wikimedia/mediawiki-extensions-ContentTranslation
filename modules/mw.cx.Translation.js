@@ -239,6 +239,7 @@ mw.cx.Translation.prototype.restore = function ( savedTranslation ) {
 	savedTranslationUnits = savedTranslation.translationUnits;
 	for ( i = 0; i < translationUnits.length; i++ ) {
 		sectionId = translationUnits[ i ].getSectionId();
+
 		savedTranslationUnit = savedTranslationUnits[ sectionId ];
 
 		if ( !savedTranslationUnit ) {
@@ -248,7 +249,7 @@ mw.cx.Translation.prototype.restore = function ( savedTranslation ) {
 		translationContent = savedTranslationUnit.user || savedTranslationUnit.mt || savedTranslationUnit.source;
 		// TODO: translationContent is an object, it has MT service, timestamp and content.
 		// Do we need to retain all these info to the model?
-		translationUnits[ i ].setTargetDocument( translationContent.content );
+		translationUnits[ i ].setTargetDocument( $( translationContent.content )[ 0 ] );
 	}
 	// TODO: Find out orphan translation units and handle them.
 };

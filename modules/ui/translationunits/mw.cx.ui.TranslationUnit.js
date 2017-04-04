@@ -21,6 +21,7 @@ mw.cx.ui.TranslationUnit = function MwCxUiTranslationUnit( model, toolFactory, c
 	this.toolFactory = toolFactory;
 	// Parent translation unit
 	this.parentTranslationUnit = null;
+	this.subTranslationUnitMap = {};
 	this.tools = this.buildTools();
 	this.connect( this, {
 		change: 'onChange'
@@ -32,6 +33,13 @@ OO.mixinClass( mw.cx.ui.TranslationUnit, OO.EventEmitter );
 
 // Subclasses can define tools they want to show on different events
 mw.cx.ui.TranslationUnit.static.tools = {};
+
+/**
+ * Initialize the translation unit UI. When a translation unit is created,
+ * this method will be called. All initialization code can go here.
+ */
+mw.cx.ui.TranslationUnit.prototype.init = function () {
+};
 
 mw.cx.ui.TranslationUnit.prototype.getPlaceholderSection = function () {
 	return $( '<section>' )
@@ -166,7 +174,6 @@ mw.cx.ui.TranslationUnit.prototype.isEditable = function () {
 
 mw.cx.ui.TranslationUnit.prototype.onChange = function () {
 	this.model.emit( 'change' );
-	this.buildSubTranslationUnits( this.model );
 };
 
 mw.cx.ui.TranslationUnit.prototype.remove = function () {
@@ -178,13 +185,29 @@ mw.cx.ui.TranslationUnit.prototype.remove = function () {
 	this.emit( 'change' );
 };
 
-mw.cx.ui.TranslationUnit.prototype.onParentTranslationStarted = function () {};
-
 mw.cx.ui.TranslationUnit.prototype.setParentTranslationUnit = function ( translationUnit ) {
 	this.parentTranslationUnit = translationUnit;
-	this.parentTranslationUnit.connect( this, {
-		translationStarted: 'onParentTranslationStarted'
-	} );
+	this.init();
+};
+
+/**
+ * Get the source section
+ * @return {jQuery} The source section
+ */
+mw.cx.ui.TranslationUnit.prototype.getSourceSection = function () {
+	return $( this.model.sourceDocument );
+};
+
+/**
+ * Get the translation section
+ * @return {jQuery} The translation section
+ */
+mw.cx.ui.TranslationUnit.prototype.getTranslationSection = function () {
+	if ( this.model.targetDocument ) {
+		return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.targetDocument.id + '"]' );
+	}
+	// Fallback to copy of source section
+	return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.sourceDocument.id + '"]' );
 };
 
 /**
@@ -204,16 +227,18 @@ mw.cx.ui.TranslationUnit.prototype.buildSubTranslationUnits = function ( model )
 		return;
 	}
 
-	// XXX have a way to avoid creating translation units for unchanged units
 	for ( i = 0; i < submodels.length; i++ ) {
 		name = submodels[ i ].constructor.static.name;
 
-		translationUnit = mw.cx.ui.translationUnitFactory.create(
-			name,
-			submodels[ i ],
-			this.toolFactory,
-			this.config
-		);
+		translationUnit = this.subTranslationUnitMap[ submodels[ i ].getId() ] ||
+			mw.cx.ui.translationUnitFactory.create(
+				name,
+				submodels[ i ],
+				this.toolFactory,
+				this.config
+			);
+		// Keep a map of DOM ids and translation units
+		this.subTranslationUnitMap[ submodels[ i ].getId() ] = translationUnit;
 		translationUnit.setParentTranslationUnit( this );
 		this.emit( 'subunit', translationUnit );
 	}
