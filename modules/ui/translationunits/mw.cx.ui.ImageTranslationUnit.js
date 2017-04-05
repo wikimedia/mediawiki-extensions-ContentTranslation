@@ -23,16 +23,6 @@ mw.cx.ui.ImageTranslationUnit.static.matchRdfaTypes = [ 'mw:Image/Thumb' ];
 mw.cx.ui.ImageTranslationUnit.static.highlightClass = 'cx-image-highlight';
 mw.cx.ui.ImageTranslationUnit.static.tools = {};
 
-mw.cx.ui.ImageTranslationUnit.prototype.init = function () {
-	if ( !this.model.sourceDocument.id ) {
-		throw Error( '[CX] Invalid source document' );
-	}
-	this.$sourceSection = $( this.model.sourceDocument );
-	this.$translationSection = this.getTranslationSection();
-	this.adapt();
-	this.listen();
-};
-
 mw.cx.ui.ImageTranslationUnit.prototype.adapt = function () {
 	// Adapt in general will be asynchronous operation
 	this.model.adapt();

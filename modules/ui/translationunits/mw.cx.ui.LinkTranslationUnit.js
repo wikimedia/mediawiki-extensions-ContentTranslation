@@ -34,16 +34,6 @@ mw.cx.ui.LinkTranslationUnit.static.matchFunction = function ( node ) {
 	return !!node.id;
 };
 
-mw.cx.ui.LinkTranslationUnit.prototype.init = function () {
-	if ( !this.model.sourceDocument.id ) {
-		throw Error( '[CX] Invalid source document' );
-	}
-	this.$sourceSection = this.getSourceSection();
-	this.$translationSection = this.getTranslationSection();
-	this.adapt();
-	this.listen();
-};
-
 mw.cx.ui.LinkTranslationUnit.prototype.getPlaceholderSection = function () {
 	return $( '<section>' )
 		.addClass( 'cx-link-placeholder' );

@@ -39,7 +39,19 @@ mw.cx.ui.TranslationUnit.static.tools = {};
  * this method will be called. All initialization code can go here.
  */
 mw.cx.ui.TranslationUnit.prototype.init = function () {
+	if ( !this.model.getSectionId() ) {
+		throw Error( '[CX] Invalid source document' );
+	}
+	this.$sourceSection = this.getSourceSection();
+	this.$translationSection = this.getTranslationSection();
+	this.adapt();
+	this.listen();
 };
+
+/**
+ * Adapt this translation unit to target langauge
+ */
+mw.cx.ui.TranslationUnit.prototype.adapt = function () {};
 
 mw.cx.ui.TranslationUnit.prototype.getPlaceholderSection = function () {
 	return $( '<section>' )
@@ -204,10 +216,10 @@ mw.cx.ui.TranslationUnit.prototype.getSourceSection = function () {
  */
 mw.cx.ui.TranslationUnit.prototype.getTranslationSection = function () {
 	if ( this.model.targetDocument ) {
-		return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.targetDocument.id + '"]' );
+		return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getTranslationSectionId() + '"]' );
 	}
 	// Fallback to copy of source section
-	return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.sourceDocument.id + '"]' );
+	return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getSectionId() + '"]' );
 };
 
 /**

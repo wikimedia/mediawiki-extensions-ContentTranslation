@@ -20,15 +20,6 @@ mw.cx.ui.PoemTranslationUnit.static.matchRdfaTypes = [ 'mw:Extension/poem' ];
 mw.cx.ui.PoemTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
 mw.cx.ui.PoemTranslationUnit.static.tools = {};
 
-mw.cx.ui.PoemTranslationUnit.prototype.init = function () {
-	// XXX: Why does this need to be repeated in every subclass?
-	this.$sourceSection = $( this.model.sourceDocument );
-	this.$translationSection = this.parentTranslationUnit.$translationSection.find( '#' + this.model.sourceDocument.id );
-
-	this.adapt();
-	this.listen();
-};
-
 mw.cx.ui.PoemTranslationUnit.prototype.adapt = function () {
 	this.model.adapt();
 };

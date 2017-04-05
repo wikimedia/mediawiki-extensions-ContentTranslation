@@ -34,4 +34,12 @@ mw.cx.dm.SentenceTranslationUnit.prototype.isEditable = function () {
 	return true;
 };
 
+/**
+ * Get the id of the section
+ * @return {string}
+ */
+mw.cx.dm.SentenceTranslationUnit.prototype.getSectionId = function () {
+	return this.sourceDocument.dataset.segmentid;
+};
+
 mw.cx.dm.modelRegistry.register( mw.cx.dm.SentenceTranslationUnit );

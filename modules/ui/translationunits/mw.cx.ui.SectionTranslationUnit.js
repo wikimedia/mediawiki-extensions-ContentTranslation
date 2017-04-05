@@ -31,7 +31,10 @@ mw.cx.ui.SectionTranslationUnit.static.tools = {
 	dictionary: [ 'select' ]
 };
 
-mw.cx.ui.SectionTranslationUnit.prototype.render = function () {
+/**
+ *  @inheritDoc
+ */
+mw.cx.ui.SectionTranslationUnit.prototype.init = function () {
 	// XXX: The model is not yet ready when the constructor is called
 	this.$sourceSection = this.createSourceSection( this.model );
 	this.$translationSection = this.createTranslationSection( this.model );

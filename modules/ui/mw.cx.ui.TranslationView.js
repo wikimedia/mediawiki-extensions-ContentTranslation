@@ -97,7 +97,7 @@ mw.cx.ui.TranslationView.prototype.prepareTranslationUnitUIs = function () {
 		);
 
 		// Initialize the translation unit
-		translationUnit.render();
+		translationUnit.init();
 
 		// Make the sections visible
 		this.columns.sourceColumn.add( translationUnit.getSourceSection(), i );

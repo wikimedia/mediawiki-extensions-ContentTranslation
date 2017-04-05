@@ -23,16 +23,6 @@ mw.cx.ui.ReferenceTranslationUnit.static.tools = {
 	reference: [ 'click' ]
 };
 
-mw.cx.ui.ReferenceTranslationUnit.prototype.init = function () {
-	if ( !this.model.sourceDocument.id ) {
-		throw Error( '[CX] Invalid source document' );
-	}
-	this.$sourceSection = $( this.model.sourceDocument );
-	this.$translationSection = this.getTranslationSection();
-	this.adapt();
-	this.listen();
-};
-
 mw.cx.ui.ReferenceTranslationUnit.prototype.isEditable = function () {
 	return true;
 };

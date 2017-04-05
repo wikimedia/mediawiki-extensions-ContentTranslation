@@ -73,4 +73,13 @@ mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
 		} );
 };
 
+/**
+ * Get the id of the section
+ * @return {string}
+ */
+mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
+	// Make sure that there is an id for the unit even if id attribute is not present.
+	return this.sourceDocument.id || this.sourceDocument.dataset.linkid || OO.ui.generateElementId();
+};
+
 mw.cx.dm.modelRegistry.register( mw.cx.dm.LinkTranslationUnit );

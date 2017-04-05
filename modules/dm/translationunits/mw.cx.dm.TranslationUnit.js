@@ -186,10 +186,7 @@ mw.cx.dm.TranslationUnit.prototype.getId = function () {
  */
 mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
 	// Make sure that there is an id for the unit even if id attribute is not present.
-	return this.sourceDocument.id ||
-		this.sourceDocument.dataset.segmentid ||
-		this.sourceDocument.dataset.seqid ||
-		OO.ui.generateElementId();
+	return this.sourceDocument.id || OO.ui.generateElementId();
 };
 
 /**
@@ -197,7 +194,7 @@ mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
  * @return {string}
  */
 mw.cx.dm.TranslationUnit.prototype.getTranslationSectionId = function () {
-	return 'cx' + this.getSectionId().id;
+	return 'cx' + this.getSectionId();
 };
 
 mw.cx.dm.TranslationUnit.prototype.getTranslationSource = function () {
