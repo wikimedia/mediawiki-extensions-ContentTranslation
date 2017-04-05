@@ -130,7 +130,7 @@ mw.cx.ui.SectionTranslationUnit.prototype.isTranslated = function () {
  * @inheritDoc
  */
 mw.cx.ui.SectionTranslationUnit.prototype.onMouseOver = function () {
-	if ( !this.translated ) {
+	if ( !this.isTranslated() ) {
 		this.highlight();
 	}
 };
@@ -139,7 +139,7 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseOver = function () {
  * @inheritDoc
  */
 mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
-	if ( !this.translated ) {
+	if ( !this.isTranslated() ) {
 		this.removeHighlight();
 	}
 };
