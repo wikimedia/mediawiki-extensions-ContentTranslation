@@ -1249,6 +1249,7 @@
 				"mw.cx.dm.ImageTranslationUnit",
 				"mw.cx.dm.SentenceTranslationUnit",
 				"mw.cx.dm.LinkTranslationUnit",
+				"mw.cx.dm.ExternalLinkTranslationUnit",
 				"mw.cx.dm.PoemTranslationUnit",
 				"mw.cx.dm.ReferenceTranslationUnit",
 				"mw.cx.dm.TemplateTranslationUnit",
@@ -1270,6 +1271,14 @@
 			],
 			"dependencies": [
 				"mw.cx.dm.SectionTranslationUnit"
+			]
+		},
+		"mw.cx.dm.ExternalLinkTranslationUnit": {
+			"scripts": [
+				"dm/translationunits/mw.cx.dm.ExternalLinkTranslationUnit.js"
+			],
+			"dependencies": [
+				"mw.cx.dm.TranslationUnit"
 			]
 		},
 		"mw.cx.dm.SentenceTranslationUnit": {
@@ -1689,6 +1698,7 @@
 				"mw.cx.ui.PoemTranslationUnit",
 				"mw.cx.ui.ReferenceTranslationUnit",
 				"mw.cx.ui.LinkTranslationUnit",
+				"mw.cx.ui.ExternalLinkTranslationUnit",
 				"mw.cx.ui.TemplateTranslationUnit",
 				"mw.cx.ui.SentenceTranslationUnit"
 			]
@@ -1717,6 +1727,14 @@
 			],
 			"styles":[
 				"ui/styles/translationunits/mw.cx.ui.LinkTranslationUnit.less"
+			],
+			"dependencies": [
+				"mw.cx.ui.TranslationUnit"
+			]
+		},
+		"mw.cx.ui.ExternalLinkTranslationUnit": {
+			"scripts": [
+				"ui/translationunits/mw.cx.ui.ExternalLinkTranslationUnit.js"
 			],
 			"dependencies": [
 				"mw.cx.ui.TranslationUnit"
@@ -1783,6 +1801,7 @@
 		"mw.cx.tools": {
 			"dependencies": [
 				"mw.cx.tools.DictionaryTool",
+				"mw.cx.tools.ExternalLinkTool",
 				"mw.cx.tools.FormatterTool",
 				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.LinkTool",
@@ -1873,6 +1892,20 @@
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool"
+			]
+		},
+		"mw.cx.tools.ExternalLinkTool": {
+			"scripts": [
+				"tools/mw.cx.tools.ExternalLinkTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.ExternalLinkTool.less"
+			],
+			"dependencies": [
+				"mw.cx.tools.TranslationTool"
+			],
+			"messages":[
+				"cx-tools-link-hover-tooltip"
 			]
 		},
 		"mw.cx.tools.FormatterTool": {

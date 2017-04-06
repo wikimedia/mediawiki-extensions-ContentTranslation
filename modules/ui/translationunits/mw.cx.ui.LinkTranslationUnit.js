@@ -34,11 +34,6 @@ mw.cx.ui.LinkTranslationUnit.static.matchFunction = function ( node ) {
 	return !!node.id;
 };
 
-mw.cx.ui.LinkTranslationUnit.prototype.getPlaceholderSection = function () {
-	return $( '<section>' )
-		.addClass( 'cx-link-placeholder' );
-};
-
 mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
 	var self = this;
 	// Adapt in general will be asynchronous operation
@@ -72,10 +67,6 @@ mw.cx.ui.LinkTranslationUnit.prototype.setContent = function ( content ) {
 	// Re attach event handlers
 	this.listen();
 	this.emit( 'change' );
-};
-
-mw.cx.ui.LinkTranslationUnit.prototype.removePlaceholder = function () {
-	this.$translationSection.removeClass( 'cx-link-placeholder' );
 };
 
 /**
