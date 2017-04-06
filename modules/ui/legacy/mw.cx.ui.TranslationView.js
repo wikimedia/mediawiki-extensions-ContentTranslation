@@ -46,7 +46,6 @@
 		this.publishButton = new OO.ui.ButtonWidget( {
 			disabled: true,
 			flags: [ 'progressive', 'primary' ],
-			classes: [ 'cx-header__publish-button' ],
 			label: mw.msg( 'cx-publish-button' )
 		} );
 

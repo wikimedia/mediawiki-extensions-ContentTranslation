@@ -127,7 +127,8 @@ mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {
 	} );
 	this.publishButton = publishButton;
 	this.publishSettings = publishSettings;
-	this.header.$toolbar.prepend( this.publishSettings.$element, this.publishButton.$element );
+	// this.header.$toolbar.prepend( this.publishSettings.$element, this.publishButton.$element );
+	this.getToolbar().$actions.append( this.publishSettings.$element, this.publishButton.$element );
 };
 
 mw.cx.ui.TranslationView.prototype.unbindHandlers = function () {
