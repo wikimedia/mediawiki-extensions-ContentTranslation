@@ -59,9 +59,10 @@ mw.cx.dm.ReferenceTranslationUnit.prototype.getSourceDefinition = function () {
 			<span id="mw-reference-text-cite_note-three-3" class="mw-reference-text" data-parsoid="{}">Three</span>
 			</li>
 		</li>
+		The href value can also be like href='./Title#cite_ref-three_3-0'
 		*/
 		$referenceContent = $( this.translation.sourcePage.sections )
-			.find( 'a[href="#' + this.sourceDocument.id + '"]' )
+			.find( 'a[href$="#' + this.sourceDocument.id + '"]' )
 			.closest( 'li' )
 			.find( '.mw-reference-text' );
 		if ( $referenceContent.length > 0 ) {
