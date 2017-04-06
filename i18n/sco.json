@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"John Reid"
+			"John Reid",
+			"AmaryllisGardener"
 		]
 	},
 	"cx": "Owerset page",
@@ -23,5 +24,22 @@
 	"cx-tools-instructions-text5": "{{GENDER:|Publish}} the owerset",
 	"cx-tools-instructions-text6": "Whan {{GENDER:|ye}}'r happie wi the ootcome, press \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Rake fer ae waird",
-	"cx-tools-view-guidelines": "{{GENDER:|See}} the owersetin guidelines"
+	"cx-tools-view-guidelines": "{{GENDER:|See}} the owersetin guidelines",
+	"cx-sourceselector-dialog-source-title-placeholder": "Sairch for soorce page",
+	"cx-sourceselector-dialog-target-title-placeholder": "Translation teetle",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Need}} help wi translations?",
+	"cx-dashboard-sidebar-information": "Ken mair aboot this featur",
+	"cx-dashboard-sidebar-stats": "Stateestics",
+	"cx-dashboard-sidebar-feedback": "Gie us feedback",
+	"cx-suggestionlist-title": "Mair suggestions",
+	"cx-translation-filter-from-any-language": "Frae ony leid",
+	"cx-translation-filter-to-any-language": "Tae ony leid",
+	"cx-create-new-translation": "Stairt a new translation",
+	"cx-contributions-new-contributions": "New contreibution",
+	"cx-contributions-upload": "Uplaid media",
+	"cx-contributions-new-article-tooltip": "Stairt writin a new page",
+	"cx-contributions-translation-tooltip": "Translate exeestin pages",
+	"cx-contributions-upload-tooltip": "Uplaid picturs, audio an video tae uise in pages",
+	"cx-stats-cumulative-tab-title": "Tot",
+	"cx-contributions-link": "Yer contreibutions"
 }
