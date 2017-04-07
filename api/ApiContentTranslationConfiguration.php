@@ -2,16 +2,16 @@
 /**
  * API to get the Content Translation configuration for the given language pair.
  *
+ * Configuration currently contains information about sections that should be ignored
+ * and template name and parameter mappings for the most common templates.
+ *
  * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
 class ApiContentTranslationConfiguration extends ApiBase {
-
 	public function execute() {
-		$commonContent = "{}";
-		$configuration =  null;
 		$this->getMain()->setCacheMode( 'public' );
 		$this->getMain()->setCacheMaxAge( 2419200 );
 
@@ -19,40 +19,29 @@ class ApiContentTranslationConfiguration extends ApiBase {
 		$source = $params['from'];
 		$target = $params['to'];
 		if ( !Language::isValidBuiltInCode( $source ) || !Language::isValidBuiltInCode( $target ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
-			} else {
-				$this->dieUsage( 'Invalid language', 'invalidlanguage' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
-		// Read common configuraiton
-		$commonFileName =  __DIR__ . "/../modules/source/conf/common.json";
-		if ( is_readable( $commonFileName ) ) {
-			$commonContent = file_get_contents( $commonFileName );
-		}
-		$commonConfiguration = json_decode( $commonContent, false );
 
-		// Read configuraiton for language pair
+		$configFilename =  __DIR__ . '/../modules/source/conf/common.json';
+		$configuration = self::readConfigurationFile( $configFilename );
+
+		// Some language pairs have specific configuration
 		$filename = __DIR__ . "/../modules/source/conf/$source-$target.json";
 		if ( is_readable( $filename ) ) {
-			$contents = file_get_contents( $filename );
-			$configuration = json_decode( $contents, false );
-		}
-
-		if ( !$configuration ) {
-			// No language specific configuration.
-			$configuration = $commonConfiguration;
-		} else {
-			// For now, we use only templates in configuration.
-			// If we have more keys in configuration, this must be
-			// a separate method to merge configurations
-			$configuration->templates = (object) array_merge(
-				(array) $commonConfiguration->templates,
-				(array) $configuration->templates
-			);
+			$extra = self::readConfigurationFile( $filename );
+			// For now array_merge_recursive is okay, since none of the current
+			// language pair specific configuration overrides anything, it just
+			// adds new stuff.
+			$configuration = array_merge_recursive( $configuration, $extra );
 		}
 
 		$this->getResult()->addValue( null, 'configuration', $configuration );
+	}
+
+	private static function readConfigurationFile( $filename ) {
+		$json = file_get_contents( $filename );
+		$data = json_decode( $json, true );
+		return $data;
 	}
 
 	public function getAllowedParams() {
@@ -69,8 +58,8 @@ class ApiContentTranslationConfiguration extends ApiBase {
 	}
 
 	/**
-	* @see ApiBase::getExamplesMessages()
-	*/
+	 * @see ApiBase::getExamplesMessages()
+	 */
 	protected function getExamplesMessages() {
 		return [
 			'action=cxconfiguration&from=es&to=ca'
