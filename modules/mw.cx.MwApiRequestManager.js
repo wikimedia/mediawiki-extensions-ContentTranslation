@@ -20,7 +20,7 @@
  * @param {string} targetLanguage Language code
  * @param {mw.cx.SiteMapper} siteMapper
  */
-mw.cx.MwApiRequestManager = function MwApiRequestManager( sourceLanguage, targetLanguage, siteMapper ) {
+mw.cx.MwApiRequestManager = function MwCxMwApiRequestManager( sourceLanguage, targetLanguage, siteMapper ) {
 	this.sourceLanguage = sourceLanguage;
 	this.targetLanguage = targetLanguage;
 	this.siteMapper = siteMapper;
@@ -29,11 +29,11 @@ mw.cx.MwApiRequestManager = function MwApiRequestManager( sourceLanguage, target
 	this.titlePairCache = {};
 	this.categoryCache = {};
 	this.namespaceCache = {};
+	this.init();
 };
 
 /**
- * Initialize all caches.
- * @method
+ * Initialize or reset all caches.
  */
 mw.cx.MwApiRequestManager.prototype.init = function () {
 	this.linkCache[ this.sourceLanguage ] = new mw.cx.LinkCache( {

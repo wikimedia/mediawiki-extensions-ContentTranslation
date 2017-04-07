@@ -33,7 +33,6 @@
 		};
 
 		services.requestManager = new mw.cx.MwApiRequestManager( query.from, query.to, services.siteMapper );
-		services.requestManager.init();
 
 		sourceWikiPage = new mw.cx.dm.WikiPage( query.page, query.from, query.revision );
 		targetWikiPage = new mw.cx.dm.WikiPage( query.targettitle || query.page, query.to );

@@ -66,7 +66,6 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 			tests[ i ].targetLanguage,
 			this.siteMapper
 		);
-		requestManager.init();
 		requestManager.titlePairCache[ tests[ i ].sourceLanguage ].set( mockResponse );
 		config.requestManager = requestManager;
 
