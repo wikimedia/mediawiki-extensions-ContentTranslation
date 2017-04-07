@@ -33,6 +33,8 @@
 		};
 
 		services.requestManager = new mw.cx.MwApiRequestManager( query.from, query.to, services.siteMapper );
+		services.MTService = new mw.cx.MachineTranslationService( query.from, query.to, services.siteMapper );
+		services.MTManager = new mw.cx.MachineTranslationManager( query.from, query.to, services.MTService );
 
 		sourceWikiPage = new mw.cx.dm.WikiPage( query.page, query.from, query.revision );
 		targetWikiPage = new mw.cx.dm.WikiPage( query.targettitle || query.page, query.to );

@@ -406,14 +406,18 @@ class ContentTranslationHooks {
 				'ext.cx.sitemapper',
 			],
 		] + $resourcePaths;
+
 		// New CX Tests
-		$modules['qunit']['mw.cx.dm.LinkTranslationUnit.test'] = [
+		$modules['qunit']['ContentTranslation v2 test suite'] = [
 			'scripts' => [
-				'modules/tests/dm/mw.cx.dm.LinkTranslationUnit.test.js',
+				'modules/mw.cx.MachineTranslationService.test.js',
+				'modules/tests/dm/mw.cx.dm.LinkTranslationUnit.test.js'
 			],
 			'dependencies' => [
-				'mw.cx.dm.TranslationUnits',
-				"mw.cx.MwApiRequestManager"
+				'ext.cx.sitemapper',
+				'mw.cx.MachineTranslation',
+				'mw.cx.MwApiRequestManager',
+				'mw.cx.dm.TranslationUnits'
 			],
 		] + $resourcePaths;
 	}
