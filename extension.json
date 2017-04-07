@@ -1805,7 +1805,8 @@
 				"mw.cx.tools.ExternalLinkTool",
 				"mw.cx.tools.FormatterTool",
 				"mw.cx.tools.InstructionsTool",
-				"mw.cx.tools.LinkTool",
+				"mw.cx.tools.SourceLinkTool",
+				"mw.cx.tools.TargetLinkTool",
 				"mw.cx.tools.MachineTranslationTool",
 				"mw.cx.tools.ReferenceTool",
 				"mw.cx.tools.SearchTool",
@@ -1922,15 +1923,27 @@
 				"oojs-ui.styles.icons-editing-list"
 			]
 		},
-		"mw.cx.tools.LinkTool": {
+		"mw.cx.tools.SourceLinkTool": {
 			"scripts": [
-				"tools/mw.cx.tools.LinkTool.js"
+				"tools/mw.cx.tools.SourceLinkTool.js"
 			],
 			"styles": [
 				"tools/styles/mw.cx.tools.LinkTool.less"
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool"
+			],
+			"messages": [
+				"cx-tools-link-title"
+			]
+		},
+		"mw.cx.tools.TargetLinkTool": {
+			"scripts": [
+				"tools/mw.cx.tools.TargetLinkTool.js"
+			],
+			"dependencies": [
+				"mw.cx.tools.SourceLinkTool",
+				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
 				"cx-tools-link-title",

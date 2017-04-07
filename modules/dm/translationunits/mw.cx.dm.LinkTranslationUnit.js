@@ -78,4 +78,11 @@ mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
 	return this.sourceDocument.id || this.sourceDocument.dataset.linkid || OO.ui.generateElementId();
 };
 
+/**
+ * @return {boolean} Whether a corresponding title exist in target language
+ */
+mw.cx.dm.TranslationUnit.prototype.isTargetExist = function () {
+	return !this.targetTitleMissing;
+};
+
 mw.cx.dm.modelRegistry.register( mw.cx.dm.LinkTranslationUnit );

@@ -30,25 +30,6 @@ OO.inheritClass( mw.cx.LinkCache, mw.cx.ApiResponseCache );
 /* Static methods */
 
 /**
- * Get the icon name to use for a particular link type
- *
- * @param {Object} linkData Link data
- * @return {string} Icon name
- */
-mw.cx.LinkCache.static.getIconForLink = function ( linkData ) {
-	if ( linkData.missing ) {
-		return 'page-not-found';
-	}
-	if ( linkData.redirect ) {
-		return 'page-redirect';
-	}
-	if ( linkData.disambiguation ) {
-		return 'page-disambiguation';
-	}
-	return 'page-existing';
-};
-
-/**
  * @inheritdoc
  */
 mw.cx.LinkCache.static.processPage = function ( page ) {
@@ -63,39 +44,6 @@ mw.cx.LinkCache.static.processPage = function ( page ) {
 };
 
 /* Methods */
-
-/**
- * Requests information about the title, then adds classes to the provided element as appropriate.
- *
- * @param {string} title
- * @param {jQuery} $element Element to style
- */
-mw.cx.LinkCache.prototype.styleElement = function ( title, $element ) {
-	var promise,
-		cachedMissingData = this.getCached( '_missing/' + title );
-
-	// Use the synchronous missing link cache data if it exists
-	if ( cachedMissingData ) {
-		promise = $.Deferred().resolve( cachedMissingData ).promise();
-	} else {
-		promise = this.get( title );
-	}
-
-	promise.done( function ( data ) {
-		if ( data.missing && !data.known ) {
-			$element.addClass( 'new' );
-		} else {
-			// Provided by core MediaWiki, no styles by default.
-			if ( data.redirect ) {
-				$element.addClass( 'mw-redirect' );
-			}
-			// Provided by the Disambiguator extension, no styles by default.
-			if ( data.disambiguation ) {
-				$element.addClass( 'mw-disambig' );
-			}
-		}
-	} );
-};
 
 /**
  * Enable or disable automatic assumption of existence.
@@ -152,6 +100,7 @@ mw.cx.LinkCache.prototype.getRequestPromise = function ( subqueue ) {
 		wbptterms: 'description',
 		ppprop: 'disambiguation',
 		titles: subqueue.join( '|' ),
+		redirects: true,
 		'continue': ''
 	} );
 };

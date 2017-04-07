@@ -18,13 +18,6 @@ OO.inheritClass( mw.cx.tools.ExternalLinkTool, mw.cx.tools.TranslationTool );
 
 mw.cx.tools.ExternalLinkTool.static.name = 'extlink';
 
-/**
- * @inheritDoc
- */
-mw.cx.tools.ExternalLinkTool.prototype.getActions = function () {
-	return [];
-};
-
 mw.cx.tools.ExternalLinkTool.prototype.getContent = function () {
 	var $linkTitle, url;
 
