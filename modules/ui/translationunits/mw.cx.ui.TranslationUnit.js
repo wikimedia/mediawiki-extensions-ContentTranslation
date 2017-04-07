@@ -215,11 +215,16 @@ mw.cx.ui.TranslationUnit.prototype.getSourceSection = function () {
  * @return {jQuery} The translation section
  */
 mw.cx.ui.TranslationUnit.prototype.getTranslationSection = function () {
+	var $section;
+
 	if ( this.model.targetDocument ) {
-		return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getTranslationSectionId() + '"]' );
+		$section = this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getTranslationSectionId() + '"]' );
 	}
-	// Fallback to copy of source section
-	return this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getSectionId() + '"]' );
+	if ( !$section || !$section.length ) {
+		// Fallback to copy of source section
+		$section = this.parentTranslationUnit.$translationSection.find( '[id="' + this.model.getSectionId() + '"]' );
+	}
+	return $section;
 };
 
 /**
