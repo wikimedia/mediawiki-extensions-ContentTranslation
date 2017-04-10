@@ -34,9 +34,11 @@ OO.inheritClass( mw.cx.LinkCache, mw.cx.ApiResponseCache );
  */
 mw.cx.LinkCache.static.processPage = function ( page ) {
 	return {
-		missing: page.missing !== undefined,
-		known: page.known !== undefined,
-		redirect: page.redirect !== undefined,
+		title: page.title,
+		pagelanguage: page.pagelanguage,
+		missing: !!page.missing,
+		known: !page.missing,
+		redirect: !!page.redirect,
 		disambiguation: OO.getProp( page, 'pageprops', 'disambiguation' ) !== undefined,
 		imageUrl: OO.getProp( page, 'thumbnail', 'source' ),
 		description: OO.getProp( page, 'terms', 'description' )

@@ -1,0 +1,56 @@
+@import '../../widgets/common/ext.cx.common.less';
+
+.cx-card-newlink {
+	transition: all 0.3s;
+
+	.cx-widget-translationtool-header {
+		display: none;
+	}
+
+	.cx-tools-newlink-compact-trigger {
+		padding-left: 30px;
+		background-repeat: no-repeat;
+		.background-image-svg('../images/add_link_gray.svg', '../images/add_link_gray.png');
+		background-size: 20px 100%;
+		background-position: top left;
+		cursor: pointer;
+	}
+
+	.cx-tools-newlink-tabs,
+	.cx-tools-newlink-internallink-panel,
+	.cx-tools-newlink-externallink-panel {
+		display: none;
+	}
+
+	.expanded {
+		.cx-tools-newlink-compact-trigger {
+			display: none;
+		}
+		.cx-tools-newlink-tabs {
+			display: block;
+		}
+		.cx-tools-newlink-internal-trigger,
+		.cx-tools-newlink-external-trigger,
+		.cx-tools-newlink-apply {
+			margin-right: 0;
+			width: 33%;
+		}
+
+		.cx-tools-newlink-internallink-panel.active {
+			display: block;
+		}
+		.cx-tools-newlink-externallink-panel.active {
+			display: block;
+		}
+	}
+}
+
+// Stack the source and target link cards
+.cx-card-sourcelink ~ .cx-card-newlink {
+	position: relative;
+	top: -90px;
+}
+
+.cx-card-sourcelink:hover ~ .cx-card-newlink {
+	top: 0;
+}

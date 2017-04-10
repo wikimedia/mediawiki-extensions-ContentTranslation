@@ -47,6 +47,10 @@ mw.cx.tools.TranslationTool.prototype.getActions = function() {
 	return [];
 };
 
+/**
+ * Get the optional background image for the card
+ * @return {string|null} The background image URL
+ */
 mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function() {
 	return null;
 };

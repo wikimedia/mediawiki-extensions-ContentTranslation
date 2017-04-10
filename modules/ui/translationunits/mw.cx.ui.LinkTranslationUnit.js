@@ -24,7 +24,8 @@ mw.cx.ui.LinkTranslationUnit.static.matchRdfaTypes = [ 'mw:WikiLink' ];
 mw.cx.ui.LinkTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
 mw.cx.ui.LinkTranslationUnit.static.tools = {
 	sourcelink: [ 'click', 'focus' ],
-	targetlink: [ 'click', 'focus' ]
+	targetlink: [ 'click', 'focus' ],
+	newlink: [ 'click', 'focus' ]
 };
 
 /**

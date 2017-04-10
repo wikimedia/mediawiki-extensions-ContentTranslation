@@ -115,14 +115,16 @@ mw.cx.ui.TranslationUnit.prototype.buildTools = function () {
 	tools = [];
 	specs = this.constructor.static.tools || [];
 
-	$.each( specs, function ( toolName, events ) {
-		var tool = this.toolFactory.create( toolName, this.model, this.config );
+	$.each( specs, function ( toolName, spec ) {
+		var tool, events;
+
+		events = spec.triggers || spec;
+		tool = this.toolFactory.create( toolName, this.model, this.config );
 		tools.push( tool );
 
-		// Let the tool communicate back to us (XXX: should this happen via model?)
-		tool.connect( this, {
-			remove: 'remove'
-		} );
+		if ( spec.events ) {
+			tool.connect( this, spec.events );
+		}
 
 		// Let the translation view know when we want to show a tool
 		$.each( events, function ( index, eventName ) {
