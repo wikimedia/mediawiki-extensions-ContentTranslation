@@ -117,7 +117,7 @@
 	"cx-suggestionlist-view-source-page": "View source page",
 	"cx-translation-filter-from-any-language": "From any language",
 	"cx-translation-filter-to-any-language": "To any language",
-	"cx-create-new-translation": "Start a new translation",
+	"cx-create-new-translation": "New translation",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
