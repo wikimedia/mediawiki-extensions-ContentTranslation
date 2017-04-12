@@ -116,7 +116,7 @@
 	"cx-suggestionlist-view-source-page": "Ver página de origem",
 	"cx-translation-filter-from-any-language": "De qualquer língua",
 	"cx-translation-filter-to-any-language": "Para qualquer língua",
-	"cx-create-new-translation": "Iniciar nova tradução",
+	"cx-create-new-translation": "Nova tradução",
 	"cx-save-draft-save-success": "Gravada {{PLURAL:$1|há um minuto|há $1 minutos|0=agora}}",
 	"cx-save-draft-saving": "A gravar...",
 	"cx-save-draft-tooltip": "Os rascunhos são gravados automaticamente",

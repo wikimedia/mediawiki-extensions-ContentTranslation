@@ -139,7 +139,7 @@
 	"cx-suggestionlist-view-source-page": "Afficher la page source",
 	"cx-translation-filter-from-any-language": "Depuis n’importe quelle langue",
 	"cx-translation-filter-to-any-language": "Vers n’importe quelle langue",
-	"cx-create-new-translation": "Débuter une nouvelle traduction",
+	"cx-create-new-translation": "Nouvelle traduction",
 	"cx-save-draft-save-success": "Enregistré {{PLURAL:$1|il y a une minute|il y a $1 minutes|0=à l’instant}}",
 	"cx-save-draft-saving": "Enregistrement en cours…",
 	"cx-save-draft-tooltip": "Les brouillons de traduction sont enregistrés automatiquement",

@@ -113,7 +113,7 @@
 	"cx-suggestionlist-view-source-page": "Quellseite anzeigen",
 	"cx-translation-filter-from-any-language": "Von einer beliebigen Sprache",
 	"cx-translation-filter-to-any-language": "In eine beliebige Sprache",
-	"cx-create-new-translation": "Neue Übersetzung beginnen",
+	"cx-create-new-translation": "Neue Übersetzung",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",

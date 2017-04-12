@@ -106,7 +106,7 @@
 	"cx-suggestionlist-view-source-page": "Ogled izvirne strani",
 	"cx-translation-filter-from-any-language": "Iz jezika",
 	"cx-translation-filter-to-any-language": "V jezik",
-	"cx-create-new-translation": "Začni nov prevod",
+	"cx-create-new-translation": "Nov prevod",
 	"cx-save-draft-save-success": "Shranjeno {{PLURAL:$1|pred eno minuto|pred dvema minutama|pred $1 minutami|0=pravkar}}",
 	"cx-save-draft-saving": "Shranjujem ...",
 	"cx-save-draft-tooltip": "Osnutki prevodov se shranjujejo samodejno",

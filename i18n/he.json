@@ -113,7 +113,7 @@
 	"cx-suggestionlist-view-source-page": "הצגת דף המקור",
 	"cx-translation-filter-from-any-language": "מכל שפה",
 	"cx-translation-filter-to-any-language": "לכל שפה",
-	"cx-create-new-translation": "התחלת תרגום חדש",
+	"cx-create-new-translation": "תרגום חדש",
 	"cx-save-draft-save-success": "נשמר {{PLURAL:$1|לפני דקה|לפני $1 דקות|0=זה עתה}}",
 	"cx-save-draft-saving": "שמירה...",
 	"cx-save-draft-tooltip": "טיוטות של תרגומים נשמרות אוטומטית",

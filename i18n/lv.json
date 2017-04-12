@@ -81,7 +81,7 @@
 	"cx-suggestionlist-view-source-page": "Skatīt avota lapu",
 	"cx-translation-filter-from-any-language": "No jebkuras valodas",
 	"cx-translation-filter-to-any-language": "Uz jebkuru valodu",
-	"cx-create-new-translation": "Sākt jaunu tulkojumu",
+	"cx-create-new-translation": "Sākt tulkojumu",
 	"cx-save-draft-save-success": "Saglabāts {{PLURAL:$1|pirms minūtes|pirms $1 minūtēm|0=tikko}}",
 	"cx-save-draft-saving": "Saglabā...",
 	"cx-save-draft-tooltip": "Tulkojuma melnraksti tiek saglabāti automātiski",

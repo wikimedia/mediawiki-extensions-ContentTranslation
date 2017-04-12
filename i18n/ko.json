@@ -22,7 +22,8 @@
 			"Mooozi",
 			"HDNua",
 			"Ykhwong",
-			"Ellif"
+			"Ellif",
+			"Garam"
 		]
 	},
 	"cx": "문서 번역",
@@ -125,7 +126,7 @@
 	"cx-suggestionlist-view-source-page": "원본 문서 보기",
 	"cx-translation-filter-from-any-language": "어느 언어에서",
 	"cx-translation-filter-to-any-language": "어느 언어로",
-	"cx-create-new-translation": "새 번역 시작하기",
+	"cx-create-new-translation": "새 번역",
 	"cx-save-draft-save-success": "{{PLURAL:$1|1분 전|$1분 전|0=방금}} 저장함",
 	"cx-save-draft-saving": "저장 중...",
 	"cx-save-draft-tooltip": "번역 초안은 자동으로 저장됩니다",
