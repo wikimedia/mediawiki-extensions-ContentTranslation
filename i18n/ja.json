@@ -119,7 +119,7 @@
 	"cx-suggestionlist-view-source-page": "翻訳元ページを見る",
 	"cx-translation-filter-from-any-language": "すべての言語から",
 	"cx-translation-filter-to-any-language": "いずれかの言語へ",
-	"cx-create-new-translation": "新しい翻訳を始める",
+	"cx-create-new-translation": "新しい翻訳",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分前に|0=たった今}}保存されました",
 	"cx-save-draft-saving": "保存中…",
 	"cx-save-draft-tooltip": "翻訳の下書きは自動保存されます",

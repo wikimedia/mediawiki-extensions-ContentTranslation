@@ -113,7 +113,7 @@
 	"cx-suggestionlist-view-source-page": "Виж изходната страница",
 	"cx-translation-filter-from-any-language": "От всеки език",
 	"cx-translation-filter-to-any-language": "На всеки език",
-	"cx-create-new-translation": "Започнете нов превод",
+	"cx-create-new-translation": "Нов превод",
 	"cx-save-draft-save-success": "Съхранено {{PLURAL:$1|преди една минута|преди $1 минути|0=току що}}",
 	"cx-save-draft-saving": "Съхраняване...",
 	"cx-save-draft-tooltip": "Черновите на преводите се съхраняват автоматично",

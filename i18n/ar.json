@@ -116,7 +116,7 @@
 	"cx-suggestionlist-view-source-page": "اعرض الصفحة المصدر",
 	"cx-translation-filter-from-any-language": "من أية لغة",
 	"cx-translation-filter-to-any-language": "إلى أية لغة",
-	"cx-create-new-translation": "إنشاء ترجمة جديدة",
+	"cx-create-new-translation": "ترجمة جديدة",
 	"cx-save-draft-save-success": "حفظت منذ {{PLURAL:$1|أقل من دقيقة|دقيقة|دقيقتين|$1 دقائق|$1 دقيقة}}",
 	"cx-save-draft-saving": "جار الحفظ",
 	"cx-save-draft-tooltip": "تحفظ مسودات الترجمة آليا",
