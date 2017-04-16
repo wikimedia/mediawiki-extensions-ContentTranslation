@@ -114,7 +114,7 @@
 	"cx-suggestionlist-view-source-page": "Visa källsida",
 	"cx-translation-filter-from-any-language": "Från alla språk",
 	"cx-translation-filter-to-any-language": "Till alla språk",
-	"cx-create-new-translation": "Skapa en ny översättning",
+	"cx-create-new-translation": "Ny översättning",
 	"cx-save-draft-save-success": "Sparades {{PLURAL:$1|en minut sedan|$1 minuter sedan|0=just nu}}",
 	"cx-save-draft-saving": "Sparar...",
 	"cx-save-draft-tooltip": "Översättningsutkast sparas automatiskt.",

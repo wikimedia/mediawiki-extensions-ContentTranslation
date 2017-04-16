@@ -207,5 +207,13 @@
 	"cx-page-old-revision-loaded": "Този превод е базиран на по-стара версия на съдържанието. Оригиналната страница може би е претърпяла [$1 чувствителни промени]. Можете да продължите с този превод или да го започнете наново, използайки актуализираното съдържание на оригиналната страница.",
 	"cx-tools-mt-new-provider": "Нов превод",
 	"cx-tools-mt-new-providers-available": "с добавени възможности",
-	"cx-continue-translation": "Продължи превода"
+	"cx-continue-translation": "Продължи превода",
+	"cx-tools-template-title": "Шаблон",
+	"cx-template-action-adapt": "Употреба на еквивалентен шаблон",
+	"cx-template-action-keep-original": "Запазване на оригиналния шаблон",
+	"cx-template-action-skip": "Пропускане на шаблона",
+	"cx-template-not-available": "Не е наличен на $1",
+	"cx-translation-template-add-param": "+ Поле за превод",
+	"cx-translation-template-add-more": "Добавяне на допълнителни полета",
+	"cx-translation-template-select-param": "Избор на целевите полета"
 }
