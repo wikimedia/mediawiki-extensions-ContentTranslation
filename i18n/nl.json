@@ -123,7 +123,7 @@
 	"cx-suggestionlist-view-source-page": "Bronpagina bekijken",
 	"cx-translation-filter-from-any-language": "Uit elke taal",
 	"cx-translation-filter-to-any-language": "Naar elke taal",
-	"cx-create-new-translation": "Nieuwe vertaling beginnen",
+	"cx-create-new-translation": "Nieuwe vertaling",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Een minuut geleden|$1 minuten geleden|0=Nu}} opgeslagen",
 	"cx-save-draft-saving": "Aan het opslaan...",
 	"cx-save-draft-tooltip": "Conceptversies van vertalingen worden automatisch opgeslagen",

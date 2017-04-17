@@ -117,7 +117,7 @@
 	"cx-suggestionlist-view-source-page": "Переглянути вихідну сторінку",
 	"cx-translation-filter-from-any-language": "З будь-якої мови",
 	"cx-translation-filter-to-any-language": "На будь-яку мову",
-	"cx-create-new-translation": "Почати новий переклад",
+	"cx-create-new-translation": "Новий переклад",
 	"cx-save-draft-save-success": "Збережено {{PLURAL:$1|хвилину тому|$1 хвилини тому|$1 хвилин тому|0=щойно}}",
 	"cx-save-draft-saving": "Збереження…",
 	"cx-save-draft-tooltip": "Чернетки перекладів зберігаються автоматично",
