@@ -313,7 +313,7 @@
 		// Keypress (start translation on enter key)
 		this.$dialog.on(
 			'keypress',
-			'.cx-sourceselector-dialog__title',
+			'.cx-sourceselector-dialog-title',
 			$.proxy( this.enterKeyHandler, this )
 		);
 	};
@@ -700,7 +700,7 @@
 		var $heading,
 			$sourceLanguageLabel, $sourceLanguageLabelContainer, $sourceLanguageContainer,
 			$targetLanguageLabel, $targetLanguageLabelContainer, $targetLanguageContainer,
-			$sourceTitleInputContainer, $targetTitleInputContainer,
+			$targetTitleInputContainer,
 			$sourceInputs, $targetInputs,
 			$messageText,
 			translateButtonLabel,
@@ -769,16 +769,14 @@
 			.append( this.$targetLanguage );
 
 		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
+			classes: [ 'cx-sourceselector-dialog-title' ],
 			language: this.getSourceLanguage(),
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
+			icon: 'search',
 			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
 		} );
-
-		$sourceTitleInputContainer = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__title' )
-			.append( this.sourcePageSelector.$element );
 
 		this.$targetTitleInput = $( '<input>' )
 			.attr( {
@@ -787,7 +785,7 @@
 			} );
 
 		$targetTitleInputContainer = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__title' )
+			.addClass( 'cx-sourceselector-dialog-title' )
 			.append( this.$targetTitleInput );
 
 		$sourceInputs = $( '<div>' )
@@ -795,7 +793,7 @@
 			.append(
 				$sourceLanguageLabelContainer,
 				$sourceLanguageContainer,
-				$sourceTitleInputContainer
+				this.sourcePageSelector.$element
 			);
 
 		$targetInputs = $( '<div>' )
