@@ -361,6 +361,7 @@ class ContentTranslationHooks {
 			],
 			'dependencies' => [
 				'ext.cx.publish',
+				'ext.cx.sitemapper',
 			],
 		] + $resourcePaths;
 
@@ -381,9 +382,10 @@ class ContentTranslationHooks {
 			],
 			'dependencies' => [
 				'ext.cx.model',
-				'ext.cx.tools.template',
-				'ext.cx.tools.mtabuse',
+				'ext.cx.sitemapper',
 				'ext.cx.tools.categories',
+				'ext.cx.tools.mtabuse',
+				'ext.cx.tools.template',
 			],
 		] + $resourcePaths;
 

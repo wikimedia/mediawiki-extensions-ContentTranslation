@@ -9,6 +9,7 @@
 	QUnit.module( 'ext.cx.publish', QUnit.newMwEnvironment( {
 		setup: function () {
 			this.server = this.sandbox.useFakeServer();
+			this.server.respondImmediately = true;
 			this.sitemapper = new mw.cx.SiteMapper(
 				mw.config.get( 'wgContentTranslationSiteTemplates' )
 			);
@@ -16,8 +17,27 @@
 		}
 	} ) );
 
+	// These two functions are copied from suites/resources/mediawiki.api/mediawiki.api.test.js
+	function sequence( responses ) {
+		var i = 0;
+		return function ( request ) {
+			var response = responses[ i ];
+			if ( response ) {
+				i++;
+				request.respond.apply( request, response );
+			}
+		};
+	}
+
+	function sequenceBodies( status, headers, bodies ) {
+		jQuery.each( bodies, function ( i, body ) {
+			bodies[ i ] = [ status, headers, body ];
+		} );
+		return sequence( bodies );
+	}
+
 	QUnit.test( 'Publishing with Captcha handling', function ( assert ) {
-		var publisher,
+		var done, publisher,
 			oldCaptchaHandler = mw.cx.Publish.prototype.captchaHandler,
 			oldSuccessHandler = mw.cx.Publish.prototype.onSuccess,
 			oldTitleExists = mw.cx.Publish.prototype.checkTargetTitle,
@@ -25,17 +45,16 @@
 			server = this.server,
 			$trigger = $( '<div>' );
 
-		QUnit.expect( 4 );
+		done = assert.async();
 
 		newCaptchaHandler = function ( captcha ) {
-			var deferred = $.Deferred();
-
 			assert.ok( true, 'Captcha handler was called' );
 			assert.equal( captcha.captchaKey, '1234565', '...with correct captcha response' );
-			return deferred.resolve( {
+			return $.Deferred().resolve( {
 				captchaKey: 1234565
 			} ).promise();
 		};
+
 		publisher = new mw.cx.Publish( $trigger, this.sitemapper );
 		publisher.captchaHandler = newCaptchaHandler;
 		publisher.getContent = function () {
@@ -46,8 +65,9 @@
 		};
 		publisher.onSuccess = function () {
 			assert.ok( true, 'Success handler was called' );
+			done();
 		};
-		QUnit.stop();
+
 		publisher.publish( {
 			from: 'fi',
 			to: 'en',
@@ -59,17 +79,13 @@
 			mw.cx.Publish.prototype.captchaHandler = oldCaptchaHandler;
 			mw.cx.Publish.prototype.onSuccess = oldSuccessHandler;
 			mw.cx.Publish.prototype.titleExists = oldTitleExists;
-			QUnit.start();
 		} );
-		server.requests[ 0 ].respond( 200, {
-			'Content-Type': 'application/json'
-		},
-			'{ "cxpublish": { "result": "error", "edit": { "captcha": {"captchaKey":"1234565"} } } }'
-		);
-		server.requests[ 1 ].respond( 200, {
-			'Content-Type': 'application/json'
-		},
-			'{ "cxpublish": { "result": "success" } }'
-		);
+
+		server.respond( sequenceBodies( 200, { 'Content-Type': 'application/json' },
+			[
+				'{ "cxpublish": { "result": "error", "edit": { "captcha": { "captchaKey": "1234565" } } } }',
+				'{ "cxpublish": { "result": "success" } }'
+			]
+		) );
 	} );
 }( jQuery, mediaWiki ) );

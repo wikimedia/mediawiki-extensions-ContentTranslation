@@ -742,7 +742,8 @@
 				"cx-tools-categories-count-message"
 			],
 			"dependencies": [
-				"ext.cx.model"
+				"ext.cx.model",
+				"ext.cx.sitemapper"
 			]
 		},
 		"ext.cx.progressbar": {

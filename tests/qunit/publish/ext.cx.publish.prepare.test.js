@@ -10,6 +10,7 @@
 
 	var testDataPath = mw.config.get( 'wgExtensionAssetsPath' ) +
 		'/ContentTranslation/tests/qunit/data/';
+
 	QUnit.module( 'ext.cx.publish.prepare', QUnit.newMwEnvironment( {
 		setup: function () {
 			this.sitemapper = new mw.cx.SiteMapper(
@@ -19,10 +20,9 @@
 	} ) );
 
 	QUnit.test( 'Prepare draft for publish', function ( assert ) {
-		var $fixture = $( '#qunit-fixture' );
+		var $fixture = $( '#qunit-fixture' ),
+			done = assert.async();
 
-		QUnit.expect( 5 );
-		QUnit.stop();
 		$fixture.load( testDataPath + 'draft-sample-1.html', function () {
 			var cleanedHTML, publisher;
 
@@ -38,7 +38,7 @@
 				'No element has cx-link class' );
 			assert.strictEqual( $( cleanedHTML ).css( 'min-height' ), '',
 				'Section has no min-height' );
-			QUnit.start();
+			done();
 		} );
 	} );
 }( jQuery, mediaWiki ) );
