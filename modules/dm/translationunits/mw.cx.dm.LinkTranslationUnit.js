@@ -39,10 +39,6 @@ mw.cx.dm.LinkTranslationUnit.prototype.init = function () {
 	// We are not fetching any data before the parent translation unit's translation started.
 };
 
-mw.cx.dm.LinkTranslationUnit.prototype.isInternalLink = function () {
-	return true;
-};
-
 mw.cx.dm.LinkTranslationUnit.prototype.getTargetTitle = function () {
 	return this.targetDocument.title;
 };
