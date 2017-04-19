@@ -19,13 +19,6 @@ OO.inheritClass( mw.cx.tools.DictionaryTool, mw.cx.tools.TranslationTool );
 mw.cx.tools.DictionaryTool.static.name = 'dictionary';
 
 /**
- * @inheritDoc
- */
-mw.cx.tools.DictionaryTool.prototype.getActions = function () {
-	return [];
-};
-
-/**
  * Text selection handler
  * @param {Selection} selectionObj Selection object
  */

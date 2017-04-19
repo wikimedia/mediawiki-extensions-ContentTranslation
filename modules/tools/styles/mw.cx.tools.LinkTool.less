@@ -1,37 +1,56 @@
 @import '../../widgets/common/ext.cx.common.less';
 
-.cx-tools-link-image {
-	.mw-ui-three-tenths;
-	vertical-align: middle;
-	height: 100px;
+.cx-card-sourcelink,
+.cx-card-targetlink {
+	padding-left: 30%;
+	background-repeat: no-repeat;
+	.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
+	background-size: 30% 100%;
+	background-position: top left;
+	transition: top 0.3s;
+	position: relative;
+	min-height: 100px;
 
-	&.cx-tools-link-image-empty {
-		background-size: contain;
-		background-position: center center;
-		background-repeat: no-repeat;
-		.background-image-svg('../images/link_lightgray.svg', '../images/link_lightgray.png');
+	.cx-widget-translationtool-header {
+		padding: 0;
+		margin: 0;
+
+		.card__title--language {
+			float: right;
+		}
+	}
+	.cx-widget-translationtool-container {
+		.cx-tools-link-info {
+			.mw-ui-one-whole;
+		}
+
+		.cx-tools-link-text {
+			padding: 5px 0;
+			vertical-align: top;
+			color: #0645ad;
+			font-size: large;
+		}
+
+		.cx-tools-link-desc {
+			padding: 5px 0;
+			vertical-align: top;
+			color: @gray-dark;
+		}
+	}
+	.cx-widget-translationtool-actions {
+		.cx-tools-link-add-button,
+		.cx-tools-link-remove-button {
+			.mw-ui-one-half;
+			margin-right: 0;
+		}
 	}
 }
 
-.cx-tools-link-info {
-	.mw-ui-seven-tenths;
+// Stack the source and target link cards
+.cx-card-sourcelink + .cx-card-targetlink {
+	top: -90px;
 }
 
-.cx-tools-link-text {
-	padding: 10px;
-	vertical-align: top;
-	color: #0645ad;
-	font-size: large;
-}
-
-.cx-tools-link-desc {
-	padding: 10px;
-	vertical-align: top;
-	color: @gray-dark;
-}
-
-.cx-tools-link-add-button,
-.cx-tools-link-remove-button {
-	.mw-ui-one-half;
-	margin-right: 0;
+.cx-card-sourcelink:hover + .cx-card-targetlink {
+	top: 0;
 }

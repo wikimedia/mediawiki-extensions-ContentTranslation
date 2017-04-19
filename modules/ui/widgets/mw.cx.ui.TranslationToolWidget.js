@@ -54,8 +54,14 @@ OO.inheritClass( mw.cx.widgets.TranslationToolWidget, OO.ui.Widget );
  * Render the card content and actions if any
  */
 mw.cx.widgets.TranslationToolWidget.prototype.render = function() {
+	var bgImage;
+
 	this.setContent( this.translationTool.getContent() );
 	this.setActions( this.translationTool.getActions() );
+	bgImage = this.translationTool.getBackgroundImage();
+	if ( bgImage ) {
+		this.setBackgroundImage( bgImage );
+	}
 };
 
 /**
@@ -67,7 +73,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.setContent = function( content ) {
 	this.$information.empty();
 
 	content = typeof content === 'function' ? OO.ui.resolveMsg( content ) : content;
-	content = content.$element ? content.$element : content;
+	content = content && content.$element ? content.$element : content;
 	if (
 		( typeof content === 'string' || content instanceof jQuery ) && content.length ||
 		( content instanceof OO.ui.HtmlSnippet && content.toString().length )
@@ -91,4 +97,12 @@ mw.cx.widgets.TranslationToolWidget.prototype.setActions = function( actions ) {
 			this.$actions.append( actions[ i ].$element );
 		}
 	}
+};
+
+/**
+ * Set the background image for the card.
+ * @param {string} imageUrl
+ */
+mw.cx.widgets.TranslationToolWidget.prototype.setBackgroundImage = function( imageUrl ) {
+	this.$element.css( 'background-image', 'url(' + imageUrl + ')' );
 };

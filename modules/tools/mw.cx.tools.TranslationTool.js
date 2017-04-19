@@ -43,14 +43,22 @@ mw.cx.tools.TranslationTool.prototype.getCard = function() {
  * @method
  * @return {OO.ui.Element[]} Array of OOJS UI Elements
  */
-mw.cx.tools.TranslationTool.prototype.getActions = null;
+mw.cx.tools.TranslationTool.prototype.getActions = function() {
+	return [];
+};
+
+mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function() {
+	return null;
+};
 
 /**
  * Get the tools information content.
  * @method
  * @return {string|jQuery} Content as HTML or jQuery
  */
-mw.cx.tools.TranslationTool.prototype.getContent = null;
+mw.cx.tools.TranslationTool.prototype.getContent = function() {
+	return $( [] );
+};
 
 mw.cx.tools.TranslationTool.prototype.getData = function () {
 	return this.constructor.static.name + '::' + this.model.getId();
