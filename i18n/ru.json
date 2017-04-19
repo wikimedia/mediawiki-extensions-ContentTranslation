@@ -124,7 +124,7 @@
 	"cx-suggestionlist-view-source-page": "Посмотреть исходную страницу",
 	"cx-translation-filter-from-any-language": "С любого языка",
 	"cx-translation-filter-to-any-language": "На любой язык",
-	"cx-create-new-translation": "Начать новый перевод",
+	"cx-create-new-translation": "Новый перевод",
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",

@@ -130,7 +130,7 @@
 	"echo-category-title-cx": "Tulkojumi",
 	"cx-contributions-link": "Devums",
 	"cx-your-translations-link": "{{GENDER:$1|Tavi tulkojumi}}",
-	"cx-translationlist-empty-title": "Nav nekā ko tulkot?",
+	"cx-translationlist-empty-title": "Nav nekā tulkojama?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Sāc}} tulkot tagad un turpini jebkurā brīdī.",
 	"cx-tools-link-internal-link": "Saite uz lapu",
 	"cx-tools-link-external-link-placeholder": "Pievienot ārējo saiti",

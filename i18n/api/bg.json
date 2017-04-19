@@ -20,5 +20,14 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Код на целевия език.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Код на изходния език.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Код на целевия език.",
-	"apierror-cx-invalidlanguage": "Невалиден език."
+	"apihelp-cxdelete-param-from": "Код на изходния език.",
+	"apihelp-cxdelete-param-to": "Код на целевия език.",
+	"apihelp-cxdelete-param-sourcetitle": "Заглавие на изходната страница.",
+	"apihelp-cxsuggestionlist-param-from": "Код на изходния език.",
+	"apihelp-cxsuggestionlist-param-to": "Код на целевия език.",
+	"apihelp-cxsave-param-from": "Код на изходния език.",
+	"apihelp-cxsave-param-to": "Код на целевия език.",
+	"apierror-cx-docserverexception": "Грешка при преобразуването на HTML в уикитекст: $1",
+	"apierror-cx-invalidlanguage": "Невалиден език.",
+	"apierror-cx-jwtmissing": "Липсва JWT."
 }
