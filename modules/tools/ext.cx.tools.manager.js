@@ -85,11 +85,13 @@
 	 */
 	CXToolManager.prototype.dispatch = function ( eventName ) {
 		var index, tools,
-			data = Array.prototype.slice.apply( arguments );
+			data = Array.prototype.slice.call( arguments, 1 );
 
-		mw.log( '[CX] event:' + eventName + ' , data:' + JSON.stringify( data ) );
+		// With jQuery 3, JSON.stringify can fail with:
+		// TypeError: Converting circular structure to JSON
+		// But we can just log the data as it is.
+		mw.log( '[CX] event: ' + eventName, data );
 		tools = this.eventRegistry[ eventName ];
-		data = data.splice( 1 );
 
 		for ( index in tools ) {
 			// Call the render function on the current setting module
