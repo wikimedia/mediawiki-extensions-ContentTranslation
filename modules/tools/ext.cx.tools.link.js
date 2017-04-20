@@ -87,7 +87,7 @@
 				deferred.resolve( {} );
 				return;
 			}
-			redirects = jQuery.extend( {}, response.query.redirects );
+			redirects = $.extend( {}, response.query.redirects );
 
 			$.each( response.query.pages, function ( pageId, page ) {
 				var i, redirectedSourceTitle, title;
