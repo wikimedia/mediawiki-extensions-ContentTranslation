@@ -4,7 +4,8 @@
 			"Dianakc",
 			"Rodrigo Padula",
 			"TheGabrielZaum",
-			"Almondega"
+			"Almondega",
+			"Felipe L. Ewald"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",
@@ -13,13 +14,12 @@
 	"apihelp-cxpublish-param-from": "O código do idioma de origem.",
 	"apihelp-cxpublish-param-to": "O código do idioma de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "O título da página de origem.",
-	"apihelp-cxpublish-param-sourcerevision": "A revisão da página de origem.",
-	"apihelp-cxpublish-param-status": "Se <kbd>rascunho</kbd>, a tradução será salva como rascunho. Se <kbd>publicado</kbd>, a tradução será publicada.",
 	"apihelp-cxpublish-param-categories": "As categorias a serem adicionadas à página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Responde ao captcha (ao salvar com uma resposta captcha).",
 	"apihelp-query+contenttranslation-description": "Pesquisar o banco de dados por traduções do Tradutor de Conteúdo",
 	"apihelp-query+contenttranslation-param-translationid": "Id de tradução.",
+	"apihelp-query+contenttranslation-param-from": "O código do idioma de origem.",
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo usuário atual.",
 	"apihelp-query+contenttranslation-example-2": "Obter rascunhos de traduções por id.",
 	"apihelp-query+contenttranslation-example-3": "Encontre qualquer tradução para o título entre os pares de idioma",
@@ -28,6 +28,7 @@
 	"apihelp-cxconfiguration-param-from": "Código do idioma fonte",
 	"apihelp-cxconfiguration-param-to": "Código do idioma de destino",
 	"apihelp-cxconfiguration-example-1": "Obtém a configuração json do Tradutor de Conteúdo para o par Espanhol-Catalão",
+	"apihelp-query+contenttranslationsuggestions-param-from": "O código do idioma de origem.",
 	"apihelp-query+cxpublishedtranslations-description": "Obtém informação sobre todas as traduções informadas",
 	"apihelp-query+cxpublishedtranslations-param-from": "O código do idioma de origem.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Código do idioma de destino",
@@ -43,5 +44,8 @@
 	"apihelp-cxdelete-param-from": "O código do idioma de origem.",
 	"apihelp-cxdelete-param-to": "O código do idioma de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "O título da página de origem.",
-	"apihelp-cxdelete-example-1": "Exclui um rascunho associado ao dado par de idiomas e título"
+	"apihelp-cxdelete-example-1": "Exclui um rascunho associado ao dado par de idiomas e título",
+	"apihelp-cxsuggestionlist-param-from": "O código do idioma de origem.",
+	"apihelp-cxsave-param-sourcerevision": "A revisão da página de origem.",
+	"apihelp-cxsave-param-from": "O código do idioma de origem."
 }
