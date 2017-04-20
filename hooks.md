@@ -145,11 +145,6 @@ Fired after every section in the translation column has been filled with a place
 
 Fired when the title for the translation is changed. Check for existing title listens for this.
 
-## mw.cx.translation.save
-
-Fired to request saving a translation as a draft. It will check if there is something to save.
-If so, cxsave API call will be initiated.
-
 ## mw.cx.translation.save-started
 
 Fired when a cxsave API call is beginning. Can be used to indicate the progress of save.
