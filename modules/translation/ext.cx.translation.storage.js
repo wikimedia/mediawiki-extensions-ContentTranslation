@@ -7,7 +7,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var timer, saveRequest,
+	var saveRequest,
+		timer = null,
 		failCounter = 0;
 
 	/**
@@ -42,12 +43,12 @@
 		return $content[ 0 ].outerHTML;
 	};
 
-	ContentTranslationStorage.prototype.save = function () {
+	ContentTranslationStorage.prototype.save = function ( origin ) {
 		var sections;
 
 		sections = this.getSectionsToSave();
 		if ( sections && sections.length ) {
-			this.saveSections( sections );
+			this.saveSections( sections, origin );
 		}
 
 	};
@@ -77,15 +78,11 @@
 			self.markForSave( $targetSection );
 		} );
 
-		mw.hook( 'mw.cx.translation.change' ).add( $.debounce( 3000, function () {
-			// Reset fail counter so that autosave if stopped can be restarted.
-			failCounter = 0;
+		mw.hook( 'mw.cx.translation.change' ).add( $.throttle( 15000, function () {
 			// mw.cx.translation.change get fired for every changes in translation.
 			// We debounce the handler to reduce the excessive save API calls.
-			self.save();
+			self.save( 'change' );
 		} ) );
-
-		mw.hook( 'mw.cx.translation.save' ).add( $.proxy( this.save, this ) );
 
 		mw.hook( 'mw.cx.draft.restoring' ).add( function () {
 			// Do not save while restoring is being attempted
@@ -99,7 +96,7 @@
 		$( document ).on( 'keydown', function ( e ) {
 			// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
 			if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
-				self.save();
+				self.save( 'shortcut' );
 				return false;
 			}
 		} );
@@ -112,7 +109,7 @@
 		sections = this.getSectionsToSave();
 		if ( sections && sections.length ) {
 			// Trigger save anyway.
-			this.save();
+			this.save( 'navigation' );
 			// Inform about sections not saved.
 			return mw.msg( 'cx-warning-unsaved-translation' );
 		} else {
@@ -120,18 +117,31 @@
 		}
 	};
 
-	ContentTranslationStorage.prototype.saveSections = function ( sections ) {
+	ContentTranslationStorage.prototype.saveSections = function ( sections, origin ) {
 		var self = this,
 			api = new mw.Api();
+
+		mw.log( '[CX] Save request initiated by: ' + origin );
+
+		// Last save failed, and a retry has been scheduled. Don't allow starting new
+		// save requests to avoid overloading the servers, unless this is the retry.
+		if ( timer !== null && origin !== 'retry' ) {
+			mw.log( '[CX] Save request skipped because a retry has been scheduled' );
+			return;
+		}
+
+		if ( saveRequest ) {
+			mw.log( '[CX] Aborted active save request' );
+			// This causes failCounter to increase because the in-flight request fails.
+			// The new request we do below will either reset the fail counter on success.
+			// If it does not succeed, the retry timer that was set by the failed request
+			// prevents further saves before the retry has completed succesfully or given up.
+			saveRequest.abort();
+		}
 
 		// Starting the real save API call. Fire event so that we can show a progress
 		// indicator in UI.
 		mw.hook( 'mw.cx.translation.save-started' ).fire();
-
-		if ( saveRequest ) {
-			saveRequest.abort();
-		}
-
 		saveRequest = api.postWithToken( 'csrf', {
 			action: 'cxsave',
 			assert: 'user',
@@ -144,24 +154,35 @@
 			progress: JSON.stringify( mw.cx.getProgress() )
 		} ).done( function ( response ) {
 			self.onSaveComplete( sections, response.cxsave );
+
+			// Reset fail counter.
+			failCounter = 0;
+			clearTimeout( timer );
+			timer = null;
 		} ).fail( function ( errorCode, details ) {
+			var delay;
+
 			if ( details.exception !== 'abort' ) {
 				self.onSaveFailure( errorCode, details );
 			}
-		} ).always( function () {
-			saveRequest = null;
-			if ( failCounter > 10 ) {
-				// If there are more than 10 save errors, stop autosave at timer triggers.
-				// It will get restarted on further translation edits.
+
+			failCounter++;
+			clearTimeout( timer );
+			timer = null;
+
+			if ( failCounter > 5 ) {
+				// If there are more than few errors, stop autosave at timer triggers.
 				// Show a bigger error message at this point.
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-save-draft-error' ) );
-				return;
+				// This will allow any change to trigger save again
+				failCounter = 0;
+			} else {
+				// Delay in seconds, failCounter is [1,5]
+				delay = 60 * failCounter;
+				timer = setTimeout( self.save.bind( self, 'retry' ), delay * 1000 );
 			}
-			// Irrespective of success or fail, schedule next autosave
-			clearTimeout( timer );
-			timer = setTimeout( function () {
-				self.save();
-			}, 5 * 60 * 1000 );
+		} ).always( function () {
+			saveRequest = null;
 		} );
 	};
 
@@ -197,9 +218,6 @@
 			mw.cx.sourceTitle,
 			mw.cx.targetTitle
 		);
-
-		// Reset fail counter.
-		failCounter = 0;
 	};
 
 	ContentTranslationStorage.prototype.onSaveFailure = function ( errorCode, details ) {
@@ -219,7 +237,6 @@
 			mw.cx.targetTitle,
 			JSON.stringify( details )
 		);
-		failCounter++;
 	};
 
 	ContentTranslationStorage.prototype.markForSave = function ( $targetSection ) {
