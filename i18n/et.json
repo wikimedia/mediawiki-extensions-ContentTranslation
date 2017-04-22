@@ -106,7 +106,7 @@
 	"cx-suggestionlist-view-source-page": "Vaata lähtekeelset lehekülge",
 	"cx-translation-filter-from-any-language": "Mistahes keelest",
 	"cx-translation-filter-to-any-language": "Mistahes keelde",
-	"cx-create-new-translation": "Alusta uut tõlget",
+	"cx-create-new-translation": "Uus tõlge",
 	"cx-save-draft-save-success": "Salvestatud {{PLURAL:$1|minut tagasi|$1 minutit tagasi|0=just praegu}}",
 	"cx-save-draft-saving": "Salvestamine...",
 	"cx-save-draft-tooltip": "Tõlkemustandid salvestatakse automaatselt",
