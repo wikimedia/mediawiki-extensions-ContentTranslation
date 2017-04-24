@@ -262,5 +262,5 @@ mw.cx.ui.TranslationUnit.prototype.buildSubTranslationUnits = function ( model )
 };
 
 mw.cx.ui.TranslationUnit.prototype.toString = function() {
-	return this.constructor.name + '::' + this.constructor.static.name + '::' + this.sourceDocument.id;
+	return this.constructor.name + '::' + this.model.getId();
 };
