@@ -18,20 +18,15 @@ class ApiContentTranslationToken extends ApiBase {
 		}
 
 		if ( !$user->isLoggedIn() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-mustbeloggedin-generic', 'token-impossible' );
-			} else {
-				$this->dieUsage( 'Must be logged in', 'token-impossible' );
-			}
+			// XXX: Maybe this should use a different error code. Currently it does not
+			// matter, because most likely some other API call will fail first. CX2
+			// is also using assert=user, so this case won't be hit.
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'token-impossible' );
 		}
 
 		// Do not fatal out
 		if ( !class_exists( 'Firebase\JWT\JWT' ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-jwtmissing', 'token-impossible' );
-			} else {
-				$this->dieUsage( 'JWT missing', 'token-impossible' );
-			}
+			$this->dieWithError( 'apierror-cx-jwtmissing', 'token-impossible' );
 		}
 
 		$config = $this->getConfig()->get( 'ContentTranslationCXServerAuth' );
@@ -39,25 +34,27 @@ class ApiContentTranslationToken extends ApiBase {
 		$key = $config['key'];
 
 		if ( $key === '' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-keynotconfigured', 'token-impossible' );
-			} else {
-				$this->dieUsage( 'Key not configured', 'token-impossible' );
-			}
+			$this->dieWithError( 'apierror-cx-keynotconfigured', 'token-impossible' );
 		}
 
-		$exp = time() + $config['age'];
+		$age = (int)$config['age'];
+		$iat = time();
+		$exp = $iat + $age;
 
 		$token = [
 			'sub' => $user->getName(),
-			'iat' => time(),
+			'iat' => $iat,
 			'exp' => $exp,
 		];
 
 		$jwt = JWT::encode( $token, $key, $algorithm );
 
 		$this->getResult()->addValue( null, 'jwt', $jwt );
+		// Include some additional information for the client, so it does not need to
+		// concern itself with the actual token, but just to pass it forward and to
+		// know when to fetch a new one.
 		$this->getResult()->addValue( null, 'exp', $exp );
+		$this->getResult()->addValue( null, 'age', $age );
 	}
 
 	public function needsToken() {

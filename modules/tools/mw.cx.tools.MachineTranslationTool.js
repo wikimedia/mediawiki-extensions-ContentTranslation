@@ -14,6 +14,8 @@ mw.cx.tools.MachineTranslationTool = function CXMachineTranslationTool( model, c
 	config.order = 40;
 	// Parent constructor
 	mw.cx.tools.MachineTranslationTool.super.call( this, model, config );
+
+	this.MTManager = config.MTManager;
 };
 
 /* Inheritance */
@@ -42,35 +44,54 @@ mw.cx.tools.MachineTranslationTool.prototype.getActions = function () {
 };
 
 mw.cx.tools.MachineTranslationTool.prototype.getContent = function () {
-	var noMT, useSource, resetMT;
+	// XXX: implement reset functionality
 
-	noMT = new OO.ui.MenuOptionWidget( {
-		data: 'no-mt',
-		label: mw.msg( 'cx-tools-mt-dont-use' )
-	} );
-	useSource = new OO.ui.MenuOptionWidget( {
-		data: 'source-mt',
-		label: mw.msg( 'cx-tools-mt-use-source' )
-	} );
-	resetMT = new OO.ui.MenuOptionWidget( {
-		data: 'reset-mt',
-		label: mw.msg( 'cx-tools-mt-reset' )
-	} );
 	this.mtProviderSelector = new OO.ui.DropdownWidget( {
-		classes: [ 'card-mt-providers-menu' ],
-		menu: {
-			items: [ useSource, noMT, resetMT ]
-		}
+		classes: [ 'card-mt-providers-menu' ]
 	} );
-	this.mtProviderSelector.getMenu().selectItemByData( 'source-mt' );
+
+	this.MTManager.getAvailableProviders().then( function ( providers ) {
+		providers.forEach( function ( id ) {
+			var item = new OO.ui.MenuOptionWidget( {
+				data: id,
+				label: this.getProviderLabel( id )
+			} );
+			this.mtProviderSelector.getMenu().addItems( item );
+
+			// XXX
+			// model.getActiveMTProvider()
+
+			this.MTManager.getPreferredProvider().then( function ( provider ) {
+				this.mtProviderSelector.getMenu().selectItemByData( provider );
+			}.bind( this ) );
+		}.bind( this ) );
+	}.bind( this ) );
 
 	return this.mtProviderSelector.$element;
 };
 
-/**
- * Remove the reference
- */
-mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {};
+mw.cx.tools.MachineTranslationTool.prototype.changeProvider = function() {
+	// XXX
+	// mode.setMTProvider( value );
+	// model.update( ...new content... );
+};
+
+mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {
+	var provider = this.mtProviderSelector.getMenu().getSelectedItem().getData();
+	this.MTManager.setPreferredProvider( provider );
+};
+
+/* Private methods */
+
+mw.cx.tools.MachineTranslationTool.prototype.getProviderLabel = function ( provider ) {
+	var labels = {
+		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
+		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
+		source: mw.msg( 'cx-tools-mt-use-source' )
+	};
+
+	return labels[ provider ] || mw.msg( 'cx-tools-mt-provider-title', provider );
+};
 
 /* Register */
 mw.cx.tools.translationToolFactory.register( mw.cx.tools.MachineTranslationTool );

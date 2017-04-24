@@ -1362,6 +1362,7 @@
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"mw.cx.MwApiRequestManager",
+				"mw.cx.MachineTranslation",
 				"mw.cx.dm.WikiPage",
 				"mw.cx.init.Translation"
 			],
@@ -1428,6 +1429,16 @@
 			],
 			"targets": [
 				"desktop"
+			]
+		},
+		"mw.cx.MachineTranslation": {
+			"scripts": [
+				"mw.cx.MachineTranslationManager.js",
+				"mw.cx.MachineTranslationService.js"
+			],
+			"dependencies": [
+				"ext.cx.model",
+				"mediawiki.storage"
 			]
 		},
 		"mw.cx.cache": {
