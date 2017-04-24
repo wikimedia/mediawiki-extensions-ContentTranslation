@@ -44,29 +44,89 @@ mw.cx.dm.LinkTranslationUnit.prototype.getTargetTitle = function () {
 };
 
 /**
+ * Find link target for the given source title
+ * @param {string} sourceLanguage
+ * @param {string} sourceTitle
+ * @return {jQuery.Promise}
+ */
+mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguage, sourceTitle ) {
+	var result = $.Deferred();
+	if ( !sourceLanguage ) {
+		mw.log.error( '[CX] Invalid source language given to link adapt' + this );
+		result.reject();
+	}
+	if ( !sourceTitle ) {
+		mw.log.error( '[CX] Invalid source title given to link adapt' + this );
+		result.reject();
+	}
+
+	this.requestManager.getTitlePair( this.sourceLanguage, this.sourceTitle )
+		.done( function( pairInfo ) {
+			var targetTitle = pairInfo.targetTitle;
+			if ( !targetTitle ) {
+				result.reject();
+			} else {
+				result.resolve( targetTitle );
+			}
+		}.bind( this ) );
+
+	return result.promise();
+};
+
+/**
  * Adapt a source link to target language.
  * @return {jQuery.Promise}
  */
 mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
-	var self = this;
 
-	this.targetDocument = this.sourceDocument.cloneNode( true );
-	this.setTargetId();
+	if ( this.targetDocument ) {
+		mw.log.warn( '[CX] Adapting a link which looks already adapted: ' + this );
+	}
 
-	return this.requestManager.getTitlePair( this.sourceLanguage, this.sourceTitle )
-		.then( function( pairInfo ) {
-			var targetTitle = pairInfo.targetTitle;
-			if ( targetTitle ) {
-				self.targetDocument.title = targetTitle;
-				self.targetDocument.href = targetTitle;
-				// TODO: This is just for testing. We should not do this if there is MT for
-				// the source-target language pair.
-				self.targetDocument.text = targetTitle;
-				self.targetTitleMissing = false;
-			} else {
-				self.targetTitleMissing = true;
-			}
-		} );
+	// Find the element in parent section for this link.
+	this.targetDocument = this.parentTranslationUnit.getTargetDocument()
+		.querySelector( '[id="' + this.sourceDocument.id + '"]' );
+
+	if ( !this.targetDocument ) {
+		// If this is a restored translation, the link will exist with cx id prefix
+		this.targetDocument = this.parentTranslationUnit.getTargetDocument()
+			.querySelector( '[id="cx' + this.sourceDocument.id + '"]' );
+	} else {
+		// Set the id with 'cx' prefix
+		this.setTargetId();
+	}
+
+	if ( !this.targetDocument ) {
+		mw.log.error( '[CX] Could not find the target element in parent document. ' + this );
+		// Nothing to adapt
+		return $.Deferred().reject().promise();
+	}
+
+	return this.findLinkTarget( this.sourceLanguage, this.sourceTitle ).then(
+		this.adaptSuccessHandler.bind( this ),
+		this.adaptFailureHandler.bind( this )
+	);
+};
+
+/**
+ * Link adaptation success handler
+ * @param {string} targetTitle Target title corresponding to source title
+ */
+mw.cx.dm.LinkTranslationUnit.prototype.adaptSuccessHandler = function ( targetTitle ) {
+	this.targetTitle = targetTitle;
+	this.targetDocument.title = this.targetTitle;
+	this.targetDocument.href = this.targetTitle;
+	// TODO: This is just for testing. We should not do this if there is MT for
+	// the source-target language pair.
+	this.targetDocument.text = this.targetTitle;
+	this.targetTitleMissing = false;
+};
+
+/**
+ * Link adaptation failure handler
+ */
+mw.cx.dm.LinkTranslationUnit.prototype.adaptFailureHandler = function () {
+	this.targetTitleMissing = true;
 };
 
 /**

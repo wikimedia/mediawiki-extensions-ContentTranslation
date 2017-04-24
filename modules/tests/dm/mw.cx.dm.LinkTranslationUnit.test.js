@@ -10,7 +10,7 @@ QUnit.module( 'mw.cx.dm.LinkTranslationUnit', QUnit.newMwEnvironment( {
 QUnit.test( 'Title adaptation test', function ( assert ) {
 	var tests, config, i, linkTranslationUnit, linkText, sourceLinkDoc,
 		targetTitle, requestManager, description,
-		mockResponse;
+		mockResponse, done;
 
 	tests = [
 		{
@@ -33,10 +33,15 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 			targetLanguage: 'ta',
 			targetTitle: 'ஒரு குழந்தைக்கு ஒரு மடிக்கணினி',
 			description: 'Target page exist, source page redirects'
+		},
+		{
+			title: null,
+			sourceLanguage: 'en',
+			targetLanguage: 'ta',
+			targetTitle: null,
+			description: 'Invalid source title'
 		}
 	];
-
-	QUnit.expect( tests.length );
 
 	/* eslint no-loop-func:off */
 	for ( i = 0; i < tests.length; i++ ) {
@@ -78,15 +83,14 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 
 		targetTitle = tests[ i ].targetTitle;
 		description = tests[ i ].description;
-		QUnit.stop();
-		linkTranslationUnit.adapt().then( function () {
-			if ( targetTitle ) {
-				assert.deepEqual( linkTranslationUnit.getTargetTitle(), targetTitle, description );
-			} else {
-				assert.deepEqual( !!linkTranslationUnit.targetTitleMissing, true, description );
-			}
-		} ).always( function() {
-			QUnit.start();
-		} );
+		done = assert.async();
+		linkTranslationUnit.findLinkTarget( tests[ i ].sourceLanguage, tests[ i ].title )
+			.done( function ( adaptedTitle ) {
+				assert.deepEqual( adaptedTitle, targetTitle, description );
+			} ).fail( function() {
+				assert.deepEqual( targetTitle, null, description );
+			} ).always( function() {
+				done();
+			} );
 	}
 } );
