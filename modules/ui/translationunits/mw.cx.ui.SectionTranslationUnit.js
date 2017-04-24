@@ -11,9 +11,8 @@
 mw.cx.ui.SectionTranslationUnit = function MwCxUiSectionTranslationUnit( model, toolFactory, config ) {
 	mw.cx.ui.SectionTranslationUnit.super.call( this, model, toolFactory, config );
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
-	this.connect( this, {
-		click: 'translate'
-	} );
+	// Click handler to translate need to execute only once.
+	this.once( 'click', this.translate.bind( this ) );
 };
 
 /* Setup */
@@ -108,6 +107,7 @@ mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	this.removeHighlight();
 
 	if ( !this.isTranslated() ) {
+		mw.log( '[CX] Translating section: ' + this );
 		// Adapt in general will be asynchronous operation
 		this.model.adapt();
 		this.setContent( this.model.targetDocument );
