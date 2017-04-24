@@ -364,7 +364,7 @@
 		$.each( queries, function ( language, titles ) {
 			self.getPageDetails( language, titles ).done( function ( response ) {
 				var i,
-					redirects = jQuery.extend( {}, response.query.redirects ),
+					redirects = $.extend( {}, response.query.redirects ),
 					pages = response.query.pages;
 
 				$.each( pages, function ( pageId, page ) {

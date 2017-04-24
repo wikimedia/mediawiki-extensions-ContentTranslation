@@ -258,7 +258,7 @@
 
 		// Don't let the target be the same as source
 		sourceLanguage = this.getSourceLanguage();
-		targetLanguageCodes = jQuery.grep( this.targetLanguages, function ( language ) {
+		targetLanguageCodes = $.grep( this.targetLanguages, function ( language ) {
 			return language !== sourceLanguage;
 		} );
 
