@@ -193,6 +193,7 @@
 	"cx-suggestionlist-expand": "Zobrazit vše",
 	"cx-suggestionlist-collapse": "Zobrazit méně",
 	"cx-suggestionlist-refresh": "Obnovit návrhy",
+	"cx-tools-linter-title": "Problémy s obsahem: $1",
 	"cx-tools-linter-content": "Byl nalezen obsah, který nesplňuje [//www.mediawiki.org/wiki/Content_translation/Abuse_filter omezení stanovené Wikipedii pro $1]. Prosím opravte problémy před zveřejněním překladu.",
 	"cx-tools-linter-view-details": "Zobrazit detaily",
 	"cx-tools-linter-hide-details": "Skrýt detaily",

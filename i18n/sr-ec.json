@@ -4,7 +4,8 @@
 			"Milicevic01",
 			"Nikola Smolenski",
 			"Srdjan m",
-			"Сербијана"
+			"Сербијана",
+			"Obsuser"
 		]
 	},
 	"cx": "Преведи страницу",
@@ -102,7 +103,7 @@
 	"cx-suggestionlist-featured": "Изабрани",
 	"cx-translation-filter-from-any-language": "Са било ког језика",
 	"cx-translation-filter-to-any-language": "На било који језик",
-	"cx-create-new-translation": "Започни нови превод",
+	"cx-create-new-translation": "Нови превод",
 	"cx-save-draft-save-success": "Сачувано {{PLURAL:$1|пре једног минута|пре $1 минута|0=управо сад}}",
 	"cx-save-draft-saving": "Чување...",
 	"cx-save-draft-tooltip": "Нацрти превода се чувају аутоматски",
