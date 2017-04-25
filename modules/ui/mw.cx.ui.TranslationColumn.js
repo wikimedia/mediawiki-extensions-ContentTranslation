@@ -101,7 +101,7 @@ mw.cx.ui.TranslationColumn.prototype.add = function ( $translationUnit, position
  * @param {jQuery} $element
  */
 mw.cx.ui.TranslationColumn.prototype.insertAt = function ( index, $element ) {
-	var lastIndex = this.$content.children().size();
+	var lastIndex = this.$content.children().length;
 	if ( index < 0 ) {
 		index = Math.max( 0, lastIndex + 1 + index );
 	}
