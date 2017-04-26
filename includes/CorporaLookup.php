@@ -59,6 +59,8 @@ class CorporaLookup {
 					'sequenceid' => (int)$row->cxc_sequence_id,
 					self::TYPE_SOURCE => null,
 					self::TYPE_MT => null,
+					// In the future this could be an array, but for now to
+					// keep it simple just show one version
 					self::TYPE_USER => null,
 				];
 			}
@@ -66,13 +68,21 @@ class CorporaLookup {
 			$blob = [
 				'engine' => $type === self::TYPE_MT ? $row->cxc_origin : null,
 				'content' => $row->cxc_content,
-				// TS_ISO_8601 was chosen because it includes explicit timezone
+				// TS_ISO_8601 is used because it includes timezone (always Z)
 				'timestamp' => wfTimestamp( TS_ISO_8601, $row->cxc_timestamp ),
 			];
 
-			// In the future 'user' could be an array, but for now to keep it simple and consistent,
-			// just allow one blob (the latest & final user version)
-			$sections[$id][$type] = $blob;
+			if ( !isset( $sections[$id][$type] ) ) {
+				$sections[$id][$type] = $blob;
+				continue;
+			}
+
+			// It's possible we have a "conflict", since we don't enforce uniqueness
+			// in the database. In this case, the one with latest timestamp is used.
+			// Note: TS_ISO_8601 is suitable for string comparison if timezone is Z.
+			if ( $blob['timestamp'] > $sections[$id][$type]['timestamp'] ) {
+				$sections[$id][$type] = $blob;
+			}
 		}
 
 		return $sections;
