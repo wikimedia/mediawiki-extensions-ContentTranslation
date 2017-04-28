@@ -156,5 +156,8 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
 	}
 };
 
+mw.cx.ui.SectionTranslationUnit.prototype.addLink = function () {
+};
+
 /* Register */
 mw.cx.ui.translationUnitFactory.register( mw.cx.ui.SectionTranslationUnit );
