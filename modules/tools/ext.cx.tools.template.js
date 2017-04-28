@@ -258,7 +258,7 @@
 	 * So we find a 0-height fragments to use for alignment and section
 	 * restore.
 	 *
-	 * @return {jQuery}
+	 * @return {jQuery|undefined}
 	 */
 	Template.prototype.getFirstVisibleFragment = function () {
 		var $fragments, $fragment;
@@ -283,16 +283,14 @@
 	 * @return {jQuery}
 	 */
 	Template.prototype.getEditorContainer = function () {
-		var $container;
+		var $container, $visibleFragment;
 
-		$container = this.$template;
-
+		$visibleFragment = this.getFirstVisibleFragment() || this.$template;
 		if ( this.options.inline ) {
-			this.$parentSection = this.$parentSection ||
-				this.$template.closest( mw.cx.getSectionSelector() );
+			this.$parentSection = this.$parentSection || $visibleFragment.parent( mw.cx.getSectionSelector() );
 			$container = this.$parentSection;
 		} else {
-			$container = this.getFirstVisibleFragment() || this.$template;
+			$container = $visibleFragment;
 		}
 
 		return $container;
