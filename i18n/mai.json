@@ -23,5 +23,6 @@
 	"cx-publish-button-publishing": "प्रकाशित भ रहल अछि...",
 	"cx-publish-gt-move-page-title": "पृष्ठके नाम बदली",
 	"cx-publish-gt-move-page-description": "कृपया \"{{int:blanknamespace}}\" नामस्थान चुनी आ अपन पृष्ठके  उपयुक्त शीर्षक दी।",
-	"cx-publish-gt-moved-title": "अनुवाद कएल पृष्ठ स्थानान्तरित कएल गेल"
+	"cx-publish-gt-moved-title": "अनुवाद कएल पृष्ठ स्थानान्तरित कएल गेल",
+	"cx-campaign-no-thanks": "नै, धन्यवाद"
 }
