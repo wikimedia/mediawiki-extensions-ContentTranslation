@@ -46,7 +46,6 @@ mw.cx.ui.SectionTranslationUnit.static.tools = {
  *  @inheritDoc
  */
 mw.cx.ui.SectionTranslationUnit.prototype.init = function () {
-	// XXX: The model is not yet ready when the constructor is called
 	this.$sourceSection = this.createSourceSection( this.model );
 	this.$translationSection = this.createTranslationSection( this.model );
 
@@ -59,8 +58,8 @@ mw.cx.ui.SectionTranslationUnit.prototype.init = function () {
  * @return {jQuery}
  */
 mw.cx.ui.SectionTranslationUnit.prototype.createSourceSection = function ( model ) {
-	if ( model.sourceDocument.tagName === 'SECTION' ) {
-		// If the sourceDocument is <section> dont wrap it.
+	if ( model.sourceDocument.tagName === 'SECTION' || model.getParentTranslationUnit() !== null ) {
+		// If the sourceDocument is <section> or a sub translation unit, dont wrap it with <section> tag.
 		return $( model.sourceDocument );
 	} else {
 		// Wrap with <section> tag
