@@ -26,16 +26,12 @@ mw.cx.dm.LinkTranslationUnit.static.name = 'link';
 mw.cx.dm.LinkTranslationUnit.static.matchTagNames = [ 'a' ];
 mw.cx.dm.LinkTranslationUnit.static.matchRdfaTypes = [ 'mw:WikiLink' ];
 
-/**
- * @inheritDoc
- */
-mw.cx.dm.LinkTranslationUnit.static.matchFunction = function ( node ) {
-	// Links should have id
-	return !!node.id;
-};
-
 mw.cx.dm.LinkTranslationUnit.prototype.init = function () {
-	this.sourceTitle = this.sourceDocument.title;
+	if ( this.sourceDocument ) {
+		this.sourceTitle = this.sourceDocument.title;
+	} else {
+		mw.log( '[CX] Link translation unit without a source link: ' + this.getTargetTitle() );
+	}
 	// We are not fetching any data before the parent translation unit's translation started.
 };
 
@@ -63,6 +59,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
 	this.requestManager.getTitlePair( this.sourceLanguage, this.sourceTitle )
 		.done( function( pairInfo ) {
 			var targetTitle = pairInfo.targetTitle;
+
 			if ( !targetTitle ) {
 				result.reject();
 			} else {
@@ -133,16 +130,35 @@ mw.cx.dm.LinkTranslationUnit.prototype.adaptFailureHandler = function () {
  * Get the id of the section
  * @return {string}
  */
-mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
+mw.cx.dm.LinkTranslationUnit.prototype.getSectionId = function () {
+	var id;
 	// Make sure that there is an id for the unit even if id attribute is not present.
-	return this.sourceDocument.id || this.sourceDocument.dataset.linkid || OO.ui.generateElementId();
+	if ( this.sourceDocument ) {
+		id = this.sourceDocument.id || this.sourceDocument.dataset.linkid ||
+			( this.sourceDocument.attributes[ 'href' ] && this.sourceDocument.attributes[ 'href' ].value );
+	}
+	// Source document does not exist. See if there is target document
+	if ( !id && this.targetDocument ) {
+		id = this.targetDocument.id || this.targetDocument.dataset.linkid ||
+		( this.targetDocument.attributes[ 'href' ] && this.targetDocument.attributes[ 'href' ].value );
+	}
+
+	return id || OO.ui.generateElementId();
 };
 
 /**
  * @return {boolean} Whether a corresponding title exist in target language
  */
-mw.cx.dm.TranslationUnit.prototype.isTargetExist = function () {
+mw.cx.dm.LinkTranslationUnit.prototype.isTargetExist = function () {
 	return !this.targetTitleMissing;
+};
+
+/**
+ * Remove the link. Removes only from the target document.
+ */
+mw.cx.dm.LinkTranslationUnit.prototype.removeLink = function () {
+	this.targetDocument.replaceWith( this.getTargetTitle() );
+	this.targetDocument = null;
 };
 
 mw.cx.dm.modelRegistry.register( mw.cx.dm.LinkTranslationUnit );

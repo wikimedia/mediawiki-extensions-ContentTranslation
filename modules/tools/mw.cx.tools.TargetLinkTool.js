@@ -177,18 +177,16 @@ mw.cx.tools.TargetLinkTool.prototype.getBackgroundImage = function () {
 	if ( this.pageInfo && this.pageInfo.imageUrl ) {
 		return this.pageInfo.imageUrl;
 	}
-	if ( !this.model.isTargetExist() ) {
-		return;
-	}
+	return null;
 };
 
 mw.cx.tools.TargetLinkTool.prototype.removeLink = function () {
-	this.emit( 'remove' );
+	this.emit( 'removelink' );
 	this.destroy();
 };
 
 mw.cx.tools.TargetLinkTool.prototype.addLink = function () {
-	this.emit( 'addlink', this.selectionObj, this.pageInfo.title );
+	this.emit( 'addlink', this.selectionObj, this.pageInfo && this.pageInfo.title );
 };
 
 /* Register */

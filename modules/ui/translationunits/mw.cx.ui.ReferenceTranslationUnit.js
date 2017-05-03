@@ -40,12 +40,12 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.setContent = function ( content ) {
 		return;
 	}
 	// Refresh reference
-	this.$translationSection = this.getTranslationSection();
 	attributes = $( content ).prop( 'attributes' );
 	// loop through attributes and apply them.
 	$.each( attributes, function() {
 		self.$translationSection.attr( this.name, this.value );
 	} );
+	this.$translationSection.prop( 'id', $( content ).prop( 'id' ) );
 	// Refresh reference
 	this.$translationSection = this.getTranslationSection();
 	this.translated = true;

@@ -155,7 +155,25 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
 	}
 };
 
-mw.cx.ui.SectionTranslationUnit.prototype.addLink = function () {
+mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
+	var $link;
+
+	mw.log( '[CX] Adding Link ' + title );
+	// Restore the selection
+	mw.cx.selection.restore( 'translation' );
+	$link = $( '<a>' )
+		.addClass( 'cx-target-link' )
+		.text( title )
+		.attr( {
+			title: title,
+			href: title,
+			rel: 'mw:WikiLink',
+			id: 'cx' + title
+		} );
+	mw.cx.selection.pasteHTML( $link[ 0 ].outerHTML );
+	// Set the cursor at the end of inserted link.
+	mw.cx.selection.setCursorAfter( 'translation' );
+	this.emit( 'change' );
 };
 
 /* Register */

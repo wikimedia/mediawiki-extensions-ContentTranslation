@@ -30,6 +30,10 @@ mw.cx.tools.SourceLinkTool.prototype.getContent = function () {
 
 	this.sourceTitle = this.model.sourceTitle;
 
+	if ( !this.sourceTitle ) {
+		return null;
+	}
+
 	$linkTitle = $( '<a>' )
 		.addClass( 'cx-tools-link-text' )
 		.text( this.sourceTitle )
@@ -67,6 +71,7 @@ mw.cx.tools.SourceLinkTool.prototype.getBackgroundImage = function () {
 	if ( this.pageInfo && this.pageInfo.imageUrl ) {
 		return this.pageInfo.imageUrl;
 	}
+	return null;
 };
 
 /* Register */

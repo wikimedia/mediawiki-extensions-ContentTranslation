@@ -60,6 +60,12 @@ mw.cx.ui.TranslationUnit.prototype.getPlaceholderSection = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.listen = function () {
+	if ( !this.$translationSection.length ) {
+		mw.log.warn( '[CX] Missing translation section for ' + this.toString() );
+	}
+	if ( !this.$sourceSection.length ) {
+		mw.log.warn( '[CX] Missing source section for ' + this.toString() );
+	}
 	// Events
 	this.$sourceSection.on( 'mouseenter', this.onMouseOver.bind( this ) );
 	this.$translationSection.on( 'mouseenter', this.onMouseOver.bind( this ) );
@@ -102,6 +108,11 @@ mw.cx.ui.TranslationUnit.prototype.onMouseLeave = function () {
 };
 
 mw.cx.ui.TranslationUnit.prototype.onFocus = function () {
+	this.emit( 'focus' );
+};
+
+mw.cx.ui.TranslationUnit.prototype.focus = function () {
+	this.getTranslationSection().focus();
 	this.emit( 'focus' );
 };
 

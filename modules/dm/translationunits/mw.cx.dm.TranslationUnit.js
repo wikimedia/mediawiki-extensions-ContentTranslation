@@ -79,46 +79,92 @@ mw.cx.dm.TranslationUnit.prototype.setTargetId = function () {
 	if ( !this.targetDocument ) {
 		throw new Error( 'Target document not set for translation unit : ' + this.toString() );
 	}
-	this.targetDocument.id = 'cx' + this.sourceDocument.id;
+	this.targetDocument.id = this.getTranslationSectionId();
 };
 
 /**
  * Section is the top most translation unit. Build and initialize its sub translation units.
  *
- * @param {Element} sourceDocument Source section DOM Element
+ * @param {Element} [sourceDocument] Source section DOM Element
  * @param {Element} [targetDocument] Target section DOM Element
  */
 mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceDocument, targetDocument ) {
-	var i, model, children, targetChild, subTranslationUnit;
+	var i, sourceChildren, targetChildren;
 
-	children = sourceDocument.children;
+	if ( !sourceDocument && !targetDocument ) {
+		throw new Error( '[CX] Both source and target documents can not be null' );
+	}
 
-	if ( !children ) {
+	if ( sourceDocument ) {
+		sourceChildren = sourceDocument.children || [];
+		for ( i = 0; i < sourceChildren.length; i++ ) {
+			this.buildSubTranslationUnit( sourceChildren[ i ] );
+			// Recursively search for sub translation units.
+			this.buildSubTranslationUnits( sourceChildren[ i ] );
+		}
+	}
+
+	if ( targetDocument ) {
+		// Scan target document
+		targetChildren = targetDocument.children || [];
+		for ( i = 0; i < targetChildren.length; i++ ) {
+			this.buildSubTranslationUnit( null, targetChildren[ i ] );
+			// Recursively search for sub translation units.
+			this.buildSubTranslationUnits( null, targetChildren[ i ] );
+		}
+	}
+};
+
+/**
+ * Build a sub translation unit for given source, target element pair
+ *
+ * @param {Element} [source] Source DOM Element
+ * @param {Element} [target] Target DOM Element
+ */
+mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnit = function ( source, target ) {
+	var key, subTranslationUnit, model;
+
+	key = this.getKeyForModelMap( source || target );
+
+	model = mw.cx.dm.modelRegistry.matchElement( source || target );
+	// Check if there is a translation unit defined for this child
+	if ( !model ) {
 		return;
 	}
-
-	for ( i = 0; i < children.length; i++ ) {
-		model = mw.cx.dm.modelRegistry.matchElement( children[ i ] );
-		// Check if there is a translation unit defined for this child
-		if ( model ) {
-			subTranslationUnit = this.subTranslationUnitModels[ children[ i ].id ] ||
-				mw.cx.dm.translationUnitFactory.create(
-					model, this.config, this.translation, children[ i ]
-				);
-			if ( targetDocument ) {
-				targetChild = targetDocument.querySelector( '[id="' + subTranslationUnit.getTranslationSectionId() + '"]' );
-				if ( targetChild ) {
-					subTranslationUnit.setTargetDocument( targetChild );
-				}
-			}
-			// Keep a map of DOM ids and translation units
-			this.subTranslationUnitModels[ subTranslationUnit.getSectionId() ] = subTranslationUnit;
-			this.translationUnits.push( subTranslationUnit );
-			subTranslationUnit.setParentTranslationUnit( this );
-		}
-		// Recursively search for sub translation units.
-		this.buildSubTranslationUnits( children[ i ] );
+	if ( !key ) {
+		throw new Error( '[CX] Could not find any unique key for sub translation unit of: ' + this.toString() );
 	}
+
+	subTranslationUnit = this.subTranslationUnitModels[ key ];
+	if ( subTranslationUnit ) {
+		subTranslationUnit.setTargetDocument( target );
+	} else {
+		if ( !source ) {
+			mw.log( '[CX] No source element for ' + target.id );
+		}
+		subTranslationUnit = mw.cx.dm.translationUnitFactory.create(
+			model, this.config, this.translation, source, target
+		);
+		// Keep a map of DOM ids and translation units
+		this.subTranslationUnitModels[ key ] = subTranslationUnit;
+		this.translationUnits.push( subTranslationUnit );
+		subTranslationUnit.setParentTranslationUnit( this );
+	}
+};
+
+/**
+ * Get a key for translation units based on id or such unique attributes.
+ * TODO: This id calculation is also present in multiple translation unit dms.
+ * Consolidate?
+ *
+ * @param  {Element} node
+ * @return {string}
+ */
+mw.cx.dm.TranslationUnit.prototype.getKeyForModelMap = function ( node ) {
+	var id = node.id || node.dataset.linkid || node.dataset.segmentid ||
+		( node.attributes[ 'about' ] && node.attributes[ 'about' ].value ) ||
+		( node.attributes[ 'href' ] && node.attributes[ 'href' ].value );
+	return id && id.replace( /^(cx)/, '' );
 };
 
 /**
@@ -136,8 +182,6 @@ mw.cx.dm.TranslationUnit.prototype.getSourceDocument = function () {
 
 mw.cx.dm.TranslationUnit.prototype.setTargetDocument = function ( targetDocument ) {
 	this.targetDocument = targetDocument;
-	// The current units became invalid
-	this.translationUnits = [];
 	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
 };
 
@@ -194,6 +238,10 @@ mw.cx.dm.TranslationUnit.prototype.getSectionId = function () {
  * @return {string}
  */
 mw.cx.dm.TranslationUnit.prototype.getTranslationSectionId = function () {
+	if ( this.getSectionId().indexOf( 'cx' ) === 0 ) {
+		return this.getSectionId();
+	}
+
 	return 'cx' + this.getSectionId();
 };
 

@@ -103,9 +103,7 @@ mw.cx.tools.NewLinkTool.prototype.getBackgroundImage = function () {
 	if ( this.pageInfo && this.pageInfo.imageUrl ) {
 		return this.pageInfo.imageUrl;
 	}
-	if ( !this.model.isTargetExist() ) {
-		return;
-	}
+	return null;
 };
 
 mw.cx.tools.NewLinkTool.prototype.removeLink = function () {

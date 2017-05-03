@@ -12,7 +12,7 @@ mw.cx.ui.LinkTranslationUnit = function MwCxUiLinkTranslationUnit( model, toolFa
 	mw.cx.ui.LinkTranslationUnit.super.call( this, model, toolFactory, config );
 
 	// Properties
-	this.adapted = false;
+	this.adaptReq = null;
 };
 
 /* Setup */
@@ -24,29 +24,30 @@ mw.cx.ui.LinkTranslationUnit.static.matchRdfaTypes = [ 'mw:WikiLink' ];
 mw.cx.ui.LinkTranslationUnit.static.highlightClass = 'cx-highlight--lightblue';
 mw.cx.ui.LinkTranslationUnit.static.tools = {
 	sourcelink: [ 'click', 'focus' ],
-	targetlink: [ 'click', 'focus' ],
+	targetlink: {
+		triggers: [ 'click', 'focus' ],
+		events: {
+			removelink: 'removeLink'
+		}
+	},
 	newlink: [ 'click', 'focus' ]
 };
 
-/**
- * @inheritDoc
- */
-mw.cx.ui.LinkTranslationUnit.static.matchFunction = function ( node ) {
-	// Links should have id
-	return !!node.id;
-};
-
 mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
-	var self = this;
+	if ( this.adaptReq ) {
+		return this.adaptReq;
+	}
 	// Adapt in general will be asynchronous operation
-	this.model.adapt().then( function() {
-		if ( !self.model.targetTitleMissing ) {
-			self.adapted = true;
-			self.setContent( self.model.targetDocument );
-		} else {
-			self.markUnAdapted();
+	this.adaptReq = this.model.adapt().then( function() {
+		this.setContent( this.model.targetDocument );
+		if ( this.model.targetTitleMissing ) {
+			this.markUnAdapted();
 		}
-	} );
+	}.bind( this ) ).always( function() {
+		// Re attach event handlers
+		this.listen();
+		this.emit( 'change' );
+	}.bind( this ) );
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.markUnAdapted = function () {
@@ -63,12 +64,10 @@ mw.cx.ui.LinkTranslationUnit.prototype.setContent = function ( content ) {
 	$.each( attributes, function() {
 		self.$translationSection.attr( this.name, this.value );
 	} );
+	this.$translationSection.prop( 'id', $( content ).prop( 'id' ) );
 	// Refresh reference
 	this.$translationSection = this.getTranslationSection();
 	this.translated = true;
-	// Re attach event handlers
-	this.listen();
-	this.emit( 'change' );
 };
 
 /**
@@ -79,6 +78,22 @@ mw.cx.ui.LinkTranslationUnit.prototype.onChange = function () {
 	if ( this.parentTranslationUnit ) {
 		this.parentTranslationUnit.emit( 'change' );
 	}
+};
+
+mw.cx.ui.LinkTranslationUnit.prototype.removeLink = function () {
+	// Save the selection
+	mw.cx.selection.save( 'translation' );
+	this.model.removeLink();
+
+	if ( this.model.getTargetDocument() === null ) {
+		mw.log( '[CX] Target link removed successfully. ' + this );
+	} else {
+		mw.log.error( '[CX] Error while removing target link. ' + this );
+	}
+	this.parentTranslationUnit.focus();
+		// Restore the cursor
+	mw.cx.selection.restore( 'translation' );
+	this.emit( 'change' );
 };
 
 /* Register */
