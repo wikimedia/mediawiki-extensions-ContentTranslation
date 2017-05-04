@@ -113,7 +113,7 @@ mw.cx.MwApiRequestManager.prototype.getImageInfo = function ( language, title ) 
 };
 
 /**
- * Look up image data about a title. If the data about this title is already in the cache, this
+ * Look up pairing data about a title. If the data about this title is already in the cache, this
  * returns an already-resolved promise. Otherwise, it returns a pending promise and schedules
  * an request to retrieve the data.
  *
@@ -122,18 +122,6 @@ mw.cx.MwApiRequestManager.prototype.getImageInfo = function ( language, title ) 
  * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
  */
 mw.cx.MwApiRequestManager.prototype.getTitlePair = function ( language, title ) {
-	if ( !this.titlePairCache[ language ] ) {
-		throw Error( '[CX] TitlePairCache not initialized for ' + language );
-	}
-	return this.titlePairCache[ language ].get( title );
-};
-
-/**
- * @param {string} language Language code
- * @param {string} title Title
- * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
- */
-mw.cx.MwApiRequestManager.prototype.getTitlePairs = function ( language, title ) {
 	if ( !this.titlePairCache[ language ] ) {
 		throw Error( '[CX] TitlePairCache not initialized for ' + language );
 	}
