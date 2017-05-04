@@ -84,7 +84,8 @@ mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () 
 			return sourceDir === targetDir ? 'source' : 'scratch';
 		}.bind( this ),
 		function () {
-			return 'source';
+			// Convert failure to success
+			return $.Deferred().resolve( 'source' ).promise();
 		}
 	);
 };
