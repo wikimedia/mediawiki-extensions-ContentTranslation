@@ -45,6 +45,7 @@ mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translat
 	// Set the display order in tools column
 	this.$element.css( 'order', translationTool.order );
 	this.render();
+	this.listen();
 };
 
 /* Inheritance */
@@ -54,11 +55,29 @@ OO.inheritClass( mw.cx.widgets.TranslationToolWidget, OO.ui.Widget );
  * Render the card content and actions if any
  */
 mw.cx.widgets.TranslationToolWidget.prototype.render = function() {
-	var bgImage;
+	this.renderContent();
+	this.renderActions();
+	this.renderBackground();
+};
 
+mw.cx.widgets.TranslationToolWidget.prototype.listen = function() {
+	this.translationTool.connect( this, {
+		actionsChange: 'renderActions',
+		contentChange: 'renderContent',
+		backgroundChange: 'renderBackground'
+	} );
+};
+
+mw.cx.widgets.TranslationToolWidget.prototype.renderContent = function() {
 	this.setContent( this.translationTool.getContent() );
+};
+
+mw.cx.widgets.TranslationToolWidget.prototype.renderActions = function() {
 	this.setActions( this.translationTool.getActions() );
-	bgImage = this.translationTool.getBackgroundImage();
+};
+
+mw.cx.widgets.TranslationToolWidget.prototype.renderBackground = function() {
+	var bgImage = this.translationTool.getBackgroundImage();
 	if ( bgImage ) {
 		this.setBackgroundImage( bgImage );
 	}
