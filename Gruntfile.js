@@ -10,13 +10,7 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		eslint: {
-			fix: {
-				options: {
-					fix: true
-				},
-				src: '<%= eslint.main %>'
-			},
-			main: [
+			all: [
 				'**/*.js',
 				'!lib/**',
 				'!node_modules/**'
@@ -43,7 +37,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'eslint:main', 'jsonlint', 'stylelint', 'banana' ] );
-	grunt.registerTask( 'lint', [ 'eslint:main', 'jsonlint', 'stylelint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'jsonlint', 'stylelint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'lint' ] );
 	grunt.registerTask( 'default', 'test' );
 };
