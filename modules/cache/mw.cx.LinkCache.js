@@ -36,9 +36,14 @@ mw.cx.LinkCache.static.processPage = function ( page ) {
 	return {
 		title: page.title,
 		pagelanguage: page.pagelanguage,
-		missing: !!page.missing,
-		known: !page.missing,
-		redirect: !!page.redirect,
+		missing: page.missing !== undefined,
+		known: page.known !== undefined,
+		pageid: page.pageid,
+		lastrevid: page.lastrevid,
+		length: page.length,
+		ns: page.ns,
+		pagelanguagedir: page.pagelanguagedir,
+		redirect: page.redirect !== undefined,
 		disambiguation: OO.getProp( page, 'pageprops', 'disambiguation' ) !== undefined,
 		imageUrl: OO.getProp( page, 'thumbnail', 'source' ),
 		description: OO.getProp( page, 'terms', 'description' )
