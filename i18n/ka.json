@@ -5,7 +5,8 @@
 			"MIKHEIL",
 			"Otogi",
 			"BRUTE",
-			"Sopopruidze"
+			"Sopopruidze",
+			"Mehman97"
 		]
 	},
 	"cx": "გვერდის თარგმნა",
@@ -64,6 +65,7 @@
 	"cx-tools-link-remove": "ბმულის წაშლა",
 	"cx-tools-mt-title": "ავტომატური თარგმანი",
 	"cx-tools-mt-use-source": "საწყისი ტექსტის გამოყენება",
+	"cx-tools-mt-reset": "თარგმნის დაწყება",
 	"cx-tools-mt-provider-title": "გამოიყენეთ $1",
 	"cx-tools-mt-dont-use": "არ გამოიყენოთ მანქანური თარგმანი",
 	"cx-tools-mt-set-default": "ნაგულისხმევად დამახსოვრება",
@@ -107,7 +109,7 @@
 	"cx-suggestionlist-view-source-page": "წყაროს გვერდის ხილვა",
 	"cx-translation-filter-from-any-language": "ნებისმიერი ენიდან",
 	"cx-translation-filter-to-any-language": "ნებისმიერ ენაზე",
-	"cx-create-new-translation": "ახალი თარგმანის დაწყება",
+	"cx-create-new-translation": "ახალი თარგმანი",
 	"cx-save-draft-save-success": "შეინახა {{PLURAL:$1|ერთი წუთის წინ|$1 წუთის წინ|0=ამ წუთას}}",
 	"cx-save-draft-saving": "ინახება...",
 	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება",
@@ -198,7 +200,16 @@
 	"cx-tools-linter-hide-details": "დეტალების დამალვა",
 	"cx-translator-month-stats-label": "ეს თვე",
 	"cx-translator-total-translations-label": "სულ",
+	"cx-page-old-revision-loaded": "ეს თარგმანი ეფუძნება შინაარსის მოძველებულ ვერსიას. შესაძლებელია წყაროს გვერდზე [$1 შეიცვალილია]. თქვენ შეგიძლიათ გააგრძელოთ თარგმანი ან დაიწყოთ თავიდან, განახლებული შინაარსის გამოსაყენებლად.",
 	"cx-tools-mt-new-provider": "ახალი",
 	"cx-tools-mt-new-providers-available": "ახალი კონფიგურაციებით",
-	"cx-continue-translation": "თარგმნის გაგრძელება"
+	"cx-continue-translation": "თარგმნის გაგრძელება",
+	"cx-tools-template-title": "თარგი",
+	"cx-template-action-adapt": "გამოიყენეთ ექვივალენტი თარგი",
+	"cx-template-action-keep-original": "თავდაპირველი თარგის შენახვა",
+	"cx-template-action-skip": "თარგის გამოტოვება",
+	"cx-template-not-available": "$1-თვის არ არის ხელმისაწვდომი",
+	"cx-translation-template-add-param": "+ თარგმნის ველი",
+	"cx-translation-template-add-more": "ბევრი ველის დამატება",
+	"cx-translation-template-select-param": "აირჩიეთ სამიზნე ველები"
 }

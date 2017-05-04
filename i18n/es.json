@@ -123,7 +123,7 @@
 	"cx-suggestionlist-view-source-page": "Ver página de origen",
 	"cx-translation-filter-from-any-language": "De cualquier idioma",
 	"cx-translation-filter-to-any-language": "A cualquier idioma",
-	"cx-create-new-translation": "Nueva traducción",
+	"cx-create-new-translation": "Traducción nueva",
 	"cx-save-draft-save-success": "Guardado {{PLURAL:$1|hace un minuto|hace $1 minutos|0=hace instantes}}",
 	"cx-save-draft-saving": "Guardando...",
 	"cx-save-draft-tooltip": "Los borradores de traducción se guardan automáticamente",
