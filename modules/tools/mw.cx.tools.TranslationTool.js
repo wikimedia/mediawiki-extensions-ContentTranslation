@@ -25,6 +25,32 @@ mw.cx.tools.TranslationTool = function CXTranslationTool( model, config ) {
 /* Setup */
 OO.mixinClass( mw.cx.tools.TranslationTool, OO.EventEmitter );
 
+/* Events */
+
+/**
+ * @event contentChange
+ *
+ * A 'contentChange' event is emitted when the content for the card associated
+ * with the tool changed. This is demanding a re-render of card
+ */
+
+/**
+ * @event actionsChange
+ *
+ * An 'actionsChange' event is emitted when the actions associated with the tool
+ * changed while processing the data. This demands re-rendering of actions if any
+ * shown in the card associated with the tool
+ */
+
+/**
+ * @event backgroundChange
+ *
+ * A 'backgroundChange' event is emitted when the background image for the card associated
+ * with the tool changed. This is demanding a re-render of card's background image.
+ */
+
+/* Methods */
+
 /**
  * Build the tool card widget associated with the current translation unit
  * @return {mw.cx.widgets.TranslationToolWidget} The tool card
@@ -79,8 +105,11 @@ mw.cx.tools.TranslationTool.prototype.refresh = function () {
 };
 
 mw.cx.tools.TranslationTool.prototype.destroy = function () {
-	if ( this.card ) {
-		this.card.$element.remove();
-		delete this.card;
+	var card = this.getCard();
+	if ( card ) {
+		// Remove will not work, untill this is attached to DOM
+		card.$element.remove();
+		card.$element = $( [] );
 	}
+	delete this;
 };

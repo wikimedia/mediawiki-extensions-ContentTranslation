@@ -36,7 +36,17 @@ mw.cx.dm.LinkTranslationUnit.prototype.init = function () {
 };
 
 mw.cx.dm.LinkTranslationUnit.prototype.getTargetTitle = function () {
-	return this.targetDocument.title;
+	if ( this.targetDocument ) {
+		return this.targetDocument.title;
+	}
+	return null;
+};
+
+mw.cx.dm.LinkTranslationUnit.prototype.getSourceTitle = function () {
+	if ( this.sourceDocument ) {
+		return this.sourceDocument.title;
+	}
+	return null;
 };
 
 /**
@@ -56,7 +66,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
 		result.reject();
 	}
 
-	this.requestManager.getTitlePair( this.sourceLanguage, this.sourceTitle )
+	this.requestManager.getTitlePair( sourceLanguage, sourceTitle )
 		.done( function ( pairInfo ) {
 			var targetTitle = pairInfo.targetTitle;
 
@@ -81,13 +91,15 @@ mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
 	}
 
 	// Find the element in parent section for this link.
-	this.targetDocument = this.parentTranslationUnit.getTargetDocument()
-		.querySelector( '[id="' + this.sourceDocument.id + '"]' );
+	if ( this.sourceDocument ) {
+		this.targetDocument = this.parentTranslationUnit.getTargetDocument()
+		.querySelector( '[id="' + this.getSectionId() + '"]' );
+	}
 
 	if ( !this.targetDocument ) {
 		// If this is a restored translation, the link will exist with cx id prefix
 		this.targetDocument = this.parentTranslationUnit.getTargetDocument()
-			.querySelector( '[id="cx' + this.sourceDocument.id + '"]' );
+			.querySelector( '[id="cx' + this.getSectionId() + '"]' );
 	} else {
 		// Set the id with 'cx' prefix
 		this.setTargetId();
@@ -97,6 +109,12 @@ mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
 		mw.log.error( '[CX] Could not find the target element in parent document. ' + this );
 		// Nothing to adapt
 		return $.Deferred().reject().promise();
+	}
+
+	if ( !this.sourceDocument && this.targetDocument ) {
+		// This is a target section only link.
+		this.adaptSuccessHandler( this.targetDocument.title );
+		return $.Deferred().resolve().promise();
 	}
 
 	return this.findLinkTarget( this.sourceLanguage, this.sourceTitle ).then(

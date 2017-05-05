@@ -140,5 +140,38 @@ mw.cx.dm.SectionTranslationUnit.prototype.getMTProvider = function () {
 	}.bind( this ) );
 };
 
+/**
+ * Add a new link to the section.
+ * @param {Selection} selection The selection object
+ * @param {string} title Title for the new link.
+ */
+mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
+	var range, html, newLink;
+
+	newLink = document.createElement( 'a' );
+	newLink.appendChild( document.createTextNode( title ) );
+	newLink.setAttribute( 'href', title );
+	newLink.setAttribute( 'title', title );
+	newLink.setAttribute( 'rel', 'mw:WikiLink' );
+	// Set a sufficiently good random id
+	newLink.setAttribute( 'id', 'cx' + new Date().valueOf() );
+
+	// TODO: We can probably move the below block to a utility library
+	// after we see more usecases similar to this and consolidate.
+	if ( window.getSelection ) {
+		if ( selection.getRangeAt && selection.rangeCount ) {
+			range = selection.getRangeAt( 0 );
+			range.deleteContents();
+			range.insertNode( newLink );
+		}
+	} else if ( document.selection && document.selection.createRange ) {
+		range = selection.createRange();
+		html = newLink.outerHTML;
+		range.pasteHTML( html );
+	}
+
+	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
+};
+
 /* Register */
 mw.cx.dm.modelRegistry.register( mw.cx.dm.SectionTranslationUnit );

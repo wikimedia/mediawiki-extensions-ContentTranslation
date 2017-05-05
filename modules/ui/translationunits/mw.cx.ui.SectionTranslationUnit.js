@@ -154,6 +154,21 @@ mw.cx.ui.SectionTranslationUnit.prototype.isTranslated = function () {
 	return !!this.model.targetDocument;
 };
 
+mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
+	if ( !title || !title.trim() ) {
+		mw.log.error( '[CX] Attempting to create link with blank title: ' + this );
+		return;
+	}
+	// Restore the selection
+	mw.cx.selection.save( 'translation' );
+	this.model.addLink( selection, title );
+	// Set the cursor at the end of inserted link.
+	mw.cx.selection.restore( 'translation' );
+	mw.cx.selection.setCursorAfter( 'translation' );
+	this.emit( 'change' );
+	this.buildSubTranslationUnits( this.model );
+};
+
 /**
  * @inheritDoc
  */
@@ -168,27 +183,6 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseOver = function () {
  */
 mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
 	this.removeHighlight();
-};
-
-mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
-	var $link;
-
-	mw.log( '[CX] Adding Link ' + title );
-	// Restore the selection
-	mw.cx.selection.restore( 'translation' );
-	$link = $( '<a>' )
-		.addClass( 'cx-target-link' )
-		.text( title )
-		.attr( {
-			title: title,
-			href: title,
-			rel: 'mw:WikiLink',
-			id: 'cx' + title
-		} );
-	mw.cx.selection.pasteHTML( $link[ 0 ].outerHTML );
-	// Set the cursor at the end of inserted link.
-	mw.cx.selection.setCursorAfter( 'translation' );
-	this.emit( 'change' );
 };
 
 /* Register */

@@ -77,10 +77,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.renderActions = function () {
 };
 
 mw.cx.widgets.TranslationToolWidget.prototype.renderBackground = function () {
-	var bgImage = this.translationTool.getBackgroundImage();
-	if ( bgImage ) {
-		this.setBackgroundImage( bgImage );
-	}
+	this.setBackgroundImage( this.translationTool.getBackgroundImage() );
 };
 
 /**
@@ -123,5 +120,9 @@ mw.cx.widgets.TranslationToolWidget.prototype.setActions = function ( actions ) 
  * @param {string} imageUrl
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setBackgroundImage = function ( imageUrl ) {
-	this.$element.css( 'background-image', 'url(' + imageUrl + ')' );
+	if ( imageUrl ) {
+		this.$element.css( 'background-image', 'url(' + imageUrl + ')' );
+	} else {
+		this.$element.css( 'background-image', '' );
+	}
 };

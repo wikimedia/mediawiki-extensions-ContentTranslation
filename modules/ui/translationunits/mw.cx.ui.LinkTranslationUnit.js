@@ -41,13 +41,23 @@ mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
 	this.adaptReq = this.model.adapt().then( function () {
 		this.setContent( this.model.targetDocument );
 		if ( this.model.targetTitleMissing ) {
+			mw.log( '[CX] Target title missing for ' + this );
 			this.markUnAdapted();
+		} else {
+			this.adapted = true;
 		}
 	}.bind( this ) ).always( function () {
 		// Re attach event handlers
 		this.listen();
 		this.emit( 'change' );
 	}.bind( this ) );
+
+	if ( !this.model.sourceDocument ) {
+		// Remove the tool for source link. Index 0 is used, which corresponds
+		// to sourcelink. But this looks fragile.
+		this.tools[ 0 ].destroy();
+		this.tools.splice( 0, 1 );
+	}
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.markUnAdapted = function () {
@@ -89,9 +99,12 @@ mw.cx.ui.LinkTranslationUnit.prototype.removeLink = function () {
 		mw.log( '[CX] Target link removed successfully. ' + this );
 	} else {
 		mw.log.error( '[CX] Error while removing target link. ' + this );
+		return;
 	}
+	// Destroy all tools
+	this.tools.forEach( function ( tool ) { tool.destroy(); } );
 	this.parentTranslationUnit.focus();
-		// Restore the cursor
+	// Restore the cursor
 	mw.cx.selection.restore( 'translation' );
 	this.emit( 'change' );
 };

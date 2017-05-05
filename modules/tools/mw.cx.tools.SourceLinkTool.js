@@ -28,7 +28,7 @@ mw.cx.tools.SourceLinkTool.static.name = 'sourcelink';
 mw.cx.tools.SourceLinkTool.prototype.getContent = function () {
 	var panel, $linkTitle, $linkDesc, $linkInfo;
 
-	this.sourceTitle = this.model.sourceTitle;
+	this.sourceTitle = this.model.getSourceTitle();
 
 	if ( !this.sourceTitle ) {
 		return null;

@@ -22,6 +22,7 @@ mw.cx.tools.TargetLinkTool = function CXTargetLinkTool( model, config ) {
 	this.makeRedLinkButton = null;
 	this.removeLinkButton = null;
 	this.addLinkButton = null;
+	this.$linkInfo = null;
 };
 
 /* Inheritance */
@@ -37,14 +38,19 @@ mw.cx.tools.TargetLinkTool.prototype.onSelect = function ( selectionObj ) {
 	var selection;
 
 	// TODO: Sanitize content
-	selection = selectionObj.toString();
+	selection = selectionObj.toString().trim();
 	if ( selection && selection.length < 1000 ) {
 		this.selectionObj = selectionObj;
-		this.selection = selection;
+	} else {
+		return;
 	}
 	mw.cx.selection.save( 'translation', this.selectionObj );
-	this.pageInfo = null;
-	this.refresh();
+	// Check if selection changed.
+	if ( this.selection !== selection ) {
+		this.selection = selection;
+		this.pageInfo = null;
+		this.refresh();
+	}
 };
 
 /**
@@ -53,7 +59,15 @@ mw.cx.tools.TargetLinkTool.prototype.onSelect = function ( selectionObj ) {
 mw.cx.tools.TargetLinkTool.prototype.getActions = function () {
 	this.actions = [];
 
-	if ( this.selection ) {
+	if ( this.pageInfo && this.pageInfo.missing ) {
+		this.makeRedLinkButton = new OO.ui.ButtonWidget( {
+			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
+			icon: 'flag',
+			framed: false,
+			classes: [ 'cx-tools-link-mark-red' ]
+		} );
+		this.actions.push( this.makeRedLinkButton );
+	} else if ( this.selection ) {
 		this.addLinkButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-link-add' ),
 			icon: 'add',
@@ -64,7 +78,7 @@ mw.cx.tools.TargetLinkTool.prototype.getActions = function () {
 			click: 'addLink'
 		} );
 		this.actions.push( this.addLinkButton );
-	} else if ( this.model.isTargetExist() ) {
+	} else if ( this.model && this.model.isTargetExist() ) {
 		this.removeLinkButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-link-remove' ),
 			icon: 'close',
@@ -75,55 +89,40 @@ mw.cx.tools.TargetLinkTool.prototype.getActions = function () {
 			click: 'removeLink'
 		} );
 		this.actions.push( this.removeLinkButton );
-	} else {
-		this.makeRedLinkButton = new OO.ui.ButtonWidget( {
-			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
-			icon: 'flag',
-			framed: false,
-			classes: [ 'cx-tools-link-mark-red' ]
-		} );
-		this.actions.push( this.makeRedLinkButton );
 	}
 
 	return this.actions;
 };
 
 mw.cx.tools.TargetLinkTool.prototype.getContent = function () {
-	var panel, $linkInfo;
+	var panel, linkTitle;
 
-	if ( this.selection ) {
-		$linkInfo = this.buildLinkInfo(
-			this.model.config.targetLanguage,
-			this.pageInfo ? this.pageInfo.title : this.selection,
-			this.pageInfo && this.pageInfo.description
-		);
+	linkTitle = this.selection || this.model && this.model.getTargetTitle();
+	this.pageInfo = {
+		title: linkTitle,
+		pagelanguage: this.model.config.targetLanguage,
+		missing: false
+	};
+	if ( !this.selection && !this.model.isTargetExist() ) {
+		this.pageInfo.missing = true;
+	}
 
-		if ( !this.pageInfo ) {
-			this.getPageInfo( this.model.config.targetLanguage, this.selection ).then( function () {
-				this.refresh();
+	// Provisional link information while we fetch the page information.
+	this.$linkInfo = this.buildLinkInfo( this.pageInfo );
+
+	if ( !this.pageInfo.missing ) {
+		this.model.requestManager.getLinkInfo( this.model.config.targetLanguage, linkTitle )
+			.then( function ( pageInfo ) {
+				this.pageInfo = pageInfo;
+				this.$linkInfo.replaceWith( this.buildLinkInfo( this.pageInfo ) );
 			}.bind( this ) );
-		}
-	} else if ( this.model.isTargetExist() ) {
-		this.targetTitle = this.model.getTargetTitle();
-		$linkInfo = this.buildLinkInfo(
-			this.model.config.targetLanguage,
-			this.pageInfo ? this.pageInfo.title : this.targetTitle,
-			this.pageInfo && this.pageInfo.description
-		);
-		if ( !this.pageInfo ) {
-			this.getPageInfo( this.model.config.targetLanguage, this.targetTitle ).then( function () {
-				this.refresh();
-			}.bind( this ) );
-		}
-	} else {
-		$linkInfo = $( '<div>' ).text( mw.msg( 'cx-tools-missing-link-text' ) );
 	}
 
 	panel = new OO.ui.PanelLayout( {
 		expanded: false,
 		framed: false,
 		padded: false,
-		content: [ $linkInfo ]
+		content: [ this.$linkInfo ]
 	} );
 
 	return panel.$element;
@@ -131,43 +130,34 @@ mw.cx.tools.TargetLinkTool.prototype.getContent = function () {
 
 /**
  * Build the link title, description for the tool card
- * @param {string} language
- * @param {string} title
- * @param {string} [description]
+ * @param {Object} pageinfo
  * @return {jQuery}
  */
-mw.cx.tools.TargetLinkTool.prototype.buildLinkInfo = function ( language, title, description ) {
+mw.cx.tools.TargetLinkTool.prototype.buildLinkInfo = function ( pageinfo ) {
 	var $linkTitle, $linkDesc;
+
+	this.emit( 'actionsChange' );
+	this.emit( 'backgroundChange' );
+
+	if ( pageinfo.missing ) {
+		return $( '<div>' ).text( mw.msg( 'cx-tools-missing-link-text' ) );
+	}
 
 	$linkTitle = $( '<a>' )
 		.addClass( 'cx-tools-link-text' )
-		.text( title )
+		.text( pageinfo.title )
 		.prop( {
 			target: '_blank',
-			title: title,
-			href: this.model.config.siteMapper.getPageUrl( language, title )
+			title: pageinfo.title,
+			href: this.model.config.siteMapper.getPageUrl( this.pageInfo.pagelanguage, pageinfo.title )
 		} );
 
 	$linkDesc = $( '<div>' )
-		.text( description || '' )
+		.text( pageinfo.description || '' )
 		.addClass( 'cx-tools-link-desc' );
 	return $( '<div>' )
 		.addClass( 'cx-tools-link-info' )
 		.append( $linkTitle, $linkDesc );
-};
-
-/**
- * Get the page info for the given title in given language
- * @param {string} language
- * @param {string} title
- * @return {jQuery.Promise}
- */
-mw.cx.tools.TargetLinkTool.prototype.getPageInfo = function ( language, title ) {
-	this.pageInfo = null;
-
-	return this.model.requestManager.getLinkInfo( language, title ).then( function ( pageInfo ) {
-		this.pageInfo = pageInfo;
-	}.bind( this ) );
 };
 
 /**
