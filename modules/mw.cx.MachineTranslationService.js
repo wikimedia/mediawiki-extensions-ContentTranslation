@@ -34,7 +34,12 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
 mw.cx.MachineTranslationService.prototype.translate = function ( text, provider ) {
 	return this.validateProvider( provider )
 		.then( this.getCXServerToken.bind( this ) )
-		.then( this.fetchTranslation.bind( this, provider, text ) );
+		.then( this.fetchTranslation.bind( this, text, provider ) )
+		.then( function ( output ) {
+			// Some hacks around the fact that cxserver always wraps
+			// everything in a div (it shouldn't)
+			return $( output )[ 0 ].innerHTML;
+		} );
 };
 
 /**
@@ -106,7 +111,7 @@ mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 mw.cx.MachineTranslationService.prototype.validateProvider = function ( provider ) {
 	return this.getProviders().then( function ( providers ) {
 		if ( providers.indexOf( provider ) === -1 ) {
-			return $.Deferred.reject( 'Unknown provider' ).promise();
+			return $.Deferred().reject( 'Unknown provider', provider ).promise();
 		}
 	} );
 };
@@ -136,7 +141,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 
 	return this.tokenPromise.then( function ( token ) {
 		var now = Math.floor( Date.now() / 1000 );
-		if ( 'refreshAt' in token && token.refreshAt >= now ) {
+		if ( 'refreshAt' in token && token.refreshAt <= now ) {
 			this.tokenPromise = undefined;
 			return this.getCXServerToken();
 		}

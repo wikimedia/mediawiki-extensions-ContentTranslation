@@ -1209,7 +1209,8 @@
 				"dm/mw.cx.dm.ModelFactory.js"
 			],
 			"dependencies": [
-				"mw.cx.dm"
+				"mw.cx.dm",
+				"oojs"
 			]
 		},
 		"mw.cx.dm.Translation": {
@@ -1843,6 +1844,7 @@
 				"cx-tools-mt-new-providers-available"
 			],
 			"dependencies": [
+				"ext.cx.widgets.spinner",
 				"mw.cx.tools.TranslationTool"
 			]
 		},

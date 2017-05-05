@@ -44,53 +44,123 @@ mw.cx.tools.MachineTranslationTool.prototype.getActions = function () {
 };
 
 mw.cx.tools.MachineTranslationTool.prototype.getContent = function () {
-	// XXX: implement reset functionality
+	var menu, model = this.model;
 
 	this.mtProviderSelector = new OO.ui.DropdownWidget( {
 		classes: [ 'card-mt-providers-menu' ]
 	} );
 
+	menu = this.mtProviderSelector.getMenu();
+
 	this.MTManager.getAvailableProviders().then( function ( providers ) {
+		var reset = new OO.ui.MenuOptionWidget( {
+			data: 'reset',
+			label: this.getProviderLabel( 'reset' ),
+			classes: [ 'card-mt-providers-menu-reset' ]
+		} );
+		menu.addItems( reset );
+
 		providers.forEach( function ( id ) {
 			var item = new OO.ui.MenuOptionWidget( {
 				data: id,
 				label: this.getProviderLabel( id )
 			} );
-			this.mtProviderSelector.getMenu().addItems( item );
-
-			// XXX
-			// model.getActiveMTProvider()
-
-			this.MTManager.getPreferredProvider().then( function ( provider ) {
-				this.mtProviderSelector.getMenu().selectItemByData( provider );
-			}.bind( this ) );
+			menu.addItems( item );
 		}.bind( this ) );
+
+		// This also sets the listener for 'select' event
+		model.getMTProvider().done( this.selectProvider.bind( this ) );
+		model.on( 'adapt', this.onModelAdapted, [], this );
 	}.bind( this ) );
 
 	return this.mtProviderSelector.$element;
 };
 
-mw.cx.tools.MachineTranslationTool.prototype.changeProvider = function() {
-	// XXX
-	// mode.setMTProvider( value );
-	// model.update( ...new content... );
+/* Private methods */
+
+/**
+ * Maps provider id to human readable label.
+ * @private
+ * @param {string} provider Id of the provider.
+ * @return {string} Translated label
+ */
+mw.cx.tools.MachineTranslationTool.prototype.getProviderLabel = function ( provider ) {
+	var labels = {
+		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
+		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
+		source: mw.msg( 'cx-tools-mt-use-source' ),
+		reset: mw.msg( 'cx-tools-mt-reset' )
+	};
+
+	return labels[ provider ] || mw.msg( 'cx-tools-mt-provider-title', provider );
 };
 
+/**
+ * Callback when the user selects the 'set as default' action. This does not affect
+ * current section in any way, because it already has the selected provider in user.
+ * @private
+ */
 mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {
 	var provider = this.mtProviderSelector.getMenu().getSelectedItem().getData();
 	this.MTManager.setPreferredProvider( provider );
 };
 
-/* Private methods */
+/**
+ * Callback when the user selects a provider from the menu. To avoid recursion and
+ * unnecessary updates, this function will return early until the model has signaled
+ * it has finished adapting AND we have updated the selected item in the menu to match
+ * what was actually the used provider (which may not be what the user requested, if
+ * an MT provider fails and we fallback to something else).
+ *
+ * @private
+ * @param {OO.ui.MenuOptionWidget} item
+ */
+mw.cx.tools.MachineTranslationTool.prototype.changeProvider = function ( item ) {
+	this.model.adapt( item.getData() );
+};
 
-mw.cx.tools.MachineTranslationTool.prototype.getProviderLabel = function ( provider ) {
-	var labels = {
-		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
-		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
-		source: mw.msg( 'cx-tools-mt-use-source' )
-	};
+/**
+ * Callback when the model has updated itself. Wraps this.selectProvider.
+ *
+ * @private
+ * @param {Element} document Ignored
+ * @param {string} provider The actually used provider
+ */
+mw.cx.tools.MachineTranslationTool.prototype.onModelAdapted = function ( document, provider ) {
+	this.selectProvider( provider );
+};
 
-	return labels[ provider ] || mw.msg( 'cx-tools-mt-provider-title', provider );
+/**
+ * Mark given provider as selected.
+ *
+ * @private
+ * @param {string} provider
+ */
+mw.cx.tools.MachineTranslationTool.prototype.selectProvider = function ( provider ) {
+	var item, selectedProvider, menu;
+
+	menu = this.mtProviderSelector.getMenu();
+	selectedProvider = menu.getSelectedItem() && menu.getSelectedItem().getData();
+
+	// Yay, nothing to do
+	if ( provider === selectedProvider ) {
+		return;
+	}
+
+	// Validate and fix the given provider if required
+	item = menu.getItemFromData( provider );
+	if ( provider === undefined || !item ) {
+		// Fallback to something that always exists
+		provider = 'source';
+	}
+
+	// Hack to avoid calling changeProvider which this method is called from onModelAdapted
+	menu.off( 'select', this.changeProvider, this );
+	menu.once( 'select', function () {
+		menu.on( 'select', this.changeProvider, [], this );
+	}.bind( this ) );
+
+	menu.selectItemByData( provider );
 };
 
 /* Register */

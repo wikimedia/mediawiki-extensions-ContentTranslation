@@ -13,6 +13,8 @@ mw.cx.ui.SectionTranslationUnit = function MwCxUiSectionTranslationUnit( model, 
 	mw.cx.ui.mixin.AlignableTranslationUnit.call( this );
 	// Click handler to translate need to execute only once.
 	this.once( 'click', this.translate.bind( this ) );
+
+	model.on( 'adapt', this.onModelAdapted.bind( this ) );
 };
 
 /* Setup */
@@ -99,21 +101,18 @@ mw.cx.ui.SectionTranslationUnit.prototype.getPlaceholderSection = function () {
 };
 
 /**
- * Translate the section.
- * Either copy the source or use an MT tool to apply the initial translation
+ * Fill in the contents of the target section if it does not exist at all.
  */
 mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	this.removeHighlight();
+	this.removePlaceholder();
 
 	if ( !this.isTranslated() ) {
-		mw.log( '[CX] Translating section: ' + this );
-		// Adapt in general will be asynchronous operation
+		mw.log( '[CX] Adapting to replace placeholder: ' + this, this.$sourceSection[ 0 ] );
+		this.markMTLoading();
+		// Adapt is usually an async operation. The model emits 'adapt' event when it is
+		// ready, which is then handled in this.onModelAdapted.
 		this.model.adapt();
-		this.setContent( this.model.targetDocument );
-		this.buildSubTranslationUnits( this.model );
-		this.emit( 'change' );
-	} else {
-		this.buildSubTranslationUnits( this.model );
 	}
 
 	if ( this.isEditable() ) {
@@ -121,16 +120,31 @@ mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	}
 };
 
+mw.cx.ui.SectionTranslationUnit.prototype.onModelAdapted = function ( document, provider ) {
+	mw.log( '[CX] Adapted section: ' + this, document, provider );
+	this.setContent( document );
+	this.buildSubTranslationUnits( this.model );
+	this.emit( 'change' );
+};
+
+mw.cx.ui.SectionTranslationUnit.prototype.markMTLoading = function () {
+	this.$translationSection.empty().append( mw.cx.widgets.spinner() );
+};
+
+/**
+ * Sets the translation section html content.
+ *
+ * @private
+ * @param {mixed} content Accepts similar values as $.fn.append().
+ */
 mw.cx.ui.SectionTranslationUnit.prototype.setContent = function ( content ) {
-	if ( !content ) {
-		return;
-	}
-	this.removePlaceholder();
-	this.$translationSection.html( content );
+	this.$translationSection.empty().append( content );
 };
 
 mw.cx.ui.SectionTranslationUnit.prototype.removePlaceholder = function () {
-	this.$translationSection.removeClass( 'cx-placeholder' );
+	if ( this.$translationSection.hasClass( 'cx-placeholder' ) ) {
+		this.$translationSection.removeClass( 'cx-placeholder' ).empty();
+	}
 };
 
 mw.cx.ui.SectionTranslationUnit.prototype.isTranslated = function () {
@@ -150,9 +164,7 @@ mw.cx.ui.SectionTranslationUnit.prototype.onMouseOver = function () {
  * @inheritDoc
  */
 mw.cx.ui.SectionTranslationUnit.prototype.onMouseLeave = function () {
-	if ( !this.isTranslated() ) {
-		this.removeHighlight();
-	}
+	this.removeHighlight();
 };
 
 mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
