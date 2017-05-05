@@ -118,6 +118,8 @@
 	"cx-tools-missing-link-tooltip": "Itzuli (leiho berrian)",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Markatu}} faltan bezala",
 	"echo-category-title-cx": "Itzulpenak",
+	"cx-contributions-link": "Zure ekarpenak",
+	"cx-your-translations-link": "{{GENDER:$1|Zure itzulpenak}}",
 	"cx-translationlist-empty-title": "Itzultzeko ezer ez?",
 	"cx-tools-link-external-link-placeholder": "Gehitu kanpo lotura",
 	"cx-tools-link-to-another-page": "Beste orri bati lotu",
