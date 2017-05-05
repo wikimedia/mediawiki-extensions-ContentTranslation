@@ -38,12 +38,12 @@ mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
 		return this.adaptReq;
 	}
 	// Adapt in general will be asynchronous operation
-	this.adaptReq = this.model.adapt().then( function() {
+	this.adaptReq = this.model.adapt().then( function () {
 		this.setContent( this.model.targetDocument );
 		if ( this.model.targetTitleMissing ) {
 			this.markUnAdapted();
 		}
-	}.bind( this ) ).always( function() {
+	}.bind( this ) ).always( function () {
 		// Re attach event handlers
 		this.listen();
 		this.emit( 'change' );
@@ -61,7 +61,7 @@ mw.cx.ui.LinkTranslationUnit.prototype.setContent = function ( content ) {
 	this.$translationSection.html( content.text );
 	attributes = $( content ).prop( 'attributes' );
 	// loop through attributes and apply them.
-	$.each( attributes, function() {
+	$.each( attributes, function () {
 		self.$translationSection.attr( this.name, this.value );
 	} );
 	this.$translationSection.prop( 'id', $( content ).prop( 'id' ) );

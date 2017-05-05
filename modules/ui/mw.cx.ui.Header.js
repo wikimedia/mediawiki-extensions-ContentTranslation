@@ -1,6 +1,5 @@
 'use strict';
 
-var timer;
 /**
  * TranslationView Header
  *
@@ -26,6 +25,8 @@ mw.cx.ui.Header = function ( config ) {
 /* Setup */
 
 OO.inheritClass( mw.cx.ui.Header, OO.ui.PanelLayout );
+
+mw.cx.ui.Header.static.timer = null;
 
 mw.cx.ui.Header.prototype.getContent = function () {
 	var logo, $titleText, $headerTitle, $translationCenterLink, $translationCenter;
@@ -69,12 +70,12 @@ mw.cx.ui.Header.prototype.listen = function () {
 	mw.hook( 'mw.cx.translation.save-started' ).add(
 		this.setStatusMessage.bind( this, mw.msg( 'cx-save-draft-saving' ) )
 	);
-	mw.hook( 'mw.cx.translation.saved' ).add( function() {
+	mw.hook( 'mw.cx.translation.saved' ).add( function () {
 		var minutes = 0;
 
-		clearTimeout( timer );
+		clearTimeout( this.constructor.static.timer );
 		this.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
-		timer = setInterval( function () {
+		this.constructor.static.timer = setInterval( function () {
 			minutes++;
 			this.setStatusMessage(
 				mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )

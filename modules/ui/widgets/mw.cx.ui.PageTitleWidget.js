@@ -29,7 +29,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 
 OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.TextInputWidget );
 
-mw.cx.widgets.PageTitleWidget.prototype.validate = function( value ) {
+mw.cx.widgets.PageTitleWidget.prototype.validate = function ( value ) {
 	if ( value === undefined || value === null || value === '' ) {
 		return false;
 	}

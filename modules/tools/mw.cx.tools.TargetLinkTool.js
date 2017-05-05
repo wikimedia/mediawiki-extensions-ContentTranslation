@@ -99,7 +99,7 @@ mw.cx.tools.TargetLinkTool.prototype.getContent = function () {
 		);
 
 		if ( !this.pageInfo ) {
-			this.getPageInfo( this.model.config.targetLanguage, this.selection ).then( function() {
+			this.getPageInfo( this.model.config.targetLanguage, this.selection ).then( function () {
 				this.refresh();
 			}.bind( this ) );
 		}
@@ -111,7 +111,7 @@ mw.cx.tools.TargetLinkTool.prototype.getContent = function () {
 			this.pageInfo && this.pageInfo.description
 		);
 		if ( !this.pageInfo ) {
-			this.getPageInfo( this.model.config.targetLanguage, this.targetTitle ).then( function() {
+			this.getPageInfo( this.model.config.targetLanguage, this.targetTitle ).then( function () {
 				this.refresh();
 			}.bind( this ) );
 		}
@@ -165,7 +165,7 @@ mw.cx.tools.TargetLinkTool.prototype.buildLinkInfo = function ( language, title,
 mw.cx.tools.TargetLinkTool.prototype.getPageInfo = function ( language, title ) {
 	this.pageInfo = null;
 
-	return this.model.requestManager.getLinkInfo( language, title ).then( function( pageInfo ) {
+	return this.model.requestManager.getLinkInfo( language, title ).then( function ( pageInfo ) {
 		this.pageInfo = pageInfo;
 	}.bind( this ) );
 };

@@ -29,7 +29,7 @@ OO.mixinClass( mw.cx.tools.TranslationTool, OO.EventEmitter );
  * Build the tool card widget associated with the current translation unit
  * @return {mw.cx.widgets.TranslationToolWidget} The tool card
  */
-mw.cx.tools.TranslationTool.prototype.getCard = function() {
+mw.cx.tools.TranslationTool.prototype.getCard = function () {
 	this.card = this.card || new mw.cx.widgets.TranslationToolWidget( this, {
 		title: this.title,
 		language: this.language,
@@ -43,7 +43,7 @@ mw.cx.tools.TranslationTool.prototype.getCard = function() {
  * @method
  * @return {OO.ui.Element[]} Array of OOJS UI Elements
  */
-mw.cx.tools.TranslationTool.prototype.getActions = function() {
+mw.cx.tools.TranslationTool.prototype.getActions = function () {
 	return [];
 };
 
@@ -51,7 +51,7 @@ mw.cx.tools.TranslationTool.prototype.getActions = function() {
  * Get the optional background image for the card
  * @return {string|null} The background image URL
  */
-mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function() {
+mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function () {
 	return null;
 };
 
@@ -60,7 +60,7 @@ mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function() {
  * @method
  * @return {string|jQuery} Content as HTML or jQuery
  */
-mw.cx.tools.TranslationTool.prototype.getContent = function() {
+mw.cx.tools.TranslationTool.prototype.getContent = function () {
 	return $( [] );
 };
 

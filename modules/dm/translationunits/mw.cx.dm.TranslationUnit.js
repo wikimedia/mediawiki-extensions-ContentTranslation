@@ -59,7 +59,7 @@ mw.cx.dm.TranslationUnit.prototype.adapt = null;
 /**
  * Change handler
  */
-mw.cx.dm.TranslationUnit.prototype.onChange = function() {
+mw.cx.dm.TranslationUnit.prototype.onChange = function () {
 	var parentTranslationUnit;
 
 	parentTranslationUnit = this.getParentTranslationUnit();
@@ -172,7 +172,7 @@ mw.cx.dm.TranslationUnit.prototype.getKeyForModelMap = function ( node ) {
  *
  * @return {mw.cx.dm.TranslationUnit[]} Array of sub translation units
  */
-mw.cx.dm.TranslationUnit.prototype.getTranslationUnits = function() {
+mw.cx.dm.TranslationUnit.prototype.getTranslationUnits = function () {
 	return this.translationUnits;
 };
 
@@ -258,6 +258,6 @@ mw.cx.dm.TranslationUnit.prototype.setTranslationSource = function ( translation
  *
  * @return {string} String identified for the instance
  */
-mw.cx.dm.TranslationUnit.prototype.toString = function() {
+mw.cx.dm.TranslationUnit.prototype.toString = function () {
 	return this.constructor.name + '::' + this.getId();
 };

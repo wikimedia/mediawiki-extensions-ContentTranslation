@@ -44,7 +44,7 @@ mw.cx.dm.ImageTranslationUnit.prototype.adapt = function () {
 	this.targetResource = this.targetImage.getAttribute( 'resource' );
 
 	return this.requestManager.getNamespaceAlias( this.targetLanguage, 'File' )
-		.then( function( namespaceAlias ) {
+		.then( function ( namespaceAlias ) {
 			this.targetResource = this.sourceResource.replace(
 				/(\.\/)*(.+)(:)/g,
 				'$1' + namespaceAlias + '$3'
@@ -59,7 +59,7 @@ mw.cx.dm.ImageTranslationUnit.prototype.adapt = function () {
  * @param {string} imageSrc
  * @return {boolean}
  */
-mw.cx.dm.ImageTranslationUnit.prototype.isCommonsImage = function( imageSrc ) {
+mw.cx.dm.ImageTranslationUnit.prototype.isCommonsImage = function ( imageSrc ) {
 	return imageSrc.indexOf( '//upload.wikimedia.org/wikipedia/commons/' ) === 0;
 };
 

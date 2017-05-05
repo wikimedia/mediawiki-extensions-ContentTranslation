@@ -35,10 +35,10 @@ mw.cx.widgets.ProgressBarWidget = function CXProgressBarWidget( config ) {
 /* Setup */
 OO.inheritClass( mw.cx.widgets.ProgressBarWidget, OO.ui.StackLayout );
 
-mw.cx.widgets.ProgressBarWidget.prototype.setMTProgress = function( progress ) {
+mw.cx.widgets.ProgressBarWidget.prototype.setMTProgress = function ( progress ) {
 	this.mtProgressBar.setProgress( progress );
 };
 
-mw.cx.widgets.ProgressBarWidget.prototype.setTotalProgress = function( progress ) {
+mw.cx.widgets.ProgressBarWidget.prototype.setTotalProgress = function ( progress ) {
 	this.totalProgressBar.setProgress( progress );
 };

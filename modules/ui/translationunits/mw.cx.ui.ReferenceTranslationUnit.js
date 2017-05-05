@@ -42,7 +42,7 @@ mw.cx.ui.ReferenceTranslationUnit.prototype.setContent = function ( content ) {
 	// Refresh reference
 	attributes = $( content ).prop( 'attributes' );
 	// loop through attributes and apply them.
-	$.each( attributes, function() {
+	$.each( attributes, function () {
 		self.$translationSection.attr( this.name, this.value );
 	} );
 	this.$translationSection.prop( 'id', $( content ).prop( 'id' ) );

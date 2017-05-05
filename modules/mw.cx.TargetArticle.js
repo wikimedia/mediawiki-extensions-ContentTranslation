@@ -337,7 +337,7 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
  * @param {string} title The title to increase the version on.
  * @return {string}
  */
-mw.cx.TargetArticle.prototype.increaseVersion = function( title ) {
+mw.cx.TargetArticle.prototype.increaseVersion = function ( title ) {
 	var match, version;
 
 	match = title.match( /^.*\((\d+)\)$/ );

@@ -58,7 +58,7 @@ mw.cx.ui.ToolsColumn.prototype.listen = function () {
  * Set the translation data model
  * @param {mw.cx.dm.Translation} translation
  */
-mw.cx.ui.ToolsColumn.prototype.setTranslation = function( translation ) {
+mw.cx.ui.ToolsColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
 };
 

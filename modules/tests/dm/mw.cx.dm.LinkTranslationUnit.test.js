@@ -87,9 +87,9 @@ QUnit.test( 'Title adaptation test', function ( assert ) {
 		linkTranslationUnit.findLinkTarget( tests[ i ].sourceLanguage, tests[ i ].title )
 			.done( function ( adaptedTitle ) {
 				assert.deepEqual( adaptedTitle, targetTitle, description );
-			} ).fail( function() {
+			} ).fail( function () {
 				assert.deepEqual( targetTitle, null, description );
-			} ).always( function() {
+			} ).always( function () {
 				done();
 			} );
 	}

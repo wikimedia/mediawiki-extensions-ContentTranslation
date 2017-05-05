@@ -78,7 +78,7 @@ mw.cx.ui.TranslationUnit.prototype.listen = function () {
 	this.$translationSection.on( 'keyup mouseup',
 		OO.ui.debounce( this.onMouseUp.bind( this ), 250 )
 	);
-	this.$translationSection.on( 'input', function() {
+	this.$translationSection.on( 'input', function () {
 		this.emit( 'change' );
 	}.bind( this ) );
 };
@@ -274,6 +274,6 @@ mw.cx.ui.TranslationUnit.prototype.buildSubTranslationUnits = function ( model )
 	}
 };
 
-mw.cx.ui.TranslationUnit.prototype.toString = function() {
+mw.cx.ui.TranslationUnit.prototype.toString = function () {
 	return this.constructor.name + '::' + this.model.getId();
 };

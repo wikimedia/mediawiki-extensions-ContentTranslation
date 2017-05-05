@@ -27,7 +27,7 @@ mw.cx.NamespaceCache = function CXNamespaceCache( config ) {
  * @return {jQuery.Promise}
  */
 mw.cx.NamespaceCache.prototype.get = function ( canonicalNamespace ) {
-	return this.getRequestPromise().then( function() {
+	return this.getRequestPromise().then( function () {
 		return this.cacheValues[ canonicalNamespace ];
 	}.bind( this ) );
 };
@@ -47,7 +47,7 @@ mw.cx.NamespaceCache.prototype.getRequestPromise = function () {
 			action: 'query',
 			meta: 'siteinfo',
 			siprop: 'namespaces'
-		} ).then( function( response ) {
+		} ).then( function ( response ) {
 			this.processResponse( response );
 		}.bind( this ) );
 	return this.requestPromise;

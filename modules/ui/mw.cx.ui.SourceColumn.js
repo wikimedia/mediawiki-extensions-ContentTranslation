@@ -79,7 +79,7 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 	this.showLoadingIndicator();
 };
 
-mw.cx.ui.SourceColumn.prototype.showCategories = function() {
+mw.cx.ui.SourceColumn.prototype.showCategories = function () {
 	var categoryUI = new mw.cx.ui.Categories( {
 		page: this.translation.getSourcePage()
 	} );
@@ -112,7 +112,7 @@ mw.cx.ui.SourceColumn.prototype.insertAt = function ( index, $element ) {
  * Set the translation data model
  * @param {mw.cx.dm.Translation} translation
  */
-mw.cx.ui.SourceColumn.prototype.setTranslation = function( translation ) {
+mw.cx.ui.SourceColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
 };
 

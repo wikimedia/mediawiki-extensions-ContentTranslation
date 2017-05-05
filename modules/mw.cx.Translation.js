@@ -58,7 +58,7 @@ mw.cx.Translation.prototype.save = function ( translationUnit ) {
 	// Keep records keyed by section id and origin to avoid duplicates.
 	// When more than one changes to a single translation unit comes, only
 	// the last one need to consider for saving.
-	this.getTranslationUnitData( translationUnit ).forEach( function( data ) {
+	this.getTranslationUnitData( translationUnit ).forEach( function ( data ) {
 		this.saveQueue[ data.sectionId + '-' + data.origin ] = data;
 	}.bind( this ) );
 	this.schedule();
@@ -182,7 +182,7 @@ mw.cx.Translation.prototype.onSaveFailure = function ( errorCode, details ) {
 mw.cx.Translation.prototype.getContentToSave = function ( saveQueue ) {
 	var records = [];
 
-	Object.keys( saveQueue ).forEach( function( key ) {
+	Object.keys( saveQueue ).forEach( function ( key ) {
 		records.push( saveQueue[ key ] );
 	} );
 	// The cxsave api accept non-deflated content too.

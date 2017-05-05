@@ -125,7 +125,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 				// clocks might be set to wrong time.
 				token.refreshAt = now + token.age - 30;
 				return token;
-			}.bind( this ),
+			},
 			function ( errorCode, errorObj ) {
 				if ( errorCode === 'token-impossible' ) {
 					// Likely CX extension has not been configured properly.
@@ -136,7 +136,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 				}
 				mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation token.' );
 				mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
-			}.bind( this )
+			}
 		);
 
 	return this.tokenPromise.then( function ( token ) {

@@ -57,7 +57,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
 	}
 
 	this.requestManager.getTitlePair( this.sourceLanguage, this.sourceTitle )
-		.done( function( pairInfo ) {
+		.done( function ( pairInfo ) {
 			var targetTitle = pairInfo.targetTitle;
 
 			if ( !targetTitle ) {
@@ -65,7 +65,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
 			} else {
 				result.resolve( targetTitle );
 			}
-		}.bind( this ) );
+		} );
 
 	return result.promise();
 };

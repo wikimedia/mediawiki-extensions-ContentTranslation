@@ -44,7 +44,7 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
 
 	this.$element.append( this.titleWidget.$element );
 	// Propage title change events
-	this.titleWidget.on( 'change', function() {
+	this.titleWidget.on( 'change', function () {
 		this.emit( 'titleChange', this.titleWidget.getValue() );
 	}.bind( this ) );
 
@@ -70,7 +70,7 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
  * Set the translation data model
  * @param {mw.cx.dm.Translation} translation
  */
-mw.cx.ui.TranslationColumn.prototype.setTranslation = function( translation ) {
+mw.cx.ui.TranslationColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
 };
 

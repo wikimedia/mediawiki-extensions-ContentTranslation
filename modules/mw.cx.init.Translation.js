@@ -297,11 +297,11 @@ mw.cx.init.Translation.prototype.enableTranslation = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
-	return this.sourcePage.getCategories().then( function( sourceCategories ) {
+	return this.sourcePage.getCategories().then( function ( sourceCategories ) {
 		return this.targetPage.adaptCategoriesFrom(
 			this.sourceWikiPage.getLanguage(),
 			sourceCategories
-		).then( function() {
+		).then( function () {
 			this.translationView.showCategories();
 		}.bind( this ) );
 	}.bind( this ) );

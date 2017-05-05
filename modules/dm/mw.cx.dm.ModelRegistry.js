@@ -23,7 +23,7 @@ mw.cx.dm.ModelRegistry = function CXModelRegistry() {
 
 OO.inheritClass( mw.cx.dm.ModelRegistry, OO.Registry );
 
-/* Private helper functions */
+/* Static methods */
 
 /**
  * Helper function for register(). Adds a value to the front of an array in a nested object.
@@ -40,7 +40,7 @@ OO.inheritClass( mw.cx.dm.ModelRegistry, OO.Registry );
  * @param {...string} keys
  * @param {Mixed} value
  */
-function addType( obj ) {
+mw.cx.dm.ModelRegistry.static.addType = function ( obj ) {
 	var i, len,
 		keys = Array.prototype.slice.call( arguments, 1, -1 ),
 		value = arguments[ arguments.length - 1 ],
@@ -54,7 +54,7 @@ function addType( obj ) {
 	}
 	o[ keys[ i ] ] = o[ keys[ i ] ] || [];
 	o[ keys[ i ] ].unshift( value );
-}
+};
 
 /**
  * Helper function for unregister().
@@ -66,7 +66,7 @@ function addType( obj ) {
  * @param {...string} keys
  * @param {Mixed} value to remove
  */
-function removeType( obj ) {
+mw.cx.dm.ModelRegistry.static.removeType = function ( obj ) {
 	var index,
 		keys = Array.prototype.slice.call( arguments, 1, -1 ),
 		value = arguments[ arguments.length - 1 ],
@@ -79,7 +79,7 @@ function removeType( obj ) {
 		}
 			// TODO: Prune empty array and empty containing objects
 	}
-}
+};
 
 /* Public methods */
 
@@ -115,13 +115,13 @@ mw.cx.dm.ModelRegistry.prototype.register = function ( constructor ) {
 	types = constructor.static.matchRdfaTypes || [ '' ];
 	for ( i = 0; i < tags.length; i++ ) {
 		// +!!foo is a shorter equivalent of Number( Boolean( foo ) ) or foo ? 1 : 0
-		addType( this.modelsByTag, +!!constructor.static.matchFunction,
+		this.constructor.static.addType( this.modelsByTag, +!!constructor.static.matchFunction,
 			tags[ i ], name
 		);
 	}
 	for ( i = 0; i < types.length; i++ ) {
 		for ( j = 0; j < tags.length; j++ ) {
-			addType( this.modelsByTypeAndTag,
+			this.constructor.static.addType( this.modelsByTypeAndTag,
 				+!!constructor.static.matchFunction, types[ i ], tags[ j ], name
 			);
 		}
@@ -161,13 +161,13 @@ mw.cx.dm.ModelRegistry.prototype.unregister = function ( constructor ) {
 
 	for ( i = 0; i < tags.length; i++ ) {
 		// +!!foo is a shorter equivalent of Number( Boolean( foo ) ) or foo ? 1 : 0
-		removeType( this.modelsByTag, +!!constructor.static.matchFunction,
+		this.constructor.static.removeType( this.modelsByTag, +!!constructor.static.matchFunction,
 				tags[ i ], name
 			);
 	}
 	for ( i = 0; i < types.length; i++ ) {
 		for ( j = 0; j < tags.length; j++ ) {
-			removeType( this.modelsByTypeAndTag,
+			this.constructor.static.removeType( this.modelsByTypeAndTag,
 				+!!constructor.static.matchFunction, types[ i ], tags[ j ], name
 			);
 		}

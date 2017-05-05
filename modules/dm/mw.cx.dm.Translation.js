@@ -66,7 +66,7 @@ mw.cx.dm.Translation.prototype.getTranslationUnits = function () {
 	return this.translationUnits;
 };
 
-mw.cx.dm.Translation.prototype.getTargetPage = function() {
+mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;
 };
 
@@ -88,7 +88,7 @@ mw.cx.dm.Translation.prototype.setId = function ( id ) {
 	this.id = id;
 };
 
-mw.cx.dm.Translation.prototype.getSourcePage = function() {
+mw.cx.dm.Translation.prototype.getSourcePage = function () {
 	return this.sourcePage;
 };
 
@@ -101,7 +101,7 @@ mw.cx.dm.Translation.prototype.setSourcePage = function ( sourcePage ) {
 	this.sourcePage = sourcePage;
 };
 
-mw.cx.dm.Translation.prototype.getTargetPage = function() {
+mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;
 };
 

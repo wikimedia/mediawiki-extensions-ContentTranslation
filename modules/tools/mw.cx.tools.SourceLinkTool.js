@@ -56,7 +56,7 @@ mw.cx.tools.SourceLinkTool.prototype.getContent = function () {
 	if ( !this.pageInfo ) {
 		this.model.requestManager.getLinkInfo(
 			this.model.config.sourceLanguage, this.sourceTitle
-		).then( function( pageInfo ) {
+		).then( function ( pageInfo ) {
 			this.pageInfo = pageInfo;
 			$linkDesc.text( this.pageInfo.description );
 			this.refresh();

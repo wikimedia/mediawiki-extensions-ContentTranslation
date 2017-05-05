@@ -42,12 +42,12 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		classes: [ 'cx-tools-newlink-internal-trigger' ],
 		framed: false,
 		label: mw.msg( 'cx-tools-link-internal-link' )
-	} ),
+	} );
 	externalLinkTab = new OO.ui.ButtonWidget( {
 		classes: [ 'cx-tools-newlink-external-trigger' ],
 		framed: false,
 		label: mw.msg( 'cx-tools-link-external-link' )
-	} ),
+	} );
 	applyButton = new OO.ui.ButtonWidget( {
 		classes: [ 'cx-tools-newlink-apply' ],
 		flags: [ 'primary', 'progressive' ],
@@ -82,14 +82,14 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		items: [ compactTrigger, tabBar, internalLinkPanel, externalLinkPanel ]
 	} );
 
-	compactTrigger.$element.on( 'click', function() {
+	compactTrigger.$element.on( 'click', function () {
 		card.$element.addClass( 'expanded' );
 	} );
-	internalLinkTab.on( 'click', function() {
+	internalLinkTab.on( 'click', function () {
 		internalLinkPanel.$element.addClass( 'active' );
 		externalLinkPanel.$element.removeClass( 'active' );
 	} );
-	externalLinkTab.on( 'click', function() {
+	externalLinkTab.on( 'click', function () {
 		externalLinkPanel.$element.addClass( 'active' );
 		internalLinkPanel.$element.removeClass( 'active' );
 	} );

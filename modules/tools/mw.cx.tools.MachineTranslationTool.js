@@ -76,6 +76,11 @@ mw.cx.tools.MachineTranslationTool.prototype.getContent = function () {
 	return this.mtProviderSelector.$element;
 };
 
+mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {
+	var provider = this.mtProviderSelector.getMenu().getSelectedItem().getData();
+	this.MTManager.setPreferredProvider( provider );
+};
+
 /* Private methods */
 
 /**

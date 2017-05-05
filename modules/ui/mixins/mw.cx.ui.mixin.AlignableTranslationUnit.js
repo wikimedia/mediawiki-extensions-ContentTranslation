@@ -14,14 +14,14 @@ mw.cx.ui.mixin.AlignableTranslationUnit = function AlignableTranslationUnit() {
 	} );
 };
 
-mw.cx.ui.mixin.AlignableTranslationUnit.prototype.getAlignableSections = function() {
+mw.cx.ui.mixin.AlignableTranslationUnit.prototype.getAlignableSections = function () {
 	return {
 		source: this.$sourceSection,
 		target: this.$translationSection
 	};
 };
 
-mw.cx.ui.mixin.AlignableTranslationUnit.prototype.align = function() {
+mw.cx.ui.mixin.AlignableTranslationUnit.prototype.align = function () {
 	var sections;
 
 	sections = this.getAlignableSections();
