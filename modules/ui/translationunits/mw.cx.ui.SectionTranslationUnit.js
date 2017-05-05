@@ -113,6 +113,9 @@ mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 		// Adapt is usually an async operation. The model emits 'adapt' event when it is
 		// ready, which is then handled in this.onModelAdapted.
 		this.model.adapt();
+	} else {
+		// Restored section from stored translation
+		this.buildSubTranslationUnits( this.model );
 	}
 
 	if ( this.isEditable() ) {
