@@ -144,8 +144,9 @@ mw.cx.dm.SectionTranslationUnit.prototype.getMTProvider = function () {
  * Add a new link to the section.
  * @param {Selection} selection The selection object
  * @param {string} title Title for the new link.
+ * @param {boolean} targetExists Whether the title exist in target language
  */
-mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
+mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title, targetExists ) {
 	var range, html, newLink;
 
 	newLink = document.createElement( 'a' );
@@ -155,7 +156,12 @@ mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title 
 	newLink.setAttribute( 'rel', 'mw:WikiLink' );
 	// Set a sufficiently good random id
 	newLink.setAttribute( 'id', 'cx' + new Date().valueOf() );
-
+	if ( targetExists === false ) {
+		// Title does not exist in target language. Add new class.
+		// Note that this class is just for showing the link as red link in CX
+		// translation view. It has no effect on generated wiki text.
+		newLink.className = 'new';
+	}
 	// TODO: We can probably move the below block to a utility library
 	// after we see more usecases similar to this and consolidate.
 	if ( window.getSelection ) {

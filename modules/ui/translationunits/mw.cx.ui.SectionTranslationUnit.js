@@ -154,14 +154,20 @@ mw.cx.ui.SectionTranslationUnit.prototype.isTranslated = function () {
 	return !!this.model.targetDocument;
 };
 
-mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title ) {
+/**
+ * Add a new link to the section.
+ * @param {Selection} selection The selection object
+ * @param {string} title Title for the new link.
+ * @param {boolean} targetExists Whether the title exist in target language
+ */
+mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title, targetExists ) {
 	if ( !title || !title.trim() ) {
 		mw.log.error( '[CX] Attempting to create link with blank title: ' + this );
 		return;
 	}
 	// Restore the selection
 	mw.cx.selection.save( 'translation' );
-	this.model.addLink( selection, title );
+	this.model.addLink( selection, title, targetExists );
 	// Set the cursor at the end of inserted link.
 	mw.cx.selection.restore( 'translation' );
 	mw.cx.selection.setCursorAfter( 'translation' );

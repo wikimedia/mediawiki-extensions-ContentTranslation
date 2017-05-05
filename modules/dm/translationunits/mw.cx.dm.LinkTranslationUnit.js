@@ -15,6 +15,7 @@ mw.cx.dm.LinkTranslationUnit = function LinkTranslationUnit( config, translation
 	this.targetTitle = null;
 	this.sourceLinkInfo = null;
 	this.targetTitleMissing = true;
+	this.redlink = false;
 	this.init();
 };
 
@@ -87,6 +88,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
 mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
 
 	if ( this.targetDocument ) {
+		this.redlink = this.targetDocument.classList.contains( 'new' );
 		mw.log.warn( '[CX] Adapting a link which looks already adapted: ' + this );
 	}
 
@@ -177,6 +179,10 @@ mw.cx.dm.LinkTranslationUnit.prototype.isTargetExist = function () {
 mw.cx.dm.LinkTranslationUnit.prototype.removeLink = function () {
 	this.targetDocument.replaceWith( this.getTargetTitle() );
 	this.targetDocument = null;
+};
+
+mw.cx.dm.LinkTranslationUnit.prototype.makeRedLink = function () {
+	this.redlink = true;
 };
 
 mw.cx.dm.modelRegistry.register( mw.cx.dm.LinkTranslationUnit );

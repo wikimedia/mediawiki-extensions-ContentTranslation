@@ -59,12 +59,15 @@ mw.cx.tools.TargetLinkTool.prototype.onSelect = function ( selectionObj ) {
 mw.cx.tools.TargetLinkTool.prototype.getActions = function () {
 	this.actions = [];
 
-	if ( this.pageInfo && this.pageInfo.missing ) {
+	if ( this.pageInfo && this.pageInfo.missing && !this.model.redlink ) {
 		this.makeRedLinkButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
 			icon: 'flag',
 			framed: false,
 			classes: [ 'cx-tools-link-mark-red' ]
+		} );
+		this.makeRedLinkButton.connect( this, {
+			click: 'makeRedLink'
 		} );
 		this.actions.push( this.makeRedLinkButton );
 	} else if ( this.selection ) {
@@ -78,7 +81,7 @@ mw.cx.tools.TargetLinkTool.prototype.getActions = function () {
 			click: 'addLink'
 		} );
 		this.actions.push( this.addLinkButton );
-	} else if ( this.model && this.model.isTargetExist() ) {
+	} else if ( this.model && ( this.model.isTargetExist() || this.model.redlink ) ) {
 		this.removeLinkButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-link-remove' ),
 			icon: 'close',
@@ -139,12 +142,12 @@ mw.cx.tools.TargetLinkTool.prototype.buildLinkInfo = function ( pageinfo ) {
 	this.emit( 'actionsChange' );
 	this.emit( 'backgroundChange' );
 
-	if ( pageinfo.missing ) {
+	if ( pageinfo.missing && !this.model.redlink ) {
 		return $( '<div>' ).text( mw.msg( 'cx-tools-missing-link-text' ) );
 	}
 
 	$linkTitle = $( '<a>' )
-		.addClass( 'cx-tools-link-text' )
+		.addClass( 'cx-tools-link-text ' + ( this.model.redlink ? 'new' : '' ) )
 		.text( pageinfo.title )
 		.prop( {
 			target: '_blank',
@@ -176,8 +179,16 @@ mw.cx.tools.TargetLinkTool.prototype.removeLink = function () {
 };
 
 mw.cx.tools.TargetLinkTool.prototype.addLink = function () {
-	this.emit( 'addlink', this.selectionObj, this.pageInfo && this.pageInfo.title );
+	this.emit( 'addlink', this.selectionObj, this.pageInfo && this.pageInfo.title, true );
 };
 
+mw.cx.tools.TargetLinkTool.prototype.makeRedLink = function () {
+	if ( this.selection ) {
+		this.emit( 'addlink', this.selectionObj, this.pageInfo && this.pageInfo.title, false );
+	} else {
+		this.emit( 'makeRedLink' );
+		this.refresh();
+	}
+};
 /* Register */
 mw.cx.tools.translationToolFactory.register( mw.cx.tools.TargetLinkTool );

@@ -27,7 +27,8 @@ mw.cx.ui.LinkTranslationUnit.static.tools = {
 	targetlink: {
 		triggers: [ 'click', 'focus' ],
 		events: {
-			removelink: 'removeLink'
+			removelink: 'removeLink',
+			makeRedLink: 'makeRedLink'
 		}
 	},
 	newlink: [ 'click', 'focus' ]
@@ -103,6 +104,17 @@ mw.cx.ui.LinkTranslationUnit.prototype.removeLink = function () {
 	}
 	// Destroy all tools
 	this.tools.forEach( function ( tool ) { tool.destroy(); } );
+	this.parentTranslationUnit.focus();
+	// Restore the cursor
+	mw.cx.selection.restore( 'translation' );
+	this.emit( 'change' );
+};
+
+mw.cx.ui.LinkTranslationUnit.prototype.makeRedLink = function () {
+	// Save the selection
+	mw.cx.selection.save( 'translation' );
+	this.model.makeRedLink();
+	this.$translationSection.removeClass( 'cx-target-link-unadapted' ).addClass( 'new' );
 	this.parentTranslationUnit.focus();
 	// Restore the cursor
 	mw.cx.selection.restore( 'translation' );
