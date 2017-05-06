@@ -133,5 +133,7 @@
 	"cx-translator-month-stats-label": "Hilabete honetan",
 	"cx-translator-total-translations-label": "Guztira",
 	"cx-tools-mt-new-provider": "berria",
-	"cx-tools-template-title": "Txantiloia"
+	"cx-tools-template-title": "Txantiloia",
+	"cx-translation-template-add-param": "+ Itzuli eremua",
+	"cx-translation-template-add-more": "Gehitu eremu gehiago"
 }

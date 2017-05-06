@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sator"
+			"Sator",
+			"Subi"
 		]
 	},
 	"apihelp-cxpublish-description": "Gorde Content Translation hedapena erabila sortutako orria.",
+	"apihelp-cxpublish-param-html": "Gorde beharreko edukia.",
 	"apihelp-cxpublish-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-cxpublish-param-to": "Helburu den hizkuntzaren kodea",
 	"apihelp-cxpublish-param-sourcetitle": "Jatorrizko orriaren titulua",
@@ -30,8 +32,8 @@
 	"apihelp-cxsuggestionlist-param-titles": "Orri-izenburuak.",
 	"apihelp-cxsuggestionlist-param-from": "Jatorrizko hizkuntzaren kodea.",
 	"apihelp-cxsuggestionlist-param-to": "Helburu den hizkuntzaren kodea.",
-	"apihelp-cxsave-param-translationid": "Itzulpen IDa",
 	"apihelp-cxsave-param-from": "Jatorrizko hizkuntzaren kodea.",
 	"apihelp-cxsave-param-to": "Helburu den hizkuntzaren kodea.",
-	"apihelp-cxsave-param-sourcetitle": "Jatorrizko orriaren izenburua."
+	"apihelp-cxsave-param-sourcetitle": "Jatorrizko orriaren izenburua.",
+	"apierror-cx-translationnotfound": "Itzulpena ez da aurkitu"
 }
