@@ -34,6 +34,9 @@
 			padding: 5px 0;
 			vertical-align: top;
 			color: @gray-dark;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
 		}
 	}
 	.cx-widget-translationtool-actions {
@@ -42,6 +45,10 @@
 			.mw-ui-one-half;
 			margin-right: 0;
 		}
+	}
+
+	&.collapse {
+		display: none;
 	}
 }
 

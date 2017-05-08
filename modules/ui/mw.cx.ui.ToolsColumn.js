@@ -21,6 +21,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		continuous: true,
 		classes: [ 'cx-column-tools-container' ],
 		expanded: false,
+		scrollable: false,
 		padded: true
 	} );
 	// Configuration initialization

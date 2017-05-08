@@ -147,11 +147,22 @@ mw.cx.dm.SectionTranslationUnit.prototype.getMTProvider = function () {
  * @param {boolean} targetExists Whether the title exist in target language
  */
 mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title, targetExists ) {
-	var range, html, newLink;
+	var newLink, href;
+
+	title = mw.cx.dm.LinkTranslationUnit.static.getValidTitle( title );
+	if ( !title ) {
+		mw.log.error( '[CX] Invalid title given' );
+		return;
+	}
+	// Convert title to a relative URL to avoid insecure values like
+	// javascript:.. appearing in it.
+	if ( title.indexOf( './' ) < 0 ) {
+		href = './' + title;
+	}
 
 	newLink = document.createElement( 'a' );
 	newLink.appendChild( document.createTextNode( title ) );
-	newLink.setAttribute( 'href', title );
+	newLink.setAttribute( 'href', href );
 	newLink.setAttribute( 'title', title );
 	newLink.setAttribute( 'rel', 'mw:WikiLink' );
 	// Set a sufficiently good random id
@@ -162,21 +173,53 @@ mw.cx.dm.SectionTranslationUnit.prototype.addLink = function ( selection, title,
 		// translation view. It has no effect on generated wiki text.
 		newLink.className = 'new';
 	}
+	mw.cx.dm.SectionTranslationUnit.static.pasteAtSelection( selection, newLink );
+	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
+};
+
+/**
+ * Add an external link to the section.
+ * @param {Selection} selection The selection object
+ * @param {string} url Target URL
+ */
+mw.cx.dm.SectionTranslationUnit.prototype.addExternalLink = function ( selection, url ) {
+	var newLink;
+
+	// Validate the link
+	if ( !mw.cx.dm.ExternalLinkTranslationUnit.static.isSafeUrl( url ) ) {
+		mw.log.error( '[CX] Invalid or unsafe url given' );
+		return;
+	}
+	newLink = document.createElement( 'a' );
+	newLink.appendChild( document.createTextNode( url ) );
+	newLink.setAttribute( 'href', url );
+	newLink.setAttribute( 'rel', 'mw:ExtLink' );
+	// Set a sufficiently good random id
+	newLink.setAttribute( 'id', 'cx' + new Date().valueOf() );
+	mw.cx.dm.SectionTranslationUnit.static.pasteAtSelection( selection, newLink );
+	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
+};
+
+/**
+ * Paste an element at given selection
+ * @param {Selection} selection The selection object
+ * @param {Element} elementToPaste [description]
+ */
+mw.cx.dm.SectionTranslationUnit.static.pasteAtSelection = function ( selection, elementToPaste ) {
+	var range, html;
 	// TODO: We can probably move the below block to a utility library
 	// after we see more usecases similar to this and consolidate.
 	if ( window.getSelection ) {
 		if ( selection.getRangeAt && selection.rangeCount ) {
 			range = selection.getRangeAt( 0 );
 			range.deleteContents();
-			range.insertNode( newLink );
+			range.insertNode( elementToPaste );
 		}
 	} else if ( document.selection && document.selection.createRange ) {
 		range = selection.createRange();
-		html = newLink.outerHTML;
+		html = elementToPaste.outerHTML;
 		range.pasteHTML( html );
 	}
-
-	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
 };
 
 /* Register */

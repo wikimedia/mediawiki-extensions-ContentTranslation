@@ -44,6 +44,8 @@ mw.cx.tools.TargetLinkTool.prototype.onSelect = function ( selectionObj ) {
 	} else {
 		return;
 	}
+	// Save the selection with a name so that it can be restored after the tool
+	// modify the selected content.
 	mw.cx.selection.save( 'translation', this.selectionObj );
 	// Check if selection changed.
 	if ( this.selection !== selection ) {
