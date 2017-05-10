@@ -47,13 +47,11 @@ mw.cx.TargetArticle.prototype.publish = function () {
 	this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
 		apiParams.title = title;
 		// Post the content to publish.
-		return mw.Api().postWithToken( 'csrf', apiParams, {
+		return new mw.Api().postWithToken( 'csrf', apiParams, {
 			// A bigger timeout since publishing after converting html to wikitext
 			// parsoid is not a fast operation.
 			timeout: 100 * 1000 // in milliseconds
-		} ).then( this.publishSuccess.bind( this ) )
-			// Failure handler
-		.fail( this.publishFail.bind( this ) );
+		} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
 	}.bind( this ) );
 
 	return this.publishDeferred.promise();
@@ -85,8 +83,7 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response ) {
  */
 mw.cx.TargetArticle.prototype.publishComplete = function () {
 	this.publishDeferred.resolve( true );
-	this.emit( 'publish' );
-	// TODO: Event logging the publishing success
+	this.emit( 'publishSuccess' );
 };
 
 /**

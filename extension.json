@@ -1468,7 +1468,8 @@
 			],
 			"messages": [
 				"cx-publish-button",
-				"cx-publish-button-publishing"
+				"cx-publish-button-publishing",
+				"cx-publish-page-success"
 			],
 			"dependencies": [
 				"ext.cx.model",
