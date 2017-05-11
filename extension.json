@@ -1700,6 +1700,7 @@
 				"mw.cx.ui"
 			],
 			"messages": [
+				"cx-tools-category-add",
 				"cx-tools-categories-count-message"
 			]
 		},
