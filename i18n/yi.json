@@ -96,7 +96,7 @@
 	"cx-suggestionlist-view-source-page": "באקוקן קוואלבלאט",
 	"cx-translation-filter-from-any-language": "פון יעדער שפראך",
 	"cx-translation-filter-to-any-language": "צו יעדער שפראך",
-	"cx-create-new-translation": "אנהייבן א נײַע איבערזעצונג",
+	"cx-create-new-translation": "נייע איבערזעצונג",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|פאר איין מינוט|פאר $1 מינוט|0=גראדע יעצט}}",
 	"cx-save-draft-saving": "\nאויפהיטנדיק…",
 	"cx-save-draft-error": "א פֿעלער האט פאסירט ביים אויפֿהיטן דעם בלאט.",
@@ -179,6 +179,8 @@
 	"cx-tools-mt-new-providers-available": "מיט נייע אפציעס",
 	"cx-continue-translation": "פארטזעצן איבערזעצונג",
 	"cx-tools-template-title": "מוסטער",
+	"cx-template-not-available": "נישט פֿאראן אין $1",
+	"cx-translation-template-add-param": "איבערזעצונג־פֿעלד",
 	"cx-translation-template-add-more": "צולייגן נאך פֿעלדער",
 	"cx-translation-template-select-param": "קלויבט צילפֿעלדער"
 }

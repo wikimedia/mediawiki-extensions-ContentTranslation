@@ -104,7 +104,7 @@
 	"cx-suggestionlist-view-source-page": "Deleng kaca sumber",
 	"cx-translation-filter-from-any-language": "Saka sembarang basa",
 	"cx-translation-filter-to-any-language": "Marang sembarang basa",
-	"cx-create-new-translation": "Wiwiti pertalan anyar",
+	"cx-create-new-translation": "Pertalan anyar",
 	"cx-save-draft-save-success": "Kasimpen {{PLURAL:$1|samenit kapungkur|$1 menit kapungkur|0=tembé waé}}",
 	"cx-save-draft-saving": "Nyimpen...",
 	"cx-save-draft-tooltip": "Rèngrènganing pertalan kasimpen otomatis",
@@ -166,7 +166,7 @@
 	"cx-tools-missing-link-title": "Pranala abang",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Tengeri}} dadi pranala abang",
 	"echo-category-title-cx": "Pertalan",
-	"echo-pref-tooltip-cx": "Kandhani aku bab pertalan-pertalanku sing digawé sarana piranti Pertalan Isi",
+	"echo-pref-tooltip-cx": "Kandhani aku ngenani pertalanku sing digawé sarana piranti Pertalan Isi.",
 	"cx-notification-first-translation": "Wilujeng awit pertalané sampéyan sing pisanan! Tilikana sumbangan-sumbangané sampéyan lan golèka kaca-kaca liya nedya dipertal.",
 	"cx-notification-tenth-translation": "Wilujeng awit pertalané sampéyan sing kasapuluh! Sampéyan saiki juru pamertal. Panggah makarya, ya!",
 	"cx-notification-hundredth-translation": "Sampéyan wis ngrampungaké 100 pertalan! Kretyané sampéyan linuwih. Dum pawarta iki marang liyané.",
@@ -198,5 +198,13 @@
 	"cx-page-old-revision-loaded": "Pertalan iki dijupuk saka vèrsi isi sing lawas. Kaca sumberé bokmenawa wis [$1 akèh owahé]. Sampéyan bisa mbanjuraké pertalan iki utawa miwiti manèh nganggo isi sing anyar.",
 	"cx-tools-mt-new-provider": "anyar",
 	"cx-tools-mt-new-providers-available": "mawa pilihan anyar",
-	"cx-continue-translation": "Banjuraké pertalan"
+	"cx-continue-translation": "Banjuraké pertalan",
+	"cx-tools-template-title": "Cithakan",
+	"cx-template-action-adapt": "Anggo cithakan sing saèmper",
+	"cx-template-action-keep-original": "Anggo cithakan asliné",
+	"cx-template-action-skip": "Langkahi cithakan",
+	"cx-template-not-available": "Ora ana ing $1",
+	"cx-translation-template-add-param": "+ Pertal babagan",
+	"cx-translation-template-add-more": "Tambah babagan liyané",
+	"cx-translation-template-select-param": "Pilih babagan tujuan"
 }
