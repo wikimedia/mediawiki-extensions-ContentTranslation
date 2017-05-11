@@ -29,7 +29,6 @@ mw.cx.ui.SectionTranslationUnit.static.tools = {
 	search: [ 'click' ],
 	formatter: [ 'select', 'click', 'focus' ],
 	machinetranslation: [ 'click' ],
-	dictionary: [ 'select' ],
 	targetlink: {
 		triggers: [ 'select' ],
 		events: {
