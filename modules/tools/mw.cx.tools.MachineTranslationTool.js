@@ -30,7 +30,7 @@ mw.cx.tools.MachineTranslationTool.static.defaultProvider = null;
 mw.cx.tools.MachineTranslationTool.prototype.getActions = function () {
 	this.keepDefault = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-tools-mt-set-default' ),
-		icon: 'check',
+		icon: 'pushPin',
 		framed: false,
 		classes: [ 'cx-mt-set-default' ]
 	} );

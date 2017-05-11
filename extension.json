@@ -1846,7 +1846,8 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.spinner",
-				"mw.cx.tools.TranslationTool"
+				"mw.cx.tools.TranslationTool",
+				"oojs-ui.styles.icons-moderation"
 			]
 		},
 		"mw.cx.tools.TemplateTool": {
