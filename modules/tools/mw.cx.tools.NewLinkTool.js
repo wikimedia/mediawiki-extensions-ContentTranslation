@@ -69,7 +69,7 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		placeholder: mw.msg( 'cx-tools-link-internal-link-placeholder' ),
 		siteMapper: this.model.config.siteMapper
 	} );
-	internalLinkTab = new OO.ui.CardLayout( 'internal', {
+	internalLinkTab = new OO.ui.TabPanel( 'internal', {
 		label: mw.msg( 'cx-tools-link-internal-link' ),
 		expanded: false,
 		scrollable: false
@@ -81,7 +81,7 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		icon: 'linkExternal',
 		placeholder: 'https://...'
 	} );
-	externalLinkTab = new OO.ui.CardLayout( 'external', {
+	externalLinkTab = new OO.ui.TabPanel( 'external', {
 		label: mw.msg( 'cx-tools-link-external-link' ),
 		expanded: false,
 		scrollable: false
@@ -93,7 +93,7 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		scrollable: false,
 		classes: [ 'cx-tools-newlink-tabs' ]
 	} );
-	this.linkTabs.addCards( [ internalLinkTab, externalLinkTab ] );
+	this.linkTabs.addTabPanels( [ internalLinkTab, externalLinkTab ] );
 	card = new OO.ui.StackLayout( {
 		continuous: true,
 		expanded: false,
@@ -120,7 +120,7 @@ mw.cx.tools.NewLinkTool.prototype.getBackgroundImage = function () {
 
 mw.cx.tools.NewLinkTool.prototype.expand = function () {
 	this.getCard().$element.addClass( 'expanded' );
-	this.linkTabs.getCard( 'internal' ).focus();
+	this.linkTabs.getTabPanel( 'internal' ).focus();
 	// Hide the source link and target link cards
 	this.card.$element.siblings( '.cx-card-sourcelink' ).addClass( 'collapse' );
 	this.card.$element.siblings( '.cx-card-targetlink' ).addClass( 'collapse' );
@@ -140,7 +140,7 @@ mw.cx.tools.NewLinkTool.prototype.collapse = function () {
  * @return {boolean} Input mode is for external links
  */
 mw.cx.tools.NewLinkTool.prototype.isExternal = function () {
-	return this.linkTabs.getCurrentCardName() === 'external';
+	return this.linkTabs.getCurrentTabPanelName() === 'external';
 };
 
 mw.cx.tools.NewLinkTool.prototype.onApply = function () {
