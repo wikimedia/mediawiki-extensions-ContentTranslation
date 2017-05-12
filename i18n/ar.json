@@ -60,7 +60,7 @@
 	"cx-special-login-error": "يلزمك تسجيل الدخول لتترجم هذه الصفحة. [$1 سجل ادخل]",
 	"cx-tools-instructions-text1": "{{GENDER:|انقر|انقري}} على الفقرات للترجمة",
 	"cx-tools-instructions-text2": "لست ملزم{{GENDER:|ا|ة}} بإضافتها كلها",
-	"cx-tools-instructions-text3": "اجعل{{GENDER:||ي}} النص سهلة القراءة",
+	"cx-tools-instructions-text3": "اجعل{{GENDER:||ي}} النص سهل القراءة",
 	"cx-tools-instructions-text4": "الترجمة الآلية مفيدة لكن لا بد {{GENDER:|لك}} من تصويب الأغلاط المحتملة.",
 	"cx-tools-instructions-text5": "انشر{{GENDER:||ي}} الترجمة",
 	"cx-tools-instructions-text6": "عند {{GENDER:|توصلك}} إلى نتيجة مرضية، اضغط \"{{int:cx-publish-button}}\".",
