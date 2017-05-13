@@ -78,18 +78,18 @@ mw.cx.ui.Categories.prototype.getEditableCategoryListing = function () {
 			label: label
 		} ) );
 	}
-	this.categoryListing = new OO.ui.CapsuleMultiselectWidget( {
+	this.categoryListing = new OO.ui.MenuTagMultiselectWidget( {
 		// Should we allow Arbitrary categories?
 		allowArbitrary: true,
+		inputPosition: 'outline',
 		icon: 'tag',
-		menu: {
-			items: categoryItems
-		},
-		classes: [ 'cx-category-listing' ]
+		options: categoryItems,
+		selected: categoryItems.map( function ( item ) { return item.label; } ),
+		classes: [ 'cx-category-listing' ],
+		input: {
+			placeholder: mw.msg( 'cx-tools-category-add' )
+		}
 	} );
-
-	// Add all adapted items
-	this.categoryListing.addItemsFromData( categories );
 
 	return this.categoryListing;
 };
@@ -104,9 +104,10 @@ mw.cx.ui.Categories.prototype.listen = function () {
 	}.bind( this ) );
 
 	if ( this.editable ) {
-		this.categoryListing.on( 'change', function () {
+		this.categoryListing.on( 'change', function ( items ) {
 			// The new set of categories. Update the page.
-			this.page.categories = this.categoryListing.getItemsData();
+			this.page.categories = items.map( function ( item ) { return item.data; } );
+			// TODO: Remove the selected items from the options menu
 		}.bind( this ) );
 	}
 };
