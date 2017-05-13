@@ -215,5 +215,6 @@
 	"cx-template-not-available": "Nicht verfügbar auf $1",
 	"cx-translation-template-add-param": "+ Übersetzungsfeld",
 	"cx-translation-template-add-more": "Weitere Felder hinzufügen",
-	"cx-translation-template-select-param": "Zielfelder auswählen"
+	"cx-translation-template-select-param": "Zielfelder auswählen",
+	"cx-tools-category-add": "Kategorie hinzufügen"
 }
