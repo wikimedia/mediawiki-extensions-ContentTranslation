@@ -228,5 +228,6 @@
 	"cx-template-not-available": "$1에서는 가능하지 않습니다",
 	"cx-translation-template-add-param": "+ 번역 구역",
 	"cx-translation-template-add-more": "구역 더 추가하기",
-	"cx-translation-template-select-param": "대상 구역 선택"
+	"cx-translation-template-select-param": "대상 구역 선택",
+	"cx-tools-category-add": "분류 추가"
 }

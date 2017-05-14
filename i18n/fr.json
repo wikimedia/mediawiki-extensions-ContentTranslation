@@ -241,5 +241,6 @@
 	"cx-template-not-available": "Non disponible en $1",
 	"cx-translation-template-add-param": "+ Traduire le champ",
 	"cx-translation-template-add-more": "Ajouter plus de champs",
-	"cx-translation-template-select-param": "Sélectionner les champs de destination"
+	"cx-translation-template-select-param": "Sélectionner les champs de destination",
+	"cx-tools-category-add": "Ajouter une catégorie"
 }

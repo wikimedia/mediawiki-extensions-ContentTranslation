@@ -217,5 +217,6 @@
 	"cx-template-not-available": "不可用于$1",
 	"cx-translation-template-add-param": "添加翻译失败",
 	"cx-translation-template-add-more": "添加更多字段",
-	"cx-translation-template-select-param": "选择目标字段"
+	"cx-translation-template-select-param": "选择目标字段",
+	"cx-tools-category-add": "添加分类"
 }

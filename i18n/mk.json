@@ -105,7 +105,7 @@
 	"cx-suggestionlist-view-source-page": "Погл. изворната страница",
 	"cx-translation-filter-from-any-language": "Од било кој јазик",
 	"cx-translation-filter-to-any-language": "На било кој јазик",
-	"cx-create-new-translation": "Започни нов превод",
+	"cx-create-new-translation": "Нов превод",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Зачувано пред една минута|Зачувано пред $1 минути|0=Штотуку зачувано}}",
 	"cx-save-draft-saving": "Зачувувам...",
 	"cx-save-draft-tooltip": "Нацрт-преводите се зачувуваат автоматски",
@@ -207,5 +207,6 @@
 	"cx-template-not-available": "Не е достапен на $1",
 	"cx-translation-template-add-param": "+ Поле за превод",
 	"cx-translation-template-add-more": "Додај уште полиња",
-	"cx-translation-template-select-param": "Изберете целни полиња"
+	"cx-translation-template-select-param": "Изберете целни полиња",
+	"cx-tools-category-add": "Додај категорија"
 }

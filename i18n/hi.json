@@ -202,5 +202,6 @@
 	"cx-template-not-available": "$1 में उपलब्ध नहीं",
 	"cx-translation-template-add-param": "+ साँचा स्थान",
 	"cx-translation-template-add-more": "और जगह जोड़ें",
-	"cx-translation-template-select-param": "लक्ष्य स्थान चुनें"
+	"cx-translation-template-select-param": "लक्ष्य स्थान चुनें",
+	"cx-tools-category-add": "श्रेणी जोड़ें"
 }
