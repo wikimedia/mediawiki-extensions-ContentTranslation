@@ -41,4 +41,7 @@
 		} );
 	};
 
+	mw.cx.ui.TranslationColumn.prototype.setTargetTitle = function ( title ) {
+		$( '.cx-column--translation > h2' ).text( title ).trigger( 'input' );
+	};
 }( jQuery, mediaWiki, OO ) );

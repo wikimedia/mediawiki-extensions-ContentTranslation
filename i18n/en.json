@@ -220,5 +220,10 @@
 	"cx-translation-template-add-param": "+ Translate field",
 	"cx-translation-template-add-more": "Add more fields",
 	"cx-translation-template-select-param": "Select target fields",
-	"cx-tools-category-add": "Add category"
+	"cx-tools-category-add": "Add category",
+	"cx-publish-destination-header": "Publish destination",
+	"cx-publish-destination-tooltip": "Choose the namespace of article to publish",
+	"cx-publish-destination-namespace-main": "New page",
+	"cx-publish-destination-namespace-user": "Personal draft",
+	"cx-publish-destination-namespace-draft": "Community draft"
 }

@@ -404,6 +404,14 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 	}.bind( this ) );
 };
 
+mw.cx.TargetArticle.prototype.getTargetTitle = function () {
+	return this.targetTitle;
+};
+
+mw.cx.TargetArticle.prototype.setTargetTitle = function ( title ) {
+	this.targetTitle = title;
+};
+
 /**
  * Link the source and target articles in the Wikibase repo
  * @param {string} sourceLanguage
