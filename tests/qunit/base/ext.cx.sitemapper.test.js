@@ -21,7 +21,7 @@
 	} ) );
 
 	QUnit.test( 'getLanguageCodeForWikiDomain', function ( assert ) {
-		QUnit.expect( 2 );
+		assert.expect( 2 );
 
 		assert.strictEqual(
 			this.siteMapper.getLanguageCodeForWikiDomain( 'no' ),
@@ -37,7 +37,7 @@
 	} );
 
 	QUnit.test( 'getPageUrl', function ( assert ) {
-		QUnit.expect( 2 );
+		assert.expect( 2 );
 
 		assert.strictEqual(
 			this.siteMapper.getPageUrl( 'es', 'Title' ),
@@ -53,17 +53,9 @@
 	} );
 
 	QUnit.test( 'getApi', function ( assert ) {
-		var server = this.sandbox.useFakeServer();
-
-		QUnit.expect( 2 );
-
-		this.siteMapper.getApi( 'he' ).get( { action: 'testaction' } );
-		assert.strictEqual( server.requests.length, 1 );
-		assert.strictEqual(
-			server.requests[ 0 ].url,
-			'https://he.wikipedia.org/w/api.php?action=testaction&format=json&origin=*'
-		);
-
-		server.requests[ 0 ].respond( 500 );
+		var api;
+		assert.expect( 1 );
+		api = this.siteMapper.getApi( 'he' );
+		assert.strictEqual( api.apiUrl, 'https://he.wikipedia.org/w/api.php' );
 	} );
 }( jQuery, mediaWiki ) );

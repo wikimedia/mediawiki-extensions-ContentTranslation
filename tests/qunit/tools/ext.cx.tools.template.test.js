@@ -16,12 +16,16 @@
 		}
 	} ) );
 
-	QUnit.test( 'Equivalent template exists', function ( assert ) {
+	// This test should ideally mock the network requests. Otherwise, it
+	// can fail in CI from time to time when an external internet connection
+	// fails. That is not reliable. Skipping and planning to rewrite in CX2
+	QUnit.skip( 'Equivalent template exists', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
-			$fixture = $( '#qunit-fixture' );
-		QUnit.expect( 1 );
-		QUnit.stop();
+			$targetTemplate, $sourceTemplate, done, $fixture;
+
+		$fixture = $( '#qunit-fixture' );
+		assert.expect( 1 );
+		done = assert.async();
 		// Tesing lang-ml template. It exists in en and ml. So will be passed through
 		// But it will be readonly.
 		template = {
@@ -64,19 +68,16 @@
 			assert.assertTrue( Object.keys( adaptedTemplate.params ).length > 0,
 				'Template is passed through since an equivalent template exists in target language'
 			);
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 
 	QUnit.test( 'Adapting a template not existing in target language', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
+			$targetTemplate, $sourceTemplate, done,
 			$fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 1 );
-		QUnit.stop();
-
+		done = assert.async();
+		assert.expect( 1 );
 		// Tesing lang-ml template. It exists in en but not in ca.
 		template = {
 			parts: [ {
@@ -116,19 +117,16 @@
 		templateTool.adapt().then( function () {}, function () {
 			// Failure handle called.
 			assert.assertTrue( true, 'Template is not adapted' );
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 
 	QUnit.test( 'Adapting template having invalid title', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
+			$targetTemplate, $sourceTemplate, done,
 			$fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 1 );
-		QUnit.stop();
-
+		done = assert.async();
+		assert.expect( 1 );
 		// Tesing lang-ml template. It exists in en but not in ca.
 		template = {
 			parts: [ {
@@ -168,19 +166,19 @@
 		templateTool.adapt().then( function () {}, function () {
 			// Failure handler called.
 			assert.assertTrue( true, 'Template is not adapted. Invalid title' );
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 
-	QUnit.test( 'Template name and params adaptation using templatedata', function ( assert ) {
+	// This test should ideally mock the network requests. Otherwise, it
+	// can fail in CI from time to time when an external internet connection
+	// fails. That is not reliable. Skipping and planning to rewrite in CX2
+	QUnit.skip( 'Template name and params adaptation using templatedata', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
+			$targetTemplate, $sourceTemplate, done,
 			$fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 3 );
-		QUnit.stop();
-
+		done = assert.async();
+		assert.expect( 3 );
 		// Tesing Ficha_de_taxón. As per template mapping for es-ca, it should be renamed to Taxocaixa
 		template = {
 			parts: [ {
@@ -303,19 +301,19 @@
 				'Tyrannosaurus rex',
 				'Name parameter mapped and adapted to target language'
 			);
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 
-	QUnit.test( 'Template params adaptation using templateData - English to French', function ( assert ) {
+	// This test should ideally mock the network requests. Otherwise, it
+	// can fail in CI from time to time when an external internet connection
+	// fails. That is not reliable. Skipping and planning to rewrite in CX2
+	QUnit.skip( 'Template params adaptation using templateData - English to French', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
+			$targetTemplate, $sourceTemplate, done,
 			$fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 4 );
-		QUnit.stop();
-
+		done = assert.async();
+		assert.expect( 4 );
 		template = {
 			parts: [ {
 				template: {
@@ -386,18 +384,19 @@
 				template.parts[ 0 ].template.params.publisher.wt,
 				'éditeur param exist, mapped from publisher'
 			);
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 
-	QUnit.test( 'Template params adaptation using templateData - English to Spanish', function ( assert ) {
+	// This test should ideally mock the network requests. Otherwise, it
+	// can fail in CI from time to time when an external internet connection
+	// fails. That is not reliable. Skipping and planning to rewrite in CX2
+	QUnit.skip( 'Template params adaptation using templateData - English to Spanish', function ( assert ) {
 		var templateTool, template, targetTemplate, sourceTemplate,
-			$targetTemplate, $sourceTemplate,
+			$targetTemplate, $sourceTemplate, done,
 			$fixture = $( '#qunit-fixture' );
 
-		QUnit.expect( 6 );
-		QUnit.stop();
+		done = assert.async();
+		assert.expect( 6 );
 		template = {
 			parts: [ {
 				template: {
@@ -497,8 +496,6 @@
 				template.parts[ 0 ].template.params.isbn.wt,
 				'apellidos param exist'
 			);
-		} ).always( function () {
-			QUnit.start();
-		} );
+		} ).always( done );
 	} );
 }( jQuery, mediaWiki ) );
