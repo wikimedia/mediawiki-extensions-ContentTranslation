@@ -208,6 +208,5 @@
 	"cx-template-not-available": "Ni na voljo v {{GENDER:mestnik|$1}}",
 	"cx-translation-template-add-param": "+ Prevajalsko polje",
 	"cx-translation-template-add-more": "Dodaj več polj",
-	"cx-translation-template-select-param": "Izberi ciljna polja",
-	"cx-tools-category-add": "Dodaj kategorijo"
+	"cx-translation-template-select-param": "Izberi ciljna polja"
 }

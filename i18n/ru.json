@@ -21,8 +21,7 @@
 			"Jackie",
 			"Лилиә",
 			"Ole Yves",
-			"Liuxinyu970226",
-			"Esukhovnina"
+			"Liuxinyu970226"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -227,6 +226,5 @@
 	"cx-template-not-available": "На {{grammar:languageprep|$1}} такого нет",
 	"cx-translation-template-add-param": "+ Перевести параметр",
 	"cx-translation-template-add-more": "Добавить больше полей",
-	"cx-translation-template-select-param": "Выберите целевые поля",
-	"cx-tools-category-add": "добавить категорию"
+	"cx-translation-template-select-param": "Выберите целевые поля"
 }

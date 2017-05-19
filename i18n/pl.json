@@ -63,7 +63,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Nie ma jeszcze tej strony w $1. Czy chcesz ją utworzyć?",
 	"cx-entrypoint-dialog-title-in": "Tytuł nowej strony w $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Utwórz",
-	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z języka {{GRAMMAR:D.lp|$1}}",
+	"cx-entrypoint-dialog-button-translate-from": "Przetłumacz z {{GRAMMAR:2sg|$1}}",
 	"cx-special-login-error": "Musisz być zalogowany, aby tłumaczyć na tej stronie. [$1 Zaloguj się]",
 	"cx-tools-instructions-text1": "Kliknij akapity do przetłumaczenia",
 	"cx-tools-instructions-text2": "Nie musisz dodawać wszystkich",
