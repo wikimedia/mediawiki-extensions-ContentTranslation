@@ -205,6 +205,10 @@ mw.cx.ui.TranslationView.prototype.publish = function () {
  * @param {string} changedTitle The new title
  */
 mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changedTitle ) {
+	if ( !this.translation ) {
+		mw.log( '[CX] Translation not ready yet' );
+		return;
+	}
 	this.translation.setTargetTitle( changedTitle );
 	// Align translation titles when it get changed/being edited
 	mw.cx.alignSections(
