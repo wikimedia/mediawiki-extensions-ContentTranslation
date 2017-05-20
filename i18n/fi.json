@@ -161,5 +161,6 @@
 	"cx-continue-translation": "Jatka kääntämistä",
 	"cx-tools-template-title": "Malline",
 	"cx-template-action-skip": "Ohita malline",
-	"cx-template-not-available": "Ei saatavilla kielelle $1"
+	"cx-template-not-available": "Ei saatavilla kielelle $1",
+	"cx-tools-category-add": "Lisää luokka"
 }

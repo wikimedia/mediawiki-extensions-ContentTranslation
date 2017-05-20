@@ -18,7 +18,7 @@
 	"cx-header-new-translation": "नयाँ अनुवाद",
 	"cx-header-all-translations": "सबै अनुवादहरू",
 	"cx-source-view-page": "पृष्ठ हेर्ने",
-	"cx-publish-page-success": " $1मा पाना प्रकाशीत भयो",
+	"cx-publish-page-success": " $1मा पृष्ठ प्रकाशीत भयो",
 	"cx-publish-page-error": "पृष्ठ सङ्ग्रह गर्दा त्रुटि देखियो। कृपया सङ्ग्रह गर्नका लागि पुन प्रयास गर्नुहोला। त्रुटी : $1",
 	"cx-publish-button": "अनुवाद प्रकाशीत गर्नुहोस",
 	"cx-publish-button-publishing": "प्रकाशन गर्दै...",

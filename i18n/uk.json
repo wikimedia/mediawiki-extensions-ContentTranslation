@@ -14,7 +14,8 @@
 			"Base",
 			"Dars",
 			"Green Zero",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Bunyk"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -219,5 +220,6 @@
 	"cx-template-not-available": "Недоступно мовою «$1»",
 	"cx-translation-template-add-param": "+ Поле перекладу",
 	"cx-translation-template-add-more": "Додати більше полів",
-	"cx-translation-template-select-param": "Вибрати цільові поля"
+	"cx-translation-template-select-param": "Вибрати цільові поля",
+	"cx-tools-category-add": "Додати категорію"
 }

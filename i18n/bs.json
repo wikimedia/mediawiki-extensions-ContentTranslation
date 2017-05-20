@@ -211,5 +211,6 @@
 	"cx-template-not-available": "Nije dostupan za $1",
 	"cx-translation-template-add-param": "+ Prevedi polje",
 	"cx-translation-template-add-more": "Dodaj još polja",
-	"cx-translation-template-select-param": "Izaberite odredišno polje"
+	"cx-translation-template-select-param": "Izaberite odredišno polje",
+	"cx-tools-category-add": "Dodaj kategoriju"
 }

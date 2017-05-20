@@ -9,7 +9,8 @@
 			"Wolf Rex",
 			"Dorgan",
 			"Tgr",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Urbalazs"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -214,5 +215,6 @@
 	"cx-template-not-available": "Nem elérhető $1 nyelven",
 	"cx-translation-template-add-param": "+ Mező fordítása",
 	"cx-translation-template-add-more": "További mezők hozzáadása",
-	"cx-translation-template-select-param": "Célmező kiválasztása"
+	"cx-translation-template-select-param": "Célmező kiválasztása",
+	"cx-tools-category-add": "Kategória hozzáadása"
 }
