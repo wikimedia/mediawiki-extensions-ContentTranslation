@@ -185,4 +185,38 @@ mw.cx.dm.LinkTranslationUnit.prototype.makeRedLink = function () {
 	this.redlink = true;
 };
 
+mw.cx.dm.LinkTranslationUnit.prototype.changeLinkTarget = function ( newTarget ) {
+	var href, title;
+	title = mw.cx.dm.LinkTranslationUnit.static.getValidTitle( newTarget );
+	if ( !title ) {
+		mw.log.error( '[CX] Invalid title given' );
+		return;
+	}
+	// Convert title to a relative URL to avoid insecure values like
+	// javascript:.. appearing in it.
+	if ( title.indexOf( './' ) < 0 ) {
+		href = './' + title;
+	}
+	this.targetTitle = title;
+	this.targetDocument.setAttribute( 'href', href );
+	this.targetDocument.setAttribute( 'title', this.targetTitle );
+};
+
+/**
+ * Get a valid normalized title from the given text
+ * If the text is not suitable for the title, return null;
+ * Validation is done by mw.Title
+ *
+ * @param {string} text Text for the title.
+ * @return {string|null}
+ */
+mw.cx.dm.LinkTranslationUnit.static.getValidTitle = function ( text ) {
+	var title = text.trim();
+
+	title = mw.Title.newFromText( title );
+	title = title && title.toText();
+
+	return title;
+};
+
 mw.cx.dm.modelRegistry.register( mw.cx.dm.LinkTranslationUnit );

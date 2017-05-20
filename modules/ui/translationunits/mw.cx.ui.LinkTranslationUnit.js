@@ -31,7 +31,12 @@ mw.cx.ui.LinkTranslationUnit.static.tools = {
 			makeRedLink: 'makeRedLink'
 		}
 	},
-	newlink: [ 'click', 'focus' ]
+	newlink: {
+		triggers: [ 'click', 'focus' ],
+		events: {
+			changeLinkTarget: 'changeLinkTarget'
+		}
+	}
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
@@ -92,8 +97,6 @@ mw.cx.ui.LinkTranslationUnit.prototype.onChange = function () {
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.removeLink = function () {
-	// Save the selection
-	mw.cx.selection.save( 'translation' );
 	this.model.removeLink();
 
 	if ( this.model.getTargetDocument() === null ) {
@@ -105,16 +108,32 @@ mw.cx.ui.LinkTranslationUnit.prototype.removeLink = function () {
 	// Destroy all tools
 	this.tools.forEach( function ( tool ) { tool.destroy(); } );
 	this.parentTranslationUnit.focus();
-	// Restore the cursor
+	// Restore the cursor. This was saved with this label when selection was made.
+	// See mw.cx.tools.TargetLinkTool.prototype.onSelect method
 	mw.cx.selection.restore( 'translation' );
 	this.emit( 'change' );
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.makeRedLink = function () {
-	// Save the selection
-	mw.cx.selection.save( 'translation' );
 	this.model.makeRedLink();
 	this.$translationSection.removeClass( 'cx-target-link-unadapted' ).addClass( 'new' );
+	this.parentTranslationUnit.focus();
+	// Restore the cursor
+	mw.cx.selection.restore( 'translation' );
+	this.emit( 'change' );
+};
+
+mw.cx.ui.LinkTranslationUnit.prototype.changeLinkTarget = function ( newTarget ) {
+	if ( !newTarget || !newTarget.trim() ) {
+		mw.log.error( '[CX] Attempting to change the link target to blank ' + this );
+		return;
+	}
+	this.model.changeLinkTarget( newTarget );
+	if ( this.model.getTargetTitle() === newTarget ) {
+		mw.log( '[CX] Target link target changed successfully. ' + this );
+	} else {
+		mw.log.error( '[CX] Target link target change failed. ' + this );
+	}
 	this.parentTranslationUnit.focus();
 	// Restore the cursor
 	mw.cx.selection.restore( 'translation' );

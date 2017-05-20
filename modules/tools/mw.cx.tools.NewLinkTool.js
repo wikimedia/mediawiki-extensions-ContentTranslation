@@ -14,12 +14,9 @@ mw.cx.tools.NewLinkTool = function CXNewLinkTool( model, config ) {
 	config.language = config.targetLanguage;
 	// Parent constructor
 	mw.cx.tools.NewLinkTool.super.call( this, model, config );
-
-	this.sourceTitle = null;
-	this.targetTitle = null;
-	this.pageInfo = null;
-	this.makeRedLinkButton = null;
-	this.removeLinkButton = null;
+	this.linkTabs = null;
+	this.internalLink = null;
+	this.externalLink = null;
 };
 
 /* Inheritance */
@@ -27,9 +24,35 @@ OO.inheritClass( mw.cx.tools.NewLinkTool, mw.cx.tools.TranslationTool );
 
 mw.cx.tools.NewLinkTool.static.name = 'newlink';
 
+/**
+ * Text selection handler
+ * @param {Selection} selectionObj Selection object
+ */
+mw.cx.tools.NewLinkTool.prototype.onSelect = function ( selectionObj ) {
+	var selection;
+
+	// TODO: Sanitize content
+	selection = selectionObj.toString().trim();
+	if ( selection && selection.length < 1000 ) {
+		this.selectionObj = selectionObj;
+	} else {
+		return;
+	}
+	// Save the selection with a name so that it can be restored after the tool
+	// modify the selected content.
+	mw.cx.selection.save( 'translation', this.selectionObj );
+	// Check if selection changed.
+	if ( this.selection !== selection ) {
+		this.selection = selection;
+		this.pageInfo = null;
+		this.refresh();
+	}
+};
+
 mw.cx.tools.NewLinkTool.prototype.getContent = function () {
-	var card, compactTrigger, tabBar, internalLink, internalLinkPanel, externalLink, externalLinkPanel,
-		internalLinkTab, externalLinkTab, applyButton;
+	var card, compactTrigger, internalLinkTab, externalLinkTab;
+
+	this.collapse();
 
 	compactTrigger = new OO.ui.PanelLayout( {
 		classes: [ 'cx-tools-newlink-compact-trigger' ],
@@ -38,61 +61,50 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		padded: false,
 		text: mw.msg( 'cx-tools-link-to-another-page' )
 	} );
-	internalLinkTab = new OO.ui.ButtonWidget( {
-		classes: [ 'cx-tools-newlink-internal-trigger' ],
-		framed: false,
-		label: mw.msg( 'cx-tools-link-internal-link' )
-	} );
-	externalLinkTab = new OO.ui.ButtonWidget( {
-		classes: [ 'cx-tools-newlink-external-trigger' ],
-		framed: false,
-		label: mw.msg( 'cx-tools-link-external-link' )
-	} );
-	applyButton = new OO.ui.ButtonWidget( {
-		classes: [ 'cx-tools-newlink-apply' ],
-		flags: [ 'primary', 'progressive' ],
-		icon: 'check',
-		label: mw.msg( 'cx-tools-link-apply' )
-	} );
-	tabBar = new OO.ui.HorizontalLayout( {
-		classes: [ 'cx-tools-newlink-tabs' ],
-		items: [ internalLinkTab, externalLinkTab, applyButton ]
-	} );
-	internalLink = new mw.cx.ui.PageSelectorWidget( {
-		classes: [ 'cx-tools-newlink-internallink-selector' ],
+
+	this.internalLink = new mw.cx.ui.PageSelectorWidget( {
+		value: this.selection,
+		classes: [ 'cx-tools-newlink-internallink' ],
 		language: this.language,
+		placeholder: mw.msg( 'cx-tools-link-internal-link-placeholder' ),
 		siteMapper: this.model.config.siteMapper
 	} );
-	externalLink = new OO.ui.TextInputWidget( {
-		classes: [ 'cx-tools-newlink-internallink' ],
-		icon: 'linkExternal'
+	internalLinkTab = new OO.ui.CardLayout( 'internal', {
+		label: mw.msg( 'cx-tools-link-internal-link' ),
+		expanded: false,
+		scrollable: false
 	} );
-	internalLinkPanel = new OO.ui.PanelLayout( {
-		classes: [ 'cx-tools-newlink-internallink-panel', 'active' ],
-		content: [ internalLink ]
+	internalLinkTab.$element.append( this.internalLink.$element );
+
+	this.externalLink = new OO.ui.TextInputWidget( {
+		classes: [ 'cx-tools-newlink-externallink' ],
+		icon: 'linkExternal',
+		placeholder: 'https://...'
 	} );
-	externalLinkPanel = new OO.ui.PanelLayout( {
-		classes: [ 'cx-tools-newlink-externallink-panel' ],
-		content: [ externalLink ]
+	externalLinkTab = new OO.ui.CardLayout( 'external', {
+		label: mw.msg( 'cx-tools-link-external-link' ),
+		expanded: false,
+		scrollable: false
 	} );
+	externalLinkTab.$element.append( this.externalLink.$element );
+
+	this.linkTabs = new OO.ui.IndexLayout( {
+		expanded: false,
+		scrollable: false,
+		classes: [ 'cx-tools-newlink-tabs' ]
+	} );
+	this.linkTabs.addCards( [ internalLinkTab, externalLinkTab ] );
 	card = new OO.ui.StackLayout( {
 		continuous: true,
 		expanded: false,
 		scrollable: false,
-		items: [ compactTrigger, tabBar, internalLinkPanel, externalLinkPanel ]
+		items: [ compactTrigger, this.linkTabs ]
 	} );
 
-	compactTrigger.$element.on( 'click', function () {
-		card.$element.addClass( 'expanded' );
-	} );
-	internalLinkTab.on( 'click', function () {
-		internalLinkPanel.$element.addClass( 'active' );
-		externalLinkPanel.$element.removeClass( 'active' );
-	} );
-	externalLinkTab.on( 'click', function () {
-		externalLinkPanel.$element.addClass( 'active' );
-		internalLinkPanel.$element.removeClass( 'active' );
-	} );
+	compactTrigger.$element.on( 'click', this.expand.bind( this ) );
+
+	this.internalLink.getLookupMenu().connect( this, { choose: 'onApply' } );
+	this.externalLink.connect( this, { enter: 'onApply' } );
 	return card.$element;
 };
 
@@ -106,9 +118,40 @@ mw.cx.tools.NewLinkTool.prototype.getBackgroundImage = function () {
 	return null;
 };
 
-mw.cx.tools.NewLinkTool.prototype.removeLink = function () {
-	this.emit( 'remove' );
-	this.destroy();
+mw.cx.tools.NewLinkTool.prototype.expand = function () {
+	this.getCard().$element.addClass( 'expanded' );
+	this.linkTabs.getCard( 'internal' ).focus();
+	// Hide the source link and target link cards
+	this.card.$element.siblings( '.cx-card-sourcelink' ).addClass( 'collapse' );
+	this.card.$element.siblings( '.cx-card-targetlink' ).addClass( 'collapse' );
+};
+
+mw.cx.tools.NewLinkTool.prototype.collapse = function () {
+	if ( this.card ) {
+		this.card.$element.removeClass( 'expanded' );
+		this.card.$element.siblings( '.cx-card-sourcelink' ).removeClass( 'collapse' );
+		this.card.$element.siblings( '.cx-card-targetlink' ).removeClass( 'collapse' );
+	}
+};
+
+/**
+ * Check if the current input mode is for external links
+ *
+ * @return {boolean} Input mode is for external links
+ */
+mw.cx.tools.NewLinkTool.prototype.isExternal = function () {
+	return this.linkTabs.getCurrentCardName() === 'external';
+};
+
+mw.cx.tools.NewLinkTool.prototype.onApply = function () {
+	this.collapse();
+	if ( this.isExternal() ) {
+		this.emit( 'addExternalLink', this.selectionObj, this.externalLink.getValue() );
+	} else if ( this.selection ) {
+		this.emit( 'addlink', this.selectionObj, this.internalLink.getValue(), true );
+	} else {
+		this.emit( 'changeLinkTarget', this.internalLink.getValue() );
+	}
 };
 
 /* Register */

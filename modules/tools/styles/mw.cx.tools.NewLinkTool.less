@@ -7,6 +7,14 @@
 		display: none;
 	}
 
+	.cx-widget-translationtool-container {
+		padding: 0;
+	}
+
+	.cx-widget-translationtool-actions {
+		display: none;
+	}
+
 	.cx-tools-newlink-compact-trigger {
 		padding-left: 30px;
 		background-repeat: no-repeat;
@@ -16,31 +24,32 @@
 		cursor: pointer;
 	}
 
-	.cx-tools-newlink-tabs,
-	.cx-tools-newlink-internallink-panel,
-	.cx-tools-newlink-externallink-panel {
+	.cx-tools-newlink-tabs {
+		display: none;
+		.oo-ui-menuLayout-content .oo-ui-indexLayout-stackLayout {
+			overflow: visible;
+		}
+	}
+}
+
+.cx-card-newlink.expanded {
+	height: 100px;
+	padding: 2px 0;
+
+	// Hide the compact trigger
+	.cx-tools-newlink-compact-trigger {
 		display: none;
 	}
+	// Show the tabs
+	.cx-tools-newlink-tabs {
+		display: block;
+	}
 
-	.expanded {
-		.cx-tools-newlink-compact-trigger {
-			display: none;
-		}
-		.cx-tools-newlink-tabs {
-			display: block;
-		}
-		.cx-tools-newlink-internal-trigger,
-		.cx-tools-newlink-external-trigger,
-		.cx-tools-newlink-apply {
-			margin-right: 0;
-			width: 33%;
-		}
+	.cx-tools-link-external-link-add-button {
+		float: right;
+	}
 
-		.cx-tools-newlink-internallink-panel.active {
-			display: block;
-		}
-		.cx-tools-newlink-externallink-panel.active {
-			display: block;
-		}
+	.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
+		padding: 1.5em 0;
 	}
 }

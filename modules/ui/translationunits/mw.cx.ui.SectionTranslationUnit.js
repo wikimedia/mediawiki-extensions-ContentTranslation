@@ -38,7 +38,8 @@ mw.cx.ui.SectionTranslationUnit.static.tools = {
 	newlink: {
 		triggers: [ 'select' ],
 		events: {
-			addlink: 'addLink'
+			addlink: 'addLink',
+			addExternalLink: 'addExternalLink'
 		}
 	}
 };
@@ -165,10 +166,26 @@ mw.cx.ui.SectionTranslationUnit.prototype.addLink = function ( selection, title,
 		return;
 	}
 	// Restore the selection
-	mw.cx.selection.save( 'translation' );
-	this.model.addLink( selection, title, targetExists );
-	// Set the cursor at the end of inserted link.
 	mw.cx.selection.restore( 'translation' );
+	this.model.addLink( selection, title, targetExists );
+	mw.cx.selection.setCursorAfter( 'translation' );
+	this.emit( 'change' );
+	this.buildSubTranslationUnits( this.model );
+};
+
+/**
+ * Add a new link to the section.
+ * @param {Selection} selection The selection object
+ * @param {string} url External link URL.
+ */
+mw.cx.ui.SectionTranslationUnit.prototype.addExternalLink = function ( selection, url ) {
+	if ( !url || !url.trim() || !OO.ui.isSafeUrl( url ) ) {
+		mw.log.error( '[CX] Attempting to create external link with blank or invalid URL: ' + this );
+		return;
+	}
+	// Restore the selection
+	mw.cx.selection.restore( 'translation' );
+	this.model.addExternalLink( selection, url );
 	mw.cx.selection.setCursorAfter( 'translation' );
 	this.emit( 'change' );
 	this.buildSubTranslationUnits( this.model );
