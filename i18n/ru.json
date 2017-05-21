@@ -22,7 +22,8 @@
 			"Лилиә",
 			"Ole Yves",
 			"Liuxinyu970226",
-			"Esukhovnina"
+			"Esukhovnina",
+			"Av6"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -197,7 +198,7 @@
 	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время.",
 	"cx-tools-link-internal-link": "Связать со страницей",
 	"cx-tools-link-internal-link-placeholder": "Найти страницу для ссылки",
-	"cx-tools-link-external-link": "Внешняя",
+	"cx-tools-link-external-link": "Внешняя ссылка",
 	"cx-tools-link-external-link-placeholder": "Добавить внешнюю ссылку",
 	"cx-tools-link-to-another-page": "Ссылка на другую страницу",
 	"cx-tools-link-add-as-missing": "Добавить как отсутствующую ссылку",
