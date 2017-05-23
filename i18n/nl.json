@@ -193,9 +193,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Uw vertalingen}}",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Begin}} nu met vertalen en ga op elk moment verder.",
-	"cx-tools-link-internal-link": "Koppeling naar pagina",
+	"cx-tools-link-internal-link": "Pagina's zoeken",
 	"cx-tools-link-internal-link-placeholder": "Te koppelen pagina zoeken",
-	"cx-tools-link-external-link": "Extern",
+	"cx-tools-link-external-link": "Externe koppeling",
 	"cx-tools-link-external-link-placeholder": "Externe koppeling toevoegen",
 	"cx-tools-link-to-another-page": "Aan andere pagina koppelen",
 	"cx-tools-link-add-as-missing": "Een missende koppeling toevoegen",
@@ -225,5 +225,6 @@
 	"cx-template-not-available": "Niet beschikbaar in $1",
 	"cx-translation-template-add-param": "+ Vertaal veld",
 	"cx-translation-template-add-more": "Voeg meer velden toe",
-	"cx-translation-template-select-param": "Selecteer doelvelden"
+	"cx-translation-template-select-param": "Selecteer doelvelden",
+	"cx-tools-category-add": "Categorie toevoegen"
 }

@@ -181,9 +181,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|As túas traducións}}",
 	"cx-translationlist-empty-title": "Non hai nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comece}} a súa tradución agora e continúe en calquera momento.",
-	"cx-tools-link-internal-link": "Ligazón a unha páxina",
+	"cx-tools-link-internal-link": "Procurar páxinas",
 	"cx-tools-link-internal-link-placeholder": "Atope unha páxina coa que ligar",
-	"cx-tools-link-external-link": "Externa",
+	"cx-tools-link-external-link": "Ligazón externa",
 	"cx-tools-link-external-link-placeholder": "Engada unha ligazón externa",
 	"cx-tools-link-to-another-page": "Ligazón cara a outra páxina",
 	"cx-tools-link-add-as-missing": "Engadir como ligazón que falta",
@@ -213,5 +213,6 @@
 	"cx-template-not-available": "Non dispoñible en $1",
 	"cx-translation-template-add-param": "+ Traducir campo",
 	"cx-translation-template-add-more": "Engadir máis campos",
-	"cx-translation-template-select-param": "Seleccionar os campos de destino"
+	"cx-translation-template-select-param": "Seleccionar os campos de destino",
+	"cx-tools-category-add": "Engadir unha categoría"
 }

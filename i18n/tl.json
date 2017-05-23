@@ -172,9 +172,9 @@
 	"cx-notification-hundredth-translation": "Nakagawa ka ng 100 salinwika! Iyon ang kasiya-siyang pagtamo. Ibahagi ang pagbati sa ibang mga tagapamatnugot.",
 	"cx-translationlist-empty-title": "Walang isasalinwika?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Simulan}} mo na ngayon ang iyong salinwika at maaari mo itong ituloy kahit kailan.",
-	"cx-tools-link-internal-link": "Kawing sa pahina",
+	"cx-tools-link-internal-link": "Hanapin sa mga pahina",
 	"cx-tools-link-internal-link-placeholder": "Maghanap ng pahinang maikakawing",
-	"cx-tools-link-external-link": "Panlabas",
+	"cx-tools-link-external-link": "Kawing panlabas",
 	"cx-tools-link-external-link-placeholder": "Magdagdag ng kawing panlabas",
 	"cx-tools-link-to-another-page": "Kawing sa ibang pahina",
 	"cx-tools-link-add-as-missing": "Idagdag bilang nawawalang kawing (link)",
@@ -185,5 +185,6 @@
 	"cx-draft-restore-failed": "Hindi matagumpay sa pagkarga ng itinalang salinwika!",
 	"cx-suggestionlist-expand": "Tingnan lahat",
 	"cx-suggestionlist-collapse": "Tingnan nang kaunti",
-	"cx-suggestionlist-refresh": "Pasariwaing muli (refresh) ang mga mungkahi"
+	"cx-suggestionlist-refresh": "Pasariwaing muli (refresh) ang mga mungkahi",
+	"cx-tools-category-add": "Magdagdag ng kategoriya"
 }
