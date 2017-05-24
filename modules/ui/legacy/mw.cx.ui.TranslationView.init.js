@@ -2,7 +2,7 @@
 	$( function () {
 		'use strict';
 
-		var cxview, query, config;
+		var cxview, query, config, storageModules;
 
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
@@ -24,10 +24,25 @@
 			campaign: query.campaign
 		};
 
+		storageModules = [
+			'ext.cx.translation.loader',
+			'ext.cx.translation.storage'
+		];
+
 		mw.cx.getCXConfiguration( mw.cx.sourceLanguage, mw.cx.targetLanguage ).then( function ( response ) {
 			$.extend( config, response.configuration );
 			cxview = new mw.cx.ui.TranslationView( config );
 			$( 'body' ).append( cxview.$element );
+
+			mw.loader.using( storageModules ).done( function () {
+				var storage, translationLoader;
+
+				translationLoader = new mw.cx.ContentTranslationLoader( cxview );
+				translationLoader.init();
+				storage = new mw.cx.ContentTranslationStorage( cxview );
+				storage.init();
+			} );
 		} );
+
 	} );
 }( mediaWiki ) );

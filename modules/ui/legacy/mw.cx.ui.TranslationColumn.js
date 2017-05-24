@@ -35,10 +35,12 @@
 
 	mw.cx.ui.TranslationColumn.prototype.init = function () {
 		var self = this;
-		mw.loader.using( [ 'ext.cx.translation', 'ext.cx.translation.progress',
-			'ext.cx.publish', 'ext.cx.translation.storage.init' ], function () {
-			self.$element.cxTranslation( self.siteMapper );
-		} );
+		mw.loader.using(
+			[ 'ext.cx.translation', 'ext.cx.translation.progress', 'ext.cx.publish' ],
+			function () {
+				self.$element.cxTranslation( self.siteMapper );
+			}
+		);
 	};
 
 	mw.cx.ui.TranslationColumn.prototype.setTargetTitle = function ( title ) {

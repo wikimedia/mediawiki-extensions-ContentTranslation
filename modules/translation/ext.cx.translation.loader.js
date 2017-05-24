@@ -10,12 +10,21 @@
 
 	/**
 	 * @class
+	 * @param {mw.cx.ui.TranslationView} translatioview
 	 */
-	function ContentTranslationLoader() {
+	function ContentTranslationLoader( translatioview ) {
+		this.translatioview = translatioview;
 		this.translation = null;
 		this.translationUnits = null;
-		this.$sourceColumn = null;
-		this.$translationColumn = null;
+		if ( translatioview ) {
+			// Unit tests can delay setting of translation view.
+			this.sourceColumn = this.translatioview.columns.sourceColumn;
+			this.translationColumn = this.translatioview.columns.translationColumn;
+			this.$sourceColumn = this.sourceColumn.$element;
+			this.$translationColumn = this.translationColumn.$element;
+		} else {
+			mw.log.warn( '[CX] Translation view not set.' );
+		}
 		this.originalRevision = false;
 	}
 
@@ -180,7 +189,7 @@
 		targetTitle = this.translation.targetTitle;
 		mw.cx.targetTitle = targetTitle;
 		// Set the title
-		$( '.cx-column--translation > .cx-column__title' ).text( targetTitle );
+		this.translationColumn.setTargetTitle( targetTitle );
 	};
 
 	/**
@@ -200,11 +209,6 @@
 			$restoredSection,
 			$lastRestoredSection,
 			orphans = [];
-
-		this.$sourceColumn = this.$sourceColumn ||
-			$( '.cx-column--source .cx-column__content' );
-		this.$translationColumn = this.$translationColumn ||
-			$( '.cx-column--translation .cx-column__content' );
 
 		for ( sectionId in this.translationUnits ) {
 			unit = this.translationUnits[ sectionId ];

@@ -781,11 +781,6 @@
 				"cx-page-old-revision-loaded"
 			]
 		},
-		"ext.cx.translation.storage.init": {
-			"scripts": [
-				"translation/ext.cx.translation.storage.init.js"
-			]
-		},
 		"ext.cx.translation.storage": {
 			"scripts": [
 				"translation/ext.cx.translation.storage.js"

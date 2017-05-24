@@ -42,14 +42,13 @@
 	};
 
 	mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
-		var self = this;
-
 		this.publishButton = new OO.ui.ButtonWidget( {
 			disabled: true,
 			flags: [ 'progressive', 'primary' ],
 			classes: [ 'cx-header__publish-button' ],
 			label: mw.msg( 'cx-publish-button' )
 		} );
+
 		this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
 			destination: mw.config.get( 'wgContentTranslationTargetNamespace' )
 		} );
@@ -60,8 +59,8 @@
 			click: 'onPublishButtonClick'
 		} );
 		mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
-			self.publishButton.setDisabled( weights.any === 0 );
-		} );
+			this.publishButton.setDisabled( weights.any === 0 );
+		}.bind( this ) );
 	};
 
 	/**
