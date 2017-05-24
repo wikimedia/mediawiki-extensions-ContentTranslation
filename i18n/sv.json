@@ -184,9 +184,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Dina översättningar}}",
 	"cx-translationlist-empty-title": "Ingenting att översätta?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Påbörja}} din översättning nu och fortsätt på den när som helst.",
-	"cx-tools-link-internal-link": "Länk till sida",
+	"cx-tools-link-internal-link": "Sök sidor",
 	"cx-tools-link-internal-link-placeholder": "Hitta sida att länka",
-	"cx-tools-link-external-link": "Extern",
+	"cx-tools-link-external-link": "Extern länk",
 	"cx-tools-link-external-link-placeholder": "Lägg till extern länk",
 	"cx-tools-link-to-another-page": "Länka till en annan sida",
 	"cx-tools-link-add-as-missing": "Lägg till som saknad länk",
@@ -216,5 +216,6 @@
 	"cx-template-not-available": "Inte tillgänglig på $1",
 	"cx-translation-template-add-param": "+ Översätt fält",
 	"cx-translation-template-add-more": "Lägg till fler fält",
-	"cx-translation-template-select-param": "Välj målfält"
+	"cx-translation-template-select-param": "Välj målfält",
+	"cx-tools-category-add": "Lägg till kategori"
 }
