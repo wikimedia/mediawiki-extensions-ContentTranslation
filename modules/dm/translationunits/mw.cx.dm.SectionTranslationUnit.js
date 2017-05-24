@@ -117,18 +117,38 @@ mw.cx.dm.SectionTranslationUnit.prototype.adapt = function ( requestedProvider )
 		// Use the cached version
 		if ( this.documentsPerProvider[ requestedProvider ] ) {
 			this.targetDocument = this.documentsPerProvider[ requestedProvider ];
+			this.updateAfterTranslation( this.targetDocument, requestedProvider );
 			this.emit( 'adapt', this.targetDocument, requestedProvider );
 			return;
 		}
 	}
 
 	this.translate( this.sourceDocument ).then( function ( document ) {
-		this.targetDocument = document;
-		this.setTargetId();
+		this.setTargetId( document );
+		this.updateAfterTranslation( document, this.MTProvider );
+		this.adaptAfterTranslation( document, this.MTProvider );
 		// Note that this.MTProvider might have changed from requestedProvider
 		this.emit( 'adapt', document, this.MTProvider );
 	}.bind( this ) );
 };
+
+/**
+ * Do any necessary updates and book keeping after section contents has been filled
+ * with a new or cached default value when changing providers.
+ *
+ * @param {Element} document Translated translation document
+ */
+mw.cx.dm.SectionTranslationUnit.prototype.updateAfterTranslation = function ( document ) {
+	this.targetDocument = document;
+};
+
+/**
+ * Do any necessary changes to translated document after it has been filled with default
+ * contents. This is not called when restoring a cached version when changing providers.
+ *
+ * @param {Element} document Translated translation document
+ */
+mw.cx.dm.SectionTranslationUnit.prototype.adaptAfterTranslation = function () {};
 
 mw.cx.dm.SectionTranslationUnit.prototype.getMTProvider = function () {
 	if ( this.MTProvider ) {
