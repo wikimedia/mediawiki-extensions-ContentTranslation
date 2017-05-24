@@ -69,7 +69,7 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		placeholder: mw.msg( 'cx-tools-link-internal-link-placeholder' ),
 		siteMapper: this.model.config.siteMapper
 	} );
-	internalLinkTab = new OO.ui.TabPanel( 'internal', {
+	internalLinkTab = new OO.ui.TabPanelLayout( 'internal', {
 		label: mw.msg( 'cx-tools-link-internal-link' ),
 		expanded: false,
 		scrollable: false
@@ -81,7 +81,7 @@ mw.cx.tools.NewLinkTool.prototype.getContent = function () {
 		icon: 'linkExternal',
 		placeholder: 'https://...'
 	} );
-	externalLinkTab = new OO.ui.TabPanel( 'external', {
+	externalLinkTab = new OO.ui.TabPanelLayout( 'external', {
 		label: mw.msg( 'cx-tools-link-external-link' ),
 		expanded: false,
 		scrollable: false
