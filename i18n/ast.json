@@ -106,7 +106,7 @@
 	"cx-suggestionlist-view-source-page": "Ver páxina d'orixe",
 	"cx-translation-filter-from-any-language": "De cualquier llingua",
 	"cx-translation-filter-to-any-language": "A cualquier llingua",
-	"cx-create-new-translation": "Principiar una traducción nueva",
+	"cx-create-new-translation": "Traducción nueva",
 	"cx-save-draft-save-success": "Guardao {{PLURAL:$1|hai un minutu|hai $1 minutos|0=agora mesmo}}",
 	"cx-save-draft-saving": "Guardando...",
 	"cx-save-draft-tooltip": "Los borradores de traducción guárdense automáticamente",
@@ -176,9 +176,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Les tos traducciones}}",
 	"cx-translationlist-empty-title": "¿Nun hai nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Anicia}} agora una traducción y sigui en cualquier otru momentu.",
-	"cx-tools-link-internal-link": "Enllazar cola páxina",
+	"cx-tools-link-internal-link": "Buscar páxines",
 	"cx-tools-link-internal-link-placeholder": "Alcontrar la páxina a enllazar",
-	"cx-tools-link-external-link": "Esternu",
+	"cx-tools-link-external-link": "Enllaz esternu",
 	"cx-tools-link-external-link-placeholder": "Amestar un enllaz esternu",
 	"cx-tools-link-to-another-page": "Enllazar a otra páxina",
 	"cx-tools-link-add-as-missing": "Amestar como enllaz faltante",
@@ -208,5 +208,6 @@
 	"cx-template-not-available": "Nun ta disponible pal $1",
 	"cx-translation-template-add-param": "+ Traducir campu",
 	"cx-translation-template-add-more": "Amestar más campos",
-	"cx-translation-template-select-param": "Seleicionar los campos de destín"
+	"cx-translation-template-select-param": "Seleicionar los campos de destín",
+	"cx-tools-category-add": "Amestar categoría"
 }

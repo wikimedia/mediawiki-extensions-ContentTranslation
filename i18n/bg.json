@@ -183,9 +183,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Вашите преводи}}",
 	"cx-translationlist-empty-title": "Няма нищо за превод?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Започнете}} своя превод сега и го довършете по-късно.",
-	"cx-tools-link-internal-link": "Добави препратка",
+	"cx-tools-link-internal-link": "Търсене на страници",
 	"cx-tools-link-internal-link-placeholder": "Намери страница за свързване",
-	"cx-tools-link-external-link": "Външна",
+	"cx-tools-link-external-link": "Външна препратка",
 	"cx-tools-link-external-link-placeholder": "Добави външна препратка",
 	"cx-tools-link-to-another-page": "Препратка към друга страница",
 	"cx-tools-link-add-as-missing": "Добави червена препратка",
@@ -215,5 +215,6 @@
 	"cx-template-not-available": "Не е наличен на $1",
 	"cx-translation-template-add-param": "+ Поле за превод",
 	"cx-translation-template-add-more": "Добавяне на допълнителни полета",
-	"cx-translation-template-select-param": "Избор на целевите полета"
+	"cx-translation-template-select-param": "Избор на целевите полета",
+	"cx-tools-category-add": "Добавяне на категория"
 }
