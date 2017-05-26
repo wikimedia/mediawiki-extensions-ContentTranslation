@@ -159,9 +159,9 @@
 		} );
 
 		// Validate the title on change
-		mw.hook( 'mw.cx.translation.title.change' ).add( $.debounce( 500, function () {
+		mw.hook( 'mw.cx.translation.title.change' ).add( function () {
 			validator.validateTargetTitle();
-		} ) );
+		} );
 
 		// Highlight segment pairs
 		this.$container.on( 'mouseenter mouseleave', '.cx-segment', function () {
@@ -174,10 +174,10 @@
 		// Capture translation selection on keyup and mouseup
 		this.$container.on( 'keyup mouseup', saveCursorPosition );
 
-		this.$title.on( 'blur keyup', function () {
+		this.$title.on( 'blur keyup', $.debounce( 500, function () {
 			mw.cx.targetTitle = cxTranslation.$title.text();
-			mw.hook( 'mw.cx.translation.title.change' ).fire();
-		} ).on( 'click focus', function () {
+			mw.hook( 'mw.cx.translation.title.change' ).fire( mw.cx.targetTitle );
+		} ) ).on( 'click focus', function () {
 			// Just like sections, fire focus event.
 			mw.hook( 'mw.cx.translation.focus' ).fire( cxTranslation.$title );
 		} );

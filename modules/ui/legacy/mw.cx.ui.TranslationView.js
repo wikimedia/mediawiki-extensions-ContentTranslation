@@ -29,6 +29,7 @@
 		// Parent constructor
 		mw.cx.ui.TranslationView.parent.call( this, this.config );
 		this.publishButton = null;
+		this.publishSettings = null;
 		this.preparePublishButton();
 	};
 
@@ -58,9 +59,34 @@
 		this.publishButton.connect( this, {
 			click: 'onPublishButtonClick'
 		} );
+
 		mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 			this.publishButton.setDisabled( weights.any === 0 );
 		}.bind( this ) );
+		mw.hook( 'mw.cx.draft.restored' ).add( this.onTranslationRestore.bind( this ) );
+		mw.hook( 'mw.cx.translation.title.change' ).add(
+			this.onTargetTitleChange.bind( this )
+		);
+	};
+
+	/**
+	 * Translation restore event handler
+	 */
+	mw.cx.ui.TranslationView.prototype.onTranslationRestore = function () {
+		// Restore the namespace choice
+		this.onTargetTitleChange( mw.cx.targetTitle );
+	};
+
+	mw.cx.ui.TranslationView.prototype.onTargetTitleChange = function ( newTargetTitle ) {
+		// Restore the namespace choice
+		var currentTitleObj, currentNamespace;
+		currentTitleObj = mw.Title.newFromText( newTargetTitle );
+		if ( !currentTitleObj ) {
+			mw.log.error( '[CX] Invalid target title' );
+			return;
+		}
+		currentNamespace = currentTitleObj.getNamespaceId();
+		this.publishSettings.setDestinationNamespace( currentNamespace );
 	};
 
 	/**
@@ -70,7 +96,11 @@
 	mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 		var currentTitleObj, title, newTitle, currentNamespace, username;
 
-		currentTitleObj = new mw.Title( mw.cx.targetTitle );
+		currentTitleObj = mw.Title.newFromText( mw.cx.targetTitle );
+		if ( !currentTitleObj ) {
+			mw.log.error( '[CX] Invalid target title' );
+			return;
+		}
 		currentNamespace = currentTitleObj.getNamespaceId();
 		if ( namespaceId === currentNamespace ) {
 			// No change.
