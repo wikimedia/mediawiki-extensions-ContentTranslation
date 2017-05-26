@@ -27,7 +27,12 @@ mw.cx.ui.SectionTranslationUnit.static.matchTagNames = [ 'section' ];
 mw.cx.ui.SectionTranslationUnit.static.highlightClass = 'cx-highlight';
 mw.cx.ui.SectionTranslationUnit.static.tools = {
 	search: [ 'click' ],
-	formatter: [ 'select', 'click', 'focus' ],
+	formatter: {
+		triggers: [ 'select', 'click', 'focus' ],
+		events: {
+			newlink: 'showNewLinkTool'
+		}
+	},
 	machinetranslation: [ 'click' ],
 	targetlink: {
 		triggers: [ 'select' ],
@@ -36,7 +41,7 @@ mw.cx.ui.SectionTranslationUnit.static.tools = {
 		}
 	},
 	newlink: {
-		triggers: [ 'select' ],
+		triggers: [ 'select', 'newlink' ],
 		events: {
 			addlink: 'addLink',
 			addExternalLink: 'addExternalLink'
@@ -189,6 +194,10 @@ mw.cx.ui.SectionTranslationUnit.prototype.addExternalLink = function ( selection
 	mw.cx.selection.setCursorAfter( 'translation' );
 	this.emit( 'change' );
 	this.buildSubTranslationUnits( this.model );
+};
+
+mw.cx.ui.SectionTranslationUnit.prototype.showNewLinkTool = function () {
+	this.emit( 'newlink' );
 };
 
 /**
