@@ -136,8 +136,8 @@
 		"@ContentTranslationAsBetaFeature": "Whether to have CX available only as a beta feature and only shown to the  users who have enabled the beta feature.",
 		"ContentTranslationAsBetaFeature": true,
 		"ContentTranslationDefaultSourceLanguage": "en",
-		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be 'Main' or any valid Namespace without leading column.",
-		"ContentTranslationTargetNamespace": "Main",
+		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
+		"ContentTranslationTargetNamespace": 0,
 		"ContentTranslationCampaigns": {
 			"cxstats": true,
 			"specialcx": true,
@@ -1480,7 +1480,8 @@
 				"mw.cx.tools",
 				"mw.cx.ui.Columns",
 				"mw.cx.ui.Header",
-				"mw.cx.ui.TranslationUnits"
+				"mw.cx.ui.TranslationUnits",
+				"mw.cx.ui.PublishSettingsWidget"
 			]
 		},
 		"mw.cx.ui.TranslationView.legacy": {
@@ -1498,7 +1499,8 @@
 				"mw.cx.ui.Columns.legacy",
 				"ext.cx.model",
 				"ext.cx.util",
-				"ext.cx.sitemapper"
+				"ext.cx.sitemapper",
+				"mw.cx.ui.PublishSettingsWidget"
 			]
 		},
 		"mw.cx.init.legacy": {
@@ -2070,6 +2072,26 @@
 			"dependencies": [
 				"oojs-ui-widgets",
 				"mw.cx.util"
+			]
+		},
+		"mw.cx.ui.PublishSettingsWidget": {
+			"scripts": [
+				"ui/widgets/mw.cx.ui.PublishSettingsWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.PublishSettingsWidget.less"
+			],
+			"messages": [
+				"cx-publish-destination-header",
+				"cx-publish-destination-tooltip",
+				"cx-publish-destination-namespace-main",
+				"cx-publish-destination-namespace-user",
+				"cx-publish-destination-namespace-draft"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-interactions"
 			]
 		},
 		"mw.cx.ui.MessageWidget": {

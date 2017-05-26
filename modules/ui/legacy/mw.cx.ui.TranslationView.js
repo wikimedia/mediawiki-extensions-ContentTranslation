@@ -50,6 +50,12 @@
 			classes: [ 'cx-header__publish-button' ],
 			label: mw.msg( 'cx-publish-button' )
 		} );
+		this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
+			destination: mw.config.get( 'wgContentTranslationTargetNamespace' )
+		} );
+		this.publishSettings.connect( this, {
+			choose: 'onPublishNamespaceChange'
+		} );
 		this.publishButton.connect( this, {
 			click: 'onPublishButtonClick'
 		} );
@@ -59,12 +65,46 @@
 	};
 
 	/**
+	 * Target namespace change handler
+	 * @param {int} namespaceId
+	 */
+	mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
+		var currentTitleObj, title, newTitle, currentNamespace, username;
+
+		currentTitleObj = new mw.Title( mw.cx.targetTitle );
+		currentNamespace = currentTitleObj.getNamespaceId();
+		if ( namespaceId === currentNamespace ) {
+			// No change.
+			return;
+		}
+
+		// Get the current title string
+		title = currentTitleObj.getMainText();
+		if ( currentNamespace === mw.config.get( 'wgNamespaceIds' ).user ) {
+			// User namespace. Get the title part alone after removing User:username/ part
+			title = title.substr( title.indexOf( '/' ) + 1 );
+		}
+
+		if ( namespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
+			username = mw.user.getName();
+			title = mw.Title.newFromText( username + '/' + title, namespaceId ).toText();
+		}
+		newTitle = mw.Title.newFromText( title, namespaceId ).toText();
+
+		mw.cx.targetTitle = newTitle;
+		this.columns.translationColumn.setTargetTitle( newTitle );
+		mw.log( '[CX] Target title changed to ' + mw.cx.targetTitle );
+		// Namespace changed. Enable the publish button
+		this.publishButton.setDisabled( false );
+	};
+
+	/**
 	 * Add the publish button to the user interface.
 	 */
 	mw.cx.ui.TranslationView.prototype.attachPublishButton = function () {
-		this.header.$headerBar.append( new OO.ui.Element( {
+		this.header.$headerBar.append( new OO.ui.HorizontalLayout( {
 			classes: [ 'cx-header__publish' ],
-			$content: this.publishButton.$element
+			items: [ this.publishSettings, this.publishButton ]
 		} ).$element );
 	};
 
@@ -78,7 +118,9 @@
 		// Disable the trigger button
 		this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button-publishing' ) );
 		publisher = new mw.cx.Publish( this.publishButton, this.config.siteMapper );
-		publisher.publish().always( function () {
+		publisher.publish( {
+			title: mw.cx.targetTitle
+		} ).always( function () {
 			self.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 		} );
 	};

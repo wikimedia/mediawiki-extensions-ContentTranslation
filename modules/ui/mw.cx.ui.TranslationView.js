@@ -20,6 +20,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	this.translation = null;
 	this.targetArticle = null;
 	this.publishButton = null;
+	this.publishSettings = null;
 	this.init();
 	this.listen();
 };
@@ -158,6 +159,12 @@ mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
 		classes: [ 'cx-header__publish-button' ],
 		label: mw.msg( 'cx-publish-button' )
 	} );
+	this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
+		destination: mw.config.get( 'wgContentTranslationTargetNamespace' )
+	} );
+	this.publishSettings.connect( this, {
+		choose: 'onPublishNamespaceChange'
+	} );
 	this.publishButton.connect( this, {
 		click: 'publish'
 	} );
@@ -174,12 +181,46 @@ mw.cx.ui.TranslationView.prototype.onChange = function () {
 };
 
 /**
+ * Target namespace change handler
+ * @param {number} namespaceId
+ */
+mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
+	var currentTitleObj, title, newTitle, currentNamespace, username;
+
+	currentTitleObj = new mw.Title( this.getTargetArticle().getTargetTitle() );
+	currentNamespace = currentTitleObj.getNamespaceId();
+	if ( namespaceId === currentNamespace ) {
+		// No change.
+		return;
+	}
+
+	// Get the current title string
+	title = currentTitleObj.getMainText();
+	if ( currentNamespace === mw.config.get( 'wgNamespaceIds' ).user ) {
+		// User namespace. Get the title part alone after removing User:username/ part
+		title = title.substr( title.indexOf( '/' ) + 1 );
+	}
+
+	if ( namespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
+		username = mw.user.getName();
+		title = mw.Title.newFromText( username + '/' + title, namespaceId ).toText();
+	}
+	newTitle = mw.Title.newFromText( title, namespaceId ).toText();
+
+	this.targetArticle.setTargetTitle( newTitle );
+	this.columns.translationColumn.setTargetTitle( newTitle );
+	mw.log( '[CX] Target title changed to ' + newTitle );
+	// Namespace changed. Enable the publish button
+	this.publishButton.setDisabled( false );
+};
+
+/**
  * Add the publish button to the user interface.
  */
 mw.cx.ui.TranslationView.prototype.attachPublishButton = function () {
-	this.header.$headerBar.append( new OO.ui.Element( {
+	this.header.$headerBar.append( new OO.ui.HorizontalLayout( {
 		classes: [ 'cx-header__publish' ],
-		$content: this.publishButton.$element
+		items: [ this.publishSettings, this.publishButton ]
 	} ).$element );
 };
 
@@ -189,15 +230,23 @@ mw.cx.ui.TranslationView.prototype.attachPublishButton = function () {
 mw.cx.ui.TranslationView.prototype.publish = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button-publishing' ) );
-	if ( !this.targetArticle ) {
-		this.targetArticle = new mw.cx.TargetArticle( this.translation, this, this.config );
-		this.targetArticle.connect( this, {
-			publishSuccess: 'onPublishSuccess'
-		} );
-	}
-	this.targetArticle.publish().always( function () {
+	this.getTargetArticle().publish().always( function () {
 		this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 	}.bind( this ) );
+};
+
+/**
+ * @return {mw.cx.TargetArticle} targetArticle instance
+ */
+mw.cx.ui.TranslationView.prototype.getTargetArticle = function () {
+	if ( this.targetArticle ) {
+		return this.targetArticle;
+	}
+	this.targetArticle = new mw.cx.TargetArticle( this.translation, this, this.config );
+	this.getTargetArticle().connect( this, {
+		publishSuccess: 'onPublishSuccess'
+	} );
+	return this.targetArticle;
 };
 
 /**

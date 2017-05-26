@@ -32,8 +32,9 @@
 	.mw-ui-one-whole;
 	border-bottom: 1px solid #eee;
 	border-top: 1px solid #eee;
-	padding-bottom: 10px;
-	padding-top: 15px;
+	padding: 5px;
+	/* Trick to get items vertically aligned */
+	line-height: 2em;
 	box-shadow: 0 4px rgba( 0, 0, 0, 0.05 );
 }
 
@@ -76,6 +77,10 @@
 		border: 0;
 		margin: 0;
 		padding-top: 5px;
+	}
+
+	.cx-header__publish {
+		text-align: right;
 	}
 
 	.cx-header__publish-button {

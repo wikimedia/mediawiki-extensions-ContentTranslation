@@ -96,6 +96,10 @@ mw.cx.ui.TranslationColumn.prototype.add = function ( $translationUnit, position
 	this.insertAt( position, $translationUnit );
 };
 
+mw.cx.ui.TranslationColumn.prototype.setTargetTitle = function ( title ) {
+	this.titleWidget.setValue( title );
+};
+
 /**
  * @param {integer} index
  * @param {jQuery} $element
