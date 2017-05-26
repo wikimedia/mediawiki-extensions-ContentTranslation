@@ -1323,6 +1323,7 @@
 				"dm/translationunits/mw.cx.dm.SectionTranslationUnit.js"
 			],
 			"dependencies": [
+				"mw.cx.dm.SourcePage",
 				"mw.cx.dm.TranslationUnit"
 			]
 		},
