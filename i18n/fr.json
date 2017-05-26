@@ -242,5 +242,8 @@
 	"cx-translation-template-add-param": "+ Traduire le champ",
 	"cx-translation-template-add-more": "Ajouter plus de champs",
 	"cx-translation-template-select-param": "Sélectionner les champs de destination",
-	"cx-tools-category-add": "Ajouter une catégorie"
+	"cx-tools-category-add": "Ajouter une catégorie",
+	"cx-publish-destination-namespace-main": "Nouvelle page",
+	"cx-publish-destination-namespace-user": "Essai personnel",
+	"cx-publish-destination-namespace-draft": "Essai communautaire"
 }
