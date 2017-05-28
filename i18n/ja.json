@@ -191,7 +191,7 @@
 	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}、いつでも翻訳を再開する",
 	"cx-tools-link-internal-link": "ページヘのリンク",
 	"cx-tools-link-internal-link-placeholder": "リンクするページを探す",
-	"cx-tools-link-external-link": "外部",
+	"cx-tools-link-external-link": "外部リンク",
 	"cx-tools-link-external-link-placeholder": "外部リンクを追加",
 	"cx-tools-link-to-another-page": "別のページにリンク",
 	"cx-tools-link-add-as-missing": "存在しないリンクとして追加",

@@ -175,9 +175,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваши преводи}}",
 	"cx-translationlist-empty-title": "Немате ништо за преведување?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Започнете}} со преводот сега и продолжете во било кое време",
-	"cx-tools-link-internal-link": "Сврзи со страница",
+	"cx-tools-link-internal-link": "Пребарај страници",
 	"cx-tools-link-internal-link-placeholder": "Најди страница за сврзување",
-	"cx-tools-link-external-link": "Надворешна",
+	"cx-tools-link-external-link": "Надворешна врска",
 	"cx-tools-link-external-link-placeholder": "Додај надворешна врска",
 	"cx-tools-link-to-another-page": "Врска до друга страница",
 	"cx-tools-link-add-as-missing": "Додај отсутна врска",
@@ -208,5 +208,10 @@
 	"cx-translation-template-add-param": "+ Поле за превод",
 	"cx-translation-template-add-more": "Додај уште полиња",
 	"cx-translation-template-select-param": "Изберете целни полиња",
-	"cx-tools-category-add": "Додај категорија"
+	"cx-tools-category-add": "Додај категорија",
+	"cx-publish-destination-header": "Објавно одредиште",
+	"cx-publish-destination-tooltip": "Изберете во кој именски простор да се објави статијата",
+	"cx-publish-destination-namespace-main": "Нова страница",
+	"cx-publish-destination-namespace-user": "Личен нацрт",
+	"cx-publish-destination-namespace-draft": "Друштвен нацрт"
 }

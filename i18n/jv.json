@@ -206,5 +206,10 @@
 	"cx-template-not-available": "Ora ana ing $1",
 	"cx-translation-template-add-param": "+ Pertal babagan",
 	"cx-translation-template-add-more": "Tambah babagan liyané",
-	"cx-translation-template-select-param": "Pilih babagan tujuan"
+	"cx-translation-template-select-param": "Pilih babagan tujuan",
+	"cx-publish-destination-header": "Parané pambabar",
+	"cx-publish-destination-tooltip": "Pilihen mandala arané artikel sing arap dibabar",
+	"cx-publish-destination-namespace-main": "Kaca anyar",
+	"cx-publish-destination-namespace-user": "Rèngrèngan priangga",
+	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban"
 }

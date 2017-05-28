@@ -229,5 +229,10 @@
 	"cx-translation-template-add-param": "+ 번역 구역",
 	"cx-translation-template-add-more": "구역 더 추가하기",
 	"cx-translation-template-select-param": "대상 구역 선택",
-	"cx-tools-category-add": "분류 추가"
+	"cx-tools-category-add": "분류 추가",
+	"cx-publish-destination-header": "게시 위치",
+	"cx-publish-destination-tooltip": "게시할 문서의 이름공간을 선택합니다",
+	"cx-publish-destination-namespace-main": "새 문서",
+	"cx-publish-destination-namespace-user": "개인 초안",
+	"cx-publish-destination-namespace-draft": "공동체 초안"
 }

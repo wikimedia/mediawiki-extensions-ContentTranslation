@@ -201,5 +201,8 @@
 	"cx-translation-template-add-param": "+ Iwwersetzungsfeld",
 	"cx-translation-template-select-param": "Zilfelder eraussichen",
 	"cx-tools-category-add": "Kategorie derbäisetzen",
-	"cx-publish-destination-namespace-main": "Nei Säit"
+	"cx-publish-destination-tooltip": "Sicht den Nummraum eraus vum Artikel, an deem dëse publizéiert gi soll",
+	"cx-publish-destination-namespace-main": "Nei Säit",
+	"cx-publish-destination-namespace-user": "Perséinleche Brouillon",
+	"cx-publish-destination-namespace-draft": "Gemeinschaftleche Brouillon"
 }

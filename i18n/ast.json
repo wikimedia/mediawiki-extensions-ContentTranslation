@@ -209,5 +209,10 @@
 	"cx-translation-template-add-param": "+ Traducir campu",
 	"cx-translation-template-add-more": "Amestar más campos",
 	"cx-translation-template-select-param": "Seleicionar los campos de destín",
-	"cx-tools-category-add": "Amestar categoría"
+	"cx-tools-category-add": "Amestar categoría",
+	"cx-publish-destination-header": "Destín de la publicación",
+	"cx-publish-destination-tooltip": "Escueye l'espaciu de nomes del artículu a publicar",
+	"cx-publish-destination-namespace-main": "Páxina nueva",
+	"cx-publish-destination-namespace-user": "Borrador personal",
+	"cx-publish-destination-namespace-draft": "Borrador comunitariu"
 }

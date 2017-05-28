@@ -217,5 +217,10 @@
 	"cx-translation-template-add-param": "+ Översätt fält",
 	"cx-translation-template-add-more": "Lägg till fler fält",
 	"cx-translation-template-select-param": "Välj målfält",
-	"cx-tools-category-add": "Lägg till kategori"
+	"cx-tools-category-add": "Lägg till kategori",
+	"cx-publish-destination-header": "Publicera destination",
+	"cx-publish-destination-tooltip": "Välj namnrymden för artikeln att publicera",
+	"cx-publish-destination-namespace-main": "Ny sida",
+	"cx-publish-destination-namespace-user": "Personlig skiss",
+	"cx-publish-destination-namespace-draft": "Gemenskapsskiss"
 }
