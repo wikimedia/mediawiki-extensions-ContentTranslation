@@ -26,31 +26,69 @@ mw.cx.dm.ImageTranslationUnit.static.matchRdfaTypes = [ 'mw:Image/Thumb' ];
 /**
  * @inheritdoc
  */
-mw.cx.dm.ImageTranslationUnit.prototype.adapt = function () {
+mw.cx.dm.ImageTranslationUnit.prototype.adapt = function ( requestedProvider ) {
+	var imageSource;
+
 	this.sourceImage = this.sourceDocument.getElementsByTagName( 'img' )[ 0 ];
 	this.sourceResource = this.sourceImage.getAttribute( 'resource' );
-
-	if ( !this.isCommonsImage( this.sourceImage.getAttribute( 'src' ) ) ) {
+	imageSource = this.sourceImage.getAttribute( 'src' );
+	if ( !this.isCommonsImage( imageSource ) ) {
 		// Create an empty paragraph
 		this.targetDocument = document.createElement( 'p' );
-		this.setTargetId();
+		this.setTargetId( this.targetDocument );
+		mw.log( '[CX] Could not adapt non Commons image ' + imageSource );
+		this.emit( 'adapt', this.targetDocument, this.MTProvider );
 		return;
 	}
 
-	this.targetDocument = this.sourceDocument.cloneNode( true );
-	this.setTargetId();
-	this.adaptImageAlignment( this.targetDocument );
-	this.targetImage = this.targetDocument.getElementsByTagName( 'img' )[ 0 ];
-	this.targetResource = this.targetImage.getAttribute( 'resource' );
+	mw.log( '[CX] Adapting image ' + imageSource );
+	mw.cx.dm.ImageTranslationUnit.super.prototype.adapt.call( this, requestedProvider );
+};
 
-	return this.requestManager.getNamespaceAlias( this.targetLanguage, 'File' )
-		.then( function ( namespaceAlias ) {
-			this.targetResource = this.sourceResource.replace(
-				/(\.\/)*(.+)(:)/g,
-				'$1' + namespaceAlias + '$3'
-			);
-			this.targetImage.setAttribute( 'resource', this.targetResource );
-		}.bind( this ) );
+/**
+ * @inheritdoc
+ */
+mw.cx.dm.ImageTranslationUnit.prototype.updateAfterTranslation = function ( document, provider ) {
+	this.targetDocument = document;
+
+	if ( provider === 'scratch' ) {
+		this.targetImage = null;
+		this.targetResource = null;
+		return;
+	}
+
+	this.targetImage = document.getElementsByTagName( 'img' )[ 0 ];
+	// Set default value in case namespace updating fails in adaptAfterTranslation
+	this.targetResource = this.targetImage.getAttribute( 'resource' );
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.dm.ImageTranslationUnit.prototype.adaptAfterTranslation = function ( document, provider ) {
+	if ( provider === 'scratch' ) {
+		return;
+	}
+
+	this.adaptImageAlignment( document );
+	this.adaptNamespace();
+};
+
+/**
+ * Adapt the image namespace to target language.
+ * @return {[type]} [description]
+ */
+mw.cx.dm.ImageTranslationUnit.prototype.adaptNamespace = function () {
+	return this.requestManager.getNamespaceAlias(
+		this.targetLanguage,
+		'File'
+	).then( function ( namespaceAlias ) {
+		this.targetResource = this.sourceResource.replace(
+			/(\.\/)*(.+)(:)/g,
+			'$1' + namespaceAlias + '$3'
+		);
+		this.targetImage.setAttribute( 'resource', this.targetResource );
+	}.bind( this ) );
 };
 
 /**

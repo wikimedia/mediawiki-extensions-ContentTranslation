@@ -74,12 +74,18 @@ mw.cx.dm.TranslationUnit.prototype.onChange = function () {
 /**
  * Change the element id of the translation copy. We follow a format where
  * 'cx' is prefixed to the source element id.
+ *
+ * @param {Element} [document] Target section DOM Element
  */
-mw.cx.dm.TranslationUnit.prototype.setTargetId = function () {
-	if ( !this.targetDocument ) {
-		throw new Error( 'Target document not set for translation unit : ' + this.toString() );
+mw.cx.dm.TranslationUnit.prototype.setTargetId = function ( document ) {
+	if ( document ) {
+		document.id = this.getTranslationSectionId();
+	} else {
+		if ( !this.targetDocument ) {
+			throw new Error( 'Target document not set for translation unit : ' + this.toString() );
+		}
+		this.targetDocument.id = this.getTranslationSectionId();
 	}
-	this.targetDocument.id = this.getTranslationSectionId();
 };
 
 /**
