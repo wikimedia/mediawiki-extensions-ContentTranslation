@@ -72,6 +72,7 @@ mw.cx.ui.TranslationColumn.prototype.render = function () {
  */
 mw.cx.ui.TranslationColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
+	this.setTargetTitle( this.translation.getTargetTitle() );
 };
 
 /**

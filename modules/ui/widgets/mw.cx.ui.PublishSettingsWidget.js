@@ -19,6 +19,8 @@
  * @cfg {string} [destination] publishing destination. Any of main, user, draft.
  */
 mw.cx.ui.PublishSettingsWidget = function PublishSettingsWidget( config ) {
+
+	this.publishingOptionsWidget = null;
 	config = $.extend( {}, {
 		icon: 'advanced',
 		framed: false,
@@ -34,7 +36,7 @@ mw.cx.ui.PublishSettingsWidget = function PublishSettingsWidget( config ) {
 	};
 	// Parent constructor
 	mw.cx.ui.PublishSettingsWidget.super.call( this, config );
-	this.publishingOptionsWidget = null;
+
 	// Initialization
 	this.$element.addClass( 'mw-cx-ui-PublishSettingsWidget' );
 };

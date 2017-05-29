@@ -269,7 +269,8 @@ mw.cx.init.Translation.prototype.fetchDraftSuccess = function ( draft ) {
 
 	// Restore each translation storage units against the source sections.
 	this.translation.restore( draft );
-	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restored' ) );
+	// TODO: Restore failures not handled.
+	this.translationView.emit( 'translationRestored' );
 };
 
 mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details ) {
@@ -278,7 +279,6 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 	}
 	details.errorCode = errorCode;
 	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
-
 };
 
 /**

@@ -1373,7 +1373,6 @@
 			],
 			"messages": [
 				"cx-draft-restore-failed",
-				"cx-draft-restored",
 				"cx-draft-restoring",
 				"cx-error-page-not-found",
 				"cx-error-server-connection"
@@ -1463,6 +1462,7 @@
 				"ui/styles/mw.cx.ui.TranslationView.less"
 			],
 			"messages": [
+				"cx-draft-restored",
 				"cx-publish-button",
 				"cx-publish-button-publishing",
 				"cx-publish-page-success"
