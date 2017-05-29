@@ -223,5 +223,6 @@
 	"cx-template-action-skip": "Pomiń szablon",
 	"cx-translation-template-add-more": "Dodaj więcej pól",
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
-	"cx-tools-category-add": "Dodaj kategorię"
+	"cx-tools-category-add": "Dodaj kategorię",
+	"cx-publish-destination-namespace-main": "Nowa strona"
 }

@@ -205,5 +205,8 @@
 	"cx-translation-template-add-param": "+ साँचा स्थान",
 	"cx-translation-template-add-more": "और जगह जोड़ें",
 	"cx-translation-template-select-param": "लक्ष्य स्थान चुनें",
-	"cx-tools-category-add": "श्रेणी जोड़ें"
+	"cx-tools-category-add": "श्रेणी जोड़ें",
+	"cx-publish-destination-namespace-main": "नया पृष्ठ",
+	"cx-publish-destination-namespace-user": "व्यक्तिगत ड्राफ्ट",
+	"cx-publish-destination-namespace-draft": "सामुदायिक ड्राफ्ट"
 }
