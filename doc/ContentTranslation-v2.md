@@ -120,3 +120,26 @@ Issues:
 1. In case of translation unit that is restored, this will cause unwanted adaptation. The adaptation should be conditional.
 
 Section Translation unit's target document get initialized to a placeholder. And when user click on that placeholder, the actual translation begins. This behavior adds some complication. SectionTranslationUnit is also created for any block level elements such as figure captions, table rows or any such elements inside a section. Those elements cannot have a placeholder.
+
+Translation tools
+-----------------
+Every translation unit UI model can define a set of attached translation tools.
+```
+tools = {
+    search: [ 'click' ], // The search tool gis shown when this translation unit is clicked
+    formatter: {
+        // Tools can be triggered by multiple different events
+        triggers: [ 'select', 'click', 'focus' ],
+        // Connect the events from the tool to handlers in this translation unit.
+        events: {
+            newlink: 'showNewLinkTool'
+        }
+    }
+}
+```
+
+It is mw.cx.ui.TranslationView that connects the translation units and tools. The showTool event from translation unit is handled by mw.cx.ui.TranslationView and it fires mw.cx.ui.TranslationView.prototype.showTranslationTool.
+
+When a click is recieved on a translation unit, the unit is activated and it emits 'activate' event. On every 'activate' event all translation tools are first hidden by the mw.cx.ui.TranslationView.
+
+Nested section translation units are problematic in this case too. Section level translation unit tools will be shown more than once when the event propagates.
