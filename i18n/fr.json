@@ -37,7 +37,8 @@
 			"Pols12",
 			"Liuxinyu970226",
 			"The RedBurn",
-			"Trizek (WMF)"
+			"Trizek (WMF)",
+			"Urhixidur"
 		]
 	},
 	"cx": "Traduire la page",
@@ -245,8 +246,8 @@
 	"cx-translation-template-select-param": "Sélectionner les champs de destination",
 	"cx-tools-category-add": "Ajouter une catégorie",
 	"cx-publish-destination-header": "Publier la destination",
-	"cx-publish-destination-tooltip": "Choisir l'espace de noms de l'article à publier",
+	"cx-publish-destination-tooltip": "Choisir l’espace de noms de l’article à publier",
 	"cx-publish-destination-namespace-main": "Nouvelle page",
-	"cx-publish-destination-namespace-user": "Essai personnel",
-	"cx-publish-destination-namespace-draft": "Essai communautaire"
+	"cx-publish-destination-namespace-user": "Ébauche personnelle",
+	"cx-publish-destination-namespace-draft": "Ébauche communautaire"
 }

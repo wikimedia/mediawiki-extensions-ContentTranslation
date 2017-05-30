@@ -193,7 +193,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Tus traducciones}}",
 	"cx-translationlist-empty-title": "¿Nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comienza}} la traducción ahora y continúala en cualquier momento.",
-	"cx-tools-link-internal-link": "Enlace a página",
+	"cx-tools-link-internal-link": "Buscar páginas",
 	"cx-tools-link-internal-link-placeholder": "Buscar página que enlazar",
 	"cx-tools-link-external-link": "Enlace externo",
 	"cx-tools-link-external-link-placeholder": "Añadir enlace externo",
@@ -226,5 +226,10 @@
 	"cx-translation-template-add-param": "+ Traducir el campo",
 	"cx-translation-template-add-more": "Añadir campos",
 	"cx-translation-template-select-param": "Elegir los campos de destino",
-	"cx-tools-category-add": "Añadir categoría"
+	"cx-tools-category-add": "Añadir categoría",
+	"cx-publish-destination-header": "Destino de publicación",
+	"cx-publish-destination-tooltip": "Elige el espacio de nombres del artículo a publicar",
+	"cx-publish-destination-namespace-main": "Página nueva",
+	"cx-publish-destination-namespace-user": "Borrador personal",
+	"cx-publish-destination-namespace-draft": "Borrador comunitario"
 }
