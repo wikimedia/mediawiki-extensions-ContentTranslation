@@ -80,11 +80,18 @@ mw.cx.ui.SectionTranslationUnit.prototype.createSourceSection = function ( model
  * @return {jQuery}
  */
 mw.cx.ui.SectionTranslationUnit.prototype.createTranslationSection = function ( model ) {
-	if ( model.targetDocument ) {
-		return $( '<section>' ).html( model.targetDocument );
-	} else {
+	if ( !model.targetDocument ) {
 		return this.getPlaceholderSection();
 	}
+
+	// Target document exist. This means, this is a restored unit
+	if ( !model.getParentTranslationUnit() ) {
+		// Translation section. No parent translation unit.
+		return $( '<section>' ).html( model.targetDocument );
+	}
+	// Block level translation unit, but not a translation section.
+	// Example: Figure caption, table row etc.
+	return $( model.targetDocument );
 };
 
 mw.cx.ui.SectionTranslationUnit.prototype.getSourceSection = function () {
