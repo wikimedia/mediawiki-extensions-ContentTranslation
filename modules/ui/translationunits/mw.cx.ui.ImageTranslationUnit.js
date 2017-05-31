@@ -21,6 +21,7 @@ mw.cx.ui.ImageTranslationUnit.static.name = 'Image';
 mw.cx.ui.ImageTranslationUnit.static.tags = [ 'figure' ];
 mw.cx.ui.ImageTranslationUnit.static.matchRdfaTypes = [ 'mw:Image/Thumb' ];
 mw.cx.ui.ImageTranslationUnit.static.highlightClass = 'cx-image-highlight';
+mw.cx.ui.ImageTranslationUnit.static.tools = {};
 
 mw.cx.ui.ImageTranslationUnit.prototype.adapt = function () {
 	this.model.adapt();
