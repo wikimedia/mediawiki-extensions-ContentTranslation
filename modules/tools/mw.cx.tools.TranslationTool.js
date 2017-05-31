@@ -91,7 +91,7 @@ mw.cx.tools.TranslationTool.prototype.getContent = function () {
 };
 
 mw.cx.tools.TranslationTool.prototype.getData = function () {
-	return this.constructor.static.name + '::' + this.model.getId();
+	return this.constructor.static.name + '::' + this.model.getSectionId();
 };
 
 /**
