@@ -89,11 +89,15 @@ mw.cx.ui.ToolsColumn.prototype.showTools = function ( translationUnit ) {
 };
 
 /**
- * Show a single tool in tools container
+ * Show a single tool in tools container.
+ * Avoid duplicates by checking if the tool is already in the container.
+ *
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
  */
 mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
-	this.toolContainer.addItems( [ tool.getCard() ] );
+	if ( !this.toolContainer.getItemsFromData( tool.getData() ).length ) {
+		this.toolContainer.addItems( [ tool.getCard() ] );
+	}
 };
 
 /**
