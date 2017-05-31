@@ -11,13 +11,15 @@
  * @cfg {string} title The tool title
  */
 mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translationTool, config ) {
+	this.translationTool = translationTool;
 	config = $.extend( {}, config, {
 		classes: [ 'cx-card', 'cx-card-' + config.name ],
 		expanded: false,
 		framed: true,
-		padded: false
+		padded: false,
+		data: this.translationTool.getData()
 	} );
-	this.translationTool = translationTool;
+
 	// Parent constructor
 	mw.cx.widgets.TranslationToolWidget.parent.call( this, config );
 
