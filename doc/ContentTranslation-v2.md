@@ -115,7 +115,7 @@ The init method of SectionTranslationUnit just initialize the source and target 
 Issues:
 1. This means, for a restored translation, the already translated status is not at all used to proceed with further initialization of sub translation units. This need fix. For already translated and restored sections, none of the sub translation units like links or references respond unless the translator clicks "twice". The first click is triggering the initialization of sub translation units. Which we can do even before.
 
-The init method of All other translation units that inherit the init method of mw.cx.ui.TranslationUnit initiatializes the source and target sections, listens for events and immediate starts adapting. This is with the assumption that the non-section translation units are created when a SectionTranslationUnit is added to Translation column (by placeholder click or restore).
+The init method of All other translation units that inherit the init method of mw.cx.ui.TranslationUnit initializes the source and target sections, listens for events and immediate starts adapting. This is with the assumption that the non-section translation units are created when a SectionTranslationUnit is added to Translation column (by placeholder click or restore).
 Issues:
 1. In case of translation unit that is restored, this will cause unwanted adaptation. The adaptation should be conditional.
 
@@ -126,7 +126,7 @@ Translation tools
 Every translation unit UI model can define a set of attached translation tools.
 ```
 tools = {
-    search: [ 'click' ], // The search tool gis shown when this translation unit is clicked
+    search: [ 'click' ], // The search tool is shown when this translation unit is clicked
     formatter: {
         // Tools can be triggered by multiple different events
         triggers: [ 'select', 'click', 'focus' ],
@@ -140,6 +140,6 @@ tools = {
 
 It is mw.cx.ui.TranslationView that connects the translation units and tools. The showTool event from translation unit is handled by mw.cx.ui.TranslationView and it fires mw.cx.ui.TranslationView.prototype.showTranslationTool.
 
-When a click is recieved on a translation unit, the unit is activated and it emits 'activate' event. On every 'activate' event all translation tools are first hidden by the mw.cx.ui.TranslationView.
+When a click is received on a translation unit, the unit is activated and it emits 'activate' event. On every 'activate' event all translation tools are first hidden by the mw.cx.ui.TranslationView.
 
 Nested section translation units are problematic in this case too. Section level translation unit tools will be shown more than once when the event propagates.
