@@ -91,5 +91,9 @@ mw.cx.tools.InstructionsTool.prototype.getContent = function () {
 	return $content;
 };
 
+mw.cx.tools.InstructionsTool.prototype.getData = function () {
+	return this.constructor.static.name + '::' + 1;
+};
+
 /* Register */
 mw.cx.tools.translationToolFactory.register( mw.cx.tools.InstructionsTool );
