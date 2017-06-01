@@ -211,7 +211,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vos traductions}}",
 	"cx-translationlist-empty-title": "Rien à traduire ?",
 	"cx-translationlist-empty-desc": "Commencez votre traduction maintenant et continuez quand vous le souhaitez.",
-	"cx-tools-link-internal-link": "Chercher pages",
+	"cx-tools-link-internal-link": "Chercher des pages",
 	"cx-tools-link-internal-link-placeholder": "Trouver la page à lier",
 	"cx-tools-link-external-link": "Lien externe",
 	"cx-tools-link-external-link-placeholder": "Ajouter un lien externe",

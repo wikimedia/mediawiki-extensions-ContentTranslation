@@ -9,7 +9,8 @@
 			"Wehwei",
 			"Citizen01",
 			"Bowleerin",
-			"578985s"
+			"578985s",
+			"Wwycheuk"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -180,9 +181,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|您的翻譯}}",
 	"cx-translationlist-empty-title": "沒什麼好翻譯的？",
 	"cx-translationlist-empty-desc": "現在{{GENDER:|開始}}您的翻譯並隨時繼續。",
-	"cx-tools-link-internal-link": "連結至頁面",
+	"cx-tools-link-internal-link": "搜尋頁面",
 	"cx-tools-link-internal-link-placeholder": "尋找頁面至連結",
-	"cx-tools-link-external-link": "外部",
+	"cx-tools-link-external-link": "外部連結",
 	"cx-tools-link-external-link-placeholder": "加入外部連結",
 	"cx-tools-link-to-another-page": "連結至其他頁面",
 	"cx-tools-link-add-as-missing": "加入為遺失連結",

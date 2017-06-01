@@ -20,7 +20,8 @@
 			"Matma Rex",
 			"Woytecr",
 			"Rzuwig",
-			"WTM"
+			"WTM",
+			"Mazab IZW"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -193,7 +194,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Twoje tłumaczenia}}",
 	"cx-translationlist-empty-title": "Nie ma nic do przetłumaczenia?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Rozpocznij}} tłumaczenie i kontynuuj je później.",
-	"cx-tools-link-internal-link": "Powiąż ze stroną",
+	"cx-tools-link-internal-link": "Wyszukaj strony",
 	"cx-tools-link-internal-link-placeholder": "Znajdź stronę do podlinkowania",
 	"cx-tools-link-external-link": "Link zewnętrzny",
 	"cx-tools-link-external-link-placeholder": "Dodaj link zewnętrzny",

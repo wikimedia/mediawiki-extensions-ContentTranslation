@@ -175,7 +175,7 @@
 	"cx-notification-hundredth-translation": "Palju õnne sajanda tõlke puhul! See on märkimisväärne saavutus. Jaga seda teiste toimetajatega.",
 	"cx-translationlist-empty-title": "Pole midagi tõlkida?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Alusta}} praegu tõlkimist ja jätka millal tahes.",
-	"cx-tools-link-internal-link": "Leheküljelink",
+	"cx-tools-link-internal-link": "Otsi lehekülgi",
 	"cx-tools-link-internal-link-placeholder": "Leia lehekülg, millele linkida",
 	"cx-tools-link-external-link": "Välislink",
 	"cx-tools-link-external-link-placeholder": "Lisa välislink",
@@ -200,5 +200,10 @@
 	"cx-translation-template-add-param": "+ Tõlgi väli",
 	"cx-translation-template-add-more": "Lisa veel välju",
 	"cx-translation-template-select-param": "Vali sihtväli",
-	"cx-tools-category-add": "Lisa kategooria"
+	"cx-tools-category-add": "Lisa kategooria",
+	"cx-publish-destination-header": "Avaldamiskoht",
+	"cx-publish-destination-tooltip": "Vali, millises nimeruumis artikkel avaldada",
+	"cx-publish-destination-namespace-main": "Uus lehekülg",
+	"cx-publish-destination-namespace-user": "Isiklik mustand",
+	"cx-publish-destination-namespace-draft": "Ühiskasutatav mustand"
 }
