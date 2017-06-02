@@ -2100,7 +2100,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui-widgets",
-				"oojs-ui.styles.icons",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-interactions"
 			],
