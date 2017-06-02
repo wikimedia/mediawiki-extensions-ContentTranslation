@@ -376,7 +376,8 @@
 				"jquery.throttle-debounce",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
-				"mw.cx.ui.PageSelectorWidget"
+				"mw.cx.ui.PageSelectorWidget",
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-sourceselector-dialog-new-translation",
@@ -1695,7 +1696,8 @@
 				"ui/styles/mw.cx.ui.Categories.less"
 			],
 			"dependencies": [
-				"mw.cx.ui"
+				"mw.cx.ui",
+				"oojs-ui.styles.icons-content"
 			],
 			"messages": [
 				"cx-tools-category-add",
@@ -1947,8 +1949,9 @@
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool",
-				"oojs-ui.styles.icons-editing-styling",
-				"oojs-ui.styles.icons-editing-list"
+				"oojs-ui.styles.icons-editing-core",
+				"oojs-ui.styles.icons-editing-list",
+				"oojs-ui.styles.icons-editing-styling"
 			]
 		},
 		"mw.cx.tools.SourceLinkTool": {
@@ -1972,6 +1975,7 @@
 			"dependencies": [
 				"ext.cx.util.selection",
 				"mw.cx.tools.SourceLinkTool",
+				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
@@ -2005,7 +2009,8 @@
 				"tools/mw.cx.tools.ReferenceTool.js"
 			],
 			"dependencies": [
-				"mw.cx.tools.TranslationTool"
+				"mw.cx.tools.TranslationTool",
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-tools-reference-title",
@@ -2116,7 +2121,8 @@
 				"ui/styles/widgets/mw.cx.ui.PageSelectorWidget.less"
 			],
 			"dependencies": [
-				"mediawiki.widgets"
+				"mediawiki.widgets",
+				"oojs-ui.styles.icons-interactions"
 			]
 		}
 	},
