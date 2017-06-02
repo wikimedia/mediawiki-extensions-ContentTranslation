@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Pizza1016",
-			"Kurniasan"
+			"Kurniasan",
+			"Muhdnurhidayat"
 		]
 	},
 	"cx": "Terjemahkan laman",
@@ -171,9 +172,9 @@
 	"cx-notification-hundredth-translation": "Anda baru sahaja membuat 100 terjemahan! Itu adalah pencapaian yang hebat sekali. Kongsikan kata kepada penyunting-penyunting yang lain.",
 	"cx-translationlist-empty-title": "Tiada apa untuk menterjemah?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Mulakan}} terjemahan anda sekarang dan sambungkannya bila-bila masa.",
-	"cx-tools-link-internal-link": "Pautan ke laman",
+	"cx-tools-link-internal-link": "Cari halaman",
 	"cx-tools-link-internal-link-placeholder": "Cari laman untuk berpaut",
-	"cx-tools-link-external-link": "Luar",
+	"cx-tools-link-external-link": "Pautan luar",
 	"cx-tools-link-external-link-placeholder": "Tambah pautan luar",
 	"cx-tools-link-to-another-page": "Paut ke laman lain",
 	"cx-tools-link-add-as-missing": "Tambah sebagai pautan hilang",

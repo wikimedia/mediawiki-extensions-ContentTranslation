@@ -13,7 +13,8 @@
 			"Macofe",
 			"Shbib Al-Subaie",
 			"Izoozo",
-			"ديفيد"
+			"ديفيد",
+			"Mido"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -218,5 +219,6 @@
 	"cx-template-not-available": "غير متوفر في $1",
 	"cx-translation-template-add-param": "+ حقل ترجمة",
 	"cx-translation-template-add-more": "أضف المزيد من الحقول",
-	"cx-translation-template-select-param": "اختر الحقول الهدف"
+	"cx-translation-template-select-param": "اختر الحقول الهدف",
+	"cx-publish-destination-namespace-main": "صفحة جديدة"
 }
