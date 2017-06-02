@@ -27,8 +27,8 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.translationView = null;
 	// @var {mw.cx.dm.Translation}
 	this.translationModel = null;
-	// @var {mw.cx.Translation}
-	this.translation = null;
+	// @var {mw.cx.TranslationController}
+	this.translationController = null;
 	// @var {mw.cx.dm.SourcePage}
 	this.sourcePage = null;
 	// @var {mw.cx.dm.TargetPage}
@@ -158,7 +158,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentSuccess = function ( cont
 	this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
 	this.translationModel.prepareTranslationUnits();
 
-	this.translation = new mw.cx.Translation( this.translationModel, this.translationView, this.config );
+	this.translationController = new mw.cx.TranslationController( this.translationModel, this.translationView, this.config );
 };
 
 mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( xhr ) {
@@ -268,7 +268,7 @@ mw.cx.init.Translation.prototype.fetchDraftSuccess = function ( draft ) {
 	this.translationModel.setTargetTitle( draft.targetTitle );
 
 	// Restore each translation storage units against the source sections.
-	this.translation.restore( draft );
+	this.translationController.restore( draft );
 	// TODO: Restore failures not handled.
 	this.translationView.emit( 'translationRestored' );
 };

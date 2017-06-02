@@ -1382,7 +1382,7 @@
 				"mw.cx.dm.Translation",
 				"mw.cx.ui.TranslationView",
 				"mw.cx.TargetArticle",
-				"mw.cx.Translation"
+				"mw.cx.TranslationController"
 			]
 		},
 		"mw.cx.TargetArticle": {
@@ -1396,9 +1396,9 @@
 				"mediawiki.api.edit"
 			]
 		},
-		"mw.cx.Translation": {
+		"mw.cx.TranslationController": {
 			"scripts": [
-				"mw.cx.Translation.js"
+				"mw.cx.TranslationController.js"
 			],
 			"messages": [
 				"cx-lost-session-draft",

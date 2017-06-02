@@ -5,7 +5,7 @@
  * @param {mw.cx.ui.TranslationView} translationView
  * @param {object} config Translation configuration
  */
-mw.cx.Translation = function MwCxTranslation( translation, translationView, config ) {
+mw.cx.TranslationController = function MwCxTranslationController( translation, translationView, config ) {
 	this.translation = translation;
 	this.view = translationView;
 	this.config = config;
@@ -29,9 +29,9 @@ mw.cx.Translation = function MwCxTranslation( translation, translationView, conf
 
 /* Inheritance */
 
-OO.mixinClass( mw.cx.Translation, OO.EventEmitter );
+OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 
-mw.cx.Translation.prototype.listen = function () {
+mw.cx.TranslationController.prototype.listen = function () {
 	this.translation.connect( this, {
 		change: 'save'
 	} );
@@ -51,7 +51,7 @@ mw.cx.Translation.prototype.listen = function () {
  * Save the translation to database
  * @param {mw.cx.dm.translationUnit} translationUnit
  */
-mw.cx.Translation.prototype.save = function ( translationUnit ) {
+mw.cx.TranslationController.prototype.save = function ( translationUnit ) {
 	if ( !translationUnit ) {
 		return;
 	}
@@ -69,7 +69,7 @@ mw.cx.Translation.prototype.save = function ( translationUnit ) {
  * @fires savestart
  * @fires saveerror
  */
-mw.cx.Translation.prototype.processSaveQueue = function () {
+mw.cx.TranslationController.prototype.processSaveQueue = function () {
 	var params,
 		api = new mw.Api();
 
@@ -120,14 +120,14 @@ mw.cx.Translation.prototype.processSaveQueue = function () {
  * Inform about sections not saved to the user.
  * @return {string|undefined} The message to be shown to user
  */
-mw.cx.Translation.prototype.onPageUnload = function () {
+mw.cx.TranslationController.prototype.onPageUnload = function () {
 	if ( this.saveQueue.length ) {
 		this.schedule();
 		return mw.msg( 'cx-warning-unsaved-translation' );
 	}
 };
 
-mw.cx.Translation.prototype.onSaveComplete = function ( saveResult ) {
+mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	var i, sectionId, minutes = 0;
 
 	this.translationId = saveResult.cxsave.translationid;
@@ -160,7 +160,7 @@ mw.cx.Translation.prototype.onSaveComplete = function ( saveResult ) {
 	this.saveQueue = [];
 };
 
-mw.cx.Translation.prototype.onSaveFailure = function ( errorCode, details ) {
+mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, details ) {
 	if ( errorCode === 'assertuserfailed' ) {
 		this.view.showMessage( 'error', mw.msg( 'cx-lost-session-draft' ) );
 	}
@@ -179,7 +179,7 @@ mw.cx.Translation.prototype.onSaveFailure = function ( errorCode, details ) {
  * @param {Object[]} saveQueue
  * @return {string}
  */
-mw.cx.Translation.prototype.getContentToSave = function ( saveQueue ) {
+mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) {
 	var records = [];
 
 	Object.keys( saveQueue ).forEach( function ( key ) {
@@ -196,7 +196,7 @@ mw.cx.Translation.prototype.getContentToSave = function ( saveQueue ) {
  * @param {mw.cx.dm.translationUnit} translationUnit
  * @return {Object[]} Objects to save
  */
-mw.cx.Translation.prototype.getTranslationUnitData = function ( translationUnit ) {
+mw.cx.TranslationController.prototype.getTranslationUnitData = function ( translationUnit ) {
 	var sequenceId, origin, translationSource, records = [],
 		validate;
 
@@ -232,7 +232,7 @@ mw.cx.Translation.prototype.getTranslationUnitData = function ( translationUnit 
  * Restore the translation from database to translation view to continue.
  * @param {Object} savedTranslation
  */
-mw.cx.Translation.prototype.restore = function ( savedTranslation ) {
+mw.cx.TranslationController.prototype.restore = function ( savedTranslation ) {
 	var i, translationUnits, sectionId, savedTranslationUnits, savedTranslationUnit, translationContent;
 
 	translationUnits = this.translation.getTranslationUnits();
