@@ -8,7 +8,8 @@
 			"Sunpriat",
 			"Александр Сигачёв",
 			"INS Pirat",
-			"Metastasis"
+			"Metastasis",
+			"Facenapalm"
 		]
 	},
 	"apihelp-cxpublish-description": "Сохранение страницы, созданной с помощью расширения Перевод содержания.",
@@ -62,11 +63,11 @@
 	"apihelp-cxsuggestionlist-param-from": "Код исходного языка.",
 	"apihelp-cxsuggestionlist-param-to": "Код целевого языка.",
 	"apihelp-cxsave-description": "Этот модуль позволяет сохранять черновые переводы по разделам для экономии трафика и создания подборки текстов, переведённых на разные языки.",
-	"apihelp-cxsave-param-translationid": "Идентификатор перевода",
 	"apihelp-cxsave-param-sourcerevision": "Версия исходной страницы.",
 	"apihelp-cxsave-param-progress": "Информация о полноте перевода (progress). JSON с ключами <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Значения в процентах.",
 	"apihelp-cxsave-param-title": "Заголовок страницы, на которой будут произведены действия.",
 	"apihelp-cxsave-param-from": "Код исходного языка.",
 	"apihelp-cxsave-param-to": "Код целевого языка.",
-	"apihelp-cxsave-param-sourcetitle": "Заголовок исходной страницы."
+	"apihelp-cxsave-param-sourcetitle": "Заголовок исходной страницы.",
+	"apierror-cx-translationnotfound": "Перевод не найден."
 }
