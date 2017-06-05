@@ -8,7 +8,8 @@
 			"Lucas",
 			"Gamliel Fishkin",
 			"Psychoslave",
-			"NMaia"
+			"NMaia",
+			"Fitoschido"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -183,7 +184,7 @@
 	"cx-translationlist-empty-desc": "{{GENDER:|Komencu}} vian tradukon nun kaj daŭrigu ĝin iam ajn.",
 	"cx-tools-link-internal-link": "Ligi al paĝo",
 	"cx-tools-link-internal-link-placeholder": "Trovi paĝon por ligi",
-	"cx-tools-link-external-link": "Ekstera",
+	"cx-tools-link-external-link": "Ekstera ligilo",
 	"cx-tools-link-external-link-placeholder": "Aldoni eksteran ligilon",
 	"cx-tools-link-to-another-page": "Ligi al alia paĝo",
 	"cx-tools-link-add-as-missing": "Aldoni kiel mankantan ligilon",
