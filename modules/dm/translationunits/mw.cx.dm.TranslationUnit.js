@@ -204,6 +204,32 @@ mw.cx.dm.TranslationUnit.prototype.setParentTranslationUnit = function ( transla
 };
 
 /**
+ * Gets the section translation unit (i.e. the top level unit) this unit belongs to.
+ *
+ * Use this for example to access the MT provider.
+ * @return {mw.cx.dm.SectionTranslationUnit}
+ */
+mw.cx.dm.TranslationUnit.prototype.getParentSectionTranslationUnit = function () {
+	var parent = this,
+		sectionUnit = this;
+
+	while ( parent !== null ) {
+		parent = parent.getParentTranslationUnit();
+		sectionUnit = parent || sectionUnit;
+	}
+
+	if ( !( sectionUnit instanceof mw.cx.dm.SectionTranslationUnit ) ) {
+		mw.log.error(
+			this.getId() +
+			' does not have SectionTranslationUnit as grandest parent. Instead got ' +
+			sectionUnit.getId()
+		);
+	}
+
+	return sectionUnit;
+};
+
+/**
  * Whether the translation unit is editable
  * @return {boolean}
  */

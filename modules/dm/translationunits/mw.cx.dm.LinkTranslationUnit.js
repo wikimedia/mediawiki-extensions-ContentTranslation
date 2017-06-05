@@ -133,10 +133,14 @@ mw.cx.dm.LinkTranslationUnit.prototype.adaptSuccessHandler = function ( targetTi
 	this.targetTitle = targetTitle;
 	this.targetDocument.title = this.targetTitle;
 	this.targetDocument.href = this.targetTitle;
-	// TODO: This is just for testing. We should not do this if there is MT for
-	// the source-target language pair.
-	this.targetDocument.text = this.targetTitle;
 	this.targetTitleMissing = false;
+
+	// As a nice gesture, when using 'source' MT, update the link texts when adapting.
+	this.getParentSectionTranslationUnit().getMTProvider().done( function ( provider ) {
+		if ( provider === 'source' ) {
+			this.targetDocument.text = this.targetTitle;
+		}
+	}.bind( this ) );
 };
 
 /**
