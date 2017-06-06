@@ -186,9 +186,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|As suas traduções}}",
 	"cx-translationlist-empty-title": "Nada para traduzir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Inicie}} a sua tradução agora e continue a qualquer altura.",
-	"cx-tools-link-internal-link": "Ligação para página",
+	"cx-tools-link-internal-link": "Procurar páginas",
 	"cx-tools-link-internal-link-placeholder": "Encontrar página para ligar",
-	"cx-tools-link-external-link": "Externa",
+	"cx-tools-link-external-link": "Link externo",
 	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
 	"cx-tools-link-to-another-page": "Ligação para outra página",
 	"cx-tools-link-add-as-missing": "Adicionar como ligação em falta",
@@ -218,5 +218,11 @@
 	"cx-template-not-available": "Não está disponível em $1",
 	"cx-translation-template-add-param": "+ Traduzir campo",
 	"cx-translation-template-add-more": "Adicionar mais campos",
-	"cx-translation-template-select-param": "Selecionar os campos de destino"
+	"cx-translation-template-select-param": "Selecionar os campos de destino",
+	"cx-tools-category-add": "Adicionar categoria",
+	"cx-publish-destination-header": "Publicar destino",
+	"cx-publish-destination-tooltip": "Escolha o espaço nominal do artigo a ser publicado",
+	"cx-publish-destination-namespace-main": "Página nova",
+	"cx-publish-destination-namespace-user": "Rascunho pessoal",
+	"cx-publish-destination-namespace-draft": "Rascunho comunitário"
 }
