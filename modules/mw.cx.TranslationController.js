@@ -24,6 +24,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, t
 	this.saveQueue = {};
 	this.saveTimer = null;
 	this.schedule = OO.ui.debounce( this.processSaveQueue.bind( this ), 3 * 1000 );
+	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.view, this.config );
 	this.listen();
 };
 
@@ -34,6 +35,15 @@ OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 mw.cx.TranslationController.prototype.listen = function () {
 	this.translation.connect( this, {
 		change: 'save'
+	} );
+
+	this.view.connect( this, {
+		publish: 'publish'
+	} );
+
+	this.targetArticle.connect( this, {
+		publishSuccess: 'onPublishSuccess',
+		publishError: 'onPublishFailure'
 	} );
 
 	// Save when CTRL+S is pressed.
@@ -252,4 +262,49 @@ mw.cx.TranslationController.prototype.restore = function ( savedTranslation ) {
 		translationUnits[ i ].setTargetDocument( $( translationContent.content )[ 0 ] );
 	}
 	// TODO: Find out orphan translation units and handle them.
+};
+
+/**
+ * Publish the translation
+ */
+mw.cx.TranslationController.prototype.publish = function () {
+	mw.log( '[CX] Publishing translation...' );
+	this.targetArticle.publish();
+};
+
+/**
+ * Publish success handler
+ */
+mw.cx.TranslationController.prototype.onPublishSuccess = function () {
+	mw.log( '[CX] Publishing finished successfully' );
+	this.view.onPublishSuccess( this.targetArticle.getTargetURL() );
+	// Event logging
+	mw.hook( 'mw.cx.translation.published' ).fire(
+		this.translation.sourceLanguage,
+		this.translation.targetLanguage,
+		this.translation.sourceTitle,
+		this.translation.targetTitle
+	);
+};
+
+/**
+ * Publish error handler
+ * @param {string} errorCode
+ * @param {Object} details
+ */
+mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, details ) {
+	mw.log.error( '[CX] Publishing failed ' + errorCode );
+	if ( details.exception instanceof Error ) {
+		details.exception = details.exception.toString();
+	}
+	this.view.onPublishFailure( errorCode );
+
+	// Event logging
+	mw.hook( 'mw.cx.translation.publish.error' ).fire(
+		mw.cx.sourceLanguage,
+		mw.cx.targetLanguage,
+		mw.cx.sourceTitle,
+		this.targetTitle,
+		JSON.stringify( details )
+	);
 };

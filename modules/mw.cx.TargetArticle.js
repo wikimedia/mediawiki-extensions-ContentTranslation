@@ -548,8 +548,6 @@ mw.cx.TargetArticle.prototype.isTitleConnectedInLanguages = function (
  * and show a warning if needed.
  */
 mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
-	var viewTargetUrl = this.siteMapper.getPageUrl( this.targetLanguage, this.targetTitle );
-
 	this.isTitleExistInLanguage( this.targetLanguage, this.targetTitle )
 		.then( function ( pageExist ) {
 			// If page doesn't exist, it's OK
@@ -559,8 +557,12 @@ mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
 
 			mw.hook( 'mw.cx.warning' ).fire( mw.message(
 				'cx-translation-target-page-exists',
-				viewTargetUrl,
+				this.getTargetURL(),
 				this.targetTitle
 			) );
-		} );
+		}.bind( this ) );
+};
+
+mw.cx.TargetArticle.prototype.getTargetURL = function () {
+	return this.siteMapper.getPageUrl( this.targetLanguage, this.targetTitle );
 };

@@ -169,7 +169,7 @@ mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
 		choose: 'onPublishNamespaceChange'
 	} );
 	this.publishButton.connect( this, {
-		click: 'publish'
+		click: 'onPublishButtonClick'
 	} );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		self.publishButton.setDisabled( weights.any === 0 );
@@ -236,14 +236,12 @@ mw.cx.ui.TranslationView.prototype.attachPublishButton = function () {
 };
 
 /**
- * Publish the translation
+ * Publish button click handler
  */
-mw.cx.ui.TranslationView.prototype.publish = function () {
+mw.cx.ui.TranslationView.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button-publishing' ) );
-	this.getTargetArticle().publish().always( function () {
-		this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
-	}.bind( this ) );
+	this.emit( 'publish' );
 };
 
 /**
@@ -303,13 +301,15 @@ mw.cx.ui.TranslationView.prototype.onPublishSuccess = function () {
 			target: '_blank'
 		} ).text( this.translation.targetTitle )[ 0 ].outerHTML
 	) );
-	// Event logging
-	mw.hook( 'mw.cx.translation.published' ).fire(
-		this.translation.sourceLanguage,
-		this.translation.targetLanguage,
-		this.translation.sourceTitle,
-		this.translation.targetTitle
+	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+};
+
+mw.cx.ui.TranslationView.prototype.onPublishFailure = function ( error ) {
+	this.showMessage(
+		'error',
+		mw.msg( 'cx-publish-page-error', error )
 	);
+	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 };
 
 /**
