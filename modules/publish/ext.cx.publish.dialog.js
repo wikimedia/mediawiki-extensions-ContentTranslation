@@ -94,9 +94,9 @@
 		link = $( '<a>' ).attr( {
 			href: mw.util.getUrl( publishedTitle ),
 			target: '_blank'
-		} ).text( publishedTitle )[ 0 ].outerHTML;
+		} ).text( publishedTitle );
 
-		this.$message.html( mw.msg( 'cx-publishing-dialog-message', link ) );
+		this.$message.append( mw.message( 'cx-publishing-dialog-message', link ).parseDom() );
 
 	};
 

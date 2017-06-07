@@ -837,7 +837,8 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"ext.cx.sitemapper"
+				"ext.cx.sitemapper",
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"cx-publishing-dialog-message",
