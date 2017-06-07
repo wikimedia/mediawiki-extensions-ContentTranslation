@@ -112,23 +112,25 @@
 	 * @return {string} target title
 	 */
 	mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
-		var targetTitle, targetNameSpace;
+		var targetTitle, targetNamespace;
 
 		// If the title is already in the user namespace, just return it
 		if ( new mw.Title( title ).getNamespaceId() === 2 ) {
 			return title;
 		}
 
-		targetNameSpace = mw.config.get( 'wgContentTranslationTargetNamespace' );
-		switch ( targetNameSpace ) {
-			case 'Main':
+		targetNamespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
+		switch ( targetNamespace ) {
+			// Main namespace
+			case 0:
 				targetTitle = title;
 				break;
-			case 'User':
+			// User
+			case 2:
 				targetTitle = 'User:' + mw.user.getName() + '/' + title;
 				break;
 			default:
-				targetTitle = targetNameSpace + ':' + title;
+				targetTitle = mw.Title.makeTitle( targetNamespace, title ).getPrefixedText();
 				break;
 		}
 
