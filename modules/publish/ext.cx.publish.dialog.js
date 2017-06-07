@@ -87,16 +87,17 @@
 	 * @param {string} title The title of the article to link in the message
 	 */
 	CXPublishingDialog.prototype.setMessage = function ( title ) {
-		var publishedTitle, link;
+		var publishedTitle, $link;
 
-		publishedTitle = mw.cx.SiteMapper.prototype.getTargetTitle( title );
+		// TODO: avoid globals
+		publishedTitle = mw.cx.siteMapper.getTargetTitle( title );
 
-		link = $( '<a>' ).attr( {
-			href: mw.util.getUrl( publishedTitle ),
+		$link = $( '<a>' ).attr( {
+			href: mw.cx.siteMapper.getPageUrl( mw.cx.targetLanguage, publishedTitle ),
 			target: '_blank'
 		} ).text( publishedTitle );
 
-		this.$message.append( mw.message( 'cx-publishing-dialog-message', link ).parseDom() );
+		this.$message.append( mw.message( 'cx-publishing-dialog-message', $link ).parseDom() );
 
 	};
 
