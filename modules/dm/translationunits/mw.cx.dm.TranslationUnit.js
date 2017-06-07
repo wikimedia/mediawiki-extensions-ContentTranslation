@@ -38,8 +38,6 @@ mw.cx.dm.TranslationUnit = function TranslationUnit( config, translation, source
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 	this.parentTranslationUnit = null;
-	// Source of the translation. Can be source, user, Apertium, Yandex etc
-	this.translationSource = null;
 	// Parent constructor
 	mw.cx.dm.TranslationUnit.super.call( this );
 	this.connect( this, {
@@ -275,14 +273,6 @@ mw.cx.dm.TranslationUnit.prototype.getTranslationSectionId = function () {
 	}
 
 	return 'cx' + this.getSectionId();
-};
-
-mw.cx.dm.TranslationUnit.prototype.getTranslationSource = function () {
-	return this.translationSource;
-};
-
-mw.cx.dm.TranslationUnit.prototype.setTranslationSource = function ( translationSource ) {
-	this.translationSource = translationSource;
 };
 
 /**
