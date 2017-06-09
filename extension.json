@@ -1479,7 +1479,8 @@
 				"mw.cx.ui.Columns",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.TranslationUnits",
-				"mw.cx.ui.PublishSettingsWidget"
+				"mw.cx.ui.PublishSettingsWidget",
+				"mw.cx.util"
 			]
 		},
 		"mw.cx.ui.TranslationView.legacy": {
