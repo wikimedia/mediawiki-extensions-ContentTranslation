@@ -14,6 +14,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, t
 	this.targetTitle = config.targetTitle;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
+
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 	// Properties
@@ -246,28 +247,38 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 };
 
 /**
- * Restore the translation from database to translation view to continue.
+ * Restore translations from a saved draft.
  * @param {Object} savedTranslation
  */
 mw.cx.TranslationController.prototype.restore = function ( savedTranslation ) {
-	var i, translationUnits, sectionId, savedTranslationUnits, savedTranslationUnit, translationContent;
+	var savedUnits = savedTranslation.translationUnits;
 
-	translationUnits = this.translation.getTranslationUnits();
-	savedTranslationUnits = savedTranslation.translationUnits;
-	for ( i = 0; i < translationUnits.length; i++ ) {
-		sectionId = translationUnits[ i ].getSectionId();
+	this.translation.getTranslationUnits().forEach( function ( unit ) {
+		var savedSection, provider, document,
+			sectionId = unit.getSectionId();
 
-		savedTranslationUnit = savedTranslationUnits[ sectionId ];
-
-		if ( !savedTranslationUnit ) {
-			continue;
+		if ( !savedUnits[ sectionId ] ) {
+			return;
 		}
 
-		translationContent = savedTranslationUnit.user || savedTranslationUnit.mt || savedTranslationUnit.source;
-		// TODO: translationContent is an object, it has MT service, timestamp and content.
-		// Do we need to retain all these info to the model?
-		translationUnits[ i ].setTargetDocument( $( translationContent.content )[ 0 ] );
-	}
+		// It's possible that we only saved prefilled MT with no user modifications
+		savedSection = savedUnits[ sectionId ].user || savedUnits[ sectionId ].mt;
+
+		if ( !savedSection ) {
+			mw.log.error( '[CX] Missing content to restore for section ' + sectionId );
+			return;
+		}
+
+		// Convert HTML string to Element.
+		document = $( savedSection.content )[ 0 ];
+		// XXX: We don't really know whether it was "source" or "scratch" if user changed the default
+		provider = ( savedUnits[ sectionId ].mt && savedUnits[ sectionId ].mt.engine ) || 'source';
+
+		// XXX: This is broken when we get for example CXDMTemplateTranslationUnit as the top level unit
+		if ( unit instanceof mw.cx.dm.SectionTranslationUnit ) {
+			unit.adaptWithRestoredContent( document, provider );
+		}
+	} );
 	// TODO: Find out orphan translation units and handle them.
 };
 

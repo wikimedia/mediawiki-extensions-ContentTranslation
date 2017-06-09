@@ -10,9 +10,6 @@
  */
 mw.cx.ui.LinkTranslationUnit = function MwCxUiLinkTranslationUnit( model, toolFactory, config ) {
 	mw.cx.ui.LinkTranslationUnit.super.call( this, model, toolFactory, config );
-
-	// Properties
-	this.adaptReq = null;
 };
 
 /* Setup */
@@ -40,11 +37,8 @@ mw.cx.ui.LinkTranslationUnit.static.tools = {
 };
 
 mw.cx.ui.LinkTranslationUnit.prototype.adapt = function () {
-	if ( this.adaptReq ) {
-		return this.adaptReq;
-	}
 	// Adapt in general will be asynchronous operation
-	this.adaptReq = this.model.adapt().then( function () {
+	this.model.adapt().then( function () {
 		this.setContent( this.model.targetDocument );
 		if ( this.model.targetTitleMissing ) {
 			mw.log( '[CX] Target title missing for ' + this );

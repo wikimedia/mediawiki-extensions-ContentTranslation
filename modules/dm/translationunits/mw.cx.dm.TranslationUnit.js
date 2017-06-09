@@ -99,6 +99,11 @@ mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceD
 		throw new Error( '[CX] Both source and target documents can not be null' );
 	}
 
+	// We are going over both source and target separately, because each one can
+	// have units that don't have pair on the other sides (e.g. added links, removed
+	// links). But buildSubTranslationUnit is clever and checks the element ids to
+	// see if there is a match, and only constructs one unit even for things that
+	// exist both on the source and the target side.
 	if ( sourceDocument ) {
 		sourceChildren = sourceDocument.children || [];
 		for ( i = 0; i < sourceChildren.length; i++ ) {
@@ -128,6 +133,8 @@ mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnits = function ( sourceD
 mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnit = function ( source, target ) {
 	var key, subTranslationUnit, model;
 
+	// The mw.cx.dm.SectionTranslationUnit keeps cache of all the subunits
+	// (recursively) keyed by the DOM id.
 	key = this.getKeyForModelMap( source || target );
 
 	model = mw.cx.dm.modelRegistry.matchElement( source || target );
@@ -141,19 +148,28 @@ mw.cx.dm.TranslationUnit.prototype.buildSubTranslationUnit = function ( source, 
 
 	subTranslationUnit = this.subTranslationUnitModels[ key ];
 	if ( subTranslationUnit ) {
-		subTranslationUnit.setTargetDocument( target );
-	} else {
-		if ( !source ) {
-			mw.log( '[CX] No source element for ' + target.id );
+		// Our linter does not allow to write this in more concise way :(
+		if ( target ) {
+			subTranslationUnit.targetDocument = target;
 		}
-		subTranslationUnit = mw.cx.dm.translationUnitFactory.create(
-			model, this.config, this.translation, source, target
-		);
-		// Keep a map of DOM ids and translation units
-		this.subTranslationUnitModels[ key ] = subTranslationUnit;
-		this.translationUnits.push( subTranslationUnit );
-		subTranslationUnit.setParentTranslationUnit( this );
+		if ( source ) {
+			subTranslationUnit.sourceDocument = source;
+		}
+		return;
 	}
+
+	if ( !source ) {
+		mw.log( '[CX] No source element for ' + target.id );
+	}
+	subTranslationUnit = mw.cx.dm.translationUnitFactory.create(
+		model, this.config, this.translation, source, target
+	);
+
+	// Keep a map of DOM ids and translation units
+	this.subTranslationUnitModels[ key ] = subTranslationUnit;
+	// XXX: This list could be removed if we would like to iterate over the object instead
+	this.translationUnits.push( subTranslationUnit );
+	subTranslationUnit.setParentTranslationUnit( this );
 };
 
 /**
@@ -184,8 +200,18 @@ mw.cx.dm.TranslationUnit.prototype.getSourceDocument = function () {
 	return this.sourceDocument;
 };
 
+/**
+ * This gets called from mw.cx.dm.SectionTranslationUnit whenever the target document
+ * is replaced with something else.
+ *
+ * @param {Element} targetDocument
+ */
 mw.cx.dm.TranslationUnit.prototype.setTargetDocument = function ( targetDocument ) {
 	this.targetDocument = targetDocument;
+	// Clear cached units. We have new content, so let's not reuse them.
+	this.translationUnits = [];
+	this.subTranslationUnitModels = {};
+	// Build new units from scratch
 	this.buildSubTranslationUnits( this.sourceDocument, this.targetDocument );
 };
 
