@@ -68,3 +68,36 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
 	}
 	return mw.Title.newFromText( currentTitle, newNamespaceId ).toText();
 };
+
+/**
+ * Get the default publishing target namespace
+ * @return {number} Target namespace id
+ */
+mw.cx.getDefaultTargetNamespace = function () {
+	var userGroups, group, groupTargetNamespaceConfig, validNamespaceIds, targetNamespace;
+
+	groupTargetNamespaceConfig = mw.config.get( 'wgContentTranslationUserGroupTargetNamespace', {} );
+	userGroups = mw.config.get( 'wgUserGroups', [] );
+
+	for ( group in groupTargetNamespaceConfig ) {
+		if ( userGroups.indexOf( group ) >= 0 ) {
+			targetNamespace = groupTargetNamespaceConfig[ group ];
+			break;
+		}
+	}
+
+	if ( !targetNamespace ) {
+		// No match found in ContentTranslationUserGroupTargetNamespace.
+		// Use wiki level namespace defined in ContentTranslationTargetNamespace
+		targetNamespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
+	}
+
+	// Validate the configuration.
+	validNamespaceIds = Object.values( mw.config.get( 'wgNamespaceIds', {} ) );
+	if ( validNamespaceIds.indexOf( targetNamespace ) < 0 ) {
+		mw.log.error( '[CX] Invalid publishing namespace configuration. Namespace does not exist: ' + targetNamespace );
+		targetNamespace = 0;
+	}
+
+	return targetNamespace;
+};

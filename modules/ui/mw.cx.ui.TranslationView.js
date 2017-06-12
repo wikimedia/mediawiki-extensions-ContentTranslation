@@ -163,7 +163,7 @@ mw.cx.ui.TranslationView.prototype.setupPublishButton = function () {
 		label: mw.msg( 'cx-publish-button' )
 	} );
 	this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
-		destination: mw.config.get( 'wgContentTranslationTargetNamespace' )
+		destination: mw.cx.getDefaultTargetNamespace()
 	} );
 	this.publishSettings.connect( this, {
 		choose: 'onPublishNamespaceChange'

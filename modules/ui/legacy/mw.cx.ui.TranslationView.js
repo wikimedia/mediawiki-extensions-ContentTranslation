@@ -51,7 +51,7 @@
 		} );
 
 		this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
-			destination: mw.config.get( 'wgContentTranslationTargetNamespace' )
+			destination: mw.cx.getDefaultTargetNamespace()
 		} );
 		this.publishSettings.connect( this, {
 			choose: 'onPublishNamespaceChange'

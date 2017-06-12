@@ -138,6 +138,8 @@
 		"ContentTranslationDefaultSourceLanguage": "en",
 		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
 		"ContentTranslationTargetNamespace": 0,
+		"@ContentTranslationUserGroupTargetNamespace": "Default target namespace to publish articles based on user groups. The value is an associative array with user group names as keys, and namespace ids as values. If there are more matches for user groups, first match will be used.",
+		"ContentTranslationUserGroupTargetNamespace": {},
 		"ContentTranslationCampaigns": {
 			"cxstats": true,
 			"specialcx": true,
@@ -1494,12 +1496,13 @@
 				"cx-publish-button"
 			],
 			"dependencies": [
-				"mw.cx.ui.Header",
-				"mw.cx.ui.Columns.legacy",
 				"ext.cx.model",
-				"ext.cx.util",
 				"ext.cx.sitemapper",
-				"mw.cx.ui.PublishSettingsWidget"
+				"ext.cx.util",
+				"mw.cx.ui.Columns.legacy",
+				"mw.cx.ui.Header",
+				"mw.cx.ui.PublishSettingsWidget",
+				"mw.cx.util"
 			]
 		},
 		"mw.cx.init.legacy": {
