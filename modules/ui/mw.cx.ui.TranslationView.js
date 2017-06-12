@@ -196,33 +196,12 @@ mw.cx.ui.TranslationView.prototype.onChange = function () {
  * @param {number} namespaceId
  */
 mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
-	var currentTitleObj, title, newTitle, currentNamespace, username;
+	var newTitle;
 
-	currentTitleObj = new mw.Title( this.translation.getTargetTitle() );
-	currentNamespace = currentTitleObj.getNamespaceId();
-	if ( namespaceId === currentNamespace ) {
-		// No change.
-		return;
-	}
-
-	// Get the current title string
-	title = currentTitleObj.getMainText();
-	if ( currentNamespace === mw.config.get( 'wgNamespaceIds' ).user ) {
-		// User namespace. Get the title part alone after removing User:username/ part
-		title = title.substr( title.indexOf( '/' ) + 1 );
-	}
-
-	if ( namespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
-		username = mw.user.getName();
-		title = mw.Title.newFromText( username + '/' + title, namespaceId ).toText();
-	}
-	newTitle = mw.Title.newFromText( title, namespaceId ).toText();
-
-	this.getTargetArticle().setTargetTitle( newTitle );
+	newTitle = mw.cx.getTitleForNamespace( this.translation.getTargetTitle(), namespaceId );
+	// Setting title in translationColumn will take care of necessary event firing for title change.
 	this.columns.translationColumn.setTargetTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
-	// Namespace changed. Enable the publish button
-	this.publishButton.setDisabled( false );
 };
 
 /**
@@ -245,51 +224,20 @@ mw.cx.ui.TranslationView.prototype.onPublishButtonClick = function () {
 };
 
 /**
- * @return {mw.cx.TargetArticle} targetArticle instance
- */
-mw.cx.ui.TranslationView.prototype.getTargetArticle = function () {
-	if ( this.targetArticle ) {
-		return this.targetArticle;
-	}
-	this.targetArticle = new mw.cx.TargetArticle( this.translation, this, this.config );
-	this.getTargetArticle().connect( this, {
-		publishSuccess: 'onPublishSuccess'
-	} );
-	return this.targetArticle;
-};
-
-/**
  * Translation title change handler
  * @param {string} changedTitle The new title
  */
 mw.cx.ui.TranslationView.prototype.onTranslationTitleChange = function ( changedTitle ) {
-	var currentTitleObj, currentNamespace;
-
-	if ( !this.translation ) {
-		mw.log( '[CX] Translation not ready yet' );
-		return;
-	}
-	this.translation.setTargetTitle( changedTitle );
-	// TODO: Ideally, target article should update the title by listening to
-	// change in this.translation
-	this.getTargetArticle().setTargetTitle( changedTitle );
+	this.emit( 'targetTitleChange', changedTitle );
 	// Align translation titles when it get changed/being edited
 	mw.cx.alignSections(
 		this.columns.sourceColumn.titleWidget.$element,
 		this.columns.translationColumn.titleWidget.$element
 	);
+};
 
-	// Restore the namespace choice
-	currentTitleObj = mw.Title.newFromText( changedTitle );
-	if ( !currentTitleObj ) {
-		mw.log.error( '[CX] Invalid target title' );
-		return;
-	}
-	currentNamespace = currentTitleObj.getNamespaceId();
-	this.publishSettings.setDestinationNamespace( currentNamespace );
-
-	// Translation title change is a change trigger for translation.
-	this.onChange();
+mw.cx.ui.TranslationView.prototype.changeNamespace = function ( namespaceId ) {
+	this.publishSettings.setDestinationNamespace( namespaceId );
 };
 
 mw.cx.ui.TranslationView.prototype.onPublishSuccess = function () {

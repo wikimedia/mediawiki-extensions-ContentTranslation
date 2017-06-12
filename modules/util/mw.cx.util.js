@@ -37,3 +37,34 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
 		}
 	}
 };
+
+/**
+ * Get the title after changing its namespace to new one.
+ * Expects valid title, if not, will throw exception.
+ * @param {string} currentTitle Original title string
+ * @param {number} newNamespaceId New namespace id
+ * @return {string} New title with changed namespace
+ */
+mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
+	var currentTitleObj, currentNamespace, username;
+
+	currentTitleObj = new mw.Title( currentTitle );
+	currentNamespace = currentTitleObj.getNamespaceId();
+	if ( newNamespaceId === currentNamespace ) {
+		// No change.
+		return currentTitle;
+	}
+
+	// Get the current title string
+	currentTitle = currentTitleObj.getMainText();
+	if ( currentNamespace === mw.config.get( 'wgNamespaceIds' ).user ) {
+		// User namespace. Get the title part alone after removing User:username/ part
+		currentTitle = currentTitle.substr( currentTitle.indexOf( '/' ) + 1 );
+	}
+
+	if ( newNamespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
+		username = mw.user.getName();
+		currentTitle = mw.Title.newFromText( username + '/' + currentTitle, newNamespaceId ).toText();
+	}
+	return mw.Title.newFromText( currentTitle, newNamespaceId ).toText();
+};

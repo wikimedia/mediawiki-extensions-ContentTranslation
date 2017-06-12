@@ -10,7 +10,6 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, translationView, 
 	this.config = config;
 	this.siteMapper = config.siteMapper;
 	this.sourceTitle = config.sourceTitle;
-	this.targetTitle = config.targetTitle;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 	this.sourceRevision = config.sourceRevision;
@@ -44,7 +43,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 
 	this.publishDeferred = $.Deferred();
 	// Check for title conflicts
-	this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
+	this.checkTargetTitle( this.getTargetTitle() ).then( function ( title ) {
 		apiParams.title = title;
 		// Post the content to publish.
 		return new mw.Api().postWithToken( 'csrf', apiParams, {
@@ -404,12 +403,13 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 	}.bind( this ) );
 };
 
+/**
+ * Get current target title from translation data model.
+ * Not the translation title can be changed by translator at any point of translation.
+ * @return {string} target title
+ */
 mw.cx.TargetArticle.prototype.getTargetTitle = function () {
-	return this.targetTitle;
-};
-
-mw.cx.TargetArticle.prototype.setTargetTitle = function ( title ) {
-	this.targetTitle = title;
+	return this.translation.getTargetTitle();
 };
 
 /**
@@ -548,7 +548,7 @@ mw.cx.TargetArticle.prototype.isTitleConnectedInLanguages = function (
  * and show a warning if needed.
  */
 mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
-	this.isTitleExistInLanguage( this.targetLanguage, this.targetTitle )
+	this.isTitleExistInLanguage( this.targetLanguage, this.getTargetTitle() )
 		.then( function ( pageExist ) {
 			// If page doesn't exist, it's OK
 			if ( !pageExist ) {

@@ -38,7 +38,8 @@ mw.cx.TranslationController.prototype.listen = function () {
 	} );
 
 	this.view.connect( this, {
-		publish: 'publish'
+		publish: 'publish',
+		targetTitleChange: 'onTranslationTitleChange'
 	} );
 
 	this.targetArticle.connect( this, {
@@ -307,4 +308,29 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, d
 		this.targetTitle,
 		JSON.stringify( details )
 	);
+};
+
+/**
+ * Translation title change handler
+ * @param {string} newTitle The new title
+ */
+mw.cx.TranslationController.prototype.onTranslationTitleChange = function ( newTitle ) {
+	var currentTitleObj, newTitleObj;
+
+	if ( this.translation.getTargetTitle() === newTitle ) {
+		// Nothing really changed.
+		return;
+	}
+
+	newTitleObj = mw.Title.newFromText( newTitle );
+	if ( !newTitleObj ) {
+		mw.log.error( '[CX] Invalid target title' );
+		return;
+	}
+	currentTitleObj = mw.Title.newFromText( this.translation.getTargetTitle() );
+	this.translation.setTargetTitle( newTitle );
+
+	if ( currentTitleObj !== newTitleObj.getNamespaceId() ) {
+		this.view.changeNamespace( newTitleObj.getNamespaceId() );
+	}
 };
