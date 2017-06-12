@@ -643,7 +643,9 @@
 			}
 
 			if ( targetTitle === '' ) {
-				targetTitle = originalSourceTitle;
+				targetTitle = mw.cx.getTitleForNamespace(
+					originalSourceTitle, mw.cx.getDefaultTargetNamespace()
+				);
 			}
 
 			// Set CX token as cookie.

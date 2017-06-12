@@ -379,6 +379,7 @@
 				"mediawiki.storage",
 				"mediawiki.ui.button",
 				"mw.cx.ui.PageSelectorWidget",
+				"mw.cx.util",
 				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
