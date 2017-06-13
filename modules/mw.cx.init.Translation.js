@@ -36,40 +36,87 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 };
 
 /**
- * Load all data necessary to start a translation.
+ * Initialize translation.
  */
 mw.cx.init.Translation.prototype.init = function () {
 	this.translationView = new mw.cx.ui.TranslationView( this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.translationView );
 
-	// Deferred.done is used to stop errors from bubbling to other error handlers.
-	// Can be rewritten when we have proper promises.
-	this.fetchConfiguration(
-		this.sourceWikiPage.getLanguage(),
-		this.targetWikiPage.getLanguage()
+	this.fetchTranslationData().then(
+		function ( configuration, sourcePageContent, draft ) {
+			$.extend( this.config, configuration );
+
+			// Prepare source and target page instnaces.
+			this.sourcePage = this.processSourcePageContent( sourcePageContent );
+			this.targetPage = new mw.cx.dm.TargetPage( this.config );
+
+			// Initialize translation model
+			this.translationModel = new mw.cx.dm.Translation( this.config );
+			this.translationModel.setSourcePage( this.sourcePage );
+			this.translationModel.setTargetPage( this.targetPage );
+			this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
+			this.translationModel.prepareTranslationUnits();
+
+			// Initialize translation controller
+			this.translationController = new mw.cx.TranslationController(
+				this.translationModel, this.translationView, this.config
+			);
+
+			// Restore draft, if any;
+			this.restoreDraftTranslation( draft );
+			this.translationView.setTranslation( this.translationModel );
+			this.translationView.loadTranslation();
+			mw.log( '[CX] Translation initialized successfully' );
+			// Fetch and adapt categories
+			this.fetchAndAdaptCategories();
+		}.bind( this ),
+		this.initializationError.bind( this )
+	);
+};
+
+/**
+ * Fetch all data necessary to start a translation.
+ * @return {jQuery.Promise}
+ */
+mw.cx.init.Translation.prototype.fetchTranslationData = function () {
+	var configFetchDeferred, sourcePageFetchDeferred, draftFetchDeferred;
+
+	mw.log( '[CX] Fetching translation configuration...' );
+	configFetchDeferred = this.fetchConfiguration(
+		this.sourceWikiPage.getLanguage(), this.targetWikiPage.getLanguage()
+	).fail( this.fetchConfigurationError.bind( this ) );
+
+	mw.log( '[CX] Fetching Source page...' );
+	sourcePageFetchDeferred = this.fetchSourcePageContent(
+			this.sourceWikiPage, this.services.siteMapper
+		).fail( this.fetchSourcePageContentError.bind( this ) );
+
+	mw.log( '[CX] Checking existing translation...' );
+	draftFetchDeferred = this.fetchDraftInformation(
+		this.sourceWikiPage, this.targetWikiPage
 	).then(
-		this.fetchConfigurationSuccess.bind( this ),
-		this.fetchConfigurationError.bind( this )
-	).done( function () {
-		this.fetchSourcePageContent( this.sourceWikiPage, this.services.siteMapper ).then(
-			this.fetchSourcePageContentSuccess.bind( this ),
-			this.fetchSourcePageContentError.bind( this )
-		).done( function () {
-			this.fetchDraftInformation(
-				this.sourceWikiPage,
-				this.targetWikiPage
-			).then(
-				this.fetchDraftInformationSuccess.bind( this ),
-				this.fetchDraftInformationError.bind( this )
-			).done( function ( draftId ) {
-				this.fetchDraft( draftId ).then(
-					this.fetchDraftSuccess.bind( this ),
-					this.fetchDraftError.bind( this )
-				).done( this.enableTranslation.bind( this ) );
-			}.bind( this ) );
-		}.bind( this ) );
+		this.fetchDraftInformationSuccess.bind( this ),
+		this.fetchDraftInformationError.bind( this )
+	).then( function ( draftId ) {
+		mw.log( '[CX] Fetching existing translation for id: ' + draftId );
+		return this.fetchDraft( draftId ).fail( this.fetchDraftError.bind( this ) );
 	}.bind( this ) );
+
+	return $.when( configFetchDeferred, sourcePageFetchDeferred, draftFetchDeferred );
+};
+
+/**
+ * Initialization error handler
+ */
+mw.cx.init.Translation.prototype.initializationError = function () {
+	// Any error in the above deferreds is critical
+	this.translationView.showMessage(
+		'error',
+		'Critical error: Content translation failed to load due to internal error.'
+	);
+	// Nothing happens beyond this. Some internal error happened.
+	mw.log.error( '[CX] Translation initialization failed.' );
 };
 
 /**
@@ -95,13 +142,14 @@ mw.cx.init.Translation.prototype.fetchConfiguration = function ( sourceLanguage,
 		action: 'cxconfiguration',
 		from: sourceLanguage,
 		to: targetLanguage
+	} ).then( function ( response ) {
+		return response.configuration;
 	} );
 };
 
-mw.cx.init.Translation.prototype.fetchConfigurationSuccess = function ( response ) {
-	$.extend( this.config, response.configuration );
-};
-
+/**
+ * Configuration fetch error handler
+ */
 mw.cx.init.Translation.prototype.fetchConfigurationError = function () {
 	// XXX
 	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch configuration for this language pair.' );
@@ -134,10 +182,19 @@ mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, s
 
 	fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
 
-	return $.get( fetchPageUrl );
+	return $.get( fetchPageUrl ).then( function ( data ) {
+		// The $.when that use the output of this will treat respose as array(data, textStatus, jqXHR)
+		// We need only the first argument.
+		return data;
+	} );
 };
 
-mw.cx.init.Translation.prototype.fetchSourcePageContentSuccess = function ( content ) {
+/**
+ * @param {Object} content Segmented content
+ * @return {mw.cx.dm.SourcePage}
+ */
+mw.cx.init.Translation.prototype.processSourcePageContent = function ( content ) {
+	var sourcePage;
 	// Update with revision information
 	this.sourceWikiPage = new mw.cx.dm.WikiPage(
 		this.sourceWikiPage.getTitle(),
@@ -147,18 +204,9 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentSuccess = function ( cont
 	// BC
 	this.config.sourceRevision = content.revision;
 
-	this.sourcePage = new mw.cx.dm.SourcePage( this.config );
-	this.sourcePage.setSections( $.parseHTML( content.segmentedContent ) );
-
-	this.targetPage = new mw.cx.dm.TargetPage( this.config );
-
-	this.translationModel = new mw.cx.dm.Translation( this.config );
-	this.translationModel.setSourcePage( this.sourcePage );
-	this.translationModel.setTargetPage( this.targetPage );
-	this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
-	this.translationModel.prepareTranslationUnits();
-
-	this.translationController = new mw.cx.TranslationController( this.translationModel, this.translationView, this.config );
+	sourcePage = new mw.cx.dm.SourcePage( this.config );
+	sourcePage.setSections( $.parseHTML( content.segmentedContent ) );
+	return sourcePage;
 };
 
 mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( xhr ) {
@@ -205,23 +253,26 @@ mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceWikiPa
 mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft ) {
 	if ( !draft ) {
 		// No draft exists
+		mw.log( '[CX] No existing translation found' );
 		return $.Deferred().resolve( null ).promise();
 	}
 
 	// Do not allow two users to start a draft at the same time. The API only
 	// returns a translation with different translatorName if this is the case.
 	if ( draft.translatorName !== mw.user.getName() ) {
+		mw.log( '[CX] Existing translation found. But owned by another translator' );
 		this.translationView.showConflictWarning( draft );
 		// Stop further processing!
 		return $.Deferred().reject().promise();
 	}
 
 	// Don't restore deleted drafts
-	if ( draft.status !== 'deleted' ) {
-		return $.Deferred().resolve( draft.id ).promise();
+	if ( draft.status === 'deleted' ) {
+		mw.log( '[CX] Existing translation found. But it is a deleted one.' );
+		return $.Deferred().resolve( null ).promise();
 	}
 
-	return $.Deferred().resolve( null ).promise();
+	return $.Deferred().resolve( draft.id ).promise();
 };
 
 mw.cx.init.Translation.prototype.fetchDraftInformationError = function () {
@@ -254,12 +305,12 @@ mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
 	} );
 };
 
-mw.cx.init.Translation.prototype.fetchDraftSuccess = function ( draft ) {
+mw.cx.init.Translation.prototype.restoreDraftTranslation = function ( draft ) {
 	// In case there is no draft (see fetchDraft), there is nothing for us to do
 	if ( !draft ) {
 		return;
 	}
-
+	mw.log( '[CX] Restoring translation draft...' );
 	this.translationModel.setTargetURL( draft.targetURL );
 	this.translationModel.setStatus( draft.status );
 	this.translationModel.setTargetRevisionId( draft.targetRevisionId );
@@ -282,21 +333,11 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 };
 
 /**
- * Enables translation and starts post-load processes.
- *
- * @private
- */
-mw.cx.init.Translation.prototype.enableTranslation = function () {
-	this.translationView.setTranslation( this.translationModel );
-	this.translationView.loadTranslation();
-	this.fetchAndAdaptCategories();
-};
-
-/**
  * Fetch and adapt the categories.
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
+	mw.log( '[CX] Fetching and adapting categories...' );
 	return this.sourcePage.getCategories().then( function ( sourceCategories ) {
 		return this.targetPage.adaptCategoriesFrom(
 			this.sourceWikiPage.getLanguage(),
