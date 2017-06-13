@@ -223,6 +223,9 @@
 	"cx-translation-template-add-more": "Aggiungi altri campi",
 	"cx-translation-template-select-param": "Seleziona campi di destinazione",
 	"cx-tools-category-add": "Aggiungi categoria",
+	"cx-publish-destination-header": "Destinazione di pubblicazione",
+	"cx-publish-destination-tooltip": "Scegli il namespace in cui pubblicare l'articolo",
 	"cx-publish-destination-namespace-main": "Nuova pagina",
-	"cx-publish-destination-namespace-user": "Bozza personale"
+	"cx-publish-destination-namespace-user": "Bozza personale",
+	"cx-publish-destination-namespace-draft": "Bozza comunitaria"
 }
