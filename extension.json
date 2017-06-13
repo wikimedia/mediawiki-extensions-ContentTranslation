@@ -1199,7 +1199,8 @@
 				"dm/mw.cx.dm.js"
 			],
 			"dependencies": [
-				"ext.cx.model"
+				"ext.cx.model",
+				"oojs"
 			]
 		},
 		"mw.cx.dm.Model": {
@@ -1209,8 +1210,7 @@
 				"dm/mw.cx.dm.ModelFactory.js"
 			],
 			"dependencies": [
-				"mw.cx.dm",
-				"oojs"
+				"mw.cx.dm"
 			]
 		},
 		"mw.cx.dm.Translation": {
