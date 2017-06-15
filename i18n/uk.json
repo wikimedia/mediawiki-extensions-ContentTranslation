@@ -188,9 +188,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваші переклади}}",
 	"cx-translationlist-empty-title": "Ні́чого перекладати?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Почніть}} свій переклад зараз і продовжіть його у будь-який час.",
-	"cx-tools-link-internal-link": "Посилання на сторінку",
+	"cx-tools-link-internal-link": "Пошук сторінок",
 	"cx-tools-link-internal-link-placeholder": "Знайти сторінку, на яку треба дати посилання",
-	"cx-tools-link-external-link": "Зовнішні",
+	"cx-tools-link-external-link": "Зовнішнє посилання",
 	"cx-tools-link-external-link-placeholder": "Додати зовнішнє посилання",
 	"cx-tools-link-to-another-page": "Посилання на іншу сторінку",
 	"cx-tools-link-add-as-missing": "Додати як червоне посилання",
@@ -221,5 +221,10 @@
 	"cx-translation-template-add-param": "+ Поле перекладу",
 	"cx-translation-template-add-more": "Додати більше полів",
 	"cx-translation-template-select-param": "Вибрати цільові поля",
-	"cx-tools-category-add": "Додати категорію"
+	"cx-tools-category-add": "Додати категорію",
+	"cx-publish-destination-header": "Ціль публікації",
+	"cx-publish-destination-tooltip": "Оберіть простір назв для публікації статті",
+	"cx-publish-destination-namespace-main": "Нова сторінка",
+	"cx-publish-destination-namespace-user": "Особиста чернетка",
+	"cx-publish-destination-namespace-draft": "Чернетка спільноти"
 }
