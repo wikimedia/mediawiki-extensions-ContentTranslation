@@ -29,7 +29,7 @@ mw.cx.widgets.ProgressBarWidget = function CXProgressBarWidget( config ) {
 		items: [ this.totalProgressBar, this.mtProgressBar ]
 	} );
 	// Parent constructor
-	mw.cx.widgets.ProgressBarWidget.parent.call( this, config );
+	mw.cx.widgets.ProgressBarWidget.super.call( this, config );
 };
 
 /* Setup */

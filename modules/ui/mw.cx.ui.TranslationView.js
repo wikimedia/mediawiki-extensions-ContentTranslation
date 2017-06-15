@@ -16,7 +16,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 		padded: false
 	} );
 	// Parent constructor
-	mw.cx.ui.TranslationView.parent.call( this, this.config );
+	mw.cx.ui.TranslationView.super.call( this, this.config );
 	this.translation = null;
 	this.targetArticle = null;
 	this.publishButton = null;

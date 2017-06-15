@@ -13,7 +13,7 @@ mw.cx.ui.Columns = function ( config ) {
 	this.ToolsColumn = new mw.cx.ui.ToolsColumn( this.config );
 
 	// Parent constructor
-	mw.cx.ui.Columns.parent.call( this, $.extend( {}, this.config, {
+	mw.cx.ui.Columns.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
 		expanded: false,
 		classes: [ 'cx-widget__columns' ],

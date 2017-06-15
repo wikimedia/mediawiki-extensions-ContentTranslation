@@ -13,7 +13,7 @@ mw.cx.ui.Infobar = function ( config ) {
 		classes: [ 'cx-header-infobar' ]
 	} );
 	// Parent constructor
-	mw.cx.ui.Infobar.parent.call( this, this.config );
+	mw.cx.ui.Infobar.super.call( this, this.config );
 	this.listen();
 };
 

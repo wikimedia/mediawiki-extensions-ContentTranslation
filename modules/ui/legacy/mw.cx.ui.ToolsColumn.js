@@ -23,7 +23,7 @@
 			scrollable: false
 		} );
 		// Parent constructor
-		mw.cx.ui.ToolsColumn.parent.call( this, this.config );
+		mw.cx.ui.ToolsColumn.super.call( this, this.config );
 		this.init();
 	};
 

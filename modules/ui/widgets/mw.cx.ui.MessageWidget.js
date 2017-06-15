@@ -17,7 +17,7 @@ mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	mw.cx.ui.MessageWidget.parent.call( this, config );
+	mw.cx.ui.MessageWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.ItemWidget.call( this );

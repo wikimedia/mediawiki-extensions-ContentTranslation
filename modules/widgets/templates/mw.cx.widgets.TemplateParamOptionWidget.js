@@ -22,7 +22,7 @@
 	 */
 	mw.cx.widgets.TemplateParamOptionWidget = function MwWidgetsTitleOptionWidget( config ) {
 		// Parent constructor
-		mw.cx.widgets.TemplateParamOptionWidget.parent.call( this, config );
+		mw.cx.widgets.TemplateParamOptionWidget.super.call( this, config );
 
 		// Initialization
 		this.$element.addClass( 'cx-widget-templateparam' );

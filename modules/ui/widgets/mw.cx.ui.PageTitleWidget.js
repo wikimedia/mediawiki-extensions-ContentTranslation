@@ -18,7 +18,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 	} );
 	this.editable = config.editable;
 	// Parent constructor
-	mw.cx.widgets.PageTitleWidget.parent.call( this, config );
+	mw.cx.widgets.PageTitleWidget.super.call( this, config );
 	this.setDisabled( !this.editable );
 	if ( this.editable ) {
 		this.setValidation( this.validate );

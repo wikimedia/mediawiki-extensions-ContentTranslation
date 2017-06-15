@@ -15,7 +15,7 @@ mw.cx.ui.SourceColumn = function ( config ) {
 		scrollable: false
 	} );
 	// Parent constructor
-	mw.cx.ui.SourceColumn.parent.call( this, this.config );
+	mw.cx.ui.SourceColumn.super.call( this, this.config );
 	this.siteMapper = config.siteMapper;
 	this.translation = null;
 	this.loading = true;

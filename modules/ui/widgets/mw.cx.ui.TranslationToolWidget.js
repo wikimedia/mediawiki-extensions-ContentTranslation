@@ -21,7 +21,7 @@ mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translat
 	} );
 
 	// Parent constructor
-	mw.cx.widgets.TranslationToolWidget.parent.call( this, config );
+	mw.cx.widgets.TranslationToolWidget.super.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'cx-widget-translationtool' );

@@ -25,7 +25,7 @@
 			scrollable: false
 		} );
 		// Parent constructor
-		mw.cx.ui.TranslationColumn.parent.call( this, this.config );
+		mw.cx.ui.TranslationColumn.super.call( this, this.config );
 		this.siteMapper = config.siteMapper;
 		this.init();
 	};

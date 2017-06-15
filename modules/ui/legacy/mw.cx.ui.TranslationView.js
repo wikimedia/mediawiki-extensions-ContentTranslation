@@ -27,7 +27,7 @@
 			scrollable: false
 		} );
 		// Parent constructor
-		mw.cx.ui.TranslationView.parent.call( this, this.config );
+		mw.cx.ui.TranslationView.super.call( this, this.config );
 		this.publishButton = null;
 		this.publishSettings = null;
 		this.preparePublishButton();

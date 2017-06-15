@@ -13,7 +13,7 @@ mw.cx.ui.Header = function ( config ) {
 	this.infobar = null;
 	this.statusbar = null;
 	// Parent constructor
-	mw.cx.ui.Header.parent.call( this, $.extend( {}, this.config, {
+	mw.cx.ui.Header.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
 		expanded: false,
 		$content: this.getContent(),

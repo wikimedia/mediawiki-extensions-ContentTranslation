@@ -23,7 +23,7 @@ mw.cx.tools.FormatterTool.static.name = 'formatter';
 // TODO: All of this formatting tools can be moved to separate files.
 // Create a class inheriting from OO.ui.Tool
 mw.cx.tools.UndoTool = function () {
-	mw.cx.tools.UndoTool.parent.apply( this, arguments );
+	mw.cx.tools.UndoTool.super.apply( this, arguments );
 };
 
 OO.inheritClass( mw.cx.tools.UndoTool, OO.ui.Tool );
@@ -40,7 +40,7 @@ mw.cx.tools.UndoTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.RedoTool = function () {
-	mw.cx.tools.RedoTool.parent.apply( this, arguments );
+	mw.cx.tools.RedoTool.super.apply( this, arguments );
 };
 OO.inheritClass( mw.cx.tools.RedoTool, OO.ui.Tool );
 mw.cx.tools.RedoTool.static.name = 'redo';
@@ -65,7 +65,7 @@ mw.cx.tools.RedoTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.BoldTool = function () {
-	mw.cx.tools.BoldTool.parent.apply( this, arguments );
+	mw.cx.tools.BoldTool.super.apply( this, arguments );
 };
 OO.inheritClass( mw.cx.tools.BoldTool, OO.ui.Tool );
 mw.cx.tools.BoldTool.static.name = 'bold';
@@ -84,7 +84,7 @@ mw.cx.tools.BoldTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.ItalicTool = function () {
-	mw.cx.tools.ItalicTool.parent.apply( this, arguments );
+	mw.cx.tools.ItalicTool.super.apply( this, arguments );
 };
 OO.inheritClass( mw.cx.tools.ItalicTool, OO.ui.Tool );
 mw.cx.tools.ItalicTool.static.name = 'italic';
@@ -103,7 +103,7 @@ mw.cx.tools.ItalicTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.BulletListTool = function () {
-	mw.cx.tools.BulletListTool.parent.apply( this, arguments );
+	mw.cx.tools.BulletListTool.super.apply( this, arguments );
 };
 OO.inheritClass( mw.cx.tools.BulletListTool, OO.ui.Tool );
 mw.cx.tools.BulletListTool.static.name = 'listBullet';
@@ -122,7 +122,7 @@ mw.cx.tools.BulletListTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.NumberedListTool = function () {
-	mw.cx.tools.NumberedListTool.parent.apply( this, arguments );
+	mw.cx.tools.NumberedListTool.super.apply( this, arguments );
 };
 
 OO.inheritClass( mw.cx.tools.NumberedListTool, OO.ui.Tool );
@@ -142,7 +142,7 @@ mw.cx.tools.NumberedListTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.LinkTool = function () {
-	mw.cx.tools.LinkTool.parent.apply( this, arguments );
+	mw.cx.tools.LinkTool.super.apply( this, arguments );
 };
 OO.inheritClass( mw.cx.tools.LinkTool, OO.ui.Tool );
 mw.cx.tools.LinkTool.static.name = 'link';
@@ -157,7 +157,7 @@ mw.cx.tools.LinkTool.prototype.onUpdateState = function () {
 };
 
 mw.cx.tools.FormatToolBar = function () {
-	mw.cx.tools.FormatToolBar.parent.apply( this, arguments );
+	mw.cx.tools.FormatToolBar.super.apply( this, arguments );
 };
 
 mw.cx.tools.FormatToolBar.prototype.getToolAccelerator = function ( toolName ) {
