@@ -59,7 +59,7 @@
 	"tag-contenttranslation-description": "Zawartość strony przetłumaczono przy pomocy narzędzia Tłumaczenie Treści.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie Treści",
-	"cx-beta-desc": "Narzędzie do szybkiego tłumaczenia stron na Twój język. Rozpocznij tłumaczenie od [[Special:MyContributions|strony Twojego wkładu]] i edytuj ją wraz z naszym edytorem „okno w okno”, dostosowanym specjalnie do tłumaczeń. Niektóre narzędzia mogą być dostępne tylko dla wybranych języków.",
+	"cx-beta-desc": "Narzędzie do szybkiego tłumaczenia stron na Twój język. Rozpocznij tłumaczenie od [[Special:MyContributions|strony Twojego wkładu]] i edytuj je naszym edytorem „okno w okno”, dostosowanym specjalnie do tłumaczeń. Niektóre narzędzia mogą być dostępne tylko dla wybranych języków.",
 	"cx-entrypoint-title": "Przetłumacz tę stronę na $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Nie ma jeszcze tej strony w $1. Czy chcesz ją utworzyć?",
 	"cx-entrypoint-dialog-title-in": "Tytuł nowej strony w $1:",
@@ -220,10 +220,14 @@
 	"cx-tools-mt-new-providers-available": "z nowych opcjami",
 	"cx-continue-translation": "Kontynuuj tłumaczenie",
 	"cx-tools-template-title": "Szablon",
+	"cx-template-action-adapt": "Użyj odpowiednika szablonu",
 	"cx-template-action-keep-original": "Zachowaj oryginalny szablon",
 	"cx-template-action-skip": "Pomiń szablon",
+	"cx-template-not-available": "Nie jest dostępny w języku $1",
+	"cx-translation-template-add-param": "+ Przetłumacz pole",
 	"cx-translation-template-add-more": "Dodaj więcej pól",
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
 	"cx-tools-category-add": "Dodaj kategorię",
+	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw do której opublikować artykuł",
 	"cx-publish-destination-namespace-main": "Nowa strona"
 }
