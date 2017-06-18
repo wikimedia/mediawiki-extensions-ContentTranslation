@@ -120,7 +120,7 @@
 	"cx-translation-filter-from-any-language": "Da qualsiasi lingua",
 	"cx-translation-filter-to-any-language": "Verso qualsiasi lingua",
 	"cx-create-new-translation": "Nuova traduzione",
-	"cx-save-draft-save-success": "Salvato {{PLURAL:$1|un minuto fa,|$1 minuti fa|0=proprio ora}}",
+	"cx-save-draft-save-success": "Salvato {{PLURAL:$1|un minuto fa|$1 minuti fa|0=proprio ora}}",
 	"cx-save-draft-saving": "Salvataggio in corso...",
 	"cx-save-draft-tooltip": "Le bozze di traduzione sono salvate automaticamente",
 	"cx-save-draft-error": "Si è verificato un errore durante il salvataggio della pagina.",
