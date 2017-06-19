@@ -22,6 +22,11 @@ mw.cx.dm.WikiPage.prototype.getLanguage = function () {
 	return this.language;
 };
 
+mw.cx.dm.WikiPage.prototype.getDirection = function () {
+	// TODO: Make this an actual data property
+	return this.language.toLowerCase().match( /^(ar|fa|he)\b/ ) ? 'rtl' : 'ltr';
+};
+
 mw.cx.dm.WikiPage.prototype.getRevision = function () {
 	return this.revision;
 };

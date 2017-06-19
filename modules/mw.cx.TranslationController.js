@@ -40,7 +40,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 
 	this.view.connect( this, {
 		publish: 'publish',
-		targetTitleChange: 'onTranslationTitleChange'
+		targetTitleChange: 'onTargetTitleChange'
 	} );
 
 	this.targetArticle.connect( this, {
@@ -365,11 +365,11 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, d
 };
 
 /**
- * Translation title change handler
- * @param {string} newTitle The new title
+ * Target title change handler
  */
-mw.cx.TranslationController.prototype.onTranslationTitleChange = function ( newTitle ) {
-	var currentTitleObj, newTitleObj;
+mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
+	var currentTitleObj, newTitleObj,
+		newTitle = this.view.targetColumn.getTargetTitle();
 
 	if ( this.translation.getTargetTitle() === newTitle ) {
 		// Nothing really changed.

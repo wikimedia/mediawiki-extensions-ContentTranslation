@@ -3,13 +3,15 @@
 /**
  * CX Categories UI
  * @class
+ * @param {Object[]} liveCategories Live (mutable) category array
  * @param {Object} [config] Configuration object
+ * @cfg {boolean} [editable] Whether the category is editable
  */
-mw.cx.ui.Categories = function ( config ) {
+mw.cx.ui.Categories = function ( liveCategories, config ) {
 	this.categoryCount = null;
 	this.categoryListing = null;
-	this.page = config.page;
-	this.editable = config.editable;
+	this.liveCategories = liveCategories;
+	this.editable = config && config.editable;
 };
 
 /**
@@ -17,11 +19,8 @@ mw.cx.ui.Categories = function ( config ) {
  * @return {OO.ui.ButtonWidget}
  */
 mw.cx.ui.Categories.prototype.getCategoryCount = function () {
-	var count;
-
-	count = this.page ? this.page.categories.length : 0;
 	this.categoryCount = new OO.ui.ButtonWidget( {
-		label: mw.msg( 'cx-tools-categories-count-message', count ),
+		label: mw.msg( 'cx-tools-categories-count-message', this.liveCategories.length ),
 		icon: 'tag',
 		framed: false
 	} );
@@ -33,16 +32,15 @@ mw.cx.ui.Categories.prototype.getCategoryCount = function () {
  * @return {OO.ui.HorizontalLayout}
  */
 mw.cx.ui.Categories.prototype.getCategoryListing = function () {
-	var i, categories, label, categoryItems = [];
+	var i, label, categoryItems = [];
 
 	if ( this.editable ) {
 		return this.getEditableCategoryListing();
 	}
-	categories = this.page ? this.page.categories : [];
-	for ( i = 0; i < categories.length; i++ ) {
+	for ( i = 0; i < this.liveCategories.length; i++ ) {
 		// mw.Title cannot be used because of
 		// https://phabricator.wikimedia.org/T106644
-		label = categories[ i ].match( /^.+?:(.*)$/ )[ 1 ];
+		label = this.liveCategories[ i ].match( /^.+?:(.*)$/ )[ 1 ];
 		categoryItems.push( new OO.ui.ButtonWidget( {
 			label: label,
 			icon: 'tag',
@@ -65,16 +63,16 @@ mw.cx.ui.Categories.prototype.getCategoryListing = function () {
 
 /**
  * Get the editable category listing for translation column
- * @return {OO.ui.CapsuleMultiselectWidget}
+ *
+ * @return {OO.ui.MenuTagMultiselectWidget}
  */
 mw.cx.ui.Categories.prototype.getEditableCategoryListing = function () {
-	var i, categories, label, categoryItems = [];
+	var i, label, categoryItems = [];
 
-	categories = this.page ? this.page.categories : [];
-	for ( i = 0; i < categories.length; i++ ) {
-		label = categories[ i ].match( /^.+?:(.*)$/ )[ 1 ];
+	for ( i = 0; i < this.liveCategories.length; i++ ) {
+		label = this.liveCategories[ i ].match( /^.+?:(.*)$/ )[ 1 ];
 		categoryItems.push( new OO.ui.MenuOptionWidget( {
-			data: categories[ i ],
+			data: this.liveCategories[ i ],
 			label: label
 		} ) );
 	}
@@ -106,7 +104,12 @@ mw.cx.ui.Categories.prototype.listen = function () {
 	if ( this.editable ) {
 		this.categoryListing.on( 'change', function ( items ) {
 			// The new set of categories. Update the page.
-			this.page.categories = items.map( function ( item ) { return item.data; } );
+			ve.batchSplice(
+				this.liveCategories,
+				0,
+				this.liveCategories.length,
+				items.map( function ( item ) { return item.data; } )
+			);
 			// TODO: Remove the selected items from the options menu
 		}.bind( this ) );
 	}

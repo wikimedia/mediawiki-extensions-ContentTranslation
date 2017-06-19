@@ -227,5 +227,6 @@
 	"cx-publish-destination-tooltip": "Choose the namespace in which the page will be published",
 	"cx-publish-destination-namespace-main": "New page",
 	"cx-publish-destination-namespace-user": "Personal draft",
-	"cx-publish-destination-namespace-draft": "Community draft"
+	"cx-publish-destination-namespace-draft": "Community draft",
+	"cx-linkcontextitem-title": "Adapted link"
 }

@@ -413,7 +413,6 @@ class ContentTranslationHooks {
 		$modules['qunit']['ContentTranslation v2 test suite'] = [
 			'scripts' => [
 				'modules/mw.cx.MachineTranslationService.test.js',
-				'modules/tests/dm/mw.cx.dm.LinkTranslationUnit.test.js',
 				'modules/tests/util/mw.cx.util.test.js'
 			],
 			'dependencies' => [

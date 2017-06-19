@@ -7,39 +7,25 @@
  * @mixins OO.EventEmitter
  *
  * @constructor
- * @param {Object} config
  * @param {mw.cx.dm.Translation} translation The translation context
- * @param {Element} sourceDocument
- * @param {Element} targetDocument
+ * @param {string} id The translation unit ID
+ * @param {ve.dm.Node} sourceModel The source model
+ * @param {mw.cx.dm.TranslationUnit|null} parentTranslationUnit The parent translation unit
  */
-mw.cx.dm.SentenceTranslationUnit = function SentenceTranslationUnit( config, translation, sourceDocument, targetDocument ) {
-	mw.cx.dm.SentenceTranslationUnit.super.call( this, config, translation, sourceDocument, targetDocument );
+mw.cx.dm.SentenceTranslationUnit = function SentenceTranslationUnit( translation, id, sourceModel, parentTranslationUnit ) {
+	mw.cx.dm.SentenceTranslationUnit.super.call( this, translation, id, sourceModel, parentTranslationUnit );
 };
 
 /* Inheritance */
 
 OO.inheritClass( mw.cx.dm.SentenceTranslationUnit, mw.cx.dm.TranslationUnit );
 
+/* Static properties */
+
 mw.cx.dm.SentenceTranslationUnit.static.name = 'sentence';
-mw.cx.dm.SentenceTranslationUnit.static.matchTagNames = [ 'span' ];
 
-/**
- * @inheritDoc
- */
-mw.cx.dm.SentenceTranslationUnit.static.matchFunction = function ( node ) {
-	return node.className === 'cx-segment';
-};
+mw.cx.dm.SentenceTranslationUnit.static.matchClasses = [ ve.dm.CXSentenceSegmentAnnotation ];
 
-mw.cx.dm.SentenceTranslationUnit.prototype.isEditable = function () {
-	return true;
-};
+/* Registration */
 
-/**
- * Get the id of the section
- * @return {string}
- */
-mw.cx.dm.SentenceTranslationUnit.prototype.getSectionId = function () {
-	return this.sourceDocument.dataset.segmentid;
-};
-
-mw.cx.dm.modelRegistry.register( mw.cx.dm.SentenceTranslationUnit );
+mw.cx.dm.translationUnitFactory.register( mw.cx.dm.SentenceTranslationUnit );
