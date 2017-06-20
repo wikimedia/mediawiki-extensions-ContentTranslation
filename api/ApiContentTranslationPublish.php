@@ -134,7 +134,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		$this->publish();
-
 	}
 
 	public function publish() {
@@ -190,7 +189,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				// Add the tags post-send, after RC row insertion
 				$revId = intval( $saveresult['edit']['newrevid'] );
-				DeferredUpdates::addCallableUpdate( function() use ( $revId, $params ) {
+				DeferredUpdates::addCallableUpdate( function () use ( $revId, $params ) {
 					ChangeTags::addTags(
 						'contenttranslation',
 						null,

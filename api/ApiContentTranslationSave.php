@@ -52,7 +52,7 @@ class ApiContentTranslationSave extends ApiBase {
 
 		// Delete the record from cx_drafts table if exists.
 		// Now we have the translation stored in cx_corpora table.
-		DeferredUpdates::addCallableUpdate( function() use ( $translationId ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $translationId ) {
 			Draft::delete( $translationId );
 		} );
 

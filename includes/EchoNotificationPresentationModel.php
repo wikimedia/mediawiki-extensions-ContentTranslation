@@ -15,14 +15,14 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		if ( $this->type === 'cx-first-translation' )  {
+		if ( $this->type === 'cx-first-translation' ) {
 			$user =  $this->getViewingUserForGender();
 			$title = SpecialPage::getTitleFor( 'Contributions', $user );
 			return [
 				'url' => $title->getCanonicalURL(),
 				'label' => $this->msg( 'cx-contributions-link' )
 			];
-		} elseif ( $this->type === 'cx-suggestions-available' )  {
+		} elseif ( $this->type === 'cx-suggestions-available' ) {
 			$title = SpecialPage::getTitleFor( 'ContentTranslation', false, 'suggestions' );
 			return [
 				'url' => $title->getCanonicalURL(),

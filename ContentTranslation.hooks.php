@@ -311,7 +311,6 @@ class ContentTranslationHooks {
 		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
 		];
-
 	}
 
 	/**

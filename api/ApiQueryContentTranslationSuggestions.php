@@ -227,7 +227,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 	private function filterSuggestions( array $suggestions, array $titlesToFilter ) {
 		return array_filter( $suggestions,
-			function( $suggestion ) use( $titlesToFilter ) {
+			function ( $suggestion ) use( $titlesToFilter ) {
 				return !in_array(
 					$suggestion->getTitle()->getPrefixedText(),
 					$titlesToFilter
@@ -237,7 +237,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	private function removeInvalidSuggestions( $sourceLanguage, array $existingTitles ) {
-		DeferredUpdates::addCallableUpdate( function() use ( $sourceLanguage, $existingTitles ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $sourceLanguage, $existingTitles ) {
 			// Remove the already existing links from cx_suggestion table
 			$manager = new SuggestionListManager();
 			$manager->removeTitles( $sourceLanguage, $existingTitles );

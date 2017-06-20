@@ -263,7 +263,7 @@ class Translation {
 		$result = [];
 
 		foreach ( $rows as $row ) {
-			$result[] = (array) $row;
+			$result[] = (array)$row;
 		}
 
 		return $result;
@@ -304,7 +304,7 @@ class Translation {
 
 		$result = [];
 		foreach ( $rows as $row ) {
-			$result[] = (array) $row;
+			$result[] = (array)$row;
 		}
 
 		return $result;
@@ -532,7 +532,7 @@ class Translation {
 		$result = [];
 
 		foreach ( $rows as $row ) {
-			$translation = (array) $row;
+			$translation = (array)$row;
 			$translation['stats'] = json_decode( $translation['stats'] );
 			$result[] = $translation;
 		}
