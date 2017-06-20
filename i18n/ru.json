@@ -23,7 +23,8 @@
 			"Ole Yves",
 			"Liuxinyu970226",
 			"Esukhovnina",
-			"Av6"
+			"Av6",
+			"Facenapalm"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -196,7 +197,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваши переводы}}",
 	"cx-translationlist-empty-title": "Нечего переводить?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время.",
-	"cx-tools-link-internal-link": "Связать со страницей",
+	"cx-tools-link-internal-link": "Искать страницы",
 	"cx-tools-link-internal-link-placeholder": "Найти страницу для ссылки",
 	"cx-tools-link-external-link": "Внешняя ссылка",
 	"cx-tools-link-external-link-placeholder": "Добавить внешнюю ссылку",
@@ -230,5 +231,9 @@
 	"cx-translation-template-add-more": "Добавить больше полей",
 	"cx-translation-template-select-param": "Выберите целевые поля",
 	"cx-tools-category-add": "добавить категорию",
-	"cx-publish-destination-namespace-main": "Новая страница"
+	"cx-publish-destination-header": "Опубликовать цель",
+	"cx-publish-destination-tooltip": "Выберите пространство имён публикуемой статьи",
+	"cx-publish-destination-namespace-main": "Новая страница",
+	"cx-publish-destination-namespace-user": "Личный черновик",
+	"cx-publish-destination-namespace-draft": "Общественный черновик"
 }
