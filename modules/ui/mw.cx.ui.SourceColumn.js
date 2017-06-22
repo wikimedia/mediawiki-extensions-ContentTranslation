@@ -4,7 +4,7 @@
  * Source article container
  *
  * @class
-  * @param {Object} [config] Configuration object
+ * @param {Object} [config] Configuration object
  */
 mw.cx.ui.SourceColumn = function ( config ) {
 	// Configuration initialization
