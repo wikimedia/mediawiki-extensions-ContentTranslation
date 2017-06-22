@@ -114,6 +114,7 @@
 			} );
 		}, function () {
 			mw.log( '[CX] Target template does not exist for ' + sourceTitle );
+			return $.Deferred().reject().promise();
 		} );
 
 		this.initPromise = this.initPromise.then( function () {
