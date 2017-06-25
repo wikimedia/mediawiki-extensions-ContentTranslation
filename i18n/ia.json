@@ -177,9 +177,9 @@
 	"cx-your-translations-link": "{{GENDER:$1|Tu traductiones}}",
 	"cx-translationlist-empty-title": "Nihil a traducer?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comencia}} ora un traduction tue e continua lo quando tu vole.",
-	"cx-tools-link-internal-link": "Ligamine al pagina",
+	"cx-tools-link-internal-link": "Cercar paginas",
 	"cx-tools-link-internal-link-placeholder": "Cercar pagina a ligar",
-	"cx-tools-link-external-link": "Externe",
+	"cx-tools-link-external-link": "Ligamine externe",
 	"cx-tools-link-external-link-placeholder": "Adder ligamine externe",
 	"cx-tools-link-to-another-page": "Ligar a un altere pagina",
 	"cx-tools-link-add-as-missing": "Adder como ligamine mancante",
@@ -209,5 +209,11 @@
 	"cx-template-not-available": "Non disponibile in $1",
 	"cx-translation-template-add-param": "+ Traducer campo",
 	"cx-translation-template-add-more": "Adder plus campos",
-	"cx-translation-template-select-param": "Selige campos de destination"
+	"cx-translation-template-select-param": "Selige campos de destination",
+	"cx-tools-category-add": "Adder categoria",
+	"cx-publish-destination-header": "Destination pro publicar",
+	"cx-publish-destination-tooltip": "Selige le spatio de nomines del articulo a publicar",
+	"cx-publish-destination-namespace-main": "Nove pagina",
+	"cx-publish-destination-namespace-user": "Esbosso personal",
+	"cx-publish-destination-namespace-draft": "Esbosso communitari"
 }
