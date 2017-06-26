@@ -83,7 +83,7 @@
 	"cx-sourceselector-dialog-source-title-placeholder": "Najdi izvirno stran",
 	"cx-sourceselector-dialog-target-title-placeholder": "Naslov prevoda",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "Naslov že obstaja na [$1 $2] za [$3 drugo stran]",
-	"cx-sourceselector-dialog-error-page-exists": "Ta stran v jeziku $2 že obstaja v [$1]",
+	"cx-sourceselector-dialog-error-page-exists": "Stran [$1 že obstaja] v jeziku $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Naslov nove strani je [$1 že zaseden]",
 	"cx-sourceselector-dialog-error-no-source-article": "Stran, ki jo želiš prevesti, v {{GRAMMAR:mestnik|$1}} ne obstaja",
 	"cx-mt-abuse-warning-title": "Tvoj prevod {{PLURAL:$1|vsebuje}} $1 nespremenjenega strojno prevedenega besedila",

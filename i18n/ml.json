@@ -70,7 +70,7 @@
 	"cx-sourceselector-dialog-target-language-label": "ലക്ഷ്യം:",
 	"cx-sourceselector-dialog-source-title-placeholder": "സ്രോതസ്സ് താളിനായി തിരയുക",
 	"cx-sourceselector-dialog-target-title-placeholder": "പരിഭാഷയുടെ തലക്കെട്ട്",
-	"cx-sourceselector-dialog-error-page-exists": "$2 ഭാഷയിൽ $1 താൾ നിലവിലുണ്ട്",
+	"cx-sourceselector-dialog-error-page-exists": "$2 ഭാഷയിൽ [$1 താൾ] നിലവിലുണ്ട്",
 	"cx-mt-abuse-warning-title": "താങ്കളുടെ പരിഭാഷയിൽ $1% മാറ്റം വരുത്താത്ത യാന്ത്രികപരിഭാഷ അടങ്ങിയിരിയ്ക്കുന്നു.",
 	"cx-mt-abuse-warning-text": "യാന്ത്രികപരിഭാഷ ഒരു മാതൃക എന്നരീതിയിലാണ് തന്നിരിക്കുന്നത്. അതു് കൃത്യമാണെന്നും താങ്കളുടെ ഭാഷയിൽ സുഗമമായി വായിക്കാവുന്നതുമാണെന്നും താങ്കൾ ഉറപ്പുവരുത്തേണ്ടതുണ്ട്.",
 	"cx-publish-captcha-title": "സുരക്ഷാചോദ്യം",

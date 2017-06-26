@@ -7,7 +7,8 @@
 			"Teju2friends",
 			"Vikashegde",
 			"Yogesh",
-			"Ananth subray"
+			"Ananth subray",
+			"Amire80"
 		]
 	},
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
@@ -80,7 +81,7 @@
 	"cx-sourceselector-dialog-source-title-placeholder": "ಮೂಲ ಪುಟಕ್ಕಾಗಿ ಹುಡುಕು",
 	"cx-sourceselector-dialog-target-title-placeholder": "ಶೀರ್ಷಿಕೆ ಅನುವಾದಿಸಿ",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "ಈ ಶೀರ್ಷಿಕೆಯನ್ನು ಈಗಾಗಲೇ [$1 $2] ನಲಿ ಇದಕ್ಕಾಗಿ ಬಳಸಲಾಗಿದೆ [$3 ಒಂದು ಬೇರೆ ಪುಟ]",
-	"cx-sourceselector-dialog-error-page-exists": "ಪುಟ  [$1ಈಗಾಗಲೇ ಲಭ್ಯವಿದೆ] $2 ನಲ್ಲಿ",
+	"cx-sourceselector-dialog-error-page-exists": "ಪುಟ  [$1 ಈಗಾಗಲೇ ಲಭ್ಯವಿದೆ] $2 ನಲ್ಲಿ",
 	"cx-sourceselector-dialog-error-title-in-use": "ಹೊಸ ಪುಟದ ಶೀರ್ಷಿಕೆ [$1 ಈಗಾಗಲೇ ಬಳಕೆಯಲ್ಲಿದೆ]",
 	"cx-sourceselector-dialog-error-no-source-article": "ಅನುವಾದಕ್ಕೆ ಪುಟ $1 ನಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ",
 	"cx-mt-abuse-warning-title": "ನಿಮ್ಮ ಅನುವಾದ $1% ರಷ್ಟು ಬದಲಾವಣೆ ಮಾಡಲಾರದ ಯಾಂತ್ರಿಕ-ಅನುವಾದದ ಪಠ್ಯ {{PLURAL:$1|ಹೊಂದಿದೆ}}",
