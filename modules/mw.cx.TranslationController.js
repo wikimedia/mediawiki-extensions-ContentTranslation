@@ -221,8 +221,10 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 	sequenceId = translationUnit.sourceDocument.getAttribute( 'data-seqid' );
 	// XXX should use the promise, but at this point the member variable should always be present
 	translationSource = translationUnit.MTProvider;
-	if ( translationSource === 'source' ) {
+	if ( translationSource === 'source' || translationSource === 'scratch' ) {
 		origin = 'user';
+	} else {
+		origin = translationSource;
 	}
 
 	records.push( {
