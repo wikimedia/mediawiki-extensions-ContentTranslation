@@ -150,7 +150,7 @@
 
 		this.$container.append( tool.getCard() );
 		if ( typeof data === 'string' ) {
-			data = new Array( data );
+			data = [ data ];
 		}
 
 		this.$loadingIndicator.show();

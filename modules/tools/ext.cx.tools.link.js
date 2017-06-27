@@ -62,8 +62,8 @@
 			return deferred.resolve( {} ).promise();
 		}
 
-		if ( !$.isArray( titles ) ) {
-			titles = new Array( titles );
+		if ( !Array.isArray( titles ) ) {
+			titles = [ titles ];
 		}
 
 		if ( language === mw.cx.sourceLanguage ) {
