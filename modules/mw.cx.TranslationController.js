@@ -208,7 +208,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
  * @return {Object[]} Objects to save
  */
 mw.cx.TranslationController.prototype.getTranslationUnitData = function ( translationUnit ) {
-	var sequenceId, origin, translationSource, records = [],
+	var origin, translationSource, records = [],
 		validate;
 
 	if ( !( translationUnit instanceof mw.cx.dm.SectionTranslationUnit ) ) {
@@ -218,7 +218,6 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 	// XXX Section validation for abusefilter
 	validate = false;
 
-	sequenceId = translationUnit.sourceDocument.getAttribute( 'data-seqid' );
 	// XXX should use the promise, but at this point the member variable should always be present
 	translationSource = translationUnit.MTProvider;
 	if ( translationSource === 'source' || translationSource === 'scratch' ) {
@@ -231,7 +230,6 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 		content: translationUnit.getTargetDocument().outerHTML,
 		sectionId: translationUnit.sourceDocument.id, // source section id is the canonical section id.
 		validate: validate,
-		sequenceId: sequenceId,
 		origin: origin
 	} );
 	// XXX: Source sections are saved only once.
@@ -239,7 +237,6 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 		content: translationUnit.getSourceDocument().outerHTML,
 		sectionId: translationUnit.sourceDocument.id,
 		validate: false,
-		sequenceId: sequenceId,
 		origin: 'source'
 	} );
 	return records;
