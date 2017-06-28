@@ -9,7 +9,6 @@
 
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
-use ContentTranslation\Draft;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -162,12 +161,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$db = Database::getConnection( DB_SLAVE );
 
 		$lookup = new CorporaLookup( $db );
-		$draft = Draft::fetch( $translation->getTranslationId() );
-		$content = $draft['draftContent'];
-		// If no content present in drafts table, try corpora table
-		if ( $content === null ) {
-			$content = $lookup->getByTranslationId( $translation->getTranslationId() );
-		}
+		$content = $lookup->getByTranslationId( $translation->getTranslationId() );
 
 		return $content;
 	}
