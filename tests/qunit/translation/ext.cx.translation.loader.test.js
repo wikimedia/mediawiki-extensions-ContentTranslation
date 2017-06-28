@@ -15,13 +15,6 @@
 			translation: '<p id="cxtest1-1" data-cx-draft="true" data-source="test1-1">PARAGRAPH 1</p>'
 		},
 		{
-			description: 'All ids of source and draft match perfectly, Restoring old draft using sequence ids',
-			source: '<div><p id="test2-1" data-seqid="1">Paragraph 1</p></div>',
-			placeholders: '<div><div id="cxtest2-1" data-source="test2-1" class="placeholder"></div></div>',
-			draft: '<p id="cx1" data-seqid="1" data-source="1">PARAGRAPH 1</p>',
-			translation: '<p id="cxtest2-1" data-seqid="1" data-source="test2-1" data-cx-draft="true">PARAGRAPH 1</p>'
-		},
-		{
 			description: 'Source section replaced by new section. Insert the draft above the placeholder for next match',
 			source: '<div><p id="test3-2">Paragraph 2</p><p id="test3-3">Paragraph 3</p></div>',
 			placeholders: '<div><div id="cxtest3-2" data-source="test3-2" class="placeholder"></div><div id="cxtest3-3" data-source="test3-3" class="placeholder"></div></div>',

@@ -240,7 +240,7 @@
 	};
 
 	ContentTranslationStorage.prototype.markForSave = function ( $targetSection ) {
-		var $sourceSection, sourceSectionId, targetSectionId, sequenceId, state, origin,
+		var $sourceSection, sourceSectionId, targetSectionId, state, origin,
 			validate;
 
 		targetSectionId = $targetSection.attr( 'id' );
@@ -253,7 +253,6 @@
 		} else {
 			origin = 'user';
 		}
-		sequenceId = $sourceSection.data( 'seqid' );
 
 		// To avoid large number of validations, we set validation flag in every 10th change of
 		// section or if the section has error. Or if the section has validation error.
@@ -276,7 +275,6 @@
 			sectionId: sourceSectionId, // source section id is the canonical section id.
 			saved: false,
 			validate: validate,
-			sequenceId: sequenceId,
 			origin: origin
 		};
 		// Source sections are saved only once.
@@ -285,7 +283,6 @@
 			sectionId: sourceSectionId,
 			saved: false,
 			validate: false,
-			sequenceId: sequenceId,
 			origin: 'source'
 		};
 	};

@@ -153,7 +153,7 @@
 	 * @return {Object[]}
 	 */
 	ContentTranslationLoader.prototype.getTranslationUnits = function ( draftContent ) {
-		var i, sourceSectionId, targetSectionId, $draftSection, sequenceId,
+		var i, sourceSectionId, targetSectionId, $draftSection,
 			translationUnits = {},
 			$draftContent = $( draftContent );
 
@@ -169,9 +169,7 @@
 				} );
 			}
 			sourceSectionId = targetSectionId.slice( 2 ); // Replace 'cx' prefix.
-			sequenceId = $draftSection.attr( 'data-seqid' );
 			translationUnits[ sourceSectionId ] = {
-				sequenceId: sequenceId,
 				user: {
 					content: $draftContent[ i ]
 				},
@@ -370,35 +368,14 @@
 	ContentTranslationLoader.prototype.restoreSection = function ( translationUnit, sourceSectionId ) {
 		var $translation, targetSectionId,
 			$section = [],
-			$sourceSection = [],
 			$placeholderSection = [];
 
 		$translation = $( getTranslation( translationUnit ) );
-		$sourceSection = mw.cx.getSourceSection( sourceSectionId );
 		targetSectionId = $translation.prop( 'id' );
 
 		// Find a placeholder in translation column. Make sure that it is indeed a placeholder.
 		// Don't overwrite on an existing section.
 		$placeholderSection = this.$translationColumn.find( '.placeholder[id="cx' + sourceSectionId + '"]' );
-
-		if ( !$placeholderSection.length ) {
-			// Support old sections with sequential idendifiers
-			$sourceSection = this.$sourceColumn.find( '[data-seqid="' + translationUnit.sequenceId + '"]' );
-			if ( $sourceSection.length ) {
-				// Class is needed in selector to make sure it is indeed a placeholder.
-				$placeholderSection = this.$translationColumn.find(
-					'.placeholder[id="cx' + $sourceSection.prop( 'id' ) + '"]'
-				);
-			}
-			targetSectionId = $placeholderSection.prop( 'id' );
-			// It is very unlikely that a source section has no placeholder section.
-			// Example: Section that is hidden from source because of unsupportable templates.
-			if ( targetSectionId ) {
-				// Update the id of this old draft
-				$translation.prop( 'id', targetSectionId );
-				sourceSectionId = $sourceSection.prop( 'id' );
-			}
-		}
 
 		// If we still don't see the source section for this draft section,
 		// it means that the source article has changed.
