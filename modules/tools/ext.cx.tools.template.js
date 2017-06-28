@@ -678,20 +678,6 @@
 
 				$newTemplate = $( response );
 
-				if ( $newTemplate.length >= 2 &&
-					( $newTemplate.first().is( 'link' ) || $newTemplate.first().is( 'span' ) ) &&
-					!$newTemplate.eq( 1 ).data( 'mw' )
-				) {
-					// Some times parsoid gives the data-mw and typeof attribute in a
-					// different <link> tag. It is difficult to work with that 0 height,
-					// invisible element at translation. So we copy them to the real section.
-					$newTemplate.eq( 1 ).attr( {
-						'typeof': $newTemplate.first().attr( 'typeof' ),
-						'data-mw': $newTemplate.first().attr( 'data-mw' )
-					} );
-					$newTemplate = $newTemplate.slice( 1 );
-				}
-
 				// Filter out auto-generated items, e.g. reference lists
 				$newTemplate = $newTemplate.filter( function ( index, node ) {
 					var dataMw = node.nodeType === Node.ELEMENT_NODE &&
@@ -713,6 +699,20 @@
 
 					return true;
 				} );
+
+				if ( $newTemplate.length >= 2 &&
+					( $newTemplate.first().is( 'link' ) || $newTemplate.first().is( 'span' ) ) &&
+					!$newTemplate.eq( 1 ).data( 'mw' )
+				) {
+					// Some times parsoid gives the data-mw and typeof attribute in a
+					// different <link> tag. It is difficult to work with that 0 height,
+					// invisible element at translation. So we copy them to the real section.
+					$newTemplate.eq( 1 ).attr( {
+						'typeof': $newTemplate.first().attr( 'typeof' ),
+						'data-mw': $newTemplate.first().attr( 'data-mw' )
+					} );
+					$newTemplate = $newTemplate.slice( 1 );
+				}
 
 				// HACK: if $content consists of a single paragraph for the inline template, make it inline.
 				// We have to do this because the parser wraps everything in <p>s, and inline templates
@@ -737,6 +737,9 @@
 						// TODO: Copy classes too?
 						$newTemplate = $new;
 					}
+				}
+				if ( !$newTemplate.data( 'mw' ) ) {
+					mw.log.error( '[CX] Error in adapting template. missing data-mw' );
 				}
 				return $newTemplate;
 			} );
