@@ -472,6 +472,13 @@
 		sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
 		targetDir = $.uls.data.getDir( suggestion.targetLanguage );
 
+		$featured = $( [] );
+		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FEATURED ) {
+			$featured = $( '<span>' )
+				.addClass( 'cx-sltag cx-sltag--featured' )
+				.text( this.lists[ suggestion.listId ].displayName );
+		}
+
 		$translationLink = $( '<div>' )
 			.addClass( 'cx-slitem__translation-link' )
 			.attr( 'data-suggestion', JSON.stringify( suggestion ) )
@@ -483,7 +490,8 @@
 				.prop( {
 					lang: suggestion.sourceLanguage,
 					dir: sourceDir
-				} )
+				} ),
+				$featured
 			);
 
 		$sourceLanguage = $( '<a>' )
@@ -525,13 +533,6 @@
 			.addClass( 'cx-slitem__action cx-slitem__action--discard' )
 			.one( 'click', $.proxy( this.discardSuggestion, this, suggestion ) );
 
-		$featured = $( [] );
-		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FEATURED ) {
-			$featured = $( '<div>' )
-				.addClass( 'cx-sltag cx-sltag--featured' )
-				.text( this.lists[ suggestion.listId ].displayName );
-		}
-
 		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FAVORITE ) {
 			$discardAction.hide();
 			$favoriteAction = $( '<div>' )
@@ -545,7 +546,7 @@
 
 		$metaDataContainer = $( '<div>' )
 			.addClass( 'cx-slitem__meta' )
-			.append( $languageContainer, $featured );
+			.append( $languageContainer );
 
 		$titleLanguageBlock = $( '<div>' )
 			.addClass( 'cx-slitem__details' )
