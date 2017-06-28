@@ -23,7 +23,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, t
 	// Associative array of translation units queued to be saved
 	this.saveQueue = {};
 	this.saveTimer = null;
-	this.schedule = OO.ui.debounce( this.processSaveQueue.bind( this ), 3 * 1000 );
+	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.view, this.config );
 	this.listen();
 };
@@ -66,25 +66,33 @@ mw.cx.TranslationController.prototype.save = function ( translationUnit ) {
 	if ( !translationUnit ) {
 		return;
 	}
-	// Keep records keyed by section id and origin to avoid duplicates.
+
+	// Keep records keyed by section id to avoid duplicates.
 	// When more than one changes to a single translation unit comes, only
 	// the last one need to consider for saving.
-	this.getTranslationUnitData( translationUnit ).forEach( function ( data ) {
-		this.saveQueue[ data.sectionId + '-' + data.origin ] = data;
-	}.bind( this ) );
+	this.saveQueue[ translationUnit.getSectionId() ] = translationUnit;
+
 	this.schedule();
 };
 
 /**
  * Process the save queue. Save the changed translation units.
+ * @param {boolean} [isRetry] Whether this is a retry or not
  * @fires savestart
  * @fires saveerror
  */
-mw.cx.TranslationController.prototype.processSaveQueue = function () {
+mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	var params,
 		api = new mw.Api();
 
 	if ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) {
+		return;
+	}
+
+	if ( this.failCounter > 0 && isRetry !== true ) {
+		// Last save failed, and a retry has been scheduled. Don't allow starting new
+		// save requests to avoid overloading the servers, unless this is the retry.
+		mw.log( '[CX] Save request skipped because a retry has been scheduled' );
 		return;
 	}
 
@@ -93,6 +101,11 @@ mw.cx.TranslationController.prototype.processSaveQueue = function () {
 	this.emit( 'savestart' );
 	this.view.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
 	if ( this.saveRequest ) {
+		mw.log( '[CX] Aborted active save request' );
+		// This causes failCounter to increase because the in-flight request fails.
+		// The new request we do below will either reset the fail counter on success.
+		// If it does not succeed, the retry timer that was set by the failed request
+		// prevents further saves before the retry has completed succesfully or given up.
 		this.saveRequest.abort();
 	}
 
@@ -108,21 +121,44 @@ mw.cx.TranslationController.prototype.processSaveQueue = function () {
 		progress: JSON.stringify( this.translation.getProgress() )
 	};
 
+	if ( this.failCounter > 0 ) {
+		mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
+	}
 	this.saveRequest = api.postWithToken( 'csrf', params )
-		.done( this.onSaveComplete.bind( this ) )
-		.fail( this.onSaveFailure.bind( this ) )
-		.always( function () {
-			this.saveRequest = null;
-			if ( this.failCounter > 5 ) {
-				// If there are more than 5 save errors, stop autosave at timer triggers.
-				// It will get restarted on further translation edits.
-				// Show a bigger error message at this point.
-				this.emit( 'saveerror' );
-				this.onSaveFailure();
-				return;
+		.done( function ( saveResult ) {
+			this.onSaveComplete( saveResult );
+
+			// Reset fail counter.
+			if ( this.failCounter > 0 ) {
+				this.failCounter = 0;
+				this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
+				mw.log( '[CX] Retry successful. Save succeeded.' );
 			}
-			// Irrespective of success or fail, schedule next autosave
-			this.schedule();
+		}.bind( this ) ).fail( function ( errorCode, details ) {
+			var delay;
+			this.failCounter++;
+
+			mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
+			if ( details.exception !== 'abort' ) {
+				this.onSaveFailure( errorCode, details );
+			}
+
+			if ( this.failCounter > 5 ) {
+				// If there are more than a few errors, stop autosave at timer triggers.
+				// Show a bigger error message at this point.
+				this.view.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
+				// This will allow any change to trigger save again
+				this.failCounter = 0;
+				mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
+			} else {
+				// Delay in seconds, failCounter is [1,5]
+				delay = 60 * this.failCounter;
+				// Schedule retry.
+				setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
+				mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
+			}
+		}.bind( this ) ).always( function () {
+			this.saveRequest = null;
 		}.bind( this ) );
 };
 
@@ -159,14 +195,16 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	clearTimeout( this.saveTimer );
 	this.view.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 	this.saveTimer = setInterval( function () {
+		if ( this.failCounter > 0 ) {
+			// Don't overwrite error message of failure with this timer controlled message.
+			return;
+		}
 		minutes++;
 		this.view.setStatusMessage(
 			mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
 		);
 	}.bind( this ), 60 * 1000 );
 
-	// Reset fail counter.
-	this.failCounter = 0;
 	// Reset the queue
 	this.saveQueue = [];
 };
@@ -182,7 +220,6 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 	}
 	this.emit( 'saveerror' );
 	this.view.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
-	this.failCounter++;
 };
 
 /**
@@ -194,8 +231,11 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 	var records = [];
 
 	Object.keys( saveQueue ).forEach( function ( key ) {
-		records.push( saveQueue[ key ] );
-	} );
+		var translationUnit = saveQueue[ key ];
+		this.getTranslationUnitData( translationUnit ).forEach( function ( data ) {
+			records.push( data );
+		} );
+	}.bind( this ) );
 	// The cxsave api accept non-deflated content too.
 	// Sometimes it is helpful for testing:
 	// return JSON.stringify( records );
