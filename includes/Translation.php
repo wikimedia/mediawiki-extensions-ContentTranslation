@@ -454,28 +454,6 @@ class Translation {
 		return $this->translation;
 	}
 
-	public static function newFromId( $translationId ) {
-		$dbr = Database::getConnection( DB_SLAVE );
-
-		$rows = $dbr->select(
-			[ 'cx_translations', 'cx_drafts' ],
-			'*',
-			[
-				'translation_id' => $translationId,
-				'draft_id' => $translationId,
-			],
-			__METHOD__
-		);
-
-		$result = [];
-
-		foreach ( $rows as $row ) {
-			$result[] = Translation::newFromRow( $row );
-		}
-
-		return $result;
-	}
-
 	/**
 	 * Get all published translation records.
 	 *
@@ -559,9 +537,7 @@ class Translation {
 			'lastUpdateTimestamp' => $row->translation_last_updated_timestamp,
 			'progress' => $row->translation_progress,
 			'startedTranslator' => $row->translation_started_by,
-			'lastUpdatedTranslator' => $row->translation_last_update_by,
-			'draftContent' => isset( $row->draft_content ) ? $row->draft_content: null,
-			'draftTimestamp' => isset( $row->draft_timestamp ) ? $row->draft_timestamp: null,
+			'lastUpdatedTranslator' => $row->translation_last_update_by
 		] );
 
 		return $translation;
