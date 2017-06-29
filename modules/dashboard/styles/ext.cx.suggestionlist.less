@@ -67,8 +67,8 @@
 }
 
 .cx-slitem__desc {
-	color: @gray-dark;
-	font-size: 1.2em;
+	color: @colorGray7;
+	font-size: 0.8125em;
 	padding: 5px 0;
 	clear: both;
 	text-align: left;
@@ -76,14 +76,14 @@
 
 .cx-slitem__details {
 	.mw-ui-four-sixths;
-	padding-left: 10px;
+	padding-left: 16px;
 	position: relative;
-	min-height: 90px;
-	font-size: small;
+	min-height: 84px;
+	font-size: medium;
 
 	.cx-slitem__translation-link {
 		.mw-ui-one-whole;
-		font-size: 1.5em;
+		font-size: 1em;
 		font-weight: bolder;
 		text-decoration: none;
 		padding-left: 0;
@@ -104,14 +104,13 @@
 	.mw-ui-one-sixth;
 	float: right;
 	min-height: 90px;
-	/* In supported browsers, center it */
+
 	display: flex;
 	justify-content: flex-end; /* align towards end */
-	align-items: center; /* align vertically */
 }
 
 .cx-slitem__action {
-	padding: 0 10px;
+	padding: 0 8px;
 	float: right;
 	width: 30px;
 	height: 30px;
@@ -121,6 +120,10 @@
 
 	&:hover {
 		opacity: 1;
+	}
+
+	&:last-of-type {
+		padding-right: 0;
 	}
 
 	&--discard {

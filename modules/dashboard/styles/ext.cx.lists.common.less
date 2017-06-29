@@ -3,7 +3,7 @@
 .cx-tlitem,
 .cx-slitem {
 	.mw-ui-one-whole;
-	padding: 8px;
+	padding: 16px;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-bottom: 0;
@@ -71,6 +71,7 @@
 .cx-tlitem__languages,
 .cx-slitem__languages {
 	float: left;
+	font-size: 0.8125em;
 
 	&__language {
 		position: relative;
@@ -111,8 +112,9 @@
 .cx-slitem__image {
 	.mw-ui-one-sixth;
 	padding: 0;
-	width: 90px;
-	min-height: 90px;
+	border-radius: @borderRadius;
+	width: 84px;
+	min-height: 84px;
 	.background-image-svg('../../dashboard/images/page_lightgray.svg', '../../dashboard/images/page_lightgray.png');
 	background-repeat: no-repeat;
 	background-color: @gray-lighter;
