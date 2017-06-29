@@ -122,7 +122,8 @@
 		opacity: 1;
 	}
 
-	&:last-of-type {
+	&--nonfavorite,
+	&--discard {
 		padding-right: 0;
 	}
 
@@ -142,7 +143,7 @@
 
 	&--nonfavorite,
 	&--favorite:hover {
-		.background-image-svg('../images/star-green.svg', '../images/star-green.png');
+		.background-image-svg('../images/star-blue.svg', '../images/star-blue.png');
 		opacity: 1;
 	}
 }
