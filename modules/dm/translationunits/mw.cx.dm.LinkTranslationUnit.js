@@ -86,6 +86,7 @@ mw.cx.dm.LinkTranslationUnit.prototype.findLinkTarget = function ( sourceLanguag
  * @return {jQuery.Promise}
  */
 mw.cx.dm.LinkTranslationUnit.prototype.adapt = function () {
+	// This method is called by mw.cx.ui.LinkTranslationUnit.adapt
 	if ( this.targetDocument ) {
 		this.redlink = this.targetDocument.classList.contains( 'new' );
 		mw.log.warn( '[CX] Adapting a link which looks already adapted: ' + this );

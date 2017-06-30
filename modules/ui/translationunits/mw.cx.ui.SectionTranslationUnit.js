@@ -113,12 +113,13 @@ mw.cx.ui.SectionTranslationUnit.prototype.getPlaceholderSection = function () {
 };
 
 /**
- * Fill in the contents of the target section if it does not exist at all.
+ * Replace placeholder section with some contents determined by the model.
  */
 mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 	this.removeHighlight();
 	this.removePlaceholder();
 
+	// Skip adaptation if section was filled from a saved draft
 	if ( !this.isTranslated() ) {
 		mw.log( '[CX] Adapting to replace placeholder: ' + this, this.$sourceSection[ 0 ] );
 		this.markMTLoading();
@@ -126,8 +127,8 @@ mw.cx.ui.SectionTranslationUnit.prototype.translate = function () {
 		// ready, which is then handled in this.onModelAdapted.
 		this.model.adapt();
 	} else {
-		// Restored section from stored translation
-		this.buildSubTranslationUnits( this.model );
+		// We missed an "adapt" event from restoration, do it manually
+		this.onModelAdapted( this.model.getTargetDocument(), 'restoring draft' );
 	}
 
 	if ( this.isEditable() ) {

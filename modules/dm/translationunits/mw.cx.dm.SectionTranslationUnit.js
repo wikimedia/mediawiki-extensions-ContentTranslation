@@ -104,6 +104,8 @@ mw.cx.dm.SectionTranslationUnit.prototype.translateError = function ( sourceDocu
  * @fires adapt
  */
 mw.cx.dm.SectionTranslationUnit.prototype.adapt = function ( requestedProvider ) {
+	var doc;
+
 	if ( this.MTProvider && this.targetDocument ) {
 		// Store the current version so that it can be restored
 		this.documentsPerProvider[ this.MTProvider ] = this.targetDocument;
@@ -116,35 +118,45 @@ mw.cx.dm.SectionTranslationUnit.prototype.adapt = function ( requestedProvider )
 
 		// Use the cached version
 		if ( this.documentsPerProvider[ requestedProvider ] ) {
-			this.targetDocument = this.documentsPerProvider[ requestedProvider ];
-			this.updateAfterTranslation( this.targetDocument, requestedProvider );
-			this.emit( 'adapt', this.targetDocument, requestedProvider );
+			doc = this.documentsPerProvider[ requestedProvider ];
+			this.updateAfterTranslation( doc, requestedProvider );
+			this.emit( 'adapt', doc, requestedProvider );
 			return;
 		}
 	}
 
-	this.translate( this.sourceDocument ).then( function ( document ) {
-		this.setTargetId( document );
-		this.updateAfterTranslation( document, this.MTProvider );
-		this.adaptAfterTranslation( document, this.MTProvider );
+	this.translate( this.sourceDocument ).then( function ( translatedDoc ) {
+		this.setTargetId( translatedDoc );
+		this.updateAfterTranslation( translatedDoc, this.MTProvider );
+		this.adaptAfterTranslation( translatedDoc, this.MTProvider );
 		// Note that this.MTProvider might have changed from requestedProvider
-		this.emit( 'adapt', document, this.MTProvider );
+		this.emit( 'adapt', translatedDoc, this.MTProvider );
 	}.bind( this ) );
+};
+
+mw.cx.dm.SectionTranslationUnit.prototype.adaptWithRestoredContent = function ( doc, provider ) {
+	this.MTProvider = provider;
+	this.updateAfterTranslation( doc, provider );
+	// This is actually useless, because mw.cx.ui.SectionTranslationUnit is not listening
+	// when mw.cx.TranslationController#restore calls this method.
+	this.emit( 'adapt', doc, provider );
 };
 
 /**
  * Do any necessary updates and book keeping after section contents has been filled
  * with a new or cached default value when changing providers.
  *
- * @param {Element} document Translated translation document
+ * @param {Element} doc Translated translation document
  */
-mw.cx.dm.SectionTranslationUnit.prototype.updateAfterTranslation = function ( document ) {
-	this.targetDocument = document;
+mw.cx.dm.SectionTranslationUnit.prototype.updateAfterTranslation = function ( doc ) {
+	this.setTargetDocument( doc );
 };
 
 /**
  * Do any necessary changes to translated document after it has been filled with default
- * contents. This is not called when restoring a cached version when changing providers.
+ * contents. This is not called:
+ *  - when restoring a cached version when changing providers.
+ *  - when restoring from a saved draft.
  *
  * @param {Element} document Translated translation document
  */
