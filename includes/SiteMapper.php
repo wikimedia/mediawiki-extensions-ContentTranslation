@@ -49,7 +49,7 @@ class SiteMapper {
 
 	/**
 	 * @param string $title
-	 * @param string $username
+	 * @param string $userName
 	 * @return string
 	 */
 	public static function getTargetTitle( $title, $userName ) {

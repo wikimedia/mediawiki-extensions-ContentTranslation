@@ -74,7 +74,8 @@ class Translator {
 
 	/**
 	 * @param int $limit How many results to return
-	 * @param string [ $offset] Offset condition (timestamp)
+	 * @param string $offset Offset condition (timestamp)
+	 * @param string $type
 	 * @param string $from
 	 * @param string $to
 	 * @return Translation[]
