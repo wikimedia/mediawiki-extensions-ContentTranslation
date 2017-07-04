@@ -7,7 +7,6 @@
  * @license GPL-2.0+
  */
 
-use ContentTranslation\Draft;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\TranslationStorageManager;
@@ -40,7 +39,6 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translationId = $translation->getData()['id'];
 			Translator::removeTranslation( $translationId );
 			Translation::delete( $translationId );
-			Draft::delete( $translationId );
 			TranslationStorageManager::deleteTranslationUnits( $translationId );
 		}
 

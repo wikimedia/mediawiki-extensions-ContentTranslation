@@ -66,13 +66,3 @@ CREATE UNIQUE INDEX /*i*/cx_translation_translators ON /*_*/cx_translators (
     translator_user_id,
     translator_translation_id
 );
-
-DROP TABLE IF EXISTS /*_*/cx_drafts;
-CREATE TABLE /*_*/cx_drafts (
-    -- Draft Id - foreign key to cx_translations.translation_id
-    draft_id int primary key not null,
-    -- Draft save timestamp
-    draft_timestamp varchar(14) binary not null,
-    -- Translation draft content
-    draft_content mediumblob
-) /*$wgDBTableOptions*/;
