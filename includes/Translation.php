@@ -187,8 +187,13 @@ class Translation {
 		return $row ? Translation::newFromRow( $row ) : null;
 	}
 
-	// Here we assume that the caller already checked that no draft for the
-	// user already exists.
+	/**
+	 * Get conflicting translations for the given translation work.
+	 * Conflicting translations are translations in progress for same language pair and source page.
+	 * Here we assume that the caller already checked that no draft for the user already exists.
+	 * @param TranslationWork $work
+	 * @return array
+	 */
 	public function getConflictingTranslations( TranslationWork $work ) {
 		// Use the fact that find returns all items when given array of titles.
 		$drafts = self::find(
