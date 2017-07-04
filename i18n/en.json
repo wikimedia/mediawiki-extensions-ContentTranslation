@@ -222,7 +222,7 @@
 	"cx-translation-template-select-param": "Select target fields",
 	"cx-tools-category-add": "Add category",
 	"cx-publish-destination-header": "Publish destination",
-	"cx-publish-destination-tooltip": "Choose the namespace of article to publish",
+	"cx-publish-destination-tooltip": "Choose the namespace in which the page will be published",
 	"cx-publish-destination-namespace-main": "New page",
 	"cx-publish-destination-namespace-user": "Personal draft",
 	"cx-publish-destination-namespace-draft": "Community draft"
