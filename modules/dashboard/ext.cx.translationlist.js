@@ -30,8 +30,8 @@
 
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
-		this.$header = null;
 		this.$selectedActionMenu = null;
+		this.$headerContainer = null;
 		this.$confirmationDialog = null;
 		this.active = false;
 		this.promise = null;
@@ -84,6 +84,11 @@
 	};
 
 	CXTranslationList.prototype.init = function () {
+		this.$headerContainer = $( '<div>' )
+			.addClass( 'cx-translationlist__header' )
+			.append( $( '<span>' )
+				.text( mw.msg( 'cx-translation-label-' + this.type ) )
+			);
 		this.$translationsList = $( '<div>' )
 			.addClass( 'cx-translationlist' );
 		this.$container.append( this.$translationsList, this.$emptyTranslationsList );
@@ -105,6 +110,7 @@
 				self.$translationsList.append( self.$emptyTranslationsList );
 				return;
 			}
+			self.$translationsList.prepend( self.$headerContainer );
 			self.translations = self.translations.concat( translations );
 			self.renderTranslations( translations );
 		} ).fail( function () {

@@ -145,6 +145,8 @@
 	"cx-translation-status-draft": "In progress status label for the translation in the Content Translation dashboard. This means that the translation is stored internally as a draft, accessible only to the user who started it, and not published as a wiki page.",
 	"cx-translation-status-published": "Published status label for the translation in the Content Translation dashboard.\n{{Identical|Published}}",
 	"cx-translation-status-deleted": "Deleted status label for the translation in the Content Translation dashboard.\n{{Identical|Deleted}}",
+	"cx-translation-label-draft": "Label in header for list of draft translations in the Content Translation dashboard",
+	"cx-translation-label-published": "Label in header for list of published translations in the Content Translation dashboard",
 	"cx-translation-already-in-progress": "Message shown when a second translator tries to translate the same page between same languages. \n\nParameters:\n* $1 - User name of first translator\n* $2 - Gender of the first translator",
 	"cx-translation-already-in-progress-collaborate": "A message to collaborate with other translator. Shown when there is translation conflict.\n\nParameters:\n* $1 - Gender of the first translator",
 	"cx-publishing-dialog-publish-draft-button": "Button label for publishing options dialog. Used if extension is not configured to publish to User namespace.",

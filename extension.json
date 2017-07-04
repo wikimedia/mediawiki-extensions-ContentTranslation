@@ -940,6 +940,8 @@
 				"cx-translation-status-draft",
 				"cx-translation-status-deleted",
 				"cx-translation-status-published",
+				"cx-translation-label-draft",
+				"cx-translation-label-published",
 				"cx-draft-discard-confirmation-message",
 				"cx-draft-cancel-button-label",
 				"cx-draft-discard-button-label",

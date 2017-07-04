@@ -76,14 +76,19 @@
 	}
 
 	CXSuggestionList.prototype.init = function () {
+		var $listHeaderContainer;
+
 		this.seed = parseInt( Math.random() * 10000, 10 );
 		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
-		this.$publicCollectionContainer = $( '<div>' )
-			.addClass( 'cx-suggestionlist__public' )
-			.append( $( '<h2>' )
+		$listHeaderContainer = $( '<div>' )
+			.addClass( 'cx-suggestionlist__header' )
+			.append( $( '<span>' )
 				.text( mw.msg( 'cx-suggestionlist-title' ) )
 				.addClass( 'cx-suggestionlist__public-title' )
 			);
+		this.$publicCollectionContainer = $( '<div>' )
+			.addClass( 'cx-suggestionlist__public' )
+			.append( $listHeaderContainer );
 		this.$publicCollection = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public-items' );
 		this.$publicCollectionContainer.append( this.$publicCollection ).hide();
@@ -405,9 +410,13 @@
 				.attr( 'data-listid', listId )
 				.addClass( 'cx-suggestionlist cx-suggestionlist-type-' + list.type );
 
-			if ( list.type !== listTypes.TYPE_FEATURED && list.type !== listTypes.TYPE_PERSONALIZED ) {
+			if ( list.type === listTypes.TYPE_FAVORITE ) {
 				// No need to show heading for misc fallback suggestions shown at the end.
-				$listHeading = $( '<h2>' ).text( list.displayName );
+				$listHeading = $( '<div>' )
+					.addClass( 'cx-suggestionlist__header' )
+					.append( $( '<span>' )
+						.text( mw.msg( 'cx-suggestionlist-favorite' ) )
+					);
 				list.$list.append( $listHeading );
 			}
 			if ( list.type === listTypes.TYPE_FAVORITE ) {

@@ -5,8 +5,7 @@
 	.mw-ui-one-whole;
 	padding: 16px;
 	background-color: #fff;
-	border: 1px solid #ddd;
-	border-bottom: 0;
+	border-top: 1px solid #ddd;
 	cursor: pointer;
 
 	&:hover {
@@ -19,9 +18,22 @@
 	}
 
 	&:last-child {
-		border: 1px solid #ddd;
+		border-top: 1px solid #ddd;
 	}
 	transition: 1s ease;
+}
+
+.cx-suggestionlist__header,
+.cx-translationlist__header {
+	padding: 24px 16px;
+	background-color: #fff;
+	color: @colorGray5;
+	font-size: 1.125em;
+	line-height: 1em;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .cx-translationlist-empty,

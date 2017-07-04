@@ -2,7 +2,7 @@
 @import 'mediawiki.mixins';
 
 body {
-	background-color: #eaecf0;
+	background-color: @colorGray14;
 }
 
 .cx-cta {
@@ -12,7 +12,7 @@ body {
 	padding: 20px 0;
 	float: left;
 	font-size: 16px;
-	background-color: #eaecf0;
+	background-color: @colorGray14;
 	z-index: 100;
 
 	&__new-translation:before {
@@ -117,7 +117,7 @@ body {
 	.mw-ui-two-thirds;
 
 	padding: 0 10px 0 0;
-	background-color: #eaecf0;
+	background-color: @colorGray14;
 }
 
 .translation-source-language-filter,
@@ -133,13 +133,13 @@ body {
 .translation-filter {
 	.mw-ui-one-whole;
 
-	background-color: #eaecf0;
+	background-color: @colorGray14;
 	padding: 0;
 
 	.cx-filters {
 		.mw-ui-one-half;
 		float: left;
-		border-radius: 2px;
+		border-radius: @borderRadius;
 		overflow: hidden;
 		padding: 0;
 
@@ -169,7 +169,7 @@ body {
 		.mw-ui-one-half;
 		float: right;
 		border: 1px solid #9d9d9d;
-		border-radius: 2px;
+		border-radius: @borderRadius;
 		background: #fff;
 		padding: 0;
 
