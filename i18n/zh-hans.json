@@ -220,7 +220,7 @@
 	"cx-translation-template-select-param": "选择目标字段",
 	"cx-tools-category-add": "添加分类",
 	"cx-publish-destination-header": "发布目标",
-	"cx-publish-destination-tooltip": "选择条目的名字空间来发布",
+	"cx-publish-destination-tooltip": "选择将发布页面的名字空间",
 	"cx-publish-destination-namespace-main": "新页面",
 	"cx-publish-destination-namespace-user": "个人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿"

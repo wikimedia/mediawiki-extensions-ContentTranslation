@@ -218,7 +218,7 @@
 	"cx-translation-template-select-param": "{{GENDER:|בחר|בחרי}} את שדה היעד",
 	"cx-tools-category-add": "הוספת קטגוריה",
 	"cx-publish-destination-header": "יעד הפרסום",
-	"cx-publish-destination-tooltip": "נא לבחור באיזה מרחב שם לפרסם את הערך",
+	"cx-publish-destination-tooltip": "נא לבחור את מרחב השם שהדף יפורסם בו",
 	"cx-publish-destination-namespace-main": "דף חדש",
 	"cx-publish-destination-namespace-user": "טיוטה אישית",
 	"cx-publish-destination-namespace-draft": "טיוטה קהילתית"
