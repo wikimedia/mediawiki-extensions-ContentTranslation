@@ -5,21 +5,20 @@
  * It is editable (contenteditable) for translation and readonly for source page.
  * Supports validation of values.
  * @class
+ * @extends OO.ui.MultilineTextInputWidget
  * @param {Object} [config] Configuration object
  */
 mw.cx.widgets.PageTitleWidget = function ( config ) {
 	// Configuration initialization
 	config = $.extend( config, {
 		classes: [ 'cx-pagetitle' ],
-		multiline: true,
 		type: 'text',
-		autosize: true,
-		disable: !this.editable
+		autosize: true
 	} );
 	this.editable = config.editable;
 	// Parent constructor
 	mw.cx.widgets.PageTitleWidget.super.call( this, config );
-	this.setDisabled( !this.editable );
+	this.setReadOnly( !this.editable );
 	if ( this.editable ) {
 		this.setValidation( this.validate );
 	}
@@ -27,7 +26,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 
 /* Setup */
 
-OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.TextInputWidget );
+OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.MultilineTextInputWidget );
 
 mw.cx.widgets.PageTitleWidget.prototype.validate = function ( value ) {
 	if ( value === undefined || value === null || value === '' ) {
