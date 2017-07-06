@@ -216,7 +216,7 @@
 	"cx-translation-template-select-param": "লক্ষ্য ক্ষেত্র নির্বাচন করুন",
 	"cx-tools-category-add": "বিষয়শ্রেণী যোগ করুন",
 	"cx-publish-destination-header": "প্রকাশের গন্তব্য",
-	"cx-publish-destination-tooltip": "প্রকাশের জন্য নিবন্ধের নামস্থান চয়ন করুন",
+	"cx-publish-destination-tooltip": "পাতাটি প্রকাশের জন্য একটি নামস্থান চয়ন করুন",
 	"cx-publish-destination-namespace-main": "নতুন পাতা",
 	"cx-publish-destination-namespace-user": "ব্যক্তিগত খসড়া",
 	"cx-publish-destination-namespace-draft": "সম্প্রদায় খসড়া"
