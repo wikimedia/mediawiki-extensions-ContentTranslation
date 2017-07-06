@@ -52,11 +52,13 @@
 	 *
 	 * @param {jQuery} $container The container for this suggestion list
 	 * @param {Object} siteMapper
+	 * @param {Object} languageFilter
 	 * @class
 	 */
-	function CXSuggestionList( $container, siteMapper ) {
+	function CXSuggestionList( $container, siteMapper, languageFilter ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
+		this.languageFilter = languageFilter;
 		this.suggestions = [];
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
@@ -70,6 +72,7 @@
 		this.$personalCollection = null;
 		this.$publicCollection = null;
 		this.$publicCollectionContainer = null;
+		this.$refreshTrigger = null;
 		this.seed = null;
 		this.init();
 		this.listen();
@@ -84,8 +87,8 @@
 			.addClass( 'cx-suggestionlist__header' )
 			.append( $( '<span>' )
 				.text( mw.msg( 'cx-suggestionlist-title' ) )
-				.addClass( 'cx-suggestionlist__public-title' )
-			);
+				.addClass( 'cx-suggestionlist__public-title' ),
+			this.languageFilter.$element );
 		this.$publicCollectionContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public' )
 			.append( $listHeaderContainer );
@@ -735,10 +738,13 @@
 				)
 			);
 
-			this.$suggestionsContainer.append( this.lists[ listId ].$list );
+			this.$publicCollection.empty().show();
+			if ( this.$refreshTrigger ) {
+				this.$refreshTrigger.hide();
+			}
+			this.$publicCollectionContainer.append( this.lists[ listId ].$list );
 		}
-		this.$personalCollection.hide();
-		this.$publicCollectionContainer.hide();
+
 		this.lists[ listId ].$list.show();
 	};
 
@@ -900,15 +906,17 @@
 	 * Make the list refreshable
 	 */
 	CXSuggestionList.prototype.addRefreshTrigger = function () {
-		if ( this.$suggestionsContainer.find( '.cx-suggestionlist__refresh' ).length ) {
+		if ( this.$refreshTrigger ) {
+			this.$refreshTrigger.show();
 			return;
 		}
 
-		this.$publicCollectionContainer.append( $( '<div>' )
+		this.$refreshTrigger = $( '<div>' )
 			.addClass( 'cx-suggestionlist__refresh' )
 			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
-			.on( 'click', $.proxy( this.refreshPublicLists, this ) )
-		);
+			.on( 'click', this.refreshPublicLists.bind( this ) );
+
+		this.$publicCollectionContainer.append( this.$refreshTrigger );
 	};
 
 	CXSuggestionList.prototype.refreshPublicLists = function () {

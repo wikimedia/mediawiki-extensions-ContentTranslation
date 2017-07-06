@@ -25,21 +25,100 @@
 
 .cx-suggestionlist__header,
 .cx-translationlist__header {
-	padding: 24px 16px;
 	background-color: #fff;
 	color: @colorGray5;
+	height: 3.667em;
+	padding: 0 16px;
 	font-size: 1.125em;
-	line-height: 1em;
 	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	line-height: 1em;
+
+	.flex-display( box ); // Support 2009 syntax
+	.flex-display();
+	.flex();
+	-webkit-justify-content: space-between; // Support Safari 6.1-8, iOS 7.1-8.4, Opera 15-16
+	-ms-flex-align: center; // Support IE10
+	-webkit-box-align: center; // Support 2011 syntax
+	-webkit-align-items: center; // Support Vendor specific
+	align-items: center; // Modern syntax
+
+	.translation-language-filter {
+		background: #fff;
+		width: 50%;
+		border: 1px solid #9d9d9d;
+		border-radius: @borderRadius;
+		padding: 0;
+
+		.translation-language-source-container,
+		.translation-language-target-container {
+			position: relative;
+			width: ~'calc(50% - 8px)';
+			cursor: pointer;
+			float: left;
+		}
+
+		.translation-source-language-filter,
+		.translation-target-language-filter {
+			padding: 8px;
+			line-height: 1;
+		}
+
+		.translation-source-language-filter:after,
+		.translation-target-language-filter:after {
+			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
+			content: ' ';
+			display: inline-block;
+			width: 20px;
+			height: 12px;
+			right: 2px;
+			position: absolute;
+			bottom: 50%;
+			margin-bottom: -6px;
+		}
+
+		.translation-language-arrow {
+			position: relative;
+			float: left;
+			width: 0;
+			height: 34px;
+			margin-right: 16px;
+		}
+
+		.translation-language-arrow:after,
+		.translation-language-arrow:before {
+			left: 100%;
+			top: 50%;
+			border: solid transparent;
+			content: ' ';
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		.translation-language-arrow:after {
+			margin-top: -17px;
+			border-color: rgba( 255, 255, 255, 0 );
+			border-left-color: #fff;
+			border-width: 17px;
+			border-left-width: 12px;
+		}
+
+		.translation-language-arrow:before {
+			margin-top: -18px;
+			border-color: rgba( 157, 157, 157, 0 );
+			border-left-color: #9d9d9d;
+			border-width: 18px;
+			border-left-width: 13px;
+		}
+	}
 }
 
 .cx-translationlist-empty,
 .cx-suggestionlist-empty {
 	.mw-ui-item;
 	color: #999;
+	padding-top: 20px;
 	text-align: center;
 
 	&__img {
