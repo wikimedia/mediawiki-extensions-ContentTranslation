@@ -31,6 +31,7 @@
 		this.$sourceLanguageFilter = null;
 		this.$targetLanguageFilter = null;
 		this.$header = null;
+		this.$selectedActionMenu = null;
 		this.$confirmationDialog = null;
 		this.active = false;
 		this.promise = null;
@@ -319,6 +320,7 @@
 
 			$actionsTrigger = $( '<div>' )
 				.addClass( 'cx-tlitem__actions__trigger' );
+
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
 				$deleteTranslation = $( '<li>' )
@@ -336,6 +338,7 @@
 			$menuContainer = $( '<div>' )
 				.addClass( 'cx-tlitem__actions' )
 				.append( $actionsTrigger, $menu );
+
 			$titleLanguageBlock = $( '<div>' )
 				.addClass( 'cx-tlitem__details' )
 				.append( $translationLink, $progressbar, $lastUpdated, $languageContainer );
@@ -420,6 +423,31 @@
 				location.href = translation.targetURL;
 			} else {
 				self.continueTranslation( translation );
+			}
+		} );
+
+		this.$translationsList.on( 'click', '.cx-tlitem__actions', function ( e ) {
+			var $this = $( this );
+
+			// Do not propagate to the parent item. Prevent opening translation.
+			e.stopPropagation();
+
+			// Remove --selected mark from already opened menu if user clicks on some other menu
+			if ( self.$selectedActionMenu && !$this.is( self.$selectedActionMenu ) ) {
+				self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
+			}
+
+			$this.toggleClass( 'cx-tlitem__actions--selected' );
+			self.$selectedActionMenu = $this;
+		} );
+
+		// To support opening of menu on hover event on devices that support it
+		// We need to close menus already opened with clicks
+		this.$translationsList.on( 'mouseenter', '.cx-tlitem__actions', function () {
+			var $this = $( this );
+
+			if ( self.$selectedActionMenu && !$this.is( self.$selectedActionMenu ) ) {
+				self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
 			}
 		} );
 

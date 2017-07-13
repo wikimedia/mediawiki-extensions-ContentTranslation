@@ -24,10 +24,10 @@
 
 		.cx-tlitem__actions__trigger {
 			cursor: pointer;
-			padding: 12px;
+			padding: 18px;
 			.background-image-svg('../images/elipses.svg', '../images/elipses.png');
 			background-repeat: no-repeat;
-			background-position: center left;
+			background-position: center;
 			background-size: 24px;
 			&:hover {
 				background-color: #eee;
@@ -37,10 +37,10 @@
 		ul {
 			display: none;
 			position: absolute;
-			top: 20px;
+			top: 36px;
 			right: 0;
 			list-style: none;
-			margin: 0;
+			margin: 0 5px 0 0;
 			font-size: medium;
 			font-weight: normal;
 			white-space: nowrap;
@@ -72,8 +72,14 @@
 			display: block;
 		}
 
-		&:hover .actions-menu-trigger {
-			background-color: #eee;
+		&.cx-tlitem__actions--selected {
+			ul {
+				display: block;
+			}
+
+			.cx-tlitem__actions__trigger {
+				background-color: #eee;
+			}
 		}
 	}
 
