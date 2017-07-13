@@ -132,7 +132,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Tavi tulkojumi}}",
 	"cx-translationlist-empty-title": "Nav nekā tulkojama?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Sāc}} tulkot tagad un turpini jebkurā brīdī.",
-	"cx-tools-link-internal-link": "Saite uz lapu",
+	"cx-tools-link-internal-link": "Meklēt lapas",
 	"cx-tools-link-external-link-placeholder": "Pievienot ārējo saiti",
 	"cx-tools-link-to-another-page": "Saite uz citu lapu",
 	"cx-tools-link-add-as-missing": "Pievienot kā trūkstošu saiti",
