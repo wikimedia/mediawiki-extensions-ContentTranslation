@@ -19,7 +19,8 @@
 			"Macofe",
 			"Luk3",
 			"!Silent",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Felipe L. Ewald"
 		]
 	},
 	"cx": "Traduzir página",
@@ -224,5 +225,6 @@
 	"cx-template-not-available": "Indisponível em $1",
 	"cx-translation-template-add-param": "+ Traduzir campo",
 	"cx-translation-template-add-more": "Adicionar mais propriedades",
-	"cx-translation-template-select-param": "Selecionar campo alvo"
+	"cx-translation-template-select-param": "Selecionar campo alvo",
+	"cx-publish-destination-namespace-main": "Nova página"
 }
