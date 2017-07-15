@@ -232,7 +232,7 @@
 	"cx-translation-template-select-param": "Выберите целевые поля",
 	"cx-tools-category-add": "добавить категорию",
 	"cx-publish-destination-header": "Опубликовать цель",
-	"cx-publish-destination-tooltip": "Выберите пространство имён публикуемой статьи",
+	"cx-publish-destination-tooltip": "Выберите пространство имён, в котором страница будет опубликована",
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-user": "Личный черновик",
 	"cx-publish-destination-namespace-draft": "Общественный черновик"
