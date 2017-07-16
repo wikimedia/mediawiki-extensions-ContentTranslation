@@ -10,7 +10,8 @@
 			"Dorgan",
 			"Tgr",
 			"Liuxinyu970226",
-			"Urbalazs"
+			"Urbalazs",
+			"Bencemac"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -185,7 +186,7 @@
 	"cx-translationlist-empty-desc": "{{GENDER:|Kezdd el}} a fordításodat most, és folytasd bármikor.",
 	"cx-tools-link-internal-link": "Link egy lapra",
 	"cx-tools-link-internal-link-placeholder": "Keresd meg a hivatkozott lapot",
-	"cx-tools-link-external-link": "Külső",
+	"cx-tools-link-external-link": "Külső hivatkozás",
 	"cx-tools-link-external-link-placeholder": "Külső hivatkozás hozzáadása",
 	"cx-tools-link-to-another-page": "Hivatkozás egy másik oldalra",
 	"cx-tools-link-add-as-missing": "Hozzáadás hiányzó hivatkozásként",

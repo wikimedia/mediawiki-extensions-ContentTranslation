@@ -15,7 +15,7 @@
 	"apihelp-cxpublish-param-from": "O código do idioma de origem.",
 	"apihelp-cxpublish-param-to": "O código do idioma de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "O título da página de origem.",
-	"apihelp-cxpublish-param-categories": "As categorias a serem adicionadas à página publicada.",
+	"apihelp-cxpublish-param-categories": "As categorias para colocar a página publicada em.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Responde ao captcha (ao salvar com uma resposta captcha).",
 	"apihelp-query+contenttranslation-description": "Pesquisar o banco de dados por traduções do Tradutor de Conteúdo",
