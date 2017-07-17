@@ -228,7 +228,7 @@
 	"cx-translation-template-select-param": "Elegir los campos de destino",
 	"cx-tools-category-add": "Añadir categoría",
 	"cx-publish-destination-header": "Destino de publicación",
-	"cx-publish-destination-tooltip": "Elige el espacio de nombres del artículo a publicar",
+	"cx-publish-destination-tooltip": "Elige el espacio de nombres en el que se publicará la página",
 	"cx-publish-destination-namespace-main": "Página nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario"
