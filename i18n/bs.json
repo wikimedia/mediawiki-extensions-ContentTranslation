@@ -105,7 +105,7 @@
 	"cx-suggestionlist-empty-title": "Nema stranica za predložiti",
 	"cx-suggestionlist-empty-desc": "Nismo pronašli niti jedan prijedlog. Možete pokušati kasnije ili pronaći bitne stranice koristeći našu eksperimentalnu alatku za prijedloge.",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Vidi prijedloge (eksperimentalno)",
-	"cx-suggestionlist-featured": "Istaknuto",
+	"cx-suggestionlist-featured": "Odabrani",
 	"cx-suggestionlist-view-source-page": "Pogledaj izvorni kod",
 	"cx-translation-filter-from-any-language": "Sa bilo kojeg jezika",
 	"cx-translation-filter-to-any-language": "Na bilo koji jezik",
@@ -212,5 +212,10 @@
 	"cx-translation-template-add-param": "+ Prevedi polje",
 	"cx-translation-template-add-more": "Dodaj još polja",
 	"cx-translation-template-select-param": "Izaberite odredišno polje",
-	"cx-tools-category-add": "Dodaj kategoriju"
+	"cx-tools-category-add": "Dodaj kategoriju",
+	"cx-publish-destination-header": "Odredište objave",
+	"cx-publish-destination-tooltip": "Izaberite u kojem će se imenskom prostoru stranica objaviti",
+	"cx-publish-destination-namespace-main": "Nova stranica",
+	"cx-publish-destination-namespace-user": "Lični nacrt",
+	"cx-publish-destination-namespace-draft": "Nacrt zajednice"
 }

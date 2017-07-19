@@ -54,11 +54,13 @@
 	"apihelp-cxdelete-param-to": "Código do idioma de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "O título da página de origem.",
 	"apihelp-cxdelete-example-1": "Exclui um rascunho associado ao dado par de idiomas e título.",
+	"apihelp-cxsuggestionlist-param-titles": "Títulos das páginas.",
 	"apihelp-cxsuggestionlist-param-from": "O código do idioma de origem.",
 	"apihelp-cxsuggestionlist-param-to": "Código do idioma de destino.",
 	"apihelp-cxsave-param-sourcerevision": "A revisão da página de origem.",
 	"apihelp-cxsave-param-title": "O título da página na qual executar ações.",
 	"apihelp-cxsave-param-from": "O código do idioma de origem.",
 	"apihelp-cxsave-param-to": "Código do idioma de destino.",
-	"apihelp-cxsave-param-sourcetitle": "O título da página de origem."
+	"apihelp-cxsave-param-sourcetitle": "O título da página de origem.",
+	"apierror-cx-jwtmissing": "JWT em falta."
 }
