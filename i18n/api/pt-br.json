@@ -28,6 +28,7 @@
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo usuário atual.",
 	"apihelp-query+contenttranslation-example-2": "Obter rascunhos de traduções por id.",
 	"apihelp-query+contenttranslation-example-3": "Encontre qualquer tradução para o título entre os pares de idioma",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID da tradução",
 	"apihelp-query+contenttranslationstats-example-1": "Obtém estatísticas do Tradutor de Conteúdo para todos os idiomas.",
 	"apihelp-cxconfiguration-description": "Obtém a configuração json do Content Translator para o par de idiomas informado.",
 	"apihelp-cxconfiguration-summary": "Obtém a configuração json do Content Translator para o par de idiomas informado.",
@@ -54,6 +55,8 @@
 	"apihelp-cxdelete-param-to": "Código do idioma de destino.",
 	"apihelp-cxdelete-param-sourcetitle": "O título da página de origem.",
 	"apihelp-cxdelete-example-1": "Exclui um rascunho associado ao dado par de idiomas e título.",
+	"apihelp-cxsuggestionlist-example-1": "Adicione um título a uma lista como uma sugestão para traduzir de inglês (en) para espanhol (es). Se a lista já não existir, será criada uma nova lista.",
+	"apihelp-cxsuggestionlist-param-listname": "Nome da lista de sugestões.",
 	"apihelp-cxsuggestionlist-param-titles": "Títulos das páginas.",
 	"apihelp-cxsuggestionlist-param-from": "O código do idioma de origem.",
 	"apihelp-cxsuggestionlist-param-to": "Código do idioma de destino.",
@@ -62,5 +65,12 @@
 	"apihelp-cxsave-param-from": "O código do idioma de origem.",
 	"apihelp-cxsave-param-to": "Código do idioma de destino.",
 	"apihelp-cxsave-param-sourcetitle": "O título da página de origem.",
-	"apierror-cx-jwtmissing": "JWT em falta."
+	"apierror-cx-invalidlanguage": "Língua inválida.",
+	"apierror-cx-invalidprogress": "Progresso inválido.",
+	"apierror-cx-invalidsectiondata": "Dados da seção inválidos.",
+	"apierror-cx-invalidtranslator": "Nome do tradutor inválido",
+	"apierror-cx-jwtmissing": "JWT em falta.",
+	"apierror-cx-keynotconfigured": "Chave não configurada.",
+	"apierror-cx-missingdraft": "O rascunho não existe.",
+	"apierror-cx-translationnotfound": "Tradução não encontrada."
 }

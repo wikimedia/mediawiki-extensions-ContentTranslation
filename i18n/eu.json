@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Subi",
-			"Sator"
+			"Sator",
+			"Mikel Ibaiba"
 		]
 	},
 	"cx": "Orria itzuli",
@@ -136,5 +137,6 @@
 	"cx-tools-template-title": "Txantiloia",
 	"cx-translation-template-add-param": "+ Itzuli eremua",
 	"cx-translation-template-add-more": "Gehitu eremu gehiago",
-	"cx-tools-category-add": "Kategoria gehitu"
+	"cx-tools-category-add": "Kategoria gehitu",
+	"cx-publish-destination-tooltip": "Aukeratu zein aurrekirekin argitaratuko den orrialde hau"
 }

@@ -227,5 +227,8 @@
 	"cx-translation-template-add-more": "Adicione mais campos",
 	"cx-translation-template-select-param": "Selecionar campos alvos",
 	"cx-tools-category-add": "Adicionar categoria",
-	"cx-publish-destination-namespace-main": "Nova página"
+	"cx-publish-destination-header": "Publicar destino",
+	"cx-publish-destination-namespace-main": "Nova página",
+	"cx-publish-destination-namespace-user": "Rascunho pessoais",
+	"cx-publish-destination-namespace-draft": "Rascunho da comunidade"
 }
