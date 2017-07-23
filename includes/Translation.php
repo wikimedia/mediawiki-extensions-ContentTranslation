@@ -153,7 +153,7 @@ class Translation {
 		$result = [];
 
 		foreach ( $rows as $row ) {
-			$result[] = Translation::newFromRow( $row );
+			$result[] = self::newFromRow( $row );
 		}
 
 		if ( !is_array( $titles ) ) {
@@ -184,7 +184,7 @@ class Translation {
 
 		$row = $dbr->selectRow( 'cx_translations', '*', $values, __METHOD__ );
 
-		return $row ? Translation::newFromRow( $row ) : null;
+		return $row ? self::newFromRow( $row ) : null;
 	}
 
 	/**
@@ -231,7 +231,7 @@ class Translation {
 	 * Get the stats for all translations in draft or published status.
 	 */
 	public static function getStats() {
-		return array_merge( Translation::getDraftStats(), Translation::getPublishedStats() );
+		return array_merge( self::getDraftStats(), self::getPublishedStats() );
 	}
 
 	/**

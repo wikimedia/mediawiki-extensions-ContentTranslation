@@ -150,7 +150,7 @@ class ContentTranslationHooks {
 		global $wgContentTranslationEventLogging;
 
 		if ( $user->getId() === $page->getUser()->getId() &&
-			ContentTranslationHooks::isEnabledForUser( $user )
+			self::isEnabledForUser( $user )
 		) {
 			// If EventLogging integration is enabled, load the event logging functions module
 			if ( $wgContentTranslationEventLogging ) {
