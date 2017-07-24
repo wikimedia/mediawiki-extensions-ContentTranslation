@@ -202,7 +202,7 @@
 	"cx-translation-template-select-param": "Vali sihtväli",
 	"cx-tools-category-add": "Lisa kategooria",
 	"cx-publish-destination-header": "Avaldamiskoht",
-	"cx-publish-destination-tooltip": "Vali, millises nimeruumis artikkel avaldada",
+	"cx-publish-destination-tooltip": "Vali, millises nimeruumis lehekülg avaldatakse",
 	"cx-publish-destination-namespace-main": "Uus lehekülg",
 	"cx-publish-destination-namespace-user": "Isiklik mustand",
 	"cx-publish-destination-namespace-draft": "Ühiskasutatav mustand"
