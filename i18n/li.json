@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Ooswesthoesbes",
+			"Robin van der Vliet"
 		]
 	},
+	"cx-tools-link-title": "Link",
 	"cx-sourceselector-dialog-button-cancel": "Annelere",
 	"cx-sourceselector-dialog-source-language-label": "Van:",
 	"cx-contributions-translation": "Euverzètting",

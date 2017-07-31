@@ -3,7 +3,8 @@
 		"authors": [
 			"Dbc334",
 			"Eleassar",
-			"Janezdrilc"
+			"Janezdrilc",
+			"HairyFotr"
 		]
 	},
 	"cx": "Prevedi stran",
@@ -209,5 +210,6 @@
 	"cx-translation-template-add-param": "+ Prevajalsko polje",
 	"cx-translation-template-add-more": "Dodaj več polj",
 	"cx-translation-template-select-param": "Izberi ciljna polja",
-	"cx-tools-category-add": "Dodaj kategorijo"
+	"cx-tools-category-add": "Dodaj kategorijo",
+	"cx-publish-destination-namespace-main": "Nova stran"
 }
