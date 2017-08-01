@@ -93,8 +93,16 @@
 	"cx-campaign-try": "Pruève Traduzione d'u Condenute",
 	"cx-campaign-contributionsmenu-mycontributions": "Condrebbute",
 	"cx-campaign-contributionsmenu-mytranslations": "Traduziune",
+	"cx-trend-translations-to": "Traduziune jndr'à $1",
 	"cx-stats-weekly-published": "Urtema sumàne",
 	"cx-stats-local-published-number": "$1 jndr'à $2",
 	"cx-stats-local-published": "$1 ($3) jndr'à $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzione|$1 traduziune}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzione|$1 traduziune}}",
+	"echo-category-title-cx": "Traduziune",
+	"cx-tools-link-add-as-missing": "Aggiunge cumme collegamende mangande",
+	"cx-tools-link-apply": "Fatte",
+	"mw-pageselector-missing": "'A pàgene non g'esiste",
+	"cx-draft-restoring": "Stoche a careche 'a traduzione reggistrate...",
+	"cx-draft-restored": "Traduzione reggistrate carecate.",
+	"cx-tools-mt-new-provider": "nuève"
 }
