@@ -17,7 +17,8 @@
 			"HakanIST",
 			"MrSchipunov",
 			"Incelemeelemani",
-			"Bulgu"
+			"Bulgu",
+			"Botansahin"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -111,7 +112,7 @@
 	"cx-translation-filter-draft-translations": "Devam edenler",
 	"cx-translation-filter-suggested-translations": "Öneriler",
 	"cx-suggestionlist-favorite": "Daha sonra",
-	"cx-suggestionlist-title": "Bazı öneriler",
+	"cx-suggestionlist-title": "Önerilen sayfalar",
 	"cx-suggestionlist-empty-title": "Şimdilik öneri yok",
 	"cx-suggestionlist-empty-desc": "Hiç öneri bulamadık. Daha sonra tekrar bakabilir veya tavsiye aracımızı kullanarak ilişkili sayfaları bulabilirsiniz (deneysel).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Önerileri göster (deneysel)",
@@ -138,6 +139,8 @@
 	"cx-translation-status-draft": "Çalışma sürüyor",
 	"cx-translation-status-published": "Yayınlandı",
 	"cx-translation-status-deleted": "Silindi",
+	"cx-translation-label-draft": "Yapılmakta olan çeviri",
+	"cx-translation-label-published": "Yayınlanmış çeviriler",
 	"cx-translation-already-in-progress": "Bu {{GENDER:$2|kullanıcı}} $1 tarafından devam edilen bir çeviridir.",
 	"cx-translation-already-in-progress-collaborate": "Lütfen çeviriye başlamış {{GENDER:$1|kullanıcı}} ile koordinasyon kurduğunuzdan emin olun.",
 	"cx-publishing-dialog-publish-draft-button": "Taslak olarak yayınla",

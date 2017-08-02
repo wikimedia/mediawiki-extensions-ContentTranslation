@@ -5,7 +5,8 @@
 			"Nikola Smolenski",
 			"Srdjan m",
 			"Сербијана",
-			"Obsuser"
+			"Obsuser",
+			"Милан Јелисавчић"
 		]
 	},
 	"cx": "Преведи страницу",
@@ -98,7 +99,7 @@
 	"cx-translation-filter-draft-translations": "У току",
 	"cx-translation-filter-suggested-translations": "Предлози",
 	"cx-suggestionlist-favorite": "За касније",
-	"cx-suggestionlist-title": "Још предлога",
+	"cx-suggestionlist-title": "Предложене странице",
 	"cx-suggestionlist-empty-title": "Тренутно нема предлога",
 	"cx-suggestionlist-featured": "Изабрани",
 	"cx-translation-filter-from-any-language": "Са било ког језика",
@@ -122,6 +123,8 @@
 	"cx-translation-status-draft": "У току",
 	"cx-translation-status-published": "Објављено",
 	"cx-translation-status-deleted": "Обрисано",
+	"cx-translation-label-draft": "Преводи у току",
+	"cx-translation-label-published": "Објављени преводи",
 	"cx-translation-already-in-progress": "Ову страницу већ {{GENDER:$2|преводи}} $1.",
 	"cx-translation-already-in-progress-collaborate": "Немојте заборавити да се ускладите са {{GENDER:$1|корисником}} који је направио тренутни превод.",
 	"cx-publishing-dialog-publish-draft-button": "Објави као нацрт",
