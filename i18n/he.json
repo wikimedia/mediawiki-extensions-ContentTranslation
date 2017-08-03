@@ -132,6 +132,7 @@
 	"cx-translation-status-draft": "התחיל",
 	"cx-translation-status-published": "פורסם",
 	"cx-translation-status-deleted": "נמחק",
+	"cx-translation-label-draft": "תרגומים בעבודה",
 	"cx-translation-label-published": "תרגומים שפורסמו",
 	"cx-translation-already-in-progress": "זה תרגום שנערך עכשיו {{GENDER:$2|על־ידי}} $1.",
 	"cx-translation-already-in-progress-collaborate": "אנא {{GENDER:$1|תאם|תאמי}} עם המשתמש שהתחיל את התרגום הנוכחי.",
