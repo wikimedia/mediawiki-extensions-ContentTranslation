@@ -29,9 +29,10 @@
 	color: @colorGray5;
 	height: 3.667em;
 	padding: 0 16px;
+
 	font-size: 1.125em;
 	font-weight: bold;
-	line-height: 1em;
+	line-height: 1;
 
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display();
@@ -43,37 +44,50 @@
 	align-items: center; // Modern syntax
 
 	.translation-language-filter {
-		background: #fff;
-		width: 50%;
+		background-color: @colorGray15;
+		max-width: 33.33%;
 		border: 1px solid #9d9d9d;
 		border-radius: @borderRadius;
 		padding: 0;
 
+		.flex-display( box ); // 2009 syntax support
+		.flex-display();
+
 		.translation-language-source-container,
 		.translation-language-target-container {
-			position: relative;
-			width: ~'calc(50% - 8px)';
-			cursor: pointer;
 			float: left;
+			position: relative;
+			box-sizing: border-box;
+			cursor: pointer;
+
+			-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
+			-moz-box-flex: 1; // Firefox 21-
+			width: auto; // Fallback for flex-basis
+			-ms-flex: 0 1 auto; // IE 10
+			-webkit-flex: 0 1 auto; // Safari 6.2 - 8
+			flex: 0 1 auto;
+			overflow: hidden;
+		}
+
+		.translation-language-source-container {
+			padding-right: 8px;
+			margin-right: -8px;
+		}
+
+		.translation-language-target-container {
+			padding-left: 8px;
+			margin-left: -8px;
 		}
 
 		.translation-source-language-filter,
 		.translation-target-language-filter {
+			max-height: 34px;
 			padding: 8px;
 			line-height: 1;
-		}
 
-		.translation-source-language-filter:after,
-		.translation-target-language-filter:after {
-			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
-			content: ' ';
-			display: inline-block;
-			width: 20px;
-			height: 12px;
-			right: 2px;
-			position: absolute;
-			bottom: 50%;
-			margin-bottom: -6px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		.translation-language-arrow {
@@ -99,7 +113,7 @@
 		.translation-language-arrow:after {
 			margin-top: -17px;
 			border-color: rgba( 255, 255, 255, 0 );
-			border-left-color: #fff;
+			border-left-color: @colorGray15;
 			border-width: 17px;
 			border-left-width: 12px;
 		}

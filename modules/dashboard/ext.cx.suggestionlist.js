@@ -73,17 +73,16 @@
 		this.$publicCollection = null;
 		this.$publicCollectionContainer = null;
 		this.$refreshTrigger = null;
+		this.$headerContainer = null;
 		this.seed = null;
 		this.init();
 		this.listen();
 	}
 
 	CXSuggestionList.prototype.init = function () {
-		var $listHeaderContainer;
-
 		this.seed = parseInt( Math.random() * 10000, 10 );
 		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
-		$listHeaderContainer = $( '<div>' )
+		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__header' )
 			.append( $( '<span>' )
 				.text( mw.msg( 'cx-suggestionlist-title' ) )
@@ -91,7 +90,7 @@
 			this.languageFilter.$element );
 		this.$publicCollectionContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public' )
-			.append( $listHeaderContainer );
+			.append( this.$headerContainer );
 		this.$publicCollection = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public-items' );
 		this.$publicCollectionContainer.append( this.$publicCollection ).hide();
