@@ -25,8 +25,6 @@
 		this.$newTranslationButton = null;
 		this.$filter = null;
 		this.$listHeader = null;
-		this.$sourceLanguageFilter = null;
-		this.$targetLanguageFilter = null;
 		this.$cta = null;
 	}
 
@@ -65,6 +63,40 @@
 		}
 	};
 
+	CXDashboard.prototype.createLanguageFilter = function () {
+		var $sourceLanguageContainer, $targetLanguageContainer,
+			$sourceLanguageFilter, $targetLanguageFilter,
+			$element;
+
+		$sourceLanguageFilter = $( '<div>' )
+			.addClass( 'translation-source-language-filter' );
+		$targetLanguageFilter = $( '<div>' )
+			.addClass( 'translation-target-language-filter' );
+		this.setLanguageFilterLabel( $sourceLanguageFilter );
+		this.setLanguageFilterLabel( $targetLanguageFilter );
+		$sourceLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-source-container' )
+			.append( $sourceLanguageFilter );
+
+		$targetLanguageContainer = $( '<div>' )
+			.addClass( 'translation-language-target-container' )
+			.append( $targetLanguageFilter );
+
+		$element = $( '<div>' )
+			.addClass( 'translation-language-filter' )
+			.append(
+				$sourceLanguageContainer,
+				$( '<div>' ).addClass( 'translation-language-arrow' ),
+				$targetLanguageContainer
+			);
+
+		return {
+			$element: $element,
+			$sourceLanguageFilter: $sourceLanguageFilter,
+			$targetLanguageFilter: $targetLanguageFilter
+		};
+	};
+
 	/**
 	 * Set the language filter label
 	 *
@@ -89,7 +121,11 @@
 	 * Populates various UI components with data in the given translation suggestions.
 	 */
 	CXDashboard.prototype.renderTranslationSuggestions = function () {
-		this.lists.suggestions = new mw.cx.CXSuggestionList( this.$translationListContainer, this.siteMapper );
+		this.lists.suggestions = new mw.cx.CXSuggestionList(
+			this.$translationListContainer,
+			this.siteMapper,
+			this.createLanguageFilter()
+		);
 	};
 
 	/**
@@ -100,12 +136,14 @@
 		this.lists.draft = new mw.cx.CXTranslationList(
 			this.$translationListContainer,
 			'draft',
-			this.siteMapper
+			this.siteMapper,
+			this.createLanguageFilter()
 		);
 		this.lists.published = new mw.cx.CXTranslationList(
 			this.$translationListContainer,
 			'published',
-			this.siteMapper
+			this.siteMapper,
+			this.createLanguageFilter()
 		);
 	};
 
@@ -183,8 +221,7 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var $sourceLanguageContainer, $targetLanguageContainer,
-			$filterTabs = [];
+		var	$filterTabs = [];
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			$filterTabs.push( $( '<span>' )
@@ -212,28 +249,9 @@
 			.addClass( 'cx-filters' )
 			.append( $filterTabs );
 
-		this.$sourceLanguageFilter = $( '<div>' )
-			.addClass( 'translation-source-language-filter' );
-		this.$targetLanguageFilter = $( '<div>' )
-			.addClass( 'translation-target-language-filter' );
-		this.setLanguageFilterLabel( this.$sourceLanguageFilter );
-		this.setLanguageFilterLabel( this.$targetLanguageFilter );
-		$sourceLanguageContainer = $( '<div>' )
-			.addClass( 'translation-language-source-container' )
-			.append( this.$sourceLanguageFilter );
-
-		$targetLanguageContainer = $( '<div>' )
-			.addClass( 'translation-language-target-container' )
-			.append( this.$targetLanguageFilter );
-
 		this.$listHeader.append(
-			this.$filter,
-			$( '<div>' ).addClass( 'translation-language-filter' ).append(
-				$sourceLanguageContainer,
-				$( '<div>' ).addClass( 'translation-language-arrow' ),
-				$targetLanguageContainer
-			),
-			this.$cta
+			this.$cta,
+			this.$filter
 		);
 
 		return $( '<div>' )
@@ -254,8 +272,9 @@
 		$.each( this.lists, function ( name, list ) {
 			if ( name === type ) {
 				list.show();
-				self.setLanguageFilterLabel( self.$sourceLanguageFilter, list.filters.sourceLanguage );
-				self.setLanguageFilterLabel( self.$targetLanguageFilter, list.filters.targetLanguage );
+
+				self.setLanguageFilterLabel( list.languageFilter.$sourceLanguageFilter, list.filters.sourceLanguage );
+				self.setLanguageFilterLabel( list.languageFilter.$targetLanguageFilter, list.filters.targetLanguage );
 			} else {
 				list.hide();
 			}
@@ -263,10 +282,7 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var setFilter,
-			self = this;
-
-		setFilter = $.proxy( this.setFilter, this );
+		var self = this;
 
 		this.$filter.click( '.cx-filter', function ( e ) {
 			var $filter = $( e.target );
@@ -291,30 +307,40 @@
 			}
 		} );
 
-		this.$sourceLanguageFilter.uls( {
-			onSelect: function ( language ) {
-				setFilter( 'sourceLanguage', language );
-			},
-			menuWidth: 'medium',
-			left: this.$sourceLanguageFilter.offset().left,
-			quickList: function () {
-				// TODO: We might need a smarter list here including previous translation
-				// languages.
-				return mw.uls.getFrequentLanguageList();
-			},
-			compact: true
-		} );
+		$.each( this.lists, function ( name, list ) {
+			var setFilter = self.setFilter.bind( self );
 
-		this.$targetLanguageFilter.uls( {
-			onSelect: function ( language ) {
-				setFilter( 'targetLanguage', language );
-			},
-			menuWidth: 'medium',
-			left: this.$targetLanguageFilter.offset().left,
-			quickList: function () {
-				return mw.uls.getFrequentLanguageList();
-			},
-			compact: true
+			list.languageFilter.$sourceLanguageFilter.uls( {
+				onSelect: function ( language ) {
+					setFilter( 'sourceLanguage', language );
+				},
+				onVisible: function () {
+					this.left = list.languageFilter.$sourceLanguageFilter.offset().left;
+					this.$menu.css( 'left', this.left );
+				},
+				menuWidth: 'medium',
+				left: list.languageFilter.$sourceLanguageFilter.offset().left,
+				quickList: function () {
+					return mw.uls.getFrequentLanguageList();
+				},
+				compact: true
+			} );
+
+			list.languageFilter.$targetLanguageFilter.uls( {
+				onSelect: function ( language ) {
+					setFilter( 'targetLanguage', language );
+				},
+				onVisible: function () {
+					this.left = list.languageFilter.$targetLanguageFilter.offset().left;
+					this.$menu.css( 'left', this.left );
+				},
+				menuWidth: 'medium',
+				left: list.languageFilter.$targetLanguageFilter.offset().left,
+				quickList: function () {
+					return mw.uls.getFrequentLanguageList();
+				},
+				compact: true
+			} );
 		} );
 
 		this.initSourceSelector();
@@ -326,8 +352,8 @@
 		var list = this.lists[ this.activeList ];
 		list.filters[ type ] = value;
 		list.applyFilters( list.filters );
-		this.setLanguageFilterLabel( this.$sourceLanguageFilter, list.filters.sourceLanguage );
-		this.setLanguageFilterLabel( this.$targetLanguageFilter, list.filters.targetLanguage );
+		this.setLanguageFilterLabel( list.languageFilter.$sourceLanguageFilter, list.filters.sourceLanguage );
+		this.setLanguageFilterLabel( list.languageFilter.$targetLanguageFilter, list.filters.targetLanguage );
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {

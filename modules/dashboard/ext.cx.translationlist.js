@@ -15,10 +15,12 @@
 	 * @param {jQuery} $container
 	 * @param {string} type
 	 * @param {Object} siteMapper
+	 * @param {Object} languageFilter
 	 */
-	function CXTranslationList( $container, type, siteMapper ) {
+	function CXTranslationList( $container, type, siteMapper, languageFilter ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
+		this.languageFilter = languageFilter;
 		this.translations = [];
 		this.type = type;
 		this.$translationsList = null;
@@ -28,8 +30,6 @@
 			targetLanguage: null
 		};
 
-		this.$sourceLanguageFilter = null;
-		this.$targetLanguageFilter = null;
 		this.$selectedActionMenu = null;
 		this.$headerContainer = null;
 		this.$confirmationDialog = null;
@@ -87,10 +87,12 @@
 		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-translationlist__header' )
 			.append( $( '<span>' )
-				.text( mw.msg( 'cx-translation-label-' + this.type ) )
+				.text( mw.msg( 'cx-translation-label-' + this.type ) ),
+				this.languageFilter.$element
 			);
 		this.$translationsList = $( '<div>' )
-			.addClass( 'cx-translationlist' );
+			.addClass( 'cx-translationlist' )
+			.append( this.$headerContainer );
 		this.$container.append( this.$translationsList, this.$emptyTranslationsList );
 	};
 
@@ -110,11 +112,10 @@
 				self.$translationsList.append( self.$emptyTranslationsList );
 				return;
 			}
-			self.$translationsList.prepend( self.$headerContainer );
 			self.translations = self.translations.concat( translations );
 			self.renderTranslations( translations );
 		} ).fail( function () {
-			this.promise = null;
+			self.promise = null;
 		} );
 
 		return promise;

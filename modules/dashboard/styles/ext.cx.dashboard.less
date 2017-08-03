@@ -7,10 +7,10 @@ body {
 
 .cx-cta {
 	.mw-ui-item;
-	.mw-ui-one-whole;
 
-	padding: 20px 0;
-	float: left;
+	float: none;
+	width: auto;
+	padding-left: 0;
 	font-size: 16px;
 	background-color: @colorGray14;
 	z-index: 100;
@@ -134,11 +134,18 @@ body {
 	.mw-ui-one-whole;
 
 	background-color: @colorGray14;
-	padding: 0;
+	float: none;
+	padding: 0 0 20px 0; // padding-bottom: 20px
+	.flex-display( box ); // To support 2009 syntax
+	.flex-display();
+	.flex();
+	-webkit-justify-content: space-between; // Safari 6.1-8, iOS Safari 7.1-8.4, Opera 15-16
+	-ms-flex-align: center; // For IE10 support
+	-webkit-box-align: center; // 2011 syntax support
+	-webkit-align-items: center; // Vendor specific support
+	align-items: center; // Modern syntax
 
 	.cx-filters {
-		.mw-ui-one-half;
-		float: left;
 		border-radius: @borderRadius;
 		overflow: hidden;
 		padding: 0;
@@ -162,78 +169,6 @@ body {
 				background-color: #656565;
 				color: #fff;
 			}
-		}
-	}
-
-	.translation-language-filter {
-		.mw-ui-one-half;
-		float: right;
-		border: 1px solid #9d9d9d;
-		border-radius: @borderRadius;
-		background: #fff;
-		padding: 0;
-
-		.translation-language-source-container,
-		.translation-language-target-container {
-			position: relative;
-			width: 45%;
-			cursor: pointer;
-			float: left;
-		}
-
-		.translation-source-language-filter,
-		.translation-target-language-filter {
-			padding: 10px;
-			line-height: 1em;
-		}
-
-		.translation-source-language-filter:after,
-		.translation-target-language-filter:after {
-			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
-			content: ' ';
-			display: inline-block;
-			width: 20px;
-			height: 12px;
-			right: 2px;
-			position: absolute;
-			bottom: 50%;
-			margin-bottom: -6px;
-		}
-
-		.translation-language-arrow {
-			position: relative;
-			float: left;
-			width: 0;
-			height: 37px;
-			margin-right: 16px;
-		}
-
-		.translation-language-arrow:after,
-		.translation-language-arrow:before {
-			left: 100%;
-			top: 50%;
-			border: solid transparent;
-			content: ' ';
-			height: 0;
-			width: 0;
-			position: absolute;
-			pointer-events: none;
-		}
-
-		.translation-language-arrow:after {
-			border-color: rgba( 255, 255, 255, 0 );
-			border-left-color: #fff;
-			border-width: 18px;
-			border-left-width: 12px;
-			margin-top: -18px;
-		}
-
-		.translation-language-arrow:before {
-			border-color: rgba( 157, 157, 157, 0 );
-			border-left-color: #9d9d9d;
-			border-width: 19px;
-			border-left-width: 13px;
-			margin-top: -19px;
 		}
 	}
 }
