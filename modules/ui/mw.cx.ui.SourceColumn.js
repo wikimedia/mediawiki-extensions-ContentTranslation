@@ -31,7 +31,9 @@ OO.inheritClass( mw.cx.ui.SourceColumn, OO.ui.StackLayout );
 mw.cx.ui.SourceColumn.prototype.init = function () {
 	this.render();
 	// Try to load Cite styles. Silently ignored if not installed.
-	mw.loader.load( 'ext.cite.style' );
+	if ( mw.loader.getState( 'ext.cite.style' ) !== null ) {
+		mw.loader.load( 'ext.cite.style' );
+	}
 	mw.hook( 'mw.cx.error' ).add( $.proxy( this.removeLoadingIndicator, this ) );
 };
 

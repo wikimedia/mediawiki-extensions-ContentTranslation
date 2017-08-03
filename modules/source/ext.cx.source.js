@@ -194,7 +194,9 @@
 		this.$content.find( 'base' ).detach();
 
 		// Try to load Cite styles. Silently ignored if not installed.
-		mw.loader.load( 'ext.cite.style' );
+		if ( mw.loader.getState( 'ext.cite.style' ) !== null ) {
+			mw.loader.load( 'ext.cite.style' );
+		}
 
 		// Set absolute URLs for source links href attributes so that the links
 		// point to correct wiki instead of relative URL to current wiki
