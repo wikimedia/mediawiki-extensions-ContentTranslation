@@ -21,7 +21,8 @@
 			"Woytecr",
 			"Rzuwig",
 			"WTM",
-			"Mazab IZW"
+			"Mazab IZW",
+			"Vesihiisi"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -143,6 +144,7 @@
 	"cx-translation-status-draft": "W trakcie",
 	"cx-translation-status-published": "Opublikowano",
 	"cx-translation-status-deleted": "Usunięto",
+	"cx-translation-label-draft": "Tłumaczenia w toku",
 	"cx-translation-already-in-progress": "To jest trwające tłumaczenie {{GENDER:$2|przez}} $1.",
 	"cx-translation-already-in-progress-collaborate": "Upewnij się, że uzgodniłeś zmianę z {{GENDER:$1|użytkownikiem|użytkowniczką}}, {{GENDER:$1|który|która}} {{GENDER:$1|przetłumaczył|przetłumaczyła}} obecną wersję.",
 	"cx-publishing-dialog-publish-draft-button": "Opublikuj szkic",
