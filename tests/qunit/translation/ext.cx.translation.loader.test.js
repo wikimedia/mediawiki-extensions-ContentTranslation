@@ -46,7 +46,7 @@
 
 	QUnit.test( 'Translation daft restore test', function ( assert ) {
 		var i;
-		QUnit.expect( tests.length );
+		assert.expect( tests.length );
 		// Without old revision flag set true, orphan sections wont get added.
 		this.translatonLoader.originalRevision = true;
 		for ( i = 0; i < tests.length; i++ ) {
