@@ -22,7 +22,7 @@ class ApiContentTranslationConfiguration extends ApiBase {
 			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
 
-		$configFilename =  __DIR__ . '/../modules/source/conf/common.json';
+		$configFilename = __DIR__ . '/../modules/source/conf/common.json';
 		$configuration = self::readConfigurationFile( $configFilename );
 
 		// Some language pairs have specific configuration

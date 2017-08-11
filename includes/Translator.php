@@ -188,7 +188,7 @@ class Translator {
 	public static function getStats() {
 		return [
 			'from' => self::getTranslatorsCount( 'source' ),
-			'to' =>  self::getTranslatorsCount( 'target' ),
+			'to' => self::getTranslatorsCount( 'target' ),
 			'total' => self::getTotalTranslatorsCount(),
 		];
 	}

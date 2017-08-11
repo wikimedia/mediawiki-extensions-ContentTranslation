@@ -16,7 +16,7 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 
 	public function getPrimaryLink() {
 		if ( $this->type === 'cx-first-translation' ) {
-			$user =  $this->getViewingUserForGender();
+			$user = $this->getViewingUserForGender();
 			$title = SpecialPage::getTitleFor( 'Contributions', $user );
 			return [
 				'url' => $title->getCanonicalURL(),

@@ -25,9 +25,9 @@ class TranslationStorageManager {
 			'cxc_content' => $translationUnit->getContent()
 		];
 		$conditions = [
-			'cxc_translation_id' =>  $translationUnit->getTranslationId(),
-			'cxc_section_id' =>  $translationUnit->getSectionId(),
-			'cxc_origin' =>  $translationUnit->getOrigin(),
+			'cxc_translation_id' => $translationUnit->getTranslationId(),
+			'cxc_section_id' => $translationUnit->getSectionId(),
+			'cxc_origin' => $translationUnit->getOrigin(),
 			// Sometimes we get "duplicates" entries which differ in timestamp.
 			// Then any updates to those sections would fail (duplicate key for
 			// a unique index), if we did not limit this call to only one of them.

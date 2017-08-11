@@ -27,7 +27,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 			$user = \User::newFromName( $params['translator'] );
 		}
 		$translator = new Translator( $user );
-		$translatorId =  $translator->getGlobalUserId();
+		$translatorId = $translator->getGlobalUserId();
 		if ( !$translatorId ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );

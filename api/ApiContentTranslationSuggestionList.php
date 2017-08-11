@@ -71,7 +71,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 
 		if ( $listName === 'cx-suggestionlist-discarded' ) {
 			$type = SuggestionList::TYPE_DISCARDED;
-		} elseif ( $listName=== 'cx-suggestionlist-favorite' ) {
+		} elseif ( $listName === 'cx-suggestionlist-favorite' ) {
 			$type = SuggestionList::TYPE_FAVORITE;
 		}
 
