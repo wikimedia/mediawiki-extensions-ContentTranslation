@@ -26,6 +26,7 @@
 		this.$filter = null;
 		this.$listHeader = null;
 		this.$cta = null;
+		this.$sourceSelector = null;
 	}
 
 	CXDashboard.prototype.init = function () {
@@ -254,9 +255,12 @@
 			this.$filter
 		);
 
+		this.$sourceSelector = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded' );
+
 		return $( '<div>' )
 			.addClass( 'cx-translationlist-container' )
-			.append( this.$listHeader );
+			.append( this.$listHeader, this.$sourceSelector );
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {
@@ -282,7 +286,8 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var self = this;
+		var self = this,
+			onVisibleCallback;
 
 		this.$filter.click( '.cx-filter', function ( e ) {
 			var $filter = $( e.target );
@@ -307,6 +312,16 @@
 			}
 		} );
 
+		onVisibleCallback = function () {
+			if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
+				this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
+			} else {
+				this.left = this.$element.offset().left;
+			}
+
+			this.$menu.css( this.position() );
+		};
+
 		$.each( this.lists, function ( name, list ) {
 			var setFilter = self.setFilter.bind( self );
 
@@ -314,10 +329,7 @@
 				onSelect: function ( language ) {
 					setFilter( 'sourceLanguage', language );
 				},
-				onVisible: function () {
-					this.left = list.languageFilter.$sourceLanguageFilter.offset().left;
-					this.$menu.css( 'left', this.left );
-				},
+				onVisible: onVisibleCallback,
 				menuWidth: 'medium',
 				left: list.languageFilter.$sourceLanguageFilter.offset().left,
 				quickList: function () {
@@ -330,10 +342,7 @@
 				onSelect: function ( language ) {
 					setFilter( 'targetLanguage', language );
 				},
-				onVisible: function () {
-					this.left = list.languageFilter.$targetLanguageFilter.offset().left;
-					this.$menu.css( 'left', this.left );
-				},
+				onVisible: onVisibleCallback,
 				menuWidth: 'medium',
 				left: list.languageFilter.$targetLanguageFilter.offset().left,
 				quickList: function () {
@@ -344,8 +353,14 @@
 		} );
 
 		this.initSourceSelector();
+		this.$newTranslationButton.on( 'click', function ( e ) {
+			self.$listHeader.hide();
+			e.stopPropagation();
+
+			$( window ).scrollTop( 0 );
+		} );
 		// Scroll handler
-		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
 	};
 
 	CXDashboard.prototype.setFilter = function ( type, value ) {
@@ -364,7 +379,7 @@
 		sourceSelectorOptions.sourceLanguage = query.from;
 		sourceSelectorOptions.targetLanguage = query.to;
 		sourceSelectorOptions.sourceTitle = query.page;
-		sourceSelectorOptions.targetTitle = query.targettitle;
+		sourceSelectorOptions.container = this.$sourceSelector;
 		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
 
 		if ( query.campaign ) {

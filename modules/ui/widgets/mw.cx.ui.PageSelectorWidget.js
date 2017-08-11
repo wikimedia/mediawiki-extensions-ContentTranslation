@@ -55,6 +55,10 @@ mw.cx.ui.PageSelectorWidget.prototype.setLanguage = function ( language ) {
 	this.requestCache = {};
 };
 
+mw.cx.ui.PageSelectorWidget.prototype.setTargetLanguage = function ( language ) {
+	this.targetLanguage = language;
+};
+
 /**
  * @inheritdoc
  */

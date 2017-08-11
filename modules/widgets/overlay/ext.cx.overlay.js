@@ -32,10 +32,16 @@
 		if ( this.options.showLoading ) {
 			this.$overlay.append( mw.cx.widgets.spinner() );
 		}
+
+		if ( this.options.closeOnClick ) {
+			this.$overlay
+				.addClass( 'cx-overlay--clickable' )
+				.click( this.options.closeOnClick );
+		}
+
 		this.$container
 			.css( 'position', 'relative' )
 			.append( this.$overlay );
-		this.show();
 	};
 
 	CXOverlay.prototype.show = function () {
