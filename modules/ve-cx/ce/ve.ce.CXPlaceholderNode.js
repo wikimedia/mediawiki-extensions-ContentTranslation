@@ -5,16 +5,24 @@
  * @extends ve.ce.LeafNode
  * @mixins ve.ce.FocusableNode
  * @constructor
- * @param {ve.dm.CXPlaceholderNode} model
  */
-ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode( model ) {
+ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
+	var button;
+
 	// Parent constructor
 	ve.ce.CXPlaceholderNode.super.apply( this, arguments );
 	ve.ce.FocusableNode.call( this );
-	this.$element.addClass( 've-ce-cxPlaceholderNode' );
-	this.$element.append(
-		$( '<p>' ).text( 'Placeholder ' + model.element.attributes.cxid )
-	);
+
+	button = new ve.ui.NoFocusButtonWidget( {
+		label: ve.msg( 'cx-translation-add-translation' ),
+		icon: 'add',
+		framed: false
+	} );
+	button.on( 'click', this.onFocusableMouseDown.bind( this ) );
+
+	this.$element
+		.addClass( 've-ce-cxPlaceholderNode' )
+		.append( button.$element );
 	this.active = false;
 };
 
@@ -31,12 +39,19 @@ ve.ce.CXPlaceholderNode.static.name = 'cxPlaceholder';
 
 /* Methods */
 
-ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function () {
-	if ( this.active ) {
+ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
+	if ( this.active || ( e && e.which !== OO.ui.MouseButtons.LEFT ) ) {
 		return;
 	}
+	this.executeCommand();
+};
+
+ve.ce.CXPlaceholderNode.prototype.executeCommand = function () {
 	this.active = true;
 	this.getDocument().emit( 'activatePlaceholder', this );
+};
+
+ve.ce.CXPlaceholderNode.prototype.createHighlights = function () {
 };
 
 /* Registration */

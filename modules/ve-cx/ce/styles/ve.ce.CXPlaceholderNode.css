@@ -1,0 +1,27 @@
+/* Copied from ve-ce-branchNode-blockSlug */
+.ve-ce-cxPlaceholderNode {
+	opacity: 0;
+	cursor: pointer;
+	-webkit-transition: opacity 200ms ease-out;
+	-moz-transition: opacity 200ms ease-out;
+	transition: opacity 200ms ease-out;
+
+	outline: 1px dashed #ccc;
+	/* rgba( #f1f7fb, 0.75 ) */
+	background-color: rgba( 241, 247, 251, 0.75 );
+}
+
+.ve-ce-cxPlaceholderNode:hover,
+.ve-ce-cxPlaceholderNode.ve-ce-focusableNode-focused {
+	opacity: 1;
+}
+
+.ve-ce-cxPlaceholderNode > .oo-ui-buttonWidget {
+	margin-left: 0.25em;
+	opacity: 0.5;
+	display: block;
+}
+
+.ve-ce-cxPlaceholderNode > .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
+	display: block;
+}

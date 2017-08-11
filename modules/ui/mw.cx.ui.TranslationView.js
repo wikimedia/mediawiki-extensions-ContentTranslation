@@ -56,6 +56,7 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 		this.alignSectionPairs.bind( this ),
 		500
 	);
+	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
 	this.targetColumn.connect( this, {
 		titleChange: 'onTargetTitleChange'
 	} );
@@ -85,12 +86,15 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	if ( !sourceNode || !targetNode ) {
 		return;
 	}
+	sourceNode.style.marginTop = '';
+	targetNode.style.marginTop = '';
+	targetNode.style.height = '';
 	offsetTop = Math.max(
 		sourceOffsetTop + sourceNode.offsetTop,
 		targetOffsetTop + targetNode.offsetTop
 	);
-	sourceNode.style.paddingTop = ( offsetTop - sourceOffsetTop - sourceNode.offsetTop ) + 'px';
-	targetNode.style.paddingTop = ( offsetTop - targetOffsetTop - targetNode.offsetTop ) + 'px';
+	sourceNode.style.marginTop = ( offsetTop - sourceOffsetTop - sourceNode.offsetTop ) + 'px';
+	targetNode.style.marginTop = ( offsetTop - targetOffsetTop - targetNode.offsetTop ) + 'px';
 	if ( isSubclass( $.data( targetNode, 'view' ), ve.ce.CXPlaceholderNode ) ) {
 		if ( sourceNode.offsetHeight > targetNode.offsetHeight ) {
 			targetNode.style.height = sourceNode.offsetHeight + 'px';
@@ -123,6 +127,13 @@ mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {
 	this.publishButton = publishButton;
 	this.publishSettings = publishSettings;
 	this.header.$toolbar.prepend( this.publishSettings.$element, this.publishButton.$element );
+};
+
+mw.cx.ui.TranslationView.prototype.unbindHandlers = function () {
+	// Parent method
+	mw.cx.ui.TranslationView.super.prototype.unbindHandlers.call( this );
+
+	$( this.getElementWindow() ).off( 'resize', this.throttleAlignSectionPairs );
 };
 
 mw.cx.ui.TranslationView.prototype.onSurfaceMouseOver = function ( ev ) {
