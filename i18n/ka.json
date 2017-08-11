@@ -38,7 +38,7 @@
 	"cx-publish-gt-moved-description": "დააჭირეთ ამ ბმულს, რათა წაიკითხოთ და გააუმჯობესოთ თქვენი ახალი თარგმნილი გვერდები",
 	"cx-publish-gt-published-title": "გილოცავთ, გვერდი გადათარგმნილია",
 	"cx-publish-gt-published-description": "თქვენ შეგიძლიათ დააჭიროთ ღილაკს \"$1\", რათა გააგრძელოთ გვერდის გაუმჯობესება. დარწმუნდით, რომ იგი ბუნებრივად იკითხება.",
-	"cx-translation-add-translation": "+ თარგმანის დამატება",
+	"cx-translation-add-translation": "თარგმანის დამატება",
 	"cx-translation-target-page-exists": "გვერდი სათაურით [$1 $2] უკვე არსებობს სამიზნე ვიკიში. შეეცადეთ გვერდს მისცეთ სხვა სათაური.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|შიგთავსის თარგმნა]]",
 	"tag-contenttranslation-description": "შემცვლელობა იყო თარგმნილი სხვა ენიდან Content Translation tool-ის მეშვეობით.",

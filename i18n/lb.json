@@ -33,7 +33,7 @@
 	"cx-publish-gt-moved-description": "Klickt op dëse Link fir Är nei iwwersat Säit ze liesen an ze verbesseren",
 	"cx-publish-gt-published-title": "Felicitatioun, d'Säit gouf publizéiert",
 	"cx-publish-gt-published-description": "Dir kënnt op \"$1\" klicke fir d'Säit ze verbesseren. Vergewëssert Iech dat se sech natierlech liese léist.",
-	"cx-translation-add-translation": "+ Iwwersetzung derbäisetzen",
+	"cx-translation-add-translation": "Iwwersetzung derbäisetzen",
 	"cx-translation-target-page-exists": "Eng Säit mam Titel [$1 $2] gëtt et an der Zil-Wiki. Iwwerleet ob Dir der säit keen aneren Titel kënnt ginn.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Iwwersetzung vum Inhalt]]",
 	"tag-contenttranslation-description": "Den Inhalt gouf vun enger anerer Sprooch mat Hëllef vum 'Content Translation Tool' iwwersat.",

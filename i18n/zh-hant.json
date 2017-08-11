@@ -42,7 +42,7 @@
 	"cx-publish-gt-moved-description": "點選此連結閱讀並改善您新翻譯的頁面",
 	"cx-publish-gt-published-title": "恭喜，已發佈頁面",
 	"cx-publish-gt-published-description": "您可以點選 \"$1\" 來改進該頁面，請確保閱讀流暢。",
-	"cx-translation-add-translation": "+ 增加翻譯",
+	"cx-translation-add-translation": "增加翻譯",
 	"cx-translation-target-page-exists": "使用標題 [$1 $2] 的頁面已存在於目標 wiki。 請使用不同的頁面標題。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|內容翻譯]]",
 	"tag-contenttranslation-description": "已使用內容翻譯工具從其他語言翻譯內容。",

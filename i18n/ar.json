@@ -46,7 +46,7 @@
 	"cx-publish-gt-moved-description": "انقر هذه الوصلة لقراءة الصفحة المترجمة وتنقيحها",
 	"cx-publish-gt-published-title": "هنيئا، الصفحة نشرت",
 	"cx-publish-gt-published-description": "يمكنك نقر \"$1\" لإتمام تنقيح الصفحة. تأكد من سهولة قراءتها.",
-	"cx-translation-add-translation": "+ أضف ترجمة",
+	"cx-translation-add-translation": "أضف ترجمة",
 	"cx-translation-target-page-exists": "الويكي الهدف فيه صفحة بعنوان [$1 $2]. اختر عنوانا مختلفا للصفحة.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ترجمة المحتوى]]",
 	"tag-contenttranslation-description": "جرت ترجمة المحتوى من لغة أخرى باستخدام أداة ترجمة المحتوى.",

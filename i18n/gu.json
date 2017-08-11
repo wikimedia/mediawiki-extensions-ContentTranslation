@@ -36,7 +36,7 @@
 	"cx-publish-gt-moved-description": "તમે ભાષાંતરિત કરેલું નવું પાનું વાંચવા અને સારું બનાવવા માટે આ કડી પર ક્લિક કરો",
 	"cx-publish-gt-published-title": "અભિનંદન, પાનું પ્રકાશિત થઇ ગયું છે",
 	"cx-publish-gt-published-description": "તમે \"$1\" પર ક્લિક કરીને પાનાંને સુધારી શકો છો. તેને સરળ અને પ્રવાહી બનાવવાનો પ્રયત્ન કરો.",
-	"cx-translation-add-translation": "+ ભાષાંતર ઉમેરો",
+	"cx-translation-add-translation": "ભાષાંતર ઉમેરો",
 	"cx-translation-target-page-exists": "[$1 $2] શીર્ષક ધરાવતું પાનું લક્ષ્ય વિકિમાં હાજર છે જ. પાનાંને બીજું શીર્ષક આપવાનું ધ્યાનમાં લો.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ભાષાંતર]]",
 	"tag-contenttranslation-description": "લખાણ ભાષાંતર સાધનની મદદથી બીજી ભાષામાંથી ભાષાંતરિત કરવામાં આવ્યું હતું.",

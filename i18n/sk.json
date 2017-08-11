@@ -37,7 +37,7 @@
 	"cx-publish-gt-moved-description": "Kliknite sem a prečítajte a vylepšite svoj novopreložený článok.",
 	"cx-publish-gt-published-title": "Gratulujeme, stránka bola zverejnená",
 	"cx-publish-gt-published-description": "Stlačte tlačidlo „$1“, aby ste mohli ďalej upravovať článok. Uistite sa, že Váš preklad je prirodzený.",
-	"cx-translation-add-translation": "+ Pridať preklad",
+	"cx-translation-add-translation": "Pridať preklad",
 	"cx-translation-target-page-exists": "Článok s názvom [$1 $2] už na danej Wikipédii existuje. Zvážte zmenu názvu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Preklad obsahu]]",
 	"tag-contenttranslation-description": "Obsah stránky bol preložený z iného jazyka pomocou nástroja Content Translation.",

@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Κάντε κλικ σε αυτό το σύνδεσμο για να διαβάσετε και να βελτιώσετε τη νέα μεταφρασμένη σελίδα",
 	"cx-publish-gt-published-title": "Συγχαρητήρια, η σελίδα έχει δημοσιευθεί",
 	"cx-publish-gt-published-description": "Μπορείτε να κάντε κλικ στο κουμπί \"$1\" για να συνεχίσετε την βελτίωση της σελίδας. Βεβαιωθείτε ότι διαβάζεται φυσικά.",
-	"cx-translation-add-translation": "+ Προσθήκη μετάφρασης",
+	"cx-translation-add-translation": "Προσθήκη μετάφρασης",
 	"cx-translation-target-page-exists": "Μια σελίδα με τίτλο [$1 $2] υπάρχει στο wiki στόχο. Λογιστείτε να δώσετε στη σελίδα ένα διαφορετικό τίτλο.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Το περιεχόμενο έχει μεταφραστεί από άλλη γλώσσα, χρησιμοποιώντας το εργαλείο Μετάφραση Περιεχομένου.",

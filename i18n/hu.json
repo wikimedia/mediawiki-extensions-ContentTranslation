@@ -43,7 +43,7 @@
 	"cx-publish-gt-moved-description": "Kattints erre a linkre, hogy elolvasd vagy javítsd az új lefordított lapot",
 	"cx-publish-gt-published-title": "Gratulálok, az oldat közzétetted",
 	"cx-publish-gt-published-description": "Kattints a „$1” gombra, hogy tovább javítsd az oldalt. Figyelj arra, hogy a szöveg természetes legyen.",
-	"cx-translation-add-translation": "+ Fordítás hozzáadása",
+	"cx-translation-add-translation": "Fordítás hozzáadása",
 	"cx-translation-target-page-exists": "Egy [$1 $2] című lap már létezik a célwikin. Fontold meg, hogy egy másik címet adsz neki.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tartalomfordítás]]",
 	"tag-contenttranslation-description": "A tartalmat egy másik nyelvről fordították le a Tartalomfordító eszközzel.",

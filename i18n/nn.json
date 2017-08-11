@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Klikk på lenkja for å lese og gjere di nye omsette side betre",
 	"cx-publish-gt-published-title": "Gratulerer, sida er vorten publisert",
 	"cx-publish-gt-published-description": "Du kan klikke «$1» for å halde fram med å gjere sida betre. Pass på at teksten flyt godt.",
-	"cx-translation-add-translation": "+ Legg til omsetjing",
+	"cx-translation-add-translation": "Legg til omsetjing",
 	"cx-translation-target-page-exists": "Ei side med tittelen [$1 $2] finst allereie i målwikien. Vurder å gje sida ein anna tittel.",
 	"tag-contenttranslation": "Innhaldsomsetjing",
 	"tag-contenttranslation-description": "Innhaldet vart omsett frå eit anna språk med verktyet Innhaldsomsetjing",

@@ -44,7 +44,7 @@
 	"cx-publish-gt-moved-description": "点击此链接以阅读并改进您新翻译的页面",
 	"cx-publish-gt-published-title": "祝贺，页面已发布",
 	"cx-publish-gt-published-description": "您可以点击“$1”以继续改进页面。请确保它读起来流畅。",
-	"cx-translation-add-translation": "+ 添加翻译",
+	"cx-translation-add-translation": "添加翻译",
 	"cx-translation-target-page-exists": "标题为[$1 $2]的页面已存在于目标wiki。请考虑为页面提供不同的标题。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|内容翻译]]",
 	"tag-contenttranslation-description": "此内容通过内容翻译工具从另一语言翻译而来。",

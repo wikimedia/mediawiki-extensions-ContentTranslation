@@ -42,7 +42,7 @@
 	"cx-publish-gt-moved-description": "Щракнете на тази препратка, за да прочетете и подобрите вашата нова преводна страница",
 	"cx-publish-gt-published-title": "Поздравления, страницата беше публикувана",
 	"cx-publish-gt-published-description": "Можете да щракнете на бутона „$1“, за да продължите да подобрявате страницата. Уверете се, че при прочит текстът звучи естествено на български.",
-	"cx-translation-add-translation": "+ Добавяне на превод",
+	"cx-translation-add-translation": "Добавяне на превод",
 	"cx-translation-target-page-exists": "Страница, озаглавена [$1 $2], съществува в уикито, в което превеждате. Помислете за друго заглавие на страницата.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Превод на съдържание]]",
 	"tag-contenttranslation-description": "Съдържанието е преведено от друг език с помощта на инструмента „Превод на съдържание“.",

@@ -40,7 +40,7 @@
 	"cx-publish-gt-moved-description": "अपने नये अनुवाद किये हुये पृष्ठ को पढ़ने और सुधारने हेतु इस कड़ी पर क्लिक करें",
 	"cx-publish-gt-published-title": "बधाई हो, यह पृष्ठ प्रकाशित किया जा चुका है",
 	"cx-publish-gt-published-description": "आप पृष्ठ में सुधार जारी रखने के लिए  \"$1\" पर क्लिक कर सकते हो। सुनिश्चित कर लें कि यह स्वाभाविक रूप से पठनीय है।",
-	"cx-translation-add-translation": "+ अनुवाद जोड़ें",
+	"cx-translation-add-translation": "अनुवाद जोड़ें",
 	"cx-translation-target-page-exists": "लक्ष्य विकि पर [$1 $2] शीर्षक के साथ पृष्ठ उपलब्ध है। पृष्ठ को भिन्न शीर्षक देने का प्रयास करें।",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|सामग्री अनुवाद]]",
 	"tag-contenttranslation-description": "सामग्री को सामग्री_अनुवाद_उपकरण की सहायता से अन्य भाषा से अनुवाद किया गया है।",

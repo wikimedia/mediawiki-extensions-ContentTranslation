@@ -38,7 +38,7 @@
 	"cx-publish-gt-moved-description": "Kliknite na ovaj link kako biste pročitali i poboljšali svoju novoprevedenu stranicu",
 	"cx-publish-gt-published-title": "Čestitke, stranica je objavljena",
 	"cx-publish-gt-published-description": "Možete kliknuti \"$1\" kako biste nastavljati s poboljšanjem stranice. Provjerite da li se može čitati prirodno.",
-	"cx-translation-add-translation": "+ Dodaj prijevod",
+	"cx-translation-add-translation": "Dodaj prijevod",
 	"cx-translation-target-page-exists": "Stranica sa naslovom [$1 $2] već postoji na odredišnom wikiju. Pokušajte dati stranici drugi naziv.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|prijevod sadržaja]]",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prijevod sadržaja.",

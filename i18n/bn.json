@@ -40,7 +40,7 @@
 	"cx-publish-gt-moved-description": "আপনার নতুন অনূদিত পাতা পড়তে এবং উন্নয়ন করতে এই লিঙ্কে ক্লিক করুন",
 	"cx-publish-gt-published-title": "অভিনন্দন, পাতাটি প্রকাশিত হয়েছে",
 	"cx-publish-gt-published-description": "পাতাটির উন্নতি বজায় রাখতে আপনি \"$1\"য় ক্লিক করতে পারেন। এটি স্বাভাবিকভাবে পাঠযোগ্য তা নিশ্চিত করুন।",
-	"cx-translation-add-translation": "+ অনুবাদ যোগ করুন",
+	"cx-translation-add-translation": "অনুবাদ যোগ করুন",
 	"cx-translation-target-page-exists": "লক্ষ্য উইকিতে [$1 $2] শিরোনামযুক্ত পাতা বিদ্যমান আছে। পাতাটিকে একটি ভিন্ন শিরোনাম দিতে বিবেচনা করুন।",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|বিষয়বস্তুঅনুবাদ]]",
 	"tag-contenttranslation-description": "বিষয়বস্তু অনুবাদ সরঞ্জাম ব্যবহার করে বিষয়বস্তু অন্য ভাষা থেকে অনূদিত হয়।",

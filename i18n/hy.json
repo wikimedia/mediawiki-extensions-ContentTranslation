@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Սեղմեք հղումը թարգմանված էջը կարդալու և բարելավելու նպատակով",
 	"cx-publish-gt-published-title": "Շնորհավորում ենք, էջը հրապարակվել է",
 	"cx-publish-gt-published-description": "Կարող եք սեղմել «$1» էջում փոփոխություններ կատարելու համար: Համոզվեք, որ այն հեշտ ընթեռնելի է:",
-	"cx-translation-add-translation": "+ Ավելացնել թարգմանություն",
+	"cx-translation-add-translation": "Ավելացնել թարգմանություն",
 	"cx-translation-target-page-exists": "[$1 $2] վերնագրով էջը արդեն առկա է վիքիում: Փորձեք էջը վերնագրել այլ կերպ:",
 	"tag-contenttranslation": "ԲովանդակությանԹարգմանություն",
 	"tag-contenttranslation-description": "Բովանդակությունն այլ լեզվից թարգմանվել է «Բովանդակության թարգմանություն» գործիքի օգնությամբ:",

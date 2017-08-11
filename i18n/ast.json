@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Fai clic nesti enllaz pa lleer y ameyorar la nueva páxina recién traducida",
 	"cx-publish-gt-published-title": "Felicidaes, publicóse la páxina",
 	"cx-publish-gt-published-description": "Pues facer clic en \"$1\" pa siguir ameyorando la páxina. Asegúrate de que pue lleese de forma natural.",
-	"cx-translation-add-translation": "+ Amestar traducción",
+	"cx-translation-add-translation": "Amestar traducción",
 	"cx-translation-target-page-exists": "Yá esiste una páxina col títulu [$1 $2] na wiki destín. Considera da-y a la páxina un títulu distintu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraducciónConteníu]]",
 	"tag-contenttranslation-description": "El conteníu tradúxose d'otru idioma usando la Ferramienta de traducción de conteníu.",

@@ -49,7 +49,7 @@
 	"cx-publish-gt-moved-description": "بر این پیوند برای خواندن و بهبود صفحه‌های جدید ترجمه‌شده‌یتان کلیک کنید",
 	"cx-publish-gt-published-title": "تبریک، صفحه منتشر شده است",
 	"cx-publish-gt-published-description": "شما می‌توانید «$1» را برای ادامهٔ بهبود این کلیک کنید. مطمئن شوید که به‌صورت طبیعی خوانده می‌شود.",
-	"cx-translation-add-translation": "+ افزودن ترجمه",
+	"cx-translation-add-translation": "افزودن ترجمه",
 	"cx-translation-target-page-exists": "یک صفحه با عنوان [$1 $2] در حال حاضر در ویکی مقصد وجود دارد. دادن عنوان متفاوتی را به صفحه در نظر بگیرید.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ترجمهٔ محتوا]]",
 	"tag-contenttranslation-description": "این محتویات از زبانی دیگر توسط ابزار مترجم محتویات ترجمه شده بود.",

@@ -34,7 +34,7 @@
 	"cx-publish-gt-moved-description": "Стиснете на врската за да ја прочирате и подобрите новопреведената страница",
 	"cx-publish-gt-published-title": "Честитаме! Страницата е објавена.",
 	"cx-publish-gt-published-description": "Можете да стиснете на „$1“ за да продолжите со подобрување на страницата. Потрудете се текстот да тече природно.",
-	"cx-translation-add-translation": "+ Додај превод",
+	"cx-translation-add-translation": "Додај превод",
 	"cx-translation-target-page-exists": "На целното вики веќе постои страница насловена како [$1 $2]. Дајте ѝ друг наслов.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Превод на содржини]]",
 	"tag-contenttranslation-description": "Содржината е преведена од друг јазик користејќи ја акатката Преведување на содржини",

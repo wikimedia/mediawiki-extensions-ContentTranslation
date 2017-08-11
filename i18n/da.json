@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Klik på dette link for at læse og forbedre din nye oversatte side",
 	"cx-publish-gt-published-title": "Tillykke, siden er blevet offentliggjort",
 	"cx-publish-gt-published-description": "Du kan klikke på \"$1\" for at fortsætte med at forbedre siden. Sørg for at den virker naturlig at læse.",
-	"cx-translation-add-translation": "+ Tilføj oversættelse",
+	"cx-translation-add-translation": "Tilføj oversættelse",
 	"cx-translation-target-page-exists": "Der findes en side med titlen [$1 $2] på målwikien. Overvej at give siden en anden titel.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Indholdsoversættelse]]",
 	"tag-contenttranslation-description": "Indholdet blev oversat fra et andet sprog ved hjælp af indholdsoversættelsesværktøjet.",

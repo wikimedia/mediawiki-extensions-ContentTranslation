@@ -22,7 +22,7 @@
 	"cx-publish-gt-first-step-title": "Kiännös on piästetty ilmah eskiizannu sinun käyttäisivun alisivunnu.",
 	"cx-publish-gt-move-page-title": "Siirrä tämä sivu",
 	"cx-publish-gt-moved-title": "Kiännetty sivu siirrettih",
-	"cx-translation-add-translation": "+ Ližiä kiännös",
+	"cx-translation-add-translation": "Ližiä kiännös",
 	"cx-beta": "Syväindön kiändämine",
 	"cx-entrypoint-title": "Kiännä tämä sivu kielele $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivuu ei ole vie kielel $1. {{GENDER:|Tahtotgo}} luadie sen?",

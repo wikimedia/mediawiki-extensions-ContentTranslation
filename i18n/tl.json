@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "I-klik ang kawing at pagbutihin ang iyong bagong saling pahina",
 	"cx-publish-gt-published-title": "Pagbati, nailathala ang pahina",
 	"cx-publish-gt-published-description": "Maaari mong i-klik ang \"$1\" upang tuloy-tuloy na mapabuti ang pahina. Tiyakin na likas iyon na nababasa.",
-	"cx-translation-add-translation": "+ Magdagdag ng pagsasalin",
+	"cx-translation-add-translation": "Magdagdag ng pagsasalin",
 	"cx-translation-target-page-exists": "May umiiral nang pahinang may pamagat na [$1 $2] sa wiking patutunguhan.  Mangyaring isiping bigyan ng ibang pamagat ang pahina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Isinalin ang nilalaman mula sa ibang wika gamit ang kagamitan Pangsalinwika ng Nilalaman.",

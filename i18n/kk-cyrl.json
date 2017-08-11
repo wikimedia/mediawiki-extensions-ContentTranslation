@@ -30,7 +30,7 @@
 	"cx-publish-gt-moved-title": "Аударылған бет жылжытылды",
 	"cx-publish-gt-moved-description": "Сіздің жаңа аударылған бетті оқу және жетілдіру үшін осы сілтемені басыңыз",
 	"cx-publish-gt-published-title": "Құттықтаймыз, бет жарияланды",
-	"cx-translation-add-translation": "+ Аударманы қосыңыз",
+	"cx-translation-add-translation": "Аударманы қосыңыз",
 	"cx-translation-target-page-exists": "[$1 $2] атауымен бет осы уикиде бар. Бетке басқа атау беріңіз.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Мазмұн аудару]]",
 	"tag-contenttranslation-description": "Мазмұн басқа тілден Мазмұн аудару құралын қолданып аударылды.",

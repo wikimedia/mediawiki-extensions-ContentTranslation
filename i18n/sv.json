@@ -43,7 +43,7 @@
 	"cx-publish-gt-moved-description": "Klicka på denna länk för att läsa och förbättra den sida du nyss översatt",
 	"cx-publish-gt-published-title": "Grattis, sidan har publicerats",
 	"cx-publish-gt-published-description": "Du kan klicka på \"{{int:vector-Visa-redigera}}\" för att fortsätta att förbättra sidan. Se till att texten flyter naturligt.",
-	"cx-translation-add-translation": "+ Lägg till översättning",
+	"cx-translation-add-translation": "Lägg till översättning",
 	"cx-translation-target-page-exists": "En sida med titeln [$1 $2] finns på målwikin. Överväga att ge sidan en annan titel.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Innehållsöversättning]]",
 	"tag-contenttranslation-description": "Innehållet är översatt från ett annat språk med hjälp av verktyget Innehållsöversättning.",

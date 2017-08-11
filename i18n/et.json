@@ -36,7 +36,7 @@
 	"cx-publish-gt-moved-description": "Klõpsa lingile, et lugeda ja täiendada tõlgitud lehekülge",
 	"cx-publish-gt-published-title": "Õnnitleme! Lehekülg on avaldatud.",
 	"cx-publish-gt-published-description": "Lehekülje täiendamist saad jätkata, kui klõpsad \"$1\". Veendu, et tekst on antud keeles loomulik.",
-	"cx-translation-add-translation": "+ Lisa tõlge",
+	"cx-translation-add-translation": "Lisa tõlge",
 	"cx-translation-target-page-exists": "Lehekülg pealkirjaga [$1 $2] on sihtvikis juba olemas. Kaalu teistsuguse pealkirja kasutamist.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Sisutõlge]]",
 	"tag-contenttranslation-description": "Sisu tõlgiti teisest keelest sisutõlke tööriista kasutades.",

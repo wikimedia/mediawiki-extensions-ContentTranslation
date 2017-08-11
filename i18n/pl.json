@@ -54,7 +54,7 @@
 	"cx-publish-gt-moved-description": "Kliknij, aby przeczytać i poprawić swoją nowo przetłumaczoną stronę",
 	"cx-publish-gt-published-title": "Gratulacje, strona została opublikowana",
 	"cx-publish-gt-published-description": "Możesz kliknąć „$1”, aby rozwijać tę stronę. Upewnij się, że dobrze się ją czyta.",
-	"cx-translation-add-translation": "+ Dodaj tłumaczenie",
+	"cx-translation-add-translation": "Dodaj tłumaczenie",
 	"cx-translation-target-page-exists": "Strona o tytule [$1 $2] już istnieje na docelowej wiki. Rozważ nadanie swojej stronie innego tytułu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tłumaczenie treści]]",
 	"tag-contenttranslation-description": "Zawartość strony przetłumaczono przy pomocy narzędzia Tłumaczenie Treści.",

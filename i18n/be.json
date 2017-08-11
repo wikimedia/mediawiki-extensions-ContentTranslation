@@ -34,7 +34,7 @@
 	"cx-publish-gt-moved-description": "Націсніце гэтую спасылку, каб прачытаць і палепшыць вашы новыя перакладзеныя старонкі",
 	"cx-publish-gt-published-title": "Віншуем, старонка была апублікаваная",
 	"cx-publish-gt-published-description": "Вы можаце націснуць кнопку \"$1\" і працягваць удасканальваць старонку. Пераканайцеся, што яна чытаецца натуральна.",
-	"cx-translation-add-translation": "+ Дадаць пераклад",
+	"cx-translation-add-translation": "Дадаць пераклад",
 	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] існуе ў мэтавай Вікі. Разглядзіце пытанне аб прадастаўленні старонкі іншай назвы.",
 	"cx-source-loading": "Загрузка $1",
 	"cx-entrypoint-dialog-button-translate-from": "Перакласці з $1",

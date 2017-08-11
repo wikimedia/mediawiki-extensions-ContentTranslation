@@ -41,7 +41,7 @@
 	"cx-publish-gt-moved-description": "Nhấp chuột vào liên kết này để đọc và cải thiện trang dịch của bạn",
 	"cx-publish-gt-published-title": "Chúc mừng trang này đã được xuất bản",
 	"cx-publish-gt-published-description": "Bạn có thể nhấp chuột vào “$1” để tiếp tục cải thiện trang này. Hãy đảm bảo rằng bản dịch nghe phải thật tự nhiên.",
-	"cx-translation-add-translation": "+ Thêm bản dịch",
+	"cx-translation-add-translation": "Thêm bản dịch",
 	"cx-translation-target-page-exists": "Đã có một trang với tiêu đề [$1 $2] tồn tại ở wiki này. Hãy cân nhắc chọn một tiêu đề khác cho trang của bạn.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Biên dịch nội dung]]",
 	"tag-contenttranslation-description": "Nội dung được biên dịch từ một ngôn ngữ khác dùng công cụ Biên dịch nội dung.",

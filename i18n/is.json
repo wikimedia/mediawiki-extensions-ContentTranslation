@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "Smelltu á þennan tengil til að lesa og bæta nýþýddu síðuna þína",
 	"cx-publish-gt-published-title": "Til hamingju, greinin hefur verið gefin út",
 	"cx-publish-gt-published-description": "Þú getur smellt á „$1“ til að halda áfram að bæta síðuna. Tryggðu það að hún sé auðlesin.",
-	"cx-translation-add-translation": "+ Bæta við þýðingu",
+	"cx-translation-add-translation": "Bæta við þýðingu",
 	"tag-contenttranslation": "Content Translation",
 	"tag-contenttranslation-description": "Þessi grein var þýdd úr öðru tungumáli með Content Translation verkfærinu.",
 	"cx-source-loading": "Hleður $1",

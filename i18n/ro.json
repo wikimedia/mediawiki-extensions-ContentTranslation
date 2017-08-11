@@ -39,7 +39,7 @@
 	"cx-publish-gt-moved-description": "Faceți clic pe această legătură pentru a lectura și îmbunătăți noua pagină tradusă",
 	"cx-publish-gt-published-title": "Felicitări, pagina a fost publicată",
 	"cx-publish-gt-published-description": "Puteți face clic pe „$1” pentru a îmbunătăți în continuare pagina. Asigurați-vă de cursivitatea traducerii.",
-	"cx-translation-add-translation": "+ Adaugă traducere",
+	"cx-translation-add-translation": "Adaugă traducere",
 	"cx-translation-target-page-exists": "O pagină cu titlul [$1 $2] există deja pe wikiul țintă. Încercați să furnizați paginii un alt titlu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traducerea conținutului]]",
 	"tag-contenttranslation-description": "Conținutul a fost tradus dintr-o limbă străină folosind unealta „Traducerea conținutului”.",

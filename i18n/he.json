@@ -42,7 +42,7 @@
 	"cx-publish-gt-moved-description": "{{GENDER:|לחץ|לחצי}} על הקישור הזה כדי לקרוא {{GENDER:|ושפר|ושפרי}} את הדף המתורגם החדש שלך",
 	"cx-publish-gt-published-title": "ברכות, הדף פורםס",
 	"cx-publish-gt-published-description": "{{GENDER:|אתה יכול|את יכולה}} ללחוץ על \"$1\" כדי להמשיך לשפר את הדף. נא לוודא שהוא קריא וטבעי.",
-	"cx-translation-add-translation": "+ הוספת תרגום",
+	"cx-translation-add-translation": "הוספת תרגום",
 	"cx-translation-target-page-exists": "דף בעל השם [$1 $2] קיים בוויקי היעד. נא לשקול לתת לדף הזה שם אחר.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|תרגום תוכן]]",
 	"tag-contenttranslation-description": "התוכן תורגם משפה אחרת בעזרת כלי ContentTranslation.",

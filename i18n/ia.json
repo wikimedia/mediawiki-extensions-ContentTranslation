@@ -36,7 +36,7 @@
 	"cx-publish-gt-moved-description": "Clicca sur iste ligamine pro leger e meliorar tu nove pagina traducite",
 	"cx-publish-gt-published-title": "Felicitationes, le pagina ha essite publicate",
 	"cx-publish-gt-published-description": "Tu pote cliccar sur \"$1\" pro continuar a meliorar le pagina. Assecura te que illo se lege de maniera natural.",
-	"cx-translation-add-translation": "+ Adder traduction",
+	"cx-translation-add-translation": "Adder traduction",
 	"cx-translation-target-page-exists": "Un pagina con le titulo [$1 $2] existe in le wiki de destination. Considera dar un altere titulo al pagina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduction de contento]]",
 	"tag-contenttranslation-description": "Le contento ha essite traducite ab un altere lingua per medio del instrumento ‘Traduction de contento’.",

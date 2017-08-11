@@ -49,7 +49,7 @@
 	"cx-publish-gt-moved-description": "Yeni çevirdiğiniz sayfayı okumak ve geliştirmek için bu bağlantıya tıklayın",
 	"cx-publish-gt-published-title": "Tebrikler, sayfa yayınlandı",
 	"cx-publish-gt-published-description": "Sayfaı geliştirmek için \"$1\" tuşuna basabilirsiniz. Akışın doğal olduğundan emin olun.",
-	"cx-translation-add-translation": "+ Çeviri ekle",
+	"cx-translation-add-translation": "Çeviri ekle",
 	"cx-translation-target-page-exists": "Hedef vikide [$1 $2] başlığı mevcut. Sayfaya başka bir başlık vermeyi düşünebilirsiniz.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|İçerik Çevirmeni]]",
 	"tag-contenttranslation-description": "İçerik, İçerik Çevirmeni aracı kullanılarak başka bir dilden çevrilmiştir.",

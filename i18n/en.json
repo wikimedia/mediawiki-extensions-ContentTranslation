@@ -44,7 +44,7 @@
 	"cx-publish-gt-moved-description": "Click this link to read and improve your new translated page",
 	"cx-publish-gt-published-title": "Congratulations, the page has been published",
 	"cx-publish-gt-published-description": "You can click \"$1\" to keep improving the page. Make sure it reads naturally.",
-	"cx-translation-add-translation": "+ Add translation",
+	"cx-translation-add-translation": "Add translation",
 	"cx-translation-target-page-exists": "A page with the title [$1 $2] exists in the target wiki. Consider giving the page a different title.",
 	"cx-descriptionpagelink": "mw:Content translation",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",

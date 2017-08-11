@@ -48,7 +48,7 @@
 	"cx-publish-gt-moved-description": "このリンクをクリックすると、あなたが新しく翻訳したページを読み、より良くできます。",
 	"cx-publish-gt-published-title": "おめでとうございます、ページが公開されました。",
 	"cx-publish-gt-published-description": "「$1」をクリックすることで、このページを引き続き編集できます。自然な訳文になっているか確認してください。",
-	"cx-translation-add-translation": "+ 翻訳を追加",
+	"cx-translation-add-translation": "翻訳を追加",
 	"cx-translation-target-page-exists": "ページ名が[$1 $2]のページが翻訳先のウィキに既にあります。現在のページには別の題名をつけてみてください。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|コンテンツ翻訳]]",
 	"tag-contenttranslation-description": "このページの内容はコンテンツ翻訳ツールを使用して他の言語から翻訳されました。",

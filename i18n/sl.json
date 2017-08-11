@@ -36,7 +36,7 @@
 	"cx-publish-gt-moved-description": "Klikni na to povezavo, da prebereš in izboljšaš svoj novi prevod.",
 	"cx-publish-gt-published-title": "Čestitamo, stran je objavljena",
 	"cx-publish-gt-published-description": "S klikom na \"$1\" lahko še naprej popravljaš prevod. Bodi {{Gender:|pozoren|pozorna}}, da besedilo teče čimbolj gladko.",
-	"cx-translation-add-translation": "+ Dodaj prevod",
+	"cx-translation-add-translation": "Dodaj prevod",
 	"cx-translation-target-page-exists": "Stran z naslovom [$1 $2] že obstaja. Za končno objavo bo potrebovala nov naslov.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Wikiprevajalec]]",
 	"tag-contenttranslation-description": "Ta stran je bila prevedena s pomočjo Wikiprevajalca.",

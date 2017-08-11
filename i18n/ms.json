@@ -37,7 +37,7 @@
 	"cx-publish-gt-moved-description": "Klik pada pautan ini untuk membaca dan membaiki laman yang baru diterjemahkan anda",
 	"cx-publish-gt-published-title": "Taniah, laman ini telah diterbitkan",
 	"cx-publish-gt-published-description": "Anda boleh mengeklik \"$1\" untuk kekal membaiki laman ini. Pastikan ia membaca secara semulajadi.",
-	"cx-translation-add-translation": "+ Tambahkan terjemahan",
+	"cx-translation-add-translation": "Tambahkan terjemahan",
 	"cx-translation-target-page-exists": "Sebuah laman dengan tajuk [$1 $2] wujud dalam wiki sasaran. Timbangkan memberi laman ini tajuk yang beza.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Penterjemahan kandungan]]",
 	"tag-contenttranslation-description": "Kandungan dengan teg ini telah diterjemahkan dari bahasa lain dengan menggunakan alat ContentTranslation.",

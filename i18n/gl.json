@@ -40,7 +40,7 @@
 	"cx-publish-gt-moved-description": "Prema nesta ligazón para ler e mellorar a súa nova páxina traducida",
 	"cx-publish-gt-published-title": "Parabéns, a páxina foi publicada",
 	"cx-publish-gt-published-description": "Pode premer en \"$1\" para continuar a mellorar a páxina. Asegúrese de que a lectura é natural.",
-	"cx-translation-add-translation": "+ Engadir a tradución",
+	"cx-translation-add-translation": "Engadir a tradución",
 	"cx-translation-target-page-exists": "Xa existe unha páxina titulada \"[$1 $2]\" no wiki de destino. Considere cambiar o nome da páxina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tradución de contido]]",
 	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta de tradución de contido",

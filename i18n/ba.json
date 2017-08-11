@@ -40,7 +40,7 @@
 	"cx-publish-gt-moved-description": "Яңы тәржемәләрегеҙҙе уҡып ҡарау һәм яҡшыртыу өсөн был һылтанмаға баҫығыҙ",
 	"cx-publish-gt-published-title": "Ҡотлайбыҙ, бит баҫтырылған",
 	"cx-publish-gt-published-description": "Битте камиллаштырыуҙы дауам итер өсөн, \"$1\" төймәһенә баҫа алаһығыҙ. Уның тәбиғи уҡылыуын тикшерегеҙ.",
-	"cx-translation-add-translation": "+ Тәржемә өҫтәргә",
+	"cx-translation-add-translation": "Тәржемә өҫтәргә",
 	"cx-translation-target-page-exists": "[$1 $2] исемле бит маҡсатлы викила бар. Биткә икенсе исем биреп ҡарағыҙ.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ЭстәлекТәржемәсе]]",
 	"tag-contenttranslation-description": "Эстәлек икенсе телдән ЭстәлекТәржемәсеһе ярҙамында тәржемә ителгән.",

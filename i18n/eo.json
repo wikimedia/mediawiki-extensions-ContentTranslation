@@ -41,7 +41,7 @@
 	"cx-publish-gt-moved-description": "Klaku al tiu ĉi ligilo por legi kaj plibonigi vian novan tradukitan paĝon",
 	"cx-publish-gt-published-title": "Gratulon, via nova paĝo estas publikigita",
 	"cx-publish-gt-published-description": "Vi povas klaki al \"$1\" por plu plibonigi la paĝon. Zorgu, ke ĝi estu nature legebla.",
-	"cx-translation-add-translation": "+ Aldoni tradukon",
+	"cx-translation-add-translation": "Aldoni tradukon",
 	"cx-translation-target-page-exists": "Paĝo kun la titolo [$1 $2] jam ekzistas en la cela vikio. Konsideru uzon de alia nomo.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|EnhavTradukado]]",
 	"tag-contenttranslation-description": "Tiu ĉi enhavo estis tradukita de alia lingvo uzante la ilon EnhavTradukado.",

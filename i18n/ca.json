@@ -48,7 +48,7 @@
 	"cx-publish-gt-moved-description": "Premeu aquest enllaç per llegir i millorar la seva nova traducció",
 	"cx-publish-gt-published-title": "Felicitats, la pàgina ha estat publicada",
 	"cx-publish-gt-published-description": "Feu clic a \"$1\" per a seguir millorant la pàgina. Assegureu-vos que es llegeix amb la màxima naturalitat.",
-	"cx-translation-add-translation": "+ Afegeix una traducció",
+	"cx-translation-add-translation": "Afegeix una traducció",
 	"cx-translation-target-page-exists": "Una pàgina amb el títol [$1 $2] existeix en el wiki de destinació. Considereu donar a la pàgina un títol diferent.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|traducció de contingut]]",
 	"tag-contenttranslation-description": "El contingut va ser traduït des d'un altre idioma amb l'eina de Traducció de contingut.",

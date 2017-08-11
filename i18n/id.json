@@ -44,7 +44,7 @@
 	"cx-publish-gt-moved-description": "Klik pranala ini untuk membaca dan mengembangkan halaman terjemahan baru Anda",
 	"cx-publish-gt-published-title": "Selamat, halaman tersebut telah diterbitkan",
 	"cx-publish-gt-published-description": "Anda dapat mengeklik \"$1\" untuk tetap mengembangkan halaman. Pastikan terjemahan terasa alami.",
-	"cx-translation-add-translation": "+ Tambahkan terjemahan",
+	"cx-translation-add-translation": "Tambahkan terjemahan",
 	"cx-translation-target-page-exists": "Sebuah halaman dengan judul [$1 $2] sudah tersedia di wiki tujuan. Pertimbangkan untuk memberikan judul yang berbeda untuk halaman Anda.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Konten ini diterjemahkan dari bahasa lain menggunakan alat Penerjemahan Konten.",

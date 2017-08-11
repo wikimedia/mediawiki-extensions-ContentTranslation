@@ -31,7 +31,7 @@
 	"cx-publish-gt-moved-description": "คลิกลิงก์นี้เพื่ออ่านและปรับปรุงหน้าที่แปลใหม่ของคุณ",
 	"cx-publish-gt-published-title": "ยินดีด้วย ได้เผยแพร่หน้าแล้ว",
 	"cx-publish-gt-published-description": "คุณสามารถคลิก \"$1\" เพื่อปรับปรุงหน้าต่อไป ทำให้แน่ใจว่ามันอ่านได้เป็นธรรมชาติ",
-	"cx-translation-add-translation": "+ เพิ่มการแปล",
+	"cx-translation-add-translation": "เพิ่มการแปล",
 	"cx-translation-target-page-exists": "หน้าที่มีชื่อเรื่อง [$1 $2] มีอยู่แล้วในวิกิปลายทาง พิจารณาตั้งชื่อหน้าเป็นอย่างอื่น",
 	"tag-contenttranslation": "การแปลเนื้อหา",
 	"tag-contenttranslation-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหา",

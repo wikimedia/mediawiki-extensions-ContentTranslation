@@ -38,7 +38,7 @@
 	"cx-publish-gt-moved-description": "Klik hierdie skakel om jou nuwe vertaalde bladsy te lees en verbeter",
 	"cx-publish-gt-published-title": "Veels geluk, die bladsy is gepubliseer",
 	"cx-publish-gt-published-description": "Jy kan \"$1\" klik om die bladsy verder te verbeter. Maak seker dat dit natuurlik voorkom.",
-	"cx-translation-add-translation": "+ Voeg vertaling by",
+	"cx-translation-add-translation": "Voeg vertaling by",
 	"cx-translation-target-page-exists": "'n Bladsy met die titel [$1 $2] bestaan reeds in die teikenwiki. Oorweeg dit om 'n ander titel te kies.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Inhoudvertaling]]",
 	"tag-contenttranslation-description": "Die inhoud is deur die Inhoudsvertaling werktuig vanuit 'n ander taal vertaal.",

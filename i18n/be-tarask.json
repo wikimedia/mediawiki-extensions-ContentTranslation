@@ -34,7 +34,7 @@
 	"cx-publish-gt-moved-description": "Націсьніце на гэтую спасылку, каб прачытаць і палепшыць Вашую новаперакладзеную старонку",
 	"cx-publish-gt-published-title": "Віншуем, старонка была апублікаваная",
 	"cx-publish-gt-published-description": "Вы можаце націснуць «$1», каб працягнуць паляпшэньне старонкі. Упэўніцеся, што яна чытаецца натуральна.",
-	"cx-translation-add-translation": "+ Дадаць пераклад",
+	"cx-translation-add-translation": "Дадаць пераклад",
 	"cx-translation-target-page-exists": "Старонка з назваю [$1 $2] існуе ў мэтавай вікі. Паспрабуйце надаць старонцы іншую назву",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Пераклад зьместу]]",
 	"tag-contenttranslation-description": "Зьмест быў перакладзены зь іншай мовы з дапамогай інструмэнту перакладу зьместу.",

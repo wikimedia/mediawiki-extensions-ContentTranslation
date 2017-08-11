@@ -40,7 +40,7 @@
 	"cx-publish-gt-moved-description": "Spauskite šią nuorodą, kad galėtumėte skaityti ir pagerinti savo naująjį vertimą",
 	"cx-publish-gt-published-title": "Sveikiname, straipsnis paskelbtas",
 	"cx-publish-gt-published-description": "Galite paspausti „$1“, kad vis pagerintumėte vertimą. Įsitikinkite, jog jis skamba sklandžiai.",
-	"cx-translation-add-translation": "+ Pridėti vertimą",
+	"cx-translation-add-translation": "Pridėti vertimą",
 	"cx-translation-target-page-exists": "Puslapis pavadinimu [$1 $2] jau yra šioje wiki. Mėginkite suteikti kitokį pavadinimą.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TurinioVertimas]]",
 	"tag-contenttranslation-description": "Šis turinys buvo išverstas iš kitos kalbos, naudojant TurinioVertimo įrankį.",

@@ -52,7 +52,7 @@
 	"cx-publish-gt-moved-description": "Klik op deze koppeling om uw nieuwe vertaalde pagina te lezen en te verbeteren",
 	"cx-publish-gt-published-title": "Gefeliciteerd, de pagina is gepubliceerd",
 	"cx-publish-gt-published-description": "U kunt klikken op \"$1\" om deze pagina te verbeteren. Wees er zeker van dat de tekst makkelijk te lezen is.",
-	"cx-translation-add-translation": "+ Vertaling toevoegen",
+	"cx-translation-add-translation": "Vertaling toevoegen",
 	"cx-translation-target-page-exists": "Een pagina met de naam [$1 $2] bestaat al in de doelwiki. Overweeg de pagina een andere naam te geven.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Vertaling]]",
 	"tag-contenttranslation-description": "De inhoud werd is uit een andere taal met behulp van Content Translation.",
