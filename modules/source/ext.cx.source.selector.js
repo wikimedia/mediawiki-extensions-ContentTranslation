@@ -99,6 +99,10 @@
 			this.targetLanguageChangeHandler( this.options.targetLanguage );
 		}
 
+		if ( this.options.sourceTitle ) {
+			this.sourcePageSelector.setValue( this.options.sourceTitle );
+		}
+
 		if ( this.options.targetTitle ) {
 			this.$targetTitleInput.val( this.options.targetTitle );
 		}
