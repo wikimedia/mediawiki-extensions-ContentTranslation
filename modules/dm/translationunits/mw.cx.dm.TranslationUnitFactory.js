@@ -8,12 +8,34 @@
  */
 mw.cx.dm.TranslationUnitFactory = function CXTranslationUnitFactory() {
 	// Parent constructor
-	mw.cx.dm.ModelFactory.super.call( this );
+	mw.cx.dm.TranslationUnitFactory.super.call( this );
 };
 
 /* Inheritance */
 
-OO.inheritClass( mw.cx.dm.TranslationUnitFactory, mw.cx.dm.ModelFactory );
+OO.inheritClass( mw.cx.dm.TranslationUnitFactory, OO.Factory );
+
+/* Methods */
+
+/**
+ * Find the translation unit type matching the source model object, if any
+ *
+ * @param {ve.dm.Model} sourceModel source model
+ * @return {string|null} type name
+ */
+mw.cx.dm.TranslationUnitFactory.prototype.match = function ( sourceModel ) {
+	var name, translationUnitClass, matchClasses, i, len;
+	for ( name in this.registry ) {
+		translationUnitClass = this.registry[ name ];
+		matchClasses = translationUnitClass.static.matchClasses;
+		for ( i = 0, len = matchClasses.length; i < len; i++ ) {
+			if ( sourceModel instanceof matchClasses[ i ] ) {
+				return name;
+			}
+		}
+	}
+	return null;
+};
 
 /* Initialization */
 

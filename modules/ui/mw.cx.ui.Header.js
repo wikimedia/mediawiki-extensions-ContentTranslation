@@ -4,12 +4,14 @@
  * TranslationView Header
  *
  * @class
+ * @extends OO.ui.PanelLayout
  * @param {Object} [config] Configuration object
  */
 mw.cx.ui.Header = function ( config ) {
 	// Configuration initialization
 	this.config = config || {};
 	this.$headerBar = null;
+	this.$toolbar = null;
 	this.infobar = null;
 	this.statusbar = null;
 	// Parent constructor
@@ -58,9 +60,12 @@ mw.cx.ui.Header.prototype.getContent = function () {
 		title: mw.msg( 'cx-save-draft-tooltip' )
 	} );
 
+	this.$toolbar = $( '<div>' )
+		.addClass( 'cx-header__toolbar' );
+
 	this.$headerBar = $( '<div>' )
 		.addClass( 'cx-header__bar' )
-		.append( $translationCenter, this.statusbar.$element );
+		.append( $translationCenter, this.statusbar.$element, this.$toolbar );
 
 	this.infobar = new mw.cx.ui.Infobar( this.config );
 	return $( '<div>' ).append( $headerTitle, this.$headerBar, this.infobar.$element );

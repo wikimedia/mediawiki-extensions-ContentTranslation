@@ -35,7 +35,7 @@
 	padding: 5px;
 	/* Trick to get items vertically aligned */
 	line-height: 2em;
-	box-shadow: 0 4px rgba( 0, 0, 0, 0.05 );
+	box-shadow: 0 1px rgba( 0, 0, 0, 0.05 );
 }
 
 .cx-header__translation-center {
@@ -63,32 +63,23 @@
 }
 
 .cx-header.sticky {
-	.mw-ui-two-thirds;
+	.mw-ui-one-whole;
 	position: fixed;
 	top: 0;
 	left: 0;
 	background: #fff;
 	background: rgba( 255, 255, 255, 0.95 );
-	padding: 5px 0 0 0;
-	padding-top: 5px;
 	z-index: 10;
-
-	.cx-header__bar {
-		border: 0;
-		margin: 0;
-		padding-top: 5px;
-	}
 
 	.cx-header__publish {
 		text-align: right;
 	}
 
-	.cx-header__publish-button {
-		float: right;
-	}
-
+	.cx-header__translation-center,
+	.cx-header__draft-status,
 	.cx-header__logo,
 	.cx-header__user-details,
+	.cx-header__publish-button,
 	.cx-header__title {
 		display: none;
 	}

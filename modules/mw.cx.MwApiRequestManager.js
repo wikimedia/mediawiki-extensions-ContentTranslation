@@ -151,3 +151,79 @@ mw.cx.MwApiRequestManager.prototype.getNamespaceAlias = function ( language, can
 	}
 	return this.namespaceCache[ language ].get( canonicalNamespace );
 };
+
+/**
+ * Fetch CX Language pair configuration
+ * @param {string} sourceLanguage Source language
+ * @param {string} targetLanguage Target language
+ * @return {jQuery.Promise}
+ */
+mw.cx.MwApiRequestManager.prototype.fetchCXConfiguration = function ( sourceLanguage, targetLanguage ) {
+	return new mw.Api().get( {
+		action: 'cxconfiguration',
+		from: sourceLanguage,
+		to: targetLanguage
+	} );
+};
+
+/**
+ * Fetch the page with given title and language.
+ * Response contains
+ *
+ * @param {string} title Title of the page to be fetched
+ * @param {string} language Language of the page requested. This will be used to
+ *     identify the host wiki.
+ * @param {string} revision Source page revision id.
+ * @return {jQuery.Promise}
+ */
+mw.cx.MwApiRequestManager.prototype.fetchSourcePageContent = function ( title, language, revision ) {
+	var fetchParams, apiURL, fetchPageUrl;
+
+	fetchParams = {
+		$language: this.siteMapper.getWikiDomainCode( language ),
+		// Manual normalisation to avoid redirects on spaces but not to break namespaces
+		$title: title.replace( / /g, '_' )
+	};
+	apiURL = '/page/$language/$title';
+
+	// If revision is requested, load that revision of page.
+	if ( revision ) {
+		fetchParams.$revision = revision;
+		apiURL += '/$revision';
+	}
+
+	fetchPageUrl = this.siteMapper.getCXServerUrl( apiURL, fetchParams );
+
+	return $.get( fetchPageUrl ).fail( function ( xhr ) {
+		if ( xhr.status === 404 ) {
+			mw.hook( 'mw.cx.error' ).fire(
+				mw.msg( 'cx-error-page-not-found', title, $.uls.data.getAutonym( language ) )
+			);
+		} else {
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+		}
+	} );
+};
+
+/**
+ * Adapt and add categories from an array of categories
+ * @param {string} sourceLanguage Source language
+ * @param {string[]} sourceCategories Array of source category titles, with namespace prefix
+ * @return {jQuery.Promise<string[]>} All successfully adapted titles
+ */
+mw.cx.MwApiRequestManager.prototype.adaptCategoriesFrom = function ( sourceLanguage, sourceCategories ) {
+	// Note that requestManager will take care of combining all these categories
+	// to a single network request.
+	var deferreds = sourceCategories.map( function ( category ) {
+		return this.getTitlePair( sourceLanguage, category );
+	}.bind( this ) );
+	return $.when.apply( $, deferreds ).then( function () {
+		var targetCategories = [];
+		Array.prototype.forEach.call( arguments, function ( pairInfo ) {
+			if ( pairInfo.targetTitle ) {
+				targetCategories.push( pairInfo.targetTitle );
+			}
+		} );
+		return targetCategories;
+	} );
+};

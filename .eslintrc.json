@@ -6,6 +6,7 @@
 		"qunit": true
 	},
 	"globals": {
+		"ve": false,
 		"mediaWiki": false,
 		"moment": false,
 		"mw": false,

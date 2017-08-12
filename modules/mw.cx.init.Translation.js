@@ -8,15 +8,18 @@ mw.cx.init = {};
  * @constructor
  * @param {mw.cx.dm.WikiPage} sourceWikiPage
  * @param {mw.cx.dm.WikiPage} targetWikiPage
- * @param {Object} services Standard services
+ * @param {Object} config Standard services TODO not optional so should not be called config
+ * @cfg {mw.cx.SiteMapper} siteMapper
+ * @cfg {mw.cx.MwApiRequestManager} requestManager
+ * @cfg {mw.cx.MachineTranslationService} MTService
+ * @cfg {mw.cx.MachineTranslationManager} MTManager
  */
-mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWikiPage, services ) {
+mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWikiPage, config ) {
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
-	this.services = services;
 
 	// BC with other code
-	this.config = services;
+	this.config = config;
 	this.config.sourceTitle = sourceWikiPage.getTitle();
 	this.config.sourceLanguage = sourceWikiPage.getLanguage();
 	this.config.sourceRevision = sourceWikiPage.getRevision();
@@ -39,40 +42,47 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
  * Initialize translation.
  */
 mw.cx.init.Translation.prototype.init = function () {
+	var platformPromise, translationPromise, modulePromise;
+
+	if ( mw.user.isAnon() ) {
+		mw.hook( 'mw.cx.error.anonuser' ).fire();
+		return;
+	}
+	if ( this.config.campaign ) {
+		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
+	}
 	this.translationView = new mw.cx.ui.TranslationView( this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.translationView );
 
-	this.fetchTranslationData().then(
-		function ( configuration, sourcePageContent, draft ) {
-			$.extend( this.config, configuration );
+	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
+	// modules and manually initializing the platform
+	platformPromise = new ve.init.mw.Platform().initialize();
+	translationPromise = this.fetchTranslationData();
+	modulePromise = mw.loader.using( mw.config.get( 'wgVisualEditorConfig' ).pluginModules );
 
-			// Prepare source and target page instnaces.
-			this.sourcePage = this.processSourcePageContent( sourcePageContent );
-			this.targetPage = new mw.cx.dm.TargetPage( this.config );
+	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
+		var configuration = translationData[ 0 ],
+			sourcePageContent = translationData[ 1 ],
+			draft = translationData[ 2 ];
 
-			// Initialize translation model
-			this.translationModel = new mw.cx.dm.Translation( this.config );
-			this.translationModel.setSourcePage( this.sourcePage );
-			this.translationModel.setTargetPage( this.targetPage );
-			this.translationModel.setSourceRevisionId( this.sourcePage.getSourceRevision() );
-			this.translationModel.prepareTranslationUnits();
-
-			// Initialize translation controller
-			this.translationController = new mw.cx.TranslationController(
-				this.translationModel, this.translationView, this.config
-			);
-
-			// Restore draft, if any;
-			this.restoreDraftTranslation( draft );
-			this.translationView.setTranslation( this.translationModel );
-			this.translationView.loadTranslation();
-			mw.log( '[CX] Translation initialized successfully' );
-			// Fetch and adapt categories
-			this.fetchAndAdaptCategories();
-		}.bind( this ),
-		this.initializationError.bind( this )
-	);
+		$.extend( this.config, configuration );
+		this.translationModel = new mw.cx.dm.Translation(
+			this.sourceWikiPage,
+			this.targetWikiPage,
+			sourcePageContent.segmentedContent
+		);
+		// Initialize translation controller
+		this.translationController = new mw.cx.TranslationController(
+			this.translationModel, this.translationView, this.config
+		);
+		// Restore draft, if any;
+		this.restoreDraftTranslation( draft );
+		this.translationView.setTranslation( this.translationModel );
+		mw.log( '[CX] Translation initialized successfully' );
+		// Fetch and adapt categories
+		this.fetchAndAdaptCategories();
+	}.bind( this ), this.initializationError.bind( this ) );
 };
 
 /**
@@ -89,7 +99,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 
 	mw.log( '[CX] Fetching Source page...' );
 	sourcePageFetchDeferred = this.fetchSourcePageContent(
-			this.sourceWikiPage, this.services.siteMapper
+			this.sourceWikiPage, this.config.siteMapper
 		).fail( this.fetchSourcePageContentError.bind( this ) );
 
 	mw.log( '[CX] Checking existing translation...' );
@@ -337,13 +347,23 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
+	var translationModel = this.translationModel,
+		requestManager = this.config.requestManager,
+		translationView = this.translationView;
+
 	mw.log( '[CX] Fetching and adapting categories...' );
-	return this.sourcePage.getCategories().then( function ( sourceCategories ) {
-		return this.targetPage.adaptCategoriesFrom(
-			this.sourceWikiPage.getLanguage(),
-			sourceCategories
-		).then( function () {
-			this.translationView.showCategories();
-		}.bind( this ) );
-	}.bind( this ) );
+
+	return requestManager.getCategories(
+		translationModel.sourceWikiPage.getLanguage(),
+		translationModel.sourceWikiPage.getTitle()
+	).then( function ( categoriesResult ) {
+		translationModel.sourceCategories = categoriesResult.categories;
+		return requestManager.adaptCategoriesFrom(
+			translationModel.sourceWikiPage.getLanguage(),
+			translationModel.sourceCategories
+		);
+	} ).then( function ( targetCategories ) {
+		translationModel.targetCategories = targetCategories;
+		translationView.showCategories();
+	} );
 };

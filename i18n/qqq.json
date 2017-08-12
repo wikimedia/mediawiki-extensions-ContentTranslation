@@ -236,5 +236,6 @@
 	"cx-publish-destination-tooltip": "Tooltip text for the namespace selector",
 	"cx-publish-destination-namespace-main": "Label for choosing main namespace as publishing destination",
 	"cx-publish-destination-namespace-user": "Label for choosing a page under User namespace as publishing destination",
-	"cx-publish-destination-namespace-draft": "Label for choosing draft namespace as publishing destination"
+	"cx-publish-destination-namespace-draft": "Label for choosing draft namespace as publishing destination",
+	"cx-linkcontextitem-title": "Title for the context item for an adapted link"
 }

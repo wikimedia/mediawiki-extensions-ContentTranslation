@@ -5,6 +5,9 @@
  *
  * @class
  * @param {Object} [config] Configuration object
+ * @cfg {mw.cx.SiteMapper} siteMapper
+ * @cfg {string} sourceLanguage
+ * @cfg {string} sourceTitle
  */
 mw.cx.ui.SourceColumn = function ( config ) {
 	// Configuration initialization
@@ -81,10 +84,20 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 	this.showLoadingIndicator();
 };
 
+/**
+ * Attach the source surface's element to the DOM
+ *
+ * @param {ve.ui.CXSourceSurface} surface The source surface
+ */
+mw.cx.ui.SourceColumn.prototype.attachSurface = function ( surface ) {
+	this.$content.empty().append( surface.$element );
+};
+
 mw.cx.ui.SourceColumn.prototype.showCategories = function () {
-	var categoryUI = new mw.cx.ui.Categories( {
-		page: this.translation.getSourcePage()
-	} );
+	var categoryUI = new mw.cx.ui.Categories(
+		this.translation.sourceCategories,
+		{ editable: false }
+	);
 	this.$content.before( categoryUI.getCategoryCount().$element );
 	this.$content.after( categoryUI.getCategoryListing().$element );
 	categoryUI.listen();
@@ -116,6 +129,7 @@ mw.cx.ui.SourceColumn.prototype.insertAt = function ( index, $element ) {
  */
 mw.cx.ui.SourceColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
+	this.removeLoadingIndicator();
 };
 
 mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {

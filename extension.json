@@ -1201,17 +1201,8 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"oojs"
-			]
-		},
-		"mw.cx.dm.Model": {
-			"scripts": [
-				"dm/mw.cx.dm.Model.js",
-				"dm/mw.cx.dm.ModelRegistry.js",
-				"dm/mw.cx.dm.ModelFactory.js"
-			],
-			"dependencies": [
-				"mw.cx.dm"
+				"oojs",
+				"mw.cx.visualEditor"
 			]
 		},
 		"mw.cx.dm.Translation": {
@@ -1220,26 +1211,7 @@
 			],
 			"dependencies": [
 				"mw.cx.dm",
-				"mw.cx.dm.SourcePage",
-				"mw.cx.dm.TargetPage",
 				"mw.cx.dm.TranslationUnits"
-			]
-		},
-		"mw.cx.dm.SourcePage": {
-			"scripts": [
-				"dm/mw.cx.dm.SourcePage.js"
-			],
-			"dependencies": [
-				"mw.cx.dm",
-				"mediawiki.skinning.content.parsoid"
-			]
-		},
-		"mw.cx.dm.TargetPage": {
-			"scripts": [
-				"dm/mw.cx.dm.TargetPage.js"
-			],
-			"dependencies": [
-				"mw.cx.dm"
 			]
 		},
 		"mw.cx.dm.WikiPage": {
@@ -1249,13 +1221,8 @@
 		"mw.cx.dm.TranslationUnits": {
 			"dependencies": [
 				"mw.cx.dm.TranslationUnit",
-				"mw.cx.dm.ImageTranslationUnit",
 				"mw.cx.dm.SentenceTranslationUnit",
 				"mw.cx.dm.LinkTranslationUnit",
-				"mw.cx.dm.ExternalLinkTranslationUnit",
-				"mw.cx.dm.PoemTranslationUnit",
-				"mw.cx.dm.ReferenceTranslationUnit",
-				"mw.cx.dm.TemplateTranslationUnit",
 				"mw.cx.dm.SectionTranslationUnit"
 			]
 		},
@@ -1264,53 +1231,12 @@
 				"dm/translationunits/mw.cx.dm.TranslationUnit.js"
 			],
 			"dependencies": [
-				"mw.cx.dm.TranslationUnitFactory",
-				"mw.cx.dm.SourcePage"
-			]
-		},
-		"mw.cx.dm.ImageTranslationUnit": {
-			"scripts": [
-				"dm/translationunits/mw.cx.dm.ImageTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.dm.SectionTranslationUnit"
-			]
-		},
-		"mw.cx.dm.ExternalLinkTranslationUnit": {
-			"scripts": [
-				"dm/translationunits/mw.cx.dm.ExternalLinkTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.dm.TranslationUnit"
+				"mw.cx.dm.TranslationUnitFactory"
 			]
 		},
 		"mw.cx.dm.SentenceTranslationUnit": {
 			"scripts": [
 				"dm/translationunits/mw.cx.dm.SentenceTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.dm.TranslationUnit"
-			]
-		},
-		"mw.cx.dm.TemplateTranslationUnit": {
-			"scripts": [
-				"dm/translationunits/mw.cx.dm.TemplateTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.dm.SectionTranslationUnit"
-			]
-		},
-		"mw.cx.dm.PoemTranslationUnit": {
-			"scripts": [
-				"dm/translationunits/mw.cx.dm.PoemTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.dm.TranslationUnit"
-			]
-		},
-		"mw.cx.dm.ReferenceTranslationUnit": {
-			"scripts": [
-				"dm/translationunits/mw.cx.dm.ReferenceTranslationUnit.js"
 			],
 			"dependencies": [
 				"mw.cx.dm.TranslationUnit"
@@ -1329,7 +1255,6 @@
 				"dm/translationunits/mw.cx.dm.SectionTranslationUnit.js"
 			],
 			"dependencies": [
-				"mw.cx.dm.SourcePage",
 				"mw.cx.dm.TranslationUnit"
 			]
 		},
@@ -1338,7 +1263,7 @@
 				"dm/translationunits/mw.cx.dm.TranslationUnitFactory.js"
 			],
 			"dependencies": [
-				"mw.cx.dm.Model"
+				"mw.cx.dm"
 			]
 		},
 		"mw.cx.ui": {
@@ -1354,6 +1279,41 @@
 				"mobile"
 			]
 		},
+		"mw.cx.visualEditor": {
+			"scripts": [
+				"ve-cx/dm/ve.dm.CXTranslationUnitModel.js",
+				"ve-cx/dm/ve.dm.CXLinkAnnotation.js",
+				"ve-cx/dm/ve.dm.CXSentenceSegmentAnnotation.js",
+				"ve-cx/dm/ve.dm.CXSectionNode.js",
+				"ve-cx/dm/ve.dm.CXPlaceholderNode.js",
+				"ve-cx/ce/ve.ce.CXLinkAnnotation.js",
+				"ve-cx/ce/ve.ce.CXSentenceSegmentAnnotation.js",
+				"ve-cx/ce/ve.ce.CXSectionNode.js",
+				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
+				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
+				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
+				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
+				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js",
+				"ve-cx/ui/ve.ui.CXSurface.js",
+				"ve-cx/ui/ve.ui.CXSourceSurface.js",
+				"ve-cx/ui/ve.ui.CXTargetSurface.js"
+			],
+			"styles": [
+				"ve-cx/ui/styles/ve.ui.CXSurface.css"
+			],
+			"messages": [
+				"cx-linkcontextitem-title"
+			],
+			"dependencies": [
+				"ext.visualEditor.mediawiki",
+				"ext.visualEditor.desktopTarget",
+				"ext.visualEditor.mwextensions.desktop",
+				"ext.visualEditor.core.desktop"
+			],
+			"targets": [
+				"desktop"
+			]
+		},
 		"mw.cx.init": {
 			"scripts": [
 				"mw.cx.init.js"
@@ -1362,6 +1322,7 @@
 				"widgets/common/ext.cx.common.less"
 			],
 			"dependencies": [
+				"mw.cx.visualEditor",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"mw.cx.MwApiRequestManager",
@@ -1465,6 +1426,7 @@
 				"ui/mw.cx.ui.TranslationView.js"
 			],
 			"styles": [
+				"ui/styles/mw.cx.ui.Columns.less",
 				"ui/styles/mw.cx.ui.TranslationView.less"
 			],
 			"messages": [
@@ -1480,11 +1442,14 @@
 				"mw.cx.dm.Translation",
 				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.tools",
-				"mw.cx.ui.Columns",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.TranslationUnits",
 				"mw.cx.ui.PublishSettingsWidget",
-				"mw.cx.util"
+				"mw.cx.ui.SourceColumn",
+				"mw.cx.ui.TargetColumn",
+				"mw.cx.ui.ToolsColumn",
+				"mw.cx.util",
+				"mw.cx.visualEditor"
 			]
 		},
 		"mw.cx.ui.TranslationView.legacy": {
@@ -1573,20 +1538,6 @@
 				"mobile"
 			]
 		},
-		"mw.cx.ui.Columns": {
-			"scripts": [
-				"ui/mw.cx.ui.Columns.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.Columns.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.ui.SourceColumn",
-				"mw.cx.ui.TranslationColumn",
-				"mw.cx.ui.ToolsColumn"
-			]
-		},
 		"mw.cx.ui.Columns.legacy": {
 			"scripts": [
 				"ui/legacy/mw.cx.ui.Columns.js"
@@ -1637,12 +1588,12 @@
 				"ext.cx.widgets.spinner"
 			]
 		},
-		"mw.cx.ui.TranslationColumn": {
+		"mw.cx.ui.TargetColumn": {
 			"scripts": [
-				"ui/mw.cx.ui.TranslationColumn.js"
+				"ui/mw.cx.ui.TargetColumn.js"
 			],
 			"styles": [
-				"ui/styles/mw.cx.ui.TranslationColumn.less"
+				"ui/styles/mw.cx.ui.TargetColumn.less"
 			],
 			"messages": [
 				"cx-translation-add-translation"
@@ -1715,13 +1666,8 @@
 			"dependencies": [
 				"mw.cx.ui.TranslationUnitFactory",
 				"mw.cx.ui.TranslationUnit",
-				"mw.cx.ui.ImageTranslationUnit",
 				"mw.cx.ui.SectionTranslationUnit",
-				"mw.cx.ui.PoemTranslationUnit",
-				"mw.cx.ui.ReferenceTranslationUnit",
 				"mw.cx.ui.LinkTranslationUnit",
-				"mw.cx.ui.ExternalLinkTranslationUnit",
-				"mw.cx.ui.TemplateTranslationUnit",
 				"mw.cx.ui.SentenceTranslationUnit"
 			]
 		},
@@ -1752,38 +1698,6 @@
 			],
 			"dependencies": [
 				"mw.cx.ui.TranslationUnit"
-			]
-		},
-		"mw.cx.ui.ExternalLinkTranslationUnit": {
-			"scripts": [
-				"ui/translationunits/mw.cx.ui.ExternalLinkTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.ui.TranslationUnit"
-			]
-		},
-		"mw.cx.ui.PoemTranslationUnit": {
-			"scripts": [
-				"ui/translationunits/mw.cx.ui.PoemTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.ui.TranslationUnit"
-			]
-		},
-		"mw.cx.ui.ReferenceTranslationUnit": {
-			"scripts": [
-				"ui/translationunits/mw.cx.ui.ReferenceTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.ui.TranslationUnit"
-			]
-		},
-		"mw.cx.ui.TemplateTranslationUnit": {
-			"scripts": [
-				"ui/translationunits/mw.cx.ui.TemplateTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.ui.SectionTranslationUnit"
 			]
 		},
 		"mw.cx.ui.SentenceTranslationUnit": {
