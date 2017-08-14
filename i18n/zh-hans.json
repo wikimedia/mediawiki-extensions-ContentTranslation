@@ -225,5 +225,6 @@
 	"cx-publish-destination-tooltip": "选择将发布页面的名字空间",
 	"cx-publish-destination-namespace-main": "新页面",
 	"cx-publish-destination-namespace-user": "个人草稿",
-	"cx-publish-destination-namespace-draft": "社群草稿"
+	"cx-publish-destination-namespace-draft": "社群草稿",
+	"cx-linkcontextitem-title": "已适配链接"
 }

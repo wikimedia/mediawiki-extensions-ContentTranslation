@@ -116,6 +116,8 @@
 	"cx-translation-status-draft": "אין באארבעטונג",
 	"cx-translation-status-published": "פֿאַרעפֿנטלעכט",
 	"cx-translation-status-deleted": "אויסגעמעקט",
+	"cx-translation-label-draft": "איבערזעצונגען אין גאנג",
+	"cx-translation-label-published": "פארעפנטלעכע איבערזעצונגען",
 	"cx-translation-already-in-progress": "דאס איז א לויפֿנדע איבערזעצונג {{GENDER:$2|פֿון}} $1.",
 	"cx-publishing-dialog-publish-draft-button": "פֿארעפֿנטלעכן ווי אנווארף",
 	"cx-feedback-link": "פארזארגן פידבעק",

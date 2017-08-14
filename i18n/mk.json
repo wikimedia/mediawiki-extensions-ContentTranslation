@@ -215,5 +215,6 @@
 	"cx-publish-destination-tooltip": "Изберете во кој именски простор да се објави страницата",
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Личен нацрт",
-	"cx-publish-destination-namespace-draft": "Друштвен нацрт"
+	"cx-publish-destination-namespace-draft": "Друштвен нацрт",
+	"cx-linkcontextitem-title": "Прилагодена врска"
 }

@@ -251,5 +251,6 @@
 	"cx-publish-destination-tooltip": "Choisir l’espace de noms dans lequel la page sera publiée",
 	"cx-publish-destination-namespace-main": "Nouvelle page",
 	"cx-publish-destination-namespace-user": "Ébauche personnelle",
-	"cx-publish-destination-namespace-draft": "Ébauche communautaire"
+	"cx-publish-destination-namespace-draft": "Ébauche communautaire",
+	"cx-linkcontextitem-title": "Lien adapté"
 }

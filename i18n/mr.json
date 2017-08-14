@@ -35,7 +35,7 @@
 	"cx-publish-gt-moved-description": "आपले नविन भाषांतरीत पान वाचण्यास व ते सुधरविण्यास या दुव्यास टिचका",
 	"cx-publish-gt-published-title": "अभिनंदन, ते पान प्रकाशित केल्या गेले",
 	"cx-publish-gt-published-description": "आपण \"$1\" टिचकुन त्या पानास अधिक सुधरविणे सुरु ठेवु शकता. याची खात्रीकरा कि ते सहजरित्या वाचता येते.",
-	"cx-translation-add-translation": "+भाषांतर जोडा",
+	"cx-translation-add-translation": "भाषांतर जोडा",
 	"cx-translation-target-page-exists": "लक्ष्य विकित [$1 $2] या शिर्षकाचे पान अस्तित्वात आहे. या पानास दुसरे शिर्षक देण्याबद्दल विचार करा.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|आशयभाषांतर]]",
 	"tag-contenttranslation-description": "आशय भाषांतर उपकरण वापरून,दुसऱ्या भाषेतुन आशयाचे भाषांतर केल्या गेले.",

@@ -64,6 +64,7 @@
 	"apihelp-cxsave-param-to": "De code van de doeltaal.",
 	"apihelp-cxsave-param-sourcetitle": "De titel van de bronpagina.",
 	"apierror-cx-invalidlanguage": "Ongeldige taal.",
+	"apierror-cx-invalidprogress": "Ongeldige voortgang.",
 	"apierror-cx-invalidsourcelanguage": "Ongeldige brontaal.",
 	"apierror-cx-invalidtargetlanguage": "Ongeldige doeltaal.",
 	"apierror-cx-translationnotfound": "De vertaling is niet gevonden."

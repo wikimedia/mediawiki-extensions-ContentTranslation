@@ -4,7 +4,8 @@
 			"Leeheonjin",
 			"Sky Harbor",
 			"Jewel457",
-			"Jojit fb"
+			"Jojit fb",
+			"Blakegripling ph"
 		]
 	},
 	"cx": "Isalin ang pahina",
@@ -123,6 +124,7 @@
 	"cx-translation-status-draft": "Isinasagawa",
 	"cx-translation-status-published": "Itinala",
 	"cx-translation-status-deleted": "Binura",
+	"cx-translation-label-published": "Mga saling itinala",
 	"cx-translation-already-in-progress": "Isa itong patuloy na salin ni $1.",
 	"cx-translation-already-in-progress-collaborate": "Mangyaring makipag-ugnayan sa tagagamit ng nagsalin ng kasalukuyang salin.",
 	"cx-publishing-dialog-publish-draft-button": "Itala bilang burador",

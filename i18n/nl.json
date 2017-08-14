@@ -142,6 +142,7 @@
 	"cx-translation-status-draft": "In bewerking",
 	"cx-translation-status-published": "Gepubliceerd",
 	"cx-translation-status-deleted": "Verwijderd",
+	"cx-translation-label-published": "Gepubliceerde vertalingen",
 	"cx-translation-already-in-progress": "Deze vertaling is in bewerking {{GENDER:$2|door}} $1.",
 	"cx-translation-already-in-progress-collaborate": "Zorg ervoor dat u uw bewerkingen coördineert met de {{GENDER:$1|gebruiker}} die de huidige vertaling heeft vertaald.",
 	"cx-publishing-dialog-publish-draft-button": "Als concept publiceren",

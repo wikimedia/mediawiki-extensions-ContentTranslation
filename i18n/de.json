@@ -223,5 +223,6 @@
 	"cx-publish-destination-tooltip": "Wähle den Namensraum aus, in dem die Seite veröffentlicht werden soll.",
 	"cx-publish-destination-namespace-main": "Neue Seite",
 	"cx-publish-destination-namespace-user": "Persönlicher Entwurf",
-	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf"
+	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf",
+	"cx-linkcontextitem-title": "Angepasster Link"
 }

@@ -16,7 +16,8 @@
 			"Statix64",
 			"Wikitoni",
 			"Selven",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Greis"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -138,6 +139,8 @@
 	"cx-translation-status-draft": "In corso",
 	"cx-translation-status-published": "Pubblicato",
 	"cx-translation-status-deleted": "Cancellato",
+	"cx-translation-label-draft": "Traduzioni in corso",
+	"cx-translation-label-published": "Traduzioni pubblicate",
 	"cx-translation-already-in-progress": "Questa è una traduzione in corso di {{GENDER:$2|$1}}.",
 	"cx-translation-already-in-progress-collaborate": "Assicurati di coordinarti con {{GENDER:$1|l'utente}} che ha eseguito la traduzione attuale.",
 	"cx-publishing-dialog-publish-draft-button": "Pubblica come bozza",
