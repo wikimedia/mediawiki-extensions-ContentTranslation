@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="86" height="64" viewBox="0 0 43 32">
-    <defs>
-        <style>
-            .cls-2 { fill: #2460cf; }
-        </style>
-    </defs>
-    <path d="M39 10v18l4 4H15V10h24zM4 0h25v8H13v14H0l4.095-4L4 0z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+    <path d="M39 10v18l4 4H15V10h24zM4 0h25v8H13v14H0l4.095-4L4 0z" id="path-1" fill="#36c" fill-rule="evenodd"/>
 </svg>
