@@ -226,5 +226,6 @@
 	"cx-publish-destination-tooltip": "Escolha o espaço nominal no qual a página será publicada",
 	"cx-publish-destination-namespace-main": "Página nova",
 	"cx-publish-destination-namespace-user": "Rascunho pessoal",
-	"cx-publish-destination-namespace-draft": "Rascunho comunitário"
+	"cx-publish-destination-namespace-draft": "Rascunho comunitário",
+	"cx-linkcontextitem-title": "Link adaptado"
 }
