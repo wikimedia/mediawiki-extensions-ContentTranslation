@@ -6,7 +6,7 @@
 	-moz-transition: opacity 200ms ease-out;
 	transition: opacity 200ms ease-out;
 
-	outline: 1px dashed #ccc;
+	outline: 1px dashed #c8ccd1;
 	/* rgba( #f1f7fb, 0.75 ) */
 	background-color: rgba( 241, 247, 251, 0.75 );
 }
