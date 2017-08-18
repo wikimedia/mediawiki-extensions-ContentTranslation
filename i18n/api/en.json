@@ -116,5 +116,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "To view your translations, you must log in.",
 	"apierror-cx-samelanguages": "Source and target languages cannot be the same.",
 	"apierror-cx-suggestionsdisabled": "Suggestions not enabled for this wiki.",
-	"apierror-cx-translationnotfound": "Translation not found."
+	"apierror-cx-translationnotfound": "Translation not found.",
+	"apihelp-query+langlinkscount-description": "Get the number of other languages that article exists in.",
+	"apihelp-query+langlinkscount-summary": "Get the number of other language versions.",
+	"apihelp-query+langlinkscount-example-1": "Get the number of other language versions for 'Dog' page"
 }

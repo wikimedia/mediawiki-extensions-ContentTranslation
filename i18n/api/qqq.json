@@ -113,5 +113,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "{{doc-apierror}}",
 	"apierror-cx-samelanguages": "{{doc-apierror}}",
 	"apierror-cx-suggestionsdisabled": "{{doc-apierror}}",
-	"apierror-cx-translationnotfound": "{{doc-apierror}}"
+	"apierror-cx-translationnotfound": "{{doc-apierror}}",
+	"apihelp-query+langlinkscount-description": "{{doc-apihelp-description|query+langlinkscount}}",
+	"apihelp-query+langlinkscount-summary": "{{doc-apihelp-summary|query+langlinkscount}}",
+	"apihelp-query+langlinkscount-example-1": "{{doc-apihelp-example|query+langlinkscount}}"
 }

@@ -56,6 +56,9 @@
 		"cxpublishedtranslations": "ApiQueryPublishedTranslations",
 		"cxtranslatorstats": "ApiQueryTranslatorStats"
 	},
+	"APIPropModules": {
+		"langlinkscount": "ApiQueryLangLinksCount"
+	},
 	"MessagesDirs": {
 		"ContentTranslation": "i18n",
 		"ContentTranslationApi": "i18n/api"
@@ -76,6 +79,7 @@
 		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
+		"ApiQueryLangLinksCount": "api/ApiQueryLangLinksCount.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
@@ -2050,7 +2054,22 @@
 			],
 			"dependencies": [
 				"mediawiki.widgets",
+				"mw.cx.ui.TitleOptionWidget",
 				"oojs-ui.styles.icons-interactions"
+			]
+		},
+		"mw.cx.ui.TitleOptionWidget": {
+			"scripts": [
+				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
+			],
+			"messages": [
+				"cx-sourceselector-missing-in-target-language"
+			],
+			"dependencies": [
+				"mediawiki.widgets"
 			]
 		}
 	},

@@ -740,7 +740,7 @@
 	};
 
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
-		var itemImage;
+		var itemImage, numOfLanguages;
 
 		this.sourcePageSelector.setValue( item.getData() );
 
@@ -755,6 +755,7 @@
 			} );
 		}
 
+		numOfLanguages = item.initialConfig.numOfLanguages;
 		this.$selectedItemInfo.append(
 			$( '<a>' ).prop( {
 				href: item.$label.prop( 'href' ),
@@ -763,6 +764,14 @@
 				text: item.$label.text()
 			} )
 		);
+		if ( numOfLanguages ) {
+			this.$selectedItemInfo.append(
+				$( '<span>' )
+					.addClass( 'cx-sourceselector-embedded-selected-item__language-count' )
+					.text( mw.language.convertNumber( numOfLanguages ) )
+			);
+		}
+
 		this.$container
 			.toggleClass( 'cx-sourceselector-embedded--selected' );
 
@@ -995,7 +1004,8 @@
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
-			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
+			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' ),
+			showRedirectTargets: true
 		} );
 		this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 
