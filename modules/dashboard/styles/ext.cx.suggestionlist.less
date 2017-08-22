@@ -6,7 +6,6 @@
 	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 0;
-	margin: 0 0 10px 0;
 }
 
 .cx-suggestionlist__public {
@@ -49,14 +48,39 @@
 .cx-suggestionlist__expand,
 .cx-suggestionlist__refresh {
 	.mw-ui-one-whole;
-	padding: 10px;
 	background-color: #fff;
-	border: 1px solid #ddd;
-	cursor: pointer;
+	border: 1px solid @colorGray13;
+	padding: 10px;
 	font-size: medium;
 	text-align: center;
+	cursor: pointer;
+
 	&:hover {
 		background-color: #eff3fb;
+	}
+}
+
+.cx-suggestionlist__refresh {
+	color: @colorProgressive;
+	margin-bottom: 48px;
+	border-width: 1px 0;
+	border-radius: 0 0 @borderRadius @borderRadius;
+	padding: 20px;
+	font-weight: bold;
+
+	&:before {
+		@iconSize: 20px;
+
+		content: '';
+		.background-image-svg('../images/refresh.svg', '../images/refresh.png');
+		background-repeat: no-repeat;
+		background-size: @iconSize;
+		display: inline-block;
+		position: relative;
+		top: 3px;
+		width: @iconSize;
+		height: @iconSize;
+		margin-right: 8px;
 	}
 }
 
