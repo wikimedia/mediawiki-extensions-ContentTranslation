@@ -10,24 +10,102 @@
 	z-index: 400; // 300 is the z-index of overlay
 	min-width: 650px;
 	max-width: 700px;
-	border: 1px solid #ddd;
+	border: 1px solid @colorGray12;
 	border-bottom-width: 3px;
 	border-radius: @borderRadius;
 	padding: 0;
 	box-shadow: 0 5px 10px rgba( 0, 0, 0, 0.2 );
 
 	.cx-sourceselector-dialog__heading {
-		@vertical-margin: 10px;
-		@horizontal-margin: 15px;
-
-		.mw-ui-item;
 		.mw-ui-one-whole;
 
-		padding: @vertical-margin @horizontal-margin;
-		font-size: 1.6em;
-		line-height: 1.5em;
 		border-bottom: 1px solid #eee;
+		padding: 0.4em 0.6em;
+		font-size: 1.6em;
+		line-height: 1.5;
 		font-weight: normal;
+	}
+
+	.cx-sourceselector-dialog__language-label {
+		.mw-ui-two-twelfths;
+
+		padding: 10px 5px;
+		font-size: large;
+		line-height: 1;
+	}
+
+	.cx-sourceselector-dialog__target-inputs,
+	.cx-sourceselector-dialog__source-inputs {
+		.mw-ui-one-whole;
+
+		height: 50px;
+		border-bottom: 1px solid #eee;
+		padding: 5px 10px;
+	}
+
+	.cx-sourceselector-dialog__language {
+		.mw-ui-three-twelfths;
+		padding: 4px 5px;
+
+		button {
+			.mw-ui-one-whole;
+
+			background-color: @colorGray15;
+			position: relative;
+			padding: 5px 10px;
+			font-size: medium;
+			text-align: left;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			cursor: pointer;
+
+			&:after {
+				content: '';
+				.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
+
+				position: absolute;
+				right: 2px;
+				bottom: 50%;
+
+				width: 20px;
+				height: 12px;
+				margin-bottom: -6px;
+			}
+		}
+	}
+
+	.cx-sourceselector-page-title {
+		.mw-ui-seven-twelfths;
+		padding: 4px 5px;
+
+		input {
+			.mw-ui-one-whole;
+
+			margin: 0;
+			border: 0;
+			padding: 4px 5px;
+
+			font-size: medium;
+			line-height: 1.5;
+			appearance: none;
+
+			// Make sure that the placeholder has a consistent alignment,
+			// so it won't be in opposite ends when the languages' direction is different
+			&::placeholder {
+				text-align: left;
+			}
+
+			&::input-placeholder {
+				text-align: left;
+			}
+		}
+
+		.oo-ui-iconElement-icon {
+			left: 0.2em;
+		}
 	}
 }
 
@@ -43,11 +121,39 @@
 	padding: 0;
 
 	&.cx-sourceselector-embedded--selected {
-		.cx-sourceselector-embedded__target-language,
-		.translation-language-arrow,
+		.cx-sourceselector-embedded__language-filter {
+			.cx-sourceselector-embedded__target-language,
+			.translation-language-arrow {
+				display: block;
+			}
+		}
+
 		.cx-sourceselector-embedded-discard,
 		.cx-sourceselector-embedded__actions {
 			display: block;
+		}
+	}
+
+	.cx-sourceselector-embedded__source-inputs {
+		.flex-display( box );
+		.flex-display;
+
+		-ms-flex-align: center; // Support IE10
+		-webkit-box-align: center; // Support 2011 syntax
+		-webkit-align-items: center; // Support Vendor specific
+		align-items: center; // Modern syntax
+
+		height: 40px;
+		border-bottom: 1px solid #eee;
+		padding: 10px;
+
+		.cx-sourceselector-page-title {
+			input {
+				padding: 0.375em 0.375em 0.375em 2.5em;
+			}
+			.oo-ui-iconElement-icon {
+				left: 0.2em;
+			}
 		}
 	}
 
@@ -121,38 +227,30 @@
 		}
 	}
 
-	.cx-sourceselector-embedded__source-inputs {
-		.flex-display( box );
-		.flex-display;
-
-		height: 40px;
-		border-bottom: 1px solid #eee;
-		padding: 10px;
-	}
-
 	.cx-sourceselector-embedded__actions {
 		display: none;
 	}
 
 	.cx-sourceselector-embedded__language-filter {
 		background: @colorGray15;
+		box-sizing: border-box;
 		width: auto;
 		max-width: 25%;
+		max-height: 34px;
 		border: 1px solid #9d9d9d;
 		border-radius: @borderRadius;
 		padding: 0;
 		font-weight: bold;
 
 		.flex-display( box ); // Support 2009 syntax
-		.flex-display();
+		.flex-display;
 		margin-left: auto;
 
 		.cx-sourceselector-embedded__source-language,
 		.cx-sourceselector-embedded__target-language {
-			float: left;
 			position: relative;
 			box-sizing: border-box;
-			font-size: 18px;
+			font-size: 16px;
 			cursor: pointer;
 
 			-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
@@ -165,7 +263,6 @@
 		}
 
 		.cx-sourceselector-embedded__language-button {
-			max-height: 34px;
 			padding: 8px;
 			line-height: 1;
 
@@ -173,56 +270,59 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-	}
 
-	.cx-sourceselector-embedded__source-language {
-		padding-right: 8px;
-		margin-right: -8px;
-	}
+		.cx-sourceselector-embedded__source-language {
+			padding-right: 8px;
+			margin-right: -8px;
+		}
 
-	.cx-sourceselector-embedded__target-language {
-		display: none;
+		.cx-sourceselector-embedded__target-language {
+			display: none;
 
-		padding-left: 8px;
-		margin-left: -8px;
-	}
+			padding-left: 8px;
+			margin-left: -8px;
+		}
 
-	.translation-language-arrow {
-		display: none;
+		.translation-language-arrow {
+			display: none;
 
-		float: left;
-		position: relative;
-		width: 0;
-		height: 34px;
-		margin-right: 16px;
-	}
+			float: left;
+			position: relative;
+			width: 0;
+			height: 32px;
+			margin-right: 16px;
+		}
 
-	.translation-language-arrow:after,
-	.translation-language-arrow:before {
-		content: ' ';
-		position: absolute;
-		top: 50%;
-		left: 100%;
-		width: 0;
-		height: 0;
-		border: solid transparent;
-		pointer-events: none;
-	}
+		.translation-language-arrow:after,
+		.translation-language-arrow:before {
+			content: ' ';
 
-	.translation-language-arrow:after {
-		margin-top: -17px;
-		border-color: rgba( 255, 255, 255, 0 );
-		border-left-color: @colorGray15;
-		border-width: 17px;
-		border-left-width: 12px;
-	}
+			position: absolute;
+			top: 50%;
+			left: 100%;
 
-	.translation-language-arrow:before {
-		margin-top: -18px;
-		border-color: rgba( 157, 157, 157, 0 );
-		border-left-color: #9d9d9d;
-		border-width: 18px;
-		border-left-width: 13px;
+			width: 0;
+			height: 0;
+			border: solid transparent;
+
+			pointer-events: none;
+		}
+
+		.translation-language-arrow:after {
+			margin-top: -16px;
+			border-color: rgba( 255, 255, 255, 0 );
+			border-left-color: @colorGray15;
+			border-width: 16px;
+			border-left-width: 12px;
+		}
+
+		.translation-language-arrow:before {
+			margin-top: -17px;
+			border-color: rgba( 157, 157, 157, 0 );
+			border-left-color: #9d9d9d;
+			border-width: 17px;
+			border-left-width: 13px;
+		}
 	}
 }
 
@@ -231,36 +331,20 @@
 	z-index: 2000;
 }
 
-.cx-sourceselector-dialog__target-inputs,
-.cx-sourceselector-dialog__source-inputs {
-	.mw-ui-item;
-	.mw-ui-one-whole;
-
-	height: 50px;
-	padding: 10px;
-	border-bottom: 1px solid #eee;
-}
-
-.cx-sourceselector-dialog__language-label {
-	.mw-ui-item;
-	.mw-ui-two-twelfths;
-
-	padding: 5px;
-	font-size: large;
-}
-
 .cx-sourceselector-messagebar {
 	.mw-ui-one-whole;
-	padding: 10px;
+
 	background-color: #f7d358;
+	padding: 10px;
 }
 
 .cx-sourceselector-dialog__actions,
 .cx-sourceselector-embedded__actions {
 	.mw-ui-one-whole;
+
+	background-color: @gray-lighter;
 	padding: 10px 15px 15px 15px;
 	text-align: right;
-	background-color: @gray-lighter;
 
 	button {
 		margin-left: 10px;
@@ -270,68 +354,10 @@
 .cx-sourceselector__license {
 	.mw-ui-one-whole;
 
-	padding: 10px;
 	background-color: @gray-lighter;
+	color: @colorGray7;
+	padding: 10px;
 	font-size: 12px;
-	color: #72777d;
-}
-
-.cx-sourceselector-dialog__language {
-	.mw-ui-item;
-	.mw-ui-three-twelfths;
-
-	button {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-
-		font-size: medium;
-		padding: 5px 10px;
-		background: #efefef;
-		position: relative;
-		cursor: pointer;
-		text-align: left;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-
-		&:after {
-			.background-image-svg('../../tools/images/dropdown.svg', '../../tools/images/dropdown.png');
-			content: '';
-			display: inline-block;
-			width: 20px;
-			height: 12px;
-			right: 2px;
-			position: absolute;
-			bottom: 50%;
-			margin-bottom: -6px;
-		}
-	}
-}
-
-.cx-sourceselector-page-title {
-	.mw-ui-item;
-	.mw-ui-seven-twelfths;
-
-	input {
-		.mw-ui-item;
-		.mw-ui-one-whole;
-
-		margin: 5px 10px 0;
-		font-size: medium;
-		appearance: none;
-		border: 0;
-		padding: 2px;
-
-		// Make sure that the placeholder has a consistent alignment,
-		// so it won't be in opposite ends when the languages' direction is different
-		&::placeholder {
-			text-align: left;
-		}
-
-		&::input-placeholder {
-			text-align: left;
-		}
-	}
 }
 
 .uls-language-list a.cx-sourceselector-unavailable-target {
