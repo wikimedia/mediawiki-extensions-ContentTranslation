@@ -203,5 +203,7 @@
 	"cx-page-old-revision-loaded": "Был тәржемә йөкмәткенең иҫке версияһына нигеҙләнгән. Тәүге биттең үҙгәреүе мөмкин. Һеҙ тәржемәгеҙҙе дауам итергә йә үҙгәртеүҙәрҙе файҙаланып уны яңынан эшләй алаһығыҙ.$1",
 	"cx-tools-mt-new-provider": "яңы",
 	"cx-tools-mt-new-providers-available": "Яңы күрһәткестәр менән",
-	"cx-continue-translation": "Тәржемәне дауам итергә"
+	"cx-continue-translation": "Тәржемәне дауам итергә",
+	"cx-tools-template-title": "Ҡалып",
+	"cx-publish-destination-namespace-main": "Яңы бит"
 }

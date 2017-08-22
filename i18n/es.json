@@ -231,5 +231,6 @@
 	"cx-publish-destination-tooltip": "Elige el espacio de nombres en el que se publicará la página",
 	"cx-publish-destination-namespace-main": "Página nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
-	"cx-publish-destination-namespace-draft": "Borrador comunitario"
+	"cx-publish-destination-namespace-draft": "Borrador comunitario",
+	"cx-linkcontextitem-title": "Enlace adaptado"
 }
