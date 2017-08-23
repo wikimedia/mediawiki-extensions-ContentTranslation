@@ -216,5 +216,6 @@
 	"cx-publish-destination-tooltip": "Escueyi l'espaciu de nomes nel que se publicará la páxina",
 	"cx-publish-destination-namespace-main": "Páxina nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
-	"cx-publish-destination-namespace-draft": "Borrador comunitariu"
+	"cx-publish-destination-namespace-draft": "Borrador comunitariu",
+	"cx-linkcontextitem-title": "Enllaz adautáu"
 }
