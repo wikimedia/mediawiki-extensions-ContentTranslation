@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * TranslationView
  *
@@ -350,7 +351,7 @@ mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeh
 		doc = modelSurface.documentModel,
 		pRange = placeholder.getModel().getOuterRange();
 
-	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data.contents ) );
+	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data ) );
 	tx1 = ve.dm.TransactionBuilder.static.newFromRemoval( doc, pRange );
 	tx2 = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
 		doc,
@@ -366,14 +367,15 @@ mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeh
 
 };
 
+/**
+ * Translate and adapt the given source section
+ * @param {string} source Source html content
+ * @return {jQuery.Promise}
+ */
 mw.cx.ui.TranslationView.prototype.translate = function ( source ) {
-	return $.ajax( {
-		method: 'POST',
-		contentType: 'application/x-www-form-urlencoded',
-		// TODO hardcoded
-		url: 'http://localhost:8080/v1/translate/en/es/Apertium',
-		data: { html: source }
-	} );
+	return this.config.MTService.getSuggestedDefaultProvider().then( function ( provider ) {
+		return this.config.MTService.translate( source, provider );
+	}.bind( this ) );
 };
 
 mw.cx.ui.TranslationView.prototype.showCategories = function () {

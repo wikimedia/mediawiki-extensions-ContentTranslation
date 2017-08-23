@@ -32,14 +32,8 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
  * @return {jQuery.Promise} Returns the translated HTML as a string.
  */
 mw.cx.MachineTranslationService.prototype.translate = function ( text, provider ) {
-	return this.validateProvider( provider )
-		.then( this.getCXServerToken.bind( this ) )
-		.then( this.fetchTranslation.bind( this, text, provider ) )
-		.then( function ( output ) {
-			// Some hacks around the fact that cxserver always wraps
-			// everything in a div (it shouldn't)
-			return $( output )[ 0 ].innerHTML;
-		} );
+	return this.getCXServerToken()
+		.then( this.fetchTranslation.bind( this, text, provider ) );
 };
 
 /**
@@ -163,10 +157,10 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( text, provider, token ) {
 	var request, mtURL;
 
-	mtURL = this.siteMapper.getCXServerUrl( '/mt/$from/$to/$provider', {
+	mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage,
-		$provider: provider
+		$provider: provider || ''
 	} );
 
 	request = {
