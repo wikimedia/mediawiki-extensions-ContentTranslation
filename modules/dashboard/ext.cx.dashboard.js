@@ -25,7 +25,6 @@
 		this.$newTranslationButton = null;
 		this.$filter = null;
 		this.$listHeader = null;
-		this.$cta = null;
 		this.$sourceSelector = null;
 	}
 
@@ -222,7 +221,8 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var	$filterTabs = [];
+		var	$filterTabs = [],
+			newTranslationButton;
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			$filterTabs.push( $( '<span>' )
@@ -239,19 +239,23 @@
 			.text( mw.msg( 'cx-translation-filter-published-translations' ) ) );
 
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
-		this.$newTranslationButton = $( '<button>' )
-			.addClass( 'cx-cta__new-translation mw-ui-button mw-ui-progressive' )
-			.text( mw.msg( 'cx-create-new-translation' ) );
-		this.$cta = $( '<div>' )
-			.addClass( 'cx-cta' )
-			.append( this.$newTranslationButton );
+
+		newTranslationButton = new OO.ui.ButtonWidget( {
+			label: mw.msg( 'cx-create-new-translation' ),
+			icon: 'add',
+			flags: [
+				'primary',
+				'progressive'
+			]
+		} );
+		this.$newTranslationButton = newTranslationButton.$element;
 
 		this.$filter = $( '<span>' )
 			.addClass( 'cx-filters' )
 			.append( $filterTabs );
 
 		this.$listHeader.append(
-			this.$cta,
+			this.$newTranslationButton,
 			this.$filter
 		);
 
