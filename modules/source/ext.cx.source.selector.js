@@ -23,16 +23,30 @@
 		this.options = $.extend( {}, options );
 		this.siteMapper = siteMapper;
 
+		// Boolean property indicating if CXSourceSelector is used as
+		// modal dialog or embedded
+		this.embedded = !!options.container && options.container instanceof jQuery;
+
 		this.sourceLanguages = [];
 		this.targetLanguages = [];
 		this.sourceLanguage = null;
 		this.targetLanguage = null;
-		this.$dialog = null;
+		// this.$container is used for both types of CXSourceSelector - embedded and modal dialog
+		// Embedded version - $container field gets DOM container passed through options parameter
+		// Dialog version - $container fields gets created in renderAsDialog method of this class
+		this.$container = this.embedded ? options.container : null;
+		this.$selectedItem = null;
+		this.$selectedItemImage = null;
+		this.$selectedItemInfo = null;
+		this.$languageFilter = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
+		this.$discardItem = null;
+		this.$sourceInputs = null;
 		this.$messageBar = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
+		this.$translateFromButton = null;
 		this.validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
 		this.init();
 	}
@@ -73,6 +87,19 @@
 	}
 
 	/**
+	 * Calculate position for ULS, depending on directionality
+	 */
+	function calculateUlsPosition() {
+		if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
+			this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
+		} else {
+			this.left = this.$element.offset().left;
+		}
+
+		this.$menu.css( this.position() );
+	}
+
+	/**
 	 * Initialize the plugin.
 	 */
 	CXSourceSelector.prototype.init = function () {
@@ -103,7 +130,8 @@
 			this.sourcePageSelector.setValue( this.options.sourceTitle );
 		}
 
-		if ( this.options.targetTitle ) {
+		// !this.embedded is extra check, second one may be sufficient
+		if ( !this.embedded && this.options.targetTitle ) {
 			this.$targetTitleInput.val( this.options.targetTitle );
 		}
 
@@ -212,7 +240,7 @@
 			.text( $.uls.data.getAutonym( this.sourceLanguage ) );
 		mw.storage.set( 'cxSourceLanguage', this.sourceLanguage );
 		this.sourcePageSelector.setLanguage( this.sourceLanguage );
-		this.fillTargetLanguages();
+		this.fillTargetLanguages( this.targetLanguages );
 	};
 
 	/**
@@ -240,17 +268,21 @@
 			lang: this.targetLanguage,
 			dir: $.uls.data.getDir( this.targetLanguage )
 		};
-		this.$targetTitleInput.prop( langProps );
+		if ( !this.embedded ) {
+			this.$targetTitleInput.prop( langProps );
+		}
 		this.$targetLanguage.prop( langProps )
 			.text( $.uls.data.getAutonym( this.targetLanguage ) );
+		this.sourcePageSelector.setTargetLanguage( language );
 		mw.storage.set( 'cxTargetLanguage', this.targetLanguage );
 	};
 
 	/**
 	 * Fill the target language dropdown with target languages that have
 	 * language tools compatible with the source language.
+	 * @param {array} targetLanguages
 	 */
-	CXSourceSelector.prototype.fillTargetLanguages = function () {
+	CXSourceSelector.prototype.fillTargetLanguages = function ( targetLanguages ) {
 		var targetLanguageCodes, sourceLanguage,
 			cxSourceSelector = this,
 			targetUlsClass = 'cx-sourceselector-uls-target';
@@ -262,7 +294,7 @@
 
 		// Don't let the target be the same as source
 		sourceLanguage = this.getSourceLanguage();
-		targetLanguageCodes = $.grep( this.targetLanguages, function ( language ) {
+		targetLanguageCodes = $.grep( targetLanguages, function ( language ) {
 			return language !== sourceLanguage;
 		} );
 
@@ -277,15 +309,7 @@
 			onReady: function () {
 				this.$menu.addClass( targetUlsClass );
 			},
-			onVisible: function () {
-				if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
-					this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
-				} else {
-					this.left = this.$element.offset().left;
-				}
-
-				this.$menu.css( this.position() );
-			},
+			onVisible: calculateUlsPosition,
 			quickList: function () {
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
 					return targetLanguageCodes.indexOf( n ) !== -1;
@@ -299,8 +323,8 @@
 	 */
 	CXSourceSelector.prototype.listen = function () {
 		var self = this;
-		// Open or close the dialog when clicking the link.
-		// The dialog will be unitialized until the first click.
+		// Open or close the (embedded) dialog when clicking the link.
+		// The (embedded) dialog will be unitialized until the first click.
 		this.$trigger.click( $.proxy( this.show, this ) );
 
 		this.sourcePageSelector.on( 'change', function () {
@@ -309,15 +333,19 @@
 			self.$messageBar.hide();
 		} );
 
-		// Target title input (check)
-		this.$targetTitleInput.on( 'input blur',
-			$.debounce( 600, false, $.proxy( this.check, this ) )
-		);
+		if ( !this.embedded ) {
+			// Target title input (check)
+			this.$targetTitleInput.on( 'input blur',
+				$.debounce( 600, false, $.proxy( this.check, this ) )
+			);
+		} else {
+			this.$discardItem.click( this.discardSelectedItem.bind( this ) );
+		}
 
 		// Keypress (start translation on enter key)
-		this.$dialog.on(
+		this.$container.on(
 			'keypress',
-			'.cx-sourceselector-dialog-title',
+			'.cx-sourceselector-page-title',
 			$.proxy( this.enterKeyHandler, this )
 		);
 	};
@@ -366,7 +394,7 @@
 		var sourceLanguage = this.getSourceLanguage(),
 			targetLanguage = this.getTargetLanguage(),
 			sourceTitle = this.sourcePageSelector.getQueryValue(),
-			targetTitle = this.$targetTitleInput.val().trim(),
+			targetTitle = this.embedded ? '' : this.$targetTitleInput.val().trim(),
 			selector = this;
 
 		this.$messageBar.hide();
@@ -518,7 +546,7 @@
 	 * @param {mw.Message|text} message the message to show
 	 */
 	CXSourceSelector.prototype.showMessage = function ( message ) {
-		var $messageText = $( '.cx-sourceselector-dialog__messagebar-text' );
+		var $messageText = $( '.cx-sourceselector-messagebar-text' );
 
 		if ( message instanceof mw.Message ) {
 			$messageText.html( message.parse() );
@@ -536,17 +564,15 @@
 	 * Show the CXSourceSelector.
 	 */
 	CXSourceSelector.prototype.show = function () {
-		var $container = this.options.container;
-
-		if ( $container && $container instanceof jQuery ) {
-			this.showAsEmbedded( $container );
+		if ( this.embedded ) {
+			this.showAsEmbedded();
 		} else {
 			this.showAsDialog();
 		}
 
 		// If there is something in the source field, it is probably auto-filled,
 		// so go immediately to the target to save time
-		if ( this.options.sourceTitle ) {
+		if ( !this.embedded && this.options.sourceTitle ) {
 			this.$targetTitleInput.focus();
 		} else {
 			this.sourcePageSelector.focus();
@@ -565,17 +591,17 @@
 		if ( this.options.top ) {
 			top = this.options.top;
 		} else {
-			top = ( $( window ).height() - this.$dialog.height() ) / 2;
+			top = ( $( window ).height() - this.$container.height() ) / 2;
 			top = top + $( document ).scrollTop();
 		}
 
 		if ( this.options.left ) {
 			left = this.options.left;
 		} else {
-			left = ( $( window ).width() - this.$dialog.width() ) / 2;
+			left = ( $( window ).width() - this.$container.width() ) / 2;
 		}
 
-		this.$dialog.css( {
+		this.$container.css( {
 			top: top,
 			left: left
 		} );
@@ -585,18 +611,24 @@
 		}
 
 		this.overlay.show();
-		this.$dialog.show();
+		this.$container.show();
 	};
 
 	/**
-	 * Embeds source selector dialog inside the element
-	 * specified by $container.
+	 * Shows the embedded version of source selector dialog
 	 *
 	 * @param {jQuery} $container the container in which to embed the selector
 	 */
-	CXSourceSelector.prototype.showAsEmbedded = function ( $container ) {
-		$container.append( this.$dialog );
-		this.$dialog.show();
+	CXSourceSelector.prototype.showAsEmbedded = function () {
+		var overlayOptions = {};
+
+		if ( !this.overlay ) {
+			overlayOptions.closeOnClick = this.closeOnClickOutside.bind( this );
+			this.overlay = new mw.cx.widgets.Overlay( 'body', overlayOptions );
+		}
+
+		this.overlay.show();
+		this.$container.slideDown();
 	};
 
 	/**
@@ -609,17 +641,25 @@
 		this.$translateFromButton.prop( 'disabled', true );
 		this.$messageBar.hide();
 
-		if ( !this.options.container ) {
-			this.overlay.hide();
-			this.$dialog.hide();
-		}
+		// Only dialog version of CXSourceSelector has cancel button
+		this.overlay.hide();
+		this.hide();
+	};
+
+	/*
+	* Embedded version of CXSourceSelector supports closing by clicking anywhere outside of element
+	*/
+	CXSourceSelector.prototype.closeOnClickOutside = function () {
+		this.overlay.hide();
+		this.$container.toggle();
+		$( '.translation-filter' ).slideDown();
 	};
 
 	/**
 	 * Hide the entry point dialog.
 	 */
 	CXSourceSelector.prototype.hide = function () {
-		this.$dialog.hide();
+		this.$container.hide();
 	};
 
 	/**
@@ -634,7 +674,7 @@
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
 		originalSourceTitle = this.sourcePageSelector.getQueryValue();
-		targetTitle = this.$targetTitleInput.val().trim();
+		targetTitle = this.embedded ? '' : this.$targetTitleInput.val().trim();
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
@@ -699,21 +739,76 @@
 		this.setTargetLanguage( targetLanguage );
 	};
 
-	/**
-	 * Render the CXSourceSelector dialog.
-	 */
+	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
+		var itemImage;
+
+		this.sourcePageSelector.setValue( item.getData() );
+
+		this.$sourceInputs.hide(); // Hide input field
+		this.$selectedItem.show(); // Show selected item view
+
+		itemImage = item.$icon.css( 'background-image' );
+		if ( itemImage !== 'none' ) {
+			this.$selectedItemImage.css( {
+				'background-color': 'transparent',
+				'background-image': itemImage
+			} );
+		}
+
+		this.$selectedItemInfo.append(
+			$( '<a>' ).prop( {
+				href: item.$label.prop( 'href' ),
+				title: item.$label.prop( 'title' ),
+				target: '_blank',
+				text: item.$label.text()
+			} )
+		);
+		this.$container
+			.toggleClass( 'cx-sourceselector-embedded--selected' );
+
+		this.$languageFilter.insertBefore( this.$discardItem );
+	};
+
+	CXSourceSelector.prototype.discardSelectedItem = function () {
+		this.$sourceInputs.show(); // Show input field
+		this.$selectedItem.hide(); // Hide selected item view
+
+		this.sourcePageSelector.setValue( '' );
+		this.$messageBar.hide();
+
+		// Discard selected item image and info
+		this.$selectedItemInfo.empty();
+		this.$selectedItemImage.removeAttr( 'style' );
+
+		this.$container
+			.toggleClass( 'cx-sourceselector-embedded--selected' );
+
+		this.$sourceInputs.append( this.$languageFilter );
+	};
+
 	CXSourceSelector.prototype.render = function () {
+		if ( this.embedded ) {
+			this.renderAsEmbedded();
+		} else {
+			this.renderAsDialog();
+		}
+	};
+
+	/**
+	 * Render the CXSourceSelector as dialog.
+	 */
+	CXSourceSelector.prototype.renderAsDialog = function () {
 		var $heading,
 			$sourceLanguageLabel, $sourceLanguageLabelContainer, $sourceLanguageContainer,
 			$targetLanguageLabel, $targetLanguageLabelContainer, $targetLanguageContainer,
 			$targetTitleInputContainer,
-			$sourceInputs, $targetInputs,
+			$targetInputs,
 			$messageText,
 			translateButtonLabel,
 			$actions, $license,
 			cxSourceSelector = this;
 
-		this.$dialog = $( '<div>' )
+		this.$container = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog' )
 			.hide();
 
@@ -740,15 +835,7 @@
 			onReady: function () {
 				this.$menu.addClass( 'cx-sourceselector-uls-source' );
 			},
-			onVisible: function () {
-				if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
-					this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
-				} else {
-					this.left = this.$element.offset().left;
-				}
-
-				this.$menu.css( this.position() );
-			},
+			onVisible: calculateUlsPosition,
 			quickList: function () {
 				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
 					return cxSourceSelector.sourceLanguages.indexOf( n ) !== -1;
@@ -775,12 +862,11 @@
 			.append( this.$targetLanguage );
 
 		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
-			classes: [ 'cx-sourceselector-dialog-title' ],
+			classes: [ 'cx-sourceselector-page-title' ],
 			language: this.getSourceLanguage(),
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
-			icon: 'search',
 			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
 		} );
 
@@ -791,10 +877,10 @@
 			} );
 
 		$targetTitleInputContainer = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog-title' )
+			.addClass( 'cx-sourceselector-page-title' )
 			.append( this.$targetTitleInput );
 
-		$sourceInputs = $( '<div>' )
+		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__source-inputs' )
 			.append(
 				$sourceLanguageLabelContainer,
@@ -811,9 +897,9 @@
 			);
 
 		this.$messageBar = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__messagebar' );
+			.addClass( 'cx-sourceselector-messagebar' );
 		$messageText = $( '<span>' )
-			.addClass( 'cx-sourceselector-dialog__messagebar-text' );
+			.addClass( 'cx-sourceselector-messagebar-text' );
 		this.$messageBar
 			.append( $messageText )
 			.hide();
@@ -821,7 +907,7 @@
 		this.$cancelButton = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-quiet cx-sourceselector-dialog__button-cancel' )
 			.text( mw.msg( 'cx-sourceselector-dialog-button-cancel' ) )
-			.click( $.proxy( this.cancel, this ) );
+			.click( this.cancel.bind( this ) );
 
 		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
 		this.$translateFromButton = $( '<button>' )
@@ -831,7 +917,7 @@
 			.click( $.proxy( this.startPageInCX, this ) );
 
 		$license = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__license' )
+			.addClass( 'cx-sourceselector__license' )
 			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
 
 		$actions = $( '<div>' )
@@ -839,15 +925,130 @@
 
 		$actions.append( this.$cancelButton, this.$translateFromButton );
 
-		this.$dialog.append( $heading,
-			$sourceInputs,
+		this.$container.append( $heading,
+			this.$sourceInputs,
 			$targetInputs,
 			this.$messageBar,
 			$license,
 			$actions
 		);
 
-		$( 'body' ).append( this.$dialog );
+		$( 'body' ).append( this.$container );
+	};
+
+	CXSourceSelector.prototype.renderAsEmbedded = function () {
+		var $sourceLanguageContainer,
+			$targetLanguageContainer,
+			$messageText,
+			translateButtonLabel,
+			$actions, $license,
+			cxSourceSelector = this;
+
+		this.$container.hide(); // Starts as hidden, shown on button click
+
+		this.$selectedItem = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item' )
+			.hide();
+
+		this.$sourceLanguage = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__language-button' );
+
+		this.$sourceLanguage.uls( {
+			languages: getAutonyms( this.sourceLanguages ),
+			menuWidth: getUlsMenuWidth( this.sourceLanguages.length ),
+			onSelect: function ( language ) {
+				cxSourceSelector.sourceLanguageChangeHandler( language );
+				mw.uls.addPreviousLanguage( language );
+			},
+			onReady: function () {
+				this.$menu.addClass( 'cx-sourceselector-uls-source' );
+			},
+			onVisible: calculateUlsPosition,
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+					return cxSourceSelector.sourceLanguages.indexOf( n ) !== -1;
+				} );
+			}
+		} );
+
+		$sourceLanguageContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__source-language' )
+			.append( this.$sourceLanguage );
+
+		this.$targetLanguage = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__language-button' );
+
+		$targetLanguageContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__target-language' )
+			.append( this.$targetLanguage );
+
+		this.$languageFilter = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__language-filter' )
+			.append(
+				$sourceLanguageContainer,
+				$( '<div>' ).addClass( 'translation-language-arrow' ),
+				$targetLanguageContainer
+			);
+		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
+			classes: [ 'cx-sourceselector-page-title' ],
+			language: this.getSourceLanguage(),
+			siteMapper: this.siteMapper,
+			value: this.options.sourceTitle,
+			validateTitle: true,
+			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
+		} );
+		this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
+
+		this.$sourceInputs = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__source-inputs' )
+			.append(
+				this.sourcePageSelector.$element,
+				this.$languageFilter
+			);
+		this.$selectedItemImage = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item__image' );
+
+		this.$selectedItemInfo = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item__info' );
+
+		this.$discardItem = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-discard' );
+
+		this.$selectedItem.append(
+			this.$selectedItemImage,
+			this.$selectedItemInfo,
+			this.$discardItem
+		);
+
+		this.$messageBar = $( '<div>' )
+			.addClass( 'cx-sourceselector-messagebar' );
+		$messageText = $( '<span>' )
+			.addClass( 'cx-sourceselector-messagebar-text' );
+		this.$messageBar
+			.append( $messageText )
+			.hide();
+
+		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
+		this.$translateFromButton = $( '<button>' )
+			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
+			.text( translateButtonLabel )
+			.prop( 'disabled', true )
+			.click( this.startPageInCX.bind( this ) );
+
+		$license = $( '<div>' )
+			.addClass( 'cx-sourceselector__license' )
+			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
+
+		$actions = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__actions' )
+			.append( this.$translateFromButton );
+
+		this.$container.append( this.$sourceInputs,
+			this.$selectedItem,
+			this.$messageBar,
+			$license,
+			$actions
+		);
 	};
 
 	mw.cx.CXSourceSelector = CXSourceSelector;
