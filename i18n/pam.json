@@ -4,11 +4,14 @@
 			"Leeheonjin"
 		]
 	},
+	"cx": "Maglikas ning bulung",
+	"cx-dashboard-header": "Deng likas",
 	"cx-header-new-translation": "Bayung pamagsalin-amanu",
 	"cx-header-all-translations": "Deng eganaganang salin-amanu",
 	"cx-source-view-page": "lawen ya ing bulung",
 	"cx-publish-gt-move-page-title": "Iyalis ya ing bulung",
 	"cx-translation-add-translation": "Magdagdag salin-amanu",
+	"cx-tools-searchbox-text": "Maintun ning kataya",
 	"cx-tools-link-title": "Suglung",
 	"cx-tools-link-add": "Magdagdag suglung",
 	"cx-tools-mt-provider-title": "Ibat $1",
@@ -17,6 +20,7 @@
 	"cx-tools-link-hover-tooltip": "I-klik bang buklatan",
 	"cx-warning-unsaved-translation": "Atin kang e makatalang salin-amanu.",
 	"cx-sourceselector-dialog-new-translation": "Bayung pamagsalin-amanu",
+	"cx-sourceselector-dialog-button-start-translation": "Magumpisa ning pamaglikas",
 	"cx-sourceselector-dialog-button-cancel": "E taglus",
 	"cx-sourceselector-dialog-source-language-label": "Ibat:",
 	"cx-sourceselector-dialog-target-language-label": "King/Kang:",
