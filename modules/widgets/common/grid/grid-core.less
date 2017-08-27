@@ -1,3 +1,4 @@
+@import 'mediawiki.mixins';
 @import 'grid-settings.less';
 
 // Grid - core
@@ -17,9 +18,7 @@
 	float: left;
 	.mw-ui-gutter(@gutter / 2);
 	width: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	.box-sizing( border-box );
 	&.mw-ui-right {
 		float: right;
 	}

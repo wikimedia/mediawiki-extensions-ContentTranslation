@@ -1,3 +1,4 @@
+@import 'mediawiki.mixins';
 @import '../../widgets/common/ext.cx.common.less';
 
 .cx-tlitem,
@@ -60,7 +61,7 @@
 		.translation-language-source-container,
 		.translation-language-target-container {
 			position: relative;
-			box-sizing: border-box;
+			.box-sizing( border-box );
 			cursor: pointer;
 
 			-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
