@@ -200,12 +200,23 @@
 			padding-left: 0.7em;
 
 			font-size: 1.2em;
-			font-weight: bold;
 
 			// Needs to be overridden for specificity
 			> a {
 				color: @colorGray1;
+				font-weight: bold;
 			}
+		}
+
+		&__language-count {
+			display: block;
+
+			.background-image-svg('../images/languages.svg', '../images/languages.png');
+			background-size: 24px;
+			background-repeat: no-repeat;
+			background-position: left center;
+			padding-left: 26px;
+			font-size: 0.8em;
 		}
 
 		.cx-sourceselector-embedded-discard {
