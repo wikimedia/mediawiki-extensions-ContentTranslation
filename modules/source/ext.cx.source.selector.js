@@ -25,18 +25,26 @@
 
 		// Boolean property indicating if CXSourceSelector is used as
 		// modal dialog or embedded
-		this.embedded = !!options.container && options.container instanceof jQuery;
+		this.isEmbedded = !!options.container && options.container instanceof jQuery;
 
-		this.sourceLanguages = [];
-		this.targetLanguages = [];
-		this.sourceLanguage = null;
-		this.targetLanguage = null;
 		// this.$container is used for both types of CXSourceSelector - embedded and modal dialog
 		// Embedded version - $container field gets DOM container passed through options parameter
 		// Dialog version - $container fields gets created in renderAsDialog method of this class
-		this.$container = this.embedded ? options.container : null;
+		this.$container = this.isEmbedded ? options.container : null;
+
+		// this.sourceLanguages and this.targetLanguages are arrays of language codes retrieved from cx-server
+		// Represents all possible source/target language codes
+		this.sourceLanguages = [];
+		this.targetLanguages = [];
+		// this.sourceLanguage and this.targetLanguage are selected source/target languages respectively
+		this.sourceLanguage = null;
+		this.targetLanguage = null;
+		// this.sourceTitles is a map of language codes to article titles in those languages
+		this.sourceTitles = {};
+
 		this.$selectedItem = null;
 		this.$selectedItemImage = null;
+		this.$selectedItemLink = null;
 		this.$selectedItemInfo = null;
 		this.$languageFilter = null;
 		this.$sourceLanguage = null;
@@ -75,15 +83,11 @@
 	 * @return {string} wide, medium or narrow
 	 */
 	function getUlsMenuWidth( languagesCount ) {
-		if ( languagesCount <= 12 ) {
+		if ( languagesCount <= 16 ) {
 			return 'narrow';
 		}
 
-		if ( languagesCount <= 100 ) {
-			return 'medium';
-		}
-
-		return 'wide';
+		return 'medium';
 	}
 
 	/**
@@ -130,8 +134,8 @@
 			this.sourcePageSelector.setValue( this.options.sourceTitle );
 		}
 
-		// !this.embedded is extra check, second one may be sufficient
-		if ( !this.embedded && this.options.targetTitle ) {
+		// !this.isEmbedded is extra check, second one may be sufficient
+		if ( !this.isEmbedded && this.options.targetTitle ) {
 			this.$targetTitleInput.val( this.options.targetTitle );
 		}
 
@@ -208,7 +212,8 @@
 	 * @param {string} language A language code
 	 */
 	CXSourceSelector.prototype.setSourceLanguage = function ( language ) {
-		var langProps, currentSource;
+		var langProps, currentSource,
+			languagesArticleExistsIn = Object.keys( this.sourceTitles );
 
 		// Do not allow selection of invalid source languages under any circumstances
 		if ( !this.isValidSource( language ) ) {
@@ -240,7 +245,8 @@
 			.text( $.uls.data.getAutonym( this.sourceLanguage ) );
 		mw.storage.set( 'cxSourceLanguage', this.sourceLanguage );
 		this.sourcePageSelector.setLanguage( this.sourceLanguage );
-		this.fillTargetLanguages( this.targetLanguages );
+
+		this.fillTargetLanguages( languagesArticleExistsIn );
 	};
 
 	/**
@@ -268,7 +274,7 @@
 			lang: this.targetLanguage,
 			dir: $.uls.data.getDir( this.targetLanguage )
 		};
-		if ( !this.embedded ) {
+		if ( !this.isEmbedded ) {
 			this.$targetTitleInput.prop( langProps );
 		}
 		this.$targetLanguage.prop( langProps )
@@ -278,12 +284,45 @@
 	};
 
 	/**
+	 * Fill the source language dropdown with source languages for which selected article exists
+	 *
+	 * @param {array} sourceLanguages Array of language codes used to populate ULS
+	 */
+	CXSourceSelector.prototype.fillSourceLanguages = function ( sourceLanguages ) {
+		var cxSourceSelector = this,
+			sourceUlsClass = 'cx-sourceselector-uls-source';
+
+		// Delete the old source ULS
+		$( '.' + sourceUlsClass ).remove();
+		this.$sourceLanguage.data( 'uls', null );
+		this.$sourceLanguage.off( 'click' );
+
+		this.$sourceLanguage.uls( {
+			languages: getAutonyms( sourceLanguages ),
+			menuWidth: getUlsMenuWidth( sourceLanguages.length ),
+			onSelect: function ( language ) {
+				cxSourceSelector.sourceLanguageChangeHandler( language );
+				mw.uls.addPreviousLanguage( language );
+			},
+			onReady: function () {
+				this.$menu.addClass( sourceUlsClass );
+			},
+			onVisible: calculateUlsPosition,
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+					return sourceLanguages.indexOf( n ) !== -1;
+				} );
+			}
+		} );
+	};
+
+	/**
 	 * Fill the target language dropdown with target languages that have
 	 * language tools compatible with the source language.
-	 * @param {array} targetLanguages
+	 * @param {array} languagesArticleExistsIn - array of language codes article exists in
 	 */
-	CXSourceSelector.prototype.fillTargetLanguages = function ( targetLanguages ) {
-		var targetLanguageCodes, sourceLanguage,
+	CXSourceSelector.prototype.fillTargetLanguages = function ( languagesArticleExistsIn ) {
+		var targetLanguageCodes, sourceLanguage, ulsParams,
 			cxSourceSelector = this,
 			targetUlsClass = 'cx-sourceselector-uls-target';
 
@@ -294,12 +333,11 @@
 
 		// Don't let the target be the same as source
 		sourceLanguage = this.getSourceLanguage();
-		targetLanguageCodes = $.grep( targetLanguages, function ( language ) {
+		targetLanguageCodes = $.grep( this.targetLanguages, function ( language ) {
 			return language !== sourceLanguage;
 		} );
 
-		// Create a new target ULS
-		this.$targetLanguage.uls( {
+		ulsParams = {
 			languages: getAutonyms( targetLanguageCodes ),
 			menuWidth: getUlsMenuWidth( targetLanguageCodes.length ),
 			onSelect: function ( language ) {
@@ -315,7 +353,20 @@
 					return targetLanguageCodes.indexOf( n ) !== -1;
 				} );
 			}
-		} );
+		};
+
+		// Bolds target languages that don't have version of article ( only for
+		// embedded usage of CXSourceSelector )
+		if ( cxSourceSelector.isEmbedded ) {
+			ulsParams.languageDecorator = function ( $language, languageCode ) {
+				if ( languagesArticleExistsIn.indexOf( languageCode ) < 0 ) {
+					$language.css( 'font-weight', 'bold' );
+				}
+			};
+		}
+
+		// Create a new target ULS
+		this.$targetLanguage.uls( ulsParams );
 	};
 
 	/**
@@ -325,7 +376,7 @@
 		var self = this;
 		// Open or close the (embedded) dialog when clicking the link.
 		// The (embedded) dialog will be unitialized until the first click.
-		this.$trigger.click( $.proxy( this.show, this ) );
+		this.$trigger.click( this.show.bind( this ) );
 
 		this.sourcePageSelector.on( 'change', function () {
 			self.$translateFromButton.prop( 'disabled', false );
@@ -333,10 +384,10 @@
 			self.$messageBar.hide();
 		} );
 
-		if ( !this.embedded ) {
+		if ( !this.isEmbedded ) {
 			// Target title input (check)
 			this.$targetTitleInput.on( 'input blur',
-				$.debounce( 600, false, $.proxy( this.check, this ) )
+				$.debounce( 600, false, this.check.bind( this ) )
 			);
 		} else {
 			this.$discardItem.click( this.discardSelectedItem.bind( this ) );
@@ -346,7 +397,7 @@
 		this.$container.on(
 			'keypress',
 			'.cx-sourceselector-page-title',
-			$.proxy( this.enterKeyHandler, this )
+			this.enterKeyHandler.bind( this )
 		);
 	};
 
@@ -356,8 +407,18 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
+		// When same language is chosen again, save network call for checking articles
+		if ( language === this.getSourceLanguage() ) {
+			return;
+		}
+
 		this.setSourceLanguage( language );
 		this.sourcePageSelector.setLanguage( language );
+
+		if ( this.isEmbedded ) {
+			this.changeSelectedItemTitle( language );
+		}
+
 		this.check();
 	};
 
@@ -367,8 +428,8 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.targetLanguageChangeHandler = function ( language ) {
-		// Don't allow setting the target language to the source language.
-		if ( language === this.getSourceLanguage() ) {
+		// When same language is chosen again, save network call for checking articles
+		if ( language === this.getTargetLanguage() ) {
 			return;
 		}
 
@@ -394,7 +455,7 @@
 		var sourceLanguage = this.getSourceLanguage(),
 			targetLanguage = this.getTargetLanguage(),
 			sourceTitle = this.sourcePageSelector.getQueryValue(),
-			targetTitle = this.embedded ? '' : this.$targetTitleInput.val().trim(),
+			targetTitle = this.isEmbedded ? '' : this.$targetTitleInput.val().trim(),
 			selector = this;
 
 		this.$messageBar.hide();
@@ -564,7 +625,7 @@
 	 * Show the CXSourceSelector.
 	 */
 	CXSourceSelector.prototype.show = function () {
-		if ( this.embedded ) {
+		if ( this.isEmbedded ) {
 			this.showAsEmbedded();
 		} else {
 			this.showAsDialog();
@@ -572,7 +633,7 @@
 
 		// If there is something in the source field, it is probably auto-filled,
 		// so go immediately to the target to save time
-		if ( !this.embedded && this.options.sourceTitle ) {
+		if ( !this.isEmbedded && this.options.sourceTitle ) {
 			this.$targetTitleInput.focus();
 		} else {
 			this.sourcePageSelector.focus();
@@ -674,7 +735,7 @@
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
 		originalSourceTitle = this.sourcePageSelector.getQueryValue();
-		targetTitle = this.embedded ? '' : this.$targetTitleInput.val().trim();
+		targetTitle = this.isEmbedded ? '' : this.$targetTitleInput.val().trim();
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
@@ -740,7 +801,61 @@
 	};
 
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
-		var itemImage, numOfLanguages;
+		var self = this,
+			itemImage, numOfLanguages,
+			itemText = item.getLabel(),
+			api = this.siteMapper.getApi( this.sourceLanguage ),
+			params = {
+				action: 'query',
+				prop: [ 'langlinks' ],
+				titles: itemText,
+				redirects: 1,
+				lllimit: 'max'
+			};
+
+		api.get( params ).done( function ( data ) {
+			var page = OO.getProp( data, 'query', 'pages' ),
+				pageId, langCode, title, languagesArticleExistsIn;
+
+			if ( !page ) {
+				return;
+			}
+
+			// Only one title was passed in titles params, so we expect one result
+			pageId = Object.keys( page )[ 0 ];
+			if ( pageId === '-1' ) {
+				// Page does not exist
+				return;
+			}
+
+			// Reset source titles
+			self.sourceTitles = {};
+			// Extract results data and create sourceTitles mapping
+			$( page[ pageId ].langlinks ).each( function ( index, element ) {
+				langCode = element.lang;
+				title = element[ '*' ];
+
+				self.sourceTitles[ langCode ] = title;
+			} );
+			// Include chosen source title (not returned by langlinks)
+			self.sourceTitles[ self.sourceLanguage ] = itemText;
+
+			languagesArticleExistsIn = Object.keys( self.sourceTitles );
+
+			self.fillSourceLanguages( languagesArticleExistsIn );
+			self.fillTargetLanguages( languagesArticleExistsIn );
+		} ).fail( function ( response ) {
+			// In case of failure, fallback to all source and target languages
+			self.sourceTitles = {};
+			self.fillSourceLanguages( self.sourceLanguages );
+			self.fillTargetLanguages( self.targetLanguages );
+
+			mw.log(
+				'Error getting langlinks from ' + api.apiUrl + ' . ' +
+				response.statusText + ' (' + response.status + '). ' +
+				response.responseText
+			);
+		} );
 
 		this.sourcePageSelector.setValue( item.getData() );
 
@@ -755,15 +870,15 @@
 			} );
 		}
 
+		this.$selectedItemLink = $( '<a>' ).prop( {
+			href: item.$label.prop( 'href' ),
+			title: itemText,
+			target: '_blank',
+			text: itemText
+		} );
+		this.$selectedItemInfo.append( this.$selectedItemLink );
+
 		numOfLanguages = item.initialConfig.numOfLanguages;
-		this.$selectedItemInfo.append(
-			$( '<a>' ).prop( {
-				href: item.$label.prop( 'href' ),
-				title: item.$label.prop( 'title' ),
-				target: '_blank',
-				text: item.$label.text()
-			} )
-		);
 		if ( numOfLanguages ) {
 			this.$selectedItemInfo.append(
 				$( '<span>' )
@@ -776,14 +891,20 @@
 			.toggleClass( 'cx-sourceselector-embedded--selected' );
 
 		this.$languageFilter.insertBefore( this.$discardItem );
+
+		// Check will display a warning if target language (which is default,
+		// up to the first article selection) already has an article.
+		// There is already 'Missing in <target language>' label,
+		// but this is extra info that article already exists
+		this.check();
 	};
 
 	CXSourceSelector.prototype.discardSelectedItem = function () {
 		this.$sourceInputs.show(); // Show input field
 		this.$selectedItem.hide(); // Hide selected item view
+		this.$messageBar.hide(); // Hide any previous messages
 
 		this.sourcePageSelector.setValue( '' );
-		this.$messageBar.hide();
 
 		// Discard selected item image and info
 		this.$selectedItemInfo.empty();
@@ -793,10 +914,31 @@
 			.toggleClass( 'cx-sourceselector-embedded--selected' );
 
 		this.$sourceInputs.append( this.$languageFilter );
+
+		// Reset source titles, as there is no selected item
+		this.sourceTitles = {};
+		// Reset source and target ULS to show all source and target languages
+		this.fillSourceLanguages( this.sourceLanguages );
+		this.fillTargetLanguages( this.targetLanguages );
+	};
+
+	CXSourceSelector.prototype.changeSelectedItemTitle = function ( language ) {
+		var href, title = this.sourceTitles[ language ];
+
+		if ( title ) {
+			this.sourcePageSelector.setValue( title );
+
+			href = this.siteMapper.getPageUrl( language, title );
+			this.$selectedItemLink.prop( {
+				href: href,
+				title: title,
+				text: title
+			} );
+		}
 	};
 
 	CXSourceSelector.prototype.render = function () {
-		if ( this.embedded ) {
+		if ( this.isEmbedded ) {
 			this.renderAsEmbedded();
 		} else {
 			this.renderAsDialog();
@@ -923,7 +1065,7 @@
 			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
 			.text( translateButtonLabel )
 			.prop( 'disabled', true )
-			.click( $.proxy( this.startPageInCX, this ) );
+			.click( this.startPageInCX.bind( this ) );
 
 		$license = $( '<div>' )
 			.addClass( 'cx-sourceselector__license' )
