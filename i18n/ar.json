@@ -136,6 +136,8 @@
 	"cx-translation-status-draft": "جار العمل عليها",
 	"cx-translation-status-published": "منشورة",
 	"cx-translation-status-deleted": "محذوفة",
+	"cx-translation-label-draft": "الترجمات قيد العمل",
+	"cx-translation-label-published": "الترجمات المنشورة",
 	"cx-translation-already-in-progress": "ترجمة جارية من {{GENDER:$2|إعداد}} $1.",
 	"cx-translation-already-in-progress-collaborate": "تأكد من تنسيقك مع {{GENDER:$1|المستخدم الذي أعد|المستخدمة التي أعدت}} الترجمة الحالية",
 	"cx-publishing-dialog-publish-draft-button": "انشرها كمسودة",
@@ -220,5 +222,11 @@
 	"cx-translation-template-add-param": "+ حقل ترجمة",
 	"cx-translation-template-add-more": "أضف المزيد من الحقول",
 	"cx-translation-template-select-param": "اختر الحقول الهدف",
-	"cx-publish-destination-namespace-main": "صفحة جديدة"
+	"cx-tools-category-add": "أضف تصنيفا",
+	"cx-publish-destination-header": "هدف النشر",
+	"cx-publish-destination-tooltip": "اختر النطاق الذي ستنشر فيه الصفحة.",
+	"cx-publish-destination-namespace-main": "صفحة جديدة",
+	"cx-publish-destination-namespace-user": "مسودة شخصية",
+	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
+	"cx-linkcontextitem-title": "وصلة متبناة"
 }

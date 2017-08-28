@@ -76,7 +76,7 @@
 	"cx-tools-mt-use-source": "Вставити вихідний текст",
 	"cx-tools-mt-reset": "Скинути переклад",
 	"cx-tools-mt-provider-title": "Використовувати $1",
-	"cx-tools-mt-dont-use": "Не використовуйте машинний переклад",
+	"cx-tools-mt-dont-use": "Не використовувати машинний переклад",
 	"cx-tools-mt-set-default": "Зберегти за замовчуванням",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорія|$1 категорії|$1 категорій|0=Немає категорій}}",
 	"cx-stats-title": "Статистика Перекладу вмісту",
@@ -110,7 +110,7 @@
 	"cx-translation-filter-draft-translations": "У процесі",
 	"cx-translation-filter-suggested-translations": "Пропозиції",
 	"cx-suggestionlist-favorite": "На потім",
-	"cx-suggestionlist-title": "Більше пропозицій",
+	"cx-suggestionlist-title": "Пропоновані сторінки",
 	"cx-suggestionlist-empty-title": "Наразі немає запропонованих сторінок",
 	"cx-suggestionlist-empty-desc": "Ми не знайшли пропозицій. Ви можете глянути пізніше або знайти відповідні сторінки, скориставшись нашим інструментом рекомендацій (експериментально).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Переглянути пропозиції (експериментально)",
@@ -137,6 +137,8 @@
 	"cx-translation-status-draft": "У процесі",
 	"cx-translation-status-published": "Опубліковано",
 	"cx-translation-status-deleted": "Вилучено",
+	"cx-translation-label-draft": "Переклади в процесі",
+	"cx-translation-label-published": "Опубліковані переклади",
 	"cx-translation-already-in-progress": "Це поточний переклад {{GENDER:$2|користувача|користувачки}} $1.",
 	"cx-translation-already-in-progress-collaborate": "Будь ласка, переконайтеся, чи зміни узгоджені з {{GENDER:$1|перекладачем|перекладачкою}} поточного  перекладу.",
 	"cx-publishing-dialog-publish-draft-button": "Опублікувати як чернетку",
@@ -223,8 +225,9 @@
 	"cx-translation-template-select-param": "Вибрати цільові поля",
 	"cx-tools-category-add": "Додати категорію",
 	"cx-publish-destination-header": "Ціль публікації",
-	"cx-publish-destination-tooltip": "Оберіть простір назв для публікації статті",
+	"cx-publish-destination-tooltip": "Оберіть простір назв, у якому буде опублікована сторінка",
 	"cx-publish-destination-namespace-main": "Нова сторінка",
 	"cx-publish-destination-namespace-user": "Особиста чернетка",
-	"cx-publish-destination-namespace-draft": "Чернетка спільноти"
+	"cx-publish-destination-namespace-draft": "Чернетка спільноти",
+	"cx-linkcontextitem-title": "Адаптоване посилання"
 }
