@@ -113,5 +113,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "För att visa dina översättningar måste du logga in.",
 	"apierror-cx-samelanguages": "Käll- och målspråk kan inte vara detsamma.",
 	"apierror-cx-suggestionsdisabled": "Förslag är inte aktiverade för denna wiki.",
-	"apierror-cx-translationnotfound": "Översättning hittades inte."
+	"apierror-cx-translationnotfound": "Översättning hittades inte.",
+	"apihelp-query+langlinkscount-description": "Hämta antalet andra språk som artiklar finns på.",
+	"apihelp-query+langlinkscount-summary": "Hämta antalet andra språkversioner.",
+	"apihelp-query+langlinkscount-example-1": "Hämta antalet andra språkversioner för sidan \"Dog\""
 }

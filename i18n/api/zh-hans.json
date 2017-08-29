@@ -111,5 +111,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "要查看您的翻译，您必须登录。",
 	"apierror-cx-samelanguages": "源语言和目标语言不能相同。",
 	"apierror-cx-suggestionsdisabled": "建议未在此wiki启用。",
-	"apierror-cx-translationnotfound": "找不到翻译。"
+	"apierror-cx-translationnotfound": "找不到翻译。",
+	"apihelp-query+langlinkscount-description": "获取条目存在的其他语言的数量。",
+	"apihelp-query+langlinkscount-summary": "获取其他语言版本的数量。",
+	"apihelp-query+langlinkscount-example-1": "获取“Dog”页面其他语言版本的数量"
 }

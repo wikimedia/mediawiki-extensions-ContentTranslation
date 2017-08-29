@@ -93,6 +93,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Die Seite ist bereits auf $2 [$1 vorhanden]",
 	"cx-sourceselector-dialog-error-title-in-use": "Der Titel für die neue Seite ist [$1 bereits in Verwendung]",
 	"cx-sourceselector-dialog-error-no-source-article": "Die zu übersetzende Seite ist nicht auf $1 vorhanden",
+	"cx-sourceselector-missing-in-target-language": "Fehlt auf $1",
 	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten maschinenübersetzten Text",
 	"cx-mt-abuse-warning-text": "Die Maschinenübersetzung wird nur als Startpunkt zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
 	"cx-publish-captcha-title": "Sicherheitsfrage",

@@ -39,7 +39,6 @@
 	"apihelp-cxsuggestionlist-param-titles": "Säitennimm.",
 	"apihelp-cxsuggestionlist-param-from": "De Sproochcode vun der Quell.",
 	"apihelp-cxsuggestionlist-param-to": "De Sproochcode vum Zil.",
-	"apihelp-cxsave-param-translationid": "D'Nummer (ID) vun der Iwwersetzung",
 	"apihelp-cxsave-param-sourcerevision": "D'Versioun vun der Quellsäit.",
 	"apihelp-cxsave-param-progress": "Informatioun iwwer de Fortschrëtt vun der iwwersetzung. JSON mat de Schlësselen <code>any</code>, <code>human</code>, <code>mt</code> an <code>mtSectionsCount</code>. D'Wäerter vun de Schlëssele si Prozenter.",
 	"apierror-cx-docserverexception": "Feeler beim ëmwandele vum HTML a Wikitext $1",
@@ -50,5 +49,8 @@
 	"apierror-cx-jwtmissing": "JWT feelt.",
 	"apierror-cx-keynotconfigured": "Schlëssel dan net agestallt",
 	"apierror-cx-missingdraft": "Brouillon gëtt et net.",
-	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt."
+	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt.",
+	"apihelp-query+langlinkscount-description": "D'Zuel vun den anere Sproochen an deenen et den Artikel gëtt.",
+	"apihelp-query+langlinkscount-summary": "D'Zuel vun den anere Sproochversioune kréien.",
+	"apihelp-query+langlinkscount-example-1": "D'Zuel vun den anere Sproochversioune vun der Säit 'Hond' kréien"
 }

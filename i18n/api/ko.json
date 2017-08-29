@@ -65,5 +65,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "번역을 보려면 로그인해야 합니다.",
 	"apierror-cx-samelanguages": "원본 언어와 대상 언어가 동일할 수 없습니다.",
 	"apierror-cx-suggestionsdisabled": "이 위키에 제안 기능이 활성화되어 있지 않습니다.",
-	"apierror-cx-translationnotfound": "번역을 찾을 수 없습니다."
+	"apierror-cx-translationnotfound": "번역을 찾을 수 없습니다.",
+	"apihelp-query+langlinkscount-description": "문서가 존재하는 다른 언어의 수를 가져옵니다.",
+	"apihelp-query+langlinkscount-summary": "다른 언어의 판의 수를 가져옵니다.",
+	"apihelp-query+langlinkscount-example-1": "'Dog' 문서에 해당하는 다른 언어의 판의 수를 가져옵니다"
 }

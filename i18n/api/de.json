@@ -87,5 +87,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Um deine Übersetzungen anzusehen, musst du dich anmelden.",
 	"apierror-cx-samelanguages": "Quell- und Zielsprachen können nicht identisch sein.",
 	"apierror-cx-suggestionsdisabled": "Vorschläge sind nicht für dieses Wiki aktiviert.",
-	"apierror-cx-translationnotfound": "Übersetzung nicht gefunden."
+	"apierror-cx-translationnotfound": "Übersetzung nicht gefunden.",
+	"apihelp-query+langlinkscount-description": "Ruft die Anzahl der anderen Sprachen ab, in denen dieser Artikel vorhanden ist.",
+	"apihelp-query+langlinkscount-summary": "Ruft die Anzahl der anderen Sprachversionen ab.",
+	"apihelp-query+langlinkscount-example-1": "Ruft die Anzahl der anderen Sprachversionen für die Seite „Hund“ ab."
 }
