@@ -85,6 +85,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страницата [$1 веќе постои] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Насловот на новата страница е [$1 зафатен]",
 	"cx-sourceselector-dialog-error-no-source-article": "Страницата за преведување не постои на $1",
+	"cx-sourceselector-missing-in-target-language": "Недостасува во $1",
 	"cx-mt-abuse-warning-title": "Вашиот превод {{PLURAL:$1|содржи}} $1% неизменет машински преведен текст",
 	"cx-mt-abuse-warning-text": "Машинскиот превод се дава само како појдовен. На вас е да се погрижите преводот да биде точен и да го прилагодите за да изгледа природно на вашиот јазик.",
 	"cx-publish-captcha-title": "Безбедносно прашање",

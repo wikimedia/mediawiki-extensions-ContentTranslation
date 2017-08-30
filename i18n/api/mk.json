@@ -109,5 +109,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "За да ги погледате вашите преводи, ќе мора прво да се најавите.",
 	"apierror-cx-samelanguages": "Изворниот и целниот јазик не можат да бидат исти.",
 	"apierror-cx-suggestionsdisabled": "Предлозите не се овозможени на ова вики.",
-	"apierror-cx-translationnotfound": "Преводот не е пронајден"
+	"apierror-cx-translationnotfound": "Преводот не е пронајден",
+	"apihelp-query+langlinkscount-description": "Дај го бројот на другите јазици на кои постои дадена статија.",
+	"apihelp-query+langlinkscount-summary": "Дај го бројот на другите јазични верзии.",
+	"apihelp-query+langlinkscount-example-1": "Дај го бројот на другите јазични верзии на страницата „Куче“."
 }
