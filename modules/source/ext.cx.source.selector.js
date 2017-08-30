@@ -154,7 +154,7 @@
 		var languagePairsAPIUrl,
 			cxSourceSelector = this;
 
-		languagePairsAPIUrl = this.siteMapper.getCXServerUrl( '/languagepairs' );
+		languagePairsAPIUrl = this.siteMapper.getCXServerUrl( '/list/languagepairs' );
 
 		return $.get( languagePairsAPIUrl )
 			.done( function ( response ) {
