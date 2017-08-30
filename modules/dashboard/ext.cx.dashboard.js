@@ -23,7 +23,6 @@
 		this.lists = {};
 		this.$translationListContainer = null;
 		this.$newTranslationButton = null;
-		this.$filter = null;
 		this.$listHeader = null;
 		this.$sourceSelector = null;
 	}
@@ -221,22 +220,25 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var	$filterTabs = [],
-			newTranslationButton;
+		var newTranslationButton,
+			filterButtons = [];
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-			$filterTabs.push( $( '<span>' )
-				.addClass( 'cx-filter cx-filter--suggestions' )
-				.text( mw.msg( 'cx-translation-filter-suggested-translations' ) ) );
+			filterButtons.push( new OO.ui.ButtonOptionWidget( {
+				data: 'suggested',
+				label: mw.msg( 'cx-translation-filter-suggested-translations' )
+			} ) );
 		}
 
-		$filterTabs.push( $( '<span>' )
-			.addClass( 'cx-filter cx-filter--draft' )
-			.text( mw.msg( 'cx-translation-filter-draft-translations' ) ) );
+		filterButtons.push( new OO.ui.ButtonOptionWidget( {
+			data: 'draft',
+			label: mw.msg( 'cx-translation-filter-draft-translations' )
+		} ) );
 
-		$filterTabs.push( $( '<span>' )
-			.addClass( 'cx-filter cx-filter--published' )
-			.text( mw.msg( 'cx-translation-filter-published-translations' ) ) );
+		filterButtons.push( new OO.ui.ButtonOptionWidget( {
+			data: 'published',
+			label: mw.msg( 'cx-translation-filter-published-translations' )
+		} ) );
 
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
 
@@ -250,13 +252,13 @@
 		} );
 		this.$newTranslationButton = newTranslationButton.$element;
 
-		this.$filter = $( '<span>' )
-			.addClass( 'cx-filters' )
-			.append( $filterTabs );
+		this.filter = new OO.ui.ButtonSelectWidget( {
+			items: filterButtons
+		} );
 
 		this.$listHeader.append(
 			this.$newTranslationButton,
-			this.$filter
+			this.filter.$element
 		);
 
 		this.$sourceSelector = $( '<div>' )
@@ -271,12 +273,7 @@
 		var self = this;
 
 		this.activeList = type;
-		this.$filter
-			.find( '.cx-filter--selected' )
-			.removeClass( 'cx-filter--selected' );
-		this.$filter
-			.find( '.cx-filter--' + type )
-			.addClass( 'cx-filter--selected' );
+		this.filter.selectItemByData( type );
 		$.each( this.lists, function ( name, list ) {
 			if ( name === type ) {
 				list.show();
@@ -293,27 +290,8 @@
 		var self = this,
 			onVisibleCallback;
 
-		this.$filter.click( '.cx-filter', function ( e ) {
-			var $filter = $( e.target );
-
-			if ( $filter.is( '.cx-filter--selected' ) ) {
-				// Do not do anything on click of already selected filter.
-				return;
-			}
-
-			self.$filter
-				.find( '.cx-filter--selected' )
-				.removeClass( 'cx-filter--selected' );
-
-			$filter.addClass( 'cx-filter--selected' );
-
-			if ( $filter.is( '.cx-filter--draft' ) ) {
-				self.setActiveList( 'draft' );
-			} else if ( $filter.is( '.cx-filter--published' ) ) {
-				self.setActiveList( 'published' );
-			} else if ( $filter.is( '.cx-filter--suggestions' ) ) {
-				self.setActiveList( 'suggestions' );
-			}
+		this.filter.on( 'select', function ( item ) {
+			self.setActiveList( item.getData() );
 		} );
 
 		onVisibleCallback = function () {
