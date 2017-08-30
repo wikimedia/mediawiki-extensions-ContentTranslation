@@ -38,17 +38,17 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.topTranslationUnits = [];
 	this.translationUnitById = {};
 
-	this.sourceSurface = this.constructor.static.createSourceSurface(
-		sourceHtml,
-		this.sourceWikiPage.getLanguage(),
-		this.sourceWikiPage.getDirection()
+	this.sourceDoc = ve.dm.converter.getModelFromDom(
+		this.constructor.static.getSourceDom( sourceHtml, false ),
+		{ lang: this.sourceWikiPage.getLanguage(), dir: this.sourceWikiPage.getDirection() }
 	);
-	this.targetSurface = this.constructor.static.createTargetSurface(
-		sourceHtml,
-		this.targetWikiPage.getLanguage(),
-		this.targetWikiPage.getDirection()
+
+	this.targetDoc = ve.dm.converter.getModelFromDom(
+		this.constructor.static.getSourceDom( sourceHtml, true ),
+		{ lang: this.targetWikiPage.getLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
-	this.buildTranslationUnits( this.sourceSurface.getDocument().getDocumentNode(), null );
+
+	this.buildTranslationUnits( this.sourceDoc.getDocumentNode(), null );
 };
 
 /* Inheritance */
@@ -97,44 +97,6 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
 
 mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;
-};
-
-/**
- * Create a source surface
- *
- * @param {string} sourceHtml Segmented source HTML
- * @param {string} targetLang Target language code
- * @param {string} targetDir Target language direction
- * @return {ve.dm.Surface} Source surface
- */
-mw.cx.dm.Translation.static.createSourceSurface = function ( sourceHtml, targetLang, targetDir ) {
-	var surface = new ve.dm.Surface(
-		ve.dm.converter.getModelFromDom(
-			this.getSourceDom( sourceHtml, false ),
-			{ lang: targetLang, dir: targetDir }
-		),
-		{ sourceMode: false }
-	);
-	surface.disable();
-	return surface;
-};
-
-/**
- * Create a target surface, with a document consisting of one placeholder for each section
- *
- * @param {string} sourceHtml Segmented source HTML
- * @param {string} targetLang Target language code
- * @param {string} targetDir Target language direction
- * @return {ve.dm.Surface} Target surface, with document consisting of placeholders
- */
-mw.cx.dm.Translation.static.createTargetSurface = function ( sourceHtml, targetLang, targetDir ) {
-	return new ve.dm.Surface(
-		ve.dm.converter.getModelFromDom(
-			this.getSourceDom( sourceHtml, true ),
-			{ lang: targetLang, dir: targetDir }
-		),
-		{ sourceMode: false }
-	);
 };
 
 /* Methods */
@@ -277,7 +239,7 @@ mw.cx.dm.Translation.prototype.buildTranslationUnits = function ( parentNode, pa
  */
 mw.cx.dm.Translation.prototype.buildAnnotationTranslationUnits = function ( range, parentUnit ) {
 	var i, current, opened, closed, j, jLen, ann, unit,
-		data = this.sourceSurface.getDocument().data,
+		data = this.sourceDoc.data,
 		previous = new ve.dm.AnnotationSet( data.store ),
 		translationUnitIdBySetIndex = {};
 

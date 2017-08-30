@@ -1303,10 +1303,7 @@
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
-				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js",
-				"ve-cx/ui/ve.ui.CXSurface.js",
-				"ve-cx/ui/ve.ui.CXSourceSurface.js",
-				"ve-cx/ui/ve.ui.CXTargetSurface.js"
+				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js"
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.css",

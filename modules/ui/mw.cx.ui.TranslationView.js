@@ -160,16 +160,19 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 	var sourceSurface, targetSurface;
 
 	this.translation = translation;
-	this.sourceSurface = sourceSurface = new ve.ui.CXSourceSurface(
-		this,
-		this.translation.sourceSurface,
-		this.getSurfaceConfig()
+	this.sourceSurface = sourceSurface = this.createSurface(
+		this.translation.sourceDoc,
+		this.getSurfaceConfig( {
+			classes: [ 've-ui-cxSurface', 've-ui-cxSourceSurface', 'mw-body-content' ]
+		} )
 	);
-	this.targetSurface = targetSurface = new ve.ui.CXTargetSurface(
-		this,
-		this.translation.targetSurface,
-		this.getSurfaceConfig()
+	this.targetSurface = targetSurface = this.createSurface(
+		this.translation.targetDoc,
+		this.getSurfaceConfig( {
+			classes: [ 've-ui-cxSurface', 've-ui-cxTargetSurface', 'mw-body-content' ]
+		} )
 	);
+	sourceSurface.setDisabled( true );
 	this.sourceColumn.setTranslation( translation );
 	this.targetColumn.setTranslation( translation );
 	this.toolsColumn.setTranslation( translation );
@@ -179,7 +182,7 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 		focus: [ 'onSurfaceViewFocus', targetSurface ]
 	} );
 	this.setSurface( targetSurface );
-	translation.targetSurface.getDocument().connect( this, {
+	targetSurface.getModel().getDocument().connect( this, {
 		transact: 'onDocumentTransact'
 	} );
 	targetSurface.getView().getDocument().connect( this, {

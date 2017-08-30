@@ -39,16 +39,17 @@ ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	var translation, unit, sourceModel;
 
+	// Parent method
 	ve.ui.CXLinkContextItem.super.prototype.renderBody.call( this );
 
-	translation = this.context.getSurface().getTranslationView().getTranslation();
+	translation = ve.init.target.getTranslation();
 	unit = translation.getTranslationUnit( this.model.getTranslationUnitId() );
 	sourceModel = unit.sourceModel;
 	this.$sourceBody.empty().append( this.constructor.static.generateBody(
 		// TODO: this ought to be a linkCache pointing at the source wiki
 		ve.init.platform.linkCache,
 		sourceModel,
-		translation.sourceSurface.getDocument().getHtmlDocument()
+		translation.sourceDoc.getHtmlDocument()
 	) );
 };
 
