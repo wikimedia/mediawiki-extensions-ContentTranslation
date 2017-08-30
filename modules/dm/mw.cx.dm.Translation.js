@@ -67,7 +67,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
 	var nextSectionId = 1,
 		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
-		domDoc = ve.createDocumentFromHtml( sourceHtml );
+		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' );
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
 	// TODO: it would be better to do section wrapping on the CX server
 	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
