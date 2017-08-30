@@ -495,13 +495,14 @@
 			.attr( 'data-suggestion', JSON.stringify( suggestion ) )
 			// It must be a separate element to ensure
 			// separation from the target title
-			.append( $( '<span>' )
-				.text( suggestion.title )
-				.addClass( 'source-title' )
-				.prop( {
-					lang: suggestion.sourceLanguage,
-					dir: sourceDir
-				} ),
+			.append(
+				$( '<span>' )
+					.text( suggestion.title )
+					.addClass( 'source-title' )
+					.prop( {
+						lang: suggestion.sourceLanguage,
+						dir: sourceDir
+					} ),
 				$featured
 			);
 

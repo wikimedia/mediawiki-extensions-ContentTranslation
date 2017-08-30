@@ -181,12 +181,12 @@
 			$links.append(
 				$( '<li>' ).append(
 					$( '<a>' )
-					.addClass( items[ i ].class )
-					.text( items[ i ].label )
-					.prop( {
-						target: '_blank',
-						href: items[ i ].href
-					} )
+						.addClass( items[ i ].class )
+						.text( items[ i ].label )
+						.prop( {
+							target: '_blank',
+							href: items[ i ].href
+						} )
 				)
 			);
 		}

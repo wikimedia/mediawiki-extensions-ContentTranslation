@@ -78,14 +78,14 @@
 		$monthStats = $( '<div>' ).addClass( 'cx-translator__month-stats' ).append(
 			$( '<div>' ).addClass( 'cx-translator__month-stats-count' ),
 			$( '<div>' )
-			.addClass( 'cx-translator__month-stats-label' )
-			.text( mw.msg( 'cx-translator-month-stats-label' ) )
+				.addClass( 'cx-translator__month-stats-label' )
+				.text( mw.msg( 'cx-translator-month-stats-label' ) )
 		);
 		$total = $( '<div>' ).addClass( 'cx-translator__total-translations' ).append(
 			$( '<div>' ).addClass( 'cx-translator__total-translations-count' ),
 			$( '<div>' )
-			.addClass( 'cx-translator__total-translations-label' )
-			.text( mw.msg( 'cx-translator-total-translations-label' ) )
+				.addClass( 'cx-translator__total-translations-label' )
+				.text( mw.msg( 'cx-translator-total-translations-label' ) )
 		);
 		$trend = $( '<canvas>' ).addClass( 'cx-translatorstats' );
 		statsRequest = statsRequest || api.get( {

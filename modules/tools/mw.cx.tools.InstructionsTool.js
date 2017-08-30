@@ -82,12 +82,14 @@ mw.cx.tools.InstructionsTool.prototype.getContent = function () {
 	$content.find( '.card-instructions-description-three' )
 		.text( mw.msg( 'cx-tools-instructions-text6' ) );
 	$content.find( '.card-instructions-guidelines' )
-		.append( $( '<a>' )
-			.prop( {
-				href: mw.msg( 'cx-tools-view-guidelines-link' ),
-				target: '_blank'
-			} )
-		.text( mw.msg( 'cx-tools-view-guidelines' ) ) );
+		.append(
+			$( '<a>' )
+				.prop( {
+					href: mw.msg( 'cx-tools-view-guidelines-link' ),
+					target: '_blank'
+				} )
+				.text( mw.msg( 'cx-tools-view-guidelines' ) )
+		);
 	return $content;
 };
 

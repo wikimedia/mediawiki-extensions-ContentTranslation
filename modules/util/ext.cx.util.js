@@ -119,7 +119,7 @@
 	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext, title ) {
 		var url, domain;
 
-		if ( !wikitext || !wikitext.trim() || !/\{\{|[\[<>&'=#*]/.test( wikitext ) ) {
+		if ( !wikitext || !wikitext.trim() || !/\{\{|[[<>&'=#*]/.test( wikitext ) ) {
 			// Plan text. Does not contain wiki markup. Save api call.
 			return $.Deferred().resolve( wikitext ).promise();
 		}

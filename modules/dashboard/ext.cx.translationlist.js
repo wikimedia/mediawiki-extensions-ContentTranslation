@@ -86,8 +86,9 @@
 	CXTranslationList.prototype.init = function () {
 		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-translationlist__header' )
-			.append( $( '<span>' )
-				.text( mw.msg( 'cx-translation-label-' + this.type ) ),
+			.append(
+				$( '<span>' )
+					.text( mw.msg( 'cx-translation-label-' + this.type ) ),
 				this.languageFilter.$element
 			);
 		this.$translationsList = $( '<div>' )

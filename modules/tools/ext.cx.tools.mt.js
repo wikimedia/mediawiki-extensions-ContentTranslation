@@ -147,12 +147,13 @@
 			.always( function () {
 				cxserverToken.promise = undefined;
 			} )
-			.then( function ( response ) {
-				cxserverToken.jwt = response.jwt;
-				cxserverToken.expires = response.exp;
+			.then(
+				function ( response ) {
+					cxserverToken.jwt = response.jwt;
+					cxserverToken.expires = response.exp;
 
-				return response.jwt;
-			},
+					return response.jwt;
+				},
 				// Not all MT services require token, so let the caller try
 				// with empty token to see if it fails.
 				function () {

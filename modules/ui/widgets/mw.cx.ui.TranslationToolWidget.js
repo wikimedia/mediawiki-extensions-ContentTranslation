@@ -33,8 +33,8 @@ mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translat
 		.addClass( 'card__title--language' )
 		.text( $.uls.data.getAutonym( config.language ) || '' );
 	this.$header = $( '<div>' )
-			.addClass( 'cx-widget-translationtool-header' )
-			.append( this.$title, this.$language );
+		.addClass( 'cx-widget-translationtool-header' )
+		.append( this.$title, this.$language );
 
 	// It is not always possible to provide the toolContent at this point. The tools can update this widget
 	this.$information = $( '<div>' )

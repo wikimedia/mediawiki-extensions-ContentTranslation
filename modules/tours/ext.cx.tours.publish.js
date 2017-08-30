@@ -101,9 +101,9 @@
 		position: 'leftBottom',
 		titlemsg: 'cx-publish-gt-first-step-title',
 		description: mw.message(
-				'cx-publish-gt-first-step-description',
-				$( '#ca-edit a' ).text()
-			).parse(),
+			'cx-publish-gt-first-step-description',
+			$( '#ca-edit a' ).text()
+		).parse(),
 		onShow: function () {
 			var $cactions = $( cactions ),
 				$actionsMenu = $cactions.find( '.menu' );
@@ -124,11 +124,11 @@
 				} );
 		}
 	} )
-	.transition( function () {
-		if ( isMovePage() ) {
-			return 'movehelpstart';
-		}
-	} );
+		.transition( function () {
+			if ( isMovePage() ) {
+				return 'movehelpstart';
+			}
+		} );
 
 	// Help the user to move the page correctly
 	tour.step( {
@@ -138,11 +138,11 @@
 		titlemsg: 'cx-publish-gt-move-page-title',
 		descriptionmsg: 'cx-publish-gt-move-page-description'
 	} )
-	.transition( function () {
-		if ( isMoveSuccessPage() ) {
-			return 'movedstart';
-		}
-	} );
+		.transition( function () {
+			if ( isMoveSuccessPage() ) {
+				return 'movedstart';
+			}
+		} );
 
 	// The page was moved.
 	// The move action result is shown.
@@ -153,11 +153,11 @@
 		titlemsg: 'cx-publish-gt-moved-title',
 		descriptionmsg: 'cx-publish-gt-moved-description'
 	} )
-	.transition( function () {
-		if ( isPublishedPage() ) {
-			return 'publishedstart';
-		}
-	} );
+		.transition( function () {
+			if ( isPublishedPage() ) {
+				return 'publishedstart';
+			}
+		} );
 
 	// The page was moved to the main space.
 	// Suggest more editing.

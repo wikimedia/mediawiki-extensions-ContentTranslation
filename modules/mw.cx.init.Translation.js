@@ -99,8 +99,8 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 
 	mw.log( '[CX] Fetching Source page...' );
 	sourcePageFetchDeferred = this.fetchSourcePageContent(
-			this.sourceWikiPage, this.config.siteMapper
-		).fail( this.fetchSourcePageContentError.bind( this ) );
+		this.sourceWikiPage, this.config.siteMapper
+	).fail( this.fetchSourcePageContentError.bind( this ) );
 
 	mw.log( '[CX] Checking existing translation...' );
 	draftFetchDeferred = this.fetchDraftInformation(

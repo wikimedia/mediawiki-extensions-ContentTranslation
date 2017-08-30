@@ -824,8 +824,9 @@
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 		$( 'body' ).append(
-			$( '<div>' ).addClass( 'cx-widget' )
-			.append( $header, $container )
+			$( '<div>' ).addClass( 'cx-widget' ).append(
+				$header, $container
+			)
 		);
 		header = new mw.cx.ui.Header( {
 			siteMapper: this.siteMapper,

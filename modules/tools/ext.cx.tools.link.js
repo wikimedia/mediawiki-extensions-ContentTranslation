@@ -401,8 +401,8 @@
 			.addClass( 'card__title' )
 			.text(
 				this.page ?
-				mw.msg( 'cx-tools-link-title' ) :
-				mw.msg( 'cx-tools-missing-link-title' )
+					mw.msg( 'cx-tools-link-title' ) :
+					mw.msg( 'cx-tools-missing-link-title' )
 			)
 		);
 
