@@ -101,19 +101,8 @@ mw.cx.ui.Header.prototype.listen = function () {
 		this.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
 		$( '.cx-widget__columns' ).addClass( 'disabled' );
 	}.bind( this ) );
-	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
 };
 
 mw.cx.ui.Header.prototype.setStatusMessage = function ( message ) {
 	this.statusbar.setLabel( message );
-};
-
-mw.cx.ui.Header.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop();
-
-	if ( scrollTop > 0 ) {
-		this.$element.addClass( 'sticky' );
-	} else {
-		this.$element.removeClass( 'sticky' );
-	}
 };
