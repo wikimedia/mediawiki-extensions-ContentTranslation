@@ -297,7 +297,8 @@
 				"cx-translation-filter-published-translations",
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-from-any-language",
-				"cx-translation-filter-to-any-language"
+				"cx-translation-filter-to-any-language",
+				"cx-translation-filter-any-language"
 			]
 		},
 		"ext.cx.util": {

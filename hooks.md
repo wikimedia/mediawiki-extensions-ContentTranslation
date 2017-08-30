@@ -184,3 +184,7 @@ Fired when there are AbuseFilter based validation errors for the section.
 ## mw.cx.translation.validation.success
 
 Fired when there are no AbuseFilter based validation errors for the section.
+
+## mw.cx.translationlist.items.changed
+
+Fired when items for translation list ('In progress' or 'Published') are fetched from the server
