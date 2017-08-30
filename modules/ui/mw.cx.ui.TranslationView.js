@@ -347,12 +347,13 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 };
 
 mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
-	var pasteDoc, tx1, tx2,
+	var pasteDoc, tx1, tx2, firstOffset, docLen,
 		modelSurface = this.getSurface().getModel(),
 		doc = modelSurface.documentModel,
 		pRange = placeholder.getModel().getOuterRange();
 
 	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data ) );
+	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
 	tx1 = ve.dm.TransactionBuilder.static.newFromRemoval( doc, pRange );
 	tx2 = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
 		doc,
@@ -360,12 +361,17 @@ mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeh
 		pasteDoc,
 		new ve.Range(
 			1,
-			pasteDoc.getInternalList().getListNode().getOuterRange().start - 1
+			docLen - 1
 		)
 	);
 	tx2 = ve.dm.Change.static.rebaseTransactions( tx1, tx2 )[ 1 ];
 	modelSurface.change( [ tx1, tx2 ] );
 
+	// Select first content offset within new content
+	firstOffset = modelSurface.getDocument().data.getNearestContentOffset( pRange.start, 1 );
+	if ( firstOffset > pRange.start && firstOffset < pRange.start + docLen ) {
+		modelSurface.setLinearSelection( new ve.Range( firstOffset ) );
+	}
 };
 
 /**
