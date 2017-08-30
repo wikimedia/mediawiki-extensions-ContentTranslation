@@ -57,7 +57,6 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 		this.alignSectionPairs.bind( this ),
 		500
 	);
-	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
 	this.targetColumn.connect( this, {
 		titleChange: 'onTargetTitleChange'
 	} );
@@ -198,6 +197,8 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 		mouseover: this.onSurfaceMouseOver.bind( this ),
 		mouseout: this.onSurfaceMouseOut.bind( this )
 	} );
+
+	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
 };
 
 mw.cx.ui.TranslationView.prototype.getTranslation = function () {
