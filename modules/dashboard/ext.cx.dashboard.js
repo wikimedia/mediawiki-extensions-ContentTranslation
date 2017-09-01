@@ -20,6 +20,7 @@
 		this.siteMapper = siteMapper;
 		this.$header = null;
 		this.$sidebar = null;
+		this.$publishedArticlesButton = null;
 		this.lists = {};
 		this.$translationListContainer = null;
 		this.$newTranslationButton = null;
@@ -149,17 +150,17 @@
 	CXDashboard.prototype.getSidebarItems = function () {
 		return [
 			{
-				'class': 'cx-sidebar__link cx-sidebar__link--information',
+				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--information',
 				href: 'https://www.mediawiki.org/wiki/ContentTranslation',
 				label: mw.msg( 'cx-dashboard-sidebar-information' )
 			},
 			{
-				'class': 'cx-sidebar__link cx-sidebar__link--stats',
+				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--stats',
 				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
 				label: mw.msg( 'cx-dashboard-sidebar-stats' )
 			},
 			{
-				'class': 'cx-sidebar__link cx-sidebar__link--feedback',
+				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--feedback',
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-feedback' )
 			}
@@ -167,13 +168,14 @@
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
-		var $header, $translator, i, items, $links = [];
+		var $help, $statistics, i, items, $links = [];
 
-		$header = $( '<div>' )
-			.addClass( 'cx-sidebar__title' )
-			.text( mw.msg( 'cx-dashboard-sidebar-title' ) );
+		$statistics = mw.cx.widgets.CXTranslator();
+		this.$publishedArticlesButton = $statistics.$button;
 
-		$translator = mw.cx.widgets.CXTranslator();
+		$help = $( '<div>' )
+			.addClass( 'cx-dashboard-sidebar__help' );
+
 		items = this.getSidebarItems();
 		$links = $( '<ul>' );
 		for ( i = 0; i < items.length; i++ ) {
@@ -189,10 +191,14 @@
 				)
 			);
 		}
+		$help.append(
+			$( '<div>' )
+				.addClass( 'cx-dashboard-sidebar__help-title' )
+				.text( mw.msg( 'cx-dashboard-sidebar-title' ) ),
+			$links
+		);
 
-		return $( '<div>' )
-			.addClass( 'cx-sidebar' )
-			.append( $translator, $header, $links );
+		return [ $statistics.$element, $help ];
 	};
 
 	CXDashboard.prototype.render = function () {
@@ -209,7 +215,7 @@
 		this.$header.append( header.$element );
 		this.$translationListContainer = this.buildTranslationList();
 		this.$sidebar = $( '<div>' )
-			.addClass( 'cx-dashboard__sidebar' )
+			.addClass( 'cx-dashboard-sidebar' )
 			.append( this.buildSidebar() );
 
 		this.$dashboard = $( '<div>' )
@@ -332,6 +338,10 @@
 				},
 				compact: true
 			} );
+		} );
+
+		this.$publishedArticlesButton.on( 'click', function () {
+			self.filter.selectItemByData( 'published' );
 		} );
 
 		this.initSourceSelector();
