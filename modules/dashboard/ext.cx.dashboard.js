@@ -225,7 +225,7 @@
 
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			filterButtons.push( new OO.ui.ButtonOptionWidget( {
-				data: 'suggested',
+				data: 'suggestions',
 				label: mw.msg( 'cx-translation-filter-suggested-translations' )
 			} ) );
 		}
