@@ -105,6 +105,20 @@
 		return this.config.cx + module;
 	};
 
+	mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params ) {
+		var domain, url;
+
+		domain = this.getWikiDomainCode( language );
+		url = this.config.restbase.replace( '$1', domain );
+		if ( params !== undefined ) {
+			$.each( params, function ( key, value ) {
+				module = module.replace( key, encodeURIComponent( value ) );
+			} );
+		}
+
+		return url + module;
+	};
+
 	/**
 	 * Get the target title to publish based on the wiki configuration.
 	 *
