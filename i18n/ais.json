@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Tokoabibi"
 		]
 	},
 	"cx-source-view-page": "baluhayay a kasabelih",
@@ -12,12 +13,14 @@
 	"cx-sourceselector-dialog-target-language-label": "katukuh:",
 	"cx-dashboard-sidebar-stats": "sausi",
 	"cx-suggestionlist-featured": "sazumaay a pili’",
-	"cx-translation-status-deleted": "masipu",
+	"cx-contributions-new-article": "baluhayay a kasabelih",
+	"cx-translation-status-deleted": "masiputu",
 	"cx-stats-cumulative-tab-title": "pulung",
 	"cx-draft-cancel-button-label": "palawpes",
 	"cx-stats-weekly-published": "naayaway cacay a lipay",
 	"cx-tools-link-apply": "pahezek",
 	"cx-translator-month-stats-label": "ayza a bulad",
 	"cx-translator-total-translations-label": "pulung",
-	"cx-tools-mt-new-provider": "baluhay"
+	"cx-tools-mt-new-provider": "baluhay",
+	"cx-publish-destination-namespace-main": "baluhayay a kasabelih"
 }

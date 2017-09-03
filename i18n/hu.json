@@ -184,7 +184,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Fordításaid}}",
 	"cx-translationlist-empty-title": "Nincs mit fordítanod?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Kezdd el}} a fordításodat most, és folytasd bármikor.",
-	"cx-tools-link-internal-link": "Link egy lapra",
+	"cx-tools-link-internal-link": "Lapok keresése",
 	"cx-tools-link-internal-link-placeholder": "Keresd meg a hivatkozott lapot",
 	"cx-tools-link-external-link": "Külső hivatkozás",
 	"cx-tools-link-external-link-placeholder": "Külső hivatkozás hozzáadása",
