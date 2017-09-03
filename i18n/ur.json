@@ -10,7 +10,8 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Bukhari",
 			"محبوب عالم",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Hindustanilanguage"
 		]
 	},
 	"cx": "صفحہ کا ترجمہ کریں",
@@ -90,6 +91,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "صفحہ  [$1 پہلے سے] $2 میں موجود ہے",
 	"cx-sourceselector-dialog-error-title-in-use": "نئے صفحہ کا عنوان [$1 پہلے ہی مستعمل ہے]",
 	"cx-sourceselector-dialog-error-no-source-article": "ترجمہ کے لیے منتخب صفحہ $1 میں موجود نہیں",
+	"cx-sourceselector-missing-in-target-language": "$1 میں غیرموجود",
 	"cx-mt-abuse-warning-text": "مشینی ترجمہ صرف شروعات کے طور پر مہیّا کیا گیا ہے۔ آپ کو یہ یقینی بنانا ہوگا کہ متن صحیح ہے اور آپ کی زبان میں روانی سے پڑھا جاسکتا ہے۔",
 	"cx-publish-captcha-title": "احتیاطی سوال",
 	"cx-dashboard-sidebar-title": "تراجم میں معاونت درکار ہے؟",

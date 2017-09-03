@@ -93,7 +93,7 @@
 	"cx-mt-abuse-warning-title": "Ваш превод {{PLURAL:$1|садржи}} $1% неизмењеног машинског превода",
 	"cx-mt-abuse-warning-text": "Машински превод је само полазна тачка, морате се постарати да садржај буде тачан и разумљив на вашем језику.",
 	"cx-publish-captcha-title": "Сигурносно питање",
-	"cx-dashboard-sidebar-title": "{{GENDER:|Требате ли}} помоћ око превода?",
+	"cx-dashboard-sidebar-title": "Треба Вам помоћ око превода?",
 	"cx-dashboard-sidebar-information": "Сазнајте више о овој могућности",
 	"cx-dashboard-sidebar-stats": "Статистике",
 	"cx-dashboard-sidebar-feedback": "Пружите нам повратне информације",

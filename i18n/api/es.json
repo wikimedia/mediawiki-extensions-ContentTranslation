@@ -92,8 +92,10 @@
 	"apierror-cx-missingdraft": "El borrador no existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debes acceder para gestionar tus sugerencias.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Debes acceder para ver tus traducciones.",
-	"apierror-cx-notowned": "La traducción no pertenece al usuario actual.",
 	"apierror-cx-samelanguages": "El idioma de origen y el idioma de destino no pueden ser el mismo.",
 	"apierror-cx-suggestionsdisabled": "Las sugerencias no están habilitadas para este wiki.",
-	"apierror-cx-translationnotfound": "Traducción no encontrada."
+	"apierror-cx-translationnotfound": "Traducción no encontrada.",
+	"apihelp-query+langlinkscount-description": "Obtener el número de idiomas en que este artículo existe.",
+	"apihelp-query+langlinkscount-summary": "Obtener el número de versiones en otros idiomas.",
+	"apihelp-query+langlinkscount-example-1": "Obtener el número de versiones en otros idiomas de la página «Perro»"
 }

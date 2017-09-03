@@ -116,5 +116,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as suas traduções, é necessário autenticar-se.",
 	"apierror-cx-samelanguages": "As línguas de origem e destino não podem ser iguais.",
 	"apierror-cx-suggestionsdisabled": "As sugestões não foram ativadas nesta wiki.",
-	"apierror-cx-translationnotfound": "A tradução não foi encontrada."
+	"apierror-cx-translationnotfound": "A tradução não foi encontrada.",
+	"apihelp-query+langlinkscount-description": "Obter o número de outras línguas nas quais esse artigo existe.",
+	"apihelp-query+langlinkscount-summary": "Obter o número de versões noutras línguas.",
+	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'."
 }

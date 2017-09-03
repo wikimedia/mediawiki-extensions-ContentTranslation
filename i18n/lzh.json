@@ -3,10 +3,12 @@
 		"authors": [
 			"LNDDYL",
 			"StephDC",
-			"灰太狼Wolffy55"
+			"灰太狼Wolffy55",
+			"Itsmine"
 		]
 	},
 	"tag-contenttranslation-description": "内物自使物译者他语译之。",
 	"cx-tools-searchbox-text": "尋文",
-	"cx-tools-mt-provider-title": "自$1"
+	"cx-tools-mt-provider-title": "自$1",
+	"cx-contributions-new-contributions": "編纂校勘誌"
 }
