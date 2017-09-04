@@ -21,8 +21,6 @@
 	} ) );
 
 	QUnit.test( 'getLanguageCodeForWikiDomain', function ( assert ) {
-		assert.expect( 2 );
-
 		assert.strictEqual(
 			this.siteMapper.getLanguageCodeForWikiDomain( 'no' ),
 			'nb',
@@ -37,8 +35,6 @@
 	} );
 
 	QUnit.test( 'getPageUrl', function ( assert ) {
-		assert.expect( 2 );
-
 		assert.strictEqual(
 			this.siteMapper.getPageUrl( 'es', 'Title' ),
 			'https://es.wikipedia.org/wiki/Title',
@@ -53,9 +49,7 @@
 	} );
 
 	QUnit.test( 'getApi', function ( assert ) {
-		var api;
-		assert.expect( 1 );
-		api = this.siteMapper.getApi( 'he' );
+		var api = this.siteMapper.getApi( 'he' );
 		assert.strictEqual( api.apiUrl, 'https://he.wikipedia.org/w/api.php' );
 	} );
 }( jQuery, mediaWiki ) );

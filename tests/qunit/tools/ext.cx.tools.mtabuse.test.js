@@ -14,8 +14,6 @@
 		/* eslint new-cap:off */
 		var progress, mtAbuseCard = new mw.cx.tools.mtabuse();
 
-		assert.expect( 5 );
-
 		progress = {
 			any: 0,
 			human: 0,

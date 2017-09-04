@@ -24,7 +24,6 @@
 			$targetTemplate, $sourceTemplate, done, $fixture;
 
 		$fixture = $( '#qunit-fixture' );
-		assert.expect( 1 );
 		done = assert.async();
 		// Tesing lang-ml template. It exists in en and ml. So will be passed through
 		// But it will be readonly.
@@ -77,7 +76,6 @@
 			$fixture = $( '#qunit-fixture' );
 
 		done = assert.async();
-		assert.expect( 1 );
 		// Tesing lang-ml template. It exists in en but not in ca.
 		template = {
 			parts: [ {
@@ -126,7 +124,6 @@
 			$fixture = $( '#qunit-fixture' );
 
 		done = assert.async();
-		assert.expect( 1 );
 		// Tesing lang-ml template. It exists in en but not in ca.
 		template = {
 			parts: [ {
@@ -178,7 +175,6 @@
 			$fixture = $( '#qunit-fixture' );
 
 		done = assert.async();
-		assert.expect( 3 );
 		// Tesing Ficha_de_taxón. As per template mapping for es-ca, it should be renamed to Taxocaixa
 		template = {
 			parts: [ {
@@ -313,7 +309,6 @@
 			$fixture = $( '#qunit-fixture' );
 
 		done = assert.async();
-		assert.expect( 4 );
 		template = {
 			parts: [ {
 				template: {
@@ -396,7 +391,6 @@
 			$fixture = $( '#qunit-fixture' );
 
 		done = assert.async();
-		assert.expect( 6 );
 		template = {
 			parts: [ {
 				template: {
