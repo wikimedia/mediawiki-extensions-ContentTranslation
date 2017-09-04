@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bunukwiki",
-			"Tokoabibi"
+			"Tokoabibi",
+			"Benel"
 		]
 	},
 	"cx-source-view-page": "baluhayay a kasabelih",
@@ -12,8 +13,10 @@
 	"cx-sourceselector-dialog-source-language-label": "nay:",
 	"cx-sourceselector-dialog-target-language-label": "katukuh:",
 	"cx-dashboard-sidebar-stats": "sausi",
+	"cx-translation-filter-draft-translations": "miteka henay ayza",
 	"cx-suggestionlist-featured": "sazumaay a pili’",
 	"cx-contributions-new-article": "baluhayay a kasabelih",
+	"cx-translation-status-draft": "miteka henay ayza",
 	"cx-translation-status-deleted": "masiputu",
 	"cx-stats-cumulative-tab-title": "pulung",
 	"cx-draft-cancel-button-label": "palawpes",
