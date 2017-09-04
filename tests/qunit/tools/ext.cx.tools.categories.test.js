@@ -40,7 +40,6 @@
 	QUnit.test( 'Get categories', function ( assert ) {
 		var done, categoryTool = new mw.cx.CategoryTool( this.sitemapper );
 		done = assert.async();
-		assert.expect( 3 );
 
 		mw.cx.sourceTitle = 'Han Feizi';
 

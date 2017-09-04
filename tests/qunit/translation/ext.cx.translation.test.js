@@ -10,7 +10,6 @@
 
 	QUnit.test( 'isHeading', function ( assert ) {
 		var cxTranslation = new mw.cx.ContentTranslationEditor();
-		assert.expect( 3 );
 
 		assert.strictEqual( cxTranslation.isHeading( 'H1' ), true );
 		assert.strictEqual( cxTranslation.isHeading( 'h6' ), true );
@@ -19,7 +18,6 @@
 
 	QUnit.test( 'isParentHeading', function ( assert ) {
 		var cxTranslation = new mw.cx.ContentTranslationEditor();
-		assert.expect( 6 );
 
 		assert.strictEqual( cxTranslation.isParentHeading( 'H1', 'DIV' ), true );
 		assert.strictEqual( cxTranslation.isParentHeading( 'H2', 'H3' ), true );
