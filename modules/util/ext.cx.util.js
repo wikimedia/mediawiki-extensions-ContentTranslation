@@ -117,19 +117,23 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.cx.wikitextToHTML = function ( siteMapper, language, wikitext, title ) {
-		var url, domain;
+		var url;
 
 		if ( !wikitext || !wikitext.trim() || !/\{\{|[[<>&'=#*]/.test( wikitext ) ) {
 			// Plan text. Does not contain wiki markup. Save api call.
 			return $.Deferred().resolve( wikitext ).promise();
 		}
 
-		domain = siteMapper.getWikiDomainCode( language );
-		url = siteMapper.config.restbase.replace( '$1', domain );
-		url += '/transform/wikitext/to/html';
 		if ( title ) {
-			url += '/' + title;
+			url = siteMapper.getRestbaseUrl(
+				language,
+				'/transform/wikitext/to/html/$title',
+				{ $title: title.replace( ' ', '_' ) }
+			);
+		} else {
+			url = siteMapper.getRestbaseUrl( language, '/transform/wikitext/to/html' );
 		}
+
 		return $.post( url, {
 		/* eslint camelcase:off */
 			body_only: true,
@@ -146,16 +150,14 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.cx.htmlToWikitext = function ( siteMapper, language, html ) {
-		var url, domain;
+		var url;
 
 		if ( !html || !html.trim() || !/<[a-zA-Z][\s\S]*>/i.test( html ) ) {
 			// Does not contain HTML elements. Save api call.
 			return $.Deferred().resolve( html ).promise();
 		}
 
-		domain = siteMapper.getWikiDomainCode( language );
-		url = siteMapper.config.restbase.replace( '$1', domain );
-		url += '/transform/html/to/wikitext';
+		url = siteMapper.getRestbaseUrl( language, '/transform/html/to/wikitext' );
 
 		return $.post( url, {
 			html: html
