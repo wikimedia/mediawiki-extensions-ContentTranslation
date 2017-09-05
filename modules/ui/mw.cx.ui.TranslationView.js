@@ -361,7 +361,8 @@ mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeh
 	tx1 = ve.dm.TransactionBuilder.static.newFromRemoval( doc, pRange );
 	tx2 = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
 		doc,
-		pRange.start,
+		// Position the start of tx2 at the end of tx1, to work around T175059
+		pRange.end,
 		pasteDoc,
 		new ve.Range(
 			1,
