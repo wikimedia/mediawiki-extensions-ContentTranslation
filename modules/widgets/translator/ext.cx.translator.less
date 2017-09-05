@@ -2,39 +2,52 @@
 @import '../../widgets/common/ext.cx.common.less';
 
 .cx-translator {
-	.mw-ui-item;
 	.mw-ui-one-whole;
-	padding-left: 40px;
-	margin-bottom: 10px;
-	.background-image-svg('images/user-avatar.svg', 'images/user-avatar.png');
-	background-size: 25px;
-	background-repeat: no-repeat;
-	background-position: top left;
+
+	background-color: #fff;
+	margin-bottom: 1em;
+	border-radius: @borderRadius;
+	padding: 1em;
 }
 
 .cx-translator__header {
-	font-size: larger;
-	font-size: 1.5em;
 	color: @gray-dark;
+	margin-bottom: 1em;
+	font-weight: bold;
 }
 
 .cx-translator__month-stats,
 .cx-translator__total-translations {
 	.mw-ui-one-half;
+
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+
+.cx-translator__total-translations{
 	color: @gray-dark;
+}
+
+.cx-translator__month-stats {
+	color: @colorProgressive;
+}
+
+.cx-translator__month-stats-button {
+	float: left;
+	cursor: pointer;
 }
 
 .cx-translator__total-translations-count,
 .cx-translator__month-stats-count {
-	font-size: 2em;
+	font-size: 1.4375em;
 }
 
 .cx-translator__total-translations-label,
 .cx-translator__month-stats-label {
-	font-size: 1em;
+	font-size: 0.8125em;
 }
 
 .cx-translatorstats {
 	max-height: 50px;
-	background-color: #eaecf0;
+	background-color: @colorGray15;
 }

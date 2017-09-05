@@ -218,6 +218,7 @@
 	"cx-tools-linter-content": "Detailed description about the abusefilter error. \n* $1 - Autonym of target language.",
 	"cx-tools-linter-view-details": "Label for abusefilter error hide/collapse link in linter card",
 	"cx-tools-linter-hide-details": "Label for abusefilter error hide/collapse link in linter card",
+	"cx-translator-header": "Shown in sidebar menu in the Content Translation dashboard. Represents card header for translation statistics of current user.",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
 	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}",
 	"cx-page-old-revision-loaded": "Warning message shown when the older revision of source page loaded",

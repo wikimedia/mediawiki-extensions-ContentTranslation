@@ -135,13 +135,7 @@
 	}
 
 	.cx-sourceselector-embedded__source-inputs {
-		.flex-display( box );
-		.flex-display;
-
-		-ms-flex-align: center; // Support IE10
-		-webkit-box-align: center; // Support 2011 syntax
-		-webkit-align-items: center; // Support Vendor specific
-		align-items: center; // Modern syntax
+		.flex-center;
 
 		height: 40px;
 		border-bottom: 1px solid #eee;
@@ -162,12 +156,8 @@
 		@image-size: 5.25em;
 
 		.mw-ui-one-whole;
-		.flex-display( box );
-		.flex-display;
-		-ms-flex-align: center; // Support IE10
-		-webkit-box-align: center; // Support 2011 syntax
-		-webkit-align-items: center; // Vendor specific
-		align-items: center; // Modern syntax
+
+		.flex-center;
 		min-height: @item-height;
 
 		&__image {
@@ -186,14 +176,7 @@
 		&__info {
 			color: @colorGray1;
 
-			.flex-display( box );
-			.flex-display;
-			flex-direction: column;
-			// Support 2009/2012 syntax that does not support space-around
-			-webkit-box-pack: justify; // iOS 6-, Safari 3.1-6
-			-moz-box-pack: justify; // Firefox 21-
-			-ms-flex-pack: distribute; // Support IE10
-			justify-content: space-around;
+			.flex-around;
 
 			max-width: 60%;
 			min-height: @item-height;
@@ -264,12 +247,7 @@
 			font-size: 16px;
 			cursor: pointer;
 
-			-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
-			-moz-box-flex: 1; // Firefox 21-
-			width: auto; // Fallback for flex-basis
-			-ms-flex: 0 1 auto; // IE 10
-			-webkit-flex: 0 1 auto; // Safari 6.2 - 8
-			flex: 0 1 auto;
+			.flex-item;
 			overflow: hidden;
 		}
 

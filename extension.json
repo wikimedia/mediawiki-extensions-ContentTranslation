@@ -1196,6 +1196,7 @@
 				"widgets/translator/ext.cx.translator.less"
 			],
 			"messages": [
+				"cx-translator-header",
 				"cx-translator-month-stats-label",
 				"cx-translator-total-translations-label"
 			],
