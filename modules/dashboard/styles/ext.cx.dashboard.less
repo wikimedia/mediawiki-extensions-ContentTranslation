@@ -31,12 +31,21 @@ body {
 
 	padding: 0 0 0 20px;
 	line-height: 1;
+	margin-bottom: 48px;
 
-	&.sticky {
-		position: fixed;
-		top: @sticky-header-height;
-		right: @sticky-sidebar-right-position;
-		padding-right: @sticky-sidebar-width-adjustment;
+	@media only screen and ( max-width: @wide ) {
+		.mw-ui-one-whole;
+
+		padding: 0;
+	}
+
+	@media only screen and ( min-width: @wide ) {
+		&.sticky {
+			position: fixed;
+			top: @sticky-header-height;
+			right: @sticky-sidebar-right-position;
+			padding-right: @sticky-sidebar-width-adjustment;
+		}
 	}
 
 	ul {
@@ -68,7 +77,6 @@ body {
 		background-size: 16px;
 		color: @colorProgressive;
 		padding-left: 24px;
-
 	}
 
 	&__link {
@@ -93,6 +101,11 @@ body {
 		padding: 16px;
 		.box-shadow-card;
 		font-size: 16px;
+
+		@media only screen and ( min-width: @narrow ) and ( max-width: @wide ) {
+			width: 47.5%;
+			margin-left: 5%;
+		}
 
 		&-title {
 			color: @colorGray5;
@@ -123,6 +136,11 @@ body {
 	background-color: @colorGray14;
 	margin-bottom: 48px;
 	padding: 0 @translationlist-container-padding-right 0 0;
+
+	@media only screen and ( max-width: @wide ) {
+		.mw-ui-one-whole;
+		padding: 0;
+	}
 }
 
 .translation-filter {
@@ -147,10 +165,15 @@ body {
 	padding: 10px 0; // Defines top and bottom padding. Left and right padding are defined separately for clarity
 	padding-right: @sticky-sidebar-right-position + @translationlist-container-padding-right;
 	padding-left: @dashboard-horizontal-padding;
+
+	@media only screen and ( max-width: @wide ) {
+		width: 100%;
+		padding: 10px @dashboard-horizontal-padding;
+	}
 }
 
 .cx-translationlist-container.sticky {
 	// Occupy the place the place that would become empty when the header starts
 	// floating when the page is scrolled. This prevents a jump of the content.
-	padding-top: 120px;
+	padding-top: @sticky-header-height;
 }

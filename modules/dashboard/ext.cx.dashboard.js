@@ -26,6 +26,43 @@
 		this.$newTranslationButton = null;
 		this.$listHeader = null;
 		this.$sourceSelector = null;
+		this.narrowLimit = 700;
+		this.wideLimit = 1200;
+		this.isNarrowScreenSize = false;
+
+		this.filterLabels = {};
+		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+			this.filterLabels.suggestions = {
+				wide: {
+					label: mw.msg( 'cx-translation-filter-suggested-translations' ),
+					icon: undefined
+				},
+				narrow: {
+					label: undefined,
+					icon: 'bright'
+				}
+			};
+		}
+		this.filterLabels.draft = {
+			wide: {
+				label: mw.msg( 'cx-translation-filter-draft-translations' ),
+				icon: undefined
+			},
+			narrow: {
+				label: undefined,
+				icon: 'edit'
+			}
+		};
+		this.filterLabels.published = {
+			wide: {
+				label: mw.msg( 'cx-translation-filter-published-translations' ),
+				icon: undefined
+			},
+			narrow: {
+				label: undefined,
+				icon: 'check'
+			}
+		};
 	}
 
 	CXDashboard.prototype.init = function () {
@@ -107,7 +144,9 @@
 		var label;
 
 		if ( selected ) {
-			label = $.uls.data.getAutonym( selected );
+			label = this.isNarrowScreenSize ?
+				selected :
+				$.uls.data.getAutonym( selected );
 		} else if ( $filter.is( '.translation-source-language-filter' ) ) {
 			label = mw.msg( 'cx-translation-filter-from-any-language' );
 		} else {
@@ -226,27 +265,25 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var newTranslationButton,
+		var newTranslationButton, size,
 			filterButtons = [];
 
-		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+		// document.documentElement.clientWidth performs faster than $( window ).width()
+		this.isNarrowScreenSize = document.documentElement.clientWidth < this.narrowLimit;
+
+		size = this.isNarrowScreenSize ? 'narrow' : 'wide';
+
+		$.each( this.filterLabels, function ( key, value ) {
 			filterButtons.push( new OO.ui.ButtonOptionWidget( {
-				data: 'suggestions',
-				label: mw.msg( 'cx-translation-filter-suggested-translations' )
+				data: key,
+				label: value[ size ].label,
+				icon: value[ size ].icon
 			} ) );
-		}
+		} );
 
-		filterButtons.push( new OO.ui.ButtonOptionWidget( {
-			data: 'draft',
-			label: mw.msg( 'cx-translation-filter-draft-translations' )
-		} ) );
-
-		filterButtons.push( new OO.ui.ButtonOptionWidget( {
-			data: 'published',
-			label: mw.msg( 'cx-translation-filter-published-translations' )
-		} ) );
-
-		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
+		this.filter = new OO.ui.ButtonSelectWidget( {
+			items: filterButtons
+		} );
 
 		newTranslationButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-create-new-translation' ),
@@ -258,10 +295,7 @@
 		} );
 		this.$newTranslationButton = newTranslationButton.$element;
 
-		this.filter = new OO.ui.ButtonSelectWidget( {
-			items: filterButtons
-		} );
-
+		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
 		this.$listHeader.append(
 			this.$newTranslationButton,
 			this.filter.$element
@@ -353,6 +387,8 @@
 		} );
 		// Scroll handler
 		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
+		// Resize handler
+		$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
 	};
 
 	CXDashboard.prototype.setFilter = function ( type, value ) {
@@ -382,11 +418,39 @@
 	CXDashboard.prototype.scroll = function () {
 		var scrollTop = $( window ).scrollTop();
 
-		if ( scrollTop > 0 ) {
+		if ( this.wideLimit && scrollTop > 0 ) {
 			this.$sidebar.addClass( 'sticky' );
 		} else {
 			this.$sidebar.removeClass( 'sticky' );
 		}
+	};
+
+	CXDashboard.prototype.resize = function () {
+		var filterItems = this.filter.getItems(),
+			narrowScreenSize = document.documentElement.clientWidth < this.narrowLimit,
+			list = this.lists[ this.activeList ],
+			size = narrowScreenSize ? 'narrow' : 'wide',
+			self = this;
+
+		// Exit early if screen size stays above/under narrow screen size limit
+		if ( this.isNarrowScreenSize === narrowScreenSize ) {
+			return;
+		}
+
+		// Change filter labels to icons and vice-versa
+		$.each( filterItems, function ( index, filter ) {
+			var data = filter.getData(),
+				label = self.filterLabels[ data ][ size ].label,
+				icon = self.filterLabels[ data ][ size ].icon;
+
+			filter.setIcon( icon );
+			filter.setLabel( label );
+		} );
+		this.isNarrowScreenSize = narrowScreenSize;
+
+		// Change language filter labels for active list
+		this.setLanguageFilterLabel( list.languageFilter.$sourceLanguageFilter, list.filters.sourceLanguage );
+		this.setLanguageFilterLabel( list.languageFilter.$targetLanguageFilter, list.filters.targetLanguage );
 	};
 
 	$( function () {

@@ -9,6 +9,11 @@
 	border-radius: @borderRadius;
 	padding: 1em;
 	.box-shadow-card;
+
+	@media only screen and ( min-width: @narrow ) and ( max-width: @wide ) {
+		width: 47.5%;
+		margin-bottom: 0;
+	}
 }
 
 .cx-translator__header {
