@@ -6,15 +6,18 @@
 			"Benel"
 		]
 	},
+	"cx-header-new-translation": "baluhay a mibelih",
 	"cx-source-view-page": "baluhayay a kasabelih",
 	"cx-tools-dictionary-title": "misaheci",
 	"cx-tools-link-title": "masasiket",
+	"cx-sourceselector-dialog-new-translation": "baluhay a mibelih",
 	"cx-sourceselector-dialog-button-cancel": "palawpes",
 	"cx-sourceselector-dialog-source-language-label": "nay:",
 	"cx-sourceselector-dialog-target-language-label": "katukuh:",
 	"cx-dashboard-sidebar-stats": "sausi",
 	"cx-translation-filter-draft-translations": "miteka henay ayza",
 	"cx-suggestionlist-featured": "sazumaay a pili’",
+	"cx-create-new-translation": "baluhay a mibelih",
 	"cx-contributions-new-article": "baluhayay a kasabelih",
 	"cx-translation-status-draft": "miteka henay ayza",
 	"cx-translation-status-deleted": "masiputu",
