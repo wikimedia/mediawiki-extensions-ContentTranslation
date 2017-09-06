@@ -1,8 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
-			"Translatealcd"
+			"Translatealcd",
+			"Hitaypayan"
 		]
 	},
-	"cx-translation-filter-suggested-translations": "Bniq na kay’"
+	"cx-header-new-translation": "Misan tnwang ginbang miru’",
+	"cx-stats-title": "Pinsqun plpuw na qsahuy nquw ginbang",
+	"cx-tools-reference-remove": "Laxiy quw knita’ sa binkrng",
+	"cx-sourceselector-dialog-new-translation": "Misan tnwang ginbang miru’",
+	"cx-sourceselector-dialog-source-title-placeholder": "Hkangi’ inkhulan zngazyan qaniy",
+	"cx-translation-filter-suggested-translations": "Bniq na kay’",
+	"cx-suggestionlist-empty-title": "Ungat kkayal misuw qaniy",
+	"cx-create-new-translation": "Misan tnwang ginbang miru’",
+	"cx-contributions-new-contributions": "Misan tnwang na miq sa pincyuwagan",
+	"cx-publishing-dialog-keep-button": "Siy lguwiy kya kwara’ bnrwan sazing qasa",
+	"cx-translation-label-published": "Wal skayal kwara’ squliq quwbniru’ginbang",
+	"cx-publishing-dialog-publish-draft-button": "Skahul sa pintalam na biru’ kmayal sa kwara’ squliq",
+	"cx-feedback-link": "Biq sa kay’ na iwan snyuk",
+	"cx-stats-published-translations-title": "Wal skayal kwara’ squliq quwbniru’ginbang",
+	"cx-campaign-try": "Tlamiy gmbang qsahuy niiya’",
+	"cx-campaign-contributionsmenu-myuploads": "Wal pawsun sa kktan quw meti’",
+	"cx-stats-published-translations-label": "Wal skayal kwara’ squliq quwbniru’ginbang",
+	"cx-tools-link-external-link-placeholder": "Twangan sa ’ubuy tay lnglinga",
+	"cx-suggestionlist-refresh": "T’aring smr’zyut  bniq na kay’"
 }

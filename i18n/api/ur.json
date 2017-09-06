@@ -3,14 +3,14 @@
 		"authors": [
 			"Muhammad Shuaib",
 			"Obaid Raza",
-			"عرفان ارشد"
+			"عرفان ارشد",
+			"امین اکبر"
 		]
 	},
 	"apihelp-cxpublish-description": "ترجمہ مواد توسیع کے ذریعہ تخلیق کردہ صفحہ کو محفوظ کریں۔",
 	"apihelp-cxpublish-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxpublish-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-cxpublish-param-sourcetitle": "ماخذ صفحہ کا عنوان",
-	"apihelp-cxpublish-param-sourcerevision": "ماخذ صفحہ کی نظر ثانی",
 	"apihelp-cxconfiguration-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxconfiguration-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-query+cxpublishedtranslations-param-from": "ماخذ زبان کا کوڈ",
@@ -21,5 +21,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-target": "ہدف زبان کا کوڈ",
 	"apihelp-cxdelete-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxdelete-param-to": "ہدف زبان کا کوڈ",
-	"apihelp-cxdelete-param-sourcetitle": "ماخذ صفحہ کا عنوان"
+	"apihelp-cxdelete-param-sourcetitle": "ماخذ صفحہ کا عنوان",
+	"apihelp-cxsave-param-sourcerevision": "ماخذ صفحہ کی نظر ثانی",
+	"apihelp-query+langlinkscount-summary": "دوسری زبانوں کے ورژنز کے اعداد حاصل کریں۔"
 }
