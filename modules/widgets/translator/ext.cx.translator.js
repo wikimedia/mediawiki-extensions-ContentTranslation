@@ -133,7 +133,7 @@
 				.text( monthCount );
 
 			for ( i = 0; i < numOfColors - 1; i++ ) {
-				colors.push( '#c8ccd1' );
+				colors.push( '#a2a9b1' );
 			}
 			colors.push( '#36c' );
 

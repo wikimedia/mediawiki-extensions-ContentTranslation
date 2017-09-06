@@ -3,16 +3,22 @@
 @import 'mediawiki.mixins';
 
 .cx-suggestionlist {
-	.mw-ui-item;
 	.mw-ui-one-whole;
-	padding: 0;
+
 	margin-bottom: 10px;
+	padding: 0;
+	.box-shadow-card;
 }
 
 .cx-suggestionlist__public {
-	.mw-ui-item;
-	padding: 0;
+	.mw-ui-one-whole;
+
 	margin: 0;
+	padding: 0;
+
+	.cx-suggestionlist__header {
+		.box-shadow-card;
+	}
 }
 
 .cx-suggestionlist__personal {
@@ -69,10 +75,11 @@
 
 .cx-suggestionlist__refresh {
 	color: @colorProgressive;
-	margin: -10px 0 48px 0;
+	margin-top: -10px;
 	border-width: 1px 0;
 	border-radius: 0 0 @borderRadius @borderRadius;
 	padding: 20px;
+	.box-shadow-card;
 	font-weight: bold;
 
 	&:before {
