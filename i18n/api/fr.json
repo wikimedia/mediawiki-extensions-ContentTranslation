@@ -9,7 +9,8 @@
 			"Wladek92",
 			"Orlodrim",
 			"Derugon",
-			"Urhixidur"
+			"Urhixidur",
+			"Verdy p"
 		]
 	},
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",
@@ -118,7 +119,7 @@
 	"apierror-cx-samelanguages": "Les langues origine et destination ne peuvent pas être les même.",
 	"apierror-cx-suggestionsdisabled": "Suggestions non activée pour ce wiki.",
 	"apierror-cx-translationnotfound": "Traduction non trouvée.",
-	"apihelp-query+langlinkscount-description": "Obtenir le nombre d'autres langues dans lesquelles figure cet article.",
-	"apihelp-query+langlinkscount-summary": "Obtenir le nombre d'autres versions linguistiques.",
-	"apihelp-query+langlinkscount-example-1": "Obtenir le nombre d'autres versions linguistiques de la page 'Chien'"
+	"apihelp-query+langlinkscount-description": "Obtenir le nombre d’autres langues dans lesquelles existe cet article.",
+	"apihelp-query+langlinkscount-summary": "Obtenir le nombre d’autres versions linguistiques.",
+	"apihelp-query+langlinkscount-example-1": "Obtenir le nombre d’autres versions linguistiques de la page « Chien »"
 }

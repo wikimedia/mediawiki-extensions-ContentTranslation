@@ -111,5 +111,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as súas traducións debe estar autenticado.",
 	"apierror-cx-samelanguages": "As linguas fonte e obxectivo non poden ser a mesma.",
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
-	"apierror-cx-translationnotfound": "Non se atopou a tradución."
+	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
+	"apihelp-query+langlinkscount-description": "Obtener o número linguas nas que existe este artigo.",
+	"apihelp-query+langlinkscount-summary": "Obter o número doutras versións lingüísticas.",
+	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina 'Can'"
 }

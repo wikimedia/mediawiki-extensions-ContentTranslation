@@ -215,6 +215,7 @@
 	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
 	"cx-tools-linter-view-details": "Pokaż szczegóły",
 	"cx-tools-linter-hide-details": "Ukryj szczegóły",
+	"cx-translator-header": "Twoje statystyki",
 	"cx-translator-month-stats-label": "W tym miesiącu",
 	"cx-translator-total-translations-label": "Razem",
 	"cx-page-old-revision-loaded": "To tłumaczenie opiera się na starszej wersji tekstu. Strona źródłowa mogła [$1 znacząco się zmienić]. Możesz kontynuować to tłumaczenie lub rozpocząć je ponownie i wykorzystać zaktualizowaną treść.",
