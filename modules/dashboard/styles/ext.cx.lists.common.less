@@ -132,16 +132,16 @@
 .cx-translationlist-empty,
 .cx-suggestionlist-empty {
 	.mw-ui-item;
-	color: #72777d;
-	padding-top: 20px;
+
+	background-color: #fff;
+	color: @colorGray7;
+	padding: 40px;
 	text-align: center;
 
 	&__img {
 		.background-image-svg('../images/cx-circle.svg', '../images/cx-circle.png');
-		background-color: @colorGray14;
 		background-position: top;
 		background-repeat: no-repeat;
-		border-right: 1px solid #eaecf0;
 		padding: 50px 0;
 	}
 
@@ -163,13 +163,13 @@
 
 		a,
 		a:visited {
-			text-decoration: none;
-			color: inherit;
 			.background-image-svg('../images/lightbulb-b.svg', '../images/lightbulb-b.png');
 			background-position: left center;
 			background-repeat: no-repeat;
 			background-size: 20px;
+			color: inherit;
 			padding-left: 22px;
+			text-decoration: none;
 		}
 	}
 }
@@ -203,17 +203,17 @@
 	}
 
 	&__language--source:after {
+		margin-top: -5px;
 		border-color: rgba( 255, 255, 255, 0 );
 		border-left-color: #fff;
 		border-width: 5px;
-		margin-top: -5px;
 	}
 
 	&__language--source:before {
+		margin-top: -7px;
 		border-color: rgba( 85, 85, 85, 0 );
 		border-left-color: @gray-dark;
 		border-width: 7px;
-		margin-top: -7px;
 	}
 }
 

@@ -117,9 +117,11 @@ body {
 		.box-shadow-card;
 		font-size: 16px;
 
-		@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
-			width: 47.5%;
-			margin-left: 5%;
+		.cx-translator ~ & {
+			@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
+				width: 47.5%;
+				margin-left: 5%;
+			}
 		}
 
 		&-title {

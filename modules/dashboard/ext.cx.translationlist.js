@@ -383,7 +383,7 @@
 			.addClass( 'cx-translationlist-empty__desc' )
 			.text( mw.msg( 'cx-translationlist-empty-desc' ) );
 		return $( '<div>' )
-			.addClass( 'cx-translationlist cx-translationlist-empty' )
+			.addClass( 'cx-translationlist-empty' )
 			.append(
 				$img, $title, $desc
 			);
