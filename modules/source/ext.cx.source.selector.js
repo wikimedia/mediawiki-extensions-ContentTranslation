@@ -66,14 +66,11 @@
 	 * @return {Object} autonyms indexed by language code.
 	 */
 	function getAutonyms( languages ) {
-		var i,
-			autonyms = {};
+		return languages.reduce( function ( prevObject, element ) {
+			prevObject[ element ] = $.uls.data.getAutonym( element );
 
-		for ( i = 0; i < languages.length; i++ ) {
-			autonyms[ languages[ i ] ] = $.uls.data.getAutonym( languages[ i ] );
-		}
-
-		return autonyms;
+			return prevObject;
+		}, {} );
 	}
 
 	/**
@@ -94,10 +91,16 @@
 	 * Calculate position for ULS, depending on directionality
 	 */
 	function calculateUlsPosition() {
-		if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
-			this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
+		var isRtl = $( 'html' ).prop( 'dir' ) === 'rtl',
+			left = this.$element.offset().left,
+			right = left + this.$element.parent().width() - this.$menu.width(),
+			isInRtlViewport = right > 0,
+			isInLtrViewport = left + this.$menu.width() > $( window ).width();
+
+		if ( ( isRtl && isInRtlViewport ) || ( !isRtl && isInLtrViewport ) ) {
+			this.left = right;
 		} else {
-			this.left = this.$element.offset().left;
+			this.left = left;
 		}
 
 		this.$menu.css( this.position() );

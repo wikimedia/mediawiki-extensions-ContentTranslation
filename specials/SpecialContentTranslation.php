@@ -164,6 +164,7 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
+			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 
 		$this->setHeaders();

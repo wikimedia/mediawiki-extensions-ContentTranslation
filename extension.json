@@ -282,7 +282,9 @@
 				"ext.uls.mediawiki",
 				"mediawiki.Uri",
 				"mediawiki.storage",
-				"mediawiki.ui.button"
+				"mediawiki.ui.button",
+				"oojs-ui.styles.icons-editing-core",
+				"oojs-ui.styles.icons-accessibility"
 			],
 			"messages": [
 				"cx-create-new-translation",
