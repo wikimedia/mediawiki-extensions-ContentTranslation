@@ -27,7 +27,6 @@
 		this.$listHeader = null;
 		this.$sourceSelector = null;
 		this.narrowLimit = 700;
-		this.wideLimit = 1200;
 		this.isNarrowScreenSize = false;
 
 		this.filterLabels = {};
@@ -418,7 +417,7 @@
 	CXDashboard.prototype.scroll = function () {
 		var scrollTop = $( window ).scrollTop();
 
-		if ( this.wideLimit && scrollTop > 0 ) {
+		if ( scrollTop > 0 ) {
 			this.$sidebar.addClass( 'sticky' );
 		} else {
 			this.$sidebar.removeClass( 'sticky' );
