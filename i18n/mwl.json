@@ -8,7 +8,14 @@
 	"cx-beta": "Traduçon de cuntenido",
 	"cx-beta-desc": "Ua ferramienta pa traduzir páiginas pa la sue lhéngua de forma rápida. Ampeçe las traduçones a partir de la sue [[Special:MyContributions|páigina de cuntribuiçones]] i depuis eidite eilhas cul nuosso eiditor paralelo, specialmente zambolbido pa la tarefa. Alguas destas ferramientas puoden star çponibles solo pa ciertas lhénguas.",
 	"cx-entrypoint-title": "Traduzir esta páigina pa $1",
+	"cx-contributions-new-article": "Nuoba páigina",
+	"cx-contributions-translation": "Traduçon",
+	"cx-contributions-upload": "Cargar fexeiro",
+	"cx-contributions-new-article-tooltip": "Ampeçar a screbir ua nuoba páigina",
+	"cx-contributions-translation-tooltip": "Traduzir páiginas eisistentes",
+	"cx-contributions-upload-tooltip": "Cargar eimaiges, áudio i bídeo pa outelizar an páiginas",
 	"cx-campaign-contributionsmenu-mytranslations": "Traduçones",
 	"echo-category-title-cx": "Traduçones",
-	"echo-pref-tooltip-cx": "Abisar-me subre las mies traduçones criadas cula ferramienta de Traduçon de Cuntenido."
+	"echo-pref-tooltip-cx": "Abisar-me subre las mies traduçones criadas cula ferramienta de Traduçon de Cuntenido.",
+	"cx-publish-destination-namespace-main": "Páigina nuoba"
 }
