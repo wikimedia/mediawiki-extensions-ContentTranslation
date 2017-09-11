@@ -20,6 +20,7 @@
 		this.siteMapper = siteMapper;
 		this.$header = null;
 		this.$sidebar = null;
+		this.translator = null;
 		this.$publishedArticlesButton = null;
 		this.lists = {};
 		this.$translationListContainer = null;
@@ -206,10 +207,10 @@
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
-		var $help, $statistics, i, items, $links = [];
+		var $help, i, items, $links = [];
 
-		$statistics = mw.cx.widgets.CXTranslator();
-		this.$publishedArticlesButton = $statistics.$button;
+		this.translator = new mw.cx.widgets.CXTranslator();
+		this.$publishedArticlesButton = this.translator.$lastMonthButton;
 
 		$help = $( '<div>' )
 			.addClass( 'cx-dashboard-sidebar__help' );
@@ -236,7 +237,7 @@
 			$links
 		);
 
-		return [ $statistics.$element, $help ];
+		return [ this.translator.$widget, $help ];
 	};
 
 	CXDashboard.prototype.render = function () {
@@ -430,6 +431,8 @@
 			list = this.lists[ this.activeList ],
 			size = narrowScreenSize ? 'narrow' : 'wide',
 			self = this;
+
+		this.translator.resize();
 
 		// Exit early if screen size stays above/under narrow screen size limit
 		if ( this.isNarrowScreenSize === narrowScreenSize ) {

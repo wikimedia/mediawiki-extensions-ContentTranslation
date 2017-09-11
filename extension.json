@@ -1203,7 +1203,6 @@
 				"cx-translator-total-translations-label"
 			],
 			"dependencies": [
-				"chart.js",
 				"ext.cx.model",
 				"mediawiki.api"
 			]
