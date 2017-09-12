@@ -12,79 +12,29 @@
 	mw.cx.widgets = mw.cx.widgets || {};
 
 	/**
-	 * Draws statistics chart with provided data and colors
+	 * CXTranslator constructor
 	 *
-	 * @param {Object} ctx 2d context of the canvas where we want to draw the chart
-	 * @param {Array} stats Statistics to be drawn inside the chart
-	 * @param {Array} colors Array of colors for every bar inside the chart
+	 * @param {string} translatorName Username of the translator for which statistics are loaded
 	 */
-	function drawChart( ctx, stats, colors ) {
-		var data;
-
-		data = {
-			labels: Object.keys( stats.cxtranslatorstats.publishTrend ),
-			datasets: [
-				{
-					// Array is passed for every bar in the chart
-					// When single color is passed, all bars have same color
-					borderColor: colors || '#36c',
-					backgroundColor: colors || '#36c',
-					borderWidth: 1,
-					data: $.map( stats.cxtranslatorstats.publishTrend, function ( data ) {
-						return data.delta;
-					} )
-				}
-			]
-		};
-		/* global Chart:false */
-		/* eslint no-new:off */
-		new Chart( ctx, {
-			type: 'bar',
-			data: data,
-			options: {
-				scales: {
-					xAxes: [ {
-						scaleLabel: {
-							display: false
-						},
-						gridLines: {
-							display: false
-						},
-						ticks: {
-							display: false
-						}
-					} ],
-					yAxes: [ {
-						scaleLabel: {
-							display: false
-						},
-						gridLines: {
-							display: false
-						},
-						ticks: {
-							display: false
-						}
-					} ]
-				},
-				title: {
-					display: false
-				},
-				tooltips: {
-					enabled: false
-				},
-				legend: {
-					display: false
-				}
-			}
-		} );
-	}
-
 	mw.cx.widgets.CXTranslator = function ( translatorName ) {
-		var $widget, $header, $monthStats, $lastMonthButton, $total, $trend,
-			api = new mw.Api();
+		this.translatorName = translatorName;
+		this.data = [];
+		this.max = -1;
+
+		this.$lastMonthButton = null;
+		this.$widget = null;
+		this.$canvas = null;
+
+		this.render();
+	};
+
+	mw.cx.widgets.CXTranslator.prototype.render = function () {
+		var $header, $monthStats, $total,
+			api = new mw.Api(),
+			self = this;
 
 		$header = $( '<div>' ).addClass( 'cx-translator__header' );
-		$lastMonthButton = $( '<div>' )
+		this.$lastMonthButton = $( '<div>' )
 			.addClass( 'cx-translator__month-stats-button' )
 			.append(
 				$( '<div>' )
@@ -93,59 +43,102 @@
 					.addClass( 'cx-translator__month-stats-label' )
 					.text( mw.msg( 'cx-translator-month-stats-label' ) )
 			);
-		$monthStats = $( '<div>' ).addClass( 'cx-translator__month-stats' ).append( $lastMonthButton );
+		$monthStats = $( '<div>' )
+			.addClass( 'cx-translator__month-stats' )
+			.append( this.$lastMonthButton );
 		$total = $( '<div>' ).addClass( 'cx-translator__total-translations' ).append(
-			$( '<div>' ).addClass( 'cx-translator__total-translations-count' ),
+			$( '<div>' )
+				.addClass( 'cx-translator__total-translations-count' ),
 			$( '<div>' )
 				.addClass( 'cx-translator__total-translations-label' )
 				.text( mw.msg( 'cx-translator-total-translations-label' ) )
 		);
-		$trend = $( '<canvas>' ).addClass( 'cx-translatorstats' );
+		this.$canvas = $( '<canvas>' )
+			.addClass( 'cx-translatorstats' )
+			.prop( 'height', '50' );
 		statsRequest = statsRequest || api.get( {
 			action: 'query',
 			list: 'cxtranslatorstats',
-			translator: translatorName
+			translator: this.translatorName
 		} );
-		$widget = $( '<div>' )
+		this.$widget = $( '<div>' )
 			.addClass( 'cx-translator' )
-			.append( $header, $monthStats, $total, $trend );
+			.append( $header, $monthStats, $total, this.$canvas );
 		statsRequest.then( function ( stats ) {
-			var total, monthCount, ctx, i,
-				thisMonthKey = new Date().toISOString().slice( 0, 7 ),
-				lastMonthKey = Object.keys( stats.cxtranslatorstats.publishTrend ).slice( -1 ).pop(),
-				numOfColors = Object.keys( stats.cxtranslatorstats.publishTrend ).length,
-				colors = [];
+			var total, monthCount,
+				publishTrend = stats.cxtranslatorstats.publishTrend,
+				// Sorted months for ordered display on bar chart
+				monthKeys = Object.keys( publishTrend ).sort(),
+				thisMonthKey = new Date().toISOString().slice( 0, 7 ) + '-01',
+				lastMonthKey = Object.keys( publishTrend ).slice( -1 ).pop();
 
 			// lastMonthKey is for the month with non-zero contributions. It may be equal to
 			// thisMonthKey, but not guaranteed.
 			if ( !lastMonthKey ) {
 				// There is no month with non-zero contributions.
-				$widget.remove();
+				this.$widget.remove();
 				return;
 			}
-			total = stats.cxtranslatorstats.publishTrend[ lastMonthKey ].count || 0;
-			monthCount = stats.cxtranslatorstats.publishTrend[ thisMonthKey ] &&
-				stats.cxtranslatorstats.publishTrend[ thisMonthKey ].delta || 0;
+			total = publishTrend[ lastMonthKey ].count || 0;
+			monthCount = publishTrend[ thisMonthKey ] &&
+				publishTrend[ thisMonthKey ].delta || 0;
 
 			$header.text( mw.msg( 'cx-translator-header' ) );
 			$total.find( '.cx-translator__total-translations-count' ).text( total );
 			$monthStats.find( '.cx-translator__month-stats-count' )
 				.text( monthCount );
 
-			for ( i = 0; i < numOfColors - 1; i++ ) {
-				colors.push( '#a2a9b1' );
-			}
-			colors.push( '#36c' );
+			$.each( monthKeys, function ( i, month ) {
+				self.max = Math.max( self.max, publishTrend[ month ].delta );
+				self.data.push( publishTrend[ month ].delta );
+			} );
 
-			ctx = $trend[ 0 ].getContext( '2d' );
-			drawChart( ctx, stats, colors );
+			self.$canvas.prop( 'width', self.$widget.width() );
+			self.draw();
 		} ).fail( function () {
-			$widget.remove();
+			self.$widget.remove();
 		} );
-
-		return {
-			$element: $widget,
-			$button: $lastMonthButton
-		};
 	};
+
+	// Math.trunc polyfill
+	Math.trunc = Math.trunc || function ( x ) {
+		return x - x % 1;
+	};
+
+	mw.cx.widgets.CXTranslator.prototype.draw = function () {
+		var i, numOfBars, dataLength,
+			context = this.$canvas[ 0 ].getContext( '2d' ),
+			barWidth = 6,
+			height = 50,
+			// Spacing between bars in bar chart
+			spacing = 4,
+			offsetX = spacing,
+			// One height unit relative to maximum number of contributions
+			segment = ( height - spacing ) / this.max,
+			data = this.data,
+			canvasWidth = this.$canvas.parent().width();
+
+		// Limit the number of bars displayed
+		numOfBars = Math.trunc( ( canvasWidth - spacing ) / ( barWidth + spacing ) );
+		data = this.data.slice( Math.max( this.data.length - numOfBars, 0 ) );
+
+		dataLength = data.length;
+		context.fillStyle = '#a2a9b1';
+		for ( i = 0; i < dataLength; i++ ) {
+			// Last bar in chart is displayed using progressive color (Accent50) from WikimediaUI color palette
+			if ( i === dataLength - 1 ) {
+				context.fillStyle = '#36c';
+			}
+			context.fillRect( offsetX, height - data[ i ] * segment, barWidth, data[ i ] * segment );
+			offsetX += barWidth + spacing;
+		}
+	};
+
+	mw.cx.widgets.CXTranslator.prototype.resize = function () {
+		this.$canvas.prop( 'width', this.$canvas.parent().width() );
+
+		// When resized, canvas needs to be redrawn
+		this.draw();
+	};
+
 }( jQuery, mediaWiki ) );
