@@ -27,34 +27,30 @@
 	}
 }
 
+// stylelint-disable indentation
 // At any time display only two suggestion lists
-.cx-suggestionlist-type-4:nth-child(n+3) {
-	display: none;
-}
+.cx-suggestionlist-type-4:nth-child( n+3 ),
 
 // Do not display featured articles list when there are personalized suggestions.
 // Featured articles are just fallback.
-.cx-suggestionlist-type-5 ~ .cx-suggestionlist-type-1 {
+.cx-suggestionlist-type-5 ~ .cx-suggestionlist-type-1,
+
+// First item is heading and then next 2 items.
+// So hide all items starting at 4th child.
+.cx-suggestionlist--collapsed .cx-slitem:nth-child( n+4 ) {
 	display: none;
 }
+// stylelint-enable indentation
 
 .cx-suggestionlist--expanded h2,
 .cx-suggestionlist--collapsed h2 {
 	.mw-ui-one-whole;
 	background-color: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid @colorGray12;
 	border-bottom: 0;
 	padding: 10px;
 	margin: 0;
 	cursor: pointer;
-}
-
-.cx-suggestionlist--collapsed {
-	// First item is heading and then next 2 items.
-	// So hide all items starting at 4th child.
-	.cx-slitem:nth-child(n+4) {
-		display: none;
-	}
 }
 
 .cx-suggestionlist__collapse,
