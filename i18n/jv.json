@@ -84,6 +84,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Kacané [$1 wis ana] ing $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Sesirah kanggo kaca anyar iki [$1 wis kanggo]",
 	"cx-sourceselector-dialog-error-no-source-article": "Kaca sing arep dipertal durung ana ing $1",
+	"cx-sourceselector-missing-in-target-language": "Ora ana ing $1",
 	"cx-mt-abuse-warning-title": "Pertalané panjenengan {{PLURAL:$1|ngandhut}} $1% tulisan pertalan mesin sing durung didandani",
 	"cx-mt-abuse-warning-text": "Pertalan mesin iku dicepakaké mung kanggo bebuka. Panjenengan panggah kudu mesthèkaké yèn pertalané tlesih lan kawaca kanthi alami ing basané panjenengan.",
 	"cx-publish-captcha-title": "Pitakon kamanan",
@@ -195,6 +196,7 @@
 	"cx-tools-linter-content": "Kontèn ora minangkani [//www.mediawiki.org/wiki/Content_translation/Abuse_filter aturan ing $1 sing diyasa Wikipédia]. Mangga masalahé agé-agé dirampungaké sadurungé mbabar pertalan.",
 	"cx-tools-linter-view-details": "Deleng rerincèn",
 	"cx-tools-linter-hide-details": "Dhelikaké rerincèn",
+	"cx-translator-header": "Statistiké panjenengan",
 	"cx-translator-month-stats-label": "Wulan iki",
 	"cx-translator-total-translations-label": "Gunggung",
 	"cx-page-old-revision-loaded": "Pertalan iki dijupuk saka vèrsi isi sing lawas. Kaca sumberé bokmenawa wis [$1 akèh owahé]. Panjenengan bisa mbanjuraké pertalan iki utawa miwiti manèh nganggo kontèn sing anyar.",
@@ -214,5 +216,6 @@
 	"cx-publish-destination-tooltip": "Pilihen mandala aran kanggo parané kaca sing arep dibabar",
 	"cx-publish-destination-namespace-main": "Kaca anyar",
 	"cx-publish-destination-namespace-user": "Rèngrèngan priangga",
-	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban"
+	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban",
+	"cx-linkcontextitem-title": "Pranala adhaptasi"
 }

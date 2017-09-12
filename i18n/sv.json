@@ -27,7 +27,7 @@
 	"cx-header-new-translation": "Ny översättning",
 	"cx-header-all-translations": "Alla översättningar",
 	"cx-source-view-page": "visa sida",
-	"cx-publish-page-success": "Sidan publicerad på $1",
+	"cx-publish-page-success": "Sidan publicerades på $1",
 	"cx-publish-page-error": "Ett fel uppstod när översättningen skulle publiceras. Prova att publicera sidan igen. Fel: $1",
 	"cx-publish-button": "Publicera översättningen",
 	"cx-publish-button-publishing": "Publicerar...",
