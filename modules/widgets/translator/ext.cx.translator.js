@@ -76,7 +76,7 @@
 			// thisMonthKey, but not guaranteed.
 			if ( !lastMonthKey ) {
 				// There is no month with non-zero contributions.
-				this.$widget.remove();
+				self.$widget.remove();
 				return;
 			}
 			total = publishTrend[ lastMonthKey ].count || 0;
