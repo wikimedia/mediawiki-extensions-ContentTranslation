@@ -110,5 +110,8 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Вам треба увійти в систему, щоб переглянути свої переклади.",
 	"apierror-cx-samelanguages": "Вихідна й цільова мови не можуть бути однаковими.",
 	"apierror-cx-suggestionsdisabled": "Пропозиції не увімкнено для цієї вікі.",
-	"apierror-cx-translationnotfound": "Переклад не знайдено."
+	"apierror-cx-translationnotfound": "Переклад не знайдено.",
+	"apihelp-query+langlinkscount-description": "Отримати кількість всіх мов, якими існує стаття.",
+	"apihelp-query+langlinkscount-summary": "Отримати кількість інших мовних версій.",
+	"apihelp-query+langlinkscount-example-1": "Отримати кількість інших мовних версій сторінки «Dog»"
 }

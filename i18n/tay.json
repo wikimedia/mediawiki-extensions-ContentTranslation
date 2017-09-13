@@ -15,6 +15,7 @@
 	"cx-create-new-translation": "Misan tnwang ginbang miru’",
 	"cx-contributions-new-contributions": "Misan tnwang na miq sa pincyuwagan",
 	"cx-publishing-dialog-keep-button": "Siy lguwiy kya kwara’ bnrwan sazing qasa",
+	"cx-publishing-dialog-publish-anyway-button": "Siy kiy skayal kwara’ squliq na’",
 	"cx-translation-label-published": "Wal skayal kwara’ squliq quwbniru’ginbang",
 	"cx-publishing-dialog-publish-draft-button": "Skahul sa pintalam na biru’ kmayal sa kwara’ squliq",
 	"cx-feedback-link": "Biq sa kay’ na iwan snyuk",
@@ -23,5 +24,6 @@
 	"cx-campaign-contributionsmenu-myuploads": "Wal pawsun sa kktan quw meti’",
 	"cx-stats-published-translations-label": "Wal skayal kwara’ squliq quwbniru’ginbang",
 	"cx-tools-link-external-link-placeholder": "Twangan sa ’ubuy tay lnglinga",
-	"cx-suggestionlist-refresh": "T’aring smr’zyut  bniq na kay’"
+	"cx-suggestionlist-refresh": "T’aring smr’zyut  bniq na kay’",
+	"cx-continue-translation": "Siy lhingiy gmbang miru’"
 }
