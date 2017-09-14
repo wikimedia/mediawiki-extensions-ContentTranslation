@@ -37,8 +37,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		from: this.sourceLanguage,
 		to: this.targetLanguage,
 		sourcetitle: this.sourceTitle,
-		html: this.getContent( true ),
-		categories: this.getCategories()
+		html: this.getContent( true )
 	} );
 
 	this.publishDeferred = $.Deferred();
@@ -315,16 +314,30 @@ mw.cx.TargetArticle.prototype.showPublishError = function ( msg, allowReapply, w
 /**
  * Get content for publishing
  *
- * @param {boolean} deflate Whether the content need to deflated
+ * @param {boolean} deflate Whether the content should be deflated
  * @return {string} Content for publishing, may be deflated
  */
 mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
-	var content;
-	content = this.translation.getTargetPage().getContent( this.translation );
-	if ( deflate ) {
-		content = EasyDeflate.deflate( content );
-	}
-	return content;
+	var html,
+		doc = this.view.getSurface().getDom();
+
+	// Strip placeholders
+	Array.prototype.forEach.call( doc.body.querySelectorAll( 'section[rel="cx:Placeholder"]' ), function ( placeholder ) {
+		placeholder.remove();
+	} );
+	// Strip segments
+	Array.prototype.forEach.call( doc.body.querySelectorAll( '[data-segmentid]' ), function ( segment ) {
+		var parent = segment.parentNode;
+		// move all children out of the element
+		while ( segment.firstChild ) {
+			parent.insertBefore( segment.firstChild, segment );
+		}
+		segment.remove();
+	} );
+
+	html = this.view.getHtml( doc );
+
+	return deflate ? EasyDeflate.deflate( html ) : html;
 };
 
 /**
@@ -363,15 +376,6 @@ mw.cx.TargetArticle.prototype.getAlternateTitle = function ( title ) {
 	} else {
 		return 'User:' + username + '/' + title;
 	}
-};
-
-/**
- * Get categories for the target article
- *
- * @return {string[]} Category titles
- */
-mw.cx.TargetArticle.prototype.getCategories = function () {
-	return this.translation.getTargetPage().getCategories();
 };
 
 /**
@@ -564,5 +568,5 @@ mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
 };
 
 mw.cx.TargetArticle.prototype.getTargetURL = function () {
-	return this.siteMapper.getPageUrl( this.targetLanguage, this.targetTitle );
+	return this.siteMapper.getPageUrl( this.targetLanguage, this.getTargetTitle() );
 };
