@@ -57,6 +57,7 @@
 	"cx-sourceselector-dialog-target-language-label": "A:",
 	"cx-sourceselector-dialog-source-title-placeholder": "Cirche 'a pàgene de origgene",
 	"cx-sourceselector-dialog-target-title-placeholder": "Titole dì'a traduzione",
+	"cx-sourceselector-missing-in-target-language": "Perdute jndr'à $1",
 	"cx-publish-captcha-title": "Domande de securezze",
 	"cx-dashboard-sidebar-title": "{{GENDER:|E' abbesogne}} de 'na màne cu le traduziune?",
 	"cx-dashboard-sidebar-information": "'Mbare de cchiù sus a stu strumende",
@@ -107,6 +108,8 @@
 	"cx-stats-local-published-number": "$1 jndr'à $2",
 	"cx-stats-local-published": "$1 ($3) jndr'à $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzione|$1 traduziune}}",
+	"cx-tools-missing-link-title": "Collegamende perdute",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Signe}} cumme perdute",
 	"echo-category-title-cx": "Traduziune",
 	"cx-tools-link-add-as-missing": "Aggiunge cumme collegamende mangande",
 	"cx-tools-link-apply": "Fatte",
@@ -115,7 +118,14 @@
 	"cx-draft-restored": "Traduzione reggistrate carecate.",
 	"cx-suggestionlist-expand": "'Ndruche tutte",
 	"cx-suggestionlist-collapse": "'Ndruche de mene",
+	"cx-tools-linter-view-details": "'Ndruche le dettaglie",
+	"cx-tools-linter-hide-details": "Scunne le dettaglie",
+	"cx-translator-header": "Le statisteche tune",
 	"cx-translator-month-stats-label": "Stu mese",
 	"cx-translator-total-translations-label": "Totale",
-	"cx-tools-mt-new-provider": "nuève"
+	"cx-tools-mt-new-provider": "nuève",
+	"cx-tools-template-title": "Template",
+	"cx-template-action-adapt": "Ause 'nu template ca s'assomigghie",
+	"cx-template-action-keep-original": "Mandine 'u template origgenale",
+	"cx-template-action-skip": "Zumbe 'u template"
 }

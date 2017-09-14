@@ -92,11 +92,12 @@
 	"cx-sourceselector-dialog-error-page-exists": "Denne siden [$1 finnes allerede] på $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Tittelen for den nye siden er [$1 allerede i bruk]",
 	"cx-sourceselector-dialog-error-no-source-article": "Siden som skal oversettes finnes ikke på $1",
+	"cx-sourceselector-missing-in-target-language": "Mangler på $1",
 	"cx-mt-abuse-warning-title": "Oversettelsen din {{PLURAL:$1|inneholder}} $1% uforandret maskinoversatt tekst",
 	"cx-mt-abuse-warning-text": "Maskinoversettelse er kun ment som et utgangspunkt. Du må selv sørge for at innholdet blir nøyaktig og at språket flyter naturlig.",
 	"cx-publish-captcha-title": "Sikkerhetsspørsmål",
-	"cx-dashboard-sidebar-title": "{{GENDER:|Trenger du}} hjelp med oversettelser?",
-	"cx-dashboard-sidebar-information": "Lær mer om denne funksjonen",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Trenger du}} hjelp med å oversette?",
+	"cx-dashboard-sidebar-information": "Mer om dette verktøyet",
 	"cx-dashboard-sidebar-stats": "Statistikk",
 	"cx-dashboard-sidebar-feedback": "Gi oss tilbakemelding",
 	"cx-translation-filter-all-translations": "Alle oversettelser",
@@ -203,6 +204,7 @@
 	"cx-tools-linter-content": "Innhold er funnet som ikke tilfredstiller [//www.mediawiki.org/wiki/Content_translation/Abuse_filter begrensingene satt av Wikipedia i $1]. Vær snill og rett forholdet før du publiserer oversettelsen.",
 	"cx-tools-linter-view-details": "Vis detaljer",
 	"cx-tools-linter-hide-details": "Skjul detaljer",
+	"cx-translator-header": "Din statistikk",
 	"cx-translator-month-stats-label": "Denne måned",
 	"cx-translator-total-translations-label": "Totalt",
 	"cx-page-old-revision-loaded": "Denne oversettelsen er basert på en eldre versjon av innholdet. Kildesiden kan ha [$1 blitt endret vesentlig]. Du kan fortsette denne oversettelsen eller begynne på nytt med det oppdaterte innholdet.",
@@ -222,5 +224,6 @@
 	"cx-publish-destination-tooltip": "Velg hvilket navnerom siden skal publiseres i",
 	"cx-publish-destination-namespace-main": "Ny side",
 	"cx-publish-destination-namespace-user": "Personlig kladd",
-	"cx-publish-destination-namespace-draft": "Felles kladd"
+	"cx-publish-destination-namespace-draft": "Felles kladd",
+	"cx-linkcontextitem-title": "Tilpasset lenke"
 }
