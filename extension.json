@@ -168,46 +168,6 @@
 		"ContentTranslationVersion": "1"
 	},
 	"ResourceModules": {
-		"Base64.js": {
-			"localBasePath": "lib",
-			"remoteExtPath": "ContentTranslation/lib",
-			"scripts": [
-				"Base64.js/base64.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
-		"easy-deflate.core": {
-			"localBasePath": "lib",
-			"remoteExtPath": "ContentTranslation/lib",
-			"scripts": [
-				"Easy-Deflate/easydeflate.js",
-				"Easy-Deflate/typedarrays.js"
-			],
-			"dependencies": [
-				"Base64.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
-		"easy-deflate.deflate": {
-			"localBasePath": "lib",
-			"remoteExtPath": "ContentTranslation/lib",
-			"scripts": [
-				"Easy-Deflate/deflate.js"
-			],
-			"dependencies": [
-				"easy-deflate.core"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
 		"ext.cx.contributions": {
 			"scripts": [
 				"entrypoint/ext.cx.contributions.js"
