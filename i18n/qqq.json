@@ -107,6 +107,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Error that indicates there is already a page in the target wiki with the same title as the proposed target title.\n\nParameters:\n* $1 - link to target page with same title",
 	"cx-sourceselector-dialog-error-no-source-article": "Error that indicates there is no page with the specified title in the source language to translate.\n\nParameters:\n* $1 - the source language",
 	"cx-sourceselector-missing-in-target-language": "Label appended to search result in Special:ContentTranslation when using the \"Start new article\" feature, which indicates that matching article is missing in target language.\n\nParameters:\n* $1 - The autonym of the language",
+	"cx-sourceselector-embedded-selected-item-pageviews": "Label appended to selected item in New translation embedded dialog on Content Translation dashboard, used for representing number of page visits in the last week.\n$1 - number of visits per week",
 	"cx-mt-abuse-warning-title": "Title text shown in machine translation abuse card.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Detailed explanation of machine translation abuse.",
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",

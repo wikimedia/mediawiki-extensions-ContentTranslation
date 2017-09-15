@@ -45,7 +45,7 @@
 		this.$selectedItem = null;
 		this.$selectedItemImage = null;
 		this.$selectedItemLink = null;
-		this.$selectedItemInfo = null;
+		this.$selectedItemMetrics = null;
 		this.$languageFilter = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
@@ -410,6 +410,7 @@
 	 * @param {string} language Language code.
 	 */
 	CXSourceSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
+		var self = this;
 		// When same language is chosen again, save network call for checking articles
 		if ( language === this.getSourceLanguage() ) {
 			return;
@@ -420,6 +421,12 @@
 
 		if ( this.isEmbedded ) {
 			this.changeSelectedItemTitle( language );
+			this.$selectedItemMetrics.children( '.cx-sourceselector-embedded-selected-item__pageviews' ).remove();
+			this.getPageInfo( this.sourceTitles[ language ] ).done( function ( data ) {
+				self.renderPageViews( data.pageviews );
+			} ).fail( function ( error ) {
+				mw.log( 'Error getting page info for ' + self.sourceTitles[ language ] + '. ' + error );
+			} );
 		}
 
 		this.check();
@@ -692,7 +699,7 @@
 		}
 
 		this.overlay.show();
-		this.$container.slideDown();
+		this.$container.slideDown( 'fast' );
 	};
 
 	/**
@@ -716,7 +723,7 @@
 	CXSourceSelector.prototype.closeOnClickOutside = function () {
 		this.overlay.hide();
 		this.$container.toggle();
-		$( '.translation-filter' ).slideDown();
+		$( '.translation-filter' ).slideDown( 'fast' );
 	};
 
 	/**
@@ -804,60 +811,42 @@
 	};
 
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
-		var self = this,
-			itemImage, numOfLanguages,
-			itemText = item.getLabel(),
-			api = this.siteMapper.getApi( this.sourceLanguage ),
+		var itemImage, numOfLanguages,
+			self = this,
+			itemTitle = item.getLabel(),
 			params = {
-				action: 'query',
-				prop: [ 'langlinks' ],
-				titles: itemText,
+				prop: [ 'langlinks', 'pageviews' ],
 				redirects: 1,
 				lllimit: 'max'
 			};
 
-		api.get( params ).done( function ( data ) {
-			var page = OO.getProp( data, 'query', 'pages' ),
-				pageId, langCode, title, languagesArticleExistsIn;
+		this.getPageInfo( itemTitle, params ).done( function ( data ) {
+			var langCode, title, languagesArticleExistsIn;
 
-			if ( !page ) {
+			if ( !data ) {
 				return;
 			}
 
-			// Only one title was passed in titles params, so we expect one result
-			pageId = Object.keys( page )[ 0 ];
-			if ( pageId === '-1' ) {
-				// Page does not exist
-				return;
-			}
+			self.renderPageViews( data.pageviews );
 
 			// Reset source titles
 			self.sourceTitles = {};
 			// Extract results data and create sourceTitles mapping
-			$( page[ pageId ].langlinks ).each( function ( index, element ) {
+			$( data.langlinks ).each( function ( index, element ) {
 				langCode = element.lang;
 				title = element[ '*' ];
 
 				self.sourceTitles[ langCode ] = title;
 			} );
 			// Include chosen source title (not returned by langlinks)
-			self.sourceTitles[ self.sourceLanguage ] = itemText;
+			self.sourceTitles[ self.sourceLanguage ] = itemTitle;
 
 			languagesArticleExistsIn = Object.keys( self.sourceTitles );
 
 			self.fillSourceLanguages( languagesArticleExistsIn );
 			self.fillTargetLanguages( languagesArticleExistsIn );
-		} ).fail( function ( response ) {
-			// In case of failure, fallback to all source and target languages
-			self.sourceTitles = {};
-			self.fillSourceLanguages( self.sourceLanguages );
-			self.fillTargetLanguages( self.targetLanguages );
-
-			mw.log(
-				'Error getting langlinks from ' + api.apiUrl + ' . ' +
-				response.statusText + ' (' + response.status + '). ' +
-				response.responseText
-			);
+		} ).fail( function ( error ) {
+			mw.log( 'Error getting page info for ' + itemTitle + '. ' + error );
 		} );
 
 		this.sourcePageSelector.setValue( item.getData() );
@@ -873,17 +862,16 @@
 			} );
 		}
 
-		this.$selectedItemLink = $( '<a>' ).prop( {
+		this.$selectedItemLink.prop( {
 			href: item.$label.prop( 'href' ),
-			title: itemText,
+			title: itemTitle,
 			target: '_blank',
-			text: itemText
+			text: itemTitle
 		} );
-		this.$selectedItemInfo.append( this.$selectedItemLink );
 
 		numOfLanguages = item.initialConfig.numOfLanguages;
 		if ( numOfLanguages ) {
-			this.$selectedItemInfo.append(
+			this.$selectedItemMetrics.prepend(
 				$( '<span>' )
 					.addClass( 'cx-sourceselector-embedded-selected-item__language-count' )
 					.text( mw.language.convertNumber( numOfLanguages ) )
@@ -910,7 +898,7 @@
 		this.sourcePageSelector.setValue( '' );
 
 		// Discard selected item image and info
-		this.$selectedItemInfo.empty();
+		this.$selectedItemMetrics.empty();
 		this.$selectedItemImage.removeAttr( 'style' );
 
 		this.$container
@@ -938,6 +926,80 @@
 				text: title
 			} );
 		}
+	};
+
+	/**
+	 * Gets data for the selected page.
+	 * Gets pageviews by default, and langlinks if specified through optional params.
+	 *
+	 * @param {string} title Title of the page for which data is fetched.
+	 * @param {Object} [params] Optional parameter used for fetching additional item data.
+	 * @return {Promise} Returns thenable promise, so langlinks can be processed if necessary.
+	 */
+	CXSourceSelector.prototype.getPageInfo = function ( title, params ) {
+		var api, self = this;
+
+		if ( !title ) {
+			throw new Error( 'Title is mandatory parameter' );
+		}
+
+		api = this.siteMapper.getApi( this.sourceLanguage );
+		params = $.extend( {
+			action: 'query',
+			// If new prop array is provided in params, this one is overridden
+			prop: [ 'pageviews' ],
+			titles: title,
+			pvipdays: 7
+		}, params );
+
+		return api.get( params ).then( function ( data ) {
+			var pageId,
+				page = OO.getProp( data, 'query', 'pages' );
+
+			if ( !page ) {
+				return $.Deferred().reject( 'No page data' ).promise();
+			}
+
+			// Only one title was passed in titles params, so we expect one result
+			pageId = Object.keys( page )[ 0 ];
+			if ( pageId === '-1' ) {
+				// Page does not exist
+				return $.Deferred().reject( 'Requested page does not exist' ).promise();
+			}
+
+			return page[ pageId ];
+		}, function ( response ) {
+			// In case of failure, fallback to all source and target languages
+			self.sourceTitles = {};
+			self.fillSourceLanguages( self.sourceLanguages );
+			self.fillTargetLanguages( self.targetLanguages );
+
+			mw.log(
+				'Error getting page info from ' + api.apiUrl + ' . ' +
+				response.statusText + ' (' + response.status + '). ' +
+				response.responseText
+			);
+		} );
+	};
+
+	CXSourceSelector.prototype.renderPageViews = function ( pageViewData ) {
+		var date, pageViews = 0;
+
+		if ( !pageViewData ) {
+			return;
+		}
+
+		for ( date in pageViewData ) {
+			pageViews += pageViewData[ date ];
+		}
+
+		this.$selectedItemMetrics.append(
+			$( '<span>' )
+				.addClass( 'cx-sourceselector-embedded-selected-item__pageviews' )
+				.text( mw.msg( 'cx-sourceselector-embedded-selected-item-pageviews',
+					mw.language.convertNumber( pageViews ) )
+				)
+		);
 	};
 
 	CXSourceSelector.prototype.render = function () {
@@ -1091,7 +1153,9 @@
 	};
 
 	CXSourceSelector.prototype.renderAsEmbedded = function () {
-		var $sourceLanguageContainer,
+		var $selectedItemInfo,
+			$selectedItemLinkContainer,
+			$sourceLanguageContainer,
 			$targetLanguageContainer,
 			$messageText,
 			translateButtonLabel,
@@ -1163,15 +1227,22 @@
 		this.$selectedItemImage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item__image' );
 
-		this.$selectedItemInfo = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded-selected-item__info' );
+		this.$selectedItemLink = $( '<a>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item__link' );
+		$selectedItemLinkContainer = $( '<span>' )
+			.append( this.$selectedItemLink );
+		this.$selectedItemMetrics = $( '<span>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item__metrics' );
+		$selectedItemInfo = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-selected-item__info' )
+			.append( $selectedItemLinkContainer, this.$selectedItemMetrics );
 
 		this.$discardItem = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-discard' );
 
 		this.$selectedItem.append(
 			this.$selectedItemImage,
-			this.$selectedItemInfo,
+			$selectedItemInfo,
 			this.$discardItem
 		);
 

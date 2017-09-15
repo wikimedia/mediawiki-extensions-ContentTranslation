@@ -119,9 +119,16 @@
 	margin-bottom: 2em;
 	border-radius: @borderRadius;
 	padding: 0;
+	.box-shadow-card;
 
 	&.cx-sourceselector-embedded--selected {
 		.cx-sourceselector-embedded__language-filter {
+			.cx-sourceselector-embedded__source-language {
+				.cx-sourceselector-embedded__language-button {
+					padding: 8px 12px 8px 16px;
+				}
+			}
+
 			.cx-sourceselector-embedded__target-language,
 			.translation-language-arrow {
 				display: block;
@@ -152,8 +159,8 @@
 	}
 
 	.cx-sourceselector-embedded-selected-item {
-		@item-height: 6.25em;
-		@image-size: 5.25em;
+		@item-height: 3.2em;
+		@image-size: 3em;
 
 		.mw-ui-one-whole;
 
@@ -163,9 +170,10 @@
 		&__image {
 			background-color: @colorGray15;
 			.background-image-svg('../../dashboard/images/page_lightgray.svg', '../../dashboard/images/page_lightgray.png');
-			background-repeat: no-repeat;
-			background-size: @image-size;
 			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
 			display: block;
 			height: @image-size;
 			width: @image-size;
@@ -180,26 +188,36 @@
 
 			max-width: 60%;
 			min-height: @item-height;
-			padding-left: 0.7em;
 
 			font-size: 1.2em;
+		}
 
-			// Needs to be overridden for specificity
-			> a {
-				color: @colorGray1;
-				font-weight: bold;
-			}
+		&__link {
+			.background-image-svg('../images/newwindow.svg', '../images/newwindow.png');
+			background-size: 14px;
+			background-repeat: no-repeat;
+			background-position: right center;
+
+			color: @colorGray1;
+			padding-right: 16px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		&__metrics {
+			color: @colorGray7;
+			font-size: 14px;
 		}
 
 		&__language-count {
-			display: block;
-
 			.background-image-svg('../images/languages.svg', '../images/languages.png');
-			background-size: 24px;
-			background-repeat: no-repeat;
 			background-position: left center;
-			padding-left: 26px;
-			font-size: 0.8em;
+			background-repeat: no-repeat;
+			background-size: 20px;
+
+			display: inline-block;
+			margin-right: 22px;
+			padding-left: 22px;
 		}
 
 		.cx-sourceselector-embedded-discard {
@@ -210,9 +228,9 @@
 			opacity: 0.8;
 
 			float: right;
-			width: 30px;
-			height: 30px;
-			padding: 0 8px;
+			width: 24px;
+			height: 24px;
+			margin: 0 8px 0 16px;
 			cursor: pointer;
 
 			&:hover {
@@ -252,7 +270,6 @@
 		}
 
 		.cx-sourceselector-embedded__language-button {
-			padding: 8px;
 			line-height: 1;
 
 			overflow: hidden;
@@ -263,6 +280,10 @@
 		.cx-sourceselector-embedded__source-language {
 			padding-right: 8px;
 			margin-right: -8px;
+
+			.cx-sourceselector-embedded__language-button {
+				padding: 8px 16px;
+			}
 		}
 
 		.cx-sourceselector-embedded__target-language {
@@ -270,6 +291,10 @@
 
 			padding-left: 8px;
 			margin-left: -8px;
+
+			.cx-sourceselector-embedded__language-button {
+				padding: 8px 16px 8px 12px;
+			}
 		}
 
 		.translation-language-arrow {
