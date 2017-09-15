@@ -739,7 +739,6 @@
 				"translation/ext.cx.translation.loader.js"
 			],
 			"dependencies": [
-				"easy-deflate.deflate",
 				"ext.cx.model",
 				"mediawiki.api",
 				"mediawiki.user"
