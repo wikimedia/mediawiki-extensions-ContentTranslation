@@ -48,7 +48,12 @@ ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
 
 ve.ce.CXPlaceholderNode.prototype.executeCommand = function () {
 	this.active = true;
+	this.showProgressIndicator();
 	this.getDocument().emit( 'activatePlaceholder', this );
+};
+
+ve.ce.CXPlaceholderNode.prototype.showProgressIndicator = function () {
+	this.$element.empty().append( mw.cx.widgets.spinner() );
 };
 
 ve.ce.CXPlaceholderNode.prototype.createHighlights = function () {
