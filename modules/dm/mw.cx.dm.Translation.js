@@ -281,6 +281,15 @@ mw.cx.dm.Translation.prototype.getTranslationUnit = function ( id ) {
 	return this.translationUnitById[ id ];
 };
 
+/**
+ * Get a translation units
+ *
+ * @return {mw.cx.dm.TranslationUnit[]} The translation units
+ */
+mw.cx.dm.Translation.prototype.getTranslationUnits = function () {
+	return this.topTranslationUnits;
+};
+
 mw.cx.dm.Translation.prototype.getProgress = function () {
 	return this.progress;
 };

@@ -292,7 +292,7 @@ mw.cx.TranslationController.prototype.restore = function ( savedTranslation ) {
 
 	this.translation.getTranslationUnits().forEach( function ( unit ) {
 		var savedSection, provider, document,
-			sectionId = unit.getSectionId();
+			sectionId = unit.getId();
 
 		if ( !savedUnits[ sectionId ] ) {
 			return;
