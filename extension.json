@@ -1308,7 +1308,7 @@
 				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js"
 			],
 			"styles": [
-				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.css",
+				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ui/styles/ve.ui.CXSurface.css"
 			],
 			"messages": [
