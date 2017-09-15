@@ -45,7 +45,10 @@ class ApiContentTranslationSave extends ApiBase {
 		$translation = $this->saveTranslation( $params, $translator );
 		$translationId = $translation->getTranslationId();
 
-		$translationUnits = $this->getTranslationUnits( $params['content'], $translationId );
+		$translationUnits = $this->getTranslationUnits(
+			ApiVisualEditorEdit::tryDeflate( $params['content'] ),
+			$translationId
+		);
 		$this->saveTranslationUnits( $translationUnits, $translation );
 		$validationResults = $this->validateTranslationUnits( $translationUnits, $translation );
 
@@ -160,14 +163,6 @@ class ApiContentTranslationSave extends ApiBase {
 		$translationUnits = [];
 		if ( trim( $content ) === '' ) {
 			$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
-		}
-
-		if ( substr( $content, 0, 11 ) === 'rawdeflate,' ) {
-			$content = gzinflate( base64_decode( substr( $content, 11 ) ) );
-			// gzinflate returns false on error.
-			if ( $content === false ) {
-				$this->dieWithError( 'apierror-cx-invalidsectioncontent', 'invalidcontent' );
-			}
 		}
 
 		$units = json_decode( $content, true );

@@ -171,7 +171,10 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		try {
-			$wikitext = $this->restbaseClient->convertHtmlToWikitext( $targetTitle, $this->getHtml() );
+			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
+				$targetTitle,
+				ApiVisualEditorEdit::tryDeflate( $params['html'] )
+			);
 		} catch ( MWException $e ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError(
@@ -259,25 +262,6 @@ class ApiContentTranslationPublish extends ApiBase {
 				ContentTranslation\Notification::hundredthTranslation( $user );
 				break;
 		}
-	}
-
-	/**
-	 * Get the HTML content from request and abstract the compression it may have.
-	 * @return string The HTML content in the request. Decompressed, if it was compressed.
-	 */
-	protected function getHtml() {
-		$params = $this->extractRequestParams();
-		$data = $params['html'];
-
-		if ( substr( $params['html'], 0, 11 ) === 'rawdeflate,' ) {
-			$data = gzinflate( base64_decode( substr( $params[ 'html' ], 11 ) ) );
-			// gzinflate returns false on error.
-			if ( $data === false ) {
-				throw new InvalidArgumentException( 'Invalid HTML content.' );
-			}
-		}
-
-		return $data;
 	}
 
 	public function getAllowedParams() {
