@@ -25,7 +25,7 @@ class ApiContentTranslationToken extends ApiBase {
 		}
 
 		// Do not fatal out
-		if ( !class_exists( 'Firebase\JWT\JWT' ) ) {
+		if ( !class_exists( JWT::class ) ) {
 			$this->dieWithError( 'apierror-cx-jwtmissing', 'token-impossible' );
 		}
 
