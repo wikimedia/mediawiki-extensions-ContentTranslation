@@ -194,7 +194,7 @@ class Translation {
 	 * @param TranslationWork $work
 	 * @return array
 	 */
-	public function getConflictingTranslations( TranslationWork $work ) {
+	public static function getConflictingTranslations( TranslationWork $work ) {
 		// Use the fact that find returns all items when given array of titles.
 		$drafts = self::find(
 			$work->getSourceLanguage(),
