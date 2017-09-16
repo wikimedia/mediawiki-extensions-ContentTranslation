@@ -109,7 +109,7 @@
 	"apierror-cx-invalidsourcelanguage": "Invalid source language.",
 	"apierror-cx-invalidtargetlanguage": "Invalid target language.",
 	"apierror-cx-invalidtranslator": "Invalid translator name",
-	"apierror-cx-jwtmissing": "JWT missing.",
+	"apierror-cx-jwtmissing": "JWT is not installed.",
 	"apierror-cx-keynotconfigured": "Key not configured.",
 	"apierror-cx-missingdraft": "Draft does not exist.",
 	"apierror-cx-mustbeloggedin-suggestions": "You must be logged-in to manage your suggestions.",
