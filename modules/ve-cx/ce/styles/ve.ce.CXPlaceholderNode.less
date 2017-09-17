@@ -10,10 +10,9 @@
 	font-weight: lighter;
 	color: @colorGray7;
 	background-color: @colorGray15;
-	/* In supported browsers, center the placeholder text */
-	display: flex;
-	justify-content: center; /* align horizontally */
-	align-items: center; /* align vertically */
+	text-align: center;
+	display: table;
+	width: 100%;
 
 	&:hover,
 	&.ve-ce-focusableNode-focused {
@@ -21,12 +20,8 @@
 	}
 
 	& > .oo-ui-buttonWidget {
-		margin-left: 0.25em;
 		opacity: 0.5;
-		display: block;
-	}
-
-	& > .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
-		display: block;
+		display: table-cell;
+		vertical-align: middle;
 	}
 }
