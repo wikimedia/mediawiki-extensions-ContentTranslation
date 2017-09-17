@@ -58,7 +58,7 @@
 	"apierror-cx-invalidlanguage": "잘못된 언어입니다.",
 	"apierror-cx-invalidsourcelanguage": "잘못된 원본 언어입니다.",
 	"apierror-cx-invalidtargetlanguage": "잘못된 대상 언어입니다.",
-	"apierror-cx-jwtmissing": "JWT가 없습니다.",
+	"apierror-cx-jwtmissing": "JWT가 설치되어 있지 않습니다.",
 	"apierror-cx-keynotconfigured": "키가 구성되지 않았습니다.",
 	"apierror-cx-missingdraft": "초안이 존재하지 않습니다.",
 	"apierror-cx-mustbeloggedin-suggestions": "당신의 제안을 관리하려면 로그인해야 합니다.",

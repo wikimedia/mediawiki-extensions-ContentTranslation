@@ -111,7 +111,7 @@
 	"apierror-cx-invalidsourcelanguage": "Langue origine invalide.",
 	"apierror-cx-invalidtargetlanguage": "Langue destination invalide.",
 	"apierror-cx-invalidtranslator": "Nom de traducteur invalide",
-	"apierror-cx-jwtmissing": "JWT manquant.",
+	"apierror-cx-jwtmissing": "JWT n'est pas installé.",
 	"apierror-cx-keynotconfigured": "Touche non configurée.",
 	"apierror-cx-missingdraft": "Le brouillon n'existe pas.",
 	"apierror-cx-mustbeloggedin-suggestions": "Vous devez être connecté pour gérer vos suggestions.",

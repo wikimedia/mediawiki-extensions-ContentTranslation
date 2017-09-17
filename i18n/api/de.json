@@ -80,7 +80,7 @@
 	"apierror-cx-invalidsourcelanguage": "Ungültige Quellsprache.",
 	"apierror-cx-invalidtargetlanguage": "Ungültige Zielsprache.",
 	"apierror-cx-invalidtranslator": "Ungültiger Übersetzername",
-	"apierror-cx-jwtmissing": "JWT fehlt.",
+	"apierror-cx-jwtmissing": "JWT ist nicht installiert.",
 	"apierror-cx-keynotconfigured": "Der Schlüssel ist nicht konfiguriert.",
 	"apierror-cx-missingdraft": "Der Entwurf ist nicht vorhanden.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du musst angemeldet sein, um deine Vorschläge zu verwalten.",

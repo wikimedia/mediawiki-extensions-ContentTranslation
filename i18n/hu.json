@@ -11,7 +11,8 @@
 			"Tgr",
 			"Liuxinyu970226",
 			"Urbalazs",
-			"Bencemac"
+			"Bencemac",
+			"Rodrigo"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -106,7 +107,7 @@
 	"cx-translation-filter-draft-translations": "Folyamatban",
 	"cx-translation-filter-suggested-translations": "Javaslatok",
 	"cx-suggestionlist-favorite": "Később",
-	"cx-suggestionlist-title": "További javaslatok",
+	"cx-suggestionlist-title": "Javasolt lapok",
 	"cx-suggestionlist-empty-title": "Jelenleg nincsenek javaslatok",
 	"cx-suggestionlist-empty-desc": "Nem találtunk javaslatokat. Megpróbálhatod később, vagy a javaslattevő eszközzel megpróbálhatsz releváns lapokat találni (kísérleti).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Javaslatok megtekintése (kísérleti)",
@@ -114,7 +115,7 @@
 	"cx-suggestionlist-view-source-page": "Forrás megtekintése",
 	"cx-translation-filter-from-any-language": "Bármely nyelvről",
 	"cx-translation-filter-to-any-language": "Bármely nyelvre",
-	"cx-create-new-translation": "Új fordítás kezdése",
+	"cx-create-new-translation": "Új fordítás",
 	"cx-save-draft-save-success": "Elmentve {{PLURAL:$1|egy perce|$1 perce|0=épp most}}",
 	"cx-save-draft-saving": "Mentés…",
 	"cx-save-draft-tooltip": "A fordítás piszkozatai automatikusan mentődnek",

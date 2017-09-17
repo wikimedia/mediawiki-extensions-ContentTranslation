@@ -46,7 +46,7 @@
 	"apierror-cx-invalidsourcelanguage": "Net valabel Quellsäit",
 	"apierror-cx-invalidtargetlanguage": "Net valabel Zil-Sprooch.",
 	"apierror-cx-invalidtranslator": "Net valabelen Iwwersetzernumm",
-	"apierror-cx-jwtmissing": "JWT feelt.",
+	"apierror-cx-jwtmissing": "JWT ass net installéiert.",
 	"apierror-cx-keynotconfigured": "Schlëssel dan net agestallt",
 	"apierror-cx-missingdraft": "Brouillon gëtt et net.",
 	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt.",

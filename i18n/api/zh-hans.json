@@ -104,7 +104,7 @@
 	"apierror-cx-invalidsourcelanguage": "无效的源语言。",
 	"apierror-cx-invalidtargetlanguage": "无效的目标语言。",
 	"apierror-cx-invalidtranslator": "无效的翻译者名称",
-	"apierror-cx-jwtmissing": "缺少JWT。",
+	"apierror-cx-jwtmissing": "未安装JWT。",
 	"apierror-cx-keynotconfigured": "未配置关键词。",
 	"apierror-cx-missingdraft": "草稿不存在。",
 	"apierror-cx-mustbeloggedin-suggestions": "您必须登录以管理您的建议。",
