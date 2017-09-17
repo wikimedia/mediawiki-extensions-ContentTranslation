@@ -127,6 +127,7 @@
 	"cx-suggestionlist-view-source-page": "Tooltip text in for source language label for every suggestion item displayed.",
 	"cx-translation-filter-from-any-language": "Shown in translation filter in Content Translation dashboard. Selects source language as any language.",
 	"cx-translation-filter-to-any-language": "Shown in translation filter in Content Translation dashboard. Selects target language as any language.",
+	"cx-translation-filter-any-language": "Shown in translation filter in Content Translation dashboard. Allows user to select 'Any language' as source or target language",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
 	"cx-save-draft-save-success": "\"Saved\" refers to a draft of a translated page that was saved recently.\nParameters:\n* $1 - number of minutes",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",

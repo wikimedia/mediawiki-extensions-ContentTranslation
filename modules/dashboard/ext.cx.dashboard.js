@@ -65,10 +65,80 @@
 		};
 	}
 
+	/**
+	 * Return an object of languages indexed by language code.
+	 *
+	 * @param {Array} languages An array of language codes.
+	 * @return {Object} autonyms indexed by language code.
+	 */
+	function getAutonyms( languages ) {
+		return languages.reduce( function ( prevObject, element ) {
+			prevObject[ element ] = $.uls.data.getAutonym( element );
+
+			return prevObject;
+		}, {} );
+	}
+
+	/**
+	 * Calculate position for ULS, depending on directionality
+	 */
+	function calculateUlsPosition() {
+		var isRtl = $( 'html' ).prop( 'dir' ) === 'rtl',
+			left = this.$element.offset().left,
+			right = left + this.$element.parent().width() - this.$menu.width(),
+			isInRtlViewport = right > 0,
+			isInLtrViewport = left + this.$menu.width() > $( window ).width();
+
+		if ( ( isRtl && isInRtlViewport ) || ( !isRtl && isInLtrViewport ) ) {
+			this.left = right;
+		} else {
+			this.left = left;
+		}
+
+		this.$menu.css( this.position() );
+	}
+
+	/**
+	 * Create ULS and attach to given DOM element, with options passed as parameters
+	 *
+	 * @param {jQuery} $languageFilter DOM element to which ULS will be attached
+	 * @param {Function} onSelect Function called when ULS onSelect event gets triggered
+	 * @param {Object} options Additional options for ULS creation
+	 */
+	function createUls( $languageFilter, onSelect, options ) {
+		var ulsOptions = $.extend( {
+			onSelect: onSelect,
+			onReady: function () {
+				this.$menu.addClass( options.ulsClass );
+			},
+			onVisible: calculateUlsPosition,
+			menuWidth: 'narrow'
+		}, options );
+		$languageFilter.uls( ulsOptions );
+	}
+
+	/**
+	 * Remove ULS attached to DOM element, and remove that element based on class
+	 *
+	 * @param {jQuery} $languageFilter DOM element to which ULS is attached
+	 * @param {string} ulsClass CSS class of ULS
+	 */
+	function deleteUls( $languageFilter, ulsClass ) {
+		$( '.' + ulsClass ).remove();
+		$languageFilter.data( 'uls', null );
+		$languageFilter.off( 'click' );
+	}
+
 	CXDashboard.prototype.init = function () {
 		this.render();
 		this.initLists();
 		this.listen();
+
+		$.uls.data.addLanguage( 'any', {
+			script: 'Latn',
+			regions: [ 'WW' ],
+			autonym: mw.msg( 'cx-translation-filter-any-language' )
+		} );
 		mw.hook( 'mw.cx.dashboard.ready' ).fire();
 	};
 
@@ -107,10 +177,12 @@
 
 		$sourceLanguageFilter = $( '<div>' )
 			.addClass( 'translation-source-language-filter' );
+		this.setLanguageFilterLabel( $sourceLanguageFilter );
+
 		$targetLanguageFilter = $( '<div>' )
 			.addClass( 'translation-target-language-filter' );
-		this.setLanguageFilterLabel( $sourceLanguageFilter );
 		this.setLanguageFilterLabel( $targetLanguageFilter );
+
 		$sourceLanguageContainer = $( '<div>' )
 			.addClass( 'translation-language-source-container' )
 			.append( $sourceLanguageFilter );
@@ -145,7 +217,7 @@
 
 		if ( selected ) {
 			label = this.isNarrowScreenSize ?
-				selected :
+				mw.language.bcp47( selected ) :
 				$.uls.data.getAutonym( selected );
 		} else if ( $filter.is( '.translation-source-language-filter' ) ) {
 			label = mw.msg( 'cx-translation-filter-from-any-language' );
@@ -327,52 +399,35 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var self = this,
-			onVisibleCallback;
+		var ulsOptions,
+			// Here only 'Suggestions' list language filter gets created, translation lists
+			// ('In progress' and 'Published') create their language filters in fillLanguageFilters method
+			list = this.lists[ 'suggestions' ],
+			self = this;
 
 		this.filter.on( 'select', function ( item ) {
 			self.setActiveList( item.getData() );
 		} );
 
-		onVisibleCallback = function () {
-			if ( $( 'html' ).prop( 'dir' ) === 'rtl' ) {
-				this.left = this.$element.offset().left + this.$element.parent().width() - this.$menu.width();
-			} else {
-				this.left = this.$element.offset().left;
-			}
+		mw.hook( 'mw.cx.translationlist.items.changed' ).add( this.fillLanguageFilters.bind( this ) );
 
-			this.$menu.css( this.position() );
+		ulsOptions = {
+			menuWidth: 'medium',
+			quickList: function () {
+				return mw.uls.getFrequentLanguageList();
+			},
+			compact: true
 		};
-
-		$.each( this.lists, function ( name, list ) {
-			var setFilter = self.setFilter.bind( self );
-
-			list.languageFilter.$sourceLanguageFilter.uls( {
-				onSelect: function ( language ) {
-					setFilter( 'sourceLanguage', language );
-				},
-				onVisible: onVisibleCallback,
-				menuWidth: 'medium',
-				left: list.languageFilter.$sourceLanguageFilter.offset().left,
-				quickList: function () {
-					return mw.uls.getFrequentLanguageList();
-				},
-				compact: true
-			} );
-
-			list.languageFilter.$targetLanguageFilter.uls( {
-				onSelect: function ( language ) {
-					setFilter( 'targetLanguage', language );
-				},
-				onVisible: onVisibleCallback,
-				menuWidth: 'medium',
-				left: list.languageFilter.$targetLanguageFilter.offset().left,
-				quickList: function () {
-					return mw.uls.getFrequentLanguageList();
-				},
-				compact: true
-			} );
-		} );
+		createUls(
+			list.languageFilter.$sourceLanguageFilter,
+			this.setFilter.bind( this, 'sourceLanguage' ),
+			ulsOptions
+		);
+		createUls(
+			list.languageFilter.$targetLanguageFilter,
+			this.setFilter.bind( this, 'targetLanguage' ),
+			ulsOptions
+		);
 
 		this.$publishedArticlesButton.on( 'click', function () {
 			self.filter.selectItemByData( 'published' );
@@ -397,6 +452,105 @@
 		list.applyFilters( list.filters );
 		this.setLanguageFilterLabel( list.languageFilter.$sourceLanguageFilter, list.filters.sourceLanguage );
 		this.setLanguageFilterLabel( list.languageFilter.$targetLanguageFilter, list.filters.targetLanguage );
+	};
+
+	/**
+	 * Fill source and target language filter with respective data fetched from the server
+	 */
+	CXDashboard.prototype.fillLanguageFilters = function () {
+		var list = this.lists[ this.activeList ],
+			sourceLanguages = list.getTranslationLanguages().sourceLanguages,
+			targetLanguages = list.getTranslationLanguages().targetLanguages,
+			$sourceLanguageFilter = list.languageFilter.$sourceLanguageFilter,
+			$targetLanguageFilter = list.languageFilter.$targetLanguageFilter;
+
+		// Don't show the language filter if only one combination is possible
+		if ( this.isOneTranslationLanguagesPair( sourceLanguages, targetLanguages ) ) {
+			return;
+		}
+
+		// More than one combination possible. Show the language filter
+		list.languageFilter.$element.show();
+
+		// Delete any previous ULS, in case it needs to be recreated with new languages
+		// when next batch of articles is fetched
+		deleteUls( $sourceLanguageFilter, this.activeList + '-uls-source' );
+		createUls(
+			$sourceLanguageFilter,
+			this.languageChangeHandler.bind( this, 'source', $sourceLanguageFilter ),
+			{
+				ulsClass: this.activeList + '-uls-source',
+				languages: getAutonyms( sourceLanguages )
+			}
+		);
+		deleteUls( $targetLanguageFilter, this.activeList + '-uls-target' );
+		createUls(
+			$targetLanguageFilter,
+			this.languageChangeHandler.bind( this, 'target', $targetLanguageFilter ),
+			{
+				ulsClass: this.activeList + '-uls-target',
+				languages: getAutonyms( targetLanguages )
+			}
+		);
+	};
+
+	/**
+	 * Check if only one combination of source and target languages is possible
+	 *
+	 * @param {Object} sourceLanguages Array of possible source languages
+	 * @param {Object} targetLanguages Array of possible target languages
+	 * @return {boolean} Returns true if there is only one source and target language combination possible
+	 */
+	CXDashboard.prototype.isOneTranslationLanguagesPair = function ( sourceLanguages, targetLanguages ) {
+		// Check if there is only one language combination, e.g. English to Spanish
+		// sourceLanguages - [ 'en' ]
+		// targetLanguages - [ 'es' ]
+		if ( sourceLanguages.length === 1 && targetLanguages.length === 1 ) {
+			return true;
+		}
+
+		return false;
+	};
+
+	/**
+	 * Callback invoked when language in translationlist ULS changes
+	 *
+	 * @param {string} type Indicates type of language filter. Can be 'source' or 'target'
+	 * @param {jQuery} $languageFilter DOM element of language filter
+	 * @param {string} language Language code retured from ULS onSelect
+	 */
+	CXDashboard.prototype.languageChangeHandler = function ( type, $languageFilter, language ) {
+		var list = this.lists[ this.activeList ],
+			filterType = type + 'Language',
+			languages = list.getTranslationLanguages()[ filterType + 's' ],
+			selectedLanguage = ( language === 'any' ) ? null : language,
+			ulsClass, languageDecorator;
+
+		list.filters[ filterType ] = selectedLanguage;
+		list.applyFilters( list.filters );
+		this.setLanguageFilterLabel( $languageFilter, selectedLanguage );
+
+		ulsClass = this.activeList + '-uls-' + type;
+		// Delete the old ULS
+		deleteUls( $languageFilter, ulsClass );
+
+		languageDecorator = function ( $language, languageCode ) {
+			if ( languageCode === 'any' ) {
+				$language.parent().addClass( 'cx-translationlist-uls-any-language' );
+			}
+		};
+
+		if ( selectedLanguage ) {
+			languages.unshift( 'any' );
+		}
+		createUls( $languageFilter,
+			this.languageChangeHandler.bind( this, type, $languageFilter ),
+			{
+				ulsClass: ulsClass,
+				languages: getAutonyms( languages ),
+				languageDecorator: languageDecorator
+			}
+		);
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {

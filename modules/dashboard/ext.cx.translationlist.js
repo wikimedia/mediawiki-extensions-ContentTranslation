@@ -22,6 +22,8 @@
 		this.siteMapper = siteMapper;
 		this.languageFilter = languageFilter;
 		this.translations = [];
+		this.sourceLanguages = [];
+		this.targetLanguages = [];
 		this.type = type;
 		this.$translationsList = null;
 		this.filters = {
@@ -89,7 +91,7 @@
 			.append(
 				$( '<span>' )
 					.text( mw.msg( 'cx-translation-label-' + this.type ) ),
-				this.languageFilter.$element
+				this.languageFilter.$element.hide()
 			);
 		this.$translationsList = $( '<div>' )
 			.addClass( 'cx-translationlist' )
@@ -104,6 +106,12 @@
 			return this.promise;
 		}
 
+		function insertUnique( array, value ) {
+			if ( array.indexOf( value ) < 0 ) {
+				array.push( value );
+			}
+		}
+
 		promise = this.getTranslations();
 		promise.done( function ( translations ) {
 			self.translations = self.translations.concat( translations );
@@ -113,13 +121,27 @@
 				self.$translationsList.append( self.$emptyTranslationsList );
 				return;
 			}
-			self.translations = self.translations.concat( translations );
+
+			$.each( translations, function ( i, translation ) {
+				insertUnique( self.sourceLanguages, translation.sourceLanguage );
+				insertUnique( self.targetLanguages, translation.targetLanguage );
+			} );
+
 			self.renderTranslations( translations );
+
+			mw.hook( 'mw.cx.translationlist.items.changed' ).fire();
 		} ).fail( function () {
 			self.promise = null;
 		} );
 
 		return promise;
+	};
+
+	CXTranslationList.prototype.getTranslationLanguages = function () {
+		return {
+			sourceLanguages: this.sourceLanguages,
+			targetLanguages: this.targetLanguages
+		};
 	};
 
 	/**
@@ -460,7 +482,7 @@
 		} );
 
 		// Attach a scroll handler
-		scrollHandler = $.throttle( 250, $.proxy( this.scroll, this ) );
+		scrollHandler = $.throttle( 250, this.scroll.bind( this ) );
 		$( window ).scroll( scrollHandler );
 	};
 
@@ -480,7 +502,7 @@
 			this.$container.removeClass( 'sticky' );
 		}
 		// Load next batch of items on scroll.
-		if ( scrollTop + windowHeight + 100 > $( document ).height() ) {
+		if ( scrollTop > 0 && scrollTop + windowHeight + 100 > $( document ).height() ) {
 			this.loadItems();
 		}
 	};
