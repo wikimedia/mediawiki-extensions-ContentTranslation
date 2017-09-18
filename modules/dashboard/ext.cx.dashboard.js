@@ -153,6 +153,7 @@
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			this.renderTranslationSuggestions();
 		} else {
+			this.setActiveList( 'draft' );
 			return;
 		}
 
@@ -399,11 +400,7 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var ulsOptions,
-			// Here only 'Suggestions' list language filter gets created, translation lists
-			// ('In progress' and 'Published') create their language filters in fillLanguageFilters method
-			list = this.lists[ 'suggestions' ],
-			self = this;
+		var self = this;
 
 		this.filter.on( 'select', function ( item ) {
 			self.setActiveList( item.getData() );
@@ -411,23 +408,11 @@
 
 		mw.hook( 'mw.cx.translationlist.items.changed' ).add( this.fillLanguageFilters.bind( this ) );
 
-		ulsOptions = {
-			menuWidth: 'medium',
-			quickList: function () {
-				return mw.uls.getFrequentLanguageList();
-			},
-			compact: true
-		};
-		createUls(
-			list.languageFilter.$sourceLanguageFilter,
-			this.setFilter.bind( this, 'sourceLanguage' ),
-			ulsOptions
-		);
-		createUls(
-			list.languageFilter.$targetLanguageFilter,
-			this.setFilter.bind( this, 'targetLanguage' ),
-			ulsOptions
-		);
+		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+			// Here only 'Suggestions' list language filter gets created, translation lists
+			// ('In progress' and 'Published') create their language filters in fillLanguageFilters method
+			this.createUlsForSuggestionsList();
+		}
 
 		this.$publishedArticlesButton.on( 'click', function () {
 			self.filter.selectItemByData( 'published' );
@@ -452,6 +437,31 @@
 		list.applyFilters( list.filters );
 		this.setLanguageFilterLabel( list.languageFilter.$sourceLanguageFilter, list.filters.sourceLanguage );
 		this.setLanguageFilterLabel( list.languageFilter.$targetLanguageFilter, list.filters.targetLanguage );
+	};
+
+	/**
+	 * Creates source and target language ULS for suggestions list
+	 */
+	CXDashboard.prototype.createUlsForSuggestionsList = function () {
+		var list = this.lists[ 'suggestions' ],
+			ulsOptions = {
+				menuWidth: 'medium',
+				quickList: function () {
+					return mw.uls.getFrequentLanguageList();
+				},
+				compact: true
+			};
+
+		createUls(
+			list.languageFilter.$sourceLanguageFilter,
+			this.setFilter.bind( this, 'sourceLanguage' ),
+			ulsOptions
+		);
+		createUls(
+			list.languageFilter.$targetLanguageFilter,
+			this.setFilter.bind( this, 'targetLanguage' ),
+			ulsOptions
+		);
 	};
 
 	/**
