@@ -69,7 +69,18 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
 		nextSectionId = 1,
 		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
-		articleNode = domDoc.createElement( 'article' );
+		articleNode = domDoc.createElement( 'article' ),
+		baseNodes;
+
+	if ( forTarget ) {
+		// Remove any and all <base> tags pointing to the source wiki
+		baseNodes = domDoc.getElementsByTagName( 'base' );
+		while ( baseNodes.length ) {
+			baseNodes[ 0 ].parentNode.removeChild( baseNodes[ 0 ] );
+		}
+		// Rerun fixBase, which will add a <base> tag pointing to the current wiki
+		ve.init.target.constructor.static.fixBase( domDoc );
+	}
 
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
 	// TODO: it would be better to do section wrapping on the CX server
