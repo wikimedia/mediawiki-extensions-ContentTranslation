@@ -162,7 +162,7 @@
 			"key": "",
 			"age": "3600"
 		},
-		"ContentTranslationEnableSuggestions": false,
+		"ContentTranslationEnableSuggestions": true,
 		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
 		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
 		"ContentTranslationVersion": "1"
