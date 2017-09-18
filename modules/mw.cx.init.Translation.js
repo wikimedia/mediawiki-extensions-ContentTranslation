@@ -70,7 +70,8 @@ mw.cx.init.Translation.prototype.init = function () {
 		this.translationModel = new mw.cx.dm.Translation(
 			this.sourceWikiPage,
 			this.targetWikiPage,
-			sourcePageContent.segmentedContent
+			sourcePageContent.segmentedContent,
+			this.config
 		);
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
