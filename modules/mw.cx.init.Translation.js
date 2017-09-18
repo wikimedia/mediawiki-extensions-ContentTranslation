@@ -199,26 +199,6 @@ mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, s
 	} );
 };
 
-/**
- * @param {Object} content Segmented content
- * @return {mw.cx.dm.SourcePage}
- */
-mw.cx.init.Translation.prototype.processSourcePageContent = function ( content ) {
-	var sourcePage;
-	// Update with revision information
-	this.sourceWikiPage = new mw.cx.dm.WikiPage(
-		this.sourceWikiPage.getTitle(),
-		this.sourceWikiPage.getLanguage(),
-		content.revision
-	);
-	// BC
-	this.config.sourceRevision = content.revision;
-
-	sourcePage = new mw.cx.dm.SourcePage( this.config );
-	sourcePage.setSections( $.parseHTML( content.segmentedContent ) );
-	return sourcePage;
-};
-
 mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( xhr ) {
 	if ( xhr.status === 404 ) {
 		mw.hook( 'mw.cx.error' ).fire(
