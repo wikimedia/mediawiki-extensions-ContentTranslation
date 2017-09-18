@@ -25,6 +25,29 @@ ve.dm.CXSectionNode.static.matchTagNames = [ 'section' ];
 
 ve.dm.CXSectionNode.static.matchRdfaTypes = [ 'cx:Section' ];
 
+ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
+	// Parent method
+	var dataElement = ve.dm.CXSectionNode.super.static.toDataElement.apply( this, arguments );
+
+	dataElement.attributes.cxid = domElements[ 0 ].id;
+	return dataElement;
+};
+
+ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
+	var elements = ve.dm.CXSectionNode.super.static.toDomElements.apply( this, arguments );
+	elements[ 0 ].setAttribute( 'rel', 'cx:Section' );
+	elements[ 0 ].setAttribute( 'id', dataElement.attributes.cxid );
+	return elements;
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.CXSectionNode );
+
+/**
+ * HACK: We need to improve how suggestedParentNodes works
+ */
+
+ve.dm.MWHeadingNode.static.suggestedParentNodeTypes.push( 'cxSection' );
+ve.dm.MWPreformattedNode.static.suggestedParentNodeTypes.push( 'cxSection' );
+ve.dm.MWTableNode.static.suggestedParentNodeTypes.push( 'cxSection' );

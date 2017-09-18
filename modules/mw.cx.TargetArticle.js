@@ -321,12 +321,7 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 	var html,
 		doc = this.view.getSurface().getDom();
 
-	// Strip placeholders
-	Array.prototype.forEach.call( doc.body.querySelectorAll( 'section[rel="cx:Placeholder"]' ), function ( placeholder ) {
-		placeholder.remove();
-	} );
-	// Strip segments
-	Array.prototype.forEach.call( doc.body.querySelectorAll( '[data-segmentid]' ), function ( segment ) {
+	Array.prototype.forEach.call( doc.body.querySelectorAll( 'article, section, [data-segmentid]' ), function ( segment ) {
 		var parent = segment.parentNode;
 		// move all children out of the element
 		while ( segment.firstChild ) {

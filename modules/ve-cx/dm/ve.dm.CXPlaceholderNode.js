@@ -36,10 +36,10 @@ ve.dm.CXPlaceholderNode.static.toDataElement = function ( domElements ) {
 };
 
 ve.dm.CXPlaceholderNode.static.toDomElements = function ( dataElement, doc ) {
-	var element = doc.createElement( 'section' );
-	element.setAttribute( 'rel', 'cx:Placeholder' );
-	element.id = dataElement.attributes.cxid;
-	return [ element ];
+	var sectionNode = doc.createElement( 'section' );
+	sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
+	sectionNode.setAttribute( 'id', dataElement.attributes.cxid );
+	return [ sectionNode ];
 };
 
 /* Methods */
