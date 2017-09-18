@@ -28,14 +28,23 @@ ve.dm.CXLinkAnnotation.static.matchFunction = function ( domElement ) {
 };
 
 ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter ) {
-	var dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
+	var dataCX,
+		dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
 	dataElement.attributes.linkid = domElements[ 0 ].getAttribute( 'data-linkid' );
+
+	dataCX = domElements[ 0 ].getAttribute( 'data-cx' );
+	if ( dataCX ) {
+		dataElement.attributes.cx = JSON.parse( domElements[ 0 ].getAttribute( 'data-cx' ) );
+	}
 	return dataElement;
 };
 
 ve.dm.CXLinkAnnotation.static.toDomElements = function ( dataElement, doc ) {
 	var domElements = ve.dm.CXLinkAnnotation.super.static.toDomElements.call( this, dataElement, doc );
 	domElements[ 0 ].setAttribute( 'data-linkid', dataElement.attributes.linkid );
+	if ( dataElement.attributes.cx ) {
+		domElements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
+	}
 	return domElements;
 };
 
