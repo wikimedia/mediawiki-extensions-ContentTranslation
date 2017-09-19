@@ -2,7 +2,7 @@
  * Annotation representing an adapted link
  *
  * @class
- * @extends ve.ce.LinkAnnotation
+ * @extends ve.ce.MWInternalLinkAnnotation
  * @constructor
  * @param {ve.dm.CXLinkAnnotation} model
  */
@@ -17,7 +17,7 @@ ve.ce.CXLinkAnnotation = function VeCeCXLinkAnnotation( model ) {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.CXLinkAnnotation, ve.ce.LinkAnnotation );
+OO.inheritClass( ve.ce.CXLinkAnnotation, ve.ce.MWInternalLinkAnnotation );
 
 /* Static Properties */
 

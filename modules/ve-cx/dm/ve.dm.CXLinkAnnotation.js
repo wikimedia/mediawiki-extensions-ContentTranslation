@@ -1,6 +1,6 @@
 /**
  * @class
- * @extends ve.dm.LinkAnnotation
+ * @extends ve.dm.MWInternalLinkAnnotation
  * @mixins ve.dm.CXTranslationUnitModel
  * @constructor
  * @param {Object} element
