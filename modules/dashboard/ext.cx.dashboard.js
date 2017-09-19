@@ -152,6 +152,7 @@
 		this.renderTranslations();
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			this.renderTranslationSuggestions();
+			this.createUlsForSuggestionsList();
 		} else {
 			this.setActiveList( 'draft' );
 			return;
@@ -407,12 +408,6 @@
 		} );
 
 		mw.hook( 'mw.cx.translationlist.items.changed' ).add( this.fillLanguageFilters.bind( this ) );
-
-		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-			// Here only 'Suggestions' list language filter gets created, translation lists
-			// ('In progress' and 'Published') create their language filters in fillLanguageFilters method
-			this.createUlsForSuggestionsList();
-		}
 
 		this.$publishedArticlesButton.on( 'click', function () {
 			self.filter.selectItemByData( 'published' );
