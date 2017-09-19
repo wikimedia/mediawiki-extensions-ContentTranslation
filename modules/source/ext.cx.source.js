@@ -186,12 +186,11 @@
 	}
 
 	ContentTranslationSource.prototype.load = function ( content ) {
-		var self = this;
+		var self = this,
+			$content = $( $.parseHTML( content.segmentedContent ) );
 
-		this.$content.html( content.segmentedContent );
-
-		// TODO: Figure out what should be done here
-		this.$content.find( 'base' ).detach();
+		// Filter out meta tags etc and append to the document
+		this.$content.html( $content.not( 'base, meta, link, title' ) );
 
 		// Try to load Cite styles. Silently ignored if not installed.
 		if ( mw.loader.getState( 'ext.cite.style' ) !== null ) {
