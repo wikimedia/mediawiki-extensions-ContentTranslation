@@ -346,19 +346,26 @@
 		} else {
 			this.getTranslatedSection( this.$sourceSection )
 				.done( function ( translation ) {
+					var $translation;
 					if ( !translation || !translation.length ) {
 						return self.useSource();
 					}
 
+					$translation = $( translation );
+					if ( $translation.is( 'div' ) && !$translation.attr( 'id' ) ) {
+						// Translation is wrapped in <div> tag. And it is not part of section,
+						// which will have at least id attribute.
+						// Legacy cxserver behavior. Unwrap it.
+						$translation = $translation.children();
+					}
+					$translation.attr( {
+						id: 'cx' + self.sourceId,
+						'data-source': self.sourceId,
+						'data-cx-state': 'mt',
+						'data-cx-mt-provider': self.provider
+					} );
 					// Use fresh copy
-					self.replaceSectionWith( $( translation )
-						.children()
-						.attr( {
-							id: 'cx' + self.sourceId,
-							'data-source': self.sourceId,
-							'data-cx-state': 'mt',
-							'data-cx-mt-provider': self.provider
-						} ) );
+					self.replaceSectionWith( $translation );
 				} ).fail( function () {
 					return self.useSource();
 				} ).always( function () {
