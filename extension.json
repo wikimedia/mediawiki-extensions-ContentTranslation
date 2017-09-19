@@ -1269,6 +1269,7 @@
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
+				"ve-cx/ce/styles/ve.ce.CXSectionNode.css",
 				"ve-cx/ui/styles/ve.ui.CXSurface.css"
 			],
 			"messages": [

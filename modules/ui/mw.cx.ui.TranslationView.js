@@ -76,7 +76,7 @@ OO.inheritClass( mw.cx.ui.TranslationView, ve.init.mw.Target );
  * @param {number} sectionNumber The number in the source/target section id attribute
  */
 mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
-	var offsetTop,
+	var offsetTop, viewNode,
 		sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
 		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
 
@@ -86,6 +86,7 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	if ( !sourceNode || !targetNode ) {
 		return;
 	}
+	viewNode = $.data( targetNode, 'view' );
 	sourceNode.style.marginTop = '';
 	targetNode.style.marginTop = '';
 	targetNode.style.height = '';
@@ -95,7 +96,7 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	);
 	sourceNode.style.marginTop = ( offsetTop - sourceOffsetTop - sourceNode.offsetTop ) + 'px';
 	targetNode.style.marginTop = ( offsetTop - targetOffsetTop - targetNode.offsetTop ) + 'px';
-	if ( isSubclass( $.data( targetNode, 'view' ), ve.ce.CXPlaceholderNode ) ) {
+	if ( isSubclass( viewNode, ve.ce.CXPlaceholderNode ) || isSubclass( viewNode, ve.ce.CXSectionNode ) ) {
 		if ( sourceNode.offsetHeight > targetNode.offsetHeight ) {
 			targetNode.style.height = sourceNode.offsetHeight + 'px';
 		}
@@ -262,12 +263,13 @@ mw.cx.ui.TranslationView.prototype.onDocumentTransact = function () {
 };
 
 mw.cx.ui.TranslationView.prototype.alignSectionPairs = function () {
-	var sourceOffsetTop, targetOffsetTop, alignSectionPair;
+	var sourceOffsetTop, targetOffsetTop, alignSectionPair, articleNode;
 
 	sourceOffsetTop = this.sourceSurface.getView().getDocument().documentNode.$element.offset().top;
 	targetOffsetTop = this.targetSurface.getView().getDocument().documentNode.$element.offset().top;
 	alignSectionPair = this.constructor.static.alignSectionPair;
-	this.sourceSurface.getView().getDocument().getDocumentNode().getChildren().forEach( function ( node ) {
+	articleNode = this.sourceSurface.getView().getDocument().getDocumentNode().getChildren()[ 0 ];
+	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
 			match = element && element.id && element.id.match( /^cxSourceSection([0-9]+)$/ );
@@ -284,7 +286,7 @@ mw.cx.ui.TranslationView.prototype.changeNamespace = function ( namespaceId ) {
 
 mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
 	var sourceModel, sourceNode,
-		cxid = placeholder.model.getAttribute( 'cxid' ),
+		cxid = placeholder.getModel().getAttribute( 'cxid' ),
 		sectionNumber = parseInt( cxid.match( /^cxTargetSection([0-9]+)$/ )[ 1 ], 10 ),
 		sourceId = 'cxSourceSection' + sectionNumber,
 		targetId = 'cxTargetSection' + sectionNumber;
@@ -351,31 +353,28 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 };
 
 mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
-	var pasteDoc, tx1, tx2, firstOffset, docLen,
+	var pasteDoc, newCursorRange, docLen, fragmentRange,
 		modelSurface = this.getSurface().getModel(),
-		doc = modelSurface.documentModel,
-		pRange = placeholder.getModel().getOuterRange();
+		cxid = placeholder.getModel().getAttribute( 'cxid' ),
+		fragment = modelSurface.getLinearFragment( placeholder.getModel().getOuterRange() );
 
 	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data ) );
 	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
-	tx1 = ve.dm.TransactionBuilder.static.newFromRemoval( doc, pRange );
-	tx2 = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
-		doc,
-		// Position the start of tx2 at the end of tx1, to work around T175059
-		pRange.end,
-		pasteDoc,
-		new ve.Range(
-			1,
-			docLen - 1
-		)
-	);
-	tx2 = ve.dm.Change.static.rebaseTransactions( tx1, tx2 )[ 1 ];
-	modelSurface.change( [ tx1, tx2 ] );
+
+	fragment.insertContent( [
+		{ type: 'cxSection', attributes: { style: 'section', cxid: cxid } },
+		{ type: '/cxSection' }
+	] );
+	fragment
+		.collapseToStart().adjustLinearSelection( 1, 1 )
+		.insertDocument( pasteDoc, new ve.Range( 1, docLen - 1 ) );
+
+	fragmentRange = fragment.getSelection().getCoveringRange();
 
 	// Select first content offset within new content
-	firstOffset = modelSurface.getDocument().data.getNearestContentOffset( pRange.start, 1 );
-	if ( firstOffset > pRange.start && firstOffset < pRange.start + docLen ) {
-		modelSurface.setLinearSelection( new ve.Range( firstOffset ) );
+	newCursorRange = new ve.Range( modelSurface.getDocument().data.getNearestContentOffset( fragmentRange.start, 1 ) );
+	if ( fragmentRange.containsRange( newCursorRange ) ) {
+		modelSurface.setLinearSelection( newCursorRange );
 	}
 };
 

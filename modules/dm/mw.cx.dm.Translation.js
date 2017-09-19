@@ -65,33 +65,40 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @return {HTMLDocument} Restructured source DOM
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
-	var nextSectionId = 1,
+	var lastAboutGroup,
+		nextSectionId = 1,
 		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
-		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' );
+		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
+		articleNode = domDoc.createElement( 'article' );
+
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
 	// TODO: it would be better to do section wrapping on the CX server
 	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
-		var sectionNode;
+		var sectionNode, aboutGroup;
 		if ( node.nodeType !== Node.ELEMENT_NODE ) {
 			return;
 		}
-		if ( ( node.getAttribute( 'typeof' ) || '' ).match( /\bmw:Transclusion\b/ ) ) {
-			// TODO: handle more systematically
-			if ( forTarget ) {
-				node.parentNode.removeChild( node );
-			}
-			return;
-		}
 		sectionNode = domDoc.createElement( 'section' );
-		sectionNode.id = sectionIdPrefix + nextSectionId++;
-		domDoc.body.replaceChild( sectionNode, node );
-		if ( forTarget ) {
-			sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
+		aboutGroup = node.getAttribute( 'about' );
+		// For block level templates and their about-grouped siblings, don't give them
+		// a section ID as they can't be translated yet
+		// TODO: handle more systematically
+		if ( ( aboutGroup && aboutGroup === lastAboutGroup ) || ( node.getAttribute( 'typeof' ) || '' ).match( /\bmw:Transclusion\b/ ) ) {
+			lastAboutGroup = aboutGroup;
 		} else {
-			sectionNode.setAttribute( 'rel', 'cx:Section' );
+			sectionNode.setAttribute( 'id', sectionIdPrefix + nextSectionId );
+			sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
+			nextSectionId++;
+		}
+		if ( forTarget ) {
+			node.parentNode.removeChild( node );
+		} else {
 			sectionNode.appendChild( node );
 		}
+		articleNode.appendChild( sectionNode );
 	} );
+	domDoc.body.appendChild( articleNode );
+
 	return domDoc;
 };
 

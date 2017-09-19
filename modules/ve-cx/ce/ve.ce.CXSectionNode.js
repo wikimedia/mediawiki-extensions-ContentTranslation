@@ -9,7 +9,10 @@
 ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 	// Parent constructor
 	ve.ce.CXSectionNode.super.apply( this, arguments );
-	this.$element.addClass( 've-ce-cxSectionNode' );
+
+	this.$element
+		.attr( 'id', this.model.getAttribute( 'cxid' ) )
+		.addClass( 've-ce-cxSectionNode' );
 };
 
 /* Inheritance */

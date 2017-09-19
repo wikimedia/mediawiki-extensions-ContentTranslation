@@ -22,6 +22,7 @@ ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
 
 	this.$element
 		.addClass( 've-ce-cxPlaceholderNode' )
+		.attr( 'id', this.model.getAttribute( 'cxid' ) )
 		.append( button.$element );
 	this.active = false;
 };
