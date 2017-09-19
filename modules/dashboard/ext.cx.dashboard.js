@@ -443,7 +443,7 @@
 	 * Creates source and target language ULS for suggestions list
 	 */
 	CXDashboard.prototype.createUlsForSuggestionsList = function () {
-		var list = this.lists[ 'suggestions' ],
+		var list = this.lists.suggestions,
 			ulsOptions = {
 				menuWidth: 'medium',
 				quickList: function () {
