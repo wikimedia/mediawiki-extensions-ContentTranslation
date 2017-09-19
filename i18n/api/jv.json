@@ -90,7 +90,7 @@
 	"apierror-cx-invalidsourcelanguage": "Basa sumber ora trep.",
 	"apierror-cx-invalidtargetlanguage": "Basa tujuan ora trep.",
 	"apierror-cx-invalidtranslator": "Jeneng pamertal ora trep",
-	"apierror-cx-jwtmissing": "JWT ora ana.",
+	"apierror-cx-jwtmissing": "JWT ora kapasang.",
 	"apierror-cx-keynotconfigured": "Kunci ora dipasang.",
 	"apierror-cx-missingdraft": "Ora ana rèngrèngan.",
 	"apierror-cx-mustbeloggedin-suggestions": "Panjenengan kudu mlebu log saperlu ngatur pamrayogané.",

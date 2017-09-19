@@ -116,6 +116,7 @@
 	"cx-suggestionlist-view-source-page": "查看来源页面",
 	"cx-translation-filter-from-any-language": "从任何语言",
 	"cx-translation-filter-to-any-language": "至任何语言",
+	"cx-translation-filter-any-language": "任意语言",
 	"cx-create-new-translation": "新翻译",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分钟前|0=刚刚}}保存",
 	"cx-save-draft-saving": "正在保存...",

@@ -112,6 +112,7 @@
 	"cx-suggestionlist-view-source-page": "উৎস পাতা দেখুন",
 	"cx-translation-filter-from-any-language": "যে কোন ভাষা থেকে",
 	"cx-translation-filter-to-any-language": "যে কোন ভাষায়",
+	"cx-translation-filter-any-language": "যেকোন ভাষা",
 	"cx-create-new-translation": "নতুন অনুবাদ",
 	"cx-save-draft-save-success": "{{PLURAL:$1|এক মিনিট আগে|$1 মিনিট আগে|0=এইমাত্র}} সংরক্ষিত",
 	"cx-save-draft-saving": "সংরক্ষণ করা হচ্ছে ...",

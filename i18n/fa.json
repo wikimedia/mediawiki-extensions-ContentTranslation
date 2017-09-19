@@ -17,7 +17,8 @@
 			"Ladsgroup",
 			"Arian Ar",
 			"درفش کاویانی",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Ommmmid"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -118,6 +119,7 @@
 	"cx-suggestionlist-view-source-page": "نمایش مبدأ صفحه",
 	"cx-translation-filter-from-any-language": "از هر زبانی",
 	"cx-translation-filter-to-any-language": "به هر زبانی",
+	"cx-translation-filter-any-language": "هر زبانی",
 	"cx-create-new-translation": "ترجمه‌ای جدید شروع کنید",
 	"cx-save-draft-save-success": "{{PLURAL:$1|یک دقیقه پیش|$1 دقیقه پیش|0=همین الآن}}",
 	"cx-save-draft-saving": "در حال ذخیره‌سازی...",

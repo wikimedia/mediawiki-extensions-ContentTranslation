@@ -4,7 +4,8 @@
 			"Amire80",
 			"Ebraminio",
 			"Ladsgroup",
-			"Mahdy Saffar"
+			"Mahdy Saffar",
+			"Ommmmid"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -57,5 +58,6 @@
 	"apihelp-cxsave-param-title": "عنوان صفحه برای انجام عمل روی آن",
 	"apihelp-cxsave-param-from": "کد زبان مبدا",
 	"apihelp-cxsave-param-to": "کد زبان مقصد",
-	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا"
+	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا",
+	"apierror-cx-jwtmissing": "JWT نصب نیست."
 }

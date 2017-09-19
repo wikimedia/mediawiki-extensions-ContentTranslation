@@ -102,12 +102,15 @@
 	"apierror-cx-invalidsourcelanguage": "Llingua orixinal inválida.",
 	"apierror-cx-invalidtargetlanguage": "Llingua de destín inválida.",
 	"apierror-cx-invalidtranslator": "Nome de traductor inválidu.",
-	"apierror-cx-jwtmissing": "Falta JWT.",
+	"apierror-cx-jwtmissing": "JWT nun ta instaláu.",
 	"apierror-cx-keynotconfigured": "Clave sin configurar.",
 	"apierror-cx-missingdraft": "El borrador nun esiste.",
 	"apierror-cx-mustbeloggedin-suggestions": "Has tener aniciada sesión p'alministrar les suxerencies.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Has tener aniciada sesión pa ver les tos traducciones.",
 	"apierror-cx-samelanguages": "La llingua d'orixe y destín nun pueden ser la mesma.",
 	"apierror-cx-suggestionsdisabled": "Les suxerencies nun tan activaes nesta wiki.",
-	"apierror-cx-translationnotfound": "Nun s'alcontró la traducción."
+	"apierror-cx-translationnotfound": "Nun s'alcontró la traducción.",
+	"apihelp-query+langlinkscount-description": "Llograr el númberu d'otres llingües nes qu'esiste esti artículu.",
+	"apihelp-query+langlinkscount-summary": "Llograr el númberu de versiones n'otra llingua.",
+	"apihelp-query+langlinkscount-example-1": "Llograr el númberu de versiones n'otres llingües de la páxina 'Perru'"
 }

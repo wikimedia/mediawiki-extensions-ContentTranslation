@@ -87,11 +87,12 @@
 	"cx-sourceselector-dialog-error-page-exists": "$2 પર પાનું [$1 પહેલેથી અસ્તિત્વમાં છે]",
 	"cx-sourceselector-dialog-error-title-in-use": "નવાં પાનાંનું શીર્ષક છે [$1 પહેલેથી હાજર છે]",
 	"cx-sourceselector-dialog-error-no-source-article": "ભાષાંતર કરવા માટેનું પાનું $1 માં અસિતત્વ ધરાવતું નથી",
+	"cx-sourceselector-missing-in-target-language": "$1માં ખૂટે છે",
 	"cx-mt-abuse-warning-title": "તમારું ભાષાંતર ન બદલેલ {{PLURAL:$1|મશીન-ભાષાંતરીત}} $1% લખાણ ધરાવે છે",
 	"cx-mt-abuse-warning-text": "મશીન ભાષાંતર માત્ર શરુઆત તરીકે ઉમેરવામાં આવેલું છે. લખાણને તમારી ભાષામાં ચોક્કસ અને પ્રવાહી બનાવવું પડશે.",
 	"cx-publish-captcha-title": "સલામતી પ્રશ્ન",
-	"cx-dashboard-sidebar-title": "ભાષાંતર કરવામાં {{GENDER:|મદદ}} જોઇએ છે?",
-	"cx-dashboard-sidebar-information": "આ સાધન વિશે વધુ માહિતી મેળવો",
+	"cx-dashboard-sidebar-title": "ભાષાંતરમાં મદદ {{GENDER:|જોઇએ}} છે?",
+	"cx-dashboard-sidebar-information": "આ સાધન વિશે વધુ માહિતી",
 	"cx-dashboard-sidebar-stats": "આંકડાકીય માહિતી",
 	"cx-dashboard-sidebar-feedback": "અમને તમારો પ્રતિભાવ આપો",
 	"cx-translation-filter-all-translations": "બધાં ભાષાંતરો",
@@ -107,6 +108,7 @@
 	"cx-suggestionlist-view-source-page": "સ્ત્રોત પાનું જુઓ",
 	"cx-translation-filter-from-any-language": "કોઇપણ ભાષામાંથી",
 	"cx-translation-filter-to-any-language": "કોઇપણ ભાષા પર",
+	"cx-translation-filter-any-language": "કોઇપણ ભાષા",
 	"cx-create-new-translation": "નવું ભાષાંતર",
 	"cx-save-draft-save-success": "સંગ્રહેલ {{PLURAL:$1|મિનિટ પહેલાં|$1 મિનિટ્સ પહેલાં|0=હમણાં જ}}",
 	"cx-save-draft-saving": "સંગ્રહ કરે છે...",
@@ -198,6 +200,7 @@
 	"cx-tools-linter-content": "લખાણમાં [//www.mediawiki.org/wiki/Content_translation/Abuse_filter $1 પર વિકિપીડિયા દ્વારા મૂકાયેલ પ્રતિબંધો ] મળ્યા. ભાષાંતર પ્રકાશિત કરતાં પહેલાં તેને સુધારો.",
 	"cx-tools-linter-view-details": "વિગતો જુઓ",
 	"cx-tools-linter-hide-details": "વિગતો છુપાવો",
+	"cx-translator-header": "તમારા આંકડાઓ",
 	"cx-translator-month-stats-label": "આ મહિને",
 	"cx-translator-total-translations-label": "કુલ",
 	"cx-page-old-revision-loaded": "તમારું ભાષાંતર લખાણની જૂની આવૃત્તિ પર આધારિત છે. સ્ત્રોત લખાણ કદાચ [$1 બદલાયેલ] હશે. તમે આ ભાષાંતર ચાલુ રાખી કરી શકો છો અથવા તેની છેલ્લાં સ્ત્રોત લખાણ સાથે ફરી શરૂ કરી શકો છો.",
@@ -217,5 +220,6 @@
 	"cx-publish-destination-tooltip": "પાનું પ્રકાશિત કરવા માટે નામસ્થળ પસંદ કરો",
 	"cx-publish-destination-namespace-main": "નવું પાનું",
 	"cx-publish-destination-namespace-user": "અંગત મુસદો",
-	"cx-publish-destination-namespace-draft": "જાહેર મુસદો"
+	"cx-publish-destination-namespace-draft": "જાહેર મુસદો",
+	"cx-linkcontextitem-title": "ગોઠવેલ કડી"
 }

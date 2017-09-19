@@ -113,6 +113,7 @@
 	"cx-suggestionlist-view-source-page": "Vis kildeside",
 	"cx-translation-filter-from-any-language": "Fra ethvert språk",
 	"cx-translation-filter-to-any-language": "Til ethvert språk",
+	"cx-translation-filter-any-language": "Hvilket som helst språk",
 	"cx-create-new-translation": "Ny oversettelse",
 	"cx-save-draft-save-success": "Lagret {{PLURAL:$1|for ett minutt siden|for $1 minutter siden ago|0=nå nettopp}}",
 	"cx-save-draft-saving": "Lagrer…",
