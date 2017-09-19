@@ -55,6 +55,8 @@
 		this.$targetTitleInput = null;
 		this.overlay = null;
 		this.$translateFromButton = null;
+		this.narrowLimit = 700;
+		this.isNarrowScreenSize = false;
 		this.validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
 		this.init();
 	}
@@ -111,6 +113,8 @@
 	 */
 	CXSourceSelector.prototype.init = function () {
 		var self = this;
+
+		this.isNarrowScreenSize = document.documentElement.clientWidth < this.narrowLimit;
 
 		this.getLanguagePairs().then( function () {
 			self.render();
@@ -245,7 +249,10 @@
 		};
 
 		this.$sourceLanguage.prop( langProps )
-			.text( $.uls.data.getAutonym( this.sourceLanguage ) );
+			.text( this.isNarrowScreenSize ?
+				mw.language.bcp47( this.sourceLanguage ) :
+				$.uls.data.getAutonym( this.sourceLanguage )
+			);
 		mw.storage.set( 'cxSourceLanguage', this.sourceLanguage );
 		this.sourcePageSelector.setLanguage( this.sourceLanguage );
 
@@ -281,7 +288,10 @@
 			this.$targetTitleInput.prop( langProps );
 		}
 		this.$targetLanguage.prop( langProps )
-			.text( $.uls.data.getAutonym( this.targetLanguage ) );
+			.text( this.isNarrowScreenSize ?
+				mw.language.bcp47( this.targetLanguage ) :
+				$.uls.data.getAutonym( this.targetLanguage )
+			);
 		this.sourcePageSelector.setTargetLanguage( language );
 		mw.storage.set( 'cxTargetLanguage', this.targetLanguage );
 	};
@@ -401,6 +411,28 @@
 			'keypress',
 			'.cx-sourceselector-page-title',
 			this.enterKeyHandler.bind( this )
+		);
+
+		// Resize handler
+		$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
+	};
+
+	CXSourceSelector.prototype.resize = function () {
+		var isNarrowScreenSize = document.documentElement.clientWidth < this.narrowLimit;
+
+		// Exit early if screen size stays above/under narrow screen size limit
+		if ( this.isNarrowScreenSize === isNarrowScreenSize ) {
+			return;
+		}
+
+		this.isNarrowScreenSize = isNarrowScreenSize;
+		this.$sourceLanguage.text( isNarrowScreenSize ?
+			mw.language.bcp47( this.sourceLanguage ) :
+			$.uls.data.getAutonym( this.sourceLanguage )
+		);
+		this.$targetLanguage.text( isNarrowScreenSize ?
+			mw.language.bcp47( this.targetLanguage ) :
+			$.uls.data.getAutonym( this.targetLanguage )
 		);
 	};
 
