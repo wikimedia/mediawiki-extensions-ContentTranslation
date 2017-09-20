@@ -132,6 +132,7 @@
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
 	"cx-save-draft-save-success": "\"Saved\" refers to a draft of a translated page that was saved recently.\nParameters:\n* $1 - number of minutes",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
+	"cx-save-draft-shortcut-label": "Label for keyboard shortcut to trigger 'save draft'",
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-save-draft-error": "Error message shown if saving page draft failed.",
 	"cx-contributions-new-contributions": "Header text shown in [[Special:Contributions]], followed by ways to do more new contributions.",

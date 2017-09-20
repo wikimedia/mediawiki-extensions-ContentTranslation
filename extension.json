@@ -1345,6 +1345,7 @@
 				"cx-save-draft-error",
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
+				"cx-save-draft-shortcut-label",
 				"cx-save-draft-tooltip",
 				"cx-page-old-revision-loaded"
 			],
