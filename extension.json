@@ -348,7 +348,9 @@
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
+				"mediawiki.jqueryMsg",
 				"mediawiki.storage",
+				"mediawiki.language",
 				"mediawiki.ui.button",
 				"mw.cx.ui.PageSelectorWidget",
 				"mw.cx.util",
@@ -366,6 +368,7 @@
 				"cx-sourceselector-dialog-error-page-exists",
 				"cx-sourceselector-dialog-error-title-in-use",
 				"cx-sourceselector-dialog-error-no-source-article",
+				"cx-sourceselector-embedded-selected-item-pageviews",
 				"cx-license-agreement",
 				"cx-error-server-connection"
 			]
