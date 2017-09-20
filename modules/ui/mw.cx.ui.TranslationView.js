@@ -354,27 +354,31 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 
 mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
 	var pasteDoc, newCursorRange, docLen, fragmentRange,
-		modelSurface = this.getSurface().getModel(),
+		surfaceModel = this.getSurface().getModel(),
 		cxid = placeholder.getModel().getAttribute( 'cxid' ),
-		fragment = modelSurface.getLinearFragment( placeholder.getModel().getOuterRange() );
+		fragment = surfaceModel.getLinearFragment( placeholder.getModel().getOuterRange(), true /* noAutoSelect */ );
 
 	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data ) );
 	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
 
 	fragment.insertContent( [
 		{ type: 'cxSection', attributes: { style: 'section', cxid: cxid } },
+		// Put a temporary paragraph inside the section so the cursor has somewhere
+		// sensible to go, preventing scrollCursorIntoView from triggering a jump
+		{ type: 'paragraph' },
+		{ type: '/paragraph' },
 		{ type: '/cxSection' }
 	] );
 	fragment
-		.collapseToStart().adjustLinearSelection( 1, 1 )
+		.collapseToStart().adjustLinearSelection( 1, 3 )
 		.insertDocument( pasteDoc, new ve.Range( 1, docLen - 1 ) );
 
 	fragmentRange = fragment.getSelection().getCoveringRange();
 
 	// Select first content offset within new content
-	newCursorRange = new ve.Range( modelSurface.getDocument().data.getNearestContentOffset( fragmentRange.start, 1 ) );
+	newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( fragmentRange.start, 1 ) );
 	if ( fragmentRange.containsRange( newCursorRange ) ) {
-		modelSurface.setLinearSelection( newCursorRange );
+		surfaceModel.setLinearSelection( newCursorRange );
 	}
 };
 
