@@ -112,6 +112,7 @@
 	"cx-suggestionlist-view-source-page": "Ver a páxina fonte",
 	"cx-translation-filter-from-any-language": "De calquera lingua",
 	"cx-translation-filter-to-any-language": "A calquera lingua",
+	"cx-translation-filter-any-language": "Calquera lingua",
 	"cx-create-new-translation": "Nova tradución",
 	"cx-save-draft-save-success": "Gardado {{PLURAL:$1|hai un minuto|hai $1 minutos|0=agora mesmo}}",
 	"cx-save-draft-saving": "Gardando...",

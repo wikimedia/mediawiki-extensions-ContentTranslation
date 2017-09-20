@@ -103,7 +103,7 @@
 	"apierror-cx-invalidsourcelanguage": "Недійсна вихідна мова.",
 	"apierror-cx-invalidtargetlanguage": "Недійсна цільова мова.",
 	"apierror-cx-invalidtranslator": "Недійсне ім'я перекладача.",
-	"apierror-cx-jwtmissing": "JWT відсутній.",
+	"apierror-cx-jwtmissing": "JWT не встановлено.",
 	"apierror-cx-keynotconfigured": "Ключ не налаштовано.",
 	"apierror-cx-missingdraft": "Чернетка не існує.",
 	"apierror-cx-mustbeloggedin-suggestions": "Вам треба увійти в систему, щоб керувати своїми пропозиціями.",

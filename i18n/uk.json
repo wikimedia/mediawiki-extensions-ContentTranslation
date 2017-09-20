@@ -99,6 +99,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Назва для нової сторінки [$1 вже використовується]",
 	"cx-sourceselector-dialog-error-no-source-article": "Сторінки для перекладу не існує в $1",
 	"cx-sourceselector-missing-in-target-language": "Відсутня мовою: $1",
+	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",
 	"cx-mt-abuse-warning-title": "Ваш переклад {{PLURAL:$1|містить}} $1% незміненого машинно-перекладеного тексту",
 	"cx-mt-abuse-warning-text": "Машинний переклад надається лише як відправна точка. Вам треба переконатися, що зміст є точним і природно читається Вашою мовою.",
 	"cx-publish-captcha-title": "Секретне запитання",

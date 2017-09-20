@@ -145,6 +145,7 @@
 	"cx-translation-status-published": "Opublikowano",
 	"cx-translation-status-deleted": "Usunięto",
 	"cx-translation-label-draft": "Tłumaczenia w toku",
+	"cx-translation-label-published": "Opublikowane tłumaczenia",
 	"cx-translation-already-in-progress": "To jest trwające tłumaczenie {{GENDER:$2|przez}} $1.",
 	"cx-translation-already-in-progress-collaborate": "Upewnij się, że uzgodniłeś zmianę z {{GENDER:$1|użytkownikiem|użytkowniczką}}, {{GENDER:$1|który|która}} {{GENDER:$1|przetłumaczył|przetłumaczyła}} obecną wersję.",
 	"cx-publishing-dialog-publish-draft-button": "Opublikuj szkic",
@@ -231,6 +232,6 @@
 	"cx-translation-template-add-more": "Dodaj więcej pól",
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
 	"cx-tools-category-add": "Dodaj kategorię",
-	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw do której opublikować artykuł",
+	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw, w której strona zostanie opublikowana",
 	"cx-publish-destination-namespace-main": "Nowa strona"
 }
