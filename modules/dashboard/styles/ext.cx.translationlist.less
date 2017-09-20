@@ -186,19 +186,22 @@
 .cx-draft-discard-dialog {
 	.mw-ui-item;
 
-	color: #222;
+	background-color: #fff;
+	color: @colorGray2;
+
 	position: fixed;
-	min-width: 500px;
+	top: 50%;
+	left: 50%;
+	.transform( translate( -50%, -50% ) );
+	z-index: 1000;
+
+	min-width: 400px;
 	max-width: 600px;
-	background: #fff;
-	border: 1px solid #c8ccd1;
+	border: 1px solid @colorGray12;
 	border-bottom-width: 3px;
 	border-radius: @borderRadius;
 	padding: 0;
-	top: 30%;
-	left: 30%;
-	box-shadow: 0 5px 10px rgba( 0, 0, 0, 0.2 );
-	z-index: 1000;
+	.box-shadow( 0 5px 10px rgba( 0, 0, 0, 0.2 ) );
 
 	&__message {
 		padding: 25px;
@@ -209,11 +212,7 @@
 		.mw-ui-one-whole;
 
 		padding: 20px;
-
-		button {
-			float: right;
-			padding-right: 20px;
-		}
+		text-align: right;
 	}
 }
 
