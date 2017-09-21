@@ -2,11 +2,6 @@
  * VisualEditor ContentTranslation Surface styles.
  */
 
-.cx-header__toolbar > .oo-ui-toolbar {
-	font-size: 0.8em;
-	border-top: 1px solid #c8ccd1;
-}
-
 /*
  * Override ve.ce.SectionNode.css which sets opacity of an inactive ve.ce.SectionNode to 0.5 .
  */
