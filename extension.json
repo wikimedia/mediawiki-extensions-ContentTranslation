@@ -1272,8 +1272,7 @@
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
-				"ve-cx/ce/styles/ve.ce.CXSectionNode.css",
-				"ve-cx/ui/styles/ve.ui.CXSurface.css"
+				"ve-cx/ce/styles/ve.ce.CXSectionNode.css"
 			],
 			"messages": [
 				"cx-linkcontextitem-title"
