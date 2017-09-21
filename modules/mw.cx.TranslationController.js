@@ -71,7 +71,7 @@ ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
 
 /**
  * Save the translation to database
- * @param {mw.cx.dm.translationUnit} translationUnit
+ * @param {mw.cx.dm.TranslationUnit} translationUnit
  */
 mw.cx.TranslationController.prototype.save = function ( translationUnit ) {
 	if ( !translationUnit ) {
