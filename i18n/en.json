@@ -123,6 +123,7 @@
 	"cx-create-new-translation": "New translation",
 	"cx-save-draft-save-success": "Saved {{PLURAL:$1|a minute ago|$1 minutes ago|0=just now}}",
 	"cx-save-draft-saving": "Saving...",
+	"cx-save-draft-shortcut-label": "Save draft",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
 	"cx-save-draft-error": "An error occurred while saving the page.",
 	"cx-contributions-new-contributions": "New contribution",

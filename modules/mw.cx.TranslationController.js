@@ -49,6 +49,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 	} );
 
 	// Save when CTRL+S is pressed.
+	// TODO: This should use VE's Trigger/Command system, and be registered with the help dialog
 	document.onkeydown = function ( e ) {
 		// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
 		if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
@@ -56,8 +57,17 @@ mw.cx.TranslationController.prototype.listen = function () {
 			return false;
 		}
 	}.bind( this );
+
 	window.onbeforeunload = this.onPageUnload.bind( this );
 };
+
+ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
+	shortcuts: [ {
+		mac: 'cmd+s',
+		pc: 'ctrl+s'
+	} ],
+	label: OO.ui.deferMsg( 'cx-save-draft-shortcut-label' )
+} );
 
 /**
  * Save the translation to database
