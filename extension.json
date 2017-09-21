@@ -1271,6 +1271,7 @@
 				"ve-cx/ce/ve.ce.CXSentenceSegmentAnnotation.js",
 				"ve-cx/ce/ve.ce.CXSectionNode.js",
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
+				"ve-cx/ui/ve.ui.CXDestinationTool.js",
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
@@ -1281,7 +1282,12 @@
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.css"
 			],
 			"messages": [
-				"cx-linkcontextitem-title"
+				"cx-linkcontextitem-title",
+				"cx-publish-destination-header",
+				"cx-publish-destination-tooltip",
+				"cx-publish-destination-namespace-main",
+				"cx-publish-destination-namespace-user",
+				"cx-publish-destination-namespace-draft"
 			],
 			"dependencies": [
 				"ext.visualEditor.mediawiki",
@@ -1424,7 +1430,6 @@
 				"mw.cx.tools",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.TranslationUnits",
-				"mw.cx.ui.PublishSettingsWidget",
 				"mw.cx.ui.SourceColumn",
 				"mw.cx.ui.TargetColumn",
 				"mw.cx.ui.ToolsColumn",
