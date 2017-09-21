@@ -64,7 +64,7 @@
 	};
 
 	MTAbuseCard.prototype.start = function ( progress ) {
-		var mtPercentage = parseInt( progress.mt / progress.any * 100 || 0, 10 );
+		var mtPercentage = Math.round( progress.mt / progress.any * 100 || 0 );
 		if ( !this.isAbuse( progress ) ) {
 			this.stop();
 			this.sticky = false;

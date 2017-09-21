@@ -15,9 +15,9 @@
 		// Figures in wiki pages have display style property as table.
 		// See https://bugzilla.mozilla.org/show_bug.cgi?id=1043294
 		if ( typeof InstallTrigger !== 'undefined' ) {
-			return parseInt( $table.outerHeight() + $table.find( 'caption' ).outerHeight(), 10 );
+			return Math.floor( $table.outerHeight() + $table.find( 'caption' ).outerHeight() );
 		}
-		return parseInt( $table.outerHeight(), 10 );
+		return Math.floor( $table.outerHeight() );
 	}
 
 	function getFigureHeight( $figure ) {
@@ -29,9 +29,9 @@
 		// Firefox fix for figure heights. Uses InstallTrigger for browser detection.
 		// See https://bugzilla.wikimedia.org/68498
 		if ( typeof InstallTrigger !== 'undefined' ) {
-			return parseInt( $figure.outerHeight() + $figure.find( 'figcaption' ).outerHeight(), 10 );
+			return Math.floor( $figure.outerHeight() + $figure.find( 'figcaption' ).outerHeight() );
 		}
-		return parseInt( $figure.outerHeight(), 10 );
+		return Math.floor( $figure.outerHeight() );
 	}
 
 	function getTemplateHeight( $template ) {
@@ -50,7 +50,7 @@
 				}
 			} );
 
-		return parseInt( height, 10 );
+		return Math.floor( height );
 	}
 
 	/**
@@ -99,7 +99,7 @@
 					$element.attr( 'data-mw' ) ) {
 			return getTemplateHeight( $element );
 		}
-		return parseInt( $element.height(), 10 );
+		return Math.floor( $element.height() );
 	}
 
 	function setHeight( $element, height ) {

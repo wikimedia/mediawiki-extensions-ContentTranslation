@@ -137,7 +137,7 @@
 
 		match = title.match( /^.*\((\d+)\)$/ );
 		if ( match ) {
-			version = parseInt( match[ 1 ], 10 ) + 1;
+			version = +match[ 1 ] + 1;
 
 			return title.replace( /\(\d+\)$/, '(' + version + ')' );
 		}

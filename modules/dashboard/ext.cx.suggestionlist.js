@@ -80,7 +80,7 @@
 	}
 
 	CXSuggestionList.prototype.init = function () {
-		this.seed = parseInt( Math.random() * 10000, 10 );
+		this.seed = Math.floor( Math.random() * 10000 );
 		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
 		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__header' )
@@ -963,7 +963,7 @@
 		}
 		list.suggestions = [];
 		// Do not run out of suggestions
-		list.seed = parseInt( Math.random() * 10000, 10 );
+		list.seed = Math.floor( Math.random() * 10000 );
 		list.queryContinue = undefined;
 		list.hasMore = true;
 		// Remove the old items.

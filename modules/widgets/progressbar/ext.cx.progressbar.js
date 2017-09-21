@@ -66,11 +66,11 @@
 		this.$container.attr( 'title',
 			mw.msg(
 				'cx-header-progressbar-text',
-				mw.language.convertNumber( parseInt( progress, 10 ) ) ) +
+				mw.language.convertNumber( Math.round( progress ) ) ) +
 			'\n' +
 			mw.msg(
 				'cx-header-progressbar-text-mt',
-				mw.language.convertNumber( parseInt( mtPercentage, 10 ) )
+				mw.language.convertNumber( Math.round( mtPercentage ) )
 			) );
 	};
 

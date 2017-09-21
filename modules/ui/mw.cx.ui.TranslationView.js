@@ -282,7 +282,7 @@ mw.cx.ui.TranslationView.prototype.alignSectionPairs = function () {
 			element = node.$element[ 0 ],
 			match = element && element.id && element.id.match( /^cxSourceSection([0-9]+)$/ );
 		if ( match ) {
-			sectionNumber = parseInt( match[ 1 ], 10 );
+			sectionNumber = +match[ 1 ];
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
 		}
 	} );

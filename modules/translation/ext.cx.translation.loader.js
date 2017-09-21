@@ -104,10 +104,10 @@
 				self.translationUnits = self.getTranslationUnits( self.translationUnits );
 			}
 			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
-				if ( parseInt( self.translation.sourceRevisionId ) === parseInt( mw.cx.sourceRevision ) ||
+				if ( +self.translation.sourceRevisionId === +mw.cx.sourceRevision ||
 					// Very old drafts will have revision id as 0. Consider them as original source for
 					// the translation and use agressive section restore algorithm
-					parseInt( self.translation.sourceRevisionId ) === 0
+					+self.translation.sourceRevisionId === 0
 				) {
 					// Since we are using older revision, the original revision used for translation,
 					// use agressive section restore algorithm.

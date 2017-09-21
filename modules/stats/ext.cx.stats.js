@@ -75,8 +75,7 @@
 			twoWeeksAgoDelta = data[ thisWeek - 2 ].delta;
 
 			if ( twoWeeksAgoDelta ) {
-				trend = ( oneWeekAgoDelta - twoWeeksAgoDelta ) / twoWeeksAgoDelta * 100;
-				trend = parseInt( trend, 10 );
+				trend = Math.round( ( oneWeekAgoDelta - twoWeeksAgoDelta ) / twoWeeksAgoDelta * 100 );
 			} else {
 				trend = oneWeekAgoDelta ? 100 : 0;
 			}
@@ -365,36 +364,22 @@
 
 	/**
 	 * Sorts in descending order
-	 * @param {number} a
-	 * @param {number} b
+	 * @param {Object} a
+	 * @param {Object} b
 	 * @return {number}
 	 */
 	function sortByCount( a, b ) {
-		if ( parseInt( a.count ) > parseInt( b.count ) ) {
-			return -1;
-		}
-		if ( parseInt( a.count ) < parseInt( b.count ) ) {
-			return 1;
-		}
-		// a must be equal to b
-		return 0;
+		return b.count - a.count;
 	}
 
 	/**
 	 * Sorts in descending order
-	 * @param {number} a
-	 * @param {number} b
+	 * @param {Object} a
+	 * @param {Object} b
 	 * @return {number}
 	 */
 	function sortByTranslators( a, b ) {
-		if ( parseInt( a.translators ) > parseInt( b.translators ) ) {
-			return -1;
-		}
-		if ( parseInt( a.translators ) < parseInt( b.translators ) ) {
-			return 1;
-		}
-		// a must be equal to b
-		return 0;
+		return b.translators - a.translators;
 	}
 
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
@@ -451,7 +436,7 @@
 							lang: 'en',
 							dir: 'ltr'
 						} )
-						.css( 'width', parseInt( width ) + '%' )
+						.css( 'width', Math.round( width ) + '%' )
 						.text( langCode );
 
 					$translations.append( $bar );
@@ -785,8 +770,8 @@
 			for ( language in tempModel ) {
 				if ( tempModel.hasOwnProperty( language ) ) {
 					for ( count = 0, translators = 0, i = 0; i < tempModel[ language ].length; i++ ) {
-						count += parseInt( tempModel[ language ][ i ].count );
-						translators += parseInt( tempModel[ language ][ i ].translators );
+						count += +tempModel[ language ][ i ].count;
+						translators += +tempModel[ language ][ i ].translators;
 					}
 					this.sourceTargetModel[ status ].push( {
 						language: language,
@@ -802,8 +787,8 @@
 			for ( language in tempModel ) {
 				if ( tempModel.hasOwnProperty( language ) ) {
 					for ( count = 0, translators = 0, i = 0; i < tempModel[ language ].length; i++ ) {
-						count += parseInt( tempModel[ language ][ i ].count );
-						translators += parseInt( tempModel[ language ][ i ].translators );
+						count += +tempModel[ language ][ i ].count;
+						translators += +tempModel[ language ][ i ].translators;
 					}
 					this.targetSourceModel[ status ].push( {
 						language: language,

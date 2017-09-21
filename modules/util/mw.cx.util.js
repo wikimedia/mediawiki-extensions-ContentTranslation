@@ -17,11 +17,8 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
 	$sourceSection.css( 'min-height', '' );
 	$targetSection.css( 'min-height', '' );
 
-	sourceHeight = $sourceSection[ 0 ].scrollHeight;
-	targetHeight = $targetSection[ 0 ].scrollHeight;
-
-	sourceHeight = parseInt( sourceHeight, 10 );
-	targetHeight = parseInt( targetHeight, 10 );
+	sourceHeight = +$sourceSection[ 0 ].scrollHeight;
+	targetHeight = +$targetSection[ 0 ].scrollHeight;
 
 	while ( sourceHeight !== targetHeight ) {
 		if ( targetHeight > sourceHeight ) {
@@ -29,8 +26,8 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
 		} else {
 			$targetSection.css( 'min-height', sourceHeight );
 		}
-		sourceHeight = parseInt( $sourceSection[ 0 ].scrollHeight, 10 );
-		targetHeight = parseInt( $targetSection[ 0 ].scrollHeight, 10 );
+		sourceHeight = +$sourceSection[ 0 ].scrollHeight;
+		targetHeight = +$targetSection[ 0 ].scrollHeight;
 		if ( steps++ === 5 ) {
 			mw.track( 'Alignment attempt is not succeeding. Aborting.' );
 			break;

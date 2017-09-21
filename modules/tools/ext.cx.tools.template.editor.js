@@ -325,7 +325,7 @@
 			.addClass( 'cx-template-editor-add-properties' )
 			.text( mw.msg( 'cx-translation-template-add-more' ) )
 			.on( 'click', function () {
-				self.addTemplateField( self.$targetTemplateForm, 'cx' + parseInt( Math.random() * 10000 ) );
+				self.addTemplateField( self.$targetTemplateForm, 'cx' + Math.floor( Math.random() * 10000 ) );
 				$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
 			} );
 		this.$targetTemplateContainer.append( $adder );
