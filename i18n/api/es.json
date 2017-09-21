@@ -5,7 +5,8 @@
 			"Jduranboger",
 			"Macofe",
 			"Patricio",
-			"Dgstranz"
+			"Dgstranz",
+			"Pato"
 		]
 	},
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
@@ -87,7 +88,7 @@
 	"apierror-cx-invalidsourcelanguage": "Idioma de origen no válido.",
 	"apierror-cx-invalidtargetlanguage": "Idioma de destino no válido.",
 	"apierror-cx-invalidtranslator": "Nombre de traductir no válido",
-	"apierror-cx-jwtmissing": "Falta JWT.",
+	"apierror-cx-jwtmissing": "JWT no está instalado.",
 	"apierror-cx-keynotconfigured": "No se configuró la clave.",
 	"apierror-cx-missingdraft": "El borrador no existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debes acceder para gestionar tus sugerencias.",

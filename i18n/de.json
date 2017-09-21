@@ -119,6 +119,7 @@
 	"cx-create-new-translation": "Neue Übersetzung",
 	"cx-save-draft-save-success": "Gespeichert {{PLURAL:$1|vor einer Minute|vor $1 Minuten|0=gerade eben}}",
 	"cx-save-draft-saving": "Speichere …",
+	"cx-save-draft-shortcut-label": "Entwurf speichern",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
 	"cx-save-draft-error": "Beim Speichern der Seite ist ein Fehler aufgetreten.",
 	"cx-contributions-new-contributions": "Neuer Beitrag",
