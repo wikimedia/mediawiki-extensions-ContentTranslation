@@ -31,7 +31,6 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 	this.publishButton = null;
 	this.publishSettings = null;
 	this.header = new mw.cx.ui.Header( config );
-	this.preparePublishButton();
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
@@ -105,8 +104,12 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 
 /* Methods */
 
-mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {
+mw.cx.ui.TranslationView.prototype.setupToolbar = function () {
 	var publishButton, publishSettings;
+
+	// Parent method
+	mw.cx.ui.TranslationView.super.prototype.setupToolbar.apply( this, arguments );
+
 	publishButton = new OO.ui.ButtonWidget( {
 		disabled: true,
 		flags: [ 'progressive', 'primary' ],
@@ -127,7 +130,6 @@ mw.cx.ui.TranslationView.prototype.preparePublishButton = function () {
 	} );
 	this.publishButton = publishButton;
 	this.publishSettings = publishSettings;
-	// this.header.$toolbar.prepend( this.publishSettings.$element, this.publishButton.$element );
 	this.getToolbar().$actions.append( this.publishSettings.$element, this.publishButton.$element );
 };
 
