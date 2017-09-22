@@ -134,10 +134,11 @@
 		this.initLists();
 		this.listen();
 
-		$.uls.data.addLanguage( 'any', {
+		// 'all' could be valid language code, so we use extension mechanism and go with 'x-all'
+		$.uls.data.addLanguage( 'x-all', {
 			script: 'Latn',
 			regions: [ 'WW' ],
-			autonym: mw.msg( 'cx-translation-filter-any-language' )
+			autonym: mw.msg( 'cx-translation-filter-uls-all-languages' )
 		} );
 		mw.hook( 'mw.cx.dashboard.ready' ).fire();
 	};
@@ -221,10 +222,8 @@
 			label = this.isNarrowScreenSize ?
 				mw.language.bcp47( selected ) :
 				$.uls.data.getAutonym( selected );
-		} else if ( $filter.is( '.translation-source-language-filter' ) ) {
-			label = mw.msg( 'cx-translation-filter-from-any-language' );
 		} else {
-			label = mw.msg( 'cx-translation-filter-to-any-language' );
+			label = mw.msg( 'cx-translation-filter-label-all-languages' );
 		}
 
 		$filter.text( label );
@@ -528,7 +527,7 @@
 		var list = this.lists[ this.activeList ],
 			filterType = type + 'Language',
 			languages = list.getTranslationLanguages()[ filterType + 's' ],
-			selectedLanguage = ( language === 'any' ) ? null : language,
+			selectedLanguage = ( language === 'x-all' ) ? null : language,
 			ulsClass, languageDecorator;
 
 		list.filters[ filterType ] = selectedLanguage;
@@ -540,13 +539,13 @@
 		deleteUls( $languageFilter, ulsClass );
 
 		languageDecorator = function ( $language, languageCode ) {
-			if ( languageCode === 'any' ) {
-				$language.parent().addClass( 'cx-translationlist-uls-any-language' );
+			if ( languageCode === 'x-all' ) {
+				$language.parent().addClass( 'cx-translationlist-uls-all-languages' );
 			}
 		};
 
 		if ( selectedLanguage ) {
-			languages.unshift( 'any' );
+			languages.unshift( 'x-all' );
 		}
 		createUls( $languageFilter,
 			this.languageChangeHandler.bind( this, type, $languageFilter ),

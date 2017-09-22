@@ -69,7 +69,8 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionWidgetData = function ( title, da
 	optionWidgetData = mw.widgets.TitleWidget.prototype.getOptionWidgetData.call( this, title, data );
 	// Correct the URL so that it can point to the source language wiki.
 	optionWidgetData.url = this.siteMapper.getPageUrl( this.language, title );
-	optionWidgetData.numOfLanguages = data.langlinkscount + 1; // One language is added to get actual total number of languages
+	// If item is not missing, one language is added to get actual total number of languages
+	optionWidgetData.numOfLanguages = !data.missing && ( data.langlinkscount || 0 ) + 1;
 	optionWidgetData.missingInTargetLanguage = !data.langlinks;
 	optionWidgetData.targetLanguage = this.targetLanguage;
 
