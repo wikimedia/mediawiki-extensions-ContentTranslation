@@ -108,8 +108,6 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Погледај предлоге (експериментално).",
 	"cx-suggestionlist-featured": "Изабрани",
 	"cx-suggestionlist-view-source-page": "Погледај изворну страницу.",
-	"cx-translation-filter-from-any-language": "Са било ког језика",
-	"cx-translation-filter-to-any-language": "На било који језик",
 	"cx-create-new-translation": "Нови превод",
 	"cx-save-draft-save-success": "Сачувано {{PLURAL:$1|пре једног минута|пре $1 минута|0=управо сад}}",
 	"cx-save-draft-saving": "Чување...",

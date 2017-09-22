@@ -103,8 +103,6 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "تجويزون ڏيکاريو (تجرباتي)",
 	"cx-suggestionlist-featured": "نمايان ڪيل",
 	"cx-suggestionlist-view-source-page": "ذريعاتي صفحو ڏسو",
-	"cx-translation-filter-from-any-language": "ڪنھن بہ ٻوليءَ مان",
-	"cx-translation-filter-to-any-language": "ڪنھن بہ ٻوليءَ ۾",
 	"cx-create-new-translation": "نئون ترجمو",
 	"cx-save-draft-save-success": "{{PLURAL:$1|ھڪ منٽ اڳ|$1 منٽ اڳ|0=بلڪل ھاڻي}} سانڍيل",
 	"cx-save-draft-saving": "سانڍيندي...",

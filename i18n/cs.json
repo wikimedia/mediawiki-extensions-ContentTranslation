@@ -111,8 +111,6 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobrazit návrhy (experimentální)",
 	"cx-suggestionlist-featured": "Doporučené",
 	"cx-suggestionlist-view-source-page": "Zobrazit zdrojový kód stránky",
-	"cx-translation-filter-from-any-language": "Z jakéhokoli jazyka",
-	"cx-translation-filter-to-any-language": "Do jakéhokoliv jazyka",
 	"cx-create-new-translation": "Nový překlad",
 	"cx-save-draft-save-success": "Uloženo {{PLURAL:$1|před minutou|před $1 minutami|0=právě teď}}",
 	"cx-save-draft-saving": "Ukládá se…",

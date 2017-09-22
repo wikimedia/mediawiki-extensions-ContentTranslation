@@ -123,8 +123,6 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobacz propozycje (eksperymentalne)",
 	"cx-suggestionlist-featured": "Wyróżniona",
 	"cx-suggestionlist-view-source-page": "Oglądanie strony źródłowej",
-	"cx-translation-filter-from-any-language": "Z dowolnego języka",
-	"cx-translation-filter-to-any-language": "Na dowolny język",
 	"cx-create-new-translation": "Nowe tłumaczenie",
 	"cx-save-draft-save-success": "Zapisano {{PLURAL:$1|minutę temu|$1 minuty temu||$1 minut temu|0=w tej chwili}}",
 	"cx-save-draft-saving": "Zapisywanie...",

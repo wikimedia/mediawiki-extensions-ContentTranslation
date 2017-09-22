@@ -113,8 +113,6 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Javaslatok megtekintése (kísérleti)",
 	"cx-suggestionlist-featured": "Kiemelt",
 	"cx-suggestionlist-view-source-page": "Forrás megtekintése",
-	"cx-translation-filter-from-any-language": "Bármely nyelvről",
-	"cx-translation-filter-to-any-language": "Bármely nyelvre",
 	"cx-create-new-translation": "Új fordítás",
 	"cx-save-draft-save-success": "Elmentve {{PLURAL:$1|egy perce|$1 perce|0=épp most}}",
 	"cx-save-draft-saving": "Mentés…",

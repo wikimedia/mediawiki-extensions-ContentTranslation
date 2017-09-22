@@ -95,8 +95,6 @@
 	"cx-translation-filter-suggested-translations": "Predlozi",
 	"cx-suggestionlist-title": "Još predloga",
 	"cx-suggestionlist-featured": "Izabrani",
-	"cx-translation-filter-from-any-language": "Sa bilo kog jezika",
-	"cx-translation-filter-to-any-language": "Na bilo koji jezik",
 	"cx-create-new-translation": "Započni novi prevod",
 	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|pre jednog minuta|pre $1 minuta|0=upravo sad}}",
 	"cx-save-draft-saving": "Čuvanje...",
