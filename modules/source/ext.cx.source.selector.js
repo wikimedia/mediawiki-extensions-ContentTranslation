@@ -403,6 +403,7 @@
 				$.debounce( 600, false, this.check.bind( this ) )
 			);
 		} else {
+			this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 			this.$discardItem.click( this.discardSelectedItem.bind( this ) );
 		}
 
@@ -649,7 +650,7 @@
 	 * @param {mw.Message|text} message the message to show
 	 */
 	CXSourceSelector.prototype.showMessage = function ( message ) {
-		var $messageText = $( '.cx-sourceselector-messagebar-text' );
+		var $messageText = $( '.cx-sourceselector__messagebar-text' );
 
 		if ( message instanceof mw.Message ) {
 			$messageText.html( message.parse() );
@@ -660,6 +661,13 @@
 		this.$messageBar.find( 'a' )
 			.attr( 'target', '_blank' );
 
+		// Prevent embedded version of source selector to display message bar if not in selected state.
+		// This check is needed because on slow connections, while message gets fetched
+		// User can close embedded New translation dialog and if New translation dialog
+		// Reopens (to search for different article), message bar gets attached below search bar
+		if ( this.isEmbedded && !this.$container.hasClass( 'cx-sourceselector-embedded--selected' ) ) {
+			return;
+		}
 		this.$messageBar.show();
 	};
 
@@ -726,7 +734,7 @@
 		var overlayOptions = {};
 
 		if ( !this.overlay ) {
-			overlayOptions.closeOnClick = this.closeOnClickOutside.bind( this );
+			overlayOptions.closeOnClick = this.discardSelectedItem.bind( this );
 			this.overlay = new mw.cx.widgets.Overlay( 'body', overlayOptions );
 		}
 
@@ -750,9 +758,9 @@
 	};
 
 	/*
-	* Embedded version of CXSourceSelector supports closing by clicking anywhere outside of element
+	* Close embedded version of CXSourceSelector, close overlay and show navigation items
 	*/
-	CXSourceSelector.prototype.closeOnClickOutside = function () {
+	CXSourceSelector.prototype.closeEmbeddedDialog = function () {
 		this.overlay.hide();
 		this.$container.toggle();
 		$( '.translation-filter' ).slideDown( 'fast' );
@@ -852,6 +860,7 @@
 				lllimit: 'max'
 			};
 
+		this.$selectedItemMetrics.children( '.cx-sourceselector-embedded-selected-item__pageviews' ).remove();
 		this.getPageInfo( itemTitle, params ).done( function ( data ) {
 			var langCode, title, languagesArticleExistsIn;
 
@@ -883,9 +892,6 @@
 
 		this.sourcePageSelector.setValue( item.getData() );
 
-		this.$sourceInputs.hide(); // Hide input field
-		this.$selectedItem.show(); // Show selected item view
-
 		itemImage = item.$icon.css( 'background-image' );
 		if ( itemImage !== 'none' ) {
 			this.$selectedItemImage.css( {
@@ -910,8 +916,7 @@
 			);
 		}
 
-		this.$container
-			.toggleClass( 'cx-sourceselector-embedded--selected' );
+		this.$container.addClass( 'cx-sourceselector-embedded--selected' );
 
 		this.$languageFilter.insertBefore( this.$discardItem );
 
@@ -923,8 +928,7 @@
 	};
 
 	CXSourceSelector.prototype.discardSelectedItem = function () {
-		this.$sourceInputs.show(); // Show input field
-		this.$selectedItem.hide(); // Hide selected item view
+		this.closeEmbeddedDialog(); // Close source selector
 		this.$messageBar.hide(); // Hide any previous messages
 
 		this.sourcePageSelector.setValue( '' );
@@ -933,8 +937,7 @@
 		this.$selectedItemMetrics.empty();
 		this.$selectedItemImage.removeAttr( 'style' );
 
-		this.$container
-			.toggleClass( 'cx-sourceselector-embedded--selected' );
+		this.$container.removeClass( 'cx-sourceselector-embedded--selected' );
 
 		this.$sourceInputs.append( this.$languageFilter );
 
@@ -1145,9 +1148,9 @@
 			);
 
 		this.$messageBar = $( '<div>' )
-			.addClass( 'cx-sourceselector-messagebar' );
+			.addClass( 'cx-sourceselector__messagebar' );
 		$messageText = $( '<span>' )
-			.addClass( 'cx-sourceselector-messagebar-text' );
+			.addClass( 'cx-sourceselector__messagebar-text' );
 		this.$messageBar
 			.append( $messageText )
 			.hide();
@@ -1169,7 +1172,7 @@
 			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
 
 		$actions = $( '<div>' )
-			.addClass( 'cx-sourceselector-dialog__actions' );
+			.addClass( 'cx-sourceselector__actions' );
 
 		$actions.append( this.$cancelButton, this.$translateFromButton );
 
@@ -1197,8 +1200,7 @@
 		this.$container.hide(); // Starts as hidden, shown on button click
 
 		this.$selectedItem = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded-selected-item' )
-			.hide();
+			.addClass( 'cx-sourceselector-embedded-selected-item' );
 
 		this.$sourceLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__language-button' );
@@ -1248,7 +1250,6 @@
 			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' ),
 			showRedirectTargets: true
 		} );
-		this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 
 		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__source-inputs' )
@@ -1279,9 +1280,9 @@
 		);
 
 		this.$messageBar = $( '<div>' )
-			.addClass( 'cx-sourceselector-messagebar' );
+			.addClass( 'cx-sourceselector__messagebar' );
 		$messageText = $( '<span>' )
-			.addClass( 'cx-sourceselector-messagebar-text' );
+			.addClass( 'cx-sourceselector__messagebar-text' );
 		this.$messageBar
 			.append( $messageText )
 			.hide();
@@ -1298,7 +1299,7 @@
 			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
 
 		$actions = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded__actions' )
+			.addClass( 'cx-sourceselector__actions' )
 			.append( this.$translateFromButton );
 
 		this.$container.append( this.$sourceInputs,
