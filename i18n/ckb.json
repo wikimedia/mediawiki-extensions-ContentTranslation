@@ -5,7 +5,8 @@
 			"Pirehelokan",
 			"Amire80",
 			"Sarchia",
-			"Muhammed taha"
+			"Muhammed taha",
+			"Lost Whispers"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -47,7 +48,7 @@
 	"cx-tools-link-add": "گرێدان زیاد بکە",
 	"cx-tools-link-remove": "گرێدان لاببە",
 	"cx-tools-mt-title": "وەرگێڕانی خۆکار",
-	"cx-tools-mt-use-source": "دەقی سەرچاوە بە کار بھێنە",
+	"cx-tools-mt-use-source": "دەقی سەرچاوە بەکاربھێنە",
 	"cx-tools-mt-provider-title": "$1 بەکاربھێنە",
 	"cx-tools-mt-dont-use": "ئامێری وەرگێڕان بەکارمەھێنە",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|پۆل|0=بەبێ پۆل}}",
@@ -84,8 +85,6 @@
 	"cx-suggestionlist-empty-title": "پێشنیاری دیکە نییە بۆ ئێستا",
 	"cx-suggestionlist-empty-desc": "پێشنیارێکمان نەدۆزیەوە. دەتوانیت دواتر سەر بدەیتەوە یان بە یارمەتیی ئامرازی پێشنیاردەر، پەڕەی پەیوەندیدار بدۆزیتەوە (تاقی کردنەوەیی).",
 	"cx-suggestionlist-featured": "ھەڵبژێرراو",
-	"cx-translation-filter-from-any-language": "لە ھەر زمانێکەوە",
-	"cx-translation-filter-to-any-language": "بۆ ھەر زمانێک",
 	"cx-create-new-translation": "وەرگێڕانێکی نوێ دەست پێ بکە",
 	"cx-save-draft-save-success": "{{PLURAL:$1|خولەکێک لەمەوبەر|$1 خولەک لەمەوبەر|0=ھەر ئێستا}} پاشەکەوت کراوە",
 	"cx-save-draft-saving": "خەریکە پاشەکەوت دەبێت...",

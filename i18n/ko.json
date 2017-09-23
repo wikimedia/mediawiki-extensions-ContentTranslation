@@ -127,6 +127,8 @@
 	"cx-suggestionlist-featured": "추천됨",
 	"cx-suggestionlist-view-source-page": "원본 문서 보기",
 	"cx-create-new-translation": "새 번역",
+	"cx-translation-filter-label-all-languages": "모두",
+	"cx-translation-filter-uls-all-languages": "모든 언어",
 	"cx-save-draft-save-success": "{{PLURAL:$1|1분 전|$1분 전|0=방금}} 저장함",
 	"cx-save-draft-saving": "저장 중...",
 	"cx-save-draft-shortcut-label": "초안 저장",

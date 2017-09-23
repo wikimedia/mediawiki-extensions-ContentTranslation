@@ -116,6 +116,8 @@
 	"cx-suggestionlist-featured": "特色",
 	"cx-suggestionlist-view-source-page": "查看来源页面",
 	"cx-create-new-translation": "新翻译",
+	"cx-translation-filter-label-all-languages": "所有",
+	"cx-translation-filter-uls-all-languages": "所有语言",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分钟前|0=刚刚}}保存",
 	"cx-save-draft-saving": "正在保存...",
 	"cx-save-draft-shortcut-label": "保存草稿",

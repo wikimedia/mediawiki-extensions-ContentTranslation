@@ -104,6 +104,8 @@
 	"cx-suggestionlist-featured": "Bemierkenswäert",
 	"cx-suggestionlist-view-source-page": "Quellsäit weisen",
 	"cx-create-new-translation": "Nei Iwwersetzung",
+	"cx-translation-filter-label-all-languages": "All",
+	"cx-translation-filter-uls-all-languages": "All Sproochen",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Virun enger Mimutt|Viru(n) $1 Minutte|0=Elo grad}} gespäichert",
 	"cx-save-draft-saving": "Späicheren...",
 	"cx-save-draft-shortcut-label": "Brouillon späicheren",

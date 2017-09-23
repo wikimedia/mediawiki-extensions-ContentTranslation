@@ -4,14 +4,23 @@
 			"Belkacem77"
 		]
 	},
+	"apihelp-cxpublish-description": "Sekles asebter yettwarnan s useqdec n usiɣzef n tsuqilt n ugbur.",
+	"apihelp-cxpublish-summary": "Sekles asebter yettwarnan s useqdec n usiɣzef ntsuqilt n ugbur.",
+	"apihelp-cxpublish-param-title": "Azwel n usebter fiɣef ad teggeḍ tigawin.",
 	"apihelp-cxpublish-param-html": "Agbur ara yettwaskelsen.",
 	"apihelp-cxpublish-param-from": "Tangalt n tutlayt n uɣbalu.",
 	"apihelp-cxpublish-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-cxpublish-param-sourcetitle": "Azwel n usebter n uɣbalu.",
+	"apihelp-cxpublish-param-categories": "Taggayin ara ternuḍ ar usebter i d-yeffɣen.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Asulay ID n captcha (ticki yettwasekles s tririt captcha).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Tiririt i captcha (ticki yettwasekles s tririt captcha).",
+	"apihelp-query+contenttranslation-description": "Suter taffa n isefka n tsuqilt n ugbur i tsuqilin.",
+	"apihelp-query+contenttranslation-summary": "Suter taffa n isefka n tsuqilt n ugbur i tsuqilin.",
 	"apihelp-query+contenttranslation-param-translationid": "Asulay n tsuqilt.",
 	"apihelp-query+contenttranslation-param-from": "Tangalt n tutlayt n uɣbalu.",
 	"apihelp-query+contenttranslation-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Azwel n usebter n uɣbalu.",
+	"apihelp-query+contenttranslation-param-limit": "Amḍan afellay n tsuqilin ara d-ibanen.",
 	"apihelp-query+contenttranslation-param-type": "Addad n tsuqilt.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Asulay n tsuqilt.",
 	"apihelp-query+contenttranslationstats-description": "Awi tidaddanin n tsuqilt n ugbur.",
@@ -41,6 +50,6 @@
 	"apierror-cx-invalidsourcelanguage": "Yir tutlayt n uɣbalu.",
 	"apierror-cx-invalidtargetlanguage": "Yir tutlayt n usaḍas.",
 	"apierror-cx-invalidtranslator": "Yir isem n umseuqel",
-	"apierror-cx-jwtmissing": "Ulac JWT.",
+	"apierror-cx-jwtmissing": "JWT ur yebdid ara.",
 	"apierror-cx-translationnotfound": "Ulac tasuqilt."
 }
