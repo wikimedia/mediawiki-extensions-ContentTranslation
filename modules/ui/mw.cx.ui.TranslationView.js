@@ -16,7 +16,6 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 	this.config = config = $.extend( {}, config, {
 		continuous: true,
 		expanded: false,
-		classes: [ 'cx-widget' ],
 		scrollable: false,
 		padded: false
 	} );
@@ -45,12 +44,14 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 	this.stackLayout = new OO.ui.StackLayout( $.extend( {}, config, {
 		continuous: true,
 		expanded: false,
-		classes: [ 'cx-widget' ],
+		classes: [ 've-init-mw-cxTarget-columns' ],
 		scrollable: false,
 		padded: false
 	} ) );
 	this.stackLayout.addItems( [ this.header, this.columns ] );
-	this.$element.append( this.stackLayout.$element );
+	this.$element
+		.addClass( 've-init-mw-cxTarget' )
+		.append( this.stackLayout.$element );
 
 	this.throttleAlignSectionPairs = OO.ui.throttle(
 		this.alignSectionPairs.bind( this ),
