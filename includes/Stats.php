@@ -18,7 +18,7 @@ class Stats {
 	 * @return ResultWrapper Current CX stats.
 	 */
 	public static function getStats() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		return $dbr->select(
 			[

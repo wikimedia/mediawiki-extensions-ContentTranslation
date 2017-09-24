@@ -126,7 +126,7 @@ class CXCorporaDump extends Maintenance {
 		);
 
 		// Fetch the actual interesting data
-		$db = Database::getConnection( DB_SLAVE );
+		$db = Database::getConnection( DB_REPLICA );
 		$lookup = new CorporaLookup( $db );
 		foreach ( $translations as &$translation ) {
 			$translation['corpora'] = $lookup->getByTranslationId( $translation['translationId'] );

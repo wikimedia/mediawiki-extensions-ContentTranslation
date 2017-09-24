@@ -80,7 +80,7 @@ class Translation {
 	 * translation exists and chooses either of create or update actions.
 	 */
 	public function save( Translator $translator ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		// Temporary code to work with and without the new index.
 		// The old index cx_translation_pair was on (source title, source language,
@@ -136,7 +136,7 @@ class Translation {
 			return null;
 		}
 
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$values = [
 			'translation_source_language' => $sourceLanguage,
 			'translation_target_language' => $targetLanguage,
@@ -173,7 +173,7 @@ class Translation {
 	 * @return Translation|null
 	 */
 	public static function findForTranslator( TranslationWork $work, Translator $translator ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$values = [
 			'translation_source_language' => $work->getSourceLanguage(),
 			'translation_target_language' => $work->getTargetLanguage(),
@@ -202,7 +202,7 @@ class Translation {
 			[ $work->getPage() ]
 		);
 
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		if ( $dbr->indexExists( 'cx_translations', 'cx_translation_ref' ) ) {
 			foreach ( $drafts as $index => $draft ) {
 				if ( $draft->getData()['status'] !== 'draft' ) {
@@ -241,7 +241,7 @@ class Translation {
 	 * was published atleast once.
 	 */
 	public static function getDraftStats() {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$rows = $dbr->select(
 			'cx_translations',
@@ -280,7 +280,7 @@ class Translation {
 	 * If the translation has a target_url it was published atleast once.
 	 */
 	public static function getPublishedStats() {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$rows = $dbr->select(
 			'cx_translations',
@@ -320,7 +320,7 @@ class Translation {
 	 * language pairs, with given interval.
 	 */
 	public static function getDeletionTrend( $interval ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [
 			'ct_tag' => 'contenttranslation',
@@ -378,7 +378,7 @@ class Translation {
 	public static function getTrendByStatus(
 		$source, $target, $status, $interval, $translatorId
 	) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$conditions = [];
 		if ( $status === 'published' ) {
@@ -469,7 +469,7 @@ class Translation {
 	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$conditions = [ $dbr->makeList(
 			[
 				'translation_status' => 'published',

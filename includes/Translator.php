@@ -53,7 +53,7 @@ class Translator {
 	 * @return Translation|null
 	 */
 	public function getTranslation( $translationId ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$row = $dbr->selectRow(
 			[ 'cx_translators', 'cx_translations' ],
 			'*',
@@ -88,7 +88,7 @@ class Translator {
 		$to = null
 	) {
 		// Note: there is no index on translation_last_updated_timestamp
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$tables = [ 'cx_translations', 'cx_translators' ];
 		$fields = '*';
@@ -128,7 +128,7 @@ class Translator {
 
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$queries = [];
 		foreach ( [ 'source', 'target' ] as $field ) {
@@ -160,7 +160,7 @@ class Translator {
 	 * @return Integer
 	 */
 	public function getTranslationsCount() {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$count = $dbr->selectField(
 			[ 'cx_translators', 'cx_translations' ],
 			'count(*)',
@@ -204,7 +204,7 @@ class Translator {
 			'target' => 'translation_target_language',
 		];
 
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
 		$fields = [
@@ -238,7 +238,7 @@ class Translator {
 	 * @return Integer Number of translators
 	 */
 	public static function getTotalTranslatorsCount() {
-		$dbr = Database::getConnection( DB_SLAVE );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
 		$fields = [

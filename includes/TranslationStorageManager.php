@@ -8,8 +8,6 @@
 
 namespace ContentTranslation;
 
-use ContentTranslation\TranslationUnit;
-
 class TranslationStorageManager {
 	/**
 	 * Update a translation unit.
@@ -127,7 +125,7 @@ class TranslationStorageManager {
 	 * @return TranslationUnit|null
 	 */
 	public static function find( $translationId, $sectionId, $origin ) {
-		$db = Database::getConnection( DB_SLAVE );
+		$db = Database::getConnection( DB_REPLICA );
 
 		$conditions = [
 			'cxc_translation_id' => $translationId,

@@ -158,7 +158,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 * @return array
 	 */
 	protected function getTranslationContent( Translation $translation ) {
-		$db = Database::getConnection( DB_SLAVE );
+		$db = Database::getConnection( DB_REPLICA );
 
 		$lookup = new CorporaLookup( $db );
 		$content = $lookup->getByTranslationId( $translation->getTranslationId() );

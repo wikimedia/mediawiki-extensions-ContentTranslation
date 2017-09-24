@@ -185,7 +185,7 @@ class CxFixStats extends Maintenance {
 			return;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$conds = [];
 		# Assuming timestamps are in the correct format already
 		$conds[] = 'log_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
@@ -209,7 +209,7 @@ class CxFixStats extends Maintenance {
 	}
 
 	protected function hasCxTag( Title $title, $row ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
 		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
@@ -222,7 +222,7 @@ class CxFixStats extends Maintenance {
 	}
 
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		// Allow one minute slack
 		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;

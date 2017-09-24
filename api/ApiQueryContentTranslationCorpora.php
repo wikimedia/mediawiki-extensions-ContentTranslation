@@ -26,7 +26,7 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
-		$db = Database::getConnection( DB_SLAVE );
+		$db = Database::getConnection( DB_REPLICA );
 		$lookup = new CorporaLookup( $db );
 		$data = $lookup->getByTranslationId( $params['translationid'] );
 
