@@ -5,7 +5,8 @@
 			"Ebraminio",
 			"Ladsgroup",
 			"Mahdy Saffar",
-			"Ommmmid"
+			"Ommmmid",
+			"Reza1615"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -59,5 +60,6 @@
 	"apihelp-cxsave-param-from": "کد زبان مبدا",
 	"apihelp-cxsave-param-to": "کد زبان مقصد",
 	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا",
+	"apierror-cx-invalidlanguage": "زبان نامعتبر.",
 	"apierror-cx-jwtmissing": "JWT نصب نیست."
 }

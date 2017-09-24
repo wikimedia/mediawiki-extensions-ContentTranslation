@@ -105,7 +105,7 @@
 	"cx-mt-abuse-warning-text": "ترجمهٔ ماشینی فقط به‌عنوان یک نقطهٔ شروع فراهم شده است. شما نیاز دارید که محتویات را دقیق و قابل عادی خواندن در زبانتان کنید.",
 	"cx-publish-captcha-title": "سوال امنیتی",
 	"cx-dashboard-sidebar-title": "در ترجمه‌ها به کمک {{GENDER:|نیاز دارید}}؟",
-	"cx-dashboard-sidebar-information": "دربارهٔ این ویژگی بیشتر اطلاعات کسب کنید",
+	"cx-dashboard-sidebar-information": "اطلاعات بیشتر دربارهٔ این ابزار",
 	"cx-dashboard-sidebar-stats": "آمار",
 	"cx-dashboard-sidebar-feedback": "به ما بازخورد دهید",
 	"cx-translation-filter-all-translations": "همهٔ ترجمه‌ها",
@@ -141,6 +141,8 @@
 	"cx-translation-status-draft": "در حال انجام",
 	"cx-translation-status-published": "منتشر شده",
 	"cx-translation-status-deleted": "حذف شده",
+	"cx-translation-label-draft": "ترجمه‌های در حال پیشرفت",
+	"cx-translation-label-published": "ترجمه‌های منتشرشده",
 	"cx-translation-already-in-progress": "این یک ترجمهٔ در حال انجام {{GENDER:$2|توسط}} $1 است.",
 	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با {{GENDER:$1|کاربری}} که ترجمهٔ فعلی را انجام داده ارتباط حاصل کرده‌اید.",
 	"cx-publishing-dialog-publish-draft-button": "انتشار به‌عنوان پیش‌نویس",
@@ -221,7 +223,9 @@
 	"cx-template-action-keep-original": "الگوی مبدا را نگه‌دار",
 	"cx-template-action-skip": "این الگو را رد کن",
 	"cx-template-not-available": "در $1 در دسترس نیست",
+	"cx-translation-template-add-more": "افزودن فیلدهای بیشتر",
 	"cx-tools-category-add": "افزودن رده",
+	"cx-publish-destination-header": "انتشار مقصد",
 	"cx-publish-destination-namespace-main": "صفحه جدید",
 	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی"
 }

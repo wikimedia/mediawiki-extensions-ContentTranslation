@@ -104,7 +104,7 @@
 	"apierror-cx-invalidsourcelanguage": "Ugyldig kildespråk.",
 	"apierror-cx-invalidtargetlanguage": "Ugyldig målspråk.",
 	"apierror-cx-invalidtranslator": "Ugyldig oversetternavn",
-	"apierror-cx-jwtmissing": "JWT mangler.",
+	"apierror-cx-jwtmissing": "JWT ikke installert.",
 	"apierror-cx-keynotconfigured": "Nøkkel ikke konfigurert.",
 	"apierror-cx-missingdraft": "Kladd finnes ikke.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du må være logget inn for å behandle forslagene dine.",

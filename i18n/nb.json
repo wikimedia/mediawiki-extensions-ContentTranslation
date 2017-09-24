@@ -113,6 +113,8 @@
 	"cx-suggestionlist-featured": "Utvalgt",
 	"cx-suggestionlist-view-source-page": "Vis kildeside",
 	"cx-create-new-translation": "Ny oversettelse",
+	"cx-translation-filter-label-all-languages": "Alle",
+	"cx-translation-filter-uls-all-languages": "Alle språk",
 	"cx-save-draft-save-success": "Lagret {{PLURAL:$1|for ett minutt siden|for $1 minutter siden ago|0=nå nettopp}}",
 	"cx-save-draft-saving": "Lagrer…",
 	"cx-save-draft-shortcut-label": "Lagre utkast",

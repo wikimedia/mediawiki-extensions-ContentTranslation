@@ -106,6 +106,8 @@
 	"cx-suggestionlist-featured": "Избрана",
 	"cx-suggestionlist-view-source-page": "Погл. изворната страница",
 	"cx-create-new-translation": "Нов превод",
+	"cx-translation-filter-label-all-languages": "Сите",
+	"cx-translation-filter-uls-all-languages": "Сите јазици",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Зачувано пред една минута|Зачувано пред $1 минути|0=Штотуку зачувано}}",
 	"cx-save-draft-saving": "Зачувувам...",
 	"cx-save-draft-shortcut-label": "Зачувај нацрт",
