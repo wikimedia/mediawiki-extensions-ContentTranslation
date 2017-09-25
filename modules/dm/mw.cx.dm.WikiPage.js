@@ -30,3 +30,7 @@ mw.cx.dm.WikiPage.prototype.getDirection = function () {
 mw.cx.dm.WikiPage.prototype.getRevision = function () {
 	return this.revision;
 };
+
+mw.cx.dm.WikiPage.prototype.setRevision = function ( revision ) {
+	this.revision = revision;
+};

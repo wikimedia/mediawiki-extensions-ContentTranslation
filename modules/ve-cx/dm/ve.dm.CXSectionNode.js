@@ -10,6 +10,8 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	ve.dm.CXSectionNode.super.apply( this, arguments );
 	// Mixin constructors
 	ve.dm.CXTranslationUnitModel.call( this );
+	this.connect( this, { update: 'onUpdate' } );
+	this.translation = ve.init.target.getTranslation();
 };
 
 /* Inheritance */
@@ -38,6 +40,17 @@ ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
 	elements[ 0 ].setAttribute( 'rel', 'cx:Section' );
 	elements[ 0 ].setAttribute( 'id', dataElement.attributes.cxid );
 	return elements;
+};
+
+ve.dm.CXSectionNode.prototype.onUpdate = function () {
+	var node = this;
+	if ( this.translation && this.translation.targetDoc === this.getDocument() ) {
+		// Update is triggered by a tree modification. Wait for the whole tree modification
+		// to finish, e.g. if there are relevant internal list changes to wait for.
+		setTimeout( function () {
+			node.translation.emit( 'sectionChange', node.getTranslationUnitId() );
+		} );
+	}
 };
 
 /* Registration */

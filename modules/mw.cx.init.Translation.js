@@ -67,6 +67,7 @@ mw.cx.init.Translation.prototype.init = function () {
 			draft = translationData[ 2 ];
 
 		$.extend( this.config, configuration );
+		this.sourceWikiPage.setRevision( sourcePageContent.revision );
 		this.translationModel = new mw.cx.dm.Translation(
 			this.sourceWikiPage,
 			this.targetWikiPage,
