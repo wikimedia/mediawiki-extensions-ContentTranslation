@@ -142,6 +142,8 @@
 	"cx-suggestionlist-featured": "En vedette",
 	"cx-suggestionlist-view-source-page": "Afficher la page source",
 	"cx-create-new-translation": "Nouvelle traduction",
+	"cx-translation-filter-label-all-languages": "Tous",
+	"cx-translation-filter-uls-all-languages": "Toutes les langues",
 	"cx-save-draft-save-success": "Enregistré {{PLURAL:$1|il y a une minute|il y a $1 minutes|0=à l’instant}}",
 	"cx-save-draft-saving": "Enregistrement en cours…",
 	"cx-save-draft-shortcut-label": "Enregistrer le brouillon",
