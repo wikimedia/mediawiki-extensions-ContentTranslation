@@ -11,7 +11,7 @@
 	QUnit.module( 'ext.cx.tools.mtabuse', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'MT Abuse - isAbuse method tests', function ( assert ) {
-		/* eslint new-cap:off */
+		// eslint-disable-next-line new-cap
 		var progress, mtAbuseCard = new mw.cx.tools.mtabuse();
 
 		progress = {

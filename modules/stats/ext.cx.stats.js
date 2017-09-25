@@ -8,6 +8,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	/* global Chart:false */
+
 	function CXStats( $container, options ) {
 		this.$container = $container;
 		this.sitemapper = options.siteMapper;
@@ -605,8 +607,7 @@
 			]
 		};
 
-		/* global Chart:false */
-		/* eslint no-new:off */
+		// eslint-disable-next-line no-new
 		new Chart( ctx, {
 			type: 'line',
 			data: data,
@@ -663,7 +664,7 @@
 			]
 		};
 
-		/* global Chart:false */
+		// eslint-disable-next-line no-new
 		new Chart( ctx, {
 			type: 'line',
 			data: data,
@@ -701,7 +702,7 @@
 			]
 		};
 
-		/* global Chart:false */
+		// eslint-disable-next-line no-new
 		new Chart( ctx, {
 			type: 'bar',
 			data: data,
@@ -749,7 +750,7 @@
 			]
 		};
 
-		/* global Chart:false */
+		// eslint-disable-next-line no-new
 		new Chart( ctx, {
 			type: 'bar',
 			data: data,

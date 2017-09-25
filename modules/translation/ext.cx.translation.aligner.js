@@ -181,7 +181,7 @@
 		}
 
 		if ( sectionTagName === 'FIGURE' ) {
-			/* eslint no-use-before-define:off */
+			// eslint-disable-next-line no-use-before-define
 			return keepFigureAlignment( $source, $target );
 		}
 

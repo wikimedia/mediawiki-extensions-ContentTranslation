@@ -265,7 +265,7 @@
 	};
 
 	$( function () {
-		/* eslint no-new:off */
+		// eslint-disable-next-line no-new
 		new ContentTranslationEventLogging();
 	} );
 }( jQuery, mediaWiki ) );

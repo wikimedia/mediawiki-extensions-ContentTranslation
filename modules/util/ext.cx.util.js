@@ -135,7 +135,7 @@
 		}
 
 		return $.post( url, {
-		/* eslint camelcase:off */
+			// eslint-disable-next-line camelcase
 			body_only: true,
 			wikitext: wikitext
 		} );
