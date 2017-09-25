@@ -306,7 +306,9 @@ mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( pl
 	}
 
 	sourceModel = this.sourceSurface.$element.find( '#' + sourceId ).data( 'view' ).getModel();
-	sourceNode = sourceModel.getOriginalDomElements( sourceModel.getDocument().getStore() )[ 0 ];
+	// Convert DOM to node, preserving full internal list
+	// Use clipboard mode to ensure reference body is outputted
+	sourceNode = ve.dm.converter.getDomFromNode( sourceModel, true ).body.children[ 0 ];
 	this.translate( restructure( sourceNode ).outerHTML ).done(
 		this.gotPlaceholderTranslation.bind( this, placeholder )
 	).fail( function () {
