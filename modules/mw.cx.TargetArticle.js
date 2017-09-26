@@ -57,10 +57,11 @@ mw.cx.TargetArticle.prototype.publish = function () {
 
 /**
  * Publish success handler
- * @param  {Object} response Response object from the publishing api
+ * @param {Object} response Response object from the publishing api
+ * @param {Object} jqXHR
  * @return {null|jQuery.Promise}
  */
-mw.cx.TargetArticle.prototype.publishSuccess = function ( response ) {
+mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 	var publishResult = response.cxpublish;
 	if ( publishResult.result === 'success' ) {
 		return this.publishComplete();
@@ -73,7 +74,7 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response ) {
 	}
 
 	// Any other failure
-	return this.publishFail( publishResult );
+	return this.publishFail( '', publishResult, publishResult, jqXHR );
 };
 
 /**
@@ -86,21 +87,28 @@ mw.cx.TargetArticle.prototype.publishComplete = function () {
 
 /**
  * Publish failure handler
- * @param {Object} jqXHR
- * @param {string} status Text status message
- * @param {Object|null} data API response data
+ *
+ * The mystery parameter could be a string explaining the error, or an object with textStatus,
+ * exception and jqXHR keys (but jqXHR can be missing), or equal to data. If data is
+ * present, jqXHR is also present. See T176704.
+ *
+ * @param {string} errorCode
+ * @param {string|Object} messageOrFailObjOrData Error message (string), or object with textStatus,
+ *   exception and (optionally) jqXHR, or equal to data
+ * @param {Object} [data] Data returned by api.php
+ * @param {Object} [jqXHR] jQuery XHR object
  */
-mw.cx.TargetArticle.prototype.publishFail = function ( jqXHR, status, data ) {
+mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailObjOrData, data, jqXHR ) {
 	var editError, editResult;
 
-	// Handle empty response
 	if ( !data ) {
-		this.showErrorEmpty();
-		return;
-	}
+		if ( errorCode === 'ok-but-empty' ) {
+			this.showErrorEmpty();
+			return;
+		}
 
-	if ( data.exception instanceof Error ) {
-		data.exception = data.exception.toString();
+		this.showErrorException( messageOrFailObjOrData );
+		return;
 	}
 
 	editResult = data.edit;
@@ -108,12 +116,13 @@ mw.cx.TargetArticle.prototype.publishFail = function ( jqXHR, status, data ) {
 		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
 		// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
 		if ( editResult.spamblacklist ) {
-			this.showErrorSpamBlacklist( data.edit );
+			this.showErrorSpamBlacklist( editResult );
 			return;
 		}
 		// Handle abusefilter errors.
 		if ( editResult.code && editResult.code.indexOf( 'abusefilter' ) === 0 ) {
 			this.showErrorAbuseFilter( editResult.info, editResult.warning );
+			return;
 		}
 	}
 
@@ -149,7 +158,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( jqXHR, status, data ) {
 	}
 
 	// Handle (other) unknown and/or unrecoverable errors
-	this.showErrorUnknown( editResult, data );
+	this.showErrorUnknown( editResult, data, jqXHR );
 	// TODO: Event logging the publishing error
 };
 
@@ -272,19 +281,40 @@ mw.cx.TargetArticle.prototype.showErrorBadToken = function ( error ) {
 };
 
 /**
+ * Show an error based on an exception+textStatus object
+ * @param {Object} failObj Object from the rejection params of mw.Api, with exception and textStatus
+ */
+mw.cx.TargetArticle.prototype.showErrorException = function ( failObj ) {
+	var errorMsg = failObj.exception || failObj.textStatus;
+	if ( errorMsg instanceof Error ) {
+		errorMsg = errorMsg.toString();
+	}
+	if ( errorMsg ) {
+		this.showPublishError(
+			$( document.createTextNode( errorMsg ) ),
+			false // prevents reapply
+		);
+		this.emit( 'publishErrorUnknown', errorMsg );
+	} else {
+		this.showErrorUnknown( null, null, failObj.jqXHR );
+	}
+};
+
+/**
  * Handle unknown publish error
  *
  * @method
  * @param {Object} editResult
  * @param {Object|null} data API response data
+ * @param {Object} jqXHR
  * @fires publishErrorUnknown
  */
-mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data ) {
+mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jqXHR ) {
 	var errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
 		errorCode = ( editResult && editResult.code ) || ( data && data.error && data.error.code ),
 		unknown = 'Unknown error';
 
-	if ( data.xhr.status !== 200 ) {
+	if ( jqXHR && jqXHR.status !== 200 ) {
 		unknown += ', HTTP status ' + data.xhr.status;
 	}
 
