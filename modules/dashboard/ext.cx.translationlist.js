@@ -526,15 +526,18 @@
 		} else {
 			this.$confirmationDialog = $( '<div>' )
 				.addClass( 'cx-draft-discard-dialog' );
-			$cancelButton = $( '<button>' )
-				.addClass( 'mw-ui-button mw-ui-quiet cx-draft-discard-dialog__cancel' )
-				.text( mw.msg( 'cx-draft-cancel-button-label' ) );
-			$discardButton = $( '<button>' )
-				.addClass( 'mw-ui-button mw-ui-destructive cx-draft-discard-dialog__discard' )
-				.text( mw.msg( 'cx-draft-discard-button-label' ) );
+			$cancelButton = new OO.ui.ButtonWidget( {
+				classes: [ 'cx-draft-discard-dialog__cancel' ],
+				label: mw.msg( 'cx-draft-cancel-button-label' )
+			} ).$element;
+			$discardButton = new OO.ui.ButtonWidget( {
+				classes: [ 'cx-draft-discard-dialog__discard' ],
+				flags: [ 'primary', 'destructive' ],
+				label: mw.msg( 'cx-draft-discard-button-label' )
+			} ).$element;
 			$actions = $( '<div>' )
 				.addClass( 'cx-draft-discard-dialog__actions' )
-				.append( $discardButton, $cancelButton );
+				.append( $cancelButton, $discardButton );
 			$message = $( '<div>' )
 				.addClass( 'cx-draft-discard-dialog__message' )
 				.text( mw.msg( 'cx-draft-discard-confirmation-message' ) );

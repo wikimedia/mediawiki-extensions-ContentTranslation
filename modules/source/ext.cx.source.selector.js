@@ -54,7 +54,7 @@
 		this.$messageBar = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
-		this.$translateFromButton = null;
+		this.translateFromButton = null;
 		this.narrowLimit = 700;
 		this.isNarrowScreenSize = false;
 		this.validator = new mw.cx.ContentTranslationValidator( this.siteMapper );
@@ -392,7 +392,7 @@
 		this.$trigger.click( this.show.bind( this ) );
 
 		this.sourcePageSelector.on( 'change', function () {
-			self.$translateFromButton.prop( 'disabled', false );
+			self.translateFromButton.setDisabled( false );
 			// Hide any previous errors.
 			self.$messageBar.hide();
 		} );
@@ -505,7 +505,7 @@
 
 		// We do not want to show "title does not exist" for empty input
 		if ( sourceTitle === '' ) {
-			this.$translateFromButton.prop( 'disabled', true );
+			this.translateFromButton.setDisabled( true );
 
 			return;
 		}
@@ -514,7 +514,7 @@
 		this.validator.isTitleExistInLanguage( sourceLanguage, sourceTitle ).then( function ( sourceTitle ) {
 			var titleCheck, translationCheck;
 
-			selector.$translateFromButton.prop( 'disabled', !sourceTitle );
+			selector.translateFromButton.setDisabled( !sourceTitle );
 
 			if ( sourceTitle === false ) {
 				selector.showSourceTitleError( sourceLanguage );
@@ -749,7 +749,7 @@
 		this.sourcePageSelector.setValue( '' );
 		this.$targetTitleInput.val( '' );
 
-		this.$translateFromButton.prop( 'disabled', true );
+		this.translateFromButton.setDisabled( true );
 		this.$messageBar.hide();
 
 		// Only dialog version of CXSourceSelector has cancel button
@@ -1055,6 +1055,7 @@
 			$targetTitleInputContainer,
 			$targetInputs,
 			$messageText,
+			cancelButton,
 			translateButtonLabel,
 			$actions, $license,
 			cxSourceSelector = this;
@@ -1155,17 +1156,16 @@
 			.append( $messageText )
 			.hide();
 
-		this.$cancelButton = $( '<button>' )
-			.addClass( 'mw-ui-button mw-ui-quiet cx-sourceselector-dialog__button-cancel' )
-			.text( mw.msg( 'cx-sourceselector-dialog-button-cancel' ) )
-			.click( this.cancel.bind( this ) );
+		cancelButton = new OO.ui.ButtonWidget( {
+			label: mw.msg( 'cx-sourceselector-dialog-button-cancel' )
+		} ).on( 'click', this.cancel.bind( this ) );
 
 		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
-		this.$translateFromButton = $( '<button>' )
-			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
-			.text( translateButtonLabel )
-			.prop( 'disabled', true )
-			.click( this.startPageInCX.bind( this ) );
+		this.translateFromButton = new OO.ui.ButtonWidget( {
+			flags: [ 'primary', 'progressive' ],
+			label: translateButtonLabel,
+			disabled: true
+		} ).on( 'click', this.startPageInCX.bind( this ) );
 
 		$license = $( '<div>' )
 			.addClass( 'cx-sourceselector__license' )
@@ -1174,7 +1174,7 @@
 		$actions = $( '<div>' )
 			.addClass( 'cx-sourceselector__actions' );
 
-		$actions.append( this.$cancelButton, this.$translateFromButton );
+		$actions.append( cancelButton.$element, this.translateFromButton.$element );
 
 		this.$container.append( $heading,
 			this.$sourceInputs,
@@ -1288,11 +1288,11 @@
 			.hide();
 
 		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
-		this.$translateFromButton = $( '<button>' )
-			.addClass( 'mw-ui-button mw-ui-progressive cx-sourceselector-dialog__button-translate' )
-			.text( translateButtonLabel )
-			.prop( 'disabled', true )
-			.click( this.startPageInCX.bind( this ) );
+		this.translateFromButton = new OO.ui.ButtonWidget( {
+			flags: [ 'primary', 'progressive' ],
+			label: translateButtonLabel,
+			disabled: true
+		} ).on( 'click', this.startPageInCX.bind( this ) );
 
 		$license = $( '<div>' )
 			.addClass( 'cx-sourceselector__license' )
@@ -1300,7 +1300,7 @@
 
 		$actions = $( '<div>' )
 			.addClass( 'cx-sourceselector__actions' )
-			.append( this.$translateFromButton );
+			.append( this.translateFromButton.$element );
 
 		this.$container.append( this.$sourceInputs,
 			this.$selectedItem,
