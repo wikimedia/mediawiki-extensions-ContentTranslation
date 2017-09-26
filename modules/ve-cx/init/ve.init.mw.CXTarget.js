@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * TranslationView
+ * CX Target
  *
  * @class
  * @param {Object} [config] Configuration object
@@ -11,7 +11,7 @@
  * @cfg {string} targetTitle
  * @cfg {string} targetLanguage
  */
-mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
+ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 	// Configuration initialization
 	this.config = config = $.extend( {}, config, {
 		continuous: true,
@@ -24,7 +24,7 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 		config.toolbarConfig
 	);
 	// Parent constructor
-	mw.cx.ui.TranslationView.super.call( this, config );
+	ve.init.mw.CXTarget.super.call( this, config );
 	this.translation = null;
 	this.targetArticle = null;
 	this.publishButton = null;
@@ -67,7 +67,7 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 
 /* Inheritance */
 
-OO.inheritClass( mw.cx.ui.TranslationView, ve.init.mw.Target );
+OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
 /* Static methods */
 
@@ -78,7 +78,7 @@ OO.inheritClass( mw.cx.ui.TranslationView, ve.init.mw.Target );
  * @param {number} targetOffsetTop Pixel offset of the target section
  * @param {number} sectionNumber The number in the source/target section id attribute
  */
-mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
+ve.init.mw.CXTarget.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
 	var offsetTop, viewNode,
 		sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
 		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
@@ -108,11 +108,11 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 
 /* Methods */
 
-mw.cx.ui.TranslationView.prototype.setupToolbar = function () {
+ve.init.mw.CXTarget.prototype.setupToolbar = function () {
 	var publishButton, publishSettings;
 
 	// Parent method
-	mw.cx.ui.TranslationView.super.prototype.setupToolbar.apply( this, arguments );
+	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
 
 	publishButton = new OO.ui.ButtonWidget( {
 		disabled: true,
@@ -138,14 +138,14 @@ mw.cx.ui.TranslationView.prototype.setupToolbar = function () {
 	this.getToolbar().initialize();
 };
 
-mw.cx.ui.TranslationView.prototype.unbindHandlers = function () {
+ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
 	// Parent method
-	mw.cx.ui.TranslationView.super.prototype.unbindHandlers.call( this );
+	ve.init.mw.CXTarget.super.prototype.unbindHandlers.call( this );
 
 	$( this.getElementWindow() ).off( 'resize', this.throttleAlignSectionPairs );
 };
 
-mw.cx.ui.TranslationView.prototype.onSurfaceMouseOver = function ( ev ) {
+ve.init.mw.CXTarget.prototype.onSurfaceMouseOver = function ( ev ) {
 	var fromSegmentId = $( ev.relatedTarget ).closest( '.cx-segment' ).data( 'segmentid' ),
 		toSegmentId = $( ev.toElement ).closest( '.cx-segment' ).data( 'segmentid' );
 	if ( fromSegmentId !== toSegmentId ) {
@@ -154,7 +154,7 @@ mw.cx.ui.TranslationView.prototype.onSurfaceMouseOver = function ( ev ) {
 	this.setSentenceHighlight( toSegmentId, true );
 };
 
-mw.cx.ui.TranslationView.prototype.onSurfaceMouseOut = function ( ev ) {
+ve.init.mw.CXTarget.prototype.onSurfaceMouseOut = function ( ev ) {
 	var fromSegmentId = $( ev.relatedTarget ).closest( '.cx-segment' ).data( 'segmentid' );
 	this.setSentenceHighlight( fromSegmentId, false );
 };
@@ -164,7 +164,7 @@ mw.cx.ui.TranslationView.prototype.onSurfaceMouseOut = function ( ev ) {
  *
  * @param {mw.cx.dm.Translation} translation
  */
-mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
+ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	var sourceSurface, targetSurface;
 
 	this.translation = translation;
@@ -220,18 +220,18 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 	setTimeout( this.surfaceReady.bind( this ) );
 };
 
-mw.cx.ui.TranslationView.prototype.surfaceReady = function () {
+ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	// Parent method
-	mw.cx.ui.TranslationView.super.prototype.surfaceReady.apply( this, arguments );
+	ve.init.mw.CXTarget.super.prototype.surfaceReady.apply( this, arguments );
 
 	this.throttleAlignSectionPairs();
 };
 
-mw.cx.ui.TranslationView.prototype.getTranslation = function () {
+ve.init.mw.CXTarget.prototype.getTranslation = function () {
 	return this.translation;
 };
 
-mw.cx.ui.TranslationView.prototype.onTargetTitleChange = function () {
+ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.emit( 'targetTitleChange' );
 	this.throttleAlignSectionPairs();
 };
@@ -240,14 +240,14 @@ mw.cx.ui.TranslationView.prototype.onTargetTitleChange = function () {
  * Translation restore event handler
  * @param {mw.cx.dm.Translation} translationModel
  */
-mw.cx.ui.TranslationView.prototype.onTranslationRestore = function () {
+ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
 	this.setStatusMessage( mw.msg( 'cx-draft-restored' ) );
 };
 
 /**
  * Call this whenever something changes in the translation that requires saving.
  */
-mw.cx.ui.TranslationView.prototype.onChange = function () {
+ve.init.mw.CXTarget.prototype.onChange = function () {
 	this.publishButton.setDisabled( false );
 };
 
@@ -255,7 +255,7 @@ mw.cx.ui.TranslationView.prototype.onChange = function () {
  * Target namespace change handler
  * @param {number} namespaceId
  */
-mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
+ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 	var newTitle;
 
 	newTitle = mw.cx.getTitleForNamespace( this.translation.getTargetTitle(), namespaceId );
@@ -264,23 +264,23 @@ mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespa
 	mw.log( '[CX] Target title changed to ' + newTitle );
 };
 
-mw.cx.ui.TranslationView.prototype.onPublishButtonClick = function () {
+ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
 	this.emit( 'publish' );
 };
 
-mw.cx.ui.TranslationView.prototype.attachToolbar = function () {
+ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 	this.header.$toolbar.append( this.getToolbar().$element );
 };
 
-mw.cx.ui.TranslationView.prototype.onDocumentTransact = function () {
+ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.emit( 'contentChange' );
 	this.throttleAlignSectionPairs();
 };
 
-mw.cx.ui.TranslationView.prototype.alignSectionPairs = function () {
+ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	var sourceOffsetTop, targetOffsetTop, alignSectionPair, articleNode;
 
 	sourceOffsetTop = this.sourceSurface.getView().getDocument().documentNode.$element.offset().top;
@@ -303,7 +303,7 @@ mw.cx.ui.TranslationView.prototype.alignSectionPairs = function () {
  * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
  * @fires saveSection
  */
-mw.cx.ui.TranslationView.prototype.saveSection = function ( sectionId ) {
+ve.init.mw.CXTarget.prototype.saveSection = function ( sectionId ) {
 	var sourceNode, targetNode;
 
 	sourceNode = this.getSourceSectionNode( sectionId );
@@ -329,7 +329,7 @@ mw.cx.ui.TranslationView.prototype.saveSection = function ( sectionId ) {
  * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
  * @return {ve.dm.CXSectionNode}
  */
-mw.cx.ui.TranslationView.prototype.getSourceSectionNode = function ( sectionId ) {
+ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
 	var sectionNumber, sourceId;
 
 	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
@@ -342,7 +342,7 @@ mw.cx.ui.TranslationView.prototype.getSourceSectionNode = function ( sectionId )
  * @param  {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
  * @return {ve.dm.CXSectionNode}
  */
-mw.cx.ui.TranslationView.prototype.getTargetSectionNode = function ( sectionId ) {
+ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 	var sectionNumber, targetId;
 
 	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
@@ -350,11 +350,11 @@ mw.cx.ui.TranslationView.prototype.getTargetSectionNode = function ( sectionId )
 	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
 };
 
-mw.cx.ui.TranslationView.prototype.changeNamespace = function ( namespaceId ) {
+ve.init.mw.CXTarget.prototype.changeNamespace = function ( namespaceId ) {
 	this.publishSettings.setDestinationNamespace( namespaceId );
 };
 
-mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
+ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
 	var sourceNode, cxid = placeholder.getModel().getAttribute( 'cxid' ),
 		sourceNodeModel = this.getSourceSectionNode( cxid );
 
@@ -380,7 +380,7 @@ mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( pl
 	} );
 };
 
-mw.cx.ui.TranslationView.prototype.onPublishSuccess = function () {
+ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	this.showMessage(
 		'success',
 		mw.message( 'cx-publish-page-success',
@@ -393,7 +393,7 @@ mw.cx.ui.TranslationView.prototype.onPublishSuccess = function () {
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 };
 
-mw.cx.ui.TranslationView.prototype.onPublishFailure = function ( error ) {
+ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
 	this.showMessage(
 		'error',
 		mw.msg( 'cx-publish-page-error', error )
@@ -407,21 +407,21 @@ mw.cx.ui.TranslationView.prototype.onPublishFailure = function ( error ) {
  * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
  * @param {string} details The details of error in HTML.
  */
-mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, details ) {
+ve.init.mw.CXTarget.prototype.showMessage = function ( type, message, details ) {
 	this.header.infobar.showMessage( type, message, details );
 };
 
-mw.cx.ui.TranslationView.prototype.setStatusMessage = function ( message ) {
+ve.init.mw.CXTarget.prototype.setStatusMessage = function ( message ) {
 	this.header.setStatusMessage( message );
 };
 
-mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation ) {
+ve.init.mw.CXTarget.prototype.showConflictWarning = function ( translation ) {
 	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
 		mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
 	} );
 };
 
-mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
+ve.init.mw.CXTarget.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
 	var pasteDoc, newCursorRange, docLen, fragmentRange,
 		surfaceModel = this.getSurface().getModel(),
 		cxid = placeholder.getModel().getAttribute( 'cxid' ),
@@ -456,18 +456,18 @@ mw.cx.ui.TranslationView.prototype.gotPlaceholderTranslation = function ( placeh
  * @param {string} source Source html content
  * @return {jQuery.Promise}
  */
-mw.cx.ui.TranslationView.prototype.translate = function ( source ) {
+ve.init.mw.CXTarget.prototype.translate = function ( source ) {
 	return this.config.MTService.getSuggestedDefaultProvider().then( function ( provider ) {
 		return this.config.MTService.translate( source, provider );
 	}.bind( this ) );
 };
 
-mw.cx.ui.TranslationView.prototype.showCategories = function () {
+ve.init.mw.CXTarget.prototype.showCategories = function () {
 	this.sourceColumn.showCategories();
 	this.targetColumn.showCategories();
 };
 
-mw.cx.ui.TranslationView.prototype.setSentenceHighlight = function ( segmentId, highlighted ) {
+ve.init.mw.CXTarget.prototype.setSentenceHighlight = function ( segmentId, highlighted ) {
 	if ( !segmentId ) {
 		return;
 	}

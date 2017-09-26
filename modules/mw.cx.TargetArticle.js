@@ -1,12 +1,12 @@
 /**
  * Target Article for CX - Validation, Publishing, Success and Error handling.
  * @param {mw.cx.dm.Translation} translation
- * @param {mw.cx.ui.TranslationView} translationView
+ * @param {ve.init.mw.CXTarget} veTarget
  * @param {object} config Translation configuration
  */
-mw.cx.TargetArticle = function MWCXTargetArticle( translation, translationView, config ) {
+mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config ) {
 	this.translation = translation;
-	this.view = translationView;
+	this.veTarget = veTarget;
 	this.config = config;
 	this.siteMapper = config.siteMapper;
 	this.sourceTitle = config.sourceTitle;
@@ -349,7 +349,7 @@ mw.cx.TargetArticle.prototype.showPublishError = function ( msg, allowReapply, w
  */
 mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 	var html,
-		doc = this.view.getSurface().getDom();
+		doc = this.veTarget.getSurface().getDom();
 
 	Array.prototype.forEach.call( doc.body.querySelectorAll( 'article, section, [data-segmentid]' ), function ( segment ) {
 		var parent = segment.parentNode;
@@ -360,7 +360,7 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 		segment.remove();
 	} );
 
-	html = this.view.getHtml( doc );
+	html = this.veTarget.getHtml( doc );
 
 	return deflate ? EasyDeflate.deflate( html ) : html;
 };
@@ -419,7 +419,7 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 		}
 
 		// Show a dialog to decide what to do now
-		this.view.publishButton.$element.cxPublishingDialog();
+		this.veTarget.publishButton.$element.cxPublishingDialog();
 		$dialog = this.translationView.publishButton.$element.data( 'cxPublishingDialog' );
 
 		return $dialog.listen().then( function ( overwrite ) {

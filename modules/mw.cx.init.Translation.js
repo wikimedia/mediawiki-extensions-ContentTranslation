@@ -26,8 +26,8 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.config.targetTitle = targetWikiPage.getTitle();
 	this.config.targetLanguage = targetWikiPage.getLanguage();
 
-	// @var {mw.cx.ui.TranslationView}
-	this.translationView = null;
+	// @var {ve.init.mw.CXTarget}
+	this.veTarget = null;
 	// @var {mw.cx.dm.Translation}
 	this.translationModel = null;
 	// @var {mw.cx.TranslationController}
@@ -51,9 +51,9 @@ mw.cx.init.Translation.prototype.init = function () {
 	if ( this.config.campaign ) {
 		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
 	}
-	this.translationView = new mw.cx.ui.TranslationView( this.config );
+	this.veTarget = new ve.init.mw.CXTarget( this.config );
 	// Paint the initial UI.
-	this.attachToDOM( this.translationView );
+	this.attachToDOM( this.veTarget );
 
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
@@ -76,9 +76,9 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
-			this.translationModel, this.translationView, this.config
+			this.translationModel, this.veTarget, this.config
 		);
-		this.translationView.setTranslation( this.translationModel );
+		this.veTarget.setTranslation( this.translationModel );
 		mw.log( '[CX] Translation initialized successfully' );
 		// Fetch and adapt categories
 		this.fetchAndAdaptCategories();
@@ -121,7 +121,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  */
 mw.cx.init.Translation.prototype.initializationError = function () {
 	// Any error in the above deferreds is critical
-	this.translationView.showMessage(
+	this.veTarget.showMessage(
 		'error',
 		'Critical error: Content translation failed to load due to internal error.'
 	);
@@ -133,10 +133,10 @@ mw.cx.init.Translation.prototype.initializationError = function () {
  * Attach the translation view to DOM.
  *
  * @private
- * @param {mw.cx.ui.TranslationView} view
+ * @param {ve.init.mw.CXTarget} veTarget
  */
-mw.cx.init.Translation.prototype.attachToDOM = function ( view ) {
-	$( 'body' ).append( view.$element );
+mw.cx.init.Translation.prototype.attachToDOM = function ( veTarget ) {
+	$( 'body' ).append( veTarget.$element );
 };
 
 /**
@@ -251,7 +251,7 @@ mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft
 	// returns a translation with different translatorName if this is the case.
 	if ( draft.translatorName !== mw.user.getName() ) {
 		mw.log( '[CX] Existing translation found. But owned by another translator' );
-		this.translationView.showConflictWarning( draft );
+		this.veTarget.showConflictWarning( draft );
 		// Stop further processing!
 		return $.Deferred().reject().promise();
 	}
@@ -284,7 +284,7 @@ mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
 		return $.Deferred().resolve().promise();
 	}
 
-	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
+	this.veTarget.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
 
 	return new mw.Api().get( {
 		action: 'query',
@@ -300,7 +300,7 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 		details.exception = details.exception.toString();
 	}
 	details.errorCode = errorCode;
-	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
+	this.veTarget.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
 };
 
 /**
@@ -310,7 +310,7 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
 	var translationModel = this.translationModel,
 		requestManager = this.config.requestManager,
-		translationView = this.translationView;
+		veTarget = this.veTarget;
 
 	mw.log( '[CX] Fetching and adapting categories...' );
 
@@ -325,6 +325,6 @@ mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
 		);
 	} ).then( function ( targetCategories ) {
 		translationModel.targetCategories = targetCategories;
-		translationView.showCategories();
+		veTarget.showCategories();
 	} );
 };
