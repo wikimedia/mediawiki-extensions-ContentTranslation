@@ -132,6 +132,7 @@ mw.cx.ui.TranslationView.prototype.setupToolbar = function () {
 	this.publishButton = publishButton;
 	this.publishSettings = publishSettings;
 	this.getToolbar().$actions.append( this.publishSettings.$element, this.publishButton.$element );
+	this.getToolbar().initialize();
 };
 
 mw.cx.ui.TranslationView.prototype.unbindHandlers = function () {
@@ -254,10 +255,7 @@ mw.cx.ui.TranslationView.prototype.onPublishButtonClick = function () {
 };
 
 mw.cx.ui.TranslationView.prototype.attachToolbar = function () {
-	var toolbar = this.getToolbar();
-	this.header.$toolbar.append( toolbar.$element );
-	toolbar.initialize();
-	this.getActions().initialize();
+	this.header.$toolbar.append( this.getToolbar().$element );
 };
 
 mw.cx.ui.TranslationView.prototype.onDocumentTransact = function () {
