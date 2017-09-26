@@ -101,3 +101,13 @@ mw.cx.getDefaultTargetNamespace = function () {
 
 	return targetNamespace;
 };
+
+/**
+ * Given a section Id, get the section number for it.
+ * Section id is like cxSourceSection15 or cxTargetSection15. 15 is the section number.
+ * @param {string} sectionId Section id
+ * @return {number} section number
+ */
+mw.cx.getSectionNumberFromSectionId = function ( sectionId ) {
+	return Number( sectionId.match( /^cx(Target|Source)Section([0-9]+)$/ )[ 2 ] );
+};

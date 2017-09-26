@@ -60,6 +60,9 @@ mw.cx.ui.TranslationView = function MwCxUiTranslationView( config ) {
 	this.targetColumn.connect( this, {
 		titleChange: 'onTargetTitleChange'
 	} );
+	this.connect( this, {
+		contentChange: 'onChange'
+	} );
 };
 
 /* Inheritance */
@@ -207,6 +210,10 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 		mouseout: this.onSurfaceMouseOut.bind( this )
 	} );
 
+	this.translation.connect( this, {
+		sectionChange: 'saveSection'
+	} );
+
 	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
 };
 
@@ -259,7 +266,7 @@ mw.cx.ui.TranslationView.prototype.attachToolbar = function () {
 };
 
 mw.cx.ui.TranslationView.prototype.onDocumentTransact = function () {
-	this.publishButton.setDisabled( false );
+	this.emit( 'contentChange' );
 	this.throttleAlignSectionPairs();
 };
 
@@ -281,21 +288,74 @@ mw.cx.ui.TranslationView.prototype.alignSectionPairs = function () {
 	} );
 };
 
+/**
+ * Save the source and target sections for the given section Id.
+ * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
+ * @fires saveSection
+ */
+mw.cx.ui.TranslationView.prototype.saveSection = function ( sectionId ) {
+	var sourceNode, targetNode;
+
+	sourceNode = this.getSourceSectionNode( sectionId );
+	targetNode = this.getTargetSectionNode( sectionId );
+	if ( !sourceNode || !targetNode ) {
+		return;
+	}
+	this.emit( 'saveSection', {
+		sectionNumber: mw.cx.getSectionNumberFromSectionId( sectionId ),
+		source: {
+			content: ve.dm.converter.getDomFromNode( sourceNode ).body.innerHTML
+		},
+		translation: {
+			// TODO: What happens when mt provider changes, where to store per provider translation
+			content: ve.dm.converter.getDomFromNode( targetNode ).body.innerHTML,
+			MTProvider: 'user' // FIXME
+		}
+	} );
+};
+
+/**
+ * Get the source node for the given section id. Accepts section id or source or target.
+ * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
+ * @return {ve.dm.CXSectionNode}
+ */
+mw.cx.ui.TranslationView.prototype.getSourceSectionNode = function ( sectionId ) {
+	var sectionNumber, sourceId;
+
+	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	sourceId = 'cxSourceSection' + sectionNumber;
+	return this.sourceSurface.$element.find( '#' + sourceId ).data( 'view' ).getModel();
+};
+
+/**
+ * Get the translation node for the given section id. Accepts section id or source or target.
+ * @param  {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
+ * @return {ve.dm.CXSectionNode}
+ */
+mw.cx.ui.TranslationView.prototype.getTargetSectionNode = function ( sectionId ) {
+	var sectionNumber, targetId;
+
+	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	targetId = 'cxTargetSection' + sectionNumber;
+	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
+};
+
 mw.cx.ui.TranslationView.prototype.changeNamespace = function ( namespaceId ) {
 	this.publishSettings.setDestinationNamespace( namespaceId );
 };
 
 mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var sourceModel, sourceNode,
-		cxid = placeholder.getModel().getAttribute( 'cxid' ),
-		sectionNumber = parseInt( cxid.match( /^cxTargetSection([0-9]+)$/ )[ 1 ], 10 ),
-		sourceId = 'cxSourceSection' + sectionNumber,
-		targetId = 'cxTargetSection' + sectionNumber;
+	var sourceNode, cxid = placeholder.getModel().getAttribute( 'cxid' ),
+		sourceNodeModel = this.getSourceSectionNode( cxid );
+
+	// Convert DOM to node, preserving full internal list
+	// Use clipboard mode to ensure reference body is outputted
+	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, true ).body.children[ 0 ];
 
 	function restructure( section ) {
 		section = section.cloneNode( true );
 		section.removeAttribute( 'rel' );
-		section.id = targetId;
+		section.id = 'cxTargetSection' + mw.cx.getSectionNumberFromSectionId( cxid );
 		// TODO: it's horrible that id attributes get duplicated
 		// $( section ).find( '[id]' ).each( function ( i, node ) {
 		// 	node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
@@ -303,10 +363,6 @@ mw.cx.ui.TranslationView.prototype.onDocumentActivatePlaceholder = function ( pl
 		return section;
 	}
 
-	sourceModel = this.sourceSurface.$element.find( '#' + sourceId ).data( 'view' ).getModel();
-	// Convert DOM to node, preserving full internal list
-	// Use clipboard mode to ensure reference body is outputted
-	sourceNode = ve.dm.converter.getDomFromNode( sourceModel, true ).body.children[ 0 ];
 	this.translate( restructure( sourceNode ).outerHTML ).done(
 		this.gotPlaceholderTranslation.bind( this, placeholder )
 	).fail( function () {

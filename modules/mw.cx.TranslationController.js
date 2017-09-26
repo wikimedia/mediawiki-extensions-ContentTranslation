@@ -34,11 +34,8 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, t
 OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 
 mw.cx.TranslationController.prototype.listen = function () {
-	this.translation.connect( this, {
-		change: 'save'
-	} );
-
 	this.view.connect( this, {
+		saveSection: 'save',
 		publish: 'publish',
 		targetTitleChange: 'onTargetTitleChange'
 	} );
@@ -71,17 +68,17 @@ ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
 
 /**
  * Save the translation to database
- * @param {mw.cx.dm.TranslationUnit} translationUnit
+ * @param {Object} sectionData
  */
-mw.cx.TranslationController.prototype.save = function ( translationUnit ) {
-	if ( !translationUnit ) {
+mw.cx.TranslationController.prototype.save = function ( sectionData ) {
+	if ( !sectionData ) {
 		return;
 	}
 
-	// Keep records keyed by section id to avoid duplicates.
+	// Keep records keyed by section numbers to avoid duplicates.
 	// When more than one changes to a single translation unit comes, only
 	// the last one need to consider for saving.
-	this.saveQueue[ translationUnit.getSectionId() ] = translationUnit;
+	this.saveQueue[ sectionData.sectionNumber ] = sectionData;
 
 	this.schedule();
 };
@@ -128,7 +125,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		to: this.targetLanguage,
 		sourcetitle: this.sourceTitle,
 		title: this.translation.getTargetTitle(),
-		sourcerevision: this.config.sourceRevision,
+		sourcerevision: this.translation.sourceRevisionId,
 		progress: JSON.stringify( this.translation.getProgress() )
 	};
 
@@ -186,19 +183,19 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 };
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
-	var i, sectionId, minutes = 0;
+	var sectionNumber, minutes = 0;
 
 	this.translationId = saveResult.cxsave.translationid;
-
-	for ( i = 0; i < this.saveQueue.length; i++ ) {
-		sectionId = this.saveQueue[ i ].sectionId;
-		mw.log( '[CX] Section ' + sectionId + ' saved.' );
-		// Annotate the section with errors.
-		// if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
-		// cxsave API will return errors from abusefilter validations, if any.
-		// We need to set this in translation unit model. A tool attached to UI model
-		// can query the model to see if there is any error and show in tools(on focus
-		// of translation unit)
+	for ( sectionNumber in this.saveQueue ) {
+		if ( this.saveQueue.hasOwnProperty( sectionNumber ) ) {
+			mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
+			// Annotate the section with errors.
+			// if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
+			// cxsave API will return errors from abusefilter validations, if any.
+			// We need to set this in translation unit model. A tool attached to UI model
+			// can query the model to see if there is any error and show in tools(on focus
+			// of translation unit)
+		}
 	}
 
 	this.emit( 'savesuccess' );
@@ -243,7 +240,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 
 	Object.keys( saveQueue ).forEach( function ( key ) {
 		var translationUnit = saveQueue[ key ];
-		this.getTranslationUnitData( translationUnit ).forEach( function ( data ) {
+		this.getSectionRecords( translationUnit ).forEach( function ( data ) {
 			records.push( data );
 		} );
 	}.bind( this ) );
@@ -255,22 +252,18 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 
 /**
  * Get the records for saving the translation unit.
- * @param {mw.cx.dm.SectionTranslationUnit} translationUnit
+ * @param {Object} sectionData
  * @return {Object[]} Objects to save
  */
-mw.cx.TranslationController.prototype.getTranslationUnitData = function ( translationUnit ) {
+mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData ) {
 	var origin, translationSource, records = [],
 		validate;
-
-	if ( !( translationUnit instanceof mw.cx.dm.SectionTranslationUnit ) ) {
-		mw.log.error( '[CX] Trying to save a non-section: ' + translationUnit.getId() );
-	}
 
 	// XXX Section validation for abusefilter
 	validate = false;
 
 	// XXX should use the promise, but at this point the member variable should always be present
-	translationSource = translationUnit.MTProvider;
+	translationSource = sectionData.translation.MTProvider;
 	if ( translationSource === 'source' || translationSource === 'scratch' ) {
 		origin = 'user';
 	} else {
@@ -278,15 +271,15 @@ mw.cx.TranslationController.prototype.getTranslationUnitData = function ( transl
 	}
 
 	records.push( {
-		content: translationUnit.getTargetDocument().outerHTML,
-		sectionId: translationUnit.sourceDocument.id, // source section id is the canonical section id.
+		content: sectionData.translation.content,
+		sectionId: sectionData.sectionNumber, // source section id is the canonical section id.
 		validate: validate,
 		origin: origin
 	} );
 	// XXX: Source sections are saved only once.
 	records.push( {
-		content: translationUnit.getSourceDocument().outerHTML,
-		sectionId: translationUnit.sourceDocument.id,
+		content: sectionData.source.content,
+		sectionId: sectionData.sectionNumber,
 		validate: false,
 		origin: 'source'
 	} );
