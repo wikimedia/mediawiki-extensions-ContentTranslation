@@ -277,9 +277,9 @@ mw.cx.TargetArticle.prototype.showErrorBadToken = function ( error ) {
  * @method
  * @param {Object} editResult
  * @param {Object|null} data API response data
- * @fires saveErrorUnknown
+ * @fires publishErrorUnknown
  */
-mw.cx.TargetArticle.prototype.saveErrorUnknown = function ( editResult, data ) {
+mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data ) {
 	var errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
 		errorCode = ( editResult && editResult.code ) || ( data && data.error && data.error.code ),
 		unknown = 'Unknown error';
