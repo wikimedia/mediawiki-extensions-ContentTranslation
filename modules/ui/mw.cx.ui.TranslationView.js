@@ -200,7 +200,6 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 	this.targetColumn.attachSurface( targetSurface );
 	sourceSurface.initialize();
 	targetSurface.initialize();
-	this.throttleAlignSectionPairs();
 	sourceSurface.getView().$element.on( {
 		mouseover: this.onSurfaceMouseOver.bind( this ),
 		mouseout: this.onSurfaceMouseOut.bind( this )
@@ -215,6 +214,17 @@ mw.cx.ui.TranslationView.prototype.setTranslation = function ( translation ) {
 	} );
 
 	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
+	// Wait for document to render fully.
+	// In mw.Target this happens after documentReady and a setTimeout,
+	// but we don't use documentReady in this target.
+	setTimeout( this.surfaceReady.bind( this ) );
+};
+
+mw.cx.ui.TranslationView.prototype.surfaceReady = function () {
+	// Parent method
+	mw.cx.ui.TranslationView.super.prototype.surfaceReady.apply( this, arguments );
+
+	this.throttleAlignSectionPairs();
 };
 
 mw.cx.ui.TranslationView.prototype.getTranslation = function () {
