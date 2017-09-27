@@ -72,14 +72,12 @@ mw.cx.init.Translation.prototype.init = function () {
 			this.sourceWikiPage,
 			this.targetWikiPage,
 			sourcePageContent.segmentedContent,
-			this.config
+			draft
 		);
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
 			this.translationModel, this.translationView, this.config
 		);
-		// Restore draft, if any;
-		this.restoreDraftTranslation( draft );
 		this.translationView.setTranslation( this.translationModel );
 		mw.log( '[CX] Translation initialized successfully' );
 		// Fetch and adapt categories
@@ -295,25 +293,6 @@ mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
 	} ).then( function ( response ) {
 		return response.query.contenttranslation.translation;
 	} );
-};
-
-mw.cx.init.Translation.prototype.restoreDraftTranslation = function ( draft ) {
-	// In case there is no draft (see fetchDraft), there is nothing for us to do
-	if ( !draft ) {
-		return;
-	}
-	mw.log( '[CX] Restoring translation draft...' );
-	this.translationModel.setTargetURL( draft.targetURL );
-	this.translationModel.setStatus( draft.status );
-	this.translationModel.setTargetRevisionId( draft.targetRevisionId );
-	this.translationModel.setProgress( JSON.parse( draft.progress ) );
-	this.translationModel.setId( draft.id );
-	this.translationModel.setTargetTitle( draft.targetTitle );
-
-	// Restore each translation storage units against the source sections.
-	this.translationController.restore( draft );
-	// TODO: Restore failures not handled.
-	this.translationView.emit( 'translationRestored' );
 };
 
 mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details ) {

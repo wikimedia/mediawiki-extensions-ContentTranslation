@@ -1,5 +1,5 @@
 /**
- * CX Translation - save, fetch and restore controller
+ * CX Translation - save, fetch controller
  *
  * @param {mw.cx.dm.Translation} translation
  * @param {mw.cx.ui.TranslationView} translationView
@@ -284,42 +284,6 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 		origin: 'source'
 	} );
 	return records;
-};
-
-/**
- * Restore translations from a saved draft.
- * @param {Object} savedTranslation
- */
-mw.cx.TranslationController.prototype.restore = function ( savedTranslation ) {
-	var savedUnits = savedTranslation.translationUnits;
-
-	this.translation.getTranslationUnits().forEach( function ( unit ) {
-		var savedSection, provider, document,
-			sectionId = unit.getId();
-
-		if ( !savedUnits[ sectionId ] ) {
-			return;
-		}
-
-		// It's possible that we only saved prefilled MT with no user modifications
-		savedSection = savedUnits[ sectionId ].user || savedUnits[ sectionId ].mt;
-
-		if ( !savedSection ) {
-			mw.log.error( '[CX] Missing content to restore for section ' + sectionId );
-			return;
-		}
-
-		// Convert HTML string to Element.
-		document = $( savedSection.content )[ 0 ];
-		// XXX: We don't really know whether it was "source" or "scratch" if user changed the default
-		provider = ( savedUnits[ sectionId ].mt && savedUnits[ sectionId ].mt.engine ) || 'source';
-
-		// XXX: This is broken when we get for example CXDMTemplateTranslationUnit as the top level unit
-		if ( unit instanceof mw.cx.dm.SectionTranslationUnit ) {
-			unit.adaptWithRestoredContent( document, provider );
-		}
-	} );
-	// TODO: Find out orphan translation units and handle them.
 };
 
 /**
