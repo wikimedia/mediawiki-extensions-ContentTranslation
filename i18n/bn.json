@@ -112,6 +112,8 @@
 	"cx-suggestionlist-featured": "নির্বাচিত",
 	"cx-suggestionlist-view-source-page": "উৎস পাতা দেখুন",
 	"cx-create-new-translation": "নতুন অনুবাদ",
+	"cx-translation-filter-label-all-languages": "সব",
+	"cx-translation-filter-uls-all-languages": "সকল ভাষা",
 	"cx-save-draft-save-success": "{{PLURAL:$1|এক মিনিট আগে|$1 মিনিট আগে|0=এইমাত্র}} সংরক্ষিত",
 	"cx-save-draft-saving": "সংরক্ষণ করা হচ্ছে ...",
 	"cx-save-draft-tooltip": "খসড়া অনুবাদ স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়",

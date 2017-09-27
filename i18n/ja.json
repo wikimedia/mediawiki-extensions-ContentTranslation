@@ -118,6 +118,8 @@
 	"cx-suggestionlist-featured": "おすすめ",
 	"cx-suggestionlist-view-source-page": "翻訳元ページを見る",
 	"cx-create-new-translation": "新しい翻訳",
+	"cx-translation-filter-label-all-languages": "すべて",
+	"cx-translation-filter-uls-all-languages": "すべての言語",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$1分前に|0=たった今}}保存されました",
 	"cx-save-draft-saving": "保存中…",
 	"cx-save-draft-shortcut-label": "下書きを保存",
