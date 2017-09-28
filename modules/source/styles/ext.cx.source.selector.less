@@ -135,6 +135,7 @@
 			}
 		}
 
+		.cx-sourceselector-embedded__search-results,
 		.cx-sourceselector-embedded__source-inputs {
 			display: none;
 		}
@@ -155,6 +156,10 @@
 		height: 40px;
 		border-bottom: 1px solid #eee;
 		padding: 10px;
+
+		&--focused {
+			.box-shadow( @boxShadowProgressiveFocus );
+		}
 
 		.cx-sourceselector-page-title {
 			input {
@@ -345,6 +350,16 @@
 			border-left-color: #9d9d9d;
 			border-width: 17px;
 			border-left-width: 13px;
+		}
+	}
+
+	.cx-sourceselector-embedded__search-results {
+		.oo-ui-menuSelectWidget {
+			position: static;
+			z-index: auto;
+			margin-top: 0;
+			border: 0;
+			box-shadow: none;
 		}
 	}
 }

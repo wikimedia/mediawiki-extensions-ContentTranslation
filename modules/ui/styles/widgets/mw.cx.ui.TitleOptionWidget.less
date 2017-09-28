@@ -1,4 +1,4 @@
-.mw-widget-titleOptionWidget {
+.mw-cx-widget-titleOptionWidget {
 	&-numOfLanguages {
 		padding-right: 1em;
 	}
@@ -6,5 +6,12 @@
 	&-missing {
 		color: #00af89;
 		font-weight: 500;
+	}
+
+	// Overrides core widget's properties
+	&.oo-ui-widget-enabled.oo-ui-iconElement > .oo-ui-iconElement-icon {
+		top: 50%;
+		left: 0.5em;
+		margin-top: -1.875em;
 	}
 }

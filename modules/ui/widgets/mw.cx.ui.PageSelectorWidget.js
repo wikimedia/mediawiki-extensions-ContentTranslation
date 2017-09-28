@@ -22,6 +22,7 @@
 mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 	config = $.extend( {}, {
 		namespace: mw.config.get( 'wgNamespaceIds' ).main,
+		limit: 5,
 		showDescriptions: true,
 		showImages: true,
 		icon: 'search'
