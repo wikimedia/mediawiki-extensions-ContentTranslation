@@ -101,6 +101,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "عنوان صفحهٔ جدید در حال حاضر [$1 در استفاده است]",
 	"cx-sourceselector-dialog-error-no-source-article": "صفحه ترجمه در $1 وجود ندارد",
 	"cx-sourceselector-missing-in-target-language": "در $1 یافت نشد",
+	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 بازدید|$1 بازدید|0=هیچ بازدیدی}} در هفته",
 	"cx-mt-abuse-warning-title": "ترجمهٔ شما {{PLURAL:$1|دارای}} مقدار $1٪ از متن ترجمهٔ ماشینی تغییر نیافته است",
 	"cx-mt-abuse-warning-text": "ترجمهٔ ماشینی فقط به‌عنوان یک نقطهٔ شروع فراهم شده است. شما نیاز دارید که محتویات را دقیق و قابل عادی خواندن در زبانتان کنید.",
 	"cx-publish-captcha-title": "سوال امنیتی",
