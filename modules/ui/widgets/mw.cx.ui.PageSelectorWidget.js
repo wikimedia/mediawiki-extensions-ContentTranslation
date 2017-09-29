@@ -23,6 +23,7 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 	config = $.extend( {}, {
 		namespace: mw.config.get( 'wgNamespaceIds' ).main,
 		limit: 5,
+		allowSuggestionsWhenEmpty: true,
 		showDescriptions: true,
 		showImages: true,
 		icon: 'search'
@@ -61,6 +62,24 @@ mw.cx.ui.PageSelectorWidget.prototype.setLanguage = function ( language ) {
 
 mw.cx.ui.PageSelectorWidget.prototype.setTargetLanguage = function ( language ) {
 	this.targetLanguage = language;
+};
+
+/**
+ * Sets value for PageSelectorWidget and input element value,
+ * without emitting 'change' event, therefore not triggering network call
+ *
+ * @param {string} value String input for PageSelectorWidget
+ */
+mw.cx.ui.PageSelectorWidget.prototype.setValueNoEmit = function ( value ) {
+	value = this.cleanUpValue( value );
+
+	if ( this.$input.val() !== value ) {
+		this.$input.val( value );
+	}
+
+	if ( this.value !== value ) {
+		this.value = value;
+	}
 };
 
 /**
