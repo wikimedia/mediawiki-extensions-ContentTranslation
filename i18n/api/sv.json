@@ -106,7 +106,7 @@
 	"apierror-cx-invalidsourcelanguage": "Ogiltigt källspråk.",
 	"apierror-cx-invalidtargetlanguage": "Ogiltigt målspråk.",
 	"apierror-cx-invalidtranslator": "Ogiltigt översättarnamn",
-	"apierror-cx-jwtmissing": "JWT saknas.",
+	"apierror-cx-jwtmissing": "JWT är inte installerad.",
 	"apierror-cx-keynotconfigured": "Nyckel är inte konfigurerad.",
 	"apierror-cx-missingdraft": "Skissen finns inte.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du måste vara inloggad för att hantera dina översättningar.",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Sindhu",
 			"Mehtab ahmed",
-			"Aursani"
+			"Aursani",
+			"Indus Asia"
 		]
 	},
 	"cx": "صفحا ترجمو ڪريو",
@@ -104,6 +105,8 @@
 	"cx-suggestionlist-featured": "نمايان ڪيل",
 	"cx-suggestionlist-view-source-page": "ذريعاتي صفحو ڏسو",
 	"cx-create-new-translation": "نئون ترجمو",
+	"cx-translation-filter-label-all-languages": "سڀ",
+	"cx-translation-filter-uls-all-languages": "سڀئي ٻوليون",
 	"cx-save-draft-save-success": "{{PLURAL:$1|ھڪ منٽ اڳ|$1 منٽ اڳ|0=بلڪل ھاڻي}} سانڍيل",
 	"cx-save-draft-saving": "سانڍيندي...",
 	"cx-save-draft-tooltip": "ترجمي وارا مسودا خودڪار طور سانڍيا ويندا آھن",
