@@ -57,8 +57,8 @@ class SpecialContentTranslationStats extends SpecialPage {
 			$skin->getPersonalToolsList() );
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
-			'noscript',
-			[],
+			'div',
+			[ 'class' => 'cx-nojs errorbox' ],
 			$this->msg( 'cx-javascript' )->text()
 		) );
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
