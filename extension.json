@@ -1483,6 +1483,9 @@
 			]
 		},
 		"mw.cx.ui.Header.skin": {
+			"styles": [
+				"ui/styles/mw.cx.ui.Header.skin.less"
+			],
 			"skinStyles": {
 				"vector": [
 					"ui/styles/mw.cx.ui.Header.vector.less"
