@@ -853,7 +853,7 @@
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
 		var itemImage, numOfLanguages,
 			self = this,
-			itemTitle = item.getLabel(),
+			itemTitle = item.getData(),
 			params = {
 				prop: [ 'langlinks', 'pageviews' ],
 				redirects: 1,
