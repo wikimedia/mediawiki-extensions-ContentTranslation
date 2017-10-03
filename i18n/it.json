@@ -22,7 +22,7 @@
 	},
 	"cx": "Traduci pagina",
 	"cx-dashboard-header": "Traduzioni",
-	"cx-javascript": "Questo strumento non funziona senza JavaScript.",
+	"cx-javascript": "Questo strumento non funziona senza JavaScript. JavaScript potrebbe essere disattivato, non ha funzionato o questo browser non è supportato.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traduzione voci]] è uno strumento per facilitare la traduzione nella tua lingua. [$1 Provalo ora!]",
 	"cx-license-agreement": "Cliccando sul pulsante \"$1\", accetti tutte le [//wikimediafoundation.org/wiki/Terms_of_Use condizioni d'uso] e accetti irrevocabilmente di rilasciare i tuoi contributi realizzati con lo strumento di traduzione, in base alle licenze [https://creativecommons.org/licenses/by-sa/3.0/deed.it CC BY-SA 3.0] e [//it.wikipedia.org/wiki/Wikipedia:Testo_della_GNU_Free_Documentation_License GFDL], nella consapevolezza che un collegamento ipertestuale o un URL è sufficiente per l'attribuzione in CC BY-SA 3.0.",
 	"cx-error-server-connection": "Errore: impossibile connettersi al server.",

@@ -19,7 +19,7 @@
 	},
 	"cx": "ترجمة الصفحة",
 	"cx-dashboard-header": "ترجمات",
-	"cx-javascript": "لا تعمل هذه الأداة دون جافا سكريبت.",
+	"cx-javascript": "هذه الأداة لا تعمل بدون جافا سكريبت. الجافا سكريبت معطلة، فشلت في العمل، أو هذا المتصفح غير مدعوم.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|ترجمة المحتوى]] هي أداة تسمح بترجمة سريعة للصفحات إلى لغتك. [$1 جربها الآن!]",
 	"cx-license-agreement": "بضغطك على \"$1\" توافق على [//wikimediafoundation.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك تحت رخصتي [https://creativecommons.org/licenses/by-sa/3.0/deed.ar المشاع الإبداعي] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة] وعلى أن الإشارة إليها بوصلة أو مسار كافية لعزوها إليه وفق الرخصة الأولى.",
 	"cx-error-server-connection": "خطأ: تعذر الاتصال بالخادم.",

@@ -15,7 +15,7 @@
 	},
 	"cx": "Seite übersetzen",
 	"cx-dashboard-header": "Übersetzungen",
-	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht.",
+	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht. Es ist deaktiviert, funktioniert nicht oder dieser Browser wird nicht unterstützt.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Inhaltsübersetzung]] ist ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. [$1 Teste es jetzt aus!]",
 	"cx-license-agreement": "Durch den Klick auf die Schaltfläche „$1“ stimmst du den [//wikimediafoundation.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu mit dem Verständnis, dass ein Hyperlink oder eine URL für eine CC-BY-SA-3.0-Namensnennung ausreichend ist.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
