@@ -10,15 +10,14 @@
  * @param {mw.cx.dm.WikiPage} sourceWikiPage Details of source wiki page
  * @param {mw.cx.dm.WikiPage} targetWikiPage Details of target wiki page
  * @param {string} sourceHtml Segmented source HTML
- * @param {Object} config
+ * @param {Object} [draft] Saved translation
  */
-mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPage, sourceHtml, config ) {
+mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPage, sourceHtml, draft ) {
 	// Mixin constructor
 	OO.EventEmitter.call( this );
 
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
-	this.config = config;
 	this.id = null;
 	this.sourceCategories = null;
 	this.targetCategories = null;
@@ -38,13 +37,17 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.topTranslationUnits = [];
 	this.translationUnitById = {};
 
+	if ( draft ) {
+		this.setSavedTranslation( draft );
+	}
+
 	this.sourceDoc = ve.dm.converter.getModelFromDom(
 		this.constructor.static.getSourceDom( sourceHtml, false ),
 		{ lang: this.sourceWikiPage.getLanguage(), dir: this.sourceWikiPage.getDirection() }
 	);
 
 	this.targetDoc = ve.dm.converter.getModelFromDom(
-		this.constructor.static.getSourceDom( sourceHtml, true ),
+		this.constructor.static.getSourceDom( sourceHtml, true, this.savedTranslationUnits ),
 		{ lang: this.targetWikiPage.getLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
@@ -62,9 +65,10 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  *
  * @param {string} sourceHtml The source HTML
  * @param {boolean} forTarget Replace each top-level wrapper section with an empty placeholder?
+ * @param {Object} [savedTranslationUnits] Saved translation units if any
  * @return {HTMLDocument} Restructured source DOM
  */
-mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
+mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
 	var lastAboutGroup,
 		nextSectionId = 1,
 		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
@@ -86,20 +90,27 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
 	// TODO: it would be better to do section wrapping on the CX server
 	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
 		var sectionNode, aboutGroup;
-		if ( node.nodeType !== Node.ELEMENT_NODE ) {
-			return;
-		}
-		sectionNode = domDoc.createElement( 'section' );
-		aboutGroup = node.getAttribute( 'about' );
-		// For block level templates and their about-grouped siblings, don't give them
-		// a section ID as they can't be translated yet
-		// TODO: handle more systematically
-		if ( ( aboutGroup && aboutGroup === lastAboutGroup ) || ( node.getAttribute( 'typeof' ) || '' ).match( /\bmw:Transclusion\b/ ) ) {
-			lastAboutGroup = aboutGroup;
-		} else {
-			sectionNode.setAttribute( 'id', sectionIdPrefix + nextSectionId );
-			sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
+		if ( forTarget && savedTranslationUnits && savedTranslationUnits[ nextSectionId ] ) {
+			sectionNode = this.getSavedTranslation( savedTranslationUnits[ nextSectionId ] );
 			nextSectionId++;
+		} else {
+			if ( node.nodeType !== Node.ELEMENT_NODE ) {
+				return;
+			}
+			sectionNode = domDoc.createElement( 'section' );
+			aboutGroup = node.getAttribute( 'about' );
+
+			// For block level templates and their about-grouped siblings, don't give them
+			// a section ID as they can't be translated yet
+			// TODO: handle more systematically
+			if ( ( aboutGroup && aboutGroup === lastAboutGroup ) || ( node.getAttribute( 'typeof' ) || '' ).match( /\bmw:Transclusion\b/ ) ) {
+				lastAboutGroup = aboutGroup;
+			} else {
+				sectionNode.setAttribute( 'id', sectionIdPrefix + nextSectionId );
+				sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
+				nextSectionId++;
+			}
+
 		}
 		if ( forTarget ) {
 			node.parentNode.removeChild( node );
@@ -107,17 +118,42 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget ) {
 			sectionNode.appendChild( node );
 		}
 		articleNode.appendChild( sectionNode );
-	} );
+	}.bind( this ) );
+
+	// TODO: We need to see if all savedTranslationUnit items were restored or not.
+	// Based on that we should inform user/create orphan sections/load original source
+	// article used for translation.
 	domDoc.body.appendChild( articleNode );
 
 	return domDoc;
 };
 
-mw.cx.dm.Translation.prototype.getTargetPage = function () {
-	return this.targetPage;
+/**
+ * Get HTML content of a translation unit to restore.
+ *
+ * @param {Object} translationUnit
+ * @return {Element} Document element corresponding to the saved HTML of the section.
+ */
+mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
+	var translation;
+
+	// If the translator has manual translation from scratch or on top of MT use that.
+	if ( translationUnit.user && translationUnit.user.content ) {
+		translation = translationUnit.user.content;
+	} else if ( translationUnit.mt ) { // Machine translation, unmodified.
+		translation = translationUnit.mt.content;
+	} else if ( translationUnit.source ) { // Unmodified source copy.
+		translation = translationUnit.source.content;
+	}
+
+	return $.parseHTML( translation )[ 0 ];
 };
 
 /* Methods */
+
+mw.cx.dm.Translation.prototype.getTargetPage = function () {
+	return this.targetPage;
+};
 
 /**
  * Get Translation id
@@ -197,6 +233,21 @@ mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
 
 mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
 	this.progress = progress;
+};
+
+/**
+ * Extract translation metadata from the draft translation fetched
+ * and set to this model.
+ * @param {Object} draft Saved translation.
+ */
+mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
+	this.setTargetURL( draft.targetURL );
+	this.setStatus( draft.status );
+	this.setTargetRevisionId( draft.targetRevisionId );
+	this.setProgress( JSON.parse( draft.progress ) );
+	this.setId( draft.id );
+	this.setTargetTitle( draft.targetTitle );
+	this.savedTranslationUnits = draft.translationUnits;
 };
 
 /**
