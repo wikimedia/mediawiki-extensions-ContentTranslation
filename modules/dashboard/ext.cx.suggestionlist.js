@@ -539,6 +539,10 @@
 				lang: suggestion.sourceLanguage,
 				dir: sourceDir
 			} )
+			// We need to set ellipsis for pseudo element through data attribute
+			// as there is no way to add localized message to LESS or manipulate
+			// pseudo elements directly with JS
+			.attr( 'data-ellipsis', mw.msg( 'ellipsis' ) )
 			.addClass( 'cx-slitem__desc' )
 			.hide();
 		$discardAction = $( '<div>' )
