@@ -15,19 +15,12 @@
 	}
 
 	.cx-tlitem__actions {
-		.mw-ui-one-whole;
+		.mw-ui-item;
 
-		clear: both;
 		position: relative;
 		width: auto;
-		float: right;
-		/* This is needed in case the card title (a.translation-link) floats under
-		 * the menu and captures the click, making it impossible to use this menu.
-		 * If there is target title, it might render over the menu item. On the
-		 * other hand, too high z-index and we will start overlapping other things
-		 * such as echo notifications. Hopefully 1 is small enough to avoid that.
-		 */
-		z-index: 1;
+		margin-bottom: auto;
+		padding: 0;
 
 		.cx-tlitem__actions__trigger {
 			cursor: pointer;
@@ -38,7 +31,7 @@
 			background-size: 24px;
 
 			&:hover {
-				background-color: #eaecf0;
+				background-color: @colorGray14;
 			}
 		}
 
@@ -53,7 +46,7 @@
 			font-weight: normal;
 			white-space: nowrap;
 			background-color: #fff;
-			border: 1px solid #c8ccd1;
+			border: 1px solid @colorGray12;
 			border-bottom-width: 3px;
 			border-radius: @borderRadius;
 
@@ -93,19 +86,27 @@
 			}
 
 			.cx-tlitem__actions__trigger {
-				background-color: #eaecf0;
+				background-color: @colorGray14;
 			}
 		}
 	}
 
 	.cx-tlitem__details {
-		.mw-ui-four-fifths;
+		.mw-ui-item;
 
 		padding-left: 16px;
 		position: relative;
-		height: 90px;
+		width: 100%;
+		min-width: 0;
+		min-height: 90px;
 		font-size: medium;
 		color: #fff;
+
+		.flex-display( box );
+		.flex-display;
+		-webkit-box-orient: vertical;
+		-webkit-flex-direction: column;
+		flex-direction: column;
 
 		.cx-progressbar {
 			width: 100px;
@@ -128,7 +129,6 @@
 
 		.last-updated {
 			color: @gray-dark;
-			clear: both;
 			padding: 5px 0 10px 0;
 			font-size: 0.8125em;
 		}
@@ -147,12 +147,13 @@
 			}
 
 			.source-title {
-				color: #222;
+				color: @colorGray2;
+				padding-right: 1em;
 			}
 
 			.target-title {
-				color: #72777d;
-				padding-left: 1em;
+				color: @colorGray7;
+				display: inline-block;
 			}
 
 			.source-title,
@@ -174,7 +175,7 @@
 		}
 
 		.status-deleted {
-			color: #d33;
+			color: @colorDestructive;
 		}
 
 		.status-published {

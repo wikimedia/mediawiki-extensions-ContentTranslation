@@ -374,9 +374,9 @@
 				.append( $translationLink, $progressbar, $lastUpdated, $languageContainer );
 
 			$translation.append(
-				$menuContainer,
 				$image,
-				$titleLanguageBlock
+				$titleLanguageBlock,
+				$menuContainer
 			);
 
 			$translations.push( $translation );
