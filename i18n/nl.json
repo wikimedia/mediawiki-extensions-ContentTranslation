@@ -214,6 +214,7 @@
 	"cx-tools-linter-content": "Bepaalde inhoud voldoet niet aan [//www.mediawiki.org/wiki/Content_translation/Abuse_filter de beperkingen die voor Wikipedia in het $1] zijn ingesteld. Los de problemen op voordat u de vertaling publiceert.",
 	"cx-tools-linter-view-details": "Details bekijken",
 	"cx-tools-linter-hide-details": "Details verbergen",
+	"cx-translator-header": "Uw statistieken",
 	"cx-translator-month-stats-label": "Deze maand",
 	"cx-translator-total-translations-label": "Totaal",
 	"cx-page-old-revision-loaded": "Deze vertaling is gebaseerd op een oudere versie van de inhoud. De bronpagina kan [$1 sterk gewijzigd] zijn. U kunt doorgaan met de vertaling of opnieuw beginnen om de bijgewerkte inhoud te gebruiken.",

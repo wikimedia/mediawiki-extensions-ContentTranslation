@@ -225,8 +225,10 @@
 	"cx-template-action-skip": "این الگو را رد کن",
 	"cx-template-not-available": "در $1 در دسترس نیست",
 	"cx-translation-template-add-more": "افزودن فیلدهای بیشتر",
+	"cx-translation-template-select-param": "انتخاب پارامتر مقصد",
 	"cx-tools-category-add": "افزودن رده",
 	"cx-publish-destination-header": "انتشار مقصد",
 	"cx-publish-destination-namespace-main": "صفحه جدید",
-	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی"
+	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی",
+	"cx-linkcontextitem-title": "پیوند تطبیق‌یافته"
 }
