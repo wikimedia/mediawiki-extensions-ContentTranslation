@@ -161,16 +161,17 @@
 		min-height: @item-height;
 
 		&__image {
-			background-color: @colorGray14;
-			.background-image-svg('../images/article-grey-ltr.svg', '../images/article-grey-ltr.png');
+			background-color: #dfe3e8;
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
 
-			display: block;
+			&.oo-ui-iconElement-icon {
+				opacity: 0.65;
+			}
+
 			height: @image-size;
 			width: @image-size;
-			border: 0;
 			margin: 0.5em;
 		}
 

@@ -234,13 +234,18 @@
 .cx-slitem__image {
 	.mw-ui-one-sixth;
 
-	.background-image-svg('../../dashboard/images/page_lightgray.svg', '../../dashboard/images/page_lightgray.png');
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-color: @gray-lighter;
-	min-width: 84px;
+	background-size: cover;
 	width: 84px;
-	height: 84px;
-	border-radius: @borderRadius;
+	/* Force size in flex box model */
+	min-width: 84px;
+	min-height: 84px;
 	padding: 0;
+
+	&.oo-ui-icon-page-existing {
+		background-size: 80%;
+		background-color: #dfe3e8;
+		opacity: 0.65;
+	}
 }

@@ -913,6 +913,7 @@
 				"ext.cx.util",
 				"jquery.uls.data",
 				"moment",
+				"mediawiki.widgets",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation",
 				"oojs-ui.styles.icons-editing-core",
@@ -946,6 +947,7 @@
 				"ext.cx.util",
 				"jquery.uls.data",
 				"mediawiki.storage",
+				"mediawiki.widgets",
 				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
