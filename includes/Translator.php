@@ -184,6 +184,7 @@ class Translator {
 
 	/**
 	 * Get the stats for all translator counts.
+	 * @return array
 	 */
 	public static function getStats() {
 		return [

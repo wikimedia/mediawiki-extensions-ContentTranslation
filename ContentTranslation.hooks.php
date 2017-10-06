@@ -48,6 +48,8 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: BeforePageDisplay
+	 * @param OutputPage $out
+	 * @param Skin $skin
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
 		global $wgContentTranslationEventLogging, $wgContentTranslationCampaigns;
@@ -107,7 +109,7 @@ class ContentTranslationHooks {
 	/**
 	 * Hook: GetBetaFeaturePreferences
 	 * @param User $user
-	 * @param array $prefs
+	 * @param array &$prefs
 	 */
 	public static function getPreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath, $wgContentTranslationBrowserBlacklist;
@@ -132,6 +134,7 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: EventLoggingRegisterSchemas
+	 * @param array &$schemas
 	 */
 	public static function addEventLogging( array &$schemas ) {
 		$schemas['ContentTranslation'] = 11628043;
@@ -162,7 +165,7 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: ResourceLoaderGetConfigVars
-	 * @param array $vars
+	 * @param array &$vars
 	 */
 	public static function addConfig( array &$vars ) {
 		global $wgContentTranslationTranslateInTarget,
@@ -196,7 +199,7 @@ class ContentTranslationHooks {
 	/**
 	 * Hooks: ListDefinedTags and ChangeTagsListActive
 	 * Define the content translation change tag, and mark it as active.
-	 * @param array $tags
+	 * @param array &$tags
 	 * @return bool
 	 */
 	public static function registerTags( array &$tags ) {
@@ -206,6 +209,9 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: EditPage::showEditForm:initial
+	 * @param EditPage $newPage
+	 * @param OutputPage $out
+	 * @return true
 	 */
 	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
 		global $wgContentTranslationCampaigns, $wgContentTranslationEventLogging;
@@ -234,6 +240,9 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: User::UserSaveOptions
+	 * @param User $user
+	 * @param array &$saveOptions
+	 * @return true
 	 */
 	public static function onSaveOptions( $user, &$saveOptions ) {
 		$out = RequestContext::getMain()->getOutput();
@@ -266,12 +275,12 @@ class ContentTranslationHooks {
 	}
 
 	/**
-	* Add notification events to Echo
-	*
-	* @param array $notifications array of Echo notifications
-	* @param array $notificationCategories array of Echo notification categories
-	* @param array $icons array of icon details
-	*/
+	 * Add notification events to Echo
+	 *
+	 * @param array &$notifications array of Echo notifications
+	 * @param array &$notificationCategories array of Echo notification categories
+	 * @param array &$icons array of icon details
+	 */
 	public static function onBeforeCreateEchoEvent(
 		&$notifications, &$notificationCategories, &$icons
 	) {
@@ -314,11 +323,11 @@ class ContentTranslationHooks {
 	}
 
 	/**
-	* Add user to be notified on echo event
-	* @param EchoEvent $event
-	* @param array $users
-	* @return bool
-	*/
+	 * Add user to be notified on echo event
+	 * @param EchoEvent $event
+	 * @param array &$users
+	 * @return bool
+	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
 			case 'cx-first-translation':
@@ -340,6 +349,7 @@ class ContentTranslationHooks {
 
 	/**
 	 * Hook: ResourceLoaderTestModules
+	 * @param array &$modules
 	 */
 	public static function onResourceLoaderTestModules( array &$modules ) {
 		$resourcePaths = [

@@ -79,6 +79,7 @@ class SuggestionList {
 	}
 
 	/**
+	 * @param \IContextSource $context
 	 * @return \Message
 	 */
 	public function getDisplayNameMessage( \IContextSource $context ) {

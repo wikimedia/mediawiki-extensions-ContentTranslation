@@ -20,6 +20,9 @@ class SiteMapper {
 
 	/**
 	 * Get the API URL constructed from the domain template of sites
+	 * @param string $language
+	 * @param array $params
+	 * @return string
 	 */
 	public static function getApiURL( $language, $params = null ) {
 		global $wgContentTranslationSiteTemplates;
@@ -34,6 +37,9 @@ class SiteMapper {
 
 	/**
 	 * Get the page URL constructed from the domain template of sites
+	 * @param string $language
+	 * @param string $title
+	 * @return string
 	 */
 	public static function getPageURL( $language, $title ) {
 		global $wgContentTranslationSiteTemplates;

@@ -300,8 +300,8 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * Determines if the article is being published with a high amount of
 	 * unedited MT content.
 	 *
-	 * @param {array} progress
-	 * @return {boolean}
+	 * @param array $progress
+	 * @return bool
 	 */
 	protected function hasHighMT( $progress ) {
 		if (

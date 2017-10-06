@@ -9,6 +9,7 @@ class Notification {
 
 	/**
 	 * Notify the user on the first published translation.
+	 * @param \User $recipient
 	 */
 	public static function firstTranslation( \User $recipient ) {
 		\EchoEvent::create( [
@@ -21,6 +22,7 @@ class Notification {
 
 	/**
 	 * Notify the user on the 10th published translation.
+	 * @param \User $recipient
 	 */
 	public static function tenthTranslation( \User $recipient ) {
 		\EchoEvent::create( [
@@ -33,6 +35,7 @@ class Notification {
 
 	/**
 	 * Notify the user on the 100th published translation.
+	 * @param \User $recipient
 	 */
 	public static function hundredthTranslation( \User $recipient ) {
 		\EchoEvent::create( [
@@ -45,6 +48,8 @@ class Notification {
 
 	/**
 	 * Notify the user about the availability of personalized suggestions.
+	 * @param \User $recipient
+	 * @param string $lastTranslationTitle
 	 */
 	public static function suggestionsAvailable( \User $recipient, $lastTranslationTitle ) {
 		\EchoEvent::create( [

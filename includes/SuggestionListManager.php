@@ -5,6 +5,7 @@ namespace ContentTranslation;
 class SuggestionListManager {
 
 	/**
+	 * @param SuggestionList $list
 	 * @return int Id of the list.
 	 */
 	public function insertList( SuggestionList $list ) {

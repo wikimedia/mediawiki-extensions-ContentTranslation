@@ -190,7 +190,7 @@ class ApiContentTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * @param $translationUnits
+	 * @param array $translationUnits
 	 * @param Translation $translation Recently saved parent translation object
 	 */
 	protected function saveTranslationUnits( $translationUnits, Translation $translation ) {

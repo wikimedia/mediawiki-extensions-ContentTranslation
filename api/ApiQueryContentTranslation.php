@@ -112,6 +112,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 	/**
 	 * Find a translation with any status for the given language pair and title.
+	 * @param TranslationWork $work
+	 * @param Translator $translator
 	 */
 	public function find( TranslationWork $work, Translator $translator ) {
 		$result = $this->getResult();

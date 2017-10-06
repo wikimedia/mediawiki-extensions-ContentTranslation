@@ -78,6 +78,7 @@ class Translation {
 	/**
 	 * A convenient abstraction of create and update methods. Checks if
 	 * translation exists and chooses either of create or update actions.
+	 * @param Translator $translator
 	 */
 	public function save( Translator $translator ) {
 		$dbr = Database::getConnection( DB_REPLICA );
@@ -229,6 +230,7 @@ class Translation {
 
 	/**
 	 * Get the stats for all translations in draft or published status.
+	 * @return array
 	 */
 	public static function getStats() {
 		return array_merge( self::getDraftStats(), self::getPublishedStats() );
@@ -239,6 +241,7 @@ class Translation {
 	 * any published URL.
 	 * If the translation is with draft status and has a target_url it
 	 * was published atleast once.
+	 * @return array
 	 */
 	public static function getDraftStats() {
 		$dbr = Database::getConnection( DB_REPLICA );
@@ -278,6 +281,7 @@ class Translation {
 	 * Get the stats for all translations in published status or having
 	 * a published URL.
 	 * If the translation has a target_url it was published atleast once.
+	 * @return array
 	 */
 	public static function getPublishedStats() {
 		$dbr = Database::getConnection( DB_REPLICA );
@@ -318,6 +322,8 @@ class Translation {
 	/**
 	 * Get time-wise cumulative number of deletions for given
 	 * language pairs, with given interval.
+	 * @param string $interval
+	 * @return array
 	 */
 	public static function getDeletionTrend( $interval ) {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -373,6 +379,7 @@ class Translation {
 	 * @param string $target Target language code
 	 * @param string $status Status of translation. Either 'published' or 'draft'
 	 * @param string $interval 'weekly' or 'monthly' trend
+	 * @param string $translatorId
 	 * @return array
 	 */
 	public static function getTrendByStatus(
@@ -524,6 +531,7 @@ class Translation {
 	}
 
 	/**
+	 * @param stdClass $row
 	 * @return Translation
 	 */
 	public static function newFromRow( $row ) {
