@@ -268,8 +268,8 @@
 			sourceDir, targetDir, $targetTitle,
 			$translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer,
-			$actionsTrigger, $deleteTranslation, $menu, $menuContainer,
-			$continueTranslation,
+			$actionsTrigger, deleteTranslation, $menu, $menuContainer,
+			continueTranslation,
 			$titleLanguageBlock,
 			$translations = [];
 
@@ -350,20 +350,25 @@
 
 			$actionsTrigger = $( '<div>' )
 				.addClass( 'cx-tlitem__actions__trigger oo-ui-iconElement-icon oo-ui-icon-ellipsis' );
+			$menu = $( '<ul>' );
 
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
-				$deleteTranslation = $( '<li>' )
-					.addClass( 'cx-discard-translation' )
-					.text( mw.msg( 'cx-discard-translation' ) );
-				$menu = $( '<ul>' )
-					.append( $deleteTranslation );
+				deleteTranslation = new OO.ui.ButtonWidget( {
+					framed: false,
+					classes: [ 'cx-discard-translation' ],
+					label: mw.msg( 'cx-discard-translation' ),
+					icon: 'trash'
+				} );
+				$menu.append( $( '<li>' ).append( deleteTranslation.$element ) );
 			} else if ( translation.status === 'published' ) {
-				$continueTranslation = $( '<li>' )
-					.addClass( 'cx-continue-translation' )
-					.text( mw.msg( 'cx-continue-translation' ) );
-				$menu = $( '<ul>' )
-					.append( $continueTranslation );
+				continueTranslation = new OO.ui.ButtonWidget( {
+					framed: false,
+					classes: [ 'cx-continue-translation' ],
+					icon: 'edit',
+					label: mw.msg( 'cx-continue-translation' )
+				} );
+				$menu.append( $( '<li>' ).append( continueTranslation.$element ) );
 			}
 			$menuContainer = $( '<div>' )
 				.addClass( 'cx-tlitem__actions' )
