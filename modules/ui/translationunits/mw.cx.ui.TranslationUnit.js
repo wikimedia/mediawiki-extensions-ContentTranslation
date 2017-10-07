@@ -49,7 +49,7 @@ mw.cx.ui.TranslationUnit.prototype.init = function () {
 };
 
 /**
- * Adapt this translation unit to target langauge
+ * Adapt this translation unit to target language
  */
 mw.cx.ui.TranslationUnit.prototype.adapt = function () {};
 
