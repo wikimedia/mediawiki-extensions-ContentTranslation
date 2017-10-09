@@ -349,7 +349,7 @@
 				.append( $sourceLanguage, $targetLanguage );
 
 			$actionsTrigger = $( '<div>' )
-				.addClass( 'cx-tlitem__actions__trigger' );
+				.addClass( 'cx-tlitem__actions__trigger oo-ui-iconElement-icon oo-ui-icon-ellipsis' );
 
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {

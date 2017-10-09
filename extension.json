@@ -905,7 +905,8 @@
 				"ext.cx.util",
 				"ext.cx.widgets.overlay",
 				"jquery.uls.data",
-				"moment"
+				"moment",
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-dashboard-header",
