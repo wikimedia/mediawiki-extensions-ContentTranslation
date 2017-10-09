@@ -97,6 +97,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "要翻译的页面在$1上不存在",
 	"cx-sourceselector-missing-in-target-language": "缺少$1版本",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|每周$1次访问|0=本周没有访问}}",
+	"cx-sourceselector-embedded-recent-edits": "最近由您编辑",
+	"cx-sourceselector-embedded-recent-edits-no-results": "记录您感兴趣的任何话题。您不需要成为专家便可创建伟大的翻译。",
 	"cx-mt-abuse-warning-title": "您的译文{{PLURAL:$1|包含}}$1%未校订的机器翻译文本",
 	"cx-mt-abuse-warning-text": "机器翻译只作为出发点提供。您需要确保内容在您的语言准确且阅读流畅。",
 	"cx-publish-captcha-title": "安全问题",

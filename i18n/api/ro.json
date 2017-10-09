@@ -1,20 +1,49 @@
 {
 	"@metadata": {
 		"authors": [
-			"KlaudiuMihaila"
+			"KlaudiuMihaila",
+			"Strainu"
 		]
 	},
+	"apihelp-cxpublish-description": "Salvează o pagină creată folosind extensia Content Translation",
+	"apihelp-cxpublish-summary": "Salvează o pagină creată folosind extensia Content Translation",
+	"apihelp-cxpublish-param-title": "Titlul paginii pe care să fie efectuate acțiunile.",
+	"apihelp-cxpublish-param-html": "Conținutul de salvat.",
 	"apihelp-cxpublish-param-from": "Codul limbii sursă.",
 	"apihelp-cxpublish-param-to": "Codul limbii destinație.",
 	"apihelp-cxpublish-param-sourcetitle": "Titlul paginii sursă.",
-	"apihelp-cxpublish-param-sourcerevision": "Versiunea paginii sursă.",
+	"apihelp-cxpublish-param-categories": "Categoriile în care să fie inserată pagina publicată.",
+	"apihelp-query+contenttranslation-param-from": "Codul limbii sursă.",
+	"apihelp-query+contenttranslation-param-to": "Codul limbii destinație.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Titlul paginii sursă.",
+	"apihelp-query+contenttranslation-param-limit": "Numărul maxim de traduceri de obținut.",
+	"apihelp-query+contenttranslation-param-type": "Starea traducerii.",
+	"apihelp-query+contenttranslationstats-description": "Statistici pentru Traducerea conținutului.",
+	"apihelp-query+contenttranslationstats-summary": "Statistici pentru Traducerea conținutului.",
+	"apihelp-query+contenttranslationstats-example-1": "Obține statistici pentru Traducerea conținutului în toate limbile.",
 	"apihelp-cxconfiguration-param-from": "Codul limbii sursă.",
 	"apihelp-cxconfiguration-param-to": "Codul limbii destinație.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Codul limbii sursă.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Codul limbii destinație.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Codul limbii sursă.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Codul limbii destinație.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Codul limbii sursă.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Codul limbii destinație.",
+	"apihelp-cxtoken-description": "Obține tokeni JWT pentru autentificarea cu cxserver.",
+	"apihelp-cxtoken-summary": "Obține tokeni JWT pentru autentificarea cu cxserver.",
 	"apihelp-cxdelete-param-from": "Codul limbii sursă.",
 	"apihelp-cxdelete-param-to": "Codul limbii destinație.",
-	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă."
+	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă.",
+	"apihelp-cxsuggestionlist-param-from": "Codul limbii sursă.",
+	"apihelp-cxsuggestionlist-param-to": "Codul limbii destinație.",
+	"apihelp-cxsave-param-sourcerevision": "Versiunea paginii sursă.",
+	"apihelp-cxsave-param-from": "Codul limbii sursă.",
+	"apihelp-cxsave-param-to": "Codul limbii destinație.",
+	"apihelp-cxsave-param-sourcetitle": "Titlul paginii sursă.",
+	"apierror-cx-docserverexception": "Eroare în timpul conversiei din HTML în wikitext: $1",
+	"apierror-cx-inuse": "Un alt utilizator traduce deja acest articol.",
+	"apierror-cx-invalidlanguage": "Limbă incorectă.",
+	"apierror-cx-invalidsourcelanguage": "Limbă sursă incorectă.",
+	"apierror-cx-invalidtargetlanguage": "Limbă destinație incorectă.",
+	"apierror-cx-jwtmissing": "JWT nu este instalat."
 }

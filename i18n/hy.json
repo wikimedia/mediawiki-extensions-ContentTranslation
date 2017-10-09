@@ -6,7 +6,8 @@
 			"GrigorGB",
 			"Դավիթ Սարոյան",
 			"Աշոտ1997",
-			"Lilitik22"
+			"Lilitik22",
+			"Kareyac"
 		]
 	},
 	"cx": "Թարգմանիր էջը",
@@ -100,9 +101,9 @@
 	"cx-suggestionlist-empty-title": "Առաջարկություն չկա",
 	"cx-suggestionlist-featured": "Ընտրյալ",
 	"cx-suggestionlist-view-source-page": "Տեսնել սկզբնական հոդվածը",
-	"cx-translation-filter-from-any-language": "Ցանկացած լեզվից",
-	"cx-translation-filter-to-any-language": "Ցանկացած լեզու",
 	"cx-create-new-translation": "Ստեղծել նոր թարգմանություն",
+	"cx-translation-filter-label-all-languages": "Բոլորը",
+	"cx-translation-filter-uls-all-languages": "Բոլոր լեզուները",
 	"cx-save-draft-save-success": "Պահվել է {{PLURAL:$1|մեկ րոպե առաջ|$1 րոպե առաջ|0=քիչ առաջ}}",
 	"cx-save-draft-saving": "Պահպանվում է...",
 	"cx-save-draft-tooltip": "Թարգմանության սևագրությունները պահվում են ավտոմատ",

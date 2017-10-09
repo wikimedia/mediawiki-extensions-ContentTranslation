@@ -86,6 +86,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "D'Säit déi soll iwwersat gi gëtt et net op $1",
 	"cx-sourceselector-missing-in-target-language": "Feelt op $1",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|E Besuch pro|$1 Besicher pro|0=Kee Besuch an dëser}} Woch",
+	"cx-sourceselector-embedded-recent-edits": "Rezent vun Iech geännert",
+	"cx-sourceselector-embedded-recent-edits-no-results": "Denkt un e Sujet deen Iech interesséiert. Dir braucht keen Expert ze si fir eng gutt Iwwersetzung ze maachen.",
 	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung {{PLURAL:$1|ass|si(nn)}} $1% onverännerten Text aus Maschinnen-Iwwersetzung",
 	"cx-mt-abuse-warning-text": "Maschinneniwwersetzung gëtt just als Ausgangspunkt geliwwert. Dir musst Iech vergewësseren datt den Inhalt appropriéiert ass an datt e sech an Ärer Sprooch natierlech liese léist.",
 	"cx-publish-captcha-title": "Sécherheetsfro",

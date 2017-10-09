@@ -123,6 +123,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "La page à traduire n’existe pas dans $1",
 	"cx-sourceselector-missing-in-target-language": "Absent en $1",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Aucune visite cette}} semaine",
+	"cx-sourceselector-embedded-recent-edits": "Récemment modifié par vous",
+	"cx-sourceselector-embedded-recent-edits-no-results": "Pensez à un sujet qui vous intéresse. Vous n’avez pas besoin d’être un expert pour créer une bonne traduction.",
 	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1 % de texte traduit automatiquement et non modifié.",
 	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme modèle. Vous devez vous assurer que le contenu est exact et se lit de façon naturelle dans votre langue.",
 	"cx-publish-captcha-title": "Question de sécurité",

@@ -79,8 +79,6 @@
 	"cx-suggestionlist-favorite": "ТӀаьхьена",
 	"cx-suggestionlist-title": "Кхин кховдорш",
 	"cx-suggestionlist-featured": "Хаьржина",
-	"cx-translation-filter-from-any-language": "Муьлхачу маттера",
-	"cx-translation-filter-to-any-language": "Муьлхачу матте",
 	"cx-create-new-translation": "Кхолла керла гочдар",
 	"cx-save-draft-save-success": "Ӏалашйина {{PLURAL:$1|$1 минот}} хьалха",
 	"cx-save-draft-saving": "Ӏалашъяр...",
@@ -143,6 +141,6 @@
 	"cx-tools-link-external-link-placeholder": "ТӀетоха арахьара хьажорг",
 	"cx-tools-link-to-another-page": "Кхечу агӀона тӀе хьажорг",
 	"cx-tools-link-apply": "Кийчча ю",
-	"mw-pageselector-missing": "Ишта агӀо яц",
+	"mw-pageselector-missing": "Иштта агӀо яц",
 	"cx-tools-mt-new-provider": "керла"
 }
