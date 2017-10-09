@@ -98,11 +98,56 @@
 	}
 }
 
-.cx-slitem__desc {
-	color: @colorGray7;
-	padding: 5px 0;
-	font-size: 0.8125em;
-	text-align: left;
+.cx-slitem  {
+	&:hover {
+		.cx-slitem__desc:after {
+			background-color: #eff3fb;
+			.transition( background-color 100ms );
+		}
+	}
+
+	&__desc {
+		color: @colorGray7;
+
+		overflow: hidden;
+		clear: both;
+		position: relative;
+
+		box-sizing: border-box;
+		width: 100%;
+		// We want to limit number of lines that description for
+		// suggestion item takes. Maximum height is thus set to
+		// get maximum of three line heights. Before and after
+		// elements are tricks used to provide ellipsis truncation
+		max-height: 3.6em; // line-height * 3
+		margin: 0.5em -1em 0.5em 0;
+		padding-right: 1em;
+
+		font-size: 0.8125em;
+		line-height: 1.2;
+		text-align: justify;
+
+		&:before {
+			// This is needed so we can use localized 'ellipsis'
+			content: attr( data-ellipsis );
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+
+		&:after {
+			content: '';
+
+			background-color: #fff;
+			position: absolute;
+			right: 0;
+			width: 1em;
+			height: 1em;
+			margin-top: 0.2em;
+
+			.transition( background-color 100ms );
+		}
+	}
 }
 
 .cx-slitem__details {

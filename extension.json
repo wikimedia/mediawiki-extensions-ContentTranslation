@@ -938,6 +938,7 @@
 				"mediawiki.storage"
 			],
 			"messages": [
+				"ellipsis",
 				"cx-suggestionlist-collapse",
 				"cx-suggestionlist-empty-desc",
 				"cx-suggestionlist-empty-title",
