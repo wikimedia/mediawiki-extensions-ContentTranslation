@@ -211,7 +211,6 @@ class ContentTranslationHooks {
 	 * Hook: EditPage::showEditForm:initial
 	 * @param EditPage $newPage
 	 * @param OutputPage $out
-	 * @return true
 	 */
 	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
 		global $wgContentTranslationCampaigns, $wgContentTranslationEventLogging;
@@ -226,7 +225,7 @@ class ContentTranslationHooks {
 			$user->isAnon() ||
 			self::isBetaFeatureEnabled( $user )
 		) {
-			return true;
+			return;
 		}
 
 		// If EventLogging integration is enabled, load the event logging functions module
