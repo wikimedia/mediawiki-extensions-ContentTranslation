@@ -26,6 +26,7 @@
 		// Boolean property indicating if CXSourceSelector is used as
 		// modal dialog or embedded
 		this.isEmbedded = !!options.container && options.container instanceof jQuery;
+		this.isArticleSelected = false;
 
 		// this.$container is used for both types of CXSourceSelector - embedded and modal dialog
 		// Embedded version - $container field gets DOM container passed through options parameter
@@ -49,9 +50,10 @@
 		this.$languageFilter = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
-		this.$discardItem = null;
+		this.$discardButton = null;
 		this.$sourceInputs = null;
 		this.$searchResults = null;
+		this.$searchResultsMessage = null;
 		this.$messageBar = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
@@ -121,6 +123,9 @@
 			self.render();
 			self.setDefaultLanguages();
 			self.prefill();
+			if ( self.isEmbedded ) {
+				self.populateRecentEdits();
+			}
 			self.listen();
 		} );
 
@@ -181,6 +186,92 @@
 				);
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 			} );
+	};
+
+	/**
+	 * Gets recently edited articles by user using usercontribs API
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	CXSourceSelector.prototype.getRecentlyEditedArticleTitles = function () {
+		var params, userName = mw.config.get( 'wgUserName' ),
+			api = this.siteMapper.getApi( this.sourceLanguage );
+
+		params = {
+			action: 'query',
+			list: [ 'usercontribs' ],
+			ucuser: userName,
+			uclimit: 5,
+			ucnamespace: 0, // Main namespace
+			ucprop: 'title'
+		};
+
+		return api.get( params ).then( function ( data ) {
+			var articles = OO.getProp( data, 'query', 'usercontribs' );
+
+			if ( !articles ) {
+				return $.Deferred().reject( 'No recent user contributions' ).promise();
+			}
+
+			return articles.map( function ( article ) {
+				return article.title;
+			} );
+		}, function ( error ) {
+			mw.log( 'Error getting recent edits for ' + userName + '. ' + error );
+		} );
+	};
+
+	/**
+	 * Get the thumbnail image, description and langlinks count for articles with the given titles.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	CXSourceSelector.prototype.getPageDetails = function () {
+		var self = this;
+
+		return this.getRecentlyEditedArticleTitles().then( function ( titles ) {
+			return self.siteMapper.getApi( self.sourceLanguage ).get( {
+				action: 'query',
+				titles: titles,
+				prop: [ 'pageimages', 'pageterms', 'langlinks', 'langlinkscount' ],
+				piprop: 'thumbnail',
+				pilimit: 10,
+				pithumbsize: 80,
+				lllang: self.targetLanguage,
+				wbptterms: [ 'description' ]
+			} );
+		}, function ( error ) {
+			mw.log( 'Error getting recent edit titles. ' + error );
+		} );
+	};
+
+	/**
+	 * Uses page details loaded from server to register search result data for case
+	 * when user does not provide any input
+	 */
+	CXSourceSelector.prototype.populateRecentEdits = function () {
+		var self = this;
+
+		this.getPageDetails().done( function ( data ) {
+			var pages = OO.getProp( data, 'query', 'pages' );
+
+			self.sourcePageSelector.requestCache[ '' ] = {
+				pages: pages || {}
+			};
+			self.sourcePageSelector.populateLookupMenu();
+
+			if ( !pages ) {
+				self.$searchResultsMessage
+					.addClass( 'cx-sourceselector-embedded__search-results-label--no-results' )
+					.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-no-results' ) );
+			} else {
+				self.$searchResultsMessage
+					.removeClass( 'cx-sourceselector-embedded__search-results-label--no-results' )
+					.text( mw.msg( 'cx-sourceselector-embedded-recent-edits' ) );
+			}
+		} ).fail( function ( error ) {
+			mw.log( 'Error getting page data. ' + error );
+		} );
 	};
 
 	/**
@@ -396,6 +487,10 @@
 			self.translateFromButton.setDisabled( false );
 			// Hide any previous errors.
 			self.$messageBar.hide();
+
+			if ( self.isEmbedded ) {
+				self.$searchResultsMessage.toggle( !self.sourcePageSelector.getValue() );
+			}
 		} );
 
 		if ( !this.isEmbedded ) {
@@ -408,10 +503,16 @@
 				this.$sourceInputs.toggleClass( 'cx-sourceselector-embedded__source-inputs--focused' );
 			};
 
+			this.$discardButton.click( this.discardEmbeddedDialog.bind( this ) );
 			this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
-			this.$discardItem.click( this.discardSelectedItem.bind( this ) );
-			this.sourcePageSelector.$input.on( 'focus', sourceInputFocus.bind( this ) );
-			this.sourcePageSelector.$input.on( 'blur', sourceInputFocus.bind( this ) );
+
+			// Unbind event handlers so search results don't disappear when focus is lost
+			this.sourcePageSelector.$input.off( 'blur' );
+			this.sourcePageSelector.lookupMenu.onDocumentMouseDownHandler = function () {};
+			// Disable width and height calculation for search results container
+			this.sourcePageSelector.lookupMenu.setIdealSize = function () {};
+
+			this.sourcePageSelector.$input.on( 'focus blur', sourceInputFocus.bind( this ) );
 		}
 
 		// Keypress (start translation on enter key)
@@ -460,13 +561,19 @@
 		this.sourcePageSelector.setLanguage( language );
 
 		if ( this.isEmbedded ) {
-			this.changeSelectedItemTitle( language );
-			this.$selectedItemMetrics.children( '.cx-sourceselector-embedded-selected-item__pageviews' ).remove();
-			this.getPageInfo( this.sourceTitles[ language ] ).done( function ( data ) {
-				self.renderPageViews( data.pageviews );
-			} ).fail( function ( error ) {
-				mw.log( 'Error getting page info for ' + self.sourceTitles[ language ] + '. ' + error );
-			} );
+			this.sourcePageSelector.closeLookupMenu();
+			this.populateRecentEdits();
+			this.sourcePageSelector.toggle( true );
+
+			if ( this.isArticleSelected ) {
+				this.changeSelectedItemTitle( language );
+				this.$selectedItemMetrics.children( '.cx-sourceselector-embedded-selected-item__pageviews' ).remove();
+				this.getPageInfo( this.sourceTitles[ language ] ).done( function ( data ) {
+					self.renderPageViews( data.pageviews );
+				} ).fail( function ( error ) {
+					mw.log( 'Error getting page info for ' + self.sourceTitles[ language ] + '. ' + error );
+				} );
+			}
 		}
 
 		this.check();
@@ -741,10 +848,11 @@
 		var overlayOptions = {};
 
 		if ( !this.overlay ) {
-			overlayOptions.closeOnClick = this.discardSelectedItem.bind( this );
+			overlayOptions.closeOnClick = this.discardEmbeddedDialog.bind( this );
 			this.overlay = new mw.cx.widgets.Overlay( 'body', overlayOptions );
 		}
 
+		this.sourcePageSelector.toggle( true );
 		this.overlay.show();
 		this.$container.slideDown( 'fast' );
 	};
@@ -897,7 +1005,7 @@
 			mw.log( 'Error getting page info for ' + itemTitle + '. ' + error );
 		} );
 
-		this.sourcePageSelector.setValue( item.getData() );
+		this.sourcePageSelector.setValueNoEmit( item.getData() );
 
 		itemImage = item.$icon.css( 'background-image' );
 		if ( itemImage !== 'none' ) {
@@ -921,8 +1029,9 @@
 		}
 
 		this.$container.addClass( 'cx-sourceselector-embedded--selected' );
+		this.isArticleSelected = true;
 
-		this.$languageFilter.insertBefore( this.$discardItem );
+		this.$selectedItem.append( this.$languageFilter, this.$discardButton );
 
 		// Check will display a warning if target language (which is default,
 		// up to the first article selection) already has an article.
@@ -931,7 +1040,7 @@
 		this.check();
 	};
 
-	CXSourceSelector.prototype.discardSelectedItem = function () {
+	CXSourceSelector.prototype.discardEmbeddedDialog = function () {
 		this.closeEmbeddedDialog(); // Close source selector
 		this.$messageBar.hide(); // Hide any previous messages
 
@@ -942,8 +1051,9 @@
 		this.$selectedItemImage.removeAttr( 'style' );
 
 		this.$container.removeClass( 'cx-sourceselector-embedded--selected' );
+		this.isArticleSelected = false;
 
-		this.$sourceInputs.append( this.$languageFilter );
+		this.$sourceInputs.append( this.$languageFilter, this.$discardButton );
 
 		// Reset source titles, as there is no selected item
 		this.sourceTitles = {};
@@ -956,7 +1066,7 @@
 		var href, title = this.sourceTitles[ language ];
 
 		if ( title ) {
-			this.sourcePageSelector.setValue( title );
+			this.sourcePageSelector.setValueNoEmit( title );
 
 			href = this.siteMapper.getPageUrl( language, title );
 			this.$selectedItemLink.prop( {
@@ -973,7 +1083,7 @@
 	 *
 	 * @param {string} title Title of the page for which data is fetched.
 	 * @param {Object} [params] Optional parameter used for fetching additional item data.
-	 * @return {Promise} Returns thenable promise, so langlinks can be processed if necessary.
+	 * @return {jQuery.Promise} Returns thenable promise, so langlinks can be processed if necessary.
 	 */
 	CXSourceSelector.prototype.getPageInfo = function ( title, params ) {
 		var api, self = this;
@@ -1206,8 +1316,12 @@
 		this.$selectedItem = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item' );
 
+		this.$searchResultsMessage = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__search-results-label' )
+			.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-no-results' ) );
 		this.$searchResults = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded__search-results' );
+			.addClass( 'cx-sourceselector-embedded__search-results' )
+			.append( this.$searchResultsMessage );
 
 		this.$sourceLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__language-button' );
@@ -1260,11 +1374,15 @@
 			$container: this.$searchResults
 		} );
 
+		this.$discardButton = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded-discard' );
+
 		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__source-inputs' )
 			.append(
 				this.sourcePageSelector.$element,
-				this.$languageFilter
+				this.$languageFilter,
+				this.$discardButton
 			);
 		this.$selectedItemImage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item__image' );
@@ -1279,13 +1397,9 @@
 			.addClass( 'cx-sourceselector-embedded-selected-item__info' )
 			.append( $selectedItemLinkContainer, this.$selectedItemMetrics );
 
-		this.$discardItem = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded-discard' );
-
 		this.$selectedItem.append(
 			this.$selectedItemImage,
-			$selectedItemInfo,
-			this.$discardItem
+			$selectedItemInfo
 		);
 
 		this.$messageBar = $( '<div>' )

@@ -353,7 +353,8 @@
 				"mediawiki.ui.button",
 				"mw.cx.ui.PageSelectorWidget",
 				"mw.cx.util",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui.styles.icons-interactions",
+				"oojs"
 			],
 			"messages": [
 				"cx-sourceselector-dialog-new-translation",
@@ -368,6 +369,8 @@
 				"cx-sourceselector-dialog-error-title-in-use",
 				"cx-sourceselector-dialog-error-no-source-article",
 				"cx-sourceselector-embedded-selected-item-pageviews",
+				"cx-sourceselector-embedded-recent-edits",
+				"cx-sourceselector-embedded-recent-edits-no-results",
 				"cx-license-agreement",
 				"cx-error-server-connection"
 			]
