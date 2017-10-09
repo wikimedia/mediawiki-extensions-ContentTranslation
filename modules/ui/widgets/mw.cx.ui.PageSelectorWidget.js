@@ -21,11 +21,12 @@
  */
 mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 	config = $.extend( {}, {
-		namespace: mw.config.get( 'wgNamespaceIds' ).main,
+		namespace: mw.config.get( 'wgNamespaceIds' )[ '' ], // Main namespace
 		limit: 5,
 		allowSuggestionsWhenEmpty: true,
 		showDescriptions: true,
 		showImages: true,
+		showMissing: false,
 		icon: 'search'
 	}, config );
 
@@ -116,4 +117,17 @@ mw.cx.ui.PageSelectorWidget.prototype.getApiParams = function () {
  */
 mw.cx.ui.PageSelectorWidget.prototype.createOptionWidget = function ( data ) {
 	return new mw.cx.ui.TitleOptionWidget( data );
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( data ) {
+	// Parent method
+	var optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.call( this, data );
+
+	this.$overlay.toggleClass( 'mw-cx-ui-PageSelectorWidget--no-results', !optionsData.length );
+	this.$overlay.toggleClass( 'mw-cx-ui-PageSelectorWidget--input', !!this.getQueryValue() );
+
+	return optionsData;
 };

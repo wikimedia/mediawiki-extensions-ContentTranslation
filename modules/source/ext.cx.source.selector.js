@@ -202,7 +202,7 @@
 			list: [ 'usercontribs' ],
 			ucuser: userName,
 			uclimit: 5,
-			ucnamespace: 0, // Main namespace
+			ucnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ], // Main namespace
 			ucprop: 'title'
 		};
 
@@ -259,16 +259,6 @@
 				pages: pages || {}
 			};
 			self.sourcePageSelector.populateLookupMenu();
-
-			if ( !pages ) {
-				self.$searchResultsMessage
-					.addClass( 'cx-sourceselector-embedded__search-results-label--no-results' )
-					.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-no-results' ) );
-			} else {
-				self.$searchResultsMessage
-					.removeClass( 'cx-sourceselector-embedded__search-results-label--no-results' )
-					.text( mw.msg( 'cx-sourceselector-embedded-recent-edits' ) );
-			}
 		} ).fail( function ( error ) {
 			mw.log( 'Error getting page data. ' + error );
 		} );
@@ -478,7 +468,7 @@
 	 * Listen for events.
 	 */
 	CXSourceSelector.prototype.listen = function () {
-		var self = this;
+		var proxied, self = this;
 		// Open or close the (embedded) dialog when clicking the link.
 		// The (embedded) dialog will be unitialized until the first click.
 		this.$trigger.click( this.show.bind( this ) );
@@ -489,7 +479,12 @@
 			self.$messageBar.hide();
 
 			if ( self.isEmbedded ) {
-				self.$searchResultsMessage.toggle( !self.sourcePageSelector.getValue() );
+				self.$searchResultsMessage.text(
+					mw.msg( 'cx-sourceselector-embedded-search-no-results',
+						self.sourcePageSelector.getQueryValue(),
+						$.uls.data.getAutonym( self.sourceLanguage )
+					)
+				);
 			}
 		} );
 
@@ -505,6 +500,17 @@
 			// Unbind event handlers so search results don't disappear when focus is lost
 			this.sourcePageSelector.$input.off( 'blur' );
 			this.sourcePageSelector.lookupMenu.onDocumentMouseDownHandler = function () {};
+			proxied = this.sourcePageSelector.lookupMenu.onKeyDownHandler;
+			this.sourcePageSelector.lookupMenu.onKeyDownHandler = function ( e ) {
+				if ( e.keyCode === OO.ui.Keys.TAB ) {
+					return;
+				}
+				if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
+					self.discardEmbeddedDialog();
+					return;
+				}
+				return proxied.apply( this, arguments );
+			};
 			// Disable width and height calculation for search results container
 			this.sourcePageSelector.lookupMenu.setIdealSize = function () {};
 		}
@@ -1300,6 +1306,10 @@
 			$selectedItemLinkContainer,
 			$sourceLanguageContainer,
 			$targetLanguageContainer,
+			$searchResultsLabel,
+			$recentEditsLabel,
+			$recentEditsMessage,
+			$recentEditsHeaderLabel,
 			$messageText,
 			translateButtonLabel,
 			$actions, $license,
@@ -1310,12 +1320,23 @@
 		this.$selectedItem = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item' );
 
-		this.$searchResultsMessage = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded__search-results-label' )
+		this.$searchResultsMessage = $( '<span>' )
+			.text( mw.msg( 'cx-sourceselector-embedded-search-no-results' ) );
+		$recentEditsMessage = $( '<span>' )
 			.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-no-results' ) );
+
+		$searchResultsLabel = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__search-message' )
+			.append( this.$searchResultsMessage );
+		$recentEditsLabel = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__recent-edits-message' )
+			.append( $recentEditsMessage );
+		$recentEditsHeaderLabel = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__recent-edits-header' )
+			.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-header' ) );
 		this.$searchResults = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__search-results' )
-			.append( this.$searchResultsMessage );
+			.append( $recentEditsHeaderLabel, $recentEditsLabel, $searchResultsLabel );
 
 		this.$sourceLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__language-button' );
@@ -1357,7 +1378,7 @@
 				$targetLanguageContainer
 			);
 		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
-			classes: [ 'cx-sourceselector-page-title' ],
+			classes: [ 'cx-sourceselector-embedded-page-title' ],
 			language: this.getSourceLanguage(),
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
