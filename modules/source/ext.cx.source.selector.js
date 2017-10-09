@@ -51,6 +51,7 @@
 		this.$targetLanguage = null;
 		this.$discardItem = null;
 		this.$sourceInputs = null;
+		this.$searchResults = null;
 		this.$messageBar = null;
 		this.$targetTitleInput = null;
 		this.overlay = null;
@@ -386,7 +387,7 @@
 	 * Listen for events.
 	 */
 	CXSourceSelector.prototype.listen = function () {
-		var self = this;
+		var sourceInputFocus, self = this;
 		// Open or close the (embedded) dialog when clicking the link.
 		// The (embedded) dialog will be unitialized until the first click.
 		this.$trigger.click( this.show.bind( this ) );
@@ -403,8 +404,14 @@
 				$.debounce( 600, false, this.check.bind( this ) )
 			);
 		} else {
+			sourceInputFocus = function () {
+				this.$sourceInputs.toggleClass( 'cx-sourceselector-embedded__source-inputs--focused' );
+			};
+
 			this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 			this.$discardItem.click( this.discardSelectedItem.bind( this ) );
+			this.sourcePageSelector.$input.on( 'focus', sourceInputFocus.bind( this ) );
+			this.sourcePageSelector.$input.on( 'blur', sourceInputFocus.bind( this ) );
 		}
 
 		// Keypress (start translation on enter key)
@@ -894,10 +901,7 @@
 
 		itemImage = item.$icon.css( 'background-image' );
 		if ( itemImage !== 'none' ) {
-			this.$selectedItemImage.css( {
-				'background-color': 'transparent',
-				'background-image': itemImage
-			} );
+			this.$selectedItemImage.css( 'background-image', itemImage );
 		}
 
 		this.$selectedItemLink.prop( {
@@ -1202,6 +1206,9 @@
 		this.$selectedItem = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item' );
 
+		this.$searchResults = $( '<div>' )
+			.addClass( 'cx-sourceselector-embedded__search-results' );
+
 		this.$sourceLanguage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__language-button' );
 
@@ -1248,7 +1255,9 @@
 			value: this.options.sourceTitle,
 			validateTitle: true,
 			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' ),
-			showRedirectTargets: true
+			showRedirectTargets: true,
+			$overlay: this.$searchResults,
+			$container: this.$searchResults
 		} );
 
 		this.$sourceInputs = $( '<div>' )
@@ -1303,6 +1312,7 @@
 			.append( this.translateFromButton.$element );
 
 		this.$container.append( this.$sourceInputs,
+			this.$searchResults,
 			this.$selectedItem,
 			this.$messageBar,
 			$license,

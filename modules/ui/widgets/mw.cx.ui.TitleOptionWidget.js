@@ -27,6 +27,8 @@
 		// Parent constructor
 		mw.cx.ui.TitleOptionWidget.parent.call( this, config );
 
+		this.$element.addClass( 'mw-cx-widget-titleOptionWidget' );
+
 		if ( config.numOfLanguages ) {
 			languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
@@ -37,7 +39,7 @@
 			} );
 			this.$element.append(
 				$( '<span>' )
-					.addClass( 'mw-widget-titleOptionWidget-numOfLanguages' )
+					.addClass( 'mw-cx-widget-titleOptionWidget-numOfLanguages' )
 					.append(
 						languageIcon.$element,
 						languageLabel.$element
@@ -48,7 +50,7 @@
 		if ( config.missingInTargetLanguage ) {
 			this.$element.append(
 				$( '<span>' )
-					.addClass( 'mw-widget-titleOptionWidget-missing' )
+					.addClass( 'mw-cx-widget-titleOptionWidget-missing' )
 					.text( mw.msg( 'cx-sourceselector-missing-in-target-language',
 						$.uls.data.getAutonym( config.targetLanguage ) )
 					)
