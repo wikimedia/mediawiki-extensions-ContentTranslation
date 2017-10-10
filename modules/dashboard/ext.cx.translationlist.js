@@ -34,7 +34,6 @@
 
 		this.$selectedActionMenu = null;
 		this.$headerContainer = null;
-		this.$confirmationDialog = null;
 		this.active = false;
 		this.promise = null;
 		this.queryContinue = null;
@@ -426,20 +425,28 @@
 			e.stopPropagation();
 			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
 
-			self.showDiscardConfirmation( translation ).done( function () {
-				self.discardTranslation( translation ).done( function ( response ) {
-					if ( response.cxdelete.result !== 'success' ) {
-						return;
-					}
-					translation.status = 'deleted';
-					self.markTranslationAsDeleted( translation );
-					mw.hook( 'mw.cx.translation.deleted' ).fire(
-						translation.sourceLanguage,
-						translation.targetLanguage,
-						translation.sourceTitle,
-						translation.targetTitle
-					);
-				} );
+			OO.ui.getWindowManager().openWindow( 'message', $.extend( {
+				message: mw.msg( 'cx-draft-discard-confirmation-message' ),
+				actions: [
+					{ action: 'discard', label: mw.msg( 'cx-draft-discard-button-label' ), flags: [ 'primary', 'destructive' ] },
+					{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
+				]
+			} ) ).closed.then( function ( data ) {
+				if ( data && data.action === 'discard' ) {
+					self.discardTranslation( translation ).done( function ( response ) {
+						if ( response.cxdelete.result !== 'success' ) {
+							return;
+						}
+						translation.status = 'deleted';
+						self.markTranslationAsDeleted( translation );
+						mw.hook( 'mw.cx.translation.deleted' ).fire(
+							translation.sourceLanguage,
+							translation.targetLanguage,
+							translation.sourceTitle,
+							translation.targetTitle
+						);
+					} );
+				}
 			} );
 		} );
 
@@ -510,64 +517,6 @@
 		if ( scrollTop > 0 && scrollTop + windowHeight + 100 > $( document ).height() ) {
 			this.loadItems();
 		}
-	};
-
-	/**
-	 * Show the confirmation dialog for discarding a translation.
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	CXTranslationList.prototype.showDiscardConfirmation = function () {
-		var deferred, $cancelButton, $discardButton, $actions, $message,
-			overlay, translationList = this;
-
-		deferred = $.Deferred();
-
-		overlay = new mw.cx.widgets.Overlay();
-
-		if ( this.$confirmationDialog ) {
-			$cancelButton = this.$confirmationDialog.find( '.cx-draft-discard-dialog__cancel' );
-			$discardButton = this.$confirmationDialog.find( '.cx-draft-discard-dialog__discard' );
-		} else {
-			this.$confirmationDialog = $( '<div>' )
-				.addClass( 'cx-draft-discard-dialog' );
-			$cancelButton = new OO.ui.ButtonWidget( {
-				classes: [ 'cx-draft-discard-dialog__cancel' ],
-				label: mw.msg( 'cx-draft-cancel-button-label' )
-			} ).$element;
-			$discardButton = new OO.ui.ButtonWidget( {
-				classes: [ 'cx-draft-discard-dialog__discard' ],
-				flags: [ 'primary', 'destructive' ],
-				label: mw.msg( 'cx-draft-discard-button-label' )
-			} ).$element;
-			$actions = $( '<div>' )
-				.addClass( 'cx-draft-discard-dialog__actions' )
-				.append( $cancelButton, $discardButton );
-			$message = $( '<div>' )
-				.addClass( 'cx-draft-discard-dialog__message' )
-				.text( mw.msg( 'cx-draft-discard-confirmation-message' ) );
-
-			$( 'body' ).append( this.$confirmationDialog.append( $message, $actions ) );
-		}
-
-		$cancelButton.one( 'click', function () {
-			deferred.reject();
-			translationList.$confirmationDialog.hide();
-			overlay.hide();
-			$discardButton.off( 'click' );
-		} );
-
-		$discardButton.one( 'click', function () {
-			deferred.resolve();
-			translationList.$confirmationDialog.hide();
-			overlay.hide();
-			$cancelButton.off( 'click' );
-		} );
-
-		overlay.show();
-		this.$confirmationDialog.show();
-
-		return deferred.promise();
 	};
 
 	/**

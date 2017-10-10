@@ -906,12 +906,12 @@
 			"dependencies": [
 				"ext.cx.progressbar",
 				"ext.cx.util",
-				"ext.cx.widgets.overlay",
 				"jquery.uls.data",
 				"moment",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation",
-				"oojs-ui.styles.icons-editing-core"
+				"oojs-ui.styles.icons-editing-core",
+				"oojs-ui-windows"
 			],
 			"messages": [
 				"cx-dashboard-header",
