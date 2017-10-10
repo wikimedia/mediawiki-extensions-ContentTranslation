@@ -108,6 +108,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "번역할 페이지가 $1에 존재하지 않습니다",
 	"cx-sourceselector-missing-in-target-language": "$1(으)로 없음",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|한 주에 $1번 방문|한 주에 $1번 방문|0=이번 주에 방문한 적 없음}}",
+	"cx-sourceselector-embedded-recent-edits": "최근에 편집함",
+	"cx-sourceselector-embedded-recent-edits-no-results": "관심있는 주제를 생각해 보세요. 훌륭한 번역을 하기 위해 전문가가 될 필요는 없습니다.",
 	"cx-mt-abuse-warning-title": "번역에 수정하지 않은 기계 번역된 텍스트 $1%를 {{PLURAL:$1|포함합니다}}",
 	"cx-mt-abuse-warning-text": "기계 번역은 시작점으로만 제공합니다. 당신은 내용이 정확하고 자신의 언어로 자연스럽게 읽힐 수 있도록 해야 합니다.",
 	"cx-publish-captcha-title": "보안 질문",
