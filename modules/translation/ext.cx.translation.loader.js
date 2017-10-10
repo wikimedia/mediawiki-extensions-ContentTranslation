@@ -10,16 +10,16 @@
 
 	/**
 	 * @class
-	 * @param {mw.cx.ui.TranslationView} translatioview
+	 * @param {mw.cx.ui.TranslationView} translationView
 	 */
-	function ContentTranslationLoader( translatioview ) {
-		this.translatioview = translatioview;
+	function ContentTranslationLoader( translationView ) {
+		this.translationView = translationView;
 		this.translation = null;
 		this.translationUnits = null;
-		if ( translatioview ) {
+		if ( translationView ) {
 			// Unit tests can delay setting of translation view.
-			this.sourceColumn = this.translatioview.columns.sourceColumn;
-			this.translationColumn = this.translatioview.columns.translationColumn;
+			this.sourceColumn = this.translationView.columns.sourceColumn;
+			this.translationColumn = this.translationView.columns.translationColumn;
 			this.$sourceColumn = this.sourceColumn.$element;
 			this.$translationColumn = this.translationColumn.$element;
 		} else {

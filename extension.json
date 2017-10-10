@@ -1325,7 +1325,7 @@
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationView",
+				"ve.init.mw.CXTarget",
 				"mw.cx.TargetArticle",
 				"mw.cx.TranslationController"
 			]
@@ -1337,7 +1337,7 @@
 			"dependencies": [
 				"easy-deflate.deflate",
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationView",
+				"ve.init.mw.CXTarget",
 				"mediawiki.api.edit"
 			]
 		},
@@ -1360,7 +1360,7 @@
 				"mediawiki.api.edit",
 				"mediawiki.user",
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.TranslationView"
+				"ve.init.mw.CXTarget"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {
@@ -1401,13 +1401,13 @@
 				"desktop"
 			]
 		},
-		"mw.cx.ui.TranslationView": {
+		"ve.init.mw.CXTarget": {
 			"scripts": [
-				"ui/mw.cx.ui.TranslationView.js"
+				"ve-cx/init/ve.init.mw.CXTarget.js"
 			],
 			"styles": [
 				"ui/styles/mw.cx.ui.Columns.less",
-				"ui/styles/mw.cx.ui.TranslationView.less"
+				"ve-cx/init/styles/ve.init.mw.CXTarget.less"
 			],
 			"messages": [
 				"cx-draft-restored",
