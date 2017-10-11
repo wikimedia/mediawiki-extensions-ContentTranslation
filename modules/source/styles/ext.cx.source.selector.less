@@ -45,14 +45,14 @@
 
 	.cx-sourceselector-dialog__language {
 		.mw-ui-three-twelfths;
-		padding: 4px 5px;
+		padding: 0;
 
 		button {
 			.mw-ui-one-whole;
 
 			background-color: @colorGray15;
 			position: relative;
-			padding: 5px 10px;
+			padding: 8px 10px;
 			font-size: medium;
 			text-align: left;
 
@@ -79,33 +79,7 @@
 
 	.cx-sourceselector-page-title {
 		.mw-ui-seven-twelfths;
-		padding: 4px 5px;
-
-		input {
-			.mw-ui-one-whole;
-
-			margin: 0;
-			border: 0;
-			padding: 4px 5px;
-
-			font-size: medium;
-			line-height: 1.5;
-			appearance: none;
-
-			// Make sure that the placeholder has a consistent alignment,
-			// so it won't be in opposite ends when the languages' direction is different
-			&::placeholder {
-				text-align: left;
-			}
-
-			&::input-placeholder {
-				text-align: left;
-			}
-		}
-
-		.oo-ui-iconElement-icon {
-			left: 0.2em;
-		}
+		padding: 0 0 0 10px;
 	}
 }
 
