@@ -915,10 +915,13 @@
 			return;
 		}
 
-		this.$refreshTrigger = $( '<div>' )
-			.addClass( 'cx-suggestionlist__refresh' )
-			.text( mw.msg( 'cx-suggestionlist-refresh' ) )
-			.on( 'click', this.refreshPublicLists.bind( this ) );
+		this.$refreshTrigger = new OO.ui.ButtonWidget( {
+			framed: false,
+			classes: [ 'cx-suggestionlist__refresh' ],
+			label: mw.msg( 'cx-suggestionlist-refresh' ),
+			icon: 'reload',
+			flags: 'progressive'
+		} ).on( 'click', this.refreshPublicLists.bind( this ) ).$element;
 
 		this.$publicCollectionContainer.append( this.$refreshTrigger );
 	};
