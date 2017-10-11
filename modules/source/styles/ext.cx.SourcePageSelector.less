@@ -44,27 +44,34 @@
 	.cx-source-page-selector__source-inputs {
 		.flex-center;
 
-		height: 40px;
 		border-bottom: 1px solid @colorGray14;
-		padding: 10px;
 
 		.cx-source-page-selector__page-title {
+			max-width: none;
 			input {
-				padding: 0.375em 0.375em 0.375em 2.5em;
-
-				&,
-				&:focus {
-					border: 0;
-					box-shadow: none;
-				}
+				padding-top: 1em;
+				padding-bottom: 1em;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
 			}
-			.oo-ui-iconElement-icon {
-				left: 0.2em;
-			}
-		}
 
-		.cx-source-page-selector__discard {
-			margin-left: 8px;
+			> .oo-ui-iconElement-icon {
+				/* Fix Apex theme */
+				max-height: none;
+			}
+
+			> .oo-ui-labelElement-label {
+				color: inherit;
+				padding: 0.3em 0.5em;
+				white-space: nowrap;
+			}
+
+			.cx-language-filter {
+				margin: 0;
+				max-width: none;
+				display: inline-block;
+				vertical-align: middle;
+			}
 		}
 	}
 

@@ -177,6 +177,8 @@
 			);
 		} );
 
+		this.languageFilter.on( 'resize', this.pageSelector.positionLabel.bind( this.pageSelector ) );
+
 		this.discardButton.connect( this, { click: this.discardDialog } );
 		this.pageSelector.onLookupMenuItemChoose = function ( source ) {
 			self.selectedSourcePage.setSelectedSourcePageData(
@@ -226,11 +228,11 @@
 			} );
 		}
 
-		this.$sourceInputs.append( this.languageFilter.$element, this.discardButton.$element );
 		this.pageSelector.toggle( true );
 		this.overlay.show();
 		this.$container.slideDown( 'fast' );
 		this.pageSelector.focus();
+		this.pageSelector.positionLabel();
 	};
 
 	SourcePageSelector.prototype.discardDialog = function () {
@@ -273,38 +275,36 @@
 			updateLocalStorage: true
 		} );
 
-		this.pageSelector = new mw.cx.ui.PageSelectorWidget( {
-			classes: [ 'cx-source-page-selector__page-title' ],
-			language: this.languageFilter.getSourceLanguage(),
-			targetLanguage: this.languageFilter.getTargetLanguage(),
-			siteMapper: this.siteMapper,
-			value: this.options.sourceTitle,
-			validateTitle: true,
-			placeholder: mw.msg( 'cx-source-page-selector-input-placeholder' ),
-			showRedirectTargets: true,
-			$overlay: this.$searchResults,
-			$container: this.$searchResults
-		} );
-
 		this.discardButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: 'close',
 			classes: [ 'cx-source-page-selector__discard' ]
 		} );
 
+		this.pageSelector = new mw.cx.ui.PageSelectorWidget( {
+			classes: [ 'cx-source-page-selector__page-title' ],
+			language: this.languageFilter.getSourceLanguage(),
+			targetLanguage: this.languageFilter.getTargetLanguage(),
+			siteMapper: this.siteMapper,
+			value: this.options.sourceTitle,
+			validateTitle: false,
+			placeholder: mw.msg( 'cx-source-page-selector-input-placeholder' ),
+			showRedirectTargets: true,
+			$overlay: this.$searchResults,
+			$container: this.$searchResults,
+			label: this.languageFilter.$element.add( this.discardButton.$element )
+		} );
+
 		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-source-page-selector__source-inputs' )
-			.append(
-				this.pageSelector.$element,
-				this.languageFilter.$element,
-				this.discardButton.$element
-			);
+			.append( this.pageSelector.$element );
 
 		this.selectedSourcePage = new mw.cx.SelectedSourcePage( this.siteMapper, {
 			onDiscard: this.discardDialog.bind( this )
 		} );
 
-		this.$container.append( this.$sourceInputs,
+		this.$container.append(
+			this.$sourceInputs,
 			this.$searchResults,
 			this.selectedSourcePage.$element
 		);

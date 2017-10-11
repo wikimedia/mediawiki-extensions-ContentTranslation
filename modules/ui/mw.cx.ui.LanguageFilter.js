@@ -4,6 +4,7 @@
  * Language filter
  *
  * @class
+ * @extends OO.ui.Widget
  * @param {Object} [config] Configuration object
  * @cfg {boolean} [canBeSame] True if source and target language can be the same langauge
  * @cfg {boolean} [canBeUndefined] True if source or target language can be unset
@@ -15,6 +16,9 @@
 mw.cx.ui.LanguageFilter = function ( config ) {
 	// Configuration initialization
 	this.config = config || {};
+
+	// Parent method
+	mw.cx.ui.LanguageFilter.super.call( this, config );
 
 	this.canBeSame = this.config.canBeSame || false;
 	this.canBeUndefined = this.config.canBeUndefined || false;
@@ -33,10 +37,10 @@ mw.cx.ui.LanguageFilter = function ( config ) {
 	this.narrowLimit = 700;
 	this.isNarrowScreenSize = false;
 
-	this.$element = null;
-
 	this.init();
 };
+
+OO.inheritClass( mw.cx.ui.LanguageFilter, OO.ui.Widget );
 
 mw.cx.ui.LanguageFilter.prototype.init = function () {
 	var sourceLanguage = mw.storage.get( 'cxSourceLanguage' ),
@@ -324,6 +328,8 @@ mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( $filter, language 
 			mw.language.bcp47( language ) :
 			$.uls.data.getAutonym( language )
 		);
+
+	this.emit( 'resize' );
 };
 
 /**
@@ -424,7 +430,7 @@ mw.cx.ui.LanguageFilter.prototype.render = function () {
 		.addClass( 'cx-language-filter-target-language' )
 		.append( this.$targetLanguageFilter );
 
-	this.$element = $( '<div>' )
+	this.$element
 		.addClass( 'cx-language-filter' )
 		.append(
 			$sourceLanguageFilterContainer,
