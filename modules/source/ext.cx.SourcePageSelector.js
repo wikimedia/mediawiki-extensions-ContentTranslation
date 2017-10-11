@@ -30,7 +30,7 @@
 		this.languageFilter = null;
 		this.discardButton = null;
 		this.$noResultsMessage = null;
-		this.overlay = null;
+		this.onDocumentMouseUpHandler = this.onDocumentMouseUp.bind( this );
 		this.init();
 	}
 
@@ -126,6 +126,43 @@
 	};
 
 	/**
+	 * Handle the document mouse up handler
+	 *
+	 * @param {boolean} bind Bind the mouse up handler, otherwise unbind
+	 */
+	SourcePageSelector.prototype.toggleMouseUpHandler = function ( bind ) {
+		if ( bind ) {
+			document.addEventListener( 'mouseup', this.onDocumentMouseUpHandler, true );
+		} else {
+			document.removeEventListener( 'mouseup', this.onDocumentMouseUpHandler, true );
+		}
+	};
+
+	/**
+	 * Handles document mouse up events.
+	 *
+	 * Mimics OO.ui.MenuSelectWidget
+	 * Usually this would be a mouse *down* handler, but as it causes a change
+	 * in the page height we use mouseup to avoid buttons moving in the middle
+	 * of a mouse click.
+	 *
+	 * @param {MouseEvent} e Mouse up event
+	 */
+	SourcePageSelector.prototype.onDocumentMouseUp = function ( e ) {
+		if (
+			// Ignore clicks inside the selector and its lookupMenu & ULS popups
+			!OO.ui.contains(
+				this.pageSelector.lookupMenu.$element.add( this.$container ).get(),
+				e.target,
+				true
+			) &&
+			!$( e.target ).closest( '.uls-menu' ).length
+		) {
+			this.discardDialog();
+		}
+	};
+
+	/**
 	 * Updates the message displayed when there are no search results
 	 */
 	SourcePageSelector.prototype.updateNoResultsMessage = function () {
@@ -161,13 +198,6 @@
 	 * Show the SourcePageSelector.
 	 */
 	SourcePageSelector.prototype.show = function () {
-		if ( !this.overlay ) {
-			this.overlay = new mw.cx.widgets.Overlay( 'body', {
-				closeOnClick: this.discardDialog.bind( this )
-			} );
-		}
-
-		this.overlay.show();
 		this.pageSelector.populateLookupMenu();
 		this.pageSelector.lookupMenu.toggle( true );
 		// FIXME: Use CSS transition
@@ -175,25 +205,26 @@
 		this.$container.slideDown( 'fast' );
 		this.pageSelector.focus();
 		this.pageSelector.positionLabel();
+		this.toggleMouseUpHandler( true );
 	};
 
 	SourcePageSelector.prototype.discardDialog = function () {
-		this.overlay.hide();
 		// FIXME: Use CSS transition
 		// eslint-disable-next-line no-jquery/no-slide
 		$( '.translation-filter' ).slideDown( 'fast' );
 		this.$container.removeClass( 'cx-source-page-selector--selected' ).toggle();
+		this.toggleMouseUpHandler( false );
 
 		this.pageSelector.setValue( '' );
 	};
 
 	SourcePageSelector.prototype.render = function () {
-		var $searchResults, $recentEditsMessage,
+		var $searchResults, $noSuggestionsMessage,
 			sourceTitleNamespace = mw.config.get( 'wgNamespaceIds' )[ '' ]; // Main namespace
 
 		this.$container.hide(); // Starts as hidden, shown on this.triggerButton click
 
-		$recentEditsMessage = $( '<div>' )
+		$noSuggestionsMessage = $( '<div>' )
 			.addClass( 'cx-source-page-selector__no-suggestions-message' )
 			.text( mw.msg( 'cx-source-page-selector-no-suggestions' ) );
 
@@ -202,7 +233,7 @@
 
 		$searchResults = $( '<div>' )
 			.addClass( 'cx-source-page-selector__search-results' )
-			.append( $recentEditsMessage, this.$noResultsMessage );
+			.append( $noSuggestionsMessage, this.$noResultsMessage );
 
 		this.languageFilter = new mw.cx.ui.LanguageFilter( {
 			onSourceLanguageChange: this.sourceLanguageChangeHandler.bind( this ),

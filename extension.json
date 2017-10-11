@@ -333,7 +333,6 @@
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
-				"ext.cx.widgets.overlay",
 				"ext.cx.SelectedSourcePage",
 				"ext.uls.common",
 				"ext.uls.mediawiki",
