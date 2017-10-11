@@ -93,6 +93,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "অনুবাদ করার পাতাটি $1 ভাষায় বিদ্যমান নয়",
 	"cx-sourceselector-missing-in-target-language": "$1 ভাষায় নেই",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
+	"cx-sourceselector-embedded-recent-edits": "সম্প্রতি আপনার দ্বারা সম্পাদিত",
+	"cx-sourceselector-embedded-recent-edits-no-results": "আপনার আগ্রহের কোনও বিষয় সম্পর্কে চিন্তা করুন। আপনাকে সেরা অনুবাদক হতে একজন বিশেষজ্ঞ হতে হবে না।",
 	"cx-mt-abuse-warning-title": "আপনার অনুবাদে $1% অপরিবর্তিত যান্ত্রিক-অনুবাদের লেখা {{PLURAL:$1|রয়েছে}}",
 	"cx-mt-abuse-warning-text": "যান্ত্রিক অনুবাদ শুধুমাত্র একটি প্রারম্ভিক বিন্দু হিসাবে প্রদান করা হয়। বিষয়বস্তু সঠিক এবং আপনার ভাষায় সহজে বোধগম্য (যান্ত্রিক নয়) তা আপনাকেই নিশ্চিত করতে হবে।",
 	"cx-publish-captcha-title": "নিরাপত্তা প্রশ্ন",
