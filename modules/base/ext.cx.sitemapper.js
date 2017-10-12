@@ -96,13 +96,18 @@
 	 * @return {string}
 	 */
 	mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
+		var cxserverURL = this.config.cx;
 		if ( params !== undefined ) {
 			$.each( params, function ( key, value ) {
 				module = module.replace( key, encodeURIComponent( value ) );
 			} );
 		}
 
-		return this.config.cx + module;
+		if ( mw.cx.getCXVersion() === 2 ) {
+			cxserverURL = cxserverURL.replace( 'v1', 'v2' );
+		}
+
+		return cxserverURL + module;
 	};
 
 	mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params ) {

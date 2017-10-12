@@ -108,3 +108,8 @@ mw.cx.getDefaultTargetNamespace = function () {
 mw.cx.getSectionNumberFromSectionId = function ( sectionId ) {
 	return Number( sectionId.match( /^cx(Target|Source)Section([0-9]+)$/ )[ 2 ] );
 };
+
+mw.cx.getCXVersion = function () {
+	var query = new mw.Uri().query;
+	return Number( query.version || mw.config.get( 'wgContentTranslationVersion' ) );
+};
