@@ -55,7 +55,7 @@
 		this.$searchResults = null;
 		this.$searchResultsMessage = null;
 		this.$messageBar = null;
-		this.$targetTitleInput = null;
+		this.targetTitleInput = null;
 		this.overlay = null;
 		this.translateFromButton = null;
 		this.narrowLimit = 700;
@@ -149,7 +149,7 @@
 
 		// !this.isEmbedded is extra check, second one may be sufficient
 		if ( !this.isEmbedded && this.options.targetTitle ) {
-			this.$targetTitleInput.val( this.options.targetTitle );
+			this.targetTitleInput.setValue( this.options.targetTitle );
 		}
 
 		// If all of the values are already present,
@@ -377,7 +377,7 @@
 			dir: $.uls.data.getDir( this.targetLanguage )
 		};
 		if ( !this.isEmbedded ) {
-			this.$targetTitleInput.prop( langProps );
+			this.targetTitleInput.$input.prop( langProps );
 		}
 		this.$targetLanguage.prop( langProps )
 			.text( this.isNarrowScreenSize ?
@@ -478,7 +478,7 @@
 	 * Listen for events.
 	 */
 	CXSourceSelector.prototype.listen = function () {
-		var sourceInputFocus, self = this;
+		var self = this;
 		// Open or close the (embedded) dialog when clicking the link.
 		// The (embedded) dialog will be unitialized until the first click.
 		this.$trigger.click( this.show.bind( this ) );
@@ -495,14 +495,10 @@
 
 		if ( !this.isEmbedded ) {
 			// Target title input (check)
-			this.$targetTitleInput.on( 'input blur',
+			this.targetTitleInput.$input.on( 'input blur',
 				$.debounce( 600, false, this.check.bind( this ) )
 			);
 		} else {
-			sourceInputFocus = function () {
-				this.$sourceInputs.toggleClass( 'cx-sourceselector-embedded__source-inputs--focused' );
-			};
-
 			this.$discardButton.click( this.discardEmbeddedDialog.bind( this ) );
 			this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 
@@ -511,8 +507,6 @@
 			this.sourcePageSelector.lookupMenu.onDocumentMouseDownHandler = function () {};
 			// Disable width and height calculation for search results container
 			this.sourcePageSelector.lookupMenu.setIdealSize = function () {};
-
-			this.sourcePageSelector.$input.on( 'focus blur', sourceInputFocus.bind( this ) );
 		}
 
 		// Keypress (start translation on enter key)
@@ -612,7 +606,7 @@
 		var sourceLanguage = this.getSourceLanguage(),
 			targetLanguage = this.getTargetLanguage(),
 			sourceTitle = this.sourcePageSelector.getQueryValue(),
-			targetTitle = this.isEmbedded ? '' : this.$targetTitleInput.val().trim(),
+			targetTitle = this.isEmbedded ? '' : this.targetTitleInput.getValue().trim(),
 			selector = this;
 
 		this.$messageBar.hide();
@@ -798,7 +792,7 @@
 		// If there is something in the source field, it is probably auto-filled,
 		// so go immediately to the target to save time
 		if ( !this.isEmbedded && this.options.sourceTitle ) {
-			this.$targetTitleInput.focus();
+			this.targetTitleInput.focus();
 		} else {
 			this.sourcePageSelector.focus();
 		}
@@ -862,7 +856,7 @@
 	 */
 	CXSourceSelector.prototype.cancel = function () {
 		this.sourcePageSelector.setValue( '' );
-		this.$targetTitleInput.val( '' );
+		this.targetTitleInput.setValue( '' );
 
 		this.translateFromButton.setDisabled( true );
 		this.$messageBar.hide();
@@ -900,7 +894,7 @@
 		sourceLanguage = this.getSourceLanguage();
 		targetLanguage = this.getTargetLanguage();
 		originalSourceTitle = this.sourcePageSelector.getQueryValue();
-		targetTitle = this.isEmbedded ? '' : this.$targetTitleInput.val().trim();
+		targetTitle = this.isEmbedded ? '' : this.targetTitleInput.getValue().trim();
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
@@ -1166,7 +1160,7 @@
 		var $heading,
 			$sourceLanguageLabel, $sourceLanguageLabelContainer, $sourceLanguageContainer,
 			$targetLanguageLabel, $targetLanguageLabelContainer, $targetLanguageContainer,
-			$targetTitleInputContainer,
+			$sourceTitleInputContainer, $targetTitleInputContainer,
 			$targetInputs,
 			$messageText,
 			cancelButton,
@@ -1228,30 +1222,30 @@
 			.append( this.$targetLanguage );
 
 		this.sourcePageSelector = new mw.cx.ui.PageSelectorWidget( {
-			classes: [ 'cx-sourceselector-page-title' ],
 			language: this.getSourceLanguage(),
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
 			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' )
 		} );
+		$sourceTitleInputContainer = $( '<div>' )
+			.addClass( 'cx-sourceselector-page-title' )
+			.append( this.sourcePageSelector.$element );
 
-		this.$targetTitleInput = $( '<input>' )
-			.attr( {
-				name: 'targetTitle',
-				placeholder: mw.msg( 'cx-sourceselector-dialog-target-title-placeholder' )
-			} );
+		this.targetTitleInput = new OO.ui.TextInputWidget( {
+			placeholder: mw.msg( 'cx-sourceselector-dialog-target-title-placeholder' )
+		} );
 
 		$targetTitleInputContainer = $( '<div>' )
 			.addClass( 'cx-sourceselector-page-title' )
-			.append( this.$targetTitleInput );
+			.append( this.targetTitleInput.$element );
 
 		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-dialog__source-inputs' )
 			.append(
 				$sourceLanguageLabelContainer,
 				$sourceLanguageContainer,
-				this.sourcePageSelector.$element
+				$sourceTitleInputContainer
 			);
 
 		$targetInputs = $( '<div>' )
