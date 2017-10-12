@@ -437,25 +437,39 @@
 	 * Creates source and target language ULS for suggestions list
 	 */
 	CXDashboard.prototype.createUlsForSuggestionsList = function () {
-		var list = this.lists.suggestions,
+		var self = this,
+			list = this.lists.suggestions,
 			ulsOptions = {
 				menuWidth: 'medium',
-				quickList: function () {
-					return mw.uls.getFrequentLanguageList();
-				},
 				compact: true
 			};
 
-		createUls(
-			list.languageFilter.$sourceLanguageFilter,
-			this.setFilter.bind( this, 'sourceLanguage' ),
-			ulsOptions
-		);
-		createUls(
-			list.languageFilter.$targetLanguageFilter,
-			this.setFilter.bind( this, 'targetLanguage' ),
-			ulsOptions
-		);
+		this.siteMapper.getLanguagePairs().then( function ( data ) {
+			createUls(
+				list.languageFilter.$sourceLanguageFilter,
+				self.setFilter.bind( self, 'sourceLanguage' ),
+				$.extend( {
+					languages: getAutonyms( data.sourceLanguages ),
+					quickList: function () {
+						return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+							return data.sourceLanguages.indexOf( n ) !== -1;
+						} );
+					}
+				}, ulsOptions )
+			);
+			createUls(
+				list.languageFilter.$targetLanguageFilter,
+				self.setFilter.bind( self, 'targetLanguage' ),
+				$.extend( {
+					languages: getAutonyms( data.targetLanguages ),
+					quickList: function () {
+						return mw.uls.getFrequentLanguageList().filter( function ( n ) {
+							return data.targetLanguages.indexOf( n ) !== -1;
+						} );
+					}
+				}, ulsOptions )
+			);
+		} );
 	};
 
 	/**
