@@ -28,7 +28,6 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 	this.translation = null;
 	this.targetArticle = null;
 	this.publishButton = null;
-	this.publishSettings = null;
 	this.header = new mw.cx.ui.Header( config );
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config );
@@ -68,6 +67,21 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
+
+/* Static properties */
+
+ve.init.mw.CXTarget.static.actionGroups = [
+	// Publish destination
+	{
+		header: OO.ui.deferMsg( 'cx-publish-destination-header' ),
+		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
+		icon: 'advanced',
+		indicator: null,
+		classes: [ 've-init-mw-cxTarget-publishGroup' ],
+		type: 'menu',
+		include: [ { group: 'cxDestination' } ]
+	}
+];
 
 /* Static methods */
 
@@ -109,7 +123,7 @@ ve.init.mw.CXTarget.static.alignSectionPair = function ( sourceOffsetTop, target
 /* Methods */
 
 ve.init.mw.CXTarget.prototype.setupToolbar = function () {
-	var publishButton, publishSettings;
+	var publishButton;
 
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
@@ -120,21 +134,14 @@ ve.init.mw.CXTarget.prototype.setupToolbar = function () {
 		classes: [ 'cx-header__publish-button' ],
 		label: mw.msg( 'cx-publish-button' )
 	} );
-	publishSettings = new mw.cx.ui.PublishSettingsWidget( {
-		destination: mw.cx.getDefaultTargetNamespace()
-	} );
 	publishButton.connect( this, {
 		click: 'onPublishButtonClick'
-	} );
-	publishSettings.connect( this, {
-		choose: 'onPublishNamespaceChange'
 	} );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		publishButton.setDisabled( weights.any === 0 );
 	} );
 	this.publishButton = publishButton;
-	this.publishSettings = publishSettings;
-	this.getToolbar().$actions.append( this.publishSettings.$element, this.publishButton.$element );
+	this.getToolbar().$actions.append( this.publishButton.$element );
 	this.getToolbar().initialize();
 };
 
@@ -256,12 +263,15 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
  * @param {number} namespaceId
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
-	var newTitle;
-
-	newTitle = mw.cx.getTitleForNamespace( this.translation.getTargetTitle(), namespaceId );
-	// Setting title in translationColumn will take care of necessary event firing for title change.
-	this.columns.translationColumn.setTargetTitle( newTitle );
+	var newTitle = mw.cx.getTitleForNamespace( this.translation.getTargetTitle(), namespaceId );
+	// Setting title in targetColumn will take care of necessary event firing for title change.
+	this.targetColumn.setTargetTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
+	this.updateNamespace();
+};
+
+ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
+	return mw.Title.newFromText( this.translation.getTargetTitle() ).getNamespaceId();
 };
 
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
@@ -350,8 +360,8 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
 };
 
-ve.init.mw.CXTarget.prototype.changeNamespace = function ( namespaceId ) {
-	this.publishSettings.setDestinationNamespace( namespaceId );
+ve.init.mw.CXTarget.prototype.updateNamespace = function () {
+	this.getActions().updateToolState();
 };
 
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
