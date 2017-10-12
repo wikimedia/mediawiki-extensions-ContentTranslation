@@ -31,6 +31,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 	this.header = new mw.cx.ui.Header( config );
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config );
+	this.pageName = this.targetColumn.getTargetTitle();
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.sourceSurface = null;
 	this.targetSurface = null;
@@ -239,6 +240,7 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 };
 
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
+	this.pageName = this.targetColumn.getTargetTitle();
 	this.emit( 'targetTitleChange' );
 	this.throttleAlignSectionPairs();
 };
