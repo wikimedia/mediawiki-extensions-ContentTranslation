@@ -34,7 +34,7 @@
 	"cx-publish-gt-published-title": "Wilujeng, kacané wis terbit",
 	"cx-publish-gt-published-description": "Panjenengan bisa mencèt \"$1\" kanggo ndandani kaca. Pesthèkaké pertalané panjenengan kawaca kanthi alami.",
 	"cx-translation-add-translation": "Tambah pertalan",
-	"cx-translation-target-page-exists": "Kaca mawa sesirah [$1 $2] wis ana ing wiki tujuan. Jajal timbang-timbanga nganggo sesirah sing béda tumrap kaca iki.",
+	"cx-translation-target-page-exists": "Kaca mawa sesirah [$1 $2] wis ana ing wiki tujuan. Jajal anggonen sesirah sing béda.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Pertalan Kontèn]]",
 	"tag-contenttranslation-description": "Isi kaca iki dipertal saka basa liya sarana piranti Pertalan Kontèn.",
 	"cx-source-loading": "Ngamot $1",

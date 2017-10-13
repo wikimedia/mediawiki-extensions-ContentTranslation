@@ -99,6 +99,8 @@
 	"cx-sourceselector-dialog-error-no-source-article": "الصفحة المطلوب ترجمتها غير موجودة في $1",
 	"cx-sourceselector-missing-in-target-language": "مفقود في $1",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",
+	"cx-sourceselector-embedded-recent-edits": "عدلتها مؤخرا",
+	"cx-sourceselector-embedded-recent-edits-no-results": "فكر في أي موضوع يهمك. لا تحتاج أن تكون خبيرا لإنشاء ترجمة عظيمة.",
 	"cx-mt-abuse-warning-title": "ترجمتك {{PLURAL:$1|بها}} $1% من النص المترجم آليا دون تغيير",
 	"cx-mt-abuse-warning-text": "تقدم الترجمة الآلية نموذجا فقط. عليك التحقق من دقة المحتوى وسلامة اللغة.",
 	"cx-publish-captcha-title": "سؤال الأمان",
