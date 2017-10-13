@@ -1013,7 +1013,7 @@
 			text: itemTitle
 		} );
 
-		numOfLanguages = item.initialConfig.numOfLanguages;
+		numOfLanguages = item.getNumberOfLanguages();
 		if ( numOfLanguages ) {
 			this.$selectedItemMetrics.prepend(
 				$( '<span>' )
