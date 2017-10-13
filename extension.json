@@ -154,9 +154,6 @@
 			"specialcx": true,
 			"newarticle": true
 		},
-		"ContentTranslationBrowserBlacklist": {
-			"msie": [ [ "<", 10 ] ]
-		},
 		"ContentTranslationCXServerAuth": {
 			"algorithm": "HS256",
 			"key": "",
@@ -1068,7 +1065,6 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
-				"jquery.client",
 				"jquery.throttle-debounce",
 				"mediawiki.ui.button",
 				"mediawiki.util"
@@ -1098,7 +1094,6 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
-				"jquery.client",
 				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
 				"mediawiki.Uri",

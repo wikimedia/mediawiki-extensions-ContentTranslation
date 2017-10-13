@@ -59,11 +59,6 @@
 		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
 	}
 
-	$( function () {
-		var blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
-		if ( !$.client.test( blacklist, null, true ) ) {
-			showInvitation();
-		}
-	} );
+	$( showInvitation );
 
 }( jQuery, mediaWiki ) );
