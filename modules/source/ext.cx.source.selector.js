@@ -50,7 +50,7 @@
 		this.$languageFilter = null;
 		this.$sourceLanguage = null;
 		this.$targetLanguage = null;
-		this.$discardButton = null;
+		this.discardButton = null;
 		this.$sourceInputs = null;
 		this.$searchResults = null;
 		this.$searchResultsMessage = null;
@@ -470,7 +470,7 @@
 				$.debounce( 600, false, this.check.bind( this ) )
 			);
 		} else {
-			this.$discardButton.click( this.discardEmbeddedDialog.bind( this ) );
+			this.discardButton.connect( this, { click: this.discardEmbeddedDialog } );
 			this.sourcePageSelector.onLookupMenuItemChoose = this.setSelectedItem.bind( this );
 
 			// Unbind event handlers so search results don't disappear when focus is lost
@@ -1007,7 +1007,7 @@
 		this.$container.addClass( 'cx-sourceselector-embedded--selected' );
 		this.isArticleSelected = true;
 
-		this.$selectedItem.append( this.$languageFilter, this.$discardButton );
+		this.$selectedItem.append( this.$languageFilter, this.discardButton.$element );
 
 		// Check will display a warning if target language (which is default,
 		// up to the first article selection) already has an article.
@@ -1029,7 +1029,7 @@
 		this.$container.removeClass( 'cx-sourceselector-embedded--selected' );
 		this.isArticleSelected = false;
 
-		this.$sourceInputs.append( this.$languageFilter, this.$discardButton );
+		this.$sourceInputs.append( this.$languageFilter, this.discardButton.$element );
 
 		// Reset source titles, as there is no selected item
 		this.sourceTitles = {};
@@ -1365,15 +1365,18 @@
 			$container: this.$searchResults
 		} );
 
-		this.$discardButton = $( '<div>' )
-			.addClass( 'cx-sourceselector-embedded-discard' );
+		this.discardButton = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: 'close',
+			classes: [ 'cx-sourceselector-embedded-discard' ]
+		} );
 
 		this.$sourceInputs = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded__source-inputs' )
 			.append(
 				this.sourcePageSelector.$element,
 				this.$languageFilter,
-				this.$discardButton
+				this.discardButton.$element
 			);
 		this.$selectedItemImage = $( '<div>' )
 			.addClass( 'cx-sourceselector-embedded-selected-item__image' );
