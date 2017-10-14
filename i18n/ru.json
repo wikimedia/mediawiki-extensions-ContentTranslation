@@ -126,6 +126,8 @@
 	"cx-suggestionlist-featured": "Избранная",
 	"cx-suggestionlist-view-source-page": "Посмотреть исходную страницу",
 	"cx-create-new-translation": "Новый перевод",
+	"cx-translation-filter-label-all-languages": "Все",
+	"cx-translation-filter-uls-all-languages": "Все языки",
 	"cx-save-draft-save-success": "Сохранено {{PLURAL:$1|$1 минуту|$1 минуты|$1 минут}} назад",
 	"cx-save-draft-saving": "Сохраняется…",
 	"cx-save-draft-shortcut-label": "Сохранить черновик",
