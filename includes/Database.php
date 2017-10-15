@@ -7,7 +7,7 @@ namespace ContentTranslation;
 class Database {
 	/**
 	 * Gets a database connection to the ContentTranslation database
-	 * @param int $type Either DB_SLAVE or DB_MASTER
+	 * @param int $type Either DB_REPLICA or DB_MASTER
 	 * @return \IDatabase
 	 */
 	public static function getConnection( $type ) {
