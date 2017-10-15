@@ -23,7 +23,7 @@
 	},
 	"cx": "صفحهٔ ترجمه",
 	"cx-dashboard-header": "ترجمه‌ها",
-	"cx-javascript": "این ابزار بدون جاوااسکریپت کار نمی‌کند.",
+	"cx-javascript": "این ابزار بدون جاوااسکریپت کار نمی‌کند. جاوااسکریپت غیرفعال است، از کار افتاده است، یا توسط این مرورگر پشتیبانی نمی‌شود.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|ترجمه محتوا]] ابزاری است که ترجمه سریع صفحات به زبان خودتان را ممکن می‌سازد. [$1 امتحانش کنید!]",
 	"cx-license-agreement": "با کلیک بر دکمهٔ «$1» شما با [//wikimediafoundation.org/wiki/Terms_of_Use شرایط استفاده] موافقت می‌کند و تأیید می‌کنید که مشارکتتان را با ابزار ترجمه در [https://creativecommons.org/licenses/by-sa/3.0/ مجوز CC BY-SA 3.0] و [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] با درک این موضوع که یک پسوند برای نسبت دادن CC BY-SA 3.0 کافی است موافقت می‌کنید.",
 	"cx-error-server-connection": "خطا: نمی‌توان به کارساز وصل شد.",

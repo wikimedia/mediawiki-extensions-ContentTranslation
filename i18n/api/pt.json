@@ -109,7 +109,7 @@
 	"apierror-cx-invalidsourcelanguage": "Língua de origem inválida.",
 	"apierror-cx-invalidtargetlanguage": "Língua de destino inválida.",
 	"apierror-cx-invalidtranslator": "Nome de tradutor inválido",
-	"apierror-cx-jwtmissing": "JWT em falta.",
+	"apierror-cx-jwtmissing": "JWT não está instalado.",
 	"apierror-cx-keynotconfigured": "A chave não foi configurada.",
 	"apierror-cx-missingdraft": "O rascunho não existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "É necessário autenticar-se para administrar as suas sugestões.",

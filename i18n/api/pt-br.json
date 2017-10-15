@@ -5,7 +5,8 @@
 			"Rodrigo Padula",
 			"TheGabrielZaum",
 			"Almondega",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",
@@ -106,12 +107,15 @@
 	"apierror-cx-invalidsourcelanguage": "Idioma fonte inválido.",
 	"apierror-cx-invalidtargetlanguage": "Idioma alvo inválido.",
 	"apierror-cx-invalidtranslator": "Nome do tradutor inválido",
-	"apierror-cx-jwtmissing": "JWT em falta.",
+	"apierror-cx-jwtmissing": "JWT não está instalado.",
 	"apierror-cx-keynotconfigured": "Chave não configurada.",
 	"apierror-cx-missingdraft": "O rascunho não existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Você deve estar logado para gerenciar suas sugestões.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para visualizar suas traduções, você deve fazer login.",
 	"apierror-cx-samelanguages": "Os idiomas de origem e de destino não podem ser os mesmos.",
 	"apierror-cx-suggestionsdisabled": "Sugestões não ativadas para esta wiki.",
-	"apierror-cx-translationnotfound": "Tradução não encontrada."
+	"apierror-cx-translationnotfound": "Tradução não encontrada.",
+	"apihelp-query+langlinkscount-description": "Obter o número de outras línguas nas quais esse artigo existe.",
+	"apihelp-query+langlinkscount-summary": "Obter o número de versões noutras línguas.",
+	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'."
 }
