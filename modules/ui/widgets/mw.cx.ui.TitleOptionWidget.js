@@ -34,7 +34,7 @@
 
 			languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
-				iconTitle: 'Number of languages'
+				iconTitle: mw.msg( 'cx-sourceselector-number-of-languages' )
 			} );
 			languageLabel = new OO.ui.LabelWidget( {
 				label: mw.language.convertNumber( config.numOfLanguages )

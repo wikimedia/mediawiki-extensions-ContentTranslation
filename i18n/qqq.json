@@ -107,6 +107,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Error that indicates there is already a page in the target wiki with the same title as the proposed target title.\n\nParameters:\n* $1 - link to target page with same title",
 	"cx-sourceselector-dialog-error-no-source-article": "Error that indicates there is no page with the specified title in the source language to translate.\n\nParameters:\n* $1 - the source language",
 	"cx-sourceselector-missing-in-target-language": "Label appended to search result in Special:ContentTranslation when using the \"Start new article\" feature, which indicates that matching article is missing in target language.\n\nParameters:\n* $1 - The autonym of the language",
+	"cx-sourceselector-number-of-languages": "Tooltip shown in Special:ContentTranslation over the icon that shows many languages the article is available in",
 	"cx-sourceselector-embedded-selected-item-pageviews": "Label appended to selected item in New translation embedded dialog on Content Translation dashboard, used for representing number of page visits in the last week.\n$1 - number of visits per week",
 	"cx-sourceselector-embedded-recent-edits": "Label used in New translation embedded dialog, above the suggestions based on user's Recently edited pages.",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Message used in New translation embedded dialog, when there are no suggestions based on user's Recently edited pages.",

@@ -2038,7 +2038,8 @@
 				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
 			],
 			"messages": [
-				"cx-sourceselector-missing-in-target-language"
+				"cx-sourceselector-missing-in-target-language",
+				"cx-sourceselector-number-of-languages"
 			],
 			"dependencies": [
 				"mediawiki.widgets"

@@ -98,6 +98,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "The title for the new page is [$1 already in use]",
 	"cx-sourceselector-dialog-error-no-source-article": "The page to translate does not exist in $1",
 	"cx-sourceselector-missing-in-target-language": "Missing in $1",
+	"cx-sourceselector-number-of-languages": "Number of languages",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week",
 	"cx-sourceselector-embedded-recent-edits": "Recently edited by you",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Think of any topic of your interest. You don’t need to be an expert to create a great translation.",
