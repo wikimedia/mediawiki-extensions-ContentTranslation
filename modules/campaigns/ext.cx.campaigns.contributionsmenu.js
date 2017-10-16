@@ -106,20 +106,15 @@
 	}
 
 	$( function () {
-		var $trigger,
-			blacklist = mw.config.get( 'wgContentTranslationBrowserBlacklist' );
+		var $trigger = $( '#pt-mycontris' );
 
-		if ( !$.client.test( blacklist, null, true ) ) {
-			$trigger = $( '#pt-mycontris' );
+		attachMenu( $trigger );
 
+		// Change the menu when creating a new article using VE
+		mw.hook( 've.activationComplete' ).add( function () {
+			// Rebuild menu
+			$trigger.removeData( 'callout' );
 			attachMenu( $trigger );
-
-			// Change the menu when creating a new article using VE
-			mw.hook( 've.activationComplete' ).add( function () {
-				// Rebuild menu
-				$trigger.removeData( 'callout' );
-				attachMenu( $trigger );
-			} );
-		}
+		} );
 	} );
 }( jQuery, mediaWiki ) );
