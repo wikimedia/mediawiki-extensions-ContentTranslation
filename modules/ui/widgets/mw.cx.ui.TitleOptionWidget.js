@@ -30,6 +30,8 @@
 		this.$element.addClass( 'mw-cx-widget-titleOptionWidget' );
 
 		if ( config.numOfLanguages ) {
+			this.numOfLanguages = config.numOfLanguages;
+
 			languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
 				iconTitle: 'Number of languages'
@@ -61,5 +63,9 @@
 	/* Setup */
 
 	OO.inheritClass( mw.cx.ui.TitleOptionWidget, mw.widgets.TitleOptionWidget );
+
+	mw.cx.ui.TitleOptionWidget.prototype.getNumberOfLanguages = function () {
+		return this.numOfLanguages;
+	};
 
 }( jQuery, mediaWiki ) );
