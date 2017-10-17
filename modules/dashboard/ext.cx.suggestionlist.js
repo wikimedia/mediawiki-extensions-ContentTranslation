@@ -72,7 +72,7 @@
 		this.$personalCollection = null;
 		this.$publicCollection = null;
 		this.$publicCollectionContainer = null;
-		this.$refreshTrigger = null;
+		this.refreshTrigger = null;
 		this.$headerContainer = null;
 		this.seed = null;
 		this.init();
@@ -743,8 +743,8 @@
 			);
 
 			this.$publicCollection.empty().show();
-			if ( this.$refreshTrigger ) {
-				this.$refreshTrigger.hide();
+			if ( this.refreshTrigger ) {
+				this.refreshTrigger.toggle( false );
 			}
 			this.$publicCollectionContainer.append( this.lists[ listId ].$list );
 		}
@@ -910,20 +910,20 @@
 	 * Make the list refreshable
 	 */
 	CXSuggestionList.prototype.addRefreshTrigger = function () {
-		if ( this.$refreshTrigger ) {
-			this.$refreshTrigger.show();
+		if ( this.refreshTrigger ) {
+			this.refreshTrigger.toggle( true );
 			return;
 		}
 
-		this.$refreshTrigger = new OO.ui.ButtonWidget( {
+		this.refreshTrigger = new OO.ui.ButtonWidget( {
 			framed: false,
 			classes: [ 'cx-suggestionlist__refresh' ],
 			label: mw.msg( 'cx-suggestionlist-refresh' ),
 			icon: 'reload',
 			flags: 'progressive'
-		} ).on( 'click', this.refreshPublicLists.bind( this ) ).$element;
+		} ).on( 'click', this.refreshPublicLists.bind( this ) );
 
-		this.$publicCollectionContainer.append( this.$refreshTrigger );
+		this.$publicCollectionContainer.append( this.refreshTrigger.$element );
 	};
 
 	CXSuggestionList.prototype.refreshPublicLists = function () {
