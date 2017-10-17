@@ -85,7 +85,7 @@
 
 		return base
 			.replace( '$1', domain.replace( /\$/g, '$$$$' ) )
-			.replace( '$2', title.replace( / /g, '_' ).replace( /\$/g, '$$$$' ) ) + extra;
+			.replace( '$2', mw.util.wikiUrlencode( title ).replace( /\$/g, '$$$$' ) ) + extra;
 	};
 
 	/**
