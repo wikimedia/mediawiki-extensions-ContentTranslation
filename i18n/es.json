@@ -20,7 +20,8 @@
 			"Chris TR",
 			"Ncontinanza",
 			"Dgstranz",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"RicardoSGZ"
 		]
 	},
 	"cx": "Traducir página",
@@ -104,6 +105,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "El título de la página nueva [$1 ya está en uso]",
 	"cx-sourceselector-dialog-error-no-source-article": "La página por traducir no existe en $1",
 	"cx-sourceselector-missing-in-target-language": "No disponible en $1",
+	"cx-sourceselector-number-of-languages": "Número de idiomas",
 	"cx-sourceselector-embedded-recent-edits": "Tus ediciones recientes",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Piensa en algún tema que te interese. No es preciso que seas especialista para crear una traducción fabulosa.",
 	"cx-mt-abuse-warning-title": "Tu traducción {{PLURAL:$1|contiene}} $1 % de texto traducido automáticamente sin modificar",

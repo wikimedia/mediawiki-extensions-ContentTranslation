@@ -92,6 +92,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "নতুন পাতার শিরোনামটি [$1 ইতিমধ্যে ব্যবহারে রয়েছে]",
 	"cx-sourceselector-dialog-error-no-source-article": "অনুবাদ করার পাতাটি $1 ভাষায় বিদ্যমান নয়",
 	"cx-sourceselector-missing-in-target-language": "$1 ভাষায় নেই",
+	"cx-sourceselector-number-of-languages": "ভাষার সংখ্যা",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
 	"cx-sourceselector-embedded-recent-edits": "সম্প্রতি আপনার দ্বারা সম্পাদিত",
 	"cx-sourceselector-embedded-recent-edits-no-results": "আপনার আগ্রহের কোনও বিষয় সম্পর্কে চিন্তা করুন। আপনাকে সেরা অনুবাদক হতে একজন বিশেষজ্ঞ হতে হবে না।",

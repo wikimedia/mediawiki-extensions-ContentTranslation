@@ -94,6 +94,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Der Titel für die neue Seite ist [$1 bereits in Verwendung]",
 	"cx-sourceselector-dialog-error-no-source-article": "Die zu übersetzende Seite ist nicht auf $1 vorhanden",
 	"cx-sourceselector-missing-in-target-language": "Fehlt auf $1",
+	"cx-sourceselector-number-of-languages": "Anzahl der Sprachen",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|Ein Besuch pro|$1 Besuche pro|0=Keine Besuche in dieser}} Woche",
 	"cx-sourceselector-embedded-recent-edits": "Kürzlich von dir bearbeitet",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Denke an ein beliebiges Thema, das dich interessiert. Du musst kein Experte sein, um eine gute Übersetzung zu erstellen.",

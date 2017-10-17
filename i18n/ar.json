@@ -14,7 +14,8 @@
 			"Shbib Al-Subaie",
 			"Izoozo",
 			"ديفيد",
-			"Mido"
+			"Mido",
+			"20عبد العزيز"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -98,6 +99,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "عنوان الصفحة الجديدة [$1 مستخدم بالفعل]",
 	"cx-sourceselector-dialog-error-no-source-article": "الصفحة المطلوب ترجمتها غير موجودة في $1",
 	"cx-sourceselector-missing-in-target-language": "مفقود في $1",
+	"cx-sourceselector-number-of-languages": "عدد اللغات",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",
 	"cx-sourceselector-embedded-recent-edits": "عدلتها مؤخرا",
 	"cx-sourceselector-embedded-recent-edits-no-results": "فكر في أي موضوع يهمك. لا تحتاج أن تكون خبيرا لإنشاء ترجمة عظيمة.",

@@ -104,7 +104,7 @@
 	"apierror-cx-invalidsourcelanguage": "Lingua de fonte non válida.",
 	"apierror-cx-invalidtargetlanguage": "Lingua obxectivo non válida.",
 	"apierror-cx-invalidtranslator": "Nome de tradutor incorrecto",
-	"apierror-cx-jwtmissing": "Falta JWT.",
+	"apierror-cx-jwtmissing": "JWT non está instalado.",
 	"apierror-cx-keynotconfigured": "A clave non foi configurada.",
 	"apierror-cx-missingdraft": "O borrador non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debe estar autenticado para xestionar as súas suxestións.",

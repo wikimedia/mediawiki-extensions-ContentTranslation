@@ -96,6 +96,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "新页面的标题[$1 已被使用]",
 	"cx-sourceselector-dialog-error-no-source-article": "要翻译的页面在$1上不存在",
 	"cx-sourceselector-missing-in-target-language": "缺少$1版本",
+	"cx-sourceselector-number-of-languages": "语言数量",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|每周$1次访问|0=本周没有访问}}",
 	"cx-sourceselector-embedded-recent-edits": "最近由您编辑",
 	"cx-sourceselector-embedded-recent-edits-no-results": "记录您感兴趣的任何话题。您不需要成为专家便可创建伟大的翻译。",

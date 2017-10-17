@@ -85,6 +85,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
 	"cx-sourceselector-dialog-error-no-source-article": "D'Säit déi soll iwwersat gi gëtt et net op $1",
 	"cx-sourceselector-missing-in-target-language": "Feelt op $1",
+	"cx-sourceselector-number-of-languages": "Zuel vun de Sproochen",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|E Besuch pro|$1 Besicher pro|0=Kee Besuch an dëser}} Woch",
 	"cx-sourceselector-embedded-recent-edits": "Rezent vun Iech geännert",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Denkt un e Sujet deen Iech interesséiert. Dir braucht keen Expert ze si fir eng gutt Iwwersetzung ze maachen.",
