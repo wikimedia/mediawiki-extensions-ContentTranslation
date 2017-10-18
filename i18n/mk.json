@@ -86,6 +86,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Насловот на новата страница е [$1 зафатен]",
 	"cx-sourceselector-dialog-error-no-source-article": "Страницата за преведување не постои на $1",
 	"cx-sourceselector-missing-in-target-language": "Недостасува во $1",
+	"cx-sourceselector-number-of-languages": "Број на јазици",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 посета неделно|$1 посети неделно|0=Нема посети оваа недела}}",
 	"cx-sourceselector-embedded-recent-edits": "Неодамна уредено од вас",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Помислете на некоја тема што ве интересира. Не мора да се стручњак за да направите одличен превод.",
