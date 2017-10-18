@@ -89,12 +89,13 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
 	// TODO: it would be better to do section wrapping on the CX server
 	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
-		var sectionNode, aboutGroup, sectionId;
+		var sectionNode, aboutGroup, sectionId, savedSection;
 
 		sectionNumber++;
 		sectionId = sectionIdPrefix + sectionNumber;
-		if ( forTarget && savedTranslationUnits && savedTranslationUnits[ sectionNumber ] ) {
-			sectionNode = this.getSavedTranslation( savedTranslationUnits[ sectionNumber ] );
+		savedSection = this.getSavedSection( savedTranslationUnits, node, sectionNumber );
+		if ( forTarget && savedSection ) {
+			sectionNode = this.getSavedTranslation( savedSection );
 		} else {
 			if ( node.nodeType !== Node.ELEMENT_NODE ) {
 				return;
@@ -125,6 +126,29 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 	domDoc.body.appendChild( articleNode );
 
 	return domDoc;
+};
+
+/**
+ * From saved translation units, find a match for the source section, if any.
+ * Sometimes, both will have same section numbers, but in case source article
+ * changed, we will need to some approximate matching to find a corresponding
+ * source section. At the end, we should not have any saved translations that
+ * we were not able to restore.
+ *
+ * @param {Object|undefined} savedTranslationUnits Saved translation units if any
+ * @param {Node} sourceSectionNode
+ * @param {number} sectionNumber Section number
+ * @return {Object|undefined} saved translationUnit
+ */
+mw.cx.dm.Translation.static.getSavedSection = function (
+	savedTranslationUnits, sourceSectionNode, sectionNumber
+) {
+	if ( !savedTranslationUnits ) {
+		return;
+	}
+	// TODO: Port CX1 section restoring logic to here
+	// See ContentTranslationLoader#restore in ext.cx.translation.loader.js
+	return savedTranslationUnits[ sectionNumber ];
 };
 
 /**
