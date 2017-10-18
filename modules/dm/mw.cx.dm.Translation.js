@@ -70,7 +70,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
 	var lastAboutGroup,
-		nextSectionId = 1,
+		sectionNumber = 0,
 		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
@@ -89,10 +89,12 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
 	// TODO: it would be better to do section wrapping on the CX server
 	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
-		var sectionNode, aboutGroup;
-		if ( forTarget && savedTranslationUnits && savedTranslationUnits[ nextSectionId ] ) {
-			sectionNode = this.getSavedTranslation( savedTranslationUnits[ nextSectionId ] );
-			nextSectionId++;
+		var sectionNode, aboutGroup, sectionId;
+
+		sectionNumber++;
+		sectionId = sectionIdPrefix + sectionNumber;
+		if ( forTarget && savedTranslationUnits && savedTranslationUnits[ sectionNumber ] ) {
+			sectionNode = this.getSavedTranslation( savedTranslationUnits[ sectionNumber ] );
 		} else {
 			if ( node.nodeType !== Node.ELEMENT_NODE ) {
 				return;
@@ -103,9 +105,8 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 			// For about-grouped siblings of block level templates don't give them
 			// a section ID
 			if ( !aboutGroup || aboutGroup !== lastAboutGroup ) {
-				sectionNode.setAttribute( 'id', sectionIdPrefix + nextSectionId );
+				sectionNode.setAttribute( 'id', sectionId );
 				sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
-				nextSectionId++;
 			}
 
 			lastAboutGroup = aboutGroup;
