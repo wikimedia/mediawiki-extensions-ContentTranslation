@@ -119,7 +119,9 @@
 
 		this.isNarrowScreenSize = document.documentElement.clientWidth < this.narrowLimit;
 
-		this.getLanguagePairs().then( function () {
+		this.siteMapper.getLanguagePairs().then( function ( data ) {
+			self.targetLanguages = data.targetLanguages;
+			self.sourceLanguages = data.sourceLanguages;
 			self.render();
 			self.setDefaultLanguages();
 			self.prefill();
@@ -160,32 +162,6 @@
 			this.show();
 			this.check();
 		}
-	};
-
-	/**
-	 * Get all the source and target languages.
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	CXSourceSelector.prototype.getLanguagePairs = function () {
-		var languagePairsAPIUrl,
-			cxSourceSelector = this;
-
-		languagePairsAPIUrl = this.siteMapper.getCXServerUrl( '/list/languagepairs' );
-
-		return $.get( languagePairsAPIUrl )
-			.done( function ( response ) {
-				cxSourceSelector.targetLanguages = response.target;
-				cxSourceSelector.sourceLanguages = response.source;
-			} )
-			.fail( function ( response ) {
-				mw.log(
-					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
-					response.statusText + ' (' + response.status + '). ' +
-					response.responseText
-				);
-				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
-			} );
 	};
 
 	/**

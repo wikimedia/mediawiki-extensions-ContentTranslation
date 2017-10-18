@@ -18,6 +18,7 @@
 	 */
 	mw.cx.SiteMapper = function ( siteconfig ) {
 		this.config = siteconfig;
+		this.languagePairsPromise = null;
 	};
 
 	/**
@@ -149,6 +150,36 @@
 		}
 
 		return targetTitle;
+	};
+
+	/**
+	 * Get all the source and target languages.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
+		var languagePairsAPIUrl,
+			self = this;
+
+		if ( !this.languagePairsPromise ) {
+			languagePairsAPIUrl = this.getCXServerUrl( '/list/languagepairs' );
+			this.languagePairsPromise = $.get( languagePairsAPIUrl )
+				.then( function ( response ) {
+					return {
+						targetLanguages: response.target,
+						sourceLanguages: response.source
+					};
+				}, function ( response ) {
+					mw.log(
+						'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
+						response.statusText + ' (' + response.status + '). ' +
+						response.responseText
+					);
+					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+					self.languagePairsPromise = null;
+				} );
+		}
+		return this.languagePairsPromise;
 	};
 
 	/**
