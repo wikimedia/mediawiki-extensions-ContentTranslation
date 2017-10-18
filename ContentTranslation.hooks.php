@@ -429,5 +429,15 @@ class ContentTranslationHooks {
 				'mw.cx.util'
 			],
 		] + $resourcePaths;
+
+		$modules['qunit']['mw.cx.dm.Translation.test'] = [
+			'scripts' => [
+				'tests/qunit/dm/mw.cx.dm.Translation.test.js'
+			],
+			'dependencies' => [
+				'mw.cx.dm.Translation',
+				've.init.mw.CXTarget'
+			],
+		] + $resourcePaths;
 	}
 }

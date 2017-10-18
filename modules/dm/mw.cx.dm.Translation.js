@@ -83,7 +83,7 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 			baseNodes[ 0 ].parentNode.removeChild( baseNodes[ 0 ] );
 		}
 		// Rerun fixBase, which will add a <base> tag pointing to the current wiki
-		ve.init.target.constructor.static.fixBase( domDoc );
+		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
 	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
@@ -100,17 +100,15 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 			sectionNode = domDoc.createElement( 'section' );
 			aboutGroup = node.getAttribute( 'about' );
 
-			// For block level templates and their about-grouped siblings, don't give them
-			// a section ID as they can't be translated yet
-			// TODO: handle more systematically
-			if ( ( aboutGroup && aboutGroup === lastAboutGroup ) || ( node.getAttribute( 'typeof' ) || '' ).match( /\bmw:Transclusion\b/ ) ) {
-				lastAboutGroup = aboutGroup;
-			} else {
+			// For about-grouped siblings of block level templates don't give them
+			// a section ID
+			if ( !aboutGroup || aboutGroup !== lastAboutGroup ) {
 				sectionNode.setAttribute( 'id', sectionIdPrefix + nextSectionId );
 				sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
 				nextSectionId++;
 			}
 
+			lastAboutGroup = aboutGroup;
 		}
 		if ( forTarget ) {
 			node.parentNode.removeChild( node );
