@@ -94,6 +94,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "כותרת הדף החדש [$1 כבר תפוסה]",
 	"cx-sourceselector-dialog-error-no-source-article": "הדף שרצית לתרגם אינו קיים ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sourceselector-missing-in-target-language": "חסר ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sourceselector-number-of-languages": "מספר השפות",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|ביקור אחת לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}",
 	"cx-sourceselector-embedded-recent-edits": "ערכת את זה לאחרונה",
 	"cx-mt-abuse-warning-title": "התרגום שלך {{PLURAL:$1|מכיל}} $1% של טקסט לא ערוך מתרגום מכונה",
