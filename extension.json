@@ -172,6 +172,11 @@
 			"styles": [
 				"entrypoint/styles/ext.cx.contributions.less"
 			],
+			"skinStyles": {
+				"vector": [
+					"entrypoint/styles/ext.cx.contributions.vector.less"
+				]
+			},
 			"dependencies": [
 				"oojs-ui-core",
 				"oojs-ui.styles.icons-content",
