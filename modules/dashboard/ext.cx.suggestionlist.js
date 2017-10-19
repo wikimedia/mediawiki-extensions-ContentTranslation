@@ -74,6 +74,8 @@
 		this.$publicCollectionContainer = null;
 		this.refreshTrigger = null;
 		this.$headerContainer = null;
+		this.$loadingIndicatorSpinner = null;
+		this.pendingRequests = 0;
 		this.seed = null;
 		this.init();
 		this.listen();
@@ -88,12 +90,15 @@
 				.text( mw.msg( 'cx-suggestionlist-title' ) )
 				.addClass( 'cx-suggestionlist__public-title' ),
 			this.languageFilter.$element );
+		this.$loadingIndicatorSpinner = $( '<div>' )
+			.addClass( 'cx-suggestionlist__loading-indicator' )
+			.append( mw.cx.widgets.spinner() );
 		this.$publicCollectionContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public' )
-			.append( this.$headerContainer );
+			.append( this.$headerContainer, this.$loadingIndicatorSpinner );
 		this.$publicCollection = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public-items' );
-		this.$publicCollectionContainer.append( this.$publicCollection ).hide();
+		this.$publicCollectionContainer.append( this.$publicCollection );
 		this.$suggestionsContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist-container' )
 			.append( this.$personalCollection, this.$publicCollectionContainer );
@@ -129,6 +134,9 @@
 		var lists, promise,
 			isEmpty = true,
 			self = this;
+
+		this.$loadingIndicatorSpinner.show();
+		this.pendingRequests++;
 
 		if ( !list ) {
 			// Initial load, load available lists and couple of suggestions for them
@@ -173,8 +181,13 @@
 			}
 
 			return isEmpty;
-		} );
+		} ).always( function () {
+			self.pendingRequests--;
 
+			if ( self.pendingRequests === 0 ) {
+				self.$loadingIndicatorSpinner.hide();
+			}
+		} );
 	};
 
 	/**
@@ -194,7 +207,7 @@
 				self.showEmptySuggestionList();
 			}
 		}, function () {
-			// On Fail, show empty list
+			// On fail, show empty list
 			self.showEmptySuggestionList();
 		} );
 	};
