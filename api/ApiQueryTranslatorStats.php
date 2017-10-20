@@ -9,6 +9,7 @@
 
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use ContentTranslation\DateManipulator;
 
 /**
  * @ingroup API ContentTranslationAPI
@@ -39,22 +40,44 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 			null, null, 'published', 'month', $translatorId
 		);
 
-		$trend = [];
-		foreach ( $publishedStats as $key => $value ) {
-			$datetime = new DateTime( "@$key" );
-			$trend[ $datetime->format( 'Y-m-d' ) ] = $value;
-		}
+		$trend = $this->addMissingMonths( $publishedStats );
 
-		// TODO: The $publishedStats does not contain data for all months,
-		// if there is not translation in that month. ApiQueryContentTranslationLanguageTrend
-		// has utility methods to fill it. But it is not important for the graph we render
-		// from the output of this data.
 		$result = [
 			'translator' => $user->getName(),
 			'translatorId' => $translatorId,
 			'publishTrend' => $trend,
 		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	private function addMissingMonths( $data ) {
+		$dates = array_keys( $data );
+
+		$dm = new DateManipulator( 'month' );
+		$min = $dm->getIntervalIdentifier( min( $dates ) );
+		$max = $dm->getIntervalIdentifier( 0 ); // Now
+
+		$steps = $dm->getSteps( $min, $max, 'month' );
+
+		$out = [];
+		$count = 0;
+
+		foreach ( $steps as $datetime ) {
+			$id = $datetime->format( 'U' );
+			$date = $datetime->format( 'Y-m-d' );
+
+			if ( isset( $data[ $id ] ) ) {
+				$out[ $date ] = $data[ $id ];
+				$count = $data[ $id ][ 'count' ];
+			} else {
+				$out[ $date ] = [
+					'count' => $count,
+					'delta' => 0
+				];
+			}
+		}
+
+		return $out;
 	}
 
 	public function getAllowedParams() {
