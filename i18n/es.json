@@ -106,7 +106,7 @@
 	"cx-sourceselector-dialog-error-no-source-article": "La página por traducir no existe en $1",
 	"cx-sourceselector-missing-in-target-language": "No disponible en $1",
 	"cx-sourceselector-number-of-languages": "Número de idiomas",
-	"cx-sourceselector-embedded-recent-edits": "Tus ediciones recientes",
+	"cx-sourceselector-embedded-recent-edits-header": "Tus ediciones recientes",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Piensa en algún tema que te interese. No es preciso que seas especialista para crear una traducción fabulosa.",
 	"cx-mt-abuse-warning-title": "Tu traducción {{PLURAL:$1|contiene}} $1 % de texto traducido automáticamente sin modificar",
 	"cx-mt-abuse-warning-text": "La traducción automática se provee sólo como punto de partida. Tienes que asegurarte de que el contenido sea preciso y que se lea naturalmente en tu idioma.",

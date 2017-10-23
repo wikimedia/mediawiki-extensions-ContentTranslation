@@ -57,7 +57,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "Sernavê rûpela nû niha [$1 niha tê bikaranîn]",
 	"cx-sourceselector-dialog-error-no-source-article": "Rûpela ku bê wergerandin li ser $1 tune ye",
 	"cx-sourceselector-number-of-languages": "Hejmara zimanan",
-	"cx-sourceselector-embedded-recent-edits": "Guhertoyên te yên dawî",
+	"cx-sourceselector-embedded-recent-edits-header": "Guhertoyên te yên dawî",
 	"cx-publish-captcha-title": "Pirsa ewlehiyê",
 	"cx-dashboard-sidebar-title": "Alîkarî bo {{GENDER:|wergerê}} hewce ye?",
 	"cx-dashboard-sidebar-stats": "Statîstîk",

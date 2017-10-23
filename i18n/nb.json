@@ -95,7 +95,7 @@
 	"cx-sourceselector-missing-in-target-language": "Mangler på $1",
 	"cx-sourceselector-number-of-languages": "Antall språk",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka",
-	"cx-sourceselector-embedded-recent-edits": "Nylig redigert av deg",
+	"cx-sourceselector-embedded-recent-edits-header": "Nylig redigert av deg",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Tenk på et interessefelt du har. Du må ikke være ekspert for å skape en god oversettelse.",
 	"cx-mt-abuse-warning-title": "Oversettelsen din {{PLURAL:$1|inneholder}} $1% uforandret maskinoversatt tekst",
 	"cx-mt-abuse-warning-text": "Maskinoversettelse er kun ment som et utgangspunkt. Du må selv sørge for at innholdet blir nøyaktig og at språket flyter naturlig.",

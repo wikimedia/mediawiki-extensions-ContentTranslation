@@ -94,7 +94,7 @@
 	"cx-sourceselector-missing-in-target-language": "Nedostaje u $1",
 	"cx-sourceselector-number-of-languages": "Broj jezika",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 pregled tjedno|$1 pregleda tjedno|0=Nema pregleda ovoga tjedna}}",
-	"cx-sourceselector-embedded-recent-edits": "Ovu stranicu ste nedavno uređivali",
+	"cx-sourceselector-embedded-recent-edits-header": "Ovu stranicu ste nedavno uređivali",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Pomislite na neku temu koja Vas zanima. Ne treba da ste stručnjak kako biste stvarali odlične prijevode.",
 	"cx-mt-abuse-warning-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1% nepromijenjenog teksta strojnog prevoditelja",
 	"cx-mt-abuse-warning-text": "Strojni prijevodi su predviđeni samo kao pomoć. Imajte u vidu da sadržaj bude točan i razumljiv u Vašem jeziku.",

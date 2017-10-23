@@ -99,7 +99,7 @@
 	"cx-sourceselector-missing-in-target-language": "Saknas på $1",
 	"cx-sourceselector-number-of-languages": "Antal språk",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 besök per|0=Inga besök denna}} vecka",
-	"cx-sourceselector-embedded-recent-edits": "Redigerades nyligen av dig",
+	"cx-sourceselector-embedded-recent-edits-header": "Redigerades nyligen av dig",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Tänk på ett ämne som du är intresserad av. Du behöver inte vara en expert för att skapa en bra översättning.",
 	"cx-mt-abuse-warning-title": "Din översättning {{PLURAL:$1|innehåller}} $1 % oförändrad maskinöversatt text",
 	"cx-mt-abuse-warning-text": "Maskinöversättning tillhandahålls enbart som en startpunkt. Du måste se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.",

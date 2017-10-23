@@ -101,7 +101,7 @@
 	"cx-sourceselector-missing-in-target-language": "Відсутня мовою: $1",
 	"cx-sourceselector-number-of-languages": "Кількість мов",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",
-	"cx-sourceselector-embedded-recent-edits": "Нещодавно редаговані Вами",
+	"cx-sourceselector-embedded-recent-edits-header": "Нещодавно редаговані Вами",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Подумайте про будь-яку тему, яка може Вас зацікавити. Вам не треба бути експертом, щоб зробити чудовий переклад.",
 	"cx-mt-abuse-warning-title": "Ваш переклад {{PLURAL:$1|містить}} $1% незміненого машинно-перекладеного тексту",
 	"cx-mt-abuse-warning-text": "Машинний переклад надається лише як відправна точка. Вам треба переконатися, що зміст є точним і природно читається Вашою мовою.",

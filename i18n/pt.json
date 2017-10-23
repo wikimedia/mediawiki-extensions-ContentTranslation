@@ -99,7 +99,7 @@
 	"cx-sourceselector-missing-in-target-language": "Não existe em $1",
 	"cx-sourceselector-number-of-languages": "Número de línguas",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
-	"cx-sourceselector-embedded-recent-edits": "Editadas recentemente por si",
+	"cx-sourceselector-embedded-recent-edits-header": "Editadas recentemente por si",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
 	"cx-mt-abuse-warning-title": "A sua tradução {{PLURAL:$1|contém}} $1% de texto de tradução automática sem modificação",
 	"cx-mt-abuse-warning-text": "Traduções automáticas são usadas apenas como ponto de partida. Certifique-se de que o conteúdo é preciso e flui de forma natural na sua língua.",

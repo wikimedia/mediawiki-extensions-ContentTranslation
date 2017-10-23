@@ -89,7 +89,7 @@
 	"cx-sourceselector-missing-in-target-language": "Falta en $1",
 	"cx-sourceselector-number-of-languages": "Númberu de llingües",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 visita|$1 visites|0=Ensin visites}} esta selmana",
-	"cx-sourceselector-embedded-recent-edits": "Editao por ti recién",
+	"cx-sourceselector-embedded-recent-edits-header": "Editao por ti recién",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Piensa nun tema que t'interese. Nun necesites ser un espertu o crear una traducción perbona.",
 	"cx-mt-abuse-warning-title": "La to traducción {{PLURAL:$1|contien}} un $1% de testu de traducción automática que nun se cambió",
 	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida. Tienes d'asegurate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.",
