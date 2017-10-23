@@ -1174,7 +1174,8 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"mediawiki.api"
+				"mediawiki.api",
+				"mediawiki.language"
 			]
 		},
 		"mw.cx.dm": {

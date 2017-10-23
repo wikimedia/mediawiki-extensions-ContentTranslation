@@ -81,8 +81,10 @@
 			}
 
 			$header.text( mw.msg( 'cx-translator-header' ) );
-			$total.find( '.cx-translator__total-translations-count' ).text( total );
-			$monthStats.find( '.cx-translator__month-stats-count' ).text( thisMonthStats );
+			$total.find( '.cx-translator__total-translations-count' )
+				.text( mw.language.convertNumber( total ) );
+			$monthStats.find( '.cx-translator__month-stats-count' )
+				.text( mw.language.convertNumber( thisMonthStats ) );
 
 			$.each( monthKeys, function ( i, month ) {
 				self.max = Math.max( self.max, publishTrend[ month ].delta );
