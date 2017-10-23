@@ -371,8 +371,9 @@
 				"cx-sourceselector-dialog-error-title-in-use",
 				"cx-sourceselector-dialog-error-no-source-article",
 				"cx-sourceselector-embedded-selected-item-pageviews",
-				"cx-sourceselector-embedded-recent-edits",
+				"cx-sourceselector-embedded-recent-edits-header",
 				"cx-sourceselector-embedded-recent-edits-no-results",
+				"cx-sourceselector-embedded-search-no-results",
 				"cx-license-agreement",
 				"cx-error-server-connection"
 			]
