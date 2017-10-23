@@ -65,28 +65,24 @@
 			.addClass( 'cx-translator' )
 			.append( $header, $monthStats, $total, this.$canvas );
 		statsRequest.then( function ( stats ) {
-			var total, monthCount,
+			var total, thisMonthStats,
 				publishTrend = stats.cxtranslatorstats.publishTrend,
 				// Sorted months for ordered display on bar chart
 				monthKeys = Object.keys( publishTrend ).sort(),
-				thisMonthKey = new Date().toISOString().slice( 0, 7 ) + '-01',
-				lastMonthKey = Object.keys( publishTrend ).slice( -1 ).pop();
+				thisMonthKey = new Date().toISOString().slice( 0, 7 ) + '-01';
 
-			// lastMonthKey is for the month with non-zero contributions. It may be equal to
-			// thisMonthKey, but not guaranteed.
-			if ( !lastMonthKey ) {
-				// There is no month with non-zero contributions.
+			total = publishTrend[ thisMonthKey ].count || 0;
+			thisMonthStats = publishTrend[ thisMonthKey ].delta || 0;
+
+			// Don't display statistics if there are no translations yet
+			if ( total === 0 ) {
 				self.$widget.remove();
 				return;
 			}
-			total = publishTrend[ lastMonthKey ].count || 0;
-			monthCount = publishTrend[ thisMonthKey ] &&
-				publishTrend[ thisMonthKey ].delta || 0;
 
 			$header.text( mw.msg( 'cx-translator-header' ) );
 			$total.find( '.cx-translator__total-translations-count' ).text( total );
-			$monthStats.find( '.cx-translator__month-stats-count' )
-				.text( monthCount );
+			$monthStats.find( '.cx-translator__month-stats-count' ).text( thisMonthStats );
 
 			$.each( monthKeys, function ( i, month ) {
 				self.max = Math.max( self.max, publishTrend[ month ].delta );
