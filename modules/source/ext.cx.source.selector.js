@@ -1359,7 +1359,7 @@
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
-			placeholder: mw.msg( 'cx-sourceselector-dialog-source-title-placeholder' ),
+			placeholder: mw.msg( 'cx-sourceselector-embedded-source-page-placeholder' ),
 			showRedirectTargets: true,
 			$overlay: this.$searchResults,
 			$container: this.$searchResults

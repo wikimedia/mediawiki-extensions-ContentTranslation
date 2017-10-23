@@ -91,6 +91,7 @@
 	"cx-sourceselector-dialog-button-cancel": "Cancel",
 	"cx-sourceselector-dialog-source-language-label": "From:",
 	"cx-sourceselector-dialog-target-language-label": "To:",
+	"cx-sourceselector-embedded-source-page-placeholder": "Search for a page to translate",
 	"cx-sourceselector-dialog-source-title-placeholder": "Search for source page",
 	"cx-sourceselector-dialog-target-title-placeholder": "Translation title",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "This title is already used in [$1 $2] for [$3 a different page]",
