@@ -85,6 +85,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Էջը $2 [$1 արդեն գոյություն ունի]",
 	"cx-sourceselector-dialog-error-title-in-use": "Նոր էջի վերնագիրն [$1 արդեն օգտագործվում է]",
 	"cx-sourceselector-dialog-error-no-source-article": "Թարգմանության էջը գոյություն չունի $1",
+	"cx-sourceselector-number-of-languages": "Լեզուների քանակը",
 	"cx-mt-abuse-warning-title": "Ձեր թարգմանությունը {{PLURAL:$1|պարունակում է}} մեքենայաբար թարգմանված տեքստի $1%-ը",
 	"cx-mt-abuse-warning-text": "Մեքենայական թարգմանությունները միայն կաղապարի համար են։ Դուք պետք է համոզվեք, որ բովանդակությունը Ձեր լեզվով ճշգրիտ է և ընթեռնելի։",
 	"cx-publish-captcha-title": "Անվտանգության հարց",

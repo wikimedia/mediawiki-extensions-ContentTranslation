@@ -24,7 +24,8 @@
 			"Liuxinyu970226",
 			"Esukhovnina",
 			"Av6",
-			"Facenapalm"
+			"Facenapalm",
+			"Kareyac"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -107,6 +108,7 @@
 	"cx-sourceselector-dialog-error-page-exists": "Страница [$1 уже существует] на $2",
 	"cx-sourceselector-dialog-error-title-in-use": "Название для новой страницы [$1 уже используется]",
 	"cx-sourceselector-dialog-error-no-source-article": "Этой страницы для перевода нет на $1",
+	"cx-sourceselector-number-of-languages": "Количество языков",
 	"cx-mt-abuse-warning-title": "Ваш перевод {{PLURAL:$1|содержит}} $1% неизменённого машинного перевода текста",
 	"cx-mt-abuse-warning-text": "Машинный перевод предоставляется только в качестве отправной точки. Вам нужно убедиться, что перевод точен и естественно читается на вашем языке.",
 	"cx-publish-captcha-title": "Защитный вопрос",

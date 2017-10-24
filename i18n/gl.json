@@ -92,6 +92,7 @@
 	"cx-sourceselector-dialog-error-title-in-use": "O título da páxina nova [$1 xa está en uso]",
 	"cx-sourceselector-dialog-error-no-source-article": "A páxina a traducir non existe en $1",
 	"cx-sourceselector-missing-in-target-language": "Non dispoñible en $1",
+	"cx-sourceselector-number-of-languages": "Número de linguas",
 	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Non houbo visitas esta}} semana",
 	"cx-sourceselector-embedded-recent-edits-header": "Editadas recentemente por vostede",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Pense nalgún tema que lle interese. Non é preciso que sexa un especialista para crear unha boa tradución.",
