@@ -81,5 +81,5 @@ mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) 
 		}
 	}
 
-	return $( '<div>' ).append( $message, $details );
+	return $message.add( $details );
 };
