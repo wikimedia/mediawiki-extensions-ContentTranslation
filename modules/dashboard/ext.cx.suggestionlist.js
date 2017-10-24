@@ -812,7 +812,7 @@
 	 */
 	CXSuggestionList.prototype.scroll = function () {
 		var expandedListId, $expandedList, $window, triggerPos,
-			scrollTop, windowHeight, offsetTop, visibleArea, $loadTrigger;
+			scrollTop, windowHeight, visibleArea, $loadTrigger;
 
 		if ( !this.active ) {
 			return;
@@ -820,13 +820,7 @@
 		$window = $( window );
 		scrollTop = $window.scrollTop();
 		windowHeight = $window.height();
-		offsetTop = this.$container.offset().top;
 		visibleArea = windowHeight + scrollTop;
-		if ( scrollTop > offsetTop ) {
-			this.$container.addClass( 'sticky' );
-		} else if ( scrollTop <= offsetTop ) {
-			this.$container.removeClass( 'sticky' );
-		}
 
 		// Load next batch of items when loadTrigger is in viewpot
 		$expandedList = this.$container.find( '.cx-suggestionlist--expanded' );
