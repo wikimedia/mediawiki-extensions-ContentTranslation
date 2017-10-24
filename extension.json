@@ -945,7 +945,8 @@
 				"ext.cx.recommendtool.client",
 				"ext.cx.util",
 				"jquery.uls.data",
-				"mediawiki.storage"
+				"mediawiki.storage",
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"ellipsis",
