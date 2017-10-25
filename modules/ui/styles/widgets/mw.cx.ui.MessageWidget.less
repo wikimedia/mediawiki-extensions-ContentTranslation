@@ -7,10 +7,12 @@
 	margin-bottom: 10px;
 	position: relative;
 
-	.oo-ui-iconElement-icon {
+	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+		position: static;
 		display: inline-block;
 		float: left;
 		vertical-align: middle;
+		padding: 0.2em 0;
 	}
 
 	&.cx-message-error {
