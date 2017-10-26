@@ -102,7 +102,7 @@
 	"apierror-cx-invalidsourcelanguage": "Неважечки изворен јазик.",
 	"apierror-cx-invalidtargetlanguage": "Неважечки целен јазик.",
 	"apierror-cx-invalidtranslator": "Неважечко име на преведувач",
-	"apierror-cx-jwtmissing": "Недостига JWT.",
+	"apierror-cx-jwtmissing": "Не е воспоставен JWT.",
 	"apierror-cx-keynotconfigured": "Клучот не е поставен.",
 	"apierror-cx-missingdraft": "Нацртот не постои.",
 	"apierror-cx-mustbeloggedin-suggestions": "Мора да сте најавени за да управувате со вашите предлози.",
