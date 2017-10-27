@@ -117,8 +117,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 */
 	public function find( TranslationWork $work, Translator $translator ) {
 		$result = $this->getResult();
-		$translation = Translation::findForTranslator( $work, $translator );
-
+		if ( $this->user ) {
+			$translation = Translation::findForTranslator( $work, $translator );
+		}
 		// Check for other drafts. If one exists, return that to the UI which will then
 		// know to display an error to the user because we disallow two users to start
 		// drafts on the same translation work.
