@@ -1,3 +1,5 @@
+@import '../../widgets/common/ext.cx.common.less';
+
 .cx-overlay {
 	background-color: #fff;
 	position: fixed;
@@ -15,6 +17,8 @@
 
 body.cx-noscroll {
 	overflow: hidden;
-	// Avoid content jump when we hide the scrollbar.
-	margin-right: 15px;
+	// Avoid content jump when we hide the scrollbar on medium and large screens
+	@media only screen and ( min-width: @narrow ) {
+		margin-right: 15px;
+	}
 }
