@@ -100,7 +100,7 @@
 	"cx-sourceselector-dialog-button-cancel": "취소",
 	"cx-sourceselector-dialog-source-language-label": "이 언어에서:",
 	"cx-sourceselector-dialog-target-language-label": "이 언어로:",
-	"cx-sourceselector-embedded-source-page-placeholder": "번역을 문서를 찾습니다",
+	"cx-sourceselector-embedded-source-page-placeholder": "번역할 문서를 찾습니다",
 	"cx-sourceselector-dialog-source-title-placeholder": "원문에서 검색",
 	"cx-sourceselector-dialog-target-title-placeholder": "번역 제목",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "이 제목은 이미 [$3 다른 문서]에 [$1 $2](으)로 사용되고 있습니다",

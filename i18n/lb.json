@@ -8,7 +8,7 @@
 	},
 	"cx": "Säit iwwersetzen",
 	"cx-dashboard-header": "Iwwersetzungen",
-	"cx-javascript": "Dëse Programm funktionéiert net ouni JavaScript",
+	"cx-javascript": "Dësen Tool funktionéiert net ouni JavaScript. JavaScript ass ausgeschalt, funktionéiert net oder dëse Browser gëtt net ënnerstëtzt.",
 	"cx-error-server-connection": "Feeler: D'Verbindung mam Server konnt net opgebaut ginn.",
 	"cx-desc": "Mécht et einfach fir Säite mat Inhalt z'[[Special:ContentTranslation|iwwersetzen]].",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iwwersat}}",
