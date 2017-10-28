@@ -9,7 +9,15 @@ body {
 	color: @gray-darker;
 	max-width: 1500px;
 	margin: 0 auto;
-	padding: 20px 50px;
+	padding: 20px 40px;
+
+	@media only screen and ( max-width: ( @narrow - 1px ) ) {
+		padding: 20px 24px;
+	}
+
+	@media only screen and ( max-width: ( @very-narrow - 1px ) ) {
+		padding: 20px 12px;
+	}
 
 	/* Clearfix */
 	&:after {
