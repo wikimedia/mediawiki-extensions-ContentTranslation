@@ -20,7 +20,7 @@
 	},
 	"cx": "Přeložit stránku",
 	"cx-dashboard-header": "Překlady",
-	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu.",
+	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je buď vypnut, nebo zkolaboval anebo není podporován tento prohlížeč.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] je nástroj k rychlému překládání stránek do vašeho jazyka. [$1 Vyzkoušejte si ho hned!]",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
 	"cx-desc": "Zjednodušuje [[Special:ContentTranslation|překlad]] obsahových stránek",
