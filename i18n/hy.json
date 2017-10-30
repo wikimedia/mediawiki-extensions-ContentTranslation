@@ -7,7 +7,8 @@
 			"Դավիթ Սարոյան",
 			"Աշոտ1997",
 			"Lilitik22",
-			"Kareyac"
+			"Kareyac",
+			"Aram1985"
 		]
 	},
 	"cx": "Թարգմանիր էջը",
@@ -22,7 +23,7 @@
 	"cx-header-new-translation": "Նոր թարգմանություն",
 	"cx-header-all-translations": "Բոլոր թարգմանությունները",
 	"cx-source-view-page": "դիտել էջը",
-	"cx-publish-page-success": "Էջ հրապարակվել է $1-ում",
+	"cx-publish-page-success": "Էջ հրապարակվել է $1ում",
 	"cx-publish-page-error": "Սխալ՝ էջը պահպանելիս:",
 	"cx-publish-button": "Հրապարակել թարգմանությունը",
 	"cx-publish-button-publishing": "Հրապարակվում է...",
