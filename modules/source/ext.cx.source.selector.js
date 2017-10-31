@@ -942,7 +942,7 @@
 	};
 
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
-		var itemImage, numOfLanguages,
+		var numOfLanguages,
 			self = this,
 			itemTitle = item.getData(),
 			params = {
@@ -983,9 +983,10 @@
 
 		this.sourcePageSelector.setValueNoEmit( item.getData() );
 
-		itemImage = item.$icon.css( 'background-image' );
-		if ( itemImage !== 'none' ) {
-			this.$selectedItemImage.css( 'background-image', itemImage );
+		if ( item.imageUrl ) {
+			this.$selectedItemImage.css( 'background-image', 'url( ' + item.imageUrl + ')' );
+		} else {
+			this.$selectedItemImage.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + item.icon );
 		}
 
 		this.$selectedItemLink.prop( {
@@ -1024,7 +1025,12 @@
 
 		// Discard selected item image and info
 		this.$selectedItemMetrics.empty();
-		this.$selectedItemImage.removeAttr( 'style' );
+		this.$selectedItemImage
+			.removeAttr( 'style' )
+			.removeClass( 'oo-ui-iconElement-icon' )
+			.attr( 'class', function ( i, className ) {
+				return className.replace( /(?:^|\s)oo-ui-icon-page-\S+/, '' );
+			} );
 
 		this.$container.removeClass( 'cx-sourceselector-embedded--selected' );
 		this.isArticleSelected = false;

@@ -192,10 +192,8 @@
 		apply = function ( page ) {
 			if ( page.thumbnail ) {
 				$.each( map[ page.title ], function ( i, $image ) {
-					$image.css( {
-						'background-image': 'url(' + page.thumbnail.source + ')'
-					} );
-
+					$image.removeClass( 'oo-ui-icon-page-existing' )
+						.css( 'background-image', 'url(' + page.thumbnail.source + ')' );
 				} );
 			}
 		};
@@ -288,7 +286,7 @@
 				.addClass( 'last-updated' )
 				.text( moment( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
 			$image = $( '<div>' )
-				.addClass( 'cx-tlitem__image' );
+				.addClass( 'cx-tlitem__image oo-ui-icon-page-existing' );
 			$progressbar = $( '<div>' )
 				.addClass( 'progressbar' )
 				.cxProgressBar( {

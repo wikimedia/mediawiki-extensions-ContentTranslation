@@ -28,6 +28,8 @@
 		mw.cx.ui.TitleOptionWidget.parent.call( this, config );
 
 		this.$element.addClass( 'mw-cx-widget-titleOptionWidget' );
+		// TODO: Consider upstreaming this
+		this.imageUrl = config.imageUrl;
 
 		if ( config.numOfLanguages ) {
 			this.numOfLanguages = config.numOfLanguages;

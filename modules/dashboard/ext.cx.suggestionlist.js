@@ -358,9 +358,9 @@
 			}
 			$.each( map[ page.title ], function ( i, item ) {
 				if ( page.thumbnail ) {
-					item.$image.css( {
-						'background-image': 'url(' + page.thumbnail.source + ')'
-					} );
+					item.$image.css( 'background-image', 'url(' + page.thumbnail.source + ')' );
+				} else {
+					item.$image.addClass( 'oo-ui-icon-page-existing' );
 				}
 				if ( page.terms ) {
 					item.$desc.text( page.terms.description ).show();
