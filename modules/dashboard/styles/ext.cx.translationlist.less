@@ -16,58 +16,19 @@
 	}
 
 	.cx-tlitem__actions {
-		.mw-ui-item;
-
-		position: relative;
-		width: auto;
 		margin-bottom: auto;
-		padding: 0;
 
-		.cx-tlitem__actions__trigger {
-			cursor: pointer;
-			padding: 18px;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: 24px;
-
-			&:hover {
-				background-color: @colorGray14;
-			}
+		/* Preserve existing opacity transitions, TODO: Unify with OOUI */
+		.oo-ui-buttonElement > .oo-ui-buttonElement-button {
+			opacity: 0.66;
 		}
 
-		ul {
-			display: none;
-			position: absolute;
-			top: 36px;
-			right: 0;
-			list-style: none;
-			margin: 0 5px 0 0;
-			font-size: medium;
-			font-weight: normal;
-			white-space: nowrap;
-			background-color: #fff;
-			border: 1px solid @colorGray12;
-			border-bottom-width: 3px;
-			border-radius: @borderRadius;
-
-			li {
-				padding: 0;
-				margin: 0;
-			}
+		.oo-ui-buttonElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+			opacity: 0.8;
 		}
 
-		&:hover ul {
-			display: block;
-		}
-
-		&.cx-tlitem__actions--selected {
-			ul {
-				display: block;
-			}
-
-			.cx-tlitem__actions__trigger {
-				background-color: @colorGray14;
-			}
+		.oo-ui-buttonElement > .oo-ui-buttonElement-button:hover > .oo-ui-iconElement-icon {
+			opacity: 1;
 		}
 	}
 

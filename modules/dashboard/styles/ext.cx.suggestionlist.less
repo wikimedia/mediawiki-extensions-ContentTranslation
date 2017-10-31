@@ -167,14 +167,11 @@
 }
 
 .cx-slitem__actions {
-	min-height: 90px;
-
-	width: auto;
-	padding: 0;
+	margin-bottom: auto;
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 
-	@media only screen and ( max-width: @narrow ) {
+	@media only screen and ( max-width: ( @narrow - 1px ) ) {
 		-webkit-flex-direction: column-reverse;
 		flex-direction: column-reverse;
 		-webkit-box-pack: end; // iOS 6-, Safari 3.1-6

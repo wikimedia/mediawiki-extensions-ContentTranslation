@@ -31,7 +31,6 @@
 		this.$headerContainer = null;
 		this.$translationsList = null;
 		this.$loadingIndicatorSpinner = null;
-		this.$selectedActionMenu = null;
 		this.active = false;
 		this.promise = null;
 		this.queryContinue = null;
@@ -311,7 +310,7 @@
 			sourceDir, targetDir, $targetTitle,
 			$translationLink,
 			$sourceLanguage, $targetLanguage, $languageContainer,
-			$actionsTrigger, deleteTranslation, $menu, $menuContainer,
+			deleteTranslation, $actions,
 			continueTranslation,
 			$titleLanguageBlock,
 			$translations = [];
@@ -391,31 +390,26 @@
 				.addClass( 'cx-tlitem__languages' )
 				.append( $sourceLanguage, $targetLanguage );
 
-			$actionsTrigger = $( '<div>' )
-				.addClass( 'cx-tlitem__actions__trigger oo-ui-iconElement-icon oo-ui-icon-ellipsis' );
-			$menu = $( '<ul>' );
-
+			$actions = $( '<div>' )
+				.addClass( 'cx-tlitem__actions' );
 			// If the translation is draft, allow deleting it
 			if ( translation.status === 'draft' ) {
 				deleteTranslation = new OO.ui.ButtonWidget( {
 					framed: false,
 					classes: [ 'cx-discard-translation' ],
-					label: mw.msg( 'cx-discard-translation' ),
-					icon: 'trash'
+					icon: 'trash',
+					title: mw.msg( 'cx-discard-translation' )
 				} );
-				$menu.append( $( '<li>' ).append( deleteTranslation.$element ) );
+				$actions.append( deleteTranslation.$element );
 			} else if ( translation.status === 'published' ) {
 				continueTranslation = new OO.ui.ButtonWidget( {
 					framed: false,
 					classes: [ 'cx-continue-translation' ],
 					icon: 'edit',
-					label: mw.msg( 'cx-continue-translation' )
+					title: mw.msg( 'cx-continue-translation' )
 				} );
-				$menu.append( $( '<li>' ).append( continueTranslation.$element ) );
+				$actions.append( continueTranslation.$element );
 			}
-			$menuContainer = $( '<div>' )
-				.addClass( 'cx-tlitem__actions' )
-				.append( $actionsTrigger, $menu );
 
 			$titleLanguageBlock = $( '<div>' )
 				.addClass( 'cx-tlitem__details' )
@@ -424,7 +418,7 @@
 			$translation.append(
 				$image,
 				$titleLanguageBlock,
-				$menuContainer
+				$actions
 			);
 
 			$translations.push( $translation );
@@ -467,10 +461,8 @@
 			var translation;
 
 			e.stopPropagation();
+			$( this ).find( 'a' ).blur();
 			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
-			if ( self.$selectedActionMenu ) {
-				self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
-			}
 
 			OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 				message: mw.msg( 'cx-draft-discard-confirmation-message' ),
@@ -501,6 +493,7 @@
 			var translation;
 
 			e.stopPropagation();
+			$( this ).find( 'a' ).blur();
 			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
 			self.continueTranslation( translation );
 			return false;
@@ -512,31 +505,6 @@
 				location.href = translation.targetURL;
 			} else {
 				self.continueTranslation( translation );
-			}
-		} );
-
-		this.$translationsList.on( 'click', '.cx-tlitem__actions', function ( e ) {
-			var $this = $( this );
-
-			// Do not propagate to the parent item. Prevent opening translation.
-			e.stopPropagation();
-
-			// Remove --selected mark from already opened menu if user clicks on some other menu
-			if ( self.$selectedActionMenu && !$this.is( self.$selectedActionMenu ) ) {
-				self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
-			}
-
-			$this.toggleClass( 'cx-tlitem__actions--selected' );
-			self.$selectedActionMenu = $this;
-		} );
-
-		// To support opening of menu on hover event on devices that support it
-		// We need to close menus already opened with clicks
-		this.$translationsList.on( 'mouseenter', '.cx-tlitem__actions', function () {
-			var $this = $( this );
-
-			if ( self.$selectedActionMenu && !$this.is( self.$selectedActionMenu ) ) {
-				self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
 			}
 		} );
 
