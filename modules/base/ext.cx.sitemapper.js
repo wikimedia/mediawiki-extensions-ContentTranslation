@@ -177,6 +177,7 @@
 					);
 					mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 					self.languagePairsPromise = null;
+					return $.Deferred().reject().promise();
 				} );
 		}
 		return this.languagePairsPromise;
