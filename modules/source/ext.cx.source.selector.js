@@ -918,7 +918,7 @@
 		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
 		sourceLanguage = storedSourceLanguage;
 
-		if ( !this.isValidSource( sourceLanguage ) ) {
+		if ( !this.isValidSource( sourceLanguage ) || sourceLanguage === targetLanguage ) {
 			commonSourceLanguages = this.$sourceLanguage.data( 'uls' ).options.quickList();
 
 			for ( i = 0; i < commonSourceLanguages.length; i++ ) {
@@ -933,7 +933,7 @@
 		}
 
 		// Still couldn't find a valid source language?
-		if ( !this.isValidSource( sourceLanguage ) ) {
+		if ( !this.isValidSource( sourceLanguage ) || sourceLanguage === targetLanguage ) {
 			sourceLanguage = mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
 		}
 
