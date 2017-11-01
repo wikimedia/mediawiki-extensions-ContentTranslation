@@ -355,6 +355,17 @@
 				return $( this ).html();
 			} );
 
+			// Parsoid can not serialize mw:Transclusion without data-mw. Ideally we should not
+			// have this kind of content. But bugs had caused this and prevented publishing
+			// translations. See T154116. Remove typeof attribute so that publishing can proceed.
+			$section.find( '[typeof*="mw:Transclusion"]' ).replaceWith( function () {
+				if ( !$( this ).attr( 'data-mw' ) ) {
+					mw.log( '[CX] Warning: Transclusion without data-mw. Removing typeof attribute' );
+					return $( this ).removeAttr( 'typeof' );
+				}
+				return this;
+			} );
+
 			// Remove empty sections
 			if ( !$.trim( $section.text() ) && !$section.children().length ) {
 				$section.remove();
