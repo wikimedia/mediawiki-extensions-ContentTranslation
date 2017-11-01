@@ -24,7 +24,7 @@
 		this.$publishedArticlesButton = null;
 		this.lists = {};
 		this.$translationListContainer = null;
-		this.$newTranslationButton = null;
+		this.newTranslationButton = null;
 		this.$listHeader = null;
 		this.$sourceSelector = null;
 		this.narrowLimit = 700;
@@ -338,7 +338,7 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var newTranslationButton, size,
+		var size,
 			filterButtons = [];
 
 		// document.documentElement.clientWidth performs faster than $( window ).width()
@@ -358,7 +358,7 @@
 			items: filterButtons
 		} );
 
-		newTranslationButton = new OO.ui.ButtonWidget( {
+		this.newTranslationButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-create-new-translation' ),
 			icon: 'add',
 			flags: [
@@ -366,11 +366,10 @@
 				'progressive'
 			]
 		} );
-		this.$newTranslationButton = newTranslationButton.$element;
 
 		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
 		this.$listHeader.append(
-			this.$newTranslationButton,
+			this.newTranslationButton.$element,
 			this.filter.$element
 		);
 
@@ -413,11 +412,12 @@
 		} );
 
 		this.initSourceSelector();
-		this.$newTranslationButton.on( 'click', function ( e ) {
-			self.$listHeader.hide();
-			e.stopPropagation();
-
-			$( window ).scrollTop( 0 );
+		// Translation button can't be clicked until language pairs have been loaded
+		this.siteMapper.getLanguagePairs().then( function () {
+			self.newTranslationButton.$element.on( 'click', function () {
+				self.$listHeader.hide();
+				$( window ).scrollTop( 0 );
+			} );
 		} );
 		// Scroll handler
 		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
@@ -580,7 +580,7 @@
 		sourceSelectorOptions.targetLanguage = query.to;
 		sourceSelectorOptions.sourceTitle = query.page;
 		sourceSelectorOptions.container = this.$sourceSelector;
-		this.$newTranslationButton.cxSourceSelector( sourceSelectorOptions );
+		this.newTranslationButton.$element.cxSourceSelector( sourceSelectorOptions );
 
 		if ( query.campaign ) {
 			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
