@@ -908,22 +908,31 @@
 	};
 
 	CXSourceSelector.prototype.setDefaultLanguages = function () {
-		var storedTargetLanguage, storedSourceLanguage,
-			targetLanguage, sourceLanguage,
-			commonSourceLanguages, i;
+		var validDefaultLanguagePair = this.findValidDefaultLanguagePair();
 
-		storedTargetLanguage = mw.storage.get( 'cxTargetLanguage' );
-		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
+		this.setSourceLanguage( validDefaultLanguagePair.sourceLanguage );
+		this.setTargetLanguage( validDefaultLanguagePair.targetLanguage );
+	};
 
-		targetLanguage = storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
-		sourceLanguage = storedSourceLanguage;
+	/**
+	 * Find valid source and target language pair, with different source and target language
+	 *
+	 * @return {Object} languages Valid and different source and target languages
+	 */
+	CXSourceSelector.prototype.findValidDefaultLanguagePair = function () {
+		var sourceLanguage,
+			targetLanguage,
+			commonSourceLanguages, i, length;
+
+		sourceLanguage = mw.storage.get( 'cxSourceLanguage' );
+		targetLanguage = mw.storage.get( 'cxTargetLanguage' ) || mw.config.get( 'wgContentLanguage' );
 
 		if ( !this.isValidSource( sourceLanguage ) || sourceLanguage === targetLanguage ) {
 			commonSourceLanguages = this.$sourceLanguage.data( 'uls' ).options.quickList();
 
-			for ( i = 0; i < commonSourceLanguages.length; i++ ) {
+			for ( i = 0, length = commonSourceLanguages.length; i < length; i++ ) {
 				if ( commonSourceLanguages[ i ] !== targetLanguage &&
-					this.isValidSource( commonSourceLanguages[ i ], targetLanguage )
+					this.isValidSource( commonSourceLanguages[ i ] )
 				) {
 					sourceLanguage = commonSourceLanguages[ i ];
 
@@ -932,13 +941,10 @@
 			}
 		}
 
-		// Still couldn't find a valid source language?
-		if ( !this.isValidSource( sourceLanguage ) || sourceLanguage === targetLanguage ) {
-			sourceLanguage = mw.config.get( 'wgContentTranslationDefaultSourceLanguage' );
-		}
-
-		this.setSourceLanguage( sourceLanguage );
-		this.setTargetLanguage( targetLanguage );
+		return {
+			sourceLanguage: sourceLanguage,
+			targetLanguage: targetLanguage
+		};
 	};
 
 	CXSourceSelector.prototype.setSelectedItem = function ( item ) {
