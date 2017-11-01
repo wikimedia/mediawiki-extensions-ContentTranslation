@@ -31,6 +31,21 @@
 	}
 }
 
+.cx-suggestionlist__loading-indicator {
+	@dot-size: 16px;
+	@verticalPadding: 15px;
+
+	background-color: @colorGray15;
+	height: @dot-size + @verticalPadding;
+	padding-top: @verticalPadding;
+
+	.cx-spinner {
+		width: 3 * @dot-size;
+		height: @dot-size;
+		margin: 0 auto;
+	}
+}
+
 // stylelint-disable indentation
 // At any time display only two suggestion lists
 .cx-suggestionlist-type-4:nth-child( n+3 ),
