@@ -9,6 +9,7 @@
 	"cx": "mibelih kasabelih",
 	"cx-dashboard-header": "mibelih",
 	"cx-javascript": "tina sakaluk maydih midama JavaScript kya kapah saungay.",
+	"cx-license-agreement": "sapecec \"$1\" dayhiw kisu patubeli  [//wikimediafoundation.org/wiki/Terms_of_Use misaungay a cedang] zumasatu caay macanuis  patubeli pisaungay mibelih sakaluk nay [https://creativecommons.org/licenses/by-sa/3.0/CC BY-SA 3.0 sapabeli tu kinli a cedang] atu [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] patiyak paanin nu misu, zumasatu matineng caw-siket saca URL matatungus CC BY-SA 3.0 a pangangan milunguc",
 	"cx-error-server-connection": "mungangaw: la’cus misiket tu (calay-zazan)wanglu i sefu-kikay.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|mabelih tuway}}",
 	"cx-header-progressbar-text-mt": "($1% pisaungay {{PLURAL:$1|kikay mibelih}})",
