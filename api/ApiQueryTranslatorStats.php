@@ -54,7 +54,9 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$dates = array_keys( $data );
 
 		$dm = new DateManipulator( 'month' );
-		$min = $dm->getIntervalIdentifier( min( $dates ) );
+		// If there is no data, just use zero (represents now)
+		// to avoid passing empty array into min method
+		$min = $dm->getIntervalIdentifier( !$dates ? 0 : min( $dates ) );
 		$max = $dm->getIntervalIdentifier( 0 ); // Now
 
 		$steps = $dm->getSteps( $min, $max, 'month' );
