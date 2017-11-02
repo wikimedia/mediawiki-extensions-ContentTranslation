@@ -497,20 +497,14 @@
 	};
 
 	CXTranslationList.prototype.scroll = function () {
-		var $window, scrollTop, windowHeight, offsetTop;
+		var $window, scrollTop, windowHeight;
 		if ( !this.active ) {
 			return;
 		}
 		$window = $( window );
 		scrollTop = $window.scrollTop();
 		windowHeight = $window.height();
-		offsetTop = this.$container.offset().top;
 
-		if ( scrollTop > offsetTop ) {
-			this.$container.addClass( 'sticky' );
-		} else if ( scrollTop <= offsetTop ) {
-			this.$container.removeClass( 'sticky' );
-		}
 		// Load next batch of items on scroll.
 		if ( scrollTop > 0 && scrollTop + windowHeight + 100 > $( document ).height() ) {
 			this.loadItems();

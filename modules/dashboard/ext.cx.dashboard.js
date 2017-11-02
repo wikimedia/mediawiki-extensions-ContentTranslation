@@ -419,8 +419,6 @@
 				$( window ).scrollTop( 0 );
 			} );
 		} );
-		// Scroll handler
-		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
 		// Resize handler
 		$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
 	};
@@ -584,16 +582,6 @@
 
 		if ( query.campaign ) {
 			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
-		}
-	};
-
-	CXDashboard.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop();
-
-		if ( scrollTop > 0 ) {
-			this.$sidebar.addClass( 'sticky' );
-		} else {
-			this.$sidebar.removeClass( 'sticky' );
 		}
 	};
 
