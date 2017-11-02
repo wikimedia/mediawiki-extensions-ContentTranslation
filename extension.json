@@ -1954,6 +1954,7 @@
 				"ui/styles/widgets/mw.cx.ui.TranslationToolWidget.less"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"oojs-ui-widgets"
 			]
 		},
@@ -1965,6 +1966,7 @@
 				"ui/styles/widgets/mw.cx.ui.ProgressBarWidget.less"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"oojs-ui-widgets"
 			]
 		},
@@ -1976,6 +1978,7 @@
 				"widgets/templates/mw.cx.widgets.TemplateParamOptionWidget.less"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"oojs-ui-widgets"
 			]
 		},
@@ -1987,8 +1990,8 @@
 				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less"
 			],
 			"dependencies": [
-				"oojs-ui-widgets",
-				"mw.cx.util"
+				"mw.cx.util",
+				"oojs-ui-widgets"
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {
@@ -2037,6 +2040,7 @@
 				"ui/styles/widgets/mw.cx.ui.PageSelectorWidget.less"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"mediawiki.widgets",
 				"mw.cx.ui.TitleOptionWidget",
 				"oojs-ui.styles.icons-interactions"
@@ -2054,6 +2058,7 @@
 				"cx-sourceselector-number-of-languages"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"mediawiki.widgets"
 			]
 		}
