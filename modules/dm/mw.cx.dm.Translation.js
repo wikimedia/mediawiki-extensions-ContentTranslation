@@ -143,12 +143,42 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 mw.cx.dm.Translation.static.getSavedSection = function (
 	savedTranslationUnits, sourceSectionNode, sectionNumber
 ) {
+	var savedSection, translationUnitId, parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;
+
 	if ( !savedTranslationUnits ) {
 		return;
 	}
-	// TODO: Port CX1 section restoring logic to here
-	// See ContentTranslationLoader#restore in ext.cx.translation.loader.js
-	return savedTranslationUnits[ sectionNumber ];
+
+	savedSection = savedTranslationUnits[ sectionNumber ];
+
+	if ( savedSection ) {
+		return savedSection;
+	}
+	// CX1 translations use parsoid generated Id attribute values in
+	// section content instead of numerical section numbers
+	parsoidId = sourceSectionNode.firstChild && sourceSectionNode.firstChild.id;
+	savedSection = savedTranslationUnits[ parsoidId ];
+
+	if ( savedSection ) {
+		return savedSection;
+	}
+
+	// Even if source section number changed, try locating matching id in content
+	for ( translationUnitId in savedTranslationUnits ) {
+		$savedTranslationUnitSource = $( savedTranslationUnits[ translationUnitId ].source.content );
+		if ( $savedTranslationUnitSource.is( 'section' ) ) {
+			// CX2 saved translation
+			savedSectionParsoidId = $savedTranslationUnitSource.children().attr( 'id' );
+		} else {
+			// CX1 saved translation
+			savedSectionParsoidId = $savedTranslationUnitSource.attr( 'id' );
+		}
+
+		if ( parsoidId === savedSectionParsoidId || sectionNumber === savedSectionParsoidId ) {
+			return savedTranslationUnits[ translationUnitId ];
+		}
+	}
+
 };
 
 /**
