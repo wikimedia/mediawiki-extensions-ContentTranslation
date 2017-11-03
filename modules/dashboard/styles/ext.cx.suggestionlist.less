@@ -3,10 +3,7 @@
 @import 'mediawiki.mixins';
 
 .cx-suggestionlist {
-	.mw-ui-one-whole;
-
 	margin-bottom: 10px;
-	padding: 0;
 	.box-shadow-card;
 
 	&-empty {
@@ -15,20 +12,14 @@
 }
 
 .cx-suggestionlist__public {
-	.mw-ui-one-whole;
-
-	margin: 0;
-	padding: 0;
-
 	.cx-suggestionlist__header {
 		.box-shadow-card;
 	}
 }
 
-.cx-suggestionlist__personal {
-	.cx-slitem:last-child {
-		border-radius: 0 0 @borderRadius @borderRadius;
-	}
+// border-radius on public list is applied to refresh button instead
+.cx-suggestionlist__personal .cx-slitem:last-child {
+	border-radius: 0 0 @borderRadius @borderRadius;
 }
 
 .cx-suggestionlist__loading-indicator {
@@ -75,7 +66,6 @@
 .cx-suggestionlist__collapse,
 .cx-suggestionlist__expand,
 .cx-suggestionlist__refresh {
-	.mw-ui-one-whole;
 	background-color: #fff;
 	border: 1px solid @colorGray12;
 	padding: 10px;
@@ -89,7 +79,7 @@
 }
 
 .cx-suggestionlist__refresh {
-	margin-top: -10px;
+	display: block;
 	border-width: 1px 0;
 	border-radius: 0 0 @borderRadius @borderRadius;
 	padding: 0;
