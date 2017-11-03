@@ -80,6 +80,7 @@
 	"cx-suggestionlist-title": "Кхин кховдорш",
 	"cx-suggestionlist-featured": "Хаьржина",
 	"cx-create-new-translation": "Кхолла керла гочдар",
+	"cx-translation-filter-label-all-languages": "Ерриге",
 	"cx-save-draft-save-success": "Ӏалашйина {{PLURAL:$1|$1 минот}} хьалха",
 	"cx-save-draft-saving": "Ӏалашъяр...",
 	"cx-contributions-new-contributions": "Керла къинхьегам",
