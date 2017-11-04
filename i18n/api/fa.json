@@ -61,5 +61,6 @@
 	"apihelp-cxsave-param-to": "کد زبان مقصد",
 	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا",
 	"apierror-cx-invalidlanguage": "زبان نامعتبر.",
-	"apierror-cx-jwtmissing": "JWT نصب نیست."
+	"apierror-cx-jwtmissing": "JWT نصب نیست.",
+	"apierror-cx-translationnotfound": "ترجمه یافت نشد."
 }

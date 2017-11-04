@@ -18,7 +18,8 @@
 			"Arian Ar",
 			"درفش کاویانی",
 			"Liuxinyu970226",
-			"Ommmmid"
+			"Ommmmid",
+			"Arash"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -77,6 +78,7 @@
 	"cx-tools-link-remove": "حذف پیوند",
 	"cx-tools-mt-title": "ترجمهٔ خودکار",
 	"cx-tools-mt-use-source": "استفاده از متن مرجع",
+	"cx-tools-mt-reset": "ترجمهٔ دوباره",
 	"cx-tools-mt-provider-title": "استفاده از $1",
 	"cx-tools-mt-dont-use": "از ترجمهٔ ماشینی استفاده نکن",
 	"cx-tools-mt-set-default": "تنظیم به عنوان پیش‌فرض",
@@ -94,6 +96,7 @@
 	"cx-sourceselector-dialog-button-cancel": "لغو",
 	"cx-sourceselector-dialog-source-language-label": "از:",
 	"cx-sourceselector-dialog-target-language-label": "به:",
+	"cx-sourceselector-embedded-source-page-placeholder": "جستجو برای یک صفحه به‌منظور ترجمه",
 	"cx-sourceselector-dialog-source-title-placeholder": "جستجو برای صفحهٔ مبدأ",
 	"cx-sourceselector-dialog-target-title-placeholder": "ترجمهٔ عنوان",
 	"cx-sourceselector-dialog-error-page-and-title-exist": "این عنوان در حال حاضر در [$1 $2] برای [$3 یک صفحهٔ متفاوت] استفاده شده است",
