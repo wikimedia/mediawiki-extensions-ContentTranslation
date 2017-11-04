@@ -31,6 +31,23 @@
 		// TODO: Consider upstreaming this
 		this.imageUrl = config.imageUrl;
 
+		// This is sometimes wrong, but at least consistently wrong with other places.
+		// For example: A title of a Song in English in Arabic Wikipedia.
+		this.$label.prop( {
+			lang: config.sourceLanguage,
+			dir: $.uls.data.getDir( config.sourceLanguage )
+		} );
+
+		// The descriptions are always in the source language...
+		// ...except for redirect pages it is in the ui language
+		if ( !config.redirect ) {
+			this.$element.find( '.mw-widget-titleOptionWidget-description' )
+				.prop( {
+					lang: config.sourceLanguage,
+					dir: $.uls.data.getDir( config.sourceLanguage )
+				} );
+		}
+
 		if ( config.numOfLanguages ) {
 			this.numOfLanguages = config.numOfLanguages;
 

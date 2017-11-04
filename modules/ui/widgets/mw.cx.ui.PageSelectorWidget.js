@@ -96,6 +96,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionWidgetData = function ( title, da
 	optionWidgetData.numOfLanguages = !data.missing && ( OO.getProp( data.originalData, 'langlinkscount' ) || 0 ) + 1;
 	optionWidgetData.missingInTargetLanguage = !OO.getProp( data.originalData, 'langlinks' );
 	optionWidgetData.targetLanguage = this.targetLanguage;
+	optionWidgetData.sourceLanguage = this.language;
 
 	return optionWidgetData;
 };
