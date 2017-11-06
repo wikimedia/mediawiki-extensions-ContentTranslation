@@ -114,21 +114,6 @@
 	}
 }
 
-.cx-header--dashboard {
-	background: #fff;
-	border-bottom: 1px solid @colorGray12;
-
-	.cx-header__title {
-		float: none;
-		overflow: hidden;
-	}
-
-	// Do not display the header bar containing the link to dashboard in dashboard page.
-	.cx-header__bar {
-		display: none;
-	}
-}
-
 .cx-translationlist-container {
 	background-color: @colorGray14;
 	margin-bottom: 48px;
@@ -152,6 +137,25 @@
 	z-index: 1;
 
 	.flex-center-justify;
+
+	> .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
+		height: 2.34375em;
+		padding-right: 0.46875em;
+
+		@media only screen and ( min-width: 380px ) {
+			height: auto;
+			padding-right: 0.9375em;
+		}
+
+		> .oo-ui-labelElement-label {
+			// Hide text and show only '+' icon on "New translation" button for screen sizes below 380px
+			display: none;
+
+			@media only screen and ( min-width: 380px ) {
+				display: inline;
+			}
+		}
+	}
 }
 
 .oo-ui-popupWidget {

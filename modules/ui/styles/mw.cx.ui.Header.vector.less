@@ -1,3 +1,5 @@
+@import '../../widgets/common/ext.cx.common.less';
+
 // Fixes the top personal bar appearance in RTL UI in the Vector skin
 .skin-vector #p-personal li { /* stylelint-disable-line selector-no-id */
 	float: left;
@@ -5,5 +7,18 @@
 
 .cx-header__toolbar > .oo-ui-toolbar {
 	font-size: 0.8em;
-	border-top: 1px solid #c8ccd1;
+	border-top: 1px solid @colorGray12;
 }
+
+.cx-header__trademark-text {
+	font-size: 24px;
+}
+
+/* stylelint-disable selector-no-id */
+#pt-notifications-alert,
+#pt-notifications-notice {
+	position: relative;
+	top: 5px;
+	font-size: 0.75em;
+}
+/* stylelint-enable selector-no-id */

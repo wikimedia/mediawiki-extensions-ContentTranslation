@@ -83,6 +83,7 @@
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
+		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
 	},
@@ -217,6 +218,9 @@
 			"styles": [
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
+			"skinStyles": {
+				"monobook": [ "dashboard/styles/ext.cx.dashboard.monobook.less" ]
+			},
 			"dependencies": [
 				"ext.cx.feedback",
 				"mw.cx.ui.Header",
@@ -1506,12 +1510,16 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
+				"cx-personaltools-user",
+				"cx-personaltools-anon",
 				"login"
 			],
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
-				"mw.cx.ui.Infobar"
+				"oojs-ui.styles.icons-user",
+				"mw.cx.ui.Infobar",
+				"mw.cx.ui.PersonalMenuWidget"
 			]
 		},
 		"mw.cx.ui.Header.legacy": {
@@ -1531,13 +1539,17 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
+				"cx-personaltools-user",
+				"cx-personaltools-anon",
 				"login"
 			],
 			"dependencies": [
 				"jquery.throttle-debounce",
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
-				"mw.cx.ui.Infobar"
+				"oojs-ui.styles.icons-user",
+				"mw.cx.ui.Infobar",
+				"mw.cx.ui.PersonalMenuWidget"
 			]
 		},
 		"mw.cx.ui.Header.skin": {
@@ -2079,6 +2091,23 @@
 				"mw.cx.ui.TitleOptionWidget",
 				"oojs",
 				"oojs-ui.styles.icons-interactions"
+			]
+		},
+		"mw.cx.ui.PersonalMenuWidget": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widgets/mw.cx.ui.PersonalMenuWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.less"
+			],
+			"skinStyles": {
+				"vector": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.vector.less" ],
+				"monobook": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less" ]
+			},
+			"dependencies": [
+				"mediawiki.widgets",
+				"oojs-ui"
 			]
 		},
 		"mw.cx.ui.TitleOptionWidget": {

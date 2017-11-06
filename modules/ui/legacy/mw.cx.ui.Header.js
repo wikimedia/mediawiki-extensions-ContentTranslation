@@ -15,13 +15,19 @@ mw.cx.ui.Header = function ( config ) {
 	this.$toolbar = null;
 	this.infobar = null;
 	this.statusbar = null;
+
+	this.mainPageTitle = mw.util.getUrl( mw.config.get( 'wgMainPageTitle' ) );
+	this.isAnon = mw.user.isAnon();
+	this.userName = mw.config.get( 'wgUserName' );
+
 	// Parent constructor
 	mw.cx.ui.Header.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
 		expanded: false,
 		$content: this.getContent(),
-		classes: [ 'cx-widget__header', 'cx-header' ]
+		classes: [ 'cx-widget__header', 'cx-header' ].concat( this.config.classes )
 	} ) );
+
 	this.listen();
 };
 
@@ -32,21 +38,49 @@ OO.inheritClass( mw.cx.ui.Header, OO.ui.PanelLayout );
 mw.cx.ui.Header.static.timer = null;
 
 mw.cx.ui.Header.prototype.getContent = function () {
-	var logo, $titleText, $headerTitle, $translationCenterLink, $translationCenter;
+	var $wordmark, logo, $trademark, $trademarkText,
+		personalMenu, $personal, $main, $translationCenterLink, $translationCenter;
 
+	$wordmark = $( '#cx-header__wordmark' );
 	logo = new OO.ui.ButtonWidget( {
-		href: mw.config.get( 'wgScript' ),
+		href: this.mainPageTitle,
 		icon: 'logoWikipedia',
-		classes: [ 'cx-header__logo' ],
+		classes: [ 'cx-header__trademark-logo' ],
 		framed: false
 	} );
-	$titleText = $( '<span>' )
-		.addClass( 'cx-header__title-text' )
+	$trademarkText = $( '<span>' )
+		.addClass( 'cx-header__trademark-text' )
 		.text( this.config.titleText || mw.msg( 'cx' ) );
 
-	$headerTitle = $( '<div>' )
-		.addClass( 'cx-header__title' )
-		.append( logo.$element, $titleText );
+	$trademark = $( '<div>' )
+		.addClass( 'cx-header__trademark' )
+		.toggleClass( 'cx-header__trademark--has-wordmark', !!$wordmark[ 0 ] )
+		.append(
+			$( '<a>' ).attr( 'href', this.mainPageTitle ).append( $wordmark ),
+			logo.$element,
+			$trademarkText
+		);
+
+	personalMenu = new mw.cx.ui.PersonalMenuWidget( {
+		label: this.isAnon ? mw.msg( 'cx-personaltools-anon' ) : this.userName,
+		icon: this.isAnon ? 'userInactive' : 'userAvatar',
+		classes: [ 'cx-header__personal-menu' ],
+		menu: {
+			items: this.getPersonalMenuItems(),
+			horizontalPosition: 'end',
+			width: 'auto'
+		}
+	} );
+	if ( !this.isAnon ) {
+		personalMenu.setFlags( 'progressive' );
+	}
+
+	$personal = $( '.cx-header__personal' )
+		.append( personalMenu.$element );
+
+	$main = $( '<div>' )
+		.addClass( 'cx-header__main' )
+		.append( $trademark, $personal );
 
 	$translationCenterLink = $( '<a>' )
 		.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) )
@@ -73,7 +107,55 @@ mw.cx.ui.Header.prototype.getContent = function () {
 		.append( this.$headerBar );
 
 	this.infobar = new mw.cx.ui.Infobar( this.config );
-	return $( '<div>' ).append( $headerTitle, this.$headerBarContainer, this.infobar.$element );
+	return [ $main, this.$headerBarContainer, this.infobar.$element ];
+};
+
+/**
+ * Creates list of personal menu items and updates menu width
+ *
+ * @return {array} menuItems Array of menu items
+ */
+mw.cx.ui.Header.prototype.getPersonalMenuItems = function () {
+	var i, length, menuItem,
+		menuItems = [],
+		personalMenuList = mw.config.get( 'personalMenuList' );
+
+	if ( !this.isAnon ) {
+		menuItems.push( this.addUserMenuOption() );
+	}
+
+	for ( i = 0, length = personalMenuList.length; i < length; i++ ) {
+		menuItem = personalMenuList[ i ];
+
+		menuItems.push( new OO.ui.MenuOptionWidget( {
+			label: menuItem.text,
+			data: menuItem.href,
+			accessKey: menuItem.accesskey,
+			$element: $( '<a>' )
+				.attr( {
+					href: menuItem.href,
+					title: menuItem.title
+				} )
+		} ) );
+	}
+
+	return menuItems;
+};
+
+mw.cx.ui.Header.prototype.addUserMenuOption = function () {
+	var userPageData = mw.config.get( 'userPageData' ),
+		userLabel = mw.msg( 'cx-personaltools-user' );
+
+	return new OO.ui.MenuOptionWidget( {
+		label: userLabel,
+		data: userPageData.link,
+		accessKey: userPageData.accesskey,
+		$element: $( '<a>' )
+			.attr( {
+				href: userPageData.link,
+				title: userPageData.title
+			} )
+	} );
 };
 
 mw.cx.ui.Header.prototype.listen = function () {

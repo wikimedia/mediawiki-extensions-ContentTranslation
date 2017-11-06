@@ -1,26 +1,40 @@
+@import '../../widgets/common/ext.cx.common.less';
+
 // Accommodate for missing #globalWrapper, and other styles
-body.mw-special-ContentTranslation {
+body.mw-special-ContentTranslation,
+body.mw-special-ContentTranslationStats {
 	font-size: 12.7px;
 
-	// Center in new header
-	// stylelint-disable-next-line selector-no-id
-	#p-personal {
-		top: 0.7em;
-		ul {
-			font-size: 95%;
-		}
+	.mw-echo-ui-overlay {
+		font-size: 1.11em;
 	}
+
+	/* stylelint-disable selector-no-id */
+	#pt-notifications-notice {
+		margin: 0 1.5em;
+	}
+
+	#pt-notifications-alert,
+	#pt-notifications-notice {
+		height: 16px;
+		font-size: 12.7px;
+	}
+	/* stylelint-enable selector-no-id */
 
 	.ve-ui-overlay-global {
 		font-size: 12.8em/12.7;
 	}
 
 	.cx-header__toolbar > .oo-ui-toolbar {
-		border-top: 1px solid #c8ccd1;
+		border-top: 1px solid @colorGray12;
 	}
 
 	.translation-filter,
 	.cx-header__toolbar > .oo-ui-toolbar {
 		font-size: 12.8em/12.7;
+	}
+
+	.cx-header__trademark-text {
+		font-size: 20px;
 	}
 }

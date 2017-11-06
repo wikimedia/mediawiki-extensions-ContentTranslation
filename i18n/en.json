@@ -195,6 +195,8 @@
 	"cx-tools-link-to-another-page": "Link to another page",
 	"cx-tools-link-add-as-missing": "Add as missing link",
 	"cx-tools-link-apply": "Done",
+	"cx-personaltools-user": "User",
+	"cx-personaltools-anon": "Not logged in",
 	"mw-pageselector-missing": "Page does not exist",
 	"cx-draft-restoring": "Loading the saved translation...",
 	"cx-draft-restored": "Saved translation loaded.",

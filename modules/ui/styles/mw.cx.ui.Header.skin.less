@@ -1,9 +1,16 @@
 @import '../../widgets/common/ext.cx.common.less';
 
-body.mw-special-ContentTranslation {
+body.mw-special-ContentTranslation,
+body.mw-special-ContentTranslationStats {
 	// Not using background-color, because we want to override skin specific backgrounds,
 	// like on monobook
 	background: @colorGray14;
+}
+
+// stylelint-disable-next-line selector-no-id
+#cx-header__wordmark,
+.cx-header__personal {
+	display: none;
 }
 
 .client-js .cx-nojs {

@@ -1,6 +1,14 @@
 @import 'mediawiki.mixins';
 @import '../../widgets/common/ext.cx.common.less';
 
+.cx-widget {
+	background-color: @colorGray15;
+
+	&__header.cx-header > .cx-header__main {
+		padding: 10px 50px;
+	}
+}
+
 .cx-stats-container {
 	.mw-ui-item;
 	.mw-ui-one-whole;
@@ -23,7 +31,6 @@
 }
 
 .cx-stats-tabs-container {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 
 	border: 1px solid #eaecf0;

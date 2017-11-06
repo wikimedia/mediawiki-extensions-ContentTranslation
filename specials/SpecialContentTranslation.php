@@ -10,7 +10,7 @@
  * Implements the core of the Content Translation extension:
  * a special page that shows Content Translation user interface.
  */
-class SpecialContentTranslation extends SpecialPage {
+class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	function __construct() {
 		parent::__construct( 'ContentTranslation' );
 	}
@@ -104,23 +104,16 @@ class SpecialContentTranslation extends SpecialPage {
 		return false;
 	}
 
-	public function execute( $parameters ) {
-		global $wgContentTranslationTranslateInTarget, $wgULSPosition, $wgContentTranslationVersion;
-
-		$out = $this->getOutput();
-		$skin = $this->getSkin();
-		$request = $this->getRequest();
-		$user = $this->getUser();
+	/**
+	 * @inheritDoc
+	 */
+	protected function canUserProceed() {
 		$hasToken = $this->hasToken();
-		$campaign = $request->getVal( 'campaign' );
+		$campaign = $this->getRequest()->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
 
-		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
-		$wgULSPosition = 'personal';
-		$out->addJsConfigVars( [ 'wgULSPosition' => 'personal' ] );
-
 		// Direct access, isListed only affects Special:SpecialPages
-		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
+		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
 			if ( $hasToken || $isCampaign ) {
 				// User has a token or a valid campaign param.
 				// Enable cx for the user in this wiki.
@@ -131,18 +124,27 @@ class SpecialContentTranslation extends SpecialPage {
 					$this->requireLogin();
 				}
 				// Invalid or missing campaign param
-				$out->showErrorPage(
+				$this->getOutput()->showErrorPage(
 					'cx',
 					'cx-specialpage-enable-betafeature',
 					SpecialPage::getTitleFor( 'ContentTranslation' )
 						->getCanonicalURL( [ 'campaign' => 'specialcx' ] )
 				);
-				return;
+				return false;
 			}
 		}
 
-		// Preloading to avoid FOUC
-		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
+		return true;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function initModules() {
+		global $wgContentTranslationTranslateInTarget, $wgContentTranslationVersion;
+
+		$out = $this->getOutput();
+		$request = $this->getRequest();
 
 		$initModule = 'mw.cx.init.legacy';
 		// If request has param to use CX oojs based version, change init module.
@@ -151,7 +153,7 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		$isExistingTranslation = $this->isExistingTranslation();
-		if ( $hasToken || $isExistingTranslation ) {
+		if ( $this->hasToken() || $isExistingTranslation ) {
 			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
@@ -162,46 +164,5 @@ class SpecialContentTranslation extends SpecialPage {
 			$out->addModules( 'ext.cx.dashboard' );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
-
-		$this->setHeaders();
-		$out->setArticleBodyOnly( true );
-
-		// Default modules copied from OutputPage::addDefaultModules
-		$out->addModules( [
-			'site',
-			'mediawiki.user',
-			'mediawiki.page.startup',
-		] );
-
-		// Do not add skin specific modules, as there shouldn't be any skin left
-		// that could use these. It's more likely to cause issues, such as with
-		// with the minerva skin.
-		// $modules = $skin->getDefaultModules();
-
-		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
-		$skin->setupSkinUserCss( $out );
-
-		// T111668: Make sure we generate the personal tools
-		// before we output the head, as extensions may add
-		// things using the PersonalUrls hook.
-		$toolbarList = Html::rawElement(
-			'ul',
-			null,
-			$skin->getPersonalToolsList()
-		);
-
-		$out->addHTML( $out->headElement( $skin ) );
-		$out->addHTML( Html::element(
-			'div',
-			[ 'class' => 'cx-nojs errorbox' ],
-			$this->msg( 'cx-javascript' )->text()
-		) );
-		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
-		$out->addHTML( Html::rawElement( 'div',
-			[ 'id' => 'p-personal' ],
-			$toolbarList ) );
-
-		$out->addHTML( $skin->bottomScripts() );
-		$out->addHTML( '</body></html>' );
 	}
 }

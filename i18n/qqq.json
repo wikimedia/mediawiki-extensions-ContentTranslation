@@ -204,6 +204,8 @@
 	"cx-tools-link-to-another-page": "Opens a tool that allows linking to any internal or external page.",
 	"cx-tools-link-add-as-missing": "Shown in the page selector when the user types a name of a page that doesn't exist in the target wiki. Clicking it adds a missing (\"red\") link to this page. \"Missing\" has the same meaning as in {{msg-mw|cx-tools-missing-link-mark-link}}.",
 	"cx-tools-link-apply": "Button label to apply the link selection from link tool card\n{{Identical|Done}}",
+	"cx-personaltools-user": "Label displayed in personal tools menu on Content Translation pages, used in customized personal tools header. Provides link to User page.",
+	"cx-personaltools-anon": "Label displayed in personal tools menu handle on Content Translation pages, used to indicate user is anonymous.",
 	"mw-pageselector-missing": "Message shown in page selector when the search did not fetch any result",
 	"cx-draft-restoring": "Message indicating the saved translation being fetched.",
 	"cx-draft-restored": "Message indicating that the saved translation was fetched.",

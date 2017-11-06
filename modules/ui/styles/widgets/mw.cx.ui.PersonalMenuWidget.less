@@ -1,0 +1,32 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.mw-cx-ui-PersonalMenuWidget {
+	.oo-ui-labelElement-label {
+		color: @colorProgressive;
+		font-weight: bold;
+	}
+
+	.oo-ui-dropdownWidget-handle > .oo-ui-labelElement-label {
+		display: none;
+
+		@media only screen and ( min-width: @narrow ) {
+			display: inline;
+		}
+	}
+
+	&:not( .mw-cx-ui-PersonalMenuWidget--anon ) {
+		.oo-ui-menuSelectWidget > .oo-ui-menuOptionWidget:last-child {
+			border-top: 2px solid @colorGray14;
+		}
+	}
+
+	&--anon {
+		.oo-ui-dropdownWidget-handle > .oo-ui-labelElement-label {
+			color: @colorGray2;
+		}
+
+		.oo-ui-menuSelectWidget > .oo-ui-menuOptionWidget:nth-child( 2 ) {
+			border-bottom: 2px solid @colorGray14;
+		}
+	}
+}

@@ -18,11 +18,11 @@
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
 
-		this.$header = null;
 		this.$sidebar = null;
 		this.translator = null;
 		this.$publishedTranslationsButton = null;
 		this.lists = {};
+		this.header = null;
 		this.$translationListContainer = null;
 		this.newTranslationButton = null;
 		this.$listHeader = null;
@@ -256,17 +256,12 @@
 	};
 
 	CXDashboard.prototype.render = function () {
-		var header;
-
-		this.$header = $( '<div>' )
-			.addClass( 'cx-header--dashboard' );
-
-		header = new mw.cx.ui.Header( {
+		this.header = new mw.cx.ui.Header( {
+			classes: [ 'cx-header--dashboard' ],
 			siteMapper: this.siteMapper,
 			titleText: mw.msg( 'cx-dashboard-header' )
 		} );
 
-		this.$header.append( header.$element );
 		this.$translationListContainer = this.buildTranslationList();
 		this.$sidebar = $( '<div>' )
 			.addClass( 'cx-dashboard-sidebar' )
@@ -276,7 +271,10 @@
 			.addClass( 'cx-dashboard' )
 			.append( this.$translationListContainer, this.$sidebar );
 
-		this.$container.append( this.$header, this.$dashboard );
+		this.$container.append(
+			this.header.$element,
+			this.$dashboard
+		);
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
