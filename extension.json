@@ -203,15 +203,13 @@
 			"position": "top"
 		},
 		"ext.cx.model": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"base/ext.cx.model.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.feedback": {
+			"targets": [ "desktop", "mobile" ],
 			"dependencies": [
 				"ext.cx.model"
 			],
@@ -226,6 +224,7 @@
 			]
 		},
 		"ext.cx.dashboard": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"dashboard/ext.cx.dashboard.js"
 			],
@@ -263,27 +262,21 @@
 			]
 		},
 		"ext.cx.util": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"util/ext.cx.util.js"
 			],
 			"dependencies": [
 				"ext.cx.model"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.cx.util": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"util/mw.cx.util.js"
 			],
 			"dependencies": [
 				"ext.cx.model"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.util.selection": {
@@ -295,6 +288,7 @@
 			]
 		},
 		"ext.cx.sitemapper": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"base/ext.cx.sitemapper.js"
 			],
@@ -304,10 +298,6 @@
 				"mediawiki.ForeignApi",
 				"mediawiki.Title",
 				"mediawiki.Uri"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.source": {
@@ -335,6 +325,7 @@
 			]
 		},
 		"ext.cx.source.selector": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"source/ext.cx.source.selector.js"
 			],
@@ -345,7 +336,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.tools.validator",
 				"ext.cx.widgets.overlay",
-				"ext.uls.init",
+				"ext.uls.common",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
 				"jquery.throttle-debounce",
@@ -732,6 +723,7 @@
 			]
 		},
 		"ext.cx.progressbar": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": "widgets/progressbar/ext.cx.progressbar.js",
 			"styles": [
 				"widgets/progressbar/ext.cx.progressbar.less"
@@ -902,6 +894,7 @@
 			]
 		},
 		"ext.cx.translationlist": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"dashboard/ext.cx.translationlist.js"
 			],
@@ -936,6 +929,7 @@
 			]
 		},
 		"ext.cx.suggestionlist": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"dashboard/ext.cx.suggestionlist.js"
 			],
@@ -966,6 +960,7 @@
 			]
 		},
 		"ext.cx.recommendtool.client": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"dashboard/ext.cx.recommendtool.client.js"
 			],
@@ -999,6 +994,7 @@
 			]
 		},
 		"ext.cx.stats": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"stats/ext.cx.stats.js"
 			],
@@ -1040,21 +1036,14 @@
 				"cx-trend-deletions",
 				"cx-trend-translations-to",
 				"percent"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"chart.js": {
+			"targets": [ "desktop", "mobile" ],
 			"localBasePath": "lib",
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
 				"chart.js/Chart.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.beta.notification": {
@@ -1121,6 +1110,7 @@
 			]
 		},
 		"ext.cx.tools.validator": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"tools/ext.cx.tools.validator.js"
 			],
@@ -1129,6 +1119,7 @@
 			]
 		},
 		"ext.cx.widgets.overlay": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"widgets/overlay/ext.cx.overlay.js"
 			],
@@ -1140,6 +1131,7 @@
 			]
 		},
 		"ext.cx.widgets.spinner": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"widgets/spinner/ext.cx.spinner.js"
 			],
@@ -1148,25 +1140,19 @@
 			],
 			"dependencies": [
 				"ext.cx.model"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.widgets.callout": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"widgets/callout/ext.cx.callout.js"
 			],
 			"styles": [
 				"widgets/callout/ext.cx.callout.css"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cx.widgets.translator": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"widgets/translator/ext.cx.translator.js"
 			],
@@ -1256,16 +1242,13 @@
 			]
 		},
 		"mw.cx.ui": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/mw.cx.ui.js"
 			],
 			"dependencies": [
 				"ext.cx.model",
 				"oojs-ui"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.cx.visualEditor": {
@@ -1474,6 +1457,7 @@
 			]
 		},
 		"mw.cx.ui.Header": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/mw.cx.ui.Header.js"
 			],
@@ -1495,13 +1479,10 @@
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
 				"mw.cx.ui.Infobar"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.cx.ui.Header.skin": {
+			"targets": [ "desktop", "mobile" ],
 			"styles": [
 				"ui/styles/mw.cx.ui.Header.skin.less"
 			],
@@ -1512,6 +1493,7 @@
 			"position": "top"
 		},
 		"mw.cx.ui.Infobar": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/mw.cx.ui.Infobar.js"
 			],
@@ -1527,10 +1509,6 @@
 			"dependencies": [
 				"mw.cx.ui.MessageWidget",
 				"mw.cx.ui"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.cx.ui.Columns.legacy": {
@@ -2015,6 +1993,7 @@
 			]
 		},
 		"mw.cx.ui.MessageWidget": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.MessageWidget.js"
 			],
@@ -2026,13 +2005,10 @@
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-interactions"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mw.cx.ui.PageSelectorWidget": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
 			],
@@ -2047,6 +2023,7 @@
 			]
 		},
 		"mw.cx.ui.TitleOptionWidget": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
 			],
