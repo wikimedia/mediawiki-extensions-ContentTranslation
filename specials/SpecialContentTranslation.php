@@ -177,11 +177,10 @@ class SpecialContentTranslation extends SpecialPage {
 			'mediawiki.page.startup',
 		] );
 
-		// Add skin specific modules
-		$modules = $skin->getDefaultModules();
-		foreach ( $modules as $group ) {
-			$out->addModules( $group );
-		}
+		// Do not add skin specific modules, as there shouldn't be any skin left
+		// that could use these. It's more likely to cause issues, such as with
+		// with the minerva skin.
+		// $modules = $skin->getDefaultModules();
 
 		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
 		$skin->setupSkinUserCss( $out );
