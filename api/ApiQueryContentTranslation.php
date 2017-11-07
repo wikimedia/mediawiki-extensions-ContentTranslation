@@ -38,9 +38,30 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
+
+		// Case A: Find a translation for given work from anonymous context
+		if ( $user->isAnon() ) {
+			if ( $params['translationid'] ) {
+				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
+			}
+			if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
+				$translation = Translation::find(
+					$params['from'], $params['to'], $params[ 'sourcetitle' ]
+				);
+
+				$result->addValue(
+					[ 'query', 'contenttranslation' ],
+					'translation',
+					$translation->translation
+				);
+			}
+
+			return;
+		}
+
 		$translator = new Translator( $user );
 
-		// Case A: Find a translation for given work
+		// Case B: Find a translation for given work for the current user.
 		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
 			$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
 			$this->find( $work, $translator );
@@ -48,15 +69,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		// Case B: Find a translation for given id
-		if ( $user->isAnon() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
-			} else {
-				$this->dieUsage( 'To view your translations, you must log in', 'notloggedin' );
-			}
-		}
-
+		// Case C: Find a translation for given id
 		if ( $params['translationid'] ) {
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
@@ -78,7 +91,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		// Case C: Find list of translations
+		// Case D: Find list of translations
 		$translations = $translator->getAllTranslations(
 			$params['limit'],
 			$params['offset'],
@@ -118,9 +131,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	public function find( TranslationWork $work, Translator $translator ) {
 		$translation = null;
 		$result = $this->getResult();
-		if ( isset( $this->user ) ) {
-			$translation = Translation::findForTranslator( $work, $translator );
-		}
+		$translation = Translation::findForTranslator( $work, $translator );
+
 		// Check for other drafts. If one exists, return that to the UI which will then
 		// know to display an error to the user because we disallow two users to start
 		// drafts on the same translation work.
