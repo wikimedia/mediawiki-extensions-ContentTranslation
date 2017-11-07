@@ -189,9 +189,11 @@ class SpecialContentTranslation extends SpecialPage {
 		// T111668: Make sure we generate the personal tools
 		// before we output the head, as extensions may add
 		// things using the PersonalUrls hook.
-		$toolbarList = Html::rawElement( 'ul',
-				null,
-				$skin->getPersonalToolsList() );
+		$toolbarList = Html::rawElement(
+			'ul',
+			null,
+			$skin->getPersonalToolsList()
+		);
 
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
