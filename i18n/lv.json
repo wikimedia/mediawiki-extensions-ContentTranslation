@@ -136,6 +136,7 @@
 	"cx-translationlist-empty-title": "Nav nekā tulkojama?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Sāc}} tulkot tagad un turpini jebkurā brīdī.",
 	"cx-tools-link-internal-link": "Meklēt lapas",
+	"cx-tools-link-external-link": "Ārējā saite",
 	"cx-tools-link-external-link-placeholder": "Pievienot ārējo saiti",
 	"cx-tools-link-to-another-page": "Saite uz citu lapu",
 	"cx-tools-link-add-as-missing": "Pievienot kā trūkstošu saiti",
@@ -160,5 +161,6 @@
 	"cx-translation-template-add-param": "+ Tulkot lauku",
 	"cx-translation-template-add-more": "Pievienot vēl laukus",
 	"cx-translation-template-select-param": "Izvēlēties mērķa laukus",
+	"cx-tools-category-add": "Pievienot kategoriju",
 	"cx-publish-destination-namespace-main": "Jauna lapa"
 }
