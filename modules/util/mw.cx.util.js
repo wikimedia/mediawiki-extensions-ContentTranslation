@@ -1,5 +1,5 @@
 /**
- * A set of utilit methods for Content Translation
+ * A set of utility methods for Content Translation
  */
 
 'use strict';

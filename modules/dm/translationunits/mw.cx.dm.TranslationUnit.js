@@ -6,7 +6,7 @@
  * translated to target language. The same paragraph can have a reference, a link,
  * a template and all of these sub elements are also translatable. That means,
  * A translation unit can be a child of another translation unit. A MediaWiki template
- * is a translation unit. At the same time, template paramters are also translatable units.
+ * is a translation unit. At the same time, template parameters are also translatable units.
  * mw.cx.dm.TranslationUnit class abstracts the data manipulation over such a translation
  * unit during a translation.
  */

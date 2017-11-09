@@ -50,10 +50,10 @@
 	MTAbuseCard.prototype.isAbuse = function ( progress ) {
 		var mtPercentage = progress.mt / progress.any * 100 || 0;
 
-		// Only use abuse detection when thresold is reached and there are 5 or more
+		// Only use abuse detection when threshold is reached and there are 5 or more
 		// sections with MT. Some times, even with less than 5 sections, the total
 		// translations can be a lot. So the condition then becomes: Either the mtSectionCount
-		// is geater than 5 or total translation is greater than 75%.
+		// is greater than 5 or total translation is greater than 75%.
 		// This also address the case of a source article having just 5 or less sections.
 		return mtPercentage > 75 &&
 			( progress.mtSectionsCount > 5 || progress.any * 100 > 75 );

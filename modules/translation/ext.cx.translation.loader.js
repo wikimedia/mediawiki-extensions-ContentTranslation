@@ -106,11 +106,11 @@
 			mw.hook( 'mw.cx.translation.placeholders.ready' ).add( function () {
 				if ( +self.translation.sourceRevisionId === +mw.cx.sourceRevision ||
 					// Very old drafts will have revision id as 0. Consider them as original source for
-					// the translation and use agressive section restore algorithm
+					// the translation and use aggressive section restore algorithm
 					+self.translation.sourceRevisionId === 0
 				) {
 					// Since we are using older revision, the original revision used for translation,
-					// use agressive section restore algorithm.
+					// use aggressive section restore algorithm.
 					self.originalRevision = true;
 				}
 				self.restore();

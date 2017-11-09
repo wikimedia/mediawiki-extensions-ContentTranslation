@@ -858,14 +858,14 @@
 	 * Sort the lists in their logical order to display.
 	 *
 	 * @param  {Object[]} lists
-	 * @return {number[]} Orderded list ids.
+	 * @return {number[]} Ordered list ids.
 	 */
 	CXSuggestionList.prototype.sortLists = function ( lists ) {
 		return Object.keys( lists ).sort( listCompare );
 	};
 
 	/**
-	 * Make the list expandable and collapsable.
+	 * Make the list expandable and collapsible.
 	 *
 	 * @param {string} listId
 	 */

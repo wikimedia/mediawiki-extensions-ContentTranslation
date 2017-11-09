@@ -386,7 +386,7 @@
 	};
 
 	/**
-	 * Edit handler for the parametr values
+	 * Edit handler for the parameter values
 	 *
 	 * @param  {Event} event Edit event
 	 */

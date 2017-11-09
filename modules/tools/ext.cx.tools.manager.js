@@ -174,7 +174,7 @@
 
 	/**
 	 * Hide unrelated cards.
-	 * Find cards not having trigger events intersecton and hide them.
+	 * Find cards not having trigger events intersection and hide them.
 	 *
 	 * @param {string} currentToolName current tool name
 	 */

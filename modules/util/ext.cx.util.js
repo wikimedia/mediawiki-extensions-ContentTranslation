@@ -96,7 +96,7 @@
 
 	/**
 	 * Fix the ids of given element and its children so that it does not conflict
-	 * with existing ids. This is done to html fragments recieved from parsoid.
+	 * with existing ids. This is done to html fragments received from parsoid.
 	 *
 	 * @param {jQuery} $element The element whose ids to be fixed
 	 * @param {string} prefix Prefix to use while fixing id

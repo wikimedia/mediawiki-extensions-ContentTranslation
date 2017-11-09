@@ -283,7 +283,7 @@
 		mwData.body = mwData.body || {};
 		if ( !mwData.body.id ) {
 			/*
-			Every reference must have a data-mw.body with id poiting to the item
+			Every reference must have a data-mw.body with id pointing to the item
 			in References section. In general, we can just get copy the data-mw
 			from the source reference. But there are cases it wont be filled in source reference.
 			Example: When reference is reused more than once, the second reference might not have

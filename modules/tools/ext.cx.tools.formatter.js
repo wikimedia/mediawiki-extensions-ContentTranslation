@@ -94,7 +94,7 @@
 	};
 
 	/**
-	 * Make the selection ttalic
+	 * Make the selection italic
 	 */
 	FormatTool.prototype.italic = function () {
 		mw.cx.selection.restore( 'format' );

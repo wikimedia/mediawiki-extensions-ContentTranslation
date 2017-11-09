@@ -107,7 +107,7 @@ mw.cx.tools.TranslationTool.prototype.refresh = function () {
 mw.cx.tools.TranslationTool.prototype.destroy = function () {
 	var card = this.getCard();
 	if ( card ) {
-		// Remove will not work, untill this is attached to DOM
+		// Remove will not work, until this is attached to DOM
 		card.$element.remove();
 		card.$element = $( [] );
 	}

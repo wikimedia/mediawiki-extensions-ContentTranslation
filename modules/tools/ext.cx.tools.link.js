@@ -721,7 +721,7 @@
 		}
 
 		if ( this.$link.hasClass( 'cx-target-link' ) ) {
-			// Already adapted. Can be restrored from a saved translation(draft)
+			// Already adapted. Can be restored from a saved translation(draft)
 			this.adapted = true;
 			this.fetchLinkData();
 			return;
