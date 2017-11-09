@@ -3,7 +3,7 @@
  *
  * The recommendation tool is also known as trex in this code.
  *
- * See https://recommend.wmflabs.org/ and https://github.com/ewulczyn/translation-recs-app
+ * See https://recommend.wmflabs.org/ and research/recommendation-api at Gerrit.
  *
  * @ingroup Extensions
  * @copyright See AUTHORS.txt
