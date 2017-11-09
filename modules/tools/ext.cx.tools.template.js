@@ -962,6 +962,7 @@
 		var self = this;
 
 		this.targetTemplate.$template.first().cxoverlay( {
+			fullscreen: false,
 			showLoading: true
 		} );
 		return this.targetTemplate.getUpdatedTemplate().then( function ( $newTemplate ) {
@@ -1146,6 +1147,7 @@
 
 		// Not a processed template. Proceed with attempt to adapt.
 		$targetTemplate.first().cxoverlay( {
+			fullscreen: false,
 			showLoading: true
 		} );
 
