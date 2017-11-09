@@ -154,6 +154,7 @@
 			}
 
 			$value.cxoverlay( {
+				fullscreen: false,
 				showLoading: true
 			} );
 			mw.cx.wikitextToHTML( self.siteMapper, language, value.wt ).then( function ( response ) {
@@ -291,6 +292,7 @@
 
 		// The html value is not available. We need to parse wikitext here.
 		$value.cxoverlay( {
+			fullscreen: false,
 			showLoading: true
 		} );
 
@@ -447,6 +449,7 @@
 			queue = $.Deferred().resolve();
 
 		self.targetTemplate.$template.first().cxoverlay( {
+			fullscreen: false,
 			showLoading: true
 		} );
 

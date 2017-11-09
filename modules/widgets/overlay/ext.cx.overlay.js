@@ -14,7 +14,7 @@
 	 */
 	function CXOverlay( element, options ) {
 		this.$container = $( element || 'body' );
-		this.options = options || {};
+		this.options = $.extend( {}, $.fn.cxoverlay.defaults, options );
 		this.$overlay = null;
 		this.init();
 	}
@@ -31,6 +31,11 @@
 
 		if ( this.options.showLoading ) {
 			this.$overlay.append( mw.cx.widgets.spinner() );
+		}
+
+		if ( this.options.fullscreen ) {
+			this.$overlay
+				.addClass( 'cx-overlay-fullscreen' );
 		}
 
 		if ( this.options.closeOnClick ) {
@@ -74,4 +79,9 @@
 		} );
 	};
 
+	$.fn.cxoverlay.defaults = {
+		fullscreen: true,
+		closeOnClick: false,
+		showLoading: false
+	};
 }( jQuery, mediaWiki ) );
