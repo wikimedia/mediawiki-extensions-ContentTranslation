@@ -9,7 +9,7 @@
 	'use strict';
 
 	/**
-	 * Show the information about translaton conflict with a button
+	 * Show the information about translation conflict with a button
 	 * to create a new translation on another topic.
 	 *
 	 * @param {Object} translation

@@ -135,7 +135,7 @@
 			// This causes failCounter to increase because the in-flight request fails.
 			// The new request we do below will either reset the fail counter on success.
 			// If it does not succeed, the retry timer that was set by the failed request
-			// prevents further saves before the retry has completed succesfully or given up.
+			// prevents further saves before the retry has completed successfully or given up.
 			saveRequest.abort();
 		}
 

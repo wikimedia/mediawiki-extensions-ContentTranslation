@@ -242,7 +242,7 @@
 				// As a last resort, if we did not add orphans immediately, add them
 				// now before this section.
 				if ( !this.originalRevision ) {
-					// Dont use orphan sections unless we are using old source article
+					// Don't use orphan sections unless we are using old source article
 					continue;
 				}
 				for ( i = 0; i < orphans.length; i++ ) {

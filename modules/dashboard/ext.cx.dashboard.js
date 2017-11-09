@@ -533,7 +533,7 @@
 	 *
 	 * @param {string} type Indicates type of language filter. Can be 'source' or 'target'
 	 * @param {jQuery} $languageFilter DOM element of language filter
-	 * @param {string} language Language code retured from ULS onSelect
+	 * @param {string} language Language code returned from ULS onSelect
 	 */
 	CXDashboard.prototype.languageChangeHandler = function ( type, $languageFilter, language ) {
 		var list = this.lists[ this.activeList ],
