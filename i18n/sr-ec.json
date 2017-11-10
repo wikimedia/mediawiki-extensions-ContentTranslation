@@ -93,7 +93,7 @@
 	"cx-sourceselector-dialog-error-no-source-article": "Наведена страница не постоји на $1",
 	"cx-sourceselector-missing-in-target-language": "Није преведено на $1",
 	"cx-sourceselector-number-of-languages": "Број језика",
-	"cx-sourceselector-embedded-selected-item-pageviews": "$1 посета недељно",
+	"cx-sourceselector-embedded-selected-item-pageviews": "{{PLURAL:$1|$1 посета|$1 посете|$1 посета|0=Нема посета ове}} седмице",
 	"cx-sourceselector-embedded-recent-edits-header": "Ваше недавне измене",
 	"cx-sourceselector-embedded-recent-edits-no-results": "Сетите се нечега што Вас интересује. Не морате бити стручњак да бисте врхунски преводили.",
 	"cx-sourceselector-embedded-search-no-results": "Нема пронађених страна за \"$1\" у $2",

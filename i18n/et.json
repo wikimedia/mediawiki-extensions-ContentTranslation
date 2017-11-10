@@ -10,7 +10,7 @@
 	},
 	"cx": "Lehekülje tõlkimine",
 	"cx-dashboard-header": "Tõlked",
-	"cx-javascript": "See tööriist ei toimi ilma JavaScriptita.",
+	"cx-javascript": "See tööriist ei toimi ilma JavaScriptita. JavaScript on keelatud, see ei toiminud või selle brauseri tugi puudub.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Sisutõlge]] on vahend, mille abil leheküljed kiiresti enda keelde tõlkida. [$1 Proovi kohe!]",
 	"cx-license-agreement": "Kui klõpsad nuppu \"$1\", nõustud [//wikimediafoundation.org/wiki/Terms_of_Use kasutustingimustega] ja annad nõusoleku tõlkeriistaga tehtud kaastöö pöördumatuks avaldamiseks litsentside [https://creativecommons.org/licences/by-sa/3.0/deed.et CC BY-SA 3.0] ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alusel. Mõistad seejuures, et autorile viitamiseks piisab litsentsi CC BY-SA 3.0 järgi hüperlingist või internetiaadressist.",
 	"cx-error-server-connection": "Tõrge: Serveriga ei saa ühendust.",
