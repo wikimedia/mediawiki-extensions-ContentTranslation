@@ -123,8 +123,8 @@
 			self.targetLanguages = data.targetLanguages;
 			self.sourceLanguages = data.sourceLanguages;
 			self.render();
-			self.setDefaultLanguages();
 			self.prefill();
+			self.setDefaultLanguages();
 			if ( self.isEmbedded ) {
 				self.populateRecentEdits();
 			}
