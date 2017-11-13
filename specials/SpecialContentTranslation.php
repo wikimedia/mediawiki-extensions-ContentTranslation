@@ -124,17 +124,11 @@ class SpecialContentTranslation extends SpecialPage {
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !ContentTranslationHooks::isEnabledForUser( $user ) ) {
 			if ( $hasToken || $isCampaign ) {
-				// User has a token. Enabled cx for the user in this wiki.
+				// User has a token or a valid campaign param.
+				// Enable cx for the user in this wiki.
 				$this->enableCXBetaFeature();
 			} else {
-				if ( $campaign ) {
-					// Show login page if the URL has campaign parameter
-					$out->showPermissionsErrorPage(
-						[ [ 'badaccess-groups' ] ],
-						'edit'
-					);
-					return;
-				}
+				// Invalid or missing campaign param
 				$out->showErrorPage(
 					'cx',
 					'cx-specialpage-enable-betafeature',
