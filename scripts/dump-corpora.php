@@ -78,9 +78,6 @@ class CXCorporaDump extends Maintenance {
 			'plaintext',
 			'(optional) Strip away html.'
 		);
-
-		$this->resets = [];
-		$this->tags = [];
 	}
 
 	private function getPath( $source, $target ) {
@@ -248,13 +245,15 @@ class CXCorporaDump extends Maintenance {
 	 * @return string|null
 	 */
 	public function formatJSON( array $targets ) {
-		$output = [];
+		$output = '';
+		$indent = '    ';
+
 		foreach ( $targets as $translation ) {
 			foreach ( $translation['corpora'] as $id => $unit ) {
 				unset( $unit['source']['timestamp'], $unit['user']['timestamp'], $unit['mt']['timestamp'] );
 
 				$globalId = "{$translation['translationId']}/$id";
-				$output[] = [
+				$section = [
 					'id' => $globalId,
 					'sourceLanguage' => $translation['sourceLanguage'],
 					'targetLanguage' => $translation['targetLanguage'],
@@ -262,20 +261,25 @@ class CXCorporaDump extends Maintenance {
 					'mt' => $unit['mt'],
 					'target' => $unit['user'],
 				];
+
+				$json = FormatJson::encode( $section, $indent, FormatJson::ALL_OK );
+				$output .= self::indent( $indent, $json ) . ",\n";
 			}
 		}
 
 		if ( $output ) {
-			// MediaWiki has a workaround that cleans up formatting with a regexp
-			// with certain PHP versions. As $output can be huge, it will run out
-			// of memory trying to do that. In this case, it is better to skip
-			// pretty formatting than to have nothing at all.
-			$prettyFormat = json_encode( [], JSON_PRETTY_PRINT ) === '[]';
-
-			return FormatJson::encode( $output, $prettyFormat, FormatJson::ALL_OK );
+			// Remove the trailing comma and newline after it
+			$output = trim( $output, "\n," );
+			return "[\n$output\n]\n";
 		} else {
 			return null;
 		}
+	}
+
+	public static function indent( $indent, $text ) {
+		// Assuming literal newlines do not occur within strings
+		$text = $indent . str_replace( "\n", "\n$indent", $text );
+		return $text;
 	}
 
 	/**
