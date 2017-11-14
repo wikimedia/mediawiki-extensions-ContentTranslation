@@ -35,6 +35,7 @@
 	"cx-publish-gt-published-description": "kapah tu kisu misapecec \"$1\" kyu sakapahen kya kasabelih, sapidiput madapesut tu asip.",
 	"cx-translation-add-translation": "micunus tu mibelih",
 	"cx-translation-target-page-exists": "pisaungay satangahan [$1 $2] a kasabelih izaw tu i mamutekan nu wiki. kapisaungay tu masazumaay kasabelih a pyawti.",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|lacul mibelih]]",
 	"tag-contenttranslation-description": "masaungay lacul mibelih sakaluk nay zuma kamu mabelih a lacul",
 	"cx-source-loading": "imahini pacumud $1",
 	"cx-entrypoint-title": "mibelih tina kasabelih u $1",
