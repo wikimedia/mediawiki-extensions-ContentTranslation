@@ -1,0 +1,124 @@
+@import '../../widgets/common/ext.cx.common.less';
+
+@item-height: 3.2em;
+@image-size: 3em;
+
+.cx-selected-source-page {
+	.mw-ui-one-whole;
+	padding: 0;
+
+	&--modal {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		.transform( translate( -50%, -50% ) );
+
+		min-width: 375px;
+		max-width: 550px;
+		width: 100%;
+		z-index: 400;
+
+		@media only screen and ( min-width: @wide ) {
+			max-width: 750px;
+		}
+
+		@media only screen and ( min-width: @max-dashboard-width ) {
+			max-width: 1000px;
+		}
+	}
+
+	&__container {
+		.mw-ui-one-whole;
+		.flex-center;
+
+		background-color: @white;
+		min-height: @item-height;
+	}
+
+	&__image {
+		background-color: #dfe3e8;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		&.oo-ui-iconElement-icon {
+			opacity: 0.65;
+		}
+
+		height: @image-size;
+		width: @image-size;
+		margin: 0.5em;
+	}
+
+	&__info {
+		color: @colorGray1;
+
+		.flex-around;
+
+		max-width: 60%;
+		min-height: @item-height;
+
+		font-size: 1.2em;
+	}
+
+	&__link {
+		.background-image-svg('../images/newwindow.svg', '../images/newwindow.png');
+		background-size: 14px;
+		background-repeat: no-repeat;
+		background-position: right center;
+
+		color: @colorGray1;
+		padding-right: 16px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	&__metrics {
+		color: @colorGray7;
+		font-size: 14px;
+	}
+
+	&__language-count {
+		.background-image-svg('../images/languages.svg', '../images/languages.png');
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: 20px;
+
+		display: inline-block;
+		margin-right: 22px;
+		padding-left: 22px;
+	}
+
+	&__messagebar {
+		.mw-ui-one-whole;
+
+		background-color: #f7d358;
+		display: none;
+		padding: 10px;
+	}
+
+	&__actions {
+		.mw-ui-one-whole;
+
+		background-color: @gray-lighter;
+		padding: 10px 15px 15px 15px;
+		text-align: right;
+
+		button {
+			margin-left: 10px;
+		}
+	}
+
+	&__license {
+		.mw-ui-one-whole;
+
+		background-color: @gray-lighter;
+		color: @colorGray7;
+		padding: 10px;
+		font-size: 12px;
+	}
+
+	.cx-selected-source-page__discard {
+		margin-left: 8px;
+	}
+}

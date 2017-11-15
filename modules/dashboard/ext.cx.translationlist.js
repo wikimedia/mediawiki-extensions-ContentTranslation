@@ -1,7 +1,6 @@
 /*!
  * ContentTranslation extension - Translation listing in dashboard.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -14,30 +13,30 @@
 	 * @class
 	 * @param {jQuery} $container
 	 * @param {string} type
-	 * @param {Object} siteMapper
-	 * @param {Object} languageFilter
+	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
-	function CXTranslationList( $container, type, siteMapper, languageFilter ) {
+	function CXTranslationList( $container, type, siteMapper ) {
 		this.$container = $container;
+		this.type = type;
 		this.siteMapper = siteMapper;
-		this.languageFilter = languageFilter;
+
+		this.pendingRequests = 0;
 		this.translations = [];
+		// sourceLanguages and targetLanguages are arrays of languages,
+		// for which there are translation list items
 		this.sourceLanguages = [];
 		this.targetLanguages = [];
-		this.type = type;
-		this.$translationsList = null;
-		this.filters = {
-			status: null,
-			sourceLanguage: null,
-			targetLanguage: null
-		};
+		this.languageFilter = null;
 
-		this.$selectedActionMenu = null;
 		this.$headerContainer = null;
+		this.$translationsList = null;
+		this.$loadingIndicatorSpinner = null;
+		this.$selectedActionMenu = null;
 		this.active = false;
 		this.promise = null;
 		this.queryContinue = null;
 		this.hasMore = true;
+
 		this.init();
 		this.listen();
 	}
@@ -85,6 +84,14 @@
 	};
 
 	CXTranslationList.prototype.init = function () {
+		this.languageFilter = new mw.cx.ui.LanguageFilter( {
+			canBeSame: true,
+			canBeUndefined: true,
+			updateLocalStorage: false,
+			onSourceLanguageChange: this.applyFilters.bind( this ),
+			onTargetLanguageChange: this.applyFilters.bind( this )
+		} );
+
 		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-translationlist__header' )
 			.append(
@@ -92,9 +99,13 @@
 					.text( mw.msg( 'cx-translation-label-' + this.type ) ),
 				this.languageFilter.$element.hide()
 			);
+		this.$loadingIndicatorSpinner = $( '<div>' )
+			.addClass( 'cx-translationlist__loading-indicator' )
+			.append( mw.cx.widgets.spinner() );
 		this.$translationsList = $( '<div>' )
 			.addClass( 'cx-translationlist' )
-			.append( this.$headerContainer );
+			.append( this.$headerContainer, this.$loadingIndicatorSpinner );
+
 		this.$container.append( this.$translationsList, this.$emptyTranslationsList );
 	};
 
@@ -111,6 +122,9 @@
 			}
 		}
 
+		this.$loadingIndicatorSpinner.show();
+		this.pendingRequests++;
+
 		promise = this.getTranslations();
 		promise.done( function ( translations ) {
 			self.translations = self.translations.concat( translations );
@@ -126,21 +140,53 @@
 				insertUnique( self.targetLanguages, translation.targetLanguage );
 			} );
 
-			self.renderTranslations( translations );
+			self.fillULS();
 
-			mw.hook( 'mw.cx.translationlist.items.changed' ).fire();
+			self.renderTranslations( translations );
 		} ).fail( function () {
 			self.promise = null;
+		} ).always( function () {
+			self.pendingRequests--;
+
+			if ( self.pendingRequests === 0 ) {
+				self.$loadingIndicatorSpinner.hide();
+			}
 		} );
 
 		return promise;
 	};
 
-	CXTranslationList.prototype.getTranslationLanguages = function () {
-		return {
-			sourceLanguages: this.sourceLanguages,
-			targetLanguages: this.targetLanguages
+	/**
+	 * Fill source and target language filter with languages for which there are translationlist items
+	 */
+	CXTranslationList.prototype.fillULS = function () {
+		var languageDecorator;
+		// Check if there is only one language combination, e.g. English to Spanish
+		// sourceLanguages - [ 'en' ]
+		// targetLanguages - [ 'es' ]
+		if ( this.sourceLanguages.length === 1 && this.targetLanguages.length === 1 ) {
+			return;
+		}
+
+		// At this point, we know there is more than one language combination
+
+		this.sourceLanguages.unshift( 'x-all' );
+		this.targetLanguages.unshift( 'x-all' );
+
+		languageDecorator = function ( $language, languageCode ) {
+			if ( languageCode === 'x-all' ) {
+				$language.parent().addClass( 'cx-translationlist-uls-all-languages' );
+			}
 		};
+
+		this.languageFilter.fillSourceLanguages( this.sourceLanguages, true, {
+			languageDecorator: languageDecorator
+		} );
+		this.languageFilter.fillTargetLanguages( this.targetLanguages, true, {
+			languageDecorator: languageDecorator
+		} );
+
+		this.languageFilter.$element.show();
 	};
 
 	/**
@@ -548,24 +594,16 @@
 		return new mw.Api().postWithToken( 'csrf', apiParams );
 	};
 
-	CXTranslationList.prototype.applyFilters = function ( filters ) {
-		var i, translation, visible, j, filterProp, filterValue,
-			keys = Object.keys( filters );
+	CXTranslationList.prototype.applyFilters = function () {
+		var i, translation, visible,
+			sourceLanguage = this.languageFilter.getSourceLanguage(),
+			targetLanguage = this.languageFilter.getTargetLanguage();
 
 		for ( i = 0; i < this.translations.length; i++ ) {
 			translation = this.translations[ i ];
 
-			visible = true;
-			for ( j = 0; j < keys.length; j++ ) {
-				filterProp = keys[ j ];
-				filterValue = filters[ filterProp ];
-
-				if ( filterValue === null || filterValue === '' ) {
-					continue;
-				}
-
-				visible = visible && translation[ filterProp ] === filterValue;
-			}
+			visible = ( !sourceLanguage || translation.sourceLanguage === sourceLanguage ) &&
+				( !targetLanguage || translation.targetLanguage === targetLanguage );
 
 			if ( visible ) {
 				translation.$element.show();

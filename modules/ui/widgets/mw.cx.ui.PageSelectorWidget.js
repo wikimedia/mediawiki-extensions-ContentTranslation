@@ -1,7 +1,6 @@
 /*!
 * Content Translation UserInterface PageSelectorWidget class.
 *
-* @ingroup Extensions
 * @copyright See AUTHORS.txt
 * @license GPL-2.0+
 */
@@ -35,6 +34,10 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 
 	this.siteMapper = config.siteMapper;
 	this.language = config.language || 'en';
+	if ( config.targetLanguage ) {
+		this.setTargetLanguage( config.targetLanguage );
+	}
+	this.listen();
 
 	// Initialization
 	this.$element.addClass( 'mw-cx-ui-PageSelectorWidget' );
@@ -81,6 +84,28 @@ mw.cx.ui.PageSelectorWidget.prototype.setValueNoEmit = function ( value ) {
 	if ( this.value !== value ) {
 		this.value = value;
 	}
+};
+
+mw.cx.ui.PageSelectorWidget.prototype.listen = function () {
+	var proxied;
+
+	// Unbind event handlers so search results don't disappear when focus is lost
+	this.$input.off( 'blur' );
+	this.lookupMenu.onDocumentMouseDownHandler = function () {};
+	// Disable width and height calculation for search results container
+	this.lookupMenu.setIdealSize = function () {};
+
+	proxied = this.lookupMenu.onKeyDownHandler;
+	this.lookupMenu.onKeyDownHandler = function ( e ) {
+		if ( e.keyCode === OO.ui.Keys.TAB ) {
+			return;
+		}
+		if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
+			self.discardDialog();
+			return;
+		}
+		return proxied.apply( this, arguments );
+	};
 };
 
 /**

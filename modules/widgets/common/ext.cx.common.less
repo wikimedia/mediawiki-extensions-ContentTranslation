@@ -14,6 +14,7 @@
 @very-narrow: 500px;
 @narrow: 700px;
 @wide: 1200px;
+@max-dashboard-width: 1500px;
 
 .box-shadow-card() {
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
@@ -88,4 +89,20 @@
 	-ms-flex: 0 1 auto; // IE 10
 	-webkit-flex: 0 1 auto; // Safari 6.2 - 8
 	flex: 0 1 auto;
+}
+
+.loading-indicator {
+	@dot-size: 16px;
+	@verticalPadding: 15px;
+
+	background-color: @colorGray15;
+	height: @dot-size + @verticalPadding;
+	padding-top: @verticalPadding;
+	border-top: 1px solid @colorGray12;
+
+	.cx-spinner {
+		width: 3 * @dot-size;
+		height: @dot-size;
+		margin: 0 auto;
+	}
 }

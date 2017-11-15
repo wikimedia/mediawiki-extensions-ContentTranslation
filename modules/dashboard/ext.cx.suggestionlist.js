@@ -1,7 +1,6 @@
 /*!
  * ContentTranslation extension - Translation suggestions listing in dashboard.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -51,23 +50,19 @@
 	 * CXSuggestionList
 	 *
 	 * @param {jQuery} $container The container for this suggestion list
-	 * @param {Object} siteMapper
+	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @param {Object} languageFilter
 	 * @class
 	 */
-	function CXSuggestionList( $container, siteMapper, languageFilter ) {
+	function CXSuggestionList( $container, siteMapper ) {
 		this.$container = $container;
 		this.siteMapper = siteMapper;
-		this.languageFilter = languageFilter;
+
 		this.suggestions = [];
-		this.sourceLanguage = null;
-		this.targetLanguage = null;
 		this.lists = {};
 		this.active = false;
-		this.filters = {
-			sourceLanguage: null,
-			targetLanguage: null
-		};
+		this.pendingRequests = 0;
+
 		this.$suggestionsContainer = null;
 		this.$personalCollection = null;
 		this.$publicCollection = null;
@@ -75,14 +70,24 @@
 		this.refreshTrigger = null;
 		this.$headerContainer = null;
 		this.$loadingIndicatorSpinner = null;
-		this.pendingRequests = 0;
 		this.seed = null;
+		this.languageFilter = null;
+		this.selectedSourcePage = null;
+		this.overlay = null;
+
 		this.init();
 		this.listen();
 	}
 
 	CXSuggestionList.prototype.init = function () {
 		this.seed = Math.floor( Math.random() * 10000 );
+
+		this.languageFilter = new mw.cx.ui.LanguageFilter( {
+			onSourceLanguageChange: this.applyFilters.bind( this ),
+			onTargetLanguageChange: this.applyFilters.bind( this ),
+			updateLocalStorage: true
+		} );
+
 		this.$personalCollection = $( '<div>' ).addClass( 'cx-suggestionlist__personal' );
 		this.$headerContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__header' )
@@ -90,40 +95,23 @@
 				.text( mw.msg( 'cx-suggestionlist-title' ) )
 				.addClass( 'cx-suggestionlist__public-title' ),
 			this.languageFilter.$element );
+
 		this.$loadingIndicatorSpinner = $( '<div>' )
 			.addClass( 'cx-suggestionlist__loading-indicator' )
 			.append( mw.cx.widgets.spinner() );
+
 		this.$publicCollectionContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public' )
 			.append( this.$headerContainer, this.$loadingIndicatorSpinner );
 		this.$publicCollection = $( '<div>' )
 			.addClass( 'cx-suggestionlist__public-items' );
 		this.$publicCollectionContainer.append( this.$publicCollection );
+
 		this.$suggestionsContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist-container' )
 			.append( this.$personalCollection, this.$publicCollectionContainer );
+
 		this.$container.append( this.$suggestionsContainer );
-		this.initLanguages();
-	};
-
-	CXSuggestionList.prototype.initLanguages = function () {
-		var storedTargetLanguage, storedSourceLanguage,
-			query = new mw.Uri().query;
-
-		storedTargetLanguage = mw.storage.get( 'cxTargetLanguage' );
-		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
-
-		// Find a sensible language pair.
-		this.sourceLanguage = query.from || storedSourceLanguage || 'en';
-		this.targetLanguage = query.to || storedTargetLanguage || mw.config.get( 'wgContentLanguage' );
-		if ( this.sourceLanguage === this.targetLanguage ) {
-			this.targetLanguage = 'es';
-			// In case this is also same as source language, nothing breaks.
-		}
-		this.filters = {
-			sourceLanguage: this.sourceLanguage,
-			targetLanguage: this.targetLanguage
-		};
 	};
 
 	/**
@@ -134,9 +122,6 @@
 		var lists, promise,
 			isEmpty = true,
 			self = this;
-
-		this.$loadingIndicatorSpinner.show();
-		this.pendingRequests++;
 
 		if ( !list ) {
 			// Initial load, load available lists and couple of suggestions for them
@@ -149,6 +134,9 @@
 
 			promise = this.loadSuggestionsForList( list );
 		}
+
+		this.$loadingIndicatorSpinner.show();
+		this.pendingRequests++;
 
 		return promise.then( function ( suggestions ) {
 			var i, list, listId, listIds;
@@ -224,8 +212,8 @@
 		params = {
 			action: 'query',
 			list: 'contenttranslationsuggestions',
-			from: this.filters.sourceLanguage,
-			to: this.filters.targetLanguage,
+			from: this.languageFilter.getSourceLanguage(),
+			to: this.languageFilter.getTargetLanguage(),
 			limit: 4,
 			seed: this.seed
 		};
@@ -247,8 +235,8 @@
 
 		if ( list.id === 'trex' ) {
 			this.recommendtool = this.recommendtool || new mw.cx.Recommendtool(
-				this.filters.sourceLanguage,
-				this.filters.targetLanguage
+				this.languageFilter.getSourceLanguage(),
+				this.languageFilter.getTargetLanguage()
 			);
 			return this.recommendtool.getSuggestionList();
 		}
@@ -268,8 +256,8 @@
 			action: 'query',
 			list: 'contenttranslationsuggestions',
 			listid: list.id,
-			from: this.filters.sourceLanguage,
-			to: this.filters.targetLanguage,
+			from: this.languageFilter.getSourceLanguage(),
+			to: this.languageFilter.getTargetLanguage(),
 			limit: 10,
 			seed: list.seed
 		}, list.queryContinue );
@@ -528,8 +516,7 @@
 				title: mw.msg( 'cx-suggestionlist-view-source-page' )
 			} )
 			.click( function ( e ) {
-				// Do not propagate to the parent suggestion item. Prevent opening
-				// source selector.
+				// Do not propagate to the parent suggestion item. Prevent opening selected source page dialog
 				e.stopPropagation();
 			} )
 			.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--source' )
@@ -790,34 +777,66 @@
 		var self = this;
 
 		this.$suggestionsContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
-			var cxSelector, suggestion, campaign, type, algorithm;
+			var $this = $( this ),
+				suggestion = $this.find( '.cx-slitem__translation-link' ).data( 'suggestion' ),
+				imageUrl = $this
+					.find( '.cx-slitem__image:not(.oo-ui-icon-page-existing)' )
+					.css( 'background-image' );
+			self.showSuggestionDialog( suggestion, imageUrl );
 
-			cxSelector = $( this ).data( 'cxsourceselector' );
-
-			if ( cxSelector ) {
-				cxSelector.prefill();
-			} else {
-				suggestion = $( this ).find( '.cx-slitem__translation-link' ).data( 'suggestion' );
-				// Capture the list type and algorithm if any, for the campaign identifier
-				type = self.lists[ suggestion.listId ].type;
-				campaign = [ 'suggestions-type', type ];
-				algorithm = self.lists[ suggestion.listId ].algorithm;
-				if ( algorithm ) {
-					campaign.push( algorithm );
-				}
-				$( this ).cxSourceSelector( {
-					sourceLanguage: suggestion.sourceLanguage,
-					targetLanguage: suggestion.targetLanguage,
-					sourceTitle: suggestion.title,
-					campaign: campaign.join( '-' )
-				} );
-				mw.hook( 'mw.cx.suggestion.action' ).fire( 'accept', suggestion.rank,
-					friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
-					suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
-			}
+			mw.hook( 'mw.cx.suggestion.action' ).fire( 'accept', suggestion.rank,
+				friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
+				suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
 		} );
 
 		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+	};
+
+	/**
+	 * Show dialog for selected suggestion
+	 *
+	 * @param {Object} suggestion Selected suggestion, for which dialog is shown
+	 * @param {string|null} imageUrl URL of suggestion page image
+	 */
+	CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, imageUrl ) {
+		if ( imageUrl ) {
+			imageUrl = imageUrl.slice( 5, -2 );
+		}
+
+		this.selectedSourcePage = new mw.cx.SelectedSourcePage( this.siteMapper, {
+			onDiscard: this.discardSuggestionDialog.bind( this )
+		} );
+
+		if ( !this.overlay ) {
+			this.overlay = new mw.cx.widgets.Overlay( 'body', {
+				closeOnClick: this.discardSuggestionDialog.bind( this ),
+				classes: [ 'cx-overlay-gray' ]
+			} );
+		}
+		this.overlay.show();
+
+		this.selectedSourcePage.setSelectedSourcePageData(
+			suggestion.title,
+			this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
+			{
+				imageUrl: imageUrl,
+				imageIcon: 'page-existing',
+				sourceLanguage: suggestion.sourceLanguage,
+				targetLanguage: suggestion.targetLanguage,
+				params: { prop: [ 'langlinks', 'pageviews', 'langlinkscount' ] }
+			}
+		);
+
+		this.selectedSourcePage.$element.addClass( 'cx-selected-source-page--modal' ).show();
+		$( 'body' ).append( this.selectedSourcePage.$element );
+	};
+
+	/**
+	 * Discards suggestion dialog and hides overlay
+	 */
+	CXSuggestionList.prototype.discardSuggestionDialog = function () {
+		this.overlay.hide();
+		this.selectedSourcePage.hide();
 	};
 
 	/**

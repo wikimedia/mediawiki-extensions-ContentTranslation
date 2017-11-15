@@ -236,7 +236,7 @@
 				"mw.cx.ui.Header",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
-				"ext.cx.source.selector",
+				"ext.cx.SourcePageSelector",
 				"ext.cx.suggestionlist",
 				"ext.cx.translationlist",
 				"ext.cx.widgets.translator",
@@ -256,9 +256,7 @@
 				"cx-create-new-translation",
 				"cx-translation-filter-suggested-translations",
 				"cx-translation-filter-published-translations",
-				"cx-translation-filter-draft-translations",
-				"cx-translation-filter-label-all-languages",
-				"cx-translation-filter-uls-all-languages"
+				"cx-translation-filter-draft-translations"
 			]
 		},
 		"ext.cx.util": {
@@ -324,50 +322,96 @@
 				"cx-tools-link-hover-tooltip"
 			]
 		},
-		"ext.cx.source.selector": {
+		"ext.cx.SourcePageSelector": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"source/ext.cx.source.selector.js"
+				"source/ext.cx.SourcePageSelector.js"
 			],
 			"styles": [
-				"source/styles/ext.cx.source.selector.less"
+				"source/styles/ext.cx.SourcePageSelector.less"
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
-				"ext.cx.tools.validator",
 				"ext.cx.widgets.overlay",
+				"ext.cx.SelectedSourcePage",
 				"ext.uls.common",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
-				"jquery.throttle-debounce",
+				"jquery.uls.data",
 				"mediawiki.jqueryMsg",
 				"mediawiki.storage",
 				"mediawiki.language",
 				"mediawiki.ui.button",
+				"mw.cx.ui.LanguageFilter",
 				"mw.cx.ui.PageSelectorWidget",
 				"mw.cx.util",
 				"oojs-ui.styles.icons-interactions",
 				"oojs"
 			],
 			"messages": [
-				"cx-sourceselector-dialog-new-translation",
-				"cx-sourceselector-dialog-button-start-translation",
-				"cx-sourceselector-dialog-button-cancel",
-				"cx-sourceselector-dialog-source-language-label",
-				"cx-sourceselector-dialog-target-language-label",
 				"cx-sourceselector-embedded-source-page-placeholder",
-				"cx-sourceselector-dialog-source-title-placeholder",
-				"cx-sourceselector-dialog-target-title-placeholder",
+				"cx-sourceselector-embedded-recent-edits-header",
+				"cx-sourceselector-embedded-recent-edits-no-results",
+				"cx-sourceselector-embedded-search-no-results"
+			]
+		},
+		"ext.cx.SelectedSourcePage": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"source/ext.cx.SelectedSourcePage.js"
+			],
+			"styles": [
+				"source/styles/ext.cx.SelectedSourcePage.less"
+			],
+			"dependencies": [
+				"ext.cx.sitemapper",
+				"ext.cx.tools.validator",
+				"ext.uls.common",
+				"ext.uls.mediawiki",
+				"jquery.suggestions",
+				"mediawiki.jqueryMsg",
+				"mediawiki.storage",
+				"mediawiki.language",
+				"mediawiki.ui.button",
+				"mw.cx.ui.LanguageFilter",
+				"mw.cx.util",
+				"oojs-ui.styles.icons-interactions",
+				"oojs"
+			],
+			"messages": [
+				"cx-sourceselector-dialog-button-start-translation",
 				"cx-sourceselector-dialog-error-page-and-title-exist",
 				"cx-sourceselector-dialog-error-page-exists",
 				"cx-sourceselector-dialog-error-title-in-use",
-				"cx-sourceselector-dialog-error-no-source-article",
 				"cx-sourceselector-embedded-selected-item-pageviews",
-				"cx-sourceselector-embedded-recent-edits-header",
-				"cx-sourceselector-embedded-recent-edits-no-results",
-				"cx-sourceselector-embedded-search-no-results",
-				"cx-license-agreement",
-				"cx-error-server-connection"
+				"cx-license-agreement"
+			]
+		},
+		"mw.cx.ui.LanguageFilter": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/mw.cx.ui.LanguageFilter.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.LanguageFilter.less"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"ext.uls.common",
+				"ext.uls.mediawiki",
+				"jquery.uls.data",
+				"jquery.throttle-debounce",
+				"mediawiki.jqueryMsg",
+				"mediawiki.storage",
+				"mediawiki.language",
+				"mediawiki.ui.button",
+				"mw.cx.util",
+				"oojs-ui.styles.icons-interactions",
+				"oojs"
+			],
+			"messages": [
+				"cx-translation-filter-label-all-languages",
+				"cx-translation-filter-uls-all-languages"
 			]
 		},
 		"ext.cx.pageselector": {
@@ -904,9 +948,11 @@
 			"dependencies": [
 				"ext.cx.progressbar",
 				"ext.cx.util",
+				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"moment",
 				"mediawiki.widgets",
+				"mw.cx.ui.LanguageFilter",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation",
 				"oojs-ui.styles.icons-editing-core",
@@ -941,8 +987,8 @@
 				"ext.cx.util",
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
-				"mediawiki.storage",
 				"mediawiki.widgets",
+				"mw.cx.ui.LanguageFilter",
 				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
@@ -2016,8 +2062,8 @@
 				"ui/styles/widgets/mw.cx.ui.PageSelectorWidget.less"
 			],
 			"dependencies": [
-				"mw.cx.ui",
 				"mediawiki.widgets",
+				"mw.cx.ui",
 				"mw.cx.ui.TitleOptionWidget",
 				"oojs-ui.styles.icons-interactions"
 			]

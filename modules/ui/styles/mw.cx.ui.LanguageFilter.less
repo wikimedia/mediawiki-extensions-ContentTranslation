@@ -1,0 +1,96 @@
+@import '../../widgets/common/ext.cx.common.less'; // TODO: add correct path
+@import 'mediawiki.mixins';
+
+.cx-language-filter {
+	background-color: @colorGray15;
+	box-sizing: border-box;
+	width: auto;
+	max-width: 25%;
+	max-height: 34px;
+	border: 1px solid #9d9d9d;
+	border-radius: @borderRadius;
+	padding: 0;
+	font-weight: bold;
+
+	.flex-display( box ); // Support 2009 syntax
+	.flex-display;
+	margin-left: auto;
+
+	.cx-language-filter-source-language,
+	.cx-language-filter-target-language {
+		position: relative;
+		box-sizing: border-box;
+		font-size: 16px;
+		cursor: pointer;
+
+		.flex-item;
+		overflow: hidden;
+	}
+
+	.cx-language-filter-button {
+		line-height: 1;
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		z-index: 1;
+	}
+
+	.cx-language-filter-source-language {
+		padding-right: 8px;
+		margin-right: -8px;
+
+		.cx-language-filter-button {
+			padding: 8px 12px 8px 16px;
+		}
+	}
+
+	.cx-language-filter-target-language {
+		padding-left: 8px;
+		margin-left: -8px;
+
+		.cx-language-filter-button {
+			padding: 8px 16px 8px 12px;
+		}
+	}
+
+	.cx-language-filter-arrow {
+		float: left;
+		position: relative;
+		width: 0;
+		height: 32px;
+		margin-right: 16px;
+	}
+
+	.cx-language-filter-arrow:after,
+	.cx-language-filter-arrow:before {
+		content: ' ';
+
+		position: absolute;
+		top: 50%;
+		left: 100%;
+
+		width: 0;
+		height: 0;
+		border: solid transparent;
+
+		pointer-events: none;
+	}
+
+	.cx-language-filter-arrow:after {
+		margin-top: -16px;
+		border-color: rgba( 255, 255, 255, 0 );
+		border-left-color: @colorGray15;
+		border-width: 16px;
+		border-left-width: 12px;
+	}
+
+	.cx-language-filter-arrow:before {
+		margin-top: -17px;
+		border-color: rgba( 157, 157, 157, 0 );
+		border-left-color: #9d9d9d;
+		border-width: 17px;
+		border-left-width: 13px;
+	}
+}
