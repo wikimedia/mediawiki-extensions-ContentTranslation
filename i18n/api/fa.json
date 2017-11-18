@@ -44,7 +44,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "آوردن همهٔ ترجمه‌های منتشر شده، ترجمه از انگلیسی به اسپانیایی",
 	"apihelp-query+contenttranslationlangtrend-param-source": "کد زبانی مبدأ.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "کد زبانی مقصد.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "فاصلهٔ محاسبهٔ گام. می‌تواند 'هفته' یا 'ماه' باشد.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "فاصلهٔ محاسبهٔ گام. می‌تواند <kbd>هفته</kbd> یا <kbd>ماه</kbd> باشد.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "آوردن گام انتشار برای جفت زبانی es-ca با فاصله‌های هفتگی",
 	"apihelp-query+contenttranslationlangtrend-example-2": "آوردن گام انتشار برای همهٔ زبان‌ها",
 	"apihelp-cxdelete-description": "حذف یک ترجمهٔ پیش‌نویس ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -61,6 +61,10 @@
 	"apihelp-cxsave-param-to": "کد زبان مقصد",
 	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا",
 	"apierror-cx-invalidlanguage": "زبان نامعتبر.",
+	"apierror-cx-invalidprogress": "پیشرفت نامعتبر.",
+	"apierror-cx-invalidsourcelanguage": "زبان مبدا نامعتبر",
+	"apierror-cx-invalidtargetlanguage": "زبان مقصد نامعتبر",
+	"apierror-cx-invalidtranslator": "نام مترجم نامعتبر",
 	"apierror-cx-jwtmissing": "JWT نصب نیست.",
 	"apierror-cx-translationnotfound": "ترجمه یافت نشد."
 }
