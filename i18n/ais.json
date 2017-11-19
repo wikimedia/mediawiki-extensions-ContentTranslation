@@ -96,6 +96,8 @@
 	"cx-suggestionlist-featured": "sazumaay a pili’",
 	"cx-suggestionlist-view-source-page": "ciwsace tu saayaway kasabelih",
 	"cx-create-new-translation": "baluhayay a kamu-belih",
+	"cx-translation-filter-label-all-languages": "hamin",
+	"cx-translation-filter-uls-all-languages": "sacahamin a kamu",
 	"cx-save-draft-save-success": "{{PLURAL:$1|$ ayaw nu 1 widi|0=nasawni}} masuped tuway",
 	"cx-save-draft-saving": "misuped henay ayza...",
 	"cx-save-draft-tooltip": "mabelihay a mitanaman tu sulit lunuk masuped tu",
@@ -133,6 +135,7 @@
 	"cx-campaign-newarticle-notice": "micaliw ku <strong> mibelih </strong> apatizeng baluhayay a kasabelih mangaleb madayum tu ayza！amitanam kisu lacul mibelih mitanam baziyong a sakaluk haw?",
 	"cx-campaign-no-thanks": "hatizatu, kukay",
 	"cx-campaign-try": "mitanam labuay mibelih tu kamu",
+	"cx-campaign-contributionsmenu-mycontributions": "paanin",
 	"cx-campaign-contributionsmenu-mytranslations": "mibelih",
 	"cx-campaign-contributionsmenu-translate-instead": "pisaungay mibelih paliyuh miliyaw misulit",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 hakay izaw tu ku zuma a kamu.",
@@ -188,5 +191,6 @@
 	"cx-tools-mt-new-provider": "baluhay",
 	"cx-tools-mt-new-providers-available": "maladay baluhay a kasacacay",
 	"cx-continue-translation": "palalid mibelih",
+	"cx-tools-template-title": "taazihan mitudung",
 	"cx-publish-destination-namespace-main": "baluhayay a kasabelih"
 }
