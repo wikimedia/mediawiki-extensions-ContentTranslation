@@ -1,5 +1,4 @@
 /*!
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -42,6 +41,10 @@
 			this.$overlay
 				.addClass( 'cx-overlay--clickable' )
 				.click( this.options.closeOnClick );
+		}
+
+		if ( this.options.classes ) {
+			this.$overlay.addClass( this.options.classes.join( ' ' ) );
 		}
 
 		this.$container

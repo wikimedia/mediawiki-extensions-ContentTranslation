@@ -1,0 +1,130 @@
+@import '../../widgets/common/ext.cx.common.less';
+@import 'mediawiki.mixins';
+
+.cx-source-page-selector {
+	.mw-ui-item;
+
+	background-color: @white;
+	color: @gray-darker;
+	position: relative;
+	z-index: 400; // 300 is the z-index of overlay
+	margin-bottom: 2em;
+	border-radius: @borderRadius;
+	padding: 0;
+	.box-shadow-card;
+
+	.cx-language-filter-source-language > .cx-language-filter-button {
+		padding: 8px 16px;
+	}
+
+	.cx-language-filter-target-language,
+	.cx-language-filter-arrow {
+		display: none;
+	}
+
+	&.cx-source-page-selector--selected {
+		.cx-language-filter-source-language > .cx-language-filter-button {
+			padding: 8px 12px 8px 16px;
+		}
+
+		.cx-source-page-selector__search-results,
+		.cx-source-page-selector__source-inputs {
+			display: none;
+		}
+
+		.cx-selected-source-page,
+		.cx-language-filter-target-language,
+		.cx-language-filter-arrow,
+		.cx-selected-source-page__license,
+		.cx-selected-source-page__actions {
+			display: block;
+		}
+	}
+
+	.cx-source-page-selector__source-inputs {
+		.flex-center;
+
+		height: 40px;
+		border-bottom: 1px solid @colorGray14;
+		padding: 10px;
+
+		.cx-source-page-selector__page-title {
+			input {
+				padding: 0.375em 0.375em 0.375em 2.5em;
+
+				&,
+				&:focus {
+					border: 0;
+					box-shadow: none;
+				}
+			}
+			.oo-ui-iconElement-icon {
+				left: 0.2em;
+			}
+		}
+
+		.cx-source-page-selector__discard {
+			margin-left: 8px;
+		}
+	}
+
+	.cx-selected-source-page {
+		display: none;
+	}
+
+	.cx-source-page-selector__search-results {
+		.oo-ui-menuSelectWidget {
+			display: block !important; /* stylelint-disable-line */
+			position: static;
+			z-index: auto;
+			min-height: 0;
+			margin-top: 0;
+			border: 0;
+			box-shadow: none;
+		}
+
+		.cx-source-page-selector__search-message,
+		.cx-source-page-selector__recent-edits-message,
+		.cx-source-page-selector__recent-edits-header {
+			color: @colorGray7;
+			padding: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.cx-source-page-selector__search-message,
+		.cx-source-page-selector__recent-edits-message {
+			display: none;
+			box-sizing: border-box;
+			min-height: 200px;
+			font-weight: normal;
+			line-height: 200px;
+			text-align: center;
+
+			& > span {
+				display: inline-block;
+				line-height: normal;
+				vertical-align: middle;
+			}
+		}
+
+		&.mw-cx-ui-PageSelectorWidget--input,
+		&.mw-cx-ui-PageSelectorWidget--no-results {
+			.cx-source-page-selector__recent-edits-header {
+				display: none;
+			}
+		}
+
+		&.mw-cx-ui-PageSelectorWidget--input.mw-cx-ui-PageSelectorWidget--no-results {
+			.cx-source-page-selector__search-message {
+				display: block;
+			}
+		}
+
+		&.mw-cx-ui-PageSelectorWidget--no-results:not( .mw-cx-ui-PageSelectorWidget--input ) {
+			.cx-source-page-selector__recent-edits-message {
+				display: block;
+			}
+		}
+	}
+}
