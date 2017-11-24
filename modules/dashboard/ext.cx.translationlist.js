@@ -422,6 +422,7 @@
 
 			e.stopPropagation();
 			translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
+			self.$selectedActionMenu.removeClass( 'cx-tlitem__actions--selected' );
 
 			OO.ui.getWindowManager().openWindow( 'message', $.extend( {
 				message: mw.msg( 'cx-draft-discard-confirmation-message' ),
