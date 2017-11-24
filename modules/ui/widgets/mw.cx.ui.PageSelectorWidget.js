@@ -26,6 +26,7 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 		showDescriptions: true,
 		showImages: true,
 		showMissing: false,
+		addQueryInput: false,
 		icon: 'search'
 	}, config );
 
