@@ -93,6 +93,10 @@
 
 			self.$canvas.prop( 'width', self.$widget.width() );
 			self.draw();
+
+			// Make statistics visible in dashboard sidebar,
+			// after all data is fetched and drawn on canvas
+			self.$widget.addClass( 'cx-translator--visible' );
 		} ).fail( function () {
 			self.$widget.remove();
 		} );
