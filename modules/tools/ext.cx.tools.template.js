@@ -978,9 +978,16 @@
 	 * @param {string} state The new state of the template.
 	 */
 	TemplateTool.prototype.replaceTargetTemplate = function ( $newTemplate, state ) {
-		var sourceId, $new;
+		var sourceId, $new, $visibleFragment;
 
-		sourceId = this.sourceTemplate.getFirstVisibleFragment().prop( 'id' );
+		$visibleFragment = this.sourceTemplate.getFirstVisibleFragment();
+		if ( !$visibleFragment ) {
+			// This should not happen. But prevent the js error if it happens. See T176237
+			mw.error( '[CX] Error: No visible fragment for template for ' + this.sourceTemplate.title );
+			// Stopping here means no template editor for this particular template.
+			return;
+		}
+		sourceId = $visibleFragment.prop( 'id' );
 		$new = $newTemplate
 			.clone()
 			.attr( {
