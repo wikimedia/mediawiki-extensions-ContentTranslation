@@ -75,7 +75,7 @@
 			this.show();
 
 			this.$searchResultsMessage.text(
-				mw.msg( 'cx-sourceselector-embedded-search-no-results',
+				mw.msg( 'cx-source-page-selector-no-search-results',
 					this.pageSelector.getQueryValue(),
 					$.uls.data.getAutonym( this.languageFilter.getSourceLanguage() )
 				)
@@ -170,7 +170,7 @@
 
 		this.pageSelector.on( 'change', function () {
 			self.$searchResultsMessage.text(
-				mw.msg( 'cx-sourceselector-embedded-search-no-results',
+				mw.msg( 'cx-source-page-selector-no-search-results',
 					self.pageSelector.getQueryValue(),
 					$.uls.data.getAutonym( self.languageFilter.getSourceLanguage() )
 				)
@@ -250,9 +250,9 @@
 		this.$container.hide(); // Starts as hidden, shown on this.$trigger button click
 
 		this.$searchResultsMessage = $( '<span>' )
-			.text( mw.msg( 'cx-sourceselector-embedded-search-no-results' ) );
+			.text( mw.msg( 'cx-source-page-selector-no-search-results' ) );
 		$recentEditsMessage = $( '<span>' )
-			.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-no-results' ) );
+			.text( mw.msg( 'cx-source-page-selector-recent-edits-no-results' ) );
 
 		$searchMessage = $( '<div>' )
 			.addClass( 'cx-source-page-selector__search-message' )
@@ -262,7 +262,7 @@
 			.append( $recentEditsMessage );
 		$recentEditsHeader = $( '<div>' )
 			.addClass( 'cx-source-page-selector__recent-edits-header' )
-			.text( mw.msg( 'cx-sourceselector-embedded-recent-edits-header' ) );
+			.text( mw.msg( 'cx-source-page-selector-recent-edits-header' ) );
 		this.$searchResults = $( '<div>' )
 			.addClass( 'cx-source-page-selector__search-results' )
 			.append( $recentEditsHeader, $recentEditsMessageContainer, $searchMessage );
@@ -280,7 +280,7 @@
 			siteMapper: this.siteMapper,
 			value: this.options.sourceTitle,
 			validateTitle: true,
-			placeholder: mw.msg( 'cx-sourceselector-embedded-source-page-placeholder' ),
+			placeholder: mw.msg( 'cx-source-page-selector-input-placeholder' ),
 			showRedirectTargets: true,
 			$overlay: this.$searchResults,
 			$container: this.$searchResults

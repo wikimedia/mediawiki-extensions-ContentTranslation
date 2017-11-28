@@ -79,7 +79,7 @@ mw.cx.ui.LanguageFilter.prototype.getAutonyms = function ( languages ) {
  * @param {number} languagesCount Number of languages
  * @return {string} wide, medium or narrow
  */
-mw.cx.ui.LanguageFilter.prototype.getUlsMenuWidth = function getUlsMenuWidth( languagesCount ) {
+mw.cx.ui.LanguageFilter.prototype.getUlsMenuWidth = function ( languagesCount ) {
 	var screenWidth = document.documentElement.clientWidth;
 
 	// 1200px is "wide" limit for Content Translation dashboard
@@ -98,7 +98,7 @@ mw.cx.ui.LanguageFilter.prototype.getUlsMenuWidth = function getUlsMenuWidth( la
 /**
  * Calculate position for ULS, depending on directionality
  */
-mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function calculateUlsPosition() {
+mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function () {
 	var isRtl = $( 'html' ).prop( 'dir' ) === 'rtl',
 		left = this.$element.offset().left,
 		right = left + this.$element.parent().width() - this.$menu.width(),
@@ -155,7 +155,7 @@ mw.cx.ui.LanguageFilter.prototype.getSourceLanguage = function () {
  * @param {string} language A language code
  */
 mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
-	var currentSource;
+	var currentSource, i, length, quickListLanguages, quickListLang;
 
 	if ( language === 'x-all' ) {
 		language = null;
@@ -176,10 +176,22 @@ mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
 			this.sourceLanguage = language;
 			this.setTargetLanguage( currentSource );
 		} else {
-			this.setTargetLanguage(
-				this.$targetLanguageFilter.data( 'uls' ).options.quickList()[ 0 ]
-			);
+			quickListLanguages = this.$targetLanguageFilter.data( 'uls' ).options.quickList();
+			for ( i = 0, length = quickListLanguages.length; i < length; i++ ) {
+				quickListLang = quickListLanguages[ i ];
+
+				if ( this.isValidTarget( quickListLang ) && quickListLang !== language ) {
+					this.setTargetLanguage( quickListLang );
+					break;
+				}
+			}
 		}
+	}
+
+	// If we still don't have a valid source language, return,
+	// so we prevent same source and target language
+	if ( !this.canBeSame && language === this.getTargetLanguage() ) {
+		return;
 	}
 
 	this.sourceLanguage = language;
@@ -220,7 +232,7 @@ mw.cx.ui.LanguageFilter.prototype.getTargetLanguage = function () {
  * @param {string} language A language code
  */
 mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
-	var currentTarget, quickListLanguages, i, length, quickListLang;
+	var currentTarget, i, length, quickListLanguages, quickListLang;
 
 	if ( language === 'x-all' ) {
 		language = null;
@@ -258,6 +270,12 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
 				}
 			}
 		}
+	}
+
+	// If we still don't have a valid source language, return,
+	// so we prevent same source and target language
+	if ( !this.canBeSame && language === this.getSourceLanguage() ) {
+		return;
 	}
 
 	this.targetLanguage = language;

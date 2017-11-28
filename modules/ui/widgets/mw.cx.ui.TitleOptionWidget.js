@@ -36,7 +36,7 @@
 
 			languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
-				iconTitle: mw.msg( 'cx-sourceselector-number-of-languages' )
+				iconTitle: mw.msg( 'cx-page-number-of-languages' )
 			} );
 			languageLabel = new OO.ui.LabelWidget( {
 				label: mw.language.convertNumber( config.numOfLanguages )
@@ -55,7 +55,7 @@
 			this.$element.append(
 				$( '<span>' )
 					.addClass( 'mw-cx-widget-titleOptionWidget-missing' )
-					.text( mw.msg( 'cx-sourceselector-missing-in-target-language',
+					.text( mw.msg( 'cx-page-missing-in-target-language',
 						$.uls.data.getAutonym( config.targetLanguage ) )
 					)
 			);
