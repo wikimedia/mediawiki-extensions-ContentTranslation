@@ -295,13 +295,7 @@ class Translation {
 				'COUNT(*) AS count',
 				'COUNT(DISTINCT translation_started_by) AS translators',
 			],
-			$dbr->makeList(
-				[
-					'translation_status' => 'published',
-					'translation_target_url IS NOT NULL',
-				],
-				LIST_OR
-			),
+			self::getPublishedCondition( $dbr ),
 			__METHOD__,
 			[
 				'GROUP BY' => [
@@ -389,13 +383,7 @@ class Translation {
 
 		$conditions = [];
 		if ( $status === 'published' ) {
-			$conditions[] = $dbr->makeList(
-				[
-					'translation_status' => 'published',
-					'translation_target_url IS NOT NULL',
-				],
-				LIST_OR
-			);
+			$conditions[] = self::getPublishedCondition( $dbr );
 		} else {
 			$conditions[] = $dbr->makeList(
 				[
@@ -466,6 +454,16 @@ class Translation {
 		return $this->translation;
 	}
 
+	public static function getPublishedCondition( \IDatabase $db ) {
+		return $db->makeList(
+			[
+				'translation_status' => 'published',
+				'translation_target_url IS NOT NULL',
+			],
+			LIST_OR
+		);
+	}
+
 	/**
 	 * Get all published translation records.
 	 *
@@ -477,13 +475,8 @@ class Translation {
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
 		$dbr = Database::getConnection( DB_REPLICA );
-		$conditions = [ $dbr->makeList(
-			[
-				'translation_status' => 'published',
-				'translation_target_url IS NOT NULL',
-			],
-			LIST_OR
-		) ];
+		$conditions = [];
+		$conditions[] = self::getPublishedCondition( $dbr );
 
 		if ( $from ) {
 			$conditions['translation_source_language'] = $from;

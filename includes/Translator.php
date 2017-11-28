@@ -168,13 +168,7 @@ class Translator {
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id = translation_id',
 				// And it is published
-				$dbr->makeList(
-					[
-						'translation_status' => 'published',
-						'translation_target_url IS NOT NULL',
-					],
-					LIST_OR
-				)
+				Translation::getPublishedCondition( $dbr )
 			],
 			__METHOD__
 		);
@@ -212,13 +206,7 @@ class Translator {
 			"$directionField[$direction] as language",
 			'COUNT(DISTINCT translation_started_by) AS translators',
 		];
-		$conds = $dbr->makeList(
-			[
-				'translation_status' => 'published',
-				'translation_target_url IS NOT NULL',
-			],
-			LIST_OR
-		);
+		$conds = Translation::getPublishedCondition( $dbr );
 		$options = [
 			'GROUP BY' => $directionField[$direction],
 		];
@@ -245,13 +233,7 @@ class Translator {
 		$fields = [
 			'COUNT(DISTINCT translation_started_by) AS translators',
 		];
-		$conds = $dbr->makeList(
-			[
-				'translation_status' => 'published',
-				'translation_target_url IS NOT NULL',
-			],
-			LIST_OR
-		);
+		$conds = Translation::getPublishedCondition( $dbr );
 
 		return $dbr->selectField( $table, $fields, $conds, __METHOD__ );
 	}
