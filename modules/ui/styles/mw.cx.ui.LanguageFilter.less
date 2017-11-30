@@ -5,7 +5,7 @@
 	background-color: @colorGray15;
 	box-sizing: border-box;
 	width: auto;
-	max-width: 25%;
+	max-width: 30%;
 	max-height: 34px;
 	border: 1px solid #9d9d9d;
 	border-radius: @borderRadius;
@@ -15,6 +15,10 @@
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 	margin-left: auto;
+
+	@media only screen and ( min-width: @narrow ) {
+		max-width: 40%;
+	}
 
 	.cx-language-filter-source-language,
 	.cx-language-filter-target-language {
