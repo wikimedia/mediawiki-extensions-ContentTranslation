@@ -82,9 +82,9 @@
 			mw.cx.ui.LanguageFilter.sourceLanguages = data.sourceLanguages;
 			mw.cx.ui.LanguageFilter.targetLanguages = data.targetLanguages;
 
+			self.setDefaultLanguages();
 			self.render();
 			self.initLists();
-			self.setDefaultLanguages();
 			self.listen();
 
 			mw.hook( 'mw.cx.dashboard.ready' ).fire();
