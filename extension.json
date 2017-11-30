@@ -351,10 +351,10 @@
 				"oojs"
 			],
 			"messages": [
-				"cx-sourceselector-embedded-source-page-placeholder",
-				"cx-sourceselector-embedded-recent-edits-header",
-				"cx-sourceselector-embedded-recent-edits-no-results",
-				"cx-sourceselector-embedded-search-no-results"
+				"cx-source-page-selector-input-placeholder",
+				"cx-source-page-selector-recent-edits-header",
+				"cx-source-page-selector-recent-edits-no-results",
+				"cx-source-page-selector-no-search-results"
 			]
 		},
 		"ext.cx.SelectedSourcePage": {
@@ -381,11 +381,11 @@
 				"oojs"
 			],
 			"messages": [
-				"cx-sourceselector-dialog-button-start-translation",
-				"cx-sourceselector-dialog-error-page-and-title-exist",
-				"cx-sourceselector-dialog-error-page-exists",
-				"cx-sourceselector-dialog-error-title-in-use",
-				"cx-sourceselector-embedded-selected-item-pageviews",
+				"cx-selected-source-page-start-translation-button",
+				"cx-selected-source-page-error-page-and-title-exist",
+				"cx-selected-source-page-error-page-exists",
+				"cx-selected-source-page-error-title-in-use",
+				"cx-selected-source-page-view-count",
 				"cx-license-agreement"
 			]
 		},
@@ -1549,7 +1549,7 @@
 				"ui/styles/mw.cx.ui.Infobar.less"
 			],
 			"messages": [
-				"cx-header-new-translation",
+				"cx-create-new-translation",
 				"cx-header-all-translations",
 				"cx-special-login-error",
 				"cx-translation-target-page-exists"
@@ -2079,8 +2079,8 @@
 				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
 			],
 			"messages": [
-				"cx-sourceselector-missing-in-target-language",
-				"cx-sourceselector-number-of-languages"
+				"cx-page-missing-in-target-language",
+				"cx-page-number-of-languages"
 			],
 			"dependencies": [
 				"mw.cx.ui",

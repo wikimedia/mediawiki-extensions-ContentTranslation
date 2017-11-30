@@ -108,7 +108,7 @@
 			.append( this.$messageText )
 			.hide();
 
-		translateButtonLabel = mw.msg( 'cx-sourceselector-dialog-button-start-translation' );
+		translateButtonLabel = mw.msg( 'cx-selected-source-page-start-translation-button' );
 		this.startTranslationButton = new OO.ui.ButtonWidget( {
 			flags: [ 'primary', 'progressive' ],
 			label: translateButtonLabel
@@ -363,7 +363,7 @@
 		}
 
 		this.$selectedSourcePageViewsCount.text(
-			mw.msg( 'cx-sourceselector-embedded-selected-item-pageviews', mw.language.convertNumber( pageViews ) )
+			mw.msg( 'cx-selected-source-page-view-count', mw.language.convertNumber( pageViews ) )
 		);
 	};
 
@@ -466,7 +466,7 @@
 		existingTargetTitleLink = this.siteMapper.getPageUrl( targetLanguage, existingTargetTitle );
 
 		message = mw.message(
-			'cx-sourceselector-dialog-error-page-and-title-exist',
+			'cx-selected-source-page-error-page-and-title-exist',
 			equivalentTargetPageLink,
 			targetLanguageDisplay,
 			existingTargetTitleLink
@@ -488,7 +488,7 @@
 		targetLanguageDisplay = $.uls.data.getAutonym( targetLanguage );
 
 		message = mw.message(
-			'cx-sourceselector-dialog-error-page-exists',
+			'cx-selected-source-page-error-page-exists',
 			equivalentTargetPageLink, targetLanguageDisplay
 		);
 
@@ -507,7 +507,7 @@
 		existingTargetTitleLink = this.siteMapper.getPageUrl( targetLanguage, existingTargetTitle );
 
 		message = mw.message(
-			'cx-sourceselector-dialog-error-title-in-use',
+			'cx-selected-source-page-error-title-in-use',
 			existingTargetTitleLink
 		);
 
