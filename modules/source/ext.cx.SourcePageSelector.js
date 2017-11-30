@@ -28,8 +28,7 @@
 		this.selectedSourcePage = null;
 		this.languageFilter = null;
 		this.discardButton = null;
-		this.$searchResults = null;
-		this.$searchResultsMessage = null;
+		this.$noResultsMessage = null;
 		this.overlay = null;
 		this.init();
 	}
@@ -38,12 +37,10 @@
 	 * Initialize the plugin.
 	 */
 	SourcePageSelector.prototype.init = function () {
-		var self = this;
-
-		self.render();
-		self.prefill();
-		self.populateRecentEdits();
-		self.listen();
+		this.render();
+		this.prefill();
+		this.pageSelector.populateSuggestions();
+		this.listen();
 	};
 
 	/**
@@ -68,113 +65,24 @@
 		}
 
 		// If all of the values are already present, show the dialog and initiate a validation.
-		if ( this.options.sourceLanguage && this.options.targetLanguage &&
+		if ( this.options.sourceLanguage &&
+			this.options.targetLanguage &&
 			this.options.sourceTitle
 		) {
 			this.show();
-
-			this.$searchResultsMessage.text(
-				mw.msg( 'cx-source-page-selector-no-search-results',
-					this.pageSelector.getQueryValue(),
-					$.uls.data.getAutonym( this.languageFilter.getSourceLanguage() )
-				)
-			);
 		}
-	};
-
-	/**
-	 * Uses page details loaded from server to register search result data for case
-	 * when user does not provide any input into page selector search field
-	 */
-	SourcePageSelector.prototype.populateRecentEdits = function () {
-		var self = this;
-
-		this.getPageDetails().done( function ( data ) {
-			var pages = OO.getProp( data, 'query', 'pages' );
-
-			self.pageSelector.requestCache[ '' ] = {
-				pages: pages || {}
-			};
-			self.pageSelector.populateLookupMenu();
-		} ).fail( function ( error ) {
-			mw.log( 'Error getting page data. ' + error );
-		} );
-	};
-
-	/**
-	 * Get the thumbnail image, description and langlinks count for articles with the given titles.
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	SourcePageSelector.prototype.getPageDetails = function () {
-		var self = this;
-
-		return this.getRecentlyEditedArticleTitles().then( function ( titles ) {
-			return self.siteMapper.getApi( self.languageFilter.getSourceLanguage() ).get( {
-				action: 'query',
-				titles: titles,
-				prop: [ 'pageimages', 'pageterms', 'langlinks', 'langlinkscount' ],
-				piprop: 'thumbnail',
-				pilimit: 10,
-				pithumbsize: 80,
-				lllang: self.targetLanguage,
-				wbptterms: [ 'description' ]
-			} );
-		}, function ( error ) {
-			mw.log( 'Error getting recent edit titles. ' + error );
-		} );
-	};
-
-	/**
-	 * Gets recently edited articles by user (using usercontribs API)
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	SourcePageSelector.prototype.getRecentlyEditedArticleTitles = function () {
-		var params, userName = mw.config.get( 'wgUserName' ),
-			api = this.siteMapper.getApi( this.languageFilter.getSourceLanguage() );
-
-		params = {
-			action: 'query',
-			list: [ 'usercontribs' ],
-			ucuser: userName,
-			uclimit: 5,
-			ucnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ], // Main namespace
-			ucprop: 'title'
-		};
-
-		return api.get( params ).then( function ( data ) {
-			var articles = OO.getProp( data, 'query', 'usercontribs' );
-
-			if ( !articles ) {
-				return $.Deferred().reject( 'No recent user contributions' ).promise();
-			}
-
-			return articles.map( function ( article ) {
-				return article.title;
-			} );
-		}, function ( error ) {
-			mw.log( 'Error getting recent edits for ' + userName + '. ' + error );
-		} );
 	};
 
 	/**
 	 * Listen for events.
 	 */
 	SourcePageSelector.prototype.listen = function () {
-		var self = this;
+		var proxied, self = this;
 		// Open or close the dialog when clicking the trigger link.
 		// The dialog will be unitialized until the first click.
 		this.$trigger.click( this.show.bind( this ) );
 
-		this.pageSelector.on( 'change', function () {
-			self.$searchResultsMessage.text(
-				mw.msg( 'cx-source-page-selector-no-search-results',
-					self.pageSelector.getQueryValue(),
-					$.uls.data.getAutonym( self.languageFilter.getSourceLanguage() )
-				)
-			);
-		} );
+		this.pageSelector.connect( this, { noResults: 'updateNoResultsMessage' } );
 
 		this.languageFilter.on( 'resize', this.pageSelector.positionLabel.bind( this.pageSelector ) );
 
@@ -193,6 +101,30 @@
 			);
 			self.$container.addClass( 'cx-source-page-selector--selected' );
 		};
+
+		proxied = this.pageSelector.lookupMenu.onKeyDownHandler;
+		this.pageSelector.lookupMenu.onKeyDownHandler = function ( e ) {
+			if ( e.keyCode === OO.ui.Keys.TAB ) {
+				return;
+			}
+			if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
+				self.discardDialog();
+				return;
+			}
+			return proxied.apply( this, arguments );
+		};
+	};
+
+	/**
+	 * Updates the message displayed when there are no search results
+	 */
+	SourcePageSelector.prototype.updateNoResultsMessage = function () {
+		var message = mw.msg( 'cx-source-page-selector-no-search-results',
+			this.pageSelector.getQueryValue(),
+			$.uls.data.getAutonym( this.languageFilter.getSourceLanguage() )
+		);
+
+		this.$noResultsMessage.text( message );
 	};
 
 	/**
@@ -203,8 +135,6 @@
 	SourcePageSelector.prototype.sourceLanguageChangeHandler = function ( language ) {
 		this.pageSelector.setLanguage( language );
 
-		this.pageSelector.closeLookupMenu();
-		this.populateRecentEdits();
 		this.pageSelector.toggle( true );
 	};
 
@@ -227,8 +157,9 @@
 			} );
 		}
 
-		this.pageSelector.toggle( true );
 		this.overlay.show();
+		this.pageSelector.populateLookupMenu();
+		this.pageSelector.lookupMenu.toggle( true );
 		this.$container.slideDown( 'fast' );
 		this.pageSelector.focus();
 		this.pageSelector.positionLabel();
@@ -243,30 +174,25 @@
 	};
 
 	SourcePageSelector.prototype.render = function () {
-		var $searchMessage,
-			$recentEditsMessageContainer,
+		var $searchResults,
 			$recentEditsMessage,
 			$recentEditsHeader;
 
 		this.$container.hide(); // Starts as hidden, shown on this.$trigger button click
 
-		this.$searchResultsMessage = $( '<span>' )
-			.text( mw.msg( 'cx-source-page-selector-no-search-results' ) );
-		$recentEditsMessage = $( '<span>' )
-			.text( mw.msg( 'cx-source-page-selector-recent-edits-no-results' ) );
-
-		$searchMessage = $( '<div>' )
-			.addClass( 'cx-source-page-selector__search-message' )
-			.append( this.$searchResultsMessage );
-		$recentEditsMessageContainer = $( '<div>' )
-			.addClass( 'cx-source-page-selector__recent-edits-message' )
-			.append( $recentEditsMessage );
 		$recentEditsHeader = $( '<div>' )
 			.addClass( 'cx-source-page-selector__recent-edits-header' )
 			.text( mw.msg( 'cx-source-page-selector-recent-edits-header' ) );
-		this.$searchResults = $( '<div>' )
+		$recentEditsMessage = $( '<div>' )
+			.addClass( 'cx-source-page-selector__no-suggestions-message' )
+			.text( mw.msg( 'cx-source-page-selector-no-suggestions' ) );
+
+		this.$noResultsMessage = $( '<div>' )
+			.addClass( 'cx-source-page-selector__search-message' );
+
+		$searchResults = $( '<div>' )
 			.addClass( 'cx-source-page-selector__search-results' )
-			.append( $recentEditsHeader, $recentEditsMessageContainer, $searchMessage );
+			.append( $recentEditsHeader, $recentEditsMessage, this.$noResultsMessage );
 
 		this.languageFilter = new mw.cx.ui.LanguageFilter( {
 			onSourceLanguageChange: this.sourceLanguageChangeHandler.bind( this ),
@@ -288,9 +214,10 @@
 			value: this.options.sourceTitle,
 			validateTitle: false,
 			placeholder: mw.msg( 'cx-source-page-selector-input-placeholder' ),
+			allowSuggestionsWhenEmpty: true,
 			showRedirectTargets: true,
-			$overlay: this.$searchResults,
-			$container: this.$searchResults,
+			$overlay: $searchResults,
+			$container: $searchResults,
 			label: this.languageFilter.$element.add( this.discardButton.$element )
 		} );
 
@@ -300,7 +227,7 @@
 
 		this.$container.append(
 			this.pageSelector.$element,
-			this.$searchResults,
+			$searchResults,
 			this.selectedSourcePage.$element
 		);
 	};

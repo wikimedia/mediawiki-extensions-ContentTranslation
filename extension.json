@@ -331,13 +331,12 @@
 				"mw.cx.ui.LanguageFilter",
 				"mw.cx.ui.PageSelectorWidget",
 				"mw.cx.util",
-				"oojs-ui.styles.icons-interactions",
-				"oojs"
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-source-page-selector-input-placeholder",
 				"cx-source-page-selector-recent-edits-header",
-				"cx-source-page-selector-recent-edits-no-results",
+				"cx-source-page-selector-no-suggestions",
 				"cx-source-page-selector-no-search-results"
 			]
 		},
@@ -2071,9 +2070,12 @@
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
 			],
 			"dependencies": [
+				"ext.cx.sitemapper",
+				"jquery.uls.data",
 				"mediawiki.widgets",
 				"mw.cx.ui",
 				"mw.cx.ui.TitleOptionWidget",
+				"oojs",
 				"oojs-ui.styles.icons-interactions"
 			]
 		},

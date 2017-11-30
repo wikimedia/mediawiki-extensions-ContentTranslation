@@ -87,7 +87,7 @@
 	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia",
 	"cx-source-page-selector-input-placeholder": "Search for a page to translate",
 	"cx-source-page-selector-recent-edits-header": "Recently edited by you",
-	"cx-source-page-selector-recent-edits-no-results": "Think of any topic of your interest. You don’t need to be an expert to create a great translation.",
+	"cx-source-page-selector-no-suggestions": "Think of any topic of your interest. You don’t need to be an expert to create a great translation.",
 	"cx-source-page-selector-no-search-results": "No pages found for \"$1\" in $2",
 	"cx-selected-source-page-start-translation-button": "Start translation",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week",
