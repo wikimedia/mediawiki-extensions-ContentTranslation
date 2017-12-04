@@ -110,27 +110,15 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
-			} else {
-				$this->dieUsage( 'Invalid source language', 'invalidsourcelanguage' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
-			} else {
-				$this->dieUsage( 'Invalid target language', 'invalidtargetlanguage' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
 		}
 
 		if ( trim( $params['html'] ) === '' ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-paramempty', 'html' ], 'invalidhtml' );
-			} else {
-				$this->dieUsage( 'html cannot be empty', 'invalidhtml' );
-			}
+			$this->dieWithError( [ 'apierror-paramempty', 'html' ], 'invalidhtml' );
 		}
 
 		$this->publish();
@@ -144,11 +132,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$targetTitle = Title::newFromText( $params['title'] );
 		if ( !$targetTitle ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
-			} else {
-				$this->dieUsageMsg( [ 'invalidtitle', $params['title'] ] );
-			}
+			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
 		}
 
 		$translator = new Translator( $user );
@@ -176,13 +160,9 @@ class ApiContentTranslationPublish extends ApiBase {
 				ApiVisualEditorEdit::tryDeflate( $params['html'] )
 			);
 		} catch ( MWException $e ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
-				);
-			} else {
-				$this->dieUsage( $e->getMessage(), 'docserver' );
-			}
+			$this->dieWithError(
+				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
+			);
 		}
 
 		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );

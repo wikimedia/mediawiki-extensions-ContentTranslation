@@ -30,11 +30,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$translator = new Translator( $user );
 		$translatorId = $translator->getGlobalUserId();
 		if ( !$translatorId ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
-			} else {
-				$this->dieUsage( 'Invalid translator name', 'invalidtranslator' );
-			}
+			$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
 		}
 		$publishedStats = Translation::getTrendByStatus(
 			null, null, 'published', 'month', $translatorId

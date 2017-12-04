@@ -81,11 +81,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 					$translation->translation
 				);
 			} else {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
-				} else {
-					$this->dieUsage( 'Draft does not exist', 'missingdraft' );
-				}
+				$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
 			}
 
 			return;

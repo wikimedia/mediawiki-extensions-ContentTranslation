@@ -17,11 +17,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		$user = $this->getUser();
 
 		if ( !$this->getUser()->isLoggedIn() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-cx-mustbeloggedin-suggestions', 'notloggedin' );
-			} else {
-				$this->dieUsage( 'You must be logged-in to manage your suggestions', 'notloggedin' );
-			}
+			$this->dieWithError( 'apierror-cx-mustbeloggedin-suggestions', 'notloggedin' );
 		}
 
 		$translator = new Translator( $user );
@@ -39,11 +35,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		$suggestions = [];
 		foreach ( $params['titles'] as $page ) {
 			if ( !Title::newFromText( $page ) ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
-				} else {
-					$this->dieUsageMsg( [ 'invalidtitle', $page ] );
-				}
+				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
 			}
 			$suggestions[] = new Suggestion( [
 				'listId' => $listId,
