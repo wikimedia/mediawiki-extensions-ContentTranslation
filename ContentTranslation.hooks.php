@@ -177,7 +177,8 @@ class ContentTranslationHooks {
 			$wgContentTranslationDefaultSourceLanguage,
 			$wgContentTranslationTargetNamespace,
 			$wgContentTranslationUserGroupTargetNamespace,
-			$wgRecommendToolAPIURL;
+			$wgRecommendToolAPIURL,
+			$wgContentTranslationVersion;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
@@ -191,6 +192,7 @@ class ContentTranslationHooks {
 		$vars['wgContentTranslationUserGroupTargetNamespace']
 			= $wgContentTranslationUserGroupTargetNamespace;
 		$vars['wgRecommendToolAPIURL'] = $wgRecommendToolAPIURL;
+		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
 	}
 
 	/**
