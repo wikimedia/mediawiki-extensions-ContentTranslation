@@ -29,7 +29,6 @@
 	"apihelp-cxsuggestionlist-param-from": "Ο κωδικός της γλώσσας πηγής.",
 	"apihelp-cxsuggestionlist-param-to": "Ο κωδικός της γλώσσας στόχου.",
 	"apihelp-cxsave-description": "Αυτό το module επιτρέπει να αποθηκεύσουμε σχέδια μεταφράσεων ανά ενότητα για την αποθήκευση του εύρους ζώνης και τη συλλογή παράλληλων σωμάτων κειμένων.",
-	"apihelp-cxsave-param-translationid": "Το αναγνωριστικό της μετάφρασης.",
 	"apihelp-cxsave-param-sourcerevision": "Η αναθεώρηση της σελίδας πηγής.",
 	"apihelp-cxsave-param-progress": "Πληροφορίες σχετικά με την ολοκλήρωση της μετάφρασης (πρόοδο). JSON με τα κλειδιά του <code>κάθε</code>, <code>ανθρώπου</code>, <code>mt</code> και <code>mtSectionsCount</code>. Οι τιμές κλειδιά είναι ποσοστά.",
 	"apihelp-cxsave-param-title": "Ο τίτλος της σελίδας για να εκτελέσετε ενέργειες.",

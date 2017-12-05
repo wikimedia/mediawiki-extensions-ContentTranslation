@@ -14,9 +14,6 @@
 	"apihelp-cxpublish-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-cxpublish-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-cxpublish-param-sourcetitle": "Tên trang nguồn.",
-	"apihelp-cxpublish-param-sourcerevision": "Phiên bản của trang nguồn.",
-	"apihelp-cxpublish-param-status": "Nếu <kbd>draft</kbd>, bản dịch sẽ được lưu dưới dạng một trang nháp. Nếu <kbd>published</kbd>, bản dịch sẽ được xuất bản.",
-	"apihelp-cxpublish-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Mỗi chìa khóa có giá trị phần trăm.",
 	"apihelp-cxpublish-param-categories": "Các thể loại để xếp trang vào khi xuất bản.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID CAPTCHA (khi lưu với lời giải CAPTCHA).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Lời giải captcha (khi lưu với lời giải CAPTCHA).",
@@ -56,5 +53,7 @@
 	"apihelp-cxdelete-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-cxdelete-param-sourcetitle": "Tên trang gốc.",
 	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn.",
-	"apihelp-cxsuggestionlist-param-from": "Mã ngôn ngữ gốc."
+	"apihelp-cxsuggestionlist-param-from": "Mã ngôn ngữ gốc.",
+	"apihelp-cxsave-param-sourcerevision": "Phiên bản của trang nguồn.",
+	"apihelp-cxsave-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Mỗi chìa khóa có giá trị phần trăm."
 }

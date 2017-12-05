@@ -11,9 +11,6 @@
 	"apihelp-cxpublish-param-from": "Kôd izvornog jezika",
 	"apihelp-cxpublish-param-to": "Kôd ciljnog jezika",
 	"apihelp-cxpublish-param-sourcetitle": "Naziv izvorne stranice.",
-	"apihelp-cxpublish-param-sourcerevision": "Izmjena izvorne stranice.",
-	"apihelp-cxpublish-param-status": "Ako je <kbd>draft</kbd>, prijevod će se spremiti kao skica. Ako je <kbd>published</kbd>, prijevod će biti objavljen.",
-	"apihelp-cxpublish-param-progress": "Informacije o završetku prijevoda (napredak). JSON sa ključevima <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Vrijednosti ključeva su u postotcima.",
 	"apihelp-cxpublish-param-categories": "Kategorije za postaviti u objavljenu stranicu.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (kada spremate s captcha odgovorom).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada spremate s captcha odgovorom).",
@@ -43,5 +40,7 @@
 	"apihelp-cxdelete-param-from": "Kôd izvornog jezika.",
 	"apihelp-cxdelete-param-to": "Kôd ciljnog jezika.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvorne stranice.",
-	"apihelp-cxdelete-example-1": "Izbriši nacrtni prijevod napravljen pomoću proširenja za prijevod sadržaja."
+	"apihelp-cxdelete-example-1": "Izbriši nacrtni prijevod napravljen pomoću proširenja za prijevod sadržaja.",
+	"apihelp-cxsave-param-sourcerevision": "Izmjena izvorne stranice.",
+	"apihelp-cxsave-param-progress": "Informacije o završetku prijevoda (napredak). JSON sa ključevima <code>any</code>, <code>human</code>, <code>mt</code> i <code>mtSectionsCount</code>. Vrijednosti ključeva su u postotcima."
 }

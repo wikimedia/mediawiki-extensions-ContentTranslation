@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "स्रोत भाषा कुट",
 	"apihelp-cxpublish-param-to": "लक्ष्य भाषा कुट",
 	"apihelp-cxpublish-param-sourcetitle": "स्रोत पृष्ठ का शीर्षक",
-	"apihelp-cxpublish-param-sourcerevision": "स्रोत पृष्ठ का पुनरीक्षण",
-	"apihelp-cxpublish-param-status": "यदि \"draft\", अनुवाद को प्रालेख के रूप में सहेजा जायेगा। यदि \"published\", अनुवाद को प्रकाशित किया जायेगा।",
 	"apihelp-cxpublish-param-categories": "प्रकाशित पृष्ठ पर जोड़ी जाने वाली श्रेणियाँ।",
 	"apihelp-cxpublish-param-wpCaptchaId": "यंत्रमानव मनुष्य विभेदक पता (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "यंत्रमानव मनुष्य विभेदक के लिए उत्तर (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
@@ -24,5 +22,6 @@
 	"apihelp-cxconfiguration-param-from": "स्रोत भाषा कुट ।",
 	"apihelp-cxconfiguration-param-to": "स्रोत भाषा कुट",
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषा कोड",
-	"apihelp-query+cxpublishedtranslations-param-to": "लक्ष्य भाषा कोड"
+	"apihelp-query+cxpublishedtranslations-param-to": "लक्ष्य भाषा कोड",
+	"apihelp-cxsave-param-sourcerevision": "स्रोत पृष्ठ का पुनरीक्षण"
 }

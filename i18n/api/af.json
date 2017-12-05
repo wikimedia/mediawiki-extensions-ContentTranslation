@@ -13,8 +13,6 @@
 	"apihelp-cxpublish-param-from": "Die kode vir die brontaal.",
 	"apihelp-cxpublish-param-to": "Die kode vir die teikentaal.",
 	"apihelp-cxpublish-param-sourcetitle": "Die titel van die bronartikel.",
-	"apihelp-cxpublish-param-sourcerevision": "Die weergawe van die bronartikel.",
-	"apihelp-cxpublish-param-status": "indien \"draft\" gekies word, sal die vertaling as 'n konsep gestoor word. Indien \"published\" gekies word, sal die vertaling gepubliseer word.",
 	"apihelp-cxpublish-param-categories": "Die kategorieë waarin die gepubliseerde bladsy geplaas moet word.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (wanneer daar met 'n captcha antwoord gestoor word).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwoord op die captcha (wanneer daar met 'n captcha antwoord gestoor word)",
@@ -43,5 +41,6 @@
 	"apihelp-cxdelete-param-from": "Die kode vir die brontaal.",
 	"apihelp-cxdelete-param-to": "Die kode vir die teikentaal.",
 	"apihelp-cxdelete-param-sourcetitle": "Die titel van die bronartikel.",
-	"apihelp-cxdelete-example-1": "Skrap 'n konsepartikel wat tussen die gegewe paar tale met hierdie titel gemaak is."
+	"apihelp-cxdelete-example-1": "Skrap 'n konsepartikel wat tussen die gegewe paar tale met hierdie titel gemaak is.",
+	"apihelp-cxsave-param-sourcerevision": "Die weergawe van die bronartikel."
 }

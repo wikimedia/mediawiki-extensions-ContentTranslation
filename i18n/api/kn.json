@@ -11,8 +11,6 @@
 	"apihelp-cxpublish-param-from": "ಮೂಲ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxpublish-param-to": "ಉದ್ದೇಶಿತ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxpublish-param-sourcetitle": "ಮೂಲ ಪುಟದ ಶೀರ್ಷಿಕೆ.",
-	"apihelp-cxpublish-param-sourcerevision": "ಮೂಲ ಪುಟದ ಮಾರ್ಪಟ್ಟ ಆವೃತ್ತಿ.",
-	"apihelp-cxpublish-param-status": "\"ಕರಡು\" ಆಗಿದ್ದಲ್ಲಿ, ಅನುವಾದ ಕರಡಾಗಿ ಉಳಿಸಲ್ಪಡುತ್ತದೆ. \"ಪ್ರಕಟಿತ\" ಆಗಿದ್ದಲ್ಲಿ, ಅನುವಾದವನ್ನು ಪ್ರಕಟಿಸಲಾಗುತ್ತದೆ.",
 	"apihelp-cxpublish-param-categories": "ಪ್ರಕಟಿಸಲ್ಪಟ್ಟ ಪುಟಕ್ಕೆ ಸೇರಿಸಬೇಕಾದ ವರ್ಗಗಳು.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (Captcha ಪ್ರತಿಕ್ರಿಯೆ ಜೊತೆಗೆ ಉಳಿಸುವಾಗ).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "captcha ಗೆ ಉತ್ತರಿಸಿ (Captcha ಪ್ರತಿಕ್ರಿಯೆ ಜೊತೆಗೆ ಉಳಿಸುವಾಗ).",
@@ -41,5 +39,6 @@
 	"apihelp-cxdelete-param-from": "ಮೂಲ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxdelete-param-to": "ಉದ್ದೇಶಿತ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxdelete-param-sourcetitle": "ಮೂಲ ಪುಟದ ಶೀರ್ಷಿಕೆ.",
-	"apihelp-cxdelete-example-1": "ಕೊಟ್ಟಿರುವ ಭಾಷೆಯ ಜೋಡಿ ಮತ್ತು ಶೀರ್ಷಿಕೆಗೆ ಸಂಬಂಧಿಸಿದ ಕರಡನ್ನು ಅಳಿಸು."
+	"apihelp-cxdelete-example-1": "ಕೊಟ್ಟಿರುವ ಭಾಷೆಯ ಜೋಡಿ ಮತ್ತು ಶೀರ್ಷಿಕೆಗೆ ಸಂಬಂಧಿಸಿದ ಕರಡನ್ನು ಅಳಿಸು.",
+	"apihelp-cxsave-param-sourcerevision": "ಮೂಲ ಪುಟದ ಮಾರ್ಪಟ್ಟ ಆವೃತ್ತಿ."
 }

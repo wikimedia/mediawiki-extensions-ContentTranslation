@@ -6,15 +6,11 @@
 		]
 	},
 	"cx-header-translation-center": "अनुवाद केन्द्र",
-	"cx-header-new-translation": "नवाँ अनुवाद",
 	"cx-header-all-translations": "कुल अनुवाद",
 	"cx-source-view-page": "पृष्ठ देखा जाए",
 	"cx-tools-link-title": "लिङ्क",
 	"cx-publish-captcha-title": "सुरक्षा प्रश्न",
-	"cx-translation-filter-all-translations": "कुल अनुवाद",
 	"cx-translation-filter-published-translations": "प्रकाशित अनुवाद",
 	"cx-translation-filter-draft-translations": "क्रियमाण अनुवाद",
-	"cx-translation-filter-from-any-language": "कवनो अन्य भाषा से",
-	"cx-translation-filter-to-any-language": "कवनो भी भाषा कय",
 	"cx-create-new-translation": "नया अनुवाद निर्मित करा जाए"
 }

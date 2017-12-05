@@ -8,14 +8,9 @@
 	"cx-tools-link-title": "هوم پیوند",
 	"cx-tools-link-add": "یه گل هوم پیوند اضاف بکید",
 	"cx-tools-mt-title": "لرسن ماشینی",
-	"cx-tools-mt-clear-translation": "والرنیئن خو",
 	"cx-tools-mt-dont-use": "لطفن والرشتن ماشینی نه وه کار نبنیت",
 	"cx-tools-reference-add": "ئضاف کئردئن سأرچئشمه",
-	"cx-sourceselector-dialog-new-translation": "والرنیئن تازه",
-	"cx-sourceselector-dialog-button-start-translation": "شرو د لرسن",
-	"cx-sourceselector-dialog-source-language-label": "سرچشمه:",
-	"cx-sourceselector-dialog-target-language-label": "سی:",
-	"cx-sourceselector-dialog-source-title-placeholder": "پئی جوٙری سی بألگه سأرچئشمه",
+	"cx-selected-source-page-start-translation-button": "شرو د لرسن",
 	"cx-publish-captcha-title": "پرسایشت امنیتی",
 	"mw-pageselector-missing": "بلگه نیئش"
 }

@@ -12,8 +12,6 @@
 	"apihelp-cxpublish-param-from": "Izvorni jezički kôd.",
 	"apihelp-cxpublish-param-to": "Ciljni jezički kôd.",
 	"apihelp-cxpublish-param-sourcetitle": "Naslov izvornog članka.",
-	"apihelp-cxpublish-param-sourcerevision": "Revizija izvornog članka.",
-	"apihelp-cxpublish-param-status": "Ako je <kbd>draft</kbd>, prijevod će biti sačuvan kao nacrt. Ako je <kbd>published</kbd>, prijevod će biti objavljen.",
 	"apihelp-cxpublish-param-categories": "Kategorije postaviti u objavljeni članak.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (kada spašavate sa captcha odgovorom).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada sačuvate sa captcha odgovorom).",
@@ -43,5 +41,6 @@
 	"apihelp-cxdelete-param-from": "Izvorni jezički kôd.",
 	"apihelp-cxdelete-param-to": "Ciljni jezički kôd.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvorne stranice.",
-	"apihelp-cxdelete-example-1": "Obriši nacrtni prijevod napravljen pomoću proširenja za prijevod sadržaja."
+	"apihelp-cxdelete-example-1": "Obriši nacrtni prijevod napravljen pomoću proširenja za prijevod sadržaja.",
+	"apihelp-cxsave-param-sourcerevision": "Revizija izvornog članka."
 }

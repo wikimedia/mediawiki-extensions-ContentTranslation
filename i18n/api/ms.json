@@ -11,9 +11,6 @@
 	"apihelp-cxpublish-param-from": "Kod bahasa sumber.",
 	"apihelp-cxpublish-param-to": "Kod bahasa sasaran.",
 	"apihelp-cxpublish-param-sourcetitle": "Tajuk laman sumber.",
-	"apihelp-cxpublish-param-sourcerevision": "Semakan laman sumber.",
-	"apihelp-cxpublish-param-status": "Jika <kbd>draft</kbd>, terjemahan akan disimpan sebagai draf. Jika <kbd>published</kbd>, terjemahan akan diterbitkan.",
-	"apihelp-cxpublish-param-progress": "Maklumat tentang penyelesaian (pengembangan) terjemahan. JSON dengan kunci-kunci <code>any</code>, <code>human</code>, <code>mt</code> dan <code>mtSectionsCount</code>. Nilai kunci-kunci ialah peratusan.",
 	"apihelp-cxpublish-param-categories": "Kategori-kategori untuk menggolongkan laman yang diterbitkan.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID captcha (apabila menyimpan dengan jawapan captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Jawapan kepada captcha (apabila menyimpan dengan jawapan captcha).",
@@ -64,5 +61,7 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Tindakan untuk dibuat ke senarai.",
 	"apihelp-cxsuggestionlist-param-titles": "Tajuk-tajuk laman.",
 	"apihelp-cxsuggestionlist-param-from": "Kod bahasa sumber.",
-	"apihelp-cxsuggestionlist-param-to": "Kod bahasa sasaran."
+	"apihelp-cxsuggestionlist-param-to": "Kod bahasa sasaran.",
+	"apihelp-cxsave-param-sourcerevision": "Semakan laman sumber.",
+	"apihelp-cxsave-param-progress": "Maklumat tentang penyelesaian (pengembangan) terjemahan. JSON dengan kunci-kunci <code>any</code>, <code>human</code>, <code>mt</code> dan <code>mtSectionsCount</code>. Nilai kunci-kunci ialah peratusan."
 }

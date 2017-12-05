@@ -13,8 +13,6 @@
 	"apihelp-cxpublish-param-from": "Lähtekeele kood.",
 	"apihelp-cxpublish-param-to": "Sihtkeele kood.",
 	"apihelp-cxpublish-param-sourcetitle": "Lähtelehekülje pealkiri.",
-	"apihelp-cxpublish-param-sourcerevision": "Lähtelehekülje redaktsioon.",
-	"apihelp-cxpublish-param-status": "Kui \"draft\", siis tõlge salvestatakse mustandina. Kui \"published\", siis tõlge avaldatakse.",
 	"apihelp-cxpublish-param-categories": "Avaldatavale leheküljele lisatavad kategooriad.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Robotilõksu ID (kui salvestamisel läbitakse robotilõks).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Robotilõksu vastus (kui salvestamisel läbitakse robotilõks).",
@@ -44,5 +42,6 @@
 	"apihelp-cxdelete-param-from": "Lähtekeele kood.",
 	"apihelp-cxdelete-param-to": "Sihtkeele kood.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähtelehekülje pealkiri.",
-	"apihelp-cxdelete-example-1": "Kustuta antud keelepaari ja pealkirjaga seotud tõlkemustand."
+	"apihelp-cxdelete-example-1": "Kustuta antud keelepaari ja pealkirjaga seotud tõlkemustand.",
+	"apihelp-cxsave-param-sourcerevision": "Lähtelehekülje redaktsioon."
 }

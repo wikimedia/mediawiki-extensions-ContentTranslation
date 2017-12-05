@@ -12,7 +12,6 @@
 	"cx-desc": "Nastroj, kotryž wobdźěłarjam zmóžnja, strony z jedneje rěče do druheje z pomocu mašinoweho přełožowanja a druhich přełožowanskich nastrojow přełožować",
 	"cx-header-progressbar-text": "$1 % přełožene.",
 	"cx-header-translation-center": "Přełožowanske srjedźišćo",
-	"cx-header-new-translation": "Nowy přełožk",
 	"cx-header-all-translations": "Wšě přełožki",
 	"cx-source-view-page": "stronu sej wobhladać",
 	"cx-publish-page-success": "Strona wozjewjena pod $1",
@@ -46,10 +45,6 @@
 	"cx-tools-reference-title": "Referenca",
 	"cx-tools-reference-remove": "Referencu wotstronić",
 	"cx-warning-unsaved-translation": "Maš njeskładowane přełožki.",
-	"cx-sourceselector-dialog-new-translation": "Nowy přełožk",
-	"cx-sourceselector-dialog-button-start-translation": "Přełožowanje započeć",
-	"cx-sourceselector-dialog-button-cancel": "Přetorhnyć",
-	"cx-sourceselector-dialog-source-language-label": "Wot:",
-	"cx-sourceselector-dialog-source-title-placeholder": "Pytanje za žórłowej stronu",
+	"cx-selected-source-page-start-translation-button": "Přełožowanje započeć",
 	"cx-dashboard-sidebar-stats": "Statistika"
 }

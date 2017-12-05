@@ -9,7 +9,6 @@
 	"apihelp-cxpublish-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-cxpublish-param-to": "લક્ષ્ય ભાષા કોડ.",
 	"apihelp-cxpublish-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક.",
-	"apihelp-cxpublish-param-sourcerevision": "સ્રોત પાનાંની આવૃત્તિ.",
 	"apihelp-cxpublish-param-wpCaptchaId": "કેપ્ચા ઓળખ (જ્યારે તમે કેપ્ચા સાથે સંગ્રહ કરો છો).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "કેપ્ચાનો જવાબ આપો (જ્યારે તમે કેપ્ચા સાથે સંગ્રહ કરો છો).",
 	"apihelp-query+contenttranslation-description": "ભાષાંતરો માટે ડેટાબેઝમાંથી શોધો.",
@@ -27,5 +26,6 @@
 	"apihelp-cxtoken-example-1": "cxserver માંથી સત્તાધિકરણ ટોકન મેળવો",
 	"apihelp-cxdelete-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-cxdelete-param-to": "લક્ષ્ય ભાષા કોડ.",
-	"apihelp-cxdelete-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક."
+	"apihelp-cxdelete-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક.",
+	"apihelp-cxsave-param-sourcerevision": "સ્રોત પાનાંની આવૃત્તિ."
 }

@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "Тылбаастаныахтаах тиэкис тылын куода.",
 	"apihelp-cxpublish-param-to": "Тылбаас оҥоһуллар тылын куода.",
 	"apihelp-cxpublish-param-sourcetitle": "Тылбаастанар ыстатыйа аата.",
-	"apihelp-cxpublish-param-sourcerevision": "Тылбаастанар ыстатыйа биэрсийэтэ.",
-	"apihelp-cxpublish-param-status": "Өскөтүн <kbd>draft</kbd> талылыннаҕына, тылбаас баллыр курдук хаалыа. Оттон <kbd>published</kbd> буоллаҕына тылбаас бэчээттэниэ.",
-	"apihelp-cxpublish-param-progress": "Тылбаас толорутун туһунан (progress).  <code>any</code>, <code>human</code>, <code>mt</code> уонна <code>mtSectionsCount</code> күлүүстэрдээх JSON. Бырыһыанынан.",
 	"apihelp-cxpublish-param-categories": "Бэчээттэммит ыстатыйа киириэхтээх категориялара.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капча (капчалаах бигэргэтэр түгэҥҥэ).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Капча хоруйа (капчалаах бигэргэтэр түгэҥҥэ).",
@@ -54,5 +51,7 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Тиһиликкэ туох дьайыыны оҥоһуллуохтааҕа.",
 	"apihelp-cxsuggestionlist-param-titles": "Сирэйдэр бастара.",
 	"apihelp-cxsuggestionlist-param-from": "Тылбаастанар тыл куода.",
-	"apihelp-cxsuggestionlist-param-to": "Тылбаастыыр тылыҥ куода."
+	"apihelp-cxsuggestionlist-param-to": "Тылбаастыыр тылыҥ куода.",
+	"apihelp-cxsave-param-sourcerevision": "Тылбаастанар ыстатыйа биэрсийэтэ.",
+	"apihelp-cxsave-param-progress": "Тылбаас толорутун туһунан (progress).  <code>any</code>, <code>human</code>, <code>mt</code> уонна <code>mtSectionsCount</code> күлүүстэрдээх JSON. Бырыһыанынан."
 }

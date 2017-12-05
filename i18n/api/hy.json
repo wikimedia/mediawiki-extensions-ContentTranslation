@@ -11,8 +11,6 @@
 	"apihelp-cxpublish-param-from": "Բնօրինակ լեզվի կոդը։",
 	"apihelp-cxpublish-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-cxpublish-param-sourcetitle": "Բնօրինակ էջի վերնագիրը։",
-	"apihelp-cxpublish-param-sourcerevision": "Բնօրինակ էջի վերանայված տարբերակը։",
-	"apihelp-cxpublish-param-status": "Եթե «սևագրություն», թարգմանությունը կպահպանվի որպես սևագրություն: Եթե «հրապարակված», հոդվածը կհրապարակվի:",
 	"apihelp-cxpublish-param-categories": "Հրապարակված էջին ավելացվող կատեգորիաները:",
 	"apihelp-cxpublish-param-wpCaptchaId": "Քապչայի ID (եթե պահպանելիս ցուցադրվում է քապչա):",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Քապչայի պատասխան (եթե պահպանելիս ցուցադրվում է քապչա):",
@@ -34,5 +32,6 @@
 	"apihelp-cxdelete-param-from": "Բնօրինակ լեզվի կոդը։",
 	"apihelp-cxdelete-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-cxdelete-param-sourcetitle": "Բնօրինակ էջի վերնագիրը։",
-	"apihelp-cxdelete-example-1": "Ջնջել այս վերնագրի և լեզվական զույգի հետ կապված թարգմանության սևագրությունը:"
+	"apihelp-cxdelete-example-1": "Ջնջել այս վերնագրի և լեզվական զույգի հետ կապված թարգմանության սևագրությունը:",
+	"apihelp-cxsave-param-sourcerevision": "Բնօրինակ էջի վերանայված տարբերակը։"
 }

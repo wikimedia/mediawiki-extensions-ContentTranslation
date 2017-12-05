@@ -15,8 +15,6 @@
 	"apihelp-cxpublish-param-from": "Kode bahasa sumber.",
 	"apihelp-cxpublish-param-to": "Kode bahasa tujuan.",
 	"apihelp-cxpublish-param-sourcetitle": "Judul halaman sumber.",
-	"apihelp-cxpublish-param-sourcerevision": "Revisi dari halaman sumber.",
-	"apihelp-cxpublish-param-status": "Jika \"draft\", terjemahan akan disimpan sebagai konsep. Jika \"published\", terjemahan akan diterbitkan.",
 	"apihelp-cxpublish-param-categories": "Kategori untuk ditempatkan dalam halaman.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (saat menyimpan dengan tanggapan captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Jawaban captcha (saat menyimpan dengan tanggapan captcha).",
@@ -48,5 +46,6 @@
 	"apihelp-cxdelete-param-to": "Kode bahasa tujuan.",
 	"apihelp-cxdelete-param-sourcetitle": "Judul halaman sumber.",
 	"apihelp-cxdelete-example-1": "Hapus konsep yang berhubungan dengan pasangan bahasa dan judul yang diberikan.",
-	"apihelp-cxsuggestionlist-param-titles": "Judul halaman"
+	"apihelp-cxsuggestionlist-param-titles": "Judul halaman",
+	"apihelp-cxsave-param-sourcerevision": "Revisi dari halaman sumber."
 }

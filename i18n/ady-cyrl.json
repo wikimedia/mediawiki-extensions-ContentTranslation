@@ -13,9 +13,7 @@
 	"cx-stats-local-published-number": "$1 $2-м щыщэу",
 	"cx-stats-local-published": "$1 ($3) $2-м щыщэу",
 	"cx-notification-tenth-translation": "Уи я10-рэ зэредзэкӀымкӀэ тыпфэгушӀо! ЗэредзэкӀо Ӏазэу охъу. Къэмгъэлал!",
-	"cx-notification-tenth-translation-email-subject": "Уи я10-рэ зэредзэкӀымкӀэ тыпфэгушӀо",
 	"cx-notification-hundredth-translation": "Джы зэредзэк1и 100 пш1ыгъэ! Гъэш1эгъон дэд. Адрэ е1эзэк1о-нэбгырэхэм мы къэбарыр ягъаш1.",
-	"cx-notification-hundredth-translation-email-subject": "Уи я100-рэ зэредзэкӀымкӀэ тыпфэгушӀо",
 	"cx-translationlist-empty-title": "ЗэредзэкӀын горэ щыӀа?",
 	"cx-translationlist-empty-desc": "Уи зэредзэкӀ-Ӏофыр джыдэдэм {{GENDER:|егъажь}}, етӀанэ узфае игъом пэублэжь."
 }

@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "Kod izvornog jezika.",
 	"apihelp-cxpublish-param-to": "Kod ciljnog jezika.",
 	"apihelp-cxpublish-param-sourcetitle": "Naslov izvorne stranice.",
-	"apihelp-cxpublish-param-sourcerevision": "Revizija izvorne stranice.",
-	"apihelp-cxpublish-param-status": "Ako je <kbd>draft</kbd>, prevod će biti sačuvan kao nacrt. Ako je <kbd>published</kbd>, prevod će biti objavljen.",
 	"apihelp-cxpublish-param-categories": "Kategorije za postaviti u objavljenu stranicu.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID kapče (kada sačuvavate sa kapča odgovorom).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na kapču (kada sačuvavate sa kapča odgovorom).",
@@ -41,5 +39,6 @@
 	"apihelp-cxdelete-param-from": "Kod izvornog jezika.",
 	"apihelp-cxdelete-param-to": "Kod ciljnog jezika.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvorne stranice.",
-	"apihelp-cxdelete-example-1": "Obriši nacrtni prevod napravljen pomoću proširenja za prevod sadržaja."
+	"apihelp-cxdelete-example-1": "Obriši nacrtni prevod napravljen pomoću proširenja za prevod sadržaja.",
+	"apihelp-cxsave-param-sourcerevision": "Revizija izvorne stranice."
 }

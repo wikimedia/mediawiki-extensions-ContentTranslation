@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "De kode van de brontaal.",
 	"apihelp-cxpublish-param-to": "De kode van de doeltaal.",
 	"apihelp-cxpublish-param-sourcetitle": "De titel van de bronzied.",
-	"apihelp-cxpublish-param-sourcerevision": "De versie van de bronzied.",
-	"apihelp-cxpublish-param-status": "Mit \"draft\" zal de vertaling op-esleugen wörden as konseptversie. Mit \"published\" zal de vertaling uutebröcht wörden.",
 	"apihelp-cxpublish-param-categories": "De kategorieën die nog op de uutebröchten zied mutten koemen te staon.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (a'j opslaon mit n captcha-reaksie).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwoord op de captcha (a'j opslaon mit n captcha-reaksie).",
@@ -40,5 +38,6 @@
 	"apihelp-cxdelete-param-from": "De kode van de brontaal.",
 	"apihelp-cxdelete-param-to": "De kode van de doeltaal.",
 	"apihelp-cxdelete-param-sourcetitle": "De titel van de bronzied.",
-	"apihelp-cxdelete-example-1": "n Konseptartikel vortdoon die in verbaand ebröcht wördt mit n bepaolde talenkombinasie en de titel."
+	"apihelp-cxdelete-example-1": "n Konseptartikel vortdoon die in verbaand ebröcht wördt mit n bepaolde talenkombinasie en de titel.",
+	"apihelp-cxsave-param-sourcerevision": "De versie van de bronzied."
 }

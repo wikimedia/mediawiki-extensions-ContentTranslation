@@ -64,7 +64,6 @@
 	"apihelp-cxsuggestionlist-param-titles": "Puslapio pavadinimai.",
 	"apihelp-cxsuggestionlist-param-from": "Originalo kalbos kodas.",
 	"apihelp-cxsuggestionlist-param-to": "Kalbos, į kurią verčiama, kodas.",
-	"apihelp-cxsave-param-translationid": "Vertimo ID",
 	"apihelp-query+cxtranslatorstats-description": "Gauti pateikto vartotojo vertimo statistiką.",
 	"apihelp-query+cxtranslatorstats-example-1": "Gauti pateikto vartotojo vertimų statistiką.",
 	"apihelp-cxsave-param-sourcerevision": "Šaltinio puslapio tikrinimas.",

@@ -12,8 +12,6 @@
 	"apihelp-cxpublish-param-from": "Ang kodigo ng wikang pinagmulan.",
 	"apihelp-cxpublish-param-to": "Ang kodigo ng wikang patutunguhan",
 	"apihelp-cxpublish-param-sourcetitle": "Ang pamagat ng pahinang pinagmulan.",
-	"apihelp-cxpublish-param-sourcerevision": "Ang pagbabago sa pahinang pinagmulan.",
-	"apihelp-cxpublish-param-status": "Kung \"draft\", itatala ang salin bilang burador.  Kung \"published\", ilalathala ang salin.",
 	"apihelp-cxpublish-param-categories": "Ang mga kategoryang idadagdag sa nailimbag na pahina.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Pagkakakilanlang Captcha (kapag nagtatala gamit ang tugon sa captcha)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Sagot sa captcha (kapag nagtatala gamit ang tugon sa captcha)",
@@ -48,5 +46,6 @@
 	"apihelp-cxsuggestionlist-param-listname": "Pang-mungkahing talaan ng pangalan.",
 	"apihelp-cxsuggestionlist-param-titles": "Mga pamagat ng pahina.",
 	"apihelp-cxsuggestionlist-param-from": "Ang kodigo ng wikang pinagmulan.",
-	"apihelp-cxsuggestionlist-param-to": "Ang kodigo ng patutunguhang wika."
+	"apihelp-cxsuggestionlist-param-to": "Ang kodigo ng patutunguhang wika.",
+	"apihelp-cxsave-param-sourcerevision": "Ang pagbabago sa pahinang pinagmulan."
 }

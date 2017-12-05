@@ -4,7 +4,6 @@
 			"Tacsipacsi"
 		]
 	},
-	"apihelp-cxpublish-param-status": "Ha <kbd>draft</kbd>, akkor a fordítás piszkozatként lesz elmentve. Ha <kbd>published</kbd>, akkor a fordítást egyúttal közzé is teszi.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captchaazonosító (amikor captcha megválaszolásával ment).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Válasz a captchára (amikor captcha megválaszolásával ment)."
 }

@@ -16,7 +16,6 @@
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|перакладзена|}}",
 	"cx-header-progressbar-text-mt": "($1% з {{PLURAL:$1|машынны пераклад}})",
 	"cx-header-translation-center": "Цэнтр перакладаў",
-	"cx-header-new-translation": "Новы пераклад",
 	"cx-header-all-translations": "Усе пераклады",
 	"cx-source-view-page": "прагляд старонкі",
 	"cx-publish-page-success": "Старонка апублікавана на $1",

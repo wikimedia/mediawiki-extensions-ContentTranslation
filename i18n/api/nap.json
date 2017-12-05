@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "'O codece r' 'a lengua origgine",
 	"apihelp-cxpublish-param-to": "'O codece d' 'a lengua destinaziona.",
 	"apihelp-cxpublish-param-sourcetitle": "'O titulo d' 'a paggena origgene.",
-	"apihelp-cxpublish-param-sourcerevision": "'A verziona d' 'a paggena origgene.",
-	"apihelp-cxpublish-param-status": "Si <kbd>bozza</kbd>, 'a traduzione sarrà sarvata comm'a nu draft. Si <kbd>pubbrecata</kbd>, 'a traduzione sarrà pubbrecata.",
-	"apihelp-cxpublish-param-progress": "Nfurmaziune ncopp' 'a quantità 'e traduzione cumpretata ('o prugresso). 'O JSON ch' 'e parole chiave <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. 'E valure d' 'e chiave so' tante procent.",
 	"apihelp-cxpublish-param-categories": "'E categurie 'e quale s'avess'a miett' 'a paggena a dinto.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quanno se sarva cu na risposta captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Risposta a lu captcha (quanno se sarva cu na risposta captcha).",
@@ -63,5 +60,7 @@
 	"apihelp-cxsuggestionlist-param-listaction": "Aziona 'a secutà ncopp'a l'elenco.",
 	"apihelp-cxsuggestionlist-param-titles": "Titule d' 'e paggene.",
 	"apihelp-cxsuggestionlist-param-from": "'O codece r' 'a lengua origgine",
-	"apihelp-cxsuggestionlist-param-to": "'O codece d' 'a lengua destinaziona."
+	"apihelp-cxsuggestionlist-param-to": "'O codece d' 'a lengua destinaziona.",
+	"apihelp-cxsave-param-sourcerevision": "'A verziona d' 'a paggena origgene.",
+	"apihelp-cxsave-param-progress": "Nfurmaziune ncopp' 'a quantità 'e traduzione cumpretata ('o prugresso). 'O JSON ch' 'e parole chiave <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. 'E valure d' 'e chiave so' tante procent."
 }

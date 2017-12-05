@@ -10,9 +10,6 @@
 	"apihelp-cxpublish-param-from": "Къайнакъ тилни коду.",
 	"apihelp-cxpublish-param-to": "Ышан тилни коду.",
 	"apihelp-cxpublish-param-sourcetitle": "Къайнакъ бетни башлыгъы.",
-	"apihelp-cxpublish-param-sourcerevision": "Къайнакъ бетни версиясы.",
-	"apihelp-cxpublish-param-status": "<kbd>draft</kbd> болса, кёчюрме черновикча сакъланныкъды. <kbd>published</kbd> болса, кёчюрме публикация этилликди.",
-	"apihelp-cxpublish-param-progress": "Кёчюрмени толулугъуну юсюнден информация (progress). <code>any</code>, <code>human</code>, <code>mt</code> эмда <code>mtSectionsCount</code> ачхычла бла JSON. Магъанала процентледе.",
 	"apihelp-cxpublish-param-categories": "Публикация этилген бетни къошуллукъ категориялары.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капча (капча кёрюнюу бла сакъланыуда).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Капчагъа джууаб (капча кёрюнюу бла сакъланыуда).",
@@ -41,5 +38,7 @@
 	"apihelp-cxdelete-param-from": "Къайнакъ тилни коду.",
 	"apihelp-cxdelete-param-to": "Ышан тилни коду.",
 	"apihelp-cxdelete-param-sourcetitle": "Къайнакъ бетни башлыгъы.",
-	"apihelp-cxdelete-example-1": "Бу эки тил бла эмда башлыкъ бла байламлы черновикни кетер."
+	"apihelp-cxdelete-example-1": "Бу эки тил бла эмда башлыкъ бла байламлы черновикни кетер.",
+	"apihelp-cxsave-param-sourcerevision": "Къайнакъ бетни версиясы.",
+	"apihelp-cxsave-param-progress": "Кёчюрмени толулугъуну юсюнден информация (progress). <code>any</code>, <code>human</code>, <code>mt</code> эмда <code>mtSectionsCount</code> ачхычла бла JSON. Магъанала процентледе."
 }

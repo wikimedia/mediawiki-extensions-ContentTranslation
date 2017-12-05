@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-cxpublish-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxpublish-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",
-	"apihelp-cxpublish-param-sourcerevision": "การปรับปรุงของหน้าต้นทาง",
-	"apihelp-cxpublish-param-status": "ถ้าเป็น \"draft\" การแปลจะบันทึกเป็นฉบับร่าง ถ้าเป็น \"published\" การแปลจะเผยแพร่",
 	"apihelp-cxpublish-param-categories": "หมวดหมู่ที่จะเพิ่มไปยังหน้าที่เผยแพร่",
 	"apihelp-cxpublish-param-wpCaptchaId": "ไอดีแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "คำตอบของแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
@@ -40,5 +38,6 @@
 	"apihelp-cxdelete-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-cxdelete-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxdelete-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",
-	"apihelp-cxdelete-example-1": "ลบฉบับร่างที่เกี่ยวข้องกับคู่ภาษาและชื่อเรื่องที่กำหนด"
+	"apihelp-cxdelete-example-1": "ลบฉบับร่างที่เกี่ยวข้องกับคู่ภาษาและชื่อเรื่องที่กำหนด",
+	"apihelp-cxsave-param-sourcerevision": "การปรับปรุงของหน้าต้นทาง"
 }

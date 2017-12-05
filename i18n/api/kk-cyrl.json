@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-from": "Қайнар тіл коды.",
 	"apihelp-cxpublish-param-to": "Нысана тіл коды.",
 	"apihelp-cxpublish-param-sourcetitle": "Қайнар бетінің атауы.",
-	"apihelp-cxpublish-param-sourcerevision": "Қайнар беттің нұсқасы.",
-	"apihelp-cxpublish-param-status": "Егер «шимай бет» болса, аударма шимай бетте сақталады. Егер «жарияланған» болса, аударма жарияланады.",
 	"apihelp-cxpublish-param-categories": "Санаттар жарияланған беттен қосылатын болады.",
 	"apihelp-query+contenttranslation-param-translationid": "Аударма ID-і.",
 	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез-келген аударманы берілген атаудан табу",
@@ -29,5 +27,6 @@
 	"apihelp-cxdelete-description": "Мазмұн аудару кеңейтілімін қолданып жасаған шимай аудармаларды жою",
 	"apihelp-cxdelete-param-from": "Қайнар тіл коды.",
 	"apihelp-cxdelete-param-to": "Нысана тіл коды.",
-	"apihelp-cxdelete-param-sourcetitle": "Қайнар бетінің атауы."
+	"apihelp-cxdelete-param-sourcetitle": "Қайнар бетінің атауы.",
+	"apihelp-cxsave-param-sourcerevision": "Қайнар беттің нұсқасы."
 }

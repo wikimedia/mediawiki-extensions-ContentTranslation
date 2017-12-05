@@ -11,8 +11,6 @@
 	"apihelp-cxpublish-param-from": "წყაროს ენის კოდი.",
 	"apihelp-cxpublish-param-to": "სამიზნე ენის კოდი.",
 	"apihelp-cxpublish-param-sourcetitle": "წყაროს გვერდის სათაური.",
-	"apihelp-cxpublish-param-sourcerevision": "წყაროს გვერდის ვერსია.",
-	"apihelp-cxpublish-param-status": "თუ <kbd>draft</kbd>, თარგმანი მონახაზის სახით იქნება შენახული. თუ <kbd>published</kbd>, თარგმანი გამოქვეყნებული იქნება.",
 	"apihelp-cxpublish-param-categories": "კატეგორიები, რომლებშიც დამატებული იქნება გამოქვეყნებული გვერდი.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (Captcha-ის შენახვამდე)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "პასუხი captcha-ზე (captcha-ს ჩვენების შენახვამდე).",
@@ -41,5 +39,6 @@
 	"apihelp-cxdelete-param-from": "წყაროს ენის კოდი.",
 	"apihelp-cxdelete-param-to": "სამიზნე ენის კოდი.",
 	"apihelp-cxdelete-param-sourcetitle": "წყაროს გვერდის სათაური.",
-	"apihelp-cxdelete-example-1": "მონახაზის წაშლა, დაკავშირებული მოცემული ენის წყვილთან და სახელწოდებასთან"
+	"apihelp-cxdelete-example-1": "მონახაზის წაშლა, დაკავშირებული მოცემული ენის წყვილთან და სახელწოდებასთან",
+	"apihelp-cxsave-param-sourcerevision": "წყაროს გვერდის ვერსია."
 }
