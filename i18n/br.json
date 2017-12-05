@@ -58,7 +58,7 @@
 	"cx-warning-unsaved-translation": "Chom a ra troidigezhioù n'int ket bet enrollet ganeoc'h.",
 	"cx-error-page-not-found": "N'eus ket bet gallet kavout ar bajenn \"$1\" er Wikipedia $2",
 	"cx-selected-source-page-start-translation-button": "Kregiñ da dreiñ",
-	"cx-selected-source-page-error-page-exists": "!!FUZZY!!Bez' ez eus eus ar bajenn [$1] e $2 c'hoazh",
+	"cx-selected-source-page-error-page-exists": "Bez' ez eus eus ar bajenn [$1] e $2 c'hoazh",
 	"cx-publish-captcha-title": "Goulenn surentez",
 	"cx-dashboard-sidebar-stats": "Stadegoù",
 	"cx-dashboard-sidebar-feedback": "Roit ho soñj",

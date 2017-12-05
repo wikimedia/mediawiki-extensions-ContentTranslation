@@ -63,7 +63,7 @@
 	"cx-warning-unsaved-translation": "நீங்கள் சேமிக்கப்படாத மொழிபெயர்ப்புகளைக் கொண்டுள்ளீர்கள்.",
 	"cx-selected-source-page-start-translation-button": "மொழிபெயர்க்கத் தொடங்கவும்",
 	"cx-selected-source-page-error-page-and-title-exist": "$1 தலைப்பு ஏற்கனவே $2 விக்கியில் உள்ளது, $3 தலைப்பை முயற்சிக்கவும்",
-	"cx-selected-source-page-error-page-exists": "!!FUZZY!!$1 பக்கம், ஏற்கனவே $2-ல் உள்ளது",
+	"cx-selected-source-page-error-page-exists": "$1 பக்கம், ஏற்கனவே $2-ல் உள்ளது",
 	"cx-selected-source-page-error-title-in-use": "[$1 இத்தலைப்பு] ஏற்கனவே பயன்பாட்டில் உள்ளது",
 	"cx-mt-abuse-warning-text": "இயந்திர மொழிபெயர்ப்பு ஒரு ஆரம்பப்புள்ளியாக மட்டுமே கொடுக்கப்படலாம். அந்த உள்ளடக்கங்கள் மிகத்துல்லியமானதாக மற்றும் இயற்கையாக உமது மொழியிலிருக்க உறுதி செய்யப்படவேண்டும்",
 	"cx-publish-captcha-title": "பாதுகாப்புக் கேள்வி",

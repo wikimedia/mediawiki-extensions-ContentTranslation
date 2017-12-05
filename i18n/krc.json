@@ -71,7 +71,7 @@
 	"cx-error-page-not-found": " \"$1\" бет $2 Википедияда табылмайды",
 	"cx-selected-source-page-start-translation-button": "Кёчюрюуню башла",
 	"cx-selected-source-page-error-page-and-title-exist": "Бу ат [$1 $2] джибериуде [$3 башха бет] ючюн хайырландырылады",
-	"cx-selected-source-page-error-page-exists": "!!FUZZY!!Бет $2 тилде $1 барды",
+	"cx-selected-source-page-error-page-exists": "Бет $2 тилде $1 барды",
 	"cx-selected-source-page-error-title-in-use": "Джангы бетни аты [$1 энди хайырланады]",
 	"cx-mt-abuse-warning-title": "Сизни кёчюрмегизде $1% тюрленмеген машина кёчюрюу {{PLURAL:$1|барды}}",
 	"cx-mt-abuse-warning-text": "Машина кёчюрме къуру башланнгыч нохта халда бериледиле. Контент тюз болгъанына эмда тилигизде тыйыншлы окъулгъанына ажымсыз болургъа керексиз.",
