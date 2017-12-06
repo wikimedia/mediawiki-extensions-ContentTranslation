@@ -76,6 +76,9 @@
 			autonym: mw.msg( 'cx-translation-filter-uls-all-languages' )
 		} );
 
+		// Render the main components
+		this.render();
+
 		// Get acceptable source/target language pairs
 		this.siteMapper.getLanguagePairs().then( function ( data ) {
 			// We store valid source and target languages as "static" variables of LanguageFilter
@@ -83,11 +86,13 @@
 			mw.cx.ui.LanguageFilter.targetLanguages = data.targetLanguages;
 
 			self.setDefaultLanguages();
-			self.render();
+
 			self.initLists();
 			self.listen();
 
 			mw.hook( 'mw.cx.dashboard.ready' ).fire();
+		} ).fail( function () {
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 		} );
 	};
 

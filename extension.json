@@ -251,14 +251,14 @@
 			],
 			"messages": [
 				"cx-create-new-translation",
-				"cx-dashboard-sidebar-title",
+				"cx-dashboard-sidebar-feedback",
 				"cx-dashboard-sidebar-information",
 				"cx-dashboard-sidebar-stats",
-				"cx-dashboard-sidebar-feedback",
-				"cx-create-new-translation",
-				"cx-translation-filter-suggested-translations",
+				"cx-dashboard-sidebar-title",
+				"cx-error-server-connection",
+				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-published-translations",
-				"cx-translation-filter-draft-translations"
+				"cx-translation-filter-suggested-translations"
 			]
 		},
 		"ext.cx.util": {
