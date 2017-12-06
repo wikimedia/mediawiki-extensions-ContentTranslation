@@ -2,22 +2,26 @@
 @import '../../widgets/common/ext.cx.common.less';
 
 .cx-translator {
-	.mw-ui-one-whole;
-
 	background-color: #fff;
 	display: none;
+	.box-sizing( border-box );
 	margin-bottom: 1em;
 	border-radius: @borderRadius;
 	padding: 1em;
 	.box-shadow-card;
 
+	&--visible {
+		display: block;
+	}
+
 	@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
 		width: 47.5%;
 		margin-bottom: 0;
-	}
 
-	&--visible {
-		display: block;
+		&--visible {
+			display: inline-block;
+			vertical-align: top;
+		}
 	}
 }
 

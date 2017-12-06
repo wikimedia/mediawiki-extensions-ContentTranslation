@@ -4,9 +4,6 @@
 @image-size: 3em;
 
 .cx-selected-source-page {
-	.mw-ui-one-whole;
-	padding: 0;
-
 	&--modal {
 		position: fixed;
 		top: 50%;
@@ -44,11 +41,11 @@
 	}
 
 	&__container {
-		.mw-ui-one-whole;
 		.flex-center;
 
 		background-color: @white;
 		min-height: @item-height;
+		padding: 0 5px 0 2px;
 	}
 
 	&__image {
@@ -112,16 +109,12 @@
 	}
 
 	&__messagebar {
-		.mw-ui-one-whole;
-
 		background-color: #f7d358;
 		display: none;
 		padding: 10px;
 	}
 
 	&__actions {
-		.mw-ui-one-whole;
-
 		background-color: @gray-lighter;
 		padding: 10px 15px 15px 15px;
 		text-align: right;
@@ -132,8 +125,6 @@
 	}
 
 	&__license {
-		.mw-ui-one-whole;
-
 		background-color: @gray-lighter;
 		color: @colorGray7;
 		padding: 10px;
