@@ -1475,7 +1475,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.util",
 				"mw.cx.ui.Columns.legacy",
-				"mw.cx.ui.Header",
+				"mw.cx.ui.Header.legacy",
 				"mw.cx.ui.PublishSettingsWidget",
 				"mw.cx.util"
 			]
@@ -1508,6 +1508,32 @@
 				"login"
 			],
 			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui.styles.icons-wikimedia",
+				"mw.cx.ui.Infobar"
+			]
+		},
+		"mw.cx.ui.Header.legacy": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/legacy/mw.cx.ui.Header.js"
+			],
+			"styles": [
+				"ui/legacy/styles/mw.cx.ui.Header.less"
+			],
+			"messages": [
+				"cx",
+				"cx-draft-restore-failed",
+				"cx-draft-restored",
+				"cx-draft-restoring",
+				"cx-save-draft-error",
+				"cx-save-draft-save-success",
+				"cx-save-draft-saving",
+				"cx-save-draft-tooltip",
+				"login"
+			],
+			"dependencies": [
+				"jquery.throttle-debounce",
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
 				"mw.cx.ui.Infobar"
