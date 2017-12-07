@@ -199,7 +199,7 @@
 	"cx-stats-local-published-number": "$1 en $2",
 	"cx-stats-local-published": "$1 ($3) en $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduction|$1 traductions}}",
-	"cx-tools-missing-link-text": "{{GENDER:|Marquer}} la page comme manquante pour encourager sa création.",
+	"cx-tools-missing-link-text": "Marquer la page comme manquante pour encourager sa création.",
 	"cx-tools-missing-link-tooltip": "Traduire (dans une nouvelle fenêtre)",
 	"cx-tools-missing-link-title": "Lien manquant",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Marquer}} comme manquant",

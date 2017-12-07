@@ -24,6 +24,9 @@
 	"cx-contributions-new-article": "Yeni səhifə",
 	"cx-contributions-translation": "Tərcümə",
 	"cx-contributions-upload": "Mediafayl yüklə",
+	"cx-contributions-new-article-tooltip": "Yeni səhifə yaradın",
+	"cx-contributions-translation-tooltip": "Mövcud səhifələri tərcümə edin",
+	"cx-contributions-upload-tooltip": "Səhifədə istifadə etmək üçün şəkil, audio və video yükləyin",
 	"cx-draft-cancel-button-label": "İmtina",
 	"cx-draft-discard-button-label": "Tərcüməni sil"
 }
