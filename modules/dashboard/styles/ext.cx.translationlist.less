@@ -134,10 +134,13 @@
 			.target-title {
 				color: @colorGray7;
 				display: inline-block;
+				max-width: 100%;
 			}
 
 			.source-title,
 			.target-title {
+				.break-overflowing-word;
+
 				// This needs to be "isolate" and not "embed",
 				// because both titles can be in the same direction
 				unicode-bidi: -moz-isolate;
