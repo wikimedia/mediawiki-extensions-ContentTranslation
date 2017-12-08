@@ -3,7 +3,8 @@
 		"authors": [
 			"Octahedron80",
 			"Taweetham",
-			"Aefgh39622"
+			"Aefgh39622",
+			"Horus"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -91,7 +92,7 @@
 	"cx-suggestionlist-title": "หน้าแนะนำ",
 	"cx-suggestionlist-empty-title": "ไม่มีคำแนะนำในขณะนี้",
 	"cx-suggestionlist-empty-desc": "เราไม่พบคำแนะนำใด คุณสามารถกลับมาตรวจดูได้ในภายหลังหรือค้นหาหน้าที่เกี่ยวข้องโดยใช้เครื่องมือแนะนำของเรา (คุณลักษณะระยะทดสอบ)",
-	"cx-create-new-translation": "เริ่มการแปลใหม่",
+	"cx-create-new-translation": "การแปลใหม่",
 	"cx-save-draft-save-success": "บันทึกเมื่อ{{PLURAL:$1| 1 นาทีที่แล้ว| $1 นาทีที่แล้ว|0=ครู่นี้}}",
 	"cx-save-draft-saving": "กำลังบันทึก...",
 	"cx-save-draft-tooltip": "การแปลฉบับร่างถูกบันทึกโดยอัตโนมัติ",
@@ -152,9 +153,9 @@
 	"cx-notification-hundredth-translation": "คุณได้แปลครบ 100 ชิ้งงานแล้ว นี่เป็นผลงานที่ยิ่งใหญ่  แบ่งปันเครื่องมือนี้กับผู้เขียนรายอื่น",
 	"cx-translationlist-empty-title": "ยังไม่มีอะไรแปล?",
 	"cx-translationlist-empty-desc": "เริ่มการแปลเดี๋ยวนี้และดำเนินการต่อได้ทุกเมื่อ",
-	"cx-tools-link-internal-link": "เชื่อมโยงไปยังหน้า",
+	"cx-tools-link-internal-link": "ค้นหาหน้า",
 	"cx-tools-link-internal-link-placeholder": "หาหน้าที่จะลิงก์",
-	"cx-tools-link-external-link": "ภายนอก",
+	"cx-tools-link-external-link": "ลิงก์ภายนอก",
 	"cx-tools-link-external-link-placeholder": "เพิ่มลิงก์ภายนอก",
 	"cx-tools-link-to-another-page": "ลิงก์ไปอีกหน้า",
 	"cx-tools-link-apply": "เสร็จสิ้น",
