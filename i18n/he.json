@@ -178,7 +178,7 @@
 	"echo-category-title-cx": "תרגומים",
 	"echo-pref-tooltip-cx": "להודיע לי על תרגומים שלי שנעשו באמצעות כלי תרגום התוכן.",
 	"cx-notification-first-translation": "ברכות על התרגום הראשון שלך! בתרומות שלך אפשר למצוא עוד דפים לתרגם.",
-	"cx-notification-tenth-translation": "ברכות על התרגום על התרגום העשירי שלך! צברת מומחיות! להמשיך כך!",
+	"cx-notification-tenth-translation": "ברכות על התרגום העשירי שלך! צברת מומחיות! {{GENDER:|המשך|המשיכי}} כך!",
 	"cx-notification-hundredth-translation": "עשית 100 תרגומים! זה הישג מרשים. זה הזמן לשתף את החדשות האלה עם עורכים אחרים.",
 	"cx-contributions-link": "התרומות שלך",
 	"cx-your-translations-link": "{{GENDER:$1|התרגומים שלך}}",

@@ -190,7 +190,7 @@
 	"cx-tools-missing-link-mark-link": "Text for a link that marks a page that doesn't exist as a missing link. Basically, if the source text (that is being translated) has a link to a page which has no equivalent (via WikiData) in the target language, the link will not be automatically created in the translation. Instead, it will show as gray in the translation and the user needs to explicitly mark it as missing to have it appear as red link in the published translation.",
 	"echo-category-title-cx": "Title of CX Echo notifications. Shown in [[Special:Preferences]] page to configure notifications\n{{related|Echo-category-title}}\n{{Identical|Translation}}",
 	"echo-pref-tooltip-cx": "A tooltip text about CX notifcations.Shown in [[Special:Preferences]] page to configure notifications",
-	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubitions link.",
+	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubutions link.",
 	"cx-notification-tenth-translation": "Echo notification congratulating the user for tenth published translation.",
 	"cx-notification-hundredth-translation": "Echo notification congratulating the user for hundred published translation.",
 	"cx-contributions-link": "Text of the link to view your contributions\n{{Identical|Contribution}}",
