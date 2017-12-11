@@ -68,6 +68,11 @@
 			}
 		}
 
+		if ( !mwData.parts ) {
+			mw.log( '[CX] data-mw for Template#' + this.$template.attr( 'id' ) + ' has no parts.' );
+			return $.Deferred().reject().promise();
+		}
+
 		if ( mwData.parts.length > 1 ) {
 			mw.log( '[CX] Skipping multipart template for now for Template#' + this.$template.attr( 'id' ) );
 			return $.Deferred().reject().promise();
