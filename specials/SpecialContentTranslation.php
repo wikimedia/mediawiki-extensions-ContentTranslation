@@ -128,6 +128,10 @@ class SpecialContentTranslation extends SpecialPage {
 				// Enable cx for the user in this wiki.
 				$this->enableCXBetaFeature();
 			} else {
+				if ( $campaign ) {
+					// Show login page if the URL has campaign parameter
+					$this->requireLogin();
+				}
 				// Invalid or missing campaign param
 				$out->showErrorPage(
 					'cx',
