@@ -1041,6 +1041,8 @@
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg",
+				"mediawiki.language",
+				"moment",
 				"mw.cx.ui.Header"
 			],
 			"messages": [
