@@ -83,27 +83,11 @@
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationHooks": "ContentTranslation.hooks.php",
-		"ContentTranslation\\AbuseFilterCheck": "includes/AbuseFilterCheck.php",
-		"ContentTranslation\\CorporaLookup": "includes/CorporaLookup.php",
-		"ContentTranslation\\Database": "includes/Database.php",
-		"ContentTranslation\\DateManipulator": "includes/DateManipulator.php",
-		"ContentTranslation\\EchoNotificationPresentationModel": "includes/EchoNotificationPresentationModel.php",
-		"ContentTranslation\\JsonDumpFormatter": "includes/JsonDumpFormatter.php",
-		"ContentTranslation\\Notification": "includes/Notification.php",
-		"ContentTranslation\\RestbaseClient": "includes/RestbaseClient.php",
-		"ContentTranslation\\SiteMapper": "includes/SiteMapper.php",
-		"ContentTranslation\\Stats": "includes/Stats.php",
-		"ContentTranslation\\Suggestion": "includes/Suggestion.php",
-		"ContentTranslation\\SuggestionList": "includes/SuggestionList.php",
-		"ContentTranslation\\SuggestionListManager": "includes/SuggestionListManager.php",
-		"ContentTranslation\\TmxDumpFormatter": "includes/TmxDumpFormatter.php",
-		"ContentTranslation\\Translation": "includes/Translation.php",
-		"ContentTranslation\\TranslationStorageManager": "includes/TranslationStorageManager.php",
-		"ContentTranslation\\TranslationUnit": "includes/TranslationUnit.php",
-		"ContentTranslation\\TranslationWork": "includes/TranslationWork.php",
-		"ContentTranslation\\Translator": "includes/Translator.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
+	},
+	"AutoloadNamespaces": {
+		"ContentTranslation\\": "includes/"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true
