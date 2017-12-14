@@ -67,7 +67,7 @@ mw.cx.ui.SourceColumn.prototype.render = function () {
 		target: '_blank',
 		classes: [ 'cx-column-sub-heading-view-page' ],
 		framed: false,
-		flags: [ 'constructive' ]
+		flags: [ 'progressive' ]
 	} );
 
 	subHeading = new OO.ui.HorizontalLayout( {
