@@ -95,7 +95,7 @@ mw.cx.ui.ToolsColumn.prototype.showTools = function ( translationUnit ) {
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
  */
 mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
-	if ( !this.toolContainer.getItemsFromData( tool.getData() ).length ) {
+	if ( !this.toolContainer.findItemsFromData( tool.getData() ).length ) {
 		this.toolContainer.addItems( [ tool.getCard() ] );
 	}
 };
@@ -105,7 +105,7 @@ mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
  */
 mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {
-	var items = this.toolContainer.getItemsFromData( tool.getData() );
+	var items = this.toolContainer.findItemsFromData( tool.getData() );
 	this.toolContainer.removeItems( items );
 };
 

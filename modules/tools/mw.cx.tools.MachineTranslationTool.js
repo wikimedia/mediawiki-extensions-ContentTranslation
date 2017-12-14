@@ -153,7 +153,7 @@ mw.cx.tools.MachineTranslationTool.prototype.selectProvider = function ( provide
 	}
 
 	// Validate and fix the given provider if required
-	item = menu.getItemFromData( provider );
+	item = menu.findItemFromData( provider );
 	if ( provider === undefined || !item ) {
 		// Fallback to something that always exists
 		provider = 'source';
