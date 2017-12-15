@@ -28,7 +28,6 @@
 		this.selectedSourcePage = null;
 		this.languageFilter = null;
 		this.discardButton = null;
-		this.$sourceInputs = null;
 		this.$searchResults = null;
 		this.$searchResultsMessage = null;
 		this.overlay = null;
@@ -295,16 +294,12 @@
 			label: this.languageFilter.$element.add( this.discardButton.$element )
 		} );
 
-		this.$sourceInputs = $( '<div>' )
-			.addClass( 'cx-source-page-selector__source-inputs' )
-			.append( this.pageSelector.$element );
-
 		this.selectedSourcePage = new mw.cx.SelectedSourcePage( this.siteMapper, {
 			onDiscard: this.discardDialog.bind( this )
 		} );
 
 		this.$container.append(
-			this.$sourceInputs,
+			this.pageSelector.$element,
 			this.$searchResults,
 			this.selectedSourcePage.$element
 		);
