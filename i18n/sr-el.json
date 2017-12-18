@@ -89,6 +89,7 @@
 	"cx-suggestionlist-title": "Još predloga",
 	"cx-suggestionlist-featured": "Izabrani",
 	"cx-create-new-translation": "Započni novi prevod",
+	"cx-translation-filter-label-all-languages": "Svi",
 	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|pre jednog minuta|pre $1 minuta|0=upravo sad}}",
 	"cx-save-draft-saving": "Čuvanje...",
 	"cx-save-draft-tooltip": "Nacrti prevoda se čuvaju automatski",

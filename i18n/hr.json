@@ -8,7 +8,8 @@
 			"SpeedyGonsales",
 			"Ex13",
 			"Ivi104",
-			"Bugoslav"
+			"Bugoslav",
+			"Prevodim"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -107,7 +108,7 @@
 	"cx-suggestionlist-featured": "Izabran",
 	"cx-suggestionlist-view-source-page": "Vidi izvornik",
 	"cx-create-new-translation": "Novi prijevod",
-	"cx-translation-filter-label-all-languages": "Sve",
+	"cx-translation-filter-label-all-languages": "Svi",
 	"cx-translation-filter-uls-all-languages": "Svi jezici",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Spremljeno prije minutu|Spremljeno prije $1 minute|Spremljeno prije $1 minuta|0=Upravo spremljeno}}",
 	"cx-save-draft-saving": "Spremam...",

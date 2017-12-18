@@ -189,7 +189,7 @@
 	"cx-translationlist-empty-desc": "{{GENDER:|Inicie}} a sua tradução agora e continue a qualquer altura.",
 	"cx-tools-link-internal-link": "Procurar páginas",
 	"cx-tools-link-internal-link-placeholder": "Encontrar página para ligar",
-	"cx-tools-link-external-link": "Link externo",
+	"cx-tools-link-external-link": "Hiperligação externa",
 	"cx-tools-link-external-link-placeholder": "Adicionar ligação externa",
 	"cx-tools-link-to-another-page": "Ligação para outra página",
 	"cx-tools-link-add-as-missing": "Adicionar como ligação em falta",
@@ -227,5 +227,5 @@
 	"cx-publish-destination-namespace-main": "Página nova",
 	"cx-publish-destination-namespace-user": "Rascunho pessoal",
 	"cx-publish-destination-namespace-draft": "Rascunho comunitário",
-	"cx-linkcontextitem-title": "Link adaptado"
+	"cx-linkcontextitem-title": "Hiperligação adaptada"
 }

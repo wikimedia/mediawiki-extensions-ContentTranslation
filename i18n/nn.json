@@ -100,6 +100,8 @@
 	"cx-translation-status-draft": "Under arbeid",
 	"cx-translation-status-published": "Publiser",
 	"cx-translation-status-deleted": "Sletta",
+	"cx-translation-label-draft": "Omsetjingar under arbeid",
+	"cx-translation-label-published": "Publiserte omsetjingar",
 	"cx-translation-already-in-progress": "Dette er ein pågåande oversetting av $1.",
 	"cx-translation-already-in-progress-collaborate": "Vær venleg og koordiner med skribenten som oversatte den noværande oversetjinga",
 	"cx-publishing-dialog-publish-draft-button": "Utgje som utkast",
