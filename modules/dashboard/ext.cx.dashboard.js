@@ -80,20 +80,23 @@
 		this.render();
 
 		// Get acceptable source/target language pairs
-		this.siteMapper.getLanguagePairs().then( function ( data ) {
-			// We store valid source and target languages as "static" variables of LanguageFilter
-			mw.cx.ui.LanguageFilter.sourceLanguages = data.sourceLanguages;
-			mw.cx.ui.LanguageFilter.targetLanguages = data.targetLanguages;
+		this.siteMapper.getLanguagePairs().then(
+			function ( data ) {
+				// We store valid source and target languages as "static" variables of LanguageFilter
+				mw.cx.ui.LanguageFilter.sourceLanguages = data.sourceLanguages;
+				mw.cx.ui.LanguageFilter.targetLanguages = data.targetLanguages;
 
-			self.setDefaultLanguages();
+				self.setDefaultLanguages();
 
-			self.initLists();
-			self.listen();
+				self.initLists();
+				self.listen();
 
-			mw.hook( 'mw.cx.dashboard.ready' ).fire();
-		} ).fail( function () {
-			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
-		} );
+				mw.hook( 'mw.cx.dashboard.ready' ).fire();
+			},
+			function () {
+				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+			}
+		);
 	};
 
 	// Find valid source and target language pair and store them in local storage
