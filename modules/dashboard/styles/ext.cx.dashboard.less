@@ -14,25 +14,13 @@
 	@media only screen and ( max-width: ( @very-narrow - 1px ) ) {
 		padding: 20px 12px;
 	}
-
-	/* Clearfix */
-	&:after {
-		// Non empty content value avoids an Opera bug that creates space around
-		// clearfixed elements if the contenteditable attribute is also present
-		// somewhere in the HTML.
-		content: ' ';
-		visibility: hidden;
-		display: block;
-		height: 0;
-		clear: both;
-	}
 }
 
 .cx-dashboard-sidebar {
-	.mw-ui-one-whole;
-
-	margin-bottom: 48px;
-	padding: 0;
+	// Separation between sidebar (which is at the bottom on smaller screen sizes)
+	// and bottom of the document should be 48px.
+	// Dashboard has 20px bottom padding, and with adding 28px for bottom margin, we get desired 48px
+	margin-bottom: 28px;
 	line-height: 1;
 
 	@media only screen and ( min-width: @wide ) {
@@ -90,9 +78,8 @@
 	}
 
 	&__help {
-		.mw-ui-one-whole;
-
 		background-color: #fff;
+		.box-sizing( border-box );
 		border-radius: @borderRadius;
 		padding: 16px;
 		.box-shadow-card;
@@ -100,8 +87,10 @@
 
 		.cx-translator--visible ~ & {
 			@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
+				display: inline-block;
 				width: 47.5%;
 				margin-left: 5%;
+				vertical-align: top;
 			}
 		}
 
@@ -129,8 +118,6 @@
 }
 
 .cx-translationlist-container {
-	.mw-ui-one-whole;
-
 	background-color: @colorGray14;
 	margin-bottom: 48px;
 	padding: 0;
