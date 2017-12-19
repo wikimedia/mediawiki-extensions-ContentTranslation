@@ -393,7 +393,7 @@
 				"mediawiki.ui.button",
 				"mw.cx.util",
 				"oojs-ui.styles.icons-interactions",
-				"oojs"
+				"oojs-ui-widgets"
 			],
 			"messages": [
 				"cx-translation-filter-label-all-languages",
@@ -2043,9 +2043,6 @@
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.PageSelectorWidget.less"
 			],
 			"dependencies": [
 				"mediawiki.widgets",
