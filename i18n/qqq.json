@@ -123,7 +123,7 @@
 	"cx-suggestionlist-featured": "A type of a suggested page to translate\n{{Identical|Featured}}",
 	"cx-suggestionlist-view-source-page": "Tooltip text in for source language label for every suggestion item displayed.",
 	"cx-create-new-translation": "Button label for creating new translation in the Content Translation dashboard.",
-	"cx-translation-filter-label-all-languages": "Used as label for translation filter in Content Translation dashboard. Shown for both source and target language filter, when no particular source and/or target language is chosen.\n{{Identical|All}}",
+	"cx-translation-filter-label-all-languages": "Refers to \"all\" as in \"all languages\". Used as label for translation filter in Content Translation dashboard. Can be used on both source and target language filter, when no particular source or target language is chosen.\n\nIt is recommended to make this as short as possible, because it is shown on a small button that can't be made larger.\n{{Identical|All}}",
 	"cx-translation-filter-uls-all-languages": "Shown as selectable option in ULS for translation filter in Content Translation dashboard. Allows user to select 'All languages' as source or target language\n{{Identical|All languages}}",
 	"cx-save-draft-save-success": "\"Saved\" refers to a draft of a translated page that was saved recently.\nParameters:\n* $1 - number of minutes",
 	"cx-save-draft-saving": "Label of button to save the translation as draft while saving is in progress\n{{Identical|Saving}}",
