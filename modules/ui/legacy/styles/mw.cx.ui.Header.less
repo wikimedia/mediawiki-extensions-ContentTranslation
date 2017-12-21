@@ -1,0 +1,104 @@
+@import '../../../widgets/common/ext.cx.common.less';
+@import 'mediawiki.mixins';
+
+.cx-header {
+	transition: width 0.15s;
+}
+
+.cx-header__logo {
+	display: inline-block;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 42px;
+	height: 38px;
+	border-right: 1px solid @colorGray12;
+}
+
+.cx-header__title {
+	.mw-ui-two-fifths;
+
+	padding: 0;
+	font-size: 18px;
+	color: @colorGray7;
+}
+
+.cx-header__title-text {
+	display: inline-block;
+	padding-top: 8px;
+}
+
+.cx-header__bar-container {
+	.mw-ui-two-thirds;
+
+	height: @header-bar-height-legacy;
+	border: 1px solid @colorGray14;
+	border-width: 1px 0 1px 0;
+	padding: 0;
+}
+
+.cx-header__translation-center {
+	.mw-ui-one-third;
+	line-height: 2.5;
+
+	a {
+		color: @gray-dark;
+		font-weight: bold;
+
+		&:before {
+			content: '';
+
+			display: inline-block;
+			border: 6px solid transparent;
+			border-right-color: @gray-dark;
+			margin: 0 8px 0 0;
+		}
+
+		&:after {
+			content: '';
+
+			position: absolute;
+			// Subtract two pixels as parent doesn't have `box-sizing: border-box`,
+			// and loses two pixels on borders
+			height: @header-bar-height-legacy - 2px;
+			margin-left: 0.5em;
+			border-right: 1px solid @colorGray14;
+		}
+	}
+}
+
+.cx-header-draft-status {
+	.mw-ui-one-third;
+	color: @colorGray7;
+
+	font-size: medium;
+	font-weight: bold;
+	line-height: 2.5;
+	text-align: center;
+}
+
+.cx-header.sticky {
+	.cx-header__bar {
+		background-color: @white;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		width: 66.666%;
+		padding: 0;
+		.box-shadow( 0 2px 2px 0 rgba( 0, 0, 0, 0.25 ) );
+
+		z-index: 10;
+
+		.cx-header__translation-center a:after {
+			// On sticky header bar, there are no borders, so we fill the whole height
+			height: @header-bar-height-legacy;
+		}
+
+		.cx-header__publish > .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
+			height: @header-bar-height-legacy;
+		}
+	}
+}
