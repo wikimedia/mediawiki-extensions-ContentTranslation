@@ -7,7 +7,8 @@
 			"MGA73",
 			"Amire80",
 			"Ribewiki",
-			"Mads Haupt"
+			"Mads Haupt",
+			"Sarrus"
 		]
 	},
 	"cx": "Oversæt side",
@@ -40,7 +41,7 @@
 	"tag-contenttranslation-description": "Indholdet blev oversat fra et andet sprog ved hjælp af indholdsoversættelsesværktøjet.",
 	"cx-source-loading": "Indlæser $1",
 	"cx-beta": "Indholdsoversættelse",
-	"cx-beta-desc": "Et værktøj til hurtigt at oversætte sider til dit sprog. Start oversættelser fra [[Special:MyContributions|din brugerbidragsside]], og redigér dem med vores side-ved-side-editor, der er specielt designet til oversættelse. Nogle af værktøjerne er muligvis kun er tilgængelige for visse sprog.",
+	"cx-beta-desc": "Et værktøj til hurtigt at oversætte sider til dit sprog. Start oversættelser fra [[Special:MyContributions|din brugerbidragsside]], og redigér dem med vores side-ved-side-editor, der er specielt designet til oversættelse. Nogle af værktøjerne er muligvis kun tilgængelige for visse sprog.",
 	"cx-entrypoint-title": "Oversæt denne side til $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denne siden findes endnu ikke på $1. Vil {{GENDER:|du}} oprette den?",
 	"cx-entrypoint-dialog-title-in": "Titlen på den nye side i $1:",
