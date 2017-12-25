@@ -358,7 +358,8 @@
 	function getPlaceholder( sourceSectionId ) {
 		return $( '<div>' )
 			.addClass( 'placeholder' )
-			.hover( sectionMouseEnterHandler, sectionMouseLeaveHandler )
+			.on( 'mouseenter', sectionMouseEnterHandler )
+			.on( 'mouseleave', sectionMouseLeaveHandler )
 			.on( 'click', sectionClick )
 			.attr( {
 				id: 'cx' + sourceSectionId,
@@ -397,7 +398,8 @@
 			// Bind events to the placeholder sections
 			$sourceSection
 				.click( sourceSectionClickHandler )
-				.hover( sourceSectionMouseEnterHandler, sourceSectionMouseLeaveHandler );
+				.on( 'mouseenter', sourceSectionMouseEnterHandler )
+				.on( 'mouseleave', sourceSectionMouseLeaveHandler );
 		}
 
 		// Append the placeholders to the translation column.
