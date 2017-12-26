@@ -202,6 +202,7 @@
 			'cx-graph-total', [
 				{
 					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
+					id: 'global-translations',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-cumulative-total' )
 						.append( this.$cumulativeGraph ),
@@ -211,6 +212,7 @@
 				},
 				{
 					title: mw.msg( 'cx-stats-weekly-trend-tab-title' ),
+					id: 'global-translations-weekly',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-trend-total' )
 						.append( this.$translatonTrendBarChart ),
@@ -229,6 +231,7 @@
 			'cx-graph-language', [
 				{
 					title: mw.msg( 'cx-stats-cumulative-tab-title' ),
+					id: 'language-translations',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-cumulative-lang' )
 						.append( this.$languageCumulativeGraph ),
@@ -238,6 +241,7 @@
 				},
 				{
 					title: mw.msg( 'cx-stats-weekly-trend-tab-title' ),
+					id: 'language-translations-weekly',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-trend-lang' )
 						.append( this.$langTranslatonTrendBarChart ),
@@ -253,10 +257,12 @@
 			'cx-stats-published', [
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
+					id: 'published-from',
 					content: this.drawTranslationsChart( 'to', 'published', 'count' )
 				},
 				{
 					title: mw.msg( 'cx-stats-published-source-target' ),
+					id: 'published-to',
 					content: this.drawTranslationsChart( 'from', 'published', 'count' )
 				}
 			],
@@ -268,10 +274,12 @@
 			'cx-stats-draft', [
 				{
 					title: mw.msg( 'cx-stats-draft-target-source' ),
+					id: 'drafted-from',
 					content: this.drawTranslationsChart( 'to', 'draft', 'count' )
 				},
 				{
 					title: mw.msg( 'cx-stats-draft-source-target' ),
+					id: 'drafted-to',
 					content: this.drawTranslationsChart( 'from', 'draft', 'count' )
 				}
 			],
@@ -283,10 +291,12 @@
 			'cx-stats-translators', [
 				{
 					title: mw.msg( 'cx-stats-published-target-source' ),
+					id: 'translators-from',
 					content: this.drawTranslationsChart( 'to', 'published', 'translators' )
 				},
 				{
 					title: mw.msg( 'cx-stats-published-source-target' ),
+					id: 'translators-to',
 					content: this.drawTranslationsChart( 'from', 'published', 'translators' )
 				}
 			],
@@ -302,31 +312,39 @@
 	 * @param {boolean} expandable
 	 */
 	CXStats.prototype.createTabs = function ( tabGroupId, items, expandable ) {
-		var $tabContainer, $content, i, $tabs, $tab, $expand;
+		var $tabContainer, i, $tabs, $expand, tabToShow = 0;
 
 		$tabContainer = $( '<div>' ).addClass( 'cx-stats-tabs-container' );
 		$tabs = $( '<ul>' ).addClass( 'cx-stats-tabs' );
 		$tabContainer.append( $tabs );
 		this.$container.append( $tabContainer );
 		for ( i = 0; i < items.length; i++ ) {
-			$tab = $( '<li>' )
+			items[ i ].$tab = $( '<li>' )
 				.addClass( 'cx-stats-tabs-tabtitle' )
 				.attr( 'about', tabGroupId + 'tab-' + i )
 				.attr( 'data-itemid', i )
+				.attr( 'id', items[ i ].id )
 				.text( items[ i ].title );
-			$content = items[ i ].content
+			items[ i ].$content = items[ i ].content
 				.attr( 'id', tabGroupId + 'tab-' + i )
 				.addClass( 'cx-stats-tabs-tab-content cx-stats-tabs-collapsed' );
-			$tabs.append( $tab );
-			$tabContainer.append( $content );
-			if ( i === 0 ) {
-				$tab.addClass( 'cx-stats-tabs-current' );
-				$content.addClass( 'cx-stats-tabs-current' );
-				if ( items[ i ].onVisible ) {
-					items[ i ].onVisible.apply( this );
-					items[ i ].onVisible = null;
-				}
+
+			$tabs.append( items[ i ].$tab );
+			$tabContainer.append( items[ i ].$content );
+
+			if ( location.hash === '#' + items[ i ].id ) {
+				tabToShow = i;
+				$( 'html' ).animate( {
+					scrollTop: items[ i ].$tab.offset().top
+				}, 500 );
 			}
+		}
+
+		items[ tabToShow ].$tab.addClass( 'cx-stats-tabs-current' );
+		items[ tabToShow ].$content.addClass( 'cx-stats-tabs-current' );
+		if ( items[ tabToShow ].onVisible ) {
+			items[ tabToShow ].onVisible.apply( this );
+			items[ tabToShow ].onVisible = null;
 		}
 
 		// Click handler for tabs
