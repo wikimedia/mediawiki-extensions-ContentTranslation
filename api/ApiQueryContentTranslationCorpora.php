@@ -2,7 +2,6 @@
 /**
  * Api module for querying Content Translation parallel corpora.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -12,8 +11,6 @@ use ContentTranslation\CorporaLookup;
 
 /**
  * Api module for querying Content Translation parallel corpora.
- *
- * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 	protected $types = [

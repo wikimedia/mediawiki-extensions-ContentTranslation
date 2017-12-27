@@ -1,7 +1,6 @@
 /*!
  * Content Translation template adaptation tool
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

@@ -1,7 +1,6 @@
 /*!
 * Content Translation UserInterface PublishSettingsWidget class.
 *
-* @ingroup Extensions
 * @copyright See AUTHORS.txt
 * @license GPL-2.0+
 */

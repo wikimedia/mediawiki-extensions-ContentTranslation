@@ -2,7 +2,6 @@
 /**
  * Api module for querying Content translations.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -15,8 +14,6 @@ use ContentTranslation\Translator;
 
 /**
  * Api module for querying ContentTranslation.
- *
- * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	public function __construct( $query, $moduleName ) {

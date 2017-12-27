@@ -2,7 +2,6 @@
 /**
  * Value object for translation section.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

@@ -1,7 +1,6 @@
 /*!
  * ContentTranslation - Fetch and restore a saved translation
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

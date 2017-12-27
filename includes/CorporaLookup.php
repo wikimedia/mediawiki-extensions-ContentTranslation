@@ -2,7 +2,6 @@
 /**
  * Lookup data from corpora table.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

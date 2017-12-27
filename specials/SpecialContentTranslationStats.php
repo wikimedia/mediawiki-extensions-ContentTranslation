@@ -2,14 +2,12 @@
 /**
  * Contains the special page Special:ContentTranslationStats.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
 /**
  * Shows some metrics about ContentTranslation usage.
- * @ingroup SpecialPage
  */
 class SpecialContentTranslationStats extends SpecialPage {
 	function __construct() {

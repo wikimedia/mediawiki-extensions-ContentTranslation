@@ -2,7 +2,6 @@
 /**
  * Api module for querying translation statistics for a translator.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -11,9 +10,6 @@ use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use ContentTranslation\DateManipulator;
 
-/**
- * @ingroup API ContentTranslationAPI
- */
 class ApiQueryTranslatorStats extends ApiQueryBase {
 
 	public function __construct( $query, $moduleName ) {

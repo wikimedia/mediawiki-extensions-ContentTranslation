@@ -19,7 +19,6 @@
  *
  * With type 'warn' there is also warning_html for html warning message.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
