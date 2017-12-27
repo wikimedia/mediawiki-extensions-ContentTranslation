@@ -344,11 +344,7 @@
 			self.languageFilter.fillSourceLanguages( null, true );
 			self.languageFilter.fillTargetLanguages( null, true );
 
-			mw.log(
-				'Error getting page info from ' + api.apiUrl + ' . ' +
-				response.statusText + ' (' + response.status + '). ' +
-				response.responseText
-			);
+			return $.Deferred().reject( 'Reason: ' + response ).promise();
 		} );
 	};
 

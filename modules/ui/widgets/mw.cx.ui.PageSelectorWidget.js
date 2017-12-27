@@ -150,24 +150,88 @@ mw.cx.ui.PageSelectorWidget.prototype.createOptionWidget = function ( data ) {
 };
 
 /**
- * @inheritdoc
+ * Get option widgets and labels from the server response.
+ * This method creates option widgets from suggested pages (when there is no user input) or
+ * from search results (when there is user input).
+ *
+ * @param {Object} pages Query result
+ * @return {Array} Array of OO.ui.OptionWidget menu items and mw.cx.ui.MenuLabelWidget labels
  */
-mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( data ) {
-	// Parent method
-	var optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.call( this, data ),
+mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
+	var index, suggestionPage, page, optionsData, hasResults,
+		nearbyPages = pages.nearby,
+		recentEditPages = pages.recentEdits,
+		pageData = {},
+		items = [],
+		self = this;
+
+	// If there is user input, we execute parent method, process possible no results case and return early
+	if ( this.getQueryValue() ) {
+		optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
 		hasResults = optionsData.length > 0;
+
+		if ( !hasResults ) {
+			this.emit( 'noResults' );
+		}
+		this.$overlay.toggleClass( 'mw-cx-ui-PageSelectorWidget--no-results', !hasResults );
+
+		return optionsData;
+	}
+
+	// When there is no user input, we display two lists with suggestions: recently edited pages and nearby pages.
+	// We need this specific override to keep the two lists separate, and prevent sorting by page index,
+	// which happens in parent method. Even without the sorting in parent method, since data is passed
+	// in objects, not arrays, the two separate lists could be mixed up, since ordering in JS objects
+	// is not guaranteed.
+	function processQueryResult( pages, label ) {
+		if ( !pages ) {
+			return false;
+		}
+
+		items.push( new mw.cx.ui.MenuLabelWidget( {
+			label: label
+		} ) );
+
+		for ( index in pages ) {
+			suggestionPage = pages[ index ];
+
+			pageData[ suggestionPage.title ] = {
+				disambiguation: OO.getProp( suggestionPage, 'pageprops', 'disambiguation' ) !== undefined,
+				imageUrl: OO.getProp( suggestionPage, 'thumbnail', 'source' ),
+				description: OO.getProp( suggestionPage, 'terms', 'description' ),
+				originalData: suggestionPage
+			};
+
+			// Throw away pages from wrong namespaces. This can happen when 'showRedirectTargets' is true
+			// and we encounter a cross-namespace redirect.
+			if ( self.namespace === null || self.namespace === suggestionPage.ns ) {
+				page = pageData[ suggestionPage.title ];
+				items.push( self.createOptionWidget( self.getOptionWidgetData( suggestionPage.title, page ) ) );
+			}
+		}
+
+		return true;
+	}
+
+	hasResults = processQueryResult(
+		recentEditPages,
+		mw.msg( 'cx-page-selector-widget-recent-edits-label' )
+	);
+	hasResults = processQueryResult(
+		nearbyPages,
+		mw.msg( 'cx-page-selector-widget-nearby-label' )
+	) || hasResults;
 
 	if ( !hasResults ) {
 		this.emit( 'noResults' );
 	}
 	this.$overlay.toggleClass( 'mw-cx-ui-PageSelectorWidget--no-results', !hasResults );
-	// This could select the same elements as using :not() CSS selector with both
-	// "mw-cx-ui-PageSelectorWidget--no-results" and "mw-cx-ui-PageSelectorWidget--input",
-	// but the timing when those classes are added is making "Recently edited by you" label
-	// visible until results are fetched from the server, which can take long time on slow networks
-	this.$overlay.toggleClass( 'mw-cx-ui-PageSelectorWidget--has-suggestions', !this.getQueryValue() && hasResults );
 
-	return optionsData;
+	if ( this.cache ) {
+		this.cache.set( pageData );
+	}
+
+	return items;
 };
 
 /**
@@ -181,22 +245,73 @@ mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
 	}
 
 	this.pushPending();
-	this.getPageDetails().done( function ( data ) {
-		var pages = OO.getProp( data, 'query', 'pages' );
+	$.when(
+		this.getPageDetails(),
+		this.getNearbyPages()
+	).done( function ( recentEdits, nearby ) {
+		var recentEditPages = OO.getProp( recentEdits, 'query', 'pages' ),
+			nearbyPages = OO.getProp( nearby, 'query', 'pages' );
 
 		self.requestCache[ '' ] = {
-			pages: pages || {}
+			nearby: nearbyPages,
+			recentEdits: recentEditPages
 		};
-		self.populateLookupMenu();
 	} ).fail( function ( error ) {
 		mw.log( 'Error getting page data. ' + error );
 	} ).always( function () {
+		self.populateLookupMenu();
 		self.popPending();
 	} );
 };
 
 /**
- * Get the thumbnail image, description and langlinks count for articles with the given titles.
+ * Get user geolocation coordinates using GeoIP or ULSGeo cookies.
+ *
+ * @return {string|null}
+ */
+mw.cx.ui.PageSelectorWidget.prototype.getUserCoordinates = function () {
+	var geoIP = mw.cookie.get( 'GeoIP', '' ), // GeoIP format: 'FI:Helsinki:60.1756:24.9342:v4'
+		geoIPCoordsMatch = geoIP && geoIP.match( /\d+\.?\d*:\d+\.?\d*/g ),
+		geoIPCoords = geoIPCoordsMatch && geoIPCoordsMatch[ 0 ].replace( ':', '|' ),
+		ulsGeo = JSON.parse( mw.cookie.get( 'ULSGeo' ) ), // Outside Wikimedia, ULS stores geolocation info in 'ULSGeo' cookie
+		ulsGeoCoords = ulsGeo && ( ulsGeo.latitude + '|' + ulsGeo.longitude );
+
+	return geoIPCoords || ulsGeoCoords;
+};
+
+/**
+ * Get the thumbnail image, description and langlinks count for pages geographically close to
+ * user's physical location.
+ *
+ * @return {jQuery.Promise}
+ */
+mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
+	var coords = this.getUserCoordinates();
+
+	if ( !coords ) {
+		// If we can't get user coordinates, use `$.when()` to create and return resolved promise.
+		// We return resolved promise, because we don't want `$.when` in populateSuggestions() method
+		// to fail if we don't have valid coordinates.
+		return $.when();
+	}
+
+	return this.siteMapper.getApi( this.language ).get( {
+		action: 'query',
+		prop: [ 'pageimages', 'pageterms', 'langlinks', 'langlinkscount' ],
+		generator: 'geosearch',
+		piprop: 'thumbnail',
+		pithumbsize: 80,
+		lllang: this.targetLanguage,
+		wbptterms: [ 'description' ],
+		ggscoord: coords,
+		ggsradius: 1000, // Search radius in meters
+		ggslimit: 3,
+		ggsnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ] // Main namespace
+	} ).then( function ( data ) { return data; } );
+};
+
+/**
+ * Get the thumbnail image, description and langlinks count for pages with the given titles.
  *
  * @return {jQuery.Promise}
  */
@@ -213,7 +328,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
 			pithumbsize: 80,
 			lllang: self.targetLanguage,
 			wbptterms: [ 'description' ]
-		} );
+		} ).then( function ( data ) { return data; } );
 	}, function ( error ) {
 		mw.log( 'Error getting recent edit titles. ' + error );
 	} );
@@ -232,7 +347,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function 
 		action: 'query',
 		list: [ 'usercontribs' ],
 		ucuser: userName,
-		uclimit: 5,
+		uclimit: 3,
 		ucnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ], // Main namespace
 		ucprop: 'title'
 	};

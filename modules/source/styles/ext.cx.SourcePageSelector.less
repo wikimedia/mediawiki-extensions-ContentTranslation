@@ -83,26 +83,25 @@
 		}
 
 		.cx-source-page-selector__search-message,
-		.cx-source-page-selector__no-suggestions-message,
-		.cx-source-page-selector__recent-edits-header {
+		.cx-source-page-selector__no-suggestions-message {
 			color: @colorGray7;
 			display: none;
-			padding: 10px;
-			font-size: 16px;
-			font-weight: bold;
-		}
-
-		.cx-source-page-selector__search-message,
-		.cx-source-page-selector__no-suggestions-message {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			.transform( translate( -50%, -50% ) );
 
+			.box-sizing( border-box );
 			width: 100%;
 			padding: 0 1em;
-			font-weight: normal;
+			font-size: 16px;
 			text-align: center;
+		}
+
+		.mw-cx-MenuLabelWidget {
+			color: @colorGray7;
+			font-size: 16px;
+			font-weight: bold;
 		}
 
 		&.mw-cx-ui-PageSelectorWidget--no-results {
@@ -118,12 +117,6 @@
 
 		&.mw-cx-ui-PageSelectorWidget--no-results:not( .mw-cx-ui-PageSelectorWidget--input ) {
 			.cx-source-page-selector__no-suggestions-message {
-				display: block;
-			}
-		}
-
-		&.mw-cx-ui-PageSelectorWidget--has-suggestions {
-			.cx-source-page-selector__recent-edits-header {
 				display: block;
 			}
 		}

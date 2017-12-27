@@ -175,14 +175,10 @@
 
 	SourcePageSelector.prototype.render = function () {
 		var $searchResults,
-			$recentEditsMessage,
-			$recentEditsHeader;
+			$recentEditsMessage;
 
 		this.$container.hide(); // Starts as hidden, shown on this.$trigger button click
 
-		$recentEditsHeader = $( '<div>' )
-			.addClass( 'cx-source-page-selector__recent-edits-header' )
-			.text( mw.msg( 'cx-source-page-selector-recent-edits-header' ) );
 		$recentEditsMessage = $( '<div>' )
 			.addClass( 'cx-source-page-selector__no-suggestions-message' )
 			.text( mw.msg( 'cx-source-page-selector-no-suggestions' ) );
@@ -192,7 +188,7 @@
 
 		$searchResults = $( '<div>' )
 			.addClass( 'cx-source-page-selector__search-results' )
-			.append( $recentEditsHeader, $recentEditsMessage, this.$noResultsMessage );
+			.append( $recentEditsMessage, this.$noResultsMessage );
 
 		this.languageFilter = new mw.cx.ui.LanguageFilter( {
 			onSourceLanguageChange: this.sourceLanguageChangeHandler.bind( this ),

@@ -339,7 +339,6 @@
 			],
 			"messages": [
 				"cx-source-page-selector-input-placeholder",
-				"cx-source-page-selector-recent-edits-header",
 				"cx-source-page-selector-no-suggestions",
 				"cx-source-page-selector-no-search-results"
 			]
@@ -2084,11 +2083,16 @@
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
 			],
+			"messages": [
+				"cx-page-selector-widget-recent-edits-label",
+				"cx-page-selector-widget-nearby-label"
+			],
 			"dependencies": [
 				"ext.cx.sitemapper",
 				"jquery.uls.data",
 				"mediawiki.widgets",
 				"mw.cx.ui",
+				"mw.cx.ui.MenuLabelWidget",
 				"mw.cx.ui.TitleOptionWidget",
 				"oojs",
 				"oojs-ui.styles.icons-interactions"
@@ -2126,6 +2130,19 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"mediawiki.widgets"
+			]
+		},
+		"mw.cx.ui.MenuLabelWidget": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widgets/mw.cx.ui.MenuLabelWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.MenuLabelWidget.less"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui-core"
 			]
 		}
 	},
