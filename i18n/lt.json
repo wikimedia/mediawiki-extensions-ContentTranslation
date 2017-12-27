@@ -9,7 +9,8 @@
 			"Zygimantus",
 			"Eitvys200",
 			"Homo",
-			"Tomasdd"
+			"Tomasdd",
+			"Manvydasz"
 		]
 	},
 	"cx": "Versti puslapį",
@@ -211,7 +212,7 @@
 	"cx-template-action-keep-original": "Išsaugoti pradinį šabloną",
 	"cx-template-action-skip": "Praleisti šabloną",
 	"cx-template-not-available": "$1 negalimas",
-	"cx-translation-template-add-param": "+ Versti parametrą",
+	"cx-translation-template-add-param": "+ Versti lauką",
 	"cx-translation-template-add-more": "Pridėti daugiau laukų",
 	"cx-translation-template-select-param": "Pasirinkite norimus laukus",
 	"cx-tools-category-add": "Pridėti kategoriją",
