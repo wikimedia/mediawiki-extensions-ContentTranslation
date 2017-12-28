@@ -1,7 +1,6 @@
 /*!
  * Guided Tour for ContentTranslation publishing - Initialization module.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

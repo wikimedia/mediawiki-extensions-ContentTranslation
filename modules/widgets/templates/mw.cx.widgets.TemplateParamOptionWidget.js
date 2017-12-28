@@ -2,7 +2,6 @@
   * ContentTranslation Widgets - TemplateParamOptionWidget class.
   * Used in template editor.
   *
-  * @ingroup Extensions
   * @copyright See AUTHORS.txt
   * @license GPL-2.0+
   */

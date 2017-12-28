@@ -2,7 +2,6 @@
 /**
  * Delete a translation
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

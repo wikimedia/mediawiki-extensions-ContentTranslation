@@ -5,7 +5,6 @@
  *
  * See https://recommend.wmflabs.org/ and research/recommendation-api at Gerrit.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

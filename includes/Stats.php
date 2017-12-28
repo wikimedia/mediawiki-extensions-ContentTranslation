@@ -2,7 +2,6 @@
 /**
  * Functions for getting ContentTranslation metrics.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

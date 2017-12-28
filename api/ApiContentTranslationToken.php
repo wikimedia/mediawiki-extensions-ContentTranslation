@@ -5,7 +5,6 @@ use Firebase\JWT\JWT;
 /**
  * Module that provides JWT tokens to authenticate with cxserver.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

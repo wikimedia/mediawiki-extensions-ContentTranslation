@@ -2,7 +2,6 @@
 /**
  * Api module for querying translation suggestions.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -14,8 +13,6 @@ use ContentTranslation\SiteMapper;
 
 /**
  * Api module for querying translation suggestions.
- *
- * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	public function __construct( $query, $moduleName ) {

@@ -2,7 +2,6 @@
 /**
  * A query module to get total number of langlinks (links to corresponding foreign language pages).
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

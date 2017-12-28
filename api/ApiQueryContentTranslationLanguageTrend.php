@@ -2,15 +2,12 @@
 /**
  * Api module for querying Content translations trend over a period of time.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
 /**
  * Api module for querying ContentTranslation stats.
- *
- * @ingroup API ContentTranslationAPI
  */
 use ContentTranslation\Translation;
 use ContentTranslation\DateManipulator;

@@ -2,7 +2,6 @@
  * ContentTranslation feedback link
  * Adds an icon and a call to action to leave feedback.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

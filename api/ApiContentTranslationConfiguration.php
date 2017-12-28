@@ -5,7 +5,6 @@
  * Configuration currently contains information about sections that should be ignored
  * and template name and parameter mappings for the most common templates.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

@@ -2,7 +2,6 @@
 /**
  * Contains the special page Special:ContentTranslation.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
@@ -10,7 +9,6 @@
 /**
  * Implements the core of the Content Translation extension:
  * a special page that shows Content Translation user interface.
- * @ingroup SpecialPage
  */
 class SpecialContentTranslation extends SpecialPage {
 	function __construct() {

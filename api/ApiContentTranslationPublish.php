@@ -12,7 +12,6 @@
  * - When relevant, Echo notifications about publishing milestones will be sent.
  * This borrows heavily from ApiVisualEditorEdit.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

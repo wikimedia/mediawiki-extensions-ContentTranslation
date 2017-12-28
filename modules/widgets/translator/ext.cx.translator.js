@@ -1,7 +1,6 @@
 /*!
  * ContentTranslation extension - Translator Widget.
  *
- * @ingroup Extensions
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */

@@ -2,15 +2,10 @@
 /**
  * Api module for querying published translations.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
-/**
- *
- * @ingroup API ContentTranslationAPI
- */
 class ApiQueryPublishedTranslations extends ApiQueryBase {
 
 	public function __construct( $query, $moduleName ) {

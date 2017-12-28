@@ -2,15 +2,12 @@
 /**
  * Api module for querying Content translations for stats.
  *
- * @file
  * @copyright See AUTHORS.txt
  * @license GPL-2.0+
  */
 
 /**
  * Api module for querying ContentTranslation stats.
- *
- * @ingroup API ContentTranslationAPI
  */
 class ApiQueryContentTranslationStats extends ApiQueryBase {
 
