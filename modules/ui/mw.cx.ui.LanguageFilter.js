@@ -14,7 +14,7 @@ $.uls.data.addLanguage( 'x-all', {
  * @class
  * @extends OO.ui.Widget
  * @param {Object} [config] Configuration object
- * @cfg {boolean} [canBeSame=false] True if source and target language can be the same langauge
+ * @cfg {boolean} [canBeSame=false] True if source and target language can be the same language
  * @cfg {boolean} [canBeUndefined=false] True if source or target language can be unset
  * @cfg {boolean} [updateLocalStorage=false] True if this language selector can update local storage,
  * when source or target language changes
