@@ -69,13 +69,6 @@
 	CXDashboard.prototype.init = function () {
 		var self = this;
 
-		// 'all' could be valid language code, so we use extension mechanism and go with 'x-all'
-		$.uls.data.addLanguage( 'x-all', {
-			script: 'Latn',
-			regions: [ 'WW' ],
-			autonym: mw.msg( 'cx-translation-filter-uls-all-languages' )
-		} );
-
 		// Render the main components
 		this.render();
 

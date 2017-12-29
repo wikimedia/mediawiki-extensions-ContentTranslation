@@ -1,14 +1,22 @@
 'use strict';
 
+// Register 'All languages' in ULS data
+// 'all' could be valid language code, so we use extension mechanism and go with 'x-all'
+$.uls.data.addLanguage( 'x-all', {
+	script: 'Latn',
+	regions: [ 'WW' ],
+	autonym: mw.msg( 'cx-translation-filter-uls-all-languages' )
+} );
+
 /**
  * Language filter
  *
  * @class
  * @extends OO.ui.Widget
  * @param {Object} [config] Configuration object
- * @cfg {boolean} [canBeSame] True if source and target language can be the same langauge
- * @cfg {boolean} [canBeUndefined] True if source or target language can be unset
- * @cfg {boolean} [updateLocalStorage] True if this language selector can update local storage,
+ * @cfg {boolean} [canBeSame=false] True if source and target language can be the same langauge
+ * @cfg {boolean} [canBeUndefined=false] True if source or target language can be unset
+ * @cfg {boolean} [updateLocalStorage=false] True if this language selector can update local storage,
  * when source or target language changes
  * @cfg {Function} [onSourceLanguageChange] Callback invoked when source language changes
  * @cfg {Function} [onTargetLanguageChange] Callback invoked when target language changes
@@ -312,22 +320,22 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguageNoChecks = function ( languag
  * @param {string} language
  */
 mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( $filter, language ) {
-	var langProps;
+	var langProps, label;
 
-	if ( ( this.canBeUndefined && !language ) ) {
-		language = mw.msg( 'cx-translation-filter-label-all-languages' );
+	if ( this.canBeUndefined && !language ) {
+		$filter.text( mw.msg( 'cx-translation-filter-label-all-languages' ) );
+		return;
 	}
 
 	langProps = {
 		lang: language,
 		dir: $.uls.data.getDir( language )
 	};
+	label = this.isNarrowScreenSize ?
+		mw.language.bcp47( language ) :
+		$.uls.data.getAutonym( language );
 
-	$filter.prop( langProps )
-		.text( this.isNarrowScreenSize ?
-			mw.language.bcp47( language ) :
-			$.uls.data.getAutonym( language )
-		);
+	$filter.prop( langProps ).text( label );
 
 	this.emit( 'resize' );
 };
