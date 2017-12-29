@@ -83,7 +83,7 @@
 			.addClass( 'cx-selected-source-page__language-count' );
 		this.$selectedSourcePageViewsCount = $( '<span>' )
 			.addClass( 'cx-selected-source-page__views-count' );
-		$selectedSourcePageMetrics = $( '<span>' )
+		$selectedSourcePageMetrics = $( '<div>' )
 			.addClass( 'cx-selected-source-page__metrics' )
 			.append( this.$selectedSourcePageLanguageCount, this.$selectedSourcePageViewsCount );
 
@@ -179,7 +179,7 @@
 				href: href,
 				title: title,
 				text: title
-			} );
+			} ).toggleClass( 'cx-selected-source-page__link--long', title.length >= 60 );
 			this.sourceTitle = title;
 		}
 	};
@@ -292,6 +292,7 @@
 			target: '_blank',
 			text: pageTitle
 		} );
+		this.$selectedSourcePageLink.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
 
 		this.sourceTitle = pageTitle;
 		this.check();
