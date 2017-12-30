@@ -77,7 +77,7 @@
 	"cx-error-page-not-found": "Stran \"$1\" ni bila najdena na {{GRAMMAR:mestnik|$2}} Wikipediji.",
 	"cx-source-page-selector-input-placeholder": "Najdi stran, ki bi bila za prevest",
 	"cx-source-page-selector-recent-edits-header": "Urejal pred kratkim",
-	"cx-source-page-selector-recent-edits-no-results": "Pomisli na kakšno temo, ki ti je blizu. Ni ti treba biti strokovnjak, da narediš dober prevod.",
+	"cx-source-page-selector-no-suggestions": "Pomisli na kakšno temo, ki ti je blizu. Ni ti treba biti strokovnjak, da narediš dober prevod.",
 	"cx-source-page-selector-no-search-results": "Ni najdenih strani za \"$1\" v jeziku $2",
 	"cx-selected-source-page-start-translation-button": "Začni s prevajanjem",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 obisk na|$1 obiska na|$1 obiski na|$1 obiskov na|0=Brez obiskov ta}} week",

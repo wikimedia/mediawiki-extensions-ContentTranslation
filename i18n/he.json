@@ -83,7 +83,7 @@
 	"cx-error-page-not-found": "הדף \"$1\" לא נמצא בוויקיפדיה ב{{GRAMMAR:תחילית|$2}}",
 	"cx-source-page-selector-input-placeholder": "חיפוש דף לתרגום",
 	"cx-source-page-selector-recent-edits-header": "ערכת את זה לאחרונה",
-	"cx-source-page-selector-recent-edits-no-results": "{{GENDER:|תחשוב|תחשבי}} על נושא שמעניין אותך. אין צורך להיות מומחה כדי ליצור תרגום מצוין.",
+	"cx-source-page-selector-no-suggestions": "{{GENDER:|תחשוב|תחשבי}} על נושא שמעניין אותך. אין צורך להיות מומחה כדי ליצור תרגום מצוין.",
 	"cx-source-page-selector-no-search-results": "לא נמצאו דפים עבור \"$1\" ב{{GRAMMAR:תחילית|$2}}",
 	"cx-selected-source-page-start-translation-button": "להתחיל לתרגם",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|ביקור אחת לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}",

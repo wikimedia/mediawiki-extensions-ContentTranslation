@@ -77,7 +77,7 @@
 	"cx-error-page-not-found": "\"$1\" પાનું $2 વિકિપીડિયામાં મળ્યું નહી",
 	"cx-source-page-selector-input-placeholder": "ભાષાંતર કરવા માટે પાનું શોધો",
 	"cx-source-page-selector-recent-edits-header": "તમારા દ્વારા હાલમાં સંપાદિત",
-	"cx-source-page-selector-recent-edits-no-results": "તમને ગમતા કોઇપણ વિષય પર વિચારો. ભાષાંતર શરુ કરવા માટે તમારે નિષ્ણાત હોવાની જરૂર નથી.",
+	"cx-source-page-selector-no-suggestions": "તમને ગમતા કોઇપણ વિષય પર વિચારો. ભાષાંતર શરુ કરવા માટે તમારે નિષ્ણાત હોવાની જરૂર નથી.",
 	"cx-source-page-selector-no-search-results": "\"$1\" માટે $2માં કોઇ પાનાઓ મળ્યા નહી",
 	"cx-selected-source-page-start-translation-button": "ભાષાંતર શરુ કરો",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 મુલાકાત|$1 મુલાકાતો|0=કોઇ મુલાકાત નહી}} આ અઠવાડિયે",

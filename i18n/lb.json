@@ -73,7 +73,7 @@
 	"cx-warning-unsaved-translation": "Dir hutt net gespäichert Iwwersetzungen.",
 	"cx-error-page-not-found": "D'Säit \"$1\" konnt op der $2 Wikipedia net fonnt ginn",
 	"cx-source-page-selector-recent-edits-header": "Rezent vun Iech geännert",
-	"cx-source-page-selector-recent-edits-no-results": "Denkt un e Sujet deen Iech interesséiert. Dir braucht keen Expert ze si fir eng gutt Iwwersetzung ze maachen.",
+	"cx-source-page-selector-no-suggestions": "Denkt un e Sujet deen Iech interesséiert. Dir braucht keen Expert ze si fir eng gutt Iwwersetzung ze maachen.",
 	"cx-source-page-selector-no-search-results": "Keng Säite fir \"$1\" op $2 fonnt",
 	"cx-selected-source-page-start-translation-button": "Iwwersetzung ufänken",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|E Besuch pro|$1 Besicher pro|0=Kee Besuch an dëser}} Woch",

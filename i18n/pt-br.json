@@ -92,7 +92,7 @@
 	"cx-warning-unsaved-translation": "Você possui traduções não salvas.",
 	"cx-error-page-not-found": "A página “$1” não foi encontrada na Wikipédia em $2",
 	"cx-source-page-selector-recent-edits-header": "Editado recentemente por você",
-	"cx-source-page-selector-recent-edits-no-results": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
+	"cx-source-page-selector-no-suggestions": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
 	"cx-selected-source-page-start-translation-button": "Iniciar tradução",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
 	"cx-selected-source-page-error-page-and-title-exist": "O título já está em uso em [$1 $2] para [$3 uma página diferente]",

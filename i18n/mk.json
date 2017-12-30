@@ -75,7 +75,7 @@
 	"cx-error-page-not-found": "Не можев да ја најдам страницата „$1“ на Википедија на $2",
 	"cx-source-page-selector-input-placeholder": "Пребарајте страница за преведување",
 	"cx-source-page-selector-recent-edits-header": "Неодамна уредено од вас",
-	"cx-source-page-selector-recent-edits-no-results": "Помислете на некоја тема што ве интересира. Не мора да се стручњак за да направите одличен превод.",
+	"cx-source-page-selector-no-suggestions": "Помислете на некоја тема што ве интересира. Не мора да се стручњак за да направите одличен превод.",
 	"cx-source-page-selector-no-search-results": "Не пронајдов страници за „$1“ на $2",
 	"cx-selected-source-page-start-translation-button": "Почни со преведување",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 посета неделно|$1 посети неделно|0=Нема посети оваа недела}}",

@@ -86,7 +86,7 @@
 	"cx-error-page-not-found": "Sidan \"$1\" kunde inte hittas på $2 Wikipedia",
 	"cx-source-page-selector-input-placeholder": "Sök efter en sida att översätta",
 	"cx-source-page-selector-recent-edits-header": "Redigerades nyligen av dig",
-	"cx-source-page-selector-recent-edits-no-results": "Tänk på ett ämne som du är intresserad av. Du behöver inte vara en expert för att skapa en bra översättning.",
+	"cx-source-page-selector-no-suggestions": "Tänk på ett ämne som du är intresserad av. Du behöver inte vara en expert för att skapa en bra översättning.",
 	"cx-source-page-selector-no-search-results": "Inga sidor hittades för \"$1\" på $2",
 	"cx-selected-source-page-start-translation-button": "Börja översätta",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 besök per|0=Inga besök denna}} vecka",

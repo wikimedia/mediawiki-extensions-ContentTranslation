@@ -82,7 +82,7 @@
 	"cx-error-page-not-found": "Siden «$1» ble ikke funnet i Wikipedia på $2",
 	"cx-source-page-selector-input-placeholder": "Søk etter ei side å oversette",
 	"cx-source-page-selector-recent-edits-header": "Nylig redigert av deg",
-	"cx-source-page-selector-recent-edits-no-results": "Tenk på et interessefelt du har. Du må ikke være ekspert for å skape en god oversettelse.",
+	"cx-source-page-selector-no-suggestions": "Tenk på et interessefelt du har. Du må ikke være ekspert for å skape en god oversettelse.",
 	"cx-source-page-selector-no-search-results": "Ingen sider funnet for «$1» på $2",
 	"cx-selected-source-page-start-translation-button": "Begynn på oversettelse",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka",

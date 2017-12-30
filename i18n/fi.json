@@ -93,6 +93,7 @@
 	"cx-suggestionlist-featured": "Suositeltu",
 	"cx-suggestionlist-view-source-page": "Näytä lähdesivu",
 	"cx-create-new-translation": "Aloita uusi käännöstyö",
+	"cx-translation-filter-label-all-languages": "Kaikki",
 	"cx-translation-filter-uls-all-languages": "Kaikki kielet",
 	"cx-save-draft-save-success": "Tallennettu {{PLURAL:$1|minuutti sitten|$1 minuuttia sitten|0=juuri nyt}}",
 	"cx-save-draft-saving": "Tallennetaan...",

@@ -81,7 +81,7 @@
 	"cx-error-page-not-found": "\"$1\" পাতাটি $2 উইকিপিডিয়ায় খুঁজে পাওয়া যায় নি",
 	"cx-source-page-selector-input-placeholder": "অনুবাদ করার জন্য একটি পৃষ্ঠা অনুসন্ধান করুন",
 	"cx-source-page-selector-recent-edits-header": "সম্প্রতি আপনার দ্বারা সম্পাদিত",
-	"cx-source-page-selector-recent-edits-no-results": "আপনার আগ্রহের কোনও বিষয় সম্পর্কে চিন্তা করুন। আপনাকে সেরা অনুবাদক হতে একজন বিশেষজ্ঞ হতে হবে না।",
+	"cx-source-page-selector-no-suggestions": "আপনার আগ্রহের কোনও বিষয় সম্পর্কে চিন্তা করুন। আপনাকে সেরা অনুবাদক হতে একজন বিশেষজ্ঞ হতে হবে না।",
 	"cx-source-page-selector-no-search-results": "$2 ভাষায় \"$1\"-এর জন্য কোন পাতা পাওয়া যায়নি",
 	"cx-selected-source-page-start-translation-button": "অনুবাদ শুরু করুন",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",

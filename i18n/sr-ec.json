@@ -80,7 +80,7 @@
 	"cx-error-page-not-found": "Страница „$1” није пронађена на $2 Википедији",
 	"cx-source-page-selector-input-placeholder": "Потражите страну за превести",
 	"cx-source-page-selector-recent-edits-header": "Ваше недавне измене",
-	"cx-source-page-selector-recent-edits-no-results": "Сетите се нечега што Вас интересује. Не морате бити стручњак да бисте врхунски преводили.",
+	"cx-source-page-selector-no-suggestions": "Сетите се нечега што Вас интересује. Не морате бити стручњак да бисте врхунски преводили.",
 	"cx-source-page-selector-no-search-results": "Нема пронађених страна за \"$1\" у $2",
 	"cx-selected-source-page-start-translation-button": "Почни превођење",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 посета|$1 посете|$1 посета|0=Нема посета}} ове седмице",

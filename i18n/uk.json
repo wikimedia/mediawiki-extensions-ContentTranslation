@@ -88,7 +88,7 @@
 	"cx-error-page-not-found": "Не вдалося знайти сторінку «$1» в {{GRAMMAR:locative|$2}} Вікіпедії",
 	"cx-source-page-selector-input-placeholder": "Знайдіть сторінку для перекладу",
 	"cx-source-page-selector-recent-edits-header": "Нещодавно редаговані Вами",
-	"cx-source-page-selector-recent-edits-no-results": "Подумайте про будь-яку тему, яка може Вас зацікавити. Вам не треба бути експертом, щоб зробити чудовий переклад.",
+	"cx-source-page-selector-no-suggestions": "Подумайте про будь-яку тему, яка може Вас зацікавити. Вам не треба бути експертом, щоб зробити чудовий переклад.",
 	"cx-source-page-selector-no-search-results": "Для запиту «$1» мовою «$2» сторінок не знайдено",
 	"cx-selected-source-page-start-translation-button": "Почати переклад",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",

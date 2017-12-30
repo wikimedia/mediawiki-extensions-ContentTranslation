@@ -88,7 +88,7 @@
 	"cx-error-page-not-found": "لم يعثر على الصفحة \"$1\" في ويكيبيديا $2",
 	"cx-source-page-selector-input-placeholder": "البحث عن صفحة للترجمة",
 	"cx-source-page-selector-recent-edits-header": "عدلتها مؤخرا",
-	"cx-source-page-selector-recent-edits-no-results": "فكر في أي موضوع يهمك. لا تحتاج أن تكون خبيرا لإنشاء ترجمة عظيمة.",
+	"cx-source-page-selector-no-suggestions": "فكر في أي موضوع يهمك. لا تحتاج أن تكون خبيرا لإنشاء ترجمة عظيمة.",
 	"cx-source-page-selector-no-search-results": "لا صفحات تم العثور عليها ل\"$1\" في $2",
 	"cx-selected-source-page-start-translation-button": "ابدأ الترجمة",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",

@@ -86,7 +86,7 @@
 	"cx-error-page-not-found": "$2维基百科上找不到页面“$1”",
 	"cx-source-page-selector-input-placeholder": "搜索要翻译的页面",
 	"cx-source-page-selector-recent-edits-header": "最近由您编辑",
-	"cx-source-page-selector-recent-edits-no-results": "记录您感兴趣的任何话题。您不需要成为专家便可创建伟大的翻译。",
+	"cx-source-page-selector-no-suggestions": "记录您感兴趣的任何话题。您不需要成为专家便可创建伟大的翻译。",
 	"cx-source-page-selector-no-search-results": "在$2中找不到与“$1”相关的页面",
 	"cx-selected-source-page-start-translation-button": "开始翻译",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|每周$1次访问|0=本周没有访问}}",

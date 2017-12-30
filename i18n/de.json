@@ -83,7 +83,7 @@
 	"cx-error-page-not-found": "Die Seite „$1“ konnte nicht in der $2 Wikipedia gefunden werden.",
 	"cx-source-page-selector-input-placeholder": "Nach einer zu übersetzenden Seite suchen",
 	"cx-source-page-selector-recent-edits-header": "Kürzlich von dir bearbeitet",
-	"cx-source-page-selector-recent-edits-no-results": "Denke an ein beliebiges Thema, das dich interessiert. Du musst kein Experte sein, um eine gute Übersetzung zu erstellen.",
+	"cx-source-page-selector-no-suggestions": "Denke an ein beliebiges Thema, das dich interessiert. Du musst kein Experte sein, um eine gute Übersetzung zu erstellen.",
 	"cx-source-page-selector-no-search-results": "Keine Seiten für „$1“ auf $2 gefunden",
 	"cx-selected-source-page-start-translation-button": "Übersetzung starten",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|Ein Besuch pro|$1 Besuche pro|0=Keine Besuche in dieser}} Woche",
