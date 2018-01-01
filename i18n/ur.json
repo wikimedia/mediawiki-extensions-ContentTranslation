@@ -85,6 +85,7 @@
 	"cx-error-page-not-found": "صفحہ \"$1\" $2 ویکیپیڈیا میں موجود نہیں",
 	"cx-source-page-selector-input-placeholder": "ترجمہ کرنے کے لیے صفحہ تلاش کریں",
 	"cx-source-page-selector-recent-edits-header": "حال ہی میں آپ نے ترمیم کی",
+	"cx-source-page-selector-no-suggestions": "اپنی دلچسپی کے کسی بھی موضوع کے بارے میں سوچیں۔ آپ کو ایک عظیم ترجمہ بنانے کے لیے ایک ماہر بننے کی ضرورت نہیں ہے۔",
 	"cx-selected-source-page-start-translation-button": "ترجمہ شروع کریں",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 آمد فی ہفتہ|$1 آمدیں فی ہفتہ|0=اس ہفتے کوئی آمدیں نہیں}}",
 	"cx-selected-source-page-error-page-and-title-exist": "یہ عنوان پہلے ہی  [$1 $2] [$3 ایک دوسرے صفحہ کے لیے ] استعمال کر چکے ہیں",
