@@ -9,7 +9,8 @@
 	-webkit-box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 	box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 	overflow: visible;
-	z-index: 999;
+	/* Greater than 'z-index: 1099;' on .suggestions in MW core */
+	z-index: 1100;
 }
 
 .cx-callout:after,
