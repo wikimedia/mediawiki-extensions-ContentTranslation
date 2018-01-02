@@ -18,6 +18,7 @@
 		this.languageTranslationTrend = null;
 		this.$highlights = null;
 		this.$graph = null;
+		this.chartOptions = {};
 	}
 
 	CXStats.prototype.init = function () {
@@ -46,6 +47,37 @@
 			self.renderHighlights();
 			self.render();
 		} );
+
+		this.chartOptions = {
+			scales: {
+				xAxes: [
+					{
+						ticks: {
+							callback: function ( value ) {
+								return moment( value ).format( 'L' );
+							}
+						}
+					}
+				],
+				yAxes: [
+					{
+						ticks: {
+							callback: function ( value ) {
+								return mw.language.convertNumber( Number( value ) );
+							}
+						}
+					}
+				]
+			},
+			tooltips: {
+				callbacks: {
+					label: function ( tooltipItem, data ) {
+						var convertedValue = mw.language.convertNumber( Number( tooltipItem.yLabel ) );
+						return data.datasets[ tooltipItem.datasetIndex ].label + ': ' + convertedValue;
+					}
+				}
+			}
+		};
 	};
 
 	/**
@@ -613,7 +645,7 @@
 		new Chart( ctx, {
 			type: 'line',
 			data: data,
-			options: {}
+			options: this.chartOptions
 		} );
 	};
 
@@ -670,7 +702,7 @@
 		new Chart( ctx, {
 			type: 'line',
 			data: data,
-			options: {}
+			options: this.chartOptions
 		} );
 	};
 
@@ -708,7 +740,7 @@
 		new Chart( ctx, {
 			type: 'bar',
 			data: data,
-			options: {}
+			options: this.chartOptions
 		} );
 	};
 
@@ -756,7 +788,7 @@
 		new Chart( ctx, {
 			type: 'bar',
 			data: data,
-			options: {}
+			options: this.chartOptions
 		} );
 	};
 
