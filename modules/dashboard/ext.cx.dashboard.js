@@ -40,7 +40,7 @@
 				},
 				narrow: {
 					label: undefined,
-					icon: 'bright'
+					icon: 'lightbulb'
 				}
 			};
 		}
