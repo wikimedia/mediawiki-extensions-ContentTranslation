@@ -2,7 +2,7 @@
  * ContentTranslation extension - Translation suggestions listing in dashboard.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 ( function ( $, mw ) {
 	'use strict';

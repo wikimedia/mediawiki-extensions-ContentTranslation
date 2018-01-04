@@ -2,7 +2,7 @@
  * ContentTranslation - Link articles using Wikibase
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 /* global wikibase */
 ( function ( $, mw, wb ) {

@@ -3,7 +3,7 @@
  * Api module for querying published translations.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 class ApiQueryPublishedTranslations extends ApiQueryBase {

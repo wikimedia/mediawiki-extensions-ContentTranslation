@@ -2,7 +2,7 @@
  * Source article container
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 ( function ( $, mw, OO ) {
 	'use strict';

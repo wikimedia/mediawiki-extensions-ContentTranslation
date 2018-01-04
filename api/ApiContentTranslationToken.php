@@ -6,7 +6,7 @@ use Firebase\JWT\JWT;
  * Module that provides JWT tokens to authenticate with cxserver.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 class ApiContentTranslationToken extends ApiBase {
 	public function execute() {

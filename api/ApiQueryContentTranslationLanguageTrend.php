@@ -3,7 +3,7 @@
  * Api module for querying Content translations trend over a period of time.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 /**

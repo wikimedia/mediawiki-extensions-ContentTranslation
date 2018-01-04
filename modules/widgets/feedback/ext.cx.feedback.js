@@ -3,7 +3,7 @@
  * Adds an icon and a call to action to leave feedback.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 ( function ( $, mw ) {
 	'use strict';

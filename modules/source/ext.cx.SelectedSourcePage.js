@@ -7,7 +7,7 @@
  * and language selector that allows to change source and target language before starting the translation.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 ( function ( $, mw ) {
 	'use strict';

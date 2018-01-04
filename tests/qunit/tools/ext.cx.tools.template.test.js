@@ -1,7 +1,7 @@
 /*!
  * QUnit tests for Content Translation.
  *
- * @licence GPL-2.0+
+ * @licence GPL-2.0-or-later
  */
 
 ( function ( $, mw ) {

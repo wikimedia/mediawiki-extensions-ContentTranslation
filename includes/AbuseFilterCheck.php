@@ -20,7 +20,7 @@
  * With type 'warn' there is also warning_html for html warning message.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 namespace ContentTranslation;

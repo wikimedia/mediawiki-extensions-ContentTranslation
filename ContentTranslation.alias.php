@@ -3,7 +3,7 @@
  * Special page aliases for extension ContentTranslation.
  *
  * @copyright 2014 ContentTranslation Team and others; see AUTHORS.txt
- * @license GPL-2.0+; see LICENSE.txt
+ * @license GPL-2.0-or-later; see LICENSE.txt
  */
 
 $specialPageAliases = [];

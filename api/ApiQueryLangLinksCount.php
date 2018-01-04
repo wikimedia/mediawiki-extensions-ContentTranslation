@@ -3,7 +3,7 @@
  * A query module to get total number of langlinks (links to corresponding foreign language pages).
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 class ApiQueryLangLinksCount extends ApiQueryBase {

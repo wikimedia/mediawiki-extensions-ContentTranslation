@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 use ContentTranslation\Translator;

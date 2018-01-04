@@ -6,7 +6,7 @@
  * and template name and parameter mappings for the most common templates.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 class ApiContentTranslationConfiguration extends ApiBase {

@@ -3,7 +3,7 @@
  * Hooks for ContentTranslation extension.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 
 class ContentTranslationHooks {

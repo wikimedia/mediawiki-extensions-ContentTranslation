@@ -2,7 +2,7 @@
  * Content Translation invitation from the 'contributions' link in pages.
  *
  * @copyright See AUTHORS.txt
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  */
 ( function ( $, mw ) {
 	'use strict';
