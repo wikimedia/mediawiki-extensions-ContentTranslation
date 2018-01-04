@@ -1,9 +1,9 @@
 /*!
-* Content Translation UserInterface adaptation of MediaWiki Widget TitleOptionWidget.
-*
-* @copyright See AUTHORS.txt
-* @license GPL-2.0-or-later
-*/
+ * Content Translation UserInterface adaptation of MediaWiki Widget TitleOptionWidget.
+ *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
+ */
 
 'use strict';
 

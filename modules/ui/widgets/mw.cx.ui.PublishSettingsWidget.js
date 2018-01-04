@@ -1,9 +1,9 @@
 /*!
-* Content Translation UserInterface PublishSettingsWidget class.
-*
-* @copyright See AUTHORS.txt
-* @license GPL-2.0-or-later
-*/
+ * Content Translation UserInterface PublishSettingsWidget class.
+ *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
+ */
 
 'use strict';
 
