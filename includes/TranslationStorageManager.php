@@ -6,15 +6,17 @@
 
 namespace ContentTranslation;
 
+use Wikimedia\Rdbms\IDatabase;
+
 class TranslationStorageManager {
 	/**
 	 * Update a translation unit.
 	 *
-	 * @param \IDatabase $db
+	 * @param IDatabase $db
 	 * @param TranslationUnit $translationUnit
 	 * @param int $timestamp
 	 */
-	private static function update( \IDatabase $db, TranslationUnit $translationUnit, $timestamp ) {
+	private static function update( IDatabase $db, TranslationUnit $translationUnit, $timestamp ) {
 		$values = [
 			'cxc_sequence_id' => $translationUnit->getSequenceId(),
 			'cxc_timestamp' => $db->timestamp(),
@@ -36,10 +38,10 @@ class TranslationStorageManager {
 	/**
 	 * Insert a translation unit.
 	 *
-	 * @param \IDatabase $db
+	 * @param IDatabase $db
 	 * @param TranslationUnit $translationUnit
 	 */
-	private static function create( \IDatabase $db, TranslationUnit $translationUnit ) {
+	private static function create( IDatabase $db, TranslationUnit $translationUnit ) {
 		$values = [
 			'cxc_translation_id' => $translationUnit->getTranslationId(),
 			'cxc_section_id' => $translationUnit->getSectionId(),
@@ -79,7 +81,7 @@ class TranslationStorageManager {
 
 		$dbw->doAtomicSection(
 			__METHOD__,
-			function ( \IDatabase $dbw ) use ( $translationUnit, $newTranslation ) {
+			function ( IDatabase $dbw ) use ( $translationUnit, $newTranslation ) {
 				if ( $newTranslation ) {
 					// T134245: brand new translations can also insert corpora data in the same
 					// request. The doFind() query uses only a subset of a unique cx_corpora index,
@@ -134,7 +136,7 @@ class TranslationStorageManager {
 		return self::doFind( $db, $conditions, [], __METHOD__ );
 	}
 
-	private static function doFind( \IDatabase $db, $conditions, $options, $method ) {
+	private static function doFind( IDatabase $db, $conditions, $options, $method ) {
 		$options['ORDER BY'] = 'cxc_timestamp DESC';
 
 		$row = $db->selectRow( 'cx_corpora', '*', $conditions, $method, $options );

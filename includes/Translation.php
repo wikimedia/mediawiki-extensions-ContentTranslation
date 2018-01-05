@@ -4,6 +4,8 @@
  */
 namespace ContentTranslation;
 
+use Wikimedia\Rdbms\IDatabase;
+
 class Translation {
 	private $lastSaveWasCreate = false;
 
@@ -454,7 +456,7 @@ class Translation {
 		return $this->translation;
 	}
 
-	public static function getPublishedCondition( \IDatabase $db ) {
+	public static function getPublishedCondition( IDatabase $db ) {
 		return $db->makeList(
 			[
 				'translation_status' => 'published',
