@@ -20,7 +20,8 @@
 			"MrLeopold",
 			"Mainframe98",
 			"McDutchie",
-			"QZanden"
+			"QZanden",
+			"Mar(c)"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -89,7 +90,7 @@
 	"cx-tools-reference-remove": "Referentie verwijderen",
 	"cx-tools-link-instruction-shortcut": "Open koppelingen met Shift + klik",
 	"cx-tools-link-hover-tooltip": "Klik om te openen",
-	"cx-warning-unsaved-translation": "U heeft vertalingen die nog niet zijn opgeslagen.",
+	"cx-warning-unsaved-translation": "U hebt vertalingen die nog niet opgeslagen zijn.",
 	"cx-error-page-not-found": "De pagina \"$1\" kan niet worden gevonden in de Wikipedia in het $2.",
 	"cx-selected-source-page-start-translation-button": "Vertalen beginnen",
 	"cx-selected-source-page-error-page-and-title-exist": "Deze paginanaam wordt al gebruikt in [$1 $2] voor [$3 een andere pagina]",
@@ -181,7 +182,7 @@
 	"echo-pref-tooltip-cx": "Mij op de hoogte houden over via deze functie gemaakte vertalingen.",
 	"cx-notification-first-translation": "Gefeliciteerd met uw eerste vertaling! Vind meer te vertalen pagina's in uw bijdragenpagina.",
 	"cx-notification-tenth-translation": "Gefeliciteerd met uw tiende vertaling! U bent een echte vertaalexpert aan het worden. Ga zo door!",
-	"cx-notification-hundredth-translation": "U heeft zojuist 100 vertalingen afgerond! Dat is een bijzondere prestatie. Deel dit nieuws met andere bewerkers.",
+	"cx-notification-hundredth-translation": "U hebt zojuist 100 vertalingen gemaakt! Dat is een bijzondere prestatie. Deel dit nieuws met andere bewerkers.",
 	"cx-contributions-link": "Uw bijdragen",
 	"cx-your-translations-link": "{{GENDER:$1|Uw vertalingen}}",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
