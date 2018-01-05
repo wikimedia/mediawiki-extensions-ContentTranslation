@@ -7,6 +7,8 @@
  */
 namespace ContentTranslation;
 
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Functions for getting ContentTranslation metrics.
  */

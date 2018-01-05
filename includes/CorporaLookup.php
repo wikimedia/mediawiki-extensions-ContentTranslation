@@ -8,17 +8,20 @@
 
 namespace ContentTranslation;
 
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\ResultWrapper;
+
 class CorporaLookup {
 	const TYPE_SOURCE = 'source';
 	const TYPE_MT = 'mt';
 	const TYPE_USER = 'user';
 
 	/**
-	 * @var \IDatabase
+	 * @var IDatabase
 	 */
 	protected $db;
 
-	public function __construct( \IDatabase $db ) {
+	public function __construct( IDatabase $db ) {
 		$this->db = $db;
 	}
 
@@ -45,7 +48,7 @@ class CorporaLookup {
 		return self::format( $res );
 	}
 
-	protected static function format( \ResultWrapper $rows ) {
+	protected static function format( ResultWrapper $rows ) {
 		$sections = [];
 
 		foreach ( $rows as $row ) {
