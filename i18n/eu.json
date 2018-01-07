@@ -3,7 +3,8 @@
 		"authors": [
 			"Subi",
 			"Sator",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Xabier Armendaritz"
 		]
 	},
 	"cx": "Orria itzuli",
@@ -16,7 +17,7 @@
 	"cx-publish-page-success": "$1(e)an publikatutako orria",
 	"cx-publish-button": "Itzulpena argitaratu",
 	"cx-publish-button-publishing": "Argitaratzen...",
-	"cx-publish-summary": "\"$1\" orrialdearen itzulpena eginez sortua",
+	"cx-publish-summary": "«$1» orriaren itzulpena eginez sortua",
 	"cx-publish-gt-move-page-title": "Orrialde hau mugitu",
 	"cx-publish-gt-moved-title": "Itzulitako orria mugitu egin da",
 	"cx-publish-gt-published-title": "Zorionak, orria publikatua izan da",
