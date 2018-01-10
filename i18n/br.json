@@ -6,7 +6,8 @@
 			"Ash Crow",
 			"Amire80",
 			"Pymouss",
-			"Fulup"
+			"Fulup",
+			"Dishual"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
@@ -97,6 +98,8 @@
 	"cx-tools-link-internal-link": "Liamm ouzh ar pajenn",
 	"cx-tools-link-external-link": "Diavaez",
 	"cx-tools-link-apply": "Graet",
+	"cx-personaltools-user": "Implijer",
+	"cx-personaltools-anon": "Digevreet",
 	"mw-pageselector-missing": "Ar bajenn-mañ n'eus ket anezhi",
 	"cx-suggestionlist-expand": "Gwelet pep tra",
 	"cx-suggestionlist-collapse": "Gwelet nebeutoc'h",

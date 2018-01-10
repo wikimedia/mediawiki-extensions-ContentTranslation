@@ -23,6 +23,7 @@
 	"apihelp-query+contenttranslation-param-type": "ترجمي جي حالت.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ترجمي جي آءِڊي.",
 	"apihelp-query+contenttranslationstats-description": "مواد جي ترجمي جا انگ اکر حاصل ڪريو.",
+	"apihelp-query+contenttranslationstats-summary": "موادجي ترجمي جا انگ اکر حاصل ڪريو.",
 	"apihelp-query+contenttranslationstats-example-1": "مواد جي ترجمي جا انگ اکر سڀني ٻولين لاءِ حاصل ڪريو.",
 	"apihelp-cxconfiguration-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-cxconfiguration-param-to": "مقصود ٻولي جو ڪوڊ.",

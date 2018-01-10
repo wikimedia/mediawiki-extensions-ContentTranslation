@@ -50,7 +50,7 @@
 	"cx-desc": "Facilite [[Special:ContentTranslation|la traduction]] de pages de contenu",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traduits|0=traduit}}",
 	"cx-header-progressbar-text-mt": "($1 % d’après la {{PLURAL:$1|traduction automatique}})",
-	"cx-header-translation-center": "Centre des traductions",
+	"cx-header-translation-center": "Centre de traduction",
 	"cx-header-all-translations": "Toutes les traductions",
 	"cx-source-view-page": "afficher la page",
 	"cx-publish-page-success": "Page publiée sur $1",
