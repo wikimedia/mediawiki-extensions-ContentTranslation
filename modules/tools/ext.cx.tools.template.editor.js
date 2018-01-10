@@ -432,7 +432,7 @@
 			selectedOption = selector.getMenu().getSelectedItem();
 			selectedKeys.forEach( function ( key ) {
 				if ( !selectedOption || key !== selectedOption.getData() ) {
-					selector.getMenu().getItemFromData( key ).setDisabled( true );
+					selector.getMenu().findItemFromData( key ).setDisabled( true );
 				}
 			} );
 		} );
