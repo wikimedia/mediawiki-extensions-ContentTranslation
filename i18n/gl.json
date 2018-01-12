@@ -8,7 +8,8 @@
 			"Fisterraeomar",
 			"Banjo",
 			"Amire80",
-			"Macofe"
+			"Macofe",
+			"Athena in Wonderland"
 		]
 	},
 	"cx": "Traducir unha páxina",
@@ -189,6 +190,8 @@
 	"cx-tools-link-to-another-page": "Ligazón cara a outra páxina",
 	"cx-tools-link-add-as-missing": "Engadir como ligazón que falta",
 	"cx-tools-link-apply": "Feito",
+	"cx-personaltools-user": "Usuario",
+	"cx-personaltools-anon": "Non conectado",
 	"mw-pageselector-missing": "A páxina non existe",
 	"cx-draft-restoring": "Cargando a tradución gardada...",
 	"cx-draft-restored": "Cargouse a tradución gardada.",
