@@ -2,15 +2,15 @@
 
 .cx-column--tools {
 	.mw-ui-one-whole(@palm);
+	.stick-to-side;
 
 	background-color: @colorGray14;
 	min-height: 100vh;
-	position: relative;
-	top: -@header-bar-height-legacy;
+	top: @personal-header-height + 2 * @personal-header-padding;
 	border-left: 1px solid @colorGray12;
 
 	&.sticky {
-		.stick-to-side;
+		top: 0;
 
 		@media @palm {
 			.stick-to-bottom;

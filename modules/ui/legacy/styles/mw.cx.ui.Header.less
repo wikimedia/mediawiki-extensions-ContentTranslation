@@ -16,7 +16,7 @@
 }
 
 .cx-header:not( .cx-header--dashboard ) > .cx-header__main {
-	padding: 10px;
+	padding: @personal-header-padding;
 }
 
 .cx-header__trademark {
@@ -106,7 +106,7 @@
 
 .cx-header__main,
 .cx-header__trademark {
-	min-height: 2.5em;
+	min-height: @personal-header-height;
 }
 
 .cx-header__main:after {
@@ -136,6 +136,10 @@
 	@media only screen and ( max-width: ( @very-narrow - 1px ) ) {
 		padding: 10px 12px 0;
 	}
+}
+
+.cx-header-infobar {
+	.mw-ui-two-thirds;
 }
 
 .cx-header__bar-container {
@@ -197,6 +201,7 @@
 		left: 0;
 
 		width: 66.666%;
+		height: @header-bar-height-legacy;
 		padding: 0;
 		.box-shadow( 0 2px 2px 0 rgba( 0, 0, 0, 0.25 ) );
 
