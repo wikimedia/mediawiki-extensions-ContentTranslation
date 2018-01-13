@@ -204,6 +204,8 @@
 	"cx-tools-link-to-another-page": "다른 문서에 링크",
 	"cx-tools-link-add-as-missing": "존재하지 않는 링크로 추가",
 	"cx-tools-link-apply": "완료",
+	"cx-personaltools-user": "사용자",
+	"cx-personaltools-anon": "로그인하지 않음",
 	"mw-pageselector-missing": "문서가 존재하지 않습니다",
 	"cx-draft-restoring": "저장된 번역 불러오는 중...",
 	"cx-draft-restored": "저장된 번역을 불러왔습니다.",
