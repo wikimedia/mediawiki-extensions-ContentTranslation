@@ -141,6 +141,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Käännöksesi}}",
 	"cx-tools-link-add-as-missing": "Lisää puuttuva linkki",
 	"cx-tools-link-apply": "Valmis",
+	"cx-personaltools-user": "Käyttäjä",
 	"mw-pageselector-missing": "Sivua ei ole olemassa",
 	"cx-draft-restoring": "Ladataan tallennettua käännöstä...",
 	"cx-draft-restored": "Tallennettu käännös ladattu.",

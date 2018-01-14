@@ -88,6 +88,7 @@
 	"cx-tools-link-hover-tooltip": "クリックして開く",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
 	"cx-error-page-not-found": "$1は$2版Wikipediaでは見つけられませんでした。",
+	"cx-source-page-selector-input-placeholder": "翻訳するページを検索",
 	"cx-selected-source-page-start-translation-button": "翻訳を開始",
 	"cx-selected-source-page-error-page-and-title-exist": "このページ名はすでに[$3 別のページ]に[$1 $2]で使われています",
 	"cx-selected-source-page-error-page-exists": "ページは$2版に[$1 既に存在します]",
