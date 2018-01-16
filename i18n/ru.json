@@ -26,7 +26,8 @@
 			"Av6",
 			"Facenapalm",
 			"Kareyac",
-			"Tomasdd"
+			"Tomasdd",
+			"Edible Melon"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -200,6 +201,7 @@
 	"cx-tools-link-to-another-page": "Ссылка на другую страницу",
 	"cx-tools-link-add-as-missing": "Добавить как отсутствующую ссылку",
 	"cx-tools-link-apply": "Готово",
+	"cx-personaltools-user": "Участник",
 	"mw-pageselector-missing": "Страница не существует",
 	"cx-draft-restoring": "Загрузка сохранённых переводов…",
 	"cx-draft-restored": "Сохранённые переводы загружены.",
