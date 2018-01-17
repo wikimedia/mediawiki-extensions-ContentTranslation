@@ -157,8 +157,8 @@
 		this.languageFilter.fillSourceLanguages( null, true );
 		this.languageFilter.fillTargetLanguages( null, true );
 
-		$( 'html' ).click(); // Not sure why click doesn't pass through OOJS button to html element
-		// where listener is closing the ULS on outside clicks. Maybe some OOjs UI change?
+		$( 'html' ).click(); // Not sure why click doesn't pass through OOUI button to HTML element
+		// where listener is closing the ULS on outside clicks. Maybe some OOUI change?
 
 		if ( this.onDiscard ) {
 			this.onDiscard();
@@ -228,7 +228,7 @@
 	 * @cfg {string} targetLanguage Target language code
 	 * @cfg {Object} [params] Parameters used for API call to get page info
 	 * @cfg {string} [imageUrl] URL for selected source page image
-	 * @cfg {string} [imageIcon] OOjs UI class of selected page placeholder icon
+	 * @cfg {string} [imageIcon] OOUI class of selected page placeholder icon
 	 * @cfg {Number} [numOfLanguages] Number of different language versions for selected source page
 	 */
 	mw.cx.SelectedSourcePage.prototype.setSelectedSourcePageData = function ( pageTitle, href, config ) {

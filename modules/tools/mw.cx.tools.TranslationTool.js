@@ -67,7 +67,7 @@ mw.cx.tools.TranslationTool.prototype.getCard = function () {
 /**
  * Get all possible actions with this tool widget
  * @method
- * @return {OO.ui.Element[]} Array of OOJS UI Elements
+ * @return {OO.ui.Element[]} Array of OOUI Elements
  */
 mw.cx.tools.TranslationTool.prototype.getActions = function () {
 	return [];
