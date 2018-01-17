@@ -15,7 +15,8 @@
 			"Izoozo",
 			"ديفيد",
 			"Mido",
-			"20عبد العزيز"
+			"20عبد العزيز",
+			"Sonic N800"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -117,7 +118,7 @@
 	"cx-create-new-translation": "ترجمة جديدة",
 	"cx-translation-filter-label-all-languages": "الكل",
 	"cx-translation-filter-uls-all-languages": "كل اللغات",
-	"cx-save-draft-save-success": "حفظت منذ {{PLURAL:$1|أقل من دقيقة|دقيقة|دقيقتين|$1 دقائق|$1 دقيقة}}",
+	"cx-save-draft-save-success": "حفظت قبل {{PLURAL:$1|أقل من دقيقة|دقيقة|دقيقتين|$1 دقائق|$1 دقيقة}}",
 	"cx-save-draft-saving": "جار الحفظ",
 	"cx-save-draft-shortcut-label": "احفظ المسودة",
 	"cx-save-draft-tooltip": "تحفظ مسودات الترجمة آليا",

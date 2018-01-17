@@ -32,6 +32,7 @@
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Identificador de la traducción.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Si quitar todas las etiquetas HTML para devolver texto sin formato.",
 	"apihelp-query+contenttranslationstats-description": "Obtener estadísticas de traducción de contenidos.",
+	"apihelp-query+contenttranslationstats-summary": "Obtener estadísticas de Traducción de contenidos.",
 	"apihelp-query+contenttranslationstats-example-1": "Obtener estadísticas de la traducción de contenidos de todos los idiomas.",
 	"apihelp-cxconfiguration-description": "Obtener el \"json\" de configuración de la traducción de contenidos para el par de idiomas especificados",
 	"apihelp-cxconfiguration-param-from": "El código del idioma de origen.",
