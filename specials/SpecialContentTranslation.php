@@ -147,7 +147,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
 
 		$initModule = 'mw.cx.init.legacy';
-		// If request has param to use CX oojs based version, change init module.
+		// If request has param to use CX OOjs based version, change init module.
 		if ( (int)$request->getVal( 'version' ) === 2 || (int)$wgContentTranslationVersion === 2 ) {
 			$initModule = 'mw.cx.init';
 		}
