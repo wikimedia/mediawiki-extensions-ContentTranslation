@@ -1510,7 +1510,6 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
-				"cx-personaltools-user",
 				"cx-personaltools-anon",
 				"login"
 			],
@@ -1539,7 +1538,6 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
-				"cx-personaltools-user",
 				"cx-personaltools-anon",
 				"login"
 			],
@@ -1685,6 +1683,9 @@
 			"styles": [
 				"ui/legacy/styles/mw.cx.ui.ToolsColumn.less"
 			],
+			"skinStyles": {
+				"monobook": [ "ui/legacy/styles/mw.cx.ui.ToolsColumn.monobook.less" ]
+			},
 			"dependencies": [
 				"mw.cx.ui",
 				"mw.cx.ui.ProgressBarWidget"

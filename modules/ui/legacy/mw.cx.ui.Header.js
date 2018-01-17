@@ -116,44 +116,36 @@ mw.cx.ui.Header.prototype.getContent = function () {
  * @return {array} menuItems Array of menu items
  */
 mw.cx.ui.Header.prototype.getPersonalMenuItems = function () {
-	var i, length, menuItem,
+	var index, menuItem,
 		menuItems = [],
 		personalMenuList = mw.config.get( 'personalMenuList' );
 
 	if ( !this.isAnon ) {
-		menuItems.push( this.addUserMenuOption() );
+		menuItem = personalMenuList.user;
+		menuItems.push( this.createUserMenuOption( menuItem ) );
+		delete personalMenuList.user;
 	}
 
-	for ( i = 0, length = personalMenuList.length; i < length; i++ ) {
-		menuItem = personalMenuList[ i ];
-
-		menuItems.push( new OO.ui.MenuOptionWidget( {
-			label: menuItem.text,
-			data: menuItem.href,
-			accessKey: menuItem.accesskey,
-			$element: $( '<a>' )
-				.attr( {
-					href: menuItem.href,
-					title: menuItem.title
-				} )
-		} ) );
+	for ( index in personalMenuList ) {
+		menuItem = personalMenuList[ index ];
+		menuItems.push( this.createUserMenuOption( menuItem ) );
 	}
 
 	return menuItems;
 };
 
-mw.cx.ui.Header.prototype.addUserMenuOption = function () {
-	var userPageData = mw.config.get( 'userPageData' ),
-		userLabel = mw.msg( 'cx-personaltools-user' );
+mw.cx.ui.Header.prototype.createUserMenuOption = function ( menuItem ) {
+	var classes = menuItem.notvisited ? [ 'cx-header__personal-menu-option--missing' ] : [];
 
 	return new OO.ui.MenuOptionWidget( {
-		label: userLabel,
-		data: userPageData.link,
-		accessKey: userPageData.accesskey,
+		label: menuItem.text,
+		data: menuItem.href,
+		classes: classes,
+		accessKey: menuItem.accesskey,
 		$element: $( '<a>' )
 			.attr( {
-				href: userPageData.link,
-				title: userPageData.title
+				href: menuItem.href,
+				title: menuItem.title
 			} )
 	} );
 };

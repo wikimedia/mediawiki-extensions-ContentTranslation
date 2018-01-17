@@ -11,7 +11,7 @@
 }
 
 .cx-header:not( .cx-header--dashboard ) > .cx-header__main {
-	padding: 10px;
+	padding: @personal-header-padding;
 }
 
 .cx-header__trademark {
@@ -75,7 +75,11 @@
 
 	&-menu {
 		width: auto;
-		margin: 0;
+		margin: 0 0 0 4px;
+
+		&-option--missing > .oo-ui-labelElement-label {
+			color: @colorDestructive;
+		}
 	}
 }
 
@@ -101,7 +105,7 @@
 
 .cx-header__main,
 .cx-header__trademark {
-	min-height: 2.5em;
+	min-height: @personal-header-height;
 }
 
 .cx-header__main:after {

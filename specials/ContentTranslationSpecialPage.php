@@ -80,20 +80,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		// Get personal tools for the user
 		$personalTools = $skin->getStructuredPersonalTools();
 
-		if ( $this->getUser()->isLoggedIn() ) {
-			// Customized personal menu on Content Translation special pages uses current user's
-			// username as dropdown menu label, and 'User' menu item for accessing User: page
-			// We send only the link to User: page and the tooltip for the link
-			$userPageData[ 'link' ] = $this->getToolLink( $personalTools, 'userpage' );
-			$tipAndAccesskey = $this->getTooltipAndAccesskey( 'pt-userpage' );
-			$userPageData[ 'title' ] = $tipAndAccesskey[ 'title' ];
-			$userPageData[ 'accesskey' ] = $tipAndAccesskey[ 'accesskey' ];
-			$out->addJsConfigVars( 'userPageData', $userPageData );
-
-			// Remove userpage, because we have different ways of providing username and User page
-			// link on customized Content translation special pages personal tools.
-			unset( $personalTools[ 'userpage' ] );
-		} else {
+		if ( $this->getUser()->isAnon() ) {
 			// Reorder personal tools for anonymous user.
 			$personalTools = $this->reorderPersonalTools( $personalTools,
 				[ 'createaccount', 'login', 'anontalk', 'anoncontribs' ]
@@ -172,28 +159,47 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			// From the rest of the personal tools, we need flat structures of attributes
 			if ( isset( $item[ 'links' ] ) ) {
 				foreach ( $item[ 'links' ] as $linkKey => $link ) {
+					$isMissing = false;
+
 					$menuItem = [
 						'text' => $link[ 'text' ],
 						'href' => $link[ 'href' ]
 					];
 
+					// We want red links for missing pages in custom header on Content Translation
+					if ( isset( $link[ 'class' ] ) && $link[ 'class' ] === 'new' &&
+						isset( $link[ 'exists' ] ) && $link[ 'exists' ] === false
+					) {
+						$isMissing = true;
+						$menuItem[ 'notvisited' ] = true;
+					}
+
 					// single-id has the form of 'pt-uls', 'pt-watchlist'...
 					// This id is used to get the message as 'tooltip-$id'
 					if ( $link[ 'single-id' ] ) {
 						if ( isset( $link[ 'tooltiponly' ] ) && $link[ 'tooltiponly' ] ) {
-							$title = Linker::titleAttrib( $link[ 'single-id' ], null );
+							$title = Linker::titleAttrib( $link[ 'single-id' ], [ 'nonexisting' ] );
 							if ( $title !== false ) {
 								$menuItem[ 'title' ] = $title;
 							}
 						} else {
 							$menuItem = array_merge(
 								$menuItem,
-								$this->getTooltipAndAccesskey( $link[ 'single-id' ] )
+								$this->getTooltipAndAccesskey( $link[ 'single-id' ], $isMissing )
 							);
 						}
 					}
 
-					$personalMenuItems[] = $menuItem;
+					// In Content Translation custom header, we want to treat User page menu option
+					// separatelly, as username is displayed in menu handle, and we use just display
+					// "User" as menu option for user's page.
+					if ( $key === 'userpage' ) {
+						$menuItem[ 'text' ] =
+							wfMessage( "cx-personaltools-user" )->inContentLanguage()->text();
+						$personalMenuItems[ 'user' ] = $menuItem;
+					} else {
+						$personalMenuItems[] = $menuItem;
+					}
 				}
 
 				// We unset all tools except notification alerts and notices and ULS,
@@ -207,34 +213,16 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	}
 
 	/**
-	 * Get link for the specified personal tool ( e.g. Preferences )
-	 *
-	 * @param array $personalTools
-	 * @param string $tool Name of the tool
-	 * @return string|null Link to the tool or null
-	 */
-	protected function getToolLink( array $personalTools, $tool ) {
-		$tools = $personalTools[ $tool ];
-
-		if ( isset( $tools[ 'links' ] ) ) {
-			foreach ( $tools[ 'links' ] as $linkKey => $link ) {
-				return $link[ 'href' ];
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get tooltip and access key for the specified personal tool ( e.g. Preferences )
 	 *
 	 * @param string $tool Name of the tool
+	 * @param bool $isMissing True if tool page is missing
 	 * @return array Associative array of title and/or accesskey for the tool or empty array
 	 */
-	protected function getTooltipAndAccesskey( $tool ) {
+	protected function getTooltipAndAccesskey( $tool, $isMissing ) {
 		$tipAndAccesskey = [];
 
-		$tip = Linker::tooltipAndAccesskeyAttribs( $tool );
+		$tip = Linker::tooltipAndAccesskeyAttribs( $tool, [], $isMissing ? 'nonexisting' : [] );
 		if ( isset( $tip[ 'title' ] ) ) {
 			$tipAndAccesskey[ 'title' ] = $tip[ 'title' ];
 		}
