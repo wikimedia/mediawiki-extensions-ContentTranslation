@@ -74,7 +74,7 @@
 	"cx-tools-link-hover-tooltip": "کولڻ لاءِ ٽڙڪ ڪريو",
 	"cx-warning-unsaved-translation": "توھان وٽ اڻسانڍيل ترجما آھن.",
 	"cx-error-page-not-found": "\"$1\" صفحو $2 وڪيپيڊيا ۾ نٿو لڀجي سگھي",
-	"cx-source-page-selector-recent-edits-header": "توھان پاران تازو سنواريل",
+	"cx-page-selector-widget-recent-edits-label": "توھان پاران تازو سنواريل",
 	"cx-selected-source-page-start-translation-button": "ترجمو شروع ڪريو",
 	"cx-selected-source-page-error-page-and-title-exist": "ھي عنوان اڳ ئي [$1 $2] ۾ [$3 ھڪ ٻي صفحي] لاءِ استعمال ٿيل آھي",
 	"cx-selected-source-page-error-page-exists": "صفحو [$1 اڳ ئي] $2 ۾ وجود رکي ٿو",

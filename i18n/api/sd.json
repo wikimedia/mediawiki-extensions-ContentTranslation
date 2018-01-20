@@ -7,6 +7,7 @@
 		]
 	},
 	"apihelp-cxpublish-description": "مواد جو ترجمو وڌاءُ استعمال ڪندي تخليق ڪيل صفحو سانڍيو.",
+	"apihelp-cxpublish-summary": "مواد جو ترجمو وڌاءُ استعمال ڪندي سرجيل صفحو سانڍيو.",
 	"apihelp-cxpublish-param-title": "ان صفحي جو عنوان جنھن تي عمل ڪيا ويندا.",
 	"apihelp-cxpublish-param-html": "سانڍڻ لاءِ مواد.",
 	"apihelp-cxpublish-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",

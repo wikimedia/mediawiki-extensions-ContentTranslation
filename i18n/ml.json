@@ -63,7 +63,7 @@
 	"cx-tools-link-hover-tooltip": "തുറക്കാനായി ക്ലിക്കു ചെയ്യുക",
 	"cx-warning-unsaved-translation": "താങ്കൾക്ക് സേവ് ചെയ്യാത്ത പരിഭാഷകൾ ഉണ്ട്.",
 	"cx-error-page-not-found": "\"$1\" എന്ന താൾ \"$2\" വിക്കിപീഡിയയിൽ കാണാൻ സാധിച്ചില്ല.",
-	"cx-source-page-selector-recent-edits-header": "ഈയിടെ നിങ്ങൾ തിരുത്തിയവ",
+	"cx-page-selector-widget-recent-edits-label": "ഈയിടെ നിങ്ങൾ തിരുത്തിയവ",
 	"cx-selected-source-page-start-translation-button": "പരിഭാഷ തുടങ്ങുക",
 	"cx-selected-source-page-error-page-exists": "$2 ഭാഷയിൽ [$1 താൾ] നിലവിലുണ്ട്",
 	"cx-mt-abuse-warning-title": "താങ്കളുടെ പരിഭാഷയിൽ $1% മാറ്റം വരുത്താത്ത യാന്ത്രികപരിഭാഷ അടങ്ങിയിരിയ്ക്കുന്നു.",

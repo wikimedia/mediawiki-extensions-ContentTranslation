@@ -78,7 +78,7 @@
 	"cx-tools-link-hover-tooltip": "Klik om oop te maak",
 	"cx-warning-unsaved-translation": "Jy het ongestoorde vertalings.",
 	"cx-error-page-not-found": "Die \"$1\" bladsy kon nie in $2 Wikipedia gevind word nie",
-	"cx-source-page-selector-recent-edits-header": "Onlangs deur u geredigeer",
+	"cx-page-selector-widget-recent-edits-label": "Onlangs deur u geredigeer",
 	"cx-source-page-selector-no-suggestions": "Dink aan enige van u belangstellings. U hoef nie 'n kenner te wees om 'n goeie vertaling te maak nie.",
 	"cx-selected-source-page-start-translation-button": "Begin vertaling",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 besoek per week|$1 besoeke per week|0=Geen besoeke hierdie week nie}}",
