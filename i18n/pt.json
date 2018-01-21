@@ -13,7 +13,8 @@
 			"Amire80",
 			"Jkb8",
 			"He7d3r",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Athena in Wonderland"
 		]
 	},
 	"cx": "Traduzir página",
@@ -85,6 +86,7 @@
 	"cx-warning-unsaved-translation": "Não gravou as traduções.",
 	"cx-error-page-not-found": "Não foi possível encontrar a página \"$1\" na Wikipédia em $2",
 	"cx-page-selector-widget-recent-edits-label": "Editadas recentemente por si",
+	"cx-page-selector-widget-nearby-label": "Próximo",
 	"cx-source-page-selector-input-placeholder": "Procurar uma página para traduzir",
 	"cx-source-page-selector-no-suggestions": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
 	"cx-source-page-selector-no-search-results": "Não foi encontrada nenhuma página com \"$1\" em $2",

@@ -95,6 +95,7 @@
 	"cx-warning-unsaved-translation": "번역을 저장하지 않았습니다.",
 	"cx-error-page-not-found": "\"$1\" 문서는 $2 위키백과에서 찾을 수 없습니다.",
 	"cx-page-selector-widget-recent-edits-label": "최근에 편집함",
+	"cx-page-selector-widget-nearby-label": "근처",
 	"cx-source-page-selector-input-placeholder": "번역할 문서를 찾습니다",
 	"cx-source-page-selector-no-suggestions": "관심있는 주제를 생각해 보세요. 훌륭한 번역을 하기 위해 전문가가 될 필요는 없습니다.",
 	"cx-source-page-selector-no-search-results": "$2의 \"$1\"에 대한 문서를 찾을 수 없습니다",

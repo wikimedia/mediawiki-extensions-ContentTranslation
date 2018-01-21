@@ -110,6 +110,7 @@
 	"cx-warning-unsaved-translation": "Vous avez des traductions non enregistrées.",
 	"cx-error-page-not-found": "La page « $1 » n’a pas été trouvée sur Wikipédia en $2",
 	"cx-page-selector-widget-recent-edits-label": "Récemment modifié par vous",
+	"cx-page-selector-widget-nearby-label": "À proximité",
 	"cx-source-page-selector-input-placeholder": "Chercher une page à traduire",
 	"cx-source-page-selector-no-suggestions": "Pensez à un sujet qui vous intéresse. Vous n’avez pas besoin d’être un expert pour créer une bonne traduction.",
 	"cx-source-page-selector-no-search-results": "aucune page trouvée pour « $1 » dans $2",

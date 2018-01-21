@@ -94,6 +94,7 @@
 	"cx-warning-unsaved-translation": "Tienes traducciones sin guardar",
 	"cx-error-page-not-found": "La página «$1» no se encuentra en la Wikipedia en $2",
 	"cx-page-selector-widget-recent-edits-label": "Tus ediciones recientes",
+	"cx-page-selector-widget-nearby-label": "Cercanos",
 	"cx-source-page-selector-input-placeholder": "Busca una página que traducir",
 	"cx-source-page-selector-no-suggestions": "Piensa en algún tema que te interese. No es preciso que seas especialista para crear una traducción fabulosa.",
 	"cx-source-page-selector-no-search-results": "No se encontró ninguna página correspondiente a «$1» en $2",

@@ -77,6 +77,7 @@
 	"cx-tools-link-hover-tooltip": "გასახსნელად დააწკაპუნეთ",
 	"cx-warning-unsaved-translation": "თქვენ გაქვთ დაუმახსოვრებელი თარგმანები.",
 	"cx-error-page-not-found": "გვერდი „$1“ ვერ მოიძებნა $2 ვიკიპედიაში",
+	"cx-page-selector-widget-nearby-label": "სიახლოვეს",
 	"cx-selected-source-page-start-translation-button": "დაიწყეთ თარგმნა",
 	"cx-selected-source-page-error-page-and-title-exist": "ეს სათაური უკვე გამოიყენება [$1 $2]-ში [$3 განსხვავებული გვერდისთვის]",
 	"cx-selected-source-page-error-page-exists": "გვერდი [$1 უკვე არსებობს] $2-ში",

@@ -81,6 +81,7 @@
 	"cx-warning-unsaved-translation": "Du har ulagrede oversettelser.",
 	"cx-error-page-not-found": "Siden «$1» ble ikke funnet i Wikipedia på $2",
 	"cx-page-selector-widget-recent-edits-label": "Nylig redigert av deg",
+	"cx-page-selector-widget-nearby-label": "I nærheten",
 	"cx-source-page-selector-input-placeholder": "Søk etter ei side å oversette",
 	"cx-source-page-selector-no-suggestions": "Tenk på et interessefelt du har. Du må ikke være ekspert for å skape en god oversettelse.",
 	"cx-source-page-selector-no-search-results": "Ingen sider funnet for «$1» på $2",

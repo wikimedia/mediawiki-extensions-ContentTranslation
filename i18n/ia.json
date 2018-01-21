@@ -4,7 +4,8 @@
 			"McDutchie",
 			"Julian Mendez",
 			"Macofe",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Karmwiki"
 		]
 	},
 	"cx": "Traducer pagina",
@@ -75,6 +76,7 @@
 	"cx-tools-link-hover-tooltip": "Clicca pro aperir",
 	"cx-warning-unsaved-translation": "Tu ha traductiones non salveguardate.",
 	"cx-error-page-not-found": "Le pagina \"$1\" non ha essite trovate in Wikipedia in $2",
+	"cx-page-selector-widget-nearby-label": "Proximitate",
 	"cx-selected-source-page-start-translation-button": "Comenciar a traducer",
 	"cx-selected-source-page-error-page-and-title-exist": "Iste titulo es jam usate in [$1 $2] pro [$3 un altere pagina]",
 	"cx-selected-source-page-error-page-exists": "Le pagina [$1 jam existe] in $2",
@@ -173,6 +175,7 @@
 	"cx-tools-link-to-another-page": "Ligar a un altere pagina",
 	"cx-tools-link-add-as-missing": "Adder como ligamine mancante",
 	"cx-tools-link-apply": "Facite",
+	"cx-personaltools-user": "Usator",
 	"mw-pageselector-missing": "Pagina non existe",
 	"cx-draft-restoring": "Carga le traduction salveguardate...",
 	"cx-draft-restored": "Traduction salveguardate cargate.",

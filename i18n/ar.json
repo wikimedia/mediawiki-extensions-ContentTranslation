@@ -88,6 +88,7 @@
 	"cx-warning-unsaved-translation": "لديك ترجمات لم تحفظ",
 	"cx-error-page-not-found": "لم يعثر على الصفحة \"$1\" في ويكيبيديا $2",
 	"cx-page-selector-widget-recent-edits-label": "عدلتها مؤخرا",
+	"cx-page-selector-widget-nearby-label": "بالقرب من هنا",
 	"cx-source-page-selector-input-placeholder": "البحث عن صفحة للترجمة",
 	"cx-source-page-selector-no-suggestions": "فكر في أي موضوع يهمك. لا تحتاج أن تكون خبيرا لإنشاء ترجمة عظيمة.",
 	"cx-source-page-selector-no-search-results": "لا صفحات تم العثور عليها ل\"$1\" في $2",
