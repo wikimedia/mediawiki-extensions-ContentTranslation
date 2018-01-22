@@ -82,6 +82,7 @@
 	"cx-warning-unsaved-translation": "יש לך תרגומים שלא נשמרו.",
 	"cx-error-page-not-found": "הדף \"$1\" לא נמצא בוויקיפדיה ב{{GRAMMAR:תחילית|$2}}",
 	"cx-page-selector-widget-recent-edits-label": "ערכת את זה לאחרונה",
+	"cx-page-selector-widget-nearby-label": "בסביבה",
 	"cx-source-page-selector-input-placeholder": "חיפוש דף לתרגום",
 	"cx-source-page-selector-no-suggestions": "{{GENDER:|תחשוב|תחשבי}} על נושא שמעניין אותך. אין צורך להיות מומחה כדי ליצור תרגום מצוין.",
 	"cx-source-page-selector-no-search-results": "לא נמצאו דפים עבור \"$1\" ב{{GRAMMAR:תחילית|$2}}",

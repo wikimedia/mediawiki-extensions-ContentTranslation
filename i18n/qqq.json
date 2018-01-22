@@ -96,7 +96,7 @@
 	"cx-warning-unsaved-translation": "Warning message shown when user tried to navigate away when translation is not saved.",
 	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name",
 	"cx-page-selector-widget-recent-edits-label": "Label used in \"New translation\" dialog, above the suggestions based on user's recently edited pages.",
-	"cx-page-selector-widget-nearby-label": "Label used in \"New translation\" dialog, above the suggestions based on user's current location, showing pages in proximity to the user.",
+	"cx-page-selector-widget-nearby-label": "Label used in \"New translation\" dialog, above the suggestions based on user's current location, showing pages in proximity to the user.\n{{Identical|Nearby}}",
 	"cx-source-page-selector-input-placeholder": "Placeholder for the source page input field. Used on Content Translation page for \"New translation\" dialog and provides prompt to search for source page to start translation.",
 	"cx-source-page-selector-no-suggestions": "Message used in \"New translation\" dialog, when there are no suggestions based on user's recently edited pages.",
 	"cx-source-page-selector-no-search-results": "Message used in \"New translation\" dialog, displayed when there are no search results for user's input query.\n\nParameters:\n* $1 - User's input query\n* $2 - Autonym name of currently selected source language",

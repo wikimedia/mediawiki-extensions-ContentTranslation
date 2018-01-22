@@ -81,6 +81,7 @@
 	"cx-warning-unsaved-translation": "Ten traducións sen gardar.",
 	"cx-error-page-not-found": "A páxina \"$1\" non se atopa na Wikipedia en $2",
 	"cx-page-selector-widget-recent-edits-label": "Editadas recentemente por vostede",
+	"cx-page-selector-widget-nearby-label": "Preto",
 	"cx-source-page-selector-input-placeholder": "Procurar unha páxina para traducir",
 	"cx-source-page-selector-no-suggestions": "Pense nalgún tema que lle interese. Non é preciso que sexa un especialista para crear unha boa tradución.",
 	"cx-source-page-selector-no-search-results": "Non se atopou ningunha páxina para \"$1\" en $2",
