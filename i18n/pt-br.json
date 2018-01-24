@@ -92,6 +92,7 @@
 	"cx-warning-unsaved-translation": "Você possui traduções não salvas.",
 	"cx-error-page-not-found": "A página “$1” não foi encontrada na Wikipédia em $2",
 	"cx-page-selector-widget-recent-edits-label": "Editado recentemente por você",
+	"cx-page-selector-widget-nearby-label": "Próximo",
 	"cx-source-page-selector-input-placeholder": "Procurar uma página para traduzir",
 	"cx-source-page-selector-no-suggestions": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
 	"cx-source-page-selector-no-search-results": "Não foi encontrada nenhuma página com \"$1\" em $2",
