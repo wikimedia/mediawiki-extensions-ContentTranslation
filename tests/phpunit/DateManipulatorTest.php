@@ -6,6 +6,9 @@ namespace ContentTranslation\Tests;
 
 use ContentTranslation\DateManipulator;
 
+/**
+ * @covers \ContentTranslation\DateManipulator
+ */
 class DateManipulatorTest extends \PHPUnit_Framework_TestCase {
 	public function testConstructor() {
 		$this->assertInstanceOf(
