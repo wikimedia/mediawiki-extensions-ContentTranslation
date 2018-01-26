@@ -8,7 +8,8 @@
 			"NehalDaveND",
 			"Santhosh.thottingal",
 			"Sfic",
-			"Jayprakash12345"
+			"Jayprakash12345",
+			"Nitin1485"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -79,6 +80,7 @@
 	"cx-tools-link-hover-tooltip": "खोलने के लिए क्लिक करें",
 	"cx-warning-unsaved-translation": "आपके पास बिना सहेजे गये अनुवाद हैं।",
 	"cx-error-page-not-found": "पृष्ठ \"$1\", $2 विकिपीडिया पर नहीं पाया गया",
+	"cx-page-selector-widget-nearby-label": "निकट",
 	"cx-selected-source-page-start-translation-button": "अनुवाद आरम्भ करें",
 	"cx-selected-source-page-error-page-and-title-exist": "यह शीर्षक [$3 किसी अन्य पृष्ठ] के लिए [$1 $2] में पहले से ही काम में लिया गया है।",
 	"cx-selected-source-page-error-page-exists": "$2 में पृष्ठ [$1 पहले से मौजूद] है",

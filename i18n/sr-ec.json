@@ -7,7 +7,8 @@
 			"Сербијана",
 			"Obsuser",
 			"Милан Јелисавчић",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca"
 		]
 	},
 	"cx": "Преведи страницу",
@@ -42,7 +43,7 @@
 	"cx-translation-target-page-exists": "Страница са овим насловом [$1 $2] већ постоји у циљаном викију. Размислите од другом наслову странице.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Превођење садржаја]]",
 	"tag-contenttranslation-description": "Садржај је преведен са другог језика помоћу алата за превод садржаја.",
-	"cx-source-loading": "Учитавам $1",
+	"cx-source-loading": "Учитавам $1...",
 	"cx-beta": "Превод садржаја",
 	"cx-beta-desc": "Алат за брзо превођење страница на ваш језик. Почните да преводите [[Special:MyContributions|своје доприносе]] и уређујте их помоћу нашег упоредног уређивача који је посебно направљен за превођење. Могуће је да неки алати буду доступни само за одређене језике.",
 	"cx-entrypoint-title": "Преведи ову страницу на $1",
@@ -191,7 +192,7 @@
 	"cx-personaltools-user": "Корисник",
 	"cx-personaltools-anon": "Нисте пријављени",
 	"mw-pageselector-missing": "Страница не постоји",
-	"cx-draft-restoring": "Учитавање сачуваног превода...",
+	"cx-draft-restoring": "Учитавам сачувани превод...",
 	"cx-draft-restored": "Сачувани превод учитан.",
 	"cx-draft-restore-failed": "Неуспјело учитавање сачуваног превода!",
 	"cx-suggestionlist-expand": "Прикажи све",

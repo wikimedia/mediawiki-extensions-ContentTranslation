@@ -8,6 +8,7 @@
 		]
 	},
 	"apihelp-cxpublish-description": "Speichert eine Seite, die mit der Inhaltsübersetzungs-Erweiterung erstellt wurde.",
+	"apihelp-cxpublish-summary": "Speichert eine Seite, die mithilfe der Erweiterung „Content Translation“ erstellt wurde.",
 	"apihelp-cxpublish-param-title": "Der Titel der Seite, bei der die Aktionen ausgeführt werden sollen.",
 	"apihelp-cxpublish-param-html": "Der zu speichernde Inhalt.",
 	"apihelp-cxpublish-param-from": "Der Quell-Sprachcode.",
@@ -28,6 +29,7 @@
 	"apihelp-query+contenttranslation-example-3": "Findet jede Übersetzung für den angegebenen Titel zwischen dem angegebenen Sprachpaar",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Kennung der Übersetzung.",
 	"apihelp-query+contenttranslationstats-description": "Ruft Statistiken zur Inhaltsübersetzung ab.",
+	"apihelp-query+contenttranslationstats-summary": "Ruft Statistiken zur Inhaltsübersetzung ab.",
 	"apihelp-query+contenttranslationstats-example-1": "Bezieht Statistiken zur Inhaltsübersetzung für alle Sprachen.",
 	"apihelp-cxconfiguration-description": "Ruft das Konfigurations-JSON der Inhaltsübersetzung für das angegebene Sprachpaar ab",
 	"apihelp-cxconfiguration-param-from": "Der Quell-Sprachcode.",
