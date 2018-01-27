@@ -92,6 +92,7 @@
 	"cx-warning-unsaved-translation": "شما ترجمه‌های ذخیره‌نشده دارید.",
 	"cx-error-page-not-found": "صفحهٔ «$1» در $2 ویکی‌پدیا یافت نشد",
 	"cx-page-selector-widget-recent-edits-label": "ویرایشهای اخیر شما",
+	"cx-page-selector-widget-nearby-label": "نزدیک",
 	"cx-source-page-selector-input-placeholder": "جستجو برای یک صفحه به‌منظور ترجمه",
 	"cx-selected-source-page-start-translation-button": "شروع ترجمه",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 بازدید|$1 بازدید|0=هیچ بازدیدی}} در هفته",
