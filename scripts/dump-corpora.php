@@ -30,6 +30,8 @@ class CXCorporaDump extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
+
+		$this->requireExtension( 'ContentTranslation' );
 		$this->mDescription = 'Script to produce parallel corpora dumps from CX translations.';
 
 		$this->addOption(

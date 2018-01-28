@@ -21,6 +21,8 @@ use ContentTranslation\SuggestionListManager;
 class CXManageLists extends Maintenance {
 	public function __construct() {
 		parent::__construct();
+
+		$this->requireExtension( 'ContentTranslation' );
 		$this->mDescription = 'Script to import suggestion list';
 
 		// Default to safe option which doesn't actually change data.
