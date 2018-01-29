@@ -186,8 +186,7 @@
 			],
 			"dependencies": [
 				"ext.cx.contributions"
-			],
-			"position": "top"
+			]
 		},
 		"ext.cx.model": {
 			"targets": [ "desktop", "mobile" ],
@@ -1557,8 +1556,7 @@
 			"skinStyles": {
 				"vector": [ "ui/styles/mw.cx.ui.Header.vector.less" ],
 				"monobook": [ "ui/styles/mw.cx.ui.Header.monobook.less" ]
-			},
-			"position": "top"
+			}
 		},
 		"mw.cx.ui.Infobar": {
 			"targets": [ "desktop", "mobile" ],
