@@ -7,5 +7,11 @@
 	},
 	"cx": "ОагIон таржам",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] — ер гIирс я оагIон хьа меттал сиха таржам деш йола. [$1 Пайда эца цох хIанза!]",
-	"cx-tools-link-title": "Тӏатовжам"
+	"cx-tools-link-title": "Тӏатовжам",
+	"cx-contributions-new-article": "Керда оагӀув",
+	"cx-contributions-translation": "Таржам",
+	"cx-contributions-upload": "Медиафайл тӀатохар",
+	"cx-contributions-new-article-tooltip": "Хьакхолла керда оагӀув",
+	"cx-tools-link-external-link": "Арахьара тӀатовжам",
+	"cx-tools-link-external-link-placeholder": "ТӀатоха арахьара тӀатовжам"
 }

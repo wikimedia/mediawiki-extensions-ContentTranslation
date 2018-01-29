@@ -58,10 +58,17 @@
 	"apihelp-cxsuggestionlist-param-titles": "Сирэйдэр бастара.",
 	"apihelp-cxsuggestionlist-param-from": "Тылбаастанар тыл куода.",
 	"apihelp-cxsuggestionlist-param-to": "Тылбаастыыр тылыҥ куода.",
+	"apihelp-cxsave-description": "Бу баллыр тылбаастары харайан трафигы кэмчилиир уонна элбэх тылга тылбаастаммыты түмэр тэрил.",
 	"apihelp-cxsave-param-sourcerevision": "Тылбаастанар ыстатыйа биэрсийэтэ.",
 	"apihelp-cxsave-param-progress": "Тылбаас толорутун туһунан (progress).  <code>any</code>, <code>human</code>, <code>mt</code> уонна <code>mtSectionsCount</code> күлүүстэрдээх JSON. Бырыһыанынан.",
+	"apihelp-cxsave-param-title": "Улартыллыахтаах сиржй аата.",
+	"apihelp-cxsave-param-from": "Тылбаастанар тыл куода (бу тылтан тылбаастыыгын).",
+	"apihelp-cxsave-param-to": "Тылбаастыыр тылыҥ куода (бу тылга тылбаастыыгын).",
+	"apihelp-cxsave-param-sourcetitle": "Тылбаастанар сирэй аата.",
 	"apierror-cx-invalidlanguage": "Сатаммат тыл.",
 	"apierror-cx-invalidprogress": "Салгыыр сатаммата.",
 	"apierror-cx-invalidsectioncontent": "Абсаас иһинээҕитэ алҕастаах.",
+	"apierror-cx-invalidsectiondata": "Абсаас иһинээҕитэ алҕастаах.",
+	"apierror-cx-missingdraft": "Баллыр көстүбэтэ.",
 	"apierror-cx-translationnotfound": "Тылбаас көстүбэтэ."
 }
