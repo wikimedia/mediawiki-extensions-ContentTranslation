@@ -714,7 +714,6 @@
 			"dependencies": [
 				"ext.cx.model",
 				"ext.cx.util",
-				"ext.cx.widgets.overlay",
 				"mw.cx.widgets.TemplateParamOptionWidget"
 			],
 			"messages": [
@@ -972,6 +971,7 @@
 			"dependencies": [
 				"ext.cx.recommendtool.client",
 				"ext.cx.util",
+				"ext.cx.widgets.overlay",
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"mediawiki.widgets",
