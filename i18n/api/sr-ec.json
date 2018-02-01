@@ -67,6 +67,7 @@
 	"apihelp-cxsave-param-sourcerevision": "Измена изворне странице.",
 	"apihelp-cxsave-param-from": "Код изворног језика.",
 	"apihelp-cxsave-param-to": "Код циљног језика.",
+	"apihelp-cxsave-param-sourcetitle": "Наслов изворне стране.",
 	"apierror-cx-invalidlanguage": "Неисправан језик.",
 	"apierror-cx-invalidprogress": "Неисправан процес.",
 	"apierror-cx-invalidsourcelanguage": "Неисправан изворни језик.",

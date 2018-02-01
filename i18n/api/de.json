@@ -50,6 +50,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Bezieht alle veröffentlichten Übersetzungen.",
 	"apihelp-query+cxpublishedtranslations-example-2": "Bezieht alle veröffentlichten Übersetzungen aus dem Englischen",
 	"apihelp-query+cxpublishedtranslations-example-3": "Bezieht alle veröffentlichten Übersetzungen vom Englischen ins Spanische.",
+	"apihelp-query+contenttranslationlangtrend-description": "Fragt die Inhaltsübersetzungsdatenbank für die Anzahl der Übersetzungen nach Zeitperiode ab.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Der Quell-Sprachcode.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Der Ziel-Sprachcode.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Der Intervall zur Berechnung der Tendenz. Kann <kbd>Woche</kbd> oder <kbd>Monat</kbd> betragen.",
