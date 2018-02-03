@@ -15,7 +15,8 @@
 			"Urbanecm",
 			"Dvorapa",
 			"Walter Klosse",
-			"Martin Urbanec"
+			"Martin Urbanec",
+			"Ilimanaq29"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -137,7 +138,7 @@
 	"cx-draft-discard-button-label": "Smazat překlad",
 	"cx-beta-feature-enabled-notification": "Content Translation byl aktivován na této wiki.",
 	"cx-campaign-newarticle-notice": "Vytváření nových stránek <strong>překladem</strong> je nyní snadnější! Chcete vyzkoušet beta verzi nástroje Content Translation?",
-	"cx-campaign-no-thanks": "Ne, díky",
+	"cx-campaign-no-thanks": "Ne, děkuji",
 	"cx-campaign-try": "Vyzkoušet Content Translation",
 	"cx-campaign-contributionsmenu-mycontributions": "Příspěvky",
 	"cx-campaign-contributionsmenu-mytranslations": "Překlady",
@@ -168,7 +169,7 @@
 	"cx-notification-tenth-translation": "Gratulujeme vám k vašemu desátému překladu. Stává se z vás překladatel. Jen tak dál!",
 	"cx-contributions-link": "Vaše příspěvky",
 	"cx-translationlist-empty-title": "Něco k překladu?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Začněte}} překládat nyní a pokračujte kdykoliv budete mít příležitost.",
+	"cx-translationlist-empty-desc": "{{GENDER:|Začněte}} překládat nyní a pokračujte, kdykoliv budete mít příležitost.",
 	"cx-tools-link-internal-link": "Hledat stránky",
 	"cx-tools-link-internal-link-placeholder": "Najít stránku, na kterou chcete odkázat",
 	"cx-tools-link-external-link": "Externí odkaz",
