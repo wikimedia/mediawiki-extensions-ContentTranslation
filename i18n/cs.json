@@ -74,6 +74,7 @@
 	"cx-tools-mt-use-source": "Vložit zdrojový text",
 	"cx-tools-mt-provider-title": "Použít $1",
 	"cx-tools-mt-dont-use": "Nepoužívat strojový překlad",
+	"cx-tools-mt-set-default": "Uložit jako předvolené",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorie|$1 kategorie|$1 kategorií|0=Žádná kategorie}}",
 	"cx-stats-title": "Statistiky využití nástroje Content Translation",
 	"cx-tools-reference-title": "Reference",
@@ -192,5 +193,8 @@
 	"cx-translator-total-translations-label": "Celkem",
 	"cx-tools-mt-new-provider": "nový",
 	"cx-tools-mt-new-providers-available": "s novými možnostmi",
-	"cx-continue-translation": "Pokračovat v překladu"
+	"cx-continue-translation": "Pokračovat v překladu",
+	"cx-template-action-adapt": "Použít ekvivalentní šablonu",
+	"cx-template-action-keep-original": "Ponechat originální šablonu",
+	"cx-template-action-skip": "Vynechat šablonu"
 }
