@@ -45,7 +45,7 @@ class AbuseFilterCheck {
 	 * @return array List of any rule violations
 	 */
 	public function checkTitle() {
-		if ( !class_exists( 'AbuseFilter' ) ) {
+		if ( !\ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
 			return [];
 		}
 
@@ -73,7 +73,7 @@ class AbuseFilterCheck {
 	 * @return array List of any rule violations
 	 */
 	public function checkSection( $text ) {
-		if ( !class_exists( 'AbuseFilter' ) ) {
+		if ( !\ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
 			return [];
 		}
 
