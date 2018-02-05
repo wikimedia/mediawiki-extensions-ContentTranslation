@@ -102,7 +102,10 @@
 }
 
 /* @noflip */.cx-callout-0:after,
-.cx-callout-0:before,
+.cx-callout-0:before {
+	bottom: 100%;
+	left: 50%;
+}
 
 /* @noflip */.cx-callout-12:after,
 .cx-callout-12:before {
