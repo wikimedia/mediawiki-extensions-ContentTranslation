@@ -23,7 +23,7 @@ class ApiContentTranslationToken extends ApiBase {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'token-impossible' );
 		}
 
-		// Do not fatal out
+		// Do not fatal out if firebase/php-jwt is missing
 		if ( !class_exists( JWT::class ) ) {
 			$this->dieWithError( 'apierror-cx-jwtmissing', 'token-impossible' );
 		}

@@ -219,7 +219,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		// Check if Echo is available. If not, skip.
-		if ( !class_exists( 'EchoEvent' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 

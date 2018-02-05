@@ -14,7 +14,8 @@ class ContentTranslationHooks {
 	 * @return bool
 	 */
 	private static function isBetaFeatureEnabled( User $user ) {
-		return class_exists( 'BetaFeatures' ) && BetaFeatures::isFeatureEnabled( $user, 'cx' );
+		return ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
+			&& BetaFeatures::isFeatureEnabled( $user, 'cx' );
 	}
 
 	/**
@@ -97,7 +98,7 @@ class ContentTranslationHooks {
 		// In the future there may be guided tours in other namespaces,
 		// and then this condition should be changed.
 		if (
-			class_exists( 'GuidedTourHooks' ) &&
+			ExtensionRegistry::getInstance()->isLoaded( 'GuidedTour' ) &&
 			$title->inNamespace( NS_USER )
 		) {
 			$out->addModules( 'ext.guidedTour' );
