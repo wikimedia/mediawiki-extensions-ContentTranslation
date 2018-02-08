@@ -4,6 +4,8 @@
  */
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+
 class Database {
 	/**
 	 * Gets a database connection to the ContentTranslation database
@@ -13,9 +15,10 @@ class Database {
 	public static function getConnection( $type ) {
 		global $wgContentTranslationDatabase, $wgContentTranslationCluster;
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$lb = $wgContentTranslationCluster
-			? wfGetLBFactory()->getExternalLB( $wgContentTranslationCluster )
-			: wfGetLB( $wgContentTranslationDatabase );
+			? $lbFactory->getExternalLB( $wgContentTranslationCluster )
+			: $lbFactory->getMainLB( $wgContentTranslationDatabase );
 
 		return $lb->getConnectionRef( $type, [], $wgContentTranslationDatabase );
 	}
