@@ -17,7 +17,6 @@
 	 * - The MediaWiki user interface language.
 	 * - Accept-Language.
 	 * - Browser interface language.
-	 * This will probably include more languages in the future.
 	 *
 	 * @return {string[]} target languages
 	 */
@@ -25,7 +24,7 @@
 		var i, splitCode, splitCodes, specialCodeIndex,
 			uniquePossibleTargetLanguages,
 			possibleTargetLanguages = [],
-			pageLanguage = mw.config.get( 'wgPageContentLanguage' );
+			pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
 
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
