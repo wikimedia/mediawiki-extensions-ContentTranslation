@@ -86,28 +86,6 @@ mw.cx.ui.LanguageFilter.prototype.getAutonyms = function ( languages ) {
 };
 
 /**
- * Return the appropriate menuWidth parameter for a given language count.
- *
- * @param {number} languagesCount Number of languages
- * @return {string} wide, medium or narrow
- */
-mw.cx.ui.LanguageFilter.prototype.getUlsMenuWidth = function ( languagesCount ) {
-	var screenWidth = document.documentElement.clientWidth;
-
-	// 1200px is "wide" limit for Content Translation dashboard
-	if ( screenWidth > 1200 && languagesCount >= 24 ) {
-		return 'wide';
-	}
-
-	// 500px is "very narrow" limit for Content Translation dashboard
-	if ( screenWidth > 500 && languagesCount >= 12 ) {
-		return 'medium';
-	}
-
-	return 'narrow';
-};
-
-/**
  * Calculate position for ULS, depending on directionality
  */
 mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function () {
@@ -363,7 +341,6 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 
 	this.$sourceLanguageFilter.uls( $.extend( {
 		languages: this.getAutonyms( sourceLanguages ),
-		menuWidth: this.getUlsMenuWidth( sourceLanguages.length ),
 		onSelect: function ( language ) {
 			self.setSourceLanguage( language );
 			mw.uls.addPreviousLanguage( language );
@@ -403,7 +380,6 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 
 	this.$targetLanguageFilter.uls( $.extend( {
 		languages: this.getAutonyms( targetLanguages ),
-		menuWidth: this.getUlsMenuWidth( targetLanguages.length ),
 		onSelect: function ( language ) {
 			self.setTargetLanguage( language );
 			mw.uls.addPreviousLanguage( language );
