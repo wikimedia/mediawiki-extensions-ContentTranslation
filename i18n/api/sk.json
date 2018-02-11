@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"TomášPolonec"
+		]
+	},
+	"apihelp-cxpublish-description": "Uložiť článok vytvorený pomocou rozšírenia Content Translation.",
+	"apihelp-cxpublish-summary": "Uložiť článok vytvorený pomocou rozšírenia Content Translation.",
+	"apihelp-cxpublish-param-html": "Obsah na uloženie.",
+	"apihelp-cxpublish-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxpublish-param-to": "Kód cieľového jazyka.",
+	"apihelp-cxpublish-param-sourcetitle": "Názov zdrojového článku.",
+	"apihelp-cxpublish-param-categories": "Kategórie, do ktorých sa má vložiť zverejnený článok.",
+	"apihelp-cxpublish-param-wpCaptchaId": "ID Captchy (ak ukladáte s Captchou).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Odpoveď na Captchu (ak ukladáte s Captchou).",
+	"apihelp-query+contenttranslation-param-translationid": "ID prekladu.",
+	"apihelp-query+contenttranslation-param-from": "Kód zdrojového jazyka.",
+	"apihelp-query+contenttranslation-param-to": "Kód cieľového jazyka.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Názov zdrojového článku.",
+	"apihelp-query+contenttranslation-param-type": "Stav prekladu.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID prekladu.",
+	"apihelp-cxconfiguration-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxconfiguration-param-to": "Kód cieľového jazyka.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Kód zdrojového jazyka.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Kód cieľového jazyka.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Kód zdrojového jazyka.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Kód cieľového jazyka.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Kód zdrojového jazyka.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Kód cieľového jazyka.",
+	"apihelp-cxdelete-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxdelete-param-to": "Kód cieľového jazyka.",
+	"apihelp-cxsuggestionlist-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxsuggestionlist-param-to": "Kód cieľového jazyka.",
+	"apihelp-cxsave-param-from": "Kód zdrojového jazyka.",
+	"apihelp-cxsave-param-to": "Kód cieľového jazyka.",
+	"apihelp-cxsave-param-sourcetitle": "Názov zdrojového článku.",
+	"apierror-cx-docserverexception": "Chyba počas konvertovania HTML na wikitext: $1",
+	"apierror-cx-inuse": "Tento článok už prekladá iný redaktor.",
+	"apierror-cx-invalidlanguage": "Neplatný jazyk."
+}
