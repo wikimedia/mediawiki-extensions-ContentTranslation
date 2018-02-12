@@ -428,7 +428,10 @@
 				this.$publicCollectionContainer.show();
 				this.$publicCollection.append( list.$list );
 				this.$publicCollection.find( '.cx-suggestionlist' ).sort( function ( a, b ) {
-					return listCompare( self.lists[ a.dataset.listid ], self.lists[ b.dataset.listid ] );
+					return listCompare(
+						self.lists[ $( a ).data( 'listid' ) ],
+						self.lists[ $( b ).data( 'listid' ) ]
+					);
 				} ).appendTo( this.$publicCollection );
 			}
 		} else {
