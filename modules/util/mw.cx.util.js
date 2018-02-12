@@ -71,7 +71,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
  * @return {number} Target namespace id
  */
 mw.cx.getDefaultTargetNamespace = function () {
-	var userGroups, group, groupTargetNamespaceConfig, validNamespaceIds, targetNamespace;
+	var userGroups, group, groupTargetNamespaceConfig, targetNamespace;
 
 	groupTargetNamespaceConfig = mw.config.get( 'wgContentTranslationUserGroupTargetNamespace', {} );
 	userGroups = mw.config.get( 'wgUserGroups', [] );
@@ -90,8 +90,7 @@ mw.cx.getDefaultTargetNamespace = function () {
 	}
 
 	// Validate the configuration.
-	validNamespaceIds = Object.values( mw.config.get( 'wgNamespaceIds', {} ) );
-	if ( validNamespaceIds.indexOf( targetNamespace ) < 0 ) {
+	if ( !( targetNamespace in mw.config.get( 'wgFormattedNamespaces' ) ) ) {
 		mw.log.error( '[CX] Invalid publishing namespace configuration. Namespace does not exist: ' + targetNamespace );
 		targetNamespace = 0;
 	}
