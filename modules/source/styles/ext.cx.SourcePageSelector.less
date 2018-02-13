@@ -41,11 +41,17 @@
 
 	.cx-source-page-selector__page-title {
 		max-width: none;
+
 		input {
 			padding-top: 1em;
 			padding-bottom: 1em;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+
+			// Don't show the "clear button" on IE10/11
+			&::-ms-clear {
+				display: none;
+			}
 		}
 
 		> .oo-ui-iconElement-icon {
