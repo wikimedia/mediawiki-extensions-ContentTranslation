@@ -714,6 +714,7 @@
 			"dependencies": [
 				"ext.cx.model",
 				"ext.cx.util",
+				"ext.cx.widgets.overlay",
 				"mw.cx.widgets.TemplateParamOptionWidget"
 			],
 			"messages": [
