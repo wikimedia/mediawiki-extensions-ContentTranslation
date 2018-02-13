@@ -18,6 +18,10 @@
 	.cx-tlitem__actions {
 		margin-bottom: auto;
 
+		.target-ie( {
+			margin-left: auto;
+		} );
+
 		/* Preserve existing opacity transitions, TODO: Unify with OOUI */
 		.oo-ui-buttonElement > .oo-ui-buttonElement-button {
 			opacity: 0.66;
@@ -33,10 +37,9 @@
 	}
 
 	.cx-tlitem__details {
-		.mw-ui-item;
+		.box-sizing( border-box );
 
 		padding-left: 16px;
-		position: relative;
 		width: 100%;
 		min-width: 0;
 		min-height: 90px;
@@ -45,9 +48,23 @@
 
 		.flex-display( box );
 		.flex-display;
+		-ms-flex-direction: column; // Support IE10
 		-webkit-box-orient: vertical;
 		-webkit-flex-direction: column;
 		flex-direction: column;
+
+		.target-ie( {
+			width: auto;
+			max-width: 80%;
+		} );
+
+		/* stylelint-disable */
+		/* Don't apply width override to IE11 */
+		_:-ms-fullscreen,
+		:root & {
+			width: 100%;
+		}
+		/* stylelint-enable */
 
 		.cx-progressbar {
 			width: 100px;
