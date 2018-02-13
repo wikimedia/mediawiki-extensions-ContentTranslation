@@ -101,11 +101,6 @@
 		} );
 	};
 
-	// Math.trunc polyfill
-	Math.trunc = Math.trunc || function ( x ) {
-		return x - x % 1;
-	};
-
 	mw.cx.widgets.CXTranslator.prototype.draw = function () {
 		var i, numOfBars, dataLength,
 			context = this.$canvas[ 0 ].getContext( '2d' ),
@@ -120,7 +115,7 @@
 			canvasWidth = this.$canvas.parent().width();
 
 		// Limit the number of bars displayed
-		numOfBars = Math.trunc( ( canvasWidth - spacing ) / ( barWidth + spacing ) );
+		numOfBars = Math.floor( ( canvasWidth - spacing ) / ( barWidth + spacing ) );
 		data = this.data.slice( Math.max( this.data.length - numOfBars, 0 ) );
 
 		dataLength = data.length;
