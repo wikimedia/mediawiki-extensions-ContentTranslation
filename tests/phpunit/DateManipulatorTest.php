@@ -9,7 +9,7 @@ use ContentTranslation\DateManipulator;
 /**
  * @covers \ContentTranslation\DateManipulator
  */
-class DateManipulatorTest extends \PHPUnit_Framework_TestCase {
+class DateManipulatorTest extends \PHPUnit\Framework\TestCase {
 	public function testConstructor() {
 		$this->assertInstanceOf(
 			DateManipulator::class,
