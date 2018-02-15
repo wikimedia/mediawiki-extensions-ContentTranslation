@@ -88,6 +88,7 @@
 	"cx-warning-unsaved-translation": "Teniu traduccions no desades.",
 	"cx-error-page-not-found": "No es pot trobar la pàgina «$1» a la Viquipèdia en $2",
 	"cx-page-selector-widget-nearby-label": "A prop",
+	"cx-source-page-selector-no-search-results": "No s’ha trobat cap pàgina corresponent amb «$1» en $1",
 	"cx-selected-source-page-start-translation-button": "Comença a traduir",
 	"cx-selected-source-page-error-page-and-title-exist": "Aquest títol ja és utilitzat a [$1 $2] per a [$3 a different page]",
 	"cx-selected-source-page-error-page-exists": "L'article [$1 ja existeix] en $2",
