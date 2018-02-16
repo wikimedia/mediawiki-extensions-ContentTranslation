@@ -115,3 +115,12 @@
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
+
+// Target IE10/11 with @rules
+.target-ie( @rules ) {
+	/* stylelint-disable at-rule-no-unknown */
+	@media screen and ( -ms-high-contrast: active ), ( -ms-high-contrast: none ) {
+		@rules();
+	}
+	/* stylelint-enable at-rule-no-unknown */
+}
