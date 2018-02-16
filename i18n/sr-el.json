@@ -160,6 +160,7 @@
 	"cx-personaltools-user": "Korisnik",
 	"cx-personaltools-anon": "Niste prijavljeni",
 	"mw-pageselector-missing": "Stranica ne postoji",
+	"cx-draft-restore-failed": "Učitavanje sačuvanog prevoda neuspešno!",
 	"cx-suggestionlist-expand": "Prikaži sve",
 	"cx-suggestionlist-collapse": "Prikaži manje"
 }
