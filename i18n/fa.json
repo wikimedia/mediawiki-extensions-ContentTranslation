@@ -94,6 +94,7 @@
 	"cx-page-selector-widget-recent-edits-label": "ویرایشهای اخیر شما",
 	"cx-page-selector-widget-nearby-label": "نزدیک",
 	"cx-source-page-selector-input-placeholder": "جستجو برای یک صفحه به‌منظور ترجمه",
+	"cx-source-page-selector-no-search-results": "هیچ صفحه‌ای برای «$1» در پیدا $2 نشد",
 	"cx-selected-source-page-start-translation-button": "شروع ترجمه",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 بازدید|$1 بازدید|0=هیچ بازدیدی}} در هفته",
 	"cx-selected-source-page-error-page-and-title-exist": "این عنوان در حال حاضر در [$1 $2] برای [$3 یک صفحهٔ متفاوت] استفاده شده است",
