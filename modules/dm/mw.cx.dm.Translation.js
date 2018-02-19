@@ -61,17 +61,16 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 /* Static methods */
 
 /**
- * Parse and restructure the source HTML, wrapping top-level translatable nodes into sections
+ * Parse and restructure the source HTML for source and target languages.
  *
  * @param {string} sourceHtml The source HTML
- * @param {boolean} forTarget Replace each top-level wrapper section with an empty placeholder?
+ * @param {boolean} forTarget Whether the DOM to be prepared for target language.
  * @param {Object} [savedTranslationUnits] Saved translation units if any
  * @return {HTMLDocument} Restructured source DOM
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
-	var lastAboutGroup,
+	var sectionId,
 		sectionNumber = 0,
-		sectionIdPrefix = forTarget ? 'cxTargetSection' : 'cxSourceSection',
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
 		baseNodes;
@@ -86,38 +85,48 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
-	// Wrap each top-level element with a <section rel='cx:Placeholder' id='xxx'>
-	// TODO: it would be better to do section wrapping on the CX server
-	Array.prototype.forEach.call( domDoc.body.childNodes, function ( node ) {
-		var sectionNode, aboutGroup, sectionId, savedSection;
+	domDoc.body.childNodes.forEach( function ( node ) {
+		var sectionNode, savedSectionNode, savedSection, validSection = false;
 
 		sectionNumber++;
-		sectionId = sectionIdPrefix + sectionNumber;
-		savedSection = this.getSavedSection( savedTranslationUnits, node, sectionNumber );
-		if ( forTarget && savedSection ) {
-			sectionNode = this.getSavedTranslation( savedSection );
-		} else {
-			if ( node.nodeType !== Node.ELEMENT_NODE ) {
-				return;
-			}
-			sectionNode = domDoc.createElement( 'section' );
-			aboutGroup = node.getAttribute( 'about' );
 
-			// For about-grouped siblings of block level templates don't give them
-			// a section ID
-			if ( !aboutGroup || aboutGroup !== lastAboutGroup ) {
-				sectionNode.setAttribute( 'id', sectionId );
-				sectionNode.setAttribute( 'rel', forTarget ? 'cx:Placeholder' : 'cx:Section' );
-			}
-
-			lastAboutGroup = aboutGroup;
+		if ( node.nodeType !== Node.ELEMENT_NODE ) {
+			return;
 		}
+
+		sectionId = node.getAttribute( 'id' );
+
+		validSection = node.tagName === 'SECTION' && sectionId &&
+			node.getAttribute( 'rel' ) === 'cx:Section';
+		if ( !validSection ) {
+			mw.log.error( '[CX] Node is not under a section: ' + node.tagName +
+				' after section ' + sectionId + '. Ignoring.' );
+			return;
+		}
+
 		if ( forTarget ) {
+			savedSection = this.getSavedSection( savedTranslationUnits, node, sectionNumber );
+
+			if ( savedSection ) {
+				// Saved translated section. Extract content and create a DOM element
+				savedSectionNode = domDoc.createElement( 'div' );
+				savedSectionNode.innerHTML = savedSection.user.content;
+				sectionNode = savedSectionNode.firstChild;
+			} else {
+				// Prepare a placeholder section
+				sectionNode = domDoc.createElement( 'section' );
+				sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
+				sectionNode.setAttribute( 'id', sectionId );
+				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
+			}
+			// Placeholder node is an empty section, prepared above. It will replace
+			// the node. So delete the node from domDoc.
 			node.parentNode.removeChild( node );
+			articleNode.appendChild( sectionNode );
 		} else {
-			sectionNode.appendChild( node );
+			articleNode.appendChild( node );
 		}
-		articleNode.appendChild( sectionNode );
+
 	}.bind( this ) );
 
 	// TODO: We need to see if all savedTranslationUnit items were restored or not.

@@ -23,7 +23,7 @@
 			sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHTML, false );
 			assert.strictEqual( $( sourceDom ).find( 'article' ).length, 1,
 				'Source DOM is wrapped in article tag' );
-			assert.strictEqual( $( sourceDom ).find( 'section' ).length, 3,
+			assert.strictEqual( $( sourceDom ).find( 'section' ).length, 2,
 				'There are 3 sections in source' );
 			assert.strictEqual( $( sourceDom ).find( '[rel="cx:Section"]' ).length, 2,
 				'Two sections are constructed in source dom' );
