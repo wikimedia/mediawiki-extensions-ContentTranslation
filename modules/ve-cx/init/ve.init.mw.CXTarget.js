@@ -29,18 +29,39 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 	this.targetArticle = null;
 	this.publishButton = null;
 	this.header = new mw.cx.ui.Header( config );
+	this.infobar = new mw.cx.ui.Infobar( this.config );
+	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config );
 	this.pageName = this.targetColumn.getTargetTitle();
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.sourceSurface = null;
 	this.targetSurface = null;
+
+	this.translationView = new OO.ui.StackLayout( $.extend( {}, config, {
+		continuous: true,
+		expanded: false,
+		classes: [ 'cx-translation-view-container' ],
+		scrollable: false,
+		padded: false
+	} ) );
+
+	this.contentContainer = new OO.ui.HorizontalLayout( $.extend( {}, config, {
+		continuous: true,
+		expanded: true,
+		classes: [ 'cx-content-container' ],
+		items: [ this.sourceColumn, this.targetColumn ]
+	} ) );
+
+	this.translationView.addItems( [ this.translationHeader, this.infobar, this.contentContainer ] );
+
 	this.columns = new OO.ui.HorizontalLayout( $.extend( {}, config, {
 		continuous: true,
 		expanded: true,
 		classes: [ 'cx-widget__columns' ],
-		items: [ this.sourceColumn, this.targetColumn, this.toolsColumn ]
+		items: [ this.translationView, this.toolsColumn ]
 	} ) );
+
 	this.stackLayout = new OO.ui.StackLayout( $.extend( {}, config, {
 		continuous: true,
 		expanded: false,
@@ -48,6 +69,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 		scrollable: false,
 		padded: false
 	} ) );
+
 	this.stackLayout.addItems( [ this.header, this.columns ] );
 	this.$element
 		.addClass( 've-init-mw-cxTarget' )
@@ -132,26 +154,19 @@ ve.init.mw.CXTarget.static.alignSectionPair = function ( sourceOffsetTop, target
 /* Methods */
 
 ve.init.mw.CXTarget.prototype.setupToolbar = function () {
-	var publishButton;
+	this.publishButton = this.translationHeader.publishButton;
 
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
 
-	publishButton = new OO.ui.ButtonWidget( {
-		disabled: true,
-		flags: [ 'progressive', 'primary' ],
-		classes: [ 'cx-header__publish-button' ],
-		label: mw.msg( 'cx-publish-button' )
-	} );
-	publishButton.connect( this, {
+	this.publishButton.connect( this, {
 		click: 'onPublishButtonClick'
 	} );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
-		publishButton.setDisabled( weights.any === 0 );
-	} );
-	this.publishButton = publishButton;
-	this.getToolbar().$actions.append( this.publishButton.$element );
-	this.getToolbar().initialize();
+		this.publishButton.setDisabled( weights.any === 0 );
+	}.bind( this ) );
+	// FIXME Toolbar should go to tools column
+	// this.getToolbar().initialize();
 };
 
 ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
@@ -292,7 +307,10 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
-	this.header.$toolbar.append( this.getToolbar().$element );
+	// FIXME: We need a container in tools column to hold this toolbar.
+	if ( this.toolsColumn.$toolbar ) {
+		this.toolsColumn.$toolbar.$append( this.getToolbar().$element );
+	}
 };
 
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
@@ -445,11 +463,11 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
  * @param {string} details The details of error in HTML.
  */
 ve.init.mw.CXTarget.prototype.showMessage = function ( type, message, details ) {
-	this.header.infobar.showMessage( type, message, details );
+	this.infobar.showMessage( type, message, details );
 };
 
 ve.init.mw.CXTarget.prototype.setStatusMessage = function ( message ) {
-	this.header.setStatusMessage( message );
+	this.translationHeader.setStatusMessage( message );
 };
 
 ve.init.mw.CXTarget.prototype.showConflictWarning = function ( translation ) {

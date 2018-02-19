@@ -1,15 +1,11 @@
 @import '../../../widgets/common/ext.cx.common.less';
 
 .cx-message-widget {
-	border-bottom: 1px solid #c8ccd1;
-	min-height: 2em;
-	padding: 5px 10px;
-	margin-bottom: 10px;
 	position: relative;
+	padding: 5px 35px 5px 10px;
 
 	&.oo-ui-iconElement > .oo-ui-iconElement-icon {
 		position: static;
-		display: inline-block;
 		float: left;
 		vertical-align: middle;
 		padding: 0.2em 0;
@@ -37,9 +33,9 @@
 	}
 
 	.cx-message-widget-close {
+		position: absolute;
 		right: 0;
 		top: 0;
-		position: absolute;
 	}
 
 	.cx-message-widget-message {

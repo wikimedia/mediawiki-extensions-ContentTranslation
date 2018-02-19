@@ -23,6 +23,7 @@
 		this.$publishedTranslationsButton = null;
 		this.lists = {};
 		this.header = null;
+		this.infobar = null;
 		this.$translationListContainer = null;
 		this.newTranslationButton = null;
 		this.$listHeader = null;
@@ -256,6 +257,8 @@
 	};
 
 	CXDashboard.prototype.render = function () {
+		this.infobar = new mw.cx.ui.Infobar( this.config );
+
 		this.header = new mw.cx.ui.Header( {
 			classes: [ 'cx-header--dashboard' ],
 			siteMapper: this.siteMapper,
@@ -273,6 +276,7 @@
 
 		this.$container.append(
 			this.header.$element,
+			this.infobar.$element,
 			this.$dashboard
 		);
 	};

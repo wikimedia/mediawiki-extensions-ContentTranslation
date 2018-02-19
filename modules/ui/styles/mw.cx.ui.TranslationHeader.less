@@ -1,0 +1,50 @@
+@import '../../widgets/common/ext.cx.common.less';
+
+.cx-translation-view-header {
+	.mw-ui-one-whole;
+
+	padding: 0;
+	/* Trick to get items vertically aligned */
+	line-height: 3;
+	min-height: 3em;
+
+	background-color: @white;
+	border-bottom: 1px solid @colorGray12;
+	border-radius: @borderRadius @borderRadius 0 0;
+
+	.cx-header__translation-center {
+		.mw-ui-one-third;
+
+		a {
+			color: @colorGray5;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				border: 4px solid transparent;
+				border-right-color: @colorGray5;
+				margin: 0 8px 0 0;
+			}
+		}
+	}
+
+	.cx-header-draft-status {
+		.mw-ui-one-third;
+
+		color: @colorGray5;
+		font-size: medium;
+	}
+	.cx-header-tools-container {
+		float: right;
+		margin: 0;
+	}
+	.cx-header__publish-button {
+		margin: 0;
+
+		&.oo-ui-buttonElement.oo-ui-labelElement > .oo-ui-buttonElement-button {
+			border-radius: 0 @borderRadius 0 0;
+			padding: 0.5em 1em;
+			line-height: 2;
+		}
+	}
+}

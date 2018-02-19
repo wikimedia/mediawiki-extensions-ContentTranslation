@@ -29,7 +29,7 @@
 	"cx-source-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1",
 	"cx-publish-page-error": "An error occurred while publishing the translation. Please try to publish the page again. Error: $1",
-	"cx-publish-button": "Publish translation",
+	"cx-publish-button": "Publish",
 	"cx-publish-button-publishing": "Publishing...",
 	"cx-lost-session-draft": "Your session has expired. Your edits cannot be saved unless you log in again in another window.",
 	"cx-lost-session-publish": "Your session has expired. You cannot publish the translation until you log in again in another window.",

@@ -222,7 +222,6 @@
 			},
 			"dependencies": [
 				"ext.cx.feedback",
-				"mw.cx.ui.Header",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.SourcePageSelector",
@@ -233,6 +232,8 @@
 				"mediawiki.Uri",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
+				"mw.cx.ui.Header",
+				"mw.cx.ui.Infobar",
 				"oojs-ui.styles.icons-editing-core",
 				"oojs-ui.styles.icons-interactions"
 			],
@@ -1455,10 +1456,12 @@
 				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.tools",
 				"mw.cx.ui.Header",
+				"mw.cx.ui.Infobar",
 				"mw.cx.ui.TranslationUnits",
 				"mw.cx.ui.SourceColumn",
 				"mw.cx.ui.TargetColumn",
 				"mw.cx.ui.ToolsColumn",
+				"mw.cx.ui.TranslationHeader",
 				"mw.cx.util",
 				"mw.cx.visualEditor"
 			]
@@ -1501,13 +1504,6 @@
 			],
 			"messages": [
 				"cx",
-				"cx-draft-restore-failed",
-				"cx-draft-restored",
-				"cx-draft-restoring",
-				"cx-save-draft-error",
-				"cx-save-draft-save-success",
-				"cx-save-draft-saving",
-				"cx-save-draft-tooltip",
 				"cx-personaltools-anon",
 				"login"
 			],
@@ -1515,7 +1511,6 @@
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
 				"oojs-ui.styles.icons-user",
-				"mw.cx.ui.Infobar",
 				"mw.cx.ui.PersonalMenuWidget"
 			]
 		},
@@ -1557,6 +1552,28 @@
 				"vector": [ "ui/styles/mw.cx.ui.Header.vector.less" ],
 				"monobook": [ "ui/styles/mw.cx.ui.Header.monobook.less" ]
 			}
+		},
+		"mw.cx.ui.TranslationHeader": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/mw.cx.ui.TranslationHeader.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.TranslationHeader.less"
+			],
+			"messages": [
+				"cx",
+				"cx-draft-restore-failed",
+				"cx-draft-restored",
+				"cx-draft-restoring",
+				"cx-save-draft-error",
+				"cx-save-draft-save-success",
+				"cx-save-draft-saving",
+				"cx-save-draft-tooltip"
+			],
+			"dependencies": [
+				"mw.cx.ui"
+			]
 		},
 		"mw.cx.ui.Infobar": {
 			"targets": [ "desktop", "mobile" ],

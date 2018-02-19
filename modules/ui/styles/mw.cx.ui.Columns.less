@@ -3,6 +3,7 @@
 
 .cx-widget__columns {
 	min-height: 100vh;
+	padding: 0 @personal-header-padding;
 
 	&.disabled {
 		pointer-events: none;
@@ -11,7 +12,7 @@
 }
 
 .cx-column {
-	.mw-ui-one-third;
+	background-color: @white;
 }
 
 .cx-column__sub-heading,
@@ -50,7 +51,7 @@
 
 .cx-column-title {
 	font-size: 2.2em;
-	color: @gray-darker;
+	color: @colorGray2;
 	font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
 	margin-bottom: 10px;
 	word-wrap: break-word;

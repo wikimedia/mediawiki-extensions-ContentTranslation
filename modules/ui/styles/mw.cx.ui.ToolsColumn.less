@@ -1,33 +1,27 @@
 @import '../../widgets/common/ext.cx.common.less';
 
 .cx-column.cx-column-tools {
+	.mw-ui-one-third;
 	.mw-ui-one-whole(@palm);
 
-	background-color: #eaecf0;
+	background-color: @colorGray14;
+	float: left;
 	min-height: 100vh;
-	float: none;
-	position: fixed;
-	top: 110px;
-	right: 0;
-	border-left: 1px solid #c8ccd1;
-
-	&.sticky {
-		top: 41px;
-	}
+	padding: 0 0 0 20px;
 
 	@media @palm {
 		.stick-to-bottom;
 	}
 
 	.cx-column-tools-container {
-		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		height: 100vh;
 	}
 }
 
 .cx-feedback-link {
-	bottom: 10px;
 	position: fixed;
+	bottom: 10px;
 	right: 10px;
 }

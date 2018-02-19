@@ -22,7 +22,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		classes: [ 'cx-column-tools-container' ],
 		expanded: false,
 		scrollable: false,
-		padded: true
+		padded: false
 	} );
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
@@ -48,11 +48,6 @@ mw.cx.ui.ToolsColumn.prototype.init = function () {
 		mw.log( '[CX] Initializing translation tool system' );
 		this.showInstructions();
 	}.bind( this ) );
-	this.listen();
-};
-
-mw.cx.ui.ToolsColumn.prototype.listen = function () {
-	$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
 };
 
 /**
@@ -114,14 +109,4 @@ mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {
  */
 mw.cx.ui.ToolsColumn.prototype.hideAllTools = function () {
 	this.toolContainer.clearItems();
-};
-
-mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop();
-
-	if ( scrollTop > 0 ) {
-		this.$element.addClass( 'sticky' );
-	} else {
-		this.$element.removeClass( 'sticky' );
-	}
 };
