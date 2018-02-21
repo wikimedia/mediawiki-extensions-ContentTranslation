@@ -301,12 +301,27 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 };
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
-	var sourceOffsetTop, targetOffsetTop, alignSectionPair, articleNode;
+	var i, sourceOffsetTop, documentNodeChildren, targetOffsetTop, alignSectionPair,
+		sourceDocumentNode, articleNode;
 
-	sourceOffsetTop = this.sourceSurface.getView().getDocument().documentNode.$element.offset().top;
+	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
+	sourceOffsetTop = sourceDocumentNode.$element.offset().top;
 	targetOffsetTop = this.targetSurface.getView().getDocument().documentNode.$element.offset().top;
 	alignSectionPair = this.constructor.static.alignSectionPair;
-	articleNode = this.sourceSurface.getView().getDocument().getDocumentNode().getChildren()[ 0 ];
+	documentNodeChildren = sourceDocumentNode.getChildren();
+
+	for ( i = 0; i < documentNodeChildren.length; i++ ) {
+		if ( documentNodeChildren[ i ].getType() === 'article' ) {
+			articleNode = documentNodeChildren[ i ];
+			break;
+		}
+	}
+
+	if ( !articleNode ) {
+		mw.log.error( '[CX] Fatal: articleNode not found in documentNode' );
+		return;
+	}
+
 	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
@@ -314,6 +329,8 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 		if ( match ) {
 			sectionNumber = +match[ 1 ];
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
+		} else {
+			mw.log.warn( '[CX] Invalid source section ' + element.id + 'found. Alignment may go wrong' );
 		}
 	} );
 };
