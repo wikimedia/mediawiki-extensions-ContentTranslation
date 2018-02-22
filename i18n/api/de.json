@@ -44,6 +44,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-offset": "Versatz für gezählte Ergebnisse.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Vorgeschlagene Seiten laden für die Übersetzung von Englisch (en) in Spanisch (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Bezieht Informationen über veröffentlichte Übersetzungen",
+	"apihelp-query+cxpublishedtranslations-summary": "Ruft Informationen zu allen veröffentlichten Übersetzungen ab.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Sprachcode der Quelle.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Sprachcode des Ziels.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maximal zu ladende Übersetzungen.",

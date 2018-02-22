@@ -2,17 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"Jonbg",
-			"Maxí"
+			"Maxí",
+			"Sveinn í Felli"
 		]
 	},
 	"apihelp-cxpublish-description": "Vista síðu sem var búin til með Content Translation viðbótinni.",
+	"apihelp-cxpublish-summary": "Vista síðu sem var búin til með Content Translation viðbótinni.",
 	"apihelp-cxpublish-param-html": "Efnið til að vista.",
 	"apihelp-cxpublish-param-from": "Kóði frummálsins.",
 	"apihelp-cxpublish-param-to": "Kóði markmálsins.",
 	"apihelp-cxpublish-param-sourcetitle": "Titill frumgreinarinnar.",
 	"apihelp-cxpublish-param-categories": "Flokkarnir sem á að setja útgefnu síðuna í.",
+	"apihelp-query+contenttranslation-param-from": "Kóði frummálsins.",
+	"apihelp-query+contenttranslation-param-to": "Kóði markmálsins.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Titill upprunalegu greinarinnar.",
 	"apihelp-cxconfiguration-param-from": "Kóði frummálsins.",
 	"apihelp-cxconfiguration-param-to": "Kóði markmálsins.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Kóði frummálsins.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kóði frummálsins.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Sækja allar útgefnar þýðingar",
@@ -21,8 +28,15 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Kóði frummálsins.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Kóði markmálsins.",
 	"apihelp-cxdelete-description": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
+	"apihelp-cxdelete-summary": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
 	"apihelp-cxdelete-param-from": "Kóði frummálsins.",
 	"apihelp-cxdelete-param-to": "Kóði markmálsins.",
 	"apihelp-cxdelete-param-sourcetitle": "Titill upprunagreinarinnar.",
-	"apihelp-cxdelete-example-1": "Eyða drögum sem tengjast þessu málapari og titli."
+	"apihelp-cxdelete-example-1": "Eyða drögum sem tengjast þessu málapari og titli.",
+	"apihelp-cxsuggestionlist-param-titles": "Síðutitlar.",
+	"apihelp-cxsuggestionlist-param-from": "Kóði frummálsins.",
+	"apihelp-cxsuggestionlist-param-to": "Kóði markmálsins.",
+	"apihelp-cxsave-param-from": "Kóði frummálsins.",
+	"apihelp-cxsave-param-to": "Kóði markmálsins.",
+	"apihelp-cxsave-param-sourcetitle": "Titill upprunalegu greinarinnar."
 }
