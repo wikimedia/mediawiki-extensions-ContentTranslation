@@ -112,7 +112,7 @@
 		this.startTranslationButton = new OO.ui.ButtonWidget( {
 			flags: [ 'primary', 'progressive' ],
 			label: translateButtonLabel
-		} ).on( 'click', this.startPageInCX.bind( this ) );
+		} );
 
 		$license = $( '<div>' )
 			.addClass( 'cx-selected-source-page__license' )
@@ -132,11 +132,28 @@
 			);
 	};
 
+	mw.cx.SelectedSourcePage.prototype.toggleModal = function () {
+		var self = this;
+
+		this.$element
+			.addClass( 'cx-selected-source-page--modal' )
+			.on( 'keydown', function ( e ) {
+				if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
+					self.discardDialog();
+				}
+			} );
+	};
+
 	mw.cx.SelectedSourcePage.prototype.hide = function () {
 		this.$element.remove();
 	};
 
+	mw.cx.SelectedSourcePage.prototype.focusStartTranslationButton = function () {
+		this.startTranslationButton.$button.focus();
+	};
+
 	mw.cx.SelectedSourcePage.prototype.listen = function () {
+		this.startTranslationButton.connect( this, { click: this.startPageInCX } );
 		this.discardButton.connect( this, { click: this.discardDialog } );
 	};
 
