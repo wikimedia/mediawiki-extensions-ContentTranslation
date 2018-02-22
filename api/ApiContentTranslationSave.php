@@ -13,10 +13,15 @@ use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use ContentTranslation\Database;
 
 class ApiContentTranslationSave extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
+
+		if ( Database::getConnection( DB_MASTER )->isReadOnly() ) {
+			$this->dieReadOnly();
+		}
 
 		$user = $this->getUser();
 		if ( $this->getUser()->isBlocked() ) {
