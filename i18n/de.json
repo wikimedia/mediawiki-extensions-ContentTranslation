@@ -27,7 +27,7 @@
 	"cx-source-view-page": "Seite ansehen",
 	"cx-publish-page-success": "Seite veröffentlicht unter $1",
 	"cx-publish-page-error": "Beim Veröffentlichen der Übersetzung ist ein Fehler aufgetreten. Bitte versuche, die Seite erneut zu veröffentlichen. Fehler: $1",
-	"cx-publish-button": "Übersetzung veröffentlichen",
+	"cx-publish-button": "Veröffentlichen",
 	"cx-publish-button-publishing": "Veröffentliche …",
 	"cx-lost-session-draft": "Deine Sitzung ist abgelaufen. Deine Bearbeitungen können nicht abgespeichert werden, es sei denn, du meldest dich in einem neuen Fenster erneut an.",
 	"cx-lost-session-publish": "Deine Sitzung ist abgelaufen. Du kannst die Übersetzung nicht veröffentlichen, bis du dich in einem neuen Fenster erneut anmeldest.",

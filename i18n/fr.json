@@ -55,7 +55,7 @@
 	"cx-source-view-page": "afficher la page",
 	"cx-publish-page-success": "Page publiée sur $1",
 	"cx-publish-page-error": "Une erreur est survenue lors de la publication de la traduction. Veuillez réessayer. Erreur : $1",
-	"cx-publish-button": "Publier la traduction",
+	"cx-publish-button": "Publier",
 	"cx-publish-button-publishing": "Publication en cours…",
 	"cx-lost-session-draft": "Votre session a expiré. Vos modifications ne peuvent pas être enregistrées, sauf si vous vous connectez de nouveau dans une autre fenêtre.",
 	"cx-lost-session-publish": "Votre session a expiré. Vous ne pouvez pas publier la traduction sauf si vous vous reconnectez dans une autre fenêtre.",

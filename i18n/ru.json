@@ -28,7 +28,8 @@
 			"Kareyac",
 			"Tomasdd",
 			"Edible Melon",
-			"Gehhrr"
+			"Gehhrr",
+			"Mouse21"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -45,7 +46,7 @@
 	"cx-source-view-page": "просмотр страницы",
 	"cx-publish-page-success": "Страница опубликована на $1",
 	"cx-publish-page-error": "При публикации перевода произошла ошибка. Пожалуйста, попробуйте опубликовать страницу ещё раз. Ошибка: $1",
-	"cx-publish-button": "Опубликовать перевод",
+	"cx-publish-button": "Опубликовать",
 	"cx-publish-button-publishing": "Публикация…",
 	"cx-lost-session-draft": "Ваша сессия истекла. Ваши правки не смогут быть сохранены до тех пор, пока вы снова не войдёте в систему в другом окне.",
 	"cx-lost-session-publish": "Ваша сессия истекла. Вы не сможете опубликовать перевод до тех пор, пока вы снова не войдёте в систему в другом окне.",
@@ -99,12 +100,17 @@
 	"cx-tools-link-hover-tooltip": "Щёлкните, чтобы открыть",
 	"cx-warning-unsaved-translation": "У вас есть несохранённые переводы.",
 	"cx-error-page-not-found": "Страница «$1» не может быть найдена Википедии на $2",
+	"cx-page-selector-widget-recent-edits-label": "Недавно отредактированный вами",
 	"cx-page-selector-widget-nearby-label": "Неподалёку от вас",
 	"cx-source-page-selector-input-placeholder": "Поиск страницы для перевода",
+	"cx-source-page-selector-no-suggestions": "Подумайте о какой-либо теме вашего интереса. Вам не нужно быть экспертом, чтобы создать отличный перевод.",
+	"cx-source-page-selector-no-search-results": "Не найдено страниц по \"$1\" в $2",
 	"cx-selected-source-page-start-translation-button": "Начать перевод",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 посещать в|$1 посещений в|0=Нет посещений}} неделю",
 	"cx-selected-source-page-error-page-and-title-exist": "Это название уже используется в [$1 $2] для [$3 другой страницы]",
 	"cx-selected-source-page-error-page-exists": "Страница [$1 уже существует] на $2",
 	"cx-selected-source-page-error-title-in-use": "Название для новой страницы [$1 уже используется]",
+	"cx-page-missing-in-target-language": "Отсутствует $1",
 	"cx-page-number-of-languages": "Количество языков",
 	"cx-mt-abuse-warning-title": "Ваш перевод {{PLURAL:$1|содержит}} $1% неизменённого машинного перевода текста",
 	"cx-mt-abuse-warning-text": "Машинный перевод предоставляется только в качестве отправной точки. Вам нужно убедиться, что перевод точен и естественно читается на вашем языке.",
@@ -239,5 +245,6 @@
 	"cx-publish-destination-tooltip": "Выберите пространство имён, в котором страница будет опубликована",
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-user": "Личный черновик",
-	"cx-publish-destination-namespace-draft": "Общественный черновик"
+	"cx-publish-destination-namespace-draft": "Общественный черновик",
+	"cx-linkcontextitem-title": "Адаптированная ссылка"
 }

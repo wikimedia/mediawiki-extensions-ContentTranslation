@@ -37,7 +37,7 @@
 	"cx-source-view-page": "ver página",
 	"cx-publish-page-success": "Página publicada em $1",
 	"cx-publish-page-error": "Ocorreu um erro ao publicar a tradução. Por favor, tente novamente. Erro: $1",
-	"cx-publish-button": "Publicar tradução",
+	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publicando…",
 	"cx-lost-session-draft": "Sua sessão expirou. Suas edições não poderão ser salvas até que você autentique-se novamente em outra janela.",
 	"cx-lost-session-publish": "Sua sessão expirou. Sua tradução não poderá ser publicada até que você autentique-se novamente em outra janela.",
