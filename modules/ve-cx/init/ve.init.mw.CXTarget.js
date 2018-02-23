@@ -20,7 +20,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 		padded: false
 	} );
 	config.toolbarConfig = $.extend(
-		{ shadow: true, actions: true, floatable: true },
+		{ shadow: true, actions: false, floatable: false },
 		config.toolbarConfig
 	);
 	// Parent constructor
@@ -307,11 +307,45 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
-	// FIXME: We need a container in tools column to hold this toolbar.
-	if ( this.toolsColumn.$toolbar ) {
-		this.toolsColumn.$toolbar.$append( this.getToolbar().$element );
-	}
+	this.toolsColumn.editingToolbar.$element.append( this.getToolbar().$element );
 };
+
+ve.init.mw.CXTarget.static.toolbarGroups = [
+	// History
+	{ include: [ 'undo', 'redo' ] },
+	// Style
+	{
+		classes: [ 've-cx-toolbar-style' ],
+		type: 'list',
+		icon: 'textStyle',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-style-tooltip' ),
+		include: [ { group: 'textStyle' }, 'language', 'clear' ],
+		forceExpand: [ 'bold', 'italic', 'clear' ],
+		promote: [ 'bold', 'italic' ],
+		demote: [ 'strikethrough', 'code', 'underline', 'language', 'clear' ]
+	},
+	// Link
+	{ include: [ 'link' ] },
+	// Structure
+	{
+		classes: [ 've-cx-toolbar-structure' ],
+		type: 'list',
+		icon: 'listBullet',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-structure' ),
+		include: [ { group: 'structure' } ],
+		demote: [ 'outdent', 'indent' ]
+	},
+	// Insert
+	{
+		classes: [ 've-cx-toolbar-insert' ],
+		icon: 'ellipsis',
+		label: '',
+		type: 'list',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
+		include: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ],
+		promote: [ 'media', 'transclusion', 'insertTable' ]
+	}
+];
 
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.emit( 'contentChange' );

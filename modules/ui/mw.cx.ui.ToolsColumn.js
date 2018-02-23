@@ -17,12 +17,21 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		classes: [ 'cx-feedback-link' ],
 		flags: [ 'progressive' ]
 	} );
+
+	this.editingToolbar = new OO.ui.PanelLayout( {
+		classes: [ 'cx-tools-editing-toolbar-container' ],
+		expanded: false,
+		framed: false,
+		padded: false
+	} );
+
 	this.toolContainer = new OO.ui.StackLayout( {
 		continuous: true,
 		classes: [ 'cx-column-tools-container' ],
 		expanded: false,
 		scrollable: false,
-		padded: false
+		padded: false,
+		items: [ this.editingToolbar ]
 	} );
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
