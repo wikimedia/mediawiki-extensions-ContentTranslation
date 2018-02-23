@@ -1299,7 +1299,6 @@
 				"ve-cx/ce/ve.ce.CXSentenceSegmentAnnotation.js",
 				"ve-cx/ce/ve.ce.CXSectionNode.js",
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
-				"ve-cx/ui/ve.ui.CXDestinationTool.js",
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
@@ -1572,7 +1571,9 @@
 				"cx-save-draft-tooltip"
 			],
 			"dependencies": [
-				"mw.cx.ui"
+				"mw.cx.ui",
+				"mw.cx.ui.PublishSettingsWidget",
+				"oojs-ui.styles.icons-interactions"
 			]
 		},
 		"mw.cx.ui.Infobar": {
@@ -2059,6 +2060,7 @@
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PublishSettingsWidget.js"
 			],

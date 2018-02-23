@@ -1,7 +1,12 @@
 @import '../../../widgets/common/ext.cx.common.less';
 
 .mw-cx-ui-PublishSettingsWidget {
+	margin: 0 !important; /* stylelint-disable-line declaration-no-important */
 	text-align: left;
+
+	.oo-ui-popupWidget {
+		z-index: 2;
+	}
 
 	.mw-cx-ui-PublishSettingsWidget-menu {
 		.mw-cx-ui-PublishSettingsWidget-menu-section-header {

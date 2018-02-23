@@ -30,19 +30,21 @@ OO.inheritClass( mw.cx.ui.TranslationHeader, OO.ui.PanelLayout );
 mw.cx.ui.TranslationHeader.static.timer = null;
 
 mw.cx.ui.TranslationHeader.prototype.getContent = function () {
-	var $translationCenterLink, $translationCenter;
-
-	$translationCenterLink = $( '<a>' )
-		.attr( 'href', mw.util.getUrl( 'Special:ContentTranslation' ) )
-		.text( mw.msg( 'cx-header-all-translations' ) );
-
-	$translationCenter = $( '<div>' )
-		.addClass( 'cx-header__translation-center' )
-		.append( $translationCenterLink );
+	var translationCenter = new OO.ui.ButtonWidget( {
+		framed: false,
+		icon: 'previous',
+		classes: [ 'cx-header__translation-center' ],
+		label: mw.msg( 'cx-header-all-translations' ),
+		href: mw.util.getUrl( 'Special:ContentTranslation' )
+	} );
 
 	this.statusbar = new OO.ui.LabelWidget( {
 		classes: [ 'cx-header-draft-status' ],
 		title: mw.msg( 'cx-save-draft-tooltip' )
+	} );
+
+	this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
+		destination: mw.cx.getDefaultTargetNamespace()
 	} );
 
 	this.publishButton = new OO.ui.ButtonWidget( {
@@ -56,10 +58,10 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 		continuous: true,
 		expanded: true,
 		classes: [ 'cx-header-tools-container' ],
-		items: [ this.publishButton ]
+		items: [ this.publishSettings, this.publishButton ]
 	} );
 
-	return [ $translationCenter, this.statusbar.$element, this.toolbar.$element ];
+	return [ translationCenter.$element, this.statusbar.$element, this.toolbar.$element ];
 };
 
 mw.cx.ui.TranslationHeader.prototype.listen = function () {

@@ -93,27 +93,6 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
 /* Static properties */
 
-ve.init.mw.CXTarget.static.actionGroups = [
-	// Document options and tools
-	{
-		type: 'list',
-		icon: 'menu',
-		indicator: null,
-		title: ve.msg( 'visualeditor-pagemenu-tooltip' ),
-		include: [ 'meta', 'categories', 'settings', 'advancedSettings', 'languages', 'templatesUsed', 'changeDirectionality', 'findAndReplace' ]
-	},
-	// Publish destination
-	{
-		header: OO.ui.deferMsg( 'cx-publish-destination-header' ),
-		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
-		icon: 'advanced',
-		indicator: null,
-		classes: [ 've-init-mw-cxTarget-publishGroup' ],
-		type: 'menu',
-		include: [ { group: 'cxDestination' } ]
-	}
-];
-
 /* Static methods */
 
 /**
