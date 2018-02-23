@@ -11,6 +11,7 @@
 	background-color: @white;
 	border-bottom: 1px solid @colorGray12;
 	border-radius: @borderRadius @borderRadius 0 0;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.15 );
 
 	.cx-header__translation-center {
 		.mw-ui-one-third;
@@ -46,5 +47,13 @@
 			padding: 0.5em 1em;
 			line-height: 2;
 		}
+	}
+
+	&.sticky {
+		position: fixed;
+		top: 0;
+		left: 0.7em;
+		width: calc( ~'66.666% - 1em' );
+		z-index: 10;
 	}
 }
