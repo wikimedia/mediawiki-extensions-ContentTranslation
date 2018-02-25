@@ -102,7 +102,7 @@
 	"cx-create-new-translation": "Novi prevod",
 	"cx-translation-filter-label-all-languages": "Svi",
 	"cx-translation-filter-uls-all-languages": "Svi jezici",
-	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|pre jednog minuta|pre $1 minuta|0=upravo sad}}",
+	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|0=upravo sad|1=pre jednog minuta|pre $1 minuta}}",
 	"cx-save-draft-saving": "Čuvanje...",
 	"cx-save-draft-tooltip": "Nacrti prevoda se čuvaju automatski",
 	"cx-save-draft-error": "Došlo je do greške pri čuvanju stranice.",

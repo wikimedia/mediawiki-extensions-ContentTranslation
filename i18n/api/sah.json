@@ -50,6 +50,7 @@
 	"apihelp-query+contenttranslationlangtrend-example-1": "Es-ca тыллар паараларыгар бэчээттэммити трендин нэдиэлэннэн суоттааһын",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Бары тылларга бэчээттээһин трендэ",
 	"apihelp-cxdelete-description": "Өс Тылбааһын көмөтүнэн оҥоһуллубут баллыр тылбааһы суох гын.",
+	"apihelp-cxdelete-summary": "Өс Тылбааһын көмөтүнэн оҥоһуллубут баллыр тылбааһы суох гын.",
 	"apihelp-cxdelete-param-from": "Тылбаастанар тыл куода.",
 	"apihelp-cxdelete-param-to": "Тылбаастыыр тылыҥ куода.",
 	"apihelp-cxdelete-param-sourcetitle": "Тылбаастанар ыстатыйа аата.",

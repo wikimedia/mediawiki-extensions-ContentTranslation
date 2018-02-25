@@ -111,7 +111,7 @@
 	"cx-create-new-translation": "Нови превод",
 	"cx-translation-filter-label-all-languages": "Сви",
 	"cx-translation-filter-uls-all-languages": "Сви језици",
-	"cx-save-draft-save-success": "Сачувано {{PLURAL:$1|пре један минут|пре $1 минута|0=управо сад}}",
+	"cx-save-draft-save-success": "Сачувано {{PLURAL:$1|0=управо сад|1=пре један минут|пре $1 минута}}",
 	"cx-save-draft-saving": "Чување...",
 	"cx-save-draft-shortcut-label": "Сними нацрт",
 	"cx-save-draft-tooltip": "Нацрти превода се чувају аутоматски",

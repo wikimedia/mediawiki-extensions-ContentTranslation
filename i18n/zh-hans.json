@@ -30,7 +30,7 @@
 	"cx-source-view-page": "查看页面",
 	"cx-publish-page-success": "页面已发布在$1",
 	"cx-publish-page-error": "发布翻译时发生错误。请尝试再次发布页面。错误：$1",
-	"cx-publish-button": "发布翻译",
+	"cx-publish-button": "发布",
 	"cx-publish-button-publishing": "正在发布...",
 	"cx-lost-session-draft": "您的会话已过期。除非您在其他窗口再次登录，否则无法保存您的编辑。",
 	"cx-lost-session-publish": "您的会话已过期。除非您在其他窗口再次登录，否则您无法发布翻译。",
