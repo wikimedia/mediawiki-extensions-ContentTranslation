@@ -13,15 +13,16 @@
 	 * SourcePageSelector
 	 *
 	 * @class
- 	 * @param {Element} trigger
  	 * @param {mw.cx.SiteMapper} siteMapper
- 	 * @param {Object} options
+	 * @param {Object} options
+	 * @cfg {OO.ui.ButtonWidget} triggerButton Button that triggers opening of source page selector.
+	 * @cfg {jQuery} $container Container for source page selector.
 	 */
-	function SourcePageSelector( trigger, siteMapper, options ) {
-		this.$trigger = $( trigger );
+	function SourcePageSelector( siteMapper, options ) {
 		this.options = $.extend( {}, options );
 		this.siteMapper = siteMapper;
 
+		this.triggerButton = options.triggerButton;
 		this.$container = options.$container;
 
 		this.pageSelector = null;
@@ -79,8 +80,10 @@
 	SourcePageSelector.prototype.listen = function () {
 		var proxied, self = this;
 		// Open or close the dialog when clicking the trigger link.
-		// The dialog will be unitialized until the first click.
-		this.$trigger.click( this.show.bind( this ) );
+		// The dialog will be uninitialized until the first click.
+		this.triggerButton.connect( this, {
+			click: this.show
+		} );
 
 		this.pageSelector.connect( this, { noResults: 'updateNoResultsMessage' } );
 
@@ -100,17 +103,23 @@
 				}
 			);
 			self.$container.addClass( 'cx-source-page-selector--selected' );
+			self.selectedSourcePage.focusStartTranslationButton();
 		};
+
+		this.$container.on( 'keydown', function ( e ) {
+			if ( e.keyCode !== OO.ui.Keys.ESCAPE ) {
+				return;
+			}
+
+			self.discardDialog();
+		} );
 
 		proxied = this.pageSelector.lookupMenu.onKeyDownHandler;
 		this.pageSelector.lookupMenu.onKeyDownHandler = function ( e ) {
-			if ( e.keyCode === OO.ui.Keys.TAB ) {
+			if ( e.keyCode === OO.ui.Keys.TAB || e.keyCode === OO.ui.Keys.ESCAPE ) {
 				return;
 			}
-			if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
-				self.discardDialog();
-				return;
-			}
+
 			return proxied.apply( this, arguments );
 		};
 	};
@@ -177,7 +186,7 @@
 		var $searchResults,
 			$recentEditsMessage;
 
-		this.$container.hide(); // Starts as hidden, shown on this.$trigger button click
+		this.$container.hide(); // Starts as hidden, shown on this.triggerButton click
 
 		$recentEditsMessage = $( '<div>' )
 			.addClass( 'cx-source-page-selector__no-suggestions-message' )
@@ -242,7 +251,7 @@
 
 			if ( !data ) {
 				$this.data(
-					'cxsourcepageselector', ( data = new SourcePageSelector( this, mw.cx.siteMapper, options ) )
+					'cxsourcepageselector', ( data = new SourcePageSelector( mw.cx.siteMapper, options ) )
 				);
 			}
 		} );

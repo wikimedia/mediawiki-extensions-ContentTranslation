@@ -830,8 +830,9 @@
 			}
 		);
 
-		this.selectedSourcePage.$element.addClass( 'cx-selected-source-page--modal' ).show();
+		this.selectedSourcePage.toggleModal();
 		$( 'body' ).append( this.selectedSourcePage.$element );
+		this.selectedSourcePage.focusStartTranslationButton();
 	};
 
 	/**

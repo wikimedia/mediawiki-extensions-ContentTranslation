@@ -39,8 +39,8 @@ mw.cx.ui.LanguageFilter = function ( config ) {
 	// this.sourceLanguage and this.targetLanguage are selected source/target languages respectively
 	this.sourceLanguage = null;
 	this.targetLanguage = null;
-	this.$sourceLanguageFilter = null;
-	this.$targetLanguageFilter = null;
+	this.sourceLanguageButton = null;
+	this.targetLanguageButton = null;
 
 	this.narrowLimit = 700;
 	this.isNarrowScreenSize = false;
@@ -49,6 +49,13 @@ mw.cx.ui.LanguageFilter = function ( config ) {
 };
 
 OO.inheritClass( mw.cx.ui.LanguageFilter, OO.ui.Widget );
+
+/* Static Properties */
+/**
+ * @static
+ */
+mw.cx.ui.LanguageFilter.static.sourceLanguages = null;
+mw.cx.ui.LanguageFilter.static.targetLanguages = null;
 
 mw.cx.ui.LanguageFilter.prototype.init = function () {
 	var sourceLanguage = mw.storage.get( 'cxSourceLanguage' ),
@@ -61,13 +68,13 @@ mw.cx.ui.LanguageFilter.prototype.init = function () {
 		this.targetLanguage = targetLanguage;
 	}
 
-	// Load source languages into instance variable from "static" variable
-	this.sourceLanguages = mw.cx.ui.LanguageFilter.sourceLanguages;
-	this.targetLanguages = mw.cx.ui.LanguageFilter.targetLanguages;
+	// Load source languages into instance variable from static variable
+	this.sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
+	this.targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 
 	this.render();
-	this.setFilterLabel( this.$sourceLanguageFilter, this.sourceLanguage );
-	this.setFilterLabel( this.$targetLanguageFilter, this.targetLanguage );
+	this.setFilterLabel( this.sourceLanguageButton, this.sourceLanguage );
+	this.setFilterLabel( this.targetLanguageButton, this.targetLanguage );
 	this.listen();
 };
 
@@ -166,7 +173,7 @@ mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
 			this.sourceLanguage = language;
 			this.setTargetLanguage( currentSource );
 		} else {
-			quickListLanguages = this.$targetLanguageFilter.data( 'uls' ).options.quickList();
+			quickListLanguages = this.targetLanguageButton.$button.data( 'uls' ).options.quickList();
 			for ( i = 0, length = quickListLanguages.length; i < length; i++ ) {
 				quickListLang = quickListLanguages[ i ];
 
@@ -185,7 +192,7 @@ mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
 	}
 
 	this.sourceLanguage = language;
-	this.setFilterLabel( this.$sourceLanguageFilter, this.sourceLanguage );
+	this.setFilterLabel( this.sourceLanguageButton, this.sourceLanguage );
 
 	if ( this.updateLocalStorage ) {
 		mw.storage.set( 'cxSourceLanguage', this.sourceLanguage );
@@ -204,7 +211,7 @@ mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
  */
 mw.cx.ui.LanguageFilter.prototype.setSourceLanguageNoChecks = function ( language ) {
 	this.sourceLanguage = language;
-	this.setFilterLabel( this.$sourceLanguageFilter, this.sourceLanguage );
+	this.setFilterLabel( this.sourceLanguageButton, this.sourceLanguage );
 };
 
 /**
@@ -250,7 +257,7 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
 				return;
 			}
 
-			quickListLanguages = this.$sourceLanguageFilter.data( 'uls' ).options.quickList();
+			quickListLanguages = this.sourceLanguageButton.$button.data( 'uls' ).options.quickList();
 			for ( i = 0, length = quickListLanguages.length; i < length; i++ ) {
 				quickListLang = quickListLanguages[ i ];
 
@@ -269,7 +276,7 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
 	}
 
 	this.targetLanguage = language;
-	this.setFilterLabel( this.$targetLanguageFilter, this.targetLanguage );
+	this.setFilterLabel( this.targetLanguageButton, this.targetLanguage );
 
 	if ( this.updateLocalStorage ) {
 		mw.storage.set( 'cxTargetLanguage', this.targetLanguage );
@@ -288,20 +295,20 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
  */
 mw.cx.ui.LanguageFilter.prototype.setTargetLanguageNoChecks = function ( language ) {
 	this.targetLanguage = language;
-	this.setFilterLabel( this.$targetLanguageFilter, this.targetLanguage );
+	this.setFilterLabel( this.targetLanguageButton, this.targetLanguage );
 };
 
 /**
- * Set the label for jQuery element that holds language filter.
+ * Set the label for language filter button that acts as a trigger for displaying ULS language filter.
  *
- * @param {jQuery} $filter
+ * @param {OO.ui.ButtonWidget} filterButton
  * @param {string} language
  */
-mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( $filter, language ) {
+mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( filterButton, language ) {
 	var langProps, label;
 
 	if ( this.canBeUndefined && !language ) {
-		$filter.text( mw.msg( 'cx-translation-filter-label-all-languages' ) );
+		filterButton.setLabel( mw.msg( 'cx-translation-filter-label-all-languages' ) );
 		return;
 	}
 
@@ -313,7 +320,8 @@ mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( $filter, language 
 		mw.language.bcp47( language ) :
 		$.uls.data.getAutonym( language );
 
-	$filter.prop( langProps ).text( label );
+	filterButton.$button.prop( langProps );
+	filterButton.setLabel( label );
 
 	this.emit( 'resize' );
 };
@@ -330,16 +338,16 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 
 	// Default to all valid source languages
 	if ( !sourceLanguages ) {
-		sourceLanguages = mw.cx.ui.LanguageFilter.sourceLanguages;
+		sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
 	}
 
 	if ( replace ) {
 		// Delete the old source ULS data
-		this.$sourceLanguageFilter.data( 'uls', null );
-		this.$sourceLanguageFilter.off( 'click' );
+		this.sourceLanguageButton.$button.data( 'uls', null );
+		this.sourceLanguageButton.$button.off( 'click' );
 	}
 
-	this.$sourceLanguageFilter.uls( $.extend( {
+	this.sourceLanguageButton.$button.uls( $.extend( {
 		languages: this.getAutonyms( sourceLanguages ),
 		onSelect: function ( language ) {
 			self.setSourceLanguage( language );
@@ -369,16 +377,16 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 
 	// Default to all valid target languages
 	if ( !targetLanguages ) {
-		targetLanguages = mw.cx.ui.LanguageFilter.targetLanguages;
+		targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 	}
 
 	if ( replace ) {
 		// Delete the old target ULS data
-		this.$targetLanguageFilter.data( 'uls', null );
-		this.$targetLanguageFilter.off( 'click' );
+		this.targetLanguageButton.$button.data( 'uls', null );
+		this.targetLanguageButton.$button.off( 'click' );
 	}
 
-	this.$targetLanguageFilter.uls( $.extend( {
+	this.targetLanguageButton.$button.uls( $.extend( {
 		languages: this.getAutonyms( targetLanguages ),
 		onSelect: function ( language ) {
 			self.setTargetLanguage( language );
@@ -398,32 +406,42 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 };
 
 mw.cx.ui.LanguageFilter.prototype.render = function () {
-	var $sourceLanguageFilterContainer, $targetLanguageFilterContainer;
+	this.sourceLanguageButton = new OO.ui.ButtonWidget( {
+		framed: false,
+		classes: [ 'cx-language-filter-source-language' ],
+		$button: $( '<a>' ).addClass( 'cx-language-filter-button' )
+	} );
 
-	this.$sourceLanguageFilter = $( '<div>' )
-		.addClass( 'cx-language-filter-button' );
+	this.targetLanguageButton = new OO.ui.ButtonWidget( {
+		framed: false,
+		classes: [ 'cx-language-filter-target-language' ],
+		$button: $( '<a>' ).addClass( 'cx-language-filter-button' )
+	} );
+
 	this.fillSourceLanguages( this.sourceLanguages );
-	$sourceLanguageFilterContainer = $( '<div>' )
-		.addClass( 'cx-language-filter-source-language' )
-		.append( this.$sourceLanguageFilter );
-
-	this.$targetLanguageFilter = $( '<div>' )
-		.addClass( 'cx-language-filter-button' );
 	this.fillTargetLanguages( this.targetLanguages );
-	$targetLanguageFilterContainer = $( '<div>' )
-		.addClass( 'cx-language-filter-target-language' )
-		.append( this.$targetLanguageFilter );
 
 	this.$element
 		.addClass( 'cx-language-filter' )
 		.append(
-			$sourceLanguageFilterContainer,
+			this.sourceLanguageButton.$element,
 			$( '<div>' ).addClass( 'cx-language-filter-arrow' ),
-			$targetLanguageFilterContainer
+			this.targetLanguageButton.$element
 		);
 };
 
 mw.cx.ui.LanguageFilter.prototype.listen = function () {
+	this.sourceLanguageButton.$button.on( {
+		keypress: function () {
+			this.click();
+		}
+	} );
+	this.targetLanguageButton.$button.on( {
+		keypress: function () {
+			this.click();
+		}
+	} );
+
 	// Resize handler
 	$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
 };
@@ -437,6 +455,6 @@ mw.cx.ui.LanguageFilter.prototype.resize = function () {
 	}
 
 	this.isNarrowScreenSize = isNarrowScreenSize;
-	this.setFilterLabel( this.$sourceLanguageFilter, this.sourceLanguage );
-	this.setFilterLabel( this.$targetLanguageFilter, this.targetLanguage );
+	this.setFilterLabel( this.sourceLanguageButton, this.sourceLanguage );
+	this.setFilterLabel( this.targetLanguageButton, this.targetLanguage );
 };

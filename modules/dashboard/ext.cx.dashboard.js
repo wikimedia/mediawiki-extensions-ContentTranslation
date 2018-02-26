@@ -77,8 +77,8 @@
 		this.siteMapper.getLanguagePairs().then(
 			function ( data ) {
 				// We store valid source and target languages as "static" variables of LanguageFilter
-				mw.cx.ui.LanguageFilter.sourceLanguages = data.sourceLanguages;
-				mw.cx.ui.LanguageFilter.targetLanguages = data.targetLanguages;
+				mw.cx.ui.LanguageFilter.static.sourceLanguages = data.sourceLanguages;
+				mw.cx.ui.LanguageFilter.static.targetLanguages = data.targetLanguages;
 
 				self.setDefaultLanguages();
 
@@ -110,8 +110,8 @@
 		var sourceLanguage, targetLanguage, sourceLanguages, targetLanguages, currentLang,
 			commonLanguages, i, length,
 			query = new mw.Uri().query;
-		sourceLanguages = mw.cx.ui.LanguageFilter.sourceLanguages;
-		targetLanguages = mw.cx.ui.LanguageFilter.targetLanguages;
+		sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
+		targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 
 		sourceLanguage = query.from || mw.storage.get( 'cxSourceLanguage' );
 		targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' ) || mw.config.get( 'wgContentLanguage' );
@@ -350,12 +350,16 @@
 		} );
 
 		this.initSourceSelector();
-		this.newTranslationButton.$element.on( 'click', function () {
-			self.$listHeader.hide();
-			$( window ).scrollTop( 0 );
+		this.newTranslationButton.connect( this, {
+			click: this.onClickHandler
 		} );
 		// Resize handler
 		$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
+	};
+
+	CXDashboard.prototype.onClickHandler = function () {
+		this.$listHeader.hide();
+		$( window ).scrollTop( 0 );
 	};
 
 	CXDashboard.prototype.setFilter = function ( type, value ) {
@@ -374,6 +378,7 @@
 		sourcePageSelectorOptions.targetLanguage = query.to;
 		sourcePageSelectorOptions.sourceTitle = query.page;
 		sourcePageSelectorOptions.targetTitle = query.targettitle;
+		sourcePageSelectorOptions.triggerButton = this.newTranslationButton;
 		sourcePageSelectorOptions.$container = this.$sourcePageSelector;
 		this.newTranslationButton.$element.cxSourcePageSelector( sourcePageSelectorOptions );
 		// Check for conditions that pre-open source page selector
