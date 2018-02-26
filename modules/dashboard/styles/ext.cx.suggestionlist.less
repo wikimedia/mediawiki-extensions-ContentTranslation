@@ -90,6 +90,10 @@
 		}
 	}
 
+	&__meta {
+		margin-top: auto;
+	}
+
 	&__desc {
 		color: @colorGray7;
 
@@ -155,23 +159,9 @@
 
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
-	-ms-flex-direction: column; // Support IE10
 	-webkit-box-orient: vertical;
 	-webkit-flex-direction: column;
 	flex-direction: column;
-
-	.target-ie( {
-		width: auto;
-		max-width: 70%;
-	} );
-
-	/* stylelint-disable */
-	/* Don't apply width override to IE11 */
-	_:-ms-fullscreen,
-	:root & {
-		width: 100%;
-	}
-	/* stylelint-enable */
 
 	.cx-slitem__translation-link {
 		.mw-ui-one-whole;
@@ -186,10 +176,6 @@
 			color: @gray-darker;
 		}
 	}
-
-	.cx-slitem__meta {
-		margin-top: auto;
-	}
 }
 
 .cx-slitem__actions {
@@ -197,17 +183,11 @@
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 
-	.target-ie( {
-		margin-left: auto;
-	} );
-
 	@media only screen and ( max-width: ( @narrow - 1px ) ) {
-		-ms-flex-direction: column-reverse;
 		-webkit-flex-direction: column-reverse;
 		flex-direction: column-reverse;
 		-webkit-box-pack: end; // iOS 6-, Safari 3.1-6
 		-moz-box-pack: end; // Firefox 21-
-		-ms-flex-pack: end; // Support IE10
 		justify-content: flex-end;
 	}
 }
