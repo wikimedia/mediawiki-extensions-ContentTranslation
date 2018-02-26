@@ -32,7 +32,7 @@
 	"cx-source-view-page": "zobrazit stránku",
 	"cx-publish-page-success": "Stránka zveřejněna na $1",
 	"cx-publish-page-error": "Během zveřejňování se vyskytla chyba. Prosím, zkuste stránku zveřejnit ještě jednou. Chyba: $1",
-	"cx-publish-button": "Zveřejnit překlad",
+	"cx-publish-button": "Zveřejnit",
 	"cx-publish-button-publishing": "Zveřejňuje se…",
 	"cx-lost-session-draft": "Vaše relace vypršela. Vaše úpravy nemůžou být uloženy, dokud se nepřihlásíte znovu v jiném okně.",
 	"cx-lost-session-publish": "Vaše relace vypršela. Váš překlad nemůže být zveřejněn, dokud se nepřihlásíte znovu v jiném okně.",

@@ -34,7 +34,7 @@
 	"cx-source-view-page": "ページを閲覧",
 	"cx-publish-page-success": "ページを公開しました：$1",
 	"cx-publish-page-error": "翻訳記事の公開中にエラーが発生しました。公開し直してください。エラー:$1",
-	"cx-publish-button": "翻訳を公開する",
+	"cx-publish-button": "公開する",
 	"cx-publish-button-publishing": "公開中です…",
 	"cx-lost-session-draft": "セッションが期限切れになりました。別なウィンドウからログインしなければ、変更が保存されません。",
 	"cx-lost-session-publish": "セッションが期限切れになりました。別なウィンドウからログインしなければ、翻訳は公開されません。",
