@@ -7,8 +7,8 @@
 	float: none;
 	height: 100%;
 	padding: 0 10px;
-	background-color: @gray-light;
-	border: 1px solid #c8ccd1;
+	background-color: @colorGray14;
+	border: 1px solid @colorGray12;
 	z-index: 9; // The sticky header on the top of page is with z-index 10
 	&:after {
 		content: '';
@@ -45,7 +45,7 @@
 .cx-template-editor-title {
 	.mw-ui-one-whole;
 	font-weight: bold;
-	border-bottom: 1px solid #c8ccd1;
+	border-bottom: 1px solid @colorGray12;
 	padding: 10px 30px;
 	.background-image-svg( '../images/template-puzzle-ltr.svg', '../images/template-puzzle-ltr.png' );
 	background-position: left center;
@@ -56,7 +56,7 @@
 .cx-template-editor-param {
 	.mw-ui-one-whole;
 	padding: 0 10px;
-	border-bottom: 1px solid #eaecf0;
+	border-bottom: 1px solid @colorGray14;
 	line-height: 1em;
 }
 
@@ -85,7 +85,7 @@
 
 	&:hover {
 		color: #252525;
-		background-color: #f8f9fa;
+		background-color: @colorGray15;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -94,7 +94,7 @@
 
 .cx-template-editor-add-properties {
 	cursor: pointer;
-	color: @gray-dark;
+	color: @colorGray5;
 	font-size: 1.2em;
 	padding: 10px;
 	background-color: @white;
@@ -133,6 +133,6 @@
 	overflow: auto;
 
 	&:focus {
-		outline: 1px solid #36c;
+		outline: 1px solid @colorProgressive;
 	}
 }
