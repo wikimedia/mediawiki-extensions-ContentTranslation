@@ -77,7 +77,7 @@ mw.cx.tools.MachineTranslationTool.prototype.getContent = function () {
 };
 
 mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {
-	var provider = this.mtProviderSelector.getMenu().getSelectedItem().getData();
+	var provider = this.mtProviderSelector.getMenu().findSelectedItem().getData();
 	this.MTManager.setPreferredProvider( provider );
 };
 
@@ -106,7 +106,7 @@ mw.cx.tools.MachineTranslationTool.prototype.getProviderLabel = function ( provi
  * @private
  */
 mw.cx.tools.MachineTranslationTool.prototype.setDefaultProvider = function () {
-	var provider = this.mtProviderSelector.getMenu().getSelectedItem().getData();
+	var provider = this.mtProviderSelector.getMenu().findSelectedItem().getData();
 	this.MTManager.setPreferredProvider( provider );
 };
 
@@ -145,7 +145,7 @@ mw.cx.tools.MachineTranslationTool.prototype.selectProvider = function ( provide
 	var item, selectedProvider, menu;
 
 	menu = this.mtProviderSelector.getMenu();
-	selectedProvider = menu.getSelectedItem() && menu.getSelectedItem().getData();
+	selectedProvider = menu.findSelectedItem() && menu.findSelectedItem().getData();
 
 	// Yay, nothing to do
 	if ( provider === selectedProvider ) {

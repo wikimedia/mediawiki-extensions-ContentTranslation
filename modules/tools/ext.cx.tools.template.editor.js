@@ -416,7 +416,7 @@
 		this.paramSelectors.forEach( function ( selector ) {
 			var selectedOption;
 
-			selectedOption = selector.getMenu().getSelectedItem();
+			selectedOption = selector.getMenu().findSelectedItem();
 			if ( selectedOption ) {
 				selectedKeys.push( selectedOption.getData() );
 			}
@@ -429,7 +429,7 @@
 		this.paramSelectors.forEach( function ( selector ) {
 			var selectedOption;
 
-			selectedOption = selector.getMenu().getSelectedItem();
+			selectedOption = selector.getMenu().findSelectedItem();
 			selectedKeys.forEach( function ( key ) {
 				if ( !selectedOption || key !== selectedOption.getData() ) {
 					selector.getMenu().findItemFromData( key ).setDisabled( true );
