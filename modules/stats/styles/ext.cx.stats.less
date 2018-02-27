@@ -15,7 +15,7 @@
 
 	padding: 0 50px;
 	clear: both;
-	background-color: #f8f9fa;
+	background-color: @colorGray15;
 	min-height: 100vh;
 
 	h1,
@@ -33,7 +33,7 @@
 .cx-stats-tabs-container {
 	.mw-ui-one-whole;
 
-	border: 1px solid #eaecf0;
+	border: 1px solid @colorGray14;
 	padding: 0;
 	background-color: #fff;
 }
@@ -42,7 +42,7 @@
 	.mw-ui-one-whole;
 
 	cursor: s-resize;
-	border-top: 1px solid #eaecf0;
+	border-top: 1px solid @colorGray14;
 	padding: 10px;
 }
 
@@ -57,7 +57,7 @@
 
 		&.separator {
 			text-align: center;
-			border-bottom: 2px solid @gray;
+			border-bottom: 2px solid @colorGray12;
 			margin-bottom: 1em;
 		}
 	}
@@ -71,7 +71,7 @@
 		text-align: right;
 		text-transform: uppercase;
 		font-size: 0.9em;
-		color: @gray;
+		color: @colorGray12;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
@@ -79,7 +79,7 @@
 	&__autonym {
 		.mw-ui-one-half;
 		text-align: left;
-		color: @gray-darker;
+		color: @colorGray2;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		font-weight: bold;
@@ -89,9 +89,9 @@
 	&__total,
 	&__total:visited {
 		.mw-ui-one-quarter;
-		color: @gray;
+		color: @colorGray12;
 		text-align: right;
-		border-right: 1px solid @gray;
+		border-right: 1px solid @colorGray12;
 		height: 30px;
 	}
 
@@ -105,8 +105,8 @@
 		padding: 0;
 		margin: 0;
 		.box-sizing( border-box );
-		background-color: #36c;
-		border-right: 1px solid @gray;
+		background-color: @colorProgressive;
+		border-right: 1px solid @colorGray12;
 		font-size: small;
 		text-transform: uppercase;
 		color: #fff;
@@ -139,19 +139,19 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	border-bottom: 1px solid #eaecf0;
+	border-bottom: 1px solid @colorGray14;
 
 	li {
 		background: none;
-		color: @gray-dark;
+		color: @colorGray5;
 		display: inline-block;
 		padding: 10px 15px;
 		cursor: pointer;
 	}
 
 	li.cx-stats-tabs-current {
-		border-bottom: 2px solid #36c;
-		color: @gray-darker;
+		border-bottom: 2px solid @colorProgressive;
+		color: @colorGray2;
 	}
 }
 
@@ -179,7 +179,7 @@
 
 .cx-stats-graph {
 	background-color: #fff;
-	border: 1px solid #a2a9b1;
+	border: 1px solid @colorGray10;
 
 	// Legend styling
 	li {
@@ -209,7 +209,7 @@
 		background-color: #fff;
 		margin-right: 50px;
 		padding: 10px;
-		border: 1px solid #a2a9b1;
+		border: 1px solid @colorGray10;
 
 		&__title {
 			font-size: 1em;
@@ -234,12 +234,12 @@
 			}
 
 			&.decrease {
-				color: #d33;
+				color: @colorDestructive;
 			}
 		}
 
 		&__localtotal {
-			color: @gray-dark;
+			color: @colorGray5;
 			font-size: 1em;
 		}
 	}

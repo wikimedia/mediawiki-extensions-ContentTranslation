@@ -2,10 +2,10 @@
 
 [ contenteditable ] {
 	.cx-target-link-unadapted {
-		color: #72777d;
+		color: @colorGray7;
 
 		&:hover {
-			color: @gray-darker;
+			color: @colorGray2;
 		}
 	}
 
@@ -17,7 +17,7 @@
 	// The dashed underline will only appear for the links on the current paragraph.
 	// Links from other paragraphs will not show the dashed underline to avoid too much visual noise.
 	&:focus .cx-target-link-unadapted {
-		border-bottom: 1px dashed #c8ccd1;
+		border-bottom: 1px dashed @colorGray12;
 	}
 }
 

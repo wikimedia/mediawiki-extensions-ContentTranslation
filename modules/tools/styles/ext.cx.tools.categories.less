@@ -48,14 +48,14 @@
 	margin-top: 1em;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	border: 1px solid #c8ccd1;
+	border: 1px solid @colorGray12;
 	border-radius: @borderRadius;
 
 	.cx-category-nocategories {
 		padding-left: 0.5em;
 		display: inline-block;
 		margin-right: 1em;
-		color: #72777d;
+		color: @colorGray7;
 	}
 
 	.cx-category-categorylist {
@@ -66,7 +66,7 @@
 		margin-left: 2em;
 
 		.cx-category {
-			border: 1px solid #c8ccd1;
+			border: 1px solid @colorGray12;
 			border-radius: @borderRadius;
 			padding-left: 0.25em;
 			padding-right: 0.25em;
@@ -103,7 +103,7 @@
 		}
 
 		.cx-category-disabled {
-			color: #72777d;
+			color: @colorGray7;
 			border: 0;
 			cursor: default;
 		}
@@ -111,7 +111,7 @@
 		.cx-category-highlight {
 			.cx-category;
 			background-color: @text-highlight-color;
-			box-shadow: 0 1px 0 0 #c8ccd1;
+			box-shadow: 0 1px 0 0 @colorGray12;
 			transition: all 0.15s;
 		}
 	}

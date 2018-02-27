@@ -11,9 +11,9 @@
 		position: absolute;
 		margin: 0 10px;
 		background-color: #fff;
-		border: 1px solid #a2a9b1;
+		border: 1px solid @colorGray10;
 		border-radius: @borderRadius;
-		box-shadow: 0 1px 0 #c8ccd1;
+		box-shadow: 0 1px 0 @colorGray12;
 		z-index: 1;
 
 		> li {
@@ -53,7 +53,7 @@
 
 		:before {
 			border-color: rgba( 238, 238, 238, 0 );
-			border-bottom-color: #a2a9b1;
+			border-bottom-color: @colorGray10;
 			border-width: 11px;
 			margin-left: -11px;
 		}
@@ -75,8 +75,8 @@
 		float: none;
 		padding: 5px 10px 10px;
 		cursor: pointer;
-		color: #54595d;
-		border-top: 1px solid #c8ccd1;
+		color: @colorGray5;
+		border-top: 1px solid @colorGray12;
 
 		&:after {
 			.background-image-svg( '../images/dropdown.svg', '../images/dropdown.png' );
@@ -94,7 +94,7 @@
 		.mw-ui-item;
 		.mw-ui-one-whole;
 		float: none;
-		color: @gray;
+		color: @colorGray12;
 		padding-top: 8px;
 
 		.card__title {
@@ -118,5 +118,5 @@
 }
 
 .cx-unadaptable-template {
-	background-color: #c8ccd1;
+	background-color: @colorGray12;
 }
