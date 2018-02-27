@@ -93,8 +93,20 @@ mw.cx.ui.TranslationHeader.prototype.listen = function () {
 		this.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
 		$( '.cx-widget__columns' ).addClass( 'disabled' );
 	}.bind( this ) );
+
+	$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
+
 };
 
 mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {
 	this.statusbar.setLabel( message );
+};
+
+mw.cx.ui.TranslationHeader.prototype.onWindowScroll = function () {
+	var scrollTop = $( window ).scrollTop();
+	if ( scrollTop > 50 ) {
+		this.$element.addClass( 'sticky' );
+	} else {
+		this.$element.removeClass( 'sticky' );
+	}
 };

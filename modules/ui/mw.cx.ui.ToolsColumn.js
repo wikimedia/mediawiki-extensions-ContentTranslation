@@ -48,6 +48,8 @@ mw.cx.ui.ToolsColumn.prototype.init = function () {
 		mw.log( '[CX] Initializing translation tool system' );
 		this.showInstructions();
 	}.bind( this ) );
+
+	this.listen();
 };
 
 /**
@@ -109,4 +111,17 @@ mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {
  */
 mw.cx.ui.ToolsColumn.prototype.hideAllTools = function () {
 	this.toolContainer.clearItems();
+};
+
+mw.cx.ui.ToolsColumn.prototype.listen = function () {
+	$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
+};
+
+mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {
+	var scrollTop = $( window ).scrollTop();
+	if ( scrollTop > 50 ) {
+		this.$element.addClass( 'sticky' );
+	} else {
+		this.$element.removeClass( 'sticky' );
+	}
 };
