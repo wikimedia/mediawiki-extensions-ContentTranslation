@@ -20,7 +20,7 @@
 	"cx-source-view-page": "ver páxina",
 	"cx-publish-page-success": "Páxina espublizada en $1",
 	"cx-publish-page-error": "Hebo un error al publicar la traducción. Intenta volver publicala de nueves. Error:$1",
-	"cx-publish-button": "Espublizar la traducción",
+	"cx-publish-button": "Espublizar",
 	"cx-publish-button-publishing": "Espublizando...",
 	"cx-lost-session-draft": "La sesión caducó. Nun pueden guardase les tos ediciones nun siendo que vuelvas a aniciar sesión n'otra ventana.",
 	"cx-lost-session-publish": "La sesión caducó. Nun puedes publicar la traducción hasta que vuelvas a aniciar sesión n'otra ventana.",
