@@ -99,7 +99,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 
 	mw.log( '[CX] Fetching Source page...' );
 	sourcePageFetchDeferred = this.fetchSourcePageContent(
-		this.sourceWikiPage, this.config.siteMapper
+		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
 	).fail( this.fetchSourcePageContentError.bind( this ) );
 
 	mw.log( '[CX] Checking existing translation...' );
@@ -170,19 +170,21 @@ mw.cx.init.Translation.prototype.fetchConfigurationError = function () {
  *
  * @private
  * @param {mw.cx.dm.WikiPage} wikiPage
+ * @param {string} targetLanguage
  * @param {ext.cx.SiteMapper} siteMapper
  * @return {jQuery.Promise}
  */
-mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, siteMapper ) {
+mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, targetLanguage, siteMapper ) {
 	var fetchParams, apiURL, fetchPageUrl;
 
 	fetchParams = {
-		$language: siteMapper.getWikiDomainCode( wikiPage.getLanguage() ),
+		$sourcelanguage: siteMapper.getWikiDomainCode( wikiPage.getLanguage() ),
+		$targetlanguage: targetLanguage,
 		// Manual normalisation to avoid redirects on spaces but not to break namespaces
 		$title: wikiPage.getTitle().replace( / /g, '_' )
 	};
 
-	apiURL = '/page/$language/$title';
+	apiURL = '/page/$sourcelanguage/$targetlanguage/$title';
 
 	// If revision is requested, load that revision of page.
 	if ( wikiPage.getRevision() ) {
