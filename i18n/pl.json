@@ -39,7 +39,7 @@
 	"cx-source-view-page": "zobacz stronę",
 	"cx-publish-page-success": "Strona opublikowana w $1",
 	"cx-publish-page-error": "Podczas publikowania tłumaczenia wystąpił błąd. Spróbuj opublikować stronę jeszcze raz. Błąd: $1",
-	"cx-publish-button": "Opublikuj tłumaczenie",
+	"cx-publish-button": "Opublikuj",
 	"cx-publish-button-publishing": "Publikowanie...",
 	"cx-lost-session-draft": "Twoja sesja wygasła. Twoje edycje nie zostaną zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
 	"cx-lost-session-publish": "Twoja sesja wygasła. Twoje tłumaczenie nie zostanie zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
