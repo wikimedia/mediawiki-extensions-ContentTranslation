@@ -6,8 +6,11 @@
 
 	background-color: @colorGray14;
 	float: left;
-	min-height: 100vh;
 	padding: 0 0 0 20px;
+
+	position: -webkit-sticky;
+	position: sticky;
+	top: 50px;
 
 	&.sticky {
 		position: fixed;
@@ -28,7 +31,6 @@
 	.cx-column-tools-container {
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
 	}
 
 	.cx-tools-editing-toolbar-container:not( :empty ) {

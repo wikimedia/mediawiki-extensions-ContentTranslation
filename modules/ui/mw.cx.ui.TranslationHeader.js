@@ -95,8 +95,9 @@ mw.cx.ui.TranslationHeader.prototype.listen = function () {
 		$( '.cx-widget__columns' ).addClass( 'disabled' );
 	}.bind( this ) );
 
-	$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
-
+	if ( !mw.cx.supportsSticky() ) {
+		$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
+	}
 };
 
 mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {

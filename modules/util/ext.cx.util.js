@@ -107,6 +107,18 @@
 	};
 
 	/**
+	 * Detect if the browser supports position: sticky
+	 * Support: IE, Edge<16, Chrome<56, Firefox<32, Safari<6.1
+	 *
+	 * @return {boolean} True if browser supports position: sticky
+	 */
+	mw.cx.supportsSticky = function () {
+		var style = document.createElement( 'div' ).style;
+		style.cssText = 'position:-webkit-sticky;position:sticky;';
+		return style.position.indexOf( 'sticky' ) !== -1;
+	};
+
+	/**
 	 * Convert given wikitext fragment to HTML
 	 *
 	 * @param {mw.cx.SiteMapper} siteMapper

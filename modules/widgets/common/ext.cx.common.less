@@ -115,3 +115,11 @@
 	}
 	/* stylelint-enable at-rule-no-unknown */
 }
+
+.clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

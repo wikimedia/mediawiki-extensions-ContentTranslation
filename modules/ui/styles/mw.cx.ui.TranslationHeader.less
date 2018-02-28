@@ -12,13 +12,20 @@
 	border-bottom: 1px solid @colorGray14;
 	border-radius: @borderRadius @borderRadius 0 0;
 
+	z-index: 2;
+	// Adding additional class only to beat OOUI specificity
+	&.oo-ui-panelLayout {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+	}
+
 	&.sticky {
 		position: fixed;
 		top: 0;
 		left: @personal-header-padding;
 		width: calc( 66.666% ~'-' 4 * @personal-header-padding / 3 );
 		.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
-		z-index: 2;
 
 		.cx-header__publish-button.oo-ui-buttonElement.oo-ui-labelElement > .oo-ui-buttonElement-button {
 			border-radius: 0;

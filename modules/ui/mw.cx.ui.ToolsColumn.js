@@ -123,7 +123,9 @@ mw.cx.ui.ToolsColumn.prototype.hideAllTools = function () {
 };
 
 mw.cx.ui.ToolsColumn.prototype.listen = function () {
-	$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
+	if ( !mw.cx.supportsSticky() ) {
+		$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
+	}
 };
 
 mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {

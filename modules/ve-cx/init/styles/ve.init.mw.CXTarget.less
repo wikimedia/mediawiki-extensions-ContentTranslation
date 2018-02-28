@@ -4,6 +4,9 @@
 .ve-init-mw-cxTarget-columns {
 	.mw-ui-grid;
 	background-color: @colorGray14;
+	// Override overflow property specified in mw-ui-grid to default value, because
+	// non-visible value set on overflow property prevents position: sticky from working
+	overflow: visible;
 
 	.cx-translation-view-container {
 		.mw-ui-two-thirds;
