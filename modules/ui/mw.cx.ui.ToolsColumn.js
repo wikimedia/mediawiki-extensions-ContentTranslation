@@ -127,8 +127,10 @@ mw.cx.ui.ToolsColumn.prototype.listen = function () {
 };
 
 mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop();
-	if ( scrollTop > 50 ) {
+	var scrollTop = $( window ).scrollTop(),
+		top = this.$element.position().top;
+
+	if ( scrollTop > top ) {
 		this.$element.addClass( 'sticky' );
 	} else {
 		this.$element.removeClass( 'sticky' );

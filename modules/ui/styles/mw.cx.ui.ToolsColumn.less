@@ -11,7 +11,10 @@
 
 	&.sticky {
 		position: fixed;
-		top: 0;
+		top: 50px;
+		right: @personal-header-padding;
+		// Trick to accomodate to different width calculations when position is set to fixed
+		border-left: 2 * @personal-header-padding / 3 solid transparent;
 
 		@media @palm {
 			.stick-to-bottom;

@@ -10,7 +10,6 @@
 mw.cx.ui.TranslationHeader = function ( config ) {
 	// Configuration initialization
 	this.config = config || {};
-	this.$headerBar = null;
 	this.statusbar = null;
 	this.publishButton = null;
 	// Parent constructor
@@ -103,10 +102,16 @@ mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {
 };
 
 mw.cx.ui.TranslationHeader.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop();
-	if ( scrollTop > 50 ) {
+	var scrollTop = $( window ).scrollTop(),
+		$parent = this.$element.parent(),
+		top = $parent.position().top;
+
+	if ( scrollTop > top ) {
 		this.$element.addClass( 'sticky' );
+		// Adjust parent size with padding (in place for floated translation header) to avoid jumpiness
+		$parent.css( 'padding-top', top );
 	} else {
 		this.$element.removeClass( 'sticky' );
+		$parent.css( 'padding-top', 0 );
 	}
 };
