@@ -19,8 +19,6 @@
 	.cx-language-filter-source-language,
 	.cx-language-filter-target-language {
 		position: relative;
-		// Override OOUI margins
-		margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
 		font-size: 16px;
 
 		.flex-item;
@@ -59,6 +57,8 @@
 	.cx-language-filter-source-language {
 		padding-right: 8px;
 		margin-right: -8px;
+		// Override OOUI left margin
+		margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
 
 		.cx-language-filter-button {
 			padding: 8px 12px 8px 16px;
