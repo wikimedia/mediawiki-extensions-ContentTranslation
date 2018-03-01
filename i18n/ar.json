@@ -33,7 +33,7 @@
 	"cx-source-view-page": "عرض الصفحة",
 	"cx-publish-page-success": "نشرت الصفحة في $1",
 	"cx-publish-page-error": "حدث خطأ أثناء نشر الترجمة. برجاء محاولة نشر الصفحة مرة أخرى. الخطأ: $1",
-	"cx-publish-button": "نشر الترجمة",
+	"cx-publish-button": "نشر",
 	"cx-publish-button-publishing": "ينشر...",
 	"cx-lost-session-draft": "انقضت الجلسة. لن تحفظ التعديلات ما لم تسجل الدخول ثانية في نافذة أخرى.",
 	"cx-lost-session-publish": "انقضت الجلسة. لن تنشر الترجمة حتى تسجل الدخول ثانية في نافذة أخرى.",

@@ -93,6 +93,7 @@
 	"cx-tools-link-hover-tooltip": "Kliknij, aby otworzyć",
 	"cx-warning-unsaved-translation": "Masz niezapisane tłumaczenia.",
 	"cx-error-page-not-found": "Strona „$1” nie została znaleziona w $2 Wikipedii",
+	"cx-page-selector-widget-nearby-label": "W pobliżu",
 	"cx-selected-source-page-start-translation-button": "Rozpocznij tłumaczenie",
 	"cx-selected-source-page-error-page-and-title-exist": "Ten tytuł został już użyty po [$1 $2] dla [$3 innej strony]",
 	"cx-selected-source-page-error-page-exists": "Strona [$1 już istnieje] w $2",

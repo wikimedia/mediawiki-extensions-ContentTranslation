@@ -22,7 +22,8 @@
 			"Dgstranz",
 			"Liuxinyu970226",
 			"RicardoSGZ",
-			"La Mantis"
+			"La Mantis",
+			"Themasterriot"
 		]
 	},
 	"cx": "Traducir página",
@@ -39,7 +40,7 @@
 	"cx-source-view-page": "ver página",
 	"cx-publish-page-success": "Página publicada en $1",
 	"cx-publish-page-error": "Ocurrió un error al publicar la traducción. Intenta publicarla de nuevo. Error: $1",
-	"cx-publish-button": "Publicar traducción",
+	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publicando…",
 	"cx-lost-session-draft": "Tu sesión ha caducado. No se pueden guardar tus ediciones a menos que inicies sesión en otra ventana.",
 	"cx-lost-session-publish": "Tu sesión ha caducado. No puedes publicar la traducción hasta que inicies sesión en otra ventana.",
