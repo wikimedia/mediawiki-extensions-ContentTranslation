@@ -131,11 +131,11 @@
 		var cxTranslation = this,
 			validator = new mw.cx.ContentTranslationValidator( cxTranslation.siteMapper );
 
-		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.applyTranslationTemplate, this ) );
+		mw.hook( 'mw.cx.translation.add' ).add( this.applyTranslationTemplate.bind( this ) );
 		// Translate the section header along with a section if it is preceding.
-		mw.hook( 'mw.cx.translation.add' ).add( $.proxy( this.addSectionHeader, this ) );
-		mw.hook( 'mw.cx.translation.postMT' ).add( $.proxy( this.postProcessMT, this ) );
-		mw.hook( 'mw.cx.translation.ready' ).add( $.proxy( validator.validateTargetTitle, validator ) );
+		mw.hook( 'mw.cx.translation.add' ).add( this.addSectionHeader.bind( this ) );
+		mw.hook( 'mw.cx.translation.postMT' ).add( this.postProcessMT.bind( this ) );
+		mw.hook( 'mw.cx.translation.ready' ).add( validator.validateTargetTitle.bind( validator ) );
 		mw.hook( 'mw.cx.source.loaded' ).add( function () {
 			// Delay adding placeholders. If we calculate the section
 			// dimensions before all css and screenpainting is done,

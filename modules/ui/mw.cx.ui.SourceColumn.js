@@ -37,7 +37,7 @@ mw.cx.ui.SourceColumn.prototype.init = function () {
 	if ( mw.loader.getState( 'ext.cite.style' ) !== null ) {
 		mw.loader.load( 'ext.cite.style' );
 	}
-	mw.hook( 'mw.cx.error' ).add( $.proxy( this.removeLoadingIndicator, this ) );
+	mw.hook( 'mw.cx.error' ).add( this.removeLoadingIndicator.bind( this ) );
 };
 
 mw.cx.ui.SourceColumn.prototype.render = function () {

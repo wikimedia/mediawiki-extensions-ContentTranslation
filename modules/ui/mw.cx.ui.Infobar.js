@@ -27,11 +27,11 @@ mw.cx.ui.Infobar.prototype.getContent = function () {
 };
 
 mw.cx.ui.Infobar.prototype.listen = function () {
-	mw.hook( 'mw.cx.error' ).add( $.proxy( this.showError, this ) );
-	mw.hook( 'mw.cx.warning' ).add( $.proxy( this.showWarning, this ) );
-	mw.hook( 'mw.cx.success' ).add( $.proxy( this.showSuccess, this ) );
-	mw.hook( 'mw.cx.error.anonuser' ).add( $.proxy( this.showLoginMessage, this ) );
-	mw.hook( 'mw.cx.translation.title.change' ).add( $.proxy( this.clearMessages, this ) );
+	mw.hook( 'mw.cx.error' ).add( this.showError.bind( this ) );
+	mw.hook( 'mw.cx.warning' ).add( this.showWarning.bind( this ) );
+	mw.hook( 'mw.cx.success' ).add( this.showSuccess.bind( this ) );
+	mw.hook( 'mw.cx.error.anonuser' ).add( this.showLoginMessage.bind( this ) );
+	mw.hook( 'mw.cx.translation.title.change' ).add( this.clearMessages.bind( this ) );
 };
 
 mw.cx.ui.Infobar.prototype.showSuccess = function ( message, details ) {

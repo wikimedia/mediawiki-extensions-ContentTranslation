@@ -262,7 +262,7 @@
 	};
 
 	ContentTranslationSource.prototype.listen = function () {
-		mw.hook( 'mw.cx.source.loaded' ).add( $.proxy( this.load, this ) );
+		mw.hook( 'mw.cx.source.loaded' ).add( this.load.bind( this ) );
 
 		this.$content.on( 'click', function () {
 			var selection = window.getSelection().toString();

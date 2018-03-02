@@ -682,7 +682,7 @@
 			this.$removeLink = $( '<div>' )
 				.addClass( 'card__remove-link' )
 				.text( mw.msg( 'cx-tools-link-remove' ) )
-				.on( 'click', $.proxy( this.removeLink, this ) );
+				.on( 'click', this.removeLink.bind( this ) );
 		}
 
 		this.$card.find( '.card__link-info' )
@@ -1117,7 +1117,7 @@
 			return $( this ).html();
 		} );
 
-		this.$compactTrigger.on( 'click', $.proxy( this.expand, this ) );
+		this.$compactTrigger.on( 'click', this.expand.bind( this ) );
 		this.$searchInput.on( 'focus', function () {
 			self.$pageSelectorButton.prop( 'disabled', false );
 		} );

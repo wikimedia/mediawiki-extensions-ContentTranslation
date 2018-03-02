@@ -51,7 +51,7 @@
 	};
 
 	ProgressBar.prototype.listen = function () {
-		mw.hook( 'mw.cx.progress' ).add( $.proxy( this.update, this ) );
+		mw.hook( 'mw.cx.progress' ).add( this.update.bind( this ) );
 	};
 
 	ProgressBar.prototype.update = function ( weights ) {

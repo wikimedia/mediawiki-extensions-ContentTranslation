@@ -100,7 +100,7 @@
 				return false;
 			}
 		} );
-		$( window ).on( 'beforeunload', $.proxy( this.onPageUnload, this ) );
+		$( window ).on( 'beforeunload', this.onPageUnload.bind( this ) );
 	};
 
 	ContentTranslationStorage.prototype.onPageUnload = function () {

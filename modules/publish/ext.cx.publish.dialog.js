@@ -130,7 +130,7 @@
 		var deferred = $.Deferred(),
 			self = this;
 
-		$( window ).on( 'scroll', $.proxy( this.position, this ) );
+		$( window ).on( 'scroll', this.position.bind( this ) );
 		this.$keepButton.on( 'click', function () {
 			deferred.resolve( false );
 			self.$dialog.remove();

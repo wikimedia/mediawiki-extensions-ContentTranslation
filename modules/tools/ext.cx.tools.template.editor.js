@@ -71,7 +71,7 @@
 	TemplateEditor.prototype.buildTargetFormContainer = function () {
 		this.$closeButton = $( '<div>' )
 			.addClass( 'cx-template-editor-close' )
-			.click( $.proxy( this.close, this ) );
+			.click( this.close.bind( this ) );
 
 		this.$targetTemplateForm = $( '<div>' )
 			.addClass( 'cx-template-editor-target' );
@@ -378,10 +378,10 @@
 	 */
 	TemplateEditor.prototype.listen = function () {
 		this.$targetTemplateForm.on( 'input paste change', '.cx-template-editor-param-value',
-			$.debounce( 200, false, $.proxy( this.onParamEdit, this ) )
+			$.debounce( 200, false, this.onParamEdit.bind( this ) )
 		);
 
-		mw.hook( 'mw.cx.translation.focus' ).add( $.proxy( this.close, this ) );
+		mw.hook( 'mw.cx.translation.focus' ).add( this.close.bind( this ) );
 	};
 
 	/**

@@ -31,15 +31,15 @@
 		this.$toolsContainer.cxtoolmanager();
 
 		// Handle enter key press in the search field.
-		this.$searchInput.keypress( $.proxy( function ( event ) {
+		this.$searchInput.keypress( function ( event ) {
 			if ( event.which === 13 ) {
 				this.doSearch();
 			}
-		}, this ) );
+		}.bind( this ) );
 
-		this.$searchInput.keyup( $.debounce( 300, $.proxy( this.doSearch, this ) ) );
+		this.$searchInput.keyup( $.debounce( 300, this.doSearch.bind( this ) ) );
 
-		this.$searchIcon.on( 'click', $.proxy( this.doSearch, this ) );
+		this.$searchIcon.on( 'click', this.doSearch.bind( this ) );
 
 		mw.hook( 'mw.cx.tools.ready' ).fire();
 	};
@@ -96,9 +96,9 @@
 	};
 
 	ContentTranslationTools.prototype.listen = function () {
-		mw.hook( 'mw.cx.select.word' ).add( $.proxy( this.updateSearch, this ) );
-		mw.hook( 'mw.cx.select.link' ).add( $.proxy( this.updateSearch, this ) );
-		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+		mw.hook( 'mw.cx.select.word' ).add( this.updateSearch.bind( this ) );
+		mw.hook( 'mw.cx.select.link' ).add( this.updateSearch.bind( this ) );
+		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {

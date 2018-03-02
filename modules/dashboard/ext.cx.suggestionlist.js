@@ -550,17 +550,17 @@
 			.hide();
 		$discardAction = $( '<div>' )
 			.addClass( 'cx-slitem__action cx-slitem__action--discard' )
-			.one( 'click', $.proxy( this.discardSuggestion, this, suggestion ) );
+			.one( 'click', this.discardSuggestion.bind( this, suggestion ) );
 
 		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FAVORITE ) {
 			$discardAction.hide();
 			$favoriteAction = $( '<div>' )
 				.addClass( 'cx-slitem__action cx-slitem__action--nonfavorite' )
-				.one( 'click', $.proxy( this.unmarkFavorite, this, suggestion ) );
+				.one( 'click', this.unmarkFavorite.bind( this, suggestion ) );
 		} else {
 			$favoriteAction = $( '<div>' )
 				.addClass( 'cx-slitem__action cx-slitem__action--favorite' )
-				.one( 'click', $.proxy( this.markFavorite, this, suggestion ) );
+				.one( 'click', this.markFavorite.bind( this, suggestion ) );
 		}
 
 		$metaDataContainer = $( '<div>' )
@@ -792,7 +792,7 @@
 				suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title );
 		} );
 
-		$( window ).scroll( $.throttle( 250, $.proxy( this.scroll, this ) ) );
+		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
 	};
 
 	/**
@@ -901,12 +901,12 @@
 			return;
 		}
 
-		list.$list.find( 'h2' ).on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) );
+		list.$list.find( 'h2' ).on( 'click', this.expandOrCollapse.bind( this, list.id ) );
 		if ( list.suggestions.length > 2 ) {
 			list.$list.append( $( '<div>' )
 				.addClass( 'cx-suggestionlist__expand' )
 				.text( mw.msg( 'cx-suggestionlist-expand' ) )
-				.on( 'click', $.proxy( this.expandOrCollapse, this, list.id ) )
+				.on( 'click', this.expandOrCollapse.bind( this, list.id ) )
 			);
 		}
 		// By default, the list is collapsed.
