@@ -22,17 +22,17 @@
 		 */
 		listen: function () {
 			// Register handlers for event logging triggers
-			mw.hook( 'mw.cx.translation.published' ).add( $.proxy( this.published, this ) );
-			mw.hook( 'mw.cx.translation.publish.error' ).add( $.proxy( this.publishFailed, this ) );
-			mw.hook( 'mw.cx.translation.saved' ).add( $.proxy( this.saved, this ) );
-			mw.hook( 'mw.cx.translation.continued' ).add( $.proxy( this.continued, this ) );
-			mw.hook( 'mw.cx.translation.deleted' ).add( $.proxy( this.deleted, this ) );
-			mw.hook( 'mw.cx.cta.shown' ).add( $.proxy( this.ctaShown, this ) );
-			mw.hook( 'mw.cx.cta.accept' ).add( $.proxy( this.ctaAccept, this ) );
-			mw.hook( 'mw.cx.cta.reject' ).add( $.proxy( this.ctaReject, this ) );
-			mw.hook( 'mw.cx.draft.restore-failed' ).add( $.proxy( this.restoreFailed, this ) );
-			mw.hook( 'mw.cx.translation.save-failed' ).add( $.proxy( this.saveFailed, this ) );
-			mw.hook( 'mw.cx.suggestion.action' ).add( $.proxy( this.suggestionAction, this ) );
+			mw.hook( 'mw.cx.translation.published' ).add( this.published.bind( this ) );
+			mw.hook( 'mw.cx.translation.publish.error' ).add( this.publishFailed.bind( this ) );
+			mw.hook( 'mw.cx.translation.saved' ).add( this.saved.bind( this ) );
+			mw.hook( 'mw.cx.translation.continued' ).add( this.continued.bind( this ) );
+			mw.hook( 'mw.cx.translation.deleted' ).add( this.deleted.bind( this ) );
+			mw.hook( 'mw.cx.cta.shown' ).add( this.ctaShown.bind( this ) );
+			mw.hook( 'mw.cx.cta.accept' ).add( this.ctaAccept.bind( this ) );
+			mw.hook( 'mw.cx.cta.reject' ).add( this.ctaReject.bind( this ) );
+			mw.hook( 'mw.cx.draft.restore-failed' ).add( this.restoreFailed.bind( this ) );
+			mw.hook( 'mw.cx.translation.save-failed' ).add( this.saveFailed.bind( this ) );
+			mw.hook( 'mw.cx.suggestion.action' ).add( this.suggestionAction.bind( this ) );
 		},
 
 		/**

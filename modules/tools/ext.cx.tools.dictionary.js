@@ -256,9 +256,9 @@
 				// Try to get a translation.
 				// Don't appear if getting the translation fails.
 				dictionaryCard.getTranslation( word, sourceLanguage, targetLanguage, provider )
-					.done( $.proxy( dictionaryCard.showResult, dictionaryCard ) )
-					.fail( $.proxy( dictionaryCard.stop, dictionaryCard ) );
-			} ).fail( $.proxy( this.stop, this ) );
+					.done( dictionaryCard.showResult.bind( dictionaryCard ) )
+					.fail( dictionaryCard.stop.bind( dictionaryCard ) );
+			} ).fail( this.stop.bind( this ) );
 	};
 
 	DictionaryCard.prototype.stop = function () {

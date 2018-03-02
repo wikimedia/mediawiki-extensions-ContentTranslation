@@ -217,9 +217,9 @@
 				$( '.cx-callout' ).hide();
 				self.show();
 				// On mouse enter of siblings, hide.
-				self.$element.siblings().one( 'mouseenter', $.proxy( self.hide, self ) );
-				self.$dialog.one( 'mouseleave', $.proxy( self.hide, self ) );
-				$( document ).one( 'click', $.proxy( self.hide, self ) );
+				self.$element.siblings().one( 'mouseenter', self.hide.bind( self ) );
+				self.$dialog.one( 'mouseleave', self.hide.bind( self ) );
+				$( document ).one( 'click', self.hide.bind( self ) );
 			} );
 		}
 		if ( this.options.trigger === 'click' ) {

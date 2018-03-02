@@ -124,7 +124,7 @@
 	 * Event handlers
 	 */
 	ReferenceCard.prototype.listen = function () {
-		this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
+		this.$removeReference.on( 'click', this.removeReference.bind( this ) );
 	};
 
 	ReferenceCard.prototype.onShow = function () {
@@ -216,12 +216,12 @@
 
 		if ( $targetReference.length && language === mw.cx.targetLanguage ) {
 			this.$reference = $targetReference;
-			this.$removeReference.on( 'click', $.proxy( this.removeReference, this ) );
+			this.$removeReference.on( 'click', this.removeReference.bind( this ) );
 			this.$addReference.remove();
 		}
 		if ( $sourceReference.length && language === mw.cx.sourceLanguage ) {
 			this.$reference = $sourceReference;
-			this.$addReference.on( 'click', $.proxy( this.addReference, this ) );
+			this.$addReference.on( 'click', this.addReference.bind( this ) );
 			this.$removeReference.remove();
 		}
 		this.$card.find( '.card__title--language' )

@@ -69,9 +69,9 @@
 		this.$trigger.callout( 'show' );
 		this.shown = true;
 		this.$titleInput.focus();
-		this.$closeIcon.one( 'click', $.proxy( this.hide, this ) );
-		this.$actionTranslate.one( 'click', $.proxy( this.startPageInCX, this ) );
-		this.$actionScratch.one( 'click', $.proxy( this.startFromScratch, this ) );
+		this.$closeIcon.one( 'click', this.hide.bind( this ) );
+		this.$actionTranslate.one( 'click', this.startPageInCX.bind( this ) );
+		this.$actionScratch.one( 'click', this.startFromScratch.bind( this ) );
 		mw.hook( 'mw.cx.cta.shown' ).fire( this.options.entryPointName );
 	};
 
@@ -126,7 +126,7 @@
 
 		this.$closeIcon = $( '<span>' )
 			.addClass( 'icon-close' )
-			.on( 'click', $.proxy( this.hide, this ) );
+			.on( 'click', this.hide.bind( this ) );
 
 		// Uses .html because of <br /> in the message
 		$heading = $( '<div>' )

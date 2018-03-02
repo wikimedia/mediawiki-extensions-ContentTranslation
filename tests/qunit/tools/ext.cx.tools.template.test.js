@@ -58,8 +58,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function ( adaptedTemplate ) {
@@ -107,8 +106,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function () {}, function () {
@@ -155,8 +153,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function () {}, function () {
@@ -281,8 +278,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function ( adaptedTemplate ) {
@@ -360,8 +356,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function ( adaptedTemplate ) {
@@ -463,8 +458,7 @@
 		} );
 		targetTemplate = new mw.cx.Template( $targetTemplate, {
 			language: mw.cx.targetLanguage,
-			siteMapper: mw.cx.siteMapper,
-			onEdit: $.proxy( this.onEdit, this )
+			siteMapper: mw.cx.siteMapper
 		} );
 		templateTool = new mw.cx.TemplateTool( sourceTemplate, targetTemplate );
 		templateTool.adapt().then( function ( adaptedTemplate ) {

@@ -113,7 +113,7 @@
 
 		for ( event in this.eventRegistry ) {
 			mw.hook( event ).add(
-				$.proxy( this.dispatch, this, event )
+				this.dispatch.bind( this, event )
 			);
 		}
 

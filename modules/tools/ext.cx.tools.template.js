@@ -200,7 +200,7 @@
 	 * Event handlers
 	 */
 	Template.prototype.listen = function () {
-		this.$template.click( $.proxy( this.onClick, this ) );
+		this.$template.click( this.onClick.bind( this ) );
 	};
 
 	/**
@@ -942,7 +942,7 @@
 				}
 			}
 		);
-		this.targetTemplate.options.onEdit = $.proxy( this.onEdit, this );
+		this.targetTemplate.options.onEdit = this.onEdit.bind( this );
 	};
 
 	/**

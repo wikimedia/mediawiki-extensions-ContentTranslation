@@ -176,11 +176,11 @@
 	 * Bind formatting events
 	 */
 	FormatTool.prototype.listen = function () {
-		this.$buttons.bold.on( 'click', $.proxy( this.bold, this ) );
-		this.$buttons.italic.on( 'click', $.proxy( this.italic, this ) );
-		this.$buttons.orderedlist.on( 'click', $.proxy( this.orderedList, this ) );
-		this.$buttons.unorderedlist.on( 'click', $.proxy( this.unOrderedList, this ) );
-		this.$section.on( 'keydown', $.proxy( this.shortCutHandler, this ) );
+		this.$buttons.bold.on( 'click', this.bold.bind( this ) );
+		this.$buttons.italic.on( 'click', this.italic.bind( this ) );
+		this.$buttons.orderedlist.on( 'click', this.orderedList.bind( this ) );
+		this.$buttons.unorderedlist.on( 'click', this.unOrderedList.bind( this ) );
+		this.$section.on( 'keydown', this.shortCutHandler.bind( this ) );
 	};
 
 	function getParentSection() {

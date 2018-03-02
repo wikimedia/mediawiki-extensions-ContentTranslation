@@ -108,8 +108,8 @@
 		} );
 
 		this.$editableElement
-			.on( 'paste', $.proxy( this.pasteHandler, this ) )
-			.on( 'drop', $.proxy( this.dropHandler, this ) );
+			.on( 'paste', this.pasteHandler.bind( this ) )
+			.on( 'drop', this.dropHandler.bind( this ) );
 	};
 
 	/**

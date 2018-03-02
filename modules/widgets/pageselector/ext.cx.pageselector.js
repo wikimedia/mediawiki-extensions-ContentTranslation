@@ -198,9 +198,9 @@
 		} );
 
 		// Hide the menu when clicked outside.
-		$( document ).on( 'click', $.proxy( this.hide, this ) );
+		$( document ).on( 'click', this.hide.bind( this ) );
 
-		this.$input.on( 'input', $.debounce( 250, false, $.proxy( this.search, this ) ) );
+		this.$input.on( 'input', $.debounce( 250, false, this.search.bind( this ) ) );
 
 		// Handle navigation by arrow keys and selection by enter key
 		this.$input.on( 'keydown', function ( event ) {
