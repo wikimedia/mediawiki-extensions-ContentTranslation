@@ -847,15 +847,14 @@
 	 * Scroll handler for the suggestions
 	 */
 	CXSuggestionList.prototype.scroll = function () {
-		var expandedListId, $expandedList, $window, triggerPos,
+		var expandedListId, $expandedList, triggerPos,
 			scrollTop, windowHeight, visibleArea, $loadTrigger;
 
 		if ( !this.active ) {
 			return;
 		}
-		$window = $( window );
-		scrollTop = $window.scrollTop();
-		windowHeight = $window.height();
+		scrollTop = window.pageYOffset;
+		windowHeight = document.documentElement.clientHeight;
 		visibleArea = windowHeight + scrollTop;
 
 		// Load next batch of items when loadTrigger is in viewpot

@@ -102,7 +102,7 @@
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {
-		var scrollTop = $( window ).scrollTop();
+		var scrollTop = window.pageYOffset;
 
 		if ( scrollTop > 0 ) {
 			this.$container.addClass( 'sticky' );

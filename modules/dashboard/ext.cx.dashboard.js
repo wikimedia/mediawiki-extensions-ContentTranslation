@@ -359,7 +359,7 @@
 
 	CXDashboard.prototype.onClickHandler = function () {
 		this.$listHeader.hide();
-		$( window ).scrollTop( 0 );
+		window.scrollTo( window.pageXOffset, 0 ); // Equivalent to $( window ).scrollTop( 0 )
 	};
 
 	CXDashboard.prototype.setFilter = function ( type, value ) {
@@ -384,7 +384,7 @@
 		// Check for conditions that pre-open source page selector
 		if ( query.from && query.to && query.page ) {
 			this.$listHeader.hide();
-			$( window ).scrollTop( 0 );
+			window.scrollTo( window.pageXOffset, 0 ); // Equivalent to $( window ).scrollTop( 0 )
 		}
 
 		if ( query.campaign ) {

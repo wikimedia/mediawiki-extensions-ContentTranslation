@@ -129,7 +129,7 @@ mw.cx.ui.ToolsColumn.prototype.listen = function () {
 };
 
 mw.cx.ui.ToolsColumn.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop(),
+	var scrollTop = window.pageYOffset,
 		top = this.$element.position().top;
 
 	if ( scrollTop > top ) {

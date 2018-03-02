@@ -235,7 +235,7 @@
 		var scrollTop;
 
 		// Get the current scroll top position to restore this position.
-		scrollTop = $( document ).scrollTop();
+		scrollTop = window.pageYOffset;
 		// Note that if the section is not editable - if its contenteditable attribute
 		// value is false, we cannot focus on it.
 		this.$targetSection.focus();

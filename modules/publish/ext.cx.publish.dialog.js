@@ -109,7 +109,7 @@
 		buttonPosition = this.$trigger.position();
 		buttonCenter = buttonPosition.left + ( this.$trigger.outerWidth() / 2 );
 		dialogLeft = buttonCenter - ( this.$dialog.outerWidth() / 2 );
-		dialogTop = $( window ).scrollTop() + buttonPosition.top + this.$trigger.height() + 20;
+		dialogTop = window.pageYOffset + buttonPosition.top + this.$trigger.height() + 20;
 		this.$dialog.css( {
 			top: dialogTop,
 			left: dialogLeft,

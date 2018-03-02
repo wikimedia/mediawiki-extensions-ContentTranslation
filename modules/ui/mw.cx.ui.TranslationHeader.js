@@ -105,7 +105,7 @@ mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {
 };
 
 mw.cx.ui.TranslationHeader.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop(),
+	var scrollTop = window.pageYOffset,
 		$parent = this.$element.parent(),
 		top = $parent.position().top;
 

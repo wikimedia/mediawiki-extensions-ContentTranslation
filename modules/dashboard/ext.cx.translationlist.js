@@ -514,13 +514,12 @@
 	};
 
 	CXTranslationList.prototype.scroll = function () {
-		var $window, scrollTop, windowHeight;
+		var scrollTop, windowHeight;
 		if ( !this.active ) {
 			return;
 		}
-		$window = $( window );
-		scrollTop = $window.scrollTop();
-		windowHeight = $window.height();
+		scrollTop = window.pageYOffset;
+		windowHeight = document.documentElement.clientHeight;
 
 		// Load next batch of items on scroll.
 		if ( scrollTop > 0 && scrollTop + windowHeight + 100 > $( document ).height() ) {

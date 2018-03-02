@@ -300,8 +300,8 @@
 		return function () {
 			var direction = prefer,
 				leftFlips, rightFlips, topFlips, bottomFlips,
-				boundTop = $( document ).scrollTop() + $( window ).height() / 2,
-				boundLeft = $( document ).scrollLeft() + $( window ).width() / 2,
+				boundTop = window.pageYOffset + document.documentElement.clientHeight / 2,
+				boundLeft = window.pageXOffset + document.documentElement.clientWidth / 2,
 				$this = $( this );
 
 			leftFlips = {

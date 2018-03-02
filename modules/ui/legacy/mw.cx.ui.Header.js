@@ -189,7 +189,7 @@ mw.cx.ui.Header.prototype.setStatusMessage = function ( message ) {
 };
 
 mw.cx.ui.Header.prototype.onWindowScroll = function () {
-	var scrollTop = $( window ).scrollTop(),
+	var scrollTop = window.pageYOffset,
 		headerOffsetTop = this.$headerBarContainer.offset().top;
 
 	if ( scrollTop > headerOffsetTop ) {
