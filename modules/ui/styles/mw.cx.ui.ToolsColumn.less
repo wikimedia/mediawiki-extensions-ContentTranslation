@@ -28,6 +28,13 @@
 		.stick-to-bottom;
 	}
 
+	@media only screen and ( min-width: ( @wide + 0.1 * @max-tools-column-width ) ) {
+		width: @max-tools-column-width;
+		&.sticky {
+			border-left: 0;
+		}
+	}
+
 	.cx-column-tools-container {
 		display: flex;
 		flex-direction: column;
