@@ -6,6 +6,16 @@
 			"Robin van der Vliet"
 		]
 	},
+	"cx": "Zèt pagina euver",
+	"cx-dashboard-header": "Euverzèttinge",
+	"cx-source-view-page": "tuin pagina",
+	"cx-publish-page-success": "Pagina oetgebrach op $1",
+	"cx-publish-button": "Bring oet",
+	"cx-publish-button-publishing": "Oet 'nt bringe...",
+	"cx-source-loading": "Laje van $1",
+	"cx-beta": "Inhawdseuverzètting",
+	"cx-entrypoint-title": "Zèt dees pagina euver nao 't $1",
+	"cx-entrypoint-dialog-button-translate-from": "Zèt euver vanoet 't $1",
 	"cx-tools-link-title": "Link",
 	"cx-contributions-translation": "Euverzètting",
 	"cx-draft-cancel-button-label": "Annelere",

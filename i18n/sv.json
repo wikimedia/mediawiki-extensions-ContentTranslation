@@ -30,7 +30,7 @@
 	"cx-source-view-page": "visa sida",
 	"cx-publish-page-success": "Sidan publicerades på $1",
 	"cx-publish-page-error": "Ett fel uppstod när översättningen skulle publiceras. Prova att publicera sidan igen. Fel: $1",
-	"cx-publish-button": "Publicera översättningen",
+	"cx-publish-button": "Publicera",
 	"cx-publish-button-publishing": "Publicerar...",
 	"cx-lost-session-draft": "Din session har gått ut. Dina redigeringar kan inte sparas såvida du loggar in i ett annat fönster.",
 	"cx-lost-session-publish": "Din session har gått ut. Du kan inte publicera översättningen förrän du har loggat in igen i ett annat fönster.",
