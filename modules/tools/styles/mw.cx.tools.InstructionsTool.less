@@ -1,6 +1,8 @@
 @import '../../widgets/common/ext.cx.common.less';
 
 .cx-card-instructions {
+	padding: 0;
+
 	.cx-widget-translationtool-container {
 		padding: 0;
 	}
@@ -11,28 +13,26 @@
 
 .card-instructions-section {
 	.mw-ui-item;
-	margin-left: auto;
-	margin-right: auto;
+	background-color: #fff;
 	overflow: hidden;
 	clear: both;
+	margin-left: auto;
+	margin-right: auto;
 	border-bottom: 1px solid @colorGray12;
-	padding: 10px 10px 20px 10px;
-	font-size: 16px;
-	word-wrap: break-word;
-	background-color: #fff;
+	padding: 16px 26px;
+	.break-overflowing-word;
 }
 
 .card-instructions-guidelines {
 	.mw-ui-item;
-	text-align: center;
 	color: @colorProgressive;
-	padding: 10px;
-	font-size: 14px;
+	padding: 16px 26px;
+	font-size: 0.875em;
+	text-align: center;
 }
 
 .card-instructions-text {
 	.mw-ui-seven-eighths;
-	padding-top: 5px;
 }
 
 .card-instructions-heading-one,
@@ -46,21 +46,19 @@
 .card-instructions-description-two,
 .card-instructions-description-three {
 	.mw-ui-one-whole;
-	font-size: 0.9em;
 	color: @colorGray5;
-	text-wrap: nowrap;
 	padding-top: 10px;
-	line-height: 1.5em;
+	font-size: 0.875em;
+	line-height: 1.5;
 }
 
 .card-instructions-count-one,
 .card-instructions-count-two,
 .card-instructions-count-three {
 	.mw-ui-one-eighth;
+	background-color: #fff;
+	color: @colorProgressive;
 	height: 10%;
 	font-size: 2em;
-	color: @colorProgressive;
-	background-color: #fff;
-	padding-top: 5px;
 	text-align: left;
 }
