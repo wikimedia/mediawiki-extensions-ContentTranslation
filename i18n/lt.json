@@ -27,7 +27,7 @@
 	"cx-source-view-page": "žiūrėti puslapį",
 	"cx-publish-page-success": "Straipsnis paskelbtas puslapyje $1",
 	"cx-publish-page-error": "Kilo klaida pateikiant vertimą. Prašome dar kartą pabandyti pateikti puslapį. Klaida: $1",
-	"cx-publish-button": "Publikuoti",
+	"cx-publish-button": "Skelbti",
 	"cx-publish-button-publishing": "Skelbiama...",
 	"cx-lost-session-draft": "Jūsų sesijos galiojimo laikas baigėsi. Jūsų pakeitimai negali būti išsaugoti, nebent jūs vėl prisijungsite kitame lange.",
 	"cx-lost-session-publish": "Jūsų sesijos galiojimo laikas baigėsi. Jūs negalite pateikti vertimo, nebent vėl prisijungsite kitame lange.",
