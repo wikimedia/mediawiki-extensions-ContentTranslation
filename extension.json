@@ -1442,7 +1442,6 @@
 				"ve-cx/init/styles/ve.init.mw.CXTarget.less"
 			],
 			"messages": [
-				"cx-draft-restored",
 				"cx-publish-button",
 				"cx-publish-button-publishing",
 				"cx-publish-page-success"

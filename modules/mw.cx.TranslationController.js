@@ -11,7 +11,6 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	this.config = config;
 	this.siteMapper = config.siteMapper;
 	this.sourceTitle = config.sourceTitle;
-	this.targetTitle = config.targetTitle;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 
@@ -24,6 +23,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	// Associative array of translation units queued to be saved
 	this.saveQueue = {};
 	this.saveTimer = null;
+	this.targetTitleChanged = false;
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, this.config );
 	this.listen();
@@ -93,7 +93,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	var params,
 		api = new mw.Api();
 
-	if ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) {
+	if ( ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) && !this.targetTitleChanged ) {
 		return;
 	}
 
@@ -184,6 +184,11 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	var sectionNumber, minutes = 0;
+
+	if ( this.targetTitleChanged ) {
+		mw.log( '[CX] Target title saved.' );
+	}
+	this.targetTitleChanged = false;
 
 	this.translationId = saveResult.cxsave.translationid;
 	for ( sectionNumber in this.saveQueue ) {
@@ -326,7 +331,7 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, d
 		mw.cx.sourceLanguage,
 		mw.cx.targetLanguage,
 		mw.cx.sourceTitle,
-		this.targetTitle,
+		this.targetArticle.getTargetTitle(),
 		JSON.stringify( details )
 	);
 };
@@ -343,6 +348,8 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 		return;
 	}
 
+	this.targetTitleChanged = true;
+
 	newTitleObj = mw.Title.newFromText( newTitle );
 	if ( !newTitleObj ) {
 		mw.log.error( '[CX] Invalid target title' );
@@ -354,4 +361,6 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	if ( currentTitleObj.getNamespaceId() !== newTitleObj.getNamespaceId() ) {
 		this.veTarget.updateNamespace();
 	}
+
+	this.schedule();
 };

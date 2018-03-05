@@ -44,6 +44,7 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 	} );
 
 	this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
+		disabled: true,
 		destination: mw.cx.getDefaultTargetNamespace()
 	} );
 
