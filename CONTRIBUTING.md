@@ -9,8 +9,8 @@ conventions we use in the project.
 ## Bug reports
 
 Please report bugs to [phabricator.wikimedia.org](https://phabricator.wikimedia.org)
-using the `mediawiki-extensions-contenttranslation` project. Don't worry about
-specifying priority or security.
+using the `ContentTranslation` project. Don't worry about specifying priority
+or security.
 
 ## Running tests
 
