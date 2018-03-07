@@ -204,26 +204,3 @@ mw.cx.MwApiRequestManager.prototype.fetchSourcePageContent = function ( title, l
 		}
 	} );
 };
-
-/**
- * Adapt and add categories from an array of categories
- * @param {string} sourceLanguage Source language
- * @param {string[]} sourceCategories Array of source category titles, with namespace prefix
- * @return {jQuery.Promise<string[]>} All successfully adapted titles
- */
-mw.cx.MwApiRequestManager.prototype.adaptCategoriesFrom = function ( sourceLanguage, sourceCategories ) {
-	// Note that requestManager will take care of combining all these categories
-	// to a single network request.
-	var deferreds = sourceCategories.map( function ( category ) {
-		return this.getTitlePair( sourceLanguage, category );
-	}.bind( this ) );
-	return $.when.apply( $, deferreds ).then( function () {
-		var targetCategories = [];
-		Array.prototype.forEach.call( arguments, function ( pairInfo ) {
-			if ( pairInfo.targetTitle ) {
-				targetCategories.push( pairInfo.targetTitle );
-			}
-		} );
-		return targetCategories;
-	} );
-};

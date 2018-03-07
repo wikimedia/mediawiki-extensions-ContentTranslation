@@ -80,8 +80,10 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 		this.veTarget.setTranslation( this.translationModel );
 		mw.log( '[CX] Translation initialized successfully' );
-		// Fetch and adapt categories
-		this.fetchAndAdaptCategories();
+
+		// Process categories, which are adapted on server
+		this.processCategories( sourcePageContent.categories );
+		mw.hook( 'mw.cx.draft.restored' ).fire();
 	}.bind( this ), this.initializationError.bind( this ) );
 };
 
@@ -306,27 +308,27 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 };
 
 /**
- * Fetch and adapt the categories.
- * @return {jQuery.Promise}
+ * Process fetched categories.
+ *
+ * @param {Array} fetchedCategories
  */
-mw.cx.init.Translation.prototype.fetchAndAdaptCategories = function () {
-	var translationModel = this.translationModel,
-		requestManager = this.config.requestManager,
-		veTarget = this.veTarget;
+mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategories ) {
+	var category,
+		sourceCategories = [],
+		targetCategories = [],
+		length = fetchedCategories.length;
 
-	mw.log( '[CX] Fetching and adapting categories...' );
+	mw.log( '[CX] Processing fetched categories...' );
 
-	return requestManager.getCategories(
-		translationModel.sourceWikiPage.getLanguage(),
-		translationModel.sourceWikiPage.getTitle()
-	).then( function ( categoriesResult ) {
-		translationModel.sourceCategories = categoriesResult.categories;
-		return requestManager.adaptCategoriesFrom(
-			translationModel.sourceWikiPage.getLanguage(),
-			translationModel.sourceCategories
-		);
-	} ).then( function ( targetCategories ) {
-		translationModel.targetCategories = targetCategories;
-		veTarget.showCategories();
-	} );
+	while ( length-- ) {
+		category = fetchedCategories[ length ];
+		sourceCategories.push( category.sourceTitle );
+		if ( category.adapted ) {
+			targetCategories.push( category.targetTitle );
+		}
+	}
+
+	this.translationModel.sourceCategories = sourceCategories;
+	this.translationModel.targetCategories = targetCategories;
+	this.veTarget.showCategories();
 };
