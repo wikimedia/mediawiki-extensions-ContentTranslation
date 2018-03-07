@@ -69,7 +69,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @return {HTMLDocument} Restructured source DOM
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
-	var sectionId,
+	var sectionId, childNodes,
 		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
@@ -85,10 +85,10 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
-	domDoc.body.childNodes.forEach( function ( node ) {
+	// Convert Nodelist to proper array
+	childNodes = [].slice.call( domDoc.body.childNodes );
+	childNodes.forEach( function ( node ) {
 		var sectionNode, savedSectionNode, savedSection, validSection = false;
-
-		sectionNumber++;
 
 		if ( node.nodeType !== Node.ELEMENT_NODE ) {
 			return;
@@ -119,13 +119,15 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 				sectionNode.setAttribute( 'id', sectionId );
 				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 			}
-			// Placeholder node is an empty section, prepared above. It will replace
-			// the node. So delete the node from domDoc.
-			node.parentNode.removeChild( node );
-			articleNode.appendChild( sectionNode );
 		} else {
-			articleNode.appendChild( node );
+			sectionNode = node.cloneNode( true );
 		}
+
+		// Remove the original node now.
+		node.parentNode.removeChild( node );
+		articleNode.appendChild( sectionNode );
+
+		sectionNumber++;
 
 	}.bind( this ) );
 
