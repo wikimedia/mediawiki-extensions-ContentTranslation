@@ -33,7 +33,7 @@
 	"cx-source-view-page": "mostra la pàgina",
 	"cx-publish-page-success": "Pàgina publicada a $1",
 	"cx-publish-page-error": "S'ha produït un error mentre es publicava la traducció. Proveu de publicar la pàgina de nou. Error: $1",
-	"cx-publish-button": "Publica la traducció",
+	"cx-publish-button": "Publica",
 	"cx-publish-button-publishing": "S'està publicant...",
 	"cx-lost-session-draft": "La sessió ha expirat. No es poden desar les vostres edicions a menys que no inicieu una sessió en una altra finestra.",
 	"cx-lost-session-publish": "La sessió ha expirat. No podeu publicar la traducció fins que no torneu a iniciar una sessió en una altra finestra.",
