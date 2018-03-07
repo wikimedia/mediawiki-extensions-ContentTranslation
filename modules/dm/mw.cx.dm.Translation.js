@@ -374,7 +374,7 @@ mw.cx.dm.Translation.prototype.buildAnnotationTranslationUnits = function ( rang
 	var i, current, opened, closed, j, jLen, ann, unit,
 		data = this.sourceDoc.data,
 		previous = new ve.dm.AnnotationSet( data.store ),
-		translationUnitIdBySetIndex = {};
+		translationUnitIdBySetHash = {};
 
 	for ( i = range.start; i < range.end; i++ ) {
 		current = data.getAnnotationsFromOffset( i );
@@ -388,13 +388,13 @@ mw.cx.dm.Translation.prototype.buildAnnotationTranslationUnits = function ( rang
 			if ( unit ) {
 				parentUnit.translationUnits.push( unit );
 				this.translationUnitById[ unit.getId() ] = unit;
-				translationUnitIdBySetIndex[ opened.getIndex( j ) ] = unit.getId();
+				translationUnitIdBySetHash[ opened.getHash( j ) ] = unit.getId();
 				unit.setStart( i );
 			}
 		}
 		for ( j = 0, jLen = closed.getLength(); j < jLen; j++ ) {
 			unit = this.translationUnitById[
-				translationUnitIdBySetIndex[ closed.getIndex( j ) ]
+				translationUnitIdBySetHash[ closed.getHash( j ) ]
 			];
 			if ( unit ) {
 				unit.setEnd( i );
