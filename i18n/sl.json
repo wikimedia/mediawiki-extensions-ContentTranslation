@@ -21,7 +21,7 @@
 	"cx-source-view-page": "prikaz strani",
 	"cx-publish-page-success": "Stran objavljena na naslovu $1",
 	"cx-publish-page-error": "Pri objavi prevoda je prišlo do napake. Prosimo, poskusi ponovno. Napaka: $1",
-	"cx-publish-button": "Objavi prevod",
+	"cx-publish-button": "Objavi",
 	"cx-publish-button-publishing": "Objavljanje ...",
 	"cx-lost-session-draft": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
 	"cx-lost-session-publish": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
