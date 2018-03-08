@@ -9,11 +9,11 @@ ve.ui.CXLinkContextItem = function VeUiCXLinkContextItem() {
 	// Parent constructor
 	ve.ui.CXLinkContextItem.super.apply( this, arguments );
 	// Mixin constructor
-	ve.ui.CXTranslationUnitContextItem.apply( this );
+	ve.ui.CXTranslationUnitContextItem.apply( this, arguments );
 	this.$sourceBody = $( '<div>' )
-		.addClass( 've-ui-linearContextItem-body' )
-		.addClass( 've-ui-cxLinkContextItem-sourceBody' )
+		.addClass( 've-ui-linearContextItem-body ve-ui-cxLinkContextItem-sourceBody' )
 		.insertBefore( this.$body );
+	this.$body.addClass( 've-ui-cxLinkContextItem-targetBody' );
 	this.$element.addClass( 've-ui-cxLinkContextItem' );
 };
 
@@ -37,24 +37,8 @@ ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
  */
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	var $sourceLink, $targetLink,
-		targetSurface = this.context.getSurface(),
-		translation = ve.init.target.getTranslation(),
-		unit = translation.getTranslationUnit( this.model.getTranslationUnitId() ),
-		sourceModel = unit.sourceModel;
-
-	// Source link
-	$sourceLink = this.constructor.static.generateBody(
-		// TODO: this ought to be a linkCache pointing at the source wiki
-		ve.init.platform.linkCache,
-		sourceModel,
-		translation.sourceDoc.getHtmlDocument()
-	);
-	// Target link
-	$targetLink = this.constructor.static.generateBody(
-		ve.init.platform.linkCache,
-		this.model,
-		targetSurface.getModel().getDocument().getHtmlDocument()
-	);
+		adaptationInfo = this.model.getAttribute( 'cx' ),
+		translation = ve.init.target.getTranslation();
 
 	function addLanguageDescription( $link, lang ) {
 		$link.find( '.ve-ui-mwInternalLinkContextItem-link' ).after(
@@ -64,13 +48,71 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 		);
 	}
 
+	// Source link
+	$sourceLink = this.generateBody( adaptationInfo.sourceTitle, this.context );
 	addLanguageDescription( $sourceLink, translation.sourceDoc.getLang() );
-	addLanguageDescription( $targetLink, translation.targetDoc.getLang() );
+
+	// Target link
+	if ( adaptationInfo.adapted ) {
+		$targetLink = this.generateBody( adaptationInfo.targetTitle, this.context );
+		addLanguageDescription( $targetLink, translation.targetDoc.getLang() );
+	}
 
 	this.$sourceBody.empty().append( $sourceLink );
 	this.$body.empty().append( $targetLink );
 };
 
+/**
+ * Generate the body of the link context item
+ *
+ * @param {Object} linkInfo The object with title meta data
+ * @param {ve.ui.Context} context Context (for resizing)
+ * @return {jQuery} The jQuery object of the link context item
+ */
+ve.ui.CXLinkContextItem.prototype.generateBody = function ( linkInfo, context ) {
+	var $linkTitle, icon, description, $description, imageUrl,
+		$wrapper = $( '<div>' );
+
+	$linkTitle = $( '<a>' )
+		.addClass( 've-ui-mwInternalLinkContextItem-link  cx-tools-link-text' )
+		.text( linkInfo.title )
+		.prop( {
+			target: '_blank',
+			title: linkInfo.title,
+			href: ve.init.target.config.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
+		} );
+
+	icon = new OO.ui.IconWidget( {
+		icon: 'page-existing',
+		classes: [ 'cx-tools-link-image' ]
+	} );
+
+	icon = new OO.ui.IconWidget( { icon: 'page-existing' } );
+	$wrapper
+		.addClass( 've-ui-mwInternalLinkContextItem-withImage' )
+		.append( icon.$element );
+
+	$wrapper.append( $linkTitle );
+
+	description = OO.getProp( linkInfo, 'terms', 'description' );
+	if ( description ) {
+		$description = $( '<span>' )
+			.addClass( 've-ui-mwInternalLinkContextItem-description' )
+			.text( description );
+		$wrapper.append( $description );
+		// Multiline descriptions may make the context bigger (T183650)
+		context.updateDimensions();
+	}
+
+	imageUrl = OO.getProp( linkInfo, 'thumbnail', 'source' );
+	if ( imageUrl ) {
+		icon.$element
+			.addClass( 've-ui-mwInternalLinkContextItem-hasImage' )
+			.css( 'background-image', 'url(' + imageUrl + ')' );
+	}
+
+	return $wrapper;
+};
 /* Registration */
 
 ve.ui.contextItemFactory.register( ve.ui.CXLinkContextItem );
