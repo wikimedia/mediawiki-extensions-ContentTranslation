@@ -1305,6 +1305,7 @@
 				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js"
 			],
 			"styles": [
+				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.css"
 			],
