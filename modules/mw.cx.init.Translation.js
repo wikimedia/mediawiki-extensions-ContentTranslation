@@ -78,12 +78,13 @@ mw.cx.init.Translation.prototype.init = function () {
 		this.translationController = new mw.cx.TranslationController(
 			this.translationModel, this.veTarget, this.config
 		);
-		this.veTarget.setTranslation( this.translationModel );
-		mw.log( '[CX] Translation initialized successfully' );
 
+		this.veTarget.setTranslation( this.translationModel );
 		// Process categories, which are adapted on server
 		this.processCategories( sourcePageContent.categories );
+
 		mw.hook( 'mw.cx.draft.restored' ).fire();
+		mw.log( '[CX] Translation initialized successfully' );
 	}.bind( this ), this.initializationError.bind( this ) );
 };
 
