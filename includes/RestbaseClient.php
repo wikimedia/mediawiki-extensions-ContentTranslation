@@ -91,9 +91,9 @@ class RestbaseClient {
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
 			return $response['body'];
 		} elseif ( $response['error'] !== '' ) {
-			throw new \MWException( 'docserver-http-error: ' . $response['error'] );
+			throw new \MWException( "docserver-http-error: {$response['error']}" );
 		} else { // error null, code not 200
-			throw new \MWException( 'docserver-http: HTTP ' . $response['code'] );
+			throw new \MWException( "docserver-http: HTTP {$response['code']}: {$response['body']}" );
 		}
 	}
 
