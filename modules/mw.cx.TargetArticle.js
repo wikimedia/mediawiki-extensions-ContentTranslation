@@ -1,5 +1,6 @@
 /**
  * Target Article for CX - Validation, Publishing, Success and Error handling.
+ *
  * @param {mw.cx.dm.Translation} translation
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {object} config Translation configuration
@@ -18,7 +19,6 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.publishDeferred = null;
 	this.captcha = null;
 };
 
@@ -28,7 +28,6 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 
 /**
  * Publish the translated content to target wiki.
- * @return {jQuery.Promise}
  */
 mw.cx.TargetArticle.prototype.publish = function () {
 	var apiParams;
@@ -43,7 +42,6 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		categories: this.translation.getTargetCategories()
 	} );
 
-	this.publishDeferred = $.Deferred();
 	// Check for title conflicts
 	this.checkTargetTitle( this.getTargetTitle() ).then( function ( title ) {
 		apiParams.title = title;
@@ -54,12 +52,11 @@ mw.cx.TargetArticle.prototype.publish = function () {
 			timeout: 100 * 1000 // in milliseconds
 		} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
 	}.bind( this ) );
-
-	return this.publishDeferred.promise();
 };
 
 /**
  * Publish success handler
+ *
  * @param {Object} response Response object from the publishing api
  * @param {Object} jqXHR
  * @return {null|jQuery.Promise}
@@ -72,8 +69,7 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 
 	if ( publishResult.edit.captcha ) {
 		// If there is a captcha challenge, get the solution and retry.
-		return this.showErrorCaptcha( publishResult.edit.captcha )
-			.then( this.publish.bind( this ) );
+		return this.showErrorCaptcha( publishResult.edit.captcha );
 	}
 
 	// Any other failure
@@ -84,16 +80,15 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
  * @fires publish
  */
 mw.cx.TargetArticle.prototype.publishComplete = function () {
-	this.publishDeferred.resolve( true );
 	this.emit( 'publishSuccess' );
 };
 
 /**
  * Publish failure handler
  *
- * The mystery parameter could be a string explaining the error, or an object with textStatus,
- * exception and jqXHR keys (but jqXHR can be missing), or equal to data. If data is
- * present, jqXHR is also present. See T176704.
+ * The 'messageOrFailObjOrData' parameter could be a string explaining the error,
+ * or an object with textStatus, exception and jqXHR keys (but jqXHR can be missing),
+ * or equal to data. If data is present, jqXHR is also present. See T176704.
  *
  * @param {string} errorCode
  * @param {string|Object} messageOrFailObjOrData Error message (string), or object with textStatus,
@@ -106,7 +101,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 
 	if ( !data ) {
 		if ( errorCode === 'ok-but-empty' ) {
-			this.showErrorEmpty();
+			this.showPublishError( mw.msg( 'cx-publish-error-empty' ) );
 			return;
 		}
 
@@ -119,12 +114,18 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
 		// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
 		if ( editResult.spamblacklist ) {
-			this.showErrorSpamBlacklist( editResult );
+			this.showPublishError(
+				mw.msg( 'cx-publish-error-spam-blacklist', editResult.spamblacklist ),
+				JSON.stringify( editResult )
+			);
 			return;
 		}
 		// Handle abusefilter errors.
 		if ( editResult.code && editResult.code.indexOf( 'abusefilter' ) === 0 ) {
-			this.showErrorAbuseFilter( editResult.info, editResult.warning );
+			this.showPublishError(
+				mw.msg( 'cx-publish-error-abuse-filter', editResult.info ),
+				editResult.info
+			);
 			return;
 		}
 	}
@@ -132,13 +133,16 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 	// Handle token errors
 	editError = data.error;
 	if ( editError && editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
-		this.showErrorBadToken( null, true );
+		this.showUnrecoverablePublishError(
+			mw.msg( 'cx-lost-session-publish' ),
+			JSON.stringify( editError )
+		);
 		return;
-	} else if ( data.error && data.error.code === 'titleblacklist-forbidden' ) {
-		this.showErrorTitleBlacklist();
+	} else if ( editError && editError.code === 'titleblacklist-forbidden' ) {
+		this.showPublishError( mw.msg( 'cx-publish-error-title-blacklist' ), JSON.stringify( editError ) );
 		return;
-	} else if ( data.error && data.error.code === 'readonly' ) {
-		this.showErrorReadOnly( data.error.readonlyreason );
+	} else if ( editError && editError.code === 'readonly' ) {
+		this.showUnrecoverablePublishError( mw.msg( 'cx-publish-error-readonly' ), editError.readonlyreason );
 		return;
 	}
 
@@ -162,49 +166,13 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 
 	// Handle (other) unknown and/or unrecoverable errors
 	this.showErrorUnknown( editResult, data, jqXHR );
-	// TODO: Event logging the publishing error
-};
-
-/**
- * AbuseFilter error handler
- * @method
- * @fires publishErrorAbuseFilter
- */
-mw.cx.TargetArticle.prototype.showErrorAbuseFilter = function () {
-	this.showPublishError( mw.msg( 'cx-publishError-abusefilter' ), true );
-	// Don't disable the publish button. If the action is not disallowed the user may save the
-	// edit by pressing Publish again. The AbuseFilter API currently has no way to distinguish
-	// between filter triggers that are and aren't disallowing the action.
-	this.emit( 'publishErrorAbuseFilter' );
-};
-
-/**
- * Handle publish error with empty API response
- * @method
- * @fires publishErrorEmpty
- */
-mw.cx.TargetArticle.prototype.showErrorEmpty = function () {
-	this.showSaveError( mw.msg( 'cx-publisherror-empty', 'Empty server response' ), false /* prevents reapply */ );
-	this.emit( 'publishErrorEmpty' );
-};
-
-/**
- * Handle title blacklist save error
- *
- * @method
- * @fires publishErrorTitleBlacklist
- */
-mw.cx.TargetArticle.prototype.showErrorTitleBlacklist = function () {
-	this.showPublishError( mw.msg( 'cx-publishError-titleblacklist' ) );
-	this.emit( 'publishErrorTitleBlacklist' );
 };
 
 /**
  * Handle captcha challenge error
  *
- * @method
  * @param {Object} apiResult publishing api result
- * @fires publishErrorTitleBlacklist
+ * @fires publishErrorCaptcha
  */
 mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
 	var $captchaDiv = $( '<div>' ),
@@ -266,38 +234,19 @@ mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
 };
 
 /**
- * Handle token fetch errors.
- *
- * @method
- * @param {boolean} [error=false] Whether there was an error trying to figure out who we're logged in as
- * @fires publishErrorBadToken
- */
-mw.cx.TargetArticle.prototype.showErrorBadToken = function ( error ) {
-	var $msg = $( document.createTextNode( mw.msg( 'cx-publisherror-badtoken' ) + ' ' ) );
-
-	if ( error ) {
-		this.emit( 'publishErrorBadToken', false );
-		$msg = $msg.add( document.createTextNode( mw.msg( 'cx-publisherror-identify-trylogin' ) ) );
-	}
-	this.showSaveError( $msg );
-	this.emit( 'publishErrorBadToken', error );
-};
-
-/**
  * Show an error based on an exception+textStatus object
+ *
  * @param {Object} failObj Object from the rejection params of mw.Api, with exception and textStatus
  */
 mw.cx.TargetArticle.prototype.showErrorException = function ( failObj ) {
 	var errorMsg = failObj.exception || failObj.textStatus;
+
 	if ( errorMsg instanceof Error ) {
 		errorMsg = errorMsg.toString();
 	}
+
 	if ( errorMsg ) {
-		this.showPublishError(
-			$( document.createTextNode( errorMsg ) ),
-			false // prevents reapply
-		);
-		this.emit( 'publishErrorUnknown', errorMsg );
+		this.showUnrecoverablePublishError( errorMsg, errorMsg );
 	} else {
 		this.showErrorUnknown( null, null, failObj.jqXHR );
 	}
@@ -310,10 +259,10 @@ mw.cx.TargetArticle.prototype.showErrorException = function ( failObj ) {
  * @param {Object} editResult
  * @param {Object|null} data API response data
  * @param {Object} jqXHR
- * @fires publishErrorUnknown
  */
 mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jqXHR ) {
-	var errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
+	var errorDetails,
+		errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
 		errorCode = ( editResult && editResult.code ) || ( data && data.error && data.error.code ),
 		unknown = 'Unknown error';
 
@@ -321,27 +270,53 @@ mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jq
 		unknown += ', HTTP status ' + data.xhr.status;
 	}
 
-	this.showPublishError(
-		$( document.createTextNode( errorMsg || errorCode || unknown ) ),
-		false // prevents reapply
+	errorDetails = errorMsg || errorCode || unknown;
+	this.showUnrecoverablePublishError(
+		mw.msg( 'cx-publish-error-unknown', errorDetails ),
+		errorDetails
 	);
-	this.emit( 'publishErrorUnknown', errorCode || errorMsg || unknown );
 };
 
 /**
- * Show an publish process error message
+ * Show publish process error message
  *
  * @method
  * @param {string|jQuery|Node[]} msg Message content (string of HTML, jQuery object or array of
  *  Node objects)
+ * @param {string} [errorLog]
  * @param {boolean} [allowReapply=true] Whether or not to allow the user to reapply.
  *  Reset when swapping panels. Assumed to be true unless explicitly set to false.
- * @param {boolean} [warning=false] Whether or not this is a warning.
+ *
+ * @fires 'publishError'
  */
-mw.cx.TargetArticle.prototype.showPublishError = function ( msg, allowReapply, warning ) {
-	this.publishDeferred.reject(
-		[ new OO.ui.Error( msg, { recoverable: allowReapply, warning: warning } ) ]
+mw.cx.TargetArticle.prototype.showPublishError = function ( msg, errorLog, allowReapply ) {
+	this.emit( 'publishError', new OO.ui.Error( msg, { recoverable: allowReapply } ) );
+
+	if ( !errorLog ) {
+		return;
+	}
+
+	mw.log.error( '[CX] Publishing failed ' + errorLog );
+
+	// Event logging
+	mw.hook( 'mw.cx.translation.publish.error' ).fire(
+		this.sourceLanguage,
+		this.targetLanguage,
+		this.sourceTitle,
+		this.translation.getTargetTitle(),
+		errorLog
 	);
+};
+
+/**
+ * Show publish error which doesn't allow reapply.
+ *
+ * @param {string|jQuery|Node[]} msg Message content (string of HTML, jQuery object or array of
+ *  Node objects)
+ * @param {string} [errorLog]
+ */
+mw.cx.TargetArticle.prototype.showUnrecoverablePublishError = function ( msg, errorLog ) {
+	this.showPublishError( msg, errorLog, false );
 };
 
 /**

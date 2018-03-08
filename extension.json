@@ -1382,6 +1382,15 @@
 			"scripts": [
 				"mw.cx.TargetArticle.js"
 			],
+			"messages": [
+				"cx-lost-session-publish",
+				"cx-publish-error-abuse-filter",
+				"cx-publish-error-empty",
+				"cx-publish-error-readonly",
+				"cx-publish-error-spam-blacklist",
+				"cx-publish-error-title-blacklist",
+				"cx-publish-error-unknown"
+			],
 			"dependencies": [
 				"easy-deflate.deflate",
 				"mw.cx.dm.Translation",

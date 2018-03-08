@@ -439,11 +439,8 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
-ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
-	this.translationView.showMessage(
-		'error',
-		mw.msg( 'cx-publish-page-error', error )
-	);
+ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
+	this.translationView.showMessage( 'error', errorMessage );
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );

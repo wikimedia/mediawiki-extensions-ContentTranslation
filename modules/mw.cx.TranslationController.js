@@ -20,6 +20,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	this.translationId = null;
 	this.saveRequest = null;
 	this.failCounter = 0;
+	this.isFailedUnrecoverably = false; // TODO: This is still unused
 	// Associative array of translation units queued to be saved
 	this.saveQueue = {};
 	this.saveTimer = null;
@@ -328,27 +329,14 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function () {
 
 /**
  * Publish error handler
- * @param {string} errorCode
- * @param {Object} details
+ *
+ * @param {OO.ui.Error} error
  */
-mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, details ) {
-	mw.log.error( '[CX] Publishing failed ' + errorCode );
-	if ( details.exception instanceof Error ) {
-		details.exception = details.exception.toString();
-	}
-
-	this.veTarget.onPublishFailure( errorCode );
+mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
+	this.isFailedUnrecoverably = !error.isRecoverable();
+	this.veTarget.onPublishFailure( error.getMessageText() );
 	this.translationView.categoryUI.disableCategoryUI( false );
 	clearTimeout( this.saveTimer );
-
-	// Event logging
-	mw.hook( 'mw.cx.translation.publish.error' ).fire(
-		mw.cx.sourceLanguage,
-		mw.cx.targetLanguage,
-		mw.cx.sourceTitle,
-		this.targetArticle.getTargetTitle(),
-		JSON.stringify( details )
-	);
 };
 
 /**
