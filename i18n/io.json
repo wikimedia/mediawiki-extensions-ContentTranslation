@@ -5,5 +5,9 @@
 		]
 	},
 	"cx-source-view-page": "Montrez pagino",
-	"cx-lost-session-draft": "Vua sesiono finis. Vua redakti ne povos konservesar, ecepte se vu facos 'log in' en altra fenestro."
+	"cx-lost-session-draft": "Vua sesiono finis. Vua redakti ne povos konservesar, ecepte se vu facos 'log in' en altra fenestro.",
+	"cx-contributions-new-contributions": "Nova redaktadi",
+	"cx-contributions-upload": "Sendez 'media'",
+	"cx-contributions-translation-tooltip": "Tradukar existanta pagini",
+	"cx-contributions-upload-tooltip": "Adjuntez imaji, *audio e *video por uzo en la pagini"
 }

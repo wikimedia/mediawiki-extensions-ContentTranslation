@@ -38,7 +38,7 @@
 	"cx-source-view-page": "pagina bekijken",
 	"cx-publish-page-success": "Pagina gepubliceerd op $1",
 	"cx-publish-page-error": "Er is een fout opgetreden tijdens het opslaan van de pagina. Probeer de pagina opnieuw te publiceren. Fout: $1",
-	"cx-publish-button": "Vertaling publiceren",
+	"cx-publish-button": "Publiceren",
 	"cx-publish-button-publishing": "Bezig met publiceren...",
 	"cx-lost-session-draft": "Uw sessie is verlopen. Uw wijzigingen worden niet opgeslagen, tenzij u zich opnieuw aanmeldt in een ander venster.",
 	"cx-lost-session-publish": "Uw sessie is verlopen. U kunt de vertaling niet publiceren totdat u zich aanmeldt in een ander venster.",
