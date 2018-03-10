@@ -24,7 +24,7 @@
 	"cx-source-view-page": "vezi pagina",
 	"cx-publish-page-success": "Pagină publicată la $1",
 	"cx-publish-page-error": "A apărut o eroare la publicarea traducerii. Încercați să publicați pagina din nou. Eroare: $1",
-	"cx-publish-button": "Publică traducerea",
+	"cx-publish-button": "Publică",
 	"cx-publish-button-publishing": "Se publică...",
 	"cx-lost-session-draft": "Sesiunea dumneavoastră a expirat. Modificările dumneavoastră pot fi salvate doar dacă vă autentificați din nou într-o altă fereastră.",
 	"cx-lost-session-publish": "Sesiunea dumneavoastră a expirat. Nu puteți publica traducerea până nu vă autentificați din nou într-o altă fereastră.",
