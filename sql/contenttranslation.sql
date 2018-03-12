@@ -19,9 +19,9 @@ CREATE TABLE /*_*/cx_translations (
     -- Target language. language code
     translation_target_language varbinary(36) not null,
     -- Revision id of source article
-    translation_source_revision_id INT UNSIGNED,
+    translation_source_revision_id int unsigned,
     -- Revision id of published translation
-    translation_target_revision_id INT UNSIGNED,
+    translation_target_revision_id int unsigned,
     -- source of the page as full canonical url -- https://www.mediawiki.org/wiki/Help:CxIsPage
     translation_source_url text binary not null,
     -- link to the draft/published target
@@ -38,7 +38,9 @@ CREATE TABLE /*_*/cx_translations (
     -- Who started this translation? User id
     translation_started_by int,
     -- Who did the last translation? It need not be the translator who started.
-    translation_last_update_by int
+    translation_last_update_by int,
+    -- Field to indicate which version of CX
+    translation_cx_version tinyint unsigned default 1
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/cx_translation_ref ON /*_*/cx_translations (
