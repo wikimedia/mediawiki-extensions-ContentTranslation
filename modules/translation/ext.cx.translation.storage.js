@@ -151,7 +151,8 @@
 			sourcetitle: mw.cx.sourceTitle,
 			title: mw.cx.targetTitle,
 			sourcerevision: mw.cx.sourceRevision,
-			progress: JSON.stringify( mw.cx.getProgress() )
+			progress: JSON.stringify( mw.cx.getProgress() ),
+			cxversion: 1
 		} ).done( function ( response ) {
 			self.onSaveComplete( sections, response.cxsave );
 

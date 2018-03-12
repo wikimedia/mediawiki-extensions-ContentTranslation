@@ -97,6 +97,7 @@
 	"apihelp-cxsave-param-from": "{{doc-apihelp-param|cxsave|from}}",
 	"apihelp-cxsave-param-to": "{{doc-apihelp-param|cxsave|to}}",
 	"apihelp-cxsave-param-sourcetitle": "{{doc-apihelp-param|cxsave|sourcetitle}}",
+	"apihelp-cxsave-param-cxversion": "{{doc-apihelp-param|cxsave|cxversion}}",
 	"apierror-cx-docserverexception": "{{doc-apierror}}\n\nParameters:\n* $1 - Exception message, probably in English.",
 	"apierror-cx-inuse": "{{doc-apierror}}",
 	"apierror-cx-invalidlanguage": "{{doc-apierror}}",

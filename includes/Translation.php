@@ -9,12 +9,14 @@ use Wikimedia\Rdbms\IDatabase;
 class Translation {
 	private $lastSaveWasCreate = false;
 
-	function __construct( $translation ) {
+	public function __construct( $translation ) {
 		$this->translation = $translation;
 	}
 
 	public function create( Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
+
+		$table = 'cx_translations';
 
 		$values = [
 			'translation_source_title' => $this->translation['sourceTitle'],
@@ -29,6 +31,7 @@ class Translation {
 			'translation_last_update_by' => $translator->getGlobalUserId(),
 			'translation_start_timestamp' => $dbw->timestamp(),
 			'translation_started_by' => $translator->getGlobalUserId(),
+			'translation_cx_version' => $this->translation['cxVersion'],
 		];
 
 		if ( $this->translation['status'] === 'published' ) {
@@ -36,8 +39,13 @@ class Translation {
 			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
 		}
 
+		// BC for a missing schema change
+		if ( !$dbw->fieldExists( $table, 'translation_cx_version', __METHOD__ ) ) {
+			unset( $values['translation_cx_version'] );
+		}
+
 		$dbw->insert(
-			'cx_translations',
+			$table,
 			$values,
 			__METHOD__
 		);
@@ -48,6 +56,8 @@ class Translation {
 	public function update( array $options = null, Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
+		$table = 'cx_translations';
+
 		$values = [
 			'translation_target_title' => $this->translation['targetTitle'],
 			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
@@ -56,6 +66,7 @@ class Translation {
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $this->translation['progress'],
 			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
+			'translation_cx_version' => $this->translation['cxVersion'],
 		];
 
 		if ( $this->translation['status'] === 'published' ) {
@@ -69,8 +80,13 @@ class Translation {
 			$values['translation_started_by'] = $translator->getGlobalUserId();
 		}
 
+		// BC for a missing schema change
+		if ( !$dbw->fieldExists( $table, 'translation_cx_version', __METHOD__ ) ) {
+			unset( $values['translation_cx_version'] );
+		}
+
 		$dbw->update(
-			'cx_translations',
+			$table,
 			$values,
 			[ 'translation_id' => $this->translation['id'] ],
 			__METHOD__

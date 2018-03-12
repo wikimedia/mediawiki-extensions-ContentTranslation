@@ -122,6 +122,8 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @return ContentTranslation\Translation
 	 */
 	protected function saveTranslation( array $params, Translator $translator ) {
+		global $wgContentTranslationVersion;
+
 		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
 		$existingTranslation = Translation::findForTranslator( $work, $translator );
 
@@ -151,6 +153,8 @@ class ApiContentTranslationSave extends ApiBase {
 		$data['sourceRevisionId'] = $params['sourcerevision'];
 		$data['status'] = 'draft';
 		$data['progress'] = $params['progress'];
+		$data['cxVersion'] =
+			isset( $params['cxversion'] ) ? $params['cxversion'] : $wgContentTranslationVersion;
 
 		// Save the translation
 		$translation = new Translation( $data );
@@ -227,6 +231,13 @@ class ApiContentTranslationSave extends ApiBase {
 			],
 			'progress' => [
 				ApiBase::PARAM_REQUIRED => true,
+			],
+			'cxversion' => [
+				ApiBase::PARAM_TYPE => 'integer',
+				// Making this required immediately would cause issues for on-going translations
+				// during deployment. Maybe this doesn't ever need to be required.
+				ApiBase::PARAM_REQUIRED => false,
+				ApiBase::PARAM_TYPE => [ 1, 2 ]
 			]
 		];
 	}

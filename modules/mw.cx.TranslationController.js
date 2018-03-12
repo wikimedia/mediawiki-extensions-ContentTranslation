@@ -126,7 +126,8 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		sourcetitle: this.sourceTitle,
 		title: this.translation.getTargetTitle(),
 		sourcerevision: this.translation.sourceRevisionId,
-		progress: JSON.stringify( this.translation.getProgress() )
+		progress: JSON.stringify( this.translation.getProgress() ),
+		cxversion: 2
 	};
 
 	if ( this.failCounter > 0 ) {

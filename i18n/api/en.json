@@ -100,6 +100,7 @@
 	"apihelp-cxsave-param-from": "The source language code.",
 	"apihelp-cxsave-param-to": "The target language code.",
 	"apihelp-cxsave-param-sourcetitle": "The title of the source page.",
+	"apihelp-cxsave-param-cxversion": "Version of the editor used to create the draft translation.",
 	"apierror-cx-docserverexception": "Error converting HTML to wikitext: $1",
 	"apierror-cx-inuse": "Another user is already translating this article.",
 	"apierror-cx-invalidlanguage": "Invalid language.",
