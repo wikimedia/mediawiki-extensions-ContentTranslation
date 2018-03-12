@@ -1351,11 +1351,15 @@
 			"scripts": [
 				"mw.cx.init.Translation.js"
 			],
+			"styles": [
+				"ui/styles/mw.cx.init.Translation.less"
+			],
 			"messages": [
 				"cx-draft-restore-failed",
 				"cx-draft-restoring",
 				"cx-error-page-not-found",
-				"cx-error-server-connection"
+				"cx-error-server-connection",
+				"cx-feedback-link"
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",
@@ -1683,9 +1687,6 @@
 			],
 			"styles": [
 				"ui/styles/mw.cx.ui.ToolsColumn.less"
-			],
-			"messages":[
-				"cx-feedback-link"
 			],
 			"dependencies": [
 				"mw.cx.ui",

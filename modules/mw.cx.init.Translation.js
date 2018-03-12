@@ -36,6 +36,8 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.sourcePage = null;
 	// @var {mw.cx.dm.TargetPage}
 	this.targetPage = null;
+	// @var {OO.ui.StackLayout}
+	this.translationView = null;
 };
 
 /**
@@ -54,6 +56,8 @@ mw.cx.init.Translation.prototype.init = function () {
 	this.veTarget = new ve.init.mw.CXTarget( this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.veTarget );
+
+	this.translationView = this.veTarget.translationView;
 
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
@@ -86,6 +90,8 @@ mw.cx.init.Translation.prototype.init = function () {
 		mw.hook( 'mw.cx.draft.restored' ).fire();
 		mw.log( '[CX] Translation initialized successfully' );
 	}.bind( this ), this.initializationError.bind( this ) );
+
+	this.addFeedbackLink();
 };
 
 /**
@@ -332,4 +338,17 @@ mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategorie
 	this.translationModel.sourceCategories = sourceCategories;
 	this.translationModel.targetCategories = targetCategories;
 	this.veTarget.showCategories();
+};
+
+mw.cx.init.Translation.prototype.addFeedbackLink = function () {
+	var feedback = new OO.ui.ButtonWidget( {
+		label: mw.msg( 'cx-feedback-link' ),
+		icon: 'speechBubbles',
+		href: '//www.mediawiki.org/wiki/Talk:Content_translation',
+		target: '_blank',
+		framed: false,
+		classes: [ 'cx-feedback-link' ],
+		flags: [ 'progressive' ]
+	} );
+	this.translationView.addItems( [ feedback ] );
 };
