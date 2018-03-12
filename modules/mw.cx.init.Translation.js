@@ -28,6 +28,8 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 
 	// @var {ve.init.mw.CXTarget}
 	this.veTarget = null;
+	// @var {mw.cx.ui.Categories}
+	this.categoryUI = null;
 	// @var {mw.cx.dm.Translation}
 	this.translationModel = null;
 	// @var {mw.cx.TranslationController}
@@ -84,8 +86,11 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 
 		this.veTarget.setTranslation( this.translationModel );
-		// Process categories, which are adapted on server
-		this.processCategories( sourcePageContent.categories );
+
+		this.categoryUI = new mw.cx.ui.Categories(
+			this.processCategories( sourcePageContent.categories )
+		);
+		this.veTarget.showCategories( this.categoryUI );
 
 		if ( draft ) {
 			mw.hook( 'mw.cx.draft.restored' ).fire();
@@ -317,29 +322,24 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 };
 
 /**
- * Process fetched categories.
+ * Process fetched categories to create mapping of source category and target category or null, if
+ * there is no adapted target category.
  *
  * @param {Array} fetchedCategories
+ * @return {Object} Array of categories transformed into object of
+ * sourceTitle:targetTitle property-value pairs
  */
 mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategories ) {
 	var category,
-		sourceCategories = [],
-		targetCategories = [],
+		categories = {},
 		length = fetchedCategories.length;
-
-	mw.log( '[CX] Processing fetched categories...' );
 
 	while ( length-- ) {
 		category = fetchedCategories[ length ];
-		sourceCategories.push( category.sourceTitle );
-		if ( category.adapted ) {
-			targetCategories.push( category.targetTitle );
-		}
+		categories[ category.sourceTitle ] = category.targetTitle || null;
 	}
 
-	this.translationModel.sourceCategories = sourceCategories;
-	this.translationModel.targetCategories = targetCategories;
-	this.veTarget.showCategories();
+	return categories;
 };
 
 mw.cx.init.Translation.prototype.addFeedbackLink = function () {

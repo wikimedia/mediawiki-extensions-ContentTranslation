@@ -84,14 +84,11 @@ mw.cx.ui.TargetColumn.prototype.getTargetTitle = function () {
 };
 
 /**
- * Show the adapted categories
+ * Show target page categories
+ *
+ * @param {mw.cx.ui.Categories} categoryUI
  */
-mw.cx.ui.TargetColumn.prototype.showCategories = function () {
-	var categoryUI = new mw.cx.ui.Categories(
-		this.translation.targetCategories,
-		{ editable: true }
-	);
-	this.$content.before( categoryUI.getCategoryCount().$element );
-	this.$content.after( categoryUI.getCategoryListing().$element );
-	categoryUI.listen();
+mw.cx.ui.TargetColumn.prototype.showCategories = function ( categoryUI ) {
+	this.$content.before( categoryUI.getTargetCategoryCount() );
+	this.$content.after( categoryUI.getTargetCategoryListing() );
 };

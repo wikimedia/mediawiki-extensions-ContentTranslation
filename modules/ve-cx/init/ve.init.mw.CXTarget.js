@@ -549,9 +549,9 @@ ve.init.mw.CXTarget.prototype.translate = function ( source ) {
 	}.bind( this ) );
 };
 
-ve.init.mw.CXTarget.prototype.showCategories = function () {
-	this.sourceColumn.showCategories();
-	this.targetColumn.showCategories();
+ve.init.mw.CXTarget.prototype.showCategories = function ( categoryUI ) {
+	this.sourceColumn.showCategories( categoryUI );
+	this.targetColumn.showCategories( categoryUI );
 };
 
 ve.init.mw.CXTarget.prototype.setSentenceHighlight = function ( segmentId, highlighted ) {

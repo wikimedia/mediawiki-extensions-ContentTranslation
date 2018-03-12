@@ -93,14 +93,14 @@ mw.cx.ui.SourceColumn.prototype.attachSurface = function ( surface ) {
 	this.$content.empty().append( surface.$element );
 };
 
-mw.cx.ui.SourceColumn.prototype.showCategories = function () {
-	var categoryUI = new mw.cx.ui.Categories(
-		this.translation.sourceCategories,
-		{ editable: false }
-	);
-	this.$content.before( categoryUI.getCategoryCount().$element );
-	this.$content.after( categoryUI.getCategoryListing().$element );
-	categoryUI.listen();
+/**
+ * Show source page categories
+ *
+ * @param {mw.cx.ui.Categories} categoryUI
+ */
+mw.cx.ui.SourceColumn.prototype.showCategories = function ( categoryUI ) {
+	this.$content.before( categoryUI.getSourceCategoryCount() );
+	this.$content.after( categoryUI.getSourceCategoryListing() );
 };
 
 /**

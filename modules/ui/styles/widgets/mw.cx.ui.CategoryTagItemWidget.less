@@ -1,0 +1,18 @@
+.mw-cx-ui-CategoryTagItemWidget {
+	&.oo-ui-widget-enabled > .oo-ui-labelElement-label {
+		cursor: pointer;
+	}
+
+	&.oo-ui-widget-disabled > .oo-ui-labelElement-label {
+		cursor: default;
+	}
+}
+
+.mw-cx-ui-CategoryTagItemWidget.oo-ui-flaggedElement-highlight {
+	// Using !important to beat OOUI specificity
+	background-color: #fef6e7 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.mw-cx-ui-CategoryTagItemWidget.mw-cx-ui-CategoryTagItemWidget--no-remove {
+	padding: 0 0.3125em;
+}

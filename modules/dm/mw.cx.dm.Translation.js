@@ -19,8 +19,6 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
 	this.id = null;
-	this.sourceCategories = null;
-	this.targetCategories = null;
 	// TODO get/set the following three sourceWikiPage/targetWikiPage properties
 	this.targetTitle = this.targetWikiPage.getTitle();
 	this.sourceRevisionId = this.sourceWikiPage.getRevision();
