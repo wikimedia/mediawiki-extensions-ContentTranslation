@@ -44,6 +44,10 @@
 		if ( query.campaign ) {
 			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
 		}
+		// The Cite extension tries to insert its tools in VE toolbar by finding
+		// a best place. CX want to avoid and insert it in a given position.
+		// Settings this here so that it does not interfere with VE configurations.
+		mw.config.set( 'wgCiteVisualEditorOtherGroup', true );
 	}
 
 	// On document ready, initialize.
