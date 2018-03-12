@@ -286,7 +286,10 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
-	this.toolsColumn.editingToolbar.$element.append( this.getToolbar().$element );
+	this.toolsColumn.editingToolbar.$element.append(
+		this.getToolbar().$element
+			.addClass( 'oo-ui-toolbar-narrow' ) // Quick fix to avoid overflowing toolbar.
+	);
 };
 
 ve.init.mw.CXTarget.static.toolbarGroups = [
