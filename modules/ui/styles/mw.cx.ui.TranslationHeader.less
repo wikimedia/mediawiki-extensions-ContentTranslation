@@ -18,6 +18,9 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
+		/* Force the browser to use hardware acceleration to access
+		 the device’s GPU so that sticky transitions are smooth and avoid flickering */
+		transform: translateZ( 0 );
 	}
 
 	&.sticky {
