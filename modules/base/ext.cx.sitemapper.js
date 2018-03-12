@@ -194,8 +194,7 @@
 	 * @param {string} targetTitle
 	 * @param {string} sourceLanguage
 	 * @param {string} targetLanguage
-	 * @param {string} [campaign]
-	 * @param {string} [revision]
+	 * @param {Object} [extra] Additional query parameters
 	 * @return {string} URL
 	 */
 	mw.cx.SiteMapper.prototype.getCXUrl = function (
@@ -203,25 +202,17 @@
 		targetTitle,
 		sourceLanguage,
 		targetLanguage,
-		campaign,
-		revision
+		extra
 	) {
 		var cxPage, queryParams, uri;
 
 		cxPage = 'Special:ContentTranslation';
-		queryParams = {
+		queryParams = $.extend( {
 			page: sourceTitle,
 			from: sourceLanguage,
 			to: targetLanguage,
 			targettitle: targetTitle
-		};
-
-		if ( campaign ) {
-			queryParams.campaign = campaign;
-		}
-		if ( revision ) {
-			queryParams.revision = revision;
-		}
+		}, extra );
 
 		if ( mw.config.get( 'wgContentTranslationTranslateInTarget' ) ) {
 			uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );

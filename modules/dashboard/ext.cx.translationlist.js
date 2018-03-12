@@ -295,7 +295,8 @@
 			translation.sourceTitle,
 			translation.targetTitle,
 			translation.sourceLanguage,
-			translation.targetLanguage
+			translation.targetLanguage,
+			{ version: translation.cxVersion }
 		) ).toString();
 	};
 

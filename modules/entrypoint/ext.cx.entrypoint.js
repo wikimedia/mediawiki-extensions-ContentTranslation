@@ -108,7 +108,7 @@
 			this.$titleInput.val(),
 			sourceLanguage,
 			this.options.targetLanguage,
-			this.options.entryPointName
+			{ campaign: this.options.entryPointName }
 		);
 	};
 

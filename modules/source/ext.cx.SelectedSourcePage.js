@@ -411,7 +411,7 @@
 				targetTitle,
 				sourceLanguage,
 				targetLanguage,
-				self.config.campaign
+				{ campaign: self.config.campaign }
 			);
 		} );
 	};

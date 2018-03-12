@@ -530,7 +530,7 @@ class Translation {
 	 * @return Translation
 	 */
 	public static function newFromRow( $row ) {
-		$translation = new Translation( [
+		$fields = [
 			'id' => (int)$row->translation_id,
 			'sourceTitle' => $row->translation_source_title,
 			'targetTitle' => $row->translation_target_title,
@@ -545,9 +545,15 @@ class Translation {
 			'lastUpdateTimestamp' => $row->translation_last_updated_timestamp,
 			'progress' => $row->translation_progress,
 			'startedTranslator' => $row->translation_started_by,
-			'lastUpdatedTranslator' => $row->translation_last_update_by
-		] );
+			'lastUpdatedTranslator' => $row->translation_last_update_by,
+			'cxVersion' => 1,
+		];
 
-		return $translation;
+		// BC code to gracefully handle lack of schame change
+		if ( isset( $row->translation_cx_version ) ) {
+			$fields['cxVersion'] = (int)$row->translation_cx_version;
+		}
+
+		return new Translation( $fields );
 	}
 }

@@ -266,8 +266,7 @@
 					mw.cx.targetTitle,
 					mw.cx.sourceLanguage,
 					mw.cx.targetLanguage,
-					null, // campaign
-					this.translation.sourceRevisionId
+					{ revision: this.translation.sourceRevisionId }
 				);
 			} else {
 				// Already using old source revision, still not able to restore.
