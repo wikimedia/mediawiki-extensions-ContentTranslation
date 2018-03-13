@@ -101,16 +101,7 @@ class CxFixStats extends Maintenance {
 
 		foreach ( $items as $item ) {
 			list( $row, $revId ) = $item;
-			ChangeTags::addTags(
-				'contenttranslation',
-				null,
-				$revId,
-				null,
-				FormatJson::encode( [
-					'from' => $row->translation_source_language,
-					'to' => $row->translation_target_language,
-				] )
-			);
+			ChangeTags::addTags( 'contenttranslation', null, $revId, null );
 		}
 	}
 
