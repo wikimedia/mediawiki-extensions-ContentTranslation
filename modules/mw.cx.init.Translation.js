@@ -87,7 +87,9 @@ mw.cx.init.Translation.prototype.init = function () {
 		// Process categories, which are adapted on server
 		this.processCategories( sourcePageContent.categories );
 
-		mw.hook( 'mw.cx.draft.restored' ).fire();
+		if ( draft ) {
+			mw.hook( 'mw.cx.draft.restored' ).fire();
+		}
 		mw.log( '[CX] Translation initialized successfully' );
 	}.bind( this ), this.initializationError.bind( this ) );
 

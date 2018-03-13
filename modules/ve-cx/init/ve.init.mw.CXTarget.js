@@ -83,8 +83,13 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 		titleChange: 'onTargetTitleChange'
 	} );
 	this.connect( this, {
-		contentChange: 'onChange'
+		contentChange: 'onChange',
+		surfaceReady: 'onSurfaceReady'
 	} );
+	this.translationHeader.publishSettings.connect( this, {
+		choose: 'onPublishNamespaceChange'
+	} );
+	mw.hook( 'mw.cx.draft.restored' ).add( this.onTranslationRestore.bind( this ) );
 };
 
 /* Inheritance */
@@ -252,7 +257,18 @@ ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
  * @param {mw.cx.dm.Translation} translationModel
  */
 ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
-	this.setStatusMessage( mw.msg( 'cx-draft-restored' ) );
+	this.publishButton.setDisabled( false );
+
+	// Update publish settings namespace choice
+	this.updateNamespace();
+};
+
+/**
+ * Call this when translation editor is ready.
+ */
+ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
+	// Enable publish settings, once translation editor is ready
+	this.translationHeader.publishSettings.setDisabled( false );
 };
 
 /**
@@ -267,15 +283,19 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
  * @param {number} namespaceId
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
-	var newTitle = mw.cx.getTitleForNamespace( this.translation.getTargetTitle(), namespaceId );
+	var newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
 	// Setting title in targetColumn will take care of necessary event firing for title change.
 	this.targetColumn.setTargetTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
 	this.updateNamespace();
 };
 
+ve.init.mw.CXTarget.prototype.updateNamespace = function () {
+	this.translationHeader.publishSettings.setDestinationNamespace( this.getPublishNamespace() );
+};
+
 ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
-	return mw.Title.newFromText( this.translation.getTargetTitle() ).getNamespaceId();
+	return mw.Title.newFromText( this.pageName ).getNamespaceId();
 };
 
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
@@ -419,10 +439,6 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	targetId = 'cxTargetSection' + sectionNumber;
 	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
-};
-
-ve.init.mw.CXTarget.prototype.updateNamespace = function () {
-	this.getActions().updateToolState();
 };
 
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
