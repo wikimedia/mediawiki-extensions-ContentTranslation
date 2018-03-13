@@ -227,19 +227,25 @@ class CxFixStats extends Maintenance {
 		// Allow one minute slack
 		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;
 
-		$tables = [ 'revision' ];
+		$actorWhere = ActorMigration::newMigration()
+			->getWhere( $dbr, 'rev_user', User::newFromName( $name, false ) );
+
+		$tables = [ 'revision' ] + $actorWhere['tables'];
 
 		$conds = [];
 		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
 		$conds['rev_page'] = $title->getArticleId();
-		$conds['rev_user_text'] = $name;
+		$conds[] = $actorWhere['conds'];
+
+		$joins = [];
+		$joins += $actorWhere['joins'];
 
 		// Take the oldest timestamp by the author
 		$options = [
 			'ORDER BY' => 'rev_timestamp ASC'
 		];
 
-		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options );
+		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options, $joins );
 		return $revId;
 	}
 }
