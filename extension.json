@@ -1714,6 +1714,9 @@
 			"styles": [
 				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less"
 			],
+			"skinStyles": {
+				"monobook": [ "ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less" ]
+			},
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui"
@@ -1723,10 +1726,16 @@
 			"scripts": [
 				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js"
 			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less"
+			],
 			"dependencies": [
 				"mw.cx.ui",
 				"mw.cx.ui.CategoryTagItemWidget",
 				"oojs-ui"
+			],
+			"messages": [
+				"categories"
 			]
 		},
 		"mw.cx.ui.Categories": {

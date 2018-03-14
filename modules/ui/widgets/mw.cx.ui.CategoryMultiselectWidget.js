@@ -21,6 +21,7 @@ mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config 
 	mw.cx.ui.CategoryMultiselectWidget.super.call( this, config );
 
 	this.$element.addClass( 'mw-cx-ui-CategoryMultiselectWidget' );
+	this.setHeaderLabel( mw.msg( 'categories' ) );
 
 	// Aggregate mouse hover events from mw.cx.ui.CategoryTagItemWidget
 	this.aggregate( { mouseenter: 'mouseEnter' } );
@@ -32,6 +33,10 @@ mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config 
 OO.inheritClass( mw.cx.ui.CategoryMultiselectWidget, OO.ui.MenuTagMultiselectWidget );
 
 /* Methods */
+
+mw.cx.ui.CategoryMultiselectWidget.prototype.setHeaderLabel = function ( label ) {
+	this.$icon.text( label );
+};
 
 mw.cx.ui.CategoryMultiselectWidget.prototype.createTagItemWidget = function ( data, label, config ) {
 	label = label || data;
