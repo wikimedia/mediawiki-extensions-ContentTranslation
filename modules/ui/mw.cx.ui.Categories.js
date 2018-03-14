@@ -92,12 +92,11 @@ mw.cx.ui.Categories.prototype.render = function () {
 		this.targetCategories,
 		{
 			allowArbitrary: true,
-			inputPosition: 'outline',
-			input: {
-				placeholder: mw.msg( 'cx-tools-category-add' )
-			}
+			inputPosition: 'outline'
 		}
 	);
+
+	this.addMissingCategoriesToMenu();
 };
 
 /**
@@ -129,6 +128,19 @@ mw.cx.ui.Categories.prototype.getTargetCategoryCount = function () {
 };
 
 /**
+ * @param {Array} categories
+ * @return {Array} Array of objects with data (full category name) and label (category name) properties
+ */
+mw.cx.ui.Categories.prototype.mapCategories = function ( categories ) {
+	return categories.map( function ( category ) {
+		return {
+			data: category,
+			label: this.removeCategoryNamespace( category )
+		};
+	}.bind( this ) );
+};
+
+/**
  * Get the category listing
  *
  * @param {Array} categories
@@ -136,22 +148,14 @@ mw.cx.ui.Categories.prototype.getTargetCategoryCount = function () {
  * @return {mw.cx.ui.CategoryMultiselectWidget}
  */
 mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, config ) {
-	var i, length, category,
-		isSource = categories === this.sourceCategories,
-		categoryItems = [];
+	var categoryItems,
+		isSource = categories === this.sourceCategories;
 
-	for ( i = 0, length = categories.length; i < length; i++ ) {
-		category = categories[ i ];
-
-		categoryItems.push( new OO.ui.MenuOptionWidget( {
-			data: category,
-			label: this.removeCategoryNamespace( category )
-		} ) );
-	}
+	categoryItems = this.mapCategories( categories );
 
 	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
 		icon: 'tag',
-		options: categoryItems,
+		options: isSource ? categoryItems : [],
 		selected: categoryItems.map( function ( item ) {
 			return {
 				label: item.label,
@@ -203,28 +207,11 @@ mw.cx.ui.Categories.prototype.listen = function () {
 	} );
 
 	this.targetCategoryListing.connect( this, {
+		change: 'onTargetCategoriesChange',
 		mouseEnter: [ 'toggleCategoryHighlight', this.sourceCategoryListing, true ],
 		mouseLeave: [ 'toggleCategoryHighlight', this.sourceCategoryListing, false ],
 		itemRemove: [ 'toggleCategoryHighlight', this.sourceCategoryListing, false ]
 	} );
-
-	this.targetCategoryListing.on( 'change', function ( items ) {
-		// The new set of categories. Update the page.
-		ve.batchSplice(
-			this.targetCategories,
-			0,
-			this.targetCategories.length,
-			items.map( function ( item ) { return item.data; } )
-		);
-
-		this.targetCategoryCount.setLabel(
-			mw.msg(
-				'cx-tools-categories-count-message',
-				mw.language.convertNumber( this.targetCategories.length )
-			)
-		);
-		// TODO: Remove the selected items from the options menu
-	}.bind( this ) );
 };
 
 /**
@@ -265,4 +252,38 @@ mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListi
 		tagItem.clearFlags();
 		correspondingTagItem.clearFlags();
 	}
+};
+
+/**
+ * @param {Array} selectedTargetCategories
+ */
+mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTargetCategories ) {
+	// The new set of categories. Update the page.
+	ve.batchSplice(
+		this.targetCategories,
+		0,
+		this.targetCategories.length,
+		selectedTargetCategories.map( function ( item ) { return item.data; } )
+	);
+
+	this.targetCategoryCount.setLabel(
+		mw.msg(
+			'cx-tools-categories-count-message',
+			mw.language.convertNumber( this.targetCategories.length )
+		)
+	);
+
+	this.addMissingCategoriesToMenu();
+};
+
+/**
+ * Find difference between all adapted target categories and selected adapted target categories.
+ * Used to populate "Add category" menu in target category listing when input query is empty.
+ */
+mw.cx.ui.Categories.prototype.addMissingCategoriesToMenu = function () {
+	var allTargetCategories = this.extractTargetCategories( this.adaptedCategories ),
+		notSelectedTargetCategories = OO.simpleArrayDifference( allTargetCategories, this.targetCategories );
+
+	this.targetCategoryListing.menu.clearItems();
+	this.targetCategoryListing.addOptions( this.mapCategories( notSelectedTargetCategories ) );
 };

@@ -17,6 +17,12 @@
  * @param {Object} [config] Configuration options
  */
 mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config ) {
+	config = config || {};
+	config.inputWidget = new mw.cx.ui.CategoryInputWidget( $.extend( {
+		placeholder: mw.msg( 'cx-tools-category-add' ),
+		classes: [ 'oo-ui-tagMultiselectWidget-input' ]
+	}, config.input ) );
+
 	// Parent constructor
 	mw.cx.ui.CategoryMultiselectWidget.super.call( this, config );
 

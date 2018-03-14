@@ -1722,6 +1722,18 @@
 				"oojs-ui"
 			]
 		},
+		"mw.cx.ui.CategoryInputWidget": {
+			"scripts": [
+				"ui/widgets/mw.cx.ui.CategoryInputWidget.js"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui"
+			],
+			"messages": [
+				"cx-tools-category-add"
+			]
+		},
 		"mw.cx.ui.CategoryMultiselectWidget": {
 			"scripts": [
 				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js"
@@ -1731,6 +1743,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
+				"mw.cx.ui.CategoryInputWidget",
 				"mw.cx.ui.CategoryTagItemWidget",
 				"oojs-ui"
 			],
@@ -1751,7 +1764,6 @@
 				"oojs-ui.styles.icons-content"
 			],
 			"messages": [
-				"cx-tools-category-add",
 				"cx-tools-categories-count-message"
 			]
 		},
