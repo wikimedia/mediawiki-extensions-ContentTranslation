@@ -8,7 +8,8 @@
 			"Obsuser",
 			"Милан Јелисавчић",
 			"Prevodim",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"cx": "Преведи страницу",
@@ -120,9 +121,9 @@
 	"cx-contributions-new-article": "Нова страница",
 	"cx-contributions-translation": "Превод",
 	"cx-contributions-upload": "Отпреми датотеку",
-	"cx-contributions-new-article-tooltip": "Почни нову страницу",
-	"cx-contributions-translation-tooltip": "Преведи постојећу страницу",
-	"cx-contributions-upload-tooltip": "Отпреми слике, музику и видео за коришћење у страницама",
+	"cx-contributions-new-article-tooltip": "Започните нову страницу",
+	"cx-contributions-translation-tooltip": "Преведите постојеће странице",
+	"cx-contributions-upload-tooltip": "Отпремите слике, музику и видео за коришћење у страницама",
 	"cx-publishing-dialog-message": "Страница $1 већ постоји. Постојећи садржај ће бити замењен вашим преводом. Желите ли да наставите?",
 	"cx-publishing-dialog-keep-button": "Задржи обе верзије",
 	"cx-publishing-dialog-publish-anyway-button": "Свеједно објави",
