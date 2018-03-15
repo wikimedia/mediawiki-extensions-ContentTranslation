@@ -85,3 +85,14 @@
 		}
 	}
 }
+
+/* HACK: Webkit browsers need weird hacks to make position: sticky usable and not annoying UX.
+One was flickering (solved above with translateZ(0)) and other is 2px displacement from top,
+even though property is set to 'top: 0'. @supports annotation needs to be at the top level, and we
+check for position: sticky support, not to affect other browsers that use position: fixed fallback.
+'-webkit-appearance: none' is the trick to target only webkit based browsers */
+@supports ( ( position: sticky ) or ( position: -webkit-sticky ) ) and ( -webkit-appearance: none ) {
+	.cx-translation-view-header.oo-ui-panelLayout {
+		top: -2px;
+	}
+}
