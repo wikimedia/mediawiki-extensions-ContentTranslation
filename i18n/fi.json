@@ -9,7 +9,8 @@
 			"Mikahama",
 			"01miki10",
 			"Pyscowicz",
-			"Putputi"
+			"Putputi",
+			"Prevodim"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -25,7 +26,7 @@
 	"cx-source-view-page": "näytä sivu",
 	"cx-publish-page-success": "Sivu on julkaistu nimellä $1",
 	"cx-publish-page-error": "Käännöksen julkaiseminen epäonnistui. Yritä julkaista sivu uudestaan. Virhe: $1",
-	"cx-publish-button": "Julkaise käännös",
+	"cx-publish-button": "Julkaise",
 	"cx-publish-button-publishing": "Julkaistaan...",
 	"cx-lost-session-draft": "Istuntosi on vanhentunut. Muokkauksia ei tallenneta, ellet kirjaudu uudelleen toisessa ikkunassa.",
 	"cx-lost-session-publish": "Istuntosi on vanhentunut. Et voi julkaista käännöstä, ellet kirjaudu uudelleen toisessa ikkunassa.",

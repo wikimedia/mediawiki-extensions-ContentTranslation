@@ -9,7 +9,8 @@
 			"Gamliel Fishkin",
 			"Psychoslave",
 			"NMaia",
-			"Fitoschido"
+			"Fitoschido",
+			"Prevodim"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -26,7 +27,7 @@
 	"cx-source-view-page": "montri paĝon",
 	"cx-publish-page-success": "Paĝo publikigita ĉe $1",
 	"cx-publish-page-error": "Okazis eraro dum publikigo de la traduko. Bonvolu reprovi publikigi la paĝon. Eraro: $1",
-	"cx-publish-button": "Publikigi tradukon",
+	"cx-publish-button": "Publikigi",
 	"cx-publish-button-publishing": "Publikigado...",
 	"cx-lost-session-draft": "Via sesio eksvalidiĝis. Viaj redaktoj ne povas esti konservitaj ĝis kiam vi ensalutos denove en alia fenestro.",
 	"cx-lost-session-publish": "Via sesio eksvalidiĝis. Vi ne povas publikigi la tradukon ĝis kiam vi ensalutos denove en alia fenestro.",
@@ -121,7 +122,7 @@
 	"cx-translation-status-published": "Publikigita",
 	"cx-translation-status-deleted": "Forigita",
 	"cx-translation-already-in-progress": "Tio ĉi estas prilaborata traduko komencita {{GENDER:$2|de}} $1",
-	"cx-translation-already-in-progress-collaborate": "Bonvolu kunordiĝi kun la {{GENDER:$1|uzanto|uzantino}}, kiu tradukis la nunan version.",
+	"cx-translation-already-in-progress-collaborate": "Bonvolu kunordiĝi kun la {{GENDER:$1|uzanto}}, kiu tradukis la nunan version.",
 	"cx-publishing-dialog-publish-draft-button": "Publikigi kiel malneton",
 	"cx-feedback-link": "Provizu prijuĝajn rimarkojn",
 	"cx-stats-published-translations-title": "Publikigitaj tradukoj",

@@ -5,7 +5,8 @@
 			"Kusavica",
 			"Teslaton",
 			"Urbanecm",
-			"TomášPolonec"
+			"TomášPolonec",
+			"Prevodim"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -22,7 +23,7 @@
 	"cx-source-view-page": "zobraziť stránku",
 	"cx-publish-page-success": "Stránka zverejnená na $1",
 	"cx-publish-page-error": "Vyskytla sa chyba pri ukladaní stránky. Prosím, skúste publikovať stránku opäť. Chyba: $1",
-	"cx-publish-button": "Publikovať preklad",
+	"cx-publish-button": "Publikovať",
 	"cx-publish-button-publishing": "Zverejňuje sa...",
 	"cx-lost-session-draft": "Vaša relácia vypršala. Vaše úpravy nemôžu byť uložené, pokiaľ sa znova neprihlásite v inom okne.",
 	"cx-lost-session-publish": "Vaša relácia vypršala. Váš preklad nemôže byť uložený, pokiaľ sa znova neprihlásite v inom okne.",

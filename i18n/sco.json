@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"John Reid",
-			"AmaryllisGardener"
+			"AmaryllisGardener",
+			"Prevodim"
 		]
 	},
 	"cx": "Owerset page",
@@ -12,7 +13,7 @@
 	"cx-source-view-page": "see page",
 	"cx-publish-page-success": "Page publeeshed at $1",
 	"cx-publish-page-error": "Mistak while hainin page.",
-	"cx-publish-button": "Publeesh owerset",
+	"cx-publish-button": "Publeesh",
 	"cx-publish-summary": "Cræftit bi owersetin the page \"$1\"",
 	"tag-contenttranslation": "ContentOwerset",
 	"cx-source-loading": "Laidin $1",

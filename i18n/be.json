@@ -5,7 +5,8 @@
 			"Maksim L.",
 			"Amire80",
 			"SamGold",
-			"Mechanizatar"
+			"Mechanizatar",
+			"Prevodim"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -20,7 +21,7 @@
 	"cx-source-view-page": "прагляд старонкі",
 	"cx-publish-page-success": "Старонка апублікавана на $1",
 	"cx-publish-page-error": "Памылка пры захаванні старонкі. Памылка: $1",
-	"cx-publish-button": "Апублікаваць пераклад",
+	"cx-publish-button": "Апублікаваць",
 	"cx-publish-button-publishing": "Публікацыя...",
 	"cx-lost-session-draft": "Час вашага сеансу скончыўся. Вашы змены не могуць быць захаваны, калі вы увойдзеце ў сістэму зноў у іншым акне.",
 	"cx-lost-session-publish": "Час вашага сеансу скончыўся. Нельга публікаваць пераклад, пакуль вы не ўвойдзеце зноў у іншае акно.",

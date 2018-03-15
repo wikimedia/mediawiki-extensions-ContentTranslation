@@ -3,7 +3,8 @@
 		"authors": [
 			"C.R.",
 			"Candalua",
-			"Macofe"
+			"Macofe",
+			"Prevodim"
 		]
 	},
 	"cx": "Traduce 'a paggena",
@@ -20,7 +21,7 @@
 	"cx-source-view-page": "vire 'a paggena",
 	"cx-publish-page-success": "Paggena pubblicata ncopp'a $1",
 	"cx-publish-page-error": "Errore pe' tramente ca se steva pubbrecà 'a traduziona. Pe' piacere pruvate n'ata vota 'e pubbrecà 'a paggena. Errore: $1",
-	"cx-publish-button": "Pubblica traduzione",
+	"cx-publish-button": "Pubblica",
 	"cx-publish-button-publishing": "Pubbrecanno...",
 	"cx-lost-session-draft": "'A sessione vosta è ammaturata. 'E cagnamiente vuoste nun se ponno sarvà si nun trasite n'ata vota pe' n'ata fenesta.",
 	"cx-lost-session-publish": "'A sessione vosta è ammaturata. Nun putite pubbrecà 'a traduziona nfin'a quanno nun trasite n'ata vota 'a n'ata fenesta.",

@@ -9,7 +9,8 @@
 			"Banjo",
 			"Amire80",
 			"Macofe",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Prevodim"
 		]
 	},
 	"cx": "Traducir unha páxina",
@@ -26,7 +27,7 @@
 	"cx-source-view-page": "ver a páxina",
 	"cx-publish-page-success": "Páxina publicada en \"$1\"",
 	"cx-publish-page-error": "Houbo un erro ao publicar a tradución. Por favor, intente publicar a páxina de novo. Erro: $1",
-	"cx-publish-button": "Publicar a tradución",
+	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publicando...",
 	"cx-lost-session-draft": "A súa sesión caducou. Non se poden gardar as súas edicións a non ser que inicie sesión en outra xanela.",
 	"cx-lost-session-publish": "A súa sesión expirou. Non pode publicar a traducción ata que acceda de novo ao sistema noutra xanela.",

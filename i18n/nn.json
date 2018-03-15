@@ -5,7 +5,8 @@
 			"Ranveig",
 			"Nghtwlkr",
 			"Njardarlogar",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Prevodim"
 		]
 	},
 	"cx": "Set om side",
@@ -22,7 +23,7 @@
 	"cx-source-view-page": "Sjå side",
 	"cx-publish-page-success": "Side publisert på $1",
 	"cx-publish-page-error": "Feil ved publisering av sida. Prøv å publisere sida igjen. Feil: $1",
-	"cx-publish-button": "Publiser omsetjing",
+	"cx-publish-button": "Publiser",
 	"cx-publish-button-publishing": "Publiserer...",
 	"cx-publish-summary": "Laga gjennom omsetjing av sida «$1»",
 	"cx-publish-gt-no-permission-to-move-description": "Spør ein erfaren brukar om hjelp til å revidere omsetjinga di og til å publisere ho på hovudsida.",

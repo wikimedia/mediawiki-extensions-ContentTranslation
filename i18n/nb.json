@@ -9,7 +9,8 @@
 			"Josve05a",
 			"Kingu",
 			"Tarjeimo",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Prevodim"
 		]
 	},
 	"cx": "Oversett side",
@@ -26,7 +27,7 @@
 	"cx-source-view-page": "vis side",
 	"cx-publish-page-success": "Siden er publisert som $1",
 	"cx-publish-page-error": "En feil oppsto under publisering av oversettelsen. Vennligst prøv å publisere siden igjen. Feil: $1",
-	"cx-publish-button": "Publisér oversettelse",
+	"cx-publish-button": "Publisér",
 	"cx-publish-button-publishing": "Publiserer...",
 	"cx-lost-session-draft": "Din sesjon har gått ut. Dine redigeringer kan ikke bli lagret hvis du ikke logger inn på nytt i et annet vindu.",
 	"cx-lost-session-publish": "Din sesjon har gått ut. Du kan ikke publisere oversettelsen før du logger inn igjen i et annet vindu.",

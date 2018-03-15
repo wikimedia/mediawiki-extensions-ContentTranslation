@@ -5,7 +5,8 @@
 			"Julian Mendez",
 			"Macofe",
 			"Liuxinyu970226",
-			"Karmwiki"
+			"Karmwiki",
+			"Prevodim"
 		]
 	},
 	"cx": "Traducer pagina",
@@ -22,7 +23,7 @@
 	"cx-source-view-page": "vider pagina",
 	"cx-publish-page-success": "Pagina publicate in $1",
 	"cx-publish-page-error": "Un error ha occurrite durante le publication del traduction. Per favor, tenta publicar le pagina de novo. Error: $1.",
-	"cx-publish-button": "Publicar traduction",
+	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publica...",
 	"cx-lost-session-draft": "Le session ha expirate. Le modificationes non pote esser salveguardate, excepte si tu aperi session de novo in un altere fenestra.",
 	"cx-lost-session-publish": "Le session ha expirate. Le traduciton non pote esser publicate, excepte si tu aperi session de novo in un altere fenestra.",

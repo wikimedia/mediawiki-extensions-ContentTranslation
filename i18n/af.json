@@ -7,7 +7,8 @@
 			"Purodha",
 			"Fwolff",
 			"Oesjaar",
-			"Biggs ZA"
+			"Biggs ZA",
+			"Prevodim"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -24,7 +25,7 @@
 	"cx-source-view-page": "Wys bladsy",
 	"cx-publish-page-success": "Bladsy is by $1 gepubliseer",
 	"cx-publish-page-error": "'n Fout het voorgekom toe die bladsy gestoor is. Probeer gerus om die bladsy weer te publiseer. Foutː $1",
-	"cx-publish-button": "Publiseer vertaling",
+	"cx-publish-button": "Publiseer",
 	"cx-publish-button-publishing": "Besig om te publiseer…",
 	"cx-lost-session-draft": "Die sessie het uitgetel. U wysigings kan nie gestoor word nie tensy u weer aanmeld in 'n ander venster.",
 	"cx-lost-session-publish": "Die sessie het uitgetel. U kan nie die vertaling publiseer nie tensy u weer aanmeld in 'n ander venster.",

@@ -5,7 +5,8 @@
 			"Robin Owain",
 			"Santhosh.thottingal",
 			"Amire80",
-			"Dafyddt"
+			"Dafyddt",
+			"Prevodim"
 		]
 	},
 	"cx": "Cyfieithu'r dudalen",
@@ -22,7 +23,7 @@
 	"cx-source-view-page": "Gweld y ddalen",
 	"cx-publish-page-success": "Cyhoeddwyd y ddalen am $1",
 	"cx-publish-page-error": "Cafwyd gwall wrth gadw'r ddalen. Ceisiwch eto. Gwall: $1",
-	"cx-publish-button": "Cyhoeddi'r cyfieithiad",
+	"cx-publish-button": "Cyhoeddi'r",
 	"cx-publish-button-publishing": "Yn cyhoeddi...",
 	"cx-lost-session-draft": "Daeth eich sisiwn i ben. Ni ellir arbed eich gwaith oni bai eich bod yn mewngofnodi mewn ffenestr arall.",
 	"cx-lost-session-publish": "Daeth eich sesiwn i ben. Ni ellir cyhoeddi eich gwaith oni bai eich bod yn mewngofnodi mewn ffenestr arall.",

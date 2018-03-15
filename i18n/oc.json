@@ -3,7 +3,8 @@
 		"authors": [
 			"Jfblanc",
 			"Cedric31",
-			"Nicolas Eynaud"
+			"Nicolas Eynaud",
+			"Prevodim"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -15,7 +16,7 @@
 	"cx-source-view-page": "afichar la pagina",
 	"cx-publish-page-success": "Pagina publicada sus $1",
 	"cx-publish-page-error": "Una error s'es produita al moment de la publicacion de la traduccion. Ensajatz tornamai. Error : $1",
-	"cx-publish-button": "Publicar la traduccion",
+	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publicacion en cors…",
 	"cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
 	"cx-publish-gt-no-permission-to-move-description": "Demandatz a un utilizaire experimentat d'aqueste site que vos ajude a repassar vòstra traduccion e a la publicar dins l’espaci principal.",

@@ -6,7 +6,8 @@
 			"Kushtrim",
 			"Kosovastar",
 			"Olsi",
-			"Arianit"
+			"Arianit",
+			"Prevodim"
 		]
 	},
 	"cx": "Përkthe faqen",
@@ -21,7 +22,7 @@
 	"cx-source-view-page": "shiko faqen",
 	"cx-publish-page-success": "Faqja e publikuar në $1",
 	"cx-publish-page-error": "Gabim gjatë ruajtjes së faqes",
-	"cx-publish-button": "Publiko përkthimin",
+	"cx-publish-button": "Publiko",
 	"cx-publish-button-publishing": "Duke publikuar...",
 	"cx-publish-summary": "Krijuar nga përkthimi i faqes \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Ju lutem kërkoni ndihmë nga një përdorues me eksperiencë në këtë faqe, që të shqyrtojë përkthimin tuaj dhe ta publikoj atë ne hapësirën kryesore",

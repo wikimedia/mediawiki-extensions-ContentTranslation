@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joetaras",
-			"Macofe"
+			"Macofe",
+			"Prevodim"
 		]
 	},
 	"cx": "Pàgene de traduzione",
@@ -17,7 +18,7 @@
 	"cx-source-view-page": "'ndruche 'a pàgene",
 	"cx-publish-page-success": "Pàgene pubblecate 'u $1",
 	"cx-publish-page-error": "'N'errore ha assute quanne ste pubblecamme 'a traduzione. Pe piacere pruève arrete a pubblecà 'a pàgene. Errore: $1",
-	"cx-publish-button": "Pubbleche 'a traduzione",
+	"cx-publish-button": "Pubbleche",
 	"cx-publish-button-publishing": "Stoche a pubbleche...",
 	"cx-lost-session-draft": "'A sessiona toje ha scadute. Le cangiaminde tune non ge ponne essere reggistrate ce non ge trase arrete jndr'à 'n'otra finestre.",
 	"cx-lost-session-publish": "'A sessiona toje ha scadute. Non ge puè pubblecà 'a traduzione ce non ge trase arrete jndr'à 'n'otra finestre.",
