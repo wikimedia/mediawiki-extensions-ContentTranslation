@@ -379,12 +379,13 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
-			match = element && element.id && element.id.match( /^cxSourceSection([0-9]+)$/ );
+			id = element && element.id,
+			match = id && id.match( /^cxSourceSection([0-9]+)$/ );
 		if ( match ) {
 			sectionNumber = +match[ 1 ];
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
 		} else {
-			mw.log.warn( '[CX] Invalid source section ' + element.id + 'found. Alignment may go wrong' );
+			mw.log.warn( '[CX] Invalid source section ' + id + 'found. Alignment may go wrong' );
 		}
 	} );
 };
