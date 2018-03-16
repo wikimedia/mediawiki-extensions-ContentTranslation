@@ -303,6 +303,8 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	this.publishButton.setDisabled( true )
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
 	this.emit( 'publish' );
+	this.targetSurface.setDisabled( true );
+	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
@@ -479,6 +481,8 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 		)
 	);
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.targetSurface.setDisabled( false );
+	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
 ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
@@ -487,6 +491,8 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
 		mw.msg( 'cx-publish-page-error', error )
 	);
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.targetSurface.setDisabled( false );
+	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
 /**

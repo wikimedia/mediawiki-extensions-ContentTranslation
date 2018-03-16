@@ -41,6 +41,9 @@ ve.ce.CXPlaceholderNode.static.name = 'cxPlaceholder';
 /* Methods */
 
 ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
+	if ( this.focusableSurface.disabled ) {
+		return;
+	}
 	if ( this.active || ( e && e.which !== OO.ui.MouseButtons.LEFT ) ) {
 		return;
 	}
