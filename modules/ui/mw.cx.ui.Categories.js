@@ -7,8 +7,10 @@
  * @constructor
  *
  * @param {Object} adaptedCategories Categories adapted on server side.
+ * @param {Object} [config] Configuration options
  */
-mw.cx.ui.Categories = function ( adaptedCategories ) {
+mw.cx.ui.Categories = function ( adaptedCategories, config ) {
+	this.config = config;
 	this.adaptedCategories = adaptedCategories;
 	this.sourceCategories = Object.keys( adaptedCategories );
 	this.targetCategories = this.extractTargetCategories( adaptedCategories );
@@ -91,7 +93,8 @@ mw.cx.ui.Categories.prototype.render = function () {
 	this.targetCategoryListing = this.createCategoryListing(
 		this.targetCategories,
 		{
-			allowArbitrary: true,
+			allowArbitrary: false,
+			allowedValues: this.targetCategories,
 			inputPosition: 'outline'
 		}
 	);
@@ -153,7 +156,7 @@ mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, con
 
 	categoryItems = this.mapCategories( categories );
 
-	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
+	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( this.config, {
 		icon: 'tag',
 		options: isSource ? categoryItems : [],
 		selected: categoryItems.map( function ( item ) {
