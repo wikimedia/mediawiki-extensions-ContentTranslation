@@ -329,7 +329,10 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 		demote: [ 'strikethrough', 'code', 'underline', 'language', 'clear' ]
 	},
 	// Link
-	{ include: [ 'link' ] },
+	{
+		classes: [ 've-cx-toolbar-link' ],
+		include: [ 'link' ]
+	},
 	// Structure
 	{
 		classes: [ 've-cx-toolbar-structure' ],
@@ -344,6 +347,7 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 		classes: [ 've-cx-toolbar-insert' ],
 		icon: 'ellipsis',
 		label: '',
+		indicator: null,
 		type: 'list',
 		title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
 		include: [ 'media', 'transclusion', 'insertTable', 'specialCharacter', 'reference', 'reference/existing' ],
