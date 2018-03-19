@@ -565,7 +565,7 @@ class Translation {
 			'cxVersion' => 1,
 		];
 
-		// BC code to gracefully handle lack of schame change
+		// BC code to gracefully handle lack of schema change
 		if ( isset( $row->translation_cx_version ) ) {
 			$fields['cxVersion'] = (int)$row->translation_cx_version;
 		}
