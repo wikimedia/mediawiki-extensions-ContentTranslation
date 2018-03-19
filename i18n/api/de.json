@@ -78,6 +78,7 @@
 	"apihelp-cxsave-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxsave-param-to": "Der Ziel-Sprachcode.",
 	"apihelp-cxsave-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-cxsave-param-cxversion": "Version des verwendeten Editors zur Erstellung des Übersetzungsentwurfs.",
 	"apierror-cx-docserverexception": "Fehler beim Konvertieren von HTML nach Wikitext: $1",
 	"apierror-cx-inuse": "Ein anderer Benutzer übersetzt bereits diesen Artikel.",
 	"apierror-cx-invalidlanguage": "Ungültige Sprache.",

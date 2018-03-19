@@ -4,6 +4,7 @@
 			"Ramjit Tudu"
 		]
 	},
+	"cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱥᱟᱦᱴᱟ",
 	"cx-dashboard-header": "ᱛᱚᱨᱡᱚᱢᱟ ᱠᱚ",
 	"cx-header-translation-center": "ᱛᱚᱨᱡᱚᱢᱟ ᱛᱟᱞᱢᱟ",
 	"cx-header-all-translations": "ᱡᱚᱛᱚ ᱛᱚᱨᱡᱚᱢᱟ",
@@ -54,12 +55,19 @@
 	"cx-contributions-new-contributions": "ᱱᱟᱣᱟ ᱮᱱᱮᱢ",
 	"cx-contributions-new-article": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
 	"cx-contributions-translation": "ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-translation-status-published": "ᱯᱟᱨᱥᱟᱞᱮᱱᱟ",
+	"cx-campaign-no-thanks": "ᱞᱟᱹᱠᱛᱤ ᱵᱟᱝᱟ",
 	"cx-campaign-contributionsmenu-mycontributions": "ᱮᱱᱮᱢ",
 	"cx-campaign-contributionsmenu-mytranslations": "ᱛᱚᱨᱡᱚᱢᱟ ᱠᱚ",
+	"cx-campaign-contributionsmenu-myuploads": "ᱞᱟᱫᱮᱭᱟᱠᱟᱫ ᱢᱮᱰᱤᱭᱟ",
+	"cx-trend-deletions": "ᱜᱮᱫ-ᱟᱠᱟᱱ ᱛᱚᱨᱡᱚᱢᱟ",
 	"cx-stats-weekly-published": "ᱪᱟᱞᱟᱣᱮᱱ ᱦᱟᱯᱛᱟ",
 	"cx-stats-local-published-number": "$2 ᱨᱮ $1",
 	"cx-stats-local-published": "$2 ᱨᱮ $1 ($3)",
 	"cx-tools-link-internal-link": "ᱥᱟᱦᱴᱟᱠᱚ ᱥᱮᱸᱫᱽᱨᱟ",
+	"cx-tools-link-apply": "ᱦᱩᱭᱮᱱᱟ",
+	"cx-personaltools-user": "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ",
+	"cx-personaltools-anon": "ᱵᱟᱢ ᱵᱚᱞᱚᱣᱟᱠᱟᱱᱟ",
 	"cx-tools-template-title": "ᱪᱷᱟᱸᱪ",
 	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ"
 }

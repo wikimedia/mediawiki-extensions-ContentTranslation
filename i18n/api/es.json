@@ -10,6 +10,7 @@
 		]
 	},
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
+	"apihelp-cxpublish-summary": "Guardar una página creada mediante la extensión Traducción de contenido.",
 	"apihelp-cxpublish-param-title": "Título de la página en la que se realizarán las acciones.",
 	"apihelp-cxpublish-param-html": "El contenido que guardar.",
 	"apihelp-cxpublish-param-from": "El código del idioma de origen.",
