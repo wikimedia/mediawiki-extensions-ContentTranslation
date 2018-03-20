@@ -93,6 +93,7 @@
 	"apihelp-cxsave-param-from": "Код на изворниот јазик.",
 	"apihelp-cxsave-param-to": "Код на целниот јазик.",
 	"apihelp-cxsave-param-sourcetitle": "Наслов на изворната страница.",
+	"apihelp-cxsave-param-cxversion": "Верзија на уредникот со кој е направен нацрт-преводот.",
 	"apierror-cx-docserverexception": "Грешка при претворањето на HTML во викитекст: $1",
 	"apierror-cx-inuse": "Статијава веќе ја преведува друг корисник.",
 	"apierror-cx-invalidlanguage": "Неважечки јазик.",

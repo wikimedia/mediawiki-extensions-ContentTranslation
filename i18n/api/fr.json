@@ -102,6 +102,7 @@
 	"apihelp-cxsave-param-from": "Le code de langue source.",
 	"apihelp-cxsave-param-to": "Le code de langue cible.",
 	"apihelp-cxsave-param-sourcetitle": "Le titre de la page source.",
+	"apihelp-cxsave-param-cxversion": "Version de l’éditeur utilisée pour créer la traduction en brouillon.",
 	"apierror-cx-docserverexception": "Erreur lors de la conversion du HTML en source wiki: $1",
 	"apierror-cx-inuse": "Un autre utilisateur est déjà en train de traduire cet article.",
 	"apierror-cx-invalidlanguage": "Langue invalide.",

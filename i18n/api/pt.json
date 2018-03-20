@@ -100,6 +100,7 @@
 	"apihelp-cxsave-param-from": "O código da língua de origem.",
 	"apihelp-cxsave-param-to": "O código da língua de destino.",
 	"apihelp-cxsave-param-sourcetitle": "O título da página de origem.",
+	"apihelp-cxsave-param-cxversion": "Versão do editor usada para criar o rascunho da tradução.",
 	"apierror-cx-docserverexception": "Falha na conversão de HTML para texto wiki: $1",
 	"apierror-cx-inuse": "Este artigo já está a ser traduzido por outro utilizador.",
 	"apierror-cx-invalidlanguage": "Língua inválida.",
