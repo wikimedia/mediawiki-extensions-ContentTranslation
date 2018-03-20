@@ -160,20 +160,6 @@ ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
 	$( this.getElementWindow() ).off( 'resize', this.throttleAlignSectionPairs );
 };
 
-ve.init.mw.CXTarget.prototype.onSurfaceMouseOver = function ( ev ) {
-	var fromSegmentId = $( ev.relatedTarget ).closest( '.cx-segment' ).data( 'segmentid' ),
-		toSegmentId = $( ev.toElement ).closest( '.cx-segment' ).data( 'segmentid' );
-	if ( fromSegmentId !== toSegmentId ) {
-		this.setSentenceHighlight( fromSegmentId, false );
-	}
-	this.setSentenceHighlight( toSegmentId, true );
-};
-
-ve.init.mw.CXTarget.prototype.onSurfaceMouseOut = function ( ev ) {
-	var fromSegmentId = $( ev.relatedTarget ).closest( '.cx-segment' ).data( 'segmentid' );
-	this.setSentenceHighlight( fromSegmentId, false );
-};
-
 /**
  * Present the source article and section placeholders
  *
@@ -215,14 +201,8 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	this.targetColumn.attachSurface( targetSurface );
 	sourceSurface.initialize();
 	targetSurface.initialize();
-	sourceSurface.getView().$element.on( {
-		mouseover: this.onSurfaceMouseOver.bind( this ),
-		mouseout: this.onSurfaceMouseOut.bind( this )
-	} );
-	targetSurface.getView().$element.on( {
-		mouseover: this.onSurfaceMouseOver.bind( this ),
-		mouseout: this.onSurfaceMouseOut.bind( this )
-	} );
+
+	this.setupHighlighting( sourceSurface.getView().$element, targetSurface.getView().$element );
 
 	this.translation.connect( this, {
 		sectionChange: 'saveSection'
@@ -233,6 +213,49 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	// In mw.Target this happens after documentReady and a setTimeout,
 	// but we don't use documentReady in this target.
 	setTimeout( this.surfaceReady.bind( this ) );
+};
+
+ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targetView ) {
+	var $views = $( [ $sourceView[ 0 ], $targetView[ 0 ] ] );
+
+	$views.on(
+		{
+			mouseenter: function () {
+				var segmentSelector;
+
+				if ( this.classList.contains( 'cx-sentence-highlight' ) ) {
+					return;
+				}
+
+				segmentSelector = '[data-segmentid="_"]'.replace( '_', this.dataset.segmentid );
+				$views.find( segmentSelector ).addClass( 'cx-sentence-highlight' );
+			},
+			mouseleave: function () {
+				$views.find( '.cx-sentence-highlight' ).removeClass( 'cx-sentence-highlight' );
+			}
+		},
+		'.cx-segment'
+	);
+
+	$targetView.on(
+		{
+			mouseenter: function () {
+				var sectionNumber;
+
+				if ( this.classList.contains( 'cx-section-highlight' ) ) {
+					return;
+				}
+
+				sectionNumber = mw.cx.getSectionNumberFromSectionId( this.id );
+				document.getElementById( 'cxSourceSection' + sectionNumber )
+					.classList.add( 'cx-section-highlight' );
+			},
+			mouseleave: function () {
+				$views.find( '.cx-section-highlight' ).removeClass( 'cx-section-highlight' );
+			}
+		},
+		'[rel="cx:Placeholder"]'
+	);
 };
 
 ve.init.mw.CXTarget.prototype.surfaceReady = function () {
@@ -563,15 +586,4 @@ ve.init.mw.CXTarget.prototype.translate = function ( source ) {
 ve.init.mw.CXTarget.prototype.showCategories = function ( categoryUI ) {
 	this.sourceColumn.showCategories( categoryUI );
 	this.targetColumn.showCategories( categoryUI );
-};
-
-ve.init.mw.CXTarget.prototype.setSentenceHighlight = function ( segmentId, highlighted ) {
-	if ( !segmentId ) {
-		return;
-	}
-	// Search for any target span with the right segmentId (it could have been split)
-	this.sourceSurface.getView().$element.find( '[data-segmentid=' + segmentId + ']' )
-		.toggleClass( 'cx-highlight', highlighted );
-	this.targetSurface.getView().$element.find( '[data-segmentid=' + segmentId + ']' )
-		.toggleClass( 'cx-highlight', highlighted );
 };

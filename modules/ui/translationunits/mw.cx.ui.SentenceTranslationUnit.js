@@ -17,7 +17,6 @@ OO.inheritClass( mw.cx.ui.SentenceTranslationUnit, mw.cx.ui.TranslationUnit );
 
 mw.cx.ui.SentenceTranslationUnit.static.name = 'sentence';
 mw.cx.ui.SentenceTranslationUnit.static.matchTagNames = [ 'span' ];
-mw.cx.ui.SentenceTranslationUnit.static.highlightClass = 'cx-highlight';
 mw.cx.ui.SentenceTranslationUnit.static.tools = {};
 
 /**
