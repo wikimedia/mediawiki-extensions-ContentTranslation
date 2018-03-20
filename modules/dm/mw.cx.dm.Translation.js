@@ -19,6 +19,8 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
 	this.id = null;
+	this.sourceCategories = null;
+	this.targetCategories = null;
 	// TODO get/set the following three sourceWikiPage/targetWikiPage properties
 	this.targetTitle = this.targetWikiPage.getTitle();
 	this.sourceRevisionId = this.sourceWikiPage.getRevision();
@@ -215,6 +217,34 @@ mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
 
 mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;
+};
+
+/**
+ * @param {Array} categories Source categories
+ */
+mw.cx.dm.Translation.prototype.setSourceCategories = function ( categories ) {
+	this.sourceCategories = categories;
+};
+
+/**
+ * @return {Array} Source categories
+ */
+mw.cx.dm.Translation.prototype.getSourceCategories = function () {
+	return this.sourceCategories;
+};
+
+/**
+ * @param {Array} categories Target categories
+ */
+mw.cx.dm.Translation.prototype.setTargetCategories = function ( categories ) {
+	this.targetCategories = categories;
+};
+
+/**
+ * @return {Array} Target categories
+ */
+mw.cx.dm.Translation.prototype.getTargetCategories = function () {
+	return this.targetCategories;
 };
 
 /**

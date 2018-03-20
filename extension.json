@@ -1755,6 +1755,7 @@
 				"ui/styles/mw.cx.ui.Categories.less"
 			],
 			"dependencies": [
+				"mw.cx.dm.Translation",
 				"mw.cx.ui",
 				"mw.cx.ui.CategoryMultiselectWidget",
 				"oojs-ui.styles.icons-content"

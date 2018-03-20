@@ -6,14 +6,14 @@
  * @class
  * @constructor
  *
+ * @param {mw.cx.dm.Translation} translationModel
  * @param {Object} adaptedCategories Categories adapted on server side.
  * @param {Object} [config] Configuration options
  */
-mw.cx.ui.Categories = function ( adaptedCategories, config ) {
-	this.config = config;
+mw.cx.ui.Categories = function ( translationModel, adaptedCategories, config ) {
+	this.translationModel = translationModel;
 	this.adaptedCategories = adaptedCategories;
-	this.sourceCategories = Object.keys( adaptedCategories );
-	this.targetCategories = this.extractTargetCategories( adaptedCategories );
+	this.config = config;
 
 	// @var {OO.ui.ButtonWidget}
 	this.sourceCategoryCount = null;
@@ -23,6 +23,9 @@ mw.cx.ui.Categories = function ( adaptedCategories, config ) {
 	this.sourceCategoryListing = null;
 	// @var {mw.cx.ui.CategoryMultiselectWidget}
 	this.targetCategoryListing = null;
+
+	this.translationModel.setSourceCategories( Object.keys( adaptedCategories ) );
+	this.translationModel.setTargetCategories( this.extractTargetCategories( adaptedCategories ) );
 
 	this.render();
 	this.listen();
@@ -52,13 +55,14 @@ mw.cx.ui.Categories.prototype.extractTargetCategories = function ( adaptedCatego
  * @return {string|null} Corresponding source category name, or null
  */
 mw.cx.ui.Categories.prototype.getCorrespondingSourceCategory = function ( targetCategory ) {
-	var i, length, source;
+	var i, length, category,
+		sourceCategories = this.translationModel.getSourceCategories();
 
-	for ( i = 0, length = this.sourceCategories.length; i < length; i++ ) {
-		source = this.sourceCategories[ i ];
+	for ( i = 0, length = sourceCategories.length; i < length; i++ ) {
+		category = sourceCategories[ i ];
 
-		if ( this.adaptedCategories[ source ] === targetCategory ) {
-			return source;
+		if ( this.adaptedCategories[ category ] === targetCategory ) {
+			return category;
 		}
 	}
 
@@ -80,20 +84,25 @@ mw.cx.ui.Categories.prototype.removeCategoryNamespace = function ( fullCategoryN
  * Create UI elements for category count buttons and category listings.
  */
 mw.cx.ui.Categories.prototype.render = function () {
-	this.sourceCategoryCount = this.createCategoryCount( this.sourceCategories.length );
-	this.targetCategoryCount = this.createCategoryCount( this.targetCategories.length );
+	var sourceCategories = this.translationModel.getSourceCategories(),
+		targetCategories = this.translationModel.getTargetCategories();
+
+	this.sourceCategoryCount = this.createCategoryCount( sourceCategories.length );
+	this.targetCategoryCount = this.createCategoryCount( targetCategories.length );
 
 	this.sourceCategoryListing = this.createCategoryListing(
-		this.sourceCategories,
+		sourceCategories,
+		true,
 		{
 			allowReordering: false,
 			inputPosition: 'none'
 		}
 	);
 	this.targetCategoryListing = this.createCategoryListing(
-		this.targetCategories,
+		targetCategories,
+		false,
 		{
-			allowedValues: this.targetCategories,
+			allowedValues: targetCategories,
 			inputPosition: 'outline'
 		}
 	);
@@ -146,14 +155,12 @@ mw.cx.ui.Categories.prototype.mapCategories = function ( categories ) {
  * Get the category listing
  *
  * @param {Array} categories
+ * @param {boolean} isSource True if source category listing should be created.
  * @param {Object} [config]
  * @return {mw.cx.ui.CategoryMultiselectWidget}
  */
-mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, config ) {
-	var categoryItems,
-		isSource = categories === this.sourceCategories;
-
-	categoryItems = this.mapCategories( categories );
+mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, isSource, config ) {
+	var categoryItems = this.mapCategories( categories );
 
 	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
 		icon: 'tag',
@@ -260,21 +267,16 @@ mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListi
  * @param {Array} selectedTargetCategories
  */
 mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTargetCategories ) {
-	// The new set of categories. Update the page.
-	ve.batchSplice(
-		this.targetCategories,
-		0,
-		this.targetCategories.length,
-		selectedTargetCategories.map( function ( item ) { return item.data; } )
-	);
+	var targetCategories = selectedTargetCategories.map( function ( item ) { return item.data; } );
 
 	this.targetCategoryCount.setLabel(
 		mw.msg(
 			'cx-tools-categories-count-message',
-			mw.language.convertNumber( this.targetCategories.length )
+			mw.language.convertNumber( targetCategories.length )
 		)
 	);
 
+	this.translationModel.setTargetCategories( targetCategories );
 	this.addMissingCategoriesToMenu();
 };
 
@@ -284,7 +286,10 @@ mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTarg
  */
 mw.cx.ui.Categories.prototype.addMissingCategoriesToMenu = function () {
 	var allTargetCategories = this.extractTargetCategories( this.adaptedCategories ),
-		notSelectedTargetCategories = OO.simpleArrayDifference( allTargetCategories, this.targetCategories );
+		notSelectedTargetCategories = OO.simpleArrayDifference(
+			allTargetCategories,
+			this.translationModel.getTargetCategories()
+		);
 
 	this.targetCategoryListing.menu.clearItems();
 	this.targetCategoryListing.addOptions( this.mapCategories( notSelectedTargetCategories ) );

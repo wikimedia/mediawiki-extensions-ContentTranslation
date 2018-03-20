@@ -13,8 +13,10 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 	this.sourceRevision = config.sourceRevision;
+
 	// Mixin constructors
 	OO.EventEmitter.call( this );
+
 	// Properties
 	this.publishDeferred = null;
 	this.captcha = null;
@@ -37,7 +39,8 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		from: this.sourceLanguage,
 		to: this.targetLanguage,
 		sourcetitle: this.sourceTitle,
-		html: this.getContent( true )
+		html: this.getContent( true ),
+		categories: this.translation.getTargetCategories()
 	} );
 
 	this.publishDeferred = $.Deferred();
