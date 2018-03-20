@@ -391,7 +391,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 			sectionNumber = +match[ 1 ];
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
 		} else {
-			mw.log.warn( '[CX] Invalid source section ' + id + 'found. Alignment may go wrong' );
+			mw.log.warn( '[CX] Invalid source section ' + id + ' found. Alignment may go wrong' );
 		}
 	} );
 };
