@@ -95,6 +95,7 @@
 	"apihelp-cxsave-param-from": "源语言代码。",
 	"apihelp-cxsave-param-to": "目标语言代码。",
 	"apihelp-cxsave-param-sourcetitle": "来源页面的标题。",
+	"apihelp-cxsave-param-cxversion": "用于创建草稿翻译的编辑器版本。",
 	"apierror-cx-docserverexception": "转换HTML至wiki文本时出错：$1",
 	"apierror-cx-inuse": "其他用户已经开始翻译此条目。",
 	"apierror-cx-invalidlanguage": "无效的语言。",
