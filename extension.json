@@ -1728,9 +1728,6 @@
 			],
 			"dependencies": [
 				"ext.visualEditor.mwmeta"
-			],
-			"messages": [
-				"cx-tools-category-add"
 			]
 		},
 		"mw.cx.ui.CategoryMultiselectWidget": {

@@ -19,10 +19,7 @@
 mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config ) {
 	if ( config.inputPosition === 'outline' ) {
 		config = config || {};
-		config.inputWidget = new mw.cx.ui.CategoryInputWidget( this, $.extend( {
-			placeholder: mw.msg( 'cx-tools-category-add' ),
-			classes: [ 'oo-ui-tagMultiselectWidget-input' ]
-		}, config.input ) );
+		config.inputWidget = new mw.cx.ui.CategoryInputWidget( this, config );
 	}
 
 	// Parent constructor

@@ -29,7 +29,7 @@ mw.cx.ui.CategoryInputWidget = function CategoryInputWidget( categoryWidget, con
 	// Parent constructor
 	mw.cx.ui.CategoryInputWidget.super.call( this, categoryWidget, $.extend( {
 		api: siteMapper.getApi( targetLanguage )
-	}, config ) );
+	}, config.input ) );
 
 	requestManager.getNamespaceAlias( targetLanguage, 'Category' ).done( function ( prefix ) {
 		// This is likely to be resolved before first usage of variable,

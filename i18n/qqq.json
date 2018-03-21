@@ -235,7 +235,6 @@
 	"cx-translation-template-add-param": "Hover text for the template field placeholders. Shown in the form for translating the template fields. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}.",
 	"cx-translation-template-add-more": "Label for the control to add more template fields. Shown at the bottom of the form for translating the template parameters. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}",
 	"cx-translation-template-select-param": "Label for the template field selector. \"Field\" should be the same word as in {{msg-mw|visualeditor-dialog-transclusion-required-parameter-dialog-title}}",
-	"cx-tools-category-add": "Placeholder text for adding new category to translation",
 	"cx-publish-destination-header": "Header label for choosing namespace as publishing destination",
 	"cx-publish-destination-tooltip": "Tooltip text for the namespace selector",
 	"cx-publish-destination-namespace-main": "Label for choosing main namespace as publishing destination",

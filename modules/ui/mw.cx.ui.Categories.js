@@ -93,7 +93,6 @@ mw.cx.ui.Categories.prototype.render = function () {
 	this.targetCategoryListing = this.createCategoryListing(
 		this.targetCategories,
 		{
-			allowArbitrary: false,
 			allowedValues: this.targetCategories,
 			inputPosition: 'outline'
 		}
@@ -156,7 +155,7 @@ mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, con
 
 	categoryItems = this.mapCategories( categories );
 
-	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( this.config, {
+	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
 		icon: 'tag',
 		options: isSource ? categoryItems : [],
 		selected: categoryItems.map( function ( item ) {
@@ -171,7 +170,7 @@ mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, con
 			};
 		}.bind( this ) ),
 		classes: [ 'cx-category-listing' ]
-	}, config ) );
+	}, this.config, config ) );
 };
 
 /**
