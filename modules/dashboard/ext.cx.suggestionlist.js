@@ -472,7 +472,7 @@
 	 * @return {jQuery}
 	 */
 	CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
-		var $image, $desc, $featured, $actions, $discardAction, $favoriteAction,
+		var $image, $desc, $featured, $actions, discardAction, favoriteAction,
 			sourceDir, targetDir, $targetLanguage,
 			$translationLink, $suggestion, $metaDataContainer,
 			$sourceLanguage, $languageContainer,
@@ -548,19 +548,37 @@
 			.attr( 'data-ellipsis', mw.msg( 'ellipsis' ) )
 			.addClass( 'cx-slitem__desc' )
 			.hide();
-		$discardAction = $( '<div>' )
-			.addClass( 'cx-slitem__action cx-slitem__action--discard' )
-			.one( 'click', this.discardSuggestion.bind( this, suggestion ) );
+
+		discardAction = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: 'close',
+			classes: [ 'cx-slitem__action--discard' ]
+		} );
+		discardAction.once( 'click', this.discardSuggestion.bind( this, suggestion ) );
 
 		if ( this.lists[ suggestion.listId ].type === listTypes.TYPE_FAVORITE ) {
-			$discardAction.hide();
-			$favoriteAction = $( '<div>' )
-				.addClass( 'cx-slitem__action cx-slitem__action--nonfavorite' )
-				.one( 'click', this.unmarkFavorite.bind( this, suggestion ) );
+			discardAction.$element.hide();
+
+			favoriteAction = new OO.ui.ButtonWidget( {
+				framed: false,
+				flags: [ 'progressive' ],
+				classes: [ 'cx-slitem__action--nonfavorite' ],
+				icon: 'unStar'
+			} );
+
+			favoriteAction.once( 'click', this.unmarkFavorite.bind( this, suggestion ) );
+			favoriteAction.$element.on( 'mouseenter', this.setStarIcon.bind( favoriteAction ) );
+			favoriteAction.$element.on( 'mouseleave', this.setUnstarIcon.bind( favoriteAction ) );
 		} else {
-			$favoriteAction = $( '<div>' )
-				.addClass( 'cx-slitem__action cx-slitem__action--favorite' )
-				.one( 'click', this.markFavorite.bind( this, suggestion ) );
+			favoriteAction = new OO.ui.ButtonWidget( {
+				framed: false,
+				classes: [ 'cx-slitem__action--favorite' ],
+				icon: 'star'
+			} );
+
+			favoriteAction.once( 'click', this.markFavorite.bind( this, suggestion ) );
+			favoriteAction.$element.on( 'mouseenter', this.setUnstarIcon.bind( favoriteAction ) );
+			favoriteAction.$element.on( 'mouseleave', this.setStarIcon.bind( favoriteAction ) );
 		}
 
 		$metaDataContainer = $( '<div>' )
@@ -572,7 +590,7 @@
 			.append( $translationLink, $desc, $metaDataContainer );
 		$actions = $( '<div>' )
 			.addClass( 'cx-slitem__actions' )
-			.append( $favoriteAction, $discardAction );
+			.append( favoriteAction.$element, discardAction.$element );
 		$suggestion.append(
 			$image,
 			$titleLanguageBlock,
@@ -583,9 +601,25 @@
 		suggestion.$element = $suggestion;
 		suggestion.$desc = $desc;
 		suggestion.$image = $image;
-		suggestion.$discardAction = $discardAction;
+		suggestion.$discardAction = discardAction.$element;
 
 		return $suggestion;
+	};
+
+	/**
+	 * Change "favorite" button icon to empty star
+	 */
+	CXSuggestionList.prototype.setStarIcon = function () {
+		this.clearFlags();
+		this.setIcon( 'star' );
+	};
+
+	/**
+	 * Change "favorite" button icon to filled blue star
+	 */
+	CXSuggestionList.prototype.setUnstarIcon = function () {
+		this.setFlags( 'progressive' );
+		this.setIcon( 'unStar' );
 	};
 
 	/**

@@ -978,7 +978,9 @@
 				"jquery.uls.data",
 				"mediawiki.widgets",
 				"mw.cx.ui.LanguageFilter",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
 				"ellipsis",

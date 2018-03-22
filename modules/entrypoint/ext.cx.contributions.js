@@ -31,7 +31,7 @@
 		$sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		contributionButtons = $.map( this.getActivities(), function ( item ) {
+		contributionButtons = this.getActivities().map( function ( item ) {
 			return new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
 				label: item.text,

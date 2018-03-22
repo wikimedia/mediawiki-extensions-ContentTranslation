@@ -190,53 +190,18 @@
 		-moz-box-pack: end; // Firefox 21-
 		justify-content: flex-end;
 	}
-}
 
-.cx-slitem__action {
-	background-position: center center;
-	background-repeat: no-repeat;
-	width: 30px;
-	height: 30px;
-	opacity: 0.8;
-
-	@media only screen and ( min-width: @narrow ) {
-		padding: 0 8px;
-	}
-
-	&:hover {
-		opacity: 1;
-	}
-
-	&--discard {
-		background-size: 16px;
-		.background-image-svg('../../tools/images/clear.svg', '../../tools/images/clear.png');
-		margin-bottom: 8px;
+	.cx-slitem__action--favorite {
+		margin: 8px 0 0 !important; /* stylelint-disable-line declaration-no-important */
 
 		@media only screen and ( min-width: @narrow ) {
-			margin: 0;
-			padding: 0 0 0 8px;
+			margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+			padding-right: 4px;
 		}
 	}
 
-	&--favorite {
-		.background-image-svg('../images/star.svg', '../images/star.png');
-		margin-top: 8px;
-
-		@media only screen and ( min-width: @narrow ) {
-			margin: 0;
-			padding: 0 8px 0 0;
-		}
-	}
-
-	&--nonfavorite,
-	&--favorite {
-		background-size: 24px;
-	}
-
-	&--nonfavorite,
-	&--favorite:hover {
-		.background-image-svg('../images/star-blue.svg', '../images/star-blue.png');
-		opacity: 1;
+	.cx-slitem__action--nonfavorite {
+		margin: 0;
 	}
 }
 
