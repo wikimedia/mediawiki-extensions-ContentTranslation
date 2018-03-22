@@ -225,7 +225,6 @@
 	"cx-translation-template-add-param": "+ Przetłumacz pole",
 	"cx-translation-template-add-more": "Dodaj więcej pól",
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
-	"cx-tools-category-add": "Dodaj kategorię",
 	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw, w której strona zostanie opublikowana",
 	"cx-publish-destination-namespace-main": "Nowa strona"
 }

@@ -220,7 +220,6 @@
 	"cx-translation-template-add-param": "+ Преведи поље",
 	"cx-translation-template-add-more": "Додај још поља",
 	"cx-translation-template-select-param": "Изабери циљна поља",
-	"cx-tools-category-add": "Додај категорију",
 	"cx-publish-destination-header": "Дестинација објављивања",
 	"cx-publish-destination-tooltip": "Изаберите именски простор у коме ће страница бити објављена",
 	"cx-publish-destination-namespace-main": "Нова страница",

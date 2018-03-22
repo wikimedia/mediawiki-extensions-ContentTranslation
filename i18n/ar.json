@@ -227,7 +227,6 @@
 	"cx-translation-template-add-param": "+ حقل ترجمة",
 	"cx-translation-template-add-more": "أضف المزيد من الحقول",
 	"cx-translation-template-select-param": "اختر الحقول الهدف",
-	"cx-tools-category-add": "أضف تصنيفا",
 	"cx-publish-destination-header": "هدف النشر",
 	"cx-publish-destination-tooltip": "اختر النطاق الذي ستنشر فيه الصفحة.",
 	"cx-publish-destination-namespace-main": "صفحة جديدة",

@@ -240,7 +240,6 @@
 	"cx-translation-template-add-param": "+ Перевести параметр",
 	"cx-translation-template-add-more": "Добавить больше полей",
 	"cx-translation-template-select-param": "Выберите целевые поля",
-	"cx-tools-category-add": "добавить категорию",
 	"cx-publish-destination-header": "Опубликовать цель",
 	"cx-publish-destination-tooltip": "Выберите пространство имён, в котором страница будет опубликована",
 	"cx-publish-destination-namespace-main": "Новая страница",

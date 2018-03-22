@@ -221,7 +221,6 @@
 	"cx-translation-template-add-param": "+ לתרגם את הפרמטר",
 	"cx-translation-template-add-more": "{{GENDER:|הוסף|הוסיפי}} שדות",
 	"cx-translation-template-select-param": "{{GENDER:|בחר|בחרי}} את שדה היעד",
-	"cx-tools-category-add": "הוספת קטגוריה",
 	"cx-publish-destination-header": "יעד הפרסום",
 	"cx-publish-destination-tooltip": "נא לבחור את מרחב השם שהדף יפורסם בו",
 	"cx-publish-destination-namespace-main": "דף חדש",

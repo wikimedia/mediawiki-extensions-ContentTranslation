@@ -225,7 +225,6 @@
 	"cx-translation-template-add-param": "+ Traduzir campo",
 	"cx-translation-template-add-more": "Adicionar mais campos",
 	"cx-translation-template-select-param": "Selecionar os campos de destino",
-	"cx-tools-category-add": "Adicionar categoria",
 	"cx-publish-destination-header": "Destino da publicação",
 	"cx-publish-destination-tooltip": "Escolha o espaço nominal no qual a página será publicada",
 	"cx-publish-destination-namespace-main": "Página nova",

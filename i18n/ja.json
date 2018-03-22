@@ -226,7 +226,6 @@
 	"cx-template-action-keep-original": "元のテンプレートを使用",
 	"cx-template-action-skip": "テンプレートを使用しない",
 	"cx-template-not-available": "$1には機械翻訳は利用できません。",
-	"cx-tools-category-add": "カテゴリを追加",
 	"cx-publish-destination-tooltip": "ページを公開する名前空間を選択",
 	"cx-publish-destination-namespace-main": "新規ページ"
 }

@@ -194,7 +194,6 @@
 	"cx-template-not-available": "Nije dostupno na $1",
 	"cx-translation-template-add-param": "+ Prevedi polje",
 	"cx-translation-template-add-more": "Dodaj još polja",
-	"cx-tools-category-add": "Dodaj kategoriju",
 	"cx-publish-destination-tooltip": "Odabir prostora imena u kom će stranica biti objavljena",
 	"cx-publish-destination-namespace-main": "Nova stranica"
 }

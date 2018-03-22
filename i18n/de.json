@@ -221,7 +221,6 @@
 	"cx-translation-template-add-param": "+ Übersetzungsfeld",
 	"cx-translation-template-add-more": "Weitere Felder hinzufügen",
 	"cx-translation-template-select-param": "Zielfelder auswählen",
-	"cx-tools-category-add": "Kategorie hinzufügen",
 	"cx-publish-destination-header": "Veröffentlichungsziel",
 	"cx-publish-destination-tooltip": "Wähle den Namensraum aus, in dem die Seite veröffentlicht werden soll.",
 	"cx-publish-destination-namespace-main": "Neue Seite",
