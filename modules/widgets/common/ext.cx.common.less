@@ -119,7 +119,10 @@
 
 .clearfix {
 	&:after {
-		content: '';
+		// Non empty content value avoids an Opera bug that creates space around
+		// clearfixed elements if the contenteditable attribute is also present
+		// somewhere in the HTML.
+		content: ' ';
 		display: block;
 		clear: both;
 	}

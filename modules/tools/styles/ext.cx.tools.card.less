@@ -7,21 +7,11 @@
 	box-shadow: 0 1px 0 @colorGray12;
 	margin-top: 15px;
 
+	.clearfix;
+
 	&:hover {
 		border-color: @colorGray10;
 		box-shadow: 0 1px 0 @colorGray10;
-	}
-
-	/* Clearfix */
-	&:after {
-		// Non empty content value avoids an Opera bug that creates space around
-		// clearfixed elements if the contenteditable attribute is also present
-		// somewhere in the HTML.
-		content: ' ';
-		visibility: hidden;
-		display: block;
-		height: 0;
-		clear: both;
 	}
 }
 

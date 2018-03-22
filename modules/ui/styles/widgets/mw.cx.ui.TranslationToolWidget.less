@@ -7,17 +7,7 @@
 	margin-bottom: 20px;
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
 
-	/* Clearfix */
-	&:after {
-		// Non empty content value avoids an Opera bug that creates space around
-		// clearfixed elements if the contenteditable attribute is also present
-		// somewhere in the HTML.
-		content: ' ';
-		visibility: hidden;
-		display: block;
-		height: 0;
-		clear: both;
-	}
+	.clearfix;
 }
 
 .cx-widget-translationtool-header {

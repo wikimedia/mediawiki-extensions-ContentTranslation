@@ -1,17 +1,16 @@
 @import '../../widgets/common/ext.cx.common.less';
 
-// Clearfix
-.cx-header:after {
-	content: ' ';
+.cx-header {
+	.clearfix;
 
-	display: block;
-	visibility: hidden;
-	clear: both;
-	height: 0;
-}
+	&:not( .cx-header--dashboard ) {
+		padding: @personal-header-padding;
+	}
 
-.cx-header:not( .cx-header--dashboard ) {
-	padding: @personal-header-padding;
+	&,
+	&__trademark {
+		min-height: @personal-header-height;
+	}
 }
 
 .cx-header__trademark {
@@ -110,11 +109,6 @@
 	}
 }
 /* stylelint-enable selector-max-id */
-
-.cx-header,
-.cx-header__trademark {
-	min-height: @personal-header-height;
-}
 
 .cx-header--dashboard {
 	max-width: @max-dashboard-width;

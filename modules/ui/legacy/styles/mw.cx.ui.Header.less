@@ -3,20 +3,11 @@
 
 .cx-header {
 	transition: width 0.15s;
+	.clearfix;
 
-	// Clearfix
-	&:after {
-		content: ' ';
-
-		display: block;
-		visibility: hidden;
-		clear: both;
-		height: 0;
+	&:not( .cx-header--dashboard ) > .cx-header__main {
+		padding: @personal-header-padding;
 	}
-}
-
-.cx-header:not( .cx-header--dashboard ) > .cx-header__main {
-	padding: @personal-header-padding;
 }
 
 .cx-header__trademark {
@@ -118,14 +109,8 @@
 	min-height: @personal-header-height;
 }
 
-.cx-header__main:after {
-	// Clearfix
-	content: ' ';
-
-	display: block;
-	visibility: hidden;
-	clear: both;
-	height: 0;
+.cx-header__main {
+	.clearfix;
 }
 
 .cx-header--dashboard {
