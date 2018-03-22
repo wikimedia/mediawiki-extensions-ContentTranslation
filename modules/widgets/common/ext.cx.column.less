@@ -25,10 +25,10 @@
 }
 
 .cx-column__content {
-	line-height: 1.5em;
 	clear: both;
-	word-wrap: break-word;
 	position: relative;
+	line-height: 1.5em;
+	.break-overflowing-word;
 
 	table,
 	figure,
@@ -57,9 +57,9 @@
 }
 
 .cx-column__title {
-	font-size: 2.2em;
 	color: @colorGray2;
-	font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
 	margin-bottom: 10px;
-	word-wrap: break-word;
+	font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+	font-size: 2.2em;
+	.break-overflowing-word;
 }
