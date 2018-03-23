@@ -70,6 +70,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
 	var sectionId, childNodes,
+		translationUnitId,
 		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
@@ -131,9 +132,15 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 
 	}.bind( this ) );
 
-	// TODO: We need to see if all savedTranslationUnit items were restored or not.
-	// Based on that we should inform user/create orphan sections/load original source
-	// article used for translation.
+	// Check if all savedTranslationUnit items were restored or not.
+	for ( translationUnitId in savedTranslationUnits ) {
+		if ( !savedTranslationUnits[ translationUnitId ].restored ) {
+			mw.log.error( '[CX] Section ' + translationUnitId + ' not restored' );
+		}
+		// TODO: Append these sections to target article or Inform user or
+		// Load the original revision of source article for this translation.
+	}
+
 	domDoc.body.appendChild( articleNode );
 
 	return domDoc;
@@ -154,7 +161,8 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 mw.cx.dm.Translation.static.getSavedSection = function (
 	savedTranslationUnits, sourceSectionNode, sectionNumber
 ) {
-	var savedSection, translationUnitId, parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;
+	var savedSection, translationUnitId, savedTranslationUnit,
+		parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;
 
 	if ( !savedTranslationUnits ) {
 		return;
@@ -163,20 +171,31 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 	savedSection = savedTranslationUnits[ sectionNumber ];
 
 	if ( savedSection ) {
+		if ( savedSection.restored ) {
+			mw.log.error( '[CX] Trying to restore a section already restored? ' + sectionNumber );
+		}
+		savedTranslationUnits[ sectionNumber ].restored = true;
 		return savedSection;
 	}
+
 	// CX1 translations use parsoid generated Id attribute values in
 	// section content instead of numerical section numbers
 	parsoidId = sourceSectionNode.firstChild && sourceSectionNode.firstChild.id;
 	savedSection = savedTranslationUnits[ parsoidId ];
 
-	if ( savedSection ) {
+	if ( savedSection && !savedSection.restored ) {
+		savedTranslationUnits[ parsoidId ].restored = true;
+		// FIXME: Update the section number of restored section
 		return savedSection;
 	}
 
 	// Even if source section number changed, try locating matching id in content
 	for ( translationUnitId in savedTranslationUnits ) {
-		$savedTranslationUnitSource = $( savedTranslationUnits[ translationUnitId ].source.content );
+		savedTranslationUnit = savedTranslationUnits[ translationUnitId ];
+		if ( savedTranslationUnit.restored ) {
+			continue;
+		}
+		$savedTranslationUnitSource = $( savedTranslationUnit.source.content );
 		if ( $savedTranslationUnitSource.is( 'section' ) ) {
 			// CX2 saved translation
 			savedSectionParsoidId = $savedTranslationUnitSource.children().attr( 'id' );
@@ -186,7 +205,9 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 		}
 
 		if ( parsoidId === savedSectionParsoidId || sectionNumber === savedSectionParsoidId ) {
-			return savedTranslationUnits[ translationUnitId ];
+			savedTranslationUnit.restored = true;
+			// FIXME: Update the section number of restored section
+			return savedTranslationUnit;
 		}
 	}
 
