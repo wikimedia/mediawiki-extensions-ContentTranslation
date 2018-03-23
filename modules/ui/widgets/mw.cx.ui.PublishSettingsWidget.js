@@ -21,7 +21,7 @@ mw.cx.ui.PublishSettingsWidget = function PublishSettingsWidget( config ) {
 
 	this.publishingOptionsWidget = null;
 	config = $.extend( {}, {
-		icon: 'settings',
+		icon: 'advanced',
 		framed: false,
 		destination: 'main',
 		title: mw.msg( 'cx-publish-destination-tooltip' )
