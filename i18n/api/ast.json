@@ -93,6 +93,7 @@
 	"apihelp-cxsave-param-from": "Códigu de la llingua d'orixe.",
 	"apihelp-cxsave-param-to": "Códigu de la llingua de destín.",
 	"apihelp-cxsave-param-sourcetitle": "Títulu de la páxina d'orixe.",
+	"apihelp-cxsave-param-cxversion": "Versión del editor emplegáu pa crear el borrador de la traducción.",
 	"apierror-cx-docserverexception": "Error al convertir HTML a testu wiki: $1",
 	"apierror-cx-inuse": "Otru usuariu ta traduciendo yá esti artículu.",
 	"apierror-cx-invalidlanguage": "Llingua inválida.",
