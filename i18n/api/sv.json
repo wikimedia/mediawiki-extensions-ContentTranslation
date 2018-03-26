@@ -97,6 +97,7 @@
 	"apihelp-cxsave-param-from": "Källans språkkod.",
 	"apihelp-cxsave-param-to": "Målets språkkod.",
 	"apihelp-cxsave-param-sourcetitle": "Källsidans titel.",
+	"apihelp-cxsave-param-cxversion": "Versionen för redigeraren som användes för att skapa skissöversättningen.",
 	"apierror-cx-docserverexception": "Fel när HTML konverterades till wikitext: $1",
 	"apierror-cx-inuse": "En annan användare översätter redan denna artikel.",
 	"apierror-cx-invalidlanguage": "Ogiltigt språk.",

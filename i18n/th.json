@@ -4,7 +4,8 @@
 			"Octahedron80",
 			"Taweetham",
 			"Aefgh39622",
-			"Horus"
+			"Horus",
+			"Ans"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -160,5 +161,6 @@
 	"cx-tools-link-external-link-placeholder": "เพิ่มลิงก์ภายนอก",
 	"cx-tools-link-to-another-page": "ลิงก์ไปอีกหน้า",
 	"cx-tools-link-apply": "เสร็จสิ้น",
+	"cx-personaltools-anon": "ไม่ได้ลงชื่อเข้าระบบ",
 	"mw-pageselector-missing": "ไม่มีหน้านี้"
 }
