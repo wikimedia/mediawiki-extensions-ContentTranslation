@@ -13,7 +13,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	this.sourceTitle = config.sourceTitle;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
-
+	this.translationView = this.veTarget.translationView;
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 	// Properties
@@ -107,7 +107,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	// Starting the real save API call. Fire event so that we can show a progress
 	// indicator in UI.
 	this.emit( 'savestart' );
-	this.veTarget.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
+	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
 	if ( this.saveRequest ) {
 		mw.log( '[CX] Aborted active save request' );
 		// This causes failCounter to increase because the in-flight request fails.
@@ -155,7 +155,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			if ( this.failCounter > 5 ) {
 				// If there are more than a few errors, stop autosave at timer triggers.
 				// Show a bigger error message at this point.
-				this.veTarget.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
+				this.translationView.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
 				// This will allow any change to trigger save again
 				this.failCounter = 0;
 				mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
@@ -207,14 +207,14 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	this.emit( 'savesuccess' );
 	// Show saved status with a time after last save.
 	clearTimeout( this.saveTimer );
-	this.veTarget.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
+	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 	this.saveTimer = setInterval( function () {
 		if ( this.failCounter > 0 ) {
 			// Don't overwrite error message of failure with this timer controlled message.
 			return;
 		}
 		minutes++;
-		this.veTarget.setStatusMessage(
+		this.translationView.setStatusMessage(
 			mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
 		);
 	}.bind( this ), 60 * 1000 );
@@ -225,7 +225,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 
 mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, details ) {
 	if ( errorCode === 'assertuserfailed' ) {
-		this.veTarget.showMessage( 'error', mw.msg( 'cx-lost-session-draft' ) );
+		this.translationView.showMessage( 'error', mw.msg( 'cx-lost-session-draft' ) );
 	}
 
 	if ( details && details.exception instanceof Error ) {
@@ -233,7 +233,7 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 		details.errorCode = errorCode;
 	}
 	this.emit( 'saveerror' );
-	this.veTarget.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
+	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
 };
 
 /**
@@ -342,7 +342,7 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, d
  */
 mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	var currentTitleObj, newTitleObj,
-		newTitle = this.veTarget.targetColumn.getTargetTitle();
+		newTitle = this.translationView.targetColumn.getTargetTitle();
 
 	if ( this.translation.getTargetTitle() === newTitle ) {
 		// Nothing really changed.

@@ -4,6 +4,7 @@
  * CX Target
  *
  * @class
+ * @param {mw.cx.ui.TranslationView} translationView
  * @param {Object} [config] Configuration object
  * @cfg {string} sourceTitle
  * @cfg {string} sourceLanguage
@@ -11,7 +12,7 @@
  * @cfg {string} targetTitle
  * @cfg {string} targetLanguage
  */
-ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
+ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// Configuration initialization
 	this.config = config = $.extend( {}, config, {
 		continuous: true,
@@ -28,65 +29,29 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( config ) {
 	this.translation = null;
 	this.targetArticle = null;
 	this.publishButton = null;
-	this.header = new mw.cx.ui.Header( config );
-	this.infobar = new mw.cx.ui.Infobar( this.config );
-	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
-	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
-	this.targetColumn = new mw.cx.ui.TargetColumn( config );
-	this.pageName = this.targetColumn.getTargetTitle();
-	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
+	this.translationView = translationView;
+	this.pageName = this.translationView.targetColumn.getTargetTitle();
 	this.sourceSurface = null;
 	this.targetSurface = null;
 
-	this.translationView = new OO.ui.StackLayout( $.extend( {}, config, {
-		continuous: true,
-		expanded: false,
-		classes: [ 'cx-translation-view-container' ],
-		scrollable: false,
-		padded: false
-	} ) );
-
-	this.contentContainer = new OO.ui.HorizontalLayout( $.extend( {}, config, {
-		continuous: true,
-		expanded: true,
-		classes: [ 'cx-content-container' ],
-		items: [ this.sourceColumn, this.targetColumn ]
-	} ) );
-
-	this.translationView.addItems( [ this.translationHeader, this.infobar, this.contentContainer ] );
-
-	this.columns = new OO.ui.HorizontalLayout( $.extend( {}, config, {
-		continuous: true,
-		expanded: true,
-		classes: [ 'cx-widget__columns' ],
-		items: [ this.translationView, this.toolsColumn ]
-	} ) );
-
-	this.stackLayout = new OO.ui.StackLayout( $.extend( {}, config, {
-		continuous: true,
-		expanded: false,
-		classes: [ 've-init-mw-cxTarget-columns' ],
-		scrollable: false,
-		padded: false
-	} ) );
-
-	this.stackLayout.addItems( [ this.header, this.columns ] );
 	this.$element
 		.addClass( 've-init-mw-cxTarget' )
-		.append( this.stackLayout.$element );
+		.append( this.translationView.$element );
 
 	this.throttleAlignSectionPairs = OO.ui.throttle(
 		this.alignSectionPairs.bind( this ),
 		500
 	);
-	this.targetColumn.connect( this, {
+
+	this.translationView.targetColumn.connect( this, {
 		titleChange: 'onTargetTitleChange'
 	} );
+
 	this.connect( this, {
 		contentChange: 'onChange',
 		surfaceReady: 'onSurfaceReady'
 	} );
-	this.translationHeader.publishSettings.connect( this, {
+	this.translationView.translationHeader.publishSettings.connect( this, {
 		choose: 'onPublishNamespaceChange'
 	} );
 	mw.hook( 'mw.cx.draft.restored' ).add( this.onTranslationRestore.bind( this ) );
@@ -98,47 +63,10 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
 /* Static properties */
 
-/* Static methods */
-
-/**
- * Align a source+target section pair by adjusting their paddingTop
- *
- * @param {number} sourceOffsetTop Pixel offset of the source section
- * @param {number} targetOffsetTop Pixel offset of the target section
- * @param {number} sectionNumber The number in the source/target section id attribute
- */
-ve.init.mw.CXTarget.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
-	var offsetTop, viewNode,
-		sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
-		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
-
-	function isSubclass( x, y ) {
-		return x && ( x.constructor === y || x.constructor instanceof y );
-	}
-	if ( !sourceNode || !targetNode ) {
-		return;
-	}
-	viewNode = $.data( targetNode, 'view' );
-	sourceNode.style.marginTop = '';
-	targetNode.style.marginTop = '';
-	targetNode.style.height = '';
-	offsetTop = Math.max(
-		sourceOffsetTop + sourceNode.offsetTop,
-		targetOffsetTop + targetNode.offsetTop
-	);
-	sourceNode.style.marginTop = ( offsetTop - sourceOffsetTop - sourceNode.offsetTop ) + 'px';
-	targetNode.style.marginTop = ( offsetTop - targetOffsetTop - targetNode.offsetTop ) + 'px';
-	if ( isSubclass( viewNode, ve.ce.CXPlaceholderNode ) || isSubclass( viewNode, ve.ce.CXSectionNode ) ) {
-		if ( sourceNode.offsetHeight > targetNode.offsetHeight ) {
-			targetNode.style.height = sourceNode.offsetHeight + 'px';
-		}
-	}
-};
-
 /* Methods */
 
 ve.init.mw.CXTarget.prototype.setupToolbar = function () {
-	this.publishButton = this.translationHeader.publishButton;
+	this.publishButton = this.translationView.translationHeader.publishButton;
 
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
@@ -149,8 +77,6 @@ ve.init.mw.CXTarget.prototype.setupToolbar = function () {
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		this.publishButton.setDisabled( weights.any === 0 );
 	}.bind( this ) );
-	// FIXME Toolbar should go to tools column
-	// this.getToolbar().initialize();
 };
 
 ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
@@ -182,9 +108,9 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 		} )
 	);
 	sourceSurface.setDisabled( true );
-	this.sourceColumn.setTranslation( translation );
-	this.targetColumn.setTranslation( translation );
-	this.toolsColumn.setTranslation( translation );
+	this.translationView.sourceColumn.setTranslation( translation );
+	this.translationView.targetColumn.setTranslation( translation );
+	this.translationView.toolsColumn.setTranslation( translation );
 	this.clearSurfaces();
 	this.surfaces.push( targetSurface );
 	targetSurface.getView().connect( this, {
@@ -197,8 +123,8 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	targetSurface.getView().getDocument().connect( this, {
 		activatePlaceholder: 'onDocumentActivatePlaceholder'
 	} );
-	this.sourceColumn.attachSurface( sourceSurface );
-	this.targetColumn.attachSurface( targetSurface );
+	this.translationView.sourceColumn.attachSurface( sourceSurface );
+	this.translationView.targetColumn.attachSurface( targetSurface );
 	sourceSurface.initialize();
 	targetSurface.initialize();
 
@@ -270,7 +196,7 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 };
 
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
-	this.pageName = this.targetColumn.getTargetTitle();
+	this.pageName = this.translationView.targetColumn.getTargetTitle();
 	this.emit( 'targetTitleChange' );
 	this.throttleAlignSectionPairs();
 };
@@ -291,7 +217,7 @@ ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
  */
 ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 	// Enable publish settings, once translation editor is ready
-	this.translationHeader.publishSettings.setDisabled( false );
+	this.translationView.translationHeader.publishSettings.setDisabled( false );
 };
 
 /**
@@ -308,13 +234,13 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 	var newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
 	// Setting title in targetColumn will take care of necessary event firing for title change.
-	this.targetColumn.setTargetTitle( newTitle );
+	this.translationView.targetColumn.setTargetTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
 	this.updateNamespace();
 };
 
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {
-	this.translationHeader.publishSettings.setDestinationNamespace( this.getPublishNamespace() );
+	this.translationView.translationHeader.publishSettings.setDestinationNamespace( this.getPublishNamespace() );
 };
 
 ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
@@ -327,11 +253,11 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
 	this.emit( 'publish' );
 	this.targetSurface.setDisabled( true );
-	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
+	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
-	this.toolsColumn.editingToolbar.$element.append(
+	this.translationView.toolsColumn.editingToolbar.$element.append(
 		this.getToolbar().$element
 			.addClass( 'oo-ui-toolbar-narrow' ) // Quick fix to avoid overflowing toolbar.
 	);
@@ -390,7 +316,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
 	sourceOffsetTop = sourceDocumentNode.$element.offset().top;
 	targetOffsetTop = this.targetSurface.getView().getDocument().documentNode.$element.offset().top;
-	alignSectionPair = this.constructor.static.alignSectionPair;
+	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
 	documentNodeChildren = sourceDocumentNode.getChildren();
 
 	for ( i = 0; i < documentNodeChildren.length; i++ ) {
@@ -498,7 +424,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 };
 
 ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
-	this.showMessage(
+	this.translationView.showMessage(
 		'success',
 		mw.message( 'cx-publish-page-success',
 			$( '<a>' ).attr( {
@@ -509,37 +435,17 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	);
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
-	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
+	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
 ve.init.mw.CXTarget.prototype.onPublishFailure = function ( error ) {
-	this.showMessage(
+	this.translationView.showMessage(
 		'error',
 		mw.msg( 'cx-publish-page-error', error )
 	);
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
-	this.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
-};
-
-/**
- * Show a success/error message in the view
- * @param {string} type Message class.
- * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
- * @param {string} details The details of error in HTML.
- */
-ve.init.mw.CXTarget.prototype.showMessage = function ( type, message, details ) {
-	this.infobar.showMessage( type, message, details );
-};
-
-ve.init.mw.CXTarget.prototype.setStatusMessage = function ( message ) {
-	this.translationHeader.setStatusMessage( message );
-};
-
-ve.init.mw.CXTarget.prototype.showConflictWarning = function ( translation ) {
-	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
-		mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
-	} );
+	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
 ve.init.mw.CXTarget.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
@@ -581,9 +487,4 @@ ve.init.mw.CXTarget.prototype.translate = function ( source ) {
 	return this.config.MTService.getSuggestedDefaultProvider().then( function ( provider ) {
 		return this.config.MTService.translate( source, provider );
 	}.bind( this ) );
-};
-
-ve.init.mw.CXTarget.prototype.showCategories = function ( categoryUI ) {
-	this.sourceColumn.showCategories( categoryUI );
-	this.targetColumn.showCategories( categoryUI );
 };

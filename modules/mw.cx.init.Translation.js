@@ -55,11 +55,10 @@ mw.cx.init.Translation.prototype.init = function () {
 	if ( this.config.campaign ) {
 		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
 	}
-	this.veTarget = new ve.init.mw.CXTarget( this.config );
+	this.translationView = new mw.cx.ui.TranslationView( this.config );
+	this.veTarget = new ve.init.mw.CXTarget( this.translationView, this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.veTarget );
-
-	this.translationView = this.veTarget.translationView;
 
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
@@ -92,7 +91,7 @@ mw.cx.init.Translation.prototype.init = function () {
 			this.processCategories( sourcePageContent.categories ),
 			this.config
 		);
-		this.veTarget.showCategories( this.categoryUI );
+		this.translationView.showCategories( this.categoryUI );
 
 		if ( draft ) {
 			mw.hook( 'mw.cx.draft.restored' ).fire();
@@ -271,7 +270,7 @@ mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft
 	// returns a translation with different translatorName if this is the case.
 	if ( draft.translatorName !== mw.user.getName() ) {
 		mw.log( '[CX] Existing translation found. But owned by another translator' );
-		this.veTarget.showConflictWarning( draft );
+		this.translationView.showConflictWarning( draft );
 		// Stop further processing!
 		return $.Deferred().reject().promise();
 	}
@@ -304,7 +303,7 @@ mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
 		return $.Deferred().resolve().promise();
 	}
 
-	this.veTarget.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
+	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
 
 	return new mw.Api().get( {
 		action: 'query',
@@ -320,7 +319,7 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
 		details.exception = details.exception.toString();
 	}
 	details.errorCode = errorCode;
-	this.veTarget.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
+	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
 };
 
 /**

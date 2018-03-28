@@ -1375,6 +1375,7 @@
 				"mw.cx.ui.Categories",
 				"mw.cx.TargetArticle",
 				"mw.cx.TranslationController",
+				"mw.cx.ui.TranslationView",
 				"ve.init.mw.CXTarget"
 			]
 		},
@@ -1468,15 +1469,28 @@
 				"mw.cx.dm.Translation",
 				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.tools",
+				"mw.cx.util",
+				"mw.cx.visualEditor"
+			]
+		},
+		"mw.cx.ui.TranslationView": {
+			"scripts": [
+				"ui/mw.cx.ui.TranslationView.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.Columns.less",
+				"ui/styles/mw.cx.ui.TranslationView.less"
+			],
+			"dependencies": [
+				"ext.cx.model",
+				"ext.cx.sitemapper",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
-				"mw.cx.ui.TranslationUnits",
 				"mw.cx.ui.SourceColumn",
 				"mw.cx.ui.TargetColumn",
 				"mw.cx.ui.ToolsColumn",
 				"mw.cx.ui.TranslationHeader",
-				"mw.cx.util",
-				"mw.cx.visualEditor"
+				"mw.cx.util"
 			]
 		},
 		"mw.cx.ui.TranslationView.legacy": {
