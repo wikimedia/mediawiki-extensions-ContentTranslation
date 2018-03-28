@@ -1230,7 +1230,10 @@
 		},
 		"mw.cx.dm.WikiPage": {
 			"scripts": "dm/mw.cx.dm.WikiPage.js",
-			"dependencies": "mw.cx.dm"
+			"dependencies": [
+				"jquery.uls.data",
+				"mw.cx.dm"
+			]
 		},
 		"mw.cx.dm.TranslationUnits": {
 			"dependencies": [
