@@ -485,7 +485,7 @@
 							lang: 'en',
 							dir: 'ltr'
 						} )
-						.css( 'width', Math.round( width ) + '%' )
+						.css( 'width', width + '%' )
 						.text( langCode );
 
 					$translations.append( $bar );
