@@ -1453,10 +1453,6 @@
 			"scripts": [
 				"ve-cx/init/ve.init.mw.CXTarget.js"
 			],
-			"styles": [
-				"ui/styles/mw.cx.ui.Columns.less",
-				"ve-cx/init/styles/ve.init.mw.CXTarget.less"
-			],
 			"messages": [
 				"cx-publish-button",
 				"cx-publish-button-publishing",
