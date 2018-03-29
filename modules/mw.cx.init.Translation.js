@@ -79,11 +79,10 @@ mw.cx.init.Translation.prototype.init = function () {
 
 		this.veTarget.setTranslation( this.translationModel );
 
-		categoryUI = new mw.cx.ui.Categories(
-			this.translationModel,
-			this.processCategories( sourcePageContent.categories ),
-			this.config
+		this.translationModel.initCategories(
+			this.processCategories( sourcePageContent.categories )
 		);
+		categoryUI = new mw.cx.ui.Categories( this.translationModel, this.config );
 		this.translationView.showCategories( categoryUI );
 
 		if ( draft ) {

@@ -55,11 +55,11 @@ class TranslationStorageManager {
 	}
 
 	/**
-	 * Delete translation units associated with the given translation identifier.
+	 * Delete translation units and categories associated with the given translation identifier.
 	 *
 	 * @param int|int[] $translationId
 	 */
-	public static function deleteTranslationUnits( $translationId ) {
+	public static function deleteTranslationData( $translationId ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$conditions = [

@@ -10,12 +10,15 @@ use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
+use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use ContentTranslation\Database;
 
 class ApiContentTranslationSave extends ApiBase {
+	const SQL_BLOB_MAX_SIZE = 65535; // 64KB
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 
@@ -45,6 +48,15 @@ class ApiContentTranslationSave extends ApiBase {
 			$this->dieWithError( 'apierror-ratelimited' );
 		}
 
+		$sourceCategories = $params['sourcecategories'];
+		$targetCategories = $params['targetcategories'];
+		if ( !$this->isValidCategoriesJSON( $sourceCategories ) ) {
+			$this->dieWithError( 'apierror-cx-invalidsourcecategories', 'invalidsourcecategories' );
+		}
+		if ( !$this->isValidCategoriesJSON( $targetCategories ) ) {
+			$this->dieWithError( 'apierror-cx-invalidtargetcategories', 'invalidtargetcategories' );
+		}
+
 		$translator = new Translator( $user );
 		$translation = $this->saveTranslation( $params, $translator );
 		$translationId = $translation->getTranslationId();
@@ -55,6 +67,8 @@ class ApiContentTranslationSave extends ApiBase {
 		);
 		$this->saveTranslationUnits( $translationUnits, $translation );
 		$validationResults = $this->validateTranslationUnits( $translationUnits, $translation );
+
+		$this->saveCategories( $sourceCategories, $targetCategories, $translation );
 
 		$result = [
 			'result' => 'success',
@@ -208,6 +222,47 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 	}
 
+	/**
+	 * Validate categories JSON param.
+	 *
+	 * @param string $categories JSON encoded array of categories
+	 * @return bool
+	 */
+	protected function isValidCategoriesJSON( $categories ) {
+		// Categories are optional, so empty categories param is valid.
+		if ( $categories === null || $categories === '' ) {
+			return true;
+		}
+
+		$parsedCategories = FormatJson::parse( $categories );
+		return $parsedCategories->isGood();
+	}
+
+	/**
+	 * Save categories in cx_corpora table, if any are supplied.
+	 *
+	 * @param string $sourceCategories JSON encoded array of source categories
+	 * @param string $targetCategories JSON encoded array of target categories
+	 * @param Translation $translation Recently saved parent translation object
+	 */
+	protected function saveCategories(
+		$sourceCategories, $targetCategories, Translation $translation
+	) {
+		if ( !$sourceCategories && !$targetCategories ) {
+			return;
+		}
+
+		$translationId = $translation->getTranslationId();
+		$newTranslation = $translation->lastSaveWasCreate();
+
+		CategoriesStorageManager::save(
+			$translationId,
+			$sourceCategories,
+			$targetCategories,
+			$newTranslation
+		);
+	}
+
 	public function getAllowedParams() {
 		return [
 			'from' => [
@@ -240,6 +295,23 @@ class ApiContentTranslationSave extends ApiBase {
 				ApiBase::PARAM_RANGE_ENFORCE => true,
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => 2,
+			],
+			'sourcecategories' => [
+				ApiBase::PARAM_TYPE => 'string',
+				// We don't always save categories when saving translation. Only save
+				// categories when user changes target categories by reordering,
+				// removing or adding. Source categories are saved only once per
+				// session and target categories are saved for every change.
+				ApiBase::PARAM_REQUIRED => false,
+				// Source and target categories are saved in cx_corpora table, whose
+				// content column is MEDIUMBLOB, which has 16MB limit, but we limit
+				// the size of categories at BLOB limit, which is 64KB.
+				ApiBase::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
+			],
+			'targetcategories' => [
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_REQUIRED => false,
+				ApiBase::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
 			]
 		];
 	}

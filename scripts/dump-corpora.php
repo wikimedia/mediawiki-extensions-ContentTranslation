@@ -134,7 +134,8 @@ class CXCorporaDump extends Maintenance {
 
 			foreach ( $translations as $translation ) {
 				$translation = (array)$translation;
-				$translation['corpora'] = $lookup->getByTranslationId( $translation['id'] );
+				$sections = $lookup->getByTranslationId( $translation['id'] )[ 'sections' ];
+				$translation['corpora'] = $sections;
 
 				// Massage the data for export
 

@@ -19,6 +19,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
 	this.id = null;
+	this.adaptedCategories = null;
 	this.sourceCategories = null;
 	this.targetCategories = null;
 	this.targetTitle = this.targetWikiPage.getTitle();
@@ -244,13 +245,6 @@ mw.cx.dm.Translation.prototype.getTargetPage = function () {
 };
 
 /**
- * @param {Array} categories Source categories
- */
-mw.cx.dm.Translation.prototype.setSourceCategories = function ( categories ) {
-	this.sourceCategories = categories;
-};
-
-/**
  * @return {Array} Source categories
  */
 mw.cx.dm.Translation.prototype.getSourceCategories = function () {
@@ -262,6 +256,7 @@ mw.cx.dm.Translation.prototype.getSourceCategories = function () {
  */
 mw.cx.dm.Translation.prototype.setTargetCategories = function ( categories ) {
 	this.targetCategories = categories;
+	this.emit( 'targetCategoriesChange' );
 };
 
 /**
@@ -269,6 +264,73 @@ mw.cx.dm.Translation.prototype.setTargetCategories = function ( categories ) {
  */
 mw.cx.dm.Translation.prototype.getTargetCategories = function () {
 	return this.targetCategories;
+};
+
+/**
+ * @param {Object} adaptedCategories
+ */
+mw.cx.dm.Translation.prototype.initCategories = function ( adaptedCategories ) {
+	this.adaptedCategories = adaptedCategories;
+
+	this.sourceCategories = Object.keys( adaptedCategories );
+	this.targetCategories = this.targetCategories || this.extractTargetCategories();
+};
+
+/**
+ * @return {Array} Target categories
+ */
+mw.cx.dm.Translation.prototype.extractTargetCategories = function () {
+	var source, target, categories = [];
+
+	for ( source in this.adaptedCategories ) {
+		target = this.adaptedCategories[ source ];
+		if ( target ) {
+			categories.push( target );
+		}
+	}
+
+	return categories;
+};
+
+/**
+ * For a given source category, find corresponding target category.
+ *
+ * @param {string} sourceCategory Source category name
+ * @return {string|null} Corresponding target category name, or null
+ */
+mw.cx.dm.Translation.prototype.getCorrespondingTargetCategory = function ( sourceCategory ) {
+	return this.adaptedCategories[ sourceCategory ] || null;
+};
+
+/**
+ * For a given target (adapted) category, find corresponding source category.
+ *
+ * @param {string} targetCategory Target category name
+ * @return {string|null} Corresponding source category name, or null
+ */
+mw.cx.dm.Translation.prototype.getCorrespondingSourceCategory = function ( targetCategory ) {
+	var i, length, category;
+
+	for ( i = 0, length = this.sourceCategories.length; i < length; i++ ) {
+		category = this.sourceCategories[ i ];
+
+		if ( this.adaptedCategories[ category ] === targetCategory ) {
+			return category;
+		}
+	}
+
+	return null;
+};
+
+/**
+ * Get adapted categories, which aren't removed from target categories array.
+ *
+ * @return {Array} Removed categories
+ */
+mw.cx.dm.Translation.prototype.getRemovedCategories = function () {
+	var allTargetCategories = this.extractTargetCategories();
+
+	return OO.simpleArrayDifference( allTargetCategories, this.getTargetCategories() );
 };
 
 /**
@@ -362,6 +424,10 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	this.setId( draft.id );
 	this.setTargetTitle( draft.targetTitle );
 	this.savedTranslationUnits = draft.translationUnits;
+	// Only target categories are retrieved when translation draft is restored
+	// Source categories aren't retrieved, only saved in cx_corpora for pairing
+	// with target categories.
+	this.targetCategories = JSON.parse( draft.targetCategories );
 };
 
 /**

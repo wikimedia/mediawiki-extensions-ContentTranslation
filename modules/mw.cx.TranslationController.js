@@ -24,6 +24,8 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	// Associative array of translation units queued to be saved
 	this.saveQueue = {};
 	this.saveTimer = null;
+	this.sourceCategoriesSaved = false;
+	this.targetCategoriesChanged = 0;
 	this.targetTitleChanged = false;
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, this.config );
@@ -36,6 +38,10 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 
 mw.cx.TranslationController.prototype.listen = function () {
+	this.translation.connect( this, {
+		targetCategoriesChange: 'onTargetCategoriesChange'
+	} );
+
 	this.veTarget.connect( this, {
 		saveSection: 'save',
 		publish: 'publish',
@@ -88,16 +94,27 @@ mw.cx.TranslationController.prototype.save = function ( sectionData ) {
 };
 
 /**
+ * Return true if there aren't any new changes to be saved.
+ *
+ * @return {boolean}
+ */
+mw.cx.TranslationController.prototype.noNewChanges = function () {
+	return ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) &&
+		!this.targetTitleChanged &&
+		this.targetCategoriesChanged === 0;
+};
+
+/**
  * Process the save queue. Save the changed translation units.
  * @param {boolean} [isRetry] Whether this is a retry or not
  * @fires savestart
  * @fires saveerror
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
-	var params,
+	var numOfChangedCategories, params,
 		api = new mw.Api();
 
-	if ( ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) && !this.targetTitleChanged ) {
+	if ( this.noNewChanges() ) {
 		return;
 	}
 
@@ -134,12 +151,39 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		cxversion: 2
 	};
 
+	if ( this.targetCategoriesChanged > 0 ) {
+		// Use counter for number of changes in target categories which are attempted to be saved.
+		// Once saving is successful, that number is subtracted from current number of changes in
+		// target categories, which maybe got bigger while first change was being saved.
+		numOfChangedCategories = this.targetCategoriesChanged;
+		params.targetcategories = JSON.stringify( this.translation.getTargetCategories() );
+
+		// Only save source categories once per session, the first time user changes target
+		// categories. Both source and target categories are saved in cx_corpora table, but
+		// only target categories are retrieved when saved draft is being restored. Source
+		// categories are saved for completeness of cx_corpora, which pairs source and target.
+		// Source categories are saved once per session, because there may have been changes
+		// to source categories in the mean time.
+		if ( !this.sourceCategoriesSaved ) {
+			params.sourcecategories = JSON.stringify( this.translation.getSourceCategories() );
+		}
+	}
+
 	if ( this.failCounter > 0 ) {
 		mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
 	}
+
 	this.saveRequest = api.postWithToken( 'csrf', params )
 		.done( function ( saveResult ) {
 			this.onSaveComplete( saveResult );
+
+			if ( params.sourcecategories ) {
+				this.sourceCategoriesSaved = true;
+			}
+
+			if ( numOfChangedCategories ) {
+				this.targetCategoriesChanged -= numOfChangedCategories;
+			}
 
 			// Reset fail counter.
 			if ( this.failCounter > 0 ) {
@@ -189,6 +233,10 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	var sectionNumber, section, validations, minutes = 0;
+
+	if ( this.targetCategoriesChanged > 0 ) {
+		mw.log( '[CX] Target categories saved.' );
+	}
 
 	if ( this.targetTitleChanged ) {
 		mw.log( '[CX] Target title saved.' );
@@ -424,6 +472,14 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
 	this.isFailedUnrecoverably = !error.isRecoverable();
 	this.veTarget.onPublishFailure( error.getMessageText() );
 	this.enableEditing();
+};
+
+/**
+ * Target categories change handler.
+ */
+mw.cx.TranslationController.prototype.onTargetCategoriesChange = function () {
+	this.targetCategoriesChanged++;
+	this.schedule();
 };
 
 /**

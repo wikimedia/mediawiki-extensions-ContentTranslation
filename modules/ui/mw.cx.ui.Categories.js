@@ -7,12 +7,10 @@
  * @constructor
  *
  * @param {mw.cx.dm.Translation} translationModel
- * @param {Object} adaptedCategories Categories adapted on server side.
  * @param {Object} [config] Configuration options
  */
-mw.cx.ui.Categories = function ( translationModel, adaptedCategories, config ) {
+mw.cx.ui.Categories = function ( translationModel, config ) {
 	this.translationModel = translationModel;
-	this.adaptedCategories = adaptedCategories;
 	this.config = config;
 
 	// @var {OO.ui.ButtonWidget}
@@ -24,49 +22,8 @@ mw.cx.ui.Categories = function ( translationModel, adaptedCategories, config ) {
 	// @var {mw.cx.ui.CategoryMultiselectWidget}
 	this.targetCategoryListing = null;
 
-	this.translationModel.setSourceCategories( Object.keys( adaptedCategories ) );
-	this.translationModel.setTargetCategories( this.extractTargetCategories( adaptedCategories ) );
-
 	this.render();
 	this.listen();
-};
-
-/**
- * @param {Object} adaptedCategories
- * @return {Array} Target categories
- */
-mw.cx.ui.Categories.prototype.extractTargetCategories = function ( adaptedCategories ) {
-	var source, target, categories = [];
-
-	for ( source in adaptedCategories ) {
-		target = adaptedCategories[ source ];
-		if ( target ) {
-			categories.push( target );
-		}
-	}
-
-	return categories;
-};
-
-/**
- * For a given target (adapted) category, find corresponding source category.
- *
- * @param {string} targetCategory Target category name
- * @return {string|null} Corresponding source category name, or null
- */
-mw.cx.ui.Categories.prototype.getCorrespondingSourceCategory = function ( targetCategory ) {
-	var i, length, category,
-		sourceCategories = this.translationModel.getSourceCategories();
-
-	for ( i = 0, length = sourceCategories.length; i < length; i++ ) {
-		category = sourceCategories[ i ];
-
-		if ( this.adaptedCategories[ category ] === targetCategory ) {
-			return category;
-		}
-	}
-
-	return null;
 };
 
 /**
@@ -174,7 +131,7 @@ mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, isS
 				config: {
 					draggable: !isSource,
 					hideRemoveButton: isSource,
-					disabled: isSource && !this.adaptedCategories[ item.data ]
+					disabled: isSource && !this.translationModel.getCorrespondingTargetCategory( item.data )
 				}
 			};
 		}.bind( this ) ),
@@ -242,7 +199,7 @@ mw.cx.ui.Categories.prototype.listen = function () {
  */
 mw.cx.ui.Categories.prototype.onSourceCategoryClick = function ( sourceTagItem ) {
 	var sourceCategoryName = sourceTagItem.getData(),
-		targetCategoryName = this.adaptedCategories[ sourceCategoryName ];
+		targetCategoryName = this.translationModel.getCorrespondingTargetCategory( sourceCategoryName );
 
 	this.targetCategoryListing.addTag(
 		targetCategoryName,
@@ -259,8 +216,8 @@ mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListi
 	var correspondingTagItem,
 		categoryName = tagItem.getData(),
 		correspondingCategoryName =
-			this.adaptedCategories[ categoryName ] ||
-			this.getCorrespondingSourceCategory( categoryName );
+			this.translationModel.getCorrespondingTargetCategory( categoryName ) ||
+			this.translationModel.getCorrespondingSourceCategory( categoryName );
 
 	correspondingTagItem = categoryListing.findItemFromData( correspondingCategoryName );
 
@@ -325,12 +282,8 @@ mw.cx.ui.Categories.prototype.checkForEmptyTargetCategories = function () {
  * Used to populate "Add category" menu in target category listing when input query is empty.
  */
 mw.cx.ui.Categories.prototype.addMissingCategoriesToMenu = function () {
-	var allTargetCategories = this.extractTargetCategories( this.adaptedCategories ),
-		notSelectedTargetCategories = OO.simpleArrayDifference(
-			allTargetCategories,
-			this.translationModel.getTargetCategories()
-		);
+	var missingCategories = this.translationModel.getRemovedCategories();
 
 	this.targetCategoryListing.menu.clearItems();
-	this.targetCategoryListing.addOptions( this.mapCategories( notSelectedTargetCategories ) );
+	this.targetCategoryListing.addOptions( this.mapCategories( missingCategories ) );
 };

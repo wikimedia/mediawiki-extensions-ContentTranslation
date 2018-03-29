@@ -109,7 +109,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	public function purgeDraft( $draftId ) {
 		Translator::removeTranslation( $draftId );
 		Translation::delete( $draftId );
-		TranslationStorageManager::deleteTranslationUnits( $draftId );
+		TranslationStorageManager::deleteTranslationData( $draftId );
 	}
 
 	public function getPurgeableDrafts( IDatabase $db, $cutoff ) {

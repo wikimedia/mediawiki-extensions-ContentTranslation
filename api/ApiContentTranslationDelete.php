@@ -38,7 +38,7 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translationId = $translation->getData()['id'];
 			Translator::removeTranslation( $translationId );
 			Translation::delete( $translationId );
-			TranslationStorageManager::deleteTranslationUnits( $translationId );
+			TranslationStorageManager::deleteTranslationData( $translationId );
 		}
 
 		$result = [ 'result' => 'success' ];

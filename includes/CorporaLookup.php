@@ -15,6 +15,7 @@ class CorporaLookup {
 	const TYPE_SOURCE = 'source';
 	const TYPE_MT = 'mt';
 	const TYPE_USER = 'user';
+	const CATEGORIES = 'CX_CATEGORY_METADATA';
 
 	/**
 	 * @var IDatabase
@@ -87,7 +88,17 @@ class CorporaLookup {
 			}
 		}
 
-		return $sections;
+		// Extract target categories and return separately from translation units (sections).
+		// Source categories aren't retrieved, only saved in cx_corpora for pairing
+		// with target categories. Source and target categories are saved in cx_corpora table
+		// with special section ID, to distinguish categories from translation units.
+		$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
+		unset( $sections[ self::CATEGORIES ] );
+
+		return [
+			'sections' => $sections,
+			'categories' => $targetCategories
+		];
 	}
 
 	protected static function isMT( $type ) {

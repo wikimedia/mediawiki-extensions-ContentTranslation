@@ -26,15 +26,16 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$db = Database::getConnection( DB_REPLICA );
 		$lookup = new CorporaLookup( $db );
 		$data = $lookup->getByTranslationId( $params['translationid'] );
+		$sections = $data[ 'sections' ];
 
 		$types = array_flip( $params['types'] );
-		$data = $this->filterTypes( $data, $types );
+		$sections = $this->filterTypes( $sections, $types );
 
 		if ( $params['striphtml'] ) {
-			$data = $this->stripHtml( $data );
+			$sections = $this->stripHtml( $sections );
 		}
 
-		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $data );
+		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $sections );
 	}
 
 	protected function filterTypes( array $data, array $prop ) {
