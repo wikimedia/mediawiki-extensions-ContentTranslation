@@ -116,26 +116,6 @@ class TranslationStorageManager {
 		);
 	}
 
-	/**
-	 * Find the translation unit.
-	 *
-	 * @param int $translationId Translation Id
-	 * @param string $sectionId Section id
-	 * @param string $origin Origin of translation unit
-	 * @return TranslationUnit|null
-	 */
-	public static function find( $translationId, $sectionId, $origin ) {
-		$db = Database::getConnection( DB_REPLICA );
-
-		$conditions = [
-			'cxc_translation_id' => $translationId,
-			'cxc_section_id' => $sectionId,
-			'cxc_origin' => $origin
-		];
-
-		return self::doFind( $db, $conditions, [], __METHOD__ );
-	}
-
 	private static function doFind( IDatabase $db, $conditions, $options, $method ) {
 		$options['ORDER BY'] = 'cxc_timestamp DESC';
 
