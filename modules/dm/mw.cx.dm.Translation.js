@@ -323,13 +323,7 @@ mw.cx.dm.Translation.prototype.setTargetRevisionId = function ( revisionId ) {
  * @param {string} title Translation Id
  */
 mw.cx.dm.Translation.prototype.setTargetTitle = function ( title ) {
-	if ( title === this.targetTitle ) {
-		// No title change
-		return;
-	}
 	this.targetTitle = title;
-	// Translation title change is a change trigger for translation.
-	this.emit( 'change' );
 };
 
 /**
