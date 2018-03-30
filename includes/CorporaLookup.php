@@ -52,7 +52,7 @@ class CorporaLookup {
 		$sections = [];
 
 		foreach ( $rows as $row ) {
-			// Here I am assuming sequence ids are unique and wont be re-used
+			// Here I am assuming sequence IDs are unique and won't be re-used
 			$id = $row->cxc_section_id;
 			$type = self::isMT( $row->cxc_origin ) ? self::TYPE_MT : $row->cxc_origin;
 
