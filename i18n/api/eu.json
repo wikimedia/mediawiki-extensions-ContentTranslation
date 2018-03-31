@@ -2,18 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Sator",
-			"Subi"
+			"Subi",
+			"Iñaki LL"
 		]
 	},
 	"apihelp-cxpublish-description": "Gorde Content Translation hedapena erabila sortutako orria.",
 	"apihelp-cxpublish-param-html": "Gorde beharreko edukia.",
 	"apihelp-cxpublish-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-cxpublish-param-to": "Helburu den hizkuntzaren kodea",
-	"apihelp-cxpublish-param-sourcetitle": "Jatorrizko orriaren titulua",
+	"apihelp-cxpublish-param-sourcetitle": "Jatorrizko orriaren izenburua",
 	"apihelp-query+contenttranslation-param-translationid": "Itzulpen IDa",
 	"apihelp-query+contenttranslation-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-query+contenttranslation-param-to": "Helburu den hizkuntzaren kodea",
-	"apihelp-query+contenttranslation-param-sourcetitle": "Jatorrizko orriaren titulua",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Jatorrizko orriaren izenburua",
 	"apihelp-query+contenttranslation-param-type": "Itzulpenaren egoera.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Itzulpenaren IDa.",
 	"apihelp-query+contenttranslationstats-description": "Content Translation estatistikak atera.",
@@ -28,7 +29,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-target": "Helburu den hizkuntzaren kodea",
 	"apihelp-cxdelete-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-cxdelete-param-to": "Helburu den hizkuntzaren kodea",
-	"apihelp-cxdelete-param-sourcetitle": "Jatorrizko orriaren titulua",
+	"apihelp-cxdelete-param-sourcetitle": "Jatorrizko orriaren izenburua.",
 	"apihelp-cxsuggestionlist-param-titles": "Orri-izenburuak.",
 	"apihelp-cxsuggestionlist-param-from": "Jatorrizko hizkuntzaren kodea.",
 	"apihelp-cxsuggestionlist-param-to": "Helburu den hizkuntzaren kodea.",
