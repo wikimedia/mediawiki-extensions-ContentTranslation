@@ -56,11 +56,11 @@
 	"cx-translation-filter-published-translations": "Hat weşandin",
 	"cx-translation-filter-draft-translations": "Didome",
 	"cx-translation-filter-suggested-translations": "Pêşniyarî",
-	"cx-suggestionlist-title": "Bêhtir pêşniyarî",
+	"cx-suggestionlist-title": "Rûpelên pêşniyarkirî",
 	"cx-suggestionlist-empty-title": "Niha ti pêşniyarî tune ne",
 	"cx-suggestionlist-featured": "Bijarte",
 	"cx-suggestionlist-view-source-page": "Rûpela çavkaniyê bibîne",
-	"cx-create-new-translation": "Dest bi wergerek nû bike",
+	"cx-create-new-translation": "Wergera nû",
 	"cx-save-draft-save-success": "{{PLURAL:$1|Berî xulekekê|Berî $1 xulekan|0=Berî niha}} hate tomarkirin",
 	"cx-save-draft-saving": "Tê tomarkirin...",
 	"cx-save-draft-error": "Di dema tomarkirina rûpelê de çewtiye çêbû.",
@@ -111,7 +111,7 @@
 	"cx-contributions-link": "Beşdariyên min",
 	"cx-your-translations-link": "{{GENDER:$1|Wergerên te}}",
 	"cx-translationlist-empty-title": "Ti tişt tune ye ku bê wergerandin?",
-	"cx-tools-link-internal-link": "Bi rûpelê ve girê bide",
+	"cx-tools-link-internal-link": "Li rûpelan bigere",
 	"cx-tools-link-internal-link-placeholder": "Rûpelê ku bê girêdan bibîne",
 	"cx-tools-link-external-link-placeholder": "Girêdana derve lê zêde bike",
 	"cx-tools-link-to-another-page": "Girêdana ber bi rûpela din ve",
@@ -136,5 +136,5 @@
 	"cx-tools-template-title": "Şablon",
 	"cx-template-not-available": "Bo $1 tune ye",
 	"cx-translation-template-add-param": "+ Beşa wergerandinê",
-	"cx-translation-template-add-more": "Zêdetir taybetmendiyan lê zêde bike"
+	"cx-translation-template-add-more": "Zêdetir qadan lê zêde bike"
 }
