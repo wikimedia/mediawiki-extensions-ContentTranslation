@@ -138,7 +138,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  */
 mw.cx.init.Translation.prototype.initializationError = function () {
 	// Any error in the above deferreds is critical
-	this.veTarget.showMessage(
+	this.translationView.showMessage(
 		'error',
 		'Critical error: Content translation failed to load due to internal error.'
 	);
