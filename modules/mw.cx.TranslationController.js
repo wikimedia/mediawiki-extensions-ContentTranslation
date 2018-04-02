@@ -303,6 +303,8 @@ mw.cx.TranslationController.prototype.publish = function () {
 	this.translationView.categoryUI.disableCategoryUI( true );
 
 	this.targetArticle.publish();
+	// Scroll to the top of the page, so success/fail messages become visible
+	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 };
 
 /**

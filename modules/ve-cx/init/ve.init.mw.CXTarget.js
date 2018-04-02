@@ -225,6 +225,7 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
  */
 ve.init.mw.CXTarget.prototype.onChange = function () {
 	this.publishButton.setDisabled( false );
+	this.translationView.clearMessages();
 };
 
 /**

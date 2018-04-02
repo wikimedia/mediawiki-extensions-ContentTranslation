@@ -108,6 +108,13 @@ mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, detai
 	this.infobar.showMessage( type, message, details );
 };
 
+/**
+ * Hide all infobar messages.
+ */
+mw.cx.ui.TranslationView.prototype.clearMessages = function () {
+	this.infobar.clearMessages();
+};
+
 mw.cx.ui.TranslationView.prototype.setStatusMessage = function ( message ) {
 	this.translationHeader.setStatusMessage( message );
 };
