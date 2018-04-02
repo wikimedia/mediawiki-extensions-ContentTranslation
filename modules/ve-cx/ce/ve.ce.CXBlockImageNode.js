@@ -17,6 +17,9 @@ ve.ce.CXBlockImageNode = function CXBlockImageNode() {
 	if ( adptationInfo && !adptationInfo.adapted ) {
 		this.$element.addClass( 'cx-image-unadapted' );
 	}
+
+	// Fix the link target
+	this.$a.attr( 'target', '_blank' );
 };
 
 /* Inheritance */
