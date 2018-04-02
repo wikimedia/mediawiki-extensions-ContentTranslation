@@ -11,6 +11,8 @@ mw.cx.ui.TranslationView = function ( config ) {
 	this.targetColumn = new mw.cx.ui.TargetColumn( config );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
+	// @var {mw.cx.ui.Categories}
+	this.categoryUI = null;
 
 	this.pageName = this.targetColumn.getTargetTitle();
 	this.contentContainer = new OO.ui.HorizontalLayout( $.extend( {}, config, {
@@ -90,6 +92,8 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 };
 
 mw.cx.ui.TranslationView.prototype.showCategories = function ( categoryUI ) {
+	this.categoryUI = categoryUI;
+
 	this.sourceColumn.showCategories( categoryUI );
 	this.targetColumn.showCategories( categoryUI );
 };

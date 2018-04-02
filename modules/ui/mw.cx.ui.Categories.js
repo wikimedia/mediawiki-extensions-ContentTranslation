@@ -195,6 +195,18 @@ mw.cx.ui.Categories.prototype.getTargetCategoryListing = function () {
 };
 
 /**
+ * Set disabled state for all category UI elements.
+ *
+ * @param {boolean} state
+ */
+mw.cx.ui.Categories.prototype.disableCategoryUI = function ( state ) {
+	this.sourceCategoryCount.setDisabled( state );
+	this.targetCategoryCount.setDisabled( state );
+	this.sourceCategoryListing.setDisabled( state );
+	this.targetCategoryListing.setDisabled( state );
+};
+
+/**
  * Event handling
  */
 mw.cx.ui.Categories.prototype.listen = function () {

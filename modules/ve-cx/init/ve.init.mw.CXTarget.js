@@ -433,7 +433,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 			} ).text( this.translation.targetTitle )[ 0 ].outerHTML
 		)
 	);
-	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };

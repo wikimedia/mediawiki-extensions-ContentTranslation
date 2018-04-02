@@ -27,8 +27,6 @@ mw.cx.ui.TranslationHeader = function ( config ) {
 
 OO.inheritClass( mw.cx.ui.TranslationHeader, OO.ui.PanelLayout );
 
-mw.cx.ui.TranslationHeader.static.timer = null;
-
 mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 	var translationCenter = new OO.ui.ButtonWidget( {
 		framed: false,
@@ -69,18 +67,6 @@ mw.cx.ui.TranslationHeader.prototype.listen = function () {
 	mw.hook( 'mw.cx.translation.save-started' ).add(
 		this.setStatusMessage.bind( this, mw.msg( 'cx-save-draft-saving' ) )
 	);
-	mw.hook( 'mw.cx.translation.saved' ).add( function () {
-		var minutes = 0;
-
-		clearTimeout( this.constructor.static.timer );
-		this.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
-		this.constructor.static.timer = setInterval( function () {
-			minutes++;
-			this.setStatusMessage(
-				mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
-			);
-		}.bind( this ), 60 * 1000 );
-	}.bind( this ) );
 	mw.hook( 'mw.cx.translation.save-failed' ).add(
 		this.setStatusMessage.bind( this, mw.msg( 'cx-save-draft-error' ) )
 	);

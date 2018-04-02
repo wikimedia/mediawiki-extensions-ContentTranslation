@@ -28,8 +28,6 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 
 	// @var {ve.init.mw.CXTarget}
 	this.veTarget = null;
-	// @var {mw.cx.ui.Categories}
-	this.categoryUI = null;
 	// @var {mw.cx.dm.Translation}
 	this.translationModel = null;
 	// @var {mw.cx.TranslationController}
@@ -67,7 +65,8 @@ mw.cx.init.Translation.prototype.init = function () {
 	modulePromise = mw.loader.using( mw.config.get( 'wgVisualEditorConfig' ).pluginModules );
 
 	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
-		var configuration = translationData[ 0 ],
+		var categoryUI,
+			configuration = translationData[ 0 ],
 			sourcePageContent = translationData[ 1 ],
 			draft = translationData[ 2 ];
 
@@ -86,12 +85,12 @@ mw.cx.init.Translation.prototype.init = function () {
 
 		this.veTarget.setTranslation( this.translationModel );
 
-		this.categoryUI = new mw.cx.ui.Categories(
+		categoryUI = new mw.cx.ui.Categories(
 			this.translationModel,
 			this.processCategories( sourcePageContent.categories ),
 			this.config
 		);
-		this.translationView.showCategories( this.categoryUI );
+		this.translationView.showCategories( categoryUI );
 
 		if ( draft ) {
 			mw.hook( 'mw.cx.draft.restored' ).fire();

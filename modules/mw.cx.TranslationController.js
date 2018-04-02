@@ -297,6 +297,11 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
  */
 mw.cx.TranslationController.prototype.publish = function () {
 	mw.log( '[CX] Publishing translation...' );
+
+	// Clear the status message
+	this.translationView.setStatusMessage( '' );
+	this.translationView.categoryUI.disableCategoryUI( true );
+
 	this.targetArticle.publish();
 };
 
@@ -305,7 +310,11 @@ mw.cx.TranslationController.prototype.publish = function () {
  */
 mw.cx.TranslationController.prototype.onPublishSuccess = function () {
 	mw.log( '[CX] Publishing finished successfully' );
+
 	this.veTarget.onPublishSuccess( this.targetArticle.getTargetURL() );
+	this.translationView.categoryUI.disableCategoryUI( false );
+	clearTimeout( this.saveTimer );
+
 	// Event logging
 	mw.hook( 'mw.cx.translation.published' ).fire(
 		this.translation.sourceLanguage,
@@ -325,7 +334,10 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( errorCode, d
 	if ( details.exception instanceof Error ) {
 		details.exception = details.exception.toString();
 	}
+
 	this.veTarget.onPublishFailure( errorCode );
+	this.translationView.categoryUI.disableCategoryUI( false );
+	clearTimeout( this.saveTimer );
 
 	// Event logging
 	mw.hook( 'mw.cx.translation.publish.error' ).fire(

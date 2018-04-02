@@ -780,7 +780,6 @@
 			"messages": [
 				"cx-lost-session-draft",
 				"cx-save-draft-error",
-				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip",
 				"cx-draft-restoring",
@@ -1590,7 +1589,6 @@
 				"cx-draft-restored",
 				"cx-draft-restoring",
 				"cx-save-draft-error",
-				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-tooltip"
 			],
