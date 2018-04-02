@@ -24,6 +24,7 @@
 		margin-right: 0;
 	}
 }
+
 .cx-column--source,
 .cx-column--translation {
 	.mw-ui-one-half;
@@ -45,20 +46,21 @@
 			text-align: left;
 		}
 
-		& > p,
-		& > table,
-		& > figure,
-		& > pre,
-		& > div,
-		& > ul {
-			// Use margin-bottom alone for paragraphs to avoid problems explained at
-			// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
-			// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
-			margin: 0 0 1.5em;
-		}
-		& > section {
+		section[ rel='cx:Section' ] {
 			// Avoid border collapse. See https://www.w3.org/TR/CSS2/box.html#collapsing-margins
 			overflow: auto;
+
+			& > p,
+			& > table,
+			& > figure,
+			& > pre,
+			& > div,
+			& > ul {
+				// Use margin-bottom alone for paragraphs to avoid problems explained at
+				// https://css-tricks.com/what-you-should-know-about-collapsing-margins/
+				// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
+				margin: 0 0 1.5em;
+			}
 		}
 	}
 }
