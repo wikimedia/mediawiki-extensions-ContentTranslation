@@ -1787,6 +1787,9 @@
 				"oojs-ui.styles.icons-content"
 			],
 			"messages": [
+				"cx-no-source-categories",
+				"cx-no-target-categories",
+				"cx-no-adapted-categories",
 				"cx-tools-categories-count-message"
 			]
 		},

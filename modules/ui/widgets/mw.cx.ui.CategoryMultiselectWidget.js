@@ -25,8 +25,13 @@ mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config 
 	// Parent constructor
 	mw.cx.ui.CategoryMultiselectWidget.super.call( this, config );
 
+	// Mixin constructors
+	OO.ui.mixin.LabelElement.call( this, config );
+
+	// Initialize
 	this.$element.addClass( 'mw-cx-ui-CategoryMultiselectWidget' );
 	this.setHeaderLabel( mw.msg( 'categories' ) );
+	this.$content.prepend( this.$label );
 
 	// Aggregate mouse hover events from mw.cx.ui.CategoryTagItemWidget
 	this.aggregate( { mouseenter: 'mouseEnter' } );
@@ -39,11 +44,27 @@ mw.cx.ui.CategoryMultiselectWidget = function CategoryMultiselectWidget( config 
 /* Inheritance */
 
 OO.inheritClass( mw.cx.ui.CategoryMultiselectWidget, OO.ui.MenuTagMultiselectWidget );
+OO.mixinClass( mw.cx.ui.CategoryMultiselectWidget, OO.ui.mixin.LabelElement );
 
 /* Methods */
 
 mw.cx.ui.CategoryMultiselectWidget.prototype.setHeaderLabel = function ( label ) {
 	this.$icon.text( label );
+};
+
+/**
+ * Check whether all tag items in the widget are disabled. If there are no tag items, return false.
+ *
+ * @return {boolean}
+ */
+mw.cx.ui.CategoryMultiselectWidget.prototype.allDisabled = function () {
+	if ( this.getItemCount() === 0 ) {
+		return false;
+	}
+
+	return this.getItems().every( function ( item ) {
+		return item.isDisabled();
+	} );
 };
 
 /**

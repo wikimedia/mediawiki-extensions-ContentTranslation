@@ -1,13 +1,25 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
 .mw-cx-ui-CategoryMultiselectWidget.oo-ui-iconElement > .oo-ui-tagMultiselectWidget-handle {
 	padding: 0.3125em 0.625em;
 
 	> .oo-ui-iconElement-icon {
 		background-position: left center;
 		position: static;
-		min-height: 1.5em;
 		margin: 0;
 		padding-left: 1.5em;
-		line-height: 1.5;
+		font-weight: bold;
+		line-height: 1.25;
 		cursor: default;
+	}
+
+	> .oo-ui-tagMultiselectWidget-content > .oo-ui-labelElement-label {
+		color: @colorGray7;
+		font-weight: bold;
+
+		&:not( :empty ) {
+			display: inline-block;
+			margin: 0.8em 0 0.5em;
+		}
 	}
 }

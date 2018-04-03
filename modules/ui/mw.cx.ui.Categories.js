@@ -107,6 +107,8 @@ mw.cx.ui.Categories.prototype.render = function () {
 		}
 	);
 
+	this.checkForEmptySourceCategories();
+	this.checkForEmptyTargetCategories();
 	this.addMissingCategoriesToMenu();
 };
 
@@ -290,6 +292,32 @@ mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTarg
 
 	this.translationModel.setTargetCategories( targetCategories );
 	this.addMissingCategoriesToMenu();
+	this.checkForEmptyTargetCategories();
+};
+
+/**
+ * Check if source categories listing is empty and display the informative message.
+ */
+mw.cx.ui.Categories.prototype.checkForEmptySourceCategories = function () {
+	if ( this.sourceCategoryListing.getItemCount() === 0 ) {
+		this.sourceCategoryListing.setLabel( mw.msg( 'cx-no-source-categories' ) );
+	}
+};
+
+/**
+ * Display the informative message if target categories listing is empty.
+ */
+mw.cx.ui.Categories.prototype.checkForEmptyTargetCategories = function () {
+	if ( this.targetCategoryListing.getItemCount() > 0 ) {
+		this.targetCategoryListing.setLabel( '' );
+		return;
+	}
+
+	if ( this.sourceCategoryListing.allDisabled() ) {
+		this.targetCategoryListing.setLabel( mw.msg( 'cx-no-adapted-categories' ) );
+	} else {
+		this.targetCategoryListing.setLabel( mw.msg( 'cx-no-target-categories' ) );
+	}
 };
 
 /**
