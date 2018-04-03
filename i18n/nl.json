@@ -98,6 +98,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Deze paginanaam wordt al gebruikt in [$1 $2] voor [$3 een andere pagina]",
 	"cx-selected-source-page-error-page-exists": "De pagina [$1 bestaat al] in $2",
 	"cx-selected-source-page-error-title-in-use": "De naam van de nieuwe pagina [$1 wordt al gebruikt]",
+	"cx-page-number-of-languages": "Aantal talen",
 	"cx-mt-abuse-warning-title": "Uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde machinevertaalde tekst",
 	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen.",
 	"cx-publish-captcha-title": "Beveiligingsvraag",
