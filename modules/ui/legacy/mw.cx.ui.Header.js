@@ -63,7 +63,7 @@ mw.cx.ui.Header.prototype.getContent = function () {
 
 	personalMenu = new mw.cx.ui.PersonalMenuWidget( {
 		label: this.isAnon ? mw.msg( 'cx-personaltools-anon' ) : this.userName,
-		icon: this.isAnon ? 'userInactive' : 'userAvatar',
+		icon: this.isAnon ? 'userAnonymous' : 'userAvatar',
 		classes: [ 'cx-header__personal-menu' ],
 		menu: {
 			items: this.getPersonalMenuItems(),
