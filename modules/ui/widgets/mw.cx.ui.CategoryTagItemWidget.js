@@ -21,7 +21,7 @@ mw.cx.ui.CategoryTagItemWidget = function CategoryTagItemWidget( config ) {
 	mw.cx.ui.CategoryTagItemWidget.super.call( this, config );
 
 	this.$element.addClass( 'mw-cx-ui-CategoryTagItemWidget' );
-	if ( !this.isDisabled() && config.hideRemoveButton ) {
+	if ( config.hideRemoveButton ) {
 		this.closeButton.$element.remove();
 		this.$element.addClass( 'mw-cx-ui-CategoryTagItemWidget--no-remove' );
 	}
