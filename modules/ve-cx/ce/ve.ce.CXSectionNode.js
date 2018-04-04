@@ -11,7 +11,10 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 	ve.ce.CXSectionNode.super.apply( this, arguments );
 
 	this.$element
-		.attr( 'id', this.model.getAttribute( 'cxid' ) )
+		.attr( {
+			id: this.model.getAttribute( 'cxid' ),
+			rel: 'cx:Section'
+		} )
 		.addClass( 've-ce-cxSectionNode' );
 };
 
