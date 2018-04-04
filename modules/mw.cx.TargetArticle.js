@@ -51,6 +51,8 @@ mw.cx.TargetArticle.prototype.publish = function () {
 			// parsoid is not a fast operation.
 			timeout: 100 * 1000 // in milliseconds
 		} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
+	}.bind( this ), function () {
+		this.emit( 'publishCancel' );
 	}.bind( this ) );
 };
 
@@ -344,44 +346,6 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 };
 
 /**
- * Increase the version number of a title starting with 1.
- *
- * @param {string} title The title to increase the version on.
- * @return {string}
- */
-mw.cx.TargetArticle.prototype.increaseVersion = function ( title ) {
-	var match, version;
-
-	match = title.match( /^.*\((\d+)\)$/ );
-	if ( match ) {
-		version = +match[ 1 ] + 1;
-
-		return title.replace( /\(\d+\)$/, '(' + version + ')' );
-	}
-
-	return title + ' (1)';
-};
-
-/**
- * Generate an alternate title in case of title collision.
- *
- * @param {string} title The title
- * @return {string}
- */
-mw.cx.TargetArticle.prototype.getAlternateTitle = function ( title ) {
-	var username, mwTitle;
-
-	username = mw.user.getName();
-	mwTitle = mw.Title.newFromText( title );
-
-	if ( mwTitle && mwTitle.getNamespaceId() === 2 ) {
-		return this.increaseVersion( title );
-	} else {
-		return 'User:' + username + '/' + title;
-	}
-};
-
-/**
  * Checks to see if there is already a published article with the title.
  * If exists ask the translator a resolution for the conflict.
  *
@@ -389,25 +353,26 @@ mw.cx.TargetArticle.prototype.getAlternateTitle = function ( title ) {
  * @return {jQuery.Promise}
  */
 mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
-	return this.isTitleExistInLanguage( this.targetLanguage, title ).then( function ( titleExists ) {
-		var $dialog;
-
+	return this.isTitleExist( title ).then( function ( titleExists ) {
 		if ( !titleExists ) {
 			return title;
 		}
 
-		// Show a dialog to decide what to do now
-		this.veTarget.publishButton.$element.cxPublishingDialog();
-		$dialog = this.translationView.publishButton.$element.data( 'cxPublishingDialog' );
-
-		return $dialog.listen().then( function ( overwrite ) {
-			if ( overwrite ) {
+		return OO.ui.getWindowManager().openWindow( 'message', {
+			title: mw.msg( 'cx-publishing-dialog-title' ),
+			message: mw.msg( 'cx-publishing-dialog-sub-title' ),
+			actions: [
+				{ action: 'publish', label: mw.msg( 'cx-publishing-dialog-publish-anyway-button' ), flags: 'primary' },
+				{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
+			]
+		} ).closed.then( function ( data ) {
+			if ( data && data.action === 'publish' ) {
 				return title;
 			}
 
-			return this.getAlternateTitle( title );
-		}.bind( this ) );
-	}.bind( this ) );
+			return $.Deferred().reject();
+		} );
+	} );
 };
 
 /**
@@ -475,17 +440,16 @@ mw.cx.TargetArticle.prototype.linkAtWikibase = function ( sourceLanguage, target
 };
 
 /**
- * Checks to see if a title exists in the specified language wiki. Returns
- * the normalised title and resolves redirects.
+ * Checks to see if a title exists in local wiki.
+ * Returns the normalised title and resolves redirects.
  *
- * @param {string} language The language of the wiki to check
  * @param {string} title The title to look for
  * @return {jQuery.promise}
  * @return {Function} return.done If title exists
  * @return {string|false} return.done.title
  */
-mw.cx.TargetArticle.prototype.isTitleExistInLanguage = function ( language, title ) {
-	var api = this.siteMapper.getApi( language );
+mw.cx.TargetArticle.prototype.isTitleExist = function ( title ) {
+	var api = new mw.Api();
 
 	// Short circuit empty titles
 	if ( title === '' ) {
@@ -555,7 +519,7 @@ mw.cx.TargetArticle.prototype.isTitleConnectedInLanguages = function (
  * and show a warning if needed.
  */
 mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
-	this.isTitleExistInLanguage( this.targetLanguage, this.getTargetTitle() )
+	this.isTitleExist( this.getTargetTitle() )
 		.then( function ( pageExist ) {
 			// If page doesn't exist, it's OK
 			if ( !pageExist ) {

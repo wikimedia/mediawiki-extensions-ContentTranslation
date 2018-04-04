@@ -435,6 +435,12 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	} );
 };
 
+ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
+	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.targetSurface.setDisabled( false );
+	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
+};
+
 ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	this.translationView.showMessage(
 		'success',

@@ -42,6 +42,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 	} );
 
 	this.targetArticle.connect( this, {
+		publishCancel: 'onPublishCancel',
 		publishSuccess: 'onPublishSuccess',
 		publishError: 'onPublishFailure'
 	} );
@@ -308,6 +309,21 @@ mw.cx.TranslationController.prototype.publish = function () {
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 };
 
+mw.cx.TranslationController.prototype.enableEditing = function () {
+	this.translationView.categoryUI.disableCategoryUI( false );
+	clearTimeout( this.saveTimer );
+};
+
+/**
+ * Publish cancel handler
+ */
+mw.cx.TranslationController.prototype.onPublishCancel = function () {
+	mw.log( '[CX] Publishing canceled' );
+
+	this.veTarget.onPublishCancel();
+	this.enableEditing();
+};
+
 /**
  * Publish success handler
  */
@@ -315,8 +331,7 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function () {
 	mw.log( '[CX] Publishing finished successfully' );
 
 	this.veTarget.onPublishSuccess( this.targetArticle.getTargetURL() );
-	this.translationView.categoryUI.disableCategoryUI( false );
-	clearTimeout( this.saveTimer );
+	this.enableEditing();
 
 	// Event logging
 	mw.hook( 'mw.cx.translation.published' ).fire(
@@ -335,8 +350,7 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function () {
 mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
 	this.isFailedUnrecoverably = !error.isRecoverable();
 	this.veTarget.onPublishFailure( error.getMessageText() );
-	this.translationView.categoryUI.disableCategoryUI( false );
-	clearTimeout( this.saveTimer );
+	this.enableEditing();
 };
 
 /**

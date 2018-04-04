@@ -1393,9 +1393,16 @@
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
+				"mediawiki.api",
 				"mw.cx.dm.Translation",
-				"ve.init.mw.CXTarget",
-				"mediawiki.api"
+				"oojs-ui-windows",
+				"ve.init.mw.CXTarget"
+			],
+			"messages": [
+				"cx-draft-cancel-button-label",
+				"cx-publishing-dialog-publish-anyway-button",
+				"cx-publishing-dialog-sub-title",
+				"cx-publishing-dialog-title"
 			]
 		},
 		"mw.cx.TranslationController": {
