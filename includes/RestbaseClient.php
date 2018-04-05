@@ -11,12 +11,13 @@ namespace ContentTranslation;
 class RestbaseClient {
 
 	/**
-	 * @var VirtualRESTServiceClient
+	 * @var \VirtualRESTServiceClient
 	 */
 	protected $serviceClient;
+
 	/**
 	 * The Config object from the request context.
-	 * @var Config
+	 * @var \Config
 	 */
 	protected $config;
 
@@ -37,7 +38,7 @@ class RestbaseClient {
 	 * elseif $wgVirtualRestConfig['modules']['parsoid'] is defined, use Parsoid,
 	 * else RESTBase is used.
 	 *
-	 * @return VirtualRESTService the VirtualRESTService object to use
+	 * @return \VirtualRESTService the VirtualRESTService object to use
 	 */
 	private function getVRSObject() {
 		// the params array to create the service object with
@@ -100,7 +101,7 @@ class RestbaseClient {
 	/**
 	 * Converts html to wikitext
 	 *
-	 * @param Title $title
+	 * @param \Title $title
 	 * @param string $html
 	 * @return string wikitext
 	 */
@@ -124,7 +125,7 @@ class RestbaseClient {
 	/**
 	 * Converts wikitext to html
 	 *
-	 * @param Title $title
+	 * @param \Title $title
 	 * @param string $wikitext
 	 * @return string html
 	 */

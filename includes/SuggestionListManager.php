@@ -101,7 +101,7 @@ class SuggestionListManager {
 	 * @param int $owner Owner's global user id.
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
-	 * @return Title[] String array of titles.
+	 * @return \Title[]
 	 */
 	public function getDiscardedSuggestions( $owner, $from, $to ) {
 		$titles = [];

@@ -16,7 +16,7 @@ class Suggestion {
 	}
 
 	/**
-	 * @param stdClass $row
+	 * @param \stdClass $row
 	 * @return SuggestionList
 	 */
 	public static function newFromRow( $row ) {

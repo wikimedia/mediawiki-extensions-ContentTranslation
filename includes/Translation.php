@@ -542,7 +542,7 @@ class Translation {
 	}
 
 	/**
-	 * @param stdClass $row
+	 * @param \stdClass $row
 	 * @return Translation
 	 */
 	public static function newFromRow( $row ) {
