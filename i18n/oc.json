@@ -4,7 +4,8 @@
 			"Jfblanc",
 			"Cedric31",
 			"Nicolas Eynaud",
-			"Prevodim"
+			"Prevodim",
+			"Guilhelma"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -16,6 +17,7 @@
 	"cx-source-view-page": "afichar la pagina",
 	"cx-publish-page-success": "Pagina publicada sus $1",
 	"cx-publish-page-error": "Una error s'es produita al moment de la publicacion de la traduccion. Ensajatz tornamai. Error : $1",
+	"cx-publish-error-readonly": "Pas cap d'escritura es permesa sul wiki",
 	"cx-publish-button": "Publicar",
 	"cx-publish-button-publishing": "Publicacion en cors…",
 	"cx-publish-summary": "Crèa en tradusissent la pagina « $1 »",
