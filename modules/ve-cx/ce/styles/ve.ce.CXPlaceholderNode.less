@@ -1,17 +1,15 @@
 @import '../../../widgets/common/ext.cx.common.less';
 
 .ve-ce-cxPlaceholderNode {
-	opacity: 0;
-	-webkit-transition: opacity 200ms ease-out;
-	-moz-transition: opacity 200ms ease-out;
-	transition: opacity 200ms ease-out;
-	font-size: 20px;
-	font-weight: lighter;
-	color: @colorGray7;
 	background-color: @colorGray15;
-	text-align: center;
+	color: @colorGray7;
+	opacity: 0;
 	display: table;
 	width: 100%;
+	box-shadow: 0 0 0 4px @colorGray15;
+	font-size: 20px;
+	text-align: center;
+	.transition( opacity 100ms ease-out );
 
 	&.ve-ce-focusableNode-focused {
 		opacity: 1;
@@ -23,8 +21,8 @@
 
 	> .oo-ui-buttonWidget,
 	> .cx-spinner {
-		margin: 0;
 		display: table-cell;
+		margin: 0;
 		vertical-align: middle;
 	}
 }

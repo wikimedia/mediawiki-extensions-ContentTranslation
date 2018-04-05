@@ -11,20 +11,29 @@
 	// with enter key presses. To avoid that we are not using background-color
 	background-color: @text-highlight-color;
 	box-shadow: 0 0 0 4px @text-highlight-color;
-	border-radius: @borderRadius;
-	transition: all 0.25s;
 }
 
 .cx-highlight--blue {
 	background-color: @link-highlight-color;
 	box-shadow: 0 0 0 2px @link-highlight-color;
-	border-radius: @borderRadius;
-	transition: all 0.25s;
 }
 
 .cx-highlight--lightblue {
 	background-color: @connected-link-highlight-color;
 	box-shadow: 0 0 0 2px @connected-link-highlight-color;
+}
+
+.cx-sentence-highlight,
+// Legacy only
+.cx-highlight,
+.cx-highlight--blue,
+.cx-highlight--lightblue {
 	border-radius: @borderRadius;
+}
+
+// Legacy only
+.cx-highlight,
+.cx-highlight--blue,
+.cx-highlight--lightblue {
 	transition: all 0.25s;
 }
