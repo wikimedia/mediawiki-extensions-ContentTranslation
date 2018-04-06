@@ -66,11 +66,9 @@ mw.cx.init.Translation.prototype.init = function () {
 
 	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
 		var categoryUI,
-			configuration = translationData[ 0 ],
-			sourcePageContent = translationData[ 1 ],
-			draft = translationData[ 2 ];
+			sourcePageContent = translationData[ 0 ],
+			draft = translationData[ 1 ];
 
-		$.extend( this.config, configuration );
 		this.sourceWikiPage.setRevision( sourcePageContent.revision );
 		this.translationModel = new mw.cx.dm.Translation(
 			this.sourceWikiPage,
@@ -106,12 +104,7 @@ mw.cx.init.Translation.prototype.init = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {
-	var configFetchDeferred, sourcePageFetchDeferred, draftFetchDeferred;
-
-	mw.log( '[CX] Fetching translation configuration...' );
-	configFetchDeferred = this.fetchConfiguration(
-		this.sourceWikiPage.getLanguage(), this.targetWikiPage.getLanguage()
-	).fail( this.fetchConfigurationError.bind( this ) );
+	var sourcePageFetchDeferred, draftFetchDeferred;
 
 	mw.log( '[CX] Fetching Source page...' );
 	sourcePageFetchDeferred = this.fetchSourcePageContent(
@@ -129,7 +122,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 		return this.fetchDraft( draftId ).fail( this.fetchDraftError.bind( this ) );
 	}.bind( this ) );
 
-	return $.when( configFetchDeferred, sourcePageFetchDeferred, draftFetchDeferred );
+	return $.when( sourcePageFetchDeferred, draftFetchDeferred );
 };
 
 /**
@@ -153,32 +146,6 @@ mw.cx.init.Translation.prototype.initializationError = function () {
  */
 mw.cx.init.Translation.prototype.attachToDOM = function ( veTarget ) {
 	$( 'body' ).append( veTarget.$element );
-};
-
-/**
- * Fetch language pair configuration from ContentTranslation extension API.
- *
- * @private
- * @param {string} sourceLanguage Source language
- * @param {string} targetLanguage Target language
- * @return {jQuery.Promise} Configuration settings as returned by the API.
- */
-mw.cx.init.Translation.prototype.fetchConfiguration = function ( sourceLanguage, targetLanguage ) {
-	return new mw.Api().get( {
-		action: 'cxconfiguration',
-		from: sourceLanguage,
-		to: targetLanguage
-	} ).then( function ( response ) {
-		return response.configuration;
-	} );
-};
-
-/**
- * Configuration fetch error handler
- */
-mw.cx.init.Translation.prototype.fetchConfigurationError = function () {
-	// XXX
-	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch configuration for this language pair.' );
 };
 
 /**
