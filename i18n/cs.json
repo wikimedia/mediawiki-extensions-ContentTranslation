@@ -16,7 +16,8 @@
 			"Dvorapa",
 			"Walter Klosse",
 			"Martin Urbanec",
-			"Ilimanaq29"
+			"Ilimanaq29",
+			"Patriccck"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -84,6 +85,7 @@
 	"cx-tools-link-hover-tooltip": "Klikněte pro otevření",
 	"cx-warning-unsaved-translation": "Máte neuložené překlady.",
 	"cx-error-page-not-found": "Stránka „$1“ nebyla na Wikipedii v jazyce $2 nalezena",
+	"cx-page-selector-widget-nearby-label": "Poblíž",
 	"cx-selected-source-page-start-translation-button": "Začít překládat",
 	"cx-selected-source-page-error-page-and-title-exist": "Tento název se již v [$1 jazyce $2] používá pro [$3 jinou stránku]",
 	"cx-selected-source-page-error-page-exists": "Stránka v jazyce $2 [$1 již existuje]",
