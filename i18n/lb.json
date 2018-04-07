@@ -3,7 +3,8 @@
 		"authors": [
 			"Robby",
 			"Amire80",
-			"Gromper"
+			"Gromper",
+			"Les Meloures"
 		]
 	},
 	"cx": "Säit iwwersetzen",
@@ -56,7 +57,7 @@
 	"cx-tools-view-guidelines": "Iwwersetzungsrichtlinne {{GENDER:|kucken}}",
 	"cx-tools-dictionary-title": "Definitioun",
 	"cx-tools-link-title": "Link",
-	"cx-tools-link-add": "Link dobäisetzen",
+	"cx-tools-link-add": "Link derbäisetzen",
 	"cx-tools-link-remove": "Link ewechhuelen",
 	"cx-tools-mt-title": "Automatesch Iwwersetzung",
 	"cx-tools-mt-use-source": "Quelltext benotzen",
