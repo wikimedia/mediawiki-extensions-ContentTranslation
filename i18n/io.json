@@ -4,6 +4,8 @@
 			"Joao Xavier"
 		]
 	},
+	"cx-dashboard-header": "Tradukuri",
+	"cx-header-all-translations": "Omna tradukuri",
 	"cx-source-view-page": "Montrez pagino",
 	"cx-lost-session-draft": "Vua sesiono finis. Vua redakti ne povos konservesar, ecepte se vu facos 'log in' en altra fenestro.",
 	"cx-translation-target-page-exists": "Pagino kun titulo [$1 $2] ja existas en ta Wiki. Konsiderez donar nova titulo por la pagino.",
@@ -13,6 +15,11 @@
 	"cx-contributions-upload-tooltip": "Adjuntez imaji, *audio e *video por uzo en la pagini",
 	"cx-campaign-contributionsmenu-mycontributions": "Kontributadi",
 	"cx-campaign-contributionsmenu-might-be-available": "Ol ja povas existar en altra lingui",
+	"cx-trend-deletions": "Efacita tradukuri",
+	"cx-trend-translations-to": "Traduki a $1",
+	"echo-category-title-cx": "Tradukuri",
+	"echo-pref-tooltip-cx": "Avizez me pri la tradukuri quin me kreis uzante la traduk utensilo.",
+	"cx-your-translations-link": "{{GENDER:$1|Vua tradukuri}}",
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-tools-linter-hide-details": "Celez detali"
 }

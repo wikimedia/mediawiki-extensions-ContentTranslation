@@ -17,6 +17,8 @@
 	"apihelp-cxpublish-param-to": "대상 언어 코드입니다.",
 	"apihelp-cxpublish-param-sourcetitle": "원문의 제목입니다.",
 	"apihelp-cxpublish-param-categories": "게시된 문서를 넣을 분류들.",
+	"apihelp-query+contenttranslation-description": "번역을 위한 내용 번역 데이터베이스를 조회합니다.",
+	"apihelp-query+contenttranslation-summary": "번역을 위한 내용 번역 데이터베이스를 조회합니다.",
 	"apihelp-query+contenttranslation-param-translationid": "번역 ID.",
 	"apihelp-query+contenttranslation-param-from": "원본 언어 코드입니다.",
 	"apihelp-query+contenttranslation-param-to": "대상 언어 코드입니다.",

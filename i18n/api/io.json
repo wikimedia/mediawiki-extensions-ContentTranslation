@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-cxpublish-param-sourcetitle": "Titulo di la fonto-pagino.",
+	"apihelp-query+contenttranslation-description": "Konsultar tradukuro che la datumaro pri tradukuri.",
 	"apihelp-cxdelete-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-cxsave-param-sourcetitle": "La titulo di la fonto-pagino."
 }

@@ -22,12 +22,13 @@
 			"Rzuwig",
 			"WTM",
 			"Mazab IZW",
-			"Vesihiisi"
+			"Vesihiisi",
+			"Railfail536"
 		]
 	},
 	"cx": "Przetłumacz stronę",
 	"cx-dashboard-header": "Tłumaczenia",
-	"cx-javascript": "To narzędzie nie działa bez JavaScriptu.",
+	"cx-javascript": "To narzędzie nie działa, jeżeli nie działa obsługa JavaScript. Jest u ciebie wyłączona, nie działa lub ta przeglądarka nie jest wspierana.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Tłumaczenie treści]] jest narzędziem pozwalającym szybko tłumaczyć strony na Twój język. [$1 Wypróbuj je teraz!]",
 	"cx-license-agreement": "Klikając „$1”, wyrażasz nieodwołalną zgodę na [//wikimediafoundation.org/wiki/Terms_of_Use/pl warunki użytkowania] oraz na udostępnianie Twojego wkładu na licencjach [https://creativecommons.org/licenses/by-sa/3.0/deed.pl CC BY-SA 3.0] i [//pl.wikipedia.org/wiki/Wikipedia:Tekst_licencji_GNU_Free_Documentation_License GFDL] pod warunkiem podania linku albo URL jako wystarczającego oznaczenia autorstwa na licencji CC BY-SA 3.0.",
 	"cx-error-server-connection": "Błąd: Nie można połączyć się z serwerem.",
@@ -198,6 +199,7 @@
 	"cx-tools-link-add-as-missing": "Dodaj brakujący link",
 	"cx-tools-link-apply": "Gotowe",
 	"cx-personaltools-user": "Użytkownik",
+	"cx-personaltools-anon": "Nie jesteś zalogowany/a",
 	"mw-pageselector-missing": "Strona nie istnieje",
 	"cx-draft-restoring": "Wczytywanie zapisanego tłumaczenia...",
 	"cx-draft-restored": "Wczytano zapisane tłumaczenie.",
