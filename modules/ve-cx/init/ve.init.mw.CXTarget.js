@@ -311,13 +311,23 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 };
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
-	var i, sourceOffsetTop, documentNodeChildren, targetOffsetTop, alignSectionPair,
-		sourceDocumentNode, articleNode;
+	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
+		documentNodeChildren, alignSectionPair, articleNode;
 
 	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
+	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
+
+	// This method can be called before restoration is complete and all nodes are attached
+	// to the DOM (e.g. via mw.cx.ui.TargetColumn.setTargetTitle). If so, skip aligment.
+	if (
+		!document.contains( sourceDocumentNode.$element[ 0 ] ) ||
+		!document.contains( targetDocumentNode.$element[ 0 ] )
+	) {
+		return;
+	}
+
 	sourceOffsetTop = sourceDocumentNode.$element.offset().top;
-	targetOffsetTop = this.targetSurface.getView().getDocument().documentNode.$element.offset().top;
-	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
+	targetOffsetTop = targetDocumentNode.$element.offset().top;
 	documentNodeChildren = sourceDocumentNode.getChildren();
 
 	for ( i = 0; i < documentNodeChildren.length; i++ ) {
@@ -332,6 +342,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 		return;
 	}
 
+	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
 	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
