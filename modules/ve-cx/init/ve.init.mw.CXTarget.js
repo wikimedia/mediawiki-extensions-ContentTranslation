@@ -477,6 +477,25 @@ ve.init.mw.CXTarget.prototype.gotPlaceholderTranslation = function ( placeholder
 };
 
 /**
+ * @inheritDoc
+ */
+ve.init.mw.CXTarget.prototype.parseWikitextFragment = function ( wikitext, pst, doc ) {
+	var pageTitle, lang;
+
+	lang = doc ? doc.lang : this.config.targetLanguage;
+	pageTitle = lang === this.config.sourceLanguage ?
+		this.config.sourceTitle : this.translation.getTargetTitle();
+
+	return this.config.siteMapper.getApi( lang ).post( {
+		action: 'visualeditor',
+		paction: 'parsefragment',
+		page: pageTitle,
+		wikitext: wikitext,
+		pst: pst
+	} );
+};
+
+/**
  * Translate and adapt the given source section
  * @param {string} source Source html content
  * @return {jQuery.Promise}
