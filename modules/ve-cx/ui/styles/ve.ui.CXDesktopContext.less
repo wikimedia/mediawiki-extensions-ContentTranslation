@@ -1,0 +1,20 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.ve-ui-cxDesktopContext {
+	font-size: 0.875em;
+	position: relative;
+	padding: 0;
+
+	.clearfix;
+
+	.ve-ui-contextItem,
+	.ve-ui-cxDesktopContext-inspectors {
+		.cx-tool-card;
+
+		.oo-ui-processDialog-content .oo-ui-window-body {
+			// Remove the outline border for the inspector window. Since the inspector
+			// is embedded in tools column.
+			outline-width: 0;
+		}
+	}
+}

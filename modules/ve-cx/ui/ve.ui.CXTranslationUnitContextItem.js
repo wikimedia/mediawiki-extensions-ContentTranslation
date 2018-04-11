@@ -14,7 +14,11 @@ ve.ui.CXTranslationUnitContextItem = function VeUiCXTranslationUnitContextItem( 
 	this.model = model;
 	this.context = context;
 	this.translation = ve.init.target.getTranslation();
-	this.translationUnit = this.translation.getTranslationUnit( this.model.getTranslationUnitId() );
+	if ( this.model.getTranslationUnitId ) {
+		// Non customized ve.dm.Model instances won't have getTranslationUnitId method. Avoid js error
+		// FIXME: The translationUnit and getTranslationUnit method can be removed? They are unused.
+		this.translationUnit = this.translation.getTranslationUnit( this.model.getTranslationUnitId() );
+	}
 };
 
 OO.initClass( ve.ui.CXTranslationUnitContextItem );

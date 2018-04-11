@@ -193,6 +193,23 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 	);
 };
 
+/**
+ * @inheritdoc
+ */
+ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
+	var surface, documentView;
+
+	surface = new ve.ui.CXSurface( dmDoc, this.translationView.toolsColumn, config );
+
+	surface.$element.addClass( this.protectedClasses );
+
+	// T164790
+	documentView = surface.getView().getDocument();
+	documentView.getDocumentNode().$element.addClass( 'mw-parser-output' );
+
+	return surface;
+};
+
 ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.surfaceReady.apply( this, arguments );

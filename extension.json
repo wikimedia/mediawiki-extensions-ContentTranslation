@@ -1499,9 +1499,31 @@
 				"mw.cx.ui.TargetColumn",
 				"mw.cx.ui.ToolsColumn",
 				"mw.cx.ui.TranslationHeader",
-				"mw.cx.util"
+				"mw.cx.util",
+				"mw.cx.visualEditor",
+				"ve.ui.CXSurface",
+				"ve.ui.CXDesktopContext"
 			]
 		},
+		"ve.ui.CXSurface":{
+			"scripts": [
+				"ve-cx/ui/ve.ui.CXSurface.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.core.desktop"
+			]
+		},
+		"ve.ui.CXDesktopContext": {
+			"scripts": [
+				"ve-cx/ui/ve.ui.CXDesktopContext.js"
+			],
+			"styles": [
+				"ve-cx/ui/styles/ve.ui.CXDesktopContext.less"
+			],
+			"dependencies": [
+				"ext.visualEditor.core.desktop"
+ 			]
+ 		},
 		"mw.cx.ui.TranslationView.legacy": {
 			"scripts": [
 				"ui/legacy/mw.cx.ui.TranslationView.js"
