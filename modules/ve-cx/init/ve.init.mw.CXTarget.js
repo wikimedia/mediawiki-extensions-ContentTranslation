@@ -142,14 +142,19 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 };
 
 ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targetView ) {
-	var $views = $( [ $sourceView[ 0 ], $targetView[ 0 ] ] );
+	var $views = $( [ $sourceView[ 0 ], $targetView[ 0 ] ] ),
+		targetSurface = this.targetSurface;
 
 	$views.on(
 		{
 			mouseenter: function () {
 				var segmentSelector;
 
-				if ( this.classList.contains( 'cx-sentence-highlight' ) ) {
+				// If target surface is disabled (usually during publishing)
+				// don't proceed with sentence highlighting
+				if ( targetSurface.isDisabled() ||
+					this.classList.contains( 'cx-sentence-highlight' )
+				) {
 					return;
 				}
 
@@ -168,7 +173,11 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 			mouseenter: function () {
 				var sectionNumber;
 
-				if ( this.classList.contains( 'cx-section-highlight' ) ) {
+				// If target surface is disabled (usually during publishing)
+				// don't proceed with section highlighting
+				if ( targetSurface.isDisabled() ||
+					this.classList.contains( 'cx-section-highlight' )
+				) {
 					return;
 				}
 
@@ -253,6 +262,7 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	this.publishButton.setDisabled( true )
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
 	this.emit( 'publish' );
+	this.translationView.translationHeader.publishSettings.setDisabled( true );
 	this.targetSurface.setDisabled( true );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 };
@@ -438,6 +448,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
+	this.translationView.translationHeader.publishSettings.setDisabled( false );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
@@ -453,6 +464,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	);
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
+	this.translationView.translationHeader.publishSettings.setDisabled( false );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
@@ -460,6 +472,7 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.translationView.showMessage( 'error', errorMessage );
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
+	this.translationView.translationHeader.publishSettings.setDisabled( false );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 

@@ -2,7 +2,6 @@
 
 .ve-ce-cxPlaceholderNode {
 	opacity: 0;
-	cursor: pointer;
 	-webkit-transition: opacity 200ms ease-out;
 	-moz-transition: opacity 200ms ease-out;
 	transition: opacity 200ms ease-out;
@@ -14,7 +13,6 @@
 	display: table;
 	width: 100%;
 
-	&:hover,
 	&.ve-ce-focusableNode-focused {
 		opacity: 1;
 	}
@@ -29,4 +27,11 @@
 		display: table-cell;
 		vertical-align: middle;
 	}
+}
+
+// We don't want to show the placeholder during publishing,
+// so content container is checked if it's disabled.
+.cx-content-container:not( .oo-ui-widget-disabled ) .ve-ce-cxPlaceholderNode:hover {
+	cursor: pointer;
+	opacity: 1;
 }
