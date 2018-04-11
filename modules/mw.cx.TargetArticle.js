@@ -131,9 +131,14 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		}
 	}
 
-	// Handle token errors
 	editError = data.error;
-	if ( editError && editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
+	if ( editError && editError.code === 'invalidtitle' ) {
+		this.showPublishError(
+			mw.message( 'title-invalid-characters', this.getTargetTitle() ).text(),
+			JSON.stringify( editError )
+		);
+		return;
+	} else if ( editError && editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
 		this.showUnrecoverablePublishError(
 			mw.msg( 'cx-lost-session-publish' ),
 			JSON.stringify( editError )

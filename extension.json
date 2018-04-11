@@ -1398,7 +1398,8 @@
 				"cx-publish-error-unknown",
 				"cx-publishing-dialog-publish-anyway-button",
 				"cx-publishing-dialog-sub-title",
-				"cx-publishing-dialog-title"
+				"cx-publishing-dialog-title",
+				"title-invalid-characters"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",

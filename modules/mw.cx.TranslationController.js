@@ -358,26 +358,25 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
  */
 mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	var currentTitleObj, newTitleObj,
+		currentTitle = this.translation.getTargetTitle(),
 		newTitle = this.translationView.targetColumn.getTitle();
 
-	if ( this.translation.getTargetTitle() === newTitle ) {
+	if ( currentTitle === newTitle ) {
 		// Nothing really changed.
 		return;
 	}
 
-	this.targetTitleChanged = true;
-
-	newTitleObj = mw.Title.newFromText( newTitle );
-	if ( !newTitleObj ) {
-		mw.log.error( '[CX] Invalid target title' );
-		return;
-	}
-	currentTitleObj = mw.Title.newFromText( this.translation.getTargetTitle() );
 	this.translation.setTargetTitle( newTitle );
+	this.targetTitleChanged = true;
+	this.schedule();
 
-	if ( currentTitleObj.getNamespaceId() !== newTitleObj.getNamespaceId() ) {
+	currentTitleObj = mw.Title.newFromUserInput( currentTitle );
+	newTitleObj = mw.Title.newFromUserInput( newTitle );
+
+	if (
+		currentTitleObj && newTitleObj &&
+		currentTitleObj.getNamespaceId() !== newTitleObj.getNamespaceId()
+	) {
 		this.veTarget.updateNamespace();
 	}
-
-	this.schedule();
 };

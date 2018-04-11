@@ -220,8 +220,20 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 	return this.translation;
 };
 
+/**
+ * Enable publish settings if target title is valid, disable otherwise.
+ */
+ve.init.mw.CXTarget.prototype.enablePublishSettings = function () {
+	if ( !mw.Title.newFromText( this.pageName ) ) {
+		this.translationView.translationHeader.publishSettings.setDisabled( true );
+	} else {
+		this.translationView.translationHeader.publishSettings.setDisabled( false );
+	}
+};
+
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.pageName = this.translationView.targetColumn.getTitle();
+	this.enablePublishSettings();
 	this.emit( 'targetTitleChange' );
 	this.throttleAlignSectionPairs();
 };
@@ -242,7 +254,7 @@ ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
  */
 ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 	// Enable publish settings, once translation editor is ready
-	this.translationView.translationHeader.publishSettings.setDisabled( false );
+	this.enablePublishSettings();
 };
 
 /**
@@ -270,7 +282,9 @@ ve.init.mw.CXTarget.prototype.updateNamespace = function () {
 };
 
 ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
-	return mw.Title.newFromText( this.pageName ).getNamespaceId();
+	var titleObj = mw.Title.newFromText( this.pageName );
+
+	return titleObj ? titleObj.getNamespaceId() : mw.cx.getDefaultTargetNamespace();
 };
 
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
@@ -491,7 +505,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
-	this.translationView.translationHeader.publishSettings.setDisabled( false );
+	this.enablePublishSettings();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
@@ -507,7 +521,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 	);
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
-	this.translationView.translationHeader.publishSettings.setDisabled( false );
+	this.enablePublishSettings();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
@@ -515,7 +529,7 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.translationView.showMessage( 'error', errorMessage );
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setDisabled( false );
-	this.translationView.translationHeader.publishSettings.setDisabled( false );
+	this.enablePublishSettings();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
