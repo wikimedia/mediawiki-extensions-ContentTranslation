@@ -237,7 +237,9 @@ class ApiContentTranslationSave extends ApiBase {
 				// Making this required immediately would cause issues for on-going translations
 				// during deployment. Maybe this doesn't ever need to be required.
 				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_TYPE => [ 1, 2 ]
+				ApiBase::PARAM_RANGE_ENFORCE => true,
+				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => 2,
 			]
 		];
 	}
