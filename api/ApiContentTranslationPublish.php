@@ -6,7 +6,7 @@
  * - A change tag is added.
  * - The edit summary shows a link to the revision from which the translation was made.
  * - Optionally, a template is added if the article appears to have a lot of machine translation.
- * - Categories are hidden in <nowiki> if the page is not published to the main space.
+ * - Categories are hidden in <nowiki> if the page is published to the user namespace.
  * - Information about the translated page is saved to the central ContentTranslation database.
  * - When relevant, values of MediaWiki CAPTCHA can be sent.
  * - When relevant, Echo notifications about publishing milestones will be sent.
@@ -263,6 +263,10 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function isWriteMode() {
+		return true;
+	}
+
+	public function isInternal() {
 		return true;
 	}
 

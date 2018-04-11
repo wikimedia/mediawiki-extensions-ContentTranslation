@@ -251,4 +251,8 @@ class ApiContentTranslationSave extends ApiBase {
 	public function isWriteMode() {
 		return true;
 	}
+
+	public function isInternal() {
+		return true;
+	}
 }
