@@ -128,6 +128,14 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.getCategories = function () {
 };
 
 /**
+ * Don't perform any action when tag items inside this widget are disabled.
+ * This is used to override unwanted OOUI behavior where disabled tags are
+ * always moved to the beginning, which causes tag items to reshuffle when
+ * disabled state is changed.
+ */
+mw.cx.ui.CategoryMultiselectWidget.prototype.onTagDisabled = function () {};
+
+/**
  * @param {mw.cx.ui.CategoryInputWidget} item
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.onInputChoose = function ( item ) {
