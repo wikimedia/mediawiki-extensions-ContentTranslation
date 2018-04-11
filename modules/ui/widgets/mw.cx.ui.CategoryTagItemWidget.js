@@ -20,6 +20,8 @@ mw.cx.ui.CategoryTagItemWidget = function CategoryTagItemWidget( config ) {
 	// Parent constructor
 	mw.cx.ui.CategoryTagItemWidget.super.call( this, config );
 
+	this.originalDisabledState = config.disabled === true;
+
 	this.$element.addClass( 'mw-cx-ui-CategoryTagItemWidget' );
 	if ( config.hideRemoveButton ) {
 		this.closeButton.$element.remove();
@@ -36,6 +38,10 @@ mw.cx.ui.CategoryTagItemWidget = function CategoryTagItemWidget( config ) {
 OO.inheritClass( mw.cx.ui.CategoryTagItemWidget, OO.ui.TagItemWidget );
 
 /* Methods */
+
+mw.cx.ui.CategoryTagItemWidget.prototype.restoreOriginalDisabledState = function () {
+	this.setDisabled( this.originalDisabledState );
+};
 
 /**
  * @fires 'mouseenter'
