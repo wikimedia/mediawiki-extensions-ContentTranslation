@@ -142,6 +142,8 @@
 	"cx-publishing-dialog-message": "Stránka $1 již existuje. Aktuální obsah bude nahrazen vaším překladem. Chcete jej přesto publikovat?",
 	"cx-publishing-dialog-keep-button": "Zachovat obě verze",
 	"cx-publishing-dialog-publish-anyway-button": "Přesto publikovat",
+	"cx-publishing-dialog-title": "Váš překlad příše existující stránku",
+	"cx-publishing-dialog-sub-title": "Ujistěte se prosím, že je vhodné přepsat stávající stránku.",
 	"cx-discard-translation": "Smazat překlad",
 	"cx-translation-status-draft": "V přípravě",
 	"cx-translation-status-published": "Zveřejněno",

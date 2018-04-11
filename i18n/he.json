@@ -134,6 +134,8 @@
 	"cx-publishing-dialog-message": "הדף $1 כבר קיים. התוכן הנוכחי יוחלף בתרגום שלך. האם {{GENDER:|אתה|את}} רוצה לפרסם אותו?",
 	"cx-publishing-dialog-keep-button": "לשמור את שתי הגרסאות",
 	"cx-publishing-dialog-publish-anyway-button": "לפרסם בכל־זאת",
+	"cx-publishing-dialog-title": "התרגום שלך יחליף את הדף הקיים",
+	"cx-publishing-dialog-sub-title": "נא לוודא שזה בסדר להחליף את הדף הקיים.",
 	"cx-discard-translation": "מחיקת תרגום",
 	"cx-translation-status-draft": "התחיל",
 	"cx-translation-status-published": "פורסם",

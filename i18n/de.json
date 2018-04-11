@@ -134,6 +134,8 @@
 	"cx-publishing-dialog-message": "Die Seite $1 ist bereits vorhanden. Der aktuelle Inhalt wird durch deine Übersetzung ersetzt. Möchtest du trotzdem veröffentlichen?",
 	"cx-publishing-dialog-keep-button": "Beide Versionen behalten",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem veröffentlichen",
+	"cx-publishing-dialog-title": "Deine Übersetzung überschreibt die vorhandene Seite",
+	"cx-publishing-dialog-sub-title": "Stelle bitte sicher, dass es in Ordnung ist, um die vorhandene Seite zu ersetzen.",
 	"cx-discard-translation": "Übersetzung verwerfen",
 	"cx-translation-status-draft": "In Bearbeitung",
 	"cx-translation-status-published": "Veröffentlicht",
