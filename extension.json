@@ -1383,13 +1383,17 @@
 				"mw.cx.TargetArticle.js"
 			],
 			"messages": [
+				"cx-draft-cancel-button-label",
 				"cx-lost-session-publish",
 				"cx-publish-error-abuse-filter",
 				"cx-publish-error-empty",
 				"cx-publish-error-readonly",
 				"cx-publish-error-spam-blacklist",
 				"cx-publish-error-title-blacklist",
-				"cx-publish-error-unknown"
+				"cx-publish-error-unknown",
+				"cx-publishing-dialog-publish-anyway-button",
+				"cx-publishing-dialog-sub-title",
+				"cx-publishing-dialog-title"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
@@ -1397,12 +1401,6 @@
 				"mw.cx.dm.Translation",
 				"oojs-ui-windows",
 				"ve.init.mw.CXTarget"
-			],
-			"messages": [
-				"cx-draft-cancel-button-label",
-				"cx-publishing-dialog-publish-anyway-button",
-				"cx-publishing-dialog-sub-title",
-				"cx-publishing-dialog-title"
 			]
 		},
 		"mw.cx.TranslationController": {
