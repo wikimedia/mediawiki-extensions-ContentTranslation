@@ -477,63 +477,6 @@ mw.cx.TargetArticle.prototype.isTitleExist = function ( title ) {
 	} );
 };
 
-/**
- * Checks for an equivalent page in the target wiki based on source title.
- *
- * @param {string} sourceLanguage the source language
- * @param {string} targetLanguage the target language
- * @param {string} sourceTitle the title to check
- * @return {jQuery.promise}
- */
-mw.cx.TargetArticle.prototype.isTitleConnectedInLanguages = function (
-	sourceLanguage,
-	targetLanguage,
-	sourceTitle
-) {
-	var api = this.siteMapper.getApi( sourceLanguage );
-
-	return api.get( {
-		action: 'query',
-		prop: 'langlinks',
-		titles: sourceTitle,
-		lllang: this.siteMapper.getWikiDomainCode( targetLanguage ),
-		lllimit: 1,
-		redirects: true
-	} ).then( function ( response ) {
-		var equivalentTargetPage = false;
-
-		if ( response.query && response.query.pages ) {
-			$.each( response.query.pages, function ( pageId, page ) {
-				if ( page.langlinks ) {
-					equivalentTargetPage = page.langlinks[ 0 ][ '*' ];
-				}
-			} );
-		}
-
-		return equivalentTargetPage;
-	} );
-};
-
-/**
- * Check whether a page with the same title already exists
- * and show a warning if needed.
- */
-mw.cx.TargetArticle.prototype.validateTargetTitle = function () {
-	this.isTitleExist( this.getTargetTitle() )
-		.then( function ( pageExist ) {
-			// If page doesn't exist, it's OK
-			if ( !pageExist ) {
-				return;
-			}
-
-			mw.hook( 'mw.cx.warning' ).fire( mw.message(
-				'cx-translation-target-page-exists',
-				this.getTargetURL(),
-				this.targetTitle
-			) );
-		}.bind( this ) );
-};
-
 mw.cx.TargetArticle.prototype.getTargetURL = function () {
 	return this.siteMapper.getPageUrl( this.targetLanguage, this.getTargetTitle() );
 };
