@@ -7,14 +7,14 @@
 mw.cx.ui.TranslationView = function ( config ) {
 	this.header = new mw.cx.ui.Header( config );
 	this.infobar = new mw.cx.ui.Infobar( this.config );
-	this.sourceColumn = new mw.cx.ui.SourceColumn( config );
-	this.targetColumn = new mw.cx.ui.TargetColumn( config );
+	this.sourceColumn = new mw.cx.ui.SourceColumn( config.siteMapper, config.sourceLanguage, config.sourceTitle );
+	this.targetColumn = new mw.cx.ui.TargetColumn( config.siteMapper, config.targetLanguage, config.targetTitle );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
 	// @var {mw.cx.ui.Categories}
 	this.categoryUI = null;
 
-	this.pageName = this.targetColumn.getTargetTitle();
+	this.pageName = this.targetColumn.getTitle();
 	this.contentContainer = new OO.ui.HorizontalLayout( $.extend( {}, config, {
 		continuous: true,
 		expanded: true,
@@ -94,8 +94,10 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 mw.cx.ui.TranslationView.prototype.showCategories = function ( categoryUI ) {
 	this.categoryUI = categoryUI;
 
-	this.sourceColumn.showCategories( categoryUI );
-	this.targetColumn.showCategories( categoryUI );
+	this.sourceColumn.setCategoryCount( categoryUI.getSourceCategoryCount() );
+	this.sourceColumn.setCategoryListing( categoryUI.getSourceCategoryListing() );
+	this.targetColumn.setCategoryCount( categoryUI.getTargetCategoryCount() );
+	this.targetColumn.setCategoryListing( categoryUI.getTargetCategoryListing() );
 };
 
 /**

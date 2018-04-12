@@ -358,7 +358,7 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
  */
 mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	var currentTitleObj, newTitleObj,
-		newTitle = this.translationView.targetColumn.getTargetTitle();
+		newTitle = this.translationView.targetColumn.getTitle();
 
 	if ( this.translation.getTargetTitle() === newTitle ) {
 		// Nothing really changed.

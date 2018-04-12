@@ -1681,9 +1681,8 @@
 				"cx-tools-link-hover-tooltip"
 			],
 			"dependencies": [
-				"mw.cx.ui",
-				"ext.cx.widgets.spinner",
-				"mw.cx.ui.PageTitleWidget"
+				"mw.cx.ui.ArticleColumn",
+				"ext.cx.widgets.spinner"
 			]
 		},
 		"mw.cx.ui.SourceColumn.legacy": {
@@ -1714,9 +1713,7 @@
 				"cx-translation-add-translation"
 			],
 			"dependencies": [
-				"mw.cx.ui",
-				"ext.cx.widgets.spinner",
-				"mw.cx.ui.PageTitleWidget"
+				"mw.cx.ui.ArticleColumn"
 			]
 		},
 		"mw.cx.ui.TranslationColumn.legacy": {
@@ -1732,6 +1729,15 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"ext.cx.widgets.spinner"
+			]
+		},
+		"mw.cx.ui.ArticleColumn": {
+			"scripts": [
+				"ui/mw.cx.ui.ArticleColumn.js"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"mw.cx.ui.PageTitleWidget"
 			]
 		},
 		"mw.cx.ui.ToolsColumn": {

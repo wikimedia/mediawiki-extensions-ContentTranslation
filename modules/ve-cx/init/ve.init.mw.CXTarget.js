@@ -29,7 +29,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.translation = null;
 	this.publishButton = null;
 	this.translationView = translationView;
-	this.pageName = this.translationView.targetColumn.getTargetTitle();
+	this.pageName = this.translationView.targetColumn.getTitle();
 	this.sourceSurface = null;
 	this.targetSurface = null;
 
@@ -221,7 +221,7 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 };
 
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
-	this.pageName = this.translationView.targetColumn.getTargetTitle();
+	this.pageName = this.translationView.targetColumn.getTitle();
 	this.emit( 'targetTitleChange' );
 	this.throttleAlignSectionPairs();
 };
@@ -260,7 +260,7 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 	var newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
 	// Setting title in targetColumn will take care of necessary event firing for title change.
-	this.translationView.targetColumn.setTargetTitle( newTitle );
+	this.translationView.targetColumn.setTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
 	this.updateNamespace();
 };
@@ -344,7 +344,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
 
 	// This method can be called before restoration is complete and all nodes are attached
-	// to the DOM (e.g. via mw.cx.ui.TargetColumn.setTargetTitle). If so, skip aligment.
+	// to the DOM (e.g. via mw.cx.ui.TargetColumn#setTitle). If so, skip aligment.
 	if (
 		!document.contains( sourceDocumentNode.$element[ 0 ] ) ||
 		!document.contains( targetDocumentNode.$element[ 0 ] )

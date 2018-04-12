@@ -15,13 +15,11 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 		type: 'text',
 		autosize: true
 	} );
-	this.editable = config.editable;
+
 	// Parent constructor
 	mw.cx.widgets.PageTitleWidget.super.call( this, config );
-	this.setReadOnly( !this.editable );
-	if ( this.editable ) {
-		this.setValidation( this.validate );
-	}
+
+	this.setValidation( this.validate );
 };
 
 /* Setup */
