@@ -29,7 +29,7 @@
 	/**
 	 * @class
 	 *
-	 * @param {jQuery} container The tools container
+	 * @param {HTMLElement} container The tools container
 	 * @param {object} options Options
 	 */
 	function CXToolManager( container, options ) {

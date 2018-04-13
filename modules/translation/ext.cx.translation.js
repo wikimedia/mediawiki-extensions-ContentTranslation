@@ -15,7 +15,7 @@
 	 * @class
 	 *
 	 * @param {element} element
-	 * @param {jQuery} siteMapper
+	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @param {Object} options
 	 */
 	function ContentTranslationEditor( element, siteMapper, options ) {
