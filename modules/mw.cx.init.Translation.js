@@ -32,10 +32,6 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.translationModel = null;
 	// @var {mw.cx.TranslationController}
 	this.translationController = null;
-	// @var {mw.cx.dm.SourcePage}
-	this.sourcePage = null;
-	// @var {mw.cx.dm.TargetPage}
-	this.targetPage = null;
 	// @var {OO.ui.StackLayout}
 	this.translationView = null;
 };

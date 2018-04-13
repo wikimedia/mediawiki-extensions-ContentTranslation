@@ -27,7 +27,6 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// Parent constructor
 	ve.init.mw.CXTarget.super.call( this, config );
 	this.translation = null;
-	this.targetArticle = null;
 	this.publishButton = null;
 	this.translationView = translationView;
 	this.pageName = this.translationView.targetColumn.getTargetTitle();

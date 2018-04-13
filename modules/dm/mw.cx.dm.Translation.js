@@ -21,12 +21,10 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.id = null;
 	this.sourceCategories = null;
 	this.targetCategories = null;
-	// TODO get/set the following three sourceWikiPage/targetWikiPage properties
 	this.targetTitle = this.targetWikiPage.getTitle();
+	this.targetURL = null;
 	this.sourceRevisionId = this.sourceWikiPage.getRevision();
 	this.targetRevisionId = this.targetWikiPage.getRevision();
-	this.translator = null;
-	this.startDate = null;
 	this.status = 'draft';
 	this.progress = {
 		any: 0,
@@ -34,6 +32,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 		mt: 0,
 		mtSectionsCount: 0
 	};
+	this.savedTranslationUnits = null;
 	this.topTranslationUnits = [];
 	this.translationUnitById = {};
 
@@ -338,6 +337,10 @@ mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
 	this.status = status;
 };
 
+mw.cx.dm.Translation.prototype.getProgress = function () {
+	return this.progress;
+};
+
 mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
 	this.progress = progress;
 };
@@ -464,8 +467,4 @@ mw.cx.dm.Translation.prototype.getTranslationUnit = function ( id ) {
  */
 mw.cx.dm.Translation.prototype.getTranslationUnits = function () {
 	return this.topTranslationUnits;
-};
-
-mw.cx.dm.Translation.prototype.getProgress = function () {
-	return this.progress;
 };

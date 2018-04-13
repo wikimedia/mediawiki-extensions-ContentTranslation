@@ -13,7 +13,6 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 	this.sourceTitle = config.sourceTitle;
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
-	this.sourceRevision = config.sourceRevision;
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );
@@ -305,7 +304,7 @@ mw.cx.TargetArticle.prototype.showPublishError = function ( msg, errorLog, allow
 		this.sourceLanguage,
 		this.targetLanguage,
 		this.sourceTitle,
-		this.translation.getTargetTitle(),
+		this.getTargetTitle(),
 		errorLog
 	);
 };
