@@ -10,7 +10,9 @@
 			"INS Pirat",
 			"Metastasis",
 			"Facenapalm",
-			"Happy13241"
+			"Happy13241",
+			"Movses",
+			"Ole Yves"
 		]
 	},
 	"apihelp-cxpublish-description": "Сохранение страницы, созданной с помощью расширения Перевод содержания.",
@@ -97,14 +99,14 @@
 	"apihelp-cxsave-summary": "Этот модуль позволяет сохранять черновые переводы по разделам для экономии трафика и создания подборки текстов, переведённых на разные языки.",
 	"apihelp-cxsave-param-sourcerevision": "Версия исходной страницы.",
 	"apihelp-cxsave-param-progress": "Информация о полноте перевода (progress). JSON с ключами <code>any</code>, <code>human</code>, <code>mt</code> и <code>mtSectionsCount</code>. Значения в процентах.",
-	"apihelp-cxsave-param-content": "JSON-кодированные данные раздела. Каждый раздел является объектом и имеет следующие ключи: content, sectionId, sequenceId, sequenceId, origin",
+	"apihelp-cxsave-param-content": "JSON-кодированные данные разделов. Каждый раздел является объектом и имеет следующие ключи: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-cxsave-param-title": "Заголовок страницы, на которой будут произведены действия.",
 	"apihelp-cxsave-param-from": "Код исходного языка.",
 	"apihelp-cxsave-param-to": "Код целевого языка.",
 	"apihelp-cxsave-param-sourcetitle": "Заголовок исходной страницы.",
-	"apihelp-cxsave-param-cxversion": "Версия редактора, используемая для создания проекта перевода.",
-	"apierror-cx-docserverexception": "Ошибка преобразования HTML в викитекст: $1",
-	"apierror-cx-inuse": "Другой пользователь уже переводит эту статью.",
+	"apihelp-cxsave-param-cxversion": "Версия редактора, использовавшегося для создания черновика перевода.",
+	"apierror-cx-docserverexception": "Ошибка преобразования HTML в вики-текст: $1",
+	"apierror-cx-inuse": "Другой участник уже переводит эту статью.",
 	"apierror-cx-invalidlanguage": "Указан неподдерживаемый язык.",
 	"apierror-cx-invalidprogress": "Указан неподдерживаемый прогресс.",
 	"apierror-cx-invalidsectioncontent": "Указан неподдерживаемое содержимое раздела.",
@@ -112,7 +114,7 @@
 	"apierror-cx-invalidsourcelanguage": "Указан неподдерживаемый исходный язык.",
 	"apierror-cx-invalidtargetlanguage": "Указан неподдерживаемый язык перевода.",
 	"apierror-cx-invalidtranslator": "Указан неподдерживаемый переводчик имена.",
-	"apierror-cx-jwtmissing": "JWT не установило.",
+	"apierror-cx-jwtmissing": "JWT не установлено.",
 	"apierror-cx-keynotconfigured": "Ключ не настроен.",
 	"apierror-cx-missingdraft": "Проект не существует.",
 	"apierror-cx-mustbeloggedin-suggestions": "Вы должны войти в систему, чтобы управлять своими предложениями.",
@@ -120,7 +122,7 @@
 	"apierror-cx-samelanguages": "Исходный и целевой языки не могут быть одинаковыми.",
 	"apierror-cx-suggestionsdisabled": "Предложения не включены для этой вики.",
 	"apierror-cx-translationnotfound": "Перевод не найден.",
-	"apihelp-query+langlinkscount-description": "Получите количество других языков, на которых существует эта статья.",
-	"apihelp-query+langlinkscount-summary": "Получите количество версий других языков.",
-	"apihelp-query+langlinkscount-example-1": "Получите количество версий другого языка для страницы «Dog»"
+	"apihelp-query+langlinkscount-description": "Получить число других языков, на которых существует эта статья.",
+	"apihelp-query+langlinkscount-summary": "Получить число других языковых версий",
+	"apihelp-query+langlinkscount-example-1": "Получить число других языковых версий страницы «Dog»"
 }

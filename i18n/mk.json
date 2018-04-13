@@ -127,6 +127,8 @@
 	"cx-publishing-dialog-message": "Страницата $1 веќе постои. Тековната содржина ќе биде заменета со вашиот превод. Дали сепак сакате да ја објавите?",
 	"cx-publishing-dialog-keep-button": "Задржи ги обете верзии",
 	"cx-publishing-dialog-publish-anyway-button": "Сепак објави",
+	"cx-publishing-dialog-title": "Вашиот превод ќе ја замени постоечката страница",
+	"cx-publishing-dialog-sub-title": "Проверете дали е во ред да се замени постоечката страница.",
 	"cx-discard-translation": "Отфрли превод",
 	"cx-translation-status-draft": "Во тек",
 	"cx-translation-status-published": "Објавено",

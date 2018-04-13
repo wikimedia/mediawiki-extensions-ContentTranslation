@@ -127,6 +127,7 @@
 	"cx-publishing-dialog-message": "$1 পাতাটি ইতিমধ্যে বিদ্যমান রয়েছে। বর্তমান বিষয়বস্তু আপনার অনুবাদ দ্বারা প্রতিস্থাপন করা হবে। আপনি কি যেকোনোভাবেই প্রকাশ করতে চান?",
 	"cx-publishing-dialog-keep-button": "উভয় সংস্করণ রাখুন",
 	"cx-publishing-dialog-publish-anyway-button": "যেকোনোভাবে প্রকাশ করুন",
+	"cx-publishing-dialog-title": "আপনার অনুবাদ বিদ্যমান পাতাটির লেখা মুছে ফেলবে",
 	"cx-discard-translation": "অনুবাদ পরিত্যাগ করুন",
 	"cx-translation-status-draft": "চলমান",
 	"cx-translation-status-published": "প্রকাশিত",
