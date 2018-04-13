@@ -9,8 +9,15 @@
 mw.cx.ui.ToolsColumn = function ( config ) {
 	this.config = config;
 
-	this.editingToolbar = new OO.ui.PanelLayout( {
-		classes: [ 'cx-tools-editing-toolbar-container' ],
+	this.editingToolbarContainer = new OO.ui.PanelLayout( {
+		classes: [ 'cx-tools-editing-toolbar-container', 'cx-card' ],
+		expanded: false,
+		framed: false,
+		padded: false
+	} );
+
+	this.mtToolbarContainer = new OO.ui.PanelLayout( {
+		classes: [ 'cx-tools-mt-toolbar-container', 'cx-card' ],
 		expanded: false,
 		framed: false,
 		padded: false
@@ -22,7 +29,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		expanded: false,
 		scrollable: false,
 		padded: false,
-		items: [ this.editingToolbar ]
+		items: [ this.editingToolbarContainer, this.mtToolbarContainer ]
 	} );
 	// Configuration initialization
 	this.config = $.extend( {}, config, {

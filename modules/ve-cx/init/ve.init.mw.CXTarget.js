@@ -284,11 +284,26 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
-	this.translationView.toolsColumn.editingToolbar.$element.append(
+	this.translationView.toolsColumn.editingToolbarContainer.$element.append(
 		this.getToolbar().$element
 			.addClass( 'oo-ui-toolbar-narrow' ) // Quick fix to avoid overflowing toolbar.
 	);
+
+	ve.ui.CXTranslationToolbar.static.registerTools().then( function () {
+		var mtToolbar = new ve.ui.CXTranslationToolbar( this );
+		mtToolbar.setup( this.constructor.static.translationToolbarGroups, this.targetSurface );
+		this.translationView.toolsColumn.mtToolbarContainer.$element.append( mtToolbar.$element );
+		mtToolbar.initialize();
+	}.bind( this ) );
 };
+
+ve.init.mw.CXTarget.static.translationToolbarGroups = [
+	{
+		type: 'menu',
+		classes: [ 've-cx-toolbar-mt-menu' ],
+		include: [ { group: 'mt' } ]
+	}
+];
 
 ve.init.mw.CXTarget.static.toolbarGroups = [
 	// History
@@ -435,30 +450,42 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
 };
 
-ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var sourceNode, cxid = placeholder.getModel().getAttribute( 'cxid' ),
-		sourceNodeModel = this.getSourceSectionNode( cxid );
+/**
+ * Get the parent section model for the given seletion in the surface.
+ * @param {ve.dm.Surface} surface
+ * @param {ve.dm.LinearSelection} selection
+ * @return {ve.dm.CXSectionNode}
+ */
+ve.init.mw.CXTarget.prototype.getParentSectionForSelection = function ( surface, selection ) {
+	var section, parentBranchNode, documentModel;
 
-	// Convert DOM to node, preserving full internal list
-	// Use clipboard mode to ensure reference body is outputted
-	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, true ).body.children[ 0 ];
-
-	function restructure( section ) {
-		section = section.cloneNode( true );
-		section.removeAttribute( 'rel' );
-		section.id = 'cxTargetSection' + mw.cx.getSectionNumberFromSectionId( cxid );
-		// TODO: it's horrible that id attributes get duplicated
-		// $( section ).find( '[id]' ).each( function ( i, node ) {
-		// 	node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
-		// } );
-		return section;
+	documentModel = surface.getModel().getDocument();
+	parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
+	while ( parentBranchNode ) {
+		if ( parentBranchNode.type === 'cxSection' ) {
+			section = parentBranchNode;
+			break;
+		} else {
+			parentBranchNode = parentBranchNode.parent;
+		}
 	}
+	return section;
+};
 
-	this.translate( restructure( sourceNode ).outerHTML ).done(
-		this.gotPlaceholderTranslation.bind( this, placeholder )
-	).fail( function () {
-		ve.error( 'Failed loading translation for #' + cxid );
-	} );
+/**
+ * Handle clicks for placeholder sections.
+ * @param {ve.ce.CXPlaceholderNode} placeholder
+ */
+ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
+	var cxid = placeholder.getModel().getAttribute( 'cxid' );
+
+	this.config.MTManager.getPreferredProvider().then( function ( provider ) {
+		this.translateSection( cxid, provider ).done(
+			this.setSectionContent.bind( this, placeholder.getModel() )
+		).fail( function () {
+			ve.error( 'Failed loading translation for #' + cxid );
+		} );
+	}.bind( this ) );
 };
 
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
@@ -492,13 +519,18 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
-ve.init.mw.CXTarget.prototype.gotPlaceholderTranslation = function ( placeholder, data ) {
+/**
+ * Set the section content to the given content.
+ * @param {ve.dm.CXSectionNode} section Section model
+ * @param {string} content
+ */
+ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content ) {
 	var pasteDoc, newCursorRange, docLen, fragmentRange,
 		surfaceModel = this.getSurface().getModel(),
-		cxid = placeholder.getModel().getAttribute( 'cxid' ),
-		fragment = surfaceModel.getLinearFragment( placeholder.getModel().getOuterRange(), true /* noAutoSelect */ );
+		cxid = section.getAttribute( 'cxid' ),
+		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
 
-	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( data ) );
+	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( content ) );
 	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
 
 	fragment.insertContent( [
@@ -542,12 +574,28 @@ ve.init.mw.CXTarget.prototype.parseWikitextFragment = function ( wikitext, pst, 
 };
 
 /**
- * Translate and adapt the given source section
- * @param {string} source Source html content
+ * Translate and adapt the source section for the given section id.
+ * @param {string} sectionId SectionId
+ * @param {string} provider Machine translation privider
  * @return {jQuery.Promise}
  */
-ve.init.mw.CXTarget.prototype.translate = function ( source ) {
-	return this.config.MTService.getSuggestedDefaultProvider().then( function ( provider ) {
-		return this.config.MTService.translate( source, provider );
-	}.bind( this ) );
+ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider ) {
+	var sourceNode,
+		sourceNodeModel = this.getSourceSectionNode( sectionId );
+
+	// Convert DOM to node, preserving full internal list
+	// Use clipboard mode to ensure reference body is outputted
+	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, true ).body.children[ 0 ];
+
+	function restructure( section ) {
+		section = section.cloneNode( true );
+		section.removeAttribute( 'rel' );
+		section.id = 'cxTargetSection' + mw.cx.getSectionNumberFromSectionId( sectionId );
+		// TODO: it's horrible that id attributes get duplicated
+		// $( section ).find( '[id]' ).each( function ( i, node ) {
+		// 	node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
+		// } );
+		return section;
+	}
+	return this.config.MTService.translate( restructure( sourceNode ).outerHTML, provider );
 };

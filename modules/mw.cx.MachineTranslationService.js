@@ -27,13 +27,20 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
 /**
  * Translate a piece of text. The main entry point for this class.
  *
- * @param {string} text HTML to translate.
+ * @param {string} content HTML to translate.
  * @param {string} provider Which provider to use.
  * @return {jQuery.Promise} Returns the translated HTML as a string.
  */
-mw.cx.MachineTranslationService.prototype.translate = function ( text, provider ) {
+mw.cx.MachineTranslationService.prototype.translate = function ( content, provider ) {
+	if ( provider === 'source' ) {
+		// Adapt without translation.
+		return this.fetchTranslation( content );
+	}
+	if ( provider === 'scratch' ) {
+		return $.Deferred().resolve( '' );
+	}
 	return this.getCXServerToken()
-		.then( this.fetchTranslation.bind( this, text, provider ) );
+		.then( this.fetchTranslation.bind( this, content, provider ) );
 };
 
 /**
@@ -149,12 +156,13 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
  * Calls cxserver to do the translation.
  *
  * @private
- * @param {string} text HTML to translate.
- * @param {string} provider Provider to use.
- * @param {string} token Authorization token.
+ * @param {string} content HTML to translate.
+ * @param {string} [provider] Provider to use. If not given,
+ *  content is adapted without machine translation.
+ * @param {string} [token] Authorization token. Required only when the provider needs it.
  * @return {jQuery.Promise} Returns the translated HTML as a string.
  */
-mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( text, provider, token ) {
+mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content, provider, token ) {
 	var request, mtURL;
 
 	mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
@@ -167,7 +175,7 @@ mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( text, pr
 		type: 'post',
 		url: mtURL,
 		data: {
-			html: text
+			html: content
 		},
 		headers: {
 			Authorization: token

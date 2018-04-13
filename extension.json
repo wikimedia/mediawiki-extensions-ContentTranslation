@@ -1310,13 +1310,16 @@
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
-				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js"
+				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js",
+				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
+				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js"
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
-				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less"
+				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
+				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less"
 			],
 			"messages": [
 				"cx-linkcontextitem-title",
@@ -1324,7 +1327,8 @@
 				"cx-publish-destination-tooltip",
 				"cx-publish-destination-namespace-main",
 				"cx-publish-destination-namespace-user",
-				"cx-publish-destination-namespace-draft"
+				"cx-publish-destination-namespace-draft",
+				"cx-tools-mt-title"
 			],
 			"dependencies": [
 				"ext.visualEditor.mediawiki",
@@ -1440,6 +1444,12 @@
 			"scripts": [
 				"mw.cx.MachineTranslationManager.js",
 				"mw.cx.MachineTranslationService.js"
+			],
+			"messages": [
+				"cx-tools-mt-use-source",
+				"cx-tools-mt-reset",
+				"cx-tools-mt-provider-title",
+				"cx-tools-mt-dont-use"
 			],
 			"dependencies": [
 				"ext.cx.model",

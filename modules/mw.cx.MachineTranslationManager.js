@@ -25,6 +25,22 @@ mw.cx.MachineTranslationManager = function MwCxMachineTranslationManager(
 	this.MT = MTService;
 };
 
+/**
+ * Map provider id to human readable label.
+ * @param {string} provider Id of the provider
+ * @return {string} Translated label
+ */
+mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider ) {
+	var labels = {
+		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
+		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
+		source: mw.msg( 'cx-tools-mt-use-source' ),
+		reset: mw.msg( 'cx-tools-mt-reset' )
+	};
+
+	return labels[ provider ] || mw.msg( 'cx-tools-mt-provider-title', provider );
+};
+
 /* Public methods */
 
 /**
