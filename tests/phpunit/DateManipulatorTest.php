@@ -5,11 +5,14 @@
 namespace ContentTranslation\Tests;
 
 use ContentTranslation\DateManipulator;
+use PHPUnit4And6Compat;
 
 /**
  * @covers \ContentTranslation\DateManipulator
  */
 class DateManipulatorTest extends \PHPUnit\Framework\TestCase {
+	use PHPUnit4And6Compat;
+
 	public function testConstructor() {
 		$this->assertInstanceOf(
 			DateManipulator::class,
