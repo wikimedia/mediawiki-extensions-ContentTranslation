@@ -137,6 +137,8 @@
 	"cx-publishing-dialog-message": "Sidan $1 finns redan. Det nuvarande innehållet kommer att ersättas med din översättning. Vill du publicera ändå?",
 	"cx-publishing-dialog-keep-button": "Behåll båda versionerna",
 	"cx-publishing-dialog-publish-anyway-button": "Publicera ändå",
+	"cx-publishing-dialog-title": "Din översättning kommer att skriva över den befintliga sidan",
+	"cx-publishing-dialog-sub-title": "Var god kontroller att det är okej att ersätta den befintliga sidan.",
 	"cx-discard-translation": "Kassera översättning",
 	"cx-translation-status-draft": "Pågående",
 	"cx-translation-status-published": "Publicerad",
