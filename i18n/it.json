@@ -130,6 +130,7 @@
 	"cx-publishing-dialog-message": "La pagina $1 esiste già. Il contenuto attuale verrà sostituito con la tua traduzione. Vuoi pubblicare comunque?",
 	"cx-publishing-dialog-keep-button": "Mantieni entrambe le versioni",
 	"cx-publishing-dialog-publish-anyway-button": "Pubblica comunque",
+	"cx-publishing-dialog-title": "Sovrascrivi pagina esistente?",
 	"cx-discard-translation": "Scarta la traduzione",
 	"cx-translation-status-draft": "In corso",
 	"cx-translation-status-published": "Pubblicato",
