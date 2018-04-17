@@ -68,7 +68,7 @@
 	"apihelp-query+cxpublishedtranslations-example-2": "Выборка всех опубликованных переводов, переведённых с английского",
 	"apihelp-query+cxpublishedtranslations-example-3": "Выборка всех опубликованных переводов, переведённых с английского на испанский",
 	"apihelp-query+contenttranslationlangtrend-description": "База данных Query Content Translation для номеров переводов по периоду времени.",
-	"apihelp-query+contenttranslationlangtrend-summary": "База данных Query Content Translation для номеров переводов по периоду времени.",
+	"apihelp-query+contenttranslationlangtrend-summary": "Запросить в базе данных количество переводов за определёный период.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Код языка источника.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Код целевого языка.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервал вычисления тенденции. Может быть <kbd>week</kbd> (неделя) или <kbd>month</kbd> (месяц).",

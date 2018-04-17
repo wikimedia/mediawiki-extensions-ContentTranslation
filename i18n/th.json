@@ -46,7 +46,7 @@
 	"cx-entrypoint-dialog-title-in": "ชื่อเรื่องสำหรับหน้าใหม่ในภาษา$1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "สร้างตั้งแต่ต้น",
 	"cx-entrypoint-dialog-button-translate-from": "แปลจากภาษา$1",
-	"cx-special-login-error": "คุณต้องล็อกอินเพื่อที่จะแปลหน้านี้ [$1 ล็อกอิน]",
+	"cx-special-login-error": "คุณต้องเข้าสู่ระบบเพื่อที่จะแปลหน้านี้ [$1 เข้าสู่ระบบ]",
 	"cx-tools-instructions-text1": "{{GENDER:|คลิก}}ย่อหน้าต่าง ๆ เพื่อแปล",
 	"cx-tools-instructions-text2": "{{GENDER:|คุณ}}ไม่จำเป็นต้องเพิ่มหมดทุกอย่าง",
 	"cx-tools-instructions-text3": "{{GENDER:|เขียน}}ข้อความให้อ่านเป็นธรรมชาติ",
@@ -161,6 +161,6 @@
 	"cx-tools-link-external-link-placeholder": "เพิ่มลิงก์ภายนอก",
 	"cx-tools-link-to-another-page": "ลิงก์ไปอีกหน้า",
 	"cx-tools-link-apply": "เสร็จสิ้น",
-	"cx-personaltools-anon": "ยังไม่ลงชื่อเข้า",
+	"cx-personaltools-anon": "ยังไม่ได้เข้าสู่ระบบ",
 	"mw-pageselector-missing": "ไม่มีหน้านี้"
 }
