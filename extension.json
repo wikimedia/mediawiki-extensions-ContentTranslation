@@ -29,6 +29,7 @@
 		"BeforePageDisplay": "ContentTranslationHooks::addModules",
 		"GetBetaFeaturePreferences": "ContentTranslationHooks::getPreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
+		"ResourceLoaderRegisterModules": "ContentTranslationHooks::addMessages",
 		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
 		"ResourceLoaderTestModules": "ContentTranslationHooks::onResourceLoaderTestModules",
@@ -1866,6 +1867,26 @@
 				"cx-no-target-categories",
 				"cx-no-adapted-categories",
 				"cx-tools-categories-count-message"
+			]
+		},
+		"mw.cx.ui.CaptchaDialog": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/mw.cx.ui.CaptchaDialog.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.CaptchaDialog.less"
+			],
+			"messages": [
+				"colon-separator",
+				"cx-captcha-dialog-error",
+				"cx-captcha-dialog-cancel",
+				"cx-publish-button",
+				"cx-publish-captcha-title"
+			],
+			"dependencies": [
+				"mw.cx.externalmessages",
+				"mw.cx.ui"
 			]
 		},
 		"mw.cx.ui.TranslationUnits": {

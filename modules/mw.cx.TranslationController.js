@@ -43,6 +43,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 	} );
 
 	this.targetArticle.connect( this, {
+		captchaCancel: 'onPublishCancel',
 		publishCancel: 'onPublishCancel',
 		publishSuccess: 'onPublishSuccess',
 		publishError: 'onPublishFailure'

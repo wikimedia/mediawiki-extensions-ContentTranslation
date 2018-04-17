@@ -195,6 +195,40 @@ class ContentTranslationHooks {
 	}
 
 	/**
+	 * Hook: ResourceLoaderRegisterModules
+	 *
+	 * @param ResourceLoader &$resourceLoader Client-side code and assets to be loaded.
+	 */
+	public static function addMessages( ResourceLoader &$resourceLoader ) {
+		$cxResourceTemplate = [
+			'localBasePath' => dirname( __DIR__ ),
+			'remoteExtPath' => 'ContentTranslation',
+		];
+
+		$externalMessages = [];
+		if ( class_exists( 'ConfirmEditHooks' ) ) {
+			$externalMessages[] = 'captcha-create';
+			$externalMessages[] = 'captcha-label';
+
+			if ( class_exists( 'QuestyCaptcha' ) ) {
+				$externalMessages[] = 'questycaptcha-create';
+			}
+
+			if ( class_exists( 'FancyCaptcha' ) ) {
+				$externalMessages[] = 'fancycaptcha-create';
+				$externalMessages[] = 'fancycaptcha-reload-text';
+			}
+		}
+
+		$resourceLoader->register( [
+			'mw.cx.externalmessages' => $cxResourceTemplate + [
+				'messages' => $externalMessages,
+				'targets' => [ 'desktop', 'mobile' ],
+			]
+		] );
+	}
+
+	/**
 	 * Hooks: ListDefinedTags and ChangeTagsListActive
 	 * Define the content translation change tag, and mark it as active.
 	 * @param array &$tags

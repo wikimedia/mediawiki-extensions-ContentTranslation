@@ -1,6 +1,9 @@
 /**
  * Target Article for CX - Validation, Publishing, Success and Error handling.
  *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
+ *
  * @param {mw.cx.dm.Translation} translation
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {object} config Translation configuration
@@ -19,6 +22,7 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 
 	// Properties
 	this.captcha = null;
+	this.captchaDialog = null;
 };
 
 /* Inheritance */
@@ -29,17 +33,17 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
  * Publish the translated content to target wiki.
  */
 mw.cx.TargetArticle.prototype.publish = function () {
-	var apiParams;
-
-	apiParams = $.extend( {}, this.captcha || {}, {
+	var apiParams = {
 		assert: 'user',
 		action: 'cxpublish',
 		from: this.sourceLanguage,
 		to: this.targetLanguage,
 		sourcetitle: this.sourceTitle,
 		html: this.getContent( true ),
-		categories: this.translation.getTargetCategories()
-	} );
+		categories: this.translation.getTargetCategories(),
+		wpCaptchaId: this.captcha && this.captcha.id,
+		wpCaptchaWord: this.captcha && this.captcha.input.getValue()
+	};
 
 	// Check for title conflicts
 	this.checkTargetTitle( this.getTargetTitle() ).then( function ( title ) {
@@ -70,7 +74,9 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 
 	if ( publishResult.edit.captcha ) {
 		// If there is a captcha challenge, get the solution and retry.
-		return this.showErrorCaptcha( publishResult.edit.captcha );
+		return this.loadCaptchaDialog().then(
+			this.showErrorCaptcha.bind( this, publishResult.edit.captcha )
+		);
 	}
 
 	// Any other failure
@@ -78,9 +84,10 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 };
 
 /**
- * @fires publish
+ * @fires publishSuccess
  */
 mw.cx.TargetArticle.prototype.publishComplete = function () {
+	this.captcha = null;
 	this.emit( 'publishSuccess' );
 };
 
@@ -156,17 +163,13 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 	// Captcha "errors" usually aren't errors. We simply don't know about them ahead of time,
 	// so we save once, then (if required) we get an error with a captcha back and try again after
 	// the user solved the captcha.
-	// TODO: ConfirmEdit API is horrible, there is no reliable way to know whether it is a "math",
-	// "question" or "fancy" type of captcha. They all expose differently named properties in the
-	// API for different things in the UI. At this point we only support the SimpleCaptcha and FancyCaptcha
-	// which we very intuitively detect by the presence of a "url" property.
 	if ( editResult && editResult.captcha && (
-		editResult.captcha.url ||
+		editResult.captcha.type === 'image' ||
 		editResult.captcha.type === 'simple' ||
 		editResult.captcha.type === 'math' ||
 		editResult.captcha.type === 'question'
 	) ) {
-		this.showErrorCaptcha( editResult );
+		this.loadCaptchaDialog().then( this.showErrorCaptcha.bind( this, editResult ) );
 		return;
 	}
 
@@ -175,68 +178,70 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 };
 
 /**
+ * Load captcha dialog dependency dynamically, since captcha dialog is rarely shown.
+ *
+ * @return {jQuery}
+ */
+mw.cx.TargetArticle.prototype.loadCaptchaDialog = function () {
+	return mw.loader.using( 'mw.cx.ui.CaptchaDialog' ).then( this.setupCaptchaDialog.bind( this ) );
+};
+
+mw.cx.TargetArticle.prototype.setupCaptchaDialog = function () {
+	if ( this.captchaDialog ) {
+		// Dialog is already set up
+		return;
+	}
+
+	this.captchaDialog = new mw.cx.ui.CaptchaDialog();
+	this.captchaDialog.connect( this, {
+		publish: 'publish',
+		cancel: 'onCaptchaCancel'
+	} );
+	OO.ui.getWindowManager().addWindows( [ this.captchaDialog ] );
+};
+
+/**
  * Handle captcha challenge error
  *
- * @param {Object} apiResult publishing api result
+ * @param {Object} apiResult publishing API result
  * @fires publishErrorCaptcha
  */
 mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
-	var $captchaDiv = $( '<div>' ),
-		$captchaParagraph = $( '<p>' );
+	if ( this.captcha ) {
+		this.captchaDialog.showErrors( mw.msg( 'cx-captcha-dialog-error' ) );
+	}
 
-	// TODO Not tested
 	this.captcha = {
-		input: new OO.ui.TextInputWidget(),
-		id: apiResult.captcha.id
+		input: this.captchaDialog.input,
+		id: apiResult.id
 	};
-	$captchaDiv.append( $captchaParagraph );
-	$captchaParagraph.append(
-		$( '<strong>' ).text( mw.msg( 'captcha-label' ) ),
-		document.createTextNode( mw.msg( 'colon-separator' ) )
-	);
-	if ( apiResult.captcha.url ) {
+
+	if ( apiResult.type === 'image' ) {
 		// FancyCaptcha
 		// Based on FancyCaptcha::getFormInformation() (https://git.io/v6mml) and
 		// ext.confirmEdit.fancyCaptcha.js in the ConfirmEdit extension.
 		mw.loader.load( 'ext.confirmEdit.fancyCaptcha' );
-		$captchaDiv.addClass( 'fancycaptcha-captcha-container' );
-		$captchaParagraph.append(
-			$( $.parseHTML( mw.message( 'fancycaptcha-edit' ).parse() ) )
-				.filter( 'a' ).attr( 'target', '_blank' ).end()
-		);
-		$captchaDiv.append(
-			$( '<img>' ).attr( 'src', apiResult.captcha.url ).addClass( 'fancycaptcha-image' ),
-			' ',
-			$( '<a>' ).addClass( 'fancycaptcha-reload' ).text( mw.msg( 'fancycaptcha-reload-text' ) )
-		);
-	} else if ( apiResult.captcha.type === 'simple' || apiResult.captcha.type === 'math' ) {
+		this.captchaDialog.setFancyCaptcha( apiResult.url );
+	} else if ( apiResult.type === 'simple' || apiResult.type === 'math' ) {
 		// SimpleCaptcha and MathCaptcha
-		$captchaParagraph.append(
-			mw.message( 'captcha-edit' ).parse(),
-			'<br>',
-			document.createTextNode( apiResult.captcha.question )
-		);
-	} else if ( apiResult.captcha.type === 'question' ) {
+		this.captchaDialog.setCaptcha( 'captcha-create', apiResult.question, apiResult.mime );
+	} else if ( apiResult.type === 'question' ) {
 		// QuestyCaptcha
-		$captchaParagraph.append(
-			mw.message( 'questycaptcha-edit' ).parse(),
-			'<br>',
-			apiResult.captcha.question
-		);
+		this.captchaDialog.setCaptcha( 'questycaptcha-create', apiResult.question, apiResult.mime );
+	} else {
+		mw.log.error( '[CX] Unsupported captcha type: ' + apiResult.type );
+		return;
 	}
 
-	$captchaDiv.append( this.captcha.input.$element );
+	OO.ui.getWindowManager().openWindow( 'cxCaptcha' );
+};
 
-	// ProcessDialog's error system isn't great for this yet.
-	this.publishDialog.clearMessage( 'api-save-error' );
-	this.publishDialog.showMessage( 'api-save-error', $captchaDiv );
-	this.publishDialog.popPending();
-
-	this.publishDialog.updateSize();
-
-	this.captcha.input.focus();
-
-	this.emit( 'publishErrorCaptcha' );
+/**
+ * @fires 'captchaCancel'
+ */
+mw.cx.TargetArticle.prototype.onCaptchaCancel = function () {
+	this.captcha = null;
+	this.emit( 'captchaCancel' );
 };
 
 /**
@@ -357,6 +362,13 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
  * @return {jQuery.Promise}
  */
 mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
+	// CAPTCHA check may occur as a response to the request to publish the translation.
+	// If that happens, we can and should skip these checks to avoid showing
+	// "Publish anyway" dialog again if the target page already exists.
+	if ( this.captcha ) {
+		return $.Deferred().resolve( title ).promise();
+	}
+
 	return this.isTitleExist( title ).then( function ( titleExists ) {
 		if ( !titleExists ) {
 			return title;
