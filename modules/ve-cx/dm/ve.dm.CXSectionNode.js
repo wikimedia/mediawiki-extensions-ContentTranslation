@@ -10,6 +10,7 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	ve.dm.CXSectionNode.super.apply( this, arguments );
 	// Mixin constructors
 	ve.dm.CXTranslationUnitModel.call( this );
+	ve.dm.CXLintableNode.call( this );
 
 	this.translation = ve.init.target.getTranslation();
 	// Update is triggered by a tree modification. Wait for the whole tree modification
@@ -21,6 +22,7 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 
 OO.inheritClass( ve.dm.CXSectionNode, ve.dm.SectionNode );
 OO.mixinClass( ve.dm.CXSectionNode, ve.dm.CXTranslationUnitModel );
+OO.mixinClass( ve.dm.CXSectionNode, ve.dm.CXLintableNode );
 
 /* Static Properties */
 

@@ -27,6 +27,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	this.targetTitleChanged = false;
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, this.config );
+	this.saveTracker = {};
 	this.listen();
 };
 
@@ -186,7 +187,7 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 };
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
-	var sectionNumber, minutes = 0;
+	var sectionNumber, section, validations, minutes = 0;
 
 	if ( this.targetTitleChanged ) {
 		mw.log( '[CX] Target title saved.' );
@@ -194,15 +195,19 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	this.targetTitleChanged = false;
 
 	this.translationId = saveResult.cxsave.translationid;
+	validations = saveResult.cxsave.validations;
+
 	for ( sectionNumber in this.saveQueue ) {
-		if ( this.saveQueue.hasOwnProperty( sectionNumber ) ) {
-			mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
-			// Annotate the section with errors.
-			// if ( validations[ sectionId ] && Object.keys( validations[ sectionId ] ).length ) {
-			// cxsave API will return errors from abusefilter validations, if any.
-			// We need to set this in translation unit model. A tool attached to UI model
-			// can query the model to see if there is any error and show in tools(on focus
-			// of translation unit)
+		if ( !this.saveQueue.hasOwnProperty( sectionNumber ) ) {
+			continue;
+		}
+
+		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
+		if ( Object.keys( validations ).length ) {
+			// FIXME. Not nice to append the prefix below.
+			section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
+			// Annotate the section with errors if any.
+			this.onSaveValidation( section, validations[ sectionNumber ] );
 		}
 	}
 
@@ -239,6 +244,45 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 };
 
 /**
+ * Validation result handler
+ *
+ * @param {ve.dm.CXSectionNode} section
+ * @param {Object[]} validations
+ */
+mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
+	var id, validation, message, error, results = [];
+
+	this.saveTracker[ section.getSectionNumber() ] = this.saveTracker[ section.getSectionNumber() ] ||
+		{ count: 0, error: false };
+
+	if ( validations && Object.keys( validations ).length === 0 ) {
+		this.saveTracker[ section.getSectionNumber() ].error = false;
+		section.setLintResults( null );
+		return;
+	}
+
+	this.saveTracker[ section.getSectionNumber() ].error = true;
+	for ( id in validations ) {
+		validation = validations[ id ];
+		message = validation.warn && validation.warn.messageHtml;
+		error = validation.disallow;
+
+		if ( message ) {
+			results.push( {
+				title: mw.msg( 'cx-tools-linter-abuse-filter' ),
+				message: message,
+				messageInfo: {
+					type: error ? 'error' : 'warning',
+					help: '//www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter'
+				}
+			} );
+		}
+	}
+
+	section.setLintResults( results );
+};
+
+/**
  * Get the deflated content to save from save queue
  * @param {Object[]} saveQueue
  * @return {string}
@@ -265,10 +309,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
  */
 mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData ) {
 	var origin, translationSource, records = [],
-		validate;
-
-	// XXX Section validation for abusefilter
-	validate = false;
+		validate = false;
 
 	// XXX should use the promise, but at this point the member variable should always be present
 	translationSource = sectionData.translation.MTProvider;
@@ -278,19 +319,37 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 		origin = translationSource;
 	}
 
+	this.saveTracker[ sectionData.sectionNumber ] = this.saveTracker[ sectionData.sectionNumber ] || {
+		count: 0,
+		error: false
+	};
+
+	// To avoid large number of validations, we set validation flag in every fifth change of
+	// section or if the section has error. Or if the section has validation error.
+	validate = this.saveTracker[ sectionData.sectionNumber ].error ||
+		this.saveTracker[ sectionData.sectionNumber ].count % 5 === 0 ||
+		translationSource === 'mt';
+
+	this.saveTracker[ sectionData.sectionNumber ].count++;
 	records.push( {
 		content: sectionData.translation.content,
 		sectionId: sectionData.sectionNumber, // source section id is the canonical section id.
 		validate: validate,
 		origin: origin
 	} );
-	// XXX: Source sections are saved only once.
-	records.push( {
-		content: sectionData.source.content,
-		sectionId: sectionData.sectionNumber,
-		validate: false,
-		origin: 'source'
-	} );
+
+	// Source sections are saved only once.
+	if ( !this.saveTracker[ sectionData.sectionNumber ] ) {
+		records.push( {
+			content: sectionData.source.content,
+			sectionId: sectionData.sectionNumber,
+			validate: false, // Source sections are never validated.
+			origin: 'source'
+		} );
+		mw.log( '[CX] Saving source section ' + sectionData.sectionNumber );
+
+	}
+
 	return records;
 };
 

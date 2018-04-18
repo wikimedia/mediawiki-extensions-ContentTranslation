@@ -58,7 +58,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 					// Parent method
 					ve.ui.Tool.prototype.onUpdateState.apply( this, arguments );
 					if ( selection instanceof ve.dm.LinearSelection ) {
-						section = ve.init.target.getParentSectionForSelection( this.toolbar.getSurface(), selection );
+						section = mw.cx.getParentSectionForSelection( this.toolbar.getSurface(), selection );
 						if ( section ) {
 							mw.log( '[CX] In section ' + section.getAttribute( 'cxid' ) );
 							// TODO: Show the current mt engine for this section as selected item in

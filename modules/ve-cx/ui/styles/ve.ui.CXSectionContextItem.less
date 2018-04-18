@@ -1,0 +1,60 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.ve-ui-CXSectionContextItem {
+	> .ve-ui-linearContextItem-head {
+		.oo-ui-iconWidget {
+			cursor: pointer;
+			border: 1px solid transparent;
+
+			&:focus {
+				border-color: @colorProgressive;
+				box-shadow: inset 0 0 0 1px @colorProgressive;
+			}
+		}
+
+		.oo-ui-labelWidget {
+			color: @colorGray5;
+		}
+
+		.cx-tools-linter-view-details .oo-ui-labelElement-label {
+			font-weight: normal;
+		}
+	}
+
+	> .ve-ui-linearContextItem-body {
+		max-height: none;
+		border-top: 1px solid @colorGray14;
+		padding: 0;
+
+		> .cx-tools-linter-issues-layout {
+			padding-top: 1.5em;
+		}
+
+		> .cx-tools-linter-errors-count,
+		> .cx-tools-linter-warnings-count {
+			padding: 1em;
+
+			.oo-ui-iconElement-icon {
+				display: inline-block;
+				width: 0.5em;
+				height: 0.5em;
+				margin-right: 0.3em;
+				border-radius: 50%;
+				opacity: 1;
+			}
+
+			.oo-ui-labelElement-label {
+				color: @colorGray7;
+				font-weight: bold;
+			}
+		}
+
+		> .cx-tools-linter-errors-count .oo-ui-iconElement-icon {
+			background-color: @colorDestructive;
+		}
+
+		> .cx-tools-linter-warnings-count .oo-ui-iconElement-icon {
+			background-color: @colorLowSevere;
+		}
+	}
+}

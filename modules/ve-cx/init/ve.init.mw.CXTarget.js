@@ -465,28 +465,6 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 };
 
 /**
- * Get the parent section model for the given seletion in the surface.
- * @param {ve.dm.Surface} surface
- * @param {ve.dm.LinearSelection} selection
- * @return {ve.dm.CXSectionNode}
- */
-ve.init.mw.CXTarget.prototype.getParentSectionForSelection = function ( surface, selection ) {
-	var section, parentBranchNode, documentModel;
-
-	documentModel = surface.getModel().getDocument();
-	parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
-	while ( parentBranchNode ) {
-		if ( parentBranchNode.type === 'cxSection' ) {
-			section = parentBranchNode;
-			break;
-		} else {
-			parentBranchNode = parentBranchNode.parent;
-		}
-	}
-	return section;
-};
-
-/**
  * Handle clicks for placeholder sections.
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */

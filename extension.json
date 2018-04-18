@@ -1234,6 +1234,12 @@
 				"mw.cx.dm"
 			]
 		},
+		"mw.cx.dm.TranslationIssue": {
+			"scripts": "dm/mw.cx.dm.TranslationIssue.js",
+			"dependencies": [
+				"mw.cx.dm"
+			]
+		},
 		"mw.cx.dm.TranslationUnits": {
 			"dependencies": [
 				"mw.cx.dm.TranslationUnit",
@@ -1297,6 +1303,7 @@
 				"ve-cx/dm/ve.dm.CXTranslationUnitModel.js",
 				"ve-cx/dm/ve.dm.CXLinkAnnotation.js",
 				"ve-cx/dm/ve.dm.CXSentenceSegmentAnnotation.js",
+				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js",
 				"ve-cx/dm/ve.dm.CXSectionNode.js",
 				"ve-cx/dm/ve.dm.CXBlockImageNode.js",
 				"ve-cx/dm/ve.dm.CXImageCaptionNode.js",
@@ -1309,6 +1316,7 @@
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
+				"ve-cx/ui/ve.ui.CXSectionContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js",
 				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
@@ -1319,6 +1327,7 @@
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
+				"ve-cx/ui/styles/ve.ui.CXSectionContextItem.less",
 				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less"
 			],
 			"messages": [
@@ -1328,7 +1337,15 @@
 				"cx-publish-destination-namespace-main",
 				"cx-publish-destination-namespace-user",
 				"cx-publish-destination-namespace-draft",
-				"cx-tools-mt-title"
+				"cx-tools-mt-title",
+				"cx-tools-linter-errors-count",
+				"cx-tools-linter-generic-title",
+				"cx-tools-linter-issues",
+				"cx-tools-linter-issues-count",
+				"cx-tools-linter-learn-more",
+				"cx-tools-linter-mark-as-resolved",
+				"cx-tools-linter-view-details",
+				"cx-tools-linter-warnings-count"
 			],
 			"dependencies": [
 				"ext.visualEditor.mediawiki",
@@ -1420,7 +1437,8 @@
 				"cx-save-draft-saving",
 				"cx-save-draft-shortcut-label",
 				"cx-save-draft-tooltip",
-				"cx-page-old-revision-loaded"
+				"cx-page-old-revision-loaded",
+				"cx-tools-linter-abuse-filter"
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
@@ -1816,6 +1834,18 @@
 			],
 			"messages": [
 				"categories"
+			]
+		},
+		"mw.cx.ui.TranslationIssueWidget": {
+			"scripts": [
+				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.TranslationIssueWidget.less"
+			],
+			"dependencies": [
+				"mw.cx.ui",
+				"oojs-ui"
 			]
 		},
 		"mw.cx.ui.Categories": {

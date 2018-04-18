@@ -48,7 +48,7 @@ ve.ui.CXTranslationAction.prototype.translate = function ( engine ) {
 		return false;
 	}
 
-	section = ve.init.target.getParentSectionForSelection( this.surface, selection );
+	section = mw.cx.getParentSectionForSelection( this.surface, selection );
 
 	if ( !section ) {
 		mw.log.error( '[CX] Could not find a CX Section as parent for the context.' );

@@ -112,3 +112,28 @@ mw.cx.getCXVersion = function () {
 	var query = new mw.Uri().query;
 	return Number( query.version || mw.config.get( 'wgContentTranslationVersion' ) );
 };
+
+/**
+ * Get the parent section model for the given seletion in the surface.
+ *
+ * @param {ve.dm.Surface} surface
+ * @param {ve.dm.LinearSelection} selection
+ * @return {ve.dm.CXSectionNode}
+ */
+mw.cx.getParentSectionForSelection = function ( surface, selection ) {
+	var section, parentBranchNode, documentModel;
+
+	documentModel = surface.getModel().getDocument();
+	parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
+
+	while ( parentBranchNode ) {
+		if ( parentBranchNode.type === 'cxSection' ) {
+			section = parentBranchNode;
+			break;
+		}
+
+		parentBranchNode = parentBranchNode.parent;
+	}
+
+	return section;
+};

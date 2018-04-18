@@ -1,0 +1,48 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+@padding: 3em;
+@left: 1em;
+
+.cx-ui-translationIssue.oo-ui-tabPanelLayout {
+	padding: 0 0 0 @padding;
+
+	> .cx-ui-translationIssue-icon {
+		position: absolute;
+		left: @left;
+		top: 0.2em;
+	}
+
+	> .cx-ui-translationIssue-title,
+	> .cx-ui-translationIssue-message {
+		padding: 0 1.5em 0 0;
+		line-height: 1.5;
+	}
+
+	> .cx-ui-translationIssue-title {
+		color: @colorGray2;
+		margin: 0 0 0.5em;
+	}
+
+	> .cx-ui-translationIssue-message {
+		color: @colorGray4;
+		margin: 0;
+	}
+
+	> .cx-ui-translationIssue-help {
+		margin-top: 1em;
+
+		&:not( :last-child ) {
+			margin-bottom: 1.5em;
+		}
+	}
+
+	> .cx-ui-translationIssue-foot:not( :empty ) {
+		margin-left: -@padding;
+		border-top: 1px solid @colorGray14;
+		padding: 0.5em @left;
+	}
+
+	.cx-ui-translationIssue-message + .cx-ui-translationIssue-foot {
+		margin-top: 1.5em;
+	}
+}

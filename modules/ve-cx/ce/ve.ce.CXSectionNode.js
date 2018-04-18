@@ -16,6 +16,11 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 			rel: 'cx:Section'
 		} )
 		.addClass( 've-ce-cxSectionNode' );
+
+	this.model.connect( this, {
+		lintIssues: 'onLintIssues',
+		lintIssuesResolved: 'onLintIssuesResolved'
+	} );
 };
 
 /* Inheritance */
@@ -27,6 +32,20 @@ OO.inheritClass( ve.ce.CXSectionNode, ve.ce.SectionNode );
 ve.ce.CXSectionNode.static.tagName = 'section';
 
 ve.ce.CXSectionNode.static.name = 'cxSection';
+
+/* Methods */
+
+/**
+ * @param {boolean} hasErrors True if lint issues have at least one error,
+ * false if all issues are warnings.
+ */
+ve.ce.CXSectionNode.prototype.onLintIssues = function ( hasErrors ) {
+	this.$element.addClass( hasErrors ? 've-ce-cxSectionNode-lint-errors' : 've-ce-cxSectionNode-lint-warnings' );
+};
+
+ve.ce.CXSectionNode.prototype.onLintIssuesResolved = function () {
+	this.$element.removeClass( 've-ce-cxSectionNode-lint-errors ve-ce-cxSectionNode-lint-warnings' );
+};
 
 /* Registration */
 
