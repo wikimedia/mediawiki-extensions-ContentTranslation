@@ -55,7 +55,7 @@
 	"cx-tools-instructions-text4": "Terjemahan mesin adalah berguna tetapi {{GENDER:|anda}} perlu menyemak teks anda untuk membuatkannya tepat.",
 	"cx-tools-instructions-text5": "{{GENDER:|Terbitkan}} terjemahan anda",
 	"cx-tools-instructions-text6": "Apabila {{GENDER:|anda}} berpuas hati dengan hasilnya, tekan \"{{int:cx-publish-button}}\".",
-	"cx-tools-searchbox-text": "Cari sebuah perkataan",
+	"cx-tools-searchbox-text": "Cari kata",
 	"cx-tools-view-guidelines": "{{GENDER:|Lihat}} garis panduan penterjemahan",
 	"cx-tools-dictionary-title": "Takrif",
 	"cx-tools-link-title": "Pautan",
@@ -77,7 +77,7 @@
 	"cx-error-page-not-found": "Laman \"$1\" tidak dapat dicari di Wikipedia $2",
 	"cx-selected-source-page-start-translation-button": "Mulakan terjemahan",
 	"cx-selected-source-page-error-page-and-title-exist": "Tajuk ini sudah digunakan di [$1 $2] untuk [$3 laman yang beza]",
-	"cx-selected-source-page-error-page-exists": "Laman ini [$1 sudah wujud] di $2",
+	"cx-selected-source-page-error-page-exists": "Laman ini [$1 sudah wujud] dalam $2",
 	"cx-selected-source-page-error-title-in-use": "Tajuk untuk laman baru [$1 sudah sedang digunakan]",
 	"cx-mt-abuse-warning-title": "Terjemahan anda {{PLURAL:$1|mengandungi}} $1% teks terjemahan mesin yang belum diubahsuai",
 	"cx-mt-abuse-warning-text": "Terjemahan mesin disediakan sebagai tempat permulaan sahaja. Anda perlu memastikan bahawa kandungannya tepat dan membaca secara semulajadi dalam bahasa anda.",
@@ -178,5 +178,6 @@
 	"cx-draft-restore-failed": "Gagal memuatkan terjemahan yang disimpan!",
 	"cx-suggestionlist-expand": "Paparkan semua",
 	"cx-suggestionlist-collapse": "Lihat kurang",
-	"cx-suggestionlist-refresh": "Muat semula cadangan"
+	"cx-suggestionlist-refresh": "Muat semula cadangan",
+	"cx-page-old-revision-loaded": "Terjemahan ini berdasarkan kandungan versi lama. Laman sumber mungkin sudah [$1 banyak berubah]. Anda boleh teruskan terjemahan ini atau mula semula dengan kandungan terbaharu."
 }

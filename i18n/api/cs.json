@@ -6,7 +6,8 @@
 			"Utar",
 			"YjM",
 			"Patriccck",
-			"Evica"
+			"Evica",
+			"Matěj Suchánek"
 		]
 	},
 	"apihelp-cxpublish-description": "Uložit stránku vytvořenou pomocí rozšíření Překlad obsahu.",
@@ -34,7 +35,7 @@
 	"apihelp-query+contenttranslationcorpora-description": "Získejte paralelní text zarovnaný v části pro daný překlad. Viz také <code>list=cxpublishedtranslations</code>. Záznamy jsou poskytovány v různých formátech pro přístup k velkým souborům.",
 	"apihelp-query+contenttranslationcorpora-summary": "Získejte paralelní text zarovnaný v části pro daný překlad. Viz také <code>list=cxpublishedtranslations</code>. Záznamy jsou poskytovány v různých formátech pro přístup k vysokým hlasitostem.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID překladu",
-	"apihelp-query+contenttranslationcorpora-param-striphtml": "Chcete se zbavit všech HTML tagů, aby jste vrátili text?",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "Zbavit se všech HTML tagů a vrátit prostý text",
 	"apihelp-query+contenttranslationcorpora-param-types": "Ve výchozím nastavení získáte všechny tři následující údaje, pokud jsou k dispozici: zdrojový text, strojový překlad a postulovaný překlad uživatelem. Tento parametr umožňuje vrátit některé z těchto typů.",
 	"apihelp-query+contenttranslationstats-description": "Statistiky využití nástroje Překlad Obsahu.",
 	"apihelp-query+contenttranslationstats-summary": "Statistiky využití nástroje Překlad Obsahu.",
@@ -70,7 +71,7 @@
 	"apihelp-query+contenttranslationlangtrend-example-2": "Získejte publikační trend pro všechny jazyky",
 	"apihelp-cxtoken-description": "Získejte JWT žetony pro ověřování pomocí cxserveru.",
 	"apihelp-cxtoken-summary": "Získejte JWT žetony pro ověřování pomocí cxserveru.",
-	"apihelp-cxtoken-example-1": "Získat autentizační žeton pro cxserver",
+	"apihelp-cxtoken-example-1": "Získat autentizační token pro cxserver",
 	"apihelp-cxdelete-description": "Odstraňte návrh překladů vytvořený pomocí rozšíření Překlad Obsahu.",
 	"apihelp-cxdelete-summary": "Odstraňte návrh překladů vytvořený pomocí rozšíření Překlad Obsahu.",
 	"apihelp-cxdelete-param-from": "Kód zdrojového jazyka.",

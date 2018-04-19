@@ -24,7 +24,7 @@
 	},
 	"cx": "Přeložit stránku",
 	"cx-dashboard-header": "Překlady",
-	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je buď vypnut, zkolaboval nebo není podporován tento prohlížeč.",
+	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je buď vypnutý, selhal, nebo tento prohlížeč není podporovaný.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Překlad Obsahu]] je nástroj k rychlému překládání stránek do vašeho jazyka. [$1 Vyzkoušejte si ho hned!]",
 	"cx-license-agreement": "Kliknutím na „$1“ souhlasíte s [//wikimediafoundation.org/wiki/Terms_of_Use Podmínkami použití] a neodvolatelně souhlasíte, že své příspěvky vložené pomocí nástroje Překlad Obsahu budete zveřejňovat pod [https://creativecommons.org/licenses/by-sa/3.0/ licencí CC BY-SA 3.0] a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s tím, že uvedení hypertextového odkazu anebo URL adresy je dostatečným splněním podmínek CC BY-SA 3.0.",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
