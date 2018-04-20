@@ -133,7 +133,7 @@
 	"cx-publishing-dialog-message": "Страница $1 већ постоји. Постојећи садржај ће бити замењен вашим преводом. Желите ли да наставите?",
 	"cx-publishing-dialog-keep-button": "Задржи обе верзије",
 	"cx-publishing-dialog-publish-anyway-button": "Свеједно објави",
-	"cx-publishing-dialog-title": "Замени постојећу страницу?",
+	"cx-publishing-dialog-title": "Пресними постојећу страницу?",
 	"cx-publishing-dialog-sub-title": "Ваш превод ће заменити постојећу страницу. Молимо Вас, потврдите да је у реду да постојећа страница буде замењена Вашим преводом.",
 	"cx-discard-translation": "Обришите превод",
 	"cx-translation-status-draft": "У току",
