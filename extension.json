@@ -129,7 +129,7 @@
 		},
 		"@ContentTranslationTranslateInTarget": "Whether to open Special:ContentTranslation in the target wiki when clicking the button in the entry point. The domain will be based on $wgContentTranslationSiteTemplates. The default is to open Special:ContentTranslation on the same wiki",
 		"ContentTranslationTranslateInTarget": false,
-		"@ContentTranslationAsBetaFeature": "Whether to have CX available only as a beta feature and only shown to the  users who have enabled the beta feature.",
+		"@ContentTranslationAsBetaFeature": "Whether to have CX available only as a beta feature and only shown to the users who have enabled the beta feature.",
 		"ContentTranslationAsBetaFeature": true,
 		"ContentTranslationDefaultSourceLanguage": "en",
 		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
@@ -1523,8 +1523,8 @@
 			],
 			"dependencies": [
 				"ext.visualEditor.core.desktop"
- 			]
- 		},
+			]
+		},
 		"mw.cx.ui.TranslationView.legacy": {
 			"scripts": [
 				"ui/legacy/mw.cx.ui.TranslationView.js"
