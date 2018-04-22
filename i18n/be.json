@@ -48,7 +48,17 @@
 	"cx-tools-link-remove": "Выдаліць спасылку",
 	"cx-tools-mt-title": "Аўтаматычны пераклад",
 	"cx-tools-mt-dont-use": "Не выкарыстоўваць машынны пераклад",
+	"cx-contributions-translation": "Пераклад",
+	"cx-campaign-newarticle-notice": "Цяпер стварэнне новых старонак шляхам <strong>перакладу</strong> стала прасцей! Хочаце паспрабаваць бэта-версію інструменту перакладу?",
+	"cx-campaign-no-thanks": "Не, дзякуй",
+	"cx-campaign-try": "Паспрабаваць інструмент перакладу",
+	"cx-campaign-contributionsmenu-mycontributions": "Уклад",
+	"cx-campaign-contributionsmenu-mytranslations": "Пераклады",
+	"cx-campaign-contributionsmenu-translate-instead": "Перакласці замест напісання з нуля",
 	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 пераклад|$1 пераклады|$1 перакладаў}}",
+	"echo-category-title-cx": "Пераклады",
+	"cx-contributions-link": "Ваш уклад",
 	"cx-tools-mt-new-providers-available": "з новымі настройкамі",
 	"cx-continue-translation": "Працягваць пераклад"
 }
