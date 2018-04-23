@@ -10,8 +10,11 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	ve.dm.CXSectionNode.super.apply( this, arguments );
 	// Mixin constructors
 	ve.dm.CXTranslationUnitModel.call( this );
-	this.connect( this, { update: 'onUpdate' } );
+
 	this.translation = ve.init.target.getTranslation();
+	// Update is triggered by a tree modification. Wait for the whole tree modification
+	// to finish, e.g. if there are relevant internal list changes to wait for.
+	this.connect( this, { update: ve.debounce( this.onUpdate.bind( this ), 0 ) } );
 };
 
 /* Inheritance */
@@ -43,14 +46,35 @@ ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
 };
 
 ve.dm.CXSectionNode.prototype.onUpdate = function () {
-	var node = this;
-	if ( this.translation && this.translation.targetDoc === this.getDocument() ) {
-		// Update is triggered by a tree modification. Wait for the whole tree modification
-		// to finish, e.g. if there are relevant internal list changes to wait for.
-		setTimeout( function () {
-			node.translation.emit( 'sectionChange', node.getTranslationUnitId() );
-		} );
+	if ( this.isTargetSection() ) {
+		this.translation.emit( 'sectionChange', this.getSectionId() );
 	}
+};
+
+/**
+ * Get the section id for this section.
+ * Example: cxTargetSection34
+ * @return {string}
+ */
+ve.dm.CXSectionNode.prototype.getSectionId = function () {
+	return this.getAttribute( 'cxid' );
+};
+
+/**
+ * Get the section number for the section. It is common for both
+ * source and target section. Examples: 45, 12 etc.
+ * @return {number} section number
+ */
+ve.dm.CXSectionNode.prototype.getSectionNumber = function () {
+	return mw.cx.getSectionNumberFromSectionId( this.getSectionId() );
+};
+
+/**
+ * Whether the section is target section or not.
+ * @return {boolean}
+ */
+ve.dm.CXSectionNode.prototype.isTargetSection = function () {
+	return this.translation && this.translation.targetDoc === this.getDocument();
 };
 
 /* Registration */
