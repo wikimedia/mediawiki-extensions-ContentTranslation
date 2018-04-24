@@ -12,7 +12,8 @@
 			"578985s",
 			"Wwycheuk",
 			"A2093064",
-			"Kly"
+			"Kly",
+			"Dongzn"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -137,7 +138,7 @@
 	"cx-publishing-dialog-keep-button": "保留兩者版本",
 	"cx-publishing-dialog-publish-anyway-button": "仍然發佈",
 	"cx-publishing-dialog-title": "您的翻譯將會覆蓋現有頁面",
-	"cx-publishing-dialog-sub-title": "請確認取代現有頁面的話是沒問題的。",
+	"cx-publishing-dialog-sub-title": "您的翻译将覆盖现有页面。请确保确实需要替换现有内容。",
 	"cx-discard-translation": "放棄翻譯",
 	"cx-translation-status-draft": "進行中",
 	"cx-translation-status-published": "已發佈",

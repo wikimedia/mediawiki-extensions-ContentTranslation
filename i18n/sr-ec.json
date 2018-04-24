@@ -48,7 +48,7 @@
 	"cx-publish-gt-published-description": "Можете да кликнете на „$1“ како бисте настављали с побољшањем странице. Проверите да ли се може читати природно.",
 	"cx-translation-add-translation": "Преведи",
 	"cx-translation-target-page-exists": "Страница са насловом [$1 $2] већ постоји у циљаном викију. Размислите о другом наслову странице.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Превођење садржаја]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|превођење садржаја]]",
 	"tag-contenttranslation-description": "Садржај је преведен са другог језика помоћу алатке за превод садржаја.",
 	"cx-source-loading": "Учитавам $1...",
 	"cx-beta": "Превод садржаја",
