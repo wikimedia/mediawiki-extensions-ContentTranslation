@@ -151,7 +151,8 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 
 				// If target surface is disabled (usually during publishing)
 				// don't proceed with sentence highlighting
-				if ( targetSurface.isDisabled() ||
+				if (
+					targetSurface.isDisabled() ||
 					this.classList.contains( 'cx-sentence-highlight' )
 				) {
 					return;
@@ -174,7 +175,8 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 
 				// If target surface is disabled (usually during publishing)
 				// don't proceed with section highlighting
-				if ( targetSurface.isDisabled() ||
+				if (
+					targetSurface.isDisabled() ||
 					this.classList.contains( 'cx-section-highlight' )
 				) {
 					return;
@@ -439,16 +441,27 @@ ve.init.mw.CXTarget.prototype.saveSection = function ( sectionId ) {
 };
 
 /**
- * Get the source node for the given section id. Accepts section id or source or target.
- * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
- * @return {ve.dm.CXSectionNode}
+ * Get the jQuery element for the given source section id.
+ *
+ * @param {string} sectionId Section id. E.g. cxSourceSection15 or cxTargetSection15
+ * @return {jQuery} Source section element
  */
-ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
+ve.init.mw.CXTarget.prototype.getSourceSectionElement = function ( sectionId ) {
 	var sectionNumber, sourceId;
 
 	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	sourceId = 'cxSourceSection' + sectionNumber;
-	return this.sourceSurface.$element.find( '#' + sourceId ).data( 'view' ).getModel();
+	return this.sourceSurface.$element.find( '#' + sourceId );
+};
+
+/**
+ * Get the source node for the given section id. Accepts section id for source or target.
+ *
+ * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
+ * @return {ve.dm.CXSectionNode}
+ */
+ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
+	return this.getSourceSectionElement( sectionId ).data( 'view' ).getModel();
 };
 
 /**
@@ -469,14 +482,18 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var cxid = placeholder.getModel().getAttribute( 'cxid' );
+	var $sourceElement,
+		cxid = placeholder.getModel().getAttribute( 'cxid' );
 
 	this.config.MTManager.getPreferredProvider().then( function ( provider ) {
 		this.translateSection( cxid, provider ).done(
 			this.setSectionContent.bind( this, placeholder.getModel() )
 		).fail( function () {
 			ve.error( 'Failed loading translation for #' + cxid );
-		} );
+		} ).always( function () {
+			$sourceElement = this.getSourceSectionElement( cxid );
+			$sourceElement.removeClass( 'cx-section-highlight' );
+		}.bind( this ) );
 	}.bind( this ) );
 };
 
