@@ -137,7 +137,7 @@
 	"cx-publishing-dialog-message": "頁面 $1 已存在。 目前內容將會以您的翻譯取代，您是否仍然要發佈？",
 	"cx-publishing-dialog-keep-button": "保留兩者版本",
 	"cx-publishing-dialog-publish-anyway-button": "仍然發佈",
-	"cx-publishing-dialog-title": "您的翻譯將會覆蓋現有頁面",
+	"cx-publishing-dialog-title": "覆蓋現有頁面？",
 	"cx-publishing-dialog-sub-title": "您的翻译将覆盖现有页面。请确保确实需要替换现有内容。",
 	"cx-discard-translation": "放棄翻譯",
 	"cx-translation-status-draft": "進行中",
