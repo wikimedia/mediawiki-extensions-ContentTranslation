@@ -93,3 +93,10 @@ mw.cx.ui.ArticleColumn.prototype.setTitle = function ( title ) {
 mw.cx.ui.ArticleColumn.prototype.getTitle = function () {
 	return this.titleWidget.getValue();
 };
+
+/**
+ * @return {mw.cx.widgets.PageTitleWidget}
+ */
+mw.cx.ui.ArticleColumn.prototype.getTitleWidget = function () {
+	return this.titleWidget;
+};

@@ -20,6 +20,12 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 	mw.cx.widgets.PageTitleWidget.super.call( this, config );
 
 	this.setValidation( this.validate );
+
+	// Events
+	$( this.getElementWindow() ).on(
+		'resize',
+		OO.ui.throttle( this.onWindowResize.bind( this ), 300 )
+	);
 };
 
 /* Setup */
@@ -47,4 +53,16 @@ mw.cx.widgets.PageTitleWidget.prototype.onKeyPress = function ( e ) {
 		this.emit( 'enter', e );
 		return false;
 	}
+};
+
+/**
+ * Window resize handler
+ */
+mw.cx.widgets.PageTitleWidget.prototype.onWindowResize = function () {
+	// We need to trick the parent adjustSize() method not to exit early
+	// because it checks if input string has changed by comparing with
+	// cache value. If there was no limitation here, we would just
+	// register adjustSize() method as window resize handler.
+	this.valCache = null;
+	this.adjustSize();
 };
