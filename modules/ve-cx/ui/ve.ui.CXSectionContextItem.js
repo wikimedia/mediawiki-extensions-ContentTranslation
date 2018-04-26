@@ -113,7 +113,7 @@ ve.ui.CXSectionContextItem.static.editable = false;
 /* Static Methods */
 
 ve.ui.CXSectionContextItem.static.isCompatibleWith = function ( model ) {
-	return ve.dm.Node && model.isEditable();
+	return ve.isInstanceOfAny( model, [ ve.dm.Node ] ) && model.isEditable();
 };
 
 /* Methods */
