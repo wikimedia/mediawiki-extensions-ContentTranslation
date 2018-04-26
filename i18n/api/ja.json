@@ -67,5 +67,6 @@
 	"apihelp-cxsave-param-progress": "翻訳の完了状況（進捗）についての情報。<code>any</code>、<code>human</code>、<code>mt</code>そして<code>mtSectionsCount</code>のキーを含むJSONです。これらのキーの値は百分率で表されます。",
 	"apihelp-cxsave-param-from": "翻訳元の言語コード。",
 	"apihelp-cxsave-param-to": "翻訳先の言語コード。",
+	"apihelp-cxsave-param-sourcetitle": "翻訳元のページ名。",
 	"apierror-cx-jwtmissing": "JWT がインストールされていません。"
 }
