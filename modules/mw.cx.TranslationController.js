@@ -330,7 +330,6 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 		this.saveTracker[ sectionData.sectionNumber ].count % 5 === 0 ||
 		translationSource === 'mt';
 
-	this.saveTracker[ sectionData.sectionNumber ].count++;
 	records.push( {
 		content: sectionData.translation.content,
 		sectionId: sectionData.sectionNumber, // source section id is the canonical section id.
@@ -339,7 +338,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 	} );
 
 	// Source sections are saved only once.
-	if ( !this.saveTracker[ sectionData.sectionNumber ] ) {
+	if ( !this.saveTracker[ sectionData.sectionNumber ].count ) {
 		records.push( {
 			content: sectionData.source.content,
 			sectionId: sectionData.sectionNumber,
@@ -347,9 +346,9 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 			origin: 'source'
 		} );
 		mw.log( '[CX] Saving source section ' + sectionData.sectionNumber );
-
 	}
 
+	this.saveTracker[ sectionData.sectionNumber ].count++;
 	return records;
 };
 

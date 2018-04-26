@@ -195,7 +195,7 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 			continue;
 		}
 		if ( !savedTranslationUnit.source ) {
-			mw.log.error( '[CX] Section saved without source? ' + sectionNumber );
+			mw.log.error( '[CX] Section saved without source? ' + translationUnitId );
 			continue;
 		}
 		$savedTranslationUnitSource = $( savedTranslationUnit.source.content );
