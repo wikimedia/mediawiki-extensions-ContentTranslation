@@ -308,8 +308,28 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
  * @return {Object[]} Objects to save
  */
 mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData ) {
-	var origin, translationSource, records = [],
-		validate = false;
+	var hasNotBeenSavedBefore, saveMetadata, validate, translationSource, origin,
+		records = [];
+
+	if ( this.saveTracker[ sectionData.sectionNumber ] ) {
+		hasNotBeenSavedBefore = false;
+		saveMetadata = this.saveTracker[ sectionData.sectionNumber ];
+	} else {
+		hasNotBeenSavedBefore = true;
+		saveMetadata = {
+			// How many times this section has been saved in the current session
+			count: 0,
+			error: false
+		};
+	}
+
+	// Because validation is computationally heavy and slow operation (server side),
+	// do not perform validation on every request, unless there is a known validation
+	// issue that should go away immediately when fixed by the user. Validation means
+	// checking whether the content matches AbuseFilter rules defined in the target wiki.
+	validate = saveMetadata.error ||
+		saveMetadata.count % 5 === 0 ||
+		translationSource === 'mt';
 
 	// XXX should use the promise, but at this point the member variable should always be present
 	translationSource = sectionData.translation.MTProvider;
@@ -319,36 +339,30 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 		origin = translationSource;
 	}
 
-	this.saveTracker[ sectionData.sectionNumber ] = this.saveTracker[ sectionData.sectionNumber ] || {
-		count: 0,
-		error: false
-	};
-
-	// To avoid large number of validations, we set validation flag in every fifth change of
-	// section or if the section has error. Or if the section has validation error.
-	validate = this.saveTracker[ sectionData.sectionNumber ].error ||
-		this.saveTracker[ sectionData.sectionNumber ].count % 5 === 0 ||
-		translationSource === 'mt';
-
 	records.push( {
 		content: sectionData.translation.content,
-		sectionId: sectionData.sectionNumber, // source section id is the canonical section id.
+		// Use source section number as the canonical section id shared by source and target.
+		sectionId: sectionData.sectionNumber,
 		validate: validate,
 		origin: origin
 	} );
 
-	// Source sections are saved only once.
-	if ( !this.saveTracker[ sectionData.sectionNumber ].count ) {
+	// Save source sections only once because they do not change.
+	if ( hasNotBeenSavedBefore ) {
 		records.push( {
 			content: sectionData.source.content,
 			sectionId: sectionData.sectionNumber,
-			validate: false, // Source sections are never validated.
+			// It makes no sense to validate source sections.
+			validate: false,
 			origin: 'source'
 		} );
-		mw.log( '[CX] Saving source section ' + sectionData.sectionNumber );
+		mw.log( '[CX] Saving source content of section ' + sectionData.sectionNumber );
 	}
 
-	this.saveTracker[ sectionData.sectionNumber ].count++;
+	saveMetadata.count++;
+
+	this.saveTracker[ sectionData.sectionNumber ] = saveMetadata;
+
 	return records;
 };
 
