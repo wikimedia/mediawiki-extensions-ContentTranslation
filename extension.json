@@ -1315,6 +1315,7 @@
 				"ve-cx/ce/ve.ce.CXBlockImageNode.js",
 				"ve-cx/ce/ve.ce.CXImageCaptionNode.js",
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
+				"ve-cx/ui/ve.ui.CXDestinationTool.js",
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXSectionContextItem.js",
@@ -1661,7 +1662,6 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
-				"mw.cx.ui.PublishSettingsWidget",
 				"oojs-ui.styles.icons-interactions"
 			]
 		},

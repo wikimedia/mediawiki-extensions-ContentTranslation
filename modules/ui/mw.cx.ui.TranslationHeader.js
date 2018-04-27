@@ -41,11 +41,6 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 		title: mw.msg( 'cx-save-draft-tooltip' )
 	} );
 
-	this.publishSettings = new mw.cx.ui.PublishSettingsWidget( {
-		disabled: true,
-		destination: mw.cx.getDefaultTargetNamespace()
-	} );
-
 	this.publishButton = new OO.ui.ButtonWidget( {
 		disabled: true,
 		flags: [ 'progressive', 'primary' ],
@@ -53,14 +48,9 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 		label: mw.msg( 'cx-publish-button' )
 	} );
 
-	this.toolbar = new OO.ui.HorizontalLayout( {
-		continuous: true,
-		expanded: true,
-		classes: [ 'cx-header-tools-container' ],
-		items: [ this.publishSettings, this.publishButton ]
-	} );
+	this.$toolbar = $( '<div>' ).addClass( 'cx-header-tools-container oo-ui-toolbar-bar' );
 
-	return [ translationCenter.$element, this.statusbar.$element, this.toolbar.$element ];
+	return [ translationCenter.$element, this.statusbar.$element, this.$toolbar ];
 };
 
 mw.cx.ui.TranslationHeader.prototype.listen = function () {
