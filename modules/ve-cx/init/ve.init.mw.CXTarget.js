@@ -220,7 +220,10 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 
 	// T164790
 	documentView = surface.getView().getDocument();
-	documentView.getDocumentNode().$element.addClass( 'mw-parser-output' );
+	// The following classes are used here
+	// * mw-content-ltr
+	// * mw-content-rtl
+	documentView.getDocumentNode().$element.addClass( 'mw-parser-output mw-content-' + documentView.getDir() );
 
 	return surface;
 };
