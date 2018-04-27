@@ -197,6 +197,8 @@
 	"cx-suggestionlist-collapse": "Δείτε λιγότερα",
 	"cx-suggestionlist-refresh": "Ανανέωση προτάσεων",
 	"cx-notification-suggestions-available": "Με βάση {{GENDER:$2|την}} προηγούμενη μετάφραση του «$1», νέες προτάσεις είναι τώρα διαθέσιμες.",
+	"cx-tools-linter-issues": "Ζητήματα",
+	"cx-tools-linter-learn-more": "Μάθετε περισσότερα",
 	"cx-tools-linter-title": "Ζητήματα περιεχομένου: $1",
 	"cx-tools-linter-content": "Περιεχόμενο που δεν πληρεί [//www.mediawiki.org/wiki/Content_translation/Abuse_filter τους περιορισμούς που τίθενται από την Wikipedia σε $1]. Παρακαλούμε να διορθώσετε τα ζητήματα πριν από τη δημοσίευση της μετάφρασης.",
 	"cx-tools-linter-view-details": "Προβολή λεπτομερειών",

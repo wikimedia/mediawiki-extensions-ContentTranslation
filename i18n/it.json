@@ -17,7 +17,8 @@
 			"Wikitoni",
 			"Selven",
 			"Liuxinyu970226",
-			"Greis"
+			"Greis",
+			"Sarah Bernabei"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -99,7 +100,9 @@
 	"cx-page-number-of-languages": "Numero di lingue",
 	"cx-mt-abuse-warning-title": "La tua traduzione contiene per {{PLURAL:$1|l'|il }}$1% testo tradotto automaticamente e da te non modificato",
 	"cx-mt-abuse-warning-text": "Le traduzioni automatiche sono fornite solo come punto di partenza. È necessario assicurarsi che il contenuto sia accurato e scorrevole da leggere nella tua lingua.",
-	"cx-publish-captcha-title": "Domanda di sicurezza",
+	"cx-publish-captcha-title": "Controllando che non sei un robot.",
+	"cx-captcha-dialog-error": "La tua risposta non è corretta. Riprova.",
+	"cx-captcha-dialog-cancel": "Annulla",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Serve}} aiuto per tradurre?",
 	"cx-dashboard-sidebar-information": "Ulteriori informazioni su questo strumento",
 	"cx-dashboard-sidebar-stats": "Statistiche",
@@ -131,6 +134,7 @@
 	"cx-publishing-dialog-keep-button": "Mantieni entrambe le versioni",
 	"cx-publishing-dialog-publish-anyway-button": "Pubblica comunque",
 	"cx-publishing-dialog-title": "Sovrascrivi pagina esistente?",
+	"cx-publishing-dialog-sub-title": "La tua traduzione sovrascriverà la pagina attuale. La prego di essere certo che sia tutto ok prima di sostituire il contenuto attuale.",
 	"cx-discard-translation": "Scarta la traduzione",
 	"cx-translation-status-draft": "In corso",
 	"cx-translation-status-published": "Pubblicato",
@@ -212,6 +216,7 @@
 	"cx-tools-linter-learn-more": "Ulteriori informazioni",
 	"cx-tools-linter-mark-as-resolved": "Contrassegna come risolto",
 	"cx-tools-linter-generic-title": "C'è un problema con la tua traduzione",
+	"cx-tools-linter-abuse-filter": "I filtri di abuso hanno verificato un contenuto problematico nella tua traduzione.",
 	"cx-tools-linter-title": "Problemi con il contenuto: $1",
 	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [//www.mediawiki.org/wiki/Content_translation/Abuse_filter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
 	"cx-tools-linter-view-details": "Visualizza dettagli",
