@@ -21,7 +21,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 		padded: false
 	} );
 	config.toolbarConfig = $.extend(
-		{ shadow: true, actions: true, floatable: false },
+		{ shadow: true, actions: true, floatable: false, $overlay: true },
 		config.toolbarConfig
 	);
 	// Parent constructor
