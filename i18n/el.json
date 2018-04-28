@@ -90,6 +90,7 @@
 	"cx-mt-abuse-warning-title": "Η μετάφρασή σας {{PLURAL:$1|περιέχει}} $1% κειμένου μη τροποποιημένη αυτόματης μετάφρασης",
 	"cx-mt-abuse-warning-text": "Η αυτόματη μετάφραση παρέχεται μόνο ως σημείο εκκίνησης. Θα πρέπει να βεβαιωθείτε ότι το περιεχόμενο είναι ακριβές και διαβάζεται φυσικά στη γλώσσα σας.",
 	"cx-publish-captcha-title": "Ερώτηση ασφαλείας",
+	"cx-captcha-dialog-cancel": "Ακύρωση",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Χρειάζεστε}} βοήθεια μεταφράζοντας;",
 	"cx-dashboard-sidebar-information": "Περισσότερα για αυτό το εργαλείο",
 	"cx-dashboard-sidebar-stats": "Στατιστικά",

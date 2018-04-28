@@ -6,6 +6,9 @@
 		]
 	},
 	"cx-tools-mt-provider-title": "Da $1",
+	"cx-publish-captcha-title": "Vardando se te si en robot",
+	"cx-captcha-dialog-error": "La to rispota l'è sbaià. Riproa.",
+	"cx-captcha-dialog-cancel": "Scansela",
 	"cx-publishing-dialog-title": "Sovrascriver la pagina esistente?",
 	"cx-no-source-categories": "Nesuna categoria",
 	"cx-stats-weekly-published": "La stimana pasà",
