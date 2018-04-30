@@ -111,7 +111,7 @@
 	"cx-suggestionlist-featured": "Destacat",
 	"cx-suggestionlist-view-source-page": "Mostra el codi de la pàgina",
 	"cx-create-new-translation": "Nova traducció",
-	"cx-save-draft-save-success": "Desat {{PLURAL:$1|fa un minut|$1 fa uns minuts|0=ara mateix}}",
+	"cx-save-draft-save-success": "Desat {{PLURAL:$1|fa un minut|fa $1 minuts|0=ara mateix}}",
 	"cx-save-draft-saving": "S’està desant…",
 	"cx-save-draft-shortcut-label": "Desa l’esborrany",
 	"cx-save-draft-tooltip": "Els esborranys de traduccions es desen automàticament.",
