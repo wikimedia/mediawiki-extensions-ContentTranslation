@@ -58,6 +58,7 @@
 	"apihelp-query+contenttranslationlangtrend-example-1": "Ruft die Veröffentlichungstendenz des Sprachpaares es-ca in wöchentlichen Intervallen ab",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Ruft die Veröffentlichungstendenz für alle Sprachen ab",
 	"apihelp-cxtoken-description": "Ruft JWT-Token zur Authentifizierung mit dem cxserver ab.",
+	"apihelp-cxtoken-summary": "Ruft JWT-Token zur Authentifizierung mit dem cxserver ab.",
 	"apihelp-cxtoken-example-1": "Ruft den Authentifikationstoken für cxserver ab",
 	"apihelp-cxdelete-description": "Löscht einen Übersetzungsentwurf, der mit Hilfe der Inhaltsübersetzung erstellt wurde.",
 	"apihelp-cxdelete-param-from": "Der Quellsprachcode.",
