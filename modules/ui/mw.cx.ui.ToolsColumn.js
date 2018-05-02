@@ -51,7 +51,9 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 OO.inheritClass( mw.cx.ui.ToolsColumn, OO.ui.StackLayout );
 
 mw.cx.ui.ToolsColumn.prototype.init = function () {
-	mw.loader.using( 'mw.cx.tools', function () {
+	mw.loader.using( [
+		'mw.cx.tools.InstructionsTool'
+	], function () {
 		mw.log( '[CX] Initializing translation tool system' );
 		this.showInstructions();
 	}.bind( this ) );

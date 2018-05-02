@@ -1509,7 +1509,6 @@
 				"ext.cx.util",
 				"mw.cx.dm.Translation",
 				"mw.cx.tools.TranslationToolFactory",
-				"mw.cx.tools",
 				"mw.cx.util",
 				"mw.cx.visualEditor"
 			]
