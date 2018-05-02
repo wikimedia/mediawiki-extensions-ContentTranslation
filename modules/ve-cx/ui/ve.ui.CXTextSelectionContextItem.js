@@ -15,6 +15,12 @@ ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 
 	// Initialization
 	this.$element.addClass( 've-ui-CXTextSelectionContextItem' );
+	this.$body.addClass( 've-ui-cxLinkContextItem-targetBody' );
+	this.$sourceBody = $( '<div>' )
+		.addClass( 've-ui-linearContextItem-body ve-ui-cxLinkContextItem-sourceBody' )
+		.insertAfter( this.$body );
+	this.editButton.setLabel( OO.ui.deferMsg( 'cx-tools-link-add' ) );
+	this.editButton.setIcon( 'add' );
 	this.selectedText = null;
 };
 
@@ -43,6 +49,7 @@ ve.ui.CXTextSelectionContextItem.static.isCompatibleWith = function ( model ) {
 };
 
 ve.ui.CXTextSelectionContextItem.static.generateBody = ve.ui.CXLinkContextItem.static.generateBody;
+ve.ui.CXTextSelectionContextItem.static.generateSourceBody = ve.ui.CXLinkContextItem.static.generateSourceBody;
 
 /* Methods */
 
@@ -70,7 +77,29 @@ ve.ui.CXTextSelectionContextItem.prototype.renderBody = function () {
 		$targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
 		this.$body.append( $targetLink );
 		this.$element.show();
+
+		if ( ve.init.platform.sourceLinkCache ) {
+			ve.init.platform.sourceLinkCache.get( this.selectedText ).then( function ( linkData ) {
+				var $sourceLink;
+				if ( linkData.missing ) {
+					this.$sourceBody.remove();
+					return;
+				}
+				targetLinkInfo = {
+					title: this.selectedText,
+					pagelanguage: translation.sourceDoc.getLang()
+				};
+				// Source link
+				$sourceLink = this.constructor.static.generateSourceBody(
+					targetLinkInfo, translation.sourceDoc.getLang()
+				);
+				this.$sourceBody.empty().append( $sourceLink );
+			}.bind( this ) );
+		} else {
+			this.$sourceBody.remove();
+		}
 	}.bind( this ) );
+
 };
 
 /**

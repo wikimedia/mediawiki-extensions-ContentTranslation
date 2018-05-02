@@ -1327,6 +1327,7 @@
 				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
+				"ve-cx/ui/styles/ve.ui.CXLinkContextItem.less",
 				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
 				"ve-cx/ui/styles/ve.ui.CXSectionContextItem.less",
 				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less"
@@ -1346,7 +1347,12 @@
 				"cx-tools-linter-learn-more",
 				"cx-tools-linter-mark-as-resolved",
 				"cx-tools-linter-view-details",
-				"cx-tools-linter-warnings-count"
+				"cx-tools-linter-warnings-count",
+				"cx-tools-link-title",
+				"cx-tools-link-add",
+				"cx-tools-missing-link-title",
+				"cx-tools-missing-link-text",
+				"cx-tools-missing-link-mark-link"
 			],
 			"dependencies": [
 				"ext.visualEditor.mediawiki",

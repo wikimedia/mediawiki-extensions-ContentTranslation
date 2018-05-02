@@ -1,0 +1,63 @@
+@import '../../../widgets/common/ext.cx.common.less';
+
+.ve-ui-cxLinkContextItem {
+	.ve-ui-linearContextItem-title {
+		padding: 0.5em 12px;
+	}
+}
+
+.ve-ui-cxLinkContextItem-sourceBody {
+	/* Inceased specifity to override parent style */
+	&.ve-ui-linearContextItem-body {
+		padding: 8px;
+	}
+	font-size: 14px;
+	background-color: @colorGray15;
+	border-top: 1px solid @colorGray12;
+
+	.ve-ui-cxLinkContextItem-title {
+		float: left;
+		padding: 4px;
+	}
+
+	.ve-ui-cxLinkContextItem-language {
+		float: right;
+		padding: 4px;
+		color: @colorGray5;
+	}
+}
+
+.ve-ui-cxLinkContextItem-targetBody {
+	padding: 8px;
+
+	.ve-ui-cxLinkContextItem-title {
+		display: block;
+		font-size: 16px;
+		color: @colorProgressive;
+		padding: 0 4px;
+	}
+
+	.ve-ui-cxLinkContextItem-description {
+		font-size: 14px;
+		color: @colorGray5;
+	}
+
+	.ve-ui-mwInternalLinkContextItem-withImage .oo-ui-iconElement-icon,
+	.ve-ui-mwInternalLinkContextItem-hasImage.oo-ui-iconElement-icon {
+		margin: 0 8px 8px 4px;
+	}
+
+	.ve-ui-cxLinkContextItem-mark-missing {
+		display: flex;
+		flex-direction: column;
+		&-text {
+			align-self: start;
+			padding: 4px;
+			color: @colorGray5;
+		}
+		&-button {
+			align-self: center;
+			margin: 8px;
+		}
+	}
+}
