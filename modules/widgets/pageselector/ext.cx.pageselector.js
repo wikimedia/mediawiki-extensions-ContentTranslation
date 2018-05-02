@@ -59,7 +59,7 @@
 			generator: 'prefixsearch',
 			gpssearch: input,
 			gpslimit: 10,
-			prop: [ 'pageimages', 'pageterms' ],
+			prop: [ 'pageimages', 'description' ],
 			piprop: 'thumbnail',
 			pithumbsize: 50,
 			pilimit: 10,
@@ -93,7 +93,7 @@
 			}
 			$description = $( '<div>' )
 				.addClass( 'mw-page-description' )
-				.text( page.terms ? page.terms.description : '' );
+				.text( page.description );
 			$resultItem = $( '<li>' )
 				.data( 'page', page )
 				.append(

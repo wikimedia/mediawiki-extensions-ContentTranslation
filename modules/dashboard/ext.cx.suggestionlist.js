@@ -319,7 +319,7 @@
 		return this.siteMapper.getApi( language ).get( {
 			action: 'query',
 			titles: titles,
-			prop: [ 'pageimages', 'pageterms' ],
+			prop: [ 'pageimages', 'description' ],
 			piprop: 'thumbnail',
 			pilimit: 50, // maximum
 			pithumbsize: 100,
@@ -363,8 +363,8 @@
 				} else {
 					item.$image.addClass( 'oo-ui-icon-page-existing' );
 				}
-				if ( page.terms ) {
-					item.$desc.text( page.terms.description ).show();
+				if ( page.description ) {
+					item.$desc.text( page.description ).show();
 				}
 			} );
 		};

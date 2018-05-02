@@ -46,7 +46,7 @@ mw.cx.LinkCache.static.processPage = function ( page ) {
 		redirect: page.redirect !== undefined,
 		disambiguation: OO.getProp( page, 'pageprops', 'disambiguation' ) !== undefined,
 		imageUrl: OO.getProp( page, 'thumbnail', 'source' ),
-		description: OO.getProp( page, 'terms', 'description' )
+		description: page.description
 	};
 };
 
@@ -101,10 +101,9 @@ mw.cx.LinkCache.prototype.getRequestPromise = function ( subqueue ) {
 	// that GET requests cannot process sometimes.
 	return this.siteMapper.getApi( this.language ).post( {
 		action: 'query',
-		prop: 'info|pageprops|pageimages|pageterms',
+		prop: 'info|pageprops|pageimages|description',
 		pithumbsize: 80,
 		pilimit: subqueue.length,
-		wbptterms: 'description',
 		ppprop: 'disambiguation',
 		titles: subqueue.join( '|' ),
 		redirects: true,

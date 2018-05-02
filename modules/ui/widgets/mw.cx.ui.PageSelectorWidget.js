@@ -198,7 +198,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			pageData[ suggestionPage.title ] = {
 				disambiguation: OO.getProp( suggestionPage, 'pageprops', 'disambiguation' ) !== undefined,
 				imageUrl: OO.getProp( suggestionPage, 'thumbnail', 'source' ),
-				description: OO.getProp( suggestionPage, 'terms', 'description' ),
+				description: suggestionPage.description,
 				originalData: suggestionPage
 			};
 
@@ -297,12 +297,11 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
 
 	return this.siteMapper.getApi( this.language ).get( {
 		action: 'query',
-		prop: [ 'pageimages', 'pageterms', 'langlinks', 'langlinkscount' ],
+		prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
 		generator: 'geosearch',
 		piprop: 'thumbnail',
 		pithumbsize: 80,
 		lllang: this.targetLanguage,
-		wbptterms: [ 'description' ],
 		ggscoord: coords,
 		ggsradius: 1000, // Search radius in meters
 		ggslimit: 3,
@@ -322,12 +321,11 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
 		return self.siteMapper.getApi( self.language ).get( {
 			action: 'query',
 			titles: titles,
-			prop: [ 'pageimages', 'pageterms', 'langlinks', 'langlinkscount' ],
+			prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
 			piprop: 'thumbnail',
 			pilimit: 10,
 			pithumbsize: 80,
-			lllang: self.targetLanguage,
-			wbptterms: [ 'description' ]
+			lllang: self.targetLanguage
 		} ).then( function ( data ) { return data; } );
 	}, function ( error ) {
 		mw.log( 'Error getting recent edit titles. ' + error );

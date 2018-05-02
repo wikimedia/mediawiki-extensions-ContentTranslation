@@ -94,7 +94,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( linkInfo, context ) 
 
 	$wrapper.append( $linkTitle );
 
-	description = OO.getProp( linkInfo, 'terms', 'description' );
+	description = linkInfo.description;
 	if ( description ) {
 		$description = $( '<span>' )
 			.addClass( 've-ui-mwInternalLinkContextItem-description' )
