@@ -1962,42 +1962,12 @@
 		},
 		"mw.cx.tools": {
 			"dependencies": [
-				"mw.cx.tools.DictionaryTool",
-				"mw.cx.tools.ExternalLinkTool",
-				"mw.cx.tools.FormatterTool",
 				"mw.cx.tools.InstructionsTool",
-				"mw.cx.tools.SourceLinkTool",
-				"mw.cx.tools.TargetLinkTool",
-				"mw.cx.tools.NewLinkTool",
-				"mw.cx.tools.MachineTranslationTool",
-				"mw.cx.tools.ReferenceTool",
 				"mw.cx.tools.SearchTool",
 				"mw.cx.tools.TemplateTool"
 			]
 		},
-		"mw.cx.tools.MachineTranslationTool": {
-			"scripts": [
-				"tools/mw.cx.tools.MachineTranslationTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.MachineTranslationTool.less"
-			],
-			"messages": [
-				"cx-tools-mt-title",
-				"cx-tools-mt-use-source",
-				"cx-tools-mt-reset",
-				"cx-tools-mt-provider-title",
-				"cx-tools-mt-dont-use",
-				"cx-tools-mt-set-default",
-				"cx-tools-mt-new-provider",
-				"cx-tools-mt-new-providers-available"
-			],
-			"dependencies": [
-				"ext.cx.widgets.spinner",
-				"mw.cx.tools.TranslationTool",
-				"oojs-ui.styles.icons-moderation"
-			]
-		},
+
 		"mw.cx.tools.TemplateTool": {
 			"scripts": [
 				"tools/mw.cx.tools.TemplateTool.js"
@@ -2052,97 +2022,6 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"mw.cx.tools.DictionaryTool": {
-			"scripts": [
-				"tools/mw.cx.tools.DictionaryTool.js"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool"
-			]
-		},
-		"mw.cx.tools.NewLinkTool":{
-			"scripts": [
-				"tools/mw.cx.tools.NewLinkTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.NewLinkTool.less"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool",
-				"mw.cx.ui.PageSelectorWidget",
-				"oojs-ui.styles.icons-editing-core"
-			]
-		},
-		"mw.cx.tools.ExternalLinkTool": {
-			"scripts": [
-				"tools/mw.cx.tools.ExternalLinkTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.ExternalLinkTool.less"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool"
-			],
-			"messages":[
-				"cx-tools-link-hover-tooltip"
-			]
-		},
-		"mw.cx.tools.FormatterTool": {
-			"scripts": [
-				"tools/mw.cx.tools.FormatterTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.FormatterTool.less"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool",
-				"oojs-ui.styles.icons-editing-core",
-				"oojs-ui.styles.icons-editing-list",
-				"oojs-ui.styles.icons-editing-styling"
-			]
-		},
-		"mw.cx.tools.SourceLinkTool": {
-			"scripts": [
-				"tools/mw.cx.tools.SourceLinkTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.LinkTool.less"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool"
-			],
-			"messages": [
-				"cx-tools-link-title"
-			]
-		},
-		"mw.cx.tools.TargetLinkTool": {
-			"scripts": [
-				"tools/mw.cx.tools.TargetLinkTool.js"
-			],
-			"dependencies": [
-				"ext.cx.util.selection",
-				"mw.cx.tools.SourceLinkTool",
-				"oojs-ui.styles.icons-interactions",
-				"oojs-ui.styles.icons-moderation"
-			],
-			"messages": [
-				"cx-tools-link-title",
-				"cx-tools-link-add",
-				"cx-tools-link-remove",
-				"cx-tools-link-instruction-shortcut",
-				"cx-tools-missing-link-title",
-				"cx-tools-missing-link-text",
-				"cx-tools-missing-link-tooltip",
-				"cx-tools-missing-link-mark-link",
-				"cx-tools-link-internal-link",
-				"cx-tools-link-internal-link-placeholder",
-				"cx-tools-link-external-link",
-				"cx-tools-link-external-link-placeholder",
-				"cx-tools-link-to-another-page",
-				"cx-tools-link-add-as-missing",
-				"cx-tools-link-apply"
-			]
-		},
 		"mw.cx.tools.TranslationTool": {
 			"scripts": [
 				"tools/mw.cx.tools.TranslationTool.js"
@@ -2151,20 +2030,7 @@
 				"mw.cx.ui.TranslationToolWidget"
 			]
 		},
-		"mw.cx.tools.ReferenceTool": {
-			"scripts": [
-				"tools/mw.cx.tools.ReferenceTool.js"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool",
-				"oojs-ui.styles.icons-interactions"
-			],
-			"messages": [
-				"cx-tools-reference-title",
-				"cx-tools-reference-remove"
-			]
-		},
-		"mw.cx.ui.mixins": {
+ 		"mw.cx.ui.mixins": {
 			"dependencies": [
 				"mw.cx.ui.mixin.AlignableTranslationUnit"
 			]
