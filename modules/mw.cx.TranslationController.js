@@ -1,18 +1,22 @@
+'use strict';
+
 /**
  * CX Translation - save, fetch controller
  *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
+ *
  * @param {mw.cx.dm.Translation} translation
  * @param {ve.init.mw.CXTarget} veTarget
- * @param {object} config Translation configuration
+ * @param {mw.cx.SiteMapper} siteMapper
+ * @param {Object} [config] Configuration for mw.cx.TargetArticle
  */
-mw.cx.TranslationController = function MwCxTranslationController( translation, veTarget, config ) {
+mw.cx.TranslationController = function MwCxTranslationController(
+	translation, veTarget, siteMapper, config
+) {
 	this.translation = translation;
 	this.veTarget = veTarget;
-	this.config = config;
-	this.siteMapper = config.siteMapper;
-	this.sourceTitle = config.sourceTitle;
-	this.sourceLanguage = config.sourceLanguage;
-	this.targetLanguage = config.targetLanguage;
+	this.siteMapper = siteMapper;
 	this.translationView = this.veTarget.translationView;
 	// Mixin constructors
 	OO.EventEmitter.call( this );
@@ -28,7 +32,7 @@ mw.cx.TranslationController = function MwCxTranslationController( translation, v
 	this.targetCategoriesChanged = 0;
 	this.targetTitleChanged = false;
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
-	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, this.config );
+	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
 	this.saveTracker = {};
 	this.listen();
 };
@@ -142,11 +146,11 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		action: 'cxsave',
 		assert: 'user',
 		content: this.getContentToSave( this.saveQueue ),
-		from: this.sourceLanguage,
-		to: this.targetLanguage,
-		sourcetitle: this.sourceTitle,
+		from: this.translation.sourceWikiPage.getLanguage(),
+		to: this.translation.targetWikiPage.getLanguage(),
+		sourcetitle: this.translation.sourceWikiPage.getTitle(),
 		title: this.translation.getTargetTitle(),
-		sourcerevision: this.translation.sourceRevisionId,
+		sourcerevision: this.translation.getSourceRevisionId(),
 		progress: JSON.stringify( this.translation.getProgress() ),
 		cxversion: 2
 	};

@@ -1,12 +1,17 @@
+'use strict';
+
 /**
  * Article column container
+ *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
  *
  * @class
  * @abstract
  * @param {mw.cx.SiteMapper} siteMapper
  * @param {string} language
  * @param {string} title
- * @param {Object} [config] Configuration object
+ * @param {Object} [config] Configuration for OO.ui.StackLayout
  */
 mw.cx.ui.ArticleColumn = function ( siteMapper, language, title, config ) {
 	var languageLabel;
@@ -86,10 +91,18 @@ mw.cx.ui.ArticleColumn.prototype.setTranslation = function ( translation ) {
 	this.translation = translation;
 };
 
+/**
+ * Set the main title for the column.
+ * @param {string} title
+ */
 mw.cx.ui.ArticleColumn.prototype.setTitle = function ( title ) {
 	this.titleWidget.setValue( title );
 };
 
+/**
+ * Get the current main title for the column.
+ * @return {string}
+ */
 mw.cx.ui.ArticleColumn.prototype.getTitle = function () {
 	return this.titleWidget.getValue();
 };

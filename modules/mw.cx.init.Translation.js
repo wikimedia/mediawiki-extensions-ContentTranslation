@@ -1,18 +1,19 @@
+'use strict';
+
 mw.cx.init = {};
 
 /**
  * This class loads translation documents (source and target) and sets up the main views and models.
  *
- * @class
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
  *
- * @constructor
+ * @class
  * @param {mw.cx.dm.WikiPage} sourceWikiPage
  * @param {mw.cx.dm.WikiPage} targetWikiPage
  * @param {Object} config Standard services TODO not optional so should not be called config
  * @cfg {mw.cx.SiteMapper} siteMapper
- * @cfg {mw.cx.MwApiRequestManager} requestManager
- * @cfg {mw.cx.MachineTranslationService} MTService
- * @cfg {mw.cx.MachineTranslationManager} MTManager
+ * @cfg {string} [campaign] String indicating which CTA was used to start this translation
  */
 mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWikiPage, config ) {
 	this.sourceWikiPage = sourceWikiPage;
@@ -32,7 +33,7 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.translationModel = null;
 	// @var {mw.cx.TranslationController}
 	this.translationController = null;
-	// @var {OO.ui.StackLayout}
+	// @var {mw.cx.ui.TranslationView}
 	this.translationView = null;
 };
 
@@ -47,7 +48,11 @@ mw.cx.init.Translation.prototype.init = function () {
 		return;
 	}
 	if ( this.config.campaign ) {
-		mw.hook( 'mw.cx.cta.accept' ).fire( this.config.campaign, this.config.sourceLanguage, this.config.targetLanguage );
+		mw.hook( 'mw.cx.cta.accept' ).fire(
+			this.config.campaign,
+			this.sourceWikiPage.getLanguage(),
+			this.targetWikiPage.getLanguage()
+		);
 	}
 	this.translationView = new mw.cx.ui.TranslationView( this.config );
 	this.veTarget = new ve.init.mw.CXTarget( this.translationView, this.config );
@@ -74,7 +79,7 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
-			this.translationModel, this.veTarget, this.config
+			this.translationModel, this.veTarget, this.config.siteMapper, this.config
 		);
 
 		this.veTarget.setTranslation( this.translationModel );

@@ -3,14 +3,17 @@
 /**
  * CX Target
  *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
+ *
  * @class
  * @param {mw.cx.ui.TranslationView} translationView
  * @param {Object} [config] Configuration object
- * @cfg {string} sourceTitle
- * @cfg {string} sourceLanguage
- * @cfg {string} sourceRevision
- * @cfg {string} targetTitle
- * @cfg {string} targetLanguage
+ * TODO: Only pass optional parameters in config
+ * @cfg {mw.cx.SiteMapper} siteMapper
+ * @cfg {mw.cx.MachineTranslationManager} MTManager
+ * @cfg {mw.cx.MachineTranslationService} MTService
+ * TODO: toolbarConfig
  */
 ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// Configuration initialization
@@ -26,11 +29,21 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	);
 	// Parent constructor
 	ve.init.mw.CXTarget.super.call( this, config );
+
+	this.MTManager = config.MTManager;
+	this.MTService = config.MTService;
+	this.siteMapper = config.siteMapper;
+
+	// @var {mw.cx.dm.Translation}
 	this.translation = null;
-	this.publishButton = null;
+	// @var {mw.cx.ui.TranslationView}
 	this.translationView = translationView;
+	this.publishButton = this.translationView.translationHeader.publishButton;
+	// @var {string}
 	this.pageName = this.translationView.targetColumn.getTitle();
+	// @var {ve.ui.CXSurface}
 	this.sourceSurface = null;
+	// @var {ve.ui.CXSurface}
 	this.targetSurface = null;
 
 	this.$element
@@ -75,8 +88,6 @@ ve.init.mw.CXTarget.static.actionGroups = [
 /* Methods */
 
 ve.init.mw.CXTarget.prototype.setupToolbar = function () {
-	this.publishButton = this.translationView.translationHeader.publishButton;
-
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
 
@@ -514,7 +525,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	var $sourceElement,
 		cxid = placeholder.getModel().getAttribute( 'cxid' );
 
-	this.config.MTManager.getPreferredProvider().then( function ( provider ) {
+	this.MTManager.getPreferredProvider().then( function ( provider ) {
 		this.translateSection( cxid, provider ).done(
 			this.setSectionContent.bind( this, placeholder.getModel() )
 		).fail( function () {
@@ -598,11 +609,11 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content ) 
 ve.init.mw.CXTarget.prototype.parseWikitextFragment = function ( wikitext, pst, doc ) {
 	var pageTitle, lang;
 
-	lang = doc ? doc.lang : this.config.targetLanguage;
-	pageTitle = lang === this.config.sourceLanguage ?
-		this.config.sourceTitle : this.translation.getTargetTitle();
+	lang = doc ? doc.lang : this.translation.targetWikiPage.getLanguage();
+	pageTitle = lang === this.translation.sourceWikiPage.getLanguage() ?
+		this.translation.sourceWikiPage.getTitle() : this.translation.getTargetTitle();
 
-	return this.config.siteMapper.getApi( lang ).post( {
+	return this.siteMapper.getApi( lang ).post( {
 		action: 'visualeditor',
 		paction: 'parsefragment',
 		page: pageTitle,
@@ -635,5 +646,5 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider 
 		// } );
 		return section;
 	}
-	return this.config.MTService.translate( restructure( sourceNode ).outerHTML, provider );
+	return this.MTService.translate( restructure( sourceNode ).outerHTML, provider );
 };
