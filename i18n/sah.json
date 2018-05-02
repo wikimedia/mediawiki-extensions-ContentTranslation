@@ -198,6 +198,7 @@
 	"cx-suggestionlist-collapse": "Дьаһамырдык көрдөрүү",
 	"cx-suggestionlist-refresh": "Этиилэри саҥардан биэрии",
 	"cx-notification-suggestions-available": "Инники тылбаас '''$1''' төрүөтүгэр {{GENDER:$2|эйиэнэ}}эйиэхэ билигин  саҥа тоҕоостоох этиилэр.",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 алҕас|$1 алҕас}}",
 	"cx-tools-linter-learn-more": "Бу туһунан сиһилии",
 	"cx-tools-linter-title": "$1 ыйытыы ис хоһооно",
 	"cx-tools-linter-content": "Бикипиэдьийэ $1 олохтообут хааччахтааһыннарыгар сөп түбэспэт [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ограничениям, установленным Википедией на]. ис хоһоон булулунна. Бука, исправьте сыһаларгын таһаарыан иннинэ көннөр.",

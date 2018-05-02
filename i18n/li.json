@@ -8,6 +8,7 @@
 	},
 	"cx": "Zèt pagina euver",
 	"cx-dashboard-header": "Euverzèttinge",
+	"cx-javascript": "Dit hölpmiddel wirk neet zónger JavaScrip. JavaScrip steit oet of wirk neet, of de browser waat se gebroeks weurt neet óngerstäönd.",
 	"cx-error-server-connection": "Fout: kós neet verbinje mit de server.",
 	"cx-desc": "Maak 't einveljiger inhawdelike pagina's [[Special:ContentTranslation|euver te zètte]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|euvergezatte}}",

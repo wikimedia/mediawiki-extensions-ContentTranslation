@@ -227,6 +227,8 @@
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Actualizar sugerencias",
 	"cx-notification-suggestions-available": "Basado en {{GENDER:$2|tu}} traducción anterior de '''$1''', nuevas sugerencias están disponibles ahora.",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 error|$1 errores}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"cx-tools-linter-learn-more": "Más información",
 	"cx-tools-linter-generic-title": "Hay un problema con tu traducción",
 	"cx-tools-linter-title": "Problemas del contenido: $1",

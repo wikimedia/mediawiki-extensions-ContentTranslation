@@ -23,7 +23,8 @@
 			"WTM",
 			"Mazab IZW",
 			"Vesihiisi",
-			"Railfail536"
+			"Railfail536",
+			"Stojex"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -212,9 +213,11 @@
 	"cx-suggestionlist-collapse": "Pokaż mniej",
 	"cx-suggestionlist-refresh": "Odśwież propozycje",
 	"cx-notification-suggestions-available": "Na podstawie {{GENDER:$2|Twojego}} poprzedniego tłumaczenia '''$1''', dostępne są nowe propozycje.",
+	"cx-tools-linter-issues": "Zgłoszenie",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 błąd|$1 błędy|$1 błędów}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ostrzeżenie|$1 ostrzeżenia|$1 ostrzeżeń}}",
 	"cx-tools-linter-learn-more": "Dowiedz się więcej",
+	"cx-tools-linter-mark-as-resolved": "Oznacz jako rozwiązane",
 	"cx-tools-linter-generic-title": "Wystąpił problem z Twoim tłumaczeniem",
 	"cx-tools-linter-title": "Problemy z zawartością: $1",
 	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
