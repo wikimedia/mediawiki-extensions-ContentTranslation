@@ -110,7 +110,7 @@
 	"cx-page-number-of-languages": "Počet jazyků",
 	"cx-mt-abuse-warning-title": "Váš překlad {{PLURAL:$1|obsahuje}} $1 % nezměněného strojově přeloženého textu",
 	"cx-mt-abuse-warning-text": "Strojový překlad je pouze podkladový materiál. Ujistěte se, že výsledný obsah stránky je přesný a že ve vašem jazyce zní přirozeně.",
-	"cx-publish-captcha-title": "Přesvědčení se, že nejste robot",
+	"cx-publish-captcha-title": "Ověření, že nejste robot",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potřebujete}} pomoct s překladem?",
 	"cx-dashboard-sidebar-information": "O tomto nástroji",
 	"cx-dashboard-sidebar-stats": "Statistiky",

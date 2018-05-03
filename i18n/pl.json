@@ -103,7 +103,7 @@
 	"cx-page-number-of-languages": "Liczba języków",
 	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% maszynowo tłumaczonego niezmienionego tekstu.",
 	"cx-mt-abuse-warning-text": "Tłumaczenie maszynowe jest podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
-	"cx-publish-captcha-title": "Pytanie zabezpieczające",
+	"cx-publish-captcha-title": "Sprawdzenie czy nie jesteś robotem",
 	"cx-captcha-dialog-error": "Twoja odpowiedź nie wydaje się być poprawna. Spróbuj ponownie.",
 	"cx-captcha-dialog-cancel": "Anuluj",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potrzebujesz}} pomocy przy tłumaczeniu?",
