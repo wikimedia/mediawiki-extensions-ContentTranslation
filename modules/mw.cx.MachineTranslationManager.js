@@ -115,10 +115,10 @@ mw.cx.MachineTranslationManager.prototype.getDefaultProvider = function () {
 	return this.MT.getSuggestedDefaultProvider().then(
 		function ( provider ) {
 			return provider || this.getDefaultNonMTProvider();
-		},
+		}.bind( this ),
 		function () {
 			return this.getDefaultNonMTProvider();
-		}
+		}.bind( this )
 	);
 };
 
