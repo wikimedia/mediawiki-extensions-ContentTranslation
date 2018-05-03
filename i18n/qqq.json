@@ -98,7 +98,6 @@
 	"cx-tools-reference-add": "Text shown in the reference tool card. Clicking on it will add the reference in the cursor position.",
 	"cx-tools-reference-remove": "Text shown in the reference tool card. Clicking on it removes the reference in the context.",
 	"cx-tools-link-instruction-shortcut": "Text explaining the shortcut for opening a link. Appears in the link tool card.",
-	"cx-tools-link-hover-tooltip": "Tooltip text shown when the mouse is over the link with shift or control key is pressed.",
 	"cx-warning-unsaved-translation": "Warning message shown when user tried to navigate away when translation is not saved.",
 	"cx-error-page-not-found": "Error message shown when a page is not found in a given language wikipedia\n\nParameters:\n* $1 - the title of the page.\n* $2 - The language name",
 	"cx-page-selector-widget-recent-edits-label": "Label used in \"New translation\" dialog, above the suggestions based on user's recently edited pages.",

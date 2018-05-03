@@ -88,7 +88,6 @@
 	"cx-tools-reference-add": "Add reference",
 	"cx-tools-reference-remove": "Remove reference",
 	"cx-tools-link-instruction-shortcut": "Shift + click any link to open",
-	"cx-tools-link-hover-tooltip": "Click to open",
 	"cx-warning-unsaved-translation": "You have unsaved translations.",
 	"cx-error-page-not-found": "The \"$1\" page could not be found in $2 Wikipedia",
 	"cx-page-selector-widget-recent-edits-label": "Recently edited by you",

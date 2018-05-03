@@ -309,8 +309,7 @@
 			],
 			"messages": [
 				"cx-source-view-page",
-				"cx-source-loading",
-				"cx-tools-link-hover-tooltip"
+				"cx-source-loading"
 			]
 		},
 		"ext.cx.SourcePageSelector": {
@@ -1706,8 +1705,7 @@
 			],
 			"messages": [
 				"cx-source-view-page",
-				"cx-source-loading",
-				"cx-tools-link-hover-tooltip"
+				"cx-source-loading"
 			],
 			"dependencies": [
 				"mw.cx.ui.ArticleColumn",
@@ -1723,8 +1721,7 @@
 			],
 			"messages": [
 				"cx-source-view-page",
-				"cx-source-loading",
-				"cx-tools-link-hover-tooltip"
+				"cx-source-loading"
 			],
 			"dependencies": [
 				"mw.cx.ui",
