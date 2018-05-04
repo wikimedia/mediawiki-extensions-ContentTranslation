@@ -36,14 +36,6 @@ mw.cx.MwApiRequestManager = function MwCxMwApiRequestManager( sourceLanguage, ta
  * Initialize or reset all caches.
  */
 mw.cx.MwApiRequestManager.prototype.init = function () {
-	this.linkCache[ this.sourceLanguage ] = new mw.cx.LinkCache( {
-		language: this.sourceLanguage,
-		siteMapper: this.siteMapper
-	} );
-	this.linkCache[ this.targetLanguage ] = new mw.cx.LinkCache( {
-		language: this.targetLanguage,
-		siteMapper: this.siteMapper
-	} );
 	this.imageCache[ this.sourceLanguage ] = new mw.cx.ImageInfoCache( {
 		language: this.sourceLanguage,
 		siteMapper: this.siteMapper

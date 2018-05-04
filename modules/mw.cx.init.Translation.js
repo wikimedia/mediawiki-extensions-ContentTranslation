@@ -84,6 +84,16 @@ mw.cx.init.Translation.prototype.init = function () {
 
 		this.veTarget.setTranslation( this.translationModel );
 
+		// Set the link cache for source language
+		ve.init.platform.sourceLinkCache = new ve.init.mw.LinkCache(
+			this.config.siteMapper.getApi( this.sourceWikiPage.getLanguage() )
+		);
+
+		// Set the link cache for target language
+		ve.init.platform.linkCache = new ve.init.mw.LinkCache(
+			this.config.siteMapper.getApi( this.targetWikiPage.getLanguage() )
+		);
+
 		this.translationModel.initCategories(
 			this.processCategories( sourcePageContent.categories )
 		);
