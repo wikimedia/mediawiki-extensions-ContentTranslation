@@ -51,17 +51,16 @@
 	 * Get the API for a remote wiki.
 	 *
 	 * @param {string} language Language code
+	 * @param {Object} [options] Api options
 	 * @return {mw.ForeignApi} api
 	 */
-	mw.cx.SiteMapper.prototype.getApi = function ( language ) {
+	mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 		var url, domain;
 
 		domain = this.getWikiDomainCode( language );
 		url = this.config.api.replace( '$1', domain );
-
-		return new mw.ForeignApi( url, {
-			anonymous: true
-		} );
+		options = $.extend( { anonymous: true }, options );
+		return new mw.ForeignApi( url, options );
 	};
 
 	/**

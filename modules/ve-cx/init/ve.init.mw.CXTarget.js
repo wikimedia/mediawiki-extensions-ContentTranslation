@@ -606,9 +606,9 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content ) 
 /**
  * @inheritDoc
  */
-ve.init.mw.CXTarget.prototype.getContentApi = function ( doc ) {
+ve.init.mw.CXTarget.prototype.getContentApi = function ( doc, options ) {
 	doc = doc || this.targetSurface.getModel().getDocument();
-	return this.siteMapper.getApi( doc.getLang() );
+	return this.siteMapper.getApi( doc.getLang(), options );
 };
 
 /**

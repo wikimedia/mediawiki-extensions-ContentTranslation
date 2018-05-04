@@ -1319,8 +1319,6 @@
 				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXSectionContextItem.js",
-				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
-				"ve-cx/ui/ve.ui.CXLinkAnnotationWidget.js",
 				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
 				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js"
 			],
