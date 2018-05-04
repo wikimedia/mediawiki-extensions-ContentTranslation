@@ -348,8 +348,19 @@ class ContentTranslationHooks {
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
 		];
 
+		$notifications['cx-deleted-draft'] = [
+			'category' => 'cx',
+			'group' => 'negative',
+			'section' => 'message',
+			'presentation-model' => 'ContentTranslation\\DeletedDraftNotificationPresentationModel',
+			'bundle' => [ 'web' => true, 'expandable' => true ]
+		];
+
 		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
+		];
+		$icons['outdated'] = [
+			'path' => 'ContentTranslation/images/cx-notification-gray.svg'
 		];
 	}
 
@@ -365,6 +376,7 @@ class ContentTranslationHooks {
 			case 'cx-tenth-translation':
 			case 'cx-hundredth-translation':
 			case 'cx-suggestions-available':
+			case 'cx-deleted-draft':
 				$extra = $event->getExtra();
 				if ( !isset( $extra['recipient'] ) ) {
 					break;
@@ -376,6 +388,23 @@ class ContentTranslationHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Set bundle for message
+	 *
+	 * @param EchoEvent $event
+	 * @param string &$bundleString
+	 */
+	public static function onEchoGetBundleRules( $event, &$bundleString ) {
+		$recipient = $event->getExtraParam( 'recipient' );
+		if ( !$recipient ) {
+			return;
+		}
+
+		if ( $event->getType() === 'cx-deleted-draft' ) {
+			$bundleString = 'cx-deleted-draft-' . $recipient;
+		}
 	}
 
 	/**

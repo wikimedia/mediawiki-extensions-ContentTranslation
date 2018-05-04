@@ -94,6 +94,10 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$request->getVal( 'page' )
 		);
 		if ( $translation !== null ) {
+			if ( $translation->translation['status'] === 'deleted' ) {
+				return false;
+			}
+
 			// Check if the translation belongs to the current user.
 			$user = $this->getUser();
 			$translator = new ContentTranslation\Translator( $user );

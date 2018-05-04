@@ -207,6 +207,8 @@
 	"cx-notification-first-translation": "Echo notification congratulating the user for first published translation. Don't translate the Special:MyContrubutions link.",
 	"cx-notification-tenth-translation": "Echo notification congratulating the user for tenth published translation.",
 	"cx-notification-hundredth-translation": "Echo notification congratulating the user for hundred published translation.",
+	"cx-notification-deleted-draft": "Echo notification informing the user that their very old unpublished translation draft is deleted.",
+	"cx-notification-deleted-draft-bundle": "Bundled notification informing the user that their very old unpublished translation drafts are deleted.",
 	"cx-contributions-link": "Text of the link to view your contributions\n{{Identical|Contribution}}",
 	"cx-your-translations-link": "Text of the link to view your translations. $1 is the name of the user viewing the notification, can be used for GENDER",
 	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",

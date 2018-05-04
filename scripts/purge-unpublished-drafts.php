@@ -7,6 +7,7 @@
 namespace ContentTranslation\Scripts;
 
 use ContentTranslation\Database;
+use ContentTranslation\Notification;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\Translator;
@@ -88,8 +89,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			}
 		}
 
-		// TODO
-		// $this->notifyUsers( $draftsPerUser );
+		if ( !$dryRun ) {
+			$this->notifyUsers( $draftsPerUser );
+		}
 		$this->output( "Done!\n" );
 	}
 
@@ -125,6 +127,19 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		];
 
 		return $db->select( $table, $fields, $conds, __METHOD__, $options );
+	}
+
+	public function notifyUsers( $draftsPerUser ) {
+		foreach ( $draftsPerUser as $userId => $drafts ) {
+			foreach ( $drafts as $draft ) {
+				Notification::draftDeleted(
+					$userId,
+					$draft->translation_source_title,
+					$draft->translation_source_language,
+					$draft->translation_target_language
+				);
+			}
+		}
 	}
 }
 

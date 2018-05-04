@@ -38,7 +38,8 @@
 		"UserSaveOptions": "ContentTranslationHooks::onSaveOptions",
 		"EditPage::showEditForm:initial": "ContentTranslationHooks::newArticleCampaign",
 		"BeforeCreateEchoEvent": "ContentTranslationHooks::onBeforeCreateEchoEvent",
-		"EchoGetDefaultNotifiedUsers": "ContentTranslationHooks::onEchoGetDefaultNotifiedUsers"
+		"EchoGetDefaultNotifiedUsers": "ContentTranslationHooks::onEchoGetDefaultNotifiedUsers",
+		"EchoGetBundleRules": "ContentTranslationHooks::onEchoGetBundleRules"
 	},
 	"APIModules": {
 		"cxconfiguration": "ApiContentTranslationConfiguration",

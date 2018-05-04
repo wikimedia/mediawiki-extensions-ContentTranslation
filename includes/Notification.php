@@ -5,6 +5,8 @@
 
 namespace ContentTranslation;
 
+use Title;
+
 class Notification {
 
 	/**
@@ -57,6 +59,28 @@ class Notification {
 			'extra' => [
 				'recipient' => $recipient->getId(),
 				'lastTranslationTitle' => $lastTranslationTitle
+			]
+		] );
+	}
+
+	/**
+	 * Notify user that his/her old unpublished draft is deleted.
+	 *
+	 * @param int $recipientId ID of user receiving this notification.
+	 * @param string $title Title of unpublished draft page which is deleted.
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 */
+	public static function draftDeleted( $recipientId, $title, $sourceLanguage, $targetLanguage ) {
+		$title = Title::newFromText( $title );
+
+		\EchoEvent::create( [
+			'type' => 'cx-deleted-draft',
+			'title' => $title,
+			'extra' => [
+				'recipient' => $recipientId,
+				'source' => $sourceLanguage,
+				'target' => $targetLanguage
 			]
 		] );
 	}
