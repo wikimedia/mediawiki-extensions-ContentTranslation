@@ -78,7 +78,6 @@
 	"cx-tools-reference-add": "Legg til referanse",
 	"cx-tools-reference-remove": "Fjern referanse",
 	"cx-tools-link-instruction-shortcut": "Skift + klikk for å åpne lenker",
-	"cx-tools-link-hover-tooltip": "Klikk for å åpne",
 	"cx-warning-unsaved-translation": "Du har ulagrede oversettelser.",
 	"cx-error-page-not-found": "Siden «$1» ble ikke funnet i Wikipedia på $2",
 	"cx-page-selector-widget-recent-edits-label": "Nylig redigert av deg",

@@ -69,7 +69,6 @@
 	"cx-tools-reference-title": "Referanse",
 	"cx-tools-reference-remove": "Slett referanse",
 	"cx-tools-link-instruction-shortcut": "Skift + klikk for å opne lenkjer",
-	"cx-tools-link-hover-tooltip": "Trykk for å opne",
 	"cx-warning-unsaved-translation": "Du har omsetjingar som ikkje er lagra.",
 	"cx-error-page-not-found": "Sida «$1» blei ikkje funnen i Wikipedia på $2",
 	"cx-selected-source-page-start-translation-button": "Start omsetjing",

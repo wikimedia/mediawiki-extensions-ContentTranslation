@@ -68,7 +68,6 @@
 	"cx-tools-reference-add": "Дадаць зноску",
 	"cx-tools-reference-remove": "Выдаліць зноску",
 	"cx-tools-link-instruction-shortcut": "Shift + пстрык на любой спасылцы, каб адкрыць",
-	"cx-tools-link-hover-tooltip": "Націсьніце, каб адкрыць",
 	"cx-warning-unsaved-translation": "Вы маеце незахаваныя пераклады.",
 	"cx-error-page-not-found": "Старонка «$1» ня можа быць знойдзеная ў {{GRAMMAR:locative|$2}} Вікіпэдыі",
 	"cx-selected-source-page-start-translation-button": "Пачаць пераклад",

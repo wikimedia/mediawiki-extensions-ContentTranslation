@@ -90,7 +90,6 @@
 	"cx-tools-reference-add": "إضافة مرجع",
 	"cx-tools-reference-remove": "أزل المرجع",
 	"cx-tools-link-instruction-shortcut": "لفتح أي وصلة، انقرها مع ضغط زر التحويل (شيفت)",
-	"cx-tools-link-hover-tooltip": "انقر للفتح",
 	"cx-warning-unsaved-translation": "لديك ترجمات لم تحفظ",
 	"cx-error-page-not-found": "لم يعثر على الصفحة \"$1\" في ويكيبيديا $2",
 	"cx-page-selector-widget-recent-edits-label": "عدلتها مؤخرا",

@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "सन्दर्भ जोडा",
 	"cx-tools-reference-remove": "सन्दर्भ हटवा",
 	"cx-tools-link-instruction-shortcut": "कोणताही दुवा उघडण्यास Shift कळ दाबुन त्या दुव्यावर टिचका",
-	"cx-tools-link-hover-tooltip": "उघडण्यास टिचका",
 	"cx-warning-unsaved-translation": "आपणापाशी, जतन न केलेली भाषांतरे आहेत.",
 	"cx-error-page-not-found": "\"$1\" हे पान $2 विकिपीडियावर सापडले नाही",
 	"cx-selected-source-page-start-translation-button": "भाषांतरास सुरुवात करा",

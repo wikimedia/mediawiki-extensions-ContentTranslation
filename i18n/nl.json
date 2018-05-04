@@ -89,7 +89,6 @@
 	"cx-tools-reference-add": "Referentie toevoegen",
 	"cx-tools-reference-remove": "Referentie verwijderen",
 	"cx-tools-link-instruction-shortcut": "Open koppelingen met Shift + klik",
-	"cx-tools-link-hover-tooltip": "Klik om te openen",
 	"cx-warning-unsaved-translation": "U hebt vertalingen die nog niet opgeslagen zijn.",
 	"cx-error-page-not-found": "De pagina \"$1\" kan niet worden gevonden in de Wikipedia in het $2.",
 	"cx-page-selector-widget-recent-edits-label": "Onlangs door u bewerkt",

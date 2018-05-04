@@ -74,7 +74,6 @@
 	"cx-tools-reference-add": "სქოლიოს დამატება",
 	"cx-tools-reference-remove": "სქოლიოს წაშლა",
 	"cx-tools-link-instruction-shortcut": "გასახსნელად Shift + დააწკაპუნეთ ნებისმიერ ბმულზე",
-	"cx-tools-link-hover-tooltip": "გასახსნელად დააწკაპუნეთ",
 	"cx-warning-unsaved-translation": "თქვენ გაქვთ დაუმახსოვრებელი თარგმანები.",
 	"cx-error-page-not-found": "გვერდი „$1“ ვერ მოიძებნა $2 ვიკიპედიაში",
 	"cx-page-selector-widget-nearby-label": "სიახლოვეს",

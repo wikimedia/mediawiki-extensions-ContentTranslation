@@ -70,7 +70,6 @@
 	"cx-tools-reference-add": "เพิ่งอ้างอิง",
 	"cx-tools-reference-remove": "เอาแหล่งอ้างอิงออก",
 	"cx-tools-link-instruction-shortcut": "กด Shift + คลิกบนลิงก์ใด ๆ เพื่อเปิด",
-	"cx-tools-link-hover-tooltip": "คลิกเพื่อเปิด",
 	"cx-warning-unsaved-translation": "คุณมีการแปลที่ยังไม่ได้บันทึก",
 	"cx-error-page-not-found": "หน้า \"$1\" ไม่สามารถพบได้ใน วิกิพีเดียภาษา$2",
 	"cx-source-page-selector-input-placeholder": "ค้นหาหน้าที่จะแปล",

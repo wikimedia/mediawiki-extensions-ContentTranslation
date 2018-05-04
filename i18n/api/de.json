@@ -84,6 +84,7 @@
 	"apihelp-cxsave-param-targetcategories": "JSON-kodierte Anordnung von Zielkategorien zur Speicherung mit der Entwurfsübersetzung.",
 	"apierror-cx-docserverexception": "Fehler beim Konvertieren von HTML nach Wikitext: $1",
 	"apierror-cx-inuse": "Ein anderer Benutzer übersetzt bereits diesen Artikel.",
+	"apierror-cx-invalidsourcecategories": "Ungültige JSON-kodierte Anordnung von Quellkategorien.",
 	"apierror-cx-invalidtargetcategories": "Ungültige JSON-kodierte Anordnung von Zielkategorien.",
 	"apierror-cx-invalidlanguage": "Ungültige Sprache.",
 	"apierror-cx-invalidprogress": "Ungültiger Fortschritt.",

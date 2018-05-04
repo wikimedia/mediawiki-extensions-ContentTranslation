@@ -87,7 +87,6 @@
 	"cx-tools-reference-add": "新增參考文獻",
 	"cx-tools-reference-remove": "移除參考文獻",
 	"cx-tools-link-instruction-shortcut": "Shift + 點選任何連結以開啟",
-	"cx-tools-link-hover-tooltip": "點選開啟",
 	"cx-warning-unsaved-translation": "您有尚未儲存的翻譯。",
 	"cx-error-page-not-found": "於 $2 維基百科查無 \"$1\" 頁面",
 	"cx-page-selector-widget-recent-edits-label": "最近由您編輯",

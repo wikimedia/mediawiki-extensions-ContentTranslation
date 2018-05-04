@@ -75,7 +75,6 @@
 	"cx-tools-reference-add": "Adaugă referință",
 	"cx-tools-reference-remove": "Ștergere referința",
 	"cx-tools-link-instruction-shortcut": "Shift + clic pe orice legătură pentru a o deschide",
-	"cx-tools-link-hover-tooltip": "Clic pentru a deschide",
 	"cx-warning-unsaved-translation": "Aveți traduceri nesalvate.",
 	"cx-error-page-not-found": "Pagina „$1” nu a fost găsită la Wikipedia în $2",
 	"cx-selected-source-page-start-translation-button": "Începe traducerea",

@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "Magdagdag ng sanggunian",
 	"cx-tools-reference-remove": "Tanggalin ang sanggunian",
 	"cx-tools-link-instruction-shortcut": "Shift + i-klik ang kahit na anong kawing upang mabuksan",
-	"cx-tools-link-hover-tooltip": "I-klik upang mabuksan",
 	"cx-warning-unsaved-translation": "May mga pagsasalin ka na hindi pa naitatala.",
 	"cx-error-page-not-found": "Hindi mahanap ang pahinang \"$1\" sa Wikipediang $2",
 	"cx-selected-source-page-start-translation-button": "Simulan ang pag-salinwika",

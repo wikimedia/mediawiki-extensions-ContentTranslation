@@ -80,7 +80,6 @@
 	"cx-tools-reference-add": "Engadir a referencia",
 	"cx-tools-reference-remove": "Eliminar a referencia",
 	"cx-tools-link-instruction-shortcut": "Prema Maiús. e calquera ligazón para abrila",
-	"cx-tools-link-hover-tooltip": "Prema para abrir",
 	"cx-warning-unsaved-translation": "Ten traducións sen gardar.",
 	"cx-error-page-not-found": "A páxina \"$1\" non se atopa na Wikipedia en $2",
 	"cx-page-selector-widget-recent-edits-label": "Editadas recentemente por vostede",

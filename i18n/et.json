@@ -76,7 +76,6 @@
 	"cx-tools-reference-add": "Lisa viide",
 	"cx-tools-reference-remove": "Eemalda viide",
 	"cx-tools-link-instruction-shortcut": "Avamiseks hoia all tõstuklahvi ja klõpsa mis tahes linki",
-	"cx-tools-link-hover-tooltip": "Klõpsa avamiseks",
 	"cx-warning-unsaved-translation": "Sul on salvestamata tõlkeid.",
 	"cx-error-page-not-found": "Lehekülge \"$1\" ei leitud lähtekeelsest Vikipeediast ($2).",
 	"cx-page-selector-widget-recent-edits-label": "Oled hiljuti redigeerinud",

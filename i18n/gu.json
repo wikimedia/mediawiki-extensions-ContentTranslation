@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "સંદર્ભ ઉમેરો",
 	"cx-tools-reference-remove": "સંદર્ભ દૂર કરો",
 	"cx-tools-link-instruction-shortcut": "કોઇ પણ કડીને ખોલવા માટે શિફ્ટ + ક્લિક કરો",
-	"cx-tools-link-hover-tooltip": "ખોલવા માટે ક્લિક કરો",
 	"cx-warning-unsaved-translation": "સંગ્રહ કર્યા વગરનું ભાષાંતર હાજર છે.",
 	"cx-error-page-not-found": "\"$1\" પાનું $2 વિકિપીડિયામાં મળ્યું નહી",
 	"cx-page-selector-widget-recent-edits-label": "તમારા દ્વારા હાલમાં સંપાદિત",

@@ -77,7 +77,6 @@
 	"cx-tools-reference-add": "Dodaj izvor",
 	"cx-tools-reference-remove": "Ukloni izvor",
 	"cx-tools-link-instruction-shortcut": "Da biste otvorili, pritisnite shift + klik na poveznicu",
-	"cx-tools-link-hover-tooltip": "Kliknite da biste otvorili",
 	"cx-warning-unsaved-translation": "Imate nespremljenih prijevoda.",
 	"cx-error-page-not-found": "Stranica \"$1\" nije pronađena na $2 Wikipediji",
 	"cx-page-selector-widget-recent-edits-label": "Ovu stranicu ste nedavno uređivali",

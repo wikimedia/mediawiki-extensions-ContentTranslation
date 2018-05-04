@@ -79,7 +79,6 @@
 	"cx-tools-reference-add": "Добави източник",
 	"cx-tools-reference-remove": "Премахни източник",
 	"cx-tools-link-instruction-shortcut": "Shift + щракване върху препратка, за да я отворите",
-	"cx-tools-link-hover-tooltip": "Натиснете, за да отворите",
 	"cx-warning-unsaved-translation": "Имате несъхранени преводи.",
 	"cx-error-page-not-found": "Страницата „$1“ не беше открита в Уикипедия на $2",
 	"cx-page-selector-widget-recent-edits-label": "Последно редактирани от Вас",

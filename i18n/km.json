@@ -63,7 +63,6 @@
 	"cx-tools-reference-add": "បន្ថែម​ឯកសារ​យោង",
 	"cx-tools-reference-remove": "ដកឯកសារយោង",
 	"cx-tools-link-instruction-shortcut": "Shift + ចុចលើតំណភ្ជាប់ដើម្បីបើក",
-	"cx-tools-link-hover-tooltip": "ចុចដើម្បីបើក",
 	"cx-warning-unsaved-translation": "អ្នកមានការបកប្រែដែលមិនទាន់បានរក្សាទុក។",
 	"cx-error-page-not-found": "រកមិនឃើញទំព័រ \"$1\" នៅក្នុងវិគីភីឌា$2ទេ។",
 	"cx-selected-source-page-start-translation-button": "ចាប់​ផ្ដើម​បក​ប្រែ",

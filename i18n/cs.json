@@ -93,7 +93,6 @@
 	"cx-tools-reference-add": "Přidat referenci",
 	"cx-tools-reference-remove": "Odstranit referenci",
 	"cx-tools-link-instruction-shortcut": "Otevřít odkaz pomocí Shift + kliknutí",
-	"cx-tools-link-hover-tooltip": "Klikněte pro otevření",
 	"cx-warning-unsaved-translation": "Máte neuložené překlady.",
 	"cx-error-page-not-found": "Stránka „$1“ nebyla na Wikipedii v jazyce $2 nalezena",
 	"cx-page-selector-widget-recent-edits-label": "Nedávno upravené vámi",

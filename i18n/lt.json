@@ -78,7 +78,6 @@
 	"cx-tools-reference-add": "Pridėti nuorodą",
 	"cx-tools-reference-remove": "Pašalinti nuorodą",
 	"cx-tools-link-instruction-shortcut": "Shift + spustelėkite bet kurią nuorodą, kad atidarytumėte",
-	"cx-tools-link-hover-tooltip": "Spustelėkite, kad atidarytumėte",
 	"cx-warning-unsaved-translation": "Jūs turite neišsaugotų vertimų.",
 	"cx-error-page-not-found": "\"$1\" puslapis negali būti surastas $2 Wikipedia",
 	"cx-page-selector-widget-recent-edits-label": "Neseniai jūsų redaguota",

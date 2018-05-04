@@ -64,7 +64,6 @@
 	"cx-tools-reference-add": "Дереккөз қосу",
 	"cx-tools-reference-remove": "Дереккөзді аластау",
 	"cx-tools-link-instruction-shortcut": "Ашу үшін Shift пернесін басып тұрып кез-келген сілтемені шертіңіз",
-	"cx-tools-link-hover-tooltip": "Ашу үшін басыңыз",
 	"cx-warning-unsaved-translation": "Сізде сақталмаған аудармаларыңыз бар.",
 	"cx-error-page-not-found": "$2 тіліндегі Уикипедияда «$1» беті табылмады",
 	"cx-selected-source-page-start-translation-button": "Аударуды бастау",

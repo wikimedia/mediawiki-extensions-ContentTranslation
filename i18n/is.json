@@ -71,7 +71,6 @@
 	"cx-tools-reference-add": "Bæta við tilvísun",
 	"cx-tools-reference-remove": "Fjarlægja tilvísun",
 	"cx-tools-link-instruction-shortcut": "Shift + smella á tengil til að opna",
-	"cx-tools-link-hover-tooltip": "Smelltu til að opna",
 	"cx-warning-unsaved-translation": "Þú ert með óvistaðar þýðingar.",
 	"cx-error-page-not-found": "Síðan \"$1\" fannst ekki á $2 Wikipedia",
 	"cx-page-selector-widget-nearby-label": "Í nágrenninu",

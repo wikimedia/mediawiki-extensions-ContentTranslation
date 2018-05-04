@@ -76,7 +76,6 @@
 	"cx-tools-reference-add": "Voeg verwysing by",
 	"cx-tools-reference-remove": "Verwyder verwysing",
 	"cx-tools-link-instruction-shortcut": "Shift + klik enige skakel om oop te maak",
-	"cx-tools-link-hover-tooltip": "Klik om oop te maak",
 	"cx-warning-unsaved-translation": "Jy het ongestoorde vertalings.",
 	"cx-error-page-not-found": "Die \"$1\" bladsy kon nie in $2 Wikipedia gevind word nie",
 	"cx-page-selector-widget-recent-edits-label": "Onlangs deur u geredigeer",

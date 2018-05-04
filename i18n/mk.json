@@ -77,7 +77,6 @@
 	"cx-tools-reference-add": "Додај навод",
 	"cx-tools-reference-remove": "Отстрани навод",
 	"cx-tools-link-instruction-shortcut": "Shift + стиснете на некоја врска за да ја отворите",
-	"cx-tools-link-hover-tooltip": "Стиснете за да отворите",
 	"cx-warning-unsaved-translation": "Имате незачуван превод",
 	"cx-error-page-not-found": "Не можев да ја најдам страницата „$1“ на Википедија на $2",
 	"cx-page-selector-widget-recent-edits-label": "Неодамна уредено од вас",

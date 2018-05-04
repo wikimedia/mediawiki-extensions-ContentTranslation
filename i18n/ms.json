@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "Tambah rujukan",
 	"cx-tools-reference-remove": "Keluar rujukan",
 	"cx-tools-link-instruction-shortcut": "''Shift'' + klik sebarang pautan untuk membukakannya",
-	"cx-tools-link-hover-tooltip": "Klik untuk buka",
 	"cx-warning-unsaved-translation": "Anda mempunyai terjemahan yang belum disimpan.",
 	"cx-error-page-not-found": "Laman \"$1\" tidak dapat dicari di Wikipedia $2",
 	"cx-selected-source-page-start-translation-button": "Mulakan terjemahan",

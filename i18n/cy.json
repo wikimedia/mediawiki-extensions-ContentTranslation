@@ -74,7 +74,6 @@
 	"cx-tools-reference-add": "Ychwanegu cyfeiriad",
 	"cx-tools-reference-remove": "Dileu cyfeiriad",
 	"cx-tools-link-instruction-shortcut": "Shift a chliciwch unrhyw ddolen i'w hagor",
-	"cx-tools-link-hover-tooltip": "Clicio i agor",
 	"cx-warning-unsaved-translation": "Mae gennych gyfieithiadau heb eu cadw",
 	"cx-error-page-not-found": "Ni chafwyd hyd i dudalen \"$1\" yn Wicipedia \"$2\"",
 	"cx-selected-source-page-start-translation-button": "Dechrau cyfieithu",

@@ -79,7 +79,6 @@
 	"cx-tools-reference-add": "Dodaj referencu",
 	"cx-tools-reference-remove": "Ukloni referencu",
 	"cx-tools-link-instruction-shortcut": "Shift + klik mišem na vezu da biste je otvorili",
-	"cx-tools-link-hover-tooltip": "Kliknite da biste otvorili",
 	"cx-warning-unsaved-translation": "Imate nesačuvan prevod.",
 	"cx-error-page-not-found": "Stranica „$1“ se ne može naći na $2 Vikipediji",
 	"cx-page-selector-widget-recent-edits-label": "Vaše nedavne izmene",

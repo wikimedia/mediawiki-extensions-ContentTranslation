@@ -71,7 +71,6 @@
 	"cx-tools-reference-add": "Ավելացնել ծանոթագրություն",
 	"cx-tools-reference-remove": "Հեռացնել ծանոթագրությունը",
 	"cx-tools-link-instruction-shortcut": "Սեղմեք shift + քլիք հղումը բացելու համար",
-	"cx-tools-link-hover-tooltip": "Սեղմեք բացելու համար",
 	"cx-warning-unsaved-translation": "Դուք ունեք չպահպանված թարգմանություններ",
 	"cx-error-page-not-found": "Հնարավոր չէ գտնել «$1» էջը $2 Վիքիպեդիայում",
 	"cx-selected-source-page-start-translation-button": "Սկսել թարգմանությունը",

@@ -56,7 +56,6 @@
 	"cx-tools-reference-add": "सन्दर्भ थप्नुहोस्",
 	"cx-tools-reference-remove": "सन्दर्भ हटाउने",
 	"cx-tools-link-instruction-shortcut": "कुनै पनि लिङ्क खोल्न सिफ्ट+क्लिक गर्नुहोस",
-	"cx-tools-link-hover-tooltip": "खोल्नको लागि क्लिक गर्नुहोस",
 	"cx-warning-unsaved-translation": "तपाईंसँग सङ्ग्रह नगरिएका अनुवादहरू छन् ।",
 	"cx-selected-source-page-start-translation-button": "अनुबाद सुरु गर्नुहोस।",
 	"cx-selected-source-page-error-page-exists": "$2 मा पना [$1 पहिल्यै देखि] रहेको छ",

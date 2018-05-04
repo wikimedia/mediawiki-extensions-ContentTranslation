@@ -74,7 +74,6 @@
 	"cx-tools-reference-add": "Pridať referenciu",
 	"cx-tools-reference-remove": "Odstrániť referenciu",
 	"cx-tools-link-instruction-shortcut": "Otvoriť odkaz pomocou Shift + kliknutie.",
-	"cx-tools-link-hover-tooltip": "Kliknite pre otvorenie",
 	"cx-warning-unsaved-translation": "Máte neuložené preklady.",
 	"cx-error-page-not-found": "Článok $1 nebol na Wikipédii v jazyku $2 nájdený",
 	"cx-page-selector-widget-recent-edits-label": "Nedávno upravené vami",

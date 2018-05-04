@@ -62,7 +62,6 @@
 	"cx-tools-reference-add": "Apondre una referéncia",
 	"cx-tools-reference-remove": "Suprimir la referéncia",
 	"cx-tools-link-instruction-shortcut": "Majuscula + clic sus un ligam per lo dobrir",
-	"cx-tools-link-hover-tooltip": "Clicar per dobrir",
 	"cx-warning-unsaved-translation": "Avètz de traduccions pas enregistradas.",
 	"cx-selected-source-page-start-translation-button": "Aviar la traduccion",
 	"cx-selected-source-page-error-page-exists": "La pagina [$1 existís ja] en $2",

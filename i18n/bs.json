@@ -75,7 +75,6 @@
 	"cx-tools-reference-add": "Dodaj referencu",
 	"cx-tools-reference-remove": "Ukloni referencu",
 	"cx-tools-link-instruction-shortcut": "Otvorite linkove sa Shift + klik",
-	"cx-tools-link-hover-tooltip": "Kliknite da bi otvorili",
 	"cx-warning-unsaved-translation": "Imate nesačuvane prijevode.",
 	"cx-error-page-not-found": "Stranica \"$1\" se ne može naći na $2 Wikipediji",
 	"cx-selected-source-page-start-translation-button": "Počni prevođenje",

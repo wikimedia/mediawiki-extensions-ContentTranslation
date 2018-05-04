@@ -94,7 +94,6 @@
 	"cx-tools-reference-add": "Adicionar referência",
 	"cx-tools-reference-remove": "Remover referência",
 	"cx-tools-link-instruction-shortcut": "Shift + clique em qualquer ligação para abri-la",
-	"cx-tools-link-hover-tooltip": "Clique para abrir",
 	"cx-warning-unsaved-translation": "Você possui traduções não salvas.",
 	"cx-error-page-not-found": "A página “$1” não foi encontrada na Wikipédia em $2",
 	"cx-page-selector-widget-recent-edits-label": "Editado recentemente por você",

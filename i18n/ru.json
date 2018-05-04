@@ -105,7 +105,6 @@
 	"cx-tools-reference-add": "Добавить примечание",
 	"cx-tools-reference-remove": "Удалить примечание",
 	"cx-tools-link-instruction-shortcut": "Shift + щелчок мыши на любой ссылке, чтобы открыть её",
-	"cx-tools-link-hover-tooltip": "Щёлкните, чтобы открыть",
 	"cx-warning-unsaved-translation": "У вас есть несохранённые переводы.",
 	"cx-error-page-not-found": "Страница «$1» не может быть найдена Википедии на $2",
 	"cx-page-selector-widget-recent-edits-label": "Недавно отредактированный вами",

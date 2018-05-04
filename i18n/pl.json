@@ -92,7 +92,6 @@
 	"cx-tools-reference-add": "Dodaj przypis",
 	"cx-tools-reference-remove": "Usuń przypis",
 	"cx-tools-link-instruction-shortcut": "Shift + kliknij na dowolny link, aby otworzyć",
-	"cx-tools-link-hover-tooltip": "Kliknij, aby otworzyć",
 	"cx-warning-unsaved-translation": "Masz niezapisane tłumaczenia.",
 	"cx-error-page-not-found": "Strona „$1” nie została znaleziona w $2 Wikipedii",
 	"cx-page-selector-widget-nearby-label": "W pobliżu",

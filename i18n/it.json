@@ -86,7 +86,6 @@
 	"cx-tools-reference-add": "Aggiungi un riferimento",
 	"cx-tools-reference-remove": "Rimuovi riferimento",
 	"cx-tools-link-instruction-shortcut": "Maiusc + clic su qualsiasi collegamento per aprirlo",
-	"cx-tools-link-hover-tooltip": "Clicca per aprire",
 	"cx-warning-unsaved-translation": "Ci sono traduzioni non salvate.",
 	"cx-error-page-not-found": "La pagina \"$1\" non è stata trovata nella Wikipedia in $2",
 	"cx-page-selector-widget-nearby-label": "Nelle vicinanze",

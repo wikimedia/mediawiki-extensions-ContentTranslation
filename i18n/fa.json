@@ -88,7 +88,6 @@
 	"cx-tools-reference-add": "افزودن منبع",
 	"cx-tools-reference-remove": "حذف منبع",
 	"cx-tools-link-instruction-shortcut": "برای باز شدن Shift + بر روی هر پیوندی کلیک کنید",
-	"cx-tools-link-hover-tooltip": "برای باز شدن کلیک کنید",
 	"cx-warning-unsaved-translation": "شما ترجمه‌های ذخیره‌نشده دارید.",
 	"cx-error-page-not-found": "صفحهٔ «$1» در $2 ویکی‌پدیا یافت نشد",
 	"cx-page-selector-widget-recent-edits-label": "ویرایشهای اخیر شما",

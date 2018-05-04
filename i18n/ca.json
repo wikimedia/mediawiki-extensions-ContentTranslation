@@ -84,7 +84,6 @@
 	"cx-tools-reference-add": "Afegiu una referència",
 	"cx-tools-reference-remove": "Esborra la referència",
 	"cx-tools-link-instruction-shortcut": "Feu Shift + clic a qualsevol enllaç per obrir-lo",
-	"cx-tools-link-hover-tooltip": "Feu clic per obrir",
 	"cx-warning-unsaved-translation": "Teniu traduccions no desades.",
 	"cx-error-page-not-found": "No es pot trobar la pàgina «$1» a la Viquipèdia en $2",
 	"cx-page-selector-widget-nearby-label": "A prop",

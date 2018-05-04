@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "Dodaj sklic",
 	"cx-tools-reference-remove": "Odstrani sklic",
 	"cx-tools-link-instruction-shortcut": "Shift + klik na katerokoli povezavo, ki jo želiš odpreti",
-	"cx-tools-link-hover-tooltip": "Klikni za odpiranje",
 	"cx-warning-unsaved-translation": "Nekaj tvojih prevodov je še neshranjenih.",
 	"cx-error-page-not-found": "Stran \"$1\" ni bila najdena na {{GRAMMAR:mestnik|$2}} Wikipediji.",
 	"cx-page-selector-widget-recent-edits-label": "Urejal pred kratkim",

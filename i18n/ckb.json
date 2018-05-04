@@ -57,7 +57,6 @@
 	"cx-tools-reference-add": "زیادکردنی سەرچاوە",
 	"cx-tools-reference-remove": "لابردنی سەرچاوە",
 	"cx-tools-link-instruction-shortcut": "بۆ کردنەوەی ھەر لینکێک Shift بگرە و لەسەری کلیک بکە",
-	"cx-tools-link-hover-tooltip": "بۆ کردنەوەی کلیک بکە",
 	"cx-warning-unsaved-translation": "وەرگێڕانی پاشەکەوت نەکراوت ھەیە.",
 	"cx-error-page-not-found": "پەڕەی «$1» لە ویکیپیدیای $2دا نەدۆزرایەوە",
 	"cx-selected-source-page-start-translation-button": "وەرگێڕان دەست پێ بکە",

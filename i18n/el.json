@@ -72,7 +72,6 @@
 	"cx-tools-reference-add": "Προσθήκη αναφοράς",
 	"cx-tools-reference-remove": "Αφαίρεση παραπομπής",
 	"cx-tools-link-instruction-shortcut": "Shift + κλικ σε οποιοδήποτε σύνδεσμο για να ανοίξει",
-	"cx-tools-link-hover-tooltip": "Κάντε κλικ για να ανοίξετε",
 	"cx-warning-unsaved-translation": "Έχετε μη αποθηκευμένες μεταφράσεις.",
 	"cx-error-page-not-found": "Η σελίδα \"$1\" δεν βρέθηκε στη Wikipedia στα $2",
 	"cx-page-selector-widget-recent-edits-label": "Επεξεργάστηκαν πρόσφατα από εσάς",

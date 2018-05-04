@@ -69,7 +69,6 @@
 	"cx-tools-reference-title": "Reference",
 	"cx-tools-reference-remove": "Fjern reference",
 	"cx-tools-link-instruction-shortcut": "Skift + klik på et link for at åbne",
-	"cx-tools-link-hover-tooltip": "Klik for at åbne",
 	"cx-warning-unsaved-translation": "Du har ikke-gemte oversættelser.",
 	"cx-error-page-not-found": "Siden \"$1\" blev ikke fundet på $2 Wikipedia",
 	"cx-selected-source-page-start-translation-button": "Start oversættelse",

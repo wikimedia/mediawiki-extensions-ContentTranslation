@@ -87,7 +87,6 @@
 	"cx-tools-reference-add": "脚注を追加",
 	"cx-tools-reference-remove": "脚注を除去",
 	"cx-tools-link-instruction-shortcut": "Shift+クリックでリンクを開けます",
-	"cx-tools-link-hover-tooltip": "クリックして開く",
 	"cx-warning-unsaved-translation": "保存していない翻訳があります。",
 	"cx-error-page-not-found": "$1は$2版Wikipediaでは見つけられませんでした。",
 	"cx-page-selector-widget-recent-edits-label": "あなたによって最近編集されました",

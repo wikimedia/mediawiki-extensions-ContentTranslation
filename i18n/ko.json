@@ -97,7 +97,6 @@
 	"cx-tools-reference-add": "각주 추가",
 	"cx-tools-reference-remove": "각주 제거",
 	"cx-tools-link-instruction-shortcut": "링크를 열려면 Shift + 클릭",
-	"cx-tools-link-hover-tooltip": "열려면 클릭",
 	"cx-warning-unsaved-translation": "번역을 저장하지 않았습니다.",
 	"cx-error-page-not-found": "\"$1\" 문서는 $2 위키백과에서 찾을 수 없습니다.",
 	"cx-page-selector-widget-recent-edits-label": "최근에 편집함",

@@ -80,7 +80,6 @@
 	"cx-tools-reference-add": "Forráshivatkozás hozzáadása",
 	"cx-tools-reference-remove": "Forráshivatkozás eltávolítása",
 	"cx-tools-link-instruction-shortcut": "Shift + kattintás a hivatkozás megnyitásához",
-	"cx-tools-link-hover-tooltip": "Kattints a megnyitáshoz",
 	"cx-warning-unsaved-translation": "Mentetlen fordításaid vannak.",
 	"cx-error-page-not-found": "A(z) „$1” című lap nem található a(z) $2 Wikipédián.",
 	"cx-page-selector-widget-recent-edits-label": "Általad mostanában szerkesztett",

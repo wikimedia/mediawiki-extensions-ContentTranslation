@@ -83,7 +83,6 @@
 	"cx-tools-reference-add": "Додај референцу",
 	"cx-tools-reference-remove": "Уклони референцу",
 	"cx-tools-link-instruction-shortcut": "Shift + клик мишем на везу да бисте је отворили",
-	"cx-tools-link-hover-tooltip": "Кликните да бисте отворили",
 	"cx-warning-unsaved-translation": "Имате несачуване преводе.",
 	"cx-error-page-not-found": "Страница „$1” није пронађена на $2 Википедији",
 	"cx-page-selector-widget-recent-edits-label": "Ваше скорашње измене",

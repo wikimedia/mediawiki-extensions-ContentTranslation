@@ -77,7 +77,6 @@
 	"cx-tools-reference-add": "सन्दर्भ जोड़ें",
 	"cx-tools-reference-remove": "सन्दर्भ हटायें",
 	"cx-tools-link-instruction-shortcut": "किसी भी कड़ी को खोलने के लिए शिफ्ट कुँजी (Shift) के साध दबायें।",
-	"cx-tools-link-hover-tooltip": "खोलने के लिए क्लिक करें",
 	"cx-warning-unsaved-translation": "आपके पास बिना सहेजे गये अनुवाद हैं।",
 	"cx-error-page-not-found": "पृष्ठ \"$1\", $2 विकिपीडिया पर नहीं पाया गया",
 	"cx-page-selector-widget-nearby-label": "निकट",

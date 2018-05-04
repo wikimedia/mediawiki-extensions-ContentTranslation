@@ -85,7 +85,6 @@
 	"cx-tools-reference-add": "Kaynak ekle",
 	"cx-tools-reference-remove": "Kaynağı kaldır",
 	"cx-tools-link-instruction-shortcut": "Herhangi bir bağlantıyı açmak için shift tuşu ile beraber basın",
-	"cx-tools-link-hover-tooltip": "Açmak için tıklayın",
 	"cx-warning-unsaved-translation": "Kaydedilmemiş çevirileriniz var.",
 	"cx-error-page-not-found": "$2 Vikipedi'de \"$1\" sayfası bulunamadı.",
 	"cx-selected-source-page-start-translation-button": "Çevirmeye başla",

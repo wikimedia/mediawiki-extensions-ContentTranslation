@@ -59,7 +59,6 @@
 	"cx-tools-reference-add": "سرچينه ورگډول",
 	"cx-tools-reference-remove": "سرچينه غورځول",
 	"cx-tools-link-instruction-shortcut": "د پرانيستلو لپاره شېفټ ونيسئ + په هر يوه تړنه کېښکاږئ",
-	"cx-tools-link-hover-tooltip": "د پرانيستلو لپاره کېښکاږئ",
 	"cx-warning-unsaved-translation": "تاسې ناخوندي شوې ژباړې لرۍ.",
 	"cx-error-page-not-found": "د \"$1\" مخ په $2 ويکيپېډيا کې و نه موندل شو",
 	"cx-selected-source-page-start-translation-button": "ژباړه پيلول",

@@ -83,7 +83,6 @@
 	"cx-tools-reference-add": "Додати виноску",
 	"cx-tools-reference-remove": "Вилучити примітку",
 	"cx-tools-link-instruction-shortcut": "Shift + клік на будь-яке посилання, щоб відкрити",
-	"cx-tools-link-hover-tooltip": "Клацніть, щоб відкрити",
 	"cx-warning-unsaved-translation": "У Вас є незбережені переклади.",
 	"cx-error-page-not-found": "Не вдалося знайти сторінку «$1» в {{GRAMMAR:locative|$2}} Вікіпедії",
 	"cx-page-selector-widget-recent-edits-label": "Нещодавно редаговані Вами",

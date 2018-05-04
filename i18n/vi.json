@@ -77,7 +77,6 @@
 	"cx-tools-reference-add": "Thêm chú thích",
 	"cx-tools-reference-remove": "Xóa chú thích",
 	"cx-tools-link-instruction-shortcut": "Giữ Shift và nhấn chuột vào một liên kết để mở",
-	"cx-tools-link-hover-tooltip": "Nhấn chuột để mở",
 	"cx-warning-unsaved-translation": "Bạn có bản dịch chưa lưu.",
 	"cx-error-page-not-found": "Không tìm thấy trang “$1” trong Wikipedia $2",
 	"cx-selected-source-page-start-translation-button": "Tiến hành dịch",

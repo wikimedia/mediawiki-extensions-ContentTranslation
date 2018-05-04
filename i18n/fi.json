@@ -77,7 +77,6 @@
 	"cx-tools-reference-add": "Lisää viite",
 	"cx-tools-reference-remove": "Poista viite",
 	"cx-tools-link-instruction-shortcut": "Avaa mikä tahansa linkki napsauttamalla sitä shift-näppäin pohjassa",
-	"cx-tools-link-hover-tooltip": "Avaa napsauttamalla",
 	"cx-warning-unsaved-translation": "Sinulla on tallentamattomia käännöksiä.",
 	"cx-error-page-not-found": "Sivua ”$1” ei löydy Wikipediasta kielellä $2",
 	"cx-page-selector-widget-nearby-label": "Lähistöllä",
