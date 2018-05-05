@@ -37,6 +37,8 @@
 	"cx-publish-gt-published-description": "Вы можаце націснуць кнопку \"$1\" і працягваць удасканальваць старонку. Пераканайцеся, што яна чытаецца натуральна.",
 	"cx-translation-add-translation": "Дадаць пераклад",
 	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] існуе ў мэтавай Вікі. Разглядзіце пытанне аб прадастаўленні старонкі іншай назвы.",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Пераклад зместу]]",
+	"tag-contenttranslation-description": "Змест быў перакладзены з іншай мовы з дапамогай інструменту «Пераклад зместу».",
 	"cx-source-loading": "Загрузка $1",
 	"cx-beta": "Пераклад зместу",
 	"cx-beta-desc": "Інструмент для хуткага перакладу старонак на Вашу мову. Пачніце пераклад са старонкі [[Special:MyContributions|Вашага ўнёску]], праўце яго ў нашым рэдактары «бок у бок», спецыяльна спраектаваным для перакладаў. Некаторыя інструменты могуць быць даступныя толькі для пэўных моў.",
@@ -58,6 +60,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мультымедыйныя файлы",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 пераклад|$1 пераклады|$1 перакладаў}}",
 	"echo-category-title-cx": "Пераклады",
+	"echo-pref-tooltip-cx": "Паведамляць мне пра мае пераклады, створаныя з дапамогай інструменту перакладу зместу.",
 	"cx-contributions-link": "Ваш уклад",
 	"cx-tools-mt-new-providers-available": "з новымі настройкамі",
 	"cx-continue-translation": "Працягваць пераклад"
