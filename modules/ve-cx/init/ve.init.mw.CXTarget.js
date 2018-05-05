@@ -606,20 +606,18 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content ) 
 /**
  * @inheritDoc
  */
-ve.init.mw.CXTarget.prototype.parseWikitextFragment = function ( wikitext, pst, doc ) {
-	var pageTitle, lang;
+ve.init.mw.CXTarget.prototype.getContentApi = function ( doc ) {
+	doc = doc || this.targetSurface.getModel().getDocument();
+	return this.siteMapper.getApi( doc.getLang() );
+};
 
-	lang = doc ? doc.lang : this.translation.targetWikiPage.getLanguage();
-	pageTitle = lang === this.translation.sourceWikiPage.getLanguage() ?
+/**
+ * @inheritDoc
+ */
+ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
+	doc = doc || this.targetSurface.getModel().getDocument();
+	return doc.getLang() === this.translation.sourceWikiPage.getLanguage() ?
 		this.translation.sourceWikiPage.getTitle() : this.translation.getTargetTitle();
-
-	return this.siteMapper.getApi( lang ).post( {
-		action: 'visualeditor',
-		paction: 'parsefragment',
-		page: pageTitle,
-		wikitext: wikitext,
-		pst: pst
-	} );
 };
 
 /**
