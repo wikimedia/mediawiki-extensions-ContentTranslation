@@ -74,12 +74,12 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( linkInfo, context ) 
 		$wrapper = $( '<div>' );
 
 	$linkTitle = $( '<a>' )
-		.addClass( 've-ui-mwInternalLinkContextItem-link  cx-tools-link-text' )
+		.addClass( 've-ui-mwInternalLinkContextItem-link cx-tools-link-text' )
 		.text( linkInfo.title )
 		.prop( {
 			target: '_blank',
 			title: linkInfo.title,
-			href: ve.init.target.config.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
+			href: ve.init.target.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
 		} );
 
 	icon = new OO.ui.IconWidget( {
