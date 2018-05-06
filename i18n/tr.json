@@ -18,7 +18,8 @@
 			"MrSchipunov",
 			"Incelemeelemani",
 			"Bulgu",
-			"Botansahin"
+			"Botansahin",
+			"Ramona.Stewart"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -95,6 +96,7 @@
 	"cx-mt-abuse-warning-title": "Çevirinizde %$1 oranında düzenlenmemiş makine çevirisi var",
 	"cx-mt-abuse-warning-text": "Makine çevirileri sadece bir başlangıç noktası olarak sunulmaktadır. İçeriğin doğru ve dilinizin doğal yapısına uygun olduğundan emin olmalısınız.",
 	"cx-publish-captcha-title": "Güvenlik sorusu",
+	"cx-captcha-dialog-error": "Cevabınız doğru görünmüyor. Lütfen tekrar deneyin.",
 	"cx-dashboard-sidebar-title": "Çeviriler için yardıma mı {{GENDER:|ihtiyacınız}} var?",
 	"cx-dashboard-sidebar-information": "Bu özellikle ilgili daha fazlasını bilin",
 	"cx-dashboard-sidebar-stats": "İstatistikler",
