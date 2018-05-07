@@ -385,13 +385,14 @@
 	 * Start a new page translation in Special:CX.
 	 */
 	mw.cx.SelectedSourcePage.prototype.startPageInCX = function () {
-		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper, self = this;
+		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper, version;
 
 		siteMapper = this.siteMapper;
 		sourceLanguage = this.languageFilter.getSourceLanguage();
 		targetLanguage = this.languageFilter.getTargetLanguage();
 		originalSourceTitle = this.sourceTitle;
 		targetTitle = this.targetTitle || '';
+		version = mw.cx.getCXVersion();
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
@@ -411,9 +412,9 @@
 				targetTitle,
 				sourceLanguage,
 				targetLanguage,
-				{ campaign: self.config.campaign }
+				{ campaign: this.config.campaign, version: version }
 			);
-		} );
+		}.bind( this ) );
 	};
 
 	/**
