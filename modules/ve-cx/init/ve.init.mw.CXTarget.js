@@ -45,6 +45,8 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.sourceSurface = null;
 	// @var {ve.ui.CXSurface}
 	this.targetSurface = null;
+	// @var {Object}
+	this.contentSourceCache = {};
 
 	this.$element
 		.addClass( 've-init-mw-cxTarget' )
@@ -535,18 +537,21 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var $sourceElement,
+	var $sourceElement, model,
 		cxid = placeholder.getModel().getAttribute( 'cxid' );
 
+	model = placeholder.getModel();
+
 	this.MTManager.getPreferredProvider().then( function ( provider ) {
-		this.translateSection( cxid, provider ).done(
-			this.setSectionContent.bind( this, placeholder.getModel() )
-		).fail( function () {
-			ve.error( 'Failed loading translation for #' + cxid );
-		} ).always( function () {
-			$sourceElement = this.getSourceSectionElement( cxid );
-			$sourceElement.removeClass( 'cx-section-highlight' );
+		return this.changeContentSource( model, null, provider );
+	}.bind( this ) ).fail( function () {
+		mw.notify( 'Automatic translation failed!' );
+		return this.MTManager.getDefaultNonMTProvider().then( function ( provider ) {
+			return this.changeContentSource( model, null, provider );
 		}.bind( this ) );
+	}.bind( this ) ).always( function () {
+		$sourceElement = this.getSourceSectionElement( cxid );
+		$sourceElement.removeClass( 'cx-section-highlight' );
 	}.bind( this ) );
 };
 
@@ -585,18 +590,19 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
  * Set the section content to the given content.
  * @param {ve.dm.CXSectionNode} section Section model
  * @param {string} content
+ * @param {string} source Original content source
  */
-ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content ) {
+ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, source ) {
 	var pasteDoc, newCursorRange, docLen, fragmentRange,
 		surfaceModel = this.getSurface().getModel(),
-		cxid = section.getAttribute( 'cxid' ),
+		cxid = section.getSectionId(),
 		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
 
 	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( content ) );
 	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
 
 	fragment.insertContent( [
-		{ type: 'cxSection', attributes: { style: 'section', cxid: cxid } },
+		{ type: 'cxSection', attributes: { style: 'section', cxid: cxid, cxsource: source } },
 		// Put a temporary paragraph inside the section so the cursor has somewhere
 		// sensible to go, preventing scrollCursorIntoView from triggering a jump
 		{ type: 'paragraph' },
@@ -663,3 +669,40 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider 
 /* Registration */
 
 ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );
+
+/**
+ * Change content source for given target section.
+ *
+ * This handles caching of previous content when switching back and forth.
+ * This might be redundant with undo/redo.
+ *
+ * @param {ve.dm.CXSectionNode} section
+ * @param {string|null} previousProvider
+ * @param {string} newProvider
+ * @return {jQuery.promise}
+ */
+ve.init.mw.CXTarget.prototype.changeContentSource = function (
+	section,
+	previousProvider,
+	newProvider
+) {
+	var cxid, html, cachedContent;
+
+	cxid = section.getSectionId();
+	html = ve.dm.converter.getDomFromNode( section, true ).body.children[ 0 ].outerHTML;
+
+	if ( previousProvider !== null ) {
+		OO.setProp( this.contentSourceCache, cxid, previousProvider, html );
+	}
+
+	cachedContent = OO.getProp( this.contentSourceCache, cxid, newProvider );
+
+	if ( cachedContent ) {
+		this.setSectionContent( section, cachedContent, newProvider );
+		return $.Deferred().resolve().promise();
+	}
+
+	return this.translateSection( cxid, newProvider ).then( function ( content ) {
+		this.setSectionContent( section, content, newProvider );
+	}.bind( this ) );
+};

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
@@ -16,66 +18,76 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar( target ) {
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
 	this.$element.addClass( 've-cx-toolbar-mt' ).prepend( $title );
+	// Hide initially, because there is no selection initially
+	this.$element.toggle( false );
 };
 
 OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.PositionedTargetToolbar );
 
 ve.ui.CXTranslationToolbar.static.registerTools = function () {
+	var createProviderItem = function ( provider, defaultProvider ) {
+		var toolClassName = provider + 'MTTool';
+		ve.ui[ toolClassName ] = function VeCXMTTool() {
+			ve.ui.Tool.apply( this, arguments );
+			this.setActive( defaultProvider === this.constructor.static.name );
+		};
+
+		OO.inheritClass( ve.ui[ toolClassName ], ve.ui.Tool );
+		ve.ui[ toolClassName ].static.name = provider;
+		ve.ui[ toolClassName ].static.group = 'mt';
+		ve.ui[ toolClassName ].static.title =
+			ve.init.target.config.MTManager.getProviderLabel( provider );
+		ve.ui[ toolClassName ].static.commandName = provider.toLowerCase();
+
+		ve.ui[ toolClassName ].prototype.onSelect = function () {
+			// Parent method
+			ve.ui.Tool.prototype.onSelect.apply( this, arguments );
+			// Set all other tools inactive
+			this.toolGroup.items.forEach( function ( tool ) {
+				tool.setActive( tool === this );
+			}.bind( this ) );
+		};
+
+		ve.ui[ toolClassName ].prototype.onUpdateState = function () {
+			var section, source,
+				surface = this.toolbar.getSurface(),
+				selection = surface.getModel().getSelection();
+
+			// Parent method
+			ve.ui.Tool.prototype.onUpdateState.apply( this, arguments );
+
+			// Check that we are not getting ve.dm.NullSelection
+			if ( !( selection instanceof ve.dm.LinearSelection ) ) {
+				return;
+			}
+
+			// When changing provides, there is temporarily no parent section
+			section = mw.cx.getParentSectionForSelection( surface, selection );
+			if ( !section ) {
+				return;
+			}
+
+			// Use stored provider if available, otherwise assume defaultProvider
+			// TODO: How to handle case that stored provider is no longer valid?
+			source = section.getOriginalContentSource() || defaultProvider;
+			this.setActive( this.getName() === source );
+		};
+
+		ve.ui.toolFactory.register( ve.ui[ toolClassName ] );
+
+		ve.ui.commandRegistry.register(
+			new ve.ui.Command(
+				provider.toLowerCase(), 'translation', 'translate',
+				{ args: [ provider ], supportedSelections: [ 'linear' ] }
+			)
+		);
+	};
+
 	return ve.init.target.config.MTManager.getDefaultProvider().then( function ( defaultProvider ) {
 		return ve.init.target.config.MTManager.getAvailableProviders().then( function ( providers ) {
-			var i, toolClassName;
-
-			for ( i = 0; i < providers.length; i++ ) {
-				toolClassName = providers[ i ] + 'MTTool';
-				ve.ui[ toolClassName ] = function VeCXMTTool() {
-					ve.ui.Tool.apply( this, arguments );
-					this.setActive( defaultProvider === this.constructor.static.name );
-				};
-
-				OO.inheritClass( ve.ui[ toolClassName ], ve.ui.Tool );
-				ve.ui[ toolClassName ].static.name = providers[ i ];
-				ve.ui[ toolClassName ].static.group = 'mt';
-				ve.ui[ toolClassName ].static.title =
-					ve.init.target.config.MTManager.getProviderLabel( providers[ i ] );
-				ve.ui[ toolClassName ].static.commandName = providers[ i ].toLowerCase();
-
-				ve.ui[ toolClassName ].prototype.onSelect = function () {
-					var name;
-					// Parent method
-					ve.ui.Tool.prototype.onSelect.apply( this, arguments );
-					// Set all tools inactive
-					for ( name in this.toolbar.tools ) {
-						this.toolbar.tools[ name ].setActive( false );
-					}
-					// ... and then set this tool active.
-					this.toolbar.tools[ this.constructor.static.name ].setActive( true );
-				};
-
-				ve.ui[ toolClassName ].prototype.onUpdateState = function () {
-					var section,
-						selection = this.toolbar.getSurface().getModel().getSelection();
-
-					// Parent method
-					ve.ui.Tool.prototype.onUpdateState.apply( this, arguments );
-					if ( selection instanceof ve.dm.LinearSelection ) {
-						section = mw.cx.getParentSectionForSelection( this.toolbar.getSurface(), selection );
-						if ( section ) {
-							mw.log( '[CX] In section ' + section.getAttribute( 'cxid' ) );
-							// TODO: Show the current mt engine for this section as selected item in
-							// the toolbar
-						}
-					}
-				};
-
-				ve.ui.toolFactory.register( ve.ui[ toolClassName ] );
-
-				ve.ui.commandRegistry.register(
-					new ve.ui.Command(
-						providers[ i ].toLowerCase(), 'translation', 'translate',
-						{ args: [ providers[ i ] ], supportedSelections: [ 'linear' ] }
-					)
-				);
-			}
+			providers.forEach( function ( provider ) {
+				createProviderItem( provider, defaultProvider );
+			} );
 		} );
 	} );
 };

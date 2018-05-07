@@ -1,5 +1,10 @@
+'use strict';
+
 /**
  * Empty placeholder Section in the target document, corresponding to a source Section
+ *
+ * @copyright See AUTHORS.txt
+ * @license GPL-2.0-or-later
  *
  * @class
  * @extends ve.ce.LeafNode
@@ -52,12 +57,13 @@ ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
 
 ve.ce.CXPlaceholderNode.prototype.executeCommand = function () {
 	this.active = true;
-	this.showProgressIndicator();
+	this.showLoadingIndicator();
 	this.getDocument().emit( 'activatePlaceholder', this );
 };
 
-ve.ce.CXPlaceholderNode.prototype.showProgressIndicator = function () {
+ve.ce.CXPlaceholderNode.prototype.showLoadingIndicator = function () {
 	this.$element.empty().append( mw.cx.widgets.spinner() );
+	this.$element.addClass( 've-ce-cxPlaceholderNode--loading' );
 };
 
 ve.ce.CXPlaceholderNode.prototype.createHighlights = function () {

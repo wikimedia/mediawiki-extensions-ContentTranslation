@@ -11,7 +11,8 @@
 	text-align: center;
 	.transition( opacity 100ms ease-out );
 
-	&.ve-ce-focusableNode-focused {
+	&.ve-ce-focusableNode-focused,
+	&.ve-ce-cxPlaceholderNode--loading {
 		opacity: 1;
 	}
 
@@ -25,11 +26,11 @@
 		margin: 0;
 		vertical-align: middle;
 	}
-}
 
-// We don't want to show the placeholder during publishing,
-// so content container is checked if it's disabled.
-.cx-content-container:not( .oo-ui-widget-disabled ) .ve-ce-cxPlaceholderNode:hover {
-	cursor: pointer;
-	opacity: 1;
+	// We don't want to show the placeholder during publishing,
+	// so content container is checked if it's disabled.
+	.cx-content-container:not( .oo-ui-widget-disabled ) &:hover {
+		cursor: pointer;
+		opacity: 1;
+	}
 }

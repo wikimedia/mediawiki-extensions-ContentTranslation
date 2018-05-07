@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * Content Translation UserInterface TranslationAction class.
  * @copyright See AUTHORS.txt
@@ -12,7 +14,7 @@
  * @constructor
  * @param {ve.ui.Surface} surface Surface to act on
  */
-ve.ui.CXTranslationAction = function VeUiCXTranslationtAction() {
+ve.ui.CXTranslationAction = function VeUiCXTranslationAction() {
 	// Parent constructor
 	ve.ui.CXTranslationAction.super.apply( this, arguments );
 };
@@ -34,14 +36,13 @@ ve.ui.CXTranslationAction.static.name = 'translation';
 ve.ui.CXTranslationAction.static.methods = [ 'translate' ];
 
 /**
- * Machine translate using the given MT engine
+ * Find the currently active section and request to change the source.
  *
- * @method
- * @param {string} engine MT Engine
- * @return {boolean} Action was executed
+ * @param {string} source Selected MT provider or `source` or `scratch`
+ * @return {boolean} False if action is cancelled.
  */
-ve.ui.CXTranslationAction.prototype.translate = function ( engine ) {
-	var sectionId, section,
+ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
+	var section,
 		selection = this.surface.getModel().getSelection();
 
 	if ( !( selection instanceof ve.dm.LinearSelection ) ) {
@@ -54,14 +55,14 @@ ve.ui.CXTranslationAction.prototype.translate = function ( engine ) {
 		mw.log.error( '[CX] Could not find a CX Section as parent for the context.' );
 		return false;
 	}
-	sectionId = section.getAttribute( 'cxid' );
-	mw.log( 'Machine translating ' + sectionId + ' using ' + engine );
 
-	ve.init.target.translateSection( sectionId, engine ).then( function ( translationResponse ) {
-		ve.init.target.setSectionContent( section, translationResponse );
+	ve.init.target.changeContentSource( section, section.getOriginalContentSource(), source ).fail( function () {
+		// TODO: set the selected tool as non-active. How?
+		// TODO: i18n
+		mw.notify( 'Machine translation failed' );
 	} );
 
-	return true;
+	return;
 };
 
 /* Registration */
