@@ -2027,7 +2027,7 @@
 				"mw.cx.ui.TranslationToolWidget"
 			]
 		},
- 		"mw.cx.ui.mixins": {
+		"mw.cx.ui.mixins": {
 			"dependencies": [
 				"mw.cx.ui.mixin.AlignableTranslationUnit"
 			]
