@@ -111,7 +111,10 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
-				savedSectionNode.innerHTML = savedSection.user.content;
+				// If use only clicks to fill in mt, we don't save anything in `user`.
+				savedSectionNode.innerHTML =
+					OO.getProp( savedSection, 'user', 'content' ) ||
+					OO.getProp( savedSection, 'mt', 'content' );
 				sectionNode = savedSectionNode.firstChild;
 			} else {
 				// Prepare a placeholder section
