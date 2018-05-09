@@ -51,7 +51,6 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 		{ lang: this.targetWikiPage.getLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
-	this.buildTranslationUnits( this.sourceDoc.getDocumentNode(), null );
 };
 
 /* Inheritance */
@@ -450,77 +449,6 @@ mw.cx.dm.Translation.prototype.matchTranslationUnit = function ( sourceModel, pa
 		return null;
 	}
 	return mw.cx.dm.translationUnitFactory.create( type, this, id, sourceModel, parentUnit );
-};
-
-/**
- * Build and initialize sub-translation units recursively.
- *
- * @param {ve.dm.Node} parentNode Document node to search
- * @param {mw.cx.dm.TranslationUnit|null} parentUnit Parent translation unit
- */
-mw.cx.dm.Translation.prototype.buildTranslationUnits = function ( parentNode, parentUnit ) {
-	var unitList, i, len, node, unit;
-
-	if ( parentNode instanceof ve.dm.ContentBranchNode ) {
-		this.buildAnnotationTranslationUnits( parentNode.getRange(), parentUnit );
-		return;
-	}
-
-	if ( !parentNode.children || !parentNode.children.length ) {
-		return;
-	}
-
-	unitList = parentUnit ? parentUnit.translationUnits : this.topTranslationUnits;
-	for ( i = 0, len = parentNode.children.length; i < len; i++ ) {
-		node = parentNode.children[ i ];
-		unit = this.matchTranslationUnit( node, parentUnit );
-		if ( unit ) {
-			unitList.push( unit );
-			this.translationUnitById[ unit.getId() ] = unit;
-		}
-		// Recurse, whether or not we just built a translation unit
-		this.buildTranslationUnits( node, unit || parentUnit );
-	}
-};
-
-/**
- * Build and initialize translation units for annotations.
- *
- * @param {ve.Range} range Document range to search
- * @param {mw.cx.dm.TranslationUnit} parentUnit Parent translation unit
- */
-mw.cx.dm.Translation.prototype.buildAnnotationTranslationUnits = function ( range, parentUnit ) {
-	var i, current, opened, closed, j, jLen, ann, unit,
-		data = this.sourceDoc.data,
-		previous = new ve.dm.AnnotationSet( data.store ),
-		translationUnitIdBySetHash = {};
-
-	for ( i = range.start; i < range.end; i++ ) {
-		current = data.getAnnotationsFromOffset( i );
-		opened = current.clone();
-		opened.removeSet( previous );
-		closed = previous.clone();
-		closed.removeSet( current );
-		for ( j = 0, jLen = opened.getLength(); j < jLen; j++ ) {
-			ann = opened.get( j );
-			unit = this.matchTranslationUnit( ann, parentUnit );
-			if ( unit ) {
-				parentUnit.translationUnits.push( unit );
-				this.translationUnitById[ unit.getId() ] = unit;
-				translationUnitIdBySetHash[ opened.getHash( j ) ] = unit.getId();
-				unit.setStart( i );
-			}
-		}
-		for ( j = 0, jLen = closed.getLength(); j < jLen; j++ ) {
-			unit = this.translationUnitById[
-				translationUnitIdBySetHash[ closed.getHash( j ) ]
-			];
-			if ( unit ) {
-				unit.setEnd( i );
-			}
-		}
-		previous = current;
-	}
 };
 
 /**

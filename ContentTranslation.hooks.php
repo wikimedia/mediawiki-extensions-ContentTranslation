@@ -489,7 +489,6 @@ class ContentTranslationHooks {
 				'ext.cx.sitemapper',
 				'mw.cx.MachineTranslation',
 				'mw.cx.MwApiRequestManager',
-				'mw.cx.dm.TranslationUnits',
 				'mw.cx.util'
 			],
 		] + $resourcePaths;
