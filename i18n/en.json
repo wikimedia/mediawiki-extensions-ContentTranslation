@@ -198,7 +198,7 @@
 	"cx-notification-tenth-translation": "Congratulations for your tenth translation! You are becoming an expert translator. Keep up the good work!",
 	"cx-notification-hundredth-translation": "You just made 100 translations! That is a remarkable achievement. Share the news with other editors.",
 	"cx-notification-deleted-draft": "Your translation for <strong>$1</strong> was discarded because its content was outdated by more than a year. Start a new translation with fresh content anytime.",
-	"cx-notification-deleted-draft-bundle": "$1 translations were discarded because their content was outdated by more than a year. Start them with fresh content anytime.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 translations}} were discarded because their content was outdated by more than a year. Start them with fresh content anytime.",
 	"cx-contributions-link": "Your contributions",
 	"cx-your-translations-link": "{{GENDER:$1|Your translations}}",
 	"cx-translationlist-empty-title": "Nothing to translate?",
