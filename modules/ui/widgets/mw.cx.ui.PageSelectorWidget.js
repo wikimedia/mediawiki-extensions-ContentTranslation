@@ -37,6 +37,7 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 	if ( config.targetLanguage ) {
 		this.setTargetLanguage( config.targetLanguage );
 	}
+	this.lookupChooseFirstItem = false;
 	this.listen();
 
 	// Initialization
@@ -48,6 +49,27 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 OO.inheritClass( mw.cx.ui.PageSelectorWidget, mw.widgets.TitleInputWidget );
 
 /* Methods */
+
+/**
+ * @inheritdoc
+ */
+mw.cx.ui.PageSelectorWidget.prototype.initializeLookupMenuSelection = function () {
+	var matchingItem;
+
+	mw.cx.ui.PageSelectorWidget.super.prototype.initializeLookupMenuSelection.apply( this, arguments );
+
+	if ( !this.lookupChooseFirstItem ) {
+		return this;
+	}
+
+	matchingItem = this.lookupMenu.findItemFromData( this.getValue() );
+	if ( matchingItem ) {
+		this.lookupMenu.chooseItem( matchingItem );
+		this.lookupChooseFirstItem = false; // Reset to the default value
+	}
+
+	return this;
+};
 
 /**
  * @inheritdoc

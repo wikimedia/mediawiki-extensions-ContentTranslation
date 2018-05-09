@@ -70,6 +70,7 @@
 			this.options.targetLanguage &&
 			this.options.sourceTitle
 		) {
+			this.pageSelector.lookupChooseFirstItem = true;
 			this.show();
 		}
 	};
