@@ -326,7 +326,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 				message: message,
 				messageInfo: {
 					type: error ? 'error' : 'warning',
-					help: '//www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter'
+					help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter'
 				}
 			} );
 		}
