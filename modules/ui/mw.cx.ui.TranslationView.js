@@ -11,6 +11,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	this.targetColumn = new mw.cx.ui.TargetColumn( config.siteMapper, config.targetLanguage, config.targetTitle );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
+	this.titleValidationTool = null;
 	// @var {mw.cx.ui.Categories}
 	this.categoryUI = null;
 
@@ -50,6 +51,14 @@ mw.cx.ui.TranslationView = function ( config ) {
 
 	// Parent constructor
 	mw.cx.ui.TranslationView.super.call( this, this.config );
+
+	// Events
+	this.targetColumn.titleWidget.connect( this, {
+		lintIssues: 'onLintIssues',
+		lintIssuesResolved: 'onLintIssuesResolved',
+		focus: 'onFocus',
+		blur: 'onBlur'
+	} );
 };
 
 /* Setup */
@@ -125,4 +134,46 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
 		mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
 	} );
+};
+
+mw.cx.ui.TranslationView.prototype.onLintIssues = function () {
+	this.translationHeader.publishButton.setDisabled( true );
+
+	mw.loader.using( [
+		'mw.cx.tools.TitleValidationTool'
+	], function () {
+		this.titleValidationTool = mw.cx.tools.translationToolFactory.create(
+			'titlevalidation', this.targetColumn.titleWidget, this.toolsColumn, this.config
+		);
+
+		if ( this.targetColumn.titleWidget.focused ) {
+			this.toolsColumn.showTool( this.titleValidationTool );
+		}
+	}.bind( this ) );
+};
+
+mw.cx.ui.TranslationView.prototype.onLintIssuesResolved = function () {
+	this.translationHeader.publishButton.setDisabled( false );
+
+	if ( this.titleValidationTool ) {
+		this.toolsColumn.hideTool( this.titleValidationTool );
+		this.titleValidationTool = null;
+	}
+};
+
+mw.cx.ui.TranslationView.prototype.onFocus = function () {
+	if ( this.titleValidationTool ) {
+		this.toolsColumn.showTool( this.titleValidationTool );
+	}
+
+	this.toolsColumn.toolContainer.$element.addClass( 'cx-column-tools-container--contextual' );
+};
+
+mw.cx.ui.TranslationView.prototype.onBlur = function () {
+	if ( this.titleValidationTool ) {
+		this.toolsColumn.hideTool( this.titleValidationTool );
+		this.titleValidationTool.showCollapsed();
+	}
+
+	this.toolsColumn.toolContainer.$element.removeClass( 'cx-column-tools-container--contextual' );
 };

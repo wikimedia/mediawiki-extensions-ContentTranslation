@@ -97,6 +97,7 @@ mw.cx.ui.ArticleColumn.prototype.setTranslation = function ( translation ) {
  */
 mw.cx.ui.ArticleColumn.prototype.setTitle = function ( title ) {
 	this.titleWidget.setValue( title );
+	this.titleWidget.validateTitle( title );
 };
 
 /**

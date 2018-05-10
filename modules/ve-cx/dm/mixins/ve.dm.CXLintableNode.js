@@ -36,12 +36,12 @@ ve.dm.CXLintableNode.prototype.processLintResult = function ( issue ) {
 	}
 
 	if ( typeof issue === 'string' || issue instanceof String ) {
-		return new mw.cx.dm.TranslationIssue( mw.msg( 'cx-tools-linter-generic-title' ), issue );
+		return new mw.cx.dm.TranslationIssue( issue );
 	}
 
-	// If issue is object with properties title and message
-	if ( issue === Object( issue ) && issue.title && issue.message ) {
-		return new mw.cx.dm.TranslationIssue( issue.title, issue.message, issue.messageInfo );
+	// If issue is object with property message and optional property messageInfo
+	if ( issue === Object( issue ) && issue.message ) {
+		return new mw.cx.dm.TranslationIssue( issue.message, issue.messageInfo );
 	}
 
 	mw.log.error( 'Lint result cannot be processed' );

@@ -1268,21 +1268,9 @@
 			"scripts": [
 				"ve-cx/ui/ve.ui.CXSectionContextItem.js"
 			],
-			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXSectionContextItem.less"
-			],
-			"messages": [
-				"cx-tools-linter-errors-count",
-				"cx-tools-linter-generic-title",
-				"cx-tools-linter-issues",
-				"cx-tools-linter-issues-count",
-				"cx-tools-linter-learn-more",
-				"cx-tools-linter-mark-as-resolved",
-				"cx-tools-linter-view-details",
-				"cx-tools-linter-warnings-count"
-			],
 			"dependencies": [
-				"mw.cx.visualEditor.section"
+				"mw.cx.visualEditor.section",
+				"mw.cx.ui.mixin.LintableNode"
 			],
 			"targets": [
 				"desktop"
@@ -1385,7 +1373,6 @@
 				"ve-cx/ce/ve.ce.CXSectionNode.js",
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
 				"ve-cx/dm/ve.dm.CXPlaceholderNode.js",
-				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js",
 				"ve-cx/dm/ve.dm.CXSectionNode.js"
 			],
 			"styles": [
@@ -1395,7 +1382,8 @@
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less"
 			],
 			"dependencies": [
-				"mw.cx.visualEditor.base"
+				"mw.cx.visualEditor.base",
+				"ve.dm.CXLintableNode"
 			],
 			"messages": [
 				"cx-tools-link-title",
@@ -1421,6 +1409,14 @@
 			],
 			"targets": [
 				"desktop"
+			]
+		},
+		"ve.dm.CXLintableNode": {
+			"scripts": [
+				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.core"
 			]
 		},
 		"mw.cx.init": {
@@ -1904,6 +1900,11 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui"
+			],
+			"messages": [
+				"cx-tools-linter-generic-title",
+				"cx-tools-linter-learn-more",
+				"cx-tools-linter-mark-as-resolved"
 			]
 		},
 		"mw.cx.ui.Categories": {
@@ -2016,6 +2017,18 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
+		"mw.cx.tools.TitleValidationTool": {
+			"scripts": [
+				"tools/mw.cx.tools.TitleValidationTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.TitleValidationTool.less"
+			],
+			"dependencies": [
+				"mw.cx.tools.TranslationTool",
+				"mw.cx.ui.mixin.LintableNode"
+			]
+		},
 		"mw.cx.tools.TranslationTool": {
 			"scripts": [
 				"tools/mw.cx.tools.TranslationTool.js"
@@ -2035,6 +2048,25 @@
 			],
 			"dependencies": [
 				"mw.cx.ui"
+			]
+		},
+		"mw.cx.ui.mixin.LintableNode": {
+			"scripts": [
+				"ui/mixins/mw.cx.ui.mixin.LintableNode.js"
+			],
+			"styles": [
+				"ui/styles/mw.cx.ui.LintableNode.less"
+			],
+			"dependencies": [
+				"ext.visualEditor.core",
+				"mw.cx.ui"
+			],
+			"messages": [
+				"cx-tools-linter-issues",
+				"cx-tools-linter-issues-count",
+				"cx-tools-linter-errors-count",
+				"cx-tools-linter-warnings-count",
+				"cx-tools-linter-view-details"
 			]
 		},
 		"mw.cx.ui.TranslationToolWidget":{
@@ -2082,7 +2114,15 @@
 			],
 			"dependencies": [
 				"mw.cx.util",
-				"oojs-ui-widgets"
+				"oojs-ui-widgets",
+				"ve.dm.CXLintableNode"
+			],
+			"messages": [
+				"cx-tools-linter-empty-title",
+				"cx-tools-linter-empty-title-message",
+				"cx-tools-linter-invalid-character",
+				"cx-tools-linter-invalid-character-action",
+				"cx-tools-linter-invalid-character-message"
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {

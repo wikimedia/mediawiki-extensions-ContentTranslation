@@ -8,6 +8,8 @@
  *
  * @class
  * @extends ve.dm.SectionNode
+ * @mixin ve.dm.CXTranslationUnitModel
+ * @mixin ve.dm.CXLintableNode
  * @constructor
  */
 ve.dm.CXSectionNode = function VeDmCXSectionNode() {

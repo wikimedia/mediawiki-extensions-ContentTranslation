@@ -93,7 +93,8 @@ mw.cx.widgets.TranslationToolWidget.prototype.setContent = function ( content ) 
 	content = typeof content === 'function' ? OO.ui.resolveMsg( content ) : content;
 	content = content && content.$element ? content.$element : content;
 	if (
-		( typeof content === 'string' || content instanceof jQuery ) && content.length ||
+		( typeof content === 'string' || content instanceof jQuery || content instanceof Array ) &&
+		content.length ||
 		( content instanceof OO.ui.HtmlSnippet && content.toString().length )
 	) {
 		this.$information.append( content );

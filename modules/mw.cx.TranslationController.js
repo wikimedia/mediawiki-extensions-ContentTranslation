@@ -322,9 +322,9 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 
 		if ( message ) {
 			results.push( {
-				title: mw.msg( 'cx-tools-linter-abuse-filter' ),
 				message: message,
 				messageInfo: {
+					title: mw.msg( 'cx-tools-linter-abuse-filter' ),
 					type: error ? 'error' : 'warning',
 					help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter'
 				}

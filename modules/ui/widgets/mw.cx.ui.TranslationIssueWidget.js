@@ -28,7 +28,7 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 	} );
 	this.$title = $( '<h4>' )
 		.addClass( 'cx-ui-translationIssue-title' )
-		.append( this.model.getTitle() );
+		.append( this.model.getTitle() || mw.msg( 'cx-tools-linter-generic-title' ) );
 	this.$message = $( '<p>' )
 		.addClass( 'cx-ui-translationIssue-message' )
 		.append( this.model.getMessage() );
@@ -52,8 +52,9 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 		this.resolveButton = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: this.model.getIcon(),
-			label: this.model.getLabel()
+			label: this.model.getLabel() || mw.msg( 'cx-tools-linter-mark-as-resolved' )
 		} );
+		this.resolveButton.connect( this, { click: this.model.getAction() } );
 		this.$foot.append( this.resolveButton.$element );
 	}
 };

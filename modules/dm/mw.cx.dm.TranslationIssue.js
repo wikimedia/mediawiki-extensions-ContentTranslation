@@ -1,23 +1,25 @@
 /**
  * @class
  * @constructor
- * @param {string} title
  * @param {string} message
  * @param {Object} [messageInfo]
+ * @cfg {string} [title]
  * @cfg {string} [type='warning'] 'warning' or 'error'
  * @cfg {string} [help]
  * @cfg {boolean} [resolvable=false]
  * @cfg {string} [actionIcon='check']
  * @cfg {string} [actionLabel]
+ * @cfg {Function} [action]
  */
-mw.cx.dm.TranslationIssue = function CXTranslationIssue( title, message, messageInfo ) {
-	this.title = title;
+mw.cx.dm.TranslationIssue = function CXTranslationIssue( message, messageInfo ) {
 	this.message = message;
+	this.title = messageInfo && messageInfo.title;
 	this.type = messageInfo && messageInfo.type || 'warning';
 	this.help = messageInfo && messageInfo.help;
 	this.resolvable = messageInfo && messageInfo.resolvable === true;
 	this.actionIcon = messageInfo && messageInfo.actionIcon || 'check';
-	this.actionLabel = messageInfo && messageInfo.actionLabel || mw.msg( 'cx-tools-linter-mark-as-resolved' );
+	this.actionLabel = messageInfo && messageInfo.actionLabel;
+	this.action = messageInfo && messageInfo.action || function () {};
 };
 
 /* Methods */
@@ -40,6 +42,10 @@ mw.cx.dm.TranslationIssue.prototype.getHelpLink = function () {
 
 mw.cx.dm.TranslationIssue.prototype.isResolvable = function () {
 	return this.resolvable;
+};
+
+mw.cx.dm.TranslationIssue.prototype.getAction = function () {
+	return this.action;
 };
 
 mw.cx.dm.TranslationIssue.prototype.getIcon = function () {
