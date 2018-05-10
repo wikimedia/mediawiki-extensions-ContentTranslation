@@ -194,7 +194,7 @@
 	"cx-notification-tenth-translation": "ברכות על התרגום העשירי שלך! צברת מומחיות! {{GENDER:|המשך|המשיכי}} כך!",
 	"cx-notification-hundredth-translation": "עשית 100 תרגומים! זה הישג מרשים. זה הזמן לשתף את החדשות האלה עם עורכים אחרים.",
 	"cx-notification-deleted-draft": "התרגום שלך עבור <strong>$1</strong> נמחק משום שהתוכן שלו לא עודכן במשך יותר משנה. באפשרותך להתחיל את התרגום עם תוכן חדש בכל עת.",
-	"cx-notification-deleted-draft-bundle": "$1 תרגומים נמחקו משום שהתוכן שלהם לא עודכן במשך יותר משנה. באפשרותך להתחיל אותם עם תוכן חדש בכל עת.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|תרגום אחד נמחק משום שהתוכן שלו|$1 תרגומים נמחקו משום שהתוכן שלהם}} לא עודכן במשך יותר משנה. באפשרותך להתחיל {{PLURAL:$1|אותו|אותם}} עם תוכן חדש בכל עת.",
 	"cx-contributions-link": "התרומות שלך",
 	"cx-your-translations-link": "{{GENDER:$1|התרגומים שלך}}",
 	"cx-translationlist-empty-title": "לא מצאת מה לתרגם?",

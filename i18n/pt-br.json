@@ -203,6 +203,7 @@
 	"cx-notification-first-translation": "Parabéns pela sua primeira tradução! Encontre mais páginas para traduzir na sua página de contribuições.",
 	"cx-notification-tenth-translation": "Parabéns pela sua décima tradução! Você está se tornando ''expert'' em traduções. Continue assim!",
 	"cx-notification-hundredth-translation": "Você acabou de fazer 100 traduções! Extraordinário. Compartilhe a novidade com outros editores.",
+	"cx-notification-deleted-draft-bundle": "$1 as traduções foram descartadas porque seu conteúdo estava desatualizado por mais de um ano. Comece com novos conteúdos a qualquer momento.",
 	"cx-contributions-link": "Suas contribuições",
 	"cx-your-translations-link": "{{GENDER:$1|Suas traduções}}",
 	"cx-translationlist-empty-title": "Nada para traduzir?",

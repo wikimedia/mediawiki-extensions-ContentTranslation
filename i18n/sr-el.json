@@ -188,6 +188,8 @@
 	"cx-notification-first-translation": "Čestitke na prvom prevodu! Proverite Vaše doprinose i pronađite još stranica za prevod.",
 	"cx-notification-tenth-translation": "Čestitke na desetom prevodu! Postajete pravi stručnjak za prevođenje. Samo tako nastavite!",
 	"cx-notification-hundredth-translation": "Ovo vam je stoti prevod! To je značajno dostignuće. Podelite to sa ostalim urednicima.",
+	"cx-notification-deleted-draft": "Vaš prevod stranice <strong>$1</strong> je uklonjen, jer je sadržaj star više od godinu dana. Započnite prevođenje ponovo sa novim sadržajem u bilo kom trenutku.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 prevod|$1 prevoda}} je {{PLURAL:$1|$1 uklonjen|$1 uklonjeno}}, jer je njihov sadržaj stariji od godinu dana. Započnite prevođenje ponovo sa novim sadržajem u bilo kom trenutku.",
 	"cx-contributions-link": "Vaši doprinosi",
 	"cx-your-translations-link": "{{GENDER:$1|Vaši prevodi}}",
 	"cx-translationlist-empty-title": "Ništa za prevesti?",

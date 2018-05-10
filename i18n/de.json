@@ -194,7 +194,7 @@
 	"cx-notification-tenth-translation": "Herzlichen Glückwunsch zu deiner zehnten Übersetzung! Du wirst ein erfahrener Übersetzer. Behalte die gute Arbeit bei!",
 	"cx-notification-hundredth-translation": "Du hast soeben 100 Übersetzungen durchgeführt! Dies ist eine bemerkenswerte Leistung. Teile die Neuigkeiten mit anderen Autoren.",
 	"cx-notification-deleted-draft": "Deine Übersetzung für <strong>$1</strong> wurde verworfen, da ihr Inhalt älter als ein Jahr war. Beginne jederzeit eine neue Übersetzung mit einem aktuellen Inhalt.",
-	"cx-notification-deleted-draft-bundle": "$1 Übersetzungen wurden verworfen, da ihre Inhalte älter als ein Jahr waren. Beginne sie jederzeit mit aktuellen Inhalten.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 Übersetzungen}} wurden verworfen, da ihre Inhalte älter als ein Jahr waren. Beginne sie jederzeit mit aktuellen Inhalten.",
 	"cx-contributions-link": "Deine Beiträge",
 	"cx-your-translations-link": "{{GENDER:$1|Deine Übersetzungen}}",
 	"cx-translationlist-empty-title": "Nichts zu übersetzen?",

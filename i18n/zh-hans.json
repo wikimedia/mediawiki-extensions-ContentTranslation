@@ -196,6 +196,8 @@
 	"cx-notification-first-translation": "祝贺您完成了第一次翻译！请核对您的贡献，以及寻找更多需要翻译的页面。",
 	"cx-notification-tenth-translation": "祝贺您完成了您的第10次翻译！您已成为一名专业翻译者。请再接再厉！",
 	"cx-notification-hundredth-translation": "您做出了100次翻译！这是了不起的成就。请向其他编辑者分享这一新闻吧。",
+	"cx-notification-deleted-draft": "您对<strong>$1</strong>的翻译已丢弃，因为其内容已过时超过一年。随时欢迎您通过新内容开始新的翻译。",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1个翻译}}已丢弃，因为其内容已过时超过一年。随时欢迎您通过新内容开始它们。",
 	"cx-contributions-link": "您的贡献",
 	"cx-your-translations-link": "{{GENDER:$1|您的翻译}}",
 	"cx-translationlist-empty-title": "没有要翻译的内容吗？",
