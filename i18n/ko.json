@@ -207,7 +207,7 @@
 	"cx-notification-tenth-translation": "열 번째 번역을 축하합니다! 전문적인 번역가가 되고 있습니다. 계속해서 열심히 해주세요!",
 	"cx-notification-hundredth-translation": "방금 100개의 번역을 마치셨습니다! 이것은 눈부신 활약입니다. 다른 편집자들과 소식을 나누어보세요.",
 	"cx-notification-deleted-draft": "내용이 1년 이상 경과하여 <strong>$1</strong>의 번역이 버려졌습니다. 언제든지 최신 내용으로 새로운 번역을 시작하십시오.",
-	"cx-notification-deleted-draft-bundle": "내용이 1년 이상 경과하여 번역 <strong>$1</strong>건이 버려졌습니다. 언제든지 최신 내용으로 번역을 시작하십시오.",
+	"cx-notification-deleted-draft-bundle": "내용이 1년 이상 경과하여 {{PLURAL:$1|번역 $1건}}이 버려졌습니다. 언제든지 최신 내용으로 번역을 시작하십시오.",
 	"cx-contributions-link": "여러분의 기여",
 	"cx-your-translations-link": "{{GENDER:$1|여러분의 번역}}",
 	"cx-translationlist-empty-title": "번역할 것이 없습니까?",

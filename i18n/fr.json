@@ -222,7 +222,7 @@
 	"cx-notification-tenth-translation": "Félicitations pour votre dixième traduction ! Vous devenez un traducteur expert. Continuez ainsi !",
 	"cx-notification-hundredth-translation": "Vous venez de faire 100 traductions ! C’est une réalisation remarquable. Partagez cette nouvelle avec d’autres contributeurs.",
 	"cx-notification-deleted-draft": "Votre traduction pour <strong>$1</strong> a été abandonnée parce que son contenu était obsolète depuis plus d’une année. Recommencer une nouvelle traduction avec un contenu neuf à tout moment.",
-	"cx-notification-deleted-draft-bundle": "$1 traductions ont été abandonnées car leur contenu était obsolète depuis plus d’une année. Les commencer avec un contenu neuf à tout moment.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|Une traduction a été abandonnée car son contenu|$1 traductions ont été abandonnées car leur contenu}} était obsolète depuis plus d’une année. {{PLURAL:$1|La|Les}} commencer avec un contenu neuf à tout moment.",
 	"cx-contributions-link": "Vos contributions",
 	"cx-your-translations-link": "{{GENDER:$1|Vos traductions}}",
 	"cx-translationlist-empty-title": "Rien à traduire ?",

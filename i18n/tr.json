@@ -19,7 +19,8 @@
 			"Incelemeelemani",
 			"Bulgu",
 			"Botansahin",
-			"Ramona.Stewart"
+			"Ramona.Stewart",
+			"Hedda"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -171,6 +172,8 @@
 	"cx-tools-missing-link-mark-link": "Eksik olarak {{GENDER:|işaretle}}",
 	"echo-category-title-cx": "Çeviriler",
 	"echo-pref-tooltip-cx": "İçerik Çevirmeni ile oluşturulmuş çevirilerim hakkında bana bildirim gönder",
+	"cx-notification-deleted-draft": "<strong>$1</strong> için çevirinizin içeriği bir yıldan fazla süredir devam ettiği için ıskartaya alındı. İstediğiniz bir zamanda yeni bir içerikle yeni bir çeviriye başlayın.",
+	"cx-notification-deleted-draft-bundle": "İçeriği bir yıldan fazla sürdüğü için {{PLURAL:$1|$1 çeviri}} ıskartaya çıkarıldı. İstediğiniz bir zamanda taze içerikle bu çevirilere başlayın.",
 	"cx-contributions-link": "Katkılarınız",
 	"cx-your-translations-link": "{{GENDER:$1|Sizin çevirileriniz}}",
 	"cx-translationlist-empty-title": "Çeviriye devam etmek istiyor musunuz?",
