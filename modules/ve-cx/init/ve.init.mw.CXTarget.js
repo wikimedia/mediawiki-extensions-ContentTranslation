@@ -376,8 +376,10 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 		indicator: null,
 		type: 'list',
 		title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
-		include: [ 'media', 'transclusion', 'insertTable', 'specialCharacter', 'reference', 'reference/existing' ],
-		promote: [ 'media', 'transclusion', 'insertTable' ]
+		include: '*',
+		exclude: [ { group: 'format' } ],
+		forceExpand: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ],
+		promote: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ]
 	}
 ];
 
