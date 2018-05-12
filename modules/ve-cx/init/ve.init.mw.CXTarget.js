@@ -72,6 +72,8 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
 /* Static properties */
 
+ve.init.mw.CXTarget.static.name = 'cx';
+
 ve.init.mw.CXTarget.static.actionGroups = [
 	// Publish destination
 	{
@@ -646,3 +648,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider 
 	}
 	return this.MTService.translate( restructure( sourceNode ).outerHTML, provider );
 };
+
+/* Registration */
+
+ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );
