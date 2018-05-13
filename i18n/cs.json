@@ -200,6 +200,8 @@
 	"cx-notification-first-translation": "Gratulujeme vám k vašemu prvnímu překladu. Podívejte se na své příspěvky a najděte další stránky k překladu.",
 	"cx-notification-tenth-translation": "Gratulujeme vám k vašemu desátému překladu. Stává se z vás překladatel. Jen tak dál!",
 	"cx-notification-hundredth-translation": "Právě jste přeložili 100 článků! Toto je pozoruhodný úspěch. Podělte se o Váš úspěch s dalšími uživateli!",
+	"cx-notification-deleted-draft": "Váš překlad <strong>$1</strong> byl zahozen, protože jeho obsah byl více než rok zastaralý. Začít nový překlad s čerstvým obsahem můžete kdykoliv.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 překlad byl zahozen|$1 překlady byly zahozeny|$1 překladů bylo zahozeno}}, protože {{PLURAL:$1|jeho|jejich}} obsah byl více než rok zastaralý. Začít odznovu s čerstvým obsahem můžete kdykoliv.",
 	"cx-contributions-link": "Vaše příspěvky",
 	"cx-your-translations-link": "{{GENDER:$1|Vaše příspěvky}}",
 	"cx-translationlist-empty-title": "Něco k překladu?",

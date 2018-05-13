@@ -84,6 +84,7 @@
 	"apihelp-cxsave-param-cxversion": "Versión del editor empleado para crear el borrador de la traducción.",
 	"apierror-cx-docserverexception": "Error de conversión de HTML a wikitexto: $1",
 	"apierror-cx-inuse": "Otro usuario ya está traduciendo este artículo.",
+	"apierror-cx-invalidtargetcategories": "La matriz de categorías de destino codificada en JSON no es válida.",
 	"apierror-cx-invalidlanguage": "Idioma no válido.",
 	"apierror-cx-invalidprogress": "Progreso no válido.",
 	"apierror-cx-invalidsectioncontent": "Contenido de sección no válido.",

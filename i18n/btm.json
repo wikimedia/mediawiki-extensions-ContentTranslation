@@ -4,5 +4,15 @@
 			"Simartampua"
 		]
 	},
-	"cx-notification-deleted-draft": "Tarjamahan mu tu </strong>$1</strong> nangkan iagoon arani i madung buruk lobi sataon. Muloi tarjamahan nabaru dohot isi na baru andigan sajo."
+	"cx-publish-captcha-title": "Pareso amu inda na robot",
+	"cx-captcha-dialog-error": "Jawaban muyu inda peto. Ulaki jolo mulak.",
+	"cx-captcha-dialog-cancel": "Antai",
+	"cx-notification-deleted-draft": "Tarjamahan mu tu </strong>$1</strong> nangkan iagoon arani i madung buruk lobi sataon. Muloi tarjamahan nabaru dohot isi na baru andigan sajo.",
+	"cx-tools-linter-issues": "Masalah",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 sega|$1 nasega}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 paingot|$1 sude sipaingot}}",
+	"cx-tools-linter-learn-more": "Parsiajari mulak",
+	"cx-tools-linter-mark-as-resolved": "Tandai madung salose",
+	"cx-tools-linter-generic-title": "Adong masalah i panarjamahmu",
+	"cx-tools-linter-abuse-filter": "Filter panyalahgunaan madung mangidentifikasi konten na marmasalah i tarjemahan Muyu"
 }

@@ -196,6 +196,8 @@
 	"cx-notification-first-translation": "Grattis till din första översättning! Kolla bland dina bidrag och hitta fler sidor att översätta.",
 	"cx-notification-tenth-translation": "Grattis till ditt tionde översättning! Du börjar att bli en expertöversättare. Fortsätt så!",
 	"cx-notification-hundredth-translation": "Du har precis gjort 100 översättningar! Det är en anmärkningsvärd prestation. Berätta det för andra redigerare.",
+	"cx-notification-deleted-draft": "Din översättning av <strong>$1</strong> slängdes eftersom dess innehåll var utdaterat med mer än ett år. Börja på en ny översättning med färskt innehåll när som helst.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 översättningar}} slängdes eftersom deras innehåll var utdaterat med mer än ett år. Börja på dem med färskt innehåll när som helst.",
 	"cx-contributions-link": "Dina bidrag",
 	"cx-your-translations-link": "{{GENDER:$1|Dina översättningar}}",
 	"cx-translationlist-empty-title": "Ingenting att översätta?",
