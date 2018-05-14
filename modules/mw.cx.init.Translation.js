@@ -41,7 +41,7 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
  * Initialize translation.
  */
 mw.cx.init.Translation.prototype.init = function () {
-	var platformPromise, translationPromise, modulePromise;
+	var platformPromise, translationPromise, modulePromise, pluginModules;
 
 	if ( mw.user.isAnon() ) {
 		mw.hook( 'mw.cx.error.anonuser' ).fire();
@@ -63,8 +63,8 @@ mw.cx.init.Translation.prototype.init = function () {
 	// modules and manually initializing the platform
 	platformPromise = new ve.init.mw.Platform().initialize();
 	translationPromise = this.fetchTranslationData();
-	modulePromise = mw.loader.using( mw.config.get( 'wgVisualEditorConfig' ).pluginModules );
-
+	pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
+	modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
 	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
 		var categoryUI,
 			sourcePageContent = translationData[ 0 ],
