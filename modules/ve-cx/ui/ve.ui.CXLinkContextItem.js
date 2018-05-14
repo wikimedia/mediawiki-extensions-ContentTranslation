@@ -49,12 +49,16 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	}
 
 	// Source link
-	$sourceLink = this.generateBody( adaptationInfo.sourceTitle, this.context );
+	$sourceLink = ve.ui.CXLinkContextItem.static.generateBody(
+		adaptationInfo.sourceTitle, this.context
+	);
 	addLanguageDescription( $sourceLink, translation.sourceDoc.getLang() );
 
 	// Target link
 	if ( adaptationInfo.adapted ) {
-		$targetLink = this.generateBody( adaptationInfo.targetTitle, this.context );
+		$targetLink = ve.ui.CXLinkContextItem.static.generateBody(
+			adaptationInfo.targetTitle, this.context
+		);
 		addLanguageDescription( $targetLink, translation.targetDoc.getLang() );
 	}
 
@@ -69,7 +73,7 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
  * @param {ve.ui.Context} context Context (for resizing)
  * @return {jQuery} The jQuery object of the link context item
  */
-ve.ui.CXLinkContextItem.prototype.generateBody = function ( linkInfo, context ) {
+ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	var $linkTitle, icon, description, $description, imageUrl,
 		$wrapper = $( '<div>' );
 
@@ -113,6 +117,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( linkInfo, context ) 
 
 	return $wrapper;
 };
+
 /* Registration */
 
 ve.ui.contextItemFactory.register( ve.ui.CXLinkContextItem );
