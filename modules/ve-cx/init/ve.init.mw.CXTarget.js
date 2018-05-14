@@ -77,6 +77,7 @@ ve.init.mw.CXTarget.static.name = 'cx';
 ve.init.mw.CXTarget.static.actionGroups = [
 	// Publish destination
 	{
+		name: 'publishDestination',
 		header: OO.ui.deferMsg( 'cx-publish-destination-header' ),
 		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
 		icon: 'advanced',
@@ -334,6 +335,7 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 
 ve.init.mw.CXTarget.static.translationToolbarGroups = [
 	{
+		name: 'cx-mt',
 		type: 'menu',
 		classes: [ 've-cx-toolbar-mt-menu' ],
 		include: [ { group: 'mt' } ]
@@ -342,9 +344,13 @@ ve.init.mw.CXTarget.static.translationToolbarGroups = [
 
 ve.init.mw.CXTarget.static.toolbarGroups = [
 	// History
-	{ include: [ 'undo', 'redo' ] },
+	{
+		name: 'history',
+		include: [ 'undo', 'redo' ]
+	},
 	// Style
 	{
+		name: 'style',
 		classes: [ 've-cx-toolbar-style' ],
 		type: 'list',
 		icon: 'textStyle',
@@ -356,11 +362,13 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 	},
 	// Link
 	{
+		name: 'link',
 		classes: [ 've-cx-toolbar-link' ],
 		include: [ 'link' ]
 	},
 	// Structure
 	{
+		name: 'structure',
 		classes: [ 've-cx-toolbar-structure' ],
 		type: 'list',
 		icon: 'listBullet',
@@ -370,6 +378,7 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 	},
 	// Insert
 	{
+		name: 'extra',
 		classes: [ 've-cx-toolbar-insert' ],
 		icon: 'ellipsis',
 		label: '',
