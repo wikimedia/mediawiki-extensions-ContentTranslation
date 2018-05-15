@@ -152,6 +152,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Саҥаттан суруйар оннугар тылбаастыырга",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 баҕар атын тылынан суруллубута буолуо",
 	"cx-campaign-contributionsmenu-myuploads": "Миэдьийэ билэлэр",
+	"cx-no-source-categories": "Категорията суох",
 	"cx-trend-deletions": "Сотуллубут тылбаастар",
 	"cx-trend-translations-to": "$1 тылга тылбаас",
 	"cx-stats-try-contenttranslation": "«Өс Тылбааһа» (Content Translation) — атын тылтан тылбаас көмөтүнэн саҥа ыстатыйалары суруйар тэрил. [$1 Боруобалаа]",
@@ -223,5 +224,5 @@
 	"cx-publish-destination-namespace-main": "Саҥа сирэй",
 	"cx-publish-destination-namespace-user": "Бэйэ баллыра",
 	"cx-publish-destination-namespace-draft": "Уопсай баллыр",
-	"cx-linkcontextitem-title": "Сөпсөһүннэриллибит сигэ"
+	"cx-linkcontextitem-title": "Сигэ"
 }

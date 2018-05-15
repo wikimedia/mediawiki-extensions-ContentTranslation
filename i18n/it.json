@@ -239,5 +239,6 @@
 	"cx-publish-destination-tooltip": "Scegli il namespace in cui la pagina sarà pubblicata",
 	"cx-publish-destination-namespace-main": "Nuova pagina",
 	"cx-publish-destination-namespace-user": "Bozza personale",
-	"cx-publish-destination-namespace-draft": "Bozza comunitaria"
+	"cx-publish-destination-namespace-draft": "Bozza comunitaria",
+	"cx-linkcontextitem-title": "Collegamento"
 }

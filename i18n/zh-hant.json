@@ -197,7 +197,7 @@
 	"cx-notification-tenth-translation": "恭喜您完成第十次翻譯！您已經成為專業的翻譯人員。請再接再厲！",
 	"cx-notification-hundredth-translation": "您剛完成 100 次翻譯！這是一個卓越的成就。請與其他編輯者分享這個好消息。",
 	"cx-notification-deleted-draft": "因內容已過時超過一年的緣故，您在 <strong>$1</strong> 做出的翻譯遭到捨棄。您可以隨時以新內容來弄出新的翻譯。",
-	"cx-notification-deleted-draft-bundle": "因內容已過時超過一年的緣故，$1 的翻譯已遭捨棄。請隨時以新內容來弄出新的翻譯。",
+	"cx-notification-deleted-draft-bundle": "因內容已過時超過一年的緣故，{{PLURAL:$1|$1 的翻譯}}已遭捨棄。請隨時以新內容來弄出新的翻譯。",
 	"cx-contributions-link": "您的貢獻",
 	"cx-your-translations-link": "{{GENDER:$1|您的翻譯}}",
 	"cx-translationlist-empty-title": "沒什麼好翻譯的？",
@@ -250,5 +250,5 @@
 	"cx-publish-destination-namespace-main": "新頁面",
 	"cx-publish-destination-namespace-user": "私人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿",
-	"cx-linkcontextitem-title": "適應的連結"
+	"cx-linkcontextitem-title": "連結"
 }

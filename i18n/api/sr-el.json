@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Srdjan m"
+			"Srdjan m",
+			"Prevodim"
 		]
 	},
 	"apihelp-cxpublish-description": "Sačuvajte stranicu napravljenu pomoću proširenja za prevod sadržaja.",
@@ -15,9 +16,14 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na kapču (kada sačuvavate sa kapča odgovorom).",
 	"apihelp-query+contenttranslation-description": "Upit za pretragu baze podataka prevođenja sadržaja za prevode.",
 	"apihelp-query+contenttranslation-param-translationid": "ID prevoda.",
+	"apihelp-query+contenttranslation-param-from": "Kod izvornog jezika.",
+	"apihelp-query+contenttranslation-param-to": "Kod ciljnog jezika.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Naslov izvorne stranice.",
+	"apihelp-query+contenttranslation-param-type": "Stanje prevoda.",
 	"apihelp-query+contenttranslation-example-1": "Preuzmi prevode koje je počeo trenutni korisnik.",
 	"apihelp-query+contenttranslation-example-2": "Preuzmi nacrte po ID-u.",
 	"apihelp-query+contenttranslation-example-3": "Pronađi prevod za dati naslov između datog para jezika",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "ID prevoda.",
 	"apihelp-query+contenttranslationstats-example-1": "Uzmi statistike Prevoda sadržaja za sve jezike.",
 	"apihelp-cxconfiguration-description": "Uzmi konfiguracijski džejson za dati par jezika prevoda sadržaja",
 	"apihelp-cxconfiguration-param-from": "Kod izvornog jezika.",
@@ -40,5 +46,11 @@
 	"apihelp-cxdelete-param-to": "Kod ciljnog jezika.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvorne stranice.",
 	"apihelp-cxdelete-example-1": "Obriši nacrtni prevod napravljen pomoću proširenja za prevod sadržaja.",
-	"apihelp-cxsave-param-sourcerevision": "Revizija izvorne stranice."
+	"apihelp-cxsuggestionlist-param-titles": "Naslovi strana.",
+	"apihelp-cxsuggestionlist-param-from": "Kod izvornog jezika.",
+	"apihelp-cxsuggestionlist-param-to": "Kod ciljnog jezika.",
+	"apihelp-cxsave-param-sourcerevision": "Revizija izvorne stranice.",
+	"apihelp-cxsave-param-from": "Kod izvornog jezika.",
+	"apihelp-cxsave-param-to": "Kod ciljnog jezika.",
+	"apierror-cx-invalidlanguage": "Nevažeći jezik."
 }

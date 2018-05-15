@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NehalDaveND"
+			"NehalDaveND",
+			"Charunandan16"
 		]
 	},
 	"cx": "पृष्ठम् अनुद्यताम्",
@@ -28,5 +29,6 @@
 	"cx-draft-cancel-button-label": "निरस्यताम्",
 	"cx-draft-discard-button-label": "अनुवादः अपाक्रियताम्",
 	"cx-campaign-contributionsmenu-mycontributions": "योगदानानि",
-	"cx-campaign-contributionsmenu-mytranslations": "अनुवादाः"
+	"cx-campaign-contributionsmenu-mytranslations": "अनुवादाः",
+	"cx-linkcontextitem-title": "परिसन्धिः"
 }
