@@ -186,6 +186,8 @@
 	"cx-notification-first-translation": "¡Norabona pola to primera traducción! Comprueba les tos collaboraciones y alcuentra más páxines pa traducir.",
 	"cx-notification-tenth-translation": "¡Norabona pola to décima traducción! Tas faciéndote un traductor espertu. ¡Sigui col bon trabayu!",
 	"cx-notification-hundredth-translation": "¡Tas acabante de facer 100 traducciones! Eso ye un llogru considerable. Comparte la noticia con otros editores.",
+	"cx-notification-deleted-draft": "La to traducción pa <strong>$1</strong> descartóse porque'l conteníu ta anticuáu por más d'un añu. Principia una traducción nueva con conteníu anováu en cualquier momentu.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 traducciones}} descartáronse porque'l conteníu ta anticuáu por más d'un añu. Principia otres con conteníu anováu en cualquier momentu.",
 	"cx-contributions-link": "Les tos collaboraciones",
 	"cx-your-translations-link": "{{GENDER:$1|Les tos traducciones}}",
 	"cx-translationlist-empty-title": "¿Nun hai nada que traducir?",
@@ -238,5 +240,5 @@
 	"cx-publish-destination-namespace-main": "Páxina nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitariu",
-	"cx-linkcontextitem-title": "Enllaz adautáu"
+	"cx-linkcontextitem-title": "Enllaz"
 }

@@ -259,5 +259,6 @@
 	"cx-publish-destination-tooltip": "문서를 게시할 이름공간을 선택합니다",
 	"cx-publish-destination-namespace-main": "새 문서",
 	"cx-publish-destination-namespace-user": "개인 초안",
-	"cx-publish-destination-namespace-draft": "공동체 초안"
+	"cx-publish-destination-namespace-draft": "공동체 초안",
+	"cx-linkcontextitem-title": "링크"
 }
