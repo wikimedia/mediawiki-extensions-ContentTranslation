@@ -39,6 +39,24 @@ OO.inheritClass( mw.cx.ui.CategoryTagItemWidget, OO.ui.TagItemWidget );
 
 /* Methods */
 
+/**
+ * Disabling individual tag items is no longer supported in OOUI since T193571.
+ * This setDisabled() method is mirror of OOUI v0.26.5, before disabling of
+ * individual tag items was thrown out.
+ *
+ * @inheritdoc
+ */
+mw.cx.ui.CategoryTagItemWidget.prototype.setDisabled = function ( state ) {
+	// Grandparent method
+	OO.ui.Widget.prototype.setDisabled.call( this, state );
+
+	if ( this.closeButton ) {
+		this.closeButton.setDisabled( state );
+	}
+
+	return this;
+};
+
 mw.cx.ui.CategoryTagItemWidget.prototype.restoreOriginalDisabledState = function () {
 	this.setDisabled( this.originalDisabledState );
 };

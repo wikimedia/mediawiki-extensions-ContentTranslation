@@ -1,18 +1,20 @@
+// !important is used for rules in this file to beat OOUI specificity and
+// prevent regressions because of specificity changes in future OOUI versions.
+
 .mw-cx-ui-CategoryTagItemWidget {
 	&.oo-ui-widget-enabled > .oo-ui-labelElement-label {
-		cursor: pointer;
+		cursor: pointer !important; /* stylelint-disable-line declaration-no-important */
 	}
 
 	&.oo-ui-widget-disabled > .oo-ui-labelElement-label {
-		cursor: default;
+		cursor: default !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
 
 .mw-cx-ui-CategoryTagItemWidget.oo-ui-flaggedElement-highlight {
-	// Using !important to beat OOUI specificity
 	background-color: #fef6e7 !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .mw-cx-ui-CategoryTagItemWidget.mw-cx-ui-CategoryTagItemWidget--no-remove {
-	padding: 0 0.3125em;
+	padding: 0 0.3125em !important; /* stylelint-disable-line declaration-no-important */
 }
