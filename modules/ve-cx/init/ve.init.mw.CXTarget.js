@@ -588,14 +588,14 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 
 /**
  * Set the section content to the given content.
- * @param {ve.dm.CXSectionNode} section Section model
+ * @param {ve.dm.CXSectionNode|ve.dm.CXPlaceholderNode} section Section model
  * @param {string} content
  * @param {string} source Original content source
  */
 ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, source ) {
 	var pasteDoc, newCursorRange, docLen, fragmentRange,
 		surfaceModel = this.getSurface().getModel(),
-		cxid = section.getSectionId(),
+		cxid = section.getTranslationUnitId(),
 		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
 
 	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( content ) );
@@ -676,7 +676,7 @@ ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );
  * This handles caching of previous content when switching back and forth.
  * This might be redundant with undo/redo.
  *
- * @param {ve.dm.CXSectionNode} section
+ * @param {ve.dm.CXSectionNode|ve.dm.CXPlaceholderNode} section
  * @param {string|null} previousProvider
  * @param {string} newProvider
  * @return {jQuery.promise}
@@ -688,7 +688,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 ) {
 	var cxid, html, cachedContent;
 
-	cxid = section.getSectionId();
+	cxid = section.getTranslationUnitId();
 	html = ve.dm.converter.getDomFromNode( section, true ).body.children[ 0 ].outerHTML;
 
 	if ( previousProvider !== null ) {
