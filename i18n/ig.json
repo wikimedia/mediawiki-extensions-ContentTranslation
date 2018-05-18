@@ -8,5 +8,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 ụdàkọ|0=Ụdàkọ adịghị̀}}",
 	"cx-captcha-dialog-cancel": "Hapụ̀",
 	"cx-draft-cancel-button-label": "Hapụ̀",
+	"cx-campaign-contributionsmenu-mycontributions": "Mmètàrà",
+	"cx-contributions-link": "Ịhe ị mètàrà",
 	"cx-personaltools-user": "Òjìème"
 }
