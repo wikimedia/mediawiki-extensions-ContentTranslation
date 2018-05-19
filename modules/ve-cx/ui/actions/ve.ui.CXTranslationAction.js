@@ -57,10 +57,10 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 	}
 
 	ve.init.target.changeContentSource( section, section.getOriginalContentSource(), source ).fail( function () {
-		// TODO: set the selected tool as non-active. How?
 		// TODO: i18n
 		mw.notify( 'Machine translation failed' );
-	} );
+		this.surface.getModel().emit( 'contextChange' );
+	}.bind( this ) );
 
 	return;
 };
