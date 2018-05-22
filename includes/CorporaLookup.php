@@ -88,12 +88,16 @@ class CorporaLookup {
 			}
 		}
 
-		// Extract target categories and return separately from translation units (sections).
-		// Source categories aren't retrieved, only saved in cx_corpora for pairing
-		// with target categories. Source and target categories are saved in cx_corpora table
-		// with special section ID, to distinguish categories from translation units.
-		$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
-		unset( $sections[ self::CATEGORIES ] );
+		$targetCategories = null;
+
+		if ( isset( $sections[ self::CATEGORIES ] ) ) {
+			// Extract target categories and return separately from translation units (sections).
+			// Source categories aren't retrieved, only saved in cx_corpora for pairing
+			// with target categories. Source and target categories are saved in cx_corpora table
+			// with special section ID, to distinguish categories from translation units.
+			$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
+			unset( $sections[ self::CATEGORIES ] );
+		}
 
 		return [
 			'sections' => $sections,
