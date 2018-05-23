@@ -78,26 +78,22 @@ ve.ui.CXTextSelectionContextItem.prototype.renderBody = function () {
 		this.$body.append( $targetLink );
 		this.$element.show();
 
-		if ( ve.init.platform.sourceLinkCache ) {
-			ve.init.platform.sourceLinkCache.get( this.selectedText ).then( function ( linkData ) {
-				var $sourceLink;
-				if ( linkData.missing ) {
-					this.$sourceBody.remove();
-					return;
-				}
-				targetLinkInfo = {
-					title: this.selectedText,
-					pagelanguage: translation.sourceDoc.getLang()
-				};
-				// Source link
-				$sourceLink = this.constructor.static.generateSourceBody(
-					targetLinkInfo, translation.sourceDoc.getLang()
-				);
-				this.$sourceBody.empty().append( $sourceLink );
-			}.bind( this ) );
-		} else {
-			this.$sourceBody.remove();
-		}
+		ve.init.platform.sourceLinkCache.get( this.selectedText ).then( function ( linkData ) {
+			var $sourceLink;
+			if ( linkData.missing ) {
+				this.$sourceBody.remove();
+				return;
+			}
+			targetLinkInfo = {
+				title: this.selectedText,
+				pagelanguage: translation.sourceDoc.getLang()
+			};
+			// Source link
+			$sourceLink = this.constructor.static.generateSourceBody(
+				targetLinkInfo, translation.sourceDoc.getLang()
+			);
+			this.$sourceBody.empty().append( $sourceLink );
+		}.bind( this ) );
 	}.bind( this ) );
 
 };
