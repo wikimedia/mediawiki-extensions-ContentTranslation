@@ -79,18 +79,16 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 };
 
 ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, language ) {
-	var $wrapper, $linkTitle, description, $languageLabel;
+	var $wrapper, $linkTitle, $languageLabel;
 
 	$wrapper = $( '<div>' );
-
-	description = OO.getProp( linkInfo, 'terms', 'description' );
 
 	$linkTitle = $( '<a>' )
 		.addClass( 've-ui-cxLinkContextItem-title' )
 		.text( linkInfo.title )
 		.prop( {
 			target: '_blank',
-			title: description || linkInfo.title,
+			title: linkInfo.description || linkInfo.title,
 			href: ve.init.target.config.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
 		} );
 	$languageLabel = $( '<span>' )

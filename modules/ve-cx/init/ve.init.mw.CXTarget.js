@@ -33,6 +33,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.MTManager = config.MTManager;
 	this.MTService = config.MTService;
 	this.siteMapper = config.siteMapper;
+	this.requestManager = config.requestManager;
 
 	// @var {mw.cx.dm.Translation}
 	this.translation = null;

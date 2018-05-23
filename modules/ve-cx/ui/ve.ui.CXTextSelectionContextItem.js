@@ -1,5 +1,5 @@
 /**
- * Context item for a CX Text Selections.
+ * Context item for a CX Text Selections in translation.
  *
  * @class
  * @extends ve.ui.LinearContextItem
@@ -21,7 +21,11 @@ ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 		.insertAfter( this.$body );
 	this.editButton.setLabel( OO.ui.deferMsg( 'cx-tools-link-add' ) );
 	this.editButton.setIcon( 'add' );
-	this.selectedText = null;
+
+	this.normalizedTitle = null;
+	this.sourceLinkCache = ve.init.platform.sourceLinkCache;
+	this.targetLinkCache = ve.init.platform.linkCache;
+	this.requestManager = ve.init.target.requestManager;
 };
 
 /* Inheritance */
@@ -55,54 +59,66 @@ ve.ui.CXTextSelectionContextItem.static.generateSourceBody = ve.ui.CXLinkContext
 
 /**
  * Render the body.
+ * @param {Object} targetTitleData
  */
-ve.ui.CXTextSelectionContextItem.prototype.renderBody = function () {
-	var translation = ve.init.target.getTranslation();
+ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleData ) {
+	var targetLinkInfo, $targetLink,
+		translation = ve.init.target.getTranslation(),
+		sourceLanguage = translation.sourceDoc.getLang(),
+		targetLanguage = translation.targetDoc.getLang();
 
-	ve.init.platform.linkCache.get( this.selectedText ).then( function ( linkData ) {
-		var targetLinkInfo, $targetLink;
+	targetLinkInfo = {
+		title: this.normalizedTitle,
+		pagelanguage: targetLanguage,
+		description: targetTitleData.description,
+		thumbnail: { source: targetTitleData.imageUrl }
+	};
+
+	$targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
+	this.$body.append( $targetLink );
+
+	// Find source title for the selected text.
+	this.requestManager.getTitlePair( targetLanguage, this.normalizedTitle )
+		.then( function ( titlePairInfo ) {
+			var sourceTitle = titlePairInfo.targetTitle;
+			if ( sourceTitle ) {
+				// Render the source title card for this title.
+				this.renderSourceTitle( sourceTitle, sourceLanguage );
+			}
+		}.bind( this ) );
+};
+
+ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( sourceTitle, sourceLanguage ) {
+	this.sourceLinkCache.get( sourceTitle ).then( function ( linkData ) {
+		var sourceLinkInfo, $sourceLink;
 
 		if ( linkData.missing ) {
-			// Title does not exist. Do not show the card
-			this.$element.remove();
+			// Source title data missing.
+			// This is almost impossible since we already found that the source title exist.
 			return;
 		}
 
-		targetLinkInfo = {
-			title: this.selectedText,
-			pagelanguage: translation.targetDoc.getLang(),
-			terms: { description: linkData.description },
-			thumbnail: { source: linkData.imageUrl }
+		sourceLinkInfo = {
+			title: sourceTitle,
+			pagelanguage: sourceLanguage,
+			description: linkData.description
 		};
-		$targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
-		this.$body.append( $targetLink );
-		this.$element.show();
 
-		ve.init.platform.sourceLinkCache.get( this.selectedText ).then( function ( linkData ) {
-			var $sourceLink;
-			if ( linkData.missing ) {
-				this.$sourceBody.remove();
-				return;
-			}
-			targetLinkInfo = {
-				title: this.selectedText,
-				pagelanguage: translation.sourceDoc.getLang()
-			};
-			// Source link
-			$sourceLink = this.constructor.static.generateSourceBody(
-				targetLinkInfo, translation.sourceDoc.getLang()
-			);
-			this.$sourceBody.empty().append( $sourceLink );
-		}.bind( this ) );
+		// Source link
+		$sourceLink = this.constructor.static.generateSourceBody(
+			sourceLinkInfo, sourceLanguage
+		);
+		this.$sourceBody.show().empty().append( $sourceLink );
 	}.bind( this ) );
-
 };
 
 /**
  * @inheritdoc
  */
 ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
-	var text, fragment = this.getFragment();
+	var text,
+		fragment = this.getFragment();
+
 	text = fragment.getText().trim();
 	if ( text.length === 0 || text.length > 30 ) {
 		// Not a useful selection
@@ -111,8 +127,18 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 	}
 	// To avoid flashing of empy card, let us hide the card till we get the link information.
 	this.$element.hide();
-	this.selectedText = text;
-	this.renderBody();
+	this.$sourceBody.hide();
+	this.normalizedTitle = ve.init.mw.ApiResponseCache.static.normalizeTitle( text );
+	// Try to find the selected text as a title in target wiki
+	this.targetLinkCache.get( this.normalizedTitle ).then( function ( linkData ) {
+		if ( linkData.missing ) {
+			// Title does not exist in target language for the selected text. Do not show the card
+			this.$element.remove();
+			return;
+		}
+		this.$element.show();
+		this.renderBody( linkData );
+	}.bind( this ) );
 	return this;
 };
 

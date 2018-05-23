@@ -4,19 +4,19 @@
  */
 
 'use strict';
+
 /**
  * Caches information about title pairs.
  *
  * @class
- * @extends mw.cx.ApiResponseCache
+ * @extends ve.init.mw.ApiResponseCache
  * @constructor
  * @param {Object} config Configuration
  */
 mw.cx.TitlePairCache = function CXTitlePairCache( config ) {
 	// Call parent constructor
-	mw.cx.TitlePairCache.super.call( this, config );
-	// Source and target languages
-	this.sourceLanguage = config.sourceLanguage;
+	mw.cx.TitlePairCache.super.call( this, config.siteMapper.getApi( config.sourceLanguage ) );
+	this.siteMapper = config.siteMapper;
 	this.targetLanguage = config.targetLanguage;
 	// Keys are page names, values are link data objects
 	// This is kept for synchronous retrieval of cached values via #getCached
@@ -25,24 +25,9 @@ mw.cx.TitlePairCache = function CXTitlePairCache( config ) {
 
 /* Inheritance */
 
-OO.inheritClass( mw.cx.TitlePairCache, mw.cx.ApiResponseCache );
+OO.inheritClass( mw.cx.TitlePairCache, ve.init.mw.ApiResponseCache );
 
 /* Methods */
-
-/**
- * Set link missing data
- *
- * Stored separately from the full link data cache
- *
- * @param {Object} entries Object keyed by page title, with the values being data objects
- */
-mw.cx.TitlePairCache.prototype.setMissing = function ( entries ) {
-	var name, missingEntries = {};
-	for ( name in entries ) {
-		missingEntries[ '_missing/' + name ] = entries[ name ];
-	}
-	this.set( missingEntries );
-};
 
 /**
  * @inheritdoc
@@ -61,7 +46,7 @@ mw.cx.TitlePairCache.static.processPage = function ( page ) {
 mw.cx.TitlePairCache.prototype.getRequestPromise = function ( subqueue ) {
 	// We use post here because the titles when joined will result a longer string
 	// that GET requests cannot process sometimes.
-	return this.siteMapper.getApi( this.sourceLanguage ).post( {
+	return this.api.post( {
 		action: 'query',
 		prop: 'langlinks',
 		lllimit: subqueue.length,

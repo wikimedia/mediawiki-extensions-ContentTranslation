@@ -1545,8 +1545,7 @@
 				"cache/mw.cx.TitlePairCache.js"
 			],
 			"dependencies": [
-				"ext.cx.model",
-				"oojs-ui"
+				"ve.init.mw.CXTarget"
 			],
 			"targets": [
 				"desktop"
