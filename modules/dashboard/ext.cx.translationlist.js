@@ -179,9 +179,11 @@
 		};
 
 		this.languageFilter.fillSourceLanguages( this.sourceLanguages, true, {
+			ulsPurpose: 'cx-translationlist-source',
 			languageDecorator: languageDecorator
 		} );
 		this.languageFilter.fillTargetLanguages( this.targetLanguages, true, {
+			ulsPurpose: 'cx-translationlist-target',
 			languageDecorator: languageDecorator
 		} );
 

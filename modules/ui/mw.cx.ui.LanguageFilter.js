@@ -330,8 +330,8 @@ mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( filterButton, lang
  * Fill the source language dropdown with source languages for which selected article exists
  *
  * @param {array} [sourceLanguages] Array of language codes used to populate ULS
- * @param {boolean} [replace]
- * @param {Object} [ulsOptions]
+ * @param {boolean} [replace=false] Whether to destroy the ULS instance before recreating it
+ * @param {Object} [ulsOptions] ULS options that are added to the ULS
  */
 mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguages, replace, ulsOptions ) {
 	var self = this;
@@ -349,6 +349,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 
 	this.sourceLanguageButton.$button.uls( $.extend( {
 		languages: this.getAutonyms( sourceLanguages ),
+		ulsPurpose: 'cx-languagefilter-source',
 		onSelect: function ( language ) {
 			self.setSourceLanguage( language );
 			mw.uls.addPreviousLanguage( language );
@@ -368,9 +369,10 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 /**
  * Fill the target language dropdown with target languages that have
  * language tools compatible with the source language.
- * @param {array} [targetLanguages]
- * @param {boolean} [replace]
- * @param {Object} [ulsOptions]
+ *
+ * @param {array} [targetLanguages] Array of language codes used to populate ULS
+ * @param {boolean} [replace=false] Whether to destroy the ULS instance before recreating it
+ * @param {Object} [ulsOptions] ULS options that are added to the ULS
  */
 mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguages, replace, ulsOptions ) {
 	var self = this;
@@ -388,6 +390,7 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 
 	this.targetLanguageButton.$button.uls( $.extend( {
 		languages: this.getAutonyms( targetLanguages ),
+		ulsPurpose: 'cx-languagefilter-target',
 		onSelect: function ( language ) {
 			self.setTargetLanguage( language );
 			mw.uls.addPreviousLanguage( language );

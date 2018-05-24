@@ -288,8 +288,11 @@
 				}
 			};
 
-			self.languageFilter.fillSourceLanguages( languagesPageExistsIn, true );
+			self.languageFilter.fillSourceLanguages( languagesPageExistsIn, true, {
+				ulsPurpose: 'cx-selectedpage-source'
+			} );
 			self.languageFilter.fillTargetLanguages( null, true, {
+				ulsPurpose: 'cx-selectedpage-target',
 				languageDecorator: languageDecorator
 			} );
 			self.languageFilter.setValidSourceLanguages( languagesPageExistsIn );
