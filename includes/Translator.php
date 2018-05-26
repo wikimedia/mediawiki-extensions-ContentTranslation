@@ -74,10 +74,10 @@ class Translator {
 
 	/**
 	 * @param int $limit How many results to return
-	 * @param string $offset Offset condition (timestamp)
-	 * @param string $type
-	 * @param string $from
-	 * @param string $to
+	 * @param string|null $offset Offset condition (timestamp)
+	 * @param string|null $type
+	 * @param string|null $from
+	 * @param string|null $to
 	 * @return Translation[]
 	 */
 	public function getAllTranslations(

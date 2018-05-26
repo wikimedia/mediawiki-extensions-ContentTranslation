@@ -21,7 +21,7 @@ class SiteMapper {
 	/**
 	 * Get the API URL constructed from the domain template of sites
 	 * @param string $language
-	 * @param array $params
+	 * @param array|null $params
 	 * @return string
 	 */
 	public static function getApiURL( $language, $params = null ) {

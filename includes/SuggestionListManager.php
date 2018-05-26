@@ -274,8 +274,8 @@ class SuggestionListManager {
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
 	 * @param int $limit How many suggestions to fetch.
-	 * @param int $offset Offset from the beginning to fetch.
-	 * @param int $seed Seed to use with randomizing of results.
+	 * @param int|null $offset Offset from the beginning to fetch.
+	 * @param int|null $seed Seed to use with randomizing of results.
 	 * @return array Lists and suggestions
 	 */
 	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
