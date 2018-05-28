@@ -5,18 +5,20 @@
  * @license GPL-2.0-or-later
  *
  * @class
- * @extends ve.ui.PositionedTargetToolbar
+ * @extends ve.ui.Toolbar
  * @constructor
  * @param {ve.init.mw.CXTarget} target
  */
-ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar( target ) {
-	this.surface = target.surface;
-	ve.ui.CXTranslationToolbar.parent.apply( this, arguments );
+ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
+	var $title;
 
 	// TODO: inject
 	this.MTManager = ve.init.target.config.MTManager;
 
-	this.$title = $( '<div>' )
+	// Parent constructor
+	ve.ui.CXTranslationToolbar.super.apply( this, arguments );
+
+	$title = $( '<div>' )
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
 
@@ -29,7 +31,7 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar( target ) {
 
 	this.$element
 		.addClass( 've-cx-toolbar-mt' )
-		.prepend( this.$title )
+		.prepend( $title )
 		.append( this.setAsDefault.$element );
 
 	// Hide initially, because there is no selection initially
@@ -38,7 +40,7 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar( target ) {
 	this.setAsDefault.toggle( false );
 };
 
-OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.PositionedTargetToolbar );
+OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
 
 ve.ui.CXTranslationToolbar.static.registerTools = function () {
 	var createProviderItem = function ( provider, defaultProvider ) {
@@ -118,7 +120,9 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
  * @inheritDoc
  */
 ve.ui.CXTranslationToolbar.prototype.setup = function () {
-	ve.ui.CXTranslationToolbar.parent.prototype.setup.apply( this, arguments );
+	// Parent method
+	ve.ui.CXTranslationToolbar.super.prototype.setup.apply( this, arguments );
+
 	this.toolGroup = this.items[ 0 ];
 	this.toolGroup.connect( this, {
 		disable: 'onGroupDisable'

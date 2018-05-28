@@ -343,7 +343,7 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 	);
 
 	ve.ui.CXTranslationToolbar.static.registerTools().then( function () {
-		var mtToolbar = new ve.ui.CXTranslationToolbar( this );
+		var mtToolbar = new ve.ui.CXTranslationToolbar();
 		mtToolbar.setup( this.constructor.static.translationToolbarGroups, this.targetSurface );
 		this.translationView.toolsColumn.mtToolbarContainer.$element.append( mtToolbar.$element );
 		mtToolbar.initialize();
