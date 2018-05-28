@@ -679,15 +679,19 @@ ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );
  * @param {ve.dm.CXSectionNode|ve.dm.CXPlaceholderNode} section
  * @param {string|null} previousProvider
  * @param {string} newProvider
+ * @param {Object} options
+ * @cfg {boolean} noCache Do not use cached version
  * @return {jQuery.promise}
  */
 ve.init.mw.CXTarget.prototype.changeContentSource = function (
 	section,
 	previousProvider,
-	newProvider
+	newProvider,
+	options
 ) {
 	var cxid, html, cachedContent;
 
+	options = options || {};
 	cxid = section.getTranslationUnitId();
 	html = ve.dm.converter.getDomFromNode( section, true ).body.children[ 0 ].outerHTML;
 
@@ -695,11 +699,13 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 		OO.setProp( this.contentSourceCache, cxid, previousProvider, html );
 	}
 
-	cachedContent = OO.getProp( this.contentSourceCache, cxid, newProvider );
+	if ( !options.noCache ) {
+		cachedContent = OO.getProp( this.contentSourceCache, cxid, newProvider );
 
-	if ( cachedContent ) {
-		this.setSectionContent( section, cachedContent, newProvider );
-		return $.Deferred().resolve().promise();
+		if ( cachedContent ) {
+			this.setSectionContent( section, cachedContent, newProvider );
+			return $.Deferred().resolve().promise();
+		}
 	}
 
 	return this.translateSection( cxid, newProvider ).then( function ( content ) {

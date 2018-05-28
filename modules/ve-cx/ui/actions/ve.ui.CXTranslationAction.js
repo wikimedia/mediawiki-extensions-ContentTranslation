@@ -42,7 +42,8 @@ ve.ui.CXTranslationAction.static.methods = [ 'translate' ];
  * @return {boolean} False if action is cancelled.
  */
 ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
-	var section,
+	var section, promise, originalSource,
+		target = ve.init.target,
 		selection = this.surface.getModel().getSelection();
 
 	if ( !( selection instanceof ve.dm.LinearSelection ) ) {
@@ -56,7 +57,15 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 		return false;
 	}
 
-	ve.init.target.changeContentSource( section, section.getOriginalContentSource(), source ).fail( function () {
+	originalSource = section.getOriginalContentSource();
+
+	if ( source === 'reset-translation' ) {
+		promise = target.changeContentSource( section, null, originalSource, { noCache: true } );
+	} else {
+		promise = target.changeContentSource( section, originalSource, source );
+	}
+
+	promise.fail( function () {
 		// TODO: i18n
 		mw.notify( 'Machine translation failed' );
 		this.surface.getModel().emit( 'contextChange' );

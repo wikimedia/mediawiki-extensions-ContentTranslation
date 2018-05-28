@@ -1324,10 +1324,12 @@
 		"mw.cx.visualEditor.mt": {
 			"scripts": [
 				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
-				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js"
+				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js",
+				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.js"
 			],
 			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less"
+				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less",
+				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.less"
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base",
@@ -1335,7 +1337,8 @@
 			],
 			"messages": [
 				"cx-tools-mt-title",
-				"cx-tools-mt-set-default"
+				"cx-tools-mt-set-default",
+				"cx-tools-mt-reset"
 			],
 			"targets": [
 				"desktop"
