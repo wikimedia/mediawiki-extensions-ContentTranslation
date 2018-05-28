@@ -95,7 +95,6 @@ ve.init.mw.CXTarget.static.actionGroups = [
 		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
 		icon: 'advanced',
 		indicator: null,
-		classes: [ 've-init-mw-cxTarget-publishGroup' ],
 		type: 'menu',
 		include: [ { group: 'cxDestination' } ]
 	}
@@ -469,7 +468,6 @@ ve.init.mw.CXTarget.static.translationToolbarGroups = [
 	{
 		name: 'cx-mt',
 		type: 'menu',
-		classes: [ 've-cx-toolbar-mt-menu' ],
 		include: [ { group: 'mt' } ]
 	}
 ];
