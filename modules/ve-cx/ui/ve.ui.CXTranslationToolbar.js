@@ -10,16 +10,32 @@
  * @param {ve.init.mw.CXTarget} target
  */
 ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar( target ) {
-	var $title;
-
 	this.surface = target.surface;
 	ve.ui.CXTranslationToolbar.parent.apply( this, arguments );
-	$title = $( '<div>' )
+
+	// TODO: inject
+	this.MTManager = ve.init.target.config.MTManager;
+
+	this.$title = $( '<div>' )
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
-	this.$element.addClass( 've-cx-toolbar-mt' ).prepend( $title );
+
+	this.setAsDefault = new OO.ui.ButtonWidget( {
+		framed: false,
+		classes: [ 've-cx-toolbar-mt-setdefault' ],
+		label: mw.msg( 'cx-tools-mt-set-default' ),
+		icon: 'pushPin'
+	} ).connect( this, { click: 'onSetAsDefault' } );
+
+	this.$element
+		.addClass( 've-cx-toolbar-mt' )
+		.prepend( this.$title )
+		.append( this.setAsDefault.$element );
+
 	// Hide initially, because there is no selection initially
 	this.$element.toggle( false );
+	// Only show this when user has changed selection
+	this.setAsDefault.toggle( false );
 };
 
 OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.PositionedTargetToolbar );
@@ -67,10 +83,15 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 				return;
 			}
 
-			// Use stored provider if available, otherwise assume defaultProvider
+			// Fall back to defaultProvider (should only happen for drafts stored with
+			// older version of CX.
 			// TODO: How to handle case that stored provider is no longer valid?
 			source = section.getOriginalContentSource() || defaultProvider;
 			this.setActive( this.getName() === source );
+			// Hits localstorage, so caching might be needed if this gets too expensive.
+			ve.init.target.config.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+				this.toolbar.setAsDefault.toggle( source !== preferredProvider );
+			}.bind( this ) );
 		};
 
 		ve.ui.toolFactory.register( ve.ui[ toolClassName ] );
@@ -110,6 +131,7 @@ ve.ui.CXTranslationToolbar.prototype.setup = function () {
 ve.ui.CXTranslationToolbar.prototype.onGroupDisable = function ( disabled ) {
 	// If the toolgroup is disabled, hide the toolbar
 	this.$element.toggle( !disabled );
+	this.setAsDefault.toggle( !disabled );
 };
 
 /**
@@ -123,4 +145,20 @@ ve.ui.CXTranslationToolbar.prototype.getCommands = function () {
 	// list of commands for the surface
 	// TODO: Fix it in ve.ui.Surface#getCommands
 	return this.getSurface().commandRegistry.getNames();
+};
+
+/**
+ * Save the currently selected provider as the preferred provider for new sections.
+ */
+ve.ui.CXTranslationToolbar.prototype.onSetAsDefault = function () {
+	// Take the name of the first active tool. In most cases there is one, in exceptional
+	// cases 0 (see onUpdateState above) and there should never be multiple.
+	var provider = this.toolGroup.getItems().reduce( function ( acc, tool ) {
+		return acc || ( tool.isActive() ? tool.getName() : false );
+	}, false );
+
+	if ( provider ) {
+		this.MTManager.setPreferredProvider( provider );
+	}
+	this.setAsDefault.toggle( false );
 };

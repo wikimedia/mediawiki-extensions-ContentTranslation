@@ -1330,10 +1330,12 @@
 				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less"
 			],
 			"dependencies": [
-				"mw.cx.visualEditor.base"
+				"mw.cx.visualEditor.base",
+				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
-				"cx-tools-mt-title"
+				"cx-tools-mt-title",
+				"cx-tools-mt-set-default"
 			],
 			"targets": [
 				"desktop"
@@ -1387,7 +1389,6 @@
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
-				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less"
 			],
 			"dependencies": [
