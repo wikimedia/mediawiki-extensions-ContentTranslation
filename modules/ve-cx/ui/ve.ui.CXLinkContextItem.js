@@ -44,6 +44,11 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 		markAsMissingInfo,
 		adaptationInfo = this.model.getAttribute( 'cx' );
 
+	if ( !adaptationInfo ) {
+		// Not a CX Link?
+		return;
+	}
+
 	if ( adaptationInfo.sourceTitle ) {
 		// Source link
 		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
@@ -53,14 +58,18 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 		this.$sourceBody.empty().append( $sourceLink );
 	}
 
+	if ( !adaptationInfo.adapted && adaptationInfo.targetTitle ) {
+		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
+	}
+
 	// Target link
-	if ( adaptationInfo.adapted ) {
+	if ( adaptationInfo.adapted || adaptationInfo.targetTitle ) {
 		$targetLinkCard = ve.ui.CXLinkContextItem.static.generateBody(
 			adaptationInfo.targetTitle, this.context
 		);
 	} else {
 		this.editButton.toggle();
-		this.setLabel( mw.msg( 'cx-tools-missing-link-title' ) );
+		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
 		markAsMissingButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
 			classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
@@ -72,6 +81,8 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 		$targetLinkCard = $( '<div>' )
 			.addClass( 've-ui-cxLinkContextItem-mark-missing' )
 			.append( markAsMissingInfo, markAsMissingButton.$element );
+
+		markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
 	}
 
 	this.$body.empty().append( $targetLinkCard );
@@ -100,21 +111,37 @@ ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, languag
 /**
  * Generate the body of the link context item
  *
- * @param {Object} linkInfo The object with title meta data
+ * @param {Object} linkInfo The object with title meta data originally served by
+ *   cxserver, but later extra properties added to help the rendering.
  * @param {ve.ui.Context} context Context (for resizing)
  * @return {jQuery} The jQuery object of the link context item
  */
 ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
-	var $linkTitle, icon, description, $description, imageUrl,
-		$wrapper = $( '<div>' );
+	var $linkTitle, icon, description, $description, imageUrl, linkHref,
+		targetLinkClasses = 've-ui-cxLinkContextItem-title',
+		$wrapper = $( '<div>' ),
+		siteMapper = ve.init.target.siteMapper;
+
+	if ( linkInfo.missing ) {
+		// Link to start a new translation
+		linkHref = siteMapper.getCXUrl(
+			linkInfo.title, // Source title
+			linkInfo.title, // Target title
+			linkInfo.sourceLanguage,
+			linkInfo.pagelanguage
+		);
+		targetLinkClasses += ' ve-ui-cxLinkContextItem-title-missing';
+	} else {
+		linkHref = siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title );
+	}
 
 	$linkTitle = $( '<a>' )
-		.addClass( 've-ui-cxLinkContextItem-title' )
+		.addClass( targetLinkClasses )
 		.text( linkInfo.title )
 		.prop( {
 			target: '_blank',
 			title: linkInfo.title,
-			href: ve.init.target.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
+			href: linkHref
 		} );
 
 	icon = new OO.ui.IconWidget( {
@@ -147,6 +174,33 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	}
 
 	return $wrapper;
+};
+
+/**
+ * Change the grey link to red link.
+ */
+ve.ui.CXLinkContextItem.prototype.createRedLink = function () {
+	var targetLanguage = this.translation.targetDoc.getLang(),
+		sourceLanguage = this.translation.sourceDoc.getLang();
+
+	// See ve.ui.AnnotationContextItem#applyToAnnotations
+	this.applyToAnnotations( function ( fragment, annotation ) {
+		var adaptationInfo;
+		// Clear the annotation from fragment
+		fragment.annotateContent( 'clear', annotation );
+
+		adaptationInfo = annotation.getAttribute( 'cx' );
+		// Update the adaptation info. This modifies the annotation object.
+		adaptationInfo.targetTitle = {
+			title: adaptationInfo.sourceTitle.title,
+			pagelanguage: targetLanguage,
+			sourceLanguage: sourceLanguage, // Required to provide CX link
+			missing: true,
+			description: mw.msg( 'cx-linkcontextitem-missing-title-description' )
+		};
+		// Set the updated annotation to the fragment
+		fragment.annotateContent( 'set', annotation );
+	} );
 };
 
 /* Registration */

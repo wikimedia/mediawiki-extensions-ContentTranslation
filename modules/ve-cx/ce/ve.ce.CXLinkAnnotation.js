@@ -33,7 +33,7 @@ ve.ce.CXLinkAnnotation.static.name = 'cxLink';
 /**
  * Get the adaptation info supplied by cxserver
  *
- * @return {Object} adptationInfo
+ * @return {Object} adaptationInfo
  */
 ve.ce.CXLinkAnnotation.prototype.getAdaptationInfo = function () {
 	return this.model.getAttribute( 'cx' );
@@ -42,11 +42,15 @@ ve.ce.CXLinkAnnotation.prototype.getAdaptationInfo = function () {
 /**
  * Style the link based on the adaptation information.
  *
- * @param {Object} adptationInfo
+ * @param {Object} adaptationInfo
  */
-ve.ce.CXLinkAnnotation.prototype.styleAnchor = function ( adptationInfo ) {
-	if ( adptationInfo && !adptationInfo.adapted ) {
-		this.$anchor.addClass( 'cx-target-link-unadapted' );
+ve.ce.CXLinkAnnotation.prototype.styleAnchor = function ( adaptationInfo ) {
+	if ( adaptationInfo && !adaptationInfo.adapted ) {
+		if ( adaptationInfo.targetTitle ) {
+			this.$anchor.addClass( 'new' );
+		} else {
+			this.$anchor.addClass( 'cx-target-link-unadapted' );
+		}
 	}
 };
 

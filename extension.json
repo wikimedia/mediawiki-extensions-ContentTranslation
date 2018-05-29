@@ -1370,7 +1370,9 @@
 				"mw.cx.visualEditor.base"
 			],
 			"messages": [
-				"cx-linkcontextitem-title"
+				"cx-linkcontextitem-title",
+				"cx-linkcontextitem-missing-link-title",
+				"cx-linkcontextitem-missing-title-description"
 			],
 			"targets": [
 				"desktop"
@@ -1410,7 +1412,6 @@
 			"messages": [
 				"cx-tools-link-title",
 				"cx-tools-link-add",
-				"cx-tools-missing-link-title",
 				"cx-tools-missing-link-text",
 				"cx-tools-missing-link-mark-link"
 			],
