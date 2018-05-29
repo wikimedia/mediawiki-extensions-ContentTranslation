@@ -84,7 +84,7 @@ mw.cx.ui.PublishSettingsWidget.prototype.getOptionsMenu = function () {
 		items: publishingOptions
 	} );
 	this.publishingOptionsWidget.selectItemByData( this.destination );
-	this.publishingOptionsWidget.on( 'choose', this.onChoose.bind( this ) );
+	this.publishingOptionsWidget.connect( this, { choose: 'onChoose' } );
 	menu = new OO.ui.SelectWidget( {
 		classes: [ 'mw-cx-ui-PublishSettingsWidget-menu' ],
 		items: [

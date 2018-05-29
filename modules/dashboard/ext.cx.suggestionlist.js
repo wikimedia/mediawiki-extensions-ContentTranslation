@@ -984,7 +984,7 @@
 			label: mw.msg( 'cx-suggestionlist-refresh' ),
 			icon: 'reload',
 			flags: 'progressive'
-		} ).on( 'click', this.refreshPublicLists.bind( this ) );
+		} ).connect( this, { click: 'refreshPublicLists' } );
 
 		this.$publicCollectionContainer.append( this.refreshTrigger.$element );
 	};

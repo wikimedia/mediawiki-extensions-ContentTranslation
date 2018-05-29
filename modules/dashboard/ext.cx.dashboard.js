@@ -26,6 +26,7 @@
 		this.infobar = null;
 		this.$translationListContainer = null;
 		this.newTranslationButton = null;
+		this.filter = null;
 		this.$listHeader = null;
 		this.$sourcePageSelector = null;
 
@@ -341,9 +342,9 @@
 	CXDashboard.prototype.listen = function () {
 		var self = this;
 
-		this.filter.on( 'select', function ( item ) {
-			self.setActiveList( item.getData() );
-		} );
+		this.filter.connect( this, { select: function ( item ) {
+			this.setActiveList( item.getData() );
+		} } );
 
 		this.$publishedTranslationsButton.on( 'click', function () {
 			self.filter.selectItemByData( 'published' );

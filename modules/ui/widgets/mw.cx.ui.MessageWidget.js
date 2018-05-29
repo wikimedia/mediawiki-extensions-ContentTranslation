@@ -39,7 +39,7 @@ mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 		icon: 'clear',
 		classes: [ 'cx-message-widget-close' ],
 		tabIndex: -1
-	} ).on( 'click', this.onCloseClick.bind( this ) );
+	} ).connect( this, { click: 'onCloseClick' } );
 
 	// Initialization
 	this.$element

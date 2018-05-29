@@ -23,7 +23,7 @@ ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
 		icon: 'add',
 		framed: false
 	} );
-	button.on( 'click', this.onFocusableMouseDown.bind( this ) );
+	button.connect( this, { click: 'onFocusableMouseDown' } );
 
 	this.$element
 		.addClass( 've-ce-cxPlaceholderNode' )
