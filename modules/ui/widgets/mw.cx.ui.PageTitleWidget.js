@@ -14,8 +14,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 	config = $.extend( config, {
 		classes: [ 'cx-pagetitle' ],
 		type: 'text',
-		autosize: true,
-		validate: this.validate
+		autosize: true
 	} );
 
 	// Parent constructor
@@ -35,7 +34,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 	// Events
 	this.$input.off( 'focus blur' );
 	this.connect( this, {
-		change: 'validateTitle',
+		change: OO.ui.debounce( this.validateTitle.bind( this ), 300 ),
 		lintIssues: 'onLintIssue',
 		lintIssuesResolved: 'onLintIssueResolved'
 	} );
@@ -46,27 +45,18 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.MultilineTextInputWidget );
 OO.mixinClass( mw.cx.widgets.PageTitleWidget, ve.dm.CXLintableNode );
 
-mw.cx.widgets.PageTitleWidget.prototype.validate = function ( value ) {
-	if ( value === undefined || value === null || value === '' ) {
-		return false;
-	}
-	// TODO: Add more title validation here
-	return true;
-};
-
 mw.cx.widgets.PageTitleWidget.prototype.onMouseDown = function ( e ) {
-	var onFocus, input = e.target === this.$input[ 0 ],
+	var input = e.target === this.$input[ 0 ],
 		cardElement = $( '.cx-card-titlevalidation' )[ 0 ],
 		card = cardElement && OO.ui.contains( cardElement, e.target, true );
 
 	if ( ( !this.focused && input ) || card ) {
 		// Debouncing trick is used to ensure that focus on this element
 		// gets handled after blur is triggered on surface elements
-		onFocus = OO.ui.debounce( function () {
+		OO.ui.debounce( function () {
 			this.emit( 'focus' );
 			this.focused = true;
-		}, 50 ).bind( this );
-		onFocus();
+		}, 50 ).call( this );
 	} else if ( this.focused && !input && !card ) {
 		this.emit( 'blur' );
 		this.focused = false;
@@ -82,9 +72,35 @@ mw.cx.widgets.PageTitleWidget.prototype.registerMouseDownEvent = function () {
 mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
 	if ( !mw.Title.newFromText( value ) ) {
 		this.setLintResults( [ value === '' ? this.getEmptyTitleError() : this.getInvalidCharacterError() ] );
-	} else {
-		this.setLintResults( null );
+		return;
 	}
+
+	ve.init.platform.linkCache.get( this.getValue() ).then( function ( result ) {
+		if ( result.missing ) {
+			this.setLintResults( null );
+			return;
+		}
+
+		this.setLintResults( [ this.getExistingTitleWarning() ] );
+	}.bind( this ), function () {
+		this.setLintResults( null );
+	}.bind( this ) );
+};
+
+mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
+	return {
+		message: mw.msg( 'cx-tools-linter-page-exists-message',
+			$( '<a>' ).attr( {
+				href: mw.util.getUrl( this.getValue() ),
+				target: '_blank'
+			} ).text( this.getValue() )[ 0 ].outerHTML
+		),
+		messageInfo: {
+			title: mw.msg( 'cx-tools-linter-page-exists' ),
+			// FIXME: Point to the more informative page about overwriting content
+			help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Editing_pages'
+		}
+	};
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
@@ -122,6 +138,7 @@ mw.cx.widgets.PageTitleWidget.prototype.fixTitle = function () {
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.onLintIssue = function ( hasErrors ) {
+	this.onLintIssueResolved();
 	this.$element.addClass( hasErrors ? 'cx-pagetitle-error' : 'cx-pagetitle-warning' );
 };
 

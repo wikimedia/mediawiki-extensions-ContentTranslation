@@ -6,7 +6,7 @@
  */
 mw.cx.ui.TranslationView = function ( config ) {
 	this.header = new mw.cx.ui.Header( config );
-	this.infobar = new mw.cx.ui.Infobar( this.config );
+	this.infobar = new mw.cx.ui.Infobar( config );
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config.siteMapper, config.sourceLanguage, config.sourceTitle );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config.siteMapper, config.targetLanguage, config.targetTitle );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
@@ -136,8 +136,14 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 	} );
 };
 
-mw.cx.ui.TranslationView.prototype.onLintIssues = function () {
-	this.translationHeader.publishButton.setDisabled( true );
+mw.cx.ui.TranslationView.prototype.disablePublishButton = function ( state ) {
+	this.translationHeader.publishButton.setDisabled( state );
+};
+
+mw.cx.ui.TranslationView.prototype.onLintIssues = function ( hasErrors ) {
+	if ( hasErrors ) {
+		this.disablePublishButton( true );
+	}
 
 	mw.loader.using( [
 		'mw.cx.tools.TitleValidationTool'

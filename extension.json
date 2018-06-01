@@ -2121,7 +2121,9 @@
 				"cx-tools-linter-empty-title-message",
 				"cx-tools-linter-invalid-character",
 				"cx-tools-linter-invalid-character-action",
-				"cx-tools-linter-invalid-character-message"
+				"cx-tools-linter-invalid-character-message",
+				"cx-tools-linter-page-exists",
+				"cx-tools-linter-page-exists-message"
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {

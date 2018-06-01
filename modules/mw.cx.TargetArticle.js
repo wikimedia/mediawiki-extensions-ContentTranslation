@@ -39,6 +39,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		from: this.sourceLanguage,
 		to: this.targetLanguage,
 		sourcetitle: this.sourceTitle,
+		title: this.getTargetTitle(),
 		html: this.getContent( true ),
 		categories: this.translation.getTargetCategories(),
 		wpCaptchaId: this.captcha && this.captcha.id,
@@ -46,9 +47,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 	};
 
 	// Check for title conflicts
-	this.checkTargetTitle( this.getTargetTitle() ).then( function ( title ) {
-		apiParams.title = title;
-		// Post the content to publish.
+	this.checkTargetTitle( this.getTargetTitle() ).then( function () {
 		return new mw.Api().postWithToken( 'csrf', apiParams, {
 			// A bigger timeout since publishing after converting html to wikitext
 			// parsoid is not a fast operation.
@@ -366,28 +365,35 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 	// If that happens, we can and should skip these checks to avoid showing
 	// "Publish anyway" dialog again if the target page already exists.
 	if ( this.captcha ) {
-		return $.Deferred().resolve( title ).promise();
+		return $.Deferred().resolve().promise();
 	}
 
-	return this.isTitleExist( title ).then( function ( titleExists ) {
-		if ( !titleExists ) {
-			return title;
+	return ve.init.platform.linkCache.get( title ).then( function ( result ) {
+		if ( result.missing ) {
+			return;
 		}
 
-		return OO.ui.getWindowManager().openWindow( 'message', {
-			title: mw.msg( 'cx-publishing-dialog-title' ),
-			message: mw.msg( 'cx-publishing-dialog-sub-title' ),
-			actions: [
-				{ action: 'publish', label: mw.msg( 'cx-publishing-dialog-publish-anyway-button' ), flags: 'primary' },
-				{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
-			]
-		} ).closed.then( function ( data ) {
-			if ( data && data.action === 'publish' ) {
-				return title;
-			}
+		return this.showDialog();
+	} );
+};
 
+/**
+ * Display the dialog which asks the user to publish by overwriting an existing page.
+ *
+ * @return {jQuery.Promise}
+ */
+mw.cx.TargetArticle.prototype.showDialog = function () {
+	return OO.ui.getWindowManager().openWindow( 'message', {
+		title: mw.msg( 'cx-publishing-dialog-title' ),
+		message: mw.msg( 'cx-publishing-dialog-sub-title' ),
+		actions: [
+			{ action: 'publish', label: mw.msg( 'cx-publishing-dialog-publish-anyway-button' ), flags: 'primary' },
+			{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
+		]
+	} ).closed.then( function ( data ) {
+		if ( data && data.action === 'cancel' ) {
 			return $.Deferred().reject();
-		} );
+		}
 	} );
 };
 
@@ -452,44 +458,6 @@ mw.cx.TargetArticle.prototype.linkAtWikibase = function ( sourceLanguage, target
 				titles: targetTitle
 			} );
 		} );
-	} );
-};
-
-/**
- * Checks to see if a title exists in local wiki.
- * Returns the normalised title and resolves redirects.
- *
- * @param {string} title The title to look for
- * @return {jQuery.promise}
- * @return {Function} return.done If title exists
- * @return {string|false} return.done.title
- */
-mw.cx.TargetArticle.prototype.isTitleExist = function ( title ) {
-	var api = new mw.Api();
-
-	// Short circuit empty titles
-	if ( title === '' ) {
-		return $.Deferred().resolve( false ).promise();
-	}
-
-	// Reject titles with pipe in the name, as it has special meaning in the api
-	if ( /\|/.test( title ) ) {
-		return $.Deferred().resolve( false ).promise();
-	}
-
-	return api.get( {
-		formatversion: 2,
-		action: 'query',
-		titles: title,
-		redirects: 1
-	} ).then( function ( response ) {
-		var page = response.query.pages[ 0 ];
-
-		if ( page.missing || page.invalid ) {
-			return false;
-		}
-
-		return page.title;
 	} );
 };
 
