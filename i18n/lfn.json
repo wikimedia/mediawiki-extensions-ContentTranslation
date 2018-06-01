@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Mafcadio"
 		]
 	},
+	"cx-stats-title": "Statisticas de tradui de contenida",
 	"cx-tools-reference-title": "Refere",
 	"cx-tools-reference-add": "Ajunta refere"
 }

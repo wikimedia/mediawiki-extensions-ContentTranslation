@@ -209,6 +209,7 @@
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1টি সতর্কতা}}",
 	"cx-tools-linter-learn-more": "আরও জানুন",
 	"cx-tools-linter-mark-as-resolved": "মিমাংসিত বলে চিহ্নিত করুন",
+	"cx-tools-linter-generic-title": "আপনার অনুবাদে একটি সমস্যা আছে",
 	"cx-tools-linter-abuse-filter": "অপব্যবহার ছাঁকনিগুলি আপনার অনুবাদে সমস্যাযুক্ত সামগ্রী চিহ্নিত করেছে",
 	"cx-tools-linter-title": "বিষয়বস্তুর সমস্যা: $1",
 	"cx-tools-linter-content": "বিষয়বস্তু পাওয়যা গেছে যা [//www.mediawiki.org/wiki/Content_translation/Abuse_filter $1 উইকিপিডিয়া দ্বারা স্থাপিত সীমাবদ্ধতা] পূরণ করে না। দয়া করে অনুবাদ প্রকাশ করার আগে সমস্যা ঠিক করুন।",
