@@ -20,7 +20,8 @@
 			"Luk3",
 			"!Silent",
 			"Liuxinyu970226",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Opraco"
 		]
 	},
 	"cx": "Traduzir página",
@@ -62,7 +63,7 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tradutor de Conteúdo]]",
 	"tag-contenttranslation-description": "O conteúdo foi traduzido a partir de outro idioma com a ferramenta Tradutor de Conteúdo.",
 	"cx-source-loading": "Carregando $1",
-	"cx-beta": "Tradutor de Conteúdo",
+	"cx-beta": "Tradutor de conteúdo",
 	"cx-beta-desc": "Uma ferramenta para traduzir páginas para o seu idioma de forma rápida. Inicie as traduções a partir da sua [[Special:MyContributions|página de contribuições]] e depois edite-as com o nosso editor lado-a-lado, especialmente desenvolvido para a tarefa. Algumas destas ferramentas podem estar disponíveis apenas para certos idiomas.",
 	"cx-entrypoint-title": "Traduzir esta página para o $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página ainda não existe em $1. {{GENDER:|Gostaria}} de criá-la?",
