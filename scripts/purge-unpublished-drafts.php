@@ -15,6 +15,7 @@ use DateTime;
 use IDatabase;
 use InvalidArgumentException;
 use Maintenance;
+use MediaWiki\MediaWikiServices;
 use RawMessage;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
@@ -82,11 +83,14 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			);
 
 			$this->output( "$name", $draft->translation_id );
+
 			if ( !$dryRun ) {
 				$this->purgeDraft( $draft->translation_id );
 				$this->output( " — PURGED", $draft->translation_id );
 				$draftsPerUser[ $draft->translation_last_update_by ][] = $draft;
 			}
+
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 		}
 
 		if ( !$dryRun ) {
