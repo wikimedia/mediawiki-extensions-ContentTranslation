@@ -255,6 +255,8 @@
 	"cx-tools-linter-content": "Contenu non conforme aux [//www.mediawiki.org/wiki/Content_translation/Abuse_filter restrictions de Wikipédia en $1] trouvé. Veuillez corriger les problèmes avant de publier la traduction.",
 	"cx-tools-linter-view-details": "Afficher les détails",
 	"cx-tools-linter-hide-details": "Masquer les détails",
+	"cx-tools-linter-empty-title": "Votre traduction nécessite un titre",
+	"cx-tools-linter-invalid-character-action": "Corriger les caractères problématiques",
 	"cx-translator-header": "Vos statistiques",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",
