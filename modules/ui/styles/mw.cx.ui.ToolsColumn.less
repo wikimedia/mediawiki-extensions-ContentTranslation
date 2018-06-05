@@ -61,6 +61,17 @@
 			// Do no show instructions card when the surface is in the focus
 			display: none;
 		}
+
+		// 'dialog' flag for tools container means that non-context tools should be hidden,
+		// such as invitation card, VE toolbar, MT and issue cards
+		// See T193587
+		&--dialog > :not( .ve-ui-context ) {
+			display: none;
+		}
+
+		.ve-ui-linearContextItem.oo-ui-widget-disabled {
+			opacity: 0.6;
+		}
 	}
 
 	.cx-card:not( :empty ) {

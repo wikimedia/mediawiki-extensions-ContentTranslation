@@ -19,6 +19,11 @@ ve.ui.CXSurface = function VeUiCXSurface( dataOrDoc, toolsColumn, config ) {
 		focus: 'onFocus',
 		blur: 'onBlur'
 	} );
+
+	if ( config.inDialog ) {
+		this.toggleGlobalOverlayClass( true );
+		this.connect( this, { destroy: [ 'toggleGlobalOverlayClass', false ] } );
+	}
 };
 
 /* Inheritance */
@@ -41,4 +46,8 @@ ve.ui.CXSurface.prototype.onBlur = function () {
 
 ve.ui.CXSurface.prototype.onFocus = function () {
 	this.toolsContainer.$element.addClass( 'cx-column-tools-container--contextual' );
+};
+
+ve.ui.CXSurface.prototype.toggleGlobalOverlayClass = function ( state ) {
+	this.getGlobalOverlay().$element.toggleClass( 've-cx-ui-overlay-global', state );
 };

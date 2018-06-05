@@ -49,6 +49,12 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// @var {Object}
 	this.contentSourceCache = {};
 
+	// Complex dialog is the dialog with VE surface.
+	// In order to reset the overlay classes, which move overlay, we want only the first
+	// complex dialog to reset these classes, since complex dialogs can be nested. See T193587
+	this.complexDialogOpened = false;
+	this.contextStack = [];
+
 	this.$element
 		.addClass( 've-init-mw-cxTarget' )
 		.append( this.translationView.$element );
@@ -147,6 +153,10 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	this.translationView.toolsColumn.setTranslation( translation );
 	this.clearSurfaces();
 	this.surfaces.push( targetSurface );
+	targetSurface.getDialogs().connect( this, {
+		opening: this.onDialogOpening.bind( this, targetSurface.getContext() ),
+		closing: 'onDialogClosing'
+	} );
 	targetSurface.getView().connect( this, {
 		focus: [ 'onSurfaceViewFocus', targetSurface ]
 	} );
@@ -246,6 +256,24 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 	// * mw-content-rtl
 	documentView.getDocumentNode().$element.addClass( 'mw-parser-output mw-content-' + documentView.getDir() );
 
+	// If configuration object has 'inDialog' param, that means surface is created for usage
+	// inside a modal dialog. Such compex dialogs need to have access to context tools inside
+	// tools column, so we move the overlay. Also, other, non-complex tools, shouldn't be
+	// showing. See T193587
+	if ( config.inDialog ) {
+		surface.getDialogs().connect( this, {
+			opening: this.onDialogOpening.bind( this, surface.getContext() ),
+			closing: 'onDialogClosing'
+		} );
+
+		if ( !this.complexDialogOpened ) {
+			this.toggleTargetSurfaceOverlay( true );
+			surface.connect( this, { destroy: [ 'toggleTargetSurfaceOverlay', false ] } );
+
+			this.complexDialogOpened = true;
+		}
+	}
+
 	return surface;
 };
 
@@ -256,8 +284,86 @@ ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	this.throttleAlignSectionPairs();
 };
 
+ve.init.mw.CXTarget.prototype.toggleTargetSurfaceOverlay = function ( state ) {
+	this.complexDialogOpened = false;
+
+	this.targetSurface.getGlobalOverlay().$element.toggleClass( 've-cx-ui-overlay-global', state );
+	this.translationView.toolsColumn.toolContainer.$element.toggleClass( 'cx-column-tools-container--dialog', state );
+};
+
 ve.init.mw.CXTarget.prototype.getTranslation = function () {
 	return this.translation;
+};
+
+ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
+	var headerHeight, scrollPosition;
+
+	this.contextStack.push( context );
+	context.connect( this, { afterContextChange: [ 'processContextItems', true ] } );
+	this.processContextItems( true );
+
+	if ( !( dialog instanceof ve.ui.NodeDialog ) ) {
+		return;
+	}
+
+	// Don't cover the top header with overlay when the user is at the top of the viewport
+	// See T193587
+	headerHeight = this.translationView.header.$element.outerHeight();
+	scrollPosition = $( this.getElementWindow() ).scrollTop();
+
+	if ( scrollPosition === 0 ) {
+		dialog.$element.css( 'top', headerHeight );
+	} else {
+		dialog.$element.css( 'top', '' );
+	}
+};
+
+ve.init.mw.CXTarget.prototype.onDialogClosing = function () {
+	this.processContextItems( false );
+	this.contextStack.pop();
+};
+
+/**
+ * Process the stack of contexts, with their context items. Stack contains contexts
+ * for nested modal dialogs, e.g. opening reference dialog, for a reference that
+ * has a template, and then opening the template dialog.
+ *
+ * The logic when dialog is opening is to hide context item(s) for all but last
+ * context inside a stack. Item(s) for last context are disabled.
+ *
+ * On the other side, when dialog is closing, context item(s) of last context are
+ * enabled and visible, while context item(s) for second-to-last context are
+ * disabled and visible. Item(s) for all other contexts are just toggled invisible.
+ *
+ * @param {boolean} disabled True if context items need to be disabled
+ */
+ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
+	var process, lastItem = this.contextStack.length - 1;
+
+	// Iterate all context(s) in a stack
+	this.contextStack.forEach( function ( context, index ) {
+		// Whether items for second to last context in a stack should be disabled.
+		// Used when dialog is closing.
+		var disableSecondToLast = !disabled && index === ( lastItem - 1 );
+
+		// If item is last (during opening) or second-to-last (during closing)
+		if ( index === lastItem || disableSecondToLast ) {
+			process = function ( item ) {
+				item.toggle( true );
+				item.setDisabled( disabled || disableSecondToLast );
+				// Set disabled state for action buttons
+				item.actionButtons.getItems().forEach( function ( button ) {
+					button.setDisabled( disabled || disableSecondToLast );
+				} );
+			};
+		} else {
+			process = function ( item ) {
+				item.toggle( false );
+			};
+		}
+
+		context.getItems().forEach( process );
+	} );
 };
 
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {

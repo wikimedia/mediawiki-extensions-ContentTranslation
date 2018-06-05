@@ -51,6 +51,8 @@ ve.ui.CXDesktopContext.prototype.afterContextChange = function () {
 	// Parent method
 	ve.ui.CXDesktopContext.super.prototype.afterContextChange.call( this );
 
+	this.emit( 'afterContextChange' );
+
 	// Bypass while dragging
 	if ( this.suppressed ) {
 		return;

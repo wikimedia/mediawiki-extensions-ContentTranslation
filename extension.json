@@ -1618,6 +1618,9 @@
 			"scripts": [
 				"ve-cx/ui/ve.ui.CXSurface.js"
 			],
+			"styles": [
+				"ve-cx/ui/styles/ve.ui.CXSurface.less"
+			],
 			"dependencies": [
 				"ext.visualEditor.core.desktop"
 			]
