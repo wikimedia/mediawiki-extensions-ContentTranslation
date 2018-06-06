@@ -203,6 +203,8 @@
 	"cx-tools-linter-generic-title": "Et gëtt e Problem mat Ärer Iwwersetzung",
 	"cx-tools-linter-view-details": "Detailer weisen",
 	"cx-tools-linter-hide-details": "Detailer verstoppen",
+	"cx-tools-linter-empty-title": "Är Iwwersetzung brauch en Titel",
+	"cx-tools-linter-invalid-character-action": "Problematesch Zeeche verbesseren",
 	"cx-translator-header": "Är Statistiken",
 	"cx-translator-month-stats-label": "Dëse Mount",
 	"cx-translator-total-translations-label": "Total",
