@@ -27,6 +27,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.sourceRevisionId = this.sourceWikiPage.getRevision();
 	this.targetRevisionId = this.targetWikiPage.getRevision();
 	this.status = 'draft';
+	this.sectionsChanged = false;
 	this.progress = {
 		any: 0,
 		human: 0,
@@ -34,8 +35,6 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 		mtSectionsCount: 0
 	};
 	this.savedTranslationUnits = null;
-	this.topTranslationUnits = [];
-	this.translationUnitById = {};
 
 	if ( draft ) {
 		this.setSavedTranslation( draft );
@@ -51,6 +50,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 		{ lang: this.targetWikiPage.getLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
+	this.once( 'sectionChange', this.onSectionChange.bind( this ) );
 };
 
 /* Inheritance */
@@ -433,6 +433,24 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 };
 
 /**
+ * Check if there are translated sections, which can be published.
+ *
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.prototype.hasTranslatedSections = function () {
+	return this.sectionsChanged ||
+		(
+			// this.savedTranslationUnits is not null and not an empty array
+			this.savedTranslationUnits !== null &&
+			!( Array.isArray( this.savedTranslationUnits ) && this.savedTranslationUnits.length === 0 )
+		);
+};
+
+mw.cx.dm.Translation.prototype.onSectionChange = function () {
+	this.sectionsChanged = true;
+};
+
+/**
  * Build a translation unit from the source ve.dm.Node or ve.dm.Annotation, if one matches
  *
  * @param {ve.dm.Node|ve.dm.Annotation} sourceModel Source node or annotation
@@ -449,23 +467,4 @@ mw.cx.dm.Translation.prototype.matchTranslationUnit = function ( sourceModel, pa
 		return null;
 	}
 	return mw.cx.dm.translationUnitFactory.create( type, this, id, sourceModel, parentUnit );
-};
-
-/**
- * Get a translation unit by ID
- *
- * @param {string} id Translation unit ID
- * @return {mw.cx.dm.TranslationUnit|undefined} The translation unit
- */
-mw.cx.dm.Translation.prototype.getTranslationUnit = function ( id ) {
-	return this.translationUnitById[ id ];
-};
-
-/**
- * Get a translation units
- *
- * @return {mw.cx.dm.TranslationUnit[]} The translation units
- */
-mw.cx.dm.Translation.prototype.getTranslationUnits = function () {
-	return this.topTranslationUnits;
 };

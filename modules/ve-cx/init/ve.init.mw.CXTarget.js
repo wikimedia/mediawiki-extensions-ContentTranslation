@@ -58,6 +58,10 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 		500
 	);
 
+	this.translationView.connect( this, {
+		titleIssueResolved: 'enablePublishButton'
+	} );
+
 	this.translationView.targetColumn.connect( this, {
 		titleChange: 'onTargetTitleChange'
 	} );
@@ -263,12 +267,20 @@ ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.throttleAlignSectionPairs();
 };
 
+ve.init.mw.CXTarget.prototype.enablePublishButton = function () {
+	if ( this.translation.hasTranslatedSections() ) {
+		this.publishButton.setDisabled( false );
+	}
+};
+
 /**
  * Translation restore event handler
  * @param {mw.cx.dm.Translation} translationModel
  */
 ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
-	this.publishButton.setDisabled( false );
+	if ( mw.Title.newFromText( this.pageName ) ) {
+		this.enablePublishButton();
+	}
 
 	// Update publish settings namespace choice
 	this.updateNamespace();
@@ -286,7 +298,9 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
  * Call this whenever something changes in the translation that requires saving.
  */
 ve.init.mw.CXTarget.prototype.onChange = function () {
-	this.publishButton.setDisabled( false );
+	if ( mw.Title.newFromText( this.pageName ) ) {
+		this.publishButton.setDisabled( false );
+	}
 	this.translationView.clearMessages();
 };
 

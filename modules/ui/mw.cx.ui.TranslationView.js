@@ -159,12 +159,12 @@ mw.cx.ui.TranslationView.prototype.onLintIssues = function ( hasErrors ) {
 };
 
 mw.cx.ui.TranslationView.prototype.onLintIssuesResolved = function () {
-	this.translationHeader.publishButton.setDisabled( false );
-
 	if ( this.titleValidationTool ) {
 		this.toolsColumn.hideTool( this.titleValidationTool );
 		this.titleValidationTool = null;
 	}
+
+	this.emit( 'titleIssueResolved' );
 };
 
 mw.cx.ui.TranslationView.prototype.onFocus = function () {
