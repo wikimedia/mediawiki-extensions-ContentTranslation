@@ -1,7 +1,5 @@
 <?php
-/**
- * ContentTranslation Translator
- */
+
 namespace ContentTranslation;
 
 class Translator {

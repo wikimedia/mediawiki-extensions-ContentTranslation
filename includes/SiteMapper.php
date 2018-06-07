@@ -1,4 +1,5 @@
 <?php
+
 namespace ContentTranslation;
 
 class SiteMapper {

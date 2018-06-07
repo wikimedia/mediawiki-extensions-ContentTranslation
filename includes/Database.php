@@ -1,11 +1,12 @@
 <?php
-/**
- * ContentTranslation Database Connection abstraction
- */
+
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
 
+/**
+ * ContentTranslation Database Connection abstraction
+ */
 class Database {
 	/**
 	 * Gets a database connection to the ContentTranslation database

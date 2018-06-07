@@ -1,11 +1,12 @@
 <?php
-/**
- * @author Niklas Laxström
- */
+
 namespace ContentTranslation;
 
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
+/**
+ * @author Niklas Laxström
+ */
 class DateManipulator {
 	const WEEK = 'week';
 	const MONTH = 'month';

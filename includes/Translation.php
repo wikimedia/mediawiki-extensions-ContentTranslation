@@ -1,7 +1,5 @@
 <?php
-/**
- * ContentTranslation Translation
- */
+
 namespace ContentTranslation;
 
 use Wikimedia\Rdbms\IDatabase;

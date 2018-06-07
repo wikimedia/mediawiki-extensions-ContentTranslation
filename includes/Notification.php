@@ -1,7 +1,4 @@
 <?php
-/**
- * ContentTranslation Translation Notifications
- */
 
 namespace ContentTranslation;
 

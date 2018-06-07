@@ -1,7 +1,5 @@
 <?php
-/**
- * @author Niklas Laxström
- */
+
 namespace ContentTranslation\Tests;
 
 use ContentTranslation\DateManipulator;
@@ -9,6 +7,8 @@ use PHPUnit4And6Compat;
 
 /**
  * @covers \ContentTranslation\DateManipulator
+ *
+ * @author Niklas Laxström
  */
 class DateManipulatorTest extends \PHPUnit\Framework\TestCase {
 	use PHPUnit4And6Compat;
