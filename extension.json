@@ -27,7 +27,7 @@
 	},
 	"Hooks": {
 		"BeforePageDisplay": "ContentTranslationHooks::addModules",
-		"GetBetaFeaturePreferences": "ContentTranslationHooks::getPreferences",
+		"GetBetaFeaturePreferences": "ContentTranslationHooks::onGetBetaFeaturePreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslationHooks::addMessages",
 		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",

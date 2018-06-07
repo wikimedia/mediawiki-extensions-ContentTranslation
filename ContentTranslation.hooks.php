@@ -108,9 +108,9 @@ class ContentTranslationHooks {
 	/**
 	 * Hook: GetBetaFeaturePreferences
 	 * @param User $user
-	 * @param array &$prefs
+	 * @param array[] &$prefs
 	 */
-	public static function getPreferences( User $user, array &$prefs ) {
+	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath;
 
 		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/images";
