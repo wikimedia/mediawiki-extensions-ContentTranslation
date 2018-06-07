@@ -18,7 +18,8 @@
 			TYPE_CATEGORY: 4,
 			TYPE_PERSONALIZED: 5
 		},
-		listOrder = {};
+		listOrder = {},
+		researchLanguages = [ 'en', 'es', 'fr', 'ru', 'ja', 'ar' ];
 
 	listOrder[ listTypes.TYPE_FAVORITE ] = 0;
 	listOrder[ listTypes.TYPE_DISCARDED ] = 1;
@@ -67,6 +68,7 @@
 		this.$personalCollection = null;
 		this.$publicCollection = null;
 		this.$publicCollectionContainer = null;
+		this.invitationWidget = null;
 		this.refreshTrigger = null;
 		this.$headerContainer = null;
 		this.$loadingIndicatorSpinner = null;
@@ -107,11 +109,37 @@
 			.addClass( 'cx-suggestionlist__public-items' );
 		this.$publicCollectionContainer.append( this.$publicCollection );
 
+		this.invitationWidget = new mw.cx.InvitationWidget( {
+			label: mw.message( 'cx-campaign-research-invitation' ).parseDom(),
+			acceptLabel: mw.msg( 'cx-campaign-research-participate' ),
+			storageKey: 'cxShowInvitation',
+			parentConfig: {
+				classes: [ 'cx-research-invitation' ]
+			}
+		} );
+		this.checkForInvitation();
 		this.$suggestionsContainer = $( '<div>' )
 			.addClass( 'cx-suggestionlist-container' )
-			.append( this.$personalCollection, this.$publicCollectionContainer );
+			.append( this.invitationWidget.$element, this.$personalCollection, this.$publicCollectionContainer );
 
 		this.$container.append( this.$suggestionsContainer );
+	};
+
+	CXSuggestionList.prototype.checkForInvitation = function () {
+		var sourceLanguage = this.languageFilter.getSourceLanguage(),
+			targetLanguage = this.languageFilter.getTargetLanguage(),
+			url = 'https://gapfinder-tools.wmflabs.org/section-alignment/?s=' +
+				sourceLanguage + '&d=' + targetLanguage;
+
+		if (
+			researchLanguages.indexOf( sourceLanguage ) < 0 ||
+			researchLanguages.indexOf( targetLanguage ) < 0
+		) {
+			this.invitationWidget.toggle( false );
+			return;
+		}
+
+		this.invitationWidget.toggle( true ).setUrl( url );
 	};
 
 	/**
@@ -287,6 +315,8 @@
 
 	CXSuggestionList.prototype.applyFilters = function () {
 		var i, suggestion;
+
+		this.checkForInvitation();
 
 		// Hide all lists
 		$.each( this.lists, function ( index, list ) {

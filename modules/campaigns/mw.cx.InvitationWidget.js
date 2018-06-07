@@ -53,9 +53,7 @@ mw.cx.InvitationWidget = function InvitationWidget( config ) {
 		label: config.acceptLabel,
 		classes: [ 'mw-cx-InvitationWidget-accept-button' ]
 	} );
-	if ( typeof config.acceptAction === 'function' ) {
-		this.acceptButton.connect( this, { click: config.acceptAction } );
-	}
+	this.acceptButton.$button.prop( 'target', '_blank' );
 
 	this.rejectButton = new OO.ui.ButtonWidget( {
 		label: config.rejectLabel || mw.msg( 'cx-campaign-no-thanks' ),
@@ -88,12 +86,14 @@ OO.inheritClass( mw.cx.InvitationWidget, OO.ui.StackLayout );
 
 /* Methods */
 
-mw.cx.InvitationWidget.prototype.registerAcceptAction = function ( context, action ) {
-	this.acceptButton.connect( context, { click: action } );
-};
-
 mw.cx.InvitationWidget.prototype.registerRejectAction = function ( context, action ) {
 	this.rejectButton.connect( context, { click: action } );
+};
+
+mw.cx.InvitationWidget.prototype.setUrl = function ( url ) {
+	if ( this.acceptButton ) {
+		this.acceptButton.setHref( url );
+	}
 };
 
 mw.cx.InvitationWidget.prototype.reject = function () {

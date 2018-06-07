@@ -170,6 +170,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Translate instead of writing from scratch",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 might be already available in other languages",
 	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
+	"cx-campaign-research-invitation": "<b>Help to improve this tool.</b> We want to make it easy to extend existing articles when translating, and you can help the research behind it.",
+	"cx-campaign-research-participate": "Participate in the research",
 	"cx-no-source-categories": "No categories",
 	"cx-no-target-categories": "No categories. Consider adding some to better classify the topic.",
 	"cx-no-adapted-categories": "The original categories don't exist in this language. Explore more categories to better describe the topic.",

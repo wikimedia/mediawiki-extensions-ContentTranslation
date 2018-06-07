@@ -978,6 +978,7 @@
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"mediawiki.widgets",
+				"mw.cx.InvitationWidget",
 				"mw.cx.ui.LanguageFilter",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-interactions",
@@ -985,6 +986,8 @@
 			],
 			"messages": [
 				"ellipsis",
+				"cx-campaign-research-invitation",
+				"cx-campaign-research-participate",
 				"cx-suggestionlist-collapse",
 				"cx-suggestionlist-empty-desc",
 				"cx-suggestionlist-empty-title",
