@@ -1,0 +1,27 @@
+@import '../../widgets/common/ext.cx.common.less';
+@gutter: 2em;
+
+.mw-cx-InvitationWidget {
+	background-color: #fff;
+	padding-left: 1.5 * @gutter;
+	border-radius: @borderRadius;
+	.box-shadow-card;
+
+	&:not( :empty ) {
+		margin-bottom: 0.75 * @gutter;
+	}
+
+	&-icon {
+		position: absolute !important; /* stylelint-disable-line declaration-no-important */
+		left: -@gutter;
+	}
+
+	&-header {
+		margin-bottom: 0.75 * @gutter;
+		padding-top: @gutter / 2;
+	}
+
+	&-actions {
+		padding-bottom: @gutter / 2;
+	}
+}

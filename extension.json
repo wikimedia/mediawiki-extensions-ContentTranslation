@@ -234,6 +234,7 @@
 				"mediawiki.Uri",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
+				"mw.cx.InvitationWidget",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
 				"oojs-ui.styles.icons-editing-core",
@@ -1146,6 +1147,23 @@
 				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
 				"quotation-marks"
+			]
+		},
+		"mw.cx.InvitationWidget": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"campaigns/mw.cx.InvitationWidget.js"
+			],
+			"styles": [
+				"campaigns/styles/mw.cx.InvitationWidget.less"
+			],
+			"dependencies": [
+				"mediawiki.storage",
+				"oojs-ui",
+				"oojs-ui-widgets"
+			],
+			"messages": [
+				"cx-campaign-no-thanks"
 			]
 		},
 		"ext.cx.tools.validator": {
