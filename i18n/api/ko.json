@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "원문의 제목입니다.",
 	"apihelp-query+contenttranslation-param-type": "번역 상태",
 	"apihelp-query+contenttranslation-example-1": "현재 사용자가 만든 번역을 가져옵니다.",
+	"apihelp-query+contenttranslation-example-2": "ID로 번역 초안을 가져옵니다.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "번역 ID",
 	"apihelp-query+contenttranslationstats-summary": "내용 번역 통계를 가져옵니다.",
 	"apihelp-cxconfiguration-description": "지정된 언어 쌍에 대한 내용 번역 구성 json을 가져옵니다.",

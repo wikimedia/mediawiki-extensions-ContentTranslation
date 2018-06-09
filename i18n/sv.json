@@ -13,7 +13,8 @@
 			"Josve05a",
 			"Rockyfelle",
 			"Fader",
-			"Bengtsson96"
+			"Bengtsson96",
+			"Matěj Suchánek"
 		]
 	},
 	"cx": "Översätt sida",
@@ -58,7 +59,7 @@
 	"cx-beta": "Innehållsöversättning",
 	"cx-beta-desc": "Ett verktyg för att snabbt översätta sidor till ditt språk. Börja översättningar från [[Special:MyContributions|dina bidragssida]], och redigera dem med vår sida-vid-sida-redigerare som är särskilt utformad för översättning. Några av verktygen kan vara tillgängliga endast för vissa språk.",
 	"cx-entrypoint-title": "Översätt denna sida till $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denna sida finns inte på $1 ännu.<br />\nVill {{GENDER|du}} skapa den?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denna sida finns inte på $1 ännu.<br />\nVill {{GENDER:|du}} skapa den?",
 	"cx-entrypoint-dialog-title-in": "Titel för den nya sidan på $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Skapa från grunden",
 	"cx-entrypoint-dialog-button-translate-from": "Översätt från $1",
@@ -70,7 +71,7 @@
 	"cx-tools-instructions-text5": "Publicera översättningen",
 	"cx-tools-instructions-text6": "När du är nöjd med resultatet, tryck på \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Sök efter ett ord",
-	"cx-tools-view-guidelines": "{{GENDER|Visa}} riktlinjer för översättning",
+	"cx-tools-view-guidelines": "{{GENDER:|Visa}} riktlinjer för översättning",
 	"cx-tools-dictionary-title": "Definition",
 	"cx-tools-link-title": "Länk",
 	"cx-tools-link-add": "Lägg till länk",
@@ -236,6 +237,8 @@
 	"cx-tools-linter-invalid-character": "Din översättningstitel innehåller ogiltiga tecken",
 	"cx-tools-linter-invalid-character-action": "Åtgärda problematiska tecken",
 	"cx-tools-linter-invalid-character-message": "Vissa tecken kan inte användas i titeln på sidor av tekniska anledningar.<br><br>Var god redigera titeln för att undvika problematiska tecken.",
+	"cx-tools-linter-page-exists": "Sidan finns redan",
+	"cx-tools-linter-page-exists-message": "En sida med titeln $1 finns redan. Om din översättning publiceras kommer det befintliga innehållet att skrivas över<br><br>Kontrollera att det är okej att ersätta den befintliga sidan eller överväg att byta namn på din översättning.",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denna månad",
 	"cx-translator-total-translations-label": "Totalt",

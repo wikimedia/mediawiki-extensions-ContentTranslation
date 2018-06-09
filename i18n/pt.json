@@ -236,6 +236,8 @@
 	"cx-tools-linter-invalid-character": "O título da sua tradução contém caracteres inválidos",
 	"cx-tools-linter-invalid-character-action": "Corrigir caracteres problemáticos",
 	"cx-tools-linter-invalid-character-message": "Por razões técnicas, alguns caracteres não podem ser usados nos títulos das páginas.<br><br>Altere o título de forma a evitar os caracteres problemáticos, por favor.",
+	"cx-tools-linter-page-exists": "A página já existe",
+	"cx-tools-linter-page-exists-message": "Já existe uma página com o título $1. Se publicar a sua tradução irá sobrescrever o conteúdo existente.<br><br>Verifique que pretende substituir a página existente, ou pondere alterar o nome da sua tradução.",
 	"cx-translator-header": "As suas estatísticas",
 	"cx-translator-month-stats-label": "Este mês",
 	"cx-translator-total-translations-label": "Total",

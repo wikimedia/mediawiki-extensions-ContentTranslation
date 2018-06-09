@@ -217,6 +217,7 @@
 	"cx-tools-linter-hide-details": "বিস্তারিত লুকাও",
 	"cx-tools-linter-invalid-character": "আপনার অনুবাদের শিরোনামে অবৈধ অক্ষর রয়েছে",
 	"cx-tools-linter-invalid-character-action": "সমস্যাযুক্ত অক্ষরগুলি ঠিক করুন",
+	"cx-tools-linter-page-exists": "পাতাটি ইতিমধ্যে বিদ্যমান রয়েছে",
 	"cx-translator-header": "আপনার পরিসংখ্যান",
 	"cx-translator-month-stats-label": "এই মাসে",
 	"cx-translator-total-translations-label": "মোট",

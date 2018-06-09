@@ -226,6 +226,8 @@
 	"cx-tools-linter-invalid-character": "Насловот содржи недопуштени знаци",
 	"cx-tools-linter-invalid-character-action": "Исправи проблематични знаци",
 	"cx-tools-linter-invalid-character-message": "Некои знаци не се допуштени во насловите од технички причини.<br><br>Изменете го насловот.",
+	"cx-tools-linter-page-exists": "Страницата веќе постои",
+	"cx-tools-linter-page-exists-message": "Веќе постои страница насловена како „$1“. Објавувајќи го преводот ќе ја замените постоечката страница<br><br>Проверете дали можете да ја замените, или пак преименувајте го преводот.",
 	"cx-translator-header": "Ваши статистики",
 	"cx-translator-month-stats-label": "Месецов",
 	"cx-translator-total-translations-label": "Вкупно",

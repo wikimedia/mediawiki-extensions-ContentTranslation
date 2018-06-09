@@ -238,6 +238,8 @@
 	"cx-tools-linter-invalid-character": "يحتوي عنوان ترجمتك على أحرف غير صالحة",
 	"cx-tools-linter-invalid-character-action": "إصلاح الأحرف الإشكالية",
 	"cx-tools-linter-invalid-character-message": "لا يمكن استخدام بعض الأحرف في عنوان الصفحات لأسباب فنية;<br><br>الرجاء تعديل العنوان لتجنب الأحرف التي بها مشكلات.",
+	"cx-tools-linter-page-exists": "الصفحة موجودة بالفعل",
+	"cx-tools-linter-page-exists-message": "توجد بالفعل صفحة بالعنوان $1; سيؤدي نشر ترجمتك إلى استبدال المحتوى الحالي<br><br> تأكد من أنه لا بأس من استبدال الصفحة الحالية، أو فكر في إعادة تسمية ترجمتك.",
 	"cx-translator-header": "إحصائياتك",
 	"cx-translator-month-stats-label": "هذا الشهر",
 	"cx-translator-total-translations-label": "الإجمالي",
