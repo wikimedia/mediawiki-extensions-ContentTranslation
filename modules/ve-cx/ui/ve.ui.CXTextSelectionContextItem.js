@@ -120,26 +120,35 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 		fragment = this.getFragment();
 
 	text = fragment.getText().trim();
-	if ( text.length === 0 || text.length > 30 ) {
-		// Not a useful selection
-		this.$element.remove();
+	if ( text.length === 0 || text.length > 30 || this.hasLink() ) {
+		this.context.removeItems( [ this ] );
 		return;
 	}
+
 	// To avoid flashing of empy card, let us hide the card till we get the link information.
-	this.$element.hide();
+	this.toggle( false );
 	this.$sourceBody.hide();
 	this.normalizedTitle = ve.init.mw.ApiResponseCache.static.normalizeTitle( text );
 	// Try to find the selected text as a title in target wiki
 	this.targetLinkCache.get( this.normalizedTitle ).then( function ( linkData ) {
 		if ( linkData.missing ) {
 			// Title does not exist in target language for the selected text. Do not show the card
-			this.$element.remove();
+			this.context.removeItems( [ this ] );
 			return;
 		}
-		this.$element.show();
+		this.toggle( true );
 		this.renderBody( linkData );
 	}.bind( this ) );
 	return this;
+};
+
+/**
+ * @return {boolean} True if selected text contains a link.
+ */
+ve.ui.CXTextSelectionContextItem.prototype.hasLink = function () {
+	return this.context.getRelatedSources().some( function ( element ) {
+		return element.model instanceof ve.dm.LinkAnnotation;
+	} );
 };
 
 /* Registration */
