@@ -220,6 +220,7 @@
 	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [//www.mediawiki.org/wiki/Content_translation/Abuse_filter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
 	"cx-tools-linter-view-details": "Visualizza dettagli",
 	"cx-tools-linter-hide-details": "Nascondi dettagli",
+	"cx-tools-linter-page-exists": "Pagina già esistente",
 	"cx-translator-header": "Le tue statistiche",
 	"cx-translator-month-stats-label": "Questo mese",
 	"cx-translator-total-translations-label": "Totale",

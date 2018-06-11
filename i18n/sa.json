@@ -30,5 +30,11 @@
 	"cx-draft-discard-button-label": "अनुवादः अपाक्रियताम्",
 	"cx-campaign-contributionsmenu-mycontributions": "योगदानानि",
 	"cx-campaign-contributionsmenu-mytranslations": "अनुवादाः",
+	"cx-tools-linter-empty-title": "भवत्कृतः अनुवादः शीर्षकम् अपेक्षते।",
+	"cx-tools-linter-empty-title-message": "वाचकस्य अन्वेषणकर्मणि साहाय्यार्थं सर्वाणि पुटानि नामकरणम् अपेक्षन्ते। कृपया भवत्कृतस्य अनुवादस्य प्रकाशनार्थं नामसंयोजनं क्रियताम्।",
+	"cx-tools-linter-invalid-character": "भवत्कृते अनुवादे अननुमतानि चिह्नानि सन्ति।",
+	"cx-tools-linter-invalid-character-message": "तन्र्िदृष्यााप पुटशीर्षे कतिपयचिह्नानां प्रयोगः वर्जितः।.<br><br>कृपया क्लेशजनकचिह्नवर्जितं सम्पादनं भवतु।",
+	"cx-tools-linter-page-exists": "इदं पृष्ठं विद्यते",
+	"cx-tools-linter-page-exists-message": "$1इति शीर्षकयुतं पुटं विद्यते।भवत्कृतानुवादस्य प्रकाशनेन विद्यमानः लेखः अधिलिखितः स्यात्।<br><br>पूर्वपुटस्थाने भवल्लेखनं योजनीयं वा भवल्लेखस्य शीर्षकान्तरं कल्पनीयं वा इति परीक्य्कताम्।",
 	"cx-linkcontextitem-title": "परिसन्धिः"
 }

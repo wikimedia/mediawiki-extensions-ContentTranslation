@@ -228,6 +228,7 @@
 	"cx-tools-linter-content": "Byl nalezen obsah, který nesplňuje [//www.mediawiki.org/wiki/Content_translation/Abuse_filter omezení stanovené Wikipedii pro $1]. Prosím opravte problémy před zveřejněním překladu.",
 	"cx-tools-linter-view-details": "Zobrazit detaily",
 	"cx-tools-linter-hide-details": "Skrýt detaily",
+	"cx-tools-linter-page-exists-message": "Stránka s názvem $1 již existuje. Zveřejněním svého překladu přepíšete její dosavadní obsah<br><br>Zkontrolujte, zda je nahrazení stránky v pořádku, a případně zvažte přejmenování svého překladu.",
 	"cx-translator-header": "Vaše statistiky",
 	"cx-translator-month-stats-label": "Tento měsíc",
 	"cx-translator-total-translations-label": "Celkem",
