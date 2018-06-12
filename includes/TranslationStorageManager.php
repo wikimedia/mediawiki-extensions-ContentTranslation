@@ -6,6 +6,7 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
 class TranslationStorageManager {
@@ -67,6 +68,33 @@ class TranslationStorageManager {
 		];
 
 		$dbw->delete( 'cx_corpora', $conditions, __METHOD__ );
+	}
+
+	/**
+	 * Delete translation units and categories associated with the given translation identifier
+	 * in a manner that avoids greating excessive database lag.
+	 *
+	 * @param int|int[] $ids
+	 * @param int $batchSize
+	 */
+	public static function deleteTranslationDataGently( $ids, $batchSize = 1000 ) {
+		$dbw = Database::getConnection( DB_MASTER );
+
+		$table = 'cx_corpora';
+		$conditions[ 'cxc_translation_id' ] = $ids;
+		$options[ 'LIMIT' ] = $batchSize;
+
+		while ( true ) {
+			$rowsToDelete =
+				$dbw->selectFieldValues( $table, 'cxc_id', $conditions, __METHOD__, $options );
+
+			if ( !$rowsToDelete ) {
+				break;
+			}
+
+			$dbw->delete( $table, [ 'cxc_id' => $rowsToDelete ], __METHOD__ );
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
+		}
 	}
 
 	/**

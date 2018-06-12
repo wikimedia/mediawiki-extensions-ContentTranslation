@@ -32,6 +32,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
+		$this->setBatchSize( 100 );
 		$this->requireExtension( 'ContentTranslation' );
 		$this->mDescription = 'Purge unpublished drafts.';
 
@@ -115,7 +116,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	public function purgeDraft( $draftId ) {
 		Translator::removeTranslation( $draftId );
 		Translation::delete( $draftId );
-		TranslationStorageManager::deleteTranslationData( $draftId );
+		TranslationStorageManager::deleteTranslationDataGently( $draftId, $this->mBatchSize );
 	}
 
 	public function getPurgeableDrafts( IDatabase $db, $cutoff ) {
