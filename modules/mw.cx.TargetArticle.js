@@ -374,7 +374,7 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 		}
 
 		return this.showDialog();
-	} );
+	}.bind( this ) );
 };
 
 /**
