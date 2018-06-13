@@ -10,7 +10,8 @@
 			"Kingu",
 			"Tarjeimo",
 			"Jon Harald Søby",
-			"Prevodim"
+			"Prevodim",
+			"Citadell"
 		]
 	},
 	"cx": "Oversett side",
@@ -205,6 +206,8 @@
 	"cx-tools-linter-content": "Innhold er funnet som ikke tilfredstiller [//www.mediawiki.org/wiki/Content_translation/Abuse_filter begrensingene satt av Wikipedia i $1]. Vær snill og rett forholdet før du publiserer oversettelsen.",
 	"cx-tools-linter-view-details": "Vis detaljer",
 	"cx-tools-linter-hide-details": "Skjul detaljer",
+	"cx-tools-linter-page-exists": "Siden finnes allerede",
+	"cx-tools-linter-page-exists-message": "En side med tittelen $1 eksisterer allerede. Publisering av din oversettelse vil overskrive eksisterende innhold<br><br>Sjekk at det er ok å erstatte den eksisterende siden, eller vurder omnavning av din oversettelse.",
 	"cx-translator-header": "Din statistikk",
 	"cx-translator-month-stats-label": "Denne måned",
 	"cx-translator-total-translations-label": "Totalt",
