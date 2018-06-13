@@ -30,6 +30,7 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 	);
 
 	this.focused = false;
+	this.validTitle = null;
 
 	// Events
 	this.$input.off( 'focus blur' );
@@ -116,25 +117,33 @@ mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
-	return {
-		message: mw.msg( 'cx-tools-linter-invalid-character-message' ),
-		messageInfo: {
-			title: mw.msg( 'cx-tools-linter-invalid-character' ),
-			// FIXME: Link to localized help page
-			help: 'https://en.wikipedia.org/wiki/Wikipedia:Page_name',
-			type: 'error',
+	var titleObj = mw.Title.newFromUserInput( this.getValue() ),
+		messageData = {
+			message: mw.msg( 'cx-tools-linter-invalid-character-message' ),
+			messageInfo: {
+				title: mw.msg( 'cx-tools-linter-invalid-character' ),
+				// FIXME: Link to localized help page
+				help: 'https://en.wikipedia.org/wiki/Wikipedia:Page_name',
+				type: 'error'
+			}
+		};
+
+	if ( titleObj ) {
+		this.validTitle = titleObj.title.replace( /_/g, ' ' );
+
+		messageData.messageInfo = $.extend( messageData.messageInfo, {
 			resolvable: true,
 			actionIcon: 'trash',
 			actionLabel: mw.msg( 'cx-tools-linter-invalid-character-action' ),
 			action: this.fixTitle.bind( this )
-		}
-	};
+		} );
+	}
+
+	return messageData;
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.fixTitle = function () {
-	var titleObj = mw.Title.newFromUserInput( this.getValue() );
-
-	this.setValue( titleObj.title.replace( /_/g, ' ' ) );
+	this.setValue( this.validTitle );
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.onLintIssue = function ( hasErrors ) {
