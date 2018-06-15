@@ -56,7 +56,7 @@ class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
 		$key = $this->getHeaderMessageKey();
 		$msg = $this->msg( $key );
 		if ( $key === 'cx-notification-suggestions-available' ) {
-			$truncatedTitle = $this->language->truncate(
+			$truncatedTitle = $this->language->truncateForVisual(
 				$this->event->getExtraParam( 'lastTranslationTitle' ),
 				self::PAGE_NAME_RECOMMENDED_LENGTH,
 				'...',
