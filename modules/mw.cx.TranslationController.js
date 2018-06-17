@@ -30,7 +30,7 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.saveTimer = null;
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
-	this.targetTitleChanged = false;
+	this.savedTargetTitle = this.translation.getTargetTitle();
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
 	this.saveTracker = {};
@@ -104,8 +104,17 @@ mw.cx.TranslationController.prototype.save = function ( sectionData ) {
  */
 mw.cx.TranslationController.prototype.noNewChanges = function () {
 	return ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) &&
-		!this.targetTitleChanged &&
+		!this.targetTitleChanged() &&
 		this.targetCategoriesChanged === 0;
+};
+
+/**
+ * Return true if target title is changed and needs to be saved.
+ *
+ * @return {boolean}
+ */
+mw.cx.TranslationController.prototype.targetTitleChanged = function () {
+	return this.savedTargetTitle !== this.translation.getTargetTitle();
 };
 
 /**
@@ -181,6 +190,11 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		.done( function ( saveResult ) {
 			this.onSaveComplete( saveResult );
 
+			if ( this.targetTitleChanged() ) {
+				mw.log( '[CX] Target title saved.' );
+			}
+			this.savedTargetTitle = params.title;
+
 			if ( params.sourcecategories ) {
 				this.sourceCategoriesSaved = true;
 			}
@@ -241,11 +255,6 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	if ( this.targetCategoriesChanged > 0 ) {
 		mw.log( '[CX] Target categories saved.' );
 	}
-
-	if ( this.targetTitleChanged ) {
-		mw.log( '[CX] Target title saved.' );
-	}
-	this.targetTitleChanged = false;
 
 	this.translationId = saveResult.cxsave.translationid;
 	validations = saveResult.cxsave.validations;
@@ -500,7 +509,6 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	}
 
 	this.translation.setTargetTitle( newTitle );
-	this.targetTitleChanged = true;
 	this.schedule();
 
 	currentTitleObj = mw.Title.newFromUserInput( currentTitle );
