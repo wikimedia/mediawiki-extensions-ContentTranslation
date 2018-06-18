@@ -7,6 +7,11 @@
 	/* Inceased specifity to override parent style */
 	&.ve-ui-linearContextItem-body {
 		padding: 1em;
+
+		// If source language wiki doesn't have a page linked, hide the body section
+		&:empty {
+			display: none;
+		}
 	}
 
 	.ve-ui-cxLinkContextItem-title {

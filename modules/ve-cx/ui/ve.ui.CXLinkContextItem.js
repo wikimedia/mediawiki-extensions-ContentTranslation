@@ -17,6 +17,9 @@ ve.ui.CXLinkContextItem = function VeUiCXLinkContextItem() {
 	this.$element.addClass( 've-ui-cxLinkContextItem' );
 	// Do not show the delete button in red color
 	this.clearButton.clearFlags();
+
+	this.targetLinkCache = ve.init.platform.linkCache;
+	this.requestManager = ve.init.target.requestManager;
 };
 
 /* Inheritance */
@@ -139,14 +142,73 @@ ve.ui.CXLinkContextItem.prototype.isEditable = function () {
  * @inheritdoc
  */
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
-	var $sourceLink, $targetLinkCard, markAsMissingButton,
-		markAsMissingInfo,
-		adaptationInfo = this.model.getAttribute( 'cx' );
+	var normalizedTitle, store, adaptationInfo = this.model.getAttribute( 'cx' );
 
-	if ( !adaptationInfo ) {
-		// Not a CX Link?
-		return;
+	if ( !adaptationInfo.userAdded ) {
+		return this.generateBody( adaptationInfo );
 	}
+
+	store = this.model.getStore();
+	normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
+	adaptationInfo = store.value( store.hashOfValue( null, OO.getHash( normalizedTitle ) ) );
+
+	if ( adaptationInfo ) {
+		return this.generateBody( adaptationInfo );
+	}
+
+	this.getLinkInfo().then( this.generateBody.bind( this ) );
+};
+
+/**
+ * Get info about user-added links. Once fetched, link info is stored
+ * inside the model, so this method should execute once per user-added link.
+ *
+ * See renderBody method on this object, to see how future creation of
+ * link context item body uses the info stored as attribute of the model.
+ *
+ * @return {jQuery.Promise}
+ */
+ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
+	var normalizedTitle = this.model.getAttribute( 'normalizedTitle' ),
+		sourceLanguage = this.translation.getSourceLanguage(),
+		targetLanguage = this.translation.getTargetLanguage(),
+		adaptationInfo = {
+			targetTitle: {
+				title: normalizedTitle,
+				pagelanguage: targetLanguage
+			}
+		};
+
+	return this.targetLinkCache.get( normalizedTitle ).then( function ( linkData ) {
+		adaptationInfo.targetTitle.description = linkData.description;
+		adaptationInfo.targetTitle.thumbnail = { source: linkData.imageUrl };
+
+		return this.requestManager.getTitlePair( targetLanguage, normalizedTitle )
+			.then( function ( titlePairInfo ) {
+				var sourceTitle = titlePairInfo.targetTitle;
+
+				adaptationInfo.adapted = true;
+
+				if ( titlePairInfo.missing ) {
+					return;
+				}
+
+				adaptationInfo.sourceTitle = {
+					title: sourceTitle,
+					pagelanguage: sourceLanguage
+				};
+			} ).then( function () {
+				var store = this.model.getStore(),
+					normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
+				store.hash( adaptationInfo, OO.getHash( normalizedTitle ) );
+
+				return adaptationInfo;
+			}.bind( this ) );
+	}.bind( this ) );
+};
+
+ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
+	var $sourceLink, $targetLinkCard, markAsMissingButton, markAsMissingInfo;
 
 	if ( adaptationInfo.sourceTitle ) {
 		// Source link
@@ -190,8 +252,8 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
  * Change the grey link to red link.
  */
 ve.ui.CXLinkContextItem.prototype.createRedLink = function () {
-	var targetLanguage = this.translation.targetDoc.getLang(),
-		sourceLanguage = this.translation.sourceDoc.getLang();
+	var targetLanguage = this.translation.getTargetLanguage(),
+		sourceLanguage = this.translation.getSourceLanguage();
 
 	// See ve.ui.AnnotationContextItem#applyToAnnotations
 	this.applyToAnnotations( function ( fragment, annotation ) {

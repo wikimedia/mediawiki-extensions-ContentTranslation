@@ -1361,6 +1361,8 @@
 				"ve-cx/dm/ve.dm.CXLinkAnnotation.js",
 				"ve-cx/ce/ve.ce.CXLinkAnnotation.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
+				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
+				"ve-cx/ui/ve.ui.CXInternalLinkAnnotationWidget.js",
 				"ve-cx/ui/ve.ui.CXTextSelectionContextItem.js"
 			],
 			"styles": [

@@ -44,11 +44,28 @@ ve.dm.CXLinkAnnotation.static.toDomElements = function ( dataElement, doc ) {
 	return domElements;
 };
 
+/**
+ * @inheritdoc
+ * @return {ve.dm.CXLinkAnnotation} The annotation.
+ */
+ve.dm.CXLinkAnnotation.static.newFromTitle = function ( title, rawTitle ) {
+	var element = this.dataElementFromTitle( title, rawTitle );
+
+	element.attributes.cx = {
+		userAdded: true,
+		adapted: true
+	};
+
+	return new ve.dm.CXLinkAnnotation( element );
+};
+
 /* Methods */
 
 ve.dm.CXLinkAnnotation.prototype.getComparableObject = function () {
 	var comparableObject = ve.dm.CXLinkAnnotation.super.prototype.getComparableObject.call( this );
 	comparableObject.linkid = this.getAttribute( 'linkid' );
+
+	return comparableObject;
 };
 
 /* Registration */

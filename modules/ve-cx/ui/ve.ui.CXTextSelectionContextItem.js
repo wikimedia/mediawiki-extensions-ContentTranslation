@@ -46,7 +46,7 @@ ve.ui.CXTextSelectionContextItem.static.name = 'cxtextselection';
 
 ve.ui.CXTextSelectionContextItem.static.icon = 'link';
 
-ve.ui.CXTextSelectionContextItem.static.commandName = 'link';
+ve.ui.CXTextSelectionContextItem.static.commandName = 'linkToggle';
 
 ve.ui.CXTextSelectionContextItem.static.label = OO.ui.deferMsg( 'cx-tools-link-title' );
 
@@ -62,6 +62,13 @@ ve.ui.CXTextSelectionContextItem.static.isCompatibleWith = function ( model ) {
 
 ve.ui.CXTextSelectionContextItem.static.generateBody = ve.ui.CXLinkContextItem.static.generateBody;
 ve.ui.CXTextSelectionContextItem.static.generateSourceBody = ve.ui.CXLinkContextItem.static.generateSourceBody;
+
+ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes = function ( normalizedTitle ) {
+	var title = mw.Title.newFromText( normalizedTitle ),
+		annotation = ve.dm.CXLinkAnnotation.static.newFromTitle( title );
+
+	return annotation.element;
+};
 
 /* Methods */
 
@@ -175,6 +182,30 @@ ve.ui.CXTextSelectionContextItem.prototype.teardown = function () {
 	this.surfaceModel.disconnect( this );
 };
 
+/**
+ * @inheritdoc
+ */
+ve.ui.CXTextSelectionContextItem.prototype.onEditButtonClick = function () {
+	var command = this.getCommand(),
+		// We need annotation attributes while annotating links,
+		// so that creation of href does not break.
+		attributes = ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes( this.normalizedTitle );
+
+	if ( command ) {
+		command.execute( this.context.getSurface(), [ 'cxLink', attributes ] );
+		this.emit( 'command' );
+		// FIXME: This avoids "Add link" card to stick after actually adding link
+		this.context.getSurface().getModel().setNullSelection();
+	}
+};
+
 /* Registration */
 
 ve.ui.contextItemFactory.register( ve.ui.CXTextSelectionContextItem );
+
+ve.ui.commandRegistry.register(
+	new ve.ui.Command(
+		'linkToggle', 'annotation', 'toggle',
+		{ supportedSelections: [ 'linear' ] }
+	)
+);
