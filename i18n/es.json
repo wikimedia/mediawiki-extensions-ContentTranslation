@@ -23,7 +23,8 @@
 			"Liuxinyu970226",
 			"RicardoSGZ",
 			"La Mantis",
-			"Themasterriot"
+			"Themasterriot",
+			"MarcoAurelio"
 		]
 	},
 	"cx": "Traducir página",
@@ -226,10 +227,13 @@
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Actualizar sugerencias",
 	"cx-notification-suggestions-available": "Basado en {{GENDER:$2|tu}} traducción anterior de '''$1''', nuevas sugerencias están disponibles ahora.",
+	"cx-tools-linter-issues": "Problemas",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 error|$1 errores}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"cx-tools-linter-learn-more": "Más información",
+	"cx-tools-linter-mark-as-resolved": "Marcar como resuelto",
 	"cx-tools-linter-generic-title": "Hay un problema con tu traducción",
+	"cx-tools-linter-abuse-filter": "El filtro antiabusos ha identificado contenido problemático en tu traducción",
 	"cx-tools-linter-title": "Problemas del contenido: $1",
 	"cx-tools-linter-content": "Se encontró contenido que no cumple con [//www.mediawiki.org/wiki/Content_translation/Abuse_filter las restricciones establecidas por la Wikipedia en $1]. Corrige los problemas antes de publicar la traducción.",
 	"cx-tools-linter-view-details": "Ver detalles",

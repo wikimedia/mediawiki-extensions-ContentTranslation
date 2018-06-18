@@ -11,7 +11,8 @@
 			"Tarjeimo",
 			"Jon Harald Søby",
 			"Prevodim",
-			"Citadell"
+			"Citadell",
+			"Orf3us"
 		]
 	},
 	"cx": "Oversett side",
@@ -207,7 +208,7 @@
 	"cx-tools-linter-view-details": "Vis detaljer",
 	"cx-tools-linter-hide-details": "Skjul detaljer",
 	"cx-tools-linter-page-exists": "Siden finnes allerede",
-	"cx-tools-linter-page-exists-message": "En side med tittelen $1 eksisterer allerede. Publisering av din oversettelse vil overskrive eksisterende innhold<br><br>Sjekk at det er ok å erstatte den eksisterende siden, eller vurder omnavning av din oversettelse.",
+	"cx-tools-linter-page-exists-message": "En side med tittelen $1 eksisterer allerede. Publisering av din oversettelse vil overskrive eksisterende innhold<br><br>Sjekk at det er ok å erstatte den eksisterende siden, eller vurder å omdøpe din oversettelse.",
 	"cx-translator-header": "Din statistikk",
 	"cx-translator-month-stats-label": "Denne måned",
 	"cx-translator-total-translations-label": "Totalt",
