@@ -42,14 +42,13 @@ ve.ui.CXLinkContextItem.static.clearIcon = 'trash';
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	var $sourceLink, $targetLinkCard, markAsMissingButton,
 		markAsMissingInfo,
-		adaptationInfo = this.model.getAttribute( 'cx' ),
-		translation = ve.init.target.getTranslation();
+		adaptationInfo = this.model.getAttribute( 'cx' );
 
 	if ( adaptationInfo.sourceTitle ) {
 		// Source link
 		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
 			adaptationInfo.sourceTitle,
-			translation.sourceDoc.getLang()
+			this.translation.sourceDoc.getLang()
 		);
 		this.$sourceBody.empty().append( $sourceLink );
 	}
