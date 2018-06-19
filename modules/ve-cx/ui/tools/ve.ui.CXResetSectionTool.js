@@ -20,6 +20,7 @@ ve.ui.CXResetSectionTool.static.group = 'mt';
 ve.ui.CXResetSectionTool.static.title = mw.msg( 'cx-tools-mt-reset' );
 ve.ui.CXResetSectionTool.static.commandName = 'reset-translation';
 ve.ui.CXResetSectionTool.static.deactivateOnSelect = true;
+ve.ui.CXResetSectionTool.static.autoAddToCatchall = false;
 
 ve.ui.commandRegistry.register(
 	new ve.ui.Command(

@@ -51,6 +51,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 		OO.inheritClass( ve.ui[ toolClassName ], ve.ui.Tool );
 		ve.ui[ toolClassName ].static.name = provider;
 		ve.ui[ toolClassName ].static.group = 'mt';
+		ve.ui[ toolClassName ].static.autoAddToCatchall = false;
 		ve.ui[ toolClassName ].static.title =
 			ve.init.target.config.MTManager.getProviderLabel( provider );
 		ve.ui[ toolClassName ].static.commandName = provider.toLowerCase();
