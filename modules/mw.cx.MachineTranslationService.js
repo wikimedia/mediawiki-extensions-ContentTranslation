@@ -35,12 +35,34 @@ mw.cx.MachineTranslationService.prototype.translate = function ( content, provid
 	if ( provider === 'source' ) {
 		// Adapt without translation.
 		return this.fetchTranslation( content );
+	} else if ( provider === 'scratch' ) {
+		return $.Deferred().resolve( this.prepareContentForScratch( content ) );
 	}
-	if ( provider === 'scratch' ) {
-		return $.Deferred().resolve( '' );
+
+	return this.getCXServerToken().then( this.fetchTranslation.bind( this, content, provider ) );
+};
+
+/**
+ * Surgically empty a piece of content to enable translation from scratch.
+ *
+ * @param {string} content HTML
+ * @return {string} HTML
+ */
+mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( content ) {
+	var $content = $( $.parseHTML( content ) );
+	$content.children().each( function () {
+		if ( $( this ).is( 'p, h1, h2, h3, h4, h5, h6' ) ) {
+			$( this ).empty();
+		} else {
+			$( this ).remove();
+		}
+	} );
+
+	if ( $content.children().length ) {
+		$content.append( $( '<p>' ) );
 	}
-	return this.getCXServerToken()
-		.then( this.fetchTranslation.bind( this, content, provider ) );
+
+	return $content.prop( 'outerHTML' );
 };
 
 /**
