@@ -9,7 +9,8 @@
 			"Santhosh.thottingal",
 			"Sfic",
 			"Jayprakash12345",
-			"Nitin1485"
+			"Nitin1485",
+			"Sagsag"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -188,6 +189,8 @@
 	"cx-tools-linter-title": "सामग्री समस्या: $1",
 	"cx-tools-linter-view-details": "जानकारी देखें",
 	"cx-tools-linter-hide-details": "जानकारी छुपाएँ",
+	"cx-tools-linter-empty-title": "আপোনাৰ ভাঙনিটোত শিৰোনামা এটা লাগে",
+	"cx-tools-linter-page-exists": "পাতটো আছেই",
 	"cx-translator-month-stats-label": "इस माह",
 	"cx-translator-total-translations-label": "कुल",
 	"cx-tools-mt-new-provider": "नया",
