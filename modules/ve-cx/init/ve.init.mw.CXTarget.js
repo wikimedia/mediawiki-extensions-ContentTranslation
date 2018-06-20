@@ -342,7 +342,7 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 			.addClass( 'oo-ui-toolbar-narrow' ) // Quick fix to avoid overflowing toolbar.
 	);
 
-	ve.ui.CXTranslationToolbar.static.registerTools().then( function () {
+	ve.ui.CXTranslationToolbar.static.registerTools( this.MTManager ).then( function () {
 		var mtToolbar = new ve.ui.CXTranslationToolbar();
 		mtToolbar.setup( this.constructor.static.translationToolbarGroups, this.targetSurface );
 		this.translationView.toolsColumn.mtToolbarContainer.$element.append( mtToolbar.$element );

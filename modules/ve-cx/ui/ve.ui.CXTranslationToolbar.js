@@ -42,13 +42,18 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 
 OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
 
-ve.ui.CXTranslationToolbar.static.registerTools = function () {
-	var createProviderItem = function ( provider, defaultProvider ) {
+/**
+ * @param {mw.cx.MachineTranslationManager} MTManager
+ * @return {jQuery.Promise}
+ */
+ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
+	var createProviderItem = function ( provider, defaultProvider, MTManager ) {
 		var toolClassName = provider + 'MTTool';
 		ve.ui[ toolClassName ] = function VeCXMTTool() {
 			ve.ui.Tool.apply( this, arguments );
+			this.MTManager = MTManager;
 			this.setActive( defaultProvider === this.getName() );
-			ve.init.target.config.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+			this.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
 				this.setIsPreferred( preferredProvider === this.getName() );
 			}.bind( this ) );
 		};
@@ -57,8 +62,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 		ve.ui[ toolClassName ].static.name = provider;
 		ve.ui[ toolClassName ].static.group = 'mt';
 		ve.ui[ toolClassName ].static.autoAddToCatchall = false;
-		ve.ui[ toolClassName ].static.title =
-			ve.init.target.config.MTManager.getProviderLabel( provider );
+		ve.ui[ toolClassName ].static.title = MTManager.getProviderLabel( provider );
 		ve.ui[ toolClassName ].static.commandName = provider.toLowerCase();
 
 		ve.ui[ toolClassName ].prototype.onSelect = function () {
@@ -95,7 +99,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 			source = section.getOriginalContentSource() || defaultProvider;
 			this.setActive( this.getName() === source );
 			// Hits localstorage, so caching might be needed if this gets too expensive.
-			ve.init.target.config.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+			this.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
 				this.toolbar.setAsDefault.toggle( source !== preferredProvider );
 			}.bind( this ) );
 		};
@@ -126,10 +130,10 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 		);
 	};
 
-	return ve.init.target.config.MTManager.getDefaultProvider().then( function ( defaultProvider ) {
-		return ve.init.target.config.MTManager.getAvailableProviders().then( function ( providers ) {
+	return MTManager.getDefaultProvider().then( function ( defaultProvider ) {
+		return MTManager.getAvailableProviders().then( function ( providers ) {
 			providers.forEach( function ( provider ) {
-				createProviderItem( provider, defaultProvider );
+				createProviderItem( provider, defaultProvider, MTManager );
 			} );
 		} );
 	} );
