@@ -406,61 +406,6 @@ mw.cx.TargetArticle.prototype.getTargetTitle = function () {
 	return this.translation.getTargetTitle();
 };
 
-/**
- * Link the source and target articles in the Wikibase repo
- * @param {string} sourceLanguage
- * @param {string} targetLanguage
- * @param {string} sourceTitle
- * @param {string} targetTitle
- * @return {jQuery.Promise}
- */
-mw.cx.TargetArticle.prototype.linkAtWikibase = function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
-	var title, sourceApi;
-
-	// Link only pages in the main space
-	title = new mw.Title( targetTitle );
-	if ( title.getNamespaceId() !== 0 ) {
-		return;
-	}
-
-	sourceApi = this.siteMapper.getApi( this.sourceLanguage );
-
-	// TODO: Use action=query&meta=wikibase API
-	// that expose siteid as per
-	// https://gerrit.wikimedia.org/r/#/c/214517/
-	return sourceApi.get( {
-		action: 'query',
-		meta: 'siteinfo',
-		siprop: 'general'
-	} ).then( function ( result ) {
-		/* global wikibase  */
-		var repoApi, targetWikiId, sourceWikiId, pageConnector;
-
-		repoApi = new wikibase.api.RepoApi( wikibase.client.getMwApiForRepo() );
-		targetWikiId = mw.config.get( 'wbCurrentSite' ).globalSiteId;
-		sourceWikiId = result.query.general.wikiid;
-
-		pageConnector = new wikibase.PageConnector(
-			repoApi,
-			targetWikiId,
-			targetTitle,
-			sourceWikiId,
-			sourceTitle
-		);
-
-		return pageConnector.linkPages().then( function () {
-			var api = new mw.Api();
-
-			// Purge the newly-created page after adding the link,
-			// so that they will appear as soon as possible without manual purging
-			api.post( {
-				action: 'purge',
-				titles: targetTitle
-			} );
-		} );
-	} );
-};
-
 mw.cx.TargetArticle.prototype.getTargetURL = function () {
 	return this.siteMapper.getPageUrl( this.targetLanguage, this.getTargetTitle() );
 };
