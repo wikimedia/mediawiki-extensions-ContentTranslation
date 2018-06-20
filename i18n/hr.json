@@ -198,6 +198,7 @@
 	"cx-suggestionlist-collapse": "Vidi manje",
 	"cx-suggestionlist-refresh": "Osvježi prijedloge",
 	"cx-notification-suggestions-available": "Na temelju {{GENDER:$2|vaših}} prijašnjih prijevoda ('''$1'''), dostupni su novi prijedlozi.",
+	"cx-tools-linter-mark-as-resolved": "Označi riješenim",
 	"cx-tools-linter-title": "Problemi sa sadržajem: $1",
 	"cx-tools-linter-content": "Sadržaj ne poštuje [//www.mediawiki.org/wiki/Content_translation/Abuse_filter Wikpedijina ograničenja u $1]. Molimo ispravite probleme prije objave prijevoda.",
 	"cx-tools-linter-view-details": "Prikaži detalje",
