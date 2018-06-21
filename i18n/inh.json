@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Adam-Yourist",
-			"ElizaMag"
+			"ElizaMag",
+			"Movses"
 		]
 	},
 	"cx": "ОагIон таржам",
@@ -22,6 +23,7 @@
 	"cx-stats-draft-translations-label": "Йистедаланза таржамаш",
 	"cx-campaign-contributionsmenu-mycontributions": "Къахьегам",
 	"cx-campaign-contributionsmenu-mytranslations": "Таржамаш",
+	"cx-campaign-contributionsmenu-myuploads": "Оаша хьачудаьха мультимедиа файлаш",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 таржам}}",
 	"echo-category-title-cx": "Таржамаш",
 	"cx-tools-link-external-link": "Арахьара тӀатовжам",
