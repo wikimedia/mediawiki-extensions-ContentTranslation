@@ -31,7 +31,6 @@
 		"GetBetaFeaturePreferences": "ContentTranslationHooks::onGetBetaFeaturePreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslationHooks::addMessages",
-		"EventLoggingRegisterSchemas": "ContentTranslationHooks::addEventLogging",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
 		"ResourceLoaderTestModules": "ContentTranslationHooks::onResourceLoaderTestModules",
 		"ListDefinedTags": "ContentTranslationHooks::registerTags",
@@ -2251,6 +2250,12 @@
 				"oojs-ui-core"
 			]
 		}
+	},
+	"EventLoggingSchemas": {
+		"ContentTranslation": 11628043,
+		"ContentTranslationCTA": 16017678,
+		"ContentTranslationSuggestion": 16344900,
+		"ContentTranslationError": 11767097
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",

@@ -131,17 +131,6 @@ class ContentTranslationHooks {
 	}
 
 	/**
-	 * Hook: EventLoggingRegisterSchemas
-	 * @param array &$schemas
-	 */
-	public static function addEventLogging( array &$schemas ) {
-		$schemas['ContentTranslation'] = 11628043;
-		$schemas['ContentTranslationCTA'] = 16017678;
-		$schemas['ContentTranslationSuggestion'] = 16344900;
-		$schemas['ContentTranslationError'] = 11767097;
-	}
-
-	/**
 	 * Hook: SpecialContributionsBeforeMainOutput
 	 * @param int $id
 	 * @param User $user
