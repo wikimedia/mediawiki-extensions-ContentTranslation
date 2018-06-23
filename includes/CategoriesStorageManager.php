@@ -26,7 +26,7 @@ class CategoriesStorageManager {
 	 * @param IDatabase $db
 	 * @param int $translationId
 	 * @param string $categories
-	 * @param string [$origin] TYPE_SOURCE or TYPE_USER. Defaults to TYPE_USER
+	 * @param string $origin TYPE_SOURCE or TYPE_USER. Defaults to TYPE_USER
 	 */
 	private static function update(
 		IDatabase $db, $translationId, $categories, $origin = self::TYPE_USER
