@@ -42,12 +42,12 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 
 	this.sourceDoc = ve.dm.converter.getModelFromDom(
 		this.constructor.static.getSourceDom( sourceHtml, false ),
-		{ lang: this.sourceWikiPage.getLanguage(), dir: this.sourceWikiPage.getDirection() }
+		{ lang: this.getSourceLanguage(), dir: this.sourceWikiPage.getDirection() }
 	);
 
 	this.targetDoc = ve.dm.converter.getModelFromDom(
 		this.constructor.static.getSourceDom( sourceHtml, true, this.savedTranslationUnits ),
-		{ lang: this.targetWikiPage.getLanguage(), dir: this.targetWikiPage.getDirection() }
+		{ lang: this.getTargetLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
 	this.once( 'sectionChange', this.onSectionChange.bind( this ) );
@@ -385,6 +385,15 @@ mw.cx.dm.Translation.prototype.setTargetRevisionId = function ( revisionId ) {
 };
 
 /**
+ * Get source title for translation
+ *
+ * @return {string} Source title
+ */
+mw.cx.dm.Translation.prototype.getSourceTitle = function () {
+	return this.sourceWikiPage.getTitle();
+};
+
+/**
  * Set Translation title
  *
  * @param {string} title Translation Id
@@ -394,11 +403,30 @@ mw.cx.dm.Translation.prototype.setTargetTitle = function ( title ) {
 };
 
 /**
- * Get Translation title
+ * Get target title for translation
+ *
  * @return {string} Target title
  */
 mw.cx.dm.Translation.prototype.getTargetTitle = function () {
 	return this.targetTitle;
+};
+
+/**
+ * Get source language for translation
+ *
+ * @return {string} Source language
+ */
+mw.cx.dm.Translation.prototype.getSourceLanguage = function () {
+	return this.sourceWikiPage.getLanguage();
+};
+
+/**
+ * Get target language for translation
+ *
+ * @return {string} Target language
+ */
+mw.cx.dm.Translation.prototype.getTargetLanguage = function () {
+	return this.targetWikiPage.getLanguage();
 };
 
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {

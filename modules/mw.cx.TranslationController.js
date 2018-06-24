@@ -155,9 +155,9 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		action: 'cxsave',
 		assert: 'user',
 		content: this.getContentToSave( this.saveQueue ),
-		from: this.translation.sourceWikiPage.getLanguage(),
-		to: this.translation.targetWikiPage.getLanguage(),
-		sourcetitle: this.translation.sourceWikiPage.getTitle(),
+		from: this.translation.getSourceLanguage(),
+		to: this.translation.getTargetLanguage(),
+		sourcetitle: this.translation.getSourceTitle(),
 		title: this.translation.getTargetTitle(),
 		sourcerevision: this.translation.getSourceRevisionId(),
 		progress: JSON.stringify( this.translation.getProgress() ),
@@ -467,12 +467,12 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function () {
 	this.veTarget.onPublishSuccess( this.targetArticle.getTargetURL() );
 	this.enableEditing();
 
-	// Event logging
+	// Event logging and Wikibase linking
 	mw.hook( 'mw.cx.translation.published' ).fire(
-		this.translation.sourceLanguage,
-		this.translation.targetLanguage,
-		this.translation.sourceTitle,
-		this.translation.targetTitle
+		this.translation.getSourceLanguage(),
+		this.translation.getTargetLanguage(),
+		this.translation.getSourceTitle(),
+		this.translation.getTargetTitle()
 	);
 };
 

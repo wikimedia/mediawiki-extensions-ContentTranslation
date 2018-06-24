@@ -48,7 +48,7 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 		// Source link
 		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
 			adaptationInfo.sourceTitle,
-			this.translation.sourceDoc.getLang()
+			this.translation.getSourceLanguage()
 		);
 		this.$sourceBody.empty().append( $sourceLink );
 	}

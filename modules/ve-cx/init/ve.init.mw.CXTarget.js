@@ -582,9 +582,9 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 		'success',
 		mw.message( 'cx-publish-page-success',
 			$( '<a>' ).attr( {
-				href: mw.util.getUrl( this.translation.targetTitle ),
+				href: mw.util.getUrl( this.translation.getTargetTitle() ),
 				target: '_blank'
-			} ).text( this.translation.targetTitle )[ 0 ].outerHTML
+			} ).text( this.translation.getTargetTitle() )[ 0 ].outerHTML
 		)
 	);
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
@@ -650,8 +650,8 @@ ve.init.mw.CXTarget.prototype.getContentApi = function ( doc, options ) {
  */
 ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
 	doc = doc || this.targetSurface.getModel().getDocument();
-	return doc.getLang() === this.translation.sourceWikiPage.getLanguage() ?
-		this.translation.sourceWikiPage.getTitle() : this.translation.getTargetTitle();
+	return doc.getLang() === this.translation.getSourceLanguage() ?
+		this.translation.getSourceTitle() : this.translation.getTargetTitle();
 };
 
 /**
