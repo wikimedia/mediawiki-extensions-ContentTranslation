@@ -20,7 +20,7 @@
 		"MediaWiki": ">= 1.31.0",
 		"extensions": {
 			"VisualEditor": ">= 0.1.0",
-			"UniversalLanguageSelector": ">0"
+			"UniversalLanguageSelector": "*"
 		}
 	},
 	"ExtensionMessagesFiles": {
