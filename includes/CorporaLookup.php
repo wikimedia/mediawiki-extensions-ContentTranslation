@@ -9,7 +9,7 @@
 namespace ContentTranslation;
 
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 class CorporaLookup {
 	const TYPE_SOURCE = 'source';
@@ -49,7 +49,7 @@ class CorporaLookup {
 		return self::format( $res );
 	}
 
-	protected static function format( ResultWrapper $rows ) {
+	protected static function format( IResultWrapper $rows ) {
 		$sections = [];
 
 		foreach ( $rows as $row ) {
