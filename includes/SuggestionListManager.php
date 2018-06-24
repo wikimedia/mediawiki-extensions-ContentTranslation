@@ -270,7 +270,7 @@ class SuggestionListManager {
 	/**
 	 * Get public suggestions by list type
 	 *
-	 * @param string $type List type.
+	 * @param int|int[] $type List type.
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
 	 * @param int $limit How many suggestions to fetch.
