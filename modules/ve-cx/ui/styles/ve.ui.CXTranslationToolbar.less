@@ -36,14 +36,18 @@
 		}
 	}
 
-	.cx-text-indicator {
-		float: right;
-		font-size: 12px;
-		margin-left: 10px;
-	}
-
 	&.ve-cx-toolbar-mt--highlight .oo-ui-toolbar-bar {
 		.animation( cx-flash-highlight, 1s );
+	}
+}
+
+.cx-text-indicator {
+	float: right;
+	margin-left: 12px;
+	color: @colorTextLight;
+
+	.oo-ui-tool-active.oo-ui-widget-enabled & {
+		color: inherit;
 	}
 }
 
