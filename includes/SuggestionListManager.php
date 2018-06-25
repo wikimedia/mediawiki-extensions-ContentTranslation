@@ -37,14 +37,14 @@ class SuggestionListManager {
 		$dbw->delete(
 			'cx_suggestions',
 			[
-				'cxs_list_id' => $this->getId(),
+				'cxs_list_id' => $id,
 			],
 			__METHOD__
 		);
 		$dbw->delete(
 			'cx_lists',
 			[
-				'cxl_id' => $this->getId()
+				'cxl_id' => $id
 			],
 			__METHOD__
 		);
