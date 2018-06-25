@@ -91,6 +91,7 @@
 	"cx-tools-mt-provider-title": "$1 사용",
 	"cx-tools-mt-dont-use": "기계 번역을 사용하지 않음",
 	"cx-tools-mt-set-default": "기본값으로 유지",
+	"cx-tools-mt-preferred": "기본값",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|분류 $1개|분류 $1개|분류 없음}}",
 	"cx-stats-title": "내용 번역 통계",
 	"cx-tools-reference-title": "각주",

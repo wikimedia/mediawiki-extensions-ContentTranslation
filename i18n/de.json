@@ -78,6 +78,7 @@
 	"cx-tools-mt-provider-title": "$1 verwenden",
 	"cx-tools-mt-dont-use": "Maschinenübersetzung nicht verwenden",
 	"cx-tools-mt-set-default": "Als Standard behalten",
+	"cx-tools-mt-preferred": "Standard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Eine Kategorie|$1 Kategorien|0=Keine Kategorien}}",
 	"cx-stats-title": "Statistiken zu Inhaltsübersetzungen",
 	"cx-tools-reference-title": "Referenz",

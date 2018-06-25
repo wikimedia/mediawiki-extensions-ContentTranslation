@@ -78,6 +78,7 @@
 	"cx-tools-mt-provider-title": "להשתמש ב{{GRAMMAR:תחילית|$1}}",
 	"cx-tools-mt-dont-use": "לא להשתמש בתרגום מכונה",
 	"cx-tools-mt-set-default": "שמירה כברירת מחדל",
+	"cx-tools-mt-preferred": "ברירת המחדל",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|קטגוריה אחת|$1 קטגוריות|0=אין קטגוריות}}",
 	"cx-stats-title": "סטטיסטיקות של תרגום תוכן",
 	"cx-tools-reference-title": "הערת שוליים",

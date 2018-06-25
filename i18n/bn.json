@@ -71,6 +71,7 @@
 	"cx-tools-mt-provider-title": "$1 ব্যবহার করুন",
 	"cx-tools-mt-dont-use": "যান্ত্রিক অনুবাদ ব্যবহার করবেন না",
 	"cx-tools-mt-set-default": "পূর্ব-নির্ধারিত হিসেবে রাখুন",
+	"cx-tools-mt-preferred": "পূর্বনির্ধারিত",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
 	"cx-stats-title": "বিষয়বস্তু অনুবাদ পরিসংখ্যান",
 	"cx-tools-reference-title": "তথ্যসূত্র",
