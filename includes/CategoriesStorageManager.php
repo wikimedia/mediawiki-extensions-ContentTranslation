@@ -124,7 +124,7 @@ class CategoriesStorageManager {
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {
-		$db = Database::getConnection( DB_REPLICA );
+		$db = Database::getConnection( DB_MASTER );
 
 		$conditions = [ 'cxc_translation_id' => $translationId ] + self::$CATEGORIES_SECTION;
 
