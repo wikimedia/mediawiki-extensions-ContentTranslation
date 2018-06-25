@@ -1,4 +1,5 @@
 @import '../../../widgets/common/ext.cx.common.less';
+@import 'mediawiki.mixins.animation';
 
 .ve-cx-toolbar-mt {
 	.ve-cx-toolbar-mt-menu {
@@ -34,4 +35,35 @@
 			width: 100%;
 		}
 	}
+
+	.cx-text-indicator {
+		float: right;
+		font-size: 12px;
+		margin-left: 10px;
+	}
+
+	&.ve-cx-toolbar-mt--highlight .oo-ui-toolbar-bar {
+		.animation( cx-flash-highlight, 1s );
+	}
+}
+
+.cx-flash-highlight() {
+	50% {
+		background-color: #eaf3ff;
+		color: @colorProgressive;
+	}
+}
+
+@-webkit-keyframes cx-flash-highlight {
+	.cx-flash-highlight;
+}
+
+/* This is useless, no browser requiring this prefix will ever get served this
+ * style, but for consistency with .animation mix-in. */
+@-moz-keyframes cx-flash-highlight {
+	.cx-flash-highlight;
+}
+
+@keyframes cx-flash-highlight {
+	.cx-flash-highlight;
 }

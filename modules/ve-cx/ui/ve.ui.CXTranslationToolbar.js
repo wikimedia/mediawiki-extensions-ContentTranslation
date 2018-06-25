@@ -47,7 +47,10 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 		var toolClassName = provider + 'MTTool';
 		ve.ui[ toolClassName ] = function VeCXMTTool() {
 			ve.ui.Tool.apply( this, arguments );
-			this.setActive( defaultProvider === this.constructor.static.name );
+			this.setActive( defaultProvider === this.getName() );
+			ve.init.target.config.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+				this.setIsPreferred( preferredProvider === this.getName() );
+			}.bind( this ) );
 		};
 
 		OO.inheritClass( ve.ui[ toolClassName ], ve.ui.Tool );
@@ -95,6 +98,22 @@ ve.ui.CXTranslationToolbar.static.registerTools = function () {
 			ve.init.target.config.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
 				this.toolbar.setAsDefault.toggle( source !== preferredProvider );
 			}.bind( this ) );
+		};
+
+		ve.ui[ toolClassName ].prototype.setIsPreferred = function ( toggle ) {
+			this.isPreferred = toggle;
+			this.updateTitle();
+		};
+
+		ve.ui[ toolClassName ].prototype.updateTitle = function () {
+			ve.ui.Tool.prototype.updateTitle.apply( this, arguments );
+
+			if ( this.isPreferred ) {
+				$( '<span>' )
+					.addClass( 'cx-text-indicator' )
+					.text( mw.msg( 'cx-tools-mt-preferred' ) )
+					.appendTo( this.$title );
+			}
 		};
 
 		ve.ui.toolFactory.register( ve.ui[ toolClassName ] );
@@ -156,14 +175,23 @@ ve.ui.CXTranslationToolbar.prototype.getCommands = function () {
  * Save the currently selected provider as the preferred provider for new sections.
  */
 ve.ui.CXTranslationToolbar.prototype.onSetAsDefault = function () {
-	// Take the name of the first active tool. In most cases there is one, in exceptional
-	// cases 0 (see onUpdateState above) and there should never be multiple.
-	var provider = this.toolGroup.getItems().reduce( function ( acc, tool ) {
-		return acc || ( tool.isActive() ? tool.getName() : false );
-	}, false );
+	// There should ever be only 0..1 active tools
+	this.toolGroup.getItems().forEach( function ( tool ) {
+		if ( tool.isActive() ) {
+			this.MTManager.setPreferredProvider( tool.getName() );
+		}
 
-	if ( provider ) {
-		this.MTManager.setPreferredProvider( provider );
-	}
+		if ( tool.setIsPreferred ) {
+			tool.setIsPreferred( tool.isActive() );
+		}
+	}.bind( this ) );
+
 	this.setAsDefault.toggle( false );
+	this.$element.addClass( 've-cx-toolbar-mt--highlight' );
+	setTimeout(
+		function () {
+			this.$element.removeClass( 've-cx-toolbar-mt--highlight' );
+		}.bind( this ),
+		2000 // Leave time for animation to complete.
+	);
 };
