@@ -139,6 +139,17 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.addTag = function ( data, label, co
 };
 
 /**
+ * Method required by mw.cx.ui.CategoryInputWidget that returns existing categories,
+ * which are added to "Move this category here" section in search menu, which is a
+ * functionality we opt out from.
+ *
+ * @return {Array} Array of existing categories
+ */
+mw.cx.ui.CategoryMultiselectWidget.prototype.getCategories = function () {
+	return [];
+};
+
+/**
  * @param {mw.cx.ui.CategoryInputWidget} item
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.onInputChoose = function ( item ) {
