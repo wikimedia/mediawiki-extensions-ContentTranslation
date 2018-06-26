@@ -68,6 +68,7 @@
 	"cx-tools-mt-provider-title": "Χρήση $1",
 	"cx-tools-mt-dont-use": "Μην χρησιμοποιείτε αυτόματη μετάφραση",
 	"cx-tools-mt-set-default": "Διατήρηση ως προεπιλογή",
+	"cx-tools-mt-preferred": "προεπιλογή",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 κατηγορία|$1 κατηγορίες|0=Χωρίς κατηγορίες}}",
 	"cx-stats-title": "Στατιστικά Μετάφρασης Περιεχομένου",
 	"cx-tools-reference-title": "Παραπομπή",

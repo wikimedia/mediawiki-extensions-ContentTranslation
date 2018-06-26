@@ -13,7 +13,8 @@
 			"Hanyanbo98",
 			"Laisc7301",
 			"Arthur2e5",
-			"LNDDYL"
+			"LNDDYL",
+			"JerryLiu"
 		]
 	},
 	"cx": "翻译页面",
@@ -81,6 +82,7 @@
 	"cx-tools-mt-provider-title": "使用$1",
 	"cx-tools-mt-dont-use": "不使用机器翻译",
 	"cx-tools-mt-set-default": "保存为默认",
+	"cx-tools-mt-preferred": "默认的",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1个分类|0=没有分类}}",
 	"cx-stats-title": "内容翻译统计",
 	"cx-tools-reference-title": "参考文献",

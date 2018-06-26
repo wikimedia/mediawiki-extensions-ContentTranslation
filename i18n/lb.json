@@ -65,6 +65,7 @@
 	"cx-tools-mt-provider-title": "$1 benotzen",
 	"cx-tools-mt-dont-use": "Benotzt keng Maschinneniwwersetzung",
 	"cx-tools-mt-set-default": "Als Standard halen",
+	"cx-tools-mt-preferred": "Standard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 Kategorie|$1 Kategorien|0=Keng Kategorien}}",
 	"cx-stats-title": "Statistiken iwwer d'Iwwersetze vum Inhalt",
 	"cx-tools-reference-title": "Referenz",

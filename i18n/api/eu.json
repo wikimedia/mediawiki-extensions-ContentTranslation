@@ -3,10 +3,12 @@
 		"authors": [
 			"Sator",
 			"Subi",
-			"Iñaki LL"
+			"Iñaki LL",
+			"Amaia"
 		]
 	},
 	"apihelp-cxpublish-description": "Gorde Content Translation hedapena erabila sortutako orria.",
+	"apihelp-cxpublish-param-title": "Ekintzak gauzatzen diren orriaren izenburua",
 	"apihelp-cxpublish-param-html": "Gorde beharreko edukia.",
 	"apihelp-cxpublish-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-cxpublish-param-to": "Helburu den hizkuntzaren kodea",
@@ -36,5 +38,6 @@
 	"apihelp-cxsave-param-from": "Jatorrizko hizkuntzaren kodea.",
 	"apihelp-cxsave-param-to": "Helburu den hizkuntzaren kodea.",
 	"apihelp-cxsave-param-sourcetitle": "Jatorrizko orriaren izenburua.",
+	"apierror-cx-suggestionsdisabled": "Iradokizunak ez daude wiki honetarako gaituta.",
 	"apierror-cx-translationnotfound": "Itzulpena ez da aurkitu"
 }
