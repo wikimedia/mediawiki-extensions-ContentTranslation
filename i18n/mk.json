@@ -71,6 +71,7 @@
 	"cx-tools-mt-provider-title": "Користи $1",
 	"cx-tools-mt-dont-use": "Не користи машински превод",
 	"cx-tools-mt-set-default": "Зачувај како основно",
+	"cx-tools-mt-preferred": "по основно",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
 	"cx-stats-title": "Статистики за преводот на содржини",
 	"cx-tools-reference-title": "Навод",

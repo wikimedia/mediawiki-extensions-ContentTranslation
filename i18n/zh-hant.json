@@ -81,6 +81,7 @@
 	"cx-tools-mt-provider-title": "使用 $1",
 	"cx-tools-mt-dont-use": "不使用機器翻譯",
 	"cx-tools-mt-set-default": "保留為預設",
+	"cx-tools-mt-preferred": "預設",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 個分類|$1 個分類|0=無分類}}",
 	"cx-stats-title": "內容翻譯統計",
 	"cx-tools-reference-title": "參考文獻",

@@ -90,6 +90,7 @@
 	"cx-tools-mt-provider-title": "Usar $1",
 	"cx-tools-mt-dont-use": "Não usar tradução automática",
 	"cx-tools-mt-set-default": "Manter como padrão",
+	"cx-tools-mt-preferred": "padrão",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorias|0=Sem categorias}}",
 	"cx-stats-title": "Estatísticas do Tradutor de Conteúdo",
 	"cx-tools-reference-title": "Referência",
