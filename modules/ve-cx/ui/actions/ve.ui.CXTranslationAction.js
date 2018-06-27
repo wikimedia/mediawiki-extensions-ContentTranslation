@@ -17,6 +17,7 @@
 ve.ui.CXTranslationAction = function VeUiCXTranslationAction() {
 	// Parent constructor
 	ve.ui.CXTranslationAction.super.apply( this, arguments );
+	this.beforeTranslationData = {};
 };
 
 /* Inheritance */
@@ -59,19 +60,39 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 
 	originalSource = section.getOriginalContentSource();
 
+	this.beforeTranslate();
+
 	if ( source === 'reset-translation' ) {
 		promise = target.changeContentSource( section, null, originalSource, { noCache: true } );
 	} else {
 		promise = target.changeContentSource( section, originalSource, source );
 	}
 
-	promise.fail( function () {
-		// TODO: i18n
-		mw.notify( 'Machine translation failed' );
-		this.surface.getModel().emit( 'contextChange' );
-	}.bind( this ) );
+	promise
+		.always( this.afterTranslate.bind( this ) )
+		.fail( function () {
+			// TODO: i18n
+			mw.notify( 'Machine translation failed' );
+			this.surface.getModel().emit( 'contextChange' );
+		}.bind( this ) );
 
 	return;
+};
+
+/**
+ * Pre-translate handler
+ */
+ve.ui.CXTranslationAction.prototype.beforeTranslate = function () {
+	// Save scroll position before changing section content
+	this.beforeTranslationData.scrollTop = this.surface.view.$window.scrollTop();
+};
+
+/**
+ * Post-translate handler
+ */
+ve.ui.CXTranslationAction.prototype.afterTranslate = function () {
+	// Restore scroll position after changing content
+	this.surface.view.$window.scrollTop( this.beforeTranslationData.scrollTop );
 };
 
 /* Registration */
