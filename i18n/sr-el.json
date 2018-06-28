@@ -73,6 +73,7 @@
 	"cx-tools-mt-provider-title": "Korišćen $1",
 	"cx-tools-mt-dont-use": "Ne koristi mašinski prevod",
 	"cx-tools-mt-set-default": "Zadrži kao podrazumevano",
+	"cx-tools-mt-preferred": "podrazumevano",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategorije|$1 kategorija|0=Nema kategorija}}",
 	"cx-stats-title": "Statistika prevođenja",
 	"cx-tools-reference-title": "Referenca",
@@ -251,5 +252,7 @@
 	"cx-publish-destination-namespace-main": "Nova stranica",
 	"cx-publish-destination-namespace-user": "Lični nacrt",
 	"cx-publish-destination-namespace-draft": "Zajednički nacrt",
-	"cx-linkcontextitem-title": "Veza"
+	"cx-linkcontextitem-title": "Veza",
+	"cx-linkcontextitem-missing-link-title": "Nedostaje veza",
+	"cx-linkcontextitem-missing-title-description": "Stranica još uvek ne postoji"
 }

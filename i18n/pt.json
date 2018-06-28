@@ -261,5 +261,7 @@
 	"cx-publish-destination-namespace-main": "Página nova",
 	"cx-publish-destination-namespace-user": "Rascunho pessoal",
 	"cx-publish-destination-namespace-draft": "Rascunho comunitário",
-	"cx-linkcontextitem-title": "Hiperligação"
+	"cx-linkcontextitem-title": "Hiperligação",
+	"cx-linkcontextitem-missing-link-title": "Hiperligação em falta",
+	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe"
 }

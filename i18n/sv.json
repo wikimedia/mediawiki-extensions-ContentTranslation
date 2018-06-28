@@ -82,6 +82,7 @@
 	"cx-tools-mt-provider-title": "Använd $1",
 	"cx-tools-mt-dont-use": "Använd inte maskinöversättningar",
 	"cx-tools-mt-set-default": "Behåll som standard",
+	"cx-tools-mt-preferred": "standard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Inga kategorier}}",
 	"cx-stats-title": "Statistik för innehållsöversättning",
 	"cx-tools-reference-title": "Referens",
@@ -261,5 +262,7 @@
 	"cx-publish-destination-namespace-main": "Ny sida",
 	"cx-publish-destination-namespace-user": "Personlig skiss",
 	"cx-publish-destination-namespace-draft": "Gemenskapsskiss",
-	"cx-linkcontextitem-title": "Länk"
+	"cx-linkcontextitem-title": "Länk",
+	"cx-linkcontextitem-missing-link-title": "Länk saknas",
+	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu."
 }

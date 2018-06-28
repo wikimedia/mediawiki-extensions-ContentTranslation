@@ -285,5 +285,7 @@
 	"cx-publish-destination-namespace-main": "Nouvelle page",
 	"cx-publish-destination-namespace-user": "Ébauche personnelle",
 	"cx-publish-destination-namespace-draft": "Ébauche communautaire",
-	"cx-linkcontextitem-title": "Lien"
+	"cx-linkcontextitem-title": "Lien",
+	"cx-linkcontextitem-missing-link-title": "Lien manquant",
+	"cx-linkcontextitem-missing-title-description": "Cette page n’existe pas encore"
 }

@@ -258,5 +258,7 @@
 	"cx-publish-destination-namespace-main": "Neue Seite",
 	"cx-publish-destination-namespace-user": "Persönlicher Entwurf",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf",
-	"cx-linkcontextitem-title": "Link"
+	"cx-linkcontextitem-title": "Link",
+	"cx-linkcontextitem-missing-link-title": "Fehlender Link",
+	"cx-linkcontextitem-missing-title-description": "Diese Seite ist noch nicht vorhanden"
 }

@@ -260,5 +260,7 @@
 	"cx-publish-destination-namespace-main": "新頁面",
 	"cx-publish-destination-namespace-user": "私人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿",
-	"cx-linkcontextitem-title": "連結"
+	"cx-linkcontextitem-title": "連結",
+	"cx-linkcontextitem-missing-link-title": "遺失連結",
+	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在"
 }
