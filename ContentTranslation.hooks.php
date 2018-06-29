@@ -166,7 +166,8 @@ class ContentTranslationHooks {
 			$wgContentTranslationTargetNamespace,
 			$wgContentTranslationUserGroupTargetNamespace,
 			$wgRecommendToolAPIURL,
-			$wgContentTranslationVersion;
+			$wgContentTranslationVersion,
+			$wgDraftMaxAge;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
@@ -181,6 +182,7 @@ class ContentTranslationHooks {
 			= $wgContentTranslationUserGroupTargetNamespace;
 		$vars['wgRecommendToolAPIURL'] = $wgRecommendToolAPIURL;
 		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
+		$vars['wgDraftMaxAge'] = $wgDraftMaxAge;
 	}
 
 	/**

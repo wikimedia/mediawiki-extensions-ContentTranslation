@@ -45,15 +45,18 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$this->addOption(
 			'age-in-days',
 			'Purge unpublished drafts older than this',
-			$required = true,
+			$required = false,
 			$hasArg = true
 		);
 	}
 
 	public function execute() {
-		$dryRun = !$this->hasOption( 'really' );
+		global $wgDraftMaxAge;
 
-		$cutoffTime = $this->getCutoffTime( $this->getOption( 'age-in-days' ) );
+		$dryRun = !$this->hasOption( 'really' );
+		$ageInDays = $this->getOption( 'age-in-days', (string)$wgDraftMaxAge );
+
+		$cutoffTime = $this->getCutoffTime( $ageInDays );
 		$ts = $cutoffTime->format( DateTime::W3C );
 		$this->output( "Selecting drafts with last modified timestamp older than $ts\n" );
 

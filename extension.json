@@ -151,7 +151,9 @@
 		"ContentTranslationEnableSuggestions": true,
 		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
 		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
-		"ContentTranslationVersion": "1"
+		"ContentTranslationVersion": "1",
+		"@DraftMaxAge": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
+		"DraftMaxAge": 456
 	},
 	"ResourceModules": {
 		"ext.cx.contributions": {
