@@ -113,8 +113,9 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			ve.ui.Tool.prototype.updateTitle.apply( this, arguments );
 
 			if ( this.isPreferred ) {
+				this.$title.wrapInner( '<span class="ve-cx-toolbar-mt-preferred-tool-title"></span>' );
 				$( '<span>' )
-					.addClass( 'cx-text-indicator' )
+					.addClass( 've-cx-toolbar-mt-preferred-tool-indicator' )
 					.text( mw.msg( 'cx-tools-mt-preferred' ) )
 					.appendTo( this.$title );
 			}

@@ -28,6 +28,28 @@
 		}
 	}
 
+	&-preferred-tool {
+		&-title {
+			display: table-cell;
+			max-width: 1px;
+			width: 100%;
+
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		&-indicator {
+			color: @colorGray5;
+			display: table-cell;
+			padding-left: 0.8em;
+
+			.oo-ui-tool-active.oo-ui-widget-enabled & {
+				color: inherit;
+			}
+		}
+	}
+
 	> .oo-ui-toolbar-popups {
 		width: 100%;
 
@@ -38,16 +60,6 @@
 
 	&.ve-cx-toolbar-mt--highlight .oo-ui-toolbar-bar {
 		.animation( cx-flash-highlight, 1s );
-	}
-}
-
-.cx-text-indicator {
-	float: right;
-	margin-left: 12px;
-	color: @colorTextLight;
-
-	.oo-ui-tool-active.oo-ui-widget-enabled & {
-		color: inherit;
 	}
 }
 
