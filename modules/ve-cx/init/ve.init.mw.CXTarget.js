@@ -59,7 +59,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 		.addClass( 've-init-mw-cxTarget' )
 		.append( this.translationView.$element );
 
-	this.throttleAlignSectionPairs = OO.ui.throttle(
+	this.debounceAlignSectionPairs = OO.ui.debounce(
 		this.alignSectionPairs.bind( this ),
 		500
 	);
@@ -123,7 +123,7 @@ ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.unbindHandlers.call( this );
 
-	$( this.getElementWindow() ).off( 'resize', this.throttleAlignSectionPairs );
+	$( this.getElementWindow() ).off( 'resize', this.debounceAlignSectionPairs );
 };
 
 /**
@@ -178,7 +178,7 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 		sectionChange: 'saveSection'
 	} );
 
-	$( this.getElementWindow() ).on( 'resize', this.throttleAlignSectionPairs );
+	$( this.getElementWindow() ).on( 'resize', this.debounceAlignSectionPairs );
 	// Wait for document to render fully.
 	// In mw.Target this happens after documentReady and a setTimeout,
 	// but we don't use documentReady in this target.
@@ -281,7 +281,7 @@ ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.surfaceReady.apply( this, arguments );
 
-	this.throttleAlignSectionPairs();
+	this.debounceAlignSectionPairs();
 };
 
 ve.init.mw.CXTarget.prototype.toggleTargetSurfaceOverlay = function ( state ) {
@@ -370,7 +370,7 @@ ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.pageName = this.translationView.targetColumn.getTitle();
 	this.updateNamespace();
 	this.emit( 'targetTitleChange' );
-	this.throttleAlignSectionPairs();
+	this.debounceAlignSectionPairs();
 };
 
 ve.init.mw.CXTarget.prototype.enablePublishButton = function () {
@@ -517,7 +517,7 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.emit( 'contentChange' );
-	this.throttleAlignSectionPairs();
+	this.debounceAlignSectionPairs();
 };
 
 /**
