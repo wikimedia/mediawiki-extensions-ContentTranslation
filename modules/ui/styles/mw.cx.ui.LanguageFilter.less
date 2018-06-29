@@ -1,5 +1,5 @@
-@import '../../widgets/common/ext.cx.common.less'; // TODO: add correct path
 @import 'mediawiki.mixins';
+@import '../../widgets/common/ext.cx.common.less';
 
 .cx-language-filter {
 	.box-sizing( border-box );
@@ -48,9 +48,7 @@
 		}
 
 		@media only screen and ( min-width: @narrow ) {
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			.text-ellipsis;
 		}
 	}
 

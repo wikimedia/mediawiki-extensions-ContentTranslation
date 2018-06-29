@@ -15,7 +15,7 @@
 @personal-header-height: 2.5em;
 @personal-header-padding: 0.7em;
 
-.box-shadow-card() {
+.box-shadow-card {
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
 }
 
@@ -127,6 +127,12 @@
 		display: block;
 		clear: both;
 	}
+}
+
+.text-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .cx-tool-card {

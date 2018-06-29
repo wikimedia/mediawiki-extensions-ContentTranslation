@@ -68,22 +68,19 @@
 
 	&__langcode {
 		.mw-ui-one-quarter;
+		color: @colorGray12;
+		font-size: 0.9em;
 		text-align: right;
 		text-transform: uppercase;
-		font-size: 0.9em;
-		color: @colorGray12;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		.text-ellipsis;
 	}
 
 	&__autonym {
 		.mw-ui-one-half;
-		text-align: left;
 		color: @colorGray2;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		font-weight: bold;
-		white-space: nowrap;
+		text-align: left;
+		.text-ellipsis;
 	}
 
 	&__total,
