@@ -306,6 +306,12 @@ ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 		return;
 	}
 
+	// We can use setSize( 'full' ) method here and it would work for some dialogs,
+	// like reference dialog, but VE hardcodes the size for media dialog in
+	// ve.ui.MWMediaDialog.prototype.switchPanels.
+	// See T198390
+	dialog.getSize = function () { return 'full'; };
+
 	// Don't cover the top header with overlay when the user is at the top of the viewport
 	// See T193587
 	headerHeight = this.translationView.header.$element.outerHeight();

@@ -1,11 +1,11 @@
 @import '../../../widgets/common/ext.cx.common.less';
 
 .ve-cx-ui-overlay-global > .oo-ui-windowManager-modal > .oo-ui-dialog.oo-ui-window-active {
+	left: @personal-header-padding;
 	padding: 0;
-	width: calc( 66.667% ~'-' 4 / 3 * @personal-header-padding );
+	width: calc( 66.667% ~'-' 7 / 3 * @personal-header-padding );
 
 	@media only screen and ( min-width: ( @wide + 0.25 * @max-tools-column-width ) ) {
-		left: @personal-header-padding;
 		width: calc( 100% ~'-' @max-tools-column-width ~'-' 2.5em );
 	}
 }
