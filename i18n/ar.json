@@ -262,5 +262,6 @@
 	"cx-publish-destination-namespace-main": "صفحة جديدة",
 	"cx-publish-destination-namespace-user": "مسودة شخصية",
 	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
-	"cx-linkcontextitem-title": "وصلة"
+	"cx-linkcontextitem-title": "وصلة",
+	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة"
 }

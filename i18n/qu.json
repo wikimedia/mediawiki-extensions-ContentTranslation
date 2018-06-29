@@ -4,9 +4,16 @@
 			"AlimanRuna"
 		]
 	},
+	"cx-header-all-translations": "Tukuy t'ikrasqakuna",
 	"cx-publish-button": "T'ikrasqata uyaychay",
+	"cx-stats-draft-translations-title": "Llamk'achkasqa kachkaq t'ikrasqakuna",
+	"cx-stats-draft-translations-label": "Llamk'achkasqa kachkaq t'ikrasqakuna",
 	"cx-campaign-newarticle-notice": "Kunanqa aswan sikllallam musuq p'anqakunata kamarinki <strong>wakin rimaymanta t'ikraspa</strong>. Samiq t'ikranapaq beta nisqa llamk'anata llanchiyta munankichu?",
 	"cx-campaign-no-thanks": "Ama kachunchu",
 	"cx-campaign-try": "Samiq t'ikranata llanchiy",
-	"cx-stats-try-contenttranslation": "Samiq t'ikrana nisqaqa musuq p'anqakunata wakin rimaymanta t'ikraspa kamarinapaq llamk'anam. [$1 Samiq t'ikranata llanchiy]"
+	"cx-campaign-contributionsmenu-mytranslations": "T'ikrasqakuna",
+	"cx-stats-try-contenttranslation": "Samiq t'ikrana nisqaqa musuq p'anqakunata wakin rimaymanta t'ikraspa kamarinapaq llamk'anam. [$1 Samiq t'ikranata llanchiy]",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 t'ikrasqa|$1 t'ikrasqakuna}}",
+	"echo-category-title-cx": "T'ikrasqakuna",
+	"cx-your-translations-link": "{{GENDER:$1|T'ikrasqaykikuna}}"
 }

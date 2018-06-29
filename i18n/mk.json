@@ -251,5 +251,7 @@
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Личен нацрт",
 	"cx-publish-destination-namespace-draft": "Друштвен нацрт",
-	"cx-linkcontextitem-title": "Врска"
+	"cx-linkcontextitem-title": "Врска",
+	"cx-linkcontextitem-missing-link-title": "Врската недостига",
+	"cx-linkcontextitem-missing-title-description": "Оваа страница сè уште не постои"
 }
