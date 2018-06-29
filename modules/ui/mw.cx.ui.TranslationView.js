@@ -77,6 +77,10 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 		sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
 		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
 
+	if ( sourceOffsetTop + sourceNode.offsetTop === targetOffsetTop + targetNode.offsetTop ) {
+		return;
+	}
+
 	function isSubclass( x, y ) {
 		return x && ( x.constructor === y || x.constructor instanceof y );
 	}
@@ -87,6 +91,7 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	sourceNode.style.marginTop = '';
 	targetNode.style.marginTop = '';
 	targetNode.style.height = '';
+
 	offsetTop = Math.max(
 		sourceOffsetTop + sourceNode.offsetTop,
 		targetOffsetTop + targetNode.offsetTop

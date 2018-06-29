@@ -61,7 +61,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 
 	this.debounceAlignSectionPairs = OO.ui.debounce(
 		this.alignSectionPairs.bind( this ),
-		500
+		200
 	);
 
 	this.translationView.connect( this, {
@@ -549,7 +549,8 @@ ve.init.mw.CXTarget.prototype.alignTitles = function () {
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
-		documentNodeChildren, alignSectionPair, articleNode;
+		documentNodeChildren, alignSectionPair, articleNode, sections, sectionsLength,
+		sectionNumber, element, id, match;
 
 	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
 	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
@@ -582,18 +583,19 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	}
 
 	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
-	articleNode.getChildren().forEach( function ( node ) {
-		var sectionNumber,
-			element = node.$element[ 0 ],
-			id = element && element.id,
-			match = id && id.match( /^cxSourceSection([0-9]+)$/ );
+	sections = articleNode.getChildren();
+	sectionsLength = sections.length;
+	for ( i = 0; i < sectionsLength; i++ ) {
+		element = sections[ i ].$element[ 0 ];
+		id = element && element.id;
+		match = id && id.match( /^cxSourceSection([0-9]+)$/ );
 		if ( match ) {
 			sectionNumber = +match[ 1 ];
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
 		} else {
 			mw.log.warn( '[CX] Invalid source section ' + id + ' found. Alignment may go wrong' );
 		}
-	} );
+	}
 };
 
 /**
