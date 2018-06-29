@@ -3,6 +3,7 @@
  *
  * @class
  * @extends ve.ui.LinearContextItem
+ * @mixins ve.ui.CXTranslationUnitContextItem
  *
  * @constructor
  * @param {ve.ui.Context} context Context item is in
@@ -12,7 +13,8 @@
 ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 	// Parent constructor
 	ve.ui.CXTextSelectionContextItem.super.apply( this, arguments );
-
+	// Mixin constructor
+	ve.ui.CXTranslationUnitContextItem.apply( this, arguments );
 	// Initialization
 	this.$element.addClass( 've-ui-CXTextSelectionContextItem' );
 	this.$body.addClass( 've-ui-cxLinkContextItem-targetBody' );
@@ -31,6 +33,7 @@ ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.CXTextSelectionContextItem, ve.ui.LinearContextItem );
+OO.mixinClass( ve.ui.CXTextSelectionContextItem, ve.ui.CXTranslationUnitContextItem );
 
 /* Static Properties */
 
@@ -63,9 +66,8 @@ ve.ui.CXTextSelectionContextItem.static.generateSourceBody = ve.ui.CXLinkContext
  */
 ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleData ) {
 	var targetLinkInfo, $targetLink,
-		translation = ve.init.target.getTranslation(),
-		sourceLanguage = translation.sourceDoc.getLang(),
-		targetLanguage = translation.targetDoc.getLang();
+		sourceLanguage = this.translation.sourceDoc.getLang(),
+		targetLanguage = this.translation.targetDoc.getLang();
 
 	targetLinkInfo = {
 		title: this.normalizedTitle,
