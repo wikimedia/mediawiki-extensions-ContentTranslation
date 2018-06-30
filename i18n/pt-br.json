@@ -269,5 +269,7 @@
 	"cx-publish-destination-namespace-main": "Nova página",
 	"cx-publish-destination-namespace-user": "Rascunho pessoais",
 	"cx-publish-destination-namespace-draft": "Rascunho da comunidade",
-	"cx-linkcontextitem-title": "Link"
+	"cx-linkcontextitem-title": "Link",
+	"cx-linkcontextitem-missing-link-title": "Ligação em falta",
+	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe"
 }

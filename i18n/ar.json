@@ -84,6 +84,7 @@
 	"cx-tools-mt-provider-title": "استخدم $1",
 	"cx-tools-mt-dont-use": "لا تستخدم الترجمة الآلية",
 	"cx-tools-mt-set-default": "حفظ كقيمة افتراضية",
+	"cx-tools-mt-preferred": "الافتراضية",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|لا تصنيف|تصنيف واحد|تصنيفان|$1 تصنيفات|$1 تصنيفا|$1 تصنيف}}",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
 	"cx-tools-reference-title": "مرجع",
@@ -263,5 +264,6 @@
 	"cx-publish-destination-namespace-user": "مسودة شخصية",
 	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
 	"cx-linkcontextitem-title": "وصلة",
-	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة"
+	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة",
+	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد"
 }

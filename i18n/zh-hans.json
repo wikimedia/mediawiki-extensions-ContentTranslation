@@ -14,7 +14,8 @@
 			"Laisc7301",
 			"Arthur2e5",
 			"LNDDYL",
-			"JerryLiu"
+			"JerryLiu",
+			"Endermoon"
 		]
 	},
 	"cx": "翻译页面",
@@ -261,5 +262,6 @@
 	"cx-publish-destination-namespace-main": "新页面",
 	"cx-publish-destination-namespace-user": "个人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿",
-	"cx-linkcontextitem-title": "链接"
+	"cx-linkcontextitem-title": "链接",
+	"cx-linkcontextitem-missing-link-title": "缺失链接"
 }
