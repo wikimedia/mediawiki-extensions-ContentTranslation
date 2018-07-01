@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ramjit Tudu"
+			"Ramjit Tudu",
+			"Fagunkoyel Hansdah"
 		]
 	},
 	"cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱥᱟᱦᱴᱟ",
@@ -46,6 +47,7 @@
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 ᱦᱤᱨᱤ|$1 ᱦᱤᱨᱤ |0=ᱵᱟᱠᱚ ᱦᱤᱨᱤ ᱟᱠᱟᱫ-ᱟ ᱱᱚᱣᱟ}} ᱦᱟᱯᱛᱟ ᱨᱮ",
 	"cx-page-number-of-languages": "ᱯᱟᱹᱨᱥᱤ ᱠᱚᱣᱟᱜ ᱮᱞ",
 	"cx-publish-captcha-title": "ᱥᱤᱠᱨᱩᱴᱤ ᱠᱩᱠᱞᱤ",
+	"cx-captcha-dialog-cancel": "ᱵᱟᱹᱛᱤᱞ",
 	"cx-translation-filter-published-translations": "ᱯᱟᱨᱥᱟᱞᱮᱱᱟ",
 	"cx-suggestionlist-view-source-page": "ᱯᱷᱮᱰᱟᱛ ᱥᱟᱦᱴᱟ ᱧᱮᱞ",
 	"cx-create-new-translation": "ᱱᱟᱣᱟ ᱛᱚᱨᱡᱚᱢᱟ",
@@ -55,18 +57,40 @@
 	"cx-contributions-new-article": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
 	"cx-contributions-translation": "ᱛᱚᱨᱡᱚᱢᱟ",
 	"cx-translation-status-published": "ᱯᱟᱨᱥᱟᱞᱮᱱᱟ",
+	"cx-translation-status-deleted": "ᱜᱮᱫᱼᱮᱱᱟ",
 	"cx-campaign-no-thanks": "ᱞᱟᱹᱠᱛᱤ ᱵᱟᱝᱟ",
 	"cx-campaign-contributionsmenu-mycontributions": "ᱮᱱᱮᱢ",
 	"cx-campaign-contributionsmenu-mytranslations": "ᱛᱚᱨᱡᱚᱢᱟ ᱠᱚ",
 	"cx-campaign-contributionsmenu-myuploads": "ᱞᱟᱫᱮᱭᱟᱠᱟᱫ ᱢᱮᱰᱤᱭᱟ",
 	"cx-trend-deletions": "ᱜᱮᱫ-ᱟᱠᱟᱱ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-trend-translations-to": "$1 ᱛᱮ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-stats-all-translations-title": "ᱡᱚᱛᱚ ᱯᱟᱹᱨᱥᱤ ᱛᱮ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-stats-published-translations-label": "ᱯᱟᱨᱥᱟᱞ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-stats-published-target-source": "ᱛᱮ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-stats-published-source-target": "ᱠᱷᱚᱱ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-stats-draft-target-source": "ᱠᱷᱚᱱ ᱛᱚᱨᱡᱚᱢᱟ ᱛᱚᱝᱜᱮ ᱟᱠᱟᱱᱟ",
+	"cx-stats-draft-source-target": "ᱠᱷᱚᱱ ᱛᱚᱨᱡᱚᱢᱟ ᱛᱚᱝᱜᱮ ᱟᱠᱟᱱᱟ",
+	"cx-stats-tabs-expand": "ᱡᱚᱛᱚ ᱯᱟᱹᱨᱥᱤ ᱧᱮᱞ",
+	"cx-stats-total-published": "ᱡᱚᱛᱚ ᱯᱟᱨᱥᱟᱞᱟᱜ",
 	"cx-stats-weekly-published": "ᱪᱟᱞᱟᱣᱮᱱ ᱦᱟᱯᱛᱟ",
 	"cx-stats-local-published-number": "$2 ᱨᱮ $1",
 	"cx-stats-local-published": "$2 ᱨᱮ $1 ($3)",
+	"cx-tools-missing-link-tooltip": "ᱛᱚᱨᱢᱟ (ᱱᱟᱶᱟ ᱣᱤᱱᱰᱚ ᱨᱮ)",
+	"cx-tools-missing-link-title": "ᱡᱚᱱᱚᱲ ᱮᱨᱮᱲ",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|ᱪᱤᱱᱦᱟᱹ}}ᱮᱨᱮᱲ ᱞᱮᱠᱟᱛᱮ",
+	"echo-category-title-cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱠᱚ",
 	"cx-tools-link-internal-link": "ᱥᱟᱦᱴᱟᱠᱚ ᱥᱮᱸᱫᱽᱨᱟ",
 	"cx-tools-link-apply": "ᱦᱩᱭᱮᱱᱟ",
 	"cx-personaltools-user": "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ",
 	"cx-personaltools-anon": "ᱵᱟᱢ ᱵᱚᱞᱚᱣᱟᱠᱟᱱᱟ",
+	"cx-suggestionlist-expand": "ᱡᱚᱛᱚ ᱧᱮᱞ",
+	"cx-notification-suggestions-available": "ᱠᱚᱢ ᱧᱮᱞ",
+	"cx-tools-linter-learn-more": "ᱵᱟᱹᱲᱛᱤ ᱪᱮᱫᱚᱜ",
+	"cx-translator-month-stats-label": "ᱱᱚᱶᱟ ᱪᱟᱸᱫᱚ",
+	"cx-translator-total-translations-label": "ᱞᱮᱠᱷᱟᱜᱩᱴ",
+	"cx-tools-mt-new-provider": "ᱱᱟᱶᱟ",
 	"cx-tools-template-title": "ᱪᱷᱟᱸᱪ",
-	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ"
+	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
+	"cx-linkcontextitem-title": "ᱡᱚᱱᱚᱲ",
+	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ"
 }
