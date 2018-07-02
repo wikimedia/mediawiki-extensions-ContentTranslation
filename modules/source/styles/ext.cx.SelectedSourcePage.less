@@ -47,10 +47,11 @@
 
 	&__image {
 		background-color: #dfe3e8;
-		background-position: center center;
+		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
 
+		position: static; // Override absolute positioning coming from OOUI
 		height: @image-size;
 		width: @image-size;
 		margin: 0.5em;
