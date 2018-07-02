@@ -83,6 +83,7 @@
 	"cx-tools-mt-provider-title": "$1 gebruiken",
 	"cx-tools-mt-dont-use": "Gebruik geen computervertalingen",
 	"cx-tools-mt-set-default": "Houd het standaard",
+	"cx-tools-mt-preferred": "standaard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categorie|$1 categorieën|0=Geen categorieën}}",
 	"cx-stats-title": "Statistieken van Content Translation",
 	"cx-tools-reference-title": "Referentie",
@@ -98,6 +99,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Deze paginanaam wordt al gebruikt in [$1 $2] voor [$3 een andere pagina]",
 	"cx-selected-source-page-error-page-exists": "De pagina [$1 bestaat al] in $2",
 	"cx-selected-source-page-error-title-in-use": "De naam van de nieuwe pagina [$1 wordt al gebruikt]",
+	"cx-page-missing-in-target-language": "ontbrekend in $1",
 	"cx-page-number-of-languages": "Aantal talen",
 	"cx-mt-abuse-warning-title": "Uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde machinevertaalde tekst",
 	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen.",
@@ -243,5 +245,7 @@
 	"cx-publish-destination-namespace-main": "Nieuwe pagina",
 	"cx-publish-destination-namespace-user": "Persoonlijk kladblok",
 	"cx-publish-destination-namespace-draft": "Gezamenlijk kladblok",
-	"cx-linkcontextitem-title": "Koppeling"
+	"cx-linkcontextitem-title": "Koppeling",
+	"cx-linkcontextitem-missing-link-title": "Ontbrekende koppeling",
+	"cx-linkcontextitem-missing-title-description": "Deze pagina bestaat nog niet"
 }
