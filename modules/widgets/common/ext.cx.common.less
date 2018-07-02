@@ -15,11 +15,11 @@
 @personal-header-height: 2.5em;
 @personal-header-padding: 0.7em;
 
-.box-shadow-card {
+.box-shadow-card() {
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
 }
 
-.cx-widget {
+.cx-widget() {
 	.mw-ui-grid;
 	color: @colorGray2;
 	background-color: @white;
@@ -51,7 +51,7 @@
 }
 
 // Centers flex items vertically
-.flex-center {
+.flex-center() {
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 
@@ -61,7 +61,7 @@
 }
 
 // Center vertically and applies justify-content: space-between
-.flex-center-justify {
+.flex-center-justify() {
 	.flex-center;
 	-webkit-justify-content: space-between; // Safari 6.1-8, iOS Safari 7.1-8.4, Opera 15-16
 	.flex;
@@ -79,7 +79,7 @@
 	justify-content: space-around;
 }
 
-.flex-item {
+.flex-item() {
 	-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
 	-moz-box-flex: 1; // Firefox 21-
 	width: auto; // Fallback for flex-basis
@@ -87,7 +87,7 @@
 	flex: 0 1 auto;
 }
 
-.loading-indicator {
+.loading-indicator() {
 	@dot-size: 16px;
 	@verticalPadding: 15px;
 
@@ -103,7 +103,7 @@
 	}
 }
 
-.break-overflowing-word {
+.break-overflowing-word() {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
@@ -118,7 +118,7 @@
 	/* stylelint-enable at-rule-no-unknown */
 }
 
-.clearfix {
+.clearfix() {
 	&:after {
 		// Non empty content value avoids an Opera bug that creates space around
 		// clearfixed elements if the contenteditable attribute is also present
@@ -129,13 +129,13 @@
 	}
 }
 
-.text-ellipsis {
+.text-ellipsis() {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
-.cx-tool-card {
+.cx-tool-card() {
 	font-size: 0.875em;
 	background-color: @white;
 	border-radius: @borderRadius;
