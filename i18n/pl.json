@@ -247,5 +247,6 @@
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
 	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw, w której strona zostanie opublikowana",
 	"cx-publish-destination-namespace-main": "Nowa strona",
-	"cx-linkcontextitem-title": "Link"
+	"cx-linkcontextitem-title": "Link",
+	"cx-linkcontextitem-missing-link-title": "Brakujący link"
 }
