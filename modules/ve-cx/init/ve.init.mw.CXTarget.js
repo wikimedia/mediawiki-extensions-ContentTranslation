@@ -157,6 +157,7 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 		opening: this.onDialogOpening.bind( this, targetSurface.getContext() ),
 		closing: 'onDialogClosing'
 	} );
+	targetSurface.getGlobalOverlay().$element.addClass( 've-cx-ui-overlay-global' );
 	targetSurface.getView().connect( this, {
 		focus: [ 'onSurfaceViewFocus', targetSurface ]
 	} );
@@ -267,10 +268,8 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 		} );
 
 		if ( !this.complexDialogOpened ) {
-			this.toggleTargetSurfaceOverlay( true );
-			surface.connect( this, { destroy: [ 'toggleTargetSurfaceOverlay', false ] } );
-
-			this.complexDialogOpened = true;
+			this.toggleContextTools( true );
+			surface.connect( this, { destroy: [ 'toggleContextTools', false ] } );
 		}
 	}
 
@@ -284,10 +283,14 @@ ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	this.debounceAlignSectionPairs();
 };
 
-ve.init.mw.CXTarget.prototype.toggleTargetSurfaceOverlay = function ( state ) {
-	this.complexDialogOpened = false;
+/**
+ * Toggle the tools column CSS class which hides non-context tools.
+ *
+ * @param {boolean} state Toggle state of tools column class
+ */
+ve.init.mw.CXTarget.prototype.toggleContextTools = function ( state ) {
+	this.complexDialogOpened = state;
 
-	this.targetSurface.getGlobalOverlay().$element.toggleClass( 've-cx-ui-overlay-global', state );
 	this.translationView.toolsColumn.toolContainer.$element.toggleClass( 'cx-column-tools-container--dialog', state );
 };
 
