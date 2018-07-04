@@ -12,16 +12,12 @@
 	.transition( opacity 100ms ease-out );
 
 	&.ve-ce-focusableNode-focused,
-	&.ve-ce-cxPlaceholderNode--loading {
+	&.ve-ce-cxPendingNode-indicator {
 		opacity: 1;
 	}
 
 	> .oo-ui-buttonWidget {
 		opacity: 0.5;
-	}
-
-	> .oo-ui-buttonWidget,
-	> .cx-spinner {
 		display: table-cell;
 		margin: 0;
 		vertical-align: middle;

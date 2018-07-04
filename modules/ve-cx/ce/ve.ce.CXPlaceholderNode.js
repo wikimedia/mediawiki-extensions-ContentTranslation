@@ -9,6 +9,7 @@
  * @class
  * @extends ve.ce.LeafNode
  * @mixins ve.ce.FocusableNode
+ * @mixins ve.ce.CXPendingNode
  * @constructor
  */
 ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
@@ -17,6 +18,7 @@ ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
 	// Parent constructor
 	ve.ce.CXPlaceholderNode.super.apply( this, arguments );
 	ve.ce.FocusableNode.call( this );
+	ve.ce.CXPendingNode.call( this );
 
 	button = new ve.ui.NoFocusButtonWidget( {
 		label: ve.msg( 'cx-translation-add-translation' ),
@@ -36,6 +38,7 @@ ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
 
 OO.inheritClass( ve.ce.CXPlaceholderNode, ve.ce.LeafNode );
 OO.mixinClass( ve.ce.CXPlaceholderNode, ve.ce.FocusableNode );
+OO.mixinClass( ve.ce.CXPlaceholderNode, ve.ce.CXPendingNode );
 
 /* Static Properties */
 
@@ -57,13 +60,9 @@ ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
 
 ve.ce.CXPlaceholderNode.prototype.executeCommand = function () {
 	this.active = true;
-	this.showLoadingIndicator();
+	this.$element.empty();
+	this.setPending( true );
 	this.getDocument().emit( 'activatePlaceholder', this );
-};
-
-ve.ce.CXPlaceholderNode.prototype.showLoadingIndicator = function () {
-	this.$element.empty().append( mw.cx.widgets.spinner() );
-	this.$element.addClass( 've-ce-cxPlaceholderNode--loading' );
 };
 
 ve.ce.CXPlaceholderNode.prototype.createHighlights = function () {

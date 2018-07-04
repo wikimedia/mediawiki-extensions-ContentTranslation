@@ -3,12 +3,15 @@
  *
  * @class
  * @extends ve.ce.SectionNode
+ * @mixins ve.ce.CXPendingNode
  * @constructor
  * @param {ve.dm.CXSectionNode} model
  */
 ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 	// Parent constructor
 	ve.ce.CXSectionNode.super.apply( this, arguments );
+	// Mixin constructor
+	ve.ce.CXPendingNode.call( this );
 
 	this.$element
 		.attr( {
@@ -19,13 +22,16 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 
 	this.model.connect( this, {
 		lintIssues: 'onLintIssues',
-		lintIssuesResolved: 'onLintIssuesResolved'
+		lintIssuesResolved: 'onLintIssuesResolved',
+		beforeTranslation: 'onBeforeTranslation',
+		afterTranslation: 'onAfterTranslation'
 	} );
 };
 
 /* Inheritance */
 
 OO.inheritClass( ve.ce.CXSectionNode, ve.ce.SectionNode );
+OO.mixinClass( ve.ce.CXSectionNode, ve.ce.CXPendingNode );
 
 /* Static Properties */
 
@@ -45,6 +51,14 @@ ve.ce.CXSectionNode.prototype.onLintIssues = function ( hasErrors ) {
 
 ve.ce.CXSectionNode.prototype.onLintIssuesResolved = function () {
 	this.$element.removeClass( 've-ce-cxSectionNode-lint-errors ve-ce-cxSectionNode-lint-warnings' );
+};
+
+ve.ce.CXSectionNode.prototype.onBeforeTranslation = function () {
+	this.setPending( true );
+};
+
+ve.ce.CXSectionNode.prototype.onAfterTranslation = function () {
+	this.setPending( false );
 };
 
 /* Registration */

@@ -1394,6 +1394,7 @@
 		},
 		"mw.cx.visualEditor.section": {
 			"scripts": [
+				"ve-cx/ce/mixins/ve.ce.CXPendingNode.js",
 				"ve-cx/ce/ve.ce.CXSectionNode.js",
 				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
 				"ve-cx/dm/ve.dm.CXPlaceholderNode.js",
@@ -1401,6 +1402,7 @@
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
+				"ve-cx/ce/mixins/ve.ce.CXPendingNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
 				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
 				"ve-cx/ce/styles/ve.ce.CXSectionNode.less"

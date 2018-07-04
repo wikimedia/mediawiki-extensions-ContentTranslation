@@ -1,0 +1,45 @@
+@import '../../../widgets/common/ext.cx.common.less';
+@import '../../../widgets/common/ext.cx.highlight.less';
+@import 'mediawiki.mixins.animation';
+
+.ve-ce-cxPendingNode-pending {
+	position: relative;
+
+	.ve-ce-cxPendingNode-indicator {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: flex;
+		background-color: @colorGray15;
+
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.ve-ce-cxPendingNode-flash {
+	.animation( cx-section-flash-animation, 1s );
+}
+
+.ve-ce-cxPendingNode-flash-animation() {
+	from {
+		.cx-section-highlight;
+	}
+	to {
+		background: default;
+	}
+}
+
+@-webkit-keyframes cx-section-flash-animation {
+	.ve-ce-cxPendingNode-flash-animation;
+}
+
+@-moz-keyframes cx-section-flash-animation {
+	.ve-ce-cxPendingNode-flash-animation;
+}
+
+@keyframes cx-section-flash-animation {
+	.ve-ce-cxPendingNode-flash-animation;
+}
