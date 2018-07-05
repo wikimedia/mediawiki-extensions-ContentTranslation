@@ -226,5 +226,6 @@
 	"cx-publish-destination-namespace-user": "Perséinleche Brouillon",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftleche Brouillon",
 	"cx-linkcontextitem-title": "Link",
+	"cx-linkcontextitem-missing-link-title": "Link feelt",
 	"cx-linkcontextitem-missing-title-description": "Dës Säit gëtt et nach net"
 }

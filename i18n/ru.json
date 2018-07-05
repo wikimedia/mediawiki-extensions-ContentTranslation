@@ -34,7 +34,8 @@
 			"Movses",
 			"Adam-Yourist",
 			"Nemo bis",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -102,6 +103,7 @@
 	"cx-tools-mt-provider-title": "Использовать $1",
 	"cx-tools-mt-dont-use": "Не использовать машинный перевод",
 	"cx-tools-mt-set-default": "Сохранить по умолчанию",
+	"cx-tools-mt-preferred": "по умолчанию",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|$1 категорий|0=Нет категорий}}",
 	"cx-stats-title": "Статистика расширения перевода содержания («Content Translation»)",
 	"cx-tools-reference-title": "Примечание",
@@ -271,5 +273,7 @@
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-user": "Личный черновик",
 	"cx-publish-destination-namespace-draft": "Общественный черновик",
-	"cx-linkcontextitem-title": "Ссылка"
+	"cx-linkcontextitem-title": "Ссылка",
+	"cx-linkcontextitem-missing-link-title": "Отсутствующая ссылка",
+	"cx-linkcontextitem-missing-title-description": "Этой страницы ещё не существует"
 }
