@@ -246,5 +246,7 @@
 	"cx-publish-destination-namespace-main": "Orri berria",
 	"cx-publish-destination-namespace-user": "Zirriborro pertsonala",
 	"cx-publish-destination-namespace-draft": "Komunitatearen zirriborroa",
-	"cx-linkcontextitem-title": "Esteka"
+	"cx-linkcontextitem-title": "Esteka",
+	"cx-linkcontextitem-missing-link-title": "Esteka faltan",
+	"cx-linkcontextitem-missing-title-description": "Orri hau ez da oraindik existitzen"
 }

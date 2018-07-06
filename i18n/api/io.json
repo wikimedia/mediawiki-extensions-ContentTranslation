@@ -7,6 +7,7 @@
 	"apihelp-cxpublish-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-query+contenttranslation-description": "Konsultar tradukuro che la datumaro pri tradukuri.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kodexo di la fonto-linguo.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Kodexo di la linguo dil tradukuro.",
 	"apihelp-cxdelete-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-cxsave-param-sourcetitle": "La titulo di la fonto-pagino."
 }
