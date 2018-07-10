@@ -332,7 +332,7 @@
 				.data( 'translation', translation );
 			$lastUpdated = $( '<div>' )
 				.addClass( 'last-updated' )
-				.text( moment( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss Z' ).fromNow() );
+				.text( moment.utc( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss' ).local().fromNow() );
 			$image = $( '<div>' )
 				.addClass( 'cx-tlitem__image oo-ui-icon-page-existing' );
 			$progressbar = $( '<div>' )
