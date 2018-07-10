@@ -13,9 +13,7 @@ mw.cx.ui.TargetColumn = function () {
 	mw.cx.ui.TargetColumn.super.apply( this, arguments );
 
 	// Propagate title change events
-	this.titleWidget
-		.registerMouseDownEvent()
-		.connect( this, { change: [ 'emit', 'titleChange' ] } );
+	this.titleWidget.connect( this, { change: [ 'emit', 'titleChange' ] } );
 
 	this.$element.addClass( 'cx-column--translation' );
 

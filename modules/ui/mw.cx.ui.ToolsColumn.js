@@ -31,6 +31,9 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		padded: false,
 		items: [ this.editingToolbarContainer, this.mtToolbarContainer ]
 	} );
+
+	this.issueCard = null;
+
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
 		continuous: true,
@@ -78,6 +81,24 @@ mw.cx.ui.ToolsColumn.prototype.showInstructions = function () {
 	);
 
 	this.showTool( instructions );
+};
+
+/**
+ * Show translation issues.
+ *
+ * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
+ */
+mw.cx.ui.ToolsColumn.prototype.showIssues = function ( nodesWithIssues ) {
+	this.hideIssues();
+	this.issueCard = mw.cx.tools.translationToolFactory.create( 'issues', nodesWithIssues );
+	this.showTool( this.issueCard );
+};
+
+mw.cx.ui.ToolsColumn.prototype.hideIssues = function () {
+	if ( this.issueCard ) {
+		this.hideTool( this.issueCard );
+		this.issueCard.destroy();
+	}
 };
 
 /**

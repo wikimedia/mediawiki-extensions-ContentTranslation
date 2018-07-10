@@ -7,10 +7,10 @@
  * @license GPL-2.0-or-later
  *
  * @class
+ * @constructor
  * @extends ve.dm.SectionNode
  * @mixin ve.dm.CXTranslationUnitModel
  * @mixin ve.dm.CXLintableNode
- * @constructor
  */
 ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	// Parent constructor
@@ -20,7 +20,7 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	ve.dm.CXTranslationUnitModel.call( this );
 	ve.dm.CXLintableNode.call( this );
 
-	this.translation = ve.init.target.getTranslation();
+	this.translation = this.getTranslation();
 
 	this.connect( this, { update: this.onUpdate.bind( this ) } );
 };
@@ -43,6 +43,8 @@ ve.dm.CXSectionNode.static.matchTagNames = [ 'section' ];
 
 ve.dm.CXSectionNode.static.matchRdfaTypes = [ 'cx:Section' ];
 
+/* Static methods */
+
 ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
 	// Parent method
 	var dataElement = ve.dm.CXSectionNode.super.static.toDataElement.apply( this, arguments );
@@ -58,6 +60,15 @@ ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
 	elements[ 0 ].setAttribute( 'id', dataElement.attributes.cxid );
 	elements[ 0 ].dataset.mwCxSource = dataElement.attributes.cxsource;
 	return elements;
+};
+
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.dm.CXSectionNode.prototype.getId = function () {
+	return this.getSectionNumber();
 };
 
 ve.dm.CXSectionNode.prototype.onUpdate = function () {

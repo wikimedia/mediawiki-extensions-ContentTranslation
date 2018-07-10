@@ -22,6 +22,8 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	// Threshold won't be a fixed value in future, but we start with this.
 	// A value 0.75 means, we tolerate 75% unmodified machine translation in translation.
 	this.unmodifiedMTThreshold = 0.75;
+	// Array that stores IDs of sections with issues, along with special value for title issues.
+	this.nodesWithIssues = [];
 	// Sections in the translation. Associative array with section numbers as keys
 	// and values as mw.cx.dm.SectionState
 	this.sections = {};
@@ -303,8 +305,8 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 		Math.round( ( sectionState.getUnmodifiedPercentage() * 100 ) ) );
 	mw.log( '[CX] Unmodified MT percentage for section ' + sectionModel.getSectionNumber() +
 		' ' + percentage + '% crossed the threshold ' + this.unmodifiedMTThreshold * 100 );
-	// FIXME: Not really a lint issue. But that is the api name.
-	sectionModel.setLintResults( [ {
+
+	sectionModel.setTranslationIssues( [ {
 		message: mw.msg( 'cx-mt-abuse-warning-text' ),
 		messageInfo: {
 			title: mw.msg( 'cx-mt-abuse-warning-title', percentage ),
@@ -315,7 +317,7 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 };
 
 mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
-	sectionModel.setLintResults( [] );
+	sectionModel.setTranslationIssues( [] );
 };
 
 /**
@@ -400,4 +402,50 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
 		}
 		this.validationDelayQueue.splice( i, 1 );
 	}
+};
+
+/**
+ * Adds new nodes with issues to the tracking array. Nodes that have
+ * their issues resolved, are removed from the array.
+ *
+ * @param {Number|String} id Section number or 'title'
+ * @param {Boolean} state True if node has issues
+ */
+mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state ) {
+	var index = this.nodesWithIssues.indexOf( id ),
+		sortLettersAndNumbers = function ( a, b ) {
+			if ( isNaN( a ) ) {
+				return -1;
+			}
+
+			if ( isNaN( b ) ) {
+				return 1;
+			}
+
+			return a > b;
+		};
+
+	if ( index !== -1 ) {
+		if ( !state ) {
+			this.nodesWithIssues.splice( index, 1 );
+		}
+
+		return;
+	} else if ( !state ) {
+		return;
+	}
+
+	this.nodesWithIssues.push( id );
+	// Sort, so that special string keys, like 'title' or 'global' come first
+	// and then section numbers in ascending order. Duplicates are unexpected
+	this.nodesWithIssues.sort( sortLettersAndNumbers );
+};
+
+/**
+ * Get IDs of all nodes with issues. Nodes include target title and translation sections.
+ *
+ * @return {Mixed[]} Node IDs
+ */
+mw.cx.TranslationTracker.prototype.getNodesWithIssues = function () {
+	return this.nodesWithIssues;
 };

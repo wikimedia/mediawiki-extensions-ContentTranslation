@@ -1,5 +1,5 @@
 /**
- * Widget for CX TranslationIssue
+ * Widget for CX translation issues
  *
  * @class
  * @extends OO.ui.TabPanelLayout
@@ -63,7 +63,8 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 
 OO.inheritClass( mw.cx.ui.TranslationIssueWidget, OO.ui.TabPanelLayout );
 
-/* Methdos */
+/* Methods */
+
 mw.cx.ui.TranslationIssueWidget.prototype.getIconFromModel = function () {
 	return this.model.getType() === 'error' ? 'clear' : 'alert';
 };

@@ -1255,6 +1255,13 @@
 				"mw.cx.dm"
 			]
 		},
+		"mw.cx.dm.PageTitleModel": {
+			"scripts": "dm/mw.cx.dm.PageTitleModel.js",
+			"dependencies": [
+				"mw.cx.dm",
+				"ve.dm.CXLintableNode"
+			]
+		},
 		"mw.cx.ui": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
@@ -1273,20 +1280,7 @@
 				"mw.cx.visualEditor.link",
 				"mw.cx.visualEditor.image",
 				"mw.cx.visualEditor.mt",
-				"mw.cx.visualEditor.publishSettings",
-				"mw.cx.visualEditor.section.lint"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.section.lint": {
-			"scripts": [
-				"ve-cx/ui/ve.ui.CXSectionContextItem.js"
-			],
-			"dependencies": [
-				"mw.cx.visualEditor.section",
-				"mw.cx.ui.mixin.LintableNode"
+				"mw.cx.visualEditor.publishSettings"
 			],
 			"targets": [
 				"desktop"
@@ -1403,6 +1397,7 @@
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base",
+				"ve.ce.CXLintableNode",
 				"ve.dm.CXLintableNode"
 			],
 			"messages": [
@@ -1413,6 +1408,22 @@
 			],
 			"targets": [
 				"desktop"
+			]
+		},
+		"ve.ce.CXLintableNode": {
+			"scripts": [
+				"ve-cx/ce/mixins/ve.ce.CXLintableNode.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.core"
+			]
+		},
+		"ve.dm.CXLintableNode": {
+			"scripts": [
+				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.core"
 			]
 		},
 		"mw.cx.visualEditor.base": {
@@ -1428,14 +1439,6 @@
 			],
 			"targets": [
 				"desktop"
-			]
-		},
-		"ve.dm.CXLintableNode": {
-			"scripts": [
-				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js"
-			],
-			"dependencies": [
-				"ext.visualEditor.core"
 			]
 		},
 		"mw.cx.init": {
@@ -1868,6 +1871,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
+				"mw.cx.dm.PageTitleModel",
 				"mw.cx.ui.PageTitleWidget"
 			]
 		},
@@ -1880,6 +1884,7 @@
 			],
 			"dependencies": [
 				"mw.cx.ui",
+				"mw.cx.tools.IssueTrackingTool",
 				"oojs-ui.styles.icons-alerts"
 			]
 		},
@@ -2010,7 +2015,26 @@
 				"mw.cx.tools.TemplateTool"
 			]
 		},
-
+		"mw.cx.tools.IssueTrackingTool": {
+			"scripts": [
+				"tools/mw.cx.tools.IssueTrackingTool.js"
+			],
+			"styles": [
+				"tools/styles/mw.cx.tools.IssueTrackingTool.less"
+			],
+			"dependencies": [
+				"oojs-ui-widgets",
+				"mw.cx.ui.TranslationIssueWidget",
+				"mw.cx.tools.TranslationTool"
+			],
+			"messages": [
+				"cx-tools-linter-issues",
+				"cx-tools-linter-issues-count",
+				"cx-tools-linter-errors-count",
+				"cx-tools-linter-warnings-count",
+				"cx-tools-linter-view-details"
+			]
+		},
 		"mw.cx.tools.TemplateTool": {
 			"scripts": [
 				"tools/mw.cx.tools.TemplateTool.js"
@@ -2065,18 +2089,6 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"mw.cx.tools.TitleValidationTool": {
-			"scripts": [
-				"tools/mw.cx.tools.TitleValidationTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.TitleValidationTool.less"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool",
-				"mw.cx.ui.mixin.LintableNode"
-			]
-		},
 		"mw.cx.tools.TranslationTool": {
 			"scripts": [
 				"tools/mw.cx.tools.TranslationTool.js"
@@ -2096,25 +2108,6 @@
 			],
 			"dependencies": [
 				"mw.cx.ui"
-			]
-		},
-		"mw.cx.ui.mixin.LintableNode": {
-			"scripts": [
-				"ui/mixins/mw.cx.ui.mixin.LintableNode.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.LintableNode.less"
-			],
-			"dependencies": [
-				"ext.visualEditor.core",
-				"mw.cx.ui"
-			],
-			"messages": [
-				"cx-tools-linter-issues",
-				"cx-tools-linter-issues-count",
-				"cx-tools-linter-errors-count",
-				"cx-tools-linter-warnings-count",
-				"cx-tools-linter-view-details"
 			]
 		},
 		"mw.cx.ui.TranslationToolWidget":{
@@ -2162,8 +2155,8 @@
 			],
 			"dependencies": [
 				"mw.cx.util",
-				"oojs-ui-widgets",
-				"ve.dm.CXLintableNode"
+				"ve.ce.CXLintableNode",
+				"oojs-ui-widgets"
 			],
 			"messages": [
 				"cx-tools-linter-empty-title",

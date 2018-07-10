@@ -54,8 +54,6 @@ mw.cx.ui.TranslationView = function ( config ) {
 
 	// Events
 	this.targetColumn.titleWidget.connect( this, {
-		lintIssues: 'onLintIssues',
-		lintIssuesResolved: 'onLintIssuesResolved',
 		focus: 'onFocus',
 		blur: 'onBlur'
 	} );
@@ -136,50 +134,35 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 	} );
 };
 
-mw.cx.ui.TranslationView.prototype.disablePublishButton = function ( state ) {
-	this.translationHeader.publishButton.setDisabled( state );
-};
-
-mw.cx.ui.TranslationView.prototype.onLintIssues = function ( hasErrors ) {
+/**
+ * @param {Mixed[]} nodesWithIssues
+ * @param {boolean} hasErrors
+ */
+mw.cx.ui.TranslationView.prototype.onTranslationIssues = function ( nodesWithIssues, hasErrors ) {
 	if ( hasErrors ) {
-		this.disablePublishButton( true );
+		this.translationHeader.publishButton.setDisabled( true );
 	}
 
-	mw.loader.using( [
-		'mw.cx.tools.TitleValidationTool'
-	], function () {
-		this.titleValidationTool = mw.cx.tools.translationToolFactory.create(
-			'titlevalidation', this.targetColumn.titleWidget, this.toolsColumn, this.config
-		);
-
-		if ( this.targetColumn.titleWidget.focused ) {
-			this.toolsColumn.showTool( this.titleValidationTool );
-		}
-	}.bind( this ) );
+	this.toolsColumn.showIssues( nodesWithIssues );
 };
 
-mw.cx.ui.TranslationView.prototype.onLintIssuesResolved = function () {
-	if ( this.titleValidationTool ) {
-		this.toolsColumn.hideTool( this.titleValidationTool );
-		this.titleValidationTool = null;
+/**
+ * @param {Mixed[]} nodesWithIssues
+ */
+mw.cx.ui.TranslationView.prototype.onIssuesResolved = function ( nodesWithIssues ) {
+	if ( nodesWithIssues.length === 0 ) {
+		this.toolsColumn.hideIssues();
+		this.emit( 'issuesResolved' );
+		return;
 	}
 
-	this.emit( 'titleIssueResolved' );
+	this.toolsColumn.showIssues( nodesWithIssues );
 };
 
 mw.cx.ui.TranslationView.prototype.onFocus = function () {
-	if ( this.titleValidationTool ) {
-		this.toolsColumn.showTool( this.titleValidationTool );
-	}
-
 	this.toolsColumn.toolContainer.$element.addClass( 'cx-column-tools-container--contextual' );
 };
 
 mw.cx.ui.TranslationView.prototype.onBlur = function () {
-	if ( this.titleValidationTool ) {
-		this.toolsColumn.hideTool( this.titleValidationTool );
-		this.titleValidationTool.showCollapsed();
-	}
-
 	this.toolsColumn.toolContainer.$element.removeClass( 'cx-column-tools-container--contextual' );
 };

@@ -29,7 +29,10 @@ mw.cx.ui.ArticleColumn = function ( siteMapper, language, title, config ) {
 	this.translation = null;
 	this.siteMapper = siteMapper;
 	this.language = language;
-	this.titleWidget = new mw.cx.widgets.PageTitleWidget( { value: title } );
+	this.titleWidget = new mw.cx.widgets.PageTitleWidget(
+		new mw.cx.dm.PageTitleModel(),
+		{ value: title }
+	);
 	this.direction = $.uls.data.getDir( language );
 
 	languageLabel = new OO.ui.LabelWidget( {

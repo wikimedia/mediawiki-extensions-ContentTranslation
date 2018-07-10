@@ -2,16 +2,19 @@
  * Node representing an adapted section
  *
  * @class
+ * @constructor
  * @extends ve.ce.SectionNode
  * @mixins ve.ce.CXPendingNode
- * @constructor
+ * @mixins ve.ce.CXLintableNode
+ *
  * @param {ve.dm.CXSectionNode} model
  */
 ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 	// Parent constructor
 	ve.ce.CXSectionNode.super.apply( this, arguments );
-	// Mixin constructor
+	// Mixin constructors
 	ve.ce.CXPendingNode.call( this );
+	ve.ce.CXLintableNode.call( this );
 
 	this.$element
 		.attr( {
@@ -21,8 +24,6 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 		.addClass( 've-ce-cxSectionNode' );
 
 	this.model.connect( this, {
-		lintIssues: 'onLintIssues',
-		lintIssuesResolved: 'onLintIssuesResolved',
 		beforeTranslation: 'onBeforeTranslation',
 		afterTranslation: 'onAfterTranslation'
 	} );
@@ -32,6 +33,7 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 
 OO.inheritClass( ve.ce.CXSectionNode, ve.ce.SectionNode );
 OO.mixinClass( ve.ce.CXSectionNode, ve.ce.CXPendingNode );
+OO.mixinClass( ve.ce.CXSectionNode, ve.ce.CXLintableNode );
 
 /* Static Properties */
 
@@ -40,18 +42,6 @@ ve.ce.CXSectionNode.static.tagName = 'section';
 ve.ce.CXSectionNode.static.name = 'cxSection';
 
 /* Methods */
-
-/**
- * @param {boolean} hasErrors True if lint issues have at least one error,
- * false if all issues are warnings.
- */
-ve.ce.CXSectionNode.prototype.onLintIssues = function ( hasErrors ) {
-	this.$element.addClass( hasErrors ? 've-ce-cxSectionNode-lint-errors' : 've-ce-cxSectionNode-lint-warnings' );
-};
-
-ve.ce.CXSectionNode.prototype.onLintIssuesResolved = function () {
-	this.$element.removeClass( 've-ce-cxSectionNode-lint-errors ve-ce-cxSectionNode-lint-warnings' );
-};
 
 ve.ce.CXSectionNode.prototype.onBeforeTranslation = function () {
 	this.setPending( true );

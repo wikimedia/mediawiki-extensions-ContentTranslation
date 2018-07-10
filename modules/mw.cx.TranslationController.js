@@ -47,7 +47,9 @@ OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 
 mw.cx.TranslationController.prototype.listen = function () {
 	this.translation.connect( this, {
-		targetCategoriesChange: 'onTargetCategoriesChange'
+		targetCategoriesChange: 'onTargetCategoriesChange',
+		issuesResolved: 'onIssuesResolved',
+		translationIssues: 'onTranslationIssues'
 	} );
 
 	this.veTarget.connect( this, {
@@ -325,18 +327,20 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
  * @param {Object[]} validations
  */
 mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
-	var id, validation, message, error, results = [];
+	var id, validation, message, error,
+		sectionNumber = section.getSectionNumber(),
+		results = [];
 
-	this.saveTracker[ section.getSectionNumber() ] = this.saveTracker[ section.getSectionNumber() ] ||
+	this.saveTracker[ sectionNumber ] = this.saveTracker[ sectionNumber ] ||
 		{ count: 0, error: false };
 
 	if ( validations && Object.keys( validations ).length === 0 ) {
-		this.saveTracker[ section.getSectionNumber() ].error = false;
-		section.setLintResults( null );
+		this.saveTracker[ sectionNumber ].error = false;
+		section.setTranslationIssues( null );
 		return;
 	}
 
-	this.saveTracker[ section.getSectionNumber() ].error = true;
+	this.saveTracker[ sectionNumber ].error = true;
 	for ( id in validations ) {
 		validation = validations[ id ];
 		message = validation.warn && validation.warn.messageHtml;
@@ -354,7 +358,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 		}
 	}
 
-	section.setLintResults( results );
+	section.setTranslationIssues( results );
 };
 
 /**
@@ -559,4 +563,25 @@ mw.cx.TranslationController.prototype.checkForMTAbuse = function () {
 	threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
 	// threshold is a percentage value. progress.mt is a ratio.
 	return mtPercentage > parseFloat( threshold );
+};
+
+/**
+ * Triggered when all issues are resolved on node with a given ID.
+ *
+ * @param {Number|String} id ID of a node which issues are resolved
+ */
+mw.cx.TranslationController.prototype.onIssuesResolved = function ( id ) {
+	this.translationTracker.setTranslationIssues( id, false );
+	this.translationView.onIssuesResolved( this.translationTracker.getNodesWithIssues() );
+};
+
+/**
+ * Triggered when node with given ID has issues.
+ *
+ * @param {Number|String} id ID of a node with issues
+ * @param {boolean} hasErrors True if any of the issues is error. False if all issues are warnings
+ */
+mw.cx.TranslationController.prototype.onTranslationIssues = function ( id, hasErrors ) {
+	this.translationTracker.setTranslationIssues( id, true );
+	this.translationView.onTranslationIssues( this.translationTracker.getNodesWithIssues(), hasErrors );
 };

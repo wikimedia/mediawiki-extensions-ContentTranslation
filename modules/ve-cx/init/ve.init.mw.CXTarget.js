@@ -65,7 +65,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	);
 
 	this.translationView.connect( this, {
-		titleIssueResolved: 'enablePublishButton'
+		issuesResolved: 'enablePublishButton'
 	} );
 
 	this.translationView.targetColumn.connect( this, {
@@ -666,14 +666,26 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
 };
 
 /**
+ * Get the content editable node for the given section number. Accepts section id for target.
+ *
+ * @param {string} sectionNumber Section number. Example 4, 5 etc.
+ * @return {ve.ce.CXSectionNode|null}
+ */
+ve.init.mw.CXTarget.prototype.getTargetSectionElementFromSectionNumber = function ( sectionNumber ) {
+	var targetId = 'cxTargetSection' + sectionNumber,
+		view = this.targetSurface.$element.find( '#' + targetId ).data( 'view' );
+
+	return !view ? null : view;
+};
+
+/**
  * Get the translation node for the given section number. Accepts section id of source or target.
+ *
  * @param  {string} sectionNumber Section number. Example 4, 5 etc.
  * @return {ve.dm.CXSectionNode}
  */
 ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function ( sectionNumber ) {
-	var view, targetId;
-	targetId = 'cxTargetSection' + sectionNumber;
-	view = this.targetSurface.$element.find( '#' + targetId ).data( 'view' );
+	var view = this.getTargetSectionElementFromSectionNumber( sectionNumber );
 	return view ? view.getModel() : null;
 };
 
@@ -862,10 +874,6 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider 
 	return this.MTService.translate( restructure( sourceNode ).outerHTML, provider );
 };
 
-/* Registration */
-
-ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );
-
 /**
  * Change content source for given target section.
  *
@@ -908,3 +916,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 		this.setSectionContent( section, content, newProvider );
 	}.bind( this ) );
 };
+
+/* Registration */
+
+ve.init.mw.targetFactory.register( ve.init.mw.CXTarget );

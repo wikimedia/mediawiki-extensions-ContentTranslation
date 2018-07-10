@@ -6,10 +6,11 @@
  * Supports validation of values.
  * @class
  * @extends OO.ui.MultilineTextInputWidget
- * @mixins ve.dm.CXLintableNode
+ * @mixins ve.ce.CXLintableNode
+ * @param {mw.cx.dm.PageTitleModel} model
  * @param {Object} [config] Configuration object
  */
-mw.cx.widgets.PageTitleWidget = function ( config ) {
+mw.cx.widgets.PageTitleWidget = function ( model, config ) {
 	// Configuration initialization
 	config = $.extend( config, {
 		classes: [ 'cx-pagetitle' ],
@@ -17,74 +18,81 @@ mw.cx.widgets.PageTitleWidget = function ( config ) {
 		autosize: true
 	} );
 
+	this.model = model;
+
 	// Parent constructor
 	mw.cx.widgets.PageTitleWidget.super.call( this, config );
 
 	// Mixin constructors
-	ve.dm.CXLintableNode.call( this );
+	ve.ce.CXLintableNode.call( this );
+
+	this.validTitle = null;
 
 	// Events
 	$( this.getElementWindow() ).on(
 		'resize',
 		OO.ui.throttle( this.onWindowResize.bind( this ), 300 )
 	);
-
-	this.focused = false;
-	this.validTitle = null;
-
-	// Events
-	this.$input.off( 'focus blur' );
+	this.$input.off( 'focus blur' ).on( {
+		focus: OO.ui.debounce( this.onFocus.bind( this ), 50 ),
+		blur: this.onBlur.bind( this )
+	} );
 	this.connect( this, {
-		change: OO.ui.debounce( this.validateTitle.bind( this ), 300 ),
-		lintIssues: 'onLintIssue',
-		lintIssuesResolved: 'onLintIssueResolved'
+		change: OO.ui.debounce( this.validateTitle.bind( this ), 300 )
 	} );
 };
 
 /* Setup */
 
 OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.MultilineTextInputWidget );
-OO.mixinClass( mw.cx.widgets.PageTitleWidget, ve.dm.CXLintableNode );
+OO.mixinClass( mw.cx.widgets.PageTitleWidget, ve.ce.CXLintableNode );
 
-mw.cx.widgets.PageTitleWidget.prototype.onMouseDown = function ( e ) {
-	var input = e.target === this.$input[ 0 ],
-		cardElement = $( '.cx-card-titlevalidation' )[ 0 ],
-		card = cardElement && OO.ui.contains( cardElement, e.target, true );
+/* Methods */
 
-	if ( ( !this.focused && input ) || card ) {
-		// Debouncing trick is used to ensure that focus on this element
-		// gets handled after blur is triggered on surface elements
-		OO.ui.debounce( function () {
-			this.emit( 'focus' );
-			this.focused = true;
-		}, 50 ).call( this );
-	} else if ( this.focused && !input && !card ) {
-		this.emit( 'blur' );
-		this.focused = false;
-	}
+mw.cx.widgets.PageTitleWidget.prototype.onFocus = function () {
+	this.emit( 'focus' );
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.registerMouseDownEvent = function () {
-	$( this.getElementDocument() ).on( 'mousedown', this.onMouseDown.bind( this ) );
+mw.cx.widgets.PageTitleWidget.prototype.onBlur = function () {
+	this.emit( 'blur' );
+};
 
-	return this;
+/**
+ * @return {mw.cx.dm.PageTitleModel}
+ */
+mw.cx.widgets.PageTitleWidget.prototype.getModel = function () {
+	return this.model;
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.widgets.PageTitleWidget.prototype.getFocusableElement = function () {
+	return this.$tabIndexed;
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.widgets.PageTitleWidget.prototype.blursEditingSurface = function () {
+	return true;
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
 	if ( !mw.Title.newFromText( value ) ) {
-		this.setLintResults( [ value === '' ? this.getEmptyTitleError() : this.getInvalidCharacterError() ] );
+		this.model.setTranslationIssues( [ value === '' ? this.getEmptyTitleError() : this.getInvalidCharacterError() ] );
 		return;
 	}
 
 	ve.init.platform.linkCache.get( this.getValue() ).then( function ( result ) {
 		if ( result.missing ) {
-			this.setLintResults( null );
+			this.model.setTranslationIssues( null );
 			return;
 		}
 
-		this.setLintResults( [ this.getExistingTitleWarning() ] );
+		this.model.setTranslationIssues( [ this.getExistingTitleWarning() ] );
 	}.bind( this ), function () {
-		this.setLintResults( null );
+		this.model.setTranslationIssues( null );
 	}.bind( this ) );
 };
 
@@ -144,15 +152,6 @@ mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 
 mw.cx.widgets.PageTitleWidget.prototype.fixTitle = function () {
 	this.setValue( this.validTitle );
-};
-
-mw.cx.widgets.PageTitleWidget.prototype.onLintIssue = function ( hasErrors ) {
-	this.onLintIssueResolved();
-	this.$element.addClass( hasErrors ? 'cx-pagetitle-error' : 'cx-pagetitle-warning' );
-};
-
-mw.cx.widgets.PageTitleWidget.prototype.onLintIssueResolved = function () {
-	this.$element.removeClass( 'cx-pagetitle-error cx-pagetitle-warning' );
 };
 
 /**

@@ -70,7 +70,7 @@ mw.cx.init.Translation.prototype.init = function () {
 			sourcePageContent = translationData[ 0 ],
 			draft = translationData[ 1 ];
 
-			// Set the link cache for source language
+		// Set the link cache for source language
 		ve.init.platform.sourceLinkCache = new ve.init.mw.LinkCache(
 			this.config.siteMapper.getApi( this.sourceWikiPage.getLanguage() )
 		);
