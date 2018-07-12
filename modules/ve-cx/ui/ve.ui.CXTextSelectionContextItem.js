@@ -123,7 +123,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 
 	text = fragment.getText().trim();
 	if ( text.length === 0 || text.length > 30 || this.hasLink() ) {
-		this.context.removeItems( [ this ] );
+		this.$element.remove();
 		return;
 	}
 
@@ -135,7 +135,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 	this.targetLinkCache.get( this.normalizedTitle ).then( function ( linkData ) {
 		if ( linkData.missing ) {
 			// Title does not exist in target language for the selected text. Do not show the card
-			this.context.removeItems( [ this ] );
+			this.$element.remove();
 			return;
 		}
 		this.toggle( true );
