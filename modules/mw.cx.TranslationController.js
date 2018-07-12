@@ -250,7 +250,7 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 };
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
-	var sectionNumber, section, validations, minutes = 0;
+	var sectionNumber, section, validation, validations, minutes = 0;
 
 	if ( this.targetCategoriesChanged > 0 ) {
 		mw.log( '[CX] Target categories saved.' );
@@ -260,16 +260,18 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 	validations = saveResult.cxsave.validations;
 
 	for ( sectionNumber in this.saveQueue ) {
+		validation = validations[ sectionNumber ];
+
 		if ( !this.saveQueue.hasOwnProperty( sectionNumber ) ) {
 			continue;
 		}
 
 		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
-		if ( Object.keys( validations ).length ) {
+		if ( validation && validation.length > 0 ) {
 			// FIXME. Not nice to append the prefix below.
 			section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
 			// Annotate the section with errors if any.
-			this.onSaveValidation( section, validations[ sectionNumber ] );
+			this.onSaveValidation( section, validation );
 		}
 	}
 
