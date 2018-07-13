@@ -312,6 +312,8 @@
 				"mediawiki.skinning.content.parsoid"
 			],
 			"messages": [
+				"cx-error-page-not-found",
+				"cx-error-server-connection",
 				"cx-source-view-page",
 				"cx-source-loading"
 			]
