@@ -15,16 +15,17 @@
 @personal-header-height: 2.5em;
 @personal-header-padding: 0.7em;
 
-.box-shadow-card() {
-	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
-}
-
-.cx-widget() {
+// This is not a mixin, but common class for CX widgets
+.cx-widget {
 	.mw-ui-grid;
 	color: @colorGray2;
 	background-color: @white;
 	padding-bottom: 50px;
 	font-size: medium;
+}
+
+.box-shadow-card() {
+	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
 }
 
 .stick-to-side() {
