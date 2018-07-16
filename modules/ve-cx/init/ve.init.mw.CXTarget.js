@@ -652,14 +652,15 @@ ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
 /**
  * Get the translation node for the given section id. Accepts section id or source or target.
  * @param  {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
- * @return {ve.dm.CXSectionNode}
+ * @return {ve.dm.CXSectionNode|null}
  */
 ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
-	var sectionNumber, targetId;
+	var sectionNumber, targetId, view;
 
 	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	targetId = 'cxTargetSection' + sectionNumber;
-	return this.targetSurface.$element.find( '#' + targetId ).data( 'view' ).getModel();
+	view = this.targetSurface.$element.find( '#' + targetId ).data( 'view' );
+	return view ? view.getModel() : null;
 };
 
 /**

@@ -72,7 +72,9 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 		.always( function () {
 			// Recalculate the section, since the instance got distroyed in content change
 			section = target.getTargetSectionNode( section.getSectionId() );
-			this.afterTranslate( section );
+			if ( section ) {
+				this.afterTranslate( section );
+			}
 		}.bind( this ) ).fail( function () {
 			// TODO: i18n
 			mw.notify( 'Machine translation failed' );

@@ -270,8 +270,10 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 		if ( validation && validation.length > 0 ) {
 			// FIXME. Not nice to append the prefix below.
 			section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
-			// Annotate the section with errors if any.
-			this.onSaveValidation( section, validation );
+			if ( section ) {
+				// Annotate the section with errors if any.
+				this.onSaveValidation( section, validation );
+			}
 		}
 	}
 
