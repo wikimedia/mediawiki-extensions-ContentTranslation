@@ -44,5 +44,8 @@
 			} );
 		} );
 
+		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
+			mw.notify( mw.msg( 'cx-beta-feature-enabled-notification' ) );
+		}
 	} );
 }( mediaWiki ) );

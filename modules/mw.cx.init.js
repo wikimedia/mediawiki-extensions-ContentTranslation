@@ -44,6 +44,10 @@
 		if ( query.campaign ) {
 			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
 		}
+
+		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
+			mw.notify( mw.msg( 'cx-beta-feature-enabled-notification' ) );
+		}
 	}
 
 	// On document ready, initialize.

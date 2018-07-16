@@ -1093,17 +1093,6 @@
 				"chart.js/Chart.js"
 			]
 		},
-		"ext.cx.beta.notification": {
-			"scripts": [
-				"entrypoint/ext.cx.betafeature.notification.js"
-			],
-			"dependencies": [
-				"jquery.tipsy"
-			],
-			"messages": [
-				"cx-beta-feature-enabled-notification"
-			]
-		},
 		"ext.cx.campaigns.newarticle": {
 			"scripts": [
 				"campaigns/ext.cx.campaigns.newarticle.js"
@@ -1461,7 +1450,11 @@
 				"mw.cx.MwApiRequestManager",
 				"mw.cx.MachineTranslation",
 				"mw.cx.dm.WikiPage",
-				"mw.cx.init.Translation"
+				"mw.cx.init.Translation",
+				"mediawiki.notify"
+			],
+			"messages":[
+				"cx-beta-feature-enabled-notification"
 			],
 			"targets": [
 				"desktop"
@@ -1667,7 +1660,11 @@
 				"ui/legacy/mw.cx.ui.TranslationView.init.js"
 			],
 			"dependencies": [
-				"mw.cx.ui.TranslationView.legacy"
+				"mw.cx.ui.TranslationView.legacy",
+				"mediawiki.notify"
+			],
+			"messages":[
+				"cx-beta-feature-enabled-notification"
 			]
 		},
 		"mw.cx.ui.Header": {

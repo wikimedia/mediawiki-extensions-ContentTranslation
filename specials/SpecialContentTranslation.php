@@ -31,7 +31,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
 			$user->saveSettings();
 		} );
-		$out->addModules( 'ext.cx.beta.notification' );
+		$out->addJsConfigVars( 'wgContentTranslationBetaFeatureEnabled', true );
 	}
 
 	public function isValidCampaign( $campaign ) {
