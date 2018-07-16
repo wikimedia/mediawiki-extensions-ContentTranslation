@@ -43,6 +43,7 @@
 	"cx-publish-page-error": "Podczas publikowania tłumaczenia wystąpił błąd. Spróbuj opublikować stronę jeszcze raz. Błąd: $1",
 	"cx-publish-error-empty": "Serwer odpowiedział bez danych.",
 	"cx-publish-error-readonly": "Zapisy do wiki nie są dozwolone.",
+	"cx-publish-error-unknown": "Wystąpił nieznany nieodwracalny błąd. Szczegóły błędu: $1",
 	"cx-publish-button": "Opublikuj",
 	"cx-publish-button-publishing": "Publikowanie...",
 	"cx-lost-session-draft": "Twoja sesja wygasła. Twoje edycje nie zostaną zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
