@@ -18,7 +18,7 @@
 	"cx-dashboard-header": "மொழிபெயர்ப்புகள்",
 	"cx-javascript": "இக்கருவி யாவாக்கிறிட்டின்றிப் பணியாற்றாது.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]], பக்கங்களை எளிதாக தங்களின் மொழிக்கு மொழிபெயர்ப்பு செய்ய உதவும் கருவியாகும். [$1 Try it now!]",
-	"cx-license-agreement": "\"$1\" பொத்தானை சொடுக்குவதன் மூலம் [//wikimediafoundation.org/wiki/Terms_of_Use இங்குள்ள பயன்பாட்டு விதிமுறைகளயும்] உங்களது பங்களிப்புகளை மொழிபெயர்ப்புக் கருவி வாயிலாக [https://creativecommons.org/licenses/by-sa/3.0/ பொதுமங்கள் உரிமையிலும் (CC BY-SA 3.0)] ஆவணங்களை [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License குனூ உரிமையிலும்] CC BY-SA 3.0 உரிப்பளிப்புக்கு உட்படுகிறேன்.",
+	"cx-license-agreement": "\"$1\" பொத்தானை சொடுக்குவதன் மூலம் [//foundation.wikimedia.org/wiki/Terms_of_Use இங்குள்ள பயன்பாட்டு விதிமுறைகளயும்] உங்களது பங்களிப்புகளை மொழிபெயர்ப்புக் கருவி வாயிலாக [https://creativecommons.org/licenses/by-sa/3.0/ பொதுமங்கள் உரிமையிலும் (CC BY-SA 3.0)] ஆவணங்களை [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License குனூ உரிமையிலும்] CC BY-SA 3.0 உரிப்பளிப்புக்கு உட்படுகிறேன்.",
 	"cx-error-server-connection": "பிழை: வழங்கியுடன் தொடர்புகொள்ள முடியவில்லை.",
 	"cx-desc": "உரைப்பக்கங்களை [[Special:ContentTranslation|மொழிபெயர்ப்பதை]] எளிதாக்குகிறது",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|மொழிபெயர்த்தவை}}",

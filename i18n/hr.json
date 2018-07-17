@@ -16,7 +16,7 @@
 	"cx-dashboard-header": "Prijevodi",
 	"cx-javascript": "Ovo oruđe ne radi bez JavaScripta. JavaScript je onemogućen, zatajio mu je rad ili ovaj preglednik nije podržan.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Prevoditelj sadržaja]] je alat za brzi prijevod stranice na vaš jezik. [$1 Probajte ga upravo sada!]",
-	"cx-license-agreement": "Klikom na \"$1\" pristajete na [//wikimediafoundation.org/wiki/Terms_of_Use uvjete korištenja] i neopozivo prihvaćate da se vaš doprinos s alatom za prevođenje objavi pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] i slažete se da je navođenje poveznice ili adrese dovoljno pripisivanje po licenciji CC BY-SA 3.0.",
+	"cx-license-agreement": "Klikom na \"$1\" pristajete na [//foundation.wikimedia.org/wiki/Terms_of_Use uvjete korištenja] i neopozivo prihvaćate da se vaš doprinos s alatom za prevođenje objavi pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] i slažete se da je navođenje poveznice ili adrese dovoljno pripisivanje po licenciji CC BY-SA 3.0.",
 	"cx-error-server-connection": "Greška: ne mogu se spojiti na poslužitelj.",
 	"cx-desc": "Omogućava jednostavno [[Special:ContentTranslation|prevođenje]] stranica",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

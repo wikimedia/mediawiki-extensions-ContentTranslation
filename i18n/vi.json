@@ -16,7 +16,7 @@
 	"cx-dashboard-header": "Bản dịch",
 	"cx-javascript": "Công cụ này cần JavaScript để hoạt động. JavaScript bị tắt, hoặc có sự cố, hoặc trình duyệt này không được hỗ trợ.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Biên dịch nội dung]] là một công cụ cho phép dịch các trang ra ngôn ngữ của bạn một cách rất dễ dàng. [$1 Hãy thử nó ngay!]",
-	"cx-license-agreement": "Với việc bấm nút “$1”, bạn chấp nhận [//wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi các Điều khoản Sử dụng] và đồng ý phát hành, một cách không thể hủy bỏ, các đóng góp của bạn thông qua công cụ biên dịch theo [https://creativecommons.org/licenses/by-sa/3.0/deed.vi Giấy phép CC BY-SA 3.0] và the [//vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Tài_liệu_Tự_do_GNU GFDL] với điều khiện rằng một siêu liên kết hoặc URL sẽ thỏa mãn điều khiển ghi công của CC BY-SA 3.0.",
+	"cx-license-agreement": "Với việc bấm nút “$1”, bạn chấp nhận [//foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi các Điều khoản Sử dụng] và đồng ý phát hành, một cách không thể hủy bỏ, các đóng góp của bạn thông qua công cụ biên dịch theo [https://creativecommons.org/licenses/by-sa/3.0/deed.vi Giấy phép CC BY-SA 3.0] và the [//vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Tài_liệu_Tự_do_GNU GFDL] với điều khiện rằng một siêu liên kết hoặc URL sẽ thỏa mãn điều khiển ghi công của CC BY-SA 3.0.",
 	"cx-error-server-connection": "Lỗi: Không thể kết nối với máy chủ.",
 	"cx-desc": "Làm cho dễ [[Special:ContentTranslation|biên dịch]] các trang nội dung",
 	"cx-header-progressbar-text": "đã dịch $1%",

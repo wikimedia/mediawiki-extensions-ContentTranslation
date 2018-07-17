@@ -17,7 +17,7 @@
 	"cx-dashboard-header": "अनुवाद",
 	"cx-javascript": "यह उपकरण जावास्क्रीप्ट के बिना काम नहीं करता।",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|सामग्री अनुवादक]] एक साधन है, जिससे कोई भी लेख जल्दी से आपके भाषा में अनुवाद कर देगा। [$1 एक बार उपयोग करें!]",
-	"cx-license-agreement": "इस \"$1\" बटन पर क्लिक करके आप [//wikimediafoundation.org/wiki/Terms_of_Use उपयोग की शर्तों] से सहमति प्रदान करते हो तथा आप अपरिवर्तनीय ढ़ंग से अपने योगदानों को अनुवाद उपकरणों सहित [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 अनुज्ञप्ति] और [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] के अन्तर्गत जारी करने से सहमति प्रदान करते हो। इसमें आप इस बात से सहमत हो कि CC BY-SA 3.0 के लिए एक हाइपरलिंक अथवा यू॰आर॰एल॰ से स्पष्ट होगा।",
+	"cx-license-agreement": "इस \"$1\" बटन पर क्लिक करके आप [//foundation.wikimedia.org/wiki/Terms_of_Use उपयोग की शर्तों] से सहमति प्रदान करते हो तथा आप अपरिवर्तनीय ढ़ंग से अपने योगदानों को अनुवाद उपकरणों सहित [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 अनुज्ञप्ति] और [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] के अन्तर्गत जारी करने से सहमति प्रदान करते हो। इसमें आप इस बात से सहमत हो कि CC BY-SA 3.0 के लिए एक हाइपरलिंक अथवा यू॰आर॰एल॰ से स्पष्ट होगा।",
 	"cx-error-server-connection": "त्रुटि: सर्वर से सम्पर्क नहीं हो सका।",
 	"cx-desc": "सामग्री पृष्ठों का [[Special:ContentTranslation|अनुवाद]] करना आसान बनाता है",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|अनुवाद हो चुका है}}",

@@ -8,7 +8,7 @@
 	"cx": "Tulkot lapu",
 	"cx-dashboard-header": "Tulkojumi",
 	"cx-javascript": "Šis rīks nedarbojas bez JavaScript.",
-	"cx-license-agreement": "Klikšķinot uz pogas \"$1\", tu piekrīti [//wikimediafoundation.org/wiki/Terms_of_Use Lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu ar tulkošanas rīku doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] un [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] licenci, saprotot ka hipersaite vai URL ir pietiekama CC BY-SA 3.0 norādei uz autoru.",
+	"cx-license-agreement": "Klikšķinot uz pogas \"$1\", tu piekrīti [//foundation.wikimedia.org/wiki/Terms_of_Use Lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu ar tulkošanas rīku doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] un [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] licenci, saprotot ka hipersaite vai URL ir pietiekama CC BY-SA 3.0 norādei uz autoru.",
 	"cx-error-server-connection": "Kļūda: Nevarēja izveidot savienojumu ar serveri.",
 	"cx-desc": "Padara vienkāršāku satura lapu tulkošanu",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iztulkoti|iztulkots|iztulkoti}}",

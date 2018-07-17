@@ -12,7 +12,7 @@
 	"cx-dashboard-header": "คำแปล",
 	"cx-javascript": "เครื่องมือนี้ทำงานไม่ได้หากไม่มีจาวาสคริปต์ อาจเป็นเพราะจาวาสคริปต์ไม่ทำงาน หรือโปรแกรมท่องเว็บนี้ไม่สนับสนุน",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|การแปลเนื้อหา]] คือเครื่องมือสำหรับแปลหน้าต่าง ๆ เป็นภาษาของคุณได้อย่างรวดเร็ว [$1 ลองใช้เดี๋ยวนี้!]",
-	"cx-license-agreement": "เมื่อคุณกดปุ่ม \"$1\" ถือว่าคุณยอมรับ[//wikimediafoundation.org/wiki/Terms_of_Use ข้อกำหนดการใช้งาน] และคุณตกลงเผยแพร่งานของคุณด้วยเครื่องมือการแปลภายใต้สัญญาอนุญาต [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] และ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] อย่างไม่อาจเพิกถอนได้ ด้วยความเข้าใจว่าไฮเพอร์ลิงก์หรือยูอาร์แอลนั้นเพียงพอสำหรับการระบุที่มาใน CC BY-SA 3.0",
+	"cx-license-agreement": "เมื่อคุณกดปุ่ม \"$1\" ถือว่าคุณยอมรับ[//foundation.wikimedia.org/wiki/Terms_of_Use ข้อกำหนดการใช้งาน] และคุณตกลงเผยแพร่งานของคุณด้วยเครื่องมือการแปลภายใต้สัญญาอนุญาต [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] และ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] อย่างไม่อาจเพิกถอนได้ ด้วยความเข้าใจว่าไฮเพอร์ลิงก์หรือยูอาร์แอลนั้นเพียงพอสำหรับการระบุที่มาใน CC BY-SA 3.0",
 	"cx-error-server-connection": "ผิดพลาด: ไม่สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์",
 	"cx-desc": "ทำให้การ[[Special:ContentTranslation|แปล]]เนื้อหาของหน้าง่ายขึ้น",
 	"cx-header-progressbar-text": "แปลแล้ว $1%",

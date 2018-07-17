@@ -7,7 +7,7 @@
 	"cx": "Turjun bogga",
 	"cx-dashboard-header": "Turjumaad",
 	"cx-javascript": "Adeegsigaan ma shaqaynayo JavaScript la'an.",
-	"cx-license-agreement": "Gujinta \"$1\" batoonka, waxaad u ogolaanaysaa [//wikimediafoundation.org/wiki/Terms_of_Use in la adeegsan karo] iyo adigoo u ogol si kama damabays ah inaad fasaxday wixii aad qortay maamulka turjumidda uga dhigay mid  [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 fasax ah] iyo [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] kuna jirto isku xirka ah hyperlink ama URL dhammaan ee CC BY-SA 3.0 dhaca.",
+	"cx-license-agreement": "Gujinta \"$1\" batoonka, waxaad u ogolaanaysaa [//foundation.wikimedia.org/wiki/Terms_of_Use in la adeegsan karo] iyo adigoo u ogol si kama damabays ah inaad fasaxday wixii aad qortay maamulka turjumidda uga dhigay mid  [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 fasax ah] iyo [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] kuna jirto isku xirka ah hyperlink ama URL dhammaan ee CC BY-SA 3.0 dhaca.",
 	"cx-error-server-connection": "Qalad: Suurtagal maaha inaad ku xiranto serverka.",
 	"cx-desc": "Fududee turjumidda waxa ku jira bogagga",
 	"cx-header-progressbar-text": "$1% la turjumay",

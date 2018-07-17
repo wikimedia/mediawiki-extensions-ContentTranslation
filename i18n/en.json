@@ -19,7 +19,7 @@
 	"cx-dashboard-header": "Translations",
 	"cx-javascript": "This tool does not work without JavaScript. JavaScript is disabled, failed to work, or this browser is unsupported.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] is a tool to quickly translate pages into your language. [$1 Try it now!]",
-	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
+	"cx-license-agreement": "By clicking the \"$1\" button, you agree to the [//foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] and the [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-error-server-connection": "Error: Could not connect to the server.",
 	"cx-desc": "Makes it easy to [[Special:ContentTranslation|translate]] content pages",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|translated}}",

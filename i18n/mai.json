@@ -8,7 +8,7 @@
 	"cx-dashboard-header": "अनुवाद",
 	"cx-javascript": "ई उपकरण जाभास्क्रिप्ट बिना काम नै करत।",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|साममाग्री अनुवादक]] एक साधन छी, जहि सँ कोनो भी लेख जल्दी सँ अहाँक भाषामे अनुवाद करि देत। [$1 एक बेर उपयोग करी!]",
-	"cx-license-agreement": "ई \"$1\" बटन पर क्लिक करि अहाँ [//wikimediafoundation.org/wiki/Terms_of_Use उपयोगक शर्तसभ] सँ सहमति प्रदान करति छी तथा अहाँ अपरिवर्तनीय ढङ्ग सँ अपन योगदानसभके अनुवाद उपकरणसभ सहित [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 अनुज्ञप्ति] आ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जिएफडिएल]क अन्तर्गत जारी करैक सहमति प्रदान करति छी। अहिमे अहाँ ई बात सँ सहमत छी कि सिसि बाय-एसएस ३.० क लेल एक हाइपरलिङ्क अथवा युआरएल सँ स्पष्ट होएत।",
+	"cx-license-agreement": "ई \"$1\" बटन पर क्लिक करि अहाँ [//foundation.wikimedia.org/wiki/Terms_of_Use उपयोगक शर्तसभ] सँ सहमति प्रदान करति छी तथा अहाँ अपरिवर्तनीय ढङ्ग सँ अपन योगदानसभके अनुवाद उपकरणसभ सहित [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 अनुज्ञप्ति] आ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जिएफडिएल]क अन्तर्गत जारी करैक सहमति प्रदान करति छी। अहिमे अहाँ ई बात सँ सहमत छी कि सिसि बाय-एसएस ३.० क लेल एक हाइपरलिङ्क अथवा युआरएल सँ स्पष्ट होएत।",
 	"cx-error-server-connection": "त्रुटि: सर्वर सँ सम्पर्क नै भ सकल।",
 	"cx-desc": "सामग्री पृष्ठसभ [[Special:ContentTranslation|अनुवाद]] करैलेल आसान बनबैत अछि",
 	"cx-header-progressbar-text": "$१% {{PLURAL:$1|अनुवादित}}",

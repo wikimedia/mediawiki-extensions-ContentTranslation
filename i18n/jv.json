@@ -8,7 +8,7 @@
 	"cx-dashboard-header": "Pertalan",
 	"cx-javascript": "Piranti iki mokal lumaku tanpa JavaScript. JavaScript-é dipatèni, wurung lumaku, utawa pangluru iki ora nyengkuyung iku.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Pertalan Kontèn]] iku piranti kanggo mertal kaca nyang basa asliné panjenengan kanthi rikat. [$1 Mangga dijajal!]",
-	"cx-license-agreement": "Kanthi mencèt tombol \"$1\", panjenengan minangkani [//wikimediafoundation.org/wiki/Terms_of_Use Paugeran ing Panganggo] lan panjenengan uga minangkani yèn ngamardika pisumbangé panjenengan sarana piranti pertalan iki sangisoré [https://creativecommons.org/licenses/by-sa/3.0/ Lisènsi CC BY-SA 3.0] lan [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] kanthi pangertèn manawa pranala utawa URL waé wis cukup minangka atribusi CC BY-SA 3.0.",
+	"cx-license-agreement": "Kanthi mencèt tombol \"$1\", panjenengan minangkani [//foundation.wikimedia.org/wiki/Terms_of_Use Paugeran ing Panganggo] lan panjenengan uga minangkani yèn ngamardika pisumbangé panjenengan sarana piranti pertalan iki sangisoré [https://creativecommons.org/licenses/by-sa/3.0/ Lisènsi CC BY-SA 3.0] lan [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] kanthi pangertèn manawa pranala utawa URL waé wis cukup minangka atribusi CC BY-SA 3.0.",
 	"cx-error-server-connection": "Masalah: Ora bisa nggayut paladèn.",
 	"cx-desc": "Mayaraké ing [[Special:ContentTranslation|mertal]] kaca-kaca kontèn",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|wis kapertal}}",

@@ -5,7 +5,7 @@
 		]
 	},
 	"cx-dashboard-header": "Tradukuri",
-	"cx-license-agreement": "Se vu kliktos la butono \"$1\", vu konkordas kun [//wikimediafoundation.org/wiki/Terms_of_Use la kondicioni pri uzo] e vu konkordas senrevoke liberigar vua kontributaji uzante l'utensili por traduko sub la permiso [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], e savas ke ula ligilo o URL esas suficanta por l'atributo CC BY-SA 3.0.",
+	"cx-license-agreement": "Se vu kliktos la butono \"$1\", vu konkordas kun [//foundation.wikimedia.org/wiki/Terms_of_Use la kondicioni pri uzo] e vu konkordas senrevoke liberigar vua kontributaji uzante l'utensili por traduko sub la permiso [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], e savas ke ula ligilo o URL esas suficanta por l'atributo CC BY-SA 3.0.",
 	"cx-error-server-connection": "Eroro: Ne povis konektar a la servo-komputero.",
 	"cx-header-all-translations": "Omna tradukuri",
 	"cx-source-view-page": "Montrez pagino",

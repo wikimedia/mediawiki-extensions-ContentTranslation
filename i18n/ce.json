@@ -9,7 +9,7 @@
 	"cx": "АгӀо гочъяр",
 	"cx-dashboard-header": "Гочдарш",
 	"cx-javascript": "ХӀокху гӀирсо JavaScript йоцуш болх цабо.",
-	"cx-license-agreement": "Кнопка «$1» тӀетаӀина, хьо реза хуьйлу [//wikimediafoundation.org/wiki/Terms_of_Use Лелоран хьолан] цул совнах билламза реза хуьйла гочдаран гӀирсаца бина хьайн къинхьегам арахеца [https://creativecommons.org/licenses/by-sa/3.0/  CC BY-SA 3.0] а, [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] а лицензица, гиперхьажорг я URL билгал йичахьана CC BY-SA 3.0 атрибуцин тоьуш хилар хууш а долуш.",
+	"cx-license-agreement": "Кнопка «$1» тӀетаӀина, хьо реза хуьйлу [//foundation.wikimedia.org/wiki/Terms_of_Use Лелоран хьолан] цул совнах билламза реза хуьйла гочдаран гӀирсаца бина хьайн къинхьегам арахеца [https://creativecommons.org/licenses/by-sa/3.0/  CC BY-SA 3.0] а, [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] а лицензица, гиперхьажорг я URL билгал йичахьана CC BY-SA 3.0 атрибуцин тоьуш хилар хууш а долуш.",
 	"cx-error-server-connection": "ГӀалат: Серверах тасадала цаделира.",
 	"cx-desc": "Таро хуьлуьйту агӀона чулацам атта гоч бан",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Гочдина}} $1%",

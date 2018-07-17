@@ -7,7 +7,7 @@
 	"cx": "Handika pejy",
 	"cx-dashboard-header": "Dikanteny",
 	"cx-javascript": "Tsy mandeha ity fitaovana ity raha tsy misy JavaScript.",
-	"cx-license-agreement": "Rehefa manindry ny bokotra \"$1\" dia manaiky ny  [//wikimediafoundation.org/wiki/Terms_of_Use Fitsipika mifehy ny fampiasana] ianao ary manaiky ny mamela ny asao amin'ny [https://creativecommons.org/licenses/by-sa/3.0/ lisansa CC BY-SA 3.0] ary ny [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ianao, ary manaiky fa  ampy amin'ny fanajana ny CC BY-SA 3.0 ny fampetrahana rohy URL.",
+	"cx-license-agreement": "Rehefa manindry ny bokotra \"$1\" dia manaiky ny  [//foundation.wikimedia.org/wiki/Terms_of_Use Fitsipika mifehy ny fampiasana] ianao ary manaiky ny mamela ny asao amin'ny [https://creativecommons.org/licenses/by-sa/3.0/ lisansa CC BY-SA 3.0] ary ny [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ianao, ary manaiky fa  ampy amin'ny fanajana ny CC BY-SA 3.0 ny fampetrahana rohy URL.",
 	"cx-error-server-connection": "Hadisoana: Tsy afaka nifandray tamin'ny lohamilina.",
 	"cx-desc": "Manamora ny fandikana vontoatim-pejy",
 	"cx-header-progressbar-text": "{{PLURAL:$1|voadika}} $1%",

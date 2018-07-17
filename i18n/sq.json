@@ -13,7 +13,7 @@
 	},
 	"cx": "Përkthe faqen",
 	"cx-javascript": "Kjo vegël nuk punon pa JavaScript",
-	"cx-license-agreement": "Duke klikuar butonin \"$1\", ju pajtoheni me Kushtet e Përdorimit[//wikimediafoundation.org/wiki/Kushtet e Përdorimit] si dhe në mënyrë të pakthyeshme pajtoheni për lëshimin e kontributeve tuaja të përkthyera me këtë vegël, nën Licensën[https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licensën] dhe nën Licensën[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] duke kuptuar që nevojitet t'i bashkangjitet një hyperlink ose URL e nevojshme për CC BY-SA 3.0.",
+	"cx-license-agreement": "Duke klikuar butonin \"$1\", ju pajtoheni me Kushtet e Përdorimit[//foundation.wikimedia.org/wiki/Kushtet e Përdorimit] si dhe në mënyrë të pakthyeshme pajtoheni për lëshimin e kontributeve tuaja të përkthyera me këtë vegël, nën Licensën[https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licensën] dhe nën Licensën[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] duke kuptuar që nevojitet t'i bashkangjitet një hyperlink ose URL e nevojshme për CC BY-SA 3.0.",
 	"cx-error-server-connection": "Gabim: Nuk mund të lidheni me serverin.",
 	"cx-desc": "E bën më të lehtë përkthimin e përmbajtjes së faqeve",
 	"cx-header-progressbar-text": "$1% i përkthyer",

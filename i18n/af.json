@@ -15,7 +15,7 @@
 	"cx-dashboard-header": "Vertalings",
 	"cx-javascript": "Hierdie program werk nie sonder JavaScript nie. Javascrdipt is gedeaktiveer, het nie gewerk nie, of hierdie blaaier word nie ondersteun nie.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] is 'n program om vinnig bladsye in u taal te vertaal. [$1 Probeer dit gerus nou!]",
-	"cx-license-agreement": "Deur op die \"$1\"-knoppie te klik, stem jy toe tot die [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaardes] en jy stem onherroeplik toe dat jou bydraes wat deur die vertalingswerktuig gemaak is, onder die [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisensie] en die [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GNU Vrye Dokumentasie-lisensie] gepubliseer word, met die verstandhouding dat 'n webskakel genoegsaam is vir erkenning in terme van CC BY-SA 3.0.",
+	"cx-license-agreement": "Deur op die \"$1\"-knoppie te klik, stem jy toe tot die [//foundation.wikimedia.org/wiki/Terms_of_Use Gebruiksvoorwaardes] en jy stem onherroeplik toe dat jou bydraes wat deur die vertalingswerktuig gemaak is, onder die [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisensie] en die [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GNU Vrye Dokumentasie-lisensie] gepubliseer word, met die verstandhouding dat 'n webskakel genoegsaam is vir erkenning in terme van CC BY-SA 3.0.",
 	"cx-error-server-connection": "Fout: kon nie 'n verbinding met die bediener bewerkstellig nie.",
 	"cx-desc": "Maak dit maklik om inhoudbladsye te [[Special:ContentTranslation|vertaal]].",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|vertaal}}",

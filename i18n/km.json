@@ -9,7 +9,7 @@
 	"cx-dashboard-header": "ការបកប្រែ",
 	"cx-javascript": "ឧបករណ៍នេះមិនអាចប្រើបានទេបើគ្មាន JavaScript។",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|មុខងារបកប្រែខ្លឹមសារអត្ថបទ]]ជាឧបករណ៍សម្រាប់បកប្រែទំព័រនានាជាភាសារបស់អ្នកបានរហ័សទាន់ចិត្ត។  [$1 សាកល្បងប្រើវាឥឡូវនេះ!]",
-	"cx-license-agreement": "ដោយចុចលើប៊ូតុង \"$1\"  អ្នកយល់ព្រមជាមួយ[//wikimediafoundation.org/wiki/Terms_of_Use លក្ខខណ្ឌនៃការប្រើប្រាស់] ហើយអ្នកយល់ព្រមដោយមិនអាចប្រែក្រឡាស់បានក្នុងការចែកចាយការួមចំណែករបស់អ្នកជាមួយឧបករណ៍បកប្រែក្រោម [https://creativecommons.org/licenses/by-sa/3.0/ អាជ្ញាប័ណ្ឌ​ CC BY-SA 3.0 ] និង [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ដោយបានយល់ដឹងថាតំណភ្ជាប់ឬURLគឺគ្រប់គ្រាន់សម្រាប់បញ្ជាក់កម្មសិទ្ធមក CC BY-SA 3.0។",
+	"cx-license-agreement": "ដោយចុចលើប៊ូតុង \"$1\"  អ្នកយល់ព្រមជាមួយ[//foundation.wikimedia.org/wiki/Terms_of_Use លក្ខខណ្ឌនៃការប្រើប្រាស់] ហើយអ្នកយល់ព្រមដោយមិនអាចប្រែក្រឡាស់បានក្នុងការចែកចាយការួមចំណែករបស់អ្នកជាមួយឧបករណ៍បកប្រែក្រោម [https://creativecommons.org/licenses/by-sa/3.0/ អាជ្ញាប័ណ្ឌ​ CC BY-SA 3.0 ] និង [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ដោយបានយល់ដឹងថាតំណភ្ជាប់ឬURLគឺគ្រប់គ្រាន់សម្រាប់បញ្ជាក់កម្មសិទ្ធមក CC BY-SA 3.0។",
 	"cx-error-server-connection": "បញ្ហា៖ មិន​អាច​ភ្ជាប់​ទៅ​កាន់ម៉ាស៊ីន​បម្រើ​ការបានទេ។",
 	"cx-desc": "បង្កភាពងាយស្រួលក្នុងការ[[Special:ContentTranslation|បកប្រែ]]អត្ថបទ",
 	"cx-header-progressbar-text": "{{PLURAL:$1|បកប្រែរួច}} $1%",

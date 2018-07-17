@@ -12,7 +12,7 @@
 	"cx-dashboard-header": "Itzulpenak",
 	"cx-javascript": "Tresna honek ez du funtzionatzen JavaScript gabe. JavaScript desgaituta dago, ez du funtzionatu, edo ez da bateragarria nabigatzaile honekin.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]], orriak modu azkar batean zure hizkuntzara itzultzeko tresna da. [$1 Probatu orain!]",
-	"cx-license-agreement": "\"$1\" botoian klik egitean, onartzen dituzu [//wikimediafoundation.org/wiki/Terms_of_Use Erabilpen Baldintzak] eta atzerakorik gabe onartzen duzu itzulpen tresnaren bidez egin dituzun ekarpenak askatzea [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lizentzian] eta [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDLen] horrekin ulertuz nahikoa dela hiperlotura edo URLa jartzea BY-SA 3.0 aitorpenerako.",
+	"cx-license-agreement": "\"$1\" botoian klik egitean, onartzen dituzu [//foundation.wikimedia.org/wiki/Terms_of_Use Erabilpen Baldintzak] eta atzerakorik gabe onartzen duzu itzulpen tresnaren bidez egin dituzun ekarpenak askatzea [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lizentzian] eta [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDLen] horrekin ulertuz nahikoa dela hiperlotura edo URLa jartzea BY-SA 3.0 aitorpenerako.",
 	"cx-error-server-connection": "Arazoa: Ezin izan da zerbitzarira konektatu.",
 	"cx-desc": "Erraztu eduki orrien [[Special:ContentTranslation|itzulpena]]",
 	"cx-header-progressbar-text": "%$1 {{PLURAL:$1|itzulita}}",

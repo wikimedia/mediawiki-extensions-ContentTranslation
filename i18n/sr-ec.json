@@ -16,7 +16,7 @@
 	"cx-dashboard-header": "Преводи",
 	"cx-javascript": "Овај алат не ради без Јаваскрипта. Јаваскрипт није омогућен, не ради или Ваш прегледач није подржан.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Превођење садржаја]] представља алат за брзо превођење страница на Ваш језик. [$1 Испробајте га сада!]",
-	"cx-license-agreement": "Притиском на „$1“ прихватате [//wikimediafoundation.org/wiki/Terms_of_Use услове коришћења] и неопозиво прихватате да се Ваш допринос са преводилачком алатком објави под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] и слажете се да је навођење хипервезе или УРЛ адресе довољно приписивање по лиценци CC BY-SA 3.0.",
+	"cx-license-agreement": "Притиском на „$1“ прихватате [//foundation.wikimedia.org/wiki/Terms_of_Use услове коришћења] и неопозиво прихватате да се Ваш допринос са преводилачком алатком објави под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] и слажете се да је навођење хипервезе или УРЛ адресе довољно приписивање по лиценци CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: не могу да се повежем са сервером.",
 	"cx-desc": "Поједностављено [[Special:ContentTranslation|превођење]] страница",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|преведено}}",

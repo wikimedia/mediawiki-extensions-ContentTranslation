@@ -13,7 +13,7 @@
 	"cx-dashboard-header": "Omsetjingar",
 	"cx-javascript": "Dette verktøyet verkar ikkje utan JavaScript.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Innholdsomsetjing]] er eit verktyg for å setje om sider til ditt eige språk raskt. [$1 Prøv det no!]",
-	"cx-license-agreement": "Ved å klikka på «$1»-knappen samtykkjer du til [//wikimediafoundation.org/wiki/Terms_of_Use bruksvilkåra] og går endeleg med på at bidraga dine gjorde med omsetjingsverktøyet vert gjevne ut under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] og skjøner at ei lenkje eller ein URL er god nok godskriving under CC BY-SA 3.0.",
+	"cx-license-agreement": "Ved å klikka på «$1»-knappen samtykkjer du til [//foundation.wikimedia.org/wiki/Terms_of_Use bruksvilkåra] og går endeleg med på at bidraga dine gjorde med omsetjingsverktøyet vert gjevne ut under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] og skjøner at ei lenkje eller ein URL er god nok godskriving under CC BY-SA 3.0.",
 	"cx-error-server-connection": "Feil: Kunne ikkje kopla til tenaren.",
 	"cx-desc": "Gjer det enkelt å [[Special:ContentTranslation|setja om]] innhaldssider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|omsett}}",

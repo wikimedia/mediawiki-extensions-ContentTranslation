@@ -13,7 +13,7 @@
 	"cx-dashboard-header": "Cyfieithiadau",
 	"cx-javascript": "Dydy'r teclyn hwn ddim yn gweithio heb JavaScript.",
 	"cx-specialpage-enable-betafeature": "Teclyn ydy'r [[mw:ContentTranslation|Cymhorthydd Cyfieithu]] sy'n eich cynorthwyo i gyfieithu dalennau i'r Gymraeg. [$1 Rhowch gynnig arni!]",
-	"cx-license-agreement": "Drwy ddewis y botwm \"$1\" rydych yn cytuno i'r  [//wikimediafoundation.org/wiki/Terms_of_Use Termau Defnyddio] ac yn cytuno'n ddi-droi'n-ôl i ryddhau eich cyfraniad gyda'r cyfarpar cyfieithu o dan  [https://creativecommons.org/licenses/by-sa/3.0/ Drwydded CC BY-SA 3.0] a'r [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]  gan ddeall fod uwchddolen neu URL yn ddigon.",
+	"cx-license-agreement": "Drwy ddewis y botwm \"$1\" rydych yn cytuno i'r  [//foundation.wikimedia.org/wiki/Terms_of_Use Termau Defnyddio] ac yn cytuno'n ddi-droi'n-ôl i ryddhau eich cyfraniad gyda'r cyfarpar cyfieithu o dan  [https://creativecommons.org/licenses/by-sa/3.0/ Drwydded CC BY-SA 3.0] a'r [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]  gan ddeall fod uwchddolen neu URL yn ddigon.",
 	"cx-error-server-connection": "Gwall: Ni allwyd cysylltu â'r gweinydd.",
 	"cx-desc": "Gall hwyluso'r gwaith o [[Special:ContentTranslation|gyfiethu]] dalennau cynnwys",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|wedi'i cyfieithu}}",

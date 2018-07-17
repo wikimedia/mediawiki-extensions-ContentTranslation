@@ -22,7 +22,7 @@
 	"cx-dashboard-header": "翻译",
 	"cx-javascript": "此工具在没有JavaScript的情况下不能工作。JavaScript已禁用、无法工作或该浏览器不支持JavaScript。",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|内容翻译]]是一个快速翻译页面至您的语言的工具。[$1 现在尝试！]",
-	"cx-license-agreement": "点击“$1”按钮，即表示您同意[//wikimediafoundation.org/wiki/Terms_of_Use 使用条款]，并同意采用[https://creativecommons.org/licenses/by-sa/3.0/deed.zh CC BY-SA 3.0]和[//zh.wikipedia.org/wiki/Wikipedia:GFDL GFDL]不可撤回地发表您通过翻译工具做出的贡献，并了解使用超链接或URL充分符合CC BY-SA 3.0中的署名要求。",
+	"cx-license-agreement": "点击“$1”按钮，即表示您同意[//foundation.wikimedia.org/wiki/Terms_of_Use 使用条款]，并同意采用[https://creativecommons.org/licenses/by-sa/3.0/deed.zh CC BY-SA 3.0]和[//zh.wikipedia.org/wiki/Wikipedia:GFDL GFDL]不可撤回地发表您通过翻译工具做出的贡献，并了解使用超链接或URL充分符合CC BY-SA 3.0中的署名要求。",
 	"cx-error-server-connection": "错误：无法连接至服务器。",
 	"cx-desc": "使[[Special:ContentTranslation|翻译]]内容页面更加容易",
 	"cx-header-progressbar-text": "$1%{{PLURAL:$1|已翻译}}",

@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "Μεταφράσεις",
 	"cx-javascript": "Αυτό το εργαλείο δεν λειτουργεί χωρίς JavaScript. Το JavaScript είναι απενεργοποιημένο, απέτυχε να δουλέψει ή αυτός ο περιηγητής δεν υποστηρίζεται.",
 	"cx-specialpage-enable-betafeature": "Η [[mw:ContentTranslation|Μετάφραση Περιεχομένου]] είναι ένα εργαλείο για γρήγορη μετάφραση σελίδων στη γλώσσα σας. [$1 Δοκιμάστε το τώρα!]",
-	"cx-license-agreement": "Κάνοντας κλικ στο \"$1\" κουμπί συμφωνείτε με το [//wikimediafoundation.org/wiki/Terms_of_Use Όροι Χρήσης] και συμφωνείτε αμετακλήτως να απελευθερώσετε τις συνεισφορές σας με το εργαλείο μετάφρασης υπό την [https://creativecommons.org/licenses/by-sa/3.0/deed.el Άδεια CC BY-SA 3.0] και την [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] με την κατανόηση ότι ένας υπερσύνδεσμος ή URL είναι επαρκή για την αναφορά υπό την CC BY-SA 3.0.",
+	"cx-license-agreement": "Κάνοντας κλικ στο \"$1\" κουμπί συμφωνείτε με το [//foundation.wikimedia.org/wiki/Terms_of_Use Όροι Χρήσης] και συμφωνείτε αμετακλήτως να απελευθερώσετε τις συνεισφορές σας με το εργαλείο μετάφρασης υπό την [https://creativecommons.org/licenses/by-sa/3.0/deed.el Άδεια CC BY-SA 3.0] και την [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] με την κατανόηση ότι ένας υπερσύνδεσμος ή URL είναι επαρκή για την αναφορά υπό την CC BY-SA 3.0.",
 	"cx-error-server-connection": "Σφάλμα: δεν ήταν δυνατή η σύνδεση με το διακομιστή.",
 	"cx-desc": "Καθιστά εύκολη την [[Special:ContentTranslation|μετάφραση]] σελίδων περιεχομένου",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|μεταφρασμένο}}",

@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "Prevodi",
 	"cx-javascript": "Orodje ne deluje brez JavaScripta. JavaScript je onemogočen, ne deluje ali pa brskalnik ni podprt.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Wikiprevajalec]] je orodje za hitro prevajanje strani v svoj jezik. [$1 Preizkusi ga zdaj!]",
-	"cx-license-agreement": "S klikom na gumb \"$1\" se strinjaš s [//wikimediafoundation.org/wiki/Terms_of_Use Pogoji uporabe] in nepreklicno soglašaš z objavo svojih prispevkov, narejenih s Wikiprevajalcem, pod dovoljenjema [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] in [//sl.wikisource.org/wiki/GFDL GFDL].",
+	"cx-license-agreement": "S klikom na gumb \"$1\" se strinjaš s [//foundation.wikimedia.org/wiki/Terms_of_Use Pogoji uporabe] in nepreklicno soglašaš z objavo svojih prispevkov, narejenih s Wikiprevajalcem, pod dovoljenjema [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] in [//sl.wikisource.org/wiki/GFDL GFDL].",
 	"cx-error-server-connection": "Napaka: ne morem se povezati s strežnikom.",
 	"cx-desc": "Omogoča enostavno [[Special:ContentTranslation|prevajanje]] strani",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

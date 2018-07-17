@@ -8,7 +8,7 @@
 	"cx": "مخ ژباړل",
 	"cx-dashboard-header": "ژباړې",
 	"cx-javascript": "دا اوزار د جاواسکرېپټ پرته کار نه کوي.",
-	"cx-license-agreement": "د \"$1\" تڼۍ په کېښکاږلو سره، تاسې د [//wikimediafoundation.org/wiki/Terms_of_Use کارولو شرطونه] منلي او تاسې دا هم منلي چې د ژباړې اوزارونو له لارې ستاسې ټولې ونډې د [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 منښتليک] او د [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL منښتليک] له مخې خپرېږي او تاسې په دې پوهېږۍ چې يوه تړنه يا URL د CC BY-SA 3.0 سره د اړوندېدلو لپاره بس ده.",
+	"cx-license-agreement": "د \"$1\" تڼۍ په کېښکاږلو سره، تاسې د [//foundation.wikimedia.org/wiki/Terms_of_Use کارولو شرطونه] منلي او تاسې دا هم منلي چې د ژباړې اوزارونو له لارې ستاسې ټولې ونډې د [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 منښتليک] او د [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL منښتليک] له مخې خپرېږي او تاسې په دې پوهېږۍ چې يوه تړنه يا URL د CC BY-SA 3.0 سره د اړوندېدلو لپاره بس ده.",
 	"cx-error-server-connection": "تېروتنه: پالنگر سره اړيکه جوړه نه شوه.",
 	"cx-desc": "د مخونو د مېنځپانگې ژباړه آسانه کوي",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ژباړل شوی}}",

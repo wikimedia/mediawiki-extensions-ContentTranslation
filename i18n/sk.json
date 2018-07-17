@@ -13,7 +13,7 @@
 	"cx-dashboard-header": "Preklady",
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je vypnutý alebo zlyhal alebo prehliadač nie je podporovaný.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] je nástroj na rýchle prekladanie článkov do Vášho jazyka. [$1 Vyskúšajte si ho hneď!]",
-	"cx-license-agreement": "Stlačením tlačidla „$1“ súhlasíš s [//wikimediafoundation.org/wiki/Terms_of_Use Podmienkami použitia] a neodvolateľne súhlasíš, že svoje príspevky vložené pomocou prekladacieho nástroja budeš zverejňovať pod [https://creativecommons.org/licenses/by-sa/3.0/ licenciou CC BY-SA 3.0] a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s tým, že uvedenie hypertextového odkazu alebo URL adresy je dostatočným splnením podmienok CC BY-SA 3.0.",
+	"cx-license-agreement": "Stlačením tlačidla „$1“ súhlasíš s [//foundation.wikimedia.org/wiki/Terms_of_Use Podmienkami použitia] a neodvolateľne súhlasíš, že svoje príspevky vložené pomocou prekladacieho nástroja budeš zverejňovať pod [https://creativecommons.org/licenses/by-sa/3.0/ licenciou CC BY-SA 3.0] a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s tým, že uvedenie hypertextového odkazu alebo URL adresy je dostatočným splnením podmienok CC BY-SA 3.0.",
 	"cx-error-server-connection": "Chyba: nepodarilo sa pripojiť k serveru.",
 	"cx-desc": "Zjednodušuje [[Special:ContentTranslation|preklad]] obsahu stránok",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|preložené}}",

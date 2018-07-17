@@ -13,7 +13,7 @@
 	"cx-dashboard-header": "Traductiones",
 	"cx-javascript": "Iste instrumento non functiona sin JavaScript. JavaScript es disactivate, non functionava, o iste navigator non es supportate.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] es un instrumento pro le traduction rapide de paginas in tu lingua. [$1 Essaya lo ora!]",
-	"cx-license-agreement": "Si vos clicca sur le button \"$1\", vos accepta le [//wikimediafoundation.org/wiki/Terms_of_Use conditiones de uso] e vos libera irrevocabilemente vostre contributiones facite con le instrumento de traduction sub le [https://creativecommons.org/licenses/by-sa/3.0/ licentia CC BY-SA 3.0] e le [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] con le intendimento que un hyperligamine o URL suffice pro le attribution exigite per CC BY-SA 3.0.",
+	"cx-license-agreement": "Si vos clicca sur le button \"$1\", vos accepta le [//foundation.wikimedia.org/wiki/Terms_of_Use conditiones de uso] e vos libera irrevocabilemente vostre contributiones facite con le instrumento de traduction sub le [https://creativecommons.org/licenses/by-sa/3.0/ licentia CC BY-SA 3.0] e le [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] con le intendimento que un hyperligamine o URL suffice pro le attribution exigite per CC BY-SA 3.0.",
 	"cx-error-server-connection": "Error: Impossibile connecter al servitor.",
 	"cx-desc": "Rende facile [[Special:ContentTranslation|traducer]] paginas de contento",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traducite}}",

@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "ترجما",
 	"cx-javascript": "ھي اوزار جاوا اسڪرپٽ کانسواءِ ڪم نٿو ڪري. جاوا اسڪرپٽ ناقابلِڪار ٿيل، ڪم ڪرڻ ۾ ناڪام، يا ھي جھانگو اڻسپورٽڊ آھي.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|مواد جو ترجمو]] پنھنجي ٻوليءِ ۾ تڪڙا صفحا ترجمو ڪرڻ لاءِ ھڪ اوزا آھي. [$1 انکي ھاڻي آزمايو!]",
-	"cx-license-agreement": "\"$1\" بٽڻ تي ٽڙڪ ڪرڻ سان، توھان [//wikimediafoundation.org/wiki/Terms_of_Use استعمال جي شرطن] سان راضي ٿيو ٿا ۽ توھان ترجمي جي اوزار سان irrevocably پنھنجون ڀاڱيداريون [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 لائسنس] ۽ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] جي تحت راضگيءَ سان ڪريو ٿا اھا سمجھ رکندي تہ ھڪ ھائپرلنڪ يا يوآرايل کوڙ آھي CC BY-SA 3.0 انتساب لاءِ.",
+	"cx-license-agreement": "\"$1\" بٽڻ تي ٽڙڪ ڪرڻ سان، توھان [//foundation.wikimedia.org/wiki/Terms_of_Use استعمال جي شرطن] سان راضي ٿيو ٿا ۽ توھان ترجمي جي اوزار سان irrevocably پنھنجون ڀاڱيداريون [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 لائسنس] ۽ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] جي تحت راضگيءَ سان ڪريو ٿا اھا سمجھ رکندي تہ ھڪ ھائپرلنڪ يا يوآرايل کوڙ آھي CC BY-SA 3.0 انتساب لاءِ.",
 	"cx-error-server-connection": "خرابي:سرور سان ڳنڍي نہ سگھيو.",
 	"cx-desc": "انکي موادي صفحا [[Special:ContentTranslation|ترجمو]] ڪرڻ لاءِ آسان بڻايو",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ترجموٿيل}}",

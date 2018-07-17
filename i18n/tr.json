@@ -26,7 +26,7 @@
 	"cx": "Sayfayı çevir",
 	"cx-dashboard-header": "Çeviriler",
 	"cx-javascript": "Bu araç JavaScript olmadan çalışmaz. JavaScript devredışı, çalıştırılamadı veya bu tarayıcı desteklenmiyor.",
-	"cx-license-agreement": "\"$1\" tuşuna basarak, [//wikimediafoundation.org/wiki/Terms_of_Use Kullanım Şartları]'nı onayladığınızı ve çeviri aracı ile yaptığınız katkılarınızı, hyperlink veya URL atıfının yeterli olacağının bilincinde olarak, gayrikabil-i rücu, [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ile serbest bıraktığınızı beyan ediyorsunuz.",
+	"cx-license-agreement": "\"$1\" tuşuna basarak, [//foundation.wikimedia.org/wiki/Terms_of_Use Kullanım Şartları]'nı onayladığınızı ve çeviri aracı ile yaptığınız katkılarınızı, hyperlink veya URL atıfının yeterli olacağının bilincinde olarak, gayrikabil-i rücu, [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ile serbest bıraktığınızı beyan ediyorsunuz.",
 	"cx-error-server-connection": "Hata: Sunucuya bağlanılamadı.",
 	"cx-desc": "İçerik sayfalarını [[Özel:ContentTranslation|çevirmeyi]] kolaylaştırır",
 	"cx-header-progressbar-text": "%$1 {{PLURAL:$1|çevrildi}}",

@@ -17,7 +17,7 @@
 	"cx-dashboard-header": "Çarnayışi",
 	"cx-javascript": "Ena halet bê JavaScript nêgurweyêna",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Açarnayışo Zerrek ]] yewna zıwan ra pela çerx kerdışa zıwan de xorê yu haleta. [$1 enewke bıcerebne!]",
-	"cx-license-agreement": "\"$1\" bıploğnê se şıma [//wikimediafoundation.org/wiki/Terms_of_Use şertanê karkerdışi] tesdiq u haceta açarnayışiya iştirağanê xo hyperlink  yana rayda URL'ya bes kerdışi [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ya serbest kerdışi beyan kenê.",
+	"cx-license-agreement": "\"$1\" bıploğnê se şıma [//foundation.wikimedia.org/wiki/Terms_of_Use şertanê karkerdışi] tesdiq u haceta açarnayışiya iştirağanê xo hyperlink  yana rayda URL'ya bes kerdışi [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ya serbest kerdışi beyan kenê.",
 	"cx-error-server-connection": "Xeta:Arderiya irtibat nêbı",
 	"cx-desc": "[[Special:ContentTranslation|Açarnayış]]ê Zerreki açarnayışi keno rehat",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|açarneyê}}",

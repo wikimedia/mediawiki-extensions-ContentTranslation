@@ -17,7 +17,7 @@
 	"cx-dashboard-header": "Vertimai",
 	"cx-javascript": "Šis įrankis neveikia be JavaScript. JavaScript yra išjungtas, nesuveikė arba ši naršyklė nėra palaikoma.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Turinio Vertėjas]] - įrankis greitam puslapių vertimui į jūsų kalbą. [$1 Išbandykite dabar!]",
-	"cx-license-agreement": "Spausdami \"$1\" mygtuką, jūs sutinkate su  [//wikimediafoundation.org/wiki/Terms_of_Use naudojimo sąlygomis] ir neatšaukiamai sutinkate platinti savo įnašą su vertimo priemone pagal [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 licenciją] ir [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] suprasdamas, kad URL nuoroda yra pakankama CC BY-SA 3.0 priskyrimui.",
+	"cx-license-agreement": "Spausdami \"$1\" mygtuką, jūs sutinkate su  [//foundation.wikimedia.org/wiki/Terms_of_Use naudojimo sąlygomis] ir neatšaukiamai sutinkate platinti savo įnašą su vertimo priemone pagal [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 licenciją] ir [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] suprasdamas, kad URL nuoroda yra pakankama CC BY-SA 3.0 priskyrimui.",
 	"cx-error-server-connection": "Klaida: nepavyko prisijungti prie serverio.",
 	"cx-desc": "Leidžia lengvai [[Special:ContentTranslation|versti]] puslapių turinį",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|išversta}}",

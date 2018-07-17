@@ -13,7 +13,7 @@
 	"cx": "پەڕە وەربگێڕە",
 	"cx-dashboard-header": "وەرگێڕانەکان",
 	"cx-javascript": "ئەم ئامرازە بەبێ JavaScript ئیش ناکات.",
-	"cx-license-agreement": "بە کلیک کردنی دوگمەی «$1»، [//wikimediafoundation.org/wiki/Terms_of_Use مەرجەکانی بەکارھێنان] قبووڵ دەکەیت و بەبێ گەڕانەوە پابەند دەبیت کە ئەو بەشدارییانە بە ئامرازی وەرگێڕان کردووتە لەژێر [https://creativecommons.org/licenses/by-sa/3.0/ مۆڵەتنامەی CC BY-SA 3.0] و [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] بڵاو بکەیتەوە بە تێ گەیشتنی ئەوەی کە یەک ھایپەرلینک یان URL بۆ دانەپاڵی CC BY-SA 3.0 سەرومڕ دەبێت.",
+	"cx-license-agreement": "بە کلیک کردنی دوگمەی «$1»، [//foundation.wikimedia.org/wiki/Terms_of_Use مەرجەکانی بەکارھێنان] قبووڵ دەکەیت و بەبێ گەڕانەوە پابەند دەبیت کە ئەو بەشدارییانە بە ئامرازی وەرگێڕان کردووتە لەژێر [https://creativecommons.org/licenses/by-sa/3.0/ مۆڵەتنامەی CC BY-SA 3.0] و [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] بڵاو بکەیتەوە بە تێ گەیشتنی ئەوەی کە یەک ھایپەرلینک یان URL بۆ دانەپاڵی CC BY-SA 3.0 سەرومڕ دەبێت.",
 	"cx-error-server-connection": "ھەڵە: نەکرا لەگەڵ سێرڤەردا پەیوەندی بکرێت.",
 	"cx-desc": "وەرگێڕانی وتارەکان ئاسان دەکاتەوە",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|وەرگێڕراوە}}",

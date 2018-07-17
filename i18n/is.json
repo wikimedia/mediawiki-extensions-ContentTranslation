@@ -11,7 +11,7 @@
 	"cx": "Þýða síðu",
 	"cx-dashboard-header": "Þýðingar",
 	"cx-javascript": "Þetta verkfæri virkar ekki ef slökkt er á JavaScript. JavaScript er óvirkt, virkaði ekki, eða að þessi vafri er ekki studdur.",
-	"cx-license-agreement": "Með því að smella á „$1“-hnappinn samþykkir þú notendaskilmálana [//wikimediafoundation.org/wiki/Terms_of_Use Terms of Use] og þú samþykkir óafturkræft að framlög þín gerð með þýðingarverkfærinu verði gefin út undir leyfunum [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] og að tengill eða vefslóð uppfylli kröfur CC BY-SA 3.0-leyfisins um tilvitnun.",
+	"cx-license-agreement": "Með því að smella á „$1“-hnappinn samþykkir þú notendaskilmálana [//foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] og þú samþykkir óafturkræft að framlög þín gerð með þýðingarverkfærinu verði gefin út undir leyfunum [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] og að tengill eða vefslóð uppfylli kröfur CC BY-SA 3.0-leyfisins um tilvitnun.",
 	"cx-error-server-connection": "Villa: tókst ekki að tengjast þjóninum.",
 	"cx-desc": "Auðveldar [[Special:ContentTranslation|þýðingu]] síðna með innihaldi",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|þýtt}}",

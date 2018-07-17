@@ -19,7 +19,7 @@
 	"cx-dashboard-header": "Oversettelser",
 	"cx-javascript": "Dette verktøyet virker ikke uten JavaScript. JavaScript er slått av eller virket ikke, eller nettleseren din støttes ikke.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Innholdsoversettelse]] er et verktøy for å raskt oversette sider til ditt språk. [$1 Prøv det nå!]",
-	"cx-license-agreement": "Ved å klikke på «$1»-knappen godtar du [//wikimediafoundation.org/wiki/Terms_of_Use bruksvilkårene] og du samtykker ugjenkallelig til å frigi bidragene dine gjort med dette oversettelsesverktøyet under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], inneforstått med at en hyperlenke eller URL er tilstrekkelig kreditering under CC BY-SA 3.0.",
+	"cx-license-agreement": "Ved å klikke på «$1»-knappen godtar du [//foundation.wikimedia.org/wiki/Terms_of_Use bruksvilkårene] og du samtykker ugjenkallelig til å frigi bidragene dine gjort med dette oversettelsesverktøyet under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 lisensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], inneforstått med at en hyperlenke eller URL er tilstrekkelig kreditering under CC BY-SA 3.0.",
 	"cx-error-server-connection": "Feil: Kunne ikke koble til tjener.",
 	"cx-desc": "Gjør det enkelt å [[Special:ContentTranslation|oversette]] innholdssider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oversatt}}",

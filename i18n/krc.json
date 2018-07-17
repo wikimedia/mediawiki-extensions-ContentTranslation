@@ -9,7 +9,7 @@
 	"cx": "Бетни кёчюрюу",
 	"cx-dashboard-header": "Кёчюрюуле",
 	"cx-javascript": "Бу адыр JavaScript'сиз ишлемейди.",
-	"cx-license-agreement": "«$1» тиекден басханлай сиз [//wikimediafoundation.org/wiki/Terms_of_Use Хайырланыу шартла] бла разы боласыз эмда адыр бла этилген къошумугъузну сёзсюз [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] эм [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] лицензиялагъа кёре публикациясына разылыгъыгъызны бересиз, эмда гиперджибериу неда URL бериу — CC BY-SA 3.0 лицензия бла атрибуциягъа джетерлай болгъанын ангылайсыз.",
+	"cx-license-agreement": "«$1» тиекден басханлай сиз [//foundation.wikimedia.org/wiki/Terms_of_Use Хайырланыу шартла] бла разы боласыз эмда адыр бла этилген къошумугъузну сёзсюз [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] эм [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] лицензиялагъа кёре публикациясына разылыгъыгъызны бересиз, эмда гиперджибериу неда URL бериу — CC BY-SA 3.0 лицензия бла атрибуциягъа джетерлай болгъанын ангылайсыз.",
 	"cx-error-server-connection": "Халат: Серверге бла байланалмады.",
 	"cx-desc": "Бетни ичиндегисин тынч кёчюрюрге амал береди",
 	"cx-header-progressbar-text": "Кёчюрмени $1%'и {{PLURAL:$1|этилибди}}",

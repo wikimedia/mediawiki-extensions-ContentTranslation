@@ -11,7 +11,7 @@
 	"cx": "Isalin ang pahina",
 	"cx-dashboard-header": "Mga salinwika",
 	"cx-javascript": "Hindi gumagana ang kagamitang ito nang walang JavaScript.",
-	"cx-license-agreement": "Sa pag-klik ng butong \"$1\", sumasang-ayon ka sa mga [//wikimediafoundation.org/wiki/Terms_of_Use Alituntunin sa Paggamit] at mariin kang sumasang-ayon na ilabas ang iyong mga inambag kasama ng kagamitang pang-salinwika sa ilalim ng [https://creativecommons.org/licenses/by-sa/3.0/ Lisensyang CC BY-SA 3.0] at ng [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] na may kaakibat na pag-unawa na ang hyperlink o URL na sapat para sa atribusyong CC BY-SA 3.0.",
+	"cx-license-agreement": "Sa pag-klik ng butong \"$1\", sumasang-ayon ka sa mga [//foundation.wikimedia.org/wiki/Terms_of_Use Alituntunin sa Paggamit] at mariin kang sumasang-ayon na ilabas ang iyong mga inambag kasama ng kagamitang pang-salinwika sa ilalim ng [https://creativecommons.org/licenses/by-sa/3.0/ Lisensyang CC BY-SA 3.0] at ng [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] na may kaakibat na pag-unawa na ang hyperlink o URL na sapat para sa atribusyong CC BY-SA 3.0.",
 	"cx-error-server-connection": "Kamalian: Hindi makakonekta sa serbidor.",
 	"cx-desc": "Pinapadali ang pagsasalin ng mga pahina ng nilalaman",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|naisalin}}",

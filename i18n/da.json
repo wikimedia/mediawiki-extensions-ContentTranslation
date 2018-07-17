@@ -13,7 +13,7 @@
 	},
 	"cx": "Oversæt side",
 	"cx-javascript": "Dette værktøj ikke virker uden JavaScript.",
-	"cx-license-agreement": "Ved at klikke \"$1\"-knappen accepterer du [//wikimediafoundation.org/wiki/Terms_of_Use Betingelser for brug], og du accepterer uigenkaldeligt i at udgive dine bidrag med oversættelsesværktøjet under [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0-licensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] med den forståelse, at et hyperlink eller en URL-adresse er tilstrækkelig kreditering efter CC-BY-SA 3.0.",
+	"cx-license-agreement": "Ved at klikke \"$1\"-knappen accepterer du [//foundation.wikimedia.org/wiki/Terms_of_Use Betingelser for brug], og du accepterer uigenkaldeligt i at udgive dine bidrag med oversættelsesværktøjet under [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0-licensen] og [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] med den forståelse, at et hyperlink eller en URL-adresse er tilstrækkelig kreditering efter CC-BY-SA 3.0.",
 	"cx-error-server-connection": "Fejl: Kunne ikke forbinde til serveren.",
 	"cx-desc": "Gør det nemt at oversætte indholdssider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oversat}}",

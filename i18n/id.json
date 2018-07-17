@@ -20,7 +20,7 @@
 	"cx-dashboard-header": "Terjemahan",
 	"cx-javascript": "Alat ini tidak dapat bekerja tanpa JavaScript. JavaScript dinonaktifkan, gagal berfungsi, atau peramban ini tidak mendukung.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Terjemahan Konten]] adalah alat untuk menerjemahkan halaman dengan cepat ke bahasa Anda. [$1 Coba sekarang!]",
-	"cx-license-agreement": "Dengan mengeklik tombol \"$1\", Anda menyatakan setuju pada [//wikimediafoundation.org/wiki/Terms_of_Use Ketentuan Penggunaan] dan Anda secara tetap setuju untuk melepas kontribusi Anda dengan alat terjemahan ini di bawah  [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] dan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL] dengan pemahaman bahwa pemberian pranala atau URL sudah dirasa cukup untuk atribusi CC BY-SA 3.0.",
+	"cx-license-agreement": "Dengan mengeklik tombol \"$1\", Anda menyatakan setuju pada [//foundation.wikimedia.org/wiki/Terms_of_Use Ketentuan Penggunaan] dan Anda secara tetap setuju untuk melepas kontribusi Anda dengan alat terjemahan ini di bawah  [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] dan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL] dengan pemahaman bahwa pemberian pranala atau URL sudah dirasa cukup untuk atribusi CC BY-SA 3.0.",
 	"cx-error-server-connection": "Galat: Tidak dapat terhubung dengan peladen.",
 	"cx-desc": "Mempermudah [[Special:ContentTranslation|penerjemahan]] halaman konten",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|diterjemahkan}}",

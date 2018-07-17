@@ -14,7 +14,7 @@
 	"cx": "Թարգմանիր էջը",
 	"cx-dashboard-header": "Թարգմանություններ",
 	"cx-javascript": "Այս գործիքը չի աշխատում առանց JavaScript-ի։",
-	"cx-license-agreement": "Սեղմելով «$1» կոճակը, Դուք ընդունում եք  [//wikimediafoundation.org/wiki/Terms_of_Use օգտագործման պայմանները] և անվերապահորեն համաձայնվում թողարկել թարգմանության գործիքով Ձեր կատարած ներդրումը [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 լիցենզիայով] և [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]՝ ընդունելով, որ հիպերհղումը կամ URL-ն բավական է CC BY-SA 3.0-ի համար։",
+	"cx-license-agreement": "Սեղմելով «$1» կոճակը, Դուք ընդունում եք  [//foundation.wikimedia.org/wiki/Terms_of_Use օգտագործման պայմանները] և անվերապահորեն համաձայնվում թողարկել թարգմանության գործիքով Ձեր կատարած ներդրումը [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 լիցենզիայով] և [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]՝ ընդունելով, որ հիպերհղումը կամ URL-ն բավական է CC BY-SA 3.0-ի համար։",
 	"cx-error-server-connection": "Սխալ. չհաջողվեց միանալ սերվերին:",
 	"cx-desc": "Թույլ է տալիս հեշտությամբ թարգմանել էջերի բովանդակությունը:",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Թարգմանված է}} $1%",

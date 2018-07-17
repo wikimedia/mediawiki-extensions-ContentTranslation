@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "भाषांतरे",
 	"cx-javascript": "हे उपकरण 'जावास्क्रिप्ट' शिवाय काम करीत नाही.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|आशय भाषांतर]] हे असे उपकरण आहे जे, पाने आपल्या भाषेत जलदरित्या भाषांतरीत करते.[$1 आता वापरुन बघा!]",
-	"cx-license-agreement": "\"$1\" कळ टिचकण्याने,आपण [//wikimediafoundation.org/wiki/Terms_of_Use वापरण्याच्या अटी] मान्य करता व आपण, भाषांतर उपकरणाचे साह्याने केलेल्या आपल्या योगदानाचे , न परताव्याच्या अटींवर, [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 परवाना] व [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जीडीएफएल] या अंतर्गत विमोचन करता,या आकलनानुसार कि,CC BY-SA 3.0 साठी एक हायपरलिंक किंवा यूआरएल हे पुरेसे श्रेय आहे.",
+	"cx-license-agreement": "\"$1\" कळ टिचकण्याने,आपण [//foundation.wikimedia.org/wiki/Terms_of_Use वापरण्याच्या अटी] मान्य करता व आपण, भाषांतर उपकरणाचे साह्याने केलेल्या आपल्या योगदानाचे , न परताव्याच्या अटींवर, [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 परवाना] व [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जीडीएफएल] या अंतर्गत विमोचन करता,या आकलनानुसार कि,CC BY-SA 3.0 साठी एक हायपरलिंक किंवा यूआरएल हे पुरेसे श्रेय आहे.",
 	"cx-error-server-connection": "त्रुटी: विदागाराशी अनुबंध करु शकलो नाही.",
 	"cx-desc": "आशय पानांचे [[Special:ContentTranslation|भाषांतर]] करण्याचे काम सोपे करते",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|भाषांतर केले}}",

@@ -12,7 +12,7 @@
 	"cx-dashboard-header": "Terjemahan",
 	"cx-javascript": "Peralatan ini tidak berfungsi tanpa JavaScript.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Terjemahan Kandungan]] ialah alat untuk menterjemahkan laman dengan cepat ke bahasa and. [$1 Cuba sekarang!]",
-	"cx-license-agreement": "Dengan mengklik butang \"$1\", anda bersetuju dengan [//wikimediafoundation.org/wiki/Terms_of_Use Syarat-Syarat Penggunaan] dan anda bersetuju, tanpa kebolehan menarik balik, untuk mengeluarkan sumbangan-sumbangan anda dengan alat terjemahan ini di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.ms Lesen CC BY-SA 3.0] dan [//ms.wikipedia.org/wiki/Wikipedia:Teks_Lesen_Pendokumenan_Bebas_GNU GFDL] dengan pemahaman bahawa sebuah pautan atau URL sudah memadai untuk pengiktirafan CC BY-SA 3.0.",
+	"cx-license-agreement": "Dengan mengklik butang \"$1\", anda bersetuju dengan [//foundation.wikimedia.org/wiki/Terms_of_Use Syarat-Syarat Penggunaan] dan anda bersetuju, tanpa kebolehan menarik balik, untuk mengeluarkan sumbangan-sumbangan anda dengan alat terjemahan ini di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.ms Lesen CC BY-SA 3.0] dan [//ms.wikipedia.org/wiki/Wikipedia:Teks_Lesen_Pendokumenan_Bebas_GNU GFDL] dengan pemahaman bahawa sebuah pautan atau URL sudah memadai untuk pengiktirafan CC BY-SA 3.0.",
 	"cx-error-server-connection": "Ralat: Tidak dapat menyambung ke pelayan.",
 	"cx-desc": "Mempermudah [[Special:ContentTranslation|penterjemahan]] laman kandungan",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|diterjemahkan}}",

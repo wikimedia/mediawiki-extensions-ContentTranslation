@@ -22,7 +22,7 @@
 	"cx-dashboard-header": "Переклади",
 	"cx-javascript": "Цей інструмент не працює без JavaScript. JavaScript вимкнено, не вдалося запустити, або ж цей браузер не підтримується.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Переклад вмісту]] — це інструмент для швидкого перекладу сторінок Вашою мовою. [$1 Спробуйте прямо зараз!]",
-	"cx-license-agreement": "Натискаючи кнопку «$1», Ви погоджуєтеся з [//wikimediafoundation.org/wiki/Terms_of_Use Умовами використання] і невідклично погоджуєтеся робити свій внесок в інструменті перекладу під [https://creativecommons.org/licenses/by-sa/3.0/ ліцензією CC BY-SA 3.0] та [//uk.wikipedia.org/wiki/Вікіпедія:Текст_GNU_Free_Documentation_License GFDL], розуміючи, що гіперпосилання чи URL є достатнім вказанням авторства для CC BY-SA 3.0.",
+	"cx-license-agreement": "Натискаючи кнопку «$1», Ви погоджуєтеся з [//foundation.wikimedia.org/wiki/Terms_of_Use Умовами використання] і невідклично погоджуєтеся робити свій внесок в інструменті перекладу під [https://creativecommons.org/licenses/by-sa/3.0/ ліцензією CC BY-SA 3.0] та [//uk.wikipedia.org/wiki/Вікіпедія:Текст_GNU_Free_Documentation_License GFDL], розуміючи, що гіперпосилання чи URL є достатнім вказанням авторства для CC BY-SA 3.0.",
 	"cx-error-server-connection": "Помилка: не вдалося підключитися до сервера.",
 	"cx-desc": "Полегшує [[Special:ContentTranslation|переклад]] статей",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|перекладено}}",

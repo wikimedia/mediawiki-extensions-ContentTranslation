@@ -12,7 +12,7 @@
 	"cx-dashboard-header": "Traduziune",
 	"cx-javascript": "Stu strumento non funziona senza 'o JavaScript.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traduziona 'e Cuntenute]] è nu strumiento pe' puté ffà cchiù semprice 'a traduzione dint'a llengua vosta. [$1 Facite na prova mo mo!]",
-	"cx-license-agreement": "Facenno click 'o buttone \"$1\", accettate tutt' 'e [//wikimediafoundation.org/wiki/Terms_of_Use Térmene 'e Condizione d'uso] e accettate irrevocabilmente 'e lassà 'e cuntribbute vuoste c' 'o strumiento 'e traduzione, ch' 'e licienze [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], int'a consapevolezza ca nu cullegamento ipertestuale o n'URL fosse buono abbastanza pe' ve putè dà attribuzione comme fosse CC BY-SA 3.0.",
+	"cx-license-agreement": "Facenno click 'o buttone \"$1\", accettate tutt' 'e [//foundation.wikimedia.org/wiki/Terms_of_Use Térmene 'e Condizione d'uso] e accettate irrevocabilmente 'e lassà 'e cuntribbute vuoste c' 'o strumiento 'e traduzione, ch' 'e licienze [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] e [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], int'a consapevolezza ca nu cullegamento ipertestuale o n'URL fosse buono abbastanza pe' ve putè dà attribuzione comme fosse CC BY-SA 3.0.",
 	"cx-error-server-connection": "Errore: Nun se può cullegà 'o server.",
 	"cx-desc": "'O facisse semplice 'e [[Special:ContentTranslation|tradurre]] 'e paggene 'e cuntenute",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradotto}}",

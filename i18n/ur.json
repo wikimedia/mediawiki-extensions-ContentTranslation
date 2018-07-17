@@ -19,7 +19,7 @@
 	"cx-dashboard-header": "تراجم",
 	"cx-javascript": "یہ آلہ جاوا اسکرپٹ کے بغیر کام نہیں کرتا۔ اگر آپ کوئی پرانا ویب براؤز استعمال کر رہے ہیں یا آپ کے پاس جاوا اسکرپٹ غیر فعال (ڈس ایبل) ہے، تو یہ کام نہیں کرے گا۔",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|مواد کا ترجمہ]] ایک آلہ جس کے ذریعے صفحات کا آپ کی زبان میں جلدی سے ترجمہ کیا جاسکتا ہے۔ [$1 آزما کے دیکھیے!]",
-	"cx-license-agreement": " \"$1\" بٹن پر کلک کرنے کا مطلب ہے کہ، آپ [//wikimediafoundation.org/wiki/Terms_of_Use استعمال کی شرائط] سے اتفاق کرتے ہیں اور  آپ قطعی طور پر اتفاق کرتے ہیں آپ کی شراکتیں [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 لائسنس] کے تحت جاری کی جائیں اور [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] کے ساتھ مطلب اخذ کرنے کے لیے ایک ہائپر لنک یا یو آر ایل کے لئے کافی CC BY-SA 3.0 انتساب۔",
+	"cx-license-agreement": " \"$1\" بٹن پر کلک کرنے کا مطلب ہے کہ، آپ [//foundation.wikimedia.org/wiki/Terms_of_Use استعمال کی شرائط] سے اتفاق کرتے ہیں اور  آپ قطعی طور پر اتفاق کرتے ہیں آپ کی شراکتیں [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 لائسنس] کے تحت جاری کی جائیں اور [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] کے ساتھ مطلب اخذ کرنے کے لیے ایک ہائپر لنک یا یو آر ایل کے لئے کافی CC BY-SA 3.0 انتساب۔",
 	"cx-error-server-connection": "نقص: سرور سے رابطہ نہیں ہو پارہا ہے",
 	"cx-desc": "اس آلے کے ذریعہ صارفین ایک زبان میں تحریر شدہ صفحات کو کسی دوسری زبان میں مشینی [[Special:ContentTranslation|ترجمہ]] اور دیگر آلات ترجمہ کے ذریعہ ترجمہ کر سکتے ہیں۔",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|translated}} کا ترجمہ مکمل",

@@ -30,7 +30,7 @@
 	"cx-dashboard-header": "번역 문서",
 	"cx-javascript": "이 도구는 자바스크립트 없이 동작하지 않습니다. 자바스크립트를 사용하지 않아 동작하지 않거나 이 브라우저가 지원되지 않습니다.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|내용 번역]]은 당신의 언어로 문서를 신속하게 번역하는 도구입니다. [$1 지금 시도해보세요!]",
-	"cx-license-agreement": "\"$1\" 버튼을 클릭하면, 당신은 [//wikimediafoundation.org/wiki/Terms_of_Use 이용 약관]에 동의하는 것으로 간주됩니다. 또한 CC BY-SA 3.0 저작자 표시에 하이퍼링크나 URL을 이용하는 것이 충분함을 이해하며, 번역 도구를 통한 당신의 기여를 [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 라이선스]와 [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]로 배포하는 것에 동의하는 것으로 간주됩니다. 이 동의는 철회할 수 없습니다.",
+	"cx-license-agreement": "\"$1\" 버튼을 클릭하면, 당신은 [//foundation.wikimedia.org/wiki/Terms_of_Use 이용 약관]에 동의하는 것으로 간주됩니다. 또한 CC BY-SA 3.0 저작자 표시에 하이퍼링크나 URL을 이용하는 것이 충분함을 이해하며, 번역 도구를 통한 당신의 기여를 [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 라이선스]와 [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]로 배포하는 것에 동의하는 것으로 간주됩니다. 이 동의는 철회할 수 없습니다.",
 	"cx-error-server-connection": "오류: 서버에 연결할 수 없습니다.",
 	"cx-desc": "문서의 내용을 [[Special:ContentTranslation|번역]]하기 쉽도록 만듭니다.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|번역됨}}",
