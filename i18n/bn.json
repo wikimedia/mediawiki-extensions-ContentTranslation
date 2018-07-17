@@ -74,7 +74,7 @@
 	"cx-tools-mt-set-default": "পূর্ব-নির্ধারিত হিসেবে রাখুন",
 	"cx-tools-mt-preferred": "পূর্বনির্ধারিত",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
-	"cx-stats-title": "বিষয়বস্তু অনুবাদ পরিসংখ্যান",
+	"cx-stats-title": "বিষয়বস্তু অনুবাদের পরিসংখ্যান",
 	"cx-tools-reference-title": "তথ্যসূত্র",
 	"cx-tools-reference-add": "তথ্যসূত্র যোগ করুন",
 	"cx-tools-reference-remove": "তথ্যসূত্র সরান",
@@ -242,5 +242,7 @@
 	"cx-publish-destination-namespace-main": "নতুন পাতা",
 	"cx-publish-destination-namespace-user": "ব্যক্তিগত খসড়া",
 	"cx-publish-destination-namespace-draft": "সম্প্রদায় খসড়া",
-	"cx-linkcontextitem-title": "সংযোগ"
+	"cx-linkcontextitem-title": "সংযোগ",
+	"cx-linkcontextitem-missing-link-title": "লিঙ্ক অনুপস্থিত",
+	"cx-linkcontextitem-missing-title-description": "এই পাতাটি এখনো বিদ্যমান নয়"
 }
