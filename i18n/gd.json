@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"GunChleoc"
+			"GunChleoc",
+			"Akerbeltz"
 		]
 	},
-	"cx-dashboard-sidebar-title": "{{GENDER:|A bheil}} taic le eadar-theangachadh a dhìth ort?"
+	"cx-dashboard-sidebar-title": "{{GENDER:|A bheil}} taic le eadar-theangachadh a dhìth ort?",
+	"cx-suggestionlist-featured": "Brosnaichte"
 }
