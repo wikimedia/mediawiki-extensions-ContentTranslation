@@ -1,28 +1,7 @@
-@import 'grid/agora-grid.less';
+
 @import 'mediawiki.mixins';
 @import 'mediawiki.ui/variables';
-
-@white: #fff;
-
-@very-narrow: 500px;
-@narrow: 700px;
-@wide: 1200px;
-@max-dashboard-width: 1500px;
-@tools-column-margin: 20px;
-@max-tools-column-width: ( @wide / 3 ) + @tools-column-margin;
-
-@header-bar-height-legacy: 40px;
-@personal-header-height: 2.5em;
-@personal-header-padding: 0.7em;
-
-// This is not a mixin, but common class for CX widgets
-.cx-widget {
-	.mw-ui-grid;
-	color: @colorGray2;
-	background-color: @white;
-	padding-bottom: 50px;
-	font-size: medium;
-}
+@import 'grid/agora-grid.less';
 
 .box-shadow-card() {
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
@@ -138,7 +117,7 @@
 
 .cx-tool-card() {
 	font-size: 0.875em;
-	background-color: @white;
+	background-color: #fff;
 	border-radius: @borderRadius;
 	margin-bottom: 20px;
 	.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );

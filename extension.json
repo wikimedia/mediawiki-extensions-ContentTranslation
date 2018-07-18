@@ -1441,9 +1441,6 @@
 			"scripts": [
 				"mw.cx.init.js"
 			],
-			"styles": [
-				"widgets/common/ext.cx.common.less"
-			],
 			"dependencies": [
 				"ext.cx.model",
 				"ext.cx.sitemapper",

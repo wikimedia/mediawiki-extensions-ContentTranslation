@@ -1,4 +1,5 @@
-@import '../../widgets/common/ext.cx.common.less';
+@import 'mw.cx.mixins.less';
+@import 'mw.cx.variables.less';
 
 .cx-column.cx-column-tools {
 	.mw-ui-one-third;
@@ -76,7 +77,7 @@
 
 	.cx-card:not( :empty ) {
 		.oo-ui-toolbar-position-top > .oo-ui-toolbar-bar {
-			border-radius: 2px;
+			border-radius: @borderRadius;
 			// The parent container has following properties already set.
 			border-bottom: 0;
 			box-shadow: none;

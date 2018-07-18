@@ -1,5 +1,4 @@
-@import '../../widgets/common/ext.cx.common.less';
-@import 'mediawiki.mixins';
+@import '../../ui/styles/mw.cx.mixins.less';
 
 .cx-entrypoint-dialog {
 	max-width: 600px;
@@ -8,7 +7,6 @@
 .cx-entrypoint-dialog__heading {
 	@vertical-margin: 10px;
 	@horizontal-margin: 15px;
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: @vertical-margin @horizontal-margin;
 	font-size: large;
@@ -29,14 +27,12 @@
 }
 
 .cx-entrypoint-dialog__title-label {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 10px 15px 5px 15px;
 	color: @colorGray2;
 }
 
 .cx-entrypoint-dialog__license {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 15px 10px 5px 10px;
 	background-color: @colorGray15;
@@ -46,7 +42,6 @@
 }
 
 .cx-entrypoint-dialog__actions {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 15px 15px 15px 15px;
 	text-align: right;
@@ -58,12 +53,10 @@
 }
 
 .cx-entrypoint-dialog__title-box-block {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	padding: 5px 15px 20px 15px;
 
 	input {
-		.mw-ui-item;
 		.mw-ui-one-whole;
 		padding: 4px 8px;
 		font-size: 1em;

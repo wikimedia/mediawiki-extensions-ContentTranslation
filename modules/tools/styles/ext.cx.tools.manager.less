@@ -1,4 +1,4 @@
-@import '../../widgets/common/ext.cx.common.less';
+@import '../../ui/styles/mw.cx.mixins.less';
 
 .card__section {
 	.mw-ui-grid;
@@ -11,25 +11,21 @@
 }
 
 .card__title-row {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	color: @colorGray7; // TODO Should come from library?
 	font-size: small;
 
 	.card__title {
-		.mw-ui-item;
 		.mw-ui-one-third;
 	}
 
 	.card__title-language-selector {
-		.mw-ui-item;
 		.mw-ui-one-third;
 		float: right;
 		text-align: right;
 	}
 
 	.card__close-button {
-		.mw-ui-item;
 		.mw-ui-one-third;
 		border-left: 1px solid;
 		float: right;

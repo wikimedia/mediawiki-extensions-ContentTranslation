@@ -1,6 +1,5 @@
-@import '../../widgets/common/ext.cx.common.less';
-@import '../../widgets/common/ext.cx.highlight.less';
-@import 'mediawiki.mixins';
+@import '../../ui/styles/mw.cx.mixins.less';
+@import '../../ui/styles/mw.cx.highlight.less';
 
 .cards.link {
 	animation-name: card-show-animation;
@@ -38,12 +37,8 @@
 }
 
 .card__remove-link {
-	@vertical-margin: 10px;
-	@horizontal-margin: 15px;
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	float: none;
-	padding: @vertical-margin @horizontal-margin;
 	padding: 5px 10px 5px 32px;
 	font-size: large;
 	color: @colorGray5;
@@ -58,11 +53,7 @@
 }
 
 .card__add-link {
-	@vertical-margin: 10px;
-	@horizontal-margin: 15px;
-	.mw-ui-item;
 	.mw-ui-one-whole;
-	padding: @vertical-margin @horizontal-margin;
 	padding: 5px 10px 5px 32px;
 	font-size: large;
 	color: @colorGray5;
@@ -76,7 +67,6 @@
 }
 
 .card__link-image-container {
-	.mw-ui-item;
 	.mw-ui-three-tenths;
 	min-height: 125px;
 	background-color: #fff;
@@ -100,17 +90,14 @@
 }
 
 .card__link-info {
-	.mw-ui-item;
 	.mw-ui-seven-tenths;
 	background-color: #fff;
 	padding: 0;
 
 	.card__link-container {
-		.mw-ui-item;
 		.mw-ui-one-whole;
+		.text-ellipsis;
 
-		overflow: hidden;
-		text-overflow: ellipsis;
 		text-align: left;
 		padding: 4px;
 		padding-bottom: 15px;
@@ -119,7 +106,6 @@
 		.card__link-text {
 			color: @colorProgressive;
 			font-size: large;
-			white-space: nowrap;
 		}
 	}
 
@@ -169,7 +155,6 @@
 }
 
 .card__link-instruction {
-	.mw-ui-item;
 	.mw-ui-one-whole;
 	color: @colorGray5;
 	font-size: large;
