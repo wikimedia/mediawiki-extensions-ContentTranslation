@@ -29,7 +29,7 @@
 	"cx-dashboard-header": "Traduções",
 	"cx-javascript": "Esta ferramenta não funciona sem o JavaScript. Ou o JavaScript está desativado, ou não funcionou, ou este browser não é suportado.",
 	"cx-specialpage-enable-betafeature": "O [[mw:ContentTranslation|Tradutor de Conteúdo]] é uma ferramenta que possibilita ao usuário traduzir páginas rapidamente para o seu idioma. [$1 Experimente agora mesmo!]",
-	"cx-license-agreement": "Ao clicar no botão \"$1\", você concorda com as nossas [//foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use Condições de uso] e em, irrevogavelmente, publicar a sua tradução sob as licenças [//creativecommons.org/licenses/by-sa/3.0 CC BY-SA 3.0] e [//pt.wikipedia.org/wiki/Wikipédia:GNU_Free_Documentation_License GFDL], com o entendimento de que um hiperlink ou uma URL é suficiente para a atribuição CC BY-SA 3.0.",
+	"cx-license-agreement": "Ao clicar o botão \"$1\", concorda com as nossas [//foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use Condições de uso] e em, irrevogavelmente, publicar a sua contribuição ao abrigo das licenças [//creativecommons.org/licenses/by-sa/3.0 CC BY-SA 3.0] e [//pt.wikipedia.org/wiki/Wikipédia:GNU_Free_Documentation_License GFDL], no entendimento de que uma hiperligação ou um URL é suficiente para uma atribuição CC BY-SA 3.0.",
 	"cx-error-server-connection": "Erro: Não foi possível conectar ao servidor.",
 	"cx-desc": "Facilita a [[Special:ContentTranslation|tradução]] do conteúdo de páginas",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traduzido}}",
