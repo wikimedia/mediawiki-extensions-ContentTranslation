@@ -18,10 +18,11 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.veTarget = veTarget;
 	this.siteMapper = siteMapper;
 	this.translationView = this.veTarget.translationView;
+
 	// Mixin constructors
 	OO.EventEmitter.call( this );
+
 	// Properties
-	this.translationId = null;
 	this.saveRequest = null;
 	this.failCounter = 0;
 	this.isFailedUnrecoverably = false; // TODO: This is still unused
@@ -31,9 +32,11 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
 	this.savedTargetTitle = this.translation.getTargetTitle();
-	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
+	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.saveTracker = {};
+
+	// Events
 	this.listen();
 };
 
@@ -62,7 +65,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 	// Save when CTRL+S is pressed.
 	// TODO: This should use VE's Trigger/Command system, and be registered with the help dialog
 	document.onkeydown = function ( e ) {
-		// See https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
+		// See https://medium.engineering/the-curious-case-of-disappearing-polish-s-fa398313d4df
 		if ( ( e.metaKey || e.ctrlKey && !e.altKey ) && e.which === 83 ) {
 			this.processSaveQueue();
 			return false;
@@ -82,6 +85,7 @@ ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
 
 /**
  * Save the translation to database
+ *
  * @param {Object} sectionData
  */
 mw.cx.TranslationController.prototype.save = function ( sectionData ) {
@@ -89,9 +93,9 @@ mw.cx.TranslationController.prototype.save = function ( sectionData ) {
 		return;
 	}
 
-	// Keep records keyed by section numbers to avoid duplicates.
+	// Keep records indexed by section numbers to avoid duplicates.
 	// When more than one changes to a single translation unit comes, only
-	// the last one need to consider for saving.
+	// the last one needs to be considered for saving.
 	this.saveQueue[ sectionData.sectionNumber ] = sectionData;
 
 	this.schedule();
@@ -119,12 +123,11 @@ mw.cx.TranslationController.prototype.targetTitleChanged = function () {
 
 /**
  * Process the save queue. Save the changed translation units.
- * @param {boolean} [isRetry] Whether this is a retry or not
- * @fires savestart
- * @fires saveerror
+ *
+ * @param {boolean} [isRetry] Whether this is a retry or not.
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
-	var numOfChangedCategories, params,
+	var numOfChangedCategories, savedSections, params,
 		api = new mw.Api();
 
 	if ( this.noNewChanges() ) {
@@ -138,14 +141,13 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		return;
 	}
 
-	// Starting the real save API call. Fire event so that we can show a progress
-	// indicator in UI.
-	this.emit( 'savestart' );
+	// Starting the real save API call.
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
+
 	if ( this.saveRequest ) {
 		mw.log( '[CX] Aborted active save request' );
 		// This causes failCounter to increase because the in-flight request fails.
-		// The new request we do below will either reset the fail counter on success.
+		// The new request we do below will reset the fail counter on success.
 		// If it does not succeed, the retry timer that was set by the failed request
 		// prevents further saves before the retry has completed successfully or given up.
 		this.saveRequest.abort();
@@ -163,6 +165,8 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		progress: JSON.stringify( this.translation.getProgress() ),
 		cxversion: 2
 	};
+
+	savedSections = Object.keys( this.saveQueue );
 
 	if ( this.targetCategoriesChanged > 0 ) {
 		// Use counter for number of changes in target categories which are attempted to be saved.
@@ -203,10 +207,14 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 				this.targetCategoriesChanged -= numOfChangedCategories;
 			}
 
+			// Remove saved sections from the queue
+			savedSections.forEach( function ( sectionId ) {
+				delete this.saveQueue[ sectionId ];
+			}.bind( this ) );
+
 			// Reset fail counter.
 			if ( this.failCounter > 0 ) {
 				this.failCounter = 0;
-				this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 				mw.log( '[CX] Retry successful. Save succeeded.' );
 			}
 		}.bind( this ) ).fail( function ( errorCode, details ) {
@@ -238,12 +246,13 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 };
 
 /**
- * Find out if there is any "dirty" section translation units
+ * Find out if there is any "dirty" section translation units.
  * Inform about sections not saved to the user.
- * @return {string|undefined} The message to be shown to user
+ *
+ * @return {string|undefined} The message to be shown to the user
  */
 mw.cx.TranslationController.prototype.onPageUnload = function () {
-	if ( this.saveQueue.length ) {
+	if ( Object.keys( this.saveQueue ).length > 0 ) {
 		this.schedule();
 		return mw.msg( 'cx-warning-unsaved-translation' );
 	}
@@ -256,7 +265,6 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 		mw.log( '[CX] Target categories saved.' );
 	}
 
-	this.translationId = saveResult.cxsave.translationid;
 	validations = saveResult.cxsave.validations;
 
 	for ( sectionNumber in this.saveQueue ) {
@@ -266,7 +274,6 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 			continue;
 		}
 
-		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
 		if ( validation && validation.length > 0 ) {
 			// FIXME. Not nice to append the prefix below.
 			section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
@@ -275,25 +282,25 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 				this.onSaveValidation( section, validation );
 			}
 		}
+
+		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
 	}
 
-	this.emit( 'savesuccess' );
 	// Show saved status with a time after last save.
 	clearTimeout( this.saveTimer );
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
+
 	this.saveTimer = setInterval( function () {
 		if ( this.failCounter > 0 ) {
 			// Don't overwrite error message of failure with this timer controlled message.
 			return;
 		}
+
 		minutes++;
 		this.translationView.setStatusMessage(
 			mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
 		);
 	}.bind( this ), 60 * 1000 );
-
-	// Reset the queue
-	this.saveQueue = [];
 };
 
 mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, details ) {
@@ -305,7 +312,7 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 		details.exception = details.exception.toString();
 		details.errorCode = errorCode;
 	}
-	this.emit( 'saveerror' );
+
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
 };
 
@@ -349,7 +356,8 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 };
 
 /**
- * Get the deflated content to save from save queue
+ * Get the deflated content to save from save queue.
+ *
  * @param {Object[]} saveQueue
  * @return {string}
  */
@@ -362,6 +370,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 			records.push( data );
 		} );
 	}.bind( this ) );
+
 	// The cxsave api accept non-deflated content too.
 	// Sometimes it is helpful for testing:
 	// return JSON.stringify( records );
@@ -370,6 +379,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 
 /**
  * Get the records for saving the translation unit.
+ *
  * @param {Object} sectionData
  * @return {Object[]} Objects to save
  */
@@ -440,9 +450,11 @@ mw.cx.TranslationController.prototype.publish = function () {
 
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
+	// Disable categories to prevent editing
 	this.translationView.categoryUI.disableCategoryUI( true );
 
 	this.targetArticle.publish();
+
 	// Scroll to the top of the page, so success/fail messages become visible
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 };
