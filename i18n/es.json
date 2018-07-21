@@ -208,6 +208,7 @@
 	"cx-notification-first-translation": "Felicitaciones por tu primera traducción. Verifica tus contribuciones y encuentra más páginas que traducir.",
 	"cx-notification-tenth-translation": "Felicitaciones por tu décima traducción. Te estás convirtiendo en un traductor experto. ¡Sigue así!",
 	"cx-notification-hundredth-translation": "¡Acabas de hacer 100 traducciones! Un logro notable. Compártelo con otros editores.",
+	"cx-notification-deleted-draft-bundle": "Se {{PLURAL:$1|borró|borraron}} {{PLURAL:$1|$1 traducción|$1 traducciones}} porque su contenido se encontraba desactualizado por más de un año. Puedes comenzar una nueva con contenido actualizado en cualquier momento.",
 	"cx-contributions-link": "Tus contribuciones",
 	"cx-your-translations-link": "{{GENDER:$1|Tus traducciones}}",
 	"cx-translationlist-empty-title": "¿Nada que traducir?",
@@ -264,5 +265,6 @@
 	"cx-publish-destination-namespace-main": "Página nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
-	"cx-linkcontextitem-title": "Enlace"
+	"cx-linkcontextitem-title": "Enlace",
+	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe"
 }
