@@ -470,15 +470,17 @@ class ContentTranslationHooks {
 			],
 		] + $resourcePaths;
 
-		// New CX Tests
+		// CX2 Tests
 		$modules['qunit']['ContentTranslation v2 test suite'] = [
 			'scripts' => [
 				'modules/mw.cx.MachineTranslationService.test.js',
-				'modules/tests/util/mw.cx.util.test.js'
+				'modules/tests/util/mw.cx.util.test.js',
+				'tests/qunit/translation/mw.cx.TranslationTracker.test.js'
 			],
 			'dependencies' => [
 				'ext.cx.sitemapper',
 				'mw.cx.MachineTranslation',
+				'mw.cx.TranslationTracker',
 				'mw.cx.MwApiRequestManager',
 				'mw.cx.util'
 			],

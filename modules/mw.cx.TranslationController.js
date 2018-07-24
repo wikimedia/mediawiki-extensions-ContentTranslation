@@ -34,6 +34,7 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.savedTargetTitle = this.translation.getTargetTitle();
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
 	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
+	this.translationTracker = new mw.cx.TranslationTracker( this.translation, this.veTarget, config );
 	this.saveTracker = {};
 
 	// Events
@@ -50,6 +51,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 	} );
 
 	this.veTarget.connect( this, {
+		surfaceReady: 'onSurfaceReady',
 		saveSection: 'save',
 		publish: 'publish',
 		targetTitleChange: 'onTargetTitleChange'
@@ -162,7 +164,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		sourcetitle: this.translation.getSourceTitle(),
 		title: this.translation.getTargetTitle(),
 		sourcerevision: this.translation.getSourceRevisionId(),
-		progress: JSON.stringify( this.translation.getProgress() ),
+		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
 		cxversion: 2
 	};
 
@@ -536,4 +538,8 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	) {
 		this.veTarget.updateNamespace();
 	}
+};
+
+mw.cx.TranslationController.prototype.onSurfaceReady = function () {
+	this.translationTracker.init();
 };

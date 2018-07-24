@@ -1525,7 +1525,28 @@
 				"mediawiki.api",
 				"mediawiki.user",
 				"mw.cx.dm.Translation",
+				"mw.cx.TranslationTracker",
 				"ve.init.mw.CXTarget"
+			]
+		},
+		"mw.cx.TranslationTracker": {
+			"scripts": [
+				"mw.cx.TranslationTracker.js",
+				"dm/mw.cx.dm.SectionState.js"
+			],
+			"dependencies": [
+				"mw.cx.dm",
+				"mw.cx.dm.Translation",
+				"jquery.uls.data",
+				"mediawiki.language"
+			],
+			"messages":[
+				"cx-mt-abuse-warning-text",
+				"cx-mt-abuse-warning-title",
+				"cx-tools-view-guidelines-link"
+			],
+			"targets": [
+				"desktop"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {
