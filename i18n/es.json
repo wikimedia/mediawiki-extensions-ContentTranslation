@@ -266,5 +266,6 @@
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
 	"cx-linkcontextitem-title": "Enlace",
+	"cx-linkcontextitem-missing-link-title": "Enlace faltante",
 	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe"
 }
