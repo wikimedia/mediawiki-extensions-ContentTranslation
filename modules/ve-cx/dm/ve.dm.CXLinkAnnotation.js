@@ -21,9 +21,6 @@ OO.mixinClass( ve.dm.CXLinkAnnotation, ve.dm.CXTranslationUnitModel );
 
 ve.dm.CXLinkAnnotation.static.name = 'cxLink';
 
-ve.dm.CXLinkAnnotation.static.matchTagNames = [ 'a' ];
-ve.dm.CXLinkAnnotation.static.matchRdfaTypes = [ 'mw:WikiLink' ];
-
 ve.dm.CXLinkAnnotation.static.matchFunction = function ( domElement ) {
 	return domElement.classList.contains( 'cx-link' );
 };

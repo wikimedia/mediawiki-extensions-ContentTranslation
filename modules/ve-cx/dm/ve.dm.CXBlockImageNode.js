@@ -24,8 +24,6 @@ OO.mixinClass( ve.dm.CXBlockImageNode, ve.dm.CXTranslationUnitModel );
 
 ve.dm.CXBlockImageNode.static.name = 'cxBlockImage';
 
-ve.dm.CXBlockImageNode.static.matchTagNames = [ 'figure' ];
-
 // Increase the specificity of class match over the parent class
 ve.dm.CXBlockImageNode.static.matchFunction = function ( node ) {
 	return node.getAttribute( 'rel' ) === 'cx:Figure';
@@ -85,9 +83,10 @@ ve.dm.CXBlockImageNode.static.toDomElements = function ( dataElements, doc, conv
 	return domElements;
 };
 
-// Redefine ve.dm.MWImageNode.static.getMatchRdfaTypes so that this.matchRdfaTypes is really used
 ve.dm.CXBlockImageNode.static.getMatchRdfaTypes = function () {
-	return [ 'cx:Figure', 'mw:Image/Thumb' ];
+	// Parent method
+	var types = ve.dm.CXBlockImageNode.super.static.getMatchRdfaTypes();
+	return [ 'cx:Figure' ].concat( types );
 };
 
 /**
