@@ -47,6 +47,7 @@
 		// to have dependency on translation list for this module. There are some complications as
 		// well with sharing data - we are not sure which module gets initated first.
 		params = {
+			assert: 'user',
 			list: 'contenttranslation',
 			from: this.sourceLanguage,
 			to: this.targetLanguage,

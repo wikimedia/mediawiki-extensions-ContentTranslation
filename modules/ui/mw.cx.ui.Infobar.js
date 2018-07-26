@@ -69,18 +69,7 @@ mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details ) {
  * Show login message.
  */
 mw.cx.ui.Infobar.prototype.showLoginMessage = function () {
-	var currentUri, returnToQueryString, loginUriHref;
-
-	currentUri = new mw.Uri();
-	delete currentUri.query.title;
-	returnToQueryString = currentUri.getQueryString();
-
-	loginUriHref = mw.util.getUrl( 'Special:UserLogin', {
-		returnto: 'Special:ContentTranslation',
-		returntoquery: returnToQueryString
-	} );
-
-	this.showError( mw.message( 'cx-special-login-error', loginUriHref ) );
+	this.showError( mw.message( 'cx-special-login-error', mw.cx.getLoginHref() ) );
 
 	// Do not show the columns
 	// TODO: use events

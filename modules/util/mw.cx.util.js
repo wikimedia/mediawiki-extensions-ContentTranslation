@@ -137,3 +137,18 @@ mw.cx.getParentSectionForSelection = function ( surface, selection ) {
 
 	return section;
 };
+
+/**
+ * @return {string} Login href.
+ */
+mw.cx.getLoginHref = function () {
+	var currentUri = new mw.Uri();
+
+	// Remove the title from return-to query parameters, so duplication is avoided
+	delete currentUri.query.title;
+
+	return mw.util.getUrl( 'Special:UserLogin', {
+		returnto: 'Special:ContentTranslation',
+		returntoquery: currentUri.getQueryString()
+	} );
+};

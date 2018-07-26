@@ -60,6 +60,7 @@
 		}
 
 		params = $.extend( {
+			assert: 'user',
 			list: 'contenttranslation',
 			type: this.type,
 			limit: 15
@@ -69,6 +70,7 @@
 			self.promise = null;
 			self.queryContinue = response.continue;
 			self.hasMore = !!response.continue;
+
 			if ( response.query.contenttranslation.languages ) {
 				self.languages = response.query.contenttranslation.languages;
 			}
@@ -142,8 +144,12 @@
 			self.fillULS();
 
 			self.renderTranslations( translations );
-		} ).fail( function () {
+		} ).fail( function ( error ) {
 			self.promise = null;
+			if ( error === 'assertuserfailed' ) {
+				$( window ).off( 'scroll' );
+				self.showLoginDialog();
+			}
 		} ).always( function () {
 			self.pendingRequests--;
 
@@ -278,6 +284,22 @@
 	CXTranslationList.prototype.hide = function () {
 		this.active = false;
 		this.$translationsList.hide();
+	};
+
+	/**
+	 * Display the modal dialog that lets the user know session has expired.
+	 * Login button is provided and no other action can be taken before user logs in again.
+	 */
+	CXTranslationList.prototype.showLoginDialog = function () {
+		OO.ui.getWindowManager().openWindow( 'message', $.extend( {
+			title: mw.msg( 'cx-lost-session' ),
+			message: mw.msg( 'cx-lost-session-dashboard-lists' ),
+			actions: [
+				{ action: 'login', label: mw.msg( 'login' ), flags: [ 'primary', 'progressive' ] }
+			]
+		} ) ).closed.then( function () {
+			location.href = mw.cx.getLoginHref();
+		} );
 	};
 
 	/**

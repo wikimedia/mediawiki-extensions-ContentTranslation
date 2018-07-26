@@ -170,6 +170,7 @@
 			var i, list, listId, listIds;
 
 			lists = suggestions.lists;
+
 			// Hide empty list, if any
 			if ( self.lists[ emptyListName ] && self.lists[ emptyListName ].$list ) {
 				self.lists[ emptyListName ].$list.hide();
@@ -222,7 +223,11 @@
 				// If both are empty Show empty list information.
 				self.showEmptySuggestionList();
 			}
-		}, function () {
+		}, function ( error ) {
+			if ( error === 'assertuserfailed' ) {
+				self.showLoginDialog();
+			}
+
 			// On fail, show empty list
 			self.showEmptySuggestionList();
 		} );
@@ -238,6 +243,7 @@
 			api = new mw.Api();
 
 		params = {
+			assert: 'user',
 			action: 'query',
 			list: 'contenttranslationsuggestions',
 			from: this.languageFilter.getSourceLanguage(),
@@ -281,6 +287,7 @@
 			};
 		}
 		params = $.extend( {
+			assert: 'user',
 			action: 'query',
 			list: 'contenttranslationsuggestions',
 			listid: list.id,
@@ -829,6 +836,22 @@
 	};
 
 	/**
+	 * Display the modal dialog that lets the user know session has expired.
+	 * Login button is provided and no other action can be taken before user logs in again.
+	 */
+	CXSuggestionList.prototype.showLoginDialog = function () {
+		OO.ui.getWindowManager().openWindow( 'message', $.extend( {
+			title: mw.msg( 'cx-lost-session' ),
+			message: mw.msg( 'cx-lost-session-dashboard-lists' ),
+			actions: [
+				{ action: 'login', label: mw.msg( 'login' ), flags: [ 'primary', 'progressive' ] }
+			]
+		} ) ).closed.then( function () {
+			location.href = mw.cx.getLoginHref();
+		} );
+	};
+
+	/**
 	 * Get the list identifier by its name.
 	 *
 	 * @param  {string} listName List name.
@@ -947,7 +970,12 @@
 			this.lists[ expandedListId ].hasMore !== false &&
 			visibleArea >= triggerPos && scrollTop <= triggerPos
 		) {
-			this.loadItems( this.lists[ expandedListId ] );
+			this.loadItems( this.lists[ expandedListId ] ).fail( function ( error ) {
+				if ( error === 'assertuserfailed' ) {
+					$( window ).off( 'scroll' );
+					this.showLoginDialog();
+				}
+			}.bind( this ) );
 		}
 	};
 
@@ -1083,7 +1111,11 @@
 			for ( i = 0; i < itemsToRemove.length; i++ ) {
 				itemsToRemove[ i ].$element.remove();
 			}
-		} );
+		}, function ( error ) {
+			if ( error === 'assertuserfailed' ) {
+				this.showLoginDialog();
+			}
+		}.bind( this ) );
 	};
 
 	mw.cx.CXSuggestionList = CXSuggestionList;

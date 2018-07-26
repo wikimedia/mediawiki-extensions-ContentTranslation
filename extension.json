@@ -943,6 +943,7 @@
 			"dependencies": [
 				"ext.cx.progressbar",
 				"ext.cx.util",
+				"mw.cx.util",
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"moment",
@@ -954,6 +955,9 @@
 				"oojs-ui-windows"
 			],
 			"messages": [
+				"login",
+				"cx-lost-session",
+				"cx-lost-session-dashboard-lists",
 				"cx-dashboard-header",
 				"cx-discard-translation",
 				"cx-continue-translation",
@@ -980,6 +984,7 @@
 			"dependencies": [
 				"ext.cx.recommendtool.client",
 				"ext.cx.util",
+				"mw.cx.util",
 				"ext.cx.widgets.overlay",
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
@@ -992,8 +997,11 @@
 			],
 			"messages": [
 				"ellipsis",
+				"login",
 				"cx-campaign-research-invitation",
 				"cx-campaign-research-participate",
+				"cx-lost-session",
+				"cx-lost-session-dashboard-lists",
 				"cx-suggestionlist-collapse",
 				"cx-suggestionlist-empty-desc",
 				"cx-suggestionlist-empty-title",
@@ -1787,7 +1795,8 @@
 			],
 			"dependencies": [
 				"mw.cx.ui.MessageWidget",
-				"mw.cx.ui"
+				"mw.cx.ui",
+				"mw.cx.util"
 			]
 		},
 		"mw.cx.ui.Columns.legacy": {
