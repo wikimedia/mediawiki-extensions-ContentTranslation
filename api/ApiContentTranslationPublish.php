@@ -153,10 +153,14 @@ class ApiContentTranslationPublish extends ApiBase {
 			$targetURL = $targetTitle->getCanonicalUrl();
 		}
 
+		$html = EasyDeflate::inflate( $params['html'] );
+		if ( !$html->isGood() ) {
+			$this->dieWithError( 'easydeflate-invaliddeflate', 'invaliddeflate' );
+		}
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
 				$targetTitle,
-				ApiVisualEditorEdit::tryDeflate( $params['html'] )
+				$html->getValue()
 			);
 		} catch ( MWException $e ) {
 			$this->dieWithError(
