@@ -508,6 +508,10 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 		include: [ { group: 'structure' } ],
 		demote: [ 'outdent', 'indent' ]
 	},
+	// Placeholder for reference tools (e.g. Cite)
+	{
+		name: 'reference'
+	},
 	// Insert
 	{
 		name: 'extra',
