@@ -447,15 +447,21 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData
 mw.cx.TranslationController.prototype.publish = function () {
 	mw.log( '[CX] Publishing translation...' );
 
+	// Scroll to the top of the page, so success/fail messages become visible
+	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+
+	if ( this.checkForMTAbuse() ) {
+		this.targetArticle.showPublishError( mw.msg( 'cx-mt-abuse-publish-error' ), null, false );
+		// TODO: Elaborate this to an issue card
+		return;
+	}
+
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
 	// Disable categories to prevent editing
 	this.translationView.categoryUI.disableCategoryUI( true );
 
 	this.targetArticle.publish();
-
-	// Scroll to the top of the page, so success/fail messages become visible
-	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 };
 
 mw.cx.TranslationController.prototype.enableEditing = function () {
@@ -539,4 +545,22 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
 	this.translationTracker.init();
+};
+
+/**
+ * Check if the translation has unmodified machine translation over the defined
+ * threshold.
+ * @return {boolean} True if unmodified MT above threshold. False otherwise.
+ */
+mw.cx.TranslationController.prototype.checkForMTAbuse = function () {
+	var mtPercentage, threshold;
+
+	mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
+	threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
+	// threshold is a percentage value. progress.mt is a ratio.
+	if ( mtPercentage > parseFloat( threshold ) ) {
+		return true;
+	}
+
+	return false;
 };

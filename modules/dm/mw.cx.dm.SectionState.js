@@ -40,6 +40,9 @@ mw.cx.dm.SectionState.prototype.getUserTranslationContent = function () {
 };
 
 mw.cx.dm.SectionState.prototype.setUnmodifiedMTContent = function ( content ) {
+	if ( !this.currentMTProvider ) {
+		throw new Error( 'Attempting to set unmodified MT without an MT provider' );
+	}
 	this.unmodifiedMTContent[ this.currentMTProvider ] = content;
 };
 

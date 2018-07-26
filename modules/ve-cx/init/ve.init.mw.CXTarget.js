@@ -445,10 +445,10 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
-	this.emit( 'publish' );
 	this.targetSurface.setDisabled( true );
-	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
+	this.emit( 'publish' );
+	this.updateNamespace();
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {

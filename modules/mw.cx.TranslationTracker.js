@@ -38,7 +38,8 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
  */
 mw.cx.TranslationTracker.prototype.init = function () {
 	var i, sectionNumber, sectionModels, sectionModel, sectionState,
-		savedTranslationUnits, savedTranslationUnit;
+		savedTranslationUnits, savedTranslationUnit, progress,
+		restoredSections = 0;
 
 	sectionModels = this.translationModel.sourceDoc.getNodesByType( 'cxSection' );
 	savedTranslationUnits = this.translationModel.savedTranslationUnits || [];
@@ -56,15 +57,26 @@ mw.cx.TranslationTracker.prototype.init = function () {
 			}
 			if ( savedTranslationUnit.mt ) {
 				// Machine translation, unmodified.
-				sectionState.setUnmodifiedMTContent( $( savedTranslationUnit.mt.content ).text() );
 				sectionState.setCurrentMTProvider( savedTranslationUnit.mt.engine );
+				sectionState.setUnmodifiedMTContent( $( savedTranslationUnit.mt.content ).text() );
 			}
+			restoredSections++;
+			this.validationDelayQueue.push( sectionNumber );
 		}
 
 		this.sections[ sectionNumber ] = sectionState;
 	}
 
-	mw.log( '[CX] Translation tracker initialized for ' + sectionModels.length + ' sections' );
+	mw.log( '[CX] Translation tracker initialized for ' +
+		sectionModels.length + ' sections(' + restoredSections + ' restored)' );
+	if ( restoredSections > 0 ) {
+		progress = this.getTranslationProgress();
+		if ( this.translationModel.progress !== progress ) {
+			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
+				JSON.stringify( this.translationModel.progress ) );
+		}
+		mw.log( '[CX] Restored translation has progress:  ' + JSON.stringify( progress ) );
+	}
 };
 
 /**
@@ -313,12 +325,14 @@ mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel
 
 /**
  * Calculate the percentage of machine translation for all sections.
+ * This is relative to the total number of sections in source.
  *
  * @return {Object} Map of weights
  * @return {number} return.any Weight of sections with content
  * @return {number} return.human Weight of sections with human modified content
  * @return {number} return.mt Weight of sections with unmodified mt content
  * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
+ * @return {number} return.translatedSectionsCount Number of sections translated
  */
 mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 	var sectionNumber, sectionState,
@@ -342,8 +356,12 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 		if ( sectionState.getUnmodifiedMTContent() || sectionState.getUserTranslationContent() ) {
 			// Section with any type of translation
 			sectionsWithAnyTranslation++;
+		} else {
+			// Section not translated at all.
+			continue;
 		}
-		if ( sectionState.getUnmodifiedMTContent() === sectionState.getUserTranslationContent() ) {
+		if ( sectionState.getUnmodifiedMTContent() === sectionState.getUserTranslationContent() ||
+			!sectionState.getUserTranslationContent() ) {
 			// Section with umodified translation
 			sectionsWithUnmodifiedContent++;
 		} else if ( sectionState.getUserTranslationContent() ) {
@@ -356,8 +374,18 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 		any: sectionsWithAnyTranslation / totalSourceSections,
 		human: sectionsWithUserTranslation / totalSourceSections,
 		mt: sectionsWithUnmodifiedContent / totalSourceSections,
-		mtSectionsCount: sectionsWithUnmodifiedContent
+		mtSectionsCount: sectionsWithUnmodifiedContent,
+		translatedSectionsCount: sectionsWithUnmodifiedContent + sectionsWithUserTranslation
 	};
+};
+
+/**
+ * Get unmodified machine translation percentage in total translated content.
+ * @return {Number} Sections wiwht Unmodified MT percentage relative to all translated sections.
+ */
+mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = function () {
+	var progress = this.getTranslationProgress();
+	return ( progress.mtSectionsCount / progress.translatedSectionsCount ) * 100;
 };
 
 /**
