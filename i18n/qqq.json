@@ -272,7 +272,6 @@
 	"cx-publish-destination-namespace-main": "Label for choosing main namespace as publishing destination",
 	"cx-publish-destination-namespace-user": "Label for choosing a page under User namespace as publishing destination",
 	"cx-publish-destination-namespace-draft": "Label for choosing draft namespace as publishing destination",
-	"cx-linkcontextitem-title": "Title for the context item for an adapted link. An \"adapted link\" is a link in the source article, which could be automatically added to the translated article, because the link's target page exists also in the wiki in the target language.\n{{Identical|Link}}",
 	"cx-linkcontextitem-missing-link-title": "Title for the link card when the target title is missing in target language.",
 	"cx-linkcontextitem-missing-title-description": "Description shown for titles in link card when the title is a red link."
 }

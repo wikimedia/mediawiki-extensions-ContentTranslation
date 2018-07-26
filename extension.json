@@ -1363,7 +1363,6 @@
 				"mw.cx.visualEditor.base"
 			],
 			"messages": [
-				"cx-linkcontextitem-title",
 				"cx-linkcontextitem-missing-link-title",
 				"cx-linkcontextitem-missing-title-description"
 			],

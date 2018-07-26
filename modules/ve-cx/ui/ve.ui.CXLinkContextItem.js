@@ -28,8 +28,6 @@ OO.mixinClass( ve.ui.CXLinkContextItem, ve.ui.CXTranslationUnitContextItem );
 
 ve.ui.CXLinkContextItem.static.name = 'cxLink';
 
-ve.ui.CXLinkContextItem.static.label = OO.ui.deferMsg( 'cx-linkcontextitem-title' );
-
 ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
 
 ve.ui.CXLinkContextItem.static.clearIcon = 'trash';
@@ -118,7 +116,7 @@ ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, languag
  */
 ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	var $linkTitle, icon, description, $description, imageUrl, linkHref,
-		targetLinkClasses = 've-ui-cxLinkContextItem-title',
+		targetLinkClasses = 've-ui-mwInternalLinkContextItem-link ve-ui-cxLinkContextItem-title',
 		$wrapper = $( '<div>' ),
 		siteMapper = ve.init.target.siteMapper;
 
@@ -152,6 +150,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	icon = new OO.ui.IconWidget( { icon: 'page-existing' } );
 	$wrapper
 		.addClass( 've-ui-mwInternalLinkContextItem-withImage' )
+		.addClass( 've-ui-mwInternalLinkContextItem-withDescription' )
 		.append( icon.$element );
 
 	$wrapper.append( $linkTitle );
@@ -159,7 +158,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	description = linkInfo.description;
 	if ( description ) {
 		$description = $( '<span>' )
-			.addClass( 've-ui-cxLinkContextItem-description' )
+			.addClass( 've-ui-mwInternalLinkContextItem-description' )
 			.text( description );
 		$wrapper.append( $description );
 		// Multiline descriptions may make the context bigger (T183650)
