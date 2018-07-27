@@ -37,6 +37,16 @@ ve.ui.CXLinkContextItem.static.clearIcon = 'trash';
 /**
  * @inheritdoc
  */
+ve.ui.CXLinkContextItem.prototype.isEditable = function () {
+	var adaptationInfo = this.model.getAttribute( 'cx' );
+	// Parent method
+	return ve.ui.CXLinkContextItem.super.prototype.isEditable.apply( this, arguments ) &&
+		( adaptationInfo.adapted || adaptationInfo.targetTitle );
+};
+
+/**
+ * @inheritdoc
+ */
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	var $sourceLink, $targetLinkCard, markAsMissingButton,
 		markAsMissingInfo,
@@ -66,7 +76,6 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 			adaptationInfo.targetTitle, this.context
 		);
 	} else {
-		this.editButton.toggle();
 		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
 		markAsMissingButton = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
