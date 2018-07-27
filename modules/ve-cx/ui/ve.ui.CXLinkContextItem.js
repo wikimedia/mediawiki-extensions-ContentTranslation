@@ -115,9 +115,9 @@ ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, languag
  * @return {jQuery} The jQuery object of the link context item
  */
 ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
-	var $linkTitle, icon, description, $description, imageUrl, linkHref,
-		targetLinkClasses = 've-ui-mwInternalLinkContextItem-link ve-ui-cxLinkContextItem-title',
+	var icon, description, $description, imageUrl, linkHref,
 		$wrapper = $( '<div>' ),
+		$linkTitle = $( '<a>' ),
 		siteMapper = ve.init.target.siteMapper;
 
 	if ( linkInfo.missing ) {
@@ -128,13 +128,13 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 			linkInfo.sourceLanguage,
 			linkInfo.pagelanguage
 		);
-		targetLinkClasses += ' ve-ui-cxLinkContextItem-title-missing';
+		$linkTitle.addClass( 'new' );
 	} else {
 		linkHref = siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title );
 	}
 
-	$linkTitle = $( '<a>' )
-		.addClass( targetLinkClasses )
+	$linkTitle
+		.addClass( 've-ui-mwInternalLinkContextItem-link ve-ui-cxLinkContextItem-title' )
 		.text( linkInfo.title )
 		.prop( {
 			target: '_blank',
