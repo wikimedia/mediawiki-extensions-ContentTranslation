@@ -98,6 +98,7 @@
 	"cx-mt-abuse-warning-title": "A súa tradución {{PLURAL:$1|contén}} un $1% de texto traducido automaticamente sen modificar",
 	"cx-mt-abuse-warning-text": "A tradución automática é útil só como punto de comezo. Ten que asegurarse de que o contido sexa preciso e de que o texto soe natural na súa lingua.",
 	"cx-publish-captcha-title": "Verificación de que non é un robot",
+	"cx-captcha-dialog-error": "A súa resposta non semella correcta. Por favor, ténteo de novo.",
 	"cx-captcha-dialog-cancel": "Cancelar",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Necesita}} axuda para traducir?",
 	"cx-dashboard-sidebar-information": "Máis información sobre esta ferramenta",
@@ -161,6 +162,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Traducir en vez de escribir desde cero",
 	"cx-campaign-contributionsmenu-might-be-available": "Poida que \"$1\" xa estea dispoñible noutras linguas",
 	"cx-campaign-contributionsmenu-myuploads": "Ficheiros multimedia cargados",
+	"cx-campaign-research-participate": "Participar na investigación",
 	"cx-no-source-categories": "Sen categorías",
 	"cx-no-target-categories": "Sen categorías. Cómpre engadir algunhas pra clasificar mellor o tema.",
 	"cx-no-adapted-categories": "As categorías orixinais non existen nesta lingua. Tente atopar máis categorías pra describir mellor o tema.",
@@ -220,6 +222,7 @@
 	"cx-tools-linter-view-details": "Ver detalles",
 	"cx-tools-linter-hide-details": "Agochar detalles",
 	"cx-tools-linter-empty-title": "A súa tradución precisa dun título",
+	"cx-tools-linter-invalid-character-action": "Arranxar caracteres problemáticos",
 	"cx-tools-linter-page-exists": "A páxina xa existe",
 	"cx-translator-header": "As súas estatísticas",
 	"cx-translator-month-stats-label": "Este mes",
@@ -242,5 +245,6 @@
 	"cx-publish-destination-namespace-user": "Borrador persoal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
 	"cx-linkcontextitem-title": "Ligazón",
+	"cx-linkcontextitem-missing-link-title": "Ligazón faltante",
 	"cx-linkcontextitem-missing-title-description": "Esta páxina aínda non existe"
 }
