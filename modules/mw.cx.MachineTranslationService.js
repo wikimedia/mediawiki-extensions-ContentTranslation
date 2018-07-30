@@ -58,7 +58,7 @@ mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( 
 		}
 	} );
 
-	if ( $content.children().length ) {
+	if ( !$content.children().length ) {
 		$content.append( $( '<p>' ) );
 	}
 
