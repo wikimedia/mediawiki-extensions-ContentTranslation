@@ -373,9 +373,6 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 		} );
 	}.bind( this ) );
 
-	// The cxsave api accept non-deflated content too.
-	// Sometimes it is helpful for testing:
-	// return JSON.stringify( records );
 	return EasyDeflate.deflate( JSON.stringify( records ) );
 };
 
