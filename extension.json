@@ -231,14 +231,12 @@
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.SourcePageSelector",
-				"ext.cx.suggestionlist",
-				"ext.cx.translationlist",
 				"ext.cx.widgets.translator",
 				"ext.uls.mediawiki",
 				"mediawiki.Uri",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
-				"mw.cx.InvitationWidget",
+				"mw.cx.dashboard.lists",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
 				"oojs-ui.styles.icons-editing-core",
@@ -933,35 +931,42 @@
 				"cx-publish-gt-published-description"
 			]
 		},
-		"ext.cx.translationlist": {
+		"mw.cx.dashboard.lists": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"dashboard/ext.cx.translationlist.js"
+				"dashboard/ext.cx.recommendtool.client.js",
+				"dashboard/mw.cx.DashboardList.js",
+				"dashboard/mw.cx.TranslationList.js",
+				"dashboard/mw.cx.SuggestionList.js"
 			],
 			"styles": [
-				"dashboard/styles/ext.cx.translationlist.less"
+				"dashboard/styles/mw.cx.TranslationList.less",
+				"dashboard/styles/mw.cx.SuggestionList.less"
 			],
 			"dependencies": [
-				"ext.cx.progressbar",
-				"ext.cx.util",
-				"mw.cx.util",
-				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"moment",
+				"ext.cx.progressbar",
+				"ext.cx.util",
+				"ext.cx.widgets.overlay",
+				"ext.cx.widgets.spinner",
 				"mediawiki.widgets",
+				"mw.cx.util",
+				"mw.cx.InvitationWidget",
 				"mw.cx.ui.LanguageFilter",
+				"oojs",
+				"oojs-ui-widgets",
+				"oojs-ui-windows",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation",
-				"oojs-ui.styles.icons-editing-core",
-				"oojs-ui-windows"
+				"oojs-ui.styles.icons-editing-core"
 			],
 			"messages": [
+				"ellipsis",
 				"login",
-				"cx-lost-session",
-				"cx-lost-session-dashboard-lists",
+				"cx-continue-translation",
 				"cx-dashboard-header",
 				"cx-discard-translation",
-				"cx-continue-translation",
 				"cx-translation-status-draft",
 				"cx-translation-status-deleted",
 				"cx-translation-status-published",
@@ -971,38 +976,9 @@
 				"cx-draft-cancel-button-label",
 				"cx-draft-discard-button-label",
 				"cx-translationlist-empty-title",
-				"cx-translationlist-empty-desc"
-			]
-		},
-		"ext.cx.suggestionlist": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"dashboard/ext.cx.suggestionlist.js"
-			],
-			"styles": [
-				"dashboard/styles/ext.cx.suggestionlist.less"
-			],
-			"dependencies": [
-				"ext.cx.recommendtool.client",
-				"ext.cx.util",
-				"mw.cx.util",
-				"ext.cx.widgets.overlay",
-				"ext.cx.widgets.spinner",
-				"jquery.uls.data",
-				"mediawiki.widgets",
-				"mw.cx.InvitationWidget",
-				"mw.cx.ui.LanguageFilter",
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-interactions",
-				"oojs-ui.styles.icons-moderation"
-			],
-			"messages": [
-				"ellipsis",
-				"login",
+				"cx-translationlist-empty-desc",
 				"cx-campaign-research-invitation",
 				"cx-campaign-research-participate",
-				"cx-lost-session",
-				"cx-lost-session-dashboard-lists",
 				"cx-suggestionlist-collapse",
 				"cx-suggestionlist-empty-desc",
 				"cx-suggestionlist-empty-title",
@@ -1012,16 +988,9 @@
 				"cx-suggestionlist-refresh",
 				"cx-suggestionlist-empty-desc-recommend-link-text",
 				"cx-suggestionlist-view-source-page",
-				"cx-suggestionlist-title"
-			]
-		},
-		"ext.cx.recommendtool.client": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"dashboard/ext.cx.recommendtool.client.js"
-			],
-			"dependencies": [
-				"ext.cx.model"
+				"cx-suggestionlist-title",
+				"cx-lost-session",
+				"cx-lost-session-dashboard-lists"
 			]
 		},
 		"ext.cx.translation.conflict": {

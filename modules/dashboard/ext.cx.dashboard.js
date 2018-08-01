@@ -218,13 +218,13 @@
 	CXDashboard.prototype.renderTranslations = function () {
 		this.lists.draft = new mw.cx.CXTranslationList(
 			this.$translationListContainer,
-			'draft',
-			this.siteMapper
+			this.siteMapper,
+			'draft'
 		);
 		this.lists.published = new mw.cx.CXTranslationList(
 			this.$translationListContainer,
-			'published',
-			this.siteMapper
+			this.siteMapper,
+			'published'
 		);
 	};
 
