@@ -71,6 +71,7 @@
 	"cx-tools-mt-provider-title": "Sử dụng $1",
 	"cx-tools-mt-dont-use": "Không dịch máy",
 	"cx-tools-mt-set-default": "Duy trì mặc định",
+	"cx-tools-mt-preferred": "mặc định",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 thể loại|0=Không có thể loại}}",
 	"cx-stats-title": "Thống kê Biên dịch nội dung",
 	"cx-tools-reference-title": "Chú thích",
@@ -157,6 +158,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Biên dịch thay vì viết mới",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 có thể có sẵn rồi trong ngôn ngữ khác",
 	"cx-campaign-contributionsmenu-myuploads": "Phương tiện tải lên",
+	"cx-campaign-research-participate": "Tham gia bài nghiên cứu",
 	"cx-no-source-categories": "Không có thể loại",
 	"cx-trend-deletions": "Bản dịch bị xóa",
 	"cx-trend-translations-to": "Các bản dịch sang $1",
@@ -214,6 +216,9 @@
 	"cx-tools-linter-content": "Đã tìm thấy nội dung vi phạm [//www.mediawiki.org/wiki/Content_translation/Abuse_filter các hạn chế được thiết lập bởi cộng đồng Wikipedia trong $1]. Xin vui lòng sửa các vấn đề trước khi xuất bản bản dịch.",
 	"cx-tools-linter-view-details": "Xem chi tiết",
 	"cx-tools-linter-hide-details": "Ẩn chi tiết",
+	"cx-tools-linter-empty-title": "Bản dịch của bạn cần tiêu đề",
+	"cx-tools-linter-invalid-character-action": "Sửa ký tự sai",
+	"cx-tools-linter-page-exists": "Trang đã tồn tại",
 	"cx-translator-header": "Thống kê của bạn",
 	"cx-translator-month-stats-label": "Tháng này",
 	"cx-translator-total-translations-label": "Tổng cộng",
@@ -234,5 +239,7 @@
 	"cx-publish-destination-namespace-main": "Trang mới",
 	"cx-publish-destination-namespace-user": "Bản nháp cá nhân",
 	"cx-publish-destination-namespace-draft": "Bản nháp cộng đồng",
-	"cx-linkcontextitem-title": "Liên kết"
+	"cx-linkcontextitem-title": "Liên kết",
+	"cx-linkcontextitem-missing-link-title": "Liên kết bị thiếu",
+	"cx-linkcontextitem-missing-title-description": "Trang này chưa tồn tại"
 }
