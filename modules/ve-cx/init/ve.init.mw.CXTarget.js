@@ -698,7 +698,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 		cxid = placeholder.getModel().getAttribute( 'cxid' );
 
 	model = placeholder.getModel();
-
+	model.emit( 'beforeTranslation' );
 	this.MTManager.getPreferredProvider().then( function ( provider ) {
 		return this.changeContentSource( model, null, provider );
 	}.bind( this ) ).fail( function () {
@@ -707,8 +707,15 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 			return this.changeContentSource( model, null, provider );
 		}.bind( this ) );
 	}.bind( this ) ).always( function () {
+		var model;
 		$sourceElement = this.getSourceSectionElement( cxid );
 		$sourceElement.removeClass( 'cx-section-highlight' );
+		model = this.getTargetSectionNode( cxid );
+		if ( model ) {
+			model.emit( 'afterTranslation' );
+		} else {
+			mw.log.error( '[CX] No model found after translation for ' + cxid );
+		}
 	}.bind( this ) );
 };
 

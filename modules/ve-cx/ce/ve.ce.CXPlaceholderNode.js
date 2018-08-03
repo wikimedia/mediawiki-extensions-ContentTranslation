@@ -13,24 +13,27 @@
  * @constructor
  */
 ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
-	var button;
-
 	// Parent constructor
 	ve.ce.CXPlaceholderNode.super.apply( this, arguments );
 	ve.ce.FocusableNode.call( this );
 	ve.ce.CXPendingNode.call( this );
 
-	button = new ve.ui.NoFocusButtonWidget( {
+	this.button = new ve.ui.NoFocusButtonWidget( {
 		label: ve.msg( 'cx-translation-add-translation' ),
 		icon: 'add',
 		framed: false
 	} );
-	button.connect( this, { click: 'onFocusableMouseDown' } );
+	this.button.connect( this, { click: 'onFocusableMouseDown' } );
+
+	this.model.connect( this, {
+		beforeTranslation: 'onBeforeTranslation',
+		afterTranslation: 'onAfterTranslation'
+	} );
 
 	this.$element
 		.addClass( 've-ce-cxPlaceholderNode' )
 		.attr( 'id', this.model.getAttribute( 'cxid' ) )
-		.append( button.$element );
+		.append( this.button.$element );
 	this.active = false;
 };
 
@@ -60,12 +63,21 @@ ve.ce.CXPlaceholderNode.prototype.onFocusableMouseDown = function ( e ) {
 
 ve.ce.CXPlaceholderNode.prototype.executeCommand = function () {
 	this.active = true;
-	this.$element.empty();
-	this.setPending( true );
 	this.getDocument().emit( 'activatePlaceholder', this );
 };
 
 ve.ce.CXPlaceholderNode.prototype.createHighlights = function () {
+};
+
+ve.ce.CXPlaceholderNode.prototype.onBeforeTranslation = function () {
+	this.button.toggle( false );
+	this.setPending( true );
+};
+
+ve.ce.CXPlaceholderNode.prototype.onAfterTranslation = function () {
+	this.setPending( false );
+	this.button.toggle( true );
+	this.active = false;
 };
 
 /* Registration */
