@@ -26,7 +26,8 @@
 			"Themasterriot",
 			"MarcoAurelio",
 			"AlimanRuna",
-			"Tiberius1701"
+			"Tiberius1701",
+			"PoLuX124"
 		]
 	},
 	"cx": "Traducir página",
@@ -182,6 +183,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Traduce en vez de escribir desde cero",
 	"cx-campaign-contributionsmenu-might-be-available": "Puede que $1 ya esté disponible en otros idiomas",
 	"cx-campaign-contributionsmenu-myuploads": "Multimedia",
+	"cx-campaign-research-invitation": "<b>Ayuda a mejorar esta herramienta.</b> Queremos que sea más fácil expandir artículos existentes al traducir, y tú puedes ayudarnos con nuestra investigación.",
+	"cx-campaign-research-participate": "Participa en la investigación",
 	"cx-no-source-categories": "No hay categorías",
 	"cx-no-target-categories": "No hay categorías. Considera añadir algunas para clasificar mejor el tema.",
 	"cx-no-adapted-categories": "Las categorías originales no existen en este idioma. Explora más categorías para clasificar mejor el tema.",
@@ -266,7 +269,6 @@
 	"cx-publish-destination-namespace-main": "Página nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
-	"cx-linkcontextitem-title": "Enlace",
 	"cx-linkcontextitem-missing-link-title": "Enlace faltante",
 	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe"
 }

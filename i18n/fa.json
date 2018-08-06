@@ -249,6 +249,5 @@
 	"cx-publish-destination-tooltip": "فضای نامی که در آن صفحه منتشر خواهد شد را برگزینید",
 	"cx-publish-destination-namespace-main": "صفحه جدید",
 	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی",
-	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی",
-	"cx-linkcontextitem-title": "پیوند"
+	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی"
 }

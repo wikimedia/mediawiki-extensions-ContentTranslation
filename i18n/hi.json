@@ -64,7 +64,7 @@
 	"cx-tools-instructions-text1": "अनुवाद के लिए अनुच्छेद पर {{GENDER:|क्लिक करें}}",
 	"cx-tools-instructions-text2": "{{GENDER:|आपको}} उन सभी को जोड़ने की आवश्यकता नहीं है",
 	"cx-tools-instructions-text3": "पाठ को स्वाभाविक रूप से पठनीय {{GENDER:|बनायें}}",
-	"cx-tools-instructions-text4": "यांत्रिक अनुवाद उपयोगी है लेकिन पाठ की परिशुद्धता के लिए {{GENDER:|आपके}} संशोधन करना पड़ेगा।",
+	"cx-tools-instructions-text4": "यांत्रिक अनुवाद उपयोगी है लेकिन पाठ की परिशुद्धता के लिए {{GENDER:|आपको}} संशोधन करना पड़ेगा।",
 	"cx-tools-instructions-text5": "अनुवाद को {{GENDER:|प्रकाशित करें}}",
 	"cx-tools-instructions-text6": "यदि {{GENDER:|आप}} परिणाम से खुश हैं तो \"{{int:cx-publish-button}}\" बटन दबायें।",
 	"cx-tools-searchbox-text": "शब्द खोजें",
@@ -258,7 +258,6 @@
 	"cx-publish-destination-namespace-main": "नया पृष्ठ",
 	"cx-publish-destination-namespace-user": "व्यक्तिगत ड्राफ़्ट",
 	"cx-publish-destination-namespace-draft": "सामुदायिक ड्राफ़्ट",
-	"cx-linkcontextitem-title": "कड़ी",
 	"cx-linkcontextitem-missing-link-title": "लापता कड़ी",
 	"cx-linkcontextitem-missing-title-description": "यह पृष्ठ मौजूद नहीं है।"
 }

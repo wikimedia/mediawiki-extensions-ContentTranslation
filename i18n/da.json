@@ -8,7 +8,8 @@
 			"Amire80",
 			"Ribewiki",
 			"Mads Haupt",
-			"Sarrus"
+			"Sarrus",
+			"Saederup92"
 		]
 	},
 	"cx": "Oversæt side",
@@ -23,7 +24,7 @@
 	"cx-source-view-page": "vis side",
 	"cx-publish-page-success": "Side udgivet på $1",
 	"cx-publish-page-error": "En fejl opstod under udgivelse af oversættelsen. Prøv at udgive siden igen. Fejl: $1",
-	"cx-publish-button": "Udgiv oversættelse",
+	"cx-publish-button": "Udgiv",
 	"cx-publish-button-publishing": "Udgiver...",
 	"cx-publish-summary": "Skabt ved at oversætte siden \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Spørg en erfaren bruger af dette websted om at hjælpe dig med at gennemgå din oversættelse og offentliggøre den i hovedrummet.",
@@ -62,7 +63,7 @@
 	"cx-tools-link-remove": "Fjern henvisning",
 	"cx-tools-mt-title": "Maskinoversættelse",
 	"cx-tools-mt-use-source": "Brug kildeteksten",
-	"cx-tools-mt-provider-title": "Fra $1",
+	"cx-tools-mt-provider-title": "Brug $1",
 	"cx-tools-mt-dont-use": "Brug ikke maskinoversættelse",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Ingen kategorier}}",
 	"cx-stats-title": "Statistik for indholdsoversættelser",
@@ -78,9 +79,11 @@
 	"cx-mt-abuse-warning-title": "Din oversættelse {{PLURAL:$1|indeholder}} $1% uændret maskin-oversat tekst",
 	"cx-mt-abuse-warning-text": "Maskinoversættelser leveres udelukkende som et forslag. Du skal sikre, at indholdet er korrekt og lyder naturligt i dit sprog.",
 	"cx-publish-captcha-title": "Sikkerhedsspørgsmål",
-	"cx-translation-filter-published-translations": "Udgivne oversættelser",
-	"cx-translation-filter-draft-translations": "Igangværende oversættelser",
-	"cx-create-new-translation": "Opret ny oversættelse",
+	"cx-translation-filter-published-translations": "Udgivet",
+	"cx-translation-filter-draft-translations": "Igangværende",
+	"cx-translation-filter-suggested-translations": "Forslag",
+	"cx-suggestionlist-favorite": "Til senere",
+	"cx-create-new-translation": "Ny oversættelse",
 	"cx-save-draft-saving": "Gemmer...",
 	"cx-contributions-new-contributions": "Nyt bidrag",
 	"cx-contributions-new-article": "Ny side",
@@ -90,6 +93,8 @@
 	"cx-translation-status-deleted": "Slettet",
 	"cx-stats-draft-translations-title": "Igangværende oversættelser",
 	"cx-stats-published-translators-title": "Antal oversættere",
+	"cx-stats-cumulative-tab-title": "Samlet",
+	"cx-stats-weekly-trend-tab-title": "Om ugen",
 	"cx-draft-discard-confirmation-message": "Er du sikker på, at du vil slette denne oversættelse permanent?",
 	"cx-draft-cancel-button-label": "Annullér",
 	"cx-draft-discard-button-label": "Slet oversættelse",
@@ -100,5 +105,9 @@
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
 	"cx-campaign-contributionsmenu-mytranslations": "Oversættelser",
 	"cx-campaign-contributionsmenu-myuploads": "Uploadede medier",
-	"cx-trend-translations-to": "Oversættelser til $1"
+	"cx-trend-deletions": "Slettede oversættelser",
+	"cx-trend-translations-to": "Oversættelser til $1",
+	"echo-category-title-cx": "Oversættelser",
+	"cx-personaltools-user": "Bruger",
+	"mw-pageselector-missing": "Siden findes ikke"
 }

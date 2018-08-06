@@ -213,6 +213,5 @@
 	"cx-publish-destination-tooltip": "Alegeți spațiul de nume în care va fi publicată pagina",
 	"cx-publish-destination-namespace-main": "Pagină nouă",
 	"cx-publish-destination-namespace-user": "Ciornă personală",
-	"cx-publish-destination-namespace-draft": "Ciornă comună",
-	"cx-linkcontextitem-title": "Legătură adaptată"
+	"cx-publish-destination-namespace-draft": "Ciornă comună"
 }

@@ -258,7 +258,6 @@
 	"cx-publish-destination-namespace-main": "דף חדש",
 	"cx-publish-destination-namespace-user": "טיוטה אישית",
 	"cx-publish-destination-namespace-draft": "טיוטה קהילתית",
-	"cx-linkcontextitem-title": "קישור",
 	"cx-linkcontextitem-missing-link-title": "חסר קישור",
 	"cx-linkcontextitem-missing-title-description": "דף זה עדיין אינו קיים"
 }

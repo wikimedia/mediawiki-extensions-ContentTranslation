@@ -223,6 +223,5 @@
 	"cx-publish-destination-tooltip": "Pasirinkite vardų sritį, kurioje puslapis bus paskelbtas",
 	"cx-publish-destination-namespace-main": "Naujas puslapis",
 	"cx-publish-destination-namespace-user": "Asmeninis juodraštis",
-	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis",
-	"cx-linkcontextitem-title": "Nuoroda"
+	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis"
 }

@@ -59,7 +59,7 @@
 	"cx-entrypoint-dialog-button-create-from-scratch": "Направи од почетка",
 	"cx-entrypoint-dialog-button-translate-from": "Преведи са $1",
 	"cx-special-login-error": "Морате бити пријављени да бисте преводили у овој страници. [$1 Пријави се]",
-	"cx-tools-instructions-text1": "{{GENDER:|Кликните}} одломак да га преведете",
+	"cx-tools-instructions-text1": "{{GENDER:|Кликните}} на пасус да га преведете",
 	"cx-tools-instructions-text2": "{{GENDER:|Не морате}} да преведете све одломке",
 	"cx-tools-instructions-text3": "{{GENDER:|Превод}} мора бити читљив",
 	"cx-tools-instructions-text4": "Машински превод је користан, али текст {{GENDER:|морате}}  добро прегледати да би превод био тачан.",
@@ -239,7 +239,7 @@
 	"cx-translator-header": "Ваша статистика",
 	"cx-translator-month-stats-label": "Овог месеца",
 	"cx-translator-total-translations-label": "Укупно",
-	"cx-page-old-revision-loaded": "Ово је превод старе верзије садржаја. Изворни чланак је можда [$1 значајно измењен]. Можете наставити са превођењем или почети испочетка превођење нове верзије чланка.",
+	"cx-page-old-revision-loaded": "Овај превод се заснива на старијој верзији садржаја. Изворна страница је можда [$1 значајно промењена]. Можете наставити с превођењем ове верзије или га можете поново започети како бисте користили ажуриран садржај.",
 	"cx-tools-mt-new-provider": "ново",
 	"cx-tools-mt-new-providers-available": "са новим могућностима",
 	"cx-continue-translation": "Наставите превођење",
@@ -256,7 +256,6 @@
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Лични нацрт",
 	"cx-publish-destination-namespace-draft": "Заједнички нацрт",
-	"cx-linkcontextitem-title": "Веза",
 	"cx-linkcontextitem-missing-link-title": "Недостаје веза",
 	"cx-linkcontextitem-missing-title-description": "Страница још увек не постоји"
 }

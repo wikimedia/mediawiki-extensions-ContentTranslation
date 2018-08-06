@@ -242,7 +242,6 @@
 	"cx-publish-destination-namespace-main": "নতুন পাতা",
 	"cx-publish-destination-namespace-user": "ব্যক্তিগত খসড়া",
 	"cx-publish-destination-namespace-draft": "সম্প্রদায় খসড়া",
-	"cx-linkcontextitem-title": "সংযোগ",
 	"cx-linkcontextitem-missing-link-title": "লিঙ্ক অনুপস্থিত",
 	"cx-linkcontextitem-missing-title-description": "এই পাতাটি এখনো বিদ্যমান নয়"
 }

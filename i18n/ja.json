@@ -266,7 +266,6 @@
 	"cx-publish-destination-namespace-main": "新規ページ",
 	"cx-publish-destination-namespace-user": "個人の草稿",
 	"cx-publish-destination-namespace-draft": "コミュニティの草稿",
-	"cx-linkcontextitem-title": "リンク",
 	"cx-linkcontextitem-missing-link-title": "リンク先なし",
 	"cx-linkcontextitem-missing-title-description": "このページはまだ存在しません"
 }

@@ -269,7 +269,6 @@
 	"cx-publish-destination-namespace-main": "새 문서",
 	"cx-publish-destination-namespace-user": "개인 초안",
 	"cx-publish-destination-namespace-draft": "공동체 초안",
-	"cx-linkcontextitem-title": "링크",
 	"cx-linkcontextitem-missing-link-title": "링크가 없음",
 	"cx-linkcontextitem-missing-title-description": "이 문서는 아직 존재하지 않습니다"
 }

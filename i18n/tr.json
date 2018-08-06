@@ -267,7 +267,6 @@
 	"cx-publish-destination-namespace-main": "Yeni sayfa",
 	"cx-publish-destination-namespace-user": "Kişisel taslak",
 	"cx-publish-destination-namespace-draft": "Topluluk taslağı",
-	"cx-linkcontextitem-title": "Bağlantı",
 	"cx-linkcontextitem-missing-link-title": "Eksik bağlantı",
 	"cx-linkcontextitem-missing-title-description": "Bu sayfa henüz mevcut değil"
 }

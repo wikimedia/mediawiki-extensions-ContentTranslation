@@ -274,7 +274,6 @@
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-user": "Личный черновик",
 	"cx-publish-destination-namespace-draft": "Общественный черновик",
-	"cx-linkcontextitem-title": "Ссылка",
 	"cx-linkcontextitem-missing-link-title": "Отсутствующая ссылка",
 	"cx-linkcontextitem-missing-title-description": "Этой страницы ещё не существует"
 }

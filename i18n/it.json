@@ -242,7 +242,6 @@
 	"cx-publish-destination-namespace-main": "Nuova pagina",
 	"cx-publish-destination-namespace-user": "Bozza personale",
 	"cx-publish-destination-namespace-draft": "Bozza comunitaria",
-	"cx-linkcontextitem-title": "Collegamento",
 	"cx-linkcontextitem-missing-link-title": "Collegamento mancante",
 	"cx-linkcontextitem-missing-title-description": "Questa pagina non esiste ancora"
 }

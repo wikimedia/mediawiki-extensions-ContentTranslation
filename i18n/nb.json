@@ -259,7 +259,6 @@
 	"cx-publish-destination-namespace-main": "Ny side",
 	"cx-publish-destination-namespace-user": "Personlig kladd",
 	"cx-publish-destination-namespace-draft": "Felles kladd",
-	"cx-linkcontextitem-title": "Lenke",
 	"cx-linkcontextitem-missing-link-title": "Manglende lenke",
 	"cx-linkcontextitem-missing-title-description": "Denne siden finnes ikke ennå"
 }

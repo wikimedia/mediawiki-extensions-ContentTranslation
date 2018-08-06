@@ -111,8 +111,8 @@
 	"cx-selected-source-page-error-title-in-use": "O título para a nova página [$1 já está em uso]",
 	"cx-page-missing-in-target-language": "Não existe em $1",
 	"cx-page-number-of-languages": "Número de línguas",
-	"cx-mt-abuse-warning-title": "Sua tradução {{PLURAL:$1|contém}} $1% de textos traduzidos automaticamente sem modificações",
-	"cx-mt-abuse-warning-text": "Traduções automáticas são fornecidas somente como um ponto de partida. Você precisa ter certeza de que o conteúdo esteja preciso e naturalmente legível em seu idioma.",
+	"cx-mt-abuse-warning-title": "Sua tradução {{PLURAL:$1|contém}} $1% de textos traduzidos sem modificações",
+	"cx-mt-abuse-warning-text": "A tradução automática é fornecida apenas como ponto de partida. Certifique-se de que o conteúdo seja preciso e leia naturalmente em seu idioma.<br><br>Sua tradução provavelmente será excluída quando for revisada por outros editores.",
 	"cx-publish-captcha-title": "Verificando que você não é um robô",
 	"cx-captcha-dialog-error": "Sua resposta não parece correta. Por favor, tente novamente.",
 	"cx-captcha-dialog-cancel": "Cancelar",
@@ -269,7 +269,7 @@
 	"cx-publish-destination-namespace-main": "Nova página",
 	"cx-publish-destination-namespace-user": "Rascunho pessoais",
 	"cx-publish-destination-namespace-draft": "Rascunho da comunidade",
-	"cx-linkcontextitem-title": "Link",
 	"cx-linkcontextitem-missing-link-title": "Ligação em falta",
-	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe"
+	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
+	"cx-mt-abuse-publish-error": "Sua tradução não pode ser publicada porque contém muito texto não modificado traduzido por máquina"
 }

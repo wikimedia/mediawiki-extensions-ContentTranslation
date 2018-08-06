@@ -219,6 +219,5 @@
 	"cx-translation-template-select-param": "Velja uppruna gilda",
 	"cx-publish-destination-namespace-main": "Ný síða",
 	"cx-publish-destination-namespace-user": "Enkadrög",
-	"cx-publish-destination-namespace-draft": "Sameiginleg drög",
-	"cx-linkcontextitem-title": "Tengill"
+	"cx-publish-destination-namespace-draft": "Sameiginleg drög"
 }

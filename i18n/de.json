@@ -99,8 +99,8 @@
 	"cx-selected-source-page-error-title-in-use": "Der Titel für die neue Seite ist [$1 bereits in Verwendung]",
 	"cx-page-missing-in-target-language": "Fehlt auf $1",
 	"cx-page-number-of-languages": "Anzahl der Sprachen",
-	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten maschinenübersetzten Text",
-	"cx-mt-abuse-warning-text": "Die Maschinenübersetzung wird nur als Startpunkt zur Verfügung gestellt. Du musst sicherstellen, dass sich der Inhalt in deiner Sprache natürlich lesen lässt und dass er korrekt ist.",
+	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten Text",
+	"cx-mt-abuse-warning-text": "Automatische Übersetzungen werden nur als Startpunkt zur Verfügung gestellt. Stelle sicher, dass der Inhalt genau ist und sich in deiner Sprache natürlich lesen lässt.<br><br>Deine Übersetzung wird vermutlich gelöscht, wenn sie von anderen Autoren überprüft wird.",
 	"cx-publish-captcha-title": "Überprüfung, dass du kein Roboter bist.",
 	"cx-captcha-dialog-error": "Deine Antwort scheint nicht richtig zu sein. Bitte erneut versuchen.",
 	"cx-captcha-dialog-cancel": "Abbrechen",
@@ -258,7 +258,7 @@
 	"cx-publish-destination-namespace-main": "Neue Seite",
 	"cx-publish-destination-namespace-user": "Persönlicher Entwurf",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf",
-	"cx-linkcontextitem-title": "Link",
 	"cx-linkcontextitem-missing-link-title": "Fehlender Link",
-	"cx-linkcontextitem-missing-title-description": "Diese Seite ist noch nicht vorhanden"
+	"cx-linkcontextitem-missing-title-description": "Diese Seite ist noch nicht vorhanden",
+	"cx-mt-abuse-publish-error": "Deine Übersetzung kann nicht veröffentlicht werden, da sie zu viel unveränderten maschinenübersetzten Text enthält."
 }

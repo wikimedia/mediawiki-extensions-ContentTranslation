@@ -252,7 +252,6 @@
 	"cx-publish-destination-namespace-main": "Nova stranica",
 	"cx-publish-destination-namespace-user": "Lični nacrt",
 	"cx-publish-destination-namespace-draft": "Zajednički nacrt",
-	"cx-linkcontextitem-title": "Veza",
 	"cx-linkcontextitem-missing-link-title": "Nedostaje veza",
 	"cx-linkcontextitem-missing-title-description": "Stranica još uvek ne postoji"
 }

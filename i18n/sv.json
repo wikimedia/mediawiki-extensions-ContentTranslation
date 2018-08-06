@@ -262,7 +262,6 @@
 	"cx-publish-destination-namespace-main": "Ny sida",
 	"cx-publish-destination-namespace-user": "Personlig skiss",
 	"cx-publish-destination-namespace-draft": "Gemenskapsskiss",
-	"cx-linkcontextitem-title": "Länk",
 	"cx-linkcontextitem-missing-link-title": "Länk saknas",
 	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu."
 }

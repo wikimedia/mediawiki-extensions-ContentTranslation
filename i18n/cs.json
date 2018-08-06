@@ -248,6 +248,5 @@
 	"cx-publish-destination-tooltip": "Zvolte si jmenný prostor, ve kterém bude článek zveřejněný",
 	"cx-publish-destination-namespace-main": "Nová stránka",
 	"cx-publish-destination-namespace-user": "Osobní koncept",
-	"cx-publish-destination-namespace-draft": "Veřejný koncept",
-	"cx-linkcontextitem-title": "Odkaz"
+	"cx-publish-destination-namespace-draft": "Veřejný koncept"
 }

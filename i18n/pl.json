@@ -105,8 +105,8 @@
 	"cx-selected-source-page-error-page-exists": "Strona [$1 już istnieje] w $2",
 	"cx-selected-source-page-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
 	"cx-page-number-of-languages": "Liczba języków",
-	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% maszynowo tłumaczonego niezmienionego tekstu.",
-	"cx-mt-abuse-warning-text": "Tłumaczenie maszynowe jest podawane jedynie jako wzór. Musisz upewnić się, że treść jest dobrze przetłumaczona i brzmi naturalnie w Twoim języku.",
+	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% niezmienionego tekstu.",
+	"cx-mt-abuse-warning-text": "Automatyczne tłumaczenie jest tylko punktem wyjścia. Upewnij się, że treść jest dokładnie przetłumaczona i brzmi naturalnie w Twoim języku.<br><br>Twoje tłumaczenie może zostać usunięte, gdy zostanie sprawdzone przez innych redaktorów.",
 	"cx-publish-captcha-title": "Sprawdzenie czy nie jesteś robotem",
 	"cx-captcha-dialog-error": "Twoja odpowiedź nie wydaje się być poprawna. Spróbuj ponownie.",
 	"cx-captcha-dialog-cancel": "Anuluj",
@@ -248,6 +248,6 @@
 	"cx-translation-template-select-param": "Wybierz docelowe pola",
 	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw, w której strona zostanie opublikowana",
 	"cx-publish-destination-namespace-main": "Nowa strona",
-	"cx-linkcontextitem-title": "Link",
-	"cx-linkcontextitem-missing-link-title": "Brakujący link"
+	"cx-linkcontextitem-missing-link-title": "Brakujący link",
+	"cx-mt-abuse-publish-error": "Twoje tłumaczenie nie może zostać opublikowane, ponieważ zawiera zbyt dużo niezmodyfikowanego tekstu przetłumaczonego maszynowo"
 }

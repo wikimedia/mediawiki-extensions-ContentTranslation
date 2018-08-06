@@ -215,6 +215,5 @@
 	"cx-publish-destination-tooltip": "Kies die naamruimte waarin die bladsy gepubliseer gaan word",
 	"cx-publish-destination-namespace-main": "Nuwe bladsy",
 	"cx-publish-destination-namespace-user": "Persoonlike konsep",
-	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep",
-	"cx-linkcontextitem-title": "Aangepaste skakel"
+	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep"
 }

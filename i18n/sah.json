@@ -223,6 +223,5 @@
 	"cx-publish-destination-tooltip": "Сирэй бэчээттэниэхтээх аатын далын тал",
 	"cx-publish-destination-namespace-main": "Саҥа сирэй",
 	"cx-publish-destination-namespace-user": "Бэйэ баллыра",
-	"cx-publish-destination-namespace-draft": "Уопсай баллыр",
-	"cx-linkcontextitem-title": "Сигэ"
+	"cx-publish-destination-namespace-draft": "Уопсай баллыр"
 }

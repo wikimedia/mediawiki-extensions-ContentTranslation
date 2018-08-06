@@ -225,6 +225,5 @@
 	"cx-publish-destination-tooltip": "Изберете именното пространство, в което страницата ще бъде публикувана",
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Лична чернова",
-	"cx-publish-destination-namespace-draft": "Групова чернова",
-	"cx-linkcontextitem-title": "Пригодена връзка"
+	"cx-publish-destination-namespace-draft": "Групова чернова"
 }

@@ -262,7 +262,6 @@
 	"cx-publish-destination-namespace-main": "Нова сторінка",
 	"cx-publish-destination-namespace-user": "Особиста чернетка",
 	"cx-publish-destination-namespace-draft": "Чернетка спільноти",
-	"cx-linkcontextitem-title": "Посилання",
 	"cx-linkcontextitem-missing-link-title": "Відсутнє посилання",
 	"cx-linkcontextitem-missing-title-description": "Така сторінка ще не існує"
 }

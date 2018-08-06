@@ -245,7 +245,6 @@
 	"cx-publish-destination-namespace-main": "Nieuwe pagina",
 	"cx-publish-destination-namespace-user": "Persoonlijk kladblok",
 	"cx-publish-destination-namespace-draft": "Gezamenlijk kladblok",
-	"cx-linkcontextitem-title": "Koppeling",
 	"cx-linkcontextitem-missing-link-title": "Ontbrekende koppeling",
 	"cx-linkcontextitem-missing-title-description": "Deze pagina bestaat nog niet"
 }

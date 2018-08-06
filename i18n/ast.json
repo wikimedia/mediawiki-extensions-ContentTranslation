@@ -71,6 +71,7 @@
 	"cx-tools-mt-provider-title": "Usar $1",
 	"cx-tools-mt-dont-use": "Nun usar traducción automática",
 	"cx-tools-mt-set-default": "Guardar como predeterminada",
+	"cx-tools-mt-preferred": "predetermináu",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoría|$1 categoríes|0=Nun hai categoríes}}",
 	"cx-stats-title": "Estadístiques de traducción de conteníu",
 	"cx-tools-reference-title": "Referencia",
@@ -91,8 +92,8 @@
 	"cx-selected-source-page-error-title-in-use": "El títulu escoyíu pa la páxina nueva [$1 yá ta n'usu]",
 	"cx-page-missing-in-target-language": "Falta en $1",
 	"cx-page-number-of-languages": "Númberu de llingües",
-	"cx-mt-abuse-warning-title": "La to traducción {{PLURAL:$1|contien}} un $1% de testu de traducción automática que nun se cambió",
-	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida. Tienes d'asegurate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.",
+	"cx-mt-abuse-warning-title": "La traducción {{PLURAL:$1|contien}} un $1% de testu que nun se cambió",
+	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida.Asegúrate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.<br><br>La to traducción podría desaniciase cuando la revisen otros editores.",
 	"cx-publish-captcha-title": "Comprobando que nun yes un robot",
 	"cx-captcha-dialog-error": "La respuesta nun paez correuta. Téntalo otra vegada.",
 	"cx-captcha-dialog-cancel": "Encaboxar",
@@ -159,6 +160,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Traducir en llugar d'escribir desde cero",
 	"cx-campaign-contributionsmenu-might-be-available": "Escurque $1 yá tea disponible n'otres llingües",
 	"cx-campaign-contributionsmenu-myuploads": "Multimedia xubida",
+	"cx-campaign-research-invitation": "<b>Ayuda a ameyorar esta ferramienta.</b> Queremos que sía más fácil espander artículos esistentes al traducir, y tu puedes ayudanos cola investigación.",
+	"cx-campaign-research-participate": "Participa na investigación",
 	"cx-no-source-categories": "Nun hai categoríes",
 	"cx-no-target-categories": "Nun hai categoríes. Considera añadir dalgunes pa clasificar meyor la tema.",
 	"cx-no-adapted-categories": "Les categoríes orixinales nun esisten nesti idioma. Esplora más categoríes pa describir meyor la tema.",
@@ -247,5 +250,7 @@
 	"cx-publish-destination-namespace-main": "Páxina nueva",
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitariu",
-	"cx-linkcontextitem-title": "Enllaz"
+	"cx-linkcontextitem-missing-link-title": "Enllaz que falta",
+	"cx-linkcontextitem-missing-title-description": "Esta páxina inda nun esiste",
+	"cx-mt-abuse-publish-error": "La traducción nun puede publicase porque contien demasiáu testu de traducción automática ensin cambios"
 }

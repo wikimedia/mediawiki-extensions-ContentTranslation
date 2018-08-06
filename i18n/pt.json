@@ -103,8 +103,8 @@
 	"cx-selected-source-page-error-title-in-use": "O título para a nova página já [$1 se encontra em uso]",
 	"cx-page-missing-in-target-language": "Não existe em $1",
 	"cx-page-number-of-languages": "Número de línguas",
-	"cx-mt-abuse-warning-title": "A sua tradução {{PLURAL:$1|contém}} $1% de texto de tradução automática sem modificação",
-	"cx-mt-abuse-warning-text": "Traduções automáticas são usadas apenas como ponto de partida. Certifique-se de que o conteúdo é preciso e flui de forma natural na sua língua.",
+	"cx-mt-abuse-warning-title": "A sua tradução {{PLURAL:$1|contém}} $1% de texto não modificado",
+	"cx-mt-abuse-warning-text": "São fornecidas traduções automáticas apenas como ponto de partida. Certifique-se de que o conteúdo é preciso e flui de forma natural na sua língua.<br><br>É provável que a sua tradução seja eliminada quando for revista por outros editores.",
 	"cx-publish-captcha-title": "A verificar que não é um robô",
 	"cx-captcha-dialog-error": "A sua resposta parece incorreta. Tente novamente, por favor.",
 	"cx-captcha-dialog-cancel": "Cancelar",
@@ -261,7 +261,7 @@
 	"cx-publish-destination-namespace-main": "Página nova",
 	"cx-publish-destination-namespace-user": "Rascunho pessoal",
 	"cx-publish-destination-namespace-draft": "Rascunho comunitário",
-	"cx-linkcontextitem-title": "Hiperligação",
 	"cx-linkcontextitem-missing-link-title": "Hiperligação em falta",
-	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe"
+	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
+	"cx-mt-abuse-publish-error": "A sua tradução não pode ser publicada porque contém demasiado texto de tradução automática sem modificações"
 }

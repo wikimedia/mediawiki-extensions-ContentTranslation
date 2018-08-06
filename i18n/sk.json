@@ -219,6 +219,5 @@
 	"cx-publish-destination-tooltip": "Zvoľte menný priestor, v ktorom bude článok zverejnený",
 	"cx-publish-destination-namespace-main": "Nový článok",
 	"cx-publish-destination-namespace-user": "Osobný koncept",
-	"cx-publish-destination-namespace-draft": "Verejný koncept",
-	"cx-linkcontextitem-title": "Prevzatý odkaz"
+	"cx-publish-destination-namespace-draft": "Verejný koncept"
 }
