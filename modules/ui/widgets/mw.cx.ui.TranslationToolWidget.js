@@ -85,7 +85,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.renderBackground = function () {
 /**
  * Set the content of card
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} content Content nodes; text;
- *   a function that returns nodes or  text; or null for no content
+ *   a function that returns nodes or text; or null for no content
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setContent = function ( content ) {
 	this.$information.empty();

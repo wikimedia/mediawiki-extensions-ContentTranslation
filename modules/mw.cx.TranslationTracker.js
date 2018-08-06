@@ -68,14 +68,14 @@ mw.cx.TranslationTracker.prototype.init = function () {
 	}
 
 	mw.log( '[CX] Translation tracker initialized for ' +
-		sectionModels.length + ' sections(' + restoredSections + ' restored)' );
+		sectionModels.length + ' sections (' + restoredSections + ' restored)' );
 	if ( restoredSections > 0 ) {
 		progress = this.getTranslationProgress();
 		if ( this.translationModel.progress !== progress ) {
 			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
 				JSON.stringify( this.translationModel.progress ) );
 		}
-		mw.log( '[CX] Restored translation has progress:  ' + JSON.stringify( progress ) );
+		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
 	}
 };
 
