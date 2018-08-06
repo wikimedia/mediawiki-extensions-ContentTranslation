@@ -292,12 +292,7 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 		return false;
 	}
 
-	if ( sectionState.getUnmodifiedPercentage() > this.unmodifiedMTThreshold ) {
-		// MT Abuse. Raise a warning.
-		return true;
-	} else {
-		return false;
-	}
+	return sectionState.getUnmodifiedPercentage() > this.unmodifiedMTThreshold;
 };
 
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
