@@ -74,7 +74,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Гэтая назва ўжо выкарыстоўваецца ў [$1 $2] для [$3 іншай старонкі]",
 	"cx-selected-source-page-error-page-exists": "Гэтая старонка [$1 ўжо існуе] ў $2",
 	"cx-selected-source-page-error-title-in-use": "Назва для новай старонкі [$1 ўжо выкарыстоўваецца]",
-	"cx-mt-abuse-warning-title": "Ваш пераклад {{PLURAL:$1|зьмяшчае}} $1% нязьмененага машыннага перакладу тэксту",
+	"cx-mt-abuse-warning-title": "Ваш пераклад {{PLURAL:$1|зьмяшчае}} $1% нязьмененага тэксту",
 	"cx-mt-abuse-warning-text": "Машынны пераклад пададзены толькі як чарнавік. Вам неабходна пераканацца, што зьмест дакладны і гучыць Вашай мовай натуральна.",
 	"cx-publish-captcha-title": "Праверка, што вы ня робат",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Патрэбна}} дапамога зь перакладамі?",

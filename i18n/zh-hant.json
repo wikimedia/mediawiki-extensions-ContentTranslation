@@ -20,7 +20,7 @@
 	"cx-dashboard-header": "翻譯",
 	"cx-javascript": "此工具在沒有 JavaScript 時無法運作。JavaScript 已停用、運作失敗，或者此瀏覽器不受支援。",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|內容翻譯]] 是一個讓您可快速翻譯頁面至您的語言的工具。 [$1 馬上嘗試!]",
-	"cx-license-agreement": "點選 \"$1\" 代表您同意 [//foundation.wikimedia.org/wiki/Terms_of_Use 使用條款]且不反悔同意使用翻譯工具以[https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 授權條款]以及[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]發佈您的貢獻，並且了解超連結或 URL 符合 CC BY-SA 3.0 的署名請求。",
+	"cx-license-agreement": "點選「$1」代表您同意 [//foundation.wikimedia.org/wiki/Terms_of_Use 使用條款]且不反悔同意使用翻譯工具以[https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 授權條款]以及[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]發佈您的貢獻，並且了解超連結或 URL 符合 CC BY-SA 3.0 的署名請求。",
 	"cx-error-server-connection": "錯誤：無法與伺服器連線。",
 	"cx-desc": "使[[Special:ContentTranslation|翻譯]]內容頁面更加容易",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|已翻譯}}",
@@ -102,8 +102,8 @@
 	"cx-selected-source-page-error-title-in-use": "新頁面的標題[$1 已被使用]",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "語言數量",
-	"cx-mt-abuse-warning-title": "您的翻譯{{PLURAL:$1|包含}} $1% 未修改的機器翻譯內容。",
-	"cx-mt-abuse-warning-text": "機器翻譯僅提供做為參考，您仍需要確認內容在您的語言的準確性及可讀性。",
+	"cx-mt-abuse-warning-title": "您的翻譯{{PLURAL:$1|包含著}} $1% 未修改內容。",
+	"cx-mt-abuse-warning-text": "自動翻譯僅提供做為參考，請確認內容在您的語言裡的準確性及可讀性。<br><br>當其他編輯者檢閱您的翻譯時，有可能會將您的內容給刪除。",
 	"cx-publish-captcha-title": "檢查您並非是機器人",
 	"cx-captcha-dialog-error": "您的答案似乎不正確。請重試。",
 	"cx-captcha-dialog-cancel": "取消",
@@ -261,5 +261,6 @@
 	"cx-publish-destination-namespace-user": "私人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿",
 	"cx-linkcontextitem-missing-link-title": "遺失連結",
-	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在"
+	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在",
+	"cx-mt-abuse-publish-error": "因包含太多未更改過的機器翻譯文字緣故，無法發佈您的翻譯"
 }

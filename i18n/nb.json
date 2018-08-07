@@ -101,8 +101,8 @@
 	"cx-selected-source-page-error-title-in-use": "Tittelen for den nye siden er [$1 allerede i bruk]",
 	"cx-page-missing-in-target-language": "Mangler på $1",
 	"cx-page-number-of-languages": "Antall språk",
-	"cx-mt-abuse-warning-title": "Oversettelsen din {{PLURAL:$1|inneholder}} $1% uforandret maskinoversatt tekst",
-	"cx-mt-abuse-warning-text": "Maskinoversettelse er kun ment som et utgangspunkt. Du må selv sørge for at innholdet blir nøyaktig og at språket flyter naturlig.",
+	"cx-mt-abuse-warning-title": "Oversettelsen din {{PLURAL:$1|inneholder}} $1% uendret tekst",
+	"cx-mt-abuse-warning-text": "Automatisk oversettelse er kun gitt som et utgangspunkt. Sørg for at innholdet er nøyaktig og flyter godt på språket ditt.<br /><br />Det er sannsynlig at oversettelsen din vil bli slettet når den ettergås av andre bidragsytere.",
 	"cx-publish-captcha-title": "Sjekker at du ikke er en robot",
 	"cx-captcha-dialog-error": "Svaret ditt ser ut til å være feil. Prøv igjen.",
 	"cx-captcha-dialog-cancel": "Avbryt",
@@ -260,5 +260,6 @@
 	"cx-publish-destination-namespace-user": "Personlig kladd",
 	"cx-publish-destination-namespace-draft": "Felles kladd",
 	"cx-linkcontextitem-missing-link-title": "Manglende lenke",
-	"cx-linkcontextitem-missing-title-description": "Denne siden finnes ikke ennå"
+	"cx-linkcontextitem-missing-title-description": "Denne siden finnes ikke ennå",
+	"cx-mt-abuse-publish-error": "Oversettelsen din kan ikke publiseres fordi den inneholder for mye uendret maskinoversatt tekst"
 }

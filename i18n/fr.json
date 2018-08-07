@@ -127,7 +127,7 @@
 	"cx-selected-source-page-error-title-in-use": "Le titre de la nouvelle page est [$1 déjà utilisé]",
 	"cx-page-missing-in-target-language": "Absent en $1",
 	"cx-page-number-of-languages": "Nombre de langues",
-	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1% de texte non modifié",
+	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1 % de texte non modifié",
 	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme base de départ. Assurez-vous que le contenu est exact et se lit de façon naturelle dans votre langue.<br><br>Votre traduction est susceptible d’être supprimée quand elle sera relue par d’autres éditeurs.",
 	"cx-publish-captcha-title": "Vérification que vous n'êtes pas un robot",
 	"cx-captcha-dialog-error": "Votre réponse ne semble pas correcte. Veuillez recommencer.",

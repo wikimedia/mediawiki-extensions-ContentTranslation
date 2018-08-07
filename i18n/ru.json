@@ -36,7 +36,8 @@
 			"Nemo bis",
 			"Stjn",
 			"Vlad5250",
-			"Evs"
+			"Evs",
+			"Shaleych"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -254,6 +255,7 @@
 	"cx-tools-linter-content": "Обнаружено содержимое, не соответствующее [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ограничениям, установленным Википедией на $1]. Пожалуйста, исправьте ошибки перед публикацией перевода.",
 	"cx-tools-linter-view-details": "Просмотреть подробности",
 	"cx-tools-linter-hide-details": "Скрыть подробности",
+	"cx-tools-linter-page-exists": "Страница уже существует",
 	"cx-translator-header": "Ваша статистика",
 	"cx-translator-month-stats-label": "В этом месяце",
 	"cx-translator-total-translations-label": "Всего",
