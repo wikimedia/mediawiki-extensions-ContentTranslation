@@ -5,7 +5,11 @@ namespace ContentTranslation;
 use Wikimedia\Rdbms\IDatabase;
 
 class Translation {
+	/** @var bool */
 	private $lastSaveWasCreate = false;
+
+	/** @var array */
+	public $translation;
 
 	public function __construct( $translation ) {
 		$this->translation = $translation;

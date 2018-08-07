@@ -5,7 +5,14 @@ namespace ContentTranslation;
 use XmlWriter;
 
 class TmxDumpFormatter {
+	/** @var bool */
 	private $isStarted = false;
+
+	/** @var XMLWriter */
+	private $xml;
+
+	/** @var string */
+	private $sourceLanguage;
 
 	public function __construct( $sourceLanguage ) {
 		$this->sourceLanguage = $sourceLanguage;
