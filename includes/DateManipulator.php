@@ -11,9 +11,6 @@ class DateManipulator {
 	const WEEK = 'week';
 	const MONTH = 'month';
 
-	/** @var string */
-	private $interval;
-
 	public function __construct( $interval ) {
 		if ( $interval === self::WEEK || $interval === self::MONTH ) {
 			$this->interval = $interval;
