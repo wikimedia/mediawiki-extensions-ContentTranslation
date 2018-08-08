@@ -4,6 +4,10 @@
 	.transition( all 100ms ease-out );
 	transition-property: background-color, box-shadow;
 
+	// By default oveflow is hidden for SectionNode, override it to
+	// allow horizontal scroll for CX columns.
+	overflow: auto;
+
 	.clearfix;
 
 	&.mw-cx-lintIssue-error {
