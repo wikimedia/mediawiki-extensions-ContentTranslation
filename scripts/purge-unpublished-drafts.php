@@ -138,13 +138,38 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	public function notifyUsers( $draftsPerUser ) {
-		foreach ( $draftsPerUser as $userId => $drafts ) {
-			foreach ( $drafts as $draft ) {
-				Notification::draftDeleted(
-					$userId,
-					$draft->translation_source_title,
-					$draft->translation_source_language,
-					$draft->translation_target_language
+		$centralIdLookup = \CentralIdLookup::factory();
+
+		foreach ( $draftsPerUser as $globalUserId => $drafts ) {
+			$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
+
+			if ( !$user ) {
+				$titles = array_map( function ( $d ) {
+					return $d->translation_source_title;
+				}, $drafts );
+
+				$this->output(
+					"ERROR: Trying to notify unknown user with ID " . $globalUserId .
+					" about the deletion of the following page(s): \n * " .
+					implode( "\n * ", $titles ) . "\n"
+				);
+
+				continue;
+			}
+
+			try {
+				foreach ( $drafts as $draft ) {
+					Notification::draftDeleted(
+						$user->getId(),
+						$draft->translation_source_title,
+						$draft->translation_source_language,
+						$draft->translation_target_language
+					);
+				}
+			} catch ( \MWException $e ) {
+				$this->output(
+					$e->getMessage() .
+					". Failed notifying user with ID: " . $user->getId() . "\n"
 				);
 			}
 		}
