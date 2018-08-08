@@ -61,7 +61,7 @@ mw.cx.TranslationTracker.prototype.init = function () {
 				sectionState.setUnmodifiedMT( savedTranslationUnit.mt.content );
 			}
 			restoredSections++;
-			this.validationDelayQueue.push( sectionNumber );
+			this.changeQueue.push( sectionNumber );
 		}
 
 		this.sections[ sectionNumber ] = sectionState;
@@ -77,6 +77,9 @@ mw.cx.TranslationTracker.prototype.init = function () {
 				JSON.stringify( this.translationModel.progress ) );
 		}
 		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
+		// Do the change processing and validations on the restored sections without any delay.
+		this.processChangeQueue();
+		this.processValidationQueue();
 	}
 };
 
@@ -144,9 +147,6 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 		// A modification of user translated content. Save the modified content to section state
 		sectionState.setUserTranslation( newContent );
 		mw.log( '[CX] Content modified for section ' + sectionNumber + ' with MT ' + newMTProvider );
-	} else {
-		// No real content change here. May be markup change, which we don't care.
-		return;
 	}
 
 	// NOTE: For unmodified MT, we use the same content for userTranslatedContent
