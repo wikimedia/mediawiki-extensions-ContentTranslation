@@ -216,13 +216,13 @@
 			height: 400
 		} );
 
-		this.$translatonTrendBarChart = $( '<canvas>' ).attr( {
+		this.$translationTrendBarChart = $( '<canvas>' ).attr( {
 			id: 'cxtrendchart',
 			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
 			height: 400
 		} );
 
-		this.$langTranslatonTrendBarChart = $( '<canvas>' ).attr( {
+		this.$langTranslationTrendBarChart = $( '<canvas>' ).attr( {
 			id: 'cxlangtrendchart',
 			width: this.$container.width() - 200, // Leave a 200px margin buffer to avoid overflow
 			height: 400
@@ -246,7 +246,7 @@
 					id: 'global-translations-weekly',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-trend-total' )
-						.append( this.$translatonTrendBarChart ),
+						.append( this.$translationTrendBarChart ),
 					onVisible: function () {
 						self.drawTranslationTrend();
 					}
@@ -275,7 +275,7 @@
 					id: 'language-translations-weekly',
 					content: $( '<div>' )
 						.addClass( 'cx-stats-graph cx-stats-trend-lang' )
-						.append( this.$langTranslatonTrendBarChart ),
+						.append( this.$langTranslationTrendBarChart ),
 					onVisible: function () {
 						self.drawLangTranslationTrend();
 					}
@@ -709,7 +709,7 @@
 	CXStats.prototype.drawTranslationTrend = function () {
 		var data, ctx, type = 'delta';
 
-		ctx = this.$translatonTrendBarChart[ 0 ].getContext( '2d' );
+		ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
 		data = {
 			labels: $.map( this.totalTranslationTrend, function ( data ) {
 				return data.date;
@@ -748,7 +748,7 @@
 		var ctx, data,
 			type = 'delta';
 
-		ctx = this.$langTranslatonTrendBarChart[ 0 ].getContext( '2d' );
+		ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
 		data = {
 			labels: $.map( this.languageTranslationTrend, function ( data ) {
 				return data.date;

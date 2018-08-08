@@ -39,22 +39,22 @@
 
 	QUnit.module( 'ext.cx.translation.loader', QUnit.newMwEnvironment( {
 		setup: function () {
-			this.translatonLoader = new mw.cx.ContentTranslationLoader();
-			this.translatonLoader.translation = { sourceRevisionId: -12345 };
+			this.translationLoader = new mw.cx.ContentTranslationLoader();
+			this.translationLoader.translation = { sourceRevisionId: -12345 };
 		}
 	} ) );
 
 	QUnit.test( 'Translation daft restore test', function ( assert ) {
 		var i;
 		// Without old revision flag set true, orphan sections wont get added.
-		this.translatonLoader.originalRevision = true;
+		this.translationLoader.originalRevision = true;
 		for ( i = 0; i < tests.length; i++ ) {
-			this.translatonLoader.translationUnits = this.translatonLoader.getTranslationUnits( tests[ i ].draft );
-			this.translatonLoader.$sourceColumn = $( tests[ i ].source );
-			this.translatonLoader.$translationColumn = $( tests[ i ].placeholders );
-			this.translatonLoader.restore();
+			this.translationLoader.translationUnits = this.translationLoader.getTranslationUnits( tests[ i ].draft );
+			this.translationLoader.$sourceColumn = $( tests[ i ].source );
+			this.translationLoader.$translationColumn = $( tests[ i ].placeholders );
+			this.translationLoader.restore();
 			assert.equal(
-				this.translatonLoader.$translationColumn.html(),
+				this.translationLoader.$translationColumn.html(),
 				tests[ i ].translation,
 				tests[ i ].description
 			);

@@ -1,4 +1,4 @@
--- Content translaton suggestion related tables
+-- Content translation suggestion related tables
 
 DROP TABLE IF EXISTS /*_*/cx_lists;
 CREATE TABLE /*_*/cx_lists (
