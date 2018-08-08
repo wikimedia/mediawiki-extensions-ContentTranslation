@@ -107,7 +107,7 @@ mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () 
 };
 
 /**
- * Get the the default MT provider.
+ * Get the default MT provider.
  *
  * @return {jQuery.Promise} Resolves to a provider id.
  */

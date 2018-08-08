@@ -4,7 +4,7 @@ namespace ContentTranslation;
 
 class SiteMapper {
 	/**
-	 * Get the the domain code matching language
+	 * Get the domain code matching language
 	 *
 	 * @param string $language Language code (MediaWiki internal format)
 	 * @return string
