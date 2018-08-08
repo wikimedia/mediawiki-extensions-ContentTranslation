@@ -142,6 +142,7 @@
 	"cx-publishing-dialog-keep-button": "Zachowaj obie wersje",
 	"cx-publishing-dialog-publish-anyway-button": "Zapisz mimo to",
 	"cx-publishing-dialog-title": "Zastąpić istniejącą stronę?",
+	"cx-publishing-dialog-sub-title": "Twoje tłumaczenie spowoduje zastąpienie istniejącej strony. Upewnij się, że można zastąpić obecną zawartość.",
 	"cx-discard-translation": "Odrzuć tłumaczenie",
 	"cx-translation-status-draft": "W trakcie",
 	"cx-translation-status-published": "Opublikowano",
@@ -249,5 +250,6 @@
 	"cx-publish-destination-tooltip": "Wybierz przestrzeń nazw, w której strona zostanie opublikowana",
 	"cx-publish-destination-namespace-main": "Nowa strona",
 	"cx-linkcontextitem-missing-link-title": "Brakujący link",
+	"cx-linkcontextitem-missing-title-description": "Ta strona jeszcze nie istnieje",
 	"cx-mt-abuse-publish-error": "Twoje tłumaczenie nie może zostać opublikowane, ponieważ zawiera zbyt dużo niezmodyfikowanego tekstu przetłumaczonego maszynowo"
 }
