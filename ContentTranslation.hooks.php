@@ -442,7 +442,6 @@ class ContentTranslationHooks {
 
 		$modules['qunit']['ext.cx.tools.tests'] = [
 			'scripts' => [
-				'tests/qunit/tools/ext.cx.tools.template.test.js',
 				'tests/qunit/tools/ext.cx.tools.mtabuse.test.js',
 				'tests/qunit/tools/ext.cx.tools.categories.test.js',
 			],
@@ -451,7 +450,6 @@ class ContentTranslationHooks {
 				'ext.cx.sitemapper',
 				'ext.cx.tools.categories',
 				'ext.cx.tools.mtabuse',
-				'ext.cx.tools.template',
 			],
 		] + $resourcePaths;
 
