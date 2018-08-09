@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ramjit Tudu",
-			"Fagunkoyel Hansdah"
+			"Fagunkoyel Hansdah",
+			"Dulal Kisku"
 		]
 	},
 	"cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱥᱟᱦᱴᱟ",
@@ -46,7 +47,7 @@
 	"cx-selected-source-page-start-translation-button": "ᱛᱚᱨᱡᱚᱢᱟ ᱮᱦᱚᱵ",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 ᱦᱤᱨᱤ|$1 ᱦᱤᱨᱤ |0=ᱵᱟᱠᱚ ᱦᱤᱨᱤ ᱟᱠᱟᱫ-ᱟ ᱱᱚᱣᱟ}} ᱦᱟᱯᱛᱟ ᱨᱮ",
 	"cx-page-number-of-languages": "ᱯᱟᱹᱨᱥᱤ ᱠᱚᱣᱟᱜ ᱮᱞ",
-	"cx-publish-captcha-title": "ᱥᱤᱠᱨᱩᱴᱤ ᱠᱩᱠᱞᱤ",
+	"cx-publish-captcha-title": "ᱟᱢᱫᱚ ᱨᱳᱵᱳᱴ ᱠᱟᱱᱟᱢ ᱥᱮ ᱵᱟᱝ ᱚᱱᱟ ᱨᱮᱭᱟᱜ ᱵᱤᱱᱤᱰ",
 	"cx-captcha-dialog-cancel": "ᱵᱟᱹᱛᱤᱞ",
 	"cx-translation-filter-published-translations": "ᱯᱟᱨᱥᱟᱞᱮᱱᱟ",
 	"cx-suggestionlist-view-source-page": "ᱯᱷᱮᱰᱟᱛ ᱥᱟᱦᱴᱟ ᱧᱮᱞ",

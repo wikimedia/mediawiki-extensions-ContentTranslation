@@ -113,7 +113,7 @@
 	"cx-page-missing-in-target-language": "$1(으)로 없음",
 	"cx-page-number-of-languages": "언어의 수",
 	"cx-mt-abuse-warning-title": "번역에 수정하지 않은 텍스트 $1%를 {{PLURAL:$1|포함합니다}}",
-	"cx-mt-abuse-warning-text": "기계 번역은 시작점으로만 제공합니다. 당신은 내용이 정확하고 자신의 언어로 자연스럽게 읽힐 수 있도록 해야 합니다.",
+	"cx-mt-abuse-warning-text": "자동 번역은 시작점으로만 제공합니다. 내용이 정확하고 자신의 언어로 자연스럽게 읽힐 수 있도록 해야 합니다.<br><br>번역은 다른 편집자가 검토할 때 삭제될 가능성이 있습니다.",
 	"cx-publish-captcha-title": "로봇이 아닌지를 검사합니다",
 	"cx-captcha-dialog-error": "답변이 올바르지 않은 것 같습니다. 다시 시도해 주십시오.",
 	"cx-captcha-dialog-cancel": "취소",
@@ -270,5 +270,6 @@
 	"cx-publish-destination-namespace-user": "개인 초안",
 	"cx-publish-destination-namespace-draft": "공동체 초안",
 	"cx-linkcontextitem-missing-link-title": "링크가 없음",
-	"cx-linkcontextitem-missing-title-description": "이 문서는 아직 존재하지 않습니다"
+	"cx-linkcontextitem-missing-title-description": "이 문서는 아직 존재하지 않습니다",
+	"cx-mt-abuse-publish-error": "수정되지 않은 너무 많은 기계 번역 문구가 포함되어 있기 때문에 번역을 게시할 수 없습니다"
 }
