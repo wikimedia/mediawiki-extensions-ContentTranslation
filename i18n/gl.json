@@ -99,7 +99,7 @@
 	"cx-mt-abuse-warning-title": "A súa tradución {{PLURAL:$1|contén}} un $1% de texto traducido automaticamente sen modificar",
 	"cx-mt-abuse-warning-text": "A tradución automática é útil só como punto de comezo. Ten que asegurarse de que o contido sexa preciso e de que o texto soe natural na súa lingua.",
 	"cx-publish-captcha-title": "Verificación de que non é un robot",
-	"cx-captcha-dialog-error": "A túa resposta non semella correcta. Por favor, téntao de novo.",
+	"cx-captcha-dialog-error": "A súa resposta non semella correcta. Por favor, ténteo de novo.",
 	"cx-captcha-dialog-cancel": "Cancelar",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Necesita}} axuda para traducir?",
 	"cx-dashboard-sidebar-information": "Máis información sobre esta ferramenta",

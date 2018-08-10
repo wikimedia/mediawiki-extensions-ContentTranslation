@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MGA73"
+			"MGA73",
+			"Saederup92"
 		]
 	},
 	"apihelp-cxpublish-description": "Gem en side der er oprettet ved hjælp af udvidelsen indholdsoversættelse.",
@@ -13,5 +14,9 @@
 	"apihelp-cxpublish-param-categories": "De kategorier der skal føjes til den udgivne side.",
 	"apihelp-query+contenttranslation-description": "Spørg indholdsoversættelses-databasen om oversættelser.",
 	"apihelp-query+contenttranslation-example-1": "Hent oversættelser startet af den aktuelle bruger.",
-	"apihelp-query+contenttranslationstats-example-1": "Hent statistik på indholdsoversættelser for alle sprog."
+	"apihelp-query+contenttranslationstats-example-1": "Hent statistik på indholdsoversættelser for alle sprog.",
+	"apierror-cx-invalidlanguage": "Ugyldigt sprog.",
+	"apierror-cx-invalidprogress": "Ugyldig fremgang.",
+	"apierror-cx-jwtmissing": "JWT er ikke installeret.",
+	"apierror-cx-translationnotfound": "Oversættelse ikke fundet."
 }
