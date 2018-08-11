@@ -105,8 +105,8 @@
 	"cx-selected-source-page-error-title-in-use": "عنوان الصفحة الجديدة [$1 مستخدم بالفعل]",
 	"cx-page-missing-in-target-language": "مفقود في $1",
 	"cx-page-number-of-languages": "عدد اللغات",
-	"cx-mt-abuse-warning-title": "ترجمتك {{PLURAL:$1|بها}} $1% من النص المترجم آليا دون تغيير",
-	"cx-mt-abuse-warning-text": "تقدم الترجمة الآلية نموذجا فقط. عليك التحقق من دقة المحتوى وسلامة اللغة.",
+	"cx-mt-abuse-warning-title": "ترجمتك {{PLURAL:$1|بها}} $1% من النص دون تغيير",
+	"cx-mt-abuse-warning-text": "يتم توفير الترجمة التلقائية كنقطة بداية فقط، تأكد من دقة المحتوى وقراءته بلغتك.<br><br>من المحتمل حذف ترجمتك عند مراجعتها من قبل المحررين الآخرين.",
 	"cx-publish-captcha-title": "التحقق من أنك لست روبوت",
 	"cx-captcha-dialog-error": "إجابتك لا تبدو صحيحة;رجاءْ، حاول مرة اخرى.",
 	"cx-captcha-dialog-cancel": "إلغاء",
@@ -264,5 +264,6 @@
 	"cx-publish-destination-namespace-user": "مسودة شخصية",
 	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
 	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة",
-	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد"
+	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد",
+	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل مترجم آليا كثير غير معدل"
 }
