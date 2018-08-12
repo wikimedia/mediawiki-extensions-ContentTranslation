@@ -10,6 +10,7 @@
 	"cx-header-all-translations": "Omna tradukuri",
 	"cx-source-view-page": "Montrez pagino",
 	"cx-lost-session-draft": "Vua sesiono finis. Vua redakti ne povos konservesar, ecepte se vu facos 'log in' en altra fenestro.",
+	"cx-publish-summary": "Kreita per tradukado de la pagino \"$1\"",
 	"cx-publish-gt-published-title": "Gratuli! La pagino publikigesis",
 	"cx-translation-target-page-exists": "Pagino kun titulo [$1 $2] ja existas en ta Wiki. Konsiderez donar nova titulo por la pagino.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
