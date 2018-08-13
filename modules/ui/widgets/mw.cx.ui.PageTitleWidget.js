@@ -108,7 +108,8 @@ mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-page-exists' ),
 			// FIXME: Point to the more informative page about overwriting content
-			help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Editing_pages'
+			help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Editing_pages',
+			resolvable: true
 		}
 	};
 };

@@ -312,7 +312,8 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 		messageInfo: {
 			title: mw.msg( 'cx-mt-abuse-warning-title', percentage ),
 			type: 'warning',
-			help: mw.msg( 'cx-tools-view-guidelines-link' )
+			help: mw.msg( 'cx-tools-view-guidelines-link' ),
+			resolvable: true
 		}
 	} ] );
 };

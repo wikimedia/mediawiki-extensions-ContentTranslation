@@ -21,7 +21,10 @@ mw.cx.dm.TranslationIssue = function CXTranslationIssue( name, message, messageI
 	this.resolvable = messageInfo && messageInfo.resolvable === true;
 	this.actionIcon = messageInfo && messageInfo.actionIcon || 'check';
 	this.actionLabel = messageInfo && messageInfo.actionLabel;
-	this.action = messageInfo && messageInfo.action || function () {};
+	this.action = messageInfo && messageInfo.action || this.suppress.bind( this );
+	this.suppressed = false;
+	// @var {Function}
+	this.onSuppressedCallback = null;
 };
 
 /* Methods */
@@ -60,4 +63,20 @@ mw.cx.dm.TranslationIssue.prototype.getIcon = function () {
 
 mw.cx.dm.TranslationIssue.prototype.getLabel = function () {
 	return this.actionLabel;
+};
+
+mw.cx.dm.TranslationIssue.prototype.suppress = function () {
+	this.suppressed = true;
+
+	if ( this.onSuppressedCallback ) {
+		this.onSuppressedCallback();
+	}
+};
+
+mw.cx.dm.TranslationIssue.prototype.isSuppressed = function () {
+	return this.suppressed;
+};
+
+mw.cx.dm.TranslationIssue.prototype.setSuppressCallback = function ( fn ) {
+	this.onSuppressedCallback = fn;
 };

@@ -34,7 +34,9 @@ ve.dm.CXLintableNode.prototype.getTranslation = function () {
  * @return {mw.cx.dm.TranslationIssue[]}
  */
 ve.dm.CXLintableNode.prototype.getTranslationIssues = function () {
-	return this.translationIssues;
+	return this.translationIssues.filter( function ( issue ) {
+		return !issue.isSuppressed();
+	} );
 };
 
 /**
@@ -88,6 +90,9 @@ ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
 		issues.map( this.processTranslationIssues ).forEach( function ( issue ) {
 			var existingIssueIndex = this.findIssueIndex( issue.name );
 
+			// When issue is suppressed, emit events about the current state
+			issue.setSuppressCallback( this.notify.bind( this ) );
+
 			if ( existingIssueIndex > -1 ) {
 				// Replace existing issue
 				this.translationIssues[ existingIssueIndex ] = issue;
@@ -127,7 +132,14 @@ ve.dm.CXLintableNode.prototype.resolveTranslationIssues = function ( names ) {
 		}
 	}.bind( this ) );
 
-	if ( this.translationIssues.length === 0 ) {
+	this.notify();
+};
+
+/**
+ * Emit events about the state of issues.
+ */
+ve.dm.CXLintableNode.prototype.notify = function () {
+	if ( this.getTranslationIssues().length === 0 ) {
 		this.emit( 'allIssuesResolved' );
 		this.getTranslation().emit( 'issuesResolved', this.getId() );
 	} else {
@@ -165,7 +177,7 @@ ve.dm.CXLintableNode.prototype.processTranslationIssues = function ( issue ) {
  * @return {boolean}
  */
 ve.dm.CXLintableNode.prototype.hasErrors = function () {
-	return this.translationIssues.some( function ( issue ) {
+	return this.getTranslationIssues().some( function ( issue ) {
 		return issue.type === 'error';
 	} );
 };
