@@ -1,6 +1,7 @@
 /**
  * @class
  * @constructor
+ * @param {string} name Unique issue identifier
  * @param {string} message
  * @param {Object} [messageInfo]
  * @cfg {string} [title]
@@ -11,7 +12,8 @@
  * @cfg {string} [actionLabel]
  * @cfg {Function} [action]
  */
-mw.cx.dm.TranslationIssue = function CXTranslationIssue( message, messageInfo ) {
+mw.cx.dm.TranslationIssue = function CXTranslationIssue( name, message, messageInfo ) {
+	this.name = name;
 	this.message = message;
 	this.title = messageInfo && messageInfo.title;
 	this.type = messageInfo && messageInfo.type || 'warning';
@@ -23,6 +25,10 @@ mw.cx.dm.TranslationIssue = function CXTranslationIssue( message, messageInfo ) 
 };
 
 /* Methods */
+
+mw.cx.dm.TranslationIssue.prototype.getName = function () {
+	return this.name;
+};
 
 mw.cx.dm.TranslationIssue.prototype.getTitle = function () {
 	return this.title;

@@ -79,25 +79,26 @@ mw.cx.widgets.PageTitleWidget.prototype.blursEditingSurface = function () {
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
+	// Empty array in param resolves all issues with the title
+	this.model.resolveTranslationIssues( [] );
+
 	if ( !mw.Title.newFromText( value ) ) {
-		this.model.setTranslationIssues( [ value === '' ? this.getEmptyTitleError() : this.getInvalidCharacterError() ] );
+		this.model.addTranslationIssues( [ value === '' ? this.getEmptyTitleError() : this.getInvalidCharacterError() ] );
 		return;
 	}
 
 	ve.init.platform.linkCache.get( this.getValue() ).then( function ( result ) {
 		if ( result.missing ) {
-			this.model.setTranslationIssues( null );
 			return;
 		}
 
-		this.model.setTranslationIssues( [ this.getExistingTitleWarning() ] );
-	}.bind( this ), function () {
-		this.model.setTranslationIssues( null );
+		this.model.addTranslationIssues( [ this.getExistingTitleWarning() ] );
 	}.bind( this ) );
 };
 
 mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 	return {
+		name: 'existing-title',
 		message: mw.msg( 'cx-tools-linter-page-exists-message',
 			$( '<a>' ).attr( {
 				href: mw.util.getUrl( this.getValue() ),
@@ -114,6 +115,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 
 mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
 	return {
+		name: 'empty-title',
 		message: mw.msg( 'cx-tools-linter-empty-title-message' ),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-empty-title' ),
@@ -127,6 +129,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
 mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 	var titleObj = mw.Title.newFromUserInput( this.getValue() ),
 		messageData = {
+			name: 'invalid-title',
 			message: mw.msg( 'cx-tools-linter-invalid-character-message' ),
 			messageInfo: {
 				title: mw.msg( 'cx-tools-linter-invalid-character' ),

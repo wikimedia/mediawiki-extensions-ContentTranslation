@@ -35,6 +35,8 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.siteMapper = config.siteMapper;
 	this.requestManager = config.requestManager;
 
+	this.errorsInTranslation = false;
+
 	// @var {mw.cx.dm.Translation}
 	this.translation = null;
 	// @var {mw.cx.ui.TranslationView}
@@ -65,7 +67,8 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	);
 
 	this.translationView.connect( this, {
-		issuesResolved: 'enablePublishButton'
+		issuesResolved: 'onIssuesResolved',
+		translationIssues: 'onTranslationIssues'
 	} );
 
 	this.translationView.targetColumn.connect( this, {
@@ -412,7 +415,7 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
  * Call this whenever something changes in the translation that requires saving.
  */
 ve.init.mw.CXTarget.prototype.onChange = function () {
-	if ( mw.Title.newFromText( this.pageName ) ) {
+	if ( mw.Title.newFromText( this.pageName ) && !this.errorsInTranslation ) {
 		this.publishButton.setDisabled( false );
 	}
 	this.translationView.clearMessages();
@@ -748,6 +751,22 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.targetSurface.setDisabled( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
+};
+
+/**
+ * @param {boolean} hasErrors True if any of the issues is error, false if all are warnings.
+ */
+ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
+	this.errorsInTranslation = hasErrors;
+
+	if ( !hasErrors ) {
+		this.enablePublishButton();
+	}
+};
+
+ve.init.mw.CXTarget.prototype.onIssuesResolved = function () {
+	this.errorsInTranslation = false;
+	this.enablePublishButton();
 };
 
 /**

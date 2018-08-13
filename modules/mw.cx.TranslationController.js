@@ -278,13 +278,11 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 			continue;
 		}
 
-		if ( validation && validation.length > 0 ) {
-			// FIXME. Not nice to append the prefix below.
-			section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
-			if ( section ) {
-				// Annotate the section with errors if any.
-				this.onSaveValidation( section, validation );
-			}
+		// FIXME. Not nice to append the prefix below.
+		section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
+		if ( section ) {
+			// Annotate the section with errors, if any.
+			this.onSaveValidation( section, validation );
 		}
 
 		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
@@ -329,14 +327,15 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
 	var id, validation, message, error,
 		sectionNumber = section.getSectionNumber(),
-		results = [];
+		results = [], counter = 1;
+
+	// Resolve old issues, so that we don't get duplicates when adding issues to this section
+	section.resolveTranslationIssues( 'validation' );
 
 	this.saveTracker[ sectionNumber ] = this.saveTracker[ sectionNumber ] ||
 		{ count: 0, error: false };
 
-	if ( validations && Object.keys( validations ).length === 0 ) {
-		this.saveTracker[ sectionNumber ].error = false;
-		section.setTranslationIssues( null );
+	if ( validations && validations.length === 0 ) {
 		return;
 	}
 
@@ -348,6 +347,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 
 		if ( message ) {
 			results.push( {
+				name: 'validation' + counter++,
 				message: message,
 				messageInfo: {
 					title: mw.msg( 'cx-tools-linter-abuse-filter' ),
@@ -358,7 +358,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 		}
 	}
 
-	section.setTranslationIssues( results );
+	section.addTranslationIssues( results );
 };
 
 /**

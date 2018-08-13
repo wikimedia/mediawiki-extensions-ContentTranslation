@@ -143,6 +143,7 @@ mw.cx.ui.TranslationView.prototype.onTranslationIssues = function ( nodesWithIss
 		this.translationHeader.publishButton.setDisabled( true );
 	}
 
+	this.emit( 'translationIssues', hasErrors );
 	this.toolsColumn.showIssues( nodesWithIssues );
 };
 

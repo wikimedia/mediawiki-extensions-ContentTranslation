@@ -306,7 +306,8 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 	mw.log( '[CX] Unmodified MT percentage for section ' + sectionModel.getSectionNumber() +
 		' ' + percentage + '% crossed the threshold ' + this.unmodifiedMTThreshold * 100 );
 
-	sectionModel.setTranslationIssues( [ {
+	sectionModel.addTranslationIssues( [ {
+		name: 'mt-abuse',
 		message: mw.msg( 'cx-mt-abuse-warning-text' ),
 		messageInfo: {
 			title: mw.msg( 'cx-mt-abuse-warning-title', percentage ),
@@ -317,7 +318,7 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 };
 
 mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
-	sectionModel.setTranslationIssues( [] );
+	sectionModel.resolveTranslationIssues( [ 'mt-abuse' ] );
 };
 
 /**

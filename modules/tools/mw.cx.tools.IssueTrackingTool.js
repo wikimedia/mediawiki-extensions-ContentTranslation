@@ -398,10 +398,11 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
 
 		issues = node.getModel().getTranslationIssues();
 
-		for ( j = 0, numOfIssues = issues.length; j < numOfIssues; j++ ) {
-			issue = issues[ j ];
+		numOfIssues = issues.length;
+		this.numberOfIssues += numOfIssues;
 
-			this.numberOfIssues += numOfIssues;
+		for ( j = 0; j < numOfIssues; j++ ) {
+			issue = issues[ j ];
 
 			if ( issue.getType() === 'error' ) {
 				this.numberOfErrors++;

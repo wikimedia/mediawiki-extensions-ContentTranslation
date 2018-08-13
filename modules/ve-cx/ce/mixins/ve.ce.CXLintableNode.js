@@ -6,7 +6,7 @@
  */
 ve.ce.CXLintableNode = function VeCeCXLintableNode() {
 	this.model.connect( this, {
-		issuesResolved: 'onIssuesResolved',
+		allIssuesResolved: 'onAllIssuesResolved',
 		translationIssues: 'highlightNode'
 	} );
 };
@@ -41,7 +41,7 @@ ve.ce.CXLintableNode.prototype.blursEditingSurface = function () {
 /**
  * Handler triggered when translation issues of this node are resolved.
  */
-ve.ce.CXLintableNode.prototype.onIssuesResolved = function () {
+ve.ce.CXLintableNode.prototype.onAllIssuesResolved = function () {
 	this.removeHighlight();
 	this.getFocusableElement().off( 'mousedown blur' );
 };
@@ -60,5 +60,6 @@ ve.ce.CXLintableNode.prototype.removeHighlight = function () {
  */
 ve.ce.CXLintableNode.prototype.highlightNode = function ( hasErrors ) {
 	var type = hasErrors ? 'error' : 'warning';
+	this.removeHighlight();
 	this.getHighlightableElement().addClass( 'mw-cx-lintIssue-' + type );
 };
