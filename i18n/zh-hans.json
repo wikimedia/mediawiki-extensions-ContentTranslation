@@ -104,8 +104,8 @@
 	"cx-selected-source-page-error-title-in-use": "新页面的标题[$1 已被使用]",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "语言数量",
-	"cx-mt-abuse-warning-title": "您的译文{{PLURAL:$1|包含}}$1%未校订的机器翻译文本",
-	"cx-mt-abuse-warning-text": "机器翻译只作为出发点提供。您需要确保内容在您的语言准确且阅读流畅。",
+	"cx-mt-abuse-warning-title": "您的译文{{PLURAL:$1|包含}}$1%未校订文本",
+	"cx-mt-abuse-warning-text": "自动翻译只作为起始点提供。请确保内容可以您的语言准确且流畅地阅读。<br><br>当其他编辑审核后，您的翻译可能会被删除。",
 	"cx-publish-captcha-title": "检查以确保您不是机器人",
 	"cx-captcha-dialog-error": "您的答案似乎不正确。请重试。",
 	"cx-captcha-dialog-cancel": "取消",
@@ -263,5 +263,6 @@
 	"cx-publish-destination-namespace-user": "个人草稿",
 	"cx-publish-destination-namespace-draft": "社群草稿",
 	"cx-linkcontextitem-missing-link-title": "丢失链接",
-	"cx-linkcontextitem-missing-title-description": "此页面尚不存在"
+	"cx-linkcontextitem-missing-title-description": "此页面尚不存在",
+	"cx-mt-abuse-publish-error": "您的翻译无法发布，因为它包含太多未经修订的机器翻译文本。"
 }

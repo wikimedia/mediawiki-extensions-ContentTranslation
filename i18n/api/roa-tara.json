@@ -4,5 +4,11 @@
 			"Joetaras"
 		]
 	},
+	"apihelp-cxpublish-description": "Reggìstre 'na pàgene ccrejate ausanne l'estenzione Traduzione de Condenute.",
+	"apihelp-cxpublish-summary": "Reggìstre 'na pàgene ccrejate ausanne l'estenzione Traduzione de Condenute.",
+	"apihelp-cxpublish-param-title": "'U tiole d'a pàgene addò s'onne fà le aziune.",
+	"apihelp-cxpublish-param-html": "'U condenute da reggistrà.",
+	"apihelp-cxpublish-param-from": "'U codece d'a lènghe de origgine.",
+	"apihelp-cxpublish-param-to": "'U codece d'a lènghe de destinazione.",
 	"apihelp-cxsuggestionlist-param-titles": "Titole d'a vôsce."
 }

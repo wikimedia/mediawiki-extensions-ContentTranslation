@@ -103,8 +103,8 @@
 	"cx-selected-source-page-error-title-in-use": "Den nya sidans titel [$1 används redan]",
 	"cx-page-missing-in-target-language": "Saknas på $1",
 	"cx-page-number-of-languages": "Antal språk",
-	"cx-mt-abuse-warning-title": "Din översättning {{PLURAL:$1|innehåller}} $1 % oförändrad maskinöversatt text",
-	"cx-mt-abuse-warning-text": "Maskinöversättning tillhandahålls enbart som en startpunkt. Du måste se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.",
+	"cx-mt-abuse-warning-title": "Din översättning {{PLURAL:$1|innehåller}} $1 % oförändrad text",
+	"cx-mt-abuse-warning-text": "Automatisk översättning tillhandahålls enbart som en startpunkt. Se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.<br><br>Din översättning kommer förmodligen raderas när den granskas av andra redigerare.",
 	"cx-publish-captcha-title": "Kollar om du inte är en robot",
 	"cx-captcha-dialog-error": "Ditt svar verkar inte vara rätt. Försök igen.",
 	"cx-captcha-dialog-cancel": "Avbryt",
@@ -263,5 +263,6 @@
 	"cx-publish-destination-namespace-user": "Personlig skiss",
 	"cx-publish-destination-namespace-draft": "Gemenskapsskiss",
 	"cx-linkcontextitem-missing-link-title": "Länk saknas",
-	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu."
+	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu.",
+	"cx-mt-abuse-publish-error": "Din översättning kan inte publiceras eftersom den innehåller för mycket oförändrad maskinöversatt text."
 }
