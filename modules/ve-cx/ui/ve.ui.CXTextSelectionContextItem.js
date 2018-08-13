@@ -127,7 +127,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 		return;
 	}
 
-	// To avoid flashing of empy card, let us hide the card till we get the link information.
+	// To avoid flashing of empty card, let us hide the card till we get the link information.
 	this.toggle( false );
 	this.$sourceBody.hide();
 	this.normalizedTitle = ve.init.mw.ApiResponseCache.static.normalizeTitle( text );
