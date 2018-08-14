@@ -56,7 +56,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Интервал за израчунавање тренда. Може бити <kbd>недеља</kbd> или <kbd>месец</kbd>.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Узми тренд објављивања за језички пар шпанског и каталонског у недељном интервалу",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Узми тренд објављивања за све језике",
-	"apihelp-cxtoken-example-1": "Преузми жетон за аутентичност за цеикс-сервер",
+	"apihelp-cxtoken-example-1": "Преузми токен за потврду идентитета за cxserver",
 	"apihelp-cxdelete-description": "Обриши нацртни превод направљен помоћу проширења за превод садржаја.",
 	"apihelp-cxdelete-param-from": "Код изворног језика.",
 	"apihelp-cxdelete-param-to": "Код циљног језика.",
