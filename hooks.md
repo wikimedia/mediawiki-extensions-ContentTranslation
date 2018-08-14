@@ -1,7 +1,7 @@
 Hooks defined in Content Translation
 ====================================
 
-See also https://www.mediawiki.org/wiki/Content_translation/Front_end .
+See also [front end help](https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Front_end).
 
 We use the mw.hooks wrapper of jQuery.Callbacks for achieving
 a subscriber-publisher events pattern.

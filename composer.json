@@ -6,13 +6,13 @@
 		"MediaWiki",
 		"Translation"
 	],
-	"homepage": "https://www.mediawiki.org/wiki/Extension:ContentTranslation",
+	"homepage": "https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ContentTranslation",
 	"license": "GPL-2.0-or-later",
 	"authors": [],
 	"support": {
 		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-contenttranslation/",
 		"irc": "irc://irc.freenode.net/mediawiki-i18n",
-		"wiki": "https://www.mediawiki.org/wiki/Content_translation",
+		"wiki": "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation"
 	},
 	"require": {

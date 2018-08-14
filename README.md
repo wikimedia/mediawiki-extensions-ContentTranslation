@@ -15,7 +15,7 @@ For information about running tests and contributing code to ContentTranslation,
 see [Contributing][]. Patch submissions are reviewed and managed with
 [Gerrit][].
 
-[Content translation]:	https://www.mediawiki.org/wiki/Content_translation
+[Content translation]:	https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation
 [Installation]:	https://www.mediawiki.org/wiki/Extension:ContentTranslation#Installation
 [Contributing]:	CONTRIBUTING.md
 [Gerrit]:	https://www.mediawiki.org/wiki/Gerrit
