@@ -75,7 +75,11 @@
 			.addClass( 'cx-selected-source-page__image' );
 
 		this.$selectedSourcePageLink = $( '<a>' )
-			.addClass( 'cx-selected-source-page__link' );
+			.addClass( 'cx-selected-source-page__link' )
+			.prop( {
+				lang: this.languageFilter.getSourceLanguage(),
+				dir: $.uls.data.getDir( this.languageFilter.getSourceLanguage() )
+			} );
 		$selectedSourcePageLinkContainer = $( '<span>' )
 			.append( this.$selectedSourcePageLink );
 
