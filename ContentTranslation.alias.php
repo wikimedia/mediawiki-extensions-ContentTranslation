@@ -61,6 +61,12 @@ $specialPageAliases['fa'] = [
 	'ContentTranslationStats' => [ 'آمار_ترجمهٔ_محتوا', 'آمار_ترجمه_محتوا' ],
 ];
 
+/** Finnish (suomi) */
+$specialPageAliases['fi'] = [
+	'ContentTranslation' => [ 'Sisällön_kääntäminen' ],
+	'ContentTranslationStats' => [ 'Käännetyn_sisällön_tilastot' ],
+];
+
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = [
 	'ContentTranslation' => [ 'תרגום_תוכן' ],
