@@ -38,6 +38,12 @@ $specialPageAliases['bn'] = [
 	'ContentTranslationStats' => [ 'বিষয়বস্তু_অনুবাদের_পরিসংখ্যান' ],
 ];
 
+/** Bosnian (bosanski) */
+$specialPageAliases['bs'] = [
+	'ContentTranslation' => [ 'Prijevod_sadržaja' ],
+	'ContentTranslationStats' => [ 'Statistika_prevođenja_sadržaja' ],
+];
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = [
 	'ContentTranslation' => [ 'Inhaltsübersetzung' ],
@@ -71,6 +77,12 @@ $specialPageAliases['fi'] = [
 $specialPageAliases['he'] = [
 	'ContentTranslation' => [ 'תרגום_תוכן' ],
 	'ContentTranslationStats' => [ 'סטטיסטיקות_תרגום_תוכן' ],
+];
+
+/** Croatian (hrvatski) */
+$specialPageAliases['hr'] = [
+	'ContentTranslation' => [ 'Prevoditelj_sadržaja' ],
+	'ContentTranslationStats' => [ 'Statistika_prijevoda_sadržaja' ],
 ];
 
 /** Upper Sorbian (hornjoserbsce) */
