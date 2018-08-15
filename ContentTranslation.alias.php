@@ -137,6 +137,18 @@ $specialPageAliases['nn'] = [
 	'ContentTranslationStats' => [ 'Innhaldsomsetjingsstatistikk' ],
 ];
 
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'ContentTranslation' => [ 'Превод_садржаја', 'Превођење_садржаја' ],
+	'ContentTranslationStats' => [ 'Статистика_превођења_садржаја' ],
+];
+
+/** Serbian Latin (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'ContentTranslation' => [ 'Prevod_sadržaja', 'Prevođenje_sadržaja' ],
+	'ContentTranslationStats' => [ 'Statistika_prevođenja_sadržaja' ],
+];
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'ContentTranslation' => [ 'Innehållsöversättning' ],
