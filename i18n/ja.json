@@ -19,7 +19,8 @@
 			"Liuxinyu970226",
 			"Omotecho",
 			"Afaz",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Suyama"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -108,8 +109,8 @@
 	"cx-selected-source-page-error-title-in-use": "そのページ名は[既に$1使用されています]",
 	"cx-page-missing-in-target-language": "$1 版で未翻訳",
 	"cx-page-number-of-languages": "言語の数",
-	"cx-mt-abuse-warning-title": "あなたの翻訳は$1%の手がつけられてい無い機械翻訳を{{PLURAL:$1|含んでいます}}",
-	"cx-mt-abuse-warning-text": "機械翻訳はスタート地点としてのみ提供されます。あなたの言語において、コンテンツが正確かつ自然に読めるものであることを確認する必要があります。",
+	"cx-mt-abuse-warning-title": "あなたの翻訳は$1%の手がつけられていない文章を{{PLURAL:$1|含んでいます}}",
+	"cx-mt-abuse-warning-text": "自動翻訳はスタート地点としてのみ提供されます。あなたの言語において、コンテンツが正確かつ自然に読めるものであることを確認する必要があります。<br><br>あなたの翻訳は他の編集者によって確認され、除去されることがあります。",
 	"cx-publish-captcha-title": "ロボットではないか確認中",
 	"cx-captcha-dialog-error": "答えが正しくないようです。もう一度、試してください。",
 	"cx-captcha-dialog-cancel": "中止",
@@ -267,5 +268,6 @@
 	"cx-publish-destination-namespace-user": "個人の草稿",
 	"cx-publish-destination-namespace-draft": "コミュニティの草稿",
 	"cx-linkcontextitem-missing-link-title": "リンク先なし",
-	"cx-linkcontextitem-missing-title-description": "このページはまだ存在しません"
+	"cx-linkcontextitem-missing-title-description": "このページはまだ存在しません",
+	"cx-mt-abuse-publish-error": "あなたの翻訳には未変更の機械翻訳文章が多く含まれているため、公開することができません。"
 }

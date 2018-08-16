@@ -81,8 +81,8 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Iste titulo es jam usate in [$1 $2] pro [$3 un altere pagina]",
 	"cx-selected-source-page-error-page-exists": "Le pagina [$1 jam existe] in $2",
 	"cx-selected-source-page-error-title-in-use": "Le titulo del nove pagina es [$1 jam in uso]",
-	"cx-mt-abuse-warning-title": "Le traduction {{PLURAL:$1|contine}} $1% de texto traducite automaticamente e non modificate",
-	"cx-mt-abuse-warning-text": "Le traduction automatic es fornite solmente como puncto de partita. Tu debe assecurar que le contento es accurate e se lege de maniera natural in tu lingua.",
+	"cx-mt-abuse-warning-title": "Le traduction {{PLURAL:$1|contine}} $1% de texto non modificate",
+	"cx-mt-abuse-warning-text": "Le traduction automatic es fornite solmente como puncto de partita. Tu debe assecurar que le contento es accurate e se lege de maniera natural in tu lingua.<br><br>Tu traduction essera probabilemente delite quando altere redactores lo revide.",
 	"cx-publish-captcha-title": "Question de securitate",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Besonio}} de adjuta pro traducer?",
 	"cx-dashboard-sidebar-information": "Plus information sur iste instrumento",
@@ -206,5 +206,6 @@
 	"cx-publish-destination-tooltip": "Selige le spatio de nomines in le qual publicar le pagina",
 	"cx-publish-destination-namespace-main": "Nove pagina",
 	"cx-publish-destination-namespace-user": "Esbosso personal",
-	"cx-publish-destination-namespace-draft": "Esbosso communitari"
+	"cx-publish-destination-namespace-draft": "Esbosso communitari",
+	"cx-mt-abuse-publish-error": "Tu traduction non pote esser publicate perque illo contine troppo de texto traducite per machina sin modification"
 }
