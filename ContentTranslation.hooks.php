@@ -476,7 +476,7 @@ class ContentTranslationHooks {
 			'scripts' => [
 				'modules/mw.cx.MachineTranslationService.test.js',
 				'modules/tests/util/mw.cx.util.test.js',
-				'tests/qunit/translation/mw.cx.TranslationTracker.test.js'
+				'tests/qunit/mw.cx.TranslationTracker.test.js'
 			],
 			'dependencies' => [
 				'ext.cx.sitemapper',

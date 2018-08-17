@@ -275,7 +275,8 @@ mw.cx.TranslationTracker.tokenise = function ( string, language ) {
 		return string.split( '' );
 	}
 
-	return string.match( /\S+/g ); // Match all non whitespace characters for tokens
+	// Match all non whitespace characters for tokens.
+	return string.match( /\S+/g ) || [];
 };
 
 /**

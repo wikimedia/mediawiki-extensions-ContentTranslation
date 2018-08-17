@@ -51,6 +51,13 @@
 				language: 'en',
 				result: 0.5,
 				desc: '3 token were added, one modified'
+			},
+			{
+				string1: 'foo',
+				string2: '   ',
+				language: 'en',
+				result: 0,
+				desc: 'whitespace does not count as a token'
 			}
 		];
 		for ( i = 0; i < tests.length; i++ ) {
