@@ -328,9 +328,14 @@ mw.cx.tools.IssueTrackingTool.prototype.onBlur = function () {
 };
 
 mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
-	var id = this.allIssues[ this.currentIssue - 1 ].id,
-		node = this.getNodeForId( id );
+	var node, id = this.allIssues[ this.currentIssue - 1 ].id;
 
+	// If issue is global, i.e. not attached to any DOM node, we have nothing to focus
+	if ( id === 'global' ) {
+		return;
+	}
+
+	node = this.getNodeForId( id );
 	if ( node ) {
 		node.getFocusableElement().focus();
 	}
@@ -347,12 +352,23 @@ mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
  * @param {Number} increment +1 or -1 indicating what was the previous issue in navigation
  */
 mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
-	var previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
-		currentIssueId = this.allIssues[ this.currentIssue - 1 ].id,
-		previousNode = this.getNodeForId( previousIssueId ),
-		currentNode = this.getNodeForId( currentIssueId ),
-		bluring = previousNode && previousNode.blursEditingSurface(),
-		focusableElement = currentNode && currentNode.getFocusableElement();
+	var previousNode, currentNode, bluring, focusableElement,
+		previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
+		currentIssueId = this.allIssues[ this.currentIssue - 1 ].id;
+
+	// If current issue is global, we don't steal focus from the previous node, because
+	// we don't have any node which we can focus for unattached issues.
+	if ( currentIssueId === 'global' ) {
+		return;
+	}
+
+	previousNode = this.getNodeForId( previousIssueId );
+	currentNode = this.getNodeForId( currentIssueId );
+
+	// If previous issue was global, i.e. not attached to any DOM node, that is considerred
+	// as case of blurred context, so correction of focus might be needed.
+	bluring = ( previousIssueId === 'global' ) || ( previousNode && previousNode.blursEditingSurface() );
+	focusableElement = currentNode && currentNode.getFocusableElement();
 
 	if ( bluring && focusableElement ) {
 		OO.ui.debounce( function () {
@@ -364,14 +380,18 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 };
 
 /**
- * @param {Number|String} id
- * @return {ve.ce.CXLintableNode|null}
+ * @param {Number|String} id Section number or special values of 'title' and 'global'
+ * @return {ve.ce.CXLintableNode|mw.cx.dm.Translation|null}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {
 	var node = this.veTarget.getTargetSectionElementFromSectionNumber( id );
 
 	if ( !node && id === 'title' ) {
 		node = this.veTarget.translationView.targetColumn.getTitleWidget();
+	}
+
+	if ( !node && id === 'global' ) {
+		node = this.veTarget.getTranslation();
 	}
 
 	return node;
@@ -396,7 +416,13 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
 			continue;
 		}
 
-		issues = node.getModel().getTranslationIssues();
+		// If there are issues not stored to any DOM element, they're stored
+		// in mw.cx.dm.Translation
+		if ( id === 'global' ) {
+			issues = node.getTranslationIssues();
+		} else {
+			issues = node.getModel().getTranslationIssues();
+		}
 
 		numOfIssues = issues.length;
 		this.numberOfIssues += numOfIssues;
@@ -416,7 +442,10 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
 			} );
 		}
 
-		this.registerEvents( node );
+		// Global issues aren't attached to any DOM node, so we cannot register events
+		if ( id !== 'global' ) {
+			this.registerEvents( node );
+		}
 	}
 
 	this.allIssues = allIssues;

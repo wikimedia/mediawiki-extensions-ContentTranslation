@@ -35,6 +35,8 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 		mtSectionsCount: 0
 	};
 	this.savedTranslationUnits = null;
+	// @var {mw.cx.dm.TranslationIssue[]}
+	this.translationIssues = [];
 
 	if ( draft ) {
 		this.setSavedTranslation( draft );
@@ -56,6 +58,16 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 /* Inheritance */
 
 OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
+
+/* Events */
+
+/**
+ * @event translationIssues
+ *
+ * The translation has some issues (errors and/or warnings).
+ * @param {string} id ID of a section with issues, or special values of 'title' and 'global'
+ * @param {boolean} [hasErrors] True if any of the section's issues is an error.
+ */
 
 /* Static methods */
 
@@ -499,4 +511,20 @@ mw.cx.dm.Translation.prototype.matchTranslationUnit = function ( sourceModel, pa
 		return null;
 	}
 	return mw.cx.dm.translationUnitFactory.create( type, this, id, sourceModel, parentUnit );
+};
+
+/**
+ * Add issues global for the whole translation, not attached to any DOM node.
+ *
+ * @param {mw.cx.dm.TranslationIssue[]} issues
+ * @fires translationIssues
+ */
+mw.cx.dm.Translation.prototype.addUnattachedIssues = function ( issues ) {
+	this.translationIssues = this.translationIssues.concat( issues );
+
+	this.emit( 'translationIssues', 'global' );
+};
+
+mw.cx.dm.Translation.prototype.getTranslationIssues = function () {
+	return this.translationIssues;
 };

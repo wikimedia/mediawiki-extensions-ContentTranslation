@@ -403,16 +403,23 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
  * Adds new nodes with issues to the tracking array. Nodes that have
  * their issues resolved, are removed from the array.
  *
- * @param {number|string} id Section number or 'title'
+ * @param {number|string} id Section number or special values of 'title' and 'global'
  * @param {boolean} state True if node has issues
  */
 mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state ) {
 	var index = this.nodesWithIssues.indexOf( id ),
 		sortLettersAndNumbers = function ( a, b ) {
+			// When 'title' and 'global' are compared, put 'global' in front
+			if ( isNaN( a ) && isNaN( b ) ) {
+				return a > b ? 1 : -1;
+			}
+
+			// When `a` is string ('global' or 'title'), put it before numerical values
 			if ( isNaN( a ) ) {
 				return -1;
 			}
 
+			// When `a` is number, put it after string values
 			if ( isNaN( b ) ) {
 				return 1;
 			}
@@ -437,7 +444,8 @@ mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state )
 };
 
 /**
- * Get IDs of all nodes with issues. Nodes include target title and translation sections.
+ * Get IDs of all nodes with issues. Nodes include target title, translation sections.
+ * Unattached issues don't have a node, but are kept in mw.cx.dm.Translation.
  *
  * @return {Mixed[]} Node IDs
  */
