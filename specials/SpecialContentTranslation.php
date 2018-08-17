@@ -193,6 +193,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		global $wgContentTranslationUserGroupTargetNamespace,
 			$wgContentTranslationUnmodifiedMTThresholdForPublish,
 			$wgContentTranslationCampaigns,
+			$wgContentTranslationPublishRequirements,
 			$wgContentTranslationEnableSuggestions,
 			$wgRecommendToolAPIURL;
 
@@ -207,7 +208,8 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$out->addJsConfigVars( [
 				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
 					$wgContentTranslationUnmodifiedMTThresholdForPublish,
-				'wgContentTranslationCampaigns' => $wgContentTranslationCampaigns
+				'wgContentTranslationCampaigns' => $wgContentTranslationCampaigns,
+				'wgContentTranslationPublishRequirements' => $wgContentTranslationPublishRequirements
 			] );
 		} else {
 			$out->addJsConfigVars( [

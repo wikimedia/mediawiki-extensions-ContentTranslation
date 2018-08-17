@@ -89,6 +89,7 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 
 		this.checkForTranslationChanges();
+		this.checkIfUserCanPublish();
 
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
@@ -340,7 +341,7 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		return;
 	}
 
-	this.displayWarningMessage();
+	this.displayInfobarMessage( mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning' );
 
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
 		var diff, translationIssuesParams;
@@ -417,25 +418,97 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 	}.bind( this ) );
 };
 
-mw.cx.init.Translation.prototype.displayWarningMessage = function () {
+/**
+ * @return {jQuery.promise} Promise which returns user groups for the currently logged in user.
+ */
+mw.cx.init.Translation.prototype.getUserGroups = function () {
+	var api = new mw.Api();
+
+	return api.get( {
+		action: 'query',
+		assert: 'user',
+		meta: [ 'userinfo' ],
+		uiprop: [ 'groups' ]
+	} ).then( function ( result ) {
+		return OO.getProp( result, 'query', 'userinfo', 'groups' );
+	} );
+};
+
+/**
+ * Check if user needs to be part of a certain group
+ * in order to publish and display the error in such case.
+ */
+mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
+	this.getUserGroups().then( function ( groups ) {
+		var publishConfig = mw.config.get( 'wgContentTranslationPublishRequirements', [] ).userGroups,
+			canPublish = true;
+
+		if ( !groups || !publishConfig ) {
+			return;
+		}
+
+		publishConfig.forEach( function ( userGroup ) {
+			canPublish = canPublish && groups.indexOf( userGroup ) > 0;
+		} );
+
+		if ( !canPublish ) {
+			this.displayCannotPublishError();
+		}
+	}.bind( this ) );
+};
+
+/**
+ * Display the error when user cannot publish into main namespace.
+ */
+mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
+	this.displayInfobarMessage( mw.msg( 'cx-infobar-cannot-publish' ), 'cannot-publish', 'error' );
+
+	// User isn't allowed to publish, display the information in the issue card.
+	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
+		this.translationModel.addUnattachedIssues( [
+			new mw.cx.dm.TranslationIssue(
+				'cannot-publish', // Issue name
+				mw.msg( 'cx-tools-linter-cannot-publish-message' ), // message body
+				{
+					title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
+					type: 'error',
+					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool',
+					resolvable: true,
+					actionIcon: 'article',
+					actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' )
+				}
+			)
+		] );
+	}.bind( this ) );
+};
+
+/**
+ * @param {string} message Message to display inside infobar
+ * @param {string} issueName Name of the issue to be displayed when infobar message is closed
+ * @param {string} type 'error' or 'warning'
+ */
+mw.cx.init.Translation.prototype.displayInfobarMessage = function ( message, issueName, type ) {
 	var button = new OO.ui.ButtonWidget( {
 		framed: false,
 		flags: [ 'primary', 'progressive' ],
 		label: mw.msg( 'cx-infobar-view-issues' )
 	} );
 
-	button.connect( this, { click: 'displayIssueDetails' } );
+	button.connect( this, { click: [ 'displayIssueDetails', issueName ] } );
 
-	this.translationView.showMessage( 'warning', mw.msg( 'cx-infobar-old-version' ), null, [ button ] );
+	this.translationView.showMessage( type, message, null, [ button ] );
 };
 
-mw.cx.init.Translation.prototype.displayIssueDetails = function () {
+/**
+ * @param {string} issueName Name of the issue to be displayed when infobar message is closed
+ */
+mw.cx.init.Translation.prototype.displayIssueDetails = function ( issueName ) {
 	var issueCard = this.translationView.toolsColumn.issueCard;
 
 	if ( !issueCard ) {
 		throw new Error( 'Issue card is not initialized' );
 	}
 
-	issueCard.openIssueByName( 'old-version' );
+	issueCard.openIssueByName( issueName );
 	this.translationView.clearMessages();
 };
