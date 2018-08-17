@@ -22,7 +22,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 
 		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
 		$wgULSPosition = 'personal';
-		$out->addJsConfigVars( [ 'wgULSPosition' => 'personal' ] );
+		$out->addJsConfigVars( 'wgULSPosition', 'personal' );
 
 		if ( !$this->canUserProceed() ) {
 			return;
