@@ -98,7 +98,7 @@
 	"cx-selected-source-page-error-title-in-use": "Наслов за нову страницу је [$1 већ у употреби]",
 	"cx-page-missing-in-target-language": "Није преведено на $1",
 	"cx-page-number-of-languages": "Број језика",
-	"cx-mt-abuse-warning-title": "Ваш превод садржи $1% неизмењеног машинског превода",
+	"cx-mt-abuse-warning-title": "Ваш превод садржи $1% неизмењеног текста",
 	"cx-mt-abuse-warning-text": "Машински превод је само полазна тачка, морате се постарати да садржај буде тачан и разумљив на вашем језику.<br><br>Ваш превод лако може бити обрисан од стране других уредника.",
 	"cx-publish-captcha-title": "Провера да нисте бот",
 	"cx-captcha-dialog-error": "Ваш одговор није тачан. Покушајте поново.",
