@@ -104,7 +104,7 @@
 	"cx-selected-source-page-error-title-in-use": "عنوان صفحهٔ جدید در حال حاضر [$1 در استفاده است]",
 	"cx-page-missing-in-target-language": "در $1 یافت نشد",
 	"cx-page-number-of-languages": "تعداد زبان ها",
-	"cx-mt-abuse-warning-title": "ترجمهٔ شما {{PLURAL:$1|دارای}} مقدار $1٪ از متن ترجمهٔ ماشینی تغییر نیافته است",
+	"cx-mt-abuse-warning-title": "ترجمهٔ شما {{PLURAL:$1|دارای}} مقدار $1٪ از متن تغییر نیافته است",
 	"cx-mt-abuse-warning-text": "ترجمهٔ ماشینی فقط به‌عنوان یک نقطهٔ شروع فراهم شده است. شما نیاز دارید که محتویات را دقیق و قابل عادی خواندن در زبانتان کنید.",
 	"cx-publish-captcha-title": "بررسی اینکه آیا ربات هستید یا نه",
 	"cx-captcha-dialog-error": "پاسخ شما به نظر صحیح نیست. لطفا باز تلاش کنید.",
@@ -229,6 +229,7 @@
 	"cx-tools-linter-view-details": "مشاهده جزئیات",
 	"cx-tools-linter-hide-details": "پنهان‌سازی جزئیات",
 	"cx-tools-linter-empty-title": "ترجمه شما نیازمند عنوان است",
+	"cx-tools-linter-invalid-character": "عنوان ترجمه شما شامل کاراکترهای نامعتبر است",
 	"cx-tools-linter-invalid-character-action": "تصحیح کاراکترهای مشکل‌دار",
 	"cx-tools-linter-page-exists": "صفحه از قبل وجود دارد",
 	"cx-translator-header": "آمار شما",
@@ -249,5 +250,7 @@
 	"cx-publish-destination-tooltip": "فضای نامی که در آن صفحه منتشر خواهد شد را برگزینید",
 	"cx-publish-destination-namespace-main": "صفحه جدید",
 	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی",
-	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی"
+	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی",
+	"cx-linkcontextitem-missing-link-title": "پیوند ناموجود",
+	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد."
 }
