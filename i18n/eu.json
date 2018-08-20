@@ -5,7 +5,8 @@
 			"Sator",
 			"Mikel Ibaiba",
 			"Xabier Armendaritz",
-			"Amaia"
+			"Amaia",
+			"Iñaki LL"
 		]
 	},
 	"cx": "Orria itzuli",
@@ -47,7 +48,7 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|EdukiItzulpena]]",
 	"tag-contenttranslation-description": "Edukia beste hizkuntza batetik itzulia izan da Eduki Itzulpena tresna erabilita.",
 	"cx-source-loading": "$1 kargatzen",
-	"cx-beta": "Content Translation",
+	"cx-beta": "Edukiaren itzulpena",
 	"cx-beta-desc": "Zeure hizkuntzara orrialdeak itzultzeko tresna bizkorra. Hasi itzulpenak [[Special:MyContributions|zure ekarpenen orrialdean]] eta editatu itzazu gure itzulpenerako bereziki prestatutako ondoan ondoko editorean. Baliteke zenbait tresna hizkuntza jakin batzuetan baino ez aurkitzea.",
 	"cx-entrypoint-title": "Itzuli orri hau $1-(e)ra",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Orri hau ez da oraindik $1-(e)n existitzen. Sortu egin nahi {{GENDER:|duzu}}?",
