@@ -335,7 +335,8 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 	this.saveTracker[ sectionNumber ] = this.saveTracker[ sectionNumber ] ||
 		{ count: 0, error: false };
 
-	if ( validations && validations.length === 0 ) {
+	// If there are no validations, don't proceed
+	if ( !validations || validations.length === 0 ) {
 		return;
 	}
 
