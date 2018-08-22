@@ -18,7 +18,11 @@ mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber ) {
 	// @var {Object}
 	this.unmodifiedMT = {};
 	// @var {Object}
-	this.userTranslation = null;
+	this.userTranslation = {
+		html: null,
+		text: null,
+		saved: false
+	};
 	// @var {String}
 	this.currentMTProvider = null;
 	// @var {Number}
@@ -67,7 +71,7 @@ mw.cx.dm.SectionState.prototype.setUnmodifiedMT = function ( html ) {
 };
 
 mw.cx.dm.SectionState.prototype.getUnmodifiedMT = function () {
-	return this.unmodifiedMT[ this.currentMTProvider ];
+	return this.unmodifiedMT[ this.currentMTProvider ] || {};
 };
 
 mw.cx.dm.SectionState.prototype.setCurrentMTProvider = function ( provider ) {
@@ -95,7 +99,7 @@ mw.cx.dm.SectionState.prototype.setTranslationProgressPercentage = function ( pe
 };
 
 mw.cx.dm.SectionState.prototype.isModified = function () {
-	if ( !this.getUserTranslation() || !this.getUnmodifiedMT() ) {
+	if ( this.getUserTranslation().text === null || !this.getUnmodifiedMT().text ) {
 		return false;
 	}
 	return this.getUnmodifiedMT().html !== this.getUserTranslation().html;

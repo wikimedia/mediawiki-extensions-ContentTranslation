@@ -413,7 +413,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	content = origin === 'user' ?
 		sectionState.getUserTranslation().html : sectionState.getUnmodifiedMT().html;
 
-	if ( content === '' ) {
+	if ( !content ) {
 		throw new Error( 'Attempting to save section ' + sectionNumber + ' having blank html content.' );
 	}
 

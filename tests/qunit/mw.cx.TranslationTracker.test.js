@@ -58,6 +58,13 @@
 				language: 'en',
 				result: 0,
 				desc: 'whitespace does not count as a token'
+			},
+			{
+				string1: '',
+				string2: '',
+				language: 'en',
+				result: 0,
+				desc: 'If both are blank, return 0'
 			}
 		];
 		for ( i = 0; i < tests.length; i++ ) {

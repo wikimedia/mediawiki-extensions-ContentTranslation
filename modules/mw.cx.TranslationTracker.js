@@ -123,13 +123,13 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	newContent = ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML;
 	existingContent = sectionState.getUserTranslation();
 	unmodifiedMTContent = sectionState.getUnmodifiedMT();
-	if ( !unmodifiedMTContent ) {
+	if ( !unmodifiedMTContent.html ) {
 		// Fresh translation. Extract and save the unmodified MT content to section state.
 		sectionState.setCurrentMTProvider( newMTProvider );
 		sectionState.setUnmodifiedMT( newContent );
 		mw.log( '[CX] Fresh translation for section ' + sectionNumber + ' with MT ' + newMTProvider );
 	}
-	if ( newContent !== ( existingContent && existingContent.html ) ) {
+	if ( newContent !== existingContent.html ) {
 		// A modification of user translated content. Save the modified content to section state
 		sectionState.setUserTranslation( newContent );
 		mw.log( '[CX] Content modified for section ' + sectionNumber + ' with MT ' + newMTProvider );
@@ -170,8 +170,8 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 		userTranslation = sectionState.getUserTranslation();
 
 	unmodifiedPercentage = mw.cx.TranslationTracker.calculateUnmodifiedContent(
-		unmodifiedContent && unmodifiedContent.text,
-		userTranslation && userTranslation.text,
+		unmodifiedContent.text,
+		userTranslation.text,
 		this.targetLanguage
 	);
 	sectionState.setUnmodifiedPercentage( unmodifiedPercentage );
@@ -179,7 +179,7 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 	// Calculate the progress. It is a value between 0 and 1
 	progress = mw.cx.TranslationTracker.calculateSectionTranslationProgress(
 		sectionState.getSource().text,
-		userTranslation && userTranslation.text,
+		userTranslation.text,
 		this.targetLanguage
 	);
 	sectionState.setTranslationProgressPercentage( progress );
@@ -221,13 +221,13 @@ mw.cx.TranslationTracker.calculateSectionTranslationProgress = function ( string
 mw.cx.TranslationTracker.calculateUnmodifiedContent = function ( string1, string2, language ) {
 	var unmodifiedTokens, bigSet, smallSet, tokens1, tokens2;
 
+	if ( !string1 || !string2 ) {
+		return 0;
+	}
+
 	if ( string1 === string2 ) {
 		// Both strings are equal. So string2 is 100% unmodified version of string1
 		return 1;
-	}
-
-	if ( !string1 || !string2 ) {
-		return 0;
 	}
 
 	bigSet = tokens1 = mw.cx.TranslationTracker.tokenise( string1, language );
@@ -340,14 +340,20 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 		this.updateSectionProgress( sectionNumber );
 
 		sectionState = this.sections[ sectionNumber ];
-		if ( sectionState.getUnmodifiedMT() || sectionState.getUserTranslation() ) {
+		if ( sectionState.getUserTranslation().text === '' ) {
+			// Section blanked. Consider as not translated.
+			continue;
+		}
+
+		if ( sectionState.getUnmodifiedMT().text || sectionState.getUserTranslation().text ) {
 			// Section with any type of translation
 			sectionsWithAnyTranslation++;
 		} else {
 			// Section not translated at all.
 			continue;
 		}
-		if ( sectionState.getUnmodifiedMT() && !sectionState.isModified() ) {
+
+		if ( !sectionState.isModified() ) {
 			// Section with umodified translation
 			sectionsWithUnmodifiedContent++;
 		} else if ( sectionState.getUserTranslation().text ) {
