@@ -10,8 +10,8 @@
  * @param {mw.cx.dm.Translation} translationModel
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {Object} config
- * @cfg {String} sourceLanguage
- * @cfg {String} targetLanguage
+ * @cfg {string} sourceLanguage
+ * @cfg {string} targetLanguage
  */
 mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, veTarget, config ) {
 	this.sourceLanguage = config.sourceLanguage;
@@ -29,10 +29,7 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	this.sections = {};
 	this.validationDelayQueue = [];
 	this.changeQueue = [];
-	this.changeTrackerScheduler = OO.ui.debounce( this.processChangeQueue.bind( this ), 500 );
-	this.translationModel.connect( this, {
-		sectionChange: 'addToChangeQueue'
-	} );
+	this.saveQueue = [];
 };
 
 /**
@@ -50,17 +47,17 @@ mw.cx.TranslationTracker.prototype.init = function () {
 
 		sectionNumber = sectionModel.getSectionNumber();
 		sectionState = new mw.cx.dm.SectionState( sectionNumber );
-		sectionState.setSourceContent( ve.dm.converter.getDomFromNode( sectionModel ).body.textContent );
+		sectionState.setSource( ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML );
 		savedTranslationUnit = savedTranslationUnits[ sectionNumber ];
 		if ( savedTranslationUnit ) {
 			if ( savedTranslationUnit.user ) {
-				sectionState.setUserTranslationContent( $( savedTranslationUnit.user.content ).text() );
 				sectionState.setCurrentMTProvider( savedTranslationUnit.user.engine );
+				sectionState.setUserTranslation( savedTranslationUnit.user.content );
 			}
 			if ( savedTranslationUnit.mt ) {
 				// Machine translation, unmodified.
 				sectionState.setCurrentMTProvider( savedTranslationUnit.mt.engine );
-				sectionState.setUnmodifiedMTContent( $( savedTranslationUnit.mt.content ).text() );
+				sectionState.setUnmodifiedMT( savedTranslationUnit.mt.content );
 			}
 			restoredSections++;
 			this.validationDelayQueue.push( sectionNumber );
@@ -71,26 +68,15 @@ mw.cx.TranslationTracker.prototype.init = function () {
 
 	mw.log( '[CX] Translation tracker initialized for ' +
 		sectionModels.length + ' sections (' + restoredSections + ' restored)' );
+
 	if ( restoredSections > 0 ) {
 		progress = this.getTranslationProgress();
-		if ( this.translationModel.progress !== progress ) {
+		if ( !OO.compare( this.translationModel.progress, progress ) ) {
 			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
 				JSON.stringify( this.translationModel.progress ) );
 		}
 		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
 	}
-};
-
-/**
- * Catch the section changes to a queue.
- * @param {String} sectionId
- */
-mw.cx.TranslationTracker.prototype.addToChangeQueue = function ( sectionId ) {
-	if ( this.changeQueue.indexOf( sectionId ) < 0 ) {
-		this.changeQueue.push( sectionId );
-	}
-	// Schedule processing this queue
-	this.changeTrackerScheduler();
 };
 
 /**
@@ -108,20 +94,19 @@ mw.cx.TranslationTracker.prototype.processChangeQueue = function () {
 
 /**
  * Section change handler
- * @param {String} sectionId
+ * @param {string} sectionNumber
  */
-mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionId ) {
-	var sectionNumber, sectionModel, sectionState, newContent, existingContent,
+mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumber ) {
+	var sectionModel, sectionState, newContent, existingContent,
 		currentMTProvider, unmodifiedMTContent, newMTProvider, freshTranslation;
 
-	sectionModel = this.veTarget.getTargetSectionNode( sectionId );
+	sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 	if ( !sectionModel ) {
 		// sectionModel can be null in case this handler is executed while the node
 		// is being modified. Since this method is debounced, chances are rare.
 		// Still checking for null.
 		return;
 	}
-	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	sectionState = this.sections[ sectionNumber ];
 
 	currentMTProvider = sectionState.getCurrentMTProvider();
@@ -131,22 +116,22 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionId )
 		mw.log( '[CX] MT Engine change for section ' + sectionNumber + ' to MT ' + newMTProvider );
 		sectionState.setCurrentMTProvider( newMTProvider );
 		// Reset the saved content in section state.
-		sectionState.setUserTranslationContent( null );
+		sectionState.setUserTranslation( null );
 		freshTranslation = true;
 	}
 
-	newContent = ve.dm.converter.getDomFromNode( sectionModel ).body.textContent;
-	existingContent = sectionState.getUserTranslationContent();
-	unmodifiedMTContent = sectionState.getUnmodifiedMTContent();
+	newContent = ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML;
+	existingContent = sectionState.getUserTranslation();
+	unmodifiedMTContent = sectionState.getUnmodifiedMT();
 	if ( !unmodifiedMTContent ) {
 		// Fresh translation. Extract and save the unmodified MT content to section state.
 		sectionState.setCurrentMTProvider( newMTProvider );
-		sectionState.setUnmodifiedMTContent( newContent );
+		sectionState.setUnmodifiedMT( newContent );
 		mw.log( '[CX] Fresh translation for section ' + sectionNumber + ' with MT ' + newMTProvider );
 	}
-	if ( newContent !== existingContent ) {
+	if ( newContent !== ( existingContent && existingContent.html ) ) {
 		// A modification of user translated content. Save the modified content to section state
-		sectionState.setUserTranslationContent( newContent );
+		sectionState.setUserTranslation( newContent );
 		mw.log( '[CX] Content modified for section ' + sectionNumber + ' with MT ' + newMTProvider );
 	} else {
 		// No real content change here. May be markup change, which we don't care.
@@ -175,24 +160,25 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionId )
 
 /**
  * Calculate and update the section translation progress.
- * @param {Number} sectionNumber
+ * @param {number} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNumber ) {
-	var sectionState, unmodifiedPercentage, progress;
-
-	sectionState = this.sections[ sectionNumber ];
+	var unmodifiedPercentage, progress,
+		sectionState = this.sections[ sectionNumber ],
+		unmodifiedContent = sectionState.getUnmodifiedMT(),
+		userTranslation = sectionState.getUserTranslation();
 
 	unmodifiedPercentage = mw.cx.TranslationTracker.calculateUnmodifiedContent(
-		sectionState.getUnmodifiedMTContent(),
-		sectionState.getUserTranslationContent(),
+		unmodifiedContent && unmodifiedContent.text,
+		userTranslation && userTranslation.text,
 		this.targetLanguage
 	);
 	sectionState.setUnmodifiedPercentage( unmodifiedPercentage );
 
 	// Calculate the progress. It is a value between 0 and 1
 	progress = mw.cx.TranslationTracker.calculateSectionTranslationProgress(
-		sectionState.getSourceContent(),
-		sectionState.getUserTranslationContent(),
+		sectionState.getSource().text,
+		userTranslation && userTranslation.text,
 		this.targetLanguage
 	);
 	sectionState.setTranslationProgressPercentage( progress );
@@ -202,10 +188,10 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
  * Calculate the section translation progress based on relative number of tokens.
  * If there are 10 tokens and all translated, return 1, if 5 more tokens
  * added, return 1.5 and so on.
- * @param {String} string1
- * @param {String} string2
- * @param {String} language
- * @return {Number}
+ * @param {string} string1
+ * @param {string} string2
+ * @param {string} language
+ * @return {number}
  */
 mw.cx.TranslationTracker.calculateSectionTranslationProgress = function ( string1, string2, language ) {
 	var tokens1, tokens2;
@@ -226,10 +212,10 @@ mw.cx.TranslationTracker.calculateSectionTranslationProgress = function ( string
  * A very simple method to calculate the difference between two strings in the scale
  * of 0 to 1, based on relative number of tokens changed in string2 from string1.
  *
- * @param {String} string1
- * @param {String} string2
- * @param {String} language
- * @return {Number} A value between 0 and 1
+ * @param {string} string1
+ * @param {string} string2
+ * @param {string} language
+ * @return {number} A value between 0 and 1
  */
 mw.cx.TranslationTracker.calculateUnmodifiedContent = function ( string1, string2, language ) {
 	var unmodifiedTokens, bigSet, smallSet, tokens1, tokens2;
@@ -266,9 +252,9 @@ mw.cx.TranslationTracker.calculateUnmodifiedContent = function ( string1, string
  * Tokenize a given string. Here tokens is basically words for non CJK languages.
  * For CJK languages, we just split at each codepoint level.
  *
- * @param {String} string
- * @param {String} language
- * @return {String[]}
+ * @param {string} string
+ * @param {string} language
+ * @return {string[]}
  */
 mw.cx.TranslationTracker.tokenise = function ( string, language ) {
 	if ( $.uls.data.scriptgroups.CJK.indexOf( $.uls.data.getScript( language ) ) >= 0 ) {
@@ -282,14 +268,14 @@ mw.cx.TranslationTracker.tokenise = function ( string, language ) {
 /**
  * Check if a section has unmodified MT beyond a threshold. If so, add a warning issue
  * to the section model.
- * @param {Number} sectionNumber
- * @return {Boolean} Whether the section is crossing the unmodified MT threshold
+ * @param {number} sectionNumber
+ * @return {boolean} Whether the section is crossing the unmodified MT threshold
  */
 mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber ) {
 	var sourceTokens,
 		sectionState = this.sections[ sectionNumber ];
 
-	sourceTokens = mw.cx.TranslationTracker.tokenise( sectionState.getSourceContent(), this.sourceLanguage );
+	sourceTokens = mw.cx.TranslationTracker.tokenise( sectionState.getSource().text, this.sourceLanguage );
 	if ( sourceTokens.length < 10 ) {
 		// Exclude smaller sections from MT abuse validations
 		return false;
@@ -353,18 +339,17 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 		this.updateSectionProgress( sectionNumber );
 
 		sectionState = this.sections[ sectionNumber ];
-		if ( sectionState.getUnmodifiedMTContent() || sectionState.getUserTranslationContent() ) {
+		if ( sectionState.getUnmodifiedMT() || sectionState.getUserTranslation() ) {
 			// Section with any type of translation
 			sectionsWithAnyTranslation++;
 		} else {
 			// Section not translated at all.
 			continue;
 		}
-		if ( sectionState.getUnmodifiedMTContent() === sectionState.getUserTranslationContent() ||
-			!sectionState.getUserTranslationContent() ) {
+		if ( sectionState.getUnmodifiedMT() && !sectionState.isModified() ) {
 			// Section with umodified translation
 			sectionsWithUnmodifiedContent++;
-		} else if ( sectionState.getUserTranslationContent() ) {
+		} else if ( sectionState.getUserTranslation().text ) {
 			// Section with human modified translation
 			sectionsWithUserTranslation++;
 		}
@@ -381,7 +366,7 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 
 /**
  * Get unmodified machine translation percentage in total translated content.
- * @return {Number} Sections wiwht Unmodified MT percentage relative to all translated sections.
+ * @return {number} Sections wiwht Unmodified MT percentage relative to all translated sections.
  */
 mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = function () {
 	var progress = this.getTranslationProgress();
@@ -411,8 +396,8 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
  * Adds new nodes with issues to the tracking array. Nodes that have
  * their issues resolved, are removed from the array.
  *
- * @param {Number|String} id Section number or 'title'
- * @param {Boolean} state True if node has issues
+ * @param {number|string} id Section number or 'title'
+ * @param {boolean} state True if node has issues
  */
 mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state ) {
 	var index = this.nodesWithIssues.indexOf( id ),
@@ -451,4 +436,64 @@ mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state )
  */
 mw.cx.TranslationTracker.prototype.getNodesWithIssues = function () {
 	return this.nodesWithIssues;
+};
+
+/**
+ * Check if the section is in the change queue
+ * @param {string} sectionNumber
+ * @return {boolean}
+ */
+mw.cx.TranslationTracker.prototype.isSectionInChangeQueue = function ( sectionNumber ) {
+	return this.changeQueue.indexOf( sectionNumber ) >= 0;
+};
+
+mw.cx.TranslationTracker.prototype.pushToChangeQueue = function ( sectionNumber ) {
+	if ( !this.isSectionInChangeQueue( sectionNumber ) ) {
+		this.changeQueue.push( sectionNumber );
+	}
+};
+
+/**
+ * Check if the section is in the save queue
+ * @param {string} sectionNumber
+ * @return {boolean}
+ */
+mw.cx.TranslationTracker.prototype.isSectionInSaveQueue = function ( sectionNumber ) {
+	return this.saveQueue.indexOf( sectionNumber ) >= 0;
+};
+
+mw.cx.TranslationTracker.prototype.pushToSaveQueue = function ( sectionNumber ) {
+	if ( !this.isSectionInSaveQueue( sectionNumber ) ) {
+		this.saveQueue.push( sectionNumber );
+	}
+};
+
+/**
+ * Remove section from the save queue for the given section number,
+ * @param {string} sectionNumber
+ */
+mw.cx.TranslationTracker.prototype.removeSectionFromSaveQueue = function ( sectionNumber ) {
+	var index = this.saveQueue.indexOf( sectionNumber );
+	if ( index >= 0 ) {
+		this.saveQueue.splice( index, 1 );
+	} else {
+		mw.log.warn( '[CX] Attempting to remove non-existing ' + sectionNumber + ' from save queue.' );
+	}
+};
+
+/**
+ * Get the current save queue
+ * @return {number[]}
+ */
+mw.cx.TranslationTracker.prototype.getSaveQueue = function () {
+	return this.saveQueue;
+};
+
+/**
+ * Get the section state for the given section number,
+ * @param {number} sectionNumber
+ * @return {mw.cx.dm.SectionState}
+ */
+mw.cx.TranslationTracker.prototype.getSectionState = function ( sectionNumber ) {
+	return this.sections[ sectionNumber ];
 };

@@ -26,16 +26,14 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.saveRequest = null;
 	this.failCounter = 0;
 	this.isFailedUnrecoverably = false; // TODO: This is still unused
-	// Associative array of translation units queued to be saved
-	this.saveQueue = {};
-	this.saveTimer = null;
+	this.saveStatusTimer = null;
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
 	this.savedTargetTitle = this.translation.getTargetTitle();
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
-	this.schedule = OO.ui.throttle( this.processSaveQueue.bind( this ), 15 * 1000 );
 	this.translationTracker = new mw.cx.TranslationTracker( this.translation, this.veTarget, config );
-	this.saveTracker = {};
+	this.saveScheduler = OO.ui.debounce( this.processSaveQueue.bind( this ), 5 * 1000 );
+	this.changeTrackerScheduler = OO.ui.debounce( this.processChangeQueue.bind( this ), 500 );
 
 	// Events
 	this.listen();
@@ -49,12 +47,12 @@ mw.cx.TranslationController.prototype.listen = function () {
 	this.translation.connect( this, {
 		targetCategoriesChange: 'onTargetCategoriesChange',
 		issuesResolved: 'onIssuesResolved',
-		translationIssues: 'onTranslationIssues'
+		translationIssues: 'onTranslationIssues',
+		sectionChange: 'addToChangeQueue'
 	} );
 
 	this.veTarget.connect( this, {
 		surfaceReady: 'onSurfaceReady',
-		saveSection: 'save',
 		publish: 'publish',
 		targetTitleChange: 'onTargetTitleChange'
 	} );
@@ -79,6 +77,21 @@ mw.cx.TranslationController.prototype.listen = function () {
 	window.onbeforeunload = this.onPageUnload.bind( this );
 };
 
+/**
+ * Add the section changes to save queue and change queue.
+ * These two queues are processed in different interevals and different
+ * triggers. Hence two queues.
+ * @param {String} sectionId
+ */
+mw.cx.TranslationController.prototype.addToChangeQueue = function ( sectionId ) {
+	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	this.translationTracker.pushToChangeQueue( sectionNumber );
+	this.translationTracker.pushToSaveQueue( sectionNumber );
+	// Schedule processing the change and save queues
+	this.changeTrackerScheduler();
+	this.saveScheduler();
+};
+
 ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
 	shortcuts: [ {
 		mac: 'cmd+s',
@@ -88,32 +101,14 @@ ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
 } );
 
 /**
- * Save the translation to database
- *
- * @param {Object} sectionData
- */
-mw.cx.TranslationController.prototype.save = function ( sectionData ) {
-	if ( !sectionData ) {
-		return;
-	}
-
-	// Keep records indexed by section numbers to avoid duplicates.
-	// When more than one changes to a single translation unit comes, only
-	// the last one needs to be considered for saving.
-	this.saveQueue[ sectionData.sectionNumber ] = sectionData;
-
-	this.schedule();
-};
-
-/**
- * Return true if there aren't any new changes to be saved.
+ * Return true if there are any new changes to be saved.
  *
  * @return {boolean}
  */
-mw.cx.TranslationController.prototype.noNewChanges = function () {
-	return ( !this.saveQueue || !Object.keys( this.saveQueue ).length ) &&
-		!this.targetTitleChanged() &&
-		this.targetCategoriesChanged === 0;
+mw.cx.TranslationController.prototype.hasUnsavedChanges = function () {
+	return this.translationTracker.getSaveQueue().length ||
+		this.targetTitleChanged() ||
+		this.targetCategoriesChanged !== 0;
 };
 
 /**
@@ -125,6 +120,10 @@ mw.cx.TranslationController.prototype.targetTitleChanged = function () {
 	return this.savedTargetTitle !== this.translation.getTargetTitle();
 };
 
+mw.cx.TranslationController.prototype.processChangeQueue = function () {
+	this.translationTracker.processChangeQueue();
+};
+
 /**
  * Process the save queue. Save the changed translation units.
  *
@@ -134,7 +133,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	var numOfChangedCategories, savedSections, params,
 		api = new mw.Api();
 
-	if ( this.noNewChanges() ) {
+	if ( !this.hasUnsavedChanges() ) {
 		return;
 	}
 
@@ -157,10 +156,13 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		this.saveRequest.abort();
 	}
 
+	// Copy the current save queue by value.
+	savedSections = this.translationTracker.getSaveQueue().slice();
+
 	params = {
 		action: 'cxsave',
 		assert: 'user',
-		content: this.getContentToSave( this.saveQueue ),
+		content: this.getContentToSave( savedSections ),
 		from: this.translation.getSourceLanguage(),
 		to: this.translation.getTargetLanguage(),
 		sourcetitle: this.translation.getSourceTitle(),
@@ -169,8 +171,6 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
 		cxversion: 2
 	};
-
-	savedSections = Object.keys( this.saveQueue );
 
 	if ( this.targetCategoriesChanged > 0 ) {
 		// Use counter for number of changes in target categories which are attempted to be saved.
@@ -196,7 +196,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 
 	this.saveRequest = api.postWithToken( 'csrf', params )
 		.done( function ( saveResult ) {
-			this.onSaveComplete( saveResult );
+			this.onSaveComplete( savedSections, saveResult );
 
 			if ( this.targetTitleChanged() ) {
 				mw.log( '[CX] Target title saved.' );
@@ -212,8 +212,8 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			}
 
 			// Remove saved sections from the queue
-			savedSections.forEach( function ( sectionId ) {
-				delete this.saveQueue[ sectionId ];
+			savedSections.forEach( function ( sectionNumber ) {
+				this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
 			}.bind( this ) );
 
 			// Reset fail counter.
@@ -256,14 +256,15 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
  * @return {string|undefined} The message to be shown to the user
  */
 mw.cx.TranslationController.prototype.onPageUnload = function () {
-	if ( Object.keys( this.saveQueue ).length > 0 ) {
-		this.schedule();
+	if ( this.hasUnsavedChanges() ) {
+		// Immediately start processing the save queue.
+		this.processSaveQueue();
 		return mw.msg( 'cx-warning-unsaved-translation' );
 	}
 };
 
-mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
-	var sectionNumber, section, validation, validations, minutes = 0;
+mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections, saveResult ) {
+	var validation, validations, minutes = 0;
 
 	if ( this.targetCategoriesChanged > 0 ) {
 		mw.log( '[CX] Target categories saved.' );
@@ -271,28 +272,29 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( saveResult ) {
 
 	validations = saveResult.cxsave.validations;
 
-	for ( sectionNumber in this.saveQueue ) {
+	savedSections.forEach( function ( sectionNumber ) {
+		var section;
+
 		validation = validations[ sectionNumber ];
 
-		if ( !this.saveQueue.hasOwnProperty( sectionNumber ) ) {
-			continue;
+		if ( !validation ) {
+			mw.log.warn( '[CX] Section ' + sectionNumber + ' sent for saving, but missing in the save result.' );
+			return;
 		}
-
-		// FIXME. Not nice to append the prefix below.
-		section = this.veTarget.getTargetSectionNode( 'cxTargetSection' + sectionNumber );
+		section = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 		if ( section ) {
 			// Annotate the section with errors, if any.
 			this.onSaveValidation( section, validation );
 		}
 
 		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
-	}
+	}.bind( this ) );
 
 	// Show saved status with a time after last save.
-	clearTimeout( this.saveTimer );
+	clearTimeout( this.saveStatusTimer );
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 
-	this.saveTimer = setInterval( function () {
+	this.saveStatusTimer = setInterval( function () {
 		if ( this.failCounter > 0 ) {
 			// Don't overwrite error message of failure with this timer controlled message.
 			return;
@@ -325,22 +327,21 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
  * @param {Object[]} validations
  */
 mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
-	var id, validation, message, error,
-		sectionNumber = section.getSectionNumber(),
-		results = [], counter = 1;
+	var id, sectionState, validation, message, error, counter = 1, results = [];
 
 	// Resolve old issues, so that we don't get duplicates when adding issues to this section
 	section.resolveTranslationIssues( 'validation' );
 
-	this.saveTracker[ sectionNumber ] = this.saveTracker[ sectionNumber ] ||
-		{ count: 0, error: false };
+	sectionState = this.translationTracker.getSectionState( section.getSectionNumber() );
 
 	// If there are no validations, don't proceed
 	if ( !validations || validations.length === 0 ) {
+		sectionState.hasSaveError = false;
 		return;
 	}
 
-	this.saveTracker[ sectionNumber ].error = true;
+	sectionState.hasSaveError = true;
+
 	for ( id in validations ) {
 		validation = validations[ id ];
 		message = validation.warn && validation.warn.messageHtml;
@@ -365,15 +366,14 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 /**
  * Get the deflated content to save from save queue.
  *
- * @param {Object[]} saveQueue
+ * @param {number[]} saveQueue
  * @return {string}
  */
 mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) {
 	var records = [];
 
-	Object.keys( saveQueue ).forEach( function ( key ) {
-		var translationUnit = saveQueue[ key ];
-		this.getSectionRecords( translationUnit ).forEach( function ( data ) {
+	saveQueue.forEach( function ( sectionNumber ) {
+		this.getSectionRecords( sectionNumber ).forEach( function ( data ) {
 			records.push( data );
 		} );
 	}.bind( this ) );
@@ -384,64 +384,64 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 /**
  * Get the records for saving the translation unit.
  *
- * @param {Object} sectionData
+ * @param {number} sectionNumber
  * @return {Object[]} Objects to save
  */
-mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionData ) {
-	var hasNotBeenSavedBefore, saveMetadata, validate, translationSource, origin,
-		records = [];
+mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumber ) {
+	var validate, content, translationSource, origin,
+		sectionState, records = [];
 
-	if ( this.saveTracker[ sectionData.sectionNumber ] ) {
-		hasNotBeenSavedBefore = false;
-		saveMetadata = this.saveTracker[ sectionData.sectionNumber ];
+	sectionState = this.translationTracker.getSectionState( sectionNumber );
+
+	if ( !sectionState ) {
+		throw new Error( 'Attempting to save section ' + sectionNumber + ' having no section state.' );
+	}
+
+	translationSource = sectionState.getCurrentMTProvider();
+	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {
+		origin = 'user';
 	} else {
-		hasNotBeenSavedBefore = true;
-		saveMetadata = {
-			// How many times this section has been saved in the current session
-			count: 0,
-			error: false
-		};
+		origin = translationSource;
 	}
 
 	// Because validation is computationally heavy and slow operation (server side),
 	// do not perform validation on every request, unless there is a known validation
 	// issue that should go away immediately when fixed by the user. Validation means
 	// checking whether the content matches AbuseFilter rules defined in the target wiki.
-	validate = saveMetadata.error ||
-		saveMetadata.count % 5 === 0 ||
-		translationSource === 'mt';
+	validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
 
-	// XXX should use the promise, but at this point the member variable should always be present
-	translationSource = sectionData.translation.MTProvider;
-	if ( translationSource === 'source' || translationSource === 'scratch' ) {
-		origin = 'user';
-	} else {
-		origin = translationSource;
+	content = origin === 'user' ?
+		sectionState.getUserTranslation().html : sectionState.getUnmodifiedMT().html;
+
+	if ( content === '' ) {
+		throw new Error( 'Attempting to save section ' + sectionNumber + ' having blank html content.' );
 	}
 
 	records.push( {
-		content: sectionData.translation.content,
+		content: content,
 		// Use source section number as the canonical section id shared by source and target.
-		sectionId: sectionData.sectionNumber,
+		sectionId: sectionNumber,
 		validate: validate,
 		origin: origin
 	} );
 
+	mw.log( '[CX] Saving translation of section ' + sectionNumber +
+		' [validate:' + validate + ', origin:' + origin + ']' );
+
 	// Save source sections only once because they do not change.
-	if ( hasNotBeenSavedBefore ) {
+	if ( !sectionState.isSourceSaved() ) {
 		records.push( {
-			content: sectionData.source.content,
-			sectionId: sectionData.sectionNumber,
+			content: sectionState.getSource().html,
+			sectionId: sectionNumber,
 			// It makes no sense to validate source sections.
 			validate: false,
 			origin: 'source'
 		} );
-		mw.log( '[CX] Saving source content of section ' + sectionData.sectionNumber );
+		sectionState.markSourceSaved( true );
+		mw.log( '[CX] Saving source content of section ' + sectionNumber );
 	}
 
-	saveMetadata.count++;
-
-	this.saveTracker[ sectionData.sectionNumber ] = saveMetadata;
+	sectionState.saveCount++;
 
 	return records;
 };
@@ -471,7 +471,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 
 mw.cx.TranslationController.prototype.enableEditing = function () {
 	this.translationView.categoryUI.disableCategoryUI( false );
-	clearTimeout( this.saveTimer );
+	clearTimeout( this.saveStatusTimer );
 };
 
 /**
@@ -518,7 +518,7 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
  */
 mw.cx.TranslationController.prototype.onTargetCategoriesChange = function () {
 	this.targetCategoriesChanged++;
-	this.schedule();
+	this.saveScheduler();
 };
 
 /**
@@ -535,7 +535,7 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	}
 
 	this.translation.setTargetTitle( newTitle );
-	this.schedule();
+	this.saveScheduler();
 
 	currentTitleObj = mw.Title.newFromUserInput( currentTitle );
 	newTitleObj = mw.Title.newFromUserInput( newTitle );

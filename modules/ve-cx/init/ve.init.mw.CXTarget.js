@@ -177,10 +177,6 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 
 	this.setupHighlighting( sourceSurface.getView().$element, targetSurface.getView().$element );
 
-	this.translation.connect( this, {
-		sectionChange: 'saveSection'
-	} );
-
 	$( this.getElementWindow() ).on( 'resize', this.debounceAlignSectionPairs );
 	// Wait for document to render fully.
 	// In mw.Target this happens after documentReady and a setTimeout,
@@ -600,32 +596,6 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 			alignSectionPair( sourceOffsetTop, targetOffsetTop, sectionNumber );
 		} else {
 			mw.log.warn( '[CX] Invalid source section ' + id + ' found. Alignment may go wrong' );
-		}
-	} );
-};
-
-/**
- * Save the source and target sections for the given section Id.
- * @param {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
- * @fires saveSection
- */
-ve.init.mw.CXTarget.prototype.saveSection = function ( sectionId ) {
-	var sourceNode, targetNode;
-
-	sourceNode = this.getSourceSectionNode( sectionId );
-	targetNode = this.getTargetSectionNode( sectionId );
-	if ( !sourceNode || !targetNode ) {
-		return;
-	}
-	this.emit( 'saveSection', {
-		sectionNumber: mw.cx.getSectionNumberFromSectionId( sectionId ),
-		source: {
-			content: ve.dm.converter.getDomFromNode( sourceNode ).body.innerHTML
-		},
-		translation: {
-			// TODO: What happens when mt provider changes, where to store per provider translation
-			content: ve.dm.converter.getDomFromNode( targetNode ).body.innerHTML,
-			MTProvider: targetNode.getOriginalContentSource()
 		}
 	} );
 };

@@ -68,7 +68,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @return {HTMLDocument} Restructured source DOM
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
-	var sectionId, childNodes,
+	var sectionId, childNodes, restoredContent,
 		translationUnitId,
 		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
@@ -111,9 +111,13 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
 				// If user only clicks to fill in mt, we don't save anything in `user`.
-				savedSectionNode.innerHTML =
-					OO.getProp( savedSection, 'user', 'content' ) ||
+				restoredContent = OO.getProp( savedSection, 'user', 'content' ) ||
 					OO.getProp( savedSection, 'mt', 'content' );
+				if ( !restoredContent ) {
+					mw.log.error( '[CX] Blank saved section for ' + sectionId + ' while restoring' );
+					return;
+				}
+				savedSectionNode.innerHTML = restoredContent;
 				sectionNode = savedSectionNode.firstChild;
 			} else {
 				// Prepare a placeholder section

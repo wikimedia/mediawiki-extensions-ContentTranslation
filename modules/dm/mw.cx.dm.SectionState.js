@@ -9,45 +9,65 @@
 mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber ) {
 	// @var {Number}
 	this.sectionNumber = sectionNumber;
-	// @var {String}
-	this.sourceContent = null;
 	// @var {Object}
-	this.unmodifiedMTContent = {};
-	// @var {String}
-	this.userTranslationContent = null;
+	this.source = {
+		html: null,
+		text: null,
+		saved: false
+	};
+	// @var {Object}
+	this.unmodifiedMT = {};
+	// @var {Object}
+	this.userTranslation = null;
 	// @var {String}
 	this.currentMTProvider = null;
 	// @var {Number}
 	this.unmodifiedPercentage = 0;
 	// @var {Number}
 	this.translationProgressPercentage = 0;
+	// @var {Boolean} Whether the section has any errors while saving
+	this.hasSaveError = false;
+	// @var {Number}
+	this.saveCount = 0;
 };
 
-mw.cx.dm.SectionState.prototype.setSourceContent = function ( content ) {
-	this.sourceContent = content;
+mw.cx.dm.SectionState.prototype.setSource = function ( html ) {
+	this.source = {
+		html: html,
+		text: $( html ).text(),
+		saved: false
+	};
 };
 
-mw.cx.dm.SectionState.prototype.getSourceContent = function () {
-	return this.sourceContent;
+mw.cx.dm.SectionState.prototype.getSource = function () {
+	return this.source;
 };
 
-mw.cx.dm.SectionState.prototype.setUserTranslationContent = function ( content ) {
-	this.userTranslationContent = content;
+mw.cx.dm.SectionState.prototype.setUserTranslation = function ( html ) {
+	this.userTranslation = {
+		html: html,
+		text: $( html ).text(),
+		saved: false
+	};
 };
 
-mw.cx.dm.SectionState.prototype.getUserTranslationContent = function () {
-	return this.userTranslationContent;
+mw.cx.dm.SectionState.prototype.getUserTranslation = function () {
+	return this.userTranslation;
 };
 
-mw.cx.dm.SectionState.prototype.setUnmodifiedMTContent = function ( content ) {
+mw.cx.dm.SectionState.prototype.setUnmodifiedMT = function ( html ) {
 	if ( !this.currentMTProvider ) {
 		throw new Error( 'Attempting to set unmodified MT without an MT provider' );
 	}
-	this.unmodifiedMTContent[ this.currentMTProvider ] = content;
+	this.unmodifiedMT[ this.currentMTProvider ] = {
+		html: html,
+		text: $( html ).text(),
+		saved: false
+	};
 };
 
-mw.cx.dm.SectionState.prototype.getUnmodifiedMTContent = function () {
-	return this.unmodifiedMTContent[ this.currentMTProvider ];
+mw.cx.dm.SectionState.prototype.getUnmodifiedMT = function () {
+	return this.unmodifiedMT[ this.currentMTProvider ];
 };
 
 mw.cx.dm.SectionState.prototype.setCurrentMTProvider = function ( provider ) {
@@ -72,4 +92,33 @@ mw.cx.dm.SectionState.prototype.getTranslationProgressPercentage = function () {
 
 mw.cx.dm.SectionState.prototype.setTranslationProgressPercentage = function ( percent ) {
 	this.translationProgressPercentage = percent;
+};
+
+mw.cx.dm.SectionState.prototype.isModified = function () {
+	if ( !this.getUserTranslation() || !this.getUnmodifiedMT() ) {
+		return false;
+	}
+	return this.getUnmodifiedMT().html !== this.getUserTranslation().html;
+};
+
+mw.cx.dm.SectionState.prototype.markSourceSaved = function () {
+	this.source.saved = true;
+};
+
+mw.cx.dm.SectionState.prototype.isSourceSaved = function () {
+	return this.source.saved;
+};
+
+mw.cx.dm.SectionState.prototype.markUserTranslationSaved = function () {
+	if ( !this.userTranslation ) {
+		throw new Error( 'Attempting to set user translation when it is not present.' );
+	}
+	this.userTranslation.saved = true;
+};
+
+mw.cx.dm.SectionState.prototype.markUnmodifiedMTSaved = function () {
+	if ( !this.currentMTProvider ) {
+		throw new Error( 'Attempting to set unmodified MT saved without an MT provider' );
+	}
+	this.unmodifiedMT[ this.currentMTProvider ].saved = true;
 };
