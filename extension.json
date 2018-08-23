@@ -1256,7 +1256,7 @@
 				"mw.cx.visualEditor.sentence",
 				"mw.cx.visualEditor.section",
 				"mw.cx.visualEditor.link",
-				"mw.cx.visualEditor.image",
+				"mw.cx.visualEditor.content",
 				"mw.cx.visualEditor.mt",
 				"mw.cx.visualEditor.publishSettings"
 			],
@@ -1344,15 +1344,21 @@
 				"desktop"
 			]
 		},
-		"mw.cx.visualEditor.image": {
+		"mw.cx.visualEditor.content": {
 			"scripts": [
 				"ve-cx/dm/ve.dm.CXBlockImageNode.js",
 				"ve-cx/dm/ve.dm.CXImageCaptionNode.js",
+				"ve-cx/dm/ve.dm.CXTransclusionNode.js",
 				"ve-cx/ce/ve.ce.CXBlockImageNode.js",
-				"ve-cx/ce/ve.ce.CXImageCaptionNode.js"
+				"ve-cx/ce/ve.ce.CXImageCaptionNode.js",
+				"ve-cx/ce/ve.ce.CXTransclusionNode.js"
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base"
+			],
+			"messages": [
+				"cx-tools-linter-template",
+				"cx-tools-linter-template-block-message"
 			],
 			"targets": [
 				"desktop"
