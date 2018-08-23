@@ -145,7 +145,8 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 
 	if ( freshTranslation ) {
 		// For freshly translated section, delay the validation till next action on same section
-		// or other sections.
+		// or other sections. But do validations for any queued sections.
+		this.processValidationQueue();
 		this.validationDelayQueue.push( sectionNumber );
 		return;
 	}
