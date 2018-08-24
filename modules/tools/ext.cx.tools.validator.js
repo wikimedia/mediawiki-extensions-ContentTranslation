@@ -32,7 +32,7 @@
 			formatversion: 2,
 			action: 'query',
 			titles: title,
-			redirects: 1
+			redirects: true
 		} ).then( function ( response ) {
 			var page = response.query.pages[ 0 ];
 

@@ -259,7 +259,7 @@
 
 		params = $.extend( {
 			prop: [ 'langlinks', 'pageviews' ],
-			redirects: 1,
+			redirects: true,
 			lllimit: 'max'
 		}, config.params );
 
