@@ -85,7 +85,7 @@
 			$monthStats.find( '.cx-translator__month-stats-count' )
 				.text( mw.language.convertNumber( thisMonthStats ) );
 
-			$.each( monthKeys, function ( i, month ) {
+			monthKeys.forEach( function ( month ) {
 				self.max = Math.max( self.max, publishTrend[ month ].delta );
 				self.data.push( publishTrend[ month ].delta );
 			} );

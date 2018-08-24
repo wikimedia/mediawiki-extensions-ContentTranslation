@@ -134,7 +134,7 @@
 				return;
 			}
 
-			$.each( translations, function ( i, translation ) {
+			translations.forEach( function ( translation ) {
 				insertUnique( self.sourceLanguages, translation.sourceLanguage );
 				insertUnique( self.targetLanguages, translation.targetLanguage );
 			} );
@@ -217,50 +217,53 @@
 	 * @param {Object[]} translations
 	 */
 	CXTranslationList.prototype.showTitleImages = function ( translations ) {
-		var apply,
-			self = this,
+		var apply, language, titles, pageId, page,
 			queries = {},
 			map = {};
 
-		$.each( translations, function ( index, translation ) {
-			var language = self.siteMapper.getWikiDomainCode( translation.sourceLanguage );
+		translations.forEach( function ( translation ) {
+			var language = this.siteMapper.getWikiDomainCode( translation.sourceLanguage );
 
 			queries[ language ] = queries[ language ] || [];
 			queries[ language ].push( translation.sourceTitle );
 
 			// So that we can easily find the element in the callback
-			if ( !map[ translation.sourceTitle ] ) {
-				// Same source title might be translated to multiple languages.
-				map[ translation.sourceTitle ] = [];
-			}
+			// Same source title might be translated to multiple languages.
+			map[ translation.sourceTitle ] = map[ translation.sourceTitle ] || [];
 			map[ translation.sourceTitle ].push( translation.$image );
-		} );
+		}.bind( this ) );
 
 		apply = function ( page ) {
 			if ( page.thumbnail ) {
-				$.each( map[ page.title ], function ( i, $image ) {
+				map[ page.title ].forEach( function ( $image ) {
 					$image.removeClass( 'oo-ui-icon-page-existing' )
 						.css( 'background-image', 'url(' + page.thumbnail.source + ')' );
 				} );
 			}
 		};
 
-		$.each( queries, function ( language, titles ) {
-			self.getLinkImages( language, titles ).done( function ( response ) {
-				var i,
-					redirects = $.extend( {}, response.query.redirects ),
+		for ( language in queries ) {
+			titles = queries[ language ];
+
+			// eslint-disable-next-line no-loop-func
+			this.getLinkImages( language, titles ).done( function ( response ) {
+				var redirects = response.query.redirects || [],
 					pages = response.query.pages;
 
-				$.each( pages, function ( pageId, page ) {
-					for ( i in redirects ) {
-						if ( redirects[ i ].to === page.title ) {
-							page.title = redirects[ i ].from;
+				for ( pageId in pages ) {
+					page = pages[ pageId ];
+
+					// eslint-disable-next-line no-loop-func
+					redirects.forEach( function ( redirect ) {
+						if ( redirect.to === page.title ) {
+							page.title = redirect.from;
 						}
-					}
+					} );
+
 					apply( page );
-				} );
+				}
 			} );
-		} );
+		}
 	};
 
 	CXTranslationList.prototype.show = function () {

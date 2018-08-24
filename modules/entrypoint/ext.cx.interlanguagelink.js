@@ -139,7 +139,7 @@
 				contentTextLeft - cxEntryPointDialogOffset;
 
 			$pLangList = $( '#p-lang ul' );
-			$.each( suggestedTargetLanguages, function ( i, code ) {
+			suggestedTargetLanguages.forEach( function ( code ) {
 				// Code should not be a language in which page exists.
 				// Also it should be known language for ULS.
 				if ( !pageInLanguageExists( code ) && code !== $.uls.data.getAutonym( code ) ) {

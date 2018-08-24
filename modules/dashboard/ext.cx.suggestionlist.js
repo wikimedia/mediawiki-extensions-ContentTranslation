@@ -314,22 +314,26 @@
 	};
 
 	CXSuggestionList.prototype.applyFilters = function () {
-		var i, suggestion;
+		var i, suggestion, listName, list;
 
 		this.checkForInvitation();
 
 		// Hide all lists
-		$.each( this.lists, function ( index, list ) {
+		for ( listName in this.lists ) {
+			list = this.lists[ listName ];
+
 			if ( list.$list ) {
 				list.$list.hide();
 			}
+
 			if ( list.suggestions ) {
 				for ( i = 0; i < list.suggestions.length; i++ ) {
 					suggestion = list.suggestions[ i ];
 					suggestion.$element.remove();
 				}
 			}
-		} );
+		}
+
 		this.lists = {};
 		this.recommendtool = null;
 		this.$personalCollection.empty().show();
@@ -363,58 +367,63 @@
 	 * @param {Object} suggestions
 	 */
 	CXSuggestionList.prototype.showTitleImageAndDesc = function ( suggestions ) {
-		var apply,
-			self = this,
+		var apply, language, titles, pageId, page,
 			queries = {},
 			map = {};
 
 		// TODO: We dont need this grouping since suggestions are fetched for a fixed language pair
-		$.each( suggestions, function ( index, suggestion ) {
-			var language = self.siteMapper.getWikiDomainCode( suggestion.sourceLanguage );
+		suggestions.forEach( function ( suggestion ) {
+			var language = this.siteMapper.getWikiDomainCode( suggestion.sourceLanguage );
 
 			queries[ language ] = queries[ language ] || [];
 			queries[ language ].push( suggestion.title );
 
 			// So that we can easily find the element in the callback
-			if ( !map[ suggestion.title ] ) {
-				// Same source title might be translated to multiple languages.
-				map[ suggestion.title ] = [];
-			}
+			// Same source title might be translated to multiple languages.
+			map[ suggestion.title ] = map[ suggestion.title ] || [];
 			map[ suggestion.title ].push( suggestion );
-		} );
+		}.bind( this ) );
 
 		apply = function ( page ) {
 			if ( !map[ page.title ] ) {
 				return;
 			}
-			$.each( map[ page.title ], function ( i, item ) {
+
+			map[ page.title ].forEach( function ( item ) {
 				if ( page.thumbnail ) {
 					item.$image.css( 'background-image', 'url(' + page.thumbnail.source + ')' );
 				} else {
 					item.$image.addClass( 'oo-ui-icon-page-existing' );
 				}
+
 				if ( page.description ) {
 					item.$desc.text( page.description ).show();
 				}
 			} );
 		};
 
-		$.each( queries, function ( language, titles ) {
-			self.getPageDetails( language, titles ).done( function ( response ) {
-				var i,
-					redirects = $.extend( {}, response.query.redirects ),
+		for ( language in queries ) {
+			titles = queries[ language ];
+
+			// eslint-disable-next-line no-loop-func
+			this.getPageDetails( language, titles ).done( function ( response ) {
+				var redirects = response.query.redirects || [],
 					pages = response.query.pages;
 
-				$.each( pages, function ( pageId, page ) {
-					for ( i in redirects ) {
-						if ( redirects[ i ].to === page.title ) {
-							page.title = redirects[ i ].from;
+				for ( pageId in pages ) {
+					page = pages[ pageId ];
+
+					// eslint-disable-next-line no-loop-func
+					redirects.forEach( function ( redirect ) {
+						if ( redirect.to === page.title ) {
+							page.title = redirect.from;
 						}
-					}
+					} );
+
 					apply( page );
-				} );
+				}
 			} );
-		} );
+		}
 	};
 
 	function listCompare( listA, listB ) {
@@ -826,15 +835,17 @@
 	 * @return {string|null} list identifier.
 	 */
 	CXSuggestionList.prototype.getListId = function ( listName ) {
-		var listId = null;
+		var listId, list;
 
-		$.each( this.lists, function ( index, value ) {
-			if ( listName === value.name ) {
-				listId = index;
-				return false;
+		for ( listId in this.lists ) {
+			list = this.lists[ listId ];
+
+			if ( listName === list.name ) {
+				return listId;
 			}
-		} );
-		return listId;
+		}
+
+		return null;
 	};
 
 	/**
@@ -1020,7 +1031,7 @@
 	};
 
 	CXSuggestionList.prototype.refreshPublicLists = function () {
-		var self = this,
+		var listId, list,
 			categoryListCount = 2;
 
 		// Scroll the page up to the beginning of $publicCollection
@@ -1031,21 +1042,22 @@
 			scrollTop: this.$publicCollectionContainer.offset().top - 200
 		}, 'slow' );
 
-		$.each( this.lists, function ( index, list ) {
+		for ( listId in this.lists ) {
+			list = this.lists[ listId ];
+
 			if ( !list.$list ) {
-				return;
+				continue;
 			}
 
 			if ( list.type === listTypes.TYPE_FEATURED || list.type === listTypes.TYPE_PERSONALIZED ) {
-				self.refreshList( list.id );
+				this.refreshList( list.id );
 			} else if ( list.type === listTypes.TYPE_CATEGORY && categoryListCount ) {
 				// The first two lists shown will be removed.
 				list.$list.remove();
-				delete self.lists[ index ];
+				delete this.lists[ listId ];
 				categoryListCount--;
 			}
-		} );
-
+		}
 	};
 
 	/**

@@ -283,7 +283,7 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var size,
+		var size, name, props,
 			filterButtons = [];
 
 		// document.documentElement.clientWidth performs faster than $( window ).width()
@@ -291,13 +291,15 @@
 
 		size = this.isNarrowScreenSize ? 'narrow' : 'wide';
 
-		$.each( this.filterLabels, function ( key, value ) {
+		for ( name in this.filterLabels ) {
+			props = this.filterLabels[ name ];
+
 			filterButtons.push( new OO.ui.ButtonOptionWidget( {
-				data: key,
-				label: value[ size ].label,
-				icon: value[ size ].icon
+				data: name,
+				label: props[ size ].label,
+				icon: props[ size ].icon
 			} ) );
-		} );
+		}
 
 		this.filter = new OO.ui.ButtonSelectWidget( {
 			items: filterButtons
@@ -327,16 +329,20 @@
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {
+		var listName, list;
+
 		this.activeList = type;
 		this.filter.selectItemByData( type );
 
-		$.each( this.lists, function ( name, list ) {
-			if ( name === type ) {
+		for ( listName in this.lists ) {
+			list = this.lists[ listName ];
+
+			if ( listName === type ) {
 				list.show();
 			} else {
 				list.hide();
 			}
-		} );
+		}
 	};
 
 	CXDashboard.prototype.listen = function () {
@@ -407,7 +413,7 @@
 		}
 
 		// Change filter labels to icons and vice-versa
-		$.each( filterItems, function ( index, filter ) {
+		filterItems.forEach( function ( filter ) {
 			var data = filter.getData(),
 				label = self.filterLabels[ data ][ size ].label,
 				icon = self.filterLabels[ data ][ size ].icon;

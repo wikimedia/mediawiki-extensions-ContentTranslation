@@ -37,14 +37,13 @@
 		var code,
 			mapping = mw.config.get( 'wgContentTranslationDomainCodeMapping' );
 
-		$.each( mapping, function ( propertyName, valueOfProperty ) {
-			if ( domain === valueOfProperty ) {
-				code = propertyName;
-				return false;
+		for ( code in mapping ) {
+			if ( mapping[ code ] === domain ) {
+				return code;
 			}
-		} );
+		}
 
-		return code || domain;
+		return domain;
 	};
 
 	/**
@@ -95,11 +94,12 @@
 	 * @return {string}
 	 */
 	mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
-		var cxserverURL = this.config.cx;
-		if ( params !== undefined ) {
-			$.each( params, function ( key, value ) {
-				module = module.replace( key, encodeURIComponent( value ) );
-			} );
+		var paramKey, cxserverURL = this.config.cx;
+
+		if ( params ) {
+			for ( paramKey in params ) {
+				module = module.replace( paramKey, encodeURIComponent( params[ paramKey ] ) );
+			}
 		}
 
 		if ( mw.cx.getCXVersion() === 2 ) {
@@ -110,14 +110,14 @@
 	};
 
 	mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params ) {
-		var domain, url;
+		var paramKey,
+			domain = this.getWikiDomainCode( language ),
+			url = this.config.restbase.replace( '$1', domain );
 
-		domain = this.getWikiDomainCode( language );
-		url = this.config.restbase.replace( '$1', domain );
-		if ( params !== undefined ) {
-			$.each( params, function ( key, value ) {
-				module = module.replace( key, encodeURIComponent( value ) );
-			} );
+		if ( params ) {
+			for ( paramKey in params ) {
+				module = module.replace( paramKey, encodeURIComponent( params[ paramKey ] ) );
+			}
 		}
 
 		return url + module;
