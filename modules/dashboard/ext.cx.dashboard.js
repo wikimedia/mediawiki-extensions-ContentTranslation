@@ -108,14 +108,20 @@
 	 * @return {Object} languages Valid and different source and target languages
 	 */
 	CXDashboard.prototype.findValidDefaultLanguagePair = function () {
-		var sourceLanguage, targetLanguage, sourceLanguages, targetLanguages, currentLang,
+		var sourceLanguage, targetLanguage, currentLang,
 			commonLanguages, i, length,
-			query = new mw.Uri().query;
-		sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
-		targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
+			query = new mw.Uri().query,
+			sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages,
+			targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 
 		sourceLanguage = query.from || mw.storage.get( 'cxSourceLanguage' );
-		targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' ) || mw.config.get( 'wgContentLanguage' );
+		targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' );
+
+		// If query.to and local storage have no target language code,
+		// or language code is invalid, fall back to content language as target.
+		if ( targetLanguages.indexOf( targetLanguage ) < 0 ) {
+			targetLanguage = mw.config.get( 'wgContentLanguage' );
+		}
 
 		commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( n ) {
 			return sourceLanguages.indexOf( n ) !== -1;
@@ -131,6 +137,8 @@
 			}
 		}
 
+		// If wgContentLanguage has invalid language code for any reason, we try to find
+		// some valid language from the list of common languages.
 		if ( targetLanguages.indexOf( targetLanguage ) < 0 || sourceLanguage === targetLanguage ) {
 			for ( i = 0, length = commonLanguages.length; i < length; i++ ) {
 				currentLang = commonLanguages[ i ];
@@ -138,6 +146,23 @@
 					targetLanguage = currentLang;
 					break;
 				}
+			}
+		}
+
+		// If the list of frequent languages does not have any valid language code different from
+		// content language, we fall back to Spanish and English. Inability to find a suitable
+		// language for source is most likely when target language is English, so we use most
+		// common source language when translating to English. But, just in case list of frequent
+		// languages only has code for content language, which is non-English, fall back to English
+		// as source language.
+		// Also, if local storage data is corrupted, either due to bug previously existing
+		// in the code, or some manual change of local storage data, apply the same principle.
+		// See T202286#4530740
+		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
+			if ( targetLanguage === 'en' ) {
+				sourceLanguage = 'es';
+			} else {
+				sourceLanguage = 'en';
 			}
 		}
 
