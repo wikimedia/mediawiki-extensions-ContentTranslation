@@ -76,7 +76,7 @@
 			}
 
 			// Remove unnecessary object wrapping to get plain list of objects
-			return $.map( response.query.contenttranslation.translations, function ( e ) {
+			return response.query.contenttranslation.translations.map( function ( e ) {
 				return e.translation;
 			} );
 		} );

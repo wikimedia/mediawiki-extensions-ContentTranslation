@@ -67,8 +67,8 @@
 	 * @return {Array}
 	 */
 	mw.cx.unique = function ( list ) {
-		return $.grep( list, function ( v, k ) {
-			return $.inArray( v, list ) === k;
+		return list.filter( function ( element, index ) {
+			return list.indexOf( element ) === index;
 		} );
 	};
 

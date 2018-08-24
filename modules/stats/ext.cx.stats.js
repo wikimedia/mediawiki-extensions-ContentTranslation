@@ -610,7 +610,7 @@
 		ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
 		data = {
-			labels: $.map( this.totalTranslationTrend, function ( data ) {
+			labels: this.totalTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
 			datasets: [
@@ -622,7 +622,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: $.map( this.totalTranslationTrend, function ( data ) {
+					data: this.totalTranslationTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -634,7 +634,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: $.map( this.totalDraftTrend, function ( data ) {
+					data: this.totalDraftTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				}
@@ -655,7 +655,7 @@
 		ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
 		data = {
-			labels: $.map( this.languageTranslationTrend, function ( data ) {
+			labels: this.languageTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
 			datasets: [
@@ -667,7 +667,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: $.map( this.languageTranslationTrend, function ( data ) {
+					data: this.languageTranslationTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -679,7 +679,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: $.map( this.languageDraftTrend, function ( data ) {
+					data: this.languageDraftTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -691,7 +691,7 @@
 					pointBackgroundColor: '#FF0000',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#FF0000',
-					data: $.map( this.languageDeletionTrend, function ( data ) {
+					data: this.languageDeletionTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				}
@@ -711,7 +711,7 @@
 
 		ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
 		data = {
-			labels: $.map( this.totalTranslationTrend, function ( data ) {
+			labels: this.totalTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
 			datasets: [
@@ -720,7 +720,7 @@
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: $.map( this.totalTranslationTrend, function ( data ) {
+					data: this.totalTranslationTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -729,7 +729,7 @@
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: $.map( this.totalDraftTrend, function ( data ) {
+					data: this.totalDraftTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				}
@@ -750,7 +750,7 @@
 
 		ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
 		data = {
-			labels: $.map( this.languageTranslationTrend, function ( data ) {
+			labels: this.languageTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
 			datasets: [
@@ -759,7 +759,7 @@
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: $.map( this.languageTranslationTrend, function ( data ) {
+					data: this.languageTranslationTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -768,7 +768,7 @@
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: $.map( this.languageDraftTrend, function ( data ) {
+					data: this.languageDraftTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				},
@@ -777,7 +777,7 @@
 					borderColor: '#FF0000',
 					backgroundColor: '#FF0000',
 					borderWidth: 1,
-					data: $.map( this.languageDeletionTrend, function ( data ) {
+					data: this.languageDeletionTrend.map( function ( data ) {
 						return data[ type ];
 					} )
 				}

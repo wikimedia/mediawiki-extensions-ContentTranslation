@@ -435,8 +435,8 @@
 			paramExtractor = /{{3,}(.*?)[<|}]/mg;
 
 		while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
-			if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
-				paramNames[ $.trim( matches[ 1 ] ) ] = {};
+			if ( paramNames.indexOf( matches[ 1 ] ) === -1 ) {
+				paramNames[ matches[ 1 ].trim() ] = {};
 			}
 		}
 

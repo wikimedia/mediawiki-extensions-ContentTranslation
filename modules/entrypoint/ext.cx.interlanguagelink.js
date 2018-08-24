@@ -57,7 +57,7 @@
 
 		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
 
-		return $.grep( uniquePossibleTargetLanguages, function ( language ) {
+		return uniquePossibleTargetLanguages.filter( function ( language ) {
 			return language !== pageLanguage;
 		} );
 	}

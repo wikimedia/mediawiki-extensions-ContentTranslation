@@ -55,7 +55,7 @@
 		};
 
 		return api.get( params ).then( function ( response ) {
-			self.seeds = $.map( response.query.contenttranslation.translations, function ( value ) {
+			self.seeds = response.query.contenttranslation.translations.map( function ( value ) {
 				return value.translation.sourceTitle;
 			} );
 
