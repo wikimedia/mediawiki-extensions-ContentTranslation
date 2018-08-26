@@ -83,7 +83,7 @@
 	"cx-selected-source-page-error-title-in-use": "Le titulo del nove pagina es [$1 jam in uso]",
 	"cx-mt-abuse-warning-title": "Le traduction {{PLURAL:$1|contine}} $1% de texto non modificate",
 	"cx-mt-abuse-warning-text": "Le traduction automatic es fornite solmente como puncto de partita. Tu debe assecurar que le contento es accurate e se lege de maniera natural in tu lingua.<br><br>Tu traduction essera probabilemente delite quando altere redactores lo revide.",
-	"cx-publish-captcha-title": "Question de securitate",
+	"cx-publish-captcha-title": "Verification que tu non es un robot",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Besonio}} de adjuta pro traducer?",
 	"cx-dashboard-sidebar-information": "Plus information sur iste instrumento",
 	"cx-dashboard-sidebar-stats": "Statisticas",
