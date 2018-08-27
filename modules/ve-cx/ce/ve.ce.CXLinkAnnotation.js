@@ -6,18 +6,13 @@
  * @constructor
  * @param {ve.dm.CXLinkAnnotation} model
  */
-ve.ce.CXLinkAnnotation = function VeCeCXLinkAnnotation( model ) {
-	this.model = model;
-	// Parent's parent constructor because the parent constructor also uses
-	// VE Link cache to style the links. CX can not use it.
-	ve.ce.MWInternalLinkAnnotation.super.apply( this, arguments );
+ve.ce.CXLinkAnnotation = function VeCeCXLinkAnnotation() {
+	// Parent constructor
+	ve.ce.CXLinkAnnotation.super.apply( this, arguments );
 
 	this.$anchor
 		.addClass( 've-ce-cxLinkAnnotation' )
 		.data( 'linkid', this.model.getAttribute( 'linkid' ) );
-
-	// Style the link based on the adaptation information.
-	this.styleAnchor( this.getAdaptationInfo() );
 };
 
 /* Inheritance */
@@ -38,11 +33,10 @@ ve.ce.CXLinkAnnotation.prototype.getAdaptationInfo = function () {
 };
 
 /**
- * Style the link based on the adaptation information.
- *
- * @param {Object} adaptationInfo
+ * @inheritdoc
  */
-ve.ce.CXLinkAnnotation.prototype.styleAnchor = function ( adaptationInfo ) {
+ve.ce.CXLinkAnnotation.prototype.updateClasses = function () {
+	var adaptationInfo = this.getAdaptationInfo();
 	if ( adaptationInfo && !adaptationInfo.adapted ) {
 		if ( adaptationInfo.targetTitle ) {
 			this.$anchor.addClass( 'new' );
