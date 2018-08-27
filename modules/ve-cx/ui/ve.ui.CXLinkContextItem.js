@@ -193,21 +193,23 @@ ve.ui.CXLinkContextItem.prototype.createRedLink = function () {
 
 	// See ve.ui.AnnotationContextItem#applyToAnnotations
 	this.applyToAnnotations( function ( fragment, annotation ) {
-		var adaptationInfo;
+		var newElement;
 		// Clear the annotation from fragment
 		fragment.annotateContent( 'clear', annotation );
 
-		adaptationInfo = annotation.getAttribute( 'cx' );
-		// Update the adaptation info. This modifies the annotation object.
-		adaptationInfo.targetTitle = {
-			title: adaptationInfo.sourceTitle.title,
+		// Clone the old element data to avoid modifying the old state (T202440)
+		newElement = ve.copy( annotation.element );
+		// Update the adaptation info.
+		newElement.attributes.cx.targetTitle = {
+			title: newElement.attributes.cx.sourceTitle.title,
 			pagelanguage: targetLanguage,
 			sourceLanguage: sourceLanguage, // Required to provide CX link
 			missing: true,
 			description: mw.msg( 'cx-linkcontextitem-missing-title-description' )
 		};
+
 		// Set the updated annotation to the fragment
-		fragment.annotateContent( 'set', annotation );
+		fragment.annotateContent( 'set', ve.dm.annotationFactory.createFromElement( newElement ) );
 	} );
 };
 
