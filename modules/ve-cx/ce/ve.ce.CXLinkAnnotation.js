@@ -18,8 +18,6 @@ ve.ce.CXLinkAnnotation = function VeCeCXLinkAnnotation( model ) {
 
 	// Style the link based on the adaptation information.
 	this.styleAnchor( this.getAdaptationInfo() );
-
-	this.$anchor.on( 'click', this.onClick.bind( this ) );
 };
 
 /* Inheritance */
@@ -51,18 +49,6 @@ ve.ce.CXLinkAnnotation.prototype.styleAnchor = function ( adaptationInfo ) {
 		} else {
 			this.$anchor.addClass( 'cx-target-link-unadapted' );
 		}
-	}
-};
-
-/**
- * Click handler for links
- *
- * @param {Event} e Event
- */
-ve.ce.CXLinkAnnotation.prototype.onClick = function ( e ) {
-	if ( !event.ctrlKey ) {
-		// Disable all link clicks except control clicks on source content
-		e.preventDefault();
 	}
 };
 
