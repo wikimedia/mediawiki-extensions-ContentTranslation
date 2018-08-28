@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
 
 class Translation {
@@ -340,12 +342,24 @@ class Translation {
 	 * @return array
 	 */
 	public static function getDeletionTrend( $interval ) {
+		global $wgChangeTagsSchemaMigrationStage;
 		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [
-			'ct_tag' => 'contenttranslation',
 			'ar_rev_id = ct_rev_id'
 		];
+
+		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+			$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
+			try {
+				$conditions['ct_tag_id'] = $changeTagDefStore->getId( 'contenttranslation' );
+			} catch ( NameTableAccessException $exception ) {
+				// It can't find any translation, the result should be null
+				$conditions[] = false;
+			}
+		} else {
+			$conditions['ct_tag'] = 'contenttranslation';
+		}
 
 		$options = null;
 		if ( $interval === 'week' ) {

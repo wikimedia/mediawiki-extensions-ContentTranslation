@@ -5,6 +5,9 @@
  */
 
 // Standard boilerplate to define $IP
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Storage\NameTableAccessException;
+
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -200,16 +203,29 @@ class CxFixStats extends Maintenance {
 	}
 
 	protected function hasCxTag( Title $title, $row ) {
+		global $wgChangeTagsSchemaMigrationStage;
 		$dbr = wfGetDB( DB_REPLICA );
 		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
 		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['rev_page'] = $title->getArticleId();
 		$conds[] = 'rev_id = ct_rev_id';
-		$conds['ct_tag'] = 'contenttranslation';
+		if ( $wgChangeTagsSchemaMigrationStage > MIGRATION_WRITE_BOTH ) {
+			$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
+			try {
+				$conds['ct_tag_id'] = $changeTagDefStore->getId( 'contenttranslation' );
+			} catch ( NameTableAccessException $exception ) {
+				// It can't find any translation, the result should be null
+				$conds[] = false;
+			}
+			$var = 'ct_tag_id';
+		} else {
+			$conds['ct_tag'] = 'contenttranslation';
+			$var = 'ct_tag';
+		}
 
-		$field = $dbr->selectField( [ 'revision', 'change_tag' ], 'ct_tag', $conds, __METHOD__ );
-		return $field === 'contenttranslation';
+		$field = $dbr->selectField( [ 'revision', 'change_tag' ], $var, $conds, __METHOD__ );
+		return !empty( $field );
 	}
 
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
