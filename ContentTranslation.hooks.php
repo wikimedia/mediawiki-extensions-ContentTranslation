@@ -230,6 +230,7 @@ class ContentTranslationHooks {
 	 */
 	public static function registerTags( array &$tags ) {
 		$tags[] = 'contenttranslation';
+		$tags[] = 'contenttranslation-v2'; // CX2 distinct tag. Used since 2018-09
 		return true;
 	}
 

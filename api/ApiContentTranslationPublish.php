@@ -3,7 +3,7 @@
  * Saving a wiki page created using ContentTranslation.
  * The following special things happen when the page is created:
  * - HTML from the translation editor's contenteditable is converted to wiki syntax using Parsoid.
- * - A change tag is added.
+ * - A change tag is added. CX2 uses an additional tag.
  * - The edit summary shows a link to the revision from which the translation was made.
  * - Optionally, a template is added if the article appears to have a lot of machine translation.
  * - Categories are hidden in <nowiki> if the page is published to the user namespace.
@@ -173,10 +173,16 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $editStatus === 'Success' ) {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
+				$tags = [ 'contenttranslation' ];
+
+				if ( $params['cxversion'] === 2 ) {
+					$tags[] = 'contenttranslation-v2'; // Tag for CX2: contenttranslation-v2
+				}
+
 				// Add the tags post-send, after RC row insertion
 				$revId = intval( $saveresult['edit']['newrevid'] );
-				DeferredUpdates::addCallableUpdate( function () use ( $revId, $params ) {
-					ChangeTags::addTags( 'contenttranslation', null, $revId, null );
+				DeferredUpdates::addCallableUpdate( function () use ( $revId, $tags ) {
+					ChangeTags::addTags( $tags, null, $revId, null );
 				} );
 			}
 
@@ -259,6 +265,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
 			'wpCaptchaId' => null,
 			'wpCaptchaWord' => null,
+			'cxversion' => [
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_REQUIRED => true,
+				ApiBase::PARAM_RANGE_ENFORCE => true,
+				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => 2,
+			],
 		];
 	}
 

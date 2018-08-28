@@ -18,6 +18,7 @@
 	"apihelp-cxpublish-param-categories": "{{doc-apihelp-param|cxpublish|categories}}",
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
+	"apihelp-cxpublish-param-cxversion": "{{doc-apihelp-param|cxpublish|cxversion}}",
 	"apihelp-query+contenttranslation-description": "{{doc-apihelp-description|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-summary": "{{doc-apihelp-summary|query+contenttranslation}}",
 	"apihelp-query+contenttranslation-param-translationid": "{{doc-apihelp-param|query+contenttranslation|translationid}}",

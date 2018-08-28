@@ -43,7 +43,8 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		html: this.getContent( true ),
 		categories: this.translation.getTargetCategories(),
 		wpCaptchaId: this.captcha && this.captcha.id,
-		wpCaptchaWord: this.captcha && this.captcha.input.getValue()
+		wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
+		cxversion: 2
 	};
 
 	// Check for title conflicts

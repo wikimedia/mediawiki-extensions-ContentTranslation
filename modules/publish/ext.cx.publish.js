@@ -39,7 +39,8 @@
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
 			html: EasyDeflate.deflate( self.getContent() ),
-			categories: this.getCategories()
+			categories: this.getCategories(),
+			cxversion: 1
 		} );
 
 		return this.checkTargetTitle( this.targetTitle ).then( function ( title ) {
