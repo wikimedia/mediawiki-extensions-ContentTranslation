@@ -199,7 +199,7 @@
 	"cx-draft-restored": "Съхраненият превод е зареден.",
 	"cx-draft-restore-failed": "Не може да се зареди запазеният превод!",
 	"cx-suggestionlist-expand": "Покажи всичко",
-	"cx-suggestionlist-collapse": "Покажи по-малко",
+	"cx-suggestionlist-collapse": "Показване компактно",
 	"cx-suggestionlist-refresh": "Обнови предложенията",
 	"cx-notification-suggestions-available": "На база на предишните {{GENDER:$2|ви}} преводи на '''$1''', сега са достъпни нови предложения за превод.",
 	"cx-tools-linter-title": "Проблеми със съдържанието: $1",

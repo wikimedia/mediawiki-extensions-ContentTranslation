@@ -38,7 +38,8 @@
 			"Liuxinyu970226",
 			"The RedBurn",
 			"Trizek (WMF)",
-			"Urhixidur"
+			"Urhixidur",
+			"Zarisi"
 		]
 	},
 	"cx": "Traduire la page",
@@ -63,6 +64,7 @@
 	"cx-publish-error-unknown": "Une erreur irrécupérable inconnue s’est produite. Détails de l’erreur : $1",
 	"cx-publish-button": "Publier",
 	"cx-publish-button-publishing": "Publication en cours…",
+	"cx-lost-session": "Votre session a expiré",
 	"cx-lost-session-draft": "Votre session a expiré. Vos modifications ne peuvent pas être enregistrées, sauf si vous vous connectez de nouveau dans une autre fenêtre.",
 	"cx-lost-session-publish": "Votre session a expiré. Vous ne pouvez pas publier la traduction sauf si vous vous reconnectez dans une autre fenêtre.",
 	"cx-publish-summary": "Créé en traduisant la page « $1 »",
