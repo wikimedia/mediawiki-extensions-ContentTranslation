@@ -276,12 +276,14 @@
 			// Reset source page titles
 			self.sourcePageTitles = {};
 			// Extract results data and create sourcePageTitles mapping
-			data.langlinks.forEach( function ( element ) {
-				langCode = element.lang;
-				title = element[ '*' ];
+			if ( data.langlinks ) {
+				data.langlinks.forEach( function ( element ) {
+					langCode = element.lang;
+					title = element[ '*' ];
 
-				self.sourcePageTitles[ langCode ] = title;
-			} );
+					self.sourcePageTitles[ langCode ] = title;
+				} );
+			}
 			// Include chosen source page title (not returned by langlinks API)
 			self.sourcePageTitles[ self.languageFilter.getSourceLanguage() ] = pageTitle;
 
