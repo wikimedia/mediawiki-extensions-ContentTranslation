@@ -282,7 +282,8 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 			return;
 		}
 		section = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
-		if ( section ) {
+
+		if ( section instanceof ve.dm.CXSectionNode ) {
 			// Annotate the section with errors, if any.
 			this.onSaveValidation( section, validation );
 		}

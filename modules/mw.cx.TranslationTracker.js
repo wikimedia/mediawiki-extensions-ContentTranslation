@@ -109,6 +109,16 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	}
 	sectionState = this.sections[ sectionNumber ];
 
+	if ( !( sectionModel instanceof ve.dm.CXSectionNode ) ) {
+		// sectionModel can be a a PlaceholderNode by undo operation too.
+		sectionState.setCurrentMTProvider( null );
+		sectionState.setUserTranslation( '' );
+		// Remove it from the delayed queues.
+		this.removeSectionFromSaveQueue( sectionNumber );
+		this.removeSectionFromValidationQueue( sectionNumber );
+		return;
+	}
+
 	currentMTProvider = sectionState.getCurrentMTProvider();
 	newMTProvider = sectionModel.getOriginalContentSource();
 	if ( currentMTProvider !== newMTProvider ) {
@@ -307,7 +317,9 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 };
 
 mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
-	sectionModel.resolveTranslationIssues( [ 'mt-abuse' ] );
+	if ( sectionModel && sectionModel instanceof ve.dm.CXSectionNode ) {
+		sectionModel.resolveTranslationIssues( [ 'mt-abuse' ] );
+	}
 };
 
 /**
@@ -492,7 +504,18 @@ mw.cx.TranslationTracker.prototype.removeSectionFromSaveQueue = function ( secti
 	if ( index >= 0 ) {
 		this.saveQueue.splice( index, 1 );
 	} else {
-		mw.log.warn( '[CX] Attempting to remove non-existing ' + sectionNumber + ' from save queue.' );
+		mw.log.warn( '[CX] Attempting to remove non-existing section ' + sectionNumber + ' from save queue.' );
+	}
+};
+
+/**
+ * Remove section from the validation delay queue for the given section number,
+ * @param {string} sectionNumber
+ */
+mw.cx.TranslationTracker.prototype.removeSectionFromValidationQueue = function ( sectionNumber ) {
+	var index = this.validationDelayQueue.indexOf( sectionNumber );
+	if ( index >= 0 ) {
+		this.validationDelayQueue.splice( index, 1 );
 	}
 };
 
