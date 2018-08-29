@@ -37,6 +37,7 @@
 	"cx-publish-page-error": "Si è verificato un errore durante il salvataggio della pagina. Si prega di riprovare a pubblicare la pagina. Errore $1",
 	"cx-publish-button": "Pubblica",
 	"cx-publish-button-publishing": "Pubblicazione...",
+	"cx-lost-session": "La tua sessione è scaduta",
 	"cx-lost-session-draft": "La tua sessione è scaduta. Le modifiche non possono essere salvate, a meno che non accedi di nuovo in un'altra finestra.",
 	"cx-lost-session-publish": "La tua sessione è scaduta. Non è possibile pubblicare la traduzione, fino a che non accedi di nuovo in un'altra finestra.",
 	"cx-publish-summary": "Creata dalla traduzione della pagina \"$1\"",

@@ -67,6 +67,7 @@
 	"cx-lost-session": "Votre session a expiré",
 	"cx-lost-session-draft": "Votre session a expiré. Vos modifications ne peuvent pas être enregistrées, sauf si vous vous connectez de nouveau dans une autre fenêtre.",
 	"cx-lost-session-publish": "Votre session a expiré. Vous ne pouvez pas publier la traduction sauf si vous vous reconnectez dans une autre fenêtre.",
+	"cx-lost-session-dashboard-lists": "Pour voir cette liste, veuillez vous reconnecter.",
 	"cx-publish-summary": "Créé en traduisant la page « $1 »",
 	"cx-publish-gt-no-permission-to-move-description": "Veuillez demander à un utilisateur expérimenté de ce site de vous aider à relire votre traduction et à la publier dans l’espace principal.",
 	"cx-publish-gt-first-step-title": "La traduction a été publiée comme brouillon sous votre page utilisateur, pour relecture",
