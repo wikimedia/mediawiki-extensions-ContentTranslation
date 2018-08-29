@@ -873,7 +873,8 @@
 		"ext.cx.eventlogging": {
 			"scripts": "eventlogging/ext.cx.eventlogging.js",
 			"dependencies": [
-				"ext.cx.model"
+				"ext.cx.model",
+				"mediawiki.user"
 			]
 		},
 		"ext.cx.interlanguagelink": {
