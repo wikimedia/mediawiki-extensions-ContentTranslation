@@ -58,7 +58,7 @@ class AbuseFilterCheck {
 
 		$vars->addHolders(
 			\AbuseFilter::generateUserVars( $this->user ),
-			\AbuseFilter::generateTitleVars( $this->title, 'ARTICLE' )
+			\AbuseFilter::generateTitleVars( $this->title, 'PAGE' )
 		);
 
 		$this->titleResults = $this->getResults( $vars );
@@ -91,7 +91,7 @@ class AbuseFilterCheck {
 		// away with array_diff_key.
 		$vars->addHolders(
 			\AbuseFilter::generateUserVars( $this->user ),
-			\AbuseFilter::generateTitleVars( $this->title, 'ARTICLE' ),
+			\AbuseFilter::generateTitleVars( $this->title, 'PAGE' ),
 			\AbuseFilter::getEditVars( $this->title )
 		);
 		$vars->setVar( 'action', 'edit' );
