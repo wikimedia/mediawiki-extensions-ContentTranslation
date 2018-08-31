@@ -394,13 +394,6 @@
 		window.scrollTo( window.pageXOffset, 0 ); // Equivalent to $( window ).scrollTop( 0 )
 	};
 
-	CXDashboard.prototype.setFilter = function ( type, value ) {
-		var list = this.lists[ this.activeList ];
-
-		list.filters[ type ] = value;
-		list.applyFilters( list.filters );
-	};
-
 	CXDashboard.prototype.initSourceSelector = function () {
 		var query,
 			sourcePageSelectorOptions = {};
