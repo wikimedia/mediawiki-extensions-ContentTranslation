@@ -46,6 +46,7 @@
 	"cx-publish-error-unknown": "Wystąpił nieznany nieodwracalny błąd. Szczegóły błędu: $1",
 	"cx-publish-button": "Opublikuj",
 	"cx-publish-button-publishing": "Publikowanie...",
+	"cx-lost-session": "Twoja sesja wygasła",
 	"cx-lost-session-draft": "Twoja sesja wygasła. Twoje edycje nie zostaną zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
 	"cx-lost-session-publish": "Twoja sesja wygasła. Twoje tłumaczenie nie zostanie zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
 	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
