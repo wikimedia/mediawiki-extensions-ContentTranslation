@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Piramidion",
-			"Ата"
+			"Ата",
+			"Vlad5250"
 		]
 	},
 	"apihelp-cxpublish-description": "Збереження сторінки, створеної у розширенні Перекладу вмісту.",
@@ -15,6 +16,7 @@
 	"apihelp-cxpublish-param-categories": "Категорії, у які буде додана опублікована сторінка.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчі (при збереженні з показуванням капчі).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Відповідь на капчу (при збереженні з показуванням капчі).",
+	"apihelp-cxpublish-param-cxversion": "Версія редактора, використана для публікації перекладу.",
 	"apihelp-query+contenttranslation-description": "Запит у базу даних Перекладу вмісту для перекладів.",
 	"apihelp-query+contenttranslation-summary": "Надіслати запит до бази даних перекладу вмісту, щоб отримати переклади.",
 	"apihelp-query+contenttranslation-param-translationid": "ID перекладу.",

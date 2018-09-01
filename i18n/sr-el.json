@@ -30,8 +30,10 @@
 	"cx-publish-error-unknown": "Desila se nepoznata nepopravljiva greška. Detalji: $1",
 	"cx-publish-button": "Objavi",
 	"cx-publish-button-publishing": "Objavljujem...",
+	"cx-lost-session": "Vaša sesija je istekla",
 	"cx-lost-session-draft": "Vaša sesija je istekla. Vaše izmene ne mogu biti sačuvane osim ukoliko se ne prijavite ponovo u drugom prozoru.",
 	"cx-lost-session-publish": "Vaša sesija je istekla. Ne možete da objavite prevod osim ukoliko se ne prijavite ponovo u drugom prozoru.",
+	"cx-lost-session-dashboard-lists": "Ponovo se prijavite kako biste videli listu koju želite.",
 	"cx-publish-summary": "Napravljeno prevođenjem stranice „$1“",
 	"cx-publish-gt-no-permission-to-move-description": "Pitajte iskusnog korisnika na ovoj stranica da pregleda vaš prevod kako biste ga mogli objaviti u glavni imenski prostor.",
 	"cx-publish-gt-first-step-title": "Prevod je objavljen kao skica pod vašom korisničkom stranizom za pregled",
@@ -46,6 +48,7 @@
 	"cx-translation-target-page-exists": "Stranica sa ovim naslovom [$1 $2] već postoji u ciljanom vikiju. Promenite naslov stranice.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Prevođenje sadržaja]]",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prevod sadržaja.",
+	"tag-contenttranslation-v2-description": "Sadržaj je preveden sa drugog jezika pomoću nove verzije alatke za prevod sadržaja.",
 	"cx-source-loading": "Učitavam $1",
 	"cx-beta": "Prevod sadržaja",
 	"cx-beta-desc": "Alat za brzo prevođenje stranica na vaš jezik. Počnite da prevodite [[Special:MyContributions|svoje doprinose]] i uređujte ih pomoću našeg uporednog uređivača koji je posebno napravljen za prevođenje. Moguće je da neki alati budu dostupni samo za određene jezike.",
@@ -94,8 +97,8 @@
 	"cx-selected-source-page-error-title-in-use": "Naslov za novu stranicu je [$1 već u upotrebi]",
 	"cx-page-missing-in-target-language": "Nije prevedeno na $1",
 	"cx-page-number-of-languages": "Broj jezika",
-	"cx-mt-abuse-warning-title": "Vaš prevod {{PLURAL:$1|sadrži}} $1% neizmenjenog mašinskog prevoda",
-	"cx-mt-abuse-warning-text": "Mašinski prevod je samo polazna tačka, morate se postarati da sadržaj bude tačan i razumljiv na vašem jeziku.",
+	"cx-mt-abuse-warning-title": "Vaš prevod {{PLURAL:$1|sadrži}} $1% neizmenjenog teksta",
+	"cx-mt-abuse-warning-text": "Mašinski prevod je samo polazna tačka, morate se postarati da sadržaj bude tačan i razumljiv na vašem jeziku.<br><br>Vaš prevod lako može biti obrisan od strane drugih urednika.",
 	"cx-publish-captcha-title": "Provera da niste bot",
 	"cx-captcha-dialog-error": "Vaš odgovor nije tačan. Molimo, pokušajte ponovo.",
 	"cx-captcha-dialog-cancel": "Otkaži",
@@ -253,5 +256,6 @@
 	"cx-publish-destination-namespace-user": "Lični nacrt",
 	"cx-publish-destination-namespace-draft": "Zajednički nacrt",
 	"cx-linkcontextitem-missing-link-title": "Nedostaje veza",
-	"cx-linkcontextitem-missing-title-description": "Stranica još uvek ne postoji"
+	"cx-linkcontextitem-missing-title-description": "Stranica još uvek ne postoji",
+	"cx-mt-abuse-publish-error": "Vaš prevod ne može biti objavljen, jer sadrži previše neizmenjenog teksta napravljenog pomoću mašinskog prevođenja."
 }

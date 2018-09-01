@@ -17,6 +17,7 @@
 	"apihelp-cxpublish-param-categories": "Die Kategorien, die in die veröffentlichte Seite eingesetzt werden sollen.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
+	"apihelp-cxpublish-param-cxversion": "Version des Editors, der zur Veröffentlichung der Übersetzung verwendet werden soll.",
 	"apihelp-query+contenttranslation-description": "Fragt die Inhaltsübersetzungsdatenbank nach Übersetzungen ab.",
 	"apihelp-query+contenttranslation-summary": "Fragt die Inhaltsübersetzungsdatenbank für Übersetzungen ab.",
 	"apihelp-query+contenttranslation-param-translationid": "Übersetzungskennung.",

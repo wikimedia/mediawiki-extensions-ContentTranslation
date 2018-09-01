@@ -13,7 +13,8 @@
 			"Happy13241",
 			"Movses",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"apihelp-cxpublish-description": "Сохранение страницы, созданной с помощью расширения Перевод содержания.",
@@ -26,6 +27,7 @@
 	"apihelp-cxpublish-param-categories": "Категории, в которые будет добавлена опубликованная страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчи (при сохранении с показом капчи).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ответ на капчу (при сохранении с показом капчи).",
+	"apihelp-cxpublish-param-cxversion": "Версия редактора, использовавшегося для публикации перевода.",
 	"apihelp-query+contenttranslation-description": "Запрос к базе данных Content Translation для переводов.",
 	"apihelp-query+contenttranslation-summary": "Запросить переводы в базе данных «Перевода содержимого».",
 	"apihelp-query+contenttranslation-param-translationid": "ID перевода.",

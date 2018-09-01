@@ -53,6 +53,7 @@
 	"cx-translation-target-page-exists": "Eine Seite mit dem Titel [$1 $2] ist bereits im Zielwiki vorhanden. Ziehe in Erwägung, der Seite einen anderen Titel zu geben.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Inhaltsübersetzung]]",
 	"tag-contenttranslation-description": "Der Inhalt wurde von einer anderen Sprache mithilfe des Inhaltsübersetzungswerkzeugs übersetzt.",
+	"tag-contenttranslation-v2-description": "Der Inhalt, der von einer anderen Sprache mit der Version 2 des Inhaltsübersetzungswerkzeugs übersetzt wurde.",
 	"cx-source-loading": "Lade $1",
 	"cx-beta": "Inhaltsübersetzung",
 	"cx-beta-desc": "Ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. Beginne Übersetzungen von [[Special:MyContributions|deiner Beitragsliste]] aus und bearbeite sie mit unserem speziell für Übersetzungen gestalteten Seite-an-Seite-Editor. Einige der Werkzeuge können nur für spezielle Sprachen benutzbar sein.",

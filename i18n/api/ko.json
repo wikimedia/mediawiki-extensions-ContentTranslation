@@ -19,6 +19,7 @@
 	"apihelp-cxpublish-param-categories": "게시된 문서를 넣을 분류들.",
 	"apihelp-cxpublish-param-wpCaptchaId": "캡차 ID입니다. (캡차 응답으로 저장할 때)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "캡차의 응답입니다. (캡차 응답으로 저장할 때)",
+	"apihelp-cxpublish-param-cxversion": "번역을 게시하기 위해 사용된 편집기의 버전입니다.",
 	"apihelp-query+contenttranslation-description": "번역을 위한 내용 번역 데이터베이스를 조회합니다.",
 	"apihelp-query+contenttranslation-summary": "번역을 위한 내용 번역 데이터베이스를 조회합니다.",
 	"apihelp-query+contenttranslation-param-translationid": "번역 ID.",
