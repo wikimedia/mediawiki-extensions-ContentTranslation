@@ -122,9 +122,7 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
-				// If user only clicks to fill in mt, we don't save anything in `user`.
-				restoredContent = OO.getProp( savedSection, 'user', 'content' ) ||
-					OO.getProp( savedSection, 'mt', 'content' );
+				restoredContent = mw.cx.dm.Translation.static.getLatestTranslation( savedSection );
 				if ( !restoredContent ) {
 					mw.log.error( '[CX] Blank saved section for ' + sectionId + ' while restoring' );
 					return;
@@ -162,6 +160,31 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 	domDoc.body.appendChild( articleNode );
 
 	return domDoc;
+};
+
+/**
+ * Find the latest translation type using the timestamps and return the content
+ * @param {Object} translationUnit
+ * @return {string|null}
+ */
+mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) {
+	var user = translationUnit.user,
+		mt = translationUnit.mt;
+
+	if ( user && mt ) {
+		// Both user translation and unmodified MT present. Find which one is latest.
+		if ( user.timestamp >= mt.timestamp ) {
+			return user.content;
+		} else {
+			return mt.content;
+		}
+	} else if ( user ) {
+		return user.content;
+	} else if ( mt ) {
+		return mt.content;
+	}
+
+	return null;
 };
 
 /**
