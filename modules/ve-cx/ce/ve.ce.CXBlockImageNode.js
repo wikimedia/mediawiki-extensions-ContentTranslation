@@ -7,14 +7,14 @@
  * @param {ve.dm.CXImageCaptionNode} model Model to observe
  */
 ve.ce.CXBlockImageNode = function CXBlockImageNode() {
-	var adptationInfo;
+	var adaptationInfo;
 
 	// Parent constructor
 	ve.ce.CXBlockImageNode.super.apply( this, arguments );
 	this.$element.addClass( 've-ce-cxBlockImageNode' );
 
-	adptationInfo = this.getAdaptationInfo();
-	if ( adptationInfo && !adptationInfo.adapted ) {
+	adaptationInfo = this.getAdaptationInfo();
+	if ( adaptationInfo && !adaptationInfo.adapted ) {
 		this.$element.addClass( 'cx-image-unadapted' );
 	}
 
