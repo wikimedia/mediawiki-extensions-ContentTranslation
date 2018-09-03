@@ -3,7 +3,7 @@
  *
  * @class
  * @extends ve.dm.MWImageCaptionNode
-  *@mixins ve.dm.CXTranslationUnitModel
+ * @mixins ve.dm.CXTranslationUnitModel
  * @constructor
  * @param {Object} [element] Reference to element in linear model
  * @param {ve.dm.Node[]} [children]
