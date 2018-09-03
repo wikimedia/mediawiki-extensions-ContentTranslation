@@ -30,6 +30,8 @@ ve.ui.CXSurface = function VeUiCXSurface( dataOrDoc, toolsColumn, config ) {
 
 OO.inheritClass( ve.ui.CXSurface, ve.ui.Surface );
 
+/* Methods */
+
 /**
  * Create a context.
  *

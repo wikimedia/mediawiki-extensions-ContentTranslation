@@ -23,6 +23,8 @@ OO.inheritClass( ve.ce.CXLinkAnnotation, ve.ce.MWInternalLinkAnnotation );
 
 ve.ce.CXLinkAnnotation.static.name = 'cxLink';
 
+/* Methods */
+
 /**
  * Get the adaptation info supplied by cxserver
  *

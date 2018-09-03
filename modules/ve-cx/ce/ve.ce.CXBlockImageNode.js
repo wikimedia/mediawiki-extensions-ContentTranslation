@@ -30,6 +30,8 @@ OO.inheritClass( ve.ce.CXBlockImageNode, ve.ce.MWBlockImageNode );
 
 ve.ce.CXBlockImageNode.static.name = 'cxBlockImage';
 
+/* Methods */
+
 /**
  * Get the adaptation info supplied by cxserver
  *

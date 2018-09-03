@@ -15,6 +15,7 @@
 ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {
 	// Parent constructor
 	ve.ce.CXPlaceholderNode.super.apply( this, arguments );
+	// Mixin constructors
 	ve.ce.FocusableNode.call( this );
 	ve.ce.CXPendingNode.call( this );
 

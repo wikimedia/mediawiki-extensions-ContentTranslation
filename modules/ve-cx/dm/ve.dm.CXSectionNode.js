@@ -43,7 +43,7 @@ ve.dm.CXSectionNode.static.matchTagNames = [ 'section' ];
 
 ve.dm.CXSectionNode.static.matchRdfaTypes = [ 'cx:Section' ];
 
-/* Static methods */
+/* Static Methods */
 
 ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
 	// Parent method

@@ -31,6 +31,8 @@ ve.dm.CXSentenceSegmentAnnotation.static.name = 'cxSegment';
 
 ve.dm.CXSentenceSegmentAnnotation.static.matchTagNames = [ 'span' ];
 
+/* Static Methods */
+
 ve.dm.CXSentenceSegmentAnnotation.static.matchFunction = function ( domElement ) {
 	return domElement.classList.contains( 'cx-segment' ) &&
 		domElement.getAttribute( 'data-segmentid' );

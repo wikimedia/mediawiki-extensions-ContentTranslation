@@ -86,7 +86,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 
 OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
-/* Static properties */
+/* Static Properties */
 
 ve.init.mw.CXTarget.static.name = 'cx';
 
@@ -100,6 +100,68 @@ ve.init.mw.CXTarget.static.actionGroups = [
 		indicator: null,
 		type: 'menu',
 		include: [ { group: 'cxDestination' } ]
+	}
+];
+
+ve.init.mw.CXTarget.static.translationToolbarGroups = [
+	{
+		name: 'cx-mt',
+		type: 'menu',
+		include: [ { group: 'mt' } ]
+	}
+];
+
+ve.init.mw.CXTarget.static.toolbarGroups = [
+	// History
+	{
+		name: 'history',
+		include: [ 'undo', 'redo' ]
+	},
+	// Style
+	{
+		name: 'style',
+		classes: [ 've-cx-toolbar-style' ],
+		type: 'list',
+		icon: 'textStyle',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-style-tooltip' ),
+		include: [ { group: 'textStyle' }, 'language', 'clear' ],
+		forceExpand: [ 'bold', 'italic', 'clear' ],
+		promote: [ 'bold', 'italic' ],
+		demote: [ 'strikethrough', 'code', 'underline', 'language', 'clear' ]
+	},
+	// Link
+	{
+		name: 'link',
+		classes: [ 've-cx-toolbar-link' ],
+		include: [ 'link' ]
+	},
+	// Structure
+	{
+		name: 'structure',
+		classes: [ 've-cx-toolbar-structure' ],
+		type: 'list',
+		icon: 'listBullet',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-structure' ),
+		include: [ { group: 'structure' } ],
+		demote: [ 'outdent', 'indent' ]
+	},
+	// Placeholder for reference tools (e.g. Cite)
+	{
+		name: 'reference'
+	},
+	// Insert
+	{
+		name: 'extra',
+		classes: [ 've-cx-toolbar-insert' ],
+		icon: 'ellipsis',
+		label: '',
+		indicator: null,
+		type: 'list',
+		title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
+		include: '*',
+		exclude: [ { group: 'format' } ],
+		forceExpand: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ],
+		promote: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ]
 	}
 ];
 
@@ -462,68 +524,6 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 		mtToolbar.initialize();
 	}.bind( this ) );
 };
-
-ve.init.mw.CXTarget.static.translationToolbarGroups = [
-	{
-		name: 'cx-mt',
-		type: 'menu',
-		include: [ { group: 'mt' } ]
-	}
-];
-
-ve.init.mw.CXTarget.static.toolbarGroups = [
-	// History
-	{
-		name: 'history',
-		include: [ 'undo', 'redo' ]
-	},
-	// Style
-	{
-		name: 'style',
-		classes: [ 've-cx-toolbar-style' ],
-		type: 'list',
-		icon: 'textStyle',
-		title: OO.ui.deferMsg( 'visualeditor-toolbar-style-tooltip' ),
-		include: [ { group: 'textStyle' }, 'language', 'clear' ],
-		forceExpand: [ 'bold', 'italic', 'clear' ],
-		promote: [ 'bold', 'italic' ],
-		demote: [ 'strikethrough', 'code', 'underline', 'language', 'clear' ]
-	},
-	// Link
-	{
-		name: 'link',
-		classes: [ 've-cx-toolbar-link' ],
-		include: [ 'link' ]
-	},
-	// Structure
-	{
-		name: 'structure',
-		classes: [ 've-cx-toolbar-structure' ],
-		type: 'list',
-		icon: 'listBullet',
-		title: OO.ui.deferMsg( 'visualeditor-toolbar-structure' ),
-		include: [ { group: 'structure' } ],
-		demote: [ 'outdent', 'indent' ]
-	},
-	// Placeholder for reference tools (e.g. Cite)
-	{
-		name: 'reference'
-	},
-	// Insert
-	{
-		name: 'extra',
-		classes: [ 've-cx-toolbar-insert' ],
-		icon: 'ellipsis',
-		label: '',
-		indicator: null,
-		type: 'list',
-		title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
-		include: '*',
-		exclude: [ { group: 'format' } ],
-		forceExpand: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ],
-		promote: [ 'media', 'transclusion', 'insertTable', 'specialCharacter' ]
-	}
-];
 
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.emit( 'contentChange' );

@@ -11,6 +11,8 @@ ve.ce.CXLintableNode = function VeCeCXLintableNode() {
 	} );
 };
 
+/* Methods */
+
 /**
  * Get element which should be focused when going through issues in issue card
  * and getting to this node's issue. See T189488 for issue card interactions.

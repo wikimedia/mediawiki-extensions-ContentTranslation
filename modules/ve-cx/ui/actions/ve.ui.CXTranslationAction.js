@@ -36,6 +36,8 @@ ve.ui.CXTranslationAction.static.name = 'translation';
  */
 ve.ui.CXTranslationAction.static.methods = [ 'translate' ];
 
+/* Methods */
+
 /**
  * Find the currently active section and request to change the source.
  *

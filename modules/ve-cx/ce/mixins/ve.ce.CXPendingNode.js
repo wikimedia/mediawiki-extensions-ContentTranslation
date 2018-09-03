@@ -19,6 +19,8 @@ ve.ce.CXPendingNode = function VeCeMixinsCxPendingNode( config ) {
 	this.$pending = config.$pending || this.$element;
 };
 
+/* Methods */
+
 /**
  * Check if an element is pending.
  *

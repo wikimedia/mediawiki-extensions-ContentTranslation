@@ -24,22 +24,14 @@ OO.mixinClass( ve.dm.CXBlockImageNode, ve.dm.CXTranslationUnitModel );
 
 ve.dm.CXBlockImageNode.static.name = 'cxBlockImage';
 
+/* Static Methods */
+
 // Increase the specificity of class match over the parent class
 ve.dm.CXBlockImageNode.static.matchFunction = function ( node ) {
 	return node.getAttribute( 'rel' ) === 'cx:Figure';
 };
 
 ve.dm.CXBlockImageNode.static.childNodeTypes = [ 'cxImageCaption' ];
-
-/**
- * @inheritdoc
- */
-ve.dm.CXBlockImageNode.prototype.getScalable = function () {
-	// VE uses its image cache to get image dimensions.
-	// CX has it in the adaptation info. Use that.
-	// Mixin method, bypass ve.dm.MWBlockImageNode.prototype.getScalable
-	return ve.dm.ResizableNode.prototype.getScalable.call( this );
-};
 
 ve.dm.CXBlockImageNode.static.toDataElement = function ( domElements, converter ) {
 	var i, rel, dataCX, figure, dataElements;
@@ -89,6 +81,18 @@ ve.dm.CXBlockImageNode.static.getMatchRdfaTypes = function () {
 	return [ 'cx:Figure' ].concat( types );
 };
 
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.dm.CXBlockImageNode.prototype.getScalable = function () {
+	// VE uses its image cache to get image dimensions.
+	// CX has it in the adaptation info. Use that.
+	// Mixin method, bypass ve.dm.MWBlockImageNode.prototype.getScalable
+	return ve.dm.ResizableNode.prototype.getScalable.call( this );
+};
+
 /**
  * Get the caption node of the image.
  *
@@ -101,4 +105,5 @@ ve.dm.CXBlockImageNode.prototype.getCaptionNode = function () {
 };
 
 /* Registration */
+
 ve.dm.modelRegistry.register( ve.dm.CXBlockImageNode );

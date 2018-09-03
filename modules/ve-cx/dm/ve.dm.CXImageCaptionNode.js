@@ -25,8 +25,9 @@ OO.mixinClass( ve.dm.CXImageCaptionNode, ve.dm.CXTranslationUnitModel );
 
 ve.dm.CXImageCaptionNode.static.name = 'cxImageCaption';
 
-// Set cxBlockImage as the parent type for this node
+/* Static Methods */
 
+// Set cxBlockImage as the parent type for this node
 ve.dm.CXImageCaptionNode.static.parentNodeTypes = [ 'cxBlockImage' ];
 
 /* Registration */

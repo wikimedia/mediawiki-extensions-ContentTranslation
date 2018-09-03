@@ -21,6 +21,8 @@ OO.mixinClass( ve.dm.CXLinkAnnotation, ve.dm.CXTranslationUnitModel );
 
 ve.dm.CXLinkAnnotation.static.name = 'cxLink';
 
+/* Static Methods */
+
 ve.dm.CXLinkAnnotation.static.matchFunction = function ( domElement ) {
 	return domElement.classList.contains( 'cx-link' );
 };
@@ -46,7 +48,7 @@ ve.dm.CXLinkAnnotation.static.toDomElements = function ( dataElement, doc ) {
 	return domElements;
 };
 
-/* Instance methods */
+/* Methods */
 
 ve.dm.CXLinkAnnotation.prototype.getComparableObject = function () {
 	var comparableObject = ve.dm.CXLinkAnnotation.super.prototype.getComparableObject.call( this );

@@ -57,11 +57,20 @@ ve.ui.CXDestinationTool.prototype.onUpdateState = function () {
 ve.ui.CXMainDestinationTool = function VeUiCXMainDestinationTool() {
 	ve.ui.CXMainDestinationTool.super.apply( this, arguments );
 };
+
+/* Inheritance */
+
 OO.inheritClass( ve.ui.CXMainDestinationTool, ve.ui.CXDestinationTool );
+
+/* Static Properties */
+
 ve.ui.CXMainDestinationTool.static.name = 'cxMainDestination';
 ve.ui.CXMainDestinationTool.static.namespace = mw.config.get( 'wgNamespaceIds' )[ '' ];
 ve.ui.CXMainDestinationTool.static.title =
 	OO.ui.deferMsg( 'cx-publish-destination-namespace-main' );
+
+/* Register */
+
 ve.ui.toolFactory.register( ve.ui.CXMainDestinationTool );
 
 /**
@@ -76,11 +85,20 @@ ve.ui.toolFactory.register( ve.ui.CXMainDestinationTool );
 ve.ui.CXPersonalDestinationTool = function VeUiCXPersonalDestinationTool() {
 	ve.ui.CXPersonalDestinationTool.super.apply( this, arguments );
 };
+
+/* Inheritance */
+
 OO.inheritClass( ve.ui.CXPersonalDestinationTool, ve.ui.CXDestinationTool );
+
+/* Static Properties */
+
 ve.ui.CXPersonalDestinationTool.static.name = 'cxPersonalDestination';
 ve.ui.CXPersonalDestinationTool.static.namespace = mw.config.get( 'wgNamespaceIds' ).user;
 ve.ui.CXPersonalDestinationTool.static.title =
 	OO.ui.deferMsg( 'cx-publish-destination-namespace-user' );
+
+/* Register */
+
 ve.ui.toolFactory.register( ve.ui.CXPersonalDestinationTool );
 
 // Add draft only if that namespace exists
@@ -97,10 +115,19 @@ if ( mw.config.get( 'wgNamespaceIds' ).draft ) {
 	ve.ui.CXDraftDestinationTool = function VeUiCXDraftDestinationTool() {
 		ve.ui.CXDraftDestinationTool.super.apply( this, arguments );
 	};
+
+	/* Inheritance */
+
 	OO.inheritClass( ve.ui.CXDraftDestinationTool, ve.ui.CXDestinationTool );
+
+	/* Static Properties */
+
 	ve.ui.CXDraftDestinationTool.static.name = 'cxDraftDestination';
 	ve.ui.CXDraftDestinationTool.static.namespace = mw.config.get( 'wgNamespaceIds' ).draft;
 	ve.ui.CXDraftDestinationTool.static.title =
 		OO.ui.deferMsg( 'cx-publish-destination-namespace-draft' );
+
+	/* Register */
+
 	ve.ui.toolFactory.register( ve.ui.CXDraftDestinationTool );
 }

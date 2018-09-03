@@ -43,6 +43,7 @@ ve.dm.CXPlaceholderNode.static.toDomElements = function ( dataElement, doc ) {
 };
 
 /* Methods */
+
 ve.dm.CXPlaceholderNode.prototype.canHaveSlugBefore = function () {
 	return false;
 };

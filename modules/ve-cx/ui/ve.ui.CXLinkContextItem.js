@@ -32,68 +32,7 @@ ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
 
 ve.ui.CXLinkContextItem.static.clearIcon = 'trash';
 
-/* Methods */
-
-/**
- * @inheritdoc
- */
-ve.ui.CXLinkContextItem.prototype.isEditable = function () {
-	var adaptationInfo = this.model.getAttribute( 'cx' );
-	// Parent method
-	return ve.ui.CXLinkContextItem.super.prototype.isEditable.apply( this, arguments ) &&
-		( adaptationInfo.adapted || adaptationInfo.targetTitle );
-};
-
-/**
- * @inheritdoc
- */
-ve.ui.CXLinkContextItem.prototype.renderBody = function () {
-	var $sourceLink, $targetLinkCard, markAsMissingButton,
-		markAsMissingInfo,
-		adaptationInfo = this.model.getAttribute( 'cx' );
-
-	if ( !adaptationInfo ) {
-		// Not a CX Link?
-		return;
-	}
-
-	if ( adaptationInfo.sourceTitle ) {
-		// Source link
-		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
-			adaptationInfo.sourceTitle,
-			this.translation.getSourceLanguage()
-		);
-		this.$sourceBody.empty().append( $sourceLink );
-	}
-
-	if ( !adaptationInfo.adapted && adaptationInfo.targetTitle ) {
-		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
-	}
-
-	// Target link
-	if ( adaptationInfo.adapted || adaptationInfo.targetTitle ) {
-		$targetLinkCard = ve.ui.CXLinkContextItem.static.generateBody(
-			adaptationInfo.targetTitle, this.context
-		);
-	} else {
-		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
-		markAsMissingButton = new OO.ui.ButtonWidget( {
-			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
-			classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
-			flags: [ 'progressive' ]
-		} );
-		markAsMissingInfo = $( '<div>' )
-			.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
-			.text( mw.msg( 'cx-tools-missing-link-text' ) );
-		$targetLinkCard = $( '<div>' )
-			.addClass( 've-ui-cxLinkContextItem-mark-missing' )
-			.append( markAsMissingInfo, markAsMissingButton.$element );
-
-		markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
-	}
-
-	this.$body.empty().append( $targetLinkCard );
-};
+/* Static Methods */
 
 ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, language ) {
 	var $wrapper, $linkTitle, $languageLabel;
@@ -182,6 +121,69 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	}
 
 	return $wrapper;
+};
+
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ui.CXLinkContextItem.prototype.isEditable = function () {
+	var adaptationInfo = this.model.getAttribute( 'cx' );
+	// Parent method
+	return ve.ui.CXLinkContextItem.super.prototype.isEditable.apply( this, arguments ) &&
+		( adaptationInfo.adapted || adaptationInfo.targetTitle );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.CXLinkContextItem.prototype.renderBody = function () {
+	var $sourceLink, $targetLinkCard, markAsMissingButton,
+		markAsMissingInfo,
+		adaptationInfo = this.model.getAttribute( 'cx' );
+
+	if ( !adaptationInfo ) {
+		// Not a CX Link?
+		return;
+	}
+
+	if ( adaptationInfo.sourceTitle ) {
+		// Source link
+		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
+			adaptationInfo.sourceTitle,
+			this.translation.getSourceLanguage()
+		);
+		this.$sourceBody.empty().append( $sourceLink );
+	}
+
+	if ( !adaptationInfo.adapted && adaptationInfo.targetTitle ) {
+		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
+	}
+
+	// Target link
+	if ( adaptationInfo.adapted || adaptationInfo.targetTitle ) {
+		$targetLinkCard = ve.ui.CXLinkContextItem.static.generateBody(
+			adaptationInfo.targetTitle, this.context
+		);
+	} else {
+		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
+		markAsMissingButton = new OO.ui.ButtonWidget( {
+			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
+			classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
+			flags: [ 'progressive' ]
+		} );
+		markAsMissingInfo = $( '<div>' )
+			.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
+			.text( mw.msg( 'cx-tools-missing-link-text' ) );
+		$targetLinkCard = $( '<div>' )
+			.addClass( 've-ui-cxLinkContextItem-mark-missing' )
+			.append( markAsMissingInfo, markAsMissingButton.$element );
+
+		markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
+	}
+
+	this.$body.empty().append( $targetLinkCard );
 };
 
 /**

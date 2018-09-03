@@ -36,8 +36,6 @@ ve.ce.CXSentenceSegmentAnnotation.static.name = 'cxSegment';
 
 ve.ce.CXSentenceSegmentAnnotation.static.tagName = 'span';
 
-/* Static Methods */
-
 /* Registration */
 
 ve.ce.annotationFactory.register( ve.ce.CXSentenceSegmentAnnotation );

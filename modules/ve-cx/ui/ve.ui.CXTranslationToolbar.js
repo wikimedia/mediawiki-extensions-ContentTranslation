@@ -40,7 +40,11 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 	this.setAsDefault.toggle( false );
 };
 
+/* Inheritance */
+
 OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
+
+/* Static Methods */
 
 /**
  * @param {mw.cx.MachineTranslationManager} MTManager
@@ -139,6 +143,8 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		} );
 	} );
 };
+
+/* Methods */
 
 /**
  * @inheritDoc
