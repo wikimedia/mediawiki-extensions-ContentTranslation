@@ -41,6 +41,7 @@
 	"cx-translation-target-page-exists": "Un pagina con le titulo [$1 $2] existe in le wiki de destination. Considera dar un altere titulo al pagina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduction de contento]]",
 	"tag-contenttranslation-description": "Le contento ha essite traducite ab un altere lingua per medio del instrumento ‘Traduction de contento’.",
+	"tag-contenttranslation-v2-description": "Le contento ha essite traducite ab un altere lingua per medio del version 2 del instrumento ‘Traduction de contento’.",
 	"cx-source-loading": "Carga $1",
 	"cx-beta": "Traduction de contento",
 	"cx-beta-desc": "Iste instrumento te adjuta a rapidemente traducer paginas in le lingua tue. Comencia a traducer in [[Special:MyContributions|tu pagina de contributiones]], e modifica le traductiones con nostre editor bicolumnal concipite specialmente pro le traduction. Certe instrumentos pote esser disponibile solmente pro certe linguas.",

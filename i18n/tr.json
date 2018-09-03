@@ -20,7 +20,8 @@
 			"Bulgu",
 			"Botansahin",
 			"Ramona.Stewart",
-			"Hedda"
+			"Hedda",
+			"Dual"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -61,6 +62,7 @@
 	"cx-translation-target-page-exists": "Hedef vikide [$1 $2] başlığı mevcut. Sayfaya başka bir başlık vermeyi düşünebilirsiniz.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|İçerik Çevirmeni]]",
 	"tag-contenttranslation-description": "İçerik, İçerik Çevirmeni aracı kullanılarak başka bir dilden çevrilmiştir.",
+	"tag-contenttranslation-v2-description": "İçerik, İçerik Çevirmeni aracı sürüm 2 kullanılarak başka bir dilden çevrilmiştir.",
 	"cx-source-loading": "$1 yükleniyor",
 	"cx-beta": "İçerik Çevirmeni",
 	"cx-beta-desc": "Başka dildeki sayfaları kendi dilinize kolayca çevirmek için bir araç. [[Special:MyContributions|Kendi katkı sayfanızdan]] çevirilere başlayabilir ve onları çeviri için özel olarak yan yana tasarlanmış düzenleme alanlarıyla düzenleyebilirsiniz. Bazı araçlar sadece belli dillerde kullanılabiliyor olabilir.",

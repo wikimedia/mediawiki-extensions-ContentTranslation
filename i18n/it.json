@@ -54,6 +54,7 @@
 	"cx-translation-target-page-exists": "Esiste già una pagina con titolo [$1 $2] nel wiki di destinazione. Considera la possibilità di dare alla pagina un titolo diverso.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraduzioneContenuti]]",
 	"tag-contenttranslation-description": "Il contenuto è stato tradotto da un'altra lingua usando lo strumento ''Traduzione voci''.",
+	"tag-contenttranslation-v2-description": "Il contenuto è stato tradotto da un'altra lingua usando la versione 2 dello strumento ''Traduzione voci''.",
 	"cx-source-loading": "Caricamento $1",
 	"cx-beta": "Traduzione voci",
 	"cx-beta-desc": "Uno strumento per tradurre velocemente pagine nella tua lingua. Inizia la traduzione dalla [[Special:MyContributions|pagina dei tuoi contributi]], e modificali con il nostro editor side-by-side disegnato appositamente per la traduzione. Alcuni di questi strumenti potrebbero essere disponibili solo per lingue specifiche.",

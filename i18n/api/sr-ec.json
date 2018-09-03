@@ -19,6 +19,7 @@
 	"apihelp-cxpublish-param-categories": "Категорије за поставити у објављену страницу.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капче (када сачувавате с капча одговором).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на капчу (када сачувавате са капча одговором).",
+	"apihelp-cxpublish-param-cxversion": "Верзија уређивача која се користи за објављивање превода.",
 	"apihelp-query+contenttranslation-description": "Упит за претрагу базе података превођења садржаја за преводе.",
 	"apihelp-query+contenttranslation-summary": "Упит за претрагу превода упућен бази података алата Превод Садржаја.",
 	"apihelp-query+contenttranslation-param-translationid": "ID превода.",

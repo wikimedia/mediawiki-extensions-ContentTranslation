@@ -15,7 +15,8 @@
 			"Arthur2e5",
 			"LNDDYL",
 			"JerryLiu",
-			"Endermoon"
+			"Endermoon",
+			"Deathkon"
 		]
 	},
 	"cx": "翻译页面",
@@ -58,6 +59,7 @@
 	"cx-translation-target-page-exists": "标题为[$1 $2]的页面已存在于目标wiki。请考虑为页面提供不同的标题。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|内容翻译]]",
 	"tag-contenttranslation-description": "此内容通过内容翻译工具从另一语言翻译而来。",
+	"tag-contenttranslation-v2-description": "此内容通过第2版内容翻译工具从另一语言翻译而来。",
 	"cx-source-loading": "正在载入$1",
 	"cx-beta": "内容翻译",
 	"cx-beta-desc": "一个快速将页面翻译成您使用的语言的工具。从[[Special:MyContributions|您的贡献页面]]开始翻译，并通过我们特别为翻译工作设计的并排式编辑器编辑它们。一些工具可能只对特定语言可用。",
