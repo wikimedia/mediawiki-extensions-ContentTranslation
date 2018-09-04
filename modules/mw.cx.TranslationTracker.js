@@ -30,6 +30,7 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	this.validationDelayQueue = [];
 	this.changeQueue = [];
 	this.saveQueue = [];
+	this.validationScheduler = OO.ui.debounce( this.processValidationQueue.bind( this ), 15 * 1000 );
 };
 
 /**
@@ -157,16 +158,12 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 		// For freshly translated section, delay the validation till next action on same section
 		// or other sections. But do validations for any queued sections.
 		this.processValidationQueue();
-		this.validationDelayQueue.push( sectionNumber );
+		this.pushToValidationQueue( sectionNumber );
 		return;
 	}
-	if ( this.validateForMTAbuse( sectionNumber ) ) {
-		this.setMTAbuseWarning( sectionModel );
-	} else {
-		this.clearMTAbuseWarning( sectionModel );
-	}
 
-	this.processValidationQueue();
+	this.pushToValidationQueue( sectionNumber );
+	this.validationScheduler();
 };
 
 /**
@@ -510,6 +507,12 @@ mw.cx.TranslationTracker.prototype.isSectionInSaveQueue = function ( sectionNumb
 mw.cx.TranslationTracker.prototype.pushToSaveQueue = function ( sectionNumber ) {
 	if ( !this.isSectionInSaveQueue( sectionNumber ) ) {
 		this.saveQueue.push( sectionNumber );
+	}
+};
+
+mw.cx.TranslationTracker.prototype.pushToValidationQueue = function ( sectionNumber ) {
+	if ( this.validationDelayQueue.indexOf( sectionNumber ) < 0 ) {
+		this.validationDelayQueue.push( sectionNumber );
 	}
 };
 
