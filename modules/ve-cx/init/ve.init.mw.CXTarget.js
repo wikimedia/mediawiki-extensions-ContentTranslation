@@ -67,8 +67,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	);
 
 	this.translationView.connect( this, {
-		issuesResolved: 'onIssuesResolved',
-		translationIssues: 'onTranslationIssues'
+		hasTranslationIssues: 'onTranslationIssues'
 	} );
 
 	this.translationView.targetColumn.connect( this, {
@@ -732,11 +731,6 @@ ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
 	if ( !hasErrors ) {
 		this.enablePublishButton();
 	}
-};
-
-ve.init.mw.CXTarget.prototype.onIssuesResolved = function () {
-	this.errorsInTranslation = false;
-	this.enablePublishButton();
 };
 
 /**

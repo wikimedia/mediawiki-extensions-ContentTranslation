@@ -59,9 +59,19 @@ mw.cx.ui.TranslationView = function ( config ) {
 	} );
 };
 
-/* Setup */
+/* Inheritance */
 
 OO.inheritClass( mw.cx.ui.TranslationView, OO.ui.StackLayout );
+
+/* Events */
+
+/**
+ * @event hasTranslationIssues
+ *
+ * @param {boolean} hasErrors True if any of the translation issues is of type 'error'
+ */
+
+/* Static methods */
 
 /**
  * Align a source+target section pair by adjusting their paddingTop
@@ -97,6 +107,8 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 		}
 	}
 };
+
+/* Methods */
 
 mw.cx.ui.TranslationView.prototype.showCategories = function ( categoryUI ) {
 	this.categoryUI = categoryUI;
@@ -137,23 +149,25 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
 /**
  * @param {Mixed[]} nodesWithIssues
  * @param {boolean} hasErrors
+ * @fires hasTranslationIssues
  */
 mw.cx.ui.TranslationView.prototype.onTranslationIssues = function ( nodesWithIssues, hasErrors ) {
 	if ( hasErrors ) {
 		this.translationHeader.publishButton.setDisabled( true );
 	}
 
-	this.emit( 'translationIssues', hasErrors );
+	this.emit( 'hasTranslationIssues', hasErrors );
 	this.toolsColumn.showIssues( nodesWithIssues );
 };
 
 /**
  * @param {Mixed[]} nodesWithIssues
+ * @fires hasTranslationIssues
  */
 mw.cx.ui.TranslationView.prototype.onIssuesResolved = function ( nodesWithIssues ) {
 	if ( nodesWithIssues.length === 0 ) {
 		this.toolsColumn.hideIssues();
-		this.emit( 'issuesResolved' );
+		this.emit( 'hasTranslationIssues', false );
 		return;
 	}
 
