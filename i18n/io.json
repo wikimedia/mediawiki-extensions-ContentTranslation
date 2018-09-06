@@ -13,6 +13,7 @@
 	"cx-publish-summary": "Kreita per tradukado de la pagino \"$1\"",
 	"cx-publish-gt-published-title": "Gratuli! La pagino publikigesis",
 	"cx-translation-target-page-exists": "Pagino kun titulo [$1 $2] ja existas en ta Wiki. Konsiderez donar nova titulo por la pagino.",
+	"cx-beta-desc": "Ca utensilo rapide tradukas pagini a vua linguo. Komencez tradukar de [[Special:MyContributions|vua pagino di kontributaji]] e pose redaktez li per nia \"redaktilo\", kreita specale por tradukuri. Kelka ek nia utensili povas esar disponebla nur por poka lingui.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
 	"cx-entrypoint-dialog-title-in": "Titulo di la nova pagino en $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Krear de la komenco",
@@ -38,6 +39,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradukuro|$1 tradukuri}}",
 	"echo-category-title-cx": "Tradukuri",
 	"echo-pref-tooltip-cx": "Avizez me pri la tradukuri quin me kreis uzante la traduk utensilo.",
+	"cx-contributions-link": "Vua kontributaji",
 	"cx-your-translations-link": "{{GENDER:$1|Vua tradukuri}}",
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-tools-linter-hide-details": "Celez detali"

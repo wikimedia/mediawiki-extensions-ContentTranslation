@@ -14,6 +14,7 @@
 	"apihelp-cxpublish-param-categories": "Categoríes nes que poner la páxina publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (al guardar con una respuesta al captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respuesta al captcha (al guardar con una respuesta al captcha).",
+	"apihelp-cxpublish-param-cxversion": "Versión del editor emplegáu pa espublizar la traducción.",
 	"apihelp-query+contenttranslation-description": "Consultar traducciones de la base de datos de Content Translation.",
 	"apihelp-query+contenttranslation-summary": "Consultar traducciones de la base de datos de Content Translation.",
 	"apihelp-query+contenttranslation-param-translationid": "ID de la traducción.",

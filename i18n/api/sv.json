@@ -18,6 +18,7 @@
 	"apihelp-cxpublish-param-categories": "Kategorierna att lägga till i den publicerade sidan.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
+	"apihelp-cxpublish-param-cxversion": "Versionen för redigeraren som användes för att publicera översättningen.",
 	"apihelp-query+contenttranslation-description": "Fråga Content Translation-databasen om översättningar.",
 	"apihelp-query+contenttranslation-summary": "Fråga databasen för innehållsöversättningar om översättningar.",
 	"apihelp-query+contenttranslation-param-translationid": "Översättnings-ID.",

@@ -46,6 +46,7 @@
 	"cx-translation-target-page-exists": "Yá esiste una páxina col títulu [$1 $2] na wiki destín. Considera da-y a la páxina un títulu distintu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraducciónConteníu]]",
 	"tag-contenttranslation-description": "El conteníu tradúxose d'otru idioma usando la Ferramienta de traducción de conteníu.",
+	"tag-contenttranslation-v2-description": "El conteníu traducióse d'otru idioma usando la versión 2 de la ferramienta de Traducción de conteníu.",
 	"cx-source-loading": "Cargando $1",
 	"cx-beta": "Traducción del conteníu",
 	"cx-beta-desc": "Una ferramienta pa traducir rápidamente páxines a la to llingua. Principia les traduciones dende la to [[Special:MyContributions|páxina de collaboraciones]] y edítales col nuesu editor en paralelo diseñáu especialmente pa la traducción. Dalgunes ferramientes pueden tar disponibles sólo pa ciertes llingües.",
