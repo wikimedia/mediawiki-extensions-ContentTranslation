@@ -181,3 +181,7 @@ mw.cx.ui.TranslationView.prototype.onFocus = function () {
 mw.cx.ui.TranslationView.prototype.onBlur = function () {
 	this.toolsColumn.toolContainer.$element.removeClass( 'cx-column-tools-container--contextual' );
 };
+
+mw.cx.ui.TranslationView.prototype.hasMisalignedSections = function () {
+	return this.sourceColumn.$content[ 0 ].offsetHeight !== this.targetColumn.$content[ 0 ].offsetHeight;
+};
