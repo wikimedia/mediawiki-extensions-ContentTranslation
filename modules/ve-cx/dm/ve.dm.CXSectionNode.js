@@ -126,6 +126,14 @@ ve.dm.CXSectionNode.prototype.setOriginalContentSource = function ( source ) {
 	this.element.attributes.cxsource = source;
 };
 
+/**
+ * Get the name of child node for this section model
+ * @return {string|undefined} Child node name
+ */
+ve.dm.CXSectionNode.prototype.getChildNodeName = function () {
+	return OO.getProp( this, 'children', 0, 'type' );
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.CXSectionNode );

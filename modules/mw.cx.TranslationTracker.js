@@ -402,13 +402,31 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
 	while ( i-- ) {
 		sectionNumber = this.validationDelayQueue[ i ];
 		sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
-		if ( this.validateForMTAbuse( sectionNumber ) ) {
-			this.setMTAbuseWarning( sectionModel );
-		} else {
-			this.clearMTAbuseWarning( sectionModel );
+		if ( !this.isExcludedFromValidation( sectionModel ) ) {
+			if ( this.validateForMTAbuse( sectionNumber ) ) {
+				this.setMTAbuseWarning( sectionModel );
+			} else {
+				this.clearMTAbuseWarning( sectionModel );
+			}
 		}
 		this.validationDelayQueue.splice( i, 1 );
 	}
+};
+
+/**
+ * Check if the section is excluded from MT abuse validation or not.
+ * @param {ve.dm.CXSectionNode} sectionModel
+ * @return {boolean}
+ */
+mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( sectionModel ) {
+	var excludedTypes = [
+			'cxBlockImage', 'mwBlockImage', // Both are required since new images can be inserted too.
+			'cxTransclusionBlock', 'mwTransclusionBlock',
+			'mwTable', 'list', 'mwHeading'
+		],
+		childType = sectionModel.getChildNodeName();
+
+	return excludedTypes.indexOf( childType ) >= 0;
 };
 
 /**
