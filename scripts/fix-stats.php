@@ -198,8 +198,6 @@ class CxFixStats extends Maintenance {
 			$this->output( "\\- E41 Page doesn't exist and never had log entry\n" );
 			$this->resets[] = $row->translation_id;
 		}
-
-		return;
 	}
 
 	protected function hasCxTag( Title $title, $row ) {
