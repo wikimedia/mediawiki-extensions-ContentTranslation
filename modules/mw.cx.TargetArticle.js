@@ -6,7 +6,7 @@
  *
  * @param {mw.cx.dm.Translation} translation
  * @param {ve.init.mw.CXTarget} veTarget
- * @param {object} config Translation configuration
+ * @param {Object} config Translation configuration
  */
 mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config ) {
 	this.translation = translation;

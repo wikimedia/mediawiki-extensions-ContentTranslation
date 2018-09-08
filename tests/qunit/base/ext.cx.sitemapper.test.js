@@ -7,7 +7,7 @@
 	'use strict';
 
 	QUnit.module( 'ext.cx.sitemapper', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			mw.config.set( 'wgContentTranslationDomainCodeMapping', {
 				nb: 'no'
 			} );

@@ -74,7 +74,7 @@ mw.cx.ui.Header.prototype.getContent = function () {
 /**
  * Creates list of personal menu items and updates menu width
  *
- * @return {array} menuItems Array of menu items
+ * @return {Array} menuItems Array of menu items
  */
 mw.cx.ui.Header.prototype.getPersonalMenuItems = function () {
 	var index, menuItem,

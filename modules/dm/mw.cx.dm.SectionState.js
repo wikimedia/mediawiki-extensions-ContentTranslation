@@ -4,10 +4,10 @@
  * CX Section state data model
  *
  * @constructor
- * @param {Number} sectionNumber
+ * @param {number} sectionNumber
  */
 mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber ) {
-	// @var {Number}
+	// @var {number}
 	this.sectionNumber = sectionNumber;
 	// @var {Object}
 	this.source = {
@@ -23,15 +23,15 @@ mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber ) {
 		text: null,
 		saved: false
 	};
-	// @var {String}
+	// @var {string}
 	this.currentMTProvider = null;
-	// @var {Number}
+	// @var {number}
 	this.unmodifiedPercentage = 0;
-	// @var {Number}
+	// @var {number}
 	this.translationProgressPercentage = 0;
-	// @var {Boolean} Whether the section has any errors while saving
+	// @var {boolean} Whether the section has any errors while saving
 	this.hasSaveError = false;
-	// @var {Number}
+	// @var {number}
 	this.saveCount = 0;
 };
 

@@ -30,7 +30,7 @@
 	 * @class
 	 *
 	 * @param {HTMLElement} container The tools container
-	 * @param {object} options Options
+	 * @param {Object} options Options
 	 */
 	function CXToolManager( container, options ) {
 		this.options = $.extend( {}, $.fn.cxtoolmanager.defaults, options );
@@ -216,7 +216,7 @@
 
 	/**
 	 * $.fn.cxtoolmanager jQuery plugin
-	 * @param {object} option
+	 * @param {Object} option
 	 * @return {jQuery}
 	 */
 	$.fn.cxtoolmanager = function ( option ) {

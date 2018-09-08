@@ -16,10 +16,10 @@
 		$fixture.append( infobar.$element );
 
 		infobar.showMessage( 'test-class', 'Test <b>message</b>' );
-		assert.equal( infobar.$element.text(), 'Test <b>message</b>', 'Strings as escaped' );
+		assert.strictEqual( infobar.$element.text(), 'Test <b>message</b>', 'Strings as escaped' );
 
 		infobar.showMessage( 'changed-class', 'New message' );
-		assert.equal( infobar.$element.text(), 'New message', 'Message is updated' );
+		assert.strictEqual( infobar.$element.text(), 'New message', 'Message is updated' );
 	} );
 
 	QUnit.test( 'Show message with a Message object', function ( assert ) {
@@ -32,7 +32,7 @@
 
 		infobar.showMessage( 'test-class', mw.message( 'cx-header-test', 'Kissa' ) );
 		// Taking a shortcut by testing the text content where html is dropped
-		assert.equal( infobar.$element.text(), 'Kissa is here', 'Html is accepted' );
+		assert.strictEqual( infobar.$element.text(), 'Kissa is here', 'Html is accepted' );
 	} );
 
 }( jQuery, mediaWiki ) );

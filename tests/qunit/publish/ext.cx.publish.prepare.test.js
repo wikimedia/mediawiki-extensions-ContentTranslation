@@ -11,7 +11,7 @@
 		'/ContentTranslation/tests/qunit/data/';
 
 	QUnit.module( 'ext.cx.publish.prepare', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.sitemapper = new mw.cx.SiteMapper(
 				mw.config.get( 'wgContentTranslationSiteTemplates' )
 			);

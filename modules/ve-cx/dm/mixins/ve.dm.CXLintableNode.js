@@ -19,7 +19,8 @@ OO.mixinClass( ve.dm.CXLintableNode, OO.EventEmitter );
 /* Methods */
 
 /**
- * @return {String}
+ * @method
+ * @return {string}
  */
 ve.dm.CXLintableNode.prototype.getId = null;
 
@@ -42,8 +43,8 @@ ve.dm.CXLintableNode.prototype.getTranslationIssues = function () {
 /**
  * Find names of all issues that have some pattern in their name.
  *
- * @param {String} name Part of a name used in a regex
- * @return {String[]} All issues with some pattern in their name
+ * @param {string} name Part of a name used in a regex
+ * @return {string[]} All issues with some pattern in their name
  */
 ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
 	// Prevent matching all issues when empty string is given
@@ -63,8 +64,8 @@ ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
  * Find the index of issue with some name, inside issue array.
  * Names act as unique ID and there should not be duplicates.
  *
- * @param {String} name Name of the issue
- * @return {Number} Index of issue or -1 if not found.
+ * @param {string} name Name of the issue
+ * @return {number} Index of issue or -1 if not found.
  */
 ve.dm.CXLintableNode.prototype.findIssueIndex = function ( name ) {
 	var i, length = this.translationIssues.length;
@@ -111,7 +112,7 @@ ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
  * - Empty array resolves all issues of this node
  * - Plain string is used as regex to find resolvable issues
  *
- * @param {String|String[]} names
+ * @param {string|string[]} names
  */
 ve.dm.CXLintableNode.prototype.resolveTranslationIssues = function ( names ) {
 	if ( Array.isArray( names ) && names.length === 0 ) {

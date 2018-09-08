@@ -250,7 +250,7 @@
 	 * @cfg {Object} [params] Parameters used for API call to get page info
 	 * @cfg {string} [imageUrl] URL for selected source page image
 	 * @cfg {string} [imageIcon] OOUI class of selected page placeholder icon
-	 * @cfg {Number} [numOfLanguages] Number of different language versions for selected source page
+	 * @cfg {number} [numOfLanguages] Number of different language versions for selected source page
 	 */
 	mw.cx.SelectedSourcePage.prototype.setSelectedSourcePageData = function ( pageTitle, href, config ) {
 		var params, self = this;

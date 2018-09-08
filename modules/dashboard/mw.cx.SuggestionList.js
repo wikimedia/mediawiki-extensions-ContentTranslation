@@ -901,7 +901,7 @@ mw.cx.CXSuggestionList.prototype.onScroll = function () {
  * Sort the lists in their logical order to display.
  *
  * @param  {Object[]} lists
- * @return {Number[]} Ordered list ids.
+ * @return {number[]} Ordered list ids.
  */
 mw.cx.CXSuggestionList.prototype.sortLists = function ( lists ) {
 	function compareKeys( a, b ) {

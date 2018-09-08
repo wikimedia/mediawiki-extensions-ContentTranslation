@@ -7,7 +7,7 @@
 	'use strict';
 
 	QUnit.module( 'ext.cx.tools.categories', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.server = this.sandbox.useFakeServer();
 			this.server.respondImmediately = true;
 			this.sitemapper = new mw.cx.SiteMapper(
@@ -51,10 +51,12 @@
 		) );
 		categoryTool.getCategories()
 			.then( function () {
-				assert.equal( Object.keys( categoryTool.categories.source ).length, 5 );
-				assert.equal( Object.keys( categoryTool.categories.adapted ).length, 1 );
-				assert.equal( Object.keys( categoryTool.categories.target ).length, 1 );
-			} ).always( done );
+				assert.strictEqual( Object.keys( categoryTool.categories.source ).length, 5 );
+				assert.strictEqual( Object.keys( categoryTool.categories.adapted ).length, 1 );
+				assert.strictEqual( Object.keys( categoryTool.categories.target ).length, 1 );
+			} ).always( function () {
+				done();
+			} );
 	} );
 
 }( jQuery, mediaWiki ) );

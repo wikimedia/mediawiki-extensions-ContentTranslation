@@ -795,7 +795,8 @@
 	CXStats.prototype.transformJsonToModel = function ( records ) {
 		var i, record, language, status, count, translators,
 			sourceLanguage, targetLanguage,
-			tempModel;
+			tempModel,
+			hasOwn = Object.prototype.hasOwnProperty;
 
 		this.sourceTargetModel.draft = {};
 		this.targetSourceModel.draft = {};
@@ -817,7 +818,7 @@
 			tempModel = this.sourceTargetModel[ status ];
 			this.sourceTargetModel[ status ] = [];
 			for ( language in tempModel ) {
-				if ( tempModel.hasOwnProperty( language ) ) {
+				if ( hasOwn.call( tempModel, language ) ) {
 					for ( count = 0, translators = 0, i = 0; i < tempModel[ language ].length; i++ ) {
 						count += +tempModel[ language ][ i ].count;
 						translators += +tempModel[ language ][ i ].translators;
@@ -834,7 +835,7 @@
 			tempModel = this.targetSourceModel[ status ];
 			this.targetSourceModel[ status ] = [];
 			for ( language in tempModel ) {
-				if ( tempModel.hasOwnProperty( language ) ) {
+				if ( hasOwn.call( tempModel, language ) ) {
 					for ( count = 0, translators = 0, i = 0; i < tempModel[ language ].length; i++ ) {
 						count += +tempModel[ language ][ i ].count;
 						translators += +tempModel[ language ][ i ].translators;

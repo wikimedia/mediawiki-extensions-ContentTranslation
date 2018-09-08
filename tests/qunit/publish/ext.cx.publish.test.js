@@ -7,7 +7,7 @@
 	'use strict';
 
 	QUnit.module( 'ext.cx.publish', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.server = this.sandbox.useFakeServer();
 			this.server.respondImmediately = true;
 			this.sitemapper = new mw.cx.SiteMapper(
@@ -49,7 +49,7 @@
 
 		newCaptchaHandler = function ( captcha ) {
 			assert.ok( true, 'Captcha handler was called' );
-			assert.equal( captcha.captchaKey, '1234565', '...with correct captcha response' );
+			assert.strictEqual( captcha.captchaKey, '1234565', '...with correct captcha response' );
 			return $.Deferred().resolve( {
 				captchaKey: 1234565
 			} ).promise();

@@ -206,14 +206,15 @@
 	 * @param {Event} e The click event
 	 */
 	function sourceClickHandler( e ) {
-		var $listItem, categoryId, categoryTool, title, count;
+		var $listItem, categoryId, categoryTool, title, count,
+			hasOwn = Object.prototype.hasOwnProperty;
 
 		$listItem = $( this );
 		categoryId = $listItem.attr( 'cx-category-id' );
 		categoryTool = e.data.tool;
 
-		if ( categoryTool.categories.adapted.hasOwnProperty( categoryId ) &&
-			!categoryTool.categories.target.hasOwnProperty( categoryId )
+		if ( hasOwn.call( categoryTool.categories.adapted, categoryId ) &&
+			!hasOwn.call( categoryTool.categories.target, categoryId )
 		) {
 			title = categoryTool.categories.adapted[ categoryId ];
 			categoryTool.categories.target[ categoryId ] = title;
@@ -552,7 +553,7 @@
 		inverted = {};
 		for ( categoryId in categories ) {
 			categoryTitles.push( categories[ categoryId ] );
-			if ( categories.hasOwnProperty( categoryId ) ) {
+			if ( Object.prototype.hasOwnProperty.call( categories, categoryId ) ) {
 				inverted[ categories[ categoryId ].replace( /[:\s]/g, '-' ) ] = categoryId;
 			}
 		}

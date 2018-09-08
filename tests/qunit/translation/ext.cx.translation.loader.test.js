@@ -38,7 +38,7 @@
 	];
 
 	QUnit.module( 'ext.cx.translation.loader', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.translationLoader = new mw.cx.ContentTranslationLoader();
 			this.translationLoader.translation = { sourceRevisionId: -12345 };
 		}
@@ -53,7 +53,7 @@
 			this.translationLoader.$sourceColumn = $( tests[ i ].source );
 			this.translationLoader.$translationColumn = $( tests[ i ].placeholders );
 			this.translationLoader.restore();
-			assert.equal(
+			assert.strictEqual(
 				this.translationLoader.$translationColumn.html(),
 				tests[ i ].translation,
 				tests[ i ].description

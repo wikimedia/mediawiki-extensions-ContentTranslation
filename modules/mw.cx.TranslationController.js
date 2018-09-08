@@ -81,7 +81,7 @@ mw.cx.TranslationController.prototype.listen = function () {
  * Add the section changes to save queue and change queue.
  * These two queues are processed in different interevals and different
  * triggers. Hence two queues.
- * @param {String} sectionId
+ * @param {string} sectionId
  */
 mw.cx.TranslationController.prototype.addToChangeQueue = function ( sectionId ) {
 	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
@@ -570,7 +570,7 @@ mw.cx.TranslationController.prototype.checkForMTAbuse = function () {
 /**
  * Triggered when all issues are resolved on node with a given ID.
  *
- * @param {Number|String} id ID of a node which issues are resolved
+ * @param {number|string} id ID of a node which issues are resolved
  */
 mw.cx.TranslationController.prototype.onIssuesResolved = function ( id ) {
 	this.translationTracker.setTranslationIssues( id, false );
@@ -580,7 +580,7 @@ mw.cx.TranslationController.prototype.onIssuesResolved = function ( id ) {
 /**
  * Triggered when node with given ID has issues.
  *
- * @param {Number|String} id ID of a node with issues
+ * @param {number|string} id ID of a node with issues
  * @param {boolean} hasErrors True if any of the issues is error. False if all issues are warnings
  */
 mw.cx.TranslationController.prototype.onTranslationIssues = function ( id, hasErrors ) {

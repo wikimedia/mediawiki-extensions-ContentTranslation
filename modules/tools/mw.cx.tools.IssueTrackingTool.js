@@ -135,7 +135,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getContent = function () {
 /**
  * Get the index for the first issue of the current focused node.
  *
- * @return {Number|boolean} Index of current panel or false
+ * @return {number|boolean} Index of current panel or false
  */
 mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 	var i, length, issue, number,
@@ -165,7 +165,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 /**
  * Get ID of currently active node
  *
- * @return {String}
+ * @return {string}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
 	var activeElement = document.activeElement;
@@ -275,7 +275,7 @@ mw.cx.tools.IssueTrackingTool.prototype.showDetails = function () {
 /**
  * Navigate to the next or previous issue.
  *
- * @param {Number} increment +1 for next issue or -1 for the previous one
+ * @param {number} increment +1 for next issue or -1 for the previous one
  */
 mw.cx.tools.IssueTrackingTool.prototype.navigateIssues = function ( increment ) {
 	this.currentIssue += increment;
@@ -349,7 +349,7 @@ mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
  * This method essentially focuses the same node that tries to get focus in
  * this.focusCurrentElement, but gets its focus stolen by VE code.
  *
- * @param {Number} increment +1 or -1 indicating what was the previous issue in navigation
+ * @param {number} increment +1 or -1 indicating what was the previous issue in navigation
  */
 mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 	var previousNode, currentNode, bluring, focusableElement,
@@ -380,7 +380,7 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 };
 
 /**
- * @param {Number|String} id Section number or special values of 'title' and 'global'
+ * @param {number|string} id Section number or special values of 'title' and 'global'
  * @return {ve.ce.CXLintableNode|mw.cx.dm.Translation|null}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {

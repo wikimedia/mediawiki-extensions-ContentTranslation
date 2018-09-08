@@ -329,7 +329,7 @@ mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( filterButton, lang
 /**
  * Fill the source language dropdown with source languages for which selected article exists
  *
- * @param {array} [sourceLanguages] Array of language codes used to populate ULS
+ * @param {Array} [sourceLanguages] Array of language codes used to populate ULS
  * @param {boolean} [replace=false] Whether to destroy the ULS instance before recreating it
  * @param {Object} [ulsOptions] ULS options that are added to the ULS
  */
@@ -370,7 +370,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
  * Fill the target language dropdown with target languages that have
  * language tools compatible with the source language.
  *
- * @param {array} [targetLanguages] Array of language codes used to populate ULS
+ * @param {Array} [targetLanguages] Array of language codes used to populate ULS
  * @param {boolean} [replace=false] Whether to destroy the ULS instance before recreating it
  * @param {Object} [ulsOptions] ULS options that are added to the ULS
  */

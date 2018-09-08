@@ -72,7 +72,7 @@ mw.cx.ui.Categories.prototype.render = function () {
 /**
  * Create the category count button. To be displayed above source and translation contents.
  *
- * @param {Number} count
+ * @param {number} count
  * @return {OO.ui.ButtonWidget}
  */
 mw.cx.ui.Categories.prototype.createCategoryCount = function ( count ) {

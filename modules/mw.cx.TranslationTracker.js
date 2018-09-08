@@ -343,7 +343,7 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 	totalSourceSections = Object.keys( this.sections ).length;
 
 	for ( sectionNumber in this.sections ) {
-		if ( !this.sections.hasOwnProperty( sectionNumber ) ) {
+		if ( !Object.prototype.hasOwnProperty.call( this.sections, sectionNumber ) ) {
 			continue;
 		}
 
