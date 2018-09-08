@@ -95,7 +95,7 @@ ve.init.mw.CXTarget.static.actionGroups = [
 		name: 'publishDestination',
 		header: OO.ui.deferMsg( 'cx-publish-destination-header' ),
 		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
-		icon: 'advanced',
+		icon: 'settings',
 		indicator: null,
 		type: 'menu',
 		include: [ { group: 'cxDestination' } ]
