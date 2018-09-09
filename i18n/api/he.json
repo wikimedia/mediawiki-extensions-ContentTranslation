@@ -15,6 +15,7 @@
 	"apihelp-cxpublish-param-categories": "הקטגוריות שהדף שיתפרסם יוכנס אליהן.",
 	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
+	"apihelp-cxpublish-param-cxversion": "גרסת העורך ששימש לפרסום התרגום.",
 	"apihelp-query+contenttranslation-description": "שאילתה לאחזור תרגומים ממסד הנתונים של תרגום תוכן.",
 	"apihelp-query+contenttranslation-summary": "שאילתה לאחזור תרגומים ממסד הנתונים של תרגום תוכן.",
 	"apihelp-query+contenttranslation-param-translationid": "מזהה התרגום.",

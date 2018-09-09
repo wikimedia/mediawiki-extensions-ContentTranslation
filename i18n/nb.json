@@ -55,6 +55,7 @@
 	"cx-translation-target-page-exists": "En side med tittelen [$1 $2] eksisterer på målwikien. Vurder å gi siden en annen tittel.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Innholdet ble oversatt fra et annet språk med verktøyet Innholdsoversettelse.",
+	"tag-contenttranslation-v2-description": "Innholdet har blitt oversatt fra et annet språk ved hjelp av versjon 2 av innholdsoversettelsesverktøyet.",
 	"cx-source-loading": "Laster $1",
 	"cx-beta": "Innholdsoversettelse",
 	"cx-beta-desc": "Et verktøy for å raskt oversette sider til språket ditt. Start oversettelser fra [[Special:MyContributions|bidragssiden din]] og rediger dem med vår side-ved-side editor som er spesiallagd for oversettelser. Noen av verktøyene kan være begrenset til bestemte språk.",

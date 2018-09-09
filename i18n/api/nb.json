@@ -16,6 +16,7 @@
 	"apihelp-cxpublish-param-categories": "Kategoriene som skal legges til på den publiserte siden.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (når det lagres med en captcha respons).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar på captcha (når det lagres med en captcha respons).",
+	"apihelp-cxpublish-param-cxversion": "Hvilken versjon av editoren som ble brukt til å publisere oversettelsen.",
 	"apihelp-query+contenttranslation-description": "Spør Content Translation-databasen om oversettelser.",
 	"apihelp-query+contenttranslation-summary": "Spør innholdsoversettelsesdatabasen om oversettelser.",
 	"apihelp-query+contenttranslation-param-translationid": "Oversettelsesid",

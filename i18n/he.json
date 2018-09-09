@@ -53,6 +53,7 @@
 	"cx-translation-target-page-exists": "דף בעל השם [$1 $2] קיים בוויקי היעד. נא לשקול לתת לדף הזה שם אחר.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|תרגום תוכן]]",
 	"tag-contenttranslation-description": "התוכן תורגם משפה אחרת בעזרת כלי ContentTranslation.",
+	"tag-contenttranslation-v2-description": "התוכן הזה תורגם משפה אחרת באמצעות גרסה 2 של כלי תרגום תוכן.",
 	"cx-source-loading": "טעינת $1",
 	"cx-beta": "תרגום תוכן",
 	"cx-beta-desc": "כלי לתרגום מהיר של דפים לשפה שלך. הכניסה לתרגום נעשית מ[[Special:MyContributions|דף התרומות שלך]], והעריכה נעשית בעורך שלנו שמציג שפה לצד שפה ושמעוצב במיוחד עבור תרגומים. חלק מכלי העזר זמינים רק בשפות מסוימות.",
