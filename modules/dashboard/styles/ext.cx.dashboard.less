@@ -40,42 +40,24 @@
 		li {
 			list-style: none;
 			margin: 0;
-
-			// Following styles should support possible additions to help card
-			&:not( :last-child ) {
-				margin-bottom: 16px;
-			}
-
-			&:first-child {
-				padding-top: 4px;
-			}
-
-			&:last-child {
-				padding-bottom: 4px;
-			}
 		}
-	}
-
-	&__link,
-	&__link:visited {
-		background-position: center left;
-		background-repeat: no-repeat;
-		background-size: 16px;
-		color: @colorProgressive;
-		padding-left: 24px;
 	}
 
 	&__link {
-		&--information {
-			.background-image( '../images/cx-information.svg' );
+		&.oo-ui-buttonWidget > .oo-ui-buttonElement-button > {
+			padding-top: 0.4em;
+			padding-bottom: 0.4em;
+
+			> .oo-ui-labelElement-label {
+				font-weight: normal;
+				white-space: normal;
+			}
 		}
 
-		&--stats {
-			.background-image( '../images/cx-stats.svg' );
-		}
-
-		&--feedback {
-			.background-image( '../images/cx-discuss.svg' );
+		// 'chart' icon from OOUI buttons looks a little unbalanced when used inside a button.
+		// Therefore, we add a litle visual correction here.
+		&--stats > .oo-ui-buttonElement-button > .oo-ui-icon-chart {
+			top: -2px;
 		}
 	}
 
@@ -83,9 +65,9 @@
 		background-color: #fff;
 		.box-sizing( border-box );
 		border-radius: @borderRadius;
-		padding: 16px;
+		padding: 1em;
 		.box-shadow-card;
-		font-size: 16px;
+		font-size: 1em;
 
 		.cx-translator--visible ~ & {
 			@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
@@ -98,7 +80,7 @@
 
 		&-title {
 			color: @colorGray5;
-			margin-bottom: 16px;
+			margin-bottom: 0.75em;
 			font-weight: bold;
 		}
 	}

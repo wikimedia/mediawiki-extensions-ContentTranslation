@@ -239,8 +239,11 @@
 				"mw.cx.dashboard.lists",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-content",
 				"oojs-ui.styles.icons-editing-core",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-media"
 			],
 			"messages": [
 				"cx-create-new-translation",

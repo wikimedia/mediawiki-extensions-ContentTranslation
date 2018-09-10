@@ -231,17 +231,20 @@
 	CXDashboard.prototype.getSidebarItems = function () {
 		return [
 			{
-				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--information',
+				icon: 'info',
+				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--information' ],
 				href: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-information' )
 			},
 			{
-				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--stats',
+				icon: 'chart',
+				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--stats' ],
 				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
 				label: mw.msg( 'cx-dashboard-sidebar-stats' )
 			},
 			{
-				'class': 'cx-dashboard-sidebar__link cx-dashboard-sidebar__link--feedback',
+				icon: 'speechBubbles',
+				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--feedback' ],
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-feedback' )
 			}
@@ -249,7 +252,7 @@
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
-		var $help, i, items, $links = [];
+		var $help, i, item, items, $links = [];
 
 		this.translator = new mw.cx.widgets.CXTranslator();
 		this.$publishedTranslationsButton = this.translator.$lastMonthButton;
@@ -260,16 +263,17 @@
 		items = this.getSidebarItems();
 		$links = $( '<ul>' );
 		for ( i = 0; i < items.length; i++ ) {
+			item = items[ i ];
 			$links.append(
-				$( '<li>' ).append(
-					$( '<a>' )
-						.addClass( items[ i ].class )
-						.text( items[ i ].label )
-						.prop( {
-							target: '_blank',
-							href: items[ i ].href
-						} )
-				)
+				$( '<li>' ).append( new OO.ui.ButtonWidget( {
+					icon: item.icon,
+					framed: false,
+					classes: item.classes,
+					flags: [ 'primary', 'progressive' ],
+					label: item.label,
+					href: item.href,
+					target: '_blank'
+				} ).$element )
 			);
 		}
 		$help.append(
