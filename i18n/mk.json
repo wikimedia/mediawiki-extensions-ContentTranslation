@@ -235,6 +235,8 @@
 	"cx-tools-linter-invalid-character-message": "Некои знаци не се допуштени во насловите од технички причини.<br><br>Изменете го насловот.",
 	"cx-tools-linter-page-exists": "Страницата веќе постои",
 	"cx-tools-linter-page-exists-message": "Веќе постои страница насловена како „$1“. Објавувајќи го преводот ќе ја замените постоечката страница<br><br>Проверете дали можете да ја замените, или пак преименувајте го преводот.",
+	"cx-tools-linter-template": "Шаблонот е недостапен",
+	"cx-tools-linter-template-block-message": "Изворната страница корисни шаблон кој не е достапен на целното вики.<br><br>Шаблонов е прескокнат, но можете да додадете нови содржини за да ги зафатите отсутните информации.",
 	"cx-translator-header": "Ваши статистики",
 	"cx-translator-month-stats-label": "Месецов",
 	"cx-translator-total-translations-label": "Вкупно",

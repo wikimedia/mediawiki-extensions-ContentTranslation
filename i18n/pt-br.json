@@ -252,6 +252,8 @@
 	"cx-tools-linter-invalid-character-message": "Por razões técnicas, alguns caracteres não podem ser usados nos títulos das páginas.<br><br>Altere o título de forma a evitar os caracteres problemáticos, por favor.",
 	"cx-tools-linter-page-exists": "A página já existe",
 	"cx-tools-linter-page-exists-message": "Já existe uma página com o título $1. Se publicar a sua tradução irá sobrescrever o conteúdo existente.<br><br>Verifique que pretende substituir a página existente, ou pondere alterar o nome da sua tradução.",
+	"cx-tools-linter-template": "Predefinição indisponível",
+	"cx-tools-linter-template-block-message": "A página original usa uma predefinição que não está disponível na wiki de destino.<br><br>Esta predefinição foi saltada, mas pode adicionar conteúdo novo para capturar a informação em falta.",
 	"cx-translator-header": "As suas estatísticas",
 	"cx-translator-month-stats-label": "Neste mês",
 	"cx-translator-total-translations-label": "Total",

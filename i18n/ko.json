@@ -252,6 +252,7 @@
 	"cx-tools-linter-invalid-character-message": "일부 문자는 기술적인 이유로 문서의 제목에 사용할 수 없습니다.<br><br>제목을 수정하여 문제가 있는 문자를 제외해 주십시오.",
 	"cx-tools-linter-page-exists": "문서가 이미 존재합니다",
 	"cx-tools-linter-page-exists-message": "$1 제목의 문서가 이미 존재합니다. 번역을 게시하면 기존 내용을 덮어쓰게 됩니다<br><br>기존 문서를 대체해도 좋은지 확인하거나 번역 이름을 바꾸는 것을 고려하십시오.",
+	"cx-tools-linter-template": "틀을 사용할 수 없음",
 	"cx-translator-header": "내 통계",
 	"cx-translator-month-stats-label": "이번 달",
 	"cx-translator-total-translations-label": "합계",

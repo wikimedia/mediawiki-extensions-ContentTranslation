@@ -237,6 +237,7 @@
 	"cx-tools-linter-invalid-character": "Tytuł Twojego tłumaczenia zawiera nieprawidłowe znaki",
 	"cx-tools-linter-invalid-character-action": "Napraw problematyczne znaki",
 	"cx-tools-linter-page-exists": "Strona już istnieje",
+	"cx-tools-linter-template": "Szablon niedostępny",
 	"cx-translator-header": "Twoje statystyki",
 	"cx-translator-month-stats-label": "W tym miesiącu",
 	"cx-translator-total-translations-label": "Razem",

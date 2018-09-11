@@ -241,6 +241,8 @@
 	"cx-tools-linter-invalid-character-message": "Einige Zeichen können aus technischen Gründen nicht im Titel von Seiten verwendet werden.<br><br>Bearbeite bitte den Titel, um die problematischen Zeichen zu vermeiden.",
 	"cx-tools-linter-page-exists": "Die Seite ist bereits vorhanden",
 	"cx-tools-linter-page-exists-message": "Eine Seite mit dem Titel $1 ist bereits vorhanden. Die Veröffentlichung deiner Übersetzung wird den vorhandenen Inhalt überschreiben.<br><br>Überprüfe, dass die Ersetzung der vorhandenen Seite in Ordnung ist oder ziehe in Erwägung, deine Übersetzung umzubenennen.",
+	"cx-tools-linter-template": "Vorlage nicht verfügbar",
+	"cx-tools-linter-template-block-message": "Die Originalseite verwendet eine Vorlage, die im Zielwiki nicht verfügbar ist.<br><br>Diese Vorlage wurde übersprungen, du kannst jedoch neuen Inhalt hinzufügen, um die fehlenden Informationen zu erfassen.",
 	"cx-translator-header": "Deine Statistiken",
 	"cx-translator-month-stats-label": "Dieser Monat",
 	"cx-translator-total-translations-label": "Gesamt",

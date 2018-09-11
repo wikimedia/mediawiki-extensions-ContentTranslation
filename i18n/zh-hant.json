@@ -243,6 +243,8 @@
 	"cx-tools-linter-invalid-character-message": "出於技術上的緣故一些字元不可使用在頁面標題裡。<br><br>因此編輯標題時請避免使用到有問題的字元。",
 	"cx-tools-linter-page-exists": "頁面已存在",
 	"cx-tools-linter-page-exists-message": "標題為$1的頁面已存在。發佈您的翻譯將會覆蓋現有內容<br><br>請檢查確認取代現有頁面是否合適，或是考慮改成重新命名您的翻譯。",
+	"cx-tools-linter-template": "模板不可用",
+	"cx-tools-linter-template-block-message": "原有頁面使用的模板在目標 wiki 上不可用。<br><br>此模板已被忽略，但您可以添加新的內容來獲取遺失資訊。",
 	"cx-translator-header": "您的統計資料",
 	"cx-translator-month-stats-label": "本月",
 	"cx-translator-total-translations-label": "總計",
