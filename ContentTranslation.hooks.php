@@ -131,6 +131,17 @@ class ContentTranslationHooks {
 	}
 
 	/**
+	 * Hook: GetPreferences
+	 *
+	 * @param User $user
+	 * @param array &$preferences
+	 */
+	public static function onGetPreferences( User $user, array &$preferences ) {
+		// Using 'cx' prefix for consistency with the beta feature preference
+		$preferences['cx-new-version'] = [ 'type' => 'api' ];
+	}
+
+	/**
 	 * Hook: SpecialContributionsBeforeMainOutput
 	 * @param int $id
 	 * @param User $user

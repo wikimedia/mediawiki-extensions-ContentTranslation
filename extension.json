@@ -29,6 +29,7 @@
 	"Hooks": {
 		"BeforePageDisplay": "ContentTranslationHooks::addModules",
 		"GetBetaFeaturePreferences": "ContentTranslationHooks::onGetBetaFeaturePreferences",
+		"GetPreferences": "ContentTranslationHooks::onGetPreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslationHooks::addMessages",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
@@ -95,6 +96,7 @@
 		"ContentTranslation\\": "includes/"
 	},
 	"DefaultUserOptions": {
+		"cx-new-version": false,
 		"echo-subscriptions-web-cx": true
 	},
 	"config": {
@@ -215,6 +217,27 @@
 				"cx-feedback-link"
 			]
 		},
+		"mw.cx.VersionSwitcher": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"dashboard/mw.cx.VersionSwitcher.js"
+			],
+			"styles": [
+				"dashboard/styles/mw.cx.VersionSwitcher.less"
+			],
+			"dependencies": [
+				"mediawiki.notify",
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-editing-advanced"
+			],
+			"messages": [
+				"cx-dashboard-sidebar-newversion",
+				"cx-dashboard-sidebar-newversion-using",
+				"cx-dashboard-sidebar-newversion-disable",
+				"cx-newversion-notification-message",
+				"cx-newversion-notification-title"
+			]
+		},
 		"ext.cx.dashboard": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
@@ -239,6 +262,7 @@
 				"mw.cx.dashboard.lists",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
+				"mw.cx.VersionSwitcher",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-content",
 				"oojs-ui.styles.icons-editing-core",

@@ -142,22 +142,30 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	/**
+	 * Returns true if user requested to open the translation view,
+	 * false if CX dashboard is requested.
+	 *
+	 * @return bool
+	 */
+	protected function onTranslationView() {
+		return $this->hasToken() || $this->isExistingTranslation();
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	protected function initModules() {
-		global $wgContentTranslationTranslateInTarget, $wgContentTranslationVersion;
+		global $wgContentTranslationTranslateInTarget;
 
 		$out = $this->getOutput();
-		$request = $this->getRequest();
 
 		$initModule = 'mw.cx.init.legacy';
-		// If request has param or wiki is configured to use CX2, change init module.
-		if ( (int)$request->getVal( 'version' ) === 2 || (int)$wgContentTranslationVersion === 2 ) {
+		if ( $this->shouldUseNewVersion() ) {
+			// Change init module to use CX2
 			$initModule = 'mw.cx.init';
 		}
 
-		$isExistingTranslation = $this->isExistingTranslation();
-		if ( $this->hasToken() || $isExistingTranslation ) {
+		if ( $this->onTranslationView() ) {
 			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
@@ -168,5 +176,58 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$out->addModules( 'ext.cx.dashboard' );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getRedirectURL() {
+		global $wgContentTranslationVersion;
+
+		if ( !$this->onTranslationView() ) {
+			// We're on CX dashboard, don't redirect
+			return null;
+		}
+
+		$request = $this->getRequest();
+		$requestVersion = $request->getIntOrNull( 'version' );
+
+		if ( $requestVersion === 1 || $requestVersion === 2 ) {
+			// If we already have a 'version' in URL, don't redirect
+			return null;
+		}
+
+		$version = '1';
+		if (
+			$this->getUser()->getOption( 'cx-new-version' ) ||
+			(int)$wgContentTranslationVersion === 2
+		) {
+			$version = '2';
+		}
+
+		$requestURL = $request->getRequestURL();
+		return wfAppendQuery( $requestURL, [ 'version' => $version ] );
+	}
+
+	/**
+	 * Determine whether CX2 should be used.
+	 *
+	 * URL 'version' param has the highest priority. If set to 2, CX2 will be loaded,
+	 * while other numerical values load CX1.
+	 *
+	 * If nothing is specified in the URL, we check user's preference and fall back to config.
+	 *
+	 * @return boolean True if we should ship version 2 of Content Translation
+	 */
+	private function shouldUseNewVersion() {
+		global $wgContentTranslationVersion;
+
+		$requestVersion = $this->getRequest()->getIntOrNull( 'version' );
+		if ( $requestVersion !== null ) {
+			return $requestVersion === 2;
+		}
+
+		return $this->getUser()->getOption( 'cx-new-version' ) ||
+			(int)$wgContentTranslationVersion === 2;
 	}
 }

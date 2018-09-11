@@ -276,6 +276,7 @@
 				} ).$element )
 			);
 		}
+		$links.append( $( '<li>' ).cxVersionSwitcher() );
 		$help.append(
 			$( '<div>' )
 				.addClass( 'cx-dashboard-sidebar__help-title' )

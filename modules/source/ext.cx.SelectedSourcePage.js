@@ -401,7 +401,7 @@
 		targetLanguage = this.languageFilter.getTargetLanguage();
 		originalSourceTitle = this.sourceTitle;
 		targetTitle = this.targetTitle || '';
-		version = mw.cx.getCXVersion();
+		version = new mw.Uri().query.version;
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
