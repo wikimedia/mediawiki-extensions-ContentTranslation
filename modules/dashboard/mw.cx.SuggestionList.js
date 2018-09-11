@@ -755,7 +755,7 @@ mw.cx.CXSuggestionList.prototype.showEmptySuggestionList = function () {
 			.addClass( 'cx-suggestionlist-empty__recommend' )
 			.append( $( '<a>' )
 				.text( mw.msg( 'cx-suggestionlist-empty-desc-recommend-link-text' ) )
-				.prop( 'href', 'http://recommend.wmflabs.org' )
+				.prop( 'href', 'https://recommend.wmflabs.org' )
 			)
 		);
 
