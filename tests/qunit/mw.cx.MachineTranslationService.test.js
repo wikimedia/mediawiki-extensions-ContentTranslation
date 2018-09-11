@@ -30,7 +30,9 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 		.fail( function () {
 			assert.ok( false, 'Unexpected error' );
 		} )
-		.always( done1 );
+		.always( function () {
+			done1();
+		} );
 
 	// Success without results
 	this.server.respondWith( /list\/mt\/se\/ja/, [
@@ -46,7 +48,9 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 		.fail( function () {
 			assert.ok( false, 'Unexpected error' );
 		} )
-		.always( done2 );
+		.always( function () {
+			done2();
+		} );
 
 	// Service is down
 	this.server.respondWith( /list\/fi\/sv\/ca/, [
@@ -63,7 +67,9 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 		.fail( function () {
 			assert.ok( true, 'Failure causes promise to be rejected' );
 		} )
-		.always( done3 );
+		.always( function () {
+			done3();
+		} );
 } );
 
 QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
@@ -81,12 +87,14 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 	new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
 		.done( function ( provider ) {
-			assert.equal( provider, 'Provider1', 'The first provider is suggested.' );
+			assert.strictEqual( provider, 'Provider1', 'The first provider is suggested.' );
 		} )
 		.fail( function () {
 			assert.ok( false, 'Unexpected error' );
 		} )
-		.always( done1 );
+		.always( function () {
+			done1();
+		} );
 
 	// Success without results
 	this.server.respondWith( /list\/mt\/source\/target/, [
@@ -97,12 +105,14 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 	new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
 		.done( function ( provider ) {
-			assert.equal( provider, null, 'If no providers, no suggested provider.' );
+			assert.strictEqual( provider, null, 'If no providers, no suggested provider.' );
 		} )
 		.fail( function () {
 			assert.ok( false, 'Unexpected error' );
 		} )
-		.always( done2 );
+		.always( function () {
+			done2();
+		} );
 
 	// Success without source-mt in result
 	this.server.respondWith( /list\/mt\/source\/target/, [
@@ -113,10 +123,12 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 	new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
 		.done( function ( provider ) {
-			assert.equal( provider, null, 'Source mt suggested by the server respected' );
+			assert.strictEqual( provider, null, 'Source mt suggested by the server respected' );
 		} )
 		.fail( function () {
 			assert.ok( false, 'Unexpected error' );
 		} )
-		.always( done3 );
+		.always( function () {
+			done3();
+		} );
 } );
