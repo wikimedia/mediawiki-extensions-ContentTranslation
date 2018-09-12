@@ -134,6 +134,10 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		apiOptions = {},
 		api = new mw.Api();
 
+	// Before save starts, make sure all changes are processed and section states are
+	// up to date with latest content.
+	this.processChangeQueue();
+
 	if ( !this.hasUnsavedChanges() ) {
 		return;
 	}
