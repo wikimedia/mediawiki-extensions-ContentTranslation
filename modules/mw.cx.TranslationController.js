@@ -33,7 +33,7 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
 	this.translationTracker = new mw.cx.TranslationTracker( this.translation, this.veTarget, config );
 	this.saveScheduler = OO.ui.debounce( this.processSaveQueue.bind( this ), 5 * 1000 );
-	this.changeTrackerScheduler = OO.ui.debounce( this.processChangeQueue.bind( this ), 500 );
+	this.changeTrackerScheduler = OO.ui.debounce( this.processChangeQueue.bind( this ), 100 );
 
 	// Events
 	this.listen();
