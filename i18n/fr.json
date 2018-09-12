@@ -269,6 +269,8 @@
 	"cx-tools-linter-invalid-character-message": "Certains caractères ne peuvent pas être utilisés dans le titre des pages pour des raisons techniques. <br><br>Merci de modifier le titre pour éviter les caractères problématiques.",
 	"cx-tools-linter-page-exists": "Page déjà existante",
 	"cx-tools-linter-page-exists-message": "Un page avec le titre $1 existe déjà. Publier votre traduction écrasera le contenu existant<br><br>Vérifiez qu’il est correct de remplacer la page existante, ou envisagez de renommer votre traduction.",
+	"cx-tools-linter-template": "Modèle indisponible",
+	"cx-tools-linter-template-block-message": "La page d’origine utilise un modèle qui n’est pas disponible dans le wiki de destination.<br><br>Ce modèle a été sauté, mais vous pouvez ajouter un nouveau contenu pour capturer l’information manquante.",
 	"cx-translator-header": "Vos statistiques",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",
