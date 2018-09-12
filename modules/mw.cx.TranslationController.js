@@ -278,7 +278,6 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 		validation = validations[ sectionNumber ];
 
 		if ( !validation ) {
-			mw.log.warn( '[CX] Section ' + sectionNumber + ' sent for saving, but missing in the save result.' );
 			return;
 		}
 		section = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
