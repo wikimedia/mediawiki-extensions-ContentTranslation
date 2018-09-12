@@ -62,8 +62,10 @@
 		"langlinkscount": "ApiQueryLangLinksCount"
 	},
 	"MessagesDirs": {
-		"ContentTranslation": "i18n",
-		"ContentTranslationApi": "i18n/api"
+		"ContentTranslation": [
+			"i18n",
+			"i18n/api"
+		]
 	},
 	"SpecialPages": {
 		"ContentTranslation": "SpecialContentTranslation",
