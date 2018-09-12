@@ -6,6 +6,7 @@
 
 namespace ContentTranslation;
 
+use Exception;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -34,6 +35,14 @@ class TranslationStorageManager {
 		];
 
 		$db->update( 'cx_corpora', $values, $conditions, __METHOD__ );
+
+		if ( $db->affectedRows() < 1 ) {
+			// Possible reasons:
+			// * concurrent request has already updated the row with new timestamp
+			// * no change (saving same thing twice in the same second)
+			// * translation has been deleted
+			throw new Exception( 'Failed to update a translation section' );
+		}
 	}
 
 	/**
