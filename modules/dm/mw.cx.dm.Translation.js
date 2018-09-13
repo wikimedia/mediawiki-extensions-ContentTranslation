@@ -119,6 +119,7 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 		if ( forTarget ) {
 			savedSection = this.getSavedSection( savedTranslationUnits, node, sectionNumber );
 
+			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
@@ -129,10 +130,11 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 				}
 				savedSectionNode.innerHTML = restoredContent;
 				sectionNode = savedSectionNode.firstChild;
+				// Make sure the restored section has matching section id for the source section.
+				sectionNode.setAttribute( 'id', sectionId );
 			} else {
 				// Prepare a placeholder section
 				sectionNode = domDoc.createElement( 'section' );
-				sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
 				sectionNode.setAttribute( 'id', sectionId );
 				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 			}
@@ -226,7 +228,6 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 
 	if ( savedSection && !savedSection.restored ) {
 		savedTranslationUnits[ parsoidId ].restored = true;
-		// FIXME: Update the section number of restored section
 		return savedSection;
 	}
 
@@ -251,7 +252,6 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 
 		if ( parsoidId === savedSectionParsoidId || sectionNumber === savedSectionParsoidId ) {
 			savedTranslationUnit.restored = true;
-			// FIXME: Update the section number of restored section
 			return savedTranslationUnit;
 		}
 	}
