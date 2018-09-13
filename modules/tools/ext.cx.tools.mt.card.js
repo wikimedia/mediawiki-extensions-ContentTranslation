@@ -202,7 +202,7 @@
 		return $( '<li>' )
 			.addClass( [
 				'card__providers-menu-item', selected, providerIdPrefix + providerId
-			].join( ' ' ) )
+			] )
 			.attr( 'data-provider', providerId )
 			.append( $label, $new );
 	};

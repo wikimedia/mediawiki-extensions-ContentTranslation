@@ -384,7 +384,7 @@
 			// Remove classes added by CX
 			classesToRemove = [ 'cx-link', 'cx-target-link', 'cx-source-link',
 				'cx-highlight', 'cx-unadaptable-template'
-			].join( ' ' );
+			];
 			// removeAttr takes a space-separated list of attributes to remove.
 			$section.removeAttr( attributesToRemove )
 				.removeClass( classesToRemove )

@@ -77,7 +77,8 @@
 			},
 			{
 				text: mw.msg( 'cx-contributions-translation' ),
-				classes: [ 'cx-contributions-translation', ( isNewToCX() ? 'cx-contributions-new' : '' ) ],
+				classes: [ 'cx-contributions-translation' ]
+					.concat( isNewToCX() ? [ 'cx-contributions-new' ] : [] ),
 				icon: 'language',
 				url: mw.util.getUrl( 'Special:ContentTranslation', {
 					campaign: entrypointName

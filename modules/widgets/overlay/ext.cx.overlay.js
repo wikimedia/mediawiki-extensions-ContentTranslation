@@ -44,7 +44,7 @@
 		}
 
 		if ( this.options.classes ) {
-			this.$overlay.addClass( this.options.classes.join( ' ' ) );
+			this.$overlay.addClass( this.options.classes );
 		}
 
 		this.$container

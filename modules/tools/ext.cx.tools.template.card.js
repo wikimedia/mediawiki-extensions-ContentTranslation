@@ -173,7 +173,7 @@
 		return $( '<li>' )
 			.addClass( [
 				'card__template-action-item', selectedClass, actionId
-			].join( ' ' ) )
+			] )
 			.attr( 'data-template-action', actionId )
 			.append( $label );
 	};
