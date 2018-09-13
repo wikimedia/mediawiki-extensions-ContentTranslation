@@ -24,7 +24,7 @@
 
 	MTAbuseCard.prototype.render = function () {
 		this.$card.find( '.card__mtabuse-details' )
-			.text( mw.msg( 'cx-mt-abuse-warning-text' ) );
+			.append( mw.message( 'cx-mt-abuse-warning-text' ).parseDom() );
 
 		this.$card.find( '.card__mtabuse-link' ).append( $( '<a>' )
 			.prop( {

@@ -303,7 +303,7 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 
 	sectionModel.addTranslationIssues( [ {
 		name: 'mt-abuse',
-		message: mw.msg( 'cx-mt-abuse-warning-text' ),
+		message: mw.message( 'cx-mt-abuse-warning-text' ),
 		messageInfo: {
 			title: mw.msg( 'cx-mt-abuse-warning-title', percentage ),
 			type: 'warning',

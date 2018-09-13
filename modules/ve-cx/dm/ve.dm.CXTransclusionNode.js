@@ -116,7 +116,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 	// TODO: Implement resolving
 	sectionNode.addTranslationIssues( [ {
 		name: 'block-template',
-		message: mw.msg( 'cx-tools-linter-template-block-message' ),
+		message: mw.message( 'cx-tools-linter-template-block-message' ),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-template' ),
 			resolvable: true

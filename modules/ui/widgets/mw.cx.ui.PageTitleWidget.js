@@ -99,11 +99,12 @@ mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
 mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 	return {
 		name: 'existing-title',
-		message: mw.msg( 'cx-tools-linter-page-exists-message',
-			$( '<a>' ).attr( {
+		message: mw.message(
+			'cx-tools-linter-page-exists-message',
+			$( '<a>' ).prop( {
 				href: mw.util.getUrl( this.getValue() ),
 				target: '_blank'
-			} ).text( this.getValue() )[ 0 ].outerHTML
+			} ).text( this.getValue() )
 		),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-page-exists' ),
@@ -117,7 +118,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
 	return {
 		name: 'empty-title',
-		message: mw.msg( 'cx-tools-linter-empty-title-message' ),
+		message: mw.message( 'cx-tools-linter-empty-title-message' ),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-empty-title' ),
 			// FIXME: Link to localized help page
@@ -131,7 +132,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 	var titleObj = mw.Title.newFromUserInput( this.getValue() ),
 		messageData = {
 			name: 'invalid-title',
-			message: mw.msg( 'cx-tools-linter-invalid-character-message' ),
+			message: mw.message( 'cx-tools-linter-invalid-character-message' ),
 			messageInfo: {
 				title: mw.msg( 'cx-tools-linter-invalid-character' ),
 				// FIXME: Link to localized help page

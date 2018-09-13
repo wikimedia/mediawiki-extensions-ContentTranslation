@@ -2,7 +2,7 @@
  * @class
  * @constructor
  * @param {string} name Unique issue identifier
- * @param {string} message
+ * @param {mw.Message} message
  * @param {Object} [messageInfo]
  * @cfg {string} [title]
  * @cfg {string} [type='warning'] 'warning' or 'error'
