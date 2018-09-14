@@ -158,32 +158,24 @@ class ContentTranslationHooks {
 		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationDomainCodeMapping,
 			$wgContentTranslationEnableSuggestions,
-			$wgContentTranslationExperimentalFeatures,
-			$wgContentTranslationDatabase,
 			$wgContentTranslationSiteTemplates,
 			$wgContentTranslationCampaigns,
-			$wgContentTranslationDefaultSourceLanguage,
 			$wgContentTranslationTargetNamespace,
 			$wgContentTranslationUserGroupTargetNamespace,
 			$wgRecommendToolAPIURL,
 			$wgContentTranslationVersion,
-			$wgContentTranslationUnmodifiedMTThresholdForPublish,
-			$wgDraftMaxAge;
+			$wgContentTranslationUnmodifiedMTThresholdForPublish;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
 		$vars['wgContentTranslationEnableSuggestions'] = $wgContentTranslationEnableSuggestions;
-		$vars['wgContentTranslationExperimentalFeatures'] = $wgContentTranslationExperimentalFeatures;
-		$vars['wgContentTranslationDatabase'] = $wgContentTranslationDatabase;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationCampaigns'] = $wgContentTranslationCampaigns;
-		$vars['wgContentTranslationDefaultSourceLanguage'] = $wgContentTranslationDefaultSourceLanguage;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 		$vars['wgContentTranslationUserGroupTargetNamespace']
 			= $wgContentTranslationUserGroupTargetNamespace;
 		$vars['wgRecommendToolAPIURL'] = $wgRecommendToolAPIURL;
 		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
-		$vars['wgDraftMaxAge'] = $wgDraftMaxAge;
 		$vars['wgContentTranslationUnmodifiedMTThresholdForPublish']
 			= $wgContentTranslationUnmodifiedMTThresholdForPublish;
 	}

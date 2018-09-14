@@ -98,7 +98,6 @@
 		"echo-subscriptions-web-cx": true
 	},
 	"config": {
-		"ContentTranslationExperimentalFeatures": false,
 		"ContentTranslationDomainCodeMapping": {
 			"be-tarask": "be-x-old",
 			"bho": "bh",
@@ -135,7 +134,6 @@
 		"ContentTranslationTranslateInTarget": false,
 		"@ContentTranslationAsBetaFeature": "Whether to have CX available only as a beta feature and only shown to the users who have enabled the beta feature.",
 		"ContentTranslationAsBetaFeature": true,
-		"ContentTranslationDefaultSourceLanguage": "en",
 		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
 		"ContentTranslationTargetNamespace": 0,
 		"@ContentTranslationUserGroupTargetNamespace": "Default target namespace to publish articles based on user groups. The value is an associative array with user group names as keys, and namespace ids as values. If there are more matches for user groups, first match will be used.",
