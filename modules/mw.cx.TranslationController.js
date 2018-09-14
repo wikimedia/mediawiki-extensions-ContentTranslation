@@ -131,6 +131,7 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	var numOfChangedCategories, savedSections, params,
+		apiOptions = {},
 		api = new mw.Api();
 
 	if ( !this.hasUnsavedChanges() ) {
@@ -194,7 +195,12 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
 	}
 
-	this.saveRequest = api.postWithToken( 'csrf', params )
+	if ( isRetry ) {
+		// Default timeout is 30s. Double it while retrying to increase the chance for success.
+		apiOptions = { timeout: 60 * 1000 };
+	}
+
+	this.saveRequest = api.postWithToken( 'csrf', params, apiOptions )
 		.done( function ( saveResult ) {
 			this.onSaveComplete( savedSections, saveResult );
 
