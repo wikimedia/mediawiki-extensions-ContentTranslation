@@ -48,7 +48,9 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	);
 
 	this.targetDoc = ve.dm.converter.getModelFromDom(
-		this.constructor.static.getSourceDom( sourceHtml, true, this.savedTranslationUnits ),
+		this.constructor.static.getSourceDom(
+			sourceHtml, true, this.savedTranslationUnits, this.getSourceLanguage()
+		),
 		{ lang: this.getTargetLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
@@ -84,9 +86,12 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @param {string} sourceHtml The source HTML
  * @param {boolean} forTarget Whether the DOM to be prepared for target language.
  * @param {Object} [savedTranslationUnits] Saved translation units if any
+ * @param {string} sourceLanguage Source language code
  * @return {HTMLDocument} Restructured source DOM
  */
-mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
+mw.cx.dm.Translation.static.getSourceDom = function (
+	sourceHtml, forTarget, savedTranslationUnits, sourceLanguage
+) {
 	var sectionId, childNodes, restoredContent,
 		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
@@ -123,7 +128,9 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 		}
 
 		if ( forTarget ) {
-			savedSection = this.getSavedSection( savedTranslationUnits, node, sectionNumber );
+			savedSection = this.getSavedSection(
+				savedTranslationUnits, node, sectionNumber, sourceLanguage
+			);
 
 			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
 			if ( savedSection ) {
@@ -195,10 +202,11 @@ mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) 
  * @param {Object|undefined} savedTranslationUnits Saved translation units if any
  * @param {Node} sourceSectionNode
  * @param {number} sectionNumber Section number
+ * @param {string} sourceLanguage Source language code
  * @return {Object|undefined} saved translationUnit
  */
 mw.cx.dm.Translation.static.getSavedSection = function (
-	savedTranslationUnits, sourceSectionNode, sectionNumber
+	savedTranslationUnits, sourceSectionNode, sectionNumber, sourceLanguage
 ) {
 	var savedSection, translationUnitId, savedTranslationUnit,
 		parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;
@@ -207,30 +215,21 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 		return;
 	}
 
-	savedSection = savedTranslationUnits[ sectionNumber ];
-
-	if ( savedSection ) {
-		if ( savedSection.restored ) {
-			mw.log.error( '[CX] Trying to restore a section already restored? ' + sectionNumber );
-		}
-		savedTranslationUnits[ sectionNumber ].restored = true;
-		return savedSection;
-	}
-
 	// CX1 translations use parsoid generated Id attribute values in
 	// section content instead of numerical section numbers
 	parsoidId = sourceSectionNode.firstChild && sourceSectionNode.firstChild.id;
 	savedSection = savedTranslationUnits[ parsoidId ];
-
-	if ( savedSection && !savedSection.restored ) {
+	if ( sourceSectionNode.tagName !== 'SECTION' && savedSection && !savedSection.restored ) {
 		savedTranslationUnits[ parsoidId ].restored = true;
 		return savedSection;
 	}
 
 	// Even if source section number changed, try locating matching id in content
+	// For CX2, translationUnitId is section number
 	for ( translationUnitId in savedTranslationUnits ) {
 		savedTranslationUnit = savedTranslationUnits[ translationUnitId ];
 		if ( savedTranslationUnit.restored ) {
+			// Already restored section.
 			continue;
 		}
 		if ( !savedTranslationUnit.source ) {
@@ -238,20 +237,110 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 			continue;
 		}
 		$savedTranslationUnitSource = $( savedTranslationUnit.source.content );
-		if ( $savedTranslationUnitSource.is( 'section' ) ) {
-			// CX2 saved translation
-			savedSectionParsoidId = $savedTranslationUnitSource.children().attr( 'id' );
-		} else {
+		if ( !$savedTranslationUnitSource.is( 'section' ) ) {
 			// CX1 saved translation
 			savedSectionParsoidId = $savedTranslationUnitSource.attr( 'id' );
+
+			if ( parsoidId === savedSectionParsoidId ) {
+				savedTranslationUnit.restored = true;
+				return savedTranslationUnit;
+			}
 		}
 
-		if ( parsoidId === savedSectionParsoidId || sectionNumber === savedSectionParsoidId ) {
+		// The parsoid ids did not match. We can try the section numbers now.
+		// But section numbers are sequential numbers given by CX.
+		// Unconditionally using that will cause wrongly restored sections.
+		// For example, a translation A1:a1,B2:b2:C3:c3, if the source changed
+		// to A1,C2,B3 will get restored as A1:a1,C2:b2:B3:c3.
+		// (A,a,B..are section ids, 1,2,3.. are section numbers in above notation.)
+		// So, we should be extra cautious before using section numbers for restoring.
+		if ( mw.cx.dm.Translation.static.isMatchingForRestore(
+			savedTranslationUnit.source.content, sourceSectionNode, sourceLanguage )
+		) {
 			savedTranslationUnit.restored = true;
 			return savedTranslationUnit;
 		}
 	}
+};
 
+/**
+ * A saved translation unit is a candidate for restoring against a source section, iff
+ * the saved source and current source share a common tokens ratio greater than a threshold.
+ * Check if that is the case.
+ *
+ * @static
+ * @param {string} savedSourceContent
+ * @param {Element|string} currSourceNode
+ * @param {string} language Source language code, required for tokenization
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.static.isMatchingForRestore = function (
+	savedSourceContent, currSourceNode, language
+) {
+	var commonTokenRatio,
+		$savedTranslationUnitSource = $( savedSourceContent ),
+		$sourceSectionNode = $( currSourceNode );
+
+	if ( $savedTranslationUnitSource.is( 'section' ) ) {
+		if ( $savedTranslationUnitSource.children().eq( 0 ).prop( 'tagName' ) !==
+			$sourceSectionNode.children().eq( 0 ).prop( 'tagName' )
+		) {
+			return false;
+		}
+	} else if ( $savedTranslationUnitSource.prop( 'tagName' ) !==
+		$sourceSectionNode.prop( 'tagName' )
+	) {
+		return false;
+	}
+
+	// If old and new source content has some edits, causing some words change,
+	// find out the common token ratio. The definition of token depends on the language
+	// but mostly it means words.
+	commonTokenRatio = mw.cx.TranslationTracker.static.calculateUnmodifiedContent(
+		$savedTranslationUnitSource.text(),
+		$sourceSectionNode.text(),
+		language
+	);
+
+	if ( commonTokenRatio > 0.5 ) {
+		return true;
+	}
+
+	// It is possible that the new or old source section has lot of new content added compared to other.
+	// For example, a section had 1 sentence and now it has 4 sentences. In such case,
+	// find if the new section has with old source section content.
+	return mw.cx.dm.Translation.static.hasIncludedContent(
+		$savedTranslationUnitSource.text(),
+		$sourceSectionNode.text()
+	);
+};
+
+/**
+ * Check if one of the strings has the other string included in it.
+ * Do this only if one string is more than double the size of other. If it is less size
+ * than that, the commonRatio approach above should have detected the match.
+ * The comparison is case insensitive and ignores punctuations.
+ *
+ * @param {string} string1
+ * @param {string} string2
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
+	var bigString = string1,
+		smallString = string2;
+
+	if ( bigString.length < smallString.length ) {
+		// Swap the sets
+		bigString = string2;
+		smallString = string1;
+	}
+
+	if ( bigString.length >= smallString.length * 2 ) {
+		return bigString.toLowerCase().replace( /[^\w\s]/g, '' )
+			.indexOf( smallString.toLowerCase().replace( /[^\w\s]/g, '' ) ) >= 0;
+	}
+
+	return false;
 };
 
 /**
