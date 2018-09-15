@@ -242,6 +242,8 @@
 	"cx-tools-linter-invalid-character-message": "Noen tegn kan ikke brukes i sidetitler av tekniske årsaker.<br /><br />Rediger tittelen for å unngå de problematiske tegnene.",
 	"cx-tools-linter-page-exists": "Siden finnes allerede",
 	"cx-tools-linter-page-exists-message": "En side med tittelen $1 eksisterer allerede. Publisering av din oversettelse vil overskrive eksisterende innhold<br><br>Sjekk at det er ok å erstatte den eksisterende siden, eller vurder å omdøpe din oversettelse.",
+	"cx-tools-linter-template": "Mal ikke tilgjengelig",
+	"cx-tools-linter-template-block-message": "Originalsiden bruker en mal som ikke er tilgjengelig på målwikien.<br /><br />Denne malen har blitt hoppet over, men du kan legge til nytt innhold for å dekke den utelatte informasjonen.",
 	"cx-translator-header": "Din statistikk",
 	"cx-translator-month-stats-label": "Denne måned",
 	"cx-translator-total-translations-label": "Totalt",

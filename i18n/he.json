@@ -242,6 +242,7 @@
 	"cx-tools-linter-page-exists": "הדף כבר קיים",
 	"cx-tools-linter-page-exists-message": "כבר קיים דף בשם $1. פרסום התרגום שלך יגרום לדריסת התוכן הקיים.<br><br>יש לבדוק האם זה בסדר להחליף את הדף הקיים, או לשקול לשנות את שם התרגום.",
 	"cx-tools-linter-template": "התבנית אינה זמינה",
+	"cx-tools-linter-template-block-message": "הדף המקורי משתמש בתבנית שאינה זמינה בוויקי היעד.<br><br>דילגנו על התבנית הזאת, אבל באפשרותך להוסיף תוכן חדש כדי לסקר את המידע החסר.",
 	"cx-translator-header": "סטטיסטיקות שלך",
 	"cx-translator-month-stats-label": "החודש",
 	"cx-translator-total-translations-label": "סה\"כ",

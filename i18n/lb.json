@@ -210,6 +210,7 @@
 	"cx-tools-linter-invalid-character": "Den Titel vun der Iwwersetzung huet Zeechen déi net valabel sinn",
 	"cx-tools-linter-invalid-character-action": "Problematesch Zeeche verbesseren",
 	"cx-tools-linter-page-exists": "Säit gëtt et schonn",
+	"cx-tools-linter-template": "Schabloun net disponibel",
 	"cx-translator-header": "Är Statistiken",
 	"cx-translator-month-stats-label": "Dëse Mount",
 	"cx-translator-total-translations-label": "Total",

@@ -18,7 +18,7 @@
 	"cx-dashboard-header": "Преводи",
 	"cx-javascript": "Този инструмент не работи без JavaScript. JavaScript е деактивиран, не работи или не се поддържа от браузъра.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Превод на съдържание]] е инструмент за бързо превеждане на страници от чужди езици на български. [$1 Опитайте го сега!]",
-	"cx-license-agreement": "С натискане на бутона \"$1\" вие се съгласявате с [//foundation.wikimedia.org/wiki/Terms_of_Use Условията за ползване] и безусловно се съгласявате да публикувате вашите приноси чрез инструмента за превод под [https://creativecommons.org/licenses/by-sa/3.0/ условията на лиценза CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], като приемате, че хипервръзка или URL представлява достатъчно признание според CC BY-SA 3.0.",
+	"cx-license-agreement": "С натискане на бутона „$1“ вие се съгласявате с [//foundation.wikimedia.org/wiki/Terms_of_Use Условията за ползване] и безусловно се съгласявате да публикувате вашите приноси чрез инструмента за превод под [https://creativecommons.org/licenses/by-sa/3.0/ условията на лиценза CC BY-SA 3.0] и [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL], като приемате, че хипервръзка или URL представлява достатъчно признание според CC BY-SA 3.0.",
 	"cx-error-server-connection": "Грешка: Не успяхте да се свържете със сървъра.",
 	"cx-desc": "Позволява лесно [[Special:ContentTranslation|превеждане на съдържанието]] на страници",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Преведен|Преведени}} $1%",

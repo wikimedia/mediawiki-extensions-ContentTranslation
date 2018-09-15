@@ -259,6 +259,8 @@
 	"cx-tools-linter-view-details": "Просмотреть подробности",
 	"cx-tools-linter-hide-details": "Скрыть подробности",
 	"cx-tools-linter-page-exists": "Страница уже существует",
+	"cx-tools-linter-template": "Шаблон недоступен",
+	"cx-tools-linter-template-block-message": "Исходная страница использует шаблон, который недоступен в целевой вики.<br><br>Шаблон был пропущен, но вы можете добавить новое содержимое для захвата отсутствующей информации.",
 	"cx-translator-header": "Ваша статистика",
 	"cx-translator-month-stats-label": "В этом месяце",
 	"cx-translator-total-translations-label": "Всего",
