@@ -245,6 +245,8 @@
 	"cx-tools-linter-invalid-character-message": "Vissa tecken kan inte användas i titeln på sidor av tekniska anledningar.<br><br>Var god redigera titeln för att undvika problematiska tecken.",
 	"cx-tools-linter-page-exists": "Sidan finns redan",
 	"cx-tools-linter-page-exists-message": "En sida med titeln $1 finns redan. Om din översättning publiceras kommer det befintliga innehållet att skrivas över<br><br>Kontrollera att det är okej att ersätta den befintliga sidan eller överväg att byta namn på din översättning.",
+	"cx-tools-linter-template": "Otillgänglig mall",
+	"cx-tools-linter-template-block-message": "Den ursprungliga sidan använder en mall som inte är tillgänglig på destinationswikin.<br><br>Denna mall har hoppats över, men du kan lägga till nytt innehåll för att täcka den saknade informationen.",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denna månad",
 	"cx-translator-total-translations-label": "Totalt",

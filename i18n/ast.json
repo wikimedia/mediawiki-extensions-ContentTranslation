@@ -233,6 +233,8 @@
 	"cx-tools-linter-invalid-character-message": "Dellos caráuteres nun pueden usase nel títulu de les páxines por motivos téunicos.<br><br>Por favor, edita'l títulu pa evitar los caráuteres problemáticos.",
 	"cx-tools-linter-page-exists": "La páxina yá esiste.",
 	"cx-tools-linter-page-exists-message": "Yá esiste una páxina col títulu $1. Si publiques la traducción sustituirá'l conteníu existiente<br><br>Comprueba si ye correuto sustituir la páxina actual, o considera da-y otru nome a la traducción.",
+	"cx-tools-linter-template": "Plantía nun disponible",
+	"cx-tools-linter-template-block-message": "La páxina orixinal usa una plantía que nun ta disponible na wiki de destín.<br><br>Esta plantía omitióse, pero puedes añadir conteníu nuevu pa recoyer la información que falta.",
 	"cx-translator-header": "Les tos estadístiques",
 	"cx-translator-month-stats-label": "Esti mes",
 	"cx-translator-total-translations-label": "Total",
