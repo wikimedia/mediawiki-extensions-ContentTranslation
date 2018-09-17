@@ -132,7 +132,7 @@ class AbuseFilterCheck {
 						->parse();
 			}
 
-			$results[$rulename] = $val;
+			$results[$key] = $val;
 		}
 
 		return $results;

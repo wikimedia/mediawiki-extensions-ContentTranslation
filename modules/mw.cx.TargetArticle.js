@@ -117,6 +117,15 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		return;
 	}
 
+	// Event logging
+	mw.hook( 'mw.cx.translation.publish.error' ).fire(
+		this.sourceLanguage,
+		this.targetLanguage,
+		this.sourceTitle,
+		this.getTargetTitle(),
+		data
+	);
+
 	editResult = data.edit;
 	if ( editResult ) {
 		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
@@ -308,15 +317,6 @@ mw.cx.TargetArticle.prototype.showPublishError = function ( msg, errorLog, allow
 	}
 
 	mw.log.error( '[CX] Publishing failed ' + errorLog );
-
-	// Event logging
-	mw.hook( 'mw.cx.translation.publish.error' ).fire(
-		this.sourceLanguage,
-		this.targetLanguage,
-		this.sourceTitle,
-		this.getTargetTitle(),
-		errorLog
-	);
 };
 
 /**

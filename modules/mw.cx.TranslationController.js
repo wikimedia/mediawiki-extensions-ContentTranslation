@@ -358,6 +358,18 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 
 	for ( id in validations ) {
 		validation = validations[ id ];
+
+		// To EventLogging
+		mw.hook( 'mw.cx.translation.abusefilter' ).fire(
+			this.translation.getSourceLanguage(),
+			this.translation.getTargetLanguage(),
+			this.translation.getSourceTitle(),
+			this.translation.getTargetTitle(),
+			'saving',
+			Object.keys( validation ).sort().join( ',' ), // A filter may have several actions
+			id
+		);
+
 		message = validation.warn && validation.warn.messageHtml;
 		error = validation.disallow;
 

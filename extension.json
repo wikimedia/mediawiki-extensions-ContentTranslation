@@ -2305,6 +2305,7 @@
 	"EventLoggingSchemas": {
 		"ContentTranslation": 11628043,
 		"ContentTranslationCTA": 16017678,
+		"ContentTranslationAbuseFilter": 18472730,
 		"ContentTranslationSuggestion": 16344900,
 		"ContentTranslationError": 11767097
 	},

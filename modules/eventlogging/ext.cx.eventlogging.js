@@ -24,6 +24,7 @@
 			// Register handlers for event logging triggers
 			mw.hook( 'mw.cx.translation.published' ).add( this.published.bind( this ) );
 			mw.hook( 'mw.cx.translation.publish.error' ).add( this.publishFailed.bind( this ) );
+			mw.hook( 'mw.cx.translation.abusefilter' ).add( this.logAbuseFilter.bind( this ) );
 			mw.hook( 'mw.cx.translation.saved' ).add( this.saved.bind( this ) );
 			mw.hook( 'mw.cx.translation.continued' ).add( this.continued.bind( this ) );
 			mw.hook( 'mw.cx.translation.deleted' ).add( this.deleted.bind( this ) );
@@ -63,7 +64,7 @@
 		 * @param {string} targetLanguage Target language code
 		 * @param {string} sourceTitle Source title
 		 * @param {string} targetTitle Target title
-		 * @param {string} trace Error trace
+		 * @param {Object} trace Error trace
 		 */
 		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
 			mw.track( 'event.ContentTranslation', {
@@ -85,8 +86,10 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle,
-				trace: trace.substring( 0, 500 )
+				trace: JSON.stringify( trace ).substring( 0, 500 )
 			} );
+
+			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );
 		},
 
 		/**
@@ -260,6 +263,64 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle
 			} );
+		},
+
+		/**
+		 * Log AbuseFilter event.
+		 *
+		 * @param {string} sourceLanguage Source language code
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {string} context "saving" or "publishing"
+		 * @param {string} filterType Filter type: "warn", "disallow", etc.
+		 * @param {string} filterId Filter number, as on Special:AbuseFilter
+		 */
+		logAbuseFilter: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, context, filterType, filterId ) {
+			mw.track( 'event.ContentTranslationAbuseFilter', {
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: context,
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				cxVersion: mw.cx.getCXVersion(),
+				filterType: filterType,
+				filterId: filterId
+			} );
+		},
+
+		/**
+		 * Check whether the event is an AbuseFilter event, and log it if needed.
+		 *
+		 * @param {string} sourceLanguage Source language code
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {Object} trace The event trace, possibly describing an AbuseFilter response
+		 * @param {string} context "saving" or "publishing"
+		 */
+		handleAbuseFilter: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, context ) {
+			var abuseFilterCodes = [ 'abusefilter-warning', 'abusefilter-disallowed' ];
+
+			if ( trace &&
+				trace.edit &&
+				trace.result === 'error' &&
+				trace.edit.code &&
+				abuseFilterCodes.indexOf( trace.edit.code ) > -1 &&
+				trace.edit.abusefilter
+			) {
+				this.logAbuseFilter(
+					sourceLanguage,
+					targetLanguage,
+					sourceTitle,
+					targetTitle,
+					context,
+					trace.edit.code,
+					trace.edit.abusefilter.id
+				);
+			}
 		}
 	};
 

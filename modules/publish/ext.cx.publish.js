@@ -281,7 +281,7 @@
 			mw.cx.targetLanguage,
 			mw.cx.sourceTitle,
 			this.targetTitle,
-			JSON.stringify( details )
+			details
 		);
 
 		if ( code === 'assertuserfailed' ) {

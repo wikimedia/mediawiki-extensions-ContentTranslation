@@ -103,6 +103,10 @@ Example subscriber is event logging (analytics) module.
 
 Fires when publishing failed
 
+## mw.cx.translation.abusefilter
+
+Fires when AbuseFilter is encountered.
+
 ## mw.cx.translation.continued
 
 Fires when a saved translation is continuing
