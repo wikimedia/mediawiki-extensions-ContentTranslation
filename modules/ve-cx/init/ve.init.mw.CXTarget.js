@@ -243,6 +243,10 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	// In mw.Target this happens after documentReady and a setTimeout,
 	// but we don't use documentReady in this target.
 	setTimeout( this.surfaceReady.bind( this ) );
+
+	this.translation.connect( this, {
+		sectionChange: this.debounceAlignSectionPairs
+	} );
 };
 
 ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targetView ) {

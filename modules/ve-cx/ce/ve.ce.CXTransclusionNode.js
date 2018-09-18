@@ -49,6 +49,16 @@ OO.inheritClass( ve.ce.CXTransclusionBlockNode, ve.ce.MWTransclusionBlockNode );
 
 ve.ce.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
 
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
+	ve.ce.CXTransclusionBlockNode.super.prototype.afterRender.apply( this, arguments );
+	this.model.findParent( ve.dm.CXSectionNode ).emit( 'update' );
+};
+
 /**
  * XXX: ContentEditable MediaWiki transclusion inline node.
  *
@@ -70,6 +80,16 @@ OO.inheritClass( ve.ce.CXTransclusionInlineNode, ve.ce.MWTransclusionInlineNode 
 /* Static Properties */
 
 ve.ce.CXTransclusionInlineNode.static.name = 'cxTransclusionInline';
+
+/* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionInlineNode.prototype.afterRender = function () {
+	ve.ce.CXTransclusionInlineNode.super.prototype.afterRender.apply( this, arguments );
+	this.model.findParent( ve.dm.CXSectionNode ).emit( 'update' );
+};
 
 /* Registration */
 
