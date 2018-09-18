@@ -529,32 +529,11 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.debounceAlignSectionPairs();
 };
 
-/**
- * Set the height for both title widgets to whichever
- * is the bigger height between source and target titles.
- */
-ve.init.mw.CXTarget.prototype.alignTitles = function () {
-	var height,
-		sourceTitleWidget = this.translationView.sourceColumn.getTitleWidget().$element,
-		targetTitleWidget = this.translationView.targetColumn.getTitleWidget().$element;
-
-	sourceTitleWidget.css( 'min-height', '' );
-	targetTitleWidget.css( 'min-height', '' );
-
-	height = Math.max(
-		sourceTitleWidget.outerHeight(),
-		targetTitleWidget.outerHeight()
-	);
-
-	sourceTitleWidget.css( 'min-height', height );
-	targetTitleWidget.css( 'min-height', height );
-};
-
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
 		documentNodeChildren, alignSectionPair, articleNode;
 
-	this.alignTitles();
+	this.translationView.alignTitles();
 
 	if ( !this.translationView.hasMisalignedSections() ) {
 		return;

@@ -174,6 +174,27 @@ mw.cx.ui.TranslationView.prototype.onIssuesResolved = function ( nodesWithIssues
 	this.toolsColumn.showIssues( nodesWithIssues );
 };
 
+/**
+ * Set the height for both title widgets to whichever
+ * is the bigger height between source and target titles.
+ */
+mw.cx.ui.TranslationView.prototype.alignTitles = function () {
+	var height,
+		sourceTitleWidget = this.sourceColumn.getTitleWidget().$element,
+		targetTitleWidget = this.targetColumn.getTitleWidget().$element;
+
+	sourceTitleWidget.css( 'min-height', '' );
+	targetTitleWidget.css( 'min-height', '' );
+
+	height = Math.max(
+		sourceTitleWidget.outerHeight(),
+		targetTitleWidget.outerHeight()
+	);
+
+	sourceTitleWidget.css( 'min-height', height );
+	targetTitleWidget.css( 'min-height', height );
+};
+
 mw.cx.ui.TranslationView.prototype.onFocus = function () {
 	this.toolsColumn.toolContainer.$element.addClass( 'cx-column-tools-container--contextual' );
 };
