@@ -104,6 +104,8 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	if ( isSubclass( viewNode, ve.ce.CXPlaceholderNode ) || isSubclass( viewNode, ve.ce.CXSectionNode ) ) {
 		if ( sourceNode.offsetHeight > targetNode.offsetHeight ) {
 			targetNode.style.height = sourceNode.offsetHeight + 'px';
+		} else {
+			sourceNode.style.height = targetNode.offsetHeight + 'px';
 		}
 	}
 };
