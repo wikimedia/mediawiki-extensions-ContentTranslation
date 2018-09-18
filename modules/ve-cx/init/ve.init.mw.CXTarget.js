@@ -50,7 +50,8 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.targetSurface = null;
 	// @var {Object}
 	this.contentSourceCache = {};
-
+	// @var {Object}
+	this.translationRequestCache = {};
 	// Complex dialog is the dialog with VE surface.
 	// In order to reset the overlay classes, which move overlay, we want only the first
 	// complex dialog to reset these classes, since complex dialogs can be nested. See T193587
@@ -470,6 +471,8 @@ ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
 ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 	// Update namespace tools
 	this.updateNamespace();
+	// Get ready with the translation of first section.
+	this.prefetchTranslationForSection( 0 );
 };
 
 /**
@@ -672,6 +675,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 		model = this.getTargetSectionNode( cxid );
 		if ( model ) {
 			model.emit( 'afterTranslation' );
+			this.prefetchTranslationForSection( model.getSectionNumber() + 1 );
 		} else {
 			mw.log.error( '[CX] No model found after translation for ' + cxid );
 		}
@@ -828,11 +832,18 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  * Translate and adapt the source section for the given section id.
  * @param {string} sectionId SectionId
  * @param {string} provider Machine translation privider
+ * @param {boolean} noCache If true, do a fresh translation from server
  * @return {jQuery.Promise}
  */
-ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider ) {
-	var sourceNode,
-		sourceNodeModel = this.getSourceSectionNode( sectionId );
+ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider, noCache ) {
+	var sourceNode, mtRequest,
+		sourceNodeModel = this.getSourceSectionNode( sectionId ),
+		sectionNumber = sourceNodeModel.getSectionNumber();
+
+	mtRequest = OO.getProp( this.translationRequestCache, sectionNumber, provider );
+	if ( !noCache && mtRequest ) {
+		return mtRequest;
+	}
 
 	// Convert DOM to node, preserving full internal list
 	// Use clipboard mode to ensure reference body is outputted
@@ -841,14 +852,19 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider 
 	function restructure( section ) {
 		section = section.cloneNode( true );
 		section.removeAttribute( 'rel' );
-		section.id = 'cxTargetSection' + mw.cx.getSectionNumberFromSectionId( sectionId );
+		section.id = 'cxTargetSection' + sectionNumber;
 		// TODO: it's horrible that id attributes get duplicated
 		// $( section ).find( '[id]' ).each( function ( i, node ) {
 		// 	node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
 		// } );
 		return section;
 	}
-	return this.MTService.translate( restructure( sourceNode ).outerHTML, provider );
+
+	mtRequest = this.MTService.translate( restructure( sourceNode ).outerHTML, provider );
+	// Set the request in the cache
+	OO.setProp( this.translationRequestCache, sectionNumber, provider, mtRequest );
+
+	return mtRequest;
 };
 
 /**
@@ -889,9 +905,23 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 		}
 	}
 
-	return this.translateSection( cxid, newProvider ).then( function ( content ) {
+	return this.translateSection( cxid, newProvider, options.noCache ).then( function ( content ) {
 		this.setSectionContent( section, content, newProvider );
 	}.bind( this ) );
+};
+
+/**
+ * Prefetch the translation for the given section. The API request is raised, and set it in the cache.
+ * Nothing done with the content.
+ * @param {number} sectionNumber
+ */
+ve.init.mw.CXTarget.prototype.prefetchTranslationForSection = function ( sectionNumber ) {
+	var section = this.sourceSurface.$element.find( '#cxSourceSection' + sectionNumber );
+	if ( section.length ) {
+		this.MTManager.getPreferredProvider().then( function ( provider ) {
+			this.translateSection( section.prop( 'id' ), provider );
+		}.bind( this ) );
+	}
 };
 
 /* Registration */
