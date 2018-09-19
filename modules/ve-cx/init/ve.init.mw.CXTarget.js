@@ -717,11 +717,11 @@ ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
  * @param {boolean} hasErrors True if any of the issues is error, false if all are warnings.
  */
 ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
-	this.errorsInTranslation = hasErrors;
-
-	if ( !hasErrors ) {
+	// If there used to be errors, which are now gone, enable publish button
+	if ( this.errorsInTranslation && !hasErrors ) {
 		this.enablePublishButton();
 	}
+	this.errorsInTranslation = hasErrors;
 };
 
 /**

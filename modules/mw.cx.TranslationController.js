@@ -231,6 +231,8 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 				this.failCounter = 0;
 				mw.log( '[CX] Retry successful. Save succeeded.' );
 			}
+
+			this.emit( 'saveSuccess' );
 		}.bind( this ) ).fail( function ( errorCode, details ) {
 			var delay;
 			this.failCounter++;
@@ -254,6 +256,8 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 				setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
 				mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
 			}
+
+			this.emit( 'saveFailure' );
 		}.bind( this ) ).always( function () {
 			this.saveRequest = null;
 		}.bind( this ) );
@@ -471,12 +475,34 @@ mw.cx.TranslationController.prototype.publish = function () {
 		return;
 	}
 
-	// Clear the status message
-	this.translationView.setStatusMessage( '' );
 	// Disable categories to prevent editing
 	this.translationView.categoryUI.disableCategoryUI( true );
 
+	if ( !this.hasUnsavedChanges() ) {
+		this.publishArticle();
+		return;
+	}
+
+	// At this point, there is certainly a scheduled saving about to happen.
+	// We wait for successful saving, before proceeding with publishing.
+	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this ) );
+	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
+};
+
+mw.cx.TranslationController.prototype.publishArticle = function () {
+	// Clear the status message
+	this.translationView.setStatusMessage( '' );
 	this.targetArticle.publish();
+};
+
+mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function () {
+	this.publishArticle();
+	this.off( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
+};
+
+mw.cx.TranslationController.prototype.saveBeforePublishingFailed = function () {
+	this.onPublishCancel();
+	this.off( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this ) );
 };
 
 mw.cx.TranslationController.prototype.enableEditing = function () {
