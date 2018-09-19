@@ -18,7 +18,8 @@
 			"Selven",
 			"Liuxinyu970226",
 			"Greis",
-			"Sarah Bernabei"
+			"Sarah Bernabei",
+			"Gabrielet"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -109,6 +110,9 @@
 	"cx-dashboard-sidebar-information": "Ulteriori informazioni su questo strumento",
 	"cx-dashboard-sidebar-stats": "Statistiche",
 	"cx-dashboard-sidebar-feedback": "Inviaci un commento",
+	"cx-dashboard-sidebar-newversion": "Prova la nuova versione",
+	"cx-dashboard-sidebar-newversion-disable": "Disabilita",
+	"cx-newversion-notification-title": "La nuova versione è abilitata",
 	"cx-translation-filter-published-translations": "Pubblicate",
 	"cx-translation-filter-draft-translations": "In corso",
 	"cx-translation-filter-suggested-translations": "Suggerimenti",
