@@ -874,10 +874,6 @@
 		} );
 		cxstats.init();
 
-		if ( mw.user.isAnon() ) {
-			$( '.cx-header__bar' ).hide();
-		}
-
 		if ( !mw.user.isAnon() &&
 			mw.config.get( 'wgContentTranslationCampaigns' ).cxstats &&
 			mw.user.options.get( 'cx' ) !== '1'
@@ -887,10 +883,7 @@
 				to: mw.config.get( 'wgContentLanguage' )
 			} );
 
-			$( '.cx-header__bar' ).hide();
 			mw.hook( 'mw.cx.error' ).fire( mw.message( 'cx-stats-try-contenttranslation', cxLink ) );
-		} else {
-			$header.find( '.cx-header__translation-center a' ).text( mw.msg( 'cx-create-new-translation' ) );
 		}
 	} );
 }( jQuery, mediaWiki ) );
