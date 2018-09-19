@@ -81,11 +81,6 @@ ve.dm.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
 
 /* Methods */
 
-ve.dm.CXTransclusionBlockNode.prototype.getId = function () {
-	// Block templates take a whole section. "Attach" issues to the parent section.
-	return this.findParent( ve.dm.CXSectionNode ).getId();
-};
-
 ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 	var cxData = this.getAttribute( 'cx' ) || {},
 		sectionNode = this.findParent( ve.dm.CXSectionNode );
@@ -108,7 +103,10 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 	}
 
 	if ( cxData[ 0 ].adapted !== false ) {
-		mw.log.warn( '[CX] Template adaptation status is missing for a block tempalte in section ' + this.getId() );
+		mw.log.warn(
+			'[CX] Template adaptation status is missing for a block template in section ' +
+			sectionNode.getId()
+		);
 		return;
 	}
 
@@ -142,6 +140,12 @@ ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
 ve.dm.CXTransclusionInlineNode = function VeDmCXTransclusionInlineNode() {
 	// Parent constructor
 	ve.dm.CXTransclusionInlineNode.super.apply( this, arguments );
+
+	// attach is fired when section is filled with MT, but not on restoring.
+	this.connect( this, {
+		attach: 'onAttach',
+		detach: 'onDetach'
+	} );
 };
 
 /* Inheritance */
@@ -151,6 +155,67 @@ OO.inheritClass( ve.dm.CXTransclusionInlineNode, ve.dm.MWTransclusionInlineNode 
 /* Static Properties */
 
 ve.dm.CXTransclusionInlineNode.static.name = 'cxTransclusionInline';
+
+/* Methods */
+
+ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
+	var index, part,
+		cxData = this.getAttribute( 'cx' ) || [],
+		sectionNode = this.findParent( ve.dm.CXSectionNode );
+
+	// When section content is replaced, this happens:
+	// 1) attach is called with VeDmSectionNode and we cannot access VeDmCXSectionNode
+	// 2) detach is called with VeDmCXSectionNode and we unregister our warning
+	if ( !sectionNode ) {
+		return;
+	}
+
+	// This is just a sanity check, since source column does not have data-cx
+	if ( !sectionNode.isTargetSection() ) {
+		return;
+	}
+
+	for ( index = 0; index < cxData.length; index++ ) {
+		part = cxData[ index ];
+
+		if ( part.adapted ) {
+			// Continue looping to check other parts
+			continue;
+		}
+
+		if ( part.adapted !== false ) {
+			mw.log.warn(
+				'[CX] Template adaptation status is missing for an inline template ' +
+				'`%1` in section `%2` for part `$3`'
+					.replace( '%1', OO.getProp( cxData, 'sourceTitle', 'title' ) )
+					.replace( '%2', sectionNode.getId() )
+					.replace( '%3', index )
+			);
+			// Stop looping, this seems broken enough.
+			break;
+		}
+
+		// TODO: Add help link
+		sectionNode.addTranslationIssues( [ {
+			name: 'inline-template',
+			message: mw.message( 'cx-tools-linter-template-inline-message' ),
+			messageInfo: {
+				title: mw.msg( 'cx-tools-linter-template' ),
+				resolvable: true
+			}
+		} ] );
+
+		// Stop looping because we already added an issue warning
+		break;
+	}
+};
+
+ve.dm.CXTransclusionInlineNode.prototype.onDetach = function ( parent ) {
+	// FIXME: There might be multiple unadapted inline templates. How to track?
+	if ( parent instanceof ve.dm.CXSectionNode && parent.isTargetSection() ) {
+		parent.resolveTranslationIssues( [ 'inline-template' ] );
+	}
+};
 
 /* Registration */
 

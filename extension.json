@@ -1393,7 +1393,8 @@
 			],
 			"messages": [
 				"cx-tools-linter-template",
-				"cx-tools-linter-template-block-message"
+				"cx-tools-linter-template-block-message",
+				"cx-tools-linter-template-inline-message"
 			],
 			"targets": [
 				"desktop"
