@@ -47,6 +47,10 @@
 	ContentTranslationVersionSwitcher.prototype.init = function () {
 		var newVersionEnabled = mw.user.options.get( 'cx-new-version' );
 
+		if ( newVersionEnabled ) {
+			this.enableButton.setLabel( mw.msg( 'cx-dashboard-sidebar-newversion-using' ) );
+		}
+
 		this.setDisabledState( newVersionEnabled );
 		this.$container.append( this.enableButton.$element, this.disableButton.$element );
 	};
@@ -85,7 +89,7 @@
 			this.enableButton.setLabel( mw.msg( 'cx-dashboard-sidebar-newversion-using' ) );
 			mw.notify(
 				mw.msg( 'cx-newversion-notification-message' ),
-				{ title: mw.msg( 'cx-newversion-notification-title' ) }
+				{ title: mw.msg( 'cx-newversion-notification-title' ), autoHideSeconds: 'long' }
 			);
 		} else {
 			this.enableButton.setLabel( mw.msg( 'cx-dashboard-sidebar-newversion' ) );
