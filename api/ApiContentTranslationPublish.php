@@ -84,6 +84,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	protected function getCategories( array $params ) {
 		global $wgContentTranslationHighMTCategory;
+		$trackingCategoryMsg = 'cx-unreviewed-translation-category';
 		$categories = [];
 
 		if ( $params['categories'] ) {
@@ -98,6 +99,32 @@ class ApiContentTranslationPublish extends ApiBase {
 		) {
 			$categories[] = $wgContentTranslationHighMTCategory;
 		}
+
+		$trackingCategoryKey = array_search( $trackingCategoryMsg, $categories );
+		if ( $trackingCategoryKey !== false ) {
+			$cat = wfMessage( $trackingCategoryMsg )->inContentLanguage()->plain();
+			$containerCategory = Title::makeTitleSafe( NS_CATEGORY, $cat );
+			if ( $cat !== '-' && $containerCategory ) {
+				$categories[$trackingCategoryKey] = $containerCategory->getPrefixedText();
+			} else {
+				wfDebug( __METHOD__ . ": [[MediaWiki:$trackingCategoryMsg]] is not a valid title!\n" );
+				unset( $categories[$trackingCategoryKey] );
+			}
+		}
+
+		// Validate and normalize all categories.
+		foreach ( $categories as $index => $category ) {
+			$title = Title::newFromText( $category );
+			if ( $title !== null && $title->inNamespace( NS_CATEGORY ) ) {
+				$categories[$index] = $title->getPrefixedText();
+			} else {
+				unset( $categories[$index] );
+			}
+		}
+
+		// Guard against duplicates, if any.
+		$categories = array_unique( $categories );
+
 		return $categories;
 	}
 

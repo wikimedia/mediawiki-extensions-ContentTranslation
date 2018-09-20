@@ -290,5 +290,7 @@
 	"cx-publish-destination-namespace-draft": "Label for choosing draft namespace as publishing destination",
 	"cx-linkcontextitem-missing-link-title": "Title for the link card when the target title is missing in target language.",
 	"cx-linkcontextitem-missing-title-description": "Description shown for titles in link card when the title is a red link.",
-	"cx-mt-abuse-publish-error": "Error message shown while publishing. It says the translation has too much unmodified machine translated content."
+	"cx-mt-abuse-publish-error": "Error message shown while publishing. It says the translation has too much unmodified machine translated content.",
+	"cx-unreviewed-translation-category": "The category to add to the published article if the translation has sections with too much machine translation. Please don't add namespace prefix.",
+	"cx-unreviewed-translation-category-desc": "Description of Content translation tracking category"
 }

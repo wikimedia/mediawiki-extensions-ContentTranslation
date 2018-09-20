@@ -2295,6 +2295,9 @@
 			]
 		}
 	},
+	"TrackingCategories": [
+		"cx-unreviewed-translation-category"
+	],
 	"EventLoggingSchemas": {
 		"ContentTranslation": 11628043,
 		"ContentTranslationCTA": 16017678,

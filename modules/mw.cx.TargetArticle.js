@@ -41,7 +41,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		sourcetitle: this.sourceTitle,
 		title: this.getTargetTitle(),
 		html: this.getContent( true ),
-		categories: this.translation.getTargetCategories(),
+		categories: this.getTargetCategories(),
 		wpCaptchaId: this.captcha && this.captcha.id,
 		wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
 		cxversion: 2
@@ -428,4 +428,32 @@ mw.cx.TargetArticle.prototype.getTargetTitle = function () {
 
 mw.cx.TargetArticle.prototype.getTargetURL = function () {
 	return this.siteMapper.getPageUrl( this.targetLanguage, this.getTargetTitle() );
+};
+
+/**
+ * Get the categories for the article to be published
+ * @return {string[]}
+ */
+mw.cx.TargetArticle.prototype.getTargetCategories = function () {
+	var targetCategories, index,
+		maintenanceCategoryMsg = 'cx-unreviewed-translation-category';
+
+	targetCategories = this.translation.getTargetCategories();
+	index = targetCategories.indexOf( maintenanceCategoryMsg );
+
+	if ( this.translation.hasSectionsWithMTAbuse() ) {
+		// Avoid duplicates.
+		if ( index < 0 ) {
+			// Note that we are adding the msg as an indicator that
+			// this article need the tracking category. The prefixing
+			// of appropriate namespace and category title localization
+			// is done at publish api backend.
+			targetCategories.push( maintenanceCategoryMsg );
+		}
+	} else if ( index >= 0 ) {
+		// Make sure to remove if maintenanceCategoryMsg is already in targetCategories
+		targetCategories.splice( index, 1 );
+	}
+
+	return targetCategories;
 };

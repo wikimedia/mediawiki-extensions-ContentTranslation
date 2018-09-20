@@ -280,5 +280,7 @@
 	"cx-publish-destination-namespace-draft": "Community draft",
 	"cx-linkcontextitem-missing-link-title": "Missing link",
 	"cx-linkcontextitem-missing-title-description": "This page does not exist yet",
-	"cx-mt-abuse-publish-error": "Your translation cannot be published because it contains too much unmodified machine-translated text"
+	"cx-mt-abuse-publish-error": "Your translation cannot be published because it contains too much unmodified machine-translated text",
+	"cx-unreviewed-translation-category": "Pages with unreviewed machine translation",
+	"cx-unreviewed-translation-category-desc": "Pages translated with the Content Translation tool that contain a high amount of unreviewed machine translation output"
 }
