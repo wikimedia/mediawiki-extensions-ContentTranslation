@@ -6,7 +6,8 @@
 			"Mikel Ibaiba",
 			"Xabier Armendaritz",
 			"Amaia",
-			"Iñaki LL"
+			"Iñaki LL",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Orria itzuli",
@@ -227,7 +228,7 @@
 	"cx-tools-linter-invalid-character-action": "Konpondu arazoak sortzen dituzten karaktereak",
 	"cx-tools-linter-invalid-character-message": "Karaktere batzuk ezin dira orrien izenburuan erabili arrazoi teknikoengatik. Mesedez, aldatu izenburua arazoak sortzen dituzten karaktereak saihesteko.",
 	"cx-tools-linter-page-exists": "Orria dagoeneko existitzen da",
-	"cx-tools-linter-page-exists-message": "Dagoeneko $1 izenburua daukan orri bat existitzen da. Zure itzulpena argitaratzeak honen edukia gainidatziko luke.<br><br> Egiaztatu dagoen orria ordezkatzea egokia dela, edo hartu kontuan zure itzulpenari beste izenburu bat jartzea.",
+	"cx-tools-linter-page-exists-message": "Dagoeneko $1 izenburua daukan orri bat existitzen da. Zure itzulpena argitaratzeak honen edukia gainidatziko luke.\n\nEgiaztatu dagoen orria ordezkatzea egokia dela, edo hartu kontuan zure itzulpenari beste izenburu bat jartzea.",
 	"cx-translator-header": "Zure estatistikak",
 	"cx-translator-month-stats-label": "Hilabete honetan",
 	"cx-translator-total-translations-label": "Guztira",

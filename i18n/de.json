@@ -10,7 +10,8 @@
 			"Geitost",
 			"Macofe",
 			"Liuxinyu970226",
-			"Umherirrender"
+			"Umherirrender",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -103,7 +104,7 @@
 	"cx-page-missing-in-target-language": "Fehlt auf $1",
 	"cx-page-number-of-languages": "Anzahl der Sprachen",
 	"cx-mt-abuse-warning-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten Text",
-	"cx-mt-abuse-warning-text": "Automatische Übersetzungen werden nur als Startpunkt zur Verfügung gestellt. Stelle sicher, dass der Inhalt genau ist und sich in deiner Sprache natürlich lesen lässt.<br><br>Deine Übersetzung wird vermutlich gelöscht, wenn sie von anderen Autoren überprüft wird.",
+	"cx-mt-abuse-warning-text": "Automatische Übersetzungen werden nur als Startpunkt zur Verfügung gestellt. Stelle sicher, dass der Inhalt genau ist und sich in deiner Sprache natürlich lesen lässt.\n\nDeine Übersetzung wird vermutlich gelöscht, wenn sie von anderen Autoren überprüft wird.",
 	"cx-publish-captcha-title": "Überprüfung, dass du kein Roboter bist.",
 	"cx-captcha-dialog-error": "Deine Antwort scheint nicht richtig zu sein. Bitte erneut versuchen.",
 	"cx-captcha-dialog-cancel": "Abbrechen",
@@ -243,11 +244,11 @@
 	"cx-tools-linter-empty-title-message": "Alle Seiten benötigen einen Namen, damit Benutzer sie finden können. Bitte gib deiner Übersetzung einen Namen, um sie zu veröffentlichen.",
 	"cx-tools-linter-invalid-character": "Dein Übersetzungstitel enthält ungültige Zeichen",
 	"cx-tools-linter-invalid-character-action": "Problematische Zeichen beheben",
-	"cx-tools-linter-invalid-character-message": "Einige Zeichen können aus technischen Gründen nicht im Titel von Seiten verwendet werden.<br><br>Bearbeite bitte den Titel, um die problematischen Zeichen zu vermeiden.",
+	"cx-tools-linter-invalid-character-message": "Einige Zeichen können aus technischen Gründen nicht im Titel von Seiten verwendet werden.\n\nBearbeite bitte den Titel, um die problematischen Zeichen zu vermeiden.",
 	"cx-tools-linter-page-exists": "Die Seite ist bereits vorhanden",
-	"cx-tools-linter-page-exists-message": "Eine Seite mit dem Titel $1 ist bereits vorhanden. Die Veröffentlichung deiner Übersetzung wird den vorhandenen Inhalt überschreiben.<br><br>Überprüfe, dass die Ersetzung der vorhandenen Seite in Ordnung ist oder ziehe in Erwägung, deine Übersetzung umzubenennen.",
+	"cx-tools-linter-page-exists-message": "Eine Seite mit dem Titel $1 ist bereits vorhanden. Die Veröffentlichung deiner Übersetzung wird den vorhandenen Inhalt überschreiben.\n\nÜberprüfe, dass die Ersetzung der vorhandenen Seite in Ordnung ist oder ziehe in Erwägung, deine Übersetzung umzubenennen.",
 	"cx-tools-linter-template": "Vorlage nicht verfügbar",
-	"cx-tools-linter-template-block-message": "Die Originalseite verwendet eine Vorlage, die im Zielwiki nicht verfügbar ist.<br><br>Diese Vorlage wurde übersprungen, du kannst jedoch neuen Inhalt hinzufügen, um die fehlenden Informationen zu erfassen.",
+	"cx-tools-linter-template-block-message": "Die Originalseite verwendet eine Vorlage, die im Zielwiki nicht verfügbar ist.\n\nDiese Vorlage wurde übersprungen, du kannst jedoch neuen Inhalt hinzufügen, um die fehlenden Informationen zu erfassen.",
 	"cx-translator-header": "Deine Statistiken",
 	"cx-translator-month-stats-label": "Dieser Monat",
 	"cx-translator-total-translations-label": "Gesamt",

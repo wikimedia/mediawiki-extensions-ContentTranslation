@@ -28,7 +28,8 @@
 			"AlimanRuna",
 			"Tiberius1701",
 			"PoLuX124",
-			"Jelou"
+			"Jelou",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Traducir página",
@@ -117,7 +118,7 @@
 	"cx-page-missing-in-target-language": "No disponible en $1",
 	"cx-page-number-of-languages": "Número de idiomas",
 	"cx-mt-abuse-warning-title": "Tu traducción {{PLURAL:$1|contiene}} el $1 % del texto sin modificar",
-	"cx-mt-abuse-warning-text": "La traducción automática se proporciona solo como punto de partida. Asegúrate de que el contenido sea preciso y se lea de forma natural en tu idioma.<br><br>Es probable que tu traducción se elimine cuando otros editores la revisen.",
+	"cx-mt-abuse-warning-text": "La traducción automática se proporciona solo como punto de partida. Asegúrate de que el contenido sea preciso y se lea de forma natural en tu idioma.\n\nEs probable que tu traducción se elimine cuando otros editores la revisen.",
 	"cx-publish-captcha-title": "Para comprobar que no eres un robot",
 	"cx-captcha-dialog-error": "La respuesta no parece ser correcta. Inténtalo otra vez.",
 	"cx-captcha-dialog-cancel": "Cancelar",

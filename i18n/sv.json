@@ -14,7 +14,8 @@
 			"Rockyfelle",
 			"Fader",
 			"Bengtsson96",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Översätt sida",
@@ -107,7 +108,7 @@
 	"cx-page-missing-in-target-language": "Saknas på $1",
 	"cx-page-number-of-languages": "Antal språk",
 	"cx-mt-abuse-warning-title": "Din översättning {{PLURAL:$1|innehåller}} $1 % oförändrad text",
-	"cx-mt-abuse-warning-text": "Automatisk översättning tillhandahålls enbart som en startpunkt. Se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.<br><br>Din översättning kommer förmodligen raderas när den granskas av andra redigerare.",
+	"cx-mt-abuse-warning-text": "Automatisk översättning tillhandahålls enbart som en startpunkt. Se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.\n\nDin översättning kommer förmodligen raderas när den granskas av andra redigerare.",
 	"cx-publish-captcha-title": "Kollar om du inte är en robot",
 	"cx-captcha-dialog-error": "Ditt svar verkar inte vara rätt. Försök igen.",
 	"cx-captcha-dialog-cancel": "Avbryt",
@@ -247,11 +248,11 @@
 	"cx-tools-linter-empty-title-message": "Alla sidor behöver ett namn så användare kan hitta dem. Var god ange ett namn för din översättning för att publicera den.",
 	"cx-tools-linter-invalid-character": "Din översättningstitel innehåller ogiltiga tecken",
 	"cx-tools-linter-invalid-character-action": "Åtgärda problematiska tecken",
-	"cx-tools-linter-invalid-character-message": "Vissa tecken kan inte användas i titeln på sidor av tekniska anledningar.<br><br>Var god redigera titeln för att undvika problematiska tecken.",
+	"cx-tools-linter-invalid-character-message": "Vissa tecken kan inte användas i titeln på sidor av tekniska anledningar.\n\nVar god redigera titeln för att undvika problematiska tecken.",
 	"cx-tools-linter-page-exists": "Sidan finns redan",
-	"cx-tools-linter-page-exists-message": "En sida med titeln $1 finns redan. Om din översättning publiceras kommer det befintliga innehållet att skrivas över<br><br>Kontrollera att det är okej att ersätta den befintliga sidan eller överväg att byta namn på din översättning.",
+	"cx-tools-linter-page-exists-message": "En sida med titeln $1 finns redan. Om din översättning publiceras kommer det befintliga innehållet att skrivas över\n\nKontrollera att det är okej att ersätta den befintliga sidan eller överväg att byta namn på din översättning.",
 	"cx-tools-linter-template": "Otillgänglig mall",
-	"cx-tools-linter-template-block-message": "Den ursprungliga sidan använder en mall som inte är tillgänglig på destinationswikin.<br><br>Denna mall har hoppats över, men du kan lägga till nytt innehåll för att täcka den saknade informationen.",
+	"cx-tools-linter-template-block-message": "Den ursprungliga sidan använder en mall som inte är tillgänglig på destinationswikin.\n\nDenna mall har hoppats över, men du kan lägga till nytt innehåll för att täcka den saknade informationen.",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denna månad",
 	"cx-translator-total-translations-label": "Totalt",

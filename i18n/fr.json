@@ -39,7 +39,8 @@
 			"The RedBurn",
 			"Trizek (WMF)",
 			"Urhixidur",
-			"Zarisi"
+			"Zarisi",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Traduire la page",
@@ -132,7 +133,7 @@
 	"cx-page-missing-in-target-language": "Absent en $1",
 	"cx-page-number-of-languages": "Nombre de langues",
 	"cx-mt-abuse-warning-title": "Votre traduction {{PLURAL:$1|contient}} $1 % de texte non modifié",
-	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme base de départ. Assurez-vous que le contenu est exact et se lit de façon naturelle dans votre langue.<br><br>Votre traduction est susceptible d’être supprimée quand elle sera relue par d’autres éditeurs.",
+	"cx-mt-abuse-warning-text": "La traduction automatique est fournie uniquement comme base de départ. Assurez-vous que le contenu est exact et se lit de façon naturelle dans votre langue.\n\nVotre traduction est susceptible d’être supprimée quand elle sera relue par d’autres éditeurs.",
 	"cx-publish-captcha-title": "Vérification que vous n'êtes pas un robot",
 	"cx-captcha-dialog-error": "Votre réponse ne semble pas correcte. Veuillez recommencer.",
 	"cx-captcha-dialog-cancel": "Annuler",
@@ -271,11 +272,11 @@
 	"cx-tools-linter-empty-title-message": "Toutes les pages ont besoin d’un nom pour que les utilisateurs les trouvent. Merci de donner un nom à votre traduction afin de la publier.",
 	"cx-tools-linter-invalid-character": "Le titre de votre traduction contient des caractères invalides",
 	"cx-tools-linter-invalid-character-action": "Corriger les caractères problématiques",
-	"cx-tools-linter-invalid-character-message": "Certains caractères ne peuvent pas être utilisés dans le titre des pages pour des raisons techniques. <br><br>Merci de modifier le titre pour éviter les caractères problématiques.",
+	"cx-tools-linter-invalid-character-message": "Certains caractères ne peuvent pas être utilisés dans le titre des pages pour des raisons techniques.\n\nMerci de modifier le titre pour éviter les caractères problématiques.",
 	"cx-tools-linter-page-exists": "Page déjà existante",
-	"cx-tools-linter-page-exists-message": "Un page avec le titre $1 existe déjà. Publier votre traduction écrasera le contenu existant<br><br>Vérifiez qu’il est correct de remplacer la page existante, ou envisagez de renommer votre traduction.",
+	"cx-tools-linter-page-exists-message": "Un page avec le titre $1 existe déjà. Publier votre traduction écrasera le contenu existant\n\nVérifiez qu’il est correct de remplacer la page existante, ou envisagez de renommer votre traduction.",
 	"cx-tools-linter-template": "Modèle indisponible",
-	"cx-tools-linter-template-block-message": "La page d’origine utilise un modèle qui n’est pas disponible dans le wiki de destination.<br><br>Ce modèle a été sauté, mais vous pouvez ajouter un nouveau contenu pour capturer l’information manquante.",
+	"cx-tools-linter-template-block-message": "La page d’origine utilise un modèle qui n’est pas disponible dans le wiki de destination.\n\nCe modèle a été sauté, mais vous pouvez ajouter un nouveau contenu pour capturer l’information manquante.",
 	"cx-translator-header": "Vos statistiques",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",

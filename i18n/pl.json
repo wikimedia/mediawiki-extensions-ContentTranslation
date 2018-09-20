@@ -24,7 +24,8 @@
 			"Mazab IZW",
 			"Vesihiisi",
 			"Railfail536",
-			"Stojex"
+			"Stojex",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -108,7 +109,7 @@
 	"cx-selected-source-page-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
 	"cx-page-number-of-languages": "Liczba języków",
 	"cx-mt-abuse-warning-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} $1% niezmienionego tekstu.",
-	"cx-mt-abuse-warning-text": "Automatyczne tłumaczenie jest tylko punktem wyjścia. Upewnij się, że treść jest dokładnie przetłumaczona i brzmi naturalnie w Twoim języku.<br><br>Twoje tłumaczenie może zostać usunięte, gdy zostanie sprawdzone przez innych redaktorów.",
+	"cx-mt-abuse-warning-text": "Automatyczne tłumaczenie jest tylko punktem wyjścia. Upewnij się, że treść jest dokładnie przetłumaczona i brzmi naturalnie w Twoim języku.\n\nTwoje tłumaczenie może zostać usunięte, gdy zostanie sprawdzone przez innych redaktorów.",
 	"cx-publish-captcha-title": "Sprawdzenie czy nie jesteś robotem",
 	"cx-captcha-dialog-error": "Twoja odpowiedź nie wydaje się być poprawna. Spróbuj ponownie.",
 	"cx-captcha-dialog-cancel": "Anuluj",

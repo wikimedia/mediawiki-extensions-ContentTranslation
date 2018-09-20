@@ -22,7 +22,8 @@
 			"Liuxinyu970226",
 			"Felipe L. Ewald",
 			"Opraco",
-			"Pedrofariasm"
+			"Pedrofariasm",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Traduzir página",
@@ -115,7 +116,7 @@
 	"cx-page-missing-in-target-language": "Não existe em $1",
 	"cx-page-number-of-languages": "Número de línguas",
 	"cx-mt-abuse-warning-title": "Sua tradução {{PLURAL:$1|contém}} $1% de textos traduzidos sem modificações",
-	"cx-mt-abuse-warning-text": "A tradução automática é fornecida apenas como ponto de partida. Certifique-se de que o conteúdo seja preciso e leia naturalmente em seu idioma.<br><br>Sua tradução provavelmente será excluída quando for revisada por outros editores.",
+	"cx-mt-abuse-warning-text": "A tradução automática é fornecida apenas como ponto de partida. Certifique-se de que o conteúdo seja preciso e leia naturalmente em seu idioma.\n\nSua tradução provavelmente será excluída quando for revisada por outros editores.",
 	"cx-publish-captcha-title": "Verificando que você não é um robô",
 	"cx-captcha-dialog-error": "Sua resposta não parece correta. Por favor, tente novamente.",
 	"cx-captcha-dialog-cancel": "Cancelar",
@@ -254,11 +255,11 @@
 	"cx-tools-linter-empty-title-message": "Todas as páginas precisam de um nome para os usuários encontrá-las. Por favor, dê um nome à sua tradução para publicá-la.",
 	"cx-tools-linter-invalid-character": "O título da sua tradução contém caracteres inválidos",
 	"cx-tools-linter-invalid-character-action": "Corrigir caracteres problemáticos",
-	"cx-tools-linter-invalid-character-message": "Por razões técnicas, alguns caracteres não podem ser usados nos títulos das páginas.<br><br>Altere o título de forma a evitar os caracteres problemáticos, por favor.",
+	"cx-tools-linter-invalid-character-message": "Por razões técnicas, alguns caracteres não podem ser usados nos títulos das páginas.\n\nAltere o título de forma a evitar os caracteres problemáticos, por favor.",
 	"cx-tools-linter-page-exists": "A página já existe",
-	"cx-tools-linter-page-exists-message": "Já existe uma página com o título $1. Se publicar a sua tradução irá sobrescrever o conteúdo existente.<br><br>Verifique que pretende substituir a página existente, ou pondere alterar o nome da sua tradução.",
+	"cx-tools-linter-page-exists-message": "Já existe uma página com o título $1. Se publicar a sua tradução irá sobrescrever o conteúdo existente.\n\nVerifique que pretende substituir a página existente, ou pondere alterar o nome da sua tradução.",
 	"cx-tools-linter-template": "Predefinição indisponível",
-	"cx-tools-linter-template-block-message": "A página original usa uma predefinição que não está disponível na wiki de destino.<br><br>Esta predefinição foi saltada, mas pode adicionar conteúdo novo para capturar a informação em falta.",
+	"cx-tools-linter-template-block-message": "A página original usa uma predefinição que não está disponível na wiki de destino.\n\nEsta predefinição foi saltada, mas pode adicionar conteúdo novo para capturar a informação em falta.",
 	"cx-translator-header": "As suas estatísticas",
 	"cx-translator-month-stats-label": "Neste mês",
 	"cx-translator-total-translations-label": "Total",

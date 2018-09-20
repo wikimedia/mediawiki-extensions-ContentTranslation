@@ -3,7 +3,8 @@
 		"authors": [
 			"Veeven",
 			"Chaduvari",
-			"Praveen Illa"
+			"Praveen Illa",
+			"Петар Петковић"
 		]
 	},
 	"cx": "పేజీ అనువాదం",
@@ -174,7 +175,7 @@
 	"cx-tools-linter-empty-title-message": "పేజీలన్నిటికీ పేరు ఉండాలి. ప్రచురించాలంటే మీ అనువాదానికి పేరు పెట్టండి.",
 	"cx-tools-linter-invalid-character": "మీ అనువాదపు శీర్షికలో తప్పు క్యారెక్టర్లు ఉన్నాయి",
 	"cx-tools-linter-invalid-character-action": "సమస్యాత్మక క్యారెక్టర్లను సరిదిద్దు",
-	"cx-tools-linter-invalid-character-message": "సాంకేతిక కారణాల వలన కొన్ని క్యారెక్టర్లను శీర్షికల్లో వాడరాదు.<br><br>అంచేత శీర్షికను సరిచెయ్యండి.",
+	"cx-tools-linter-invalid-character-message": "సాంకేతిక కారణాల వలన కొన్ని క్యారెక్టర్లను శీర్షికల్లో వాడరాదు.\n\nఅంచేత శీర్షికను సరిచెయ్యండి.",
 	"cx-tools-linter-page-exists": "పేజీ ఈసరికే ఉంది",
 	"cx-tools-linter-page-exists-message": "$1 శీర్షికతో ఓ పేజీ ఈసరికే ఉంది. మీ అనువాదాన్ని ప్రచురిస్తే, పాత పాఠ్యం పూర్తిగా పోతుంది<br><br>పాతది పోయినా పర్లేదో కాదో పరిశీలించండి. లేదంటే వేరే పేరుతో ప్రచురించండి.",
 	"cx-translator-header": "మీ గణాంకాలు",

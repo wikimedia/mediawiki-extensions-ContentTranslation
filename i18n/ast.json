@@ -3,7 +3,8 @@
 		"authors": [
 			"Xuacu",
 			"Macofe",
-			"Esbardu"
+			"Esbardu",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Traducir la páxina",
@@ -96,7 +97,7 @@
 	"cx-page-missing-in-target-language": "Falta en $1",
 	"cx-page-number-of-languages": "Númberu de llingües",
 	"cx-mt-abuse-warning-title": "La traducción {{PLURAL:$1|contien}} un $1% de testu que nun se cambió",
-	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida.Asegúrate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.<br><br>La to traducción podría desaniciase cuando la revisen otros editores.",
+	"cx-mt-abuse-warning-text": "La traducción automática úfrese sólo como puntu de partida.Asegúrate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.\n\nLa to traducción podría desaniciase cuando la revisen otros editores.",
 	"cx-publish-captcha-title": "Comprobando que nun yes un robot",
 	"cx-captcha-dialog-error": "La respuesta nun paez correuta. Téntalo otra vegada.",
 	"cx-captcha-dialog-cancel": "Encaboxar",
@@ -230,11 +231,11 @@
 	"cx-tools-linter-empty-title-message": "Toles páxines necesiten un nome pa que los usuarios les alcuentren. Da-y un nome a la traducción pa poder publicala.",
 	"cx-tools-linter-invalid-character": "El títulu de la traducción contien caráuteres inválidos",
 	"cx-tools-linter-invalid-character-action": "Iguar los caráuteres problemáticos",
-	"cx-tools-linter-invalid-character-message": "Dellos caráuteres nun pueden usase nel títulu de les páxines por motivos téunicos.<br><br>Por favor, edita'l títulu pa evitar los caráuteres problemáticos.",
+	"cx-tools-linter-invalid-character-message": "Dellos caráuteres nun pueden usase nel títulu de les páxines por motivos téunicos.\n\nPor favor, edita'l títulu pa evitar los caráuteres problemáticos.",
 	"cx-tools-linter-page-exists": "La páxina yá esiste.",
-	"cx-tools-linter-page-exists-message": "Yá esiste una páxina col títulu $1. Si publiques la traducción sustituirá'l conteníu existiente<br><br>Comprueba si ye correuto sustituir la páxina actual, o considera da-y otru nome a la traducción.",
+	"cx-tools-linter-page-exists-message": "Yá esiste una páxina col títulu $1. Si publiques la traducción sustituirá'l conteníu existiente\n\nComprueba si ye correuto sustituir la páxina actual, o considera da-y otru nome a la traducción.",
 	"cx-tools-linter-template": "Plantía nun disponible",
-	"cx-tools-linter-template-block-message": "La páxina orixinal usa una plantía que nun ta disponible na wiki de destín.<br><br>Esta plantía omitióse, pero puedes añadir conteníu nuevu pa recoyer la información que falta.",
+	"cx-tools-linter-template-block-message": "La páxina orixinal usa una plantía que nun ta disponible na wiki de destín.\n\nEsta plantía omitióse, pero puedes añadir conteníu nuevu pa recoyer la información que falta.",
 	"cx-translator-header": "Les tos estadístiques",
 	"cx-translator-month-stats-label": "Esti mes",
 	"cx-translator-total-translations-label": "Total",

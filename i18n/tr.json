@@ -21,7 +21,8 @@
 			"Botansahin",
 			"Ramona.Stewart",
 			"Hedda",
-			"Dual"
+			"Dual",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -246,9 +247,9 @@
 	"cx-tools-linter-empty-title-message": "Tüm sayfalar, kullanıcılar tarafından bulunması için bir isme ihtiyaç duymaktadır. Lütfen yayınlamak için çeviriye bir isim verin.",
 	"cx-tools-linter-invalid-character": "Çeviri başlığınız geçersiz karakterler içeriyor",
 	"cx-tools-linter-invalid-character-action": "Sorunlu karakterleri düzeltin",
-	"cx-tools-linter-invalid-character-message": "Teknik nedenlerden dolayı bazı karakterler sayfaların başlığında kullanılamaz.<br><br>Lütfen sorunlu karakterlerden kaçınmak için başlığı düzenleyin.",
+	"cx-tools-linter-invalid-character-message": "Teknik nedenlerden dolayı bazı karakterler sayfaların başlığında kullanılamaz.\n\nLütfen sorunlu karakterlerden kaçınmak için başlığı düzenleyin.",
 	"cx-tools-linter-page-exists": "Sayfa zaten mevcut",
-	"cx-tools-linter-page-exists-message": "$1 adıyla bir sayfa zaten mevcut. Çevirinizin yayınlanması mevcut içeriğin üzerine yazılmasıyla sonuçlanacaktır.<br><br>Mevcut sayfayı değiştirmek için tamam olup olmadığını kontrol edin veya çevirinizi yeniden adlandırmayı düşünün.",
+	"cx-tools-linter-page-exists-message": "$1 adıyla bir sayfa zaten mevcut. Çevirinizin yayınlanması mevcut içeriğin üzerine yazılmasıyla sonuçlanacaktır.\n\nMevcut sayfayı değiştirmek için tamam olup olmadığını kontrol edin veya çevirinizi yeniden adlandırmayı düşünün.",
 	"cx-translator-header": "İstatistikleriniz",
 	"cx-translator-month-stats-label": "Bu ay",
 	"cx-translator-total-translations-label": "Toplam",

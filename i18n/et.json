@@ -5,7 +5,8 @@
 			"Pikne",
 			"Adeliine",
 			"Metsavend",
-			"Avjoska"
+			"Avjoska",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Lehekülje tõlkimine",
@@ -91,7 +92,7 @@
 	"cx-page-missing-in-target-language": "Puudub sihtkeeles ($1)",
 	"cx-page-number-of-languages": "Keelte arv",
 	"cx-mt-abuse-warning-title": "Sinu tõlkest $1% {{PLURAL:$1|on}} muutmata kujul tekst.",
-	"cx-mt-abuse-warning-text": "Masintõlget pakutakse vaid lähtematerjalina. Veendu, et sisu on täpne ning sinu keeles arusaadav ja loomulik.<br><br>Tõenäoliselt sinu tekst kustutatakse, kui teised toimetajad selle üle vaatavad.",
+	"cx-mt-abuse-warning-text": "Masintõlget pakutakse vaid lähtematerjalina. Veendu, et sisu on täpne ning sinu keeles arusaadav ja loomulik.\n\nTõenäoliselt sinu tekst kustutatakse, kui teised toimetajad selle üle vaatavad.",
 	"cx-publish-captcha-title": "Ega tegu pole robotiga",
 	"cx-captcha-dialog-error": "Sinu vastus ei tundu olevat õige. Palun proovi uuesti.",
 	"cx-captcha-dialog-cancel": "Loobu",

@@ -10,7 +10,8 @@
 			"Danny-w",
 			"LaG roiL",
 			"ערן",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Петар Петковић"
 		]
 	},
 	"cx": "תרגום דף",
@@ -103,7 +104,7 @@
 	"cx-page-missing-in-target-language": "חסר ב{{GRAMMAR:תחילית|$1}}",
 	"cx-page-number-of-languages": "מספר השפות",
 	"cx-mt-abuse-warning-title": "התרגום שלך {{PLURAL:$1|מכיל}} $1% של טקסט לא ערוך",
-	"cx-mt-abuse-warning-text": "תרגום מכונה ניתן רק בתור נקודת מוצא. {{GENDER:|אתה צריך|את צריכה}} לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.<br><br>יש סיכוי גבוה שהתרגום שלך יימחק על־די עורכים אחרים שיסקרו אותו.",
+	"cx-mt-abuse-warning-text": "תרגום מכונה ניתן רק בתור נקודת מוצא. {{GENDER:|אתה צריך|את צריכה}} לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.\n\nיש סיכוי גבוה שהתרגום שלך יימחק על־די עורכים אחרים שיסקרו אותו.",
 	"cx-publish-captcha-title": "בדיקה שאינך רובוט",
 	"cx-captcha-dialog-error": "נראה שהתשובה שלך אינה נכונה. נא לנסות שוב.",
 	"cx-captcha-dialog-cancel": "ביטול",
@@ -243,11 +244,11 @@
 	"cx-tools-linter-empty-title-message": "כל הדפים זקוקים לשם כדי שמשתמשים יוכלו למצוא אותם. יש לתת שם לתרגום שלך כדי לפרסם אותו.",
 	"cx-tools-linter-invalid-character": "הכותרת של התרגום שלך מכילה תווים שאינם תקינים",
 	"cx-tools-linter-invalid-character-action": "תיקון תווים בעייתיים",
-	"cx-tools-linter-invalid-character-message": "מסיבות טכניות, תווים מסוימים אינם יכולים לשמש בכותרות של דפים.<br><br>נא לערוך את הכותרת כדי להימנע מתווים בעייתיים.",
+	"cx-tools-linter-invalid-character-message": "מסיבות טכניות, תווים מסוימים אינם יכולים לשמש בכותרות של דפים.\n\nנא לערוך את הכותרת כדי להימנע מתווים בעייתיים.",
 	"cx-tools-linter-page-exists": "הדף כבר קיים",
-	"cx-tools-linter-page-exists-message": "כבר קיים דף בשם $1. פרסום התרגום שלך יגרום לדריסת התוכן הקיים.<br><br>יש לבדוק האם זה בסדר להחליף את הדף הקיים, או לשקול לשנות את שם התרגום.",
+	"cx-tools-linter-page-exists-message": "כבר קיים דף בשם $1. פרסום התרגום שלך יגרום לדריסת התוכן הקיים.\n\nיש לבדוק האם זה בסדר להחליף את הדף הקיים, או לשקול לשנות את שם התרגום.",
 	"cx-tools-linter-template": "התבנית אינה זמינה",
-	"cx-tools-linter-template-block-message": "הדף המקורי משתמש בתבנית שאינה זמינה בוויקי היעד.<br><br>דילגנו על התבנית הזאת, אבל באפשרותך להוסיף תוכן חדש כדי לסקר את המידע החסר.",
+	"cx-tools-linter-template-block-message": "הדף המקורי משתמש בתבנית שאינה זמינה בוויקי היעד.\n\nדילגנו על התבנית הזאת, אבל באפשרותך להוסיף תוכן חדש כדי לסקר את המידע החסר.",
 	"cx-translator-header": "סטטיסטיקות שלך",
 	"cx-translator-month-stats-label": "החודש",
 	"cx-translator-total-translations-label": "סה\"כ",

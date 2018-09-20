@@ -23,7 +23,8 @@
 			"HDNua",
 			"Ykhwong",
 			"Ellif",
-			"Garam"
+			"Garam",
+			"Петар Петковић"
 		]
 	},
 	"cx": "문서 번역",
@@ -116,7 +117,7 @@
 	"cx-page-missing-in-target-language": "$1(으)로 없음",
 	"cx-page-number-of-languages": "언어의 수",
 	"cx-mt-abuse-warning-title": "번역에 수정하지 않은 텍스트 $1%를 {{PLURAL:$1|포함합니다}}",
-	"cx-mt-abuse-warning-text": "자동 번역은 시작점으로만 제공합니다. 내용이 정확하고 자신의 언어로 자연스럽게 읽힐 수 있도록 해야 합니다.<br><br>번역은 다른 편집자가 검토할 때 삭제될 가능성이 있습니다.",
+	"cx-mt-abuse-warning-text": "자동 번역은 시작점으로만 제공합니다. 내용이 정확하고 자신의 언어로 자연스럽게 읽힐 수 있도록 해야 합니다.\n\n번역은 다른 편집자가 검토할 때 삭제될 가능성이 있습니다.",
 	"cx-publish-captcha-title": "로봇이 아닌지를 검사합니다",
 	"cx-captcha-dialog-error": "답변이 올바르지 않은 것 같습니다. 다시 시도해 주십시오.",
 	"cx-captcha-dialog-cancel": "취소",
@@ -253,9 +254,9 @@
 	"cx-tools-linter-empty-title-message": "모든 문서에는 사용자들이 찾을 수 있는 이름이 필요합니다. 게시하려면 번역에 이름을 지정해 주십시오.",
 	"cx-tools-linter-invalid-character": "번역 제목에 유효하지 않은 문자가 포함되어 있습니다",
 	"cx-tools-linter-invalid-character-action": "문제가 있는 문자 수정",
-	"cx-tools-linter-invalid-character-message": "일부 문자는 기술적인 이유로 문서의 제목에 사용할 수 없습니다.<br><br>제목을 수정하여 문제가 있는 문자를 제외해 주십시오.",
+	"cx-tools-linter-invalid-character-message": "일부 문자는 기술적인 이유로 문서의 제목에 사용할 수 없습니다.\n\n제목을 수정하여 문제가 있는 문자를 제외해 주십시오.",
 	"cx-tools-linter-page-exists": "문서가 이미 존재합니다",
-	"cx-tools-linter-page-exists-message": "$1 제목의 문서가 이미 존재합니다. 번역을 게시하면 기존 내용을 덮어쓰게 됩니다<br><br>기존 문서를 대체해도 좋은지 확인하거나 번역 이름을 바꾸는 것을 고려하십시오.",
+	"cx-tools-linter-page-exists-message": "$1 제목의 문서가 이미 존재합니다. 번역을 게시하면 기존 내용을 덮어쓰게 됩니다\n\n기존 문서를 대체해도 좋은지 확인하거나 번역 이름을 바꾸는 것을 고려하십시오.",
 	"cx-tools-linter-template": "틀을 사용할 수 없음",
 	"cx-translator-header": "내 통계",
 	"cx-translator-month-stats-label": "이번 달",

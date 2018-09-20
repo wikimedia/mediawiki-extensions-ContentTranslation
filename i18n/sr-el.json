@@ -5,7 +5,8 @@
 			"Srdjan m",
 			"Сербијана",
 			"Obsuser",
-			"Prevodim"
+			"Prevodim",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -98,7 +99,7 @@
 	"cx-page-missing-in-target-language": "Nije prevedeno na $1",
 	"cx-page-number-of-languages": "Broj jezika",
 	"cx-mt-abuse-warning-title": "Vaš prevod {{PLURAL:$1|sadrži}} $1% neizmenjenog teksta",
-	"cx-mt-abuse-warning-text": "Mašinski prevod je samo polazna tačka, morate se postarati da sadržaj bude tačan i razumljiv na vašem jeziku.<br><br>Vaš prevod lako može biti obrisan od strane drugih urednika.",
+	"cx-mt-abuse-warning-text": "Mašinski prevod je samo polazna tačka, morate se postarati da sadržaj bude tačan i razumljiv na vašem jeziku.\n\nVaš prevod lako može biti obrisan od strane drugih urednika.",
 	"cx-publish-captcha-title": "Provera da niste bot",
 	"cx-captcha-dialog-error": "Vaš odgovor nije tačan. Molimo, pokušajte ponovo.",
 	"cx-captcha-dialog-cancel": "Otkaži",
@@ -232,9 +233,10 @@
 	"cx-tools-linter-empty-title-message": "Svim stranicama je potreban naziv kako bi mogle biti pronađene. Molimo Vas, dajte ime stranici kako biste je mogli objaviti.",
 	"cx-tools-linter-invalid-character": "Vaš naslov sadrži nedozvoljene znake",
 	"cx-tools-linter-invalid-character-action": "Popravi problematične znake",
-	"cx-tools-linter-invalid-character-message": "Neki znakovi ne mogu biti korišćeni u naslovima iz tehničnih razloga.<br><br>Molimo, promenite naslov kako biste izbegli problematične znakove.",
+	"cx-tools-linter-invalid-character-message": "Neki znakovi ne mogu biti korišćeni u naslovima iz tehničnih razloga.\n\nMolimo, promenite naslov kako biste izbegli problematične znakove.",
 	"cx-tools-linter-page-exists": "Stranica već postoji",
-	"cx-tools-linter-page-exists-message": "Stranica sa naslovom $1 već postoji. Objavljivanje Vašeg prevoda će zameniti postojeći sadržaj.<br><br>Proverite da li je u redu zameniti postojeću stranicu, ili razmislite o promeni imena Vašeg prevoda.",
+	"cx-tools-linter-page-exists-message": "Stranica sa naslovom $1 već postoji. Objavljivanje Vašeg prevoda će zameniti postojeći sadržaj.\n\nProverite da li je u redu zameniti postojeću stranicu, ili razmislite o promeni imena Vašeg prevoda.",
+	"cx-tools-linter-template-block-message": "Originalna stranica koristi šablon koji nije dostupan na ciljnom vikiju.\n\nOvaj šablon je preskočen, ali možete dodati nov sadržaj kako biste dopunili informacije koje nedostaju.",
 	"cx-translator-header": "Vaša statistika",
 	"cx-translator-month-stats-label": "Ovog meseca",
 	"cx-translator-total-translations-label": "Ukupno",

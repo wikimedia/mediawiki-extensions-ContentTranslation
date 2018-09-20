@@ -9,7 +9,8 @@
 			"KhangND",
 			"Darcy Le",
 			"Nguyên Lê",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Dịch trang",
@@ -102,7 +103,7 @@
 	"cx-page-missing-in-target-language": "Không có sẵn trong $1",
 	"cx-page-number-of-languages": "Số ngôn ngữ",
 	"cx-mt-abuse-warning-title": "Bản dịch của bạn có $1% là văn bản dịch không được sửa đổi",
-	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm. Hãy chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.<br><br>Bản dịch của bạn rất có thể bị xóa khi người khác xem lại nó.",
+	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm. Hãy chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.\n\nBản dịch của bạn rất có thể bị xóa khi người khác xem lại nó.",
 	"cx-publish-captcha-title": "Phải kiểm tra bạn có phải người máy hay không",
 	"cx-captcha-dialog-error": "Bạn không trả lời đúng. Hãy thử lại.",
 	"cx-captcha-dialog-cancel": "Hủy bỏ",
@@ -236,9 +237,9 @@
 	"cx-tools-linter-empty-title-message": "Mọi trang cần tên để người ta truy cập được. Hãy đặt tên cho bản dịch để đăng nó.",
 	"cx-tools-linter-invalid-character": "Tên bản dịch của bạn có ký tự không hợp lệ",
 	"cx-tools-linter-invalid-character-action": "Sửa ký tự sai",
-	"cx-tools-linter-invalid-character-message": "Không thể sử dụng một số ký tự trong tên trang vì các hạn chế kỹ thuật.<br><br>Xin hãy sửa tên trang để tránh các ký tự gây vấn đề.",
+	"cx-tools-linter-invalid-character-message": "Không thể sử dụng một số ký tự trong tên trang vì các hạn chế kỹ thuật.\n\nXin hãy sửa tên trang để tránh các ký tự gây vấn đề.",
 	"cx-tools-linter-page-exists": "Trang đã tồn tại",
-	"cx-tools-linter-page-exists-message": "Trang có tên $1 đã tồn tại. Việc đăng bản dịch của bạn sẽ ghi đề nội dung đã tồn tại.<br><br>Hãy chắc chắn rằng trang đã tồn tại có thể được thay thế không sao, hoặc nghĩ đến việc đổi tên bản dịch của bạn.",
+	"cx-tools-linter-page-exists-message": "Trang có tên $1 đã tồn tại. Việc đăng bản dịch của bạn sẽ ghi đề nội dung đã tồn tại.\n\nHãy chắc chắn rằng trang đã tồn tại có thể được thay thế không sao, hoặc nghĩ đến việc đổi tên bản dịch của bạn.",
 	"cx-translator-header": "Thống kê của bạn",
 	"cx-translator-month-stats-label": "Tháng này",
 	"cx-translator-total-translations-label": "Tổng cộng",

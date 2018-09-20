@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joao Xavier"
+			"Joao Xavier",
+			"Петар Петковић"
 		]
 	},
 	"cx-dashboard-header": "Tradukuri",
@@ -23,7 +24,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Tradukar de $1",
 	"cx-selected-source-page-error-title-in-use": "La titulo por la nova pagino [$1 ja uzesas]",
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",
-	"cx-mt-abuse-warning-text": "Automatala tradukuro furnisesas quale komenco-punto. Verifikez se la kontenajo esas preciza, e la gramatiko esas korekta en vua linguo.<br><br>Vua tradukuro povos efacesor kande altra redakteri revizos ol.",
+	"cx-mt-abuse-warning-text": "Automatala tradukuro furnisesas quale komenco-punto. Verifikez se la kontenajo esas preciza, e la gramatiko esas korekta en vua linguo.\n\nVua tradukuro povos efacesor kande altra redakteri revizos ol.",
 	"cx-contributions-new-contributions": "Nova redaktadi",
 	"cx-contributions-new-article": "Nova pagino",
 	"cx-contributions-upload": "Sendez 'media'",

@@ -11,7 +11,7 @@
 	"apihelp-cxpublish-param-from": "Kodhe basa sumber.",
 	"apihelp-cxpublish-param-to": "Kodhe basa tujuan.",
 	"apihelp-cxpublish-param-sourcetitle": "Sesirahing kaca sumber",
-	"apihelp-cxpublish-param-categories": "Kategori kanggo ndèkèk kaca sing wis terbit",
+	"apihelp-cxpublish-param-categories": "Kategori kanggo ndokok kaca kang wis kababar",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (nalika nyimpen nganggo tanggepan captcha)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Wangsulan marang captcha (nalika nyimpen nganggo tanggepan captcha).",
 	"apihelp-query+contenttranslation-description": "Jaluk pamrayogya saka database Pertalan Kontèn ngenani pertalan.",

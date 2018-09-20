@@ -4,7 +4,8 @@
 			"Dbc334",
 			"Eleassar",
 			"Janezdrilc",
-			"HairyFotr"
+			"HairyFotr",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Prevedi stran",
@@ -94,7 +95,7 @@
 	"cx-page-missing-in-target-language": "Ne obstaja v jeziku $1",
 	"cx-page-number-of-languages": "Število jezikov",
 	"cx-mt-abuse-warning-title": "Tvoj prevod {{PLURAL:$1|vsebuje}} $1 nespremenjenega besedila",
-	"cx-mt-abuse-warning-text": "Samodejno prevajanje je priporočljivo le za začetek. Prepričaj se, da je vsebina točna in da se bere naravno v tvojem jeziku.<br><br>Tvoj prevod bo najverjetneje izbrisan, ko ga bo pregledal kdo od drugih urejevalcev.",
+	"cx-mt-abuse-warning-text": "Samodejno prevajanje je priporočljivo le za začetek. Prepričaj se, da je vsebina točna in da se bere naravno v tvojem jeziku.\n\nTvoj prevod bo najverjetneje izbrisan, ko ga bo pregledal kdo od drugih urejevalcev.",
 	"cx-publish-captcha-title": "Preverjanje, da niste robot",
 	"cx-captcha-dialog-error": "Tvoj odgovor je videti napačen. Poskusi ponovno.",
 	"cx-captcha-dialog-cancel": "Prekliči",
@@ -228,9 +229,9 @@
 	"cx-tools-linter-empty-title-message": "Vse strani morajo imeti ime, da jih lahko uporabniki najdejo. Določi svojemu prevodu ter ga objavi.",
 	"cx-tools-linter-invalid-character": "Tvoj naslov prevoda vsebuje neveljavne znake",
 	"cx-tools-linter-invalid-character-action": "Popravi sporne znake",
-	"cx-tools-linter-invalid-character-message": "Nekaterih znakov iz tehničnih razlogov ni mogoče uporabiti v naslovu strani.<br><br>Uredi naslov tako, da se jim izogneš.",
+	"cx-tools-linter-invalid-character-message": "Nekaterih znakov iz tehničnih razlogov ni mogoče uporabiti v naslovu strani.\n\nUredi naslov tako, da se jim izogneš.",
 	"cx-tools-linter-page-exists": "Stran že obstaja",
-	"cx-tools-linter-page-exists-message": "Stran z naslovom $1 že obstaja. Objava tvojega prevoda bo prepisala obstoječi vsebino.<br><br>Preveri, v kolikor bi prepis lahko naredil škodo že prispevani vsebini, oziroma razmisli o preimenovanju prevoda.",
+	"cx-tools-linter-page-exists-message": "Stran z naslovom $1 že obstaja. Objava tvojega prevoda bo prepisala obstoječi vsebino.\n\nPreveri, v kolikor bi prepis lahko naredil škodo že prispevani vsebini, oziroma razmisli o preimenovanju prevoda.",
 	"cx-translator-header": "Tvoja statistika",
 	"cx-translator-month-stats-label": "Ta mesec",
 	"cx-translator-total-translations-label": "Skupno",

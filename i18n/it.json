@@ -19,7 +19,8 @@
 			"Liuxinyu970226",
 			"Greis",
 			"Sarah Bernabei",
-			"Gabrielet"
+			"Gabrielet",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -102,7 +103,7 @@
 	"cx-selected-source-page-error-title-in-use": "Il titolo della nuova pagina è [$1 già in uso]",
 	"cx-page-number-of-languages": "Numero di lingue",
 	"cx-mt-abuse-warning-title": "La tua traduzione {{PLURAL:$1|contiene}} $1% di testo non modificato",
-	"cx-mt-abuse-warning-text": "Le traduzioni automatiche sono fornite solo come punto di partenza. Assicurati che il contenuto sia accurato e scorrevole da leggere nella tua lingua.<br><br>È probabile che la tua traduzione venga cancellata quando sarà esaminata da altri editori.",
+	"cx-mt-abuse-warning-text": "Le traduzioni automatiche sono fornite solo come punto di partenza. Assicurati che il contenuto sia accurato e scorrevole da leggere nella tua lingua.\n\nÈ probabile che la tua traduzione venga cancellata quando sarà esaminata da altri editori.",
 	"cx-publish-captcha-title": "Controllando che non sei un robot.",
 	"cx-captcha-dialog-error": "La tua risposta non è corretta. Riprova.",
 	"cx-captcha-dialog-cancel": "Annulla",
@@ -111,6 +112,7 @@
 	"cx-dashboard-sidebar-stats": "Statistiche",
 	"cx-dashboard-sidebar-feedback": "Inviaci un commento",
 	"cx-dashboard-sidebar-newversion": "Prova la nuova versione",
+	"cx-dashboard-sidebar-newversion-using": "Usa la nuova versione",
 	"cx-dashboard-sidebar-newversion-disable": "Disabilita",
 	"cx-newversion-notification-title": "La nuova versione è abilitata",
 	"cx-translation-filter-published-translations": "Pubblicate",

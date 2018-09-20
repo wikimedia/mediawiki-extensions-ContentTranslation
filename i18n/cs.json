@@ -19,7 +19,8 @@
 			"Ilimanaq29",
 			"Patriccck",
 			"Evica",
-			"Jan Růžička"
+			"Jan Růžička",
+			"Петар Петковић"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -108,7 +109,7 @@
 	"cx-page-missing-in-target-language": "Chybí v $1",
 	"cx-page-number-of-languages": "Počet jazyků",
 	"cx-mt-abuse-warning-title": "Váš překlad {{PLURAL:$1|obsahuje}} $1 % nezměněného textu",
-	"cx-mt-abuse-warning-text": "Automatický překlad je pouze podkladový materiál. Ujistěte se, že výsledný obsah stránky je přesný a že ve vašem jazyce zní přirozeně.<br><br>Váš překlad bude pravděpodobně smazán, hned jak jej zkontrolují ostatní editoři.",
+	"cx-mt-abuse-warning-text": "Automatický překlad je pouze podkladový materiál. Ujistěte se, že výsledný obsah stránky je přesný a že ve vašem jazyce zní přirozeně.\n\nVáš překlad bude pravděpodobně smazán, hned jak jej zkontrolují ostatní editoři.",
 	"cx-publish-captcha-title": "Ověření, že nejste robot",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potřebujete}} pomoct s překladem?",
 	"cx-dashboard-sidebar-information": "O tomto nástroji",
@@ -228,7 +229,7 @@
 	"cx-tools-linter-content": "Byl nalezen obsah, který nesplňuje [//www.mediawiki.org/wiki/Content_translation/Abuse_filter omezení stanovené Wikipedii pro $1]. Prosím opravte problémy před zveřejněním překladu.",
 	"cx-tools-linter-view-details": "Zobrazit detaily",
 	"cx-tools-linter-hide-details": "Skrýt detaily",
-	"cx-tools-linter-page-exists-message": "Stránka s názvem $1 již existuje. Zveřejněním svého překladu přepíšete její dosavadní obsah<br><br>Zkontrolujte, zda je nahrazení stránky v pořádku, a případně zvažte přejmenování svého překladu.",
+	"cx-tools-linter-page-exists-message": "Stránka s názvem $1 již existuje. Zveřejněním svého překladu přepíšete její dosavadní obsah\n\nZkontrolujte, zda je nahrazení stránky v pořádku, a případně zvažte přejmenování svého překladu.",
 	"cx-translator-header": "Vaše statistiky",
 	"cx-translator-month-stats-label": "Tento měsíc",
 	"cx-translator-total-translations-label": "Celkem",
