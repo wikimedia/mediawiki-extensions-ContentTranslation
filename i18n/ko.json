@@ -129,6 +129,7 @@
 	"cx-dashboard-sidebar-newversion-using": "새 버전 사용하기",
 	"cx-dashboard-sidebar-newversion-disable": "사용 안 함",
 	"cx-newversion-notification-title": "새 버전이 활성화되었습니다",
+	"cx-newversion-notification-message": "새 편집기는 새 번역에 기본적으로 사용됩니다. 이전 번역은 무조건 번역을 시작한 편집기로 열립니다.",
 	"cx-translation-filter-published-translations": "게시됨",
 	"cx-translation-filter-draft-translations": "진행 중",
 	"cx-translation-filter-suggested-translations": "제안",
