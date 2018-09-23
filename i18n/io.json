@@ -17,6 +17,8 @@
 	"cx-publish-gt-first-step-title": "La tradukuro publikigesis quale esbosuro en vua uzero-pagino, por vua revizo",
 	"cx-publish-gt-published-title": "Gratuli! La pagino publikigesis",
 	"cx-translation-target-page-exists": "Pagino kun titulo [$1 $2] ja existas en ta Wiki. Konsiderez donar nova titulo por la pagino.",
+	"tag-contenttranslation-description": "Ica kontenajo tradukesis de altra linguo uzante l'automatala utensilo por tradukuro di kontenaji.",
+	"tag-contenttranslation-v2-description": "Ica kontenajo tradukesis de altra linguo uzante la versiono 2 del Automatala Utensilo por Tradukuro di kontenaji.",
 	"cx-beta-desc": "Ca utensilo rapide tradukas pagini a vua linguo. Komencez tradukar de [[Special:MyContributions|vua pagino di kontributaji]] e pose redaktez li per nia \"redaktilo\", kreita specale por tradukuri. Kelka ek nia utensili povas esar disponebla nur por poka lingui.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
 	"cx-entrypoint-dialog-title-in": "Titulo di la nova pagino en $1:",
