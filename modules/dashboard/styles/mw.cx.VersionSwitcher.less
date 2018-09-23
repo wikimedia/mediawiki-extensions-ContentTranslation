@@ -3,14 +3,11 @@
 
 .cx-dashboard-sidebar__link {
 	&--version {
-		max-width: 65%;
-		margin-right: 0;
+		display: block;
 	}
 
 	&--disable {
-		max-width: 35%;
 		padding-left: 0.5em;
-		.box-sizing( border-box );
 
 		> .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 			@size: 3px;
@@ -25,5 +22,23 @@
 			margin-top: -@size / 2;
 			margin-left: -0.5em;
 		}
+	}
+
+	&--help {
+		padding-left: 1.57142857em; // Calculated with margins, paddings and positioning in mind
+		margin-right: 0;
+
+		// Needed for Monobook
+		&.oo-ui-buttonWidget > a.oo-ui-buttonElement-button {
+			padding-right: 0.14285714em;
+			border-right: 1px solid transparent;
+		}
+	}
+
+	&--disable,
+	&--help {
+		max-width: 50%;
+		top: -0.4em;
+		.box-sizing( border-box );
 	}
 }

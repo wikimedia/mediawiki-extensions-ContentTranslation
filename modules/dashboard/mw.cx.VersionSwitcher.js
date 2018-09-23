@@ -20,6 +20,7 @@
 		this.$container = $( element );
 		this.enableButton = null;
 		this.disableButton = null;
+		this.helpLink = null;
 
 		this.render();
 		this.init();
@@ -42,6 +43,15 @@
 			flags: [ 'primary', 'progressive' ],
 			label: mw.msg( 'cx-dashboard-sidebar-newversion-disable' )
 		} );
+
+		this.helpLink = new OO.ui.ButtonWidget( {
+			framed: false,
+			classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--help' ],
+			flags: [ 'primary', 'progressive' ],
+			href: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/v2',
+			target: '_blank',
+			label: mw.msg( 'cx-dashboard-sidebar-newversion-help' )
+		} );
 	};
 
 	ContentTranslationVersionSwitcher.prototype.init = function () {
@@ -52,7 +62,11 @@
 		}
 
 		this.setDisabledState( newVersionEnabled );
-		this.$container.append( this.enableButton.$element, this.disableButton.$element );
+		this.$container.append(
+			this.enableButton.$element,
+			this.helpLink.$element,
+			this.disableButton.$element
+		);
 	};
 
 	ContentTranslationVersionSwitcher.prototype.listen = function () {
@@ -70,8 +84,10 @@
 	ContentTranslationVersionSwitcher.prototype.setDisabledState = function ( newVersionEnabled ) {
 		this.enableButton.setDisabled( newVersionEnabled );
 		this.disableButton.setDisabled( !newVersionEnabled );
+		this.helpLink.setDisabled( !newVersionEnabled );
 
 		this.disableButton.toggle( newVersionEnabled );
+		this.helpLink.toggle( newVersionEnabled );
 
 		this.enableButton.$element.toggleClass( 'cx-dashboard-sidebar__link--version', newVersionEnabled );
 	};

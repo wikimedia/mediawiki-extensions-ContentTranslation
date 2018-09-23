@@ -130,6 +130,7 @@
 	"cx-dashboard-sidebar-newversion": "Shown in sidebar menu in the Content Translation dashboard. Sets version 2 of Content Translation tool as default when starting new translations.",
 	"cx-dashboard-sidebar-newversion-using": "Shown in sidebar menu in the Content Translation dashboard. Lets the user know they are using version 2 of Content Translation tool.",
 	"cx-dashboard-sidebar-newversion-disable": "Shown in sidebar menu in the Content Translation dashboard. Switches back to version 1 of Content Translation tool, when starting new translations.",
+	"cx-dashboard-sidebar-newversion-help": "Shown in sidebar menu on the Content Translation dashboard. Provides link to a page with more information about the version 2 of Content Translation tool.",
 	"cx-newversion-notification-title": "Title of notification displayed on Content Translation dashboard when user opts-in to try version 2 of the tool.",
 	"cx-newversion-notification-message": "Message body for notification displayed on Content Translation dashboard when user opts-in to try version 2 of the tool.",
 	"cx-translation-filter-published-translations": "Shown in translation filter in Content Translation dashboard. Selects all published translations by the current translator.",
