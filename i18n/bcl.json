@@ -2,10 +2,25 @@
 	"@metadata": {
 		"authors": [
 			"Geopoet",
-			"Amire80"
+			"Amire80",
+			"ShimunUfesoj"
 		]
 	},
+	"cx": "Pahina nin dakit-taramon",
+	"cx-dashboard-header": "Mga dakit-taramon",
+	"cx-header-all-translations": "Gabos na dinakit-taramon",
+	"cx-source-view-page": "tanawon an pahina",
+	"cx-publish-button": "Publikar",
+	"cx-publish-button-publishing": "Nagpupublikar...",
+	"cx-lost-session-dashboard-lists": "Tanganing mahiling an listang ini, pakiulay na maglaog otro",
+	"cx-publish-gt-move-page-title": "Balyuhon an pahina",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Dakit-taramon_nin_laman]]",
+	"cx-tools-link-title": "Kasugponan",
+	"cx-tools-link-add": "Magdagdag nin Kasugponan",
+	"cx-tools-mt-provider-title": "Maggamit nin $1",
+	"cx-tools-mt-dont-use": "Dae maggamit nin makina nin pagdakit-taramon",
+	"cx-tools-mt-preferred": "pwestong normal",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorya|$1 mga kategorya|0=Mayong mga kategorya}}",
 	"cx-tools-reference-add": "Idugang ang toltolan",
 	"cx-dashboard-sidebar-stats": "Estadistika",
 	"cx-stats-published-target-source": "Mga Dakit-taramon sa",
