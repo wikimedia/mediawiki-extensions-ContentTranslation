@@ -1,21 +1,17 @@
 /**
  * @class
  * @extends ve.dm.MWInternalLinkAnnotation
- * @mixins ve.dm.CXTranslationUnitModel
  * @constructor
  * @param {Object} element
  */
 ve.dm.CXLinkAnnotation = function VeDmCXLinkAnnotation() {
 	// Parent constructor
 	ve.dm.CXLinkAnnotation.super.apply( this, arguments );
-	// Mixin constructor
-	ve.dm.CXTranslationUnitModel.call( this );
 };
 
 /* Inheritance */
 
 OO.inheritClass( ve.dm.CXLinkAnnotation, ve.dm.MWInternalLinkAnnotation );
-OO.mixinClass( ve.dm.CXLinkAnnotation, ve.dm.CXTranslationUnitModel );
 
 /* Static Properties */
 

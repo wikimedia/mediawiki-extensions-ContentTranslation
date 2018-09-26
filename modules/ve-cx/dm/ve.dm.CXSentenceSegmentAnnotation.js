@@ -11,7 +11,6 @@
  *
  * @class
  * @extends ve.dm.Annotation
- * @mixins ve.dm.CXTranslationUnitModel
  * @constructor
  * @param {Object} element
  */
@@ -23,7 +22,6 @@ ve.dm.CXSentenceSegmentAnnotation = function VeDmCXSentenceSegmentAnnotation() {
 /* Inheritance */
 
 OO.inheritClass( ve.dm.CXSentenceSegmentAnnotation, ve.dm.Annotation );
-OO.mixinClass( ve.dm.CXSentenceSegmentAnnotation, ve.dm.CXTranslationUnitModel );
 
 /* Static Properties */
 

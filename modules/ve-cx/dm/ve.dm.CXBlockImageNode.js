@@ -3,7 +3,6 @@
  *
  * @class
  * @extends ve.dm.MWBlockImageNode
- * @mixins ve.dm.CXTranslationUnitModel
  * @constructor
  * @param {Object} [element] Reference to element in linear model
  * @param {ve.dm.Node[]} [children]
@@ -11,14 +10,11 @@
 ve.dm.CXBlockImageNode = function VeDmCXBlockImageNode() {
 	// Parent constructor
 	ve.dm.CXBlockImageNode.super.apply( this, arguments );
-	// Mixin constructor
-	ve.dm.CXTranslationUnitModel.call( this );
 };
 
 /* Inheritance */
 
 OO.inheritClass( ve.dm.CXBlockImageNode, ve.dm.MWBlockImageNode );
-OO.mixinClass( ve.dm.CXBlockImageNode, ve.dm.CXTranslationUnitModel );
 
 /* Static Properties */
 
