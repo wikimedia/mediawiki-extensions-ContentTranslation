@@ -84,24 +84,6 @@ ve.dm.CXSectionNode.prototype.emitSectionChange = function () {
 };
 
 /**
- * Get the section id for this section.
- * Example: cxTargetSection34
- * @return {string}
- */
-ve.dm.CXSectionNode.prototype.getSectionId = function () {
-	return this.getAttribute( 'cxid' );
-};
-
-/**
- * Get the section number for the section. It is common for both
- * source and target section. Examples: 45, 12 etc.
- * @return {number} section number
- */
-ve.dm.CXSectionNode.prototype.getSectionNumber = function () {
-	return mw.cx.getSectionNumberFromSectionId( this.getSectionId() );
-};
-
-/**
  * Whether the section is target section or not.
  * @return {boolean}
  */
