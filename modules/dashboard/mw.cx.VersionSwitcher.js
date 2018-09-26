@@ -163,12 +163,14 @@
 	 * @return {jQuery.Promise} API call to save the user preference
 	 */
 	ContentTranslationVersionSwitcher.prototype.persistUserPreference = function ( action, newVersion ) {
+		var numericalPreference = newVersion ? 1 : 0;
+
 		return new mw.Api().postWithToken( 'csrf', {
 			assert: 'user',
 			formatversion: 2,
 			action: action,
 			optionname: 'cx-new-version',
-			optionvalue: newVersion
+			optionvalue: numericalPreference
 		} );
 	};
 
