@@ -88,6 +88,8 @@
 	"cx-publish-captcha-title": "Sikkerhedsspørgsmål",
 	"cx-captcha-dialog-cancel": "Annullér",
 	"cx-dashboard-sidebar-information": "Mere om dette værktøj",
+	"cx-dashboard-sidebar-newversion-disable": "Deaktiver",
+	"cx-dashboard-sidebar-newversion-help": "Lær mere",
 	"cx-translation-filter-published-translations": "Udgivet",
 	"cx-translation-filter-draft-translations": "Igangværende",
 	"cx-translation-filter-suggested-translations": "Forslag",

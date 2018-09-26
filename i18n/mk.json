@@ -109,6 +109,7 @@
 	"cx-dashboard-sidebar-newversion": "Пробајте ја новата верзија",
 	"cx-dashboard-sidebar-newversion-using": "Ја користи новата верзија",
 	"cx-dashboard-sidebar-newversion-disable": "Исклучи",
+	"cx-dashboard-sidebar-newversion-help": "Дознајте повеќе",
 	"cx-newversion-notification-title": "Новата верзија вклучена",
 	"cx-newversion-notification-message": "Новиот уредник ќе се користи како стандарден за новите преводи. Претходните преводи секогаш ќе се отворат во уредникот во кој се започнати.",
 	"cx-translation-filter-published-translations": "Објавени",

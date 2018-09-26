@@ -121,6 +121,7 @@
 	"cx-dashboard-sidebar-newversion": "جرب الإصدار الجديد",
 	"cx-dashboard-sidebar-newversion-using": "استخدام الإصدار الجديد",
 	"cx-dashboard-sidebar-newversion-disable": "تعطيل",
+	"cx-dashboard-sidebar-newversion-help": "معرفة المزيد",
 	"cx-newversion-notification-title": "تم تمكين الإصدار الجديد",
 	"cx-newversion-notification-message": "سيتم استخدام المحرر الجديد بشكل افتراضي للترجمات الجديدة. سيتم فتح الترجمات السابقة دائما بالمحرر الذي بدأها.",
 	"cx-translation-filter-published-translations": "المنشورة",

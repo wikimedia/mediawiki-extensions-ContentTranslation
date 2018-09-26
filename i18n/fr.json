@@ -144,6 +144,7 @@
 	"cx-dashboard-sidebar-newversion": "Essayer la nouvelle version",
 	"cx-dashboard-sidebar-newversion-using": "Utilisation de la nouvelle version",
 	"cx-dashboard-sidebar-newversion-disable": "Désactiver",
+	"cx-dashboard-sidebar-newversion-help": "En savoir plus",
 	"cx-newversion-notification-title": "La nouvelle version est activée",
 	"cx-newversion-notification-message": "Le nouvel éditeur sera utilisé par défaut pour vos nouvelles traductions. Les traductions précédentes seront toujours ouvertes avec l’éditeur avec lequel elles ont été commencées.",
 	"cx-translation-filter-published-translations": "Publiées",

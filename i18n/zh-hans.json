@@ -18,7 +18,8 @@
 			"Endermoon",
 			"Deathkon",
 			"Петар Петковић",
-			"夢蝶葬花"
+			"夢蝶葬花",
+			"Phenolla"
 		]
 	},
 	"cx": "翻译页面",
@@ -122,6 +123,7 @@
 	"cx-dashboard-sidebar-newversion": "尝试新的版本",
 	"cx-dashboard-sidebar-newversion-using": "使用新的版本",
 	"cx-dashboard-sidebar-newversion-disable": "禁用",
+	"cx-dashboard-sidebar-newversion-help": "了解更多",
 	"cx-newversion-notification-title": "新版本已开启",
 	"cx-newversion-notification-message": "默认情况下，新编辑器将用于新翻译。以前的翻译将始终使用启动它们的编辑器打开。",
 	"cx-translation-filter-published-translations": "已发布",

@@ -15,8 +15,11 @@
 	"apihelp-query+contenttranslation-description": "Spørg indholdsoversættelses-databasen om oversættelser.",
 	"apihelp-query+contenttranslation-example-1": "Hent oversættelser startet af den aktuelle bruger.",
 	"apihelp-query+contenttranslationstats-example-1": "Hent statistik på indholdsoversættelser for alle sprog.",
+	"apihelp-cxsave-param-sourcetitle": "Titlen på kildesiden.",
+	"apierror-cx-inuse": "En anden bruger er allerede igang med at oversætte denne artikel.",
 	"apierror-cx-invalidlanguage": "Ugyldigt sprog.",
 	"apierror-cx-invalidprogress": "Ugyldig fremgang.",
 	"apierror-cx-jwtmissing": "JWT er ikke installeret.",
+	"apierror-cx-missingdraft": "Kladden findes ikke.",
 	"apierror-cx-translationnotfound": "Oversættelse ikke fundet."
 }

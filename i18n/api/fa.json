@@ -67,6 +67,7 @@
 	"apihelp-cxsave-param-from": "کد زبان مبدا",
 	"apihelp-cxsave-param-to": "کد زبان مقصد",
 	"apihelp-cxsave-param-sourcetitle": "عنوان صفحه مبدا",
+	"apierror-cx-docserverexception": "خطا در تبدیل HTML به ویکی‌متن: $1",
 	"apierror-cx-invalidlanguage": "زبان نامعتبر.",
 	"apierror-cx-invalidprogress": "پیشرفت نامعتبر.",
 	"apierror-cx-invalidsectioncontent": "محتوای بخش نامعتبر",

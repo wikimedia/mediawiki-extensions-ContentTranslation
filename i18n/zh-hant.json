@@ -14,7 +14,8 @@
 			"A2093064",
 			"Kly",
 			"Dongzn",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Hello903hello"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -106,7 +107,7 @@
 	"cx-selected-source-page-error-title-in-use": "新頁面的標題[$1 已被使用]",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "語言數量",
-	"cx-mt-abuse-warning-title": "您的翻譯{{PLURAL:$1|包含著}} $1% 未修改內容。",
+	"cx-mt-abuse-warning-title": "您的翻譯{{PLURAL:$1|包含著}} $1% 未修改內容",
 	"cx-mt-abuse-warning-text": "自動翻譯僅提供做為參考，請確認內容在您的語言裡的準確性及可讀性。\n\n當其他編輯者檢閱您的翻譯時，有可能會將您的內容給刪除。",
 	"cx-publish-captcha-title": "檢查您並非是機器人",
 	"cx-captcha-dialog-error": "您的答案似乎不正確。請重試。",
@@ -118,6 +119,7 @@
 	"cx-dashboard-sidebar-newversion": "嘗試新版本",
 	"cx-dashboard-sidebar-newversion-using": "使用新版本",
 	"cx-dashboard-sidebar-newversion-disable": "停用",
+	"cx-dashboard-sidebar-newversion-help": "了解更多",
 	"cx-newversion-notification-title": "新版本已啟用",
 	"cx-newversion-notification-message": "預設情況下，會以新編輯器來使用在您的新翻譯內容上。之前的翻譯內容，都會以使用原先建立出它們的編輯器來開啟。",
 	"cx-translation-filter-published-translations": "已發佈",

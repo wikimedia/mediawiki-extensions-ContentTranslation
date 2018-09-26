@@ -119,6 +119,7 @@
 	"cx-dashboard-sidebar-newversion": "Experimentar a nova versão",
 	"cx-dashboard-sidebar-newversion-using": "A usar a nova versão",
 	"cx-dashboard-sidebar-newversion-disable": "Desativar",
+	"cx-dashboard-sidebar-newversion-help": "Saiba mais",
 	"cx-newversion-notification-title": "A nova versão está ativada",
 	"cx-newversion-notification-message": "O novo editor será usado por padrão para as suas traduções novas. As traduções anteriores sempre serão abertas com o editor que as começou.",
 	"cx-translation-filter-published-translations": "Publicadas",
