@@ -518,25 +518,6 @@ mw.cx.dm.Translation.prototype.onSectionChange = function () {
 };
 
 /**
- * Build a translation unit from the source ve.dm.Node or ve.dm.Annotation, if one matches
- *
- * @param {ve.dm.Node|ve.dm.Annotation} sourceModel Source node or annotation
- * @param {mw.cx.dm.TranslationUnit|null} parentUnit Parent translation unit
- * @return {mw.cx.dm.TranslationUnit|null} The translation unit, or null
- */
-mw.cx.dm.Translation.prototype.matchTranslationUnit = function ( sourceModel, parentUnit ) {
-	var id, type;
-	if (
-		!sourceModel.getTranslationUnitId ||
-		!( id = sourceModel.getTranslationUnitId() ) ||
-		!( type = mw.cx.dm.translationUnitFactory.match( sourceModel ) )
-	) {
-		return null;
-	}
-	return mw.cx.dm.translationUnitFactory.create( type, this, id, sourceModel, parentUnit );
-};
-
-/**
  * Add issues global for the whole translation, not attached to any DOM node.
  *
  * @param {mw.cx.dm.TranslationIssue[]} issues

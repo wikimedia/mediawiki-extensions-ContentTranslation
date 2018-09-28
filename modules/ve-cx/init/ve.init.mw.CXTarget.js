@@ -734,7 +734,7 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	var pasteDoc, newCursorRange, newRange, tx, docLen,
 		surfaceModel = this.getSurface().getModel(),
 		doc = surfaceModel.getDocument(),
-		cxid = section.getTranslationUnitId(),
+		cxid = section.getSectionId(),
 		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
 
 	/**
@@ -889,7 +889,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 	var cxid, html, cachedContent;
 
 	options = options || {};
-	cxid = section.getTranslationUnitId();
+	cxid = section.getSectionId();
 	html = ve.dm.converter.getDomFromNode( section, true ).body.children[ 0 ].outerHTML;
 
 	if ( previousProvider !== null ) {
