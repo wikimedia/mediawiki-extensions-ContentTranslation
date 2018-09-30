@@ -115,10 +115,11 @@ class TranslationStorageManager {
 	 */
 	public static function save( TranslationUnit $translationUnit, $newTranslation ) {
 		$dbw = Database::getConnection( DB_MASTER );
+		$fname = __METHOD__;
 
 		$dbw->doAtomicSection(
 			__METHOD__,
-			function ( IDatabase $dbw ) use ( $translationUnit, $newTranslation ) {
+			function ( IDatabase $dbw ) use ( $translationUnit, $newTranslation, $fname ) {
 				if ( $newTranslation ) {
 					// T134245: brand new translations can also insert corpora data in the same
 					// request. The doFind() query uses only a subset of a unique cx_corpora index,
@@ -141,7 +142,7 @@ class TranslationStorageManager {
 					// SH gap locks in doFind() and then deadlock in create() trying to get IX gap
 					// locks (if no duplicate rows were found).
 					$options = [ 'FOR UPDATE' ];
-					$existing = self::doFind( $dbw, $conditions, $options, __METHOD__ );
+					$existing = self::doFind( $dbw, $conditions, $options, $fname );
 				}
 
 				if ( $existing ) {
