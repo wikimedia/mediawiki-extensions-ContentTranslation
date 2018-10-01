@@ -404,20 +404,12 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
  * @return {Object[]} Objects to save
  */
 mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumber ) {
-	var validate, content, translationSource, origin,
-		sectionState, records = [];
+	var validate, content, translationSource, sectionState, records = [];
 
 	sectionState = this.translationTracker.getSectionState( sectionNumber );
 
 	if ( !sectionState ) {
 		throw new Error( 'Attempting to save section ' + sectionNumber + ' having no section state.' );
-	}
-
-	translationSource = sectionState.getCurrentMTProvider();
-	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {
-		origin = 'user';
-	} else {
-		origin = translationSource;
 	}
 
 	// Because validation is computationally heavy and slow operation (server side),
@@ -426,23 +418,39 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	// checking whether the content matches AbuseFilter rules defined in the target wiki.
 	validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
 
-	content = origin === 'user' ?
-		sectionState.getUserTranslation().html : sectionState.getUnmodifiedMT().html;
-
-	if ( !content ) {
-		throw new Error( 'Attempting to save section ' + sectionNumber + ' having blank html content.' );
+	translationSource = sectionState.getCurrentMTProvider();
+	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {
+		content = sectionState.getUserTranslation().html;
+		if ( content ) {
+			records.push( {
+				content: content,
+				sectionId: sectionNumber,
+				validate: validate,
+				origin: 'user'
+			} );
+			mw.log( '[CX] Saving user translation for section ' + sectionNumber +
+			' [validate:' + validate + ']' );
+		} else {
+			throw new Error( 'Attempting to save section ' + sectionNumber + ' with blank content.' );
+		}
 	}
 
-	records.push( {
-		content: content,
-		// Use source section number as the canonical section id shared by source and target.
-		sectionId: sectionNumber,
-		validate: validate,
-		origin: origin
-	} );
-
-	mw.log( '[CX] Saving translation of section ' + sectionNumber +
-		' [validate:' + validate + ', origin:' + origin + ']' );
+	if ( !sectionState.getUnmodifiedMT().saved ) {
+		content = sectionState.getUnmodifiedMT().html;
+		if ( content ) {
+			records.push( {
+				content: content,
+				sectionId: sectionNumber,
+				validate: false,
+				origin: translationSource
+			} );
+			mw.log( '[CX] Saving unmodified MT for section ' + sectionNumber +
+			' [validate:' + validate + ']' );
+		} else {
+			throw new Error( 'Attempting to save section ' + sectionNumber + ' with blank content.' );
+		}
+		sectionState.markUnmodifiedMTSaved();
+	}
 
 	// Save source sections only once because they do not change.
 	if ( !sectionState.isSourceSaved() ) {
@@ -453,7 +461,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 			validate: false,
 			origin: 'source'
 		} );
-		sectionState.markSourceSaved( true );
+		sectionState.markSourceSaved();
 		mw.log( '[CX] Saving source content of section ' + sectionNumber );
 	}
 

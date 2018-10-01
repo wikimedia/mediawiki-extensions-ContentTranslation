@@ -59,6 +59,7 @@ mw.cx.TranslationTracker.prototype.init = function () {
 				// Machine translation, unmodified.
 				sectionState.setCurrentMTProvider( savedTranslationUnit.mt.engine );
 				sectionState.setUnmodifiedMT( savedTranslationUnit.mt.content );
+				sectionState.markUnmodifiedMTSaved();
 			}
 			restoredSections++;
 			this.changeQueue.push( sectionNumber );
