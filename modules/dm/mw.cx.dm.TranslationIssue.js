@@ -2,7 +2,9 @@
  * @class
  * @constructor
  * @param {string} name Unique issue identifier
- * @param {mw.Message} message
+ * @param {mw.Message|string} message Main message describing the translation issue.
+ * Use mw.Message object for registered messages. For messages which are properly parsed,
+ * string type can be used.
  * @param {Object} [messageInfo]
  * @cfg {string} [title]
  * @cfg {string} [type='warning'] 'warning' or 'error'
@@ -38,6 +40,20 @@ mw.cx.dm.TranslationIssue.prototype.getTitle = function () {
 };
 
 mw.cx.dm.TranslationIssue.prototype.getMessage = function () {
+	return this.message;
+};
+
+/**
+ * Get the HTML content of the message.
+ *
+ * @return {jQuery|string} If message is registered, it's being parsed as DOM. HTML strings are
+ * considered to be already parsed messages.
+ */
+mw.cx.dm.TranslationIssue.prototype.getMessageContent = function () {
+	if ( this.message instanceof mw.Message ) {
+		return this.message.parseDom();
+	}
+
 	return this.message;
 };
 

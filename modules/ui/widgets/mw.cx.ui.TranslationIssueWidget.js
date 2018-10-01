@@ -31,7 +31,7 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 		.text( this.model.getTitle() || mw.msg( 'cx-tools-linter-generic-title' ) );
 	this.$message = $( '<p>' )
 		.addClass( 'cx-ui-translationIssue-message' )
-		.append( this.model.getMessage().parseDom() );
+		.append( this.model.getMessageContent() );
 	this.$foot = $( '<div>' ).addClass( 'cx-ui-translationIssue-foot' );
 
 	this.$element.append( this.icon.$element, this.$title, this.$message, this.$foot );
