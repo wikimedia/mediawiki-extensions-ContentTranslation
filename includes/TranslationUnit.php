@@ -32,7 +32,7 @@ class TranslationUnit {
 		$this->sequenceId = (int)$params['sequenceId'];
 		$this->content = (string)$params['content'];
 		if ( isset( $params['timestamp'] ) ) {
-			$this->timestamp = (int)$params['timestamp'];
+			$this->timestamp = $params['timestamp'];
 		} else {
 			$this->timestamp = wfTimestamp();
 		}

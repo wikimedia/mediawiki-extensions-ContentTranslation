@@ -16,7 +16,7 @@ class TranslationStorageManager {
 	 *
 	 * @param IDatabase $db
 	 * @param TranslationUnit $translationUnit
-	 * @param int $timestamp
+	 * @param string $timestamp
 	 */
 	private static function update( IDatabase $db, TranslationUnit $translationUnit, $timestamp ) {
 		$values = [
