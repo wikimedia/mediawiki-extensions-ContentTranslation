@@ -19,7 +19,8 @@
 			"Deathkon",
 			"Петар Петковић",
 			"夢蝶葬花",
-			"Phenolla"
+			"Phenolla",
+			"A Chinese Wikipedian"
 		]
 	},
 	"cx": "翻译页面",
@@ -255,6 +256,8 @@
 	"cx-tools-linter-invalid-character-message": "出于技术原因，一些字符不能用于页面标题。\n\n请编辑标题以避免有问题的字符。",
 	"cx-tools-linter-page-exists": "页面已存在",
 	"cx-tools-linter-page-exists-message": "标题为$1的页面已存在。发布您的翻译将覆盖整个内容\n\n检查替换整个页面是否合适，或考虑重命名您的翻译。",
+	"cx-tools-linter-template": "模版不可用",
+	"cx-tools-linter-template-block-message": "原始页面使用在目的地wiki中不可用的模板。\n这个模板已经被跳过，但是您可以添加新的内容来捕获丢失的信息。",
 	"cx-translator-header": "您的统计",
 	"cx-translator-month-stats-label": "本月",
 	"cx-translator-total-translations-label": "总计",
