@@ -15,6 +15,7 @@
 	"cx-publish-button": "شائع کرو",
 	"cx-publish-button-publishing": "شائع تھیندا پئے۔۔۔",
 	"cx-publish-gt-move-page-title": "ایں ورقے کوں گھن ڄلو",
+	"cx-translation-add-translation": "نواں ترجمہ",
 	"cx-source-loading": "لوڈ تھیندا پئے $1",
 	"cx-beta": "\nترجمہ مواد",
 	"cx-entrypoint-dialog-button-translate-from": "$1 کنوں ترجمہ",
@@ -85,6 +86,9 @@
 	"cx-trend-deletions": "مٹائے ہوئے ترجمے",
 	"cx-trend-translations-to": "$1 زبان دے ترجمے",
 	"cx-stats-published-translations-label": "شائع تھئے ہوے ترجمے",
+	"cx-stats-published-target-source": "$1 زبان دے ترجمے",
+	"cx-stats-draft-target-source": "ترجمے تھیندے پئے ہن",
+	"cx-stats-draft-source-target": "ترجمے تھیندے پئے ہن",
 	"cx-stats-tabs-expand": "ساریاں زباناں ݙیکھو",
 	"cx-stats-total-published": "کل شائع شدہ",
 	"cx-stats-weekly-published": "پچھلا ہفتہ",
@@ -117,5 +121,6 @@
 	"cx-tools-template-title": "سانچہ",
 	"cx-template-action-keep-original": "اصلی سانچہ رکھو",
 	"cx-publish-destination-namespace-main": "نواں ورقہ",
-	"cx-publish-destination-namespace-user": "ذاتی ڈرافٹ"
+	"cx-publish-destination-namespace-user": "ذاتی ڈرافٹ",
+	"cx-linkcontextitem-missing-link-title": "غیر موجود ربط"
 }
