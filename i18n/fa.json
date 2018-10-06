@@ -20,7 +20,8 @@
 			"Liuxinyu970226",
 			"Ommmmid",
 			"Arash",
-			"Alifakoor"
+			"Alifakoor",
+			"Arash.pt"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -41,8 +42,10 @@
 	"cx-publish-error-readonly": "هیچ نوشتنی به ویکی مجاز نیست.",
 	"cx-publish-button": "انتشار",
 	"cx-publish-button-publishing": "در حال انتشار...",
+	"cx-lost-session": "نشست شما منقضی شده است",
 	"cx-lost-session-draft": "نشست شما انقضا یافته است. ویرایش‌های شما نمی‌تواند ذخیره شود مگر اینکه در پنجرهٔ دیگری دوباره وارد شوید.",
 	"cx-lost-session-publish": "نشست شما انقضا یافته است. شما نمی‌تواند ترجمه را منتشر کنید مگر اینکه در پنجرهٔ دیگری دوباره وارد شوید.",
+	"cx-lost-session-dashboard-lists": "برای مشاهده این فهرست، لطفا دوباره وارد شوید.",
 	"cx-publish-summary": "ایجاد شده توسط ترجمهٔ صفحهٔ «$1»",
 	"cx-publish-gt-no-permission-to-move-description": "لطفاً از یک کاربر مجرب این وب‌گاه برای کمک در بازبینی ترجمه و انتشار آن به فضای اصلی خواهش کنید.",
 	"cx-publish-gt-first-step-title": "این ترجمه به‌عنوان یک پیش‌نویس در زیرصفحهٔ شما برای بازبینی منتشر شد",
@@ -84,6 +87,7 @@
 	"cx-tools-mt-provider-title": "استفاده از $1",
 	"cx-tools-mt-dont-use": "از ترجمهٔ ماشینی استفاده نکن",
 	"cx-tools-mt-set-default": "تنظیم به عنوان پیش‌فرض",
+	"cx-tools-mt-preferred": "پیش‌فرض",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 رده|$1 رده|0=بدون رده}}",
 	"cx-stats-title": "آمار مترجم محتویات",
 	"cx-tools-reference-title": "منبع",
@@ -113,6 +117,10 @@
 	"cx-dashboard-sidebar-information": "اطلاعات بیشتر دربارهٔ این ابزار",
 	"cx-dashboard-sidebar-stats": "آمار",
 	"cx-dashboard-sidebar-feedback": "به ما بازخورد دهید",
+	"cx-dashboard-sidebar-newversion": "نسخه جدید را امتحان کنید",
+	"cx-dashboard-sidebar-newversion-disable": "غیرفعال",
+	"cx-dashboard-sidebar-newversion-help": "اطلاعات بیشتر",
+	"cx-newversion-notification-title": "نسخه جدید فعال شد",
 	"cx-translation-filter-published-translations": "منتشر شده",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
 	"cx-translation-filter-suggested-translations": "پیشنهادها",
@@ -172,6 +180,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "ترجمه به جای نوشتن از از اول",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 ممکن است در حال حاضر در زبان‌های دیگر وجود داشته باشد",
 	"cx-campaign-contributionsmenu-myuploads": "بارگذاری رسانه",
+	"cx-campaign-research-participate": "شرکت در تحقیقات",
 	"cx-no-source-categories": "بدون رده",
 	"cx-no-target-categories": "رده‌ای وجود ندارد. به اضافه کردن چند رده برای دسته‌بندی موضوع فکر کنید.",
 	"cx-trend-deletions": "ترجمه‌های حذف‌شده",
@@ -252,5 +261,6 @@
 	"cx-publish-destination-namespace-user": "پیش‌نویس شخصی",
 	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی",
 	"cx-linkcontextitem-missing-link-title": "پیوند ناموجود",
-	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد."
+	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد.",
+	"cx-mt-abuse-publish-error": "ترجمه شما به دلیل وجود مقدار زیادی متن ترجمه ماشینی ویرایش نشده امکان انتشار ندارد"
 }

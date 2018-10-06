@@ -22,7 +22,8 @@
 			"Ramona.Stewart",
 			"Hedda",
 			"Dual",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Rapsar"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -45,7 +46,7 @@
 	"cx-publish-error-spam-blacklist": "Çevirinizde potansiyel spam içeriği tespit edildi. Detaylar: $1",
 	"cx-publish-error-title-blacklist": "Yazdığınız başlık kara listede. Lütfen çeviriniz için başka bir isim seçiniz.",
 	"cx-publish-error-unknown": "Bilinmeyen kurtarılamaz hata oluştu. Hata detayları: $1",
-	"cx-publish-button": "Yayınla",
+	"cx-publish-button": "Yayımla",
 	"cx-publish-button-publishing": "Yayımlanıyor...",
 	"cx-lost-session-draft": "Oturumunuz kapatıldı. Başka bir pencerede tekrar oturum açmadığınız sürece düzenlemeleriniz kaydedilemez.",
 	"cx-lost-session-publish": "Oturumunuz sonlandırıldı. Başka bir pencerede tekrar oturum açana kadar çevirileriniz yayımlanmaz.",
