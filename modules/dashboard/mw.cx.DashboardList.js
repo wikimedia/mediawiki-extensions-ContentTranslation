@@ -128,7 +128,7 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
 		// Same source title might be translated to multiple languages.
 		map[ title ] = map[ title ] || [];
 		map[ title ].push( item );
-	}.bind( this ) );
+	}, this );
 
 	apply = function ( page ) {
 		if ( !map[ page.title ] ) {

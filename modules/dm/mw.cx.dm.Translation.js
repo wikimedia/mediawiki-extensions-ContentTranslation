@@ -147,8 +147,7 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 		articleNode.appendChild( sectionNode );
 
 		sectionNumber++;
-
-	}.bind( this ) );
+	}, this );
 
 	// Check if all savedTranslationUnit items were restored or not.
 	for ( translationUnitId in savedTranslationUnits ) {

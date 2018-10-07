@@ -58,7 +58,7 @@ mw.cx.ui.CategoryInputWidget.prototype.getLookupCacheDataFromResponse = function
 		var hasNamespacePrefix = category.indexOf( this.namespacePrefix ) === 0;
 
 		return hasNamespacePrefix ? category.substring( this.namespacePrefix.length ) : category;
-	}.bind( this ) );
+	}, this );
 };
 
 /**

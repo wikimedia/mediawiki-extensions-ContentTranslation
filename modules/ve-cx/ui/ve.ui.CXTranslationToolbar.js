@@ -75,7 +75,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			// Set all other tools inactive
 			this.toolGroup.items.forEach( function ( tool ) {
 				tool.setActive( tool === this );
-			}.bind( this ) );
+			}, this );
 		};
 
 		ve.ui[ toolClassName ].prototype.onUpdateState = function () {
@@ -195,7 +195,7 @@ ve.ui.CXTranslationToolbar.prototype.onSetAsDefault = function () {
 		if ( tool.setIsPreferred ) {
 			tool.setIsPreferred( tool.isActive() );
 		}
-	}.bind( this ) );
+	}, this );
 
 	this.setAsDefault.toggle( false );
 	this.$element.addClass( 've-cx-toolbar-mt--highlight' );

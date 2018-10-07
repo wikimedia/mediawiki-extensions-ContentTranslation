@@ -112,7 +112,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.setValue = function ( values ) {
 
 	values.forEach( function ( val ) {
 		this.addTag( val.data, val.label, val.config );
-	}.bind( this ) );
+	}, this );
 };
 
 /**

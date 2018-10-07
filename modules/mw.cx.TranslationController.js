@@ -224,7 +224,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			// Remove saved sections from the queue
 			savedSections.forEach( function ( sectionNumber ) {
 				this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
-			}.bind( this ) );
+			}, this );
 
 			// Reset fail counter.
 			if ( this.failCounter > 0 ) {
@@ -298,7 +298,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 		}
 
 		mw.log( '[CX] Section ' + sectionNumber + ' saved.' );
-	}.bind( this ) );
+	}, this );
 
 	// Show saved status with a time after last save.
 	clearTimeout( this.saveStatusTimer );
@@ -386,7 +386,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 		this.getSectionRecords( sectionNumber ).forEach( function ( data ) {
 			records.push( data );
 		} );
-	}.bind( this ) );
+	}, this );
 
 	return EasyDeflate.deflate( JSON.stringify( records ) );
 };

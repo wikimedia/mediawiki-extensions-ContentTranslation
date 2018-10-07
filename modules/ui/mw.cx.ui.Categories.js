@@ -107,7 +107,7 @@ mw.cx.ui.Categories.prototype.mapCategories = function ( categories ) {
 			data: category,
 			label: this.removeCategoryNamespace( category )
 		};
-	}.bind( this ) );
+	}, this );
 };
 
 /**
@@ -134,7 +134,7 @@ mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, isS
 					disabled: isSource && !this.translationModel.getCorrespondingTargetCategory( item.data )
 				}
 			};
-		}.bind( this ) ),
+		}, this ),
 		classes: [ 'cx-category-listing' ]
 	}, this.config, config ) );
 };

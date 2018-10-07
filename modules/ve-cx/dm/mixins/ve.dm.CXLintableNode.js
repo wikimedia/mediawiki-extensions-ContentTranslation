@@ -99,7 +99,7 @@ ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
 			}
 
 			this.translationIssues.push( issue );
-		}.bind( this ) );
+		}, this );
 
 		this.emit( 'translationIssues', this.hasErrors() );
 		this.getTranslation().emit( 'translationIssues', this.getId(), this.hasErrors() );
@@ -129,7 +129,7 @@ ve.dm.CXLintableNode.prototype.resolveTranslationIssues = function ( names ) {
 		if ( index > -1 ) {
 			this.translationIssues.splice( index, 1 );
 		}
-	}.bind( this ) );
+	}, this );
 
 	this.notify();
 };
