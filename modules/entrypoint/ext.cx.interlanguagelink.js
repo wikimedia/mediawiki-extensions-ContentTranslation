@@ -139,7 +139,7 @@
 				contentTextLeft - cxEntryPointDialogOffset;
 
 			$pLangList = $( '#p-lang ul' );
-			suggestedTargetLanguages.forEach( function ( code ) {
+			suggestedTargetLanguages.some( function ( code ) {
 				// Code should not be a language in which page exists.
 				// Also it should be known language for ULS.
 				if ( !pageInLanguageExists( code ) && code !== $.uls.data.getAutonym( code ) ) {
@@ -150,10 +150,8 @@
 						left: cxEntryPointDialogLeft,
 						entryPointName: campaign
 					} );
-					count++;
-					if ( count === maxListSize ) {
-						return false;
-					}
+					// Array.prototype.some breaks the iteration first time `true` is returned
+					return ++count === maxListSize;
 				}
 			} );
 		} );
