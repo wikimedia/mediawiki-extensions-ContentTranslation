@@ -115,8 +115,8 @@
 			self.discardDialog();
 		} );
 
-		proxied = this.pageSelector.lookupMenu.onKeyDownHandler;
-		this.pageSelector.lookupMenu.onKeyDownHandler = function ( e ) {
+		proxied = this.pageSelector.lookupMenu.onDocumentKeyDownHandler;
+		this.pageSelector.lookupMenu.onDocumentKeyDownHandler = function ( e ) {
 			if ( e.keyCode === OO.ui.Keys.TAB || e.keyCode === OO.ui.Keys.ESCAPE ) {
 				return;
 			}
