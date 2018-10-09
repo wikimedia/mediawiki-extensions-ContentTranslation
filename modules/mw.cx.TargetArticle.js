@@ -349,6 +349,25 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 		segment.remove();
 	} );
 
+	// Remove all unadapted links except the ones that are explicitly marked as missing.
+	// Refer ve.ui.CXLinkContextItem#createRedLink
+	Array.prototype.forEach.call( doc.querySelectorAll( '.cx-link' ), function ( link ) {
+		var dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
+		if ( dataCX.adapted === false && OO.getProp( dataCX, 'targetTitle', 'missing' ) !== true ) {
+			// Replace the link with its inner content.
+			link.replaceWith( link.innerHTML );
+		} else {
+			[ 'data-linkid', 'class', 'title', 'id' ].forEach( function ( attr ) {
+				link.removeAttribute( attr );
+			} );
+		}
+	} );
+
+	// Remove all data-cx attributes. It is irrelevant for publish, reduces the HTML size.
+	Array.prototype.forEach.call( doc.querySelectorAll( '[data-cx]' ), function ( element ) {
+		element.removeAttribute( 'data-cx' );
+	} );
+
 	html = this.veTarget.getHtml( doc );
 
 	return deflate ? EasyDeflate.deflate( html ) : html;
