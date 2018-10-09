@@ -148,7 +148,15 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @return bool
 	 */
 	protected function onTranslationView() {
-		return $this->hasToken() || $this->isExistingTranslation();
+		if ( $this->hasToken() ) {
+			return true;
+		}
+
+		if ( $this->getUser()->isAnon() ) {
+			return false;
+		} else {
+			return $this->isExistingTranslation();
+		}
 	}
 
 	/**
