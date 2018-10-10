@@ -1210,7 +1210,12 @@
 			],
 			"styles": [
 				"widgets/callout/ext.cx.callout.css"
-			]
+			],
+			"skinStyles": {
+				"vector": [
+					"widgets/callout/ext.cx.callout.vector.less"
+				]
+			}
 		},
 		"ext.cx.widgets.translator": {
 			"targets": [ "desktop", "mobile" ],
