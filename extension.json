@@ -1491,7 +1491,9 @@
 				"cx-draft-restoring",
 				"cx-error-page-not-found",
 				"cx-error-server-connection",
-				"cx-feedback-link"
+				"cx-feedback-link",
+				"cx-tools-linter-old-revision",
+				"cx-tools-linter-old-revision-message"
 			],
 			"dependencies": [
 				"mw.cx.dm.Translation",

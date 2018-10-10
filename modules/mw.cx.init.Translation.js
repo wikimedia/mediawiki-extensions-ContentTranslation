@@ -87,6 +87,9 @@ mw.cx.init.Translation.prototype.init = function () {
 			sourcePageContent.segmentedContent,
 			draft
 		);
+
+		this.checkForTranslationChanges();
+
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
 			this.translationModel, this.veTarget, this.config.siteMapper, this.config
@@ -330,4 +333,33 @@ mw.cx.init.Translation.prototype.addFeedbackLink = function () {
 		flags: [ 'progressive' ]
 	} );
 	this.translationView.addItems( [ feedback ] );
+};
+
+mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
+	if ( !this.translationModel.checkRestorationStatus() ) {
+		return;
+	}
+
+	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
+		var diff = this.config.siteMapper.getPageUrl(
+			this.translationModel.getSourceLanguage(),
+			this.translationModel.getSourceTitle(),
+			{
+				type: 'revision',
+				diff: 'cur',
+				oldid: this.translationModel.getSourceRevisionId()
+			}
+		);
+
+		this.translationModel.addUnattachedIssues( [
+			new mw.cx.dm.TranslationIssue(
+				'old-version', // Issue name
+				mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
+				{
+					title: mw.msg( 'cx-tools-linter-old-revision' ),
+					resolvable: true
+				}
+			)
+		] );
+	}.bind( this ) );
 };

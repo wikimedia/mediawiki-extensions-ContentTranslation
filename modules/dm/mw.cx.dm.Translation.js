@@ -81,7 +81,6 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  */
 mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, savedTranslationUnits ) {
 	var sectionId, childNodes, restoredContent,
-		translationUnitId,
 		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
@@ -148,15 +147,6 @@ mw.cx.dm.Translation.static.getSourceDom = function ( sourceHtml, forTarget, sav
 
 		sectionNumber++;
 	}, this );
-
-	// Check if all savedTranslationUnit items were restored or not.
-	for ( translationUnitId in savedTranslationUnits ) {
-		if ( !savedTranslationUnits[ translationUnitId ].restored ) {
-			mw.log.error( '[CX] Section ' + translationUnitId + ' not restored' );
-		}
-		// TODO: Append these sections to target article or Inform user or
-		// Load the original revision of source article for this translation.
-	}
 
 	domDoc.body.appendChild( articleNode );
 
@@ -279,6 +269,24 @@ mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
 };
 
 /* Methods */
+
+/**
+ * Check if the source article has changed significantly.
+ *
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.prototype.checkRestorationStatus = function () {
+	var translationUnitId, numberOfUnrestoredSections = 0;
+
+	for ( translationUnitId in this.savedTranslationUnits ) {
+		if ( !this.savedTranslationUnits[ translationUnitId ].restored ) {
+			mw.log.error( '[CX] Section ' + translationUnitId + ' not restored' );
+			numberOfUnrestoredSections++;
+		}
+	}
+
+	return numberOfUnrestoredSections > 2;
+};
 
 mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;

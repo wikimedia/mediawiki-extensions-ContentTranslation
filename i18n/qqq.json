@@ -265,6 +265,8 @@
 	"cx-tools-linter-page-exists-message": "Main message for a linter card displayed on Content Translation when page with target title already exists.\n* $1 - Link to the existing page",
 	"cx-tools-linter-template": "Title for a linter card.",
 	"cx-tools-linter-template-block-message": "Main message for a linter card.",
+	"cx-tools-linter-old-revision": "Title for a linter card displayed on Content Translation when source page has changed significantly.",
+	"cx-tools-linter-old-revision-message": "Main message for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-translator-header": "Shown in sidebar menu in the Content Translation dashboard. Represents card header for translation statistics of current user.",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
 	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}",

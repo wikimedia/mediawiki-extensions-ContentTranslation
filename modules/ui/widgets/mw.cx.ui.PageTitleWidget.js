@@ -101,10 +101,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 		name: 'existing-title',
 		message: mw.message(
 			'cx-tools-linter-page-exists-message',
-			$( '<a>' ).prop( {
-				href: mw.util.getUrl( this.getValue() ),
-				target: '_blank'
-			} ).text( this.getValue() )
+			$( '<a>' ).prop( 'href', mw.util.getUrl( this.getValue() ) ).text( this.getValue() )
 		),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-page-exists' ),
