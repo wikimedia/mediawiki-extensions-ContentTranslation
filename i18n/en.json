@@ -257,6 +257,7 @@
 	"cx-tools-linter-template-block-message": "The original page uses a template that is not available in the destination wiki.\n\nThis template has been skipped, but you can add new content to capture the missing information.",
 	"cx-tools-linter-old-revision": "Translation based on old version of the page",
 	"cx-tools-linter-old-revision-message": "This translation is based on an older version of the content. The source page may have [$1 changed significantly].\n\nYou can continue this translation, or start it again to use the updated content. If you restart the translation, your current changes will be lost.",
+	"cx-tools-linter-old-revision-label": "Restart the translation",
 	"cx-translator-header": "Your statistics",
 	"cx-translator-month-stats-label": "This month",
 	"cx-translator-total-translations-label": "Total",

@@ -1494,6 +1494,7 @@
 				"cx-error-server-connection",
 				"cx-feedback-link",
 				"cx-tools-linter-old-revision",
+				"cx-tools-linter-old-revision-label",
 				"cx-tools-linter-old-revision-message"
 			],
 			"dependencies": [

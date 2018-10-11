@@ -357,9 +357,21 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 				mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
 				{
 					title: mw.msg( 'cx-tools-linter-old-revision' ),
-					resolvable: true
+					resolvable: true,
+					additionalButtons: [
+						{
+							icon: 'reload',
+							label: mw.msg( 'cx-tools-linter-old-revision-label' ),
+							action: this.restartTranslation.bind( this )
+						}
+					]
 				}
 			)
 		] );
 	}.bind( this ) );
+};
+
+mw.cx.init.Translation.prototype.restartTranslation = function () {
+	// TODO: Actually reload the translation with the latest revision as a source
+	location.reload();
 };

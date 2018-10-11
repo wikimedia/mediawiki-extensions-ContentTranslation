@@ -41,6 +41,28 @@
 		margin-left: -@padding;
 		border-top: 1px solid @colorGray14;
 		padding: 0.5em @left;
+
+		&.cx-ui-translationIssue-foot-additional {
+			padding: 0.5em 0;
+		}
+	}
+
+	> .cx-ui-translationIssue-foot-additional > .oo-ui-buttonWidget {
+		display: block;
+		margin: 0;
+		border-bottom: 1px solid @colorGray14;
+		padding: 0.5em 1em;
+
+		&:first-child {
+			padding-top: 0;
+			padding-bottom: 0.5em;
+		}
+
+		&:last-child {
+			border-bottom: 0;
+			padding-top: 0.5em;
+			padding-bottom: 0;
+		}
 	}
 
 	.cx-ui-translationIssue-message + .cx-ui-translationIssue-foot {

@@ -13,6 +13,7 @@
  * @cfg {string} [actionIcon='check']
  * @cfg {string} [actionLabel]
  * @cfg {Function} [action]
+ * @cfg {Object[]} [additionalButtons] Array of additional button configurations declaring icon, label and action.
  */
 mw.cx.dm.TranslationIssue = function CXTranslationIssue( name, message, messageInfo ) {
 	this.name = name;
@@ -24,6 +25,7 @@ mw.cx.dm.TranslationIssue = function CXTranslationIssue( name, message, messageI
 	this.actionIcon = messageInfo && messageInfo.actionIcon || 'check';
 	this.actionLabel = messageInfo && messageInfo.actionLabel;
 	this.action = messageInfo && messageInfo.action || this.suppress.bind( this );
+	this.additionalButtons = messageInfo && messageInfo.additionalButtons;
 	this.suppressed = false;
 	// @var {Function}
 	this.onSuppressedCallback = null;
@@ -79,6 +81,10 @@ mw.cx.dm.TranslationIssue.prototype.getIcon = function () {
 
 mw.cx.dm.TranslationIssue.prototype.getLabel = function () {
 	return this.actionLabel;
+};
+
+mw.cx.dm.TranslationIssue.prototype.getAdditionalButtons = function () {
+	return this.additionalButtons;
 };
 
 mw.cx.dm.TranslationIssue.prototype.suppress = function () {

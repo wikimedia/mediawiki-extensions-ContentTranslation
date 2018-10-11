@@ -267,6 +267,7 @@
 	"cx-tools-linter-template-block-message": "Main message for a linter card.",
 	"cx-tools-linter-old-revision": "Title for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-tools-linter-old-revision-message": "Main message for a linter card displayed on Content Translation when source page has changed significantly.",
+	"cx-tools-linter-old-revision-label": "Label for button displayed on a linter card in Content Translation when source page has changed significantly. Allows user to restart the translation using the latest revision.",
 	"cx-translator-header": "Shown in sidebar menu in the Content Translation dashboard. Represents card header for translation statistics of current user.",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
 	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}",

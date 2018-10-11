@@ -58,6 +58,8 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 		this.resolveButton.connect( this, { click: this.model.getAction() } );
 		this.$foot.append( this.resolveButton.$element );
 	}
+
+	this.buildAdditionalButtons();
 };
 
 /* Inheritance */
@@ -68,4 +70,26 @@ OO.inheritClass( mw.cx.ui.TranslationIssueWidget, OO.ui.TabPanelLayout );
 
 mw.cx.ui.TranslationIssueWidget.prototype.getIconFromModel = function () {
 	return this.model.getType() === 'error' ? 'clear' : 'alert';
+};
+
+mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
+	var additionalButtons = this.model.getAdditionalButtons() || [];
+
+	if ( !additionalButtons.length ) {
+		return;
+	}
+
+	this.$foot.addClass( 'cx-ui-translationIssue-foot-additional' );
+
+	additionalButtons.forEach( function ( buttonConfig ) {
+		var button = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: buttonConfig.icon,
+			label: buttonConfig.label
+		} );
+
+		button.connect( this, { click: buttonConfig.action } );
+
+		this.$foot.prepend( button.$element );
+	}.bind( this ) );
 };
