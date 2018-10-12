@@ -482,6 +482,10 @@ mw.cx.dm.Translation.prototype.getTargetLanguage = function () {
 	return this.targetWikiPage.getLanguage();
 };
 
+mw.cx.dm.Translation.prototype.hasBeenPublished = function () {
+	return this.status === 'published' || this.targetURL !== null;
+};
+
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
 	this.status = status;
 };

@@ -341,7 +341,9 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 	}
 
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
-		var diff = this.config.siteMapper.getPageUrl(
+		var diff, translationIssuesParams;
+
+		diff = this.config.siteMapper.getPageUrl(
 			this.translationModel.getSourceLanguage(),
 			this.translationModel.getSourceTitle(),
 			{
@@ -351,27 +353,64 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 			}
 		);
 
+		translationIssuesParams = {
+			title: mw.msg( 'cx-tools-linter-old-revision' ),
+			resolvable: true
+		};
+
+		if ( !this.translationModel.hasBeenPublished() ) {
+			translationIssuesParams.additionalButtons = [
+				{
+					icon: 'reload',
+					label: mw.msg( 'cx-tools-linter-old-revision-label' ),
+					action: this.restartTranslation.bind( this )
+				}
+			];
+		}
+
 		this.translationModel.addUnattachedIssues( [
 			new mw.cx.dm.TranslationIssue(
 				'old-version', // Issue name
 				mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
-				{
-					title: mw.msg( 'cx-tools-linter-old-revision' ),
-					resolvable: true,
-					additionalButtons: [
-						{
-							icon: 'reload',
-							label: mw.msg( 'cx-tools-linter-old-revision-label' ),
-							action: this.restartTranslation.bind( this )
-						}
-					]
-				}
+				translationIssuesParams
 			)
 		] );
 	}.bind( this ) );
 };
 
 mw.cx.init.Translation.prototype.restartTranslation = function () {
-	// TODO: Actually reload the translation with the latest revision as a source
-	location.reload();
+	OO.ui.getWindowManager().openWindow( 'message', {
+		title: mw.msg( 'cx-tools-linter-restart-translation-title' ),
+		message: mw.msg( 'cx-tools-linter-restart-translation-message' ),
+		actions: [
+			{ action: 'restart', label: mw.msg( 'cx-tools-linter-old-revision-label' ), flags: [ 'primary', 'destructive' ] },
+			{ action: 'cancel', label: mw.msg( 'cx-tools-linter-restart-translation-cancel' ), flags: 'safe' }
+		]
+	} ).closed.then( function ( data ) {
+		var sourceLanguage, targetLanguage, sourceTitle, apiParams;
+
+		if ( !data || data.action !== 'restart' ) {
+			return;
+		}
+
+		sourceLanguage = this.translationModel.getSourceLanguage();
+		targetLanguage = this.translationModel.getTargetLanguage();
+		sourceTitle = this.translationModel.getSourceTitle();
+		apiParams = {
+			assert: 'user',
+			action: 'cxdelete',
+			from: sourceLanguage,
+			to: targetLanguage,
+			sourcetitle: sourceTitle
+		};
+
+		return new mw.Api().postWithToken( 'csrf', apiParams ).done( function () {
+			var uri = new mw.Uri();
+			delete uri.query.revision;
+
+			this.config.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
+
+			location.href = uri.getRelativePath();
+		}.bind( this ) );
+	}.bind( this ) );
 };
