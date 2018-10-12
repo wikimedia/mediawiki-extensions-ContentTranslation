@@ -83,6 +83,10 @@ ve.dm.CXLintableNode.prototype.findIssueIndex = function ( name ) {
  * @param {mw.cx.dm.TranslationIssue[]|string[]|Object[]} issues
  */
 ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
+	if ( issues.length < 1 ) {
+		return;
+	}
+
 	// Load the translation issue DM module, now that it's required.
 	// There is no use of adding this to the initial JS payload
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {

@@ -374,7 +374,9 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 		}
 	}
 
-	section.addTranslationIssues( results );
+	if ( results.length > 0 ) {
+		section.addTranslationIssues( results );
+	}
 };
 
 /**
