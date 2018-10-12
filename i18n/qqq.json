@@ -50,7 +50,7 @@
 	"cx-lost-session": "Generic message displayed when user session expires. Used as a title of modal dialog that provides button to log in again.",
 	"cx-lost-session-draft": "Error message to display.",
 	"cx-lost-session-publish": "Error message to display.",
-	"cx-lost-session-dashboard-lists": "Message body of modal dialog displayed when user session expires and user tries switching between lists on Content Translation dashboard.",
+	"cx-lost-session-dashboard": "Message body of modal dialog displayed on Content Translation dashboard when user session expires and user tries performing some action which requires them to be logged in.",
 	"cx-publish-summary": "This is an automatic edit summary for pages that were created by [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source page name",
 	"cx-publish-gt-no-permission-to-move-description": "Description for a guider that is shown to a user after publishing a page when the user doesn't have a move permission.",
 	"cx-publish-gt-first-step-title": "Title for a guider that is shown to a user after publishing a page.",

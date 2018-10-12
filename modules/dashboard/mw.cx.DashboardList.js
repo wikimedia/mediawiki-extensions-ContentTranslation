@@ -33,7 +33,7 @@ OO.initClass( mw.cx.DashboardList );
 /* Static properties */
 
 mw.cx.DashboardList.static.lostSessionTitle = OO.ui.deferMsg( 'cx-lost-session' );
-mw.cx.DashboardList.static.lostSessionMessage = OO.ui.deferMsg( 'cx-lost-session-dashboard-lists' );
+mw.cx.DashboardList.static.lostSessionMessage = OO.ui.deferMsg( 'cx-lost-session-dashboard' );
 
 /* Static methods */
 

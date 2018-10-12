@@ -1018,7 +1018,7 @@
 				"cx-suggestionlist-view-source-page",
 				"cx-suggestionlist-title",
 				"cx-lost-session",
-				"cx-lost-session-dashboard-lists"
+				"cx-lost-session-dashboard"
 			]
 		},
 		"ext.cx.translation.conflict": {

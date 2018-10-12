@@ -610,6 +610,7 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 		api = new mw.Api();
 
 	params = {
+		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-discarded',
 		listaction: 'add',
@@ -627,8 +628,7 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 				$( this ).remove();
 			} );
 		}
-		// TODO: What happens if this fails?
-	} );
+	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.
 	return false;
 };
@@ -644,6 +644,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 		self = this;
 
 	params = {
+		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-favorite',
 		listaction: 'add',
@@ -682,8 +683,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 			self.lists[ favoriteListId ].suggestions.push( suggestion );
 			self.insertSuggestionList( favoriteListId, [ suggestion ], true );
 		}
-		// TODO: What happens if this fails?
-	} );
+	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.
 	return false;
 };
@@ -699,6 +699,7 @@ mw.cx.CXSuggestionList.prototype.unmarkFavorite = function ( suggestion ) {
 		api = new mw.Api();
 
 	params = {
+		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-favorite',
 		listaction: 'remove',
@@ -721,10 +722,21 @@ mw.cx.CXSuggestionList.prototype.unmarkFavorite = function ( suggestion ) {
 			);
 			// Do we need to add to general suggestions?
 		}
-		// TODO: What happens if this fails?
-	} );
+	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.
 	return false;
+};
+
+/**
+ * Failure handler for API calls which are using action: 'cxsuggestionlist'
+ *
+ * @param {string} error
+ */
+mw.cx.CXSuggestionList.prototype.suggestionListFailHandler = function ( error ) {
+	if ( error === 'assertuserfailed' ) {
+		mw.cx.CXTranslationList.static.showLoginDialog();
+	}
+	// TODO: How do we handle other types of failure?
 };
 
 mw.cx.CXSuggestionList.prototype.showEmptySuggestionList = function () {

@@ -428,6 +428,10 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 						translation.sourceTitle,
 						translation.targetTitle
 					);
+				} ).fail( function ( error ) {
+					if ( error === 'assertuserfailed' ) {
+						mw.cx.CXTranslationList.static.showLoginDialog();
+					}
 				} );
 			}
 		} );
@@ -491,6 +495,7 @@ mw.cx.CXTranslationList.prototype.markTranslationAsDeleted = function ( translat
  */
 mw.cx.CXTranslationList.prototype.discardTranslation = function ( translation ) {
 	var apiParams = {
+		assert: 'user',
 		action: 'cxdelete',
 		from: translation.sourceLanguage,
 		to: translation.targetLanguage,
