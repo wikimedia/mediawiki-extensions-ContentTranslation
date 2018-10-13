@@ -107,6 +107,7 @@
 	"cx-stats-published-translations-title": "Publicētie tulkojumi",
 	"cx-stats-draft-translations-title": "Iesāktie tulkojumi",
 	"cx-stats-draft-translations-label": "Iesāktie tulkojumi",
+	"cx-stats-new-draft-translations-label": "Jauni iesāktie tulkojumi",
 	"cx-stats-published-translators-title": "Tulkotāju skaits",
 	"cx-stats-cumulative-tab-title": "Kopā",
 	"cx-stats-weekly-trend-tab-title": "Nedēļā",
@@ -117,9 +118,12 @@
 	"cx-campaign-try": "Izmēģini satura tulkošanu",
 	"cx-campaign-contributionsmenu-mycontributions": "Devums",
 	"cx-campaign-contributionsmenu-mytranslations": "Tulkojumi",
+	"cx-campaign-contributionsmenu-translate-instead": "Tulko, nevis raksti no sākuma",
+	"cx-campaign-contributionsmenu-might-be-available": "$1 jau var būt atrodams citās valodās",
 	"cx-campaign-contributionsmenu-myuploads": "Augšupielādētie faili",
 	"cx-campaign-research-participate": "Piedalies izpētē",
 	"cx-no-source-categories": "Nav kategoriju",
+	"cx-no-target-categories": "Nav kategoriju. Apsver dažu kategoriju pievienošanu, lai labāk klasificētu tematu.",
 	"cx-trend-deletions": "Dzēstie tulkojumi",
 	"cx-trend-translations-to": "Tulkojumi uz $1 valodu",
 	"cx-stats-try-contenttranslation": "Satura tulkošana ir rīks jaunu lapu veidošanai, tulkojot tās no citām valodām. [$1 Izmēģini satura tulkošanu]",
@@ -183,5 +187,6 @@
 	"cx-publish-destination-namespace-user": "Personīgais melnraksts",
 	"cx-publish-destination-namespace-draft": "Kopienas melnraksts",
 	"cx-linkcontextitem-missing-link-title": "Trūkst saite",
-	"cx-linkcontextitem-missing-title-description": "Šī lapa vēl nepastāv"
+	"cx-linkcontextitem-missing-title-description": "Šī lapa vēl nepastāv",
+	"cx-mt-abuse-publish-error": "Tavu tulkojumu nevar publicēt, jo tas satur pārāk daudz nekoriģēta mašīntulkota teksta"
 }
