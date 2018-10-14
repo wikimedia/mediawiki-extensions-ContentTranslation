@@ -53,6 +53,7 @@
 	"cx-translation-target-page-exists": "Страница са насловом [$1 $2] већ постоји у одредишном викију. Размислите о другом наслову странице.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|превод садржаја]]",
 	"tag-contenttranslation-description": "Садржај је преведен са другог језика коришћењем алатке за превод садржаја.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Превод садржаја 2]]",
 	"tag-contenttranslation-v2-description": "Садржај је преведен са другог језика коришћењем нове верзије алатке за превод садржаја.",
 	"cx-source-loading": "Учитавам $1",
 	"cx-beta": "Превод садржаја",
