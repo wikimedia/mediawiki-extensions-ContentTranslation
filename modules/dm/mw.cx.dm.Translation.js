@@ -65,8 +65,15 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @event translationIssues
  *
  * The translation has some issues (errors and/or warnings).
- * @param {string} id ID of a section with issues, or special values of 'title' and 'global'
- * @param {boolean} [hasErrors] True if any of the section's issues is an error.
+ * @param {string} id Special value of 'global' used as an ID for unattached issues.
+ * @param {boolean} [hasErrors] True if any of the unattached issues is an error.
+ */
+
+/**
+ * @event issuesResolved
+ *
+ * Some of translation issues have been resolved.
+ * @param {string} id Special value of 'global' used as an ID for unattached issues.
  */
 
 /* Static methods */
@@ -533,9 +540,45 @@ mw.cx.dm.Translation.prototype.onSectionChange = function () {
 mw.cx.dm.Translation.prototype.addUnattachedIssues = function ( issues ) {
 	this.translationIssues = this.translationIssues.concat( issues );
 
-	this.emit( 'translationIssues', 'global' );
+	// Allow to suppress all resolvable issues
+	issues.forEach( function ( issue ) {
+		// When issue is suppressed, emit event about the resolved state
+		issue.setSuppressCallback( this.resolveUnattachedIssues.bind( this ) );
+	}, this );
+
+	this.emit( 'translationIssues', 'global', this.hasErrors() );
 };
 
+/**
+ * Called when one unattached issue is resolved. Events about the issue state are emitted.
+ *
+ * @fires translationIssues
+ * @fires issuesResolved
+ */
+mw.cx.dm.Translation.prototype.resolveUnattachedIssues = function () {
+	if ( this.getTranslationIssues().length === 0 ) {
+		this.emit( 'issuesResolved', 'global' );
+	} else {
+		this.emit( 'translationIssues', 'global', this.hasErrors() );
+	}
+};
+
+/**
+ * True if there is at least one unattached issue that is an error. Number of warnings is irrelevant.
+ *
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.prototype.hasErrors = function () {
+	return this.getTranslationIssues().some( function ( issue ) {
+		return issue.type === 'error';
+	} );
+};
+
+/**
+ * @return {mw.cx.dm.TranslationIssue[]}
+ */
 mw.cx.dm.Translation.prototype.getTranslationIssues = function () {
-	return this.translationIssues;
+	return this.translationIssues.filter( function ( issue ) {
+		return !issue.isSuppressed();
+	} );
 };
