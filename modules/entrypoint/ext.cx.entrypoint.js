@@ -128,10 +128,9 @@
 			.addClass( 'icon-close' )
 			.on( 'click', this.hide.bind( this ) );
 
-		// Uses .html because of <br /> in the message
 		$heading = $( '<div>' )
 			.addClass( 'cx-entrypoint-dialog__heading' )
-			.html( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
+			.text( mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', targetAutonym ) )
 			.prepend( this.$closeIcon );
 
 		$titleLabel = $( '<div>' )
@@ -160,7 +159,6 @@
 		this.$actionTranslate = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-entrypoint-dialog-button-translate-from' )
 			.text( translateButtonLabel );
-
 		$license = $( '<div>' )
 			.addClass( 'cx-entrypoint-dialog__license' )
 			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
