@@ -38,7 +38,6 @@
 	"cx-lost-session": "Phiên làm việc của bạn đã hết hạn",
 	"cx-lost-session-draft": "Phiên làm việc của bạn đã hết hạn. Để lưu các sửa đổi của bạn, bạn cần phải đăng nhập lại trong một cửa sổ khác.",
 	"cx-lost-session-publish": "Phiên làm việc của bạn đã hết hạn. Để xuất bản bản dịch của bạn, bạn cần phải đăng nhập lại trong một cửa sổ khác.",
-	"cx-lost-session-dashboard-lists": "Đăng nhập lại để xem danh sách này.",
 	"cx-publish-summary": "Tạo với bản dịch của trang “$1”",
 	"cx-publish-gt-no-permission-to-move-description": "Xin hãy liên hệ với một thành viên có kinh nghiệm của trang này rồi nhờ họ xem xét lại bản dịch của bạn và xuất bản nó lên không gian tên chính.",
 	"cx-publish-gt-first-step-title": "Bản dịch này đã được xuất bản dưới dạng một bản nháp nằm dưới trang thành viên của bạn để chờ xét duyệt",

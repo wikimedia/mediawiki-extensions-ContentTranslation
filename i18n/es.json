@@ -73,7 +73,7 @@
 	"cx-beta": "Traducción de contenidos",
 	"cx-beta-desc": "Una herramienta para traducir rápidamente páginas a tu idioma. Inicia las traducciones desde [[Special:MyContributions|tu página de contribuciones]], y edítalas con nuestro editor especialmente diseñado para la traducción. Algunas de las herramientas pueden estar disponibles sólo para idiomas específicos.",
 	"cx-entrypoint-title": "Traduce esta página al $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página aún no existe en $1.<br />\n¿{{GENDER:|Quieres}} crearla?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página aún no existe en $1. ¿{{GENDER:|Quieres}} crearla?",
 	"cx-entrypoint-dialog-title-in": "Título de la página nueva en $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Crear desde cero",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir del $1",

@@ -52,7 +52,6 @@
 	"cx-lost-session": "세션이 만료되었습니다",
 	"cx-lost-session-draft": "세션이 만료되었습니다. 다른 창에서 다시 로그인하지 않으면 편집을 저장할 수 없습니다.",
 	"cx-lost-session-publish": "세션이 만료되었습니다. 다른 창에서 다시 로그인할 때까지 번역을 게시할 수 없습니다.",
-	"cx-lost-session-dashboard-lists": "이 목록을 보려면 다시 로그인해 주십시오.",
 	"cx-publish-summary": "\"$1\" 문서를 번역하여 만듦",
 	"cx-publish-gt-no-permission-to-move-description": "이 사이트의 숙련된 사용자에게 당신의 번역에 대한 검토 지원을 요청하고 번역을 일반 이름공간에 게시하세요.",
 	"cx-publish-gt-first-step-title": "이 번역은 검토를 위해 당신의 사용자 문서에 초안으로 게시되었습니다",

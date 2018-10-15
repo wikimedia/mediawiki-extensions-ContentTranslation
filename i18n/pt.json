@@ -43,7 +43,6 @@
 	"cx-lost-session": "A sua sessão expirou",
 	"cx-lost-session-draft": "A sua sessão expirou. As suas edições não podem ser gravadas, a menos que inicie sessão novamente noutra janela.",
 	"cx-lost-session-publish": "A sua sessão expirou. Não pode publicar a tradução, a menos que inicie sessão novamente noutra janela.",
-	"cx-lost-session-dashboard-lists": "Para ver esta lista, inicie uma nova sessão.",
 	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Por favor, peça ajuda a um utilizador experiente do sítio para rever a sua tradução e publicá-la no domínio principal.",
 	"cx-publish-gt-first-step-title": "A tradução foi publicada como rascunho na sua página de utilizador para revisão",

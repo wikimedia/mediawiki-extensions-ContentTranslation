@@ -34,7 +34,6 @@
 	"cx-lost-session": "Vaša sesija je istekla",
 	"cx-lost-session-draft": "Vaša sesija je istekla. Vaše izmene ne mogu biti sačuvane osim ukoliko se ne prijavite ponovo u drugom prozoru.",
 	"cx-lost-session-publish": "Vaša sesija je istekla. Ne možete da objavite prevod osim ukoliko se ne prijavite ponovo u drugom prozoru.",
-	"cx-lost-session-dashboard-lists": "Ponovo se prijavite kako biste videli listu koju želite.",
 	"cx-publish-summary": "Napravljeno prevođenjem stranice „$1“",
 	"cx-publish-gt-no-permission-to-move-description": "Pitajte iskusnog korisnika na ovoj stranica da pregleda vaš prevod kako biste ga mogli objaviti u glavni imenski prostor.",
 	"cx-publish-gt-first-step-title": "Prevod je objavljen kao skica pod vašom korisničkom stranizom za pregled",

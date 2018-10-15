@@ -53,7 +53,6 @@
 	"cx-lost-session": "Twoja sesja wygasła",
 	"cx-lost-session-draft": "Twoja sesja wygasła. Twoje edycje nie zostaną zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
 	"cx-lost-session-publish": "Twoja sesja wygasła. Twoje tłumaczenie nie zostanie zapisane do momentu gdy ponownie zalogujesz się w innym oknie.",
-	"cx-lost-session-dashboard-lists": "Aby zobaczyć listę musisz zalogować się ponownie.",
 	"cx-publish-summary": "Utworzono przez tłumaczenie strony \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Poproś doświadczonego użytkownika by sprawdził twoje tłumaczenie i opublikował je w przestrzeni głównej.",
 	"cx-publish-gt-first-step-title": "Tłumaczenie zostało zapisane na twojej podstronie jako szkic do przejrzenia.",

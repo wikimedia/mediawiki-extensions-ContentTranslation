@@ -47,7 +47,7 @@
 	"cx-beta": "Traduction de contento",
 	"cx-beta-desc": "Iste instrumento te adjuta a rapidemente traducer paginas in le lingua tue. Comencia a traducer in [[Special:MyContributions|tu pagina de contributiones]], e modifica le traductiones con nostre editor bicolumnal concipite specialmente pro le traduction. Certe instrumentos pote esser disponibile solmente pro certe linguas.",
 	"cx-entrypoint-title": "Traducer iste pagina in $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Iste pagina non existe ancora in $1.<br />\nVole {{GENDER:|tu}} crear lo?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Iste pagina non existe ancora in $1. Vole {{GENDER:|tu}} crear lo?",
 	"cx-entrypoint-dialog-title-in": "Titulo del nove pagina in $1:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Crear ab zero",
 	"cx-entrypoint-dialog-button-translate-from": "Traducer de $1",

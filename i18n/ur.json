@@ -51,7 +51,7 @@
 	"cx-beta": "\nترجمہ مواد",
 	"cx-beta-desc": "صفحات کو آپ کی زبان میں جلدی ترجمہ کرنے کیلئے ایک اوزار۔ اپنے [[Special:MyContributions|صفحۂ مساہمات]] سے ترجمے کی اِبتداء کریں، اور پھر طرف بہ طرف ترمیم کار کے ذریعے تدوین کریں۔کچھ اوزار صرف مخصوص زبانوں کیلئے دستیاب ہونگے۔",
 	"cx-entrypoint-title": "اس صفحہ کو $1 میں ترجمہ کریں",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "یہ صفحہ تاحال $1 موجود نہیں ہے۔<br />\nکیا {{GENDER:|آپ}} اسے تخلیق کرنا چاہتے ہیں؟",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "یہ صفحہ تاحال $1 موجود نہیں ہے۔ کیا {{GENDER:|آپ}} اسے تخلیق کرنا چاہتے ہیں؟",
 	"cx-entrypoint-dialog-title-in": "$1 میں نئے صفحہ کا عنوان",
 	"cx-entrypoint-dialog-button-create-from-scratch": "آغاز سے تخلیق کریں",
 	"cx-entrypoint-dialog-button-translate-from": "ترجمہ از $1",

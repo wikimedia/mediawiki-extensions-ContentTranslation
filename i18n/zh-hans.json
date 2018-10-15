@@ -48,7 +48,6 @@
 	"cx-lost-session": "您的会话已过期",
 	"cx-lost-session-draft": "您的会话已过期。除非您在其他窗口再次登录，否则无法保存您的编辑。",
 	"cx-lost-session-publish": "您的会话已过期。除非您在其他窗口再次登录，否则您无法发布翻译。",
-	"cx-lost-session-dashboard-lists": "为了访问此列表，请重新登录。",
 	"cx-publish-summary": "通过翻译页面“$1”创建",
 	"cx-publish-gt-no-permission-to-move-description": "请询问此网站有经验的用户以帮助您复核您的翻译并将其发布于主名字空间。",
 	"cx-publish-gt-first-step-title": "译文已作为草稿发布至您的用户页以供复核",
