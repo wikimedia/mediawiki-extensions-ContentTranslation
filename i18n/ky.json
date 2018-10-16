@@ -3,7 +3,8 @@
 		"authors": [
 			"Chorobek",
 			"Amire80",
-			"Janatkg"
+			"Janatkg",
+			"Tgr"
 		]
 	},
 	"cx": "Баракты которуу",
@@ -27,7 +28,7 @@
 	"cx-source-loading": "$1 жүктөлүүдө",
 	"cx-beta": "Мазмунду которуу",
 	"cx-entrypoint-title": "Бул баракты $1 тилине которуу",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бул барак  $1 тилинде жок.<br />\nТүзүп баштаганды каалайсызбы?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бул барак  $1 тилинде жок. Түзүп баштаганды каалайсызбы?",
 	"cx-entrypoint-dialog-title-in": "$1 тилиндеги жаңы барактын аталышы:",
 	"cx-entrypoint-dialog-button-create-from-scratch": "Башынан түзүү",
 	"cx-entrypoint-dialog-button-translate-from": "$1 тилинен которуу",

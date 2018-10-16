@@ -47,6 +47,7 @@
 	"cx-translation-target-page-exists": "صفحہ باعنوان [$1 $2] منتخب کردہ ویکیپیڈیا میں موجود ہے۔صفحہ کو نیا عنوان دینے پر غور کریں۔",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ترجمہ مواد]]",
 	"tag-contenttranslation-description": "اس مواد کو بذریعہ آلہ ترجمہ مواد دوسری زبان سے ترجمہ کیا گیا ہے۔",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|ترجمہ‌مواد2]]",
 	"cx-source-loading": "$1 لوڈ ہو رہا ہے",
 	"cx-beta": "\nترجمہ مواد",
 	"cx-beta-desc": "صفحات کو آپ کی زبان میں جلدی ترجمہ کرنے کیلئے ایک اوزار۔ اپنے [[Special:MyContributions|صفحۂ مساہمات]] سے ترجمے کی اِبتداء کریں، اور پھر طرف بہ طرف ترمیم کار کے ذریعے تدوین کریں۔کچھ اوزار صرف مخصوص زبانوں کیلئے دستیاب ہونگے۔",

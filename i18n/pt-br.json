@@ -51,6 +51,7 @@
 	"cx-lost-session": "A sua sessão expirou",
 	"cx-lost-session-draft": "Sua sessão expirou. Suas edições não poderão ser salvas até que você autentique-se novamente em outra janela.",
 	"cx-lost-session-publish": "Sua sessão expirou. Sua tradução não poderá ser publicada até que você autentique-se novamente em outra janela.",
+	"cx-lost-session-dashboard": "Para realizar esta ação, por favor, entre novamente.",
 	"cx-publish-summary": "Criado a partir da tradução de “$1”",
 	"cx-publish-gt-no-permission-to-move-description": "Por favor, pergunte a um usuário experiente deste site para que ele o ajude a revisar e publicar suas traduções no espaço principal.",
 	"cx-publish-gt-first-step-title": "A tradução foi publicada como um esboço em sua página de usuário(a) para revisão",
