@@ -278,6 +278,8 @@
 	"cx-tools-linter-page-exists-message": "Un page avec le titre $1 existe déjà. Publier votre traduction écrasera le contenu existant\n\nVérifiez qu’il est correct de remplacer la page existante, ou envisagez de renommer votre traduction.",
 	"cx-tools-linter-template": "Modèle indisponible",
 	"cx-tools-linter-template-block-message": "La page d’origine utilise un modèle qui n’est pas disponible dans le wiki de destination.\n\nCe modèle a été sauté, mais vous pouvez ajouter un nouveau contenu pour capturer l’information manquante.",
+	"cx-tools-linter-old-revision": "Traduction basée sur l’ancienne version de la page",
+	"cx-tools-linter-old-revision-message": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative].\n\nVous pouvez poursuivre cette traduction, ou la redémarrer pour utiliser le contenu mis à jour. Si vous redémarrez la traduction, vos modifications actuelles seront perdues.",
 	"cx-translator-header": "Vos statistiques",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",

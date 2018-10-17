@@ -251,6 +251,7 @@
 	"cx-tools-linter-invalid-character-message": "Teknik nedenlerden dolayı bazı karakterler sayfaların başlığında kullanılamaz.\n\nLütfen sorunlu karakterlerden kaçınmak için başlığı düzenleyin.",
 	"cx-tools-linter-page-exists": "Sayfa zaten mevcut",
 	"cx-tools-linter-page-exists-message": "$1 adıyla bir sayfa zaten mevcut. Çevirinizin yayınlanması mevcut içeriğin üzerine yazılmasıyla sonuçlanacaktır.\n\nMevcut sayfayı değiştirmek için tamam olup olmadığını kontrol edin veya çevirinizi yeniden adlandırmayı düşünün.",
+	"cx-tools-linter-old-revision": "Sayfanın eski bir sürümüne dayanan çeviri",
 	"cx-translator-header": "İstatistikleriniz",
 	"cx-translator-month-stats-label": "Bu ay",
 	"cx-translator-total-translations-label": "Toplam",

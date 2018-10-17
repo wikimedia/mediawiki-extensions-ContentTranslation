@@ -22,7 +22,8 @@
 			"McDutchie",
 			"QZanden",
 			"Mar(c)",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Ndecouck"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -44,6 +45,7 @@
 	"cx-lost-session": "Uw sessie is verlopen",
 	"cx-lost-session-draft": "Uw sessie is verlopen. Uw wijzigingen worden niet opgeslagen, tenzij u zich opnieuw aanmeldt in een ander venster.",
 	"cx-lost-session-publish": "Uw sessie is verlopen. U kunt de vertaling niet publiceren totdat u zich aanmeldt in een ander venster.",
+	"cx-lost-session-dashboard": "Om deze actie uit te voeren is het nodig opnieuw in te loggen.",
 	"cx-publish-summary": "Gemaakt door het vertalen van de pagina \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Vraag een ervaren gebruiker van deze site om u te helpen met het controleren van uw vertaling en deze te publiceren in de hoofdnaamruimte.",
 	"cx-publish-gt-first-step-title": "De vertaling is gepubliceerd als concept als subpagina van uw gebruikerspagina om nog te worden beoordeeld",
@@ -232,6 +234,8 @@
 	"cx-tools-linter-invalid-character": "De titel van uw vertaling bevat ongeldige tekens",
 	"cx-tools-linter-page-exists": "De pagina bestaat al",
 	"cx-tools-linter-page-exists-message": "Een pagina met de titel $1 bestaat al. De bestaande inhoud zal worden overschreven wanneer u uw vertaling publiceert.\n\nControleer of de bestaande pagina vervangen kan worden, of overweeg de title van uw vertaling te wijzigen.",
+	"cx-tools-linter-old-revision": "Vertaling gebaseerd op een oude versie van de pagina",
+	"cx-tools-linter-old-revision-message": "Deze vertaling is gebaseerd op een oudere versie van de inhoud. De bronpagina kan $1 significant gewijzigd zijn.",
 	"cx-translator-header": "Uw statistieken",
 	"cx-translator-month-stats-label": "Deze maand",
 	"cx-translator-total-translations-label": "Totaal",

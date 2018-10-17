@@ -253,6 +253,8 @@
 	"cx-tools-linter-page-exists-message": "標題為$1的頁面已存在。發佈您的翻譯將會覆蓋現有內容\n\n請檢查確認取代現有頁面是否合適，或是考慮改成重新命名您的翻譯。",
 	"cx-tools-linter-template": "模板不可用",
 	"cx-tools-linter-template-block-message": "原有頁面使用的模板在目標 wiki 上不可用。\n\n此模板已被忽略，但您可以添加新的內容來獲取遺失資訊。",
+	"cx-tools-linter-old-revision": "基於頁面舊版本的翻譯",
+	"cx-tools-linter-old-revision-message": "此翻譯是基於較舊版本的內容。來源頁面可能已有[$1 巨大變化]。\n\n您可以繼續此翻譯，或是使用已更新內容來重新開始。若您重新設定翻譯，您目前的更改內容將會遺失。",
 	"cx-translator-header": "您的統計資料",
 	"cx-translator-month-stats-label": "本月",
 	"cx-translator-total-translations-label": "總計",

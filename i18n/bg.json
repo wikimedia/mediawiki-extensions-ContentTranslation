@@ -96,6 +96,7 @@
 	"cx-mt-abuse-warning-title": "Вашият превод {{PLURAL:$1|съдържа}} $1% непроменен текст",
 	"cx-mt-abuse-warning-text": "Машинният превод е предложен само като отправна точка! Вие следва да редактирате текста до степен съдържанието да е коректно поднесено и при прочит да се възприема естествено на български.",
 	"cx-publish-captcha-title": "Проверка дали не сте робот",
+	"cx-captcha-dialog-cancel": "Отказ",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Имате}}ли нужда от помощ за преводите?",
 	"cx-dashboard-sidebar-information": "Повече за този инструмент",
 	"cx-dashboard-sidebar-stats": "Статистики",
