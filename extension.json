@@ -144,7 +144,8 @@
 		"ContentTranslationCampaigns": {
 			"cxstats": true,
 			"specialcx": true,
-			"newarticle": true
+			"newarticle": true,
+			"cx2outreach": true
 		},
 		"ContentTranslationCXServerAuth": {
 			"algorithm": "HS256",
