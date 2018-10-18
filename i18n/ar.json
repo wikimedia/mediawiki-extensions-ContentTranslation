@@ -257,6 +257,7 @@
 	"cx-tools-linter-template-block-message": "تستخدم الصفحة الأصلية قالبا غير متاح في الويكي الوجهة.\n\nتم تخطي هذا القالب، ولكن يمكنك إضافة محتوى جديد لالتقاط المعلومات المفقودة.",
 	"cx-tools-linter-old-revision": "الترجمة تستند إلى إصدار قديم من الصفحة",
 	"cx-tools-linter-old-revision-message": "تعتمد هذه الترجمة على إصدار قديم من المحتوى، قد تكون الصفحة المصدر قد [$1 تغيرت بشكل ملحوظ].\n\nيمكنك متابعة هذه الترجمة، أو البدء مرة أخرى لاستخدام المحتوى الذي تم تحديثه، إذا أعدت بدء الترجمة، فسيتم فقد تغييراتك الحالية.",
+	"cx-tools-linter-old-revision-label": "إعادة بدء الترجمة",
 	"cx-translator-header": "إحصائياتك",
 	"cx-translator-month-stats-label": "هذا الشهر",
 	"cx-translator-total-translations-label": "الإجمالي",
@@ -279,5 +280,7 @@
 	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
 	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة",
 	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد",
-	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل مترجم آليا كثير غير معدل"
+	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل مترجم آليا كثير غير معدل",
+	"cx-unreviewed-translation-category": "الصفحات بترجمة آلية غير مراجعة",
+	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من ناتج الترجمة الآلية غير المراجع"
 }

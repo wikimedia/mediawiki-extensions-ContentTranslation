@@ -250,8 +250,13 @@
 	"cx-tools-linter-page-exists-message": "Eine Seite mit dem Titel $1 ist bereits vorhanden. Die Veröffentlichung deiner Übersetzung wird den vorhandenen Inhalt überschreiben.\n\nÜberprüfe, dass die Ersetzung der vorhandenen Seite in Ordnung ist oder ziehe in Erwägung, deine Übersetzung umzubenennen.",
 	"cx-tools-linter-template": "Vorlage nicht verfügbar",
 	"cx-tools-linter-template-block-message": "Die Originalseite verwendet eine Vorlage, die im Zielwiki nicht verfügbar ist.\n\nDiese Vorlage wurde übersprungen, du kannst jedoch neuen Inhalt hinzufügen, um die fehlenden Informationen zu erfassen.",
+	"cx-tools-linter-template-inline-message": "Die Originalseite verwendet Vorlagen, um den Inhalt zu strukturieren, aber einige von ihnen sind nicht im Zielwiki vorhanden.\n\nDer Inhalt der fehlenden Vorlagen wurde als Klartext hinzugefügt. Stelle sicher, dass du das Ergebnis überprüfst.",
 	"cx-tools-linter-old-revision": "Übersetzung basierend auf einer alten Version der Seite",
 	"cx-tools-linter-old-revision-message": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte sich [$1 erheblich verändert] haben.\n\nDu kannst mit dieser Übersetzung fortfahren oder sie erneut beginnen, um den aktualisierten Inhalt zu verwenden. Falls du die Übersetzung neu beginnst, gehen deine aktuellen Änderungen verloren.",
+	"cx-tools-linter-old-revision-label": "Die Übersetzung neu beginnen",
+	"cx-tools-linter-restart-translation-title": "Die Übersetzung neu beginnen?",
+	"cx-tools-linter-restart-translation-message": "Du wirst eine neue Übersetzung für die aktuellste Seitenversion beginnen. All deine Änderungen werden verloren gehen.",
+	"cx-tools-linter-restart-translation-cancel": "Abbrechen",
 	"cx-translator-header": "Deine Statistiken",
 	"cx-translator-month-stats-label": "Dieser Monat",
 	"cx-translator-total-translations-label": "Gesamt",
@@ -274,5 +279,7 @@
 	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf",
 	"cx-linkcontextitem-missing-link-title": "Fehlender Link",
 	"cx-linkcontextitem-missing-title-description": "Diese Seite ist noch nicht vorhanden",
-	"cx-mt-abuse-publish-error": "Deine Übersetzung kann nicht veröffentlicht werden, da sie zu viel unveränderten maschinenübersetzten Text enthält."
+	"cx-mt-abuse-publish-error": "Deine Übersetzung kann nicht veröffentlicht werden, da sie zu viel unveränderten maschinenübersetzten Text enthält.",
+	"cx-unreviewed-translation-category": "Seiten mit ungeprüften Maschinenübersetzungen",
+	"cx-unreviewed-translation-category-desc": "Mit dem Inhaltsübersetzungswerkzeug übersetzte Seiten, die eine hohe Anzahl ungeprüfter Maschinenübersetzungsausgaben enthalten."
 }

@@ -248,6 +248,8 @@
 	"cx-tools-linter-page-exists-message": "Страница са насловом $1 већ постоји. Објављивање вашег превода ће заменити постојећи садржај.\n\nПроверите да ли је у реду заменити постојећу страницу или размотрите преименовање вашег превода.",
 	"cx-tools-linter-template": "Шаблон није доступан",
 	"cx-tools-linter-template-block-message": "Оригинална страница користи шаблон који није доступан на циљном викију.\n\nОвај шаблон је прескочен, али можете додати нов садржај како бисте допунили информације које недостају.",
+	"cx-tools-linter-restart-translation-title": "Поновно покретање превођења",
+	"cx-tools-linter-restart-translation-cancel": "Откажи",
 	"cx-translator-header": "Ваша статистика",
 	"cx-translator-month-stats-label": "Овог месеца",
 	"cx-translator-total-translations-label": "Укупно",

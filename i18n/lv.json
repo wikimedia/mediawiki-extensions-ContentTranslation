@@ -181,6 +181,7 @@
 	"cx-tools-linter-page-exists": "Lapa jau pastāv",
 	"cx-tools-linter-template": "Veidne nav pieejama",
 	"cx-tools-linter-old-revision": "Tulkojums ir balstīts uz vedu lapas versiju",
+	"cx-tools-linter-restart-translation-cancel": "Atcelt",
 	"cx-translator-header": "Tava statistika",
 	"cx-translator-month-stats-label": "Šomēnes",
 	"cx-translator-total-translations-label": "Kopā",

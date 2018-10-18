@@ -280,6 +280,7 @@
 	"cx-tools-linter-template-block-message": "La page d’origine utilise un modèle qui n’est pas disponible dans le wiki de destination.\n\nCe modèle a été sauté, mais vous pouvez ajouter un nouveau contenu pour capturer l’information manquante.",
 	"cx-tools-linter-old-revision": "Traduction basée sur l’ancienne version de la page",
 	"cx-tools-linter-old-revision-message": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative].\n\nVous pouvez poursuivre cette traduction, ou la redémarrer pour utiliser le contenu mis à jour. Si vous redémarrez la traduction, vos modifications actuelles seront perdues.",
+	"cx-tools-linter-old-revision-label": "Redémarrer la traduction",
 	"cx-translator-header": "Vos statistiques",
 	"cx-translator-month-stats-label": "Ce mois-ci",
 	"cx-translator-total-translations-label": "Total",
@@ -302,5 +303,7 @@
 	"cx-publish-destination-namespace-draft": "Ébauche communautaire",
 	"cx-linkcontextitem-missing-link-title": "Lien manquant",
 	"cx-linkcontextitem-missing-title-description": "Cette page n’existe pas encore",
-	"cx-mt-abuse-publish-error": "Votre traduction ne peut pas être publiée parce qu’elle contient trop de texte traduit automatiquement sans avoir été modifié"
+	"cx-mt-abuse-publish-error": "Votre traduction ne peut pas être publiée parce qu’elle contient trop de texte traduit automatiquement sans avoir été modifié",
+	"cx-unreviewed-translation-category": "Pages avec une traduction de machine non relue",
+	"cx-unreviewed-translation-category-desc": "Pages traduites avec l’outil de Traduction de contenu qui contiennent une grande quantité de sortie traduite par la machine et non relue"
 }

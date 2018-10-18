@@ -279,6 +279,10 @@
 	"cx-tools-linter-template-block-message": "Исходная страница использует шаблон, который недоступен в целевой вики.\n\nШаблон был пропущен, но вы можете добавить новое содержимое для захвата отсутствующей информации.",
 	"cx-tools-linter-old-revision": "Перевод на основе старой версии страницы",
 	"cx-tools-linter-old-revision-message": "Этот перевод основан на устаревшей версии содержимого. Возможно, исходная страница [$1 значительно изменилась].\n\nВы можете продолжить этот перевод, или запустить его снова, чтобы использовать обновлённое содержание. Если перезапустить перевод, текущие изменения будут потеряны.",
+	"cx-tools-linter-old-revision-label": "Перевести снова",
+	"cx-tools-linter-restart-translation-title": "Перевести снова?",
+	"cx-tools-linter-restart-translation-message": "Будет начат новый перевод для самой последней версии страницы. При этом все ваши изменения будут утеряны.",
+	"cx-tools-linter-restart-translation-cancel": "Отмена",
 	"cx-translator-header": "Ваша статистика",
 	"cx-translator-month-stats-label": "В этом месяце",
 	"cx-translator-total-translations-label": "Всего",
@@ -301,5 +305,6 @@
 	"cx-publish-destination-namespace-draft": "Общественный черновик",
 	"cx-linkcontextitem-missing-link-title": "Отсутствующая ссылка",
 	"cx-linkcontextitem-missing-title-description": "Этой страницы ещё не существует",
-	"cx-mt-abuse-publish-error": "Ваш перевод не может быть опубликован, так как содержит слишком много неизменённого текста, полученного в результате машинного перевода"
+	"cx-mt-abuse-publish-error": "Ваш перевод не может быть опубликован, так как содержит слишком много неизменённого текста, полученного в результате машинного перевода",
+	"cx-unreviewed-translation-category": "Страницы с непроверенным машинным переводом"
 }

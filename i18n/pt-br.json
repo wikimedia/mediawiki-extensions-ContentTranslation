@@ -261,6 +261,13 @@
 	"cx-tools-linter-page-exists-message": "Já existe uma página com o título $1. Se publicar a sua tradução irá sobrescrever o conteúdo existente.\n\nVerifique que pretende substituir a página existente, ou pondere alterar o nome da sua tradução.",
 	"cx-tools-linter-template": "Predefinição indisponível",
 	"cx-tools-linter-template-block-message": "A página original usa uma predefinição que não está disponível na wiki de destino.\n\nEsta predefinição foi saltada, mas pode adicionar conteúdo novo para capturar a informação em falta.",
+	"cx-tools-linter-template-inline-message": "A página original usa modelos para estruturar o conteúdo, mas alguns deles não existem no wiki de destino.\n\nO conteúdo dos modelos ausentes foi adicionado como texto simples. Certifique-se de rever o resultado.",
+	"cx-tools-linter-old-revision": "Tradução baseada na versão antiga da página",
+	"cx-tools-linter-old-revision-message": "Esta tradução é baseada em uma versão mais antiga do conteúdo. A página de origem pode ter [$1 mudado significativamente].\n\nVocê pode continuar essa tradução ou iniciá-la novamente para usar o conteúdo atualizado. Se você reiniciar a tradução, suas alterações atuais serão perdidas.",
+	"cx-tools-linter-old-revision-label": "Reiniciar a tradução",
+	"cx-tools-linter-restart-translation-title": "Reiniciar a tradução?",
+	"cx-tools-linter-restart-translation-message": "Você iniciará uma nova tradução para a versão mais recente da página. Todas as suas alterações serão perdidas.",
+	"cx-tools-linter-restart-translation-cancel": "Cancelar",
 	"cx-translator-header": "As suas estatísticas",
 	"cx-translator-month-stats-label": "Neste mês",
 	"cx-translator-total-translations-label": "Total",
@@ -283,5 +290,7 @@
 	"cx-publish-destination-namespace-draft": "Rascunho da comunidade",
 	"cx-linkcontextitem-missing-link-title": "Ligação em falta",
 	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
-	"cx-mt-abuse-publish-error": "Sua tradução não pode ser publicada porque contém muito texto não modificado traduzido por máquina"
+	"cx-mt-abuse-publish-error": "Sua tradução não pode ser publicada porque contém muito texto não modificado traduzido por máquina",
+	"cx-unreviewed-translation-category": "Páginas com tradução automática não revisada",
+	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta Tradução de conteúdo que contém uma grande quantidade de tradução automática não revisada"
 }
