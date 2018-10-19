@@ -24,7 +24,8 @@
 			"Mar(c)",
 			"Петар Петковић",
 			"Ndecouck",
-			"Optilete"
+			"Optilete",
+			"Bdijkstra"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -107,7 +108,7 @@
 	"cx-page-missing-in-target-language": "ontbrekend in $1",
 	"cx-page-number-of-languages": "Aantal talen",
 	"cx-mt-abuse-warning-title": "Uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde tekst",
-	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen. Je vertaling word waarschijnlijk verwijderd al het gecontroleerd wordt door andere editoren.",
+	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen. Uw vertaling wordt waarschijnlijk verwijderd wanneer het gecontroleerd wordt door andere editoren.",
 	"cx-publish-captcha-title": "Robotcontrole",
 	"cx-captcha-dialog-error": "Uw antwoord lijkt niet correct te zijn. Probeer het opnieuw.",
 	"cx-captcha-dialog-cancel": "Annuleren",

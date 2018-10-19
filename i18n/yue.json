@@ -4,7 +4,8 @@
 			"Yueman",
 			"Ktchankt",
 			"Hello903hello",
-			"Shinjiman"
+			"Shinjiman",
+			"Roy17"
 		]
 	},
 	"cx": "翻譯頁",
@@ -18,7 +19,7 @@
 	"cx-header-translation-center": "翻譯中心",
 	"cx-header-all-translations": "所有翻譯",
 	"cx-source-view-page": "睇頁",
-	"cx-publish-page-success": "頁喺 $1 發佈",
+	"cx-publish-page-success": "呢頁喺 $1 發佈",
 	"cx-publish-page-error": "儲存頁出錯。 錯誤：$1",
 	"cx-publish-button": "發佈",
 	"cx-publish-button-publishing": "發佈緊...",
