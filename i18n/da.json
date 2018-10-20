@@ -163,6 +163,8 @@
 	"cx-tools-linter-hide-details": "Skjul detaljer",
 	"cx-tools-linter-page-exists": "Siden findes allerede",
 	"cx-tools-linter-template": "Skabelon ikke tilgængelig",
+	"cx-tools-linter-old-revision-label": "Start forfra med oversættelsen",
+	"cx-tools-linter-restart-translation-cancel": "Annullér",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denne måned",
 	"cx-tools-mt-new-provider": "ny",
