@@ -164,6 +164,7 @@
 	"cx-tools-linter-page-exists": "Siden findes allerede",
 	"cx-tools-linter-template": "Skabelon ikke tilgængelig",
 	"cx-tools-linter-old-revision-label": "Start forfra med oversættelsen",
+	"cx-tools-linter-restart-translation-title": "Start forfra med oversættelsen?",
 	"cx-tools-linter-restart-translation-cancel": "Annullér",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denne måned",

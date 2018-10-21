@@ -204,6 +204,8 @@
 	"cx-tools-linter-content": "Rastas turinys neatitinka [//www.mediawiki.org/wiki/Content_translation/Abuse_filter Vikipedijos nustatytų apribojimų $1]. Preš paskelbiant vertimą, prašom ištaisyti klaidas.",
 	"cx-tools-linter-view-details": "Žiūrėti detales",
 	"cx-tools-linter-hide-details": "Slėpti detales",
+	"cx-tools-linter-old-revision-label": "Versti iš naujo",
+	"cx-tools-linter-restart-translation-cancel": "Atšaukti",
 	"cx-translator-header": "Jūsų statistika",
 	"cx-translator-month-stats-label": "Šis mėnuo",
 	"cx-translator-total-translations-label": "Iš viso",

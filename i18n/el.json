@@ -220,6 +220,7 @@
 	"cx-tools-linter-hide-details": "Απόκρυψη λεπτομερειών",
 	"cx-tools-linter-page-exists": "Η σελίδα υπάρχει ήδη",
 	"cx-tools-linter-template": "Το πρότυπο δεν είναι διαθέσιμο",
+	"cx-tools-linter-restart-translation-title": "Επανεκκίνηση της μετάφρασης;",
 	"cx-tools-linter-restart-translation-cancel": "Ακύρωση",
 	"cx-translator-header": "Τα στατιστικά σας",
 	"cx-translator-month-stats-label": "Αυτό το μήνα",
