@@ -43,6 +43,7 @@
 	"cx-lost-session": "Din session har gått ut",
 	"cx-lost-session-draft": "Din session har gått ut. Dina redigeringar kan inte sparas såvida du loggar in i ett annat fönster.",
 	"cx-lost-session-publish": "Din session har gått ut. Du kan inte publicera översättningen förrän du har loggat in igen i ett annat fönster.",
+	"cx-lost-session-dashboard": "Logga in igen för att utföra denna åtgärd.",
 	"cx-publish-summary": "Skapad genom översättning av \"$1\"",
 	"cx-publish-gt-no-permission-to-move-description": "Fråga en erfaren användare om hjälp att granska din översättning och publicera den i huvudnamnrymden.",
 	"cx-publish-gt-first-step-title": "Översättningen har publicerats som ett utkast på en undersida till din användarsida för granskning",
@@ -253,6 +254,13 @@
 	"cx-tools-linter-page-exists-message": "En sida med titeln $1 finns redan. Om din översättning publiceras kommer det befintliga innehållet att skrivas över\n\nKontrollera att det är okej att ersätta den befintliga sidan eller överväg att byta namn på din översättning.",
 	"cx-tools-linter-template": "Otillgänglig mall",
 	"cx-tools-linter-template-block-message": "Den ursprungliga sidan använder en mall som inte är tillgänglig på destinationswikin.\n\nDenna mall har hoppats över, men du kan lägga till nytt innehåll för att täcka den saknade informationen.",
+	"cx-tools-linter-template-inline-message": "Originalsidan använder mallar för att strukturera innehållet, men en del av dem finns inte på destinationswikin.\n\nInnehållet från de saknade mallarna har lagts till som vanlig text. Se till att granska resultatet.",
+	"cx-tools-linter-old-revision": "Översättning baserat på en gammal version av sidan",
+	"cx-tools-linter-old-revision-message": "Denna översättning är baserat på en äldre version av innehållet. Källsidan kanske har [$1 ändrats avsevärt].\n\nDu kan fortsätta på denna översättning eller börja om för att använda det uppdaterade innehållet. Om du startar om översättningen kommer dina nuvarande ändringar förloras.",
+	"cx-tools-linter-old-revision-label": "Starta om översättningen",
+	"cx-tools-linter-restart-translation-title": "Start om översättningen?",
+	"cx-tools-linter-restart-translation-message": "Du kommer att starta en nya översättning för den senaste versionen av sidan. Alla dina ändringar kommer att förloras.",
+	"cx-tools-linter-restart-translation-cancel": "Avbryt",
 	"cx-translator-header": "Din statistik",
 	"cx-translator-month-stats-label": "Denna månad",
 	"cx-translator-total-translations-label": "Totalt",
@@ -275,5 +283,7 @@
 	"cx-publish-destination-namespace-draft": "Gemenskapsskiss",
 	"cx-linkcontextitem-missing-link-title": "Länk saknas",
 	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu.",
-	"cx-mt-abuse-publish-error": "Din översättning kan inte publiceras eftersom den innehåller för mycket oförändrad maskinöversatt text."
+	"cx-mt-abuse-publish-error": "Din översättning kan inte publiceras eftersom den innehåller för mycket oförändrad maskinöversatt text.",
+	"cx-unreviewed-translation-category": "Sidor med ogranskad maskinöversättning",
+	"cx-unreviewed-translation-category-desc": "Sidor som har översätts med verktyget Innehållsöversättning och innehåller en större mängd ogranskat maskinöversatt innehåll"
 }

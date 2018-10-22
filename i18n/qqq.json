@@ -271,7 +271,7 @@
 	"cx-tools-linter-old-revision-label": "Label for button displayed on a linter card in Content Translation when source page has changed significantly. Allows user to restart the translation using the latest revision.",
 	"cx-tools-linter-restart-translation-title": "Title used for a modal dialog displayed as confirmation when user wants to restart the translation.",
 	"cx-tools-linter-restart-translation-message": "Main message of a modal dialog displayed as confirmation when user wants to restart the translation.",
-	"cx-tools-linter-restart-translation-cancel": "Label of cancel button on a modal dialog displayed as confirmation when user wants to restart the translation.",
+	"cx-tools-linter-restart-translation-cancel": "Label of cancel button on a modal dialog displayed as confirmation when user wants to restart the translation.\n{{Identical|Cancel}}",
 	"cx-translator-header": "Shown in sidebar menu in the Content Translation dashboard. Represents card header for translation statistics of current user.",
 	"cx-translator-month-stats-label": "Label displayed in the translation statistics of current user.",
 	"cx-translator-total-translations-label": "Label displayed in the translation statistics of current user.\n{{Identical|Total}}",
