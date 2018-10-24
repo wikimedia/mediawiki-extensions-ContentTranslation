@@ -279,7 +279,6 @@
 		logAbuseFilter: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, context, filterType, filterId ) {
 			mw.track( 'event.ContentTranslationAbuseFilter', {
 				token: mw.user.id(),
-				session: mw.user.sessionId(),
 				context: context,
 				sourceLanguage: sourceLanguage,
 				targetLanguage: targetLanguage,
