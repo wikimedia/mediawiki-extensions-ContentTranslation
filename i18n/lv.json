@@ -18,6 +18,7 @@
 	"cx-source-view-page": "apskatīt lapu",
 	"cx-publish-page-success": "Lapa publicēta $1",
 	"cx-publish-page-error": "Kļūda, saglabājot lapu.",
+	"cx-publish-error-empty": "Servera atbildē nebija datu.",
 	"cx-publish-button": "Publicēt",
 	"cx-publish-button-publishing": "Publicē...",
 	"cx-lost-session": "Tava sesija ir beigusies",

@@ -260,6 +260,7 @@
 	"cx-tools-linter-page-exists": "문서가 이미 존재합니다",
 	"cx-tools-linter-page-exists-message": "$1 제목의 문서가 이미 존재합니다. 번역을 게시하면 기존 내용을 덮어쓰게 됩니다\n\n기존 문서를 대체해도 좋은지 확인하거나 번역 이름을 바꾸는 것을 고려하십시오.",
 	"cx-tools-linter-template": "틀을 사용할 수 없음",
+	"cx-tools-linter-template-inline-message": "원래의 문서는 틀을 사용하여 내용을 구조화하지만 이 틀들 가운데 일부는 대상 위키에 존재하지 않습니다.\n\n존재하지 않는 틀의 내용은 평문으로 추가됩니다. 결과를 검토해 주십시오.",
 	"cx-tools-linter-old-revision": "과거 판의 문서에 기반한 번역",
 	"cx-tools-linter-old-revision-label": "번역 다시 시작",
 	"cx-tools-linter-restart-translation-title": "번역을 다시 시작하시겠습니까?",
