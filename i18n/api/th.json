@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Octahedron80"
+			"Octahedron80",
+			"Aefgh39622"
 		]
 	},
 	"apihelp-cxpublish-description": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
@@ -23,7 +24,7 @@
 	"apihelp-cxconfiguration-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-cxconfiguration-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxconfiguration-example-1": "ดึงข้อมูลเจซันของการตั้งค่าการแปลเนื้อหา สำหรับคู่ภาษาสเปน-คาตาลัน",
-	"apihelp-query+cxpublishedtranslations-description": "ดึงข้อมูลสารสนเทศการแปลที่เผยแพร่ทั้งหมด",
+	"apihelp-query+cxpublishedtranslations-description": "ดึงข้อมูลการแปลที่เผยแพร่ทั้งหมด",
 	"apihelp-query+cxpublishedtranslations-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+cxpublishedtranslations-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-query+cxpublishedtranslations-example-1": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด",
