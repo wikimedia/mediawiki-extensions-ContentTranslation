@@ -28,6 +28,11 @@ ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 	this.sourceLinkCache = ve.init.platform.sourceLinkCache;
 	this.targetLinkCache = ve.init.platform.linkCache;
 	this.requestManager = ve.init.target.requestManager;
+
+	this.surfaceModel = this.context.getSurface().getModel();
+
+	// Events
+	this.surfaceModel.connect( this, { select: 'onSurfaceModelSelect' } );
 };
 
 /* Inheritance */
@@ -118,10 +123,9 @@ ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( source
  * @inheritdoc
  */
 ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
-	var text,
-		fragment = this.getFragment();
+	var fragment = this.getFragment(),
+		text = fragment.getText().trim();
 
-	text = fragment.getText().trim();
 	if ( text.length === 0 || text.length > 30 || this.hasLink() ) {
 		this.$element.remove();
 		return;
@@ -151,6 +155,24 @@ ve.ui.CXTextSelectionContextItem.prototype.hasLink = function () {
 	return this.context.getRelatedSources().some( function ( element ) {
 		return element.model instanceof ve.dm.LinkAnnotation;
 	} );
+};
+
+ve.ui.CXTextSelectionContextItem.prototype.onSurfaceModelSelect = function ( selection ) {
+	if ( !( selection instanceof ve.dm.LinearSelection ) || selection.isCollapsed() ) {
+		return;
+	}
+
+	this.context.onContextChange();
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.CXTextSelectionContextItem.prototype.teardown = function () {
+	ve.ui.CXTextSelectionContextItem.parent.prototype.teardown.apply( this, arguments );
+
+	// Disconnect all event listeners
+	this.surfaceModel.disconnect( this );
 };
 
 /* Registration */
