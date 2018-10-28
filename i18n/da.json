@@ -163,6 +163,7 @@
 	"cx-tools-linter-hide-details": "Skjul detaljer",
 	"cx-tools-linter-page-exists": "Siden findes allerede",
 	"cx-tools-linter-template": "Skabelon ikke tilgængelig",
+	"cx-tools-linter-old-revision": "Oversættelse baseret på en gammel version af siden",
 	"cx-tools-linter-old-revision-label": "Start forfra med oversættelsen",
 	"cx-tools-linter-restart-translation-title": "Start forfra med oversættelsen?",
 	"cx-tools-linter-restart-translation-cancel": "Annullér",

@@ -233,5 +233,6 @@
 	"cx-publish-destination-namespace-user": "Perséinleche Brouillon",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftleche Brouillon",
 	"cx-linkcontextitem-missing-link-title": "Link feelt",
-	"cx-linkcontextitem-missing-title-description": "Dës Säit gëtt et nach net"
+	"cx-linkcontextitem-missing-title-description": "Dës Säit gëtt et nach net",
+	"cx-unreviewed-translation-category": "Säite mat net nogekuckter automatescher Iwwersetzung"
 }
