@@ -802,7 +802,7 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	// our modified indexes will be corrupted by the remapping step in newFromDocumentInsertion().
 	deduplicateReferences( tx, doc );
 	newRange = tx.getModifiedRange( doc );
-	surfaceModel.change( tx, new ve.dm.LinearSelection( doc, newRange ) );
+	surfaceModel.change( tx, new ve.dm.LinearSelection( newRange ) );
 
 	// Select first content offset within new content
 	newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( newRange.start, 1 ) );
