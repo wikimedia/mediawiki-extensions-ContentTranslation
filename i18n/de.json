@@ -280,6 +280,6 @@
 	"cx-linkcontextitem-missing-link-title": "Fehlender Link",
 	"cx-linkcontextitem-missing-title-description": "Diese Seite ist noch nicht vorhanden",
 	"cx-mt-abuse-publish-error": "Deine Übersetzung kann nicht veröffentlicht werden, da sie zu viel unveränderten maschinenübersetzten Text enthält.",
-	"cx-unreviewed-translation-category": "Seiten mit ungeprüften Maschinenübersetzungen",
-	"cx-unreviewed-translation-category-desc": "Mit dem Inhaltsübersetzungswerkzeug übersetzte Seiten, die eine hohe Anzahl ungeprüfter Maschinenübersetzungsausgaben enthalten."
+	"cx-unreviewed-translation-category": "Seiten mit ungeprüften Übersetzungen",
+	"cx-unreviewed-translation-category-desc": "Mit dem Inhaltsübersetzungswerkzeug übersetzte Seiten, die eine hohe Anzahl ungeprüfter Inhalte enthalten."
 }

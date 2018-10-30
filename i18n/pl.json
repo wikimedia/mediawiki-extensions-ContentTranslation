@@ -262,6 +262,8 @@
 	"cx-tools-linter-page-exists-message": "Strona o tytule „$1” już istnieje. Opublikowanie tłumaczenia będzie oznaczało nadpisanie istniejącej zawartości.\n\nSprawdź, czy możesz zastąpić istniejącą stronę, lub rozważ zmianę nazwy swojego tłumaczenia.",
 	"cx-tools-linter-template": "Szablon niedostępny",
 	"cx-tools-linter-template-block-message": "Oryginalna strona wykorzystuje szablon, który nie jest dostępny na docelowej wiki.\n\nTen szablon został pominięty, ale możesz dodać nową treść, aby umieścić brakujące informacje.",
+	"cx-tools-linter-old-revision-label": "Zrestartuj tłumaczenie",
+	"cx-tools-linter-restart-translation-title": "Zrestartować tłumaczenie?",
 	"cx-tools-linter-restart-translation-cancel": "Anuluj",
 	"cx-translator-header": "Twoje statystyki",
 	"cx-translator-month-stats-label": "W tym miesiącu",

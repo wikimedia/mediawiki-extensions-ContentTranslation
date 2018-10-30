@@ -285,6 +285,6 @@
 	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة",
 	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد",
 	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل مترجم آليا كثير غير معدل",
-	"cx-unreviewed-translation-category": "الصفحات بترجمة آلية غير مراجعة",
-	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من ناتج الترجمة الآلية غير المراجع"
+	"cx-unreviewed-translation-category": "الصفحات بترجمات غير مراجعة",
+	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من المحتوى غير المراجع"
 }

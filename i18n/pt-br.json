@@ -291,6 +291,6 @@
 	"cx-linkcontextitem-missing-link-title": "Ligação em falta",
 	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
 	"cx-mt-abuse-publish-error": "Sua tradução não pode ser publicada porque contém muito texto não modificado traduzido por máquina",
-	"cx-unreviewed-translation-category": "Páginas com tradução automática não revisada",
-	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta Tradução de conteúdo que contém uma grande quantidade de tradução automática não revisada"
+	"cx-unreviewed-translation-category": "Páginas com traduções não revisadas",
+	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta de tradução de conteúdo que contém uma grande quantidade de conteúdo não revisado"
 }

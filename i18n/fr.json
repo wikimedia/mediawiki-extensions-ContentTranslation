@@ -308,6 +308,6 @@
 	"cx-linkcontextitem-missing-link-title": "Lien manquant",
 	"cx-linkcontextitem-missing-title-description": "Cette page n’existe pas encore",
 	"cx-mt-abuse-publish-error": "Votre traduction ne peut pas être publiée parce qu’elle contient trop de texte traduit automatiquement sans avoir été modifié",
-	"cx-unreviewed-translation-category": "Pages avec une traduction de machine non relue",
-	"cx-unreviewed-translation-category-desc": "Pages traduites avec l’outil de Traduction de contenu qui contiennent une grande quantité non relue de sorties traduites par la machine"
+	"cx-unreviewed-translation-category": "Pages avec des traductions non relues",
+	"cx-unreviewed-translation-category-desc": "Pages traduites par l’outil de traduction de contenu ayant une grande quantité de contenu non relu"
 }
