@@ -1496,6 +1496,8 @@
 				"cx-error-page-not-found",
 				"cx-error-server-connection",
 				"cx-feedback-link",
+				"cx-infobar-view-issues",
+				"cx-infobar-old-version",
 				"cx-tools-linter-old-revision",
 				"cx-tools-linter-old-revision-label",
 				"cx-tools-linter-old-revision-message",

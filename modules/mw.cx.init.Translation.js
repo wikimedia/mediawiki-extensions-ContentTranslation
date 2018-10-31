@@ -340,6 +340,8 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		return;
 	}
 
+	this.displayWarningMessage();
+
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
 		var diff, translationIssuesParams;
 
@@ -413,4 +415,27 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 			location.href = uri.getRelativePath();
 		}.bind( this ) );
 	}.bind( this ) );
+};
+
+mw.cx.init.Translation.prototype.displayWarningMessage = function () {
+	var button = new OO.ui.ButtonWidget( {
+		framed: false,
+		flags: [ 'primary', 'progressive' ],
+		label: mw.msg( 'cx-infobar-view-issues' )
+	} );
+
+	button.connect( this, { click: 'displayIssueDetails' } );
+
+	this.translationView.showMessage( 'warning', mw.msg( 'cx-infobar-old-version' ), null, [ button ] );
+};
+
+mw.cx.init.Translation.prototype.displayIssueDetails = function () {
+	var issueCard = this.translationView.toolsColumn.issueCard;
+
+	if ( !issueCard ) {
+		throw new Error( 'Issue card is not initialized' );
+	}
+
+	issueCard.openIssueByName( 'old-version' );
+	this.translationView.clearMessages();
 };

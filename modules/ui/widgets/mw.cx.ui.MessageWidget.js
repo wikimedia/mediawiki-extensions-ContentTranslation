@@ -10,6 +10,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg {string} [type] Message type. One of 'success', 'error' or 'warning'.
+ * @cfg {mediawiki.Message|string} [message] Main message.
+ * @cfg {mediawiki.Message|string} [details] Additional details.
+ * @cfg {OO.ui.ButtonWidget[]} [buttons] Array of additional buttons.
  */
 mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	var iconMap;
@@ -45,6 +49,7 @@ mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	this.$element
 		.addClass( 'cx-message-widget cx-message-' + config.type )
 		.append( this.$icon, this.$label, this.closeButton.$element );
+	this.addButtons( config.buttons );
 };
 
 /* Setup */
@@ -82,4 +87,21 @@ mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) 
 	}
 
 	return $message.add( $details );
+};
+
+/**
+ * @param {OO.ui.ButtonWidget[]} buttons Array of additional buttons.
+ */
+mw.cx.ui.MessageWidget.prototype.addButtons = function ( buttons ) {
+	var $buttons = $( '<div>' ).addClass( 'cx-message-widget-buttons' );
+
+	if ( !buttons ) {
+		return;
+	}
+
+	buttons.forEach( function ( button ) {
+		$buttons.append( button.$element );
+	} );
+
+	this.$element.append( $buttons );
 };

@@ -234,6 +234,8 @@
 	"cx-suggestionlist-collapse": "View less",
 	"cx-suggestionlist-refresh": "Refresh suggestions",
 	"cx-notification-suggestions-available": "Based on {{GENDER:$2|your}} previous translation of '''$1''', new suggestions are now available.",
+	"cx-infobar-view-issues": "View issues",
+	"cx-infobar-old-version": "This translation is based on an older version of the content. The source page may have changed significantly, and you may want to restart the translation.",
 	"cx-tools-linter-issues": "Issues",
 	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 error|$1 errors}}",

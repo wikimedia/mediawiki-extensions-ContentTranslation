@@ -51,15 +51,17 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
  *
  * @param {string} type Message class.
  * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
- * @param {string} details The details of error in HTML.
+ * @param {mediawiki.Message|string} details The details of error in HTML.
+ * @param {OO.ui.ButtonWidget[]} buttons Additional buttons to add to the message widget.
  */
-mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details ) {
+mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details, buttons ) {
 	var messageWidget;
 
 	messageWidget = new mw.cx.ui.MessageWidget( {
 		message: message,
 		details: details,
-		type: type
+		type: type,
+		buttons: buttons
 	} );
 	this.clearMessages();
 	this.messageLayout.addItems( [ messageWidget ] );

@@ -451,5 +451,31 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
 	this.allIssues = allIssues;
 };
 
+/**
+ * Open the details panel for translation issue with a given name.
+ *
+ * @param {string} name
+ */
+mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
+	var i, length, issueObj, index;
+
+	for ( i = 0, length = this.allIssues.length; i < length; i++ ) {
+		issueObj = this.allIssues[ i ];
+
+		if ( issueObj.issue.getName() === name ) {
+			index = i;
+			break;
+		}
+	}
+
+	if ( index === undefined ) {
+		return;
+	}
+
+	this.currentIssue = index + 1;
+	this.showDetails();
+	this.openCurrentPanel();
+};
+
 /* Register */
 mw.cx.tools.translationToolFactory.register( mw.cx.tools.IssueTrackingTool );

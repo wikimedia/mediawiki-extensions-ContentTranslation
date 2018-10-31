@@ -125,10 +125,11 @@ mw.cx.ui.TranslationView.prototype.showCategories = function ( categoryUI ) {
  * Show a success/error message in the view
  * @param {string} type Message class.
  * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
- * @param {string} details The details of error in HTML.
+ * @param {mediawiki.Message|string} details The details of error in HTML.
+ * @param {OO.ui.ButtonWidget[]} buttons Array of additional buttons to add to infobar.
  */
-mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, details ) {
-	this.infobar.showMessage( type, message, details );
+mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, details, buttons ) {
+	this.infobar.showMessage( type, message, details, buttons );
 };
 
 /**
