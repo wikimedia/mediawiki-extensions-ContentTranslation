@@ -284,5 +284,5 @@
 	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在",
 	"cx-mt-abuse-publish-error": "因包含太多未更改過的機器翻譯文字緣故，無法發佈您的翻譯",
 	"cx-unreviewed-translation-category": "頁面帶有未審查過的機器翻譯",
-	"cx-unreviewed-translation-category-desc": "頁面以內容翻譯工具做出翻譯，且包含大量未審查過的機器翻譯輸出內容"
+	"cx-unreviewed-translation-category-desc": "頁面以內容翻譯工具做出翻譯，且包含大量未審查過的內容"
 }

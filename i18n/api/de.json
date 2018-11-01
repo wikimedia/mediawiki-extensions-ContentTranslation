@@ -68,6 +68,8 @@
 	"apihelp-cxdelete-param-to": "Der Zielsprachcode.",
 	"apihelp-cxdelete-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-cxdelete-example-1": "Löscht einen Entwurf in Verbindung mit dem angegebenen Sprachpaar und Titel.",
+	"apihelp-cxsuggestionlist-description": "Verwaltet die Vorschlagslisten. Ergänzt Vorschläge in der Liste und entfernt sie.",
+	"apihelp-cxsuggestionlist-summary": "Verwaltet die Vorschlagslisten. Ergänzt Vorschläge in der Liste und entfernt sie.",
 	"apihelp-cxsuggestionlist-param-listname": "Name der Vorschlagsliste.",
 	"apihelp-cxsuggestionlist-param-listaction": "Auszuführende Aktion auf die Liste.",
 	"apihelp-cxsuggestionlist-param-titles": "Seitentitel.",

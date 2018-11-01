@@ -4,7 +4,8 @@
 			"George Animal",
 			"Bikarhêner",
 			"Ghybu",
-			"Cûndûllah el-Kurdî"
+			"Cûndûllah el-Kurdî",
+			"Zoranzoki21"
 		]
 	},
 	"cx": "Rûpelê wergerîne",
@@ -30,7 +31,7 @@
 	"cx-entrypoint-dialog-title-in": "Sernavê bo rûpela nû li ser $1:",
 	"cx-entrypoint-dialog-button-translate-from": "Wergerîne ji $1",
 	"cx-special-login-error": "Bo wergerandinê tu divê têketî bî. [$1 Têkeve]",
-	"cx-tools-instructions-text1": "Bo wergerandinê {{GENDER|pêl}}beşê bike",
+	"cx-tools-instructions-text1": "Bo wergerandinê {{GENDER:|pêl}} beşê bike",
 	"cx-tools-instructions-text5": "Wergerê {{GENDER:|biweşîne}}",
 	"cx-tools-searchbox-text": "Li peyvekê bigere",
 	"cx-tools-link-title": "Girêdan",

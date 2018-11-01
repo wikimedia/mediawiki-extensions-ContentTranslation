@@ -275,6 +275,6 @@
 	"cx-linkcontextitem-missing-link-title": "Недостаје веза",
 	"cx-linkcontextitem-missing-title-description": "Страница још увек не постоји",
 	"cx-mt-abuse-publish-error": "Ваш превод не може бити објављен, јер садржи превише неизмењеног текста направљеног помоћу машинског превођења.",
-	"cx-unreviewed-translation-category": "Странице са непрегледаним машинским преводом",
-	"cx-unreviewed-translation-category-desc": "Странице преведене са алатком „Превод садржаја” које садрже високу количину непрегледаног машинског превода излазног садржаја."
+	"cx-unreviewed-translation-category": "Странице са непрегледаним преводима",
+	"cx-unreviewed-translation-category-desc": "Странице преведене са алатком „Превод садржаја” које садрже високу количину непрегледаног садржаја."
 }

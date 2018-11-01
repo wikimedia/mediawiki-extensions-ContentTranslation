@@ -283,6 +283,6 @@
 	"cx-linkcontextitem-missing-link-title": "Hiperligação em falta",
 	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
 	"cx-mt-abuse-publish-error": "A sua tradução não pode ser publicada porque contém demasiado texto de tradução automática sem modificações",
-	"cx-unreviewed-translation-category": "Páginas com tradução automática não revista",
-	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta \"Tradução de conteúdo\" que contêm uma grande quantidade de traduções automáticas não revistas"
+	"cx-unreviewed-translation-category": "Páginas com traduções não revistas",
+	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta Tradução de Conteúdo que têm uma grande quantidade de conteúdo não revisto"
 }

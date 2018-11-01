@@ -289,6 +289,6 @@
 	"cx-linkcontextitem-missing-link-title": "링크가 없음",
 	"cx-linkcontextitem-missing-title-description": "이 문서는 아직 존재하지 않습니다",
 	"cx-mt-abuse-publish-error": "수정되지 않은 너무 많은 기계 번역 문구가 포함되어 있기 때문에 번역을 게시할 수 없습니다",
-	"cx-unreviewed-translation-category": "검토되지 않은 기계 번역 문서",
-	"cx-unreviewed-translation-category-desc": "검토되지 않은 상당한 양의 기계 번역 출력물을 포함하는 내용 번역 도구로 번역된 문서"
+	"cx-unreviewed-translation-category": "번역이 검토되지 않은 있는 문서",
+	"cx-unreviewed-translation-category-desc": "검토되지 않은 상당한 양의 내용을 포함하는 내용 번역 도구로 번역된 문서"
 }
