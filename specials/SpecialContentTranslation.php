@@ -11,7 +11,7 @@
  * a special page that shows Content Translation user interface.
  */
 class SpecialContentTranslation extends ContentTranslationSpecialPage {
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'ContentTranslation' );
 	}
 

@@ -10,7 +10,7 @@
  * Shows some metrics about ContentTranslation usage.
  */
 class SpecialContentTranslationStats extends ContentTranslationSpecialPage {
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'ContentTranslationStats' );
 	}
 
