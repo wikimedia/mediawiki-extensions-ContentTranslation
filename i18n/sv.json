@@ -285,6 +285,6 @@
 	"cx-linkcontextitem-missing-link-title": "Länk saknas",
 	"cx-linkcontextitem-missing-title-description": "Denna sida existerar inte ännu.",
 	"cx-mt-abuse-publish-error": "Din översättning kan inte publiceras eftersom den innehåller för mycket oförändrad maskinöversatt text.",
-	"cx-unreviewed-translation-category": "Sidor med ogranskad maskinöversättning",
-	"cx-unreviewed-translation-category-desc": "Sidor som har översätts med verktyget Innehållsöversättning och innehåller en större mängd ogranskat maskinöversatt innehåll"
+	"cx-unreviewed-translation-category": "Sidor med ogranskade översättningar",
+	"cx-unreviewed-translation-category-desc": "Sidor som har översätts med verktyget Innehållsöversättning och innehåller en större mängd ogranskat innehåll"
 }
