@@ -307,5 +307,6 @@
 	"cx-linkcontextitem-missing-link-title": "Отсутствующая ссылка",
 	"cx-linkcontextitem-missing-title-description": "Этой страницы ещё не существует",
 	"cx-mt-abuse-publish-error": "Ваш перевод не может быть опубликован, так как содержит слишком много неизменённого текста, полученного в результате машинного перевода",
-	"cx-unreviewed-translation-category": "Страницы с непроверенными переводами"
+	"cx-unreviewed-translation-category": "Страницы с непроверенными переводами",
+	"cx-unreviewed-translation-category-desc": "Страницы, переведённые с помощью инструмента «Перевод содержимого», которые имеют значительное количество непроверенного содержимого"
 }

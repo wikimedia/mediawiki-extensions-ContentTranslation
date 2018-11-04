@@ -117,6 +117,7 @@
 	"cx-dashboard-sidebar-stats": "آمار",
 	"cx-dashboard-sidebar-feedback": "به ما بازخورد دهید",
 	"cx-dashboard-sidebar-newversion": "نسخه جدید را امتحان کنید",
+	"cx-dashboard-sidebar-newversion-using": "از نسخه جدید استفاده کنید",
 	"cx-dashboard-sidebar-newversion-disable": "غیرفعال",
 	"cx-dashboard-sidebar-newversion-help": "اطلاعات بیشتر",
 	"cx-newversion-notification-title": "نسخه جدید فعال شد",
@@ -240,6 +241,11 @@
 	"cx-tools-linter-invalid-character": "عنوان ترجمه شما شامل کاراکترهای نامعتبر است",
 	"cx-tools-linter-invalid-character-action": "تصحیح کاراکترهای مشکل‌دار",
 	"cx-tools-linter-page-exists": "صفحه از قبل وجود دارد",
+	"cx-tools-linter-template": "الگو در دسترس نیست",
+	"cx-tools-linter-old-revision": "ترجمه بر اساس نسخه‌های قدیمی‌تر این صفحه",
+	"cx-tools-linter-old-revision-label": "بازنویسی ترجمه",
+	"cx-tools-linter-restart-translation-title": "آیا ترجمه دور ریخته شود؟",
+	"cx-tools-linter-restart-translation-cancel": "انصراف",
 	"cx-translator-header": "آمار شما",
 	"cx-translator-month-stats-label": "این ماه",
 	"cx-translator-total-translations-label": "مجموع",
@@ -261,5 +267,6 @@
 	"cx-publish-destination-namespace-draft": "پیش‌نویس عمومی",
 	"cx-linkcontextitem-missing-link-title": "پیوند ناموجود",
 	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد.",
-	"cx-mt-abuse-publish-error": "ترجمه شما به دلیل وجود مقدار زیادی متن ترجمه ماشینی ویرایش نشده امکان انتشار ندارد"
+	"cx-mt-abuse-publish-error": "ترجمه شما به دلیل وجود مقدار زیادی متن ترجمه ماشینی ویرایش نشده امکان انتشار ندارد",
+	"cx-unreviewed-translation-category": "صفحات با ترجمه بازبینی‌نشده"
 }
