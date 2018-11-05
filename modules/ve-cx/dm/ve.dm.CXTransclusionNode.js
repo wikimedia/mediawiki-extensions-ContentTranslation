@@ -222,3 +222,10 @@ ve.dm.CXTransclusionInlineNode.prototype.onDetach = function ( parent ) {
 ve.dm.modelRegistry.register( ve.dm.CXTransclusionNode );
 ve.dm.modelRegistry.register( ve.dm.CXTransclusionBlockNode );
 ve.dm.modelRegistry.register( ve.dm.CXTransclusionInlineNode );
+
+// Re-register ve.dm.MWReferencesListNode so that it gets high rank in
+// ve.dm.modelRegistry.matchElement. See T206756
+if ( ve.dm.MWReferencesListNode ) {
+	ve.dm.modelRegistry.unregister( ve.dm.MWReferencesListNode );
+	ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );
+}
