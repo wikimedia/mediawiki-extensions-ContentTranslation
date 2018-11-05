@@ -233,6 +233,7 @@
 	"cx-tools-linter-invalid-character": "O título da súa tradución contén caracteres non válidos",
 	"cx-tools-linter-invalid-character-action": "Arranxar caracteres problemáticos",
 	"cx-tools-linter-page-exists": "A páxina xa existe",
+	"cx-tools-linter-restart-translation-cancel": "Cancelar",
 	"cx-translator-header": "As súas estatísticas",
 	"cx-translator-month-stats-label": "Este mes",
 	"cx-translator-total-translations-label": "Total",
