@@ -42,6 +42,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 		title: this.getTargetTitle(),
 		html: this.getContent( true ),
 		categories: this.getTargetCategories(),
+		publishtags: this.getTags(),
 		wpCaptchaId: this.captcha && this.captcha.id,
 		wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
 		cxversion: 2
@@ -456,4 +457,15 @@ mw.cx.TargetArticle.prototype.getTargetCategories = function () {
 	}
 
 	return targetCategories;
+};
+
+/**
+ * Get the tags for the article to be published.
+ * API accepts multiple values separated by '|'
+ * @return {string}
+ */
+mw.cx.TargetArticle.prototype.getTags = function () {
+	var query = new mw.Uri().query,
+		campainConfig = mw.config.get( 'wgContentTranslationCampaigns' );
+	return OO.getProp( campainConfig, query.campaign, 'edittag' ) || '';
 };

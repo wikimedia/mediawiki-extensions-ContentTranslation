@@ -82,6 +82,16 @@ class ApiContentTranslationPublish extends ApiBase {
 		return $api->getResult()->getResultData();
 	}
 
+	protected function getTags( array $params ) {
+		$tags = $params['publishtags'];
+		$tags[] = 'contenttranslation';
+		if ( $params['cxversion'] === 2 ) {
+			$tags[] = 'contenttranslation-v2'; // Tag for CX2: contenttranslation-v2
+		}
+		// Remove any tags that are not registered.
+		return array_intersect( $tags, ChangeTags::listSoftwareActivatedTags() );
+	}
+
 	protected function getCategories( array $params ) {
 		global $wgContentTranslationHighMTCategory;
 		$trackingCategoryMsg = 'cx-unreviewed-translation-category';
@@ -200,12 +210,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( $editStatus === 'Success' ) {
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
-				$tags = [ 'contenttranslation' ];
-
-				if ( $params['cxversion'] === 2 ) {
-					$tags[] = 'contenttranslation-v2'; // Tag for CX2: contenttranslation-v2
-				}
-
+				$tags = $this->getTags( $params );
 				// Add the tags post-send, after RC row insertion
 				$revId = intval( $saveresult['edit']['newrevid'] );
 				DeferredUpdates::addCallableUpdate( function () use ( $revId, $tags ) {
@@ -289,6 +294,9 @@ class ApiContentTranslationPublish extends ApiBase {
 				ApiBase::PARAM_REQUIRED => true,
 			],
 			'categories' => null,
+			'publishtags' => [
+				ApiBase::PARAM_ISMULTI => true,
+			],
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
 			'wpCaptchaId' => null,
 			'wpCaptchaWord' => null,

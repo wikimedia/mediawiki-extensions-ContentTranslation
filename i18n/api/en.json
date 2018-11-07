@@ -19,6 +19,7 @@
 	"apihelp-cxpublish-param-to": "The target language code.",
 	"apihelp-cxpublish-param-sourcetitle": "The title of the source page.",
 	"apihelp-cxpublish-param-categories": "The categories to put the published page in.",
+	"apihelp-cxpublish-param-publishtags": "The edit tags to add to the published page.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (when saving with a captcha response).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Answer to the captcha (when saving with a captcha response).",
 	"apihelp-cxpublish-param-cxversion": "Version of the editor used to publish the translation.",

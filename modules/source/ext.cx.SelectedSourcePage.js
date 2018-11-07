@@ -22,7 +22,9 @@
 	 */
 	mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 		this.siteMapper = siteMapper;
-		this.config = $.extend( {}, config );
+		this.config = $.extend( {
+			campaign: new mw.Uri().query.campaign
+		}, config );
 
 		this.onDiscard = this.config.onDiscard;
 		this.sourceTitle = null;

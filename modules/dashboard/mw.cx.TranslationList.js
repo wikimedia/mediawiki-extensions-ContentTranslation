@@ -237,7 +237,10 @@ mw.cx.CXTranslationList.prototype.continueTranslation = function ( translation )
 		translation.targetTitle,
 		translation.sourceLanguage,
 		translation.targetLanguage,
-		{ version: translation.cxVersion }
+		{
+			version: translation.cxVersion,
+			campaign: new mw.Uri().query.campaign
+		}
 	) ).toString();
 };
 
