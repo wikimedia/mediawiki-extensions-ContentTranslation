@@ -1388,7 +1388,8 @@
 				"ve-cx/dm/ve.dm.CXTransclusionNode.js",
 				"ve-cx/ce/ve.ce.CXBlockImageNode.js",
 				"ve-cx/ce/ve.ce.CXImageCaptionNode.js",
-				"ve-cx/ce/ve.ce.CXTransclusionNode.js"
+				"ve-cx/ce/ve.ce.CXTransclusionNode.js",
+				"ve-cx/ui/ve.ui.CXTransclusionContextItem.js"
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base"

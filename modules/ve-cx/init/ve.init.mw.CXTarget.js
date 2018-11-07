@@ -656,10 +656,10 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function (
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var $sourceElement, model,
-		cxid = placeholder.getModel().getAttribute( 'cxid' );
+	var $sourceElement,
+		model = placeholder.getModel(),
+		cxid = model.getAttribute( 'cxid' );
 
-	model = placeholder.getModel();
 	model.emit( 'beforeTranslation' );
 	this.MTManager.getPreferredProvider().then( function ( provider ) {
 		return this.changeContentSource( model, null, provider );
@@ -830,7 +830,7 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
 
 /**
  * Translate and adapt the source section for the given section id.
- * @param {string} sectionId SectionId
+ * @param {string} sectionId Section ID
  * @param {string} provider Machine translation privider
  * @param {boolean} noCache If true, do a fresh translation from server
  * @return {jQuery.Promise}

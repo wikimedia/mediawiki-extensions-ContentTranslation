@@ -60,6 +60,55 @@ ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
 };
 
 /**
+ * @return {boolean} True if transclusion node is not adapted by cxserver.
+ */
+ve.ce.CXTransclusionBlockNode.prototype.isUnadapted = function () {
+	var cxData = this.getModel().getAttribute( 'cx' );
+
+	return ve.getProp( cxData, 0, 'adapted' ) === false;
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionBlockNode.prototype.update = function () {
+	if ( this.isUnadapted() ) {
+		return;
+	}
+
+	return ve.ce.CXTransclusionBlockNode.super.prototype.update.apply( this, arguments );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
+	var iconWhenInvisible = this.constructor.static.iconWhenInvisible;
+
+	if ( this.isUnadapted() ) {
+		// Temporarily set static property to null to avoid displaying icon
+		// while generating transclusion node content.
+		this.constructor.static.iconWhenInvisible = null;
+	}
+
+	ve.ce.CXTransclusionBlockNode.super.prototype.onFocusableSetup.apply( this, arguments );
+
+	// Reset the icon static property
+	this.constructor.static.iconWhenInvisible = iconWhenInvisible;
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionBlockNode.prototype.setFocused = function ( value ) {
+	if ( this.isUnadapted() ) {
+		value = false;
+	}
+
+	return ve.ce.CXTransclusionBlockNode.super.prototype.setFocused.call( this, value );
+};
+
+/**
  * XXX: ContentEditable MediaWiki transclusion inline node.
  *
  * @class
