@@ -12,7 +12,8 @@
 			"Liuxinyu970226",
 			"Urbalazs",
 			"Bencemac",
-			"Rodrigo"
+			"Rodrigo",
+			"Zizzerus"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -194,6 +195,10 @@
 	"cx-tools-linter-content": "A(z) [//www.mediawiki.org/wiki/Content_translation/Abuse_filter $1 Wikipédia korlátozásainak] nem felel meg a tartalom. Kérlek javítsd a szöveget publikálás előtt.",
 	"cx-tools-linter-view-details": "Részletek megtekintése",
 	"cx-tools-linter-hide-details": "Részletek elrejtése",
+	"cx-tools-linter-old-revision": "A fordítás a lap egyik korábbi változatán alapul.",
+	"cx-tools-linter-old-revision-label": "A fordítás újrakezdése",
+	"cx-tools-linter-restart-translation-title": "Fordítás újrakezdése?",
+	"cx-tools-linter-restart-translation-cancel": "Törlés",
 	"cx-translator-month-stats-label": "Ebben a hónapban",
 	"cx-translator-total-translations-label": "Összesen",
 	"cx-page-old-revision-loaded": "Ez a fordítás a lap egy régebbi változatán alapul. A forrás akár [$1 jelentősen megváltozhatott] azóta. Folytathatod ezt a fordítást vagy újrakezdheted a frissebb tartalommal.",

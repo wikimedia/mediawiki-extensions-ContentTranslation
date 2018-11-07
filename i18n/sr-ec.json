@@ -229,6 +229,7 @@
 	"cx-suggestionlist-collapse": "Прикажи мање",
 	"cx-suggestionlist-refresh": "Освежи предлоге",
 	"cx-notification-suggestions-available": "На основу {{GENDER:$2|Вашег}} претходног превода '''$1''', нови предлози су доступни.",
+	"cx-infobar-old-version": "Овај превод се заснива на старијој верзији садржаја. Изворна страница се можда значајно променила, па можда желите да рестартујете превођење.",
 	"cx-tools-linter-issues": "Проблеми",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 грешка|$1 грешке|$1 грешака}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 упозорење|$1 упозорења}}",

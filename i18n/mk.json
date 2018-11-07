@@ -224,6 +224,8 @@
 	"cx-suggestionlist-collapse": "Погл. помалку",
 	"cx-suggestionlist-refresh": "Превчитај предлози",
 	"cx-notification-suggestions-available": "Врз основа на {{GENDER:$2|Вашиот}} претходен превод на '''$1''', сега се достапни нови предлози.",
+	"cx-infobar-view-issues": "Види проблеми",
+	"cx-infobar-old-version": "Овој превод е направен според постара верзија на содржината. Можно е изворната страница да претрпела значајни промени, па затоа да треба да ја преведете одново.",
 	"cx-tools-linter-issues": "Проблеми",
 	"cx-tools-linter-issues-count": "$1 од $2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 грешка|$1 грешки}}",

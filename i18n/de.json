@@ -229,6 +229,8 @@
 	"cx-suggestionlist-collapse": "Weniger ansehen",
 	"cx-suggestionlist-refresh": "Vorschläge aktualisieren",
 	"cx-notification-suggestions-available": "Basierend auf {{GENDER:$2|deiner}} letzten Übersetzung von '''$1''' sind jetzt neue Vorschläge verfügbar.",
+	"cx-infobar-view-issues": "Probleme ansehen",
+	"cx-infobar-old-version": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte sich erheblich verändert haben und du dürftest die Übersetzung neu beginnen.",
 	"cx-tools-linter-issues": "Probleme",
 	"cx-tools-linter-issues-count": "$1 von $2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|Ein|$1}} Fehler",

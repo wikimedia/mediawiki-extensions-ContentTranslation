@@ -233,6 +233,8 @@
 	"cx-suggestionlist-collapse": "合併",
 	"cx-suggestionlist-refresh": "重新整理建議",
 	"cx-notification-suggestions-available": "根據{{GENDER:$2|您}}先前對 '''$1''' 翻譯，現在有新的建議。",
+	"cx-infobar-view-issues": "檢視問題",
+	"cx-infobar-old-version": "此翻譯是基於舊版本的內容。來源頁面可能已有大幅度更改，您可能需要重新翻譯。",
 	"cx-tools-linter-issues": "問題",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 個錯誤|$1 個錯誤}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 個警告|$1 個警告}}",
