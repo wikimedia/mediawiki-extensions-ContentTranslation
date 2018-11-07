@@ -731,7 +731,7 @@ ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
  * @param {string} source Original content source
  */
 ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, source ) {
-	var pasteDoc, newCursorRange, newRange, tx, docLen, linearSelection,
+	var pasteDoc, newCursorRange, newRange, tx, docLen,
 		surfaceModel = this.getSurface().getModel(),
 		doc = surfaceModel.getDocument(),
 		cxid = section.getSectionId(),
@@ -802,16 +802,7 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	// our modified indexes will be corrupted by the remapping step in newFromDocumentInsertion().
 	deduplicateReferences( tx, doc );
 	newRange = tx.getModifiedRange( doc );
-	try {
-		// Old interface
-		// TODO: Remove this code once deployed on top of
-		// I715ae805f63f575249d7534112f4e30937d92e74
-		linearSelection = new ve.dm.LinearSelection( doc, newRange );
-	} catch ( ex ) {
-		// New interface
-		linearSelection = new ve.dm.LinearSelection( newRange );
-	}
-	surfaceModel.change( tx, linearSelection );
+	surfaceModel.change( tx, new ve.dm.LinearSelection( newRange ) );
 
 	// Select first content offset within new content
 	newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( newRange.start, 1 ) );
