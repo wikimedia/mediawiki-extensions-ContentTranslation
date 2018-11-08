@@ -167,6 +167,7 @@
 	"cx-suggestionlist-expand": "Skatīt visus",
 	"cx-suggestionlist-collapse": "Skatīt mazāk",
 	"cx-suggestionlist-refresh": "Atsvaidzināt ieteikumus",
+	"cx-infobar-view-issues": "Skatīt problēmas",
 	"cx-tools-linter-issues": "Problēmas",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 kļūdas|$1 kļūda|$1 kļūdas}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 brīdinājumi|$1 brīdinājums|$1 brīdinājumi}}",

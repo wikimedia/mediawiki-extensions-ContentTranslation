@@ -235,6 +235,8 @@
 	"cx-suggestionlist-collapse": "أظهر أقل",
 	"cx-suggestionlist-refresh": "أنعش الاقتراحات",
 	"cx-notification-suggestions-available": "بناء على ترجم{{GENDER:$2|تك}} الآنفة لصفحة '''$1''' إليك اقتراحات جديدة.",
+	"cx-infobar-view-issues": "عرض القضايا",
+	"cx-infobar-old-version": "هذه الترجمة معتمدة  على نسخة قديمة من المحتوى. الصفحة المصدر ربما تكون قد تغيرت بشكل كبير، وربما تريد إعادة البدء في الترجمة.",
 	"cx-tools-linter-issues": "قضايا",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 خطأ}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 تحذير}}",

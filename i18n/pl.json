@@ -25,7 +25,8 @@
 			"Vesihiisi",
 			"Railfail536",
 			"Stojex",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Warchlak"
 		]
 	},
 	"cx": "Przetłumacz stronę",
@@ -242,6 +243,7 @@
 	"cx-suggestionlist-collapse": "Pokaż mniej",
 	"cx-suggestionlist-refresh": "Odśwież propozycje",
 	"cx-notification-suggestions-available": "Na podstawie {{GENDER:$2|Twojego}} poprzedniego tłumaczenia '''$1''', dostępne są nowe propozycje.",
+	"cx-infobar-view-issues": "Wyświetl problemy",
 	"cx-tools-linter-issues": "Zgłoszenie",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 błąd|$1 błędy|$1 błędów}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ostrzeżenie|$1 ostrzeżenia|$1 ostrzeżeń}}",
@@ -288,5 +290,6 @@
 	"cx-publish-destination-namespace-draft": "Szkic społeczności",
 	"cx-linkcontextitem-missing-link-title": "Brakujący link",
 	"cx-linkcontextitem-missing-title-description": "Ta strona jeszcze nie istnieje",
-	"cx-mt-abuse-publish-error": "Twoje tłumaczenie nie może zostać opublikowane, ponieważ zawiera zbyt dużo niezmodyfikowanego tekstu przetłumaczonego maszynowo"
+	"cx-mt-abuse-publish-error": "Twoje tłumaczenie nie może zostać opublikowane, ponieważ zawiera zbyt dużo niezmodyfikowanego tekstu przetłumaczonego maszynowo",
+	"cx-unreviewed-translation-category": "Strony z nieprzejrzanymi tłumaczeniami"
 }
