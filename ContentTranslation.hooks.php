@@ -34,10 +34,6 @@ class ContentTranslationHooks {
 			return false;
 		}
 
-		if ( $user->isBlocked() ) {
-			return false;
-		}
-
 		if ( !$wgContentTranslationAsBetaFeature ) {
 			return true;
 		}
@@ -66,7 +62,8 @@ class ContentTranslationHooks {
 				$wgContentTranslationCampaigns['newarticle'] &&
 				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
 				$title->inNamespace( NS_MAIN ) &&
-				!$user->isAnon()
+				!$user->isAnon() &&
+				$title->userCan( 'edit', $user )
 			) {
 				$out->addModules( 'ext.cx.campaigns.newarticle.veloader' );
 
