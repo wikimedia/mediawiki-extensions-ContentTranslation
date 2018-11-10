@@ -259,6 +259,7 @@
 	"cx-suggestionlist-refresh": "Rafraîchir les suggestions",
 	"cx-notification-suggestions-available": "En se basant sur {{GENDER:$2|votre}} traduction précédente de '''$1''', de nouvelles suggestions sont désormais disponibles.",
 	"cx-infobar-view-issues": "Afficher les bogues",
+	"cx-infobar-old-version": "Cette traduction est basée sur une version plus ancienne du contenu. La page source peut avoir évolué de manière significative, et vous pouvez avoir envie de recommencer la traduction.",
 	"cx-tools-linter-issues": "Problèmes",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 erreur|$1 erreurs}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 avertissement|$1 avertissements}}",

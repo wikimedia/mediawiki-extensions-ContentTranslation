@@ -241,6 +241,8 @@
 	"cx-suggestionlist-collapse": "Azını göster",
 	"cx-suggestionlist-refresh": "Önerileri güncelle",
 	"cx-notification-suggestions-available": "'''$1''' sayfasının önceki {{GENDER:$2|çevirinize}} dayanmaktadır, yeni öneriler artık mevcut.",
+	"cx-infobar-view-issues": "Sorunları Görüntüle",
+	"cx-infobar-old-version": "Bu çeviri, içeriğin daha eski bir sürümüne dayanmaktadır. Kaynak sayfa önemli ölçüde değişmiş olabilir ve çeviriyi yeniden başlatmak isteyebilirsiniz.",
 	"cx-tools-linter-issues": "Sorunlar",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 hata|$1 hata}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 uyarı|$1 uyarı}}",
@@ -291,6 +293,6 @@
 	"cx-linkcontextitem-missing-link-title": "Eksik bağlantı",
 	"cx-linkcontextitem-missing-title-description": "Bu sayfa henüz mevcut değil",
 	"cx-mt-abuse-publish-error": "Çok fazla değiştirilmemiş, makine ile çevrilmiş metin içerdiğinden çeviriniz yayımlanamaz",
-	"cx-unreviewed-translation-category": "İncelenmemiş makine çevirisi içeren sayfalar",
-	"cx-unreviewed-translation-category-desc": "Çok sayıda incelenmemiş makine çevirisi çıktısı içeren İçerik Çevirisi aracıyla çevrilmiş sayfalar"
+	"cx-unreviewed-translation-category": "İncelenmemiş çeviri içeren sayfalar",
+	"cx-unreviewed-translation-category-desc": "Çok sayıda incelenmemiş çeviri içeren İçerik Çevirisi aracıyla çevrilmiş sayfalar"
 }
