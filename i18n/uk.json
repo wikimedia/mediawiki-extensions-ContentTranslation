@@ -228,6 +228,7 @@
 	"cx-suggestionlist-collapse": "Показати компактно",
 	"cx-suggestionlist-refresh": "Оновити пропозиції",
 	"cx-notification-suggestions-available": "Доступні нові пропозиції перекладу на основі {{GENDER:$2|Вашого}} попереднього перекладу '''$1'''.",
+	"cx-infobar-view-issues": "Переглянути проблеми",
 	"cx-infobar-old-version": "Цей переклад заснований на більш старій версії вмісту. Можливо, вихідна сторінка зазнала істотних змін, тому потрібно перекласти її знову.",
 	"cx-tools-linter-issues": "Проблеми",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 помилка|$1 помилки|$1 помилок}}",

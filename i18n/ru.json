@@ -257,6 +257,7 @@
 	"cx-suggestionlist-collapse": "Показать компактно",
 	"cx-suggestionlist-refresh": "Обновить предложения",
 	"cx-notification-suggestions-available": "На основе {{GENDER:$2|вашего}} предыдущего перевода '''$1''' сейчас доступные новые предложения для вас.",
+	"cx-infobar-view-issues": "Смотреть проблемы",
 	"cx-infobar-old-version": "Этот перевод основан на более старой версии содержимого. Возможно, исходная страница претерпела значительных изменений, поэтому нужно перевести снова.",
 	"cx-tools-linter-issues": "Проблемы",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 ошибка|$1 ошибки|$1 ошибок}}",
