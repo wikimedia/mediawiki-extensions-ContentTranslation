@@ -99,7 +99,7 @@ mw.cx.dm.SectionState.prototype.setTranslationProgressPercentage = function ( pe
 };
 
 mw.cx.dm.SectionState.prototype.isModified = function () {
-	if ( this.getUserTranslation().text === null || !this.getUnmodifiedMT().text ) {
+	if ( this.getUserTranslation().text === null ) {
 		return false;
 	}
 	return this.getUnmodifiedMT().html !== this.getUserTranslation().html;
