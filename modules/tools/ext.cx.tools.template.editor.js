@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw, OO ) {
+( function () {
 	'use strict';
 
 	/**
@@ -523,4 +523,4 @@
 	};
 
 	mw.cx.TemplateEditor = TemplateEditor;
-}( jQuery, mediaWiki, OO ) );
+}() );

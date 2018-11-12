@@ -3,7 +3,7 @@
  * @license GPL-2.0-or-later
  */
 
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.cx.sitemapper', QUnit.newMwEnvironment( {
@@ -64,4 +64,4 @@
 		);
 		assert.strictEqual( url, '//he.wikipedia.org/api/rest_v1/transform/wikitext/to/html/User%3AKartikMistry%2FWho%3F_(movie)_%C3%A4%26%C3%B6' );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

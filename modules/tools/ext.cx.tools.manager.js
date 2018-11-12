@@ -23,7 +23,7 @@
  * Additionally, if the card need to stay in tools till a condition is met, mark
  * the sticky property of tool object true. See MTAbuseCard for example.
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -237,4 +237,4 @@
 		template: $( '<div>' ).addClass( 'card' ),
 		defaultTool: 'instructions'
 	};
-}( jQuery, mediaWiki ) );
+}() );

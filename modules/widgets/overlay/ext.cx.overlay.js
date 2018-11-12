@@ -2,7 +2,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 	mw.cx.widgets = mw.cx.widgets || {};
 
@@ -87,4 +87,4 @@
 		closeOnClick: false,
 		showLoading: false
 	};
-}( jQuery, mediaWiki ) );
+}() );

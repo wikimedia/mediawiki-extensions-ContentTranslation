@@ -1,7 +1,7 @@
 /*
  * Guided Tour for ContentTranslation publishing.
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var tour,
@@ -175,4 +175,4 @@
 			action: 'end'
 		} ]
 	} );
-}( jQuery, mediaWiki ) );
+}() );

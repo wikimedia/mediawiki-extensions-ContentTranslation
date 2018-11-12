@@ -3,7 +3,7 @@
  * @license GPL-2.0-or-later
  */
 
-( function ( mw ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.cx.translation', QUnit.newMwEnvironment() );
@@ -26,4 +26,4 @@
 		assert.strictEqual( cxTranslation.isParentHeading( 'DIV', 'H2' ), false );
 		assert.strictEqual( cxTranslation.isParentHeading( 'DIV', 'P' ), false );
 	} );
-}( mediaWiki ) );
+}() );

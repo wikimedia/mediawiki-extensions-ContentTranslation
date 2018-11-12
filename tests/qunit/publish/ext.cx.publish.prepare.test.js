@@ -4,7 +4,7 @@
  * @licence GPL-2.0-or-later
  */
 
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var testDataPath = mw.config.get( 'wgExtensionAssetsPath' ) +
@@ -40,4 +40,4 @@
 			done();
 		} );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

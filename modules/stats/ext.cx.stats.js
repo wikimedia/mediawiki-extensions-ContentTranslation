@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/* global Chart:false */
@@ -886,4 +886,4 @@
 			mw.hook( 'mw.cx.error' ).fire( mw.message( 'cx-stats-try-contenttranslation', cxLink ) );
 		}
 	} );
-}( jQuery, mediaWiki ) );
+}() );

@@ -2,7 +2,7 @@
  * ContentTranslation initialization module.
  */
 
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	function initCX() {
@@ -52,4 +52,4 @@
 
 	// On document ready, initialize.
 	$( initCX );
-}( mediaWiki, jQuery ) );
+}() );

@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -186,10 +186,10 @@
 	TemplateControlCard.prototype.start = function ( $section ) {
 		var $targetTemplate, $sourceTemplate, storedState = false;
 
-		if ( $section instanceof jQuery ) {
-			$targetTemplate = $section.filter( '[typeof~="mw:Transclusion"]' );
-		} else {
+		if ( typeof $section === 'string' ) {
 			$targetTemplate = mw.cx.getTranslationSection( $section );
+		} else {
+			$targetTemplate = $section.filter( '[typeof~="mw:Transclusion"]' );
 		}
 		if ( !$targetTemplate.length ) {
 			this.stop();
@@ -331,4 +331,4 @@
 	};
 
 	mw.cx.tools.templatecard = TemplateControlCard;
-}( jQuery, mediaWiki ) );
+}() );

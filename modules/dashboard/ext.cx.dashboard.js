@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -455,4 +455,4 @@
 		dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
 		dashboard.init();
 	} );
-}( jQuery, mediaWiki ) );
+}() );

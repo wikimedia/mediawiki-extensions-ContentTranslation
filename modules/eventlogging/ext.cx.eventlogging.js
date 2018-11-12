@@ -5,7 +5,7 @@
  * @license GPL-2.0-or-later
  */
 
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var saveCount = 0;
@@ -327,4 +327,4 @@
 		// eslint-disable-next-line no-new
 		new ContentTranslationEventLogging();
 	} );
-}( jQuery, mediaWiki ) );
+}() );

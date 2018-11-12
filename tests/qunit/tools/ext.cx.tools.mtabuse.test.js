@@ -4,7 +4,7 @@
  * @licence GPL-2.0-or-later
  */
 
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.cx.tools.mtabuse', QUnit.newMwEnvironment() );
@@ -51,4 +51,4 @@
 			'Translation with 80% MT, only 5 sections translated, but total translation is 76%' );
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

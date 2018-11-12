@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	function LinterCard() {
@@ -105,4 +105,4 @@
 
 	mw.cx.tools.linter = LinterCard;
 
-}( jQuery, mediaWiki ) );
+}() );

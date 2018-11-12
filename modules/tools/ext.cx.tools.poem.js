@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	function adaptPoem( $section ) {
@@ -33,4 +33,4 @@
 	$( function () {
 		mw.hook( 'mw.cx.translation.postMT' ).add( adaptPoem );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -314,4 +314,4 @@
 	};
 
 	$.fn.cxSource.defaults = {};
-}( jQuery, mediaWiki ) );
+}() );

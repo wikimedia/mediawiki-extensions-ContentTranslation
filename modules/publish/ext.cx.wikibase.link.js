@@ -5,7 +5,7 @@
  * @license GPL-2.0-or-later
  */
 /* global wikibase */
-( function ( $, mw, wb ) {
+( function ( wb ) {
 	'use strict';
 
 	/**
@@ -64,4 +64,4 @@
 	$( function () {
 		mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
 	} );
-}( jQuery, mediaWiki, wikibase ) );
+}( wikibase ) );

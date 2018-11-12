@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	function ContentTranslationValidator( siteMapper ) {
@@ -105,4 +105,4 @@
 
 	mw.cx.ContentTranslationValidator = ContentTranslationValidator;
 
-}( jQuery, mediaWiki ) );
+}() );

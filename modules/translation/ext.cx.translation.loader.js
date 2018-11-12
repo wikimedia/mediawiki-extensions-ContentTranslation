@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -398,4 +398,4 @@
 	};
 
 	mw.cx.ContentTranslationLoader = ContentTranslationLoader;
-}( jQuery, mediaWiki ) );
+}() );

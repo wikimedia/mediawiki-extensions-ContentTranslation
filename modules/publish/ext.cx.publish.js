@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -405,4 +405,4 @@
 
 	// Expose the CXPublish
 	mw.cx.Publish = CXPublish;
-}( jQuery, mediaWiki ) );
+}() );

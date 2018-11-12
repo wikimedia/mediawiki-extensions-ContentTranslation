@@ -7,7 +7,7 @@
 
 'use strict';
 
-( function ( $, mw ) {
+( function () {
 
 	/**
 	 * Creates an mw.cx.ui.TitleOptionWidget object.
@@ -86,4 +86,4 @@
 		return this.numOfLanguages;
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var cachedTemplateNamespaceRequests = {},
@@ -1222,10 +1222,10 @@
 	TemplateTool.static.processBlockTemplate = function ( section ) {
 		var $targetTemplate, $sourceTemplate, isReferencesBlock;
 
-		if ( section instanceof jQuery ) {
-			$targetTemplate = section;
-		} else {
+		if ( typeof section === 'string' ) {
 			$targetTemplate = mw.cx.getTranslationSection( section );
+		} else {
+			$targetTemplate = section;
 		}
 
 		// Source section and source template wont be same since the template
@@ -1260,4 +1260,4 @@
 		} );
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

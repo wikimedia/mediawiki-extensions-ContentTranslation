@@ -6,7 +6,7 @@
 
 'use strict';
 
-( function ( $, mw ) {
+( function () {
 
 	/**
 	 * Creates an mw.cx.ui.MenuLabelWidget object.
@@ -35,4 +35,4 @@
 	mw.cx.ui.MenuLabelWidget.static.pressable = false;
 
 	mw.cx.ui.MenuLabelWidget.static.highlightable = false;
-}( jQuery, mediaWiki ) );
+}() );

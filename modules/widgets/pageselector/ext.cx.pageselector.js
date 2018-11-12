@@ -1,7 +1,7 @@
 /**
  * MediaWiki Page selector widget
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -266,4 +266,4 @@
 		// Callback when a page is selected
 		onSelect: null
 	};
-}( jQuery, mediaWiki ) );
+}() );

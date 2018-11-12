@@ -3,7 +3,7 @@
  * Copyright (c) 2015 Santhosh Thottingal <santhosh.thottingal@gmail.com>
  * released under the MIT license.
  */
-( function ( $ ) {
+( function () {
 	'use strict';
 
 	/**
@@ -361,4 +361,4 @@
 		trigger: 'hover'
 	};
 
-}( jQuery ) );
+}() );

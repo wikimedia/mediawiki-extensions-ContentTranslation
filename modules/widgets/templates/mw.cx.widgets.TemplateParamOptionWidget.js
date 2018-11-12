@@ -5,7 +5,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 	/**
 	 * Creates a mw.cx.widgets.TemplateParamOptionWidget object.
@@ -40,4 +40,4 @@
 
 	OO.inheritClass( mw.cx.widgets.TemplateParamOptionWidget, OO.ui.MenuOptionWidget );
 
-}( jQuery, mediaWiki ) );
+}() );

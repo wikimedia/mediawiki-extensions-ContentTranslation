@@ -4,7 +4,7 @@
  * @licence GPL-2.0-or-later
  */
 
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'mw.cx.ui.Infobar', QUnit.newMwEnvironment() );
@@ -35,4 +35,4 @@
 		assert.strictEqual( infobar.$element.text(), 'Kissa is here', 'Html is accepted' );
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

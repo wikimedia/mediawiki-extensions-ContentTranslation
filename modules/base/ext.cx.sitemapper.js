@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/**
@@ -260,4 +260,4 @@
 		// At this point, the translator saw the license agreement.
 		mw.cookie.set( name, true, options );
 	};
-}( jQuery, mediaWiki ) );
+}() );

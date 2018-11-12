@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var template = '<div class="card instructions">' +
@@ -93,4 +93,4 @@
 	};
 
 	mw.cx.tools.instructions = InstructionsCard;
-}( jQuery, mediaWiki ) );
+}() );

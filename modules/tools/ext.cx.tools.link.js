@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	var cache = {
@@ -1300,4 +1300,4 @@
 	$( function () {
 		mw.hook( 'mw.cx.translation.postMT' ).add( adaptLinks );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

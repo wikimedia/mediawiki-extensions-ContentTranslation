@@ -4,7 +4,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 	/**
 	 * If GuidedTour is available, set cookies to start a tour.
@@ -30,4 +30,4 @@
 	mw.hook( 'mw.cx.translation.published' ).add( function ( sourceLanguage, targetLanguage, sourceTitle, title ) {
 		initGuidedTourAfterPublish( title );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

@@ -2,7 +2,7 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-( function ( $, mw ) {
+( function () {
 	'use strict';
 	mw.cx.widgets = mw.cx.widgets || {};
 
@@ -15,4 +15,4 @@
 				$( '<div>' ).addClass( 'bounce3' )
 			);
 	};
-}( jQuery, mediaWiki ) );
+}() );
