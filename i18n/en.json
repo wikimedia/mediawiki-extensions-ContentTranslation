@@ -254,6 +254,8 @@
 	"cx-tools-linter-old-revision": "Translation based on old version of the page",
 	"cx-tools-linter-old-revision-message": "This translation is based on an older version of the content. The source page may have [$1 changed significantly].\n\nYou can continue this translation, or start it again to use the updated content. If you restart the translation, your current changes will be lost.",
 	"cx-tools-linter-old-revision-label": "Restart the translation",
+	"cx-tools-linter-reference": "Missing reference",
+	"cx-tools-linter-reference-message": "A reference could not be transferred to the translation since it uses a template with a different structure.\n\nPlease, edit the reference in the translation to fill the missing information.",
 	"cx-tools-linter-restart-translation-title": "Restart the translation?",
 	"cx-tools-linter-restart-translation-message": "You will start a new translation for the most recent version of the page. All your changes will be lost.",
 	"cx-tools-linter-restart-translation-cancel": "Cancel",

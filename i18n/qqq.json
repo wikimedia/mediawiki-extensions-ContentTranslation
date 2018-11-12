@@ -265,6 +265,8 @@
 	"cx-tools-linter-old-revision": "Title for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-tools-linter-old-revision-message": "Main message for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-tools-linter-old-revision-label": "Label for button displayed on a linter card in Content Translation when source page has changed significantly. Allows user to restart the translation using the latest revision.",
+	"cx-tools-linter-reference": "Title for a linter card when a reference adaptation was not successful",
+	"cx-tools-linter-reference-message": "Detailed information about reference adaptation failure",
 	"cx-tools-linter-restart-translation-title": "Title used for a modal dialog displayed as confirmation when user wants to restart the translation.",
 	"cx-tools-linter-restart-translation-message": "Main message of a modal dialog displayed as confirmation when user wants to restart the translation.",
 	"cx-tools-linter-restart-translation-cancel": "Label of cancel button on a modal dialog displayed as confirmation when user wants to restart the translation.\n{{Identical|Cancel}}",

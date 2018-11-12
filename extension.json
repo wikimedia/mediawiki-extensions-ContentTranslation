@@ -1294,11 +1294,16 @@
 			"scripts": [
 				"ve-cx/dm/ve.dm.CXBlockImageNode.js",
 				"ve-cx/dm/ve.dm.CXImageCaptionNode.js",
+				"ve-cx/dm/ve.dm.CXReferenceNode.js",
 				"ve-cx/dm/ve.dm.CXTransclusionNode.js",
 				"ve-cx/ce/ve.ce.CXBlockImageNode.js",
 				"ve-cx/ce/ve.ce.CXImageCaptionNode.js",
+				"ve-cx/ce/ve.ce.CXReferenceNode.js",
 				"ve-cx/ce/ve.ce.CXTransclusionNode.js",
 				"ve-cx/ui/ve.ui.CXTransclusionContextItem.js"
+			],
+			"styles": [
+				"ve-cx/ce/styles/ve.ce.CXReferenceNode.less"
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base"
@@ -1307,7 +1312,9 @@
 				"cx-tools-linter-template",
 				"cx-tools-linter-template-add-new",
 				"cx-tools-linter-template-block-message",
-				"cx-tools-linter-template-inline-message"
+				"cx-tools-linter-template-inline-message",
+				"cx-tools-linter-reference",
+				"cx-tools-linter-reference-message"
 			],
 			"targets": [
 				"desktop"
