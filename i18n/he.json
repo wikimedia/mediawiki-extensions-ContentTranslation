@@ -229,6 +229,8 @@
 	"cx-suggestionlist-collapse": "להציג פחות",
 	"cx-suggestionlist-refresh": "לרענן הצעות",
 	"cx-notification-suggestions-available": "זמינות עכשיו הצעות חדשות בשבילך, שמבוססות על כך {{GENDER:$2|שתרגמת}} בעבר את '''$1'''.",
+	"cx-infobar-view-issues": "הצגת הבעיות",
+	"cx-infobar-old-version": "התרגום הזה מבוסס על גרסה ישנה יותר של התוכן. ייתכן שדף המקור השתנה באופן מהותי, ואולי {{GENDER:|תרצה|תרצי}} להתחיל את התרגום מחדש.",
 	"cx-tools-linter-issues": "בעיות",
 	"cx-tools-linter-issues-count": "$1 מתוך $2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|שגיאה אחת|$1 שגיאות}}",
