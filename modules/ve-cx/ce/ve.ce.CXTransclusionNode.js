@@ -101,7 +101,7 @@ ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.setFocused = function ( value ) {
-	if ( this.isUnadapted() ) {
+	if ( !this.model || this.isUnadapted() ) {
 		value = false;
 	}
 
