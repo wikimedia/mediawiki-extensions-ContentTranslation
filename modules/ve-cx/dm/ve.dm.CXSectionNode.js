@@ -22,7 +22,10 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 
 	this.translation = this.getTranslation();
 
-	this.connect( this, { update: this.onUpdate.bind( this ) } );
+	this.connect( this, {
+		update: 'onUpdate',
+		afterRender: 'onAfterRender'
+	} );
 };
 
 /* Inheritance */
@@ -69,6 +72,12 @@ ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
  */
 ve.dm.CXSectionNode.prototype.getId = function () {
 	return this.getSectionNumber();
+};
+
+ve.dm.CXSectionNode.prototype.onAfterRender = function () {
+	if ( this.isTargetSection() ) {
+		setTimeout( function () { this.translation.emit( 'afterRender' ); }.bind( this ) );
+	}
 };
 
 ve.dm.CXSectionNode.prototype.onUpdate = function () {

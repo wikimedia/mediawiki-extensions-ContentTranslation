@@ -246,7 +246,8 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	setTimeout( this.surfaceReady.bind( this ) );
 
 	this.translation.connect( this, {
-		sectionChange: this.debounceAlignSectionPairs
+		sectionChange: this.debounceAlignSectionPairs,
+		afterRender: this.debounceAlignSectionPairs
 	} );
 };
 

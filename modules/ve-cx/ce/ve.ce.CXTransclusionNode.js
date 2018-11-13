@@ -56,7 +56,7 @@ ve.ce.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
  */
 ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
 	ve.ce.CXTransclusionBlockNode.super.prototype.afterRender.apply( this, arguments );
-	this.model.findParent( ve.dm.CXSectionNode ).emit( 'update' );
+	this.model.findParent( ve.dm.CXSectionNode ).emit( 'afterRender' );
 };
 
 /**
@@ -142,7 +142,7 @@ ve.ce.CXTransclusionInlineNode.prototype.afterRender = function () {
 	// For citations, the corresponding template is not rendered inside the section, but
 	// in the reference context item. So there is no parent section.
 	if ( parentSection ) {
-		parentSection.emit( 'update' );
+		parentSection.emit( 'afterRender' );
 	}
 };
 
