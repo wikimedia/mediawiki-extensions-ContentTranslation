@@ -275,6 +275,8 @@
 				"oojs-ui.styles.icons-media"
 			],
 			"messages": [
+				"cx-campaign-enable-new-version",
+				"cx-campaign-new-version-description",
 				"cx-create-new-translation",
 				"cx-dashboard-sidebar-feedback",
 				"cx-dashboard-sidebar-information",

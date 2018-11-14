@@ -313,7 +313,7 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var size, name, props,
+		var size, name, props, invitationWidget, $translationList,
 			filterButtons = [];
 
 		// document.documentElement.clientWidth performs faster than $( window ).width()
@@ -353,9 +353,21 @@
 		this.$sourcePageSelector = $( '<div>' )
 			.addClass( 'cx-source-page-selector' );
 
-		return $( '<div>' )
+		invitationWidget = new mw.cx.InvitationWidget( {
+			label: mw.message( 'cx-campaign-new-version-description' ).parseDom(),
+			acceptLabel: mw.msg( 'cx-campaign-enable-new-version' ),
+			storageKey: 'cx2invite'
+		} );
+
+		$translationList = $( '<div>' )
 			.addClass( 'cx-translationlist-container' )
 			.append( this.$listHeader, this.$sourcePageSelector );
+
+		if ( !mw.user.options.get( 'cx-new-version' ) ) {
+			$translationList.append( invitationWidget.$element );
+		}
+
+		return $translationList;
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {

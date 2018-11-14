@@ -192,6 +192,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Menu item for menu shown while hovering the contributions link in personal toolbar while a new page is being created. Points to the Content Translation dashboard\n{{Identical|Translation}}",
 	"cx-campaign-contributionsmenu-might-be-available": "Appears under {{msg-mw|cx-campaign-contributionsmenu-translate-instead}}. $1 is the title of the article being created, in quotation marks.",
 	"cx-campaign-contributionsmenu-myuploads": "Menu item for menu shown while hovering the contributions link in personal toolbar. Points to the Special:MyUploads in commons",
+	"cx-campaign-enable-new-version": "Label for the button shown on invitation to try the new version of Content Translation tool.",
+	"cx-campaign-new-version-description": "Invitation message shown on Content Translation dashboard, which encourages users to try the new version of the tool.",
 	"cx-no-source-categories": "Message shown in Content Translation to indicate that source page has no categories",
 	"cx-no-target-categories": "Message shown in Content Translation to indicate there are no added categories to target page",
 	"cx-no-adapted-categories": "Message shown in Content Translation to indicate that no categories can be adapted from source page to target page",
