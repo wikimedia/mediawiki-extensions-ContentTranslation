@@ -22,7 +22,6 @@ mw.cx.CXSuggestionList = function CXSuggestionList() {
 	this.$personalCollection = null;
 	this.$publicCollection = null;
 	this.$publicCollectionContainer = null;
-	this.invitationWidget = null;
 	this.refreshTrigger = null;
 	this.seed = null;
 	this.selectedSourcePage = null;
@@ -40,7 +39,6 @@ OO.inheritClass( mw.cx.CXSuggestionList, mw.cx.DashboardList );
 
 // Name of the empty list, used to show when there is no suggestions
 mw.cx.CXSuggestionList.static.emptyListName = 'cx-suggestionlist-empty';
-mw.cx.CXSuggestionList.static.researchLanguages = [ 'en', 'es', 'fr', 'ru', 'ja', 'ar' ];
 mw.cx.CXSuggestionList.static.listTypes = {
 	TYPE_DEFAULT: 0,
 	TYPE_FEATURED: 1,
@@ -111,37 +109,11 @@ mw.cx.CXSuggestionList.prototype.init = function () {
 		.addClass( 'cx-suggestionlist__public-items' );
 	this.$publicCollectionContainer.append( this.$publicCollection );
 
-	this.invitationWidget = new mw.cx.InvitationWidget( {
-		label: mw.message( 'cx-campaign-research-invitation' ).parseDom(),
-		acceptLabel: mw.msg( 'cx-campaign-research-participate' ),
-		storageKey: 'cxShowInvitation',
-		parentConfig: {
-			classes: [ 'cx-research-invitation' ]
-		}
-	} );
-	this.checkForInvitation();
 	this.$suggestionsContainer = $( '<div>' )
 		.addClass( 'cx-suggestionlist-container' )
-		.append( this.invitationWidget.$element, this.$personalCollection, this.$publicCollectionContainer );
+		.append( this.$personalCollection, this.$publicCollectionContainer );
 
 	this.$container.append( this.$suggestionsContainer );
-};
-
-mw.cx.CXSuggestionList.prototype.checkForInvitation = function () {
-	var sourceLanguage = this.languageFilter.getSourceLanguage(),
-		targetLanguage = this.languageFilter.getTargetLanguage(),
-		url = 'https://gapfinder-tools.wmflabs.org/section-alignment/?s=' +
-			sourceLanguage + '&d=' + targetLanguage;
-
-	if (
-		mw.cx.CXSuggestionList.static.researchLanguages.indexOf( sourceLanguage ) < 0 ||
-		mw.cx.CXSuggestionList.static.researchLanguages.indexOf( targetLanguage ) < 0
-	) {
-		this.invitationWidget.toggle( false );
-		return;
-	}
-
-	this.invitationWidget.toggle( true ).setUrl( url );
 };
 
 /**
@@ -331,8 +303,6 @@ mw.cx.CXSuggestionList.prototype.hide = function () {
 
 mw.cx.CXSuggestionList.prototype.applyFilters = function () {
 	var i, suggestion, listName, list;
-
-	this.checkForInvitation();
 
 	// Hide all lists
 	for ( listName in this.lists ) {

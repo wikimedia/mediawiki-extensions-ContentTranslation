@@ -15,7 +15,7 @@
  * @cfg {string} [icon] Icon displayed next to the explanatory text.
  * @cfg {Function} [acceptAction] Method performed when user clicks on accept button.
  * @cfg {string} [classes] Array of classes to apply on this widget.
- * @cfg {Object} [parentConfig] Configuration object passed to OOUI parent
+ * @cfg {Object} [parentConfig] Configuration object passed to OOUI parent.
  */
 mw.cx.InvitationWidget = function InvitationWidget( config ) {
 	var classes = config.parentConfig && config.parentConfig.classes || [],
