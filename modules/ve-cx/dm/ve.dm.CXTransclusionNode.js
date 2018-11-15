@@ -231,6 +231,9 @@ ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
 			break;
 		}
 
+		// Convert the unadapted inline template to plain text value. T204942
+		sectionNode.on( 'afterTranslation', this.convertToPlainText.bind( this ) );
+
 		// TODO: Add help link
 		sectionNode.addTranslationIssues( [ {
 			name: 'inline-template',
@@ -251,6 +254,18 @@ ve.dm.CXTransclusionInlineNode.prototype.onDetach = function ( parent ) {
 	if ( parent instanceof ve.dm.CXSectionNode && parent.isTargetSection() ) {
 		parent.resolveTranslationIssues( [ 'inline-template' ] );
 	}
+};
+
+ve.dm.CXTransclusionInlineNode.prototype.convertToPlainText = function () {
+	var fragment, originalDomElements, surfaceModel, textValue = '';
+
+	surfaceModel = ve.init.target.targetSurface.getModel();
+	originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
+	fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
+	textValue = originalDomElements.map( function ( elem ) {
+		return elem.innerText || '';
+	} ).join( '' );
+	fragment.insertContent( textValue, true );
 };
 
 /* Registration */
