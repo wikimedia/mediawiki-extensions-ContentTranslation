@@ -261,5 +261,6 @@
 	"cx-publish-destination-namespace-user": "Persoonlijk kladblok",
 	"cx-publish-destination-namespace-draft": "Gezamenlijk kladblok",
 	"cx-linkcontextitem-missing-link-title": "Ontbrekende koppeling",
-	"cx-linkcontextitem-missing-title-description": "Deze pagina bestaat nog niet"
+	"cx-linkcontextitem-missing-title-description": "Deze pagina bestaat nog niet",
+	"cx-unreviewed-translation-category": "Pagina's met vertalingen die niet zijn nagekeken"
 }

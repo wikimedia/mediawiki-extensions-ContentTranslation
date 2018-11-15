@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kipala"
+			"Kipala",
+			"Rance"
 		]
 	},
 	"cx-tools-instructions-text4": "Tafsiri ya kompyuta kwa kawaida haina matokeo mazuri kwa Kiswahili, unahitaji kupitia tena matini yote na kusahihisha.",
-	"cx-campaign-no-thanks": "Hapana, asante lakini!"
+	"cx-campaign-no-thanks": "Hapana, asante lakini!",
+	"cx-infobar-view-issues": "Tazama mambo"
 }
