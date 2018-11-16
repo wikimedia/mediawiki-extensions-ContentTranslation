@@ -59,7 +59,7 @@
 	"cx-publish-gt-published-description": "Kliknutím na „$1” můžete pokračovat ve vylepšování stránky. Ujistěte se, že text zní přirozeně.",
 	"cx-translation-add-translation": "Přidat překlad",
 	"cx-translation-target-page-exists": "Stránka s názvem [$1 $2] v cílové wiki existuje. Zvažte pro stránku jiný název.",
-	"tag-contenttranslation": "editace z [[{{MediaWiki:cx-descriptionpagelink}}|Překladu obsahu]]",
+	"tag-contenttranslation": "editace z rozšíření [[{{MediaWiki:cx-descriptionpagelink}}|Překlad obsahu]]",
 	"tag-contenttranslation-description": "Obsah stránky byl přeložen z jiného jazyka pomocí nástroje Překlad Obsahu.",
 	"cx-source-loading": "Načítá se $1",
 	"cx-beta": "Překlad obsahu",
