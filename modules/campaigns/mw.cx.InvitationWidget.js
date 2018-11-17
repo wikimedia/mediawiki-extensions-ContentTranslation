@@ -8,7 +8,8 @@
  *
  * @class
  * @param {Object} config Configuration object
- * @cfg {string} storageKey Key used for storing user's answer in local storage.
+ * @cfg {string} dismissOptionName Property name, used to store info that user has
+ * accepted/rejected the invitation already.
  * @cfg {string} label Explanatory text which invites user into a campaign.
  * @cfg {string} acceptLabel Label for button used to accept invitation.
  * @cfg {string} [rejectLabel] Label for button used to politely reject invitation.
@@ -29,11 +30,10 @@ mw.cx.InvitationWidget = function InvitationWidget( config ) {
 	// Parent constructor
 	mw.cx.InvitationWidget.super.call( this, parentConfig );
 
-	this.storageKey = config.storageKey;
+	this.dismissOptionName = config.dismissOptionName;
 
-	// String value, null if no value exists, or false if localStorage is not available.
-	if ( mw.storage.get( this.storageKey ) !== null ) {
-		// If user rejected the invitation
+	if ( mw.user.options.get( this.dismissOptionName ) ) {
+		// If user accepted/rejected the invitation already
 		return;
 	}
 
@@ -53,13 +53,16 @@ mw.cx.InvitationWidget = function InvitationWidget( config ) {
 		label: config.acceptLabel,
 		classes: [ 'mw-cx-InvitationWidget-accept-button' ]
 	} );
-	this.acceptButton.$button.prop( 'target', '_blank' );
+	this.acceptButton.connect( this, { click: 'dismissInvitation' } );
+	if ( typeof config.acceptAction === 'function' ) {
+		this.acceptButton.on( 'click', config.acceptAction );
+	}
 
 	this.rejectButton = new OO.ui.ButtonWidget( {
 		label: config.rejectLabel || mw.msg( 'cx-campaign-no-thanks' ),
 		classes: [ 'mw-cx-InvitationWidget-reject-button' ]
 	} );
-	this.registerRejectAction( this, 'reject' );
+	this.rejectButton.connect( this, { click: 'dismissInvitation' } );
 
 	this.header = new OO.ui.PanelLayout( {
 		classes: [ 'mw-cx-InvitationWidget-header' ],
@@ -86,17 +89,21 @@ OO.inheritClass( mw.cx.InvitationWidget, OO.ui.StackLayout );
 
 /* Methods */
 
-mw.cx.InvitationWidget.prototype.registerRejectAction = function ( context, action ) {
-	this.rejectButton.connect( context, { click: action } );
+mw.cx.InvitationWidget.prototype.dismissInvitation = function () {
+	this.disableActionButtons( true );
+
+	return new mw.Api().postWithToken( 'csrf', {
+		assert: 'user',
+		formatversion: 2,
+		action: 'globalpreferences',
+		optionname: this.dismissOptionName,
+		optionvalue: 1
+	} ).done( function () {
+		this.clearItems().toggle( false );
+	}.bind( this ) ).always( this.disableActionButtons.bind( this, false ) );
 };
 
-mw.cx.InvitationWidget.prototype.setUrl = function ( url ) {
-	if ( this.acceptButton ) {
-		this.acceptButton.setHref( url );
-	}
-};
-
-mw.cx.InvitationWidget.prototype.reject = function () {
-	this.clearItems().toggle( false );
-	mw.storage.set( this.storageKey, 'false' );
+mw.cx.InvitationWidget.prototype.disableActionButtons = function ( disable ) {
+	this.acceptButton.setDisabled( disable );
+	this.rejectButton.setDisabled( disable );
 };

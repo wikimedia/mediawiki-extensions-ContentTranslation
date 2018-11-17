@@ -356,7 +356,8 @@
 		invitationWidget = new mw.cx.InvitationWidget( {
 			label: mw.message( 'cx-campaign-new-version-description' ).parseDom(),
 			acceptLabel: mw.msg( 'cx-campaign-enable-new-version' ),
-			storageKey: 'cx2invite'
+			dismissOptionName: 'cx-invite-chosen',
+			acceptAction: this.acceptNewVersion
 		} );
 
 		$translationList = $( '<div>' )
@@ -368,6 +369,20 @@
 		}
 
 		return $translationList;
+	};
+
+	CXDashboard.prototype.acceptNewVersion = function () {
+		return new mw.Api().postWithToken( 'csrf', {
+			assert: 'user',
+			formatversion: 2,
+			action: 'globalpreferences',
+			optionname: 'cx-new-version',
+			optionvalue: 1
+		} ).fail( function ( error ) {
+			if ( error === 'assertuserfailed' ) {
+				mw.cx.DashboardList.static.showLoginDialog();
+			}
+		} );
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {

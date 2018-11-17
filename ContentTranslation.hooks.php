@@ -136,6 +136,7 @@ class ContentTranslationHooks {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		// Using 'cx' prefix for consistency with the beta feature preference
 		$preferences['cx-new-version'] = [ 'type' => 'api' ];
+		$preferences['cx-invite-chosen'] = [ 'type' => 'api' ];
 	}
 
 	/**
