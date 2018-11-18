@@ -17,7 +17,8 @@
 			"Liuxinyu970226",
 			"Bunyk",
 			"Vlad5250",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Tohaomg"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -59,6 +60,7 @@
 	"cx-translation-target-page-exists": "Сторінка з назвою [$1 $2] вже існує в цільовій вікі. Подумайте, може підійде інакша назва?",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Переклад вмісту]]",
 	"tag-contenttranslation-description": "Вміст було перекладено з іншої мови за допомогою інструменту Переклад вмісту.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|«Переклад вмісту 2»]]",
 	"tag-contenttranslation-v2-description": "Вміст було перекладено з іншої мови за допомогою версії 2 інструменту «Переклад вмісту».",
 	"cx-source-loading": "Завантаження $1",
 	"cx-beta": "Переклад вмісту",
@@ -270,5 +272,6 @@
 	"cx-publish-destination-namespace-draft": "Чернетка спільноти",
 	"cx-linkcontextitem-missing-link-title": "Відсутнє посилання",
 	"cx-linkcontextitem-missing-title-description": "Така сторінка ще не існує",
-	"cx-mt-abuse-publish-error": "Ваш переклад не можна публікувати, оскільки він містить надто багато незміненого автоматично перекладеного тексту"
+	"cx-mt-abuse-publish-error": "Ваш переклад не можна публікувати, оскільки він містить надто багато незміненого автоматично перекладеного тексту",
+	"cx-unreviewed-translation-category": "Сторінки із неперевіреними перекладами"
 }
