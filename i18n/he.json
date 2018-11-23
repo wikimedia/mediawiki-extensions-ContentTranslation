@@ -103,7 +103,7 @@
 	"cx-selected-source-page-error-title-in-use": "כותרת הדף החדש [$1 כבר תפוסה]",
 	"cx-page-missing-in-target-language": "חסר ב{{GRAMMAR:תחילית|$1}}",
 	"cx-page-number-of-languages": "מספר השפות",
-	"cx-mt-abuse-warning-title": "התרגום שלך {{PLURAL:$1|מכיל}} $1% של טקסט לא ערוך",
+	"cx-mt-abuse-warning-title": "$1% מהתרגום שלך {{PLURAL:$1|הם}} טקסט ללא שינויים",
 	"cx-mt-abuse-warning-text": "תרגום מכונה ניתן רק בתור נקודת מוצא. {{GENDER:|אתה צריך|את צריכה}} לוודא שהתוכן מדויק וקריא באופן טבעי בשפה שלך.\n\nיש סיכוי גבוה שהתרגום שלך יימחק על־די עורכים אחרים שיסקרו אותו.",
 	"cx-publish-captcha-title": "בדיקה שאינך רובוט",
 	"cx-captcha-dialog-error": "נראה שהתשובה שלך אינה נכונה. נא לנסות שוב.",
