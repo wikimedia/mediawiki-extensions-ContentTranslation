@@ -269,5 +269,6 @@
 	"cx-publish-destination-namespace-draft": "コミュニティの草稿",
 	"cx-linkcontextitem-missing-link-title": "リンク先なし",
 	"cx-linkcontextitem-missing-title-description": "このページはまだ存在しません",
-	"cx-mt-abuse-publish-error": "あなたの翻訳には未変更の機械翻訳文章が多く含まれているため、公開することができません。"
+	"cx-mt-abuse-publish-error": "あなたの翻訳には未変更の機械翻訳文章が多く含まれているため、公開することができません。",
+	"cx-unreviewed-translation-category": "未査読の翻訳があるページ"
 }
