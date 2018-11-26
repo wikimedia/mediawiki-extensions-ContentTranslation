@@ -15,6 +15,7 @@
 	"apihelp-cxpublish-param-to": "Der Ziel-Sprachcode.",
 	"apihelp-cxpublish-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-cxpublish-param-categories": "Die Kategorien, die in die veröffentlichte Seite eingesetzt werden sollen.",
+	"apihelp-cxpublish-param-publishtags": "Die der veröffentlichten Seite hinzuzufügenden Bearbeitungsmarkierungen.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublish-param-cxversion": "Version des Editors, der zur Veröffentlichung der Übersetzung verwendet werden soll.",

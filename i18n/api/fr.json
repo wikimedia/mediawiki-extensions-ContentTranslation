@@ -21,6 +21,7 @@
 	"apihelp-cxpublish-param-to": "Le code de langue cible.",
 	"apihelp-cxpublish-param-sourcetitle": "Le titre de la page source.",
 	"apihelp-cxpublish-param-categories": "Les catégories à ajouter à la page publiée.",
+	"apihelp-cxpublish-param-publishtags": "Les étiquettes de modification à ajouter à la page publiée.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (quand enregistré avec une réponse captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Répondre au captcha (en enregistrant avec une réponse de captcha).",
 	"apihelp-cxpublish-param-cxversion": "Version de l'éditeur utilisé pour publier la traduction.",

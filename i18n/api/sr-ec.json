@@ -17,6 +17,7 @@
 	"apihelp-cxpublish-param-to": "Код циљног језика.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов изворне странице.",
 	"apihelp-cxpublish-param-categories": "Категорије за поставити у објављену страницу.",
+	"apihelp-cxpublish-param-publishtags": "Ознаке измена за додавање објављеној страници.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капче (када сачувавате с капча одговором).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на капчу (када сачувавате са капча одговором).",
 	"apihelp-cxpublish-param-cxversion": "Верзија уређивача која се користи за објављивање превода.",

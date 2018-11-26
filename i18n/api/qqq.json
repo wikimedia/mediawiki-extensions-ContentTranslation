@@ -16,7 +16,7 @@
 	"apihelp-cxpublish-param-to": "{{doc-apihelp-param|cxpublish|to}}",
 	"apihelp-cxpublish-param-sourcetitle": "{{doc-apihelp-param|cxpublish|sourcetitle}}",
 	"apihelp-cxpublish-param-categories": "{{doc-apihelp-param|cxpublish|categories}}",
-	"apihelp-cxpublish-param-publishtags":  "{{doc-apihelp-param|cxpublish|publishtags}}",
+	"apihelp-cxpublish-param-publishtags": "{{doc-apihelp-param|cxpublish|publishtags}}",
 	"apihelp-cxpublish-param-wpCaptchaId": "{{doc-apihelp-param|cxpublish|wpCaptchaId}}",
 	"apihelp-cxpublish-param-wpCaptchaWord": "{{doc-apihelp-param|cxpublish|wpCaptchaWord}}",
 	"apihelp-cxpublish-param-cxversion": "{{doc-apihelp-param|cxpublish|cxversion}}",

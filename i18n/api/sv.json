@@ -16,6 +16,7 @@
 	"apihelp-cxpublish-param-to": "Målets språkkod.",
 	"apihelp-cxpublish-param-sourcetitle": "Källsidans titel.",
 	"apihelp-cxpublish-param-categories": "Kategorierna att lägga till i den publicerade sidan.",
+	"apihelp-cxpublish-param-publishtags": "Redigeringsmärken att lägga till i den publicerade sidan.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha-ID (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar till captcha (vid sparning med ett captcha-svar).",
 	"apihelp-cxpublish-param-cxversion": "Versionen för redigeraren som användes för att publicera översättningen.",

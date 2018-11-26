@@ -16,6 +16,7 @@
 	"apihelp-cxpublish-param-to": "رمز لغة الترجمة",
 	"apihelp-cxpublish-param-sourcetitle": "عنوان صفحة الأصل",
 	"apihelp-cxpublish-param-categories": "تصنيفات الصفحة المنشورة",
+	"apihelp-cxpublish-param-publishtags": "وسوم التعديل لإضافتها إلى الصفحة المنشورة.",
 	"apihelp-cxpublish-param-wpCaptchaId": "معرف الكابتشا، عند إجابة الكابتشا",
 	"apihelp-cxpublish-param-wpCaptchaWord": "جواب الكابتشا، عند إجابة الكابتشا",
 	"apihelp-cxpublish-param-cxversion": "نسخة المحرر تُستخدَم لنشر الترجمة.",
