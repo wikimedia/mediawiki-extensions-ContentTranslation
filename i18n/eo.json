@@ -10,7 +10,8 @@
 			"Psychoslave",
 			"NMaia",
 			"Fitoschido",
-			"Prevodim"
+			"Prevodim",
+			"Surfo"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -27,6 +28,7 @@
 	"cx-source-view-page": "montri paĝon",
 	"cx-publish-page-success": "Paĝo publikigita ĉe $1",
 	"cx-publish-page-error": "Okazis eraro dum publikigo de la traduko. Bonvolu reprovi publikigi la paĝon. Eraro: $1",
+	"cx-publish-error-unknown": "Okazis nekonata neriparebla eraro. Detaloj: $1",
 	"cx-publish-button": "Publikigi",
 	"cx-publish-button-publishing": "Publikigado...",
 	"cx-lost-session-draft": "Via sesio eksvalidiĝis. Viaj redaktoj ne povas esti konservitaj ĝis kiam vi ensalutos denove en alia fenestro.",

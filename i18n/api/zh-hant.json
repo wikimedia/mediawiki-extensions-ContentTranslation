@@ -13,6 +13,7 @@
 	"apihelp-cxpublish-param-to": "目標語言代碼。",
 	"apihelp-cxpublish-param-sourcetitle": "來源頁面的標題。",
 	"apihelp-cxpublish-param-categories": "要置於已發佈頁面的分類。",
+	"apihelp-cxpublish-param-publishtags": "添加至發佈頁面的編輯標籤。",
 	"apihelp-cxpublish-param-wpCaptchaId": "驗證碼 ID (當使用驗證碼儲存時)。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "回答驗證碼 (當使用驗證碼儲存時)。",
 	"apihelp-cxpublish-param-cxversion": "使用來發佈翻譯的編輯器版本。",

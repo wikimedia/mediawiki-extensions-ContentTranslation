@@ -12,6 +12,7 @@
 	"apihelp-cxpublish-param-to": "Код на целниот јазик.",
 	"apihelp-cxpublish-param-sourcetitle": "Наслов на изворната страница.",
 	"apihelp-cxpublish-param-categories": "Категориите што треба да се стават во објавената страница.",
+	"apihelp-cxpublish-param-publishtags": "Ознаките за уредување што ќе се стават во објавената страница.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Назнака за сликичка за проверка (кога зачувувате со одѕив од сликичка).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Одговор на сликичката (кога зачувувате со одѕив од сликичка).",
 	"apihelp-cxpublish-param-cxversion": "Верзија на уредникот со кој е објавен преводот.",
