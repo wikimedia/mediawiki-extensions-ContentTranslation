@@ -24,9 +24,9 @@ OO.inheritClass( ve.ui.CXTransclusionContextItem, ve.ui.MWTransclusionContextIte
  * @inheritdoc
  */
 ve.ui.CXTransclusionContextItem.prototype.setup = function () {
-	var cxData = this.model.getAttribute( 'cx' );
-
-	if ( ve.getProp( cxData, 0, 'adapted' ) === false ) {
+	if ( this.model instanceof ve.dm.CXTransclusionBlockNode &&
+		this.model.missingInTargetLanguage()
+	) {
 		this.$element.remove();
 		return;
 	}

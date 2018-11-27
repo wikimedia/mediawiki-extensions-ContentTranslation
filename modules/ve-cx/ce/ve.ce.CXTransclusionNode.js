@@ -63,9 +63,7 @@ ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
  * @return {boolean} True if transclusion node is not adapted by cxserver.
  */
 ve.ce.CXTransclusionBlockNode.prototype.isUnadapted = function () {
-	var cxData = this.getModel().getAttribute( 'cx' );
-
-	return ve.getProp( cxData, 0, 'adapted' ) === false;
+	return this.getModel() && this.getModel().missingInTargetLanguage();
 };
 
 /**
@@ -101,7 +99,7 @@ ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.setFocused = function ( value ) {
-	if ( !this.model || this.isUnadapted() ) {
+	if ( this.isUnadapted() ) {
 		value = false;
 	}
 

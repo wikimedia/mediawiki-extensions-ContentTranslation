@@ -82,8 +82,7 @@ ve.dm.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
 /* Methods */
 
 ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
-	var cxData = this.getAttribute( 'cx' ) || {},
-		sectionNode = this.findParent( ve.dm.CXSectionNode );
+	var sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
 	// 1) attach is called with VeDmSectionNode and we cannot access VeDmCXSectionNode
@@ -97,12 +96,11 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		return;
 	}
 
-	// TODO: What about multi-part templates?
-	if ( cxData[ 0 ].adapted === true ) {
+	if ( this.isAdapted() ) {
 		return;
 	}
 
-	if ( cxData[ 0 ].adapted !== false ) {
+	if ( !this.hasAdaptationInfo() ) {
 		mw.log.warn(
 			'[CX] Template adaptation status is missing for a block template in section ' +
 			sectionNode.getId()
@@ -111,7 +109,6 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 	}
 
 	// TODO: Add help link
-	// TODO: Implement resolving
 	sectionNode.addTranslationIssues( [ {
 		name: 'block-template',
 		message: mw.message( 'cx-tools-linter-template-block-message' ),
@@ -126,6 +123,45 @@ ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
 	if ( parent instanceof ve.dm.CXSectionNode && parent.isTargetSection() ) {
 		parent.resolveTranslationIssues( [ 'block-template' ] );
 	}
+};
+
+/**
+ * Check whether the target title is missing for this template
+ *
+ * @return {boolean} Whether the target template is missing or not.
+ */
+ve.dm.CXTransclusionBlockNode.prototype.missingInTargetLanguage = function () {
+	var cxData = this.getAttribute( 'cx' ) || {};
+	return ve.getProp( cxData, 0, 'targetExists' ) === false;
+};
+
+/**
+ * @return {boolean} Whether cxserver provided adaptation info or not.
+ */
+ve.dm.CXTransclusionBlockNode.prototype.hasAdaptationInfo = function () {
+	var cxData = this.getAttribute( 'cx' ) || {};
+	return ve.getProp( cxData, 0, 'adapted' ) !== undefined;
+};
+
+/**
+ * Check whether the template was adapted by cxserver successfully.
+ * It means, some parameters are mapped to target template
+ *
+ * @return {boolean} Whether template is adapted or not.
+ */
+ve.dm.CXTransclusionBlockNode.prototype.isAdapted = function () {
+	var cxData = this.getAttribute( 'cx' ) || {};
+	return ve.getProp( cxData, 0, 'adapted' ) === true;
+};
+
+/**
+ * Check whether all mandatory parameters are mapped to target template
+ *
+ * @return {boolean} Whether some mandatory parameters are not mapped
+ */
+ve.dm.CXTransclusionBlockNode.prototype.isPartiallyAdapted = function () {
+	var cxData = this.getAttribute( 'cx' ) || {};
+	return ve.getProp( cxData, 0, 'partial' ) === true;
 };
 
 /**
