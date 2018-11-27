@@ -8,6 +8,7 @@ namespace ContentTranslation\Scripts;
 
 use ContentTranslation\Database;
 use ContentTranslation\Notification;
+use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\Translator;
@@ -51,10 +52,32 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgDraftMaxAge;
+		global $wgConf, $wgDraftMaxAge, $wgContentTranslationTranslateInTarget, $wgDBname;
 
 		$dryRun = !$this->hasOption( 'really' );
 		$ageInDays = $this->getOption( 'age-in-days', (string)$wgDraftMaxAge );
+		$language = null;
+
+		// Notifications can only be send if the user account exists on the wiki where this
+		// maintenance script is run. We used to run this on enwiki, but found out that not
+		// all accounts exist there. Here we assume that the domain<->target language code
+		// mapping is a bijection. If it isn't... we have bigger problems than this.
+		if ( $wgContentTranslationTranslateInTarget ) {
+			$this->output( '$wgContentTranslationTranslateInTarget is enabled. ', 'note' );
+			$this->output( 'This script must be run separately for each target language.', 'note' );
+
+			// This is required because simplewiki sets content language to 'en' and we cannot
+			// differentiate from enwiki otherwise.
+			list( , $domainCode ) = $wgConf->siteFromDB( $wgDBname );
+			$language = SiteMapper::getLanguageCode( $domainCode );
+
+			// Fallback for non-wmf-style farms
+			if ( $language === '' ) {
+				$language = MediaWikiServices::getInstance()->getContentLanguage()->getCode();
+			}
+
+			$this->output( "Running for language $language\n" );
+		}
 
 		$cutoffTime = $this->getCutoffTime( $ageInDays );
 		$ts = $cutoffTime->format( DateTime::W3C );
@@ -62,7 +85,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 		$dbr = Database::getConnection( DB_REPLICA );
 		$cutoffTimestamp = $cutoffTime->format( 'U' );
-		$draftsIterator = $this->getPurgeableDrafts( $dbr, $cutoffTimestamp );
+		$draftsIterator = $this->getPurgeableDrafts( $dbr, $cutoffTimestamp, $language );
 
 		// The database result iterator does not implement countable, so converting to an array.
 		$count = count( iterator_to_array( $draftsIterator ) );
@@ -122,14 +145,30 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		TranslationStorageManager::deleteTranslationDataGently( $draftId, $this->mBatchSize );
 	}
 
-	public function getPurgeableDrafts( IDatabase $db, $cutoff ) {
+	/**
+	 * @param IDatabase $db
+	 * @param string $cutoff Timestamp in any format recognized by MediaWiki
+	 * @param string|string[]|null $language Language code, list of them or null for all languages
+	 * @return IResultWrapper
+	 */
+	private function getPurgeableDrafts( IDatabase $db, $cutoff, $language = null ) {
 		$table = 'cx_translations';
 		$fields = '*';
 		$conds = [
 			'translation_last_updated_timestamp < ' . $db->addQuotes( $db->timestamp( $cutoff ) ),
 			'translation_status' => 'draft',
-			'translation_target_url is NULL'
+			'translation_target_url is NULL',
 		];
+
+		// Unfortunately this query cannot use index with nor without this condition. If we
+		// filtered by the source language instead, it could use `cx_translation_languages`,
+		// but there is no guarantee that the user has an account in the source language wiki.
+		// TODO: consider adding an index for target_language and last_updated_timestamp if
+		// these queries need to be sped up.
+		if ( $language ) {
+			$conds[ 'translation_target_language ' ] = $language;
+		}
+
 		$options = [
 			'ORDER BY' => 'translation_last_updated_timestamp ASC'
 		];

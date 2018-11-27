@@ -20,6 +20,24 @@ class SiteMapper {
 	}
 
 	/**
+	 * Get the language code for this domain
+	 *
+	 * @param string $domain Domain code (Wikimedia internal format)
+	 * @return string
+	 */
+	public static function getLanguageCode( $domain ) {
+		global $wgContentTranslationDomainCodeMapping;
+
+		foreach ( $wgContentTranslationDomainCodeMapping as $key => $value ) {
+			if ( $domain === $value ) {
+				return $key;
+			}
+		}
+
+		return $domain;
+	}
+
+	/**
 	 * Get the API URL constructed from the domain template of sites
 	 * @param string $language
 	 * @param array|null $params
