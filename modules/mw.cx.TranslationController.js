@@ -514,7 +514,18 @@ mw.cx.TranslationController.prototype.publish = function () {
 mw.cx.TranslationController.prototype.publishArticle = function () {
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
-	this.targetArticle.publish();
+	this.targetArticle.publish( this.translationHasIssues( [ 'title' ] ) );
+};
+
+/**
+ * @param {Array} ignore Array of IDs of nodes which should be excluded from issue checking.
+ * @return {boolean} True if translation has any non-suppressed issue.
+ */
+mw.cx.TranslationController.prototype.translationHasIssues = function ( ignore ) {
+	return this.translation.getTranslationIssues().length > 0 ||
+		this.translationTracker.getNodesWithIssues().some( function ( node ) {
+			return ignore.indexOf( node ) === -1;
+		} );
 };
 
 mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function () {

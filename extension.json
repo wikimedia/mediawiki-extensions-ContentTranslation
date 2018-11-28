@@ -1546,6 +1546,9 @@
 				"cx-publishing-dialog-publish-anyway-button",
 				"cx-publishing-dialog-sub-title",
 				"cx-publishing-dialog-title",
+				"cx-publishing-with-issues-dialog-title",
+				"cx-publishing-with-issues-dialog-message",
+				"cx-overwriting-with-issues",
 				"title-invalid-characters"
 			],
 			"dependencies": [

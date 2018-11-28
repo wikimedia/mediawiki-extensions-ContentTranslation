@@ -31,8 +31,10 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 
 /**
  * Publish the translated content to target wiki.
+ *
+ * @param {boolean} hasIssues True if translation being published has some issues.
  */
-mw.cx.TargetArticle.prototype.publish = function () {
+mw.cx.TargetArticle.prototype.publish = function ( hasIssues ) {
 	var apiParams = {
 		assert: 'user',
 		action: 'cxpublish',
@@ -49,7 +51,7 @@ mw.cx.TargetArticle.prototype.publish = function () {
 	};
 
 	// Check for title conflicts
-	this.checkTargetTitle( this.getTargetTitle() ).then( function () {
+	this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then( function () {
 		return new mw.Api().postWithToken( 'csrf', apiParams, {
 			// A bigger timeout since publishing after converting html to wikitext
 			// parsoid is not a fast operation.
@@ -375,13 +377,14 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 };
 
 /**
- * Checks to see if there is already a published article with the title.
- * If exists ask the translator a resolution for the conflict.
+ * Check to see if "Publish anyway" dialog needs to be displayed, in case of
+ * page with the given title already existing or translation having issues.
  *
  * @param {string} title The title to check
+ * @param {boolean} hasIssues Whether the translation has issues
  * @return {jQuery.Promise}
  */
-mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
+mw.cx.TargetArticle.prototype.checkForPublishAnyway = function ( title, hasIssues ) {
 	// CAPTCHA check may occur as a response to the request to publish the translation.
 	// If that happens, we can and should skip these checks to avoid showing
 	// "Publish anyway" dialog again if the target page already exists.
@@ -390,31 +393,52 @@ mw.cx.TargetArticle.prototype.checkTargetTitle = function ( title ) {
 	}
 
 	return ve.init.platform.linkCache.get( title ).then( function ( result ) {
-		if ( result.missing ) {
+		var title, message,
+			targetExists = !result.missing;
+
+		if ( hasIssues && targetExists ) {
+			title = mw.msg( 'cx-publishing-dialog-title' );
+			message = mw.msg( 'cx-overwriting-with-issues' );
+		} else if ( hasIssues && !targetExists ) {
+			title = mw.msg( 'cx-publishing-with-issues-dialog-title' );
+			message = mw.msg( 'cx-publishing-with-issues-dialog-message' );
+		} else if ( !hasIssues && targetExists ) {
+			title = mw.msg( 'cx-publishing-dialog-title' );
+			message = mw.msg( 'cx-publishing-dialog-sub-title' );
+		} else {
 			return;
 		}
 
-		return this.showDialog();
+		return this.showDialog( title, message );
 	}.bind( this ) );
 };
 
 /**
- * Display the dialog which asks the user to publish by overwriting an existing page.
+ * Display the dialog which asks the user to "publish anyway", in spite of some problems.
  *
+ * @param {string} title Title for the publishing dialog.
+ * @param {string} message Main message of the publishing dialog.
  * @return {jQuery.Promise}
  */
-mw.cx.TargetArticle.prototype.showDialog = function () {
-	return OO.ui.getWindowManager().openWindow( 'message', {
-		title: mw.msg( 'cx-publishing-dialog-title' ),
-		message: mw.msg( 'cx-publishing-dialog-sub-title' ),
-		actions: [
-			{ action: 'publish', label: mw.msg( 'cx-publishing-dialog-publish-anyway-button' ), flags: 'primary' },
-			{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
-		]
-	} ).closed.then( function ( data ) {
-		if ( data && data.action === 'cancel' ) {
-			return $.Deferred().reject();
-		}
+mw.cx.TargetArticle.prototype.showDialog = function ( title, message ) {
+	var windowManager = OO.ui.getWindowManager(),
+		messageDialog = windowManager.getWindow( 'message' );
+
+	return messageDialog.then( function ( win ) {
+		win.message.$element.css( 'white-space', 'pre-line' );
+
+		return windowManager.openWindow( win, {
+			title: title,
+			message: message,
+			actions: [
+				{ action: 'publish', label: mw.msg( 'cx-publishing-dialog-publish-anyway-button' ), flags: 'primary' },
+				{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
+			]
+		} ).closed.then( function ( data ) {
+			if ( data && data.action === 'cancel' ) {
+				return $.Deferred().reject();
+			}
+		} );
 	} );
 };
 
