@@ -12,7 +12,6 @@
 		"OO": false
 	},
 	"rules": {
-		"dot-notation": [ "error", { "allowKeywords": true } ],
 		"max-len": 0
 	}
 }
