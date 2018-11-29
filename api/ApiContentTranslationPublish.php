@@ -19,6 +19,7 @@
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use MediaWiki\MediaWikiServices;
 
 class ApiContentTranslationPublish extends ApiBase {
 
@@ -116,6 +117,9 @@ class ApiContentTranslationPublish extends ApiBase {
 			$containerCategory = Title::makeTitleSafe( NS_CATEGORY, $cat );
 			if ( $cat !== '-' && $containerCategory ) {
 				$categories[$trackingCategoryKey] = $containerCategory->getPrefixedText();
+				// Record using Graphite that the published translation is marked for review
+				MediaWikiServices::getInstance()->getStatsdDataFactory()
+					->increment( 'cx.publish.highmt.' . $params['to'] );
 			} else {
 				wfDebug( __METHOD__ . ": [[MediaWiki:$trackingCategoryMsg]] is not a valid title!\n" );
 				unset( $categories[$trackingCategoryKey] );
