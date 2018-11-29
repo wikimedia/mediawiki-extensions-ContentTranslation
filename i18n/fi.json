@@ -11,14 +11,15 @@
 			"Pyscowicz",
 			"Putputi",
 			"Prevodim",
-			"Pahkiqaz"
+			"Pahkiqaz",
+			"Valtlait"
 		]
 	},
 	"cx": "Käännä sivu",
 	"cx-dashboard-header": "Käännökset",
 	"cx-javascript": "Tämä työkalu ei toimi ilman JavaScriptiä. JavaScript on poistettu käytöstä, se ei toimi, tai tätä selainta ei tueta.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]] on työkalu, jolla voit nopeasti kääntää sivuja kielellesi. [$1 Kokeile nyt!]",
-	"cx-license-agreement": "Painamalla \"$1\" hyväksyt [//foundation.wikimedia.org/wiki/Terms_of_Use käyttöehdot] ja suostut peruuttamattomasti julmkaisemaan käännöstyökalulla tekemäsi muutokset [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-] ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]-lisensseillä ymmärtäen, että hyperlinkki tai URL riittää CC BY-SA 3.0:n mukaiseen nimeämiseen.",
+	"cx-license-agreement": "Painamalla ”$1” hyväksyt [//foundation.wikimedia.org/wiki/Terms_of_Use käyttöehdot] ja suostut peruuttamattomasti julkaisemaan käännöstyökalulla tekemäsi muutokset [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0]- ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]-lisensseillä ymmärtäen, että hyperlinkki tai URL riittää CC BY-SA 3.0:n mukaiseen nimeämiseen.",
 	"cx-error-server-connection": "Virhe: Yhdistäminen palvelimeen epäonnistui.",
 	"cx-desc": "Helpottaa sisällön [[Special:ContentTranslation|kääntämistä]]",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|käännetty}}",

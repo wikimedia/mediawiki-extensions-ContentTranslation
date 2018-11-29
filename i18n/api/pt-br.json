@@ -17,6 +17,7 @@
 	"apihelp-cxpublish-param-to": "Código do idioma de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "O título da página de origem.",
 	"apihelp-cxpublish-param-categories": "As categorias para colocar a página publicada em.",
+	"apihelp-cxpublish-param-publishtags": "As etiquetas de edição para adicionar à página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Responde ao captcha (ao salvar com uma resposta captcha).",
 	"apihelp-cxpublish-param-cxversion": "Versão do editor usado para publicar a tradução.",
