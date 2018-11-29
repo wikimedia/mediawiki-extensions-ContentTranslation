@@ -378,7 +378,9 @@
 			action: 'globalpreferences',
 			optionname: 'cx-new-version',
 			optionvalue: 1
-		} ).fail( function ( error ) {
+		} ).then( function () {
+			mw.hook( 'mw.cx.accept.new.version' ).fire();
+		}, function ( error ) {
 			if ( error === 'assertuserfailed' ) {
 				mw.cx.DashboardList.static.showLoginDialog();
 			}

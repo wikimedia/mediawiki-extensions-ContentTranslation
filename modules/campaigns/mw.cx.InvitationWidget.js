@@ -81,6 +81,8 @@ mw.cx.InvitationWidget = function InvitationWidget( config ) {
 	this.actions.$element.append( this.acceptButton.$element, this.rejectButton.$element );
 
 	this.addItems( [ this.header, this.actions ] );
+
+	this.listen();
 };
 
 /* Inheritance */
@@ -98,12 +100,18 @@ mw.cx.InvitationWidget.prototype.dismissInvitation = function () {
 		action: 'globalpreferences',
 		optionname: this.dismissOptionName,
 		optionvalue: 1
-	} ).done( function () {
-		this.clearItems().toggle( false );
-	}.bind( this ) ).always( this.disableActionButtons.bind( this, false ) );
+	} ).done( this.hide.bind( this ) ).always( this.disableActionButtons.bind( this, false ) );
 };
 
 mw.cx.InvitationWidget.prototype.disableActionButtons = function ( disable ) {
 	this.acceptButton.setDisabled( disable );
 	this.rejectButton.setDisabled( disable );
+};
+
+mw.cx.InvitationWidget.prototype.listen = function () {
+	mw.hook( 'mw.cx.new.version.toggled' ).add( this.hide.bind( this ) );
+};
+
+mw.cx.InvitationWidget.prototype.hide = function () {
+	this.clearItems().toggle( false );
 };
