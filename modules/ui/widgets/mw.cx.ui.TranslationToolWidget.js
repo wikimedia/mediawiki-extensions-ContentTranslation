@@ -84,20 +84,15 @@ mw.cx.widgets.TranslationToolWidget.prototype.renderBackground = function () {
 
 /**
  * Set the content of card
- * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} content Content nodes; text;
- *   a function that returns nodes or text; or null for no content
+ * @param {string|jQuery} content Content as HTML or jQuery
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setContent = function ( content ) {
 	this.$information.empty();
 
-	content = typeof content === 'function' ? OO.ui.resolveMsg( content ) : content;
-	content = content && content.$element ? content.$element : content;
-	if (
-		( typeof content === 'string' || content instanceof $ || content instanceof Array ) &&
-		content.length ||
-		( content instanceof OO.ui.HtmlSnippet && content.toString().length )
-	) {
+	if ( content instanceof $ ) {
 		this.$information.append( content );
+	} else {
+		this.$information.text( content );
 	}
 };
 

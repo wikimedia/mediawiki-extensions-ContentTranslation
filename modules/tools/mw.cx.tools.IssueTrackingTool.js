@@ -217,7 +217,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getData = function () {
 /**
  * Render the body.
  *
- * @return {jQuery[]}
+ * @return {jQuery}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getBody = function () {
 	var issues = this.allIssues.map( function ( element, index ) {
@@ -228,7 +228,9 @@ mw.cx.tools.IssueTrackingTool.prototype.getBody = function () {
 		.toggleMenu( false ) // IndexLayout offers config option showMenu, but does not respect setting it to false
 		.addTabPanels( issues );
 
-	return [ this.errorsCount.$element, this.warningsCount.$element, this.issuesLayout.$element ];
+	return this.errorsCount.$element
+		.add( this.warningsCount.$element )
+		.add( this.issuesLayout.$element );
 };
 
 /**
