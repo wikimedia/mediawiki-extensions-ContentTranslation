@@ -173,11 +173,11 @@ Fired when the draft translation restore finished successfully
 
 Fired when the draft translation restore failed.
 
-# mw.cx.dashboard.ready
+## mw.cx.dashboard.ready
 
 Fired when the Content Translation dashboard is ready.
 
-# mw.cx.cta.shown
+## mw.cx.cta.shown
 
 Fired when the Content Translation entry point or campaign is shown. The unique campaign identifier is passed.
 
