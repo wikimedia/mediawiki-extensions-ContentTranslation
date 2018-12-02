@@ -87,7 +87,7 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 
 mw.cx.CXTranslationList.prototype.init = function () {
 	// Parent method
-	mw.cx.CXSuggestionList.parent.prototype.init.call( this, {
+	mw.cx.CXTranslationList.parent.prototype.init.call( this, {
 		canBeSame: true,
 		canBeUndefined: true
 	} );
