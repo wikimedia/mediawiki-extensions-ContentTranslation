@@ -13,6 +13,7 @@
 	"apihelp-cxpublish-param-to": "קוד שפת היעד.",
 	"apihelp-cxpublish-param-sourcetitle": "כותרת דף המקור.",
 	"apihelp-cxpublish-param-categories": "הקטגוריות שהדף שיתפרסם יוכנס אליהן.",
+	"apihelp-cxpublish-param-publishtags": "תגי עריכה שיתווספו לדף שמתפרסם.",
 	"apihelp-cxpublish-param-wpCaptchaId": "מזהה captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "תשובה ל־captcha (בזמן שמירה עם captcha בתשובה).",
 	"apihelp-cxpublish-param-cxversion": "גרסת העורך ששימש לפרסום התרגום.",
