@@ -9,8 +9,14 @@
 }
 
 // border-radius on public list is applied to refresh button instead
-.cx-suggestionlist__personal .cx-slitem:last-child {
-	border-radius: 0 0 @borderRadius @borderRadius;
+.cx-suggestionlist__personal {
+	&:empty {
+		display: none;
+	}
+
+	.cx-slitem:last-child {
+		border-radius: 0 0 @borderRadius @borderRadius;
+	}
 }
 
 // stylelint-disable indentation
