@@ -26,7 +26,6 @@ mw.cx.CXTranslationList = function CXTranslationList( $container, siteMapper, ty
 	this.sourceLanguages = [];
 	this.targetLanguages = [];
 
-	this.$translationsList = null;
 	this.promise = null;
 	this.queryContinue = null;
 	this.hasMore = true;
@@ -95,15 +94,14 @@ mw.cx.CXTranslationList.prototype.init = function () {
 	this.$headerContainer = $( '<div>' )
 		.addClass( 'cx-translationlist__header' )
 		.append(
-			$( '<span>' )
-				.text( mw.msg( 'cx-translation-label-' + this.type ) ),
+			$( '<span>' ).text( mw.msg( 'cx-translation-label-' + this.type ) ),
 			this.languageFilter.$element.hide()
 		);
-	this.$translationsList = $( '<div>' )
+	this.$listContainer
 		.addClass( 'cx-translationlist' )
 		.append( this.$headerContainer, this.$loadingIndicatorSpinner );
 
-	this.$container.append( this.$translationsList, this.$emptyTranslationsList );
+	this.$container.append( this.$emptyTranslationsList );
 };
 
 mw.cx.CXTranslationList.prototype.loadItems = function () {
@@ -128,7 +126,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 
 		if ( !self.translations.length ) {
 			self.$emptyTranslationsList = self.buildEmptyTranslationList();
-			self.$translationsList.append( self.$emptyTranslationsList );
+			self.$listContainer.append( self.$emptyTranslationsList );
 			return;
 		}
 
@@ -203,17 +201,10 @@ mw.cx.CXTranslationList.prototype.getPageProps = function () {
 mw.cx.CXTranslationList.prototype.show = function () {
 	// Parent method
 	mw.cx.CXTranslationList.parent.prototype.show.apply( this, arguments );
-	this.$translationsList.show();
 
 	if ( !this.translations.length ) {
 		this.loadItems();
 	}
-};
-
-mw.cx.CXTranslationList.prototype.hide = function () {
-	// Parent method
-	mw.cx.CXTranslationList.parent.prototype.hide.apply( this, arguments );
-	this.$translationsList.hide();
 };
 
 /**
@@ -373,7 +364,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 		translation.$image = $image;
 	}
 
-	this.$translationsList.append( $translations );
+	this.$listContainer.append( $translations );
 	this.showTitleDetails( translations );
 };
 
@@ -404,7 +395,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 	// Parent method
 	mw.cx.CXTranslationList.parent.prototype.listen.apply( this, arguments );
 
-	this.$translationsList.on( 'click', '.cx-discard-translation', function ( e ) {
+	this.$listContainer.on( 'click', '.cx-discard-translation', function ( e ) {
 		var translation;
 
 		e.stopPropagation();
@@ -440,7 +431,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 		} );
 	} );
 
-	this.$translationsList.on( 'click', '.cx-continue-translation', function ( e ) {
+	this.$listContainer.on( 'click', '.cx-continue-translation', function ( e ) {
 		var translation;
 
 		e.stopPropagation();
@@ -450,7 +441,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 		return false;
 	} );
 
-	this.$translationsList.on( 'click', '.cx-tlitem', function () {
+	this.$listContainer.on( 'click', '.cx-tlitem', function () {
 		var translation = $( this ).data( 'translation' );
 		if ( translation.status === 'published' ) {
 			location.href = translation.targetURL;

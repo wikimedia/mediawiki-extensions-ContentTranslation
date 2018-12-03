@@ -18,7 +18,6 @@ mw.cx.CXSuggestionList = function CXSuggestionList() {
 	this.suggestions = [];
 	this.lists = {};
 
-	this.$suggestionsContainer = null;
 	this.$personalCollection = null;
 	this.$publicCollection = null;
 	this.$publicCollectionContainer = null;
@@ -109,11 +108,9 @@ mw.cx.CXSuggestionList.prototype.init = function () {
 		.addClass( 'cx-suggestionlist__public-items' );
 	this.$publicCollectionContainer.append( this.$publicCollection );
 
-	this.$suggestionsContainer = $( '<div>' )
+	this.$listContainer
 		.addClass( 'cx-suggestionlist-container' )
 		.append( this.$personalCollection, this.$publicCollectionContainer );
-
-	this.$container.append( this.$suggestionsContainer );
 };
 
 /**
@@ -288,17 +285,9 @@ mw.cx.CXSuggestionList.prototype.show = function () {
 	// Parent method
 	mw.cx.CXSuggestionList.parent.prototype.show.apply( this, arguments );
 
-	this.$suggestionsContainer.show();
 	if ( !Object.keys( this.lists ).length ) {
 		this.loadAllSuggestions();
 	}
-};
-
-mw.cx.CXSuggestionList.prototype.hide = function () {
-	// Parent method
-	mw.cx.CXSuggestionList.parent.prototype.hide.apply( this, arguments );
-
-	this.$suggestionsContainer.hide();
 };
 
 mw.cx.CXSuggestionList.prototype.applyFilters = function () {
@@ -780,7 +769,7 @@ mw.cx.CXSuggestionList.prototype.listen = function () {
 	// Parent method
 	mw.cx.CXSuggestionList.parent.prototype.listen.apply( this, arguments );
 
-	this.$suggestionsContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
+	this.$listContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
 		var $this = $( this ),
 			suggestion = $this.find( '.cx-slitem__translation-link' ).data( 'suggestion' ),
 			imageUrl = $this
@@ -932,7 +921,7 @@ mw.cx.CXSuggestionList.prototype.expandOrCollapse = function ( listId ) {
 
 	if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ) {
 		// Collapse all expended lists.
-		this.$suggestionsContainer.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
+		this.$listContainer.find( '.cx-suggestionlist__collapse' ).trigger( 'click' );
 		$trigger.text( mw.msg( 'cx-suggestionlist-collapse' ) );
 	} else {
 		$trigger.text( mw.msg( 'cx-suggestionlist-expand' ) );

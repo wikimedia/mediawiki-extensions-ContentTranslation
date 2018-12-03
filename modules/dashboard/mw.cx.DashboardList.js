@@ -17,6 +17,7 @@ mw.cx.DashboardList = function ( $container, siteMapper ) {
 	this.siteMapper = siteMapper;
 
 	this.$headerContainer = null;
+	this.$listContainer = null;
 	this.$loadingIndicatorSpinner = null;
 	this.languageFilter = null;
 	this.pendingRequests = 0;
@@ -57,10 +58,12 @@ mw.cx.DashboardList.static.showLoginDialog = function () {
 
 mw.cx.DashboardList.prototype.show = function () {
 	this.active = true;
+	this.$listContainer.show();
 };
 
 mw.cx.DashboardList.prototype.hide = function () {
 	this.active = false;
+	this.$listContainer.hide();
 };
 
 mw.cx.DashboardList.prototype.init = function ( languageFilterConfig ) {
@@ -72,6 +75,9 @@ mw.cx.DashboardList.prototype.init = function ( languageFilterConfig ) {
 	this.$loadingIndicatorSpinner = $( '<div>' )
 		.addClass( 'cx-dashboardlist__loading-indicator' )
 		.append( mw.cx.widgets.spinner() );
+
+	this.$listContainer = $( '<div>' );
+	this.$container.append( this.$listContainer );
 };
 
 mw.cx.DashboardList.prototype.listen = function () {
