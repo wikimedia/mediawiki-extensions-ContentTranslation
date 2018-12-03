@@ -38,7 +38,8 @@
 			"Vlad5250",
 			"Evs",
 			"Shaleych",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Incnis Mrsi"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -197,7 +198,7 @@
 	"cx-draft-cancel-button-label": "Отмена",
 	"cx-draft-discard-button-label": "Удалить перевод",
 	"cx-beta-feature-enabled-notification": "Расширение «Перевод содержания» (Content Translation) было включено в этом вики-проекте.",
-	"cx-campaign-newarticle-notice": "Теперь создание новых страниц путём <strong>перевода</strong> стало прощё! Хотите попробовать бета-версию инструмента перевода?",
+	"cx-campaign-newarticle-notice": "Теперь создание новых страниц путём <strong>перевода</strong> стало проще! Хотите попробовать бета-версию инструмента перевода?",
 	"cx-campaign-no-thanks": "Нет, спасибо",
 	"cx-campaign-try": "Попробовать инструмент перевода",
 	"cx-campaign-contributionsmenu-mycontributions": "Вклад",

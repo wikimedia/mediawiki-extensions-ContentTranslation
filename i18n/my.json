@@ -94,6 +94,10 @@
 	"cx-dashboard-sidebar-information": "ဤကိရိယာအကြောင်း ပို၍",
 	"cx-dashboard-sidebar-stats": "စာရင်းအင်း",
 	"cx-dashboard-sidebar-feedback": "ကျွန်ုပ်တို့ကို အကြံပေးပါ",
+	"cx-dashboard-sidebar-newversion": "ဗားရှင်းအသစ်ကို စမ်းကြည့်ပါ",
+	"cx-dashboard-sidebar-newversion-using": "ဗားရှင်းအသစ်ကို အသုံးပြုနေသည်",
+	"cx-dashboard-sidebar-newversion-disable": "ခွင့်မပြုပါနှင့်",
+	"cx-dashboard-sidebar-newversion-help": "ပိုမို လေ့လာရန်",
 	"cx-translation-filter-published-translations": "လွှင့်တင်ခဲ့သော",
 	"cx-translation-filter-draft-translations": "လုပ်ဆောင်နေဆဲအဆင့်",
 	"cx-translation-filter-suggested-translations": "အကြံပေးမှုများ",
@@ -214,9 +218,13 @@
 	"cx-tools-linter-empty-title-message": "အသုံးပြုသူများ ရှာဖွေရန်အလိုငှာ စာမျက်နှာအားလုံးသည် အမည်တစ်ခု လိုအပ်ပါသည်။ သင်၏ဘာသာပြန်ကို လွှင့်တင်ရန်အတွက် ကျေးဇူးပြု၍ အမည်တစ်ခုပေးပါ။",
 	"cx-tools-linter-invalid-character": "သင်၏ ဘာသာပြန်ခေါင်းစဉ်၌ မဆီလျော်သောအက္ခရာများ ပါဝင်နေပါသည်",
 	"cx-tools-linter-invalid-character-action": "ပြဿနာရှိသော အက္ခရာများကို ပြုပြင်ရန်",
-	"cx-tools-linter-invalid-character-message": "နည်းပညာရပ်ဆိုင်ရာ အကြောင်းပြချက်များအတွက် စာမျက်နှာခေါင်းစဉ်များတွင် အချို့သောအက္ခရာများကို အသုံးမပြုနိုင်ပါ။ ကျေးဇူးပြု၍ ပြသနာပေးနိုင်သော အက္ခရာများကို ရှောင်ရှားရန် ခေါင်းစဉ်ကို ပြင်ဆင်ပါ။",
+	"cx-tools-linter-invalid-character-message": "နည်းပညာရပ်ဆိုင်ရာ အကြောင်းပြချက်များအတွက် စာမျက်နှာခေါင်းစဉ်များတွင် အချို့သောအက္ခရာများကို အသုံးမပြုနိုင်ပါ။ \n\nကျေးဇူးပြု၍ ပြသနာပေးနိုင်သော အက္ခရာများကို ရှောင်ရှားရန် ခေါင်းစဉ်ကို ပြင်ဆင်ပါ။",
 	"cx-tools-linter-page-exists": "စာမျက်နှာ ရှိနှင့်ပြီးသားဖြစ်သည်",
 	"cx-tools-linter-page-exists-message": "$1 ခေါင်းစဉ်ဖြင့် စာမျက်နှာတစ်ခု ရှိနှင့်ပြီးဖြစ်ပါသည်။ သင်၏ဘာသာပြန်ကို လွှင့်တင်ခြင်းသည် ရှိနှင့်ပြီးသားအကြောင်းအရာကို ထပ်ပိုးရေးသားသွားမည်ဖြစ်ပါသည်<br><br>ရှိနှင့်ပြီးသားစာမျက်နှာကို အစားထိုးသွားမည်ဆိုပါက အဆင်ပြေသလား စစ်ဆေးကြည့်ပါ၊ သို့မဟုတ်ပါက သင်၏ဘာသာပြန်ကို အမှည်ပြန်မှည့်ရန် သုံးသပ်ပေးပါ။",
+	"cx-tools-linter-template": "တမ်းပလိတ် မရရှိနိုင်ပါ",
+	"cx-tools-linter-old-revision-label": "ဘာသာပြန်ခြင်းကို ပြန်လည်စတင်ရန်",
+	"cx-tools-linter-restart-translation-title": "ဘာသာပြန်ခြင်းကို ပြန်လည်စတင်မည်လော",
+	"cx-tools-linter-restart-translation-cancel": "မလုပ်တော့ပါ",
 	"cx-translator-header": "သင်၏ စာရင်းအင်း",
 	"cx-translator-month-stats-label": "ဤလ",
 	"cx-translator-total-translations-label": "စုစုပေါင်း",
@@ -236,5 +244,6 @@
 	"cx-publish-destination-namespace-draft": "အသိုင်းအဝိုင်း မူကြမ်း",
 	"cx-linkcontextitem-missing-link-title": "ပျောက်ကွယ်နေသော လင့်ခ်",
 	"cx-linkcontextitem-missing-title-description": "ဤစာမျက်နှာ မရှိသေးပါ",
-	"cx-mt-abuse-publish-error": "မပြုပြင်ထားသော စက်ဘာသာပြန်စာသားများ အလွန်ပါဝင်နေသောကြောင့် သင်၏ဘာသာပြန်ကို မလွှင့်တင်နိုင်ပါ"
+	"cx-mt-abuse-publish-error": "မပြုပြင်ထားသော စက်ဘာသာပြန်စာသားများ အလွန်ပါဝင်နေသောကြောင့် သင်၏ဘာသာပြန်ကို မလွှင့်တင်နိုင်ပါ",
+	"cx-unreviewed-translation-category": "ပြန်လည်မဆန်းစစ်ရသေးသော ဘာသာပြန်များနှင့် စာမျက်နှာများ"
 }
