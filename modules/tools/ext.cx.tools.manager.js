@@ -18,7 +18,7 @@
  * 2. start( data ) - Takes the data given by events and start presenting the card.
  * 3. stop()- Destroys the DOM of the card. End of the card instance.
  *
- * The tool needs to fire the event mw.cx.tool.shown once the card is shown.
+ * The tool needs to fire the event mw.cx.tools.shown once the card is shown.
  *
  * Additionally, if the card need to stay in tools till a condition is met, mark
  * the sticky property of tool object true. See MTAbuseCard for example.

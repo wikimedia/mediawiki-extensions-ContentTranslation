@@ -6,7 +6,7 @@
  * @extends OO.ui.PanelLayout
  *
  * @constructor
- * @param {mw.cx.tool.TranslationTool} translationTool
+ * @param {mw.cx.tools.TranslationTool} translationTool
  * @param {Object} config Configuration options
  * @cfg {string} title The tool title
  */
