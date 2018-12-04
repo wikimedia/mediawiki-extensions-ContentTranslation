@@ -15,10 +15,6 @@
 		.oo-ui-labelWidget {
 			color: @colorGray5;
 		}
-
-		.cx-tools-linter-view-details .oo-ui-labelElement-label {
-			font-weight: normal;
-		}
 	}
 
 	> .mw-cx-tools-IssueTracking-body {
@@ -82,6 +78,15 @@
 		> .oo-ui-buttonGroupWidget {
 			white-space: nowrap;
 			padding: 0;
+
+			> .cx-tools-linter-next-issue {
+				padding-right: 0.4em;
+				box-shadow: 0.4em 0 0 -0.3em @colorGray10;
+			}
+
+			> .oo-ui-buttonWidget:last-child {
+				padding-left: 0.4em;
+			}
 		}
 	}
 }

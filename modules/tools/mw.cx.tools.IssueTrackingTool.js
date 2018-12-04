@@ -15,7 +15,6 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	// Parent constructor
 	mw.cx.tools.IssueTrackingTool.super.call( this, null, {} ); // Third param is empty object to avoid JS errors
 
-	this.icon = new OO.ui.IconWidget( { icon: 'close' } );
 	this.actionButtons = new OO.ui.ButtonGroupWidget();
 
 	this.veTarget = ve.init.target;
@@ -30,11 +29,13 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 
 	this.currentIssue = 1;
 
-	this.viewDetailsButton = new OO.ui.ButtonWidget( {
+	this.expandButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		label: mw.msg( 'cx-tools-linter-view-details' ),
-		classes: [ 'cx-tools-linter-view-details' ],
-		flags: [ 'progressive' ]
+		icon: 'expand'
+	} );
+	this.collapseButton = new OO.ui.ButtonWidget( {
+		framed: false,
+		icon: 'collapse'
 	} );
 	this.numberOfIssuesLabel = new OO.ui.LabelWidget( {
 		label: mw.msg( 'cx-tools-linter-issues-count', 1, this.numberOfIssues )
@@ -46,7 +47,8 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	} );
 	this.nextButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'next'
+		icon: 'next',
+		classes: [ 'cx-tools-linter-next-issue' ]
 	} );
 
 	this.issuesLayout = new OO.ui.IndexLayout( {
@@ -69,22 +71,10 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	} );
 
 	// Events
-	this.viewDetailsButton.connect( this, {
-		click: 'onViewDetails'
-	} );
+	this.expandButton.connect( this, { click: 'showExpanded' } );
+	this.collapseButton.connect( this, { click: 'showCollapsed' } );
 	this.previousButton.connect( this, { click: [ 'navigateIssues', -1 ] } );
 	this.nextButton.connect( this, { click: [ 'navigateIssues', 1 ] } );
-
-	this.icon.$element.prop( 'tabindex', 0 );
-	this.icon.$element.on( {
-		click: this.showCollapsed.bind( this ),
-		keydown: function ( e ) {
-			if ( e.which === OO.ui.Keys.SPACE || e.which === OO.ui.Keys.ENTER ) {
-				$( this ).click();
-				e.preventDefault();
-			}
-		}
-	} );
 
 	this.card = this.getCard();
 	this.card.$header
@@ -195,10 +185,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getHeader = function () {
 
 	$title = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-title' )
-		.append(
-			this.icon.$element,
-			new OO.ui.LabelWidget( { label: this.constructor.static.label } ).$element
-		);
+		.append( new OO.ui.LabelWidget( { label: this.constructor.static.label } ).$element );
 
 	$actions = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-actions' )
@@ -251,9 +238,8 @@ mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
  * Display the card as collapsed.
  */
 mw.cx.tools.IssueTrackingTool.prototype.showCollapsed = function () {
-	this.actionButtons.clearItems().addItems( [ this.viewDetailsButton ] );
+	this.actionButtons.clearItems().addItems( [ this.expandButton ] );
 
-	this.icon.toggle( false );
 	this.issuesLayout.toggle( false );
 	this.warningsCount.toggle( this.numberOfWarnings > 0 );
 	this.errorsCount.toggle( this.numberOfErrors > 0 );
@@ -267,8 +253,8 @@ mw.cx.tools.IssueTrackingTool.prototype.showDetails = function () {
 	if ( this.numberOfIssues > 1 ) {
 		this.actionButtons.addItems( [ this.numberOfIssuesLabel, this.previousButton, this.nextButton ] );
 	}
+	this.actionButtons.addItems( [ this.collapseButton ] );
 
-	this.icon.toggle( true );
 	this.issuesLayout.toggle( true );
 	this.warningsCount.toggle( false );
 	this.errorsCount.toggle( false );
@@ -310,7 +296,7 @@ mw.cx.tools.IssueTrackingTool.prototype.openCurrentPanel = function () {
 /**
  * Show detailed version of a card and focus on a current element.
  */
-mw.cx.tools.IssueTrackingTool.prototype.onViewDetails = function () {
+mw.cx.tools.IssueTrackingTool.prototype.showExpanded = function () {
 	this.showDetails();
 	this.focusCurrentElement();
 

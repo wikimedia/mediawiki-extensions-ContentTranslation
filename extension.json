@@ -2065,8 +2065,7 @@
 				"cx-tools-linter-issues",
 				"cx-tools-linter-issues-count",
 				"cx-tools-linter-errors-count",
-				"cx-tools-linter-warnings-count",
-				"cx-tools-linter-view-details"
+				"cx-tools-linter-warnings-count"
 			]
 		},
 		"mw.cx.tools.TemplateTool": {
