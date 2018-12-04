@@ -184,6 +184,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "ترجمة صفحة بدل إنشاءها كليا",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 ربما تكون موجودة بالفعل في لغات أخرى",
 	"cx-campaign-contributionsmenu-myuploads": "الوسائط المرفوعة",
+	"cx-campaign-enable-new-version": "تمكين الإصدار الجديد",
+	"cx-campaign-new-version-description": "<b>يتوفر إصدار جديد.</b> قم بتجربة الإصدار الجديد للحصول على تجربة تحرير أكثر صلابة، وشاركنا ملاحظاتك، يمكنك تبديل الإصدارات في أي وقت لتحديد الإصدار المراد استخدامه لترجمة جديدة.",
 	"cx-no-source-categories": "لا توجد تصنيفات",
 	"cx-no-target-categories": "لا توجد تصنيفات، ضع في اعتبارك إضافة البعض لتصنيف الموضوع بشكل أفضل.",
 	"cx-no-adapted-categories": "التصنيفات الأصلية غير موجودة بهذه اللغة، استكشف المزيد من التصنيفات لوصف الموضوع بشكل أفضل.",

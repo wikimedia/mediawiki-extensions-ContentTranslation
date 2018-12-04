@@ -51,6 +51,7 @@
 	"cx-tools-mt-use-source": "Izmantot avota tekstu",
 	"cx-tools-mt-provider-title": "Izmantot $1",
 	"cx-tools-mt-dont-use": "Nelietot mašīntulkošanu",
+	"cx-tools-mt-set-default": "Paturēt kā noklusēto",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorijas|$1 kategorija|$1 kategorijas|0=Nav kategoriju}}",
 	"cx-stats-title": "Satura tulkošanas statistika",
 	"cx-tools-reference-title": "Atsauce",
