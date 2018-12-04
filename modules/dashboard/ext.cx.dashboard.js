@@ -29,6 +29,7 @@
 		this.filter = null;
 		this.$listHeader = null;
 		this.$sourcePageSelector = null;
+		this.invitationWidget = null;
 
 		this.narrowLimit = 700;
 		this.isNarrowScreenSize = false;
@@ -313,7 +314,7 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var size, name, props, invitationWidget, $translationList,
+		var size, name, props, $translationList,
 			filterButtons = [];
 
 		// document.documentElement.clientWidth performs faster than $( window ).width()
@@ -353,11 +354,11 @@
 		this.$sourcePageSelector = $( '<div>' )
 			.addClass( 'cx-source-page-selector' );
 
-		invitationWidget = new mw.cx.InvitationWidget( {
+		this.invitationWidget = new mw.cx.InvitationWidget( {
 			label: mw.message( 'cx-campaign-new-version-description' ).parseDom(),
 			acceptLabel: mw.msg( 'cx-campaign-enable-new-version' ),
 			dismissOptionName: 'cx-invite-chosen',
-			acceptAction: this.acceptNewVersion
+			acceptAction: this.acceptNewVersion.bind( this )
 		} );
 
 		$translationList = $( '<div>' )
@@ -365,22 +366,30 @@
 			.append( this.$listHeader, this.$sourcePageSelector );
 
 		if ( !mw.user.options.get( 'cx-new-version' ) ) {
-			$translationList.append( invitationWidget.$element );
+			$translationList.append( this.invitationWidget.$element );
 		}
 
 		return $translationList;
 	};
 
 	CXDashboard.prototype.acceptNewVersion = function () {
+		return this.persistUserPreference( 'globalpreferences' ).fail( function ( error ) {
+			if ( error === 'unknown_action' ) {
+				this.persistUserPreference( 'options' );
+			}
+		}.bind( this ) );
+	};
+
+	CXDashboard.prototype.persistUserPreference = function ( action ) {
 		return new mw.Api().postWithToken( 'csrf', {
 			assert: 'user',
 			formatversion: 2,
-			action: 'globalpreferences',
+			action: action,
 			optionname: 'cx-new-version',
 			optionvalue: 1
-		} ).then( function () {
+		} ).done( function () {
 			mw.hook( 'mw.cx.accept.new.version' ).fire();
-		}, function ( error ) {
+		} ).fail( function ( error ) {
 			if ( error === 'assertuserfailed' ) {
 				mw.cx.DashboardList.static.showLoginDialog();
 			}

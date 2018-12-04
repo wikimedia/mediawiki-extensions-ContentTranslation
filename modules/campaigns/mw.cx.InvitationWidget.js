@@ -94,13 +94,24 @@ OO.inheritClass( mw.cx.InvitationWidget, OO.ui.StackLayout );
 mw.cx.InvitationWidget.prototype.dismissInvitation = function () {
 	this.disableActionButtons( true );
 
+	this.persistUserPreference( 'globalpreferences' ).fail( function ( error ) {
+		if ( error !== 'unknown_action' ) {
+			this.disableActionButtons( false );
+			return;
+		}
+
+		this.persistUserPreference( 'options' ).fail( this.disableActionButtons.bind( this, false ) );
+	}.bind( this ) );
+};
+
+mw.cx.InvitationWidget.prototype.persistUserPreference = function ( action ) {
 	return new mw.Api().postWithToken( 'csrf', {
 		assert: 'user',
 		formatversion: 2,
-		action: 'globalpreferences',
+		action: action,
 		optionname: this.dismissOptionName,
 		optionvalue: 1
-	} ).done( this.hide.bind( this ) ).always( this.disableActionButtons.bind( this, false ) );
+	} ).done( this.hide.bind( this ) );
 };
 
 mw.cx.InvitationWidget.prototype.disableActionButtons = function ( disable ) {
