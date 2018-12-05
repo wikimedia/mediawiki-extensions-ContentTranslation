@@ -168,6 +168,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "গোড়া থেকে লেখার পরিবর্তে অনুবাদ করুন",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 সম্ভবত অন্যান্য ভাষায় ইতিমধ্যে উপলব্ধ",
 	"cx-campaign-contributionsmenu-myuploads": "আপলোডকৃত মিডিয়া",
+	"cx-campaign-enable-new-version": "নতুন সংস্করণ সক্রিয় করুন",
 	"cx-no-source-categories": "কোন বিষয়শ্রেণী নেই",
 	"cx-trend-deletions": "অপসারিত অনুবাদ",
 	"cx-trend-translations-to": "$1 ভাষায় অনুবাদ",
@@ -214,6 +215,7 @@
 	"cx-suggestionlist-collapse": "কম দেখাও",
 	"cx-suggestionlist-refresh": "পরামর্শ পুনঃসতেজ করুন",
 	"cx-notification-suggestions-available": "'''$1'''-এ করা {{GENDER:$2|আপনার}} পূর্ববর্তী অনুবাদের উপর ভিত্তি করে, নতুন পরামর্শ এখন উপলব্ধ।",
+	"cx-infobar-view-issues": "সমস্যাগুলি দেখুন",
 	"cx-tools-linter-issues": "সমস্যা",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1টি ত্রুটি}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1টি সতর্কতা}}",
@@ -230,6 +232,7 @@
 	"cx-tools-linter-invalid-character-action": "সমস্যাযুক্ত অক্ষরগুলি ঠিক করুন",
 	"cx-tools-linter-page-exists": "পাতাটি ইতিমধ্যে বিদ্যমান রয়েছে",
 	"cx-tools-linter-template": "টেমপ্লেট অনুপলব্ধ",
+	"cx-tools-linter-old-revision": "পাতার পুরানো সংস্করণের উপর ভিত্তি করে অনুবাদ",
 	"cx-tools-linter-old-revision-label": "অনুবাদটি পুনরায় শুরু করুন",
 	"cx-tools-linter-restart-translation-title": "অনুবাদটি পুনরারম্ভ করবেন?",
 	"cx-tools-linter-restart-translation-cancel": "বাতিল",
@@ -254,5 +257,6 @@
 	"cx-publish-destination-namespace-user": "ব্যক্তিগত খসড়া",
 	"cx-publish-destination-namespace-draft": "সম্প্রদায় খসড়া",
 	"cx-linkcontextitem-missing-link-title": "লিঙ্ক অনুপস্থিত",
-	"cx-linkcontextitem-missing-title-description": "এই পাতাটি এখনো বিদ্যমান নয়"
+	"cx-linkcontextitem-missing-title-description": "এই পাতাটি এখনো বিদ্যমান নয়",
+	"cx-unreviewed-translation-category": "অপর্যালোচিত অনুবাদসহ পাতা"
 }
