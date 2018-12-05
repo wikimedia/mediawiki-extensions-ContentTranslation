@@ -232,7 +232,8 @@
 			"dependencies": [
 				"mediawiki.notify",
 				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-editing-advanced"
+				"oojs-ui.styles.icons-editing-advanced",
+				"user.options"
 			],
 			"messages": [
 				"cx-dashboard-sidebar-newversion",
@@ -272,7 +273,8 @@
 				"oojs-ui.styles.icons-content",
 				"oojs-ui.styles.icons-editing-core",
 				"oojs-ui.styles.icons-interactions",
-				"oojs-ui.styles.icons-media"
+				"oojs-ui.styles.icons-media",
+				"user.options"
 			],
 			"messages": [
 				"cx-campaign-enable-new-version",
@@ -303,7 +305,8 @@
 				"util/mw.cx.util.js"
 			],
 			"dependencies": [
-				"ext.cx.model"
+				"ext.cx.model",
+				"mediawiki.user"
 			]
 		},
 		"ext.cx.util.selection": {
@@ -324,7 +327,8 @@
 				"mediawiki.cookie",
 				"mediawiki.ForeignApi",
 				"mediawiki.Title",
-				"mediawiki.Uri"
+				"mediawiki.Uri",
+				"mediawiki.user"
 			]
 		},
 		"ext.cx.source": {
@@ -342,6 +346,7 @@
 				"mediawiki.Uri",
 				"mediawiki.api",
 				"mediawiki.jqueryMsg",
+				"mediawiki.user",
 				"mediawiki.util",
 				"mediawiki.skinning.content.parsoid"
 			],
@@ -852,7 +857,8 @@
 				"ext.cx.sitemapper",
 				"ext.cx.tours.publish.init",
 				"ext.cx.tools.validator",
-				"mediawiki.api"
+				"mediawiki.api",
+				"mediawiki.user"
 			],
 			"messages": [
 				"cx-lost-session-publish",
@@ -899,7 +905,8 @@
 				"tours/ext.cx.tours.publish.init.js"
 			],
 			"dependencies": [
-				"mediawiki.cookie"
+				"mediawiki.cookie",
+				"mediawiki.user"
 			]
 		},
 		"ext.cx.eventlogging": {
@@ -951,7 +958,8 @@
 			"dependencies": [
 				"ext.guidedTour",
 				"mediawiki.cookie",
-				"mediawiki.Title"
+				"mediawiki.Title",
+				"mediawiki.user"
 			],
 			"messages": [
 				"cx-publish-gt-no-permission-to-move-description",
@@ -1067,8 +1075,10 @@
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg",
 				"mediawiki.language",
+				"mediawiki.user",
 				"moment",
-				"mw.cx.ui.Header"
+				"mw.cx.ui.Header",
+				"user.options"
 			],
 			"messages": [
 				"cx-stats-all-translations-title",
@@ -1169,7 +1179,8 @@
 				"mediawiki.storage",
 				"oojs-ui",
 				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-editing-advanced"
+				"oojs-ui.styles.icons-editing-advanced",
+				"user.options"
 			],
 			"messages": [
 				"cx-campaign-no-thanks"
@@ -1510,6 +1521,7 @@
 				"cx-tools-linter-restart-translation-title"
 			],
 			"dependencies": [
+				"mediawiki.user",
 				"mw.cx.dm.Translation",
 				"mw.cx.ui.Categories",
 				"mw.cx.TargetArticle",
@@ -1562,7 +1574,6 @@
 			"dependencies": [
 				"easy-deflate.deflate",
 				"mediawiki.api",
-				"mediawiki.user",
 				"mw.cx.dm.Translation",
 				"mw.cx.TranslationTracker",
 				"ve.init.mw.CXTarget"
@@ -1706,6 +1717,7 @@
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.util",
+				"mediawiki.user",
 				"mw.cx.ui.Columns.legacy",
 				"mw.cx.ui.Header.legacy",
 				"mw.cx.ui.PublishSettingsWidget",
@@ -1738,6 +1750,7 @@
 				"login"
 			],
 			"dependencies": [
+				"mediawiki.user",
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
 				"oojs-ui.styles.icons-user",
@@ -1766,6 +1779,7 @@
 			],
 			"dependencies": [
 				"jquery.throttle-debounce",
+				"mediawiki.user",
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",
 				"oojs-ui.styles.icons-user",
@@ -2271,6 +2285,7 @@
 				"monobook": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less" ]
 			},
 			"dependencies": [
+				"mediawiki.user",
 				"mediawiki.widgets",
 				"oojs-ui"
 			]
