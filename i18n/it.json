@@ -20,7 +20,8 @@
 			"Greis",
 			"Sarah Bernabei",
 			"Gabrielet",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Daimona Eaytoy"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -256,5 +257,7 @@
 	"cx-publish-destination-namespace-user": "Bozza personale",
 	"cx-publish-destination-namespace-draft": "Bozza comunitaria",
 	"cx-linkcontextitem-missing-link-title": "Collegamento mancante",
-	"cx-linkcontextitem-missing-title-description": "Questa pagina non esiste ancora"
+	"cx-linkcontextitem-missing-title-description": "Questa pagina non esiste ancora",
+	"cx-unreviewed-translation-category": "Pagine con traduzioni non revisionate",
+	"cx-unreviewed-translation-category-desc": "Pagine tradotte con lo strumento \"Traduzione voci\" che contengono un'alta quantità di contenuto non revisionato."
 }

@@ -148,7 +148,7 @@
 	"cx-newversion-notification-title": "Новая версия включена",
 	"cx-newversion-notification-message": "Новая версия редактора будет использоваться по умолчанию для новых переводов. Предыдущие переводы всегда будут открываться в той версии редактора, в которой они были начаты.",
 	"cx-translation-filter-published-translations": "Опубликованные",
-	"cx-translation-filter-draft-translations": "Незаконченные",
+	"cx-translation-filter-draft-translations": "Неоконченное",
 	"cx-translation-filter-suggested-translations": "Предложения",
 	"cx-suggestionlist-favorite": "На потом",
 	"cx-suggestionlist-title": "Предлагаемые страницы",
