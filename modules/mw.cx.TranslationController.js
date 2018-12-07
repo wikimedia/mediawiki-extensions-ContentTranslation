@@ -447,7 +447,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 		}
 	}
 
-	if ( !sectionState.getUnmodifiedMT().saved && translationSource !== 'source' && translationSource !== 'scratch' ) {
+	if ( !sectionState.getUnmodifiedMT().saved && translationSource !== 'source' ) {
 		content = sectionState.getUnmodifiedMT().html;
 		if ( content ) {
 			records.push( {
