@@ -87,6 +87,7 @@
 	"cx-tools-mt-provider-title": "Use $1",
 	"cx-tools-mt-dont-use": "Start with an empty paragraph",
 	"cx-tools-mt-set-default": "Keep as default",
+	"cx-tools-mt-noservices": "Translation services not available for the selected languages. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Why?]]",
 	"cx-tools-mt-preferred": "default",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 category|$1 categories|0=No categories}}",
 	"cx-stats-title": "Content Translation statistics",

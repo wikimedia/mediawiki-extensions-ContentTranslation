@@ -29,9 +29,15 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 		icon: 'pushPin'
 	} ).connect( this, { click: 'onSetAsDefault' } );
 
+	this.noMTServices = new OO.ui.LabelWidget( {
+		classes: [ 've-cx-toolbar-mt-noservices' ],
+		label: mw.message( 'cx-tools-mt-noservices' ).parseDom()
+	} ).toggle( false );
+	this.noMTServices.$element.find( 'a' ).prop( 'target', '_blank' );
+
 	this.$element
 		.addClass( 've-cx-toolbar-mt' )
-		.prepend( $title )
+		.prepend( $title, this.noMTServices.$element )
 		.append( this.setAsDefault.$element );
 
 	// Hide initially, because there is no selection initially
@@ -156,6 +162,20 @@ ve.ui.CXTranslationToolbar.prototype.setup = function () {
 	this.toolGroup = this.items[ 0 ];
 	this.toolGroup.connect( this, {
 		disable: 'onGroupDisable'
+	} );
+
+	// Toggle the message about non-availability of MT services
+	this.noMTServices.toggle( !this.isMTAvailable() );
+};
+
+/**
+ * @return {boolean} True if there is MT provider available.
+ */
+ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
+	return this.getToolGroupByName( 'cx-mt' ).getItems().map( function ( item ) {
+		return item.getName();
+	} ).some( function ( name ) {
+		return [ 'ResetSection', 'source', 'scratch' ].indexOf( name ) < 0;
 	} );
 };
 
