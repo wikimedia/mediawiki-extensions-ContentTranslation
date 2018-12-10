@@ -43,7 +43,7 @@
 			$trigger.callout( 'hide' );
 			$.cookie(
 				'cx_campaign_' + campaign + '_hide', 1, {
-					expires: 30,
+					expires: 300,
 					path: '/'
 				}
 			);
