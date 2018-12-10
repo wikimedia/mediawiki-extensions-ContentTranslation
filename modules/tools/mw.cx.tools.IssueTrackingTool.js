@@ -60,13 +60,11 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	} );
 	this.warningsCount = new OO.ui.ButtonWidget( {
 		framed: false,
-		disabled: true,
 		classes: [ 'cx-tools-linter-warnings-count' ],
 		label: mw.msg( 'cx-tools-linter-warnings-count', this.numberOfWarnings )
 	} );
 	this.errorsCount = new OO.ui.ButtonWidget( {
 		framed: false,
-		disabled: true,
 		classes: [ 'cx-tools-linter-errors-count' ],
 		label: mw.msg( 'cx-tools-linter-errors-count', this.numberOfErrors )
 	} );
@@ -86,6 +84,10 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 		.addClass( 'mw-cx-tools-IssueTracking' )
 		.on( 'mousedown', false );
 	this.card.$information.addClass( 'mw-cx-tools-IssueTracking-body' );
+
+	this.card.$information.on( 'click', this.showExpanded.bind( this ) );
+	this.warningsCount.connect( this, { click: [ 'openFirstOfType', 'warning' ] } );
+	this.errorsCount.connect( this, { click: [ 'openFirstOfType', 'error' ] } );
 
 	this.init();
 };
@@ -480,12 +482,30 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
  * @param {string} name
  */
 mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
+	this.openIssue( function ( issue ) { return issue.getName() === name; } );
+};
+
+/**
+ * Open the details panel for the first translation issue of a given type.
+ *
+ * @param {string} type
+ */
+mw.cx.tools.IssueTrackingTool.prototype.openFirstOfType = function ( type ) {
+	this.openIssue( function ( issue ) { return issue.getType() === type; } );
+};
+
+/**
+ * Open the details panel for the first translation issue that satisfies the condition.
+ *
+ * @param {Function} checkCondition
+ */
+mw.cx.tools.IssueTrackingTool.prototype.openIssue = function ( checkCondition ) {
 	var i, length, issueObj, index;
 
 	for ( i = 0, length = this.allIssues.length; i < length; i++ ) {
 		issueObj = this.allIssues[ i ];
 
-		if ( issueObj.issue.getName() === name ) {
+		if ( checkCondition( issueObj.issue ) ) {
 			index = i;
 			break;
 		}
@@ -496,7 +516,7 @@ mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
 	}
 
 	this.currentIssue = index + 1;
-	this.showDetails();
+	this.showExpanded();
 	this.openCurrentPanel();
 };
 
