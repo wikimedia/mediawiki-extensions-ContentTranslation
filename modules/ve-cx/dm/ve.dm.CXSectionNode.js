@@ -21,6 +21,7 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	ve.dm.CXLintableNode.call( this );
 
 	this.translation = this.getTranslation();
+	this.isModified = false;
 
 	this.connect( this, {
 		update: 'onUpdate',
@@ -92,6 +93,25 @@ ve.dm.CXSectionNode.prototype.onUpdate = function () {
 
 ve.dm.CXSectionNode.prototype.emitSectionChange = function () {
 	this.translation.emit( 'sectionChange', this.getSectionId() );
+};
+
+/**
+ * Check whether this section has modifications on top of initial machine translation.
+ * Note: The modifications on the sections are handled after a few milliseconds delay.
+ *
+ * @return {boolean}
+ */
+ve.dm.CXSectionNode.prototype.hasUserModifications = function () {
+	return this.isModified;
+};
+
+/**
+ * Set a flag to indicate that this section has user modifications.
+ *
+ * @param {boolean} isModified
+ */
+ve.dm.CXSectionNode.prototype.setHasUserModifications = function ( isModified ) {
+	this.isModified = isModified;
 };
 
 /**

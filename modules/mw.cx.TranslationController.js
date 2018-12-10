@@ -33,8 +33,9 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.targetCategoriesChanged = 0;
 	this.savedTargetTitle = this.translation.getTargetTitle();
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
-	this.translationTracker = new mw.cx.TranslationTracker( this.translation, this.veTarget, config );
+	this.translationTracker = new mw.cx.TranslationTracker( this.veTarget, config );
 	this.saveScheduler = OO.ui.debounce( this.processSaveQueue.bind( this ), 5 * 1000 );
+	// See also ve.ui.CXResetSectionTool that depends on the timeout value
 	this.changeTrackerScheduler = OO.ui.debounce( this.processChangeQueue.bind( this ), 100 );
 
 	// Events
@@ -654,7 +655,7 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 };
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
-	this.translationTracker.init();
+	this.translationTracker.init( this.translation );
 };
 
 /**

@@ -98,6 +98,11 @@ mw.cx.dm.SectionState.prototype.setTranslationProgressPercentage = function ( pe
 	this.translationProgressPercentage = percent;
 };
 
+/**
+ * Whether the section has modifications by user on top of the initial machine translation.
+ *
+ * @return {boolean}
+ */
 mw.cx.dm.SectionState.prototype.isModified = function () {
 	if ( this.getUserTranslation().text === null ) {
 		return false;

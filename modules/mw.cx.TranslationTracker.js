@@ -7,17 +7,15 @@
  * @license GPL-2.0-or-later
  *
  * @class
- * @param {mw.cx.dm.Translation} translationModel
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {Object} config
  * @cfg {string} sourceLanguage
  * @cfg {string} targetLanguage
  */
-mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, veTarget, config ) {
+mw.cx.TranslationTracker = function MwCXTranslationTracker( veTarget, config ) {
 	this.sourceLanguage = config.sourceLanguage;
 	this.targetLanguage = config.targetLanguage;
 	this.veTarget = veTarget;
-	this.translationModel = translationModel;
 
 	this.lastFocusedSection = null;
 	// A value 0.8 means we tolerate 80% unmodified machine translation in translation.
@@ -126,14 +124,16 @@ mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
 
 /**
  * Initialize translation.
+ *
+ * @param {mw.cx.dm.Translation} translationModel
  */
-mw.cx.TranslationTracker.prototype.init = function () {
+mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 	var i, sectionNumber, sectionModels, sectionModel, sectionState,
 		savedTranslationUnits, savedTranslationUnit, progress,
 		restoredSections = 0;
 
-	sectionModels = this.translationModel.sourceDoc.getNodesByType( 'cxSection' );
-	savedTranslationUnits = this.translationModel.savedTranslationUnits || [];
+	sectionModels = translationModel.sourceDoc.getNodesByType( 'cxSection' );
+	savedTranslationUnits = translationModel.savedTranslationUnits || [];
 	for ( i = 0; i < sectionModels.length; i++ ) {
 		sectionModel = sectionModels[ i ];
 
@@ -164,9 +164,9 @@ mw.cx.TranslationTracker.prototype.init = function () {
 
 	if ( restoredSections > 0 ) {
 		progress = this.getTranslationProgress();
-		if ( !OO.compare( this.translationModel.progress, progress ) ) {
+		if ( !OO.compare( translationModel.progress, progress ) ) {
 			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
-				JSON.stringify( this.translationModel.progress ) );
+				JSON.stringify( translationModel.progress ) );
 		}
 		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
 		// Do the change processing and validations on the restored sections without any delay.
@@ -174,15 +174,17 @@ mw.cx.TranslationTracker.prototype.init = function () {
 		this.processValidationQueue();
 	}
 
-	this.attachOnFocusListeners();
+	this.attachOnFocusListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
 };
 
 /**
  * Attach listeners for 'focus' events on restored sections as well as on newly added sections.
+ *
+ * @param {ve.dm.CXSectionNode[]} sections
  */
-mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function () {
+mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function ( sections ) {
 	// Register event listeners for 'focus' event on restored sections
-	this.translationModel.targetDoc.getNodesByType( 'cxSection' ).map( function ( sectionModel ) {
+	sections.map( function ( sectionModel ) {
 		return sectionModel.getId();
 	} ).forEach( this.registerOnFocusListenerForSection.bind( this ) );
 
@@ -205,6 +207,7 @@ mw.cx.TranslationTracker.prototype.processChangeQueue = function () {
 
 /**
  * Section change handler
+ *
  * @param {string} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumber ) {
@@ -257,6 +260,9 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	}
 
 	// NOTE: For unmodified MT, we use the same content for userTranslatedContent
+
+	// Let the section model know whether it has been modified on top of initial value
+	sectionModel.setHasUserModifications( sectionState.isModified() );
 
 	// Calculate and update the progress
 	this.updateSectionProgress( sectionNumber );

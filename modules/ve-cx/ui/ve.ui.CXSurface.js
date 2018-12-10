@@ -30,6 +30,12 @@ ve.ui.CXSurface = function VeUiCXSurface( dataOrDoc, toolsColumn, config ) {
 
 OO.inheritClass( ve.ui.CXSurface, ve.ui.Surface );
 
+/* Events */
+
+/**
+ * @event documentTransactCX
+ */
+
 /* Methods */
 
 /**
@@ -48,6 +54,19 @@ ve.ui.CXSurface.prototype.onBlur = function () {
 
 ve.ui.CXSurface.prototype.onFocus = function () {
 	this.toolsContainer.$element.addClass( 'cx-column-tools-container--contextual' );
+};
+
+/**
+ * Overriden to create documentTransactCX for tools (ResetSectionTool) to be able to
+ * react to changes on the document state.
+ *
+ * @inheritDoc
+ * @fires documentTransactCX
+ */
+ve.ui.CXSurface.prototype.onDocumentTransact = function () {
+	ve.ui.CXSurface.super.prototype.onDocumentTransact.apply( this, arguments );
+
+	this.emit( 'documentTransactCX' );
 };
 
 ve.ui.CXSurface.prototype.toggleGlobalOverlayClass = function ( state ) {
