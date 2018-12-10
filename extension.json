@@ -1168,7 +1168,8 @@
 			"dependencies": [
 				"mediawiki.storage",
 				"oojs-ui",
-				"oojs-ui-widgets"
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-editing-advanced"
 			],
 			"messages": [
 				"cx-campaign-no-thanks"

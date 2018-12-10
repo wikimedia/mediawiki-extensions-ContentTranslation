@@ -12,8 +12,8 @@
  * accepted/rejected the invitation already.
  * @cfg {string} label Explanatory text which invites user into a campaign.
  * @cfg {string} acceptLabel Label for button used to accept invitation.
+ * @cfg {string} icon Icon displayed next to the explanatory text.
  * @cfg {string} [rejectLabel] Label for button used to politely reject invitation.
- * @cfg {string} [icon] Icon displayed next to the explanatory text.
  * @cfg {Function} [acceptAction] Method performed when user clicks on accept button.
  * @cfg {string} [classes] Array of classes to apply on this widget.
  * @cfg {Object} [parentConfig] Configuration object passed to OOUI parent.

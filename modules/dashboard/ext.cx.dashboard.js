@@ -355,6 +355,7 @@
 			.addClass( 'cx-source-page-selector' );
 
 		this.invitationWidget = new mw.cx.InvitationWidget( {
+			icon: 'beaker',
 			label: mw.message( 'cx-campaign-new-version-description' ).parseDom(),
 			acceptLabel: mw.msg( 'cx-campaign-enable-new-version' ),
 			dismissOptionName: 'cx-invite-chosen',
