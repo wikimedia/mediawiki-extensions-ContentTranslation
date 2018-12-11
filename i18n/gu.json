@@ -32,6 +32,7 @@
 	"cx-lost-session": "તમારું સત્ર સમાપ્ત થઇ ગયું છે",
 	"cx-lost-session-draft": "તમારું સત્ર અંત પામ્યું છે. તમે જ્યાં સુધી બીજી વિન્ડોમાંથી ફરીથી પ્રવેશ નહી કરો ત્યાં સુધી તમારા ફેરફારો સંગ્રહ પામશે નહી.",
 	"cx-lost-session-publish": "તમારું સત્ર અંત પામ્યું છે. તમે જ્યાં સુધી બીજી વિન્ડોમાંથી ફરીથી પ્રવેશ નહી કરો ત્યાં સુધી તમે ભાષાંતર પ્રકાશિત કરી શકશો નહી.",
+	"cx-lost-session-dashboard": "આ ક્રિયા કરવા માટે, ફરીથી પ્રવેશ કરો.",
 	"cx-publish-summary": "પાનાં \"$1\" નું ભાષાંતર કરીને બનાવેલ",
 	"cx-publish-gt-no-permission-to-move-description": "મહેરબાની કરીને અનુભવી ભાષાંતરકારને તમારા ભાષાંતરને ચકાસવા માટે કહો અને પછી લેખને મુખ્ય નામ સ્થળમાં પ્રકાશિત કરો.",
 	"cx-publish-gt-first-step-title": "તમારી ચકાસણી માટે ભાષાંતરને ડ્રાફ્ટ હેઠળ પ્રકાશિત કરવામાં આવેલ છે",
@@ -169,6 +170,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "નવેસરથી બનાવવા કરતાં ભાષાંતર કરો",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 કદાચ બીજી ભાષાઓમાં પહેલેથી હાજર છે જ",
 	"cx-campaign-contributionsmenu-myuploads": "અપલોડ કરેલ મિડિઆ",
+	"cx-campaign-enable-new-version": "નવી આવૃત્તિ સક્રિય કરો",
 	"cx-no-source-categories": "કોઇ શ્રેણીઓ નથી",
 	"cx-no-target-categories": "કોઇ શ્રેણીઓ નથી. વિષયને અનુરૂપ શ્રેણીઓ ઉમેરો.",
 	"cx-no-adapted-categories": "આ ભાષામાં મૂળભુત શ્રેણીઓ અસ્તિત્વ ધરાવતી નથી. વિષયને અનુરૂપ શ્રેણીઓ ઉમેરો.",
@@ -219,6 +221,7 @@
 	"cx-suggestionlist-collapse": "ઓછું જુઓ",
 	"cx-suggestionlist-refresh": "સૂચનો તાજા કરો",
 	"cx-notification-suggestions-available": "{{GENDER:$2|તમારા}} પહેલાંના ભાષાંતર '''$1''' પરથી, નવા સૂચનો પ્રાપ્ત છે.",
+	"cx-infobar-view-issues": "મુશ્કેલીઓ જુઓ",
 	"cx-tools-linter-issues": "મુશ્કેલીઓ",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 ક્ષતિ|$1 ક્ષતિઓ}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ચેતવણી|$1 ચેતવણીઓ}}",
@@ -239,6 +242,10 @@
 	"cx-tools-linter-page-exists-message": "$1 શીર્ષક ધરાવતું પાનું હાજર છે જ. તમારું ભાષાંતર પ્રકાશિત કરાતા તે હાજર રહેલ પાનાંના લખાણને દૂર કરશે.\n\nચકાસો કે તેમ કરવું યોગ્ય છે, અથવા તમારા ભાષાંતરને અલગ શીર્ષક આપો.",
 	"cx-tools-linter-template": "ઢાંચો પ્રાપ્ત નથી",
 	"cx-tools-linter-template-block-message": "મૂળ પાનું ભાષાંતર કરવા માટે અપ્રાપ્ત ઢાંચો ધરાવે છે.\n\nઢાંચો છોડી દેવામાં આવ્યો છે, પણ તમે લેખ ચાલુ રાખી શકો છો.",
+	"cx-tools-linter-old-revision": "પાનાની જૂની આવૃત્તિ પર આધારિત ભાષાંતર",
+	"cx-tools-linter-old-revision-label": "ફરીથી ભાષાંતર શરૂ કરો",
+	"cx-tools-linter-restart-translation-title": "ફરીથી ભાષાંતર શરૂ કરશો?",
+	"cx-tools-linter-restart-translation-cancel": "રદ કરો",
 	"cx-translator-header": "તમારા આંકડાઓ",
 	"cx-translator-month-stats-label": "આ મહિને",
 	"cx-translator-total-translations-label": "કુલ",
@@ -261,5 +268,7 @@
 	"cx-publish-destination-namespace-draft": "જાહેર મુસદો",
 	"cx-linkcontextitem-missing-link-title": "ખૂટતી કડી",
 	"cx-linkcontextitem-missing-title-description": "આ પાનું અસ્તિત્વમાં નથી",
-	"cx-mt-abuse-publish-error": "તમારું ભાષાંતર પ્રકાશિત કરી શકાશે નહી કારણ કે તે બહુ બધું મશીન ભાષાંતર ધરાવે છે"
+	"cx-mt-abuse-publish-error": "તમારું ભાષાંતર પ્રકાશિત કરી શકાશે નહી કારણ કે તે બહુ બધું મશીન ભાષાંતર ધરાવે છે",
+	"cx-unreviewed-translation-category": "ચકાસણી કર્યા વગરના ભાષાંતરો",
+	"cx-unreviewed-translation-category-desc": "ભાષાંતર સાધનની મદદથી ભાષાંતરિત થયેલા લેખો, જેમાં મોટી માત્રામાં ચકાસણી કર્યા વગરનું ભાષાંતર છે"
 }

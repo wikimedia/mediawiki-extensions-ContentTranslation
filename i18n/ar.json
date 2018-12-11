@@ -17,7 +17,8 @@
 			"Mido",
 			"20عبد العزيز",
 			"Sonic N800",
-			"Петар Петковић"
+			"Петар Петковић",
+			"علاء"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -60,7 +61,7 @@
 	"cx-translation-target-page-exists": "الويكي الهدف فيه صفحة بعنوان [$1 $2]. اختر عنوانا مختلفا للصفحة.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ترجمة المحتوى]]",
 	"tag-contenttranslation-description": "جرت ترجمة المحتوى من لغة أخرى باستخدام أداة ترجمة المحتوى.",
-	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|ترجمة المحتوى 2]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|ترجمة المحتوى2]]",
 	"tag-contenttranslation-v2-description": "تمت ترجمة المحتوى من لغة أخرى باستخدام الإصدار 2 من أداة ترجمة المحتوى.",
 	"cx-source-loading": "تحميل $1",
 	"cx-beta": "ترجمة المحتوى",
@@ -115,10 +116,10 @@
 	"cx-publish-captcha-title": "التحقق من أنك لست روبوت",
 	"cx-captcha-dialog-error": "إجابتك لا تبدو صحيحة;رجاءْ، حاول مرة اخرى.",
 	"cx-captcha-dialog-cancel": "إلغاء",
-	"cx-dashboard-sidebar-title": "{{GENDER:|أتحتاج|أتحتاجي}} مساعدة على الترجمة؟",
+	"cx-dashboard-sidebar-title": "{{GENDER:|أتحتاج|أتحتاجي}} مساعدة في الترجمة؟",
 	"cx-dashboard-sidebar-information": "المزيد حول هذه الأداة",
 	"cx-dashboard-sidebar-stats": "إحصائيات",
-	"cx-dashboard-sidebar-feedback": "رد علينا",
+	"cx-dashboard-sidebar-feedback": "زودنا بتغذيتك الراجعة",
 	"cx-dashboard-sidebar-newversion": "جرب الإصدار الجديد",
 	"cx-dashboard-sidebar-newversion-using": "استخدام الإصدار الجديد",
 	"cx-dashboard-sidebar-newversion-disable": "تعطيل",
@@ -164,7 +165,7 @@
 	"cx-translation-already-in-progress": "ترجمة جارية من {{GENDER:$2|إعداد}} $1.",
 	"cx-translation-already-in-progress-collaborate": "تأكد من تنسيقك مع {{GENDER:$1|المستخدم الذي أعد|المستخدمة التي أعدت}} الترجمة الحالية",
 	"cx-publishing-dialog-publish-draft-button": "انشرها كمسودة",
-	"cx-feedback-link": "رد علينا",
+	"cx-feedback-link": "تغذية راجعة",
 	"cx-stats-published-translations-title": "ترجمات منشورة",
 	"cx-stats-draft-translations-title": "الترجمات الجاري العمل عليها",
 	"cx-stats-draft-translations-label": "الترجمات قيد العمل",
@@ -288,6 +289,6 @@
 	"cx-linkcontextitem-missing-link-title": "وصلة ناقصة",
 	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد",
 	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل مترجم آليا كثير غير معدل",
-	"cx-unreviewed-translation-category": "الصفحات بترجمات غير مراجعة",
+	"cx-unreviewed-translation-category": "صفحات بترجمات غير مراجعة",
 	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من المحتوى غير المراجع"
 }
