@@ -2,19 +2,14 @@
  * @class
  * @abstract
  * @constructor
- * @mixins OO.EventEmitter
  */
 ve.dm.CXLintableNode = function VeDmCXLintableNode() {
 	// @var {mw.cx.dm.TranslationIssue[]}
 	this.translationIssues = [];
 
-	// Mixin constructor
-	OO.EventEmitter.call( this );
+	// It is assumed that CXLintableNode will be mixed into a
+	// node and therefore OO.EventEmitter is already available.
 };
-
-/* Inheritance */
-
-OO.mixinClass( ve.dm.CXLintableNode, OO.EventEmitter );
 
 /* Methods */
 
