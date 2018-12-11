@@ -9,8 +9,8 @@
  * @class
  * @constructor
  * @extends ve.dm.SectionNode
- * @mixin ve.dm.CXTranslationUnitModel
- * @mixin ve.dm.CXLintableNode
+ * @mixins ve.dm.CXTranslationUnitModel
+ * @mixins ve.dm.CXLintableNode
  */
 ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 	// Parent constructor

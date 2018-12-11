@@ -2,7 +2,7 @@
  * @class
  * @abstract
  * @constructor
- * @mixins {OO.EventEmitter}
+ * @mixins OO.EventEmitter
  */
 ve.dm.CXLintableNode = function VeDmCXLintableNode() {
 	// @var {mw.cx.dm.TranslationIssue[]}

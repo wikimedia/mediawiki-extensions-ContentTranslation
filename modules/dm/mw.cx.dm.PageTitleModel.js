@@ -6,7 +6,7 @@
  *
  * @class
  * @constructor
- * @mixin ve.dm.CXLintableNode
+ * @mixins ve.dm.CXLintableNode
  */
 mw.cx.dm.PageTitleModel = function VeDmCXSectionNode() {
 	// Mixin constructors
