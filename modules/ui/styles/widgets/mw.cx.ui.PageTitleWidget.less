@@ -1,39 +1,29 @@
 @import '../mw.cx.mixins.less';
 
-.cx-pagetitle {
-	&.oo-ui-textInputWidget {
-		margin-bottom: 10px;
-		border-bottom: 1px solid @colorGray5;
-		padding-top: 5px;
-		.break-overflowing-word;
+.cx-pagetitle.oo-ui-textInputWidget {
+	margin-bottom: 10px;
+	border-bottom: 1px solid @colorGray5;
+	padding-top: 5px;
+	.break-overflowing-word;
 
-		textarea {
-			font-size: 2.2em;
-			color: @colorGray2;
-			background-color: #fff;
-			font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
-			padding: 0;
-			border: 0;
-			box-shadow: none;
-			border-radius: 0;
-			line-height: 1.5em;
-			height: 1.5em;
-			&:focus {
-				outline: 0;
-				border-color: @colorGray14;
-				box-shadow: inset 0 0 0 1px @colorGray14;
-			}
-			&[ readonly ] {
-				background-color: #fff;
-			}
+	textarea {
+		font-size: 2.2em;
+		color: @colorGray2;
+		background-color: #fff;
+		font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+		padding: 0;
+		border: 0;
+		box-shadow: none;
+		border-radius: 0;
+		line-height: 1.5em;
+		height: 1.5em;
+		&:focus {
+			outline: 0;
+			border-color: @colorGray14;
+			box-shadow: inset 0 0 0 1px @colorGray14;
 		}
-	}
-
-	&.mw-cx-lintIssue-error {
-		box-shadow: -17px 0 0 -4px #fff, -20px 0 0 -4px @colorDestructive;
-	}
-
-	&.mw-cx-lintIssue-warning {
-		box-shadow: -17px 0 0 -4px #fff, -20px 0 0 -4px @colorLowSevere;
+		&[ readonly ] {
+			background-color: #fff;
+		}
 	}
 }

@@ -28,6 +28,7 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	this.processAllIssues();
 
 	this.currentIssue = 1;
+	this.currentNode = null;
 
 	this.expandButton = new OO.ui.ButtonWidget( {
 		framed: false,
@@ -112,6 +113,37 @@ mw.cx.tools.IssueTrackingTool.prototype.init = function () {
 		this.currentIssue = currentPanel;
 		this.showDetails();
 		this.openCurrentPanel();
+	}
+};
+
+/**
+ * Highlight the current node with higher opacity marker.
+ */
+mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
+	var node, $highlightableElement, hasErrors, id = this.allIssues[ this.currentIssue - 1 ].id;
+
+	this.removeCurrentNodeHighlight();
+	this.currentNode = null;
+
+	if ( id === 'global' ) {
+		return;
+	}
+
+	node = this.getNodeForId( id );
+	if ( node ) {
+		this.currentNode = node;
+		$highlightableElement = node.getHighlightableElement();
+		hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
+		$highlightableElement.addClass( 'mw-cx-current-issue-' + ( hasErrors ? 'error' : 'warning' ) );
+	}
+};
+
+/**
+ * Remove the higher opacity marker from the current node.
+ */
+mw.cx.tools.IssueTrackingTool.prototype.removeCurrentNodeHighlight = function () {
+	if ( this.currentNode ) {
+		this.currentNode.getHighlightableElement().removeClass( 'mw-cx-current-issue-warning mw-cx-current-issue-error' );
 	}
 };
 
@@ -243,6 +275,7 @@ mw.cx.tools.IssueTrackingTool.prototype.showCollapsed = function () {
 	this.issuesLayout.toggle( false );
 	this.warningsCount.toggle( this.numberOfWarnings > 0 );
 	this.errorsCount.toggle( this.numberOfErrors > 0 );
+	this.removeCurrentNodeHighlight();
 };
 
 /**
@@ -291,6 +324,7 @@ mw.cx.tools.IssueTrackingTool.prototype.openCurrentPanel = function () {
 	if ( this.currentIssue === this.numberOfIssues ) {
 		this.nextButton.setDisabled( true );
 	}
+	this.updateCurrentNode();
 };
 
 /**
@@ -298,6 +332,7 @@ mw.cx.tools.IssueTrackingTool.prototype.openCurrentPanel = function () {
  */
 mw.cx.tools.IssueTrackingTool.prototype.showExpanded = function () {
 	this.showDetails();
+	this.updateCurrentNode();
 	this.focusCurrentElement();
 
 	// HACK: Used to avoid problems described in the comments for this.correctFocus()

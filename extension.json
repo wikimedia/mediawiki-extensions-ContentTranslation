@@ -1451,6 +1451,9 @@
 			"scripts": [
 				"ve-cx/ce/mixins/ve.ce.CXLintableNode.js"
 			],
+			"styles": [
+				"ve-cx/ce/styles/ve.ce.CXLintableNode.less"
+			],
 			"dependencies": [
 				"ext.visualEditor.core"
 			]

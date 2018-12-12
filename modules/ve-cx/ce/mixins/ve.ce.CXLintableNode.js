@@ -5,6 +5,8 @@
  * @constructor
  */
 ve.ce.CXLintableNode = function VeCeCXLintableNode() {
+	this.getHighlightableElement().addClass( 've-ce-cxLintableNode' );
+
 	this.model.connect( this, {
 		allIssuesResolved: 'onAllIssuesResolved',
 		translationIssues: 'highlightNode'
@@ -52,7 +54,9 @@ ve.ce.CXLintableNode.prototype.onAllIssuesResolved = function () {
  * Remove the CSS highlights for warnings and errors.
  */
 ve.ce.CXLintableNode.prototype.removeHighlight = function () {
-	this.getHighlightableElement().removeClass( 'mw-cx-lintIssue-error mw-cx-lintIssue-warning' );
+	this.getHighlightableElement()
+		.removeClass( 'mw-cx-lintIssue-error mw-cx-lintIssue-warning' )
+		.removeClass( 'mw-cx-current-issue-warning mw-cx-current-issue-error' );
 };
 
 /**
