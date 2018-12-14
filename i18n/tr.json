@@ -189,6 +189,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Tercüme sıfırdan yazmak yerine",
 	"cx-campaign-contributionsmenu-might-be-available": "$1, başka dillerde zaten mevcut olabilir",
 	"cx-campaign-contributionsmenu-myuploads": "Yüklenen medya",
+	"cx-campaign-enable-new-version": "Yeni sürümü etkinleştir",
+	"cx-campaign-new-version-description": "<b>Yeni sürüm mevcut.</b> Daha eksiksiz bir düzenleme deneyimi için yeni sürümü deneyin ve geri bildiriminizi bizimle paylaşın.  sürümleri değiştirebilirsiniz. Yeni bir çeviri için istediğiniz sürümü kullanabilir ve istediğiniz zaman sürümleri değiştirebilirsiniz.",
 	"cx-no-source-categories": "Kategori yok",
 	"cx-no-target-categories": "Kategori yok. Konuyu daha iyi sınıflandırmak için birkaç tane eklemeyi düşünün.",
 	"cx-no-adapted-categories": "Orijinal kategoriler bu dilde mevcut değil. Konuyu daha iyi tanımlamak için daha fazla kategoriyi keşfedin.",
