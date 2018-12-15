@@ -141,7 +141,10 @@
 	"cx-tools-link-apply": "搞掂",
 	"cx-personaltools-user": "用戶",
 	"cx-personaltools-anon": "未簽到",
+	"cx-tools-linter-template": "冇模",
+	"cx-tools-linter-template-block-message": "原文嗰版用咗一個模，係目標維基冇嘅。\n\n呢個模跳過咗，但你可以加料，彌補唔見咗嘅資訊。",
 	"cx-tools-mt-new-provider": "新",
 	"cx-tools-template-title": "模",
-	"cx-unreviewed-translation-category": "含未審閱譯文嘅版"
+	"cx-unreviewed-translation-category": "含未審閱譯文嘅版",
+	"cx-unreviewed-translation-category-desc": "用咗Content Translation工具而有大段未審閱譯文嘅版"
 }
