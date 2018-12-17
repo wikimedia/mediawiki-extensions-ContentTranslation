@@ -1538,6 +1538,7 @@
 				"mw.cx.TargetArticle.js"
 			],
 			"messages": [
+				"cx-captcha-unsupported-type",
 				"cx-draft-cancel-button-label",
 				"cx-lost-session-publish",
 				"cx-publish-error-abuse-filter",

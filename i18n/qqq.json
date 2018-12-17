@@ -123,6 +123,7 @@
 	"cx-publish-captcha-title": "Title of captcha form while publishing the translation",
 	"cx-captcha-dialog-error": "Error message displayed on Content Translation when user types wrong captcha text.",
 	"cx-captcha-dialog-cancel": "Label for button displayed on Content Translation to cancel the captcha dialog.\n{{Identical|Cancel}}",
+	"cx-captcha-unsupported-type": "Error message displayed on Content Translation when user should verify their edit with captcha, but captcha cannot be shown.",
 	"cx-dashboard-sidebar-title": "Title of the sidebar of the dashboard widget",
 	"cx-dashboard-sidebar-information": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with information about Content Translation.",
 	"cx-dashboard-sidebar-stats": "Shown in sidebar menu in the Content Translation dashboard. Opens a new tab with Special:ContentTranslationStats in the same wiki.\n{{identical|Statistics}}",

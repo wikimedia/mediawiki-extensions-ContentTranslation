@@ -242,6 +242,11 @@ mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
 		this.captchaDialog.setCaptcha( 'questycaptcha-create', apiResult.question, apiResult.mime );
 	} else {
 		mw.log.error( '[CX] Unsupported captcha type: ' + apiResult.type );
+		// At this point, we encountered unknown or unsupported captcha type, or ConfirmEdit is
+		// malfunctioning in some fashion. User is stuck at this point and cannot publish,
+		// but we can at least unblock the UI and show the error message.
+		this.onCaptchaCancel();
+		this.showUnrecoverablePublishError( mw.msg( 'cx-captcha-unsupported-type' ) );
 		return;
 	}
 

@@ -113,6 +113,7 @@
 	"cx-publish-captcha-title": "Checking you are not a robot",
 	"cx-captcha-dialog-error": "Your answer does not seem correct. Please, try again.",
 	"cx-captcha-dialog-cancel": "Cancel",
+	"cx-captcha-unsupported-type": "Unsupported captcha type encountered.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Need}} help translating?",
 	"cx-dashboard-sidebar-information": "More about this tool",
 	"cx-dashboard-sidebar-stats": "Statistics",
