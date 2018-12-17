@@ -158,6 +158,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|Dine oversættelser}}",
 	"cx-translationlist-empty-title": "Intet at oversætte?",
 	"cx-tools-link-internal-link": "Søg sider",
+	"cx-tools-link-external-link": "Ekstern henvisning",
 	"cx-tools-link-apply": "Færdig",
 	"cx-personaltools-user": "Bruger",
 	"cx-personaltools-anon": "Ikke logget på",
