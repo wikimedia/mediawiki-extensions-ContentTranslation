@@ -250,5 +250,6 @@
 	"cx-publish-destination-namespace-draft": "برادری مسودہ",
 	"cx-linkcontextitem-missing-link-title": "غیر موجود ربط",
 	"cx-linkcontextitem-missing-title-description": "یہ صفحہ موجود نہیں ہے",
-	"cx-mt-abuse-publish-error": "آپ کا/آپکا تراجم شائع نہیں کیا جاسکتا کیونکہ اس ميں बहुतायत ميں بنا سدھار کے मशीनी-تراجم کا पाठ #شامل ہے۔"
+	"cx-mt-abuse-publish-error": "آپ کا/آپکا تراجم شائع نہیں کیا جاسکتا کیونکہ اس ميں बहुतायत ميں بنا سدھار کے मशीनी-تراجم کا पाठ #شامل ہے۔",
+	"cx-unreviewed-translation-category": "غیر نظر ثانی شدہ تراجم پر مشتمل صفحات"
 }

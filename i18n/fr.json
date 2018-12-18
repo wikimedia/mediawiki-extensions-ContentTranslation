@@ -40,7 +40,8 @@
 			"Trizek (WMF)",
 			"Urhixidur",
 			"Zarisi",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Tomri5"
 		]
 	},
 	"cx": "Traduire la page",
@@ -109,7 +110,7 @@
 	"cx-tools-mt-use-source": "Copier le contenu original",
 	"cx-tools-mt-reset": "Supprimer la traduction",
 	"cx-tools-mt-provider-title": "Utiliser $1",
-	"cx-tools-mt-dont-use": "Commencer avec un paragraphe vide",
+	"cx-tools-mt-dont-use": "Commencer par un paragraphe vide",
 	"cx-tools-mt-set-default": "Garder par défaut",
 	"cx-tools-mt-preferred": "par défaut",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 catégorie|$1 catégories|0=Aucune catégorie}}",
@@ -178,7 +179,7 @@
 	"cx-publishing-dialog-title": "Écraser la page existante ?",
 	"cx-publishing-dialog-sub-title": "Votre traduction écrasera la page existante. Veuillez vous assurer qu’il est correct de remplacer le contenu existant.",
 	"cx-publishing-with-issues-dialog-title": "Publier avec les erreurs actuelles ?",
-	"cx-publishing-with-issues-dialog-message": "Votre traduction a encore des problèmes potentiels. Veuillez envisager de corriger les problèmes avant de publier.\n\nLes rédacteurs qui reliront votre contribution apprécieront les améliorations.",
+	"cx-publishing-with-issues-dialog-message": "Votre traduction a encore des problèmes potentiels. Veuillez envisager de vérifier les problèmes avant la publication.\n\nLes rédacteurs qui reliront votre contribution évalueront les améliorations.",
 	"cx-overwriting-with-issues": "Votre traduction remplacera la page existante par un contenu présentant encore des problèmes potentiels. Veuillez envisager de corriger les problèmes avant de publier.",
 	"cx-discard-translation": "Annuler la traduction",
 	"cx-translation-status-draft": "En cours",

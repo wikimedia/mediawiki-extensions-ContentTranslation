@@ -21,7 +21,8 @@
 			"Sarah Bernabei",
 			"Gabrielet",
 			"Петар Петковић",
-			"Daimona Eaytoy"
+			"Daimona Eaytoy",
+			"Lorelai87"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -79,11 +80,11 @@
 	"cx-tools-link-title": "Collegamento",
 	"cx-tools-link-add": "Aggiungi collegamento",
 	"cx-tools-link-remove": "Rimuovi collegamento",
-	"cx-tools-mt-title": "Traduzione automatica",
-	"cx-tools-mt-use-source": "Usa il testo di origine",
+	"cx-tools-mt-title": "Traduzione preliminare",
+	"cx-tools-mt-use-source": "Copia contenuto originale",
 	"cx-tools-mt-reset": "Resetta traduzione",
 	"cx-tools-mt-provider-title": "Usa $1",
-	"cx-tools-mt-dont-use": "Non utilizzare la traduzione automatica",
+	"cx-tools-mt-dont-use": "Inizia con un paragrafo vuoto",
 	"cx-tools-mt-set-default": "Tieni come predefinito",
 	"cx-tools-mt-preferred": "predefinito",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorie|0=Nessuna categoria}}",
@@ -148,6 +149,7 @@
 	"cx-publishing-dialog-publish-anyway-button": "Pubblica comunque",
 	"cx-publishing-dialog-title": "Sovrascrivi pagina esistente?",
 	"cx-publishing-dialog-sub-title": "La tua traduzione sovrascriverà la pagina attuale. Assicurati che sia tutto ok prima di sostituire il contenuto attuale.",
+	"cx-overwriting-with-issues": "La tua traduzione sovrascriverà la pagina esistente con un contenuto che ha ancora dei potenziali problemi. Per favore, verificali prima di pubblicare.",
 	"cx-discard-translation": "Scarta la traduzione",
 	"cx-translation-status-draft": "In corso",
 	"cx-translation-status-published": "Pubblicato",
