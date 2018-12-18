@@ -129,7 +129,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
 };
 
 /**
- * TODO: Implement
+ * Communicate warnings about unadapted inline templates.
  *
  * @class
  * @extends ve.dm.MWTransclusionInlineNode
