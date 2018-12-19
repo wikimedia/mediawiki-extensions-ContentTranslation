@@ -45,6 +45,16 @@ ve.ui.CXLinkAnnotationInspector.prototype.newInternalLinkAnnotationFromTitle = f
 	return ve.dm.CXLinkAnnotation.static.newFromTitle( title );
 };
 
+/**
+ * @inheritdoc
+ */
+ve.ui.CXLinkAnnotationInspector.prototype.ready = function ( data ) {
+	return this.getReadyProcess( data ).execute().then( function () {
+		this.$element.addClass( 'oo-ui-window-ready' ).width();
+		this.$content.addClass( 'oo-ui-window-content-ready' ).width();
+	}.bind( this ) );
+};
+
 /* Registration */
 
 ve.ui.windowFactory.register( ve.ui.CXLinkAnnotationInspector );
