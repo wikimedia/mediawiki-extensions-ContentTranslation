@@ -467,7 +467,7 @@ mw.cx.TranslationTracker.prototype.setTranslationIssues = function ( id, state )
 				return 1;
 			}
 
-			return a > b;
+			return a > b ? 1 : -1;
 		};
 
 	if ( index !== -1 ) {
