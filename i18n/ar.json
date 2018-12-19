@@ -116,6 +116,7 @@
 	"cx-publish-captcha-title": "التحقق من أنك لست روبوت",
 	"cx-captcha-dialog-error": "إجابتك لا تبدو صحيحة;رجاءْ، حاول مرة اخرى.",
 	"cx-captcha-dialog-cancel": "إلغاء",
+	"cx-captcha-unsupported-type": "تم اكتشاف نوع كابتشا غير معتمد.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|أتحتاج|أتحتاجي}} مساعدة في الترجمة؟",
 	"cx-dashboard-sidebar-information": "المزيد حول هذه الأداة",
 	"cx-dashboard-sidebar-stats": "إحصائيات",

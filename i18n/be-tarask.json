@@ -60,7 +60,7 @@
 	"cx-tools-link-add": "Дадаць спасылку",
 	"cx-tools-link-remove": "Выдаліць спасылку",
 	"cx-tools-mt-title": "Першапачатковы пераклад",
-	"cx-tools-mt-use-source": "Выкарыстаць крынічны тэкст",
+	"cx-tools-mt-use-source": "Скапіяваць арыгінальны зьмест",
 	"cx-tools-mt-provider-title": "Выкарыстоўваць $1",
 	"cx-tools-mt-dont-use": "Не выкарыстоўваць машынны пераклад",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 катэгорыя|$1 катэгорыі|$1 катэгорыяў|0=няма катэгорыяў}}",

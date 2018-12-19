@@ -41,7 +41,8 @@
 			"Urhixidur",
 			"Zarisi",
 			"Петар Петковић",
-			"Tomri5"
+			"Tomri5",
+			"Djdakta"
 		]
 	},
 	"cx": "Traduire la page",
@@ -138,6 +139,7 @@
 	"cx-publish-captcha-title": "Vérification que vous n'êtes pas un robot",
 	"cx-captcha-dialog-error": "Votre réponse ne semble pas correcte. Veuillez recommencer.",
 	"cx-captcha-dialog-cancel": "Annuler",
+	"cx-captcha-unsupported-type": "Type de captcha rencontré non supporté",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Besoin}} d’aide pour les traductions ?",
 	"cx-dashboard-sidebar-information": "Plus d’information sur cet outil",
 	"cx-dashboard-sidebar-stats": "Statistiques",

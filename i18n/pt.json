@@ -112,6 +112,7 @@
 	"cx-publish-captcha-title": "A verificar que não é um robô",
 	"cx-captcha-dialog-error": "A sua resposta parece incorreta. Tente novamente, por favor.",
 	"cx-captcha-dialog-cancel": "Cancelar",
+	"cx-captcha-unsupported-type": "Foi encontrado um tipo de ''captcha'' não suportado.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Precisa}} de ajuda para traduzir?",
 	"cx-dashboard-sidebar-information": "Mais sobre esta ferramenta",
 	"cx-dashboard-sidebar-stats": "Estatísticas",

@@ -108,6 +108,7 @@
 	"cx-publish-captcha-title": "בדיקה שאינך רובוט",
 	"cx-captcha-dialog-error": "נראה שהתשובה שלך אינה נכונה. נא לנסות שוב.",
 	"cx-captcha-dialog-cancel": "ביטול",
+	"cx-captcha-unsupported-type": "הגיע סוג בלתי־נתמך של CAPTCHA.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|צריך|צריכה}} עזרה עם תרגומים?",
 	"cx-dashboard-sidebar-information": "מידע נוסף על הכלי הזה",
 	"cx-dashboard-sidebar-stats": "סטטיסטיקות",

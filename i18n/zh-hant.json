@@ -112,6 +112,7 @@
 	"cx-publish-captcha-title": "檢查您並非是機器人",
 	"cx-captcha-dialog-error": "您的答案似乎不正確。請重試。",
 	"cx-captcha-dialog-cancel": "取消",
+	"cx-captcha-unsupported-type": "遇到未支援的驗證碼類型。",
 	"cx-dashboard-sidebar-title": "{{GENDER:|需要}}協助翻譯嗎？",
 	"cx-dashboard-sidebar-information": "更多關於此工具的詳細資訊",
 	"cx-dashboard-sidebar-stats": "統計資訊",

@@ -16,7 +16,8 @@
 			"Eduardo Martinez",
 			"Jaumeortola",
 			"Medol",
-			"Ssola"
+			"Ssola",
+			"Paucabot"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -227,5 +228,6 @@
 	"cx-publish-destination-tooltip": "Escolliu l'espai de noms de l'article a publicar",
 	"cx-publish-destination-namespace-main": "Pàgina nova",
 	"cx-publish-destination-namespace-user": "Esborrany personal",
-	"cx-publish-destination-namespace-draft": "Esborrany comunitari"
+	"cx-publish-destination-namespace-draft": "Esborrany comunitari",
+	"cx-unreviewed-translation-category": "Pàgines amb traduccions sense revisar"
 }

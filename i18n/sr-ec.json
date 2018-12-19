@@ -108,6 +108,7 @@
 	"cx-publish-captcha-title": "Провера да нисте бот",
 	"cx-captcha-dialog-error": "Ваш одговор није тачан. Покушајте поново.",
 	"cx-captcha-dialog-cancel": "Откажи",
+	"cx-captcha-unsupported-type": "Наишло се на неподржан тип CAPTCHA слике.",
 	"cx-dashboard-sidebar-title": "Треба {{GENDER:|вам}} помоћ око превођења?",
 	"cx-dashboard-sidebar-information": "Више о овом алату",
 	"cx-dashboard-sidebar-stats": "Статистике",
