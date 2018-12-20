@@ -103,6 +103,7 @@
 	"cx-publish-captcha-title": "Проверка дека не сте робот",
 	"cx-captcha-dialog-error": "Одговорот е погрешен. Обидете се повторно.",
 	"cx-captcha-dialog-cancel": "Откажи",
+	"cx-captcha-unsupported-type": "Наидов на неподдржан вид ликовна проверка",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Ви треба}} помош со преведување?",
 	"cx-dashboard-sidebar-information": "Дознајте повеќе за алаткава",
 	"cx-dashboard-sidebar-stats": "Статистика",

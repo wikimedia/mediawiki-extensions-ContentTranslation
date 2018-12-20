@@ -3,7 +3,8 @@
 		"authors": [
 			"Mavrikant",
 			"Wertuose",
-			"Amire80"
+			"Amire80",
+			"Toghrul Rahimli"
 		]
 	},
 	"cx": "Səhifəni tərcümə et",
@@ -29,5 +30,6 @@
 	"cx-contributions-translation-tooltip": "Mövcud səhifələri tərcümə edin",
 	"cx-contributions-upload-tooltip": "Səhifədə istifadə etmək üçün şəkil, audio və video yükləyin",
 	"cx-draft-cancel-button-label": "İmtina",
-	"cx-draft-discard-button-label": "Tərcüməni sil"
+	"cx-draft-discard-button-label": "Tərcüməni sil",
+	"cx-contributions-link": "Töhfələriniz"
 }

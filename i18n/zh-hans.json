@@ -20,7 +20,8 @@
 			"Петар Петковић",
 			"夢蝶葬花",
 			"Phenolla",
-			"A Chinese Wikipedian"
+			"A Chinese Wikipedian",
+			"A2093064"
 		]
 	},
 	"cx": "翻译页面",
@@ -62,6 +63,7 @@
 	"cx-translation-target-page-exists": "标题为[$1 $2]的页面已存在于目标wiki。请考虑为页面提供不同的标题。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|内容翻译]]",
 	"tag-contenttranslation-description": "此内容通过内容翻译工具从另一语言翻译而来。",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|内容翻译2]]",
 	"tag-contenttranslation-v2-description": "此内容通过第2版内容翻译工具从另一语言翻译而来。",
 	"cx-source-loading": "正在载入$1",
 	"cx-beta": "内容翻译",
@@ -281,5 +283,6 @@
 	"cx-publish-destination-namespace-draft": "社群草稿",
 	"cx-linkcontextitem-missing-link-title": "丢失链接",
 	"cx-linkcontextitem-missing-title-description": "此页面尚不存在",
-	"cx-mt-abuse-publish-error": "您的翻译无法发布，因为它包含太多未经修订的机器翻译文本。"
+	"cx-mt-abuse-publish-error": "您的翻译无法发布，因为它包含太多未经修订的机器翻译文本。",
+	"cx-unreviewed-translation-category": "有未审阅翻译的页面"
 }

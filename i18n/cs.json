@@ -117,6 +117,7 @@
 	"cx-publish-captcha-title": "Ověření, že nejste robot",
 	"cx-captcha-dialog-error": "Vaše odpověď není správně. Prosím zkuste to znovu.",
 	"cx-captcha-dialog-cancel": "Storno",
+	"cx-captcha-unsupported-type": "Nalezen nepodporovaný typ captcha.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Potřebujete}} pomoct s překladem?",
 	"cx-dashboard-sidebar-information": "O tomto nástroji",
 	"cx-dashboard-sidebar-stats": "Statistiky",

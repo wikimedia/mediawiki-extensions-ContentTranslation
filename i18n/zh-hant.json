@@ -58,7 +58,8 @@
 	"cx-translation-target-page-exists": "使用標題 [$1 $2] 的頁面已存在於目標 wiki。 請使用不同的頁面標題。",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|內容翻譯]]",
 	"tag-contenttranslation-description": "已使用內容翻譯工具從其他語言翻譯內容。",
-	"tag-contenttranslation-v2-description": "內容已透過使用內容翻譯工具第 2 版從其它語言翻譯過來。",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|內容翻譯2]]",
+	"tag-contenttranslation-v2-description": "內容已透過使用內容翻譯工具第2版從其它語言翻譯過來。",
 	"cx-source-loading": "正在載入 $1",
 	"cx-beta": "內容翻譯",
 	"cx-beta-desc": "一套工具可迅速翻譯頁面至您使用的語言。 從[[Special:MyContributions|您的貢獻頁面]]開始翻譯，並使用特別為翻譯所設計的並排方式編輯內容。 部份功能可能僅供特定語言使用。",
@@ -289,6 +290,6 @@
 	"cx-linkcontextitem-missing-link-title": "遺失連結",
 	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在",
 	"cx-mt-abuse-publish-error": "因包含太多未更改過的機器翻譯文字緣故，無法發佈您的翻譯",
-	"cx-unreviewed-translation-category": "頁面帶有未審查過的機器翻譯",
+	"cx-unreviewed-translation-category": "有未審閱翻譯的頁面",
 	"cx-unreviewed-translation-category-desc": "頁面以內容翻譯工具做出翻譯，且包含大量未審查過的內容"
 }
