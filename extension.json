@@ -1490,7 +1490,6 @@
 				"cx-tools-linter-restart-translation-message",
 				"cx-tools-linter-restart-translation-title",
 				"cx-infobar-view-issues",
-				"cx-lost-session-draft",
 				"cx-lost-session-publish",
 				"cx-mt-abuse-publish-error",
 				"cx-mt-abuse-warning-text",
@@ -1922,6 +1921,21 @@
 			],
 			"dependencies": [
 				"mw.cx.externalmessages",
+				"mw.cx.ui"
+			]
+		},
+		"mw.cx.ui.LoginDialog": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/mw.cx.ui.LoginDialog.js"
+			],
+			"messages": [
+				"cx-lost-session",
+				"cx-lost-session-draft",
+				"login"
+			],
+			"dependencies": [
+				"mediawiki.util",
 				"mw.cx.ui"
 			]
 		},

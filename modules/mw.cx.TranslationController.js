@@ -27,6 +27,8 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.failCounter = 0;
 	this.isFailedUnrecoverably = false; // TODO: This is still unused
 	this.saveStatusTimer = null;
+	this.retryTimer = null;
+	this.loginDialog = null;
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
 	this.savedTargetTitle = this.translation.getTargetTitle();
@@ -247,7 +249,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 				// Delay in seconds, failCounter is [1,5]
 				delay = 60 * this.failCounter;
 				// Schedule retry.
-				setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
+				this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
 				mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
 			}
 
@@ -324,7 +326,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 
 mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, details ) {
 	if ( errorCode === 'assertuserfailed' ) {
-		this.translationView.showMessage( 'error', mw.msg( 'cx-lost-session-draft' ) );
+		this.showLoginDialog();
 	}
 
 	if ( details && details.exception instanceof Error ) {
@@ -333,6 +335,24 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 	}
 
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
+};
+
+mw.cx.TranslationController.prototype.showLoginDialog = function () {
+	mw.loader.using( 'mw.cx.ui.LoginDialog' ).then( function () {
+		var windowManager = OO.ui.getWindowManager();
+
+		if ( !this.loginDialog ) {
+			this.loginDialog = new mw.cx.ui.LoginDialog();
+			windowManager.addWindows( [ this.loginDialog ] );
+		}
+
+		this.failCounter = 0;
+		clearTimeout( this.retryTimer );
+
+		windowManager
+			.openWindow( this.loginDialog.constructor.static.name )
+			.closed.then( this.processSaveQueue.bind( this ) );
+	}.bind( this ) );
 };
 
 /**
