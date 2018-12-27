@@ -11,7 +11,8 @@
 			"Guycn2",
 			"StanProg",
 			"Liuxinyu970226",
-			"ShockD"
+			"ShockD",
+			"Vlad5250"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -67,8 +68,8 @@
 	"cx-tools-link-title": "Препратка",
 	"cx-tools-link-add": "Добавяне на препратка",
 	"cx-tools-link-remove": "Премахване на препратка",
-	"cx-tools-mt-title": "Машинен превод",
-	"cx-tools-mt-use-source": "Използвай изходния текст",
+	"cx-tools-mt-title": "Първоначален превод",
+	"cx-tools-mt-use-source": "Прекопиране на изходния текст",
 	"cx-tools-mt-reset": "Връщане на превода в изходно положение",
 	"cx-tools-mt-provider-title": "Използвай превод от $1",
 	"cx-tools-mt-dont-use": "Не използвай машинен превод",

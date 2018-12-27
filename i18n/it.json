@@ -39,6 +39,7 @@
 	"cx-source-view-page": "vedi pagina",
 	"cx-publish-page-success": "Pagina pubblicata su $1",
 	"cx-publish-page-error": "Si è verificato un errore durante il salvataggio della pagina. Si prega di riprovare a pubblicare la pagina. Errore $1",
+	"cx-publish-error-abuse-filter": "I filtri di modifica automatici hanno identificato del contenuto problematico nella tua traduzione. Dettagli: $1",
 	"cx-publish-button": "Pubblica",
 	"cx-publish-button-publishing": "Pubblicazione...",
 	"cx-lost-session": "La tua sessione è scaduta",

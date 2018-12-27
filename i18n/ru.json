@@ -137,6 +137,7 @@
 	"cx-publish-captcha-title": "Проверяем, что вы не робот",
 	"cx-captcha-dialog-error": "Ваш ответ неправилен. Пожалуйста, попробуйте ещё раз.",
 	"cx-captcha-dialog-cancel": "Отменить",
+	"cx-captcha-unsupported-type": "Найден неподдерживаемый вид капчи",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Нужна}} помощь с переводами?",
 	"cx-dashboard-sidebar-information": "Подробнее об этом инструменте",
 	"cx-dashboard-sidebar-stats": "Статистика",

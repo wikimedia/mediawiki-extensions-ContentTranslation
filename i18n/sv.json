@@ -113,6 +113,7 @@
 	"cx-publish-captcha-title": "Kollar om du inte är en robot",
 	"cx-captcha-dialog-error": "Ditt svar verkar inte vara rätt. Försök igen.",
 	"cx-captcha-dialog-cancel": "Avbryt",
+	"cx-captcha-unsupported-type": "Stötte på typ av captcha som inte stöds.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Behöver du}} hjälp att översätta?",
 	"cx-dashboard-sidebar-information": "Mer om detta verktyg",
 	"cx-dashboard-sidebar-stats": "Statistik",
