@@ -5,7 +5,8 @@
 			"सरोज कुमार ढकाल",
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
-			"Nirajan pant"
+			"Nirajan pant",
+			"Parbat subedi"
 		]
 	},
 	"cx": "पृष्ठ अनुवाद गर्नुहोस्",
@@ -47,10 +48,10 @@
 	"cx-tools-link-title": "लिङ्क",
 	"cx-tools-link-add": "लिङ्क थप्नुहोस",
 	"cx-tools-link-remove": "लिङ्क हटाउनुहोस्",
-	"cx-tools-mt-title": "स्वत: अनुवाद",
-	"cx-tools-mt-use-source": "स्रोत पाठ प्रयोग गर्नुहोस्",
+	"cx-tools-mt-title": "स्वत: अनुवादित",
+	"cx-tools-mt-use-source": "सक्कली सामग्री प्रतिलिपी गर्नुहोस्",
 	"cx-tools-mt-provider-title": "$1 प्रयोग गर्नुहोस्",
-	"cx-tools-mt-dont-use": "मेसिन अनुवाद प्रयोग गर्ने",
+	"cx-tools-mt-dont-use": "खाली हरफबाट शुरुवात गर्नुहोस्",
 	"cx-stats-title": "सामग्री अनुवाद तथ्याङ्कहरू",
 	"cx-tools-reference-title": "सन्दर्भ",
 	"cx-tools-reference-add": "सन्दर्भ थप्नुहोस्",

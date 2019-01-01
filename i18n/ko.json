@@ -121,7 +121,7 @@
 	"cx-publish-captcha-title": "로봇이 아닌지를 검사합니다",
 	"cx-captcha-dialog-error": "답변이 올바르지 않은 것 같습니다. 다시 시도해 주십시오.",
 	"cx-captcha-dialog-cancel": "취소",
-	"cx-captcha-unsupported-type": "지원하지 않는 보안인증 유형과 충돌했습니다.",
+	"cx-captcha-unsupported-type": "지원하지 않는 보안인증 유형입니다.",
 	"cx-dashboard-sidebar-title": "번역에 도움이 {{GENDER:|필요합니까}}?",
 	"cx-dashboard-sidebar-information": "이 도구에 대한 더 많은 정보",
 	"cx-dashboard-sidebar-stats": "통계",
