@@ -163,5 +163,6 @@
 	"cx-tools-linter-view-details": "Vis detaljar",
 	"cx-tools-linter-hide-details": "Skjul detaljar",
 	"cx-translator-month-stats-label": "Denne månaden",
-	"cx-translator-total-translations-label": "Totalt"
+	"cx-translator-total-translations-label": "Totalt",
+	"cx-unreviewed-translation-category": "Sider utan gjennomgåtte omsetjingar"
 }
