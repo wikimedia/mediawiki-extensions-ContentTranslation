@@ -52,7 +52,7 @@
 
 			languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
-				iconTitle: mw.msg( 'cx-page-number-of-languages' )
+				title: mw.msg( 'cx-page-number-of-languages' )
 			} );
 			languageLabel = new OO.ui.LabelWidget( {
 				label: mw.language.convertNumber( config.numOfLanguages )
