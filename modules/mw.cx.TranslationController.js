@@ -305,7 +305,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 	}, this );
 
 	// Show saved status with a time after last save.
-	clearTimeout( this.saveStatusTimer );
+	clearInterval( this.saveStatusTimer );
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 
 	this.saveStatusTimer = setInterval( function () {
@@ -540,7 +540,7 @@ mw.cx.TranslationController.prototype.saveBeforePublishingFailed = function () {
 
 mw.cx.TranslationController.prototype.enableEditing = function () {
 	this.translationView.categoryUI.disableCategoryUI( false );
-	clearTimeout( this.saveStatusTimer );
+	clearInterval( this.saveStatusTimer );
 };
 
 /**
