@@ -11,7 +11,8 @@
 			"LaG roiL",
 			"ערן",
 			"Liuxinyu970226",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Strayblues"
 		]
 	},
 	"cx": "תרגום דף",
@@ -150,7 +151,7 @@
 	"cx-publishing-dialog-title": "להחליף את הדף הקיים?",
 	"cx-publishing-dialog-sub-title": "התרגום שלך יחליף את הדף הקיים. נא לוודא שזה בסדר להחליף את התוכן הקיים.",
 	"cx-publishing-with-issues-dialog-title": "לפרסם עם הבעיות הנוכחיות?",
-	"cx-publishing-with-issues-dialog-message": "התרגום שלך עדיין יש בעיות אפשריות. נא לשקול לבדוק את הנושאים לפני פרסום.\n\nעורכים שיסקרו את התרומה שלך יעריכו את השיפורים.",
+	"cx-publishing-with-issues-dialog-message": "בתרגום שלך עדיין יש בעיות אפשריות. נא לשקול לבדוק את הנושאים לפני פרסום.\n\nעורכים שיסקרו את התרומה שלך יעריכו את השיפורים.",
 	"cx-overwriting-with-issues": "התרגום שלך לדרוס דף קיים עם תוכן שעדיין יש בן בעיות אפשריות. נא לשקול לבדוק את הבעיות לפני פרסום.",
 	"cx-discard-translation": "מחיקת תרגום",
 	"cx-translation-status-draft": "התחיל",
