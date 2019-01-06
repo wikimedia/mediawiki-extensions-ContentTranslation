@@ -124,6 +124,8 @@
 			.addClass( 'cx-selected-source-page__license' )
 			.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
 
+		$license.find( 'a' ).prop( 'target', '_blank' );
+
 		$actions = $( '<div>' )
 			.addClass( 'cx-selected-source-page__actions' )
 			.append( this.startTranslationButton.$element );
