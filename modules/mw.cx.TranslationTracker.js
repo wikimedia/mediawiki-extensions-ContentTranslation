@@ -19,9 +19,10 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	this.veTarget = veTarget;
 	this.translationModel = translationModel;
 
-	// Threshold won't be a fixed value in future, but we start with this.
-	// A value 0.75 means, we tolerate 75% unmodified machine translation in translation.
-	this.unmodifiedMTThreshold = 0.75;
+	// A value 0.8 means we tolerate 80% unmodified machine translation in translation.
+	this.unmodifiedMTThreshold = 0.8;
+	// A value 0.6 means we tolerate 60% unmodified text copied from source paragraph.
+	this.unmodifiedSourceThreshold = 0.6;
 	// Array that stores IDs of sections with issues, along with special value for title issues.
 	this.nodesWithIssues = [];
 	// Sections in the translation. Associative array with section numbers as keys
@@ -290,7 +291,7 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 		return false;
 	}
 
-	return sectionState.getUnmodifiedPercentage() > this.unmodifiedMTThreshold;
+	return sectionState.getUnmodifiedPercentage() > this.getMTThresholdForSection( sectionState );
 };
 
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
@@ -298,9 +299,9 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 
 	sectionState = this.sections[ sectionModel.getSectionNumber() ];
 	percentage = mw.language.convertNumber(
-		Math.round( ( sectionState.getUnmodifiedPercentage() * 100 ) ) );
+		Math.round( sectionState.getUnmodifiedPercentage() * 100 ) );
 	mw.log( '[CX] Unmodified MT percentage for section ' + sectionModel.getSectionNumber() +
-		' ' + percentage + '% crossed the threshold ' + this.unmodifiedMTThreshold * 100 );
+		' ' + percentage + '% crossed the threshold ' + this.getMTThresholdForSection( sectionState ) * 100 );
 
 	sectionModel.addTranslationIssues( [ {
 		name: 'mt-abuse',
@@ -312,6 +313,20 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 			resolvable: true
 		}
 	} ] );
+};
+
+/**
+ * @param {mw.cx.dm.SectionState} sectionState
+ * @return {number} Threshold which indicates if text is considered insufficiently modified
+ * to be treated as a good translation:
+ * - For paragraphs started with MT,
+ * content is considered unmodified above the threshold of `this.unmodifiedMTThreshold`.
+ * - For paragraphs started by copying the source text,
+ * content is considered unmodified above the threshold of `this.unmodifiedSourceThreshold`.
+ */
+mw.cx.TranslationTracker.prototype.getMTThresholdForSection = function ( sectionState ) {
+	return sectionState.getCurrentMTProvider() === 'source' ?
+		this.unmodifiedSourceThreshold : this.unmodifiedMTThreshold;
 };
 
 mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
