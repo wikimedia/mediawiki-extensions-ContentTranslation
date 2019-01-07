@@ -157,7 +157,7 @@
 		"ContentTranslationEnableSuggestions": true,
 		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
 		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
-		"ContentTranslationVersion": "1",
+		"ContentTranslationVersion": "2",
 		"@ContentTranslationUnmodifiedMTThresholdForPublish": "If the user exceeds a threshold an error will be shown to the user when they try to publish. The threshold will be calculated for the whole document, and it will prevent publishing until the content is modified.",
 		"ContentTranslationUnmodifiedMTThresholdForPublish": 99,
 		"@DraftMaxAge": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
