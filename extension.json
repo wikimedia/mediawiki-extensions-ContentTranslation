@@ -277,8 +277,6 @@
 				"user.options"
 			],
 			"messages": [
-				"cx-campaign-enable-new-version",
-				"cx-campaign-new-version-description",
 				"cx-create-new-translation",
 				"cx-dashboard-sidebar-feedback",
 				"cx-dashboard-sidebar-information",
@@ -990,7 +988,6 @@
 				"ext.cx.widgets.spinner",
 				"mediawiki.widgets",
 				"mw.cx.util",
-				"mw.cx.InvitationWidget",
 				"mw.cx.ui.LanguageFilter",
 				"oojs",
 				"oojs-ui-widgets",
@@ -1159,25 +1156,6 @@
 				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
 				"quotation-marks"
-			]
-		},
-		"mw.cx.InvitationWidget": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"campaigns/mw.cx.InvitationWidget.js"
-			],
-			"styles": [
-				"campaigns/styles/mw.cx.InvitationWidget.less"
-			],
-			"dependencies": [
-				"mediawiki.storage",
-				"oojs-ui",
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-editing-advanced",
-				"user.options"
-			],
-			"messages": [
-				"cx-campaign-no-thanks"
 			]
 		},
 		"ext.cx.tools.validator": {

@@ -29,7 +29,6 @@
 		this.filter = null;
 		this.$listHeader = null;
 		this.$sourcePageSelector = null;
-		this.invitationWidget = null;
 
 		this.narrowLimit = 700;
 		this.isNarrowScreenSize = false;
@@ -354,47 +353,11 @@
 		this.$sourcePageSelector = $( '<div>' )
 			.addClass( 'cx-source-page-selector' );
 
-		this.invitationWidget = new mw.cx.InvitationWidget( {
-			icon: 'beaker',
-			label: mw.message( 'cx-campaign-new-version-description' ).parseDom(),
-			acceptLabel: mw.msg( 'cx-campaign-enable-new-version' ),
-			dismissOptionName: 'cx-invite-chosen',
-			acceptAction: this.acceptNewVersion.bind( this )
-		} );
-
 		$translationList = $( '<div>' )
 			.addClass( 'cx-translationlist-container' )
 			.append( this.$listHeader, this.$sourcePageSelector );
 
-		if ( !mw.user.options.get( 'cx-new-version' ) ) {
-			$translationList.append( this.invitationWidget.$element );
-		}
-
 		return $translationList;
-	};
-
-	CXDashboard.prototype.acceptNewVersion = function () {
-		return this.persistUserPreference( 'globalpreferences' ).fail( function ( error ) {
-			if ( error === 'unknown_action' ) {
-				this.persistUserPreference( 'options' );
-			}
-		}.bind( this ) );
-	};
-
-	CXDashboard.prototype.persistUserPreference = function ( action ) {
-		return new mw.Api().postWithToken( 'csrf', {
-			assert: 'user',
-			formatversion: 2,
-			action: action,
-			optionname: 'cx-new-version',
-			optionvalue: 1
-		} ).done( function () {
-			mw.hook( 'mw.cx.accept.new.version' ).fire();
-		} ).fail( function ( error ) {
-			if ( error === 'assertuserfailed' ) {
-				mw.cx.DashboardList.static.showLoginDialog();
-			}
-		} );
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {

@@ -72,7 +72,6 @@
 	ContentTranslationVersionSwitcher.prototype.listen = function () {
 		this.enableButton.connect( this, { click: [ 'toggleVersion', true ] } );
 		this.disableButton.connect( this, { click: [ 'toggleVersion', false ] } );
-		mw.hook( 'mw.cx.accept.new.version' ).add( this.switchingSuccessHandler.bind( this, true ) );
 	};
 
 	/**
@@ -148,11 +147,6 @@
 		// Disable both buttons to prevent multiple clicks
 		this.enableButton.setDisabled( true );
 		this.disableButton.setDisabled( true );
-
-		if ( newVersion ) {
-			// Fire event so that potentially open invitation widget gets closed.
-			mw.hook( 'mw.cx.new.version.toggled' ).fire();
-		}
 
 		// Try saving user setting by using global preferences
 		this.persistUserPreference( 'globalpreferences', newVersion ).then(

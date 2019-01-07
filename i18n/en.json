@@ -187,8 +187,6 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Translate instead of writing from scratch",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 might be already available in other languages",
 	"cx-campaign-contributionsmenu-myuploads": "Uploaded media",
-	"cx-campaign-enable-new-version": "Enable the new version",
-	"cx-campaign-new-version-description": "<b>New version available.</b> Try the new version for a more solid editing experience, and share your feedback. You can switch versions anytime to decide which version to use for a new translation.",
 	"cx-no-source-categories": "No categories",
 	"cx-no-target-categories": "No categories. Consider adding some to better classify the topic.",
 	"cx-no-adapted-categories": "The original categories don't exist in this language. Explore more categories to better describe the topic.",

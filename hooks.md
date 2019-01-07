@@ -188,11 +188,3 @@ Fired when there are AbuseFilter based validation errors for the section.
 ## mw.cx.translation.validation.success
 
 Fired when there are no AbuseFilter based validation errors for the section.
-
-## mw.cx.accept.new.version
-
-Fired when user accepts to try new version of Content Translation via the invitation card.
-
-## mw.cx.new.version.toggled
-
-Fired when user toggles new version of Content Translation via version switcher inside help card.
