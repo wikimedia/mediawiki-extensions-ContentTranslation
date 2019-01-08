@@ -150,5 +150,6 @@
 	"cx-translator-month-stats-label": "இம்மாதம்",
 	"cx-translator-total-translations-label": "மொத்தம்",
 	"cx-tools-mt-new-provider": "புதிய",
-	"cx-continue-translation": "மொழிபெயர்ப்பைத் தொடருக"
+	"cx-continue-translation": "மொழிபெயர்ப்பைத் தொடருக",
+	"cx-unreviewed-translation-category": "மதிப்பாய்வு செய்யப்படாத மொழிபெயர்ப்புகள் கொண்ட பக்கங்கள்"
 }

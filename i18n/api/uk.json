@@ -14,6 +14,7 @@
 	"apihelp-cxpublish-param-to": "Код цільової мови.",
 	"apihelp-cxpublish-param-sourcetitle": "Заголовок вихідної сторінки.",
 	"apihelp-cxpublish-param-categories": "Категорії, у які буде додана опублікована сторінка.",
+	"apihelp-cxpublish-param-publishtags": "Мітки редагування для додавання до опублікованої сторінки.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчі (при збереженні з показуванням капчі).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Відповідь на капчу (при збереженні з показуванням капчі).",
 	"apihelp-cxpublish-param-cxversion": "Версія редактора, використана для публікації перекладу.",
