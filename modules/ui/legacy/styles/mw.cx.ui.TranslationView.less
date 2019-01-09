@@ -3,6 +3,7 @@
 .cx-column--source,
 .cx-column--translation {
 	.mw-ui-one-half(@palm);
+
 	.cx-column__content {
 		// Make sure that the captions are aligned according to the column's language
 		// rather than the wiki's content language
@@ -27,6 +28,7 @@
 			// TLDR: a neighbour margin-bottom will affect actual margin-top by overlap.
 			margin: 0 0 1.5em;
 		}
+
 		& > section {
 			// Avoid border collapse. See https://www.w3.org/TR/CSS2/box.html#collapsing-margins
 			overflow: auto;
@@ -36,7 +38,6 @@
 
 .suggestion {
 	.mw-ui-one-half(@palm);
-
 	background-color: #fff;
 	border: 1px solid @colorGray12;
 	padding: 10px;
@@ -45,7 +46,6 @@
 
 .cx-header__publish {
 	.mw-ui-one-third;
-
 	float: right;
 	padding: 0;
 	text-align: right;

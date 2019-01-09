@@ -33,7 +33,6 @@
 .flex-center() {
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
-
 	-webkit-box-align: center; // Support 2011 syntax
 	-webkit-align-items: center; // Vendor specific
 	align-items: center; // Modern syntax
@@ -50,7 +49,6 @@
 .flex-around( @direction: column ) {
 	.flex-display( box );
 	.flex-display;
-
 	flex-direction: @direction;
 	// Support 2009/2012 syntax that does not support space-around
 	-webkit-box-pack: justify; // iOS 6-, Safari 3.1-6
@@ -69,7 +67,6 @@
 .loading-indicator() {
 	@dot-size: 16px;
 	@verticalPadding: 15px;
-
 	background-color: @colorGray15;
 	height: @dot-size + @verticalPadding;
 	padding-top: @verticalPadding;

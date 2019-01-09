@@ -11,7 +11,6 @@
 		left: 50%;
 		z-index: 400;
 		.transform( translate( -50%, -50% ) );
-
 		width: 95%;
 		min-width: 320px;
 		.box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.15 ) );
@@ -40,7 +39,6 @@
 
 	&__container {
 		.flex-center;
-
 		background-color: #fff;
 		min-height: @item-height;
 		padding: 0 5px 0 2px;
@@ -51,12 +49,10 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-
 		position: static; // Override absolute positioning coming from OOUI
 		height: @image-size;
 		width: @image-size;
 		margin: 0.5em;
-
 		// Don't let image be squeezed when screen gets tight
 		-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
 		-moz-box-flex: 1; // Firefox 21-
@@ -69,12 +65,10 @@
 
 	&__info {
 		color: @colorGray1;
-
 		.box-sizing( border-box );
 		min-width: 0;
 		min-height: @item-height;
 		padding: 5px 0;
-
 		font-size: 1.2em;
 	}
 
@@ -83,7 +77,6 @@
 		background-size: 10px;
 		background-repeat: no-repeat;
 		background-position: right center;
-
 		color: @colorGray1;
 		padding-right: 14px;
 		font-size: 18px;
@@ -106,7 +99,6 @@
 		background-position: left center;
 		background-repeat: no-repeat;
 		background-size: contain;
-
 		display: inline-block;
 		margin-right: 22px;
 		padding-left: 20px;

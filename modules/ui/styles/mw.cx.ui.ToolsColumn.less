@@ -4,15 +4,12 @@
 .cx-column.cx-column-tools {
 	.mw-ui-one-third;
 	.mw-ui-one-whole(@palm);
-
 	background-color: @colorGray14;
 	float: left;
 	padding: 0 0 0 @tools-column-margin;
-
 	position: -webkit-sticky;
 	position: sticky;
 	top: 20px;
-
 	/* Force the browser to use hardware acceleration to access
 	 the device’s GPU so that sticky transitions are smooth and avoid flickering */
 	transform: translateZ( 0 );
@@ -35,6 +32,7 @@
 
 	@media only screen and ( min-width: ( @wide + 0.25 * @max-tools-column-width ) ) {
 		width: @max-tools-column-width;
+
 		&.sticky {
 			border-left: 0;
 		}
@@ -83,5 +81,4 @@
 			box-shadow: none;
 		}
 	}
-
 }

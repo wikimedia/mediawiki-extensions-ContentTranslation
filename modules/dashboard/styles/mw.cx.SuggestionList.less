@@ -19,7 +19,7 @@
 	}
 }
 
-// stylelint-disable indentation
+// stylelint-disable indentation, selector-max-empty-lines, selector-type-case
 // At any time display only two suggestion lists
 .cx-suggestionlist-type-4:nth-child( n+3 ),
 
@@ -32,7 +32,7 @@
 .cx-suggestionlist--collapsed .cx-slitem:nth-child( n+4 ) {
 	display: none;
 }
-// stylelint-enable indentation
+// stylelint-enable indentation, selector-max-empty-lines, selector-type-case
 
 .cx-suggestionlist--expanded h2,
 .cx-suggestionlist--collapsed h2 {
@@ -98,11 +98,9 @@
 
 	&__desc {
 		color: @colorGray7;
-
 		overflow: hidden;
 		clear: both;
 		position: relative;
-
 		box-sizing: border-box;
 		width: 100%;
 		// We want to limit number of lines that description for
@@ -112,7 +110,6 @@
 		max-height: 3.6em; // line-height * 3
 		margin: 0.5em -1em 0.5em 0;
 		padding-right: 1em;
-
 		font-size: 0.8125em;
 		line-height: 1.2;
 		text-align: justify;
@@ -139,14 +136,12 @@
 
 		&:after {
 			content: '';
-
 			background-color: #fff;
 			position: absolute;
 			right: 0;
 			width: 1em;
 			height: 1em;
 			margin-top: 0.2em;
-
 			.transition( background-color 100ms );
 		}
 	}
@@ -158,7 +153,6 @@
 	min-height: 84px;
 	padding-left: 16px;
 	font-size: medium;
-
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 	-webkit-box-orient: vertical;
@@ -210,7 +204,6 @@
 .cx-sltag {
 	display: inline-block;
 	width: auto;
-
 	padding-left: 16px;
 	font-size: small;
 	font-weight: bold;
