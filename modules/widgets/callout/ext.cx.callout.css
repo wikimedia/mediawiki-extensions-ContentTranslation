@@ -1,4 +1,5 @@
-.cx-callout { /* styling accordingly to OOUI's `popupWidget-popup` */
+.cx-callout {
+	/* styling accordingly to OOUI's `popupWidget-popup` */
 	background: #fff;
 	color: #222;
 	position: absolute;
@@ -93,7 +94,6 @@
 .cx-callout-9:before {
 	right: 100%;
 	top: 50%;
-
 }
 /* @noflip */.cx-callout-10:after,
 .cx-callout-10:before {
