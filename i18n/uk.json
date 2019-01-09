@@ -90,6 +90,7 @@
 	"cx-tools-mt-provider-title": "Використовувати $1",
 	"cx-tools-mt-dont-use": "Почати з порожнього абзаца",
 	"cx-tools-mt-set-default": "Зберегти за замовчуванням",
+	"cx-tools-mt-noservices": "Служби перекладу недоступні для вибраних мов. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Чому?]]",
 	"cx-tools-mt-preferred": "за замовчуванням",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорія|$1 категорії|$1 категорій|0=Немає категорій}}",
 	"cx-stats-title": "Статистика Перекладу вмісту",

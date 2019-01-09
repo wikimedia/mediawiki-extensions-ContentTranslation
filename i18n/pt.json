@@ -86,6 +86,7 @@
 	"cx-tools-mt-provider-title": "De $1",
 	"cx-tools-mt-dont-use": "Começar com um parágrafo vazio",
 	"cx-tools-mt-set-default": "Manter como padrão",
+	"cx-tools-mt-noservices": "Serviços de tradução não disponíveis para as línguas selecionadas. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Porquê?]]",
 	"cx-tools-mt-preferred": "padrão",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoria|$1 categorias|0=Sem categorias}}",
 	"cx-stats-title": "Estatísticas da tradução de conteúdo",

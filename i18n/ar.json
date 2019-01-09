@@ -90,6 +90,7 @@
 	"cx-tools-mt-provider-title": "استخدم $1",
 	"cx-tools-mt-dont-use": "ابدأ بفقرة فارغة",
 	"cx-tools-mt-set-default": "حفظ كقيمة افتراضية",
+	"cx-tools-mt-noservices": "خدمات الترجمة غير متوفرة للغات المختارة، [[mw:Special:MyLanguage/Content_translation/Machine_Translation|لماذا؟]]",
 	"cx-tools-mt-preferred": "الافتراضية",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|لا تصنيف|تصنيف واحد|تصنيفان|$1 تصنيفات|$1 تصنيفا|$1 تصنيف}}",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
