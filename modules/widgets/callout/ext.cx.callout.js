@@ -83,6 +83,8 @@
 		this.position();
 
 		if ( this.options.fade ) {
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-animate
 			$dialog.stop().css( {
 				opacity: 0,
 				display: 'block',
@@ -230,7 +232,7 @@
 			} );
 		}
 
-		$( window ).resize( function () {
+		$( window ).on( 'resize', function () {
 			clearTimeout( timer );
 			timer = setTimeout( function () {
 				self.position();

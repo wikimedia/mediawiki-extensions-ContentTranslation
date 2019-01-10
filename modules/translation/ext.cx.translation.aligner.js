@@ -149,7 +149,7 @@
 			'margin-bottom': $source.css( 'margin-bottom' ),
 			'padding-top': $source.css( 'padding-top' ),
 			'padding-bottom': $source.css( 'padding-bottom' ),
-			'float': $source.css( 'float' ),
+			float: $source.css( 'float' ),
 			clear: $source.css( 'clear' ),
 			position: $source.css( 'position' )
 		};
@@ -240,7 +240,7 @@
 
 	$( function () {
 		// Window resize handler.
-		$( window ).resize( $.debounce( 250, function () {
+		$( window ).on( 'resize', $.debounce( 250, function () {
 			$( '.cx-column--translation .cx-column__content' )
 				.find( mw.cx.getSectionSelector() )
 				.each( function () {

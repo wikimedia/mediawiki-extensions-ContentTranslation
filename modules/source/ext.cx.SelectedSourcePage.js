@@ -182,7 +182,7 @@
 		this.languageFilter.fillSourceLanguages( null, true );
 		this.languageFilter.fillTargetLanguages( null, true );
 
-		$( 'html' ).click(); // Not sure why click doesn't pass through OOUI button to HTML element
+		$( 'html' ).trigger( 'click' ); // Not sure why click doesn't pass through OOUI button to HTML element
 		// where listener is closing the ULS on outside clicks. Maybe some OOUI change?
 
 		if ( this.onDiscard ) {

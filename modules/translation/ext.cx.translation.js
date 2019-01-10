@@ -396,7 +396,7 @@
 
 			// Bind events to the placeholder sections
 			$sourceSection
-				.click( sourceSectionClickHandler )
+				.on( 'click', sourceSectionClickHandler )
 				.on( 'mouseenter', sourceSectionMouseEnterHandler )
 				.on( 'mouseleave', sourceSectionMouseLeaveHandler );
 		}

@@ -12,6 +12,7 @@
 		"OO": false
 	},
 	"rules": {
-		"max-len": 0
+		"max-len": "off",
+		"jquery/no-global-selector": "off"
 	}
 }

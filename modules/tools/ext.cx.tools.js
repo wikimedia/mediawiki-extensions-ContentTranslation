@@ -98,7 +98,7 @@
 	ContentTranslationTools.prototype.listen = function () {
 		mw.hook( 'mw.cx.select.word' ).add( this.updateSearch.bind( this ) );
 		mw.hook( 'mw.cx.select.link' ).add( this.updateSearch.bind( this ) );
-		$( window ).scroll( $.throttle( 250, this.scroll.bind( this ) ) );
+		$( window ).on( 'scroll', $.throttle( 250, this.scroll.bind( this ) ) );
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {

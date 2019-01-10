@@ -446,7 +446,7 @@ mw.cx.ui.LanguageFilter.prototype.listen = function () {
 	} );
 
 	// Resize handler
-	$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
+	$( window ).on( 'resize', $.throttle( 250, this.resize.bind( this ) ) );
 };
 
 mw.cx.ui.LanguageFilter.prototype.resize = function () {

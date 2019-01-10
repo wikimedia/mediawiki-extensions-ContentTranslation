@@ -46,7 +46,7 @@
 		// Remove the publish and save status from header
 		$( '.cx-header__save-status, .cx-header__publish' ).remove();
 		// Add click handler to "Create new translation button"
-		$action.click( function () {
+		$action.on( 'click', function () {
 			var uri = new mw.Uri();
 
 			delete uri.query.page;

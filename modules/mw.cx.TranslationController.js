@@ -489,6 +489,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 	mw.log( '[CX] Publishing translation...' );
 
 	// Scroll to the top of the page, so success/fail messages become visible
+	// eslint-disable-next-line jquery/no-animate
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 
 	if ( this.checkForMTAbuse() ) {

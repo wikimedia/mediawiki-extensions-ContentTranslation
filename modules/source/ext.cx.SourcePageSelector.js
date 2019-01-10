@@ -177,6 +177,8 @@
 
 	SourcePageSelector.prototype.discardDialog = function () {
 		this.overlay.hide();
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line jquery/no-slide
 		$( '.translation-filter' ).slideDown( 'fast' );
 		this.$container.removeClass( 'cx-source-page-selector--selected' ).toggle();
 

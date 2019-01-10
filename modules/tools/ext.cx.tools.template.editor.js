@@ -71,7 +71,7 @@
 	TemplateEditor.prototype.buildTargetFormContainer = function () {
 		this.$closeButton = $( '<div>' )
 			.addClass( 'cx-template-editor-close' )
-			.click( this.close.bind( this ) );
+			.on( 'click', this.close.bind( this ) );
 
 		this.$targetTemplateForm = $( '<div>' )
 			.addClass( 'cx-template-editor-target' );

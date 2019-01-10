@@ -430,7 +430,7 @@
 			click: this.onClickHandler
 		} );
 		// Resize handler
-		$( window ).resize( $.throttle( 250, this.resize.bind( this ) ) );
+		$( window ).on( 'resize', $.throttle( 250, this.resize.bind( this ) ) );
 	};
 
 	CXDashboard.prototype.onClickHandler = function () {

@@ -454,7 +454,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			target: '_blank',
 			title: mw.msg( 'cx-suggestionlist-view-source-page' )
 		} )
-		.click( function ( e ) {
+		.on( 'click', function ( e ) {
 			// Do not propagate to the parent suggestion item. Prevent opening selected source page dialog
 			e.stopPropagation();
 		} )
@@ -956,6 +956,7 @@ mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
 		categoryListCount = 2;
 
 	// Scroll the page up to the beginning of $publicCollection
+	// eslint-disable-next-line jquery/no-animate
 	$( 'html, body' ).animate( {
 		// 200 px subtracted to deal with the sticky header.
 		// It need not be 100% accurate. The idea is to scroll up

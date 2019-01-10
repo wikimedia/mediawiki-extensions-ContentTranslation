@@ -399,7 +399,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 		var translation;
 
 		e.stopPropagation();
-		$( this ).find( 'a' ).blur();
+		$( this ).find( 'a' ).trigger( 'blur' );
 		translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
 
 		OO.ui.getWindowManager().openWindow( 'message', $.extend( {
@@ -435,7 +435,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 		var translation;
 
 		e.stopPropagation();
-		$( this ).find( 'a' ).blur();
+		$( this ).find( 'a' ).trigger( 'blur' );
 		translation = $( this ).closest( '.cx-tlitem' ).data( 'translation' );
 		self.continueTranslation( translation );
 		return false;

@@ -53,6 +53,6 @@ mw.cx.TitlePairCache.prototype.getRequestPromise = function ( subqueue ) {
 		lllang: this.siteMapper.getWikiDomainCode( this.targetLanguage ),
 		titles: subqueue.join( '|' ),
 		redirects: true,
-		'continue': ''
+		continue: ''
 	} );
 };

@@ -712,7 +712,7 @@
 					// different <link> tag. It is difficult to work with that 0 height,
 					// invisible element at translation. So we copy them to the real section.
 					$newTemplate.eq( 1 ).attr( {
-						'typeof': $newTemplate.first().attr( 'typeof' ),
+						typeof: $newTemplate.first().attr( 'typeof' ),
 						'data-mw': $newTemplate.first().attr( 'data-mw' )
 					} );
 					$newTemplate = $newTemplate.slice( 1 );
@@ -1006,7 +1006,7 @@
 		// template fragments. We set about attribute to all items above.
 		$new.first().attr( {
 			'data-template-state': state,
-			'typeof': $newTemplate.attr( 'typeof' ),
+			typeof: $newTemplate.attr( 'typeof' ),
 			'data-mw': $newTemplate.attr( 'data-mw' )
 		} );
 		// Trick to reduce the multiple template fragments with just one.
@@ -1064,14 +1064,14 @@
 			this.targetTemplate.$template.attr( {
 				'data-template-state': 'keep-original',
 				'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
-				'typeof': this.sourceTemplate.$template.attr( 'typeof' )
+				typeof: this.sourceTemplate.$template.attr( 'typeof' )
 			} );
 		} else {
 			$new = $( '<div>' )
 				.addClass( 'placeholder cx-unadaptable-template' )
 				.attr( {
 					'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
-					'typeof': this.sourceTemplate.$template.attr( 'typeof' )
+					typeof: this.sourceTemplate.$template.attr( 'typeof' )
 				} );
 			this.replaceTargetTemplate( $new, 'unadaptable' );
 		}
@@ -1094,7 +1094,7 @@
 				.addClass( 'placeholder' )
 				.attr( {
 					'data-mw': this.sourceTemplate.$template.attr( 'data-mw' ),
-					'typeof': this.sourceTemplate.$template.attr( 'typeof' )
+					typeof: this.sourceTemplate.$template.attr( 'typeof' )
 				} );
 			this.replaceTargetTemplate( $new, 'skip' );
 			this.onUpdate();

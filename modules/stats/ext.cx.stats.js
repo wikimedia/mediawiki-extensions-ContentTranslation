@@ -365,6 +365,7 @@
 
 			if ( location.hash === '#' + items[ i ].id ) {
 				tabToShow = i;
+				// eslint-disable-next-line jquery/no-animate
 				$( 'html' ).animate( {
 					scrollTop: items[ i ].$tab.offset().top
 				}, 500 );
@@ -379,7 +380,7 @@
 		}
 
 		// Click handler for tabs
-		$tabs.find( 'li' ).click( function () {
+		$tabs.find( 'li' ).on( 'click', function () {
 			var onVisible,
 				$this = $( this ),
 				tabId = $( this ).attr( 'about' ),
@@ -401,7 +402,7 @@
 			$expand = $( '<a>' )
 				.addClass( 'cx-stats-tabs-toggle-all' )
 				.text( mw.msg( 'cx-stats-tabs-expand' ) )
-				.click( function () {
+				.on( 'click', function () {
 					$tabContainer
 						.find( '.cx-stats-tabs-tab-content' )
 						.removeClass( 'cx-stats-tabs-collapsed' );
