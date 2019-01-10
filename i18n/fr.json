@@ -113,6 +113,7 @@
 	"cx-tools-mt-provider-title": "Utiliser $1",
 	"cx-tools-mt-dont-use": "Commencer par un paragraphe vide",
 	"cx-tools-mt-set-default": "Garder par défaut",
+	"cx-tools-mt-noservices": "Le service de traduction n'est pas disponible pour les langues sélectionnées. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Pourquoi ?]]",
 	"cx-tools-mt-preferred": "par défaut",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 catégorie|$1 catégories|0=Aucune catégorie}}",
 	"cx-stats-title": "Statistiques de traduction du contenu",

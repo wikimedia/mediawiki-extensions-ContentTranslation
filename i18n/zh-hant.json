@@ -87,6 +87,7 @@
 	"cx-tools-mt-provider-title": "使用 $1",
 	"cx-tools-mt-dont-use": "以空白段落開始",
 	"cx-tools-mt-set-default": "保留為預設",
+	"cx-tools-mt-noservices": "所選語言的翻譯服務不可用。[[mw:Special:MyLanguage/Content_translation/Machine_Translation|查看原因]]",
 	"cx-tools-mt-preferred": "預設",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 個分類|$1 個分類|0=無分類}}",
 	"cx-stats-title": "內容翻譯統計",

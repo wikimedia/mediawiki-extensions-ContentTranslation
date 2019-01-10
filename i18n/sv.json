@@ -87,6 +87,7 @@
 	"cx-tools-mt-provider-title": "Använd $1",
 	"cx-tools-mt-dont-use": "Börja med en tom paragraf",
 	"cx-tools-mt-set-default": "Behåll som standard",
+	"cx-tools-mt-noservices": "Översättningstjänster är inte tillgängliga för de valda språken. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Varför?]]",
 	"cx-tools-mt-preferred": "standard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|$1 kategorier|0=Inga kategorier}}",
 	"cx-stats-title": "Statistik för innehållsöversättning",
