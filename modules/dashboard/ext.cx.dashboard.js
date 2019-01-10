@@ -69,8 +69,6 @@
 	}
 
 	CXDashboard.prototype.init = function () {
-		var self = this;
-
 		// Render the main components
 		this.render();
 
@@ -81,13 +79,14 @@
 				mw.cx.ui.LanguageFilter.static.sourceLanguages = data.sourceLanguages;
 				mw.cx.ui.LanguageFilter.static.targetLanguages = data.targetLanguages;
 
-				self.setDefaultLanguages();
+				this.setDefaultLanguages();
 
-				self.initLists();
-				self.listen();
+				this.initLists();
+				this.displayNewVersionMessage();
+				this.listen();
 
 				mw.hook( 'mw.cx.dashboard.ready' ).fire();
-			},
+			}.bind( this ),
 			function () {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 			}
@@ -199,6 +198,24 @@
 		} else {
 			this.setActiveList( 'draft' );
 		}
+	};
+
+	/**
+	 * Display the informative message dialog to let user know version 2 of the tool is now active.
+	 */
+	CXDashboard.prototype.displayNewVersionMessage = function () {
+		// If user should not see the dialog, exit early.
+		if ( !mw.config.get( 'wgContentTranslationShowNewVersionMessage' ) ) {
+			return;
+		}
+
+		mw.loader.using( 'mw.cx.NewVersionMessage' ).then( function () {
+			var dialog = new mw.cx.NewVersionMessage(),
+				windowManager = OO.ui.getWindowManager();
+
+			windowManager.addWindows( [ dialog ] );
+			windowManager.openWindow( dialog );
+		} );
 	};
 
 	/**

@@ -1158,6 +1158,25 @@
 				"quotation-marks"
 			]
 		},
+		"mw.cx.NewVersionMessage": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"campaigns/mw.cx.NewVersionMessage.js"
+			],
+			"styles": [
+				"campaigns/styles/mw.cx.NewVersionMessage.less"
+			],
+			"dependencies": [
+				"oojs-ui.styles.icons-wikimedia",
+				"oojs-ui-windows"
+			],
+			"messages": [
+				"cx-campaign-new-version-message",
+				"cx-campaign-new-version-message-title",
+				"cx-campaign-new-version-sub-message",
+				"cx-campaign-ok-got-it"
+			]
+		},
 		"ext.cx.tools.validator": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [

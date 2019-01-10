@@ -182,6 +182,9 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
+			$out->addJsConfigVars(
+				'wgContentTranslationShowNewVersionMessage', $this->shouldShowNewVersionMessage()
+			);
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}
@@ -238,5 +241,35 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		return $this->getUser()->getOption( 'cx-new-version' ) ||
 			(int)$wgContentTranslationVersion === 2;
+	}
+
+	/**
+	 * Determines whether message dialog to inform user that
+	 * new version is active should be displayed.
+	 *
+	 * Should NOT be shown to:
+	 * - New users of Content Translation.
+	 * - Users who already have manually enabled version 2 of the tool.
+	 *
+	 * User is considered as new if they haven't started any translations.
+	 * To avoid the case where new user starts translation and is no longer
+	 * considered new, and then get the message, a condition is added to
+	 * take into account only translations started before 2019-01-15.
+	 *
+	 * Bug T211325
+	 *
+	 * @return boolean True if message dialog that informs user
+	 * that new version is active should be displayed.
+	 */
+	private function shouldShowNewVersionMessage() {
+		global $wgContentTranslationVersion;
+
+		$translator = new ContentTranslation\Translator( $this->getUser() );
+
+		return $wgContentTranslationVersion === '2' &&
+			// Take into account only translations started before 2019-01-15
+			$translator->getNumberOfTranslations( '20190115000000' ) > 0 &&
+			!$this->getUser()->getBoolOption( 'cx-seen-new-version-message' ) &&
+			!$this->getUser()->getBoolOption( 'cx-new-version' );
 	}
 }
