@@ -37,7 +37,7 @@
 			}
 		}.bind( this ) );
 
-		this.$searchInput.keyup( $.debounce( 300, this.doSearch.bind( this ) ) );
+		this.$searchInput.keyup( OO.ui.debounce( this.doSearch.bind( this ), 300 ) );
 
 		this.$searchIcon.on( 'click', this.doSearch.bind( this ) );
 
@@ -98,7 +98,7 @@
 	ContentTranslationTools.prototype.listen = function () {
 		mw.hook( 'mw.cx.select.word' ).add( this.updateSearch.bind( this ) );
 		mw.hook( 'mw.cx.select.link' ).add( this.updateSearch.bind( this ) );
-		$( window ).on( 'scroll', $.throttle( 250, this.scroll.bind( this ) ) );
+		$( window ).on( 'scroll', OO.ui.throttle( this.scroll.bind( this ), 250 ) );
 	};
 
 	ContentTranslationTools.prototype.scroll = function () {

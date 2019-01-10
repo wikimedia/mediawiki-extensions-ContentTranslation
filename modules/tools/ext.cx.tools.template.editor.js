@@ -378,7 +378,7 @@
 	 */
 	TemplateEditor.prototype.listen = function () {
 		this.$targetTemplateForm.on( 'input paste change', '.cx-template-editor-param-value',
-			$.debounce( 200, false, this.onParamEdit.bind( this ) )
+			OO.ui.debounce( this.onParamEdit.bind( this ), 200 )
 		);
 
 		mw.hook( 'mw.cx.translation.focus' ).add( this.close.bind( this ) );

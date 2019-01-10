@@ -81,7 +81,7 @@ mw.cx.DashboardList.prototype.init = function ( languageFilterConfig ) {
 };
 
 mw.cx.DashboardList.prototype.listen = function () {
-	$( window ).on( 'scroll', $.throttle( 250, this.scrollHandler.bind( this ) ) );
+	$( window ).on( 'scroll', OO.ui.throttle( this.scrollHandler.bind( this ), 250 ) );
 };
 
 mw.cx.DashboardList.prototype.scrollHandler = function () {

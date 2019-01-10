@@ -433,7 +433,6 @@
 				"ext.uls.common",
 				"ext.uls.mediawiki",
 				"jquery.uls.data",
-				"jquery.throttle-debounce",
 				"mediawiki.jqueryMsg",
 				"mediawiki.storage",
 				"mediawiki.language",
@@ -472,7 +471,6 @@
 				"ext.cx.tools.validator",
 				"ext.cx.util",
 				"ext.cx.util.selection",
-				"jquery.throttle-debounce",
 				"jquery.uls.data",
 				"mediawiki.Uri",
 				"mediawiki.Title"
@@ -531,7 +529,6 @@
 				"ext.cx.tools.template.editor",
 				"ext.cx.util.selection",
 				"ext.cx.widgets.spinner",
-				"jquery.throttle-debounce",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg",
 				"oojs"
@@ -839,7 +836,6 @@
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
-				"jquery.throttle-debounce",
 				"mediawiki.api"
 			]
 		},
@@ -1054,8 +1050,7 @@
 				"editor/ext.cx.editor.js"
 			],
 			"dependencies": [
-				"ext.cx.util.selection",
-				"jquery.throttle-debounce"
+				"ext.cx.util.selection"
 			]
 		},
 		"ext.cx.stats": {
@@ -1124,7 +1119,6 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
-				"jquery.throttle-debounce",
 				"mediawiki.ui.button",
 				"mediawiki.util"
 			],
@@ -1786,7 +1780,6 @@
 				"login"
 			],
 			"dependencies": [
-				"jquery.throttle-debounce",
 				"mediawiki.user",
 				"mw.cx.ui",
 				"oojs-ui.styles.icons-wikimedia",

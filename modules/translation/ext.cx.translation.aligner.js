@@ -240,12 +240,12 @@
 
 	$( function () {
 		// Window resize handler.
-		$( window ).on( 'resize', $.debounce( 250, function () {
+		$( window ).on( 'resize', OO.ui.debounce( function () {
 			$( '.cx-column--translation .cx-column__content' )
 				.find( mw.cx.getSectionSelector() )
 				.each( function () {
 					$( this ).keepAlignment();
 				} );
-		} ) );
+		}, 250 ) );
 	} );
 }() );

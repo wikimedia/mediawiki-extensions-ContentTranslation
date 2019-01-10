@@ -78,11 +78,11 @@
 			self.markForSave( $targetSection );
 		} );
 
-		mw.hook( 'mw.cx.translation.change' ).add( $.throttle( 15000, function () {
+		mw.hook( 'mw.cx.translation.change' ).add( OO.ui.throttle( function () {
 			// mw.cx.translation.change get fired for every changes in translation.
 			// We debounce the handler to reduce the excessive save API calls.
 			self.save( 'change' );
-		} ) );
+		}, 15000 ) );
 
 		mw.hook( 'mw.cx.draft.restoring' ).add( function () {
 			// Do not save while restoring is being attempted

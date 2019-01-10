@@ -181,7 +181,7 @@ mw.cx.ui.Header.prototype.listen = function () {
 		$( '.cx-widget__columns' ).addClass( 'disabled' );
 	}.bind( this ) );
 
-	$( window ).on( 'scroll resize', $.throttle( 250, this.onWindowScroll.bind( this ) ) );
+	$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 250 ) );
 };
 
 mw.cx.ui.Header.prototype.setStatusMessage = function ( message ) {

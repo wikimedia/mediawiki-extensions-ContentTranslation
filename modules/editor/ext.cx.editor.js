@@ -83,12 +83,12 @@
 	CXSectionEditor.prototype.listen = function () {
 		var self = this;
 
-		this.$editableElement.on( 'input', $.debounce( 200, false, function () {
+		this.$editableElement.on( 'input', OO.ui.debounce( function () {
 			// Delay the input handler check till user pauses typing.
 			// If this check is done every input,
 			// the responsiveness will get affected.
 			self.onChange();
-		} ) );
+		}, 200 ) );
 
 		this.$editableElement.on( 'keypress', function ( e ) {
 			if ( e.which !== 13 ) {

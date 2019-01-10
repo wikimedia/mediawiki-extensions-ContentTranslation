@@ -173,10 +173,10 @@
 		// Capture translation selection on keyup and mouseup
 		this.$container.on( 'keyup mouseup', saveCursorPosition );
 
-		this.$title.on( 'blur keyup', $.debounce( 500, function () {
+		this.$title.on( 'blur keyup', OO.ui.debounce( function () {
 			mw.cx.targetTitle = cxTranslation.$title.text();
 			mw.hook( 'mw.cx.translation.title.change' ).fire( mw.cx.targetTitle );
-		} ) ).on( 'click focus', function () {
+		}, 500 ) ).on( 'click focus', function () {
 			// Just like sections, fire focus event.
 			mw.hook( 'mw.cx.translation.focus' ).fire( cxTranslation.$title );
 		} );
@@ -224,7 +224,7 @@
 
 		// Search for text that was selected using the mouse.
 		// Delay it to run every 250 ms so it won't fire all the time while typing.
-		$section.on( 'click keyup', $.debounce( 250, function ( e ) {
+		$section.on( 'click keyup', OO.ui.debounce( function ( e ) {
 			var selection = window.getSelection().toString();
 
 			// Control or alt key press events can be ignored
@@ -241,7 +241,7 @@
 					mw.cx.targetLanguage
 				);
 			}
-		} ) );
+		}, 250 ) );
 
 		$section.on( 'click focus', function () {
 			mw.hook( 'mw.cx.translation.focus' ).fire( $( this ) );
