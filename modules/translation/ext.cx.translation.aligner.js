@@ -161,7 +161,7 @@
 	 * @return {null}
 	 */
 	function keepAlignment( $source, $target ) {
-		var sourceHeight, targetHeight,	sectionTagName,
+		var sourceHeight, targetHeight, sectionTagName,
 			steps = 0;
 
 		// Reset the min-height
@@ -233,7 +233,7 @@
 		// Get the source section. We don't use $section.data('source') because that
 		// won't reflect updated data-source values(probably from section restore attempt)
 		$source = $source || mw.cx.getSourceSection( $targetSection.attr( 'data-source' ) );
-		keepAlignment( $source,	$targetSection );
+		keepAlignment( $source, $targetSection );
 
 		return this;
 	};

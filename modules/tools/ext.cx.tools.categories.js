@@ -511,10 +511,10 @@
 		} ).done( function ( response ) {
 			var categoriesArray = response.query.pages[ 0 ].categories || [];
 
-			$.each( categoriesArray, function ( index, object ) {
+			categoriesArray.forEach( function ( object, i ) {
 				var categoryId;
 
-				categoryId = makeCategoryId( index, 3, '0' );
+				categoryId = makeCategoryId( i, 3, '0' );
 				categories[ categoryId ] = object.title;
 			} );
 
@@ -572,8 +572,9 @@
 			if ( response.query ) {
 				redirects = response.query.redirects || {};
 
-				$.each( response.query.pages, function ( pageId, page ) {
-					var i, key, title;
+				Object.keys( response.query.pages ).forEach( function ( pageId ) {
+					var i, key, title,
+						page = response.query.pages[ pageId ];
 
 					for ( i in redirects ) {
 						if ( redirects[ i ].to === page.title ) {

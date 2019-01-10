@@ -55,8 +55,9 @@
 			cxToolManager = this;
 
 		this.$loadingIndicator = $( '.cx-tools__loading-indicator' );
-		$.each( mw.cx.tools, function ( toolName, tool ) {
-			var events;
+		Object.keys( mw.cx.tools ).forEach( function ( toolName ) {
+			var events,
+				tool = mw.cx.tools[ toolName ];
 			if ( !tool.prototype || !tool.prototype.getTriggerEvents ) {
 				return;
 			}

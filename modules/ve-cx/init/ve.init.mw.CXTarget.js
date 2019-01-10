@@ -378,7 +378,9 @@ ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 	// like reference dialog, but VE hardcodes the size for media dialog in
 	// ve.ui.MWMediaDialog.prototype.switchPanels.
 	// See T198390
-	dialog.getSize = function () { return 'full'; };
+	dialog.getSize = function () {
+		return 'full';
+	};
 
 	// Don't cover the top header with overlay when the user is at the top of the viewport
 	// See T193587
@@ -856,7 +858,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 		section.id = 'cxTargetSection' + sectionNumber;
 		// TODO: it's horrible that id attributes get duplicated
 		// $( section ).find( '[id]' ).each( function ( i, node ) {
-		// 	node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
+		//  node.setAttribute( 'id', 'cx' + node.getAttribute( 'id' ) );
 		// } );
 		return section;
 	}

@@ -120,8 +120,8 @@
 			$prev.parent().prop( 'contenteditable', false );
 			this.$section = $prev.next();
 			this.$section.prop( 'contenteditable', true );
-			$.each( attributes, function () {
-				formatter.$section.attr( this.name, this.value );
+			Object.keys( attributes ).forEach( function ( name ) {
+				formatter.$section.attr( name, attributes[ name ] );
 			} );
 		}
 	};
@@ -146,8 +146,8 @@
 			$prev.parent().prop( 'contenteditable', false );
 			this.$section = $prev.next();
 			this.$section.prop( 'contenteditable', true );
-			$.each( attributes, function () {
-				formatter.$section.attr( this.name, this.value );
+			Object.keys( attributes ).forEach( function ( name ) {
+				formatter.$section.attr( name, attributes[ name ] );
 			} );
 		}
 	};

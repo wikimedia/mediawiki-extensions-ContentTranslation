@@ -238,7 +238,9 @@ mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListi
  * @param {Array} selectedTargetCategories
  */
 mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTargetCategories ) {
-	var targetCategories = selectedTargetCategories.map( function ( item ) { return item.data; } );
+	var targetCategories = selectedTargetCategories.map( function ( item ) {
+		return item.data;
+	} );
 
 	this.targetCategoryCount.setLabel(
 		mw.msg(

@@ -482,7 +482,9 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
  * @param {string} name
  */
 mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
-	this.openIssue( function ( issue ) { return issue.getName() === name; } );
+	this.openIssue( function ( issue ) {
+		return issue.getName() === name;
+	} );
 };
 
 /**
@@ -491,7 +493,9 @@ mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
  * @param {string} type
  */
 mw.cx.tools.IssueTrackingTool.prototype.openFirstOfType = function ( type ) {
-	this.openIssue( function ( issue ) { return issue.getType() === type; } );
+	this.openIssue( function ( issue ) {
+		return issue.getType() === type;
+	} );
 };
 
 /**

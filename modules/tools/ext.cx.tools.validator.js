@@ -70,7 +70,8 @@
 			var equivalentTargetPage = false;
 
 			if ( response.query && response.query.pages ) {
-				$.each( response.query.pages, function ( pageId, page ) {
+				Object.keys( response.query.pages ).forEach( function ( pageId ) {
+					var page = response.query.pages[ pageId ];
 					if ( page.langlinks ) {
 						equivalentTargetPage = page.langlinks[ 0 ][ '*' ];
 					}

@@ -76,7 +76,7 @@
 		this.$targetTemplateForm = $( '<div>' )
 			.addClass( 'cx-template-editor-target' );
 
-		return	$( '<div>' )
+		return $( '<div>' )
 			.addClass( 'cx-template-editor-target-container' )
 			.attr( {
 				lang: this.targetTemplate.language,
@@ -107,14 +107,14 @@
 		sortedKeys = ( this.sourceTemplate.templateData && this.sourceTemplate.templateData.paramOrder ) ||
 			Object.keys( this.sourceTemplate.params );
 
-		$.each( sortedKeys, function ( index, key ) {
+		sortedKeys.forEach( function ( key ) {
 			var value, $key, $value, $field, $desc = $( [] );
 
 			self.formFieldMap[ key ] = {};
 			value = self.sourceTemplate.params[ key ];
 
 			if ( !value.wt ) {
-				return true;
+				return;
 			}
 
 			$key = $( '<span>' )
@@ -196,10 +196,10 @@
 		sortedSourceKeys = ( self.sourceTemplate.templateData && self.sourceTemplate.templateData.paramOrder ) ||
 				Object.keys( self.sourceTemplate.params );
 
-		$.each( sortedSourceKeys, function ( index, key ) {
+		sortedSourceKeys.forEach( function ( key ) {
 			var value = self.sourceTemplate.params[ key ];
 			if ( !value.wt ) {
-				return true;
+				return;
 			}
 			self.addTemplateField( $form, key );
 		} );
@@ -346,7 +346,7 @@
 			Object.keys( this.targetTemplate.params );
 		language = this.targetTemplate.language;
 
-		$.each( sortedTargetKeys, function ( index, key ) {
+		sortedTargetKeys.forEach( function ( key ) {
 			var value, option, $desc;
 
 			value = self.targetTemplate.params[ key ];
@@ -452,7 +452,8 @@
 			showLoading: true
 		} );
 
-		$.each( this.targetTemplate.params, function ( key, value ) {
+		Object.keys( this.targetTemplate.params ).forEach( function ( key ) {
+			var value = this.targetTemplate.params[ key ];
 			if ( value && value.changed ) {
 				if ( !value.html || !isNaN( value.html ) ) {
 					// Value cleared/deleted/a number. Save an API call.

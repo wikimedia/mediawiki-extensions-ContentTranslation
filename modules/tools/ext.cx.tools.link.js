@@ -88,8 +88,9 @@
 			}
 			redirects = $.extend( {}, response.query.redirects );
 
-			$.each( response.query.pages, function ( pageId, page ) {
-				var i, redirectedSourceTitle, title;
+			Object.keys( response.query.pages ).forEach( function ( pageId ) {
+				var i, redirectedSourceTitle, title,
+					page = response.query.pages[ pageId ];
 
 				if ( !page.langlinks ) {
 					return;

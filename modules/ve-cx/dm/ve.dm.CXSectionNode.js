@@ -76,7 +76,9 @@ ve.dm.CXSectionNode.prototype.getId = function () {
 
 ve.dm.CXSectionNode.prototype.onAfterRender = function () {
 	if ( this.isTargetSection() ) {
-		setTimeout( function () { this.translation.emit( 'afterRender' ); }.bind( this ) );
+		setTimeout( function () {
+			this.translation.emit( 'afterRender' );
+		}.bind( this ) );
 	}
 };
 

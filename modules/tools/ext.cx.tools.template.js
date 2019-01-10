@@ -130,12 +130,12 @@
 				self.templateData = $.extend( true, {}, templateData );
 				self.params = self.templateData.params;
 
-				$.each( self.params, function ( key ) {
+				Object.keys( self.params ).forEach( function ( key ) {
 					var aliases, normalizedTemplatedateKey = key.trim().toLowerCase();
 					aliases = self.params[ key ].aliases || [];
 					// It is important to trim here since the params in data-mw
 					// has trailing whitespaces.
-					$.each( params, function ( paramkey ) {
+					Object.keys( params ).forEach( function ( paramkey ) {
 						var i, normalizedDataMWKey, normalizedAlias;
 						normalizedDataMWKey = paramkey.trim().toLowerCase();
 						if ( normalizedDataMWKey === normalizedTemplatedateKey ) {
@@ -845,7 +845,7 @@
 				self.status = 'adapted';
 			}
 
-			$.each( self.sourceTemplate.templateData.params, function ( key ) {
+			Object.keys( self.sourceTemplate.templateData.params ).forEach( function ( key ) {
 				var savedParamValue, mappedTargetKey;
 
 				mappedTargetKey = self.templateParamMapping[ key ];
@@ -873,10 +873,10 @@
 	 * Get the target parameters for the template after mapping
 	 */
 	TemplateTool.prototype.doFuzzyAdaptation = function () {
-		var	self = this;
+		var self = this;
 
 		// Update the template parameters
-		$.each( this.sourceTemplate.params, function ( key ) {
+		Object.keys( this.sourceTemplate.params ).forEach( function ( key ) {
 			var normalizedKey;
 
 			if ( !isNaN( key ) ) {
@@ -891,8 +891,9 @@
 
 			normalizedKey = key.trim().toLowerCase().replace( /[\s+_-]+/g, '' );
 			// Search in the aliases for a match - case insensitive.
-			$.each( self.targetTemplate.templateData.params, function ( paramName, param ) {
-				var i, normalizedCandidate, candidates;
+			Object.keys( self.targetTemplate.templateData.params ).forEach( function ( paramName ) {
+				var i, normalizedCandidate, candidates,
+					param = self.targetTemplate.templateData.params[ paramName ];
 
 				candidates = param.aliases || [];
 				candidates = candidates.concat( paramName );

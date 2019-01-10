@@ -7,14 +7,14 @@
 	'use strict';
 
 	/**
-	 * Depending on type, return function call result or just the thing.
+	 * Depending on type, return function call result or just the value.
 	 *
-	 * @param {Mixed} thing
+	 * @param {Mixed} funcOrVal
 	 * @param {Object} context
-	 * @return {Mixed} Function call result or thing.
+	 * @return {Mixed} Function call result or value.
 	 */
-	function maybeCall( thing, context ) {
-		return $.isFunction( thing ) ? ( thing.call( context ) ) : thing;
+	function maybeCall( funcOrVal, context ) {
+		return typeof funcOrVal === 'function' ? funcOrVal.call( context ) : funcOrVal;
 	}
 
 	/**
@@ -26,11 +26,11 @@
 	 *     Imagine the callout is along with the direction of a clock handle with the tip at top of
 	 *     the handle.
 	 *         11  12  1
-	 *	       ________
-	 *	   10 |        | 2
-	 *	   9  |    .   | 3
-	 *	   8  |________| 4
-	 *	       7  6   5
+	 *         ________
+	 *     10 |        | 2
+	 *     9  |    .   | 3
+	 *     8  |________| 4
+	 *         7  6   5
 	 *     Possible directions are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.
 	 *     Direction 12 is same as position 0.
 	 *     It is also possible to give a preferred direction using $.fn.callout.autoDirection
@@ -111,9 +111,7 @@
 		} );
 
 		$dialog = this.dialog();
-		direction = $.isFunction( this.options.direction ) ?
-			this.options.direction.call( this.$element[ 0 ] ) :
-			this.options.direction;
+		direction = maybeCall( this.options.direction, this.$element[ 0 ] );
 		// Attach css classes before checking height/width so they
 		// can be applied.
 		$dialog.removeClass().addClass( 'cx-callout cx-callout-' + direction );

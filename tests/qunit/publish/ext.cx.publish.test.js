@@ -30,8 +30,8 @@
 	}
 
 	function sequenceBodies( status, headers, bodies ) {
-		$.each( bodies, function ( i, body ) {
-			bodies[ i ] = [ status, headers, body ];
+		bodies = bodies.map( function ( body ) {
+			return [ status, headers, body ];
 		} );
 		return sequence( bodies );
 	}
