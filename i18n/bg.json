@@ -74,6 +74,7 @@
 	"cx-tools-mt-provider-title": "Използвай превод от $1",
 	"cx-tools-mt-dont-use": "Не използвай машинен превод",
 	"cx-tools-mt-set-default": "Съхраняване като стойност по подразбиране",
+	"cx-tools-mt-noservices": "Преводите услуги са недостъпни за избраните езици. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Защо?]]",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|0=Няма категории}}",
 	"cx-stats-title": "Статистики за инструмента „Превод на съдържание“",
 	"cx-tools-reference-title": "Източник",

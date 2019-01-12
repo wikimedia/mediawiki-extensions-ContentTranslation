@@ -12,7 +12,8 @@
 			"Rakeshonwiki",
 			"Amire80",
 			"Prevodim",
-			"Kaartic"
+			"Kaartic",
+			"Fahimrazick"
 		]
 	},
 	"cx": "பக்கத்தை மொழிபெயர்க்கவும்",
@@ -72,7 +73,7 @@
 	"cx-dashboard-sidebar-information": "இந்த அம்சம் குறித்து மேலும் அறியவும்",
 	"cx-dashboard-sidebar-stats": "புள்ளி விபரங்கள்",
 	"cx-dashboard-sidebar-feedback": "உங்களுடைய கருத்தைத் தெரிவியுங்கள்",
-	"cx-dashboard-sidebar-newversion": "புதிய பதிப்பை முயற்சிக்கவும்",
+	"cx-dashboard-sidebar-newversion": "புதிய பதிப்பை முயல்க",
 	"cx-translation-filter-published-translations": "பிரசுரிக்கப்பட்டது",
 	"cx-translation-filter-draft-translations": "உருவாகிக்கொண்டிருக்கிறது",
 	"cx-translation-filter-suggested-translations": "பரிந்துரைகள்",
@@ -112,8 +113,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "ஆரம்பத்திலிருந்து தொடங்குவதற்குப் பதிலாக மொழிபெயர்த்திடுங்கள்",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 பக்கம் ஏற்கனவே பிற மொழிகளில் கிடைக்கப் பெற்றிருக்கலாம்",
 	"cx-campaign-contributionsmenu-myuploads": "தரவேற்றிய ஊடகம்",
-	"cx-campaign-enable-new-version": "புதிய பதிப்பை இயலச்செய்",
-	"cx-campaign-new-version-description": "<b>புதிய பதிப்பு உள்ளது.</b> ஒரு திடமான அனுபவத்திற்கு புதிய பதிப்பை பயன்படுத்தி, உங்கள் கருத்துக்களை பகிர்ந்து கொள்ளுங்கள். நீங்கள் பதிப்புக்களை மாற்றி புதிய மொழிபெயர்புகளை நீங்கள் தேர்வு செய்யும் பதிப்பை பயன்படுத்தி செய்யலாம்.",
+	"cx-campaign-enable-new-version": "புதிய பதிப்பை இயலுமாக்கு",
+	"cx-campaign-new-version-description": "<b>புதிய பதிப்பு உள்ளது.</b> ஒரு திடமான தொகுப்பு அனுபவத்திற்கு புதிய பதிப்பை முயன்று, உங்களது பின்னூட்டத்தைப் பகிர்ந்து கொள்ளுங்கள். ஒரு புதிய மொழிபெயர்ப்புக்காக எப்பதிப்பைப் பயன்படுத்துவதென்று தீர்மானிக்க நீங்கள் எந்நேரத்திலும் பதிப்புக்களை மாற்றிக் கொள்ளலாம்.",
 	"cx-trend-deletions": "நீக்கப்பட்ட மொழிபெயர்ப்புகள்",
 	"cx-trend-translations-to": "$1 க்கு மொழிபெயர்ப்புகள்",
 	"cx-stats-all-translations-title": "அனைத்து மொழிகளிலும் மொழிபெயர்க்க",
@@ -151,5 +152,5 @@
 	"cx-translator-total-translations-label": "மொத்தம்",
 	"cx-tools-mt-new-provider": "புதிய",
 	"cx-continue-translation": "மொழிபெயர்ப்பைத் தொடருக",
-	"cx-unreviewed-translation-category": "மதிப்பாய்வு செய்யப்படாத மொழிபெயர்ப்புகள் கொண்ட பக்கங்கள்"
+	"cx-unreviewed-translation-category": "மதிப்பாய்வு செய்யப்படாத மொழிபெயர்ப்புகளைக் கொண்ட பக்கங்கள்"
 }

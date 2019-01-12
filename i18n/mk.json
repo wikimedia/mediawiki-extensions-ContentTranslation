@@ -77,6 +77,7 @@
 	"cx-tools-mt-provider-title": "Користи $1",
 	"cx-tools-mt-dont-use": "Почни со празен пасус",
 	"cx-tools-mt-set-default": "Зачувај како основно",
+	"cx-tools-mt-noservices": "Преводите услуги се недостапни за избраните јазици. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Зошто?]]",
 	"cx-tools-mt-preferred": "по основно",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Една категорија|$1 категории}}",
 	"cx-stats-title": "Статистики за преводот на содржини",

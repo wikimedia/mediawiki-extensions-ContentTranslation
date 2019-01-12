@@ -82,7 +82,7 @@
 	"cx-tools-mt-provider-title": "користи $1",
 	"cx-tools-mt-dont-use": "Почни празним пасусом",
 	"cx-tools-mt-set-default": "Задржи као подразумевано",
-	"cx-tools-mt-noservices": "Сервиси за превођење нису доступни за изабране језике.\n[[mw:Special:MyLanguage/Content_translation/Machine_Translation|Зашто?]]",
+	"cx-tools-mt-noservices": "Услуге за превођење нису доступне за изабране језике.\n[[mw:Special:MyLanguage/Content_translation/Machine_Translation|Зашто?]]",
 	"cx-tools-mt-preferred": "подразумевано",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорија|$1 категорије|$1 категорија|0=Нема категорија}}",
 	"cx-stats-title": "Статистике Превођења садржаја",

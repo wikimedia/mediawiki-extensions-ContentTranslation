@@ -111,6 +111,7 @@
 	"cx-tools-mt-provider-title": "Использовать $1",
 	"cx-tools-mt-dont-use": "Начать с пустого параграфа",
 	"cx-tools-mt-set-default": "Сохранить по умолчанию",
+	"cx-tools-mt-noservices": "Сервисы перевода недоступны для выбранных языков. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Почему?]]",
 	"cx-tools-mt-preferred": "по умолчанию",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|$1 категорий|0=Нет категорий}}",
 	"cx-stats-title": "Статистика расширения перевода содержания («Content Translation»)",
