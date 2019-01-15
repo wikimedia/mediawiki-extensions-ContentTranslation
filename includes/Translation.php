@@ -105,21 +105,8 @@ class Translation {
 	public function save( Translator $translator ) {
 		$dbr = Database::getConnection( DB_REPLICA );
 
-		// Temporary code to work with and without the new index.
-		// The old index cx_translation_pair was on (source title, source language,
-		// target language). Previously a row would get reused if a draft was deleted
-		// then subsequently restarted by a different user, with the new owner recorded
-		// in either started_by or updated_by (inconsistently).
-		if ( $dbr->indexExists( 'cx_translations', 'cx_translation_ref' ) ) {
-			$work = TranslationWork::newFromTranslation( $this );
-			$existingTranslation = self::findForTranslator( $work, $translator );
-		} else {
-			$existingTranslation = self::find(
-				$this->translation['sourceLanguage'],
-				$this->translation['targetLanguage'],
-				$this->translation['sourceTitle']
-			);
-		}
+		$work = TranslationWork::newFromTranslation( $this );
+		$existingTranslation = self::findForTranslator( $work, $translator );
 
 		if ( $existingTranslation === null ) {
 			$this->create( $translator );
@@ -225,16 +212,13 @@ class Translation {
 			[ $work->getPage() ]
 		);
 
-		$dbr = Database::getConnection( DB_REPLICA );
-		if ( $dbr->indexExists( 'cx_translations', 'cx_translation_ref' ) ) {
-			foreach ( $drafts as $index => $draft ) {
-				if ( $draft->getData()['status'] !== 'draft' ) {
-					unset( $drafts[$index] );
-				}
+		foreach ( $drafts as $index => $draft ) {
+			if ( $draft->getData()['status'] !== 'draft' ) {
+				unset( $drafts[$index] );
 			}
-
-			$drafts = array_values( $drafts );
 		}
+
+		$drafts = array_values( $drafts );
 
 		return $drafts;
 	}
