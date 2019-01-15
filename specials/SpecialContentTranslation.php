@@ -205,12 +205,13 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			return null;
 		}
 
-		$version = '1';
-		if (
-			$this->getUser()->getOption( 'cx-new-version' ) ||
-			(int)$wgContentTranslationVersion === 2
-		) {
+		$userPreference = $this->getUser()->getOption( 'cx-new-version' );
+		$version = $wgContentTranslationVersion;
+		if ( $userPreference ) {
 			$version = '2';
+		} elseif ( $userPreference === 0 ) {
+			// If user opted-out from using CX2
+			$version = '1';
 		}
 
 		$requestURL = $request->getRequestURL();

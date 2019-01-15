@@ -57,6 +57,11 @@
 	ContentTranslationVersionSwitcher.prototype.init = function () {
 		var newVersionEnabled = mw.user.options.get( 'cx-new-version' );
 
+		if ( newVersionEnabled === false ) {
+			// If cx-new-version preference is not set
+			newVersionEnabled = mw.config.get( 'wgContentTranslationVersion' ) === '2';
+		}
+
 		if ( newVersionEnabled ) {
 			this.enableButton.setLabel( mw.msg( 'cx-dashboard-sidebar-newversion-using' ) );
 		}
