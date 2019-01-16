@@ -9,7 +9,7 @@
  * @mixins OO.EventEmitter
  * @mixins ve.dm.CXLintableNode
  */
-mw.cx.dm.PageTitleModel = function VeDmCXSectionNode() {
+mw.cx.dm.PageTitleModel = function MwCxDmPageTitleModel() {
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 	ve.dm.CXLintableNode.call( this );
