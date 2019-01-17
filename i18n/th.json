@@ -5,7 +5,8 @@
 			"Taweetham",
 			"Aefgh39622",
 			"Horus",
-			"Ans"
+			"Ans",
+			"B20180"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -171,6 +172,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "แปลแทนที่จะเริ่มต้นเขียนใหม่ทั้งหมด",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 อาจมีอยู่แล้วในภาษาอื่น",
 	"cx-campaign-contributionsmenu-myuploads": "สื่อที่อัปโหลด",
+	"cx-campaign-new-version-sub-message": "ตัวแก้ไขใหม่จะถูกใช้เป็นค่าเริ่มต้นสำหรับการแปลใหม่ของคุณ การแปลที่กำลังดำเนินอยู่ในปัจจุบันจะใช้เวอร์ชันเก่า",
 	"cx-no-source-categories": "ไม่มีหมวดหมู่",
 	"cx-no-target-categories": "ไม่มีหมวดหมู่ โปรดพิจารณาเพิ่มบางหมวดหมู่เพื่อช่วยให้แยกประเภทหัวข้อต่างๆ ได้ดีขึ้น",
 	"cx-no-adapted-categories": "ไม่มีหมวดหมู่ดั้งเดิมอยู่ในภาษานี้ สำรวจหมวดหมู่เพิ่มเติมเพื่อช่วยให้อธิบายหัวข้อได้ดีขึ้น",
