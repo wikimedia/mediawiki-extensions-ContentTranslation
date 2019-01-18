@@ -27,6 +27,10 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.config.targetTitle = targetWikiPage.getTitle();
 	this.config.targetLanguage = targetWikiPage.getLanguage();
 
+	this.canPublish = null;
+	this.mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ];
+	this.userNamespaceId = mw.config.get( 'wgNamespaceIds' ).user;
+
 	// @var {ve.init.mw.CXTarget}
 	this.veTarget = null;
 	// @var {mw.cx.dm.Translation}
@@ -59,6 +63,8 @@ mw.cx.init.Translation.prototype.init = function () {
 	// Paint the initial UI.
 	this.attachToDOM( this.veTarget );
 
+	this.veTarget.connect( this, { namespaceChange: 'onNamespaceChange' } );
+
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
 	platformPromise = new ve.init.mw.Platform().initialize();
@@ -88,15 +94,15 @@ mw.cx.init.Translation.prototype.init = function () {
 			draft
 		);
 
-		this.checkForTranslationChanges();
-		this.checkIfUserCanPublish();
-
 		// Initialize translation controller
 		this.translationController = new mw.cx.TranslationController(
 			this.translationModel, this.veTarget, this.config.siteMapper, this.config
 		);
 
 		this.veTarget.setTranslation( this.translationModel );
+
+		this.checkForTranslationChanges();
+		this.checkIfUserCanPublish();
 
 		this.translationModel.initCategories(
 			this.processCategories( sourcePageContent.categories )
@@ -434,23 +440,43 @@ mw.cx.init.Translation.prototype.getUserGroups = function () {
 	} );
 };
 
-/**
- * Check if user needs to be part of a certain group
- * in order to publish and display the error in such case.
- */
-mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
-	this.getUserGroups().then( function ( groups ) {
-		var publishConfig = mw.config.get( 'wgContentTranslationPublishRequirements', [] ).userGroups,
+mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = function () {
+	if ( this.canPublish !== null ) {
+		return $.Deferred().resolve( this.canPublish ).promise();
+	}
+
+	return this.getUserGroups().then( function ( groups ) {
+		var publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups,
 			canPublish = true;
 
-		if ( !groups || !publishConfig ) {
-			return;
+		if ( typeof publishConfig === 'string' ) {
+			publishConfig = [ publishConfig ];
+		}
+
+		if ( !Array.isArray( publishConfig ) ) {
+			mw.log.error( 'Publish requirement config should be of type array or string' );
+			return true;
+		}
+
+		if ( !groups ) {
+			return true;
 		}
 
 		publishConfig.forEach( function ( userGroup ) {
 			canPublish = canPublish && groups.indexOf( userGroup ) > 0;
 		} );
 
+		this.canPublish = canPublish;
+		return canPublish;
+	}.bind( this ) );
+};
+
+mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
+	if ( this.veTarget.getPublishNamespace() !== this.mainNamespaceId ) {
+		return;
+	}
+
+	this.isUserAllowedToPublishToMainNamespace().then( function ( canPublish ) {
 		if ( !canPublish ) {
 			this.displayCannotPublishError();
 		}
@@ -465,21 +491,47 @@ mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
 
 	// User isn't allowed to publish, display the information in the issue card.
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
+		this.translationModel.resolveIssueByName( 'cannot-publish' );
 		this.translationModel.addUnattachedIssues( [
 			new mw.cx.dm.TranslationIssue(
 				'cannot-publish', // Issue name
-				mw.msg( 'cx-tools-linter-cannot-publish-message' ), // message body
+				mw.message( 'cx-tools-linter-cannot-publish-message' ).parseDom(), // message body
 				{
 					title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
 					type: 'error',
 					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool',
 					resolvable: true,
 					actionIcon: 'article',
-					actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' )
+					actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' ),
+					action: this.switchToUserNamespace.bind( this )
 				}
 			)
 		] );
 	}.bind( this ) );
+};
+
+mw.cx.init.Translation.prototype.switchToUserNamespace = function () {
+	var popup = new OO.ui.PopupWidget( {
+		$content: $( '<p>' ).text( mw.msg( 'cx-publish-destination-namespace-changed' ) ),
+		padded: true,
+		autoClose: true
+	} );
+
+	this.veTarget.getActions().$element.append( popup.$element );
+	popup.toggle( true );
+
+	this.translationModel.resolveIssueByName( 'cannot-publish' );
+	this.translationView.clearMessages();
+	this.veTarget.onPublishNamespaceChange( this.userNamespaceId );
+};
+
+mw.cx.init.Translation.prototype.onNamespaceChange = function ( namespaceId ) {
+	this.checkIfUserCanPublish();
+
+	if ( this.mainNamespaceId !== namespaceId ) {
+		this.translationModel.resolveIssueByName( 'cannot-publish' );
+		this.translationView.removeMessage( 'cannot-publish' );
+	}
 };
 
 /**
@@ -496,7 +548,7 @@ mw.cx.init.Translation.prototype.displayInfobarMessage = function ( message, iss
 
 	button.connect( this, { click: [ 'displayIssueDetails', issueName ] } );
 
-	this.translationView.showMessage( type, message, null, [ button ] );
+	this.translationView.showMessage( type, message, null, issueName, [ button ] );
 };
 
 /**

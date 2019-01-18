@@ -115,6 +115,13 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
  * @param {string} newProvider
  */
 
+/**
+ * @event namespaceChange
+ *
+ * Namespace of the target title has changed.
+ * @param {number} namespaceId ID of the new namespace
+ */
+
 /* Static Properties */
 
 ve.init.mw.CXTarget.static.name = 'cx';
@@ -519,6 +526,16 @@ ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId 
 	this.translationView.targetColumn.setTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
 	this.updateNamespace();
+	this.emitNamespaceChange( namespaceId );
+};
+
+/**
+ * @param {number} namespaceId
+ *
+ * @fires 'namespaceChange'
+ */
+ve.init.mw.CXTarget.prototype.emitNamespaceChange = function ( namespaceId ) {
+	this.emit( 'namespaceChange', namespaceId );
 };
 
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {

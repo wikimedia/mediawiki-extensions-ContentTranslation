@@ -547,7 +547,7 @@ mw.cx.dm.Translation.prototype.addUnattachedIssues = function ( issues ) {
 	// Allow to suppress all resolvable issues
 	issues.forEach( function ( issue ) {
 		// When issue is suppressed, emit event about the resolved state
-		issue.setSuppressCallback( this.resolveUnattachedIssues.bind( this ) );
+		issue.setSuppressCallback( this.resolveNotify.bind( this ) );
 	}, this );
 
 	this.emit( 'translationIssues', 'global', this.hasErrors() );
@@ -559,12 +559,43 @@ mw.cx.dm.Translation.prototype.addUnattachedIssues = function ( issues ) {
  * @fires translationIssues
  * @fires issuesResolved
  */
-mw.cx.dm.Translation.prototype.resolveUnattachedIssues = function () {
+mw.cx.dm.Translation.prototype.resolveNotify = function () {
 	if ( this.getTranslationIssues().length === 0 ) {
 		this.emit( 'issuesResolved', 'global' );
 	} else {
 		this.emit( 'translationIssues', 'global', this.hasErrors() );
 	}
+};
+
+/**
+ * @param {string} name
+ */
+mw.cx.dm.Translation.prototype.resolveIssueByName = function ( name ) {
+	var index = this.findIssueIndex( name );
+
+	if ( index > -1 ) {
+		this.translationIssues.splice( index, 1 );
+		this.resolveNotify();
+	}
+};
+
+/**
+ * Find the index of issue with some name, inside issue array.
+ * Names act as unique ID and there should not be duplicates.
+ *
+ * @param {string} name Name of the issue
+ * @return {number} Index of issue or -1 if not found.
+ */
+mw.cx.dm.Translation.prototype.findIssueIndex = function ( name ) {
+	var i, length;
+
+	for ( i = 0, length = this.translationIssues.length; i < length; i++ ) {
+		if ( this.translationIssues[ i ].getName() === name ) {
+			return i;
+		}
+	}
+
+	return -1;
 };
 
 /**

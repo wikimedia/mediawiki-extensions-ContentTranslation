@@ -52,15 +52,17 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
  * @param {string} type Message class.
  * @param {mediawiki.Message|string} message Message objects are parsed, strings are plain text.
  * @param {mediawiki.Message|string} details The details of error in HTML.
+ * @param {Mixed} data Custom data of any type or combination of types (e.g., string, number, array, object).
  * @param {OO.ui.ButtonWidget[]} buttons Additional buttons to add to the message widget.
  */
-mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details, buttons ) {
+mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details, data, buttons ) {
 	var messageWidget;
 
 	messageWidget = new mw.cx.ui.MessageWidget( {
 		message: message,
 		details: details,
 		type: type,
+		data: data,
 		buttons: buttons
 	} );
 	this.clearMessages();
@@ -80,4 +82,15 @@ mw.cx.ui.Infobar.prototype.showLoginMessage = function () {
 
 mw.cx.ui.Infobar.prototype.clearMessages = function () {
 	this.messageLayout.clearItems();
+};
+
+/**
+ * @param {Mixed} messageData
+ */
+mw.cx.ui.Infobar.prototype.removeMessage = function ( messageData ) {
+	var item = this.messageLayout.findItemFromData( messageData );
+
+	if ( item ) {
+		this.messageLayout.removeItems( [ item ] );
+	}
 };

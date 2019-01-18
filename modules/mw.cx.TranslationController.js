@@ -629,6 +629,7 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 		currentTitleObj.getNamespaceId() !== newTitleObj.getNamespaceId()
 	) {
 		this.veTarget.updateNamespace();
+		this.veTarget.emitNamespaceChange( newTitleObj.getNamespaceId() );
 	}
 };
 
