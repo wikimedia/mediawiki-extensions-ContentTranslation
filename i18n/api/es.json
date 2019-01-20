@@ -6,7 +6,8 @@
 			"Macofe",
 			"Patricio",
 			"Dgstranz",
-			"Pato"
+			"Pato",
+			"Tiberius1701"
 		]
 	},
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
@@ -20,7 +21,7 @@
 	"apihelp-cxpublish-param-publishtags": "Las etiquetas de edición para añadir a la página publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (cuando se utiliza una respuesta captcha para el guardado).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respuesta al captcha (cuando se utiliza una respuesta captcha para el guardado).",
-	"apihelp-cxpublish-param-cxversion": "Versión del editor usado para publicar la traducción.",
+	"apihelp-cxpublish-param-cxversion": "Versión del editor usada para publicar la traducción.",
 	"apihelp-query+contenttranslation-description": "Consultar traducciones en la base de datos de la traducción de contenidos",
 	"apihelp-query+contenttranslation-param-translationid": "Id. de la traducción",
 	"apihelp-query+contenttranslation-param-from": "El código del idioma de origen.",
