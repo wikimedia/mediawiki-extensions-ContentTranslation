@@ -115,9 +115,8 @@ class PurgeUnpublishedDrafts extends Maintenance {
 				$this->purgeDraft( $draft->translation_id );
 				$this->output( " — PURGED", $draft->translation_id );
 				$draftsPerUser[ $draft->translation_last_update_by ][] = $draft;
+				MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 			}
-
-			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 		}
 
 		if ( !$dryRun ) {
