@@ -376,6 +376,11 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 		element.removeAttribute( 'data-cx' );
 	} );
 
+	// Remove all id attributes from table cells
+	Array.prototype.forEach.call( doc.querySelectorAll( 'tr[id], td[id]' ), function ( element ) {
+		element.removeAttribute( 'id' );
+	} );
+
 	html = this.veTarget.getHtml( doc );
 
 	return deflate ? EasyDeflate.deflate( html ) : html;
