@@ -460,11 +460,11 @@
 		},
 		"ext.cx.translation": {
 			"scripts": [
+				"editor/ext.cx.editor.js",
 				"translation/ext.cx.translation.js",
 				"translation/ext.cx.translation.aligner.js"
 			],
 			"dependencies": [
-				"ext.cx.editor",
 				"ext.cx.translation.progress",
 				"ext.cx.tools.validator",
 				"ext.cx.util",
@@ -1040,14 +1040,6 @@
 				"cx-translation-already-in-progress",
 				"cx-translation-already-in-progress-collaborate",
 				"cx-create-new-translation"
-			]
-		},
-		"ext.cx.editor": {
-			"scripts": [
-				"editor/ext.cx.editor.js"
-			],
-			"dependencies": [
-				"ext.cx.util.selection"
 			]
 		},
 		"ext.cx.stats": {
