@@ -11,7 +11,7 @@
 
 	/**
 	 * @class
-	 * @param {Element} element
+	 * @param {HTMLElement} element
 	 */
 	function CXContributions( element ) {
 		this.$element = $( element );
@@ -88,20 +88,12 @@
 		];
 	};
 
-	/**
-	 * CXContributions entry point plugin
-	 * @param {Object} options
-	 * @return {jQuery}
-	 */
-	$.fn.cxContributions = function ( options ) {
-		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'cxentrypoint' );
+	$( function () {
+		var contributionsItemsContainer = document.createElement( 'span' );
+		// eslint-disable-next-line no-new
+		new CXContributions( contributionsItemsContainer );
 
-			if ( !data ) {
-				$this.data( 'cxentrypoint', ( data = new CXContributions( this, options ) ) );
-			}
-		} );
-	};
+		$( '#firstHeading' ).before( contributionsItemsContainer );
+	} );
 
 }() );

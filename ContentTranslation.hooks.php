@@ -155,7 +155,7 @@ class ContentTranslationHooks {
 			if ( $wgContentTranslationEventLogging ) {
 				$page->getOutput()->addModules( 'ext.cx.eventlogging' );
 			}
-			$page->getOutput()->addModules( 'ext.cx.contributions.init' );
+			$page->getOutput()->addModules( 'ext.cx.contributions' );
 		}
 	}
 

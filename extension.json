@@ -192,14 +192,6 @@
 				"cx-contributions-upload-tooltip"
 			]
 		},
-		"ext.cx.contributions.init": {
-			"scripts": [
-				"entrypoint/ext.cx.contributions.init.js"
-			],
-			"dependencies": [
-				"ext.cx.contributions"
-			]
-		},
 		"ext.cx.model": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
