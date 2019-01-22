@@ -12,7 +12,8 @@
 			"Nitin1485",
 			"Sagsag",
 			"Siddhartha Ghai",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Prong$31"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -171,6 +172,8 @@
 	"cx-campaign-contributionsmenu-translate-instead": "प्रारंभ से लिखने के बजाय अनुवाद करें",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 शायद पहले ही से अन्य भाषाओं में मौजूद है",
 	"cx-campaign-contributionsmenu-myuploads": "अपलोड किया गया मीडिया",
+	"cx-campaign-new-version-message-title": "नया संस्करण अब सक्रिय है",
+	"cx-campaign-ok-got-it": "हाँ, समझ गया",
 	"cx-no-source-categories": "कोई श्रेणियाँ नहीं",
 	"cx-no-target-categories": "कोई श्रेणियाँ नहीं। विषय को बेहतर वर्गीकृत करने के लिए आप श्रेणियाँ जोड़ सकते हैं।",
 	"cx-no-adapted-categories": "मूल श्रेणियाँ इस भाषा में मौजूद नहीं हैं। विषय को बेहतर वर्गीकृत करने के लिए अन्य श्रेणियाँ देखें।",
