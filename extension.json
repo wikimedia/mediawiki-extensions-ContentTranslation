@@ -444,20 +444,7 @@
 				"cx-translation-filter-uls-all-languages"
 			]
 		},
-		"ext.cx.pageselector": {
-			"scripts": [
-				"widgets/pageselector/ext.cx.pageselector.js"
-			],
-			"styles": [
-				"widgets/pageselector/ext.cx.pageselector.less"
-			],
-			"messages": [
-				"mw-pageselector-missing"
-			],
-			"dependencies": [
-				"mediawiki.api"
-			]
-		},
+
 		"ext.cx.translation": {
 			"scripts": [
 				"editor/ext.cx.editor.js",
@@ -627,9 +614,11 @@
 		},
 		"ext.cx.tools.link": {
 			"scripts": [
+				"widgets/pageselector/ext.cx.pageselector.js",
 				"tools/ext.cx.tools.link.js"
 			],
 			"styles": [
+				"widgets/pageselector/ext.cx.pageselector.less",
 				"tools/styles/ext.cx.tools.link.less",
 				"tools/styles/ext.cx.tools.linker.less"
 			],
@@ -648,14 +637,14 @@
 				"cx-tools-link-external-link-placeholder",
 				"cx-tools-link-to-another-page",
 				"cx-tools-link-add-as-missing",
-				"cx-tools-link-apply"
+				"cx-tools-link-apply",
+				"mw-pageselector-missing"
 			],
 			"dependencies": [
-				"ext.cx.pageselector",
-				"ext.cx.tools.manager",
 				"ext.cx.tools.card",
 				"ext.cx.tools.manager",
 				"jquery.uls.data",
+				"mediawiki.api",
 				"mediawiki.Title"
 			]
 		},
