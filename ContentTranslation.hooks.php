@@ -166,27 +166,20 @@ class ContentTranslationHooks {
 	public static function addConfig( array &$vars ) {
 		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationDomainCodeMapping,
-			$wgContentTranslationEnableSuggestions,
 			$wgContentTranslationSiteTemplates,
 			$wgContentTranslationCampaigns,
 			$wgContentTranslationTargetNamespace,
 			$wgContentTranslationUserGroupTargetNamespace,
-			$wgRecommendToolAPIURL,
-			$wgContentTranslationVersion,
-			$wgContentTranslationUnmodifiedMTThresholdForPublish;
+			$wgContentTranslationVersion;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
-		$vars['wgContentTranslationEnableSuggestions'] = $wgContentTranslationEnableSuggestions;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationCampaigns'] = $wgContentTranslationCampaigns;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 		$vars['wgContentTranslationUserGroupTargetNamespace']
 			= $wgContentTranslationUserGroupTargetNamespace;
-		$vars['wgRecommendToolAPIURL'] = $wgRecommendToolAPIURL;
 		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
-		$vars['wgContentTranslationUnmodifiedMTThresholdForPublish']
-			= $wgContentTranslationUnmodifiedMTThresholdForPublish;
 	}
 
 	/**

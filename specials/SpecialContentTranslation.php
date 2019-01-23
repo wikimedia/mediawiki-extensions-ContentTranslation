@@ -163,7 +163,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function initModules() {
-		global $wgContentTranslationTranslateInTarget;
+		global
+			$wgContentTranslationEnableSuggestions,
+			$wgContentTranslationTranslateInTarget,
+			$wgContentTranslationUnmodifiedMTThresholdForPublish,
+			$wgRecommendToolAPIURL;
 
 		$out = $this->getOutput();
 
@@ -175,6 +179,10 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		if ( $this->onTranslationView() ) {
 			$out->addModules( $initModule );
+			$out->addJsConfigVars( [
+				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
+					$wgContentTranslationUnmodifiedMTThresholdForPublish
+			] );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
@@ -182,9 +190,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
-			$out->addJsConfigVars(
-				'wgContentTranslationShowNewVersionMessage', $this->shouldShowNewVersionMessage()
-			);
+			$out->addJsConfigVars( [
+				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
+				'wgContentTranslationShowNewVersionMessage' => $this->shouldShowNewVersionMessage(),
+				'wgRecommendToolAPIURL' => $wgRecommendToolAPIURL,
+			] );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}
