@@ -1622,22 +1622,46 @@
 		},
 		"mw.cx.ui.TranslationView": {
 			"scripts": [
-				"ui/mw.cx.ui.TranslationView.js"
+				"ui/mw.cx.ui.TranslationHeader.js",
+				"ui/mw.cx.ui.ArticleColumn.js",
+				"ui/mw.cx.ui.TranslationView.js",
+				"ui/mw.cx.ui.SourceColumn.js",
+				"ui/mw.cx.ui.TargetColumn.js",
+				"ui/mw.cx.ui.ToolsColumn.js"
 			],
 			"styles": [
+				"ui/styles/mw.cx.ui.TranslationHeader.less",
 				"ui/styles/mw.cx.ui.Columns.less",
+				"ui/styles/mw.cx.ui.SourceColumn.less",
+				"ui/styles/mw.cx.ui.TargetColumn.less",
+				"ui/styles/mw.cx.ui.ToolsColumn.less",
 				"ui/styles/mw.cx.ui.TranslationView.less"
+			],
+			"messages": [
+				"cx-draft-restore-failed",
+				"cx-draft-restored",
+				"cx-draft-restoring",
+				"cx-save-draft-error",
+				"cx-save-draft-saving",
+				"cx-save-draft-tooltip",
+				"cx-source-loading",
+				"cx-source-view-page",
+				"cx-translation-add-translation",
+				"cx"
 			],
 			"dependencies": [
 				"ext.cx.model",
 				"ext.cx.sitemapper",
+				"ext.cx.widgets.spinner",
+				"mw.cx.ui",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
-				"mw.cx.ui.SourceColumn",
-				"mw.cx.ui.TargetColumn",
-				"mw.cx.ui.ToolsColumn",
-				"mw.cx.ui.TranslationHeader",
-				"mw.cx.util"
+				"mw.cx.util",
+				"mw.cx.dm.PageTitleModel",
+				"mw.cx.ui.PageTitleWidget",
+				"mw.cx.tools.IssueTrackingTool",
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-interactions"
 			]
 		},
 		"ve.ui.CXSurface": {
@@ -1755,28 +1779,6 @@
 				"monobook": [ "ui/styles/mw.cx.ui.Header.monobook.less" ]
 			}
 		},
-		"mw.cx.ui.TranslationHeader": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"ui/mw.cx.ui.TranslationHeader.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.TranslationHeader.less"
-			],
-			"messages": [
-				"cx",
-				"cx-draft-restore-failed",
-				"cx-draft-restored",
-				"cx-draft-restoring",
-				"cx-save-draft-error",
-				"cx-save-draft-saving",
-				"cx-save-draft-tooltip"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui.styles.icons-interactions"
-			]
-		},
 		"mw.cx.ui.Infobar": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
@@ -1811,22 +1813,6 @@
 				"mw.cx.ui.ToolsColumn.legacy"
 			]
 		},
-		"mw.cx.ui.SourceColumn": {
-			"scripts": [
-				"ui/mw.cx.ui.SourceColumn.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.SourceColumn.less"
-			],
-			"messages": [
-				"cx-source-view-page",
-				"cx-source-loading"
-			],
-			"dependencies": [
-				"mw.cx.ui.ArticleColumn",
-				"ext.cx.widgets.spinner"
-			]
-		},
 		"mw.cx.ui.SourceColumn.legacy": {
 			"scripts": [
 				"ui/legacy/mw.cx.ui.SourceColumn.js"
@@ -1843,20 +1829,6 @@
 				"ext.cx.widgets.spinner"
 			]
 		},
-		"mw.cx.ui.TargetColumn": {
-			"scripts": [
-				"ui/mw.cx.ui.TargetColumn.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.TargetColumn.less"
-			],
-			"messages": [
-				"cx-translation-add-translation"
-			],
-			"dependencies": [
-				"mw.cx.ui.ArticleColumn"
-			]
-		},
 		"mw.cx.ui.TranslationColumn.legacy": {
 			"scripts": [
 				"ui/legacy/mw.cx.ui.TranslationColumn.js"
@@ -1870,29 +1842,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"ext.cx.widgets.spinner"
-			]
-		},
-		"mw.cx.ui.ArticleColumn": {
-			"scripts": [
-				"ui/mw.cx.ui.ArticleColumn.js"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.dm.PageTitleModel",
-				"mw.cx.ui.PageTitleWidget"
-			]
-		},
-		"mw.cx.ui.ToolsColumn": {
-			"scripts": [
-				"ui/mw.cx.ui.ToolsColumn.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.ToolsColumn.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.tools.IssueTrackingTool",
-				"oojs-ui.styles.icons-alerts"
 			]
 		},
 		"mw.cx.ui.ToolsColumn.legacy": {
