@@ -2143,20 +2143,7 @@
 				"mw.cx.ui.TranslationToolWidget"
 			]
 		},
-		"mw.cx.ui.mixins": {
-			"dependencies": [
-				"mw.cx.ui.mixin.AlignableTranslationUnit"
-			]
-		},
-		"mw.cx.ui.mixin.AlignableTranslationUnit": {
-			"scripts": [
-				"ui/mixins/mw.cx.ui.mixin.AlignableTranslationUnit.js"
-			],
-			"dependencies": [
-				"mw.cx.ui"
-			]
-		},
-		"mw.cx.ui.TranslationToolWidget":{
+ 		"mw.cx.ui.TranslationToolWidget":{
 			"scripts": [
 				"ui/widgets/mw.cx.ui.TranslationToolWidget.js"
 			],
