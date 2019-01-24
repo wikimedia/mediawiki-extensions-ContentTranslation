@@ -279,6 +279,7 @@
 	"cx-tools-linter-template": "Title for a linter card.",
 	"cx-tools-linter-template-block-message": "Main message for a linter card for sections with unadapted block template.",
 	"cx-tools-linter-template-inline-message": "Main message for a linter card for sections with unadapted inline template(s).",
+	"cx-tools-linter-template-add-new": "Label for action button displayed inside linter card for sections with unadapted block template.",
 	"cx-tools-linter-old-revision": "Title for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-tools-linter-old-revision-message": "Main message for a linter card displayed on Content Translation when source page has changed significantly.",
 	"cx-tools-linter-old-revision-label": "Label for button displayed on a linter card in Content Translation when source page has changed significantly. Allows user to restart the translation using the latest revision.",

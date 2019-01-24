@@ -120,9 +120,23 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		message: mw.message( 'cx-tools-linter-template-block-message' ),
 		messageInfo: {
 			title: mw.msg( 'cx-tools-linter-template' ),
-			resolvable: true
+			resolvable: true,
+			additionalButtons: [
+				{
+					icon: 'puzzle',
+					label: mw.msg( 'cx-tools-linter-template-add-new' ),
+					action: this.addNewTemplate
+				}
+			]
 		}
 	} ] );
+};
+
+ve.dm.CXTransclusionBlockNode.prototype.addNewTemplate = function () {
+	var targetSurface = ve.init.target.targetSurface,
+		command = targetSurface.commandRegistry.lookup( 'transclusion' );
+
+	command.execute( targetSurface );
 };
 
 ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
