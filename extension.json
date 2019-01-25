@@ -1486,7 +1486,7 @@
 				"mw.cx.init.Translation",
 				"mediawiki.notify"
 			],
-			"messages":[
+			"messages": [
 				"cx-beta-feature-enabled-notification"
 			],
 			"targets": [
@@ -1589,7 +1589,7 @@
 				"jquery.uls.data",
 				"mediawiki.language"
 			],
-			"messages":[
+			"messages": [
 				"cx-mt-abuse-warning-text",
 				"cx-mt-abuse-warning-title",
 				"cx-tools-view-guidelines-link"
@@ -1680,7 +1680,7 @@
 				"mw.cx.util"
 			]
 		},
-		"ve.ui.CXSurface":{
+		"ve.ui.CXSurface": {
 			"scripts": [
 				"ve-cx/ui/ve.ui.CXSurface.js"
 			],
@@ -1731,7 +1731,7 @@
 				"mw.cx.ui.TranslationView.legacy",
 				"mediawiki.notify"
 			],
-			"messages":[
+			"messages": [
 				"cx-beta-feature-enabled-notification"
 			]
 		},
@@ -2143,7 +2143,7 @@
 				"mw.cx.ui.TranslationToolWidget"
 			]
 		},
- 		"mw.cx.ui.TranslationToolWidget":{
+		"mw.cx.ui.TranslationToolWidget": {
 			"scripts": [
 				"ui/widgets/mw.cx.ui.TranslationToolWidget.js"
 			],
@@ -2155,7 +2155,7 @@
 				"oojs-ui-widgets"
 			]
 		},
-		"mw.cx.ui.ProgressBarWidget":{
+		"mw.cx.ui.ProgressBarWidget": {
 			"scripts": [
 				"ui/widgets/mw.cx.ui.ProgressBarWidget.js"
 			],
