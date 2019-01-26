@@ -16,6 +16,7 @@
  * @license GPL-2.0-or-later
  */
 
+use ContentTranslation\RestbaseClient;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -24,7 +25,7 @@ use MediaWiki\MediaWikiServices;
 class ApiContentTranslationPublish extends ApiBase {
 
 	/**
-	 * @var VirtualRESTServiceClient
+	 * @var RestbaseClient
 	 */
 	protected $restbaseClient;
 	/**
@@ -35,7 +36,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function __construct( ApiMain $main, $name ) {
 		parent::__construct( $main, $name );
 		$config = RequestContext::getMain()->getConfig();
-		$this->restbaseClient = new ContentTranslation\RestbaseClient( $config );
+		$this->restbaseClient = new RestbaseClient( $config );
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
