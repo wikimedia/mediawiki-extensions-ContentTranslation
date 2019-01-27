@@ -422,6 +422,7 @@ class ContentTranslationHooks {
 			],
 		] + $resourcePaths;
 
+		/* disabled while T214804 is getting fixed
 		$modules['qunit']['ext.cx.publish.test'] = [
 			'scripts' => [
 				'tests/qunit/publish/ext.cx.publish.test.js',
@@ -432,6 +433,7 @@ class ContentTranslationHooks {
 				'ext.cx.sitemapper',
 			],
 		] + $resourcePaths;
+		*/
 
 		$modules['qunit']['ext.cx.translation.loader.test'] = [
 			'scripts' => [
