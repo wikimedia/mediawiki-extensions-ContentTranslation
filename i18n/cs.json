@@ -63,6 +63,7 @@
 	"cx-translation-target-page-exists": "Stránka s názvem [$1 $2] v cílové wiki existuje. Zvažte pro stránku jiný název.",
 	"tag-contenttranslation": "editace z rozšíření [[{{MediaWiki:cx-descriptionpagelink}}|Překlad obsahu]]",
 	"tag-contenttranslation-description": "Obsah stránky byl přeložen z jiného jazyka pomocí nástroje Překlad Obsahu.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Překlad obsahu 2]]",
 	"tag-contenttranslation-v2-description": "Obsah byl přeložen z jiného jazyka pomocí verze 2 nástroje Překlad obsahu.",
 	"cx-source-loading": "Načítá se $1",
 	"cx-beta": "Překlad obsahu",
