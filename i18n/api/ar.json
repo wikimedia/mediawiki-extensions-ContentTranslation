@@ -5,11 +5,12 @@
 			"زكريا",
 			"محمد أحمد عبد الفتاح",
 			"Maroen1990",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"apihelp-cxpublish-description": "يحفظ صفحة أنشأت بواسطة امتداد ترجمة المحتوى.",
-	"apihelp-cxpublish-summary": "احفظ صفحة تم إنشاؤها باستخدام إضافة ترجمة المحتوى.",
+	"apihelp-cxpublish-summary": "حفظ صفحة تم إنشاؤها باستخدام امتداد ترجمة المحتوى.",
 	"apihelp-cxpublish-param-title": "عنوان الصفحة المراد العمل عليها",
 	"apihelp-cxpublish-param-html": "المحتوى الذي سيحفظ.",
 	"apihelp-cxpublish-param-from": "رمز لغة الأصل",

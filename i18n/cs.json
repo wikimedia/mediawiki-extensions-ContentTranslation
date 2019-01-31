@@ -20,7 +20,8 @@
 			"Patriccck",
 			"Evica",
 			"Jan Růžička",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Vojtěch Dostál"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -51,7 +52,7 @@
 	"cx-lost-session-dashboard": "Chcete-li provést tuto akci, přihlaste se prosím znovu.",
 	"cx-publish-summary": "Vytvořeno překladem stránky „$1“",
 	"cx-publish-gt-no-permission-to-move-description": "Prosím, zeptejte se zkušeného uživatele této stránky za by si prohlédnul váš překlad a zveřejnil jej v hlavním prostoru.",
-	"cx-publish-gt-first-step-title": "Překlad byl zveřejněn jako návrh ke kontrole na vaší uživatelské stránce",
+	"cx-publish-gt-first-step-title": "Překlad byl zveřejněn jako koncept ke kontrole na vaší uživatelské stránce",
 	"cx-publish-gt-first-step-description": "Klikněte na tlačítko \"{{int:vektor-akce-tah}}\" pod tímto menu, aby obsah byl k dispozici pro všechny uživatele jako běžná stránka.",
 	"cx-publish-gt-move-page-title": "Přesunout stránku",
 	"cx-publish-gt-move-page-description": "Vyberte jmenný prostor „{{int:blanknamespace}}“ a dejte své stránce vhodný název.",
@@ -114,7 +115,7 @@
 	"cx-page-missing-in-target-language": "Chybí v $1",
 	"cx-page-number-of-languages": "Počet jazyků",
 	"cx-mt-abuse-warning-title": "Váš překlad {{PLURAL:$1|obsahuje}} $1 % nezměněného textu",
-	"cx-mt-abuse-warning-text": "Automatický překlad je pouze podkladový materiál. Ujistěte se, že výsledný obsah stránky je přesný a že ve vašem jazyce zní přirozeně.\n\nVáš překlad bude pravděpodobně smazán, hned jak jej zkontrolují ostatní editoři.",
+	"cx-mt-abuse-warning-text": "Automatický překlad je pouze podkladový materiál. Ujistěte se, že výsledný obsah stránky je přesný a že ve vašem jazyce zní přirozeně. V opačném případě pravděpodobně dojde ke smazání.",
 	"cx-publish-captcha-title": "Ověření, že nejste robot",
 	"cx-captcha-dialog-error": "Vaše odpověď není správně. Prosím zkuste to znovu.",
 	"cx-captcha-dialog-cancel": "Storno",
@@ -168,7 +169,7 @@
 	"cx-translation-label-published": "Zveřejněné překlady",
 	"cx-translation-already-in-progress": "{{GENDER:$2|Wikipedista|Wikipedistka}} $1 překladá tuto stránku.",
 	"cx-translation-already-in-progress-collaborate": "Spolupracujte prosím s {{GENDER:$1|Wikipedistou, který přeložil|Wikipedistkou, která preložila}} současný překlad.",
-	"cx-publishing-dialog-publish-draft-button": "Publikovat jako návrh",
+	"cx-publishing-dialog-publish-draft-button": "Publikovat jako koncept",
 	"cx-feedback-link": "Poskytnout zpětnou vazbu",
 	"cx-stats-published-translations-title": "Zveřejněné překlady",
 	"cx-stats-draft-translations-title": "Probíhající překlady",

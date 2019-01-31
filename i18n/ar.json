@@ -143,7 +143,7 @@
 	"cx-translation-filter-uls-all-languages": "كل اللغات",
 	"cx-save-draft-save-success": "حفظت قبل {{PLURAL:$1|أقل من دقيقة|دقيقة|دقيقتين|$1 دقائق|$1 دقيقة}}",
 	"cx-save-draft-saving": "جار الحفظ",
-	"cx-save-draft-shortcut-label": "احفظ المسودة",
+	"cx-save-draft-shortcut-label": "حفظ المسودة",
 	"cx-save-draft-tooltip": "تحفظ مسودات الترجمة آليا",
 	"cx-save-draft-error": "حدث خطأ أثناء حفظ الصفحة",
 	"cx-contributions-new-contributions": "مساهمة جديدة",
