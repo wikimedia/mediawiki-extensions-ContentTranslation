@@ -51,7 +51,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$min = $dm->getIntervalIdentifier( !$dates ? 0 : min( $dates ) );
 		$max = $dm->getIntervalIdentifier( 0 ); // Now
 
-		$steps = $dm->getSteps( $min, $max, 'month' );
+		$steps = $dm->getSteps( $min, $max );
 
 		$out = [];
 		$count = 0;

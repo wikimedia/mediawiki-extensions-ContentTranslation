@@ -54,7 +54,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		$min = $dm->getIntervalIdentifier( min( $dates ) );
 		$max = $dm->getIntervalIdentifier( 0 ); // 0 means now
 
-		$steps = $dm->getSteps( $min, $max, $interval );
+		$steps = $dm->getSteps( $min, $max );
 
 		$counts = [];
 		foreach ( array_keys( $data ) as $type ) {
