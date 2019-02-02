@@ -157,7 +157,7 @@
 	};
 
 	mw.cx.SelectedSourcePage.prototype.focusStartTranslationButton = function () {
-		this.startTranslationButton.$button.focus();
+		this.startTranslationButton.$button.trigger( 'focus' );
 	};
 
 	mw.cx.SelectedSourcePage.prototype.listen = function () {

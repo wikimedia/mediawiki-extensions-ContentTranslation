@@ -200,7 +200,7 @@
 	 * Event handlers
 	 */
 	Template.prototype.listen = function () {
-		this.$template.click( this.onClick.bind( this ) );
+		this.$template.on( 'click', this.onClick.bind( this ) );
 	};
 
 	/**

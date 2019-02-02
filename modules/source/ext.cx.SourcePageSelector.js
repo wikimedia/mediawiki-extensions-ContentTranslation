@@ -170,8 +170,10 @@
 		this.overlay.show();
 		this.pageSelector.populateLookupMenu();
 		this.pageSelector.lookupMenu.toggle( true );
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line jquery/no-slide
 		this.$container.slideDown( 'fast' );
-		this.pageSelector.focus();
+		this.pageSelector.trigger( 'focus' );
 		this.pageSelector.positionLabel();
 	};
 

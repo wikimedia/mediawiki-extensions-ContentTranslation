@@ -238,7 +238,7 @@
 		scrollTop = window.pageYOffset;
 		// Note that if the section is not editable - if its contenteditable attribute
 		// value is false, we cannot focus on it.
-		this.$targetSection.focus();
+		this.$targetSection.trigger( 'focus' );
 		// Capture and save the new selection and cursor position
 		mw.cx.selection.save( 'translation', mw.cx.selection.get() );
 		// Avoid page scrolling while setting focus.

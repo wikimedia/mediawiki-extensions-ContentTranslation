@@ -1094,13 +1094,13 @@
 
 		this.$card.addClass( 'linker-expanded' );
 		if ( this.selection ) {
-			this.$searchInput.val( this.selection ).select();
+			this.$searchInput.val( this.selection ).trigger( 'select' );
 		}
 		mw.cx.selection.wrap(
 			'translation',
 			$( '<a>' ).addClass( 'cx-selection cx-highlight--blue' )[ 0 ]
 		);
-		this.$searchInput.focus();
+		this.$searchInput.trigger( 'focus' );
 		$.when.apply( $, this.getTargetPagesForSource() ).done( function () {
 			var pages = arguments;
 			self.$targetPageSelector.buildMenu( pages );
@@ -1136,7 +1136,7 @@
 		this.$internalLink.on( 'click', function () {
 			self.$externalLink.addClass( 'linker-inactive' );
 			self.$internalLink.removeClass( 'linker-inactive' );
-			self.$searchInput.show().focus();
+			self.$searchInput.show().trigger( 'focus' );
 			self.$externalLinkInput.hide();
 			linkType = 'internal';
 		} );
@@ -1145,7 +1145,7 @@
 			self.$internalLink.addClass( 'linker-inactive' );
 			self.$externalLink.removeClass( 'linker-inactive' );
 			self.$searchInput.hide();
-			self.$externalLinkInput.show().focus();
+			self.$externalLinkInput.show().trigger( 'focus' );
 			linkType = 'external';
 		} );
 

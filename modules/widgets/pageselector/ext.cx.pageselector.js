@@ -144,7 +144,7 @@
 	 */
 	MediaWikiPageSelector.prototype.select = function ( $item ) {
 		this.selectedPage = $item.data( 'page' );
-		this.$input.val( this.selectedPage.title ).focus();
+		this.$input.val( this.selectedPage.title ).trigger( 'focus' );
 	};
 
 	MediaWikiPageSelector.prototype.getSelectedPage = function () {

@@ -40,7 +40,7 @@
 		if ( this.options.closeOnClick ) {
 			this.$overlay
 				.addClass( 'cx-overlay--clickable' )
-				.click( this.options.closeOnClick );
+				.on( 'click', this.options.closeOnClick );
 		}
 
 		if ( this.options.classes ) {

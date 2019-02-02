@@ -31,13 +31,13 @@
 		this.$toolsContainer.cxtoolmanager();
 
 		// Handle enter key press in the search field.
-		this.$searchInput.keypress( function ( event ) {
+		this.$searchInput.on( 'keypress', function ( event ) {
 			if ( event.which === 13 ) {
 				this.doSearch();
 			}
 		}.bind( this ) );
 
-		this.$searchInput.keyup( OO.ui.debounce( this.doSearch.bind( this ), 300 ) );
+		this.$searchInput.on( 'keyup', OO.ui.debounce( this.doSearch.bind( this ), 300 ) );
 
 		this.$searchIcon.on( 'click', this.doSearch.bind( this ) );
 

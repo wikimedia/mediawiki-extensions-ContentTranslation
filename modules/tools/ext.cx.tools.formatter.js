@@ -115,7 +115,7 @@
 			attributes = this.$section.prop( 'attributes' );
 
 			this.$section.parent().prop( 'contenteditable', true );
-			this.$section.focus();
+			this.$section.trigger( 'focus' );
 			document.execCommand( 'insertOrderedList' );
 			$prev.parent().prop( 'contenteditable', false );
 			this.$section = $prev.next();
@@ -141,7 +141,7 @@
 			attributes = this.$section.prop( 'attributes' );
 
 			this.$section.parent().prop( 'contenteditable', true );
-			this.$section.focus();
+			this.$section.trigger( 'focus' );
 			document.execCommand( 'insertUnorderedList' );
 			$prev.parent().prop( 'contenteditable', false );
 			this.$section = $prev.next();

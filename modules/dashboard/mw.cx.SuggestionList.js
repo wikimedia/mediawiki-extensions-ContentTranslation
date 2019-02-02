@@ -583,6 +583,8 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 				mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
 				suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title
 			);
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-slide
 			suggestion.$element.slideUp( 'slow', function () {
 				$( this ).remove();
 			} );

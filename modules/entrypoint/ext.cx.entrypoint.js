@@ -68,7 +68,7 @@
 	CXEntryPoint.prototype.show = function () {
 		this.$trigger.callout( 'show' );
 		this.shown = true;
-		this.$titleInput.focus();
+		this.$titleInput.trigger( 'focus' );
 		this.$closeIcon.one( 'click', this.hide.bind( this ) );
 		this.$actionTranslate.one( 'click', this.startPageInCX.bind( this ) );
 		this.$actionScratch.one( 'click', this.startFromScratch.bind( this ) );
