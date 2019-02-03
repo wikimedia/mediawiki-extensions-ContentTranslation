@@ -9,7 +9,8 @@
 			"Ex13",
 			"Ivi104",
 			"Bugoslav",
-			"Prevodim"
+			"Prevodim",
+			"Vlad5250"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -81,7 +82,7 @@
 	"cx-error-page-not-found": "Stranica \"$1\" nije pronađena na $2 Wikipediji",
 	"cx-page-selector-widget-recent-edits-label": "Ove ste stranice nedavno uređivali",
 	"cx-page-selector-widget-nearby-label": "U blizini",
-	"cx-source-page-selector-input-placeholder": "Potražite stranicu za prevesti",
+	"cx-source-page-selector-input-placeholder": "Potražite stranicu za prijevod",
 	"cx-source-page-selector-no-suggestions": "Pomislite na neku temu koja Vas zanima. Ne treba da ste stručnjak kako biste stvarali odlične prijevode.",
 	"cx-selected-source-page-start-translation-button": "Počni prevođenje",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 pregled tjedno|$1 pregleda tjedno|0=Nema pregleda ovoga tjedna}}",

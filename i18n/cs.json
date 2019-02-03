@@ -130,7 +130,7 @@
 	"cx-dashboard-sidebar-newversion-help": "Více informací",
 	"cx-newversion-notification-title": "Nová verze je vypnuta",
 	"cx-newversion-notification-message": "Nový editor bude ve výchozím nastavení použit pro nové překlady. Předchozí překlady se vždy otevřou pomocí editoru, který je spustil.",
-	"cx-translation-filter-published-translations": "Publikováno",
+	"cx-translation-filter-published-translations": "Zveřejněno",
 	"cx-translation-filter-draft-translations": "Probíhá",
 	"cx-translation-filter-suggested-translations": "Navrhované",
 	"cx-suggestionlist-favorite": "Na později",
