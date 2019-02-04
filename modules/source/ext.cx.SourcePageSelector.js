@@ -173,7 +173,7 @@
 		// FIXME: Use CSS transition
 		// eslint-disable-next-line jquery/no-slide
 		this.$container.slideDown( 'fast' );
-		this.pageSelector.trigger( 'focus' );
+		this.pageSelector.focus();
 		this.pageSelector.positionLabel();
 	};
 
