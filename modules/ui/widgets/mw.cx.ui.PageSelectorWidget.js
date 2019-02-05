@@ -11,7 +11,7 @@
  * Creates an mw.cx.ui.PageSelectorWidget object.
  *
  * @class
- * @extends mw.cx.ui.PageSelectorWidget
+ * @extends mw.widgets.TitleInputWidget
  *
  * @constructor
  * @param {Object} config Configuration options
