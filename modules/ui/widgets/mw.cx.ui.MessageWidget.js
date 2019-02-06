@@ -40,7 +40,7 @@ mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	// Events
 	this.closeButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'clear',
+		icon: 'close',
 		classes: [ 'cx-message-widget-close' ],
 		tabIndex: -1
 	} ).connect( this, { click: 'onCloseClick' } );
