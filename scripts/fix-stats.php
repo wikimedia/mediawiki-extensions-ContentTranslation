@@ -205,7 +205,7 @@ class CxFixStats extends Maintenance {
 		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
 		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
-		$conds['rev_page'] = $title->getArticleId();
+		$conds['rev_page'] = $title->getArticleID();
 		$conds[] = 'rev_id = ct_rev_id';
 		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
 		try {
@@ -233,7 +233,7 @@ class CxFixStats extends Maintenance {
 
 		$conds = [];
 		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
-		$conds['rev_page'] = $title->getArticleId();
+		$conds['rev_page'] = $title->getArticleID();
 		$conds[] = $actorWhere['conds'];
 
 		$joins = [];
