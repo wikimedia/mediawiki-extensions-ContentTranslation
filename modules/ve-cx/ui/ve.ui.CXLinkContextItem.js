@@ -132,19 +132,22 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
  * @inheritdoc
  */
 ve.ui.CXLinkContextItem.prototype.isEditable = function () {
+	// adaptationInfo will be empty in source surface
 	var adaptationInfo = this.model.getAttribute( 'cx' );
 	// Parent method
 	return ve.ui.CXLinkContextItem.super.prototype.isEditable.apply( this, arguments ) &&
-		( adaptationInfo.adapted || adaptationInfo.targetTitle );
+		( !adaptationInfo || adaptationInfo.adapted || adaptationInfo.targetTitle );
 };
 
 /**
  * @inheritdoc
  */
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
-	var normalizedTitle, store, adaptationInfo = this.model.getAttribute( 'cx' );
+	var normalizedTitle, store,
+		adaptationInfo = this.model.getAttribute( 'cx' );
 
-	if ( !adaptationInfo.userAdded ) {
+	// adaptationInfo will be empty in source surface
+	if ( adaptationInfo && !adaptationInfo.userAdded ) {
 		return this.generateBody( adaptationInfo );
 	}
 
