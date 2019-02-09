@@ -240,7 +240,7 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 			classes: [ 've-ui-cxSurface', 've-ui-cxTargetSurface', 'mw-body-content' ]
 		} )
 	);
-	sourceSurface.setDisabled( true );
+	sourceSurface.setReadOnly( true );
 	this.translationView.sourceColumn.setTranslation( translation );
 	this.translationView.targetColumn.setTranslation( translation );
 	this.translationView.toolsColumn.setTranslation( translation );
@@ -281,20 +281,14 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 };
 
 ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targetView ) {
-	var $views = $( [ $sourceView[ 0 ], $targetView[ 0 ] ] ),
-		targetSurface = this.targetSurface;
+	var $views = $( [ $sourceView[ 0 ], $targetView[ 0 ] ] );
 
 	$views.on(
 		{
 			mouseenter: function () {
 				var segmentSelector;
 
-				// If target surface is disabled (usually during publishing)
-				// don't proceed with sentence highlighting
-				if (
-					targetSurface.isDisabled() ||
-					this.classList.contains( 'cx-sentence-highlight' )
-				) {
+				if ( this.classList.contains( 'cx-sentence-highlight' ) ) {
 					return;
 				}
 
@@ -313,12 +307,7 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 			mouseenter: function () {
 				var sectionNumber;
 
-				// If target surface is disabled (usually during publishing)
-				// don't proceed with section highlighting
-				if (
-					targetSurface.isDisabled() ||
-					this.classList.contains( 'cx-section-highlight' )
-				) {
+				if ( this.classList.contains( 'cx-section-highlight' ) ) {
 					return;
 				}
 
@@ -549,7 +538,7 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
 		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
-	this.targetSurface.setDisabled( true );
+	this.targetSurface.setReadOnly( true );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 	this.emit( 'publish' );
 	this.updateNamespace();
@@ -725,7 +714,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
-	this.targetSurface.setDisabled( false );
+	this.targetSurface.setReadOnly( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
@@ -741,7 +730,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 		)
 	);
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
-	this.targetSurface.setDisabled( false );
+	this.targetSurface.setReadOnly( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
@@ -749,7 +738,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.translationView.showMessage( 'error', errorMessage );
 	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
-	this.targetSurface.setDisabled( false );
+	this.targetSurface.setReadOnly( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };

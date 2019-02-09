@@ -10,12 +10,9 @@
 ve.ui.CXDesktopContext = function VeUiCXDesktopContext( surface ) {
 	// Parent constructor
 	ve.ui.CXDesktopContext.super.apply( this, arguments );
-	this.toolsContainer = surface.toolsContainer;
-	if ( surface.isDisabled() ) {
-		return;
-	}
-	// Properties
 
+	// Properties
+	this.toolsContainer = surface.toolsContainer;
 	this.transitioning = null;
 	this.suppressed = false;
 	this.$window = $( this.getElementWindow() );

@@ -39,7 +39,7 @@ ve.ui.CXDestinationTool.prototype.onSelect = function () {
  */
 ve.ui.CXDestinationTool.prototype.onUpdateState = function () {
 	this.setDisabled(
-		ve.init.target.targetSurface.isDisabled() ||
+		ve.init.target.targetSurface.isReadOnly() ||
 		!mw.Title.newFromText( ve.init.target.pageName )
 	);
 	this.setActive( ve.init.target.getPublishNamespace() === this.constructor.static.namespace );
