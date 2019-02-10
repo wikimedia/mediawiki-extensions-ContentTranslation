@@ -281,7 +281,14 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 	validations = saveResult.cxsave.validations;
 
 	savedSections.forEach( function ( sectionNumber ) {
-		var section;
+		var section, sectionState = this.translationTracker.getSectionState( sectionNumber );
+
+		if ( this.shouldUnmodifiedMTBeSavedForSection( sectionState ) ) {
+			sectionState.markUnmodifiedMTSaved();
+		}
+		if ( !this.isSourceSavedForSection( sectionState ) ) {
+			sectionState.markSourceSaved();
+		}
 
 		validation = validations[ sectionNumber ];
 
@@ -441,7 +448,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 		}
 	}
 
-	if ( !sectionState.getUnmodifiedMT().saved && translationSource !== 'source' ) {
+	if ( this.shouldUnmodifiedMTBeSavedForSection( sectionState ) ) {
 		content = sectionState.getUnmodifiedMT().html;
 		if ( content ) {
 			records.push( {
@@ -455,11 +462,10 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 		} else {
 			throw new Error( 'Attempting to save section ' + sectionNumber + ' with blank content.' );
 		}
-		sectionState.markUnmodifiedMTSaved();
 	}
 
 	// Save source sections only once because they do not change.
-	if ( !sectionState.isSourceSaved() ) {
+	if ( !this.isSourceSavedForSection( sectionState ) ) {
 		records.push( {
 			content: sectionState.getSource().html,
 			sectionId: sectionNumber,
@@ -467,13 +473,28 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 			validate: false,
 			origin: 'source'
 		} );
-		sectionState.markSourceSaved();
 		mw.log( '[CX] Saving source content of section ' + sectionNumber );
 	}
 
 	sectionState.saveCount++;
 
 	return records;
+};
+
+/**
+ * @param {mw.cx.dm.SectionState} sectionState
+ * @return {boolean} True if unmodified MT should be saved for section.
+ */
+mw.cx.TranslationController.prototype.shouldUnmodifiedMTBeSavedForSection = function ( sectionState ) {
+	return !sectionState.getUnmodifiedMT().saved && sectionState.getCurrentMTProvider() !== 'source';
+};
+
+/**
+ * @param {mw.cx.dm.SectionState} sectionState
+ * @return {boolean} True if source is saved for section.
+ */
+mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( sectionState ) {
+	return sectionState.isSourceSaved();
 };
 
 /**
