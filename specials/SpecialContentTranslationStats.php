@@ -31,4 +31,16 @@ class SpecialContentTranslationStats extends ContentTranslationSpecialPage {
 	protected function initModules() {
 		$this->getOutput()->addModules( 'ext.cx.stats' );
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function addJsConfigVars() {
+		global $wgContentTranslationCampaigns;
+
+		$this->getOutput()->addJsConfigVars(
+			'wgContentTranslationCampaigns',
+			$wgContentTranslationCampaigns
+		);
+	}
 }

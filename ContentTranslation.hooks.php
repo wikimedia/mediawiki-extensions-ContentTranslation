@@ -167,18 +167,13 @@ class ContentTranslationHooks {
 		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationDomainCodeMapping,
 			$wgContentTranslationSiteTemplates,
-			$wgContentTranslationCampaigns,
 			$wgContentTranslationTargetNamespace,
-			$wgContentTranslationUserGroupTargetNamespace,
 			$wgContentTranslationVersion;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
-		$vars['wgContentTranslationCampaigns'] = $wgContentTranslationCampaigns;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
-		$vars['wgContentTranslationUserGroupTargetNamespace']
-			= $wgContentTranslationUserGroupTargetNamespace;
 		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
 	}
 

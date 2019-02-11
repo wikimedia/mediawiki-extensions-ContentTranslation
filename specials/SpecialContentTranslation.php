@@ -163,11 +163,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function initModules() {
-		global
-			$wgContentTranslationEnableSuggestions,
-			$wgContentTranslationTranslateInTarget,
-			$wgContentTranslationUnmodifiedMTThresholdForPublish,
-			$wgRecommendToolAPIURL;
+		global $wgContentTranslationTranslateInTarget;
 
 		$out = $this->getOutput();
 
@@ -179,10 +175,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		if ( $this->onTranslationView() ) {
 			$out->addModules( $initModule );
-			$out->addJsConfigVars( [
-				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
-					$wgContentTranslationUnmodifiedMTThresholdForPublish
-			] );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
@@ -190,12 +182,39 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
+			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function addJsConfigVars() {
+		global $wgContentTranslationUserGroupTargetNamespace,
+			$wgContentTranslationUnmodifiedMTThresholdForPublish,
+			$wgContentTranslationCampaigns,
+			$wgContentTranslationEnableSuggestions,
+			$wgRecommendToolAPIURL;
+
+		$out = $this->getOutput();
+
+		$out->addJsConfigVars(
+			'wgContentTranslationUserGroupTargetNamespace',
+			$wgContentTranslationUserGroupTargetNamespace
+		);
+
+		if ( $this->onTranslationView() ) {
+			$out->addJsConfigVars( [
+				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
+					$wgContentTranslationUnmodifiedMTThresholdForPublish,
+				'wgContentTranslationCampaigns' => $wgContentTranslationCampaigns
+			] );
+		} else {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
 				'wgContentTranslationShowNewVersionMessage' => $this->shouldShowNewVersionMessage(),
 				'wgRecommendToolAPIURL' => $wgRecommendToolAPIURL,
 			] );
-			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}
 

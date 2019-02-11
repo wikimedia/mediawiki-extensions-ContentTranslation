@@ -47,6 +47,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
 		$this->initModules();
+		$this->addJsConfigVars();
 
 		// Do not add skin specific modules, as there shouldn't be any skin left
 		// that could use these. It's more likely to cause issues, such as with
@@ -75,6 +76,11 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	 * Load modules for initialization.
 	 */
 	abstract protected function initModules();
+
+	/**
+	 * Export configuration variables to JavaScript
+	 */
+	abstract protected function addJsConfigVars();
 
 	/**
 	 * Check if we need to redirect user and provide URL if redirect is needed.
