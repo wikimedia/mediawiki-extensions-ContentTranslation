@@ -6,7 +6,8 @@
 			"Ladsgroup",
 			"Mahdy Saffar",
 			"Ommmmid",
-			"Reza1615"
+			"Reza1615",
+			"Amirsara"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ مترجم محتویات.",
@@ -79,6 +80,7 @@
 	"apierror-cx-keynotconfigured": "کلید تنظیم نشده‌است.",
 	"apierror-cx-missingdraft": "پیش‌نویس وجود ندارد.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "برای دیدن ترجمه‌هایتان، باید وارد سامانه شوید.",
+	"apierror-cx-samelanguages": "زبان های منبع و هدف نباید یکی باشند.",
 	"apierror-cx-suggestionsdisabled": "پیشنهادها برای این ویکی فعال نشده‌است",
 	"apierror-cx-translationnotfound": "ترجمه یافت نشد.",
 	"apihelp-query+langlinkscount-summary": "تعداد نسخه‌های زبان‌های دیگر را بگیر"

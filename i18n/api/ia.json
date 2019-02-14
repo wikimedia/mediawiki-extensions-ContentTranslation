@@ -103,7 +103,7 @@
 	"apierror-cx-invalidsourcelanguage": "Lingua de origine invalide.",
 	"apierror-cx-invalidtargetlanguage": "Lingua de destination invalide.",
 	"apierror-cx-invalidtranslator": "Nomine de traductor invalide.",
-	"apierror-cx-jwtmissing": "JWT mancante.",
+	"apierror-cx-jwtmissing": "JWT non es installate.",
 	"apierror-cx-keynotconfigured": "Clave non configurate.",
 	"apierror-cx-missingdraft": "Esbosso non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Tu debe aperir session pro gerer tu suggestiones.",

@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mogoeilor"
+		]
+	},
+	"cx-publish-button": "دٱرتیچ کردن",
+	"cx-publish-button-publishing": "ب هال و بال دٱرتیچ کردن....",
+	"cx-page-selector-widget-nearby-label": "نزیک",
+	"cx-captcha-dialog-cancel": "ٱنجومشیڤ کردن",
+	"cx-dashboard-sidebar-newversion-disable": "ناکونشتگٱر کردن",
+	"cx-translation-filter-label-all-languages": "هٱماْ",
+	"cx-contributions-new-article": "بٱلگاْ تازاْ",
+	"cx-contributions-translation": "لرنیڌن",
+	"cx-translation-status-draft": "ب هال و بال پیشکرد",
+	"cx-translation-status-published": "دٱرتیچ ڤابیڌاْ",
+	"cx-translation-status-deleted": "پاکسا ڤابیڌاْ.",
+	"cx-stats-cumulative-tab-title": "سٱریٱک",
+	"cx-stats-weekly-trend-tab-title": "هر هٱفتاْ",
+	"cx-draft-cancel-button-label": "ٱنجومشیڤ کردن",
+	"cx-tools-mt-new-provider": "تازاْ",
+	"cx-tools-template-title": "چۊاْ"
+}
