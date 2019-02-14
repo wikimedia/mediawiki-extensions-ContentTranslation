@@ -159,6 +159,8 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		this.sections[ sectionNumber ] = sectionState;
 	}
 
+	this.adjustSectionStateForSourceTranslations( this.getSectionsTranslatedFromSource( translationModel ) );
+
 	mw.log( '[CX] Translation tracker initialized for ' +
 		sectionModels.length + ' sections (' + restoredSections + ' restored)' );
 
@@ -190,6 +192,41 @@ mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function ( sections 
 
 	// Register event listeners for 'focus' event for every newly added section
 	this.veTarget.connect( this, { changeContentSource: 'registerOnFocusListenerForSection' } );
+};
+
+/**
+ * When section is translated by adapting the source section, that is not saved in the
+ * parallel corpora table. So, when we restore that section, we don't have anything to
+ * compare user translation to, when section progress is calculated.
+ * Therefore, use source content as unmodified MT.
+ *
+ * @param {number[]} sectionIds Array of IDs of sections translated from source.
+ */
+mw.cx.TranslationTracker.prototype.adjustSectionStateForSourceTranslations = function ( sectionIds ) {
+	if ( !Array.isArray( sectionIds ) ) {
+		throw new Error( 'Must provide IDs of sections translated from source as array' );
+	}
+
+	sectionIds.forEach( function ( sectionId ) {
+		var sectionState = this.sections[ sectionId ];
+
+		sectionState.setCurrentMTProvider( 'source' );
+		sectionState.setUnmodifiedMT( sectionState.getSource().html );
+	}.bind( this ) );
+};
+
+/**
+ * @param {mw.cx.dm.Translation} translationModel
+ * @return {number[]} IDs of sections translated from source.
+ */
+mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( translationModel ) {
+	var targetSections = translationModel.targetDoc.getNodesByType( 'cxSection' );
+
+	return targetSections.filter( function ( sectionModel ) {
+		return sectionModel.getOriginalContentSource() === 'source';
+	} ).map( function ( sectionModel ) {
+		return sectionModel.getId();
+	} );
 };
 
 /**
