@@ -4,5 +4,16 @@
 			"Lalotahes"
 		]
 	},
-	"cx-dashboard-sidebar-newversion-disable": "’inlet"
+	"cx-page-selector-widget-nearby-label": " ’al’alihan",
+	"cx-captcha-dialog-cancel": "kayni’",
+	"cx-dashboard-sidebar-newversion-disable": "’inlet",
+	"cx-suggestionlist-view-source-page": " komita ka yuensema:",
+	"cx-translation-filter-label-all-languages": "saeboeh",
+	"cx-contributions-new-article": "’ima SaSo’ ye:myen",
+	"cx-draft-cancel-button-label": "kayni’",
+	"cx-campaign-contributionsmenu-mycontributions": " mobay ka pinatawaw",
+	"cx-personaltools-user": " kamamatawaw",
+	"cx-tools-linter-restart-translation-cancel": "kayni’",
+	"cx-tools-template-title": " kakSaro:olan",
+	"cx-publish-destination-namespace-main": "’ima SaSo’ ye:myen"
 }
