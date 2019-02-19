@@ -47,7 +47,6 @@ ve.ce.CXLintableNode.prototype.blursEditingSurface = function () {
  */
 ve.ce.CXLintableNode.prototype.onAllIssuesResolved = function () {
 	this.removeHighlight();
-	this.getFocusableElement().off( 'mousedown blur' );
 };
 
 /**

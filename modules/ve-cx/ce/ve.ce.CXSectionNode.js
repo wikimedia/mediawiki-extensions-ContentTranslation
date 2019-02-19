@@ -23,6 +23,11 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 		} )
 		.addClass( 've-ce-cxSectionNode' );
 
+	this.getFocusableElement().on( {
+		focus: this.emit.bind( this, 'focus' ),
+		blur: this.emit.bind( this, 'blur' )
+	} );
+
 	this.model.connect( this, {
 		beforeTranslation: 'onBeforeTranslation',
 		afterTranslation: 'onAfterTranslation'

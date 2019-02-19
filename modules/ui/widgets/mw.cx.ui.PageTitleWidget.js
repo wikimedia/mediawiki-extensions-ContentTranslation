@@ -33,10 +33,11 @@ mw.cx.ui.PageTitleWidget = function ( model, config ) {
 		'resize',
 		OO.ui.throttle( this.onWindowResize.bind( this ), 300 )
 	);
-	this.$input.off( 'focus blur' ).on( {
-		focus: OO.ui.debounce( this.onFocus.bind( this ), 50 ),
-		blur: this.onBlur.bind( this )
-	} );
+
+	this.getFocusableElement().off( 'focus' ).on( 'focus', this.emit.bind( this, 'focus' ) );
+	$( document )
+		.off( 'blur', '.cx-pagetitle' )
+		.on( 'blur', '.cx-pagetitle', this.emit.bind( this, 'blur' ) );
 	this.connect( this, {
 		change: OO.ui.debounce( this.validateTitle.bind( this ), 300 )
 	} );
@@ -48,14 +49,6 @@ OO.inheritClass( mw.cx.ui.PageTitleWidget, OO.ui.MultilineTextInputWidget );
 OO.mixinClass( mw.cx.ui.PageTitleWidget, ve.ce.CXLintableNode );
 
 /* Methods */
-
-mw.cx.ui.PageTitleWidget.prototype.onFocus = function () {
-	this.emit( 'focus' );
-};
-
-mw.cx.ui.PageTitleWidget.prototype.onBlur = function () {
-	this.emit( 'blur' );
-};
 
 /**
  * @return {mw.cx.dm.PageTitleModel}

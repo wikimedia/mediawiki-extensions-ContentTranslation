@@ -255,17 +255,28 @@ mw.cx.tools.IssueTrackingTool.prototype.getBody = function () {
 };
 
 /**
- * Register mousedown and blur events for nodes with issues.
+ * Register focus and blur events for nodes with issues.
  *
- * @param {ve.ce.CXLintableNode} node
+ * @param {ve.ce.CXSectionNode|mw.cx.ui.PageTitleWidget} node
  */
 mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
-	node.getFocusableElement()
-		.off( 'mousedown blur' )
-		.on( {
-			mousedown: OO.ui.debounce( this.init.bind( this ) ),
-			blur: OO.ui.debounce( this.onBlur.bind( this ) )
-		} );
+	var onFocus = OO.ui.debounce( this.init.bind( this ) ),
+		onBlur = OO.ui.debounce( this.onBlur.bind( this ) );
+
+	node.connect( this, {
+		focus: onFocus,
+		blur: onBlur
+	} );
+
+	// When all issues are resolved, disconnect the focus and blur listeners
+	node.getModel().connect( this, {
+		allIssuesResolved: function () {
+			node.disconnect( this, {
+				focus: onFocus,
+				blur: onBlur
+			} );
+		}.bind( this )
+	} );
 };
 
 /**
@@ -406,7 +417,7 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 
 /**
  * @param {number|string} id Section number or special values of 'title' and 'global'
- * @return {ve.ce.CXLintableNode|mw.cx.dm.Translation|null}
+ * @return {ve.ce.CXSectionNode|mw.cx.ui.PageTitleWidget|mw.cx.dm.Translation|null}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {
 	var node = this.veTarget.getTargetSectionElementFromSectionNumber( id );
