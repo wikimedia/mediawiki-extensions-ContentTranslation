@@ -3,14 +3,14 @@
 /**
  * Page title widget. This is the header for source and translation columns.
  * It is editable (contenteditable) for translation and readonly for source page.
- * Supports validation of values.
+ *
  * @class
  * @extends OO.ui.MultilineTextInputWidget
  * @mixins ve.ce.CXLintableNode
  * @param {mw.cx.dm.PageTitleModel} model
  * @param {Object} [config] Configuration object
  */
-mw.cx.widgets.PageTitleWidget = function ( model, config ) {
+mw.cx.ui.PageTitleWidget = function ( model, config ) {
 	// Configuration initialization
 	config = $.extend( config, {
 		classes: [ 'cx-pagetitle' ],
@@ -21,9 +21,9 @@ mw.cx.widgets.PageTitleWidget = function ( model, config ) {
 	this.model = model;
 
 	// Parent constructor
-	mw.cx.widgets.PageTitleWidget.super.call( this, config );
+	mw.cx.ui.PageTitleWidget.super.call( this, config );
 
-	// Mixin constructors
+	// Mixin constructor
 	ve.ce.CXLintableNode.call( this );
 
 	this.validTitle = null;
@@ -44,41 +44,41 @@ mw.cx.widgets.PageTitleWidget = function ( model, config ) {
 
 /* Setup */
 
-OO.inheritClass( mw.cx.widgets.PageTitleWidget, OO.ui.MultilineTextInputWidget );
-OO.mixinClass( mw.cx.widgets.PageTitleWidget, ve.ce.CXLintableNode );
+OO.inheritClass( mw.cx.ui.PageTitleWidget, OO.ui.MultilineTextInputWidget );
+OO.mixinClass( mw.cx.ui.PageTitleWidget, ve.ce.CXLintableNode );
 
 /* Methods */
 
-mw.cx.widgets.PageTitleWidget.prototype.onFocus = function () {
+mw.cx.ui.PageTitleWidget.prototype.onFocus = function () {
 	this.emit( 'focus' );
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.onBlur = function () {
+mw.cx.ui.PageTitleWidget.prototype.onBlur = function () {
 	this.emit( 'blur' );
 };
 
 /**
  * @return {mw.cx.dm.PageTitleModel}
  */
-mw.cx.widgets.PageTitleWidget.prototype.getModel = function () {
+mw.cx.ui.PageTitleWidget.prototype.getModel = function () {
 	return this.model;
 };
 
 /**
  * @inheritdoc
  */
-mw.cx.widgets.PageTitleWidget.prototype.getFocusableElement = function () {
+mw.cx.ui.PageTitleWidget.prototype.getFocusableElement = function () {
 	return this.$tabIndexed;
 };
 
 /**
  * @inheritdoc
  */
-mw.cx.widgets.PageTitleWidget.prototype.blursEditingSurface = function () {
+mw.cx.ui.PageTitleWidget.prototype.blursEditingSurface = function () {
 	return true;
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
+mw.cx.ui.PageTitleWidget.prototype.validateTitle = function ( value ) {
 	// Empty array in param resolves all issues with the title
 	this.model.resolveTranslationIssues( [] );
 
@@ -96,7 +96,7 @@ mw.cx.widgets.PageTitleWidget.prototype.validateTitle = function ( value ) {
 	}.bind( this ) );
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
+mw.cx.ui.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 	return {
 		name: 'existing-title',
 		message: mw.message(
@@ -112,7 +112,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 	};
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
+mw.cx.ui.PageTitleWidget.prototype.getEmptyTitleError = function () {
 	return {
 		name: 'empty-title',
 		message: mw.message( 'cx-tools-linter-empty-title-message' ),
@@ -125,7 +125,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getEmptyTitleError = function () {
 	};
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
+mw.cx.ui.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 	var titleObj = mw.Title.newFromUserInput( this.getValue() ),
 		messageData = {
 			name: 'invalid-title',
@@ -152,7 +152,7 @@ mw.cx.widgets.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 	return messageData;
 };
 
-mw.cx.widgets.PageTitleWidget.prototype.fixTitle = function () {
+mw.cx.ui.PageTitleWidget.prototype.fixTitle = function () {
 	this.setValue( this.validTitle );
 };
 
@@ -164,7 +164,7 @@ mw.cx.widgets.PageTitleWidget.prototype.fixTitle = function () {
  * @fires enter If enter key is pressed and input is not multiline
  * @return {boolean}
  */
-mw.cx.widgets.PageTitleWidget.prototype.onKeyPress = function ( e ) {
+mw.cx.ui.PageTitleWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {
 		this.emit( 'enter', e );
 		return false;
@@ -174,7 +174,7 @@ mw.cx.widgets.PageTitleWidget.prototype.onKeyPress = function ( e ) {
 /**
  * Window resize handler
  */
-mw.cx.widgets.PageTitleWidget.prototype.onWindowResize = function () {
+mw.cx.ui.PageTitleWidget.prototype.onWindowResize = function () {
 	// We need to trick the parent adjustSize() method not to exit early
 	// because it checks if input string has changed by comparing with
 	// cache value. If there was no limitation here, we would just

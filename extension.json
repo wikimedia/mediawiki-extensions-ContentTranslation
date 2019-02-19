@@ -2147,6 +2147,7 @@
 				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less"
 			],
 			"dependencies": [
+				"mw.cx.ui",
 				"mw.cx.util",
 				"ve.ce.CXLintableNode",
 				"oojs-ui-widgets"

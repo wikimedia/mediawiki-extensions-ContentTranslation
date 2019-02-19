@@ -29,7 +29,7 @@ mw.cx.ui.ArticleColumn = function ( siteMapper, language, title, config ) {
 	this.translation = null;
 	this.siteMapper = siteMapper;
 	this.language = language;
-	this.titleWidget = new mw.cx.widgets.PageTitleWidget(
+	this.titleWidget = new mw.cx.ui.PageTitleWidget(
 		new mw.cx.dm.PageTitleModel(),
 		{ value: title }
 	);
@@ -112,7 +112,7 @@ mw.cx.ui.ArticleColumn.prototype.getTitle = function () {
 };
 
 /**
- * @return {mw.cx.widgets.PageTitleWidget}
+ * @return {mw.cx.ui.PageTitleWidget}
  */
 mw.cx.ui.ArticleColumn.prototype.getTitleWidget = function () {
 	return this.titleWidget;
