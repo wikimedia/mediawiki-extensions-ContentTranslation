@@ -15,7 +15,7 @@ ve.dm.CXLintableNode = function VeDmCXLintableNode() {
 
 /**
  * @method
- * @return {string}
+ * @return {string|number}
  */
 ve.dm.CXLintableNode.prototype.getId = null;
 
