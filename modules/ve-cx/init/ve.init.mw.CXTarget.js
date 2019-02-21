@@ -647,7 +647,7 @@ ve.init.mw.CXTarget.prototype.getTargetSectionElementFromSectionNumber = functio
  * Get the translation node for the given section number. Accepts section id of source or target.
  *
  * @param  {string} sectionNumber Section number. Example 4, 5 etc.
- * @return {ve.dm.CXSectionNode}
+ * @return {ve.dm.CXSectionNode|null}
  */
 ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function ( sectionNumber ) {
 	var view = this.getTargetSectionElementFromSectionNumber( sectionNumber );
