@@ -43,6 +43,8 @@ mw.cx.TranslationController = function MwCxTranslationController(
 
 OO.mixinClass( mw.cx.TranslationController, OO.EventEmitter );
 
+/* Methods */
+
 mw.cx.TranslationController.prototype.listen = function () {
 	this.translation.connect( this, {
 		targetCategoriesChange: 'onTargetCategoriesChange',
@@ -91,14 +93,6 @@ mw.cx.TranslationController.prototype.addToChangeQueue = function ( sectionId ) 
 	this.changeTrackerScheduler();
 	this.saveScheduler();
 };
-
-ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
-	shortcuts: [ {
-		mac: 'cmd+s',
-		pc: 'ctrl+s'
-	} ],
-	label: OO.ui.deferMsg( 'cx-save-draft-shortcut-label' )
-} );
 
 /**
  * Return true if there are any new changes to be saved.
@@ -655,3 +649,13 @@ mw.cx.TranslationController.prototype.onTranslationIssues = function ( id, hasEr
 	this.translationTracker.setTranslationIssues( id, true );
 	this.translationView.onTranslationIssues( this.translationTracker.getNodesWithIssues(), hasErrors );
 };
+
+/* Registration */
+
+ve.ui.commandHelpRegistry.register( 'other', 'autoSave', {
+	shortcuts: [ {
+		mac: 'cmd+s',
+		pc: 'ctrl+s'
+	} ],
+	label: OO.ui.deferMsg( 'cx-save-draft-shortcut-label' )
+} );
