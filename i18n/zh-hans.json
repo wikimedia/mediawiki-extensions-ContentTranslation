@@ -21,7 +21,8 @@
 			"夢蝶葬花",
 			"Phenolla",
 			"A Chinese Wikipedian",
-			"A2093064"
+			"A2093064",
+			"VulpesVulpes825"
 		]
 	},
 	"cx": "翻译页面",
@@ -86,7 +87,7 @@
 	"cx-tools-link-title": "链接",
 	"cx-tools-link-add": "添加链接",
 	"cx-tools-link-remove": "移除链接",
-	"cx-tools-mt-title": "自动化翻译",
+	"cx-tools-mt-title": "初始翻译",
 	"cx-tools-mt-use-source": "使用原文",
 	"cx-tools-mt-reset": "重置翻译",
 	"cx-tools-mt-provider-title": "使用$1",
