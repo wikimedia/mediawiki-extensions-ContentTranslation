@@ -86,6 +86,35 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 
 OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
+/* Events */
+
+/**
+ * @event targetTitleChange
+ *
+ * Target title of the translation has changed.
+ */
+
+/**
+ * @event publish
+ *
+ * User clicked on "Publish" button to start the publication process.
+ */
+
+/**
+ * @event contentChange
+ *
+ * Content in the document has changed.
+ */
+
+/**
+ * @event changeContentSource
+ *
+ * Some target section's content source has changed.
+ * @param {number} sectionNumber
+ * @param {string|null} previousProvider
+ * @param {string} newProvider
+ */
+
 /* Static Properties */
 
 ve.init.mw.CXTarget.static.name = 'cx';
@@ -442,6 +471,9 @@ ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
 	} );
 };
 
+/**
+ * @fires targetTitleChange
+ */
 ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.pageName = this.translationView.targetColumn.getTitle();
 	this.updateNamespace();
@@ -510,6 +542,9 @@ ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
 	return titleObj ? titleObj.getNamespaceId() : mw.cx.getDefaultTargetNamespace();
 };
 
+/**
+ * @fires publish
+ */
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
@@ -534,6 +569,9 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 	}.bind( this ) );
 };
 
+/**
+ * @fires contentChange
+ */
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 	this.emit( 'contentChange' );
 	this.debounceAlignSectionPairs();
@@ -882,6 +920,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
  * @param {Object} options
  * @cfg {boolean} noCache Do not use cached version
  * @return {jQuery.promise}
+ * @fires changeContentSource
  */
 ve.init.mw.CXTarget.prototype.changeContentSource = function (
 	section,
