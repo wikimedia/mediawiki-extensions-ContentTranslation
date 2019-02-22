@@ -171,7 +171,7 @@
 		this.pageSelector.populateLookupMenu();
 		this.pageSelector.lookupMenu.toggle( true );
 		// FIXME: Use CSS transition
-		// eslint-disable-next-line jquery/no-slide
+		// eslint-disable-next-line no-jquery/no-slide
 		this.$container.slideDown( 'fast' );
 		this.pageSelector.focus();
 		this.pageSelector.positionLabel();
@@ -180,7 +180,7 @@
 	SourcePageSelector.prototype.discardDialog = function () {
 		this.overlay.hide();
 		// FIXME: Use CSS transition
-		// eslint-disable-next-line jquery/no-slide
+		// eslint-disable-next-line no-jquery/no-slide
 		$( '.translation-filter' ).slideDown( 'fast' );
 		this.$container.removeClass( 'cx-source-page-selector--selected' ).toggle();
 

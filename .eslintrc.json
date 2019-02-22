@@ -13,6 +13,6 @@
 	},
 	"rules": {
 		"max-len": "off",
-		"jquery/no-global-selector": "off"
+		"no-jquery/no-global-selector": "off"
 	}
 }

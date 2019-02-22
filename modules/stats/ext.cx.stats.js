@@ -365,8 +365,7 @@
 
 			if ( location.hash === '#' + items[ i ].id ) {
 				tabToShow = i;
-				// eslint-disable-next-line jquery/no-animate
-				$( 'html' ).animate( {
+				$( 'html, body' ).animate( {
 					scrollTop: items[ i ].$tab.offset().top
 				}, 500 );
 			}

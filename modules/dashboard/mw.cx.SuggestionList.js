@@ -584,7 +584,7 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 				suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title
 			);
 			// FIXME: Use CSS transition
-			// eslint-disable-next-line jquery/no-slide
+			// eslint-disable-next-line no-jquery/no-slide
 			suggestion.$element.slideUp( 'slow', function () {
 				$( this ).remove();
 			} );
@@ -958,7 +958,6 @@ mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
 		categoryListCount = 2;
 
 	// Scroll the page up to the beginning of $publicCollection
-	// eslint-disable-next-line jquery/no-animate
 	$( 'html, body' ).animate( {
 		// 200 px subtracted to deal with the sticky header.
 		// It need not be 100% accurate. The idea is to scroll up
