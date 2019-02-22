@@ -19,6 +19,7 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	this.veTarget = veTarget;
 	this.translationModel = translationModel;
 
+	this.lastFocusedSection = null;
 	// A value 0.8 means we tolerate 80% unmodified machine translation in translation.
 	this.unmodifiedMTThreshold = 0.8;
 	// A value 0.6 means we tolerate 60% unmodified text copied from source paragraph.
@@ -83,6 +84,21 @@ mw.cx.TranslationTracker.prototype.init = function () {
 		this.processChangeQueue();
 		this.processValidationQueue();
 	}
+
+	this.attachOnFocusListeners();
+};
+
+/**
+ * Attach listeners for 'focus' events on restored sections as well as on newly added sections.
+ */
+mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function () {
+	// Register event listeners for 'focus' event on restored sections
+	this.translationModel.targetDoc.getNodesByType( 'cxSection' ).map( function ( sectionModel ) {
+		return sectionModel.getId();
+	} ).forEach( this.registerOnFocusListenerForSection.bind( this ) );
+
+	// Register event listeners for 'focus' event for every newly added section
+	this.veTarget.connect( this, { changeContentSource: 'registerOnFocusListenerForSection' } );
 };
 
 /**
@@ -403,6 +419,26 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = function () {
 	var progress = this.getTranslationProgress();
 	return ( progress.mtSectionsCount / progress.translatedSectionsCount ) * 100;
+};
+
+/**
+ * @param {number} sectionNumber
+ */
+mw.cx.TranslationTracker.prototype.registerOnFocusListenerForSection = function ( sectionNumber ) {
+	var sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
+
+	sectionNode.connect( this, { focus: [ 'onSectionFocus', sectionNumber ] } );
+};
+
+/**
+ * @param {number} focusedSectionNumber
+ */
+mw.cx.TranslationTracker.prototype.onSectionFocus = function ( focusedSectionNumber ) {
+	if ( this.lastFocusedSection !== focusedSectionNumber ) {
+		this.processValidationQueue();
+	}
+
+	this.lastFocusedSection = focusedSectionNumber;
 };
 
 /**

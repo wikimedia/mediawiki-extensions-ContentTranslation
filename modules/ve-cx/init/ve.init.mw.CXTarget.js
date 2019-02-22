@@ -910,6 +910,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 
 	return this.translateSection( cxid, newProvider, options.noCache ).then( function ( content ) {
 		this.setSectionContent( section, content, newProvider );
+		this.emit( 'changeContentSource', mw.cx.getSectionNumberFromSectionId( cxid ), previousProvider, newProvider );
 	}.bind( this ) );
 };
 
