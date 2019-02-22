@@ -263,10 +263,15 @@ mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
 	var onFocus = OO.ui.debounce( this.init.bind( this ) ),
 		onBlur = OO.ui.debounce( this.onBlur.bind( this ) );
 
+	if ( node.isFocusListenerAttached() ) {
+		return;
+	}
+
 	node.connect( this, {
 		focus: onFocus,
 		blur: onBlur
 	} );
+	node.setFocusListenerAttached( true );
 
 	// When all issues are resolved, disconnect the focus and blur listeners
 	node.getModel().connect( this, {
@@ -275,6 +280,7 @@ mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
 				focus: onFocus,
 				blur: onBlur
 			} );
+			node.setFocusListenerAttached( false );
 		}.bind( this )
 	} );
 };

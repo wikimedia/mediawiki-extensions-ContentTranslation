@@ -5,6 +5,8 @@
  * @constructor
  */
 ve.ce.CXLintableNode = function VeCeCXLintableNode() {
+	this.focusListenerAttached = false;
+
 	this.getHighlightableElement().addClass( 've-ce-cxLintableNode' );
 
 	this.model.connect( this, {
@@ -67,4 +69,12 @@ ve.ce.CXLintableNode.prototype.highlightNode = function ( hasErrors ) {
 	var type = hasErrors ? 'error' : 'warning';
 	this.removeHighlight();
 	this.getHighlightableElement().addClass( 'mw-cx-lintIssue-' + type );
+};
+
+ve.ce.CXLintableNode.prototype.isFocusListenerAttached = function () {
+	return this.focusListenerAttached;
+};
+
+ve.ce.CXLintableNode.prototype.setFocusListenerAttached = function ( isFocusListenerAttached ) {
+	this.focusListenerAttached = isFocusListenerAttached;
 };
