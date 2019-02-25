@@ -31,7 +31,7 @@ ve.ce.CXTransclusionNode.static.name = 'cxTransclusion';
  * XXX: ContentEditable MediaWiki transclusion block node.
  *
  * @class
- * @extends ve.ce.MWTransclusionBlockNode
+ * @extends ve.ce.CXTransclusionNode
  *
  * @constructor
  * @param {Object} [element] Reference to element in linear model
@@ -43,11 +43,13 @@ ve.ce.CXTransclusionBlockNode = function VeCeCXTransclusionBlockNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.CXTransclusionBlockNode, ve.ce.MWTransclusionBlockNode );
+OO.inheritClass( ve.ce.CXTransclusionBlockNode, ve.ce.CXTransclusionNode );
 
 /* Static Properties */
 
 ve.ce.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
+
+ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
 
 /* Methods */
 
@@ -110,7 +112,7 @@ ve.ce.CXTransclusionBlockNode.prototype.setFocused = function ( value ) {
  * XXX: ContentEditable MediaWiki transclusion inline node.
  *
  * @class
- * @extends ve.ce.MWTransclusionInlineNode
+ * @extends ve.ce.CXTransclusionNode
  *
  * @constructor
  * @param {Object} [element] Reference to element in linear model
@@ -122,11 +124,13 @@ ve.ce.CXTransclusionInlineNode = function VeCeCXTransclusionInlineNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.CXTransclusionInlineNode, ve.ce.MWTransclusionInlineNode );
+OO.inheritClass( ve.ce.CXTransclusionInlineNode, ve.ce.CXTransclusionNode );
 
 /* Static Properties */
 
 ve.ce.CXTransclusionInlineNode.static.name = 'cxTransclusionInline';
+
+ve.ce.CXTransclusionInlineNode.static.tagName = 'span';
 
 /* Methods */
 

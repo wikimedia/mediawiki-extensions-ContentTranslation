@@ -55,7 +55,7 @@ ve.dm.CXTransclusionNode.static.toDomElements = function ( dataElement ) {
  * Communicate warnings about unadapted templates.
  *
  * @class
- * @extends ve.dm.MWTransclusionBlockNode
+ * @extends ve.dm.CXTransclusionNode
  *
  * @constructor
  * @param {Object} [element] Reference to element in linear model
@@ -73,11 +73,14 @@ ve.dm.CXTransclusionBlockNode = function VeDmCXTransclusionBlockNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.CXTransclusionBlockNode, ve.dm.MWTransclusionBlockNode );
+OO.inheritClass( ve.dm.CXTransclusionBlockNode, ve.dm.CXTransclusionNode );
 
 /* Static Properties */
 
 ve.dm.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
+
+/* Only ve.dm.CXTransclusionNode matches, then creates block/inline nodes dynamically */
+ve.dm.CXTransclusionBlockNode.static.matchTagNames = [];
 
 /* Methods */
 
@@ -168,7 +171,7 @@ ve.dm.CXTransclusionBlockNode.prototype.isPartiallyAdapted = function () {
  * Communicate warnings about unadapted inline templates.
  *
  * @class
- * @extends ve.dm.MWTransclusionInlineNode
+ * @extends ve.dm.CXTransclusionNode
  *
  * @constructor
  * @param {Object} [element] Reference to element in linear model
@@ -186,11 +189,16 @@ ve.dm.CXTransclusionInlineNode = function VeDmCXTransclusionInlineNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.CXTransclusionInlineNode, ve.dm.MWTransclusionInlineNode );
+OO.inheritClass( ve.dm.CXTransclusionInlineNode, ve.dm.CXTransclusionNode );
 
 /* Static Properties */
 
 ve.dm.CXTransclusionInlineNode.static.name = 'cxTransclusionInline';
+
+/* Only ve.dm.CXTransclusionNode matches, then creates block/inline nodes dynamically */
+ve.dm.CXTransclusionInlineNode.static.matchTagNames = [];
+
+ve.dm.CXTransclusionInlineNode.static.isContent = true;
 
 /* Methods */
 
