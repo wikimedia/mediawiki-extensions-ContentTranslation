@@ -54,6 +54,10 @@ ve.ui.CXTextSelectionContextItem.static.deletable = false;
 
 ve.ui.CXTextSelectionContextItem.static.editable = true;
 
+// This context will match to any model, so make sure it doesn't
+// exclude a context that is designed specifically for this model (T217081)
+ve.ui.CXTextSelectionContextItem.static.exclusive = false;
+
 /* Static Methods */
 
 ve.ui.CXTextSelectionContextItem.static.isCompatibleWith = function ( model ) {
