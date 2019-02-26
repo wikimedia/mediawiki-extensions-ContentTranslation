@@ -18,7 +18,9 @@ ve.ui.CXLinkContextItem = function VeUiCXLinkContextItem() {
 	// Do not show the delete button in red color
 	this.clearButton.clearFlags();
 
-	this.targetLinkCache = ve.init.platform.linkCache;
+	this.inTargetSurface = this.context.surface === ve.init.target.targetSurface;
+	this.thisLinkCache = this.inTargetSurface ? ve.init.platform.linkCache : ve.init.platform.sourceLinkCache;
+	this.otherLinkCache = this.inTargetSurface ? ve.init.platform.sourceLinkCache : ve.init.platform.linkCache;
 	this.requestManager = ve.init.target.requestManager;
 };
 
@@ -172,41 +174,46 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
  * @return {jQuery.Promise}
  */
 ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
-	var normalizedTitle = this.model.getAttribute( 'normalizedTitle' ),
-		sourceLanguage = this.translation.getSourceLanguage(),
-		targetLanguage = this.translation.getTargetLanguage(),
-		adaptationInfo = {
-			targetTitle: {
-				title: normalizedTitle,
-				pagelanguage: targetLanguage
-			}
+	var thisTitlePromise, otherTitlePromise,
+		thisTitle = this.model.getAttribute( 'normalizedTitle' ),
+		thisLanguage = this.inTargetSurface ? this.translation.getTargetLanguage() : this.translation.getSourceLanguage(),
+		otherLanguage = this.inTargetSurface ? this.translation.getSourceLanguage() : this.translation.getTargetLanguage(),
+		thisTitleKey = this.inTargetSurface ? 'targetTitle' : 'sourceTitle',
+		otherTitleKey = this.inTargetSurface ? 'sourceTitle' : 'targetTitle',
+		adaptationInfo = {};
+
+	thisTitlePromise = this.thisLinkCache.get( thisTitle ).then( function ( thisLinkData ) {
+		adaptationInfo[ thisTitleKey ] = {
+			title: thisTitle,
+			pagelanguage: thisLanguage,
+			description: thisLinkData.description,
+			thumbnail: { source: thisLinkData.imageUrl }
 		};
+	} );
 
-	return this.targetLinkCache.get( normalizedTitle ).then( function ( linkData ) {
-		adaptationInfo.targetTitle.description = linkData.description;
-		adaptationInfo.targetTitle.thumbnail = { source: linkData.imageUrl };
+	otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( function ( titlePairInfo ) {
+		var otherTitle = titlePairInfo.targetTitle;
 
-		return this.requestManager.getTitlePair( targetLanguage, normalizedTitle )
-			.then( function ( titlePairInfo ) {
-				var sourceTitle = titlePairInfo.targetTitle;
+		adaptationInfo.adapted = true;
 
-				adaptationInfo.adapted = true;
+		if ( titlePairInfo.missing ) {
+			return;
+		}
 
-				if ( titlePairInfo.missing ) {
-					return;
-				}
+		return this.otherLinkCache.get( otherTitle ).then( function ( otherLinkData ) {
+			adaptationInfo[ otherTitleKey ] = {
+				title: otherTitle,
+				pagelanguage: otherLanguage,
+				description: otherLinkData.description,
+				thumbnail: { source: otherLinkData.imageUrl }
+			};
+		} );
+	}.bind( this ) );
 
-				adaptationInfo.sourceTitle = {
-					title: sourceTitle,
-					pagelanguage: sourceLanguage
-				};
-			} ).then( function () {
-				var store = this.model.getStore(),
-					normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
-				store.hash( adaptationInfo, OO.getHash( normalizedTitle ) );
+	return $.when( thisTitlePromise, otherTitlePromise ).then( function () {
+		this.model.getStore().hash( adaptationInfo, OO.getHash( thisTitle ) );
 
-				return adaptationInfo;
-			}.bind( this ) );
+		return adaptationInfo;
 	}.bind( this ) );
 };
 
@@ -227,25 +234,28 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 	}
 
 	// Target link
-	if ( adaptationInfo.adapted || adaptationInfo.targetTitle ) {
+	if ( adaptationInfo.targetTitle ) {
 		$targetLinkCard = ve.ui.CXLinkContextItem.static.generateBody(
 			adaptationInfo.targetTitle, this.context
 		);
 	} else {
 		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
-		markAsMissingButton = new OO.ui.ButtonWidget( {
-			label: mw.msg( 'cx-tools-missing-link-mark-link' ),
-			classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
-			flags: [ 'progressive' ]
-		} );
-		markAsMissingInfo = $( '<div>' )
-			.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
-			.text( mw.msg( 'cx-tools-missing-link-text' ) );
-		$targetLinkCard = $( '<div>' )
-			.addClass( 've-ui-cxLinkContextItem-mark-missing' )
-			.append( markAsMissingInfo, markAsMissingButton.$element );
+		// TODO: Support mark-as-missing button on source surface.
+		if ( this.inTargetSurface ) {
+			markAsMissingButton = new OO.ui.ButtonWidget( {
+				label: mw.msg( 'cx-tools-missing-link-mark-link' ),
+				classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
+				flags: [ 'progressive' ]
+			} );
+			markAsMissingInfo = $( '<div>' )
+				.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
+				.text( mw.msg( 'cx-tools-missing-link-text' ) );
+			$targetLinkCard = $( '<div>' )
+				.addClass( 've-ui-cxLinkContextItem-mark-missing' )
+				.append( markAsMissingInfo, markAsMissingButton.$element );
 
-		markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
+			markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
+		}
 	}
 
 	this.$body.empty().append( $targetLinkCard );
