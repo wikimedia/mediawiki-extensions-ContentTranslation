@@ -463,7 +463,7 @@ mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = functio
 		}
 
 		publishConfig.forEach( function ( userGroup ) {
-			canPublish = canPublish && groups.indexOf( userGroup ) > 0;
+			canPublish = canPublish && groups.indexOf( userGroup ) > -1;
 		} );
 
 		this.canPublish = canPublish;
