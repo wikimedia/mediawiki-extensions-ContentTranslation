@@ -13,7 +13,8 @@
 			"Amire80",
 			"Prevodim",
 			"Kaartic",
-			"Fahimrazick"
+			"Fahimrazick",
+			"Nisha"
 		]
 	},
 	"cx": "பக்கத்தை மொழிபெயர்க்கவும்",
@@ -144,6 +145,7 @@
 	"mw-pageselector-missing": "இப்பக்கம் இல்லை",
 	"cx-suggestionlist-expand": "அனைத்தையும் பார்வையிடுக",
 	"cx-suggestionlist-collapse": "குறைவாகப் பார்க்கவும்",
+	"cx-infobar-cannot-publish": "உங்கள் மொழிபெயர்ப்பு வெளியிடப்படவில்லை, ஏனெனில் இந்த விக்கியில் அதிகமான அனுபவமுள்ள ஆசிரியர்களுக்கு மட்டுமே மொழிபெயர்ப்பு வெளியீட்டு அனுமதி வழங்கப்படுகிறது.",
 	"cx-tools-linter-view-details": "விபரத்தைக் காட்டுக",
 	"cx-tools-linter-hide-details": "விபரத்தை மறை",
 	"cx-translator-month-stats-label": "இம்மாதம்",

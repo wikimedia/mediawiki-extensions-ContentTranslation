@@ -16,7 +16,8 @@
 			"Bengtsson96",
 			"Matěj Suchánek",
 			"Петар Петковић",
-			"Skalman"
+			"Skalman",
+			"Sturban"
 		]
 	},
 	"cx": "Översätt sida",
@@ -242,6 +243,7 @@
 	"cx-suggestionlist-refresh": "Uppdatera förslag",
 	"cx-notification-suggestions-available": "Nu finns det nya förslag tillgängliga, baserat på {{GENDER:$2|din}} senaste översättning av '''$1'''.",
 	"cx-infobar-view-issues": "Visa problem",
+	"cx-infobar-cannot-publish": "Din översättning kan inte publiceras eftersom publicering endast tillåts till mer erfarna redaktörer på denna wiki.",
 	"cx-infobar-old-version": "Denna översättning baseras på en äldre version av innehållet. Källsidan kan ha ändrats avsevärd och du kanske vill börja om från början med översättningen.",
 	"cx-tools-linter-issues": "Problem",
 	"cx-tools-linter-issues-count": "$1/$2",

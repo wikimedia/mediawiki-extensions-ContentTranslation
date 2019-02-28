@@ -217,10 +217,14 @@
 	"cx-suggestionlist-collapse": "Показване компактно",
 	"cx-suggestionlist-refresh": "Обнови предложенията",
 	"cx-notification-suggestions-available": "На база на предишните {{GENDER:$2|ви}} преводи на '''$1''', сега са достъпни нови предложения за превод.",
+	"cx-infobar-cannot-publish": "Не мога да публикувам превода Ви, защото това е разрешено само за по-опитните редактори на това уики.",
 	"cx-tools-linter-title": "Проблеми със съдържанието: $1",
 	"cx-tools-linter-content": "Съдържанието ви не отговаря на [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ограниченията, наложени от Уикипедия в $1]. Моля, отстранете проблемите преди да публикувате превода.",
 	"cx-tools-linter-view-details": "Показване на детайли",
 	"cx-tools-linter-hide-details": "Скриване на детайли",
+	"cx-tools-linter-cannot-publish-title": "Публикуването е разрешено само на опитните потребители",
+	"cx-tools-linter-cannot-publish-message": "Общността реши да разреши публикуване на преводи само от опитни потребители.\nНяма да можете да публикувате превода, докато не получите по-голям редакторски опит, но можете да:<ul><li>Публикувате превода като чернови и по-късно използвате обичайните редакционни инструменти за създаване на статията.</li><li>Преведете статията на друг език без ограничения.</li></ul>",
+	"cx-tools-linter-cannot-publish-action-label": "Задайте за публикуване като чернова",
 	"cx-tools-linter-restart-translation-cancel": "Отказ",
 	"cx-translator-header": "Ваши статистики",
 	"cx-translator-month-stats-label": "Този месец",
@@ -241,5 +245,6 @@
 	"cx-publish-destination-tooltip": "Изберете именното пространство, в което страницата ще бъде публикувана",
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Лична чернова",
-	"cx-publish-destination-namespace-draft": "Групова чернова"
+	"cx-publish-destination-namespace-draft": "Групова чернова",
+	"cx-publish-destination-namespace-changed": "Целта за публикуване е променена на лична чернова. Повече настройки за публикуване можете да направите по всяко време"
 }
