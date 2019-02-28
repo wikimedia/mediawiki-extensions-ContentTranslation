@@ -1458,12 +1458,18 @@
 		},
 		"mw.cx.init.Translation": {
 			"scripts": [
-				"mw.cx.init.Translation.js"
+				"mw.cx.init.Translation.js",
+				"mw.cx.TargetArticle.js",
+				"mw.cx.TranslationController.js",
+				"mw.cx.TranslationTracker.js",
+				"dm/mw.cx.dm.SectionState.js"
 			],
 			"styles": [
 				"ui/styles/mw.cx.init.Translation.less"
 			],
 			"messages": [
+				"cx-captcha-unsupported-type",
+				"cx-draft-cancel-button-label",
 				"cx-draft-restore-failed",
 				"cx-draft-restoring",
 				"cx-error-page-not-found",
@@ -1481,26 +1487,15 @@
 				"cx-tools-linter-old-revision-message",
 				"cx-tools-linter-restart-translation-cancel",
 				"cx-tools-linter-restart-translation-message",
-				"cx-tools-linter-restart-translation-title"
-			],
-			"dependencies": [
-				"mediawiki.user",
-				"mw.cx.dm.Translation",
-				"mw.cx.ui.Categories",
-				"mw.cx.TargetArticle",
-				"mw.cx.TranslationController",
-				"mw.cx.ui.TranslationView",
-				"ve.init.mw.CXTarget"
-			]
-		},
-		"mw.cx.TargetArticle": {
-			"scripts": [
-				"mw.cx.TargetArticle.js"
-			],
-			"messages": [
-				"cx-captcha-unsupported-type",
-				"cx-draft-cancel-button-label",
+				"cx-tools-linter-restart-translation-title",
+				"cx-infobar-view-issues",
+				"cx-lost-session-draft",
 				"cx-lost-session-publish",
+				"cx-mt-abuse-publish-error",
+				"cx-mt-abuse-warning-text",
+				"cx-mt-abuse-warning-title",
+				"cx-overwriting-with-issues",
+				"cx-page-old-revision-loaded",
 				"cx-publish-error-abuse-filter",
 				"cx-publish-error-empty",
 				"cx-publish-error-readonly",
@@ -1510,68 +1505,48 @@
 				"cx-publishing-dialog-publish-anyway-button",
 				"cx-publishing-dialog-sub-title",
 				"cx-publishing-dialog-title",
-				"cx-publishing-with-issues-dialog-title",
 				"cx-publishing-with-issues-dialog-message",
-				"cx-overwriting-with-issues",
-				"title-invalid-characters"
-			],
-			"dependencies": [
-				"easy-deflate.deflate",
-				"mediawiki.api",
-				"mw.cx.dm.Translation",
-				"oojs-ui-windows",
-				"ve.init.mw.CXTarget"
-			]
-		},
-		"mw.cx.TranslationController": {
-			"scripts": [
-				"mw.cx.TranslationController.js"
-			],
-			"messages": [
-				"cx-lost-session-draft",
+				"cx-publishing-with-issues-dialog-title",
 				"cx-save-draft-error",
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-shortcut-label",
 				"cx-save-draft-tooltip",
-				"cx-page-old-revision-loaded",
 				"cx-tools-linter-abuse-filter",
-				"cx-mt-abuse-publish-error"
-			],
-			"dependencies": [
-				"easy-deflate.deflate",
-				"mediawiki.api",
-				"mw.cx.dm.Translation",
-				"mw.cx.TranslationTracker",
-				"ve.init.mw.CXTarget"
-			]
-		},
-		"mw.cx.TranslationTracker": {
-			"scripts": [
-				"mw.cx.TranslationTracker.js",
-				"dm/mw.cx.dm.SectionState.js"
+				"cx-tools-linter-old-revision-label",
+				"cx-tools-linter-old-revision-message",
+				"cx-tools-linter-old-revision",
+				"cx-tools-linter-restart-translation-cancel",
+				"cx-tools-linter-restart-translation-message",
+				"cx-tools-linter-restart-translation-title",
+				"cx-tools-view-guidelines-link",
+				"title-invalid-characters"
 			],
 			"dependencies": [
 				"mw.cx.dm",
-				"mw.cx.dm.Translation",
+				"mediawiki.user",
+				"mediawiki.api",
+				"mediawiki.language",
 				"jquery.uls.data",
-				"mediawiki.language"
-			],
-			"messages": [
-				"cx-mt-abuse-warning-text",
-				"cx-mt-abuse-warning-title",
-				"cx-tools-view-guidelines-link"
-			],
-			"targets": [
-				"desktop"
+				"easy-deflate.deflate",
+				"mw.cx.dm.Translation",
+				"mw.cx.ui.Categories",
+				"mw.cx.ui.TranslationView",
+				"ve.init.mw.CXTarget",
+				"oojs-ui-windows"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {
 			"scripts": [
+				"cache/mw.cx.ApiResponseCache.js",
+				"cache/mw.cx.CategoryCache.js",
+				"cache/mw.cx.ImageInfoCache.js",
+				"cache/mw.cx.NamespaceCache.js",
+				"cache/mw.cx.TitlePairCache.js",
 				"mw.cx.MwApiRequestManager.js"
 			],
 			"dependencies": [
-				"mw.cx.cache"
+				"ve.init.mw.CXTarget"
 			],
 			"targets": [
 				"desktop"
@@ -1591,21 +1566,6 @@
 			"dependencies": [
 				"ext.cx.model",
 				"mediawiki.storage"
-			]
-		},
-		"mw.cx.cache": {
-			"scripts": [
-				"cache/mw.cx.ApiResponseCache.js",
-				"cache/mw.cx.CategoryCache.js",
-				"cache/mw.cx.ImageInfoCache.js",
-				"cache/mw.cx.NamespaceCache.js",
-				"cache/mw.cx.TitlePairCache.js"
-			],
-			"dependencies": [
-				"ve.init.mw.CXTarget"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"ve.init.mw.CXTarget": {
@@ -2188,6 +2148,7 @@
 				"monobook": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less" ]
 			},
 			"dependencies": [
+				"mw.cx.ui",
 				"mediawiki.user",
 				"mediawiki.widgets",
 				"oojs-ui"

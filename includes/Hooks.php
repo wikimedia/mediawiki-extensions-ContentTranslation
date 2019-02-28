@@ -494,7 +494,7 @@ class Hooks {
 			'dependencies' => [
 				'ext.cx.sitemapper',
 				'mw.cx.MachineTranslation',
-				'mw.cx.TranslationTracker',
+				'mw.cx.init.Translation',
 				'mw.cx.MwApiRequestManager',
 				'mw.cx.util'
 			],
