@@ -253,11 +253,9 @@ class Translator {
 		$dbr = Database::getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
-		$fields = [
-			'COUNT(DISTINCT translation_started_by) AS translators',
-		];
+		$field = 'COUNT(DISTINCT translation_started_by) AS translators';
 		$conds = Translation::getPublishedCondition( $dbr );
 
-		return $dbr->selectField( $table, $fields, $conds, __METHOD__ );
+		return $dbr->selectField( $table, $field, $conds, __METHOD__ );
 	}
 }
