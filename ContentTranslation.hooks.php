@@ -189,15 +189,16 @@ class ContentTranslationHooks {
 		];
 
 		$externalMessages = [];
-		if ( class_exists( ConfirmEditHooks::class ) ) {
+		$extReg = ExtensionRegistry::getInstance();
+		if ( $extReg->isLoaded( 'ConfirmEdit' ) ) {
 			$externalMessages[] = 'captcha-create';
 			$externalMessages[] = 'captcha-label';
 
-			if ( class_exists( QuestyCaptcha::class ) ) {
+			if ( $extReg->isLoaded( 'QuestyCaptcha' ) ) {
 				$externalMessages[] = 'questycaptcha-create';
 			}
 
-			if ( class_exists( FancyCaptcha::class ) ) {
+			if ( $extReg->isLoaded( 'FancyCaptcha' ) ) {
 				$externalMessages[] = 'fancycaptcha-create';
 				$externalMessages[] = 'fancycaptcha-reload-text';
 			}
