@@ -5,8 +5,20 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
+namespace ContentTranslation;
 
-class ContentTranslationHooks {
+use BetaFeatures;
+use EchoEvent;
+use EditPage;
+use ExtensionRegistry;
+use OutputPage;
+use RequestContext;
+use ResourceLoader;
+use Skin;
+use SpecialPage;
+use User;
+
+class Hooks {
 
 	/**
 	 * @param User $user
@@ -405,7 +417,7 @@ class ContentTranslationHooks {
 	 */
 	public static function onResourceLoaderTestModules( array &$modules ) {
 		$resourcePaths = [
-			'localBasePath' => __DIR__,
+			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'ContentTranslation',
 		];
 

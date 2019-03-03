@@ -28,20 +28,20 @@
 		"ContentTranslationAliases": "ContentTranslation.alias.php"
 	},
 	"Hooks": {
-		"BeforePageDisplay": "ContentTranslationHooks::addModules",
-		"GetBetaFeaturePreferences": "ContentTranslationHooks::onGetBetaFeaturePreferences",
-		"GetPreferences": "ContentTranslationHooks::onGetPreferences",
-		"ResourceLoaderGetConfigVars": "ContentTranslationHooks::addConfig",
-		"ResourceLoaderRegisterModules": "ContentTranslationHooks::addMessages",
-		"SpecialContributionsBeforeMainOutput": "ContentTranslationHooks::addNewContributionButton",
-		"ResourceLoaderTestModules": "ContentTranslationHooks::onResourceLoaderTestModules",
-		"ListDefinedTags": "ContentTranslationHooks::registerTags",
-		"ChangeTagsListActive": "ContentTranslationHooks::registerTags",
-		"UserSaveOptions": "ContentTranslationHooks::onSaveOptions",
-		"EditPage::showEditForm:initial": "ContentTranslationHooks::newArticleCampaign",
-		"BeforeCreateEchoEvent": "ContentTranslationHooks::onBeforeCreateEchoEvent",
-		"EchoGetDefaultNotifiedUsers": "ContentTranslationHooks::onEchoGetDefaultNotifiedUsers",
-		"EchoGetBundleRules": "ContentTranslationHooks::onEchoGetBundleRules"
+		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
+		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
+		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
+		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",
+		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
+		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
+		"ResourceLoaderTestModules": "ContentTranslation\\Hooks::onResourceLoaderTestModules",
+		"ListDefinedTags": "ContentTranslation\\Hooks::registerTags",
+		"ChangeTagsListActive": "ContentTranslation\\Hooks::registerTags",
+		"UserSaveOptions": "ContentTranslation\\Hooks::onSaveOptions",
+		"EditPage::showEditForm:initial": "ContentTranslation\\Hooks::newArticleCampaign",
+		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
+		"EchoGetDefaultNotifiedUsers": "ContentTranslation\\Hooks::onEchoGetDefaultNotifiedUsers",
+		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules"
 	},
 	"APIModules": {
 		"cxconfiguration": "ApiContentTranslationConfiguration",
@@ -88,7 +88,6 @@
 		"ApiQueryLangLinksCount": "api/ApiQueryLangLinksCount.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
-		"ContentTranslationHooks": "ContentTranslation.hooks.php",
 		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"

@@ -6,6 +6,8 @@
  * @license GPL-2.0-or-later
  */
 
+use ContentTranslation\Hooks;
+
 /**
  * Implements the core of the Content Translation extension:
  * a special page that shows Content Translation user interface.
@@ -20,7 +22,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	public function isListed() {
-		return ContentTranslationHooks::isEnabledForUser( $this->getUser() );
+		return Hooks::isEnabledForUser( $this->getUser() );
 	}
 
 	public function enableCXBetaFeature() {
@@ -117,7 +119,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		$isCampaign = $this->isValidCampaign( $campaign );
 
 		// Direct access, isListed only affects Special:SpecialPages
-		if ( !ContentTranslationHooks::isEnabledForUser( $this->getUser() ) ) {
+		if ( !Hooks::isEnabledForUser( $this->getUser() ) ) {
 			if ( $hasToken || $isCampaign ) {
 				// User has a token or a valid campaign param.
 				// Enable cx for the user in this wiki.
