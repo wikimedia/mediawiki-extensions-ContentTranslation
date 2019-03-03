@@ -189,15 +189,15 @@ class ContentTranslationHooks {
 		];
 
 		$externalMessages = [];
-		if ( class_exists( 'ConfirmEditHooks' ) ) {
+		if ( class_exists( ConfirmEditHooks::class ) ) {
 			$externalMessages[] = 'captcha-create';
 			$externalMessages[] = 'captcha-label';
 
-			if ( class_exists( 'QuestyCaptcha' ) ) {
+			if ( class_exists( QuestyCaptcha::class ) ) {
 				$externalMessages[] = 'questycaptcha-create';
 			}
 
-			if ( class_exists( 'FancyCaptcha' ) ) {
+			if ( class_exists( FancyCaptcha::class ) ) {
 				$externalMessages[] = 'fancycaptcha-create';
 				$externalMessages[] = 'fancycaptcha-reload-text';
 			}
