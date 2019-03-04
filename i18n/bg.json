@@ -12,7 +12,8 @@
 			"StanProg",
 			"Liuxinyu970226",
 			"ShockD",
-			"Vlad5250"
+			"Vlad5250",
+			"Ted Masters"
 		]
 	},
 	"cx": "Превеждане на страница",
@@ -246,5 +247,7 @@
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-user": "Лична чернова",
 	"cx-publish-destination-namespace-draft": "Групова чернова",
-	"cx-publish-destination-namespace-changed": "Целта за публикуване е променена на лична чернова. Повече настройки за публикуване можете да направите по всяко време"
+	"cx-publish-destination-namespace-changed": "Целта за публикуване е променена на лична чернова. Повече настройки за публикуване можете да направите по всяко време",
+	"cx-unreviewed-translation-category": "Страници с непрегледани преводи",
+	"cx-unreviewed-translation-category-desc": "Страници преведени с инструмента „Превод на съдържание“, съдържащи голямо количество непрегледано съдържание"
 }
