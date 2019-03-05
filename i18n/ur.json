@@ -12,7 +12,8 @@
 			"محبوب عالم",
 			"Liuxinyu970226",
 			"Hindustanilanguage",
-			"BukhariSaeed"
+			"BukhariSaeed",
+			"JogiAsad"
 		]
 	},
 	"cx": "صفحہ کا ترجمہ کریں",
@@ -223,6 +224,7 @@
 	"cx-suggestionlist-collapse": "کم دِکھاؤ",
 	"cx-suggestionlist-refresh": "تجاویز تازہ کرو",
 	"cx-notification-suggestions-available": "{{GENDER:$2|آپ}} سے پہلے کیے گئے '''$1''' کے ترجمے کے بناء پر اب نئی تجاویز دستیاب ہیں۔",
+	"cx-infobar-view-issues": "ایشوذ کو ویو کرو",
 	"cx-tools-linter-issues": "مسائل",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 نقص|$1 ایرر}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 انتباہ|$1 انتباہات}}",
@@ -235,6 +237,7 @@
 	"cx-tools-linter-empty-title": "آپ کے/آپکے تراجم کو سرخی کی आवश्यकता ہے",
 	"cx-tools-linter-empty-title-message": "سبھی पृष्ठों کو سرخی کی आवश्यकता ہوتی ہے تاکہ لوگ اُنھیں کھوج سکیں۔ कृपया اپنے تراجم کو شائع کرنے کیلئے اُسے ایک سرخی دیں۔",
 	"cx-tools-linter-invalid-character": "آپ کے/آپکے تراجم کے سرخی ميں अमान्य कैरेक्टर ہیں",
+	"cx-tools-linter-page-exists": "صفحہ پہلے سے موجود ہے",
 	"cx-tools-linter-template": "سانچہ دستیاب نہیں",
 	"cx-tools-linter-old-revision-label": "ترجمہ دوبارہ شروع کریں",
 	"cx-tools-linter-restart-translation-title": "ترجمہ دوبارہ شروع کریں؟",
