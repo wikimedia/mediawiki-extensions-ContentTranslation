@@ -68,7 +68,7 @@
 			}
 		];
 		for ( i = 0; i < tests.length; i++ ) {
-			assert.strictEqual( mw.cx.TranslationTracker.calculateUnmodifiedContent(
+			assert.strictEqual( mw.cx.TranslationTracker.static.calculateUnmodifiedContent(
 				tests[ i ].string1, tests[ i ].string2, tests[ i ].language
 			),
 			tests[ i ].result,

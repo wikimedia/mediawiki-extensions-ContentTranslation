@@ -35,6 +35,95 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( translationModel, ve
 	this.validationScheduler = OO.ui.debounce( this.processValidationQueue.bind( this ), 15 * 1000 );
 };
 
+/* Initialization */
+
+OO.initClass( mw.cx.TranslationTracker );
+
+/* Static methods */
+
+/**
+ * Calculate the section translation progress based on relative number of tokens.
+ * If there are 10 tokens and all translated, return 1, if 5 more tokens
+ * added, return 1.5 and so on.
+ * @param {string} string1
+ * @param {string} string2
+ * @param {string} language
+ * @return {number}
+ */
+mw.cx.TranslationTracker.static.calculateSectionTranslationProgress = function ( string1, string2, language ) {
+	var tokens1, tokens2;
+	if ( string1 === string2 ) {
+		return 1;
+	}
+	if ( !string1 || !string2 ) {
+		return 0;
+	}
+
+	tokens1 = this.tokenise( string1, language );
+	tokens2 = this.tokenise( string2, language );
+
+	return tokens2.length / tokens1.length;
+};
+
+/**
+ * A very simple method to calculate the difference between two strings in the scale
+ * of 0 to 1, based on relative number of tokens changed in string2 from string1.
+ *
+ * @param {string} string1
+ * @param {string} string2
+ * @param {string} language
+ * @return {number} A value between 0 and 1
+ */
+mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1, string2, language ) {
+	var unmodifiedTokens, bigSet, smallSet, tokens1, tokens2;
+
+	if ( !string1 || !string2 ) {
+		return 0;
+	}
+
+	if ( string1 === string2 ) {
+		// Both strings are equal. So string2 is 100% unmodified version of string1
+		return 1;
+	}
+
+	bigSet = tokens1 = this.tokenise( string1, language );
+	smallSet = tokens2 = this.tokenise( string2, language );
+
+	if ( tokens2.length > tokens1.length ) {
+		// Swap the sets
+		bigSet = tokens2;
+		smallSet = tokens1;
+	}
+
+	// Find the intersection(tokens that did not change) two token sets
+	unmodifiedTokens = bigSet.filter( function ( token ) {
+		return smallSet.indexOf( token ) >= 0;
+	} );
+
+	// If string1 has 10 tokens and we see that 2 tokens are different or not present in string2,
+	// we are saying that string2 is 80% (ie. 10-2/10) of unmodified version fo string1.
+	return unmodifiedTokens.length / bigSet.length;
+};
+
+/**
+ * Tokenize a given string. Here tokens is basically words for non CJK languages.
+ * For CJK languages, we just split at each codepoint level.
+ *
+ * @param {string} string
+ * @param {string} language
+ * @return {string[]}
+ */
+mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
+	if ( $.uls.data.scriptgroups.CJK.indexOf( $.uls.data.getScript( language ) ) >= 0 ) {
+		return string.split( '' );
+	}
+
+	// Match all non whitespace characters for tokens.
+	return string.match( /\S+/g ) || [];
+};
+
+/* Methods */
+
 /**
  * Initialize translation.
  */
@@ -194,7 +283,7 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 		unmodifiedContent = sectionState.getUnmodifiedMT(),
 		userTranslation = sectionState.getUserTranslation();
 
-	unmodifiedPercentage = mw.cx.TranslationTracker.calculateUnmodifiedContent(
+	unmodifiedPercentage = this.constructor.static.calculateUnmodifiedContent(
 		unmodifiedContent.text,
 		userTranslation.text,
 		this.targetLanguage
@@ -202,93 +291,12 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 	sectionState.setUnmodifiedPercentage( unmodifiedPercentage );
 
 	// Calculate the progress. It is a value between 0 and 1
-	progress = mw.cx.TranslationTracker.calculateSectionTranslationProgress(
+	progress = this.constructor.static.calculateSectionTranslationProgress(
 		sectionState.getSource().text,
 		userTranslation.text,
 		this.targetLanguage
 	);
 	sectionState.setTranslationProgressPercentage( progress );
-};
-
-/**
- * Calculate the section translation progress based on relative number of tokens.
- * If there are 10 tokens and all translated, return 1, if 5 more tokens
- * added, return 1.5 and so on.
- * @param {string} string1
- * @param {string} string2
- * @param {string} language
- * @return {number}
- */
-mw.cx.TranslationTracker.calculateSectionTranslationProgress = function ( string1, string2, language ) {
-	var tokens1, tokens2;
-	if ( string1 === string2 ) {
-		return 1;
-	}
-	if ( !string1 || !string2 ) {
-		return 0;
-	}
-
-	tokens1 = mw.cx.TranslationTracker.tokenise( string1, language );
-	tokens2 = mw.cx.TranslationTracker.tokenise( string2, language );
-
-	return tokens2.length / tokens1.length;
-};
-
-/**
- * A very simple method to calculate the difference between two strings in the scale
- * of 0 to 1, based on relative number of tokens changed in string2 from string1.
- *
- * @param {string} string1
- * @param {string} string2
- * @param {string} language
- * @return {number} A value between 0 and 1
- */
-mw.cx.TranslationTracker.calculateUnmodifiedContent = function ( string1, string2, language ) {
-	var unmodifiedTokens, bigSet, smallSet, tokens1, tokens2;
-
-	if ( !string1 || !string2 ) {
-		return 0;
-	}
-
-	if ( string1 === string2 ) {
-		// Both strings are equal. So string2 is 100% unmodified version of string1
-		return 1;
-	}
-
-	bigSet = tokens1 = mw.cx.TranslationTracker.tokenise( string1, language );
-	smallSet = tokens2 = mw.cx.TranslationTracker.tokenise( string2, language );
-
-	if ( tokens2.length > tokens1.length ) {
-		// Swap the sets
-		bigSet = tokens2;
-		smallSet = tokens1;
-	}
-
-	// Find the intersection(tokens that did not change) two token sets
-	unmodifiedTokens = bigSet.filter( function ( token ) {
-		return smallSet.indexOf( token ) >= 0;
-	} );
-
-	// If string1 has 10 tokens and we see that 2 tokens are different or not present in string2,
-	// we are saying that string2 is 80% (ie. 10-2/10) of unmodified version fo string1.
-	return unmodifiedTokens.length / bigSet.length;
-};
-
-/**
- * Tokenize a given string. Here tokens is basically words for non CJK languages.
- * For CJK languages, we just split at each codepoint level.
- *
- * @param {string} string
- * @param {string} language
- * @return {string[]}
- */
-mw.cx.TranslationTracker.tokenise = function ( string, language ) {
-	if ( $.uls.data.scriptgroups.CJK.indexOf( $.uls.data.getScript( language ) ) >= 0 ) {
-		return string.split( '' );
-	}
-
-	// Match all non whitespace characters for tokens.
-	return string.match( /\S+/g ) || [];
 };
 
 /**
@@ -301,7 +309,7 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 	var sourceTokens,
 		sectionState = this.sections[ sectionNumber ];
 
-	sourceTokens = mw.cx.TranslationTracker.tokenise( sectionState.getSource().text, this.sourceLanguage );
+	sourceTokens = this.constructor.static.tokenise( sectionState.getSource().text, this.sourceLanguage );
 	if ( sourceTokens.length < 10 ) {
 		// Exclude smaller sections from MT abuse validations
 		return false;
