@@ -23,6 +23,14 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 		} )
 		.addClass( 've-ce-cxSectionNode' );
 
+	if ( !this.model.isTargetSection() ) {
+		this.$element
+			// Explicitly disable spellcheck in source section
+			.prop( 'spellcheck', false )
+			// Disable ime activation
+			.addClass( 'noime' );
+	}
+
 	this.getFocusableElement().on( {
 		focus: this.emit.bind( this, 'focus' ),
 		blur: this.emit.bind( this, 'blur' )
