@@ -137,7 +137,12 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 	var fragment = this.getFragment(),
 		text = fragment.getText().trim();
 
-	if ( text.length === 0 || text.length > 30 || this.hasLink() ) {
+	if (
+		text.length === 0 ||
+		text.length > 30 ||
+		this.hasLink() ||
+		this.context.getSurface().isReadOnly()
+	) {
 		this.$element.remove();
 		return;
 	}
