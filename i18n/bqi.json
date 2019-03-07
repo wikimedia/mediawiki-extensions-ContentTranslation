@@ -135,6 +135,7 @@
 	"cx-draft-restoring": "ب هال و بال سوڤار کرد ڤالرشتاْیٱل کۊ ڤابیڌاْ..",
 	"cx-suggestionlist-expand": "دیڌن هٱماْ",
 	"cx-suggestionlist-refresh": "نۉ کردن پیشناڌٱل",
+	"cx-tools-linter-issues": "جریانٱل",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 خٱتا|$1 خٱتایٱل}}",
 	"cx-tools-linter-learn-more": "بیشتر یاڌ بگرین",
 	"cx-tools-linter-view-details": "دیاری کردن جوزئیات",
