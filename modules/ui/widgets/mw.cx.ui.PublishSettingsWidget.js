@@ -11,7 +11,7 @@
  * Creates an mw.cx.ui.PublishSettingsWidget object.
  *
  * @class
- * @extends mw.cx.ui.PublishSettingsWidget
+ * @extends OO.ui.PopupButtonWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
