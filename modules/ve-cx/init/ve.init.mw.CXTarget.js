@@ -127,15 +127,10 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 ve.init.mw.CXTarget.static.name = 'cx';
 
 ve.init.mw.CXTarget.static.actionGroups = [
-	// Publish destination
+	// Publish settings
 	{
-		name: 'publishDestination',
-		header: OO.ui.deferMsg( 'cx-publish-destination-header' ),
-		title: OO.ui.deferMsg( 'cx-publish-destination-tooltip' ),
-		icon: 'settings',
-		indicator: null,
-		type: 'menu',
-		include: [ { group: 'cxDestination' } ]
+		name: 'publishSettings',
+		include: [ 'publishSettings' ]
 	}
 ];
 
@@ -257,7 +252,6 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 		opening: this.onDialogOpening.bind( this, targetSurface.getContext() ),
 		closing: 'onDialogClosing'
 	} );
-	targetSurface.getGlobalOverlay().$element.addClass( 've-cx-ui-overlay-global' );
 	targetSurface.getView().connect( this, {
 		focus: [ 'onSurfaceViewFocus', targetSurface ]
 	} );
@@ -398,13 +392,14 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 	var headerHeight, scrollPosition;
 
-	this.contextStack.push( context );
-	context.connect( this, { afterContextChange: [ 'processContextItems', true ] } );
-	this.processContextItems( true );
-
 	if ( !( dialog instanceof ve.ui.NodeDialog ) ) {
 		return;
 	}
+
+	this.targetSurface.getGlobalOverlay().$element.addClass( 've-cx-ui-overlay-global' );
+	this.contextStack.push( context );
+	context.connect( this, { afterContextChange: [ 'processContextItems', true ] } );
+	this.processContextItems( true );
 
 	// We can use setSize( 'full' ) method here and it would work for some dialogs,
 	// like reference dialog, but VE hardcodes the size for media dialog in
@@ -429,6 +424,9 @@ ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 ve.init.mw.CXTarget.prototype.onDialogClosing = function () {
 	this.processContextItems( false );
 	this.contextStack.pop();
+	if ( !this.contextStack.length ) {
+		this.targetSurface.getGlobalOverlay().$element.removeClass( 've-cx-ui-overlay-global' );
+	}
 };
 
 /**
@@ -536,7 +534,6 @@ ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId 
 	// Setting title in targetColumn will take care of necessary event firing for title change.
 	this.translationView.targetColumn.setTitle( newTitle );
 	mw.log( '[CX] Target title changed to ' + newTitle );
-	this.updateNamespace();
 	this.emitNamespaceChange( namespaceId );
 };
 

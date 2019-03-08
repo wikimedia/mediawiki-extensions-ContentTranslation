@@ -4,8 +4,6 @@
 .cx-translation-view-header {
 	.mw-ui-one-whole;
 	padding: 0;
-	/* Trick to get items vertically aligned */
-	line-height: 3;
 	min-height: 3em;
 	background-color: #fff;
 	border-bottom: 1px solid @colorGray14;
@@ -41,11 +39,11 @@
 	.cx-header__translation-center {
 		.mw-ui-one-third;
 		min-height: 3em;
-		margin: 0;
-		line-height: 3;
+		margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+		padding: 0;
 
 		.oo-ui-buttonElement-button {
-			min-height: 3em;
+			border: 0;
 			border-right: 1px solid @colorGray14;
 			border-radius: 0; // Override monobook button border radius
 			padding: 0 1em 0 0;
@@ -60,9 +58,8 @@
 	.cx-header-draft-status {
 		.mw-ui-one-third;
 		color: @colorGray5;
-		// Remove padding added by LabelWidget on monobook
-		padding-top: 0;
-		padding-bottom: 0;
+		padding: 0;
+		line-height: 3;
 		text-align: center;
 	}
 }

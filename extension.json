@@ -1215,17 +1215,25 @@
 		},
 		"mw.cx.visualEditor.publishSettings": {
 			"scripts": [
-				"ve-cx/ui/ve.ui.CXDestinationTool.js"
+				"ve-cx/ui/ve.ui.CXPublishSettingsDialog.js",
+				"ve-cx/ui/ve.ui.CXPublishSettingsTool.js"
+			],
+			"styles": [
+				"ve-cx/ui/styles/ve.ui.CXPublishSettingsDialog.less"
 			],
 			"dependencies": [
-				"mw.cx.visualEditor.base"
+				"ext.visualEditor.core"
 			],
 			"messages": [
-				"cx-publish-destination-header",
-				"cx-publish-destination-tooltip",
+				"cx-publish-settings",
 				"cx-publish-destination-namespace-main",
+				"cx-publish-destination-namespace-main-description",
 				"cx-publish-destination-namespace-user",
-				"cx-publish-destination-namespace-draft"
+				"cx-publish-destination-namespace-user-description",
+				"cx-publish-destination-namespace-draft",
+				"cx-publish-destination-namespace-draft-description",
+				"cx-publish-destination-header",
+				"cx-publish-destination-tooltip"
 			],
 			"targets": [
 				"desktop"
