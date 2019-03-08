@@ -47,7 +47,10 @@ ve.dm.CXTransclusionNode.static.toDataElement = function ( domElements ) {
 
 ve.dm.CXTransclusionNode.static.toDomElements = function ( dataElement ) {
 	var elements = ve.dm.CXTransclusionNode.super.static.toDomElements.apply( this, arguments );
-	elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
+	if ( Object.keys( dataElement.attributes.cx ).length ) {
+		// Do not add empty data for data-cx. For example, nodes in source page has no data for cx.
+		elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
+	}
 	return elements;
 };
 
