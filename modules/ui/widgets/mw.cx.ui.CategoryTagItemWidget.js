@@ -62,7 +62,7 @@ mw.cx.ui.CategoryTagItemWidget.prototype.restoreOriginalDisabledState = function
 };
 
 /**
- * @fires 'mouseenter'
+ * @fires mouseenter
  */
 mw.cx.ui.CategoryTagItemWidget.prototype.onMouseEnter = function () {
 	if ( !this.isDisabled() ) {
@@ -71,7 +71,7 @@ mw.cx.ui.CategoryTagItemWidget.prototype.onMouseEnter = function () {
 };
 
 /**
- * @fires 'mouseleave'
+ * @fires mouseleave
  */
 mw.cx.ui.CategoryTagItemWidget.prototype.onMouseLeave = function () {
 	if ( !this.isDisabled() ) {

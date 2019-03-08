@@ -254,7 +254,7 @@ mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
 };
 
 /**
- * @fires 'captchaCancel'
+ * @fires captchaCancel
  */
 mw.cx.TargetArticle.prototype.onCaptchaCancel = function () {
 	this.captcha = null;
@@ -315,7 +315,7 @@ mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jq
  * @param {boolean} [allowReapply=true] Whether or not to allow the user to reapply.
  *  Reset when swapping panels. Assumed to be true unless explicitly set to false.
  *
- * @fires 'publishError'
+ * @fires publishError
  */
 mw.cx.TargetArticle.prototype.showPublishError = function ( msg, errorLog, allowReapply ) {
 	this.emit( 'publishError', new OO.ui.Error( msg, { recoverable: allowReapply } ) );

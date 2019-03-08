@@ -532,7 +532,7 @@ ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId 
 /**
  * @param {number} namespaceId
  *
- * @fires 'namespaceChange'
+ * @fires namespaceChange
  */
 ve.init.mw.CXTarget.prototype.emitNamespaceChange = function ( namespaceId ) {
 	this.emit( 'namespaceChange', namespaceId );
