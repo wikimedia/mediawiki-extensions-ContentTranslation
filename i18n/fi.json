@@ -12,7 +12,8 @@
 			"Putputi",
 			"Prevodim",
 			"Pahkiqaz",
-			"Valtlait"
+			"Valtlait",
+			"Kyykaarme"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -213,5 +214,6 @@
 	"cx-publish-destination-tooltip": "Valitse nimiavaruus, johon artikkeli julkaistaan",
 	"cx-publish-destination-namespace-main": "Uusi sivu",
 	"cx-publish-destination-namespace-user": "Henkilökohtainen luonnos",
-	"cx-publish-destination-namespace-draft": "Yhteisöluonnos"
+	"cx-publish-destination-namespace-draft": "Yhteisöluonnos",
+	"cx-unreviewed-translation-category": "Sivut, joissa on tarkistamattomia käännöksiä"
 }
