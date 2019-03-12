@@ -138,12 +138,6 @@ class CXCorporaDump extends Maintenance {
 				$translation['corpora'] = $sections;
 
 				// Massage the data for export
-
-				// Skip units with no data at all
-				if ( $translation['corpora'] === [] ) {
-					continue;
-				}
-
 				foreach ( $translation['corpora'] as $id => $unit ) {
 					// Skip units which don't have user provided input
 					if ( !isset( $unit['user'] ) ) {
@@ -166,6 +160,11 @@ class CXCorporaDump extends Maintenance {
 							Sanitizer::stripAllTags( $value['content'] );
 						}
 					}
+				}
+
+				// Skip units with no data at all
+				if ( $translation['corpora'] === [] ) {
+					continue;
 				}
 
 				// Stream it to the sink
