@@ -371,6 +371,13 @@ ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	ve.init.mw.CXTarget.super.prototype.surfaceReady.apply( this, arguments );
 
 	this.debounceAlignSectionPairs();
+
+	// Wait for 300ms because of debounced section alignment and then mark target surface as ready.
+	// This CSS class is used in order to avoid showing initial placeholder
+	// until it is sized to match corresponding source section.
+	setTimeout( function () {
+		this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--ready' );
+	}.bind( this ), 300 );
 };
 
 /**
@@ -504,6 +511,10 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 	this.updateNamespace();
 	// Get ready with the translation of first section.
 	this.prefetchTranslationForSection( 0 );
+
+	if ( this.translation.hasTranslatedSections() ) {
+		this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
+	}
 };
 
 /**
@@ -706,6 +717,8 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	var $sourceElement,
 		model = placeholder.getModel(),
 		cxid = model.getAttribute( 'cxid' );
+
+	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
 	this.MTManager.getPreferredProvider().then( function ( provider ) {
