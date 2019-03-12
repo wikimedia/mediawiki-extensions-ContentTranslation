@@ -167,7 +167,7 @@ class Translation {
 		}
 
 		if ( !is_array( $titles ) ) {
-			return isset( $result[0] ) ? $result[0] : null;
+			return $result[0] ?? null;
 		}
 
 		return $result;

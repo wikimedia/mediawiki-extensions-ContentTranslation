@@ -171,8 +171,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$data['sourceRevisionId'] = $params['sourcerevision'];
 		$data['status'] = 'draft';
 		$data['progress'] = $params['progress'];
-		$data['cxVersion'] =
-			isset( $params['cxversion'] ) ? $params['cxversion'] : $wgContentTranslationVersion;
+		$data['cxVersion'] = $params['cxversion'] ?? $wgContentTranslationVersion;
 
 		// Save the translation
 		$translation = new Translation( $data );
