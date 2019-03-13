@@ -27,7 +27,7 @@ class Translator {
 		$dbw = Database::getConnection( DB_MASTER );
 		$dbw->replace(
 			'cx_translators',
-			[ 'translator_user_id', 'translator_translation_id' ],
+			[ [ 'translator_user_id', 'translator_translation_id' ] ],
 			[
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id' => $translationId,
