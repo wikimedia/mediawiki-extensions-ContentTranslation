@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mogoeilor"
+		]
+	},
+	"apihelp-query+contenttranslationcorpora-param-translationid": "نشوݩ دیارکون ڤالرشتن.",
+	"apihelp-cxconfiguration-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-cxconfiguration-param-to": "دال رازیناْ زڤون",
+	"apihelp-query+contenttranslationsuggestions-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "دال رازیناْ زڤون",
+	"apihelp-query+cxpublishedtranslations-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-query+cxpublishedtranslations-param-to": "دال رازیناْ زڤون",
+	"apihelp-query+contenttranslationlangtrend-param-source": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "دال رازیناْ زڤون",
+	"apihelp-cxdelete-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-cxdelete-param-to": "دال رازیناْ زڤون",
+	"apihelp-cxdelete-param-sourcetitle": "داسوݩ سرچشماْ بٱلگاْ.",
+	"apihelp-cxsuggestionlist-param-listname": "پیشناڌ نومگٱ نوم",
+	"apihelp-cxsuggestionlist-param-titles": "داسوݩ بٱلگاْ",
+	"apihelp-cxsuggestionlist-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-cxsuggestionlist-param-to": "دال رازیناْ زڤون",
+	"apihelp-cxsave-param-sourcerevision": "ڤانیٱری سرچشماْ بٱلگاْ",
+	"apihelp-cxsave-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-cxsave-param-to": "دال رازیناْ زڤون",
+	"apihelp-cxsave-param-sourcetitle": "داسوݩ سرچشماْ بٱلگاْ.",
+	"apierror-cx-invalidlanguage": "زڤون نادیار",
+	"apierror-cx-invalidprogress": "پیشکرد نادیار",
+	"apierror-cx-invalidsectioncontent": "میٛنوناْ بٱئرجا نادیار",
+	"apierror-cx-invalidsourcelanguage": "سرچشمٱ زڤون نادیار",
+	"apierror-cx-invalidtargetlanguage": "دال نادیار زڤون",
+	"apierror-cx-invalidtranslator": "نوم نادیار ڤالریار",
+	"apierror-cx-jwtmissing": "جی دٱبلیۊ تی نٱپورنیڌاْ",
+	"apierror-cx-keynotconfigured": "کلیت نادیاراْ.",
+	"apierror-cx-translationnotfound": "ڤالرشتاْ نیڌس."
+}
