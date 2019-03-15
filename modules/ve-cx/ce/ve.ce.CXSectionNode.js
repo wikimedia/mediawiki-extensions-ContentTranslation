@@ -24,11 +24,8 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 		.addClass( 've-ce-cxSectionNode' );
 
 	if ( !this.model.isTargetSection() ) {
-		this.$element
-			// Explicitly disable spellcheck in source section
-			.prop( 'spellcheck', false )
-			// Disable ime activation
-			.addClass( 'noime' );
+		// Disable ime activation
+		this.$element.addClass( 'noime' );
 	}
 
 	this.getFocusableElement().on( {
