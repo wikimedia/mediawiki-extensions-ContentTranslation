@@ -7,6 +7,7 @@
  */
 namespace ContentTranslation;
 
+use Action;
 use BetaFeatures;
 use EchoEvent;
 use EditPage;
