@@ -117,7 +117,7 @@ class AbuseFilterCheck {
 
 		$filters = \AbuseFilter::checkAllFilters( $vars, $this->title );
 		$filters = array_keys( array_filter( $filters ) );
-		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
+		$actions = \AbuseFilter::getConsequencesForFilters( $filters, false );
 
 		$results = [];
 		foreach ( $actions as $key => $val ) {
@@ -129,9 +129,9 @@ class AbuseFilterCheck {
 				continue;
 			}
 
-			if ( isset( $val['warn']['parameters'][0] ) ) {
+			if ( isset( $val['warn'][0] ) ) {
 				$val['warn']['messageHtml'] =
-					wfMessage( $val['warn']['parameters'][0] )
+					wfMessage( $val['warn'][0] )
 						->params( $rulename )
 						->parse();
 			}

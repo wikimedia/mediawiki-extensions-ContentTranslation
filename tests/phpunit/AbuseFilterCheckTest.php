@@ -108,7 +108,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				'page_title === "' . self::TEST_TITLE . '"',
 				[ 'disallow' => [ 'abusefilter-disallow' ] ],
 				[ self::TEST_FILTER => [
-					'disallow' => [ 'action' => 'disallow', 'parameters' => [ 'abusefilter-disallow' ] ]
+					'disallow' => [ 'abusefilter-disallow' ]
 				] ]
 			],
 			'Warning' => [
@@ -116,8 +116,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				[ 'warn' => [ 'abusefilter-warning-cx' ] ],
 				[ self::TEST_FILTER => [
 					'warn' => [
-						'action' => 'warn',
-						'parameters' => [ 'abusefilter-warning-cx' ],
+						'abusefilter-warning-cx',
 						'messageHtml' => wfMessage( 'abusefilter-warning-cx' )
 							->params( self::TEST_FILTER )->parse()
 					]
@@ -136,15 +135,14 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 			'Block' => [
 				'page_title !== "Some random title"',
 				[ 'block' => [ 'infinite', '4 hours', 'blockTalk' ] ],
-				[ self::TEST_FILTER => [ 'block' => [ 'action' => 'block', 'parameters' => [
-					'infinite', '4 hours', 'blockTalk' ] ] ] ],
+				[ self::TEST_FILTER => [ 'block' => [ 'infinite', '4 hours', 'blockTalk' ] ] ],
 			],
 			'Disallow and degroup' => [
 				'page_prefixedtitle === "' . self::TEST_TITLE . '"',
 				[ 'disallow' => [ 'abusefilter-disallow' ], 'degroup' => [] ],
 				[ self::TEST_FILTER => [
-					'disallow' => [ 'action' => 'disallow', 'parameters' => [ 'abusefilter-disallow' ] ],
-					'degroup' => [ 'action' => 'degroup', 'parameters' => [] ]
+					'disallow' => [ 'abusefilter-disallow' ],
+					'degroup' => []
 				] ]
 			]
 		];
@@ -179,7 +177,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				'added_lines irlike "foo" & new_wikitext contains "foo"',
 				[ 'disallow' => [ 'abusefilter-disallow-cx' ] ],
 				[ self::TEST_FILTER => [
-					'disallow' => [ 'action' => 'disallow', 'parameters' => [ 'abusefilter-disallow-cx' ] ]
+					'disallow' => [ 'abusefilter-disallow-cx' ]
 				] ]
 			],
 			'Warning' => [
@@ -188,8 +186,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				[ 'warn' => [ 'abusefilter-warning-cx2' ] ],
 				[ self::TEST_FILTER => [
 					'warn' => [
-						'action' => 'warn',
-						'parameters' => [ 'abusefilter-warning-cx2' ],
+						'abusefilter-warning-cx2',
 						'messageHtml' => wfMessage( 'abusefilter-warning-cx2' )
 							->params( self::TEST_FILTER )->parse()
 					]
@@ -212,14 +209,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				'rmwhitespace( added_lines ) rlike "suck"',
 				[ 'block' => [ '1 month', '15 minutes', 'noTalkBlockSet' ] ],
 				[ self::TEST_FILTER => [
-					'block' => [
-						'action' => 'block',
-						'parameters' => [
-							'1 month',
-							'15 minutes',
-							'noTalkBlockSet'
-						]
-					]
+					'block' => [ '1 month', '15 minutes', 'noTalkBlockSet' ]
 				] ],
 			],
 			'Block and degroup' => [
@@ -227,15 +217,8 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 				'length(new_wikitext) === 150',
 				[ 'block' => [ '1 year', '15 years', 'noTalkBlockSet' ], 'degroup' => [] ],
 				[ self::TEST_FILTER => [
-					'block' => [
-						'action' => 'block',
-						'parameters' => [
-							'1 year',
-							'15 years',
-							'noTalkBlockSet'
-						]
-					],
-					'degroup' => [ 'action' => 'degroup', 'parameters' => [] ]
+					'block' => [ '1 year', '15 years', 'noTalkBlockSet' ],
+					'degroup' => []
 				] ]
 			],
 			'Text too short' => [
