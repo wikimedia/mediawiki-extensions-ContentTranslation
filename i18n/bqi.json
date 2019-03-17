@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mogoeilor"
+			"Mogoeilor",
+			"Kikumoron"
 		]
 	},
 	"cx": "ڤالرنیڌن بٱلگاْ",
@@ -13,17 +14,23 @@
 	"cx-header-all-translations": "هٱماْ ڤالرنیڌنیٱل",
 	"cx-source-view-page": "دیڌن بٱلگاْ",
 	"cx-publish-page-success": "بٱلگاْ میٛن $1 دٱرتیچ ڤابی",
+	"cx-publish-error-readonly": "هیچی نٱترین میٛن ڤیکی بنڤیسین.",
 	"cx-publish-button": "دٱرتیچ کردن",
 	"cx-publish-button-publishing": "ب هال و بال دٱرتیچ کردن....",
+	"cx-lost-session": "نشست ایسا خلاس ڤابیڌاْ.",
 	"cx-publish-gt-move-page-title": "جا ب جا کردن بٱلگاْ",
 	"cx-publish-gt-moved-title": "بٱلگاْ ڤالرشتاْ جا ب جا ڤابی.",
+	"cx-publish-gt-published-title": "موڤارک بۊ، بٱلگاْ دٱرتیچ ڤابی.",
 	"cx-translation-add-translation": "یٱ ڤالرشتاْ اْزاف کونین",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ڤالرنیڌن میٛنوناْ]]",
 	"cx-source-loading": "ب هال و بال سوڤار کرد$1",
 	"cx-beta": "ڤالرنیڌن میٛنوناْ",
 	"cx-entrypoint-title": "ای بٱلگاْ ڤالرن سی $1",
 	"cx-entrypoint-dialog-title-in": "داسوݩ سی بٱلگاْ تازاْ میٛن $1:",
+	"cx-entrypoint-dialog-button-create-from-scratch": "راسد کردن ز سر",
 	"cx-entrypoint-dialog-button-translate-from": "ڤالرنیڌن ز $1",
+	"cx-special-login-error": "ایسا سی ڤالرنیڌن ای بٱلگاْ ڤا بیائین ڤامیٛن[$1 ڤامیٛن ٱڤوڌن]",
+	"cx-tools-instructions-text1": "سی ڤالرنیڌن پاراگرافٱل ری {{GENDER:|بپۊرنین}}",
 	"cx-tools-instructions-text5": "{{GENDER:|دٱرتیچ کردن}} ڤالرشتاْ",
 	"cx-tools-searchbox-text": "پاٛی جۊری سی یٱ کٱلماْ",
 	"cx-tools-dictionary-title": "تۉزی",
@@ -34,6 +41,7 @@
 	"cx-tools-mt-use-source": "ڤورداشتن میٛنوناْ ٱسلی",
 	"cx-tools-mt-reset": "ز نۉ ڤالرنیڌن",
 	"cx-tools-mt-provider-title": "ڤا کار ڤٱندن $1",
+	"cx-tools-mt-dont-use": "شورۊ کردن ڤا یٱ پاراگراف هالی",
 	"cx-tools-mt-set-default": "چی پیش فٱرز ڤاڌارس",
 	"cx-tools-mt-preferred": "پیش فٱرز",
 	"cx-stats-title": "آمار میٛنوناْ ڤالرنیڌن",
@@ -129,6 +137,7 @@
 	"cx-tools-link-external-link": "هومپاٛیڤٱند خارجی",
 	"cx-tools-link-external-link-placeholder": "اْزاف کرن هومپاٛیڤٱند خارجی",
 	"cx-tools-link-to-another-page": "هومپاٛیڤٱند کردن ب یٱ بٱلگاْ دیٱری",
+	"cx-tools-link-add-as-missing": "اْزاف کردن چی یٱ هومپاٛیڤٱند بیٛلا ڤابیڌاْ.",
 	"cx-tools-link-apply": "ٱنجوم ڤابی",
 	"cx-personaltools-user": "کاریار",
 	"cx-personaltools-anon": "هٱنی نٱڤۊڌیناْ ڤامیٛن",

@@ -4,7 +4,13 @@
 			"Mogoeilor"
 		]
 	},
+	"apihelp-query+contenttranslation-param-translationid": "نشوݩ دیارکون ڤالرشتن.",
+	"apihelp-query+contenttranslation-param-from": "سرچشمٱ رازیناْ زڤون.",
+	"apihelp-query+contenttranslation-param-to": "دال رازیناْ زڤون",
+	"apihelp-query+contenttranslation-param-sourcetitle": "داسوݩ سرچشماْ بٱلگاْ.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "نشوݩ دیارکون ڤالرشتن.",
+	"apihelp-query+contenttranslationstats-description": "گرهڌن آمار میٛنوناْ ڤالرنیڌن",
+	"apihelp-query+contenttranslationstats-summary": "گرهڌن آمار میٛنوناْ ڤالرنیڌن",
 	"apihelp-cxconfiguration-param-from": "سرچشمٱ رازیناْ زڤون.",
 	"apihelp-cxconfiguration-param-to": "دال رازیناْ زڤون",
 	"apihelp-query+contenttranslationsuggestions-param-from": "سرچشمٱ رازیناْ زڤون.",
