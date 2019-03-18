@@ -264,6 +264,7 @@
 	"cx-tools-linter-template": "Vorlage nicht verfügbar",
 	"cx-tools-linter-template-block-message": "Die Originalseite verwendet eine Vorlage, die im Zielwiki nicht verfügbar ist.\n\nDiese Vorlage wurde übersprungen, du kannst jedoch neuen Inhalt hinzufügen, um die fehlenden Informationen zu erfassen.",
 	"cx-tools-linter-template-inline-message": "Die Originalseite verwendet Vorlagen, um den Inhalt zu strukturieren, aber einige von ihnen sind nicht im Zielwiki vorhanden.\n\nDer Inhalt der fehlenden Vorlagen wurde als Klartext hinzugefügt. Stelle sicher, dass du das Ergebnis überprüfst.",
+	"cx-tools-linter-template-add-new": "Neue Vorlage hinzufügen",
 	"cx-tools-linter-old-revision": "Übersetzung basierend auf einer alten Version der Seite",
 	"cx-tools-linter-old-revision-message": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte sich [$1 erheblich verändert] haben.\n\nDu kannst mit dieser Übersetzung fortfahren oder sie erneut beginnen, um den aktualisierten Inhalt zu verwenden. Falls du die Übersetzung neu beginnst, gehen deine aktuellen Änderungen verloren.",
 	"cx-tools-linter-old-revision-label": "Die Übersetzung neu beginnen",

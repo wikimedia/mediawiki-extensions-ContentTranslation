@@ -4,7 +4,8 @@
 			"Xuacu",
 			"Macofe",
 			"Esbardu",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Fitoschido"
 		]
 	},
 	"cx": "Traducir la páxina",
@@ -238,6 +239,7 @@
 	"cx-tools-linter-page-exists-message": "Yá esiste una páxina col títulu $1. Si publiques la traducción sustituirá'l conteníu existiente\n\nComprueba si ye correuto sustituir la páxina actual, o considera da-y otru nome a la traducción.",
 	"cx-tools-linter-template": "Plantía nun disponible",
 	"cx-tools-linter-template-block-message": "La páxina orixinal usa una plantía que nun ta disponible na wiki de destín.\n\nEsta plantía omitióse, pero puedes añadir conteníu nuevu pa recoyer la información que falta.",
+	"cx-tools-linter-restart-translation-cancel": "Encaboxar",
 	"cx-translator-header": "Les tos estadístiques",
 	"cx-translator-month-stats-label": "Esti mes",
 	"cx-translator-total-translations-label": "Total",
