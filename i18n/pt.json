@@ -15,7 +15,8 @@
 			"He7d3r",
 			"Hamilton Abreu",
 			"Athena in Wonderland",
-			"Петар Петковић"
+			"Петар Петковић",
+			"CaiusSPQR"
 		]
 	},
 	"cx": "Traduzir página",
@@ -267,6 +268,7 @@
 	"cx-tools-linter-template": "Predefinição indisponível",
 	"cx-tools-linter-template-block-message": "A página original usa uma predefinição que não está disponível na wiki de destino.\n\nEsta predefinição foi saltada, mas pode adicionar conteúdo novo para capturar a informação em falta.",
 	"cx-tools-linter-template-inline-message": "A página original usa predefinições para estruturar o conteúdo, mas algumas delas não existem na wiki de destino.\n\nO conteúdo das predefinições em falta foi adicionado como texto simples. Certifique-se de que revê o resultado.",
+	"cx-tools-linter-template-add-new": "Adicionar nova predefinição",
 	"cx-tools-linter-old-revision": "Tradução baseada na versão antiga da página",
 	"cx-tools-linter-old-revision-message": "Esta tradução é baseada numa versão mais antiga do conteúdo. A página de origem pode ter [$1 mudado substancialmente].\n\nPode continuar esta tradução ou recomeçá-la para usar o conteúdo atualizado. Se recomeçar a tradução, as suas alterações até este momento serão perdidas.",
 	"cx-tools-linter-old-revision-label": "Recomeçar a tradução",

@@ -10,7 +10,8 @@
 			"Eitvys200",
 			"Homo",
 			"Tomasdd",
-			"Manvydasz"
+			"Manvydasz",
+			"Vogone"
 		]
 	},
 	"cx": "Versti puslapį",
@@ -94,10 +95,12 @@
 	"cx-mt-abuse-warning-title": "Jūsų vertime {{PLURAL:$1|yra}} $1% nemodifikuoto mašininio vertimo teksto",
 	"cx-mt-abuse-warning-text": "Mašininis vertimas yra pateikiamas tik kaip atspirties taškas. Jums reikia įsitikinti, kad turinys yra tikslus ir natūraliai perskaitomas jūsų kalba.",
 	"cx-publish-captcha-title": "Saugumo klausimas",
+	"cx-captcha-dialog-cancel": "Atšaukti",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Reikia}} pagalbos verčiant?",
 	"cx-dashboard-sidebar-information": "Daugiau apie šią funkciją",
 	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-dashboard-sidebar-feedback": "Pateikite atsiliepimą",
+	"cx-dashboard-sidebar-newversion-disable": "Išjungti",
 	"cx-translation-filter-published-translations": "Publikuota",
 	"cx-translation-filter-draft-translations": "Verčiama",
 	"cx-translation-filter-suggested-translations": "Pasiūlymai",
@@ -155,6 +158,7 @@
 	"cx-campaign-contributionsmenu-translate-instead": "Išversti, o ne rašyti nuo pradžių",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 jau gali būti  kitomis kalbomis",
 	"cx-campaign-contributionsmenu-myuploads": "Įkelta medija",
+	"cx-campaign-ok-got-it": "Gerai, supratau",
 	"cx-trend-deletions": "Ištrinti vertimai",
 	"cx-trend-translations-to": "Vertimai į $1 kalbą",
 	"cx-stats-try-contenttranslation": "Turinio Vertėjas - tai įrankis, skirtas kurti naujus straipsnius verčiant iš kitų kalbų [$1 Išbandykite Turinio Vertėją]",
@@ -200,10 +204,13 @@
 	"cx-suggestionlist-collapse": "Rodyti mažiau",
 	"cx-suggestionlist-refresh": "Atnaujinti pasiūlymus",
 	"cx-notification-suggestions-available": "Remiantis {{GENDER:$2|jūsų}} ankstesniu „$1“ vertimu, nauji pasiūlymai dabar yra prieinami.",
+	"cx-tools-linter-learn-more": "Sužinoti daugiau",
+	"cx-tools-linter-mark-as-resolved": "Pažymėti kaip išspręstą",
 	"cx-tools-linter-title": "Turinio problemos: $1",
 	"cx-tools-linter-content": "Rastas turinys neatitinka [//www.mediawiki.org/wiki/Content_translation/Abuse_filter Vikipedijos nustatytų apribojimų $1]. Preš paskelbiant vertimą, prašom ištaisyti klaidas.",
 	"cx-tools-linter-view-details": "Žiūrėti detales",
 	"cx-tools-linter-hide-details": "Slėpti detales",
+	"cx-tools-linter-template-add-new": "Pridėti šabloną",
 	"cx-tools-linter-old-revision-label": "Versti iš naujo",
 	"cx-tools-linter-restart-translation-cancel": "Atšaukti",
 	"cx-translator-header": "Jūsų statistika",
@@ -225,5 +232,6 @@
 	"cx-publish-destination-tooltip": "Pasirinkite vardų sritį, kurioje puslapis bus paskelbtas",
 	"cx-publish-destination-namespace-main": "Naujas puslapis",
 	"cx-publish-destination-namespace-user": "Asmeninis juodraštis",
-	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis"
+	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis",
+	"cx-linkcontextitem-missing-link-title": "Trūkstama nuoroda"
 }
