@@ -93,7 +93,7 @@
 	"cx-tools-link-remove": "Text shown in link tool card. Clicking on it removes the link in the context.\n{{Identical|Remove link}}",
 	"cx-tools-mt-title": "Title of machine translation tool card.",
 	"cx-tools-mt-use-source": "A button in the machine translation tool card on Special:ContentTranslation. Clicking the button pastes the source text to the translation column.",
-	"cx-tools-mt-reset": "Reset the translation to current MT providers version.",
+	"cx-tools-mt-reset": "Revert the translation in the paragraph to the current MT provider's version.",
 	"cx-tools-mt-provider-title": "An item in a menu in the machine translation tool card on Special:ContentTranslation. The menu lists different available machine translation providers for this language.\n* $1 is the name of the provider, such as Apertium, Microsoft Translator, Google Translate, etc.\n{{Identical|Use}}",
 	"cx-tools-mt-dont-use": "An item in a menu in the machine translation tool card on Special:ContentTranslation. Other items in same menu will use the message {{msg-mw|cx-tools-mt-from-provider}}. Selecting this item disables machine translation. It may be the default for some languages.",
 	"cx-tools-mt-set-default": "A button in the machine translation tool card on Special:ContentTranslation. Clicking the button saves the current machine translation option.",

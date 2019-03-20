@@ -270,6 +270,7 @@
 	"cx-tools-linter-template": "Otillgänglig mall",
 	"cx-tools-linter-template-block-message": "Den ursprungliga sidan använder en mall som inte är tillgänglig på destinationswikin.\n\nDenna mall har hoppats över, men du kan lägga till nytt innehåll för att täcka den saknade informationen.",
 	"cx-tools-linter-template-inline-message": "Originalsidan använder mallar för att strukturera innehållet, men en del av dem finns inte på destinationswikin.\n\nInnehållet från de saknade mallarna har lagts till som vanlig text. Se till att granska resultatet.",
+	"cx-tools-linter-template-add-new": "Lägg till ny mall",
 	"cx-tools-linter-old-revision": "Översättning baserat på en gammal version av sidan",
 	"cx-tools-linter-old-revision-message": "Denna översättning är baserat på en äldre version av innehållet. Källsidan kanske har [$1 ändrats avsevärt].\n\nDu kan fortsätta på denna översättning eller börja om för att använda det uppdaterade innehållet. Om du startar om översättningen kommer dina nuvarande ändringar förloras.",
 	"cx-tools-linter-old-revision-label": "Starta om översättningen",

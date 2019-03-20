@@ -13,7 +13,8 @@
 			"Mirws",
 			"Gombang",
 			"Amire80",
-			"Rachmat04"
+			"Rachmat04",
+			"Joseagush"
 		]
 	},
 	"cx": "Terjemahkan halaman",
@@ -261,6 +262,7 @@
 	"cx-tools-linter-template": "Templat tidak tersedia",
 	"cx-tools-linter-template-block-message": "Halaman asli menggunakan sebuah templat yang tidak tersedia di wiki tujuan.\n\nTemplat ini telah dilewati, namun Anda dapat menambah konten baru untuk melengkapi informasi yang hilang.",
 	"cx-tools-linter-template-inline-message": "Halaman asli menggunakan beberapa templat untuk menyusun kontennya, namun beberapa di antaranya tidak tersedia di wiki tujuan.\n\nKonten dari templat yang hilang ini telah ditambahkan sebagai teks polos. Pastikan untuk meninjau hasilnya.",
+	"cx-tools-linter-template-add-new": "Tambah templat",
 	"cx-tools-linter-old-revision": "Terjemahan berdasarkan versi halaman yang lama",
 	"cx-tools-linter-old-revision-message": "Terjemahan ini berdasarkan versi konten yang lebih lama. Halaman sumber bisa jadi telah [$1 banyak berubah].\n\nAnda dapat melanjutkan terjemahan ini atau memulai ulang untuk menggunakan konten terbaru. Jika Anda memulai ulang terjemahan, perubahan yang Anda buat saat ini akan hilang.",
 	"cx-tools-linter-old-revision-label": "Mulai ulang terjemahan",
