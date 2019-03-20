@@ -216,7 +216,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		} else {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
-				'wgContentTranslationShowNewVersionMessage' => $this->shouldShowNewVersionMessage(),
 				'wgRecommendToolAPIURL' => $wgRecommendToolAPIURL,
 			] );
 		}
@@ -226,8 +225,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function getRedirectURL() {
-		global $wgContentTranslationVersion;
-
 		if ( !$this->onTranslationView() ) {
 			// We're on CX dashboard, don't redirect
 			return null;
@@ -241,17 +238,8 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			return null;
 		}
 
-		$userPreference = $this->getUser()->getOption( 'cx-new-version' );
-		$version = $wgContentTranslationVersion;
-		if ( $userPreference ) {
-			$version = '2';
-		} elseif ( $userPreference === 0 ) {
-			// If user opted-out from using CX2
-			$version = '1';
-		}
-
 		$requestURL = $request->getRequestURL();
-		return wfAppendQuery( $requestURL, [ 'version' => $version ] );
+		return wfAppendQuery( $requestURL, 'version=2' );
 	}
 
 	/**
@@ -265,44 +253,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @return boolean True if we should ship version 2 of Content Translation
 	 */
 	private function shouldUseNewVersion() {
-		global $wgContentTranslationVersion;
-
 		$requestVersion = $this->getRequest()->getIntOrNull( 'version' );
 		if ( $requestVersion !== null ) {
 			return $requestVersion === 2;
 		}
 
-		return $this->getUser()->getOption( 'cx-new-version' ) ||
-			(int)$wgContentTranslationVersion === 2;
-	}
-
-	/**
-	 * Determines whether message dialog to inform user that
-	 * new version is active should be displayed.
-	 *
-	 * Should NOT be shown to:
-	 * - New users of Content Translation.
-	 * - Users who already have manually enabled version 2 of the tool.
-	 *
-	 * User is considered as new if they haven't started any translations.
-	 * To avoid the case where new user starts translation and is no longer
-	 * considered new, and then get the message, a condition is added to
-	 * take into account only translations started before 2019-01-15.
-	 *
-	 * Bug T211325
-	 *
-	 * @return boolean True if message dialog that informs user
-	 * that new version is active should be displayed.
-	 */
-	private function shouldShowNewVersionMessage() {
-		global $wgContentTranslationVersion;
-
-		$translator = new ContentTranslation\Translator( $this->getUser() );
-
-		return $wgContentTranslationVersion === '2' &&
-			// Take into account only translations started before 2019-01-15
-			$translator->getNumberOfTranslations( '20190115000000' ) > 0 &&
-			!$this->getUser()->getBoolOption( 'cx-seen-new-version-message' ) &&
-			!$this->getUser()->getBoolOption( 'cx-new-version' );
+		return true;
 	}
 }

@@ -82,7 +82,6 @@
 				this.setDefaultLanguages();
 
 				this.initLists();
-				this.displayNewVersionMessage();
 				this.listen();
 
 				mw.hook( 'mw.cx.dashboard.ready' ).fire();
@@ -201,24 +200,6 @@
 	};
 
 	/**
-	 * Display the informative message dialog to let user know version 2 of the tool is now active.
-	 */
-	CXDashboard.prototype.displayNewVersionMessage = function () {
-		// If user should not see the dialog, exit early.
-		if ( !mw.config.get( 'wgContentTranslationShowNewVersionMessage' ) ) {
-			return;
-		}
-
-		mw.loader.using( 'mw.cx.NewVersionMessage' ).then( function () {
-			var dialog = new mw.cx.NewVersionMessage(),
-				windowManager = OO.ui.getWindowManager();
-
-			windowManager.addWindows( [ dialog ] );
-			windowManager.openWindow( dialog );
-		} );
-	};
-
-	/**
 	 * Populates various UI components with data in the given translation suggestions.
 	 */
 	CXDashboard.prototype.renderTranslationSuggestions = function () {
@@ -293,7 +274,6 @@
 				} ).$element )
 			);
 		}
-		$links.append( $( '<li>' ).cxVersionSwitcher() );
 		$help.append(
 			$( '<div>' )
 				.addClass( 'cx-dashboard-sidebar__help-title' )

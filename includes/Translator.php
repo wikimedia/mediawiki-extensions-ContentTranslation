@@ -124,31 +124,6 @@ class Translator {
 		return $result;
 	}
 
-	/**
-	 * @param string|null $startedBefore Timestamp used as condition to take into account only
-	 * translations started before that time.
-	 * @return int Number of translations started by user. Optionally, only translations started
-	 * before given timestamp are considered.
-	 */
-	public function getNumberOfTranslations( $startedBefore = null ) {
-		$dbr = Database::getConnection( DB_REPLICA );
-
-		$tables = [ 'cx_translations', 'cx_translators' ];
-		$field = 'COUNT(*)';
-
-		$conds = [
-			'translator_translation_id = translation_id',
-			'translator_user_id' => $this->getGlobalUserId()
-		];
-
-		if ( $startedBefore !== null ) {
-			$ts = $dbr->addQuotes( $dbr->timestamp( $startedBefore ) );
-			$conds[] = "translation_start_timestamp < $ts";
-		}
-
-		return (int)$dbr->selectField( $tables, $field, $conds, __METHOD__ );
-	}
-
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = Database::getConnection( DB_REPLICA );

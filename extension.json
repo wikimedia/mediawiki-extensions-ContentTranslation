@@ -30,7 +30,6 @@
 	"Hooks": {
 		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
-		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
@@ -96,7 +95,6 @@
 		"ContentTranslation\\": "includes/"
 	},
 	"DefaultUserOptions": {
-		"cx-new-version": false,
 		"echo-subscriptions-web-cx": true
 	},
 	"config": {
@@ -219,11 +217,9 @@
 		"ext.cx.dashboard": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"dashboard/mw.cx.VersionSwitcher.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
 			"styles": [
-				"dashboard/styles/mw.cx.VersionSwitcher.less",
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
 			"skinStyles": {
@@ -236,17 +232,14 @@
 				"ext.cx.SourcePageSelector",
 				"ext.cx.widgets.translator",
 				"ext.uls.mediawiki",
-				"mediawiki.notify",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
 				"mediawiki.Uri",
 				"mw.cx.dashboard.lists",
 				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
-				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-content",
-				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-editing-core",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-media",
@@ -256,15 +249,9 @@
 				"cx-create-new-translation",
 				"cx-dashboard-sidebar-feedback",
 				"cx-dashboard-sidebar-information",
-				"cx-dashboard-sidebar-newversion-disable",
-				"cx-dashboard-sidebar-newversion-help",
-				"cx-dashboard-sidebar-newversion-using",
-				"cx-dashboard-sidebar-newversion",
 				"cx-dashboard-sidebar-stats",
 				"cx-dashboard-sidebar-title",
 				"cx-error-server-connection",
-				"cx-newversion-notification-message",
-				"cx-newversion-notification-title",
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-published-translations",
 				"cx-translation-filter-suggested-translations"
@@ -1119,25 +1106,6 @@
 				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
 				"quotation-marks"
-			]
-		},
-		"mw.cx.NewVersionMessage": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"campaigns/mw.cx.NewVersionMessage.js"
-			],
-			"styles": [
-				"campaigns/styles/mw.cx.NewVersionMessage.less"
-			],
-			"dependencies": [
-				"oojs-ui.styles.icons-wikimedia",
-				"oojs-ui-windows"
-			],
-			"messages": [
-				"cx-campaign-new-version-message",
-				"cx-campaign-new-version-message-title",
-				"cx-campaign-new-version-sub-message",
-				"cx-campaign-ok-got-it"
 			]
 		},
 		"ext.cx.tools.validator": {
