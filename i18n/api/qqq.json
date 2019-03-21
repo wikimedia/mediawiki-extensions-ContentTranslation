@@ -117,6 +117,7 @@
 	"apierror-cx-keynotconfigured": "{{doc-apierror}}",
 	"apierror-cx-missingdraft": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-suggestions": "{{doc-apierror}}",
+	"apierror-cx-mustbeloggedin-get-suggestions": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-viewtranslations": "{{doc-apierror}}",
 	"apierror-cx-samelanguages": "{{doc-apierror}}",
 	"apierror-cx-suggestionsdisabled": "{{doc-apierror}}",

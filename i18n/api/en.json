@@ -120,6 +120,7 @@
 	"apierror-cx-keynotconfigured": "Key not configured.",
 	"apierror-cx-missingdraft": "Draft does not exist.",
 	"apierror-cx-mustbeloggedin-suggestions": "You must be logged-in to manage your suggestions.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "You must be logged-in to get translation suggestions.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "To view your translations, you must log in.",
 	"apierror-cx-samelanguages": "Source and target languages cannot be the same.",
 	"apierror-cx-suggestionsdisabled": "Suggestions not enabled for this wiki.",
