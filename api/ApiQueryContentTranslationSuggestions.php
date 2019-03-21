@@ -40,6 +40,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$result = $this->getResult();
 		$user = $this->getUser();
 
+		if ( !$user->isLoggedIn() ) {
+			$this->dieWithError( 'apierror-cx-mustbeloggedin-get-suggestions', 'notloggedin' );
+		}
+
 		$from = $params['from'];
 		$to = $params['to'];
 		if ( $from === $to ) {
