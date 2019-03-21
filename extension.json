@@ -2112,7 +2112,6 @@
 				"jquery.uls.data",
 				"mediawiki.widgets",
 				"mw.cx.ui",
-				"mw.cx.ui.MenuLabelWidget",
 				"mw.cx.ui.TitleOptionWidget",
 				"oojs",
 				"oojs-ui.styles.icons-interactions"
@@ -2152,19 +2151,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"mediawiki.widgets"
-			]
-		},
-		"mw.cx.ui.MenuLabelWidget": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.MenuLabelWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.MenuLabelWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui-core"
 			]
 		}
 	},

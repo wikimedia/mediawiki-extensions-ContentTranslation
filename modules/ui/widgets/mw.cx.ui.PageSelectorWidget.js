@@ -210,7 +210,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			return false;
 		}
 
-		items.push( new mw.cx.ui.MenuLabelWidget( {
+		items.push( new OO.ui.MenuSectionOptionWidget( {
 			label: label
 		} ) );
 
