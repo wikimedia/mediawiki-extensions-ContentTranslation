@@ -20,14 +20,18 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$result = $this->getResult();
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
+
 		if ( isset( $params['translator'] ) ) {
 			$user = \User::newFromName( $params['translator'] );
 		}
 		$translator = new Translator( $user );
-		$translatorId = $translator->getGlobalUserId();
-		if ( !$translatorId ) {
+
+		try {
+			$translatorId = $translator->getGlobalUserId();
+		} catch ( Exception $e ) {
 			$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
 		}
+
 		$publishedStats = Translation::getTrendByStatus(
 			null, null, 'published', 'month', $translatorId
 		);
