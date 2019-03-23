@@ -118,6 +118,7 @@
 	"apierror-cx-keynotconfigured": "Chave não configurada.",
 	"apierror-cx-missingdraft": "O rascunho não existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Você deve estar logado para gerenciar suas sugestões.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Você deve entrar para receber sugestões de tradução.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para visualizar suas traduções, você deve fazer login.",
 	"apierror-cx-samelanguages": "Os idiomas de origem e de destino não podem ser os mesmos.",
 	"apierror-cx-suggestionsdisabled": "Sugestões não ativadas para esta wiki.",

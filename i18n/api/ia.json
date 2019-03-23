@@ -107,6 +107,7 @@
 	"apierror-cx-keynotconfigured": "Clave non configurate.",
 	"apierror-cx-missingdraft": "Esbosso non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Tu debe aperir session pro gerer tu suggestiones.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Tu debe aperir session pro obtener suggestiones de traduction.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pro vider tu traductiones, tu debe aperir session.",
 	"apierror-cx-samelanguages": "Le linguas de origine e de destination non pote esser le mesme.",
 	"apierror-cx-suggestionsdisabled": "Le suggestiones non ha essite activate pro iste wiki.",

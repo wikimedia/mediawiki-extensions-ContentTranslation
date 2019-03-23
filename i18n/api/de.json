@@ -103,6 +103,7 @@
 	"apierror-cx-keynotconfigured": "Der Schlüssel ist nicht konfiguriert.",
 	"apierror-cx-missingdraft": "Der Entwurf ist nicht vorhanden.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du musst angemeldet sein, um deine Vorschläge zu verwalten.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Du musst angemeldet sein, um Übersetzungsvorschläge abzurufen.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Um deine Übersetzungen anzusehen, musst du dich anmelden.",
 	"apierror-cx-samelanguages": "Quell- und Zielsprachen können nicht identisch sein.",
 	"apierror-cx-suggestionsdisabled": "Vorschläge sind nicht für dieses Wiki aktiviert.",

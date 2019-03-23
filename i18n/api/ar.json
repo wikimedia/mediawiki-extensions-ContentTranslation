@@ -118,6 +118,7 @@
 	"apierror-cx-keynotconfigured": "المفتاح غير مكوّن.",
 	"apierror-cx-missingdraft": "مسودة غير موجودة.",
 	"apierror-cx-mustbeloggedin-suggestions": "يجب تسجيل الدخول لإدارة اقتراحاتك.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "يجب تسجيل الدخول للحصول على اقتراحات الترجمة.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "لعرض ترجماتك; يجب عليك تسجيل الدخول.",
 	"apierror-cx-samelanguages": "لا يمكن أن تكون اللغات المصدر والهدف متطابقة.",
 	"apierror-cx-suggestionsdisabled": "الاقتراحات غير ممكنة لهذا الويكي.",

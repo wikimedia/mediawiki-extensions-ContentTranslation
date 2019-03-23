@@ -122,6 +122,7 @@
 	"apierror-cx-keynotconfigured": "Touche non configurée.",
 	"apierror-cx-missingdraft": "Le brouillon n'existe pas.",
 	"apierror-cx-mustbeloggedin-suggestions": "Vous devez être connecté pour gérer vos suggestions.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Vous devez être connecté pour obtenir des suggestions de traduction.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pour afficher vos traductions, vous devez vous connecter.",
 	"apierror-cx-samelanguages": "Les langues origine et destination ne peuvent pas être les même.",
 	"apierror-cx-suggestionsdisabled": "Suggestions non activée pour ce wiki.",

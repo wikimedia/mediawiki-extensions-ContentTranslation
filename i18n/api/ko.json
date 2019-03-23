@@ -83,6 +83,7 @@
 	"apierror-cx-keynotconfigured": "키가 구성되지 않았습니다.",
 	"apierror-cx-missingdraft": "초안이 존재하지 않습니다.",
 	"apierror-cx-mustbeloggedin-suggestions": "당신의 제안을 관리하려면 로그인해야 합니다.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "번역 제안을 가져오려면 로그인해야 합니다.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "번역을 보려면 로그인해야 합니다.",
 	"apierror-cx-samelanguages": "원본 언어와 대상 언어가 동일할 수 없습니다.",
 	"apierror-cx-suggestionsdisabled": "이 위키에 제안 기능이 활성화되어 있지 않습니다.",
