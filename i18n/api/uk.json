@@ -115,6 +115,7 @@
 	"apierror-cx-keynotconfigured": "Ключ не налаштовано.",
 	"apierror-cx-missingdraft": "Чернетка не існує.",
 	"apierror-cx-mustbeloggedin-suggestions": "Вам треба увійти в систему, щоб керувати своїми пропозиціями.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Вам треба увійти в систему, щоб отримувати перекладні пропозиції.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Вам треба увійти в систему, щоб переглянути свої переклади.",
 	"apierror-cx-samelanguages": "Вихідна й цільова мови не можуть бути однаковими.",
 	"apierror-cx-suggestionsdisabled": "Пропозиції не увімкнено для цієї вікі.",
