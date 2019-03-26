@@ -35,7 +35,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 		$this->setBatchSize( 100 );
 		$this->requireExtension( 'ContentTranslation' );
-		$this->mDescription = 'Purge unpublished drafts.';
+		$this->addDescription( 'Purge unpublished drafts.' );
 
 		// Default to safe option which doesn't actually change data.
 		$this->addOption(

@@ -21,7 +21,7 @@ class CxFixStats extends Maintenance {
 		parent::__construct();
 
 		$this->requireExtension( 'ContentTranslation' );
-		$this->mDescription = 'Script to fix some cx stats numbers.';
+		$this->addDescription( 'Script to fix some cx stats numbers.' );
 
 		// Default to safe option which doesn't actually change data.
 		$this->addOption(

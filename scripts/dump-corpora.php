@@ -32,7 +32,7 @@ class CXCorporaDump extends Maintenance {
 		parent::__construct();
 
 		$this->requireExtension( 'ContentTranslation' );
-		$this->mDescription = 'Script to produce parallel corpora dumps from CX translations.';
+		$this->addDescription( 'Script to produce parallel corpora dumps from CX translations.' );
 
 		$this->addOption(
 			'source-language',
