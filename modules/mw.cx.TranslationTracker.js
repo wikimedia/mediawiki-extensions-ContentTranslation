@@ -522,6 +522,7 @@ mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( section
 	var excludedTypes = [
 			'cxBlockImage', 'mwBlockImage', // Both are required since new images can be inserted too.
 			'cxTransclusionBlock', 'mwTransclusionBlock',
+			'mwReferencesList',
 			'mwTable', 'list', 'mwHeading'
 		],
 		childType = sectionModel.getChildNodeName();
