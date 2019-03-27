@@ -117,6 +117,7 @@
 	"apierror-cx-keynotconfigured": "Nyckel är inte konfigurerad.",
 	"apierror-cx-missingdraft": "Skissen finns inte.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du måste vara inloggad för att hantera dina översättningar.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Du måste vara inloggad för att få översättningsförslag.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "För att visa dina översättningar måste du logga in.",
 	"apierror-cx-samelanguages": "Käll- och målspråk kan inte vara detsamma.",
 	"apierror-cx-suggestionsdisabled": "Förslag är inte aktiverade för denna wiki.",
