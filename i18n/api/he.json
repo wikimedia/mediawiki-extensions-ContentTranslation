@@ -114,6 +114,7 @@
 	"apierror-cx-keynotconfigured": "המפתח אינו מוגדר.",
 	"apierror-cx-missingdraft": "הטיוטה אינה קיימת.",
 	"apierror-cx-mustbeloggedin-suggestions": "יש להיכנס לחשבון כדי לנהל את ההצעות שלך.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "צריך להיכנס לחשבון כדי לקבל הצעות תרגום.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "כדי להציג את התרגומים שלך, חובה להיכנס לחשבון.",
 	"apierror-cx-samelanguages": "אי־אפשר ששפות המקור והיעד יהיו זהות.",
 	"apierror-cx-suggestionsdisabled": "ההצעות אינן מופעלות בוויקי הזה.",
