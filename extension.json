@@ -1795,40 +1795,22 @@
 				"mw.cx.ui.ProgressBarWidget"
 			]
 		},
-		"mw.cx.ui.CategoryTagItemWidget": {
+		"mw.cx.ui.CategoryMultiselectWidget": {
 			"scripts": [
+				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js",
+				"ui/widgets/mw.cx.ui.CategoryInputWidget.js",
 				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js"
 			],
 			"styles": [
+				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less",
 				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less"
 			],
 			"skinStyles": {
 				"monobook": [ "ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less" ]
 			},
 			"dependencies": [
+				"ext.visualEditor.mwmeta",
 				"mw.cx.ui",
-				"oojs-ui"
-			]
-		},
-		"mw.cx.ui.CategoryInputWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.CategoryInputWidget.js"
-			],
-			"dependencies": [
-				"ext.visualEditor.mwmeta"
-			]
-		},
-		"mw.cx.ui.CategoryMultiselectWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.ui.CategoryInputWidget",
-				"mw.cx.ui.CategoryTagItemWidget",
 				"oojs-ui"
 			],
 			"messages": [
