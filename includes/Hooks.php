@@ -497,5 +497,15 @@ class Hooks {
 				've.init.mw.CXTarget'
 			],
 		] + $resourcePaths;
+
+		$modules['qunit']['mw.cx.TargetArticle.test'] = [
+			'scripts' => [
+				'tests/qunit/mw.cx.TargetArticle.test.js'
+			],
+			'dependencies' => [
+				'mw.cx.dm.Translation',
+				've.init.mw.CXTarget'
+			],
+		] + $resourcePaths;
 	}
 }

@@ -29,6 +29,54 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 
 OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 
+/* Static Methods */
+
+/**
+ * Clean up the input document by removing CX specific markup and attributes.
+ * @param {HTMLDocument} doc
+ * @return {HTMLDocument} Cleaned up document.
+ **/
+mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
+	Array.prototype.forEach.call( doc.body.querySelectorAll( 'article, section, [data-segmentid]' ), function ( segment ) {
+		var parent = segment.parentNode;
+		// move all children out of the element
+		while ( segment.firstChild ) {
+			parent.insertBefore( segment.firstChild, segment );
+		}
+		segment.remove();
+	} );
+
+	// Remove all unadapted links except the ones that are explicitly marked as missing.
+	// Refer ve.ui.CXLinkContextItem#createRedLink
+	Array.prototype.forEach.call( doc.querySelectorAll( '.cx-link' ), function ( link ) {
+		var dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
+		if ( dataCX.adapted === false && OO.getProp( dataCX, 'targetTitle', 'missing' ) !== true ) {
+		// Replace the link with its inner content.
+			link.replaceWith( link.innerHTML );
+		} else {
+			[ 'data-linkid', 'class', 'title', 'id' ].forEach( function ( attr ) {
+				link.removeAttribute( attr );
+			} );
+		}
+	} );
+
+	// Remove all data-cx attributes. It is irrelevant for publish, reduces the HTML size.
+	Array.prototype.forEach.call( doc.querySelectorAll( '[data-cx]' ), function ( element ) {
+		element.removeAttribute( 'data-cx' );
+	} );
+
+	// Remove all id attributes from table cells, div tags that are assigned by cxserver.
+	Array.prototype.forEach.call(
+		doc.querySelectorAll( 'tr[id], td[id], th[id], table[id], tbody[id], thead[id], div[id]' ), function ( element ) {
+			element.removeAttribute( 'id' );
+		}
+	);
+
+	return doc;
+};
+
+/* Methods */
+
 /**
  * Publish the translated content to target wiki.
  *
@@ -345,47 +393,12 @@ mw.cx.TargetArticle.prototype.showUnrecoverablePublishError = function ( msg, er
  * @return {string} Content for publishing, may be deflated
  */
 mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
-	var html,
+	var cleanupHtml,
 		doc = this.veTarget.getSurface().getDom();
 
-	Array.prototype.forEach.call( doc.body.querySelectorAll( 'article, section, [data-segmentid]' ), function ( segment ) {
-		var parent = segment.parentNode;
-		// move all children out of the element
-		while ( segment.firstChild ) {
-			parent.insertBefore( segment.firstChild, segment );
-		}
-		segment.remove();
-	} );
+	cleanupHtml = this.veTarget.getHtml( mw.cx.TargetArticle.static.getCleanedupContent( doc ) );
 
-	// Remove all unadapted links except the ones that are explicitly marked as missing.
-	// Refer ve.ui.CXLinkContextItem#createRedLink
-	Array.prototype.forEach.call( doc.querySelectorAll( '.cx-link' ), function ( link ) {
-		var dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
-		if ( dataCX.adapted === false && OO.getProp( dataCX, 'targetTitle', 'missing' ) !== true ) {
-			// Replace the link with its inner content.
-			link.replaceWith( link.innerHTML );
-		} else {
-			[ 'data-linkid', 'class', 'title', 'id' ].forEach( function ( attr ) {
-				link.removeAttribute( attr );
-			} );
-		}
-	} );
-
-	// Remove all data-cx attributes. It is irrelevant for publish, reduces the HTML size.
-	Array.prototype.forEach.call( doc.querySelectorAll( '[data-cx]' ), function ( element ) {
-		element.removeAttribute( 'data-cx' );
-	} );
-
-	// Remove all id attributes from table cells, div tags that are assigned by cxserver.
-	Array.prototype.forEach.call(
-		doc.querySelectorAll( 'tr[id], td[id], th[id], table[id], tbody[id], thead[id], div[id]' ), function ( element ) {
-			element.removeAttribute( 'id' );
-		}
-	);
-
-	html = this.veTarget.getHtml( doc );
-
-	return deflate ? EasyDeflate.deflate( html ) : html;
+	return deflate ? EasyDeflate.deflate( cleanupHtml ) : cleanupHtml;
 };
 
 /**
