@@ -807,7 +807,6 @@
 				"ext.cx.model",
 				"ext.cx.publish.dialog",
 				"ext.cx.sitemapper",
-				"ext.cx.tours.publish.init",
 				"ext.cx.tools.validator",
 				"mediawiki.api",
 				"mediawiki.user"
@@ -852,15 +851,6 @@
 				"cx-publishing-dialog-publish-anyway-button"
 			]
 		},
-		"ext.cx.tours.publish.init": {
-			"scripts": [
-				"tours/ext.cx.tours.publish.init.js"
-			],
-			"dependencies": [
-				"mediawiki.cookie",
-				"mediawiki.user"
-			]
-		},
 		"ext.cx.eventlogging": {
 			"scripts": "eventlogging/ext.cx.eventlogging.js",
 			"dependencies": [
@@ -903,26 +893,6 @@
 				"jquery.uls.data",
 				"mediawiki.Uri",
 				"mediawiki.jqueryMsg"
-			]
-		},
-		"ext.guidedTour.tour.cxpublish": {
-			"scripts": "tours/ext.cx.tours.publish.js",
-			"dependencies": [
-				"ext.guidedTour",
-				"mediawiki.cookie",
-				"mediawiki.Title",
-				"mediawiki.user"
-			],
-			"messages": [
-				"cx-publish-gt-no-permission-to-move-description",
-				"cx-publish-gt-first-step-title",
-				"cx-publish-gt-first-step-description",
-				"cx-publish-gt-move-page-title",
-				"cx-publish-gt-move-page-description",
-				"cx-publish-gt-moved-title",
-				"cx-publish-gt-moved-description",
-				"cx-publish-gt-published-title",
-				"cx-publish-gt-published-description"
 			]
 		},
 		"mw.cx.dashboard.lists": {
