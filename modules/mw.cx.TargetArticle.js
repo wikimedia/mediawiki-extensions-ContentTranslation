@@ -376,10 +376,12 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 		element.removeAttribute( 'data-cx' );
 	} );
 
-	// Remove all id attributes from table cells
-	Array.prototype.forEach.call( doc.querySelectorAll( 'tr[id], td[id]' ), function ( element ) {
-		element.removeAttribute( 'id' );
-	} );
+	// Remove all id attributes from table cells, div tags that are assigned by cxserver.
+	Array.prototype.forEach.call(
+		doc.querySelectorAll( 'tr[id], td[id], th[id], table[id], tbody[id], thead[id], div[id]' ), function ( element ) {
+			element.removeAttribute( 'id' );
+		}
+	);
 
 	html = this.veTarget.getHtml( doc );
 
