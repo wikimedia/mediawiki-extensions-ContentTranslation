@@ -20,8 +20,5 @@
 	"cx-publish-page-error": "पृष्ठ सङ्ग्रह करैत समय एक त्रुटि आबि गेल । कृपया पृष्ठ पुनः प्रकाशित करैक प्रयास करी। त्रुटि: $1",
 	"cx-publish-button": "अनुवाद प्रकाशित करी",
 	"cx-publish-button-publishing": "प्रकाशित भ रहल अछि...",
-	"cx-publish-gt-move-page-title": "पृष्ठके नाम बदली",
-	"cx-publish-gt-move-page-description": "कृपया \"{{int:blanknamespace}}\" नामस्थान चुनी आ अपन पृष्ठके  उपयुक्त शीर्षक दी।",
-	"cx-publish-gt-moved-title": "अनुवाद कएल पृष्ठ स्थानान्तरित कएल गेल",
 	"cx-campaign-no-thanks": "नै, धन्यवाद"
 }
