@@ -33,7 +33,6 @@
 		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
-		"ResourceLoaderTestModules": "ContentTranslation\\Hooks::onResourceLoaderTestModules",
 		"ListDefinedTags": "ContentTranslation\\Hooks::registerTags",
 		"ChangeTagsListActive": "ContentTranslation\\Hooks::registerTags",
 		"UserSaveOptions": "ContentTranslation\\Hooks::onSaveOptions",
@@ -2105,6 +2104,38 @@
 				"mediawiki.widgets"
 			]
 		}
+	},
+	"QUnitTestModule": {
+		"localBasePath": "tests/qunit",
+		"remoteExtPath": "ContentTranslation",
+		"scripts": [
+			"tools/ext.cx.tools.mtabuse.test.js",
+			"base/ext.cx.sitemapper.test.js",
+			"dm/mw.cx.dm.Translation.test.js",
+			"mw.cx.TargetArticle.test.js",
+			"mw.cx.MachineTranslationService.test.js",
+			"mw.cx.TranslationTracker.test.js",
+			"mw.cx.util.test.js",
+			"tools/ext.cx.tools.categories.test.js",
+			"translation/ext.cx.translation.loader.test.js",
+			"translation/ext.cx.translation.test.js",
+			"ui/mw.cx.ui.Infobar.test.js"
+		],
+		"dependencies": [
+			"ext.cx.model",
+			"ext.cx.sitemapper",
+			"ext.cx.tools.categories",
+			"ext.cx.tools.mtabuse",
+			"ext.cx.translation.loader",
+			"ext.cx.translation",
+			"mw.cx.dm.Translation",
+			"mw.cx.init.Translation",
+			"mw.cx.MachineTranslation",
+			"mw.cx.MwApiRequestManager",
+			"mw.cx.ui.Infobar",
+			"mw.cx.util",
+			"ve.init.mw.CXTarget"
+		]
 	},
 	"TrackingCategories": [
 		"cx-unreviewed-translation-category"
