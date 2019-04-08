@@ -55,6 +55,45 @@ class Hooks {
 	}
 
 	/**
+	 * Hook: LoadExtensionSchemaUpdates
+	 * @param DatabaseUpdater $updater
+	 */
+	public static function onLoadExtensionSchemaUpdates( $updater ) {
+		global $wgContentTranslationCluster, $wgContentTranslationDatabase;
+
+		// Following tables should only be created if both cluster and database are false.
+		// Otherwise they are not created in the place they are accesses, because
+		// DatabaseUpdater does not support other databases other than main wiki schema.
+		if ( $wgContentTranslationCluster !== false || $wgContentTranslationDatabase !== false ) {
+			return;
+		}
+
+		$dir = dirname( __DIR__ );
+
+		$updater->addExtensionTable( 'cx_translations', "$dir/sql/translations.sql" );
+		$updater->addExtensionTable( 'cx_translators', "$dir/sql/translators.sql" );
+		$updater->addExtensionTable( 'cx_lists', "$dir/sql/lists.sql" );
+		$updater->addExtensionTable( 'cx_suggestions', "$dir/sql/suggestions.sql" );
+		$updater->addExtensionTable( 'cx_corpora', "$dir/sql/parallel-corpora.sql" );
+
+		$updater->addExtensionField(
+			'cx_translations',
+			'translation_cx_version',
+			"$dir/sql/patch-2018-03-contenttranslation-add-version.sql"
+		);
+		$updater->dropExtensionIndex(
+			'cx_translations',
+			'cx_translation_pair',
+			"$dir/sql/patch-update-cx-unique-index.sql"
+		);
+		$updater->addExtensionIndex(
+			'cx_translations',
+			'cx_translation_ref',
+			"$dir/sql/patch-update-cx-unique-index.sql"
+		);
+	}
+
+	/**
 	 * Hook: BeforePageDisplay
 	 * @param OutputPage $out
 	 * @param Skin $skin

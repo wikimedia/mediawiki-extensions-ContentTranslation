@@ -28,6 +28,7 @@
 		"ContentTranslationAliases": "ContentTranslation.alias.php"
 	},
 	"Hooks": {
+		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
 		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",

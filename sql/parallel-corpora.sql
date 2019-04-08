@@ -1,7 +1,6 @@
 -- Table to store parallel corpora data
 -- Special cxc_section_id of CX_CATEGORY_METADATA is used to store pairs of source and target categories
 
-DROP TABLE IF EXISTS /*_*/cx_corpora;
 CREATE TABLE /*_*/cx_corpora (
     cxc_id int unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
     -- Translation to join with cx_translations
