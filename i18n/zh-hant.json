@@ -57,7 +57,7 @@
 	"cx-entrypoint-title": "翻譯本頁為 $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1 的此頁面不存在。{{GENDER:|您}}要建立該頁面嗎？",
 	"cx-entrypoint-dialog-title-in": "$1 的新頁面標題：",
-	"cx-entrypoint-dialog-button-create-from-scratch": "重頭建立",
+	"cx-entrypoint-dialog-button-create-from-scratch": "從頭建立",
 	"cx-entrypoint-dialog-button-translate-from": "翻譯自 $1",
 	"cx-special-login-error": "您必須登入才能翻譯此頁。[$1 登入]",
 	"cx-tools-instructions-text1": "{{GENDER:|點選}}段落進行翻譯",
