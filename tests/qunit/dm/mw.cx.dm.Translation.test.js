@@ -12,7 +12,7 @@
 
 	QUnit.module( 'mw.cx.dm.Translation', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Source and target dom build test', function ( assert ) {
+	QUnit.skip( 'Source and target dom build test', function ( assert ) {
 		var $fixture = $( '#qunit-fixture' ),
 			done = assert.async();
 
