@@ -823,12 +823,6 @@
 		"ext.cx.wikibase.link": {
 			"scripts": [
 				"publish/ext.cx.wikibase.link.js"
-			],
-			"dependencies": [
-				"wikibase.api.RepoApi",
-				"wikibase.client.currentSite",
-				"wikibase.client.getMwApiForRepo",
-				"wikibase.client.PageConnector"
 			]
 		},
 		"ext.cx.publish.dialog": {

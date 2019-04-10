@@ -5,7 +5,7 @@
  * @license GPL-2.0-or-later
  */
 /* global wikibase */
-( function ( wb ) {
+( function () {
 	'use strict';
 
 	/**
@@ -36,11 +36,11 @@
 		} ).done( function ( result ) {
 			var repoApi, targetWikiId, sourceWikiId, pageConnector;
 
-			repoApi = new wb.api.RepoApi( wikibase.client.getMwApiForRepo() );
+			repoApi = new wikibase.api.RepoApi( wikibase.client.getMwApiForRepo() );
 			targetWikiId = mw.config.get( 'wbCurrentSite' ).globalSiteId;
 			sourceWikiId = result.query.general.wikiid;
 
-			pageConnector = new wb.PageConnector(
+			pageConnector = new wikibase.PageConnector(
 				repoApi,
 				targetWikiId,
 				targetTitle,
@@ -62,6 +62,13 @@
 	};
 
 	$( function () {
-		mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
+		mw.loader.using( [
+			'wikibase.api.RepoApi',
+			'wikibase.client.currentSite',
+			'wikibase.client.getMwApiForRepo',
+			'wikibase.client.PageConnector'
+		] ).then( function () {
+			mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
+		} );
 	} );
-}( wikibase ) );
+}() );
