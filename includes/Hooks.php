@@ -102,17 +102,6 @@ class Hooks {
 
 		// Add a hover menu for the contributions link in personal toolbar
 		$out->addModules( 'ext.cx.campaigns.contributionsmenu' );
-
-		// The current guided tours are only for the user namespace,
-		// so load the module only there.
-		// In the future there may be guided tours in other namespaces,
-		// and then this condition should be changed.
-		if (
-			ExtensionRegistry::getInstance()->isLoaded( 'GuidedTour' ) &&
-			$title->inNamespace( NS_USER )
-		) {
-			$out->addModules( 'ext.guidedTour' );
-		}
 	}
 
 	/**
