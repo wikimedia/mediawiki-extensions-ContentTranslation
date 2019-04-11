@@ -57,8 +57,13 @@ ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
+	var parentSection;
 	ve.ce.CXTransclusionBlockNode.super.prototype.afterRender.apply( this, arguments );
-	this.model.findParent( ve.dm.CXSectionNode ).emit( 'afterRender' );
+	parentSection = this.model.findParent( ve.dm.CXSectionNode );
+	// Emit an event so that the parent section can do visual re-alignment if needed.
+	parentSection.emit( 'afterRender' );
+	// Emit change for the parent section, so that saving is queued.
+	parentSection.emit( 'update' );
 };
 
 /**
