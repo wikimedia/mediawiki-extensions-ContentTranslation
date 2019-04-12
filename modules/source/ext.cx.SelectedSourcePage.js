@@ -398,14 +398,13 @@
 	 * Start a new page translation in Special:CX.
 	 */
 	mw.cx.SelectedSourcePage.prototype.startPageInCX = function () {
-		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper, version;
+		var targetTitle, originalSourceTitle, sourceLanguage, targetLanguage, siteMapper;
 
 		siteMapper = this.siteMapper;
 		sourceLanguage = this.languageFilter.getSourceLanguage();
 		targetLanguage = this.languageFilter.getTargetLanguage();
 		originalSourceTitle = this.sourceTitle;
 		targetTitle = this.targetTitle || '';
-		version = new mw.Uri().query.version;
 
 		this.validator.isTitleExistInLanguage(
 			sourceLanguage,
@@ -425,7 +424,7 @@
 				targetTitle,
 				sourceLanguage,
 				targetLanguage,
-				{ campaign: this.config.campaign, version: version }
+				{ campaign: this.config.campaign }
 			);
 		}.bind( this ) );
 	};

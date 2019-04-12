@@ -157,14 +157,12 @@ class Hooks {
 		global $wgContentTranslationTranslateInTarget,
 			$wgContentTranslationDomainCodeMapping,
 			$wgContentTranslationSiteTemplates,
-			$wgContentTranslationTargetNamespace,
-			$wgContentTranslationVersion;
+			$wgContentTranslationTargetNamespace;
 
 		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
 		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
-		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
 	}
 
 	/**

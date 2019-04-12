@@ -109,8 +109,7 @@ mw.cx.getSectionNumberFromSectionId = function ( sectionId ) {
 };
 
 mw.cx.getCXVersion = function () {
-	var query = new mw.Uri().query;
-	return Number( query.version || mw.config.get( 'wgContentTranslationVersion' ) );
+	return Number( mw.config.get( 'wgContentTranslationVersion' ) );
 };
 
 /**

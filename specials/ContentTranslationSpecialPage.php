@@ -20,12 +20,6 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 
-		$redirectURL = $this->getRedirectURL();
-		if ( $redirectURL !== null ) {
-			$out->redirect( $redirectURL );
-			return;
-		}
-
 		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
 		$wgULSPosition = 'personal';
 		$out->addJsConfigVars( 'wgULSPosition', 'personal' );
@@ -81,16 +75,6 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	 * Export configuration variables to JavaScript
 	 */
 	abstract protected function addJsConfigVars();
-
-	/**
-	 * Check if we need to redirect user and provide URL if redirect is needed.
-	 * In case redirect is not needed, return null.
-	 *
-	 * @return string|null URL to redirect or null if redirect is not needed
-	 */
-	protected function getRedirectURL() {
-		return null;
-	}
 
 	/**
 	 * Creates HTML and prepares data for the customized personal header

@@ -169,13 +169,12 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		$out = $this->getOutput();
 
-		$initModule = 'mw.cx.init.legacy';
-		if ( $this->shouldUseNewVersion() ) {
-			// Change init module to use CX2
-			$initModule = 'mw.cx.init';
-		}
-
 		if ( $this->onTranslationView() ) {
+			$initModule = 'mw.cx.init.legacy';
+			if ( $this->shouldUseNewVersion() ) {
+				// Change init module to use CX2
+				$initModule = 'mw.cx.init';
+			}
 			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
@@ -207,11 +206,14 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		);
 
 		if ( $this->onTranslationView() ) {
+			$version = $this->shouldUseNewVersion() ? 2 : 1;
+
 			$out->addJsConfigVars( [
 				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
 					$wgContentTranslationUnmodifiedMTThresholdForPublish,
 				'wgContentTranslationCampaigns' => $wgContentTranslationCampaigns,
-				'wgContentTranslationPublishRequirements' => $wgContentTranslationPublishRequirements
+				'wgContentTranslationPublishRequirements' => $wgContentTranslationPublishRequirements,
+				'wgContentTranslationVersion' => $version
 			] );
 		} else {
 			$out->addJsConfigVars( [
@@ -222,42 +224,20 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	/**
-	 * @inheritDoc
-	 */
-	protected function getRedirectURL() {
-		if ( !$this->onTranslationView() ) {
-			// We're on CX dashboard, don't redirect
-			return null;
-		}
-
-		$request = $this->getRequest();
-		$requestVersion = $request->getIntOrNull( 'version' );
-
-		if ( $requestVersion === 1 || $requestVersion === 2 ) {
-			// If we already have a 'version' in URL, don't redirect
-			return null;
-		}
-
-		$requestURL = $request->getRequestURL();
-		return wfAppendQuery( $requestURL, 'version=2' );
-	}
-
-	/**
 	 * Determine whether CX2 should be used.
-	 *
-	 * URL 'version' param has the highest priority. If set to 2, CX2 will be loaded,
-	 * while other numerical values load CX1.
-	 *
-	 * If nothing is specified in the URL, we check user's preference and fall back to config.
 	 *
 	 * @return boolean True if we should ship version 2 of Content Translation
 	 */
 	private function shouldUseNewVersion() {
-		$requestVersion = $this->getRequest()->getIntOrNull( 'version' );
-		if ( $requestVersion !== null ) {
-			return $requestVersion === 2;
-		}
+		$request = $this->getRequest();
+		$translator = new ContentTranslation\Translator( $this->getUser() );
+		$work = new ContentTranslation\TranslationWork(
+			$request->getVal( 'page' ),
+			$request->getVal( 'from' ),
+			$request->getVal( 'to' )
+		);
+		$translation = ContentTranslation\Translation::findForTranslator( $work, $translator );
 
-		return true;
+		return !$translation || $translation->translation['cxVersion'] === 2;
 	}
 }
