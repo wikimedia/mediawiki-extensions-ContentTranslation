@@ -3,6 +3,7 @@
 *.kate-swp
 .*.swp
 .idea
+*.vscode/
 docs/
 composer.lock
 vendor/
