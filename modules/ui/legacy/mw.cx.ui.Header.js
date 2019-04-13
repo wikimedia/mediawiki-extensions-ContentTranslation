@@ -16,7 +16,8 @@ mw.cx.ui.Header = function ( config ) {
 	this.infobar = null;
 	this.statusbar = null;
 
-	this.mainPageTitle = mw.util.getUrl( mw.config.get( 'wgMainPageTitle' ) );
+	// Default index resolves to the wiki's Main Page
+	this.mainPageUrl = mw.config.get( 'wgScript' );
 	this.isAnon = mw.user.isAnon();
 	this.userName = mw.config.get( 'wgUserName' );
 
@@ -43,7 +44,7 @@ mw.cx.ui.Header.prototype.getContent = function () {
 
 	$wordmark = $( '#cx-header__wordmark' );
 	logo = new OO.ui.ButtonWidget( {
-		href: this.mainPageTitle,
+		href: this.mainPageUrl,
 		icon: 'logoWikipedia',
 		classes: [ 'cx-header__trademark-logo' ],
 		framed: false
@@ -56,7 +57,7 @@ mw.cx.ui.Header.prototype.getContent = function () {
 		.addClass( 'cx-header__trademark' )
 		.toggleClass( 'cx-header__trademark--has-wordmark', !!$wordmark[ 0 ] )
 		.append(
-			$( '<a>' ).attr( 'href', this.mainPageTitle ).append( $wordmark ),
+			$( '<a>' ).attr( 'href', this.mainPageUrl ).append( $wordmark ),
 			logo.$element,
 			$trademarkText
 		);
