@@ -81,8 +81,10 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
  * Publish the translated content to target wiki.
  *
  * @param {boolean} hasIssues True if translation being published has some issues.
+ * @param {boolean} shouldAddHighMTCategory Whether article being published
+ * should be added to high MT tracking category.
  */
-mw.cx.TargetArticle.prototype.publish = function ( hasIssues ) {
+mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCategory ) {
 	var apiParams = {
 		assert: 'user',
 		action: 'cxpublish',
@@ -91,7 +93,7 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues ) {
 		sourcetitle: this.sourceTitle,
 		title: this.getTargetTitle(),
 		html: this.getContent( true ),
-		categories: this.getTargetCategories(),
+		categories: this.getTargetCategories( shouldAddHighMTCategory ),
 		publishtags: this.getTags(),
 		wpCaptchaId: this.captcha && this.captcha.id,
 		wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
@@ -482,16 +484,18 @@ mw.cx.TargetArticle.prototype.getTargetURL = function () {
 
 /**
  * Get the categories for the article to be published
+ *
+ * @param {boolean} shouldAddHighMTCategory True if high MT tracking category should be added.
  * @return {string[]}
  */
-mw.cx.TargetArticle.prototype.getTargetCategories = function () {
+mw.cx.TargetArticle.prototype.getTargetCategories = function ( shouldAddHighMTCategory ) {
 	var targetCategories, index,
 		maintenanceCategoryMsg = 'cx-unreviewed-translation-category';
 
 	targetCategories = this.translation.getTargetCategories();
 	index = targetCategories.indexOf( maintenanceCategoryMsg );
 
-	if ( this.translation.hasSectionsWithMTAbuse() ) {
+	if ( shouldAddHighMTCategory ) {
 		// Avoid duplicates.
 		if ( index < 0 ) {
 			// Note that we are adding the msg as an indicator that

@@ -582,7 +582,10 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
 mw.cx.TranslationController.prototype.publishArticle = function () {
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
-	this.targetArticle.publish( this.translationHasIssues( [ 'title' ] ) );
+	this.targetArticle.publish(
+		this.translationHasIssues( [ 'title' ] ),
+		this.translationTracker.hasSectionsWithMTAbuse()
+	);
 };
 
 /**

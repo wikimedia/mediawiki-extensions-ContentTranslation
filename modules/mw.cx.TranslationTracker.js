@@ -18,10 +18,6 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( veTarget, config ) {
 	this.veTarget = veTarget;
 
 	this.lastFocusedSection = null;
-	// A value 0.8 means we tolerate 80% unmodified machine translation in translation.
-	this.unmodifiedMTThreshold = 0.8;
-	// A value 0.6 means we tolerate 60% unmodified text copied from source paragraph.
-	this.unmodifiedSourceThreshold = 0.6;
 	// Array that stores IDs of sections with issues, along with special value for title issues.
 	this.nodesWithIssues = [];
 	// Sections in the translation. Associative array with section numbers as keys
@@ -37,7 +33,15 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( veTarget, config ) {
 
 OO.initClass( mw.cx.TranslationTracker );
 
-/* Static methods */
+/* Static members */
+
+// Values determining how much unmodified content we tolerate in various cases
+mw.cx.TranslationTracker.static.unmodifiedContentThreshold = {
+	mt: 0.8,
+	mtAfterSuppressWarning: 0.95,
+	source: 0.6,
+	sourceAfterSuppressWarning: 0.75
+};
 
 /**
  * Calculate the section translation progress based on relative number of tokens.
@@ -368,7 +372,7 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 		return false;
 	}
 
-	return sectionState.getUnmodifiedPercentage() > this.getMTThresholdForSection( sectionState );
+	return sectionState.getUnmodifiedPercentage() > this.getUnmodifiedContentThreshold( sectionState );
 };
 
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
@@ -378,7 +382,7 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 	percentage = mw.language.convertNumber(
 		Math.round( sectionState.getUnmodifiedPercentage() * 100 ) );
 	mw.log( '[CX] Unmodified MT percentage for section ' + sectionModel.getSectionNumber() +
-		' ' + percentage + '% crossed the threshold ' + this.getMTThresholdForSection( sectionState ) * 100 );
+		' ' + percentage + '% crossed the threshold ' + this.getUnmodifiedContentThreshold( sectionState ) * 100 );
 
 	sectionModel.addTranslationIssues( [ {
 		name: 'mt-abuse',
@@ -394,22 +398,70 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 
 /**
  * @param {mw.cx.dm.SectionState} sectionState
+ * @param {boolean} forSuppressed True if getter is used for suppressed issues.
  * @return {number} Threshold which indicates if text is considered insufficiently modified
  * to be treated as a good translation:
  * - For paragraphs started with MT,
- * content is considered unmodified above the threshold of `this.unmodifiedMTThreshold`.
+ * content is considered unmodified above the threshold of "unmodifiedContentThreshold.mt".
  * - For paragraphs started by copying the source text,
- * content is considered unmodified above the threshold of `this.unmodifiedSourceThreshold`.
+ * content is considered unmodified above the threshold of "unmodifiedContentThreshold.source".
+ *
+ * When MT abuse issue is marked as resolved by user, higher thresholds are used:
+ * - "unmodifiedContentThreshold.mtAfterSuppressWarning" - for paragraphs started with MT
+ * - "unmodifiedContentThreshold.sourceAfterSuppressWarning" - for paragraphs started
+ * by copying the source text
  */
-mw.cx.TranslationTracker.prototype.getMTThresholdForSection = function ( sectionState ) {
-	return sectionState.getCurrentMTProvider() === 'source' ?
-		this.unmodifiedSourceThreshold : this.unmodifiedMTThreshold;
+mw.cx.TranslationTracker.prototype.getUnmodifiedContentThreshold = function ( sectionState, forSuppressed ) {
+	var unmodifiedContentThreshold = this.constructor.static.unmodifiedContentThreshold,
+		isSource = sectionState.getCurrentMTProvider() === 'source';
+
+	if ( !forSuppressed ) {
+		return isSource ? unmodifiedContentThreshold.source : unmodifiedContentThreshold.mt;
+	}
+
+	return isSource ?
+		unmodifiedContentThreshold.sourceAfterSuppressWarning :
+		unmodifiedContentThreshold.mtAfterSuppressWarning;
 };
 
 mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
 	if ( sectionModel && sectionModel instanceof ve.dm.CXSectionNode ) {
 		sectionModel.resolveTranslationIssues( [ 'mt-abuse' ] );
 	}
+};
+
+/**
+ * @return {boolean} Return true if there are sections with MT abuse.
+ */
+mw.cx.TranslationTracker.prototype.hasSectionsWithMTAbuse = function () {
+	return this.getTargetSectionModels().some( function ( sectionModel ) {
+		var sectionState, issue, threshold, unmodifiedPercentage,
+			index = sectionModel.findIssueIndex( 'mt-abuse' );
+
+		if ( index < 0 ) {
+			return false;
+		}
+
+		issue = sectionModel.translationIssues[ index ];
+		if ( !issue.isSuppressed() ) {
+			return true;
+		}
+
+		sectionState = this.sections[ sectionModel.getSectionNumber() ];
+		unmodifiedPercentage = sectionState.getUnmodifiedPercentage();
+		threshold = this.getUnmodifiedContentThreshold( sectionState, true );
+
+		if ( unmodifiedPercentage > threshold ) {
+			mw.log(
+				'[CX] Section ' + sectionModel.getSectionNumber() + ' has MT percentage of ' +
+				Math.round( unmodifiedPercentage ) + '%. Issue is suppressed, ' +
+				'but percentage is greater than ' + threshold
+			);
+			return true;
+		}
+
+		return false;
+	}, this );
 };
 
 /**

@@ -696,15 +696,3 @@ mw.cx.dm.Translation.prototype.getTranslationIssues = function () {
 		return !issue.isSuppressed();
 	} );
 };
-
-/**
- * Check if the translation has any unresolved MT abuse issues
- * @return {boolean}
- */
-mw.cx.dm.Translation.prototype.hasSectionsWithMTAbuse = function () {
-	var articleNode = this.targetDoc.getNodesByType( 'article' )[ 0 ];
-	return articleNode.getChildren().some( function ( node ) {
-		// node should be an instance of ve.dm.CXSectionNode
-		return node.type === 'cxSection' && node.findMatchingIssues( 'mt-abuse' ).length;
-	} );
-};
