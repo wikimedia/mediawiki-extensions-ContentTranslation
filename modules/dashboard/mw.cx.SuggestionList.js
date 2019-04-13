@@ -24,7 +24,7 @@ mw.cx.CXSuggestionList = function CXSuggestionList() {
 	this.refreshTrigger = null;
 	this.seed = null;
 	this.selectedSourcePage = null;
-	this.overlay = null;
+	this.suggestionDialog = null;
 
 	// Parent constructor
 	mw.cx.CXSuggestionList.super.apply( this, arguments );
@@ -802,14 +802,6 @@ mw.cx.CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, i
 		onDiscard: this.discardSuggestionDialog.bind( this )
 	} );
 
-	if ( !this.overlay ) {
-		this.overlay = new mw.cx.widgets.Overlay( 'body', {
-			closeOnClick: this.discardSuggestionDialog.bind( this ),
-			classes: [ 'cx-overlay-gray' ]
-		} );
-	}
-	this.overlay.show();
-
 	this.selectedSourcePage.setSelectedSourcePageData(
 		suggestion.title,
 		this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
@@ -822,17 +814,18 @@ mw.cx.CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, i
 		}
 	);
 
-	this.selectedSourcePage.toggleModal();
-	$( 'body' ).append( this.selectedSourcePage.$element );
-	this.selectedSourcePage.focusStartTranslationButton();
+	if ( !this.suggestionDialog ) {
+		this.suggestionDialog = new mw.cx.SelectedSourcePageDialog();
+		OO.ui.getWindowManager().addWindows( [ this.suggestionDialog ] );
+	}
+	OO.ui.getWindowManager().openWindow( this.suggestionDialog, { selectedSourcePage: this.selectedSourcePage } );
 };
 
 /**
- * Discards suggestion dialog and hides overlay
+ * Closes suggestion dialog
  */
 mw.cx.CXSuggestionList.prototype.discardSuggestionDialog = function () {
-	this.overlay.hide();
-	this.selectedSourcePage.hide();
+	OO.ui.getWindowManager().closeWindow( this.suggestionDialog );
 };
 
 /**

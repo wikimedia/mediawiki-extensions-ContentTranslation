@@ -140,18 +140,6 @@
 			);
 	};
 
-	mw.cx.SelectedSourcePage.prototype.toggleModal = function () {
-		var self = this;
-
-		this.$element
-			.addClass( 'cx-selected-source-page--modal' )
-			.on( 'keydown', function ( e ) {
-				if ( e.keyCode === OO.ui.Keys.ESCAPE ) {
-					self.discardDialog();
-				}
-			} );
-	};
-
 	mw.cx.SelectedSourcePage.prototype.hide = function () {
 		this.$element.remove();
 	};
@@ -558,4 +546,5 @@
 
 		this.$messageBar.show();
 	};
+
 }() );

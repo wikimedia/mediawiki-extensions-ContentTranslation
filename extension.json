@@ -356,7 +356,8 @@
 		"ext.cx.SelectedSourcePage": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"source/ext.cx.SelectedSourcePage.js"
+				"source/ext.cx.SelectedSourcePage.js",
+				"source/ext.cx.SelectedSourcePageDialog.js"
 			],
 			"styles": [
 				"source/styles/ext.cx.SelectedSourcePage.less"
@@ -904,7 +905,6 @@
 				"moment",
 				"ext.cx.progressbar",
 				"ext.cx.util",
-				"ext.cx.widgets.overlay",
 				"ext.cx.widgets.spinner",
 				"mediawiki.widgets",
 				"mw.cx.util",
