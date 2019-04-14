@@ -9,7 +9,8 @@
 			"Arianit",
 			"Prevodim",
 			"Bjakupi",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Βατο"
 		]
 	},
 	"cx": "Përkthe faqen",
@@ -123,5 +124,6 @@
 	"cx-tools-linter-invalid-character-action": "Rregullo karakteret problematik",
 	"cx-tools-linter-invalid-character-message": "Disa karakter nuk mund te perdoren ne titull te faqeve per arsye teknike.\n\nJu lutemi, editoni titullin qe t'i shmangeni karaktereve problematik.",
 	"cx-tools-linter-page-exists": "Faqja tashme ekziston",
-	"cx-tools-linter-page-exists-message": "Nje faqe me titull $1 tashme ekziston. Publikimi i perkthimit tuaj do te fshiej perbajtjen ekzistuese\n\nKontrollo qe eshte ne rregull te zevendesosh faqen ekzistuese, apo konsidero ri-emerimin e perkthimit tuaj."
+	"cx-tools-linter-page-exists-message": "Nje faqe me titull $1 tashme ekziston. Publikimi i perkthimit tuaj do te fshiej perbajtjen ekzistuese\n\nKontrollo qe eshte ne rregull te zevendesosh faqen ekzistuese, apo konsidero ri-emerimin e perkthimit tuaj.",
+	"cx-unreviewed-translation-category": "Faqe me përkthime të pashqyrtuara"
 }
