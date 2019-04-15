@@ -23,11 +23,6 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 		} )
 		.addClass( 've-ce-cxSectionNode' );
 
-	if ( !this.model.isTargetSection() ) {
-		// Disable ime activation
-		this.$element.addClass( 'noime' );
-	}
-
 	this.getFocusableElement().on( {
 		focus: this.emit.bind( this, 'focus' ),
 		blur: this.emit.bind( this, 'blur' )
