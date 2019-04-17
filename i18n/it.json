@@ -22,7 +22,8 @@
 			"Gabrielet",
 			"Петар Петковић",
 			"Daimona Eaytoy",
-			"Lorelai87"
+			"Lorelai87",
+			"Sakretsu"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -51,6 +52,7 @@
 	"cx-translation-target-page-exists": "Esiste già una pagina con titolo [$1 $2] nel wiki di destinazione. Considera la possibilità di dare alla pagina un titolo diverso.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraduzioneContenuti]]",
 	"tag-contenttranslation-description": "Il contenuto è stato tradotto da un'altra lingua usando lo strumento di Traduzione voci.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|TraduzioneContenuti2]]",
 	"tag-contenttranslation-v2-description": "Il contenuto è stato tradotto da un'altra lingua usando la versione 2 dello strumento di Traduzione voci.",
 	"cx-source-loading": "Caricamento $1",
 	"cx-beta": "Traduzione voci",
