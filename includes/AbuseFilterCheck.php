@@ -111,7 +111,7 @@ class AbuseFilterCheck {
 	protected function getResults( \AbuseFilterVariableHolder $vars ) {
 		static $seriousActions = [ 'warn', 'block', 'disallow', 'degroup' ];
 
-		$filters = \AbuseFilter::checkAllFilters( $vars, $this->title );
+		$filters = \AbuseFilter::checkAllFilters( $vars, 'default', $this->title );
 		$filters = array_keys( array_filter( $filters ) );
 		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
 
