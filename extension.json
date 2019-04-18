@@ -1753,8 +1753,7 @@
 				"monobook": [ "ui/legacy/styles/mw.cx.ui.ToolsColumn.monobook.less" ]
 			},
 			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.ui.ProgressBarWidget"
+				"mw.cx.ui"
 			]
 		},
 		"mw.cx.ui.CategoryMultiselectWidget": {
@@ -1953,18 +1952,6 @@
 			],
 			"styles": [
 				"ui/styles/widgets/mw.cx.ui.TranslationToolWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui-widgets"
-			]
-		},
-		"mw.cx.ui.ProgressBarWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.ProgressBarWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.ProgressBarWidget.less"
 			],
 			"dependencies": [
 				"mw.cx.ui",
