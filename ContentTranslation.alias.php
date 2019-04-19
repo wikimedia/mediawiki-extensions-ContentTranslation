@@ -44,6 +44,12 @@ $specialPageAliases['bs'] = [
 	'ContentTranslationStats' => [ 'Statistika_prevođenja_sadržaja' ],
 ];
 
+/** Czech (čeština) */
+$specialPageAliases['cs'] = [
+	'ContentTranslation' => [ 'Překlad' ],
+	'ContentTranslationStats' => [ 'Statistiky_využití_nástroje_Překlad' ],
+];
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = [
 	'ContentTranslation' => [ 'Inhaltsübersetzung' ],
