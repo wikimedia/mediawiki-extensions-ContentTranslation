@@ -34,10 +34,10 @@
 
 		this.$element = null;
 
-		this.$selectedSourcePageImage = null;
-		this.$selectedSourcePageLink = null;
-		this.$selectedSourcePageLanguageCount = null;
-		this.$selectedSourcePageViewsCount = null;
+		this.$image = null;
+		this.$link = null;
+		this.languageCount = null;
+		this.viewsCount = null;
 		this.languageFilter = null;
 		this.discardButton = null;
 		this.startTranslationButton = null;
@@ -65,46 +65,40 @@
 	};
 
 	mw.cx.SelectedSourcePage.prototype.render = function () {
-		var $selectedSourcePageLinkContainer,
-			$selectedSourcePageContainer,
-			$selectedSourcePageInfo,
-			$selectedSourcePageMetrics,
-			$license,
-			$actions,
-			translateButtonLabel;
+		var $linkContainer, $container, $info, $metrics, $license, $actions,
+			translateButtonLabel, languageCountIcon;
 
-		this.$selectedSourcePageImage = $( '<div>' )
+		this.$image = $( '<div>' )
 			.addClass( 'cx-selected-source-page__image' );
 
-		this.$selectedSourcePageLink = $( '<a>' )
+		this.$link = $( '<a>' )
 			.addClass( 'cx-selected-source-page__link' )
 			.prop( {
 				lang: this.languageFilter.getSourceLanguage(),
 				dir: $.uls.data.getDir( this.languageFilter.getSourceLanguage() )
 			} );
-		$selectedSourcePageLinkContainer = $( '<span>' )
-			.append( this.$selectedSourcePageLink );
+		$linkContainer = $( '<span>' )
+			.append( this.$link );
 
-		this.$selectedSourcePageLanguageCount = $( '<span>' )
-			.addClass( 'cx-selected-source-page__language-count' );
-		this.$selectedSourcePageViewsCount = $( '<span>' )
-			.addClass( 'cx-selected-source-page__views-count' );
-		$selectedSourcePageMetrics = $( '<div>' )
+		languageCountIcon = new OO.ui.IconWidget( {
+			icon: 'language',
+			classes: [ 'cx-selected-source-page__language-count' ]
+		} );
+		this.languageCount = new OO.ui.LabelWidget();
+		this.viewsCount = new OO.ui.LabelWidget( {
+			classes: [ 'cx-selected-source-page__views-count' ]
+		} );
+		$metrics = $( '<div>' )
 			.addClass( 'cx-selected-source-page__metrics' )
-			.append( this.$selectedSourcePageLanguageCount, this.$selectedSourcePageViewsCount );
+			.append( languageCountIcon.$element, this.languageCount.$element, this.viewsCount.$element );
 
-		$selectedSourcePageInfo = $( '<div>' )
+		$info = $( '<div>' )
 			.addClass( 'cx-selected-source-page__info' )
-			.append( $selectedSourcePageLinkContainer, $selectedSourcePageMetrics );
+			.append( $linkContainer, $metrics );
 
-		$selectedSourcePageContainer = $( '<div>' )
+		$container = $( '<div>' )
 			.addClass( 'cx-selected-source-page__container' )
-			.append(
-				this.$selectedSourcePageImage,
-				$selectedSourcePageInfo,
-				this.languageFilter.$element,
-				this.discardButton.$element
-			);
+			.append( this.$image, $info, this.languageFilter.$element, this.discardButton.$element );
 
 		this.$messageBar = $( '<div>' )
 			.addClass( 'cx-selected-source-page__messagebar' );
@@ -132,12 +126,7 @@
 
 		this.$element = $( '<div>' )
 			.addClass( 'cx-selected-source-page' )
-			.append(
-				$selectedSourcePageContainer,
-				this.$messageBar,
-				$license,
-				$actions
-			);
+			.append( $container, this.$messageBar, $license, $actions );
 	};
 
 	mw.cx.SelectedSourcePage.prototype.hide = function () {
@@ -157,7 +146,7 @@
 		this.$messageBar.hide(); // Hide any previous messages
 
 		// Discard selected source image
-		this.$selectedSourcePageImage
+		this.$image
 			.removeAttr( 'style' )
 			.removeClass( 'oo-ui-iconElement-icon' )
 			.attr( 'class', function ( i, className ) {
@@ -188,7 +177,7 @@
 
 		if ( title ) {
 			href = this.siteMapper.getPageUrl( language, title );
-			this.$selectedSourcePageLink.prop( {
+			this.$link.prop( {
 				href: href,
 				title: title,
 				text: title
@@ -203,14 +192,12 @@
 	 * @param {string} language Language code.
 	 */
 	mw.cx.SelectedSourcePage.prototype.sourceLanguageChangeHandler = function ( language ) {
-		var self = this;
-
 		this.changeSelectedSourceTitle( language );
 		this.getPageInfo( this.sourcePageTitles[ language ] ).done( function ( data ) {
-			self.renderPageViews( data.pageviews );
-		} ).fail( function ( error ) {
-			mw.log( 'Error getting page info for ' + self.sourcePageTitles[ language ] + '. ' + error );
-		} );
+			this.renderPageViews( data.pageviews );
+		}.bind( this ) ).fail( function ( error ) {
+			mw.log( 'Error getting page info for ' + this.sourcePageTitles[ language ] + '. ' + error );
+		}.bind( this ) );
 
 		this.check();
 	};
@@ -244,8 +231,8 @@
 	 * @cfg {string} [imageIcon] OOUI class of selected page placeholder icon
 	 * @cfg {number} [numOfLanguages] Number of different language versions for selected source page
 	 */
-	mw.cx.SelectedSourcePage.prototype.setSelectedSourcePageData = function ( pageTitle, href, config ) {
-		var params, self = this;
+	mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config ) {
+		var params;
 		this.languageFilter.setSourceLanguageNoChecks( config.sourceLanguage );
 		this.languageFilter.setTargetLanguageNoChecks( config.targetLanguage );
 
@@ -258,59 +245,59 @@
 		this.getPageInfo( pageTitle, params ).done( function ( data ) {
 			var langCode, title, languagesPageExistsIn, languageDecorator, numOfLanguages;
 
-			self.renderPageViews( data.pageviews );
+			this.renderPageViews( data.pageviews );
 
 			numOfLanguages =
 				config.numOfLanguages ||
 				( OO.getProp( data, 'langlinkscount' ) || 0 ) + 1;
-			self.$selectedSourcePageLanguageCount.text( mw.language.convertNumber( numOfLanguages ) );
+			this.languageCount.setLabel( mw.language.convertNumber( numOfLanguages ) );
 
 			// Reset source page titles
-			self.sourcePageTitles = {};
+			this.sourcePageTitles = {};
 			// Extract results data and create sourcePageTitles mapping
 			if ( data.langlinks ) {
 				data.langlinks.forEach( function ( element ) {
 					langCode = element.lang;
 					title = element[ '*' ];
 
-					self.sourcePageTitles[ langCode ] = title;
-				} );
+					this.sourcePageTitles[ langCode ] = title;
+				}, this );
 			}
 			// Include chosen source page title (not returned by langlinks API)
-			self.sourcePageTitles[ self.languageFilter.getSourceLanguage() ] = pageTitle;
+			this.sourcePageTitles[ this.languageFilter.getSourceLanguage() ] = pageTitle;
 
-			languagesPageExistsIn = Object.keys( self.sourcePageTitles );
+			languagesPageExistsIn = Object.keys( this.sourcePageTitles );
 			languageDecorator = function ( $language, languageCode ) {
 				if ( languagesPageExistsIn.indexOf( languageCode ) < 0 ) {
 					$language.css( 'font-weight', 'bold' );
 				}
 			};
 
-			self.languageFilter.fillSourceLanguages( languagesPageExistsIn, true, {
+			this.languageFilter.fillSourceLanguages( languagesPageExistsIn, true, {
 				ulsPurpose: 'cx-selectedpage-source'
 			} );
-			self.languageFilter.fillTargetLanguages( null, true, {
+			this.languageFilter.fillTargetLanguages( null, true, {
 				ulsPurpose: 'cx-selectedpage-target',
 				languageDecorator: languageDecorator
 			} );
-			self.languageFilter.setValidSourceLanguages( languagesPageExistsIn );
-		} ).fail( function ( error ) {
+			this.languageFilter.setValidSourceLanguages( languagesPageExistsIn );
+		}.bind( this ) ).fail( function ( error ) {
 			mw.log( 'Error getting page info for ' + pageTitle + '. ' + error );
 		} );
 
 		if ( config.imageUrl ) {
-			this.$selectedSourcePageImage.css( 'background-image', 'url( ' + config.imageUrl + ')' );
+			this.$image.css( 'background-image', 'url( ' + config.imageUrl + ')' );
 		} else {
-			this.$selectedSourcePageImage.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + config.imageIcon );
+			this.$image.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + config.imageIcon );
 		}
 
-		this.$selectedSourcePageLink.prop( {
+		this.$link.prop( {
 			href: href,
 			title: pageTitle,
 			target: '_blank',
 			text: pageTitle
 		} );
-		this.$selectedSourcePageLink.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
+		this.$link.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
 
 		this.sourceTitle = pageTitle;
 		this.check();
@@ -325,7 +312,7 @@
 	 * @return {jQuery.Promise} Returns thenable promise, so langlinks can be processed if necessary.
 	 */
 	mw.cx.SelectedSourcePage.prototype.getPageInfo = function ( title, params ) {
-		var api, self = this;
+		var api;
 
 		if ( !title ) {
 			throw new Error( 'Title is mandatory parameter' );
@@ -358,12 +345,12 @@
 			return page[ pageId ];
 		}, function ( response ) {
 			// In case of failure, fallback to all source and target languages
-			self.sourcePageTitles = {};
-			self.languageFilter.fillSourceLanguages( null, true );
-			self.languageFilter.fillTargetLanguages( null, true );
+			this.sourcePageTitles = {};
+			this.languageFilter.fillSourceLanguages( null, true );
+			this.languageFilter.fillTargetLanguages( null, true );
 
 			return $.Deferred().reject( 'Reason: ' + response ).promise();
-		} );
+		}.bind( this ) );
 	};
 
 	mw.cx.SelectedSourcePage.prototype.renderPageViews = function ( pageViewData ) {
@@ -377,7 +364,7 @@
 			pageViews += pageViewData[ date ];
 		}
 
-		this.$selectedSourcePageViewsCount.text(
+		this.viewsCount.setLabel(
 			mw.msg( 'cx-selected-source-page-view-count', mw.language.convertNumber( pageViews ) )
 		);
 	};
@@ -424,8 +411,7 @@
 		var sourceLanguage = this.languageFilter.getSourceLanguage(),
 			targetLanguage = this.languageFilter.getTargetLanguage(),
 			targetTitle = this.targetTitle || '',
-			titleCheck, translationCheck,
-			self = this;
+			titleCheck, translationCheck;
 
 		this.$messageBar.hide();
 
@@ -445,19 +431,19 @@
 			// If there is an existing translation and
 			// the specified target title is in use
 			if ( existingTranslation && existingTargetTitle ) {
-				self.showPageExistsAndTitleInUseError(
+				this.showPageExistsAndTitleInUseError(
 					existingTranslation,
 					existingTargetTitle,
 					targetLanguage
 				);
 			} else if ( existingTranslation ) {
 				// If there is just an existing translation
-				self.showPageExistsError( existingTranslation, targetLanguage );
+				this.showPageExistsError( existingTranslation, targetLanguage );
 			} else if ( existingTargetTitle ) {
 				// If the specified target title is in use
-				self.showTitleInUseError( existingTargetTitle, targetLanguage );
+				this.showTitleInUseError( existingTargetTitle, targetLanguage );
 			}
-		} );
+		}.bind( this ) );
 	};
 
 	/**

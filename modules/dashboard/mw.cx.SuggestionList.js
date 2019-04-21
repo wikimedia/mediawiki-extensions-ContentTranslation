@@ -802,7 +802,7 @@ mw.cx.CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, i
 		onDiscard: this.discardSuggestionDialog.bind( this )
 	} );
 
-	this.selectedSourcePage.setSelectedSourcePageData(
+	this.selectedSourcePage.setData(
 		suggestion.title,
 		this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
 		{

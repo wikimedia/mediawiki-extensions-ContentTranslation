@@ -92,7 +92,7 @@
 
 		this.discardButton.connect( this, { click: this.discardDialog } );
 		this.pageSelector.onLookupMenuItemChoose = function ( source ) {
-			self.selectedSourcePage.setSelectedSourcePageData(
+			self.selectedSourcePage.setData(
 				source.getData(),
 				source.$label.prop( 'href' ),
 				{

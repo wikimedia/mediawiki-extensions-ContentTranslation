@@ -374,6 +374,7 @@
 				"mediawiki.ui.button",
 				"mw.cx.ui.LanguageFilter",
 				"mw.cx.util",
+				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-interactions",
 				"oojs"
 			],
