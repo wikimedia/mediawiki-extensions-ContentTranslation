@@ -96,22 +96,32 @@ mw.cx.ui.LanguageFilter.prototype.getAutonyms = function ( languages ) {
 };
 
 /**
- * Calculate position for ULS, depending on directionality
+ * Calculate position for ULS, to display it next to the language filter
+ * and use the appropriate size, not to go outside of viewport.
  */
 mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function () {
-	var isRtl = $( 'html' ).prop( 'dir' ) === 'rtl',
-		left = this.$element.offset().left,
-		right = left + this.$element.parent().width() - this.$menu.width(),
-		isInRtlViewport = right > 0,
-		isInLtrViewport = left + this.$menu.width() > $( window ).width();
+	var ulsTriggerLeft = this.$element.offset().left,
+		triggerWidth = this.$element.outerWidth(),
+		menuWidth = this.$menu.width(),
+		isRtl = $( 'html' ).prop( 'dir' ) === 'rtl',
+		left = isRtl ? ulsTriggerLeft : ( ulsTriggerLeft + triggerWidth - menuWidth ),
+		isInsideViewport = isRtl ? ( left + menuWidth ) < document.documentElement.clientWidth : left > 0;
 
-	if ( ( isRtl && isInRtlViewport ) || ( !isRtl && isInLtrViewport ) ) {
-		this.left = right;
-	} else {
+	if ( isInsideViewport ) {
 		this.left = left;
+		this.$menu.css( this.position() );
+		return;
 	}
 
-	this.$menu.css( this.position() );
+	this.menuWidth = this.getMenuWidth() === 'wide' ? 'medium' : 'narrow';
+	this.recreateLanguageFilter();
+	this.$menu
+		.removeClass( 'uls-wide uls-medium uls-narrow' )
+		.addClass( 'uls-' + this.menuWidth );
+
+	// HACK: This is a recursive call to this function, because this
+	// method is registered as onVisible when ULS menu is created.
+	this.visible();
 };
 
 /**
