@@ -133,7 +133,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
-				restoredContent = mw.cx.dm.Translation.static.getLatestTranslation( savedSection );
+				restoredContent = this.getLatestTranslation( savedSection );
 				if ( !restoredContent ) {
 					mw.log.error( '[CX] Blank saved section for ' + sectionId + ' while restoring' );
 					return;
@@ -248,7 +248,7 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 		// to A1,C2,B3 will get restored as A1:a1,C2:b2:B3:c3.
 		// (A,a,B..are section ids, 1,2,3.. are section numbers in above notation.)
 		// So, we should be extra cautious before using section numbers for restoring.
-		if ( mw.cx.dm.Translation.static.isMatchingForRestore(
+		if ( this.isMatchingForRestore(
 			savedTranslationUnit.source.content, sourceSectionNode, sourceLanguage )
 		) {
 			savedTranslationUnit.restored = true;
@@ -262,7 +262,6 @@ mw.cx.dm.Translation.static.getSavedSection = function (
  * the saved source and current source share a common tokens ratio greater than a threshold.
  * Check if that is the case.
  *
- * @static
  * @param {string} savedSourceContent
  * @param {Element|string} currSourceNode
  * @param {string} language Source language code, required for tokenization
@@ -303,10 +302,7 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
 	// It is possible that the new or old source section has lot of new content added compared to other.
 	// For example, a section had 1 sentence and now it has 4 sentences. In such case,
 	// find if the new section has with old source section content.
-	return mw.cx.dm.Translation.static.hasIncludedContent(
-		$savedTranslationUnitSource.text(),
-		$sourceSectionNode.text()
-	);
+	return this.hasIncludedContent( $savedTranslationUnitSource.text(), $sourceSectionNode.text() );
 };
 
 /**
