@@ -30,7 +30,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Překlad]] je nástroj k rychlému překládání stránek do vašeho jazyka. [$1 Vyzkoušejte ho nyní!]",
 	"cx-license-agreement": "Kliknutím na „$1“ souhlasíte s [//foundation.wikimedia.org/wiki/Terms_of_Use Podmínkami použití] a neodvolatelně souhlasíte, že své příspěvky vložené pomocí nástroje Překlad budete zveřejňovat pod [https://creativecommons.org/licenses/by-sa/3.0/ licencí CC BY-SA 3.0] a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s tím, že uvedení hypertextového odkazu anebo URL adresy je dostatečným splněním podmínek CC BY-SA 3.0.",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
-	"cx-desc": "Rozšíření Překlad zjednodušuje [[Special:ContentTranslation|překlad]] obsahových stránek",
+	"cx-desc": "Rozšíření Překlad zjednodušuje [[Speciální:Překlad|překlad]] obsahových stránek",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|přeloženo|přeložena|přeloženo}}",
 	"cx-header-progressbar-text-mt": "($1 % pomocí {{PLURAL:$1|strojového překladu}})",
 	"cx-header-translation-center": "Překladatelské centrum",

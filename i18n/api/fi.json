@@ -1,8 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pitke"
+			"Pitke",
+			"Kyykaarme"
 		]
 	},
-	"apihelp-cxpublish-param-status": "Jos <kbd>draft</kbd>, käännös tallennetaan luonnoksena. Jos <kbd>published</kbd>, käännös julkaistaan."
+	"apihelp-cxpublish-description": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
+	"apihelp-cxpublish-summary": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
+	"apihelp-cxpublish-param-title": "Sivun nimi, johon toiminnot kohdistetaan.",
+	"apihelp-cxpublish-param-html": "Tallennettava sisältö.",
+	"apihelp-cxpublish-param-from": "Lähteen kielikoodi.",
+	"apihelp-cxpublish-param-to": "Kohteen kielikoodi.",
+	"apihelp-cxpublish-param-sourcetitle": "Lähdesivun nimi.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Sinun täytyy olla sisäänkirjautuneena saadaksesi ehdotuksia käännöksistä.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Nähdäksesi käännöksesi sinun täytyy kirjautua sisään.",
+	"apierror-cx-samelanguages": "Lähde- ja kohdekielet eivät voi olla samoja.",
+	"apierror-cx-suggestionsdisabled": "Ehdotuksia ei ole saatavissa tässä wikissä.",
+	"apierror-cx-translationnotfound": "Käännöstä ei löytynyt.",
+	"apihelp-query+langlinkscount-summary": "Hae muiden kieliversioiden lukumäärä."
 }
