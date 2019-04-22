@@ -93,7 +93,6 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 	sourceHtml, forTarget, savedTranslationUnits, sourceLanguage
 ) {
 	var sectionId, childNodes, restoredContent,
-		sectionNumber = 0,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
 		baseNodes;
@@ -128,9 +127,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		}
 
 		if ( forTarget ) {
-			savedSection = this.getSavedSection(
-				savedTranslationUnits, node, sectionNumber, sourceLanguage
-			);
+			savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
 
 			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
 			if ( savedSection ) {
@@ -158,8 +155,6 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		// Remove the original node now.
 		node.parentNode.removeChild( node );
 		articleNode.appendChild( sectionNode );
-
-		sectionNumber++;
 	}, this );
 
 	domDoc.body.appendChild( articleNode );
@@ -201,12 +196,11 @@ mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) 
  *
  * @param {Object|undefined} savedTranslationUnits Saved translation units if any
  * @param {Node} sourceSectionNode
- * @param {number} sectionNumber Section number
  * @param {string} sourceLanguage Source language code
  * @return {Object|undefined} saved translationUnit
  */
 mw.cx.dm.Translation.static.getSavedSection = function (
-	savedTranslationUnits, sourceSectionNode, sectionNumber, sourceLanguage
+	savedTranslationUnits, sourceSectionNode, sourceLanguage
 ) {
 	var savedSection, translationUnitId, savedTranslationUnit,
 		parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;

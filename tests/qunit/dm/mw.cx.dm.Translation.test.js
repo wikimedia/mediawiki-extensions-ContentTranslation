@@ -203,7 +203,6 @@
 			savedUnit = mw.cx.dm.Translation.static.getSavedSection(
 				restoreTestData.savedTranslationUnits,
 				sourceSectionDom,
-				sectionNumber,
 				sourceSection.sourceLanguage
 			);
 			assert.strictEqual(
