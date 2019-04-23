@@ -229,6 +229,7 @@
 	"cx-tools-linter-page-exists": "De pagina bestaat al",
 	"cx-tools-linter-page-exists-message": "Een pagina met de titel $1 bestaat al. De bestaande inhoud zal worden overschreven wanneer u uw vertaling publiceert.\n\nControleer of de bestaande pagina vervangen kan worden, of overweeg de title van uw vertaling te wijzigen.",
 	"cx-tools-linter-template": "Sjabloon niet beschikbaar",
+	"cx-tools-linter-template-add-new": "Nieuw sjabloon toevoegen",
 	"cx-tools-linter-old-revision": "Vertaling gebaseerd op een oude versie van de pagina",
 	"cx-tools-linter-old-revision-message": "Deze vertaling is gebaseerd op een oudere versie van de inhoud. De bronpagina kan $1 significant gewijzigd zijn.",
 	"cx-tools-linter-restart-translation-cancel": "Annuleren",

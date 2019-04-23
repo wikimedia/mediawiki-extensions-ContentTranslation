@@ -132,7 +132,7 @@
 	"cx-publishing-dialog-publish-anyway-button": "যেকোনোভাবে প্রকাশ করুন",
 	"cx-publishing-dialog-title": "বিদ্যমান পাতাটির উপর লিখবেন?",
 	"cx-publishing-with-issues-dialog-title": "বিদ্যমান সমস্যাসহ প্রকাশ করবেন?",
-	"cx-publishing-with-issues-dialog-message": "আপনার অনুবাদে এখনও সম্ভাব্য সমস্যা আছে। প্রকাশ করার আগে সমস্যা পরীক্ষা করুন দয়া করে।\n\nআপনার অবদান পর্যালোচনা করা সম্পাদকগণ এই উন্নতির প্রশংসা করবে।",
+	"cx-publishing-with-issues-dialog-message": "আপনার অনুবাদে এখনও সম্ভাব্য সমস্যা আছে। প্রকাশ করার আগে দয়া করে সমস্যা পরীক্ষা করুন।\n\nনিবন্ধ পর্যালোচনাকারী সম্পাদকগণ আপনার এই উন্নতির প্রশংসা করবেন।",
 	"cx-discard-translation": "অনুবাদ পরিত্যাগ করুন",
 	"cx-translation-status-draft": "চলমান",
 	"cx-translation-status-published": "প্রকাশিত",
