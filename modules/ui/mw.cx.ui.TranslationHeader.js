@@ -12,6 +12,8 @@ mw.cx.ui.TranslationHeader = function ( config ) {
 	this.config = config || {};
 	this.statusbar = null;
 	this.publishButton = null;
+	this.$toolbar = null;
+
 	// Parent constructor
 	mw.cx.ui.TranslationHeader.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
