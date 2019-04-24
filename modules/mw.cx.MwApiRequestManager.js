@@ -24,8 +24,6 @@ mw.cx.MwApiRequestManager = function MwCxMwApiRequestManager( sourceLanguage, ta
 	this.sourceLanguage = sourceLanguage;
 	this.targetLanguage = targetLanguage;
 	this.siteMapper = siteMapper;
-	this.linkCache = {};
-	this.imageCache = {};
 	this.titlePairCache = {};
 	this.categoryCache = {};
 	this.namespaceCache = {};
@@ -36,14 +34,6 @@ mw.cx.MwApiRequestManager = function MwCxMwApiRequestManager( sourceLanguage, ta
  * Initialize or reset all caches.
  */
 mw.cx.MwApiRequestManager.prototype.init = function () {
-	this.imageCache[ this.sourceLanguage ] = new mw.cx.ImageInfoCache( {
-		language: this.sourceLanguage,
-		siteMapper: this.siteMapper
-	} );
-	this.imageCache[ this.targetLanguage ] = new mw.cx.ImageInfoCache( {
-		language: this.targetLanguage,
-		siteMapper: this.siteMapper
-	} );
 	this.titlePairCache[ this.sourceLanguage ] = new mw.cx.TitlePairCache( {
 		sourceLanguage: this.sourceLanguage,
 		targetLanguage: this.targetLanguage,
@@ -70,38 +60,6 @@ mw.cx.MwApiRequestManager.prototype.init = function () {
 		language: this.targetLanguage,
 		siteMapper: this.siteMapper
 	} );
-};
-
-/**
- * Look up link data about a title. If the data about this title is already in the cache, this
- * returns an already-resolved promise. Otherwise, it returns a pending promise and schedules
- * an request to retrieve the data.
- *
- * @param {string} language Language code
- * @param {string} title Title
- * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
- */
-mw.cx.MwApiRequestManager.prototype.getLinkInfo = function ( language, title ) {
-	if ( !this.linkCache[ language ] ) {
-		throw Error( '[CX] LinkCache not initialized for ' + language );
-	}
-	return this.linkCache[ language ].get( title );
-};
-
-/**
- * Look up image data about a title. If the data about this title is already in the cache, this
- * returns an already-resolved promise. Otherwise, it returns a pending promise and schedules
- * an request to retrieve the data.
- *
- * @param {string} language Language code
- * @param {string} title Title
- * @return {jQuery.Promise} Promise that will be resolved with the data once it's available
- */
-mw.cx.MwApiRequestManager.prototype.getImageInfo = function ( language, title ) {
-	if ( !this.imageCache[ language ] ) {
-		throw Error( '[CX] ImageCache not initialized for ' + language );
-	}
-	return this.imageCache[ language ].get( title );
 };
 
 /**
