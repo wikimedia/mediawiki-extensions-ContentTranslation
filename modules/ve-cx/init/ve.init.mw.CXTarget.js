@@ -897,6 +897,7 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  */
 ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider, noCache ) {
 	var sourceNode, mtRequest,
+		isClipboardMode = true,
 		sourceNodeModel = this.getSourceSectionNode( sectionId ),
 		sectionNumber = sourceNodeModel.getSectionNumber();
 
@@ -907,7 +908,14 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 
 	// Convert DOM to node, preserving full internal list
 	// Use clipboard mode to ensure reference body is outputted
-	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, true ).body.children[ 0 ];
+	if ( OO.getProp( sourceNodeModel, 'children', 0, 'type' ) === 'mwReferencesList' ) {
+		// If the section is referencelist, we don't need to have the reference body resolved in it.
+		// The reflist template wrapping of mw:Extension/refs will be lost in the
+		// clipboard mode too. See T220491
+		isClipboardMode = false;
+	}
+
+	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, isClipboardMode ).body.children[ 0 ];
 
 	function restructure( section ) {
 		section = section.cloneNode( true );
