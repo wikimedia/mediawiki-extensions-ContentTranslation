@@ -134,6 +134,37 @@ mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, detai
 };
 
 /**
+ * @param {string} message Message to display inside infobar
+ * @param {string} issueName Name of the issue to be displayed when infobar message is closed
+ * @param {string} type 'error' or 'warning'
+ */
+mw.cx.ui.TranslationView.prototype.showViewIssuesMessage = function ( message, issueName, type ) {
+	var button = new OO.ui.ButtonWidget( {
+		framed: false,
+		flags: [ 'primary', 'progressive' ],
+		label: mw.msg( 'cx-infobar-view-issues' )
+	} );
+
+	button.connect( this, { click: [ 'displayIssueDetails', issueName ] } );
+
+	this.showMessage( type, message, null, issueName, [ button ] );
+};
+
+/**
+ * @param {string} issueName Name of the issue to be displayed when infobar message is closed
+ */
+mw.cx.ui.TranslationView.prototype.displayIssueDetails = function ( issueName ) {
+	var issueCard = this.toolsColumn.issueCard;
+
+	if ( !issueCard ) {
+		throw new Error( 'Issue card is not initialized' );
+	}
+
+	issueCard.openIssueByName( issueName );
+	this.clearMessages();
+};
+
+/**
  * @param {Mixed} messageData
  */
 mw.cx.ui.TranslationView.prototype.removeMessage = function ( messageData ) {

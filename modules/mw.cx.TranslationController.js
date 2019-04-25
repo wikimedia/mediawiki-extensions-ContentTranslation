@@ -26,6 +26,7 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.saveRequest = null;
 	this.failCounter = 0;
 	this.isFailedUnrecoverably = false; // TODO: This is still unused
+	this.mtAbusePublishingStopped = false;
 	this.saveStatusTimer = null;
 	this.retryTimer = null;
 	this.loginDialog = null;
@@ -53,7 +54,7 @@ mw.cx.TranslationController.prototype.listen = function () {
 		targetCategoriesChange: 'onTargetCategoriesChange',
 		issuesResolved: 'onIssuesResolved',
 		translationIssues: 'onTranslationIssues',
-		sectionChange: 'addToChangeQueue'
+		sectionChange: 'onSectionChange'
 	} );
 
 	this.veTarget.connect( this, {
@@ -88,13 +89,19 @@ mw.cx.TranslationController.prototype.listen = function () {
  * triggers. Hence two queues.
  * @param {string} sectionId
  */
-mw.cx.TranslationController.prototype.addToChangeQueue = function ( sectionId ) {
+mw.cx.TranslationController.prototype.onSectionChange = function ( sectionId ) {
 	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	this.translationTracker.pushToChangeQueue( sectionNumber );
 	this.translationTracker.pushToSaveQueue( sectionNumber );
 	// Schedule processing the change and save queues
 	this.changeTrackerScheduler();
 	this.saveScheduler();
+
+	if ( this.mtAbusePublishingStopped ) {
+		this.mtAbusePublishingStopped = false;
+		// Resolve MT abuse error, if it is registered
+		this.translation.resolveIssueByName( 'mt-abuse-publish' );
+	}
 };
 
 /**
@@ -522,14 +529,18 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
+	var mtAbusePublishMsg = mw.msg( 'cx-mt-abuse-publish-error' );
+
 	mw.log( '[CX] Publishing translation...' );
 
 	// Scroll to the top of the page, so success/fail messages become visible
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 
 	if ( this.checkForMTAbuse() ) {
-		this.targetArticle.showPublishError( mw.msg( 'cx-mt-abuse-publish-error' ), null, false );
-		// TODO: Elaborate this to an issue card
+		this.translationView.showViewIssuesMessage( mtAbusePublishMsg, 'mt-abuse-publish', 'error' );
+		this.showMTAbusePublishError();
+		this.onPublishCancel();
+		this.mtAbusePublishingStopped = true;
 		return;
 	}
 
@@ -545,6 +556,25 @@ mw.cx.TranslationController.prototype.publish = function () {
 	// We wait for successful saving, before proceeding with publishing.
 	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this ) );
 	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
+};
+
+mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
+	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
+		this.translation.addUnattachedIssues( [
+			new mw.cx.dm.TranslationIssue(
+				'mt-abuse-publish', // Issue name
+				mw.msg( 'cx-mt-abuse-warning-text' ), // message body
+				{
+					title: mw.msg(
+						'cx-mt-abuse-warning-title',
+						this.translationTracker.getUnmodifiedMTPercentageInTranslation()
+					),
+					type: 'error',
+					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
+				}
+			)
+		] );
+	}.bind( this ) );
 };
 
 mw.cx.TranslationController.prototype.publishArticle = function () {

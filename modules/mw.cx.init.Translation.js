@@ -347,7 +347,9 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		return;
 	}
 
-	this.displayInfobarMessage( mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning' );
+	this.translationView.showViewIssuesMessage(
+		mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning'
+	);
 
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
 		var diff, translationIssuesParams;
@@ -487,7 +489,9 @@ mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
  * Display the error when user cannot publish into main namespace.
  */
 mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
-	this.displayInfobarMessage( mw.msg( 'cx-infobar-cannot-publish' ), 'cannot-publish', 'error' );
+	this.translationView.showViewIssuesMessage(
+		mw.msg( 'cx-infobar-cannot-publish' ), 'cannot-publish', 'error'
+	);
 
 	// User isn't allowed to publish, display the information in the issue card.
 	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
@@ -532,35 +536,4 @@ mw.cx.init.Translation.prototype.onNamespaceChange = function ( namespaceId ) {
 		this.translationModel.resolveIssueByName( 'cannot-publish' );
 		this.translationView.removeMessage( 'cannot-publish' );
 	}
-};
-
-/**
- * @param {string} message Message to display inside infobar
- * @param {string} issueName Name of the issue to be displayed when infobar message is closed
- * @param {string} type 'error' or 'warning'
- */
-mw.cx.init.Translation.prototype.displayInfobarMessage = function ( message, issueName, type ) {
-	var button = new OO.ui.ButtonWidget( {
-		framed: false,
-		flags: [ 'primary', 'progressive' ],
-		label: mw.msg( 'cx-infobar-view-issues' )
-	} );
-
-	button.connect( this, { click: [ 'displayIssueDetails', issueName ] } );
-
-	this.translationView.showMessage( type, message, null, issueName, [ button ] );
-};
-
-/**
- * @param {string} issueName Name of the issue to be displayed when infobar message is closed
- */
-mw.cx.init.Translation.prototype.displayIssueDetails = function ( issueName ) {
-	var issueCard = this.translationView.toolsColumn.issueCard;
-
-	if ( !issueCard ) {
-		throw new Error( 'Issue card is not initialized' );
-	}
-
-	issueCard.openIssueByName( issueName );
-	this.translationView.clearMessages();
 };
