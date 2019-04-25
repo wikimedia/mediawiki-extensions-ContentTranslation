@@ -41,7 +41,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.translation = null;
 	// @var {mw.cx.ui.TranslationView}
 	this.translationView = translationView;
-	this.publishButton = this.translationView.translationHeader.publishButton;
+	this.publishButton = null;
 	// @var {string}
 	this.pageName = this.translationView.targetColumn.getTitle();
 	// @var {ve.ui.CXSurface}
@@ -129,8 +129,8 @@ ve.init.mw.CXTarget.static.name = 'cx';
 ve.init.mw.CXTarget.static.actionGroups = [
 	// Publish settings
 	{
-		name: 'publishSettings',
-		include: [ 'publishSettings' ]
+		name: 'publish',
+		include: [ 'publishSettings', 'publish' ]
 	}
 ];
 
@@ -202,14 +202,10 @@ ve.init.mw.CXTarget.prototype.setupToolbar = function () {
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
 
-	this.publishButton.connect( this, {
-		click: 'onPublishButtonClick'
-	} );
+	this.publishButton = this.actionsToolbar.getToolGroupByName( 'publish' ).findItemFromData( 'publish' );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		this.publishButton.setDisabled( weights.any === 0 );
 	}.bind( this ) );
-
-	this.toolbar.$actions.append( this.publishButton.$element );
 
 	this.translationView.translationHeader.$toolbar.append( this.toolbar.$actions );
 };
@@ -562,7 +558,7 @@ ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
-		.setLabel( mw.msg( 'cx-publish-button-publishing' ) );
+		.setTitle( mw.msg( 'cx-publish-button-publishing' ) );
 	this.targetSurface.setReadOnly( true );
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 	this.emit( 'publish' );
@@ -740,7 +736,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 };
 
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
-	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.publishButton.setDisabled( false ).setTitle( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setReadOnly( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
@@ -756,7 +752,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 			} ).text( this.translation.getTargetTitle() )[ 0 ].outerHTML
 		)
 	);
-	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
+	this.publishButton.setDisabled( true ).setTitle( mw.msg( 'cx-publish-button' ) );
 	this.targetSurface.setReadOnly( false );
 	this.updateNamespace();
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );

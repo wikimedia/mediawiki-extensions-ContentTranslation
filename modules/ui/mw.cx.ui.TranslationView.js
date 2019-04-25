@@ -195,7 +195,8 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation 
  */
 mw.cx.ui.TranslationView.prototype.onTranslationIssues = function ( nodesWithIssues, hasErrors ) {
 	if ( hasErrors ) {
-		this.translationHeader.publishButton.setDisabled( true );
+		// TODO: Do this in target#onTranslationIssues
+		ve.init.target.publishButton.setDisabled( true );
 	}
 
 	this.emit( 'hasTranslationIssues', hasErrors );

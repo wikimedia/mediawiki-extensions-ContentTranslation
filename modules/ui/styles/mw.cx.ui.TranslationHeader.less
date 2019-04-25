@@ -20,6 +20,11 @@
 		transform: translateZ( 0 );
 	}
 
+	.cx-header__publish-button {
+		font-weight: bold;
+		border-radius: 0 2px 0 0;
+	}
+
 	&.sticky {
 		position: fixed;
 		top: 0;
@@ -31,7 +36,7 @@
 			width: calc( 100% ~'-' @max-tools-column-width ~'-' 2 * @personal-header-padding );
 		}
 
-		.cx-header__publish-button.oo-ui-buttonElement.oo-ui-labelElement > .oo-ui-buttonElement-button {
+		.cx-header__publish-button {
 			border-radius: 0;
 		}
 	}

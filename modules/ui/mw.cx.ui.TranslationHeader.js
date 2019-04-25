@@ -11,7 +11,6 @@ mw.cx.ui.TranslationHeader = function ( config ) {
 	// Configuration initialization
 	this.config = config || {};
 	this.statusbar = null;
-	this.publishButton = null;
 	this.$toolbar = null;
 
 	// Parent constructor
@@ -41,13 +40,6 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 	this.statusbar = new OO.ui.LabelWidget( {
 		classes: [ 'cx-header-draft-status' ],
 		title: mw.msg( 'cx-save-draft-tooltip' )
-	} );
-
-	this.publishButton = new OO.ui.ButtonWidget( {
-		disabled: true,
-		flags: [ 'progressive', 'primary' ],
-		classes: [ 'cx-header__publish-button' ],
-		label: mw.msg( 'cx-publish-button' )
 	} );
 
 	this.$toolbar = $( '<div>' ).addClass( 'cx-header-tools-container oo-ui-toolbar-bar' );

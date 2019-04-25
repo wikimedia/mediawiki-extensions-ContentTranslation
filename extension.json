@@ -1501,7 +1501,8 @@
 		},
 		"ve.init.mw.CXTarget": {
 			"scripts": [
-				"ve-cx/init/ve.init.mw.CXTarget.js"
+				"ve-cx/init/ve.init.mw.CXTarget.js",
+				"ve-cx/ui/ve.ui.CXPublishTool.js"
 			],
 			"messages": [
 				"cx-publish-button",
