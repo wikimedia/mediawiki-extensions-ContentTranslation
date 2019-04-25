@@ -767,10 +767,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 
 ve.init.mw.CXTarget.prototype.onPublishFailure = function ( errorMessage ) {
 	this.translationView.showMessage( 'error', errorMessage );
-	this.publishButton.setDisabled( false ).setLabel( mw.msg( 'cx-publish-button' ) );
-	this.targetSurface.setReadOnly( false );
-	this.updateNamespace();
-	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
+	this.onPublishCancel();
 };
 
 /**
