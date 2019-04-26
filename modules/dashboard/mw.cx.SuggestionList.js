@@ -76,7 +76,7 @@ mw.cx.CXSuggestionList.static.friendlyListTypeName = function ( type ) {
 };
 
 mw.cx.CXSuggestionList.static.listCompare = function ( listA, listB ) {
-	if ( mw.cx.CXSuggestionList.static.listOrder[ listA.type ] > mw.cx.CXSuggestionList.static.listOrder[ listB.type ] ) {
+	if ( this.listOrder[ listA.type ] > this.listOrder[ listB.type ] ) {
 		return 1;
 	}
 
@@ -144,10 +144,10 @@ mw.cx.CXSuggestionList.prototype.loadItems = function ( list ) {
 
 		// Hide empty list, if any
 		if (
-			self.lists[ mw.cx.CXSuggestionList.static.emptyListName ] &&
-			self.lists[ mw.cx.CXSuggestionList.static.emptyListName ].$list
+			self.lists[ self.constructor.static.emptyListName ] &&
+			self.lists[ self.constructor.static.emptyListName ].$list
 		) {
-			self.lists[ mw.cx.CXSuggestionList.static.emptyListName ].$list.hide();
+			self.lists[ self.constructor.static.emptyListName ].$list.hide();
 		}
 
 		listIds = self.sortLists( lists );
@@ -199,7 +199,7 @@ mw.cx.CXSuggestionList.prototype.loadAllSuggestions = function () {
 		}
 	}, function ( error ) {
 		if ( error === 'assertuserfailed' ) {
-			mw.cx.CXSuggestionList.static.showLoginDialog();
+			self.constructor.static.showLoginDialog();
 		}
 
 		// On fail, show empty list
@@ -346,7 +346,7 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 			.attr( 'data-listid', listId )
 			.addClass( 'cx-suggestionlist cx-suggestionlist-type-' + list.type );
 
-		if ( list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FAVORITE ) {
+		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
 			// No need to show heading for misc fallback suggestions shown at the end.
 			$listHeading = $( '<div>' )
 				.addClass( 'cx-suggestionlist__header' )
@@ -355,13 +355,13 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 				);
 			list.$list.append( $listHeading );
 		}
-		if ( list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FAVORITE ) {
+		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
 			this.$personalCollection.append( list.$list );
 		} else {
 			this.$publicCollectionContainer.show();
 			this.$publicCollection.append( list.$list );
 			this.$publicCollection.find( '.cx-suggestionlist' ).sort( function ( a, b ) {
-				return mw.cx.CXSuggestionList.static.listCompare(
+				return self.constructor.static.listCompare(
 					self.lists[ $( a ).data( 'listid' ) ],
 					self.lists[ $( b ).data( 'listid' ) ]
 				);
@@ -379,7 +379,7 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		$suggestion = this.buildSuggestionItem( suggestions[ i ] );
 		$suggestions.push( $suggestion );
 		mw.hook( 'mw.cx.suggestion.action' ).fire( 'shown', suggestions[ i ].rank,
-			mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestions[ i ].type ), suggestions[ i ].typeExtra,
+			this.constructor.static.friendlyListTypeName( suggestions[ i ].type ), suggestions[ i ].typeExtra,
 			suggestions[ i ].sourceLanguage, suggestions[ i ].targetLanguage, suggestions[ i ].title );
 	}
 	this.showTitleDetails( suggestions );
@@ -391,11 +391,11 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		list.$list.append( $suggestions );
 	}
 
-	if ( list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_CATEGORY ) {
+	if ( list.type === this.constructor.static.listTypes.TYPE_CATEGORY ) {
 		this.makeExpandableList( listId );
 	} else if (
-		list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FEATURED ||
-		list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_PERSONALIZED
+		list.type === this.constructor.static.listTypes.TYPE_FEATURED ||
+		list.type === this.constructor.static.listTypes.TYPE_PERSONALIZED
 	) {
 		this.addRefreshTrigger();
 	}
@@ -424,7 +424,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 	targetDir = $.uls.data.getDir( suggestion.targetLanguage );
 
 	$featured = $( [] );
-	if ( this.lists[ suggestion.listId ].type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FEATURED ) {
+	if ( this.lists[ suggestion.listId ].type === this.constructor.static.listTypes.TYPE_FEATURED ) {
 		$featured = $( '<span>' )
 			.addClass( 'cx-sltag cx-sltag--featured' )
 			.text( this.lists[ suggestion.listId ].displayName );
@@ -492,7 +492,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 	} );
 	discardAction.once( 'click', this.discardSuggestion.bind( this, suggestion ) );
 
-	if ( this.lists[ suggestion.listId ].type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FAVORITE ) {
+	if ( this.lists[ suggestion.listId ].type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
 		discardAction.$element.hide();
 
 		favoriteAction = new OO.ui.ButtonWidget( {
@@ -617,7 +617,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 		var favoriteListId;
 		if ( response.cxsuggestionlist.result === 'success' ) {
 			mw.hook( 'mw.cx.suggestion.action' ).fire( 'favorite', suggestion.rank,
-				mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestion.type ),
+				self.constructor.static.friendlyListTypeName( suggestion.type ),
 				suggestion.typeExtra, suggestion.sourceLanguage,
 				suggestion.targetLanguage, suggestion.title
 			);
@@ -637,7 +637,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 					displayName: mw.msg( 'cx-suggestionlist-favorite' ),
 					name: favoriteListId,
 					suggestions: [],
-					type: mw.cx.CXSuggestionList.static.listTypes.TYPE_FAVORITE
+					type: self.constructor.static.listTypes.TYPE_FAVORITE
 				};
 			}
 			suggestion.listId = favoriteListId;
@@ -702,7 +702,7 @@ mw.cx.CXSuggestionList.prototype.suggestionListFailHandler = function ( error ) 
 
 mw.cx.CXSuggestionList.prototype.showEmptySuggestionList = function () {
 	var $img, $title, $desc,
-		listId = mw.cx.CXSuggestionList.static.emptyListName;
+		listId = this.constructor.static.emptyListName;
 
 	if ( !this.lists[ listId ] ) {
 		this.lists[ listId ] = {
@@ -780,7 +780,7 @@ mw.cx.CXSuggestionList.prototype.listen = function () {
 		self.showSuggestionDialog( suggestion, imageUrl );
 
 		mw.hook( 'mw.cx.suggestion.action' ).fire( 'accept', suggestion.rank,
-			mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestion.type ),
+			self.constructor.static.friendlyListTypeName( suggestion.type ),
 			suggestion.typeExtra, suggestion.sourceLanguage,
 			suggestion.targetLanguage, suggestion.title
 		);
@@ -966,12 +966,12 @@ mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
 		}
 
 		if (
-			list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_FEATURED ||
-			list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_PERSONALIZED
+			list.type === this.constructor.static.listTypes.TYPE_FEATURED ||
+			list.type === this.constructor.static.listTypes.TYPE_PERSONALIZED
 		) {
 			this.refreshList( list.id );
 		} else if (
-			list.type === mw.cx.CXSuggestionList.static.listTypes.TYPE_CATEGORY &&
+			list.type === this.constructor.static.listTypes.TYPE_CATEGORY &&
 			categoryListCount
 		) {
 			// The first two lists shown will be removed.

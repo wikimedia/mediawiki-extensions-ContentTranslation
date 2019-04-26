@@ -51,11 +51,14 @@ mw.cx.ui.LanguageFilter = function ( config ) {
 OO.inheritClass( mw.cx.ui.LanguageFilter, OO.ui.Widget );
 
 /* Static Properties */
+
 /**
  * @static
  */
 mw.cx.ui.LanguageFilter.static.sourceLanguages = null;
 mw.cx.ui.LanguageFilter.static.targetLanguages = null;
+
+/* Methods */
 
 mw.cx.ui.LanguageFilter.prototype.init = function () {
 	var sourceLanguage = mw.storage.get( 'cxSourceLanguage' ),
@@ -69,8 +72,8 @@ mw.cx.ui.LanguageFilter.prototype.init = function () {
 	}
 
 	// Load source languages into instance variable from static variable
-	this.sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
-	this.targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
+	this.sourceLanguages = this.constructor.static.sourceLanguages;
+	this.targetLanguages = this.constructor.static.targetLanguages;
 
 	this.render();
 	this.setFilterLabel( this.sourceLanguageButton, this.sourceLanguage );
@@ -338,7 +341,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 
 	// Default to all valid source languages
 	if ( !sourceLanguages ) {
-		sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
+		sourceLanguages = this.constructor.static.sourceLanguages;
 	}
 
 	if ( replace ) {
@@ -379,7 +382,7 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 
 	// Default to all valid target languages
 	if ( !targetLanguages ) {
-		targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
+		targetLanguages = this.constructor.static.targetLanguages;
 	}
 
 	if ( replace ) {

@@ -143,7 +143,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 
 		if ( error === 'assertuserfailed' ) {
 			$( window ).off( 'scroll' );
-			mw.cx.CXTranslationList.static.showLoginDialog();
+			self.constructor.static.showLoginDialog();
 		}
 	} ).always( function () {
 		self.pendingRequests--;
@@ -421,7 +421,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 					);
 				} ).fail( function ( error ) {
 					if ( error === 'assertuserfailed' ) {
-						mw.cx.CXTranslationList.static.showLoginDialog();
+						self.constructor.static.showLoginDialog();
 					}
 				} );
 			}
