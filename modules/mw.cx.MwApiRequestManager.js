@@ -101,17 +101,3 @@ mw.cx.MwApiRequestManager.prototype.getNamespaceAlias = function ( language, can
 	}
 	return this.namespaceCache[ language ].get( canonicalNamespace );
 };
-
-/**
- * Fetch CX Language pair configuration
- * @param {string} sourceLanguage Source language
- * @param {string} targetLanguage Target language
- * @return {jQuery.Promise}
- */
-mw.cx.MwApiRequestManager.prototype.fetchCXConfiguration = function ( sourceLanguage, targetLanguage ) {
-	return new mw.Api().get( {
-		action: 'cxconfiguration',
-		from: sourceLanguage,
-		to: targetLanguage
-	} );
-};
