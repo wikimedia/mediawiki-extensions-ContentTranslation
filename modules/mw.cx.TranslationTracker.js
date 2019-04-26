@@ -230,6 +230,16 @@ mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( 
 };
 
 /**
+ * @return {ve.dm.CXSectionNode[]} Target section models which are validated for MT abuse
+ */
+mw.cx.TranslationTracker.prototype.getTargetSectionModels = function () {
+	return this.veTarget.translation.targetDoc.getNodesByType( 'article' )[ 0 ].getChildren()
+		.filter( function ( node ) {
+			return node.getType() === 'cxSection' && !this.isExcludedFromValidation( node );
+		}, this );
+};
+
+/**
  * Process the change queue.
  * This will be called by getTranslationProgress when saving happens, also
  * by section changes in debounced manner.
