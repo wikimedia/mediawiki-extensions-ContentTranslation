@@ -15,6 +15,7 @@ ve.ui.CXPublishSettingsDialog = function VeUiCXPublishSettingsDialog() {
 	ve.ui.CXPublishSettingsDialog.parent.apply( this, arguments );
 
 	this.namespaceSelector = null;
+	this.initialNamespace = null;
 };
 
 /* Inheritance */
@@ -35,7 +36,8 @@ ve.ui.CXPublishSettingsDialog.static.actions = [
 	{
 		action: 'done',
 		label: OO.ui.deferMsg( 'visualeditor-dialog-action-apply' ),
-		flags: [ 'progressive', 'primary' ]
+		flags: [ 'progressive', 'primary' ],
+		disabled: true
 	}
 ];
 
@@ -62,13 +64,21 @@ ve.ui.CXPublishSettingsDialog.prototype.getActionProcess = function ( action ) {
 };
 
 /**
+ * Update the 'done' action according to whether there are changes
+ *
+ * @param {OO.ui.OptionWidget|null} selectedItem
+ */
+ve.ui.CXPublishSettingsDialog.prototype.updateActions = function ( selectedItem ) {
+	var namespace = selectedItem ? selectedItem.getData() : null;
+	this.actions.setAbilities( { done: this.initialNamespace !== namespace } );
+};
+
+/**
  * @inheritdoc
  */
 ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 	var publishDestinationLabel, helpIcon, $publishSettingsContainer,
-		mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ],
-		userNamespaceId = mw.config.get( 'wgNamespaceIds' ).user,
-		draftNamespaceId = mw.config.get( 'wgNamespaceIds' ).draft;
+		namesapceIds = mw.config.get( 'wgNamespaceIds' );
 
 	// Parent method
 	ve.ui.CXPublishSettingsDialog.parent.prototype.initialize.apply( this, arguments );
@@ -92,13 +102,13 @@ ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 	this.namespaceSelector = new OO.ui.RadioSelectWidget( {
 		classes: [ 've-ui-cxPublishSettings-selector' ],
 		items: [
-			this.createRadioOptionWidget( 'main', mainNamespaceId ),
-			this.createRadioOptionWidget( 'user', userNamespaceId )
+			this.createRadioOptionWidget( 'main', namesapceIds[ '' ] ),
+			this.createRadioOptionWidget( 'user', namesapceIds.user )
 		]
 	} );
 
-	if ( draftNamespaceId ) {
-		this.namespaceSelector.addItems( this.createRadioOptionWidget( 'draft', draftNamespaceId ) );
+	if ( namesapceIds.draft ) {
+		this.namespaceSelector.addItems( this.createRadioOptionWidget( 'draft', namesapceIds.draft ) );
 	}
 
 	this.$body.append( $publishSettingsContainer, this.namespaceSelector.$element );
@@ -107,30 +117,68 @@ ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 /**
  * @inheritdoc
  */
-ve.ui.CXPublishSettingsDialog.prototype.setup = function () {
-	this.namespaceSelector.selectItemByData( ve.init.target.getPublishNamespace() );
-
+ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
 	// Parent method
-	return ve.ui.CXPublishSettingsDialog.parent.prototype.setup.apply( this, arguments );
+	return ve.ui.CXPublishSettingsDialog.parent.prototype.getSetupProcess.call( this, data )
+		.next( function () {
+			this.initialNamespace = ve.init.target.getPublishNamespace();
+			this.namespaceSelector.connect( this, { select: 'updateActions' } );
+			this.namespaceSelector.selectItemByData( ve.init.target.getPublishNamespace() );
+		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.CXPublishSettingsDialog.prototype.getReadyProcess = function ( data ) {
+	// Parent method
+	return ve.ui.CXPublishSettingsDialog.parent.prototype.getReadyProcess.call( this, data )
+		.next( function () {
+			if ( this.namespaceSelector.findSelectedItem() ) {
+				// Focus causes the first item to become selected
+				this.namespaceSelector.focus();
+			}
+		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.CXPublishSettingsDialog.prototype.getTeardownProcess = function ( data ) {
+	// Parent method
+	return ve.ui.CXPublishSettingsDialog.parent.prototype.getTeardownProcess.call( this, data )
+		.next( function () {
+			this.namespaceSelector.disconnect( this );
+			this.namespaceSelector.selectItem();
+		}, this );
 };
 
 /**
  * Create OO.ui.RadioOptionWidget with description
  *
- * @param {string} namespace Name of the namespace. Also used as message key for label and description:
- * - Label: `cx-publish-destination-namespace-${namespace}`
- * - Description: `cx-publish-destination-namespace-${namespace}-description`
- * @param {Mixed} data Element data
+ * @param {string} namespace Name of the namespace. 'main', 'user' or 'draft'.
+ *  Also used as message key for label and description:
+ *  - Label: `cx-publish-destination-namespace-${namespace}`
+ *  - Description: `cx-publish-destination-namespace-${namespace}-description`
+ * @param {Mixed} data Option widget data
  * @return {OO.ui.RadioOptionWidget}
  */
 ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( namespace, data ) {
 	var radioOption, description;
 
 	radioOption = new OO.ui.RadioOptionWidget( {
+		// Messages used here:
+		// * cx-publish-destination-namespace-main
+		// * cx-publish-destination-namespace-user
+		// * cx-publish-destination-namespace-draft
 		label: mw.msg( 'cx-publish-destination-namespace-' + namespace ),
 		data: data
 	} );
 	description = new OO.ui.LabelWidget( {
+		// Messages used here:
+		// * cx-publish-destination-namespace-main-description
+		// * cx-publish-destination-namespace-user-description
+		// * cx-publish-destination-namespace-draft-description
 		label: mw.msg( 'cx-publish-destination-namespace-' + namespace + '-description' ),
 		classes: [ 'oo-ui-inline-help' ]
 	} );
