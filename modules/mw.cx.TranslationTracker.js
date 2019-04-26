@@ -464,12 +464,38 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
 };
 
 /**
- * Get unmodified machine translation percentage in total translated content.
- * @return {number} Sections wiwht Unmodified MT percentage relative to all translated sections.
+ * Get percentage of unmodified tokens in translation.
+ *
+ * @return {number} Number of unmodified tokens relative to total user translation tokens.
  */
 mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = function () {
-	var progress = this.getTranslationProgress();
-	return ( progress.mtSectionsCount / progress.translatedSectionsCount ) * 100;
+	var targetSections,
+		unmodifiedTokens = 0,
+		totalTokens = 0;
+
+	targetSections = this.veTarget.translation.targetDoc.getNodesByType( 'article' )[ 0 ].getChildren()
+		.filter( function ( node ) {
+			return node.getType() === 'cxSection';
+		} );
+
+	targetSections.forEach( function ( sectionModel ) {
+		var sectionState = this.sections[ sectionModel.getId() ],
+			unmodifiedMTTokens = this.constructor.static.tokenise(
+				sectionState.getUnmodifiedMT().text,
+				this.targetLanguage
+			),
+			userTranslationTokens = this.constructor.static.tokenise(
+				sectionState.getUserTranslation().text,
+				this.targetLanguage
+			);
+
+		totalTokens += userTranslationTokens.length;
+		unmodifiedTokens += userTranslationTokens.filter( function ( token ) {
+			return unmodifiedMTTokens.indexOf( token ) >= 0;
+		} ).length;
+	}, this );
+
+	return ( unmodifiedTokens / totalTokens ) * 100;
 };
 
 /**
