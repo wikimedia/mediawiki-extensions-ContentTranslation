@@ -667,6 +667,7 @@ mw.cx.TranslationController.prototype.checkForMTAbuse = function () {
 	var mtPercentage, threshold;
 
 	mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
+	mw.log( 'Unmodified MT percentage: ' + mtPercentage );
 	threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
 	// threshold is a percentage value. progress.mt is a ratio.
 	return mtPercentage > parseFloat( threshold );
