@@ -298,7 +298,7 @@
 			.addClass( 'cx-dashboard-sidebar' )
 			.append( this.buildSidebar() );
 
-		this.$dashboard = $( '<div>' )
+		this.$dashboard = $( '<main>' )
 			.addClass( 'cx-dashboard' )
 			.append( this.$translationListContainer, this.$sidebar );
 

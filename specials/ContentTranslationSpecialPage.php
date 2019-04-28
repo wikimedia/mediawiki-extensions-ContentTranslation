@@ -108,9 +108,11 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		// Display notification tools from Echo extension and ULS.
 		// Intended to display ULS, alerts and notices.
 		// Initially hidden, until rest of DOM elements are rendered through JavaScript.
-		$out->addHTML( Html::rawElement( 'div',
+		$out->addHTML( Html::rawElement(
+			'div',
 			[ 'class' => 'cx-header__personal' ],
-			$skin->makePersonalToolsList( $personalTools ) ) );
+			Html::rawElement( 'ul', [], $skin->makePersonalToolsList( $personalTools ) )
+		) );
 
 		$wordmark = $this->getProjectWordmark();
 		if ( $wordmark ) {
@@ -201,7 +203,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 					// "User" as menu option for user's page.
 					if ( $key === 'userpage' ) {
 						$menuItem[ 'text' ] =
-							wfMessage( "cx-personaltools-user" )->inContentLanguage()->text();
+							wfMessage( 'cx-personaltools-user' )->inContentLanguage()->text();
 						$personalMenuItems[ 'user' ] = $menuItem;
 					} else {
 						$personalMenuItems[] = $menuItem;
@@ -255,7 +257,8 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			if ( isset( $customLogo[ 'copyright' ] ) ) {
 				$attributes = [
 					'src' => $customLogo[ 'copyright' ],
-					'id' => 'cx-header__wordmark'
+					'id' => 'cx-header__wordmark',
+					'title' => wfMessage( 'tooltip-p-logo' )->inContentLanguage()->text()
 				];
 
 				if ( isset( $customLogo[ 'copyright-height' ] ) ) {
