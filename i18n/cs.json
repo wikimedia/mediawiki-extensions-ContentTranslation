@@ -21,7 +21,8 @@
 			"Evica",
 			"Jan Růžička",
 			"Петар Петковић",
-			"Vojtěch Dostál"
+			"Vojtěch Dostál",
+			"Ján Kepler"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -280,7 +281,7 @@
 	"cx-publish-destination-namespace-draft": "Veřejný koncept",
 	"cx-linkcontextitem-missing-link-title": "Chybějící odkaz",
 	"cx-linkcontextitem-missing-title-description": "Tato stránka neexistuje",
-	"cx-mt-abuse-publish-error": "Váš překlad nemůže být zveřejněn, protože obsahuje příliš mnoho neupraveného strojového textu",
+	"cx-mt-abuse-publish-error": "Váš překlad nemůže být zveřejněn, protože obsahuje příliš mnoho neupraveného textu.",
 	"cx-unreviewed-translation-category": "Stránky s nekontrolovanými překlady",
 	"cx-unreviewed-translation-category-desc": "Stránky přeložené nástrojem Překlad, které obsahují velké množství nepřezkoumaného obsahu"
 }
