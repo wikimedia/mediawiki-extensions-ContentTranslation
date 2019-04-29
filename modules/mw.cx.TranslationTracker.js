@@ -479,16 +479,10 @@ mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
  * @return {number} Number of unmodified tokens relative to total user translation tokens.
  */
 mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = function () {
-	var targetSections,
-		unmodifiedTokens = 0,
+	var unmodifiedTokens = 0,
 		totalTokens = 0;
 
-	targetSections = this.veTarget.translation.targetDoc.getNodesByType( 'article' )[ 0 ].getChildren()
-		.filter( function ( node ) {
-			return node.getType() === 'cxSection';
-		} );
-
-	targetSections.forEach( function ( sectionModel ) {
+	this.getTargetSectionModels().forEach( function ( sectionModel ) {
 		var sectionState = this.sections[ sectionModel.getId() ],
 			unmodifiedMTTokens = this.constructor.static.tokenise(
 				sectionState.getUnmodifiedMT().text,
