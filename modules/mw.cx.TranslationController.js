@@ -567,7 +567,9 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
 				{
 					title: mw.msg(
 						'cx-mt-abuse-warning-title',
-						this.translationTracker.getUnmodifiedMTPercentageInTranslation()
+						mw.language.convertNumber(
+							Math.round( this.translationTracker.getUnmodifiedMTPercentageInTranslation() )
+						)
 					),
 					type: 'error',
 					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
