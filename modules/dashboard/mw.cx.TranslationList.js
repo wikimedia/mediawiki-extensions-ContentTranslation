@@ -264,7 +264,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 			.addClass( 'last-updated' )
 			.text( moment.utc( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss' ).local().fromNow() );
 		$image = $( '<div>' )
-			.addClass( 'cx-tlitem__image oo-ui-icon-page-existing' );
+			.addClass( 'cx-tlitem__image oo-ui-icon-article' );
 		$progressbar = $( '<div>' )
 			.addClass( 'progressbar' )
 			.cxProgressBar( {

@@ -418,7 +418,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		.addClass( 'cx-slitem' )
 		.attr( 'id', suggestion.id );
 	$image = $( '<div>' )
-		.addClass( 'cx-slitem__image oo-ui-icon-page-existing' );
+		.addClass( 'cx-slitem__image oo-ui-icon-article' );
 
 	sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
 	targetDir = $.uls.data.getDir( suggestion.targetLanguage );
@@ -775,7 +775,7 @@ mw.cx.CXSuggestionList.prototype.listen = function () {
 		var $this = $( this ),
 			suggestion = $this.find( '.cx-slitem__translation-link' ).data( 'suggestion' ),
 			imageUrl = $this
-				.find( '.cx-slitem__image:not(.oo-ui-icon-page-existing)' )
+				.find( '.cx-slitem__image:not(.oo-ui-icon-article)' )
 				.css( 'background-image' );
 		self.showSuggestionDialog( suggestion, imageUrl );
 
