@@ -1358,7 +1358,8 @@
 				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js"
 			],
 			"dependencies": [
-				"ext.visualEditor.core"
+				"ext.visualEditor.core",
+				"mw.cx.dm.TranslationIssue"
 			]
 		},
 		"mw.cx.visualEditor.base": {

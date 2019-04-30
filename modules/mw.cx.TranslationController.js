@@ -559,24 +559,22 @@ mw.cx.TranslationController.prototype.publish = function () {
 };
 
 mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
-	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
-		this.translation.addUnattachedIssues( [
-			new mw.cx.dm.TranslationIssue(
-				'mt-abuse-publish', // Issue name
-				mw.msg( 'cx-mt-abuse-warning-text' ), // message body
-				{
-					title: mw.msg(
-						'cx-mt-abuse-warning-title',
-						mw.language.convertNumber(
-							Math.round( this.translationTracker.getUnmodifiedMTPercentageInTranslation() )
-						)
-					),
-					type: 'error',
-					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
-				}
-			)
-		] );
-	}.bind( this ) );
+	this.translation.addUnattachedIssues( [
+		new mw.cx.dm.TranslationIssue(
+			'mt-abuse-publish', // Issue name
+			mw.msg( 'cx-mt-abuse-warning-text' ), // message body
+			{
+				title: mw.msg(
+					'cx-mt-abuse-warning-title',
+					mw.language.convertNumber(
+						Math.round( this.translationTracker.getUnmodifiedMTPercentageInTranslation() )
+					)
+				),
+				type: 'error',
+				help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
+			}
+		)
+	] );
 };
 
 mw.cx.TranslationController.prototype.publishArticle = function () {

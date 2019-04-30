@@ -343,6 +343,8 @@ mw.cx.init.Translation.prototype.addFeedbackLink = function () {
 };
 
 mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
+	var diff, translationIssuesParams;
+
 	if ( !this.translationModel.checkRestorationStatus() ) {
 		return;
 	}
@@ -351,42 +353,38 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning'
 	);
 
-	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
-		var diff, translationIssuesParams;
-
-		diff = this.config.siteMapper.getPageUrl(
-			this.translationModel.getSourceLanguage(),
-			this.translationModel.getSourceTitle(),
-			{
-				type: 'revision',
-				diff: 'cur',
-				oldid: this.translationModel.getSourceRevisionId()
-			}
-		);
-
-		translationIssuesParams = {
-			title: mw.msg( 'cx-tools-linter-old-revision' ),
-			resolvable: true
-		};
-
-		if ( !this.translationModel.hasBeenPublished() ) {
-			translationIssuesParams.additionalButtons = [
-				{
-					icon: 'reload',
-					label: mw.msg( 'cx-tools-linter-old-revision-label' ),
-					action: this.restartTranslation.bind( this )
-				}
-			];
+	diff = this.config.siteMapper.getPageUrl(
+		this.translationModel.getSourceLanguage(),
+		this.translationModel.getSourceTitle(),
+		{
+			type: 'revision',
+			diff: 'cur',
+			oldid: this.translationModel.getSourceRevisionId()
 		}
+	);
 
-		this.translationModel.addUnattachedIssues( [
-			new mw.cx.dm.TranslationIssue(
-				'old-version', // Issue name
-				mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
-				translationIssuesParams
-			)
-		] );
-	}.bind( this ) );
+	translationIssuesParams = {
+		title: mw.msg( 'cx-tools-linter-old-revision' ),
+		resolvable: true
+	};
+
+	if ( !this.translationModel.hasBeenPublished() ) {
+		translationIssuesParams.additionalButtons = [
+			{
+				icon: 'reload',
+				label: mw.msg( 'cx-tools-linter-old-revision-label' ),
+				action: this.restartTranslation.bind( this )
+			}
+		];
+	}
+
+	this.translationModel.addUnattachedIssues( [
+		new mw.cx.dm.TranslationIssue(
+			'old-version', // Issue name
+			mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
+			translationIssuesParams
+		)
+	] );
 };
 
 mw.cx.init.Translation.prototype.restartTranslation = function () {
@@ -494,24 +492,22 @@ mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
 	);
 
 	// User isn't allowed to publish, display the information in the issue card.
-	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
-		this.translationModel.resolveIssueByName( 'cannot-publish' );
-		this.translationModel.addUnattachedIssues( [
-			new mw.cx.dm.TranslationIssue(
-				'cannot-publish', // Issue name
-				mw.message( 'cx-tools-linter-cannot-publish-message' ).parseDom(), // message body
-				{
-					title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
-					type: 'error',
-					help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool',
-					resolvable: true,
-					actionIcon: 'article',
-					actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' ),
-					action: this.switchToUserNamespace.bind( this )
-				}
-			)
-		] );
-	}.bind( this ) );
+	this.translationModel.resolveIssueByName( 'cannot-publish' );
+	this.translationModel.addUnattachedIssues( [
+		new mw.cx.dm.TranslationIssue(
+			'cannot-publish', // Issue name
+			mw.message( 'cx-tools-linter-cannot-publish-message' ).parseDom(), // message body
+			{
+				title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
+				type: 'error',
+				help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool',
+				resolvable: true,
+				actionIcon: 'article',
+				actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' ),
+				action: this.switchToUserNamespace.bind( this )
+			}
+		)
+	] );
 };
 
 mw.cx.init.Translation.prototype.switchToUserNamespace = function () {

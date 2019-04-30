@@ -84,25 +84,23 @@ ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
 
 	// Load the translation issue DM module, now that it's required.
 	// There is no use of adding this to the initial JS payload
-	mw.loader.using( 'mw.cx.dm.TranslationIssue' ).then( function () {
-		issues.map( this.processTranslationIssues ).forEach( function ( issue ) {
-			var existingIssueIndex = this.findIssueIndex( issue.name );
+	issues.map( this.processTranslationIssues ).forEach( function ( issue ) {
+		var existingIssueIndex = this.findIssueIndex( issue.name );
 
-			// When issue is suppressed, emit events about the current state
-			issue.setSuppressCallback( this.notify.bind( this ) );
+		// When issue is suppressed, emit events about the current state
+		issue.setSuppressCallback( this.notify.bind( this ) );
 
-			if ( existingIssueIndex > -1 ) {
-				// Replace existing issue
-				this.translationIssues[ existingIssueIndex ] = issue;
-				return;
-			}
+		if ( existingIssueIndex > -1 ) {
+			// Replace existing issue
+			this.translationIssues[ existingIssueIndex ] = issue;
+			return;
+		}
 
-			this.translationIssues.push( issue );
-		}, this );
+		this.translationIssues.push( issue );
+	}, this );
 
-		this.emit( 'translationIssues', this.hasErrors() );
-		this.getTranslation().emit( 'translationIssues', this.getId(), this.hasErrors() );
-	}.bind( this ) );
+	this.emit( 'translationIssues', this.hasErrors() );
+	this.getTranslation().emit( 'translationIssues', this.getId(), this.hasErrors() );
 };
 
 /**
