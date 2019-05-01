@@ -7,6 +7,9 @@
  */
 
 use ContentTranslation\Hooks;
+use ContentTranslation\Translator;
+use ContentTranslation\Translation;
+use ContentTranslation\TranslationWork;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -90,7 +93,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 */
 	public function isExistingTranslation() {
 		$request = $this->getRequest();
-		$translation = ContentTranslation\Translation::find(
+		$translation = Translation::find(
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' ),
 			$request->getVal( 'page' )
@@ -102,7 +105,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 			// Check if the translation belongs to the current user.
 			$user = $this->getUser();
-			$translator = new ContentTranslation\Translator( $user );
+			$translator = new Translator( $user );
 			return $translator->getGlobalUserId() ===
 				intval( $translation->translation['lastUpdatedTranslator'] );
 		}
@@ -230,14 +233,22 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 */
 	private function shouldUseNewVersion() {
 		$request = $this->getRequest();
-		$translator = new ContentTranslation\Translator( $this->getUser() );
-		$work = new ContentTranslation\TranslationWork(
+		$translator = new Translator( $this->getUser() );
+		$work = new TranslationWork(
 			$request->getVal( 'page' ),
 			$request->getVal( 'from' ),
 			$request->getVal( 'to' )
 		);
-		$translation = ContentTranslation\Translation::findForTranslator( $work, $translator );
+		$translation = Translation::findForTranslator( $work, $translator );
 
-		return !$translation || $translation->translation['cxVersion'] === 2;
+		if ( !$translation ) {
+			return true;
+		}
+
+		if ( $translation->translation['status'] === 'deleted' ) {
+			return true;
+		}
+
+		return $translation->translation['cxVersion'] === 2;
 	}
 }
