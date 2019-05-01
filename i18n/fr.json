@@ -301,7 +301,7 @@
 	"cx-publish-destination-header": "Publier la destination",
 	"cx-publish-destination-tooltip": "Choisir l’espace de noms dans lequel la page sera publiée",
 	"cx-publish-destination-namespace-main": "Nouvelle page",
-	"cx-publish-destination-namespace-main-description": "Dans l’espace de noms principal pour tout le monde en lecture",
+	"cx-publish-destination-namespace-main-description": "Dans l’espace de noms principal pour tout le monde puisse le lire",
 	"cx-publish-destination-namespace-user": "Ébauche personnelle",
 	"cx-publish-destination-namespace-user-description": "Sous votre espace de noms utilisateur pour que vous l’amélioriez",
 	"cx-publish-destination-namespace-draft": "Ébauche communautaire",

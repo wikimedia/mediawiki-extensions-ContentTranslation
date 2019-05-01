@@ -229,6 +229,7 @@
 	"cx-infobar-cannot-publish": "ترجمتك لا يمكن نشرها لأن النشر مسموح به فقط للمحررين الأكثر خبرة في هذه الويكي.",
 	"cx-infobar-old-version": "هذه الترجمة معتمدة  على نسخة قديمة من المحتوى. الصفحة المصدر ربما تكون قد تغيرت بشكل كبير، وربما تريد إعادة البدء في الترجمة.",
 	"cx-tools-linter-issues": "قضايا",
+	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 خطأ}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 تحذير}}",
 	"cx-tools-linter-learn-more": "معرفة المزيد",

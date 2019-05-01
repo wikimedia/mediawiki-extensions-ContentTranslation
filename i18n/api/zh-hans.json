@@ -4,7 +4,8 @@
 			"Liuxinyu970226",
 			"Yfdyh000",
 			"WhitePhosphorus",
-			"A Chinese Wikipedian"
+			"A Chinese Wikipedian",
+			"佛壁灯"
 		]
 	},
 	"apihelp-cxpublish-description": "保存用内容翻译扩展创建的页面。",
@@ -18,6 +19,7 @@
 	"apihelp-cxpublish-param-publishtags": "要添加到已发布页面的编辑标签。",
 	"apihelp-cxpublish-param-wpCaptchaId": "验证码ID（当带验证码回答保存时）。",
 	"apihelp-cxpublish-param-wpCaptchaWord": "验证码答案（当带验证码回答保存时）。",
+	"apihelp-cxpublish-param-cxversion": "用于发布翻译的编辑器版本。",
 	"apihelp-query+contenttranslation-description": "查询内容翻译数据库以获取翻译。",
 	"apihelp-query+contenttranslation-summary": "查询内容翻译数据库以获取翻译。",
 	"apihelp-query+contenttranslation-param-translationid": "翻译ID。",
@@ -115,6 +117,7 @@
 	"apierror-cx-keynotconfigured": "未配置关键词。",
 	"apierror-cx-missingdraft": "草稿不存在。",
 	"apierror-cx-mustbeloggedin-suggestions": "您必须登录以管理您的建议。",
+	"apierror-cx-mustbeloggedin-get-suggestions": "您必须登录以获取翻译建议。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "要查看您的翻译，您必须登录。",
 	"apierror-cx-samelanguages": "源语言和目标语言不能相同。",
 	"apierror-cx-suggestionsdisabled": "建议未在此wiki启用。",

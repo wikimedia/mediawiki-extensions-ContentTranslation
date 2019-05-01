@@ -122,7 +122,7 @@
 	"cx-contributions-new-contributions": "Uus kaastöö",
 	"cx-contributions-new-article": "Uus lehekülg",
 	"cx-contributions-translation": "Tõlkimine",
-	"cx-contributions-upload": "Laadi üles meediafail",
+	"cx-contributions-upload": "Laadi fail üles",
 	"cx-contributions-new-article-tooltip": "Alusta uue lehekülje kirjutamist",
 	"cx-contributions-translation-tooltip": "Tõlgi olemasolevaid lehekülgi",
 	"cx-contributions-upload-tooltip": "Laadi üles pilte, helisid ja videoid lehekülgede illustreerimiseks",
@@ -162,7 +162,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Tõlked",
 	"cx-campaign-contributionsmenu-translate-instead": "Tõlgi, selle asemel et nullist kirjutada",
 	"cx-campaign-contributionsmenu-might-be-available": "$1 võib juba teistes keeltes saadaval olla",
-	"cx-campaign-contributionsmenu-myuploads": "Üleslaaditud meediafailid",
+	"cx-campaign-contributionsmenu-myuploads": "Üleslaaditud failid",
 	"cx-no-source-categories": "Kategooriad puuduvad",
 	"cx-no-target-categories": "Kategooriad puuduvad. Palun lisa võimalusel mõni, et teema paremini liigitada.",
 	"cx-no-adapted-categories": "Algsed kategooriad puuduvad selles keeles. Uuri teisi kategooriaid, et teema paremini liigitada.",
@@ -264,7 +264,7 @@
 	"cx-publish-destination-namespace-draft": "Ühiskasutatav mustand",
 	"cx-linkcontextitem-missing-link-title": "Puuduv link",
 	"cx-linkcontextitem-missing-title-description": "Seda lehekülge pole veel.",
-	"cx-mt-abuse-publish-error": "Sinu tõlget ei saa avaldata, sest see sisaldab liiga palju muutmata kujul masintõlgitud teksti.",
+	"cx-mt-abuse-publish-error": "Sinu tõlget ei saa avaldata, sest see sisaldab liiga palju muutmata kujul teksti.",
 	"cx-unreviewed-translation-category": "Ülevaatamata tõlgetega leheküljed",
 	"cx-unreviewed-translation-category-desc": "Sisutõlke tööriistaga tõlgitud leheküljed, mis sisaldavad suures koguses ülevaatamata sisu."
 }
