@@ -29,6 +29,33 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 
 OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 
+/* Events */
+
+/**
+ * @event publishCancel
+ *
+ * User canceled the publishing process.
+ */
+
+/**
+ * @event publishSuccess
+ *
+ * Translation is successfully published.
+ */
+
+/**
+ * @event captchaCancel
+ *
+ * User exited the captcha dialog.
+ */
+
+/**
+ * @event publishError
+ *
+ * Error occured during publishing.
+ * @param {OO.ui.Error} error
+ */
+
 /* Static Methods */
 
 /**
