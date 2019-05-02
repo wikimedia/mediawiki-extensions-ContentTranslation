@@ -559,6 +559,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 };
 
 mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
+	this.translation.resolveIssueByName( 'mt-abuse-publish' );
 	this.translation.addUnattachedIssues( [
 		new mw.cx.dm.TranslationIssue(
 			'mt-abuse-publish', // Issue name
