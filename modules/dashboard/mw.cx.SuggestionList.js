@@ -807,7 +807,7 @@ mw.cx.CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, i
 		this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
 		{
 			imageUrl: imageUrl,
-			imageIcon: 'page-existing',
+			imageIcon: 'article',
 			sourceLanguage: suggestion.sourceLanguage,
 			targetLanguage: suggestion.targetLanguage,
 			params: { prop: [ 'langlinks', 'pageviews', 'langlinkscount' ] }

@@ -95,12 +95,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 			href: linkHref
 		} );
 
-	icon = new OO.ui.IconWidget( {
-		icon: 'page-existing',
-		classes: [ 'cx-tools-link-image' ]
-	} );
-
-	icon = new OO.ui.IconWidget( { icon: 'page-existing' } );
+	icon = new OO.ui.IconWidget( { icon: 'article' } );
 	$wrapper
 		.addClass( 've-ui-mwInternalLinkContextItem-withImage' )
 		.addClass( 've-ui-mwInternalLinkContextItem-withDescription' )
