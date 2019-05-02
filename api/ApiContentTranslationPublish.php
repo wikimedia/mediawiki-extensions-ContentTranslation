@@ -95,22 +95,13 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	protected function getCategories( array $params ) {
-		global $wgContentTranslationHighMTCategory, $wgContentTranslationEventLogging;
+		global $wgContentTranslationEventLogging;
 
 		$trackingCategoryMsg = 'cx-unreviewed-translation-category';
 		$categories = [];
 
 		if ( $params['categories'] ) {
 			$categories = explode( '|', $params['categories'] );
-		}
-
-		$progress = json_decode( $this->translation->translation['progress'], true );
-		if (
-			$progress &&
-			$wgContentTranslationHighMTCategory &&
-			$this->hasHighMT( $progress )
-		) {
-			$categories[] = $wgContentTranslationHighMTCategory;
 		}
 
 		$trackingCategoryKey = array_search( $trackingCategoryMsg, $categories );
@@ -347,28 +338,5 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function isInternal() {
 		return true;
-	}
-
-	/**
-	 * Determines if the article is being published with a high amount of
-	 * unedited MT content.
-	 *
-	 * @param array $progress
-	 * @return bool
-	 */
-	protected function hasHighMT( $progress ) {
-		if (
-			isset( $progress['any'] ) &&
-			isset( $progress['mt'] ) &&
-			isset( $progress['mtSectionsCount'] )
-		) {
-			$mtPercentage = $progress['any'] !== 0 ? $progress['mt'] / $progress['any'] * 100 : 0;
-
-			return $mtPercentage > 75 &&
-				( $progress['mtSectionsCount'] > 5 || $progress['any'] * 100 > 75 );
-		} else {
-
-			return false;
-		}
 	}
 }

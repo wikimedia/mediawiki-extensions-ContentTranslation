@@ -121,7 +121,6 @@
 		"ContentTranslationDatabase": false,
 		"ContentTranslationCluster": false,
 		"ContentTranslationEventLogging": false,
-		"ContentTranslationHighMTCategory": null,
 		"ContentTranslationSiteTemplates": {
 			"view": "//$1.wikipedia.org/wiki/$2",
 			"action": "//$1.wikipedia.org/w/index.php?title=$2",
