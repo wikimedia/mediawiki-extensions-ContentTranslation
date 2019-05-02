@@ -118,7 +118,7 @@
 			"HTTPProxy": false,
 			"forwardCookies": false
 		},
-		"ContentTranslationDatabase": null,
+		"ContentTranslationDatabase": false,
 		"ContentTranslationCluster": false,
 		"ContentTranslationEventLogging": false,
 		"ContentTranslationHighMTCategory": null,
