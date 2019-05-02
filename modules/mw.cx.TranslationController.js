@@ -22,6 +22,8 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 
+	this.hasDeletedTranslations = null;
+
 	// Properties
 	this.saveRequest = null;
 	this.failCounter = 0;
@@ -529,14 +531,15 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
-	var mtAbusePublishMsg = mw.msg( 'cx-mt-abuse-publish-error' );
+	var mtAbusePublishMsg = mw.msg( 'cx-mt-abuse-publish-error' ),
+		numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length;
 
 	mw.log( '[CX] Publishing translation...' );
 
 	// Scroll to the top of the page, so success/fail messages become visible
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 
-	if ( this.checkForMTAbuse() ) {
+	if ( this.checkForMTAbuse( numOfHighMTSections ) ) {
 		this.translationView.showViewIssuesMessage( mtAbusePublishMsg, 'mt-abuse-publish', 'error' );
 		this.showMTAbusePublishError();
 		this.onPublishCancel();
@@ -548,13 +551,13 @@ mw.cx.TranslationController.prototype.publish = function () {
 	this.translationView.categoryUI.disableCategoryUI( true );
 
 	if ( !this.hasUnsavedChanges() ) {
-		this.publishArticle();
+		this.publishArticle( numOfHighMTSections );
 		return;
 	}
 
 	// At this point, there is certainly a scheduled saving about to happen.
 	// We wait for successful saving, before proceeding with publishing.
-	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this ) );
+	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this, numOfHighMTSections ) );
 	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
 };
 
@@ -578,13 +581,15 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
 	] );
 };
 
-mw.cx.TranslationController.prototype.publishArticle = function () {
+/**
+ * @param {number} numOfHighMTSections
+ */
+mw.cx.TranslationController.prototype.publishArticle = function ( numOfHighMTSections ) {
+	var shouldAddHighMTCategory = numOfHighMTSections > ( this.hasDeletedTranslations ? 0 : 1 );
+
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
-	this.targetArticle.publish(
-		this.translationHasIssues( [ 'title' ] ),
-		this.translationTracker.hasSectionsWithMTAbuse()
-	);
+	this.targetArticle.publish( this.translationHasIssues( [ 'title' ] ), shouldAddHighMTCategory );
 };
 
 /**
@@ -598,8 +603,8 @@ mw.cx.TranslationController.prototype.translationHasIssues = function ( ignore )
 		} );
 };
 
-mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function () {
-	this.publishArticle();
+mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function ( numOfHighMTSections ) {
+	this.publishArticle( numOfHighMTSections );
 	this.off( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
 };
 
@@ -688,21 +693,48 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 };
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
+	var api = new mw.Api();
+
 	this.translationTracker.init( this.translation );
+
+	api.get( {
+		action: 'query',
+		meta: 'cxdeletedtranslations',
+		dtafter: this.getTimestamp()
+	} ).then( function ( result ) {
+		this.hasDeletedTranslations = OO.getProp( result, 'query', 'cxdeletedtranslations', 'deleted' ) > 0;
+	}.bind( this ) );
 };
 
 /**
- * Check if the translation has unmodified machine translation over the defined
- * threshold.
- * @return {boolean} True if unmodified MT above threshold. False otherwise.
+ * Get ISO formatted Date string for current date minus 30 days, signifying last month period.
+ *
+ * @return {string}
  */
-mw.cx.TranslationController.prototype.checkForMTAbuse = function () {
-	var mtPercentage, threshold;
+mw.cx.TranslationController.prototype.getTimestamp = function () {
+	var date = new Date();
+	date.setDate( date.getDate() - 30 );
+
+	return date.toISOString();
+};
+
+/**
+ * Check if the translation has too much MT usage.
+ *
+ * @param {number} numOfHighMTSections
+ * @return {boolean} True if MT abuse is detected. False otherwise.
+ */
+mw.cx.TranslationController.prototype.checkForMTAbuse = function ( numOfHighMTSections ) {
+	var mtPercentage, threshold,
+		highMTSectionsThreshold = this.hasDeletedTranslations ? 5 : 10;
+
+	if ( numOfHighMTSections >= highMTSectionsThreshold ) {
+		return true;
+	}
 
 	mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
 	mw.log( 'Unmodified MT percentage: ' + mtPercentage );
 	threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
-	// threshold is a percentage value. progress.mt is a ratio.
 	return mtPercentage > parseFloat( threshold );
 };
 

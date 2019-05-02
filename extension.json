@@ -59,6 +59,9 @@
 		"cxpublishedtranslations": "ApiQueryPublishedTranslations",
 		"cxtranslatorstats": "ApiQueryTranslatorStats"
 	},
+	"APIMetaModules": {
+		"cxdeletedtranslations": "ApiQueryDeletedTranslations"
+	},
 	"APIPropModules": {
 		"langlinkscount": "ApiQueryLangLinksCount"
 	},
@@ -85,6 +88,7 @@
 		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
 		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
 		"ApiQueryLangLinksCount": "api/ApiQueryLangLinksCount.php",
+		"ApiQueryDeletedTranslations": "api/ApiQueryDeletedTranslations.php",
 		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",

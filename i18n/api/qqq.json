@@ -124,5 +124,10 @@
 	"apierror-cx-translationnotfound": "{{doc-apierror}}",
 	"apihelp-query+langlinkscount-description": "{{doc-apihelp-description|query+langlinkscount}}",
 	"apihelp-query+langlinkscount-summary": "{{doc-apihelp-summary|query+langlinkscount}}",
-	"apihelp-query+langlinkscount-example-1": "{{doc-apihelp-example|query+langlinkscount}}"
+	"apihelp-query+langlinkscount-example-1": "{{doc-apihelp-example|query+langlinkscount}}",
+	"apihelp-query+cxdeletedtranslations-description": "{{doc-apihelp-description|query+cxdeletedtranslations}}",
+	"apihelp-query+cxdeletedtranslations-summary": "{{doc-apihelp-summary|query+cxdeletedtranslations}}",
+	"apihelp-query+cxdeletedtranslations-param-after": "{{doc-apihelp-param|query+cxdeletedtranslations|after}}",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "{{doc-apihelp-param|query+cxdeletedtranslations|namespace}}",
+	"apihelp-query+cxdeletedtranslations-example-1": "{{doc-apihelp-example|query+cxdeletedtranslations}}"
 }

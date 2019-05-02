@@ -431,10 +431,10 @@ mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel
 };
 
 /**
- * @return {boolean} Return true if there are sections with MT abuse.
+ * @return {ve.dm.CXSectionNode[]} Target sections with MT abuse.
  */
-mw.cx.TranslationTracker.prototype.hasSectionsWithMTAbuse = function () {
-	return this.getTargetSectionModels().some( function ( sectionModel ) {
+mw.cx.TranslationTracker.prototype.sectionsWithMTAbuse = function () {
+	return this.getTargetSectionModels().filter( function ( sectionModel ) {
 		var sectionState, issue, threshold, unmodifiedPercentage,
 			index = sectionModel.findIssueIndex( 'mt-abuse' );
 

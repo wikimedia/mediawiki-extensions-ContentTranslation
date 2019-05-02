@@ -127,5 +127,10 @@
 	"apierror-cx-translationnotfound": "Translation not found.",
 	"apihelp-query+langlinkscount-description": "Get the number of other languages that article exists in.",
 	"apihelp-query+langlinkscount-summary": "Get the number of other language versions.",
-	"apihelp-query+langlinkscount-example-1": "Get the number of other language versions for 'Dog' page"
+	"apihelp-query+langlinkscount-example-1": "Get the number of other language versions for 'Dog' page",
+	"apihelp-query+cxdeletedtranslations-description": "Get the number of your translations published in some namespace that were deleted after some date.",
+	"apihelp-query+cxdeletedtranslations-summary": "Get the number of your published translations that were deleted.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Timestamp to get only newer deletions.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Namespace in which the deleted translations were published. Defaults to the main namespace.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Get the number of your deleted translations, which were published to main namespace and deleted after 2019-04-07 16:24:44"
 }
