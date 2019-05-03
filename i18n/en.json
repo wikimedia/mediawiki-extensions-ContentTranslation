@@ -277,6 +277,7 @@
 	"cx-publish-destination-tooltip": "Choose the namespace in which the page will be published",
 	"cx-publish-destination-namespace-main": "New page",
 	"cx-publish-destination-namespace-main-description": "In the main namespace for everyone to read",
+	"cx-publish-destination-namespace-main-exists": "Replace the existing page",
 	"cx-publish-destination-namespace-user": "Personal draft",
 	"cx-publish-destination-namespace-user-description": "Under your user namespace for you to improve",
 	"cx-publish-destination-namespace-draft": "Community draft",

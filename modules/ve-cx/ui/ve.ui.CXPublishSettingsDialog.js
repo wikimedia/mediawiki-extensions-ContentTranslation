@@ -16,6 +16,8 @@ ve.ui.CXPublishSettingsDialog = function VeUiCXPublishSettingsDialog() {
 
 	this.namespaceSelector = null;
 	this.initialNamespace = null;
+	this.mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ];
+	this.targetTitleExists = false;
 };
 
 /* Inheritance */
@@ -123,7 +125,8 @@ ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
 		.next( function () {
 			this.initialNamespace = ve.init.target.getPublishNamespace();
 			this.namespaceSelector.connect( this, { select: 'updateActions' } );
-			this.namespaceSelector.selectItemByData( ve.init.target.getPublishNamespace() );
+			this.namespaceSelector.selectItemByData( this.initialNamespace );
+			this.doesTargetTitleExist().then( this.changeMainNamespaceLabel.bind( this ) );
 		}, this );
 };
 
@@ -183,9 +186,39 @@ ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( nam
 		classes: [ 'oo-ui-inline-help' ]
 	} );
 
-	radioOption.$label.append( description.$element );
+	radioOption.$element.append( description.$element );
 
 	return radioOption;
+};
+
+/**
+ * @return {jQuery.Promise}
+ */
+ve.ui.CXPublishSettingsDialog.prototype.doesTargetTitleExist = function () {
+	var pageTitle = mw.cx.getTitleForNamespace( ve.init.target.getPageName(), this.mainNamespaceId );
+
+	return ve.init.platform.linkCache.get( pageTitle ).then( function ( result ) {
+		return !result.missing;
+	} );
+};
+
+/**
+ * @param {boolean} targetTitleExists True if target title exists in main namespace
+ */
+ve.ui.CXPublishSettingsDialog.prototype.changeMainNamespaceLabel = function ( targetTitleExists ) {
+	var msgKey = 'cx-publish-destination-namespace-main';
+
+	if ( this.targetTitleExists === targetTitleExists ) {
+		return;
+	}
+
+	this.targetTitleExists = targetTitleExists;
+
+	msgKey += targetTitleExists ? '-exists' : '';
+	// Messages used here:
+	// * cx-publish-destination-namespace-main
+	// * cx-publish-destination-namespace-main-exists
+	this.namespaceSelector.findItemFromData( this.mainNamespaceId ).setLabel( mw.msg( msgKey ) );
 };
 
 /* Registration */

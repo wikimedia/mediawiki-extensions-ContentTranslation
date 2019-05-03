@@ -1227,6 +1227,7 @@
 				"cx-publish-settings",
 				"cx-publish-destination-namespace-main",
 				"cx-publish-destination-namespace-main-description",
+				"cx-publish-destination-namespace-main-exists",
 				"cx-publish-destination-namespace-user",
 				"cx-publish-destination-namespace-user-description",
 				"cx-publish-destination-namespace-draft",
