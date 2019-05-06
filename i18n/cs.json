@@ -22,7 +22,8 @@
 			"Jan Růžička",
 			"Петар Петковић",
 			"Vojtěch Dostál",
-			"Ján Kepler"
+			"Ján Kepler",
+			"Janbery"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -277,7 +278,9 @@
 	"cx-publish-destination-header": "Publikovat",
 	"cx-publish-destination-tooltip": "Zvolte si jmenný prostor, ve kterém bude článek zveřejněný",
 	"cx-publish-destination-namespace-main": "Nová stránka",
+	"cx-publish-destination-namespace-main-description": "Do hlavního jmenného prostoru k zobrazení pro každého",
 	"cx-publish-destination-namespace-user": "Osobní koncept",
+	"cx-publish-destination-namespace-user-description": "Do vašeho uživatelského prostoru pro další úpravy",
 	"cx-publish-destination-namespace-draft": "Veřejný koncept",
 	"cx-linkcontextitem-missing-link-title": "Chybějící odkaz",
 	"cx-linkcontextitem-missing-title-description": "Tato stránka neexistuje",

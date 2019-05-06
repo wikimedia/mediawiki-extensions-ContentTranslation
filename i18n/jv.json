@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NoiX180"
+			"NoiX180",
+			"Notanotheramy"
 		]
 	},
 	"cx": "Pertal kaca",
@@ -237,7 +238,9 @@
 	"cx-publish-destination-header": "Parané pambabar",
 	"cx-publish-destination-tooltip": "Pilihen mandala aran minangka jujugané kaca kang arep panjenengan babar",
 	"cx-publish-destination-namespace-main": "Kaca anyar",
+	"cx-publish-destination-namespace-main-description": "Ing mandhala aran pokok kang bisa diwaca kabèh wong",
 	"cx-publish-destination-namespace-user": "Rèngrèngan priangga",
+	"cx-publish-destination-namespace-user-description": "Ing mandhala araning panganggo kang kudu kodandani",
 	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban",
 	"cx-linkcontextitem-missing-link-title": "Pranala ora ana",
 	"cx-linkcontextitem-missing-title-description": "Kaca iki durung ana",

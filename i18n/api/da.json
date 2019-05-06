@@ -14,6 +14,8 @@
 	"apihelp-cxpublish-param-categories": "Kategorierne at putte den udgivne side i.",
 	"apihelp-query+contenttranslation-description": "Spørg indholdsoversættelses-databasen om oversættelser.",
 	"apihelp-query+contenttranslation-param-translationid": "Oversættelse-ID.",
+	"apihelp-query+contenttranslation-param-from": "Sprogkoden på kilden.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Titlen på kildesiden.",
 	"apihelp-query+contenttranslation-param-type": "Status på oversættelsen.",
 	"apihelp-query+contenttranslation-example-1": "Hent oversættelser startet af den aktuelle bruger.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID for oversættelsen.",
@@ -38,6 +40,7 @@
 	"apierror-cx-inuse": "En anden bruger er allerede igang med at oversætte denne artikel.",
 	"apierror-cx-invalidlanguage": "Ugyldigt sprog.",
 	"apierror-cx-invalidprogress": "Ugyldig fremgang.",
+	"apierror-cx-invalidsourcelanguage": "Ugyldigt kildesprog.",
 	"apierror-cx-jwtmissing": "JWT er ikke installeret.",
 	"apierror-cx-missingdraft": "Kladden findes ikke.",
 	"apierror-cx-translationnotfound": "Oversættelse ikke fundet."

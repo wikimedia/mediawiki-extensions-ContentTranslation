@@ -22,7 +22,8 @@
 			"Arthur2e5",
 			"Putputi",
 			"Ans",
-			"Mar(c)"
+			"Mar(c)",
+			"McDutchie"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -294,7 +295,7 @@
 	"cx-publish-destination-namespace-changed": "Text for the popup dialog displayed when publish title namespace is changed to User namespace.",
 	"cx-linkcontextitem-missing-link-title": "Title for the link card when the target title is missing in target language.",
 	"cx-linkcontextitem-missing-title-description": "Description shown for titles in link card when the title is a red link.",
-	"cx-mt-abuse-publish-error": "Error message shown while publishing. It says the translation has too much unmodified machine translated content.",
+	"cx-mt-abuse-publish-error": "Error message shown while publishing. It says the translation has too much unmodified text.",
 	"cx-unreviewed-translation-category": "The [[:mw:Help:Tracking categories|tracking category]] to add to the published article if the translation has sections with too much machine translation. Please don't add namespace prefix.",
 	"cx-unreviewed-translation-category-desc": "Description of Content translation tracking category"
 }

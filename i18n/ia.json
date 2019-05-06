@@ -202,5 +202,5 @@
 	"cx-publish-destination-namespace-main": "Nove pagina",
 	"cx-publish-destination-namespace-user": "Esbosso personal",
 	"cx-publish-destination-namespace-draft": "Esbosso communitari",
-	"cx-mt-abuse-publish-error": "Tu traduction non pote esser publicate perque illo contine troppo de texto traducite per machina sin modification"
+	"cx-mt-abuse-publish-error": "Tu traduction non pote esser publicate perque illo contine troppo de texto non modificate."
 }
