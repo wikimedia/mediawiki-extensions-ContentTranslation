@@ -185,10 +185,19 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 		recentEditPages = pages.recentEdits,
 		pageData = {},
 		items = [],
+		query = this.getQueryValue(),
 		self = this;
 
 	// If there is user input, we execute parent method, process possible no results case and return early
-	if ( this.getQueryValue() ) {
+	if ( query ) {
+		if ( query.indexOf( ':' ) >= 0 ) {
+			// If query is from a non-default namespace, accept results from those namespaces.
+			// Remove namespace preference.
+			this.namespace = null;
+		} else {
+			// Reset to default namespace preference.
+			this.namespace = mw.config.get( 'wgNamespaceIds' )[ '' ]; // Main namespace
+		}
 		optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
 		hasResults = optionsData.length > 0;
 
