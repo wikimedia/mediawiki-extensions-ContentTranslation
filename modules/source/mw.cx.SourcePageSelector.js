@@ -213,8 +213,7 @@ mw.cx.SourcePageSelector.prototype.discardDialog = function () {
 };
 
 mw.cx.SourcePageSelector.prototype.render = function () {
-	var $searchResults, $noSuggestionsMessage,
-		sourceTitleNamespace = mw.config.get( 'wgNamespaceIds' )[ '' ]; // Main namespace
+	var $searchResults, $noSuggestionsMessage;
 
 	this.$container.hide(); // Starts as hidden, shown on this.triggerButton click
 
@@ -241,12 +240,6 @@ mw.cx.SourcePageSelector.prototype.render = function () {
 		classes: [ 'cx-source-page-selector__discard' ]
 	} );
 
-	if ( this.options.sourceTitle && this.options.sourceTitle.indexOf( ':' ) >= 0 ) {
-		// If sourceTitle is provided, and has non-Main namespace, remove
-		// namespace restriction for search
-		sourceTitleNamespace = null;
-	}
-
 	this.pageSelector = new mw.cx.ui.PageSelectorWidget( {
 		classes: [ 'cx-source-page-selector__page-title' ],
 		language: this.languageFilter.getSourceLanguage(),
@@ -254,7 +247,6 @@ mw.cx.SourcePageSelector.prototype.render = function () {
 		siteMapper: this.siteMapper,
 		value: this.options.sourceTitle,
 		validateTitle: false,
-		namespace: sourceTitleNamespace,
 		placeholder: mw.msg( 'cx-source-page-selector-input-placeholder' ),
 		allowSuggestionsWhenEmpty: true,
 		showRedirectTargets: true,
