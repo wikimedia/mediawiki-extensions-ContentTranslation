@@ -26,6 +26,7 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 		showImages: true,
 		showMissing: false,
 		addQueryInput: false,
+		excludeDynamicNamespaces: true,
 		icon: 'search'
 	}, config );
 
@@ -34,6 +35,7 @@ mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 
 	this.siteMapper = config.siteMapper;
 	this.language = config.language || 'en';
+	this.excludedNamespaces = [];
 	if ( config.targetLanguage ) {
 		this.setTargetLanguage( config.targetLanguage );
 	}
@@ -193,10 +195,10 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 		if ( query.indexOf( ':' ) >= 0 ) {
 			// If query is from a non-default namespace, accept results from those namespaces.
 			// Remove namespace preference.
-			this.namespace = null;
+			this.setNamespace( null );
 		} else {
 			// Reset to default namespace preference.
-			this.namespace = mw.config.get( 'wgNamespaceIds' )[ '' ]; // Main namespace
+			this.setNamespace( mw.config.get( 'wgNamespaceIds' )[ '' ] ); // Main namespace
 		}
 		optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
 		hasResults = optionsData.length > 0;
@@ -263,6 +265,17 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 	}
 
 	return items;
+};
+
+/**
+ * @inheritdoc
+ */
+mw.cx.ui.PageSelectorWidget.prototype.getLookupRequest = function () {
+	if ( !this.isValidNamespace( this.getQueryValue() ) ) {
+		return $.Deferred().resolve( {} ).promise();
+	}
+
+	return mw.cx.ui.PageSelectorWidget.super.prototype.getLookupRequest.apply( this, arguments );
 };
 
 /**
@@ -394,4 +407,21 @@ mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function 
 	}, function ( error ) {
 		mw.log( 'Error getting recent edits for ' + userName + '. ' + error );
 	} );
+};
+
+mw.cx.ui.PageSelectorWidget.prototype.setExcludedNamespaces = function ( excludedNamespaces ) {
+	this.excludedNamespaces = excludedNamespaces;
+};
+
+/**
+ * Validate the current query against excluded namespaces,
+ * @param {string} query
+ * @return {boolean} True if validation passes. False otherwise.
+ */
+mw.cx.ui.PageSelectorWidget.prototype.isValidNamespace = function ( query ) {
+	return query.indexOf( ':' ) < 0 ||
+		this.excludedNamespaces.every( function ( namespace ) {
+			return query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !==
+			namespace.toLocaleLowerCase();
+		} );
 };

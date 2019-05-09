@@ -197,16 +197,19 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		global $wgContentTranslationUserGroupTargetNamespace,
 			$wgContentTranslationUnmodifiedMTThresholdForPublish,
 			$wgContentTranslationCampaigns,
+			$wgContentTranslationExcludedNamespaces,
 			$wgContentTranslationPublishRequirements,
 			$wgContentTranslationEnableSuggestions,
 			$wgRecommendToolAPIURL;
 
 		$out = $this->getOutput();
 
-		$out->addJsConfigVars(
-			'wgContentTranslationUserGroupTargetNamespace',
-			$wgContentTranslationUserGroupTargetNamespace
-		);
+		$out->addJsConfigVars( [
+			'wgContentTranslationUserGroupTargetNamespace' =>
+				$wgContentTranslationUserGroupTargetNamespace,
+			'wgContentTranslationExcludedNamespaces' =>
+				$wgContentTranslationExcludedNamespaces,
+		] );
 
 		if ( $this->onTranslationView() ) {
 			$version = $this->shouldUseNewVersion() ? 2 : 1;

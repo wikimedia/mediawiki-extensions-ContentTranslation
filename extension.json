@@ -160,6 +160,17 @@
 		"ContentTranslationPublishRequirements": {
 			"userGroups": [ "*" ]
 		},
+		"ContentTranslationExcludedNamespaces": {
+			"File": true,
+			"Gadget definition": true,
+			"Gadget": true,
+			"MediaWiki": true,
+			"Module": true,
+			"Template": true,
+			"Topic": true,
+			"Translations": true
+		},
+		"@ContentTranslationExcludedNamespaces": "Array with keys as canonical namespaces(English names) excluded from translating. Matching is case insensitive. All talk namespaces(with odd number ids) are excluded.",
 		"@DraftMaxAge": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 		"DraftMaxAge": 456
 	},

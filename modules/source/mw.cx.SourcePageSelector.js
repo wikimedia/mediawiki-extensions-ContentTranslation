@@ -175,6 +175,8 @@ mw.cx.SourcePageSelector.prototype.sourceLanguageChangeHandler = function ( lang
 	this.pageSelector.setLanguage( language );
 
 	this.pageSelector.toggle( true );
+	this.getExcludedSourceNamespaces( language )
+		.then( this.pageSelector.setExcludedNamespaces.bind( this.pageSelector ) );
 };
 
 /**
@@ -270,4 +272,40 @@ mw.cx.SourcePageSelector.prototype.render = function () {
 		$searchResults,
 		this.selectedSourcePage.$element
 	);
+
+	this.getExcludedSourceNamespaces( this.languageFilter.getSourceLanguage() )
+		.then( this.pageSelector.setExcludedNamespaces.bind( this.pageSelector ) );
+};
+
+/**
+ * @param {string} sourceLanguage
+ * @return {jQuery.Promise}
+ */
+mw.cx.SourcePageSelector.prototype.getExcludedSourceNamespaces = function ( sourceLanguage ) {
+	var excludedNamespacesConfig = Object.keys(
+		mw.config.get( 'wgContentTranslationExcludedNamespaces' ) || {}
+	);
+
+	return this.siteMapper.getApi( sourceLanguage ).get( {
+		action: 'query',
+		meta: 'siteinfo',
+		siprop: 'namespaces'
+	} ).then( function ( response ) {
+		var isTalkPage, namespaceId, namespaceObj, excludedNamespaces = [];
+
+		for ( namespaceId in response.query.namespaces ) {
+			namespaceObj = response.query.namespaces[ namespaceId ];
+			// Odd namespace ids are talk pages
+			isTalkPage = ( namespaceId > 0 && namespaceId % 2 === 1 );
+			if ( isTalkPage ||
+				excludedNamespacesConfig.indexOf( namespaceObj.canonical ) >= 0
+			) {
+				// Exclude both the canonical name and localized name.
+				excludedNamespaces.push( namespaceObj.canonical );
+				excludedNamespaces.push( namespaceObj[ '*' ] );
+			}
+		}
+
+		return excludedNamespaces;
+	} );
 };
