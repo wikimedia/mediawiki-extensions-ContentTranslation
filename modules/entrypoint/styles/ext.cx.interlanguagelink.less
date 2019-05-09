@@ -1,5 +1,34 @@
 @import 'mediawiki.ui/variables';
 
-.cx-new-interlanguage-link .new {
-	color: @colorGray7;
+.cx-new-interlanguage-link {
+	.new {
+		/* stylelint-disable-next-line declaration-no-important */
+		color: @colorGray7 !important; // Beat color definition by #mw-panel .portal .body li a
+	}
+
+	.cx-entrypoint-dialog {
+		.cx-entrypoint-dialog__desc,
+		.cx-entrypoint-dialog__actions {
+			margin: 14px;
+		}
+
+		.cx-entrypoint-dialog__license {
+			background-color: @colorGray15;
+			color: @colorGray7;
+			border-top: 1px solid @colorGray12;
+			padding: 14px;
+			line-height: 1.3333333;
+		}
+
+		&.oo-ui-popupWidget .oo-ui-buttonElement.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
+			/* stylelint-disable-next-line declaration-no-important */
+			color: #fff !important; // Beat color definition by #mw-panel .portal .body li a;
+		}
+
+		.oo-ui-popupWidget-head > .oo-ui-labelElement-label {
+			color: @colorGray5;
+			font-size: 1.4em;
+			font-weight: bold;
+		}
+	}
 }

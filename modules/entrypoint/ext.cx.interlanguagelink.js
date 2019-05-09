@@ -1,83 +1,69 @@
 /*!
- * ContentTranslation Tools
- * A tool that allows editors to translate pages from one language
- * to another with the help of machine translation and other translation tools
- *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
 ( function () {
 	'use strict';
 
-	var campaign = 'interlanguagelink';
+	var CAMPAIGN = 'interlanguagelink';
 
 	/**
-	 * Get the list of target languages that should be suggested
-	 * to the current user:
-	 * - The MediaWiki user interface language.
-	 * - Accept-Language.
-	 * - Browser interface language.
-	 *
-	 * @return {string[]} target languages
+	 * Start a new page translation in Special:CX.
+	 * @param {string} targetLanguage
 	 */
-	function getSuggestedTargetLanguages() {
-		var i, splitCode, splitCodes, specialCodeIndex,
-			uniquePossibleTargetLanguages,
-			possibleTargetLanguages = [],
-			pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
+	function startPageInCX( targetLanguage ) {
+		var sourceLanguage = mw.config.get( 'wgContentLanguage' ),
+			sourceTitle = mw.config.get( 'wgTitle' );
 
-		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
-		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
-
-		$.merge( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
-		$.merge( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
-
-		// Language codes can have country extensions like en-US.
-		// Remove them so that it is like domain code format.
-		for ( i = 0; i < possibleTargetLanguages.length; i++ ) {
-			possibleTargetLanguages[ i ] = possibleTargetLanguages[ i ].split( '-' )[ 0 ];
-		}
-
-		// Replace possibly non-standard, macro and duplicate language codes
-		// with normalized counterparts
-		splitCodes = {
-			// Suggest both varieties of Belarusian when requesting 'be'
-			be: [ 'be', 'be-tarask' ],
-			// Suggest both varieties of Norwegian when requesting 'no'
-			no: [ 'nb', 'nn' ]
-		};
-
-		for ( splitCode in splitCodes ) {
-			specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
-			if ( specialCodeIndex > -1 ) {
-				possibleTargetLanguages.splice( specialCodeIndex, 1 );
-				$.merge( possibleTargetLanguages, splitCodes[ splitCode ] );
-			}
-		}
-
-		uniquePossibleTargetLanguages = mw.cx.unique( possibleTargetLanguages );
-
-		return uniquePossibleTargetLanguages.filter( function ( language ) {
-			return language !== pageLanguage;
-		} );
+		mw.cx.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
+		location.href = mw.cx.siteMapper.getCXUrl(
+			sourceTitle,
+			null,
+			sourceLanguage,
+			targetLanguage,
+			{ campaign: CAMPAIGN }
+		);
 	}
 
 	/**
-	 * Is there a page in the target language?
-	 *
-	 * @param {string} code
-	 * @return {boolean}
+	 * Render the CX entry point dialog.
+	 * @param {string} targetLanguage
+	 * @return {jQuery}
 	 */
-	function pageInLanguageExists( code ) {
-		var domainCode;
+	function getDialogContent( targetLanguage ) {
+		var descriptionLabel, actionTranslate, $license, actions;
 
-		domainCode = mw.cx.siteMapper.getWikiDomainCode( code );
+		descriptionLabel = new OO.ui.LabelWidget( {
+			classes: [ 'cx-entrypoint-dialog__desc' ],
+			label: mw.msg( 'cx-entrypoint-dialog-desc' )
+		} );
 
-		return $( 'li.interlanguage-link.interwiki-' + domainCode ).length === 1;
+		actionTranslate = new OO.ui.ButtonWidget( {
+			label: mw.msg(
+				'cx-entrypoint-dialog-button-translate-from',
+				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
+			),
+			flags: [ 'primary', 'progressive' ]
+		} );
+
+		actionTranslate.on( 'click', function () {
+			startPageInCX( targetLanguage );
+		} );
+
+		$license = $( '<div>' )
+			.addClass( 'cx-entrypoint-dialog__license' )
+			.html( mw.message( 'cx-license-agreement' ).parse() );
+
+		actions = new OO.ui.HorizontalLayout( {
+			classes: [ 'cx-entrypoint-dialog__actions' ],
+			items: [ actionTranslate ]
+		} );
+
+		return $( '<div>' ).append( descriptionLabel.$element, actions.$element, $license );
 	}
 
 	function createCXInterlanguageItem( code ) {
-		var from, $link, $item, autonym;
+		var from, $languageLink, $item, popup, autonym;
 
 		autonym = $.uls.data.getAutonym( code );
 		// We can't use something like wgContentLanguage because this
@@ -89,84 +75,40 @@
 		from = mw.config.get( 'wgServerName' ).split( '.' )[ 0 ];
 		from = mw.cx.siteMapper.getLanguageCodeForWikiDomain( from );
 
-		$link = $( '<a>' )
-			.prop( {
-				href: mw.util.getUrl(
-					'Special:ContentTranslation', {
-						page: mw.config.get( 'wgTitle' ),
-						from: from,
-						to: code
-					}
-				),
-				title: mw.msg( 'cx-entrypoint-title', autonym ),
-				lang: code
-			} )
-			// T130390: must be attr
-			.attr( 'dir', 'auto' )
+		$languageLink = $( '<a>' )
 			.addClass( 'new' )
+			.prop( {
+				title: mw.msg( 'cx-entrypoint-title', autonym ),
+				lang: code,
+				href: mw.util.getUrl( 'Special:ContentTranslation', {
+					page: mw.config.get( 'wgTitle' ),
+					from: from,
+					to: code
+				} )
+			} )
 			.text( autonym );
+
+		popup = new OO.ui.PopupWidget( {
+			label: mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', autonym ),
+			classes: [ 'cx-entrypoint-dialog' ],
+			$content: getDialogContent( code ),
+			head: true,
+			width: 500,
+			position: 'after',
+			autoClose: true
+		} );
+
+		$languageLink.on( 'click', function () {
+			popup.toggle( true );
+			return false;
+		} );
 
 		$item = $( '<li>' )
 			.addClass( 'cx-new-interlanguage-link' )
-			.append( $link );
+			.append( $languageLink, popup.$element );
 
 		return $item;
 	}
 
-	function prepareCXInterLanguageLinks() {
-		var $newItem, $pLangList, dependencies, suggestedTargetLanguages;
-
-		suggestedTargetLanguages = getSuggestedTargetLanguages();
-
-		if ( !suggestedTargetLanguages.length ) {
-			return;
-		}
-
-		// We load the below modules only when required to show gray interlanguage links.
-		// This is important since gray interlanguage links appear in along with articles.
-		dependencies = [ 'ext.cx.entrypoint', 'jquery.uls.data' ];
-
-		mw.loader.using( dependencies, function () {
-			var cxEntryPointDialogLeft,
-				cxEntryPointDialogOffset = 5,
-				count = 0,
-				maxListSize = 3,
-				$contentText = $( '#mw-content-text' ),
-				contentTextLeft = $contentText.offset().left;
-
-			cxEntryPointDialogLeft = ( $( 'html' ).prop( 'dir' ) === 'rtl' ) ?
-				contentTextLeft + $contentText.width() + cxEntryPointDialogOffset :
-				contentTextLeft - cxEntryPointDialogOffset;
-
-			$pLangList = $( '#p-lang ul' );
-			suggestedTargetLanguages.some( function ( code ) {
-				// Code should not be a language in which page exists.
-				// Also it should be known language for ULS.
-				if ( !pageInLanguageExists( code ) && code !== $.uls.data.getAutonym( code ) ) {
-					$newItem = createCXInterlanguageItem( code );
-					$pLangList.prepend( $newItem );
-					$newItem.cxEntryPoint( {
-						targetLanguage: code,
-						left: cxEntryPointDialogLeft,
-						entryPointName: campaign
-					} );
-					// Array.prototype.some breaks the iteration first time `true` is returned
-					return ++count === maxListSize;
-				}
-			} );
-		} );
-	}
-
-	function init() {
-		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
-
-		prepareCXInterLanguageLinks();
-	}
-
-	// Early execute of init
-	if ( document.readyState === 'interactive' ) {
-		init();
-	} else {
-		$( init );
-	}
+	mw.cx.createCXInterlanguageItem = createCXInterlanguageItem;
 }() );

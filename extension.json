@@ -867,40 +867,30 @@
 				"mediawiki.user"
 			]
 		},
-		"ext.cx.interlanguagelink": {
-			"scripts": "entrypoint/ext.cx.interlanguagelink.js",
-			"styles": "entrypoint/styles/ext.cx.interlanguagelink.less",
-			"skinStyles": {
-				"vector": [
-					"entrypoint/styles/ext.cx.interlanguagelink.vector.less"
-				]
-			},
-			"messages": [
-				"cx-entrypoint-title"
-			],
+		"ext.cx.interlanguagelink.init": {
+			"scripts": "entrypoint/ext.cx.interlanguagelink.init.js",
 			"dependencies": [
-				"ext.cx.sitemapper",
-				"ext.cx.util",
-				"ext.uls.init",
-				"jquery.uls.data",
-				"mediawiki.jqueryMsg"
+				"ext.uls.init"
 			]
 		},
-		"ext.cx.entrypoint": {
-			"scripts": "entrypoint/ext.cx.entrypoint.js",
-			"styles": "entrypoint/styles/ext.cx.entrypoint.less",
+		"ext.cx.interlanguagelink": {
+			"scripts": "entrypoint/ext.cx.interlanguagelink.js",
+			"styles": [
+				"entrypoint/styles/ext.cx.interlanguagelink.less"
+			],
 			"messages": [
+				"cx-entrypoint-title",
 				"cx-entrypoint-dialog-page-doesnt-exist-yet",
-				"cx-entrypoint-dialog-title-in",
-				"cx-entrypoint-dialog-button-create-from-scratch",
+				"cx-entrypoint-dialog-desc",
 				"cx-entrypoint-dialog-button-translate-from",
 				"cx-license-agreement"
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
-				"ext.cx.widgets.callout",
+				"ext.cx.util",
+				"oojs-ui-widgets",
+				"ext.uls.init",
 				"jquery.uls.data",
-				"mediawiki.Uri",
 				"mediawiki.jqueryMsg"
 			]
 		},

@@ -135,9 +135,10 @@ class Hooks {
 
 		if ( $title->inNamespace( NS_MAIN ) &&
 			Action::getActionName( $out->getContext() ) === 'view' &&
-			$title->exists()
+			$title->exists() &&
+			$skin->getSkinName() === 'vector'
 		) {
-			$out->addModules( 'ext.cx.interlanguagelink' );
+			$out->addModules( 'ext.cx.interlanguagelink.init' );
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar
