@@ -276,6 +276,7 @@
 	"cx-publish-destination-tooltip": "Escolha o espaço nominal no qual a página será publicada",
 	"cx-publish-destination-namespace-main": "Página nova",
 	"cx-publish-destination-namespace-main-description": "No espaço nominal principal para todos lerem",
+	"cx-publish-destination-namespace-main-exists": "Substituir a página existente",
 	"cx-publish-destination-namespace-user": "Rascunho pessoal",
 	"cx-publish-destination-namespace-user-description": "No seu espaço nominal de utilizador para você melhorar",
 	"cx-publish-destination-namespace-draft": "Rascunho comunitário",

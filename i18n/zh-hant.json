@@ -276,6 +276,7 @@
 	"cx-publish-destination-tooltip": "選擇在將要發佈頁面的命名空間",
 	"cx-publish-destination-namespace-main": "新頁面",
 	"cx-publish-destination-namespace-main-description": "讓所有人閱讀的主命名空間",
+	"cx-publish-destination-namespace-main-exists": "取代現有頁面",
 	"cx-publish-destination-namespace-user": "私人草稿",
 	"cx-publish-destination-namespace-user-description": "讓您能改進的您的使用者命名空間",
 	"cx-publish-destination-namespace-draft": "社群草稿",

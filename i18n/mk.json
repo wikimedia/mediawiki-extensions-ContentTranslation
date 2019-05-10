@@ -267,6 +267,7 @@
 	"cx-publish-destination-tooltip": "Изберете во кој именски простор да се објави страницата",
 	"cx-publish-destination-namespace-main": "Нова страница",
 	"cx-publish-destination-namespace-main-description": "Во главниот именски простор, видливо за секого",
+	"cx-publish-destination-namespace-main-exists": "Премести ја постоечката страница",
 	"cx-publish-destination-namespace-user": "Личен нацрт",
 	"cx-publish-destination-namespace-user-description": "Во својот кориснички именски простор, за доработка",
 	"cx-publish-destination-namespace-draft": "Друштвен нацрт",

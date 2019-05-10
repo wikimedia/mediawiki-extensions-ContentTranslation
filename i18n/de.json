@@ -272,6 +272,7 @@
 	"cx-publish-destination-tooltip": "Wähle den Namensraum aus, in dem die Seite veröffentlicht werden soll.",
 	"cx-publish-destination-namespace-main": "Neue Seite",
 	"cx-publish-destination-namespace-main-description": "Im Hauptnamensraum zum Lesen für jedermann",
+	"cx-publish-destination-namespace-main-exists": "Die vorhandene Seite ersetzen",
 	"cx-publish-destination-namespace-user": "Persönlicher Entwurf",
 	"cx-publish-destination-namespace-user-description": "In deinem Benutzernamensraum zur Verbesserung durch dich",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftsentwurf",

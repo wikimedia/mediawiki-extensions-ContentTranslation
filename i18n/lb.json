@@ -221,6 +221,7 @@
 	"cx-publish-settings": "Publikatiouns-Astellungen",
 	"cx-publish-destination-tooltip": "Sicht den Nummraum eraus an deem d'Säit publizéiert gëtt",
 	"cx-publish-destination-namespace-main": "Nei Säit",
+	"cx-publish-destination-namespace-main-exists": "D'Säit déi do ass ersetzen",
 	"cx-publish-destination-namespace-user": "Perséinleche Brouillon",
 	"cx-publish-destination-namespace-draft": "Gemeinschaftleche Brouillon",
 	"cx-linkcontextitem-missing-link-title": "Link feelt",

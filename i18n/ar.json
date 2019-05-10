@@ -280,6 +280,7 @@
 	"cx-publish-destination-tooltip": "اختر النطاق الذي ستنشر فيه الصفحة.",
 	"cx-publish-destination-namespace-main": "صفحة جديدة",
 	"cx-publish-destination-namespace-main-description": "في النطاق الرئيسي للجميع للقراءة",
+	"cx-publish-destination-namespace-main-exists": "استبدال الصفحة الحالية",
 	"cx-publish-destination-namespace-user": "مسودة شخصية",
 	"cx-publish-destination-namespace-user-description": "تحت نطاق المستخدم الخاص بك للتحسين",
 	"cx-publish-destination-namespace-draft": "مسودة مجتمع",
