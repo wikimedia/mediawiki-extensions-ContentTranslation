@@ -316,13 +316,18 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
  * @return {boolean}
  */
 mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
-	var bigString = string1,
-		smallString = string2;
+	var bigString = string1.trim(),
+		smallString = string2.trim();
 
 	if ( bigString.length < smallString.length ) {
 		// Swap the sets
 		bigString = string2;
 		smallString = string1;
+	}
+
+	// If smaller string is empty, we should not count as content is included. See T222905
+	if ( !smallString ) {
+		return false;
 	}
 
 	if ( bigString.length >= smallString.length * 2 ) {

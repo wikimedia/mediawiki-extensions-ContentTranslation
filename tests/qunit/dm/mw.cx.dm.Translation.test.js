@@ -115,6 +115,14 @@
 				user: {
 					content: '<section id="cxSourceSection20"><p id="mwBD">Seds conguee auguee aa eross tristiquee, necc interduum ipsuum conssequat. Maeceenas id magna id niisi dapibus tristique.</p></section>'
 				}
+			},
+			27: {
+				source: {
+					content: '<section rel="cx:Section" id="cxSourceSection3" data-mw-cx-source="undefined"><p id="mwEA"><span data-segmentid="14" class="cx-segment"><a href="./Barbados" rel="mw:WikiLink" data-linkid="15" class="cx-link" id="mwEQ" title="Barbados">Barbados</a> is a moderate <a href="./Political" rel="mw:WikiLink" data-linkid="16" class="mw-redirect cx-link" id="mwEg" title="Political">political</a> and <a href="./Economic" rel="mw:WikiLink" data-linkid="17" class="mw-redirect cx-link" id="mwEw" title="Economic">economic</a> power in the Caribbean region.</span></p>\n\n</section>'
+				},
+				user: {
+					content: '<section rel="cx:Section" id="cxTargetSection3" data-mw-cx-source="Apertium"><p id="mwEA"><span data-segmentid="14" class="cx-segment">Barbados es un poder político y económico moderado en la región de Caribes.</span></p></section>'
+				}
 			}
 		},
 		sourceSections: {
@@ -189,6 +197,12 @@
 				description: 'CX2 translation, Test whether big content has small content, ignore punctuations, case changes',
 				sourceLanguage: 'en',
 				expectedSavedUnit: 26
+			},
+			28: {
+				source: '<section id="cxSourceSection0" rel="cx:Section"><p id="mwAg"></p>\n\n</section>',
+				description: 'CX2 translation, test whether big content has small content when small content consists of newline characters',
+				sourceLanguage: 'en',
+				expectedSavedUnit: null
 			}
 		}
 	};
