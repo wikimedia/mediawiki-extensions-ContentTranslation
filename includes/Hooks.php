@@ -9,6 +9,7 @@ namespace ContentTranslation;
 
 use Action;
 use BetaFeatures;
+use DatabaseUpdater;
 use EchoEvent;
 use EditPage;
 use ExtensionRegistry;
@@ -58,7 +59,7 @@ class Hooks {
 	 * Hook: LoadExtensionSchemaUpdates
 	 * @param DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		global $wgContentTranslationCluster, $wgContentTranslationDatabase;
 
 		// Following tables should only be created if both cluster and database are false.
