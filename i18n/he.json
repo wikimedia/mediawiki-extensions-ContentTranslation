@@ -273,6 +273,7 @@
 	"cx-publish-destination-tooltip": "נא לבחור את מרחב השם שהדף יפורסם בו",
 	"cx-publish-destination-namespace-main": "דף חדש",
 	"cx-publish-destination-namespace-main-description": "במרחב הראשי שבו כולם יוכלו לקרוא",
+	"cx-publish-destination-namespace-main-exists": "להחליף את הדף הנוכחי",
 	"cx-publish-destination-namespace-user": "טיוטה אישית",
 	"cx-publish-destination-namespace-user-description": "במרחב המשתמש שלך שבו {{GENDER:|תוכל|תוכלי}} לשפר",
 	"cx-publish-destination-namespace-draft": "טיוטה קהילתית",

@@ -278,6 +278,7 @@
 	"cx-publish-destination-tooltip": "Välj namnrymden som sidan kommer att publiceras i",
 	"cx-publish-destination-namespace-main": "Ny sida",
 	"cx-publish-destination-namespace-main-description": "I huvudnamnrymden för alla att läsa",
+	"cx-publish-destination-namespace-main-exists": "Ersätt den befintliga sidan",
 	"cx-publish-destination-namespace-user": "Personlig skiss",
 	"cx-publish-destination-namespace-user-description": "Under din användarnamnrymd för dig att förbättra",
 	"cx-publish-destination-namespace-draft": "Gemenskapsskiss",
