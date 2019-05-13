@@ -6,7 +6,8 @@
 			"Сербијана",
 			"Prevodim",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Zoranzoki21"
 		]
 	},
 	"apihelp-cxpublish-description": "Сачувајте страницу направљену помоћу проширења за превод садржаја.",
@@ -73,10 +74,16 @@
 	"apihelp-cxsave-param-sourcetitle": "Наслов изворне стране.",
 	"apierror-cx-invalidlanguage": "Неисправан језик.",
 	"apierror-cx-invalidprogress": "Неисправан процес.",
+	"apierror-cx-invalidsectioncontent": "Некоректан садржај одељка.",
+	"apierror-cx-invalidsectiondata": "Некоректни подаци одељка.",
 	"apierror-cx-invalidsourcelanguage": "Неважећи изворни језик.",
 	"apierror-cx-invalidtargetlanguage": "Неисправан циљни језик.",
+	"apierror-cx-invalidtranslator": "Некоректно име преводиоца.",
+	"apierror-cx-jwtmissing": "JWT није инсталиран.",
+	"apierror-cx-keynotconfigured": "Кључ није конфигурисан.",
 	"apierror-cx-missingdraft": "Нацрт не постоји.",
 	"apierror-cx-mustbeloggedin-suggestions": "Морате бити пријављени да бисте управљали вашим предлозима.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Да би сте видели ваше преводе, морате да се пријавите.",
 	"apierror-cx-samelanguages": "Изворни и циљни језици не смеју бити исти.",
 	"apierror-cx-suggestionsdisabled": "Предлози нису доступни за овај вики.",
 	"apierror-cx-translationnotfound": "Превод није пронађен.",

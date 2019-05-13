@@ -210,7 +210,7 @@
 	"cx-publish-destination-namespace-draft": "Kopienas melnraksts",
 	"cx-linkcontextitem-missing-link-title": "Trūkst saite",
 	"cx-linkcontextitem-missing-title-description": "Šī lapa vēl nepastāv",
-	"cx-mt-abuse-publish-error": "Tavu tulkojumu nevar publicēt, jo tas satur pārāk daudz nekoriģēta mašīntulkota teksta",
+	"cx-mt-abuse-publish-error": "Tavu tulkojumu nevar publicēt, jo tas satur pārāk daudz nekoriģēta neizmainīta teksta.",
 	"cx-unreviewed-translation-category": "Lapas ar nepārskatītiem tulkojumiem",
 	"cx-unreviewed-translation-category-desc": "Ar satura tulkošanas rīku tulkotas lapas, kas satur lielu apjomu nepārskatīta satura"
 }
