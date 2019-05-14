@@ -399,17 +399,17 @@
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {
-		var query,
-			sourcePageSelectorOptions = {};
+		var query = new mw.Uri().query;
 
-		query = new mw.Uri().query;
-		sourcePageSelectorOptions.sourceLanguage = query.from;
-		sourcePageSelectorOptions.targetLanguage = query.to;
-		sourcePageSelectorOptions.sourceTitle = query.page;
-		sourcePageSelectorOptions.targetTitle = query.targettitle;
-		sourcePageSelectorOptions.triggerButton = this.newTranslationButton;
-		sourcePageSelectorOptions.$container = this.$sourcePageSelector;
-		this.newTranslationButton.$element.cxSourcePageSelector( sourcePageSelectorOptions );
+		// eslint-disable-next-line no-new
+		new mw.cx.SourcePageSelector( this.newTranslationButton, {
+			siteMapper: this.siteMapper,
+			sourceLanguage: query.from,
+			targetLanguage: query.to,
+			sourceTitle: query.page,
+			targetTitle: query.targettitle,
+			$container: this.$sourcePageSelector
+		} );
 		// Check for conditions that pre-open source page selector
 		if ( query.from && query.to && query.page ) {
 			this.$listHeader.hide();
