@@ -94,6 +94,8 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	viewNode = $.data( targetNode, 'view' );
 	sourceNode.style.marginTop = '';
 	targetNode.style.marginTop = '';
+	// Reset heights before we do calculations.
+	sourceNode.style.height = '';
 	targetNode.style.height = '';
 	offsetTop = Math.max(
 		sourceOffsetTop + sourceNode.offsetTop,
