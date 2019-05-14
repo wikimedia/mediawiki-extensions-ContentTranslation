@@ -517,7 +517,10 @@ mw.cx.init.Translation.prototype.switchToUserNamespace = function () {
 		autoClose: true
 	} );
 
-	this.veTarget.getActions().$element.append( popup.$element );
+	this.veTarget.getActions()
+		.getToolGroupByName( 'publish' )
+		.findItemFromData( 'publishSettings' )
+		.$element.append( popup.$element );
 	popup.toggle( true );
 
 	this.translationModel.resolveIssueByName( 'cannot-publish' );

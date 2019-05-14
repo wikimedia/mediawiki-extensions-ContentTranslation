@@ -13,6 +13,9 @@
 ve.ui.CXPublishSettingsTool = function VeUiCXPublishSettingsTool() {
 	// Parent constructor
 	ve.ui.CXPublishSettingsTool.super.apply( this, arguments );
+
+	// Make the tool findable
+	this.setData( 'publishSettings' );
 };
 
 /* Inheritance */
