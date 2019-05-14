@@ -228,7 +228,7 @@
 				"ext.cx.feedback",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
-				"ext.cx.SourcePageSelector",
+				"mw.cx.SourcePageSelector",
 				"ext.cx.widgets.translator",
 				"ext.uls.mediawiki",
 				"mediawiki.storage",
@@ -323,13 +323,13 @@
 				"cx-source-loading"
 			]
 		},
-		"ext.cx.SourcePageSelector": {
+		"mw.cx.SourcePageSelector": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"source/ext.cx.SourcePageSelector.js"
+				"source/mw.cx.SourcePageSelector.js"
 			],
 			"styles": [
-				"source/styles/ext.cx.SourcePageSelector.less"
+				"source/styles/mw.cx.SourcePageSelector.less"
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
