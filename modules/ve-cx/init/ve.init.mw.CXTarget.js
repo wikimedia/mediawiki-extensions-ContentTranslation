@@ -64,7 +64,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 
 	this.debounceAlignSectionPairs = OO.ui.debounce(
 		this.alignSectionPairs.bind( this ),
-		250
+		500
 	);
 
 	this.translationView.connect( this, {
@@ -591,12 +591,6 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
 		documentNodeChildren, alignSectionPair, articleNode;
 
-	this.translationView.alignTitles();
-
-	if ( !this.translationView.hasMisalignedSections() ) {
-		return;
-	}
-
 	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
 	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
 
@@ -608,6 +602,8 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	) {
 		return;
 	}
+
+	this.translationView.alignTitles();
 
 	sourceOffsetTop = sourceDocumentNode.$element.offset().top;
 	targetOffsetTop = targetDocumentNode.$element.offset().top;
