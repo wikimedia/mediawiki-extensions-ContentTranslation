@@ -23,7 +23,8 @@
 			"A Chinese Wikipedian",
 			"A2093064",
 			"VulpesVulpes825",
-			"佛壁灯"
+			"佛壁灯",
+			"科劳"
 		]
 	},
 	"cx": "翻译页面",
@@ -284,6 +285,7 @@
 	"cx-publish-destination-tooltip": "选择将发布页面的名字空间",
 	"cx-publish-destination-namespace-main": "新页面",
 	"cx-publish-destination-namespace-main-description": "在所有人可读的主名字空间",
+	"cx-publish-destination-namespace-main-exists": "替换已经存在的页面",
 	"cx-publish-destination-namespace-user": "个人草稿",
 	"cx-publish-destination-namespace-user-description": "在您可单独改进的用户空间",
 	"cx-publish-destination-namespace-draft": "社群草稿",
