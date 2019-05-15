@@ -181,14 +181,14 @@
 	"ResourceModules": {
 		"ext.cx.contributions": {
 			"scripts": [
-				"entrypoint/ext.cx.contributions.js"
+				"entrypoints/ext.cx.contributions.js"
 			],
 			"styles": [
-				"entrypoint/styles/ext.cx.contributions.less"
+				"entrypoints/styles/ext.cx.contributions.less"
 			],
 			"skinStyles": {
 				"vector": [
-					"entrypoint/styles/ext.cx.contributions.vector.less"
+					"entrypoints/styles/ext.cx.contributions.vector.less"
 				]
 			},
 			"dependencies": [
@@ -868,15 +868,15 @@
 			]
 		},
 		"ext.cx.interlanguagelink.init": {
-			"scripts": "entrypoint/ext.cx.interlanguagelink.init.js",
+			"scripts": "entrypoints/ext.cx.interlanguagelink.init.js",
 			"dependencies": [
 				"ext.uls.init"
 			]
 		},
 		"ext.cx.interlanguagelink": {
-			"scripts": "entrypoint/ext.cx.interlanguagelink.js",
+			"scripts": "entrypoints/ext.cx.interlanguagelink.js",
 			"styles": [
-				"entrypoint/styles/ext.cx.interlanguagelink.less"
+				"entrypoints/styles/ext.cx.interlanguagelink.less"
 			],
 			"messages": [
 				"cx-entrypoint-title",
@@ -1025,12 +1025,12 @@
 				"chart.js/Chart.js"
 			]
 		},
-		"ext.cx.campaigns.newarticle": {
+		"ext.cx.entrypoints.newarticle": {
 			"scripts": [
-				"campaigns/ext.cx.campaigns.newarticle.js"
+				"entrypoints/ext.cx.entrypoints.newarticle.js"
 			],
 			"styles": [
-				"campaigns/styles/ext.cx.campaigns.newarticle.less"
+				"entrypoints/styles/ext.cx.entrypoints.newarticle.less"
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
@@ -1043,22 +1043,22 @@
 				"cx-campaign-try"
 			]
 		},
-		"ext.cx.campaigns.newarticle.veloader": {
+		"ext.cx.entrypoints.newarticle.veloader": {
 			"scripts": [
-				"campaigns/ext.cx.campaigns.newarticle.veloader.js"
+				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
 			]
 		},
 		"ext.cx.betafeature.init": {
 			"scripts": [
-				"campaigns/ext.cx.betafeature.init.js"
+				"entrypoints/ext.cx.betafeature.init.js"
 			]
 		},
-		"ext.cx.campaigns.contributionsmenu": {
+		"ext.cx.entrypoints.contributionsmenu": {
 			"scripts": [
-				"campaigns/ext.cx.campaigns.contributionsmenu.js"
+				"entrypoints/ext.cx.entrypoints.contributionsmenu.js"
 			],
 			"styles": [
-				"campaigns/styles/ext.cx.campaigns.contributionsmenu.less"
+				"entrypoints/styles/ext.cx.entrypoints.contributionsmenu.less"
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
