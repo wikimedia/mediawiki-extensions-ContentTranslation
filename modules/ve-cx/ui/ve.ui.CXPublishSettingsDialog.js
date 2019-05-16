@@ -80,7 +80,7 @@ ve.ui.CXPublishSettingsDialog.prototype.updateActions = function ( selectedItem 
  */
 ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 	var publishDestinationLabel, helpIcon, $publishSettingsContainer,
-		namesapceIds = mw.config.get( 'wgNamespaceIds' );
+		namespaceIds = mw.config.get( 'wgNamespaceIds' );
 
 	// Parent method
 	ve.ui.CXPublishSettingsDialog.parent.prototype.initialize.apply( this, arguments );
@@ -104,13 +104,13 @@ ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 	this.namespaceSelector = new OO.ui.RadioSelectWidget( {
 		classes: [ 've-ui-cxPublishSettings-selector' ],
 		items: [
-			this.createRadioOptionWidget( 'main', namesapceIds[ '' ] ),
-			this.createRadioOptionWidget( 'user', namesapceIds.user )
+			this.createRadioOptionWidget( 'main', namespaceIds[ '' ] ),
+			this.createRadioOptionWidget( 'user', namespaceIds.user )
 		]
 	} );
 
-	if ( namesapceIds.draft ) {
-		this.namespaceSelector.addItems( this.createRadioOptionWidget( 'draft', namesapceIds.draft ) );
+	if ( namespaceIds.draft ) {
+		this.namespaceSelector.addItems( this.createRadioOptionWidget( 'draft', namespaceIds.draft ) );
 	}
 
 	this.$body.append( $publishSettingsContainer, this.namespaceSelector.$element );
