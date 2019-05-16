@@ -280,6 +280,7 @@
 	"cx-publish-destination-header": "게시 위치",
 	"cx-publish-destination-tooltip": "문서를 게시할 이름공간을 선택합니다",
 	"cx-publish-destination-namespace-main": "새 문서",
+	"cx-publish-destination-namespace-main-exists": "기존 문서 대체",
 	"cx-publish-destination-namespace-user": "개인 초안",
 	"cx-publish-destination-namespace-draft": "공동체 초안",
 	"cx-linkcontextitem-missing-link-title": "링크가 없음",

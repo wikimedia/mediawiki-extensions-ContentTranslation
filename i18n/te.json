@@ -192,6 +192,7 @@
 	"cx-translation-template-add-param": "+ ఫీల్డును అనువదించండి",
 	"cx-translation-template-add-more": "మరిన్ని ఫీల్డులను చేర్చండి",
 	"cx-translation-template-select-param": "లక్ష్యం ఫీల్డులను ఎంచుకోండి",
+	"cx-publish-settings": "ప్రచురణ అమరికలు",
 	"cx-publish-destination-header": "ప్రచురణ గమ్యం",
 	"cx-publish-destination-tooltip": "పేజీని ప్రచురించే పేరుబరిని ఎంచుకోండి",
 	"cx-publish-destination-namespace-main": "కొత్త పేజీ",
