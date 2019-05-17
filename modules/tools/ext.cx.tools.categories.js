@@ -693,7 +693,7 @@
 	};
 
 	// Expose the CXCategoryTool class for unit testing
-	if ( typeof QUnit !== undefined ) {
+	if ( typeof QUnit !== 'undefined' ) {
 		mw.cx.CategoryTool = CXCategoryTool;
 	}
 

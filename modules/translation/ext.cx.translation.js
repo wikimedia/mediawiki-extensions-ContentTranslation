@@ -420,7 +420,7 @@
 		} );
 	};
 
-	if ( typeof QUnit !== undefined ) {
+	if ( typeof QUnit !== 'undefined' ) {
 		// Expose this module for unit testing
 		mw.cx.ContentTranslationEditor = ContentTranslationEditor;
 	}
