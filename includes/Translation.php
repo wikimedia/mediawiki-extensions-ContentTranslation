@@ -103,8 +103,6 @@ class Translation {
 	 * @param Translator $translator
 	 */
 	public function save( Translator $translator ) {
-		$dbr = Database::getConnection( DB_REPLICA );
-
 		$work = TranslationWork::newFromTranslation( $this );
 		$existingTranslation = self::findForTranslator( $work, $translator );
 
