@@ -8,11 +8,29 @@
 	var CAMPAIGN = 'interlanguagelink';
 
 	/**
+	 * Gets the source language code for current wiki.
+	 *
+	 * We can't rely on wgContentLanguage because this will fail for a
+	 * wiki like simple.wikipedia.org, where the content language is the same as
+	 * on en.wikipedia.org, as well as some other edge cases. But we use the known
+	 * mappings to do backwards conversion for known problematic domains, and
+	 * wgContentLanguage for rest of the cases.
+	 *
+	 * @return {string} Source language code
+	 */
+	function getSourceLanguage() {
+		var from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
+			fallback = mw.config.get( 'wgContentLanguage' );
+
+		return mw.cx.siteMapper.getLanguageCodeForWikiDomain( from, fallback );
+	}
+
+	/**
 	 * Start a new page translation in Special:CX.
 	 * @param {string} targetLanguage
 	 */
 	function startPageInCX( targetLanguage ) {
-		var sourceLanguage = mw.config.get( 'wgContentLanguage' ),
+		var sourceLanguage = getSourceLanguage(),
 			sourceTitle = mw.config.get( 'wgTitle' );
 
 		mw.cx.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
@@ -73,17 +91,7 @@
 	}
 
 	function createCXInterlanguageItem( code ) {
-		var from, $languageLink, $item, popup, autonym;
-
-		autonym = $.uls.data.getAutonym( code );
-		// We can't use something like wgContentLanguage because this
-		// will fail for a wiki like simple.wikipedia.org, where
-		// the content language is the same as on en.wikipedia.org,
-		// as well as some other edge cases. But we use the known
-		// mappings to do backwards conversion for known problematic
-		// domains.
-		from = mw.config.get( 'wgServerName' ).split( '.' )[ 0 ];
-		from = mw.cx.siteMapper.getLanguageCodeForWikiDomain( from );
+		var $languageLink, popup, autonym = $.uls.data.getAutonym( code );
 
 		$languageLink = $( '<a>' )
 			.addClass( 'new' )
@@ -92,7 +100,7 @@
 				lang: code,
 				href: mw.util.getUrl( 'Special:ContentTranslation', {
 					page: mw.config.get( 'wgTitle' ),
-					from: from,
+					from: getSourceLanguage(),
 					to: code
 				} )
 			} )
@@ -113,11 +121,9 @@
 			return false;
 		} );
 
-		$item = $( '<li>' )
+		return $( '<li>' )
 			.addClass( 'cx-new-interlanguage-link' )
 			.append( $languageLink, popup.$element );
-
-		return $item;
 	}
 
 	mw.cx.createCXInterlanguageItem = createCXInterlanguageItem;

@@ -33,7 +33,12 @@
 		return languageToWikiDomainMapping[ language ] || language;
 	};
 
-	mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain ) {
+	/**
+	 * @param {string} domain
+	 * @param {string} [fallback]
+	 * @return {string}
+	 */
+	mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain, fallback ) {
 		var code,
 			mapping = mw.config.get( 'wgContentTranslationDomainCodeMapping' );
 
@@ -43,7 +48,7 @@
 			}
 		}
 
-		return domain;
+		return fallback || domain;
 	};
 
 	/**
