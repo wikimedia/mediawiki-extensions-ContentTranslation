@@ -156,7 +156,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.onInputChoose = function ( item ) {
 	var title = item.getLabel(),
 		titleWithPrefix = item.getData();
 
-	if ( !title || title === '' ) {
+	if ( !title ) {
 		return;
 	}
 
