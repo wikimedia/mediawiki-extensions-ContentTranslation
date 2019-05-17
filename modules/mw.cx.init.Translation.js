@@ -27,7 +27,6 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.config.targetTitle = targetWikiPage.getTitle();
 	this.config.targetLanguage = targetWikiPage.getLanguage();
 
-	this.canPublish = null;
 	this.mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ];
 	this.userNamespaceId = mw.config.get( 'wgNamespaceIds' ).user;
 
@@ -424,51 +423,22 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 	}.bind( this ) );
 };
 
-/**
- * @return {jQuery.promise} Promise which returns user groups for the currently logged in user.
- */
-mw.cx.init.Translation.prototype.getUserGroups = function () {
-	var api = new mw.Api();
-
-	return api.get( {
-		action: 'query',
-		assert: 'user',
-		meta: [ 'userinfo' ],
-		uiprop: [ 'groups' ]
-	} ).then( function ( result ) {
-		return OO.getProp( result, 'query', 'userinfo', 'groups' );
-	} );
-};
-
 mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = function () {
-	if ( this.canPublish !== null ) {
-		return $.Deferred().resolve( this.canPublish ).promise();
+	var userGroups = mw.config.get( 'wgUserGroups' ) || [],
+		publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups;
+
+	if ( typeof publishConfig === 'string' ) {
+		publishConfig = [ publishConfig ];
 	}
 
-	return this.getUserGroups().then( function ( groups ) {
-		var publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups,
-			canPublish = true;
+	if ( !Array.isArray( publishConfig ) ) {
+		mw.log.error( 'Publish requirement config should be of type array or string' );
+		return true;
+	}
 
-		if ( typeof publishConfig === 'string' ) {
-			publishConfig = [ publishConfig ];
-		}
-
-		if ( !Array.isArray( publishConfig ) ) {
-			mw.log.error( 'Publish requirement config should be of type array or string' );
-			return true;
-		}
-
-		if ( !groups ) {
-			return true;
-		}
-
-		publishConfig.forEach( function ( userGroup ) {
-			canPublish = canPublish && groups.indexOf( userGroup ) > -1;
-		} );
-
-		this.canPublish = canPublish;
-		return canPublish;
-	}.bind( this ) );
+	return publishConfig.every( function ( userGroup ) {
+		return userGroups.indexOf( userGroup ) > -1;
+	} );
 };
 
 mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
@@ -476,11 +446,9 @@ mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
 		return;
 	}
 
-	this.isUserAllowedToPublishToMainNamespace().then( function ( canPublish ) {
-		if ( !canPublish ) {
-			this.displayCannotPublishError();
-		}
-	}.bind( this ) );
+	if ( !this.isUserAllowedToPublishToMainNamespace() ) {
+		this.displayCannotPublishError();
+	}
 };
 
 /**
