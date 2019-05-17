@@ -119,7 +119,7 @@ mw.cx.DashboardList.prototype.getPageDetails = function ( language, titles ) {
  * @param {Object} list
  */
 mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
-	var apply, language, titles, pageId, page,
+	var apply, language, processPageDetails,
 		queries = {},
 		map = {};
 
@@ -153,27 +153,25 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
 		} );
 	};
 
-	for ( language in queries ) {
-		titles = queries[ language ];
+	processPageDetails = function ( response ) {
+		var pageId, page,
+			redirects = response.query.redirects || [],
+			redirectsTo = {},
+			pages = response.query.pages;
 
-		// eslint-disable-next-line no-loop-func
-		this.getPageDetails( language, titles ).done( function ( response ) {
-			var redirects = response.query.redirects || [],
-				pages = response.query.pages;
-
-			for ( pageId in pages ) {
-				page = pages[ pageId ];
-
-				// eslint-disable-next-line no-loop-func
-				redirects.forEach( function ( redirect ) {
-					if ( redirect.to === page.title ) {
-						page.title = redirect.from;
-					}
-				} );
-
-				apply( page );
-			}
+		redirects.forEach( function ( redirect ) {
+			redirectsTo[ redirect.to ] = redirect.from;
 		} );
+
+		for ( pageId in pages ) {
+			page = pages[ pageId ];
+			page.title = redirectsTo[ page.title ] || page.title;
+			apply( page );
+		}
+	};
+
+	for ( language in queries ) {
+		this.getPageDetails( language, queries[ language ] ).done( processPageDetails );
 	}
 };
 
