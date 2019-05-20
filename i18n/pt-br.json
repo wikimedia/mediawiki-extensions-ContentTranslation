@@ -106,7 +106,7 @@
 	"cx-selected-source-page-error-page-exists": "A página [$1 já existe] em $2",
 	"cx-selected-source-page-error-title-in-use": "O título para a nova página [$1 já está em uso]",
 	"cx-page-missing-in-target-language": "Não existe em $1",
-	"cx-page-number-of-languages": "Número de línguas",
+	"cx-page-number-of-languages": "Número de idiomas",
 	"cx-mt-abuse-warning-title": "Sua tradução {{PLURAL:$1|contém}} $1% de textos traduzidos sem modificações",
 	"cx-mt-abuse-warning-text": "A tradução automática é fornecida apenas como ponto de partida. Certifique-se de que o conteúdo seja preciso e leia naturalmente em seu idioma.\n\nSua tradução provavelmente será excluída quando for revisada por outros editores.",
 	"cx-publish-captcha-title": "Verificando que você não é um robô",
