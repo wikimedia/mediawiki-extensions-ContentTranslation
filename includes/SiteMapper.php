@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+
 class SiteMapper {
 	/**
 	 * Get the domain code matching language
@@ -20,14 +22,26 @@ class SiteMapper {
 	}
 
 	/**
-	 * Get the language code for this domain
+	 * Get the target language code for the current wiki.
 	 *
-	 * @param string $domain Domain code (Wikimedia internal format)
-	 * @return string
+	 * This can be different from $wgLanguageCode (aka content language). simple.wikipedia.org
+	 * has it as `en`. It can also be different from the subdomain name. For no.wikipedia.org
+	 * it is `nb`.
+	 *
+	 * @return string Language code in a format used internally by CX.
 	 */
-	public static function getLanguageCode( $domain ) {
-		global $wgContentTranslationDomainCodeMapping;
+	public static function getCurrentLanguageCode() {
+		global $wgConf, $wgDBname, $wgContentTranslationDomainCodeMapping;
 
+		list( , $domain ) = $wgConf->siteFromDB( $wgDBname );
+
+		// Fallback for non-wmf-style farms
+		if ( $domain === '' ) {
+			return MediaWikiServices::getInstance()->getContentLanguage()->getCode();
+		}
+
+		// Do a reverse lookup in our code map, falling back to the domain as key if not
+		// present in the array.
 		foreach ( $wgContentTranslationDomainCodeMapping as $key => $value ) {
 			if ( $domain === $value ) {
 				return $key;

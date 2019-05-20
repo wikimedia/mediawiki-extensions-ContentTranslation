@@ -52,7 +52,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgConf, $wgDraftMaxAge, $wgContentTranslationTranslateInTarget, $wgDBname;
+		global $wgDraftMaxAge, $wgContentTranslationTranslateInTarget;
 
 		$dryRun = !$this->hasOption( 'really' );
 		$ageInDays = $this->getOption( 'age-in-days', (string)$wgDraftMaxAge );
@@ -66,15 +66,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$this->output( '$wgContentTranslationTranslateInTarget is enabled. ', 'note' );
 			$this->output( 'This script must be run separately for each target language.', 'note' );
 
-			// This is required because simplewiki sets content language to 'en' and we cannot
-			// differentiate from enwiki otherwise.
-			list( , $domainCode ) = $wgConf->siteFromDB( $wgDBname );
-			$language = SiteMapper::getLanguageCode( $domainCode );
-
-			// Fallback for non-wmf-style farms
-			if ( $language === '' ) {
-				$language = MediaWikiServices::getInstance()->getContentLanguage()->getCode();
-			}
+			$language = SiteMapper::getCurrentLanguageCode();
 
 			$this->output( "Running for language $language\n" );
 		}

@@ -7,6 +7,7 @@
  */
 
 use ContentTranslation\Hooks;
+use ContentTranslation\SiteMapper;
 use ContentTranslation\Translator;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -56,7 +57,9 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * With a valid cx token override beta feature settings.
 	 * @return bool
 	 */
-	public function hasToken() {
+	private function hasValidToken() {
+		global $wgContentTranslationTranslateInTarget;
+
 		$request = $this->getRequest();
 
 		if ( $this->getUser()->isAnon() ) {
@@ -75,15 +78,22 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		// foo_bar, but that *does* work because MediaWiki's getCookie transparently maps periods to
 		// underscores. If there is any further bugs reported about this, please use base64.
 		$title = strtr( $title, ' ', '_' );
+		list( $from, $to ) = array_values( $request->getValues( 'from', 'to' ) );
+		$cookieName = implode( '_', [ 'cx', $title, $from, $to ] );
 
-		$token = implode( '_', [
-			'cx',
-			$title,
-			$request->getVal( 'from' ),
-			$request->getVal( 'to' ),
-		] );
+		$hasToken = $request->getCookie( $cookieName, '' ) !== null;
 
-		return $request->getCookie( $token, '' ) !== null;
+		// Since we can only publish to the current wiki, enforce that the target language matches
+		// the wiki we are currently on. If not, redirect the user back to dashboard, where he can
+		// start again with parameters filled (and redirected to the correct wiki).
+		if ( $wgContentTranslationTranslateInTarget ) {
+			$tokenIsValid = $to === SiteMapper::getCurrentLanguageCode();
+			return $hasToken && $tokenIsValid;
+		}
+
+		// For development (single instance) use, there is no need to validate the token, because
+		// we don't redirect.
+		return $hasToken;
 	}
 
 	/**
@@ -117,13 +127,13 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function canUserProceed() {
-		$hasToken = $this->hasToken();
+		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
 
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !Hooks::isEnabledForUser( $this->getUser() ) ) {
-			if ( $hasToken || $isCampaign ) {
+			if ( $hasValidToken || $isCampaign ) {
 				// User has a token or a valid campaign param.
 				// Enable cx for the user in this wiki.
 				$this->enableCXBetaFeature();
@@ -153,7 +163,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @return bool
 	 */
 	protected function onTranslationView() {
-		if ( $this->hasToken() ) {
+		if ( $this->hasValidToken() ) {
 			return true;
 		}
 
