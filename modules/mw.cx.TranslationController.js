@@ -566,10 +566,10 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
 	this.translation.addUnattachedIssues( [
 		new mw.cx.dm.TranslationIssue(
 			'mt-abuse-publish', // Issue name
-			mw.msg( 'cx-mt-abuse-warning-text' ), // message body
+			mw.msg( 'cx-mt-abuse-error-text' ), // message body
 			{
 				title: mw.msg(
-					'cx-mt-abuse-warning-title',
+					'cx-mt-abuse-error-title',
 					mw.language.convertNumber(
 						Math.round( this.translationTracker.getUnmodifiedMTPercentageInTranslation() )
 					)

@@ -72,7 +72,7 @@
 		this.$card.show();
 		this.$card.find( '.card__mtabuse-title' )
 			.text( mw.msg(
-				'cx-mt-abuse-warning-title',
+				'cx-mt-abuse-error-title',
 				mw.language.convertNumber( mtPercentage ) ) );
 
 		this.onShow();

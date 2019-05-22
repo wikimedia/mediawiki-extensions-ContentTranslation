@@ -540,7 +540,7 @@
 				"tools/styles/ext.cx.tools.mtabuse.less"
 			],
 			"messages": [
-				"cx-mt-abuse-warning-title",
+				"cx-mt-abuse-error-title",
 				"cx-mt-abuse-warning-text",
 				"cx-tools-view-guidelines",
 				"cx-tools-view-guidelines-link"
@@ -1454,6 +1454,8 @@
 				"cx-tools-linter-restart-translation-title",
 				"cx-lost-session-publish",
 				"cx-mt-abuse-publish-error",
+				"cx-mt-abuse-error-text",
+				"cx-mt-abuse-error-title",
 				"cx-mt-abuse-warning-text",
 				"cx-mt-abuse-warning-title",
 				"cx-overwriting-with-issues",
