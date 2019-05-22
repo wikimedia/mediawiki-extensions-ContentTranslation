@@ -10,6 +10,11 @@
 		position: absolute;
 		left: @left;
 		top: 0.2em;
+
+		// HACK: Clear icon with 'destructive' flag is not yet available in OOUI icon repo. See T224120
+		&.oo-ui-image-destructive.oo-ui-icon-clear {
+			filter: invert( 40% ) sepia( 79% ) saturate( 3349% ) hue-rotate( 336deg ) brightness( 83% ) contrast( 110% );
+		}
 	}
 
 	> .cx-ui-translationIssue-title,

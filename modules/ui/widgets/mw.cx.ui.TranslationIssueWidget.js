@@ -22,10 +22,7 @@ mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, 
 	// Initialization
 	this.$element.addClass( 'cx-ui-translationIssue' );
 
-	this.icon = new OO.ui.IconWidget( {
-		icon: this.getIconFromModel(),
-		classes: [ 'cx-ui-translationIssue-icon' ]
-	} );
+	this.icon = new OO.ui.IconWidget( this.getIconConfig() );
 	this.$title = $( '<h4>' )
 		.addClass( 'cx-ui-translationIssue-title' )
 		.text( this.model.getTitle() || mw.msg( 'cx-tools-linter-generic-title' ) );
@@ -68,8 +65,14 @@ OO.inheritClass( mw.cx.ui.TranslationIssueWidget, OO.ui.TabPanelLayout );
 
 /* Methods */
 
-mw.cx.ui.TranslationIssueWidget.prototype.getIconFromModel = function () {
-	return this.model.getType() === 'error' ? 'clear' : 'alert';
+mw.cx.ui.TranslationIssueWidget.prototype.getIconConfig = function () {
+	var isError = this.model.getType() === 'error';
+
+	return {
+		flags: isError ? [ 'destructive' ] : [ 'warning' ],
+		icon: isError ? 'clear' : 'alert',
+		classes: [ 'cx-ui-translationIssue-icon' ]
+	};
 };
 
 mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
