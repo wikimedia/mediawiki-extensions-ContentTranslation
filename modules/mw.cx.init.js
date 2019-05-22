@@ -48,6 +48,11 @@
 		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
 			mw.notify( mw.msg( 'cx-beta-feature-enabled-notification' ) );
 		}
+		// A translation is initialized based on a campaign. Set a flag in localstorage so that next time the user visit a page,
+		// a feature discovery workflow is available.
+		if ( mw.config.get( 'wgContentTranslationEntryPointFD' ) && !mw.storage.get( 'cx-show-entrypoint-feature-discovery' ) ) {
+			mw.storage.set( 'cx-show-entrypoint-feature-discovery', true );
+		}
 	}
 
 	// On document ready, initialize.

@@ -1,0 +1,114 @@
+@import 'mediawiki.mixins';
+@import 'mediawiki.mixins.animation';
+@import 'mediawiki.ui/variables';
+
+.mw-cx-ui-featureDiscoveryPopup {
+	.oo-ui-popupWidget {
+		/* Appear above local dialogs, e.g. toolbar dialog */
+		z-index: 3;
+	}
+
+	.oo-ui-popupWidget-body {
+		padding: 1em;
+
+		h3 {
+			/* stylelint-disable-next-line declaration-no-important */
+			display: block !important; // Beat specificity of #p-personal h3
+		}
+
+		p {
+			color: @colorGray2;
+			line-height: 1.4;
+			white-space: normal; // Override #p-personal li style no-wrap
+		}
+	}
+}
+
+.mw-cx-ui-pulse {
+	position: relative;
+	left: 50%;
+	top: 5px;
+	bottom: 0;
+	cursor: pointer;
+
+	.mw-cx-ui-pulsatingDot,
+	.mw-cx-ui-stillDot {
+		background-color: @colorProgressive;
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		border-radius: 50%;
+	}
+
+	.mw-cx-ui-pulsatingDot {
+		opacity: 0;
+		width: 36px;
+		height: 36px;
+		margin-bottom: -18px;
+		margin-left: -18px;
+
+		.animation( pulse, 3s, ease-out );
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+	}
+
+	.mw-cx-ui-stillDot {
+		/* Use whole pixel values to improve rendering (T214203) */
+		width: 12px;
+		height: 12px;
+		margin-bottom: -6px;
+		margin-left: -6px;
+	}
+}
+
+.mw-cx-ui-featureDiscoveryPopup-dismiss {
+	margin-top: 0.5em;
+}
+
+.mw-cx-ui-featureDiscoveryPopup-header {
+	.background-image( '../images/document-translation.svg' );
+	background-position: top center;
+	background-repeat: no-repeat;
+	min-height: 120px;
+	margin-bottom: 1em;
+}
+
+.pulse-frames() {
+	0% {
+		transform: scale( 0 );
+		opacity: 0;
+	}
+
+	25% {
+		transform: scale( 0 );
+		opacity: 0.1;
+	}
+
+	50% {
+		transform: scale( 0.1 );
+		opacity: 0.3;
+	}
+
+	75% {
+		transform: scale( 0.5 );
+		opacity: 0.5;
+	}
+
+	100% {
+		transform: scale( 1 );
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes pulse {
+	.pulse-frames;
+}
+
+@-moz-keyframes pulse {
+	.pulse-frames;
+}
+
+@keyframes pulse {
+	.pulse-frames;
+}

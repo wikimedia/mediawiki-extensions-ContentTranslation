@@ -202,6 +202,14 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				'wgContentTranslationExcludedNamespaces' => $wgContentTranslationExcludedNamespaces
 			] );
 		}
+
+		$campaign = $this->getRequest()->getVal( 'campaign' );
+		$persistentEntrypointCampaigns = [ 'contributions-page', 'contributionsmenu' ];
+		if ( !in_array( $campaign, $persistentEntrypointCampaigns ) ) {
+			// The user accessed CX using a non-persistent invitation.
+			// Show a one-time indicator to educate user that they can access CX using persistent entrypoints
+			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
+		}
 	}
 
 	/**

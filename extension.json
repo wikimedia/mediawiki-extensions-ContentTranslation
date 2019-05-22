@@ -1075,6 +1075,10 @@
 				"cx-campaign-contributionsmenu-translate-instead",
 				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
+				"cx-feature-discovery-title",
+				"cx-feature-discovery-content",
+				"cx-feature-discovery-dismiss",
+				"mycontris",
 				"quotation-marks"
 			]
 		},
@@ -2105,6 +2109,18 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"mediawiki.widgets"
+			]
+		},
+		"mw.cx.ui.FeatureDiscoveryWidget": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widgets/mw.cx.ui.FeatureDiscoveryWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.FeatureDiscoveryWidget.less"
+			],
+			"dependencies": [
+				"mw.cx.ui"
 			]
 		}
 	},

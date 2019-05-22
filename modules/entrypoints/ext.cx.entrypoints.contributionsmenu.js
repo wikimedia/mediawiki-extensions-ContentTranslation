@@ -105,10 +105,40 @@
 
 	}
 
+	function showFeatureDiscovery( $trigger ) {
+		var fd, $container = $( '<div>' ).addClass( 'cx-feature-discovery-container' );
+
+		$trigger.append( $container );
+		fd = new mw.cx.ui.FeatureDiscoveryWidget( {
+			title: mw.msg( 'cx-feature-discovery-title' ),
+			content: mw.msg( 'cx-feature-discovery-content' ),
+			dismissLabel: mw.msg( 'cx-feature-discovery-dismiss' ),
+			$container: $container,
+			onClose: function () {
+				// After dismissing the informative dialog, the action should be continued
+				// and Contributions page opened
+				location.href = $trigger.find( 'a' ).attr( 'href' );
+			}
+		} );
+		$container.append( fd.$element );
+		$trigger.one( 'click', function () {
+			// Prevent default click action.
+			fd.show();
+			mw.storage.set( 'cx-show-entrypoint-feature-discovery', false );
+			return false;
+		} );
+	}
+
 	$( function () {
 		var $trigger = $( '#pt-mycontris' );
 
-		attachMenu( $trigger );
+		if ( mw.storage.get( 'cx-show-entrypoint-feature-discovery' ) === 'true' ) {
+			mw.loader.using( 'mw.cx.ui.FeatureDiscoveryWidget' ).then( function () {
+				showFeatureDiscovery( $trigger );
+			} );
+		} else {
+			attachMenu( $trigger );
+		}
 
 		// Change the menu when creating a new article using VE
 		mw.hook( 've.activationComplete' ).add( function () {

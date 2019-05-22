@@ -292,5 +292,8 @@
 	"cx-mt-abuse-publish-error": "Your translation cannot be published because it contains too much unmodified text.",
 	"cx-unreviewed-translation-category": "Pages with unreviewed translations",
 	"cx-unreviewed-translation-category-desc": "Pages translated with the Content Translation tool that contain a high amount of unreviewed content",
-	"cx-preference-enable-entrypoints": "Access to [[$1|start a translation]], from the contributions page, the language list, and new page creations."
+	"cx-preference-enable-entrypoints": "Access to [[$1|start a translation]], from the contributions page, the language list, and new page creations.",
+	"cx-feature-discovery-title": "Translate anytime",
+	"cx-feature-discovery-content": "You can start or continue translating anytime from the {{int:mycontris}} page",
+	"cx-feature-discovery-dismiss": "Ok, got it"
 }
