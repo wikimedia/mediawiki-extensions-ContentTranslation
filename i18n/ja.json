@@ -237,6 +237,7 @@
 	"cx-tools-linter-invalid-character-message": "技術的な問題により、特定の文字は題名に使えません。\n\n無効な文字を削除して題名を編集してください。",
 	"cx-tools-linter-page-exists": "ページは既に存在します",
 	"cx-tools-linter-page-exists-message": "$1 という題名は既に存在します。この翻訳を公開すると、既存の記事を上書きすることになります\n\n既存の記事と入れ換えてよいか確認するか、この翻訳の題名を変更してください。",
+	"cx-tools-linter-reference-message": "出典は構造が異なるテンプレートを採用するため、翻訳に持ち込むことができません。\n\n翻訳文では出典を編集し、欠落する情報を補うようお願いします。",
 	"cx-translator-header": "利用者に関する統計",
 	"cx-translator-month-stats-label": "今月",
 	"cx-translator-total-translations-label": "合計",

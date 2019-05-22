@@ -18,7 +18,8 @@
 			"20عبد العزيز",
 			"Sonic N800",
 			"Петар Петковић",
-			"علاء"
+			"علاء",
+			"Kassem7899"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -257,6 +258,8 @@
 	"cx-tools-linter-old-revision": "الترجمة تستند إلى إصدار قديم من الصفحة",
 	"cx-tools-linter-old-revision-message": "تعتمد هذه الترجمة على إصدار قديم من المحتوى، قد تكون الصفحة المصدر قد [$1 تغيرت بشكل ملحوظ].\n\nيمكنك متابعة هذه الترجمة، أو البدء مرة أخرى لاستخدام المحتوى الذي تم تحديثه، إذا أعدت بدء الترجمة، فسيتم فقد تغييراتك الحالية.",
 	"cx-tools-linter-old-revision-label": "إعادة بدء الترجمة",
+	"cx-tools-linter-reference": "مرجع مفقود",
+	"cx-tools-linter-reference-message": "لا يمكن نقل مرجع إلى الترجمة لأنه يستخدم قالبا له بنية مختلفة. \n\nيُرجَى تعديل المرجع في الترجمة لملء المعلومات المفقودة.",
 	"cx-tools-linter-restart-translation-title": "إعادة بدء الترجمة؟",
 	"cx-tools-linter-restart-translation-message": "سوف تبدأ ترجمة جديدة لأحدث نسخة من الصفحة، سيتم فقد جميع التغييرات.",
 	"cx-tools-linter-restart-translation-cancel": "إلغاء",

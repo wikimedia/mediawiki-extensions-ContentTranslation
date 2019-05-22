@@ -260,6 +260,8 @@
 	"cx-tools-linter-old-revision": "Tradução baseada na versão antiga da página",
 	"cx-tools-linter-old-revision-message": "Esta tradução é baseada em uma versão mais antiga do conteúdo. A página de origem pode ter [$1 mudado significativamente].\n\nVocê pode continuar essa tradução ou iniciá-la novamente para usar o conteúdo atualizado. Se você reiniciar a tradução, suas alterações atuais serão perdidas.",
 	"cx-tools-linter-old-revision-label": "Reiniciar a tradução",
+	"cx-tools-linter-reference": "Referência ausente",
+	"cx-tools-linter-reference-message": "Não foi possível transferir uma referência para a tradução, pois ela usa um modelo com uma estrutura diferente.\n\nPor favor, edite a referência na tradução para preencher as informações que faltam.",
 	"cx-tools-linter-restart-translation-title": "Reiniciar a tradução?",
 	"cx-tools-linter-restart-translation-message": "Você iniciará uma nova tradução para a versão mais recente da página. Todas as suas alterações serão perdidas.",
 	"cx-tools-linter-restart-translation-cancel": "Cancelar",

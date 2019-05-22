@@ -23,7 +23,8 @@
 			"Hedda",
 			"Dual",
 			"Петар Петковић",
-			"Rapsar"
+			"Rapsar",
+			"Mirzali"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -260,6 +261,8 @@
 	"cx-tools-linter-old-revision": "Sayfanın eski bir sürümüne dayanan çeviri",
 	"cx-tools-linter-old-revision-message": "Bu çeviri, içeriğin daha eski bir sürümüne dayanmaktadır. Kaynak sayfa [$1 önemli ölçüde değişmiş olabilir].\n\nBu çeviriye devam edebilir veya güncellenen içeriği kullanmak için çeviriyi tekrar başlatabilirsiniz. Çeviriyi yeniden başlatırsanız mevcut değişiklikleriniz kaybolacaktır.",
 	"cx-tools-linter-old-revision-label": "Çeviriyi yeniden başlat",
+	"cx-tools-linter-reference": "Eksik referans",
+	"cx-tools-linter-reference-message": "Lütfen eksik bilgileri doldurmak için çevirideki referansı düzenleyin.",
 	"cx-tools-linter-restart-translation-title": "Çeviri yeniden başlatılsın mı?",
 	"cx-tools-linter-restart-translation-message": "Sayfanın en son sürümü için yeni bir çeviri başlatacaksınız. Tüm değişiklikleriniz kaybolacak.",
 	"cx-tools-linter-restart-translation-cancel": "Vazgeç",

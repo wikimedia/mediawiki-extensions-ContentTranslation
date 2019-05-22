@@ -183,6 +183,8 @@
 	"cx-tools-linter-hide-details": "Celar detalios",
 	"cx-tools-linter-old-revision": "Traduction de un version ancian del pagina",
 	"cx-tools-linter-old-revision-message": "Iste traduction se basa sur un version anterior del pagina. Es possibile que le pagina original ha [$1 cambiate substantialmente].\n\nTu pote continuar iste traduction, o recomenciar lo usante le contento nove. Si tu recomencia le traduction, tu modificationes currente essera perdite.",
+	"cx-tools-linter-reference": "Referentia mancante",
+	"cx-tools-linter-reference-message": "Un referentia non poteva esser transferite al traduction perque illo usa un patrono con un structura differente.\n\nPer favor, modifica le referentia in le traduction pro completar le information mancante.",
 	"cx-translator-month-stats-label": "Iste mense",
 	"cx-translator-total-translations-label": "Total",
 	"cx-page-old-revision-loaded": "Iste traduction se basa sur un version ancian del contento. Le pagina de origine poterea haber [$1 cambiate multo]. Tu pote continuar iste traduction o recomenciar lo pro usar le contento actual.",

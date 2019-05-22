@@ -125,5 +125,10 @@
 	"apierror-cx-translationnotfound": "لم يتم العثور على ترجمة.",
 	"apihelp-query+langlinkscount-description": "احصل على عدد اللغات الأخرى التي توجد بها تلك المقالة.",
 	"apihelp-query+langlinkscount-summary": "الحصول على عدد إصدارات اللغات الأخرى.",
-	"apihelp-query+langlinkscount-example-1": "احصل على عدد إصدارات اللغات الأخرى لصفحة \"كلب\""
+	"apihelp-query+langlinkscount-example-1": "احصل على عدد إصدارات اللغات الأخرى لصفحة \"كلب\"",
+	"apihelp-query+cxdeletedtranslations-description": "احصل على عدد ترجماتك المنشورة في بعض النطاق الذي تم حذفه بعد تاريخ ما.",
+	"apihelp-query+cxdeletedtranslations-summary": "احصل على عدد الترجمات المنشورة التي تم حذفها.",
+	"apihelp-query+cxdeletedtranslations-param-after": "الطابع الزمني للحصول على عمليات الحذف الأحدث فقط.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "النطاق حيث تم نشر الترجمات المحذوفة، الافتراضي هو النطاق الرئيسي.",
+	"apihelp-query+cxdeletedtranslations-example-1": "احصل على عدد الترجمات المحذوفة، والتي تم نشرها على النطاق الرئيسي وحذفها بعد 2019-04-07 16:24:44"
 }

@@ -11,7 +11,8 @@
 			"Macofe",
 			"Liuxinyu970226",
 			"Umherirrender",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Mirzali"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -249,6 +250,8 @@
 	"cx-tools-linter-old-revision": "Übersetzung basierend auf einer alten Version der Seite",
 	"cx-tools-linter-old-revision-message": "Diese Übersetzung basiert auf einer älteren Version des Inhalts. Die Quellseite könnte sich [$1 erheblich verändert] haben.\n\nDu kannst mit dieser Übersetzung fortfahren oder sie erneut beginnen, um den aktualisierten Inhalt zu verwenden. Falls du die Übersetzung neu beginnst, gehen deine aktuellen Änderungen verloren.",
 	"cx-tools-linter-old-revision-label": "Die Übersetzung neu beginnen",
+	"cx-tools-linter-reference": "Fehlende Referenz",
+	"cx-tools-linter-reference-message": "Bitte bearbeiten Sie die Referenz in der Übersetzung, um die fehlenden Informationen zu ergänzen.",
 	"cx-tools-linter-restart-translation-title": "Die Übersetzung neu beginnen?",
 	"cx-tools-linter-restart-translation-message": "Du wirst eine neue Übersetzung für die aktuellste Seitenversion beginnen. All deine Änderungen werden verloren gehen.",
 	"cx-tools-linter-restart-translation-cancel": "Abbrechen",

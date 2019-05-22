@@ -279,6 +279,8 @@
 	"cx-tools-linter-old-revision": "Traduction basée sur l’ancienne version de la page",
 	"cx-tools-linter-old-revision-message": "Cette traduction est basée sur une ancienne version du contenu. La page source peut avoir [$1 été modifiée de façon significative].\n\nVous pouvez poursuivre cette traduction, ou la redémarrer pour utiliser le contenu mis à jour. Si vous redémarrez la traduction, vos modifications actuelles seront perdues.",
 	"cx-tools-linter-old-revision-label": "Redémarrer la traduction",
+	"cx-tools-linter-reference": "Référence manquante",
+	"cx-tools-linter-reference-message": "Une référence ne peut pas être transférée à une traduction car elle utilise un modèle avec une structure différente.\n\nVeuillez modifier les références dans la traduction pour remplir les informations manquantes.",
 	"cx-tools-linter-restart-translation-title": "Redémarrer la traduction ?",
 	"cx-tools-linter-restart-translation-message": "Vous allez redémarrer une nouvelle traduction pour la version la plus récente de la page. Toutes vos modifications seront perdues.",
 	"cx-tools-linter-restart-translation-cancel": "Annuler",

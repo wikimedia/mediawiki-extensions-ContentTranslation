@@ -258,6 +258,7 @@
 	"cx-tools-linter-old-revision": "과거 판의 문서에 기반한 번역",
 	"cx-tools-linter-old-revision-message": "이 번역은 내용의 오래된 판입니다. 출처 문서는 [$1 상당히 바뀌었]을지도 모르며, 번역을 새로 시작하고자 할지도 모릅니다.\n\n이 번역을 지속하거나, 갱신된 내용을 이용하여 재차 번역을 시작할 수도 있습니다. 번역을 다시 시작하려면, 현재의 변경사항은 잃어버리게 됩니다.",
 	"cx-tools-linter-old-revision-label": "번역 다시 시작",
+	"cx-tools-linter-reference": "각주 없음",
 	"cx-tools-linter-restart-translation-title": "번역을 다시 시작하시겠습니까?",
 	"cx-tools-linter-restart-translation-message": "가장 최근 판의 문서에 대해 새 번역을 시작합니다. 모든 변경사항을 잃게 됩니다.",
 	"cx-tools-linter-restart-translation-cancel": "취소",
