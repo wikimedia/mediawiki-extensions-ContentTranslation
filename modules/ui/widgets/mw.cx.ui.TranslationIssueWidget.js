@@ -69,8 +69,8 @@ mw.cx.ui.TranslationIssueWidget.prototype.getIconConfig = function () {
 	var isError = this.model.getType() === 'error';
 
 	return {
-		flags: isError ? [ 'destructive' ] : [ 'warning' ],
-		icon: isError ? 'clear' : 'alert',
+		flags: isError ? [ 'error' ] : [ 'warning' ],
+		icon: isError ? 'error' : 'alert',
 		classes: [ 'cx-ui-translationIssue-icon' ]
 	};
 };
