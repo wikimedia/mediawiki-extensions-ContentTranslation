@@ -125,5 +125,8 @@
 	"apierror-cx-translationnotfound": "Tradução não encontrada.",
 	"apihelp-query+langlinkscount-description": "Obter o número de outras línguas nas quais esse artigo existe.",
 	"apihelp-query+langlinkscount-summary": "Obter o número de versões noutras línguas.",
-	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'."
+	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'.",
+	"apihelp-query+cxdeletedtranslations-description": "Obtenha o número de suas traduções publicadas em algum espaço nominal que foram excluídas após uma determinada data.",
+	"apihelp-query+cxdeletedtranslations-summary": "Obtenha o número de suas traduções publicadas que foram excluídas.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Carimbo de data/hora para obter apenas exclusões mais recentes."
 }
