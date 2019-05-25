@@ -146,8 +146,10 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				$this->getOutput()->showErrorPage(
 					'cx',
 					'cx-specialpage-enable-betafeature',
-					SpecialPage::getTitleFor( 'ContentTranslation' )
-						->getCanonicalURL( [ 'campaign' => 'specialcx' ] )
+					[
+						SpecialPage::getTitleFor( 'ContentTranslation' )
+							->getCanonicalURL( [ 'campaign' => 'specialcx' ] )
+					]
 				);
 				return false;
 			}
