@@ -77,7 +77,7 @@
 	"cx-selected-source-page-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
 	"cx-page-missing-in-target-language": "Feelt op $1",
 	"cx-page-number-of-languages": "Zuel vun de Sproochen",
-	"cx-mt-abuse-warning-title": "An Ärer Iwwersetzung {{PLURAL:$1|ass|si(nn)}} $1% onverännerten Text aus Maschinnen-Iwwersetzung",
+	"cx-mt-abuse-warning-title": "An engem Deel vun Ärer Iwwersetzung {{PLURAL:$1|ass}} $1% onverännerten Text",
 	"cx-mt-abuse-warning-text": "Maschinneniwwersetzung gëtt just als Ausgangspunkt geliwwert. Dir musst Iech vergewësseren datt den Inhalt appropriéiert ass an datt e sech an Ärer Sprooch natierlech liese léist.",
 	"cx-publish-captcha-title": "Iwwerpréiwen ob Dir kee Roboter sidd",
 	"cx-captcha-dialog-error": "Är Äntwert schéngt net richteg ze sinn probéiert w.e.g. nach eng Kéier.",

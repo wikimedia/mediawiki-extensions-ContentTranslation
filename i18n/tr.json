@@ -108,7 +108,7 @@
 	"cx-selected-source-page-error-title-in-use": "Yeni sayfa için seçilen başlık [$1 zaten kullanımda]",
 	"cx-page-missing-in-target-language": "$1 dilinde mevcut değil",
 	"cx-page-number-of-languages": "Dil sayısı",
-	"cx-mt-abuse-warning-title": "Çevirinizde %$1 oranında düzenlenmemiş metin {{PLURAL:$1|var}}",
+	"cx-mt-abuse-warning-title": "Çevirinizin bir kısmı %$1 oranında düzenlenmemiş metin {{PLURAL:$1|içerir}}",
 	"cx-mt-abuse-warning-text": "Otomatik çeviri, sadece bir başlangıç noktası olarak sunulmaktadır. İçeriğin doğru ve dilinizin doğal yapısına uygun olduğundan emin olmalısınız.\n\nÇeviriniz, diğer editörler tarafından incelendiğinde silinebilir.",
 	"cx-publish-captcha-title": "Robot olmadığınız kontrol ediliyor",
 	"cx-captcha-dialog-error": "Cevabınız doğru görünmüyor. Lütfen tekrar deneyin.",

@@ -128,5 +128,7 @@
 	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'.",
 	"apihelp-query+cxdeletedtranslations-description": "Obtenha o número de suas traduções publicadas em algum espaço nominal que foram excluídas após uma determinada data.",
 	"apihelp-query+cxdeletedtranslations-summary": "Obtenha o número de suas traduções publicadas que foram excluídas.",
-	"apihelp-query+cxdeletedtranslations-param-after": "Carimbo de data/hora para obter apenas exclusões mais recentes."
+	"apihelp-query+cxdeletedtranslations-param-after": "Carimbo de data/hora para obter apenas exclusões mais recentes.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaço nominal no qual as traduções excluídas foram publicadas. Padrões para o espaço nominal principal.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Obtenha o número de suas traduções excluídas, que foram publicadas no espaço nominal principal e excluídas após 07/04/2019 16:24:44"
 }

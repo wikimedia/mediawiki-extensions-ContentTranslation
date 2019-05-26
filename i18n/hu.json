@@ -267,6 +267,7 @@
 	"cx-publish-destination-header": "Közzététel mint",
 	"cx-publish-destination-tooltip": "Névtér kiválasztása, ahol az oldal publikálva lesz.",
 	"cx-publish-destination-namespace-main": "Új lap",
+	"cx-publish-destination-namespace-main-exists": "Létező oldal lecserélése",
 	"cx-publish-destination-namespace-user": "Személyes piszkozat",
 	"cx-publish-destination-namespace-draft": "Közösségi piszkozat",
 	"cx-linkcontextitem-missing-link-title": "Hiányzó hivatkozás",
