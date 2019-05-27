@@ -29,8 +29,14 @@ mw.cx.ui.Header = function ( config ) {
 
 OO.inheritClass( mw.cx.ui.Header, OO.ui.PanelLayout );
 
+/**
+ * Creates the content for the header
+ *
+ * @return {Array} content item
+ */
 mw.cx.ui.Header.prototype.getContent = function () {
-	var $wordmark, logo, $trademark, $trademarkText, personalMenu, $personal;
+	var $wordmark, logo, $trademarkText, personalMenuList, personalMenu, userLink,
+		content = [];
 
 	$wordmark = $( '#cx-header__wordmark' );
 	logo = new OO.ui.ButtonWidget( {
@@ -43,48 +49,61 @@ mw.cx.ui.Header.prototype.getContent = function () {
 		.addClass( 'cx-header__trademark-text' )
 		.text( this.config.titleText || mw.msg( 'cx' ) );
 
-	$trademark = $( '<div>' )
+	content.push( $( '<div>' )
 		.addClass( 'cx-header__trademark' )
 		.toggleClass( 'cx-header__trademark--has-wordmark', !!$wordmark[ 0 ] )
 		.append(
 			$( '<a>' ).attr( 'href', this.mainPageUrl ).append( $wordmark ),
 			logo.$element,
 			$trademarkText
-		);
-
-	personalMenu = new mw.cx.ui.PersonalMenuWidget( {
-		label: this.isAnon ? mw.msg( 'cx-personaltools-anon' ) : this.userName,
-		icon: this.isAnon ? 'userAnonymous' : 'userAvatar',
-		classes: [ 'cx-header__personal-menu' ],
-		menu: {
-			items: this.getPersonalMenuItems(),
-			horizontalPosition: 'end',
-			width: 'auto'
+		)
+	);
+	personalMenuList = mw.config.get( 'personalMenuList' );
+	if ( personalMenuList && Object.keys( personalMenuList ).length ) {
+		personalMenu = new mw.cx.ui.PersonalMenuWidget( {
+			label: this.isAnon ? mw.msg( 'cx-personaltools-anon' ) : this.userName,
+			icon: this.isAnon ? 'userAnonymous' : 'userAvatar',
+			classes: [ 'cx-header__personal-menu' ],
+			menu: {
+				items: this.getPersonalMenuItems( personalMenuList ),
+				horizontalPosition: 'end',
+				width: 'auto'
+			}
+		} );
+		if ( !this.isAnon ) {
+			personalMenu.setFlags( 'progressive' );
 		}
-	} );
-	if ( !this.isAnon ) {
-		personalMenu.setFlags( 'progressive' );
+
+		content.push( $( '.cx-header__personal' ).append( personalMenu.$element ) );
+	} else {
+		userLink = new OO.ui.ButtonWidget( {
+			label: this.isAnon ? mw.msg( 'cx-personaltools-anon' ) : this.userName,
+			icon: this.isAnon ? 'userAnonymous' : 'userAvatar',
+			classes: [ 'cx-header__personal-menu' ],
+			href: mw.util.getUrl( 'User:' + this.userName ),
+			target: '_blank'
+		} );
+		content.push( $( '.cx-header__personal' ).append( userLink.$element ) );
 	}
 
-	$personal = $( '.cx-header__personal' )
-		.append( personalMenu.$element );
-
-	return [ $trademark, $personal ];
+	return content;
 };
 
 /**
  * Creates list of personal menu items and updates menu width
  *
+ * @param {Object} personalMenuList
  * @return {Array} menuItems Array of menu items
  */
-mw.cx.ui.Header.prototype.getPersonalMenuItems = function () {
+mw.cx.ui.Header.prototype.getPersonalMenuItems = function ( personalMenuList ) {
 	var index, menuItem,
-		menuItems = [],
-		personalMenuList = mw.config.get( 'personalMenuList' );
+		menuItems = [];
 
 	if ( !this.isAnon ) {
 		menuItem = personalMenuList.user;
-		menuItems.push( this.createUserMenuOption( menuItem ) );
+		if ( menuItem ) {
+			menuItems.push( this.createUserMenuOption( menuItem ) );
+		}
 		delete personalMenuList.user;
 	}
 
