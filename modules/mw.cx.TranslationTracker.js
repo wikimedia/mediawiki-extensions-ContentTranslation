@@ -234,12 +234,14 @@ mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( 
 };
 
 /**
+ * @param {boolean} includeAll True if all sections should be returned. False if sections
+ * excluded from MT abuse validation should be left out.
  * @return {ve.dm.CXSectionNode[]} Target section models which are validated for MT abuse
  */
-mw.cx.TranslationTracker.prototype.getTargetSectionModels = function () {
+mw.cx.TranslationTracker.prototype.getTargetSectionModels = function ( includeAll ) {
 	return this.veTarget.translation.targetDoc.getNodesByType( 'article' )[ 0 ].getChildren()
 		.filter( function ( node ) {
-			return node.getType() === 'cxSection' && !this.isExcludedFromValidation( node );
+			return node.getType() === 'cxSection' && ( includeAll || !this.isExcludedFromValidation( node ) );
 		}, this );
 };
 
@@ -465,63 +467,29 @@ mw.cx.TranslationTracker.prototype.sectionsWithMTAbuse = function () {
 };
 
 /**
- * Calculate the percentage of machine translation for all sections.
- * This is relative to the total number of sections in source.
+ * Calculate the translation progress percentages.
  *
- * @return {Object} Map of weights
- * @return {number} return.any Weight of sections with content
- * @return {number} return.human Weight of sections with human modified content
- * @return {number} return.mt Weight of sections with unmodified mt content
- * @return {number} return.mtSectionsCount Count of sections with unmodified mt content
- * @return {number} return.translatedSectionsCount Number of sections translated
+ * @return {Object} Map for translation progress metrics
+ * @return {number} return.any Translation progress, expressed as number of translated sections
+ * out of total number of translations.
+ * @return {number} return.mt Number of unmodified tokens in translation. Sections excluded from
+ * MT abuse checking are not counted.
+ * @return {number} return.human Number of user-provided tokens, calculated as MT percentage
+ * subtracted from 100%.
  */
 mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
-	var sectionNumber, sectionState,
-		totalSourceSections = 0,
-		sectionsWithAnyTranslation = 0,
-		sectionsWithUserTranslation = 0,
-		sectionsWithUnmodifiedContent = 0;
+	var unmodifiedMTPercentage,
+		sourceSectionCount = Object.keys( this.sections ).length,
+		targetSectionCount = this.getTargetSectionModels( true ).length;
 
-	totalSourceSections = Object.keys( this.sections ).length;
-
-	for ( sectionNumber in this.sections ) {
-		if ( !Object.prototype.hasOwnProperty.call( this.sections, sectionNumber ) ) {
-			continue;
-		}
-
-		// Recalculate the progress. Make sure we are not using old data.
-		this.processChangeQueue();
-		this.updateSectionProgress( sectionNumber );
-
-		sectionState = this.sections[ sectionNumber ];
-		if ( sectionState.getUserTranslation().text === '' ) {
-			// Section blanked. Consider as not translated.
-			continue;
-		}
-
-		if ( sectionState.getUnmodifiedMT().text || sectionState.getUserTranslation().text ) {
-			// Section with any type of translation
-			sectionsWithAnyTranslation++;
-		} else {
-			// Section not translated at all.
-			continue;
-		}
-
-		if ( !sectionState.isModified() ) {
-			// Section with umodified translation
-			sectionsWithUnmodifiedContent++;
-		} else if ( sectionState.getUserTranslation().text ) {
-			// Section with human modified translation
-			sectionsWithUserTranslation++;
-		}
-	}
+	// Recalculate the progress. Make sure we are not using old data.
+	this.processChangeQueue();
+	unmodifiedMTPercentage = this.getUnmodifiedMTPercentageInTranslation() / 100;
 
 	return {
-		any: sectionsWithAnyTranslation / totalSourceSections,
-		human: sectionsWithUserTranslation / totalSourceSections,
-		mt: sectionsWithUnmodifiedContent / totalSourceSections,
-		mtSectionsCount: sectionsWithUnmodifiedContent,
-		translatedSectionsCount: sectionsWithUnmodifiedContent + sectionsWithUserTranslation
+		any: targetSectionCount / sourceSectionCount,
+		mt: unmodifiedMTPercentage,
+		human: 1 - unmodifiedMTPercentage
 	};
 };
 
@@ -550,6 +518,11 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 			return unmodifiedMTTokens.indexOf( token ) >= 0;
 		} ).length;
 	}, this );
+
+	// Avoid division by zero
+	if ( totalTokens === 0 ) {
+		return 0;
+	}
 
 	return ( unmodifiedTokens / totalTokens ) * 100;
 };

@@ -31,8 +31,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.progress = {
 		any: 0,
 		human: 0,
-		mt: 0,
-		mtSectionsCount: 0
+		mt: 0
 	};
 	this.savedTranslationUnits = null;
 	// @var {mw.cx.dm.TranslationIssue[]}

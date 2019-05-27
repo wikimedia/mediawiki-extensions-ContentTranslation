@@ -268,7 +268,8 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 		$progressbar = $( '<div>' )
 			.addClass( 'progressbar' )
 			.cxProgressBar( {
-				weights: progress
+				weights: progress,
+				version: translation.cxVersion
 			} );
 
 		sourceDir = $.uls.data.getDir( translation.sourceLanguage );

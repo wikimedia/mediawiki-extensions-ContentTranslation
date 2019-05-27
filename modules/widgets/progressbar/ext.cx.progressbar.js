@@ -27,7 +27,7 @@
 		this.render();
 		this.listen();
 		if ( this.options.weights ) {
-			this.update( this.options.weights );
+			this.update( this.options.weights, this.options.version );
 		}
 	};
 
@@ -54,13 +54,15 @@
 		mw.hook( 'mw.cx.progress' ).add( this.update.bind( this ) );
 	};
 
-	ProgressBar.prototype.update = function ( weights ) {
+	ProgressBar.prototype.update = function ( weights, version ) {
 		var progress = weights.any * 100,
 			mtProgress = weights.mt * 100,
-			mtPercentage = weights.mt / weights.any * 100 || 0;
+			mtPercentage = weights.mt / weights.any * 100 || 0,
+			mtText = version === 2 ? mtProgress : mtPercentage,
+			mtBarPercentage = version === 2 ? ( progress * weights.mt ) : mtProgress;
 
 		this.$bar.css( 'width', progress + '%' );
-		this.$mtbar.css( 'width', mtProgress + '%' );
+		this.$mtbar.css( 'width', mtBarPercentage + '%' );
 
 		this.$container.attr( 'title',
 			mw.msg(
@@ -69,7 +71,7 @@
 			'\n' +
 			mw.msg(
 				'cx-header-progressbar-text-mt',
-				mw.language.convertNumber( Math.round( mtPercentage ) )
+				mw.language.convertNumber( Math.round( mtText ) )
 			) );
 	};
 
@@ -88,5 +90,7 @@
 		} );
 	};
 
-	$.fn.cxProgressBar.defaults = {};
+	$.fn.cxProgressBar.defaults = {
+		version: 1
+	};
 }() );
