@@ -8,6 +8,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Storage\NameTableAccessException;
 
 class ApiQueryDeletedTranslations extends ApiQueryBase {
 	public function __construct( ApiQuery $query, $moduleName ) {
