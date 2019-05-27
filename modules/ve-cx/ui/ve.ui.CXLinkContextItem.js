@@ -143,19 +143,23 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	var normalizedTitle, store,
 		adaptationInfo = this.model.getAttribute( 'cx' );
 
-	// adaptationInfo will be empty in source surface
+	// Case 1: Server-side adapted blue or red link in the target column. Information
+	// is present on the link attributes, so additional requests or caching are not needed.
 	if ( adaptationInfo && !adaptationInfo.userAdded ) {
 		return this.generateBody( adaptationInfo );
 	}
 
+	// Case 2: Cached hit on a manually added link or a link in the source column.
 	store = this.model.getStore();
 	normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
 	adaptationInfo = store.value( store.hashOfValue( null, OO.getHash( normalizedTitle ) ) );
-
 	if ( adaptationInfo ) {
 		return this.generateBody( adaptationInfo );
 	}
 
+	// Case 3: First click on a link in the source column, or a first click on
+	// a link in the target column added manually by the translator. This will
+	// cache the results so that case 2 is hit on subsequent hits.
 	this.getLinkInfo().then( this.generateBody.bind( this ) );
 };
 
