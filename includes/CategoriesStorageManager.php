@@ -58,6 +58,7 @@ class CategoriesStorageManager {
 	private static function create(
 		IDatabase $db, $translationId, $sourceCategories, $targetCategories
 	) {
+		$values = [];
 		$commonValues = [
 			'cxc_translation_id' => $translationId,
 			'cxc_timestamp' => $db->timestamp()
@@ -77,7 +78,7 @@ class CategoriesStorageManager {
 			] + $commonValues;
 		}
 
-		if ( !empty( $values ) ) {
+		if ( $values !== [] ) {
 			$db->insert( 'cx_corpora', $values );
 		}
 	}

@@ -90,8 +90,8 @@ class TranslationStorageManager {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$table = 'cx_corpora';
-		$conditions[ 'cxc_translation_id' ] = $ids;
-		$options[ 'LIMIT' ] = $batchSize;
+		$conditions = [ 'cxc_translation_id' => $ids ];
+		$options = [ 'LIMIT' => $batchSize ];
 
 		while ( true ) {
 			$rowsToDelete =
