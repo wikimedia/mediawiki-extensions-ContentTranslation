@@ -49,7 +49,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		if ( $from === $to ) {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
-		$data = null;
 		$translator = new Translator( $user );
 		$manager = new SuggestionListManager();
 
@@ -95,11 +94,16 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 			// Merge the personal lists to public lists. There won't be duplicates
 			// because the list of lists is an associative array with listId as a key.
-			$data['lists'] = array_merge( $personalizedSuggestions['lists'], $publicSuggestions['lists'] );
-			$data['suggestions'] = array_merge(
-				$personalizedSuggestions['suggestions'],
-				$publicSuggestions['suggestions']
-			);
+			$data = [
+				'lists' => array_merge(
+					$personalizedSuggestions['lists'],
+					$publicSuggestions['lists']
+				),
+				'suggestions' => array_merge(
+					$personalizedSuggestions['suggestions'],
+					$publicSuggestions['suggestions']
+				),
+			];
 		}
 
 		$lists = [];
@@ -162,6 +166,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
 		$translations = Translation::find( $sourceLanguage, $targetLanguage, $titles );
+		'@phan-var Translation[] $translations';
 		foreach ( $translations as $translation ) {
 			// $translation['sourceTitle'] is prefixed title with spaces
 			$ongoingTranslationTitles[] = $translation->translation['sourceTitle'];

@@ -82,6 +82,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	protected function createHeaderHtml() {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
+		'@phan-var SkinTemplate $skin';
 
 		// Get personal tools for the user
 		$personalTools = $skin->getStructuredPersonalTools();

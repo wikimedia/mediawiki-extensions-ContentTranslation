@@ -83,6 +83,7 @@ class CorporaLookup {
 			// It's possible we have a "conflict", since we don't enforce uniqueness
 			// in the database. In this case, the one with latest timestamp is used.
 			// Note: TS_ISO_8601 is suitable for string comparison if timezone is Z.
+			/** @phan-suppress-next-line PhanTypeMismatchDimFetch */
 			if ( $blob['timestamp'] > $sections[$id][$type]['timestamp'] ) {
 				$sections[$id][$type] = $blob;
 			}

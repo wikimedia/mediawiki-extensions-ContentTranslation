@@ -195,6 +195,7 @@ class ApiContentTranslationSave extends ApiBase {
 			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
 				$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
 			}
+			'@phan-var array $tuData';
 
 			// Make sure all translation unit fields are defined.
 			if ( !isset( $tuData['sequenceId'] ) ) {

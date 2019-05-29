@@ -57,6 +57,11 @@ class Translation {
 		$this->translation['id'] = (int)$dbw->insertId();
 	}
 
+	/**
+	 * @param array|null $options
+	 * @param Translator $translator
+	 * @suppress PhanParamReqAfterOpt
+	 */
 	public function update( array $options = null, Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
@@ -209,6 +214,7 @@ class Translation {
 			$work->getTargetLanguage(),
 			[ $work->getPage() ]
 		);
+		'@phan-var self[] $drafts';
 
 		foreach ( $drafts as $index => $draft ) {
 			if ( $draft->getData()['status'] !== 'draft' ) {

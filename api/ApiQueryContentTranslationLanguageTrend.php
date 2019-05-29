@@ -47,6 +47,11 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		$result->addValue( [ 'query' ], 'contenttranslationlangtrend', $out );
 	}
 
+	/**
+	 * @param array $data
+	 * @param string $interval
+	 * @return array
+	 */
 	public function addMissingDates( $data, $interval ) {
 		$dates = call_user_func_array( 'array_merge', array_map( 'array_keys', $data ) );
 

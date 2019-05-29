@@ -22,6 +22,10 @@ class DateManipulator {
 		}
 	}
 
+	/**
+	 * @param int|string|\DateTime $timestamp
+	 * @return \DateTime
+	 */
 	public function getIntervalIdentifier( $timestamp ) {
 		$unix = ConvertibleTimestamp::convert( TS_UNIX, $timestamp );
 
