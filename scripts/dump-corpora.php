@@ -18,6 +18,7 @@ use ContentTranslation\Database;
 use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
+use Wikimedia\Rdbms\IDatabase;
 
 class CXCorporaDump extends Maintenance {
 	private static $sinkTypes = [

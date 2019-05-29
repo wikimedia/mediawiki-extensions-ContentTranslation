@@ -13,11 +13,12 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\Translator;
 use DateTime;
-use IDatabase;
 use InvalidArgumentException;
 use Maintenance;
 use MediaWiki\MediaWikiServices;
 use RawMessage;
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 // Standard boilerplate to define $IP
