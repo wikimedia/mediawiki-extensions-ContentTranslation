@@ -30,6 +30,7 @@
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
 		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
+		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
 		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
@@ -99,7 +100,8 @@
 		"ContentTranslation\\": "includes/"
 	},
 	"DefaultUserOptions": {
-		"echo-subscriptions-web-cx": true
+		"echo-subscriptions-web-cx": true,
+		"cx-enable-entrypoints": true
 	},
 	"config": {
 		"ContentTranslationDomainCodeMapping": {

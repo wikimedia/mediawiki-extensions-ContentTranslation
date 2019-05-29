@@ -428,4 +428,24 @@ class Hooks {
 		}
 	}
 
+	/**
+	 * Hook: Preferences::GetPreferences
+	 * @param User $user
+	 * @param array &$preferences
+	 */
+	public static function onGetPreferences( User $user, array &$preferences ) {
+		global $wgContentTranslationAsBetaFeature;
+
+		if ( $wgContentTranslationAsBetaFeature === false ) {
+			$preferences['cx-enable-entrypoints'] = [
+				'type' => 'check',
+				'section' => 'rendering/languages',
+				'label-message' => [
+					'cx-preference-enable-entrypoints',
+					'mediawikiwiki:Special:MyLanguage/Help:Content_translation/Starting'
+				]
+			];
+		}
+	}
+
 }
