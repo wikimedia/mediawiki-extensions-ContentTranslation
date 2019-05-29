@@ -151,7 +151,11 @@ class Hooks {
 	 * @param array[] &$prefs
 	 */
 	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
-		global $wgExtensionAssetsPath;
+		global $wgExtensionAssetsPath, $wgContentTranslationAsBetaFeature;
+
+		if ( !$wgContentTranslationAsBetaFeature ) {
+			return;
+		}
 
 		$imageDir = "$wgExtensionAssetsPath/ContentTranslation/images";
 
