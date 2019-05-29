@@ -118,7 +118,7 @@ class Hooks {
 				!$user->isAnon() &&
 				$title->userCan( 'edit', $user )
 			) {
-				$out->addModules( 'ext.cx.campaigns.newarticle.veloader' );
+				$out->addModules( 'ext.cx.entrypoints.newarticle.veloader' );
 
 				if ( $wgContentTranslationEventLogging ) {
 					$out->addModules( 'ext.cx.eventlogging' );
@@ -142,7 +142,7 @@ class Hooks {
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar
-		$out->addModules( 'ext.cx.campaigns.contributionsmenu' );
+		$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
 	}
 
 	/**
@@ -291,7 +291,7 @@ class Hooks {
 			$out->addModules( 'ext.cx.eventlogging' );
 		}
 
-		$out->addModules( 'ext.cx.campaigns.newarticle' );
+		$out->addModules( 'ext.cx.entrypoints.newarticle' );
 	}
 
 	/**
@@ -323,7 +323,7 @@ class Hooks {
 		// as true to prevent it from being automatically shown in the future.
 		$out->addModules( [
 			'ext.cx.betafeature.init',
-			'ext.cx.campaigns.contributionsmenu',
+			'ext.cx.entrypoints.contributionsmenu',
 		] );
 		$saveOptions['cx-know'] = true;
 

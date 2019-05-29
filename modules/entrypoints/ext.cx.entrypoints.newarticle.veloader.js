@@ -9,7 +9,7 @@
 
 	$( function () {
 		mw.hook( 've.activationComplete' ).add( function () {
-			mw.loader.load( 'ext.cx.campaigns.newarticle' );
+			mw.loader.load( 'ext.cx.entrypoints.newarticle' );
 		} );
 	} );
 }() );
