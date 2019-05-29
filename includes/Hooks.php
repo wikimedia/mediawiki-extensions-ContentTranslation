@@ -100,7 +100,8 @@ class Hooks {
 	 * @param Skin $skin
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
-		global $wgContentTranslationEventLogging, $wgContentTranslationCampaigns;
+		global $wgContentTranslationAsBetaFeature,
+			$wgContentTranslationEventLogging, $wgContentTranslationCampaigns;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -138,6 +139,10 @@ class Hooks {
 			$title->exists() &&
 			$skin->getSkinName() === 'vector'
 		) {
+			$out->addJsConfigVars( [
+				'wgContentTranslationAsBetaFeature' =>
+					$wgContentTranslationAsBetaFeature,
+			] );
 			$out->addModules( 'ext.cx.interlanguagelink.init' );
 		}
 

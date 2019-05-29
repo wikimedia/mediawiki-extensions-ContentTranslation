@@ -31,7 +31,7 @@
 	 * @return {jQuery}
 	 */
 	function getDialogContent( targetLanguage ) {
-		var descriptionLabel, actionTranslate, $license, actions;
+		var settingsButton, descriptionLabel, actionTranslate, $license, actions;
 
 		descriptionLabel = new OO.ui.LabelWidget( {
 			classes: [ 'cx-entrypoint-dialog__desc' ],
@@ -59,6 +59,16 @@
 			items: [ actionTranslate ]
 		} );
 
+		if ( !mw.config.get( 'wgContentTranslationAsBetaFeature' ) ) {
+			settingsButton = new OO.ui.ButtonWidget( {
+				classes: [ 'cx-entrypoint-dialog__settings' ],
+				icon: 'settings',
+				framed: false,
+				href: mw.util.getUrl( 'Special:Preferences#mw-prefsection-rendering-languages' ),
+				target: '_blank'
+			} );
+			actions.addItems( [ settingsButton ] );
+		}
 		return $( '<div>' ).append( descriptionLabel.$element, actions.$element, $license );
 	}
 
