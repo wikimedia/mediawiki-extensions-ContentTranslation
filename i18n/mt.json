@@ -25,8 +25,6 @@
 	"cx-beta": "Traduzzjoni tal-kontenut",
 	"cx-entrypoint-title": "Ittraduċi din il-paġni għal $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Din il-paġna għadha ma teżistix f' $1. Trid toħloqha?",
-	"cx-entrypoint-dialog-title-in": "Titlu għall-paġna ġdida f' $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Oħloq mill-bidu",
 	"cx-entrypoint-dialog-button-translate-from": "Ittraduċi minn $1",
 	"cx-special-login-error": "Trid tkun dħalt f'kontok biex tittraduċi din il-paġna. [$1 Login]",
 	"cx-tools-instructions-text1": "Żid paragrafi għat-traduzzjoni",

@@ -11,8 +11,6 @@
 	"cx-beta": "Эчтәлеген тәрҗемә итү",
 	"cx-entrypoint-title": "Бу битне $1 теленә тәрҗемә итү",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бит $1 телендә әлегә юк. {{GENDER:|Сез}} аны төзергә телисезме?",
-	"cx-entrypoint-dialog-title-in": "$1 телендәге яңа бит исеме:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Яңадан башлау",
 	"cx-entrypoint-dialog-button-translate-from": "$1 теленән тәржемәләү",
 	"cx-contributions-new-contributions": "Яңа кертем",
 	"cx-contributions-new-article": "Яңа бит",

@@ -52,8 +52,6 @@
 	"cx-beta-desc": "כלי לתרגום מהיר של דפים לשפה שלך. הכניסה לתרגום נעשית מ[[Special:MyContributions|דף התרומות שלך]], והעריכה נעשית בעורך שלנו שמציג שפה לצד שפה ושמעוצב במיוחד עבור תרגומים. חלק מכלי העזר זמינים רק בשפות מסוימות.",
 	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "הדף הזה אינו קיים עדיין ב{{GRAMMAR:תחילית|$1}}. {{GENDER:|האם אתה רוצה|האם את רוצה|רוצה}} ליצור אותו?",
-	"cx-entrypoint-dialog-title-in": "כותרת לדף החדש ב{{GRAMMAR:תחילית|$1}}:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "יצירה מאפס",
 	"cx-entrypoint-dialog-button-translate-from": "תרגום מ{{GRAMMAR:תחילית|$1}}",
 	"cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה. [$1 כניסה]",
 	"cx-tools-instructions-text1": "{{GENDER:|לחץ|לחצי}} על פסקאות כדי לתרגם",

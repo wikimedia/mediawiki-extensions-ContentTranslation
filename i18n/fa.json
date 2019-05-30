@@ -55,8 +55,6 @@
 	"cx-beta-desc": "ابزاری برای ترجمهٔ سریع صفحه به زبان‌تان. ترجمه را از [[Special:MyContributions|صفحهٔ مشارکت‌هایتان]] شروع کنید و آن‌ها را به‌صورت ویرایشگر پهلو-به-پهلو که به طور اختصاصی برای ترجمهٔ طراحی شده است ویرایش کنید. بعضی از ابزارها فقط ممکن است برای زبان‌های خاصی موجود باشند.",
 	"cx-entrypoint-title": "ترجمهٔ این صفحه به $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "این صفحهٔ هنوز در $1 وجود ندارد. آیا {{GENDER:|شما}} می‌خواهید آن را ایجاد کنید؟",
-	"cx-entrypoint-dialog-title-in": "عنوان برای صفحهٔ جدید در $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "ترجمه از اول",
 	"cx-entrypoint-dialog-button-translate-from": "ترجمه از $1",
 	"cx-special-login-error": "شما برای ترجمه در این صفحه باید وارد شوید. [$1 ورود]",
 	"cx-tools-instructions-text1": "بر روی پاراگراف‌ها برای ترجمه {{GENDER:|کلیک کنید}}",

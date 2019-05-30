@@ -55,8 +55,6 @@
 	"cx-beta-desc": "Sebuah perkakas untuk menerjemahkan halaman-halaman ke dalam bahasa Anda dengan cepat. Mulai penerjemahan dari [[Special:MyContributions|halaman kontribusi Anda]], dan suntinglah dengan penyunting sisi-demi-sisi yang dirancang khusus untuk penerjemahan. Beberapa perkakas mungkin hanya tersedia untuk bahasa tertentu.",
 	"cx-entrypoint-title": "Terjemahkan halaman ini ke $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Halaman ini belum tersedia dalam $1 saat ini. Apakah {{GENDER:|Anda}} ingin membuatnya?",
-	"cx-entrypoint-dialog-title-in": "Judul halaman baru dalam $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Buat dari nol",
 	"cx-entrypoint-dialog-button-translate-from": "Terjemahkan dari $1",
 	"cx-special-login-error": "Anda harus masuk log untuk menerjemahkan halaman ini. [$1 Masuk log]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik}} paragraf untuk menerjemahkan",

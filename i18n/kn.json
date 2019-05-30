@@ -35,8 +35,6 @@
 	"cx-beta-desc": "ಪುಟಗಳನ್ನು ಶೀಘ್ರವಾಗಿ ನಿಮ್ಮ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಬೇಕಿರುವ ಸಲಕರಣೆ. [[Special:MyContributions|ನಿಮ್ಮ ಕಾಣಿಕೆಗಳ ಪುಟದ]] ಮೂಲಕ ಅನುವಾದಗಳನ್ನು ಪ್ರಾರಂಭಿಸಿ, ಮತ್ತು ಅವುಗಳನ್ನು ಅನುವಾದಕ್ಕೆಂದೇ ವಿನ್ಯಾಸ ಮಾಡಿರುವ ಒಂದರ ಪಕ್ಕ ಒಂದರಂತಿರುವ ನಮ್ಮ ಸಂಪಾದಕದ ಬಳಸಿ ಸಂಪಾದಿಸಿ. ಕೆಲವೊಂದು ಸಲಕರಣೆಗಳು ಕೆಲವೊಂದು ಭಾಷೆಗಳಿಗೆ ಮಾತ್ರ ಲಭ್ಯವಿರಬಹುದು.",
 	"cx-entrypoint-title": "ಈ ಪುಟವನ್ನು $1 ಕ್ಕೆ ಅನುವಾದಿಸಿ",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ಈ ಪುಟ ಇನ್ನೂ $1 ನಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ. {{GENDER:|ನೀವು}} ಇದನ್ನು ಸೃಷ್ಟಿಸಲು ಬಯಸುವಿರಾ?",
-	"cx-entrypoint-dialog-title-in": "$1 ನಲ್ಲಿ ಹೊಸ ಪುಟಕ್ಕೆ ಶೀರ್ಷಿಕೆ:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "ಪ್ರಾರಂಭದಿಂದ ಸೃಷ್ಟಿಸಿ",
 	"cx-entrypoint-dialog-button-translate-from": "$1 ರಿಂದ ಅನುವಾದಿಸಿ",
 	"cx-special-login-error": "ಈ ಪುಟದಲ್ಲಿ ಅನುವಾದಿಸಲು ನೀವು ಲಾಗಿನ್ ಆಗಿರಬೇಕು. [$1 ಲಾಗ್ ಇನ್]",
 	"cx-tools-instructions-text1": "{{GENDER:|ಕ್ಲಿಕ್}} ಪ್ಯಾರಾಗಳನ್ನು ಅನುವಾದಿಸಲು",

@@ -36,8 +36,6 @@
 	"cx-beta-desc": "Бу тэрил ыстатыйалары түргэнник тылбаастыырга ананар. Тылбаастыырга бастаан [[Special:MyContributions|суруйууҥ тиһигэр]] киирэн баран, ыстатыйалары «сэргэстэһиннэрэ уура сытан» аналлаах тэрилинэн тылбаастыыгын. Сорҕото аҕыйах эрэ тылга үлэлиир буолуон сөп.",
 	"cx-entrypoint-title": "Бу тылга тылбаастыыбын: $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "«$1» тылынан маннык сирэй суох эбит. {{GENDER:|Эн}} ону суруйаары гынаҕын дуо?",
-	"cx-entrypoint-dialog-title-in": "$1. Саҥа сирэй аата:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Саҥаттан суруй",
 	"cx-entrypoint-dialog-button-translate-from": "Бу тылтан: $1",
 	"cx-special-login-error": "Тылбаастыырга бэлиэтэммит ааккын этиэхтээххин. [$1 Киирии]",
 	"cx-tools-instructions-text1": "Абсаастары {{GENDER:|баттыалаатаххына}} биирдиилээн көһөн биэрэн иһиэхтэрэ",

@@ -27,8 +27,6 @@
 	"cx-beta-desc": "আপোনাৰ ভাষালৈ পৃষ্ঠা এটা খৰকৈ অনুবাদ কৰাৰ বাবে এক সঁজুলি। [[Special:MyContributions|আপোনাৰ বৰঙণি পৃষ্ঠা]]ৰ পৰা ভাঙনি আৰম্ভ কৰক আৰু ভাঙনিৰ বাবে বিশেষভাৱে তৈয়াৰী আমাৰ সম্পাদক ব্যৱহাৰ কৰক। কিছুমান সঁজুলি নিৰ্দিষ্ট ভাষাৰ বাবে উপলব্ধ হ'ব পাৰে।",
 	"cx-entrypoint-title": "এই পৃষ্ঠা $1লৈ অনুবাদ কৰক",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "এই পৃষ্ঠা $1 ভাষাত উপলব্ধ নহয়। {{GENDER:|আপুনি}} এইটো সৃষ্টি কৰিব খুজুছে নেকি?",
-	"cx-entrypoint-dialog-title-in": "$1 ভাষাত নতুন পৃষ্ঠাটোৰ শিৰোনাম:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "আৰম্ভণিৰ পৰা সৃষ্টি কৰক",
 	"cx-entrypoint-dialog-button-translate-from": "$1ৰ পৰা অনুবাদ কৰক",
 	"cx-special-login-error": "আপুনি এই পৃষ্ঠা অনুবাদ কৰিবৰ বাবে প্ৰৱেশ কৰিব লাগিব। [$1 প্ৰৱেশ কৰক]",
 	"cx-tools-instructions-text1": "অনুবাদ কৰিবলৈ পৰিচ্ছেদত {{GENDER:|ক্লিক কৰক}}",

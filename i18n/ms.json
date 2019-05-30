@@ -36,8 +36,6 @@
 	"cx-beta-desc": "Sebuah alat untuk menterjemahkan rencana ke dalam bahasa anda dengan cepat. Mulakan terjemahan dari [[Special:MyContributions|laman sumbangan anda]], dan suntingkan rencana dengan penyunting sebelah-belahan kami yang dicipta khas untuk penterjemahan. Sesetengah alatan mungkin hanya terdapat untuk bahasa-bahasa tertentu.",
 	"cx-entrypoint-title": "Terjemahkan laman ini ke $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Laman ini belum lagi wujud dalam $1. Adakah {{GENDER:|anda}} mahu menciptakannya?",
-	"cx-entrypoint-dialog-title-in": "Tajuk untuk laman baru dalam $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Ciptakan dari awal",
 	"cx-entrypoint-dialog-button-translate-from": "Terjemahkan dari $1",
 	"cx-special-login-error": "Anda mesti log masuk untuk menterjemah dalam laman ini. [$1 Log masuk]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik}} perenggan-perenggan untuk menterjemahkan",

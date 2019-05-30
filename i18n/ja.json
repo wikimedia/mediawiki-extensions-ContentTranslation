@@ -58,8 +58,6 @@
 	"cx-beta-desc": "ページをあなたがお使いの言語にすばやく翻訳するツールです。 [[Special:MyContributions|あなたの投稿記録]]から翻訳を始めてください。翻訳用に設計された二画面エディタで編集してみましょう。一部の言語にしか使用できないツールもある場合がありますのでご了承ください。",
 	"cx-entrypoint-title": "このページを$1に翻訳",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "このページは $1 版にはまだありません。 {{GENDER:|あなた}}がそれをつくりませんか。",
-	"cx-entrypoint-dialog-title-in": "$1 での新しいページ名 :",
-	"cx-entrypoint-dialog-button-create-from-scratch": "新規作成",
 	"cx-entrypoint-dialog-button-translate-from": "$1 から翻訳",
 	"cx-special-login-error": "このページを翻訳するにはログインしてください。[$1 ログイン]",
 	"cx-tools-instructions-text1": "段落を{{GENDER:|クリック}}して翻訳してください。",

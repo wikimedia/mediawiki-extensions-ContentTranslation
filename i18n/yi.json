@@ -37,8 +37,6 @@
 	"cx-beta": "לויפיקע איבערזעצונג",
 	"cx-entrypoint-title": "איבערזעצן דעם בלאט צו $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "דער בלאט עקזעסטירט נאך נישט אין $1. צי ווילט {{GENDER:|איר}} שאפן אים?",
-	"cx-entrypoint-dialog-title-in": "טיטל פארן נייעם בלאט אין $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "שאפן פונדאסניי",
 	"cx-entrypoint-dialog-button-translate-from": "איבערזעצן פון $1",
 	"cx-special-login-error": "איר דארפט זיין אריינלאגירט כדי איבערזעצן דעם בלאט. [$1 ארײנלאגירן]",
 	"cx-tools-instructions-text1": "{{GENDER:|קליקט}} פאראגראפן כדי איבערצוזעצן",

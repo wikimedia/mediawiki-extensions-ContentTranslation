@@ -44,8 +44,6 @@
 	"cx-beta-desc": "Zeure hizkuntzara orrialdeak itzultzeko tresna bizkorra. Hasi itzulpenak [[Special:MyContributions|zure ekarpenen orrialdean]] eta editatu itzazu gure itzulpenerako bereziki prestatutako ondoan ondoko editorean. Baliteke zenbait tresna hizkuntza jakin batzuetan baino ez aurkitzea.",
 	"cx-entrypoint-title": "Itzuli orri hau $1-(e)ra",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Orri hau ez da oraindik $1-(e)n existitzen. Sortu egin nahi {{GENDER:|duzu}}?",
-	"cx-entrypoint-dialog-title-in": "Orri berrirako izenburua $1-(e)n:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Sortu hutsetik",
 	"cx-entrypoint-dialog-button-translate-from": "$1(e)tik itzuli",
 	"cx-special-login-error": "Orri honetan itzultzeko, sartu beharra daukazu. [$1 Saioa hasi]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik egin}} paragrafoetan itzulpena egiteko",

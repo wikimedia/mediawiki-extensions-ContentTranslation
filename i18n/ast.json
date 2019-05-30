@@ -44,8 +44,6 @@
 	"cx-beta-desc": "Una ferramienta pa traducir rápidamente páxines a la to llingua. Principia les traduciones dende la to [[Special:MyContributions|páxina de collaboraciones]] y edítales col nuesu editor en paralelo diseñáu especialmente pa la traducción. Dalgunes ferramientes pueden tar disponibles sólo pa ciertes llingües.",
 	"cx-entrypoint-title": "Traducir esta páxina al $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta páxina inda nun esiste pal $1. ¿{{GENDER:|Quies}} creala?",
-	"cx-entrypoint-dialog-title-in": "Títulu de la páxina nueva pal $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Crear desde'l principiu",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir dende $1",
 	"cx-special-login-error": "Tienes d'aniciar sesión pa traducir esta páxina. [$1 Aniciar sesión]",
 	"cx-tools-instructions-text1": "{{GENDER:|Fai clic}} nos párrafos a traducir",

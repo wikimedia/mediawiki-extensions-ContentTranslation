@@ -39,8 +39,6 @@
 	"cx-beta-desc": "'n Werktuig om artikels vinnig in jou taal te vertaal. Begin by [[Special:MyContributions|jou gebruikersbydraes bladsy]] en wysig hulle met ons sy-aan-sy redigeerwerktuig wat spesifiek ontwerp is vir vertaling. Van die werktuie sal net vir sekere tale beskikbaar wees.",
 	"cx-entrypoint-title": "Vertaal hierdie bladsy na $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Die bladsy bestaan nog nie in $1 nie. Wil jy dit skep?",
-	"cx-entrypoint-dialog-title-in": "Titel vir die nuwe bladsy in $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Skep van nuuts af",
 	"cx-entrypoint-dialog-button-translate-from": "Vertaal uit $1",
 	"cx-special-login-error": "Jy moet aangemeld wees om herdie bladsy te vertaal. [$1 Meld aan]",
 	"cx-tools-instructions-text1": "Klik paragrawe om te vertaal",

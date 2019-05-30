@@ -61,8 +61,6 @@
 	"cx-beta-desc": "Een hulpmiddel om snel pagina's naar uw taal te vertalen. Begin vertalingen op [[Special:MyContributions|uw bijdragenpagina]] en bewerk hen met onze bewerker die speciaal ontwikkeld werd voor vertaalwerk. Enkele gereedschappen zijn mogelijk enkel beschikbaar in bepaalde talen.",
 	"cx-entrypoint-title": "Pagina vertalen naar het $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Deze pagina bestaat nog niet in $1. Wilt u deze pagina aanmaken?",
-	"cx-entrypoint-dialog-title-in": "Naam van de nieuwe pagina in $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Nieuwe pagina beginnen",
 	"cx-entrypoint-dialog-button-translate-from": "Vertalen vanuit $1",
 	"cx-special-login-error": "U moet aangemeld zijn om in deze pagina te vertalen. [$1 Aanmelden]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik}} de alinea's aan om ze te vertalen",

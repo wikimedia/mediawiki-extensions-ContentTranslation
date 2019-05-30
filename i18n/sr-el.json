@@ -47,8 +47,6 @@
 	"cx-beta-desc": "Alatka za brzo prevođenje stranica na vaš jezik. Počnite da prevodite [[Special:MyContributions|svoje doprinose]] i uređujte ih pomoću našeg uporednog uređivača koji je posebno napravljen za prevođenje. Neke alatke mogu da budu dostupne samo za određene jezike.",
 	"cx-entrypoint-title": "Prevedite ovu stranicu na $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ova stranica ne postoji u $1. Želite {{GENDER:|li}} da je napravite?",
-	"cx-entrypoint-dialog-title-in": "Naslov nove stranice na jeziku $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Napravi od početka",
 	"cx-entrypoint-dialog-button-translate-from": "Prevedi sa $1",
 	"cx-special-login-error": "Morate biti prijavljeni da biste prevodili u ovoj stranici. [$1 Prijavi se]",
 	"cx-tools-instructions-text1": "{{GENDER:|Kliknite}} na pasus da ga prevedete",

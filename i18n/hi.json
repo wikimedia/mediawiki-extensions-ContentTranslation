@@ -52,8 +52,6 @@
 	"cx-beta-desc": "आपकी भाषा में पृष्ठों का तेज़ी से अनुवाद करने के लिए एक उपकरण। [[Special:MyContributions|आपके योगदान पृष्ठ]] से अनुवाद आरम्भ करें और उन्हें अनुवाद के लिए विशेष रूप से बनाए गए साइड-बाई-साइड सम्पादक से सम्पादित करें। कुछ उपकरण विशिष्ट भाषाओं के लिए ही उपलब्ध हो सकते हैं।",
 	"cx-entrypoint-title": "इस पृष्ठ का $1 में अनुवद करें",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "यह पृष्ठ $1 में अभी उपलब्ध नहीं है। क्या आप इसे निर्मित करना {{GENDER:|चाहते|चाहती}} हैं?",
-	"cx-entrypoint-dialog-title-in": "$1 में नये पृष्ठ का शीर्षक:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "शून्य से आरम्भ करें",
 	"cx-entrypoint-dialog-button-translate-from": "$1 से अनुवाद करें",
 	"cx-special-login-error": "इस पृष्ठ का अनुवाद करने के लिए आपको लॉग-इन होना आवश्यक है। [$1 लॉग-इन]",
 	"cx-tools-instructions-text1": "अनुवाद के लिए अनुच्छेद पर {{GENDER:|क्लिक करें}}",

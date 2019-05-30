@@ -31,8 +31,6 @@
 	"cx-beta-desc": "Бетлени сизни тилге терк кёчюрюрге адыр. [[Special:MyContributions|Сизни къошумугъузну]] бетинден кёчюрюуню башлагъыз эмда бизни кёчюрюуле ючюн энчи этилегн редакторда «бир-бири къатында» тюрлендиригиз. Бир-бир адырла хар бары тилге да ачыкъ тюлдюле.",
 	"cx-entrypoint-title": "Бетни бу тилге кёчюр: $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бет $1 тилде алкъын джокъду. {{GENDER:|Сиз}} аны къураргъа излеймисиз?",
-	"cx-entrypoint-dialog-title-in": "Джангы бетге $1 тилде башлыкъ:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Нольдан къура",
 	"cx-entrypoint-dialog-button-translate-from": "Бу тилден кёчюр: $1",
 	"cx-special-login-error": "Бу бетни кёчюрюр ючюн авторизацияны ётерге керексиз. [$1 Кириу]",
 	"cx-tools-instructions-text1": "Кёчюрюр ючюн абзацдан {{GENDER:|бас}}",

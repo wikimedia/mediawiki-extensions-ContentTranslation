@@ -35,8 +35,6 @@
 	"cx-beta-desc": "En Tool fir séier Säiten an Är Sprooch z'iwwersetzen. Fänkt Iwwersetzungen op der Säit vun [[Special:MyContributions|Äre Kontributiounen]] un an ännert se mat eisem 'side-by-side' Editeur dee Speziell fir esou Iwwersetzunge gemaach gouf. Verschidde Funktioune sinn nëmme fir spezifesch Sproochen disponibel.",
 	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Dës Säit gëtt et op $1 nach net. Wëllt {{GENDER:|Dir}} se uleeën?",
-	"cx-entrypoint-dialog-title-in": "Titel fir déi nei Säit op $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Vun null ufänken",
 	"cx-entrypoint-dialog-button-translate-from": "Iwwersetze vu(n) $1",
 	"cx-special-login-error": "Dir musst ageloggt si fir fës Säit z'iwwersetzen. [$1 Aloggen]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klickt op}} d'Abschnitter fir z'iwwersetzen",

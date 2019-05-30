@@ -39,8 +39,6 @@
 	"cx-beta": "အကြောင်းအရာ ဘာသာပြန်ခြင်း",
 	"cx-entrypoint-title": "ဤစာမျက်နှာကို $1သို့ ဘာသာပြန်ရန်",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1တွင် ဤစာမျက်နှာ မရှိသေးပါ။ ယင်းအား {{GENDER:|သင်}}ဖန်တီးလိုပါသလား?",
-	"cx-entrypoint-dialog-title-in": "$1 ထဲရှိစာမျက်နှာအသစ်အတွက် ခေါင်းစဉ်:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "အောက်ခြေအဆင့်မှ ဖန်တီးရန်",
 	"cx-entrypoint-dialog-button-translate-from": "$1 မှ ဘာသာပြန်ရန်",
 	"cx-special-login-error": "ဤစာမျက်နှာကို ဘာသာပြန်ရန် အကောင့်ထဲသို့ ဝင်ထားရန်လိုအပ်သည်။ [$1 အကောင့်ထဲဝင်ရန်]",
 	"cx-tools-instructions-text1": "စာပိုဒ်များ ဘာသာပြန်ရန် {{GENDER:|နှိပ်ပါ}}",

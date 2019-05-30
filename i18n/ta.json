@@ -38,7 +38,6 @@
 	"cx-source-loading": "ஏற்றுகிறது $1",
 	"cx-beta": "மொழிபெயர்ப்புக் கருவி",
 	"cx-entrypoint-title": "இப்பக்கத்தை $1க்கு மொழிபெயர்க்கவும்",
-	"cx-entrypoint-dialog-button-create-from-scratch": "ஆரம்பத்திலிருந்து துவங்குக",
 	"cx-entrypoint-dialog-button-translate-from": "$1லிருந்து மொழிபெயர்க்கவும்",
 	"cx-special-login-error": "இப்பக்கத்தில் மொழிபெயர்க்க நீங்கள் கண்டிப்பாக புகுபதிகை செய்திருக்க வேண்டும் [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|Click}} மொழிபெயர்க்க பத்திகள்",

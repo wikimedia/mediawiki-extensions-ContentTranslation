@@ -120,5 +120,10 @@
 	"apierror-cx-translationnotfound": "Преводот не е пронајден",
 	"apihelp-query+langlinkscount-description": "Дај го бројот на другите јазици на кои постои дадена статија.",
 	"apihelp-query+langlinkscount-summary": "Дај го бројот на другите јазични верзии.",
-	"apihelp-query+langlinkscount-example-1": "Дај го бројот на другите јазични верзии на страницата „Куче“."
+	"apihelp-query+langlinkscount-example-1": "Дај го бројот на другите јазични верзии на страницата „Куче“.",
+	"apihelp-query+cxdeletedtranslations-description": "Дај го бројот на преводи во одреден именски простор, избришани по извесен датум.",
+	"apihelp-query+cxdeletedtranslations-summary": "Дај го бројот на мои избришани преводи.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Датум и време за исклучиво понови бришења.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Именскиот простор каде се објавени избришаните преводи. По основно се подразбира главниот.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Дај го бројот на мои избришани преводи, објавени во главниот именски простор по 7 април 2019 г. во 16:24:44 ч."
 }

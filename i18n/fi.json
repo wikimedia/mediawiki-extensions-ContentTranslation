@@ -53,8 +53,6 @@
 	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Omat muokkaukset -sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
 	"cx-entrypoint-title": "Käännä tämä sivu kielelle $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1. {{GENDER:|Haluatko}} luoda sen?",
-	"cx-entrypoint-dialog-title-in": "Sivun otsikko kielellä $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Luo uusi tyhjästä",
 	"cx-entrypoint-dialog-button-translate-from": "Käännä kielestä $1",
 	"cx-special-login-error": "Sivujen kääntäminen vaatii sisäänkirjautumisen. [$1 Kirjaudu sisään]",
 	"cx-tools-instructions-text1": "{{GENDER:|Käännä}} kappaleita napsauttamalla niitä",

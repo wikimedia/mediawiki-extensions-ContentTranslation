@@ -51,8 +51,6 @@
 	"cx-beta-desc": "Инструмент за бърз превод на страници на Вашия език. Започнете преводи от [[Special:MyContributions|страницата Ви с приноси]] и ги редактирайте с нашия редактор „рамо до рамо“, специално проектиран за преводи. Някои инструменти могат да бъдат достъпни само за определени езици.",
 	"cx-entrypoint-title": "Превод на тази страница на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Тази страница все още не съществува на $1. {{GENDER:|}} Искате ли да я създадете?",
-	"cx-entrypoint-dialog-title-in": "Заглавие на новата страница на $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Създаване начисто",
 	"cx-entrypoint-dialog-button-translate-from": "Превеждане от $1",
 	"cx-special-login-error": "Трябва да сте влезли в системата, за да преведете тази страница. [$1 Вход]",
 	"cx-tools-instructions-text1": "{{GENDER:|Щракнете}} върху параграфите за превеждане",

@@ -40,8 +40,6 @@
 	"cx-beta-desc": "Piranti kanggo mertal kaca marang basa ibuné panjenengan kanthi rikat. Wiwiti mertal saka [[Special:MyContributions|kaca pasumbangé panjenengan]], lan riptaa pertalan sarana pambesutan iring-iringan kang pancèn karancang kanggo mertal. Sawenèh piranti bokmanawa mung ana ing basa-basa mirunggan.",
 	"cx-entrypoint-title": "Pertal kaca iki dadi $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Kaca iki durung ana ing $1. Apa {{GENDER:|panjenengan}} péngin nggawé iki?",
-	"cx-entrypoint-dialog-title-in": "Sesirah kanggo kaca anyar ing $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Gawé saka wiwitan",
 	"cx-entrypoint-dialog-button-translate-from": "Mertal saka $1",
 	"cx-special-login-error": "Panjenengan kudu mlebu saperlu mertal kaca iki.[$1 Mlebu]",
 	"cx-tools-instructions-text1": "{{GENDER:|Pencèt}} paragraf kanggo mertal",

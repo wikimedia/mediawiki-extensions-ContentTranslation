@@ -31,8 +31,6 @@
 	"cx-source-loading": "Telecargament de $1",
 	"cx-beta": "Traduccion de contengut",
 	"cx-entrypoint-title": "Traduire aquesta pagina en $1",
-	"cx-entrypoint-dialog-title-in": "Títol per la novèla pagina en $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Crear a partir de zèro",
 	"cx-entrypoint-dialog-button-translate-from": "Traduire dempuèi lo $1",
 	"cx-special-login-error": "Vos cal èsser connectat per traduire aquesta pagina. [$1 Connexion]",
 	"cx-tools-instructions-text1": "{{GENDER:|Clicar}} los paragrafes de traduire",

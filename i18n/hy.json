@@ -36,8 +36,6 @@
 	"cx-beta-desc": "Գործիք՝ այլ լեզվից էջերը հեշտությամբ թարգմանելու համար: Նոր թարգմանությունն սկսեք [[Special:MyContributions|Ձեր ներդրումներից]]՝ օգտվելով թարգմանության համար հատուկ նախատեսված «կողք կողքի» խմբագրիչից: Որոշ գործիքներ հասանելի են միայն որոշակի լեզուների դեպքում:",
 	"cx-entrypoint-title": "Թարգմանել այս էջը $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Էջը $1 դեռ առկա չէ: Ուզո՞ւմ {{GENDER:|եք}} ստեղծել այն:",
-	"cx-entrypoint-dialog-title-in": "Նոր էջի վերնագիրը՝ $1.",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Ստեղծել զրոյից",
 	"cx-entrypoint-dialog-button-translate-from": "Թարգմանել $1 լեզվից",
 	"cx-special-login-error": "Դուք պետք է մուտք գործեք՝ այս էջը թարգմանելու համար: [$1 Մուտք գործել]",
 	"cx-tools-instructions-text1": "Թարգմանելու համար {{GENDER:|սեղմեք}} պարբերության վրա:",

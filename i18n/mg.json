@@ -29,8 +29,6 @@
 	"cx-beta-desc": "Fitaovana handikana pejy haingana amin'ny fiteny ampiasainao. Atombohy eo amin'ny [[Special:MyContributions|pejin'ny fandraisan'anjaranao]] ny dikan-teny ary ovay amin'ny alalan'ny mpamoaka lahatsoratra roa mifanitsy izy ireo. Mety tsy afaka ampiasaina raha tsy amin'ny fiteny manokana ny fitaovana sasany.",
 	"cx-entrypoint-title": "Handika ity pejy ity amin'ny teny $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tsy mbola misy amin'ny teny $1 ity pejy ity. Tianao hoforonina ve ilay izy?",
-	"cx-entrypoint-dialog-title-in": "Lohateny ho an'ilay pejy vaovao amin'ny teny $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Hoforonina miainga amin'ny tsy misy",
 	"cx-entrypoint-dialog-button-translate-from": "Hodikaina avy amin'i $1",
 	"cx-special-login-error": "Tsy maintsy tafiditra ianao mba handika amin'ity pejy ity. [$1 Hiditra]",
 	"cx-tools-instructions-text1": "{{GENDER:|Click}} fehintsoratra hodikaina",

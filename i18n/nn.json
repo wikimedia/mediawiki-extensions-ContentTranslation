@@ -37,8 +37,6 @@
 	"cx-beta-desc": "Eit verktøy til å raskt omsetje sider til ditt språk. Du kan byrje omsetjinga frå [[Special:MyContributions|di bidragsside]] og endre dei med vår side-ved-side-verktøy som er særskild utvikla for omsetjing. I nokre høver kan verktøya berre vera tilgjengelege for særskildre språk.",
 	"cx-entrypoint-title": "Set om denne sida til $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denne sida finst ikkje på $1 endå. Ønskjer du å laga henne?",
-	"cx-entrypoint-dialog-title-in": "Tittel på den nye sida på $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Skriv frå botnen av",
 	"cx-entrypoint-dialog-button-translate-from": "Set om frå $1",
 	"cx-special-login-error": "Du må vere logga inn for å omsetje på denne sida. [$1 Logg inn]",
 	"cx-tools-instructions-text1": "Trykk på avsnitt for å omsetje",

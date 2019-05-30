@@ -37,8 +37,6 @@
 	"cx-beta-desc": "Isang kagamitan upang mabilisang isalinwika ang mga pahina sa iyong wika. Simulan ang mga pagsasalin mula sa [[Special:MyContributions|pahina ng iyong mga ambag]], at pamatnugutan ang iyon kasama ng aming ''side-by-side editor'' na sadyang idinisenyo para sa salinwika. Maaaring hindi naroroon ang lahat ng mga kagamitan sa mga partikular na wika.",
 	"cx-entrypoint-title": "Isalin ang pahinang ito sa $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Wala pa ang pahinang ito sa $1. Gusto {{GENDER:|mo}} bang likhain ito?",
-	"cx-entrypoint-dialog-title-in": "Pamagat ng bagong pahina sa $1",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Magsimula mula sa blangko",
 	"cx-entrypoint-dialog-button-translate-from": "Magsalin mula sa $1",
 	"cx-special-login-error": "Dapat na naka log in bago makapagsalin sa pahinang ito. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|I-klik}} ang mga talata upang maisalin",

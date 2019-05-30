@@ -29,8 +29,6 @@
 	"cx-beta-desc": "ستاسې په ژبه کې د مخونو د ژباړې چټک اوزار. د [[Special:MyContributions|خپلو ونډو]] له مخونو څخه مو ژباړې پيل کړئ او بيا يې د ژباړې لپاره زموږ د ځانگړي سکښتل شوي څنگ - په - څنگ سمونگر په مرسته سمونې ترسره کړئ. کېدای شي ځينې اوزارونه يوازې په ځينو ځانگړو ژبو کې وي.",
 	"cx-entrypoint-title": "دا مخ $1 ته ژباړل",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "په $1 کې  لا تر اوسه پورې دا مخ نشته. ايا {{GENDER:|تاسو}} غواړئ چې همدا جوړ کړئ؟",
-	"cx-entrypoint-dialog-title-in": "په $1 ژبه د نوي مخ سرليک:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "له پيل څخه ژباړل",
 	"cx-entrypoint-dialog-button-translate-from": "له $1 څخه ژباړل",
 	"cx-special-login-error": "د دې مخ ژباړلو لپاره بايد تاسې غونډال ته ورننوځئ. [$1 ننوتل]",
 	"cx-tools-instructions-text1": "د ژباړلو لپاره پر پاراگرافونو {{GENDER:|کېښکاږئ}}",

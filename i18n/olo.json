@@ -21,7 +21,6 @@
 	"cx-beta": "Syväindön kiändämine",
 	"cx-entrypoint-title": "Kiännä tämä sivu kielele $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivuu ei ole vie kielel $1. {{GENDER:|Tahtotgo}} luadie sen?",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Luaji uuzi tyhjäspäi",
 	"cx-entrypoint-dialog-button-translate-from": "Kiännä kielespäi $1",
 	"cx-special-login-error": "Sinun pidäy olla kirjutannuhes ku kiändiä tämä sivu. [$1 Kirjuttai]",
 	"cx-tools-instructions-text2": "{{GENDER:|Sinun}} ei pie kiändiä kaikkie",

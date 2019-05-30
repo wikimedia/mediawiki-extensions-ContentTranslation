@@ -65,8 +65,6 @@
 	"cx-beta-desc": "一个快速将页面翻译成您使用的语言的工具。从[[Special:MyContributions|您的贡献页面]]开始翻译，并通过我们特别为翻译工作设计的并排式编辑器编辑它们。一些工具可能只对特定语言可用。",
 	"cx-entrypoint-title": "将此页面翻译成$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此页面在$1尚不存在。{{GENDER:|您}}想创建它吗？",
-	"cx-entrypoint-dialog-title-in": "在$1的新页面标题：",
-	"cx-entrypoint-dialog-button-create-from-scratch": "从头开始创建",
 	"cx-entrypoint-dialog-button-translate-from": "从$1翻译",
 	"cx-special-login-error": "您必须登录才能翻译此页面。[$1 登录]",
 	"cx-tools-instructions-text1": "{{GENDER:|点击}}段落开始翻译",

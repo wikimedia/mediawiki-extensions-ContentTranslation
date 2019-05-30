@@ -28,8 +28,6 @@
 	"cx-beta": "Treiñ an danvez",
 	"cx-entrypoint-title": "Treiñ ar bajenn-mañ e $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "N'eus ket eus ar bajenn-mañ e $1 c'hoazh. Ha fellout a ra {{GENDER:|deoc'h}} krouiñ anezhi ?",
-	"cx-entrypoint-dialog-title-in": "Titl evit ar bajenn nevez en $1 :",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Krouiñ diwar netra",
 	"cx-entrypoint-dialog-button-translate-from": "Treiñ diwar ar $1",
 	"cx-special-login-error": "Ret eo deoc'h bezañ kevreet evit treiñ ar bajenn-mañ. [$1 Kevreañ]",
 	"cx-tools-instructions-text1": "Ouzhpennañ rannbennadoù da dreiñ.",

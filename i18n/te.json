@@ -28,8 +28,6 @@
 	"cx-source-loading": "$1 లోడు చేస్తున్నాం",
 	"cx-entrypoint-title": "ఈ పేజీని $1 లోకి అనువదించండి",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ఈ పేజీ $1 లో లేదు. {{GENDER:|మీరు}} దీన్ని సృష్టిస్తారా?",
-	"cx-entrypoint-dialog-title-in": "$1 లో ఈ పేజీకి శీర్షిక:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "పునాదుల నుండి మొదలుపెట్టు",
 	"cx-entrypoint-dialog-button-translate-from": "$1 నుండి అనువదించండి",
 	"cx-special-login-error": "ఈ పేజీని అనువదించాలంటే మీరు లాగినై ఉండాలి. [$1 లాగినవండి]",
 	"cx-tools-instructions-text1": "అనువదించేందుకు పేరాగ్రాఫులపై {{GENDER:|నొక్కండి}}",

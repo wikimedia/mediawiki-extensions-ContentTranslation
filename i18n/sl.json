@@ -42,8 +42,6 @@
 	"cx-beta-desc": "Orodje za hitro  prevajanje v tvoj jezik. Začni s prevajanjem iz tvoje [[Special:MyContributions|strani prispevkov]] s pomočjo posebej oblikovanega urejevalnika z vzporedno postavitvijo besedil. Nekatere funkcije so na voljo samo za določene jezike.",
 	"cx-entrypoint-title": "Prevedi to stran v: {{GRAMMAR:dajalnik|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Za stran v {{GRAMMAR:mestnik|$1}} še ne obstaja. Bi jo {{GENDER:|želel|želela}} ustvariti?",
-	"cx-entrypoint-dialog-title-in": "Naslov za novo stran v {{GRAMMAR:dajalnik|$1}}:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Začni iz nič",
 	"cx-entrypoint-dialog-button-translate-from": "Prevedi iz: {{GRAMMAR:rodilnik|$1}}",
 	"cx-special-login-error": "Za prevajanje strani se moraš prijaviti. [$1 Prijava]",
 	"cx-tools-instructions-text1": "Za prevajanje {{GENDER:|klikni}} na odstavek",

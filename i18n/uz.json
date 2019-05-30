@@ -26,8 +26,6 @@
 	"cx-source-loading": "$1 yuklanyapti",
 	"cx-beta": "Matn tarjimasi",
 	"cx-entrypoint-title": "Ushbu sahifani $1ga tarjima qilish",
-	"cx-entrypoint-dialog-title-in": "$1dagi yangi sahifa sarlavhasi:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Noldan yaratildi",
 	"cx-entrypoint-dialog-button-translate-from": "$1dan tarjima qilish",
 	"cx-special-login-error": "Ushbu sahifada tarjima qilishingiz uchun tizimga kirgan bo‘lishingiz kerak. [$1 Kirish]",
 	"cx-tools-instructions-text1": "Tarjima qilish uchun paragraflarni bosing",

@@ -29,8 +29,6 @@
 	"cx-source-loading": "$1 खोल्दै",
 	"cx-beta": "सामग्री अनुवाद",
 	"cx-entrypoint-title": "यो लेखलाई $1 मा अनुवाद गर्नुहोस्",
-	"cx-entrypoint-dialog-title-in": "$1 को लागि नयाँ पृष्ठ शीर्षक:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "सुरु देखि सिर्जना गर्नुहोस्",
 	"cx-entrypoint-dialog-button-translate-from": "$1 बाट अनुवाद गर्नुहोस",
 	"cx-special-login-error": "पृष्ठ अनुवाद गर्नका लागि तपाईंले प्रवेश गर्नु अनिवार्य छ। [$1 लगइन]",
 	"cx-tools-instructions-text1": "अनुवाद गर्नका लागि हर्रफमा {{GENDER:|क्लिक}} गर्नुहोस",

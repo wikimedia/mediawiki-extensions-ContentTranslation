@@ -53,8 +53,6 @@
 	"cx-beta-desc": "Et verktøy for å raskt oversette sider til språket ditt. Start oversettelser fra [[Special:MyContributions|bidragssiden din]] og rediger dem med vår side-ved-side editor som er spesiallagd for oversettelser. Noen av verktøyene kan være begrenset til bestemte språk.",
 	"cx-entrypoint-title": "Oversett denne siden til $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Denne siden finnes ikke på $1 ennå. Vil {{GENDER:|du}} opprette den?",
-	"cx-entrypoint-dialog-title-in": "Tittel for den nye siden på $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Skriv fra grunnen av",
 	"cx-entrypoint-dialog-button-translate-from": "Oversett fra $1",
 	"cx-special-login-error": "Du må være innlogget for å oversette denne siden. [$1 Logg inn]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klikk}} på paragraf for å oversette",

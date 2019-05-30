@@ -32,8 +32,6 @@
 	"cx-beta-desc": "ئەم ئامرازە ڕێگە دەدات کە وتاری ویکیپیدیاکانی تر بە ئاسانی وەربگێڕیتە سەر کوردی. دەتوانیت لە [[Special:MyContributions|پەڕەی بەشدارییەکانت]] دەست بە وەرگێڕان بکەیت.",
 	"cx-entrypoint-title": "ئەم پەڕەیە وەربگێڕە بۆ $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ئەم پەڕەیە ھێشتا لە $1 دا دروست نەکراوە. دەتەوێت دروستی بکەیت؟",
-	"cx-entrypoint-dialog-title-in": "سەرناو بۆ پەڕەی نوێ لە $1دا:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "لە پێشنووسی سەرەتاییەوە دروستی بکە",
 	"cx-entrypoint-dialog-button-translate-from": "لە $1ەوە وەربگێڕە",
 	"cx-special-login-error": "بۆ وەرگێڕانی ئەم پەڕەیە دەبێت لە ژوورەوە بیت. [$1 چوونە ژوورەوە]",
 	"cx-tools-instructions-text1": "لەسەر پەرەگرافەکان کلیک بکە بۆ وەرگێڕان",

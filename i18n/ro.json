@@ -39,8 +39,6 @@
 	"cx-beta-desc": "O unealtă care permite traducerea rapidă a paginilor în limba dumnevoastră. Începeți traducerile accesându-vă [[Special:MyContributions|pagina de contribuții]] și modificați-le cu ajutorul editorului cu ferestre alăturate special conceput pentru traduceri. Unele instrumente pot fi disponibile doar pentru anumite limbi.",
 	"cx-entrypoint-title": "Traduceți această pagină în $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Această pagină nu există încă în limba $1. {{GENDER:|Doriți}} să o creați?",
-	"cx-entrypoint-dialog-title-in": "Titlul pentru noua pagină în $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Creare pornind de la zero",
 	"cx-entrypoint-dialog-button-translate-from": "Traducere din $1",
 	"cx-special-login-error": "Trebuie să vă autentificați pentru a traduce această pagină. [$1 Autentificare]",
 	"cx-tools-instructions-text1": "{{GENDER:|Clic}} pe paragrafe pentru a le traduce",

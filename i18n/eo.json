@@ -11,7 +11,8 @@
 			"NMaia",
 			"Fitoschido",
 			"Prevodim",
-			"Surfo"
+			"Surfo",
+			"Mirin"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -43,8 +44,6 @@
 	"cx-beta-desc": "Ilo por rapida traduko de paĝo en vian lingvon. Komencu tradukon elde [[Special:MyContributions|paĝo pri viaj kontribuoj]] kaj redaktu ĝin per nia flank-al-flanka redaktilo speciale fasonita por tradukado. Kelkaj funkcioj povas esti disponeblaj nur por specifaj lingvoj.",
 	"cx-entrypoint-title": "Traduki tiun ĉi paĝon al $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tiu ĉi paĝo ankoraŭ ne ekzistas en $1. Ĉu vi volas krei ĝin?",
-	"cx-entrypoint-dialog-title-in": "Titolo por la nova paĝo en $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Krei dekomence",
 	"cx-entrypoint-dialog-button-translate-from": "Traduki de $1",
 	"cx-special-login-error": "Vi devas esti ensalutinta por trauki tiun ĉi paĝon. [$1 Ensalutu]",
 	"cx-tools-instructions-text1": "Alklaku paragrafon por ektraduki",
@@ -179,6 +178,7 @@
 	"cx-suggestionlist-collapse": "Montri malpli",
 	"cx-suggestionlist-refresh": "Aktualigi proponojn",
 	"cx-notification-suggestions-available": "Bazita sur {{GENDER:$2|via}} antaŭa traduko de '''$1''', novaj sugestoj estas nun haveblaj.",
+	"cx-tools-linter-learn-more": "Lerni plu",
 	"cx-tools-linter-title": "Problemoj kun la enhavo: $1",
 	"cx-tools-linter-content": "Estis trovita enhavo, kiu ne plenumas [//www.mediawiki.org/wiki/Content_translation/Abuse_filter la limigojn starigitajn de Vikipedio en $1]. Bonvolu korekti la problemojn antaŭ publikigi la tradukon.",
 	"cx-tools-linter-view-details": "Montri detalojn",

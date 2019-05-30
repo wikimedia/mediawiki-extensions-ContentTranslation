@@ -34,8 +34,6 @@
 	"cx-beta-desc": "Verkfæri til að þýða síður hratt yfir á þitt tungumál. Byrjaðu þýðingar á [[Special:MyContributions|framlagasíðunni þinni]] og notaðu til þess „hlið-við-hlið“ ritilinn okkar, sem er sérstaklega hannaður fyrir þýðingar. Sum verkfærin eru aðeins til fyrir tiltekin tungumál.",
 	"cx-entrypoint-title": "Þýða þessa síðu yfir á $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Þessi grein er enn ekki til á $1. Vilt {{GENDER:|þú}} stofna hana?",
-	"cx-entrypoint-dialog-title-in": "Titill nýju síðunnar á $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Stofna frá grunni",
 	"cx-entrypoint-dialog-button-translate-from": "Þýða úr $1",
 	"cx-special-login-error": "Þú verður að vera innskráð(ur) til að þýða þessa síðu. [$1 Skrá inn]",
 	"cx-tools-instructions-text1": "{{GENDER:|Smelltu á}} málsgreinar til að þýða",

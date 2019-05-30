@@ -39,8 +39,6 @@
 	"cx-beta-desc": "Биттәрҙе үҙ телегеҙгә тиҙ тәржемә итеү ҡоралы. Тәржемәне [[Special:MyContributions|һеҙҙең өҫтәмә]] битенән башлай алаһығыҙ, тәржемәләр өсөн махсус эшләнгән «йәнәш» мөхәррирендә уны тикшерегеҙ. Ҡайһы бер инструменттарҙы айырым телдәрҙә генә файҙаланып була.",
 	"cx-entrypoint-title": "Был битте $1 теленә тәржемә итергә",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Был бит $1 әлегә юҡ. {{GENDER:|Һеҙ}} уны төҙөргә теләйһегеҙме?",
-	"cx-entrypoint-dialog-title-in": "$1 өсөн яңы бит исеме:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Баштан башларға",
 	"cx-entrypoint-dialog-button-translate-from": "$1 теленән тәржемә итергә",
 	"cx-special-login-error": "Был битте тәржемә итеү өсөн танылырға кәрәк. [$1 Танылыу]",
 	"cx-tools-instructions-text1": "Тәржемә өсөн абзацҡа {{GENDER:|сиртегеҙ}}",

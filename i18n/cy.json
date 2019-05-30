@@ -37,8 +37,6 @@
 	"cx-beta-desc": "Dyma declyn handi i gyfieithu dalennau i'ch hiaith eich hun. Cychwynwch gyfieithu o [[Special:MyContributions|fy nghyfraniadau]], a golygwch nhw gyda'n golygydd a grewyd yn arbennig ar gyfer cyfieithu. Mae rhai o'r teclynau a welwch yn addas ar gyfer rhai ieithoedd yn unig.",
 	"cx-entrypoint-title": "Cyfieithiwch y ddalen hon i $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Nid yw'r ddalen hon ar gael yn $1, hyd yma. Ydych {{GENDER:|chi}} yn dymuno ei chreu?",
-	"cx-entrypoint-dialog-title-in": "Teitl am y ddalen newydd yn $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Creu o'r newydd",
 	"cx-entrypoint-dialog-button-translate-from": "Cyfieithu o $1",
 	"cx-special-login-error": "Rhaid i chi fewngofnodi i gyfieithu'r ddalen hon. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|Cliciwch}} y paragraffau i'w cyfieithu",

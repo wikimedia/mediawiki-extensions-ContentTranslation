@@ -34,8 +34,6 @@
 	"cx-beta": "ഉള്ളടക്ക പരിഭാഷ",
 	"cx-entrypoint-title": "$1 ഭാഷയിലേയ്ക്ക് ഈ താൾ പരിഭാഷപ്പെടുത്തുക",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1 ഭാഷയിൽ ഈ താൾ ഇതുവരെയില്ല. താങ്കൾക്ക് ഈ താൾ സൃഷ്ടിക്കണോ?",
-	"cx-entrypoint-dialog-title-in": "$1 ഭാഷയിലുള്ള താളിന്റെ തലക്കെട്ട്:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "പുതുതായിത്തുടങ്ങുക",
 	"cx-entrypoint-dialog-button-translate-from": "$1 ഭാഷയിൽ നിന്നും പരിഭാഷപ്പെടുത്തുക",
 	"cx-special-login-error": "ഈ താൾ പരിഭാഷപ്പെടുത്താൻ ലോഗിൻ ചെയ്തിരിക്കണം. [$1 ലോഗിൻ ചെയ്യുക]",
 	"cx-tools-instructions-text1": "പരിഭാഷപ്പെടുത്താനുള്ള ഖണ്ഡികകൾ ചേർക്കുക",

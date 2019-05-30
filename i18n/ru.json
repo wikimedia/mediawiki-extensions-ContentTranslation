@@ -81,8 +81,6 @@
 	"cx-beta-desc": "Инструмент для быстрого перевода страниц на ваш язык. Начните перевод со страницы [[Special:MyContributions|вашего вклада]], правьте его в нашем редакторе «бок о бок», специально спроектированном для переводов. Некоторые инструменты могут быть доступны только для определённых языков.",
 	"cx-entrypoint-title": "Перевести эту страницу на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Такой страницы на языке «$1» пока не существует. {{GENDER:|Вы}} хотите создать её?",
-	"cx-entrypoint-dialog-title-in": "Заголовок для новой страницы на $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Создать с нуля",
 	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
 	"cx-special-login-error": "Вы должны авторизоваться, чтоб перевести эту страницу. [$1 Войти]",
 	"cx-tools-instructions-text1": "{{GENDER:|Щёлкайте}} на абзацы, чтобы перевести их",

@@ -19,8 +19,6 @@
 	"tag-contenttranslation-v2-description": "Ica kontenajo tradukesis de altra linguo uzante la versiono 2 del Automatala Utensilo por Tradukuro di kontenaji.",
 	"cx-beta-desc": "Ca utensilo rapide tradukas pagini a vua linguo. Komencez tradukar de [[Special:MyContributions|vua pagino di kontributaji]] e pose redaktez li per nia \"redaktilo\", kreita specale por tradukuri. Kelka ek nia utensili povas esar disponebla nur por poka lingui.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
-	"cx-entrypoint-dialog-title-in": "Titulo di la nova pagino en $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Krear de la komenco",
 	"cx-entrypoint-dialog-button-translate-from": "Tradukar de $1",
 	"cx-selected-source-page-error-title-in-use": "La titulo por la nova pagino [$1 ja uzesas]",
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",

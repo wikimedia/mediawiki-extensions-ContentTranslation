@@ -37,8 +37,6 @@
 	"cx-beta-desc": "Nástroj pre rýchly preklad stránok do vášho jazyka. Zahájte preklady zo stránky [[Special:MyContributions|Príspevky]] a upravte ich pomocou nášho editora špeciálne navrhnutého na prekladanie, ktorý vám zobrazí zdrojový a výsledný text vedľa seba. Niektoré prekladateľské nástroje ale môžu byť k dispozícii len pre konkrétne jazyky.",
 	"cx-entrypoint-title": "Preložiť tento článok do jazyka $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Táto stránka zatiaľ v jazyku $1 neexistuje. Chcete ho vytvoriť?",
-	"cx-entrypoint-dialog-title-in": "Názov pre novú stránku v jazyku $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Vytvoriť od základu",
 	"cx-entrypoint-dialog-button-translate-from": "Preložiť z jazyka $1",
 	"cx-special-login-error": "Musíte byť prihlásený, aby ste mohli prekladať tento článok. [$1 Prihlásiť sa]",
 	"cx-tools-instructions-text1": "Kliknite na odstavec, ktorý chcete preložiť",

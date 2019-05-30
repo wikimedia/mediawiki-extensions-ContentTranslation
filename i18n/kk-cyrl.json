@@ -32,8 +32,6 @@
 	"cx-beta-desc": "Құрал өз тіліңізге беттерді жылдам аударуға көмектеседі. Аударуды [[Special:MyContributions|өзіңіздің үлестеріңіз бетінен]] бастаңыз және оларды арнайы аудару үшін әзірленген біздің жанама қатар редакторымен өңдеңіз. Құралдар кейбір арнайы тілдер үшін ғана қол жетімді болуы мүмкін.",
 	"cx-entrypoint-title": "Бұл бетті $1 тіліне аудару",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бұл бет $1 тілінде жоқ. {{GENDER:|Сіз}} оны бастағыңыз келе ме?",
-	"cx-entrypoint-dialog-title-in": "$1 тіліндегі жаңа бет атауы:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Жаңадан бастау",
 	"cx-entrypoint-dialog-button-translate-from": "$1 тілінен аудару",
 	"cx-special-login-error": "Бұл бетті аудару үшін жүйеге кіруіңіз керек. [$1 Кіру]",
 	"cx-tools-instructions-text1": "Аудару үшін тармақтарды {{GENDER:|басу}}",

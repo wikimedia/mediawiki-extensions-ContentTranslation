@@ -50,8 +50,6 @@
 	"cx-beta-desc": "Một công cụ để dịch trang ra ngôn ngữ của bạn một cách nhanh nhẹn. Bắt đầu một bản dịch từ [[Special:MyContributions|trang đóng góp của bạn]], và sửa đổi các bản dịch dùng trình soạn thảo hai bên đặc biệt dành cho việc biên dịch. Một số công cụ chỉ thích hợp với một số ngôn ngữ cụ thể.",
 	"cx-entrypoint-title": "Dịch trang này ra $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Trang này chưa tồn tại trong $1. Bạn có muốn tạo nó ra?",
-	"cx-entrypoint-dialog-title-in": "Tên trang mới trong $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Viết mới",
 	"cx-entrypoint-dialog-button-translate-from": "Dịch từ $1",
 	"cx-special-login-error": "Bạn phải đăng nhập để dịch trong trang này. [$1 Đăng nhập]",
 	"cx-tools-instructions-text1": "Nhấn chuột vào một đoạn văn để dịch nó",

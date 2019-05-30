@@ -52,8 +52,6 @@
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á súa lingua. Inicie as traducións desde a súa [[Special:MyContributions|páxina de contribucións]] e edíteas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles unicamente en certas linguas.",
 	"cx-entrypoint-title": "Traducir esta páxina ao $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta páxina aínda non existe en $1. {{GENDER:|Quere}} creala?",
-	"cx-entrypoint-dialog-title-in": "Título da páxina nova en $1:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Crear desde cero",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir do $1",
 	"cx-special-login-error": "Debe acceder ao sistema para traducir esta páxina. [$1 Acceder ao sistema]",
 	"cx-tools-instructions-text1": "{{GENDER:|Prema}} nun parágrafo para traducilo",

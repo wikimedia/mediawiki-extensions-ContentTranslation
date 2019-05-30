@@ -42,8 +42,6 @@
 	"cx-beta-desc": "Įrankis greitai išversti puslapius į jūsų kalbą. Vertimus pradėkite  iš [[Special:MyContributions|your contributions page]], ir redaguokite juos, naudodami mūsų specialiai sukurtą abipusį vertimo redaktorių. Kai kurie įrankiai gali būti prieinami tik konkrečioms kalboms.",
 	"cx-entrypoint-title": "Išversti šį puslapį į $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Puslapio tokiu pavadinimu $1 dar nėra. Norite jį sukurti?",
-	"cx-entrypoint-dialog-title-in": "Naujo puslapio svetainėje $1 pavadinimas:",
-	"cx-entrypoint-dialog-button-create-from-scratch": "Sukurti „nuo nulio“",
 	"cx-entrypoint-dialog-button-translate-from": "Versti iš $1",
 	"cx-special-login-error": "Jūs turite būti užsiregistravęs, jei norite išversti šiame puslapyje. [$1 Log in]",
 	"cx-tools-instructions-text1": "Spauskite ant paragrafų vertimui",
