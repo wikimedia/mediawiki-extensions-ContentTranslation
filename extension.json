@@ -861,10 +861,22 @@
 				"cx-publishing-dialog-publish-anyway-button"
 			]
 		},
-		"ext.cx.eventlogging": {
-			"scripts": "eventlogging/ext.cx.eventlogging.js",
+		"ext.cx.eventlogging.campaigns": {
+			"scripts": "eventlogging/ext.cx.eventlogging.campaigns.js",
 			"dependencies": [
-				"ext.cx.model",
+				"mediawiki.user"
+			]
+		},
+		"ext.cx.eventlogging.translation": {
+			"scripts": "eventlogging/ext.cx.eventlogging.translation.js",
+			"dependencies": [
+				"mw.cx.util",
+				"mediawiki.user"
+			]
+		},
+		"ext.cx.eventlogging.dashboard": {
+			"scripts": "eventlogging/ext.cx.eventlogging.dashboard.js",
+			"dependencies": [
 				"mediawiki.user"
 			]
 		},

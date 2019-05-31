@@ -48,23 +48,9 @@ mw.cx.ui.TranslationHeader.prototype.getContent = function () {
 };
 
 mw.cx.ui.TranslationHeader.prototype.listen = function () {
-	mw.hook( 'mw.cx.translation.save-started' ).add(
-		this.setStatusMessage.bind( this, mw.msg( 'cx-save-draft-saving' ) )
-	);
-	mw.hook( 'mw.cx.translation.save-failed' ).add(
-		this.setStatusMessage.bind( this, mw.msg( 'cx-save-draft-error' ) )
-	);
-
-	mw.hook( 'mw.cx.draft.restoring' ).add(
-		this.setStatusMessage.bind( this, mw.msg( 'cx-draft-restoring' ) )
-	);
 	mw.hook( 'mw.cx.draft.restored' ).add(
 		this.setStatusMessage.bind( this, mw.msg( 'cx-draft-restored' ) )
 	);
-	mw.hook( 'mw.cx.draft.restore-failed' ).add( function () {
-		this.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
-		$( '.cx-widget__columns' ).addClass( 'disabled' );
-	}.bind( this ) );
 
 	if ( !mw.cx.supportsSticky() ) {
 		$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );

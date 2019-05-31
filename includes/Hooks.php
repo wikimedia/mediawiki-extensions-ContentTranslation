@@ -122,7 +122,7 @@ class Hooks {
 				$out->addModules( 'ext.cx.entrypoints.newarticle.veloader' );
 
 				if ( $wgContentTranslationEventLogging ) {
-					$out->addModules( 'ext.cx.eventlogging' );
+					$out->addModules( 'ext.cx.eventlogging.campaigns' );
 				}
 			}
 
@@ -131,7 +131,7 @@ class Hooks {
 
 		// If EventLogging integration is enabled, load the event logging functions module
 		if ( $wgContentTranslationEventLogging ) {
-			$out->addModules( 'ext.cx.eventlogging' );
+			$out->addModules( 'ext.cx.eventlogging.campaigns' );
 		}
 
 		if ( $title->inNamespace( NS_MAIN ) &&
@@ -193,7 +193,7 @@ class Hooks {
 		) {
 			// If EventLogging integration is enabled, load the event logging functions module
 			if ( $wgContentTranslationEventLogging ) {
-				$page->getOutput()->addModules( 'ext.cx.eventlogging' );
+				$page->getOutput()->addModules( 'ext.cx.eventlogging.campaigns' );
 			}
 			$page->getOutput()->addModules( 'ext.cx.contributions' );
 		}
@@ -293,7 +293,7 @@ class Hooks {
 		// If EventLogging integration is enabled, load the event logging functions module
 		// to measure and analyse the usage of this entry point.
 		if ( $wgContentTranslationEventLogging ) {
-			$out->addModules( 'ext.cx.eventlogging' );
+			$out->addModules( 'ext.cx.eventlogging.campaigns' );
 		}
 
 		$out->addModules( 'ext.cx.entrypoints.newarticle' );

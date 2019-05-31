@@ -180,7 +180,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function initModules() {
-		global $wgContentTranslationTranslateInTarget;
+		global $wgContentTranslationTranslateInTarget, $wgContentTranslationEventLogging;
 
 		$out = $this->getOutput();
 
@@ -196,9 +196,17 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
+
+			if ( $wgContentTranslationEventLogging ) {
+				$out->addModules( 'ext.cx.eventlogging.translation' );
+			}
 		} else {
 			$out->addModules( 'ext.cx.dashboard' );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
+
+			if ( $wgContentTranslationEventLogging ) {
+				$out->addModules( 'ext.cx.eventlogging.dashboard' );
+			}
 		}
 	}
 

@@ -1,5 +1,5 @@
 /*!
- * ContentTranslation event logging.
+ * ContentTranslation event logging for translation view.
  *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
@@ -22,18 +22,13 @@
 		 */
 		listen: function () {
 			// Register handlers for event logging triggers
-			mw.hook( 'mw.cx.translation.published' ).add( this.published.bind( this ) );
+			mw.hook( 'mw.cx.translation.published' ).add( this.published );
 			mw.hook( 'mw.cx.translation.publish.error' ).add( this.publishFailed.bind( this ) );
-			mw.hook( 'mw.cx.translation.abusefilter' ).add( this.logAbuseFilter.bind( this ) );
-			mw.hook( 'mw.cx.translation.saved' ).add( this.saved.bind( this ) );
-			mw.hook( 'mw.cx.translation.continued' ).add( this.continued.bind( this ) );
-			mw.hook( 'mw.cx.translation.deleted' ).add( this.deleted.bind( this ) );
-			mw.hook( 'mw.cx.cta.shown' ).add( this.ctaShown.bind( this ) );
-			mw.hook( 'mw.cx.cta.accept' ).add( this.ctaAccept.bind( this ) );
-			mw.hook( 'mw.cx.cta.reject' ).add( this.ctaReject.bind( this ) );
-			mw.hook( 'mw.cx.draft.restore-failed' ).add( this.restoreFailed.bind( this ) );
-			mw.hook( 'mw.cx.translation.save-failed' ).add( this.saveFailed.bind( this ) );
-			mw.hook( 'mw.cx.suggestion.action' ).add( this.suggestionAction.bind( this ) );
+			mw.hook( 'mw.cx.translation.abusefilter' ).add( this.logAbuseFilter ); // CX2 only
+			mw.hook( 'mw.cx.translation.saved' ).add( this.saved ); // CX1 only
+			mw.hook( 'mw.cx.translation.save-failed' ).add( this.saveFailed ); // CX1 only
+			mw.hook( 'mw.cx.translation.continued' ).add( this.continued ); // CX1 only
+			mw.hook( 'mw.cx.draft.restore-failed' ).add( this.restoreFailed ); // CX1 only
 		},
 
 		/**
@@ -185,90 +180,6 @@
 				sourceTitle: sourceTitle
 			} );
 			mw.track( 'counter.MediaWiki.cx.restore.success', 1 );
-		},
-
-		/**
-		 * Log deletion of translated page.
-		 *
-		 * @param {string} sourceLanguage Source language code
-		 * @param {string} targetLanguage Target language code
-		 * @param {string} sourceTitle Source title
-		 * @param {string} targetTitle Target title
-		 */
-		deleted: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
-			mw.track( 'event.ContentTranslation', {
-				version: 1,
-				token: mw.user.id(),
-				session: mw.user.sessionId(),
-				action: 'delete',
-				sourceLanguage: sourceLanguage,
-				targetLanguage: targetLanguage,
-				sourceTitle: sourceTitle,
-				targetTitle: targetTitle
-			} );
-		},
-
-		/**
-		 * CTA is shown.
-		 *
-		 * @param {string} campaign
-		 */
-		ctaShown: function ( campaign ) {
-			mw.track( 'event.ContentTranslationCTA', {
-				version: 1,
-				cta: campaign,
-				token: mw.user.id(),
-				action: 'shown',
-				session: mw.user.sessionId(),
-				contentLanguage: mw.config.get( 'wgContentLanguage' ),
-				interfaceLanguage: mw.config.get( 'wgUserLanguage' )
-			} );
-		},
-
-		ctaAccept: function ( campaign, sourceLanguage, sourceTitle, targetLanguage ) {
-			mw.track( 'event.ContentTranslationCTA', {
-				version: 1,
-				cta: campaign,
-				action: 'accept',
-				token: mw.user.id(),
-				session: mw.user.sessionId(),
-				contentLanguage: mw.config.get( 'wgContentLanguage' ),
-				interfaceLanguage: mw.config.get( 'wgUserLanguage' ),
-				sourceLanguage: sourceLanguage,
-				sourceTitle: sourceTitle,
-				targetLanguage: targetLanguage
-			} );
-			mw.track( 'counter.MediaWiki.cx.campaign.' + campaign + '.accept', 1 );
-		},
-
-		ctaReject: function ( campaign ) {
-			mw.track( 'event.ContentTranslationCTA', {
-				version: 1,
-				cta: campaign,
-				token: mw.user.id(),
-				action: 'reject',
-				session: mw.user.sessionId(),
-				contentLanguage: mw.config.get( 'wgContentLanguage' ),
-				interfaceLanguage: mw.config.get( 'wgUserLanguage' )
-			} );
-		},
-
-		suggestionAction: function ( action, rank, type, typeExtra, sourceLanguage, targetLanguage, sourceTitle ) {
-			mw.track( 'event.ContentTranslationSuggestion', {
-				version: 1,
-				session: mw.user.sessionId(),
-				token: mw.user.id(),
-				suggestionId: mw.user.id() + '-' + sourceTitle,
-				rank: rank,
-				type: type,
-				typeExtra: typeExtra,
-				action: action,
-				interfaceLanguage: mw.config.get( 'wgUserLanguage' ),
-				contentLanguage: mw.config.get( 'wgContentLanguage' ),
-				sourceLanguage: sourceLanguage,
-				targetLanguage: targetLanguage,
-				sourceTitle: sourceTitle
-			} );
 		},
 
 		/**
