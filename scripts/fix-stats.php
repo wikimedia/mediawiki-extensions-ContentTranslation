@@ -17,6 +17,13 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 class CxFixStats extends Maintenance {
+
+	/** @var array */
+	private $resets;
+
+	/** @var array[] */
+	private $tags;
+
 	public function __construct() {
 		parent::__construct();
 
@@ -34,9 +41,9 @@ class CxFixStats extends Maintenance {
 	}
 
 	public function execute() {
-		$this->dryrun = !$this->hasOption( 'really' );
+		$dryrun = !$this->hasOption( 'really' );
 
-		if ( $this->dryrun ) {
+		if ( $dryrun ) {
 			$this->output( "DRY-RUN mode: actions are NOT executed\n" );
 		} else {
 			$this->output( "EXECUTE mode: actions ARE executed\n" );
@@ -58,8 +65,8 @@ class CxFixStats extends Maintenance {
 			$this->checkTargetUrl( $row );
 		}
 
-		$this->changeStatus( $this->resets, $this->dryrun );
-		$this->addTags( $this->tags, $this->dryrun );
+		$this->changeStatus( $this->resets, $dryrun );
+		$this->addTags( $this->tags, $dryrun );
 	}
 
 	protected function changeStatus( $resets, $dry ) {

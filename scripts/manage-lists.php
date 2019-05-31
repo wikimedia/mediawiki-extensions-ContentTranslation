@@ -65,13 +65,13 @@ class CXManageLists extends Maintenance {
 	}
 
 	public function execute() {
-		$this->dryrun = !$this->hasOption( 'really' );
+		$dryrun = !$this->hasOption( 'really' );
 		$sourceDomain = SiteMapper::getDomainCode( $this->getOption( 'source' ) );
 		$targetDomain = SiteMapper::getDomainCode( $this->getOption( 'target' ) );
 		$category = $this->getOption( 'category' );
 		$type = $this->getOption( 'type' );
 
-		if ( $this->dryrun ) {
+		if ( $dryrun ) {
 			$this->output( "DRY-RUN mode: actions are NOT executed\n" );
 		} else {
 			$this->output( "EXECUTE mode: actions ARE executed\n" );
@@ -82,7 +82,7 @@ class CXManageLists extends Maintenance {
 
 		$count = count( $pages );
 
-		if ( !$this->dryrun ) {
+		if ( !$dryrun ) {
 			if ( $type === 'featured' ) {
 				$this->createFeaturedSuggestions( $pages );
 			} elseif ( $type === 'category' ) {
@@ -187,7 +187,7 @@ class CXManageLists extends Maintenance {
 		} else {
 			$listId = $list->getId();
 		}
-		$suggestion = [];
+		$suggestions = [];
 
 		foreach ( $pages as $page ) {
 			$suggestions[] = new Suggestion( [
