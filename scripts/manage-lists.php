@@ -202,5 +202,5 @@ class CXManageLists extends Maintenance {
 	}
 }
 
-$maintClass = 'CXManageLists';
+$maintClass = CXManageLists::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

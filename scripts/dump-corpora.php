@@ -322,5 +322,5 @@ class CXCorporaDump extends Maintenance {
 	}
 }
 
-$maintClass = 'CXCorporaDump';
+$maintClass = CXCorporaDump::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

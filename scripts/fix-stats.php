@@ -249,5 +249,5 @@ class CxFixStats extends Maintenance {
 	}
 }
 
-$maintClass = 'CxFixStats';
+$maintClass = CxFixStats::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
