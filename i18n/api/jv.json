@@ -4,7 +4,7 @@
 			"NoiX180"
 		]
 	},
-	"apihelp-cxpublish-description": "Simpen kaca kang panjenengan gawé sarana èstènsi Pertalan Kontèn.",
+	"apihelp-cxpublish-description": "Simpen kaca kang kogawé sarana èstènsi Pertalan Kontèn.",
 	"apihelp-cxpublish-summary": "Simpen kaca kang kagawé sarana èstènsi Pertalan Kontèn",
 	"apihelp-cxpublish-param-title": "Sesirah kaca kang arep kagarap.",
 	"apihelp-cxpublish-param-html": "Kontèn kang arep kasimpen.",
@@ -29,7 +29,7 @@
 	"apihelp-query+contenttranslationcorpora-description": "Pasang tulisan paralèl kang sajajar kanggo pertalan iki. Deleng uga <code>list=cxpublishedtranslations</code>. Panampungan cumepak ing manéka format kanggo aksès kang gedhé volumené.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID pertalan.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Apa kabèh tag HTML arep dibuwang saperlu balik marang tulisan polosan.",
-	"apihelp-query+contenttranslationcorpora-param-types": "Bakuné, panjenengan bakal éntuk teteluné iki yèn lagi ana: tulisan sumber, pertalan mesin, lan pertalan kang bisa panjenengan besut. Paraméter iki njalari panjenengan ora kena ngulihaké sawenèh jinis iki.",
+	"apihelp-query+contenttranslationcorpora-param-types": "Bakuné, kowé bakal éntuk teteluné iki yèn lagi ana: tulisan sumber, pertalan mesin, lan pertalan kang bisa kobesut. Paraméter iki njalari kowé ora kena ngulihaké sawenèh jinis iki.",
 	"apihelp-query+contenttranslationstats-description": "Golèk statistik Pertalan Kontèn.",
 	"apihelp-query+contenttranslationstats-summary": "Golèk statistik Pertalan Kontèn.",
 	"apihelp-query+contenttranslationstats-example-1": "Golèk statistik Pertalan Kontèn ing kabèh basa.",
@@ -43,7 +43,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-listid": "Tuduhaké pamrayogya mligi saka pratélan tinamtu",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "Gunggung pamrayoga pertalan kang bisa kajupuk",
 	"apihelp-query+contenttranslationsuggestions-param-offset": "Imbangaké mawa asil kang ana kacané.",
-	"apihelp-query+contenttranslationsuggestions-param-seed": "Bakuné, pamrayoga dituduhaké kanthi blenyak-blenyak. Manawa panjenengan péngin supaya pamrayogané dituduhaké mung ping pisan nalika nganggo watesan lan pangimbang, panjenengan kudu ngisi kabèh panjaluk kalawan titi.",
+	"apihelp-query+contenttranslationsuggestions-param-seed": "Bakuné, pamrayoga katuduhaké kanthi worsuh. Manawa kowé péngin supaya pamrayogané katuduhaké mung ping pisan nalika nganggo watesan lan pangimbang, kowé kudu ngisi kabèh panjaluké.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Jupuk kaca kang dadi pamrayogya kanggo mertal saka basa Inggris (en) tumrap basa Sepanyol (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Jupuk kabèh katerangan pertalan kang wis kababar.",
 	"apihelp-query+cxpublishedtranslations-summary": "Jupuk kabèh katerangan pertalan kang wis kababar.",
@@ -99,8 +99,8 @@
 	"apierror-cx-jwtmissing": "JWT ora kapasang.",
 	"apierror-cx-keynotconfigured": "Kunci ora dipasang.",
 	"apierror-cx-missingdraft": "Ora ana rèngrèngan.",
-	"apierror-cx-mustbeloggedin-suggestions": "Panjenengan kudu mlebu log saperlu ngatur pamrayogané.",
-	"apierror-cx-mustbeloggedin-viewtranslations": "Saperlu ndeleng pertalan, panjenengan kudu mlebu log.",
+	"apierror-cx-mustbeloggedin-suggestions": "Kowé kudu mlebu log saperlu ngatur pamrayogané.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Saperlu ndeleng pertalan, kowé kudu mlebu log.",
 	"apierror-cx-samelanguages": "Basa sumber lan tujuan ora kena padha.",
 	"apierror-cx-suggestionsdisabled": "Pamrayoga ora diurubaké ing wiki iki.",
 	"apierror-cx-translationnotfound": "Ora ana pertalan."

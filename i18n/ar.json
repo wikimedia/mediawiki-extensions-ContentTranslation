@@ -294,5 +294,6 @@
 	"cx-linkcontextitem-missing-title-description": "هذه الصفحة غير موجودة بعد",
 	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل كثير غير معدل.",
 	"cx-unreviewed-translation-category": "صفحات بترجمات غير مراجعة",
-	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من المحتوى غير المراجع"
+	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من المحتوى غير المراجع",
+	"cx-preference-enable-entrypoints": "الدخول إلى [[$ 1 | start a translation]] من صفحة المساهمات ولائحة اللغات وسجل إنشاء الصفحات الجديدة."
 }

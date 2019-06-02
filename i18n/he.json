@@ -19,7 +19,7 @@
 	"cx-dashboard-header": "תרגומים",
 	"cx-javascript": "הכלי הזה לא עובד ללא JavaScript. התמיכה ב־JavaScript, לא עבדה, או שהדפדפן הזה אינו נתמך.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|תרגום תוכן]] הוא כלי לתרגום מהיר של דפים לשפה שלך. [$1 נסו אותו עכשיו!]",
-	"cx-license-agreement": "{{GENDER:|כשאתה לוחץ|כשאת לוחצת}} על מקש \"$1\" {{GENDER:|אתה מסכים|את מסכימה}} ל[//foundation.wikimedia.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ואתה נותן|ואת נותנת}} גם את הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
+	"cx-license-agreement": "{{GENDER:|כשאתה ממשיך, אתה מסכים|כשאת ממשיכה, את מסכימה}} ל[//foundation.wikimedia.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ואתה נותן|ואת נותנת}} גם את הסכמתך הבלתי־חוזרת לשחרור כל התרומות שלך באמצעות כלי התרגום לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
 	"cx-desc": "מקלה על [[Special:ContentTranslation|תרגום]] דפי תוכן",
 	"cx-header-progressbar-text": "{{PLURAL:$1|תורגם|תורגמו}} $1%",
@@ -53,6 +53,7 @@
 	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "הדף הזה אינו קיים עדיין ב{{GRAMMAR:תחילית|$1}}. {{GENDER:|האם אתה רוצה|האם את רוצה|רוצה}} ליצור אותו?",
 	"cx-entrypoint-dialog-button-translate-from": "תרגום מ{{GRAMMAR:תחילית|$1}}",
+	"cx-entrypoint-dialog-desc": "{{GENDER:|אתה יכול|את יכולה}} לעזור לוויקיפדיה על־ידי תרגום הדף הזה. תרגום הוא דרך קלה ליצור תוכן בשפה שלך.",
 	"cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה. [$1 כניסה]",
 	"cx-tools-instructions-text1": "{{GENDER:|לחץ|לחצי}} על פסקאות כדי לתרגם",
 	"cx-tools-instructions-text2": "{{GENDER:|אתה לא צריך|את לא צריכה}} להוסיף את כולן",
@@ -285,5 +286,6 @@
 	"cx-linkcontextitem-missing-title-description": "דף זה עדיין אינו קיים",
 	"cx-mt-abuse-publish-error": "לא ניתן לפרסם את התרגום שלך כי הוא מכיל יותר מדי טקסט ללא שינויים.",
 	"cx-unreviewed-translation-category": "דפים עם תרגומים שלא נסקרו",
-	"cx-unreviewed-translation-category-desc": "דפים שתורגמו באמצעות כלי תרגום תוכן ושמכילים כמות גדולה של תוכן שלא נסקר"
+	"cx-unreviewed-translation-category-desc": "דפים שתורגמו באמצעות כלי תרגום תוכן ושמכילים כמות גדולה של תוכן שלא נסקר",
+	"cx-preference-enable-entrypoints": "גישה ל[[$1|התחלת תרגום]] מדף התרומות, מרשימת השפות, ומיצירת דפים חדשים."
 }

@@ -9,5 +9,7 @@
 	"cx-translation-add-translation": "Tambah tarjamahan",
 	"cx-tools-link-remove": "Pupus tutumbu",
 	"cx-tools-reference-remove": "Pupus rujukan",
-	"cx-draft-cancel-button-label": "Bolay"
+	"cx-captcha-dialog-cancel": "Bolay",
+	"cx-draft-cancel-button-label": "Bolay",
+	"cx-tools-linter-restart-translation-cancel": "Bolay"
 }

@@ -4,7 +4,8 @@
 			"Csega",
 			"Tacsipacsi",
 			"ViDam",
-			"Máté"
+			"Máté",
+			"Bencemac"
 		]
 	},
 	"apihelp-cxpublish-description": "Egy Tartalomfordítóval létrehozott lap mentése.",
@@ -49,6 +50,7 @@
 	"apihelp-cxdelete-param-to": "A célnyelv kódja.",
 	"apihelp-cxdelete-param-sourcetitle": "A forráscikk címe.",
 	"apihelp-cxdelete-example-1": "Egy adott nyelvpárral és címmel megadott piszkozat törlése.",
+	"apihelp-cxsuggestionlist-param-titles": "Lapcímek.",
 	"apihelp-cxsuggestionlist-param-from": "A forrásnyelv kódja.",
 	"apihelp-cxsuggestionlist-param-to": "A célnyelv kódja.",
 	"apihelp-cxsave-param-sourcerevision": "A forráslap lapváltozata.",

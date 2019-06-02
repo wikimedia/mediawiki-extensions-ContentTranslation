@@ -96,7 +96,9 @@
 	"cx-selected-source-page-error-title-in-use": "Ez a cím [$1 már használatban van]",
 	"cx-page-missing-in-target-language": "Még hiányzik $1 nyelven",
 	"cx-page-number-of-languages": "Nyelvek száma",
-	"cx-mt-abuse-warning-title": "A fordításod $1% módosítatlan szöveget tartalmaz.",
+	"cx-mt-abuse-error-title": "A fordításod $1% módosítatlan szöveget tartalmaz.",
+	"cx-mt-abuse-error-text": "Az automatikus fordítás csak kiindulási alapként szolgál. Győződj meg arról, hogy a szöveg tartalma pontos és könnyen értelmezhető a nyelveden.\n\nFordításod nem publikálható további szerkesztés nélkül.",
+	"cx-mt-abuse-warning-title": "A fordításod egy része $1% módosítatlan szöveget tartalmaz.",
 	"cx-mt-abuse-warning-text": "Az automatikus fordítás csak kiindulási alapként szolgál. Győződj meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelveden, máskülönben a fordításod törlésre kerülhet.",
 	"cx-publish-captcha-title": "Annak ellenőrzése, hogy nem vagy robot",
 	"cx-captcha-dialog-error": "A válaszod nem tűnik helyesnek. Kérlek próbáld újra.",
@@ -239,10 +241,12 @@
 	"cx-tools-linter-cannot-publish-title": "A közzététel csak tapasztalt szerkesztőknek engedélyezett",
 	"cx-tools-linter-cannot-publish-action-label": "Publikálás piszkozatként",
 	"cx-tools-linter-template": "Sablon nem elérhető",
+	"cx-tools-linter-template-block-message": "Az eredeti lap egy olyan sablont használ, ami nem elérhető a célwikin.\n\nEz a sablon átugrásra került, viszont hozzáadhatsz további tartalmat a hiányzó információk pótlására.",
 	"cx-tools-linter-template-add-new": "Új sablon hozzáadása",
 	"cx-tools-linter-old-revision": "A fordítás a lap egyik korábbi változatán alapul.",
 	"cx-tools-linter-old-revision-message": "Ez a fordítás egy korábbi változaton alapul. A forráslap azóta [$1 jelentősen megváltozhatott].\n\nFolytathatod ezt a fordítást, vagy újrakezdheted immáron a módosult változatot használva. Amennyiben újrakezded a fordítást, minden eddigi változtatásod elveszik.",
 	"cx-tools-linter-old-revision-label": "A fordítás újrakezdése",
+	"cx-tools-linter-reference": "Hiányzó hivatkozás",
 	"cx-tools-linter-restart-translation-title": "Fordítás újrakezdése?",
 	"cx-tools-linter-restart-translation-message": "Új fordítást kezdesz az oldal legfrissebb változata alapján. Minden eddigi változtatásod el fog veszni.",
 	"cx-tools-linter-restart-translation-cancel": "Törlés",
@@ -271,5 +275,6 @@
 	"cx-linkcontextitem-missing-link-title": "Hiányzó hivatkozás",
 	"cx-linkcontextitem-missing-title-description": "Ez a lap még nem létezik",
 	"cx-mt-abuse-publish-error": "A fordításodat nem lehet közzétenni, mert az túl sok módosítatlan szöveget tartalmaz.",
-	"cx-unreviewed-translation-category": "Lapok ellenőrizetlen fordításokkal"
+	"cx-unreviewed-translation-category": "Lapok ellenőrizetlen fordításokkal",
+	"cx-unreviewed-translation-category-desc": "Olyan Tartalomfordító eszközzel készült lapok, amelyek nagy mennyiségű ellenőrizetlen tartalommal rendelkeznek."
 }

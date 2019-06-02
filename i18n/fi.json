@@ -13,7 +13,8 @@
 			"Prevodim",
 			"Pahkiqaz",
 			"Valtlait",
-			"Kyykaarme"
+			"Kyykaarme",
+			"Antsa"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -233,6 +234,7 @@
 	"cx-tools-linter-template-add-new": "Lisää uusi malline",
 	"cx-tools-linter-old-revision-message": "Tämä käännös perustuu vanhempaan versioon sisällöstä. Lähdesivu on voinut [$1 muuttua huomattavasti].\n\nVoit jatkaa tätä käännöstä tai aloittaa sen alusta päivitetyllä sisällöllä. Jos aloitat käännöksen alusta, nykyiset muutoksesi katoavat.",
 	"cx-tools-linter-old-revision-label": "Aloita kääntäminen uudelleen",
+	"cx-tools-linter-reference": "Puuttuva viite",
 	"cx-tools-linter-restart-translation-title": "Aloita kääntäminen alusta?",
 	"cx-tools-linter-restart-translation-message": "Olet aloittamassa uutta käännöstä sivun viimeisimmästä versiosta. Kaikki muutoksesi häviävät.",
 	"cx-tools-linter-restart-translation-cancel": "Peruuta",
