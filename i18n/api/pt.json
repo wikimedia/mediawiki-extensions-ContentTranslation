@@ -127,5 +127,10 @@
 	"apierror-cx-translationnotfound": "A tradução não foi encontrada.",
 	"apihelp-query+langlinkscount-description": "Obter o número de outras línguas nas quais esse artigo existe.",
 	"apihelp-query+langlinkscount-summary": "Obter o número de versões noutras línguas.",
-	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'."
+	"apihelp-query+langlinkscount-example-1": "Obter o número de versões noutras línguas da página 'Dog'.",
+	"apihelp-query+cxdeletedtranslations-description": "Obter o número das suas traduções publicadas num determinado espaço nominal que foram eliminadas após uma determinada data.",
+	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das suas traduções publicadas que foram eliminadas.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Obter apenas eliminações feitas após esta data e hora.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaço nominal no qual foram publicadas as traduções eliminadas. Por padrão, o espaço nominal principal.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das suas traduções eliminadas, que foram publicadas no espaço nominal principal e eliminadas depois de 2019-04-07 16:24:44"
 }

@@ -129,5 +129,10 @@
 	"apierror-cx-translationnotfound": "Traduction non trouvée.",
 	"apihelp-query+langlinkscount-description": "Obtenir le nombre d’autres langues dans lesquelles existe cet article.",
 	"apihelp-query+langlinkscount-summary": "Obtenir le nombre d’autres versions linguistiques.",
-	"apihelp-query+langlinkscount-example-1": "Obtenir le nombre d’autres versions linguistiques de la page « Chien »"
+	"apihelp-query+langlinkscount-example-1": "Obtenir le nombre d’autres versions linguistiques de la page « Chien »",
+	"apihelp-query+cxdeletedtranslations-description": "Obtenir le nombre de vos traductions publiées dans un espace de noms qui a été supprimé après une certaine date.",
+	"apihelp-query+cxdeletedtranslations-summary": "Obtenir le nombre de vos traductions publiées qui ont été supprimées.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Horodatage pour obtenir seulement les suppressions les plus récentes.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Espace de noms dans lequel les traductions supprimées seront publiées. Par défaut, l’espace de noms principal.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Obtenir le nombre de vos traductions supprimées, qui ont été publiées vers l’espace de noms principal et supprimées après le 07/04/2019 à 16h24:44"
 }
