@@ -215,11 +215,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		$out = $this->getOutput();
 
-		$out->addJsConfigVars(
-			'wgContentTranslationExcludedNamespaces',
-			$wgContentTranslationExcludedNamespaces
-		);
-
 		if ( $this->onTranslationView() ) {
 			$version = $this->shouldUseNewVersion() ? 2 : 1;
 
@@ -234,6 +229,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
 				'wgRecommendToolAPIURL' => $wgRecommendToolAPIURL,
+				'wgContentTranslationExcludedNamespaces' => $wgContentTranslationExcludedNamespaces
 			] );
 		}
 	}
