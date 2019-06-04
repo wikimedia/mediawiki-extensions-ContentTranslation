@@ -71,23 +71,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
  * @return {number} Target namespace id
  */
 mw.cx.getDefaultTargetNamespace = function () {
-	var userGroups, group, groupTargetNamespaceConfig, targetNamespace;
-
-	groupTargetNamespaceConfig = mw.config.get( 'wgContentTranslationUserGroupTargetNamespace', {} );
-	userGroups = mw.config.get( 'wgUserGroups', [] );
-
-	for ( group in groupTargetNamespaceConfig ) {
-		if ( userGroups.indexOf( group ) >= 0 ) {
-			targetNamespace = groupTargetNamespaceConfig[ group ];
-			break;
-		}
-	}
-
-	if ( !targetNamespace ) {
-		// No match found in ContentTranslationUserGroupTargetNamespace.
-		// Use wiki level namespace defined in ContentTranslationTargetNamespace
-		targetNamespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
-	}
+	var targetNamespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
 
 	// Validate the configuration.
 	if ( !( targetNamespace in mw.config.get( 'wgFormattedNamespaces' ) ) ) {

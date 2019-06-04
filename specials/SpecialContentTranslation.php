@@ -206,8 +206,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function addJsConfigVars() {
-		global $wgContentTranslationUserGroupTargetNamespace,
-			$wgContentTranslationUnmodifiedMTThresholdForPublish,
+		global $wgContentTranslationUnmodifiedMTThresholdForPublish,
 			$wgContentTranslationCampaigns,
 			$wgContentTranslationExcludedNamespaces,
 			$wgContentTranslationPublishRequirements,
@@ -216,12 +215,10 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 
 		$out = $this->getOutput();
 
-		$out->addJsConfigVars( [
-			'wgContentTranslationUserGroupTargetNamespace' =>
-				$wgContentTranslationUserGroupTargetNamespace,
-			'wgContentTranslationExcludedNamespaces' =>
-				$wgContentTranslationExcludedNamespaces,
-		] );
+		$out->addJsConfigVars(
+			'wgContentTranslationExcludedNamespaces',
+			$wgContentTranslationExcludedNamespaces
+		);
 
 		if ( $this->onTranslationView() ) {
 			$version = $this->shouldUseNewVersion() ? 2 : 1;
