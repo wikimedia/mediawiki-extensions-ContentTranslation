@@ -156,8 +156,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function publish() {
-		global $wgContentTranslationTranslateInTarget,
-			$wgContentTranslationEventLogging;
+		global $wgContentTranslationTranslateInTarget;
 
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
@@ -245,10 +244,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			if ( $trackingCategoryKey !== false ) {
 				$extensionRegistry = ExtensionRegistry::getInstance();
 
-				if (
-					$wgContentTranslationEventLogging &&
-					$extensionRegistry->isLoaded( 'EventLogging' )
-				) {
+				if ( $extensionRegistry->isLoaded( 'EventLogging' ) ) {
 					EventLogging::logEvent(
 						'ContentTranslation',
 						$extensionRegistry->getAttribute( 'EventLoggingSchemas' )[ 'ContentTranslation' ],

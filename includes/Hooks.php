@@ -100,8 +100,7 @@ class Hooks {
 	 * @param Skin $skin
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
-		global $wgContentTranslationAsBetaFeature,
-			$wgContentTranslationEventLogging, $wgContentTranslationCampaigns;
+		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -119,19 +118,13 @@ class Hooks {
 				!$user->isAnon() &&
 				$title->userCan( 'edit', $user )
 			) {
-				$out->addModules( 'ext.cx.entrypoints.newarticle.veloader' );
-
-				if ( $wgContentTranslationEventLogging ) {
-					$out->addModules( 'ext.cx.eventlogging.campaigns' );
-				}
+				$out->addModules( [
+					'ext.cx.entrypoints.newarticle.veloader',
+					'ext.cx.eventlogging.campaigns'
+				] );
 			}
 
 			return;
-		}
-
-		// If EventLogging integration is enabled, load the event logging functions module
-		if ( $wgContentTranslationEventLogging ) {
-			$out->addModules( 'ext.cx.eventlogging.campaigns' );
 		}
 
 		if ( $title->inNamespace( NS_MAIN ) &&
@@ -147,7 +140,10 @@ class Hooks {
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar
-		$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
+		$out->addModules( [
+			'ext.cx.eventlogging.campaigns',
+			'ext.cx.entrypoints.contributionsmenu'
+		] );
 	}
 
 	/**
@@ -186,16 +182,13 @@ class Hooks {
 	 * @param SpecialPage $page
 	 */
 	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
-		global $wgContentTranslationEventLogging;
-
 		if ( $user->getId() === $page->getUser()->getId() &&
 			self::isEnabledForUser( $user )
 		) {
-			// If EventLogging integration is enabled, load the event logging functions module
-			if ( $wgContentTranslationEventLogging ) {
-				$page->getOutput()->addModules( 'ext.cx.eventlogging.campaigns' );
-			}
-			$page->getOutput()->addModules( 'ext.cx.contributions' );
+			$page->getOutput()->addModules( [
+				'ext.cx.eventlogging.campaigns',
+				'ext.cx.contributions'
+			] );
 		}
 	}
 
@@ -275,7 +268,7 @@ class Hooks {
 	 * @param OutputPage $out
 	 */
 	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
-		global $wgContentTranslationCampaigns, $wgContentTranslationEventLogging;
+		global $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
 
@@ -290,13 +283,10 @@ class Hooks {
 			return;
 		}
 
-		// If EventLogging integration is enabled, load the event logging functions module
-		// to measure and analyse the usage of this entry point.
-		if ( $wgContentTranslationEventLogging ) {
-			$out->addModules( 'ext.cx.eventlogging.campaigns' );
-		}
-
-		$out->addModules( 'ext.cx.entrypoints.newarticle' );
+		$out->addModules( [
+			'ext.cx.eventlogging.campaigns',
+			'ext.cx.entrypoints.newarticle'
+		] );
 	}
 
 	/**

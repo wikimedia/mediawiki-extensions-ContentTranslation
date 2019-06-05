@@ -150,7 +150,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function initModules() {
-		global $wgContentTranslationTranslateInTarget, $wgContentTranslationEventLogging;
+		global $wgContentTranslationTranslateInTarget;
 
 		$out = $this->getOutput();
 
@@ -164,19 +164,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
-				$out->addModules( 'ext.cx.wikibase.link' );
-			}
-
-			if ( $wgContentTranslationEventLogging ) {
-				$out->addModules( 'ext.cx.eventlogging.translation' );
+				$out->addModules( [ 'ext.cx.wikibase.link', 'ext.cx.eventlogging.translation' ] );
 			}
 		} else {
-			$out->addModules( 'ext.cx.dashboard' );
+			$out->addModules( [ 'ext.cx.dashboard', 'ext.cx.eventlogging.dashboard' ] );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-
-			if ( $wgContentTranslationEventLogging ) {
-				$out->addModules( 'ext.cx.eventlogging.dashboard' );
-			}
 		}
 	}
 
