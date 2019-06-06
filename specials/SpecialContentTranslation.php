@@ -78,7 +78,12 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		// foo_bar, but that *does* work because MediaWiki's getCookie transparently maps periods to
 		// underscores. If there is any further bugs reported about this, please use base64.
 		$title = strtr( $title, ' ', '_' );
-		list( $from, $to ) = array_values( $request->getValues( 'from', 'to' ) );
+
+		$from = $request->getVal( 'from' );
+		$to = $request->getVal( 'to' );
+		if ( $from === null || $to === null ) {
+			return false;
+		}
 		$cookieName = implode( '_', [ 'cx', $title, $from, $to ] );
 
 		$hasToken = $request->getCookie( $cookieName, '' ) !== null;
