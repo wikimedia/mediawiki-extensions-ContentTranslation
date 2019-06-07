@@ -111,6 +111,7 @@
 	"cx-page-missing-in-target-language": "Label appended to search result in Special:ContentTranslation when using the \"Start new article\" feature, which indicates that matching article is missing in target language.\n\nParameters:\n* $1 - The autonym of the language",
 	"cx-page-number-of-languages": "Tooltip shown in Special:ContentTranslation over the icon that shows how many languages the article is available in",
 	"cx-mt-abuse-error-title": "Title of error issue card displayed when translation in a whole uses machine translation too much.\n* $1: Percentage of machine translation",
+	"cx-mt-abuse-error-sections": "Title of error issue card displayed when there are too many sections with high MT usage.",
 	"cx-mt-abuse-error-text": "Message body of error issue card displayed when translation in a whole uses machine translation too much.",
 	"cx-mt-abuse-warning-title": "Title of warning issue card displayed when paragraph uses machine translation too much.\n* $1: Percentage of machine translation",
 	"cx-mt-abuse-warning-text": "Message body of warning issue card displayed when paragraph uses machine translation too much.",

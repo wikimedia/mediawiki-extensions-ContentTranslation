@@ -100,6 +100,7 @@
 	"cx-page-missing-in-target-language": "Missing in $1",
 	"cx-page-number-of-languages": "Number of languages",
 	"cx-mt-abuse-error-title": "Your translation {{PLURAL:$1|contains}} a total of $1% of unmodified text",
+	"cx-mt-abuse-error-sections": "Your translation contains significant portions of unmodified text",
 	"cx-mt-abuse-error-text": "Automatic translation is provided only as a starting point. Make sure that the content is accurate and reads naturally in your language.\n\nYour translation cannot be published without further editing.",
 	"cx-mt-abuse-warning-title": "Part of your translation {{PLURAL:$1|contains}} $1% of unmodified text",
 	"cx-mt-abuse-warning-text": "Automatic translation is provided only as a starting point. Make sure that the content is accurate and reads naturally in your language.\n\nYour translation is likely to be deleted when it is reviewed by other editors.",

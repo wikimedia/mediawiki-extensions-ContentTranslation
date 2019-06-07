@@ -531,17 +531,19 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
-	var mtAbusePublishMsg = mw.msg( 'cx-mt-abuse-publish-error' ),
-		numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length;
+	var numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
+		mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
 	mw.log( '[CX] Publishing translation...' );
 
 	// Scroll to the top of the page, so success/fail messages become visible
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 
-	if ( this.checkForMTAbuse( numOfHighMTSections ) ) {
-		this.translationView.showViewIssuesMessage( mtAbusePublishMsg, 'mt-abuse-publish', 'error' );
-		this.showMTAbusePublishError();
+	if ( mtAbuseMsg instanceof mw.Message ) {
+		this.translationView.showViewIssuesMessage(
+			mw.msg( 'cx-mt-abuse-publish-error' ), 'mt-abuse-publish', 'error'
+		);
+		this.showMTAbusePublishError( mtAbuseMsg.toString() );
 		this.onPublishCancel();
 		this.mtAbusePublishingStopped = true;
 		return;
@@ -561,19 +563,14 @@ mw.cx.TranslationController.prototype.publish = function () {
 	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
 };
 
-mw.cx.TranslationController.prototype.showMTAbusePublishError = function () {
+mw.cx.TranslationController.prototype.showMTAbusePublishError = function ( title ) {
 	this.translation.resolveIssueByName( 'mt-abuse-publish' );
 	this.translation.addUnattachedIssues( [
 		new mw.cx.dm.TranslationIssue(
 			'mt-abuse-publish', // Issue name
 			mw.msg( 'cx-mt-abuse-error-text' ), // message body
 			{
-				title: mw.msg(
-					'cx-mt-abuse-error-title',
-					mw.language.convertNumber(
-						Math.round( this.translationTracker.getUnmodifiedMTPercentageInTranslation() )
-					)
-				),
+				title: title,
 				type: 'error',
 				help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
 			}
@@ -719,23 +716,31 @@ mw.cx.TranslationController.prototype.getTimestamp = function () {
 };
 
 /**
- * Check if the translation has too much MT usage.
+ * Check if the translation has too much MT usage and get appropriate message.
  *
  * @param {number} numOfHighMTSections
- * @return {boolean} True if MT abuse is detected. False otherwise.
+ * @return {mw.Message|null}
  */
-mw.cx.TranslationController.prototype.checkForMTAbuse = function ( numOfHighMTSections ) {
+mw.cx.TranslationController.prototype.getMTAbuseMsg = function ( numOfHighMTSections ) {
 	var mtPercentage, threshold,
 		highMTSectionsThreshold = this.hasDeletedTranslations ? 5 : 10;
 
 	if ( numOfHighMTSections >= highMTSectionsThreshold ) {
-		return true;
+		return mw.message( 'cx-mt-abuse-error-sections' );
 	}
 
 	mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
 	mw.log( 'Unmodified MT percentage: ' + mtPercentage );
 	threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
-	return mtPercentage > parseFloat( threshold );
+
+	if ( mtPercentage > parseFloat( threshold ) ) {
+		return mw.message(
+			'cx-mt-abuse-error-title',
+			mw.language.convertNumber( Math.round( mtPercentage ) )
+		);
+	}
+
+	return null;
 };
 
 /**
