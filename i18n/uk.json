@@ -60,6 +60,7 @@
 	"cx-entrypoint-title": "Перекласти цю сторінку на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ця сторінка ще не існує мовою $1. {{GENDER:|Ви}} хочете створити її?",
 	"cx-entrypoint-dialog-button-translate-from": "Переклад з мови $1",
+	"cx-entrypoint-dialog-desc": "Ви можете допомогти Вікіпедії, переклавши цю сторінку. Це легкий спосіб створювати новий контент Вашою мовою.",
 	"cx-special-login-error": "Ви повинні увійти в систему, щоб перекласти цю сторінку. [$1 Увійти]",
 	"cx-tools-instructions-text1": "{{GENDER:|Клацніть}} абзаци для перекладу",
 	"cx-tools-instructions-text2": "{{GENDER:|Вам}} не потрібно додавати їх усі",

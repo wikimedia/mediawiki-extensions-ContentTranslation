@@ -124,5 +124,10 @@
 	"apierror-cx-translationnotfound": "Översättning hittades inte.",
 	"apihelp-query+langlinkscount-description": "Hämta antalet andra språk som artiklar finns på.",
 	"apihelp-query+langlinkscount-summary": "Hämta antalet andra språkversioner.",
-	"apihelp-query+langlinkscount-example-1": "Hämta antalet andra språkversioner för sidan \"Dog\""
+	"apihelp-query+langlinkscount-example-1": "Hämta antalet andra språkversioner för sidan \"Dog\"",
+	"apihelp-query+cxdeletedtranslations-description": "Hämta antalet av dina översättning som publicerades i några namnrymder som raderades efter ett särskilt datum.",
+	"apihelp-query+cxdeletedtranslations-summary": "Hämta antalet av dina publicerade översättningar som raderades.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Tidsstämpel för att endast hämta nyare raderingar.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Namnrymder som de raderade översättningarna publicerades i. Huvudnamnrymden är standard.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Hämta antalet av dina raderade översättningar som publicerades till huvudnamnrymden och raderades efter 2019-04-07 16:24:44"
 }
