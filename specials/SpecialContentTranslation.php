@@ -102,33 +102,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	/**
-	 * Check if the translation exist for the given language pairs
-	 * and source title in the request.
-	 * @return bool
-	 */
-	public function isExistingTranslation() {
-		$request = $this->getRequest();
-		$translation = Translation::find(
-			$request->getVal( 'from' ),
-			$request->getVal( 'to' ),
-			$request->getVal( 'page' )
-		);
-		if ( $translation !== null ) {
-			if ( $translation->translation['status'] === 'deleted' ) {
-				return false;
-			}
-
-			// Check if the translation belongs to the current user.
-			$user = $this->getUser();
-			$translator = new Translator( $user );
-			return $translator->getGlobalUserId() ===
-				intval( $translation->translation['lastUpdatedTranslator'] );
-		}
-
-		return false;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function canUserProceed() {
@@ -170,15 +143,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 * @return bool
 	 */
 	protected function onTranslationView() {
-		if ( $this->hasValidToken() ) {
-			return true;
-		}
-
-		if ( $this->getUser()->isAnon() ) {
-			return false;
-		} else {
-			return $this->isExistingTranslation();
-		}
+		return $this->hasValidToken();
 	}
 
 	/**
