@@ -51,8 +51,13 @@ ve.dm.CXReferenceNode.static.toDataElement = function ( domElements ) {
  * @inheritdoc
  */
 ve.dm.CXReferenceNode.static.toDomElements = function ( dataElement ) {
-	var elements = ve.dm.CXReferenceNode.super.static.toDomElements.apply( this, arguments );
-	elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
+	var elements = ve.dm.CXReferenceNode.super.static.toDomElements.apply( this, arguments ),
+		cxData = OO.getProp( dataElement, 'attributes', 'cx' );
+
+	if ( cxData ) {
+		elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( cxData ) );
+	}
+
 	return elements;
 };
 
