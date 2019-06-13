@@ -102,15 +102,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		return;
 	}
 
-	if ( this.isAdapted() ) {
-		return;
-	}
-
-	if ( !this.hasAdaptationInfo() ) {
-		mw.log.warn(
-			'[CX] Template adaptation status is missing for a block template in section ' +
-			sectionNode.getId()
-		);
+	if ( !this.missingInTargetLanguage() ) {
 		return;
 	}
 
