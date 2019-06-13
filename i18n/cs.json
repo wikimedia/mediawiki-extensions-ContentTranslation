@@ -65,6 +65,7 @@
 	"cx-entrypoint-title": "Přeložit tuto stránku do jazyka $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tato stránka zatím v jazyce $1 neexistuje. {{GENDER:|Chcete}} ji založit?",
 	"cx-entrypoint-dialog-button-translate-from": "Přeložit z jazyka $1",
+	"cx-entrypoint-dialog-desc": "Můžete Wikipedii pomoct překladem této stránky. Jde o jednoduchý způsob, jakým vytvoříte nový obsah ve svém jazyce.",
 	"cx-special-login-error": "Pro překlad této stránky musíte být přihlášeni. [$1 Přihlásit se]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klikněte}} na odstavec, který {{GENDER:|chcete}} přeložit",
 	"cx-tools-instructions-text2": "{{GENDER:|Nemusíte}} je přeložit všechny najednou",
