@@ -160,11 +160,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				// Change init module to use CX2
 				$initModule = 'mw.cx.init';
 			}
-			$out->addModules( $initModule );
+			$out->addModules( [ $initModule, 'ext.cx.eventlogging.translation' ] );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
-				$out->addModules( [ 'ext.cx.wikibase.link', 'ext.cx.eventlogging.translation' ] );
+				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
 			$out->addModules( [ 'ext.cx.dashboard', 'ext.cx.eventlogging.dashboard' ] );
