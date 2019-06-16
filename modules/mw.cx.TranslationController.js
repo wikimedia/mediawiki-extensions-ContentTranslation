@@ -582,7 +582,7 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function ( title
  * @param {number} numOfHighMTSections
  */
 mw.cx.TranslationController.prototype.publishArticle = function ( numOfHighMTSections ) {
-	var shouldAddHighMTCategory = numOfHighMTSections > ( this.hasDeletedTranslations ? 0 : 1 );
+	var shouldAddHighMTCategory = numOfHighMTSections >= ( this.hasDeletedTranslations ? 1 : 10 );
 
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
@@ -723,7 +723,7 @@ mw.cx.TranslationController.prototype.getTimestamp = function () {
  */
 mw.cx.TranslationController.prototype.getMTAbuseMsg = function ( numOfHighMTSections ) {
 	var mtPercentage, threshold,
-		highMTSectionsThreshold = this.hasDeletedTranslations ? 5 : 10;
+		highMTSectionsThreshold = this.hasDeletedTranslations ? 10 : 50;
 
 	if ( numOfHighMTSections >= highMTSectionsThreshold ) {
 		return mw.message( 'cx-mt-abuse-error-sections' );
