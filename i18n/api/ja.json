@@ -6,7 +6,8 @@
 			"Sujiniku",
 			"Takot",
 			"Otokoume",
-			"Kkairri"
+			"Kkairri",
+			"Omotecho"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -69,7 +70,15 @@
 	"apihelp-cxsave-param-from": "翻訳元の言語コード。",
 	"apihelp-cxsave-param-to": "翻訳先の言語コード。",
 	"apihelp-cxsave-param-sourcetitle": "翻訳元のページ名。",
+	"apierror-cx-docserverexception": "HTML からウィキテキストへの変換に失敗しました：$1",
 	"apierror-cx-jwtmissing": "JWT がインストールされていません。",
+	"apierror-cx-mustbeloggedin-viewtranslations": "ご自分の翻訳を閲覧するには、ログインしてください。",
+	"apihelp-query+langlinkscount-description": "その記事がいくつの言語版に存在するか調べます。",
 	"apihelp-query+langlinkscount-summary": "他言語版の件数を取得する。",
-	"apihelp-query+langlinkscount-example-1": "'Dog' のページの他言語版の件数を取得する。"
+	"apihelp-query+langlinkscount-example-1": "'Dog' のページの他言語版の件数を取得する。",
+	"apihelp-query+cxdeletedtranslations-description": "特定の名前空間に公開されたご自分の翻訳で、特定の日付以降、名前空間ごと削除された件数を調べます。",
+	"apihelp-query+cxdeletedtranslations-summary": "ご自分の翻訳で公開後に削除された件数を調べます。",
+	"apihelp-query+cxdeletedtranslations-param-after": "タイムスタンプでより新しい削除に絞り込む。",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "削除された翻訳がもともと公開された名前空間。既定はメイン名前空間を指定。",
+	"apihelp-query+cxdeletedtranslations-example-1": "ご自分が翻訳してメインの名前空間に公開されたのち、2019-04-07 16:24:44 以降に削除された件数を調べるには"
 }
