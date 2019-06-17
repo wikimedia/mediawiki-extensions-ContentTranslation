@@ -1324,6 +1324,9 @@
 				"cx-tools-linter-template-add-new",
 				"cx-tools-linter-template-block-message",
 				"cx-tools-linter-template-inline-message",
+				"cx-tools-linter-incomplete-template",
+				"cx-tools-linter-empty-template",
+				"cx-tools-linter-template-missing-mandatory",
 				"cx-tools-linter-reference",
 				"cx-tools-linter-reference-message"
 			],

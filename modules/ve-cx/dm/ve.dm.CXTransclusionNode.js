@@ -88,7 +88,9 @@ ve.dm.CXTransclusionBlockNode.static.matchTagNames = [];
 /* Methods */
 
 ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
-	var sectionNode = this.findParent( ve.dm.CXSectionNode );
+	var message, title,
+		additionalButtons = [],
+		sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
 	// 1) attach is called with VeDmSectionNode and we cannot access VeDmCXSectionNode
@@ -102,24 +104,40 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		return;
 	}
 
-	if ( !this.missingInTargetLanguage() ) {
+	if ( this.missingInTargetLanguage() ) {
+		// TODO: Add help link
+		title = mw.msg( 'cx-tools-linter-template' );
+		message = mw.message( 'cx-tools-linter-template-block-message' );
+		additionalButtons.push( {
+			icon: 'puzzle',
+			label: mw.msg( 'cx-tools-linter-template-add-new' ),
+			action: this.addNewTemplate
+		} );
+	} else if ( !this.isAdapted() ) {
+		title = mw.msg( 'cx-tools-linter-incomplete-template' );
+		message = mw.message( 'cx-tools-linter-empty-template' );
+	} else if ( this.isPartiallyAdapted() ) {
+		title = mw.msg( 'cx-tools-linter-incomplete-template' );
+		message = mw.message( 'cx-tools-linter-template-missing-mandatory' );
+	} else {
+		if ( !this.hasAdaptationInfo() ) {
+			mw.log.warn(
+				'[CX] Template adaptation status is missing for a block template in section ' +
+				sectionNode.getId()
+			);
+		}
+
 		return;
 	}
 
 	// TODO: Add help link
 	sectionNode.addTranslationIssues( [ {
 		name: 'block-template',
-		message: mw.message( 'cx-tools-linter-template-block-message' ),
+		message: message,
 		messageInfo: {
-			title: mw.msg( 'cx-tools-linter-template' ),
+			title: title,
 			resolvable: true,
-			additionalButtons: [
-				{
-					icon: 'puzzle',
-					label: mw.msg( 'cx-tools-linter-template-add-new' ),
-					action: this.addNewTemplate
-				}
-			]
+			additionalButtons: additionalButtons
 		}
 	} ] );
 };
