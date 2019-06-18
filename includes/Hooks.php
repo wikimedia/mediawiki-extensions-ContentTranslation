@@ -9,6 +9,7 @@ namespace ContentTranslation;
 
 use Action;
 use BetaFeatures;
+use CentralAuthUser;
 use DatabaseUpdater;
 use EchoEvent;
 use EditPage;
@@ -33,6 +34,47 @@ class Hooks {
 	private static function isBetaFeatureEnabled( User $user ) {
 		return ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
 			&& BetaFeatures::isFeatureEnabled( $user, 'cx' );
+	}
+
+	/**
+	 * Check whether the current user is a potential translator
+	 *
+	 * @param User $user
+	 * @return bool
+	 */
+	private static function isPotentialTranslator( User $user ) {
+		if ( Translator::isTranslator( $user ) ) {
+			// Already a translator
+			return false;
+		}
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+			$centralUser = CentralAuthUser::newFromId( $user->getId() );
+			if ( !$centralUser ) {
+				// No user exists with that id
+				return false;
+			}
+
+			// Check if the user has edited in more than one wiki.
+			$editedWikiCount = 0;
+			$attachedAccounts = $centralUser->queryAttached();
+			foreach ( $attachedAccounts as $account ) {
+				if (
+					// Ignore non-wikipedia wikis such as commons, mediawiki, meta etc
+					// url property example "https://commons.wikimedia.org",
+					strpos( $account['url'], 'wikipedia' ) !== false &&
+					intval( $account['editCount'] ) > 0
+				) {
+					$editedWikiCount++;
+					break;
+				}
+			}
+			if ( $editedWikiCount === 0 ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**
@@ -337,10 +379,10 @@ class Hooks {
 			return;
 		}
 
-		if ( !$wgContentTranslationAsBetaFeature &&
+		if ( $wgContentTranslationAsBetaFeature === false &&
 			// CX is enabled for everybody. Not a beta feature.
 			!self::getGlobalPreference( $user, 'cx_campaign_newarticle_hide' ) &&
-			!Translator::isTranslator( $user ) // User is not a translator already.
+			self::isPotentialTranslator( $user )
 		) {
 			$out->addModules( [
 				'ext.cx.entrypoints.newbytranslation',
