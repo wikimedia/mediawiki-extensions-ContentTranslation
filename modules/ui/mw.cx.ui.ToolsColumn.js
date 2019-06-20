@@ -32,7 +32,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 		items: [ this.editingToolbarContainer, this.mtToolbarContainer ]
 	} );
 
-	this.issueCard = null;
+	this.issueCard = mw.cx.tools.translationToolFactory.create( 'issues' );
 
 	// Configuration initialization
 	this.config = $.extend( {}, config, {
@@ -89,15 +89,13 @@ mw.cx.ui.ToolsColumn.prototype.showInstructions = function () {
  * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
  */
 mw.cx.ui.ToolsColumn.prototype.showIssues = function ( nodesWithIssues ) {
-	this.hideIssues();
-	this.issueCard = mw.cx.tools.translationToolFactory.create( 'issues', nodesWithIssues );
+	this.issueCard.showIssues( nodesWithIssues );
 	this.showTool( this.issueCard );
 };
 
 mw.cx.ui.ToolsColumn.prototype.hideIssues = function () {
 	if ( this.issueCard ) {
 		this.hideTool( this.issueCard );
-		this.issueCard.destroy();
 	}
 };
 

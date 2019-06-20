@@ -6,18 +6,12 @@
  * @class
  * @constructor
  * @extends mw.cx.tools.TranslationTool
- *
- * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
  */
-mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) {
-	this.nodesWithIssues = nodesWithIssues;
-
+mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool() {
 	// Parent constructor
 	mw.cx.tools.IssueTrackingTool.super.call( this, null, {} ); // Third param is empty object to avoid JS errors
 
 	this.actionButtons = new OO.ui.ButtonGroupWidget();
-
-	this.veTarget = ve.init.target;
 
 	this.numberOfIssues = 0;
 	this.numberOfWarnings = 0;
@@ -25,7 +19,6 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 
 	// Array of plain objects with ID and translation issue model
 	this.allIssues = [];
-	this.processAllIssues();
 
 	this.currentIssue = 1;
 	this.currentNode = null;
@@ -60,13 +53,11 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	} );
 	this.warningsCount = new OO.ui.ButtonWidget( {
 		framed: false,
-		classes: [ 'cx-tools-linter-warnings-count' ],
-		label: mw.msg( 'cx-tools-linter-warnings-count', this.numberOfWarnings )
+		classes: [ 'cx-tools-linter-warnings-count' ]
 	} );
 	this.errorsCount = new OO.ui.ButtonWidget( {
 		framed: false,
-		classes: [ 'cx-tools-linter-errors-count' ],
-		label: mw.msg( 'cx-tools-linter-errors-count', this.numberOfErrors )
+		classes: [ 'cx-tools-linter-errors-count' ]
 	} );
 
 	// Events
@@ -83,13 +74,11 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool( nodesWithIssues ) 
 	this.card.$element
 		.addClass( 'mw-cx-tools-IssueTracking' )
 		.on( 'mousedown', false );
-	this.card.$information.addClass( 'mw-cx-tools-IssueTracking-body' );
-
-	this.card.$information.on( 'click', this.showExpanded.bind( this ) );
+	this.card.$information
+		.addClass( 'mw-cx-tools-IssueTracking-body' )
+		.on( 'click', this.showExpanded.bind( this ) );
 	this.warningsCount.connect( this, { click: [ 'openFirstOfType', 'warning' ] } );
 	this.errorsCount.connect( this, { click: [ 'openFirstOfType', 'error' ] } );
-
-	this.init();
 };
 
 /* Inheritance */
@@ -241,13 +230,8 @@ mw.cx.tools.IssueTrackingTool.prototype.getData = function () {
  * @return {jQuery}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getBody = function () {
-	var issues = this.allIssues.map( function ( element, index ) {
-		return new mw.cx.ui.TranslationIssueWidget( index, element.issue );
-	} );
-
-	this.issuesLayout
-		.toggleMenu( false ) // IndexLayout offers config option showMenu, but does not respect setting it to false
-		.addTabPanels( issues );
+	// IndexLayout offers config option showMenu, but does not respect setting it to false
+	this.issuesLayout.toggleMenu( false );
 
 	return this.errorsCount.$element
 		.add( this.warningsCount.$element )
@@ -292,8 +276,12 @@ mw.cx.tools.IssueTrackingTool.prototype.showCollapsed = function () {
 	this.actionButtons.clearItems().addItems( [ this.expandButton ] );
 
 	this.issuesLayout.toggle( false );
-	this.warningsCount.toggle( this.numberOfWarnings > 0 );
-	this.errorsCount.toggle( this.numberOfErrors > 0 );
+	this.warningsCount
+		.toggle( this.numberOfWarnings > 0 )
+		.setLabel( mw.msg( 'cx-tools-linter-warnings-count', this.numberOfWarnings ) );
+	this.errorsCount
+		.toggle( this.numberOfErrors > 0 )
+		.setLabel( mw.msg( 'cx-tools-linter-errors-count', this.numberOfErrors ) );
 	this.removeCurrentNodeHighlight();
 };
 
@@ -426,17 +414,27 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
  * @return {ve.ce.CXSectionNode|mw.cx.ui.PageTitleWidget|mw.cx.dm.Translation|null}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {
-	var node = this.veTarget.getTargetSectionElementFromSectionNumber( id );
+	var node = this.getVeTarget().getTargetSectionElementFromSectionNumber( id );
 
 	if ( !node && id === 'title' ) {
-		node = this.veTarget.translationView.targetColumn.getTitleWidget();
+		node = this.getVeTarget().translationView.targetColumn.getTitleWidget();
 	}
 
 	if ( !node && id === 'global' ) {
-		node = this.veTarget.getTranslation();
+		node = this.getVeTarget().getTranslation();
 	}
 
 	return node;
+};
+
+/**
+ * Getter for VE target global object.
+ * We cannot assign this object in constructor because it is not yet available at that point.
+ *
+ * @return {ve.init.mw.CXTarget}
+ */
+mw.cx.tools.IssueTrackingTool.prototype.getVeTarget = function () {
+	return ve.init.target;
 };
 
 /**
@@ -446,12 +444,18 @@ mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {
  * - Register events for nodes with issues
  * - Set array of all issues, which is array of plain
  * objects, that have ID and model properties.
+ *
+ * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
  */
-mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
+mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues ) {
 	var i, length, j, numOfIssues, id, node, issue, issues, allIssues = [];
 
-	for ( i = 0, length = this.nodesWithIssues.length; i < length; i++ ) {
-		id = this.nodesWithIssues[ i ];
+	this.numberOfIssues = 0;
+	this.numberOfErrors = 0;
+	this.numberOfWarnings = 0;
+
+	for ( i = 0, length = nodesWithIssues.length; i < length; i++ ) {
+		id = nodesWithIssues[ i ];
 		node = this.getNodeForId( id );
 
 		if ( !node ) {
@@ -491,6 +495,11 @@ mw.cx.tools.IssueTrackingTool.prototype.processAllIssues = function () {
 	}
 
 	this.allIssues = allIssues;
+	issues = allIssues.map( function ( element, index ) {
+		return new mw.cx.ui.TranslationIssueWidget( index, element.issue );
+	} );
+	this.issuesLayout.clearTabPanels().addTabPanels( issues );
+	this.init();
 };
 
 /**
