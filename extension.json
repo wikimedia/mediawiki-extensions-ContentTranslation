@@ -901,6 +901,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.util",
 				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-interactions",
 				"ext.uls.init",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg"
