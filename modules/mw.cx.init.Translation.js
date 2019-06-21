@@ -436,7 +436,7 @@ mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = functio
 		return true;
 	}
 
-	return publishConfig.every( function ( userGroup ) {
+	return publishConfig.some( function ( userGroup ) {
 		return userGroups.indexOf( userGroup ) > -1;
 	} );
 };
