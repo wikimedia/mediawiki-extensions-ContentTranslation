@@ -31,6 +31,8 @@ ve.ui.CXPublishTool.static.title = OO.ui.deferMsg( 'cx-publish-button' );
 
 ve.ui.CXPublishTool.static.displayBothIconAndLabel = true;
 
+ve.ui.CXPublishTool.static.autoAddToCatchall = false;
+
 ve.ui.CXPublishTool.static.flags = [ 'primary', 'progressive' ];
 
 /* Methods */
