@@ -105,6 +105,10 @@ class Hooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
+		if ( self::isCXEntrypointDisabled( $user ) ) {
+			return;
+		}
+
 		// Load the new article campaign for VisualEditor if it's relevant.
 		// Done separately from loading the newarticle campaign for the
 		// wiki syntax editor because of the different actions with which
@@ -182,6 +186,10 @@ class Hooks {
 	 * @param SpecialPage $page
 	 */
 	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
+		if ( self::isCXEntrypointDisabled( $user ) ) {
+			return;
+		}
+
 		if ( $user->getId() === $page->getUser()->getId() &&
 			self::isEnabledForUser( $user )
 		) {
@@ -271,6 +279,9 @@ class Hooks {
 		global $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
+		if ( self::isCXEntrypointDisabled( $user ) ) {
+			return;
+		}
 
 		if (
 			!$wgContentTranslationCampaigns['newarticle'] ||
@@ -447,4 +458,14 @@ class Hooks {
 		}
 	}
 
+	/**
+	 * If CX is not beta feature and user unchecked the preference
+	 * to avoid seeing entry points, disable all entrypoints
+	 * @param User $user
+	 * @return bool
+	 */
+	private static function isCXEntrypointDisabled( $user ) {
+		global $wgContentTranslationAsBetaFeature;
+		return !$wgContentTranslationAsBetaFeature && !$user->getBoolOption( 'cx-enable-entrypoints' );
+	}
 }
