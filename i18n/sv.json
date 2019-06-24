@@ -17,7 +17,8 @@
 			"Matěj Suchánek",
 			"Петар Петковић",
 			"Skalman",
-			"Sturban"
+			"Sturban",
+			"Mjälten"
 		]
 	},
 	"cx": "Översätt sida",
@@ -101,6 +102,7 @@
 	"cx-page-missing-in-target-language": "Saknas på $1",
 	"cx-page-number-of-languages": "Antal språk",
 	"cx-mt-abuse-error-title": "Din översättning {{PLURAL:$1|innehåller}} totalt $1 % oförändrad text",
+	"cx-mt-abuse-error-sections": "Din översättning innehåller större delar med oförändrad text",
 	"cx-mt-abuse-error-text": "Automatisk översättning tillhandahålls enbart som en startpunkt. Se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.\n\nDin översättning kan inte publiceras utan ytterligare redigering.",
 	"cx-mt-abuse-warning-title": "En del av din översättning {{PLURAL:$1|innehåller}} $1 % oförändrad text",
 	"cx-mt-abuse-warning-text": "Automatisk översättning tillhandahålls enbart som en startpunkt. Se till att innehållet är korrekt och har ett naturligt flyt på ditt språk.\n\nDin översättning kommer förmodligen raderas när den granskas av andra redigerare.",
@@ -257,7 +259,7 @@
 	"cx-tools-linter-old-revision-message": "Denna översättning är baserat på en äldre version av innehållet. Källsidan kanske har [$1 ändrats avsevärt].\n\nDu kan fortsätta på denna översättning eller börja om för att använda det uppdaterade innehållet. Om du startar om översättningen kommer dina nuvarande ändringar förloras.",
 	"cx-tools-linter-old-revision-label": "Starta om översättningen",
 	"cx-tools-linter-reference": "Referens saknas",
-	"cx-tools-linter-reference-message": "En referens kunde inte överföras till översättningen eftersom den använder en mall med en annan struktur.\n\nRedigera referensen i översättningen för att fylla i informationen som saknas.",
+	"cx-tools-linter-reference-message": "\nEn referens kunde inte överföras till översättningen eftersom den använder en mall med en annan struktur.\n\nRedigera referensen i översättningen för att fylla i informationen som saknas.",
 	"cx-tools-linter-restart-translation-title": "Start om översättningen?",
 	"cx-tools-linter-restart-translation-message": "Du kommer att starta en nya översättning för den senaste versionen av sidan. Alla dina ändringar kommer att förloras.",
 	"cx-tools-linter-restart-translation-cancel": "Avbryt",
