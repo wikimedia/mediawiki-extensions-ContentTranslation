@@ -1328,7 +1328,9 @@
 				"ve-cx/ce/ve.ce.CXImageCaptionNode.js",
 				"ve-cx/ce/ve.ce.CXReferenceNode.js",
 				"ve-cx/ce/ve.ce.CXTransclusionNode.js",
-				"ve-cx/ui/ve.ui.CXTransclusionContextItem.js"
+				"ve-cx/ui/ve.ui.CXTransclusionContextItem.js",
+				"ve-cx/ui/ve.ui.CXReferenceContextItem.js",
+				"ve-cx/ui/ve.ui.CXReferenceDialog.js"
 			],
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXReferenceNode.less"

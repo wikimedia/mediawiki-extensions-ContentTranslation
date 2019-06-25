@@ -24,6 +24,18 @@ OO.inheritClass( ve.ce.CXReferenceNode, ve.ce.MWReferenceNode );
 /**
  * @inheritdoc
  */
+ve.ce.CXReferenceNode.prototype.onAttributeChange = function ( key ) {
+	// Parent method
+	ve.ce.CXReferenceNode.super.prototype.onAttributeChange.apply( this, arguments );
+
+	if ( key === 'cx' ) {
+		this.update();
+	}
+};
+
+/**
+ * @inheritdoc
+ */
 ve.ce.CXReferenceNode.prototype.update = function () {
 	var adaptationInfo;
 
@@ -33,6 +45,8 @@ ve.ce.CXReferenceNode.prototype.update = function () {
 	adaptationInfo = this.model.getAttribute( 'cx' );
 	if ( adaptationInfo && adaptationInfo.adapted === false ) {
 		this.$link.addClass( 've-ce-cxReferenceNode-unadapted' );
+	} else {
+		this.$link.removeClass( 've-ce-cxReferenceNode-unadapted' );
 	}
 };
 
