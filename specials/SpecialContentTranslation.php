@@ -167,7 +167,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
-			$out->addModules( [ 'ext.cx.dashboard', 'ext.cx.eventlogging.dashboard' ] );
+			$out->addModules( 'ext.cx.dashboard' );
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}

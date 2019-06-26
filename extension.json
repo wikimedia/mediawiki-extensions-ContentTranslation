@@ -873,12 +873,6 @@
 				"mediawiki.user"
 			]
 		},
-		"ext.cx.eventlogging.dashboard": {
-			"scripts": "eventlogging/ext.cx.eventlogging.dashboard.js",
-			"dependencies": [
-				"mediawiki.user"
-			]
-		},
 		"ext.cx.interlanguagelink.init": {
 			"scripts": "entrypoints/ext.cx.interlanguagelink.init.js",
 			"dependencies": [
@@ -913,7 +907,8 @@
 				"dashboard/ext.cx.recommendtool.client.js",
 				"dashboard/mw.cx.DashboardList.js",
 				"dashboard/mw.cx.TranslationList.js",
-				"dashboard/mw.cx.SuggestionList.js"
+				"dashboard/mw.cx.SuggestionList.js",
+				"eventlogging/ext.cx.eventlogging.dashboard.js"
 			],
 			"styles": [
 				"dashboard/styles/mw.cx.TranslationList.less",
@@ -925,6 +920,7 @@
 				"ext.cx.progressbar",
 				"ext.cx.util",
 				"ext.cx.widgets.spinner",
+				"mediawiki.user",
 				"mediawiki.widgets",
 				"mw.cx.util",
 				"mw.cx.ui.LanguageFilter",
