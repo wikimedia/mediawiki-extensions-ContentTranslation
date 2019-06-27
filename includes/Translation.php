@@ -156,11 +156,16 @@ class Translation {
 			'translation_source_title' => $titles
 		];
 
+		$options = [
+			'ORDER BY' => 'translation_last_updated_timestamp ASC',
+		];
+
 		$rows = $dbr->select(
 			'cx_translations',
 			'*',
 			$values,
-			__METHOD__
+			__METHOD__,
+			$options
 		);
 
 		$result = [];

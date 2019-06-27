@@ -135,8 +135,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $translation === null ) {
 			$translations = Translation::getConflictingTranslations( $work );
 			if ( $translations !== [] ) {
-				// Take the first one due to UI limitations
-				$translation = array_shift( $translations );
+				// Take the last one due to UI limitations
+				$translation = array_pop( $translations );
 			}
 		}
 
