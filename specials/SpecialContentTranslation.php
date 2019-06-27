@@ -160,7 +160,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				// Change init module to use CX2
 				$initModule = 'mw.cx.init';
 			}
-			$out->addModules( [ $initModule, 'ext.cx.eventlogging.translation' ] );
+			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {

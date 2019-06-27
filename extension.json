@@ -866,13 +866,6 @@
 				"mediawiki.user"
 			]
 		},
-		"ext.cx.eventlogging.translation": {
-			"scripts": "eventlogging/ext.cx.eventlogging.translation.js",
-			"dependencies": [
-				"mw.cx.util",
-				"mediawiki.user"
-			]
-		},
 		"ext.cx.interlanguagelink.init": {
 			"scripts": "entrypoints/ext.cx.interlanguagelink.init.js",
 			"dependencies": [
@@ -1425,7 +1418,8 @@
 				"mw.cx.TargetArticle.js",
 				"mw.cx.TranslationController.js",
 				"mw.cx.TranslationTracker.js",
-				"dm/mw.cx.dm.SectionState.js"
+				"dm/mw.cx.dm.SectionState.js",
+				"eventlogging/ext.cx.eventlogging.translation.js"
 			],
 			"styles": [
 				"ui/styles/mw.cx.init.Translation.less"
@@ -1614,7 +1608,8 @@
 		},
 		"mw.cx.ui.TranslationView.legacy": {
 			"scripts": [
-				"ui/legacy/mw.cx.ui.TranslationView.js"
+				"ui/legacy/mw.cx.ui.TranslationView.js",
+				"eventlogging/legacy/ext.cx.eventlogging.translation.js"
 			],
 			"styles": [
 				"ui/legacy/styles/mw.cx.ui.TranslationView.less"

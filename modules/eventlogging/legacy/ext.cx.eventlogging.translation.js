@@ -8,6 +8,7 @@
 ( function () {
 	'use strict';
 
+	var saveCount = 0;
 	/**
 	 * ContentTranslation event logger
 	 */
@@ -23,7 +24,10 @@
 			// Register handlers for event logging triggers
 			mw.hook( 'mw.cx.translation.published' ).add( this.published );
 			mw.hook( 'mw.cx.translation.publish.error' ).add( this.publishFailed.bind( this ) );
-			mw.hook( 'mw.cx.translation.abusefilter' ).add( this.logAbuseFilter );
+			mw.hook( 'mw.cx.translation.saved' ).add( this.saved );
+			mw.hook( 'mw.cx.translation.save-failed' ).add( this.saveFailed );
+			mw.hook( 'mw.cx.translation.continued' ).add( this.continued );
+			mw.hook( 'mw.cx.draft.restore-failed' ).add( this.restoreFailed );
 		},
 
 		/**
@@ -81,6 +85,100 @@
 			} );
 			mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
 			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );
+		},
+
+		/**
+		 * Log save failures
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {string} trace Error trace
+		 */
+		saveFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
+			mw.track( 'event.ContentTranslationError', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: 'save-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				trace: trace.substring( 0, 500 )
+			} );
+			mw.track( 'counter.MediaWiki.cx.save.fail', 1 );
+		},
+
+		/**
+		 * Log translation restore failures
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 * @param {string} trace Error trace
+		 */
+		restoreFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
+			mw.track( 'event.ContentTranslationError', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				context: 'restore-failure',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle,
+				trace: trace.substring( 0, 500 )
+			} );
+			mw.track( 'counter.MediaWiki.cx.restore.fail', 1 );
+		},
+
+		/**
+		 * Log saving(draft) of translated page.
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 * @param {string} targetTitle Target title
+		 */
+		saved: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
+			if ( saveCount ) {
+				return;
+			}
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'save',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle,
+				targetTitle: targetTitle
+			} );
+			saveCount++;
+			mw.track( 'counter.MediaWiki.cx.save.success', 1 );
+		},
+
+		/**
+		 * Log continuing translation.
+		 *
+		 * @param {string} sourceLanguage source language
+		 * @param {string} targetLanguage Target language code
+		 * @param {string} sourceTitle Source title
+		 */
+		continued: function ( sourceLanguage, targetLanguage, sourceTitle ) {
+			mw.track( 'event.ContentTranslation', {
+				version: 1,
+				token: mw.user.id(),
+				session: mw.user.sessionId(),
+				action: 'continue',
+				sourceLanguage: sourceLanguage,
+				targetLanguage: targetLanguage,
+				sourceTitle: sourceTitle
+			} );
+			mw.track( 'counter.MediaWiki.cx.restore.success', 1 );
 		},
 
 		/**
