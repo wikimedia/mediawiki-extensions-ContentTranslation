@@ -143,7 +143,7 @@ mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, detai
 mw.cx.ui.TranslationView.prototype.showViewIssuesMessage = function ( message, issueName, type ) {
 	var button = new OO.ui.ButtonWidget( {
 		framed: false,
-		flags: [ 'primary', 'progressive' ],
+		flags: [ 'progressive' ],
 		label: mw.msg( 'cx-infobar-view-issues' )
 	} );
 
