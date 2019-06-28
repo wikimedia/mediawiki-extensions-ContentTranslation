@@ -267,7 +267,7 @@
 					icon: item.icon,
 					framed: false,
 					classes: item.classes,
-					flags: [ 'primary', 'progressive' ],
+					flags: [ 'progressive' ],
 					label: item.label,
 					href: item.href,
 					target: '_blank'
