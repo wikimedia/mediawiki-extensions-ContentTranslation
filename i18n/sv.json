@@ -259,7 +259,7 @@
 	"cx-tools-linter-old-revision-message": "Denna översättning är baserat på en äldre version av innehållet. Källsidan kanske har [$1 ändrats avsevärt].\n\nDu kan fortsätta på denna översättning eller börja om för att använda det uppdaterade innehållet. Om du startar om översättningen kommer dina nuvarande ändringar förloras.",
 	"cx-tools-linter-old-revision-label": "Starta om översättningen",
 	"cx-tools-linter-reference": "Referens saknas",
-	"cx-tools-linter-reference-message": "\nEn referens kunde inte överföras till översättningen eftersom den använder en mall med en annan struktur.\n\nRedigera referensen i översättningen för att fylla i informationen som saknas.",
+	"cx-tools-linter-reference-message": "En referens kunde inte överföras till översättningen eftersom den använder en mall med en annan struktur.\n\nRedigera referensen i översättningen för att fylla i informationen som saknas.",
 	"cx-tools-linter-restart-translation-title": "Start om översättningen?",
 	"cx-tools-linter-restart-translation-message": "Du kommer att starta en nya översättning för den senaste versionen av sidan. Alla dina ändringar kommer att förloras.",
 	"cx-tools-linter-restart-translation-cancel": "Avbryt",

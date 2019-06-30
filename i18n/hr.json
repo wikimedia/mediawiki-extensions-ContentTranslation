@@ -10,7 +10,8 @@
 			"Ivi104",
 			"Bugoslav",
 			"Prevodim",
-			"Vlad5250"
+			"Vlad5250",
+			"Anarhistička Maca"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -94,9 +95,9 @@
 	"cx-selected-source-page-error-title-in-use": "Naslov za novu stranicu je već [$1 u uporabi]",
 	"cx-page-missing-in-target-language": "Nedostaje u $1",
 	"cx-page-number-of-languages": "Broj jezika",
-	"cx-mt-abuse-error-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1 % nepromijenjenoga teksta",
+	"cx-mt-abuse-error-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1% nepromijenjenoga teksta",
 	"cx-mt-abuse-error-text": "Automatski prijevod predviđen je kao početna točka. Na Vama je da provjerite točnost i da se može čitati s lakoćom u Vašem jeziku.\n\nVaš prijevod ne može biti objavljen bez daljnjeg uređivanja.",
-	"cx-mt-abuse-warning-title": "Dio Vašeg prijevoda {{PLURAL:$1|sadrži}} $1 % nepromijenjenoga teksta",
+	"cx-mt-abuse-warning-title": "Dio Vašeg prijevoda {{PLURAL:$1|sadrži}} $1% nepromijenjenoga teksta",
 	"cx-mt-abuse-warning-text": "Automatski prijevodi predviđeni su samo kao pomoć. Imajte u vidu da sadržaj bude točan i razumljiv u Vašem jeziku.\nVaš će prijevod vjerojatno biti izbrisan kada ga pregledaju drugi urednici.",
 	"cx-publish-captcha-title": "Provjera jeste li robot",
 	"cx-captcha-dialog-error": "Čini se da Vaš odgovor nije točan. Molimo, pokušajte opet.",

@@ -100,6 +100,7 @@
 	"cx-page-missing-in-target-language": "Não existe em $1",
 	"cx-page-number-of-languages": "Número de línguas",
 	"cx-mt-abuse-error-title": "A sua tradução {{PLURAL:$1|contém}} um total de $1% de texto não modificado",
+	"cx-mt-abuse-error-sections": "A sua tradução contém partes substanciais de texto não modificado",
 	"cx-mt-abuse-error-text": "São fornecidas traduções automáticas apenas como ponto de partida. Certifique-se de que o conteúdo é preciso e flui de forma natural na sua língua.\n\nA sua tradução não pode ser publicada sem trabalho adicional de edição.",
 	"cx-mt-abuse-warning-title": "Parte da sua tradução {{PLURAL:$1|contém}} $1% de texto não modificado",
 	"cx-mt-abuse-warning-text": "São fornecidas traduções automáticas apenas como ponto de partida. Certifique-se de que o conteúdo é preciso e flui de forma natural na sua língua.\n\nÉ provável que a sua tradução seja eliminada quando for revista por outros editores.",

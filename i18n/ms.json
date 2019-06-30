@@ -5,7 +5,8 @@
 			"Pizza1016",
 			"Kurniasan",
 			"Muhdnurhidayat",
-			"Jeluang Terluang"
+			"Jeluang Terluang",
+			"SNN95"
 		]
 	},
 	"cx": "Terjemahkan laman",
@@ -130,7 +131,7 @@
 	"cx-publishing-dialog-publish-anyway-button": "Terus terbitkan",
 	"cx-publishing-dialog-title": "Tulis ganti laman yang sudah wujud?",
 	"cx-publishing-dialog-sub-title": "Terjemahan anda akan menulis ganti laman yang berwujud. Sila pastikan ia adalah ok untuk menggantikan kandungan wujud.",
-	"cx-publishing-with-issues-dialog-title": "Terbit dengan masalah-masalah yang terdapat?",
+	"cx-publishing-with-issues-dialog-title": "Terbit dengan masalah-masalah yang ada?",
 	"cx-publishing-with-issues-dialog-message": "Terjemahan anda masih mempunyai masalah-masalah berpotensi. Sila menimbang menyemak masalah-masalah tersebut sebelum menerbitkannya.\n\nPenyunting-penyunting yang menyemak sumbangan anda akan menghargai sebarang pembaikan.",
 	"cx-overwriting-with-issues": "Terjemahan anda akan menulis ganti laman yang berwujud dengan kandungan yang masih mempunyai masalah-masalah berpotensi. Sila menimbang menyemak masalah-masalah tersebut sebelum menerbitkannya.",
 	"cx-discard-translation": "Buang terjemahan",

@@ -86,6 +86,7 @@
 	"apihelp-query+cxtranslatorstats-param-translator": "翻訳者の利用者名。この引数は必須ではありません。指定しない場合は現在のログイン利用者を使用します。",
 	"apihelp-query+cxtranslatorstats-example-1": "特定の利用者の翻訳統計を取得。",
 	"apihelp-cxsave-description": "このモジュールを使うと、翻訳を節単位で保存し帯域を節約して並列コーポラを収集します。",
+	"apihelp-cxsave-summary": "このモジュールは帯域を節約しパラレルなコーポラを集積するため、翻訳の草稿を節単位で保存できます。",
 	"apihelp-cxsave-param-sourcerevision": "翻訳元ページの版",
 	"apihelp-cxsave-param-progress": "翻訳の完了状況（進捗）についての情報。<code>any</code>、<code>human</code>、<code>mt</code>そして<code>mtSectionsCount</code>のキーを含むJSONです。これらのキーの値は百分率で表されます。",
 	"apihelp-cxsave-param-content": "JSON-コード化した節データ。節単位でオブジェクトとし次のキーを付与します。content、sectionId、sequenceId、sequenceId、origin",
