@@ -296,5 +296,8 @@
 	"cx-mt-abuse-publish-error": "لا يمكن نشر ترجمتك لأنها تحتوي على نص طويل كثير غير معدل.",
 	"cx-unreviewed-translation-category": "صفحات بترجمات غير مراجعة",
 	"cx-unreviewed-translation-category-desc": "الصفحات المترجمة بواسطة أداة ترجمة المحتوى والتي تحتوي على كمية كبيرة من المحتوى غير المراجع",
-	"cx-preference-enable-entrypoints": "الوصول إلى [[$1| بدء ترجمة]]، من صفحة المساهمات، وقائمة اللغات، وإنشاءات الصفحات الجديدة."
+	"cx-preference-enable-entrypoints": "الوصول إلى [[$1| بدء ترجمة]]، من صفحة المساهمات، وقائمة اللغات، وإنشاءات الصفحات الجديدة.",
+	"cx-feature-discovery-title": "ترجمة في أي وقت",
+	"cx-feature-discovery-content": "يمكنك بدء أو متابعة الترجمة في أي وقت من صفحة {{int:mycontris}}",
+	"cx-feature-discovery-dismiss": "حسنا، فهمت المقصود"
 }

@@ -184,5 +184,7 @@
 	"cx-publish-destination-namespace-user": "Bozze personale",
 	"cx-publish-destination-namespace-draft": "Bozze d'a comunitate",
 	"cx-linkcontextitem-missing-link-title": "Collegamende perdute",
-	"cx-linkcontextitem-missing-title-description": "Sta pàgene non g'esiste angore"
+	"cx-linkcontextitem-missing-title-description": "Sta pàgene non g'esiste angore",
+	"cx-feature-discovery-title": "Traduce quanne vuè",
+	"cx-feature-discovery-dismiss": "Apposte, pigghiate"
 }

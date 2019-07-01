@@ -294,5 +294,8 @@
 	"cx-mt-abuse-publish-error": "Din översättning kan inte publiceras eftersom den innehåller för mycket oförändrad text.",
 	"cx-unreviewed-translation-category": "Sidor med ogranskade översättningar",
 	"cx-unreviewed-translation-category-desc": "Sidor som har översätts med verktyget Innehållsöversättning och innehåller en större mängd ogranskat innehåll",
-	"cx-preference-enable-entrypoints": "Åtkomst för att [[$1|starta en översättning]] från bidragssidan, språklistan och skapa nya sidor."
+	"cx-preference-enable-entrypoints": "Åtkomst för att [[$1|starta en översättning]] från bidragssidan, språklistan och skapa nya sidor.",
+	"cx-feature-discovery-title": "Översätt när som helst",
+	"cx-feature-discovery-content": "Du kan påbörja eller fortsätta på en översättning när som helst från sidan {{int:mycontris}}",
+	"cx-feature-discovery-dismiss": "Okej, jag förstår"
 }
