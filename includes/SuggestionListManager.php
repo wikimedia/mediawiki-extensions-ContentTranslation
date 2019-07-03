@@ -3,7 +3,6 @@
 namespace ContentTranslation;
 
 class SuggestionListManager {
-
 	/**
 	 * @param SuggestionList $list
 	 * @return int Id of the list.
@@ -51,7 +50,7 @@ class SuggestionListManager {
 	}
 
 	public function removeTitles( $sourceLanguage, array $titles ) {
-		if ( count( $titles ) === 0 ) {
+		if ( $titles === [] ) {
 			return;
 		}
 
@@ -67,7 +66,7 @@ class SuggestionListManager {
 	}
 
 	protected function getListByConds( array $conds ) {
-		$dbr = Database::getConnection( DB_MASTER );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$row = $dbr->selectRow( 'cx_lists', '*', $conds, __METHOD__ );
 
 		if ( $row ) {
@@ -151,7 +150,7 @@ class SuggestionListManager {
 	 */
 	private function getSuggestionsByListName( $owner, $listName, $from, $to ) {
 		$suggestions = [];
-		$dbr = Database::getConnection( DB_MASTER );
+		$dbr = Database::getConnection( DB_REPLICA );
 		$res = $dbr->select(
 			[ 'cx_suggestions', 'cx_lists' ],
 			[ 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ],
@@ -279,7 +278,7 @@ class SuggestionListManager {
 	 * @return array Lists and suggestions
 	 */
 	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_REPLICA );
 
 		$lists = [];
 		$suggestions = [];
@@ -331,7 +330,7 @@ class SuggestionListManager {
 	 */
 	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
 		$suggestions = [];
-		$dbr = Database::getConnection( DB_MASTER );
+		$dbr = Database::getConnection( DB_REPLICA );
 
 		$seed = (int)$seed;
 
