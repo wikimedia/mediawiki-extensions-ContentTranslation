@@ -295,5 +295,7 @@
 	"cx-linkcontextitem-missing-title-description": "此页面尚不存在",
 	"cx-mt-abuse-publish-error": "您的翻译由于存在过多原文无法发布。",
 	"cx-unreviewed-translation-category": "有未审阅翻译的页面",
-	"cx-unreviewed-translation-category-desc": "使用内容翻译工具翻译的存在大量未审阅内容的页面"
+	"cx-unreviewed-translation-category-desc": "使用内容翻译工具翻译的存在大量未审阅内容的页面",
+	"cx-feature-discovery-title": "随时翻译",
+	"cx-feature-discovery-dismiss": "好的，明白了"
 }

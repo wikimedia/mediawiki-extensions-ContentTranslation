@@ -288,5 +288,8 @@
 	"cx-mt-abuse-publish-error": "לא ניתן לפרסם את התרגום שלך כי הוא מכיל יותר מדי טקסט ללא שינויים.",
 	"cx-unreviewed-translation-category": "דפים עם תרגומים שלא נסקרו",
 	"cx-unreviewed-translation-category-desc": "דפים שתורגמו באמצעות כלי תרגום תוכן ושמכילים כמות גדולה של תוכן שלא נסקר",
-	"cx-preference-enable-entrypoints": "גישה ל[[$1|התחלת תרגום]] מדף התרומות, מרשימת השפות, ומיצירת דפים חדשים."
+	"cx-preference-enable-entrypoints": "גישה ל[[$1|התחלת תרגום]] מדף התרומות, מרשימת השפות, ומיצירת דפים חדשים.",
+	"cx-feature-discovery-title": "לתרגם כשבא לך",
+	"cx-feature-discovery-content": "{{GENDER:|אתה יכול|את יכולה}} להתחיל או להמשיך לתרגם בכל זמן מהדף {{int:mycontris}}",
+	"cx-feature-discovery-dismiss": "בסדר, הבנתי"
 }

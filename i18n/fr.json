@@ -317,7 +317,8 @@
 	"cx-mt-abuse-publish-error": "Votre traduction ne peut pas être publiée parce qu’elle contient trop de texte non modifié.",
 	"cx-unreviewed-translation-category": "Pages avec des traductions non relues",
 	"cx-unreviewed-translation-category-desc": "Pages traduites par l’outil de traduction de contenu ayant une grande quantité de contenu non relu",
-	"cx-preference-enable-entrypoints": "Accéder à [[$1|démarrer une traduction]], depuis la page de contributions, la liste des langues et des créations de nouvelles pages.",
+	"cx-preference-enable-entrypoints": "Accéder à [[$1|démarrer une traduction]], depuis la page de contributions et la liste des langues et créations de nouvelles pages.",
+	"cx-feature-discovery-title": "Traduisez à tout instant",
 	"cx-feature-discovery-content": "Vous pouvez commencer ou continuer à traduire à tout moment à partir de la page {{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "D’accord, c’est bon"
 }

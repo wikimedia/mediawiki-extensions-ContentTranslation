@@ -37,7 +37,7 @@
 	"cx-dashboard-header": "Traducciones",
 	"cx-javascript": "Esta herramienta no funciona sin JavaScript. JavaScript está desactivado, no funcionó o no admitimos este navegador.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducción de Contenidos]] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
-	"cx-license-agreement": "Al pulsar en el botón «$1» aceptarás las [//foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones con la herramienta de traducción en el marco de la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL], con el entendimiento de que un enlace o URL es suficiente para la atribución de esta licencia Creative Commons.",
+	"cx-license-agreement": "Al continuar aceptarás las [//foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones bajo la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL].",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
 	"cx-desc": "Facilita la [[Special:ContentTranslation|traducción]] de páginas de contenido",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|traducido}}",
@@ -110,6 +110,7 @@
 	"cx-selected-source-page-error-title-in-use": "El título de la página nueva [$1 ya está en uso]",
 	"cx-page-missing-in-target-language": "No disponible en $1",
 	"cx-page-number-of-languages": "Número de idiomas",
+	"cx-mt-abuse-error-sections": "La traducción contiene importantes cantidades de texto no modificado",
 	"cx-mt-abuse-warning-title": "Parte de tu traducción {{PLURAL:$1|contiene}} $1% de texto sin modificar",
 	"cx-mt-abuse-warning-text": "La traducción automática se proporciona solo como punto de partida. Asegúrate de que el contenido sea preciso y se lea de forma natural en tu idioma.\n\nEs probable que tu traducción se elimine cuando otros editores la revisen.",
 	"cx-publish-captcha-title": "Para comprobar que no eres un robot",
@@ -267,5 +268,6 @@
 	"cx-publish-destination-namespace-user": "Borrador personal",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
 	"cx-linkcontextitem-missing-link-title": "Enlace faltante",
-	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe"
+	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe",
+	"cx-feature-discovery-title": "Traduce en cualquier momento"
 }

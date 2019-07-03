@@ -41,6 +41,7 @@
 	"cx-entrypoint-title": "ဤစာမျက်နှာကို $1သို့ ဘာသာပြန်ရန်",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1တွင် ဤစာမျက်နှာ မရှိသေးပါ။ ယင်းအား {{GENDER:|သင်}}ဖန်တီးလိုပါသလား?",
 	"cx-entrypoint-dialog-button-translate-from": "$1 မှ ဘာသာပြန်ရန်",
+	"cx-entrypoint-dialog-desc": "ဤစာမျက်နှာကို ဘာသာပြန်ပေးခြင်းဖြင့် ဝီကီပီးဒီးယားကို ကူညီနိုင်ပါသည်။ ဘာသာပြန်ခြင်းသည် သင်၏ဘာသာစကားတွင် အကြောင်းအရာသစ်ဖန်တီးရန် လွယ်ကူသောနည်းလမ်းတစ်ခုပင်ဖြစ်ပါသည်။",
 	"cx-special-login-error": "ဤစာမျက်နှာကို ဘာသာပြန်ရန် အကောင့်ထဲသို့ ဝင်ထားရန်လိုအပ်သည်။ [$1 အကောင့်ထဲဝင်ရန်]",
 	"cx-tools-instructions-text1": "စာပိုဒ်များ ဘာသာပြန်ရန် {{GENDER:|နှိပ်ပါ}}",
 	"cx-tools-instructions-text2": "အားလုံးကို ပေါင်းထည့်ရန် မလိုအပ်ပါ",
@@ -239,5 +240,7 @@
 	"cx-linkcontextitem-missing-link-title": "ပျောက်ကွယ်နေသော လင့်ခ်",
 	"cx-linkcontextitem-missing-title-description": "ဤစာမျက်နှာ မရှိသေးပါ",
 	"cx-mt-abuse-publish-error": "မပြုပြင်ထားသော စက်ဘာသာပြန်စာသားများ အလွန်ပါဝင်နေသောကြောင့် သင်၏ဘာသာပြန်ကို မလွှင့်တင်ခြင်းဖြစ်နိုင်ပါသည်။",
-	"cx-unreviewed-translation-category": "ပြန်လည်မဆန်းစစ်ရသေးသော ဘာသာပြန်များပါဝင်သည့် စာမျက်နှာများ"
+	"cx-unreviewed-translation-category": "ပြန်လည်မဆန်းစစ်ရသေးသော ဘာသာပြန်များပါဝင်သည့် စာမျက်နှာများ",
+	"cx-feature-discovery-title": "ဘယ်ချိန်မဆို ဘာသာပြန်ရန်",
+	"cx-feature-discovery-dismiss": "အိုကေ သဘောပေါက်ပြီ"
 }
