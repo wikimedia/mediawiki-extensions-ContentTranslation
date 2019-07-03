@@ -13,6 +13,8 @@ use DatabaseUpdater;
 use EchoEvent;
 use EditPage;
 use ExtensionRegistry;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use OutputPage;
 use RequestContext;
 use ResourceLoader;
@@ -109,6 +111,8 @@ class Hooks {
 			return;
 		}
 
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+
 		// Load the new article campaign for VisualEditor if it's relevant.
 		// Done separately from loading the newarticle campaign for the
 		// wiki syntax editor because of the different actions with which
@@ -120,7 +124,7 @@ class Hooks {
 				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
 				$title->inNamespace( NS_MAIN ) &&
 				!$user->isAnon() &&
-				$title->userCan( 'edit', $user )
+				$permissionManager->userCan( 'edit', $user, $title, PermissionManager::RIGOR_QUICK )
 			) {
 				$out->addModules( [
 					'ext.cx.entrypoints.newarticle.veloader',
