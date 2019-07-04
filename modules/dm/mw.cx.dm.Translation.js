@@ -9,10 +9,10 @@
  * @constructor
  * @param {mw.cx.dm.WikiPage} sourceWikiPage Details of source wiki page
  * @param {mw.cx.dm.WikiPage} targetWikiPage Details of target wiki page
- * @param {string} sourceHtml Segmented source HTML
- * @param {Object} [draft] Saved translation
+ * @param {HTMLDocument} sourceDom
+ * @param {HTMLDocument} targetDom
  */
-mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPage, sourceHtml, draft ) {
+mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPage, sourceDom, targetDom ) {
 	// Mixin constructor
 	OO.EventEmitter.call( this );
 
@@ -28,6 +28,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.targetRevisionId = this.targetWikiPage.getRevision();
 	this.status = 'draft';
 	this.sectionsChanged = false;
+	this.changedSignificantly = false;
 	this.progress = {
 		any: 0,
 		human: 0,
@@ -37,20 +38,12 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	// @var {mw.cx.dm.TranslationIssue[]}
 	this.translationIssues = [];
 
-	if ( draft ) {
-		this.setSavedTranslation( draft );
-	}
-
 	this.sourceDoc = ve.dm.converter.getModelFromDom(
-		this.constructor.static.getSourceDom( sourceHtml, false ),
-		{ lang: this.getSourceLanguage(), dir: this.sourceWikiPage.getDirection() }
+		sourceDom, { lang: this.getSourceLanguage(), dir: this.sourceWikiPage.getDirection() }
 	);
 
 	this.targetDoc = ve.dm.converter.getModelFromDom(
-		this.constructor.static.getSourceDom(
-			sourceHtml, true, this.savedTranslationUnits, this.getSourceLanguage()
-		),
-		{ lang: this.getTargetLanguage(), dir: this.targetWikiPage.getDirection() }
+		targetDom, { lang: this.getTargetLanguage(), dir: this.targetWikiPage.getDirection() }
 	);
 
 	this.once( 'sectionChange', this.onSectionChange.bind( this ) );
@@ -360,24 +353,6 @@ mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
 
 /* Methods */
 
-/**
- * Check if the source article has changed significantly.
- *
- * @return {boolean}
- */
-mw.cx.dm.Translation.prototype.checkRestorationStatus = function () {
-	var translationUnitId, numberOfUnrestoredSections = 0;
-
-	for ( translationUnitId in this.savedTranslationUnits ) {
-		if ( !this.savedTranslationUnits[ translationUnitId ].restored ) {
-			mw.log.error( '[CX] Section ' + translationUnitId + ' not restored' );
-			numberOfUnrestoredSections++;
-		}
-	}
-
-	return numberOfUnrestoredSections > 2;
-};
-
 mw.cx.dm.Translation.prototype.getTargetPage = function () {
 	return this.targetPage;
 };
@@ -402,6 +377,14 @@ mw.cx.dm.Translation.prototype.setTargetCategories = function ( categories ) {
  */
 mw.cx.dm.Translation.prototype.getTargetCategories = function () {
 	return this.targetCategories;
+};
+
+mw.cx.dm.Translation.prototype.isChangedSignificantly = function () {
+	return this.changedSignificantly;
+};
+
+mw.cx.dm.Translation.prototype.setChangedSignificantly = function ( isChangedSignificantly ) {
+	this.changedSignificantly = isChangedSignificantly;
 };
 
 /**

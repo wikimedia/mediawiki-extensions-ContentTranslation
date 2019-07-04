@@ -86,33 +86,37 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 
 		this.sourceWikiPage.setRevision( sourcePageContent.revision );
-		this.translationModel = new mw.cx.dm.Translation(
-			this.sourceWikiPage,
-			this.targetWikiPage,
-			sourcePageContent.segmentedContent,
-			draft
-		);
 
-		// Initialize translation controller
-		this.translationController = new mw.cx.TranslationController(
-			this.translationModel, this.veTarget, this.config.siteMapper, this.config
-		);
+		this.initTranslationModel( sourcePageContent.segmentedContent, draft ).then( function ( translationModel ) {
+			this.translationModel = translationModel;
 
-		this.veTarget.setTranslation( this.translationModel );
+			if ( draft ) {
+				translationModel.setSavedTranslation( draft );
+			}
 
-		this.checkForTranslationChanges();
-		this.checkIfUserCanPublish();
+			// Initialize translation controller
+			this.translationController = new mw.cx.TranslationController(
+				translationModel, this.veTarget, this.config.siteMapper, this.config
+			);
 
-		this.translationModel.initCategories(
-			this.processCategories( sourcePageContent.categories )
-		);
-		categoryUI = new mw.cx.ui.Categories( this.translationModel, this.config );
-		this.translationView.showCategories( categoryUI );
+			this.veTarget.setTranslation( translationModel );
 
-		if ( draft ) {
-			mw.hook( 'mw.cx.draft.restored' ).fire();
-		}
-		mw.log( '[CX] Translation initialized successfully' );
+			this.checkIfUserCanPublish();
+			if ( translationModel.isChangedSignificantly() ) {
+				this.addChangedSignificantlyIssue( translationModel );
+			}
+
+			translationModel.initCategories(
+				this.processCategories( sourcePageContent.categories )
+			);
+			categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
+			this.translationView.showCategories( categoryUI );
+
+			if ( draft ) {
+				mw.hook( 'mw.cx.draft.restored' ).fire();
+			}
+			mw.log( '[CX] Translation initialized successfully' );
+		}.bind( this ) );
 	}.bind( this ), this.initializationError.bind( this ) );
 
 	this.addFeedbackLink();
@@ -142,6 +146,68 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	}.bind( this ) );
 
 	return $.when( sourcePageFetchDeferred, draftFetchDeferred );
+};
+
+/**
+ * Create translation model object. If latest revision causes any user translations to be lost,
+ * load the original revision used when translation was started.
+ *
+ * @param {string} sourceHtml
+ * @param {Object} draft
+ * @return {jQuery.Promise}
+ */
+mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, draft ) {
+	var sourceDom, targetDom, translationModel, translationUnitId,
+		translationUnits = draft && draft.translationUnits,
+		numberOfUnrestoredSections = 0;
+
+	targetDom = mw.cx.dm.Translation.static.getSourceDom(
+		sourceHtml, true, translationUnits, this.sourceWikiPage.getLanguage()
+	);
+
+	for ( translationUnitId in translationUnits ) {
+		if ( !translationUnits[ translationUnitId ].restored ) {
+			numberOfUnrestoredSections++;
+		}
+	}
+
+	// If no translated section was lost, create source DOM and return early
+	// This should cover initial start of translation, when there's no draft at all.
+	if ( numberOfUnrestoredSections < 1 ) {
+		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml );
+
+		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
+		return $.Deferred().resolve( translationModel ).promise();
+	}
+
+	// Update revision of source page
+	this.sourceWikiPage.setRevision( draft.sourceRevisionId );
+	return this.fetchSourcePageContent(
+		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
+	).then( function ( sourcePageContent ) {
+		var sourceDom, targetDom,
+			uri = new mw.Uri(),
+			sourceHtml = sourcePageContent.segmentedContent;
+
+		// Reset restoration status for all translation units
+		for ( translationUnitId in translationUnits ) {
+			translationUnits[ translationUnitId ].restored = false;
+		}
+
+		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml );
+		targetDom = mw.cx.dm.Translation.static.getSourceDom(
+			sourceHtml, true, translationUnits, this.sourceWikiPage.getLanguage()
+		);
+
+		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
+		translationModel.setChangedSignificantly( true );
+
+		// Append revision number to URL
+		uri = uri.extend( { revision: draft.sourceRevisionId } );
+		window.history.pushState( null, document.title, uri.toString() );
+
+		return translationModel;
+	}.bind( this ), this.fetchSourcePageContentError.bind( this ) );
 };
 
 /**
@@ -341,24 +407,20 @@ mw.cx.init.Translation.prototype.addFeedbackLink = function () {
 	this.translationView.addItems( [ feedback ] );
 };
 
-mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
+mw.cx.init.Translation.prototype.addChangedSignificantlyIssue = function ( translationModel ) {
 	var diff, translationIssuesParams;
-
-	if ( !this.translationModel.checkRestorationStatus() ) {
-		return;
-	}
 
 	this.translationView.showViewIssuesMessage(
 		mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning'
 	);
 
 	diff = this.config.siteMapper.getPageUrl(
-		this.translationModel.getSourceLanguage(),
-		this.translationModel.getSourceTitle(),
+		translationModel.getSourceLanguage(),
+		translationModel.getSourceTitle(),
 		{
 			type: 'revision',
 			diff: 'cur',
-			oldid: this.translationModel.getSourceRevisionId()
+			oldid: translationModel.getSourceRevisionId()
 		}
 	);
 
@@ -367,7 +429,7 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		resolvable: true
 	};
 
-	if ( !this.translationModel.hasBeenPublished() ) {
+	if ( !translationModel.hasBeenPublished() ) {
 		translationIssuesParams.additionalButtons = [
 			{
 				icon: 'reload',
@@ -377,7 +439,7 @@ mw.cx.init.Translation.prototype.checkForTranslationChanges = function () {
 		];
 	}
 
-	this.translationModel.addUnattachedIssues( [
+	translationModel.addUnattachedIssues( [
 		new mw.cx.dm.TranslationIssue(
 			'old-version', // Issue name
 			mw.message( 'cx-tools-linter-old-revision-message', diff ), // Message body
