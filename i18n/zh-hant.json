@@ -57,6 +57,7 @@
 	"cx-entrypoint-title": "翻譯本頁為 $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1 的此頁面不存在。{{GENDER:|您}}要建立該頁面嗎？",
 	"cx-entrypoint-dialog-button-translate-from": "翻譯自 $1",
+	"cx-entrypoint-dialog-desc": "您可以透過翻譯此頁面來協助維基百科。翻譯是在您所使用語言上建立新內容的簡易方式。",
 	"cx-special-login-error": "您必須登入才能翻譯此頁。[$1 登入]",
 	"cx-tools-instructions-text1": "{{GENDER:|點選}}段落進行翻譯",
 	"cx-tools-instructions-text2": "{{GENDER:|您}}無需一次加入所有段落",
@@ -250,6 +251,7 @@
 	"cx-tools-linter-template-block-message": "原有頁面使用的模板在目標 wiki 上不可用。\n\n此模板已被忽略，但您可以添加新的內容來獲取遺失資訊。",
 	"cx-tools-linter-template-inline-message": "原始頁面使用模板來結構畫內容，但當中裡有部份不存在於目標 wiki。\n\n來自缺失模板的內容已被添加為純文字。請務必審查結果。",
 	"cx-tools-linter-template-add-new": "增加新模板",
+	"cx-tools-linter-incomplete-template": "不完整模版",
 	"cx-tools-linter-old-revision": "基於頁面舊版本的翻譯",
 	"cx-tools-linter-old-revision-message": "此翻譯是基於較舊版本的內容。來源頁面可能已有[$1 巨大變化]。\n\n您可以繼續此翻譯，或是使用已更新內容來重新開始。若您重新設定翻譯，您目前的更改內容將會遺失。",
 	"cx-tools-linter-old-revision-label": "重新開始翻譯",
@@ -289,5 +291,6 @@
 	"cx-unreviewed-translation-category": "有未審閱翻譯的頁面",
 	"cx-unreviewed-translation-category-desc": "頁面以內容翻譯工具做出翻譯，且包含大量未審查過的內容",
 	"cx-feature-discovery-title": "隨時翻譯",
+	"cx-feature-discovery-content": "您可以隨時從{{int:mycontris}}頁面開始或繼續翻譯",
 	"cx-feature-discovery-dismiss": "好的，了解"
 }
