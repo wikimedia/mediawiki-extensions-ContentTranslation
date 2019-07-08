@@ -255,7 +255,7 @@
 	"cx-tools-linter-template-add-new": "Add new template",
 	"cx-tools-linter-incomplete-template": "Incomplete template",
 	"cx-tools-linter-empty-template": "The information on the original template could not be transferred to the template in the translation since their structure is a bit different.\n\nPlease, edit the template in the translation to fill the missing information.",
-	"cx-tools-linter-template-missing-mandatory": "A template was added without some required information.\nThe missing details could not be obtained automatically from the original reference since their structure is a bit different.\n\nPlease, edit the template in the translation to fill the missing information.",
+	"cx-tools-linter-template-missing-mandatory": "A template was added without some required information.\nThe missing details could not be obtained automatically from the original template since their structure is a bit different.\n\nPlease, edit the template in the translation to fill the missing information.",
 	"cx-tools-linter-old-revision": "Translation based on old version of the page",
 	"cx-tools-linter-old-revision-message": "This translation is based on an older version of the content. The source page may have [$1 changed significantly].\n\nYou can continue this translation, or start it again to use the updated content. If you restart the translation, your current changes will be lost.",
 	"cx-tools-linter-old-revision-label": "Restart the translation",
