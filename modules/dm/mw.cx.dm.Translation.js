@@ -313,8 +313,8 @@ mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
 
 	if ( bigString.length < smallString.length ) {
 		// Swap the sets
-		bigString = string2;
-		smallString = string1;
+		bigString = string2.trim();
+		smallString = string1.trim();
 	}
 
 	// If smaller string is empty, we should not count as content is included. See T222905
