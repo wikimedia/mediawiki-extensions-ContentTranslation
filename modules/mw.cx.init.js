@@ -6,7 +6,7 @@
 	'use strict';
 
 	function initCX() {
-		var query, services = {}, sourceWikiPage, targetWikiPage, translation;
+		var query, services = {}, sourceWikiPage, targetWikiPage, translation, VEConfig;
 
 		query = new mw.Uri().query;
 		if (
@@ -53,6 +53,14 @@
 		if ( mw.config.get( 'wgContentTranslationEntryPointFD' ) && !mw.storage.get( 'cx-show-entrypoint-feature-discovery' ) ) {
 			mw.storage.set( 'cx-show-entrypoint-feature-discovery', true );
 		}
+
+		// The default values for these options depend on PageImages and Wikibase Client
+		// being installed on this wiki. Because we are querying remote wikis, this makes
+		// no sense, and hence overwrite the values.
+		VEConfig = mw.config.get( 'wgVisualEditorConfig' );
+		VEConfig.usePageImages = true;
+		VEConfig.usePageDescriptions = true;
+		mw.config.set( 'wgVisualEditorConfig', VEConfig );
 	}
 
 	// On document ready, initialize.
