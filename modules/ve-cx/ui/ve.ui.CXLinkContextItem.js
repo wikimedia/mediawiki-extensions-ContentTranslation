@@ -253,7 +253,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 				.addClass( 've-ui-cxLinkContextItem-mark-missing' )
 				.append( markAsMissingInfo, markAsMissingButton.$element );
 
-			markAsMissingButton.on( 'click', this.createRedLink.bind( this ) );
+			markAsMissingButton.on( 'click', this.createRedLink.bind( this, adaptationInfo ) );
 		}
 	}
 
@@ -262,10 +262,22 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 
 /**
  * Change the grey link to red link.
+ *
+ * @param {Object} adaptationInfo
  */
-ve.ui.CXLinkContextItem.prototype.createRedLink = function () {
+ve.ui.CXLinkContextItem.prototype.createRedLink = function ( adaptationInfo ) {
 	var targetLanguage = this.translation.getTargetLanguage(),
 		sourceLanguage = this.translation.getSourceLanguage();
+
+	// Handle a red link for which we have no idea what is the target page, as determined by
+	// cxserver. Per T224408, open the link target selection widget to let the user confirm
+	// the right target.
+	if ( adaptationInfo.targetFrom === 'source' ) {
+		this.context.getSurface().commandRegistry.registry.link.execute(
+			this.context.getSurface()
+		);
+		return;
+	}
 
 	// See ve.ui.AnnotationContextItem#applyToAnnotations
 	this.applyToAnnotations( function ( fragment, annotation ) {
