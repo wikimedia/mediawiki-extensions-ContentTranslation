@@ -78,7 +78,7 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
 	Array.prototype.forEach.call( doc.querySelectorAll( '.cx-link' ), function ( link ) {
 		var dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
 		if ( dataCX.adapted === false && OO.getProp( dataCX, 'targetTitle', 'missing' ) !== true ) {
-		// Replace the link with its inner content.
+			// Replace the link with its inner content.
 			link.replaceWith( link.innerHTML );
 		} else {
 			[ 'data-linkid', 'class', 'title', 'id' ].forEach( function ( attr ) {
