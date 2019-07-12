@@ -179,7 +179,7 @@
 	"cx-stats-local-published-number": "$1 kielellä $2",
 	"cx-stats-local-published": "$1 ($3) kielellä $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 käännös|$1 käännöstä}}",
-	"cx-tools-missing-link-text": "Merkitse kuva puuttuvaksi kannustaaksesi sen luomista.",
+	"cx-tools-missing-link-text": "Merkitse sivu puuttuvaksi kannustaaksesi sen luomista.",
 	"cx-tools-missing-link-tooltip": "Käännä (uudessa ikkunassa)",
 	"cx-tools-missing-link-title": "Puuttuva linkki",
 	"cx-tools-missing-link-mark-link": "Merkitse puuttuvaksi",

@@ -247,6 +247,7 @@
 	"cx-tools-linter-page-exists": "La página ya existe",
 	"cx-tools-linter-template": "Plantilla no disponible",
 	"cx-tools-linter-incomplete-template": "Plantilla incompleta",
+	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nEdita la plantilla en la traducción para completar la información que falta.",
 	"cx-tools-linter-restart-translation-cancel": "Cancelar",
 	"cx-translator-header": "Tus estadísticas",
 	"cx-translator-month-stats-label": "Este mes",

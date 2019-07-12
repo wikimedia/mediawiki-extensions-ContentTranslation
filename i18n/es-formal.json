@@ -4,5 +4,6 @@
 			"Fitoschido"
 		]
 	},
+	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nEdite la plantilla en la traducción para completar la información que falta.",
 	"cx-feature-discovery-title": "Traduzca en cualquier momento"
 }

@@ -261,7 +261,7 @@
 	"cx-tools-linter-template-add-new": "Adicionar nova predefinição",
 	"cx-tools-linter-incomplete-template": "Predefinição incompleta",
 	"cx-tools-linter-empty-template": "As informações na predefinição original não puderam ser transferidas para o modelo na tradução, pois sua estrutura é um pouco diferente.\n\nPor favor, edite o modelo na tradução para preencher as informações que faltam.",
-	"cx-tools-linter-template-missing-mandatory": "Uma predefinição foi adicionado sem algumas informações necessárias.\nOs detalhes ausentes não puderam ser obtidos automaticamente da referência original, pois sua estrutura é um pouco diferente.\n\nPor favor, edite o modelo na tradução para preencher as informações que faltam.",
+	"cx-tools-linter-template-missing-mandatory": "Uma predefinição foi adicionado sem algumas informações necessárias.\nOs detalhes ausentes não puderam ser obtidos automaticamente da predefinição original, pois sua estrutura é um pouco diferente.\n\nPor favor, edite o modelo na tradução para preencher as informações que faltam.",
 	"cx-tools-linter-old-revision": "Tradução baseada na versão antiga da página",
 	"cx-tools-linter-old-revision-message": "Esta tradução é baseada em uma versão mais antiga do conteúdo. A página de origem pode ter [$1 mudado significativamente].\n\nVocê pode continuar essa tradução ou iniciá-la novamente para usar o conteúdo atualizado. Se você reiniciar a tradução, suas alterações atuais serão perdidas.",
 	"cx-tools-linter-old-revision-label": "Reiniciar a tradução",

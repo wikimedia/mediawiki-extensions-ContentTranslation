@@ -11,7 +11,8 @@
 			"Nguyên Lê",
 			"Vinhtantran",
 			"Петар Петковић",
-			"Leduyquang753"
+			"Leduyquang753",
+			"Tuanminh01"
 		]
 	},
 	"cx": "Dịch trang",
@@ -227,6 +228,7 @@
 	"cx-tools-linter-invalid-character-message": "Không thể sử dụng một số ký tự trong tên trang vì các hạn chế kỹ thuật.\n\nXin hãy sửa tên trang để tránh các ký tự gây vấn đề.",
 	"cx-tools-linter-page-exists": "Trang đã tồn tại",
 	"cx-tools-linter-page-exists-message": "Trang có tên $1 đã tồn tại. Việc đăng bản dịch của bạn sẽ ghi đề nội dung đã tồn tại.\n\nHãy chắc chắn rằng trang đã tồn tại có thể được thay thế không sao, hoặc nghĩ đến việc đổi tên bản dịch của bạn.",
+	"cx-tools-linter-template-missing-mandatory": "Một bản mẫu đã được thêm vào mà không có một số thông tin cần thiết.\nCác chi tiết bị thiếu không thể lấy được tự động từ mẫu ban đầu do cấu trúc của chúng hơi khác một chút.\n\nXin vui lòng chỉnh sửa mẫu trong bản dịch để điền thông tin còn thiếu.",
 	"cx-translator-header": "Thống kê của bạn",
 	"cx-translator-month-stats-label": "Tháng này",
 	"cx-translator-total-translations-label": "Tổng cộng",

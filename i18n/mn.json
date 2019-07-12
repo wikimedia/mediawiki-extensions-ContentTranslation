@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Буцах"
+		]
+	},
+	"cx-dashboard-header": "Орчуулгууд",
+	"cx-header-all-translations": "Бүх орчуулгууд",
+	"cx-publish-button": "Хэвлэх",
+	"cx-tools-link-title": "Холбоос",
+	"cx-tools-link-add": "Холбоос нэмэх",
+	"cx-tools-link-remove": "Холбоос устгах",
+	"cx-tools-mt-preferred": "анхны байдал",
+	"cx-tools-reference-title": "Зүүлт",
+	"cx-page-selector-widget-nearby-label": "Ойр",
+	"cx-captcha-dialog-cancel": "Цуцлах",
+	"cx-dashboard-sidebar-stats": "Статистик",
+	"cx-translation-filter-label-all-languages": "Бүх",
+	"cx-translation-filter-uls-all-languages": "Бүх хэлнүүд",
+	"cx-contributions-new-article": "Шинэ хуудас",
+	"cx-contributions-translation": "Орчуулга",
+	"cx-translation-status-published": "Хэвлэсэн",
+	"cx-translation-status-deleted": "Устгагдсан",
+	"cx-stats-cumulative-tab-title": "Нийт",
+	"cx-draft-cancel-button-label": "Цуцлах",
+	"cx-campaign-contributionsmenu-mycontributions": "Хувь нэмэр",
+	"cx-campaign-contributionsmenu-mytranslations": "Орчуулгууд",
+	"cx-no-source-categories": "Ангиллууд байхгүй",
+	"echo-category-title-cx": "Орчуулгууд",
+	"cx-tools-link-apply": "Болсон",
+	"cx-personaltools-user": "Хэрэглэгч",
+	"mw-pageselector-missing": "Ийм хуудас байхгүй",
+	"cx-infobar-view-issues": "Харуулах асуудлууд",
+	"cx-tools-linter-issues": "Асуудлууд",
+	"cx-tools-linter-restart-translation-cancel": "Цуцлах",
+	"cx-translator-total-translations-label": "Нийт",
+	"cx-tools-mt-new-provider": "шинэ",
+	"cx-tools-template-title": "Загвар",
+	"cx-publish-destination-namespace-main": "Шинэ хуудас"
+}
