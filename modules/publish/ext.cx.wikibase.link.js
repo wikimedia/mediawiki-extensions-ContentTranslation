@@ -66,7 +66,7 @@
 			'wikibase.api.RepoApi',
 			'wikibase.client.currentSite',
 			'wikibase.client.getMwApiForRepo',
-			'wikibase.client.PageConnector'
+			'jquery.wikibase.linkitem'
 		] ).then( function () {
 			mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
 		} );
