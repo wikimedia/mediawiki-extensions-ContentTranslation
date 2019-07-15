@@ -50,6 +50,7 @@
 	"cx-publish-error-abuse-filter": "Los filtros de edición automáticos han detectado algún contenido problemático en tu traducción.\nDetalles: $1",
 	"cx-publish-error-empty": "El servidor respondió sin enviar ningún dato.",
 	"cx-publish-error-readonly": "No se permiten las operaciones de escritura en el wiki.",
+	"cx-publish-error-spam-blacklist": "Es posible que exista ''spam'' en tu traducción. Detalles: $1",
 	"cx-publish-error-title-blacklist": "El título que escribiste está en la lista negra. Elige otro nombre para la traducción.",
 	"cx-publish-error-unknown": "Se produjo un error desconocido e irrecuperable. Detalles del error: $1",
 	"cx-publish-button": "Publicar",
@@ -248,6 +249,9 @@
 	"cx-tools-linter-template": "Plantilla no disponible",
 	"cx-tools-linter-incomplete-template": "Plantilla incompleta",
 	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nEdita la plantilla en la traducción para completar la información que falta.",
+	"cx-tools-linter-old-revision-label": "Reiniciar la traducción",
+	"cx-tools-linter-restart-translation-title": "¿Reiniciar la traducción?",
+	"cx-tools-linter-restart-translation-message": "Empezarás una nueva traducción para la versión más reciente de la página. Perderás todos los cambios.",
 	"cx-tools-linter-restart-translation-cancel": "Cancelar",
 	"cx-translator-header": "Tus estadísticas",
 	"cx-translator-month-stats-label": "Este mes",
@@ -264,6 +268,7 @@
 	"cx-translation-template-add-param": "+ Traducir el campo",
 	"cx-translation-template-add-more": "Añadir campos",
 	"cx-translation-template-select-param": "Elegir los campos de destino",
+	"cx-publish-settings": "Publicar ajustes",
 	"cx-publish-destination-header": "Destino de publicación",
 	"cx-publish-destination-tooltip": "Elige el espacio de nombres en el que se publicará la página",
 	"cx-publish-destination-namespace-main": "Página nueva",
@@ -271,5 +276,6 @@
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
 	"cx-linkcontextitem-missing-link-title": "Enlace faltante",
 	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe",
-	"cx-feature-discovery-title": "Traduce en cualquier momento"
+	"cx-feature-discovery-title": "Traduce en cualquier momento",
+	"cx-feature-discovery-dismiss": "De acuerdo"
 }

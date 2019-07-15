@@ -245,5 +245,7 @@
 	"cx-linkcontextitem-missing-link-title": "غیر موجود ربط",
 	"cx-linkcontextitem-missing-title-description": "یہ صفحہ موجود نہیں ہے",
 	"cx-mt-abuse-publish-error": "آپ کا/آپکا تراجم شائع نہیں کیا جاسکتا کیونکہ اس ميں बहुतायत ميں بنا سدھار کے मशीनी-تراجم کا पाठ #شامل ہے۔",
-	"cx-unreviewed-translation-category": "غیر نظر ثانی شدہ تراجم پر مشتمل صفحات"
+	"cx-unreviewed-translation-category": "غیر نظر ثانی شدہ تراجم پر مشتمل صفحات",
+	"cx-feature-discovery-title": "کسی بھی وقت ترجمہ ترجمہ کریں",
+	"cx-feature-discovery-content": "آپ {{int:mycontris}} کے صفحے سے کسی بھی وقت ترجمہ کرنا جاری رکھ یا شروع کر سکتے ہیں"
 }
