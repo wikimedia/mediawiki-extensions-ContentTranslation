@@ -8,29 +8,11 @@
 	var CAMPAIGN = 'interlanguagelink';
 
 	/**
-	 * Gets the source language code for current wiki.
-	 *
-	 * We can't rely on wgContentLanguage because this will fail for a
-	 * wiki like simple.wikipedia.org, where the content language is the same as
-	 * on en.wikipedia.org, as well as some other edge cases. But we use the known
-	 * mappings to do backwards conversion for known problematic domains, and
-	 * wgContentLanguage for rest of the cases.
-	 *
-	 * @return {string} Source language code
-	 */
-	function getSourceLanguage() {
-		var from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
-			fallback = mw.config.get( 'wgContentLanguage' );
-
-		return mw.cx.siteMapper.getLanguageCodeForWikiDomain( from, fallback );
-	}
-
-	/**
 	 * Start a new page translation in Special:CX.
 	 * @param {string} targetLanguage
 	 */
 	function startPageInCX( targetLanguage ) {
-		var sourceLanguage = getSourceLanguage(),
+		var sourceLanguage = mw.cx.siteMapper.getCurrentWikiLanguageCode(),
 			sourceTitle = mw.config.get( 'wgTitle' );
 
 		mw.cx.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
@@ -100,7 +82,7 @@
 				lang: code,
 				href: mw.util.getUrl( 'Special:ContentTranslation', {
 					page: mw.config.get( 'wgTitle' ),
-					from: getSourceLanguage(),
+					from: mw.cx.siteMapper.getCurrentWikiLanguageCode(),
 					to: code
 				} )
 			} )

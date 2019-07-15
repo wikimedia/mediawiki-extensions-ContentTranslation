@@ -34,6 +34,24 @@
 	};
 
 	/**
+	 * Gets the source language code for current wiki.
+	 *
+	 * We can't rely on wgContentLanguage because this will fail for a
+	 * wiki like simple.wikipedia.org, where the content language is the same as
+	 * on en.wikipedia.org, as well as some other edge cases. But we use the known
+	 * mappings to do backwards conversion for known problematic domains, and
+	 * wgContentLanguage for rest of the cases.
+	 *
+	 * @return {string} Source language code
+	 */
+	mw.cx.SiteMapper.prototype.getCurrentWikiLanguageCode = function () {
+		var from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
+			fallback = mw.config.get( 'wgContentLanguage' );
+
+		return this.getLanguageCodeForWikiDomain( from, fallback );
+	};
+
+	/**
 	 * @param {string} domain
 	 * @param {string} [fallback]
 	 * @return {string}
