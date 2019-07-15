@@ -1,0 +1,33 @@
+@import 'mediawiki.ui/variables';
+
+.cx-entrypoint-newbytranslation {
+	/* stylelint-disable-next-line declaration-no-important */
+	bottom: 0 !important; // The popup widget set inline style. Override.
+
+	.cx-campaign-newbytranslation-title {
+		font-weight: bold;
+	}
+
+	&.oo-ui-popupWidget {
+		position: sticky;
+		margin-left: calc( 50% ~'-' 250px );
+	}
+
+	.oo-ui-fieldLayout.oo-ui-labelElement.oo-ui-fieldLayout-align-left {
+		margin-left: 2em;
+
+		> .oo-ui-fieldLayout-body {
+			& > .oo-ui-fieldLayout-header {
+				width: 60%;
+			}
+
+			& > .oo-ui-fieldLayout-field {
+				width: 40%;
+
+				> .oo-ui-buttonWidget > .oo-ui-buttonElement-button {
+					white-space: normal;
+				}
+			}
+		}
+	}
+}

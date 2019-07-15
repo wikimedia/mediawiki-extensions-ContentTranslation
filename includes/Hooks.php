@@ -13,6 +13,7 @@ use DatabaseUpdater;
 use EchoEvent;
 use EditPage;
 use ExtensionRegistry;
+use GlobalPreferences\GlobalPreferencesFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use OutputPage;
@@ -55,6 +56,47 @@ class Hooks {
 		}
 
 		return self::isBetaFeatureEnabled( $user );
+	}
+
+	/**
+	 * Set a global preference for the user.
+	 * @param User $user
+	 * @param string $preference
+	 * @param string $value
+	 */
+	private static function setGlobalPreference( User $user, $preference, $value ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
+			// Need GlobalPreferences extension.
+			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not setting preference.' );
+			return;
+		}
+		/** @var GlobalPreferencesFactory $globalPref */
+		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
+		'@phan-var GlobalPreferencesFactory $globalPref';
+		$globalPref->setUser( $user->getInstanceForUpdate() );
+		$prefs = $globalPref->getGlobalPreferencesValues( true );
+		$prefs[$preference] = $value;
+		$globalPref->setGlobalPreferences( $prefs, RequestContext::getMain() );
+	}
+
+	/**
+	 * Get a global preference for the user.
+	 * @param User $user
+	 * @param string $preference
+	 * @return string|null Preference value
+	 */
+	private static function getGlobalPreference( $user, $preference ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
+			// Need GlobalPreferences extension.
+			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not getting preference.' );
+			return null;
+		}
+		/** @var GlobalPreferencesFactory $globalPref */
+		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
+		'@phan-var GlobalPreferencesFactory $globalPref';
+		$globalPref->setUser( $user );
+		$prefs = $globalPref->getGlobalPreferencesValues( true );
+		return $prefs[$preference] ?? null;
 	}
 
 	/**
@@ -280,28 +322,47 @@ class Hooks {
 	 * @param OutputPage $out
 	 */
 	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
-		global $wgContentTranslationCampaigns;
+		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
 		if ( self::isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
-		if (
-			!$wgContentTranslationCampaigns['newarticle'] ||
-			$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) ||
-			$newPage->getTitle()->exists() ||
-			!$newPage->getTitle()->inNamespace( NS_MAIN ) ||
-			$user->isAnon() ||
-			self::isBetaFeatureEnabled( $user )
-		) {
+		$isValidEditContext = $user->isLoggedIn() &&
+			!$newPage->getTitle()->exists() &&
+			$newPage->getTitle()->inNamespace( NS_MAIN );
+
+		if ( !$isValidEditContext ) {
 			return;
 		}
 
-		$out->addModules( [
-			'ext.cx.eventlogging.campaigns',
-			'ext.cx.entrypoints.newarticle'
-		] );
+		if ( !$wgContentTranslationAsBetaFeature &&
+			// CX is enabled for everybody. Not a beta feature.
+			!self::getGlobalPreference( $user, 'cx_campaign_newarticle_hide' ) &&
+			!Translator::isTranslator( $user ) // User is not a translator already.
+		) {
+			$out->addModules( [
+				'ext.cx.entrypoints.newbytranslation',
+				'ext.cx.eventlogging.campaigns'
+			] );
+			self::setGlobalPreference( $user, 'cx_campaign_newarticle_hide', true );
+			return;
+		}
+
+		if ( $wgContentTranslationAsBetaFeature &&
+			// CX is a beta feature
+			!self::isBetaFeatureEnabled( $user ) &&
+			$wgContentTranslationCampaigns['newarticle'] &&
+			// The below cookie reading does not use default cookie prefix for historical reasons
+			!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' )
+		) {
+			// CX is a beta feature in this wiki and user has not enabled it.
+			$out->addModules( [
+				'ext.cx.entrypoints.newarticle',
+				'ext.cx.eventlogging.campaigns'
+			] );
+		}
 	}
 
 	/**

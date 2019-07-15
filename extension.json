@@ -1050,6 +1050,23 @@
 				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
 			]
 		},
+		"ext.cx.entrypoints.newbytranslation": {
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.newbytranslation.js"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.newbytranslation.less"
+			],
+			"dependencies": [
+				"oojs-ui-widgets",
+				"ext.cx.sitemapper"
+			],
+			"messages": [
+				"cx-campaign-newbytranslation-title",
+				"cx-campaign-newbytranslation-notice",
+				"cx-campaign-newbytranslation-start"
+			]
+		},
 		"ext.cx.betafeature.init": {
 			"scripts": [
 				"entrypoints/ext.cx.betafeature.init.js"
