@@ -86,6 +86,7 @@ class Hooks {
 		$updater->addExtensionTable( 'cx_lists', "$dir/sql/lists.sql" );
 		$updater->addExtensionTable( 'cx_suggestions', "$dir/sql/suggestions.sql" );
 		$updater->addExtensionTable( 'cx_corpora', "$dir/sql/parallel-corpora.sql" );
+		$updater->addExtensionTable( 'cx_notification_log', "$dir/sql/notification-log.sql" );
 
 		$updater->addExtensionField(
 			'cx_translations',
@@ -438,12 +439,23 @@ class Hooks {
 			'category' => 'cx',
 			'group' => 'negative',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\DeletedDraftNotificationPresentationModel',
+			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
+			'bundle' => [ 'web' => true, 'expandable' => true ]
+		];
+
+		$notifications['cx-continue-translation'] = [
+			'category' => 'cx',
+			'group' => 'positive',
+			'section' => 'message',
+			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
 			'bundle' => [ 'web' => true, 'expandable' => true ]
 		];
 
 		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
+		];
+		$icons['cx-blue'] = [
+			'path' => 'ContentTranslation/images/cx-notification-blue.svg'
 		];
 		$icons['outdated'] = [
 			'path' => 'ContentTranslation/images/cx-notification-gray.svg'
@@ -463,6 +475,7 @@ class Hooks {
 			case 'cx-hundredth-translation':
 			case 'cx-suggestions-available':
 			case 'cx-deleted-draft':
+			case 'cx-continue-translation':
 				$extra = $event->getExtra();
 				if ( !isset( $extra['recipient'] ) ) {
 					break;
@@ -490,6 +503,10 @@ class Hooks {
 
 		if ( $event->getType() === 'cx-deleted-draft' ) {
 			$bundleString = 'cx-deleted-draft-' . $recipient;
+		}
+
+		if ( $event->getType() === 'cx-continue-translation' ) {
+			$bundleString = 'cx-continue-translation-' . $recipient;
 		}
 	}
 

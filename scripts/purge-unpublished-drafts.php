@@ -17,6 +17,7 @@ use InvalidArgumentException;
 use Maintenance;
 use MediaWiki\MediaWikiServices;
 use RawMessage;
+use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -31,12 +32,16 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 class PurgeUnpublishedDrafts extends Maintenance {
+	private $dryRun = true;
+
 	public function __construct() {
 		parent::__construct();
 
 		$this->setBatchSize( 100 );
 		$this->requireExtension( 'ContentTranslation' );
-		$this->addDescription( 'Purge unpublished drafts.' );
+		$this->addDescription(
+			'Notify users to continue old translations and purge some unpublished drafts.'
+		);
 
 		// Default to safe option which doesn't actually change data.
 		$this->addOption(
@@ -50,14 +55,28 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$required = false,
 			$hasArg = true
 		);
+
+		$this->addOption(
+			'notify-age-in-days',
+			'Notify users about unpublished drafts older than this',
+			$required = false,
+			$hasArg = true
+		);
 	}
 
 	public function execute() {
 		global $wgDraftMaxAge, $wgContentTranslationTranslateInTarget;
 
-		$dryRun = !$this->hasOption( 'really' );
-		$ageInDays = $this->getOption( 'age-in-days', (string)$wgDraftMaxAge );
+		$this->dryRun = !$this->hasOption( 'really' );
 		$language = null;
+
+		$ageInDays = $this->getOption( 'age-in-days', (string)$wgDraftMaxAge );
+		if ( !ctype_digit( $ageInDays ) ) {
+			throw new InvalidArgumentException( 'Purge days must be an integer' );
+		}
+
+		$dbr = Database::getConnection( DB_REPLICA );
+		$notifyAgeInDays = $this->getOption( 'notify-age-in-days' );
 
 		// Notifications can only be send if the user account exists on the wiki where this
 		// maintenance script is run. We used to run this on enwiki, but found out that not
@@ -72,25 +91,77 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$this->output( "Running for language $language\n" );
 		}
 
-		$cutoffTime = $this->getCutoffTime( $ageInDays );
-		$ts = $cutoffTime->format( DateTime::W3C );
-		$this->output( "Selecting drafts with last modified timestamp older than $ts\n" );
-
-		$dbr = Database::getConnection( DB_REPLICA );
-		$cutoffTimestamp = $cutoffTime->format( 'U' );
-		$draftsIterator = $this->getPurgeableDrafts( $dbr, $cutoffTimestamp, $language );
-
-		// The database result iterator does not implement countable, so converting to an array.
-		$count = count( iterator_to_array( $draftsIterator ) );
-		$countMessage = new RawMessage( "Found $count purgeable {{PLURAL:$count|draft|drafts}}\n" );
-		$this->output( $countMessage->text() );
-		if ( $dryRun ) {
-			$this->output( "DRY-RUN mode: drafts are not purged unless you add --really\n" );
+		if ( $this->dryRun ) {
+			$this->output(
+				"DRY-RUN mode: no actions are taken on drafts unless you use --really\n\n"
+			);
 		}
 
+		if ( $notifyAgeInDays ) {
+			$remindersBefore = $this->getCutoffTime( $notifyAgeInDays );
+			$after = $dbr->selectField( 'cx_notification_log', 'MAX(cxn_newest)' );
+
+			if ( $after ) {
+				$remindersAfter = new DateTime( $after );
+			} else {
+				// $after is null if there are no entries in cx_notification_log table.
+				// Indicative of first run after implementing notifications for old drafts. See T89707
+				$remindersAfter = $this->getCutoffTime( $notifyAgeInDays + 15 );
+			}
+
+			$beforeTs = $remindersBefore->format( 'Y-m-d' );
+			$afterTs = $remindersAfter->format( 'Y-m-d' );
+
+			$this->output(
+				"Notifying users to continue their old translations\n" .
+				"Selecting drafts with last modified timestamp between $afterTs and $beforeTs\n"
+			);
+			$draftsIterator = $this->getOldDrafts( $dbr, $remindersBefore, $remindersAfter, $language );
+			$lastDraft = $this->processDrafts(
+				$draftsIterator, [ $this, 'notifyUsersAboutDrafts', 'cx-continue-translation' ]
+			);
+
+			if ( $lastDraft ) {
+				$this->logLastNotifiedDraft( $lastDraft );
+			}
+
+			$this->output( "\n\n" );
+		}
+
+		$purgeCutoff = $this->getCutoffTime( $ageInDays );
+		$purgeTs = $purgeCutoff->format( 'Y-m-d' );
+		$this->output(
+			"Purging old drafts\n" .
+			"Selecting drafts with last modified timestamp before $purgeTs\n"
+		);
+		$draftsIterator = $this->getOldDrafts( $dbr, $purgeCutoff, null, $language );
+		$this->processDrafts(
+			$draftsIterator,
+			[ $this, 'notifyUsersAboutDrafts', 'cx-deleted-draft' ],
+			[ $this, 'purgeDraft' ]
+		);
+
+		$this->output( "Done!\n" );
+	}
+
+	/**
+	 * @param IResultWrapper $drafts Drafts to be processed
+	 * @param array $notifierCallback Callback for notifying users
+	 * @param callable|null $actionCallback Callback for performing operations on drafts
+	 * @return stdClass|null
+	 */
+	public function processDrafts( $drafts, $notifierCallback, $actionCallback = null ) {
+		// The database result iterator does not implement countable, so converting to an array.
+		$count = count( iterator_to_array( $drafts ) );
+		$countMessage = new RawMessage( "Found $count old {{PLURAL:$count|draft|drafts}}\n" );
+		$this->output( $countMessage->text() );
+
 		$draftsPerUser = [];
-		foreach ( $draftsIterator as $draft ) {
-			$unix = ConvertibleTimestamp::convert( TS_UNIX, $draft->translation_last_updated_timestamp );
+		$draft = null;
+		foreach ( $drafts as $draft ) {
+			$unix = ConvertibleTimestamp::convert(
+				TS_UNIX, $draft->translation_last_updated_timestamp
+			);
 			// UTC timezone is forced for unix timestamps
 			$dt = new \DateTime( "@$unix" );
 
@@ -104,27 +175,28 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 			$this->output( "$name", $draft->translation_id );
 
-			if ( !$dryRun ) {
-				$this->purgeDraft( $draft->translation_id );
-				$this->output( " — PURGED", $draft->translation_id );
+			if ( !$this->dryRun ) {
+				if ( $actionCallback ) {
+					call_user_func( $actionCallback, $draft->translation_id );
+				}
+
 				$draftsPerUser[ $draft->translation_last_update_by ][] = $draft;
-				MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 			}
 		}
 
-		if ( !$dryRun ) {
-			$this->notifyUsers( $draftsPerUser );
+		if ( !$this->dryRun ) {
+			call_user_func(
+				array_slice( $notifierCallback, 0, 2 ),
+				$draftsPerUser,
+				$notifierCallback[ 2 ]
+			);
+			return $draft;
 		}
-		$this->output( "Done!\n" );
 	}
 
 	public function getCutoffTime( $days ) {
-		if ( !ctype_digit( $days ) ) {
-			throw new InvalidArgumentException( 'Days must be an integer' );
-		}
-
-		// Uses current timezone of PHP/MediaWiki
 		$dt = new DateTime();
+		$dt->setTimezone( new \DateTimeZone( 'UTC' ) );
 		$dt->setTime( 0, 0, 0 );
 		$dt->modify( "-{$days} days" );
 
@@ -135,22 +207,30 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		Translator::removeTranslation( $draftId );
 		Translation::delete( $draftId );
 		TranslationStorageManager::deleteTranslationDataGently( $draftId, $this->mBatchSize );
+		$this->output( " — PURGED", $draftId );
+		MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 	}
 
 	/**
 	 * @param IDatabase $db
-	 * @param string $cutoff Timestamp in any format recognized by MediaWiki
+	 * @param DateTime $before Before timestamp
+	 * @param DateTime|null $after After timestamp
 	 * @param string|string[]|null $language Language code, list of them or null for all languages
 	 * @return IResultWrapper
 	 */
-	private function getPurgeableDrafts( IDatabase $db, $cutoff, $language = null ) {
+	private function getOldDrafts( IDatabase $db, $before, $after = null, $language = null ) {
 		$table = 'cx_translations';
 		$fields = '*';
 		$conds = [
-			'translation_last_updated_timestamp < ' . $db->addQuotes( $db->timestamp( $cutoff ) ),
+			'translation_last_updated_timestamp < ' . $db->addQuotes( $before->format( 'YmdHis' ) ),
 			'translation_status' => 'draft',
 			'translation_target_url is NULL',
 		];
+
+		if ( $after ) {
+			$conds[] = 'translation_last_updated_timestamp > ' .
+				$db->addQuotes( $after->format( 'YmdHis' ) );
+		}
 
 		// Unfortunately this query cannot use index with nor without this condition. If we
 		// filtered by the source language instead, it could use `cx_translation_languages`,
@@ -168,7 +248,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		return $db->select( $table, $fields, $conds, __METHOD__, $options );
 	}
 
-	public function notifyUsers( $draftsPerUser ) {
+	public function notifyUsersAboutDrafts( $draftsPerUser, $notificationType ) {
 		$centralIdLookup = \CentralIdLookup::factory();
 
 		foreach ( $draftsPerUser as $globalUserId => $drafts ) {
@@ -190,7 +270,8 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 			try {
 				foreach ( $drafts as $draft ) {
-					Notification::draftDeleted(
+					Notification::draftNotification(
+						$notificationType,
 						$user->getId(),
 						$draft->translation_source_title,
 						$draft->translation_source_language,
@@ -204,6 +285,18 @@ class PurgeUnpublishedDrafts extends Maintenance {
 				);
 			}
 		}
+	}
+
+	private function logLastNotifiedDraft( $lastDraft ) {
+		$dbw = Database::getConnection( DB_MASTER );
+		$dt = new DateTime();
+
+		$values = [
+			'cxn_date' => $dt->format( 'Y-m-d' ),
+			'cxn_newest' => $lastDraft->translation_last_updated_timestamp,
+		];
+
+		$dbw->insert( 'cx_notification_log', $values );
 	}
 }
 

@@ -61,18 +61,24 @@ class Notification {
 	}
 
 	/**
-	 * Notify user that his/her old unpublished draft is deleted.
+	 * Notify user about the status of his/her old unpublished draft,
+	 * depending of notification type:
+	 * - That their draft is getting old and may be deleted in the future
+	 * - That their draft was too old and thus deleted
 	 *
+	 * @param string $type 'cx-deleted-draft' or 'cx-continue-translation'
 	 * @param int $recipientId ID of user receiving this notification.
 	 * @param string $title Title of unpublished draft page which is deleted.
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 */
-	public static function draftDeleted( $recipientId, $title, $sourceLanguage, $targetLanguage ) {
+	public static function draftNotification(
+		$type, $recipientId, $title, $sourceLanguage, $targetLanguage
+	) {
 		$title = Title::newFromText( $title );
 
 		\EchoEvent::create( [
-			'type' => 'cx-deleted-draft',
+			'type' => $type,
 			'title' => $title,
 			'extra' => [
 				'recipient' => $recipientId,
