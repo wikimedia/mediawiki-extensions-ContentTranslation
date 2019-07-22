@@ -6,7 +6,8 @@
 			"Сербијана",
 			"Obsuser",
 			"Prevodim",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Zoranzoki21"
 		]
 	},
 	"cx": "Prevođenje stranice",
@@ -263,5 +264,6 @@
 	"cx-linkcontextitem-missing-title-description": "Stranica još uvek ne postoji",
 	"cx-mt-abuse-publish-error": "Vaš prevod ne može biti objavljen, jer sadrži previše neizmenjenog teksta napravljenog pomoću mašinskog prevođenja.",
 	"cx-unreviewed-translation-category": "Stranice sa nepregledanim prevodima",
-	"cx-unreviewed-translation-category-desc": "Stranice prevedene sa alatkom „Prevod sadržaja” koje sadrže visoku količinu nepregledanog sadržaja."
+	"cx-unreviewed-translation-category-desc": "Stranice prevedene sa alatkom „Prevod sadržaja” koje sadrže visoku količinu nepregledanog sadržaja.",
+	"cx-feature-discovery-title": "Prevodi bilo kada"
 }
