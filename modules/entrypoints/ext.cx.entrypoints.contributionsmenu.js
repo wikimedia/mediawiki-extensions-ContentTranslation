@@ -122,9 +122,19 @@
 		} );
 		$container.append( fd.$element );
 		$trigger.one( 'click', function () {
+			var api = new mw.Api();
 			// Prevent default click action.
 			fd.show();
-			mw.storage.set( 'cx-show-entrypoint-feature-discovery', false );
+			// Never show this again.
+			api.postWithToken( 'csrf', {
+				action: 'globalpreferences',
+				optionname: 'cx-entrypoint-fd-status',
+				optionvalue: 'shown'
+			} ).then( function ( res ) {
+				if ( res.error ) {
+					mw.log.error( res.error );
+				}
+			} );
 			return false;
 		} );
 	}
@@ -132,7 +142,7 @@
 	$( function () {
 		var $trigger = $( '#pt-mycontris' );
 
-		if ( mw.storage.get( 'cx-show-entrypoint-feature-discovery' ) === 'true' ) {
+		if ( mw.config.get( 'wgContentTranslationEntryPointFD' ) ) {
 			mw.loader.using( 'mw.cx.ui.FeatureDiscoveryWidget' ).then( function () {
 				showFeatureDiscovery( $trigger );
 			} );

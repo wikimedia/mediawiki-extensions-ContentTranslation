@@ -101,7 +101,8 @@
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
-		"cx-enable-entrypoints": true
+		"cx-enable-entrypoints": true,
+		"cx-entrypoint-fd-status": "notshown"
 	},
 	"config": {
 		"ContentTranslationDomainCodeMapping": {

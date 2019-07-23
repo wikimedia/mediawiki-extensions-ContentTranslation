@@ -8,13 +8,11 @@
 namespace ContentTranslation;
 
 use Action;
-use BetaFeatures;
 use CentralAuthUser;
 use DatabaseUpdater;
 use EchoEvent;
 use EditPage;
 use ExtensionRegistry;
-use GlobalPreferences\GlobalPreferencesFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use OutputPage;
@@ -25,16 +23,6 @@ use SpecialPage;
 use User;
 
 class Hooks {
-
-	/**
-	 * @param User $user
-	 *
-	 * @return bool
-	 */
-	private static function isBetaFeatureEnabled( User $user ) {
-		return ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
-			&& BetaFeatures::isFeatureEnabled( $user, 'cx' );
-	}
 
 	/**
 	 * Check whether the current user is a potential translator
@@ -75,70 +63,6 @@ class Hooks {
 		}
 
 		return true;
-	}
-
-	/**
-	 * Utility function that checks whether CX is enabled for a given user.
-	 * Currently it checks that if CX is a beta feature, whether the user has
-	 * enabled it. Otherwise it is always enabled.
-	 *
-	 * @param User $user
-	 * @return Boolean
-	 */
-	public static function isEnabledForUser( User $user ) {
-		global $wgContentTranslationAsBetaFeature;
-
-		// CX is currently restricted to only logged in users
-		if ( $user->isAnon() ) {
-			return false;
-		}
-
-		if ( !$wgContentTranslationAsBetaFeature ) {
-			return true;
-		}
-
-		return self::isBetaFeatureEnabled( $user );
-	}
-
-	/**
-	 * Set a global preference for the user.
-	 * @param User $user
-	 * @param string $preference
-	 * @param string $value
-	 */
-	private static function setGlobalPreference( User $user, $preference, $value ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
-			// Need GlobalPreferences extension.
-			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not setting preference.' );
-			return;
-		}
-		/** @var GlobalPreferencesFactory $globalPref */
-		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
-		'@phan-var GlobalPreferencesFactory $globalPref';
-		$globalPref->setUser( $user->getInstanceForUpdate() );
-		$prefs = $globalPref->getGlobalPreferencesValues( true );
-		$prefs[$preference] = $value;
-		$globalPref->setGlobalPreferences( $prefs, RequestContext::getMain() );
-	}
-
-	/**
-	 * Get a global preference for the user.
-	 * @param User $user
-	 * @param string $preference
-	 * @return string|null Preference value
-	 */
-	private static function getGlobalPreference( $user, $preference ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
-			// Need GlobalPreferences extension.
-			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not getting preference.' );
-			return null;
-		}
-		/** @var GlobalPreferencesFactory $globalPref */
-		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
-		'@phan-var GlobalPreferencesFactory $globalPref';
-		$globalPref->setUser( $user );
-		$prefs = $globalPref->getGlobalPreferencesValues( true );
-		return $prefs[$preference] ?? null;
 	}
 
 	/**
@@ -191,7 +115,16 @@ class Hooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
-		if ( self::isCXEntrypointDisabled( $user ) ) {
+		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
+			return;
+		}
+
+		$out->addModules( 'ext.cx.eventlogging.campaigns' );
+
+		if ( $title &&
+			( $title->isSpecial( 'ContentTranslation' ) || $title->isSpecial( 'ContentTranslationStats' ) )
+		) {
+			// Entry point modules need not be shown in CX special pages
 			return;
 		}
 
@@ -201,7 +134,7 @@ class Hooks {
 		// Done separately from loading the newarticle campaign for the
 		// wiki syntax editor because of the different actions with which
 		// the editing page is loaded.
-		if ( !self::isEnabledForUser( $user ) ) {
+		if ( !PreferenceHelper::isEnabledForUser( $user ) ) {
 			if (
 				!$title->exists() &&
 				$wgContentTranslationCampaigns['newarticle'] &&
@@ -210,10 +143,7 @@ class Hooks {
 				!$user->isAnon() &&
 				$permissionManager->userCan( 'edit', $user, $title, PermissionManager::RIGOR_QUICK )
 			) {
-				$out->addModules( [
-					'ext.cx.entrypoints.newarticle.veloader',
-					'ext.cx.eventlogging.campaigns'
-				] );
+				$out->addModules( 'ext.cx.entrypoints.newarticle.veloader' );
 			}
 
 			return;
@@ -232,10 +162,12 @@ class Hooks {
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar
-		$out->addModules( [
-			'ext.cx.eventlogging.campaigns',
-			'ext.cx.entrypoints.contributionsmenu'
-		] );
+		$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
+
+		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
+			// A translation was initialized based on a campaign. Show the feature discovery
+			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
+		}
 	}
 
 	/**
@@ -274,12 +206,12 @@ class Hooks {
 	 * @param SpecialPage $page
 	 */
 	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
-		if ( self::isCXEntrypointDisabled( $user ) ) {
+		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
 		if ( $user->getId() === $page->getUser()->getId() &&
-			self::isEnabledForUser( $user )
+			PreferenceHelper::isEnabledForUser( $user )
 		) {
 			$page->getOutput()->addModules( [
 				'ext.cx.eventlogging.campaigns',
@@ -367,7 +299,7 @@ class Hooks {
 		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
-		if ( self::isCXEntrypointDisabled( $user ) ) {
+		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
@@ -381,20 +313,20 @@ class Hooks {
 
 		if ( $wgContentTranslationAsBetaFeature === false &&
 			// CX is enabled for everybody. Not a beta feature.
-			!self::getGlobalPreference( $user, 'cx_campaign_newarticle_hide' ) &&
+			!PreferenceHelper::getGlobalPreference( $user, 'cx_campaign_newarticle_hide' ) &&
 			self::isPotentialTranslator( $user )
 		) {
 			$out->addModules( [
 				'ext.cx.entrypoints.newbytranslation',
 				'ext.cx.eventlogging.campaigns'
 			] );
-			self::setGlobalPreference( $user, 'cx_campaign_newarticle_hide', true );
+			PreferenceHelper::setGlobalPreference( $user, 'cx_campaign_newarticle_hide', true );
 			return;
 		}
 
 		if ( $wgContentTranslationAsBetaFeature &&
 			// CX is a beta feature
-			!self::isBetaFeatureEnabled( $user ) &&
+			!PreferenceHelper::isBetaFeatureEnabled( $user ) &&
 			$wgContentTranslationCampaigns['newarticle'] &&
 			// The below cookie reading does not use default cookie prefix for historical reasons
 			!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' )
@@ -563,16 +495,10 @@ class Hooks {
 				]
 			];
 		}
+
+		$preferences['cx-entrypoint-fd-status'] = [
+			'type' => 'api',
+		];
 	}
 
-	/**
-	 * If CX is not beta feature and user unchecked the preference
-	 * to avoid seeing entry points, disable all entrypoints
-	 * @param User $user
-	 * @return bool
-	 */
-	private static function isCXEntrypointDisabled( $user ) {
-		global $wgContentTranslationAsBetaFeature;
-		return !$wgContentTranslationAsBetaFeature && !$user->getBoolOption( 'cx-enable-entrypoints' );
-	}
 }

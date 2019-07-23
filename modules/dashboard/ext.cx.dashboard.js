@@ -453,11 +453,5 @@
 		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 		dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
 		dashboard.init();
-
-		// User accessed dashboard based on a campaign. Set a flag in localstorage so that next time the user visit a page,
-		// a feature discovery workflow is available.
-		if ( mw.config.get( 'wgContentTranslationEntryPointFD' ) && !mw.storage.get( 'cx-show-entrypoint-feature-discovery' ) ) {
-			mw.storage.set( 'cx-show-entrypoint-feature-discovery', true );
-		}
 	} );
 }() );
