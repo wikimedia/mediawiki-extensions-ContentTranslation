@@ -36,6 +36,7 @@
 	"cx-entrypoint-title": "Dës Säit op $1 iwwersetzen",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Dës Säit gëtt et op $1 nach net. Wëllt {{GENDER:|Dir}} se uleeën?",
 	"cx-entrypoint-dialog-button-translate-from": "Iwwersetze vu(n) $1",
+	"cx-campaign-newbytranslation-start": "Ufänke mat iwwersetzen",
 	"cx-special-login-error": "Dir musst ageloggt si fir fës Säit z'iwwersetzen. [$1 Aloggen]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klickt op}} d'Abschnitter fir z'iwwersetzen",
 	"cx-tools-instructions-text2": "{{GENDER:|Dir}} musst se net all dobäisetzen",
