@@ -115,6 +115,9 @@ mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1,
  * @return {string[]}
  */
 mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
+	if ( !string ) {
+		return [];
+	}
 	if ( $.uls.data.scriptgroups.CJK.indexOf( $.uls.data.getScript( language ) ) >= 0 ) {
 		return string.split( '' );
 	}
