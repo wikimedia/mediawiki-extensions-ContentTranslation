@@ -30,7 +30,8 @@
 			"PoLuX124",
 			"Jelou",
 			"Петар Петковић",
-			"Harvest"
+			"Harvest",
+			"Johny Weissmuller Jr"
 		]
 	},
 	"cx": "Traducir página",
@@ -71,6 +72,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Esta página aún no existe en $1. ¿{{GENDER:|Quieres}} crearla?",
 	"cx-entrypoint-dialog-button-translate-from": "Traducir del $1",
 	"cx-entrypoint-dialog-desc": "Puedes ayudar a Wikipedia traduciendo esta página. Traducir es una manera fácil de crear nuevo contenido en tu lenguaje.",
+	"cx-campaign-newbytranslation-title": "¿Comienzas con una traducción entonces?",
 	"cx-special-login-error": "Debes acceder para traducir esta página. [$1 Acceder]",
 	"cx-tools-instructions-text1": "{{GENDER:|Añade}} párrafos para traducir",
 	"cx-tools-instructions-text2": "No es necesario añadirlos todos",

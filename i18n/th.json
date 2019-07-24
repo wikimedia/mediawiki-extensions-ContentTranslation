@@ -6,7 +6,8 @@
 			"Aefgh39622",
 			"Horus",
 			"Ans",
-			"B20180"
+			"B20180",
+			"กิ๊ฟ เลิกล่ะ สายแข็ง"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -47,6 +48,7 @@
 	"cx-entrypoint-title": "แปลหน้านี้เป็นภาษา$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ยังไม่มีหน้านี้ในภาษา$1 {{GENDER:|คุณ}}ต้องการสร้างหรือไม่",
 	"cx-entrypoint-dialog-button-translate-from": "แปลจากภาษา$1",
+	"cx-campaign-newbytranslation-notice": "Create a new article by translating from another language you know.",
 	"cx-special-login-error": "คุณต้องเข้าสู่ระบบเพื่อที่จะแปลหน้านี้ [$1 เข้าสู่ระบบ]",
 	"cx-tools-instructions-text1": "{{GENDER:|คลิก}}ย่อหน้าต่าง ๆ เพื่อแปล",
 	"cx-tools-instructions-text2": "{{GENDER:|คุณ}}ไม่จำเป็นต้องเพิ่มหมดทุกอย่าง",

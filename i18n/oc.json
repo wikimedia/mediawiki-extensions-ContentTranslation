@@ -5,7 +5,8 @@
 			"Cedric31",
 			"Nicolas Eynaud",
 			"Prevodim",
-			"Guilhelma"
+			"Guilhelma",
+			"COMISSIONTOPOC"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -32,6 +33,7 @@
 	"cx-beta": "Traduccion de contengut",
 	"cx-entrypoint-title": "Traduire aquesta pagina en $1",
 	"cx-entrypoint-dialog-button-translate-from": "Traduire dempuèi lo $1",
+	"cx-campaign-newbytranslation-start": "Començatz de traduire",
 	"cx-special-login-error": "Vos cal èsser connectat per traduire aquesta pagina. [$1 Connexion]",
 	"cx-tools-instructions-text1": "{{GENDER:|Clicar}} los paragrafes de traduire",
 	"cx-tools-instructions-text2": "{{GENDER:|Avètz}} pas besonh de los apondre totes",

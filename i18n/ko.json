@@ -66,6 +66,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "이 문서는 아직 $1(으)로 존재하지 않습니다. 만드시겠습니까?",
 	"cx-entrypoint-dialog-button-translate-from": "$1에서 번역",
 	"cx-entrypoint-dialog-desc": "이 문서를 번역함으로써 위키백과를 도울 수 있습니다. 번역은 당신의 언어로 새 내용을 만들기 쉬운 방법입니다.",
+	"cx-campaign-newbytranslation-start": "번역 시작",
 	"cx-special-login-error": "이 문서를 번역하려면 로그인해야 합니다. [$1 로그인하기]",
 	"cx-tools-instructions-text1": "번역할 문단을 클릭",
 	"cx-tools-instructions-text2": "모든 문단을 추가할 필요는 없습니다",

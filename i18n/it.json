@@ -24,7 +24,8 @@
 			"Daimona Eaytoy",
 			"Lorelai87",
 			"Sakretsu",
-			"Annibale covini gerolamo"
+			"Annibale covini gerolamo",
+			"Pierpao"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -61,6 +62,9 @@
 	"cx-entrypoint-title": "Traduci questa pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Questa pagina non esiste ancora in $1. {{GENDER:|Vuoi}} crearla?",
 	"cx-entrypoint-dialog-button-translate-from": "Traduci da $1",
+	"cx-campaign-newbytranslation-title": "Inizia invece con una traduzione?",
+	"cx-campaign-newbytranslation-notice": "Crea una nuova voce traducendo da un'altra lingua che conosci.",
+	"cx-campaign-newbytranslation-start": "Inizia a tradurre",
 	"cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina. [$1 Entra]",
 	"cx-tools-instructions-text1": "{{GENDER:|Aggiungi}} paragrafi da tradurre",
 	"cx-tools-instructions-text2": "Non è necessario aggiungerli tutti",
