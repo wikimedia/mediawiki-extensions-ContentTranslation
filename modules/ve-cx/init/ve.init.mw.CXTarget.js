@@ -111,8 +111,6 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
  *
  * Some target section's content source has changed.
  * @param {number} sectionNumber
- * @param {string|null} previousProvider
- * @param {string} newProvider
  */
 
 /**
@@ -962,7 +960,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 
 	return this.translateSection( cxid, newProvider, options.noCache ).then( function ( content ) {
 		this.setSectionContent( section, content, newProvider );
-		this.emit( 'changeContentSource', mw.cx.getSectionNumberFromSectionId( cxid ), previousProvider, newProvider );
+		this.emit( 'changeContentSource', mw.cx.getSectionNumberFromSectionId( cxid ) );
 	}.bind( this ) );
 };
 

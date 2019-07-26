@@ -17,7 +17,6 @@ mw.cx.TranslationTracker = function MwCXTranslationTracker( veTarget, config ) {
 	this.targetLanguage = config.targetLanguage;
 	this.veTarget = veTarget;
 
-	this.lastFocusedSection = null;
 	// Array that stores IDs of sections with issues, along with special value for title issues.
 	this.nodesWithIssues = [];
 	// Sections in the translation. Associative array with section numbers as keys
@@ -180,22 +179,22 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		this.processValidationQueue();
 	}
 
-	this.attachOnFocusListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
+	this.attachOnBlurListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
 };
 
 /**
- * Attach listeners for 'focus' events on restored sections as well as on newly added sections.
+ * Attach listeners for 'blur' events on restored sections as well as on newly added sections.
  *
  * @param {ve.dm.CXSectionNode[]} sections
  */
-mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function ( sections ) {
-	// Register event listeners for 'focus' event on restored sections
+mw.cx.TranslationTracker.prototype.attachOnBlurListeners = function ( sections ) {
+	// Register event listeners for 'blur' event on restored sections
 	sections.map( function ( sectionModel ) {
 		return sectionModel.getId();
-	} ).forEach( this.registerOnFocusListenerForSection.bind( this ) );
+	} ).forEach( this.registerOnBlurListenerForSection.bind( this ) );
 
-	// Register event listeners for 'focus' event for every newly added section
-	this.veTarget.connect( this, { changeContentSource: 'registerOnFocusListenerForSection' } );
+	// Register event listeners for 'blur' event for every newly added section
+	this.veTarget.connect( this, { changeContentSource: 'registerOnBlurListenerForSection' } );
 };
 
 /**
@@ -530,21 +529,10 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 /**
  * @param {number} sectionNumber
  */
-mw.cx.TranslationTracker.prototype.registerOnFocusListenerForSection = function ( sectionNumber ) {
+mw.cx.TranslationTracker.prototype.registerOnBlurListenerForSection = function ( sectionNumber ) {
 	var sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
 
-	sectionNode.connect( this, { focus: [ 'onSectionFocus', sectionNumber ] } );
-};
-
-/**
- * @param {number} focusedSectionNumber
- */
-mw.cx.TranslationTracker.prototype.onSectionFocus = function ( focusedSectionNumber ) {
-	if ( this.lastFocusedSection !== focusedSectionNumber ) {
-		this.processValidationQueue();
-	}
-
-	this.lastFocusedSection = focusedSectionNumber;
+	sectionNode.connect( this, { blur: 'processValidationQueue' } );
 };
 
 /**
