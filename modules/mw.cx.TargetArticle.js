@@ -489,7 +489,7 @@ mw.cx.TargetArticle.prototype.showDialog = function ( title, message ) {
 				{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
 			]
 		} ).closed.then( function ( data ) {
-			if ( data && data.action === 'cancel' ) {
+			if ( !data || data.action === 'cancel' ) {
 				return $.Deferred().reject();
 			}
 		} );
