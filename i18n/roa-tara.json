@@ -20,6 +20,7 @@
 	"cx-publish-page-success": "Pàgene pubblecate 'u $1",
 	"cx-publish-page-error": "'N'errore ha assute quanne ste pubblecamme 'a traduzione. Pe piacere pruève arrete a pubblecà 'a pàgene. Errore: $1",
 	"cx-publish-error-empty": "'U server ha resposte senza date.",
+	"cx-publish-error-readonly": "Nisciuna scretture jè permesse sus 'a uicchi.",
 	"cx-publish-button": "Pubbleche",
 	"cx-publish-button-publishing": "Stoche a pubbleche...",
 	"cx-lost-session": "'A sessiona toje ha scadute",

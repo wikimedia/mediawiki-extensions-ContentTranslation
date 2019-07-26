@@ -25,7 +25,8 @@
 			"VulpesVulpes825",
 			"佛壁灯",
 			"科劳",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"A2B4C"
 		]
 	},
 	"cx": "翻译页面",
@@ -67,6 +68,7 @@
 	"cx-entrypoint-title": "将此页面翻译成$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此页面在$1尚不存在。{{GENDER:|您}}想创建它吗？",
 	"cx-entrypoint-dialog-button-translate-from": "从$1翻译",
+	"cx-campaign-newbytranslation-start": "开始翻译",
 	"cx-special-login-error": "您必须登录才能翻译此页面。[$1 登录]",
 	"cx-tools-instructions-text1": "{{GENDER:|点击}}段落开始翻译",
 	"cx-tools-instructions-text2": "{{GENDER:|您}}不需要将其全部添加",
