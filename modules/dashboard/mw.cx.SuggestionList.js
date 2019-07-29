@@ -499,22 +499,22 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			framed: false,
 			flags: [ 'progressive' ],
 			classes: [ 'cx-slitem__action--nonfavorite' ],
-			icon: 'unStar'
+			icon: 'bookmark'
 		} );
 
 		favoriteAction.once( 'click', this.unmarkFavorite.bind( this, suggestion ) );
-		favoriteAction.$element.on( 'mouseenter', this.setStarIcon.bind( favoriteAction ) );
-		favoriteAction.$element.on( 'mouseleave', this.setUnstarIcon.bind( favoriteAction ) );
+		favoriteAction.$element.on( 'mouseenter', this.setOutlineIcon.bind( favoriteAction ) );
+		favoriteAction.$element.on( 'mouseleave', this.setFilledIcon.bind( favoriteAction ) );
 	} else {
 		favoriteAction = new OO.ui.ButtonWidget( {
 			framed: false,
 			classes: [ 'cx-slitem__action--favorite' ],
-			icon: 'star'
+			icon: 'bookmarkOutline'
 		} );
 
 		favoriteAction.once( 'click', this.markFavorite.bind( this, suggestion ) );
-		favoriteAction.$element.on( 'mouseenter', this.setUnstarIcon.bind( favoriteAction ) );
-		favoriteAction.$element.on( 'mouseleave', this.setStarIcon.bind( favoriteAction ) );
+		favoriteAction.$element.on( 'mouseenter', this.setFilledIcon.bind( favoriteAction ) );
+		favoriteAction.$element.on( 'mouseleave', this.setOutlineIcon.bind( favoriteAction ) );
 	}
 
 	$metaDataContainer = $( '<div>' )
@@ -543,19 +543,19 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 };
 
 /**
- * Change "favorite" button icon to empty star
+ * Change "favorite" button icon to bookmark outline
  */
-mw.cx.CXSuggestionList.prototype.setStarIcon = function () {
+mw.cx.CXSuggestionList.prototype.setOutlineIcon = function () {
 	this.clearFlags();
-	this.setIcon( 'star' );
+	this.setIcon( 'bookmarkOutline' );
 };
 
 /**
- * Change "favorite" button icon to filled blue star
+ * Change "favorite" button icon to filled bookmark
  */
-mw.cx.CXSuggestionList.prototype.setUnstarIcon = function () {
+mw.cx.CXSuggestionList.prototype.setFilledIcon = function () {
 	this.setFlags( 'progressive' );
-	this.setIcon( 'unStar' );
+	this.setIcon( 'bookmark' );
 };
 
 /**
