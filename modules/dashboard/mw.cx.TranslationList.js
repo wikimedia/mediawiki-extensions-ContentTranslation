@@ -12,6 +12,7 @@
  * @class
  * @constructor
  * @extends {mw.cx.DashboardList}
+ * @mixins OO.EventEmitter
  *
  * @param {jQuery} $container
  * @param {mw.cx.SiteMapper} siteMapper
@@ -32,11 +33,15 @@ mw.cx.CXTranslationList = function CXTranslationList( $container, siteMapper, ty
 
 	// Parent constructor
 	mw.cx.CXTranslationList.super.call( this, $container, siteMapper );
+
+	// Mixin constructors
+	OO.EventEmitter.call( this );
 };
 
 /* Inheritance */
 
 OO.inheritClass( mw.cx.CXTranslationList, mw.cx.DashboardList );
+OO.mixinClass( mw.cx.CXTranslationList, OO.EventEmitter );
 
 /* Methods */
 
@@ -127,6 +132,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 		if ( !self.translations.length ) {
 			self.$emptyTranslationsList = self.buildEmptyTranslationList();
 			self.$listContainer.append( self.$emptyTranslationsList );
+			self.emit( 'noDrafts' );
 			return;
 		}
 

@@ -187,6 +187,7 @@
 			this.setActiveList( locationHash );
 		} else {
 			this.setActiveList( 'draft' );
+			this.lists.draft.once( 'noDrafts', this.onNoDrafts.bind( this ) );
 		}
 	};
 
@@ -381,6 +382,15 @@
 		} );
 		// Resize handler
 		$( window ).on( 'resize', OO.ui.throttle( this.resize.bind( this ), 250 ) );
+	};
+
+	/**
+	 * Handler called when user has no draft translations
+	 */
+	CXDashboard.prototype.onNoDrafts = function () {
+		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
+			this.setActiveList( 'suggestions' );
+		}
 	};
 
 	CXDashboard.prototype.onClickHandler = function () {
