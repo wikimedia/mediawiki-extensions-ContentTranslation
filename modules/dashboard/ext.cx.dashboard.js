@@ -375,15 +375,13 @@
 	};
 
 	CXDashboard.prototype.listen = function () {
-		var self = this;
-
 		this.filter.connect( this, { select: function ( item ) {
 			this.setActiveList( item.getData() );
 		} } );
 
 		this.$publishedTranslationsButton.on( 'click', function () {
-			self.filter.selectItemByData( 'published' );
-		} );
+			this.filter.selectItemByData( 'published' );
+		}.bind( this ) );
 
 		this.initSourceSelector();
 		this.newTranslationButton.connect( this, {
@@ -424,8 +422,7 @@
 	CXDashboard.prototype.resize = function () {
 		var filterItems = this.filter.getItems(),
 			narrowScreenSize = document.documentElement.clientWidth < this.narrowLimit,
-			size = narrowScreenSize ? 'narrow' : 'wide',
-			self = this;
+			size = narrowScreenSize ? 'narrow' : 'wide';
 
 		this.translator.resize();
 
@@ -437,12 +434,12 @@
 		// Change filter labels to icons and vice-versa
 		filterItems.forEach( function ( filter ) {
 			var data = filter.getData(),
-				label = self.filterLabels[ data ][ size ].label,
-				icon = self.filterLabels[ data ][ size ].icon;
+				label = this.filterLabels[ data ][ size ].label,
+				icon = this.filterLabels[ data ][ size ].icon;
 
 			filter.setIcon( icon );
 			filter.setLabel( label );
-		} );
+		}, this );
 		this.isNarrowScreenSize = narrowScreenSize;
 	};
 
