@@ -174,26 +174,17 @@
 	 * Initialize the components
 	 */
 	CXDashboard.prototype.initLists = function () {
-		var storedSourceLanguage,
-			query = new mw.Uri().query;
+		var locationHash = location.hash.substring( 1 ),
+			lists = [ 'draft', 'published' ];
 
 		this.renderTranslations();
 		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
 			this.renderTranslationSuggestions();
-		} else {
-			this.setActiveList( 'draft' );
-			return;
+			lists.push( 'suggestions' );
 		}
 
-		storedSourceLanguage = mw.storage.get( 'cxSourceLanguage' );
-
-		// Show suggestions tab by default when user is coming from a campaign
-		// entry point and does not have any previous cx source language.
-		if ( ( query.campaign && !storedSourceLanguage ) ||
-			// Show suggestions if URL has #suggestions
-			location.hash === '#suggestions'
-		) {
-			this.setActiveList( 'suggestions' );
+		if ( lists.indexOf( locationHash ) > -1 ) {
+			this.setActiveList( locationHash );
 		} else {
 			this.setActiveList( 'draft' );
 		}
@@ -368,6 +359,7 @@
 
 			if ( listName === type ) {
 				list.show();
+				location.hash = type;
 			} else {
 				list.hide();
 			}
