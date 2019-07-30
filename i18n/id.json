@@ -15,7 +15,8 @@
 			"Amire80",
 			"Rachmat04",
 			"Joseagush",
-			"Veracious"
+			"Veracious",
+			"ArlandGa"
 		]
 	},
 	"cx": "Terjemahkan halaman",
@@ -251,7 +252,7 @@
 	"cx-tools-linter-template-block-message": "Halaman asli menggunakan sebuah templat yang tidak tersedia di wiki tujuan.\n\nTemplat ini telah dilewati, namun Anda dapat menambah konten baru untuk melengkapi informasi yang hilang.",
 	"cx-tools-linter-template-inline-message": "Halaman asli menggunakan beberapa templat untuk menyusun kontennya, namun beberapa di antaranya tidak tersedia di wiki tujuan.\n\nKonten dari templat yang hilang ini telah ditambahkan sebagai teks polos. Pastikan untuk meninjau hasilnya.",
 	"cx-tools-linter-template-add-new": "Tambah templat baru",
-	"cx-tools-linter-incomplete-template": "Templat tak lengkap",
+	"cx-tools-linter-incomplete-template": "Templat taklengkap",
 	"cx-tools-linter-empty-template": "Informasi pada templat asli tidak dapat dipindahkan ke templat dalam terjemahan karena strukturnya sedikit berbeda.\n\nHarap sunting templat dalam terjemahan untuk melengkapi informasi yang hilang.",
 	"cx-tools-linter-template-missing-mandatory": "Templat ditambahkan tanpa disertai informasi yang wajib diisi.\nRincian yang hilang tidak dapat diperoleh secara otomatis dari templat asli karena strukturnya sedikit berbeda.\n\nHarap sunting templat dalam terjemahan untuk melengkapi informasi yang hilang.",
 	"cx-tools-linter-old-revision": "Terjemahan berdasarkan versi halaman yang lama",
