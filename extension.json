@@ -349,7 +349,7 @@
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
-				"ext.cx.SelectedSourcePage",
+				"mw.cx.SelectedSourcePage",
 				"ext.uls.common",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
@@ -369,14 +369,14 @@
 				"cx-source-page-selector-no-search-results"
 			]
 		},
-		"ext.cx.SelectedSourcePage": {
+		"mw.cx.SelectedSourcePage": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"source/ext.cx.SelectedSourcePage.js",
-				"source/ext.cx.SelectedSourcePageDialog.js"
+				"source/mw.cx.SelectedSourcePage.js",
+				"source/mw.cx.SelectedSourcePageDialog.js"
 			],
 			"styles": [
-				"source/styles/ext.cx.SelectedSourcePage.less"
+				"source/styles/mw.cx.SelectedSourcePage.less"
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
