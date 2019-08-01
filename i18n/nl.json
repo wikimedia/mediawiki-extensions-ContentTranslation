@@ -25,7 +25,8 @@
 			"Петар Петковић",
 			"Ndecouck",
 			"Optilete",
-			"Bdijkstra"
+			"Bdijkstra",
+			"Elroy"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -63,6 +64,7 @@
 	"cx-entrypoint-title": "Pagina vertalen naar het $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Deze pagina bestaat nog niet in $1. Wilt u deze pagina aanmaken?",
 	"cx-entrypoint-dialog-button-translate-from": "Vertalen vanuit $1",
+	"cx-campaign-newbytranslation-start": "Aan de slag met vertalen",
 	"cx-special-login-error": "U moet aangemeld zijn om in deze pagina te vertalen. [$1 Aanmelden]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik}} de alinea's aan om ze te vertalen",
 	"cx-tools-instructions-text2": "{{GENDER:|U}} hoeft ze niet allemaal toe te voegen",
