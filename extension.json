@@ -410,6 +410,8 @@
 				"cx-selected-source-page-error-page-and-title-exist",
 				"cx-selected-source-page-error-page-exists",
 				"cx-selected-source-page-error-title-in-use",
+				"cx-favorite-added-for-later",
+				"cx-favorite-added-for-later-detail",
 				"cx-selected-source-page-view-count",
 				"cx-license-agreement"
 			]

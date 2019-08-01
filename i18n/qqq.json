@@ -111,6 +111,8 @@
 	"cx-selected-source-page-error-page-and-title-exist": "An error message that indicates that there is already a version of a selected page in the target wiki and the proposed target title is used elsewhere.\n\nParameters:\n* $1 - link to existing target page.\n* $2 - target language name.\n* $3 - link to article using proposed target title.",
 	"cx-selected-source-page-error-page-exists": "An error message that indicates that there is already a version of a selected page in the target wiki.\n\nParameters:\n* $1 - link to existing target page.\n* $2 - target language name.",
 	"cx-selected-source-page-error-title-in-use": "Error that indicates there is already a page in the target wiki with the same title as the proposed target title.\n\nParameters:\n* $1 - link to target page with same title",
+	"cx-favorite-added-for-later": "Popup message shown when user marks selected article as favorite, in order to translate it later.",
+	"cx-favorite-added-for-later-detail": "Popup message shown when user marks selected article as favorite, in order to translate it later. Contains additional info where article can be found later.",
 	"cx-page-missing-in-target-language": "Label appended to search result in Special:ContentTranslation when using the \"Start new article\" feature, which indicates that matching article is missing in target language.\n\nParameters:\n* $1 - The autonym of the language",
 	"cx-page-number-of-languages": "Tooltip shown in Special:ContentTranslation over the icon that shows how many languages the article is available in",
 	"cx-mt-abuse-error-title": "Title of error issue card displayed when translation in a whole uses machine translation too much.\n* $1: Percentage of machine translation",

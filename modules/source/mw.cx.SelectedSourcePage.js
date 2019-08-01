@@ -38,6 +38,7 @@ mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 	this.$link = null;
 	this.languageCount = null;
 	this.viewsCount = null;
+	this.bookmarkButton = null;
 	this.languageFilter = null;
 	this.discardButton = null;
 	this.startTranslationButton = null;
@@ -53,6 +54,11 @@ mw.cx.SelectedSourcePage.prototype.init = function () {
 	this.languageFilter = new mw.cx.ui.LanguageFilter( {
 		onSourceLanguageChange: this.sourceLanguageChangeHandler.bind( this ),
 		onTargetLanguageChange: this.targetLanguageChangeHandler.bind( this )
+	} );
+	this.bookmarkButton = new OO.ui.ButtonWidget( {
+		framed: false,
+		icon: 'bookmarkOutline',
+		classes: [ 'cx-selected-source-page__bookmark' ]
 	} );
 	this.discardButton = new OO.ui.ButtonWidget( {
 		framed: false,
@@ -98,7 +104,13 @@ mw.cx.SelectedSourcePage.prototype.render = function () {
 
 	$container = $( '<div>' )
 		.addClass( 'cx-selected-source-page__container' )
-		.append( this.$image, $info, this.languageFilter.$element, this.discardButton.$element );
+		.append(
+			this.$image,
+			$info,
+			this.bookmarkButton.$element,
+			this.languageFilter.$element,
+			this.discardButton.$element
+		);
 
 	this.$messageBar = $( '<div>' )
 		.addClass( 'cx-selected-source-page__messagebar' );
@@ -138,8 +150,65 @@ mw.cx.SelectedSourcePage.prototype.focusStartTranslationButton = function () {
 };
 
 mw.cx.SelectedSourcePage.prototype.listen = function () {
-	this.startTranslationButton.connect( this, { click: this.startPageInCX } );
-	this.discardButton.connect( this, { click: this.discardDialog } );
+	this.startTranslationButton.connect( this, { click: 'startPageInCX' } );
+	this.discardButton.connect( this, { click: 'discardDialog' } );
+
+	this.bookmarkButton.connect( this, { click: 'onBookmark' } );
+	this.bookmarkButton.$element.on( 'mouseenter', this.setFilledIcon.bind( this ) );
+	this.bookmarkButton.$element.on( 'mouseleave', this.setOutlineIcon.bind( this ) );
+};
+
+/**
+ * Change "favorite" button icon to filled bookmark
+ */
+mw.cx.SelectedSourcePage.prototype.setFilledIcon = function () {
+	this.bookmarkButton.setFlags( 'progressive' );
+	this.bookmarkButton.setIcon( 'bookmark' );
+};
+
+/**
+ * Change "favorite" button icon to bookmark outline
+ */
+mw.cx.SelectedSourcePage.prototype.setOutlineIcon = function () {
+	this.bookmarkButton.clearFlags();
+	this.bookmarkButton.setIcon( 'bookmarkOutline' );
+};
+
+mw.cx.SelectedSourcePage.prototype.onBookmark = function () {
+	var params, api = new mw.Api();
+
+	params = {
+		assert: 'user',
+		action: 'cxsuggestionlist',
+		listname: 'cx-suggestionlist-favorite',
+		listaction: 'add',
+		titles: this.sourceTitle,
+		from: this.languageFilter.sourceLanguage,
+		to: this.languageFilter.targetLanguage
+	};
+
+	api.postWithToken( 'csrf', params ).done( function ( response ) {
+		if ( response.cxsuggestionlist.result === 'success' ) {
+			mw.notify( this.getNotifyMessage() );
+		}
+	}.bind( this ) );
+};
+
+/**
+ * Get message to show to user as notification after adding an article to "For later",
+ * depending on currently selected list. See T188634#5384861
+ * There's no reference to dashboard and its suggestion/translation lists,
+ * therefore we query DOM in order to get selected list.
+ *
+ * @return {string} Messsage to notify user after keeping an article for later.
+ */
+mw.cx.SelectedSourcePage.prototype.getNotifyMessage = function () {
+	var selectedOptionWidget = $( '.translation-filter .oo-ui-optionWidget-selected' ).data(),
+		selectedView = selectedOptionWidget && selectedOptionWidget.ooUiOptionWidget;
+
+	return selectedView && selectedView.getData() === 'suggestions' ?
+		mw.msg( 'cx-favorite-added-for-later' ) :
+		mw.msg( 'cx-favorite-added-for-later-detail' );
 };
 
 mw.cx.SelectedSourcePage.prototype.discardDialog = function () {
