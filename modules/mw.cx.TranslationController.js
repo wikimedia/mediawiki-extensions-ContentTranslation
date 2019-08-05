@@ -572,7 +572,7 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function ( title
 			{
 				title: title,
 				type: 'error',
-				help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool'
+				help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality'
 			}
 		)
 	] );

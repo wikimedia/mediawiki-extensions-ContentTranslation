@@ -391,7 +391,7 @@ mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel )
 		messageInfo: {
 			title: mw.msg( 'cx-mt-abuse-warning-title', percentage ),
 			type: 'warning',
-			help: mw.msg( 'cx-tools-view-guidelines-link' ),
+			help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality',
 			resolvable: true
 		}
 	} ] );
