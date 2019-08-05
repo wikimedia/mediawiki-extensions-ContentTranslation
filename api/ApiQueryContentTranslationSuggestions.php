@@ -77,10 +77,8 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				'suggestions' => $suggestions,
 			];
 		} else {
-			$personalizedSuggestions = $manager->getPersonalizedSuggestions(
-				$translator->getGlobalUserId(),
-				$from,
-				$to
+			$personalizedSuggestions = $manager->getFavoriteSuggestions(
+				$translator->getGlobalUserId()
 			);
 
 			// Get non-personalized suggestions

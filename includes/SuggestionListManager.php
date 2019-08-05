@@ -119,15 +119,13 @@ class SuggestionListManager {
 	 * Get suggestions markes as favorite by the translator.
 	 *
 	 * @param int $owner Owner's global user id.
-	 * @param string $from Source language.
-	 * @param string $to Target language code.
 	 * @return array Lists and suggestions
 	 */
-	public function getFavoriteSuggestions( $owner, $from, $to ) {
+	public function getFavoriteSuggestions( $owner ) {
 		$lists = [];
 		$listName = 'cx-suggestionlist-favorite';
 		$favoriteList = $this->getListByName( $listName, $owner );
-		$suggestions = $this->getSuggestionsByListName( $owner, $listName, $from, $to );
+		$suggestions = $this->getSuggestionsByListName( $owner, $listName );
 
 		if ( $favoriteList ) {
 			$lists[] = $favoriteList;
@@ -144,23 +142,30 @@ class SuggestionListManager {
 	 *
 	 * @param int $owner Owner's global user id.
 	 * @param string $listName List name.
-	 * @param string $from Source language code.
-	 * @param string $to Target language code.
+	 * @param string|null $from Source language code.
+	 * @param string|null $to Target language code.
 	 * @return Suggestion[] Suggestions
 	 */
-	private function getSuggestionsByListName( $owner, $listName, $from, $to ) {
-		$suggestions = [];
+	private function getSuggestionsByListName( $owner, $listName, $from = null, $to = null ) {
 		$dbr = Database::getConnection( DB_REPLICA );
+		$suggestions = [];
+		$conds = [
+			'cxl_name' => $listName,
+			'cxl_owner' => $owner,
+			'cxs_list_id = cxl_id',
+		];
+
+		if ( $from !== null ) {
+			$conds[ 'cxs_source_language' ] = $from;
+		}
+		if ( $to !== null ) {
+			$conds[ 'cxs_target_language' ] = $to;
+		}
+
 		$res = $dbr->select(
 			[ 'cx_suggestions', 'cx_lists' ],
 			[ 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ],
-			[
-				'cxl_name' => $listName,
-				'cxl_owner' => $owner,
-				'cxs_source_language' => $from,
-				'cxs_target_language' => $to,
-				'cxs_list_id = cxl_id',
-			],
+			$conds,
 			__METHOD__
 		);
 
@@ -226,20 +231,6 @@ class SuggestionListManager {
 				__METHOD__
 			);
 		}
-	}
-
-	/**
-	 * Get personalized suggestions.
-	 *
-	 * @param int $owner Owner's global user id.
-	 * @param string $from Source language.
-	 * @param string $to Target language code.
-	 * @return array Lists and suggestions
-	 */
-	public function getPersonalizedSuggestions( $owner, $from, $to ) {
-		// We have only this kind of personalized suggestions now, but more
-		// coming.
-		return $this->getFavoriteSuggestions( $owner, $from, $to );
 	}
 
 	/**

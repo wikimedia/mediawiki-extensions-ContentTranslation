@@ -297,6 +297,11 @@ mw.cx.CXSuggestionList.prototype.applyFilters = function () {
 	for ( listName in this.lists ) {
 		list = this.lists[ listName ];
 
+		// List of favorite articles (a.k.a. "For later" list) should always be shown
+		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
+			continue;
+		}
+
 		if ( list.$list ) {
 			list.$list.hide();
 		}
@@ -311,10 +316,15 @@ mw.cx.CXSuggestionList.prototype.applyFilters = function () {
 
 	this.lists = {};
 	this.recommendtool = null;
-	this.$personalCollection.empty().show();
 	this.$publicCollection.empty().show();
 
-	this.loadAllSuggestions();
+	// Load suggested articles for new set of source and target languages.
+	// This will bypass loading featured articles as suggestions for a new language pair,
+	// because those are shipped alongside favorite articles, which we
+	// show no matter which language pair is selected, meaning we don't
+	// want to re-download favorite list on every language pair change. See T194476
+	// TODO: Refactor suggestion list view and API and resolve this problem.
+	this.loadItems( { id: 'trex' } );
 };
 
 /**
