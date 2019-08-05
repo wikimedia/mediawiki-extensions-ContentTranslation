@@ -33,6 +33,7 @@
 	"cx-beta": "Satura tulkošana",
 	"cx-entrypoint-title": "Tulkot šo lapu uz $1",
 	"cx-entrypoint-dialog-button-translate-from": "Tulkot no $1",
+	"cx-campaign-newbytranslation-start": "Sākt tulkošanu",
 	"cx-special-login-error": "Lai tulkotu šo lapu, ir jāpieslēdzas. [$1 Pieslēgties]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klikšķini}} uz tulkojamām rindkopām",
 	"cx-tools-instructions-text2": "{{GENDER:|Tev}} nav jāpievieno tās visas",

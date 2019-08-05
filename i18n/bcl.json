@@ -3,7 +3,8 @@
 		"authors": [
 			"Geopoet",
 			"Amire80",
-			"ShimunUfesoj"
+			"ShimunUfesoj",
+			"Brazal.dang"
 		]
 	},
 	"cx": "Pahina nin dakit-taramon",
@@ -16,7 +17,7 @@
 	"cx-tools-link-title": "Kasugponan",
 	"cx-tools-link-add": "Magdagdag nin Kasugponan",
 	"cx-tools-mt-provider-title": "Maggamit nin $1",
-	"cx-tools-mt-dont-use": "Dae maggamit nin makina nin pagdakit-taramon",
+	"cx-tools-mt-dont-use": "Magpuon sa mayong talata",
 	"cx-tools-mt-preferred": "pwestong normal",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorya|$1 mga kategorya|0=Mayong mga kategorya}}",
 	"cx-tools-reference-add": "Idugang ang toltolan",
@@ -30,5 +31,5 @@
 	"cx-stats-weekly-published": "Nakaaging semana",
 	"cx-stats-local-published": "$1 ($3) sa $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na dakit-taramon|$1 na mga dakit-taramon}}",
-	"cx-tools-link-external-link": "Panluwas"
+	"cx-tools-link-external-link": "Panluwas na sugpon"
 }

@@ -5,7 +5,8 @@
 			"Sky Harbor",
 			"Jewel457",
 			"Jojit fb",
-			"Blakegripling ph"
+			"Blakegripling ph",
+			"Brazal.dang"
 		]
 	},
 	"cx": "Isalin ang pahina",
@@ -38,6 +39,8 @@
 	"cx-entrypoint-title": "Isalin ang pahinang ito sa $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Wala pa ang pahinang ito sa $1. Gusto {{GENDER:|mo}} bang likhain ito?",
 	"cx-entrypoint-dialog-button-translate-from": "Magsalin mula sa $1",
+	"cx-campaign-newbytranslation-title": "Magsimula na sa pagsalin wika?",
+	"cx-campaign-newbytranslation-start": "Magsimulang magsalinwika!",
 	"cx-special-login-error": "Dapat na naka log in bago makapagsalin sa pahinang ito. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|I-klik}} ang mga talata upang maisalin",
 	"cx-tools-instructions-text2": "Hindi {{GENDER:|mo}} kailangang dagdagan ang lahat",

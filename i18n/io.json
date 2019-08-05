@@ -20,6 +20,7 @@
 	"cx-beta-desc": "Ca utensilo rapide tradukas pagini a vua linguo. Komencez tradukar de [[Special:MyContributions|vua pagino di kontributaji]] e pose redaktez li per nia \"redaktilo\", kreita specale por tradukuri. Kelka ek nia utensili povas esar disponebla nur por poka lingui.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
 	"cx-entrypoint-dialog-button-translate-from": "Tradukar de $1",
+	"cx-page-selector-widget-nearby-label": "Proxime",
 	"cx-selected-source-page-error-title-in-use": "La titulo por la nova pagino [$1 ja uzesas]",
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",
 	"cx-mt-abuse-warning-text": "Automatala tradukuro furnisesas quale komenco-punto. Verifikez se la kontenajo esas preciza, e la gramatiko esas korekta en vua linguo.\n\nVua tradukuro povos efacesor kande altra redakteri revizos ol.",

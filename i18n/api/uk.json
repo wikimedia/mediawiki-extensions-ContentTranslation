@@ -122,5 +122,10 @@
 	"apierror-cx-translationnotfound": "Переклад не знайдено.",
 	"apihelp-query+langlinkscount-description": "Отримати кількість всіх мов, якими існує стаття.",
 	"apihelp-query+langlinkscount-summary": "Отримати кількість інших мовних версій.",
-	"apihelp-query+langlinkscount-example-1": "Отримати кількість інших мовних версій сторінки «Dog»"
+	"apihelp-query+langlinkscount-example-1": "Отримати кількість інших мовних версій сторінки «Dog»",
+	"apihelp-query+cxdeletedtranslations-description": "Отримати кількість ваших перекладів, опублікованих у певному прості назв, які були вилучені після певної дати.",
+	"apihelp-query+cxdeletedtranslations-summary": "Отримати кількість ваших опублікованих перекладів, які було вилучено.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Часова мітка для отримання лише новіших вилучень.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Простір назв, у якому були опубліковані вилучені переклади. Стандартно це основний простір назв.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Отримати кількість своїх вилучених перекладів, які були опубліковані в основному просторі назв і вилучені після 2019-04-07 16:24:44"
 }
