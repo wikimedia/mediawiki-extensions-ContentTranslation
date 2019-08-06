@@ -47,20 +47,13 @@ ve.dm.CXSentenceSegmentAnnotation.static.toDataElement = function ( domElements 
 	};
 };
 
-ve.dm.CXSentenceSegmentAnnotation.static.toDomElements = function ( dataElement, doc, converter ) {
-	var domElement;
-	// We only need these segments when converting the document for saving,
-	// not for the clipboard (or previewing) (T220495)
-	if ( converter.isForParser() ) {
-		domElement = doc.createElement( 'span' );
-		if ( dataElement.attributes.segmentid ) {
-			domElement.setAttribute( 'data-segmentid', dataElement.attributes.segmentid );
-		}
-
-		return [ domElement ];
-	} else {
-		return [];
+ve.dm.CXSentenceSegmentAnnotation.static.toDomElements = function ( dataElement, doc ) {
+	var domElement = doc.createElement( 'span' );
+	if ( dataElement.attributes.segmentid ) {
+		domElement.setAttribute( 'data-segmentid', dataElement.attributes.segmentid );
 	}
+
+	return [ domElement ];
 };
 
 /* Methods */
