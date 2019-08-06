@@ -881,7 +881,7 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  */
 ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider, noCache ) {
 	var sourceNode, mtRequest,
-		isClipboardMode = true,
+		mode = ve.dm.Converter.static.CLIPBOARD_MODE,
 		sourceNodeModel = this.getSourceSectionNode( sectionId ),
 		sectionNumber = sourceNodeModel.getSectionNumber();
 
@@ -896,10 +896,13 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 		// If the section is referencelist, we don't need to have the reference body resolved in it.
 		// The reflist template wrapping of mw:Extension/refs will be lost in the
 		// clipboard mode too. See T220491
-		isClipboardMode = false;
+		mode = ve.dm.Converter.static.PARSER_MODE;
 	}
 
-	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, isClipboardMode ).body.children[ 0 ];
+	// TODO: Extend converter and make a new TRANSLATION mode
+	ve.dm.converter.isForTranslation = true;
+	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode ).body.children[ 0 ];
+	ve.dm.converter.isForTranslation = false;
 
 	function restructure( section ) {
 		section = section.cloneNode( true );
@@ -943,7 +946,9 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 
 	options = options || {};
 	cxid = section.getSectionId();
-	html = ve.dm.converter.getDomFromNode( section, true ).body.children[ 0 ].outerHTML;
+	ve.dm.converter.isForTranslation = true;
+	html = ve.dm.converter.getDomFromNode( section, ve.dm.Converter.static.CLIPBOARD_MODE ).body.children[ 0 ].outerHTML;
+	ve.dm.converter.isForTranslation = false;
 
 	if ( previousProvider !== null ) {
 		OO.setProp( this.contentSourceCache, cxid, previousProvider, html );
