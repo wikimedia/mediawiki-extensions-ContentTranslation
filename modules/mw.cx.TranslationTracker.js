@@ -568,6 +568,7 @@ mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( section
 			'mwReferencesList',
 			'mwMath',
 			'definitionList',
+			'mwAlienBlockExtension',
 			'mwTable', 'list', 'mwHeading'
 		],
 		childType = sectionModel.getChildNodeName();
