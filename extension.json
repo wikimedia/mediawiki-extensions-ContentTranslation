@@ -442,6 +442,7 @@
 				"ext.cx.util",
 				"ext.cx.util.selection",
 				"jquery.uls.data",
+				"oojs-ui-core",
 				"mediawiki.Uri",
 				"mediawiki.Title"
 			],
@@ -501,6 +502,7 @@
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg",
+				"oojs-ui-core",
 				"oojs"
 			]
 		},
@@ -808,7 +810,8 @@
 			],
 			"dependencies": [
 				"easy-deflate.deflate",
-				"mediawiki.api"
+				"mediawiki.api",
+				"oojs-ui-core"
 			]
 		},
 		"ext.cx.publish": {
@@ -1038,7 +1041,8 @@
 			"dependencies": [
 				"ext.cx.widgets.callout",
 				"mediawiki.ui.button",
-				"mediawiki.util"
+				"mediawiki.util",
+				"oojs-ui-core"
 			],
 			"messages": [
 				"cx-campaign-newarticle-notice",
@@ -1711,6 +1715,7 @@
 			"dependencies": [
 				"mediawiki.user",
 				"mw.cx.ui",
+				"oojs-ui-core",
 				"oojs-ui.styles.icons-wikimedia",
 				"oojs-ui.styles.icons-user",
 				"mw.cx.ui.Infobar",
