@@ -33,7 +33,7 @@ class Hooks {
 	private static function isPotentialTranslator( User $user ) {
 		if ( Translator::isTranslator( $user ) ) {
 			// Already a translator
-			return false;
+			return true;
 		}
 
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
@@ -313,14 +313,12 @@ class Hooks {
 
 		if ( $wgContentTranslationAsBetaFeature === false &&
 			// CX is enabled for everybody. Not a beta feature.
-			!PreferenceHelper::getGlobalPreference( $user, 'cx_campaign_newarticle_hide' ) &&
 			self::isPotentialTranslator( $user )
 		) {
 			$out->addModules( [
 				'ext.cx.entrypoints.newbytranslation',
 				'ext.cx.eventlogging.campaigns'
 			] );
-			PreferenceHelper::setGlobalPreference( $user, 'cx_campaign_newarticle_hide', true );
 			return;
 		}
 
