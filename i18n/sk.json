@@ -6,7 +6,8 @@
 			"Teslaton",
 			"Urbanecm",
 			"TomášPolonec",
-			"Prevodim"
+			"Prevodim",
+			"Vegetator"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -51,7 +52,7 @@
 	"cx-tools-link-title": "Odkaz",
 	"cx-tools-link-add": "Pridať odkaz",
 	"cx-tools-link-remove": "Odstrániť odkaz",
-	"cx-tools-mt-title": "Automatický preklad",
+	"cx-tools-mt-title": "Prvotný preklad",
 	"cx-tools-mt-use-source": "Použiť zdrojový text",
 	"cx-tools-mt-reset": "Začať prekladať odznova",
 	"cx-tools-mt-provider-title": "Použiť $1",
@@ -186,6 +187,7 @@
 	"cx-suggestionlist-collapse": "Zobraziť menej",
 	"cx-suggestionlist-refresh": "Obnoviť návrhy",
 	"cx-notification-suggestions-available": "Na základe {{GENDER:$2|Vášho}} predchádzajúceho prekladu („$1“) sú dostupné nové návrhy.",
+	"cx-tools-linter-generic-title": "Vo vašom preklade je problém.",
 	"cx-tools-linter-title": "Problémy s obsahom: $1",
 	"cx-tools-linter-content": "Bol nájdený obsah, ktorý nesplňuje [//www.mediawiki.org/wiki/Content_translation/Abuse_filter obmedzenia stanovené Wikipédiou pre $1]. Prosím opravte problémy pred zverejnením prekladu.",
 	"cx-tools-linter-view-details": "Zobraziť podrobnosti",
