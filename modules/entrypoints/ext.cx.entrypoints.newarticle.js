@@ -15,7 +15,7 @@
 		$trigger = $( '#pt-betafeatures' );
 		cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
-			targettitle: mw.config.get( 'wgPageName' ),
+			targettitle: mw.config.get( 'wgTitle' ),
 			to: mw.config.get( 'wgContentLanguage' )
 		} );
 

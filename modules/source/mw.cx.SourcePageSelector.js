@@ -57,13 +57,14 @@ mw.cx.SourcePageSelector.prototype.prefill = function () {
 		this.selectedSourcePage.setTargetTitle( this.options.targetTitle );
 	}
 
-	// If all of the values are already present, show the dialog and initiate a validation.
-	if ( this.options.sourceLanguage &&
-			this.options.targetLanguage &&
-			this.options.sourceTitle
-	) {
-		this.pageSelector.lookupChooseFirstItem = true;
-		this.show();
+	if ( this.options.targetLanguage ) {
+		// If all of the values are already present, show the dialog and initiate a validation.
+		if ( this.options.sourceLanguage && this.options.sourceTitle ) {
+			this.pageSelector.lookupChooseFirstItem = true;
+			this.show();
+		} else if ( this.options.targetTitle ) {
+			this.show();
+		}
 	}
 };
 

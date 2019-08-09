@@ -31,7 +31,7 @@
 
 		return mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: CAMPAIGN,
-			targettitle: mw.config.get( 'wgPageName' ),
+			targettitle: mw.config.get( 'wgTitle' ),
 			to: siteMapper.getCurrentWikiLanguageCode()
 		} );
 	}

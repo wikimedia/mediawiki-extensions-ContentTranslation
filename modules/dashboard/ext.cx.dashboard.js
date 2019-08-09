@@ -378,7 +378,7 @@
 
 		this.initSourceSelector();
 		this.newTranslationButton.connect( this, {
-			click: this.onClickHandler
+			click: this.hideListHeader
 		} );
 		// Resize handler
 		$( window ).on( 'resize', OO.ui.throttle( this.resize.bind( this ), 250 ) );
@@ -393,7 +393,7 @@
 		}
 	};
 
-	CXDashboard.prototype.onClickHandler = function () {
+	CXDashboard.prototype.hideListHeader = function () {
 		this.$listHeader.hide();
 		window.scrollTo( window.pageXOffset, 0 ); // Equivalent to $( window ).scrollTop( 0 )
 	};
@@ -411,9 +411,8 @@
 			$container: this.$sourcePageSelector
 		} );
 		// Check for conditions that pre-open source page selector
-		if ( query.from && query.to && query.page ) {
-			this.$listHeader.hide();
-			window.scrollTo( window.pageXOffset, 0 ); // Equivalent to $( window ).scrollTop( 0 )
+		if ( query.to && ( ( query.from && query.page ) || query.targettitle ) ) {
+			this.hideListHeader();
 		}
 
 		if ( query.campaign ) {
