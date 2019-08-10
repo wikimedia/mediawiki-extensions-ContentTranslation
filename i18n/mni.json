@@ -1,8 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
-			"Afingba Mangang"
+			"Afingba Mangang",
+			"Awangba Mangang"
 		]
 	},
-	"cx-campaign-newbytranslation-start": "ꯍꯟꯗꯣꯛꯄ ꯍꯧꯔꯣ"
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ꯍꯟꯗꯣꯛꯂꯦ ꯂꯣꯟ ꯱ ꯗ}}",
+	"cx-source-view-page": "ꯂꯃꯥꯏ ꯌꯦꯡꯕ",
+	"cx-publish-page-success": "$1ꯗ ꯂꯃꯥꯏ ꯐꯣꯡꯗꯣꯛꯂꯦ",
+	"cx-publish-button": "ꯐꯣꯡꯗꯣꯛꯄ",
+	"cx-publish-button-publishing": "ꯐꯣꯡꯗꯣꯛꯂꯤ....",
+	"cx-campaign-newbytranslation-start": "ꯍꯟꯗꯣꯛꯄ ꯍꯧꯔꯣ",
+	"cx-captcha-dialog-cancel": "ꯇꯣꯛꯄ",
+	"cx-translation-filter-published-translations": "ꯐꯣꯡꯗꯣꯛꯂꯦ",
+	"cx-contributions-new-article": "ꯑꯅꯧꯕ ꯂꯃꯥꯏ",
+	"cx-contributions-translation": "ꯍꯟꯗꯣꯛꯄ",
+	"cx-contributions-upload": "ꯃꯦꯗꯤꯌꯥ ꯊꯥꯒꯠꯄꯥ",
+	"cx-contributions-new-article-tooltip": "ꯑꯅꯧꯕ ꯂꯃꯥꯏ ꯱ ꯏꯕ ꯍꯧꯔꯦ",
+	"cx-translation-status-published": "ꯐꯣꯡꯗꯣꯛꯂꯦ",
+	"cx-translation-status-deleted": "ꯀꯛꯊꯠꯈꯔꯦ",
+	"cx-stats-cumulative-tab-title": "ꯄꯨꯂꯞ",
+	"cx-stats-weekly-trend-tab-title": "ꯆꯌꯣꯜ ꯱ ꯗ",
+	"cx-draft-cancel-button-label": "ꯇꯣꯛꯄ",
+	"cx-draft-discard-button-label": "ꯍꯟꯗꯣꯛꯄꯗꯨ ꯀꯛꯊꯠꯂꯨ"
 }
