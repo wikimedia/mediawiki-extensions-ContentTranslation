@@ -557,23 +557,40 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
 };
 
 /**
- * Check if the section is excluded from MT abuse validation or not.
- * @param {ve.dm.CXSectionNode} sectionModel
+ * Check if a node is excluded from MT abuse validation or not.
+ * @param {ve.dm.BranchNode} nodeModel
  * @return {boolean}
  */
-mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( sectionModel ) {
-	var excludedTypes = [
+mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( nodeModel ) {
+	var children, childType,
+		excludedTypes = [
 			'cxBlockImage', 'mwBlockImage', // Both are required since new images can be inserted too.
 			'cxTransclusionBlock', 'mwTransclusionBlock',
 			'mwReferencesList',
 			'mwMath',
 			'definitionList',
-			'mwAlienBlockExtension',
+			'mwAlienBlockExtension', 'mwAlienInlineExtension',
 			'mwTable', 'list', 'mwHeading'
-		],
-		childType = sectionModel.getChildNodeName();
+		];
 
-	return excludedTypes.indexOf( childType ) >= 0;
+	if ( nodeModel.getChildren ) {
+		// Make sure than nodeModel is a ve.dm.BranchNode by checking
+		// if getChildren method exist
+		children = nodeModel.getChildren();
+	}
+
+	if ( children && children.length === 1 ) {
+		// Get the type of one and only one child of the nodeModel
+		childType = children[ 0 ].getType();
+		if ( excludedTypes.indexOf( childType ) >= 0 ) {
+			return true;
+		} else {
+			// Recurse through the single child path in the node tree.
+			return this.isExcludedFromValidation( children[ 0 ] );
+		}
+	}
+
+	return false;
 };
 
 /**
