@@ -12,12 +12,13 @@
 			"Fitoschido",
 			"Prevodim",
 			"Surfo",
-			"Mirin"
+			"Mirin",
+			"Yekrats"
 		]
 	},
 	"cx": "Tradukado de paĝo",
 	"cx-dashboard-header": "Tradukoj",
-	"cx-javascript": "Tiu ĉi ilo ne funkcias sen Ĝavoskripto.",
+	"cx-javascript": "Ĉi tiu ilo ne funkcias sen JavaScript. Aŭ JavaScript estas malŝaltita, aŭ Javascript misfunkciis, aŭ via TTT-legilo ne estas subtenata.",
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|EnhavTradukado]] estas ilo por rapida tradukado de paĝoj en vian lingvon. [$1 Provu ĝin nun!]",
 	"cx-license-agreement": "Alklakante la butonon \"$1\" vi konsentas kun [//foundation.wikimedia.org/wiki/Terms_of_Use Kondiĉoj de uzado] kaj vi nerevokeble konsentas liberigi vian kontribuon per la traduka helpilo laŭ la [https://creativecommons.org/licenses/by-sa/3.0/ Permesilo CC BY-SA 3.0] kaj [//eo.wikipedia.org/wiki/Vikipedio:GNU_Free_Documentation_License GFDL] kaj vi komprenas, ke ligilo aŭ URL sufiĉas por atribuo laŭ CC BY-SA 3.0.",
 	"cx-error-server-connection": "Eraro: Ne eblas konekti al servilo.",
@@ -85,6 +86,7 @@
 	"cx-source-page-selector-input-placeholder": "Serĉi tradukindan paĝon",
 	"cx-source-page-selector-no-search-results": "Neniu paĝo troviĝis pri \"$1\" en $2",
 	"cx-selected-source-page-start-translation-button": "Komenci tradukon",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|Po $1 vizito por|Po $1 vizitoj por|0=Sen vizitoj en ĉi tiu}} semajno",
 	"cx-selected-source-page-error-page-and-title-exist": "Tiu ĉi titolo jam estas uzata en [$1 $2] por [$3 alia paĝo]",
 	"cx-selected-source-page-error-page-exists": "La paĝo [$1 jam ekzistas] en $2",
 	"cx-selected-source-page-error-title-in-use": "La titolo por la nova paĝo [$1 jam estas uzata]",
@@ -92,7 +94,8 @@
 	"cx-page-number-of-languages": "Nombro de lingvoj",
 	"cx-mt-abuse-warning-title": "Via traduko {{PLURAL:$1|enhavas}} $1% de nemodifita, maŝine tradukita, teksto",
 	"cx-mt-abuse-warning-text": "Maŝina traduko estas provizita nur kiel bazo por komenci. Vi devas prizorgi, ke la enhavo estas preciza kaj flue legebla en via lingvo.",
-	"cx-publish-captcha-title": "Sekureca demando",
+	"cx-publish-captcha-title": "Ni kontrolas ke vi ne estas roboto.",
+	"cx-captcha-dialog-error": "Via respondo ne ŝajnas ĝusta. Bonvolu, provu denove.",
 	"cx-captcha-dialog-cancel": "Nuligi",
 	"cx-dashboard-sidebar-title": "Ĉu {{GENDER:|vi bezonas}} helpon pri tradukado?",
 	"cx-dashboard-sidebar-information": "Pli pri tiu ĉi funkcio",
