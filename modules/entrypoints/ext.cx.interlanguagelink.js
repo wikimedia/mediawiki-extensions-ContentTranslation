@@ -98,6 +98,29 @@
 			autoClose: true
 		} );
 
+		// HACK: We attached PopupWidget to element in side panel, which is absolutely
+		// positioned and often below the fold. Vector skin sets `height: 100%` to
+		// <html> and <body> elements, and <html> element is used as container for popup.
+		// <html> element is not covering whole document, just the viewport, which messes
+		// up the calculation in PopupWidget's computePosition method. See T224880.
+		// As a workaround, set <html> element's height to `auto` temporarily while doing
+		// position calculations and reset later. Also, check if that height is enough,
+		// since our gray interlanguage link is in absolutely positioned side panel.
+		popup.computePosition = function () {
+			var oldPositionObj,
+				$html = $( 'html' ),
+				panelHeight = $( '#mw-panel' ).outerHeight();
+
+			$html.css( 'height', 'auto' );
+			if ( $html.outerHeight() < panelHeight ) {
+				$html.css( 'height', panelHeight );
+			}
+			oldPositionObj = OO.ui.PopupWidget.prototype.computePosition.call( popup );
+			$html.css( 'height', '' );
+
+			return oldPositionObj;
+		};
+
 		$languageLink.on( 'click', function () {
 			popup.toggle( true );
 			return false;
