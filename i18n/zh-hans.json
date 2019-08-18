@@ -26,7 +26,8 @@
 			"佛壁灯",
 			"科劳",
 			"神樂坂秀吉",
-			"A2B4C"
+			"A2B4C",
+			"94rain"
 		]
 	},
 	"cx": "翻译页面",
@@ -68,6 +69,9 @@
 	"cx-entrypoint-title": "将此页面翻译成$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "此页面在$1尚不存在。{{GENDER:|您}}想创建它吗？",
 	"cx-entrypoint-dialog-button-translate-from": "从$1翻译",
+	"cx-entrypoint-dialog-desc": "您可以翻译此页面来帮助维基百科。翻译是一种用您的语言创建新内容的简便方法。",
+	"cx-campaign-newbytranslation-title": "从翻译开始吧？",
+	"cx-campaign-newbytranslation-notice": "通过翻译您熟悉的其他语言来创建新条目。",
 	"cx-campaign-newbytranslation-start": "开始翻译",
 	"cx-special-login-error": "您必须登录才能翻译此页面。[$1 登录]",
 	"cx-tools-instructions-text1": "{{GENDER:|点击}}段落开始翻译",
@@ -110,6 +114,7 @@
 	"cx-selected-source-page-error-title-in-use": "新页面的标题[$1 已被使用]",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "语言数量",
+	"cx-mt-abuse-error-title": "您的翻译总共{{PLURAL:$1|有}}1％的未经修改的文字",
 	"cx-mt-abuse-warning-title": "您的部分译文{{PLURAL:$1|包含}}$1%未校订文本",
 	"cx-mt-abuse-warning-text": "自动翻译只作为起始点提供。请确保内容可以您的语言准确且流畅地阅读。\n\n当其他编辑审核后，您的翻译可能会被删除。",
 	"cx-publish-captcha-title": "检查以确保您不是机器人",
