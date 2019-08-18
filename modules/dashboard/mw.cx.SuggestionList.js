@@ -312,9 +312,10 @@ mw.cx.CXSuggestionList.prototype.applyFilters = function () {
 				suggestion.$element.remove();
 			}
 		}
+
+		delete this.lists[ listName ];
 	}
 
-	this.lists = {};
 	this.recommendtool = null;
 	this.$publicCollection.empty().show();
 
