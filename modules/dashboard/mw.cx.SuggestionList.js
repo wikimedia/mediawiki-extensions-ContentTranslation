@@ -653,6 +653,10 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 			suggestion.listId = favoriteListId;
 			self.lists[ favoriteListId ].suggestions.push( suggestion );
 			self.insertSuggestionList( favoriteListId, [ suggestion ], true );
+			// Remove favorited article from the list of suggestions
+			self.lists.trex.suggestions = self.lists.trex.suggestions.filter( function ( item ) {
+				return item.title !== suggestion.title;
+			} );
 		}
 	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.
