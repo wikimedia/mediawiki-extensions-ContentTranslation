@@ -11,6 +11,7 @@ use ContentTranslation\Database;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Api module for querying ContentTranslation.
@@ -145,6 +146,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
+		$services = MediaWikiServices::getInstance();
+
 		// Add name and gender information to the returned result. The UI can use this
 		// to display the conflict message.
 		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
@@ -153,7 +156,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// we redirect translators to the target wiki, and they cannot do
 		// translations without logging in.
 		$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
-		$gender = GenderCache::singleton()->getGenderOf( $user, __METHOD__ );
+		$gender = $services->getGenderCache()->getGenderOf( $user, __METHOD__ );
 
 		$translation->translation['translatorName'] = $user->getName();
 		$translation->translation['translatorGender'] = $gender;
