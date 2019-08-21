@@ -31,9 +31,7 @@ mw.cx.tools.IssueTrackingTool = function CXIssueTrackingTool() {
 		framed: false,
 		icon: 'collapse'
 	} );
-	this.numberOfIssuesLabel = new OO.ui.LabelWidget( {
-		label: mw.msg( 'cx-tools-linter-issues-count', 1, this.numberOfIssues )
-	} );
+	this.numberOfIssuesLabel = new OO.ui.LabelWidget();
 	this.previousButton = new OO.ui.ButtonWidget( {
 		framed: false,
 		disabled: true,
@@ -499,6 +497,9 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 		return new mw.cx.ui.TranslationIssueWidget( index, element.issue );
 	} );
 	this.issuesLayout.clearTabPanels().addTabPanels( issues );
+	this.numberOfIssuesLabel.setLabel(
+		mw.msg( 'cx-tools-linter-issues-count', this.currentIssue, this.numberOfIssues )
+	);
 	this.init();
 };
 
