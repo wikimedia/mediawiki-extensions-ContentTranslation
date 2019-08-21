@@ -162,6 +162,11 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 		number = mw.cx.getSectionNumberFromSectionId( id );
 	}
 
+	// When issue is opened for current node, return that same card
+	if ( this.allIssues[ this.currentIssue - 1 ].id === number ) {
+		return this.currentIssue;
+	}
+
 	for ( i = 0, length = this.allIssues.length; i < length; i++ ) {
 		issue = this.allIssues[ i ];
 
