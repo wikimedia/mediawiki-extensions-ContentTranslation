@@ -56,6 +56,21 @@ ve.ce.CXSectionNode.prototype.onAfterTranslation = function () {
 	this.setPending( false );
 };
 
+/**
+ * @inheritdoc
+ */
+ve.ce.CXSectionNode.prototype.getFocusableElement = function () {
+	var firstChild = OO.getProp( this, 'children', 0 );
+
+	// Returning this.$element causes problems for block transclusion nodes. See T226247
+	if ( firstChild instanceof ve.ce.CXTransclusionBlockNode ) {
+		return firstChild.$focusable;
+	}
+
+	// Parent (mixin) method
+	return ve.ce.CXLintableNode.prototype.getFocusableElement.call( this );
+};
+
 /* Registration */
 
 ve.ce.nodeFactory.register( ve.ce.CXSectionNode );
