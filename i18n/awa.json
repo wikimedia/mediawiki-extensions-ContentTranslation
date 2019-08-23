@@ -2,12 +2,27 @@
 	"@metadata": {
 		"authors": [
 			"1AnuraagPandey",
-			"Amire80"
+			"Amire80",
+			"Ajeetsinghawadh"
 		]
 	},
 	"cx-header-translation-center": "अनुवाद केन्द्र",
 	"cx-header-all-translations": "कुल अनुवाद",
 	"cx-source-view-page": "पृष्ठ देखा जाए",
+	"cx-publish-button": "प्रकाशित करैं",
+	"cx-publish-button-publishing": "प्रकाशित हो रहा है...",
+	"cx-lost-session": "आपका सत्र समाप्त हो चुका है",
+	"cx-lost-session-draft": "आपका सत्र समाप्त हो चुका है। आपका सम्पादन तब तक सहेजा नहीं जा सकता, जब तक आपके दुबारा अथवा दूसरे विंडो में प्रवेश (लॉगिन) ना करें।",
+	"cx-lost-session-publish": "आपका सत्र समाप्त हो चुका है। इस अनुवाद को प्रकाशित करने के लिए दूसरे विंडो में जा कर प्रवेश (लॉगिन) करें।",
+	"cx-publish-summary": "\"$1\" पृष्ठ का अनुवाद करके निर्मित किया गया",
+	"cx-translation-add-translation": "अनुवाद जोड़ैं",
+	"cx-translation-target-page-exists": "लक्ष्य विकि पर [$1 $2] शीर्षक के साथ पृष्ठ उपलब्ध है। पृष्ठ को भिन्न शीर्षक देने का प्रयास करें।",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|सामग्री अनुवाद]]",
+	"tag-contenttranslation-description": "सामग्री को सामग्री अनुवाद उपकरण की सहायता से अन्य भाषा से अनुवाद किया गया है।",
+	"tag-contenttranslation-v2-description": "सामग्री अनुवाद उपकरण के दूसरे संस्करण की सहायता से सामग्री का अन्य भाषा से अनुवाद किया गया था।",
+	"cx-source-loading": "$1 लोड हो रहा है",
+	"cx-beta": "सामग्री अनुवाद",
+	"cx-beta-desc": "आपकी भाषा में पृष्ठों का तेज़ी से अनुवाद करने के लिए एक उपकरण। [[Special:MyContributions|आपके योगदान पृष्ठ]] से अनुवाद आरम्भ करें और उन्हें अनुवाद के लिए विशेष रूप से बनाए गए साइड-बाई-साइड सम्पादक से सम्पादित करें। कुछ उपकरण विशिष्ट भाषाओं के लिए ही उपलब्ध हो सकते हैं।",
 	"cx-tools-link-title": "लिङ्क",
 	"cx-publish-captcha-title": "सुरक्षा प्रश्न",
 	"cx-translation-filter-published-translations": "प्रकाशित अनुवाद",
