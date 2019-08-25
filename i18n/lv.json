@@ -188,7 +188,7 @@
 	"cx-tools-linter-invalid-character-action": "Labot problemātiskās rakstzīmes",
 	"cx-tools-linter-page-exists": "Lapa jau pastāv",
 	"cx-tools-linter-template": "Veidne nav pieejama",
-	"cx-tools-linter-old-revision": "Tulkojums ir balstīts uz vedu lapas versiju",
+	"cx-tools-linter-old-revision": "Tulkojums ir balstīts uz vecu lapas versiju",
 	"cx-tools-linter-old-revision-label": "Sākt tulkojumu no jauna",
 	"cx-tools-linter-restart-translation-title": "Sākt tulkojumu no jauna?",
 	"cx-tools-linter-restart-translation-cancel": "Atcelt",

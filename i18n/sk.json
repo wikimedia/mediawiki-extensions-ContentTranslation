@@ -7,7 +7,8 @@
 			"Urbanecm",
 			"TomášPolonec",
 			"Prevodim",
-			"Vegetator"
+			"Vegetator",
+			"Luky001"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -35,7 +36,7 @@
 	"tag-contenttranslation-description": "Obsah stránky bol preložený z iného jazyka pomocou nástroja Content Translation.",
 	"cx-source-loading": "$1 sa načítava",
 	"cx-beta": "Preklad obsahu",
-	"cx-beta-desc": "Nástroj pre rýchly preklad stránok do vášho jazyka. Zahájte preklady zo stránky [[Special:MyContributions|Príspevky]] a upravte ich pomocou nášho editora špeciálne navrhnutého na prekladanie, ktorý vám zobrazí zdrojový a výsledný text vedľa seba. Niektoré prekladateľské nástroje ale môžu byť k dispozícii len pre konkrétne jazyky.",
+	"cx-beta-desc": "Nástroj pre rýchly preklad stránok do vášho jazyka. Začnite preklady zo stránky [[Special:MyContributions|Príspevky]] a upravte ich pomocou nášho editora špeciálne navrhnutého na prekladanie, ktorý zobrazí zdrojový a výsledný text vedľa seba. Niektoré prekladateľské nástroje môžu byť k dispozícii len pre konkrétne jazyky.",
 	"cx-entrypoint-title": "Preložiť tento článok do jazyka $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Táto stránka zatiaľ v jazyku $1 neexistuje. Chcete ho vytvoriť?",
 	"cx-entrypoint-dialog-button-translate-from": "Preložiť z jazyka $1",
