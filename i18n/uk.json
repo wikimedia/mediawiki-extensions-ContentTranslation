@@ -285,7 +285,7 @@
 	"cx-translation-template-add-param": "+ Поле перекладу",
 	"cx-translation-template-add-more": "Додати більше полів",
 	"cx-translation-template-select-param": "Вибрати цільові поля",
-	"cx-publish-settings": "Опублікувати налаштування",
+	"cx-publish-settings": "Налаштування публікації",
 	"cx-publish-destination-header": "Ціль публікації",
 	"cx-publish-destination-tooltip": "Оберіть простір назв, у якому буде опублікована сторінка",
 	"cx-publish-destination-namespace-main": "Нова сторінка",
