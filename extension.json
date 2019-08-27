@@ -1352,7 +1352,9 @@
 				"cx-tools-linter-empty-template",
 				"cx-tools-linter-template-missing-mandatory",
 				"cx-tools-linter-reference",
-				"cx-tools-linter-reference-message"
+				"cx-tools-linter-reference-message",
+				"cx-tools-linter-incomplete-reference",
+				"cx-tools-linter-incomplete-reference-message"
 			],
 			"targets": [
 				"desktop"

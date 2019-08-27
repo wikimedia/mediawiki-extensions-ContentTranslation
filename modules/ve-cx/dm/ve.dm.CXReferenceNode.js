@@ -70,13 +70,8 @@ ve.dm.CXReferenceNode.static.toDomElements = function ( dataElement ) {
 /* Methods */
 
 ve.dm.CXReferenceNode.prototype.onAttach = function () {
-	var sectionNode,
+	var sectionNode, title, message,
 		cxData = this.getAttribute( 'cx' ) || {};
-
-	if ( cxData.adapted === true ) {
-		// Reference is adapted.
-		return;
-	}
 
 	sectionNode = this.findParent( ve.dm.CXSectionNode );
 	// When section content is replaced, this happens:
@@ -91,19 +86,28 @@ ve.dm.CXReferenceNode.prototype.onAttach = function () {
 		return;
 	}
 
-	if ( cxData.adapted !== false ) {
-		mw.log.warn(
-			'[CX] Reference adaptation status is missing for the reference in section ' +
-			sectionNode.getId()
-		);
+	if ( cxData.partial === true ) {
+		title = mw.msg( 'cx-tools-linter-incomplete-reference' );
+		message = mw.message( 'cx-tools-linter-incomplete-reference-message' );
+	} else if ( cxData.adapted === false ) {
+		title = mw.msg( 'cx-tools-linter-reference' );
+		message = mw.message( 'cx-tools-linter-reference-message' );
+	} else {
+		if ( cxData.adapted !== true ) {
+			mw.log.warn(
+				'[CX] Reference adaptation status is missing for the reference in section ' +
+				sectionNode.getId()
+			);
+		}
+
 		return;
 	}
 
 	sectionNode.addTranslationIssues( [ {
 		name: 'reference',
-		message: mw.message( 'cx-tools-linter-reference-message' ),
+		message: message,
 		messageInfo: {
-			title: mw.msg( 'cx-tools-linter-reference' ),
+			title: title,
 			resolvable: true,
 			help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Templates'
 		}

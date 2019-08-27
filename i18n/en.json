@@ -264,6 +264,8 @@
 	"cx-tools-linter-old-revision-label": "Restart the translation",
 	"cx-tools-linter-reference": "Missing reference",
 	"cx-tools-linter-reference-message": "A reference could not be transferred to the translation since it uses a template with a different structure.\n\nPlease, edit the reference in the translation to fill the missing information.",
+	"cx-tools-linter-incomplete-reference": "Incomplete reference",
+	"cx-tools-linter-incomplete-reference-message": "A reference was added without some required information.\n\nThe missing details could not be obtained automatically from the original reference since their structure is a bit different.\n\nPlease, edit the reference in the translation to fill the missing information.",
 	"cx-tools-linter-restart-translation-title": "Restart the translation?",
 	"cx-tools-linter-restart-translation-message": "You will start a new translation for the most recent version of the page. All your changes will be lost.",
 	"cx-tools-linter-restart-translation-cancel": "Cancel",
