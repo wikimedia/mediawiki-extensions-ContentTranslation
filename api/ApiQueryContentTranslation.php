@@ -47,6 +47,10 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 					$params['from'], $params['to'], $params[ 'sourcetitle' ]
 				);
 
+				if ( $translation === null ) {
+					$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
+				}
+
 				$result->addValue(
 					[ 'query', 'contenttranslation' ],
 					'translation',
