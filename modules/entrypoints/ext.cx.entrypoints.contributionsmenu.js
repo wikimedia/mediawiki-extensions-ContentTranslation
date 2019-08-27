@@ -7,56 +7,21 @@
 ( function () {
 	'use strict';
 
-	var campaign = 'contributionsmenu';
-
-	function isPageCreation() {
-		var uri = mw.Uri();
-
-		return mw.config.get( 'wgArticleId' ) === 0 &&
-			mw.config.get( 'wgNamespaceNumber' ) === 0 &&
-			( mw.config.get( 'wgAction' ) === 'edit' || uri.query.veaction === 'edit' );
-	}
+	var CAMPAIGN = 'contributionsmenu';
 
 	function getTranslationsItem() {
-		var cxUrlParams,
-			message, $pageTitle, $expansion,
-			cxUrl, $link, $item;
-
-		cxUrlParams = {
-			campaign: campaign,
+		var $link, cxUrlParams = {
+			campaign: CAMPAIGN,
 			to: mw.config.get( 'wgContentLanguage' )
 		};
 
-		if ( isPageCreation() ) {
-			message = 'cx-campaign-contributionsmenu-translate-instead';
-			$pageTitle = $( '<em>' )
-				.text( mw.msg( 'quotation-marks', mw.config.get( 'wgTitle' ) ) );
-
-			$expansion = $( '<div>' )
-				.addClass( 'cx-campaign-contributionsmenu__expansion' )
-				.append( mw.message(
-					'cx-campaign-contributionsmenu-might-be-available',
-					$pageTitle
-				).parseDom() );
-
-			cxUrlParams.targettitle = mw.config.get( 'wgTitle' );
-		} else {
-			message = 'cx-campaign-contributionsmenu-mytranslations';
-			$expansion = $( [] );
-		}
-
-		cxUrl = mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams );
-
 		$link = $( '<a>' )
-			.text( mw.msg( message ) )
-			.append( $expansion )
-			.attr( 'href', cxUrl );
+			.text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
+			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) );
 
-		$item = $( '<li>' )
+		return $( '<li>' )
 			.addClass( 'cx-campaign-translations' )
 			.append( $link );
-
-		return $item;
 	}
 
 	function attachMenu( $trigger ) {
@@ -100,7 +65,7 @@
 			setTimeout( function () {
 				callout.show();
 			}, 500 );
-			mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
+			mw.hook( 'mw.cx.cta.shown' ).fire( CAMPAIGN );
 		} );
 
 	}

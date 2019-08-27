@@ -1087,15 +1087,11 @@
 			"dependencies": [
 				"ext.cx.widgets.callout",
 				"mediawiki.jqueryMsg",
-				"mediawiki.ui.button",
-				"mediawiki.Uri",
 				"mediawiki.util"
 			],
 			"messages": [
 				"cx-campaign-contributionsmenu-mycontributions",
 				"cx-campaign-contributionsmenu-mytranslations",
-				"cx-campaign-contributionsmenu-translate-instead",
-				"cx-campaign-contributionsmenu-might-be-available",
 				"cx-campaign-contributionsmenu-myuploads",
 				"cx-feature-discovery-title",
 				"cx-feature-discovery-content",
