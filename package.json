@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "selenium-test": "wdio tests/selenium/wdio.conf.js",
     "test": "grunt test"
   },
   "devDependencies": {
@@ -9,6 +10,10 @@
     "grunt-banana-checker": "0.6.0",
     "grunt-eslint": "21.0.0",
     "grunt-stylelint": "0.10.1",
-    "stylelint-config-wikimedia": "0.5.0"
+    "stylelint-config-wikimedia": "0.5.0",
+    "wdio-mediawiki": "0.3.0",
+    "wdio-mocha-framework": "0.6.4",
+    "wdio-spec-reporter": "0.1.5",
+    "webdriverio": "4.14.4"
   }
 }
