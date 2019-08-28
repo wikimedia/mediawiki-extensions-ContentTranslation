@@ -22,43 +22,13 @@
 			white-space: normal; // Override #p-personal li style no-wrap
 		}
 	}
-}
 
-.mw-cx-ui-pulse {
-	position: relative;
-	left: 50%;
-	top: 5px;
-	bottom: 0;
-	cursor: pointer;
-
-	.mw-cx-ui-pulsatingDot,
-	.mw-cx-ui-stillDot {
-		background-color: @colorProgressive;
-		position: absolute;
+	.mw-pulsating-dot {
+		position: relative;
+		left: 50%;
+		top: 5px;
 		bottom: 0;
-		z-index: 1;
-		border-radius: 50%;
-	}
-
-	.mw-cx-ui-pulsatingDot {
-		opacity: 0;
-		width: 36px;
-		height: 36px;
-		margin-bottom: -18px;
-		margin-left: -18px;
-
-		.animation( pulse, 3s, ease-out );
-		-webkit-animation-iteration-count: infinite;
-		-moz-animation-iteration-count: infinite;
-		animation-iteration-count: infinite;
-	}
-
-	.mw-cx-ui-stillDot {
-		/* Use whole pixel values to improve rendering (T214203) */
-		width: 12px;
-		height: 12px;
-		margin-bottom: -6px;
-		margin-left: -6px;
+		cursor: pointer;
 	}
 }
 

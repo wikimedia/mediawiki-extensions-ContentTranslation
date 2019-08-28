@@ -36,12 +36,10 @@ mw.cx.ui.FeatureDiscoveryWidget = function MwCxUiFeatureDiscoveryWidget( config 
 		width: 300
 	} );
 
-	this.$pulsatingDot = $( '<div>' ).addClass( 'mw-cx-ui-pulsatingDot' );
-	this.$stillDot = $( '<div>' ).addClass( 'mw-cx-ui-stillDot' );
-	this.$pulse = $( '<div>' ).addClass( 'mw-cx-ui-pulse' ).append( this.$stillDot, this.$pulsatingDot );
+	this.$pulsatingDot = $( '<div>' ).addClass( 'mw-pulsating-dot' );
 	this.$element
 		.addClass( 'mw-cx-ui-featureDiscoveryPopup' )
-		.append( this.popup.$element, this.$pulse );
+		.append( this.popup.$element, this.$pulsatingDot );
 	this.$element.on( 'click', this.show.bind( this ) );
 };
 
@@ -62,6 +60,6 @@ mw.cx.ui.FeatureDiscoveryWidget.prototype.onPopupCloseButtonClick = function () 
 };
 
 mw.cx.ui.FeatureDiscoveryWidget.prototype.show = function () {
-	this.$pulse.addClass( 'oo-ui-element-hidden' );
+	this.$pulsatingDot.addClass( 'oo-ui-element-hidden' );
 	this.popup.toggle( true );
 };

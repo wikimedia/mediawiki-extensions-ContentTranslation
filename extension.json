@@ -2146,7 +2146,8 @@
 				"ui/styles/widgets/mw.cx.ui.FeatureDiscoveryWidget.less"
 			],
 			"dependencies": [
-				"mw.cx.ui"
+				"mw.cx.ui",
+				"mediawiki.pulsatingdot"
 			]
 		}
 	},
