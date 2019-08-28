@@ -268,6 +268,8 @@
 	"cx-tools-linter-old-revision-label": "إعادة بدء الترجمة",
 	"cx-tools-linter-reference": "مرجع مفقود",
 	"cx-tools-linter-reference-message": "لا يمكن نقل مرجع إلى الترجمة لأنه يستخدم قالبا له بنية مختلفة. \n\nيُرجَى تعديل المرجع في الترجمة لملء المعلومات المفقودة.",
+	"cx-tools-linter-incomplete-reference": "مرجع غير مكتمل",
+	"cx-tools-linter-incomplete-reference-message": "تمت إضافة مرجع دون بعض المعلومات المطلوبة.\n\nلا يمكن الحصول على التفاصيل المفقودة تلقائيا من المرجع الأصلي لأن هيكلها مختلف قليلا.\n\nيُرجَى تعديل المرجع في الترجمة لملء المعلومات المفقودة.",
 	"cx-tools-linter-restart-translation-title": "إعادة بدء الترجمة؟",
 	"cx-tools-linter-restart-translation-message": "سوف تبدأ ترجمة جديدة لأحدث نسخة من الصفحة، سيتم فقد جميع التغييرات.",
 	"cx-tools-linter-restart-translation-cancel": "إلغاء",
