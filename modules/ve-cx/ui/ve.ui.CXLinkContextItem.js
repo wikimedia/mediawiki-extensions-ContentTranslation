@@ -87,7 +87,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	}
 
 	$linkTitle
-		.addClass( 've-ui-mwInternalLinkContextItem-link ve-ui-cxLinkContextItem-title' )
+		.addClass( 've-ui-linkContextItem-link ve-ui-cxLinkContextItem-title' )
 		.text( linkInfo.title )
 		.prop( {
 			target: '_blank',
