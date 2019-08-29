@@ -162,6 +162,12 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 		number = mw.cx.getSectionNumberFromSectionId( id );
 	}
 
+	// If last issue gets marked as resolved, we can end up with current issue being
+	// bigger than the number of issues, which can break various expectations.
+	if ( this.currentIssue > this.numberOfIssues ) {
+		return this.numberOfIssues;
+	}
+
 	// When issue is opened for current node, return that same card
 	if ( this.allIssues[ this.currentIssue - 1 ].id === number ) {
 		return this.currentIssue;
