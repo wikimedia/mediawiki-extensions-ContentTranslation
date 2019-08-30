@@ -162,8 +162,6 @@
 	"cx-campaign-try": "Kokeile sisällön kääntämistä",
 	"cx-campaign-contributionsmenu-mycontributions": "Muokkaukset",
 	"cx-campaign-contributionsmenu-mytranslations": "Käännökset",
-	"cx-campaign-contributionsmenu-translate-instead": "Käännä tyhjästä kirjoittamisen sijaan",
-	"cx-campaign-contributionsmenu-might-be-available": "$1 saattaa olla jo olemassa muilla kielillä",
 	"cx-campaign-contributionsmenu-myuploads": "Tallennettu aineisto",
 	"cx-no-source-categories": "Ei luokkia",
 	"cx-no-target-categories": "Ei luokkia. Harkitse niiden lisäämistä aiheen luokittelemiseksi.",

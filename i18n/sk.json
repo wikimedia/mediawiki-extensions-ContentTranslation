@@ -140,8 +140,6 @@
 	"cx-campaign-try": "Vyskúšať Content Translation",
 	"cx-campaign-contributionsmenu-mycontributions": "Príspevky",
 	"cx-campaign-contributionsmenu-mytranslations": "Preklady",
-	"cx-campaign-contributionsmenu-translate-instead": "Ak článok nechcete písať celý {{GENDER:|sám|sama}}, preložte ho",
-	"cx-campaign-contributionsmenu-might-be-available": "Článok $1 už možno existuje v inom jazyku",
 	"cx-campaign-contributionsmenu-myuploads": "Nahrané súbory",
 	"cx-trend-deletions": "Zmazané preklady",
 	"cx-trend-translations-to": "Preklady do jazyka $1",
