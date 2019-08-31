@@ -21,7 +21,8 @@
 			"Afaz",
 			"Yusuke1109",
 			"Suyama",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Kkairri"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -266,6 +267,8 @@
 	"cx-tools-linter-old-revision-label": "翻訳をやり直す",
 	"cx-tools-linter-reference": "出典がありません",
 	"cx-tools-linter-reference-message": "出典は構造が異なるテンプレートを採用するため、翻訳に持ち込むことができません。\n\n翻訳文では出典を編集し、欠落する情報を補うようお願いします。",
+	"cx-tools-linter-incomplete-reference": "不完全な脚注",
+	"cx-tools-linter-incomplete-reference-message": "この脚注は必要な情報が不足した状態で追加されました。\n\n翻訳元のテンプレートの構造と多少異なるため、不足している情報を自動的に取得することができませんでした。\n\n不足している情報を翻訳中のテンプレートに入力してください。",
 	"cx-tools-linter-restart-translation-title": "翻訳をやり直しますか？",
 	"cx-tools-linter-restart-translation-message": "このページの最新版から翻訳を始めようとしています。これまでの修正箇所はすべて破棄されます。",
 	"cx-tools-linter-restart-translation-cancel": "キャンセル",
