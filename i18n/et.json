@@ -268,5 +268,8 @@
 	"cx-linkcontextitem-missing-title-description": "Seda lehekülge pole veel.",
 	"cx-mt-abuse-publish-error": "Sinu tõlget ei saa avaldata, sest see sisaldab liiga palju muutmata kujul teksti.",
 	"cx-unreviewed-translation-category": "Ülevaatamata tõlgetega leheküljed",
-	"cx-unreviewed-translation-category-desc": "Sisutõlke tööriistaga tõlgitud leheküljed, mis sisaldavad suures koguses ülevaatamata sisu."
+	"cx-unreviewed-translation-category-desc": "Sisutõlke tööriistaga tõlgitud leheküljed, mis sisaldavad suures koguses ülevaatamata sisu.",
+	"cx-feature-discovery-title": "Tõlgi millal tahes",
+	"cx-feature-discovery-content": "Saad alustada või jätkata tõlkimist millal tahes leheküljel {{int:mycontris}}.",
+	"cx-feature-discovery-dismiss": "Hästi, sain aru"
 }
