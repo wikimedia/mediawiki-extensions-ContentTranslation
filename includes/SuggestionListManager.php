@@ -234,6 +234,27 @@ class SuggestionListManager {
 	}
 
 	/**
+	 * Check if suggestion exist in a list
+	 *
+	 * @param Suggestion $suggestion
+	 * @return bool
+	 */
+	public function doesSuggestionExist( Suggestion $suggestion ) {
+		$dbr = Database::getConnection( DB_REPLICA );
+
+		$conds = [
+			'cxs_list_id' => $suggestion->getListId(),
+			'cxs_title' => $suggestion->getTitle()->getPrefixedText(),
+			'cxs_source_language' => $suggestion->getSourceLanguage(),
+			'cxs_target_language' => $suggestion->getTargetLanguage(),
+		];
+		$row = $dbr->selectRow( 'cx_suggestions', '1', $conds );
+
+		// If there is no result, `selectRow` returns `false`
+		return $row !== false;
+	}
+
+	/**
 	 * Get public (non-personalized) suggestions.
 	 *
 	 * @param string $from Source language code.

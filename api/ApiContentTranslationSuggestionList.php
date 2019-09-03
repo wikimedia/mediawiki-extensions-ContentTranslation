@@ -45,13 +45,16 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		}
 
 		if ( $params['listaction'] === 'add' ) {
-			$manager->addSuggestions( $suggestions );
+			$listAction = $manager->addSuggestions( $suggestions );
 		} elseif ( $params['listaction'] === 'remove' ) {
-			$manager->removeSuggestions( $suggestions );
+			$listAction = $manager->removeSuggestions( $suggestions );
+		} elseif ( $params[ 'listaction' ] === 'view' ) {
+			$listAction = $manager->doesSuggestionExist( $suggestions[ 0 ] );
 		}
 
 		$result = [
-			'result' => 'success'
+			'result' => 'success',
+			'listaction' => $listAction
 		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -83,7 +86,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			],
 			'listaction' => [
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => [ 'add', 'remove' ],
+				ApiBase::PARAM_TYPE => [ 'add', 'remove', 'view' ],
 			],
 			'titles' => [
 				ApiBase::PARAM_REQUIRED => true,

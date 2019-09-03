@@ -45,6 +45,8 @@ mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 	this.$messageBar = null;
 	this.$messageText = null;
 
+	this.alreadyFavorite = false;
+
 	this.init();
 };
 
@@ -57,8 +59,7 @@ mw.cx.SelectedSourcePage.prototype.init = function () {
 	} );
 	this.bookmarkButton = new OO.ui.ButtonWidget( {
 		framed: false,
-		icon: 'bookmarkOutline',
-		classes: [ 'cx-selected-source-page__bookmark' ]
+		icon: 'bookmarkOutline'
 	} );
 	this.discardButton = new OO.ui.ButtonWidget( {
 		framed: false,
@@ -107,6 +108,7 @@ mw.cx.SelectedSourcePage.prototype.render = function () {
 		.append(
 			this.$image,
 			$info,
+			$( '<div>' ).addClass( 'cx-selected-source-page__spacer' ),
 			this.bookmarkButton.$element,
 			this.languageFilter.$element,
 			this.discardButton.$element
@@ -153,9 +155,7 @@ mw.cx.SelectedSourcePage.prototype.listen = function () {
 	this.startTranslationButton.connect( this, { click: 'startPageInCX' } );
 	this.discardButton.connect( this, { click: 'discardDialog' } );
 
-	this.bookmarkButton.connect( this, { click: 'onBookmark' } );
-	this.bookmarkButton.$element.on( 'mouseenter', this.setFilledIcon.bind( this ) );
-	this.bookmarkButton.$element.on( 'mouseleave', this.setOutlineIcon.bind( this ) );
+	this.bookmarkButton.connect( this, { click: 'onBookmarkButtonClick' } );
 };
 
 /**
@@ -174,23 +174,54 @@ mw.cx.SelectedSourcePage.prototype.setOutlineIcon = function () {
 	this.bookmarkButton.setIcon( 'bookmarkOutline' );
 };
 
-mw.cx.SelectedSourcePage.prototype.onBookmark = function () {
+/**
+ * Change "favorite" button icon to filled bookmark and register mouse events
+ */
+mw.cx.SelectedSourcePage.prototype.toggleFilledIcon = function () {
+	this.setFilledIcon();
+	this.bookmarkButton.$element.on( {
+		mouseenter: this.setOutlineIcon.bind( this ),
+		mouseleave: this.setFilledIcon.bind( this )
+	} );
+};
+
+/**
+ * Change "favorite" button icon to bookmark outline and register mouse events
+ */
+mw.cx.SelectedSourcePage.prototype.toggleOutlineIcon = function () {
+	this.setOutlineIcon();
+	this.bookmarkButton.$element.on( {
+		mouseenter: this.setFilledIcon.bind( this ),
+		mouseleave: this.setOutlineIcon.bind( this )
+	} );
+};
+
+mw.cx.SelectedSourcePage.prototype.onBookmarkButtonClick = function () {
 	var params, api = new mw.Api();
 
 	params = {
 		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-favorite',
-		listaction: 'add',
+		listaction: this.alreadyFavorite ? 'remove' : 'add',
 		titles: this.sourceTitle,
 		from: this.languageFilter.sourceLanguage,
 		to: this.languageFilter.targetLanguage
 	};
 
 	api.postWithToken( 'csrf', params ).done( function ( response ) {
-		if ( response.cxsuggestionlist.result === 'success' ) {
-			mw.notify( this.getNotifyMessage() );
+		if ( response.cxsuggestionlist.result !== 'success' ) {
+			return;
 		}
+
+		if ( this.alreadyFavorite ) {
+			mw.notify( mw.msg( 'cx-favorite-removed' ) );
+			this.toggleOutlineIcon();
+		} else {
+			mw.notify( this.getNotifyMessage() );
+			this.toggleFilledIcon();
+		}
+		this.alreadyFavorite = !this.alreadyFavorite;
 	}.bind( this ) );
 };
 
@@ -222,6 +253,9 @@ mw.cx.SelectedSourcePage.prototype.discardDialog = function () {
 			return className.replace( /(?:^|\s)oo-ui-icon-page-\S+/, '' );
 		} );
 
+	this.alreadyFavorite = false;
+	this.bookmarkButton.toggle( true );
+	this.setOutlineIcon();
 	// Reset source titles, as there is no selected source
 	this.sourcePageTitles = {};
 	// Reset source and target ULS to show all source and target languages
@@ -268,6 +302,7 @@ mw.cx.SelectedSourcePage.prototype.sourceLanguageChangeHandler = function ( lang
 		mw.log( 'Error getting page info for ' + this.sourcePageTitles[ language ] + '. ' + error );
 	}.bind( this ) );
 
+	this.initBookmark();
 	this.check();
 };
 
@@ -281,6 +316,7 @@ mw.cx.SelectedSourcePage.prototype.setSourceTitle = function ( sourceTitle ) {
  * @param {string} language Language code.
  */
 mw.cx.SelectedSourcePage.prototype.targetLanguageChangeHandler = function () {
+	this.initBookmark();
 	this.check();
 };
 
@@ -310,6 +346,20 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 		redirects: true,
 		lllimit: 'max'
 	}, config.params );
+
+	if ( config.imageUrl ) {
+		this.$image.css( 'background-image', 'url( ' + config.imageUrl + ')' );
+	} else {
+		this.$image.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + config.imageIcon );
+	}
+
+	this.$link.prop( {
+		href: href,
+		title: pageTitle,
+		target: '_blank',
+		text: pageTitle
+	} );
+	this.$link.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
 
 	this.getPageInfo( pageTitle, params ).done( function ( data ) {
 		var langCode, title, languagesPageExistsIn, languageDecorator, numOfLanguages;
@@ -354,21 +404,8 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 		mw.log( 'Error getting page info for ' + pageTitle + '. ' + error );
 	} );
 
-	if ( config.imageUrl ) {
-		this.$image.css( 'background-image', 'url( ' + config.imageUrl + ')' );
-	} else {
-		this.$image.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + config.imageIcon );
-	}
-
-	this.$link.prop( {
-		href: href,
-		title: pageTitle,
-		target: '_blank',
-		text: pageTitle
-	} );
-	this.$link.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
-
 	this.sourceTitle = pageTitle;
+	this.initBookmark();
 	this.check();
 };
 
@@ -436,6 +473,46 @@ mw.cx.SelectedSourcePage.prototype.renderPageViews = function ( pageViewData ) {
 	this.viewsCount.setLabel(
 		mw.msg( 'cx-selected-source-page-view-count', mw.language.convertNumber( pageViews ) )
 	);
+};
+
+mw.cx.SelectedSourcePage.prototype.initBookmark = function () {
+	this.alreadyFavorite = false;
+	this.bookmarkButton.toggle( true );
+	this.setOutlineIcon();
+
+	this.isAlreadyFavorite(
+		this.languageFilter.getSourceLanguage(),
+		this.languageFilter.getTargetLanguage(),
+		this.sourceTitle
+	).then( function ( alreadyFavorite ) {
+		this.alreadyFavorite = alreadyFavorite;
+
+		if ( alreadyFavorite ) {
+			this.toggleFilledIcon();
+		} else {
+			this.toggleOutlineIcon();
+		}
+	}.bind( this ) );
+};
+
+mw.cx.SelectedSourcePage.prototype.isAlreadyFavorite = function ( sourceLanguage, targetLanguage, title ) {
+	var params,
+		api = new mw.Api();
+
+	params = {
+		assert: 'user',
+		formatversion: 2,
+		action: 'cxsuggestionlist',
+		listname: 'cx-suggestionlist-favorite',
+		listaction: 'view',
+		titles: title,
+		from: sourceLanguage,
+		to: targetLanguage
+	};
+
+	return api.postWithToken( 'csrf', params ).then( function ( response ) {
+		return response.cxsuggestionlist.listaction;
+	} );
 };
 
 /**
@@ -508,6 +585,8 @@ mw.cx.SelectedSourcePage.prototype.check = function () {
 		} else if ( existingTranslation ) {
 			// If there is just an existing translation
 			this.showPageExistsError( existingTranslation, targetLanguage );
+			// Hide bookmark button if page already exists
+			this.bookmarkButton.toggle( false );
 		} else if ( existingTargetTitle ) {
 			// If the specified target title is in use
 			this.showTitleInUseError( existingTargetTitle, targetLanguage );
