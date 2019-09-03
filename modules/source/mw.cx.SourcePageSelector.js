@@ -83,7 +83,7 @@ mw.cx.SourcePageSelector.prototype.listen = function () {
 
 	this.languageFilter.on( 'resize', this.pageSelector.positionLabel.bind( this.pageSelector ) );
 
-	this.discardButton.connect( this, { click: this.discardDialog } );
+	this.discardButton.connect( this, { click: 'discardDialog' } );
 	this.pageSelector.onLookupMenuItemChoose = function ( source ) {
 		this.selectedSourcePage.setData(
 			source.getData(),
@@ -203,7 +203,7 @@ mw.cx.SourcePageSelector.prototype.show = function () {
 	this.toggleMouseUpHandler( true );
 };
 
-mw.cx.SourcePageSelector.prototype.discardDialog = function () {
+mw.cx.SourcePageSelector.prototype.resetDialog = function () {
 	// FIXME: Use CSS transition
 	// eslint-disable-next-line no-jquery/no-slide
 	$( '.translation-filter' ).slideDown( 'fast' );
@@ -211,6 +211,10 @@ mw.cx.SourcePageSelector.prototype.discardDialog = function () {
 	this.toggleMouseUpHandler( false );
 
 	this.pageSelector.setValue( '' );
+};
+
+mw.cx.SourcePageSelector.prototype.discardDialog = function () {
+	this.selectedSourcePage.discardDialog();
 };
 
 mw.cx.SourcePageSelector.prototype.render = function () {
@@ -257,7 +261,7 @@ mw.cx.SourcePageSelector.prototype.render = function () {
 	} );
 
 	this.selectedSourcePage = new mw.cx.SelectedSourcePage( this.siteMapper, {
-		onDiscard: this.discardDialog.bind( this )
+		onDiscard: this.resetDialog.bind( this )
 	} );
 
 	this.$container.append(

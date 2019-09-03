@@ -250,7 +250,7 @@ mw.cx.SelectedSourcePage.prototype.discardDialog = function () {
 		.removeAttr( 'style' )
 		.removeClass( 'oo-ui-iconElement-icon' )
 		.attr( 'class', function ( i, className ) {
-			return className.replace( /(?:^|\s)oo-ui-icon-page-\S+/, '' );
+			return className.replace( /oo-ui-icon-\S+/, '' );
 		} );
 
 	this.alreadyFavorite = false;
