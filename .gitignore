@@ -9,3 +9,4 @@ composer.lock
 vendor/
 node_modules/
 .eslintcache
+/tests/selenium/log
