@@ -264,6 +264,8 @@
 	"cx-tools-linter-old-revision-label": "Starta om översättningen",
 	"cx-tools-linter-reference": "Referens saknas",
 	"cx-tools-linter-reference-message": "En referens kunde inte överföras till översättningen eftersom den använder en mall med en annan struktur.\n\nRedigera referensen i översättningen för att fylla i informationen som saknas.",
+	"cx-tools-linter-incomplete-reference": "Ofullständig referens",
+	"cx-tools-linter-incomplete-reference-message": "En referens lades till utan någon nödvändig information.\n\nDen saknade informationen kunde inte hämtas automatiskt från originalreferensen eftersom deras struktur är lite annorlunda.\n\nVar god redigera referensen i översättningen för att fylla i den saknade information.",
 	"cx-tools-linter-restart-translation-title": "Start om översättningen?",
 	"cx-tools-linter-restart-translation-message": "Du kommer att starta en nya översättning för den senaste versionen av sidan. Alla dina ändringar kommer att förloras.",
 	"cx-tools-linter-restart-translation-cancel": "Avbryt",

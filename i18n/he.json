@@ -258,6 +258,8 @@
 	"cx-tools-linter-old-revision-label": "להתחיל מחדש את התרגום",
 	"cx-tools-linter-reference": "הערת שוליים חסרה",
 	"cx-tools-linter-reference-message": "לא היה ניתן להעביר הערת שוליים לתרגום כי היא משתמשת בתבנית בעלת מבנה שונה.\n\nנא לערוך את הערת השוליים ולמלא את המידע החסר.",
+	"cx-tools-linter-incomplete-reference": "הערת שוליים לא שלמה",
+	"cx-tools-linter-incomplete-reference-message": "נוספה הערת שוליים ללא חלק מהמידע הנחוץ.\n\nלא היה אפשר לקבל את הפרטים החסרים מהערת השוליים המקורית היות שהמבנה שלהן שונה.\n\nנא לערוך את הערת השוליים בתרגום כדי למלא את המידע החסר.",
 	"cx-tools-linter-restart-translation-title": "להתחיל מחדש את התרגום?",
 	"cx-tools-linter-restart-translation-message": "{{GENDER:|תתחיל|תתחילי}} תרגום חדש מהגרסה החדשה ביותר של הדף. כל השינויים שלך ילכו לאיבוד.",
 	"cx-tools-linter-restart-translation-cancel": "ביטול",
