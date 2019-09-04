@@ -30,7 +30,7 @@
 	"apihelp-cxconfiguration-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "مقصود ٻولي جو ڪوڊ.",
-	"apihelp-query+contenttranslationsuggestions-param-listid": "تجويزون صرف ڪنھن خاص فھرست مان واپس آڻيو",
+	"apihelp-query+contenttranslationsuggestions-param-listid": "صلاحون رڳو ڪنھن خاص فھرست مان واپس آڻيو",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "کڻڻ لاءِ ترجمن جي تجويزن جو وڌ ۾ وڌ انگ.",
 	"apihelp-query+cxpublishedtranslations-description": "سڀني ڇپيل ترجمن جي معلومات کڻو.",
 	"apihelp-query+cxpublishedtranslations-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
