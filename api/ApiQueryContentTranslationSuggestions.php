@@ -181,7 +181,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
-		$domain = SiteMapper::getDomainCode( $sourceLanguage );
 		$existingTitles = [];
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
