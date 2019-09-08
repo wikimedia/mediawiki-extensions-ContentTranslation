@@ -5,13 +5,30 @@
 ( function () {
 	'use strict';
 
+	var $pLangList = $( '#p-lang ul' );
+
+	/**
+	 * Checks if there is a page in the target language.
+	 *
+	 * @param {string} code
+	 * @return {boolean}
+	 */
+	function pageInLanguageExists( code ) {
+		var languageToWikiDomainMapping = mw.config.get( 'wgContentTranslationDomainCodeMapping' ),
+			domainCode = languageToWikiDomainMapping[ code ] || code;
+
+		return $( 'li.interlanguage-link.interwiki-' + domainCode ).length === 1;
+	}
+
 	/**
 	 * Get the list of target languages that should be suggested to the current user:
 	 * - The MediaWiki user interface language.
 	 * - Accept-Language.
 	 * - Browser interface language.
 	 *
-	 * @return {string[]} target languages
+	 * Page language is ignored. Only languages in which article does not exist are suggested.
+	 *
+	 * @return {string[]} Target languages
 	 */
 	function getSuggestedTargetLanguages() {
 		var splitCode, splitCodes, specialCodeIndex,
@@ -48,43 +65,36 @@
 		}
 
 		return possibleTargetLanguages.filter( function ( language ) {
-			return language !== pageLanguage;
+			// Code should not be a language in which page exists.
+			// Also it should be a known language for ULS
+			return language !== pageLanguage &&
+				!pageInLanguageExists( language ) &&
+				language !== $.uls.data.getAutonym( language );
 		} );
 	}
 
-	/**
-	 * Checks if there is a page in the target language.
-	 *
-	 * @param {string} code
-	 * @return {boolean}
-	 */
-	function pageInLanguageExists( code ) {
-		var domainCode = mw.cx.siteMapper.getWikiDomainCode( code );
-		return $( 'li.interlanguage-link.interwiki-' + domainCode ).length === 1;
-	}
-
 	function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
-		var $newItem, $pLangList,
-			count = 0,
-			maxListSize = 3;
+		var $newItem, count = 0, maxListSize = 3;
 
 		// Remove duplicates
 		suggestedTargetLanguages = mw.cx.unique( suggestedTargetLanguages );
-		$pLangList = $( '#p-lang ul' );
 		suggestedTargetLanguages.some( function ( code ) {
-			// Code should not be a language in which page exists.
-			// Also it should be a known language for ULS.
-			if ( !pageInLanguageExists( code ) && code !== $.uls.data.getAutonym( code ) ) {
-				$newItem = mw.cx.createCXInterlanguageItem( code );
-				$pLangList.prepend( $newItem );
-				// Array.prototype.some breaks the iteration first time `true` is returned
-				return ++count === maxListSize;
-			}
+			$newItem = mw.cx.createCXInterlanguageItem( code );
+			$pLangList.prepend( $newItem );
+			// Array.prototype.some breaks the iteration first time `true` is returned
+			return ++count === maxListSize;
 		} );
 	}
 
 	function init() {
-		var suggestedTargetLanguages = getSuggestedTargetLanguages();
+		var suggestedTargetLanguages;
+
+		// No language links on the page
+		if ( $pLangList.length === 0 ) {
+			return;
+		}
+
+		suggestedTargetLanguages = getSuggestedTargetLanguages();
 
 		if ( !suggestedTargetLanguages.length ) {
 			return;
