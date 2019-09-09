@@ -18,7 +18,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.32.0",
+		"MediaWiki": ">= 1.34.0",
 		"extensions": {
 			"VisualEditor": ">= 0.1.0",
 			"UniversalLanguageSelector": "*"
@@ -696,7 +696,7 @@
 			],
 			"dependencies": [
 				"ext.cx.model",
-				"mediawiki.RegExp",
+				"mediawiki.util",
 				"oojs-ui-widgets"
 			]
 		},

@@ -112,7 +112,7 @@
 				self.namespace = namespace;
 				// Remove namespace
 				self.title = self.title.replace(
-					new RegExp( '^' + mw.RegExp.escape( self.namespace + ':' ) ),
+					new RegExp( '^' + mw.util.escapeRegExp( self.namespace + ':' ) ),
 					''
 				);
 			} );
