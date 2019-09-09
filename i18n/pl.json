@@ -271,6 +271,8 @@
 	"cx-tools-linter-old-revision-label": "Zrestartuj tłumaczenie",
 	"cx-tools-linter-reference": "Brakujący przypis",
 	"cx-tools-linter-reference-message": "Przypis nie mógł zostać przeniesiony do tłumaczenia, ponieważ używa szablonu z inną strukturą.\n\nEdytuj przypis w tłumaczeniu aby uwzględnić brakujące informacje.",
+	"cx-tools-linter-incomplete-reference": "Niekompletny przypis",
+	"cx-tools-linter-incomplete-reference-message": "Przypis został dodany bez pewnych wymaganych informacji.\n\nBrakujące szczegóły mogą nie zostać pozyskane automatycznie z oryginalnego przypisu, ponieważ ich struktura jest nieznacznie inna.\n\nEdytuj przypis w tłumaczeniu aby uwzględnić brakujące informacje.",
 	"cx-tools-linter-restart-translation-title": "Zrestartować tłumaczenie?",
 	"cx-tools-linter-restart-translation-message": "Rozpoczniesz nowe tłumaczenie najbardziej aktualnej wersji strony. Wszystkie twoje zmiany zostaną utracone.",
 	"cx-tools-linter-restart-translation-cancel": "Anuluj",

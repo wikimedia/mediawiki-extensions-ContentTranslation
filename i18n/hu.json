@@ -56,6 +56,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ez az oldal még nem létezik $1 nyelven. Létre akarod hozni?",
 	"cx-entrypoint-dialog-button-translate-from": "Fordítás $1 nyelvről",
 	"cx-entrypoint-dialog-desc": "Segíthetsz a Wikipédiának ezen lap lefordításával. A fordítás egyszerű módja tartalom előállításának a nyelveden.",
+	"cx-campaign-newbytranslation-start": "Fordítás elkezdése",
 	"cx-special-login-error": "A lap lefordításához be kell jelentkezned. [$1 Bejelentkezés]",
 	"cx-tools-instructions-text1": "Kattints egy bekezdésre a fordításhoz",
 	"cx-tools-instructions-text2": "Nem szükséges az összeset lefordítanod.",
@@ -247,11 +248,13 @@
 	"cx-tools-linter-template-block-message": "Az eredeti lap egy olyan sablont használ, ami nem elérhető a célwikin.\n\nEz a sablon átugrásra került, viszont hozzáadhatsz további tartalmat a hiányzó információk pótlására.",
 	"cx-tools-linter-template-inline-message": "Az eredeti lap sablonokat használ a tartalom strukturálására, de ezek némelyike nem létezik a célwikin.\n\nA hiányzó sablonok tartalma egyszerű szövegként lett hozzáadva. Figyelj az eredmény átnézésére.",
 	"cx-tools-linter-template-add-new": "Új sablon hozzáadása",
+	"cx-tools-linter-incomplete-template": "Hiányos sablon",
 	"cx-tools-linter-old-revision": "A fordítás a lap egyik korábbi változatán alapul.",
 	"cx-tools-linter-old-revision-message": "Ez a fordítás egy korábbi változaton alapul. A forráslap azóta [$1 jelentősen megváltozhatott].\n\nFolytathatod ezt a fordítást, vagy újrakezdheted immáron a módosult változatot használva. Amennyiben újrakezded a fordítást, minden eddigi változtatásod elveszik.",
 	"cx-tools-linter-old-revision-label": "A fordítás újrakezdése",
 	"cx-tools-linter-reference": "Hiányzó hivatkozás",
 	"cx-tools-linter-reference-message": "Egy forráshivatkozást nem sikerült átvinni a fordításba, mert eltérő struktúrájú sablont használ.\n\nSzerkeszd a forráshivatkozást a fordításban a hiányzó információk kitöltéséhez.",
+	"cx-tools-linter-incomplete-reference": "Hiányos jegyzet",
 	"cx-tools-linter-restart-translation-title": "Fordítás újrakezdése?",
 	"cx-tools-linter-restart-translation-message": "Új fordítást kezdesz az oldal legfrissebb változata alapján. Minden eddigi változtatásod el fog veszni.",
 	"cx-tools-linter-restart-translation-cancel": "Törlés",
@@ -285,5 +288,6 @@
 	"cx-mt-abuse-publish-error": "A fordításodat nem lehet közzétenni, mert az túl sok módosítatlan szöveget tartalmaz.",
 	"cx-unreviewed-translation-category": "Lapok ellenőrizetlen fordításokkal",
 	"cx-unreviewed-translation-category-desc": "Olyan Tartalomfordító eszközzel készült lapok, amelyek nagy mennyiségű ellenőrizetlen tartalommal rendelkeznek.",
+	"cx-feature-discovery-content": "Bármikor elkezdheted vagy folytathatod a fordítást a {{int:mycontris}} oldalról",
 	"cx-feature-discovery-dismiss": "Oké, értettem"
 }
