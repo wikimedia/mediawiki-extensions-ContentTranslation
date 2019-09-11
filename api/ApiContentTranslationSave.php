@@ -177,7 +177,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$translation = new Translation( $data );
 		$translation->save( $translator );
 
-		// Assosiate the translation with the translator
+		// Associate the translation with the translator
 		$translationId = $translation->getTranslationId();
 		$translator->addTranslation( $translationId );
 
