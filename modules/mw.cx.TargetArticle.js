@@ -216,48 +216,45 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		data
 	);
 
-	editResult = data.edit;
-	if ( editResult ) {
-		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
-		// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
-		if ( editResult.spamblacklist ) {
-			this.showPublishError(
-				mw.msg( 'cx-publish-error-spam-blacklist', editResult.spamblacklist ),
-				JSON.stringify( editResult )
-			);
-			return;
-		}
-		// Handle abusefilter errors.
-		if ( editResult.code && editResult.code.indexOf( 'abusefilter' ) === 0 ) {
-			this.showPublishError(
-				mw.msg( 'cx-publish-error-abuse-filter', editResult.info ),
-				editResult.info
-			);
-			return;
-		}
-	}
-
 	editError = data.error;
-	if ( editError && editError.code === 'invalidtitle' ) {
-		this.showPublishError(
-			mw.message( 'title-invalid-characters', this.getTargetTitle() ).text(),
-			JSON.stringify( editError )
-		);
-		return;
-	} else if ( editError && editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
-		this.showUnrecoverablePublishError(
-			mw.msg( 'cx-lost-session-publish' ),
-			JSON.stringify( editError )
-		);
-		return;
-	} else if ( editError && editError.code === 'titleblacklist-forbidden' ) {
-		this.showPublishError( mw.msg( 'cx-publish-error-title-blacklist' ), JSON.stringify( editError ) );
-		return;
-	} else if ( editError && editError.code === 'readonly' ) {
-		this.showUnrecoverablePublishError( mw.msg( 'cx-publish-error-readonly' ), editError.readonlyreason );
-		return;
+	if ( editError ) {
+		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
+		// Example of API result - https://phabricator.wikimedia.org/P8991
+		if ( editError.code === 'spamblacklist' ) {
+			this.showPublishError(
+				mw.msg( 'cx-publish-error-spam-blacklist', editError.info ),
+				editError.info
+			);
+			return;
+		} else if ( editError.code.indexOf( 'abusefilter' ) === 0 ) {
+			// Handle Abuse Filter errors.
+			this.showPublishError(
+				mw.msg( 'cx-publish-error-abuse-filter', editError.abusefilter.description ),
+				editError.info
+			);
+			return;
+		} else if ( editError.code === 'invalidtitle' ) {
+			this.showPublishError(
+				mw.message( 'title-invalid-characters', this.getTargetTitle() ).text(),
+				JSON.stringify( editError )
+			);
+			return;
+		} else if ( editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
+			this.showUnrecoverablePublishError(
+				mw.msg( 'cx-lost-session-publish' ),
+				JSON.stringify( editError )
+			);
+			return;
+		} else if ( editError.code === 'titleblacklist-forbidden' ) {
+			this.showPublishError( mw.msg( 'cx-publish-error-title-blacklist' ), JSON.stringify( editError ) );
+			return;
+		} else if ( editError.code === 'readonly' ) {
+			this.showUnrecoverablePublishError( mw.msg( 'cx-publish-error-readonly' ), editError.readonlyreason );
+			return;
+		}
 	}
 
+	editResult = data.edit;
 	// Handle captcha
 	// Captcha "errors" usually aren't errors. We simply don't know about them ahead of time,
 	// so we save once, then (if required) we get an error with a captcha back and try again after

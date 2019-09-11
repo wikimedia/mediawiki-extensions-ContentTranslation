@@ -220,11 +220,10 @@
 			var abuseFilterCodes = [ 'abusefilter-warning', 'abusefilter-disallowed' ];
 
 			if ( trace &&
-				trace.edit &&
-				trace.result === 'error' &&
-				trace.edit.code &&
-				abuseFilterCodes.indexOf( trace.edit.code ) > -1 &&
-				trace.edit.abusefilter
+				trace.error &&
+				trace.error.code &&
+				abuseFilterCodes.indexOf( trace.error.code ) > -1 &&
+				trace.error.abusefilter
 			) {
 				this.logAbuseFilter(
 					sourceLanguage,
@@ -232,8 +231,8 @@
 					sourceTitle,
 					targetTitle,
 					context,
-					trace.edit.code,
-					trace.edit.abusefilter.id
+					trace.error.code,
+					trace.error.abusefilter.id
 				);
 			}
 		}

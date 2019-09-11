@@ -40,7 +40,7 @@
 	"cx-source-view-page": "A link that points to the source page under the heading of the source column.\n{{Identical|View page}}",
 	"cx-publish-page-success": "Message shown when page is published successfully. Parameters:\n* $1 - Link to the published page",
 	"cx-publish-page-error": "Error message to display when page saving fails.\n* $1 - Error details",
-	"cx-publish-error-abuse-filter": "Error message displayed when users translated page contains content marked as abusive by abuse filters\n* $1 - Abuse filter info details",
+	"cx-publish-error-abuse-filter": "Error message displayed when users translated page contains content marked as abusive by abuse filters\n* $1 - Info about which abuse filter is hit",
 	"cx-publish-error-empty": "Error message displayed when server responds successfully with no data",
 	"cx-publish-error-readonly": "Error message displayed when user tries to publish to read-only wiki",
 	"cx-publish-error-spam-blacklist": "Error message displayed when users translated page is containing spam content\n* $1 - Spam blacklist info",
