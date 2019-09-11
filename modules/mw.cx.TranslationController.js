@@ -372,7 +372,8 @@ mw.cx.TranslationController.prototype.showLoginDialog = function () {
  * @param {Object[]} validations
  */
 mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
-	var id, sectionState, validation, message, error, counter = 1, results = [];
+	var id, sectionState, validation, message, error, counter = 1, results = [],
+		helpLink = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter';
 
 	// Resolve old issues, so that we don't get duplicates when adding issues to this section
 	section.resolveTranslationIssues( 'validation' );
@@ -411,7 +412,20 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 				messageInfo: {
 					title: mw.msg( 'cx-tools-linter-abuse-filter' ),
 					type: error ? 'error' : 'warning',
-					help: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter'
+					help: helpLink
+				}
+			} );
+		} else if ( error ) {
+			// If "Trigger these actions after giving the user a warning" is not checked
+			// for particular abuse filter rule, we will not have `validation.warn.messageHtml`.
+			// But if "Prevent the user from performing the action in question" is checked,
+			// error should be displayed, even if there is no message.
+			results.push( {
+				name: 'validation' + counter++,
+				message: mw.msg( 'cx-tools-linter-abuse-filter' ),
+				messageInfo: {
+					type: 'error',
+					help: helpLink
 				}
 			} );
 		}
