@@ -225,13 +225,9 @@ class Hooks {
 	 * @param array &$vars
 	 */
 	public static function addConfig( array &$vars ) {
-		global $wgContentTranslationTranslateInTarget,
-			$wgContentTranslationDomainCodeMapping,
-			$wgContentTranslationSiteTemplates,
+		global $wgContentTranslationSiteTemplates,
 			$wgContentTranslationTargetNamespace;
 
-		$vars['wgContentTranslationTranslateInTarget'] = $wgContentTranslationTranslateInTarget;
-		$vars['wgContentTranslationDomainCodeMapping'] = $wgContentTranslationDomainCodeMapping;
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
 	}

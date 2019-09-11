@@ -8,15 +8,16 @@
 
 	QUnit.module( 'ext.cx.sitemapper', QUnit.newMwEnvironment( {
 		beforeEach: function () {
-			mw.config.set( 'wgContentTranslationDomainCodeMapping', {
-				nb: 'no'
-			} );
-
 			this.siteMapper = new mw.cx.SiteMapper( {
-				view: 'https://$1.wikipedia.org/wiki/$2',
-				api: 'https://$1.wikipedia.org/w/api.php',
-				cx: 'http://localhost:8080/page/$1/$2',
-				restbase: '//$1.wikipedia.org/api/rest_v1'
+				SiteTemplates: {
+					view: 'https://$1.wikipedia.org/wiki/$2',
+					api: 'https://$1.wikipedia.org/w/api.php',
+					cx: 'http://localhost:8080/page/$1/$2',
+					restbase: '//$1.wikipedia.org/api/rest_v1'
+				},
+				DomainCodeMapping: {
+					nb: 'no'
+				}
 			} );
 		}
 	} ) );

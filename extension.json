@@ -301,8 +301,17 @@
 		},
 		"ext.cx.sitemapper": {
 			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"base/ext.cx.sitemapper.js"
+			"packageFiles": [
+				"base/ext.cx.sitemapper.js",
+				{
+					"name": "config.json",
+					"config": {
+						"DomainCodeMapping": "ContentTranslationDomainCodeMapping",
+						"SiteTemplates": "ContentTranslationSiteTemplates",
+						"TargetNamespace": "ContentTranslationTargetNamespace",
+						"TranslateInTarget": "ContentTranslationTranslateInTarget"
+					}
+				}
 			],
 			"dependencies": [
 				"ext.cx.model",
@@ -871,7 +880,10 @@
 			]
 		},
 		"ext.cx.interlanguagelink.init": {
-			"scripts": "entrypoints/ext.cx.interlanguagelink.init.js",
+			"packageFiles": [
+				"entrypoints/ext.cx.interlanguagelink.init.js",
+				{ "name": "config.json", "config": [ "ContentTranslationDomainCodeMapping" ] }
+			],
 			"dependencies": [
 				"ext.uls.init"
 			]

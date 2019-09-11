@@ -9,7 +9,8 @@
 		"moment": false,
 		"mw": false,
 		"EasyDeflate": false,
-		"OO": false
+		"OO": false,
+		"require": false
 	},
 	"rules": {
 		"max-len": "off",
