@@ -296,15 +296,8 @@
 				// "*":"See ...
 				error = details.error.info;
 			} else if ( details.edit ) {
-				// Handle abusefilter errors.
-				if ( details.edit.code && details.edit.code.indexOf( 'abusefilter' ) === 0 ) {
-					error = details.edit.info;
-					errorDetails = details.edit.warning;
-				} else {
-					// Other errors
-					// {"result":"error","edit":{"spamblacklist":"facebook.com","result":"Failure"}}
-					error = JSON.stringify( details.edit );
-				}
+				// Other errors
+				error = JSON.stringify( details.edit );
 			} else if ( details.textStatus ) {
 				// {"xhr":{"readyState":0,"status":0,"statusText":"timeout"},"textStatus":"timeout",...
 				error = details.textStatus;
