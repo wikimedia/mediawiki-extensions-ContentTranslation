@@ -59,7 +59,7 @@
 	"cx-source-view-page": "afficher la page",
 	"cx-publish-page-success": "Page publiée sur $1",
 	"cx-publish-page-error": "Une erreur est survenue lors de la publication de la traduction. Veuillez réessayer. Erreur : $1",
-	"cx-publish-error-abuse-filter": "Les filtres de modification automatique ont identifié un contenu problématique dans votre traduction. Détails : $1",
+	"cx-publish-error-abuse-filter": "Les filtres de modification automatique ont identifié un contenu problématique dans votre traduction. Atteinte du filtre : $1",
 	"cx-publish-error-empty": "Le serveur a répondu avec aucune donnée.",
 	"cx-publish-error-readonly": "Aucune écriture n’est autorisée dans le wiki.",
 	"cx-publish-error-spam-blacklist": "Un contenu potentiellement de pourriel a été détecté dans votre traduction. Détails : $1",
