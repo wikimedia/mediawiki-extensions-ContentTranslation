@@ -95,6 +95,7 @@
 			head: true,
 			width: 500,
 			position: 'after',
+			autoFlip: false,
 			autoClose: true
 		} );
 
