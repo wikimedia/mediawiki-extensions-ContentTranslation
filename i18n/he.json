@@ -29,7 +29,7 @@
 	"cx-source-view-page": "הצגת הדף",
 	"cx-publish-page-success": "הדף פורסם בכתובת $1",
 	"cx-publish-page-error": "אירעה שגיאה בעת פרסום התרגום. נא לנסות לפרסם את הדף שוב. שגיאה: $1",
-	"cx-publish-error-abuse-filter": "מסנני עריכות אוטומטיים זיהו תוכן בעייתי בתרגום שלך. פרטים: $1",
+	"cx-publish-error-abuse-filter": "מסנני עריכות אוטומטיים זיהו תוכן בעייתי בתרגום שלך. המסנן שנתקלת בו: $1",
 	"cx-publish-error-empty": "השרת הגיב ללא נתונים.",
 	"cx-publish-error-readonly": "לא ניתן לכתוב באתר הוויקי הזה.",
 	"cx-publish-error-spam-blacklist": "זוהה תוכן עם פוטנציאל לספאם בתרגום שלך. פרטים: $1",

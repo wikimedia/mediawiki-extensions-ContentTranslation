@@ -41,6 +41,8 @@
 	"cx-entrypoint-title": "Pertal kaca iki dadi $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Kaca iki durung ana ing $1. Apa {{GENDER:|kowé}} péngin nggawé iki?",
 	"cx-entrypoint-dialog-button-translate-from": "Mertal saka $1",
+	"cx-campaign-newbytranslation-title": "Wiwiti pertalan baé?",
+	"cx-campaign-newbytranslation-start": "Wiwit mertal",
 	"cx-special-login-error": "Kowé kudu mlebu log saperlu mertal kaca iki.[$1 Mlebu log]",
 	"cx-tools-instructions-text1": "{{GENDER:|Pencèt}} paragraf kanggo mertal",
 	"cx-tools-instructions-text2": "{{GENDER:|Kowé}} ora kudu mertali saben paragraf",
@@ -81,6 +83,7 @@
 	"cx-selected-source-page-error-title-in-use": "Sesirah kanggo kaca anyar iki [$1 wis kanggo]",
 	"cx-page-missing-in-target-language": "Durung ana ing $1",
 	"cx-page-number-of-languages": "Cacahing basa",
+	"cx-mt-abuse-error-title": "Pertalanmu {{PLURAL:$1|ngemu}} $1% tulisan kang durung kabesut",
 	"cx-mt-abuse-warning-title": "Péranganing pertalanmu {{PLURAL:$1|ngemu}} $1% tulisan kang durung koowahi",
 	"cx-mt-abuse-warning-text": "Pertalan otomatis ana mung minangka bebuka baé. Kowé panggah kudu mesthèkaké yèn pertalanmu tlesih lan kawaca kanthi alami.\n\nPertalanmu bisa baé dibusak juru besut liyané kang mriksa pertalanmu.",
 	"cx-publish-captcha-title": "Mesthèkaké yèn kowé dudu robot",
@@ -213,7 +216,10 @@
 	"cx-tools-linter-cannot-publish-action-label": "Setèl supaya dibabar minangka rèngrèngan",
 	"cx-tools-linter-template": "Cithakan ora ana",
 	"cx-tools-linter-template-add-new": "Wuwuh cithakan anyar",
+	"cx-tools-linter-incomplete-template": "Cithakan durung rampung",
+	"cx-tools-linter-old-revision": "Pertalan dhedhasar vèrsi lawas kacané",
 	"cx-tools-linter-old-revision-label": "Balèni mertal",
+	"cx-tools-linter-reference": "Rujukan ora ana",
 	"cx-tools-linter-restart-translation-title": "Balèni mertal?",
 	"cx-tools-linter-restart-translation-cancel": "Wurung",
 	"cx-translator-header": "Setatistikmu",
@@ -231,6 +237,7 @@
 	"cx-translation-template-add-param": "+ Pertal babagan",
 	"cx-translation-template-add-more": "Tambah babagan liyané",
 	"cx-translation-template-select-param": "Pilih babagan tujuan",
+	"cx-publish-settings": "Setélan pambabar",
 	"cx-publish-destination-header": "Parané pambabar",
 	"cx-publish-destination-tooltip": "Pilihen mandhala aran minangka jujuganing kaca kang arep kobabar",
 	"cx-publish-destination-namespace-main": "Kaca anyar",
@@ -240,5 +247,6 @@
 	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban",
 	"cx-linkcontextitem-missing-link-title": "Pranala ora ana",
 	"cx-linkcontextitem-missing-title-description": "Kaca iki durung ana",
-	"cx-unreviewed-translation-category": "Kaca mawa pertalan kang durung kapriksa"
+	"cx-unreviewed-translation-category": "Kaca mawa pertalan kang durung kapriksa",
+	"cx-feature-discovery-title": "Pertal kapan-kapan"
 }

@@ -40,7 +40,7 @@
 	"cx-source-view-page": "ver página",
 	"cx-publish-page-success": "Página publicada em $1",
 	"cx-publish-page-error": "Ocorreu um erro ao publicar a tradução. Por favor, tente novamente. Erro: $1",
-	"cx-publish-error-abuse-filter": "Os filtros automáticos de edições identificaram conteúdo problemático na sua tradução. Detalhes: $1",
+	"cx-publish-error-abuse-filter": "Os filtros de edição automática identificaram conteúdo problemático na sua tradução. Acerto do filtro: $1",
 	"cx-publish-error-empty": "O servidor enviou uma resposta sem dados.",
 	"cx-publish-error-readonly": "Não são permitidas operações de escrita na wiki.",
 	"cx-publish-error-spam-blacklist": "Foi detetado na sua tradução conteúdo que possivelmente constitui spam. Detalhes: $1",

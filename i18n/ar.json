@@ -36,7 +36,7 @@
 	"cx-source-view-page": "عرض الصفحة",
 	"cx-publish-page-success": "نشرت الصفحة في $1",
 	"cx-publish-page-error": "حدث خطأ أثناء نشر الترجمة. برجاء محاولة نشر الصفحة مرة أخرى. الخطأ: $1",
-	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى إشكاليا في ترجمتك، التفاصيل: $1",
+	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى إشكاليا في ترجمتك، ضربة المرشح: $1",
 	"cx-publish-error-empty": "رد الخادم بدون بيانات.",
 	"cx-publish-error-readonly": "لا يُسمَح بكتابات إلى الويكي.",
 	"cx-publish-error-spam-blacklist": "تم اكتشاف محتوى محتمل غير مرغوب فيه في ترجمتك، التفاصيل: $1",

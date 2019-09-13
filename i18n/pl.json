@@ -44,7 +44,7 @@
 	"cx-source-view-page": "zobacz stronę",
 	"cx-publish-page-success": "Strona opublikowana w $1",
 	"cx-publish-page-error": "Podczas publikowania tłumaczenia wystąpił błąd. Spróbuj opublikować stronę jeszcze raz. Błąd: $1",
-	"cx-publish-error-abuse-filter": "Automatyczny filtr edycji wykrył problematyczną treść w twoim tłumaczeniu. Szczegóły: $1",
+	"cx-publish-error-abuse-filter": "Automatyczny filtr edycji wykrył problematyczną treść w twoim tłumaczeniu. Dopasowany filtr: $1",
 	"cx-publish-error-empty": "Serwer odpowiedział bez danych.",
 	"cx-publish-error-readonly": "Zapisy do wiki nie są dozwolone.",
 	"cx-publish-error-spam-blacklist": "W twoim tłumaczeniu wykryto potencjalny spam. Szczegóły: $1",
