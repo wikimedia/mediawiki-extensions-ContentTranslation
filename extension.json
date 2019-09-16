@@ -1843,23 +1843,6 @@
 				"categories"
 			]
 		},
-		"mw.cx.ui.TranslationIssueWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.TranslationIssueWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui"
-			],
-			"messages": [
-				"cx-tools-linter-generic-title",
-				"cx-tools-linter-learn-more",
-				"cx-tools-linter-mark-as-resolved"
-			]
-		},
 		"mw.cx.ui.Categories": {
 			"scripts": [
 				"ui/mw.cx.ui.Categories.js"
@@ -1932,21 +1915,26 @@
 		},
 		"mw.cx.tools.IssueTrackingTool": {
 			"scripts": [
-				"tools/mw.cx.tools.IssueTrackingTool.js"
+				"tools/mw.cx.tools.IssueTrackingTool.js",
+				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js"
 			],
 			"styles": [
-				"tools/styles/mw.cx.tools.IssueTrackingTool.less"
+				"tools/styles/mw.cx.tools.IssueTrackingTool.less",
+				"ui/styles/widgets/mw.cx.ui.TranslationIssueWidget.less"
 			],
 			"dependencies": [
 				"oojs-ui-widgets",
-				"mw.cx.ui.TranslationIssueWidget",
+				"mw.cx.ui",
 				"mw.cx.tools.TranslationTool"
 			],
 			"messages": [
 				"cx-tools-linter-issues",
 				"cx-tools-linter-issues-count",
 				"cx-tools-linter-errors-count",
-				"cx-tools-linter-warnings-count"
+				"cx-tools-linter-warnings-count",
+				"cx-tools-linter-generic-title",
+				"cx-tools-linter-learn-more",
+				"cx-tools-linter-mark-as-resolved"
 			]
 		},
 		"mw.cx.tools.TemplateTool": {
