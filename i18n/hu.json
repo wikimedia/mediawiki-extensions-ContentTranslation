@@ -288,6 +288,7 @@
 	"cx-mt-abuse-publish-error": "A fordításodat nem lehet közzétenni, mert az túl sok módosítatlan szöveget tartalmaz.",
 	"cx-unreviewed-translation-category": "Lapok ellenőrizetlen fordításokkal",
 	"cx-unreviewed-translation-category-desc": "Olyan Tartalomfordító eszközzel készült lapok, amelyek nagy mennyiségű ellenőrizetlen tartalommal rendelkeznek.",
+	"cx-feature-discovery-title": "Fordíts bármikor",
 	"cx-feature-discovery-content": "Bármikor elkezdheted vagy folytathatod a fordítást a {{int:mycontris}} oldalról",
 	"cx-feature-discovery-dismiss": "Oké, értettem"
 }

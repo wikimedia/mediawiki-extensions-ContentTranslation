@@ -203,6 +203,7 @@
 	"cx-translation-template-select-param": "Izvēlēties mērķa laukus",
 	"cx-publish-destination-header": "Publicēšanas mērķis",
 	"cx-publish-destination-namespace-main": "Jauna lapa",
+	"cx-publish-destination-namespace-main-exists": "Aizvietot esošo lapu",
 	"cx-publish-destination-namespace-user": "Personīgais melnraksts",
 	"cx-publish-destination-namespace-draft": "Kopienas melnraksts",
 	"cx-linkcontextitem-missing-link-title": "Trūkst saite",

@@ -22,7 +22,7 @@
 	"cx-source-view-page": "prikaz strani",
 	"cx-publish-page-success": "Stran objavljena na naslovu $1",
 	"cx-publish-page-error": "Pri objavi prevoda je prišlo do napake. Prosimo, poskusi ponovno. Napaka: $1",
-	"cx-publish-error-abuse-filter": "Samodejni filtri urejanja so v tvojem prevodu zaznali sporno vsebino. Podrobnosti: $1",
+	"cx-publish-error-abuse-filter": "Samodejni filtri urejanja so v tvojem prevodu zaznali sporno vsebino. Ujemajoči filter: $1",
 	"cx-publish-error-empty": "Strežnik se je odzval brez podatkov.",
 	"cx-publish-error-readonly": "Pisanje v wiki ni dovoljeno.",
 	"cx-publish-error-spam-blacklist": "V tvojem prevodu je bilo zaznano potencialno smetje. Podrobnosti: $1",
