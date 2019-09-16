@@ -13,16 +13,12 @@
  * Handles providing URLs to different wikis.
  *
  * @class
- * @param {Object} overrides Configuration overrides (defaults from PHP configuration)
+ * @param {Object} [overrides] Configuration overrides (defaults from PHP configuration)
  */
 mw.cx.SiteMapper = function ( overrides ) {
 	var config = require( '../config.json' );
 
 	overrides = overrides || {};
-	// Support legacy calling convention where first param is only site templates
-	if ( overrides.view ) {
-		overrides = { SiteTemplates: overrides };
-	}
 
 	this.siteTemplates = overrides.SiteTemplates || config.SiteTemplates;
 	this.codeMap = overrides.DomainCodeMapping || config.DomainCodeMapping;

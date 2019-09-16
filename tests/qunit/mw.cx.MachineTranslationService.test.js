@@ -4,9 +4,7 @@ QUnit.module( 'mw.cx.MachineTranslationService', QUnit.newMwEnvironment( {
 	setup: function () {
 		this.server = this.sandbox.useFakeServer();
 		this.server.respondImmediately = true;
-		this.siteMapper = new mw.cx.SiteMapper( {
-			cx: '/v1'
-		} );
+		this.siteMapper = new mw.cx.SiteMapper();
 	}
 } ) );
 
