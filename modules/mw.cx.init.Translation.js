@@ -236,7 +236,7 @@ mw.cx.init.Translation.prototype.attachToDOM = function ( veTarget ) {
  * @private
  * @param {mw.cx.dm.WikiPage} wikiPage
  * @param {string} targetLanguage
- * @param {ext.cx.SiteMapper} siteMapper
+ * @param {mw.cx.SiteMapper} siteMapper
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, targetLanguage, siteMapper ) {

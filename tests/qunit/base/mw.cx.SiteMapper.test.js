@@ -6,7 +6,7 @@
 ( function () {
 	'use strict';
 
-	QUnit.module( 'ext.cx.sitemapper', QUnit.newMwEnvironment( {
+	QUnit.module( 'mw.cx.SiteMapper', QUnit.newMwEnvironment( {
 		beforeEach: function () {
 			this.siteMapper = new mw.cx.SiteMapper( {
 				SiteTemplates: {
