@@ -2097,18 +2097,23 @@
 		"mw.cx.ui.PageSelectorWidget": {
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
-				"ui/widgets/mw.cx.ui.PageSelectorWidget.js"
+				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
+				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
+			],
+			"styles": [
+				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
 			],
 			"messages": [
 				"cx-page-selector-widget-recent-edits-label",
-				"cx-page-selector-widget-nearby-label"
+				"cx-page-selector-widget-nearby-label",
+				"cx-page-missing-in-target-language",
+				"cx-page-number-of-languages"
 			],
 			"dependencies": [
 				"ext.cx.sitemapper",
 				"jquery.uls.data",
 				"mediawiki.widgets",
 				"mw.cx.ui",
-				"mw.cx.ui.TitleOptionWidget",
 				"oojs",
 				"oojs-ui.styles.icons-interactions"
 			]
@@ -2130,23 +2135,6 @@
 				"mediawiki.user",
 				"mediawiki.widgets",
 				"oojs-ui"
-			]
-		},
-		"mw.cx.ui.TitleOptionWidget": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
-			],
-			"messages": [
-				"cx-page-missing-in-target-language",
-				"cx-page-number-of-languages"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mediawiki.widgets"
 			]
 		},
 		"mw.cx.ui.FeatureDiscoveryWidget": {
