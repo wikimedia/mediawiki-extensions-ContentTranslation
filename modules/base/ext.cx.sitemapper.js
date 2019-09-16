@@ -10,11 +10,11 @@
 'use strict';
 
 /**
-	* Handles providing URLs to different wikis.
-	*
-	* @class
-	* @param {Object} overrides Configuration overrides (defaults from PHP configuration)
-	*/
+ * Handles providing URLs to different wikis.
+ *
+ * @class
+ * @param {Object} overrides Configuration overrides (defaults from PHP configuration)
+ */
 mw.cx.SiteMapper = function ( overrides ) {
 	var config = require( '../config.json' );
 
@@ -32,27 +32,27 @@ mw.cx.SiteMapper = function ( overrides ) {
 };
 
 /**
-	* Some wikis have domain names that do not match the content language.
-	* See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
-	*
-	* @param {string} language Language code
-	* @return {string}
-	*/
+ * Some wikis have domain names that do not match the content language.
+ * See: wgLanguageCode in operations/mediawiki-config/wmf-config/InitialiseSettings.php
+ *
+ * @param {string} language Language code
+ * @return {string}
+ */
 mw.cx.SiteMapper.prototype.getWikiDomainCode = function ( language ) {
 	return this.codeMap[ language ] || language;
 };
 
 /**
-	* Gets the source language code for current wiki.
-	*
-	* We can't rely on wgContentLanguage because this will fail for a
-	* wiki like simple.wikipedia.org, where the content language is the same as
-	* on en.wikipedia.org, as well as some other edge cases. But we use the known
-	* mappings to do backwards conversion for known problematic domains, and
-	* wgContentLanguage for rest of the cases.
-	*
-	* @return {string} Source language code
-	*/
+ * Gets the source language code for current wiki.
+ *
+ * We can't rely on wgContentLanguage because this will fail for a
+ * wiki like simple.wikipedia.org, where the content language is the same as
+ * on en.wikipedia.org, as well as some other edge cases. But we use the known
+ * mappings to do backwards conversion for known problematic domains, and
+ * wgContentLanguage for rest of the cases.
+ *
+ * @return {string} Source language code
+ */
 mw.cx.SiteMapper.prototype.getCurrentWikiLanguageCode = function () {
 	var from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
 		fallback = mw.config.get( 'wgContentLanguage' );
@@ -61,10 +61,10 @@ mw.cx.SiteMapper.prototype.getCurrentWikiLanguageCode = function () {
 };
 
 /**
-	* @param {string} domain
-	* @param {string} [fallback]
-	* @return {string}
-	*/
+ * @param {string} domain
+ * @param {string} [fallback]
+ * @return {string}
+ */
 mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain, fallback ) {
 	var code;
 
@@ -78,12 +78,12 @@ mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain, fal
 };
 
 /**
-	* Get the API for a remote wiki.
-	*
-	* @param {string} language Language code
-	* @param {Object} [options] Api options
-	* @return {mw.ForeignApi} api
-	*/
+ * Get the API for a remote wiki.
+ *
+ * @param {string} language Language code
+ * @param {Object} [options] Api options
+ * @return {mw.ForeignApi} api
+ */
 mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 	var url, domain;
 
@@ -94,13 +94,13 @@ mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 };
 
 /**
-	* Get a URL to an article in a wiki for a given language.
-	*
-	* @param {string} language Language code
-	* @param {string} title Page title
-	* @param {Object} [params] Query parameters
-	* @return {string}
-	*/
+ * Get a URL to an article in a wiki for a given language.
+ *
+ * @param {string} language Language code
+ * @param {string} title Page title
+ * @param {Object} [params] Query parameters
+ * @return {string}
+ */
 mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 	var domain,
 		base = this.siteTemplates.view,
@@ -118,12 +118,12 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 };
 
 /**
-	* Get the cxserver URL for the current site.
-	*
-	* @param {string} module CXServer module path
-	* @param {Object} [params]
-	* @return {string}
-	*/
+ * Get the cxserver URL for the current site.
+ *
+ * @param {string} module CXServer module path
+ * @param {Object} [params]
+ * @return {string}
+ */
 mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
 	var paramKey, cxserverURL = this.siteTemplates.cx;
 
@@ -155,11 +155,11 @@ mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params 
 };
 
 /**
-	* Get the target title to publish based on the wiki configuration.
-	*
-	* @param {string} title
-	* @return {string} target title
-	*/
+ * Get the target title to publish based on the wiki configuration.
+ *
+ * @param {string} title
+ * @return {string} target title
+ */
 mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
 	var targetTitle;
 
@@ -186,10 +186,10 @@ mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
 };
 
 /**
-	* Get all the source and target languages.
-	*
-	* @return {jQuery.Promise}
-	*/
+ * Get all the source and target languages.
+ *
+ * @return {jQuery.Promise}
+ */
 mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
 	var languagePairsAPIUrl,
 		self = this;
@@ -216,16 +216,16 @@ mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
 };
 
 /**
-	* Get the URL for Special:CX on the needed wiki
-	* according to given source and target title and the target language.
-	*
-	* @param {string} sourceTitle
-	* @param {string} targetTitle
-	* @param {string} sourceLanguage
-	* @param {string} targetLanguage
-	* @param {Object} [extra] Additional query parameters
-	* @return {string} URL
-	*/
+ * Get the URL for Special:CX on the needed wiki
+ * according to given source and target title and the target language.
+ *
+ * @param {string} sourceTitle
+ * @param {string} targetTitle
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {Object} [extra] Additional query parameters
+ * @return {string} URL
+ */
 mw.cx.SiteMapper.prototype.getCXUrl = function (
 	sourceTitle,
 	targetTitle,
@@ -256,15 +256,15 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 };
 
 /**
-	* Set CX Token in a cookie.
-	* This token guarantees that the translator reads the license agreement
-	* and starts translating from CX dashboard enabled as beta feature.
-	* It is recommended to configure the cookie domain.
-	*
-	* @param {string} sourceLanguage Source language
-	* @param {string} targetLanguage Target language
-	* @param {string} sourceTitle Source title
-	*/
+ * Set CX Token in a cookie.
+ * This token guarantees that the translator reads the license agreement
+ * and starts translating from CX dashboard enabled as beta feature.
+ * It is recommended to configure the cookie domain.
+ *
+ * @param {string} sourceLanguage Source language
+ * @param {string} targetLanguage Target language
+ * @param {string} sourceTitle Source title
+ */
 mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
 	var name, options;
 
