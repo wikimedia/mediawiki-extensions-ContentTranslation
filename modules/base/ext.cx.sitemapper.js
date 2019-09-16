@@ -18,6 +18,7 @@
 mw.cx.SiteMapper = function ( overrides ) {
 	var config = require( '../config.json' );
 
+	overrides = overrides || {};
 	// Support legacy calling convention where first param is only site templates
 	if ( overrides.view ) {
 		overrides = { SiteTemplates: overrides };
