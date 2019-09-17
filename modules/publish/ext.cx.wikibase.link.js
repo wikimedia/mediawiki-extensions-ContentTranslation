@@ -63,10 +63,8 @@
 
 	$( function () {
 		mw.loader.using( [
-			'wikibase.api.RepoApi',
-			'wikibase.client.currentSite',
-			'wikibase.client.getMwApiForRepo',
-			'jquery.wikibase.linkitem'
+			'jquery.wikibase.linkitem',
+			'mw.config.values.wbRepo'
 		] ).then( function () {
 			mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
 		} );
