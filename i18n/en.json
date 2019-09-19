@@ -169,6 +169,7 @@
 	"cx-draft-cancel-button-label": "Cancel",
 	"cx-draft-discard-button-label": "Delete translation",
 	"cx-beta-feature-enabled-notification": "Content Translation has been activated in this wiki.",
+	"cx-init-critical-error": "Critical error: Content translation failed to load due to internal error.",
 	"cx-campaign-newarticle-notice": "Creating new pages by <strong>translating</strong> is easier now! Do you want to try the Content Translation beta tool?",
 	"cx-campaign-no-thanks": "No, thanks",
 	"cx-campaign-try": "Try Content Translation",

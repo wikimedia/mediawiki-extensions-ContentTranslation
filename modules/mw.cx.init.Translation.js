@@ -215,10 +215,7 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
  */
 mw.cx.init.Translation.prototype.initializationError = function () {
 	// Any error in the above deferreds is critical
-	this.translationView.showMessage(
-		'error',
-		'Critical error: Content translation failed to load due to internal error.'
-	);
+	this.translationView.showMessage( 'error', mw.msg( 'cx-init-critical-error' ) );
 	// Nothing happens beyond this. Some internal error happened.
 	mw.log.error( '[CX] Translation initialization failed.' );
 };

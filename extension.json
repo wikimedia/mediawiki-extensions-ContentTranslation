@@ -1447,7 +1447,8 @@
 				"mediawiki.notify"
 			],
 			"messages": [
-				"cx-beta-feature-enabled-notification"
+				"cx-beta-feature-enabled-notification",
+				"cx-init-critical-error"
 			],
 			"targets": [
 				"desktop"
