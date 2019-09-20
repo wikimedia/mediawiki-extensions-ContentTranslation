@@ -173,6 +173,7 @@
 	"cx-draft-cancel-button-label": "ألغ",
 	"cx-draft-discard-button-label": "احذف الترجمة",
 	"cx-beta-feature-enabled-notification": "فُعلت ترجمة المحتوى على هذا الويكي.",
+	"cx-init-critical-error": "خطأ فادح: فشل تحميل ترجمة المحتوى بسبب خطأ داخلي.",
 	"cx-campaign-newarticle-notice": "أصبح إنشاء صفحات جديدة <strong>بترجمتها</strong> أسهل الآن. أترغب بتجربة أداة ترجمة المحتوى التجريبية؟",
 	"cx-campaign-no-thanks": "لا، شكرا",
 	"cx-campaign-try": "جرب ترجمة المحتوى",

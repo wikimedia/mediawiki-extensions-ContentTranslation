@@ -176,6 +176,7 @@
 	"cx-draft-cancel-button-label": "Cancelar",
 	"cx-draft-discard-button-label": "Apagar tradução",
 	"cx-beta-feature-enabled-notification": "O Tradutor de Conteúdo foi ativado nesta wiki.",
+	"cx-init-critical-error": "Erro crítico: falha ao carregar a conversão de conteúdo devido a erro interno.",
 	"cx-campaign-newarticle-notice": "Agora é mais fácil de criar páginas <b>traduzindo-as</b>! Gostaria de experimentar a ferramenta beta Tradutor de Conteúdo?",
 	"cx-campaign-no-thanks": "Não, obrigado",
 	"cx-campaign-try": "Experimentar o Tradutor de Conteúdo",

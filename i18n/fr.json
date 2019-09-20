@@ -195,6 +195,7 @@
 	"cx-draft-cancel-button-label": "Annuler",
 	"cx-draft-discard-button-label": "Supprimer la traduction",
 	"cx-beta-feature-enabled-notification": "La traduction de contenu a été activée sur ce wiki.",
+	"cx-init-critical-error": "Erreur critique : La traduction du contenu n’a pas réussi à se charger du fait d’une erreur interne.",
 	"cx-campaign-newarticle-notice": "Créer de nouvelles pages en <strong>traduisant</strong> est désormais plus facile ! Voulez-vous essayer l’outil de traduction de contenu en version bêta ?",
 	"cx-campaign-no-thanks": "Non merci",
 	"cx-campaign-try": "Essayer la traduction de contenu",

@@ -164,6 +164,7 @@
 	"cx-draft-cancel-button-label": "Annuleren",
 	"cx-draft-discard-button-label": "Vertaling verwijderen",
 	"cx-beta-feature-enabled-notification": "Content Translation is niet geactiveerd op deze wiki.",
+	"cx-init-critical-error": "Ernstige fout. Kan de inhoudsvertaling vanwege een inwendige fout niet laden.",
 	"cx-campaign-newarticle-notice": "Nieuwe pagina's maken door te <strong>vertalen</strong> is nu eenvoudiger! Wilt u het programma Content Translation proberen?",
 	"cx-campaign-no-thanks": "Nee, bedankt",
 	"cx-campaign-try": "Probeer Content Translation",
