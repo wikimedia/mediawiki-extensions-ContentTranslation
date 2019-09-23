@@ -59,6 +59,8 @@
 	"cx-entrypoint-dialog-desc": "You can help Wikipedia by translating this page. Translating is an easy way to create new content in your language.",
 	"cx-campaign-newbytranslation-title": "Start with a translation instead?",
 	"cx-campaign-newbytranslation-notice": "Create a new article by translating from another language you know.",
+	"cx-campaign-newbytranslation-search": "Find another page to translate",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Start translating",
 	"cx-special-login-error": "You must be logged in to translate in this page. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|Click}} paragraphs to translate",

@@ -102,7 +102,8 @@
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
 		"cx-enable-entrypoints": true,
-		"cx-entrypoint-fd-status": "notshown"
+		"cx-entrypoint-fd-status": "notshown",
+		"cx_campaign_newarticle_shown": false
 	},
 	"config": {
 		"ContentTranslationDomainCodeMapping": {
@@ -1081,11 +1082,16 @@
 			],
 			"dependencies": [
 				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-content",
+				"oojs-ui.styles.icons-interactions",
+				"mw.cx.util",
 				"ext.cx.sitemapper"
 			],
 			"messages": [
 				"cx-campaign-newbytranslation-title",
 				"cx-campaign-newbytranslation-notice",
+				"cx-campaign-newbytranslation-search",
+				"cx-campaign-newbytranslation-languages",
 				"cx-campaign-newbytranslation-start"
 			]
 		},

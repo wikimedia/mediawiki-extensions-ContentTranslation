@@ -1,16 +1,104 @@
-@import 'mediawiki.ui/variables';
+@import '../../ui/styles/mw.cx.mixins.less';
+
+@image-size: 5em;
+@details-margin: 0.5em;
 
 .cx-entrypoint-newbytranslation {
 	/* stylelint-disable-next-line declaration-no-important */
 	bottom: 0 !important; // The popup widget set inline style. Override.
 
+	.oo-ui-popupWidget-popup {
+		border-bottom: 0;
+		border-radius: @borderRadius @borderRadius 0 0;
+	}
+
 	.cx-campaign-newbytranslation-title {
 		font-weight: bold;
 	}
 
+	.cx-campaign-newbytranslation-label {
+		margin-left: 2em;
+	}
+
+	.cx-campaign-newbytranslation-actions {
+		margin: 0.625em 0 0.625em 2em;
+	}
+
+	.cx-campaign-newbytranslation-source {
+		display: block;
+		height: @image-size;
+		margin: 0 2em 1em 0;
+		border: 1px solid @colorGray12;
+		border-radius: @borderRadius;
+		.box-shadow-card;
+		text-decoration: none;
+
+		.suggestion-image {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 65%;
+			opacity: 0.65;
+			display: inline-block;
+			width: @image-size;
+			height: @image-size;
+
+			&--with-thumbnail {
+				background-size: cover;
+				opacity: 1;
+			}
+		}
+
+		.suggestion-details {
+			display: inline-block;
+			max-width: calc( 100% ~'-' ( @image-size + 2 * @details-margin ) );
+			margin: @details-margin;
+			vertical-align: top;
+		}
+
+		.suggestion-title {
+			color: @colorGray1;
+			font-weight: bold;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.suggestion-desc {
+			color: @colorGray5;
+			font-size: 0.8125em;
+			.text-ellipsis;
+
+			&:empty {
+				margin-top: 1.7em;
+			}
+		}
+
+		.suggestion-langs {
+			color: @colorGray5;
+			font-size: 0.8125em;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	.cx-campaign-newbytranslation-search-source {
+		max-width: calc( 100% ~'-' @image-size );
+		margin-bottom: 0;
+
+		.oo-ui-buttonElement-button {
+			height: 100%;
+			text-align: left;
+			white-space: normal;
+		}
+	}
+
+	.cx-campaign-newbytranslation-settings {
+		float: right;
+		margin-bottom: 0;
+	}
+
 	&.oo-ui-popupWidget {
 		position: sticky;
-		margin-left: calc( 50% ~'-' 250px );
+		margin-left: calc( 50% ~'-' 300px );
 	}
 
 	.oo-ui-fieldLayout.oo-ui-labelElement.oo-ui-fieldLayout-align-left {

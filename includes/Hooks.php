@@ -226,10 +226,12 @@ class Hooks {
 	 */
 	public static function addConfig( array &$vars ) {
 		global $wgContentTranslationSiteTemplates,
+			$wgContentTranslationVersion,
 			$wgContentTranslationTargetNamespace;
 
 		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
 		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
+		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
 	}
 
 	/**
@@ -307,6 +309,18 @@ class Hooks {
 			return;
 		}
 
+		$veConfig = MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'visualeditor' );
+		if ( $veConfig->get( 'VisualEditorShowBetaWelcome' ) &&
+			!$user->getOption( 'visualeditor-hidebetawelcome' )
+		) {
+			// VisualEditorShowBetaWelcome is enabled and user has not
+			// seen the visualeditor yet. So when edit page is loaded
+			// VE user guiding dialogs will appear. We don't want to mix
+			// that with our invitations.
+			return;
+		}
+
 		if ( $wgContentTranslationAsBetaFeature === false &&
 			// CX is enabled for everybody. Not a beta feature.
 			self::isPotentialTranslator( $user )
@@ -314,6 +328,14 @@ class Hooks {
 			$out->addModules( [
 				'ext.cx.entrypoints.newbytranslation',
 				'ext.cx.eventlogging.campaigns'
+			] );
+			$invitationShown = PreferenceHelper::getGlobalPreference(
+				$user, 'cx_campaign_newarticle_shown'
+			);
+			$existingTranslator = Translator::isTranslator( $user );
+			$out->addJsConfigVars( [
+				'wgContentTranslationNewByTranslationShown' => $invitationShown,
+				'wgContentTranslationExistingTranslator' => $existingTranslator,
 			] );
 			return;
 		}
@@ -491,6 +513,9 @@ class Hooks {
 		}
 
 		$preferences['cx-entrypoint-fd-status'] = [
+			'type' => 'api',
+		];
+		$preferences['cx_campaign_newarticle_shown'] = [
 			'type' => 'api',
 		];
 	}
