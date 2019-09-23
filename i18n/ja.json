@@ -39,7 +39,7 @@
 	"cx-source-view-page": "ページを閲覧",
 	"cx-publish-page-success": "ページを公開しました：$1",
 	"cx-publish-page-error": "翻訳記事の公開中にエラーが発生しました。公開し直してください。エラー:$1",
-	"cx-publish-error-abuse-filter": "自動編集フィルタがあなたの翻訳に問題のあるコンテンツを識別しました。詳細：$1",
+	"cx-publish-error-abuse-filter": "自動編集フィルタがあなたの翻訳に問題のあるコンテンツを識別しました。フィルタのヒット回数：$1",
 	"cx-publish-error-empty": "サーバはデータを検出できませんでした。",
 	"cx-publish-error-readonly": "ウィキの書き込みが禁止されています。",
 	"cx-publish-error-spam-blacklist": "あなたの翻訳にスパムの可能性のあるコンテンツを検出しました。詳細：$1",

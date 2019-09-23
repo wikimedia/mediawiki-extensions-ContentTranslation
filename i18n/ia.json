@@ -124,6 +124,7 @@
 	"cx-draft-cancel-button-label": "Cancellar",
 	"cx-draft-discard-button-label": "Deler traduction",
 	"cx-beta-feature-enabled-notification": "Content Translation ha essite activate in iste wiki.",
+	"cx-init-critical-error": "Error critic: Le cargamento del traduction de contento ha fallite a causa de un error interne.",
 	"cx-campaign-newarticle-notice": "Le creation de nove paginas per <strong>traduction</strong> es plus facile ora! Vole tu essayar le instrumento in beta Content Translation?",
 	"cx-campaign-no-thanks": "No, gratias",
 	"cx-campaign-try": "Essayar Content Translation",

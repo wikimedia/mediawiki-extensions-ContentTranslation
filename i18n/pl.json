@@ -180,6 +180,7 @@
 	"cx-draft-cancel-button-label": "Anuluj",
 	"cx-draft-discard-button-label": "Usuń tłumaczenie",
 	"cx-beta-feature-enabled-notification": "Aktywowano Content Translation na tej wiki.",
+	"cx-init-critical-error": "Błąd krytyczny: ładowanie tłumacza treści nie powiodło się przez błąd wewnętrzny.",
 	"cx-campaign-newarticle-notice": "Tworzenie nowych stron poprzez <strong>tłumaczenie</strong> jest teraz prostsze! Czy chcesz wypróbować narzędzie Tłumaczenie Treści (beta)?",
 	"cx-campaign-no-thanks": "Nie, dziękuję",
 	"cx-campaign-try": "Spróbuj Content Translation",
