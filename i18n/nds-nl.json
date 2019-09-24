@@ -7,7 +7,7 @@
 	"cx": "Syde oaversetten",
 	"cx-dashboard-header": "Oaversettingen",
 	"cx-javascript": "Dit warktüüg warkt neet sunder JavaScript. JavaScript is steyt uut, warkt neet, of disse webkyker wördt neet understöänd.",
-	"cx-license-agreement": "Döär vöärdan te gån stem jy in mid et [//foundation.wikimedia.org/wiki/Terms_of_Use Bruuksbeding] en akkedeer jy unherröpelik dat juw bydragen vrygeaven wörden under de [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-licency] en de [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Döär vöärdan te gån stem jy in mid et [//foundation.wikimedia.org/wiki/Terms_of_Use Gebruuksbeding] en akkedeer jy unherröpelik dat juw bydragen vrygeaven wördet under de [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-licensy] en de [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Faut: kun geen verbinding maken mid de server.",
 	"cx-desc": "Maakt et eynvoldig üm inholdelike syden [[Special:ContentTranslation|oaver te setten]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oaversetted}}",
