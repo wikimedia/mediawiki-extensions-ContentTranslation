@@ -156,6 +156,8 @@
 			"age": "3600"
 		},
 		"ContentTranslationEnableSuggestions": true,
+		"@ContentTranslationEnableMT": "Whether Machine Translation services are enabled for this target wiki",
+		"ContentTranslationEnableMT": true,
 		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
 		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
 		"ContentTranslationVersion": "2",

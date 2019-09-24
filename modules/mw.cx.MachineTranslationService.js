@@ -109,7 +109,14 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
-	var fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
+	var fetchProvidersUrl;
+
+	if ( mw.config.get( 'wgContentTranslationEnableMT' ) === false ) {
+		// MT services are not enabled for this wiki.
+		return $.Deferred().resolve( [] );
+	}
+
+	fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage
 	} );
