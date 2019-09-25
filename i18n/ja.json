@@ -175,6 +175,7 @@
 	"cx-draft-cancel-button-label": "キャンセル",
 	"cx-draft-discard-button-label": "翻訳を削除",
 	"cx-beta-feature-enabled-notification": "このウィキでコンテンツ翻訳が有効化されました。",
+	"cx-init-critical-error": "重大なエラー: 内部エラーが原因でコンテンツ翻訳機能を起動できませんでした。",
 	"cx-campaign-newarticle-notice": "<strong>翻訳</strong>することで新しいページを簡単に作成できます！コンテンツ翻訳のベータ版ツールを試してみませんか？",
 	"cx-campaign-no-thanks": "いいえ、結構です",
 	"cx-campaign-try": "コンテンツ翻訳を試します",

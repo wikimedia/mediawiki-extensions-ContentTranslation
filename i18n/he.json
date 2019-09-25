@@ -165,6 +165,7 @@
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
+	"cx-init-critical-error": "שגיאה קריטית: תרגום תוכן לא נטען בשל שגיאה פנימית.",
 	"cx-campaign-newarticle-notice": "יצירת דפים חדשים באמצעות <strong>תרגום</strong> קלה יותר עכשיו! {{GENDER:|האם אתה רוצה|האם את רוצה|רוצה}} לנסות את גרסת הבטא של כלי תרגום התוכן?",
 	"cx-campaign-no-thanks": "לא, תודה",
 	"cx-campaign-try": "לנסות את כלי תרגום התוכן",

@@ -297,6 +297,6 @@
 	"cx-unreviewed-translation-category-desc": "Sider oversatt med innholdsoversettelsesverktøyet som inneholder en stor andel innhold som ikke er gjennomgått",
 	"cx-preference-enable-entrypoints": "Tilgang til å [[$1|starte en oversettelse]], fra bidragssiden, språklista og lista over nye sider.",
 	"cx-feature-discovery-title": "Oversett når som helst",
-	"cx-feature-discovery-content": "Du kan starte eller fortsette en oversettelse når som helst fra sida {{int:mycontribs}}",
+	"cx-feature-discovery-content": "Du kan starte eller fortsette en oversettelse når som helst fra sida {{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "Ok, skjønner"
 }
