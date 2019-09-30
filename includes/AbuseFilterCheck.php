@@ -56,6 +56,7 @@ class AbuseFilterCheck {
 
 		$vars = new \AbuseFilterVariableHolder();
 
+		$vars->setVar( 'action', 'edit' );
 		$vars->addHolders(
 			\AbuseFilter::generateUserVars( $this->user ),
 			\AbuseFilter::generateTitleVars( $this->title, 'PAGE' )
