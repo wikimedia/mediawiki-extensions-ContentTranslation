@@ -14,7 +14,8 @@
 			"Pahkiqaz",
 			"Valtlait",
 			"Kyykaarme",
-			"Antsa"
+			"Antsa",
+			"Silvonen"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -255,6 +256,7 @@
 	"cx-translation-template-add-param": "+ Käännä kenttä",
 	"cx-translation-template-add-more": "Lisää kenttiä",
 	"cx-translation-template-select-param": "Valitse kohdekentät",
+	"cx-publish-settings": "Julkaisuasetukset",
 	"cx-publish-destination-header": "Kohdenimiavaruus",
 	"cx-publish-destination-tooltip": "Valitse nimiavaruus, johon artikkeli julkaistaan",
 	"cx-publish-destination-namespace-main": "Uusi sivu",
