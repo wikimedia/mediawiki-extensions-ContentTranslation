@@ -121,5 +121,10 @@
 	"apierror-cx-translationnotfound": "找不到翻譯。",
 	"apihelp-query+langlinkscount-description": "取得條目存在於其它語言的數量。",
 	"apihelp-query+langlinkscount-summary": "取得其它語言版本的數目。",
-	"apihelp-query+langlinkscount-example-1": "取得「Dog」頁面在條其它語言版本的數量"
+	"apihelp-query+langlinkscount-example-1": "取得「Dog」頁面在條其它語言版本的數量",
+	"apihelp-query+cxdeletedtranslations-description": "取得您發佈在某命名空間，之後在某日後被刪除掉的翻譯數量。",
+	"apihelp-query+cxdeletedtranslations-summary": "取得您發佈過且被刪除掉的翻譯數量。",
+	"apihelp-query+cxdeletedtranslations-param-after": "獲取較新刪除內容的時間戳記。",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "在已刪除翻譯所發佈到的命名空間。預設為主命名空間。",
+	"apihelp-query+cxdeletedtranslations-example-1": "取得您發佈在主命名空間，並且在 2019-04-07 16:24:44 後被刪除的翻譯數量"
 }

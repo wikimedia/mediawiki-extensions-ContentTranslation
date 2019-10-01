@@ -63,6 +63,7 @@
 	"cx-page-selector-widget-recent-edits-label": "Cnagiate da picche da te",
 	"cx-page-selector-widget-nearby-label": "Vicine a",
 	"cx-source-page-selector-input-placeholder": "Cirche 'na pàgene da traducere",
+	"cx-source-page-selector-no-search-results": "Nisicuna pàgene acchiate pe \"$1\" jndr'à $2",
 	"cx-selected-source-page-start-translation-button": "Accuminze a traducere",
 	"cx-selected-source-page-error-page-exists": "'A pàgene [$1 esiste ggià] jndr'à $2",
 	"cx-page-missing-in-target-language": "Perdute jndr'à $1",
