@@ -26,6 +26,7 @@
 	"cx-lost-session": "'A sessiona toje ha scadute",
 	"cx-lost-session-draft": "'A sessiona toje ha scadute. Le cangiaminde tune non ge ponne essere reggistrate ce non ge trase arrete jndr'à 'n'otra finestre.",
 	"cx-lost-session-publish": "'A sessiona toje ha scadute. Non ge puè pubblecà 'a traduzione ce non ge trase arrete jndr'à 'n'otra finestre.",
+	"cx-lost-session-dashboard": "Pe fà st'azione, tràse arrete.",
 	"cx-publish-summary": "Ccrejate traducenne 'a pàgene \"$1\"",
 	"cx-translation-add-translation": "Aggiunge 'na traduzione",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Condenute da Traduzione]]",
