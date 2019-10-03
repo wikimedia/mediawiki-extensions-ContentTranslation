@@ -52,7 +52,7 @@
 	"tag-contenttranslation-v2-description": "Sisältö on käännetty toisesta kielestä Content Translation -työkalun versiolla 2.",
 	"cx-source-loading": "Ladataan sivua $1",
 	"cx-beta": "Sisällön kääntäminen",
-	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Omat muokkaukset -sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
+	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Muokkaukset-sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
 	"cx-entrypoint-title": "Käännä tämä sivu kielelle $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Sivua ei ole vielä kielellä $1. {{GENDER:|Haluatko}} luoda sen?",
 	"cx-entrypoint-dialog-button-translate-from": "Käännä kielestä $1",
