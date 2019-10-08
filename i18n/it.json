@@ -166,7 +166,7 @@
 	"cx-draft-cancel-button-label": "Annulla",
 	"cx-draft-discard-button-label": "Cancella traduzione",
 	"cx-beta-feature-enabled-notification": "Il Content Translation è stato attivato in questo wiki.",
-	"cx-init-critical-error": "Errore critico: Impossibile caricare la traduzione del contenuto a causa di un errore interno.",
+	"cx-init-critical-error": "Errore critico: impossibile caricare la traduzione del contenuto a causa di un errore interno.",
 	"cx-campaign-newarticle-notice": "Creare nuove pagine <strong>traducendole</strong> è più facile ora! Vuoi provare lo strumento di Traduzione voci (ancora in fase beta)?",
 	"cx-campaign-no-thanks": "No, grazie",
 	"cx-campaign-try": "Prova Traduzione voci",
