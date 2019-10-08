@@ -22,7 +22,7 @@ class DateManipulatorTest extends \MediaWikiUnitTestCase {
 			new DateManipulator( DateManipulator::MONTH )
 		);
 
-		$this->setExpectedException( \InvalidArgumentException::class );
+		$this->expectException( \InvalidArgumentException::class );
 		new DateManipulator( 'lifetime' );
 	}
 
