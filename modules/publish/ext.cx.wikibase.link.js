@@ -37,7 +37,7 @@
 			var repoApi, targetWikiId, sourceWikiId, pageConnector;
 
 			repoApi = new wikibase.api.RepoApi( wikibase.client.getMwApiForRepo() );
-			targetWikiId = mw.config.get( 'wgWikiId' );
+			targetWikiId = mw.config.get( 'wgWikiID' );
 			sourceWikiId = result.query.general.wikiid;
 
 			pageConnector = new wikibase.PageConnector(
