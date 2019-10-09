@@ -60,9 +60,8 @@ class Translation {
 	/**
 	 * @param array|null $options
 	 * @param Translator $translator
-	 * @suppress PhanParamReqAfterOpt
 	 */
-	public function update( array $options = null, Translator $translator ) {
+	public function update( ?array $options, Translator $translator ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
 		$table = 'cx_translations';
