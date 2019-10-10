@@ -36,7 +36,7 @@ OO.initClass( mw.cx.TranslationTracker );
 
 // Values determining how much unmodified content we tolerate in various cases
 mw.cx.TranslationTracker.static.unmodifiedContentThreshold = {
-	mt: 0.8,
+	mt: 0.85,
 	mtAfterSuppressWarning: 0.95,
 	source: 0.6,
 	sourceAfterSuppressWarning: 0.75
