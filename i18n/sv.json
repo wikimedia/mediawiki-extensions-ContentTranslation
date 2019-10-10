@@ -103,6 +103,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Denna titel används redan på [$1 $2] för [$3 en annan sida]",
 	"cx-selected-source-page-error-page-exists": "Sidan [$1 finns redan] på $2",
 	"cx-selected-source-page-error-title-in-use": "Den nya sidans titel [$1 används redan]",
+	"cx-favorite-removed": "Togs bort från listan över favoriter!",
 	"cx-page-missing-in-target-language": "Saknas på $1",
 	"cx-page-number-of-languages": "Antal språk",
 	"cx-mt-abuse-error-title": "Din översättning {{PLURAL:$1|innehåller}} totalt $1 % oförändrad text",

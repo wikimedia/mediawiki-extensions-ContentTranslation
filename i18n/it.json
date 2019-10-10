@@ -103,6 +103,8 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Questo titolo è già utilizzato in [$1 $2] per [$3 un'altra pagina]",
 	"cx-selected-source-page-error-page-exists": "La pagina [$1 esiste già] in $2",
 	"cx-selected-source-page-error-title-in-use": "Il titolo della nuova pagina è [$1 già in uso]",
+	"cx-favorite-added-for-later": "Aggiunto per dopo!",
+	"cx-favorite-removed": "Rimuovi dall'elenco dei preferiti!",
 	"cx-page-missing-in-target-language": "Mancante in $1",
 	"cx-page-number-of-languages": "Numero di lingue",
 	"cx-mt-abuse-warning-title": "Parte della tua traduzione {{PLURAL:$1|contiene}} $1% di testo non modificato",
