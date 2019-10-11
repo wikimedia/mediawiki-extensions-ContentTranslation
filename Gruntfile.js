@@ -1,4 +1,4 @@
-/* eslint-env node */
+/* eslint-env node, es6 */
 module.exports = function ( grunt ) {
 	'use strict';
 
@@ -15,7 +15,7 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!{lib,vendor,node_modules}/**'
 			]
 		},
@@ -31,7 +31,10 @@ module.exports = function ( grunt ) {
 				'!vendor/**'
 			]
 		},
-		banana: conf.MessagesDirs
+		// eslint-disable-next-line no-restricted-properties
+		banana: Object.assign( {
+			options: { requireLowerCase: false }
+		}, conf.MessagesDirs )
 	} );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );

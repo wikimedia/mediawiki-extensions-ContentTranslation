@@ -720,6 +720,7 @@
 			return;
 		}
 
+		// eslint-disable-next-line no-jquery/no-class-state
 		if ( this.$link.hasClass( 'cx-target-link' ) ) {
 			// Already adapted. Can be restored from a saved translation(draft)
 			this.adapted = true;
@@ -853,7 +854,7 @@
 		this.$card.on( 'click', '.card:first', function ( e ) {
 			if ( !$( e.target ).is( 'a' ) ) {
 				// We should not swap the cards when click was on the link in the card.
-				$( this ).insertAfter( self.$card.find( '.card:last' ) );
+				$( this ).insertAfter( self.$card.find( '.card' ).last() );
 			}
 		} );
 	};

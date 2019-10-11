@@ -104,9 +104,11 @@
 		// wiki syntax.
 		// It must be explicitly flipped if the target language's direction
 		// is different.
+		// eslint-disable-next-line no-jquery/no-class-state
 		if ( $figure.hasClass( 'mw-halign-right' ) ) {
 			$figure.removeClass( 'mw-halign-right' );
 			$figure.addClass( 'mw-halign-left' );
+		// eslint-disable-next-line no-jquery/no-class-state
 		} else if ( $figure.hasClass( 'mw-halign-left' ) ) {
 			$figure.removeClass( 'mw-halign-left' );
 			$figure.addClass( 'mw-halign-right' );

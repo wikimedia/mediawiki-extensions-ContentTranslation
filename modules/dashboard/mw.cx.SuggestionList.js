@@ -396,8 +396,8 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 	this.showTitleDetails( suggestions );
 
 	// Insert after last suggestion, but before any buttons etc.
-	if ( list.$list.find( '.cx-slitem:last' ).length ) {
-		list.$list.find( '.cx-slitem:last' ).after( $suggestions );
+	if ( list.$list.find( '.cx-slitem' ).length ) {
+		list.$list.find( '.cx-slitem' ).last().after( $suggestions );
 	} else {
 		list.$list.append( $suggestions );
 	}
@@ -937,7 +937,9 @@ mw.cx.CXSuggestionList.prototype.expandOrCollapse = function ( listId ) {
 		$trigger.text( mw.msg( 'cx-suggestionlist-expand' ) );
 	}
 
+	// eslint-disable-next-line no-jquery/no-class-state
 	$trigger.toggleClass( 'cx-suggestionlist__collapse cx-suggestionlist__expand' );
+	// eslint-disable-next-line no-jquery/no-class-state
 	list.$list.toggleClass( 'cx-suggestionlist--collapsed cx-suggestionlist--expanded' );
 };
 

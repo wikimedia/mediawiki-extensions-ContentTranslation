@@ -122,6 +122,7 @@ mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
 	if ( node ) {
 		this.currentNode = node;
 		$highlightableElement = node.getHighlightableElement();
+		// eslint-disable-next-line no-jquery/no-class-state
 		hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
 		$highlightableElement.addClass( 'mw-cx-current-issue-' + ( hasErrors ? 'error' : 'warning' ) );
 	}

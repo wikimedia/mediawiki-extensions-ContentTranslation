@@ -331,6 +331,7 @@
 				this.options.onEdit.call( this );
 			}
 
+			// eslint-disable-next-line no-jquery/no-class-state
 			this.$template.toggleClass( 'cx-highlight' );
 		}
 
@@ -732,9 +733,7 @@
 						// "params":{"1":{"wt":"1"},"2":{"wt":"meter"}},"i":0}}]}' id="mwAQ">1 meter
 						// (3<span typeof="mw:Entity"> </span>ft 3<span typeof="mw:Entity"> </span>in)</p>
 						// Here, we cannot unwrap. We need to make the HTML inline by changing the tag <p> to <span>
-						$new = $( '<span>', {
-							html: $newTemplate.html()
-						} );
+						$new = $( '<span>' ).html( $newTemplate.html() );
 						for ( i in $newTemplate[ 0 ].attributes ) {
 							$new.attr( $newTemplate[ 0 ].attributes[ i ].name, $newTemplate[ 0 ].attributes[ i ].value );
 						}
@@ -1010,6 +1009,7 @@
 			'data-mw': $newTemplate.attr( 'data-mw' )
 		} );
 		// Trick to reduce the multiple template fragments with just one.
+		// eslint-disable-next-line no-jquery/no-sizzle
 		this.targetTemplate.$template.not( ':first' ).remove();
 		this.targetTemplate.$template = this.targetTemplate.$template.replaceWith( $new );
 		this.targetTemplate.$template = $( document.getElementById( 'cx' + sourceId ) );

@@ -292,6 +292,7 @@
 		this.$content.on( 'mouseenter mouseleave', '.cx-segment', function () {
 			var $segment = $( this ),
 				segmentId = $segment.data( 'segmentid' );
+			// eslint-disable-next-line no-jquery/no-class-state
 			$( '[data-segmentid="' + segmentId + '"]' ).toggleClass( 'cx-highlight' );
 		} );
 	};

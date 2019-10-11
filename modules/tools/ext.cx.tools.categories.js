@@ -274,6 +274,7 @@
 		var categoryId,
 			$category = $( this );
 
+		// eslint-disable-next-line no-jquery/no-class-state
 		if ( $category.hasClass( 'cx-category-disabled' ) ) {
 			return;
 		}
@@ -291,6 +292,7 @@
 		var categoryId,
 			$category = $( this );
 
+		// eslint-disable-next-line no-jquery/no-class-state
 		if ( $category.hasClass( 'cx-category-disabled' ) ) {
 			return;
 		}
