@@ -50,8 +50,8 @@ class Hooks {
 				if (
 					// Ignore non-wikipedia wikis such as commons, mediawiki, meta etc
 					// url property example "https://commons.wikimedia.org",
-					strpos( $account['url'], 'wikipedia' ) !== false &&
-					intval( $account['editCount'] ) > 0
+					strpos( $account['url'] ?? '', 'wikipedia' ) !== false &&
+					intval( $account['editCount'] ?? 0 ) > 0
 				) {
 					$editedWikiCount++;
 					break;
