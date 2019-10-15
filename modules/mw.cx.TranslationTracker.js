@@ -382,6 +382,10 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
 	var percentage, sectionState;
 
+	if ( !sectionModel ) {
+		return;
+	}
+
 	sectionState = this.sections[ sectionModel.getSectionNumber() ];
 	percentage = mw.language.convertNumber(
 		Math.round( sectionState.getUnmodifiedPercentage() * 100 ) );
@@ -576,7 +580,7 @@ mw.cx.TranslationTracker.prototype.isExcludedFromValidation = function ( nodeMod
 			'mwTable', 'list', 'mwHeading'
 		];
 
-	if ( nodeModel.getChildren ) {
+	if ( nodeModel && nodeModel.getChildren ) {
 		// Make sure than nodeModel is a ve.dm.BranchNode by checking
 		// if getChildren method exist
 		children = nodeModel.getChildren();
