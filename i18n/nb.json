@@ -36,7 +36,7 @@
 	"cx-publish-error-spam-blacklist": "Potensielt spaminnhold ble oppdaget i oversettelsen din. Detaljer: $1",
 	"cx-publish-error-title-blacklist": "Tittelen du skrev inn er svartelistet. Velg et annet navn på oversettelsen din.",
 	"cx-publish-error-unknown": "Ukjent, uopprettelig feil oppsto. Feildetaljer: $1",
-	"cx-publish-button": "Publisér",
+	"cx-publish-button": "Publiser",
 	"cx-publish-button-publishing": "Publiserer...",
 	"cx-lost-session": "Økten din har løpt ut.",
 	"cx-lost-session-draft": "Din sesjon har gått ut. Dine redigeringer kan ikke bli lagret hvis du ikke logger inn på nytt i et annet vindu.",

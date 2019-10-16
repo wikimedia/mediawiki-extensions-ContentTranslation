@@ -55,6 +55,7 @@
 	"cx-tools-link-instruction-shortcut": "Open links mit Shift + klik",
 	"cx-warning-unsaved-translation": "Je hebben vertalingen die nog niet op-esleugen bin.",
 	"cx-error-page-not-found": "Kon de zied \"$1\" niet vienen in de $2 Wikipedie.",
+	"cx-source-page-selector-input-placeholder": "Söök nå een syde üm oaver te setten",
 	"cx-selected-source-page-start-translation-button": "Beginnen mid oaversetten",
 	"cx-selected-source-page-error-page-and-title-exist": "Disse titel wördt al gebruukt in [$1 $2] veur [$3 n aandere zied]",
 	"cx-selected-source-page-error-page-exists": "De zied [$1 besteet al] in $2",

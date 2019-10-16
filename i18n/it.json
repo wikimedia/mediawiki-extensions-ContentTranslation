@@ -65,6 +65,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Traduci da $1",
 	"cx-campaign-newbytranslation-title": "Inizia invece con una traduzione?",
 	"cx-campaign-newbytranslation-notice": "Crea una nuova voce traducendo da un'altra lingua che conosci.",
+	"cx-campaign-newbytranslation-search": "Trova un'altra pagina da tradurre",
 	"cx-campaign-newbytranslation-start": "Inizia a tradurre",
 	"cx-special-login-error": "Devi aver effettuato l'accesso per tradurre questa pagina. [$1 Entra]",
 	"cx-tools-instructions-text1": "{{GENDER:|Aggiungi}} paragrafi da tradurre",

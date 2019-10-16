@@ -51,7 +51,7 @@
 	"cx-tools-link-add": "Link derbäisetzen",
 	"cx-tools-link-remove": "Link ewechhuelen",
 	"cx-tools-mt-title": "Éischt Iwwersetzung",
-	"cx-tools-mt-use-source": "Quelltext benotzen",
+	"cx-tools-mt-use-source": "Originalen Text kopéieren",
 	"cx-tools-mt-reset": "Iwwersetzung zrécksetzen",
 	"cx-tools-mt-provider-title": "$1 benotzen",
 	"cx-tools-mt-dont-use": "Mat engem eidelen Abschnitt ufänken.",
@@ -112,7 +112,7 @@
 	"cx-publishing-dialog-message": "D'Säit $1 gëtt et schonn. Den aktuellen Inhalt gëtt duerch Är Iwwersetzung ersat. Wëllt Dir trotzdem publizéieren?",
 	"cx-publishing-dialog-keep-button": "Béid Versioune behalen",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
-	"cx-publishing-dialog-title": "Är Iwwersetzung iwwerschreift d'Säit déi elo do ass",
+	"cx-publishing-dialog-title": "Déi Säit déi besteet iwwerschreiwen?",
 	"cx-discard-translation": "Iwwersetzung verwerfen",
 	"cx-translation-status-draft": "Am Gaang",
 	"cx-translation-status-published": "Verëffentlecht",
@@ -223,5 +223,5 @@
 	"cx-publish-destination-namespace-draft": "Gemeinschaftleche Brouillon",
 	"cx-linkcontextitem-missing-link-title": "Link feelt",
 	"cx-linkcontextitem-missing-title-description": "Dës Säit gëtt et nach net",
-	"cx-unreviewed-translation-category": "Säite mat net nogekuckter automatescher Iwwersetzung"
+	"cx-unreviewed-translation-category": "Säite mat net nogekuckten Iwwersetzungen"
 }

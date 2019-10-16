@@ -24,7 +24,8 @@
 			"Dual",
 			"Петар Петковић",
 			"Rapsar",
-			"Mirzali"
+			"Mirzali",
+			"Grkn gll"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -66,6 +67,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Bu sayfa henüz $1 olarak mevcut değil. Oluşturmak ister misiniz?",
 	"cx-entrypoint-dialog-button-translate-from": "Bu dilden çevir: $1",
 	"cx-entrypoint-dialog-desc": "Vikipedi'ye bu sayfayı çevirerek yardımcı olabilirsiniz. Tercüme, kendi dilinizde yeni içerik oluşturmanın kolay bir yoludur.",
+	"cx-campaign-newbytranslation-search": "Çevirilecek başka bir sayfa bul",
 	"cx-special-login-error": "Bu sayfayı çevirmek için oturum açmanız gerekli. [$1 Oturum aç]",
 	"cx-tools-instructions-text1": "Çevirmek için paragraflara tıklayın.",
 	"cx-tools-instructions-text2": "Yayınlamak için tüm paragrafları çevirmenize gerek yok.",
