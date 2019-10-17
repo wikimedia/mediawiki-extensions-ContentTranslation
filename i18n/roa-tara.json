@@ -194,7 +194,7 @@
 	"cx-notification-first-translation": "Comblimende pa prima traduziona toje! Condrolle le condrebbute tune e iacchie cchiù pàggene da traducere.",
 	"cx-notification-tenth-translation": "Comblimende pa decima traduziona toje! Ste addevendì 'nu traduttore esperte. Condinue cu sta bella fatìe!",
 	"cx-notification-hundredth-translation": "E' fatte 100 traduziune! 'Nu resultate accumme se deve. Condivide 'a notizie cu l'otre cangiature.",
-	"cx-notification-deleted-draft": "'A traduziona toje pe <strong<$1</strong> ha state scettate purcé 'u condenute sue jè vecchie de cchiù de 'n'anne. Accuminze 'na traduziona nove cu condenute frische frische e nuève nuève.",
+	"cx-notification-deleted-draft": "'A traduziona toje pe <strong>$1</strong> ha state scettate purcé 'u condenute sue jè vecchie de cchiù de 'n'anne. Accuminze 'na traduziona nove cu condenute frische frische e nuève nuève.",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 traduziune}} onne state scettate purcé 'u condenute lore jè vecchie de cchiù de 'n'anne. Accuminze de le traduziune nuève cu condenute frische frische e nuève nuève.",
 	"cx-notification-continue-translation": "E' accumenzate a traducere <strong>$1</strong> quacche mese fa. Conzidere de pubblecarle apprime ca passe 'n'anne e avènene scangellate automatecamende.",
 	"cx-notification-continue-translation-bundle": "E' accumenzate {{PLURAL:$1|$1 traduzione|$1 traduziune}} quacche mese fa. Conzidere de pubblecarle apprime ca passe 'n'anne e avènene scangellate automatecamende.",

@@ -73,6 +73,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Traducir del $1",
 	"cx-entrypoint-dialog-desc": "Puedes ayudar a Wikipedia traduciendo esta página. Traducir es una manera fácil de crear nuevo contenido en tu lenguaje.",
 	"cx-campaign-newbytranslation-title": "¿Comienzas con una traducción entonces?",
+	"cx-campaign-newbytranslation-search": "Encontrar otra página para traducir",
 	"cx-campaign-newbytranslation-start": "Comenzar a traducir",
 	"cx-special-login-error": "Debes acceder para traducir esta página. [$1 Acceder]",
 	"cx-tools-instructions-text1": "{{GENDER:|Añade}} párrafos para traducir",
