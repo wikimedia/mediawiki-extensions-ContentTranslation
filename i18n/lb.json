@@ -75,6 +75,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Dëse Titel gëtt schonn op [$1 $2] fir [$3 eng aner Säit] benotzt",
 	"cx-selected-source-page-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
 	"cx-selected-source-page-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
+	"cx-favorite-added-for-later": "Fir spéider derbäigesat!",
 	"cx-page-missing-in-target-language": "Feelt op $1",
 	"cx-page-number-of-languages": "Zuel vun de Sproochen",
 	"cx-mt-abuse-warning-title": "An engem Deel vun Ärer Iwwersetzung {{PLURAL:$1|ass}} $1% onverännerten Text",
