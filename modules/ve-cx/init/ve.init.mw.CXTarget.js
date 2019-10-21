@@ -975,10 +975,10 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
  * @param {number} sectionNumber
  */
 ve.init.mw.CXTarget.prototype.prefetchTranslationForSection = function ( sectionNumber ) {
-	var section = this.sourceSurface.$element.find( '#cxSourceSection' + sectionNumber );
-	if ( section.length ) {
+	var $section = this.sourceSurface.$element.find( '#cxSourceSection' + sectionNumber );
+	if ( $section.length ) {
 		this.MTManager.getPreferredProvider().then( function ( provider ) {
-			this.translateSection( section.prop( 'id' ), provider );
+			this.translateSection( $section.prop( 'id' ), provider );
 		}.bind( this ) );
 	}
 };

@@ -217,7 +217,7 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 };
 
 ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
-	var $sourceLink, $targetLinkCard, markAsMissingButton, markAsMissingInfo;
+	var $sourceLink, $targetLinkCard, markAsMissingButton, $markAsMissingInfo;
 
 	if ( adaptationInfo.sourceTitle ) {
 		// Source link
@@ -246,12 +246,12 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 				classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
 				flags: [ 'progressive' ]
 			} );
-			markAsMissingInfo = $( '<div>' )
+			$markAsMissingInfo = $( '<div>' )
 				.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
 				.text( mw.msg( 'cx-tools-missing-link-text' ) );
 			$targetLinkCard = $( '<div>' )
 				.addClass( 've-ui-cxLinkContextItem-mark-missing' )
-				.append( markAsMissingInfo, markAsMissingButton.$element );
+				.append( $markAsMissingInfo, markAsMissingButton.$element );
 
 			markAsMissingButton.on( 'click', this.createRedLink.bind( this, adaptationInfo ) );
 		}

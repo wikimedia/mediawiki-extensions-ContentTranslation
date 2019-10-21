@@ -19,20 +19,20 @@
 	}
 }
 
-// stylelint-disable indentation, selector-max-empty-lines, selector-type-case
-// At any time display only two suggestion lists
+/* stylelint-disable indentation, selector-max-empty-lines, selector-type-case */
+/* At any time display only two suggestion lists */
 .cx-suggestionlist-type-4:nth-child( n+3 ),
 
-// Do not display featured articles list when there are personalized suggestions.
-// Featured articles are just fallback.
+/* Do not display featured articles list when there are personalized suggestions.
+   Featured articles are just fallback. */
 .cx-suggestionlist-type-5 ~ .cx-suggestionlist-type-1,
 
-// First item is heading and then next 2 items.
-// So hide all items starting at 4th child.
+/* First item is heading and then next 2 items.
+   So hide all items starting at 4th child. */
 .cx-suggestionlist--collapsed .cx-slitem:nth-child( n+4 ) {
 	display: none;
 }
-// stylelint-enable indentation, selector-max-empty-lines, selector-type-case
+/* stylelint-enable indentation, selector-max-empty-lines, selector-type-case */
 
 .cx-suggestionlist--expanded h2,
 .cx-suggestionlist--collapsed h2 {

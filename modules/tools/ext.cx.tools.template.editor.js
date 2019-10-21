@@ -146,7 +146,7 @@
 				.append( $param, $value );
 			$form.append( $field );
 
-			self.formFieldMap[ key ].source = $field;
+			self.formFieldMap[ key ].$source = $field;
 			if ( self.sourceTemplate.params[ key ].html ) {
 				$value.html( self.sourceTemplate.params[ key ].html );
 				return;
@@ -238,10 +238,10 @@
 
 		if ( !this.formFieldMap[ sourceKey ] ) {
 			this.formFieldMap[ sourceKey ] = {
-				source: $( [] )
+				$source: $( [] )
 			};
 		}
-		this.formFieldMap[ sourceKey ].target = $field;
+		this.formFieldMap[ sourceKey ].$target = $field;
 
 		function selectKey( option ) {
 			var key = option.data;
@@ -270,11 +270,11 @@
 				.removeClass( 'cx-template-editor-placeholder' )
 				.append( selector.$element, $value );
 			self.syncParamSelectors();
-			$.fn.keepAlignment( self.formFieldMap[ sourceKey ].source, self.formFieldMap[ sourceKey ].target );
+			$.fn.keepAlignment( self.formFieldMap[ sourceKey ].$source, self.formFieldMap[ sourceKey ].$target );
 			$.fn.keepAlignment( self.$sourceTemplateContainer, self.$targetTemplateContainer );
 		}
 
-		if ( targetKey || !this.formFieldMap[ sourceKey ].source.length ) {
+		if ( targetKey || !this.formFieldMap[ sourceKey ].$source.length ) {
 			showField();
 		} else {
 			$field.one( 'click', showField );
@@ -282,7 +282,7 @@
 
 		// Keep the placeholder aligned
 		if ( sourceKey ) {
-			$.fn.keepAlignment( this.formFieldMap[ sourceKey ].source, this.formFieldMap[ sourceKey ].target );
+			$.fn.keepAlignment( this.formFieldMap[ sourceKey ].$source, this.formFieldMap[ sourceKey ].$target );
 		}
 
 		if ( !value || value && value.html ) {
@@ -401,7 +401,7 @@
 		// Align the fields
 		sourcekey = $value.parent().data( 'source' );
 		if ( sourcekey ) {
-			$.fn.keepAlignment( this.formFieldMap[ sourcekey ].source, this.formFieldMap[ sourcekey ].target );
+			$.fn.keepAlignment( this.formFieldMap[ sourcekey ].$source, this.formFieldMap[ sourcekey ].$target );
 		}
 		$.fn.keepAlignment( this.$sourceTemplateContainer, this.$targetTemplateContainer );
 	};
