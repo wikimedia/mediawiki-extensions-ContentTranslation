@@ -112,6 +112,8 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Ten tytuł został już użyty po [$1 $2] dla [$3 innej strony]",
 	"cx-selected-source-page-error-page-exists": "Strona [$1 już istnieje] w $2",
 	"cx-selected-source-page-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
+	"cx-favorite-added-for-later": "Dodano na później!",
+	"cx-favorite-removed": "Usunięto z listy ulubionych!",
 	"cx-page-missing-in-target-language": "Nie istnieje w języku $1",
 	"cx-page-number-of-languages": "Liczba języków",
 	"cx-mt-abuse-error-title": "Twoje tłumaczenie {{PLURAL:$1|zawiera}} łącznie $1$ niezmodyfikowanego tekstu",
