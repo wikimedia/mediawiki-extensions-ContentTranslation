@@ -20,7 +20,7 @@
 		// Set the global siteMapper for code which we cannot inject it
 		// All these configuration in mw.cx is just for supporting legacy code.
 		// New code should get them from config injected to classes.
-		mw.cx.siteMapper = new mw.cx.SiteMapper();
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 		mw.cx.sourceTitle = query.page;
 		mw.cx.targetLanguage = query.to;
 		mw.cx.sourceLanguage = query.from;

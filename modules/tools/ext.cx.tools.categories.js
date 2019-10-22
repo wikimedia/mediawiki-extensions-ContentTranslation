@@ -702,7 +702,9 @@
 	$( function () {
 		var sitemapper;
 
-		sitemapper = new mw.cx.SiteMapper();
+		sitemapper = new mw.cx.SiteMapper(
+			mw.config.get( 'wgContentTranslationSiteTemplates' )
+		);
 
 		// The module will be loaded in the context of Unit tests too, there
 		// source language may not set. Check and abort if that is the case.

@@ -4,7 +4,7 @@ $( function () {
 	var cxview, query, config, storageModules;
 
 	// Set the global siteMapper for code which we cannot inject it
-	mw.cx.siteMapper = new mw.cx.SiteMapper();
+	mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 	query = new mw.Uri().query;
 	mw.cx.sourceTitle = query.page;
 	mw.cx.targetLanguage = query.to;

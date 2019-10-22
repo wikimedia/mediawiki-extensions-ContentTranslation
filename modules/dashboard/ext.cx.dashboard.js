@@ -448,7 +448,7 @@
 		var dashboard;
 
 		// Set the global siteMapper for code which we cannot inject it
-		mw.cx.siteMapper = new mw.cx.SiteMapper();
+		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
 		dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
 		dashboard.init();
 	} );

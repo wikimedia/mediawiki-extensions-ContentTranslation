@@ -10,7 +10,9 @@
 		beforeEach: function () {
 			this.server = this.sandbox.useFakeServer();
 			this.server.respondImmediately = true;
-			this.sitemapper = new mw.cx.SiteMapper();
+			this.sitemapper = new mw.cx.SiteMapper(
+				mw.config.get( 'wgContentTranslationSiteTemplates' )
+			);
 			mw.cx.categoryTool = new mw.cx.CategoryTool( this.sitemapper );
 		}
 	} ) );
