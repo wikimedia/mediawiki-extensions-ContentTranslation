@@ -121,5 +121,10 @@
 	"apierror-cx-translationnotfound": "התרגום לא נמצא.",
 	"apihelp-query+langlinkscount-description": "קבלת מספר השפות האחרות שבהן הערך הזה קיים.",
 	"apihelp-query+langlinkscount-summary": "קבלת מספר הגרסאות של השפות האחרות.",
-	"apihelp-query+langlinkscount-example-1": "קבלת מספר הגרסאות של השפות האחרות עבור הדף \"כלב\""
+	"apihelp-query+langlinkscount-example-1": "קבלת מספר הגרסאות של השפות האחרות עבור הדף \"כלב\"",
+	"apihelp-query+cxdeletedtranslations-description": "קבלת מספר התרגומים שלך שפורסמו במרחב שם מסוים ושנמחקו אחרי תאריך כלשהו.",
+	"apihelp-query+cxdeletedtranslations-summary": "קבלת מספר התרגומים שלך שפורסמו ונמחקו.",
+	"apihelp-query+cxdeletedtranslations-param-after": "חותם זמן רק לקבלת מחיקות חדשות יותר.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "מרחב השם שבו התרגומים המחוקים פורסמו. ברירת המחדל היא המרחב הראשי.",
+	"apihelp-query+cxdeletedtranslations-example-1": "קבלת מספר התרגומים שלך, שפורסמו במרחב הראשי ונמחקו אחרי 2019-04-07 16:24:44"
 }
