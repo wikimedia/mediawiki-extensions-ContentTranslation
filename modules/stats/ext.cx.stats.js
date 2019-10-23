@@ -858,7 +858,7 @@
 		$container = $( '<div>' ).addClass( 'cx-stats-container' );
 
 		// Set the global siteMapper for code which we cannot inject it
-		mw.cx.siteMapper = new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) );
+		mw.cx.siteMapper = new mw.cx.SiteMapper();
 		$( 'body' ).append(
 			$( '<div>' ).addClass( 'cx-widget' ).append(
 				$header, $container
@@ -870,7 +870,7 @@
 		} );
 		$header.append( header.$element );
 		cxstats = new CXStats( $container, {
-			siteMapper: new mw.cx.SiteMapper( mw.config.get( 'wgContentTranslationSiteTemplates' ) )
+			siteMapper: new mw.cx.SiteMapper()
 		} );
 		cxstats.init();
 

@@ -12,9 +12,7 @@
 
 	QUnit.module( 'ext.cx.publish.prepare', QUnit.newMwEnvironment( {
 		beforeEach: function () {
-			this.sitemapper = new mw.cx.SiteMapper(
-				mw.config.get( 'wgContentTranslationSiteTemplates' )
-			);
+			this.sitemapper = new mw.cx.SiteMapper();
 		}
 	} ) );
 
