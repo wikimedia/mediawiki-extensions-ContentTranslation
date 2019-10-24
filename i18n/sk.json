@@ -70,7 +70,7 @@
 	"cx-warning-unsaved-translation": "Máte neuložené preklady.",
 	"cx-error-page-not-found": "Článok $1 nebol na Wikipédii v jazyku $2 nájdený",
 	"cx-page-selector-widget-recent-edits-label": "Nedávno upravené vami",
-	"cx-page-selector-widget-nearby-label": "V blízkosti",
+	"cx-page-selector-widget-nearby-label": "V okolí",
 	"cx-source-page-selector-input-placeholder": "Hľadať článok na preklad",
 	"cx-source-page-selector-no-suggestions": "Skúste akúkoľvek oblasť vášho záujmu. Nemusíte byť expert na to, aby ste vytvorili dobrý preklad.",
 	"cx-source-page-selector-no-search-results": "Nebol nájdený žiaden článok pre „$1“ v $2",
