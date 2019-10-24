@@ -2153,7 +2153,7 @@
 	},
 	"QUnitTestModule": {
 		"localBasePath": "tests/qunit",
-		"remoteExtPath": "ContentTranslation",
+		"remoteExtPath": "ContentTranslation/tests/qunit",
 		"scripts": [
 			"tools/ext.cx.tools.mtabuse.test.js",
 			"base/ext.cx.sitemapper.test.js",
