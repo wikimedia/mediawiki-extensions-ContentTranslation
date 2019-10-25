@@ -84,6 +84,7 @@
 
 		if ( this.options.fade ) {
 			// FIXME: Use CSS transition
+			// eslint-disable-next-line no-jquery/no-animate
 			$dialog.stop().css( {
 				opacity: 0,
 				display: 'block',
