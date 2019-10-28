@@ -42,7 +42,8 @@
 			"Incnis Mrsi",
 			"Diralik",
 			"ToJack",
-			"Katunchik"
+			"Katunchik",
+			"Sealle"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -155,8 +156,8 @@
 	"cx-save-draft-shortcut-label": "Сохранить черновик",
 	"cx-save-draft-tooltip": "Черновики перевода сохранены автоматически",
 	"cx-save-draft-error": "Произошла ошибка при сохранении страницы.",
-	"cx-contributions-new-contributions": "Новый вклад",
-	"cx-contributions-new-article": "Новая страница",
+	"cx-contributions-new-contributions": "Создать:",
+	"cx-contributions-new-article": "Требуемые страницы",
 	"cx-contributions-translation": "Перевод",
 	"cx-contributions-upload": "Добавление медиафайла",
 	"cx-contributions-new-article-tooltip": "Создать новую страницу",

@@ -233,5 +233,6 @@
 	"cx-publish-destination-namespace-draft": "Групова чернова",
 	"cx-publish-destination-namespace-changed": "Целта за публикуване е променена на лична чернова. Допълнителни настройки за публикуване можете да направите по всяко време",
 	"cx-unreviewed-translation-category": "Страници с непроверени преводи",
-	"cx-unreviewed-translation-category-desc": "Страници, преведени с инструмента „Превод на съдържание“, съдържащи голямо количество непрегледано съдържание"
+	"cx-unreviewed-translation-category-desc": "Страници, преведени с инструмента „Превод на съдържание“, съдържащи голямо количество непрегледано съдържание",
+	"cx-feature-discovery-dismiss": "Добре, разбрах"
 }
