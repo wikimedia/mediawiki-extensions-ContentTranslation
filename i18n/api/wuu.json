@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benojan"
+			"Benojan",
+			"飞舞回堂前"
 		]
 	},
-	"apihelp-cxpublish-param-cxversion": "“改写干(editor)”个版本号发箇传话约用。"
+	"apihelp-cxpublish-param-cxversion": "用来发布翻译个编辑器版本。"
 }

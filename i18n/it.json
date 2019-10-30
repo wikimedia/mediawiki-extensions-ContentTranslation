@@ -228,7 +228,7 @@
 	"cx-tools-linter-learn-more": "Ulteriori informazioni",
 	"cx-tools-linter-mark-as-resolved": "Contrassegna come risolto",
 	"cx-tools-linter-generic-title": "C'è un problema con la tua traduzione",
-	"cx-tools-linter-abuse-filter": "I filtri di abuso hanno verificato un contenuto problematico nella tua traduzione.",
+	"cx-tools-linter-abuse-filter": "Il filtro anti abusi ha identificato del contenuto problematico nella tua traduzione",
 	"cx-tools-linter-title": "Problemi con il contenuto: $1",
 	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [//www.mediawiki.org/wiki/Content_translation/Abuse_filter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
 	"cx-tools-linter-view-details": "Visualizza dettagli",
