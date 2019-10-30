@@ -38,7 +38,7 @@
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
-			html: EasyDeflate.deflate( self.getContent() ),
+			html: mw.deflate( self.getContent() ),
 			categories: this.getCategories(),
 			cxversion: 1
 		} );

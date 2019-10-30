@@ -451,7 +451,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 		} );
 	}, this );
 
-	return EasyDeflate.deflate( JSON.stringify( records ) );
+	return mw.deflate( JSON.stringify( records ) );
 };
 
 /**

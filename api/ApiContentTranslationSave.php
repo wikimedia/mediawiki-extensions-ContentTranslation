@@ -61,9 +61,9 @@ class ApiContentTranslationSave extends ApiBase {
 		$translation = $this->saveTranslation( $params, $translator );
 		$translationId = $translation->getTranslationId();
 
-		$content = EasyDeflate::inflate( $params['content'] );
+		$content = Deflate::inflate( $params['content'] );
 		if ( !$content->isGood() ) {
-			$this->dieWithError( 'easydeflate-invaliddeflate', 'invaliddeflate' );
+			$this->dieWithError( 'deflate-invaliddeflate', 'invaliddeflate' );
 		}
 		$translationUnits = $this->getTranslationUnits(
 			$content->getValue(),

@@ -145,7 +145,7 @@
 		saveRequest = api.postWithToken( 'csrf', {
 			action: 'cxsave',
 			assert: 'user',
-			content: EasyDeflate.deflate( JSON.stringify( sections ) ),
+			content: mw.deflate( JSON.stringify( sections ) ),
 			from: mw.cx.sourceLanguage,
 			to: mw.cx.targetLanguage,
 			sourcetitle: mw.cx.sourceTitle,
