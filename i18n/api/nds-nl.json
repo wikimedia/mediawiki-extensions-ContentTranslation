@@ -18,7 +18,7 @@
 	"apihelp-query+contenttranslation-example-1": "Laot vertalingen zien die estart bin deur disse gebruker.",
 	"apihelp-query+contenttranslation-example-2": "Laot konseptvertalingen zien op baosis van t ID.",
 	"apihelp-query+contenttranslation-example-3": "Zeuk n vertaling veur de egeven titel tussen de egeven talenkombinasie",
-	"apihelp-query+contenttranslationstats-example-1": "Laot staotistieken zien veur alle talen van t inhoudsvertalingshulpmiddel.",
+	"apihelp-query+contenttranslationstats-example-1": "Statistiken van inholdsoaversettingen uphalen vöär alle språken.",
 	"apihelp-cxconfiguration-description": "Laot de konfigurasie-JSON zien van de inhoudsvertaling veur de egeven talenkombinasie",
 	"apihelp-cxconfiguration-param-from": "De kode van de brontaal.",
 	"apihelp-cxconfiguration-param-to": "De kode van de doeltaal.",
