@@ -84,7 +84,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 mw.cx.dm.Translation.static.getSourceDom = function (
 	sourceHtml, forTarget, savedTranslationUnits, sourceLanguage
 ) {
-	var sectionId, childNodes, restoredContent,
+	var childNodes, restoredContent,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
 		baseNodes;
@@ -102,13 +102,15 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 	// Convert Nodelist to proper array
 	childNodes = [].slice.call( domDoc.body.childNodes );
 	childNodes.forEach( function ( node ) {
-		var sectionNode, savedSectionNode, savedSection, validSection = false;
+		var sectionId, mwSectionNumber, sectionClass, sectionNode, savedSectionNode, savedSection,
+			validSection = false;
 
 		if ( node.nodeType !== Node.ELEMENT_NODE ) {
 			return;
 		}
 
 		sectionId = node.getAttribute( 'id' );
+		mwSectionNumber = node.dataset.mwSectionNumber;
 
 		validSection = node.tagName === 'SECTION' && sectionId &&
 			node.getAttribute( 'rel' ) === 'cx:Section';
@@ -122,6 +124,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
 
 			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
+			sectionClass = 'mw-target-section-' + mwSectionNumber;
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
@@ -141,7 +144,12 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 			}
 		} else {
+			sectionClass = 'mw-source-section-' + mwSectionNumber;
 			sectionNode = node.cloneNode( true );
+		}
+
+		if ( this.getMode() === 'section' ) {
+			sectionNode.classList.add( sectionClass );
 		}
 
 		// Remove the original node now.
@@ -177,6 +185,10 @@ mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) 
 	}
 
 	return null;
+};
+
+mw.cx.dm.Translation.static.getMode = function () {
+	return mw.cx.sectionForTranslation() ? 'section' : 'article';
 };
 
 /**

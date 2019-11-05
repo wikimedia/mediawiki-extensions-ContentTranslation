@@ -1635,6 +1635,7 @@
 			],
 			"dependencies": [
 				"mw.cx.dm",
+				"mw.cx.util",
 				"mediawiki.user",
 				"mediawiki.api",
 				"mediawiki.language",

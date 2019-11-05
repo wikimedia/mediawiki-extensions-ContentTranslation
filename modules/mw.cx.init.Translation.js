@@ -88,6 +88,8 @@ mw.cx.init.Translation.prototype.init = function () {
 		this.sourceWikiPage.setRevision( sourcePageContent.revision );
 
 		this.initTranslationModel( sourcePageContent.segmentedContent, draft ).then( function ( translationModel ) {
+			var mwSectionNumber = mw.cx.sectionForTranslation();
+
 			this.translationModel = translationModel;
 
 			if ( draft ) {
@@ -104,6 +106,16 @@ mw.cx.init.Translation.prototype.init = function () {
 			this.checkIfUserCanPublish();
 			if ( translationModel.isChangedSignificantly() ) {
 				this.addChangedSignificantlyIssue( translationModel );
+			}
+
+			// If section translation is enabled for CX (by using "section" param in URL),
+			// hide all other sections.
+			if ( mwSectionNumber ) {
+				mw.loader.addStyleTag(
+					'.ve-ce-cxSectionNode:not( .mw-source-section-' + mwSectionNumber + ' ),' +
+					'.ve-ce-cxPlaceholderNode:not( .mw-target-section-' + mwSectionNumber + ' )' +
+					'{ display: none; }'
+				);
 			}
 
 			translationModel.initCategories(

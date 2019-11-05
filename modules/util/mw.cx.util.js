@@ -137,3 +137,14 @@ mw.cx.getLoginHref = function () {
 		returntoquery: currentUri.getQueryString()
 	} );
 };
+
+/**
+ * Return "section" URL param, which means section translation is enabled in CX. See T234323
+ *
+ * @return {string}
+ */
+mw.cx.sectionForTranslation = function () {
+	var url = new mw.Uri();
+
+	return url.query.section;
+};
