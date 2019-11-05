@@ -336,7 +336,7 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 	documentView.getDocumentNode().$element.addClass( 'mw-parser-output mw-content-' + documentView.getDir() );
 
 	// If configuration object has 'inDialog' param, that means surface is created for usage
-	// inside a modal dialog. Such compex dialogs need to have access to context tools inside
+	// inside a modal dialog. Such complex dialogs need to have access to context tools inside
 	// tools column, so we move the overlay. Also, other, non-complex tools, shouldn't be
 	// showing. See T193587
 	if ( config.inDialog ) {
@@ -593,7 +593,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
 
 	// This method can be called before restoration is complete and all nodes are attached
-	// to the DOM (e.g. via mw.cx.ui.TargetColumn#setTitle). If so, skip aligment.
+	// to the DOM (e.g. via mw.cx.ui.TargetColumn#setTitle). If so, skip alignment.
 	if (
 		!document.contains( sourceDocumentNode.$element[ 0 ] ) ||
 		!document.contains( targetDocumentNode.$element[ 0 ] )
@@ -808,7 +808,7 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 				nodeGroup = doc.getInternalList().getNodeGroup( element.attributes.listGroup );
 				kinNodes = nodeGroup && nodeGroup.keyedNodes[ element.attributes.listKey ];
 				if ( kinNodes && kinNodes.length > 0 ) {
-					// This reference is a duplicate. Point it to the existing interal list item
+					// This reference is a duplicate. Point it to the existing internal list item
 					element.attributes.listIndex = kinNodes[ 0 ].getAttribute( 'listIndex' );
 					// Only the first reference in the group should have contentsUsed=true
 					element.attributes.contentsUsed = false;
