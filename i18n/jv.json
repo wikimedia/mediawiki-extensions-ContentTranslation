@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"NoiX180",
-			"Notanotheramy"
+			"Notanotheramy",
+			"Sam Hidayat"
 		]
 	},
 	"cx": "Pertal kaca",
@@ -42,6 +43,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Kaca iki durung ana ing $1. Apa {{GENDER:|kowé}} péngin nggawé iki?",
 	"cx-entrypoint-dialog-button-translate-from": "Mertal saka $1",
 	"cx-campaign-newbytranslation-title": "Wiwiti pertalan baé?",
+	"cx-campaign-newbytranslation-search": "Golèk kaca liya supaya dipertal",
 	"cx-campaign-newbytranslation-start": "Wiwit mertal",
 	"cx-special-login-error": "Kowé kudu mlebu log saperlu mertal kaca iki.[$1 Mlebu log]",
 	"cx-tools-instructions-text1": "{{GENDER:|Pencèt}} paragraf kanggo mertal",
@@ -215,6 +217,7 @@
 	"cx-tools-linter-page-exists": "Kaca wis ana",
 	"cx-tools-linter-cannot-publish-action-label": "Setèl supaya dibabar minangka rèngrèngan",
 	"cx-tools-linter-template": "Cithakan ora ana",
+	"cx-tools-linter-template-block-message": "Kaca asli migunakaké sawijining témplat kang ora cumawis ing wiki kang dituju.\n\nTémplat iki wis diliwati, nanging Panjenengan bisa muwuhi kontèn anyar kanggo ngganepi informasi kang ilang.",
 	"cx-tools-linter-template-add-new": "Wuwuh cithakan anyar",
 	"cx-tools-linter-incomplete-template": "Cithakan durung rampung",
 	"cx-tools-linter-old-revision": "Pertalan dhedhasar vèrsi lawas kacané",

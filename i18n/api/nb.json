@@ -14,6 +14,7 @@
 	"apihelp-cxpublish-param-to": "Språkkoden på målet.",
 	"apihelp-cxpublish-param-sourcetitle": "Tittelen på kilden.",
 	"apihelp-cxpublish-param-categories": "Kategoriene som skal legges til på den publiserte siden.",
+	"apihelp-cxpublish-param-publishtags": "Redigeringstagger som skal legges til den publiserte siden.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (når det lagres med en captcha respons).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Svar på captcha (når det lagres med en captcha respons).",
 	"apihelp-cxpublish-param-cxversion": "Hvilken versjon av editoren som ble brukt til å publisere oversettelsen.",
@@ -114,11 +115,17 @@
 	"apierror-cx-keynotconfigured": "Nøkkel ikke konfigurert.",
 	"apierror-cx-missingdraft": "Kladd finnes ikke.",
 	"apierror-cx-mustbeloggedin-suggestions": "Du må være logget inn for å behandle forslagene dine.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Du må være logget inn for å få oversettelsesforslag.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "For å se oversettelsene dine må du logge inn.",
 	"apierror-cx-samelanguages": "Kilde- og målspråk kan ikke være det samme.",
 	"apierror-cx-suggestionsdisabled": "Forslag er ikke slått på på denne wikien.",
 	"apierror-cx-translationnotfound": "Oversettelse ikke funnet.",
 	"apihelp-query+langlinkscount-description": "Hent antall andre språk artikkelen finnes på.",
 	"apihelp-query+langlinkscount-summary": "Hent antall andre språkversjoner.",
-	"apihelp-query+langlinkscount-example-1": "Hent antall andre språkversjoner for siden «Dog»"
+	"apihelp-query+langlinkscount-example-1": "Hent antall andre språkversjoner for siden «Dog»",
+	"apihelp-query+cxdeletedtranslations-description": "Hent antallet av dine transaksjoner som er publisert i et visst navnerom som ble slettet etter en viss dato.",
+	"apihelp-query+cxdeletedtranslations-summary": "Hent antallet av dine publiserte oversettelser som har blitt slettet.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Tidsstempel for å hente kun nyere slettinger.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Navnerommet der de slettede oversettelsene ble publisert. Standard er hovednavnerommet.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Hent antallet av dine slettede oversettelser som ble publisert i hovednavnerommet og slettet etter 2019-04-07 16:24:44"
 }
