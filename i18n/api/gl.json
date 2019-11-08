@@ -14,6 +14,7 @@
 	"apihelp-cxpublish-param-to": "Código da lingua de destino.",
 	"apihelp-cxpublish-param-sourcetitle": "Título da páxina orixinal.",
 	"apihelp-cxpublish-param-categories": "Categorías ás que engadir a páxina publicada.",
+	"apihelp-cxpublish-param-publishtags": "As etiquetas de edición a engadir á páxina publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identificador do captcha (ao gardar cunha resposta ao captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Resposta ao captcha (ao gardar cunha resposta ao captcha).",
 	"apihelp-cxpublish-param-cxversion": "Versión do editor usado para publicar a tradución.",
@@ -114,11 +115,17 @@
 	"apierror-cx-keynotconfigured": "A clave non foi configurada.",
 	"apierror-cx-missingdraft": "O borrador non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debe estar autenticado para xestionar as súas suxestións.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Para recibir suxestións de tradución ten que ter unha sesión iniciada.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as súas traducións debe estar autenticado.",
 	"apierror-cx-samelanguages": "As linguas fonte e obxectivo non poden ser a mesma.",
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
 	"apihelp-query+langlinkscount-description": "Obtener o número linguas nas que existe este artigo.",
 	"apihelp-query+langlinkscount-summary": "Obter o número doutras versións lingüísticas.",
-	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina 'Can'"
+	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina 'Can'",
+	"apihelp-query+cxdeletedtranslations-description": "Obter o número das súas traducións publicadas nun espazo de nomes que foron eliminadas despois dunha data determinada.",
+	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das súas traducións publicadas que foron borradas.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Data e hora para obter só os borrados máis recentes.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Espazo de nomes no que foron publicadas as traducións eliminadas. Por defecto, no espazo de nomes principal.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das súas traducións borradas, que foron publicadas no espazo de nomes principal e borradas despois de 2019-04-07 16:24:44"
 }

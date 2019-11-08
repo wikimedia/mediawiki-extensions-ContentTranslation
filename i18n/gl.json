@@ -300,5 +300,9 @@
 	"cx-linkcontextitem-missing-title-description": "Esta páxina aínda non existe",
 	"cx-mt-abuse-publish-error": "A súa tradución non pode publicarse xa que contén demasiado texto sen modificacións.",
 	"cx-unreviewed-translation-category": "Páxinas con traducións non revisadas",
-	"cx-unreviewed-translation-category-desc": "Páxinas traducidas coa ferramenta de Tradución de Contido que conteñen unha gran cantidade de contido non revisado"
+	"cx-unreviewed-translation-category-desc": "Páxinas traducidas coa ferramenta de Tradución de Contido que conteñen unha gran cantidade de contido non revisado",
+	"cx-preference-enable-entrypoints": "Acceso a [[$1|comezar unha tradución]], dende a páxina de contribucións, a lista de linguas, e as creacións de páxinas novas.",
+	"cx-feature-discovery-title": "Traduza en calquera momento",
+	"cx-feature-discovery-content": "Pode comezar ou continuar traducindo en calquera momento dende a páxina {{int:mycontris}}",
+	"cx-feature-discovery-dismiss": "OK, entendido"
 }

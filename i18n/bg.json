@@ -72,6 +72,7 @@
 	"cx-tools-mt-dont-use": "Започни с празен абзац",
 	"cx-tools-mt-set-default": "Съхраняване като стойност по подразбиране",
 	"cx-tools-mt-noservices": "Преводните услуги са недостъпни за избраните езици. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Защо?]]",
+	"cx-tools-mt-preferred": "по подразбиране",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|$1 категории|0=Няма категории}}",
 	"cx-stats-title": "Статистики за инструмента „Превод на съдържание“",
 	"cx-tools-reference-title": "Източник",
