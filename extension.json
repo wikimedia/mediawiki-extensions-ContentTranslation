@@ -32,7 +32,6 @@
 		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
-		"ResourceLoaderGetConfigVars": "ContentTranslation\\Hooks::addConfig",
 		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
 		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
 		"ListDefinedTags": "ContentTranslation\\Hooks::registerTags",
@@ -286,8 +285,15 @@
 		},
 		"mw.cx.util": {
 			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"util/mw.cx.util.js"
+			"packageFiles": [
+				"util/mw.cx.util.js",
+				{
+					"name": "config.json",
+					"config": {
+						"Version": "ContentTranslationVersion",
+						"TargetNamespace": "ContentTranslationTargetNamespace"
+					}
+				}
 			],
 			"dependencies": [
 				"ext.cx.model",

@@ -71,7 +71,8 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
  * @return {number} Target namespace id
  */
 mw.cx.getDefaultTargetNamespace = function () {
-	var targetNamespace = mw.config.get( 'wgContentTranslationTargetNamespace' );
+	var config = require( '../config.json' ),
+		targetNamespace = config.TargetNamespace;
 
 	// Validate the configuration.
 	if ( !( targetNamespace in mw.config.get( 'wgFormattedNamespaces' ) ) ) {
@@ -93,7 +94,8 @@ mw.cx.getSectionNumberFromSectionId = function ( sectionId ) {
 };
 
 mw.cx.getCXVersion = function () {
-	return Number( mw.config.get( 'wgContentTranslationVersion' ) );
+	var config = require( '../config.json' );
+	return Number( config.Version );
 };
 
 /**

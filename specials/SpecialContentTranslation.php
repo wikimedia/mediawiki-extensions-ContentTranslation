@@ -181,6 +181,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$wgContentTranslationExcludedNamespaces,
 			$wgContentTranslationPublishRequirements,
 			$wgContentTranslationEnableSuggestions,
+			$wgContentTranslationTargetNamespace,
 			$wgRecommendToolAPIURL,
 			$wgContentTranslationEnableMT;
 
@@ -197,6 +198,13 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				'wgContentTranslationVersion' => $version,
 				'wgContentTranslationEnableMT' => $wgContentTranslationEnableMT
 			] );
+
+			if ( $version === 1 ) {
+				$out->addJsConfigVars(
+					'wgContentTranslationTargetNamespace',
+					$wgContentTranslationTargetNamespace
+				);
+			}
 		} else {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,

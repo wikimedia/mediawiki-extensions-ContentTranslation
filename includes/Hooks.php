@@ -222,20 +222,6 @@ class Hooks {
 	}
 
 	/**
-	 * Hook: ResourceLoaderGetConfigVars
-	 * @param array &$vars
-	 */
-	public static function addConfig( array &$vars ) {
-		global $wgContentTranslationSiteTemplates,
-			$wgContentTranslationVersion,
-			$wgContentTranslationTargetNamespace;
-
-		$vars['wgContentTranslationSiteTemplates'] = $wgContentTranslationSiteTemplates;
-		$vars['wgContentTranslationTargetNamespace'] = $wgContentTranslationTargetNamespace;
-		$vars['wgContentTranslationVersion'] = $wgContentTranslationVersion;
-	}
-
-	/**
 	 * Hook: ResourceLoaderRegisterModules
 	 *
 	 * @param ResourceLoader &$resourceLoader Client-side code and assets to be loaded.
