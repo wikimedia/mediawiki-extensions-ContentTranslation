@@ -6,7 +6,8 @@
 			"Pofka",
 			"Zygimantus",
 			"Eitvys200",
-			"Vogone"
+			"Vogone",
+			"Tomasdd"
 		]
 	},
 	"apihelp-cxpublish-description": "Išsaugoti puslapį, sukurtą naudojant Turinio Vertimo plėtinį.",
@@ -73,5 +74,6 @@
 	"apihelp-cxsave-param-from": "Šaltinio kalbos kodas.",
 	"apihelp-cxsave-param-to": "Kalbos, į kurią verčiama, kodas.",
 	"apihelp-cxsave-param-sourcetitle": "Šaltinio puslapio pavadinimas.",
-	"apierror-cx-invalidlanguage": "Neleistina kalba."
+	"apierror-cx-invalidlanguage": "Neleistina kalba.",
+	"apierror-cx-translationnotfound": "Vertimas nerastas."
 }
