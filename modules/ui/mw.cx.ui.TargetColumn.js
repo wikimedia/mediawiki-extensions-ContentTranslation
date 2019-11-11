@@ -16,8 +16,6 @@ mw.cx.ui.TargetColumn = function () {
 	this.titleWidget.connect( this, { change: [ 'emit', 'titleChange' ] } );
 
 	this.$element.addClass( 'cx-column--translation' );
-
-	mw.hook( 'mw.cx.translation.ready' ).fire();
 };
 
 /* Inheritance */
