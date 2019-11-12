@@ -1988,6 +1988,9 @@
 			]
 		},
 		"mw.cx.tools.InstructionsTool": {
+			"templates": [
+				"tools/instructions.mustache"
+			],
 			"scripts": [
 				"tools/mw.cx.tools.InstructionsTool.js"
 			],
