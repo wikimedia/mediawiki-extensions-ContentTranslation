@@ -138,6 +138,10 @@
 	 * @return {string} The menu item label
 	 */
 	TemplateControlCard.prototype.getActionMenuItemLabel = function ( actionId ) {
+		// The following messages are used here:
+		// * cx-template-action-adapt
+		// * cx-template-action-keep-original
+		// * cx-template-action-skip
 		return mw.msg( 'cx-template-action-' + actionId );
 	};
 

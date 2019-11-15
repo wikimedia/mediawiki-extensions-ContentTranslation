@@ -135,6 +135,7 @@ mw.cx.ui.CaptchaDialog.prototype.setCaptcha = function ( message, question, mime
 		return;
 	}
 
+	// eslint-disable-next-line mediawiki/msg-doc
 	this.$intro.append( mw.message( message ).parseDom(), '<br>', question );
 };
 

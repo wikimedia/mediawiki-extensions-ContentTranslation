@@ -102,6 +102,7 @@
 				);
 			if ( page.missing ) {
 				$resultItem.addClass( 'mw-page-missing' );
+				// eslint-disable-next-line mediawiki/msg-doc
 				$description.text( mw.msg( this.options.missingPageMessage ) );
 			}
 			if ( page.thumbnail ) {

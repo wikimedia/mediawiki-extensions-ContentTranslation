@@ -99,6 +99,9 @@ mw.cx.CXTranslationList.prototype.init = function () {
 	this.$headerContainer = $( '<div>' )
 		.addClass( 'cx-translationlist__header' )
 		.append(
+			// The following messages are used here
+			// * cx-translation-label-draft
+			// * cx-translation-label-published
 			$( '<span>' ).text( mw.msg( 'cx-translation-label-' + this.type ) ),
 			this.languageFilter.$element.hide()
 		);
