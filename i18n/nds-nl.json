@@ -122,9 +122,10 @@
 	"cx-campaign-try": "Probeer inhoudsvertaling",
 	"cx-campaign-contributionsmenu-mycontributions": "Myn bydragen",
 	"cx-campaign-contributionsmenu-mytranslations": "Oaversettingen",
-	"cx-campaign-contributionsmenu-myuploads": "Upeladede media",
+	"cx-campaign-contributionsmenu-myuploads": "Upladen media",
 	"cx-trend-translations-to": "Oaversettingen nå et $1",
 	"cx-stats-try-contenttranslation": "Inhoudsvertaling is n hulpmiddel um nieje ziejen an te maken deur vanuut aandere talen te vertalen. [$1 Inhoudsvertaling uutproberen]",
 	"cx-translationlist-empty-title": "Niks te vertalen?",
-	"cx-translationlist-empty-desc": "{{GENDER:|Begin}} noen mit vertalen en gao op elk moment veerder."
+	"cx-translationlist-empty-desc": "{{GENDER:|Begin}} noen mit vertalen en gao op elk moment veerder.",
+	"cx-personaltools-user": "Gebruker"
 }

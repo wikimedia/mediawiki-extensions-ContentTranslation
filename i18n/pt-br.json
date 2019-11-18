@@ -216,6 +216,7 @@
 	"cx-notification-hundredth-translation": "Você acabou de fazer 100 traduções! Extraordinário. Compartilhe a novidade com outros editores.",
 	"cx-notification-deleted-draft": "A sua tradução para <strong>$1</strong> foi rejeitada, porque o seu conteúdo estava desatualizado por mais de um ano. Inicie uma nova tradução com o conteúdo atualizado, a qualquer momento.",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 As traduções}} foram rejeitadas porque o seu conteúdo estava desatualizado durante mais de um ano. Comece novas traduções com conteúdo atualizado, a qualquer altura.",
+	"cx-notification-continue-translation": "Começou a traduzir <strong>$1</strong> há alguns meses. Considere publicar a tradução antes de ela ser descartada automaticamente após um ano.",
 	"cx-notification-continue-translation-bundle": "Começou {{PLURAL:$1|$1 traduções}} há alguns meses. Considere publicá-las antes de serem descartadas automaticamente após um ano.",
 	"cx-contributions-link": "Suas contribuições",
 	"cx-your-translations-link": "{{GENDER:$1|Suas traduções}}",

@@ -113,6 +113,7 @@
 	"cx-selected-source-page-error-page-exists": "Strona [$1 już istnieje] w $2",
 	"cx-selected-source-page-error-title-in-use": "[$1 Istnieje już strona] pod tym tytułem",
 	"cx-favorite-added-for-later": "Dodano na później!",
+	"cx-favorite-added-for-later-detail": "Dodano na później! Możesz w każdej chwili sprawdzić inne sugestie.",
 	"cx-favorite-removed": "Usunięto z listy ulubionych!",
 	"cx-page-missing-in-target-language": "Nie istnieje w języku $1",
 	"cx-page-number-of-languages": "Liczba języków",
