@@ -70,8 +70,7 @@ ve.dm.CXReferenceNode.static.toDomElements = function ( dataElement ) {
 /* Methods */
 
 ve.dm.CXReferenceNode.prototype.onAttach = function () {
-	var sectionNode, title, message,
-		cxData = this.getAttribute( 'cx' ) || {};
+	var sectionNode, title, message, cxData;
 
 	sectionNode = this.findParent( ve.dm.CXSectionNode );
 	// When section content is replaced, this happens:
@@ -86,6 +85,7 @@ ve.dm.CXReferenceNode.prototype.onAttach = function () {
 		return;
 	}
 
+	cxData = this.getAdaptationInfo();
 	if ( cxData.partial === true ) {
 		title = mw.msg( 'cx-tools-linter-incomplete-reference' );
 		message = mw.message( 'cx-tools-linter-incomplete-reference-message' );
@@ -118,6 +118,28 @@ ve.dm.CXReferenceNode.prototype.onDetach = function ( parent ) {
 	if ( parent instanceof ve.dm.CXSectionNode && parent.isTargetSection() ) {
 		parent.resolveTranslationIssues( [ 'reference' ] );
 	}
+};
+
+ve.dm.CXReferenceNode.prototype.getAdaptationInfo = function () {
+	var nodeGroup, kinNodes, contentsUsed,
+		cxData = {};
+
+	contentsUsed = this.getAttribute( 'contentsUsed' );
+	// If contentsUsed is false, then this reference is a reused reference.
+	// The adaptation status needs to be extracted from original reference.
+	if ( contentsUsed ) {
+		cxData = this.getAttribute( 'cx' ) || {};
+	} else {
+		nodeGroup = this.doc.getInternalList().getNodeGroup(
+			this.getAttribute( 'listGroup' )
+		);
+		kinNodes = nodeGroup && nodeGroup.keyedNodes[ this.getAttribute( 'listKey' ) ];
+		// See if there is any kin nodes and if so, use the first one.
+		if ( kinNodes && kinNodes.length > 0 ) {
+			cxData = kinNodes[ 0 ].getAttribute( 'cx' );
+		}
+	}
+	return cxData;
 };
 
 /* Registration */
