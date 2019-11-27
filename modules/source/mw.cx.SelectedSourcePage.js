@@ -585,11 +585,16 @@ mw.cx.SelectedSourcePage.prototype.check = function () {
 		} else if ( existingTranslation ) {
 			// If there is just an existing translation
 			this.showPageExistsError( existingTranslation, targetLanguage );
-			// Hide bookmark button if page already exists
-			this.bookmarkButton.toggle( false );
 		} else if ( existingTargetTitle ) {
 			// If the specified target title is in use
 			this.showTitleInUseError( existingTargetTitle, targetLanguage );
+		}
+
+		// Page exists in target language
+		if ( existingTranslation ) {
+			// Hide bookmark button if page already exists
+			this.bookmarkButton.toggle( false );
+			this.setTargetTitle( existingTranslation );
 		}
 	}.bind( this ) );
 };
