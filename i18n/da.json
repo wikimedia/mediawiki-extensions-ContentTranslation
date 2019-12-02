@@ -28,7 +28,7 @@
 	"cx-publish-page-error": "En fejl opstod under udgivelse af oversættelsen. Prøv at udgive siden igen. Fejl: $1",
 	"cx-publish-error-empty": "Serveren svarede med ingen data.",
 	"cx-publish-button": "Udgiv",
-	"cx-publish-button-publishing": "Udgiver...",
+	"cx-publish-button-publishing": "Offentliggører...",
 	"cx-publish-summary": "Skabt ved at oversætte siden \"$1\"",
 	"cx-translation-add-translation": "Tilføj oversættelse",
 	"cx-translation-target-page-exists": "Der findes en side med titlen [$1 $2] på målwikien. Overvej at give siden en anden titel.",
