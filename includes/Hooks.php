@@ -21,6 +21,7 @@ use ResourceLoader;
 use Skin;
 use SpecialPage;
 use User;
+use WikiMap;
 
 class Hooks {
 
@@ -46,11 +47,16 @@ class Hooks {
 			// Check if the user has edited in more than one wiki.
 			$editedWikiCount = 0;
 			$attachedAccounts = $centralUser->queryAttached();
-			foreach ( $attachedAccounts as $account ) {
+			foreach ( $attachedAccounts as $wikiId => $account ) {
+				$wikiRef = WikiMap::getWiki( $wikiId ); // Get WikiReference instance
+				$url = '';
+				if ( $wikiRef ) {
+					$url = $wikiRef->getCanonicalServer();
+				}
 				if (
 					// Ignore non-wikipedia wikis such as commons, mediawiki, meta etc
 					// url property example "https://commons.wikimedia.org",
-					strpos( $account['url'] ?? '', 'wikipedia' ) !== false &&
+					strpos( $url, 'wikipedia' ) !== false &&
 					intval( $account['editCount'] ?? 0 ) > 0
 				) {
 					$editedWikiCount++;
