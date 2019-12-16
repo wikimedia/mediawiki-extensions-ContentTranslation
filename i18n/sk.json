@@ -42,7 +42,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Táto stránka zatiaľ v jazyku $1 neexistuje. Chcete ho vytvoriť?",
 	"cx-entrypoint-dialog-button-translate-from": "Preložiť z jazyka $1",
 	"cx-special-login-error": "Musíte byť prihlásený, aby ste mohli prekladať tento článok. [$1 Prihlásiť sa]",
-	"cx-tools-instructions-text1": "Kliknite na odstavec, ktorý chcete preložiť",
+	"cx-tools-instructions-text1": "Kliknite na odsek, ktorý chcete preložiť",
 	"cx-tools-instructions-text2": "Nemusíte ich prekladať všetky naraz",
 	"cx-tools-instructions-text3": "Uistite sa, že Váš preložený text znie prirodzene",
 	"cx-tools-instructions-text4": "Strojový preklad môže byť užitočný, ale je nutné, aby ste výsledný text skontrolovali.",
