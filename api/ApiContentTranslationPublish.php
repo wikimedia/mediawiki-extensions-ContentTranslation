@@ -191,6 +191,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 				$targetTitle,
 				$html->getValue()
 			);

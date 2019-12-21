@@ -83,7 +83,7 @@ class CorporaLookup {
 			// It's possible we have a "conflict", since we don't enforce uniqueness
 			// in the database. In this case, the one with latest timestamp is used.
 			// Note: TS_ISO_8601 is suitable for string comparison if timezone is Z.
-			/** @phan-suppress-next-line PhanTypeMismatchDimFetch */
+			/** @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
 			if ( $blob['timestamp'] > $sections[$id][$type]['timestamp'] ) {
 				$sections[$id][$type] = $blob;
 			}
@@ -96,6 +96,7 @@ class CorporaLookup {
 			// Source categories aren't retrieved, only saved in cx_corpora for pairing
 			// with target categories. Source and target categories are saved in cx_corpora table
 			// with special section ID, to distinguish categories from translation units.
+			// @phan-suppress-next-line PhanTypeArraySuspiciousNull
 			$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
 			unset( $sections[ self::CATEGORIES ] );
 		}

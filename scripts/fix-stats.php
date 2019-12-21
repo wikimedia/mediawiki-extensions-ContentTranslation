@@ -243,8 +243,7 @@ class CxFixStats extends Maintenance {
 		$conds['rev_page'] = $title->getArticleID();
 		$conds[] = $actorWhere['conds'];
 
-		$joins = [];
-		$joins += $actorWhere['joins'];
+		$joins = $actorWhere['joins'];
 
 		// Take the oldest timestamp by the author
 		$options = [

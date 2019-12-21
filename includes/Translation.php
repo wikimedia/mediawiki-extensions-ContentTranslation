@@ -348,7 +348,7 @@ class Translation {
 			$conditions[] = false;
 		}
 
-		$options = null;
+		$options = [];
 		if ( $interval === 'week' ) {
 			$options = [
 				'GROUP BY' => [
@@ -390,11 +390,11 @@ class Translation {
 	 * Get time-wise cumulative number of translations for given
 	 * language pairs, with given interval.
 	 *
-	 * @param string $source Source language code
-	 * @param string $target Target language code
+	 * @param string|null $source Source language code
+	 * @param string|null $target Target language code
 	 * @param string $status Status of translation. Either 'published' or 'draft'
 	 * @param string $interval 'weekly' or 'monthly' trend
-	 * @param string $translatorId
+	 * @param string|null $translatorId
 	 * @return array
 	 */
 	public static function getTrendByStatus(
@@ -424,7 +424,7 @@ class Translation {
 		if ( $translatorId !== null ) {
 			$conditions['translation_last_update_by'] = $translatorId;
 		}
-		$options = null;
+		$options = [];
 		if ( $interval === 'week' ) {
 			$options = [
 				'GROUP BY' => [
