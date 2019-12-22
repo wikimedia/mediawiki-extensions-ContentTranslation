@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"Cusolotto"
+			"Cusolotto",
+			"Conky77"
 		]
 	},
 	"cx-tools-mt-provider-title": "Da $1",
@@ -13,5 +14,8 @@
 	"cx-no-source-categories": "Nesuna categoria",
 	"cx-stats-weekly-published": "La stimana pasà",
 	"cx-stats-local-published-number": "$1 in $2",
-	"cx-stats-local-published": "$1 ($3) in $2"
+	"cx-stats-local-published": "$1 ($3) in $2",
+	"cx-your-translations-link": "{{GENDER:$1|Le to tradusion}}",
+	"cx-translationlist-empty-desc": "{{GENDER:|Scomisia}} deso le to traduxion e continùa cuando te voi.",
+	"cx-tools-linter-hide-details": "Scondi detaji"
 }

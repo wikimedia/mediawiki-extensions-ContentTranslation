@@ -44,7 +44,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Tradukuri",
 	"cx-campaign-contributionsmenu-myuploads": "Arkivi sendita",
 	"cx-trend-deletions": "Efacita tradukuri",
-	"cx-trend-translations-to": "Traduki a $1",
+	"cx-trend-translations-to": "Tradukuri a $1",
 	"cx-stats-all-translations-title": "Tradukuri ad omna lingui",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 tradukuro|$1 tradukuri}}",
 	"echo-category-title-cx": "Tradukuri",
@@ -56,6 +56,7 @@
 	"cx-translationlist-empty-title": "Kad (existas) nulo por tradukar?",
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-notification-suggestions-available": "Segun {{GENDER:$2|vua}} antea traduko de '''$1''', nova sugestaji esas nun disponebla.",
+	"cx-tools-linter-content": "Trovesis kontenaji qui ne satisfacas [//www.mediawiki.org/wiki/Content_translation/Abuse_filter la restrikti establisita da Wikipedio en $1]. Voluntez korektigar la problemo ante publikigar la tradukuro.",
 	"cx-tools-linter-hide-details": "Celez detali",
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini."
 }
