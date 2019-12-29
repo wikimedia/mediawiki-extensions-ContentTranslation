@@ -7,7 +7,8 @@
 			"Sarchia",
 			"Muhammed taha",
 			"Lost Whispers",
-			"Épine"
+			"Épine",
+			"ئارام بکر"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -62,7 +63,7 @@
 	"cx-selected-source-page-error-title-in-use": "سەرناوەکە بۆ پەڕەیە نوێکە [$1 پێشتر بە کار ھێنراوە]",
 	"cx-publish-captcha-title": "لێکۆڵینەوە لەوەی تۆ رۆبۆت نیت",
 	"cx-dashboard-sidebar-title": "یارمەتیت پێویستە بۆ وەرگێڕانەکان؟",
-	"cx-dashboard-sidebar-information": "سەبارەت بەم ئامرازە زۆرتر بزانە",
+	"cx-dashboard-sidebar-information": "زیاتر دەربارەی ئەم ئامرازە",
 	"cx-dashboard-sidebar-stats": "ئامارەکان",
 	"cx-dashboard-sidebar-feedback": "فیدباکمان پێ بدە",
 	"cx-translation-filter-published-translations": "بڵاوکراو",
