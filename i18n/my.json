@@ -21,7 +21,7 @@
 	"cx-header-translation-center": "ဘာသာပြန် စခန်း",
 	"cx-header-all-translations": "ဘာသာပြန်မှုအားလုံး",
 	"cx-source-view-page": "စာမျက်နှာ ကြည့်ရန်",
-	"cx-publish-page-success": "$1 တွင် စာမျက်နှာ လွှင့်တင်ခဲ့သည်",
+	"cx-publish-page-success": "$1 တွင် စာမျက်နှာကို လွှင့်တင်ခဲ့သည်",
 	"cx-publish-page-error": "ဘာသာပြန်ကို လွှင့်တင်နေစဉ် အမှားတစ်ခုဖြစ်ပွားခဲ့သည်။ ကျေးဇူးပြု၍ စာမျက်နှာကို ထပ်မံလွှင့်တင်ပါ။ အမှား:$1",
 	"cx-publish-error-empty": "ဆာဗာမှ ဒေတာ မတုန့်ပြန်ခဲ့ပါ။",
 	"cx-publish-error-readonly": "ဝီကီသို့ ရေးသားခြင်းများ ခွင့်မပြုပါ။",
