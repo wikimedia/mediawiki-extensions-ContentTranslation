@@ -106,80 +106,118 @@
 	},
 	"config": {
 		"ContentTranslationDomainCodeMapping": {
-			"be-tarask": "be-x-old",
-			"bho": "bh",
-			"crh-latn": "crh",
-			"gsw": "als",
-			"lzh": "zh-classical",
-			"nan": "zh-min-nan",
-			"nb": "no",
-			"rup": "roa-rup",
-			"sgs": "bat-smg",
-			"simple": "simple",
-			"vro": "fiu-vro",
-			"yue": "zh-yue"
+			"value": {
+				"be-tarask": "be-x-old",
+				"bho": "bh",
+				"crh-latn": "crh",
+				"gsw": "als",
+				"lzh": "zh-classical",
+				"nan": "zh-min-nan",
+				"nb": "no",
+				"rup": "roa-rup",
+				"sgs": "bat-smg",
+				"simple": "simple",
+				"vro": "fiu-vro",
+				"yue": "zh-yue"
+			}
 		},
 		"ContentTranslationRESTBase": {
-			"url": "https://en.wikipedia.org/api/rest_#version#",
-			"fixedUrl": true,
-			"timeout": 100000,
-			"HTTPProxy": false,
-			"forwardCookies": false
+			"value": {
+				"url": "https://en.wikipedia.org/api/rest_#version#",
+				"fixedUrl": true,
+				"timeout": 100000,
+				"HTTPProxy": false,
+				"forwardCookies": false
+			}
 		},
-		"ContentTranslationDatabase": false,
-		"ContentTranslationCluster": false,
+		"ContentTranslationDatabase": {
+			"value": false
+		},
+		"ContentTranslationCluster": {
+			"value": false
+		},
 		"ContentTranslationSiteTemplates": {
-			"view": "//$1.wikipedia.org/wiki/$2",
-			"action": "//$1.wikipedia.org/w/index.php?title=$2",
-			"api": "//$1.wikipedia.org/w/api.php",
-			"cx": "http://localhost:8080/v1",
-			"cookieDomain": null,
-			"restbase": "//$1.wikipedia.org/api/rest_v1"
+			"value": {
+				"view": "//$1.wikipedia.org/wiki/$2",
+				"action": "//$1.wikipedia.org/w/index.php?title=$2",
+				"api": "//$1.wikipedia.org/w/api.php",
+				"cx": "http://localhost:8080/v1",
+				"cookieDomain": null,
+				"restbase": "//$1.wikipedia.org/api/rest_v1"
+			}
 		},
-		"@ContentTranslationTranslateInTarget": "Whether to open Special:ContentTranslation in the target wiki when clicking the button in the entry point. The domain will be based on $wgContentTranslationSiteTemplates. The default is to open Special:ContentTranslation on the same wiki",
-		"ContentTranslationTranslateInTarget": false,
-		"@ContentTranslationAsBetaFeature": "Whether to have CX available only as a beta feature and only shown to the users who have enabled the beta feature.",
-		"ContentTranslationAsBetaFeature": true,
-		"@ContentTranslationTargetNamespace": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
-		"ContentTranslationTargetNamespace": 0,
+		"ContentTranslationTranslateInTarget": {
+			"description": "Whether to open Special:ContentTranslation in the target wiki when clicking the button in the entry point. The domain will be based on $wgContentTranslationSiteTemplates. The default is to open Special:ContentTranslation on the same wiki",
+			"value": false
+		},
+		"ContentTranslationAsBetaFeature": {
+			"description": "Whether to have CX available only as a beta feature and only shown to the users who have enabled the beta feature.",
+			"value": true
+		},
+		"ContentTranslationTargetNamespace": {
+			"description": "Target namespace to publish articles. Values can be valid namespace ids. Example: 0 for Main, 2 for User namespace",
+			"value": 0
+		},
 		"ContentTranslationCampaigns": {
-			"cxstats": true,
-			"specialcx": true,
-			"newarticle": true,
-			"cx2outreach": {
-				"edittag": "cx2-outreach"
+			"value": {
+				"cxstats": true,
+				"specialcx": true,
+				"newarticle": true,
+				"cx2outreach": {
+					"edittag": "cx2-outreach"
+				}
 			}
 		},
 		"ContentTranslationCXServerAuth": {
-			"algorithm": "HS256",
-			"key": "",
-			"age": "3600"
+			"value": {
+				"algorithm": "HS256",
+				"key": "",
+				"age": "3600"
+			}
 		},
-		"ContentTranslationEnableSuggestions": true,
-		"@ContentTranslationEnableMT": "Whether Machine Translation services are enabled for this target wiki",
-		"ContentTranslationEnableMT": true,
-		"@RecommendToolAPIURL": "Web API URL for translation recommendation tool",
-		"RecommendToolAPIURL": "https://recommend.wmflabs.org/types/translation/v1/articles",
-		"ContentTranslationVersion": "2",
-		"@ContentTranslationUnmodifiedMTThresholdForPublish": "If the user exceeds a threshold an error will be shown to the user when they try to publish. The threshold will be calculated for the whole document, and it will prevent publishing until the content is modified.",
-		"ContentTranslationUnmodifiedMTThresholdForPublish": 99,
-		"@ContentTranslationPublishRequirements": "List of requirements for user account to be able to publish in main namespace. Possible requirements: * userGroups: User should belong to any group in this list in order to be able to publish.",
+		"ContentTranslationEnableSuggestions": {
+			"value": true
+		},
+		"ContentTranslationEnableMT": {
+			"description": "Whether Machine Translation services are enabled for this target wiki",
+			"value": true
+		},
+		"RecommendToolAPIURL": {
+			"description": "Web API URL for translation recommendation tool",
+			"value": "https://recommend.wmflabs.org/types/translation/v1/articles"
+		},
+		"ContentTranslationVersion": {
+			"value": "2"
+		},
+		"ContentTranslationUnmodifiedMTThresholdForPublish": {
+			"description": "If the user exceeds a threshold an error will be shown to the user when they try to publish. The threshold will be calculated for the whole document, and it will prevent publishing until the content is modified.",
+			"value": 99
+		},
 		"ContentTranslationPublishRequirements": {
-			"userGroups": [ "*" ]
+			"description": "List of requirements for user account to be able to publish in main namespace. Possible requirements: * userGroups: User should belong to any group in this list in order to be able to publish.",
+			"value": {
+				"userGroups": [
+					"*"
+				]
+			}
 		},
 		"ContentTranslationExcludedNamespaces": {
-			"File": true,
-			"Gadget definition": true,
-			"Gadget": true,
-			"MediaWiki": true,
-			"Module": true,
-			"Template": true,
-			"Topic": true,
-			"Translations": true
+			"description": "Array with keys as canonical namespaces(English names) excluded from translating. Matching is case insensitive. All talk namespaces(with odd number ids) are excluded.",
+			"value": {
+				"File": true,
+				"Gadget definition": true,
+				"Gadget": true,
+				"MediaWiki": true,
+				"Module": true,
+				"Template": true,
+				"Topic": true,
+				"Translations": true
+			}
 		},
-		"@ContentTranslationExcludedNamespaces": "Array with keys as canonical namespaces(English names) excluded from translating. Matching is case insensitive. All talk namespaces(with odd number ids) are excluded.",
-		"@DraftMaxAge": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
-		"DraftMaxAge": 456
+		"DraftMaxAge": {
+			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
+			"value": 456
+		}
 	},
 	"ResourceModules": {
 		"ext.cx.contributions": {
@@ -211,13 +249,19 @@
 			]
 		},
 		"ext.cx.model": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"base/ext.cx.model.js"
 			]
 		},
 		"ext.cx.feedback": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"dependencies": [
 				"ext.cx.model"
 			],
@@ -232,7 +276,10 @@
 			]
 		},
 		"ext.cx.dashboard": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"dashboard/ext.cx.dashboard.js"
 			],
@@ -240,7 +287,9 @@
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
 			"skinStyles": {
-				"monobook": [ "dashboard/styles/ext.cx.dashboard.monobook.less" ]
+				"monobook": [
+					"dashboard/styles/ext.cx.dashboard.monobook.less"
+				]
 			},
 			"dependencies": [
 				"ext.cx.feedback",
@@ -275,7 +324,10 @@
 			]
 		},
 		"ext.cx.util": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"util/ext.cx.util.js"
 			],
@@ -284,7 +336,10 @@
 			]
 		},
 		"mw.cx.util": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"packageFiles": [
 				"util/mw.cx.util.js",
 				{
@@ -309,7 +364,10 @@
 			]
 		},
 		"mw.cx.SiteMapper": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"packageFiles": [
 				"base/mw.cx.SiteMapper.js",
 				{
@@ -358,7 +416,10 @@
 			]
 		},
 		"mw.cx.SourcePageSelector": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"source/mw.cx.SourcePageSelector.js"
 			],
@@ -388,7 +449,10 @@
 			]
 		},
 		"mw.cx.SelectedSourcePage": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"source/mw.cx.SelectedSourcePage.js",
 				"source/mw.cx.SelectedSourcePageDialog.js"
@@ -425,7 +489,10 @@
 			]
 		},
 		"mw.cx.ui.LanguageFilter": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.LanguageFilter.js"
 			],
@@ -450,7 +517,6 @@
 				"cx-translation-filter-uls-all-languages"
 			]
 		},
-
 		"ext.cx.translation": {
 			"scripts": [
 				"editor/ext.cx.editor.js",
@@ -792,7 +858,10 @@
 			]
 		},
 		"ext.cx.progressbar": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": "widgets/progressbar/ext.cx.progressbar.js",
 			"styles": [
 				"widgets/progressbar/ext.cx.progressbar.less"
@@ -894,7 +963,12 @@
 		"ext.cx.interlanguagelink.init": {
 			"packageFiles": [
 				"entrypoints/ext.cx.interlanguagelink.init.js",
-				{ "name": "config.json", "config": [ "ContentTranslationDomainCodeMapping" ] }
+				{
+					"name": "config.json",
+					"config": [
+						"ContentTranslationDomainCodeMapping"
+					]
+				}
 			],
 			"dependencies": [
 				"ext.uls.init"
@@ -923,7 +997,10 @@
 			]
 		},
 		"mw.cx.dashboard.lists": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"dashboard/ext.cx.recommendtool.client.js",
 				"dashboard/mw.cx.DashboardList.js",
@@ -999,7 +1076,10 @@
 			]
 		},
 		"ext.cx.stats": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"stats/ext.cx.stats.js"
 			],
@@ -1048,7 +1128,10 @@
 			]
 		},
 		"chart.js": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"localBasePath": "lib",
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
@@ -1130,7 +1213,10 @@
 			]
 		},
 		"ext.cx.tools.validator": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"tools/ext.cx.tools.validator.js"
 			],
@@ -1139,7 +1225,10 @@
 			]
 		},
 		"ext.cx.widgets.overlay": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"widgets/overlay/ext.cx.overlay.js"
 			],
@@ -1151,7 +1240,10 @@
 			]
 		},
 		"ext.cx.widgets.spinner": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"widgets/spinner/ext.cx.spinner.js"
 			],
@@ -1163,7 +1255,10 @@
 			]
 		},
 		"ext.cx.widgets.callout": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"widgets/callout/ext.cx.callout.js"
 			],
@@ -1177,7 +1272,10 @@
 			}
 		},
 		"ext.cx.widgets.translator": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"widgets/translator/ext.cx.translator.js"
 			],
@@ -1233,7 +1331,10 @@
 			]
 		},
 		"mw.cx.ui": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.js"
 			],
@@ -1335,7 +1436,6 @@
 			"styles": [
 				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
 				"ve-cx/ui/styles/ve.ui.CXLinkContextItem.less"
-
 			],
 			"dependencies": [
 				"mw.cx.visualEditor.base"
@@ -1700,7 +1800,10 @@
 			]
 		},
 		"mw.cx.ui.Header": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.Header.js"
 			],
@@ -1721,7 +1824,10 @@
 			]
 		},
 		"mw.cx.ui.Header.legacy": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/legacy/mw.cx.ui.Header.js"
 			],
@@ -1751,17 +1857,27 @@
 			]
 		},
 		"mw.cx.ui.Header.skin": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"styles": [
 				"ui/styles/mw.cx.ui.Header.skin.less"
 			],
 			"skinStyles": {
-				"vector": [ "ui/styles/mw.cx.ui.Header.vector.less" ],
-				"monobook": [ "ui/styles/mw.cx.ui.Header.monobook.less" ]
+				"vector": [
+					"ui/styles/mw.cx.ui.Header.vector.less"
+				],
+				"monobook": [
+					"ui/styles/mw.cx.ui.Header.monobook.less"
+				]
 			}
 		},
 		"mw.cx.ui.Infobar": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.Infobar.js"
 			],
@@ -1833,7 +1949,9 @@
 				"ui/legacy/styles/mw.cx.ui.ToolsColumn.less"
 			],
 			"skinStyles": {
-				"monobook": [ "ui/legacy/styles/mw.cx.ui.ToolsColumn.monobook.less" ]
+				"monobook": [
+					"ui/legacy/styles/mw.cx.ui.ToolsColumn.monobook.less"
+				]
 			},
 			"dependencies": [
 				"mw.cx.ui"
@@ -1850,7 +1968,9 @@
 				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less"
 			],
 			"skinStyles": {
-				"monobook": [ "ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less" ]
+				"monobook": [
+					"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less"
+				]
 			},
 			"dependencies": [
 				"ext.visualEditor.mwmeta",
@@ -1882,7 +2002,10 @@
 			]
 		},
 		"mw.cx.ui.CaptchaDialog": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.CaptchaDialog.js"
 			],
@@ -1902,7 +2025,10 @@
 			]
 		},
 		"mw.cx.ui.LoginDialog": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/mw.cx.ui.LoginDialog.js"
 			],
@@ -2068,7 +2194,10 @@
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PublishSettingsWidget.js"
 			],
@@ -2089,7 +2218,10 @@
 			]
 		},
 		"mw.cx.ui.MessageWidget": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.MessageWidget.js"
 			],
@@ -2104,7 +2236,10 @@
 			]
 		},
 		"mw.cx.ui.PageSelectorWidget": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
 				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
@@ -2128,7 +2263,10 @@
 			]
 		},
 		"mw.cx.ui.PersonalMenuWidget": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.PersonalMenuWidget.js"
 			],
@@ -2136,8 +2274,12 @@
 				"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.less"
 			],
 			"skinStyles": {
-				"vector": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.vector.less" ],
-				"monobook": [ "ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less" ]
+				"vector": [
+					"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.vector.less"
+				],
+				"monobook": [
+					"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less"
+				]
 			},
 			"dependencies": [
 				"mw.cx.ui",
@@ -2147,7 +2289,10 @@
 			]
 		},
 		"mw.cx.ui.FeatureDiscoveryWidget": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.FeatureDiscoveryWidget.js"
 			],
@@ -2195,17 +2340,21 @@
 	"TrackingCategories": [
 		"cx-unreviewed-translation-category"
 	],
-	"EventLoggingSchemas": {
-		"ContentTranslation": 18999884,
-		"ContentTranslationCTA": 16017678,
-		"ContentTranslationAbuseFilter": 18472730,
-		"ContentTranslationSuggestion": 19004928,
-		"ContentTranslationError": 11767097
+	"attributes": {
+		"EventLogging": {
+			"Schemas": {
+				"ContentTranslation": 18999884,
+				"ContentTranslationCTA": 16017678,
+				"ContentTranslationAbuseFilter": 18472730,
+				"ContentTranslationSuggestion": 19004928,
+				"ContentTranslationError": 11767097
+			}
+		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "ContentTranslation/modules"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 2
 }
