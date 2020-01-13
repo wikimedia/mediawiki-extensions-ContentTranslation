@@ -31,7 +31,8 @@
 			"Jelou",
 			"Петар Петковић",
 			"Harvest",
-			"Johny Weissmuller Jr"
+			"Johny Weissmuller Jr",
+			"DannyS712"
 		]
 	},
 	"cx": "Traducir página",
@@ -48,7 +49,7 @@
 	"cx-source-view-page": "ver página",
 	"cx-publish-page-success": "Página publicada en $1",
 	"cx-publish-page-error": "Ocurrió un error al publicar la traducción. Intenta publicarla de nuevo. Error: $1",
-	"cx-publish-error-abuse-filter": "Los filtros de edición automáticos han detectado algún contenido problemático en tu traducción.\nDetalles: $1",
+	"cx-publish-error-abuse-filter": "Los filtros de edición automáticos han detectado algún contenido problemático en tu traducción.\nDetecciones del filtro: $1",
 	"cx-publish-error-empty": "El servidor respondió sin enviar ningún dato.",
 	"cx-publish-error-readonly": "No se permiten las operaciones de escritura en el wiki.",
 	"cx-publish-error-spam-blacklist": "Es posible que exista ''spam'' en tu traducción. Detalles: $1",
