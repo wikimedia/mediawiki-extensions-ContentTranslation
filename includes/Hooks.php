@@ -63,12 +63,11 @@ class Hooks {
 					break;
 				}
 			}
-			if ( $editedWikiCount === 0 ) {
-				return false;
-			}
+
+			return $editedWikiCount > 1;
 		}
 
-		return true;
+		return false;
 	}
 
 	/**
