@@ -245,5 +245,6 @@
 	"cx-mt-abuse-publish-error": "Tavu tulkojumu nevar publicēt, jo tas satur pārāk daudz nekoriģēta neizmainīta teksta.",
 	"cx-unreviewed-translation-category": "Lapas ar nepārskatītiem tulkojumiem",
 	"cx-unreviewed-translation-category-desc": "Ar satura tulkošanas rīku tulkotas lapas, kas satur lielu apjomu nepārskatīta satura",
+	"cx-feature-discovery-title": "Tulko jebkurā laikā",
 	"cx-feature-discovery-dismiss": "Labi, sapratu"
 }
