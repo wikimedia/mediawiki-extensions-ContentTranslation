@@ -19,6 +19,8 @@
 	"apihelp-query+contenttranslationstats-example-1": "Iegūt satura tulkošanas statistiku visām valodām.",
 	"apihelp-cxconfiguration-param-from": "Avota valodas kods.",
 	"apihelp-cxconfiguration-param-to": "Mērķa valodas kods.",
+	"apihelp-query+contenttranslationsuggestions-description": "Iegūt ieteikumu sarakstus satura tulkošanai.",
+	"apihelp-query+contenttranslationsuggestions-summary": "Iegūt ieteikumu sarakstus satura tulkošanai.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Avota valodas kods.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Mērķa valodas kods.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Avota valodas kods.",
