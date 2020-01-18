@@ -40,7 +40,6 @@
 		"UserSaveOptions": "ContentTranslation\\Hooks::onSaveOptions",
 		"EditPage::showEditForm:initial": "ContentTranslation\\Hooks::newArticleCampaign",
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
-		"EchoGetDefaultNotifiedUsers": "ContentTranslation\\Hooks::onEchoGetDefaultNotifiedUsers",
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules"
 	},
 	"APIModules": {

@@ -10,7 +10,9 @@ namespace ContentTranslation;
 use Action;
 use CentralAuthUser;
 use DatabaseUpdater;
+use EchoAttributeManager;
 use EchoEvent;
+use EchoUserLocator;
 use EditPage;
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
@@ -397,33 +399,42 @@ class Hooks {
 			'tooltip' => 'echo-pref-tooltip-cx',
 		];
 
+		$userLocator = [
+			EchoAttributeManager::ATTR_LOCATORS => [
+				[
+					EchoUserLocator::class . '::locateFromEventExtra',
+					[ 'recipient' ]
+				],
+			],
+		];
+
 		$notifications['cx-first-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
-		];
+		] + $userLocator;
 
 		$notifications['cx-tenth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
-		];
+		] + $userLocator;
 
 		$notifications['cx-hundredth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
-		];
+		] + $userLocator;
 
 		$notifications['cx-suggestions-available'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
-		];
+		] + $userLocator;
 
 		$notifications['cx-deleted-draft'] = [
 			'category' => 'cx',
@@ -431,7 +442,7 @@ class Hooks {
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
 			'bundle' => [ 'web' => true, 'expandable' => true ]
-		];
+		] + $userLocator;
 
 		$notifications['cx-continue-translation'] = [
 			'category' => 'cx',
@@ -439,7 +450,7 @@ class Hooks {
 			'section' => 'message',
 			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
 			'bundle' => [ 'web' => true, 'expandable' => true ]
-		];
+		] + $userLocator;
 
 		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
@@ -450,33 +461,6 @@ class Hooks {
 		$icons['outdated'] = [
 			'path' => 'ContentTranslation/images/cx-notification-gray.svg'
 		];
-	}
-
-	/**
-	 * Add user to be notified on echo event
-	 * @param EchoEvent $event
-	 * @param array &$users
-	 * @return bool
-	 */
-	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
-		switch ( $event->getType() ) {
-			case 'cx-first-translation':
-			case 'cx-tenth-translation':
-			case 'cx-hundredth-translation':
-			case 'cx-suggestions-available':
-			case 'cx-deleted-draft':
-			case 'cx-continue-translation':
-				$extra = $event->getExtra();
-				if ( !isset( $extra['recipient'] ) ) {
-					break;
-				}
-				$recipientId = $extra['recipient'];
-				$recipient = User::newFromId( $recipientId );
-				$users[$recipientId] = $recipient;
-				break;
-		}
-
-		return true;
 	}
 
 	/**
