@@ -20,8 +20,9 @@
 	"requires": {
 		"MediaWiki": ">= 1.35.0",
 		"extensions": {
-			"VisualEditor": ">= 0.1.0",
-			"UniversalLanguageSelector": "*"
+			"Cite": "*",
+			"UniversalLanguageSelector": "*",
+			"VisualEditor": ">= 0.1.0"
 		}
 	},
 	"ExtensionMessagesFiles": {
