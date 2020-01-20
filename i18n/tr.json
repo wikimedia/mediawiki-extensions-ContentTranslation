@@ -248,7 +248,7 @@
 	"cx-tools-linter-issues": "Sorunlar",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 hata|$1 hata}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 uyarı|$1 uyarı}}",
-	"cx-tools-linter-learn-more": "Daha fazla bilgi edinin",
+	"cx-tools-linter-learn-more": "Daha fazla bilgi",
 	"cx-tools-linter-mark-as-resolved": "Çözümlendi olarak işaretle",
 	"cx-tools-linter-generic-title": "Çevirinizle ilgili bir sorun var",
 	"cx-tools-linter-abuse-filter": "Kötüye kullanım filtreleri çevirinizde sorunlu içerik tespit etti",

@@ -3,7 +3,8 @@
 		"authors": [
 			"1AnuraagPandey",
 			"Amire80",
-			"Ajeetsinghawadh"
+			"Ajeetsinghawadh",
+			"Ajeetsinghawadhi"
 		]
 	},
 	"cx": "पृष्ठ कय अनुवाद करैं",
@@ -46,5 +47,6 @@
 	"cx-publish-captcha-title": "सुरक्षा प्रश्न",
 	"cx-translation-filter-published-translations": "प्रकाशित अनुवाद",
 	"cx-translation-filter-draft-translations": "क्रियमाण अनुवाद",
-	"cx-create-new-translation": "नया अनुवाद निर्मित करा जाए"
+	"cx-create-new-translation": "नया अनुवाद निर्मित करा जाए",
+	"cx-tools-template-title": "खाँचा"
 }
