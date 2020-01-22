@@ -6,15 +6,15 @@
  */
 
 use ContentTranslation\AbuseFilterCheck;
+use ContentTranslation\CategoriesStorageManager;
+use ContentTranslation\Database;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
-use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
-use ContentTranslation\Database;
 
 class ApiContentTranslationSave extends ApiBase {
 	const SQL_BLOB_MAX_SIZE = 65535; // 64KB

@@ -7,8 +7,8 @@
  */
 
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\TranslationStorageManager;
+use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 
 class ApiContentTranslationDelete extends ApiBase {

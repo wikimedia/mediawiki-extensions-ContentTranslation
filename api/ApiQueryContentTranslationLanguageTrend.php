@@ -9,8 +9,8 @@
 /**
  * Api module for querying ContentTranslation stats.
  */
-use ContentTranslation\Translation;
 use ContentTranslation\DateManipulator;
+use ContentTranslation\Translation;
 
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 

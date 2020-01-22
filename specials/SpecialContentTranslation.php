@@ -8,9 +8,9 @@
 
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
-use ContentTranslation\Translator;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
+use ContentTranslation\Translator;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -244,7 +244,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	/**
 	 * Determine whether CX2 should be used.
 	 *
-	 * @return boolean True if we should ship version 2 of Content Translation
+	 * @return bool True if we should ship version 2 of Content Translation
 	 */
 	private function shouldUseNewVersion() {
 		$request = $this->getRequest();

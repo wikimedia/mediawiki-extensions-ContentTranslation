@@ -6,8 +6,8 @@
  * @license GPL-2.0-or-later
  */
 
-use ContentTranslation\Database;
 use ContentTranslation\CorporaLookup;
+use ContentTranslation\Database;
 
 /**
  * Api module for querying Content Translation parallel corpora.

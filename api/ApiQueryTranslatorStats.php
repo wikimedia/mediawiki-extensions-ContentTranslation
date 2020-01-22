@@ -6,9 +6,9 @@
  * @license GPL-2.0-or-later
  */
 
+use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
-use ContentTranslation\DateManipulator;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
 

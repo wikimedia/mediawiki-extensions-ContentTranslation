@@ -6,10 +6,10 @@
  * @license GPL-2.0-or-later
  */
 
-use ContentTranslation\Translator;
-use ContentTranslation\Translation;
-use ContentTranslation\SuggestionListManager;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\SuggestionListManager;
+use ContentTranslation\Translation;
+use ContentTranslation\Translator;
 
 /**
  * Api module for querying translation suggestions.
@@ -28,7 +28,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @param ApiPageSet $resultPageSet
+	 * @param ApiPageSet|null $resultPageSet
 	 */
 	private function run( $resultPageSet = null ) {
 		$config = $this->getConfig();
