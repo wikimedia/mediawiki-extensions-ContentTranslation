@@ -124,5 +124,10 @@
 	"apierror-cx-translationnotfound": "找不到翻译。",
 	"apihelp-query+langlinkscount-description": "获取条目存在的其他语言的数量。",
 	"apihelp-query+langlinkscount-summary": "获取其他语言版本的数量。",
-	"apihelp-query+langlinkscount-example-1": "获取“Dog”页面其他语言版本的数量"
+	"apihelp-query+langlinkscount-example-1": "获取“Dog”页面其他语言版本的数量",
+	"apihelp-query+cxdeletedtranslations-description": "获取您在部分命名空间发布的已删除译文数量。",
+	"apihelp-query+cxdeletedtranslations-summary": "获取您被删除译文的数量。",
+	"apihelp-query+cxdeletedtranslations-param-after": "用于获取新删除记录的时间戳。",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "已删除译文原所在的命名空间。默认为主命名空间。",
+	"apihelp-query+cxdeletedtranslations-example-1": "获取您被删除译文的数量，即与 2019-04-07 16:24:44 之后发布在主命名空间且被删除的译文。"
 }
