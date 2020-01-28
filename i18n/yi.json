@@ -230,6 +230,9 @@
 	"cx-publish-destination-header": "פֿארעפֿנטלעכן ציל",
 	"cx-publish-destination-tooltip": "וויילט אויס דעם נאמענטייל וואו מען זאל פארעפנטלעכן דעם בלאט",
 	"cx-publish-destination-namespace-main": "נייער בלאַט",
+	"cx-publish-destination-namespace-main-description": "אין דעם הויפט נאמענטייל וואו אלע קענען לייענען",
+	"cx-publish-destination-namespace-user": "פערזענלעכער אנווארף",
+	"cx-publish-destination-namespace-user-description": "אין אייער באניצער־נאמענטייל וואו איר קענט אליין פֿארבעסערן",
 	"cx-linkcontextitem-missing-link-title": "פעלנדיקער לינק",
 	"cx-linkcontextitem-missing-title-description": "דער בלאַט עקזיסטירט נאך נישט"
 }
