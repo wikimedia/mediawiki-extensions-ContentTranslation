@@ -50,6 +50,8 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$listAction = $manager->removeSuggestions( $suggestions );
 		} elseif ( $params[ 'listaction' ] === 'view' ) {
 			$listAction = $manager->doesSuggestionExist( $suggestions[ 0 ] );
+		} else {
+			return;
 		}
 
 		$result = [

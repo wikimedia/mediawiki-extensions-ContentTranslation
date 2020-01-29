@@ -75,6 +75,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 				if ( isset( $column[$id] ) ) {
 					$column[$id]['date'] = $date;
 					$out[$type][] = $column[$id];
+					// @phan-suppress-next-line PhanTypeInvalidDimOffset
 					$counts[$type] = $column[$id]['count'];
 				} else {
 					$out[$type][] = [

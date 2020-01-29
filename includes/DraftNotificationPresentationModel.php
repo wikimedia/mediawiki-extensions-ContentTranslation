@@ -50,6 +50,8 @@ class DraftNotificationPresentationModel extends EchoEventPresentationModel {
 			$msg = 'cx-notification-deleted-draft';
 		} elseif ( $this->getType() === 'cx-continue-translation' ) {
 			$msg = 'cx-notification-continue-translation';
+		} else {
+			return parent::getHeaderMessage();
 		}
 
 		if ( $this->isBundled() ) {
