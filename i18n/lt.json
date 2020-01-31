@@ -197,6 +197,7 @@
 	"cx-suggestionlist-refresh": "Atnaujinti pasiūlymus",
 	"cx-notification-suggestions-available": "Remiantis {{GENDER:$2|jūsų}} ankstesniu „$1“ vertimu, nauji pasiūlymai dabar yra prieinami.",
 	"cx-tools-linter-issues": "Klaidos",
+	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 klaida|$1 klaidos}}",
 	"cx-tools-linter-learn-more": "Sužinoti daugiau",
 	"cx-tools-linter-mark-as-resolved": "Pažymėti kaip išspręstą",
