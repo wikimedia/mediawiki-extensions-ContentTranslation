@@ -38,9 +38,8 @@ class Hooks {
 		}
 
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
-			$centralUser = CentralAuthUser::newFromId( $user->getId() );
+			$centralUser = CentralAuthUser::getInstance( $user );
 			if ( !$centralUser ) {
-				// No user exists with that id
 				return false;
 			}
 
