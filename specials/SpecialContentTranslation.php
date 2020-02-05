@@ -146,6 +146,12 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		return $this->hasValidToken();
 	}
 
+	protected function isVueDashboard() {
+		$config = $this->getConfig();
+		return $config->get( 'ContentTranslationVueDashboard' ) &&
+			!$this->onTranslationView();
+	}
+
 	/**
 	 * @inheritDoc
 	 */
@@ -167,7 +173,11 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
-			$out->addModules( 'ext.cx.dashboard' );
+			if ( $this->isVueDashboard() ) {
+				$out->addModules( 'mw.cx.dashboard' );
+			} else {
+				$out->addModules( 'ext.cx.dashboard' );
+			}
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}

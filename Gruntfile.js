@@ -15,7 +15,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json}',
-				'!{lib,vendor,node_modules}/**'
+				'!{lib,vendor,node_modules,app}/**'
 			]
 		},
 		stylelint: {
@@ -27,7 +27,8 @@ module.exports = function ( grunt ) {
 				'**/*.less',
 				'!lib/**',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!app/**'
 			]
 		},
 		// eslint-disable-next-line no-restricted-properties

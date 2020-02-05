@@ -214,6 +214,10 @@
 				"Translations": true
 			}
 		},
+		"ContentTranslationVueDashboard": {
+			"description": "Whether mobile friendly modern dashboard to be used or not.",
+			"value": false
+		},
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
@@ -321,6 +325,25 @@
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-published-translations",
 				"cx-translation-filter-suggested-translations"
+			]
+		},
+		"mw.cx.dashboard": {
+			"localBasePath": "app",
+			"remoteExtPath": "ContentTranslation/app",
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"scripts": [
+				"dist/js/cxdashboard.js",
+				"dist/js/cxdashboard.libs.js"
+			],
+			"styles": [
+				"dist/css/dashboard.css"
+			],
+			"dependencies": [],
+			"messages": [
+				"cx-dashboard-header"
 			]
 		},
 		"ext.cx.util": {

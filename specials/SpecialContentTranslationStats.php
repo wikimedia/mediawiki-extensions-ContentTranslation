@@ -28,6 +28,13 @@ class SpecialContentTranslationStats extends ContentTranslationSpecialPage {
 	/**
 	 * @inheritDoc
 	 */
+	protected function isVueDashboard() {
+		return false;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	protected function initModules() {
 		$this->getOutput()->addModules( 'ext.cx.stats' );
 	}

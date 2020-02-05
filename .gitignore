@@ -10,3 +10,4 @@ vendor/
 node_modules/
 .eslintcache
 /tests/selenium/log
+*.js.map

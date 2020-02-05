@@ -51,6 +51,13 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	}
 
 	/**
+	 * Check whether the current page is the new Vue dashboard.
+	 *
+	 * @return boolean True if page is vue dashboard
+	 */
+	abstract protected function isVueDashboard();
+
+	/**
 	 * Check whether user can proceed to the page.
 	 *
 	 * @return boolean True if user can proceed
@@ -73,6 +80,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	private function createHeaderHtml() {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
+
 		'@phan-var SkinTemplate $skin';
 
 		// Get personal tools for the user
@@ -97,15 +105,21 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			$this->msg( 'cx-javascript' )->text()
 		) );
 
-		// Display notification tools from Echo extension and ULS.
-		// Intended to display ULS, alerts and notices.
-		// Initially hidden, until rest of DOM elements are rendered through JavaScript.
-		$out->addHTML( Html::rawElement(
-			'div',
-			[ 'class' => 'cx-header__personal' ],
-			Html::rawElement( 'ul', [], $skin->makePersonalToolsList( $personalTools ) )
-		) );
-
+		if ( $this->isVueDashboard() ) {
+			$out->addHTML( Html::element(
+				'div',
+				[ 'id' => 'cxdashboard' ]
+			) );
+		} else {
+			// Display notification tools from Echo extension and ULS.
+			// Intended to display ULS, alerts and notices.
+			// Initially hidden, until rest of DOM elements are rendered through JavaScript.
+			$out->addHTML( Html::rawElement(
+				'div',
+				[ 'class' => 'cx-header__personal' ],
+				Html::rawElement( 'ul', [], $skin->makePersonalToolsList( $personalTools ) )
+			) );
+		}
 		$wordmark = $this->getProjectWordmark();
 		if ( $wordmark ) {
 			$out->addHTML( $wordmark );
