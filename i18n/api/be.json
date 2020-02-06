@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maksim L."
+		]
+	},
+	"apierror-cx-translationnotfound": "Пераклад не знойдзены.",
+	"apihelp-query+langlinkscount-description": "Убачыць колькасць моў, на якіх ёсць артыкул.",
+	"apihelp-query+langlinkscount-summary": "Убачыць колькасць версій на іншых мовах."
+}
