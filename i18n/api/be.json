@@ -4,7 +4,28 @@
 			"Maksim L."
 		]
 	},
+	"apierror-cx-invalidlanguage": "Недапушчальная мова.",
+	"apierror-cx-invalidprogress": "Недапушчальны прагрэс.",
+	"apierror-cx-invalidsectioncontent": "Недапушчальны змест раздзела.",
+	"apierror-cx-invalidsectiondata": "Недапушчальныя даныя раздзела.",
+	"apierror-cx-invalidsourcelanguage": "Недапушчальная зыходная мова перакладу.",
+	"apierror-cx-invalidtargetlanguage": "Недапушчальная мэтавая мова перакладу.",
+	"apierror-cx-invalidtranslator": "Недапушчальнае імя перакладчыка.",
+	"apierror-cx-jwtmissing": "JWT не ўсталявана.",
+	"apierror-cx-keynotconfigured": "Ключ не настроены.",
+	"apierror-cx-missingdraft": "Чарнавіка няма.",
+	"apierror-cx-mustbeloggedin-suggestions": "Мусіце ўвайсці ў сістэму, каб кіраваць сваімі прапановамі.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Мусіце ўвайсці ў сістэму, каб ўбачыць прапановы перакладу.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Каб праглядзець свае пераклады, мусіце ўвайсці ў сістэму.",
+	"apierror-cx-samelanguages": "Зыходная і мэтавая мова не можа быць аднолькавай.",
+	"apierror-cx-suggestionsdisabled": "Прапановы не ўключаны для гэтай вікі.",
 	"apierror-cx-translationnotfound": "Пераклад не знойдзены.",
 	"apihelp-query+langlinkscount-description": "Убачыць колькасць моў, на якіх ёсць артыкул.",
-	"apihelp-query+langlinkscount-summary": "Убачыць колькасць версій на іншых мовах."
+	"apihelp-query+langlinkscount-summary": "Убачыць колькасць версій на іншых мовах.",
+	"apihelp-query+langlinkscount-example-1": "Убачыць колькасць версій старонкі 'Dog' на іншых мовах",
+	"apihelp-query+cxdeletedtranslations-description": "Убачыць колькасць сваіх перакладаў, апублікаваных у пэўнай прасторы імёнаў, выдаленых пасля пэўнай даты.",
+	"apihelp-query+cxdeletedtranslations-summary": "Убачыць колькасць сваіх апублікаваных перакладаў, якія выдалілі.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Вызначэнне часу, каб убачыць толькі новы выдаленні.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Прастора імёнаў, дзе былі апублікаваны выдаленыя пераклады. Па змаўчанні вызначана асноўная прастора імёнаў.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Атрымаць колькасць сваіх выдаленых перакладаў, апублікаваных у асноўнай прасторы імёнаў і выдаленых пасля 2019-04-07 16:24:44"
 }
