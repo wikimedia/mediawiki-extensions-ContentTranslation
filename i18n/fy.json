@@ -56,5 +56,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Oersettings",
 	"cx-stats-local-published": "$1 ($3) yn it $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 oersetting|$1 oersettings}}",
-	"echo-category-title-cx": "Oersettings"
+	"echo-category-title-cx": "Oersettings",
+	"cx-notification-suggestions-available": "Basearre op {{GENDER:$2|jo}} eardere oersetting fan '''$1''', binne der no nije suggestjes beskikber."
 }
