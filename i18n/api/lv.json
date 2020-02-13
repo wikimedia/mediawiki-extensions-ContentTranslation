@@ -8,6 +8,7 @@
 	"apihelp-cxpublish-param-from": "Avota valodas kods.",
 	"apihelp-cxpublish-param-to": "Mērķa valodas kods.",
 	"apihelp-cxpublish-param-sourcetitle": "Avota lapas nosaukums.",
+	"apihelp-cxpublish-param-categories": "Kategorijas, kurās ievietot publicēto lapu.",
 	"apihelp-query+contenttranslation-param-translationid": "Tulkojuma ID.",
 	"apihelp-query+contenttranslation-param-from": "Avota valodas kods.",
 	"apihelp-query+contenttranslation-param-to": "Mērķa valodas kods.",
