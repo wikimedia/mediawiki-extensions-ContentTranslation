@@ -14,7 +14,7 @@
  * @ingroup SpecialPage
  */
 abstract class ContentTranslationSpecialPage extends SpecialPage {
-	public function execute( $parameters ) {
+	final public function execute( $parameters ) {
 		global $wgULSPosition;
 
 		$out = $this->getOutput();
@@ -31,18 +31,21 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$this->setHeaders();
 		$out->setArticleBodyOnly( true );
 
-		$out->loadSkinModules( $skin );
 		// Preloading to avoid FOUC
 		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
+		// Run the extendable chunks from the sub class.
 		$this->initModules();
 		$this->addJsConfigVars();
 
-		Hooks::run( 'BeforePageDisplay', [ &$out, &$skin ] );
+		// Based on OutputPage::output, which will still get called for real.
+		// The below is a copy of its non-ArticleBodyOnly branch only.
+		$out->loadSkinModules( $skin );
+		Hooks::runWithoutAbort( 'BeforePageDisplay', [ &$out, &$skin ] );
 
+		// Substitute for BaseTemplate::execute, based on VectorTemplate::execute.
 		$this->createHeaderHtml();
-
+		// Based on BaseTemplate::getTrail
 		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
-
 		$out->addHTML( $skin->bottomScripts() );
 		$out->addHTML( '</body></html>' );
 	}
@@ -67,7 +70,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	/**
 	 * Creates HTML and prepares data for the customized personal header
 	 */
-	protected function createHeaderHtml() {
+	private function createHeaderHtml() {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 		'@phan-var SkinTemplate $skin';
