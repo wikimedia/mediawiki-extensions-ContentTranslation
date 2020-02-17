@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"JinJian"
+			"JinJian",
+			"Harvzsf"
 		]
 	},
 	"cx-publish-button-publishing": "Ginmamantala...",
@@ -10,9 +11,15 @@
 	"cx-tools-link-title": "Sumpay",
 	"cx-tools-link-add": "Dugnga hin sumpay",
 	"cx-tools-link-remove": "Tanggala an sumpay",
-	"cx-tools-mt-provider-title": "Tikang $1",
-	"cx-publish-captcha-title": "Pan-seguridad nga pakiana",
-	"cx-dashboard-sidebar-title": "{{GENDER:|Kinahanglan}} mo hin bulig ha mga paghubad?",
+	"cx-tools-mt-provider-title": "Gamita $1",
+	"cx-publish-captcha-title": "Ginkikita nga diri ka robot",
+	"cx-captcha-dialog-error": "Baga hin diri asya an imo baton. Alayon, pag-utro.",
+	"cx-captcha-dialog-cancel": "Pasagdi",
+	"cx-dashboard-sidebar-title": "{{GENDER:|Kinahanglan}} mo hin bulig ha paghubad?",
+	"cx-dashboard-sidebar-information": "Dugang pa mahiunong hiní nga garamitón",
+	"cx-dashboard-sidebar-stats": "Mga estadistika",
+	"cx-dashboard-sidebar-feedback": "Taga-i hi kami hin feedback",
+	"cx-translation-filter-published-translations": "Ginmantalâ",
 	"cx-translation-filter-suggested-translations": "Mga suhestyon",
 	"cx-suggestionlist-favorite": "Para nuruniyan",
 	"cx-contributions-new-article": "Bag-o nga pakli",
