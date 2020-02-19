@@ -191,6 +191,7 @@
 	"cx-tools-linter-content": "Pronađen sadržaj [//www.mediawiki.org/wiki/Content_translation/Abuse_filter koji nije u skladu s ograničenjima koje je Wikipedia postavila na stranici $1]. Molimo Vas da popravite probleme prije nego što objavite prijevod.",
 	"cx-tools-linter-view-details": "Prikaži detalje",
 	"cx-tools-linter-hide-details": "Sakrij detalje",
+	"cx-tools-linter-empty-title": "Prevodu je potreban naslov",
 	"cx-translator-header": "Vaše statistike",
 	"cx-translator-month-stats-label": "Ovog mjeseca",
 	"cx-translator-total-translations-label": "Ukupno",
