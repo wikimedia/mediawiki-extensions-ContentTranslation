@@ -61,7 +61,6 @@ class Hooks {
 					intval( $account['editCount'] ?? 0 ) > 0
 				) {
 					$editedWikiCount++;
-					break;
 				}
 			}
 
