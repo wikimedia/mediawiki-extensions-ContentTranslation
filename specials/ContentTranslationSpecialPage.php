@@ -234,9 +234,9 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	}
 
 	/**
-	 * Try to get project wordmark, if defined. For WMF purposes, wordmarks are defined in
-	 * InitialiseSettings.php in MinervaCustomLogos array.
-	 * This fails gracefully if MinervaCustomLogos is not defined.
+	 * Try to get project wordmark, if defined. This is a MediaWiki 1.35+ feature,
+	 * but fails gracefully if wgLogos does not have a 'wordmark' key defined, so
+	 * won't cause any issues for older installs.
 	 *
 	 * @return string|null HTML string of wordmark <img> or null
 	 */
@@ -244,22 +244,13 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$config = $this->getConfig();
 
 		try {
-			$customLogo = $config->get( 'MinervaCustomLogos' );
+			$siteLogos = $config->get( 'Logos' );
 
-			if ( isset( $customLogo[ 'copyright' ] ) ) {
-				$attributes = [
-					'src' => $customLogo[ 'copyright' ],
+			if ( isset( $siteLogos[ 'wordmark' ] ) ) {
+				$attributes = $siteLogos[ 'wordmark' ] + [
 					'id' => 'cx-header__wordmark',
 					'title' => wfMessage( 'tooltip-p-logo' )->inContentLanguage()->text()
 				];
-
-				if ( isset( $customLogo[ 'copyright-height' ] ) ) {
-					$attributes[ 'height' ] = $customLogo[ 'copyright-height' ];
-				}
-
-				if ( isset( $customLogo[ 'copyright-width' ] ) ) {
-					$attributes[ 'width' ] = $customLogo[ 'copyright-width' ];
-				}
 
 				return Html::element( 'img', $attributes );
 			}
