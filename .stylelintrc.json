@@ -1,7 +1,7 @@
 {
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
-		"selector-class-pattern": "(^(mw|oo-ui|cx|sx|ve|skin|uls|client|card)-|card|card__|(new$)|^(bounce|decrease|flex-around|increase|last-updated|placeholder|printfooter|selected|separator|status|status-deleted|status-published|suggestion|suggestion-desc|suggestion-details|suggestion-image|suggestion-langs|suggestion-title|tail|target|translation-link)$)",
+		"selector-class-pattern": "(^(mw|oo-ui|cx|sx|ve|skin|uls|client|card)-|card|card__|(new$)|^(bounce|decrease|flex-around|increase|placeholder|printfooter|selected|suggestion|suggestion-desc|suggestion-details|suggestion-image|suggestion-langs|suggestion-title|tail|target)$)",
 		"no-unknown-animations": null,
 		"no-descending-specificity": null,
 		"declaration-property-unit-disallowed-list": null

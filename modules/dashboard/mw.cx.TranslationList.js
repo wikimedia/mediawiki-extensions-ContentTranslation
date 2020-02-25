@@ -270,7 +270,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 			.addClass( 'cx-tlitem' )
 			.data( 'translation', translation );
 		$lastUpdated = $( '<div>' )
-			.addClass( 'last-updated' )
+			.addClass( 'cx-last-updated' )
 			.text( moment.utc( translation.lastUpdateTimestamp, 'YYYYMMDDHHmmss' ).local().fromNow() );
 		$image = $( '<div>' )
 			.addClass( 'cx-tlitem__image oo-ui-icon-article' );
@@ -285,7 +285,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 		targetDir = $.uls.data.getDir( translation.targetLanguage );
 
 		$translationLink = $( '<a>' )
-			.addClass( 'translation-link' )
+			.addClass( 'cx-translation-link' )
 			// It must be a separate element to ensure
 			// separation from the target title
 			.append( $( '<span>' )
@@ -476,15 +476,15 @@ mw.cx.CXTranslationList.prototype.onScroll = function () {
 mw.cx.CXTranslationList.prototype.markTranslationAsDeleted = function ( translation ) {
 	translation.$element
 		.addClass( 'cx-translation-deleted' )
-		.find( '.status' )
-		.removeClass( 'status-draft status-published' )
-		.addClass( 'status-deleted' )
+		.find( '.cx-translation-status' )
+		.removeClass( 'cx-translation-status-draft cx-translation-status-published' )
+		.addClass( 'cx-translation-status-deleted' )
 		.text( mw.msg( 'cx-translation-status-deleted' ) )
 		.end()
 		.find( '.cx-tlitem__actions' )
 		.remove()
 		.end()
-		.find( '.translation-link' )
+		.find( '.cx-translation-link' )
 		.addClass( 'cx-disabled' );
 };
 
