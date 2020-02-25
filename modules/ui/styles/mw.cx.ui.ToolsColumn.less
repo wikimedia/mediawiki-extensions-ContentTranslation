@@ -14,28 +14,12 @@
 	 the device’s GPU so that sticky transitions are smooth and avoid flickering */
 	transform: translateZ( 0 );
 
-	&.sticky {
-		position: fixed;
-		top: 20px;
-		right: @personal-header-padding;
-		// Trick to accomodate to different width calculations when position is set to fixed
-		border-left: 2 * @personal-header-padding / 3 solid transparent;
-
-		@media @palm {
-			.stick-to-bottom;
-		}
-	}
-
 	@media @palm {
 		.stick-to-bottom;
 	}
 
 	@media only screen and ( min-width: ( @wide + 0.25 * @max-tools-column-width ) ) {
 		width: @max-tools-column-width;
-
-		&.sticky {
-			border-left: 0;
-		}
 	}
 
 	.cx-column-tools-container {
