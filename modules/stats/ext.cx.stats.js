@@ -154,9 +154,9 @@
 		if ( info.trend >= 0 ) {
 			// Add the plus sign to make clear that it's an increase
 			weekTrendText = '+' + weekTrendText;
-			weekTrendClass = 'increase';
+			weekTrendClass = 'cx-stats-trend-increase';
 		} else {
-			weekTrendClass = 'decrease';
+			weekTrendClass = 'cx-stats-trend-decrease';
 		}
 
 		$parenthesizedTrend = $( '<span>' )
@@ -513,7 +513,7 @@
 
 			if ( tail ) {
 				$tail = $( '<span>' )
-					.addClass( 'cx-stats-chart__bar tail' )
+					.addClass( 'cx-stats-chart__bar cx-stats-bar-tail' )
 					.text( '…' )
 					.css( 'width', tailWidth + '%' );
 				$translations.append( $tail );
