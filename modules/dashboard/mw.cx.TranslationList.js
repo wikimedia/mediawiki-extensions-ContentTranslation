@@ -290,7 +290,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 			// separation from the target title
 			.append( $( '<span>' )
 				.text( translation.sourceTitle )
-				.addClass( 'source-title' )
+				.addClass( 'cx-source-title' )
 				.prop( {
 					lang: translation.sourceLanguage,
 					dir: sourceDir
@@ -305,7 +305,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 					lang: translation.targetLanguage,
 					dir: targetDir
 				} )
-				.addClass( 'target-title' )
+				.addClass( 'cx-target-title' )
 				.text( translation.targetTitle );
 			$translationLink.append(
 				$( '<span>' ).html( '&#160;' ), // nbsp to ensure separation between words

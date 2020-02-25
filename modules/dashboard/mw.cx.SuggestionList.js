@@ -456,7 +456,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		.append(
 			$( '<span>' )
 				.text( suggestion.title )
-				.addClass( 'source-title' )
+				.addClass( 'cx-source-title' )
 				.prop( {
 					lang: suggestion.sourceLanguage,
 					dir: sourceDir
