@@ -58,13 +58,13 @@
 		} );
 
 		if ( this.suggestion ) {
-			$suggestionImage = $( '<div>' ).addClass( 'suggestion-image oo-ui-icon-article' );
-			$suggestionDetails = $( '<div>' ).addClass( 'suggestion-details' );
+			$suggestionImage = $( '<div>' ).addClass( 'cx-suggestion-image oo-ui-icon-article' );
+			$suggestionDetails = $( '<div>' ).addClass( 'cx-suggestion-details' );
 
 			$suggestionDetails.append(
-				$( '<div>' ).addClass( 'suggestion-title' ).text( this.suggestion.title ),
-				$( '<div>' ).addClass( 'suggestion-desc' ).text( this.suggestion.description ),
-				$( '<div>' ).addClass( 'suggestion-langs' ).text(
+				$( '<div>' ).addClass( 'cx-suggestion-title' ).text( this.suggestion.title ),
+				$( '<div>' ).addClass( 'cx-suggestion-desc' ).text( this.suggestion.description ),
+				$( '<div>' ).addClass( 'cx-suggestion-langs' ).text(
 					mw.msg( 'cx-campaign-newbytranslation-languages',
 						$.uls.data.getAutonym( this.suggestion.language ),
 						$.uls.data.getAutonym( this.targetLanguage )
@@ -84,7 +84,7 @@
 				.append( $suggestionImage, $suggestionDetails );
 			if ( this.suggestion.thumbnail ) {
 				$suggestionImage
-					.addClass( 'suggestion-image--with-thumbnail' )
+					.addClass( 'cx-suggestion-image--with-thumbnail' )
 					.removeClass( 'oo-ui-icon-article' )
 					.css( 'background-image', 'url("' + this.suggestion.thumbnail.source + '")' );
 			}
