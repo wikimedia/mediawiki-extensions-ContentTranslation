@@ -10,7 +10,7 @@
 		return $( '<div>' )
 			.addClass( 'cx-spinner' )
 			.append(
-				$( '<div>' ).addClass( 'bounce' )
+				$( '<div>' ).addClass( 'cx-bounce' )
 			);
 	};
 }() );
