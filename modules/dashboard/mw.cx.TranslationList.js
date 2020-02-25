@@ -485,7 +485,7 @@ mw.cx.CXTranslationList.prototype.markTranslationAsDeleted = function ( translat
 		.remove()
 		.end()
 		.find( '.translation-link' )
-		.addClass( 'disabled' );
+		.addClass( 'cx-disabled' );
 };
 
 /**

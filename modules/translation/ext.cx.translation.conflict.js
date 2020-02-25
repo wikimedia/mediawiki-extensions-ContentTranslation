@@ -49,7 +49,7 @@
 		// Add the conflict warning to the header
 		$header.append( $conflictInfo );
 		// Gray out the columns
-		$columns.addClass( 'disabled' );
+		$columns.addClass( 'cx-disabled' );
 		// Remove the publish and save status from header
 		$( '.cx-header__save-status, .cx-header__publish' ).remove();
 		// Add click handler to "Create new translation button"
