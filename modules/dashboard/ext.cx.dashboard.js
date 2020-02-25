@@ -326,7 +326,7 @@
 			]
 		} );
 
-		this.$listHeader = $( '<div>' ).addClass( 'translation-filter' );
+		this.$listHeader = $( '<div>' ).addClass( 'cx-translation-filter' );
 		this.$listHeader.append(
 			this.newTranslationButton.$element,
 			this.filter.$element

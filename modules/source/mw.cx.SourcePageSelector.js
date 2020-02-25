@@ -206,7 +206,7 @@ mw.cx.SourcePageSelector.prototype.show = function () {
 mw.cx.SourcePageSelector.prototype.resetDialog = function () {
 	// FIXME: Use CSS transition
 	// eslint-disable-next-line no-jquery/no-slide
-	$( '.translation-filter' ).slideDown( 'fast' );
+	$( '.cx-translation-filter' ).slideDown( 'fast' );
 	this.$container.removeClass( 'cx-source-page-selector--selected' ).toggle();
 	this.toggleMouseUpHandler( false );
 

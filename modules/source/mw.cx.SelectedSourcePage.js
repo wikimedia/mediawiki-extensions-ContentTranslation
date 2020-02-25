@@ -234,7 +234,7 @@ mw.cx.SelectedSourcePage.prototype.onBookmarkButtonClick = function () {
  * @return {string} Messsage to notify user after keeping an article for later.
  */
 mw.cx.SelectedSourcePage.prototype.getNotifyMessage = function () {
-	var selectedOptionWidget = $( '.translation-filter .oo-ui-optionWidget-selected' ).data(),
+	var selectedOptionWidget = $( '.cx-translation-filter .oo-ui-optionWidget-selected' ).data(),
 		selectedView = selectedOptionWidget && selectedOptionWidget.ooUiOptionWidget;
 
 	return selectedView && selectedView.getData() === 'suggestions' ?
