@@ -19,6 +19,7 @@ use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IResultWrapper;
 
 class CXCorporaDump extends Maintenance {
 	private static $sinkTypes = [
@@ -188,6 +189,10 @@ class CXCorporaDump extends Maintenance {
 	/**
 	 * Get all the actually existing language pairs with the number of published translations for
 	 * each pair.
+	 * @param IDatabase $db
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @return IResultWrapper
 	 */
 	private static function getLanguagePairs( IDatabase $db, $sourceLanguage, $targetLanguage ) {
 		$tables = 'cx_translations';
@@ -244,6 +249,9 @@ class CXCorporaDump extends Maintenance {
 	/**
 	 * When the split option is used, we need to figure which language pairs go to which
 	 * files. This function does that based on the data returned by ::getLanguagePairs.
+	 * @param IResultWrapper $pairsWithCounts
+	 * @param int $splitAt
+	 * @return array
 	 */
 	private static function groupLanguagePairs( $pairsWithCounts, $splitAt ) {
 		$pairMap = [];

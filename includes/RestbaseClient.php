@@ -69,8 +69,15 @@ class RestbaseClient {
 		return new $class( $params );
 	}
 
-	// Make a RESTBase v1 API request (which could be to either Parsoid or
-	// RESTBase; the VRS makes these appear identical).
+	/**
+	 * Make a RESTBase v1 API request (which could be to either Parsoid or
+	 * RESTBase; the VRS makes these appear identical).
+	 * @param string $method
+	 * @param string $path
+	 * @param array $params
+	 * @param array $reqheaders
+	 * @return string|false
+	 */
 	private function requestRestbase( $method, $path, $params, $reqheaders = [] ) {
 		global $wgVersion;
 
