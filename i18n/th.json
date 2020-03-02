@@ -249,5 +249,10 @@
 	"cx-template-action-adapt": "ใช้แม่แบบเดียวกัน",
 	"cx-template-action-keep-original": "คงแม่แบบเดิมไว้",
 	"cx-template-action-skip": "ข้ามแม่แบบ",
-	"cx-template-not-available": "ไม่พร้อมใช้งานในภาษา$1"
+	"cx-template-not-available": "ไม่พร้อมใช้งานในภาษา$1",
+	"cx-translation-template-add-more": "เพิ่มเขตข้อมูลอีก",
+	"cx-publish-destination-namespace-main": "หน้าใหม่",
+	"cx-publish-destination-namespace-user": "ฉบับร่างส่วนตัว",
+	"cx-publish-destination-namespace-draft": "ฉบับร่างชุมชน",
+	"cx-linkcontextitem-missing-title-description": "ยังไม่มีหน้านี้"
 }
