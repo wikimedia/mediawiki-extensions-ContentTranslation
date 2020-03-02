@@ -221,7 +221,7 @@
 	CXDashboard.prototype.getSidebarItems = function () {
 		return [
 			{
-				icon: 'info',
+				icon: 'infoFilled',
 				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--information' ],
 				href: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation',
 				label: mw.msg( 'cx-dashboard-sidebar-information' )
