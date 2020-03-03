@@ -343,7 +343,8 @@
 			],
 			"dependencies": [],
 			"messages": [
-				"cx-dashboard-header"
+				"cx-dashboard-header",
+				"cx-create-new-translation"
 			]
 		},
 		"ext.cx.util": {

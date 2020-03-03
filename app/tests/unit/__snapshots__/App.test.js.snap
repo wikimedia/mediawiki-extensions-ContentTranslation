@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component matches the snapshot 1`] = `
+<div
+  id="cxdashboard"
+>
+  <h1>
+    Translations
+  </h1>
+   
+  <mw-button-stub
+    type="progressive"
+  >
+    
+    New translation
+  
+  </mw-button-stub>
+</div>
+`;

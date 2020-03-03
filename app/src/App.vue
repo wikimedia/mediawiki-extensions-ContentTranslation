@@ -1,13 +1,18 @@
 <template>
   <div id="cxdashboard">
     <h1>{{ $i18n("cx-dashboard-header") }}</h1>
+    <mw-button type="progressive">
+      {{ $i18n("cx-create-new-translation") }}
+    </mw-button>
   </div>
 </template>
 
 <script>
+import MwButton from "./components/mediawiki.ui/components/MWButton";
+
 export default {
   name: "cx-dashboard",
-  components: {},
+  components: { MwButton },
   data: () => ({})
 };
 </script>

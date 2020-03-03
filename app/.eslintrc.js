@@ -10,5 +10,14 @@ module.exports = {
   },
   parserOptions: {
     parser: "babel-eslint"
-  }
+  },
+  overrides: [
+    {
+      files: ["**/tests/unit/**/*.{j,t}s?(x)"],
+      env: {
+        mocha: true,
+        jest: true
+      }
+    }
+  ]
 };

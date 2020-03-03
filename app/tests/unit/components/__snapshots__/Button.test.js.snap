@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button.vue matches the snapshot with an HTML element passed as slot 1`] = `
+<button
+  class="mw-ui-button"
+  type="progressive"
+>
+  <span
+    class="italic"
+  >
+    button text
+  </span>
+</button>
+`;
+
+exports[`Button.vue matches the snapshot with an destructive type 1`] = `
+<button
+  class="mw-ui-button"
+  type="destructive"
+>
+  <span
+    class="italic"
+  >
+    button text
+  </span>
+</button>
+`;
