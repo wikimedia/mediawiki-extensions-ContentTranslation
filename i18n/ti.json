@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joanmp17"
+		]
+	},
+	"cx-dashboard-header": "ትርጉማት",
+	"cx-header-all-translations": "ኩሉ ትርጉማት",
+	"cx-captcha-dialog-cancel": "ኣትርፍ",
+	"cx-dashboard-sidebar-stats": "ስታቲስቲክስ",
+	"cx-translation-filter-uls-all-languages": "ኩሉ ቋንቋታት",
+	"cx-contributions-translation": "ትርጉም",
+	"cx-draft-cancel-button-label": "ኣትርፍ",
+	"cx-campaign-no-thanks": "ኣይፋል፣ የቐንየለይ",
+	"cx-campaign-contributionsmenu-mycontributions": "ኣበርክቶታት",
+	"cx-campaign-contributionsmenu-mytranslations": "ትርጉማት",
+	"echo-category-title-cx": "ትርጉማት",
+	"cx-personaltools-anon": "ብመንነት ኣይኣተወን"
+}
