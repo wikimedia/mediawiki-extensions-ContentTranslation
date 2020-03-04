@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import MwButton from "@/lib/mediawiki.ui/components/MWButton";
 
-describe("Button.vue", () => {
+describe("MWButton.vue", () => {
   it("renders props.id when passed", () => {
     const id = "buttonId";
     const buttonClass = "mw-ui-button";
