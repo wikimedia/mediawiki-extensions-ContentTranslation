@@ -107,7 +107,7 @@
 	"apihelp-cxsave-param-cxversion": "Taslak çeviriyi oluşturmak için kullanılan editörün sürümü.",
 	"apihelp-cxsave-param-sourcecategories": "JSON, taslak çeviri ile kaydedilecek kaynak kategorileri dizisini kodladı.",
 	"apihelp-cxsave-param-targetcategories": "Taslak çeviri ile kaydedilecek JSON kodlu hedef kategoriler dizisi.",
-	"apierror-cx-docserverexception": "HTML wiki metnine dönüştürülürken hata oluştu: $1",
+	"apierror-cx-docserverexception": "HTML viki metnine dönüştürülürken hata oluştu: $1",
 	"apierror-cx-inuse": "Başka bir kullanıcı bu makaleyi zaten çeviriyor.",
 	"apierror-cx-invalidsourcecategories": "Geçersiz JSON kodlu kaynak kategorileri dizisi.",
 	"apierror-cx-invalidtargetcategories": "Geçersiz JSON kodlu hedef kategoriler dizisi.",
