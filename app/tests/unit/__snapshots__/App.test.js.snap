@@ -5,28 +5,19 @@ exports[`App component matches the snapshot 1`] = `
   class="container"
   id="cxdashboard"
 >
-  <h1>
-    Translations
-  </h1>
+  <cx-header-stub />
    
   <div
-    class="row"
+    class="row cx-translation-header"
   >
     <mw-button-stub
       class="col-md-4 col-xs-12 col-lg-3 col-offset-lg-1 mb-4 mt-4"
-      type="progressive"
-    >
-      <mw-icon-stub
-        height="0"
-        iconcolor="currentColor"
-        size="20"
-        width="0"
-      >
-        M11 9V4H9v5H4v2h5v5h2v-5h5V9z
-      </mw-icon-stub>
-      
-      New translation
-    </mw-button-stub>
+      icon="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"
+      label="New translation"
+      large="true"
+      progressive="true"
+      type="button"
+    />
   </div>
 </div>
 `;

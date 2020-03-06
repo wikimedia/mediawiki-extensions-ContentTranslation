@@ -17,10 +17,8 @@ describe("MWIcon.vue", () => {
         iconName: "trash",
         width: 48,
         height: 24,
+        icon: mwIconTrash,
         iconColor: "#ddd"
-      },
-      slots: {
-        default: mwIconTrash
       }
     });
 

@@ -1,57 +1,93 @@
 <template>
-  <button
-    class="mw-ui-button"
+  <component
+    :class="classes"
+    :is="component"
     :id="id"
-    :name="name"
+    :href="href"
     :disabled="disabled"
-    :large="large"
-    :active="active"
-    :text="text"
-    :type="type"
     @click="handleClick"
   >
-    <slot></slot>
-  </button>
+    <mw-icon
+      v-if="icon"
+      :icon="icon"
+      :size="large ? 28 : iconSize"
+      class="mw-button__icon"
+    ></mw-icon>
+    <span
+      v-if="type !== icon && label"
+      v-text="label"
+      class="mw-button__content"
+    />
+    <mw-icon
+      v-if="indicator"
+      :icon="indicator"
+      :size="large ? 28 : indicatorSize || iconSize"
+      class="mw-button__indicator"
+    ></mw-icon>
+  </component>
 </template>
 
 <script>
+import MwIcon from "./MWIcon";
+
 export default {
-  name: "MWButton",
+  name: "mw-button",
+  components: {
+    MwIcon
+  },
   props: {
-    id: {
-      type: String,
-      default: null
+    id: String,
+    label: String,
+    disabled: Boolean,
+    depressed: Boolean,
+    block: Boolean,
+    large: Boolean,
+    icon: String,
+    iconSize: {
+      type: [Number, String]
     },
-    name: {
-      type: String,
-      default: null
+    indicatorSize: {
+      type: [Number, String]
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    active: {
-      type: Boolean,
-      default: false
-    },
-    large: {
-      type: Boolean,
-      default: false
-    },
-    block: {
-      type: Boolean,
-      default: false
-    },
-    text: {
-      type: Boolean,
-      default: false
-    },
+    indicator: String,
+    href: String,
+    accessKey: String,
+    outlined: Boolean,
+    progressive: Boolean,
+    destructive: Boolean,
     type: {
       type: String,
-      default: "default"
+      default: "button",
+      validator: value => {
+        // The value must match one of these strings
+        return ["button", "toggle", "icon", "text"].indexOf(value) !== -1;
+      }
     }
   },
-
+  computed: {
+    component() {
+      if (this.href) {
+        return "a";
+      } else {
+        return "button";
+      }
+    },
+    classes() {
+      return {
+        "mw-ui-button": true,
+        "mw-ui-button--block": this.block,
+        "mw-ui-button--depressed": this.depressed || this.outlined,
+        "mw-ui-button--disabled": this.disabled,
+        "mw-ui-button--fab": this.fab,
+        "mw-ui-button--large": this.large,
+        "mw-ui-button--progressive": this.progressive,
+        "mw-ui-button--destructive": this.destructive,
+        "mw-ui-button--icon": this.type === "icon",
+        "mw-ui-button--outlined": this.outlined,
+        "mw-ui-button--text": this.type === "text"
+      };
+    }
+  },
   methods: {
     handleClick(e) {
       this.$emit("click", e);
@@ -70,11 +106,6 @@ export default {
 //
 // These are the main actions on the page/workflow. The page should have only one of progressive and destructive buttons, the rest being quiet.
 //
-// Markup:
-// <div>
-//   <mw-button>Button</mw-button>
-// </div>
-//
 // Styleguide 2.1.
 .mw-ui-button {
   background-color: @colorGray15;
@@ -85,14 +116,8 @@ export default {
   //
   // Use progressive buttons for actions which lead to a next step in the process.
   //
-  // Markup:
-  // <div>
-  //   <mw-button type="progressive">Progressive button</mw-button>
-  // </div>
-  //
   // Styleguide 2.1.2.
-
-  &[type="progressive"] {
+  &.mw-ui-button--progressive {
     .mw-ui-button-colors-primary(
       @colorProgressive,
       @colorProgressiveHighlight,
@@ -100,12 +125,17 @@ export default {
     );
   }
 
+  .icon + .content,
+  .content + .indicator {
+    padding-left: 10px;
+  }
+
   // Destructive buttons
   //
   // Use destructive buttons for actions that remove or limit, such as deleting a page or blocking a user.
   // This should not be used for cancel buttons.
   // Styleguide 2.1.3.
-  &[type="destructive"] {
+  &.mw-ui-button--destructive {
     .mw-ui-button-colors-primary(
       @colorDestructive,
       @colorDestructiveHighlight,
@@ -113,10 +143,18 @@ export default {
     );
   }
 
+  &.mw-ui-button--icon {
+    font-size: 0;
+  }
+
   // Buttons that act like links
-  &[text="true"] {
+  &.mw-ui-button--icon,
+  &.mw-ui-button--text {
     color: @colorButtonText;
     border-color: transparent;
+    background-color: transparent;
+    padding: 5px;
+    min-width: 0;
 
     &:hover {
       background-color: transparent;
@@ -133,13 +171,17 @@ export default {
     }
   }
 
-  &[active="true"] {
+  &.mw-ui-button--active {
+    color: @colorProgressiveHighlight;
+  }
+
+  &.mw-ui-button--depressed {
     color: @colorProgressiveHighlight;
   }
 
   // Big buttons
   // Styleguide 2.1.4.
-  &[large="true"] {
+  &.mw-ui-button--large {
     font-size: 1.3em;
   }
 
@@ -147,7 +189,7 @@ export default {
   //
   // Some buttons might need to be stacked.
   // Styleguide 2.1.5.
-  &[block="true"] {
+  &.mw-ui-button--block {
     display: block;
     width: 100%;
     margin-left: auto;

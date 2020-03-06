@@ -15,7 +15,7 @@ describe("App component", () => {
 
   it("contains an H1 element", () => {
     const wrapper = shallowMount(App, { localVue });
-    expect(wrapper.contains("h1")).toBe(true);
+    expect(wrapper.contains("cx-header-stub")).toBe(true);
   });
 
   it("matches the snapshot", () => {

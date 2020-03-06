@@ -1,26 +1,28 @@
 <template>
   <div id="cxdashboard" class="container">
-    <h1>{{ $i18n("cx-dashboard-header") }}</h1>
-    <div class="row">
+    <cx-header />
+    <div class="row cx-translation-header">
       <mw-button
-        type="progressive"
+        progressive
+        large
+        :icon="mwIconAdd"
+        :label="$i18n('cx-create-new-translation')"
         class="col-md-4 col-xs-12 col-lg-3 col-offset-lg-1 mb-4 mt-4"
-        ><mw-icon>{{ mwIconAdd }}</mw-icon>
-        {{ $i18n("cx-create-new-translation") }}</mw-button
       >
+      </mw-button>
     </div>
   </div>
 </template>
 
 <script>
 import MwButton from "./lib/mediawiki.ui/components/MWButton";
-import MwIcon from "./lib/mediawiki.ui/components/MWIcon";
+import CxHeader from "./components/CXHeader";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
 import "./lib/mediawiki.ui/grid.less";
 
 export default {
   name: "cx-dashboard",
-  components: { MwButton, MwIcon },
+  components: { MwButton, CxHeader },
   data: () => ({ mwIconAdd })
 };
 </script>

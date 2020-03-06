@@ -12,7 +12,7 @@
     >
       <title :id="iconName">{{ iconName }}</title>
       <g :fill="iconColor">
-        <path :d="iconPath" />
+        <path :d="icon" />
       </g>
     </svg>
   </span>
@@ -22,6 +22,10 @@
 export default {
   name: "MWIcon",
   props: {
+    icon: {
+      type: String,
+      default: null
+    },
     iconName: {
       type: String,
       default: null
@@ -43,14 +47,7 @@ export default {
       default: 20
     }
   },
-  computed: {
-    iconPath: function() {
-      if (this.$slots.default) {
-        return this.$slots.default[0].text.trim();
-      }
-      return null;
-    }
-  },
+  computed: {},
   methods: {
     handleClick(e) {
       this.$emit("click", e);
