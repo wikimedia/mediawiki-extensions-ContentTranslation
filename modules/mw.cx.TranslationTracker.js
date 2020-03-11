@@ -279,7 +279,7 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	sectionState = this.sections[ sectionNumber ];
 
 	if ( !( sectionModel instanceof ve.dm.CXSectionNode ) ) {
-		// sectionModel can be a a PlaceholderNode by undo operation too.
+		// sectionModel can be a PlaceholderNode by undo operation too.
 		sectionState.setCurrentMTProvider( null );
 		sectionState.setUserTranslation( '' );
 		// Remove it from the delayed queues.

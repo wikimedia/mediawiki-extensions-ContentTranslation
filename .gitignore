@@ -11,3 +11,4 @@ node_modules/
 .eslintcache
 /tests/selenium/log
 *.js.map
+.DS_Store
