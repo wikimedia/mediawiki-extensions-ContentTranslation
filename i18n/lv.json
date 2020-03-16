@@ -228,6 +228,7 @@
 	"cx-tools-linter-template-add-new": "Pievienot jaunu veidni",
 	"cx-tools-linter-incomplete-template": "Nepilnīga veidne",
 	"cx-tools-linter-old-revision": "Tulkojums ir balstīts uz vecu lapas versiju",
+	"cx-tools-linter-old-revision-message": "Šis tulkojums ir balstīts vecā satura versijā. Avota lapa var būt [$1 ievērojami mainījusies].\n\nTu vari turpināt šo tulkojumu vai sākt to no jauna, lai izmantotu atjaunināto saturu. Ja tu sāksi tulkojumu no jauna, līdz šim veiktās izmaiņas tiks zaudētas.",
 	"cx-tools-linter-old-revision-label": "Sākt tulkojumu no jauna",
 	"cx-tools-linter-reference": "Trūkst atsauce",
 	"cx-tools-linter-incomplete-reference": "Nepilnīga atsauce",

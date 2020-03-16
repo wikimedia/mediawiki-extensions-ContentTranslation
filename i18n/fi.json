@@ -49,7 +49,7 @@
 	"cx-translation-target-page-exists": "Sivu [$1 $2] on jo olemassa kohdewikissä. Anna käännökselle toinen nimi.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Käännetty sisältö]]",
 	"tag-contenttranslation-description": "Sisältö on käännetty toisesta kielestä Sisällön kääntäminen -työkalulla.",
-	"tag-contenttranslation-v2-description": "Sisältö on käännetty toisesta kielestä Sisällön kääntäminenn -työkalun versiolla 2.",
+	"tag-contenttranslation-v2-description": "Sisältö on käännetty toisesta kielestä Sisällön kääntäminen -työkalun versiolla 2.",
 	"cx-source-loading": "Ladataan sivua $1",
 	"cx-beta": "Sisällön kääntäminen",
 	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Muokkaukset-sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
@@ -59,6 +59,7 @@
 	"cx-entrypoint-dialog-desc": "Voit auttaa Wikipediaa kääntämällä tämän sivun. Kääntäminen on helppo tapa luoda uutta sisältöä kielelläsi.",
 	"cx-campaign-newbytranslation-title": "Haluatko aloittaa mieluummin kääntämisen?",
 	"cx-campaign-newbytranslation-notice": "Luo uusi artikkeli kääntämällä toisesta osaamastasi kielestä.",
+	"cx-campaign-newbytranslation-search": "Etsi toinen käännettävä sivu",
 	"cx-campaign-newbytranslation-start": "Aloita kääntäminen",
 	"cx-special-login-error": "Sivujen kääntäminen vaatii sisäänkirjautumisen. [$1 Kirjaudu sisään]",
 	"cx-tools-instructions-text1": "{{GENDER:|Käännä}} kappaleita napsauttamalla niitä",
@@ -99,6 +100,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Tämä otsikko on jo käytössä kielessä [$1 $2] [$3 toisella sivulla]",
 	"cx-selected-source-page-error-page-exists": "Sivu on jo [$1 olemassa] kielellä $2",
 	"cx-selected-source-page-error-title-in-use": "Uuden sivun otsikko on [$1 jo käytössä]",
+	"cx-favorite-added-for-later": "Lisätty myöhemmäksi!",
 	"cx-page-missing-in-target-language": "Puuttuu kielellä $1",
 	"cx-page-number-of-languages": "Kielten määrä",
 	"cx-mt-abuse-error-title": "Käännöksesi {{PLURAL:$1|sisältää}} yhteensä $1 % muokkaamatonta tekstiä",
@@ -270,5 +272,6 @@
 	"cx-linkcontextitem-missing-title-description": "Tätä sivua ei vielä ole olemassa",
 	"cx-mt-abuse-publish-error": "Käännöstäsi ei voida julkaista, koska sen teksti sisältää liikaa muokkaamatonta tekstiä.",
 	"cx-unreviewed-translation-category": "Sivut, joissa on tarkistamattomia käännöksiä",
-	"cx-feature-discovery-title": "Käännä koska tahansa"
+	"cx-feature-discovery-title": "Käännä koska tahansa",
+	"cx-feature-discovery-dismiss": "Ok, selvä"
 }
