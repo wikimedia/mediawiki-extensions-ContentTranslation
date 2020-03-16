@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MwButtonGroup.vue renders correctly 1`] = `
+<div
+  class="row ma-0 pa-0 mw-ui-button-group"
+>
+  <mw-button-stub
+    aria-selected="true"
+    class="ma-0 col-6"
+    depressed="true"
+    label="buttonLabel1"
+    type="button"
+    value="item1"
+  />
+  <mw-button-stub
+    class="ma-0 col-6"
+    label="buttonLabel2"
+    type="button"
+    value="item2"
+  />
+</div>
+`;

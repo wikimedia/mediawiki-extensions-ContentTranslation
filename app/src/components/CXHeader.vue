@@ -1,7 +1,7 @@
 <template>
-  <header class="row items-center justify-start justify-between cx-header">
-    <div class="col-6 justify-start">
-      <h1 class="header">
+  <header class="row cx-header">
+    <div class="col-6 col-xs-8 items-center justify-start">
+      <h1 class="header ma-0 pa-0">
         <mw-button
           type="text"
           :href="currentPageURL"
@@ -12,17 +12,34 @@
         </mw-button>
       </h1>
     </div>
-    <div class="col-6 justify-end">
-      <mw-button type="icon" large :icon="mwIconBell" />
-      <mw-button type="icon" large :icon="mwIconTray" />
+    <div class="col-6 col-xs-4 items-center justify-end">
+      <mw-button
+        class="d-xs-only-none d-sm-only-none"
+        type="icon"
+        large
+        :icon="mwIconBell"
+      />
+      <mw-button
+        class="d-xs-only-none d-sm-only-none"
+        type="icon"
+        large
+        :icon="mwIconTray"
+      />
       <mw-button
         type="text"
+        class="d-xs-only-none d-sm-only-none"
         large
         outlined
         :icon="mwIconUserAvatar"
         :label="username"
         :indicatorSize="18"
         :indicator="mwIconExpand"
+      />
+      <mw-button
+        type="icon"
+        class="d-xs-only-flex d-sm-only-flex d-none"
+        :icon-size="32"
+        :icon="mwIconUserAvatar"
       />
     </div>
   </header>
@@ -40,7 +57,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 
 export default {
-  name: "Header",
+  name: "cx-header",
   components: {
     MwButton
   },
@@ -68,7 +85,6 @@ export default {
   h1.header {
     font-size: 1.8em;
     border-bottom: 0;
-    padding: 0;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="cxdashboard" class="container">
     <cx-header />
-    <div class="row cx-translation-header">
+    <section class="row cx-translation-header">
       <mw-button
         progressive
         large
@@ -10,19 +10,25 @@
         class="col-md-4 col-xs-12 col-lg-3 col-offset-lg-1 mb-4 mt-4"
       >
       </mw-button>
-    </div>
+    </section>
+    <section class="row cx-translation-container">
+      <cx-translation-list
+        class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4"
+      />
+    </section>
   </div>
 </template>
 
 <script>
 import MwButton from "./lib/mediawiki.ui/components/MWButton";
 import CxHeader from "./components/CXHeader";
+import CxTranslationList from "./components/CXTranslationList";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
 import "./lib/mediawiki.ui/grid.less";
 
 export default {
   name: "cx-dashboard",
-  components: { MwButton, CxHeader },
+  components: { MwButton, CxHeader, CxTranslationList },
   data: () => ({ mwIconAdd })
 };
 </script>

@@ -341,10 +341,19 @@
 			"styles": [
 				"dist/css/dashboard.css"
 			],
-			"dependencies": [],
+			"dependencies": [
+				"mediawiki.user"
+			],
 			"messages": [
 				"cx-dashboard-header",
-				"cx-create-new-translation"
+				"cx-create-new-translation",
+				"cx-translation-filter-suggested-translations",
+				"cx-translation-filter-draft-translations",
+				"cx-translation-filter-published-translations",
+				"cx-translation-label-published",
+				"cx-translation-label-draft",
+				"cx-translation-label-draft",
+				"cx-suggestionlist-title"
 			]
 		},
 		"ext.cx.util": {

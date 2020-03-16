@@ -125,9 +125,16 @@ export default {
     );
   }
 
-  .icon + .content,
-  .content + .indicator {
+  .icon + .label,
+  .label + .indicator {
     padding-left: 10px;
+  }
+
+  // Do not break words in buttons.
+  .label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // Destructive buttons

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MwCard.vue renders correctly 1`] = `
+<div
+  class="mw-ui-card"
+>
+  <div
+    class="card-title"
+  >
+    Card title
+  </div>
+   
+</div>
+`;

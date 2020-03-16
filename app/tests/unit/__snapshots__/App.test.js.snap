@@ -7,7 +7,7 @@ exports[`App component matches the snapshot 1`] = `
 >
   <cx-header-stub />
    
-  <div
+  <section
     class="row cx-translation-header"
   >
     <mw-button-stub
@@ -18,6 +18,14 @@ exports[`App component matches the snapshot 1`] = `
       progressive="true"
       type="button"
     />
-  </div>
+  </section>
+   
+  <section
+    class="row cx-translation-container"
+  >
+    <cx-translation-list-stub
+      class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4"
+    />
+  </section>
 </div>
 `;
