@@ -22,6 +22,10 @@ export default {
   bottom: 0;
   width: 100%;
   background-color: @background-color-base;
-  .box-shadow(1px -1px 1px rgba(0, 0, 0, 0.15));
+  .box-shadow(2px -2px 2px rgba(0, 0, 0, 0.15));
+
+  .mw-ui-icon {
+    display: block;
+  }
 }
 </style>

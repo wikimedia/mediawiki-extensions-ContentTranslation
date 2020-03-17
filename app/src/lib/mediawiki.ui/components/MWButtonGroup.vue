@@ -1,5 +1,5 @@
 <template>
-  <div class="row ma-0 pa-0" :class="classes" :id="id">
+  <div class="row mw-ui-button-group ma-0 pa-0" :class="classes" :id="id">
     <mw-button
       v-for="item in items"
       :class="`ma-0 col-${12 / items.length}`"
@@ -35,3 +35,14 @@ export default {
   }
 };
 </script>
+<style lang="less">
+@import "../variables/colors.less";
+
+.mw-ui-button-group {
+  background-color: white;
+  min-height: 56px;
+  .mw-ui-button--depressed {
+    border-bottom: 2px solid @colorProgressiveHighlight;
+  }
+}
+</style>

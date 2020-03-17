@@ -36,7 +36,7 @@
       />
       <mw-button
         type="icon"
-        class="d-xs-only-flex d-sm-only-flex d-none"
+        class="d-xs-only-flex d-sm-only-flex d-none me-5"
         :icon-size="32"
         :icon="mwIconUserAvatar"
       />

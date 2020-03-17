@@ -1,7 +1,7 @@
 <template>
   <div class="mw-ui-card" :id="id">
-    <div class="card-title" v-html="title" />
-    <slot></slot>
+    <div class="mw-ui-card__title title" v-text="title" />
+    <div class="mw-ui-card__content"><slot></slot></div>
   </div>
 </template>
 
@@ -29,8 +29,8 @@ export default {
   border-radius: @borderRadius;
   padding: 8px;
   .box-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
-  .card-title {
-    .title;
+  .mw-ui-card__title {
+    height: 2em;
     color: @colorGray5;
   }
 }

@@ -27,3 +27,4 @@ export const mwIconTrash =
 export const mwIconTray =
   "M3 1a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm14 12h-4l-1 2H8l-1-2H3V3h14z";
 export const mwIconExpand = "M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z";
+export const mwIconArrowForward = "M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z";
