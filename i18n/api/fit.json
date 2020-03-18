@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"apihelp-cxpublish-param-from": "Lähteen kielikooti.",
+	"apihelp-cxpublish-param-to": "Kohteen kielikooti.",
+	"apihelp-cxpublish-param-sourcetitle": "Lähesivun nimi.",
+	"apihelp-query+contenttranslation-param-from": "Lähteen kielikooti.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Lähesivun nimi.",
+	"apihelp-cxconfiguration-param-from": "Lähteen kielikooti.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Lähteen kielikooti.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Lähteen kielikooti.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Lähteen kielikooti.",
+	"apihelp-cxdelete-param-from": "Lähteen kielikooti.",
+	"apihelp-cxdelete-param-sourcetitle": "Lähesivun nimi.",
+	"apihelp-cxsuggestionlist-param-from": "Lähteen kielikooti.",
+	"apihelp-cxsave-param-from": "Lähteen kielikooti.",
+	"apihelp-cxsave-param-sourcetitle": "Lähesivun nimi."
+}
