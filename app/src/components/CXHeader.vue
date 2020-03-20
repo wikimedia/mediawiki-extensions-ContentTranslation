@@ -8,8 +8,7 @@
           :icon="mwIconWikipediaLogo"
           :icon-size="32"
           :label="$i18n('cx-dashboard-header')"
-        >
-        </mw-button>
+        ></mw-button>
       </h1>
     </div>
     <div class="col-6 col-xs-4 items-center justify-end">

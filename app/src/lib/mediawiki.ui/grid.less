@@ -127,10 +127,10 @@
     .generateSpacing(@cols, '');
 
     each(@breakpoints, {
-          .col-@{key}-hidden {
-            display: flex;
-          }
-        });
+      .col-@{key}-hidden {
+        display: flex;
+      }
+    });
 
     .col-xs-hidden,
     .col-hidden {
@@ -155,7 +155,7 @@
           display: none;
         }
       }
-    })
+    });
   }
 
   .row {
