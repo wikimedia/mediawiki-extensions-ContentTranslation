@@ -35,7 +35,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "Käänä kielestä $1",
 	"cx-entrypoint-dialog-desc": "Voit auttaa Wikipeetiaa kääntämällä tämän sivun. Kääntäminen oon helppo tapa luoa uutta sisältöä kielelläsi.",
 	"cx-campaign-newbytranslation-title": "Haluakko alottaa mieluummin kääntämisen?",
-	"cx-campaign-newbytranslation-search": "Etsi toinen käänettävä sivu",
+	"cx-campaign-newbytranslation-search": "Eti toinen käänettävä sivu",
 	"cx-special-login-error": "Sivujen kääntäminen vaatii sisälelokkaamisen. [$1 Lokkaa sisäle]",
 	"cx-tools-instructions-text1": "{{GENDER:|Käänä}} kappaleita knapauttamalla niitä",
 	"cx-tools-instructions-text3": "{{GENDER:|Mookkaa}} tekstistä luonnollista ja helppolukuista",

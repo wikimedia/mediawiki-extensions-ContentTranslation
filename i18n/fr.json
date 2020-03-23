@@ -95,7 +95,7 @@
 	"cx-tools-instructions-text3": "{{GENDER:|}}Rendez le texte lisible de façon naturelle",
 	"cx-tools-instructions-text4": "La traduction automatique est utile mais {{GENDER:|}}vous devrez vérifier le texte pour le rendre plus exact.",
 	"cx-tools-instructions-text5": "{{GENDER:|}}Publier la traduction",
-	"cx-tools-instructions-text6": "Lorsque vous êtes satisfait{{GENDER:|e}} du résultat, cliquez sur « {{int:cx-publish-button}} ».",
+	"cx-tools-instructions-text6": "Lorsque vous êtes satisfait{{GENDER:||e}} du résultat, cliquez sur « {{int:cx-publish-button}} ».",
 	"cx-tools-searchbox-text": "Chercher un mot",
 	"cx-tools-view-guidelines": "{{GENDER:|}}Afficher les directives de traduction",
 	"cx-tools-dictionary-title": "Définition",
