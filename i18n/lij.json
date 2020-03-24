@@ -4,5 +4,10 @@
 			"Giromin Cangiaxo"
 		]
 	},
+	"cx": "Traduxi a paggina",
+	"cx-dashboard-header": "Traduçioin",
+	"cx-source-view-page": "amia a paggina",
+	"cx-publish-page-success": "Paggina pubricâ insce $1",
+	"cx-publish-page-error": "Gh'è stæto in aro durante a pubricassion da tradussion. Proeuva torna a pubricâ a paggina. Errô $1",
 	"cx-stats-title": "Statisteghe de traduçion di contegnui"
 }

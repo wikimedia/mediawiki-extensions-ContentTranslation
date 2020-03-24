@@ -189,6 +189,7 @@
 	"cx-notification-first-translation": "Apsveicam tevi ar pirmo tulkojumu! Pārbaudi savu devumu un atrodi jaunas lapas tulkošanai.",
 	"cx-notification-tenth-translation": "Apsveicam tevi ar desmito tulkojumu! Tu kļūsti par tulkošanas ekspertu. Turpini lielisko darbu!",
 	"cx-notification-hundredth-translation": "Tu tikko veici 100 tulkojumus! Tas ir atzīmējams sasniegums. Dalies ar šo ziņu ar citiem dalībniekiem.",
+	"cx-notification-continue-translation": "Tu sāki tulkot <strong>$1</strong> pirms pāris mēnešiem. Apsver tā publicēšanu, pirms to pēc gada automātiski dzēsīs.",
 	"cx-contributions-link": "Devums",
 	"cx-your-translations-link": "{{GENDER:$1|Tavi tulkojumi}}",
 	"cx-translationlist-empty-title": "Nav nekā tulkojama?",

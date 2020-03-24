@@ -72,6 +72,7 @@
 	"cx-save-draft-saving": "Säästetään...",
 	"cx-save-draft-shortcut-label": "Säästä luonnos",
 	"cx-contributions-translation": "Käänös",
+	"cx-contributions-translation-tooltip": "Käänä olemassa oleva sivu",
 	"cx-publishing-dialog-publish-anyway-button": "Anna ulos joka tapauksessa",
 	"cx-publishing-dialog-sub-title": "Käänöksesi korvaa olemassa olevan sivun. Ole hyvä ja varmistu siitä, että olemassa olevan sisällön korvaaminen oon sopivaa.",
 	"cx-publishing-with-issues-dialog-title": "Julkaise nykyisten ongelmien kanssa?",

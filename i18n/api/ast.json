@@ -12,6 +12,7 @@
 	"apihelp-cxpublish-param-to": "Códigu de la llingua de destín.",
 	"apihelp-cxpublish-param-sourcetitle": "Títulu de la páxina d'orixe.",
 	"apihelp-cxpublish-param-categories": "Categoríes nes que poner la páxina publicada.",
+	"apihelp-cxpublish-param-publishtags": "Les etiquetes d'edición p'añadir a la páxina publicada.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID de captcha (al guardar con una respuesta al captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respuesta al captcha (al guardar con una respuesta al captcha).",
 	"apihelp-cxpublish-param-cxversion": "Versión del editor emplegáu pa espublizar la traducción.",
@@ -112,11 +113,17 @@
 	"apierror-cx-keynotconfigured": "Clave sin configurar.",
 	"apierror-cx-missingdraft": "El borrador nun esiste.",
 	"apierror-cx-mustbeloggedin-suggestions": "Has tener aniciada sesión p'alministrar les suxerencies.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Pa recibir suxerencies de traducción has tener aniciada una sesión.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Has tener aniciada sesión pa ver les tos traducciones.",
 	"apierror-cx-samelanguages": "La llingua d'orixe y destín nun pueden ser la mesma.",
 	"apierror-cx-suggestionsdisabled": "Les suxerencies nun tan activaes nesta wiki.",
 	"apierror-cx-translationnotfound": "Nun s'alcontró la traducción.",
 	"apihelp-query+langlinkscount-description": "Llograr el númberu d'otres llingües nes qu'esiste esti artículu.",
 	"apihelp-query+langlinkscount-summary": "Llograr el númberu de versiones n'otra llingua.",
-	"apihelp-query+langlinkscount-example-1": "Llograr el númberu de versiones n'otres llingües de la páxina 'Perru'"
+	"apihelp-query+langlinkscount-example-1": "Llograr el númberu de versiones n'otres llingües de la páxina 'Perru'",
+	"apihelp-query+cxdeletedtranslations-description": "Recibir el númberu de les tos traducciones publicaes en dalgún espaciu de nomes que fueron desaniciaes después d'una data determinada.",
+	"apihelp-query+cxdeletedtranslations-summary": "Recibir el númberu de les tos traducciones publicaes que fueron desaniciaes.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Marca d'hora pa recibir sólo los desanicios más nuevos.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaciu de nomes nel que se publicaron les traducciones desaniciaes. De mou predetermináu, l'espaciu de nomes principal.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Recibir el númberu de les tos traducciones desaniciaes, que se publicaron nel espaciu de nomes principal y desaniciáronse después del 2019-04-07 16:24:44"
 }
