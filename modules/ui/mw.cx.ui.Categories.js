@@ -34,7 +34,14 @@ mw.cx.ui.Categories = function ( translationModel, config ) {
  */
 mw.cx.ui.Categories.prototype.removeCategoryNamespace = function ( fullCategoryName ) {
 	// mw.Title cannot be used because of T106644
-	return fullCategoryName.match( /^.+?:(.*)$/ )[ 1 ];
+	var match;
+
+	match = fullCategoryName.match( /^.+?:(.*)$/ );
+	if ( !match ) {
+		mw.log.error( '[CX] Expected category page title, got ' + fullCategoryName );
+		return fullCategoryName;
+	}
+	return match[ 1 ];
 };
 
 /**
