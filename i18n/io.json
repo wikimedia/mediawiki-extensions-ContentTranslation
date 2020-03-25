@@ -22,6 +22,7 @@
 	"cx-entrypoint-title": "Tradukez ca pagino a(d) $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
 	"cx-entrypoint-dialog-button-translate-from": "Tradukar de $1",
+	"cx-tools-reference-title": "Refero",
 	"cx-page-selector-widget-nearby-label": "Proxime",
 	"cx-selected-source-page-error-title-in-use": "La titulo por la nova pagino [$1 ja uzesas]",
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",
