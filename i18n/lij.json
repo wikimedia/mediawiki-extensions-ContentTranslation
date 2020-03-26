@@ -9,5 +9,13 @@
 	"cx-source-view-page": "amia a paggina",
 	"cx-publish-page-success": "Paggina pubricâ insce $1",
 	"cx-publish-page-error": "Gh'è stæto in aro durante a pubricassion da tradussion. Proeuva torna a pubricâ a paggina. Errô $1",
+	"cx-publish-button": "Pubbrica",
+	"cx-publish-button-publishing": "Pubricassion...",
+	"cx-lost-session": "A to sescion a l'è descheita",
+	"cx-lost-session-draft": "A to sescion a l'è descheita. E modiffiche no poeuan ese sarvæ, a meno che no ti t'accedi torna da 'n atro barcon.",
+	"cx-lost-session-publish": "A to sescion a l'è descheita. No l'è poscibbile pubricâ a tradussion, pe scin che no ti t'accedi torna da 'n atro barcon.",
+	"cx-lost-session-dashboard": "Pe compî st'assion chie, ti g'hæ da effettoâ torna l'acesso.",
+	"cx-publish-summary": "Creâ da-a tradussion da paggina \"$1\"",
+	"cx-translation-add-translation": "Azonzi tradussion",
 	"cx-stats-title": "Statisteghe de traduçion di contegnui"
 }
