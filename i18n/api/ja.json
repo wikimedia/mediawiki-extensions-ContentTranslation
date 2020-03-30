@@ -8,7 +8,8 @@
 			"Otokoume",
 			"Kkairri",
 			"Omotecho",
-			"Afaz"
+			"Afaz",
+			"Shirayuki"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -39,7 +40,7 @@
 	"apihelp-query+contenttranslationcorpora-summary": "指定された翻訳の、節ごとに揃えられたテキストを取得します。<code>list=cxpublishedtranslations</code>も参照。大容量データへのアクセスになるため、ダンプはさまざまな形式で提供されます。",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "翻訳のIDです。",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "平文を返すためにすべてのHTMLタグを削除するかどうかを指定します。",
-	"apihelp-query+contenttranslationcorpora-param-types": "既定では、ソーステキスト、機械翻訳、利用者が投稿した翻訳の3つが存在する場合は、すべて取得します。このパラメータは、これらの一部を返さないことを指定できます。",
+	"apihelp-query+contenttranslationcorpora-param-types": "既定では、ソーステキスト、機械翻訳、利用者が投稿した翻訳の3つが存在する場合は、すべて取得します。このパラメーターは、これらの一部を返さないことを指定できます。",
 	"apihelp-query+contenttranslationstats-description": "コンテンツ翻訳統計を取得。",
 	"apihelp-query+contenttranslationstats-summary": "コンテンツ翻訳統計を取得。",
 	"apihelp-query+contenttranslationstats-example-1": "全言語のコンテンツ翻訳統計を入手する。",

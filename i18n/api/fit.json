@@ -17,5 +17,7 @@
 	"apihelp-cxdelete-param-sourcetitle": "Lähesivun nimi.",
 	"apihelp-cxsuggestionlist-param-from": "Lähteen kielikooti.",
 	"apihelp-cxsave-param-from": "Lähteen kielikooti.",
-	"apihelp-cxsave-param-sourcetitle": "Lähesivun nimi."
+	"apihelp-cxsave-param-sourcetitle": "Lähesivun nimi.",
+	"apierror-cx-translationnotfound": "Käänöstä ei löytynyt.",
+	"apihelp-query+langlinkscount-summary": "Hae muitten kieliversuunien lukumäärä."
 }
