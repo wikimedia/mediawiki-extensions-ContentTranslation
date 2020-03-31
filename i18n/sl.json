@@ -5,7 +5,8 @@
 			"Eleassar",
 			"Janezdrilc",
 			"HairyFotr",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Amire80"
 		]
 	},
 	"cx": "Prevedi stran",
@@ -153,7 +154,7 @@
 	"cx-no-target-categories": "Manjkajo kategorije. Za boljšo klasifikacijo teme je dobro dodati vsak katero.",
 	"cx-no-adapted-categories": "Izvirne kategorije ne obstajajo v tem jeziku. Preišči obstoječe kategorije, da bodo čimbolje opredelile temo.",
 	"cx-trend-deletions": "Izbrisani prevodi",
-	"cx-trend-translations-to": "Prevodi v: {{GRAMAR:dajalnik|$1}}",
+	"cx-trend-translations-to": "Prevodi v: $1",
 	"cx-stats-try-contenttranslation": "Wikiprevajalec je orodje za ustvarjanje novih strani s pomočjo prevajanja že obstoječih. [$1 Preizkusi ga]",
 	"cx-stats-all-translations-title": "Prevodi v vse jezike",
 	"cx-stats-published-translations-label": "Objavljeni prevodi",
@@ -164,8 +165,8 @@
 	"cx-stats-tabs-expand": "Ogled vseh jezikov",
 	"cx-stats-total-published": "Skupno objavljeno",
 	"cx-stats-weekly-published": "Prejšnji teden",
-	"cx-stats-local-published-number": "$1 v {{GRAMMAR:mestnik|$2}}",
-	"cx-stats-local-published": "$1 ($3) v {{GRAMMAR:mestnik|$2}}",
+	"cx-stats-local-published-number": "$1 v $2",
+	"cx-stats-local-published": "$1 ($3) v $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 prevod|$1 prevoda|$1 prevodi|$1 prevodov}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Označi}} stran kot manjkajočo, da spodbudiš njen nastanek.",
 	"cx-tools-missing-link-tooltip": "Prevedi (v novem oknu)",

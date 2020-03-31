@@ -166,7 +166,7 @@
 	"echo-pref-tooltip-cx": "Informéiert mech iwwer meng Iwwersetzungen déi ech mat dem 'Content Translation Tool' gemaach hunn.",
 	"cx-notification-first-translation": "Gratulatioun fir Är éischt Iwwersetzung! Kuckt Är Contributiounen no a fannt méi Säite fir z'iwwersetzen.",
 	"cx-notification-tenth-translation": "Gratulatioun fir Är zéngt Iwwersetzung! Dir entwéckelt Iech zum experimentéierten Iwwersetzer. Maacht esou weider!",
-	"cx-notification-hundredth-translation": "Dir hutt elo 100 Iwwersetzunge gemaach! Dat ass eng respektabel Leeschtung. Deelt déi Neiegkeet aneren Auteure matt.",
+	"cx-notification-hundredth-translation": "Dir hutt elo 100 Iwwersetzunge gemaach! Dat ass eng respektabel Leeschtung. Deelt déi Neiegkeet aneren Auteure mat.",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 Iwwersetzungen}} goufe verworf, well hiren Inhalt zanter méi wéi  engem Joer vereelzt war. Zu all Ament kënnt dir se mat neiem Inhalt ufänken.",
 	"cx-contributions-link": "Är Kontributiounen",
 	"cx-your-translations-link": "{{GENDER:$1|Är Iwwersetzungen}}",
