@@ -71,6 +71,7 @@
 	"apierror-cx-keynotconfigured": "Tipka ni nastavljena.",
 	"apierror-cx-missingdraft": "Osnutek ne obstaja.",
 	"apierror-cx-mustbeloggedin-suggestions": "Za upravljanje svojih predlogov je potrebno biti prijavljen.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Za izpis predlogov moraš biti prijavljen.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Za prikaz svojih prevodov je potrebno biti prijavljen.",
 	"apierror-cx-samelanguages": "Izvirni in ciljni jezik ne moreta biti enaka.",
 	"apierror-cx-suggestionsdisabled": "Predlogi so na tem wikiju neomogočeni.",
