@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MwAutonym.vue renders the autonym for the passed language 1`] = `
+<span
+  class="mw-ui-autonym"
+  dir="ltr"
+  lang="ml"
+>
+  മലയാളം
+</span>
+`;
