@@ -30,3 +30,10 @@ export const mwIconExpand = "M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z";
 export const mwIconArrowForward = "M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z";
 export const mwIconRefresh =
   "M15.65 4.35A8 8 0 1 0 17.4 13h-2.22a6 6 0 1 1-1-7.22L11 9h7V2z";
+export const mwIconClose =
+  "M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z";
+export const mwIconPrevious = "M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z";
+export const mwIconArrowPrevious =
+  "M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z";
+export const mwIconArrowNext =
+  "M8.59 3.42L14.17 9H2v2h12.17l-5.58 5.59L10 18l8-8-8-8z";
