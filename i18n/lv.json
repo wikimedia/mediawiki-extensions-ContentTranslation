@@ -137,6 +137,7 @@
 	"cx-publishing-dialog-sub-title": "Tavs tulkojums pārrakstīs esošo lapu. Lūdz, pārliecinies, vai ir pareizi aizstāt esošo saturu.",
 	"cx-publishing-with-issues-dialog-title": "Publicēt ar esošajām problēmām?",
 	"cx-publishing-with-issues-dialog-message": "Tavā tulkojumā joprojām ir iespējamas problēmas. Lūdzu, apskati norādītās problēmas pirms publicēšanas.\n\nRedaktori, kas pārskatīs tavu devumu, novērtēs šos uzlabojumus.",
+	"cx-overwriting-with-issues": "Tavs tulkojums pārrakstīs esošo lapu ar saturu, kurā joprojām ir potenciālas problēmas. Lūdzu, apsver problēmu novēršanu pirms publicēšanas.",
 	"cx-discard-translation": "Atmest tulkojumu",
 	"cx-translation-status-draft": "Iesākts",
 	"cx-translation-status-published": "Publicēts",
