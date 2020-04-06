@@ -1593,8 +1593,7 @@
 				"mw.cx.MwApiRequestManager",
 				"mw.cx.MachineTranslation",
 				"mw.cx.dm.WikiPage",
-				"mw.cx.init.Translation",
-				"mediawiki.notify"
+				"mw.cx.init.Translation"
 			],
 			"messages": [
 				"cx-beta-feature-enabled-notification",
@@ -1826,8 +1825,7 @@
 				"ui/legacy/mw.cx.ui.TranslationView.init.js"
 			],
 			"dependencies": [
-				"mw.cx.ui.TranslationView.legacy",
-				"mediawiki.notify"
+				"mw.cx.ui.TranslationView.legacy"
 			],
 			"messages": [
 				"cx-beta-feature-enabled-notification"
