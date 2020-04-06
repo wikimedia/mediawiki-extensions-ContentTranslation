@@ -595,9 +595,11 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	this.targetCategories = JSON.parse( draft.targetCategories );
 
 	// Handle badly stored categories caused by T248302
-	this.targetCategories = this.targetCategories.map( function ( item ) {
-		return ( item.indexOf( ':' ) > 0 ) ? item : 'Category:' + item;
-	} );
+	if ( Array.isArray( this.targetCategories ) ) {
+		this.targetCategories = this.targetCategories.map( function ( item ) {
+			return ( item.indexOf( ':' ) > 0 ) ? item : 'Category:' + item;
+		} );
+	}
 };
 
 /**
