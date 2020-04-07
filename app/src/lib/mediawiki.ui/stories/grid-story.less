@@ -1,0 +1,36 @@
+.storybook-grid {
+  .container {
+    font-family: "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Lato",
+      "Liberation Sans", "Noto Sans", "Helvetica Neue", "Helvetica", sans-serif;
+  }
+
+  .row > div {
+    border: 1px solid #999;
+    font-size: 1em;
+    color: #222;
+    font-family: "Courier New", Courier, monospace;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &.spacing-demo {
+    .row {
+      min-height: 20ch;
+      outline: 1px dashed #ddd;
+    }
+  }
+
+  &.responsiveness-demo {
+    .row {
+      outline: 1px dashed #ddd;
+    }
+    table {
+      border-collapse: collapse;
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 4px;
+      }
+    }
+  }
+}
