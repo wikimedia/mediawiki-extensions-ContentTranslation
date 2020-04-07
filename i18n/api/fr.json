@@ -2,17 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"0x010C",
+			"Derugon",
 			"Element303",
+			"Framawiki",
 			"Gomoko",
 			"Momo50WM",
-			"Weft",
-			"Wladek92",
 			"Orlodrim",
-			"Derugon",
+			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
-			"Thibaut120094",
-			"Framawiki"
+			"Weft",
+			"Wladek92"
 		]
 	},
 	"apihelp-cxpublish-description": "Enregistrer une page créée en utilisant l’extension de traduction de contenu.",

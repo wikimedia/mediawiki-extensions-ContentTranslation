@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Silovan",
-			"Amire80"
+			"Amire80",
+			"Silovan"
 		]
 	},
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|თანგილი რე}}",

@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bencemac",
 			"Csega",
-			"Tacsipacsi",
-			"ViDam",
 			"Máté",
-			"Bencemac"
+			"Tacsipacsi",
+			"ViDam"
 		]
 	},
 	"apihelp-cxpublish-description": "Egy Tartalomfordítóval létrehozott lap mentése.",

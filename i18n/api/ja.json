@@ -2,14 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"2nd-player",
+			"Afaz",
 			"Kanon und wikipedia",
-			"Sujiniku",
-			"Takot",
-			"Otokoume",
 			"Kkairri",
 			"Omotecho",
-			"Afaz",
-			"Shirayuki"
+			"Otokoume",
+			"Shirayuki",
+			"Sujiniku",
+			"Takot"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",

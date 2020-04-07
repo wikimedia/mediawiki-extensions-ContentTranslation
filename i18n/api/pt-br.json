@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dianakc",
-			"Rodrigo Padula",
-			"TheGabrielZaum",
 			"Almondega",
+			"Dianakc",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"Rodrigo Padula",
+			"TheGabrielZaum"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",

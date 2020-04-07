@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Frettie",
-			"Mormegil",
-			"Utar",
-			"YjM",
-			"Patriccck",
 			"Evica",
-			"Matěj Suchánek"
+			"Frettie",
+			"Matěj Suchánek",
+			"Mormegil",
+			"Patriccck",
+			"Utar",
+			"YjM"
 		]
 	},
 	"apihelp-cxpublish-description": "Uložit stránku vytvořenou pomocí rozšíření Překlad obsahu.",
