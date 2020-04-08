@@ -330,10 +330,11 @@ class Translation {
 	/**
 	 * Get time-wise cumulative number of deletions for given
 	 * language pairs, with given interval.
+	 *
 	 * @param string $interval
-	 * @return array
+	 * @return array<string,array>
 	 */
-	public static function getDeletionTrend( $interval ) {
+	public static function getDeletionTrend( $interval ): array {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [
@@ -344,8 +345,8 @@ class Translation {
 		try {
 			$conditions['ct_tag_id'] = $changeTagDefStore->getId( 'contenttranslation' );
 		} catch ( NameTableAccessException $exception ) {
-			// It can't find any translation, the result should be null
-			$conditions[] = false;
+			// No translations published yet, so can skip query
+			return [];
 		}
 
 		$options = [];
