@@ -28,8 +28,8 @@ describe("MWButton.vue", () => {
     const wrapper = shallowMount(MwButton, {
       propsData: { href, indicator: mwIconTrash, label: "Label" }
     });
-    expect(wrapper.contains(".mw-button__indicator")).toBe(true);
-    expect(wrapper.contains(".mw-button__icon")).toBe(false);
+    expect(wrapper.contains(".mw-ui-button__indicator")).toBe(true);
+    expect(wrapper.contains(".mw-ui-button__icon")).toBe(false);
   });
 
   it("matches the snapshot with an HTML label", () => {
@@ -43,11 +43,11 @@ describe("MWButton.vue", () => {
     });
 
     // HTML label should be converted to text.
-    expect(wrapper.find(".mw-button__content").text()).toBe(
+    expect(wrapper.find(".mw-ui-button__label").text()).toBe(
       "Large button text with <b>html</b>"
     );
     // ... and not an html element as child.
-    expect(wrapper.contains(".mw-button__content b")).toBe(false);
+    expect(wrapper.contains(".mw-ui-button__label b")).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 

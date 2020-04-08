@@ -1,14 +1,11 @@
 .DS_Store
 node_modules
-
+/dist
+storybook-static
 
 # local env files
 .env.local
 .env.*.local
-devserver.config.js
-
-# Source maps
-*.js.map
 
 # Log files
 npm-debug.log*

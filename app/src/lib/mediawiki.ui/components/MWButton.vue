@@ -11,18 +11,18 @@
       v-if="icon"
       :icon="icon"
       :size="large ? 28 : iconSize"
-      class="mw-button__icon"
+      class="mw-ui-button__icon"
     ></mw-icon>
     <span
       v-if="type !== icon && label"
       v-text="label"
-      class="mw-button__content"
+      class="mw-ui-button__label"
     />
     <mw-icon
       v-if="indicator"
       :icon="indicator"
       :size="large ? 28 : indicatorSize || iconSize"
-      class="mw-button__indicator"
+      class="mw-ui-button__indicator"
     ></mw-icon>
   </component>
 </template>
@@ -125,13 +125,13 @@ export default {
     );
   }
 
-  .icon + .label,
-  .label + .indicator {
-    padding-left: 10px;
+  .mw-ui-button__icon + .mw-ui-button__label,
+  .mw-ui-button__label + .mw-ui-button__indicator {
+    padding-left: 8px;
   }
 
   // Do not break words in buttons.
-  .label {
+  .mw-ui-button__label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -160,7 +160,6 @@ export default {
     color: @colorButtonText;
     border-color: transparent;
     background-color: transparent;
-    padding: 5px;
     min-width: 0;
 
     &:hover {

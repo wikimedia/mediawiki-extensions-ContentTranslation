@@ -38,6 +38,20 @@ npm run lint
 npm run test:unit
 ```
 
+### Storybook
+
+To see the [storybook](https://storybook.js.org/) of UI components:
+
+```
+npm run storybook:serve
+```
+
+To build the static storybook website
+
+```
+npm run storybook:build
+```
+
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
