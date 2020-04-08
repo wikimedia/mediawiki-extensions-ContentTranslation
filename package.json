@@ -3,8 +3,9 @@
 	"scripts": {
 		"selenium-daily": "npm run selenium-test",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
-		"precommit": "cd app && npm run test",
-		"test": "grunt test"
+		"test:cxdashboardapp": "cd app && npm run test",
+		"precommit": "npm run test",
+		"test": "grunt test && npm run test:cxdashboardapp"
 	},
 	"pre-commit": "precommit",
 	"devDependencies": {

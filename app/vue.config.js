@@ -1,4 +1,15 @@
-const devServer = require("./devserver.config");
+const fs = require("fs");
+let devServer = {};
+if (process.env.NODE_ENV === "development") {
+  if (fs.existsSync("./devserver.config.js")) {
+    devServer = require("./devserver.config");
+  } else {
+    console.warn("Could not find devserver.config.js. Using default values");
+    console.warn(
+      "Please copy devserver.config.example.js to devserver.config.js and configure development environment."
+    );
+  }
+}
 
 module.exports = {
   publicPath:
