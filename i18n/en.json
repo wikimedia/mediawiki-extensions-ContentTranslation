@@ -245,7 +245,7 @@
 	"cx-tools-linter-generic-title": "There is a problem with your translation",
 	"cx-tools-linter-abuse-filter": "Abuse filters have identified problematic content in your translation",
 	"cx-tools-linter-title": "Content issues: $1",
-	"cx-tools-linter-content": "Content not meeting [//www.mediawiki.org/wiki/Content_translation/Abuse_filter the restrictions set by Wikipedia in $1] found. Please fix the issues before publishing the translation.",
+	"cx-tools-linter-content": "Content not meeting [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter the restrictions set by Wikipedia in $1] found. Please fix the issues before publishing the translation.",
 	"cx-tools-linter-view-details": "View details",
 	"cx-tools-linter-hide-details": "Hide details",
 	"cx-tools-linter-empty-title": "Your translation needs a title",
