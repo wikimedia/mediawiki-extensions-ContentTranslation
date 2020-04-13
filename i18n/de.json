@@ -21,7 +21,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Inhaltsübersetzung]] ist ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. [$1 Teste es jetzt aus!]",
 	"cx-license-agreement": "Mit dem Fortfahren stimmst du den [//foundation.wikimedia.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
-	"cx-desc": "Ermöglicht die einfache [[Special:ContentTranslation|Übersetzung]] von Inhaltsseiten",
+	"cx-desc": "Erweitert das Wiki um eine [[Special:ContentTranslation|Spezialseite]] mit der Inhalte übersetzt werden können",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|übersetzt}}",
 	"cx-header-progressbar-text-mt": "($1 % von der {{PLURAL:$1|Maschinenübersetzung}})",
 	"cx-header-translation-center": "Übersetzungscenter",

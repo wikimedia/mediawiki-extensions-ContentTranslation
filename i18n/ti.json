@@ -4,16 +4,25 @@
 			"Joanmp17"
 		]
 	},
+	"cx": "ገጽ ተርጎመ",
 	"cx-dashboard-header": "ትርጉማት",
 	"cx-header-all-translations": "ኩሉ ትርጉማት",
+	"cx-entrypoint-dialog-button-translate-from": "ካብ $1 ተርጎመ",
 	"cx-captcha-dialog-cancel": "ኣትርፍ",
 	"cx-dashboard-sidebar-stats": "ስታቲስቲክስ",
+	"cx-translation-filter-suggested-translations": "ርእይቶታት",
 	"cx-translation-filter-uls-all-languages": "ኩሉ ቋንቋታት",
 	"cx-contributions-translation": "ትርጉም",
 	"cx-draft-cancel-button-label": "ኣትርፍ",
 	"cx-campaign-no-thanks": "ኣይፋል፣ የቐንየለይ",
-	"cx-campaign-contributionsmenu-mycontributions": "ኣበርክቶታት",
+	"cx-campaign-contributionsmenu-mycontributions": "ዘበረከቱ",
 	"cx-campaign-contributionsmenu-mytranslations": "ትርጉማት",
 	"echo-category-title-cx": "ትርጉማት",
-	"cx-personaltools-anon": "ብመንነት ኣይኣተወን"
+	"cx-tools-link-apply": "ተወዲኡ",
+	"cx-personaltools-user": "ተጠቃሚ",
+	"cx-personaltools-anon": "ብመንነት ኣይኣተወን",
+	"cx-tools-linter-learn-more": "ተወሳኺ ፍለጥ",
+	"cx-tools-linter-restart-translation-cancel": "ኣትርፍ",
+	"cx-tools-mt-new-provider": "ሓድሽ",
+	"cx-publish-destination-namespace-main": "ሓድሽ ገጽ"
 }
