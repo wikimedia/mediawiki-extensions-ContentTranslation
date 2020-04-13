@@ -1,14 +1,12 @@
 <template>
-  <component
+  <span
     :class="classes"
-    :is="component"
     v-text="autonym(lang)"
     :lang="lang"
     :dir="getDir(lang)"
-    :href="href"
     @click="handleClick"
   >
-  </component>
+  </span>
 </template>
 
 <script>
@@ -17,21 +15,12 @@ import { mapState } from "vuex";
 export default {
   name: "mw-autonym",
   props: {
-    id: String,
-    lang: String,
-    href: String
+    lang: String
   },
   computed: {
     ...mapState({
       languageInfo: state => state.wikipedia.languageInfo
     }),
-    component() {
-      if (this.href) {
-        return "a";
-      } else {
-        return "span";
-      }
-    },
     classes() {
       return {
         "mw-ui-autonym": true
