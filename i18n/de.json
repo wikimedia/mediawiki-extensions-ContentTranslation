@@ -240,7 +240,7 @@
 	"cx-tools-linter-generic-title": "Es gibt ein Problem mit deiner Übersetzung",
 	"cx-tools-linter-abuse-filter": "Missbrauchsfilter haben problematischen Inhalt in deiner Übersetzung entdeckt",
 	"cx-tools-linter-title": "Inhaltsprobleme: $1",
-	"cx-tools-linter-content": "Es wurde Inhalt gefunden, der nicht [//www.mediawiki.org/wiki/Content_translation/Abuse_filter den festgelegten Beschränkungen von Wikipedia in $1] entspricht. Bitte behebe die Probleme, bevor du die Übersetzung veröffentlichst.",
+	"cx-tools-linter-content": "Es wurde Inhalt gefunden, der nicht [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter den festgelegten Beschränkungen von Wikipedia in $1] entspricht. Bitte behebe die Probleme, bevor du die Übersetzung veröffentlichst.",
 	"cx-tools-linter-view-details": "Einzelheiten ansehen",
 	"cx-tools-linter-hide-details": "Einzelheiten ausblenden",
 	"cx-tools-linter-empty-title": "Deine Übersetzung benötigt einen Titel",
