@@ -1,7 +1,7 @@
 .cx-callout {
 	/* styling accordingly to OOUI's `popupWidget-popup` */
 	background: #fff;
-	color: #222;
+	color: #202122;
 	position: absolute;
 	max-width: 500px;
 	border: 1px solid #a2a9b1;
