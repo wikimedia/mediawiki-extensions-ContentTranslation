@@ -96,6 +96,7 @@
 	"mw-pageselector-missing": "Ar bajenn-mañ n'eus ket anezhi",
 	"cx-suggestionlist-expand": "Gwelet pep tra",
 	"cx-suggestionlist-collapse": "Gwelet nebeutoc'h",
+	"cx-tools-linter-content": "Kavet ez eus bet danvez na glot ket gant ar [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter strishadurioù lakaet gant Wikipedia e $1] . Renkit ar gudenn a-raok embann an droidigezh.",
 	"cx-tools-linter-view-details": "Gwelet ar munudoù",
 	"cx-tools-linter-hide-details": "Kuzhat ar munudoù",
 	"cx-translator-month-stats-label": "Er miz-mañ",

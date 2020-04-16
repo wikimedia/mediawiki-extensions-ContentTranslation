@@ -245,7 +245,7 @@
 	"cx-tools-linter-generic-title": "您的翻譯存在問題",
 	"cx-tools-linter-abuse-filter": "防濫用過濾器已識別出您翻譯裡的問題內容",
 	"cx-tools-linter-title": "內容問題：$1",
-	"cx-tools-linter-content": "內容不符合 [//www.mediawiki.org/wiki/Content_translation/Abuse_filter 維基百科對 $1 設定的限制 $1]，請在發佈翻譯前修正該問題。",
+	"cx-tools-linter-content": "內容不符合 [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter 維基百科對 $1 設定的限制 $1]，請在發佈翻譯前修正該問題。",
 	"cx-tools-linter-view-details": "檢視詳細資料",
 	"cx-tools-linter-hide-details": "隱藏詳細資料",
 	"cx-tools-linter-empty-title": "您的翻譯需要標題",

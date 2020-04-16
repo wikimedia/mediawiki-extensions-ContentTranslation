@@ -233,7 +233,7 @@
 	"cx-tools-linter-generic-title": "Pri tvojem prevodu je nastala težava.",
 	"cx-tools-linter-abuse-filter": "Filtri zlorab so v tvojem prevodu zaznali sporno vsebino",
 	"cx-tools-linter-title": "Vsebinska vprašanja: $1",
-	"cx-tools-linter-content": "Vsebina se ne sklada z [//www.mediawiki.org/wiki/Content_translation/Abuse_filter določili Wikipedije v $1]. Prosimo, da pred objavo prevoda pregledaš in popraviš sporna mesta.",
+	"cx-tools-linter-content": "Vsebina se ne sklada z [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter določili Wikipedije v $1]. Prosimo, da pred objavo prevoda pregledaš in popraviš sporna mesta.",
 	"cx-tools-linter-view-details": "Prikaži podrobnosti",
 	"cx-tools-linter-hide-details": "Skrij podrobnosti",
 	"cx-tools-linter-empty-title": "Tvoj prevod je brez naslova",

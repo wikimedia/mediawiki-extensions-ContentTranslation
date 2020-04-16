@@ -7,6 +7,8 @@
 			"Fierodelveneto"
 		]
 	},
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TradusionContegnui]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|TradusionContegnui2]]",
 	"cx-tools-mt-provider-title": "Da $1",
 	"cx-publish-captcha-title": "Vardando se te si en robot",
 	"cx-captcha-dialog-error": "La to rispota l'è sbaià. Riproa.",
