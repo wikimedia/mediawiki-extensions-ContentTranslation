@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MWLanguageSelector.vue render search results when queried 1`] = `
+<div
+  class="mw-ui-language-selector row"
+>
+  <mw-input-stub
+    class="mw-ui-language-selector__input col-12"
+    icon="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"
+    iconsize="24"
+    indicatorsize="24"
+    suggestion="English"
+    tabindex="0"
+    type="search"
+    value="Engl"
+  />
+   
+  <div
+    class="mw-ui-language-selector__results col-12"
+  >
+    <div
+      class="mw-ui-language-selector__result row"
+    >
+      <span
+        class="mw-ui-language-selector__result-name col-10"
+      >
+        English
+      </span>
+       
+      <span
+        class="mw-ui-language-selector__result-code col-2"
+      >
+        en
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MWLanguageSelector.vue renders passed languages 1`] = `
+<div
+  class="mw-ui-language-selector row"
+>
+  <mw-input-stub
+    class="mw-ui-language-selector__input col-12"
+    icon="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"
+    iconsize="24"
+    indicatorsize="24"
+    placeholder="Search for languages"
+    suggestion="English"
+    tabindex="0"
+    type="search"
+    value=""
+  />
+   
+  <div
+    class="mw-ui-language-selector__results col-12"
+  >
+    <div
+      class="mw-ui-language-selector__result row"
+    >
+      <span
+        class="mw-ui-language-selector__result-name col-10"
+      >
+        English
+      </span>
+       
+      <span
+        class="mw-ui-language-selector__result-code col-2"
+      >
+        en
+      </span>
+    </div>
+    <div
+      class="mw-ui-language-selector__result row"
+    >
+      <span
+        class="mw-ui-language-selector__result-name col-10"
+      >
+        മലയാളം
+      </span>
+       
+      <span
+        class="mw-ui-language-selector__result-code col-2"
+      >
+        ml
+      </span>
+    </div>
+    <div
+      class="mw-ui-language-selector__result row"
+    >
+      <span
+        class="mw-ui-language-selector__result-name col-10"
+      >
+        Espanol
+      </span>
+       
+      <span
+        class="mw-ui-language-selector__result-code col-2"
+      >
+        es
+      </span>
+    </div>
+  </div>
+</div>
+`;
