@@ -11,10 +11,8 @@
       >
       </mw-button>
     </section>
-    <section class="row cx-translation-container">
-      <cx-translation-list
-        class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4"
-      />
+    <section class="row cx-translation-dashboard-container">
+      <cx-dashboard class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4" />
     </section>
   </div>
 </template>
@@ -22,13 +20,13 @@
 <script>
 import MwButton from "./lib/mediawiki.ui/components/MWButton";
 import CxHeader from "./components/CXHeader";
-import CxTranslationList from "./components/CXTranslationList";
+import CxDashboard from "./components/CXDashboard";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
 import "./lib/mediawiki.ui/grid.less";
 
 export default {
-  name: "cx-dashboard",
-  components: { MwButton, CxHeader, CxTranslationList },
+  name: "cx-dashboard-app",
+  components: { MwButton, CxHeader, CxDashboard },
   data: () => ({ mwIconAdd })
 };
 </script>
