@@ -240,7 +240,7 @@
 	"cx-tools-linter-generic-title": "Det var et problem med oversettelsen din",
 	"cx-tools-linter-abuse-filter": "Redigeringsfiltre har identifisert problametisk innhold i oversettelsen din",
 	"cx-tools-linter-title": "Innholdsproblemer: $1",
-	"cx-tools-linter-content": "Innhold er funnet som ikke tilfredstiller [//www.mediawiki.org/wiki/Content_translation/Abuse_filter begrensingene satt av Wikipedia i $1]. Vær snill og rett forholdet før du publiserer oversettelsen.",
+	"cx-tools-linter-content": "Innhold er funnet som ikke tilfredstiller [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/Abuse_filter begrensingene satt av Wikipedia i $1]. Vær snill og rett forholdet før du publiserer oversettelsen.",
 	"cx-tools-linter-view-details": "Vis detaljer",
 	"cx-tools-linter-hide-details": "Skjul detaljer",
 	"cx-tools-linter-empty-title": "Oversettelsen din trenger en tittel",

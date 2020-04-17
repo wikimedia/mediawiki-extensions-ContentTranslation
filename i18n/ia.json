@@ -176,7 +176,7 @@
 	"cx-suggestionlist-refresh": "Refrescar suggestiones",
 	"cx-notification-suggestions-available": "A base de {{GENDER:$2|tu}} previe traduction de '''$1''', nove suggestiones es ora disponibile.",
 	"cx-tools-linter-title": "Problemas de contento: $1",
-	"cx-tools-linter-content": "Contento non conforme al [//www.mediawiki.org/wiki/Content_translation/Abuse_filter restrictiones definite per Wikipedia in $1] trovate. Per favor, corrige le problemas ante de publicar le traduction.",
+	"cx-tools-linter-content": "Contento trovate que non es conforme al [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter restrictiones definite per Wikipedia in $1]. Per favor, corrige le problemas ante de publicar le traduction.",
 	"cx-tools-linter-view-details": "Vider detalios",
 	"cx-tools-linter-hide-details": "Celar detalios",
 	"cx-tools-linter-old-revision": "Traduction de un version ancian del pagina",
