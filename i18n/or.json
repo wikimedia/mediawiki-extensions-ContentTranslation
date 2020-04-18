@@ -10,7 +10,7 @@
 	"cx": "ପୃଷ୍ଠାଟି ଅନୁବାଦ କରନ୍ତୁ",
 	"cx-dashboard-header": "ଅନୁବାଦସବୁ",
 	"cx-javascript": "ଏହି ଟୁଲଟି ଜାଭାସ୍କ୍ରିପ୍ଟ ବିନା କାମ କରିବ ନାହିଁ",
-	"cx-specialpage-enable-betafeature": "ଆପଣଙ୍କ ଭାଷାରେ ସହଜରେ ଅନୁବାଦ କରିବା ପାଇଁ [[mw:ContentTranslation|କଣ୍ଟେଣ୍ଟ ଟ୍ରାନ୍ସଲେସନ]] ଏକ ଟୁଲ । [$1 ଏହାକୁ ଏବେ ପରଖନ୍ତୁ!]",
+	"cx-specialpage-enable-betafeature": "ଆପଣଙ୍କ ଭାଷାରେ ସହଜରେ ଅନୁବାଦ କରିବା ପାଇଁ [[mw:Special:MyLanguage/Content_translation|କଣ୍ଟେଣ୍ଟ ଟ୍ରାନ୍ସଲେସନ]] ଏକ ଟୁଲ । [$1 ଏହାକୁ ଏବେ ପରଖନ୍ତୁ!]",
 	"cx-error-server-connection": "ଅସୁବିଧା : ସର୍ଭର ସହ ସଂଯୋଗ କରାଯାଇପାରିଲା ନାହିଁ ।",
 	"cx-desc": "କଣ୍ଟେଣ୍ଟ ଥିବା ପୃଷ୍ଠାଗୁଡ଼ିକୁ ସହଜରେ [[Special:ContentTranslation|ଅନୁବାଦ]] କରିବା ପଥ ସୁଗମ କରିଦିଏ",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ଅନୁବାଦିଦ}}",

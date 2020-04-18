@@ -39,7 +39,7 @@
 	"cx": "Traducir página",
 	"cx-dashboard-header": "Traducciones",
 	"cx-javascript": "Esta herramienta no funciona sin JavaScript. JavaScript está desactivado, no funcionó o no admitimos este navegador.",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Traducción de Contenidos]] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traducción de Contenidos]] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
 	"cx-license-agreement": "Al continuar aceptarás las [//foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones bajo la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL].",
 	"cx-error-server-connection": "Error: falló la conexión con el servidor.",
 	"cx-desc": "Facilita la [[Special:ContentTranslation|traducción]] de páginas de contenido",

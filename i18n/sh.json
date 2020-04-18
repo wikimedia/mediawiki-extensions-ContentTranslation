@@ -60,7 +60,7 @@
 	"cx-tools-mt-provider-title": "Koristi $1",
 	"cx-tools-mt-dont-use": "Počni praznim pasusom",
 	"cx-tools-mt-set-default": "Zadrži kao podrazumijevano",
-	"cx-tools-mt-noservices": "Usluge prijevoda nisu dostupne za izabrane jezike. [[mw:Special:MyLanguage/Content_translation/Machine_Translation|Zašto?]]",
+	"cx-tools-mt-noservices": "Usluge prijevoda nisu dostupne za izabrane jezike. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Zašto?]]",
 	"cx-tools-mt-preferred": "zadano",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|Jedna kategorija|$1 kategorije|$1 kategorija}}",
 	"cx-stats-title": "Statistika prevođenja sadržaja",

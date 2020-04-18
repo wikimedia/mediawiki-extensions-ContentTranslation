@@ -8,7 +8,7 @@
 	"cx": "Бетті аудару",
 	"cx-dashboard-header": "Аудармалар",
 	"cx-javascript": "Бұл құрал JavaScript-сіз жұмыс жасамайды",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Мазмұн Аудару]] сіздің тіліңізге беттерді жылдам аудару құралы. [$1 Қазір сынап көру!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Мазмұн Аудару]] сіздің тіліңізге беттерді жылдам аудару құралы. [$1 Қазір сынап көру!]",
 	"cx-error-server-connection": "Қате: Серверге байланыспады.",
 	"cx-desc": "Контент беттерді [[Special:ContentTranslation|аудару]] оңай жасалады",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|аударылды}}",

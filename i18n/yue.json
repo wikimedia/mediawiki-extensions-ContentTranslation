@@ -11,7 +11,7 @@
 	"cx": "翻譯頁",
 	"cx-dashboard-header": "翻譯",
 	"cx-javascript": "呢個工具一定要有JavaScript先至用到。而家JavaScript閂咗、用唔到、又或者係呢個瀏覽器唔支援JavaScript。",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|內容翻譯]]係個令你可以快速翻譯頁面到你嘅語言嘅工具。[$1 即刻試下！]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|內容翻譯]]係個令你可以快速翻譯頁面到你嘅語言嘅工具。[$1 即刻試下！]",
 	"cx-error-server-connection": "出錯：連唔到去伺服器。",
 	"cx-desc": "[[Special:ContentTranslation|翻譯]]內容頁面更加簡單",
 	"cx-header-progressbar-text": "$1%翻譯咗",

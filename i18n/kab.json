@@ -7,7 +7,7 @@
 	"cx": "Suqel asebter",
 	"cx-dashboard-header": "Tisuqilin",
 	"cx-javascript": "Afecku-agi ur iteddu ara s war JavaScript.",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|afecku n tsuqilt n ugbur]] ad isireg tasuqilt s zreb n isebtar ar tutlayt-ik. [$1 Ɛreḍ-it !]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|afecku n tsuqilt n ugbur]] ad isireg tasuqilt s zreb n isebtar ar tutlayt-ik. [$1 Ɛreḍ-it !]",
 	"cx-error-server-connection": "Tuccḍa : Ur izmir ara ad yeqqen ar uqeddac.",
 	"cx-desc": "Ad yessifses [[Special:ContentTranslation|tasuqilt]] n isebtar n ugbur",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|yettwasuqel|0=ttwasuqlen}}",

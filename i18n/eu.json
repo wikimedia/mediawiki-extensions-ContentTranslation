@@ -14,7 +14,7 @@
 	"cx": "Orria itzuli",
 	"cx-dashboard-header": "Itzulpenak",
 	"cx-javascript": "Tresna honek ez du funtzionatzen JavaScript gabe. JavaScript desgaituta dago, ez du funtzionatu, edo ez da bateragarria nabigatzaile honekin.",
-	"cx-specialpage-enable-betafeature": "[[mw:ContentTranslation|Content Translation]], orriak modu azkar batean zure hizkuntzara itzultzeko tresna da. [$1 Probatu orain!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]], orriak modu azkar batean zure hizkuntzara itzultzeko tresna da. [$1 Probatu orain!]",
 	"cx-license-agreement": "Jarraituz gero, onartzen dituzu [https://foundation.wikimedia.org/wiki/Terms_of_Use  erabilera baldintzak], eta modu ezeztaezinean onartzen duzu zure ekarpenak [https://creativecommons.org/licenses/by-sa/3.0/ Creative Commons Aitortu-PartekatuBerdin 3.0] eta [https://www.gnu.org/copyleft/fdl.html GFDL] lizentziekin plazaratzea.",
 	"cx-error-server-connection": "Arazoa: Ezin izan da zerbitzarira konektatu.",
 	"cx-desc": "Erraztu eduki orrien [[Special:ContentTranslation|itzulpena]]",

@@ -67,7 +67,7 @@
 	"cx-tools-mt-provider-title": "Nota $1",
 	"cx-tools-mt-dont-use": "Byrja með auðri málsgrein",
 	"cx-tools-mt-set-default": "Halda sem sjálfgefnu",
-	"cx-tools-mt-noservices": "Þýðingar þjónustur ekki aðgengilegar fyrir valin tungumál.[[mw:Special:MyLanguage/Content_translation/Machine_Translation|Af hverju?]]",
+	"cx-tools-mt-noservices": "Þýðingar þjónustur ekki aðgengilegar fyrir valin tungumál.[[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Af hverju?]]",
 	"cx-tools-mt-preferred": "sjálfgefið",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 flokkur|$1 flokkar|0=Enginn flokkur}}",
 	"cx-stats-title": "Tölfræði fyrir Content Translation",
