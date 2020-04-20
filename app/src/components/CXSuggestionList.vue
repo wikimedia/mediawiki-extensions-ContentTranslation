@@ -13,7 +13,7 @@
         <cx-translation-suggestion
           :suggestion="suggestion"
           :from="sourceLanguage"
-          :to="targetLangauge"
+          :to="targetLanguage"
           class="col-12 pa-0 ma-0"
         />
       </div>
@@ -54,7 +54,7 @@ export default {
       type: String,
       default: "en"
     },
-    targetLangauge: {
+    targetLanguage: {
       type: String
     }
   },
@@ -69,7 +69,7 @@ export default {
       suggestions: state => state.suggestions.suggestions
     }),
     suggestionsForPair() {
-      const key = `${this.sourceLanguage}/${this.targetLangauge}`;
+      const key = `${this.sourceLanguage}/${this.targetLanguage}`;
       const suggestions = this.suggestions[key]?.suggestions;
       return suggestions || [];
     },
@@ -96,7 +96,7 @@ export default {
   created: function() {
     this.$store.dispatch("suggestions/getSuggestions", {
       from: this.sourceLanguage,
-      to: this.targetLangauge
+      to: this.targetLanguage
     });
   }
 };
