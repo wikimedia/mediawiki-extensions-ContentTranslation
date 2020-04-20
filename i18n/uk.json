@@ -247,7 +247,7 @@
 	"cx-tools-linter-generic-title": "Є проблема з Вашим перекладом",
 	"cx-tools-linter-abuse-filter": "Фільтри редагувань виявили проблематичний вміст у Вашому перекладі",
 	"cx-tools-linter-title": "Проблеми із вмістом: $1",
-	"cx-tools-linter-content": "Вміст не відповідає [//www.mediawiki.org/wiki/Content_translation/Abuse_filter обмеженням, які встановила $1 Вікіпедія]. Будь ласка, виправте ці проблеми, перш ніж публікувати переклад.",
+	"cx-tools-linter-content": "Вміст не відповідає [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter обмеженням, які встановила $1 Вікіпедія]. Будь ласка, виправте ці проблеми, перш ніж публікувати переклад.",
 	"cx-tools-linter-view-details": "Показати деталі",
 	"cx-tools-linter-hide-details": "Сховати деталі",
 	"cx-tools-linter-empty-title": "Ваш переклад потребує назви",

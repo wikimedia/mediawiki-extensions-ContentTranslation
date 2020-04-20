@@ -254,7 +254,7 @@
 	"cx-tools-linter-generic-title": "Wystąpił problem z Twoim tłumaczeniem",
 	"cx-tools-linter-abuse-filter": "Filtr nadużyć wykrył problematyczną treść w twoim tłumaczeniu",
 	"cx-tools-linter-title": "Problemy z zawartością: $1",
-	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [//www.mediawiki.org/wiki/Content_translation/Abuse_filter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
+	"cx-tools-linter-content": "Stwierdzono zawartość, która nie narusza [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter ograniczenia ustanowione w Wikipedii w $1]. Proszę poprawić problemy przed publikacją tłumaczenia.",
 	"cx-tools-linter-view-details": "Pokaż szczegóły",
 	"cx-tools-linter-hide-details": "Ukryj szczegóły",
 	"cx-tools-linter-empty-title": "Twoje tłumaczenie wymaga tytułu",
