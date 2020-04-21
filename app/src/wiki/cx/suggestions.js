@@ -8,6 +8,7 @@ function fetchSuggestions(source, target, seedArticles) {
     source,
     target,
     seed: seedArticles,
+    search: "related_articles",
     application: "CX"
   };
   const apiURL = mw.config.get("wgRecommendToolAPIURL");
