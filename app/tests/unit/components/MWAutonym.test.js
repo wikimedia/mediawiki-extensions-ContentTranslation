@@ -1,12 +1,12 @@
 import Vuex from "vuex";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import MwAutonym from "@/lib/mediawiki.ui/components/MWAutonym";
-import wikipedia from "@/store/modules/wikipedia";
+import mediawiki from "@/store/modules/mediawiki";
 
 describe("MwAutonym.vue", () => {
   let store,
     localVue,
-    storeConfig = { modules: { wikipedia } };
+    storeConfig = { modules: { mediawiki } };
 
   beforeEach(() => {
     localVue = createLocalVue();
@@ -24,8 +24,8 @@ describe("MwAutonym.vue", () => {
         dir
       }
     };
-    expect(Object.keys(store.state.wikipedia.languageInfo).length).toBe(0);
-    store.commit("wikipedia/setLanguageInfo", languageInfo);
+    expect(Object.keys(store.state.mediawiki.languageInfo).length).toBe(0);
+    store.commit("mediawiki/setLanguageInfo", languageInfo);
     const wrapper = shallowMount(MwAutonym, {
       propsData: { lang },
       store,

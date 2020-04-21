@@ -3,11 +3,11 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { withA11y } from "@storybook/addon-a11y";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import wikipedia from "@/store/modules/wikipedia";
+import mediawiki from "@/store/modules/mediawiki";
 import centered from "@storybook/addon-centered/vue";
 
 Vue.use(Vuex);
-const store = new Vuex.Store({ modules: { wikipedia } });
+const store = new Vuex.Store({ modules: { mediawiki } });
 const languageInfo = {
   en: {
     autonym: "English",
@@ -22,7 +22,7 @@ const languageInfo = {
     dir: "ltr"
   }
 };
-store.commit("wikipedia/setLanguageInfo", languageInfo);
+store.commit("mediawiki/setLanguageInfo", languageInfo);
 export default {
   title: "Components",
   component: MwAutonym,

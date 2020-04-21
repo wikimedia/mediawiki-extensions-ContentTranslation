@@ -66,7 +66,7 @@ export default {
   components: { MwThumbnail, MwAutonym, MwIcon },
   computed: {
     ...mapState({
-      articles: state => state.wikipedia.articles
+      articles: state => state.mediawiki.articles
     })
   },
   methods: {
@@ -74,7 +74,7 @@ export default {
       this.$emit("click", e);
     },
     getMetadata(language, title) {
-      return this.$store.getters["wikipedia/getMetadata"](language, title);
+      return this.$store.getters["mediawiki/getMetadata"](language, title);
     },
     getImage(language, title) {
       const metadata = this.getMetadata(language, title);

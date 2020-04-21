@@ -58,7 +58,7 @@ export default {
       return this.metadata && this.metadata.thumbnail;
     },
     metadata: function() {
-      return this.$store.getters["wikipedia/getMetadata"](
+      return this.$store.getters["mediawiki/getMetadata"](
         this.from,
         this.displayTitle
       );

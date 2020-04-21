@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     ...mapState({
-      languageInfo: state => state.wikipedia.languageInfo
+      languageInfo: state => state.mediawiki.languageInfo
     }),
     classes() {
       return {

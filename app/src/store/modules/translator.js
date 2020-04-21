@@ -29,7 +29,7 @@ const actions = {
       commit("setPublishedTranslations", publishedTranslations);
       for (let i = 0; i < publishedTranslations.length; i++) {
         dispatch(
-          "wikipedia/fetchMetadata",
+          "mediawiki/fetchMetadata",
           {
             language: publishedTranslations[i].translation.sourceLanguage,
             titles: [publishedTranslations[i].translation.sourceTitle]
@@ -44,7 +44,7 @@ const actions = {
       commit("setDraftTranslations", draftTranslations);
       for (let i = 0; i < draftTranslations.length; i++) {
         dispatch(
-          "wikipedia/fetchMetadata",
+          "mediawiki/fetchMetadata",
           {
             language: draftTranslations[i].translation.sourceLanguage,
             titles: [draftTranslations[i].translation.sourceTitle]

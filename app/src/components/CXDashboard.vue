@@ -104,7 +104,7 @@ export default {
   },
   created: function() {
     this.$store.dispatch("translator/init");
-    this.$store.dispatch("wikipedia/fetchLanguageInfo");
+    this.$store.dispatch("mediawiki/fetchLanguageInfo");
   }
 };
 </script>

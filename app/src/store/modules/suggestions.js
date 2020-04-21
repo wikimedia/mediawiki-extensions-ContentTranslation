@@ -34,7 +34,7 @@ const actions = {
           titles.push(suggestions[i].title);
         }
         dispatch(
-          "wikipedia/fetchMetadata",
+          "mediawiki/fetchMetadata",
           { language: suggestionRequest.from, titles },
           { root: true }
         );
