@@ -21,6 +21,11 @@ module.exports = {
     optimization: {
       splitChunks: {
         cacheGroups: {
+          mediawiki_ui: {
+            test: /[\\/]lib\/mediawiki.ui[\\/]/,
+            name: "mediawiki.ui",
+            chunks: "all"
+          },
           libs: {
             test: /[\\/]node_modules[\\/]/,
             name: "cxdashboard.libs",

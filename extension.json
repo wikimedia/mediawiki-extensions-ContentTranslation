@@ -336,10 +336,12 @@
 			],
 			"scripts": [
 				"dist/js/cxdashboard.js",
-				"dist/js/cxdashboard.libs.js"
+				"dist/js/cxdashboard.libs.js",
+				"dist/js/mediawiki.ui.js"
 			],
 			"styles": [
-				"dist/css/dashboard.css"
+				"dist/css/dashboard.css",
+				"dist/css/mediawiki.ui.css"
 			],
 			"dependencies": [
 				"mediawiki.user"
