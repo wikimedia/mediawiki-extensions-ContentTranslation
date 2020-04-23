@@ -133,8 +133,8 @@ export default {
   .mw-ui-dialog__shell {
     flex-direction: column;
     background-color: @background-color-base;
-    border-radius: @borderRadius;
-    border: 1px solid @colorFieldBorder;
+    border: @border-base;
+    border-radius: @border-radius-base;
     position: relative;
     max-width: calc(100vw - 100px);
     min-width: 300px;

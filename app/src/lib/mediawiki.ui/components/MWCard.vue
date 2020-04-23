@@ -26,7 +26,7 @@ export default {
   background-color: @background-color-base;
   box-sizing: border-box;
   margin-bottom: 1em;
-  border-radius: @borderRadius;
+  border-radius: @border-radius-base;
   padding: 8px;
   .box-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
   .mw-ui-card__title {

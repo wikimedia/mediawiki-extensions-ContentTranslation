@@ -1,3 +1,8 @@
+@import "./colors.less";
+
+// Border
+@border-base: @border-width-base @border-style-base @border-color-base;
+
 // Border styles
 @border-style-base: solid;
 
@@ -8,4 +13,5 @@
 @borderWidthRadioChecked: 0.4285em;
 
 // Global border radius to be used to buttons and inputs
-@borderRadius: 2px;
+@border-radius-base: 2px;
+@borderRadius: @border-radius-base;

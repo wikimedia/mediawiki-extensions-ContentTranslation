@@ -154,8 +154,8 @@ export default {
   box-sizing: border-box;
   width: auto;
   color: @colorGray1;
-  border: 1px solid @colorFieldBorder;
-  border-radius: @borderRadius;
+  border: @border-base;
+  border-radius: @border-radius-base;
   // necessary for smooth transition
   box-shadow: inset 0 0 0 0.1em #fff;
   &:hover {
