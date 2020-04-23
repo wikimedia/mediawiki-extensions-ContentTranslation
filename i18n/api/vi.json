@@ -6,6 +6,7 @@
 			"Max20091",
 			"Minh Nguyen",
 			"Nguyên Lê",
+			"Phjtieudoc",
 			"Quenhitran"
 		]
 	},
@@ -40,8 +41,8 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Số bản dịch tối đa để lấy.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Nhận tất cả các bản dịch đã được xuất bản",
-	"apihelp-query+cxpublishedtranslations-example-2": "Nhận tất cả các bản dịch đã được xuất bản, dịch từ tiếng Anh",
+	"apihelp-query+cxpublishedtranslations-example-1": "Nhận tất cả bản dịch đã được xuất bản",
+	"apihelp-query+cxpublishedtranslations-example-2": "Nhận tất cả bản dịch đã được xuất bản, dịch từ tiếng Anh",
 	"apihelp-query+cxpublishedtranslations-example-3": "Nhận tất cả các bản dịch đã được xuất bản, dịch từ tiếng Anh sang tiếng Tây Ban Nha",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Mã ngôn ngữ gốc.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Mã ngôn ngữ đích.",

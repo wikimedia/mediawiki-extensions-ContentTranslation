@@ -29,7 +29,7 @@
 	"cx": "ページの翻訳",
 	"cx-dashboard-header": "翻訳",
 	"cx-javascript": "このツールの動作にはJavaScriptが必要です。JavaScriptが無効か、作動していないか、ブラウザでサポートされていません。",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|コンテンツ翻訳]]はページをあなたの言語へ素早く翻訳するためのツールです。[$1 今すぐ試してみましょう！]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|コンテンツ翻訳]]はページを皆さんの言語へ手早く翻訳するツールです。[$1 今すぐ試してみましょう！]",
 	"cx-license-agreement": "このツールを使用することで、あなたは[//foundation.wikimedia.org/wiki/Terms_of_Use 利用規約]に同意し、自分の投稿内容を[https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0ライセンス]、および[//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]のもとで公開することに撤回不可能な形で同意することになります。",
 	"cx-error-server-connection": "エラー: サーバーに接続できませんでした。",
 	"cx-desc": "ページの[[Special:ContentTranslation|翻訳]]を支援する",

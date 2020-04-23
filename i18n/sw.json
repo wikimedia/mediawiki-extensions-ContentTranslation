@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Edwingudfriend",
 			"Kipala",
 			"Rance",
 			"Yasen igra"
 		]
 	},
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]]ni zana ya kutafsiri haraka kurasa katika lugha yako [$1 Jaribu Tena]",
 	"cx-tools-instructions-text4": "Tafsiri ya kompyuta kwa kawaida haina matokeo mazuri kwa Kiswahili, unahitaji kupitia tena matini yote na kusahihisha.",
 	"cx-tools-link-add": "Ongeza kiungo",
 	"cx-dashboard-sidebar-stats": "Takwimu",

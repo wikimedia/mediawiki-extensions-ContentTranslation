@@ -74,7 +74,7 @@
 	"cx-tools-mt-provider-title": "$1 ব্যবহার করুন",
 	"cx-tools-mt-dont-use": "একটি খালি অনুচ্ছেদসহ শুরু করুন",
 	"cx-tools-mt-set-default": "পূর্ব-নির্ধারিত হিসেবে রাখুন",
-	"cx-tools-mt-noservices": "নির্বাচিত ভাষার জন্য অনুবাদ পরিষেবা উপলব্ধ নয়। [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|কেন?]]",
+	"cx-tools-mt-noservices": "নির্বাচিত ভাষাটির জন্য অনুবাদ পরিষেবা উপলব্ধ নয়। [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|কেন?]]",
 	"cx-tools-mt-preferred": "পূর্বনির্ধারিত",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1টি বিষয়শ্রেণী|0=কোন বিষয়শ্রেণী নেই}}",
 	"cx-stats-title": "বিষয়বস্তু অনুবাদের পরিসংখ্যান",
