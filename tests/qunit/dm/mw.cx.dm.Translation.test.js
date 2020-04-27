@@ -16,7 +16,6 @@
 		var $fixture = $( '#qunit-fixture' ),
 			done = assert.async();
 
-		// eslint-disable-next-line no-jquery/no-event-shorthand
 		$fixture.load( testDataPath, function () {
 			var sourceHTML = $fixture.find( '#source-page-content' ).html(),
 				sourceDom, targetDom;

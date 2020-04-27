@@ -20,7 +20,6 @@
 		var $fixture = $( '#qunit-fixture' ),
 			done = assert.async();
 
-		// eslint-disable-next-line no-jquery/no-event-shorthand
 		$fixture.load( testDataPath + 'draft-sample-1.html', function () {
 			var cleanedHTML, publisher;
 
