@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Reptilien.19831209BE1"
+		]
+	},
+	"cx-header-all-translations": "Tos les ratournaedjes",
+	"cx-source-view-page": "mostrer l’&nbsp;pådje",
+	"cx-source-loading": "Tcherdjaedje di",
+	"cx-tools-link-title": "Hårdêye",
+	"cx-tools-link-add": "Radjouter ene hårdêye",
+	"cx-tools-link-remove": "Risaetchî l’&nbsp;hårdêye",
+	"cx-tools-mt-provider-title": "Eployî $1",
+	"cx-suggestionlist-expand": "Tot håyner",
+	"cx-suggestionlist-collapse": "Håyner moens",
+	"cx-infobar-view-issues": "Håyner les rujhes",
+	"cx-tools-linter-issues": "Rujhes",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1|0=Nole}} rujhe{{PLURAL:$1||s}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1|0=Nou}} adviertismint{{PLURAL:$1||s}}",
+	"cx-tools-linter-learn-more": "Endè saveur di pus"
+}
