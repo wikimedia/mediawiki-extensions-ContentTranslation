@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abdullahi",
 			"Abshirdheere"
 		]
 	},
@@ -38,6 +39,7 @@
 	"cx-tools-mt-provider-title": "Adeegso $1",
 	"cx-tools-mt-dont-use": "Ha adeegsan turjumad aaladeed",
 	"cx-stats-title": "Tirakoobka wax turjumidda",
+	"cx-error-page-not-found": "Bogga  \"$1\" ma laga heli karin $2 Wikipedia",
 	"cx-selected-source-page-error-page-and-title-exist": "Ciwaankaan horay baa loo adeegsaday [$1 $2] si [$3 ka bedelan bogga]",
 	"cx-selected-source-page-error-title-in-use": "Ciwaanka boggaan cusub waa [$1 la adeegsaday mar hore]",
 	"cx-mt-abuse-warning-title": "Turjumaaddaadii {{PLURAL:$1|waa}} $1% qoraal si aaladeed loo turjumay iyada oo aan la bedelin",
