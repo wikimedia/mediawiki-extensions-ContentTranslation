@@ -84,7 +84,7 @@ mw.cx.SourcePageSelector.prototype.listen = function () {
 	this.languageFilter.on( 'resize', this.pageSelector.positionLabel.bind( this.pageSelector ) );
 
 	this.discardButton.connect( this, { click: 'discardDialog' } );
-	this.pageSelector.onLookupMenuItemChoose = function ( source ) {
+	this.pageSelector.onLookupMenuChoose = function ( source ) {
 		this.selectedSourcePage.setData(
 			source.getData(),
 			source.$label.prop( 'href' ),
