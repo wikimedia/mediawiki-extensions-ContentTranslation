@@ -4,7 +4,7 @@ import MwBottomNavigation from "@/lib/mediawiki.ui/components/MWBottomNavigation
 describe("MwBottomNavigation.vue", () => {
   test("is a Vue instance", () => {
     const wrapper = shallowMount(MwBottomNavigation);
-    expect(wrapper.isVueInstance()).toBeTruthy();
+    expect(wrapper.vm).toBeTruthy();
   });
 
   test("renders correctly", () => {

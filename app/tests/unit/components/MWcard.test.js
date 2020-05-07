@@ -4,7 +4,7 @@ import MwCard from "@/lib/mediawiki.ui/components/MWCard";
 describe("MwCard.vue", () => {
   test("is a Vue instance", () => {
     const wrapper = shallowMount(MwCard);
-    expect(wrapper.isVueInstance()).toBeTruthy();
+    expect(wrapper.vm).toBeTruthy();
   });
 
   test("renders correctly", () => {

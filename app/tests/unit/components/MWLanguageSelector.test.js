@@ -23,7 +23,7 @@ describe("MWLanguageSelector.vue", () => {
     const wrapper = shallowMount(MwLanguageSelector, {
       propsData: { placeholder, languages }
     });
-    expect(wrapper.contains("mw-input-stub")).toBe(true);
+    expect(wrapper.find("mw-input-stub").exists()).toBe(true);
     expect(wrapper.find("mw-input-stub").attributes("placeholder")).toMatch(
       placeholder
     );

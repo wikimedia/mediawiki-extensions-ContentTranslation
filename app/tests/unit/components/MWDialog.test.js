@@ -6,7 +6,7 @@ describe("MWDialog.vue", () => {
     const wrapper = shallowMount(MwDialog, {
       propsData: { title: "Dialog Title" }
     });
-    expect(wrapper.contains(".mw-ui-dialog__header-title")).toBe(true);
+    expect(wrapper.find(".mw-ui-dialog__header-title").exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

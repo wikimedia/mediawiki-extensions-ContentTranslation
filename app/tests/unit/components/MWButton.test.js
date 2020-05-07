@@ -10,7 +10,7 @@ describe("MWButton.vue", () => {
       propsData: { id }
     });
     expect(wrapper.attributes("id")).toMatch(id);
-    expect(wrapper.contains("button")).toBe(true);
+    expect(wrapper.find("button").exists()).toBe(true);
     expect(wrapper.classes(buttonClass)).toBe(true);
   });
 
@@ -19,7 +19,7 @@ describe("MWButton.vue", () => {
     const wrapper = shallowMount(MwButton, {
       propsData: { href }
     });
-    expect(wrapper.contains("a")).toBe(true);
+    expect(wrapper.find("a").exists()).toBe(true);
     expect(wrapper.attributes("href")).toMatch(href);
   });
 
@@ -28,8 +28,8 @@ describe("MWButton.vue", () => {
     const wrapper = shallowMount(MwButton, {
       propsData: { href, indicator: mwIconTrash, label: "Label" }
     });
-    expect(wrapper.contains(".mw-ui-button__indicator")).toBe(true);
-    expect(wrapper.contains(".mw-ui-button__icon")).toBe(false);
+    expect(wrapper.find(".mw-ui-button__indicator").exists()).toBe(true);
+    expect(wrapper.find(".mw-ui-button__icon").exists()).toBe(false);
   });
 
   it("matches the snapshot with an HTML label", () => {
@@ -47,7 +47,7 @@ describe("MWButton.vue", () => {
       "Large button text with <b>html</b>"
     );
     // ... and not an html element as child.
-    expect(wrapper.contains(".mw-ui-button__label b")).toBe(false);
+    expect(wrapper.find(".mw-ui-button__label b").exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 

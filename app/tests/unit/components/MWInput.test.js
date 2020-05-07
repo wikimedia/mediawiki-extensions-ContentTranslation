@@ -9,7 +9,7 @@ describe("MWInput.vue", () => {
     const wrapper = shallowMount(MwInput, {
       propsData: { value }
     });
-    expect(wrapper.contains("input")).toBe(true);
+    expect(wrapper.find("input").exists()).toBe(true);
     expect(wrapper.find("input").element.value).toMatch(value);
     expect(wrapper.classes(inputClass)).toBe(true);
   });
@@ -20,7 +20,7 @@ describe("MWInput.vue", () => {
     const wrapper = shallowMount(MwInput, {
       propsData: { type, placeholder }
     });
-    expect(wrapper.contains("textarea")).toBe(true);
+    expect(wrapper.find("textarea").exists()).toBe(true);
     expect(wrapper.find("textarea").attributes("placeholder")).toMatch(
       placeholder
     );
@@ -31,8 +31,8 @@ describe("MWInput.vue", () => {
     const wrapper = shallowMount(MwInput, {
       propsData: { icon: mwIconTrash, indicator: mwIconAdd }
     });
-    expect(wrapper.contains(".mw-ui-input__indicator")).toBe(true);
-    expect(wrapper.contains(".mw-ui-input__icon")).toBe(true);
+    expect(wrapper.find(".mw-ui-input__indicator").exists()).toBe(true);
+    expect(wrapper.find(".mw-ui-input__icon").exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

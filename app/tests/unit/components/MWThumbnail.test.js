@@ -14,6 +14,6 @@ describe("MwThumbnail.vue", () => {
       propsData: {}
     });
 
-    expect(wrapper.contains(".mw-ui-thumbnail--missing")).toBe(true);
+    expect(wrapper.find(".mw-ui-thumbnail--missing").exists()).toBe(true);
   });
 });

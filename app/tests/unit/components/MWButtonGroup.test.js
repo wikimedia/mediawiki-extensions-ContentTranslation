@@ -4,7 +4,7 @@ import MwButtonGroup from "@/lib/mediawiki.ui/components/MWButtonGroup";
 describe("MwButtonGroup.vue", () => {
   test("is a Vue instance", () => {
     const wrapper = shallowMount(MwButtonGroup);
-    expect(wrapper.isVueInstance()).toBeTruthy();
+    expect(wrapper.vm).toBeTruthy();
   });
 
   test("renders correctly", () => {
