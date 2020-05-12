@@ -11,6 +11,7 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -30,14 +31,17 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	public function enableCXBetaFeature() {
-		$user = $this->getUser();
 		$out = $this->getOutput();
-		$user->setOption( 'cx', '1' );
+		$out->addJsConfigVars( 'wgContentTranslationBetaFeatureEnabled', true );
+
+		$user = $this->getUser();
 		// Promise to persist the setting post-send
 		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
-			$user->saveSettings();
+			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+			$user = $user->getInstanceForUpdate();
+			$optionsManager->setOption( $user, 'cx', '1' );
+			$optionsManager->saveOptions( $user );
 		} );
-		$out->addJsConfigVars( 'wgContentTranslationBetaFeatureEnabled', true );
 	}
 
 	public function isValidCampaign( $campaign ) {
