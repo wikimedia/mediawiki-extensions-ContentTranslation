@@ -1107,6 +1107,7 @@
 			],
 			"messages": [
 				"cx-translation-already-in-progress",
+				"cx-translation-already-in-progress-unknown",
 				"cx-translation-already-in-progress-collaborate",
 				"cx-create-new-translation"
 			]

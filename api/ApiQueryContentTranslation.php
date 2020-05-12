@@ -156,14 +156,17 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// to display the conflict message.
 		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
 		$centralIdLookup = CentralIdLookup::factory();
-		// $user can be null, but should never happen in our case because
-		// we redirect translators to the target wiki, and they cannot do
-		// translations without logging in.
+		// $user can be null if the local user does not exist. This should never happen
+		// in our case because we redirect translators to the target wiki, and they cannot
+		// do translations without logging in.
+		// $user can also be null, if the current user has no permission to see the user name.
+		// For whatever reason, fallback gracefully.
 		$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
-		$gender = $services->getGenderCache()->getGenderOf( $user, __METHOD__ );
-
-		$translation->translation['translatorName'] = $user->getName();
-		$translation->translation['translatorGender'] = $gender;
+		if ( $user ) {
+			$gender = $services->getGenderCache()->getGenderOf( $user, __METHOD__ );
+			$translation->translation['translatorName'] = $user->getName();
+			$translation->translation['translatorGender'] = $gender;
+		}
 
 		$result->addValue(
 			[ 'query', 'contenttranslation' ],

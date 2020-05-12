@@ -23,16 +23,23 @@
 		name = translation.translatorName;
 		gender = translation.translatorGender;
 
-		$userPage = $( '<a>' )
-			.text( name )
-			.prop( 'href', mw.util.getUrl( 'User:' + name ) );
+		if ( name ) {
+			$userPage = $( '<a>' )
+				.text( name )
+				.prop( 'href', mw.util.getUrl( 'User:' + name ) );
 
-		$info = $( '<div>' )
-			.addClass( 'cx-conflict-info' )
-			.msg( 'cx-translation-already-in-progress', $userPage, gender );
-		$collaborate = $( '<div>' )
-			.addClass( 'cx-conflict-info' )
-			.msg( 'cx-translation-already-in-progress-collaborate', gender );
+			$info = $( '<div>' )
+				.addClass( 'cx-conflict-info' )
+				.msg( 'cx-translation-already-in-progress', $userPage, gender );
+			$collaborate = $( '<div>' )
+				.addClass( 'cx-conflict-info' )
+				.msg( 'cx-translation-already-in-progress-collaborate', gender );
+		} else {
+			$info = $( '<div>' )
+				.addClass( 'cx-conflict-info' )
+				.msg( 'cx-translation-already-in-progress-unknown' );
+			$collaborate = $( '<div>' );
+		}
 		$action = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive cx-create-new-translation' )
 			.text( mw.msg( 'cx-create-new-translation' ) );
