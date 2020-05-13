@@ -8,7 +8,7 @@
 	"cx-dashboard-header": "ߘߟߊߡߌߘߊߟߌ",
 	"cx-javascript": "ߖߐ߯ߙߊ߲ ߣߌ߲߬ ߕߍ߫ ߓߊ߯ߙߊ߫ ߟߊ߫ JavaScript ߞߐ߫. JavaScript ߘߏ߲߬ ߓߐߣߍ߲߫ ߊ߬ ߟߊ߫߸ ߓߘߊ߫ ߞߢߊ߬ ߓߊ߯ߙߊ߫ ߟߊ߫߸ ߥߟߊ߫ ߛߏ߲߯ߓߊߟߊ߲ ߣߌ߲߬ ߛߐ߲߬ߣߍ߲߫ ߕߴߊ߬ ߘߐ߫.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] ߦߋ߫ ߖߐ߯ߙߊ߲ ߠߋ߬ ߘߌ߫ ߡߍ߲ ߦߋ߫ ߞߐߜߍ ߘߟߊߡߌ߬ߘߊ߬ ߟߴߌ ߟߊ߫ ߞߊ߲ ߘߐ߫ ߞߊߟߌߦߊ߫ ߘߐ߫. [ߊ߬ ߡߊߝߍߣߍ߲߫ ߓߊ߫ $1]",
-	"cx-license-agreement": "ߣߴߌ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߫ ߦߋ߫\n[//foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] ߛߙߊߕߌ ߡߊ߬߸ ߊ߬ ߣߴߌ ߣߡߌߛߊߓߊߟߌߦߊ߫ ߞߌߢߍ߫ ߣߍ߲߫ ߦߴߌ ߕߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ ߘߐ߫ [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] ߣߌ߫ [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ߟߎ߫ ߟߊ߫ ߓߌ߬ߟߊ ߘߐ߫.",
+	"cx-license-agreement": "ߣߴߌ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߫ ߦߋ߫\n[https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] ߛߙߊߕߌ ߡߊ߬߸ ߊ߬ ߣߴߌ ߣߡߌߛߊߓߊߟߌߦߊ߫ ߞߌߢߍ߫ ߣߍ߲߫ ߦߴߌ ߕߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ ߘߐ߫ [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] ߣߌ߫ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ߟߎ߫ ߟߊ߫ ߓߌ߬ߟߊ ߘߐ߫.",
 	"cx-error-server-connection": "ߝߎ߬ߕߎ߲߬ߕߌ:ߊ߬ ߕߍ߫ ߛߋ߫ ߊ߬ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߡߊ߬ߛߐ߬ߟߊ ߟߊ߫.",
 	"cx-desc": "ߊ߬ ߞߏ ߟߊߣߐ߰ߦߊ߫ ߞߊ߬ [[Special:ContentTranslation|translate]] ߞߣߐߘߐ ߞߐߜߍ ߟߎ߬",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲}}",

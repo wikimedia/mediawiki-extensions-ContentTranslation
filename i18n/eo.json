@@ -20,7 +20,7 @@
 	"cx-dashboard-header": "Tradukoj",
 	"cx-javascript": "Ĉi tiu ilo ne funkcias sen JavaScript. Aŭ JavaScript estas malŝaltita, aŭ Javascript misfunkciis, aŭ via TTT-legilo ne estas subtenata.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|EnhavTradukado]] estas ilo por rapida tradukado de paĝoj en vian lingvon. [$1 Provu ĝin nun!]",
-	"cx-license-agreement": "Daŭrigante vi konsentas kun [//foundation.wikimedia.org/wiki/Terms_of_Use Kondiĉoj de uzado] kaj vi nerevokeble konsentas liberigi vian kontribuojn laŭ la [https://creativecommons.org/licenses/by-sa/3.0/ Permesilo CC BY-SA 3.0] kaj [//eo.wikipedia.org/wiki/Vikipedio:GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Daŭrigante vi konsentas kun [https://foundation.wikimedia.org/wiki/Terms_of_Use Kondiĉoj de uzado] kaj vi nerevokeble konsentas liberigi vian kontribuojn laŭ la [https://creativecommons.org/licenses/by-sa/3.0/ Permesilo CC BY-SA 3.0] kaj [//eo.wikipedia.org/wiki/Vikipedio:GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Eraro: Ne eblas konekti al servilo.",
 	"cx-desc": "Plifaciligas [[Special:ContentTranslation|tradukadon]] de enhavaj paĝoj",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradukita|tradukitaj}}",

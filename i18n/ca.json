@@ -24,7 +24,7 @@
 	"cx-dashboard-header": "Traduccions",
 	"cx-javascript": "Aquesta eina no funciona sense JavaScript. El JavaScript està inhabilitat, no funciona o el navegador no el permet.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traducció de continguts]] és una eina per a traduir ràpidament pàgines en la vostra llengua. [$1 Proveu-la ara!]",
-	"cx-license-agreement": "Al continuar esteu acceptant els [//foundation.wikimedia.org/wiki/Terms_of_Use termes d'ús] i accepteu alliberar irrevocablement les vostres contribucions sota la [https://creativecommons.org/licenses/by-sa/3.0/deed.ca llicència CC BY-SA 3.0] i la [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Al continuar esteu acceptant els [https://foundation.wikimedia.org/wiki/Terms_of_Use termes d'ús] i accepteu alliberar irrevocablement les vostres contribucions sota la [https://creativecommons.org/licenses/by-sa/3.0/deed.ca llicència CC BY-SA 3.0] i la [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Error: No s'ha pogut connectar al servidor.",
 	"cx-desc": "Fa fàcil [[Special:ContentTranslation|traduir]] pàgines de contingut",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduït}}",

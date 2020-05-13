@@ -14,7 +14,7 @@
 	"cx-dashboard-header": "Prevodi",
 	"cx-javascript": "Ova alatka ne radi bez JavaScript-a. JavaScript je onemogućen, ne radi ili je ovaj pregledač nepodržan.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Prevođenje sadržaja]] je alatka za brz prevod stranica na vaš jezik. [$1 Isprobajte je odmah!]",
-	"cx-license-agreement": "Klikom na dugme „$1”, prihvatate [//foundation.wikimedia.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo prihvatate da objavite doprinose sa alatkom za prevođenje pod licencama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s obzirom na to je hiperveza ili URL adresa dovoljna za pripisivanje po licenci CC BY-SA 3.0.",
+	"cx-license-agreement": "Klikom na dugme „$1”, prihvatate [https://foundation.wikimedia.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo prihvatate da objavite doprinose sa alatkom za prevođenje pod licencama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] s obzirom na to je hiperveza ili URL adresa dovoljna za pripisivanje po licenci CC BY-SA 3.0.",
 	"cx-error-server-connection": "Greška: Nije moguće povezati se sa serverom.",
 	"cx-desc": "Olakšava [[Special:ContentTranslation|prevođenje]] stranica sa sadržajem",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "ભાષાંતરો",
 	"cx-javascript": "આ સાધન જાવાસ્ક્રિપ્ટ વગર કામ કરશે નહી. જાવાસ્ક્રિપ્ટ અસક્રિય કરેલી છે, કામ કરતી નથી, અથવા આ બ્રાઉઝરને આધાર આપતી નથી.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|ભાષાંતર સાધન]] તમારી ભાષામાં લેખ બનાવવા માટે સરળતા કરી આપે છે. [$1 તેને અજમાવો!]",
-	"cx-license-agreement": "આગળ વધીને, તમે [//foundation.wikimedia.org/wiki/Terms_of_Use વપરાશની શરતો] સાથે સંમત થાવ છો અને તમે ભાષાંતર સાધનની મદદથી આપેલું તમારું યોગદાન પાછું ન ફેરવવાની શરતે [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 લાયસન્સ] અને [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] હેઠળ પ્રકાશિત કરો છો.",
+	"cx-license-agreement": "આગળ વધીને, તમે [https://foundation.wikimedia.org/wiki/Terms_of_Use વપરાશની શરતો] સાથે સંમત થાવ છો અને તમે ભાષાંતર સાધનની મદદથી આપેલું તમારું યોગદાન પાછું ન ફેરવવાની શરતે [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 લાયસન્સ] અને [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] હેઠળ પ્રકાશિત કરો છો.",
 	"cx-error-server-connection": "ક્ષતિ: સર્વર સાથે જોડાણ થઇ શક્યું નહી.",
 	"cx-desc": "લેખોને સહેલાઇથી [[Special:ContentTranslation|ભાષાંતર]] કરવામાં મદદ કરે છે",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|અનુવાદિત}}",

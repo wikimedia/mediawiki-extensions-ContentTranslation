@@ -33,7 +33,7 @@
 	"cx-dashboard-header": "Çeviriler",
 	"cx-javascript": "Bu araç JavaScript olmadan çalışmaz. JavaScript devredışı, çalıştırılamadı veya bu tarayıcı desteklenmiyor.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|İçerik çevirisi]], sayfaları hızla kendi dilinize çevirmek için kullanılan bir araçtır. [$1 Hemen dene!]",
-	"cx-license-agreement": "Devam ederek  [//foundation.wikimedia.org/wiki/Terms_of_Use Terms Kullanım Koşullarını] kabul etmiş olursunuz ve katkılarınızı [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//tr.wikipedia.org/wiki/Vikipedi:GNU_Özgür_Belgeleme_Lisansı GFDL] kapsamında yayımlamayı geri dönülmez şekilde kabul etmiş olursunuz.",
+	"cx-license-agreement": "Devam ederek  [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms Kullanım Koşullarını] kabul etmiş olursunuz ve katkılarınızı [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [//tr.wikipedia.org/wiki/Vikipedi:GNU_Özgür_Belgeleme_Lisansı GFDL] kapsamında yayımlamayı geri dönülmez şekilde kabul etmiş olursunuz.",
 	"cx-error-server-connection": "Hata: Sunucuya bağlanılamadı.",
 	"cx-desc": "İçerik sayfalarını [[Special:ContentTranslation|çevirmeyi]] kolaylaştırır",
 	"cx-header-progressbar-text": "%$1 {{PLURAL:$1|çevrildi}}",

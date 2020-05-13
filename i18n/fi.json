@@ -22,7 +22,7 @@
 	"cx-dashboard-header": "Käännökset",
 	"cx-javascript": "Tämä työkalu ei toimi ilman JavaScriptiä. JavaScript on poistettu käytöstä, se ei toimi, tai tätä selainta ei tueta.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Sisällön kääntäminen]] on työkalu, jolla voit nopeasti kääntää sivuja kielellesi. [$1 Kokeile nyt!]",
-	"cx-license-agreement": "Jatkamalla hyväksyt [//foundation.wikimedia.org/wiki/Terms_of_Use/fi käyttöehdot] ja suostut peruuttamattomasti julkaisemaan muutokset [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0]- ja [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]-lisensseillä.",
+	"cx-license-agreement": "Jatkamalla hyväksyt [https://foundation.wikimedia.org/wiki/Terms_of_Use/fi käyttöehdot] ja suostut peruuttamattomasti julkaisemaan muutokset [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0]- ja [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]-lisensseillä.",
 	"cx-error-server-connection": "Virhe: Yhdistäminen palvelimeen epäonnistui.",
 	"cx-desc": "Helpottaa sisällön [[Special:ContentTranslation|kääntämistä]]",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|käännetty}}",

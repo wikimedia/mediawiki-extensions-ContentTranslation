@@ -25,7 +25,7 @@
 	"cx-dashboard-header": "Översättningar",
 	"cx-javascript": "Detta verktyg fungerar inte utan JavaScript. JavaScript är inaktiverat, fungerar inte eller stöds inte denna webbläsare.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Innehållsöversättning]] är ett verktyg för att snabbt översätta sidor till ditt språk. [$1 Prova nu!]",
-	"cx-license-agreement": "Genom att fortsätta går du med på [//foundation.wikimedia.org/wiki/Terms_of_Use användarvilkoren] och släpper oåterkalleligen dina bidrag under licenserna [https://creativecommons.org/licenses/by-sa/3.0/deed.sv CC BY-SA 3.0] och [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Genom att fortsätta går du med på [https://foundation.wikimedia.org/wiki/Terms_of_Use användarvilkoren] och släpper oåterkalleligen dina bidrag under licenserna [https://creativecommons.org/licenses/by-sa/3.0/deed.sv CC BY-SA 3.0] och [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Fel: Kunde inte ansluta till servern.",
 	"cx-desc": "Gör det enkelt att [[Special:ContentTranslation|översätta]] innehållssidor",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|översatt}}",

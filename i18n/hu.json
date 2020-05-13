@@ -21,7 +21,7 @@
 	"cx-dashboard-header": "Fordítások",
 	"cx-javascript": "Ez az eszköz nem működik JavaScript nélkül. A JavaScript le van tiltva, nem működik, vagy ez a böngésző nem támogatott.",
 	"cx-specialpage-enable-betafeature": "A [[mw:Content_translation/hu|Tartalomfordítóval]] könnyen fordíthatsz lapokat a nyelvedre. [$1 Próbáld ki most!]",
-	"cx-license-agreement": "A folytatással elfogadod a [//foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadod, hogy a hozzájárulásaidat a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt hozod nyilvánosságra.",
+	"cx-license-agreement": "A folytatással elfogadod a [https://foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadod, hogy a hozzájárulásaidat a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt hozod nyilvánosságra.",
 	"cx-error-server-connection": "Hiba: nem sikerült csatlakozni a szerverhez.",
 	"cx-desc": "Egyszerűvé teszi tartalmi lapok [[Special:ContentTranslation|fordítását]]",
 	"cx-header-progressbar-text": "$1% lefordítva",

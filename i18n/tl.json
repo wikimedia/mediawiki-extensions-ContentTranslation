@@ -13,7 +13,7 @@
 	"cx-dashboard-header": "Mga salinwika",
 	"cx-javascript": "Hindi gumagana ang kagamitang ito nang walang JavaScript. Nakasalanta ang JavaScript, pumalya ang paggana ito, o hindi sinusuportahan ang iyong pambasa-basa.",
 	"cx-specialpage-enable-betafeature": "Ang [[mw:Special:MyLanguage/Content_translation|Content Translation]] ay isang kagamitan para sa mabilisang pagsasalin ng mga pahina sa iyong wika. [$1 Subukan mo ito ngayon!]",
-	"cx-license-agreement": "Sa iyong pagtuloy sumasang-ayon ka sa mga [//foundation.wikimedia.org/wiki/Terms_of_Use Alituntunin sa Paggamit] at mariin kang sumasang-ayon na ilabas ang iyong mga inambag gamit ang kagamitang pansalinwika sa ilalim ng [https://creativecommons.org/licenses/by-sa/3.0/ Lisensiyang CC BY-SA 3.0] at ng [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Sa iyong pagtuloy sumasang-ayon ka sa mga [https://foundation.wikimedia.org/wiki/Terms_of_Use Alituntunin sa Paggamit] at mariin kang sumasang-ayon na ilabas ang iyong mga inambag gamit ang kagamitang pansalinwika sa ilalim ng [https://creativecommons.org/licenses/by-sa/3.0/ Lisensiyang CC BY-SA 3.0] at ng [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Kamalian: Hindi makakonekta sa serbidor.",
 	"cx-desc": "Pinapadali ang [[Special:ContentTranslation|pagsasalin]] ng mga pahina ng nilalaman",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|naisalin}}",

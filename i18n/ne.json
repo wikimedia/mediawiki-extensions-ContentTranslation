@@ -14,7 +14,7 @@
 	"cx-dashboard-header": "अनुवादहरू",
 	"cx-javascript": "यो औजार जाभास्क्रिप्ट बिना काम गर्दैन। जाभास्क्रिप्ट निस्क्रिय पारिएको छ, काम गर्न सकेन या ब्राउजर समर्थित छैन।",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|सामग्री अनुवाद]] पृष्ठहरूलाई छरितो रूपमा तपाईँको भाषामा पृष्ठहरू अनुवाद गर्ने औजार हो। [$1 अहिले नै प्रयोग गर्नुहोस्!]",
-	"cx-license-agreement": "निरन्तरता दिएर तपाईँ [//foundation.wikimedia.org/wiki/Terms_of_Use प्रयोगका सर्तहरूसँग] सहमत हुनुहुन्छ र अविछिन्न रूपमा तपाईँको योगदान [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] र [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] अन्तर्गत सार्वजनिक गर्न सहमत हुनुहुन्छ ।",
+	"cx-license-agreement": "निरन्तरता दिएर तपाईँ [https://foundation.wikimedia.org/wiki/Terms_of_Use प्रयोगका सर्तहरूसँग] सहमत हुनुहुन्छ र अविछिन्न रूपमा तपाईँको योगदान [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] र [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] अन्तर्गत सार्वजनिक गर्न सहमत हुनुहुन्छ ।",
 	"cx-error-server-connection": "त्रुटि : सर्भरसँग जडान गर्न सकिएन",
 	"cx-desc": "सामग्री पानाहरूलाई [[Special:ContentTranslation|अनुवाद]] गर्न सहज बनाउँछ",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|अनुवादित}}",

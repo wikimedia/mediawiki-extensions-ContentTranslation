@@ -9,7 +9,7 @@
 	"cx-dashboard-header": "Tulkojumi",
 	"cx-javascript": "Šis rīks nedarbojas bez JavaScript. JavaScript ir atspējots, nestrādā vai arī pārlūks nav atbalstīts.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Satura tulkošana]] ir rīks ātrai lapu tulkošanai uz tavu valodu. [$1 Izmēģini to tagad!]",
-	"cx-license-agreement": "Turpinot tu piekrīti [//foundation.wikimedia.org/wiki/Terms_of_Use lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/3.0/deed.lv CC BY-SA 3.0] un [//en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] licenci.",
+	"cx-license-agreement": "Turpinot tu piekrīti [https://foundation.wikimedia.org/wiki/Terms_of_Use lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/3.0/deed.lv CC BY-SA 3.0] un [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] licenci.",
 	"cx-error-server-connection": "Kļūda: Nevarēja izveidot savienojumu ar serveri.",
 	"cx-desc": "Padara vienkāršāku satura lapu [[Special:ContentTranslation|tulkošanu]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iztulkoti|iztulkots|iztulkoti}}",
