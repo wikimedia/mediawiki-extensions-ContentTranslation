@@ -79,8 +79,6 @@ class RestbaseClient {
 	 * @return string|false
 	 */
 	private function requestRestbase( $method, $path, $params, $reqheaders = [] ) {
-		global $wgVersion;
-
 		$request = [
 			'method' => $method,
 			'url' => '/restbase/local/v1/' . $path
@@ -93,7 +91,7 @@ class RestbaseClient {
 		// See https://www.mediawiki.org/wiki/Specs/HTML/2.1.0
 		$reqheaders['Accept'] =
 			'text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/HTML/2.1.0"';
-		$reqheaders['User-Agent'] = 'ContentTranslation-MediaWiki/' . $wgVersion;
+		$reqheaders['User-Agent'] = 'ContentTranslation-MediaWiki/' . MW_VERSION;
 		$request['headers'] = $reqheaders;
 		$response = $this->serviceClient->run( $request );
 		if ( $response['code'] === 200 && $response['error'] === '' ) {
