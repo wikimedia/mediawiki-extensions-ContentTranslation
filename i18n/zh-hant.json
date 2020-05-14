@@ -161,6 +161,7 @@
 	"cx-translation-label-draft": "進行中的翻譯",
 	"cx-translation-label-published": "已發布的譯文",
 	"cx-translation-already-in-progress": "此頁面目前正在{{GENDER:$2|由}} $1 翻譯。",
+	"cx-translation-already-in-progress-unknown": "這是由未知使用者正在進行中的翻譯。",
 	"cx-translation-already-in-progress-collaborate": "請確認您已與目前已翻譯此部份的{{GENDER:$1|使用者}}協調過。",
 	"cx-publishing-dialog-publish-draft-button": " 以草稿發布",
 	"cx-feedback-link": "提供意見回饋",

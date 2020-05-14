@@ -156,6 +156,7 @@
 	"cx-translation-label-draft": "Übersetzungen in Bearbeitung",
 	"cx-translation-label-published": "Veröffentlichte Übersetzungen",
 	"cx-translation-already-in-progress": "Dies ist eine laufende Übersetzung {{GENDER:$2|von}} $1.",
+	"cx-translation-already-in-progress-unknown": "Dies ist eine laufende Übersetzung durch einen unbekannten Benutzer.",
 	"cx-translation-already-in-progress-collaborate": "Bitte stelle sicher, dass du dich mit {{GENDER:$1|dem Benutzer|der Benutzerin}} abstimmst, {{GENDER:$1|der|die}} die aktuelle Übersetzung erstellt hat.",
 	"cx-publishing-dialog-publish-draft-button": "Als Entwurf veröffentlichen",
 	"cx-feedback-link": "Rückmeldung geben",
