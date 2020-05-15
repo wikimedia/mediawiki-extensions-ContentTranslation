@@ -167,6 +167,7 @@
 	"cx-translation-label-draft": "Traduções em curso",
 	"cx-translation-label-published": "Traduções publicadas",
 	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1.",
+	"cx-translation-already-in-progress-unknown": "Esta é uma tradução em andamento por usuário desconhecido.",
 	"cx-translation-already-in-progress-collaborate": "Por favor, certifique-se de coordenar com {{GENDER:$1|o usuário|a usuária}} que traduziu a tradução atual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como esboço",
 	"cx-feedback-link": "Fornecer comentários",

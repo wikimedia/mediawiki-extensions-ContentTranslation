@@ -149,6 +149,7 @@
 	"cx-translation-label-draft": "Преводи во тек",
 	"cx-translation-label-published": "Објавени преводи",
 	"cx-translation-already-in-progress": "Ова е превод во тек {{GENDER:$2|на}} $1.",
+	"cx-translation-already-in-progress-unknown": "Ова е превод во тек на непознат корисник.",
 	"cx-translation-already-in-progress-collaborate": "Не заборавајте да се усогласите со {{GENDER:$1|корисникот}} што го направил тековниот превод.",
 	"cx-publishing-dialog-publish-draft-button": "Објави како нацрт",
 	"cx-feedback-link": "Дајте ваше мислење",

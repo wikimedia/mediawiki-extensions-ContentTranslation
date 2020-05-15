@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"AlimOmar",
 			"Uzdil"
 		]
 	},
-	"cx-translation-add-translation": "تەرجىمە قوشۇش"
+	"cx-license-agreement": "داۋاملىق  [https://foundation.wikimedia.org/wiki/Terms_of_Use ئىشلىتىش ماددىلىرى ] غا قوشۇلۇپ، ھەمدە [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] ۋە [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] غا قىلغان تۆھپىلىرىڭىزنى قايتۇرماسلىققا قوشۇلۇڭ",
+	"cx-translation-add-translation": "تەرجىمە قوشۇش",
+	"cx-translation-already-in-progress-unknown": "بۇ نامەلۇم ئىشلەتكۈچىنىڭ داۋاملاشتۇرۇۋاتقان تەرجىمىسى."
 }

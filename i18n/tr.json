@@ -169,6 +169,7 @@
 	"cx-translation-label-draft": "Yapılmakta olan çeviri",
 	"cx-translation-label-published": "Yayınlanmış çeviriler",
 	"cx-translation-already-in-progress": "Bu {{GENDER:$2|kullanıcı}} $1 tarafından devam edilen bir çeviridir.",
+	"cx-translation-already-in-progress-unknown": "Bu bilinmeyen bir kullanıcı tarafından devam eden bir çeviridir.",
 	"cx-translation-already-in-progress-collaborate": "Lütfen çeviriye başlamış {{GENDER:$1|kullanıcı}} ile koordinasyon kurduğunuzdan emin olun.",
 	"cx-publishing-dialog-publish-draft-button": "Taslak olarak yayınla",
 	"cx-feedback-link": "Geri bildirim ver",
