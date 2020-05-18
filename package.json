@@ -22,6 +22,7 @@
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.10.1",
 		"wdio-mediawiki": "1.0.0",
+		"wdio-video-reporter": "2.0.0",
 		"webdriverio": "5.22.4"
 	}
 }
