@@ -163,6 +163,7 @@
 	"cx-translation-label-draft": "Переклади в процесі",
 	"cx-translation-label-published": "Опубліковані переклади",
 	"cx-translation-already-in-progress": "Це поточний переклад {{GENDER:$2|користувача|користувачки}} $1.",
+	"cx-translation-already-in-progress-unknown": "Це поточний переклад невідомого користувача.",
 	"cx-translation-already-in-progress-collaborate": "Будь ласка, переконайтеся, чи зміни узгоджені з {{GENDER:$1|перекладачем|перекладачкою}} поточного  перекладу.",
 	"cx-publishing-dialog-publish-draft-button": "Опублікувати як чернетку",
 	"cx-feedback-link": "Надіслати відгук",
