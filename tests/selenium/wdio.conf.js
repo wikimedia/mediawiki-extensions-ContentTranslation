@@ -2,10 +2,7 @@
  * See also: http://webdriver.io/guide/testrunner/configurationfile.html
  */
 const fs = require( 'fs' ),
-	path = require( 'path' ),
-	logPath = process.env.LOG_DIR || path.join( __dirname, '/log' ),
-	saveScreenshot = require( 'wdio-mediawiki' ).saveScreenshot,
-	video = require( 'wdio-video-reporter' );
+	saveScreenshot = require( 'wdio-mediawiki' ).saveScreenshot;
 
 exports.config = {
 	// ======
@@ -64,18 +61,7 @@ exports.config = {
 	waitforTimeout: 10 * 1000,
 
 	// See also: http://webdriver.io/guide/testrunner/reporters.html
-	reporters: [
-		'spec',
-		[
-		// See also: https://github.com/presidenten/wdio-video-reporter/blob/master/README.md
-			video, {
-				// If true, also saves videos for successful test cases. Default: false.
-				saveAllVideos: true,
-				// Path to directory where videos will be stored
-				outputDir: logPath
-			}
-		]
-	],
+	reporters: [ 'spec' ],
 
 	// See also: http://mochajs.org
 	mochaOpts: {
