@@ -38,7 +38,7 @@
       <ul class="sx-selector__missing-sections-list ma-0">
         <li
           class="row"
-          v-for="(sourceSection, key) in suggestion.missing"
+          v-for="(sourceSection, key) in suggestion.missingSections"
           :key="key"
         >
           <mw-button
@@ -62,6 +62,7 @@ import {
   mwIconClose,
   mwIconArrowForward
 } from "../lib/mediawiki.ui/components/icons";
+import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "sx-section-selector",
@@ -76,7 +77,7 @@ export default {
       default: false
     },
     suggestion: {
-      type: Object
+      type: SectionSuggestion
     }
   },
   methods: {

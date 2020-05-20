@@ -1,35 +1,36 @@
 import axios from "axios";
+import { Translation } from "../models/translation";
 
-function fetchTranslations(status) {
+async function fetchTranslations(offset) {
   const params = {
     action: "query",
     format: "json",
     assert: "user",
     formatversion: 2,
-    list: "contenttranslation",
-    type: status
+    list: "contenttranslation"
   };
   const api = mw.util.wikiScript("api");
+  if (offset) {
+    params["offset"] = offset;
+  }
   return axios({
     method: "get",
     url: api,
-    api,
     params,
     withCredentials: true
-  }).then(response => {
-    return response.data.query.contenttranslation.translations;
+  }).then(async response => {
+    const apiResponse = response.data.query.contenttranslation.translations;
+    let results = apiResponse.map(item => new Translation(item.translation));
+    if (response.data.continue?.offset) {
+      const restOfResults = await fetchTranslations(
+        response.data.continue.offset
+      );
+      results = results.concat(restOfResults);
+    }
+    return results;
   });
 }
 
-function fetchPublishedTranslations() {
-  return fetchTranslations("published");
-}
-
-function fetchDraftTranslations() {
-  return fetchTranslations("draft");
-}
-
 export default {
-  fetchDraftTranslations,
-  fetchPublishedTranslations
+  fetchTranslations
 };

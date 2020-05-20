@@ -8,7 +8,7 @@
       <div
         class="row pa-0 ma-0"
         :key="`suggestion-${index}`"
-        v-for="(suggestion, index) in pageSuggestionForPairSubset"
+        v-for="(suggestion, index) in pageSuggestionsForPairSubset"
       >
         <cx-translation-suggestion
           :suggestion="suggestion"
@@ -97,8 +97,8 @@ export default {
     endIndex: 3
   }),
   computed: {
-    pageSuggestionForPair() {
-      return this.$store.getters["suggestions/getSuggestionsForPair"](
+    pageSuggestionsForPair() {
+      return this.$store.getters["suggestions/getPageSuggestionsForPair"](
         this.sourceLanguage,
         this.targetLanguage
       );
@@ -109,12 +109,12 @@ export default {
         this.targetLanguage
       );
     },
-    pageSuggestionForPairSubset() {
-      return this.pageSuggestionForPair.slice(this.startIndex, this.endIndex);
+    pageSuggestionsForPairSubset() {
+      return this.pageSuggestionsForPair.slice(this.startIndex, this.endIndex);
     }
   },
   watch: {
-    pageSuggestionForPair: function() {
+    pageSuggestionsForPair: function() {
       this.pageSuggestionsLoaded = true;
     },
     sectionSuggestionForPair: function() {
@@ -122,8 +122,8 @@ export default {
     },
     active: function() {
       if (this.active) {
-        if (!this.pageSuggestionForPair?.length) {
-          this.$store.dispatch("suggestions/getSuggestions", {
+        if (!this.pageSuggestionsForPair?.length) {
+          this.$store.dispatch("suggestions/getPageSuggestions", {
             sourceLanguage: this.sourceLanguage,
             targetLanguage: this.targetLanguage
           });
@@ -141,7 +141,7 @@ export default {
     reloadSuggestions() {
       this.startIndex += this.endIndex;
       this.endIndex += this.endIndex;
-      if (this.pageSuggestionForPair.length <= this.startIndex) {
+      if (this.pageSuggestionsForPair.length <= this.startIndex) {
         // Start over?
         this.startIndex = 0;
         this.endIndex = 3;

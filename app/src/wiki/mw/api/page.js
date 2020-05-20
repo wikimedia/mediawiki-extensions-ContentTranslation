@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Page } from "../models/page";
 
 function fetchMetadata(language, titles) {
   const params = {
@@ -13,7 +14,10 @@ function fetchMetadata(language, titles) {
     origin: "*"
   };
   const api = `https://${language}.wikipedia.org/w/api.php`;
-  return axios.get(api, { params }).then(response => response.data.query.pages);
+  return axios.get(api, { params }).then(response => {
+    const apiResponse = response.data.query.pages;
+    return apiResponse.map(page => Object.freeze(new Page(page)));
+  });
 }
 
 export default { fetchMetadata };

@@ -8,7 +8,7 @@
     <template slot="header">
       <div class="row justify-end sx-article-selector__header">
         <div class="col-1">
-          <mw-thumbnail :thumbnail="getImage(sourceLanguage, sourceTitle)" />
+          <mw-thumbnail :thumbnail="sourceArticleThumbnail" />
         </div>
         <div class="col-9">
           <div class>{{ sourceTitle }}</div>
@@ -143,8 +143,13 @@ export default {
       languageInfo: state => state.mediawiki.languageInfo
     }),
     langLinksCount() {
-      return this.getMetadata(this.sourceLanguage, this.sourceTitle)
-        ?.langLinksCount;
+      return this.sourceArticle?.langLinksCount;
+    },
+    sourceArticle() {
+      return this.$store.getters["mediawiki/getPage"](
+        this.sourceLanguage,
+        this.sourceTitle
+      );
     },
     suggestion() {
       return this.$store.getters["suggestions/getSectionSuggestionsForArticle"](
@@ -154,17 +159,13 @@ export default {
       );
     },
     missingSectionsCount() {
-      return Object.keys(this.suggestion?.missing || {}).length;
+      return this.suggestion?.missingSectionsCount;
+    },
+    sourceArticleThumbnail() {
+      return this.sourceArticle?.thumbnail;
     }
   },
   methods: {
-    getMetadata(language, title) {
-      return this.$store.getters["mediawiki/getMetadata"](language, title);
-    },
-    getImage(language, title) {
-      const metadata = this.getMetadata(language, title);
-      return metadata && metadata.thumbnail;
-    },
     getAutonym(lang) {
       const displayName = Intl.DisplayNames && new Intl.DisplayNames(lang);
       return this.languageInfo[lang]?.autonym || displayName?.of(lang) || lang;

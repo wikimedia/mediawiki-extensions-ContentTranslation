@@ -12,14 +12,20 @@ function fetchLanguageInfo(licontinue) {
   if (licontinue) {
     params["licontinue"] = licontinue;
   }
-  return axios.get(mw.util.wikiScript("api"), { params }).then(response => {
-    let licontinue = response.data.continue?.licontinue;
-    let results = response.data.query.languageinfo;
-    if (licontinue) {
-      results = Object.assign({}, results, fetchLanguageInfo(licontinue));
-    }
-    return results;
-  });
+  return axios
+    .get(mw.util.wikiScript("api"), { params })
+    .then(async response => {
+      let licontinue = response.data.continue?.licontinue;
+      let results = response.data.query.languageinfo;
+      if (licontinue) {
+        results = Object.assign(
+          {},
+          results,
+          await fetchLanguageInfo(licontinue)
+        );
+      }
+      return results;
+    });
 }
 
 export default { fetchLanguageInfo };

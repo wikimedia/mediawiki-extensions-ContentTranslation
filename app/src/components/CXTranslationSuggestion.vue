@@ -1,19 +1,24 @@
 <template>
-  <div class="row cx-suggestion pa-4" :if="suggestion" @click="handleClick">
+  <div class="row cx-suggestion pa-4" v-if="suggestion" @click="handleClick">
     <div class="col-2 pa-2">
-      <mw-thumbnail :thumbnail="thumbnail"> </mw-thumbnail>
+      <mw-thumbnail :thumbnail="page && page.thumbnail"> </mw-thumbnail>
     </div>
     <div class="col-9 pa-2">
-      <div class="row ma-0" :if="suggestion">
-        <span class="col-12 cx-suggestion__source-title" :lang="from">{{
-          displayTitle
-        }}</span>
-        <span class="col-12 cx-suggestion__source-description" :lang="from">{{
-          description
-        }}</span>
+      <div class="row ma-0">
+        <span
+          class="col-12 cx-suggestion__source-title"
+          :lang="suggestion.sourceLanguage"
+          >{{ suggestion.sourceTitle }}</span
+        >
+        <span
+          class="col-12 cx-suggestion__source-description"
+          :lang="suggestion.sourceLanguage"
+          >{{ page && page.description }}</span
+        >
         <span class="col-12 mt-2 cx-suggestion__languages text-small">
-          <mw-autonym :lang="from" /> <mw-icon :icon="mwIconArrowForward" />
-          <mw-autonym :lang="to" />
+          <mw-autonym :lang="suggestion.sourceLanguage" />
+          <mw-icon :icon="mwIconArrowForward" />
+          <mw-autonym :lang="suggestion.targetLanguage" />
         </span>
       </div>
     </div>
@@ -31,50 +36,28 @@ import {
   mwIconStar,
   mwIconArrowForward
 } from "../lib/mediawiki.ui/components/icons";
+import ArticleSuggestion from "../wiki/cx/models/articleSuggestion";
 
 export default {
   name: "TranslationSuggestion",
   data: () => ({ mwIconStar, mwIconArrowForward }),
   props: {
     suggestion: {
-      type: Object
-    },
-    from: {
-      type: String,
-      default: null
-    },
-    to: {
-      type: String,
-      default: null
+      type: ArticleSuggestion
     }
   },
   components: { MwThumbnail, MwAutonym, MwIcon },
   computed: {
-    description: function() {
-      return this.metadata && this.metadata.description;
-    },
-    thumbnail: function() {
-      return this.metadata && this.metadata.thumbnail;
-    },
-    metadata: function() {
-      return this.$store.getters["mediawiki/getMetadata"](
-        this.from,
-        this.displayTitle
-      );
-    },
-    displayTitle: function() {
-      return (this.suggestion.title || this.suggestion.sourceTitle).replace(
-        /_/g,
-        " "
+    page: function() {
+      return this.$store.getters["mediawiki/getPage"](
+        this.suggestion.sourceLanguage,
+        this.suggestion.sourceTitle
       );
     }
   },
   methods: {
     handleClick(e) {
       this.$emit("click", e);
-    },
-    autonym: function(lang) {
-      return languagedata.getAutonym(lang);
     }
   }
 };

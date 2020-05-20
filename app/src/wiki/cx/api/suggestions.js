@@ -1,18 +1,33 @@
 import axios from "axios";
+import { ArticleSuggestion } from "../models/articleSuggestion";
+import { SectionSuggestion } from "../models/sectionSuggestion";
 
 // Example URL:
 // https://recommend.wmflabs.org/types/translation/v1/articles?source=de&target=ml&seed=&search=morelike&application=CX
 
-function fetchSuggestions(source, target, seedArticles) {
+async function fetchSuggestions(sourceLanguage, targetLanguage, seedArticles) {
   const params = {
-    source,
-    target,
+    source: sourceLanguage,
+    target: targetLanguage,
     seed: seedArticles,
     search: "related_articles",
     application: "CX"
   };
   const apiURL = mw.config.get("wgRecommendToolAPIURL");
-  return axios.get(apiURL, { params }).then(response => response.data);
+  const suggestedResults = await axios
+    .get(apiURL, { params })
+    .then(response => response.data);
+  return suggestedResults.map(
+    item =>
+      new ArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        pageViews: item.pageviews,
+        rank: item.rank
+      })
+  );
 }
 
 async function fetchSectionSuggestions(
@@ -25,13 +40,16 @@ async function fetchSectionSuggestions(
   const cxserverAPI = sitemapper.getCXServerUrl(
     `/suggest/sections/${sourceTitle}/${sourceLanguage}/${targetLanguage}`
   );
-  return await axios.get(cxserverAPI).then(response => response.data?.sections);
+  const suggestedSectionResult = await axios
+    .get(cxserverAPI)
+    .then(response => response.data?.sections);
+  return new SectionSuggestion(suggestedSectionResult);
 }
 
 async function getSxSuggestionsFromPublishedArticles(publishedTranslations) {
   const suggestedTitles = [];
   for (let i = 0; i < publishedTranslations.length; i++) {
-    const translation = publishedTranslations[i].translation;
+    const translation = publishedTranslations[i];
     const missingSectionsResult = await fetchSectionSuggestions(
       translation.sourceLanguage,
       translation.sourceTitle,

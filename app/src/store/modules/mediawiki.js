@@ -1,16 +1,14 @@
-import articleApi from "../../wiki/mw/api/article";
+import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
 
 const state = {
-  articles: {},
+  pages: [],
   languageInfo: {}
 };
 
 const mutations = {
-  addArticleMetadata(state, metadata) {
-    const key = `${metadata.pagelanguage}/${metadata.title}`;
-    // This particular way of changing the object is to get the vue reactivity correct.
-    state.articles = { ...state.articles, [key]: metadata };
+  addPage(state, article) {
+    state.pages.push(article);
   },
   setLanguageInfo(state, languageInfo) {
     state.languageInfo = languageInfo;
@@ -19,21 +17,24 @@ const mutations = {
 
 // Computed properties for stores.
 const getters = {
-  getMetadata: state => (language, title) => {
-    const key = `${language}/${title}`;
-    return state.articles[key];
-  }
+  getPage: state => (language, title) =>
+    state.pages.find(page => page.language === language && page.title === title)
 };
 
 const actions = {
-  fetchMetadata({ commit }, request) {
-    articleApi
-      .fetchMetadata(request.language, request.titles)
-      .then(metadataList => {
-        for (let i = 0; i < metadataList.length; i++) {
-          commit("addArticleMetadata", metadataList[i]);
-        }
-      });
+  fetchPage({ commit }, request) {
+    const titles = request.titles;
+    const chunkSize = 50;
+    for (let i = 0; i < titles.length; i += chunkSize) {
+      const titlesSubset = titles.slice(i, i + chunkSize);
+      pageApi
+        .fetchMetadata(request.language, titlesSubset)
+        .then(metadataList => {
+          for (let i = 0; i < metadataList.length; i++) {
+            commit("addPage", metadataList[i]);
+          }
+        });
+    }
   },
   fetchLanguageInfo({ commit }, request) {
     siteApi.fetchLanguageInfo().then(languageInfo => {

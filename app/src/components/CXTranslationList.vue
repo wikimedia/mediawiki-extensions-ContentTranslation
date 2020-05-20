@@ -8,11 +8,11 @@
     <div
       class="row pa-0 ma-0"
       :key="`${translationStatus}-${index}`"
-      v-for="(item, index) in translations"
+      v-for="(translation, index) in translations"
     >
       <cx-translation-work
         class="col-12 pa-0 ma-0"
-        :translation="item.translation"
+        :translation="translation"
       />
     </div>
   </mw-card>
@@ -57,9 +57,9 @@ export default {
   computed: {
     translations() {
       if (this.translationStatus === "published") {
-        return this.$store.state.translator.publishedTranslations;
+        return this.$store.getters["translator/getPublishedTranslations"]();
       } else {
-        return this.$store.state.translator.draftTranslations;
+        return this.$store.getters["translator/getDraftTranslations"]();
       }
     }
   },

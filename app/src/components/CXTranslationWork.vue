@@ -46,8 +46,7 @@
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
-
-import { mapState } from "vuex";
+import Translation from "../wiki/cx/models/translation";
 import {
   mwIconEdit,
   mwIconTrash,
@@ -59,26 +58,21 @@ export default {
   data: () => ({ mwIconEdit, mwIconTrash, mwIconArrowForward }),
   props: {
     translation: {
-      type: Object,
+      type: Translation,
       required: true
     }
   },
   components: { MwThumbnail, MwAutonym, MwIcon },
-  computed: {
-    ...mapState({
-      articles: state => state.mediawiki.articles
-    })
-  },
   methods: {
     handleClick(e) {
       this.$emit("click", e);
     },
-    getMetadata(language, title) {
-      return this.$store.getters["mediawiki/getMetadata"](language, title);
+    getPage(language, title) {
+      return this.$store.getters["mediawiki/getPage"](language, title);
     },
     getImage(language, title) {
-      const metadata = this.getMetadata(language, title);
-      return metadata && metadata.thumbnail;
+      const page = this.getPage(language, title);
+      return page?.thumbnail;
     }
   }
 };

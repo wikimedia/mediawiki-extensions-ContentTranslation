@@ -1,61 +1,73 @@
 import cxTranslatorApi from "../../wiki/cx/api/translator";
+import Vue from "vue";
 
 const state = {
   username: mw.config.get("wgUserName"),
-  publishedTranslations: [],
-  draftTranslations: [],
-  savedForLaterTranslations: []
+  translations: []
 };
 
 const mutations = {
-  setPublishedTranslations(state, publishedTranslations) {
-    state.publishedTranslations = publishedTranslations;
-  },
-  setDraftTranslations(state, draftTranslations) {
-    state.draftTranslations = draftTranslations;
+  addTranslation(state, translation) {
+    state.translations.push(translation);
   }
 };
 
-// Computed properties for stores.
 const getters = {
-  getPublishedTranslationsForLanguagePair: state => (from, to) => {
-    return state.publishedTranslations.filter(
+  getPublishedTranslationsForLanguagePair: state => (
+    sourceLanguage,
+    targetLanguage
+  ) => {
+    return state.translations.filter(
       translationItem =>
-        translationItem.translation.sourceLanguage === from &&
-        translationItem.translation.targetLanguage === to
+        translationItem.sourceLanguage === sourceLanguage &&
+        translationItem.targetLanguage === targetLanguage &&
+        translationItem.status === "published"
+    );
+  },
+  getDraftTranslationsForLanguagePair: state => (
+    sourceLanguage,
+    targetLanguage
+  ) => {
+    return state.translations.filter(
+      translationItem =>
+        translationItem.sourceLanguage === sourceLanguage &&
+        translationItem.targetLanguage === targetLanguage &&
+        translationItem.status === "draft"
+    );
+  },
+  getPublishedTranslations: state => () => {
+    return state.translations.filter(
+      translationItem => translationItem.status === "published"
+    );
+  },
+  getDraftTranslations: state => () => {
+    return state.translations.filter(
+      translationItem => translationItem.status === "draft"
     );
   }
 };
 
 const actions = {
   init({ dispatch }) {
-    dispatch("publishedTranslations");
-    dispatch("draftTranslations");
+    dispatch("getTanslations");
   },
-  publishedTranslations({ commit, dispatch }) {
-    cxTranslatorApi.fetchPublishedTranslations().then(publishedTranslations => {
-      commit("setPublishedTranslations", publishedTranslations);
-      for (let i = 0; i < publishedTranslations.length; i++) {
-        dispatch(
-          "mediawiki/fetchMetadata",
-          {
-            language: publishedTranslations[i].translation.sourceLanguage,
-            titles: [publishedTranslations[i].translation.sourceTitle]
-          },
-          { root: true }
-        );
+  getTanslations({ commit, dispatch }) {
+    cxTranslatorApi.fetchTranslations().then(translations => {
+      const queue = {};
+      for (let i = 0; i < translations.length; i++) {
+        const translation = translations[i];
+        commit("addTranslation", translation);
+        queue[translation.sourceLanguage] =
+          queue[translation.sourceLanguage] || [];
+        queue[translation.sourceLanguage].push(translation.sourceTitle);
       }
-    });
-  },
-  draftTranslations({ commit, dispatch }) {
-    cxTranslatorApi.fetchDraftTranslations().then(draftTranslations => {
-      commit("setDraftTranslations", draftTranslations);
-      for (let i = 0; i < draftTranslations.length; i++) {
+      // Fetch metadata for each source article.
+      for (let sourceLanguage in queue) {
         dispatch(
-          "mediawiki/fetchMetadata",
+          "mediawiki/fetchPage",
           {
-            language: draftTranslations[i].translation.sourceLanguage,
-            titles: [draftTranslations[i].translation.sourceTitle]
+            language: sourceLanguage,
+            titles: queue[sourceLanguage]
           },
           { root: true }
         );
