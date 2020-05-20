@@ -74,13 +74,13 @@
       <div
         class="row sx-article-selector__action justify-center mt-8 mb-8"
         v-if="missingSectionsCount"
-        v-i18n="{
-          msg: 'cx-sx-missing-section-stats',
-          params: [missingSectionsCount, getAutonym(this.targetLanguage)]
-        }"
+        v-i18n:cx-sx-missing-section-stats="[
+          missingSectionsCount,
+          getAutonym(this.targetLanguage)
+        ]"
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
-        <p class="pa-2" v-html="$i18n('cx-license-agreement')" />
+        <p class="pa-2" v-i18n-html:cx-license-agreement />
       </div>
     </div>
     <sx-section-selector

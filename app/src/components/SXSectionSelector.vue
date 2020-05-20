@@ -11,7 +11,7 @@
         <div class="col-11">
           <h3
             class="sx-selector__header-text ma-0"
-            v-i18n="'cx-sx-section-selector-title'"
+            v-i18n:cx-sx-section-selector-title
           ></h3>
           <h2 class="sx-selector__title ma-0">{{ suggestion.sourceTitle }}</h2>
         </div>
@@ -29,12 +29,9 @@
     <div class="sx-selector__body">
       <h3
         class="row justify-start ps-1"
-        v-i18n="'cx-sx-section-selector-subtitle'"
+        v-i18n:cx-sx-section-selector-subtitle
       ></h3>
-      <p
-        class="row justify-start ps-1"
-        v-i18n="'cx-sx-section-selector-desc'"
-      ></p>
+      <p class="row justify-start ps-1" v-i18n:cx-sx-section-selector-desc></p>
       <ul class="sx-selector__missing-sections-list ma-0">
         <li
           class="row"
