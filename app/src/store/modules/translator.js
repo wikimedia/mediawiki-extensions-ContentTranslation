@@ -1,4 +1,4 @@
-import cxTranslatorApi from "../../wiki/cx/translator";
+import cxTranslatorApi from "../../wiki/cx/api/translator";
 
 const state = {
   username: mw.config.get("wgUserName"),
@@ -17,7 +17,15 @@ const mutations = {
 };
 
 // Computed properties for stores.
-const getters = {};
+const getters = {
+  getPublishedTranslationsForLanguagePair: state => (from, to) => {
+    return state.publishedTranslations.filter(
+      translationItem =>
+        translationItem.translation.sourceLanguage === from &&
+        translationItem.translation.targetLanguage === to
+    );
+  }
+};
 
 const actions = {
   init({ dispatch }) {

@@ -29,7 +29,8 @@ export default {
   },
   methods: {
     autonym: function(lang) {
-      return this.languageInfo[lang]?.autonym || lang;
+      const displayName = Intl.DisplayNames && new Intl.DisplayNames(lang);
+      return this.languageInfo[lang]?.autonym || displayName?.of(lang) || lang;
     },
     getDir: function(lang) {
       return this.languageInfo[lang]?.dir || "auto";

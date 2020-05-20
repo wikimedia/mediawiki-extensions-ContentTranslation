@@ -102,6 +102,13 @@ export default {
       window.scrollTo(0, 0);
     }
   },
+  mounted: function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isSectionTranslation = urlParams.get("sx");
+    if (isSectionTranslation) {
+      this.active = "suggestions";
+    }
+  },
   created: function() {
     this.$store.dispatch("translator/init");
     this.$store.dispatch("mediawiki/fetchLanguageInfo");

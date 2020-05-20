@@ -37,8 +37,7 @@ export default {
   data: () => ({ mwIconStar, mwIconArrowForward }),
   props: {
     suggestion: {
-      type: Object,
-      default: null
+      type: Object
     },
     from: {
       type: String,
@@ -64,7 +63,10 @@ export default {
       );
     },
     displayTitle: function() {
-      return this.suggestion.title.replace(/_/g, " ");
+      return (this.suggestion.title || this.suggestion.sourceTitle).replace(
+        /_/g,
+        " "
+      );
     }
   },
   methods: {

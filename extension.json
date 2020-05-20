@@ -344,7 +344,9 @@
 				"dist/css/mediawiki.ui.css"
 			],
 			"dependencies": [
-				"mediawiki.user"
+				"mediawiki.user",
+				"mw.cx.SiteMapper",
+				"mw.cx.util"
 			],
 			"messages": [
 				"cx-dashboard-header",
@@ -356,7 +358,14 @@
 				"cx-translation-label-draft",
 				"cx-translation-label-draft",
 				"cx-suggestionlist-title",
-				"cx-suggestionlist-refresh"
+				"cx-suggestionlist-expand-sections-title",
+				"cx-suggestionlist-refresh",
+				"cx-license-agreement",
+				"cx-sx-select-section",
+				"cx-sx-missing-section-stats",
+				"cx-sx-section-selector-title",
+				"cx-sx-section-selector-subtitle",
+				"cx-sx-section-selector-desc"
 			]
 		},
 		"ext.cx.util": {

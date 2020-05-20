@@ -5,7 +5,7 @@ function fetchMetadata(language, titles) {
     action: "query",
     format: "json",
     formatversion: 2,
-    prop: "info|pageprops|pageimages|description|pageviews",
+    prop: "info|pageprops|pageimages|description|pageviews|langlinkscount",
     pvipdays: 7, // Last 7 days page views
     piprop: "thumbnail|name|original",
     pithumbsize: 100,

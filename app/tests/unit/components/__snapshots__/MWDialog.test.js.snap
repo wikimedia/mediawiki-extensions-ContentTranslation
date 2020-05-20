@@ -39,7 +39,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
       <mw-divider-stub />
        
       <div
-        class="mw-ui-dialog__body row"
+        class="mw-ui-dialog__body"
       />
        
     </div>

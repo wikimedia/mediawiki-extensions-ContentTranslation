@@ -6,7 +6,6 @@ describe("MwThumbnail.vue", () => {
     const wrapper = shallowMount(MwThumbnail, {
       propsData: { thumbnail: { src: "randomimage.png" } }
     });
-    expect(wrapper.contains("img")).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -15,7 +14,6 @@ describe("MwThumbnail.vue", () => {
       propsData: {}
     });
 
-    expect(wrapper.contains("img")).toBe(false);
     expect(wrapper.contains(".mw-ui-thumbnail--missing")).toBe(true);
   });
 });

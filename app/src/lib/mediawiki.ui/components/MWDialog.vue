@@ -23,7 +23,7 @@
           <mw-divider />
         </slot>
 
-        <div class="mw-ui-dialog__body row">
+        <div class="mw-ui-dialog__body">
           <slot />
         </div>
         <slot name="footer" />
@@ -108,6 +108,7 @@ export default {
   height: 100%;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 
   &.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__shell {
@@ -175,7 +176,7 @@ export default {
   &slide-up-leave-active,
   &slide-down-enter-active,
   &slide-down-leave-active {
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
     transition-property: height, opacity, transform;
     transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
     overflow: hidden;

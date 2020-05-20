@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MwThumbnail.vue renders image when passed 1`] = `
-<img
+<div
   class="mw-ui-thumbnail"
-  height="100px"
-  loading="lazy"
-  width="100px"
 />
 `;

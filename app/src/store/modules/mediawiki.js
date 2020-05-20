@@ -1,5 +1,5 @@
-import articleApi from "../../wiki/mw/article";
-import siteApi from "../../wiki/mw/site";
+import articleApi from "../../wiki/mw/api/article";
+import siteApi from "../../wiki/mw/api/site";
 
 const state = {
   articles: {},
