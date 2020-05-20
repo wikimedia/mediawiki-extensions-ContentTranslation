@@ -3,7 +3,7 @@
     class="row cx-translation pa-4"
     v-if="translation"
     v-show="translation"
-    @click="handleClick"
+    @click="onClick"
   >
     <div class="col-2 pa-2">
       <mw-thumbnail
@@ -64,8 +64,29 @@ export default {
   },
   components: { MwThumbnail, MwAutonym, MwIcon },
   methods: {
-    handleClick(e) {
+    onClick(e) {
       this.$emit("click", e);
+      this.startTranslation(this.translation);
+    },
+    /**
+     * Start the translation editor
+     * @param {Translation} translation
+     */
+    startTranslation(translation) {
+      const sitemapper = new mw.cx.SiteMapper();
+      // Set CX token as cookie.
+      sitemapper.setCXToken(
+        translation.sourceLanguage,
+        translation.targetLanguage,
+        translation.sourceTitle
+      );
+      location.href = sitemapper.getCXUrl(
+        translation.sourceTitle,
+        translation.targetTitle,
+        translation.sourceLanguage,
+        translation.targetLanguage,
+        { campaign: new mw.Uri().query.campaign }
+      );
     },
     getPage(language, title) {
       return this.$store.getters["mediawiki/getPage"](language, title);
