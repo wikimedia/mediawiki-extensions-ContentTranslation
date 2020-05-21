@@ -93,7 +93,7 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
 		var dataCX = JSON.parse( element.getAttribute( 'data-cx' ) || '{}' );
 
 		if ( dataCX.adapted === false ) {
-			element.parentElement.removeChild( element );
+			element.parentNode.removeChild( element );
 		}
 	} );
 
