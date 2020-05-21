@@ -8,6 +8,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+
 class RestbaseClient {
 
 	/**
@@ -23,7 +25,9 @@ class RestbaseClient {
 
 	public function __construct( $config ) {
 		$this->config = $config;
-		$this->serviceClient = new \VirtualRESTServiceClient( new \MultiHttpClient( [] ) );
+		$this->serviceClient = new \VirtualRESTServiceClient(
+			MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient()
+		);
 		// Mounted at /restbase/ because it is a service speaking the
 		// RESTBase v1 API -- but the service responding to these API
 		// requests could be either Parsoid or RESTBase.
