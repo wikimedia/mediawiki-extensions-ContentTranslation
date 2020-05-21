@@ -35,31 +35,7 @@
       </div>
     </template>
     <div class="sx-article-selector__body">
-      <div class="row sx-article-selector__languages">
-        <div class="col-5 justify-end">
-          <mw-button
-            :indicator="mwIconExpand"
-            type="text"
-            :outlined="false"
-            :large="true"
-          >
-            <mw-autonym :lang="sourceLanguage" />
-          </mw-button>
-        </div>
-        <div class="col-2 justify-center">
-          <mw-icon :icon="mwIconArrowNext" />
-        </div>
-        <div class="col-5 justify-start">
-          <mw-button
-            :indicator="mwIconExpand"
-            type="text"
-            :outlined="false"
-            :large="true"
-          >
-            <mw-autonym :lang="targetLanguage" />
-          </mw-button>
-        </div>
-      </div>
+      <sx-article-language-selector />
       <mw-divider />
       <div class="row sx-article-selector__action justify-center mt-8 mb-8">
         <mw-button
@@ -84,9 +60,9 @@
       </div>
     </div>
     <sx-section-selector
-      v-if="suggestion"
+      v-if="currentSectionSuggestion"
       :active="showSectionTranslation"
-      :suggestion="suggestion"
+      :suggestion="currentSectionSuggestion"
       @close="onSectionSelectorDialogClose"
     />
   </mw-dialog>
@@ -98,9 +74,9 @@ import SxSectionSelector from "./SXSectionSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
 import MwDivider from "../lib/mediawiki.ui/components/MWDivider";
-import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
 import {
   mwIconClose,
   mwIconExpand,
@@ -114,10 +90,10 @@ export default {
   components: {
     MwDialog,
     MwDivider,
-    MwAutonym,
     MwIcon,
     MwThumbnail,
     SxSectionSelector,
+    SxArticleLanguageSelector,
     MwButton
   },
   data: () => ({
@@ -133,14 +109,13 @@ export default {
     active: {
       type: Boolean,
       default: false
-    },
-    sourceLanguage: String,
-    sourceTitle: String,
-    targetLanguage: String
+    }
   },
   computed: {
     ...mapState({
-      languageInfo: state => state.mediawiki.languageInfo
+      languageInfo: state => state.mediawiki.languageInfo,
+      currentSectionSuggestion: state =>
+        state.suggestions.currentSectionSuggestion
     }),
     langLinksCount() {
       return this.sourceArticle?.langLinksCount;
@@ -151,15 +126,17 @@ export default {
         this.sourceTitle
       );
     },
-    suggestion() {
-      return this.$store.getters["suggestions/getSectionSuggestionsForArticle"](
-        this.sourceLanguage,
-        this.targetLanguage,
-        this.sourceTitle
-      );
+    sourceLanguage() {
+      return this.currentSectionSuggestion?.sourceLanguage;
+    },
+    sourceTitle() {
+      return this.currentSectionSuggestion?.sourceTitle;
+    },
+    targetLanguage() {
+      return this.currentSectionSuggestion?.targetLanguage;
     },
     missingSectionsCount() {
-      return this.suggestion?.missingSectionsCount;
+      return this.currentSectionSuggestion?.missingSectionsCount;
     },
     sourceArticleThumbnail() {
       return this.sourceArticle?.thumbnail;
@@ -217,11 +194,6 @@ export default {
     border-top: @border-width-base @border-style-base
       @border-color-base--disabled;
     background-color: @background-color-base--hover;
-    overflow: hidden;
-    p {
-      font-size: 1em;
-      overflow: hidden;
-    }
   }
 }
 </style>

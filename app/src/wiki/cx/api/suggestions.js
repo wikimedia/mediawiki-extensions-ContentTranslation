@@ -30,6 +30,12 @@ async function fetchSuggestions(sourceLanguage, targetLanguage, seedArticles) {
   );
 }
 
+/**
+ * @param sourceLanguage
+ * @param sourceTitle
+ * @param targetLanguage
+ * @returns {Promise<SectionSuggestion>}
+ */
 async function fetchSectionSuggestions(
   sourceLanguage,
   sourceTitle,

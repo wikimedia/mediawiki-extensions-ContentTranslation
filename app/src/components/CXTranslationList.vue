@@ -47,7 +47,7 @@ export default {
       type: String,
       default: "en"
     },
-    targetLangauge: {
+    targetLanguage: {
       type: String
     }
   },

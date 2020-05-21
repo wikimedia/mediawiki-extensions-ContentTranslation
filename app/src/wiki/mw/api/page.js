@@ -11,7 +11,8 @@ function fetchMetadata(language, titles) {
     piprop: "thumbnail|name|original",
     pithumbsize: 100,
     titles: titles.join("|"),
-    origin: "*"
+    origin: "*",
+    redirects: true
   };
   const api = `https://${language}.wikipedia.org/w/api.php`;
   return axios.get(api, { params }).then(response => {
@@ -20,4 +21,35 @@ function fetchMetadata(language, titles) {
   });
 }
 
-export default { fetchMetadata };
+/**
+ * Fetches language codes in which an article is available and returns
+ * a promise that is being resolved to an array of strings (codes)
+ * @param {string} title
+ * @param {string} language
+ * @returns {Promise<string[]>}
+ */
+async function fetchAvailableSourceLanguagesForPage(title, language) {
+  const params = {
+    action: "query",
+    prop: "langlinks",
+    format: "json",
+    formatversion: 2,
+    origin: "*",
+    titles: title,
+    redirects: true
+  };
+  const api = `https://${language}.wikipedia.org/w/api.php`;
+  const langLinks = await axios
+    .get(api, { params })
+    .then(response => response.data.query.pages[0])
+    .then(info => info?.langlinks || []);
+
+  const codes = langLinks.map(langlink => langlink.lang);
+  codes.unshift(language);
+  return codes;
+}
+
+export default {
+  fetchMetadata,
+  fetchAvailableSourceLanguagesForPage
+};

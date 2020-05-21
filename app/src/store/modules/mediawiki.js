@@ -3,7 +3,8 @@ import siteApi from "../../wiki/mw/api/site";
 
 const state = {
   pages: [],
-  languageInfo: {}
+  languageInfo: {},
+  supportedLanguageCodes: []
 };
 
 const mutations = {
@@ -12,6 +13,9 @@ const mutations = {
   },
   setLanguageInfo(state, languageInfo) {
     state.languageInfo = languageInfo;
+  },
+  setSupportedLanguageCodes(state, languageCodes) {
+    state.supportedLanguageCodes = languageCodes;
   }
 };
 
@@ -40,6 +44,11 @@ const actions = {
     siteApi.fetchLanguageInfo().then(languageInfo => {
       commit("setLanguageInfo", languageInfo);
     });
+  },
+  fetchSupportedLanguageCodes({ commit }) {
+    siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
+      commit("setSupportedLanguageCodes", languageCodes);
+    })
   }
 };
 

@@ -327,5 +327,6 @@
 	"cx-sx-missing-section-stats": "Message showing how many sections missing in an article. \n\nParameters:\n* $1 - Number of sections\n* $2 - Autonym of the article language",
 	"cx-sx-section-selector-title": "Title of the screen listing missing sections to selector for translating.",
 	"cx-sx-section-selector-subtitle": "Subtitle of the screen listing missing sections to selector for translating.",
-	"cx-sx-section-selector-desc": "Description of the screen listing missing sections to selector for translating."
+	"cx-sx-section-selector-desc": "Description of the screen listing missing sections to selector for translating.",
+	"cx-sx-language-selector-dialog-title": "Title of language selector dialog window"
 }

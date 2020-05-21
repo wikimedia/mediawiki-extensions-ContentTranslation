@@ -47,11 +47,8 @@
       v-on:click="reloadSuggestions"
     />
     <sx-article-selector
-      v-if="currentSectionTranslation"
+      v-if="currentSectionSuggestion"
       :active="showSxArticleSelector"
-      :sourceLanguage="currentSectionTranslation.sourceLanguage"
-      :targetLanguage="currentSectionTranslation.targetLanguage"
-      :sourceTitle="currentSectionTranslation.sourceTitle"
       @close="onSectionTranslationDialogClose"
     />
   </div>
@@ -63,10 +60,12 @@ import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import SxArticleSelector from "./SXArticleSelector";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import { mwIconRefresh } from "../lib/mediawiki.ui//components/icons";
+import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
+import { mapState } from "vuex";
+import { SectionSuggestion } from "../wiki/cx/models/sectionSuggestion";
 
 export default {
-  name: "cx-translation-list",
+  name: "cx-suggestion-list",
   components: {
     CxTranslationSuggestion,
     SxArticleSelector,
@@ -93,10 +92,13 @@ export default {
     sectionSuggestionsLoaded: true,
     showSxArticleSelector: false,
     startIndex: 0,
-    currentSectionTranslation: null,
     endIndex: 3
   }),
   computed: {
+    ...mapState({
+      currentSectionSuggestion: state =>
+        state.suggestions.currentSectionSuggestion
+    }),
     pageSuggestionsForPair() {
       return this.$store.getters["suggestions/getPageSuggestionsForPair"](
         this.sourceLanguage,
@@ -149,7 +151,7 @@ export default {
     },
     startSectionTranslation(suggestion) {
       this.showSxArticleSelector = true;
-      this.currentSectionTranslation = suggestion;
+      this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);
     },
     onSectionTranslationDialogClose() {
       this.showSxArticleSelector = false;
@@ -162,17 +164,27 @@ export default {
     const targetLanguage = urlParams.get("to");
     const sourceTitle = urlParams.get("page");
     if (isSectionTranslation && sourceTitle) {
-      this.$store.dispatch("suggestions/getSectionSuggestionsForArticle", {
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle
-      });
-      this.startSectionTranslation({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle,
-        missing: {}
-      });
+      this.$store
+        .dispatch("suggestions/getSectionSuggestionsForArticle", {
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle
+        })
+        .then(() => {
+          const suggestion = this.$store.getters[
+            "suggestions/getSectionSuggestionsForArticle"
+          ](sourceLanguage, targetLanguage, sourceTitle);
+          this.startSectionTranslation(suggestion);
+        });
+
+      this.startSectionTranslation(
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle,
+          missing: {}
+        })
+      );
     }
   }
 };

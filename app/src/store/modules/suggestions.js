@@ -1,9 +1,11 @@
 import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
+import mwPageApi from "../../wiki/mw/api/page";
 
 const state = {
   pageSuggestions: [],
   sectionSuggestions: [],
-  favorites: {}
+  favorites: {},
+  currentSectionSuggestion: null
 };
 
 const mutations = {
@@ -12,6 +14,18 @@ const mutations = {
   },
   addSectionSuggestion(state, suggestion) {
     state.sectionSuggestions.push(suggestion);
+  },
+  setCurrentSectionSuggestion(state, suggestion) {
+    state.currentSectionSuggestion = suggestion;
+  },
+  setCurrentSectionSuggestionAvailableSourceLanguages(state, languages) {
+    state.currentSectionSuggestion.availableSourceLanguages = languages;
+  },
+  setCurrentSectionSuggestionSourceLanguage(state, language) {
+    state.currentSectionSuggestion.sourceLanguage = language;
+  },
+  setCurrentSectionSuggestionTargetLanguage(state, language) {
+    state.currentSectionSuggestion.targetLanguage = language;
   }
 };
 
@@ -94,6 +108,7 @@ const actions = {
     { commit, dispatch, rootGetters },
     suggestionRequest
   ) {
+    /** @type {SectionSuggestion} */
     const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
       suggestionRequest.sourceLanguage,
       suggestionRequest.sourceTitle,
@@ -109,6 +124,14 @@ const actions = {
       },
       { root: true }
     );
+  },
+
+  async getAvailableSourceLanguagesForSectionSuggestion({ commit, state }) {
+    const languages = await mwPageApi.fetchAvailableSourceLanguagesForPage(
+      state.currentSectionSuggestion.sourceTitle,
+      state.currentSectionSuggestion.sourceLanguage
+    );
+    commit("setCurrentSectionSuggestionAvailableSourceLanguages", languages);
   }
 };
 

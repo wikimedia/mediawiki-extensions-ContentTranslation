@@ -365,7 +365,8 @@
 				"cx-sx-missing-section-stats",
 				"cx-sx-section-selector-title",
 				"cx-sx-section-selector-subtitle",
-				"cx-sx-section-selector-desc"
+				"cx-sx-section-selector-desc",
+				"cx-sx-language-selector-dialog-title"
 			]
 		},
 		"ext.cx.util": {

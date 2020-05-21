@@ -53,7 +53,7 @@
   "bundlesize": [
     {
       "path": "dist/js/cxdashboard.js",
-      "maxSize": "8.00KB"
+      "maxSize": "9.00KB"
     },
     {
       "path": "dist/js/cxdashboard.libs.js",
@@ -61,7 +61,7 @@
     },
     {
       "path": "dist/js/mediawiki.ui.js",
-      "maxSize": "5.00KB"
+      "maxSize": "6.00KB"
     },
     {
       "path": "dist/css/mediawiki.ui.css",

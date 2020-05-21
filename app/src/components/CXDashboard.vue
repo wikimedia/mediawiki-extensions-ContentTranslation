@@ -112,6 +112,7 @@ export default {
   created: function() {
     this.$store.dispatch("translator/init");
     this.$store.dispatch("mediawiki/fetchLanguageInfo");
+    this.$store.dispatch("mediawiki/fetchSupportedLanguageCodes");
   }
 };
 </script>
