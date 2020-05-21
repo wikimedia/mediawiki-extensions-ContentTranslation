@@ -305,5 +305,11 @@
 	"cx-preference-enable-entrypoints": "גישה ל[[$1|התחלת תרגום]] מדף התרומות, מרשימת השפות, ומיצירת דפים חדשים.",
 	"cx-feature-discovery-title": "לתרגם כשבא לך",
 	"cx-feature-discovery-content": "{{GENDER:|אתה יכול|את יכולה}} להתחיל או להמשיך לתרגם בכל זמן מהדף {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "בסדר, הבנתי"
+	"cx-feature-discovery-dismiss": "בסדר, הבנתי",
+	"cx-suggestionlist-expand-sections-title": "להרחיב עם פסקאות חדשות",
+	"cx-sx-select-section": "בחירת פסקה לתרגום",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|חסרה פסקה|חסרות $1 פסקאות}} ב$2",
+	"cx-sx-section-selector-title": "פסקאות",
+	"cx-sx-section-selector-subtitle": "Select a section to translate",
+	"cx-sx-section-selector-desc": "נא לבחור פסקה להלן ולבדוק את התוכן בשתי השפות כדי להחליט מה לתרגם."
 }

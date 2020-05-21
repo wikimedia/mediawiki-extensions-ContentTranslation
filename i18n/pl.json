@@ -318,5 +318,11 @@
 	"cx-preference-enable-entrypoints": "Dostęp do [[$1|rozpoczynania tłumaczeń]] w stronie wkładu, liście języków i podczas tworzenia nowych stron.",
 	"cx-feature-discovery-title": "Tłumacz w każdej chwili",
 	"cx-feature-discovery-content": "W każdej chwili możesz rozpocząć lub kontynuować tłumaczenie ze strony „{{int:mycontris}}”",
-	"cx-feature-discovery-dismiss": "Rozumiem"
+	"cx-feature-discovery-dismiss": "Rozumiem",
+	"cx-suggestionlist-expand-sections-title": "Rozszerz o nowe sekcje",
+	"cx-sx-select-section": "Wybierz sekcję do przetłumaczenia",
+	"cx-sx-missing-section-stats": "Brakuje {{PLURAL:$1|$1 sekcji}} w $2",
+	"cx-sx-section-selector-title": "Sekcje",
+	"cx-sx-section-selector-subtitle": "Wybierz sekcję do przetłumaczenia",
+	"cx-sx-section-selector-desc": "Wybierz sekcję poniżej i sprawdź zawartość w obu językach, aby zdecydować co należy przetłumaczyć."
 }

@@ -318,5 +318,11 @@
 	"cx-preference-enable-entrypoints": "Katkılar sayfasından, dil listesinden ve yeni sayfa oluşturma kısmından [[$1|çeviri başlatma]] erişimi.",
 	"cx-feature-discovery-title": "İstediğiniz zaman tercüme edin",
 	"cx-feature-discovery-content": "{{int:mycontris}} sayfasından istediğiniz zaman çeviri yapmaya başlayabilir veya devam edebilirsiniz",
-	"cx-feature-discovery-dismiss": "Tamam, anladım"
+	"cx-feature-discovery-dismiss": "Tamam, anladım",
+	"cx-suggestionlist-expand-sections-title": "Yeni bölümlerle genişlet",
+	"cx-sx-select-section": "Çevrilecek bölümü seçin",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Bir bölüm|$1 bölüm}}, $2 içinde eksik",
+	"cx-sx-section-selector-title": "Bölümler",
+	"cx-sx-section-selector-subtitle": "Çevrilecek bir bölüm seçin",
+	"cx-sx-section-selector-desc": "Aşağıdan bir bölüm seçin ve neyin çevrileceğine karar vermek için her iki dildeki içeriği kontrol edin."
 }

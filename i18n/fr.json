@@ -335,5 +335,10 @@
 	"cx-preference-enable-entrypoints": "Accéder à [[$1|démarrer une traduction]], depuis la page de contributions et la liste des langues et créations de nouvelles pages.",
 	"cx-feature-discovery-title": "Traduisez à tout instant",
 	"cx-feature-discovery-content": "Vous pouvez commencer ou continuer à traduire à tout moment à partir de la page {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "D’accord, c’est bon"
+	"cx-feature-discovery-dismiss": "D’accord, c’est bon",
+	"cx-suggestionlist-expand-sections-title": "Développer avec les nouvelles sections",
+	"cx-sx-select-section": "Choisir une section à traduire",
+	"cx-sx-missing-section-stats": "Il manque {{PLURAL:$1|une section|$1 sections}} dans $2",
+	"cx-sx-section-selector-title": "Sections",
+	"cx-sx-section-selector-subtitle": "Choisir une section à traduire"
 }

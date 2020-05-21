@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Amire80",
 			"Hindustanilanguage",
 			"Jayprakash12345",
@@ -252,5 +253,6 @@
 	"cx-publish-destination-namespace-draft": "सामुदायिक ड्राफ़्ट",
 	"cx-linkcontextitem-missing-link-title": "लापता कड़ी",
 	"cx-linkcontextitem-missing-title-description": "यह पृष्ठ मौजूद नहीं है।",
-	"cx-mt-abuse-publish-error": "आपका अनुवाद प्रकाशित नहीं किया जा सकता क्योंकि इसमें बहुतायत में बिना सुधार के मशीनी-अनुवाद का पाठ शामिल है।"
+	"cx-mt-abuse-publish-error": "आपका अनुवाद प्रकाशित नहीं किया जा सकता क्योंकि इसमें बहुतायत में बिना सुधार के मशीनी-अनुवाद का पाठ शामिल है।",
+	"cx-sx-section-selector-title": "अनुभाग"
 }

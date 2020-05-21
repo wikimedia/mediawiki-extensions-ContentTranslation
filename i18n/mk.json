@@ -299,5 +299,11 @@
 	"cx-preference-enable-entrypoints": "Пристап до [[$1|отпочнување на нов превод]] од страницата со придонеси, списокот на јазици и новосоздадените страници.",
 	"cx-feature-discovery-title": "Преведувајте во секое време",
 	"cx-feature-discovery-content": "Можете да почнете или продолжите со преведување во секое време, од страницата {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Јасно"
+	"cx-feature-discovery-dismiss": "Јасно",
+	"cx-suggestionlist-expand-sections-title": "Расклопи со нови поднаслови",
+	"cx-sx-select-section": "Изберете поднаслов за преведување",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Недостасува поднаслов|Недостасуваат $1 поднаслови}} во $2",
+	"cx-sx-section-selector-title": "Поднаслови",
+	"cx-sx-section-selector-subtitle": "Изберете поднаслов за преведување",
+	"cx-sx-section-selector-desc": "Одберете поднаслов подолу и погледајте ја содржината на двата јазика за да решите што да преведувате."
 }

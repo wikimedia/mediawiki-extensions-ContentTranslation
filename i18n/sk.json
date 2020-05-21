@@ -35,6 +35,7 @@
 	"cx-translation-target-page-exists": "Článok s názvom [$1 $2] už na danej Wikipédii existuje. Zvážte zmenu názvu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Preklad obsahu]]",
 	"tag-contenttranslation-description": "Obsah stránky bol preložený z iného jazyka pomocou nástroja Content Translation.",
+	"tag-contenttranslation-v2-description": "Obsah bol preložený z iného jazyka pomocou verzie 2 nástroja Preklad obsahu.",
 	"cx-source-loading": "$1 sa načítava",
 	"cx-beta": "Preklad obsahu",
 	"cx-beta-desc": "Nástroj pre rýchly preklad stránok do vášho jazyka. Začnite preklady zo stránky [[Special:MyContributions|Príspevky]] a upravte ich pomocou nášho editora špeciálne navrhnutého na prekladanie, ktorý zobrazí zdrojový a výsledný text vedľa seba. Niektoré prekladateľské nástroje môžu byť k dispozícii len pre konkrétne jazyky.",
