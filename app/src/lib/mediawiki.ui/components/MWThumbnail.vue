@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 
 .mw-ui-thumbnail {
   display: flex;
@@ -53,7 +53,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   &.mw-ui-thumbnail--missing {
-    background-color: @colorGray15;
+    background-color: @background-color-code;
   }
 }
 </style>

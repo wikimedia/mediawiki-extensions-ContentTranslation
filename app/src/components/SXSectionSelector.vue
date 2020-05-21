@@ -89,12 +89,12 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/colors.less";
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .sx-selector {
   .sx-selector__header {
-    color: @colorGray1;
-    border-bottom: 1px solid @colorGray12;
+    color: @color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     .sx-selector__title {
       border: none;
       font-size: 1.5rem;

@@ -33,21 +33,22 @@
 .mw-ui-button-states() {
   // Make sure that `color` isn't inheriting from user-agent styles
   &:visited {
-    color: @colorButtonText;
+    color: @color-base;
   }
 
   &:hover {
     background-color: @background-color-base;
-    color: @colorGray4;
-    border-color: @colorGray10;
+    color: @color-base--hover;
+    border-color: @border-color-base;
   }
 
   &:focus {
     background-color: @background-color-base;
     // Make sure that `color` isn't inheriting from user-agent styles
-    color: @colorButtonText;
-    border-color: @colorProgressive;
-    box-shadow: inset 0 0 0 1px @colorProgressive, inset 0 0 0 2px @background-color-base;
+    color: @color-base;
+    border-color: @color-primary;
+    box-shadow: inset 0 0 0 1px @color-primary,
+      inset 0 0 0 2px @background-color-base;
     outline-width: 0;
 
     // Remove the inner border and padding in Firefox.
@@ -59,25 +60,25 @@
 
   &:active,
   &.is-on {
-    background-color: @colorGray12;
-    color: @colorGray1;
-    border-color: @colorGray7;
+    background-color: @background-color-framed--active;
+    color: @color-base--active;
+    border-color: @color-base--disabled;
     box-shadow: none;
   }
 
   &:disabled {
-    background-color: @colorGray12;
-    color: @colorBaseInverted;
-    border-color: @colorGray12;
+    background-color: @background-color-filled--disabled;
+    color: @color-base--inverted;
+    border-color: @background-color-framed--active;
     cursor: default;
 
     // Make sure disabled buttons don't have hover and active states
     &:hover,
     &:active {
-      background-color: @colorGray12;
-      color: @colorBaseInverted;
+      background-color: @background-color-framed--active;
+      color: @color-base--inverted;
       box-shadow: none;
-      border-color: @colorGray12;
+      border-color: @background-color-framed--active;
     }
   }
 
@@ -114,16 +115,16 @@
   }
 
   &:disabled {
-    background-color: @colorGray12;
+    background-color: @background-color-framed--active;
     color: #fff;
-    border-color: @colorGray12;
+    border-color: @background-color-framed--active;
 
     // Make sure disabled buttons don't have hover and active states
     &:hover,
     &:active {
-      background-color: @colorGray12;
+      background-color: @background-color-framed--active;
       color: #fff;
-      border-color: @colorGray12;
+      border-color: @background-color-framed--active;
       box-shadow: none;
     }
   }

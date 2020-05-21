@@ -57,14 +57,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "../variables/icons.less";
+@import "../variables/wikimedia-ui-base.less";
 @import "../mixins/common.less";
 
 .mw-ui-icon {
   align-items: center;
   display: inline-flex;
   font-feature-settings: "liga";
-  font-size: @iconSize;
+  font-size: @size-icon;
   justify-content: center;
   letter-spacing: normal;
   line-height: 1;

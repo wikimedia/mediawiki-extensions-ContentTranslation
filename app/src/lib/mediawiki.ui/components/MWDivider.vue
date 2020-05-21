@@ -3,10 +3,10 @@
 </template>
 
 <style lang="less">
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 
 .mw-ui-divider {
-  border: 1px solid @colorGray12;
+  border: @border-width-base @border-style-base @border-color-base;
   margin: 0 !important;
   padding: 0 !important;
 }

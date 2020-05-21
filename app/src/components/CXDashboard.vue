@@ -45,7 +45,7 @@ import {
   mwIconArticleCheck,
   mwIconLightBulb,
   mwIconEdit
-} from "../lib/mediawiki.ui//components/icons";
+} from "../lib/mediawiki.ui/components/icons";
 import { mapState } from "vuex";
 
 export default {

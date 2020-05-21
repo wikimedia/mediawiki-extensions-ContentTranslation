@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 @import "../mixins/common.less";
 
 .mw-ui-bottom-navigation {

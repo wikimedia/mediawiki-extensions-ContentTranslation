@@ -84,21 +84,21 @@ export default {
 </script>
 
 <style lang="less">
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 
 .mw-ui-language-selector {
   &__results {
     padding: 1em;
     overflow-y: auto;
-    border: 1px solid @colorGray12;
+    border: @border-width-base @border-style-base @border-color-base;
   }
   &__result {
     cursor: pointer;
     &:hover {
-      background-color: @colorGray15;
+      background-color: @background-color-code;
     }
     &-code {
-      color: @colorGray7;
+      color: @color-base--subtle;
     }
   }
 }

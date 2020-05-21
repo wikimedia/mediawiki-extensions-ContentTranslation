@@ -101,8 +101,7 @@ export default {
 <style lang="less">
 @import "../mixins/buttons.less";
 @import "../mixins/common.less";
-@import "../variables/colors.less";
-@import "../variables/borders.less";
+@import "../variables/wikimedia-ui-base.less";
 
 // Neutral button styling
 //
@@ -110,8 +109,8 @@ export default {
 //
 // Styleguide 2.1.
 .mw-ui-button {
-  background-color: @colorGray15;
-  color: @colorButtonText;
+  background-color: @background-color-framed;
+  color: @color-base;
   .mw-ui-button();
   .mw-ui-button-states();
   // Progressive buttons
@@ -121,9 +120,9 @@ export default {
   // Styleguide 2.1.2.
   &.mw-ui-button--progressive {
     .mw-ui-button-colors-primary(
-      @colorProgressive,
-      @colorProgressiveHighlight,
-      @colorProgressiveActive
+      @color-primary,
+      @color-primary--hover,
+      @color-primary--active
     );
   }
 
@@ -146,9 +145,9 @@ export default {
   // Styleguide 2.1.3.
   &.mw-ui-button--destructive {
     .mw-ui-button-colors-primary(
-      @colorDestructive,
-      @colorDestructiveHighlight,
-      @colorDestructiveActive
+      @color-destructive,
+      @color-destructive--hover,
+      @color-destructive--active
     );
   }
 
@@ -159,32 +158,32 @@ export default {
   // Buttons that act like links
   &.mw-ui-button--icon,
   &.mw-ui-button--text {
-    color: @colorButtonText;
+    color: @color-base;
     border-color: transparent;
     background-color: transparent;
     min-width: 0;
 
     &:hover {
       background-color: transparent;
-      color: @colorProgressiveHighlight;
+      color: @color-primary--hover;
     }
 
     &:active {
-      color: @colorProgressiveActive;
+      color: @color-primary--active;
     }
 
     &:focus {
       background-color: transparent;
-      color: @colorProgressive;
+      color: @color-primary--focus;
     }
   }
 
   &.mw-ui-button--active {
-    color: @colorProgressiveHighlight;
+    color: @color-primary--active;
   }
 
   &.mw-ui-button--depressed {
-    color: @colorProgressiveHighlight;
+    color: @color-primary--active;
   }
 
   // Big buttons

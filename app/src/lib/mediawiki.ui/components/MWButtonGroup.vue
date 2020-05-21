@@ -36,13 +36,13 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 
 .mw-ui-button-group {
   background-color: white;
   min-height: 56px;
   .mw-ui-button--depressed {
-    border-bottom: 2px solid @colorProgressiveHighlight;
+    border-bottom: 2px solid @color-primary--hover;
   }
 }
 </style>

@@ -7,7 +7,7 @@
 
 <style lang="less">
 @import "../mixins/common.less";
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 
 @width-bounce-dot: 1em;
 
@@ -20,7 +20,7 @@
   &:before,
   &:after {
     content: "";
-    background-color: @colorGray7;
+    background-color: @color-placeholder;
     display: inline-block;
     width: @width-bounce-dot;
     height: @width-bounce-dot;

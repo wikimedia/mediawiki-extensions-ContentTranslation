@@ -18,8 +18,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../variables/borders.less";
-@import "../variables/colors.less";
+@import "../variables/wikimedia-ui-base.less";
 @import "../typography.less";
 @import "../mixins/common.less";
 .mw-ui-card {
@@ -28,10 +27,10 @@ export default {
   margin-bottom: 1em;
   border-radius: @border-radius-base;
   padding: 8px;
-  .box-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  .box-shadow(@box-shadow-card);
   .mw-ui-card__title {
     height: 2em;
-    color: @colorGray5;
+    color: @color-base;
   }
 }
 </style>

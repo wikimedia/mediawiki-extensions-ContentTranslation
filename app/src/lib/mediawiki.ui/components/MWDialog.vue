@@ -95,8 +95,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../variables/colors.less";
-@import "../variables/borders.less";
+@import "../variables/wikimedia-ui-base.less";
 @import "../mixins/common.less";
 
 .mw-ui-dialog {
@@ -162,7 +161,7 @@ export default {
   }
 
   .mw-ui-dialog__footer:not(:empty) {
-    border-top: 1px solid @colorGray12;
+    border-top: @border-width-base @border-style-base @border-color-base;
     max-height: 2em;
   }
 }

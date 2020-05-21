@@ -100,11 +100,11 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/colors.less";
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 @import "../lib/mediawiki.ui/mixins/common.less";
 
 .cx-translation {
-  border-top: 1px solid @colorGray12;
+  border-top: @border-width-base @border-style-base @border-color-base--disabled;
   cursor: pointer;
   min-height: 100px;
   .transition(
@@ -115,7 +115,7 @@ export default {
     font-size: 1.2em;
   }
   &:hover {
-    background-color: #eaf3ff;
+    background-color: @background-color-primary;
   }
 }
 </style>

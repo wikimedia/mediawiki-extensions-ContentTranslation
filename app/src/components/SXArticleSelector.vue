@@ -202,20 +202,21 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/colors.less";
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .sx-article-selector {
   .sx-article-selector__header {
-    border-bottom: 1px solid @colorGray12;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     font-size: 2rem;
-    color: @colorGray1;
+    color: @color-base;
     .sx-article-selector__langLinksCount {
       font-size: 1rem;
     }
   }
   .sx-article-selector__license {
-    border-top: 1px solid @colorGray12;
-    background-color: @colorGray14;
+    border-top: @border-width-base @border-style-base
+      @border-color-base--disabled;
+    background-color: @background-color-base--hover;
     overflow: hidden;
     p {
       font-size: 1em;

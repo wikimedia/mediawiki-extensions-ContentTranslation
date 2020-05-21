@@ -64,18 +64,18 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/colors.less";
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 @import "../lib/mediawiki.ui/mixins/common.less";
 
 .cx-suggestion {
-  border-top: 1px solid @colorGray12;
+  border-top: @border-width-base @border-style-base @border-color-base;
   cursor: pointer;
   min-height: 100px;
   .transition(
     "background-color 100ms, border-color 100ms, transform 1s, opacity 1s"
   );
   &:hover {
-    background-color: #eaf3ff;
+    background-color: @background-color-primary;
   }
   .cx-suggestion__source-title {
     font-weight: bold;

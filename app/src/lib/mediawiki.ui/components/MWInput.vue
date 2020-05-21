@@ -145,21 +145,20 @@ export default {
 
 <style lang="less">
 @import "../mixins/common.less";
-@import "../variables/colors.less";
-@import "../variables/borders.less";
+@import "../variables/wikimedia-ui-base.less";
 
 .mw-ui-input {
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
   width: auto;
-  color: @colorGray1;
+  color: @color-base;
   border: @border-base;
   border-radius: @border-radius-base;
   // necessary for smooth transition
   box-shadow: inset 0 0 0 0.1em #fff;
   &:hover {
-    border-color: @colorGray7;
+    border-color: @border-color-base--active;
   }
   .mw-ui-input__content {
     padding: 0;
@@ -183,7 +182,7 @@ export default {
     }
     // Normalize & style placeholder text, see T139034
     &::placeholder {
-      color: @colorGray7;
+      color: @border-color-base--active;
       opacity: 1;
     }
     &:-moz-focus-inner {
@@ -202,8 +201,8 @@ export default {
     }
 
     &:disabled {
-      border-color: @colorGray14;
-      color: @colorGray12;
+      border-color: @border-color-base;
+      color: @border-color-base;
     }
 
     // Normalize styling for `<input type="search">`
@@ -227,8 +226,8 @@ export default {
   }
 
   &.mw-ui-input--focused {
-    border-color: @colorProgressive;
-    box-shadow: inset 0 0 0 1px @colorProgressive;
+    border-color: @border-color-base;
+    box-shadow: inset 0 0 0 1px @color-primary;
     outline: 0;
   }
 
@@ -259,7 +258,7 @@ export default {
     text-overflow: ellipsis;
     background-color: transparent;
     // FIXME
-    color: @colorGray7;
+    color: @border-color-base--active;
     pointer-events: none;
   }
 
