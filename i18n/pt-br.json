@@ -316,5 +316,10 @@
 	"cx-preference-enable-entrypoints": "Acesso a [[$1|iniciar uma tradução]], da página de contribuições, da lista de idiomas e de novas criações de páginas.",
 	"cx-feature-discovery-title": "Traduzir a qualquer hora",
 	"cx-feature-discovery-content": "Você pode iniciar ou continuar a traduzir a qualquer momento a partir da página {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "OK, entendi"
+	"cx-feature-discovery-dismiss": "OK, entendi",
+	"cx-suggestionlist-expand-sections-title": "Expandir com novas seções",
+	"cx-sx-select-section": "Selecione a seção para traduzir",
+	"cx-sx-section-selector-title": "Seções",
+	"cx-sx-section-selector-subtitle": "Selecione uma seção para traduzir",
+	"cx-sx-section-selector-desc": "Escolha uma seção abaixo e verifique o conteúdo nos dois idiomas para decidir o que traduzir."
 }

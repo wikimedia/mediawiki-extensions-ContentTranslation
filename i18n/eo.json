@@ -254,5 +254,7 @@
 	"cx-linkcontextitem-missing-title-description": "Ĉi tiu paĝo ne jam ekzistas",
 	"cx-unreviewed-translation-category": "Paĝoj kun nereviziitaj tradukoj",
 	"cx-feature-discovery-title": "Traduki iam ajn",
-	"cx-feature-discovery-dismiss": "Bone, komprenite"
+	"cx-feature-discovery-dismiss": "Bone, komprenite",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Sekcio|$1 sekcioj}} mankas en $2",
+	"cx-sx-section-selector-title": "Sekcioj"
 }

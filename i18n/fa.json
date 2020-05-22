@@ -261,5 +261,8 @@
 	"cx-linkcontextitem-missing-link-title": "پیوند ناموجود",
 	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد.",
 	"cx-mt-abuse-publish-error": "ترجمه شما به دلیل وجود مقدار زیادی متن ویرایش نشده امکان انتشار ندارد.",
-	"cx-unreviewed-translation-category": "صفحات با ترجمه بازبینی‌نشده"
+	"cx-unreviewed-translation-category": "صفحات با ترجمه بازبینی‌نشده",
+	"cx-sx-select-section": "بخش مورد نظر برای ترجمه را انتخاب کنید",
+	"cx-sx-section-selector-title": "بخش‌ها",
+	"cx-sx-section-selector-subtitle": "یک بخش را برای ترجمه انتخاب کنید"
 }
