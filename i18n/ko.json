@@ -3,6 +3,7 @@
 		"authors": [
 			"Alex00728",
 			"Bluemersen",
+			"Codenstory",
 			"Ellif",
 			"Freebiekr",
 			"Garam",
@@ -167,6 +168,7 @@
 	"cx-translation-label-draft": "진행 중인 번역",
 	"cx-translation-label-published": "게시된 번역",
 	"cx-translation-already-in-progress": "$1 {{GENDER:$2|사용자}}가 진행 중인 번역입니다.",
+	"cx-translation-already-in-progress-unknown": "알 수 없는 사용자에 의해 진행 중인 번역입니다.",
 	"cx-translation-already-in-progress-collaborate": "현재판의 {{GENDER:$1|번역자}}와 협조하도록 해 주세요.",
 	"cx-publishing-dialog-publish-draft-button": "초안으로 게시",
 	"cx-feedback-link": "피드백 제공",
@@ -314,5 +316,11 @@
 	"cx-unreviewed-translation-category-desc": "검토되지 않은 상당한 양의 내용을 포함하는 내용 번역 도구로 번역된 문서",
 	"cx-feature-discovery-title": "언제든지 번역하기",
 	"cx-feature-discovery-content": "{{int:mycontris}} 문서를 통해 언제든지 번역을 시작하거나 이어갈 수 있습니다.",
-	"cx-feature-discovery-dismiss": "알겠습니다"
+	"cx-feature-discovery-dismiss": "알겠습니다",
+	"cx-suggestionlist-expand-sections-title": "문단 펼치기",
+	"cx-sx-select-section": "번역할 문단을 선택하세요",
+	"cx-sx-missing-section-stats": "$2에서 {{PLURAL:$1|한 개 문단|$1개 문단}}이 누락되었습니다",
+	"cx-sx-section-selector-title": "문단",
+	"cx-sx-section-selector-subtitle": "번역할 문단을 선택하세요",
+	"cx-sx-section-selector-desc": "번역할 내용을 결정하려면 아래에서 문단을 선택하고 두 언어로 내용을 확인하세요."
 }

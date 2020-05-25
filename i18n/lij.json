@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Giodiassi5",
 			"Giromin Cangiaxo"
 		]
 	},
@@ -292,5 +293,6 @@
 	"cx-preference-enable-entrypoints": "Accesso a [[$1|comensa a tradue]], da-a paggina de contribussioin, da-a lista de lengue, e da creassioin de noeuve paggine.",
 	"cx-feature-discovery-title": "Traduxi quande ti voeu",
 	"cx-feature-discovery-content": "Ti poeu comensâ ò continoâ a tradue quande ti voeu da-a paggina {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Va ben, ho acapio"
+	"cx-feature-discovery-dismiss": "Va ben, ho acapio",
+	"cx-sx-section-selector-title": "Seçioin"
 }

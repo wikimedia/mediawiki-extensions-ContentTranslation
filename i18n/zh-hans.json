@@ -28,6 +28,7 @@
 			"Петар Петковић",
 			"予弦",
 			"佛壁灯",
+			"列维劳德",
 			"夢蝶葬花",
 			"神樂坂秀吉",
 			"科劳"
@@ -323,5 +324,7 @@
 	"cx-preference-enable-entrypoints": "您可在您的贡献、语言列表和创建新页面的界面中[[$1|开始内容翻译]]。",
 	"cx-feature-discovery-title": "随时翻译",
 	"cx-feature-discovery-content": "您可随时从 {{int:mycontris}} 页开始或继续翻译",
-	"cx-feature-discovery-dismiss": "好的，明白了"
+	"cx-feature-discovery-dismiss": "好的，明白了",
+	"cx-suggestionlist-expand-sections-title": "展开新章节",
+	"cx-sx-section-selector-title": "章节"
 }

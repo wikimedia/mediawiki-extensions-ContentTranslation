@@ -202,5 +202,6 @@
 	"cx-tools-linter-template-add-new": "Ավելացնել նոր կաղապար",
 	"cx-tools-linter-restart-translation-cancel": "Չեղարկել",
 	"cx-tools-mt-new-provider": "նոր",
-	"cx-feature-discovery-dismiss": "Լավ, պարզ է"
+	"cx-feature-discovery-dismiss": "Լավ, պարզ է",
+	"cx-sx-section-selector-title": "Բաժիններ"
 }
