@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180"
 		]
 	},
@@ -79,7 +80,7 @@
 	"apihelp-cxsuggestionlist-param-to": "Kodhe basa tujuan.",
 	"apihelp-query+cxtranslatorstats-description": "Jupuk statistik pertalan ngenani wong iki.",
 	"apihelp-query+cxtranslatorstats-summary": "Jupuk setatistik pertalan babagan wong iki.",
-	"apihelp-query+cxtranslatorstats-param-translator": "Jeneng panganggoné juru mertal. Paramèter iki manasuka. Manawa iki ora kaanggo, panganggo kang wis mlebu saiki bakal kaanggo.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Jeneng naragunané juru mertal. Paramèter iki manasuka. Manawa iki ora kaanggo, naraguna kang wis mlebu saiki bakal kaanggo.",
 	"apihelp-query+cxtranslatorstats-example-1": "Jupuk statistik pertalan ngenani wong iki.",
 	"apihelp-cxsave-description": "Sarana modhul iki, cengkoronganing pertalan bisa kasimpen pérangan baka pérangan saperlu ngirit ambaning moga lan ngumpulaké korpora paralèl.",
 	"apihelp-cxsave-param-sourcerevision": "Owahan kaca sumber.",

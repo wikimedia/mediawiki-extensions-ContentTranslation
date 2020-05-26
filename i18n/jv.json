@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180",
 			"Notanotheramy",
 			"Sam Hidayat"
@@ -188,7 +189,7 @@
 	"cx-tools-link-to-another-page": "Gayutaké menyang kaca liya",
 	"cx-tools-link-add-as-missing": "Tambah dadi pranala abang",
 	"cx-tools-link-apply": "Rampung",
-	"cx-personaltools-user": "Panganggo",
+	"cx-personaltools-user": "Naraguna",
 	"cx-personaltools-anon": "Durung mlebu log",
 	"mw-pageselector-missing": "Kaca ora ana",
 	"cx-draft-restoring": "Ngamot pertalan kang kasimpen...",
@@ -246,7 +247,7 @@
 	"cx-publish-destination-namespace-main": "Kaca anyar",
 	"cx-publish-destination-namespace-main-description": "Ing mandhala aran pokok kang bisa diwaca kabèh wong",
 	"cx-publish-destination-namespace-user": "Rèngrèngan priangga",
-	"cx-publish-destination-namespace-user-description": "Ing mandhala araning panganggo kang kudu kodandani",
+	"cx-publish-destination-namespace-user-description": "Ing mandhala araning naraguna kang kudu kodandani",
 	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban",
 	"cx-linkcontextitem-missing-link-title": "Pranala ora ana",
 	"cx-linkcontextitem-missing-title-description": "Kaca iki durung ana",

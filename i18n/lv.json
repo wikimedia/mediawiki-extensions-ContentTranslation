@@ -214,6 +214,7 @@
 	"cx-suggestionlist-expand": "Skatīt visus",
 	"cx-suggestionlist-collapse": "Skatīt mazāk",
 	"cx-suggestionlist-refresh": "Atsvaidzināt ieteikumus",
+	"cx-notification-suggestions-available": "Balstoties uz {{GENDER:$2|tavu}} iepriekšējo tulkojumu '''$1''', ir pieejami jauni ieteikumi.",
 	"cx-infobar-view-issues": "Skatīt problēmas",
 	"cx-infobar-cannot-publish": "Tavu tulkojumu nevar publicēt, jo šajā vikivietnē publicēt drīkst tikai pieredzējušāki redaktori.",
 	"cx-infobar-old-version": "Šis tulkojums ir veidots no vecākas satura versijas. Avota lapa var būt ievērojami mainījusies un tu varētu vēlēties sākt tulkojumu no jauna.",
@@ -283,5 +284,9 @@
 	"cx-preference-enable-entrypoints": "Piekļuve [[$1|tulkojuma uzsākšanai]] no devuma lapas, valodu saraksta un jaunu lapu veidošanas.",
 	"cx-feature-discovery-title": "Tulko jebkurā laikā",
 	"cx-feature-discovery-content": "Tulkošanu var sākt vai turpināt jebkurā laikā no {{int:mycontris}} lapas",
-	"cx-feature-discovery-dismiss": "Labi, sapratu"
+	"cx-feature-discovery-dismiss": "Labi, sapratu",
+	"cx-suggestionlist-expand-sections-title": "Paplašināt ar jaunām sadaļām",
+	"cx-sx-select-section": "Izvēlies tulkojamo sadaļu",
+	"cx-sx-section-selector-title": "Sadaļas",
+	"cx-sx-section-selector-subtitle": "Izvēlies tulkojamo sadaļu"
 }
