@@ -182,7 +182,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetPage );
 		} else {
-			$targetURL = $targetTitle->getCanonicalUrl();
+			$targetURL = $targetTitle->getCanonicalURL();
 		}
 
 		$html = Deflate::inflate( $params['html'] );

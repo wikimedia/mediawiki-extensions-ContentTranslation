@@ -2,7 +2,7 @@
 
 namespace ContentTranslation;
 
-use XmlWriter;
+use XMLWriter;
 
 class TmxDumpFormatter {
 	/** @var bool */

@@ -140,7 +140,7 @@ class Translator {
 				$conds['translation_status'] = $type;
 			}
 
-			$queries[] = $dbr->selectSqlText( $tables, $field, $conds, __METHOD__ );
+			$queries[] = $dbr->selectSQLText( $tables, $field, $conds, __METHOD__ );
 		}
 
 		$res = $dbr->query( $dbr->unionQueries( $queries, false ) );

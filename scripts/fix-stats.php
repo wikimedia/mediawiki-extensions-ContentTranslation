@@ -191,7 +191,7 @@ class CxFixStats extends Maintenance {
 		# Assuming timestamps are in the correct format already
 		$conds[] = 'log_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['log_namespace'] = $title->getNamespace();
-		$conds['log_title'] = $title->getDbKey();
+		$conds['log_title'] = $title->getDBkey();
 
 		$field = $dbr->selectField( 'logging', 'log_type', $conds, __METHOD__ );
 		if ( $field ) {

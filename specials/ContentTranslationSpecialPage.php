@@ -45,7 +45,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		// Substitute for BaseTemplate::execute, based on VectorTemplate::execute.
 		$this->createHeaderHtml();
 		// Based on BaseTemplate::getTrail
-		$out->addHtml( MWDebug::getDebugHTML( $this->getContext() ) );
+		$out->addHTML( MWDebug::getDebugHTML( $this->getContext() ) );
 		$out->addHTML( $skin->bottomScripts() );
 		$out->addHTML( '</body></html>' );
 	}
