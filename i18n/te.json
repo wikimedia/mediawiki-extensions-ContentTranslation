@@ -214,5 +214,6 @@
 	"cx-publish-destination-namespace-user": "వ్యక్తిగత డ్రాఫ్టు",
 	"cx-publish-destination-namespace-draft": "సముదాయపు డ్రాఫ్టు",
 	"cx-linkcontextitem-missing-link-title": "కనబడని లింకు",
-	"cx-linkcontextitem-missing-title-description": "ఈ పేజీ ఇంకా తయారు కాలేదు"
+	"cx-linkcontextitem-missing-title-description": "ఈ పేజీ ఇంకా తయారు కాలేదు",
+	"cx-sx-section-selector-title": "విభాగాలు"
 }
