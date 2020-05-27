@@ -22,7 +22,11 @@ const mutations = {
 // Computed properties for stores.
 const getters = {
   getPage: state => (language, title) =>
-    state.pages.find(page => page.language === language && page.title === title)
+    state.pages.find(
+      page =>
+        page.language === language &&
+        (page.title === title || page.alias === title)
+    )
 };
 
 const actions = {
@@ -48,7 +52,7 @@ const actions = {
   fetchSupportedLanguageCodes({ commit }) {
     siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
       commit("setSupportedLanguageCodes", languageCodes);
-    })
+    });
   }
 };
 

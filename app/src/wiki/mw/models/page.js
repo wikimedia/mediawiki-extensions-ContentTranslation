@@ -9,7 +9,8 @@ export class Page {
     pageprops,
     pageviews,
     thumbnail,
-    title
+    title,
+    _alias // The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
   } = {}) {
     this.language = pagelanguage;
     this.title = title;
@@ -21,6 +22,7 @@ export class Page {
     this.thumbnail = thumbnail;
     this.langLinksCount = langlinkscount;
     this.revision = lastrevid;
+    this.alias = _alias;
   }
 
   get id() {

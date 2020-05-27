@@ -17,7 +17,19 @@ function fetchMetadata(language, titles) {
   const api = `https://${language}.wikipedia.org/w/api.php`;
   return axios.get(api, { params }).then(response => {
     const apiResponse = response.data.query.pages;
-    return apiResponse.map(page => Object.freeze(new Page(page)));
+    const redirects = response.data.query.redirects || [];
+    const redirectMap = {};
+    redirects.map(item => {
+      redirectMap[item.to] = item.from;
+    });
+
+    return apiResponse.map(page => {
+      if (redirectMap[page.title]) {
+        // Note: This does not handle double redirects.
+        page._alias = redirectMap[page.title];
+      }
+      return Object.freeze(new Page(page));
+    });
   });
 }
 
