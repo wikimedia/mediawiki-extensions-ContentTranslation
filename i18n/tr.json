@@ -324,5 +324,6 @@
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Bir bölüm|$1 bölüm}}, $2 içinde eksik",
 	"cx-sx-section-selector-title": "Bölümler",
 	"cx-sx-section-selector-subtitle": "Çevrilecek bir bölüm seçin",
-	"cx-sx-section-selector-desc": "Aşağıdan bir bölüm seçin ve neyin çevrileceğine karar vermek için her iki dildeki içeriği kontrol edin."
+	"cx-sx-section-selector-desc": "Aşağıdan bir bölüm seçin ve neyin çevrileceğine karar vermek için her iki dildeki içeriği kontrol edin.",
+	"cx-sx-language-selector-dialog-title": "Bir dil arayın"
 }

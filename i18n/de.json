@@ -313,5 +313,6 @@
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|1 Abschnitt fehlt|$1 Abschnitte fehlen}} in $2",
 	"cx-sx-section-selector-title": "Abschnitte",
 	"cx-sx-section-selector-subtitle": "Wähle einen zu übersetzenden Abschnitt aus",
-	"cx-sx-section-selector-desc": "Wähle unten einen Abschnitt aus und überprüfe den Inhalt in beiden Sprachen, um zu entscheiden, was übersetzt werden soll."
+	"cx-sx-section-selector-desc": "Wähle unten einen Abschnitt aus und überprüfe den Inhalt in beiden Sprachen, um zu entscheiden, was übersetzt werden soll.",
+	"cx-sx-language-selector-dialog-title": "Nach einer Sprache suchen"
 }
