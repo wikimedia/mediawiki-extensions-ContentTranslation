@@ -1,45 +1,36 @@
 <template>
-  <div class="mw-ui-language-selector row">
-    <mw-input
-      :value="search"
-      type="search"
-      tabindex="0"
-      class="mw-ui-language-selector__input col-12"
-      :icon="mwIconSearch"
-      :suggestion="suggestion"
-      @update="onQueryUpdate"
-      :placeholder="placeholder"
-    />
-    <div class="mw-ui-language-selector__results col-12">
-      <div
-        v-for="result in results"
-        v-bind:key="result.code"
-        class="mw-ui-language-selector__result row"
-        @click="$emit('select', result.code)"
-      >
+  <mw-select
+    v-model="languages"
+    class="mw-ui-language-selector"
+    :icon="mwIconSearch"
+    optionLabel="name"
+    optionValue="code"
+    :placeholder="placeholder"
+  >
+    <template v-slot:option="slotProps">
+      <div class="row">
         <span class="mw-ui-language-selector__result-name col-10">{{
-          result.name
+          slotProps.option.label
         }}</span>
-        <span class="mw-ui-language-selector__result-code col-2">{{
-          result.code
+        <span class="mw-ui-language-selector__result-code col-2 justify-end">{{
+          slotProps.option.value
         }}</span>
       </div>
-    </div>
-  </div>
+    </template>
+  </mw-select>
 </template>
 
 <script>
 import MwUiIcon from "./MWIcon";
 import { mwIconSearch } from "./icons";
-import MwInput from "./MWInput";
+import MwSelect from "./MWSelect";
 export default {
   name: "mw-language-selector",
   data: () => ({
-    search: "",
     mwIconSearch
   }),
   components: {
-    MwInput
+    MwSelect
   },
   props: {
     placeholder: String,

@@ -34,8 +34,13 @@ export const LanguageSelector = () => ({
       this.value = value;
     }
   },
-  template: `<div class="container"><mw-language-selector
+  template: `<main class="container">
+    <section class="row">
+    <mw-language-selector
      @select="select"
      :languages="languages"
-    ></mw-language-selector></div>`
+     placeholder="Select language"
+     class="col-12"
+    ></mw-language-selector>
+    </section></main>`
 });
