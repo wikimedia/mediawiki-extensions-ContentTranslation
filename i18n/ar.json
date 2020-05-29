@@ -313,5 +313,10 @@
 	"cx-preference-enable-entrypoints": "الوصول إلى [[$1| بدء ترجمة]]، من صفحة المساهمات، وقائمة اللغات، وإنشاءات الصفحات الجديدة.",
 	"cx-feature-discovery-title": "ترجمة في أي وقت",
 	"cx-feature-discovery-content": "يمكنك بدء أو متابعة الترجمة في أي وقت من صفحة {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "حسنا، فهمت المقصود"
+	"cx-feature-discovery-dismiss": "حسنا، فهمت المقصود",
+	"cx-suggestionlist-expand-sections-title": "التوسعة بأقسام جديدة",
+	"cx-sx-select-section": "اختر قسمًا للترجمة",
+	"cx-sx-section-selector-title": "الأقسام",
+	"cx-sx-section-selector-subtitle": "اختر قسمًا للترجمة",
+	"cx-sx-language-selector-dialog-title": "ابحث عن لغة"
 }

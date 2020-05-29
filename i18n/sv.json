@@ -163,6 +163,7 @@
 	"cx-translation-label-draft": "Pågående översättningar",
 	"cx-translation-label-published": "Publicerade översättningar",
 	"cx-translation-already-in-progress": "Detta är en pågående översättning {{GENDER:$2|av}} $1.",
+	"cx-translation-already-in-progress-unknown": "Detta är en pågående översättning av en okänd användare.",
 	"cx-translation-already-in-progress-collaborate": "Se till att du samordnar med {{GENDER:$1|användaren}} som översatte den nuvarande översättningen.",
 	"cx-publishing-dialog-publish-draft-button": "Publicera som utkast",
 	"cx-feedback-link": "Ge återkoppling",
@@ -312,5 +313,12 @@
 	"cx-preference-enable-entrypoints": "Åtkomst för att [[$1|starta en översättning]] från bidragssidan, språklistan och skapa nya sidor.",
 	"cx-feature-discovery-title": "Översätt när som helst",
 	"cx-feature-discovery-content": "Du kan påbörja eller fortsätta på en översättning när som helst från sidan {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Okej, jag förstår"
+	"cx-feature-discovery-dismiss": "Okej, jag förstår",
+	"cx-suggestionlist-expand-sections-title": "Expandera med nya avsnitt",
+	"cx-sx-select-section": "Välj avsnitt att översätta",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Ett avsnitt|$1 avsnitt}} saknas på $2",
+	"cx-sx-section-selector-title": "Avsnitt",
+	"cx-sx-section-selector-subtitle": "Välj ett avsnitt att översätta",
+	"cx-sx-section-selector-desc": "Välj ett avsnitt nedan och granska innehållet på båda språken för att bestämma vad som ska översätta.",
+	"cx-sx-language-selector-dialog-title": "Sök efter ett språk"
 }

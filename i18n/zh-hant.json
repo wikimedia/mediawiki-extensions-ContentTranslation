@@ -316,5 +316,6 @@
 	"cx-sx-missing-section-stats": "在$2裡缺少{{PLURAL:$1|1個章節|$1個章節}}",
 	"cx-sx-section-selector-title": "章節",
 	"cx-sx-section-selector-subtitle": "選擇要翻譯的章節",
-	"cx-sx-section-selector-desc": "在下方選擇一個章節，並檢查兩種語言的內容，來決定要翻譯的地方。"
+	"cx-sx-section-selector-desc": "在下方選擇一個章節，並檢查兩種語言的內容，來決定要翻譯的地方。",
+	"cx-sx-language-selector-dialog-title": "搜尋語言"
 }

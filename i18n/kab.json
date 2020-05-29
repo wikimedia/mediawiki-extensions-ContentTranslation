@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Belkacem77"
+			"Belkacem77",
+			"YouvaDjouadi"
 		]
 	},
 	"cx": "Suqel asebter",
@@ -148,5 +149,6 @@
 	"cx-publish-destination-tooltip": "Fren tallunt n yismawen anida ad d-yeffeɣ usebter",
 	"cx-publish-destination-namespace-main": "Asebter amaynut",
 	"cx-publish-destination-namespace-user": "Asumer udmawan",
-	"cx-publish-destination-namespace-draft": "Asumer n tmezdagnut"
+	"cx-publish-destination-namespace-draft": "Asumer n tmezdagnut",
+	"cx-sx-language-selector-dialog-title": "Nadi ɣef tutlayt"
 }

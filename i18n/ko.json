@@ -322,5 +322,6 @@
 	"cx-sx-missing-section-stats": "$2에서 {{PLURAL:$1|한 개 문단|$1개 문단}}이 누락되었습니다",
 	"cx-sx-section-selector-title": "문단",
 	"cx-sx-section-selector-subtitle": "번역할 문단을 선택하세요",
-	"cx-sx-section-selector-desc": "번역할 내용을 결정하려면 아래에서 문단을 선택하고 두 언어로 내용을 확인하세요."
+	"cx-sx-section-selector-desc": "번역할 내용을 결정하려면 아래에서 문단을 선택하고 두 언어로 내용을 확인하세요.",
+	"cx-sx-language-selector-dialog-title": "언어 검색"
 }
