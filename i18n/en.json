@@ -317,5 +317,10 @@
 	"cx-sx-section-selector-title": "Sections",
 	"cx-sx-section-selector-subtitle": "Select a section to translate",
 	"cx-sx-section-selector-desc": "Pick a section below and check the contents in both languages to decide what to translate.",
-	"cx-sx-language-selector-dialog-title": "Search for a language"
+	"cx-sx-language-selector-dialog-title": "Search for a language",
+	"cx-sx-existing-translation-status": "Already exists in $1",
+	"cx-sx-existing-translation-additional-info": "Expand the existing contents by translating new sections. ",
+	"cx-sx-start-translation-button-label": "Start translation",
+	"cx-sx-view-translation-anchor": "View",
+	"cx-sx-existing-translation-learn-more": "Learn more"
 }

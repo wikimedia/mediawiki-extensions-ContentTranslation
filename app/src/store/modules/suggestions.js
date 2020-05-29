@@ -16,6 +16,9 @@ const mutations = {
     state.sectionSuggestions.push(suggestion);
   },
   setCurrentSectionSuggestion(state, suggestion) {
+    suggestion.availableSourceLanguages =
+      state.currentSectionSuggestion?.availableSourceLanguages || [];
+
     state.currentSectionSuggestion = suggestion;
   },
   setCurrentSectionSuggestionAvailableSourceLanguages(state, languages) {
@@ -104,7 +107,7 @@ const actions = {
     }
   },
 
-  async getSectionSuggestionsForArticle(
+  async loadSectionSuggestion(
     { commit, dispatch, rootGetters },
     suggestionRequest
   ) {
@@ -115,6 +118,7 @@ const actions = {
       suggestionRequest.targetLanguage
     );
     commit("addSectionSuggestion", suggestion);
+    commit("setCurrentSectionSuggestion", suggestion);
 
     dispatch(
       "mediawiki/fetchPage",

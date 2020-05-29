@@ -37,14 +37,44 @@
     <div class="sx-article-selector__body">
       <sx-article-language-selector />
       <mw-divider />
+      <div
+        v-if="translationExists"
+        class="sx-article-selector__translation-status row pa-4 ma-0"
+      >
+        <!-- Font weight bold -->
+        <div
+          class="col-8"
+          v-i18n:cx-sx-existing-translation-status="[targetLanguageAutonym]"
+        ></div>
+        <div class="col-4 justify-end">
+          <a v-i18n:cx-sx-view-translation-anchor href="#"></a>
+        </div>
+      </div>
+      <div v-if="translationExists" class="row pa-4 ma-0">
+        <div class="col-12">
+          <span
+            v-i18n:cx-sx-existing-translation-additional-info="[
+              targetLanguageAutonym
+            ]"
+          ></span>
+          <a v-i18n:cx-sx-existing-translation-learn-more href="#"></a>
+        </div>
+      </div>
       <div class="row sx-article-selector__action justify-center mt-8 mb-8">
         <mw-button
-          class="col-8"
+          v-if="translationExists"
           :large="true"
           :progressive="true"
           :disabled="missingSectionsCount === 0"
           @click="onSectionSelectorClick()"
           :label="$i18n('cx-sx-select-section')"
+        ></mw-button>
+        <mw-button
+          v-else
+          :large="true"
+          :progressive="true"
+          @click="onSectionSelectorClick()"
+          :label="$i18n('cx-sx-start-translation-button-label')"
         ></mw-button>
       </div>
       <div
@@ -56,7 +86,7 @@
         ]"
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
-        <p class="pa-2" v-i18n-html:cx-license-agreement />
+        <p class="pa-3" v-i18n-html:cx-license-agreement />
       </div>
     </div>
     <sx-section-selector
@@ -117,6 +147,12 @@ export default {
       currentSectionSuggestion: state =>
         state.suggestions.currentSectionSuggestion
     }),
+    targetLanguageAutonym() {
+      return this.getAutonym(this.targetLanguage);
+    },
+    translationExists() {
+      return this.currentSectionSuggestion?.presentSectionsCount;
+    },
     langLinksCount() {
       return this.sourceArticle?.langLinksCount;
     },
@@ -190,6 +226,11 @@ export default {
       font-size: 1rem;
     }
   }
+
+  .sx-article-selector__translation-status {
+    background-color: @background-color-warning--framed;
+  }
+
   .sx-article-selector__license {
     border-top: @border-width-base @border-style-base
       @border-color-base--disabled;

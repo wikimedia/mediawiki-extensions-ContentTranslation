@@ -20,4 +20,8 @@ export class SectionSuggestion {
   get missingSectionsCount() {
     return Object.keys(this.missingSections).length;
   }
+
+  get presentSectionsCount() {
+    return Object.keys(this.presentSections || {}).length;
+  }
 }

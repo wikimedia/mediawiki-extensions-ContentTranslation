@@ -28,9 +28,11 @@ function fetchLanguageInfo(licontinue) {
     });
 }
 
-async function fetchSupportedLanguageCodes () {
+async function fetchSupportedLanguageCodes() {
   const api = "https://cxserver.wikimedia.org/v1/list/languagepairs";
-  return await axios.get(api, { origin: "*" }).then(response => response.data.source);
+  return await axios
+    .get(api, { origin: "*" })
+    .then(response => response.data.source);
 }
 
 export default {

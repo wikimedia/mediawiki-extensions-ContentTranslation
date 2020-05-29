@@ -164,27 +164,14 @@ export default {
     const targetLanguage = urlParams.get("to");
     const sourceTitle = urlParams.get("page");
     if (isSectionTranslation && sourceTitle) {
-      this.$store
-        .dispatch("suggestions/getSectionSuggestionsForArticle", {
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle
-        })
-        .then(() => {
-          const suggestion = this.$store.getters[
-            "suggestions/getSectionSuggestionsForArticle"
-          ](sourceLanguage, targetLanguage, sourceTitle);
-          this.startSectionTranslation(suggestion);
-        });
-
-      this.startSectionTranslation(
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle,
-          missing: {}
-        })
-      );
+      const suggestion = new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+        missing: {}
+      });
+      this.startSectionTranslation(suggestion);
+      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
     }
   }
 };

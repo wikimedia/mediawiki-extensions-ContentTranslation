@@ -328,5 +328,10 @@
 	"cx-sx-section-selector-title": "Title of the screen listing missing sections to selector for translating.",
 	"cx-sx-section-selector-subtitle": "Subtitle of the screen listing missing sections to selector for translating.",
 	"cx-sx-section-selector-desc": "Description of the screen listing missing sections to selector for translating.",
-	"cx-sx-language-selector-dialog-title": "Title of language selector dialog window"
+	"cx-sx-language-selector-dialog-title": "Title of language selector dialog window",
+	"cx-sx-existing-translation-status": "Text for status of article with pre-existing translation",
+	"cx-sx-existing-translation-additional-info": "Text for additional information for article with pre-existing translation",
+	"cx-sx-start-translation-button-label": "Label for start translation button",
+	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation",
+	"cx-sx-existing-translation-learn-more": "Text for anchor that redirects to page with additional information regarding section translation"
 }

@@ -74,6 +74,7 @@ import {
 import MwLanguageSelector from "../lib/mediawiki.ui/components/MWLanguageSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import { mapState } from "vuex";
+import { SectionSuggestion } from "../wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "sx-article-language-selector",
@@ -94,18 +95,18 @@ export default {
   computed: {
     ...mapState({
       languageInfo: state => state.mediawiki.languageInfo,
-      currentSectionSuggestion: state => state.suggestions.currentSectionSuggestion,
-      supportedLanguageCodes: state => state.mediawiki.supportedLanguageCodes || []
+      currentSectionSuggestion: state =>
+        state.suggestions.currentSectionSuggestion,
+      supportedLanguageCodes: state =>
+        state.mediawiki.supportedLanguageCodes || []
     }),
     availableSourceLanguages() {
       return this.currentSectionSuggestion?.availableSourceLanguages
         .filter(languageCode => languageCode !== this.sourceLanguage)
-        .map(
-          languageCode => ({
-            name: this.autonym(languageCode),
-            code: languageCode
-          })
-        );
+        .map(languageCode => ({
+          name: this.autonym(languageCode),
+          code: languageCode
+        }));
     },
     sourceLanguage() {
       return this.currentSectionSuggestion?.sourceLanguage;
@@ -154,11 +155,29 @@ export default {
       this.sourceLanguageSelectOn = false;
     },
     onTargetLanguageSelected(newLanguage) {
-      this.$store.commit(
-        "suggestions/setCurrentSectionSuggestionTargetLanguage",
-        newLanguage
-      );
       this.targetLanguageSelectOn = false;
+
+      const suggestion = new SectionSuggestion({
+        sourceLanguage: this.currentSectionSuggestion.sourceLanguage,
+        targetLanguage: newLanguage,
+        sourceTitle: this.currentSectionSuggestion.sourceTitle,
+        targetTitle: this.currentSectionSuggestion.targetTitle,
+        present: {},
+        missing: {},
+        availableSourceLanguages: this.currentSectionSuggestion
+          .availableSourceLanguages
+      });
+
+      if (
+        this.currentSectionSuggestion.availableSourceLanguages.includes(
+          newLanguage
+        )
+      ) {
+        this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
+        return;
+      }
+
+      this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);
     },
     onSourceLanguageDialogClose() {
       this.sourceLanguageSelectOn = false;
