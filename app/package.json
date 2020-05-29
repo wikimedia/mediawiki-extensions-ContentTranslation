@@ -6,11 +6,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:bundle": "bash ./scripts/check_bundle.sh && bundlesize",
+    "test:bundle": "bash ./scripts/check_bundle.sh",
     "lint": "vue-cli-service lint",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "test": "npm -s run test:bundle && npm run test:unit"
+    "test": "npm install && npm -s run test:bundle && npm run test:unit"
   },
   "dependencies": {
     "axios": "^0.19.2",
