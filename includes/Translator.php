@@ -155,7 +155,7 @@ class Translator {
 
 	/**
 	 * Get the number of published translation by current translator.
-	 * @return Integer
+	 * @return int
 	 */
 	public function getTranslationsCount() {
 		$dbr = Database::getConnection( DB_REPLICA );
@@ -222,7 +222,7 @@ class Translator {
 
 	/**
 	 * Get the total count of users who published a translation.
-	 * @return Integer Number of translators
+	 * @return int Number of translators
 	 */
 	public static function getTotalTranslatorsCount() {
 		$dbr = Database::getConnection( DB_REPLICA );
