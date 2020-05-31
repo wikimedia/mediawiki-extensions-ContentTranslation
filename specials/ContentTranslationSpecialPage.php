@@ -98,6 +98,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$personalMenuList = $this->getPersonalMenuList( $personalTools );
 		$out->addJsConfigVars( 'personalMenuList', $personalMenuList );
 
+		// @phan-suppress-next-line SecurityCheck-XSS
 		$out->addHTML( $out->headElement( $skin ) );
 		$out->addHTML( Html::element(
 			'div',
