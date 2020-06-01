@@ -280,5 +280,6 @@
 	"cx-preference-enable-entrypoints": "অবদানের পাতা, ভাষার তালিকা এবং নতুন পাতা সৃষ্টিকরণ থেকে, [[$1|একটি অনুবাদ শুরুকরণে]] প্রবেশাধিকার",
 	"cx-feature-discovery-title": "যেকোন সময় অনুবাদ করুন",
 	"cx-feature-discovery-content": "আপনি যে কোনও সময় {{int:mycontris}} পাতা থেকে অনুবাদ শুরু করতে বা চালিয়ে যেতে পারেন",
-	"cx-feature-discovery-dismiss": "ঠিক আছে, বুঝেছি"
+	"cx-feature-discovery-dismiss": "ঠিক আছে, বুঝেছি",
+	"cx-sx-language-selector-dialog-title": "একটি ভাষা খুঁজুন"
 }

@@ -27,6 +27,7 @@
 			"Nicolapps",
 			"Orikrin1998",
 			"Orlodrim",
+			"Pamputt",
 			"Pols12",
 			"ProfGra",
 			"Sherbrooke",
@@ -341,5 +342,6 @@
 	"cx-sx-missing-section-stats": "Il manque {{PLURAL:$1|une section|$1 sections}} dans $2",
 	"cx-sx-section-selector-title": "Sections",
 	"cx-sx-section-selector-subtitle": "Choisir une section à traduire",
-	"cx-sx-section-selector-desc": "Sélectionnez une section ci-dessous et vérifiez le contenu dans les deux langues pour décider de ce qu'il faut traduire."
+	"cx-sx-section-selector-desc": "Sélectionnez une section ci-dessous et vérifiez le contenu dans les deux langues pour décider de ce qu'il faut traduire.",
+	"cx-sx-language-selector-dialog-title": "Rechercher une langue"
 }

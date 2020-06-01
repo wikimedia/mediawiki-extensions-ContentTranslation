@@ -7,6 +7,7 @@
 			"Av6",
 			"Batumski brodyaga",
 			"Dicto23456",
+			"Diman Russkov",
 			"Diralik",
 			"Edible Melon",
 			"Esukhovnina",
@@ -86,6 +87,7 @@
 	"cx-entrypoint-title": "Перевести эту страницу на $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Такой страницы на языке «$1» пока не существует. {{GENDER:|Вы}} хотите создать её?",
 	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
+	"cx-entrypoint-dialog-desc": "Вы можете помочь Википедии, переведя эту страницу. Перевод - это простой способ создания нового контента на вашем языке.",
 	"cx-campaign-newbytranslation-search": "Найти другую страницу для перевода",
 	"cx-campaign-newbytranslation-start": "Начать перевод",
 	"cx-special-login-error": "Вы должны авторизоваться, чтоб перевести эту страницу. [$1 Войти]",
@@ -309,5 +311,6 @@
 	"cx-unreviewed-translation-category": "Страницы с непроверенными переводами",
 	"cx-unreviewed-translation-category-desc": "Страницы, переведённые с помощью инструмента «Перевод содержимого», которые имеют значительное количество непроверенного содержимого",
 	"cx-feature-discovery-title": "Переводите в любое время",
-	"cx-feature-discovery-dismiss": "Понятно"
+	"cx-feature-discovery-dismiss": "Понятно",
+	"cx-sx-section-selector-title": "Разделы"
 }
