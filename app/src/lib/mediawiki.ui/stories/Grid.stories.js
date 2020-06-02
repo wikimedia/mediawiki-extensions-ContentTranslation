@@ -12,7 +12,7 @@ import "../grid.less";
 import "./grid-story.less";
 
 export default {
-  title: "Components/Grid",
+  title: "Style/Grid",
   decorators: [withKnobs, withA11y]
 };
 

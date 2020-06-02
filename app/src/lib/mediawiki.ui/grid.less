@@ -77,6 +77,24 @@
     .bidi(~"margin-right", ~"@{width}px");
   }
 
+  .px-@{mediaKey}@{counter} {
+    padding-right: ~"@{width}px";
+    padding-left: ~"@{width}px";
+  }
+  .py-@{mediaKey}@{counter} {
+    padding-top: ~"@{width}px";
+    padding-bottom: ~"@{width}px";
+  }
+  .mx-@{mediaKey}@{counter} {
+    margin-right: ~"@{width}px";
+    margin-left: ~"@{width}px";
+  }
+  .my-@{mediaKey}@{counter} {
+    margin-top: ~"@{width}px";
+    margin-bottom: ~"@{width}px";
+  }
+
+
   .pt-@{mediaKey}@{counter} {
     padding-top: ~"@{width}px";
   }
@@ -124,7 +142,6 @@
     }
 
     .generateResponsiveCols(@cols,'');
-    .generateSpacing(@cols, '');
 
     each(@breakpoints, {
       .col-@{key}-hidden {
@@ -140,7 +157,6 @@
     each(@breakpoints, {
       @media @value {
         .generateResponsiveCols(@cols, @key);
-        .generateSpacing(@cols, @key);
 
         each(@breakpoints, {
           .col-@{key}-hidden {
@@ -173,6 +189,14 @@
       flex-direction: column-reverse;
     }
   }
+
+  // Padding and margin classes
+  .generateSpacing(@cols, '');
+  each(@breakpoints, {
+    @media @value {
+       .generateSpacing(@cols, @key);
+    }
+  })
 
   [class*="items-"],
   [class*="justify-"] {
