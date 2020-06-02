@@ -5,7 +5,7 @@ exports[`MWInput.vue renders <textarea> tag when type is passed so 1`] = `
   class="mw-ui-input container"
 >
   <div
-    class="mw-ui-input__content d-flex row"
+    class="mw-ui-input__content"
   >
     <!---->
      
@@ -25,7 +25,7 @@ exports[`MWInput.vue renders icons and indicator when passed 1`] = `
   class="mw-ui-input container"
 >
   <div
-    class="mw-ui-input__content d-flex row"
+    class="mw-ui-input__content"
   >
     <mw-icon-stub
       class="mw-ui-input__icon"

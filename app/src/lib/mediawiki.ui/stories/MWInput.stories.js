@@ -38,9 +38,6 @@ export const Inputs = () => ({
     },
     value: {
       default: text("Value", "")
-    },
-    suggestion: {
-      default: text("Suggestion", "Suggestion")
     }
   },
   methods: {
@@ -64,7 +61,7 @@ export const Inputs = () => ({
      :icon="icons[icon]"
      :indicator="icons[indicator]"
      v-model="value"
-      @click="click"
+     @click="click"
      @focus="focus"
      @blur="blur"
      @update="update"

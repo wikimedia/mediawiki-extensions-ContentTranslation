@@ -1,19 +1,22 @@
 <template>
   <div :class="classes" @click="focus()">
-    <div class="mw-ui-input__content d-flex row">
-      <mw-icon
-        v-if="icon"
-        :icon="icon"
-        :size="large ? 28 : iconSize"
-        class="mw-ui-input__icon"
-      ></mw-icon>
+    <div class="mw-ui-input__content">
+      <slot name="icon">
+        <mw-icon
+          v-if="icon"
+          :icon="icon"
+          :size="large ? 28 : iconSize"
+          class="mw-ui-input__icon"
+        ></mw-icon>
+      </slot>
       <component
         class="mw-ui-input__input"
         :is="type === 'textarea' ? type : 'input'"
         ref="input"
         :disabled="disabled"
         :aria-disabled="disabled"
-        :value="value"
+        :value.sync="value"
+        v-text="value"
         :placeholder="placeholder"
         v-bind="$attrs"
         v-on="$listeners"
@@ -23,12 +26,14 @@
         @blur="onBlur"
         @click="onClick"
       />
-      <mw-icon
-        v-if="indicator"
-        :icon="indicator"
-        :size="large ? 28 : indicatorSize || iconSize"
-        class="mw-ui-input__indicator"
-      ></mw-icon>
+      <slot name="indicator">
+        <mw-icon
+          v-if="indicator"
+          :icon="indicator"
+          :size="large ? 28 : indicatorSize || iconSize"
+          class="mw-ui-input__indicator"
+        ></mw-icon>
+      </slot>
     </div>
   </div>
 </template>
@@ -205,10 +210,6 @@ export default {
     height: 32px;
   }
 
-  .mw-ui-input__icon + .mw-ui-input__label,
-  .mw-ui-input__label + .mw-ui-input__indicator {
-    padding-left: 8px;
-  }
   // mw-ui-input-large
   //
   // Use mw-ui-input-large with mw-ui-input in cases where there are multiple inputs on a screen and you
