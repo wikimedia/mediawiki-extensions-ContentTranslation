@@ -36,7 +36,6 @@
     </template>
     <div class="sx-article-selector__body">
       <sx-article-language-selector />
-      <mw-divider />
       <div
         v-if="translationExists"
         class="sx-article-selector__translation-status row pa-4 ma-0"
@@ -50,7 +49,7 @@
           <a v-i18n:cx-sx-view-translation-anchor href="#"></a>
         </div>
       </div>
-      <div v-if="translationExists" class="row pa-4 ma-0">
+      <div v-if="translationExists" class="row pa-4 pb-0 ma-0">
         <div class="col-12">
           <span
             v-i18n:cx-sx-existing-translation-additional-info="[
@@ -60,7 +59,7 @@
           <a v-i18n:cx-sx-existing-translation-learn-more href="#"></a>
         </div>
       </div>
-      <div class="row sx-article-selector__action justify-center mt-8 mb-8">
+      <div class="row sx-article-selector__action justify-center pt-4 pb-3">
         <mw-button
           v-if="translationExists"
           :large="true"
@@ -78,7 +77,7 @@
         ></mw-button>
       </div>
       <div
-        class="row sx-article-selector__action justify-center mt-8 mb-8"
+        class="row sx-article-selector__action justify-center pb-2 mb-4"
         v-if="missingSectionsCount"
         v-i18n:cx-sx-missing-section-stats="[
           missingSectionsCount,
@@ -103,7 +102,6 @@ import { mapState } from "vuex";
 import SxSectionSelector from "./SXSectionSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
-import MwDivider from "../lib/mediawiki.ui/components/MWDivider";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
 import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
@@ -119,7 +117,6 @@ export default {
   name: "sx-article-selector",
   components: {
     MwDialog,
-    MwDivider,
     MwIcon,
     MwThumbnail,
     SxSectionSelector,
@@ -131,7 +128,6 @@ export default {
     mwIconExpand,
     mwIconLanguage,
     mwIconBookmarkOutline,
-    MwDivider,
     mwIconArrowNext,
     showSectionTranslation: false
   }),

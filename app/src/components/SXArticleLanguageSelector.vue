@@ -65,7 +65,6 @@
 <script>
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
 import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
-import MwDivider from "../lib/mediawiki.ui/components/MWDivider";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import {
   mwIconArrowNext,
@@ -86,7 +85,6 @@ export default {
     MwButton
   },
   data: () => ({
-    MwDivider,
     mwIconArrowNext,
     mwIconExpand,
     sourceLanguageSelectOn: false,
@@ -185,3 +183,11 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+.sx-article-language-selector {
+  border-bottom: @border-width-base @border-style-base
+    @background-color-notice--framed;
+}
+</style>

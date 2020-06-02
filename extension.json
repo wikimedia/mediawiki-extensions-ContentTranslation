@@ -372,7 +372,11 @@
 				"cx-sx-language-selector-dialog-title",
 				"cx-sx-start-translation-button-label",
 				"cx-sx-view-translation-anchor",
-				"cx-sx-existing-translation-learn-more"
+				"cx-sx-existing-translation-learn-more",
+				"cx-sx-section-missing-sections-title",
+				"cx-sx-section-present-sections-title",
+				"cx-sx-section-more-details-title",
+				"cx-sx-section-view-article-button-label"
 			]
 		},
 		"ext.cx.util": {

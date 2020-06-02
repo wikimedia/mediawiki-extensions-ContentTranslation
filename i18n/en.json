@@ -322,5 +322,9 @@
 	"cx-sx-existing-translation-additional-info": "Expand the existing contents by translating new sections. ",
 	"cx-sx-start-translation-button-label": "Start translation",
 	"cx-sx-view-translation-anchor": "View",
-	"cx-sx-existing-translation-learn-more": "Learn more"
+	"cx-sx-existing-translation-learn-more": "Learn more",
+	"cx-sx-section-missing-sections-title": "Sections missing in $1",
+	"cx-sx-section-present-sections-title": "Sections present in $1",
+	"cx-sx-section-more-details-title": "More details",
+	"cx-sx-section-view-article-button-label": "View article in $1"
 }
