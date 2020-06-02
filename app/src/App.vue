@@ -22,7 +22,7 @@ import MwButton from "./lib/mediawiki.ui/components/MWButton";
 import CxHeader from "./components/CXHeader";
 import CxDashboard from "./components/CXDashboard";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
-import "./lib/mediawiki.ui/grid.less";
+import "./lib/mediawiki.ui/grid.scss";
 
 export default {
   name: "cx-dashboard-app",

@@ -1,6 +1,6 @@
 <template>
   <main class="cx-translation-dashboard">
-    <nav class="d-xs-only-none d-sm-only-none">
+    <nav class="h-sm-and-down">
       <mw-button-group
         :items="listSelector"
         :active="active"
@@ -27,7 +27,7 @@
       translationStatus="draft"
       :active="active === 'draft'"
     />
-    <mw-bottom-navigation class="d-xs-only-flex d-sm-only-flex d-none">
+    <mw-bottom-navigation class="h-md-and-up">
       <mw-button-group
         :items="listSelector"
         :active="active"

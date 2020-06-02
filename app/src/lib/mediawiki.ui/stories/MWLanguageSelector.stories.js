@@ -3,7 +3,7 @@ import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, boolean, select, text } from "@storybook/addon-knobs";
 import * as icons from "../components/icons";
-import "../grid.less";
+import "../grid.scss";
 
 export default {
   title: "Components",

@@ -37,7 +37,7 @@ import MwButton from "./MWButton";
 import MwDivider from "./MWDivider";
 
 import { mwIconClose } from "./icons";
-import "../grid.less";
+import "../grid.scss";
 
 export default {
   name: "mw-dialog",

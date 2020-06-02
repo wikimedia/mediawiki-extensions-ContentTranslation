@@ -12,21 +12,11 @@
       </h1>
     </div>
     <div class="col-6 col-xs-4 items-center justify-end">
-      <mw-button
-        class="d-xs-only-none d-sm-only-none"
-        type="icon"
-        large
-        :icon="mwIconBell"
-      />
-      <mw-button
-        class="d-xs-only-none d-sm-only-none"
-        type="icon"
-        large
-        :icon="mwIconTray"
-      />
+      <mw-button class="h-sm-and-down " type="icon" large :icon="mwIconBell" />
+      <mw-button class="h-sm-and-down" type="icon" large :icon="mwIconTray" />
       <mw-button
         type="text"
-        class="d-xs-only-none d-sm-only-none"
+        class="h-sm-and-down"
         large
         outlined
         :icon="mwIconUserAvatar"
@@ -36,7 +26,7 @@
       />
       <mw-button
         type="icon"
-        class="d-xs-only-flex d-sm-only-flex d-none me-5"
+        class="h-md-and-up me-5"
         :icon-size="32"
         :icon="mwIconUserAvatar"
       />

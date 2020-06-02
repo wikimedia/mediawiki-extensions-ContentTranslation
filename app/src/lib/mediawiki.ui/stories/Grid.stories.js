@@ -6,19 +6,17 @@ import {
   select,
   text
 } from "@storybook/addon-knobs";
-import centered from "@storybook/addon-centered/vue";
-import * as icons from "../components/icons";
-import "../grid.less";
+import "../grid.scss";
 import "./grid-story.less";
 
 export default {
-  title: "Style/Grid",
+  title: "Style",
   decorators: [withKnobs, withA11y]
 };
 
-export const GridBasics = () => ({
+export const Grid = () => ({
   template: `<div class="container storybook-grid basic-demo">
-      <p>A row is divided into 12 equal width columns</p>
+      <p>A row is divided into 12 equal width columns.</p>
       <div class="row">
         <div v-for="n in 12"
         :key="n" class="col-1">col-1</div>
