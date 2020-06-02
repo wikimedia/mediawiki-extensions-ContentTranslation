@@ -9,17 +9,11 @@ exports[`MWInput.vue renders <textarea> tag when type is passed so 1`] = `
   >
     <!---->
      
-    <div
-      class="mw-ui-input__wrapper"
-    >
-      <textarea
-        class="mw-ui-input__input"
-        placeholder="Enter some text"
-        type="textarea"
-      />
-       
-      <!---->
-    </div>
+    <textarea
+      class="mw-ui-input__input"
+      placeholder="Enter some text"
+      type="textarea"
+    />
      
     <!---->
   </div>
@@ -42,16 +36,10 @@ exports[`MWInput.vue renders icons and indicator when passed 1`] = `
       width="0"
     />
      
-    <div
-      class="mw-ui-input__wrapper"
-    >
-      <input
-        class="mw-ui-input__input"
-        type="input"
-      />
-       
-      <!---->
-    </div>
+    <input
+      class="mw-ui-input__input"
+      type="input"
+    />
      
     <mw-icon-stub
       class="mw-ui-input__indicator"

@@ -55,7 +55,6 @@ export const Inputs = () => ({
     },
     update(value) {
       action("input-update")(`Value update: ${value}`);
-      this.value = value;
     }
   },
   template: `<mw-input
@@ -64,9 +63,8 @@ export const Inputs = () => ({
      :placeholder="placeholder"
      :icon="icons[icon]"
      :indicator="icons[indicator]"
-     :value="value"
-     :suggestion="suggestion"
-     @click="click"
+     v-model="value"
+      @click="click"
      @focus="focus"
      @blur="blur"
      @update="update"

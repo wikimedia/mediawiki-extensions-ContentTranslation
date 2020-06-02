@@ -7,32 +7,22 @@
         :size="large ? 28 : iconSize"
         class="mw-ui-input__icon"
       ></mw-icon>
-      <div class="mw-ui-input__wrapper">
-        <component
-          class="mw-ui-input__input"
-          :is="type === 'textarea' ? type : 'input'"
-          ref="input"
-          :disabled="disabled"
-          :aria-disabled="disabled"
-          :value.prop="valueModel"
-          :placeholder="placeholder"
-          v-bind="$attrs"
-          v-on="$listeners"
-          :type="type"
-          @input="$emit('update', $event.target.value)"
-          @focus="onFocus"
-          @blur="onBlur"
-          @keydown.tab="onKeyTab"
-          @click="onClick"
-        />
-
-        <input
-          v-if="showSuggestion"
-          class="mw-ui-input__suggestion"
-          :value="suggestion"
-          disabled
-        />
-      </div>
+      <component
+        class="mw-ui-input__input"
+        :is="type === 'textarea' ? type : 'input'"
+        ref="input"
+        :disabled="disabled"
+        :aria-disabled="disabled"
+        :value="value"
+        :placeholder="placeholder"
+        v-bind="$attrs"
+        v-on="$listeners"
+        :type="type"
+        @input="$emit('update', $event.target.value)"
+        @focus="onFocus"
+        @blur="onBlur"
+        @click="onClick"
+      />
       <mw-icon
         v-if="indicator"
         :icon="indicator"
@@ -95,22 +85,6 @@ export default {
         "mw-ui-input--large": this.large,
         "mw-ui-input--focused": this.focused
       };
-    },
-    showSuggestion() {
-      return (
-        this.suggestion !== null &&
-        this.suggestion !== this.value &&
-        this.focused &&
-        this.value
-      );
-    },
-    valueModel: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("update", value);
-      }
     }
   },
   methods: {
@@ -131,13 +105,6 @@ export default {
     onFocus(event) {
       this.focused = true;
       this.$emit("focus", event);
-    },
-    onKeyTab(event) {
-      if (this.showSuggestion) {
-        this.valueModel = this.suggestion;
-        event.preventDefault();
-        event.stopPropagation();
-      }
     }
   }
 };
@@ -163,10 +130,6 @@ export default {
   .mw-ui-input__content {
     padding: 0;
     margin: 4px;
-  }
-  .mw-ui-input__wrapper {
-    position: relative;
-    flex: auto 1 1;
   }
   .mw-ui-input__input {
     outline: none;
@@ -240,26 +203,6 @@ export default {
   }
   input.mw-ui-input__input {
     height: 32px;
-  }
-  .mw-ui-input__suggestion {
-    outline: none;
-    border: none;
-    padding: 6px 8px;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: 1.28571429em;
-    vertical-align: middle;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    background-color: transparent;
-    // FIXME
-    color: @border-color-base--active;
-    pointer-events: none;
   }
 
   .mw-ui-input__icon + .mw-ui-input__label,
