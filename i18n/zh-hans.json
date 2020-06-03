@@ -21,6 +21,7 @@
 			"Liuxinyu970226",
 			"Liye",
 			"Phenolla",
+			"SomeyaMako",
 			"VulpesVulpes825",
 			"Xiaomingyan",
 			"Xiplus",
@@ -175,6 +176,7 @@
 	"cx-translation-label-draft": "正在进行的翻译",
 	"cx-translation-label-published": "已发布的翻译",
 	"cx-translation-already-in-progress": "此页面正在{{GENDER:$2|被}}$1翻译。",
+	"cx-translation-already-in-progress-unknown": "这是一个正在由未知用户进行的翻译",
 	"cx-translation-already-in-progress-collaborate": "请确保您与当前正在翻译的{{GENDER:$1|用户}}协调一致。",
 	"cx-publishing-dialog-publish-draft-button": "作为草稿发布",
 	"cx-feedback-link": "提供反馈",
@@ -326,5 +328,8 @@
 	"cx-feature-discovery-content": "您可随时从 {{int:mycontris}} 页开始或继续翻译",
 	"cx-feature-discovery-dismiss": "好的，明白了",
 	"cx-suggestionlist-expand-sections-title": "展开新章节",
-	"cx-sx-section-selector-title": "章节"
+	"cx-sx-select-section": "选择要翻译的章节",
+	"cx-sx-section-selector-title": "章节",
+	"cx-sx-section-selector-subtitle": "选择一个要翻译的章节",
+	"cx-sx-language-selector-dialog-title": "搜索一种语言"
 }

@@ -282,5 +282,6 @@
 	"cx-linkcontextitem-missing-link-title": "Enlace faltante",
 	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe",
 	"cx-feature-discovery-title": "Traduce en cualquier momento",
-	"cx-feature-discovery-dismiss": "De acuerdo"
+	"cx-feature-discovery-dismiss": "De acuerdo",
+	"cx-sx-language-selector-dialog-title": "Buscar un idioma"
 }
