@@ -17,6 +17,7 @@ mw.cx.ui.Header = function ( config ) {
 	this.userName = mw.config.get( 'wgUserName' );
 
 	// Parent constructor
+	// eslint-disable-next-line mediawiki/class-doc
 	mw.cx.ui.Header.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
 		expanded: false,
@@ -116,12 +117,10 @@ mw.cx.ui.Header.prototype.getPersonalMenuItems = function ( personalMenuList ) {
 };
 
 mw.cx.ui.Header.prototype.createUserMenuOption = function ( menuItem ) {
-	var classes = menuItem.notvisited ? [ 'cx-header__personal-menu-option--missing' ] : [];
-
 	return new OO.ui.MenuOptionWidget( {
 		label: menuItem.text,
 		data: menuItem.href,
-		classes: classes,
+		classes: menuItem.notvisited ? [ 'cx-header__personal-menu-option--missing' ] : [],
 		accessKey: menuItem.accesskey,
 		$element: $( '<a>' )
 			.attr( {

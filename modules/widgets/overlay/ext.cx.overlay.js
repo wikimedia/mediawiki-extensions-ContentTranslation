@@ -44,6 +44,7 @@
 		}
 
 		if ( this.options.classes ) {
+			// eslint-disable-next-line mediawiki/class-doc
 			this.$overlay.addClass( this.options.classes );
 		}
 

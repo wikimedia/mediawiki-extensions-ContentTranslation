@@ -116,8 +116,14 @@
 		direction = maybeCall( this.options.direction, this.$element[ 0 ] );
 		// Attach css classes before checking height/width so they
 		// can be applied.
+		// The following classes are used here:
+		// * cx-callout-0
+		// * cx-callout-1
+		// * ...
+		// * cx-callout-12
 		$dialog.removeClass().addClass( 'cx-callout cx-callout-' + direction );
 		if ( this.options.classes ) {
+			// eslint-disable-next-line mediawiki/class-doc
 			$dialog.addClass( this.options.classes );
 		}
 		actualWidth = $dialog[ 0 ].offsetWidth;

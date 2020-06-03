@@ -350,6 +350,7 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 	if ( config.imageUrl ) {
 		this.$image.css( 'background-image', 'url( ' + config.imageUrl + ')' );
 	} else {
+		// eslint-disable-next-line mediawiki/class-doc
 		this.$image.addClass( 'oo-ui-iconElement-icon oo-ui-icon-' + config.imageIcon );
 	}
 

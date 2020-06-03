@@ -355,6 +355,13 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 	if ( !list.$list ) {
 		list.$list = $( '<div>' )
 			.attr( 'data-listid', listId )
+			// The following classes are used here:
+			// * cx-suggestionlist-type-0
+			// * cx-suggestionlist-type-1
+			// * cx-suggestionlist-type-2
+			// * cx-suggestionlist-type-3
+			// * cx-suggestionlist-type-4
+			// * cx-suggestionlist-type-5
 			.addClass( 'cx-suggestionlist cx-suggestionlist-type-' + list.type );
 
 		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {

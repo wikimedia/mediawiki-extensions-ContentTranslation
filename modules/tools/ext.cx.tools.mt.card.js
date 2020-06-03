@@ -199,6 +199,11 @@
 			selected = 'selected';
 		}
 
+		// The following classes are used here:
+		// * cx-provider-reset-mt
+		// * cx-provider-source-mt
+		// * cx-provider-no-mt
+		// * Other providers
 		return $( '<li>' )
 			.addClass( [
 				'card__providers-menu-item', selected, providerIdPrefix + providerId

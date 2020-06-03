@@ -255,6 +255,7 @@
 		for ( i = 0; i < items.length; i++ ) {
 			item = items[ i ];
 			$links.append(
+				// eslint-disable-next-line mediawiki/class-doc
 				$( '<li>' ).append( new OO.ui.ButtonWidget( {
 					icon: item.icon,
 					framed: false,

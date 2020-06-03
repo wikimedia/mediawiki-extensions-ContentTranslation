@@ -78,6 +78,10 @@
 		for ( error in errors ) {
 			actions = errors[ error ];
 			for ( action in actions ) {
+				// The following classes are used here:
+				// * cx-linter-warn
+				// * cx-linter-disallow
+				// * cx-linter-error
 				this.$section.addClass( 'cx-linter-' + action );
 				this.$card.find( '.card__linter-title' )
 					.text( mw.msg( 'cx-tools-linter-title', error ) );

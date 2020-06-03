@@ -190,6 +190,7 @@
 					// Without it the numbers appear in the wrong order in RTL environments.
 					$( '<span>' )
 						.html( '&#160;' ),
+					// eslint-disable-next-line mediawiki/class-doc
 					$( '<span>' )
 						.prop( 'dir', 'ltr' )
 						.addClass( 'cx-stats-box__trend ' + weekTrendClass )

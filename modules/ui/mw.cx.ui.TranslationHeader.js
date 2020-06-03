@@ -14,6 +14,7 @@ mw.cx.ui.TranslationHeader = function ( config ) {
 	this.$toolbar = null;
 
 	// Parent constructor
+	// eslint-disable-next-line mediawiki/class-doc
 	mw.cx.ui.TranslationHeader.super.call( this, $.extend( {}, this.config, {
 		continuous: true,
 		expanded: false,

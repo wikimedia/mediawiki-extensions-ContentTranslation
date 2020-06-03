@@ -149,6 +149,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		}
 
 		if ( this.getMode() === 'section' ) {
+			// eslint-disable-next-line mediawiki/class-doc
 			sectionNode.classList.add( sectionClass );
 		}
 

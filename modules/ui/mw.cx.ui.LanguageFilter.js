@@ -115,6 +115,9 @@ mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function () {
 
 	this.menuWidth = this.getMenuWidth() === 'wide' ? 'medium' : 'narrow';
 	this.recreateLanguageFilter();
+	// The following classes are used here:
+	// * uls-medium
+	// * uls-narrow
 	this.$menu
 		.removeClass( 'uls-wide uls-medium uls-narrow' )
 		.addClass( 'uls-' + this.menuWidth );

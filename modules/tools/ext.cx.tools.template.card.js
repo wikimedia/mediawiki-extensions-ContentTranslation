@@ -174,6 +174,7 @@
 			selectedClass = 'selected';
 		}
 
+		// eslint-disable-next-line mediawiki/class-doc
 		return $( '<li>' )
 			.addClass( [
 				'card__template-action-item', selectedClass, actionId

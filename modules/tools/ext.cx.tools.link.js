@@ -155,6 +155,7 @@
 			selection = document.selection;
 
 			if ( selection.type !== 'Control' ) {
+				// eslint-disable-next-line no-restricted-properties
 				parent = selection.createRange().parentElement();
 			}
 		}

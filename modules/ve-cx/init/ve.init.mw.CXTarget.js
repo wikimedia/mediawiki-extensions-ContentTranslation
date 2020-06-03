@@ -326,6 +326,7 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 
 	surface = new ve.ui.CXSurface( dmDoc, this.translationView.toolsColumn, config );
 
+	// eslint-disable-next-line mediawiki/class-doc
 	surface.$element.addClass( this.protectedClasses );
 
 	// T164790

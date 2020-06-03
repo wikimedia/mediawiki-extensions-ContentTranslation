@@ -68,6 +68,9 @@ ve.ce.CXLintableNode.prototype.removeHighlight = function () {
 ve.ce.CXLintableNode.prototype.highlightNode = function ( hasErrors ) {
 	var type = hasErrors ? 'error' : 'warning';
 	this.removeHighlight();
+	// The following classes are used here:
+	// * mw-cx-lintIssue-error
+	// * mw-cx-lintIssue-warning
 	this.getHighlightableElement().addClass( 'mw-cx-lintIssue-' + type );
 };
 

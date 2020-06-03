@@ -379,6 +379,7 @@
 				'cx-highlight', 'cx-unadaptable-template'
 			];
 			// removeAttr takes a space-separated list of attributes to remove.
+			// eslint-disable-next-line mediawiki/class-doc
 			$section.removeAttr( attributesToRemove )
 				.removeClass( classesToRemove )
 				.find( '*' )

@@ -124,7 +124,7 @@ mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
 		$highlightableElement = node.getHighlightableElement();
 		// eslint-disable-next-line no-jquery/no-class-state
 		hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
-		$highlightableElement.addClass( 'mw-cx-current-issue-' + ( hasErrors ? 'error' : 'warning' ) );
+		$highlightableElement.addClass( hasErrors ? 'mw-cx-current-issue-error' : 'mw-cx-current-issue-warning' );
 	}
 };
 
@@ -202,7 +202,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
 			return 'title';
 		}
 
-		activeElement = activeElement.parentElement;
+		activeElement = activeElement.parentNode;
 	}
 
 	return null;

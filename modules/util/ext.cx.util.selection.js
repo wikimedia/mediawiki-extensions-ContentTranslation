@@ -84,7 +84,9 @@
 			if ( parent.nodeType !== 1 ) {
 				parent = parent.parentNode;
 			}
+		// eslint-disable-next-line no-restricted-properties
 		} else if ( range.parentElement ) {
+			// eslint-disable-next-line no-restricted-properties
 			parent = range.parentElement();
 		}
 		return parent;
