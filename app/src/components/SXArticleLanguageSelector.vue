@@ -9,7 +9,11 @@
         class="pa-3 sx-article-language-selector__button"
         type="text"
       >
-        <mw-autonym :lang="sourceLanguage" />
+        <span
+          class="mw-ui-autonym"
+          :dir="getDirection(sourceLanguage)"
+          v-text="getAutonym(sourceLanguage)"
+        ></span>
       </mw-button>
       <mw-dialog
         :title="$i18n('cx-sx-language-selector-dialog-title')"
@@ -42,7 +46,11 @@
         class="pa-3 sx-article-language-selector__button"
         type="text"
       >
-        <mw-autonym :lang="targetLanguage" />
+        <span
+          class="mw-ui-autonym"
+          :dir="getDirection(targetLanguage)"
+          v-text="getAutonym(targetLanguage)"
+        ></span>
       </mw-button>
       <mw-dialog
         :title="$i18n('cx-sx-language-selector-dialog-title')"
@@ -64,7 +72,6 @@
 
 <script>
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import {
   mwIconArrowNext,
@@ -74,6 +81,7 @@ import MwLanguageSelector from "../lib/mediawiki.ui/components/MWLanguageSelecto
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import { mapState } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
   name: "sx-article-language-selector",
@@ -81,9 +89,9 @@ export default {
     MwLanguageSelector,
     MwDialog,
     MwIcon,
-    MwAutonym,
     MwButton
   },
+  mixins: [autonymMixin],
   data: () => ({
     mwIconArrowNext,
     mwIconExpand,
@@ -92,7 +100,6 @@ export default {
   }),
   computed: {
     ...mapState({
-      languageInfo: state => state.mediawiki.languageInfo,
       currentSectionSuggestion: state =>
         state.suggestions.currentSectionSuggestion,
       supportedLanguageCodes: state =>
@@ -102,7 +109,7 @@ export default {
       return this.currentSectionSuggestion?.availableSourceLanguages
         .filter(languageCode => languageCode !== this.sourceLanguage)
         .map(languageCode => ({
-          name: this.autonym(languageCode),
+          name: this.getAutonym(languageCode),
           code: languageCode
         }));
     },
@@ -121,7 +128,7 @@ export default {
         .reduce(
           (languages, languageCode) => [
             ...languages,
-            { name: this.autonym(languageCode), code: languageCode }
+            { name: this.getAutonym(languageCode), code: languageCode }
           ],
           []
         );
@@ -135,9 +142,6 @@ export default {
   methods: {
     openSourceLanguageDialog() {
       this.sourceLanguageSelectOn = true;
-    },
-    autonym: function(lang) {
-      return this.languageInfo[lang]?.autonym || lang;
     },
     onSourceLanguageSelected(newLanguage) {
       this.$store.commit(

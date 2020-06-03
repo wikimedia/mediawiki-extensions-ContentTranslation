@@ -81,7 +81,7 @@
         v-if="missingSectionsCount"
         v-i18n:cx-sx-missing-section-stats="[
           missingSectionsCount,
-          getAutonym(this.targetLanguage)
+          targetLanguageAutonym
         ]"
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
@@ -112,9 +112,11 @@ import {
   mwIconBookmarkOutline,
   mwIconArrowNext
 } from "../lib/mediawiki.ui/components/icons";
+import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
   name: "sx-article-selector",
+  mixins: [autonymMixin],
   components: {
     MwDialog,
     MwIcon,
@@ -139,7 +141,6 @@ export default {
   },
   computed: {
     ...mapState({
-      languageInfo: state => state.mediawiki.languageInfo,
       currentSectionSuggestion: state =>
         state.suggestions.currentSectionSuggestion
     }),
@@ -175,10 +176,6 @@ export default {
     }
   },
   methods: {
-    getAutonym(lang) {
-      const displayName = Intl.DisplayNames && new Intl.DisplayNames(lang);
-      return this.languageInfo[lang]?.autonym || displayName?.of(lang) || lang;
-    },
     onClose() {
       this.$emit("close");
     },

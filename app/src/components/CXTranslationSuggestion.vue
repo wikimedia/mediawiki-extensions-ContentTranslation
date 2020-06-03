@@ -8,17 +8,27 @@
         <span
           class="col-12 cx-suggestion__source-title"
           :lang="suggestion.sourceLanguage"
-          >{{ suggestion.sourceTitle }}</span
         >
+          {{ suggestion.sourceTitle }}
+        </span>
         <span
           class="col-12 cx-suggestion__source-description"
           :lang="suggestion.sourceLanguage"
-          >{{ page && page.description }}</span
         >
+          {{ page && page.description }}
+        </span>
         <span class="col-12 mt-2 cx-suggestion__languages text-small">
-          <mw-autonym :lang="suggestion.sourceLanguage" />
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(suggestion.sourceLanguage)"
+            v-text="getAutonym(suggestion.sourceLanguage)"
+          ></span>
           <mw-icon :icon="mwIconArrowForward" />
-          <mw-autonym :lang="suggestion.targetLanguage" />
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(suggestion.targetLanguage)"
+            v-text="getAutonym(suggestion.targetLanguage)"
+          ></span>
         </span>
       </div>
     </div>
@@ -31,7 +41,7 @@
 <script>
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
+import autonym from '../lib/mediawiki.ui/mixins/autonym';
 import {
   mwIconStar,
   mwIconArrowForward
@@ -39,14 +49,15 @@ import {
 import ArticleSuggestion from "../wiki/cx/models/articleSuggestion";
 
 export default {
-  name: "TranslationSuggestion",
-  data: () => ({ mwIconStar, mwIconArrowForward }),
+  name: "cx-translation-suggestion",
+  components: { MwThumbnail, MwIcon },
+  mixins: [ autonym ],
   props: {
     suggestion: {
       type: ArticleSuggestion
     }
   },
-  components: { MwThumbnail, MwAutonym, MwIcon },
+  data: () => ({ mwIconStar, mwIconArrowForward }),
   computed: {
     page: function() {
       return this.$store.getters["mediawiki/getPage"](

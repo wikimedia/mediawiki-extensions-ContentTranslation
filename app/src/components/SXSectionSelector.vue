@@ -135,7 +135,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
-import autonymMixin from "./autonym-mixin";
+import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
   name: "sx-section-selector",

@@ -10,8 +10,7 @@
         :thumbnail="
           getImage(translation.sourceLanguage, translation.sourceTitle)
         "
-      >
-      </mw-thumbnail>
+      ></mw-thumbnail>
     </div>
     <div class="col-9 pa-2">
       <div class="row">
@@ -26,9 +25,17 @@
           >{{ translation.targetTitle }}</span
         >
         <span class="col-12 mt-2 cx-translation__languages text-small">
-          <mw-autonym :lang="translation.sourceLanguage" />
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(translation.sourceLanguage)"
+            v-text="getAutonym(translation.sourceLanguage)"
+          ></span>
           <mw-icon :icon="mwIconArrowForward" />
-          <mw-autonym :lang="translation.targetLanguage" />
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(translation.targetLanguage)"
+            v-text="getAutonym(translation.targetLanguage)"
+          ></span>
         </span>
       </div>
     </div>
@@ -45,7 +52,7 @@
 <script>
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-import MwAutonym from "../lib/mediawiki.ui/components/MWAutonym";
+import autonym from '../lib/mediawiki.ui/mixins/autonym';
 import Translation from "../wiki/cx/models/translation";
 import {
   mwIconEdit,
@@ -55,14 +62,15 @@ import {
 
 export default {
   name: "cx-translation-work",
-  data: () => ({ mwIconEdit, mwIconTrash, mwIconArrowForward }),
+  components: { MwThumbnail, MwIcon },
+  mixins: [ autonym ],
   props: {
     translation: {
       type: Translation,
       required: true
     }
   },
-  components: { MwThumbnail, MwAutonym, MwIcon },
+  data: () => ({ mwIconEdit, mwIconTrash, mwIconArrowForward }),
   methods: {
     onClick(e) {
       this.$emit("click", e);
