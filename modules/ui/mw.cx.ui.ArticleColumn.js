@@ -72,6 +72,7 @@ mw.cx.ui.ArticleColumn.prototype.attachSurface = function ( surface ) {
 
 /**
  * Set the category count UI element
+ *
  * @param {jQuery} $categoryCount
  */
 mw.cx.ui.ArticleColumn.prototype.setCategoryCount = function ( $categoryCount ) {
@@ -80,6 +81,7 @@ mw.cx.ui.ArticleColumn.prototype.setCategoryCount = function ( $categoryCount ) 
 
 /**
  * Set the category list UI element
+ *
  * @param {jQuery} $categoryListing
  */
 mw.cx.ui.ArticleColumn.prototype.setCategoryListing = function ( $categoryListing ) {
@@ -88,6 +90,7 @@ mw.cx.ui.ArticleColumn.prototype.setCategoryListing = function ( $categoryListin
 
 /**
  * Set the translation data model
+ *
  * @param {mw.cx.dm.Translation} translation
  */
 mw.cx.ui.ArticleColumn.prototype.setTranslation = function ( translation ) {
@@ -96,6 +99,7 @@ mw.cx.ui.ArticleColumn.prototype.setTranslation = function ( translation ) {
 
 /**
  * Set the main title for the column.
+ *
  * @param {string} title
  */
 mw.cx.ui.ArticleColumn.prototype.setTitle = function ( title ) {
@@ -105,6 +109,7 @@ mw.cx.ui.ArticleColumn.prototype.setTitle = function ( title ) {
 
 /**
  * Get the current main title for the column.
+ *
  * @return {string}
  */
 mw.cx.ui.ArticleColumn.prototype.getTitle = function () {

@@ -136,6 +136,7 @@ mw.cx.init.Translation.prototype.init = function () {
 
 /**
  * Fetch all data necessary to start a translation.
+ *
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {

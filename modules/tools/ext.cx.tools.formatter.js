@@ -154,6 +154,7 @@
 
 	/**
 	 * Shortcut key press handler
+	 *
 	 * @param {jQuery.Event} e
 	 * @return {boolean}
 	 */

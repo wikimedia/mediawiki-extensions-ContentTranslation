@@ -414,6 +414,7 @@
 
 	/**
 	 * Sorts in descending order
+	 *
 	 * @param {Object} a
 	 * @param {Object} b
 	 * @return {number}
@@ -424,6 +425,7 @@
 
 	/**
 	 * Sorts in descending order
+	 *
 	 * @param {Object} a
 	 * @param {Object} b
 	 * @return {number}
@@ -577,6 +579,7 @@
 
 	/**
 	 * Get the Content Translation stats.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	CXStats.prototype.getCXStats = function () {

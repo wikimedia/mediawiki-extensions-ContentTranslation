@@ -326,6 +326,7 @@ mw.cx.SelectedSourcePage.prototype.setTargetTitle = function ( targetTitle ) {
 
 /**
  * Sets all the info for selected page
+ *
  * @param {string} pageTitle
  * @param {string} href
  * @param {Object} config
@@ -672,7 +673,7 @@ mw.cx.SelectedSourcePage.prototype.showTitleInUseError = function ( existingTarg
 /**
  * Shows error message for dialog.
  *
- * @param {mw.Message|text} message the message to show
+ * @param {mw.Message|string} message the message to show
  */
 mw.cx.SelectedSourcePage.prototype.showMessage = function ( message ) {
 	if ( message instanceof mw.Message ) {

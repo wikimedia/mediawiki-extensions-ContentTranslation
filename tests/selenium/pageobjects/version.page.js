@@ -1,3 +1,5 @@
+'use strict';
+
 const Page = require( 'wdio-mediawiki/Page' );
 
 // this is just a sample on how to create a page

@@ -6,6 +6,7 @@
 
 /**
  * Align two sections horizontally
+ *
  * @param {jQuery} $sourceSection Source section
  * @param {jQuery} $targetSection Target section
  */
@@ -38,6 +39,7 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
 /**
  * Get the title after changing its namespace to new one.
  * Expects valid title, if not, will throw exception.
+ *
  * @param {string} currentTitle Original title string
  * @param {number} newNamespaceId New namespace id
  * @return {string} New title with changed namespace
@@ -68,6 +70,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
 
 /**
  * Get the default publishing target namespace
+ *
  * @return {number} Target namespace id
  */
 mw.cx.getDefaultTargetNamespace = function () {
@@ -86,6 +89,7 @@ mw.cx.getDefaultTargetNamespace = function () {
 /**
  * Given a section Id, get the section number for it.
  * Section id is like cxSourceSection15 or cxTargetSection15. 15 is the section number.
+ *
  * @param {string} sectionId Section id
  * @return {number} section number
  */

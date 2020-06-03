@@ -415,6 +415,7 @@ mw.cx.ui.PageSelectorWidget.prototype.setExcludedNamespaces = function ( exclude
 
 /**
  * Validate the current query against excluded namespaces,
+ *
  * @param {string} query
  * @return {boolean} True if validation passes. False otherwise.
  */

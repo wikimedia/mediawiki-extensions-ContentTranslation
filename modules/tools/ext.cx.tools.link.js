@@ -16,7 +16,7 @@
 	/**
 	 * Get the link details for a given title and language such as page thumbnail image.
 	 *
-	 * @param {mediawiki.Api} api
+	 * @param {mw.Api} api
 	 * @param {string} title
 	 * @param {string} language
 	 * @return {jQuery.Promise}
@@ -296,6 +296,7 @@
 	/**
 	 * Target link class - A link in translation section
 	 *
+	 * @class CXTargetLink
 	 * @param {Element} [link]
 	 * @param {Object} [options]
 	 */
@@ -483,6 +484,11 @@
 		return $card;
 	};
 
+	/**
+	 * @class CXSourceLink
+	 * @param {Element} [link]
+	 * @param {Object} [options]
+	 */
 	function CXSourceLink( link, options ) {
 		CXLink.call( this, link, options );
 		this.language = mw.cx.sourceLanguage;
@@ -1033,8 +1039,8 @@
 	/**
 	 * Create a link. It can be external link or internal link
 	 *
-	 * @param  {string} target Target title
-	 * @param  {type} type  Link type: 'external' or 'internal'
+	 * @param {string} target Target title
+	 * @param {string} type Link type: 'external' or 'internal'
 	 */
 	LinkerTool.prototype.createLinkWithTool = function ( target, type ) {
 		var $link;

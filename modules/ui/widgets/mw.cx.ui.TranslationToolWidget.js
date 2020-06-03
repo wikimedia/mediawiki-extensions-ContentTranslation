@@ -89,6 +89,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.renderBackground = function () {
 
 /**
  * Set the content of card
+ *
  * @param {string|jQuery} content Content as HTML or jQuery
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setContent = function ( content ) {
@@ -103,6 +104,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.setContent = function ( content ) 
 
 /**
  * Set the action widgets for the card.
+ *
  * @param {OO.ui.Element[]} actions Array of action widgets
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setActions = function ( actions ) {
@@ -120,6 +122,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.setActions = function ( actions ) 
 
 /**
  * Set the background image for the card.
+ *
  * @param {string} imageUrl
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setBackgroundImage = function ( imageUrl ) {

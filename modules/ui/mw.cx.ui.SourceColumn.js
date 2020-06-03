@@ -49,7 +49,7 @@ OO.inheritClass( mw.cx.ui.SourceColumn, mw.cx.ui.ArticleColumn );
 
 /**
  * @param {jQuery} $translationUnit
- * @param {integer} position
+ * @param {number} position
  */
 mw.cx.ui.SourceColumn.prototype.add = function ( $translationUnit, position ) {
 	this.insertAt( position, $translationUnit );

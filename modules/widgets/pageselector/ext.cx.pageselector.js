@@ -35,7 +35,7 @@
 	/**
 	 * Set the API to use for querying pages.
 	 *
-	 * @param {mediawiki.Api} api MediaWiki API instance
+	 * @param {mw.Api} api MediaWiki API instance
 	 */
 	MediaWikiPageSelector.prototype.setApi = function ( api ) {
 		this.options.api = api;

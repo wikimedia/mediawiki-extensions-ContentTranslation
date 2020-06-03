@@ -125,7 +125,7 @@
 	/**
 	 * Updates the count shown in the category counter.
 	 *
-	 * @param {integer} count The category count
+	 * @param {number} count The category count
 	 */
 	CXCategoryCounter.prototype.update = function ( count ) {
 		var text;
@@ -451,7 +451,7 @@
 	/**
 	 * CX Category Tool Class.
 	 *
-	 * @class
+	 * @class CXCategoryTool
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
 	function CXCategoryTool( siteMapper ) {
@@ -468,8 +468,8 @@
 	/**
 	 * Creates id of specified width from number using the padding character.
 	 *
-	 * @param {integer} number The number to make the id from
-	 * @param {integer} width The desired width of the id
+	 * @param {number} number The number to make the id from
+	 * @param {number} width The desired width of the id
 	 * @param {string} character The character to use for padding
 	 * @return {string}
 	 */

@@ -14,7 +14,7 @@
 	 *
 	 * @class
 	 *
-	 * @param {element} element
+	 * @param {HTMLElement} element
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 * @param {Object} options
 	 */

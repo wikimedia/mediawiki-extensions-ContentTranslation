@@ -181,6 +181,7 @@ ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
 
 /**
  * Disable event handler for the tool group
+ *
  * @param {boolean} disabled
  */
 ve.ui.CXTranslationToolbar.prototype.onGroupDisable = function ( disabled ) {

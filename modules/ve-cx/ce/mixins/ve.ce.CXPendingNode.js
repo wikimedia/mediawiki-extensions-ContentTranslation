@@ -32,6 +32,7 @@ ve.ce.CXPendingNode.prototype.isPending = function () {
 
 /**
  * Mark the element as pending or not based on boolean pending argument
+ *
  * @param {boolean} pending
  */
 ve.ce.CXPendingNode.prototype.setPending = function ( pending ) {
@@ -56,6 +57,7 @@ ve.ce.CXPendingNode.prototype.setPending = function ( pending ) {
 
 /**
  * Get the indicator element to be used in the overlay
+ *
  * @return {jQuery} Pending indicator
  */
 ve.ce.CXPendingNode.prototype.getPendingIndicator = function () {

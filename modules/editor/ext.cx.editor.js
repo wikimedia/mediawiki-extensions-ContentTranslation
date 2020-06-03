@@ -50,6 +50,7 @@
 
 	/**
 	 * Paste handler. Adapts pasted text.
+	 *
 	 * @param {jQuery.Event} e
 	 * @return {boolean}
 	 */
@@ -64,6 +65,7 @@
 
 	/**
 	 * Drop handler. Adapts pasted text.
+	 *
 	 * @param {jQuery.Event} e
 	 * @return {boolean}
 	 */
@@ -116,6 +118,7 @@
 	 * The CXSectionEditor plugin.
 	 * Sets common properties on all editable elements
 	 * in the translation column.
+	 *
 	 * @return {jQuery}
 	 */
 	$.fn.cxEditor = function () {

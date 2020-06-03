@@ -46,6 +46,7 @@ mw.cx.TranslationTracker.static.unmodifiedContentThreshold = {
  * Calculate the section translation progress based on relative number of tokens.
  * If there are 10 tokens and all translated, return 1, if 5 more tokens
  * added, return 1.5 and so on.
+ *
  * @param {string} string1
  * @param {string} string2
  * @param {string} language
@@ -128,6 +129,7 @@ mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
 
 /**
  * Check if a node is excluded from MT abuse validation or not.
+ *
  * @param {ve.dm.BranchNode} nodeModel
  * @return {boolean}
  */
@@ -171,6 +173,7 @@ mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel 
 /**
  * Returns all children nodes of a given section node that should be validated for MT abuse, by checking
  * for each child node if it is excluded from validation
+ *
  * @param {ve.dm.BranchNode} nodeModel
  * @return {ve.dm.BranchNode[]} Flat array of nodes
  */
@@ -203,6 +206,7 @@ mw.cx.TranslationTracker.static.getChildrenNodesForValidation = function ( nodeM
 
 /**
  * Returns all tokens for an array of nodes that should be validated for MT abuse
+ *
  * @param {ve.dm.BranchNode[]} validationTree
  * @param {string} language
  * @return {string[]}
@@ -229,6 +233,7 @@ mw.cx.TranslationTracker.static.getTokensFromValidationTree = function ( validat
 
 /**
  * Returns all tokens for a section node that should be validated for MT abuse
+ *
  * @param {ve.dm.BranchNode} sectionModel
  * @param {string} language
  * @return {string[]}
@@ -448,6 +453,7 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 
 /**
  * Calculate and update the section translation progress.
+ *
  * @param {number} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNumber ) {
@@ -475,6 +481,7 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 /**
  * Check if a section has unmodified MT beyond a threshold. If so, add a warning issue
  * to the section model.
+ *
  * @param {number} sectionNumber
  * @return {boolean} Whether the section is crossing the unmodified MT threshold
  */
@@ -731,6 +738,7 @@ mw.cx.TranslationTracker.prototype.getNodesWithIssues = function () {
 
 /**
  * Check if the section is in the change queue
+ *
  * @param {string} sectionNumber
  * @return {boolean}
  */
@@ -746,6 +754,7 @@ mw.cx.TranslationTracker.prototype.pushToChangeQueue = function ( sectionNumber 
 
 /**
  * Check if the section is in the save queue
+ *
  * @param {string} sectionNumber
  * @return {boolean}
  */
@@ -767,6 +776,7 @@ mw.cx.TranslationTracker.prototype.pushToValidationQueue = function ( sectionNum
 
 /**
  * Remove section from the save queue for the given section number,
+ *
  * @param {string} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.removeSectionFromSaveQueue = function ( sectionNumber ) {
@@ -780,6 +790,7 @@ mw.cx.TranslationTracker.prototype.removeSectionFromSaveQueue = function ( secti
 
 /**
  * Remove section from the validation delay queue for the given section number,
+ *
  * @param {string} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.removeSectionFromValidationQueue = function ( sectionNumber ) {
@@ -791,6 +802,7 @@ mw.cx.TranslationTracker.prototype.removeSectionFromValidationQueue = function (
 
 /**
  * Get the current save queue
+ *
  * @return {number[]}
  */
 mw.cx.TranslationTracker.prototype.getSaveQueue = function () {
@@ -799,6 +811,7 @@ mw.cx.TranslationTracker.prototype.getSaveQueue = function () {
 
 /**
  * Get the section state for the given section number,
+ *
  * @param {number} sectionNumber
  * @return {mw.cx.dm.SectionState}
  */

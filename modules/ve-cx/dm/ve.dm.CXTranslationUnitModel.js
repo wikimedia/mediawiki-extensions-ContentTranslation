@@ -19,6 +19,7 @@ OO.initClass( ve.dm.CXTranslationUnitModel );
 /**
  * Get the section id for this section.
  * Example: cxTargetSection34
+ *
  * @return {string}
  */
 ve.dm.CXTranslationUnitModel.prototype.getSectionId = function () {
@@ -28,6 +29,7 @@ ve.dm.CXTranslationUnitModel.prototype.getSectionId = function () {
 /**
  * Get the section number for the section. It is common for both
  * source and target section. Examples: 45, 12 etc.
+ *
  * @return {number} section number
  */
 ve.dm.CXTranslationUnitModel.prototype.getSectionNumber = function () {

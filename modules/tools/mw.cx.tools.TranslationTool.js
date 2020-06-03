@@ -53,6 +53,7 @@ OO.mixinClass( mw.cx.tools.TranslationTool, OO.EventEmitter );
 
 /**
  * Build the tool card widget associated with the current translation unit
+ *
  * @return {mw.cx.widgets.TranslationToolWidget} The tool card
  */
 mw.cx.tools.TranslationTool.prototype.getCard = function () {
@@ -66,6 +67,7 @@ mw.cx.tools.TranslationTool.prototype.getCard = function () {
 
 /**
  * Get all possible actions with this tool widget
+ *
  * @method
  * @return {OO.ui.Element[]} Array of OOUI Elements
  */
@@ -75,6 +77,7 @@ mw.cx.tools.TranslationTool.prototype.getActions = function () {
 
 /**
  * Get the optional background image for the card
+ *
  * @return {string|null} The background image URL
  */
 mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function () {
@@ -83,6 +86,7 @@ mw.cx.tools.TranslationTool.prototype.getBackgroundImage = function () {
 
 /**
  * Get the tools information content.
+ *
  * @method
  * @return {string|jQuery} Content as HTML or jQuery
  */

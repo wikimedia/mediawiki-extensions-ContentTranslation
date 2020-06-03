@@ -156,6 +156,7 @@
 
 	/**
 	 * CXPublishingDialog Plugin
+	 *
 	 * @return {jQuery}
 	 */
 	$.fn.cxPublishingDialog = function () {

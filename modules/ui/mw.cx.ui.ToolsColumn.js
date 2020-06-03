@@ -66,6 +66,7 @@ mw.cx.ui.ToolsColumn.prototype.init = function () {
 
 /**
  * Set the translation data model
+ *
  * @param {mw.cx.dm.Translation} translation
  */
 mw.cx.ui.ToolsColumn.prototype.setTranslation = function ( translation ) {
@@ -127,6 +128,7 @@ mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
 
 /**
  * Hide this given tool
+ *
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
  */
 mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {

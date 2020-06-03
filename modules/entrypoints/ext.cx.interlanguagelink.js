@@ -9,6 +9,7 @@
 
 	/**
 	 * Start a new page translation in Special:CX.
+	 *
 	 * @param {string} targetLanguage
 	 */
 	function startPageInCX( targetLanguage ) {
@@ -27,6 +28,7 @@
 
 	/**
 	 * Render the CX entry point dialog.
+	 *
 	 * @param {string} targetLanguage
 	 * @return {jQuery}
 	 */

@@ -1,4 +1,6 @@
-var assert = require( 'assert' ),
+'use strict';
+
+const assert = require( 'assert' ),
 	// this is just a sample on how to use a page
 	VersionPage = require( '../pageobjects/version.page' );
 

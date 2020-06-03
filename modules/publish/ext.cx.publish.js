@@ -309,6 +309,7 @@
 
 	/**
 	 * Prepare the translated content for publishing by removing unwanted parts.
+	 *
 	 * @param {jQuery} $content
 	 * @return {string} processed html
 	 */

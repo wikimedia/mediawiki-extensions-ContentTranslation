@@ -60,6 +60,7 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 
 /**
  * Clean up the input document by removing CX specific markup and attributes.
+ *
  * @param {HTMLDocument} doc
  * @return {HTMLDocument} Cleaned up document.
  **/
@@ -506,6 +507,7 @@ mw.cx.TargetArticle.prototype.showDialog = function ( title, message ) {
 /**
  * Get current target title from translation data model.
  * Not the translation title can be changed by translator at any point of translation.
+ *
  * @return {string} target title
  */
 mw.cx.TargetArticle.prototype.getTargetTitle = function () {
@@ -549,6 +551,7 @@ mw.cx.TargetArticle.prototype.getTargetCategories = function ( shouldAddHighMTCa
 /**
  * Get the tags for the article to be published.
  * API accepts multiple values separated by '|'
+ *
  * @return {string}
  */
 mw.cx.TargetArticle.prototype.getTags = function () {

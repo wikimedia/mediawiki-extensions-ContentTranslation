@@ -134,7 +134,7 @@
 	/**
 	 * Show a tool card.
 	 *
-	 * @param {toolName} toolName The tool name.
+	 * @param {string} toolName The tool name.
 	 * @param {Array|Object|string} data The data passed by the event.
 	 */
 	CXToolManager.prototype.showCard = function ( toolName, data ) {
@@ -217,6 +217,7 @@
 
 	/**
 	 * $.fn.cxtoolmanager jQuery plugin
+	 *
 	 * @param {Object} option
 	 * @return {jQuery}
 	 */

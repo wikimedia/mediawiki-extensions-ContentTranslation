@@ -89,6 +89,7 @@ mw.cx.TranslationController.prototype.listen = function () {
  * Add the section changes to save queue and change queue.
  * These two queues are processed in different interevals and different
  * triggers. Hence two queues.
+ *
  * @param {string} sectionId
  */
 mw.cx.TranslationController.prototype.onSectionChange = function ( sectionId ) {

@@ -89,7 +89,8 @@
 
 	/**
 	 * Target namespace change handler
-	 * @param {int} namespaceId
+	 *
+	 * @param {number} namespaceId
 	 */
 	mw.cx.ui.TranslationView.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 		var currentTitleObj, title, newTitle, currentNamespace, username;

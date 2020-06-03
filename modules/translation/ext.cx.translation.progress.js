@@ -16,7 +16,7 @@
 	 * Get the total source weight.
 	 * This is only calculated once per session and cached, because the source doesn't change.
 	 *
-	 * @return {int} Total source weight
+	 * @return {number} Total source weight
 	 */
 	function getTotalSourceWeight() {
 		var $sourceContainer, $sections;

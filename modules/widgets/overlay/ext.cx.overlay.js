@@ -8,6 +8,7 @@
 
 	/**
 	 * An overlay UI for the page.
+	 *
 	 * @param {Element} element
 	 * @param {Object} options
 	 */

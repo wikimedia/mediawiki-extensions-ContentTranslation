@@ -116,6 +116,7 @@ ve.dm.CXSectionNode.prototype.setHasUserModifications = function ( isModified ) 
 
 /**
  * Whether the section is target section or not.
+ *
  * @return {boolean}
  */
 ve.dm.CXSectionNode.prototype.isTargetSection = function () {
@@ -125,6 +126,7 @@ ve.dm.CXSectionNode.prototype.isTargetSection = function () {
 /**
  * Get the original content source.
  * Example: Apertium
+ *
  * @return {string}
  */
 ve.dm.CXSectionNode.prototype.getOriginalContentSource = function () {
@@ -133,6 +135,7 @@ ve.dm.CXSectionNode.prototype.getOriginalContentSource = function () {
 
 /**
  * ...
+ *
  * @param {string} source One of 'source', 'scratch' or name of MT engine.
  */
 ve.dm.CXSectionNode.prototype.setOriginalContentSource = function ( source ) {

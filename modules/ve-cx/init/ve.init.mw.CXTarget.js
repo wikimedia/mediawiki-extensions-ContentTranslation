@@ -485,6 +485,7 @@ ve.init.mw.CXTarget.prototype.enablePublishButton = function () {
 
 /**
  * Translation restore event handler
+ *
  * @param {mw.cx.dm.Translation} translationModel
  */
 ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
@@ -522,6 +523,7 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
 
 /**
  * Target namespace change handler
+ *
  * @param {number} namespaceId
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
@@ -661,6 +663,7 @@ ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
 
 /**
  * Get the translation node for the given section id. Accepts section id of source or target.
+ *
  * @param  {string} sectionId Section id. Example cxSourceSection15 or cxTargetSection15
  * @return {ve.dm.CXSectionNode|null}
  */
@@ -699,6 +702,7 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function (
 
 /**
  * Handle clicks for placeholder sections.
+ *
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
@@ -771,6 +775,7 @@ ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
 
 /**
  * Set the section content to the given content.
+ *
  * @param {ve.dm.CXSectionNode|ve.dm.CXPlaceholderNode} section Section model
  * @param {string} content
  * @param {string} source Original content source
@@ -875,6 +880,7 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
 
 /**
  * Translate and adapt the source section for the given section id.
+ *
  * @param {string} sectionId Section ID
  * @param {string} provider Machine translation privider
  * @param {boolean} noCache If true, do a fresh translation from server
@@ -973,6 +979,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 /**
  * Prefetch the translation for the given section. The API request is raised, and set it in the cache.
  * Nothing done with the content.
+ *
  * @param {number} sectionNumber
  */
 ve.init.mw.CXTarget.prototype.prefetchTranslationForSection = function ( sectionNumber ) {

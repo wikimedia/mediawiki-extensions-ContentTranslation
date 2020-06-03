@@ -27,6 +27,7 @@ mw.cx.MachineTranslationManager = function MwCxMachineTranslationManager(
 
 /**
  * Map provider id to human readable label.
+ *
  * @param {string} provider Id of the provider
  * @return {string} Translated label
  */
@@ -46,6 +47,7 @@ mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider
 
 /**
  * Get the preferred provider, also taking into account user preference.
+ *
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {

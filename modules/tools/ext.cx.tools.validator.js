@@ -13,7 +13,7 @@
 	 * @param {string} title The title to look for
 	 * @return {jQuery.promise}
 	 * @return {Function} return.done If title exists
-	 * @return {string|false} return.done.title
+	 * @return {string|boolean} return.done.title
 	 */
 	ContentTranslationValidator.prototype.isTitleExistInLanguage = function ( language, title ) {
 		var api = this.siteMapper.getApi( language );

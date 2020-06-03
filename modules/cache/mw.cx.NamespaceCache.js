@@ -23,6 +23,7 @@ mw.cx.NamespaceCache = function CXNamespaceCache( config ) {
 
 /**
  * Get the value from request or cached request
+ *
  * @param {string} canonicalNamespace
  * @return {jQuery.Promise}
  */

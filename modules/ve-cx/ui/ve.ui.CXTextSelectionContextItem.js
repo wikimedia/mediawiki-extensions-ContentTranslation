@@ -78,6 +78,7 @@ ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes = function ( nor
 
 /**
  * Render the body.
+ *
  * @param {Object} targetTitleData
  */
 ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleData ) {

@@ -191,6 +191,7 @@
 
 	/**
 	 * Get a section ID from the stored HTML.
+	 *
 	 * @param {Object} unit Translation unit
 	 * @return {string} HTML id
 	 */

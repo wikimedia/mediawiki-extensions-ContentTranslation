@@ -178,16 +178,18 @@
 		if ( mw.uls ) {
 			candidates = candidates.concat( mw.uls.getPreviousLanguages() );
 		}
-		candidates = candidates.map( function ( lang ) {
-			if ( lang ) {
-				// Remove country codes
-				return lang.split( '-' )[ 0 ];
-			}
-		} );
-		candidates = candidates.filter( function ( lang, index, self ) {
-			return lang && lang !== targetLanguage && // Remove target language
-				self.indexOf( lang ) === index; // Remove duplicates
-		} );
+		candidates = candidates
+			.map( function ( lang ) {
+				if ( lang ) {
+					// Remove country codes
+					return lang.split( '-' )[ 0 ];
+				}
+				return null;
+			} )
+			.filter( function ( lang, index, self ) {
+				return lang && lang !== targetLanguage && // Remove target language
+					self.indexOf( lang ) === index; // Remove duplicates
+			} );
 		return candidates.splice( 0, 5 );
 	}
 

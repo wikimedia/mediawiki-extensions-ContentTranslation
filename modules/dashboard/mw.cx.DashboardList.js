@@ -182,7 +182,7 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
  *
  * @method
  * @abstract
- * @return {String[]}
+ * @return {string[]}
  */
 mw.cx.DashboardList.prototype.getPageProps = null;
 

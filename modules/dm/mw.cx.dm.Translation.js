@@ -165,6 +165,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 
 /**
  * Find the latest translation type using the timestamps and return the content
+ *
  * @param {Object} translationUnit
  * @return {string|null}
  */
@@ -580,6 +581,7 @@ mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
 /**
  * Extract translation metadata from the draft translation fetched
  * and set to this model.
+ *
  * @param {Object} draft Saved translation.
  */
 mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
