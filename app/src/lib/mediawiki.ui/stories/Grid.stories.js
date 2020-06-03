@@ -7,6 +7,7 @@ import {
   text
 } from "@storybook/addon-knobs";
 import "../grid.scss";
+import "../typography.scss";
 import "./grid-story.less";
 
 export default {

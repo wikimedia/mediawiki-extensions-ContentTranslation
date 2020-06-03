@@ -21,8 +21,8 @@ export default {
 </script>
 <style lang="less">
 @import "../variables/wikimedia-ui-base.less";
-@import "../typography.less";
 @import "../mixins/common.less";
+
 .mw-ui-card {
   background-color: @background-color-base;
   box-sizing: border-box;

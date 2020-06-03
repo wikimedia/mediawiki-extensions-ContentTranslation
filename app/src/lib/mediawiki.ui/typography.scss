@@ -1,0 +1,349 @@
+/**
+ * An approximate implementation of https://design.wikimedia.org/style-guide/visual-style_typography.html
+ */
+
+/**
+ * Libertine font stack for serif family.
+ * Libertine is not officially maintained now and it's fork Libretinus is the actively maintained version.
+ * https://github.com/alerque/libertinus
+ */
+$font-stack-libertine: "Linux Libertine", "Libertinus Serif", "Charter",
+  "Georgia", "Times", serif !default;
+
+/**
+ * System font stack for sans-serif fonts
+ *
+ * `-apple-system` ('San Francisco' font) – Support Safari 9+ macOS and iOS, Firefox macOS
+ * `BlinkMacSystemFont` ('San Francisco' font) – Chrome 48+ macOS and iOS
+ * `Segoe UI` – Windows Vista & newer
+ * `Roboto` – Android 4.0+
+ * `Lato` – Wikimedia Design choice, OFL licensed
+ * `Helvetica, Arial, sans-serif` – (Generic) Web fallback
+ * Note that standard `system-ui` value has resulted in unresolved side-effects in certain OS/language combinations as of now and is therefore not included.
+ */
+$font-stack-system: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
+  "Lato", "Helvetica", "Arial", sans-serif !default;
+
+/**
+ * System font stack for monospace fonts
+ *
+ * `Menlo` – macOS 10.6+
+ * `Consolas` – Windows Vista & newer
+ * `Liberation Mono` – Fedora, Ubuntu, … OFL licensed
+ * `'Courier New', monospace` – (Generic) web font fallback
+ */
+$font-stack-monospace: "Menlo", "Consolas", "Liberation Mono", "Courier New",
+  monospace !default;
+
+$font-stack: (
+  serif: $font-stack-libertine,
+  sans: $font-stack-system,
+  monospace: $font-stack-monospace,
+);
+
+$list-style-type: (
+  hi: devanagari,
+  mr: devanagari,
+  mai: devanagari,
+  ne: devanagari,
+  as: bengali,
+  bn: bengali,
+  or: oriya,
+  azb: persian,
+  bcc: persian,
+  bgn: persian,
+  bqi: persian,
+  fa: persian,
+  glk: persian,
+  kk-arab: persian,
+  lrc: persian,
+  luz: persian,
+  mzn: persian,
+  ckb: arabic-indic,
+  sdh: arabic-indic,
+);
+
+// Variables
+$line-height-ratio: 1.6 !default;
+$body-font-weight: 400 !default;
+$body-font: map-get($font-stack, sans) !default;
+$heading-font: map-get($font-stack, serif) !default;
+$base-font-size: 1rem !default;
+$text-color: #202122 !default;
+
+@mixin t-reset() {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $body-font;
+  font-weight: $body-font-weight;
+  font-size: $base-font-size;
+  line-height: $line-height-ratio;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  @include t-reset;
+}
+
+p,
+blockquote,
+pre,
+address,
+dl,
+ol,
+ul,
+table {
+  margin-top: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  line-height: 1.25;
+  clear: both;
+}
+
+h1 {
+  font-family: map-get($font-stack, serif);
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: map-get($font-stack, sans);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: map-get($font-stack, sans);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-family: map-get($font-stack, sans);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.25em;
+}
+
+h5 {
+  font-family: map-get($font-stack, sans);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+h6 {
+  font-family: map-get($font-stack, sans);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  cite {
+    display: block;
+    font-style: normal;
+  }
+}
+
+pre {
+  padding: ($line-height-ratio * 0.5) + em;
+  margin-bottom: 1.6rem;
+  font-size: 0.875rem;
+  code {
+    padding: 0;
+  }
+}
+
+code {
+  font-family: map-get($font-stack, monospace);
+  padding: ($line-height-ratio * 0.05) + em ($line-height-ratio * 0.15) + em;
+  font-size: 0.875rem;
+}
+
+big,
+small,
+sub,
+sup {
+  line-height: 0;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+
+address {
+  font-style: normal;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.8125rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+ul {
+  margin: 0.8rem 0;
+  padding: 0 0 0 1.8rem;
+  li {
+    margin-top: 0.4rem;
+    list-style-type: disc;
+    list-style-position: outside;
+    li {
+      list-style-type: circle;
+      li {
+        list-style-type: square;
+      }
+    }
+  }
+}
+
+ol {
+  margin: 0.8rem 0;
+  padding: 0 0 0 1.8rem;
+  li {
+    list-style-position: outside;
+  }
+}
+
+@each $lang, $style in $list-style-type {
+  [lang="#{$lang}"] li {
+    list-style-type: #{$style};
+  }
+}
+
+fieldset {
+  padding: 0.8rem 1.6rem 1.6rem;
+  border-width: 1px;
+  border-style: solid;
+  max-width: 100%;
+  margin-bottom: 1.6rem;
+
+  button,
+  input[type="submit"] {
+    margin-bottom: 0;
+  }
+}
+
+legend {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 0.4rem;
+  font-size: $base-font-size;
+  margin-bottom: 1rem;
+}
+
+input[type="submit"],
+button {
+  display: block;
+  cursor: pointer;
+  font-size: $base-font-size;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+label {
+  display: block;
+  padding-bottom: 0.2rem;
+  margin-bottom: -0.2rem;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+th {
+  text-align: left;
+  text-align: start;
+  padding: 0.2rem 0.8rem;
+}
+
+td {
+  padding: 0.2rem 0.8rem;
+}

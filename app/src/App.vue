@@ -25,6 +25,7 @@ import CxHeader from "./components/CXHeader";
 import CxDashboard from "./components/CXDashboard";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
 import "./lib/mediawiki.ui/grid.scss";
+import "./lib/mediawiki.ui/typography.scss";
 
 export default {
   name: "CxDashboardApp",
@@ -35,9 +36,6 @@ export default {
 
 <style lang="less">
 body {
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #54595d;
   background-color: #eaecf0;
   margin: 0;
