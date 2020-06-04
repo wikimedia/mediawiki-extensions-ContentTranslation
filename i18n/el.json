@@ -6,6 +6,7 @@
 			"Glavkos",
 			"KATRINE1993",
 			"Nikosgranturismogt",
+			"Norhorn",
 			"Protnet",
 			"Stam.nikos"
 		]
@@ -14,7 +15,7 @@
 	"cx-dashboard-header": "Μεταφράσεις",
 	"cx-javascript": "Αυτό το εργαλείο δεν λειτουργεί χωρίς JavaScript. Το JavaScript είναι απενεργοποιημένο, απέτυχε να δουλέψει ή αυτός ο περιηγητής δεν υποστηρίζεται.",
 	"cx-specialpage-enable-betafeature": "Η [[mw:Special:MyLanguage/Content_translation|Μετάφραση Περιεχομένου]] είναι ένα εργαλείο για γρήγορη μετάφραση σελίδων στη γλώσσα σας. [$1 Δοκιμάστε το τώρα!]",
-	"cx-license-agreement": "Συνεχίζοντας συμφωνείτε στους [https://foundation.wikimedia.org/wiki/Terms_of_Use Όρους Χρήσης] και συμφωνείτε χωρίς ανάκληση να ελευθερώσετε το κείμενό σας υπό την [https://creativecommons.org/licenses/by-sa/3.0 Άδεια CC BY-SA 3.0] και την [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Συνεχίζοντας συμφωνείτε στους [https://foundation.wikimedia.org/wiki/Terms_of_Use Όρους Χρήσης] και συμφωνείτε χωρίς ανάκληση να παρέχετε  το κείμενό σας υπό την [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Άδεια] και την [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Σφάλμα: δεν ήταν δυνατή η σύνδεση με το διακομιστή.",
 	"cx-desc": "Καθιστά εύκολη την [[Special:ContentTranslation|μετάφραση]] σελίδων περιεχομένου",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|μεταφρασμένο}}",
