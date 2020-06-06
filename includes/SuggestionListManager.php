@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+
 class SuggestionListManager {
 	/**
 	 * @param SuggestionList $list
@@ -184,9 +186,10 @@ class SuggestionListManager {
 	public function addSuggestions( array $suggestions ) {
 		$dbw = Database::getConnection( DB_MASTER );
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		$batchSize = 100;
 		while ( count( $suggestions ) > 0 ) {
-			$values = [];
 			$batch = array_splice( $suggestions, 0, $batchSize );
 
 			$values = [];
@@ -206,7 +209,9 @@ class SuggestionListManager {
 				[ 'IGNORE' ]
 			);
 
-			wfWaitForSlaves();
+			// TODO: This should really wait for replication on the
+			// Database returned by Database::getConnection( DB_MASTER );
+			$lbFactory->waitForReplication();
 		}
 	}
 
