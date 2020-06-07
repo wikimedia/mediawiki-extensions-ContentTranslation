@@ -253,7 +253,7 @@ class SuggestionListManager {
 			'cxs_source_language' => $suggestion->getSourceLanguage(),
 			'cxs_target_language' => $suggestion->getTargetLanguage(),
 		];
-		$row = $dbr->selectRow( 'cx_suggestions', '1', $conds );
+		$row = $dbr->selectRow( 'cx_suggestions', '1', $conds, __METHOD__ );
 
 		// If there is no result, `selectRow` returns `false`
 		return $row !== false;

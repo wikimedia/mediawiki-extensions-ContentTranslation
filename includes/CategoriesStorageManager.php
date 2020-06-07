@@ -44,7 +44,7 @@ class CategoriesStorageManager {
 			'cxc_origin' => $origin
 		] + self::$CATEGORIES_SECTION;
 
-		$db->update( 'cx_corpora', $values, $conditions );
+		$db->update( 'cx_corpora', $values, $conditions, __METHOD__ );
 	}
 
 	/**
@@ -79,7 +79,7 @@ class CategoriesStorageManager {
 		}
 
 		if ( $values !== [] ) {
-			$db->insert( 'cx_corpora', $values );
+			$db->insert( 'cx_corpora', $values, __METHOD__ );
 		}
 	}
 

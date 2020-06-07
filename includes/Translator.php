@@ -143,7 +143,7 @@ class Translator {
 			$queries[] = $dbr->selectSQLText( $tables, $field, $conds, __METHOD__ );
 		}
 
-		$res = $dbr->query( $dbr->unionQueries( $queries, false ) );
+		$res = $dbr->query( $dbr->unionQueries( $queries, false ), __METHOD__ );
 
 		$result = [];
 		foreach ( $res as $row ) {

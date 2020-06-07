@@ -99,7 +99,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 		if ( $notifyAgeInDays ) {
 			$remindersBefore = $this->getCutoffTime( $notifyAgeInDays );
-			$after = $dbr->selectField( 'cx_notification_log', 'MAX(cxn_newest)' );
+			$after = $dbr->selectField( 'cx_notification_log', 'MAX(cxn_newest)', [], __METHOD__ );
 
 			if ( $after ) {
 				$remindersAfter = new DateTime( $after );
@@ -296,7 +296,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			'cxn_newest' => $lastDraft->translation_last_updated_timestamp,
 		];
 
-		$dbw->insert( 'cx_notification_log', $values );
+		$dbw->insert( 'cx_notification_log', $values, __METHOD__ );
 	}
 }
 
