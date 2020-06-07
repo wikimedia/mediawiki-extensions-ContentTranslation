@@ -10,6 +10,7 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Api module for querying translation suggestions.
@@ -199,7 +200,8 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			'redirects' => true
 		];
 		$apiUrl = SiteMapper::getApiURL( $sourceLanguage, $params );
-		$json = Http::get( $apiUrl );
+		$json = MediaWikiServices::getInstance()->getHttpRequestFactory()
+			->get( $apiUrl, [], __METHOD__ );
 		$response = FormatJson::decode( $json, true );
 		if ( !isset( $response['query'] ) || !isset( $response['query']['pages'] ) ) {
 			// Something wrong with response. Should we throw exception?

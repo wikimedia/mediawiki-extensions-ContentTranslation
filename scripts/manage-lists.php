@@ -17,6 +17,7 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
+use MediaWiki\MediaWikiServices;
 
 class CXManageLists extends Maintenance {
 	public function __construct() {
@@ -119,9 +120,10 @@ class CXManageLists extends Maintenance {
 			'continue' => '',
 		];
 
+		$httpRequestFactory = MediaWikiServices::getInstance()->getHttpRequestFactory();
 		while ( true ) {
 			$url = $apiUrl . http_build_query( $params );
-			$json = Http::get( $url );
+			$json = $httpRequestFactory->get( $url, [], __METHOD__ );
 			$data = FormatJson::decode( $json, true );
 
 			if ( !isset( $data['query'] ) ) {
