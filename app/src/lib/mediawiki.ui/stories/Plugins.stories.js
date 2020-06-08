@@ -14,7 +14,7 @@ export const Breakpoints = () => ({
       <div
         class="row pa-2"
         v-for="value, property in $mwui.breakpoint"
-        :key="key"
+        :key="property"
         :style="value?'background-color:#4caf50':'background-color:#ff5722'">
         $mwui.breakpoint.{{property}}
       </div>
