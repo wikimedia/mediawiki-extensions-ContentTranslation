@@ -10,6 +10,7 @@ namespace ContentTranslation;
 use BetaFeatures;
 use ExtensionRegistry;
 use GlobalPreferences\GlobalPreferencesFactory;
+use GlobalPreferences\Storage;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
 use User;
@@ -64,10 +65,10 @@ class PreferenceHelper {
 		/** @var GlobalPreferencesFactory $globalPref */
 		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
 		'@phan-var GlobalPreferencesFactory $globalPref';
-		$globalPref->setUser( $user->getInstanceForUpdate() );
-		$prefs = $globalPref->getGlobalPreferencesValues( true );
+		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
 		$prefs[$preference] = $value;
-		$globalPref->setGlobalPreferences( $prefs, RequestContext::getMain() );
+		$user = $user->getInstanceForUpdate();
+		$globalPref->setGlobalPreferences( $user, $prefs, RequestContext::getMain() );
 	}
 
 	/**
@@ -85,8 +86,7 @@ class PreferenceHelper {
 		/** @var GlobalPreferencesFactory $globalPref */
 		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
 		'@phan-var GlobalPreferencesFactory $globalPref';
-		$globalPref->setUser( $user );
-		$prefs = $globalPref->getGlobalPreferencesValues( true );
+		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
 		return $prefs[$preference] ?? null;
 	}
 
