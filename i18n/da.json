@@ -277,5 +277,6 @@
 	"cx-publish-destination-namespace-user": "Personlig kladde",
 	"cx-publish-destination-namespace-draft": "Fælles kladde",
 	"cx-linkcontextitem-missing-title-description": "Denne side findes ikke endnu",
-	"cx-unreviewed-translation-category": "Sider uden gennemgået oversættelser"
+	"cx-unreviewed-translation-category": "Sider uden gennemgået oversættelser",
+	"cx-sx-language-selector-dialog-title": "Søg efter et sprog"
 }
