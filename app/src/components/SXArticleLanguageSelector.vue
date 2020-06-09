@@ -74,7 +74,7 @@ import {
 import MwLanguageSelector from "../lib/mediawiki.ui/components/MWLanguageSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import { mapState } from "vuex";
-import { SectionSuggestion } from "../wiki/cx/models/sectionSuggestion";
+import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "sx-article-language-selector",

@@ -62,7 +62,7 @@ import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
 import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
 import { mapState } from "vuex";
-import { SectionSuggestion } from "../wiki/cx/models/sectionSuggestion";
+import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "cx-suggestion-list",

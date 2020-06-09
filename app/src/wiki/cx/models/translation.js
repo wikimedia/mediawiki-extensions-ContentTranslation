@@ -1,4 +1,4 @@
-export class Translation {
+export default class Translation {
   constructor({
     sourceLanguage,
     targetLanguage,

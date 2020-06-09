@@ -1,4 +1,4 @@
-export class SectionSuggestion {
+export default class SectionSuggestion {
   constructor({
     sourceLanguage,
     targetLanguage,

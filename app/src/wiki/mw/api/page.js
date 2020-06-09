@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Page } from "../models/page";
+import Page from "../models/page";
 
 function fetchMetadata(language, titles) {
   const params = {

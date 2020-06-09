@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Translation } from "../models/translation";
+import Translation from "../models/translation";
 
 async function fetchTranslations(offset) {
   const params = {

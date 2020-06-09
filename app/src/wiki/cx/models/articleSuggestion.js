@@ -1,4 +1,4 @@
-export class ArticleSuggestion {
+export default class ArticleSuggestion {
   constructor({
     sourceLanguage,
     targetLanguage,

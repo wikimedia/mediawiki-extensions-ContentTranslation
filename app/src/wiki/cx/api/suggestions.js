@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ArticleSuggestion } from "../models/articleSuggestion";
-import { SectionSuggestion } from "../models/sectionSuggestion";
+import ArticleSuggestion from "../models/articleSuggestion";
+import SectionSuggestion from "../models/sectionSuggestion";
 
 // Example URL:
 // https://recommend.wmflabs.org/types/translation/v1/articles?source=de&target=ml&seed=&search=morelike&application=CX
