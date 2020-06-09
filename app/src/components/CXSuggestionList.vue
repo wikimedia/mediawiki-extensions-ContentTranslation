@@ -1,7 +1,7 @@
 <template>
   <div v-show="active">
     <mw-card
-      class="cx-translation-list--suggestions"
+      class="cx-translation-list--suggestions pa-0"
       :title="$i18n('cx-suggestionlist-title')"
     >
       <mw-spinner v-if="!pageSuggestionsLoaded" />
@@ -19,7 +19,7 @@
       </div>
     </mw-card>
     <mw-card
-      class="cx-translation-list--sx-suggestions"
+      class="cx-translation-list--sx-suggestions pa-0"
       :title="$i18n('cx-suggestionlist-expand-sections-title')"
       v-if="sectionSuggestionForPair.length"
     >
