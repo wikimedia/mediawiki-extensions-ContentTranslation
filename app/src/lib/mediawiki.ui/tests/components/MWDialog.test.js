@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwDialog from "@/lib/mediawiki.ui/components/MWDialog";
+import MwDialog from "../../components/MWDialog";
 
 describe("MWDialog.vue", () => {
   it("renders dialog with given properties", () => {

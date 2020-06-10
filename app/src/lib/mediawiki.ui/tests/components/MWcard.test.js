@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwCard from "@/lib/mediawiki.ui/components/MWCard";
+import MwCard from "../../components/MWCard";
 
 describe("MwCard.vue", () => {
   test("is a Vue instance", () => {

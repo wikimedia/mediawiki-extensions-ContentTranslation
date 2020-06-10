@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
-import MwAutonym from "@/lib/mediawiki.ui/components/MWAutonym";
+import MwAutonym from "../../components/MWAutonym";
 import mediawiki from "@/store/modules/mediawiki";
 
 describe("MwAutonym.vue", () => {

@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwButtonGroup from "@/lib/mediawiki.ui/components/MWButtonGroup";
+import MwButtonGroup from "../../components/MWButtonGroup";
 
 describe("MwButtonGroup.vue", () => {
   test("is a Vue instance", () => {

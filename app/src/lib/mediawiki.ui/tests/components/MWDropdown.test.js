@@ -1,6 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MWDropdown from "@/lib/mediawiki.ui/components/MWDropdown";
-import { mwIconTrash, mwIconAdd } from "@/lib/mediawiki.ui/components/icons";
+import MWDropdown from "../../components/MWDropdown";
 
 describe("MWDropdown.vue", () => {
   it("renders with given slots and options", async () => {

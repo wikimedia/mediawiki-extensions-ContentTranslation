@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
-import MwInput from "@/lib/mediawiki.ui/components/MWInput";
-import { mwIconTrash, mwIconAdd } from "@/lib/mediawiki.ui/components/icons";
+import MwInput from "../../components/MWInput";
+import { mwIconTrash, mwIconAdd } from "../../components/icons";
 
 describe("MWInput.vue", () => {
   it("renders props.id when passed", () => {

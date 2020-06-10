@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
-import MWSelect from "@/lib/mediawiki.ui/components/MWSelect";
-import { mwIconTrash, mwIconAdd } from "@/lib/mediawiki.ui/components/icons";
+import MWSelect from "../../components/MWSelect";
+import { mwIconTrash, mwIconAdd } from "../../components/icons";
 
 describe("MWSelect.vue", () => {
   it("renders with given slots and options", async () => {

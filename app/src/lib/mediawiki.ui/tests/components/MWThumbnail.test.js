@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwThumbnail from "@/lib/mediawiki.ui/components/MWThumbnail";
+import MwThumbnail from "../../components/MWThumbnail";
 
 describe("MwThumbnail.vue", () => {
   it("renders image when passed", () => {
