@@ -314,5 +314,10 @@
 	"cx-sx-section-selector-title": "Abschnitte",
 	"cx-sx-section-selector-subtitle": "Wähle einen zu übersetzenden Abschnitt aus",
 	"cx-sx-section-selector-desc": "Wähle unten einen Abschnitt aus und überprüfe den Inhalt in beiden Sprachen, um zu entscheiden, was übersetzt werden soll.",
-	"cx-sx-language-selector-dialog-title": "Nach einer Sprache suchen"
+	"cx-sx-language-selector-dialog-title": "Nach einer Sprache suchen",
+	"cx-sx-existing-translation-status": "Existiert bereits in $1",
+	"cx-sx-existing-translation-additional-info": "Erweitere den bestehenden Inhalt durch die Übersetzung neuer Abschnitte.",
+	"cx-sx-start-translation-button-label": "Übersetzung starten",
+	"cx-sx-view-translation-anchor": "Ansehen",
+	"cx-sx-existing-translation-learn-more": "Weitere Informationen"
 }

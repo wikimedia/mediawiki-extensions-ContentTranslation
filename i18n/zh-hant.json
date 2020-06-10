@@ -317,5 +317,10 @@
 	"cx-sx-section-selector-title": "章節",
 	"cx-sx-section-selector-subtitle": "選擇要翻譯的章節",
 	"cx-sx-section-selector-desc": "在下方選擇一個章節，並檢查兩種語言的內容，來決定要翻譯的地方。",
-	"cx-sx-language-selector-dialog-title": "搜尋語言"
+	"cx-sx-language-selector-dialog-title": "搜尋語言",
+	"cx-sx-existing-translation-status": "已存在於$1裡",
+	"cx-sx-existing-translation-additional-info": "透過翻譯新的章節來擴充現有內容。",
+	"cx-sx-start-translation-button-label": "開始翻譯",
+	"cx-sx-view-translation-anchor": "檢視",
+	"cx-sx-existing-translation-learn-more": "了解更多"
 }
