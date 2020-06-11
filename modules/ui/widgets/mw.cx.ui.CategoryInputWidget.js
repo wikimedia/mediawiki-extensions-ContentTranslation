@@ -64,8 +64,6 @@ mw.cx.ui.CategoryInputWidget.prototype.getLookupCacheDataFromResponse = function
 /**
  * @inheritdoc
  */
-mw.cx.ui.CategoryInputWidget.prototype.onLookupMenuChoose = function ( item ) {
-	item.setData( this.namespacePrefix + item.getData() );
-
+mw.cx.ui.CategoryInputWidget.prototype.onLookupMenuChoose = function () {
 	mw.cx.ui.CategoryInputWidget.super.prototype.onLookupMenuChoose.apply( this, arguments );
 };

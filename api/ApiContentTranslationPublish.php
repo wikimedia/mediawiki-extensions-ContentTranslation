@@ -107,7 +107,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			$cat = wfMessage( $trackingCategoryMsg )->inContentLanguage()->plain();
 			$containerCategory = Title::makeTitleSafe( NS_CATEGORY, $cat );
 			if ( $cat !== '-' && $containerCategory ) {
-				$categories[$trackingCategoryKey] = $containerCategory->getPrefixedText();
+				// Title without namespace prefix
+				$categories[$trackingCategoryKey] = $containerCategory->getText();
 				// Record using Graphite that the published translation is marked for review
 				MediaWikiServices::getInstance()->getStatsdDataFactory()
 					->increment( 'cx.publish.highmt.' . $params['to'] );
@@ -119,8 +120,9 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		// Validate and normalize all categories.
 		foreach ( $categories as $index => $category ) {
-			$title = Title::newFromText( $category );
-			if ( $title !== null && $title->inNamespace( NS_CATEGORY ) ) {
+			$category = $this->removeApiCategoryNamespacePrefix( $category, $params['to'] );
+			$title = Title::makeTitleSafe( NS_CATEGORY, $category );
+			if ( $title !== null ) {
 				$categories[$index] = $title->getPrefixedText();
 			} else {
 				unset( $categories[$index] );
@@ -131,6 +133,22 @@ class ApiContentTranslationPublish extends ApiBase {
 		$categories = array_unique( $categories );
 
 		return $categories;
+	}
+
+	/**
+	 * Removes category namespace prefix for a given category received
+	 * from API, if existing, otherwise returns category as is
+	 * @param string $category
+	 * @param string $targetLanguage
+	 * @return string
+	 */
+	private function removeApiCategoryNamespacePrefix( $category, $targetLanguage ) {
+		$targetLanguage = MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage( $targetLanguage );
+		$targetLanguageCategoryPrefix = $targetLanguage->getNsText( NS_CATEGORY ) . ":";
+		if ( substr( $category, 0, strlen( $targetLanguageCategoryPrefix ) ) === $targetLanguageCategoryPrefix ) {
+			return substr( $category, strlen( $targetLanguageCategoryPrefix ) );
+		}
+		return $category;
 	}
 
 	public function execute() {
