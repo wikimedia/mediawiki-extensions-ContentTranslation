@@ -322,5 +322,9 @@
 	"cx-sx-existing-translation-additional-info": "透過翻譯新的章節來擴充現有內容。",
 	"cx-sx-start-translation-button-label": "開始翻譯",
 	"cx-sx-view-translation-anchor": "檢視",
-	"cx-sx-existing-translation-learn-more": "了解更多"
+	"cx-sx-existing-translation-learn-more": "了解更多",
+	"cx-sx-section-missing-sections-title": "在$1缺少章節",
+	"cx-sx-section-present-sections-title": "章節存在於$1",
+	"cx-sx-section-more-details-title": "更多詳情",
+	"cx-sx-section-view-article-button-label": "在$1檢視條目"
 }

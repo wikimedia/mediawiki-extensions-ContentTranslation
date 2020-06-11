@@ -323,5 +323,14 @@
 	"cx-sx-section-selector-title": "Seções",
 	"cx-sx-section-selector-subtitle": "Selecione uma seção para traduzir",
 	"cx-sx-section-selector-desc": "Escolha uma seção abaixo e verifique o conteúdo nos dois idiomas para decidir o que traduzir.",
-	"cx-sx-language-selector-dialog-title": "Procurar por um idioma"
+	"cx-sx-language-selector-dialog-title": "Procurar por um idioma",
+	"cx-sx-existing-translation-status": "Já existe em $1",
+	"cx-sx-existing-translation-additional-info": "Expanda o conteúdo existente traduzindo novas seções.",
+	"cx-sx-start-translation-button-label": "Iniciar tradução",
+	"cx-sx-view-translation-anchor": "Visualizar",
+	"cx-sx-existing-translation-learn-more": "Saiba mais",
+	"cx-sx-section-missing-sections-title": "Seções ausentes em $1",
+	"cx-sx-section-present-sections-title": "Seções presentes em $1",
+	"cx-sx-section-more-details-title": "Mais detalhes",
+	"cx-sx-section-view-article-button-label": "Ver artigo em $1"
 }

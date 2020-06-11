@@ -319,5 +319,9 @@
 	"cx-sx-existing-translation-additional-info": "Erweitere den bestehenden Inhalt durch die Übersetzung neuer Abschnitte.",
 	"cx-sx-start-translation-button-label": "Übersetzung starten",
 	"cx-sx-view-translation-anchor": "Ansehen",
-	"cx-sx-existing-translation-learn-more": "Weitere Informationen"
+	"cx-sx-existing-translation-learn-more": "Weitere Informationen",
+	"cx-sx-section-missing-sections-title": "Fehlende Abschnitte in $1",
+	"cx-sx-section-present-sections-title": "Abschnitte vorhanden in $1",
+	"cx-sx-section-more-details-title": "Weitere Einzelheiten",
+	"cx-sx-section-view-article-button-label": "Artikel anzeigen in $1"
 }

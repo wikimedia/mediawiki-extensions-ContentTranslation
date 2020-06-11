@@ -323,5 +323,8 @@
 	"cx-sx-section-selector-title": "문단",
 	"cx-sx-section-selector-subtitle": "번역할 문단을 선택하세요",
 	"cx-sx-section-selector-desc": "번역할 내용을 결정하려면 아래에서 문단을 선택하고 두 언어로 내용을 확인하세요.",
-	"cx-sx-language-selector-dialog-title": "언어 검색"
+	"cx-sx-language-selector-dialog-title": "언어 검색",
+	"cx-sx-existing-translation-status": "$1에 이미 존재합니다",
+	"cx-sx-start-translation-button-label": "번역 시작",
+	"cx-sx-existing-translation-learn-more": "더 알아보기"
 }

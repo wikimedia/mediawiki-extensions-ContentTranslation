@@ -344,5 +344,14 @@
 	"cx-sx-section-selector-title": "Sections",
 	"cx-sx-section-selector-subtitle": "Choisir une section à traduire",
 	"cx-sx-section-selector-desc": "Sélectionnez une section ci-dessous et vérifiez le contenu dans les deux langues pour décider de ce qu'il faut traduire.",
-	"cx-sx-language-selector-dialog-title": "Rechercher une langue"
+	"cx-sx-language-selector-dialog-title": "Rechercher une langue",
+	"cx-sx-existing-translation-status": "Existe déjà en $1",
+	"cx-sx-existing-translation-additional-info": "Développer le contenu existant en traduisant de nouvelles sections.",
+	"cx-sx-start-translation-button-label": "Démarrer la traduction",
+	"cx-sx-view-translation-anchor": "Afficher",
+	"cx-sx-existing-translation-learn-more": "En savoir plus",
+	"cx-sx-section-missing-sections-title": "Sections manquantes dans $1",
+	"cx-sx-section-present-sections-title": "Sections présentes dans $1",
+	"cx-sx-section-more-details-title": "Plus de détails",
+	"cx-sx-section-view-article-button-label": "Afficher l’article dans $1"
 }

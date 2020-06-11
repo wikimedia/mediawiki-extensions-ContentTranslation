@@ -306,5 +306,14 @@
 	"cx-sx-section-selector-title": "Поднаслови",
 	"cx-sx-section-selector-subtitle": "Изберете поднаслов за преведување",
 	"cx-sx-section-selector-desc": "Одберете поднаслов подолу и погледајте ја содржината на двата јазика за да решите што да преведувате.",
-	"cx-sx-language-selector-dialog-title": "Пребарување на јазик"
+	"cx-sx-language-selector-dialog-title": "Пребарување на јазик",
+	"cx-sx-existing-translation-status": "Веќе постои на $1",
+	"cx-sx-existing-translation-additional-info": "Проширете ја постоечката содржина преведувајќи нови поднаслови.",
+	"cx-sx-start-translation-button-label": "Почни со преведување",
+	"cx-sx-view-translation-anchor": "Преглед",
+	"cx-sx-existing-translation-learn-more": "Дознајте повеќе",
+	"cx-sx-section-missing-sections-title": "Отсутни поднаслови на $1",
+	"cx-sx-section-present-sections-title": "Присутни поднаслови на $1",
+	"cx-sx-section-more-details-title": "Поподробно",
+	"cx-sx-section-view-article-button-label": "Погл. статијата на $1"
 }

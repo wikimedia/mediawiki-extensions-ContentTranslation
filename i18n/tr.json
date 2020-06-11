@@ -325,5 +325,14 @@
 	"cx-sx-section-selector-title": "Bölümler",
 	"cx-sx-section-selector-subtitle": "Çevrilecek bir bölüm seçin",
 	"cx-sx-section-selector-desc": "Aşağıdan bir bölüm seçin ve neyin çevrileceğine karar vermek için her iki dildeki içeriği kontrol edin.",
-	"cx-sx-language-selector-dialog-title": "Bir dil arayın"
+	"cx-sx-language-selector-dialog-title": "Bir dil arayın",
+	"cx-sx-existing-translation-status": "$1 içinde zaten mevcut",
+	"cx-sx-existing-translation-additional-info": "Yeni bölümleri çevirerek mevcut içeriği genişletin.",
+	"cx-sx-start-translation-button-label": "Çevirmeye başla",
+	"cx-sx-view-translation-anchor": "Görüntüle",
+	"cx-sx-existing-translation-learn-more": "Daha fazla bilgi",
+	"cx-sx-section-missing-sections-title": "$1 içinde bölümler eksik",
+	"cx-sx-section-present-sections-title": "$1 içinde bölümler mevcut",
+	"cx-sx-section-more-details-title": "Daha fazla detay",
+	"cx-sx-section-view-article-button-label": "$1 içinde maddeyi görüntüle"
 }

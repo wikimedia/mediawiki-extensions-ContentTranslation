@@ -6,7 +6,8 @@
 			"Nghtwlkr",
 			"Njardarlogar",
 			"Prevodim",
-			"Ranveig"
+			"Ranveig",
+			"Trondtr"
 		]
 	},
 	"cx": "Set om side",
@@ -281,5 +282,14 @@
 	"cx-mt-abuse-publish-error": "Omsetjinga di kan ikkje publiserast ettersom ho inneheld for mykje uendra tekst.",
 	"cx-unreviewed-translation-category": "Sider utan gjennomgåtte omsetjingar",
 	"cx-unreviewed-translation-category-desc": "Sider omsett med innhaldsomsetjingsverktøyet med ein stor del innhald som ikkje er gjennomgått",
-	"cx-feature-discovery-dismiss": "OK, skjøner"
+	"cx-feature-discovery-dismiss": "OK, skjøner",
+	"cx-sx-existing-translation-status": "Finst allereie på $1",
+	"cx-sx-existing-translation-additional-info": "Utvid det eksisterande innhaldet ved å omsetje nye avsnitt.",
+	"cx-sx-start-translation-button-label": "Start omsetjing",
+	"cx-sx-view-translation-anchor": "Sjå",
+	"cx-sx-existing-translation-learn-more": "Lær meir",
+	"cx-sx-section-missing-sections-title": "Det er manglande avsnitt i $1",
+	"cx-sx-section-present-sections-title": "Avsnitt presentert på $1",
+	"cx-sx-section-more-details-title": "Fleire detaljar",
+	"cx-sx-section-view-article-button-label": "Vis artikkel på $1"
 }
