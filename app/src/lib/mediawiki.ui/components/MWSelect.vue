@@ -212,17 +212,20 @@ export default {
         }));
       }
       throw new Error("Passed value format is not supported");
-      return [];
     },
     onClick(e) {
       this.open();
       this.$emit("click", e);
+      this.clear();
     },
     onOptionClick(index) {
       this.selectedIndex = index;
       this.close();
       this.$emit("select", this.selectedValue);
       this.query = this.selectedLabel;
+    },
+    clear() {
+      this.query = "";
     },
     close() {
       this.optionsOpen = false;

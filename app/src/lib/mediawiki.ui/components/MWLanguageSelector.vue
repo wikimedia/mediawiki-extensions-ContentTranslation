@@ -6,6 +6,7 @@
     optionLabel="name"
     optionValue="code"
     :placeholder="placeholder"
+    @select="onSelect"
   >
     <template v-slot:option="slotProps">
       <div class="row">
@@ -44,31 +45,11 @@ export default {
       return {
         "mw-ui-language-selector": true
       };
-    },
-    suggestion() {
-      const suggestions = this.languages.filter(result => {
-        return result.name.substring(0, this.search.length) === this.search;
-      });
-      if (suggestions?.length) {
-        return suggestions[0].name;
-      }
-      return null;
-    },
-    results() {
-      const query = this.search.toLowerCase();
-      return this.languages.filter(
-        result =>
-          result.code.toLowerCase().substring(0, query.length) === query ||
-          result.name.toLowerCase().substring(0, query.length) === query
-      );
     }
   },
   methods: {
-    handleClick(e) {
-      this.$emit("click", e);
-    },
-    onQueryUpdate(value) {
-      this.search = value || "";
+    onSelect(event) {
+      this.$emit('select', event);
     }
   }
 };
