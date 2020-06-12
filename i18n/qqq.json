@@ -334,8 +334,8 @@
 	"cx-sx-start-translation-button-label": "Label for start translation button",
 	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation",
 	"cx-sx-existing-translation-learn-more": "Text for anchor that redirects to page with additional information regarding section translation",
-	"cx-sx-section-missing-sections-title": "Title for missing sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language",
-	"cx-sx-section-present-sections-title": "Title for present sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language",
+	"cx-sx-section-missing-sections-title": "Title for missing sections list in pick a section step. This can be also translated as \"Sections that are missing in $1\".\n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|Cx-sx-section-present-sections-title}}.",
+	"cx-sx-section-present-sections-title": "Title for present sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|Cx-sx-section-missing-sections-title}}.",
 	"cx-sx-section-more-details-title": "Title for more details list in pick a section step",
 	"cx-sx-section-view-article-button-label": "Label for view article button in pick a section step. \n\nParameters:\n* $1 - Autonym of the article language"
 }

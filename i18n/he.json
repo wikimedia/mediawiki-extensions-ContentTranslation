@@ -317,5 +317,9 @@
 	"cx-sx-existing-translation-additional-info": "{{GENDER:|הרחב|הרחיבי}} את התוכן הקיים באמצעות תרגום פסקאות חדשות.",
 	"cx-sx-start-translation-button-label": "להתחיל לתרגם",
 	"cx-sx-view-translation-anchor": "הצגה",
-	"cx-sx-existing-translation-learn-more": "מידע נוסף"
+	"cx-sx-existing-translation-learn-more": "מידע נוסף",
+	"cx-sx-section-missing-sections-title": "פסקאות שחסרות ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-section-present-sections-title": "פסקאות שקיימות ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-section-more-details-title": "פרטים נוספים",
+	"cx-sx-section-view-article-button-label": "הצגת הערך ב{{GRAMMAR:תחילית|$1}}"
 }
