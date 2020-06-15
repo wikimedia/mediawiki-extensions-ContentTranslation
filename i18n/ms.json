@@ -6,7 +6,8 @@
 			"Kurniasan",
 			"Muhdnurhidayat",
 			"Pizza1016",
-			"SNN95"
+			"SNN95",
+			"Tofeiku"
 		]
 	},
 	"cx": "Terjemahkan laman",
@@ -243,5 +244,6 @@
 	"cx-publish-destination-namespace-draft": "Draf masyarakat",
 	"cx-linkcontextitem-missing-link-title": "Pautan hilang",
 	"cx-linkcontextitem-missing-title-description": "Laman ini belum lagi wujud",
-	"cx-unreviewed-translation-category": "Laman-laman dengan terjemahan-terjemahan yang belum disemak"
+	"cx-unreviewed-translation-category": "Laman-laman dengan terjemahan-terjemahan yang belum disemak",
+	"cx-sx-section-more-details-title": "Butiran lanjut"
 }

@@ -24,6 +24,7 @@
 			"Vesihiisi",
 			"Vuh",
 			"WTM",
+			"WaldiSt",
 			"Warchlak",
 			"Wedkarski",
 			"Woytecr",
@@ -324,5 +325,8 @@
 	"cx-sx-missing-section-stats": "Brakuje {{PLURAL:$1|$1 sekcji}} w $2",
 	"cx-sx-section-selector-title": "Sekcje",
 	"cx-sx-section-selector-subtitle": "Wybierz sekcję do przetłumaczenia",
-	"cx-sx-section-selector-desc": "Wybierz sekcję poniżej i sprawdź zawartość w obu językach, aby zdecydować co należy przetłumaczyć."
+	"cx-sx-section-selector-desc": "Wybierz sekcję poniżej i sprawdź zawartość w obu językach, aby zdecydować co należy przetłumaczyć.",
+	"cx-sx-language-selector-dialog-title": "Wyszukaj język",
+	"cx-sx-start-translation-button-label": "Rozpocznij tłumaczenie",
+	"cx-sx-section-more-details-title": "Więcej szczegółów"
 }

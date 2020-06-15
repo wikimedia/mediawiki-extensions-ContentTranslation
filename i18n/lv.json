@@ -289,5 +289,14 @@
 	"cx-sx-select-section": "Izvēlies tulkojamo sadaļu",
 	"cx-sx-section-selector-title": "Sadaļas",
 	"cx-sx-section-selector-subtitle": "Izvēlies tulkojamo sadaļu",
-	"cx-sx-language-selector-dialog-title": "Meklēt valodu"
+	"cx-sx-language-selector-dialog-title": "Meklēt valodu",
+	"cx-sx-existing-translation-status": "Jau pastāv $1 valodā",
+	"cx-sx-existing-translation-additional-info": "Paplašini esošo saturu, iztulkojot jaunas sadaļas.",
+	"cx-sx-start-translation-button-label": "Sākt tulkošanu",
+	"cx-sx-view-translation-anchor": "Apskatīt",
+	"cx-sx-existing-translation-learn-more": "Uzzināt vairāk",
+	"cx-sx-section-missing-sections-title": "$1 valodā trūkstošās sadaļas",
+	"cx-sx-section-present-sections-title": "$1 valodā esošās sadaļas",
+	"cx-sx-section-more-details-title": "Vairāk informācijas",
+	"cx-sx-section-view-article-button-label": "Skatīt rakstu $1 valodā"
 }

@@ -319,5 +319,8 @@
 	"cx-sx-section-selector-title": "الأقسام",
 	"cx-sx-section-selector-subtitle": "اختر قسمًا للترجمة",
 	"cx-sx-language-selector-dialog-title": "ابحث عن لغة",
-	"cx-sx-existing-translation-learn-more": "تعلم المزيد"
+	"cx-sx-existing-translation-status": "موجودة بالفعل في $1",
+	"cx-sx-start-translation-button-label": "بدء الترجمة",
+	"cx-sx-existing-translation-learn-more": "تعلم المزيد",
+	"cx-sx-section-more-details-title": "تفاصيل أكثر"
 }
