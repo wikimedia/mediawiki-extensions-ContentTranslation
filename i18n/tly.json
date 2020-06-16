@@ -4,5 +4,8 @@
 			"Patriot Kur"
 		]
 	},
-	"cx-create-new-translation": "Tojə tərcuman"
+	"cx-captcha-dialog-cancel": "Ləğv karde",
+	"cx-create-new-translation": "Tojə tərcuman",
+	"cx-draft-cancel-button-label": "Ləğv karde",
+	"cx-tools-linter-restart-translation-cancel": "Ləğv karde"
 }

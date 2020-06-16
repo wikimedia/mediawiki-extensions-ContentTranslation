@@ -6,6 +6,7 @@
 			"Eleassar",
 			"HairyFotr",
 			"Janezdrilc",
+			"Yerpo",
 			"Петар Петковић"
 		]
 	},
@@ -149,6 +150,7 @@
 	"cx-translation-label-draft": "Članki v prevajanju",
 	"cx-translation-label-published": "Objavljeni prevodi",
 	"cx-translation-already-in-progress": "Na tem prevodu ravnokar dela {{GENDER:$2|uporabnik|uporabnica}} $1.",
+	"cx-translation-already-in-progress-unknown": "To je prevod v delu neznanega uporabnika.",
 	"cx-translation-already-in-progress-collaborate": "Priporočljivo je, da navežeš stik z {{GENDER:$1|uporabnikom|uporabnico}}, ki je {{GENDER:$1|naredil|naredila}} trenutni prevod.",
 	"cx-publishing-dialog-publish-draft-button": "Objavi kot osnutek",
 	"cx-feedback-link": "Pošlji svoje mnenje",
@@ -281,10 +283,10 @@
 	"cx-publish-destination-header": "Mesto objave",
 	"cx-publish-destination-tooltip": "Izberi imenski prostor, na katerem bo objavljena stran",
 	"cx-publish-destination-namespace-main": "Nova stran",
-	"cx-publish-destination-namespace-main-description": "V glavnem imenskem prostoru, kjer je navoljo vsem bralcem",
+	"cx-publish-destination-namespace-main-description": "V glavnem imenskem prostoru, kjer je na voljo vsem bralcem",
 	"cx-publish-destination-namespace-main-exists": "Zamenjaj obstoječo stran",
 	"cx-publish-destination-namespace-user": "Osebni osnutek",
-	"cx-publish-destination-namespace-user-description": "V uporabniškem imeskem prostoru pod tvojem imenom, da ga lahko še izboljšuješ",
+	"cx-publish-destination-namespace-user-description": "V uporabniškem imenskem prostoru pod tvojem imenom, da ga lahko še izboljšuješ",
 	"cx-publish-destination-namespace-draft": "Skupinski osnutek",
 	"cx-publish-destination-namespace-draft-description": "V imenskem prostoru Osnutek, kjer ga lahko skupnost pregleda in izboljša",
 	"cx-publish-destination-namespace-changed": "Cilj za objavo spremenjen v osebni osnutek. Nastavitve objavljanja lahko spremeniš kadarkoli.",
@@ -296,5 +298,14 @@
 	"cx-preference-enable-entrypoints": "Izhodišče za [[$1|začenjanje novega prevoda]] iz strani prispevkov, seznama jezikov ali novih ustvarjenih strani.",
 	"cx-feature-discovery-title": "Prevedi kadarkoli želiš",
 	"cx-feature-discovery-content": "S prevajanjem lahko začneš ali nadaljuješ kadarkoli iz strani {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "V redu, razumem"
+	"cx-feature-discovery-dismiss": "V redu, razumem",
+	"cx-suggestionlist-expand-sections-title": "Razširi z novimi poglavji",
+	"cx-sx-select-section": "Izberi poglavje za prevajanje",
+	"cx-sx-section-selector-title": "Poglavja",
+	"cx-sx-section-selector-subtitle": "Izberi poglavje za prevajanje",
+	"cx-sx-language-selector-dialog-title": "Poišči jezik",
+	"cx-sx-existing-translation-status": "Že obstaja v jeziku $1",
+	"cx-sx-view-translation-anchor": "Prikaži",
+	"cx-sx-existing-translation-learn-more": "Več o tem",
+	"cx-sx-section-more-details-title": "Več podrobnosti"
 }
