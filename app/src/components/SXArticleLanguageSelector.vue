@@ -79,7 +79,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 import MwLanguageSelector from "../lib/mediawiki.ui/components/MWLanguageSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
@@ -105,12 +105,18 @@ export default {
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || []
     }),
+    ...mapGetters({
+      titleExistsInLanguageForGroup: "mediawiki/titleExistsInLanguageForGroup",
+      getTitleByLanguageForGroup: "mediawiki/getTitleByLanguageForGroup"
+    }),
     availableSourceLanguages() {
-      return this.currentSectionSuggestion?.availableSourceLanguages
-        .filter(languageCode => languageCode !== this.sourceLanguage)
-        .map(languageCode => ({
-          name: this.getAutonym(languageCode),
-          code: languageCode
+      // titles are provided in the following format: { lang: "en", title: "Animal" }
+      // so title.lang contains language code
+      return this.currentLanguageTitleGroup.titles
+        .filter(title => title.lang !== this.sourceLanguage)
+        .map(title => ({
+          name: this.getAutonym(title.lang),
+          code: title.lang
         }));
     },
     sourceLanguage() {
@@ -132,47 +138,49 @@ export default {
           ],
           []
         );
+    },
+    currentLanguageTitleGroup() {
+      return this.$store.getters["mediawiki/getLanguageTitleGroup"](
+        this.sourceLanguage,
+        this.sourceTitle
+      );
+    },
+    currentWikidataId() {
+      return this.currentLanguageTitleGroup.wikidataId;
     }
-  },
-  created() {
-    this.$store.dispatch(
-      "suggestions/getAvailableSourceLanguagesForSectionSuggestion"
-    );
   },
   methods: {
     openSourceLanguageDialog() {
       this.sourceLanguageSelectOn = true;
     },
-    onSourceLanguageSelected(newLanguage) {
-      this.$store.commit(
-        "suggestions/setCurrentSectionSuggestionSourceLanguage",
-        newLanguage
-      );
-      if (newLanguage === this.targetLanguage) {
-        this.$store.commit(
-          "suggestions/setCurrentSectionSuggestionTargetLanguage",
-          null
-        );
-      }
+    onSourceLanguageSelected(sourceLanguage) {
       this.sourceLanguageSelectOn = false;
-    },
-    onTargetLanguageSelected(newLanguage) {
-      this.targetLanguageSelectOn = false;
+      const targetLanguage =
+        sourceLanguage === this.targetLanguage ? null : this.targetLanguage;
+      const sourceTitle = this.getTitleByLanguageForGroup(
+        this.currentWikidataId,
+        sourceLanguage
+      );
 
+      this.updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle);
+    },
+    onTargetLanguageSelected(targetLanguage) {
+      this.targetLanguageSelectOn = false;
+      const { sourceLanguage, sourceTitle } = this.currentSectionSuggestion;
+      this.updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle);
+    },
+    updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle) {
       const suggestion = new SectionSuggestion({
-        sourceLanguage: this.currentSectionSuggestion.sourceLanguage,
-        targetLanguage: newLanguage,
-        sourceTitle: this.currentSectionSuggestion.sourceTitle,
-        targetTitle: this.currentSectionSuggestion.targetTitle,
-        present: {},
-        missing: {},
-        availableSourceLanguages: this.currentSectionSuggestion
-          .availableSourceLanguages
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+        missing: {}
       });
 
       if (
-        this.currentSectionSuggestion.availableSourceLanguages.includes(
-          newLanguage
+        this.titleExistsInLanguageForGroup(
+          this.currentWikidataId,
+          targetLanguage
         )
       ) {
         this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);

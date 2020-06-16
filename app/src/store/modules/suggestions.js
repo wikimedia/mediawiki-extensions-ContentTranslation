@@ -1,5 +1,4 @@
 import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
-import mwPageApi from "../../wiki/mw/api/page";
 
 const state = {
   pageSuggestions: [],
@@ -16,19 +15,7 @@ const mutations = {
     state.sectionSuggestions.push(suggestion);
   },
   setCurrentSectionSuggestion(state, suggestion) {
-    suggestion.availableSourceLanguages =
-      state.currentSectionSuggestion?.availableSourceLanguages || [];
-
     state.currentSectionSuggestion = suggestion;
-  },
-  setCurrentSectionSuggestionAvailableSourceLanguages(state, languages) {
-    state.currentSectionSuggestion.availableSourceLanguages = languages;
-  },
-  setCurrentSectionSuggestionSourceLanguage(state, language) {
-    state.currentSectionSuggestion.sourceLanguage = language;
-  },
-  setCurrentSectionSuggestionTargetLanguage(state, language) {
-    state.currentSectionSuggestion.targetLanguage = language;
   }
 };
 
@@ -75,7 +62,7 @@ const actions = {
         }
         if (titles.length) {
           dispatch(
-            "mediawiki/fetchPage",
+            "mediawiki/fetchPageMetadata",
             { language: suggestionRequest.sourceLanguage, titles },
             { root: true }
           );
@@ -100,7 +87,7 @@ const actions = {
     }
     if (titles.length) {
       dispatch(
-        "mediawiki/fetchPage",
+        "mediawiki/fetchPageMetadata",
         { language: suggestionRequest.sourceLanguage, titles },
         { root: true }
       );
@@ -108,34 +95,35 @@ const actions = {
   },
 
   async loadSectionSuggestion(
-    { commit, dispatch, rootGetters },
-    suggestionRequest
+    { commit, dispatch, getters },
+    { sourceLanguage, targetLanguage, sourceTitle }
   ) {
-    /** @type {SectionSuggestion} */
-    const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
-      suggestionRequest.sourceLanguage,
-      suggestionRequest.sourceTitle,
-      suggestionRequest.targetLanguage
+    let suggestion = getters.getSectionSuggestionsForArticle(
+      sourceLanguage,
+      targetLanguage,
+      sourceTitle
     );
-    commit("addSectionSuggestion", suggestion);
+
+    if (!suggestion) {
+      /** @type {SectionSuggestion} */
+      suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+        sourceLanguage,
+        sourceTitle,
+        targetLanguage
+      );
+
+      commit("addSectionSuggestion", suggestion);
+      dispatch(
+        "mediawiki/fetchPageMetadata",
+        {
+          language: sourceLanguage,
+          titles: [sourceTitle]
+        },
+        { root: true }
+      );
+    }
+
     commit("setCurrentSectionSuggestion", suggestion);
-
-    dispatch(
-      "mediawiki/fetchPage",
-      {
-        language: suggestionRequest.sourceLanguage,
-        titles: [suggestionRequest.sourceTitle]
-      },
-      { root: true }
-    );
-  },
-
-  async getAvailableSourceLanguagesForSectionSuggestion({ commit, state }) {
-    const languages = await mwPageApi.fetchAvailableSourceLanguagesForPage(
-      state.currentSectionSuggestion.sourceTitle,
-      state.currentSectionSuggestion.sourceLanguage
-    );
-    commit("setCurrentSectionSuggestionAvailableSourceLanguages", languages);
   }
 };
 

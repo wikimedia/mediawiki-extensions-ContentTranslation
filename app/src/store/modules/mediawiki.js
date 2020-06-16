@@ -4,12 +4,16 @@ import siteApi from "../../wiki/mw/api/site";
 const state = {
   pages: [],
   languageInfo: {},
+  languageTitleGroups: [],
   supportedLanguageCodes: []
 };
 
 const mutations = {
-  addPage(state, article) {
-    state.pages.push(article);
+  addPage(state, page) {
+    state.pages.push(page);
+  },
+  addLanguageTitleGroup(state, group) {
+    state.languageTitleGroups.push(group);
   },
   setLanguageInfo(state, languageInfo) {
     state.languageInfo = languageInfo;
@@ -26,25 +30,51 @@ const getters = {
       page =>
         page.language === language &&
         (page.title === title || page.alias === title)
-    )
+    ),
+  getLanguageTitleGroup: state => (language, title) =>
+    state.languageTitleGroups.find(group =>
+      group.titles.find(
+        groupTitle => groupTitle.lang === language && groupTitle.title === title
+      )
+    ),
+  getLanguageTitleGroupByWikidataId: state => wikidataId =>
+    state.languageTitleGroups.find(group => group.wikidataId === wikidataId),
+  titleExistsInLanguageForGroup: (state, getters) => (wikidataId, language) =>
+    (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).some(
+      title => title.lang === language
+    ),
+  getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
+    (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
+      title => title.lang === language
+    )?.title
 };
 
 const actions = {
-  fetchPage({ commit }, request) {
-    const titles = request.titles;
+  fetchPageMetadata({ getters, commit }, request) {
+    const titles = request.titles.filter(
+      title => !getters.getPage(request.language, title)
+    );
+
     const chunkSize = 50;
     for (let i = 0; i < titles.length; i += chunkSize) {
-      const titlesSubset = titles.slice(i, i + chunkSize);
+      let titlesSubset = titles.slice(i, i + chunkSize);
       pageApi
-        .fetchMetadata(request.language, titlesSubset)
-        .then(metadataList => {
-          for (let i = 0; i < metadataList.length; i++) {
-            commit("addPage", metadataList[i]);
-          }
-        });
+        .fetchPages(request.language, titlesSubset)
+        .then(metadataList =>
+          metadataList.forEach(page => commit("addPage", page))
+        );
+
+      titlesSubset = titlesSubset.filter(
+        title => !getters.getLanguageTitleGroup(request.language, title)
+      );
+      pageApi
+        .fetchTitles(request.language, titlesSubset)
+        .then(groupList =>
+          groupList.forEach(group => commit("addLanguageTitleGroup", group))
+        );
     }
   },
-  fetchLanguageInfo({ commit }, request) {
+  fetchLanguageInfo({ commit }) {
     siteApi.fetchLanguageInfo().then(languageInfo => {
       commit("setLanguageInfo", languageInfo);
     });

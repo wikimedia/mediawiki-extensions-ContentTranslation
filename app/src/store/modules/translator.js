@@ -64,7 +64,7 @@ const actions = {
       // Fetch metadata for each source article.
       for (let sourceLanguage in queue) {
         dispatch(
-          "mediawiki/fetchPage",
+          "mediawiki/fetchPageMetadata",
           {
             language: sourceLanguage,
             titles: queue[sourceLanguage]

@@ -5,8 +5,7 @@ export default class SectionSuggestion {
     sourceTitle,
     targetTitle,
     present,
-    missing,
-    availableSourceLanguages
+    missing
   } = {}) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -14,7 +13,6 @@ export default class SectionSuggestion {
     this.targetTitle = targetTitle;
     this.missingSections = missing;
     this.presentSections = present;
-    this.availableSourceLanguages = availableSourceLanguages || [];
   }
 
   get missingSectionsCount() {
