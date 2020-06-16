@@ -334,8 +334,16 @@
 	"cx-sx-start-translation-button-label": "Label for start translation button",
 	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation",
 	"cx-sx-existing-translation-learn-more": "Text for anchor that redirects to page with additional information regarding section translation",
-	"cx-sx-section-missing-sections-title": "Title for missing sections list in pick a section step. This can be also translated as \"Sections that are missing in $1\".\n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|Cx-sx-section-present-sections-title}}.",
-	"cx-sx-section-present-sections-title": "Title for present sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|Cx-sx-section-missing-sections-title}}.",
-	"cx-sx-section-more-details-title": "Title for more details list in pick a section step",
-	"cx-sx-section-view-article-button-label": "Label for view article button in pick a section step. \n\nParameters:\n* $1 - Autonym of the article language"
+	"cx-sx-section-selector-missing-sections-title": "Title for missing sections list in pick a section step. This can be also translated as \"Sections that are missing in $1\".\n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|cx-sx-section-selector-present-sections-title}}.",
+	"cx-sx-section-selector-present-sections-title": "Title for present sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|cx-sx-section-selector-missing-sections-title}}.",
+	"cx-sx-section-selector-more-details-title": "Title for more details list in pick a section step",
+	"cx-sx-section-selector-view-article-button-label": "Label for view article button in pick a section step. \n\nParameters:\n* $1 - Autonym of the article language",
+	"cx-sx-section-selector-empty-missing-sections-title": "Title for empty state in missing sections in pick a section step",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Description for empty state in missing sections in pick a section step",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Label for button/anchor that returns to pick an article screen inside section selector",
+	"cx-sx-section-selector-automatic-section-matching-title": "Title for automatic section matching consideration of section selector",
+	"cx-sx-section-selector-automatic-section-matching-description": "Content of automatic section matching consideration of section selector",
+	"cx-sx-section-selector-learn-more-anchor-label": "Label for anchor that leads to details about considerations in section selector",
+	"cx-sx-section-selector-unsupported-sections-title": "Title for unsupported section consideration of section selector",
+	"cx-sx-section-selector-unsupported-sections-description": "Content of unsupported section consideration of section selector"
 }
