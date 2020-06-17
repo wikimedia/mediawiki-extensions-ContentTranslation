@@ -145,6 +145,7 @@
 	"cx-translation-label-draft": "Iesāktie tulkojumi",
 	"cx-translation-label-published": "Publicētie tulkojumi",
 	"cx-translation-already-in-progress": "Šo lapu jau {{GENDER:$2|iesācis|iesākusi}} tulkot $1.",
+	"cx-translation-already-in-progress-unknown": "Šo rakstu jau tulko nezinām dalībnieks.",
 	"cx-translation-already-in-progress-collaborate": "Lūdzu, koordinējies ar {{GENDER:$1|dalībnieku|dalībnieci}}, kas veidoja esošo tulkojumu.",
 	"cx-publishing-dialog-publish-draft-button": "Publicēt kā melnrakstu",
 	"cx-feedback-link": "Sniegt atsauksmes",
