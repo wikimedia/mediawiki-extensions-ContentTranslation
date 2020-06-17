@@ -1,4 +1,6 @@
 const fs = require("fs");
+const TerserPlugin = require("terser-webpack-plugin");
+
 let devServer = {};
 if (process.env.NODE_ENV === "development") {
   if (fs.existsSync("./devserver.config.js")) {
@@ -30,6 +32,22 @@ module.exports = {
       hotUpdateMainFilename: "hot/hot-update.json"
     },
     optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: true
+            },
+            // Do not obfuscate/mangle code
+            mangle: false,
+            output: {
+              // Prevent ResourceLoader minification
+              preamble: "/*@nomin*/",
+              comments: "false"
+            }
+          }
+        })
+      ],
       splitChunks: {
         cacheGroups: {
           mediawiki_ui: {
