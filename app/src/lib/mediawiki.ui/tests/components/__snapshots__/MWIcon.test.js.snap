@@ -2,7 +2,7 @@
 
 exports[`MWIcon.vue matches the snapshot with an HTML element passed as slot 1`] = `
 <span
-  class="mw-ui-icon notranslate"
+  class="notranslate mw-ui-icon"
 >
   <svg
     aria-hidden="true"

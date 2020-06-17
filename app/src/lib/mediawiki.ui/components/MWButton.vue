@@ -44,14 +44,14 @@ export default {
     depressed: Boolean,
     block: Boolean,
     large: Boolean,
-    icon: String,
+    icon: [Object, String],
     iconSize: {
       type: [Number, String]
     },
     indicatorSize: {
       type: [Number, String]
     },
-    indicator: String,
+    indicator: [Object, String],
     href: String,
     accessKey: String,
     outlined: Boolean,

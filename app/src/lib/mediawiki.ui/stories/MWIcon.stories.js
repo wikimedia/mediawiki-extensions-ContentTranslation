@@ -1,20 +1,20 @@
 import MwIcon from "../components/MWIcon.vue";
 import * as icons from "../components/icons";
 import { withA11y } from "@storybook/addon-a11y";
-import { withKnobs, color, number } from "@storybook/addon-knobs";
+import centered from "@storybook/addon-centered/vue";
+import { withKnobs, color, select, number } from "@storybook/addon-knobs";
 
 export default {
-  title: "Components/Icon",
+  title: "Components",
   component: MwIcon,
-  decorators: [withKnobs, withA11y]
+  decorators: [centered, withKnobs, withA11y]
 };
 
-export const AllIcons = () => ({
+export const Icons = () => ({
   components: { MwIcon },
   data: () => ({
     mwIconAdd: icons.mwIconAdd,
     icons,
-    /* */
     iconKeys: Object.keys(icons)
   }),
   props: {
@@ -23,7 +23,23 @@ export const AllIcons = () => ({
     },
     iconColor: {
       default: color("Icon color", "#000")
+    },
+    scriptDirection: {
+      default: select(
+        "Script direction",
+        {
+          "Left To Right": "ltr",
+          "Right To Left": "rtl"
+        },
+        "ltr"
+      )
     }
   },
-  template: `<div><div v-for="icon in iconKeys" v-key="icon"><mw-icon :title="icon" :icon="icons[icon]" :iconColor="iconColor" :size="size"/>{{icon}}</div></div>`
+  template: `<main :dir="scriptDirection">
+    <div v-for="icon in iconKeys" v-key="icon">
+      <mw-icon :title="icon" :icon="icons[icon]" :iconColor="iconColor" :size="size"/>
+        {{icon}}
+    </div>
+    <p>Icons are by default flipped horizontally in RTL context. To prevent flipping, pass <code>flip:false</code> property.</p>
+  </main>`
 });
