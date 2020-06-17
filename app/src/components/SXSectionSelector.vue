@@ -46,17 +46,18 @@
           class="sx-selector__missing-sections-list ma-0"
         >
           <li
-            v-for="(sourceSection, key) in suggestion.missingSections"
-            :key="key"
+            v-for="(targetSection, sourceSection) in suggestion.missingSections"
+            :key="sourceSection"
             class="row ma-0"
           >
             <mw-button
               class="col-12 justify-between py-3 px-4"
               :indicator="mwIconArrowForward"
-              :label="key"
+              :label="sourceSection"
               type="text"
               :outlined="false"
               :block="true"
+              @click="selectSection(sourceSection)"
             />
           </li>
         </ul>
@@ -128,8 +129,8 @@
         ></h4>
         <ul class="sx-selector__present-sections-list ma-0">
           <li
-            v-for="(sourceSection, key) in suggestion.presentSections"
-            :key="key"
+            v-for="(targetSection, sourceSection) in suggestion.presentSections"
+            :key="sourceSection"
             class="row ma-0"
           >
             <mw-button
@@ -141,10 +142,10 @@
             >
               <div class="sx-selector__present-section-button-content">
                 <p class="sx-selector__present-section-button-source mb-0">
-                  {{ key }}
+                  {{ sourceSection }}
                 </p>
                 <p class="sx-selector__present-section-button-target mb-0">
-                  {{ sourceSection }}
+                  {{ targetSection }}
                 </p>
               </div>
             </mw-button>
@@ -232,6 +233,11 @@
         </div>
       </div>
     </div>
+    <sx-content-comparator
+      :active.sync="contentComparatorActive"
+      :suggestion="suggestion"
+      :active-missing-section-key="selectedMissingSectionKey"
+    />
   </mw-dialog>
 </template>
 
@@ -250,10 +256,17 @@ import {
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import SxContentComparator from "./SXContentComparator";
 
 export default {
   name: "SxSectionSelector",
-  components: { MwIcon, MwDialog, MwButton, SxArticleLanguageSelector },
+  components: {
+    SxContentComparator,
+    MwIcon,
+    MwDialog,
+    MwButton,
+    SxArticleLanguageSelector
+  },
   mixins: [autonymMixin],
   props: {
     active: {
@@ -269,7 +282,9 @@ export default {
     mwIconArrowForward,
     mwIconLinkExternal,
     mwIconRobot,
-    mwIconLabFlask
+    mwIconLabFlask,
+    contentComparatorActive: false,
+    selectedMissingSectionKey: ""
   }),
   computed: {
     sourceLanguageAutonym() {
@@ -292,9 +307,9 @@ export default {
     onClose() {
       this.$emit("close");
     },
-    onSectionSelectorClick() {
-      this.$emit("section-selector-button-click");
-      this.$emit("section-listing-open");
+    selectSection(sourceSection) {
+      this.contentComparatorActive = true;
+      this.selectedMissingSectionKey = sourceSection;
     }
   }
 };

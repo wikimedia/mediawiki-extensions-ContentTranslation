@@ -1,10 +1,11 @@
 import axios from "axios";
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
+import PageSection from "../models/pageSection";
 
 /**
  * Fetches metadata information for pages for the corresponding titles and language
- * and returns a promise that resolves to an array of immutable Page objects
+ * and returns a promise that resolves to an array of Page objects
  * @param language
  * @param titles
  * @returns {Promise<Page[]>}
@@ -37,7 +38,7 @@ function fetchPages(language, titles) {
       page = redirectMap[page.title]
         ? { ...page, _alias: redirectMap[page.title] }
         : page;
-      return Object.freeze(new Page(page));
+      return new Page(page);
     });
   });
 }
@@ -79,7 +80,51 @@ function fetchLanguageTitles(language, title) {
   });
 }
 
+/**
+ * Fetches content for a given page and returns a promise that resolves to
+ * a string containing the page content (or null if page not found)
+ * @param {String} language
+ * @param {String} title
+ * @returns {Promise<String|null>}
+ */
+function fetchPageContent(language, title) {
+  const params = {
+    action: "parse",
+    format: "json",
+    formatversion: 2,
+    prop: "text",
+    page: title,
+    origin: "*",
+    redirects: true
+  };
+  const api = `https://${language}.wikipedia.org/w/api.php`;
+  return axios
+    .get(api, { params })
+    .then(response => response.data.parse.text)
+    .catch(error => null);
+}
+
+/**
+ * Fetches sections with content for a given page and returns a promise that
+ * resolves to an array containing PageSection objects
+ * @param {String} language
+ * @param {String} title
+ * @returns {Promise<PageSection[]>}
+ */
+function fetchPageSections(language, title) {
+  const apiURL =
+    `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
+  return axios
+    .get(apiURL)
+    .then(response => {
+      const sections = response.data?.remaining?.sections || [];
+      return sections.map(section => new PageSection(section));
+    });
+}
+
 export default {
   fetchPages,
-  fetchLanguageTitles
+  fetchLanguageTitles,
+  fetchPageContent,
+  fetchPageSections
 };

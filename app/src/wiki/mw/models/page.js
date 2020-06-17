@@ -10,7 +10,9 @@ export default class Page {
     pageviews,
     thumbnail,
     title,
-    _alias // The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
+    _alias, // The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
+    content = null,
+    sections = [] // Array of PageSection objects
   } = {}) {
     this.language = pagelanguage;
     this.title = title;
@@ -24,6 +26,8 @@ export default class Page {
     this.revision = lastrevid;
     this.alias = _alias;
     this.wikidataId = pageprops?.wikibase_item;
+    this.content = content;
+    this.sections = sections;
   }
 
   get id() {

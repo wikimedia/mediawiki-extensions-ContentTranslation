@@ -60,18 +60,18 @@ const getters = {
 };
 
 const actions = {
-  async fetchPageMetadata({ getters, commit }, request) {
-    const titles = request.titles.filter(
-      title => !getters.getPage(request.language, title)
-    );
+  /**
+   * @param {String} language
+   * @param {Array<String>} titles
+   * @returns {Promise<void>}
+   */
+  async fetchPageMetadata({ getters, commit }, { language, titles }) {
+    titles = titles.filter(title => !getters.getPage(language, title));
 
     const chunkSize = 50;
     for (let i = 0; i < titles.length; i += chunkSize) {
       let titlesSubset = titles.slice(i, i + chunkSize);
-      const metadataList = await pageApi.fetchPages(
-        request.language,
-        titlesSubset
-      );
+      const metadataList = await pageApi.fetchPages(language, titlesSubset);
       metadataList.forEach(page => {
         commit("addPage", page);
       });
@@ -91,7 +91,7 @@ const actions = {
       );
   },
   fetchLanguages({ commit }) {
-    const userLanguage=mw.config.get('wgUserLanguage');
+    const userLanguage = mw.config.get('wgUserLanguage');
     siteApi.fetchLanguages(userLanguage).then(languages => {
       commit("setLanguages", languages);
     });
@@ -100,6 +100,34 @@ const actions = {
     siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
       commit("setSupportedLanguageCodes", languageCodes);
     });
+  },
+  async fetchPageContent({ commit, getters, dispatch }, { language, title }) {
+    let page = getters.getPage(language, title);
+
+    if (!page) {
+      await dispatch("fetchPageMetadata", { language, titles: [title] });
+      page = getters.getPage(language, title);
+    }
+
+    if (page.content) {
+      return;
+    }
+
+    pageApi
+      .fetchPageContent(language, title)
+      .then(content => (page.content = content));
+  },
+  fetchPageSections({ getters }, { language, title }) {
+    const page = getters.getPage(language, title);
+
+    if (!page) {
+      return;
+    }
+    pageApi
+      .fetchPageSections(language, title)
+      .then(sections => {
+        page.sections = sections;
+      });
   }
 };
 
