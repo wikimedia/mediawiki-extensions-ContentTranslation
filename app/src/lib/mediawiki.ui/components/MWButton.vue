@@ -151,10 +151,6 @@ export default {
     );
   }
 
-  &.mw-ui-button--icon {
-    font-size: 0;
-  }
-
   // Buttons that act like links
   &.mw-ui-button--icon,
   &.mw-ui-button--text {
