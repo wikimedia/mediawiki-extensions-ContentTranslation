@@ -27,12 +27,11 @@
       translationStatus="draft"
       :active="active === 'draft'"
     />
-    <mw-bottom-navigation class="h-md-and-up">
-      <mw-button-group
-        :items="listSelector"
-        :active="active"
-        v-on:select="active = $event"
-    /></mw-bottom-navigation>
+    <mw-bottom-navigation
+      class="h-md-and-up"
+      :items="listSelector"
+      :active.sync="active"
+    ></mw-bottom-navigation>
   </main>
 </template>
 
