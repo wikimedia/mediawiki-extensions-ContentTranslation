@@ -15,7 +15,7 @@
     ></mw-icon>
     <slot>
       <span
-        v-if="type !== icon && label"
+        v-if="type !== 'icon' && label"
         v-text="label"
         class="mw-ui-button__label"
       />
