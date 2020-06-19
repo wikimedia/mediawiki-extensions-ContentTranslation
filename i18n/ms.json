@@ -245,5 +245,9 @@
 	"cx-linkcontextitem-missing-link-title": "Pautan hilang",
 	"cx-linkcontextitem-missing-title-description": "Laman ini belum lagi wujud",
 	"cx-unreviewed-translation-category": "Laman-laman dengan terjemahan-terjemahan yang belum disemak",
-	"cx-sx-section-more-details-title": "Butiran lanjut"
+	"cx-sx-start-translation-button-label": "Mulakan terjemahan",
+	"cx-sx-view-translation-anchor": "Paparkan",
+	"cx-sx-existing-translation-learn-more": "Ketahui lebih lanjut",
+	"cx-sx-section-more-details-title": "Butiran lanjut",
+	"cx-sx-section-view-article-button-label": "Papar rencana dalam $1"
 }

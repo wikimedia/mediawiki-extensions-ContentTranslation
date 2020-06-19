@@ -8,6 +8,7 @@
 			"Kanon und wikipedia",
 			"Kkairri",
 			"Kzhr",
+			"Linuxmetel",
 			"Liuxinyu970226",
 			"Marine-Blue",
 			"Mfuji",
@@ -19,6 +20,7 @@
 			"Sujiniku",
 			"Suyama",
 			"Takot",
+			"Tmv",
 			"W.CC",
 			"Yusuke1109",
 			"Петар Петковић",
@@ -314,5 +316,8 @@
 	"cx-feature-discovery-dismiss": "わかりました",
 	"cx-sx-select-section": "翻訳する節を選択する",
 	"cx-sx-section-selector-title": "節",
-	"cx-sx-section-selector-subtitle": "翻訳する節を選択する"
+	"cx-sx-section-selector-subtitle": "翻訳する節を選択する",
+	"cx-sx-start-translation-button-label": "翻訳を開始",
+	"cx-sx-section-more-details-title": "詳細はこちら",
+	"cx-sx-section-view-article-button-label": "$1で記事を見る"
 }
