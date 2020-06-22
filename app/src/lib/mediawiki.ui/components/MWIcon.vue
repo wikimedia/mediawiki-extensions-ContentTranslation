@@ -23,7 +23,7 @@ export default {
   name: "MWIcon",
   props: {
     icon: {
-      type: String,
+      type: [String, Object],
       default: null
     },
     iconName: {
