@@ -312,5 +312,21 @@
 	"cx-preference-enable-entrypoints": "Доступ до [[$1|початку перекладу]] зі сторінки внеску, списку мов, списку нових сторінок.",
 	"cx-feature-discovery-title": "Все одно перекласти",
 	"cx-feature-discovery-content": "Ви можете почати або продовжити перекладати у будь-який час зі сторінки {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Гаразд, зрозуміло"
+	"cx-feature-discovery-dismiss": "Гаразд, зрозуміло",
+	"cx-suggestionlist-expand-sections-title": "Розширити новими розділами",
+	"cx-sx-select-section": "Виберіть розділ для перекладу",
+	"cx-sx-missing-section-stats": "Бракує {{PLURAL:$1|розділу|$1 розділів}} мовою $2",
+	"cx-sx-section-selector-title": "Розділи",
+	"cx-sx-section-selector-subtitle": "Виберіть розділ для перекладу",
+	"cx-sx-section-selector-desc": "Оберіть розділ нижче і перевірте вміст обома мовами, щоб вибрати, що перекладати.",
+	"cx-sx-language-selector-dialog-title": "Шукати мову",
+	"cx-sx-existing-translation-status": "Уже існує мовою $1",
+	"cx-sx-existing-translation-additional-info": "Розширте наявний вміст, переклавши нові розділи.",
+	"cx-sx-start-translation-button-label": "Почати переклад",
+	"cx-sx-view-translation-anchor": "Переглянути",
+	"cx-sx-existing-translation-learn-more": "Дізнатися більше",
+	"cx-sx-section-missing-sections-title": "Бракує розділів мовою $1",
+	"cx-sx-section-present-sections-title": "Наявні розділи мовою $1",
+	"cx-sx-section-more-details-title": "Докладніше",
+	"cx-sx-section-view-article-button-label": "Переглянути статтю мовою $1"
 }

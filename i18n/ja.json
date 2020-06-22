@@ -317,7 +317,9 @@
 	"cx-sx-select-section": "翻訳する節を選択する",
 	"cx-sx-section-selector-title": "節",
 	"cx-sx-section-selector-subtitle": "翻訳する節を選択する",
+	"cx-sx-language-selector-dialog-title": "言語を検索",
 	"cx-sx-start-translation-button-label": "翻訳を開始",
+	"cx-sx-view-translation-anchor": "表示",
 	"cx-sx-section-more-details-title": "詳細はこちら",
 	"cx-sx-section-view-article-button-label": "$1で記事を見る"
 }

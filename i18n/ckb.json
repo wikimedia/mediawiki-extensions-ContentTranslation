@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Asoxor",
+			"Cwtiyar",
 			"Lost Whispers",
 			"Muhammed taha",
 			"Pirehelokan",
@@ -141,5 +142,11 @@
 	"cx-draft-restoring": "بارکردنی وەرگێڕانە پاشەکەوتکراوەکان...",
 	"cx-suggestionlist-refresh": "نوێ کردنەوەی پێشنیارەکان",
 	"cx-translator-month-stats-label": "ئەم مانگە",
-	"cx-translator-total-translations-label": "سەرجەم"
+	"cx-translator-total-translations-label": "سەرجەم",
+	"cx-sx-existing-translation-status": "پێشتر بوونی هەیە لە $1",
+	"cx-sx-start-translation-button-label": "وەرگێڕان دەست پێ بکە",
+	"cx-sx-view-translation-anchor": "بینین",
+	"cx-sx-existing-translation-learn-more": "زیاتر بزانە",
+	"cx-sx-section-more-details-title": "وردەکاریی زیاتر",
+	"cx-sx-section-view-article-button-label": "وتار پیشان بدە لە $1"
 }
