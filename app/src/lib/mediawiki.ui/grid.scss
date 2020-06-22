@@ -193,10 +193,12 @@ $viewports: (
     }
 
     @include generateResponsiveCols($cols, "");
+    @include generateSpacing($cols, "");
 
     @each $breakpoint, $value in $breakpoints {
       @include mediaQuery($breakpoint) {
         @include generateResponsiveCols($cols, $breakpoint);
+        @include generateSpacing($cols, $breakpoint);
       }
     }
   }
@@ -214,15 +216,6 @@ $viewports: (
 
     &.reverse {
       flex-direction: column-reverse;
-    }
-  }
-
-  // Padding and margin classes
-  @include generateSpacing($cols, "");
-
-  @each $breakpoint, $value in $breakpoints {
-    @include mediaQuery($breakpoint) {
-      @include generateSpacing($cols, $breakpoint);
     }
   }
 

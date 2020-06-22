@@ -1,12 +1,5 @@
 import { withA11y } from "@storybook/addon-a11y";
-import {
-  withKnobs,
-  boolean,
-  number,
-  select,
-  text
-} from "@storybook/addon-knobs";
-import * as icons from "../components/icons";
+import { withKnobs, number, select } from "@storybook/addon-knobs";
 import "../grid.scss";
 import "./grid-story.less";
 
@@ -71,7 +64,7 @@ export const Spacing = () => ({
   template: `
   <main :dir="scriptDirection">
   <div class="container storybook-grid spacing-demo" >
-    <div class="flex" style="background-color:orange;">
+    <div class="row" style="background-color:orange;">
       <div
         :class="paddingClass + ' ' + marginClass" style="width:100%; background-color:yellowgreen;">
         <code
@@ -81,7 +74,8 @@ export const Spacing = () => ({
       </div>
     </div>
     <h3>Spacing helpers</h3>
-    <p>You can add padding and margin to your components without writing custom styles. Spacing helpers are useful for modifying the padding and margin of an element.</p>
+    <p>You can add padding and margin to your components without writing custom styles. Spacing helpers are useful for modifying the padding and margin of an element.
+    Note that elements having these spacing helper classes should be under an element with <code>row</row> class. </p>
     <p>Padding helper classes has the format of <code>p{direction}-{unit}</code>. Similarly, margin helper classes has the format of <code>m{direction}-{unit}</code>.</p>
     <h3>Spacing Directions</h3>
     <ul>
