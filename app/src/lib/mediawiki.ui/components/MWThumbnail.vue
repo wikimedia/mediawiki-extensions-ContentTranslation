@@ -4,7 +4,7 @@
     v-else
     class="mw-ui-thumbnail mw-ui-thumbnail--missing justify-center"
     :icon="mwIconImageLayoutFrameless"
-    :size="80"
+    :size="iconSize"
   >
   </mw-ui-icon>
 </template>
@@ -20,6 +20,10 @@ export default {
     thumbnail: {
       type: Object,
       default: null
+    },
+    iconSize: {
+      type: Number,
+      default: 80
     }
   },
   components: { MwUiIcon },
@@ -53,7 +57,10 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   &.mw-ui-thumbnail--missing {
-    background-color: @background-color-code;
+    svg {
+      // apply background only to svg as whole icon can extend to larger height than svg
+      background-color: @background-color-code;
+    }
   }
 }
 </style>
