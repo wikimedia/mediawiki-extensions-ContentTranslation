@@ -36,8 +36,23 @@ export const Grid = () => ({
             <div class="col-4">col-4</div>
             <div class="col-4">col-4</div>
             <div class="col-4">col-4</div>
+          </div>
         </div>
+      </div>
+      <p>Columns with variable width using col class. Available space is shared equally between columns with variable width</p>
+      <div class="row">
+        <div class="col">Variable width</div>
+        <div class="col-8">
+          col-8
         </div>
+        <div class="col">Variable width</div>
+      </div>
+      <div class="row">
+        <div class="col">Variable width</div>
+        <div class="col-7">
+          col-7
+        </div>
+        <div class="col">Variable width</div>
       </div>
     </div>`
 });
