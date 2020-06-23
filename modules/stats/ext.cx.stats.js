@@ -37,11 +37,11 @@
 			// Remove spinner
 			$spinner.remove();
 
-			self.totalTranslationTrend = totalTrend.translations;
-			self.totalDraftTrend = totalTrend.drafts;
-			self.languageTranslationTrend = languageTrend.translations;
-			self.languageDraftTrend = languageTrend.drafts;
-			self.languageDeletionTrend = languageTrend.deletions;
+			self.totalTranslationTrend = totalTrend.translations || [];
+			self.totalDraftTrend = totalTrend.drafts || [];
+			self.languageTranslationTrend = languageTrend.translations || [];
+			self.languageDraftTrend = languageTrend.drafts || [];
+			self.languageDeletionTrend = languageTrend.deletions || [];
 			self.transformJsonToModel( stats[ 0 ].query.contenttranslationstats );
 			// Now render them all
 			self.renderHighlights();
