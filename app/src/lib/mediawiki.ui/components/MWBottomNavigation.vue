@@ -43,9 +43,7 @@ export default {
       border: none;
       padding: 12px 0;
       .mw-ui-button__icon {
-        .mw-ui-icon {
-          display: block;
-        }
+        display: block;
         margin: 0;
       }
       .mw-ui-button__label {
