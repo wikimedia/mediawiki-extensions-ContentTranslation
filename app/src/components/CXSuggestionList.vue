@@ -5,18 +5,14 @@
       :title="$i18n('cx-suggestionlist-title')"
     >
       <mw-spinner v-if="!pageSuggestionsLoaded" />
-      <div
-        class="row pa-0 ma-0"
-        :key="`suggestion-${index}`"
+      <cx-translation-suggestion
         v-for="(suggestion, index) in pageSuggestionsForPairSubset"
-      >
-        <cx-translation-suggestion
-          :suggestion="suggestion"
-          :from="sourceLanguage"
-          :to="targetLanguage"
-          class="col-12 pa-0 ma-0"
-        />
-      </div>
+        :key="`suggestion-${index}`"
+        :suggestion="suggestion"
+        :from="sourceLanguage"
+        :to="targetLanguage"
+        class="ma-0"
+      />
     </mw-card>
     <mw-card
       class="cx-translation-list--sx-suggestions pa-0"
@@ -24,19 +20,15 @@
       v-if="sectionSuggestionForPair.length"
     >
       <mw-spinner v-if="!sectionSuggestionsLoaded" />
-      <div
-        class="row pa-0 ma-0"
-        :key="`suggestion-${index}`"
+      <cx-translation-suggestion
         v-for="(suggestion, index) in sectionSuggestionForPair"
-      >
-        <cx-translation-suggestion
-          :suggestion="suggestion"
-          :from="suggestion.sourceLanguage"
-          :to="suggestion.targetLanguage"
-          class="col-12 pa-0 ma-0"
-          @click="startSectionTranslation(suggestion)"
-        />
-      </div>
+        :key="`suggestion-${index}`"
+        :suggestion="suggestion"
+        :from="suggestion.sourceLanguage"
+        :to="suggestion.targetLanguage"
+        class="ma-0"
+        @click="startSectionTranslation(suggestion)"
+      />
     </mw-card>
     <mw-button
       v-if="pageSuggestionsLoaded"

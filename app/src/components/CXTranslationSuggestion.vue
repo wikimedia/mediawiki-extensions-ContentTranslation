@@ -1,38 +1,40 @@
 <template>
   <div class="row cx-suggestion pa-4" v-if="suggestion" @click="handleClick">
-    <div class="col-2 pa-2">
-      <mw-thumbnail :thumbnail="page && page.thumbnail"> </mw-thumbnail>
+    <div class="col shrink pe-4">
+      <mw-thumbnail
+        class="cx-suggestion__thumbnail"
+        :thumbnail="page && page.thumbnail"
+        :width="84"
+      />
     </div>
-    <div class="col-9 pa-2">
-      <div class="row ma-0">
+    <div class="col pe-2">
+      <p
+        class="mt-0 mb-2 cx-suggestion__source-title"
+        :lang="suggestion.sourceLanguage"
+      >
+        {{ suggestion.sourceTitle }}
+      </p>
+      <p
+        class="cx-suggestion__source-description"
+        :lang="suggestion.sourceLanguage"
+      >
+        {{ page && page.description }}
+      </p>
+      <p class="mt-2 cx-suggestion__languages text-small">
         <span
-          class="col-12 cx-suggestion__source-title"
-          :lang="suggestion.sourceLanguage"
-        >
-          {{ suggestion.sourceTitle }}
-        </span>
+          class="mw-ui-autonym"
+          :dir="getDirection(suggestion.sourceLanguage)"
+          v-text="getAutonym(suggestion.sourceLanguage)"
+        ></span>
+        <mw-icon :icon="mwIconArrowForward" />
         <span
-          class="col-12 cx-suggestion__source-description"
-          :lang="suggestion.sourceLanguage"
-        >
-          {{ page && page.description }}
-        </span>
-        <span class="col-12 mt-2 cx-suggestion__languages text-small">
-          <span
-            class="mw-ui-autonym"
-            :dir="getDirection(suggestion.sourceLanguage)"
-            v-text="getAutonym(suggestion.sourceLanguage)"
-          ></span>
-          <mw-icon :icon="mwIconArrowForward" />
-          <span
-            class="mw-ui-autonym"
-            :dir="getDirection(suggestion.targetLanguage)"
-            v-text="getAutonym(suggestion.targetLanguage)"
-          ></span>
-        </span>
-      </div>
+          class="mw-ui-autonym"
+          :dir="getDirection(suggestion.targetLanguage)"
+          v-text="getAutonym(suggestion.targetLanguage)"
+        ></span>
+      </p>
     </div>
-    <div class="col-1 pa-2">
+    <div class="col-1">
       <mw-icon :icon="mwIconStar" :size="24" />
     </div>
   </div>
@@ -88,16 +90,17 @@ export default {
   &:hover {
     background-color: @background-color-primary;
   }
+  .cx-suggestion__thumbnail {
+    height: 84px;
+    width: 84px;
+  }
   .cx-suggestion__source-title {
     font-weight: bold;
     font-size: 1.2em;
   }
   .cx-suggestion__source-description {
     font-weight: normal;
-    white-space: nowrap;
     font-size: 1em;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 </style>
