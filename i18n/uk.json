@@ -325,8 +325,8 @@
 	"cx-sx-start-translation-button-label": "Почати переклад",
 	"cx-sx-view-translation-anchor": "Переглянути",
 	"cx-sx-existing-translation-learn-more": "Дізнатися більше",
-	"cx-sx-section-missing-sections-title": "Бракує розділів мовою $1",
-	"cx-sx-section-present-sections-title": "Наявні розділи мовою $1",
-	"cx-sx-section-more-details-title": "Докладніше",
-	"cx-sx-section-view-article-button-label": "Переглянути статтю мовою $1"
+	"cx-sx-section-selector-missing-sections-title": "Бракує розділів мовою $1",
+	"cx-sx-section-selector-present-sections-title": "Наявні розділи мовою $1",
+	"cx-sx-section-selector-more-details-title": "Докладніше",
+	"cx-sx-section-selector-view-article-button-label": "Переглянути статтю мовою $1"
 }

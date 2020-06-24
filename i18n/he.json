@@ -12,6 +12,7 @@
 			"Strayblues",
 			"Yona b",
 			"Петар Петковић",
+			"דגש חזק",
 			"ערן"
 		]
 	},
@@ -318,8 +319,16 @@
 	"cx-sx-start-translation-button-label": "להתחיל לתרגם",
 	"cx-sx-view-translation-anchor": "הצגה",
 	"cx-sx-existing-translation-learn-more": "מידע נוסף",
-	"cx-sx-section-missing-sections-title": "פסקאות שחסרות ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-section-present-sections-title": "פסקאות שקיימות ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-section-more-details-title": "פרטים נוספים",
-	"cx-sx-section-view-article-button-label": "הצגת הערך ב{{GRAMMAR:תחילית|$1}}"
+	"cx-sx-section-selector-missing-sections-title": "פסקאות שחסרות ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-section-selector-present-sections-title": "פסקאות שקיימות ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-section-selector-more-details-title": "פרטים נוספים",
+	"cx-sx-section-selector-view-article-button-label": "הצגת הערך ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-section-selector-empty-missing-sections-title": "לא נמצאו בשבילך פסקאות שאפשר לתרגם",
+	"cx-sx-section-selector-empty-missing-sections-desc": "לנסות עם דף אחר או שפות אחרות",
+	"cx-sx-section-selector-pick-other-translation-button-label": "לבחור דף אחר",
+	"cx-sx-section-selector-automatic-section-matching-title": "התאמת פסקאות אוטומטית",
+	"cx-sx-section-selector-automatic-section-matching-description": "הפסקאות מזוהות אוטומטית והתוצאות לא תמיד מדויקות.",
+	"cx-sx-section-selector-learn-more-anchor-label": "{{GENDER|למד|למדי}} עוד",
+	"cx-sx-section-selector-unsupported-sections-title": "פסקאות לא נתמכות",
+	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפסקאות לא תופענה ברשימה כי התוכן שלהן עדיין לא נתמך."
 }

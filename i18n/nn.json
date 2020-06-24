@@ -288,8 +288,8 @@
 	"cx-sx-start-translation-button-label": "Start omsetjing",
 	"cx-sx-view-translation-anchor": "Sjå",
 	"cx-sx-existing-translation-learn-more": "Lær meir",
-	"cx-sx-section-missing-sections-title": "Det er manglande avsnitt i $1",
-	"cx-sx-section-present-sections-title": "Avsnitt presentert på $1",
-	"cx-sx-section-more-details-title": "Fleire detaljar",
-	"cx-sx-section-view-article-button-label": "Vis artikkel på $1"
+	"cx-sx-section-selector-missing-sections-title": "Det er manglande avsnitt i $1",
+	"cx-sx-section-selector-present-sections-title": "Avsnitt presentert på $1",
+	"cx-sx-section-selector-more-details-title": "Fleire detaljar",
+	"cx-sx-section-selector-view-article-button-label": "Vis artikkel på $1"
 }

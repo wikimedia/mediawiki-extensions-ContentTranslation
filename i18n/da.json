@@ -280,5 +280,6 @@
 	"cx-unreviewed-translation-category": "Sider uden gennemgået oversættelser",
 	"cx-sx-language-selector-dialog-title": "Søg efter et sprog",
 	"cx-sx-existing-translation-learn-more": "Lær mere",
-	"cx-sx-section-more-details-title": "Flere detaljer"
+	"cx-sx-section-selector-more-details-title": "Flere detaljer",
+	"cx-sx-section-selector-learn-more-anchor-label": "Lær mere"
 }

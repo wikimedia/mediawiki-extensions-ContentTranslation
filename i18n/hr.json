@@ -304,5 +304,12 @@
 	"cx-preference-enable-entrypoints": "Pristupite [[$1|prevođenju]], sa stranice doprinosa, popisa jezika ili na novostvorenim stranicama.",
 	"cx-feature-discovery-title": "Prevedi bilo kada",
 	"cx-feature-discovery-content": "Možete započeti ili nastaviti s prevođenjem bilo kada sa stranice {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "U redu, shvaćam"
+	"cx-feature-discovery-dismiss": "U redu, shvaćam",
+	"cx-sx-section-selector-empty-missing-sections-title": "Nisu pronađeni odlomci koje biste mogli prevoditi",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Pokušajte s drugom stranicom ili drugim jezicima",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Odaberi drugu stranicu",
+	"cx-sx-section-selector-automatic-section-matching-title": "Automatski odabir podudarajućih naslova odlomaka",
+	"cx-sx-section-selector-learn-more-anchor-label": "Saznajte više",
+	"cx-sx-section-selector-unsupported-sections-title": "Nepodržani odlomci",
+	"cx-sx-section-selector-unsupported-sections-description": "Pojedini odlomci moguće neće biti prikazani u popisu jer njihovi sadržaji još nisu podržani."
 }

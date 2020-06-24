@@ -323,8 +323,16 @@
 	"cx-sx-start-translation-button-label": "開始翻譯",
 	"cx-sx-view-translation-anchor": "檢視",
 	"cx-sx-existing-translation-learn-more": "了解更多",
-	"cx-sx-section-missing-sections-title": "在$1缺少章節",
-	"cx-sx-section-present-sections-title": "章節存在於$1",
-	"cx-sx-section-more-details-title": "更多詳情",
-	"cx-sx-section-view-article-button-label": "在$1檢視條目"
+	"cx-sx-section-selector-missing-sections-title": "在$1缺少章節",
+	"cx-sx-section-selector-present-sections-title": "章節存在於$1",
+	"cx-sx-section-selector-more-details-title": "更多詳情",
+	"cx-sx-section-selector-view-article-button-label": "在$1檢視條目",
+	"cx-sx-section-selector-empty-missing-sections-title": "找不到讓您翻譯的章節",
+	"cx-sx-section-selector-empty-missing-sections-desc": "嘗試別的頁面或是不同語言",
+	"cx-sx-section-selector-pick-other-translation-button-label": "選擇別的頁面",
+	"cx-sx-section-selector-automatic-section-matching-title": "自動章節匹配",
+	"cx-sx-section-selector-automatic-section-matching-description": "會自動辨別各章節，但結果不一定準確。",
+	"cx-sx-section-selector-learn-more-anchor-label": "了解更多",
+	"cx-sx-section-selector-unsupported-sections-title": "不支援的章節",
+	"cx-sx-section-selector-unsupported-sections-description": "一些章節沒出現在清單裡，是因為尚不支援它們的內容。"
 }

@@ -329,8 +329,8 @@
 	"cx-sx-start-translation-button-label": "Iniciar tradução",
 	"cx-sx-view-translation-anchor": "Visualizar",
 	"cx-sx-existing-translation-learn-more": "Saiba mais",
-	"cx-sx-section-missing-sections-title": "Seções ausentes em $1",
-	"cx-sx-section-present-sections-title": "Seções presentes em $1",
-	"cx-sx-section-more-details-title": "Mais detalhes",
-	"cx-sx-section-view-article-button-label": "Ver artigo em $1"
+	"cx-sx-section-selector-missing-sections-title": "Seções ausentes em $1",
+	"cx-sx-section-selector-present-sections-title": "Seções presentes em $1",
+	"cx-sx-section-selector-more-details-title": "Mais detalhes",
+	"cx-sx-section-selector-view-article-button-label": "Ver artigo em $1"
 }

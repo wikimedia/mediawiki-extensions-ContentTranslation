@@ -295,8 +295,8 @@
 	"cx-sx-start-translation-button-label": "অনুবাদ শুরু করুন",
 	"cx-sx-view-translation-anchor": "দেখুন",
 	"cx-sx-existing-translation-learn-more": "আরও জানুন",
-	"cx-sx-section-missing-sections-title": "$1 ভাষায় অনুচ্ছেদ অনুপস্থিত",
-	"cx-sx-section-present-sections-title": "$1 ভাষায় অনুচ্ছেদ উপস্থিত রয়েছে",
-	"cx-sx-section-more-details-title": "আরো বিস্তারিত",
-	"cx-sx-section-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন"
+	"cx-sx-section-selector-missing-sections-title": "$1 ভাষায় অনুচ্ছেদ অনুপস্থিত",
+	"cx-sx-section-selector-present-sections-title": "$1 ভাষায় অনুচ্ছেদ উপস্থিত রয়েছে",
+	"cx-sx-section-selector-more-details-title": "আরো বিস্তারিত",
+	"cx-sx-section-selector-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন"
 }

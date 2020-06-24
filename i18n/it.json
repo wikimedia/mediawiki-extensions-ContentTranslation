@@ -282,8 +282,8 @@
 	"cx-sx-start-translation-button-label": "Inizia traduzione",
 	"cx-sx-view-translation-anchor": "Visualizza",
 	"cx-sx-existing-translation-learn-more": "Ulteriori informazioni",
-	"cx-sx-section-missing-sections-title": "Sezioni mancanti in $1",
-	"cx-sx-section-present-sections-title": "Sezioni presenti in $1",
-	"cx-sx-section-more-details-title": "Ulteriori dettagli",
-	"cx-sx-section-view-article-button-label": "Vedi voce in $1"
+	"cx-sx-section-selector-missing-sections-title": "Sezioni mancanti in $1",
+	"cx-sx-section-selector-present-sections-title": "Sezioni presenti in $1",
+	"cx-sx-section-selector-more-details-title": "Ulteriori dettagli",
+	"cx-sx-section-selector-view-article-button-label": "Vedi voce in $1"
 }

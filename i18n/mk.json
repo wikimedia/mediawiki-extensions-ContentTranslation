@@ -312,8 +312,8 @@
 	"cx-sx-start-translation-button-label": "Почни со преведување",
 	"cx-sx-view-translation-anchor": "Преглед",
 	"cx-sx-existing-translation-learn-more": "Дознајте повеќе",
-	"cx-sx-section-missing-sections-title": "Отсутни поднаслови на $1",
-	"cx-sx-section-present-sections-title": "Присутни поднаслови на $1",
-	"cx-sx-section-more-details-title": "Поподробно",
-	"cx-sx-section-view-article-button-label": "Погл. статијата на $1"
+	"cx-sx-section-selector-missing-sections-title": "Отсутни поднаслови на $1",
+	"cx-sx-section-selector-present-sections-title": "Присутни поднаслови на $1",
+	"cx-sx-section-selector-more-details-title": "Поподробно",
+	"cx-sx-section-selector-view-article-button-label": "Погл. статијата на $1"
 }

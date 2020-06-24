@@ -320,8 +320,16 @@
 	"cx-sx-start-translation-button-label": "Übersetzung starten",
 	"cx-sx-view-translation-anchor": "Ansehen",
 	"cx-sx-existing-translation-learn-more": "Weitere Informationen",
-	"cx-sx-section-missing-sections-title": "Fehlende Abschnitte in $1",
-	"cx-sx-section-present-sections-title": "Abschnitte vorhanden in $1",
-	"cx-sx-section-more-details-title": "Weitere Einzelheiten",
-	"cx-sx-section-view-article-button-label": "Artikel anzeigen in $1"
+	"cx-sx-section-selector-missing-sections-title": "Fehlende Abschnitte in $1",
+	"cx-sx-section-selector-present-sections-title": "Abschnitte vorhanden in $1",
+	"cx-sx-section-selector-more-details-title": "Weitere Einzelheiten",
+	"cx-sx-section-selector-view-article-button-label": "Artikel anzeigen in $1",
+	"cx-sx-section-selector-empty-missing-sections-title": "Keine Abschnitte gefunden, die du übersetzen könntest",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Versuche es mit einer anderen Seite oder anderen Sprachen",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Andere Seite wählen",
+	"cx-sx-section-selector-automatic-section-matching-title": "Automatische Abschnittsanpassung",
+	"cx-sx-section-selector-automatic-section-matching-description": "Die Abschnitte werden automatisch identifiziert, und die Ergebnisse sind nicht immer genau.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Mehr erfahren",
+	"cx-sx-section-selector-unsupported-sections-title": "Nicht unterstützte Abschnitte",
+	"cx-sx-section-selector-unsupported-sections-description": "Einige Abschnitte erscheinen möglicherweise nicht in der Liste, weil ihr Inhalt noch nicht unterstützt wird."
 }

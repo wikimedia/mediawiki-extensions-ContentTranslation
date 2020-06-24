@@ -331,8 +331,8 @@
 	"cx-sx-start-translation-button-label": "Çevirmeye başla",
 	"cx-sx-view-translation-anchor": "Görüntüle",
 	"cx-sx-existing-translation-learn-more": "Daha fazla bilgi",
-	"cx-sx-section-missing-sections-title": "$1 içinde bölümler eksik",
-	"cx-sx-section-present-sections-title": "$1 içinde bölümler mevcut",
-	"cx-sx-section-more-details-title": "Daha fazla detay",
-	"cx-sx-section-view-article-button-label": "$1 içinde maddeyi görüntüle"
+	"cx-sx-section-selector-missing-sections-title": "$1 içinde bölümler eksik",
+	"cx-sx-section-selector-present-sections-title": "$1 içinde bölümler mevcut",
+	"cx-sx-section-selector-more-details-title": "Daha fazla detay",
+	"cx-sx-section-selector-view-article-button-label": "$1 içinde maddeyi görüntüle"
 }

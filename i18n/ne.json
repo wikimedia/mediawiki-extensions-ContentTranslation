@@ -291,5 +291,11 @@
 	"cx-preference-enable-entrypoints": "[[$1|अनुवाद शुरू गर्न]] योगदान पृष्ठबाट, भाषा सूचीबाट र नयाँ पृष्ठ सिर्जनाबाट शुरू गर्न सक्नुहुन्छ ।",
 	"cx-feature-discovery-title": "जुनसुकै बेला अनुवाद गर्नुहोस्",
 	"cx-feature-discovery-content": "{{int:mycontris}} पृष्ठबाट अनुवादलाई शुरू या निरन्तरता दिन सक्नुहुन्छ \\",
-	"cx-feature-discovery-dismiss": "ठीक छ, थाहा पाएँ"
+	"cx-feature-discovery-dismiss": "ठीक छ, थाहा पाएँ",
+	"cx-sx-section-selector-empty-missing-sections-title": "तपाईँद्वारा अनुवादको लागि कुनै पनि खण्डहरू भेटिएनन",
+	"cx-sx-section-selector-empty-missing-sections-desc": "कुनै अर्को पृष्ठ वा भाषामा प्रयास गर्नुहोस्",
+	"cx-sx-section-selector-pick-other-translation-button-label": "अर्को पृष्ठ रोज्नुहोस्",
+	"cx-sx-section-selector-learn-more-anchor-label": "थप सिक्नुहोस्",
+	"cx-sx-section-selector-unsupported-sections-title": "असमर्थित खण्डहरू",
+	"cx-sx-section-selector-unsupported-sections-description": "केही खण्डहरू सूचीमा नदेखिन सक्छन् किनकि तिनीहरूको सामग्री अझै समर्थित छैन्।"
 }
