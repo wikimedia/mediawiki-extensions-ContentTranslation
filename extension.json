@@ -384,7 +384,8 @@
 				"cx-sx-section-selector-learn-more-anchor-label",
 				"cx-sx-section-selector-unsupported-sections-title",
 				"cx-sx-section-selector-unsupported-sections-description"
-			]
+			],
+			"noflip": true
 		},
 		"ext.cx.util": {
 			"targets": [
