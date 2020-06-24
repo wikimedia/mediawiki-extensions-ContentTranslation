@@ -173,7 +173,8 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$out->addModules( $initModule );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
-			if ( $wgContentTranslationTranslateInTarget && defined( 'WBC_VERSION' ) ) {
+			if ( $wgContentTranslationTranslateInTarget
+				&& ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
