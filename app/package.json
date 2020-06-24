@@ -1,6 +1,6 @@
 {
   "name": "cxdashboard",
-  "version": "0.1.0",
+  "version": "0.1.0+20200624",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -64,11 +64,11 @@
     },
     {
       "path": "dist/js/mediawiki.ui.js",
-      "maxSize": "6.00KB"
+      "maxSize": "7.00KB"
     },
     {
       "path": "dist/css/mediawiki.ui.css",
-      "maxSize": "12.00KB"
+      "maxSize": "16.00KB"
     },
     {
       "path": "dist/css/dashboard.css",
