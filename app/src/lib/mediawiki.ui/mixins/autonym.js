@@ -13,6 +13,6 @@ export default {
     },
     getDirection(lang) {
       return this.languageInfo[lang]?.dir || "auto";
-    },
+    }
   }
 };

@@ -43,9 +43,14 @@
       <div class="sx-selector__missing-sections py-2 px-3">
         <h4
           class="py-3 ps-1 sx-selector__list-title"
-          v-i18n:cx-sx-section-selector-missing-sections-title="[targetLanguageAutonym]"
+          v-i18n:cx-sx-section-selector-missing-sections-title="[
+            targetLanguageAutonym
+          ]"
         ></h4>
-        <ul class="sx-selector__missing-sections-list ma-0" v-if="!emptyMissingSections">
+        <ul
+          class="sx-selector__missing-sections-list ma-0"
+          v-if="!emptyMissingSections"
+        >
           <li
             class="row py-3 ma-0"
             v-for="(sourceSection, key) in suggestion.missingSections"
@@ -61,7 +66,7 @@
             />
           </li>
         </ul>
-<!--        // TODO: Complete empty missing sections state in another iteration (alignment and illustration missing)-->
+        <!--        // TODO: Complete empty missing sections state in another iteration (alignment and illustration missing)-->
         <div class="row px-4" v-if="emptyMissingSections">
           <div class="col-12 pa-0">
             <h6 v-i18n:cx-sx-section-selector-empty-missing-sections-title></h6>
@@ -70,14 +75,18 @@
             <p v-i18n:cx-sx-section-selector-empty-missing-sections-desc></p>
           </div>
           <div class="col-12 mb-4">
-            <a v-i18n:cx-sx-section-selector-pick-other-translation-button-label></a>
+            <a
+              v-i18n:cx-sx-section-selector-pick-other-translation-button-label
+            ></a>
           </div>
         </div>
       </div>
       <div class="sx-selector__present-sections py-2 px-3">
         <h4
           class="py-3 ps-1 sx-selector__list-title"
-          v-i18n:cx-sx-section-selector-present-sections-title="[targetLanguageAutonym]"
+          v-i18n:cx-sx-section-selector-present-sections-title="[
+            targetLanguageAutonym
+          ]"
         ></h4>
         <ul class="sx-selector__present-sections-list ma-0">
           <li
@@ -93,8 +102,12 @@
               :block="true"
             >
               <div class="sx-selector__present-section-button-content">
-                <p class="sx-selector__present-section-button-source mb-0">{{ key }}</p>
-                <p class="sx-selector__present-section-button-target mb-0">{{ sourceSection }}</p>
+                <p class="sx-selector__present-section-button-source mb-0">
+                  {{ key }}
+                </p>
+                <p class="sx-selector__present-section-button-target mb-0">
+                  {{ sourceSection }}
+                </p>
               </div>
             </mw-button>
           </li>
@@ -103,7 +116,9 @@
       <div class="py-2 px-3">
         <h4
           class="py-3 ps-1 sx-selector__list-title"
-          v-i18n:cx-sx-section-selector-more-details-title="[targetLanguageAutonym]"
+          v-i18n:cx-sx-section-selector-more-details-title="[
+            targetLanguageAutonym
+          ]"
         ></h4>
         <ul class="ma-0">
           <li class="row py-3 ma-0">
@@ -143,22 +158,34 @@
           <div class="pa-3 pt-5">
             <h6>
               <mw-icon :icon="mwIconRobot" />
-              {{ $i18n('cx-sx-section-selector-automatic-section-matching-title') }}
+              {{
+                $i18n("cx-sx-section-selector-automatic-section-matching-title")
+              }}
             </h6>
-            <p v-i18n:cx-sx-section-selector-automatic-section-matching-description></p>
-            <a href="#" v-i18n:cx-sx-section-selector-learn-more-anchor-label></a>
+            <p
+              v-i18n:cx-sx-section-selector-automatic-section-matching-description
+            ></p>
+            <a
+              href="#"
+              v-i18n:cx-sx-section-selector-learn-more-anchor-label
+            ></a>
           </div>
         </div>
         <div class="col-md-6 col-12">
           <div class="pa-3 pt-5">
             <h6>
               <mw-icon :icon="mwIconLabFlask" />
-              {{ $i18n('cx-sx-section-selector-unsupported-sections-title') }}
+              {{ $i18n("cx-sx-section-selector-unsupported-sections-title") }}
             </h6>
             <p>
-              {{ $i18n('cx-sx-section-selector-unsupported-sections-description') }}
+              {{
+                $i18n("cx-sx-section-selector-unsupported-sections-description")
+              }}
             </p>
-            <a href="#" v-i18n:cx-sx-section-selector-learn-more-anchor-label></a>
+            <a
+              href="#"
+              v-i18n:cx-sx-section-selector-learn-more-anchor-label
+            ></a>
           </div>
         </div>
       </div>

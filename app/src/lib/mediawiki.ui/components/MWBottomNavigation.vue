@@ -22,7 +22,7 @@ export default {
     items: Array,
     id: String,
     active: String
-  },
+  }
 };
 </script>
 
@@ -52,5 +52,4 @@ export default {
     }
   }
 }
-
 </style>

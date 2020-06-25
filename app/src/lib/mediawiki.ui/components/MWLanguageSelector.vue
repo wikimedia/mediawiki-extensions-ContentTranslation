@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     onSelect(event) {
-      this.$emit('select', event);
+      this.$emit("select", event);
     }
   }
 };
