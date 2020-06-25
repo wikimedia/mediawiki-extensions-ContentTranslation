@@ -334,5 +334,13 @@
 	"cx-sx-section-selector-missing-sections-title": "$1 içinde bölümler eksik",
 	"cx-sx-section-selector-present-sections-title": "$1 içinde bölümler mevcut",
 	"cx-sx-section-selector-more-details-title": "Daha fazla detay",
-	"cx-sx-section-selector-view-article-button-label": "$1 içinde maddeyi görüntüle"
+	"cx-sx-section-selector-view-article-button-label": "$1 içinde maddeyi görüntüle",
+	"cx-sx-section-selector-empty-missing-sections-title": "Çevrileceğiniz bölüm bulunamadı",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Başka bir sayfa veya farklı dillerle deneyin",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Başka bir sayfa seçin",
+	"cx-sx-section-selector-automatic-section-matching-title": "Otomatik bölüm eşleme",
+	"cx-sx-section-selector-automatic-section-matching-description": "Bölümler otomatik olarak tanımlanır ve sonuçlar her zaman doğru değildir.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Daha fazla bilgi",
+	"cx-sx-section-selector-unsupported-sections-title": "Desteklenmeyen bölümler",
+	"cx-sx-section-selector-unsupported-sections-description": "Bazı bölümler, içerikleri henüz desteklenmediği için listede görünmeyebilir."
 }

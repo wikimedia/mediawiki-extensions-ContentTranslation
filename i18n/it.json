@@ -285,5 +285,7 @@
 	"cx-sx-section-selector-missing-sections-title": "Sezioni mancanti in $1",
 	"cx-sx-section-selector-present-sections-title": "Sezioni presenti in $1",
 	"cx-sx-section-selector-more-details-title": "Ulteriori dettagli",
-	"cx-sx-section-selector-view-article-button-label": "Vedi voce in $1"
+	"cx-sx-section-selector-view-article-button-label": "Vedi voce in $1",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Seleziona un'altra pagina",
+	"cx-sx-section-selector-learn-more-anchor-label": "Ulteriori informazioni"
 }

@@ -332,5 +332,13 @@
 	"cx-sx-section-selector-missing-sections-title": "Seções ausentes em $1",
 	"cx-sx-section-selector-present-sections-title": "Seções presentes em $1",
 	"cx-sx-section-selector-more-details-title": "Mais detalhes",
-	"cx-sx-section-selector-view-article-button-label": "Ver artigo em $1"
+	"cx-sx-section-selector-view-article-button-label": "Ver artigo em $1",
+	"cx-sx-section-selector-empty-missing-sections-title": "Nenhuma seção encontrada para você traduzir",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Tente com outra página ou idiomas diferentes",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Selecione outra página",
+	"cx-sx-section-selector-automatic-section-matching-title": "Correspondência de seção automática",
+	"cx-sx-section-selector-automatic-section-matching-description": "As seções são identificadas automaticamente e os resultados nem sempre são precisos.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Saiba mais",
+	"cx-sx-section-selector-unsupported-sections-title": "Seções não suportadas",
+	"cx-sx-section-selector-unsupported-sections-description": "Algumas seções podem não aparecer na lista porque seu conteúdo ainda não é suportado."
 }

@@ -3,6 +3,7 @@
 		"authors": [
 			"20عبد العزيز",
 			"Amire80",
+			"Dr. Mohammed",
 			"Dyolf77 (WMF)",
 			"Izoozo",
 			"Kassem7899",
@@ -322,5 +323,12 @@
 	"cx-sx-existing-translation-status": "موجودة بالفعل في $1",
 	"cx-sx-start-translation-button-label": "بدء الترجمة",
 	"cx-sx-existing-translation-learn-more": "تعلم المزيد",
-	"cx-sx-section-selector-more-details-title": "تفاصيل أكثر"
+	"cx-sx-section-selector-more-details-title": "تفاصيل أكثر",
+	"cx-sx-section-selector-empty-missing-sections-title": "لم يتم العثور على أقسام لترجمتها",
+	"cx-sx-section-selector-empty-missing-sections-desc": "حاول مع صفحة أخرى أو لغات مختلفة",
+	"cx-sx-section-selector-pick-other-translation-button-label": "حدد صفحة أخرى",
+	"cx-sx-section-selector-automatic-section-matching-title": "مطابقة القسم تلقائياً",
+	"cx-sx-section-selector-learn-more-anchor-label": "معرفة المزيد",
+	"cx-sx-section-selector-unsupported-sections-title": "أقسام غير مدعومة",
+	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن."
 }

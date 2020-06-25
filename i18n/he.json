@@ -328,7 +328,7 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "לבחור דף אחר",
 	"cx-sx-section-selector-automatic-section-matching-title": "התאמת פסקאות אוטומטית",
 	"cx-sx-section-selector-automatic-section-matching-description": "הפסקאות מזוהות אוטומטית והתוצאות לא תמיד מדויקות.",
-	"cx-sx-section-selector-learn-more-anchor-label": "{{GENDER|למד|למדי}} עוד",
+	"cx-sx-section-selector-learn-more-anchor-label": "מידע נוסף",
 	"cx-sx-section-selector-unsupported-sections-title": "פסקאות לא נתמכות",
 	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפסקאות לא תופענה ברשימה כי התוכן שלהן עדיין לא נתמך."
 }
