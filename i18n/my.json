@@ -6,6 +6,7 @@
 			"NayiMuu",
 			"Ninjastrikers",
 			"Rul1902",
+			"Teitei Para",
 			"Zawthet"
 		]
 	},
@@ -262,5 +263,11 @@
 	"cx-unreviewed-translation-category": "ပြန်လည်မဆန်းစစ်ရသေးသော ဘာသာပြန်များပါဝင်သည့် စာမျက်နှာများ",
 	"cx-feature-discovery-title": "ဘယ်ချိန်မဆို ဘာသာပြန်ရန်",
 	"cx-feature-discovery-content": "မည်သည့်အချိန်မဆို {{int:mycontris}} စာမျက်နှာမှ စတင် သို့မဟုတ် ဆက်လက်ဘာသာပြန်နိုင်ပါသည်",
-	"cx-feature-discovery-dismiss": "အိုကေ သဘောပေါက်ပြီ"
+	"cx-feature-discovery-dismiss": "အိုကေ သဘောပေါက်ပြီ",
+	"cx-sx-section-selector-empty-missing-sections-title": "သင့်အတွက်ဘာသာပြန်ဖို့ အပိုင်းမတွေ့ပါ",
+	"cx-sx-section-selector-empty-missing-sections-desc": "အခြားသောစာမျက်နှာနဲ့ ဒါမှမဟုတ် ဘာသာစကားနဲ့ ကြိုးစားပါ",
+	"cx-sx-section-selector-pick-other-translation-button-label": "အခြားစာမျက်နှာကို ရွေးချယ်ပါ",
+	"cx-sx-section-selector-automatic-section-matching-title": "အလိုအလျောက် အပိုင်းကိုက်ညီမှု",
+	"cx-sx-section-selector-learn-more-anchor-label": "ပိုမို လေ့လာရန်",
+	"cx-sx-section-selector-unsupported-sections-title": "မထောက်ပံ့ထားသော အပိုင်းများ"
 }
