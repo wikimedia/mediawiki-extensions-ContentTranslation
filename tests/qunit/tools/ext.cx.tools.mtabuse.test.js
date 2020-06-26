@@ -7,7 +7,7 @@
 ( function () {
 	'use strict';
 
-	QUnit.module( 'ext.cx.tools.mtabuse', QUnit.newMwEnvironment() );
+	QUnit.module( 'ext.cx.tools', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'MT Abuse - isAbuse method tests', function ( assert ) {
 		// eslint-disable-next-line new-cap

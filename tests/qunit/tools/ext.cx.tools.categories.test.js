@@ -6,7 +6,7 @@
 ( function () {
 	'use strict';
 
-	QUnit.module( 'ext.cx.tools.categories', QUnit.newMwEnvironment( {
+	QUnit.module( 'ext.cx.tools', QUnit.newMwEnvironment( {
 		beforeEach: function () {
 			this.server = this.sandbox.useFakeServer();
 			this.server.respondImmediately = true;
