@@ -105,12 +105,16 @@ const actions = {
     );
 
     if (!suggestion) {
-      /** @type {SectionSuggestion} */
+      /** @type {SectionSuggestion|null} */
       suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
         sourceLanguage,
         sourceTitle,
         targetLanguage
       );
+
+      if (!suggestion) {
+        return;
+      }
 
       commit("addSectionSuggestion", suggestion);
       dispatch(

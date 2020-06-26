@@ -34,7 +34,7 @@ async function fetchSuggestions(sourceLanguage, targetLanguage, seedArticles) {
  * @param sourceLanguage
  * @param sourceTitle
  * @param targetLanguage
- * @returns {Promise<SectionSuggestion>}
+ * @returns {Promise<SectionSuggestion|null>}
  */
 async function fetchSectionSuggestions(
   sourceLanguage,
@@ -48,8 +48,10 @@ async function fetchSectionSuggestions(
   );
   const suggestedSectionResult = await axios
     .get(cxserverAPI)
-    .then(response => response.data?.sections);
-  return new SectionSuggestion(suggestedSectionResult);
+    .then(response => response.data?.sections)
+    .catch(error => null)
+  ;
+  return suggestedSectionResult ? new SectionSuggestion(suggestedSectionResult) : null;
 }
 
 async function getSxSuggestionsFromPublishedArticles(publishedTranslations) {
