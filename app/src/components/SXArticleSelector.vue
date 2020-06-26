@@ -6,18 +6,31 @@
     :fullscreen="true"
   >
     <template slot="header">
-      <div class="row justify-end sx-article-selector__header">
-        <div class="col-1">
-          <mw-thumbnail :thumbnail="sourceArticleThumbnail" />
+      <div class="row sx-article-selector__header ma-0 pa-2">
+        <div class="col shrink pe-2">
+          <mw-thumbnail
+            class="sx-article-selector__header-thumbnail"
+            :thumbnail="sourceArticleThumbnail"
+            :icon-size="48"
+          />
         </div>
-        <div class="col-9">
-          <div class>{{ sourceTitle }}</div>
-          <div class="sx-article-selector__langLinksCount">
-            <mw-icon :icon="mwIconLanguage" />
-            {{ langLinksCount }}
+        <div class="col">
+          <div class="sx-article-selector__header-title column justify-between ma-0">
+            <div class="col">
+              <h6 class="pa-0 ma-0">{{ sourceTitle }}</h6>
+            </div>
+            <div class="col shrink sx-article-selector__stats">
+              <span class="pe-3">
+                <mw-icon :icon="mwIconLanguage" />
+                {{ langLinksCount }}
+              </span>
+              <span>
+                {{ weeklyViews }} visits per week
+              </span>
+            </div>
           </div>
         </div>
-        <div class="col-2 justify-center items-start">
+        <div class="col shrink items-start">
           <mw-button
             class="pa-0"
             type="icon"
@@ -85,7 +98,10 @@
         ]"
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
-        <p class="pa-3" v-i18n-html:cx-license-agreement />
+        <p class="pa-3">
+<!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
+          <small v-i18n-html:cx-license-agreement></small>
+        </p>
       </div>
     </div>
     <sx-section-selector
@@ -173,6 +189,10 @@ export default {
     },
     sourceArticleThumbnail() {
       return this.sourceArticle?.thumbnail;
+    },
+    weeklyViews() {
+      const pageViews = this.sourceArticle?.pageviews || {};
+      return Object.values(pageViews).reduce((sum, dayViews) => sum + dayViews, 0);
     }
   },
   methods: {
@@ -213,10 +233,19 @@ export default {
 .sx-article-selector {
   .sx-article-selector__header {
     border-bottom: @border-width-base @border-style-base @border-color-base;
-    font-size: 2rem;
     color: @color-base;
-    .sx-article-selector__langLinksCount {
-      font-size: 1rem;
+    .sx-article-selector__header-thumbnail {
+      height: 48px;
+      width: 48px;
+    }
+    .sx-article-selector__header-title {
+      height: 100%;
+    }
+    .sx-article-selector__stats {
+      // TODO: Fix this to be @base20 color - currently base30
+      color: @color-base--subtle;
+      // Waiting UI Typography to set it properly using appropriate class
+      font-size: 14px;
     }
   }
 
@@ -227,7 +256,7 @@ export default {
   .sx-article-selector__license {
     border-top: @border-width-base @border-style-base
       @border-color-base--disabled;
-    background-color: @background-color-base--hover;
+    background-color: @background-color-framed;
   }
 }
 </style>
