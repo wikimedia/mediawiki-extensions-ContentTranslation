@@ -289,5 +289,11 @@
 	"cx-preference-enable-entrypoints": "Πρόσβαση στην [[$1|εκκίνηση μιας μετάφρασης]], από τη σελίδα συνεισφορών, τη λίστα γλωσσών και τις δημιουργίες νέων σελίδων.",
 	"cx-feature-discovery-title": "Μεταφράστε οποτεδήποτε",
 	"cx-feature-discovery-content": "Μπορείτε να ξεκινήσετε ή να συνεχίσετε τη μετάφραση οποιαδήποτε στιγμή από τη σελίδα {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Εντάξει, το 'πιασα"
+	"cx-feature-discovery-dismiss": "Εντάξει, το 'πιασα",
+	"cx-sx-section-selector-empty-missing-sections-title": "Δεν βρέθηκαν ενότητες για εσάς για μετάφραση",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Δοκιμάστε με μια άλλη σελίδα ή διαφορετικές γλώσσες",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Επιλέξτε άλλη σελίδα",
+	"cx-sx-section-selector-learn-more-anchor-label": "Μάθετε περισσότερα",
+	"cx-sx-section-selector-unsupported-sections-title": "Μη υποστηριζόμενες ενότητες",
+	"cx-sx-section-selector-unsupported-sections-description": "Ορισμένες ενότητες ενδέχεται να μην εμφανίζονται στη λίστα επειδή τα περιεχόμενά τους δεν υποστηρίζονται ακόμη."
 }

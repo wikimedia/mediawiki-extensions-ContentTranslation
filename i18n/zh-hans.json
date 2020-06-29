@@ -32,6 +32,7 @@
 			"佛壁灯",
 			"列维劳德",
 			"夢蝶葬花",
+			"沈澄心",
 			"神樂坂秀吉",
 			"科劳"
 		]
@@ -337,5 +338,7 @@
 	"cx-sx-view-translation-anchor": "查看",
 	"cx-sx-existing-translation-learn-more": "了解更多",
 	"cx-sx-section-selector-more-details-title": "更多详情",
-	"cx-sx-section-selector-view-article-button-label": "查看$1中的文章"
+	"cx-sx-section-selector-view-article-button-label": "查看$1中的文章",
+	"cx-sx-section-selector-pick-other-translation-button-label": "选择另一个页面",
+	"cx-sx-section-selector-learn-more-anchor-label": "了解更多"
 }

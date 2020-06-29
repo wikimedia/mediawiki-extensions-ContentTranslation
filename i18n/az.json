@@ -4,6 +4,7 @@
 			"Amire80",
 			"Mavrikant",
 			"Toghrul Rahimli",
+			"Vesely35",
 			"Wertuose"
 		]
 	},
@@ -33,5 +34,13 @@
 	"cx-draft-discard-button-label": "Tərcüməni sil",
 	"echo-category-title-cx": "Tərcümələr",
 	"echo-pref-tooltip-cx": "Məzmun tərcüməsi aləti ilə yaradılmış məqalələrim haqqında mənə bildiriş göndər.",
-	"cx-contributions-link": "Töhfələriniz"
+	"cx-contributions-link": "Töhfələriniz",
+	"cx-sx-section-selector-empty-missing-sections-title": "Tərcümə üçün bölüm tapılmadı",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Başqa səhifə və ya fərqli dillərlə cəhd edin",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Başqa səhifə seçin",
+	"cx-sx-section-selector-automatic-section-matching-title": "Avtomatik bölmə uyğunlaşması",
+	"cx-sx-section-selector-automatic-section-matching-description": "Bölmələr avtomatik olaraq müəyyən edilir və nəticələr həmişə dəqiq deyil.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Daha ətraflı öyrən",
+	"cx-sx-section-selector-unsupported-sections-title": "Dəstəklənməyən bölmələr",
+	"cx-sx-section-selector-unsupported-sections-description": "Bəzi hissələr siyahıda görünə bilməz, çünki məzmunları hələ dəstəklənmir."
 }

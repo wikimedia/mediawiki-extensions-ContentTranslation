@@ -38,6 +38,7 @@
 			"Stjn",
 			"Striking Blue",
 			"Sunpriat",
+			"Teretalexev",
 			"ToJack",
 			"Tomasdd",
 			"Vlad5250",
@@ -318,5 +319,11 @@
 	"cx-feature-discovery-title": "Переводите в любое время",
 	"cx-feature-discovery-dismiss": "Понятно",
 	"cx-sx-section-selector-title": "Разделы",
-	"cx-sx-start-translation-button-label": "Начать перевод"
+	"cx-sx-start-translation-button-label": "Начать перевод",
+	"cx-sx-section-selector-empty-missing-sections-title": "Для вас не найдено страниц, которые нужно перевести",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Попробуйте другую страницу или язык",
+	"cx-sx-section-selector-automatic-section-matching-description": "Разделы были подобраны автоматически, и результаты могут быть не точны.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Узнать больше",
+	"cx-sx-section-selector-unsupported-sections-title": "Неподтверждённые разделы",
+	"cx-sx-section-selector-unsupported-sections-description": "Некоторые разделы могут не отображаться в данном списке, так как их содержимое пока не подтверждено."
 }

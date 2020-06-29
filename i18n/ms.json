@@ -87,7 +87,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Tajuk ini sudah digunakan di [$1 $2] untuk [$3 laman yang beza]",
 	"cx-selected-source-page-error-page-exists": "Laman ini [$1 sudah wujud] dalam $2",
 	"cx-selected-source-page-error-title-in-use": "Tajuk untuk laman baru [$1 sudah sedang digunakan]",
-	"cx-page-missing-in-target-language": "Hilang dalam $1",
+	"cx-page-missing-in-target-language": "Tiada dalam $1",
 	"cx-page-number-of-languages": "Jumlah bahasa",
 	"cx-mt-abuse-error-title": "Terjemahan anda {{PLURAL:$1|mengandungi}} sejumlah $1% teks yang belum diubah suai",
 	"cx-mt-abuse-error-sections": "Terjemahan anda mengandungi bahagian-bahagian teks belum diubah suai yang ketara",

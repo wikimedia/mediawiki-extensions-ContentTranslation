@@ -358,6 +358,8 @@
 	"cx-sx-section-selector-empty-missing-sections-desc": "Essayer avec une autre page ou avec des langues différentes",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Choisir une autre page",
 	"cx-sx-section-selector-automatic-section-matching-title": "Correspondance automatique des sections",
+	"cx-sx-section-selector-automatic-section-matching-description": "Les sections sont identifiées automatiquement et les résultats ne correspondent pas toujours.",
 	"cx-sx-section-selector-learn-more-anchor-label": "En savoir plus",
+	"cx-sx-section-selector-unsupported-sections-title": "Sections non prises en compte",
 	"cx-sx-section-selector-unsupported-sections-description": "Certaines sections peuvent ne pas apparaître dans la liste parce que leur contenu n'est pas encore pris en charge."
 }

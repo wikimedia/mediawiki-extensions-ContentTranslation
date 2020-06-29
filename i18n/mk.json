@@ -315,5 +315,13 @@
 	"cx-sx-section-selector-missing-sections-title": "Отсутни поднаслови на $1",
 	"cx-sx-section-selector-present-sections-title": "Присутни поднаслови на $1",
 	"cx-sx-section-selector-more-details-title": "Поподробно",
-	"cx-sx-section-selector-view-article-button-label": "Погл. статијата на $1"
+	"cx-sx-section-selector-view-article-button-label": "Погл. статијата на $1",
+	"cx-sx-section-selector-empty-missing-sections-title": "Не пронајдов поднаслови за преведување",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Пробајте во друга страница, или други јазици",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Изберете друга страница",
+	"cx-sx-section-selector-automatic-section-matching-title": "Автоматско пронаоѓање на соодветни поднаслови",
+	"cx-sx-section-selector-automatic-section-matching-description": "Поднасловите се пронаоаѓаат автоматски, и добиеното не е секогаш точно.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Дознајте повеќе",
+	"cx-sx-section-selector-unsupported-sections-title": "Неподдржани поднаслови",
+	"cx-sx-section-selector-unsupported-sections-description": "Некои поднаслови може да не стојат на списокот бидеќи нивната содржина засега не е поддржана."
 }
