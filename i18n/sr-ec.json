@@ -293,7 +293,7 @@
 	"cx-publish-destination-namespace-draft-description": "У простору нацрта, како би заједница могла унапредити садржај",
 	"cx-publish-destination-namespace-changed": "Одредиште за објављивање промењено на лични нацрт. Можете променити подешавања за објављивање у сваком тренутку",
 	"cx-linkcontextitem-missing-link-title": "Недостаје веза",
-	"cx-linkcontextitem-missing-title-description": "Страница још увек не постоји",
+	"cx-linkcontextitem-missing-title-description": "Страница још не постоји",
 	"cx-mt-abuse-publish-error": "Ваш превод не може бити објављен јер садржи превише неизмењеног текста.",
 	"cx-unreviewed-translation-category": "Странице са непрегледаним преводима",
 	"cx-unreviewed-translation-category-desc": "Странице преведене са алатком „Превод садржаја” које садрже високу количину непрегледаног садржаја.",
