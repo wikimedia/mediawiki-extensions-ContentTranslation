@@ -23,7 +23,7 @@ export default class Page {
     this.langLinksCount = langlinkscount;
     this.revision = lastrevid;
     this.alias = _alias;
-    this.wikidataId = pageprops.wikibase_item;
+    this.wikidataId = pageprops?.wikibase_item;
   }
 
   get id() {
