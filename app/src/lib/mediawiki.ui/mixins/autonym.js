@@ -8,7 +8,13 @@ export default {
   },
   methods: {
     getAutonym(lang) {
-      const displayName = Intl.DisplayNames && new Intl.DisplayNames(lang);
+      let displayName;
+      try {
+        displayName = Intl.DisplayNames && new Intl.DisplayNames(lang);
+      } catch {
+        // Locales not supported by Intl.DisplayNames will throw error.
+        // Skip
+      }
       return this.languageInfo[lang]?.autonym || displayName?.of(lang) || lang;
     },
     getDirection(lang) {
