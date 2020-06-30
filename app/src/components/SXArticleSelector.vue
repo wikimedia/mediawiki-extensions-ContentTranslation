@@ -15,7 +15,9 @@
           />
         </div>
         <div class="col">
-          <div class="sx-article-selector__header-title column justify-between ma-0">
+          <div
+            class="sx-article-selector__header-title column justify-between ma-0"
+          >
             <div class="col">
               <h6 class="pa-0 ma-0">{{ sourceTitle }}</h6>
             </div>
@@ -24,9 +26,7 @@
                 <mw-icon :icon="mwIconLanguage" />
                 {{ langLinksCount }}
               </span>
-              <span>
-                {{ weeklyViews }} visits per week
-              </span>
+              <span> {{ weeklyViews }} visits per week </span>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
         <p class="pa-3">
-<!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
+          <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
           <small v-i18n-html:cx-license-agreement></small>
         </p>
       </div>
@@ -192,7 +192,10 @@ export default {
     },
     weeklyViews() {
       const pageViews = this.sourceArticle?.pageviews || {};
-      return Object.values(pageViews).reduce((sum, dayViews) => sum + dayViews, 0);
+      return Object.values(pageViews).reduce(
+        (sum, dayViews) => sum + dayViews,
+        0
+      );
     }
   },
   methods: {
@@ -224,6 +227,12 @@ export default {
       this.$emit("section-listing-close");
       this.$emit("close");
     }
+  },
+  mounted: function() {
+    this.$store.dispatch("mediawiki/fetchLanguageTitles", {
+      language: this.sourceLanguage,
+      title: this.sourceTitle
+    });
   }
 };
 </script>

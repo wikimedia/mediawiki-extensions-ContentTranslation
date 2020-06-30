@@ -2,17 +2,6 @@ import axios from "axios";
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
 
-const getParams = (titles, props, extraProperties = {}) => ({
-  action: "query",
-  format: "json",
-  formatversion: 2,
-  prop: props,
-  titles: titles.join("|"),
-  origin: "*",
-  redirects: true,
-  ...extraProperties
-});
-
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of immutable Page objects
@@ -21,15 +10,19 @@ const getParams = (titles, props, extraProperties = {}) => ({
  * @returns {Promise<Page[]>}
  */
 function fetchPages(language, titles) {
-  const params = getParams(
-    titles,
-    "info|pageprops|pageimages|description|pageviews|langlinkscount",
-    {
-      pvipdays: 7, // Last 7 days page views
-      piprop: "thumbnail|name|original",
-      pithumbsize: 100
-    }
-  );
+  const params = {
+    action: "query",
+    format: "json",
+    formatversion: 2,
+    prop: "info|pageprops|pageimages|description|pageviews|langlinkscount",
+    pvipdays: 7, // Last 7 days page views
+    piprop: "thumbnail|name|original",
+    pithumbsize: 100,
+    titles: titles.join("|"),
+    lllimit: 500, // Max limit
+    origin: "*",
+    redirects: true
+  };
 
   const api = `https://${language}.wikipedia.org/w/api.php`;
   return axios.get(api, { params }).then(response => {
@@ -50,66 +43,41 @@ function fetchPages(language, titles) {
 }
 
 /**
- * Fetches langlinks for pages for the corresponding titles and language
- * and returns a promise that resolves to an array of immutable LanguageTitleGroup objects
- * @param language
- * @param titles
- * @param llcontinue
- * @returns {Promise<LanguageTitleGroup[]>}
+ * Fetches titles for pages in all available languages for the given title and language
+ * and returns a promise that resolves to an immutable LanguageTitleGroup object
+ * @param {String} language
+ * @param {String} title
+ * @returns {Promise<LanguageTitleGroup>}
  */
-function fetchTitles(language, titles, llcontinue = "") {
-  const extraProperties = llcontinue ? { llcontinue } : {};
-  const params = getParams(titles, "langlinks|pageprops|info", extraProperties);
+function fetchLanguageTitles(language, title) {
+  const params = {
+    action: "query",
+    format: "json",
+    formatversion: 2,
+    prop: "langlinks|pageprops", // pageprops for wikidataId
+    titles: title,
+    lllimit: 500, // Max limit. We have only ~300 wikis.
+    origin: "*",
+    redirects: true
+  };
   const api = `https://${language}.wikipedia.org/w/api.php`;
-
   return axios.get(api, { params }).then(async response => {
-    const apiResponse = response.data.query.pages;
-    let languageTitleGroups = apiResponse.map(page =>
-      Object.freeze(createLanguageTitleGroupFromApiResponse(page))
-    );
-    llcontinue = response.data.continue?.llcontinue;
-    if (llcontinue) {
-      const newLanguageTitleGroups = await fetchTitles(
-        language,
-        titles,
-        llcontinue
-      );
-      languageTitleGroups = languageTitleGroups.reduce((mergedArray, group) => {
-        const updatedGroup = newLanguageTitleGroups.find(
-          newGroup => newGroup.wikidataId === group.wikidataId
-        );
-        mergedArray.push(
-          Object.freeze(mergeLanguageTitleGroups(group, updatedGroup))
-        );
-        return mergedArray;
-      }, []);
+    const pages = response.data.query.pages;
+    if (!pages || !pages.length) {
+      // Page not present
+      return null;
     }
-
-    return languageTitleGroups;
+    const titles = [{ lang: language, title }, ...pages[0].langlinks];
+    const wikidataId = pages[0].pageprops?.wikibase_item;
+    // For test articles used in development, wikidataId will be missing. Skip
+    if (!wikidataId) {
+      return null;
+    }
+    return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
   });
-}
-
-function createLanguageTitleGroupFromApiResponse({
-  title,
-  langlinks,
-  pageprops,
-  pagelanguage
-} = {}) {
-  langlinks = langlinks || [];
-  const titles = [{ lang: pagelanguage, title }, ...langlinks];
-  return new LanguageTitleGroup(pageprops.wikibase_item, titles);
-}
-
-function mergeLanguageTitleGroups(groupA, groupB) {
-  const titles = [...groupA.titles, ...groupB.titles].filter(
-    (title, index, self) =>
-      self.findIndex(searchTitle => searchTitle.lang === title.lang) === index
-  );
-
-  return new LanguageTitleGroup(groupA.wikidataId, titles);
 }
 
 export default {
   fetchPages,
-  fetchTitles
+  fetchLanguageTitles
 };

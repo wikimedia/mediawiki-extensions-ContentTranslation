@@ -50,7 +50,7 @@ const getters = {
 };
 
 const actions = {
-  fetchPageMetadata({ getters, commit }, request) {
+  async fetchPageMetadata({ getters, commit }, request) {
     const titles = request.titles.filter(
       title => !getters.getPage(request.language, title)
     );
@@ -58,21 +58,27 @@ const actions = {
     const chunkSize = 50;
     for (let i = 0; i < titles.length; i += chunkSize) {
       let titlesSubset = titles.slice(i, i + chunkSize);
-      pageApi
-        .fetchPages(request.language, titlesSubset)
-        .then(metadataList =>
-          metadataList.forEach(page => commit("addPage", page))
-        );
-
-      titlesSubset = titlesSubset.filter(
-        title => !getters.getLanguageTitleGroup(request.language, title)
+      const metadataList = await pageApi.fetchPages(
+        request.language,
+        titlesSubset
       );
-      pageApi
-        .fetchTitles(request.language, titlesSubset)
-        .then(groupList =>
-          groupList.forEach(group => commit("addLanguageTitleGroup", group))
-        );
+      metadataList.forEach(page => {
+        commit("addPage", page);
+      });
     }
+  },
+  fetchLanguageTitles({ commit, getters }, { language, title }) {
+    if (getters.getLanguageTitleGroup(language, title)) {
+      // Already exist in store.
+      return;
+    }
+    pageApi
+      .fetchLanguageTitles(language, title)
+      .then(
+        languageTitleGroup =>
+          languageTitleGroup &&
+          commit("addLanguageTitleGroup", languageTitleGroup)
+      );
   },
   fetchLanguageInfo({ commit }) {
     siteApi.fetchLanguageInfo().then(languageInfo => {
