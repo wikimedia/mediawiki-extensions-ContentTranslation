@@ -1,6 +1,8 @@
 <template>
   <div class="mw-ui-card" :id="id">
-    <div class="mw-ui-card__title title" v-text="title" />
+    <slot name="header">
+      <div class="mw-ui-card__title title" v-text="title" />
+    </slot>
     <div class="mw-ui-card__content"><slot></slot></div>
   </div>
 </template>
