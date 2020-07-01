@@ -383,7 +383,8 @@
 				"cx-sx-section-selector-automatic-section-matching-description",
 				"cx-sx-section-selector-learn-more-anchor-label",
 				"cx-sx-section-selector-unsupported-sections-title",
-				"cx-sx-section-selector-unsupported-sections-description"
+				"cx-sx-section-selector-unsupported-sections-description",
+				"cx-suggestion-list-new-pages-division"
 			],
 			"noflip": true
 		},

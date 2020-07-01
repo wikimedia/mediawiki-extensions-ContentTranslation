@@ -1,43 +1,65 @@
 <template>
   <div v-show="active">
-    <mw-card
-      class="cx-translation-list--suggestions pa-0"
-      :title="$i18n('cx-suggestionlist-title')"
-    >
+    <mw-card class="cx-translation-list--suggestions pa-0 mb-0">
+      <template slot="header">
+        <h3
+          class="mw-ui-card__title pa-4 pt-5 mb-0"
+          v-text="$i18n('cx-suggestionlist-title')"
+        />
+      </template>
+      <sx-translation-list-language-selector
+        :selected-source-language="sourceLanguage"
+        :selected-target-language="targetLanguage"
+        :source-languages="availableSourceLanguages"
+        :target-languages="availableTargetLanguages"
+        @update:selected-source-language="$emit('update:source-language', $event)"
+        @update:selected-target-language="$emit('update:target-language', $event)"
+      />
+      <div class="cx-translation-list__division">
+        <h6 class="ma-0 pa-4" v-i18n:cx-suggestion-list-new-pages-division></h6>
+      </div>
       <mw-spinner v-if="!pageSuggestionsLoaded" />
       <cx-translation-suggestion
         v-for="(suggestion, index) in pageSuggestionsForPairSubset"
         :key="`suggestion-${index}`"
+        class="ma-0"
         :suggestion="suggestion"
         :from="sourceLanguage"
         :to="targetLanguage"
-        class="ma-0"
       />
     </mw-card>
     <mw-card
-      class="cx-translation-list--sx-suggestions pa-0"
-      :title="$i18n('cx-suggestionlist-expand-sections-title')"
+      class="cx-translation-list--sx-suggestions pa-0 mb-0"
       v-if="sectionSuggestionForPair.length"
     >
+      <div class="cx-translation-list__division">
+        <h6 class="ma-0 pa-4" v-i18n:cx-suggestionlist-expand-sections-title></h6>
+      </div>
       <mw-spinner v-if="!sectionSuggestionsLoaded" />
       <cx-translation-suggestion
         v-for="(suggestion, index) in sectionSuggestionForPair"
         :key="`suggestion-${index}`"
+        class="ma-0"
         :suggestion="suggestion"
         :from="suggestion.sourceLanguage"
         :to="suggestion.targetLanguage"
-        class="ma-0"
         @click="startSectionTranslation(suggestion)"
       />
     </mw-card>
-    <mw-button
-      v-if="pageSuggestionsLoaded"
-      :block="true"
-      :label="$i18n('cx-suggestionlist-refresh')"
-      :outlined="false"
-      :icon="mwIconRefresh"
-      @click="showMoreSuggestions"
-    />
+    <div
+      class="cx-suggestion-list__refresh-button-container d-flex justify-center"
+    >
+      <mw-button
+        v-if="pageSuggestionsLoaded"
+        class="ma-0 pa-4"
+        type="text"
+        :block="true"
+        :label="$i18n('cx-suggestionlist-refresh')"
+        :outlined="false"
+        :icon="mwIconRefresh"
+        @click="showMoreSuggestions"
+      />
+    </div>
     <sx-article-selector
       v-if="currentSectionSuggestion"
       :active="showSxArticleSelector"
@@ -53,18 +75,22 @@ import SxArticleSelector from "./SXArticleSelector";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
 import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
+import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
   name: "cx-suggestion-list",
   components: {
+    SxTranslationListLanguageSelector,
     CxTranslationSuggestion,
     SxArticleSelector,
     MwCard,
     MwButton,
     MwSpinner
   },
+  mixins: [autonymMixin],
   props: {
     active: {
       type: Boolean,
@@ -72,10 +98,11 @@ export default {
     },
     sourceLanguage: {
       type: String,
-      default: "en"
+      required: true
     },
     targetLanguage: {
-      type: String
+      type: String,
+      required: true
     }
   },
   data: () => ({
@@ -89,8 +116,32 @@ export default {
   computed: {
     ...mapState({
       currentSectionSuggestion: state =>
-        state.suggestions.currentSectionSuggestion
+        state.suggestions.currentSectionSuggestion,
+      supportedLanguageCodes: state =>
+        state.mediawiki.supportedLanguageCodes || []
     }),
+    availableSourceLanguages() {
+      return this.supportedLanguageCodes
+        .filter(languageCode => languageCode !== this.targetLanguage)
+        .reduce(
+          (languages, languageCode) => [
+            ...languages,
+            { name: this.getAutonym(languageCode), code: languageCode }
+          ],
+          []
+        );
+    },
+    availableTargetLanguages() {
+      return this.supportedLanguageCodes
+        .filter(languageCode => languageCode !== this.sourceLanguage)
+        .reduce(
+          (languages, languageCode) => [
+            ...languages,
+            { name: this.getAutonym(languageCode), code: languageCode }
+          ],
+          []
+        );
+    },
     pageSuggestionsForPair() {
       return this.$store.getters["suggestions/getPageSuggestionsForPair"](
         this.sourceLanguage,
@@ -134,22 +185,57 @@ export default {
     active: function() {
       if (this.active) {
         if (!this.pageSuggestionsForPair?.length) {
-          this.$store.dispatch("suggestions/getPageSuggestions", {
+          this.getPageSuggestions({
             sourceLanguage: this.sourceLanguage,
             targetLanguage: this.targetLanguage,
             seed: this.seedArticleTitle
           });
         }
         if (!this.sectionSuggestionForPair?.length) {
-          this.$store.dispatch("suggestions/getSectionSuggestions", {
+          this.getSectionSuggestions({
             sourceLanguage: this.sourceLanguage,
             targetLanguage: this.targetLanguage
           });
         }
       }
+    },
+    sourceLanguage() {
+      this.getPageSuggestions({
+        sourceLanguage: this.sourceLanguage,
+        targetLanguage: this.targetLanguage
+      });
+      this.pageSuggestionsLoaded = false;
+    },
+    targetLanguage() {
+      this.getPageSuggestions({
+        sourceLanguage: this.sourceLanguage,
+        targetLanguage: this.targetLanguage
+      });
+      this.pageSuggestionsLoaded = false;
+    }
+  },
+  mounted: function() {
+    const urlParams = new URLSearchParams(location.search);
+    const isSectionTranslation = urlParams.get("sx");
+    const sourceLanguage = urlParams.get("from");
+    const targetLanguage = urlParams.get("to");
+    const sourceTitle = urlParams.get("page");
+    if (isSectionTranslation && sourceTitle) {
+      const suggestion = new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+        missing: {}
+      });
+      this.startSectionTranslation(suggestion);
+      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
     }
   },
   methods: {
+    ...mapActions({
+      getPageSuggestions: "suggestions/getPageSuggestions",
+      getSectionSuggestions: "suggestions/getSectionSuggestions"
+    }),
     showMoreSuggestions() {
       // 1. Get X(=24) suggestions using the sourceTitle of the I(=0)th most
       //    recent published translation
@@ -192,23 +278,28 @@ export default {
     onSectionTranslationDialogClose() {
       this.showSxArticleSelector = false;
     }
-  },
-  mounted: function() {
-    const urlParams = new URLSearchParams(location.search);
-    const isSectionTranslation = urlParams.get("sx");
-    const sourceLanguage = urlParams.get("from");
-    const targetLanguage = urlParams.get("to");
-    const sourceTitle = urlParams.get("page");
-    if (isSectionTranslation && sourceTitle) {
-      const suggestion = new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle,
-        missing: {}
-      });
-      this.startSectionTranslation(suggestion);
-      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
-    }
   }
 };
 </script>
+
+<style lang="less">
+@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+
+.cx-translation-list--suggestions {
+  .mw-ui-card__title {
+    height: auto;
+  }
+}
+.cx-translation-list__division {
+  background: @background-color-framed;
+  // Fix this to be base20 (currently base30)
+  h6 {
+    color: @color-base--subtle;
+  }
+}
+.cx-suggestion-list__refresh-button-container {
+  background: @background-color-base;
+  border-top: @border-width-base @border-style-base
+    @background-color-notice--framed;
+}
+</style>

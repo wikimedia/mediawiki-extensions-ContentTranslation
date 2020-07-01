@@ -9,8 +9,8 @@
     </nav>
     <cx-suggestion-list
       class="col-12 pa-0 ma-0"
-      :sourceLanguage="sourceLanguage"
-      :targetLanguage="targetLanguage"
+      :sourceLanguage.sync="sourceLanguage"
+      :targetLanguage.sync="targetLanguage"
       :active="active === 'suggestions'"
     />
     <cx-translation-list
@@ -45,7 +45,6 @@ import {
   mwIconLightBulb,
   mwIconEdit
 } from "../lib/mediawiki.ui/components/icons";
-import { mapState } from "vuex";
 
 export default {
   name: "cx-dashboard",

@@ -345,5 +345,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Content of automatic section matching consideration of section selector",
 	"cx-sx-section-selector-learn-more-anchor-label": "Label for anchor that leads to details about considerations in section selector",
 	"cx-sx-section-selector-unsupported-sections-title": "Title for unsupported section consideration of section selector",
-	"cx-sx-section-selector-unsupported-sections-description": "Content of unsupported section consideration of section selector"
+	"cx-sx-section-selector-unsupported-sections-description": "Content of unsupported section consideration of section selector",
+	"cx-suggestion-list-new-pages-division": "Title for new pages division in content translation suggestion list"
 }

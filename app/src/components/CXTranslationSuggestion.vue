@@ -81,7 +81,9 @@ export default {
 @import "../lib/mediawiki.ui/mixins/common.less";
 
 .cx-suggestion {
-  border-top: @border-width-base @border-style-base @border-color-base;
+  // Not sure if @background-color-notice-frame variable is ok to use here
+  border-top: @border-width-base @border-style-base
+    @background-color-notice--framed;
   cursor: pointer;
   min-height: 100px;
   .transition(

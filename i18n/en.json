@@ -124,7 +124,7 @@
 	"cx-translation-filter-draft-translations": "In progress",
 	"cx-translation-filter-suggested-translations": "Suggestions",
 	"cx-suggestionlist-favorite": "For later",
-	"cx-suggestionlist-title": "Suggested pages",
+	"cx-suggestionlist-title": "Suggestions",
 	"cx-suggestionlist-empty-title": "No suggestions for now",
 	"cx-suggestionlist-empty-desc": "We found no suggestions. You can check later or find relevant pages using our recommendation tool (experimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "View suggestions (experimental)",
@@ -334,5 +334,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Sections are identified automatically and the results are not always accurate.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Learn more",
 	"cx-sx-section-selector-unsupported-sections-title": "Unsupported sections",
-	"cx-sx-section-selector-unsupported-sections-description": "Some sections may not appear in the list because their contents are not supported yet."
+	"cx-sx-section-selector-unsupported-sections-description": "Some sections may not appear in the list because their contents are not supported yet.",
+	"cx-suggestion-list-new-pages-division": "New pages"
 }
