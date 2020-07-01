@@ -191,7 +191,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 превод|$1 преводи}}",
 	"cx-tools-missing-link-text": "{{GENDER:|Означете}} ја страницата дека недостига за да поттикнете нејзино создавање.",
 	"cx-tools-missing-link-tooltip": "Преведете (во нов прозорец)",
-	"cx-tools-missing-link-title": "Врска што недостига",
+	"cx-tools-missing-link-title": "Отсутна врска",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Означи}} дека недостига",
 	"echo-category-title-cx": "Преводи",
 	"echo-pref-tooltip-cx": "Известувај ме за моите преводи направени со алатката „Превод на содржини“.",

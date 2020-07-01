@@ -300,5 +300,6 @@
 	"cx-preference-enable-entrypoints": "Приступ [[$1|превођењу садржаја]] са странице за доприносе, листе језика и приликом прављења нових страница.",
 	"cx-feature-discovery-title": "Преводи било када",
 	"cx-feature-discovery-content": "Можете почети или наставити са превођењем било када са странице {{int:mycontris}}.",
-	"cx-feature-discovery-dismiss": "У реду, разумем"
+	"cx-feature-discovery-dismiss": "У реду, разумем",
+	"cx-sx-section-selector-learn-more-anchor-label": "Детаљније"
 }
