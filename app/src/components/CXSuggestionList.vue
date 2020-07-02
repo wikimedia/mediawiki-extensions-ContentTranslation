@@ -36,7 +36,7 @@
       :label="$i18n('cx-suggestionlist-refresh')"
       :outlined="false"
       :icon="mwIconRefresh"
-      v-on:click="reloadSuggestions"
+      @click="showMoreSuggestions"
     />
     <sx-article-selector
       v-if="currentSectionSuggestion"
@@ -83,8 +83,8 @@ export default {
     pageSuggestionsLoaded: false,
     sectionSuggestionsLoaded: true,
     showSxArticleSelector: false,
-    startIndex: 0,
-    endIndex: 3
+    paginationIndex: 0,
+    pageSize: 3
   }),
   computed: {
     ...mapState({
@@ -104,7 +104,24 @@ export default {
       );
     },
     pageSuggestionsForPairSubset() {
-      return this.pageSuggestionsForPair.slice(this.startIndex, this.endIndex);
+      return this.pageSuggestionsForPair.slice(
+        this.paginationIndex * this.pageSize,
+        this.paginationIndex * this.pageSize + this.pageSize
+      );
+    },
+    publishedTranslations() {
+      return this.$store.getters[
+        "translator/getPublishedTranslationsForLanguagePair"
+      ](this.sourceLanguage, this.targetLanguage);
+    },
+    seedArticleTitle() {
+      if (this.paginationIndex < this.publishedTranslations.length) {
+        // Use one of the published translation's source title as seed title.
+        // The recommendation api will give articles similar to this title
+        // from source language to translate to target language.
+        return this.publishedTranslations[this.paginationIndex].sourceTitle;
+      }
+      return null;
     }
   },
   watch: {
@@ -119,7 +136,8 @@ export default {
         if (!this.pageSuggestionsForPair?.length) {
           this.$store.dispatch("suggestions/getPageSuggestions", {
             sourceLanguage: this.sourceLanguage,
-            targetLanguage: this.targetLanguage
+            targetLanguage: this.targetLanguage,
+            seed: this.seedArticleTitle
           });
         }
         if (!this.sectionSuggestionForPair?.length) {
@@ -132,15 +150,41 @@ export default {
     }
   },
   methods: {
-    reloadSuggestions() {
-      this.startIndex += this.endIndex;
-      this.endIndex += this.endIndex;
-      if (this.pageSuggestionsForPair.length <= this.startIndex) {
-        // Start over?
-        this.startIndex = 0;
-        this.endIndex = 3;
+    showMoreSuggestions() {
+      // 1. Get X(=24) suggestions using the sourceTitle of the I(=0)th most
+      //    recent published translation
+      // 2. Keep showing those suggestions 3 at a time
+      // 3. Once we run out of suggestions, load X more suggestions
+      //    using the sourceTitle of the I++th most recent published translation.
+      //    This will append to what pageSuggestionsForPair (and pageSuggestionsForPairSubset) returns.
+      // 4. Repeat until we have gone over all published translations
+      // 5. Since no seed is available, once all suggestions are shown,
+      //    go to first set of suggestions based on first seed we used.
+      if (
+        this.paginationIndex * this.pageSize + this.pageSize >=
+        this.pageSuggestionsForPair.length
+      ) {
+        // Start over
+        this.paginationIndex = 0;
+      } else {
+        this.paginationIndex++;
+        // There is a seed article, So fetch suggestions based on that.
+        // But it will be appended to the list of suggestions.
+        // So, refreshing does not mean fetching suggestions from next
+        // seed article. These suggesions will appear after the previous
+        // suggestions are shown.
+        if (this.seedArticleTitle) {
+          this.$store.dispatch("suggestions/getPageSuggestions", {
+            sourceLanguage: this.sourceLanguage,
+            targetLanguage: this.targetLanguage,
+            seed: this.seedArticleTitle
+          });
+        }
       }
     },
+    /**
+     * @param {SectionSuggestion} suggestion
+     */
     startSectionTranslation(suggestion) {
       this.showSxArticleSelector = true;
       this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);

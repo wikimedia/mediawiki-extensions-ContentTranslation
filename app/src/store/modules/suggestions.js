@@ -46,13 +46,12 @@ const getters = {
 };
 
 const actions = {
-  getPageSuggestions({ commit, dispatch }, suggestionRequest) {
+  getPageSuggestions(
+    { commit, dispatch },
+    { sourceLanguage, targetLanguage, seed }
+  ) {
     cxSuggestionsApi
-      .fetchSuggestions(
-        suggestionRequest.sourceLanguage,
-        suggestionRequest.targetLanguage,
-        suggestionRequest.seeds
-      )
+      .fetchSuggestions(sourceLanguage, targetLanguage, seed)
       .then(suggestions => {
         let titles = [];
 
@@ -63,7 +62,7 @@ const actions = {
         if (titles.length) {
           dispatch(
             "mediawiki/fetchPageMetadata",
-            { language: suggestionRequest.sourceLanguage, titles },
+            { language: sourceLanguage, titles },
             { root: true }
           );
         }

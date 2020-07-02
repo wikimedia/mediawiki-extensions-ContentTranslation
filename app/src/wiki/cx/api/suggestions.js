@@ -2,21 +2,27 @@ import axios from "axios";
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
 
-// Example URL:
-// https://recommend.wmflabs.org/types/translation/v1/articles?source=de&target=ml&seed=&search=morelike&application=CX
-
-async function fetchSuggestions(sourceLanguage, targetLanguage, seedArticles) {
-  const params = {
-    source: sourceLanguage,
-    target: targetLanguage,
-    seed: seedArticles,
-    search: "related_articles",
-    application: "CX"
-  };
-  const apiURL = mw.config.get("wgRecommendToolAPIURL");
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String} seedArticleTitle
+ * @param {Number} count How many suggestions to fetch. 24 is default.
+ */
+async function fetchSuggestions(
+  sourceLanguage,
+  targetLanguage,
+  seedArticleTitle,
+  count = 24
+) {
+  let apiModule = `/data/recommendation/article/creation/translation/${sourceLanguage}`;
+  if (seedArticleTitle) {
+    apiModule += `/${seedArticleTitle}`;
+  }
+  const sitemapper = new mw.cx.SiteMapper();
+  const apiURL = sitemapper.getRestbaseUrl(targetLanguage, apiModule);
   const suggestedResults = await axios
-    .get(apiURL, { params })
-    .then(response => response.data);
+    .get(apiURL, { count })
+    .then(response => response.data?.items || []);
   return suggestedResults.map(
     item =>
       new ArticleSuggestion({
@@ -24,17 +30,16 @@ async function fetchSuggestions(sourceLanguage, targetLanguage, seedArticles) {
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
-        pageViews: item.pageviews,
-        rank: item.rank
+        langLinksCount: item.sitelink_count
       })
   );
 }
 
 /**
- * @param sourceLanguage
- * @param sourceTitle
- * @param targetLanguage
- * @returns {Promise<SectionSuggestion|null>}
+ * @param {String} sourceLanguage
+ * @param {String} sourceTitle
+ * @param {String} targetLanguage
+ * @returns {Promise<SectionSuggestion>|null}
  */
 async function fetchSectionSuggestions(
   sourceLanguage,
