@@ -24,7 +24,7 @@ exports[`App component matches the snapshot 1`] = `
     class="row cx-translation-dashboard-container"
   >
     <cx-dashboard-stub
-      class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4"
+      class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12"
     />
   </section>
 </div>

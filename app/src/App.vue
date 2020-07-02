@@ -12,7 +12,9 @@
       </mw-button>
     </section>
     <section class="row cx-translation-dashboard-container">
-      <cx-dashboard class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4" />
+      <cx-dashboard
+        class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12"
+      />
     </section>
   </div>
 </template>
