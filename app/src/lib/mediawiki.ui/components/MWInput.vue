@@ -133,6 +133,7 @@ export default {
     border-color: @border-color-base--active;
   }
   .mw-ui-input__content {
+    display: flex;
     padding: 0;
     margin: 4px;
   }
@@ -208,6 +209,7 @@ export default {
   }
   input.mw-ui-input__input {
     height: 32px;
+    width: 100%;
   }
 
   // mw-ui-input-large
