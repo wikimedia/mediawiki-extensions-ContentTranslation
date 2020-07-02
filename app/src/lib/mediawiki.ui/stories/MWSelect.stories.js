@@ -2,12 +2,13 @@ import MwSelect from "../components/MWSelect.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, select, text } from "@storybook/addon-knobs";
+import centered from "@storybook/addon-centered/vue";
 import * as icons from "../components/icons";
 
 export default {
   title: "Components",
   component: MwSelect,
-  decorators: [withKnobs, withA11y]
+  decorators: [withKnobs, centered, withA11y]
 };
 
 export const Select = () => ({

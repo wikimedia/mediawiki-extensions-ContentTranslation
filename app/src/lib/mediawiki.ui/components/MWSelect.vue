@@ -299,7 +299,7 @@ export default {
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
-  width: auto;
+  width: 100%;
   color: @color-base;
   border: @border-base;
   border-radius: @border-radius-base;
