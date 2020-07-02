@@ -69,7 +69,9 @@ async function getSxSuggestionsFromPublishedArticles(publishedTranslations) {
       translation.sourceTitle,
       translation.targetLanguage
     );
-    suggestedTitles.push(missingSectionsResult);
+    if (missingSectionsResult) {
+      suggestedTitles.push(missingSectionsResult);
+    }
     if (suggestedTitles.length === 5) {
       break;
     }
