@@ -63,7 +63,9 @@ function fetchLanguageTitles(language, title) {
   const api = `https://${language}.wikipedia.org/w/api.php`;
   return axios.get(api, { params }).then(async response => {
     const pages = response.data.query.pages;
-    if (!pages || !pages.length) {
+    // When invalid title is provided a dummy page is return with "missing"
+    // property equal to true. So we should check also for this one.
+    if (!pages || !pages.length || pages[0]?.missing) {
       // Page not present
       return null;
     }
