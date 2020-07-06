@@ -132,7 +132,7 @@
 	"apihelp-query+langlinkscount-example-1": "'Köpek' sayfasının diğer dil sürümlerinin sayısını öğrenin",
 	"apihelp-query+cxdeletedtranslations-description": "Belirli bir tarihten sonra silinen bir ad alanında yayımlanan çevirilerinizin sayısını öğrenin.",
 	"apihelp-query+cxdeletedtranslations-summary": "Silinen yayımlanmış çevirilerin sayısını öğrenin.",
-	"apihelp-query+cxdeletedtranslations-param-after": "Zaman damgası sadece yeni silme işlemlerini almak içindir.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Zaman damgası yalnızca yeni silme işlemlerini almak içindir.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Silinen çevirilerin yayınlandığı ad alanı. Ana ad alanına varsayılandır.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Ana ad alanına yayımlanan ve 07.04.2019 16:24:44 tarihinden sonra silinen çevirilerinizin sayısını öğrenin."
 }

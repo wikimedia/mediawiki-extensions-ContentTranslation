@@ -320,5 +320,22 @@
 	"cx-sx-section-selector-title": "Avsnitt",
 	"cx-sx-section-selector-subtitle": "Välj ett avsnitt att översätta",
 	"cx-sx-section-selector-desc": "Välj ett avsnitt nedan och granska innehållet på båda språken för att bestämma vad som ska översätta.",
-	"cx-sx-language-selector-dialog-title": "Sök efter ett språk"
+	"cx-sx-language-selector-dialog-title": "Sök efter ett språk",
+	"cx-sx-existing-translation-status": "Finns redan på $1",
+	"cx-sx-existing-translation-additional-info": "Utvidga det befintliga innehållet genom att översätta nya avsnitt.",
+	"cx-sx-start-translation-button-label": "Börja översätta",
+	"cx-sx-view-translation-anchor": "Visa",
+	"cx-sx-existing-translation-learn-more": "Läs mer",
+	"cx-sx-section-selector-missing-sections-title": "Avsnitt saknas på $1",
+	"cx-sx-section-selector-present-sections-title": "Avsnitt finns på $1",
+	"cx-sx-section-selector-more-details-title": "Fler detaljer",
+	"cx-sx-section-selector-view-article-button-label": "Visa artikeln på $1",
+	"cx-sx-section-selector-empty-missing-sections-title": "Hittade inga avsnitt som du kan översätta",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Prova en annan sida eller andra språk",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Välj en annan sida",
+	"cx-sx-section-selector-automatic-section-matching-title": "Automatisk avsnittsmatchning",
+	"cx-sx-section-selector-automatic-section-matching-description": "Avsnitten identifieras automatiskt och resultaten är inte alltid korrekta.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Läs mer",
+	"cx-sx-section-selector-unsupported-sections-title": "Avsnitt som inte stöds",
+	"cx-sx-section-selector-unsupported-sections-description": "Vissa avsnitt kanske inte dyker upp i listan eftersom dess innehåll ännu inte stöds."
 }

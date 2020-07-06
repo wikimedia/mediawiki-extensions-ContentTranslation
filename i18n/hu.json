@@ -291,5 +291,19 @@
 	"cx-unreviewed-translation-category-desc": "Olyan Tartalomfordító eszközzel készült lapok, amelyek nagy mennyiségű ellenőrizetlen tartalommal rendelkeznek.",
 	"cx-feature-discovery-title": "Fordíts bármikor",
 	"cx-feature-discovery-content": "Bármikor elkezdheted vagy folytathatod a fordítást a {{int:mycontris}} oldalról",
-	"cx-feature-discovery-dismiss": "Oké, értettem"
+	"cx-feature-discovery-dismiss": "Oké, értettem",
+	"cx-sx-select-section": "Lefordítandó szakasz kiválasztása",
+	"cx-sx-section-selector-title": "Szakaszok",
+	"cx-sx-section-selector-subtitle": "Lefordítandó szakasz kiválasztása",
+	"cx-sx-existing-translation-status": "Már létezik $1 nyelven",
+	"cx-sx-start-translation-button-label": "Fordítás elkezdése",
+	"cx-sx-view-translation-anchor": "Megtekintés",
+	"cx-sx-existing-translation-learn-more": "Tudj meg többet",
+	"cx-sx-section-selector-missing-sections-title": "$1 nyelven hiányzó szakaszok",
+	"cx-sx-section-selector-more-details-title": "További részletek",
+	"cx-sx-section-selector-view-article-button-label": "Szócikk megtekintése a következő nyelven: $1",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Próbálj meg másik oldalt vagy eltérő nyelvet",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Másik oldal választása",
+	"cx-sx-section-selector-learn-more-anchor-label": "Tudj meg többet",
+	"cx-sx-section-selector-unsupported-sections-title": "Nem támogatott szakaszok"
 }
