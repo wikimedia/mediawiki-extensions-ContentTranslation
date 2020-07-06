@@ -49,9 +49,10 @@ async function fetchSectionSuggestions(
   const suggestedSectionResult = await axios
     .get(cxserverAPI)
     .then(response => response.data?.sections)
-    .catch(error => null)
-  ;
-  return suggestedSectionResult ? new SectionSuggestion(suggestedSectionResult) : null;
+    .catch(error => null);
+  return suggestedSectionResult
+    ? new SectionSuggestion(suggestedSectionResult)
+    : null;
 }
 
 async function getSxSuggestionsFromPublishedArticles(publishedTranslations) {
