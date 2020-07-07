@@ -4,6 +4,7 @@
       <h1 class="header ma-0 pa-0">
         <mw-button
           type="text"
+          class="header ma-0 pa-0"
           :href="currentPageURL"
           :icon="mwIconWikipediaLogo"
           :icon-size="32"
@@ -26,7 +27,7 @@
       />
       <mw-button
         type="icon"
-        class="h-md-and-up me-5"
+        class="h-md-and-up"
         :icon-size="32"
         :icon="mwIconUserAvatar"
       />
