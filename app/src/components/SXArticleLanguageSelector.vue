@@ -6,7 +6,7 @@
         :outlined="false"
         class="pa-3 sx-article-language-selector__button"
         type="text"
-        @click="openSourceLanguageDialog"
+        @click.stop="openSourceLanguageDialog"
       >
         <span
           class="mw-ui-autonym"
@@ -22,14 +22,12 @@
         @close="onSourceLanguageDialogClose"
       >
         <div class="row">
-          <div class="col-12">
-            <mw-language-selector
-              v-if="sourceLanguageSelectOn"
-              class="sx-article-language-selector__widget"
-              :languages="availableSourceLanguages"
-              @select="onSourceLanguageSelected"
-            ></mw-language-selector>
-          </div>
+          <mw-language-selector
+            v-if="sourceLanguageSelectOn"
+            class="sx-article-language-selector__widget col-12"
+            :languages="availableSourceLanguages"
+            @select="onSourceLanguageSelected"
+          ></mw-language-selector>
         </div>
       </mw-dialog>
     </div>
@@ -42,7 +40,7 @@
         :outlined="false"
         class="pa-3 sx-article-language-selector__button"
         type="text"
-        @click="targetLanguageSelectOn = true"
+        @click.stop="targetLanguageSelectOn = true"
       >
         <span
           class="mw-ui-autonym"
@@ -57,12 +55,14 @@
         :fullscreen="true"
         @close="targetLanguageSelectOn = false"
       >
-        <mw-language-selector
-          v-if="targetLanguageSelectOn"
-          class="sx-article-language-selector__widget"
-          :languages="targetLanguages"
-          @select="onTargetLanguageSelected"
-        ></mw-language-selector>
+        <div class="row">
+          <mw-language-selector
+            v-if="targetLanguageSelectOn"
+            class="sx-article-language-selector__widget col-12"
+            :languages="targetLanguages"
+            @select="onTargetLanguageSelected"
+          ></mw-language-selector>
+        </div>
       </mw-dialog>
     </div>
   </div>

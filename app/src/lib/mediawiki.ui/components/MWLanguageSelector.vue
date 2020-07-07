@@ -1,5 +1,6 @@
 <template>
   <mw-select
+    ref="selectElement"
     v-model="languages"
     class="mw-ui-language-selector"
     :icon="mwIconSearch"
@@ -22,7 +23,6 @@
 </template>
 
 <script>
-import MwUiIcon from "./MWIcon";
 import { mwIconSearch } from "./icons";
 import MwSelect from "./MWSelect";
 export default {
@@ -31,7 +31,13 @@ export default {
     MwSelect
   },
   props: {
-    placeholder: String,
+    placeholder: {
+      type: String
+    },
+    autofocus: {
+      type: Boolean,
+      default: true
+    },
     languages: {
       type: Array,
       default: () => []
@@ -45,6 +51,11 @@ export default {
       return {
         "mw-ui-language-selector": true
       };
+    }
+  },
+  mounted() {
+    if (this.autofocus) {
+      this.$refs.selectElement.focus();
     }
   },
   methods: {
