@@ -3,7 +3,6 @@
     <div class="col-5 justify-end">
       <mw-button
         :indicator="mwIconExpand"
-        :large="true"
         :outlined="false"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
@@ -42,7 +41,6 @@
     <div class="col-5 justify-start">
       <mw-button
         :indicator="mwIconExpand"
-        :large="true"
         :outlined="false"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
