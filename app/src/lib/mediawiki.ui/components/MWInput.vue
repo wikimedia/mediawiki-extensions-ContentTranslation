@@ -10,21 +10,21 @@
         ></mw-icon>
       </slot>
       <component
-        class="mw-ui-input__input"
         :is="type === 'textarea' ? type : 'input'"
         ref="input"
+        class="mw-ui-input__input"
         :disabled="disabled"
         :aria-disabled="disabled"
         :value.sync="value"
-        v-text="value"
         :placeholder="placeholder"
         v-bind="$attrs"
-        v-on="$listeners"
         :type="type"
+        v-on="$listeners"
         @input="$emit('update', $event.target.value)"
         @focus="onFocus"
         @blur="onBlur"
         @click="onClick"
+        v-text="value"
       />
       <slot name="indicator">
         <mw-icon
@@ -42,13 +42,10 @@
 import MwIcon from "./MWIcon";
 
 export default {
-  name: "mw-input",
+  name: "MwInput",
   components: {
     MwIcon
   },
-  data: () => ({
-    focused: false
-  }),
   props: {
     disabled: Boolean,
     large: Boolean,
@@ -81,6 +78,9 @@ export default {
       }
     }
   },
+  data: () => ({
+    focused: false
+  }),
   computed: {
     classes() {
       return {

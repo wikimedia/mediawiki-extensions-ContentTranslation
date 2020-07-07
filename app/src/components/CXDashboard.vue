@@ -4,27 +4,27 @@
       <mw-button-group
         :items="listSelector"
         :active="active"
-        v-on:select="active = $event"
+        @select="active = $event"
       />
     </nav>
     <cx-suggestion-list
       class="col-12 pa-0 ma-0"
-      :sourceLanguage.sync="sourceLanguage"
-      :targetLanguage.sync="targetLanguage"
+      :source-language="sourceLanguage"
+      :target-language="targetLanguage"
       :active="active === 'suggestions'"
     />
     <cx-translation-list
       class="col-12 pa-0 ma-0"
-      :sourceLanguage="sourceLanguage"
-      :targetLanguage="targetLanguage"
-      translationStatus="published"
+      :source-language="sourceLanguage"
+      :target-language="targetLanguage"
+      translation-status="published"
       :active="active === 'published'"
     />
     <cx-translation-list
       class="col-12 pa-0 ma-0"
-      :sourceLanguage="sourceLanguage"
-      :targetLanguage="targetLanguage"
-      translationStatus="draft"
+      :source-language="sourceLanguage"
+      :target-language="targetLanguage"
+      translation-status="draft"
       :active="active === 'draft'"
     />
     <mw-bottom-navigation
@@ -47,7 +47,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 
 export default {
-  name: "cx-dashboard",
+  name: "CxDashboard",
   components: {
     CxSuggestionList,
     CxTranslationList,

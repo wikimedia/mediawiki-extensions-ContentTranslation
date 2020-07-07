@@ -1,5 +1,5 @@
 <template>
-  <div class="mw-ui-card" :id="id">
+  <div :id="id" class="mw-ui-card">
     <slot name="header">
       <div class="mw-ui-card__title title" v-text="title" />
     </slot>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "mw-card",
+  name: "MwCard",
   props: {
     id: {
       type: String,

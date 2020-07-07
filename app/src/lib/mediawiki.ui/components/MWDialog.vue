@@ -40,10 +40,7 @@ import { mwIconClose } from "./icons";
 import "../grid.scss";
 
 export default {
-  name: "mw-dialog",
-  data: () => ({
-    mwIconClose
-  }),
+  name: "MwDialog",
   components: {
     MwButton,
     MwDivider
@@ -74,6 +71,9 @@ export default {
       default: true
     }
   },
+  data: () => ({
+    mwIconClose
+  }),
   computed: {
     classes() {
       return {

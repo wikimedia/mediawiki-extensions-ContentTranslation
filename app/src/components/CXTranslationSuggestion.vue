@@ -1,5 +1,5 @@
 <template>
-  <div class="row cx-suggestion pa-4" v-if="suggestion" @click="handleClick">
+  <div v-if="suggestion" class="row cx-suggestion pa-4" @click="handleClick">
     <div class="col shrink pe-4">
       <mw-thumbnail
         class="cx-suggestion__thumbnail"
@@ -51,7 +51,7 @@ import {
 import ArticleSuggestion from "../wiki/cx/models/articleSuggestion";
 
 export default {
-  name: "cx-translation-suggestion",
+  name: "CxTranslationSuggestion",
   components: { MwThumbnail, MwIcon },
   mixins: [autonym],
   props: {

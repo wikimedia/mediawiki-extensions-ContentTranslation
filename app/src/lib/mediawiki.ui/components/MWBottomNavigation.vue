@@ -16,7 +16,7 @@
 <script>
 import MwButtonGroup from "./MWButtonGroup";
 export default {
-  name: "mw-ui-bottom-navigation",
+  name: "MwUiBottomNavigation",
   components: { MwButtonGroup },
   props: {
     items: Array,

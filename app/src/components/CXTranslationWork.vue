@@ -1,8 +1,8 @@
 <template>
   <div
-    class="row cx-translation pa-4"
     v-if="translation"
     v-show="translation"
+    class="row cx-translation pa-4"
     @click="onClick"
   >
     <div class="col-2 pa-2">
@@ -61,7 +61,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 
 export default {
-  name: "cx-translation-work",
+  name: "CxTranslationWork",
   components: { MwThumbnail, MwIcon },
   mixins: [autonym],
   props: {

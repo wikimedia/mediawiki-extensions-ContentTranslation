@@ -5,9 +5,9 @@
         :indicator="mwIconExpand"
         :large="true"
         :outlined="false"
-        @click="openSourceLanguageDialog"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
+        @click="openSourceLanguageDialog"
       >
         <span
           class="mw-ui-autonym"
@@ -16,8 +16,8 @@
         ></span>
       </mw-button>
       <mw-dialog
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
         v-show="sourceLanguageSelectOn"
+        :title="$i18n('cx-sx-language-selector-dialog-title')"
         animation="slide-up"
         :fullscreen="true"
         @close="onSourceLanguageDialogClose"
@@ -44,9 +44,9 @@
         :indicator="mwIconExpand"
         :large="true"
         :outlined="false"
-        @click="openTargetLanguageDialog"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
+        @click="openTargetLanguageDialog"
       >
         <span
           class="mw-ui-autonym"
@@ -55,8 +55,8 @@
         ></span>
       </mw-button>
       <mw-dialog
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
         v-show="targetLanguageSelectOn"
+        :title="$i18n('cx-sx-language-selector-dialog-title')"
         animation="slide-up"
         :fullscreen="true"
         @close="onTargetLanguageDialogClose"
@@ -84,14 +84,14 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 
 export default {
-  name: "sx-translation-list-language-selector",
-  mixins: [autonymMixin],
+  name: "SxTranslationListLanguageSelector",
   components: {
     MwLanguageSelector,
     MwDialog,
     MwIcon,
     MwButton
   },
+  mixins: [autonymMixin],
   props: {
     selectedSourceLanguage: {
       type: String,

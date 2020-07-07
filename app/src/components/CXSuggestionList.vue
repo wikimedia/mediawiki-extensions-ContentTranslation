@@ -12,11 +12,15 @@
         :selected-target-language="targetLanguage"
         :source-languages="availableSourceLanguages"
         :target-languages="availableTargetLanguages"
-        @update:selected-source-language="$emit('update:source-language', $event)"
-        @update:selected-target-language="$emit('update:target-language', $event)"
+        @update:selected-source-language="
+          $emit('update:source-language', $event)
+        "
+        @update:selected-target-language="
+          $emit('update:target-language', $event)
+        "
       />
       <div class="cx-translation-list__division">
-        <h6 class="ma-0 pa-4" v-i18n:cx-suggestion-list-new-pages-division></h6>
+        <h6 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4"></h6>
       </div>
       <mw-spinner v-if="!pageSuggestionsLoaded" />
       <cx-translation-suggestion
@@ -29,11 +33,14 @@
       />
     </mw-card>
     <mw-card
-      class="cx-translation-list--sx-suggestions pa-0 mb-0"
       v-if="sectionSuggestionForPair.length"
+      class="cx-translation-list--sx-suggestions pa-0 mb-0"
     >
       <div class="cx-translation-list__division">
-        <h6 class="ma-0 pa-4" v-i18n:cx-suggestionlist-expand-sections-title></h6>
+        <h6
+          v-i18n:cx-suggestionlist-expand-sections-title
+          class="ma-0 pa-4"
+        ></h6>
       </div>
       <mw-spinner v-if="!sectionSuggestionsLoaded" />
       <cx-translation-suggestion
@@ -81,7 +88,7 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
-  name: "cx-suggestion-list",
+  name: "CxSuggestionList",
   components: {
     SxTranslationListLanguageSelector,
     CxTranslationSuggestion,
@@ -212,6 +219,23 @@ export default {
         targetLanguage: this.targetLanguage
       });
       this.pageSuggestionsLoaded = false;
+    }
+  },
+  mounted: function() {
+    const urlParams = new URLSearchParams(location.search);
+    const isSectionTranslation = urlParams.get("sx");
+    const sourceLanguage = urlParams.get("from");
+    const targetLanguage = urlParams.get("to");
+    const sourceTitle = urlParams.get("page");
+    if (isSectionTranslation && sourceTitle) {
+      const suggestion = new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+        missing: {}
+      });
+      this.startSectionTranslation(suggestion);
+      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
     }
   },
   mounted: function() {

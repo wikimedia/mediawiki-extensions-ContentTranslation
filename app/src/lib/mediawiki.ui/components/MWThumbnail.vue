@@ -14,8 +14,8 @@ import MwUiIcon from "./MWIcon";
 import { mwIconImageLayoutFrameless } from "./icons";
 
 export default {
-  name: "mw-ui-thumbnail",
-  data: () => ({ mwIconImageLayoutFrameless }),
+  name: "MwUiThumbnail",
+  components: { MwUiIcon },
   props: {
     thumbnail: {
       type: Object,
@@ -26,7 +26,7 @@ export default {
       default: 80
     }
   },
-  components: { MwUiIcon },
+  data: () => ({ mwIconImageLayoutFrameless }),
   computed: {
     style() {
       if (this.thumbnail.source) {

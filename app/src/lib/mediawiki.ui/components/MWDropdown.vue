@@ -2,8 +2,8 @@
   <div :class="classes" @click="onFocus()">
     <div
       class="mw-ui-dropdown__content flex ma-1 pa-0"
-      @click.stop="toggle()"
       aria-haspopup="listbox"
+      @click.stop="toggle()"
     >
       <slot name="icon">
         <mw-icon
@@ -15,8 +15,8 @@
       ></slot>
       <slot name="trigger" v-bind="{ selectedOption }">
         <span
-          class="mw-ui-dropdown__trigger flex grow"
           ref="trigger"
+          class="mw-ui-dropdown__trigger flex grow"
           :disabled="disabled"
           :aria-disabled="disabled"
           aria-autocomplete="list"
@@ -35,7 +35,7 @@
         ></mw-icon>
       </slot>
     </div>
-    <div class="mw-ui-dropdown__options" v-show="optionsOpen" role="listbox">
+    <div v-show="optionsOpen" class="mw-ui-dropdown__options" role="listbox">
       <ul role="list">
         <li
           v-for="(option, i) in options"
@@ -45,8 +45,8 @@
           class="mw-ui-dropdown__option pa-1"
           :aria-selected="i === selectedIndex"
           :class="i === selectedIndex ? 'mw-ui-dropdown__option--selected' : ''"
-          @click="onOptionClick(i)"
           tabindex="-1"
+          @click="onOptionClick(i)"
         >
           <slot name="option" v-bind="{ option, index: i }">
             {{ option.label }}
@@ -62,16 +62,10 @@ import MwIcon from "./MWIcon";
 import { mwIconExpand } from "./icons";
 
 export default {
-  name: "mw-dropdown",
+  name: "MwDropdown",
   components: {
     MwIcon
   },
-  data: () => ({
-    mwIconExpand,
-    optionsOpen: false,
-    focused: false,
-    selectedIndex: -1
-  }),
   props: {
     disabled: Boolean,
     /**
@@ -112,6 +106,12 @@ export default {
       default: mwIconExpand
     }
   },
+  data: () => ({
+    mwIconExpand,
+    optionsOpen: false,
+    focused: false,
+    selectedIndex: -1
+  }),
   computed: {
     classes() {
       return {

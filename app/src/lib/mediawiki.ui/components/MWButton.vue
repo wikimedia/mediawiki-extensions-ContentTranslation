@@ -1,8 +1,8 @@
 <template>
   <component
-    :class="classes"
     :is="component"
     :id="id"
+    :class="classes"
     :href="href"
     :disabled="disabled"
     @click="handleClick"
@@ -16,8 +16,8 @@
     <slot>
       <span
         v-if="type !== 'icon' && label"
-        v-text="label"
         class="mw-ui-button__label"
+        v-text="label"
       />
     </slot>
     <mw-icon
@@ -33,7 +33,7 @@
 import MwIcon from "./MWIcon";
 
 export default {
-  name: "mw-button",
+  name: "MwButton",
   components: {
     MwIcon
   },

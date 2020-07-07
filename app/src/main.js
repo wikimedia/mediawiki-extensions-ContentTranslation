@@ -16,6 +16,6 @@ Vue.use(i18n, {
 
 new Vue({
   store,
-  render: h => h(App),
-  el: "#cxdashboard"
+  el: "#cxdashboard",
+  render: h => h(App)
 });

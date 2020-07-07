@@ -3,8 +3,8 @@
     v-model="languages"
     class="mw-ui-language-selector"
     :icon="mwIconSearch"
-    optionLabel="name"
-    optionValue="code"
+    option-label="name"
+    option-value="code"
     :placeholder="placeholder"
     @select="onSelect"
   >
@@ -26,10 +26,7 @@ import MwUiIcon from "./MWIcon";
 import { mwIconSearch } from "./icons";
 import MwSelect from "./MWSelect";
 export default {
-  name: "mw-language-selector",
-  data: () => ({
-    mwIconSearch
-  }),
+  name: "MwLanguageSelector",
   components: {
     MwSelect
   },
@@ -40,6 +37,9 @@ export default {
       default: () => []
     }
   },
+  data: () => ({
+    mwIconSearch
+  }),
   computed: {
     classes() {
       return {

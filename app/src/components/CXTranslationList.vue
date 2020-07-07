@@ -1,14 +1,14 @@
 <template>
   <mw-card
-    :class="`cx-translation-list--${translationStatus}`"
     v-show="active"
+    :class="`cx-translation-list--${translationStatus}`"
     :title="$i18n(`cx-translation-label-${translationStatus}`)"
   >
     <mw-spinner v-if="!loaded" />
     <div
-      class="row pa-0 ma-0"
-      :key="`${translationStatus}-${index}`"
       v-for="(translation, index) in translations"
+      :key="`${translationStatus}-${index}`"
+      class="row pa-0 ma-0"
     >
       <cx-translation-work
         class="col-12 pa-0 ma-0"
@@ -25,7 +25,7 @@ import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import { mapState } from "vuex";
 
 export default {
-  name: "cx-translation-list",
+  name: "CxTranslationList",
   components: {
     CxTranslationWork,
     MwCard,

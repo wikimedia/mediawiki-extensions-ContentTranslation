@@ -1,9 +1,9 @@
 <template>
   <mw-dialog
-    class="sx-article-selector"
     v-show="active"
-    @close="onClose()"
+    class="sx-article-selector"
     :fullscreen="true"
+    @close="onClose()"
   >
     <template slot="header">
       <div class="row sx-article-selector__header ma-0 pa-2">
@@ -55,8 +55,8 @@
       >
         <!-- Font weight bold -->
         <div
-          class="col-8"
           v-i18n:cx-sx-existing-translation-status="[targetLanguageAutonym]"
+          class="col-8"
         ></div>
         <div class="col-4 justify-end">
           <a v-i18n:cx-sx-view-translation-anchor href="#"></a>
@@ -78,24 +78,24 @@
           :large="true"
           :progressive="true"
           :disabled="missingSectionsCount === 0"
-          @click="onSectionSelectorClick()"
           :label="$i18n('cx-sx-select-section')"
+          @click="onSectionSelectorClick()"
         ></mw-button>
         <mw-button
           v-else
           :large="true"
           :progressive="true"
-          @click="onSectionSelectorClick()"
           :label="$i18n('cx-sx-start-translation-button-label')"
+          @click="onSectionSelectorClick()"
         ></mw-button>
       </div>
       <div
-        class="row sx-article-selector__action justify-center pb-2 mb-4"
         v-if="missingSectionsCount"
         v-i18n:cx-sx-missing-section-stats="[
           missingSectionsCount,
           targetLanguageAutonym
         ]"
+        class="row sx-article-selector__action justify-center pb-2 mb-4"
       ></div>
       <div class="row sx-article-selector__license justify-center ma-0">
         <p class="pa-3">
@@ -131,8 +131,7 @@ import {
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
-  name: "sx-article-selector",
-  mixins: [autonymMixin],
+  name: "SxArticleSelector",
   components: {
     MwDialog,
     MwIcon,
@@ -140,6 +139,13 @@ export default {
     SxSectionSelector,
     SxArticleLanguageSelector,
     MwButton
+  },
+  mixins: [autonymMixin],
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
   },
   data: () => ({
     mwIconClose,
@@ -149,12 +155,6 @@ export default {
     mwIconArrowNext,
     showSectionTranslation: false
   }),
-  props: {
-    active: {
-      type: Boolean,
-      default: false
-    }
-  },
   computed: {
     ...mapState({
       currentSectionSuggestion: state =>
@@ -198,6 +198,12 @@ export default {
       );
     }
   },
+  mounted: function() {
+    this.$store.dispatch("mediawiki/fetchLanguageTitles", {
+      language: this.sourceLanguage,
+      title: this.sourceTitle
+    });
+  },
   methods: {
     onClose() {
       this.$emit("close");
@@ -227,12 +233,6 @@ export default {
       this.$emit("section-listing-close");
       this.$emit("close");
     }
-  },
-  mounted: function() {
-    this.$store.dispatch("mediawiki/fetchLanguageTitles", {
-      language: this.sourceLanguage,
-      title: this.sourceTitle
-    });
   }
 };
 </script>

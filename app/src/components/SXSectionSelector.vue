@@ -1,18 +1,18 @@
 <template>
   <mw-dialog
-    class="sx-selector"
     v-show="active"
-    @close="onClose()"
+    class="sx-selector"
     animation="slide-up"
     :fullscreen="true"
+    @close="onClose()"
   >
     <template slot="header">
       <div class="sx-selector__header pa-4">
         <div class="row justify-start ma-0 pb-3">
           <div class="col-11">
             <h3
-              class="sx-selector__header-text ma-0"
               v-i18n:cx-sx-section-selector-title
+              class="sx-selector__header-text ma-0"
             ></h3>
             <h2 class="sx-selector__title ma-0 pb-0">
               {{ suggestion.sourceTitle }}
@@ -23,18 +23,18 @@
               class="pa-0"
               :large="true"
               type="icon"
-              @click="onClose()"
               :icon="mwIconClose"
+              @click="onClose()"
             />
           </div>
         </div>
         <h3
-          class="row justify-start pt-0 ps-1 ma-0"
           v-i18n:cx-sx-section-selector-subtitle
+          class="row justify-start pt-0 ps-1 ma-0"
         ></h3>
         <p
-          class="row justify-start ps-1 ma-0"
           v-i18n:cx-sx-section-selector-desc
+          class="row justify-start ps-1 ma-0"
         ></p>
       </div>
     </template>
@@ -42,19 +42,19 @@
       <sx-article-language-selector />
       <div class="sx-selector__missing-sections py-2 px-3">
         <h4
-          class="py-3 ps-1 sx-selector__list-title"
           v-i18n:cx-sx-section-selector-missing-sections-title="[
             targetLanguageAutonym
           ]"
+          class="py-3 ps-1 sx-selector__list-title"
         ></h4>
         <ul
-          class="sx-selector__missing-sections-list ma-0"
           v-if="!emptyMissingSections"
+          class="sx-selector__missing-sections-list ma-0"
         >
           <li
-            class="row py-3 ma-0"
             v-for="(sourceSection, key) in suggestion.missingSections"
             :key="key"
+            class="row py-3 ma-0"
           >
             <mw-button
               class="col-12 justify-between pa-0"
@@ -67,7 +67,7 @@
           </li>
         </ul>
         <!--        // TODO: Complete empty missing sections state in another iteration (alignment and illustration missing)-->
-        <div class="row px-4" v-if="emptyMissingSections">
+        <div v-if="emptyMissingSections" class="row px-4">
           <div class="col-12 pa-0">
             <h6 v-i18n:cx-sx-section-selector-empty-missing-sections-title></h6>
           </div>
@@ -83,16 +83,16 @@
       </div>
       <div class="sx-selector__present-sections py-2 px-3">
         <h4
-          class="py-3 ps-1 sx-selector__list-title"
           v-i18n:cx-sx-section-selector-present-sections-title="[
             targetLanguageAutonym
           ]"
+          class="py-3 ps-1 sx-selector__list-title"
         ></h4>
         <ul class="sx-selector__present-sections-list ma-0">
           <li
-            class="row py-3 ma-0"
             v-for="(sourceSection, key) in suggestion.presentSections"
             :key="key"
+            class="row py-3 ma-0"
           >
             <mw-button
               class="col-12 justify-between pa-0"
@@ -115,10 +115,10 @@
       </div>
       <div class="py-2 px-3">
         <h4
-          class="py-3 ps-1 sx-selector__list-title"
           v-i18n:cx-sx-section-selector-more-details-title="[
             targetLanguageAutonym
           ]"
+          class="py-3 ps-1 sx-selector__list-title"
         ></h4>
         <ul class="ma-0">
           <li class="row py-3 ma-0">
@@ -166,8 +166,8 @@
               v-i18n:cx-sx-section-selector-automatic-section-matching-description
             ></p>
             <a
-              href="#"
               v-i18n:cx-sx-section-selector-learn-more-anchor-label
+              href="#"
             ></a>
           </div>
         </div>
@@ -183,8 +183,8 @@
               }}
             </p>
             <a
-              href="#"
               v-i18n:cx-sx-section-selector-learn-more-anchor-label
+              href="#"
             ></a>
           </div>
         </div>
@@ -210,16 +210,9 @@ import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
-  name: "sx-section-selector",
+  name: "SxSectionSelector",
   components: { MwIcon, MwDialog, MwButton, SxArticleLanguageSelector },
   mixins: [autonymMixin],
-  data: () => ({
-    mwIconClose,
-    mwIconArrowForward,
-    mwIconLinkExternal,
-    mwIconRobot,
-    mwIconLabFlask
-  }),
   props: {
     active: {
       type: Boolean,
@@ -229,6 +222,13 @@ export default {
       type: SectionSuggestion
     }
   },
+  data: () => ({
+    mwIconClose,
+    mwIconArrowForward,
+    mwIconLinkExternal,
+    mwIconRobot,
+    mwIconLabFlask
+  }),
   computed: {
     sourceLanguageAutonym() {
       return this.getAutonym(this.suggestion.sourceLanguage);

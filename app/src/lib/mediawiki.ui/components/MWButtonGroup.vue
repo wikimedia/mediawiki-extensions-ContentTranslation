@@ -1,9 +1,9 @@
 <template>
-  <div class="row mw-ui-button-group ma-0 pa-0" :class="classes" :id="id">
+  <div :id="id" class="row mw-ui-button-group ma-0 pa-0" :class="classes">
     <mw-button
       v-for="item in items"
-      :class="`ma-0 col-${12 / items.length}`"
       :key="item.value"
+      :class="`ma-0 col-${12 / items.length}`"
       :value="item.value"
       :aria-selected="active === item.value"
       :depressed="active === item.value"
@@ -17,7 +17,7 @@
 import MwButton from "./MWButton";
 
 export default {
-  name: "mw-button-group",
+  name: "MwButtonGroup",
   components: {
     MwButton
   },

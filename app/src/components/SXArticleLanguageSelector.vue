@@ -5,9 +5,9 @@
         :indicator="mwIconExpand"
         :large="true"
         :outlined="false"
-        @click="openSourceLanguageDialog"
         class="pa-3 sx-article-language-selector__button"
         type="text"
+        @click="openSourceLanguageDialog"
       >
         <span
           class="mw-ui-autonym"
@@ -16,8 +16,8 @@
         ></span>
       </mw-button>
       <mw-dialog
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
         v-show="sourceLanguageSelectOn"
+        :title="$i18n('cx-sx-language-selector-dialog-title')"
         animation="slide-up"
         :fullscreen="true"
         @close="onSourceLanguageDialogClose"
@@ -42,9 +42,9 @@
         :indicator="mwIconExpand"
         :large="true"
         :outlined="false"
-        @click="targetLanguageSelectOn = true"
         class="pa-3 sx-article-language-selector__button"
         type="text"
+        @click="targetLanguageSelectOn = true"
       >
         <span
           class="mw-ui-autonym"
@@ -53,8 +53,8 @@
         ></span>
       </mw-button>
       <mw-dialog
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
         v-show="targetLanguageSelectOn"
+        :title="$i18n('cx-sx-language-selector-dialog-title')"
         animation="slide-up"
         :fullscreen="true"
         @close="targetLanguageSelectOn = false"
@@ -84,7 +84,7 @@ import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
 
 export default {
-  name: "sx-article-language-selector",
+  name: "SxArticleLanguageSelector",
   components: {
     MwLanguageSelector,
     MwDialog,

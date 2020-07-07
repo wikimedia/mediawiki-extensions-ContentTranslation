@@ -6,14 +6,15 @@
           v-if="icon"
           :icon="icon"
           :size="iconSize"
-          @click.stop="onClick()"
           class="mw-ui-select__icon shrink"
+          @click.stop="onClick()"
         ></mw-icon>
       </slot>
       <slot name="input" v-bind="{ selectedOption }">
         <input
-          class="mw-ui-select__input grow"
           ref="input"
+          v-model.trim="query"
+          class="mw-ui-select__input grow"
           :disabled="disabled"
           :aria-disabled="disabled"
           aria-autocomplete="list"
@@ -21,7 +22,6 @@
           role="combobox"
           :aria-label="selectedLabel || placeholder"
           :placeholder="selectedLabel || placeholder"
-          v-model.trim="query"
           v-bind="$attrs"
           @focus="onFocus"
           @keydown.down.prevent="next()"
@@ -37,12 +37,12 @@
           v-if="indicator"
           :icon="indicator"
           :size="indicatorSize || iconSize"
-          @click.stop="toggle()"
           class="mw-ui-select__indicator shrink"
+          @click.stop="toggle()"
         ></mw-icon>
       </slot>
     </div>
-    <div class="mw-ui-select__options" v-show="optionsOpen" role="listbox">
+    <div v-show="optionsOpen" class="mw-ui-select__options" role="listbox">
       <div
         v-if="query && options_.length === 0"
         disabled="true"
@@ -63,8 +63,8 @@
           class="mw-ui-select__option pa-1"
           :aria-selected="i === selectedIndex"
           :class="i === selectedIndex ? 'mw-ui-select__option--selected' : ''"
-          @click="onOptionClick(i)"
           tabindex="-1"
+          @click="onOptionClick(i)"
         >
           <slot name="option" v-bind="{ option, index: i }">
             {{ option.label }}
@@ -81,17 +81,10 @@ import MwIcon from "./MWIcon";
 import { mwIconExpand, mwIconSearch } from "./icons";
 
 export default {
-  name: "mw-select",
+  name: "MwSelect",
   components: {
     MwIcon
   },
-  data: () => ({
-    query: "", //selectedOption && selectedOption.label
-    mwIconExpand,
-    optionsOpen: false,
-    focused: false,
-    selectedIndex: -1
-  }),
   props: {
     disabled: Boolean,
     /**
@@ -147,6 +140,13 @@ export default {
         ~(value + "").toLowerCase().indexOf(query.toLowerCase())
     }
   },
+  data: () => ({
+    query: "", //selectedOption && selectedOption.label
+    mwIconExpand,
+    optionsOpen: false,
+    focused: false,
+    selectedIndex: -1
+  }),
   computed: {
     classes() {
       return {

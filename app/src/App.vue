@@ -27,7 +27,7 @@ import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
 import "./lib/mediawiki.ui/grid.scss";
 
 export default {
-  name: "cx-dashboard-app",
+  name: "CxDashboardApp",
   components: { MwButton, CxHeader, CxDashboard },
   data: () => ({ mwIconAdd })
 };

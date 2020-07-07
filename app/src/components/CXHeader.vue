@@ -21,7 +21,7 @@
         outlined
         :icon="mwIconUserAvatar"
         :label="username"
-        :indicatorSize="18"
+        :indicator-size="18"
         :indicator="mwIconExpand"
       />
       <mw-button
@@ -46,7 +46,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 
 export default {
-  name: "cx-header",
+  name: "CxHeader",
   components: {
     MwButton
   },
