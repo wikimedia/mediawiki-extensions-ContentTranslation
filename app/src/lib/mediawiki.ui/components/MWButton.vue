@@ -15,7 +15,7 @@
     ></mw-icon>
     <slot>
       <span
-        v-if="type !== 'icon' && label"
+        v-if="!isIcon && label"
         class="mw-ui-button__label"
         v-text="label"
       />
@@ -87,13 +87,16 @@ export default {
         "mw-ui-button--large": this.large,
         "mw-ui-button--progressive": this.progressive,
         "mw-ui-button--destructive": this.destructive,
-        "mw-ui-button--icon": this.type === "icon",
+        "mw-ui-button--icon": this.isIcon,
         "mw-ui-button--outlined": this.outlined,
         "mw-ui-button--text": this.type === "text"
       };
     },
     hasIndicatorClickListener() {
       return !!this.$listeners["indicator-icon-clicked"];
+    },
+    isIcon() {
+      return this.type === "icon";
     }
   },
   methods: {
@@ -132,9 +135,13 @@ export default {
     );
   }
 
-  .mw-ui-button__icon + .mw-ui-button__label,
-  .mw-ui-button__label + .mw-ui-button__indicator {
-    padding-left: 8px;
+  &:not(.mw-ui-button--icon) {
+    .mw-ui-button__icon {
+      padding-right: 8px;
+    }
+    .mw-ui-button__indicator {
+      padding-left: 8px;
+    }
   }
 
   // Do not break words in buttons.
