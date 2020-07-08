@@ -56,7 +56,7 @@
   "bundlesize": [
     {
       "path": "dist/js/cxdashboard.js",
-      "maxSize": "10.00KB"
+      "maxSize": "12.00KB"
     },
     {
       "path": "dist/js/cxdashboard.libs.js",
