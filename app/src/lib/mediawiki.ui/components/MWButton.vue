@@ -25,6 +25,9 @@
       :icon="indicator"
       :size="large ? 28 : indicatorSize || iconSize"
       class="mw-ui-button__indicator"
+      @click.stop="
+        hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
+      "
     ></mw-icon>
   </component>
 </template>
@@ -88,6 +91,9 @@ export default {
         "mw-ui-button--outlined": this.outlined,
         "mw-ui-button--text": this.type === "text"
       };
+    },
+    hasIndicatorClickListener() {
+      return !!this.$listeners["indicator-icon-clicked"];
     }
   },
   methods: {

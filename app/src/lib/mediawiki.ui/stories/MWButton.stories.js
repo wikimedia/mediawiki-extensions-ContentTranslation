@@ -1,5 +1,6 @@
 import MwButton from "../components/MWButton.vue";
 import { withA11y } from "@storybook/addon-a11y";
+import { action } from "@storybook/addon-actions";
 import {
   withKnobs,
   boolean,
@@ -55,7 +56,15 @@ export const DifferentButtons = () => ({
         ["button", "toggle", "icon", "text"],
         "button"
       )
+    },
+    hasIndicatorClickListener: {
+      default: boolean("Indicator click event listener", true)
     }
   },
-  template: `<mw-button :large="large" :progressive="progressive" :destructive="destructive" :outlined="outlined" :type="type" :icon="icons[icon]"  :indicator="icons[indicator]" :href="href" :block="block" :label="label"></mw-button>`
+  methods: {
+    onIndicatorClick() {
+      action("indicator-click")(`Clicked`);
+    }
+  },
+  template: `<mw-button :large="large" :progressive="progressive" :destructive="destructive" :outlined="outlined" :type="type" :icon="icons[icon]"  :indicator="icons[indicator]" :href="href" :block="block" :label="label" v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"></mw-button>`
 });
