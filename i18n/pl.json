@@ -135,7 +135,7 @@
 	"cx-translation-filter-draft-translations": "W trakcie",
 	"cx-translation-filter-suggested-translations": "Sugestie",
 	"cx-suggestionlist-favorite": "Na potem",
-	"cx-suggestionlist-title": "Proponowane strony",
+	"cx-suggestionlist-title": "Sugestie",
 	"cx-suggestionlist-empty-title": "Na razie brak propozycji",
 	"cx-suggestionlist-empty-desc": "Na razie brak propozycji. Możesz sprawdzić później lub znaleźć strony do przetłumaczenia za pomocą naszego rekomendowanego narzędzia (eksperymentalne).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Zobacz propozycje (eksperymentalne)",
@@ -336,5 +336,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Sekcje są identyfikowane automatycznie i rezultaty nie zawsze są prawidłowe.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Dowiedz się więcej",
 	"cx-sx-section-selector-unsupported-sections-title": "Niewspierane sekcje",
-	"cx-sx-section-selector-unsupported-sections-description": "Niektóre sekcje mogą nie pojawiać się na liście, ponieważ ich zawartość nie jest jeszcze wspierana."
+	"cx-sx-section-selector-unsupported-sections-description": "Niektóre sekcje mogą nie pojawiać się na liście, ponieważ ich zawartość nie jest jeszcze wspierana.",
+	"cx-suggestion-list-new-pages-division": "Nowe strony"
 }

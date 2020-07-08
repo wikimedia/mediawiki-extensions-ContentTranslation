@@ -113,7 +113,7 @@
 	"cx-translation-filter-draft-translations": "Во тек",
 	"cx-translation-filter-suggested-translations": "Предлози",
 	"cx-suggestionlist-favorite": "За подоцна",
-	"cx-suggestionlist-title": "Предложени страници",
+	"cx-suggestionlist-title": "Предлози",
 	"cx-suggestionlist-empty-title": "Засега нема предлози",
 	"cx-suggestionlist-empty-desc": "Не најдов предлози. Можете да проверите подоцна или да најдете релевантни страници користејќи ја нашата алатка за препораки (пробно).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Види предлози (пробно)",
@@ -323,5 +323,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Поднасловите се пронаоаѓаат автоматски, и добиеното не е секогаш точно.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Дознајте повеќе",
 	"cx-sx-section-selector-unsupported-sections-title": "Неподдржани поднаслови",
-	"cx-sx-section-selector-unsupported-sections-description": "Некои поднаслови може да не стојат на списокот бидеќи нивната содржина засега не е поддржана."
+	"cx-sx-section-selector-unsupported-sections-description": "Некои поднаслови може да не стојат на списокот бидеќи нивната содржина засега не е поддржана.",
+	"cx-suggestion-list-new-pages-division": "Нови страници"
 }

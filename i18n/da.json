@@ -119,7 +119,7 @@
 	"cx-translation-filter-draft-translations": "Igangværende",
 	"cx-translation-filter-suggested-translations": "Forslag",
 	"cx-suggestionlist-favorite": "Til senere",
-	"cx-suggestionlist-title": "Foreslåede sider",
+	"cx-suggestionlist-title": "Forslag",
 	"cx-suggestionlist-empty-title": "Ingen forslag i øjeblikket",
 	"cx-suggestionlist-empty-desc": "Vi fandt ingen forslag. Du kan prøve igen senere, eller finde relevante sider ved hjælp af forslagværktøjet (eksperimentelt).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Vis forslag (eksperimentelt)",
@@ -282,5 +282,6 @@
 	"cx-sx-existing-translation-learn-more": "Lær mere",
 	"cx-sx-section-selector-more-details-title": "Flere detaljer",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Vælg en anden side",
-	"cx-sx-section-selector-learn-more-anchor-label": "Lær mere"
+	"cx-sx-section-selector-learn-more-anchor-label": "Lær mere",
+	"cx-suggestion-list-new-pages-division": "Nye sider"
 }

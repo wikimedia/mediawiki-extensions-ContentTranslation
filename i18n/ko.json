@@ -132,7 +132,7 @@
 	"cx-translation-filter-draft-translations": "진행 중",
 	"cx-translation-filter-suggested-translations": "제안",
 	"cx-suggestionlist-favorite": "나중에",
-	"cx-suggestionlist-title": "제안 문서",
+	"cx-suggestionlist-title": "제안",
 	"cx-suggestionlist-empty-title": "현재로서는 제안이 없습니다",
 	"cx-suggestionlist-empty-desc": "제안을 찾을 수 없습니다. 나중에 다시 확인하거나 혹은 추천 도구를 사용하여 관련 있는 문서를 찾을 수 있습니다.(실험용)",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "추천 보기(실험용)",
@@ -326,5 +326,8 @@
 	"cx-sx-language-selector-dialog-title": "언어 검색",
 	"cx-sx-existing-translation-status": "$1에 이미 존재합니다",
 	"cx-sx-start-translation-button-label": "번역 시작",
-	"cx-sx-existing-translation-learn-more": "더 알아보기"
+	"cx-sx-existing-translation-learn-more": "더 알아보기",
+	"cx-sx-section-selector-pick-other-translation-button-label": "다른 페이지 선택",
+	"cx-sx-section-selector-learn-more-anchor-label": "더 알아보기",
+	"cx-suggestion-list-new-pages-division": "새 문서"
 }

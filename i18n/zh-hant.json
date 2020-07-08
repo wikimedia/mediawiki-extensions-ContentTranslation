@@ -125,7 +125,7 @@
 	"cx-translation-filter-draft-translations": "進行中",
 	"cx-translation-filter-suggested-translations": "建議",
 	"cx-suggestionlist-favorite": "稍後翻譯",
-	"cx-suggestionlist-title": "建議的頁面",
+	"cx-suggestionlist-title": "建議",
 	"cx-suggestionlist-empty-title": "目前無建議。",
 	"cx-suggestionlist-empty-desc": "我們沒有找到建議，您可稍後檢查或使用我們建議的工具尋找相關頁面 (實驗中)。",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "檢視建議（實驗）",
@@ -334,5 +334,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "會自動辨別各章節，但結果不一定準確。",
 	"cx-sx-section-selector-learn-more-anchor-label": "了解更多",
 	"cx-sx-section-selector-unsupported-sections-title": "不支援的章節",
-	"cx-sx-section-selector-unsupported-sections-description": "一些章節沒出現在清單裡，是因為尚不支援它們的內容。"
+	"cx-sx-section-selector-unsupported-sections-description": "一些章節沒出現在清單裡，是因為尚不支援它們的內容。",
+	"cx-suggestion-list-new-pages-division": "新頁面"
 }
