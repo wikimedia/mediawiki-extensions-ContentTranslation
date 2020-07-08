@@ -11,7 +11,7 @@
       v-if="icon"
       :icon="icon"
       :size="large ? 28 : iconSize"
-      class="mw-ui-button__icon me-2"
+      class="mw-ui-button__icon"
     ></mw-icon>
     <slot>
       <span
@@ -24,7 +24,7 @@
       v-if="indicator"
       :icon="indicator"
       :size="large ? 28 : indicatorSize || iconSize"
-      class="mw-ui-button__indicator ms-2"
+      class="mw-ui-button__indicator"
     ></mw-icon>
   </component>
 </template>
