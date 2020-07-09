@@ -6,9 +6,15 @@
         v-text="$i18n(`cx-translation-label-${translationStatus}`)"
       />
     </template>
+    <sx-translation-list-language-selector
+      :selected-source-language.sync="selectedSourceLanguage"
+      :selected-target-language.sync="selectedTargetLanguage"
+      :source-languages="availableSourceLanguages"
+      :target-languages="availableTargetLanguages"
+    />
     <mw-spinner v-if="!loaded" />
     <cx-translation-work
-      v-for="(translation, index) in translations"
+      v-for="(translation, index) in activeTranslations"
       :key="`${translationStatus}-${index}`"
       :translation="translation"
     />
@@ -19,15 +25,18 @@
 import MwCard from "../lib/mediawiki.ui/components/MWCard";
 import CxTranslationWork from "./CXTranslationWork";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
-import { mapState } from "vuex";
+import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 
 export default {
   name: "CxTranslationList",
   components: {
     CxTranslationWork,
     MwCard,
-    MwSpinner
+    MwSpinner,
+    SxTranslationListLanguageSelector
   },
+  mixins: [autonymMixin],
   props: {
     active: {
       type: Boolean,
@@ -39,25 +48,62 @@ export default {
         // The value must match one of these strings
         return ["published", "draft"].indexOf(value) !== -1;
       }
-    },
-    sourceLanguage: {
-      type: String,
-      default: "en"
-    },
-    targetLanguage: {
-      type: String
     }
   },
-  data: () => ({
-    loaded: false
-  }),
+  data() {
+    return {
+      loaded: false,
+      labelForAllTranslationsOption: this.$i18n('cx-translation-list-all-languages-option-label'),
+      selectedSourceLanguage: this.$i18n('cx-translation-list-all-languages-option-label'),
+      selectedTargetLanguage: this.$i18n('cx-translation-list-all-languages-option-label')
+    }
+  },
   computed: {
+    availableSourceLanguages() {
+      return this.translations
+        .map(translation => translation.sourceLanguage)
+        .filter((language, index, self) => self.indexOf(language) === index)
+        .reduce(
+          (languages, languageCode) => [
+            ...languages,
+            { name: this.getAutonym(languageCode), code: languageCode }
+          ],
+          [{ name: this.labelForAllTranslationsOption, code: this.labelForAllTranslationsOption }]
+        );
+    },
+    availableTargetLanguages() {
+      return this.translations
+        .map(translation => translation.targetLanguage)
+        .filter((language, index, self) => self.indexOf(language) === index)
+        .reduce(
+          (languages, languageCode) => [
+            ...languages,
+            { name: this.getAutonym(languageCode), code: languageCode }
+          ],
+          [{ name: this.labelForAllTranslationsOption, code: this.labelForAllTranslationsOption }]
+        );
+    },
     translations() {
       if (this.translationStatus === "published") {
         return this.$store.getters["translator/getPublishedTranslations"]();
       } else {
         return this.$store.getters["translator/getDraftTranslations"]();
       }
+    },
+    activeTranslations() {
+      return this.translations.filter(
+        translation =>
+          (this.isActiveForAllSourceLanguages ||
+            translation.sourceLanguage === this.selectedSourceLanguage) &&
+          (this.isActiveForAllTargetLanguages ||
+            translation.targetLanguage === this.selectedTargetLanguage)
+      );
+    },
+    isActiveForAllSourceLanguages() {
+      return this.selectedSourceLanguage === this.labelForAllTranslationsOption;
+    },
+    isActiveForAllTargetLanguages() {
+      return this.selectedTargetLanguage === this.labelForAllTranslationsOption;
     }
   },
   watch: {
