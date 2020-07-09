@@ -1,5 +1,9 @@
 <template>
-  <div v-if="suggestion" class="row cx-suggestion pa-4" @click="handleClick">
+  <div
+    v-if="suggestion"
+    class="row cx-suggestion pa-4 ma-0"
+    @click="handleClick"
+  >
     <div class="col shrink pe-4">
       <mw-thumbnail
         class="cx-suggestion__thumbnail"

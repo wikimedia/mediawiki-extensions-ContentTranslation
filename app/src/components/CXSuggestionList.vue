@@ -26,7 +26,6 @@
       <cx-translation-suggestion
         v-for="(suggestion, index) in pageSuggestionsForPairSubset"
         :key="`suggestion-${index}`"
-        class="ma-0"
         :suggestion="suggestion"
         :from="sourceLanguage"
         :to="targetLanguage"
@@ -219,23 +218,6 @@ export default {
         targetLanguage: this.targetLanguage
       });
       this.pageSuggestionsLoaded = false;
-    }
-  },
-  mounted: function() {
-    const urlParams = new URLSearchParams(location.search);
-    const isSectionTranslation = urlParams.get("sx");
-    const sourceLanguage = urlParams.get("from");
-    const targetLanguage = urlParams.get("to");
-    const sourceTitle = urlParams.get("page");
-    if (isSectionTranslation && sourceTitle) {
-      const suggestion = new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle,
-        missing: {}
-      });
-      this.startSectionTranslation(suggestion);
-      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
     }
   },
   mounted: function() {

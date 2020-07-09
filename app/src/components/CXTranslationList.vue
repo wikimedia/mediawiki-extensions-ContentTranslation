@@ -1,20 +1,17 @@
 <template>
-  <mw-card
-    v-show="active"
-    :class="`cx-translation-list--${translationStatus}`"
-    :title="$i18n(`cx-translation-label-${translationStatus}`)"
-  >
+  <mw-card v-show="active" :class="`cx-translation-list--${translationStatus}`">
+    <template slot="header">
+      <h3
+        class="mw-ui-card__title pa-4 pt-5 mb-0"
+        v-text="$i18n(`cx-translation-label-${translationStatus}`)"
+      />
+    </template>
     <mw-spinner v-if="!loaded" />
-    <div
+    <cx-translation-work
       v-for="(translation, index) in translations"
       :key="`${translationStatus}-${index}`"
-      class="row pa-0 ma-0"
-    >
-      <cx-translation-work
-        class="col-12 pa-0 ma-0"
-        :translation="translation"
-      />
-    </div>
+      :translation="translation"
+    />
   </mw-card>
 </template>
 
@@ -70,3 +67,13 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+.cx-translation-list--draft,
+.cx-translation-list--published {
+  // Override the card title style to adjust height
+  &.mw-ui-card > .mw-ui-card__title {
+    height: auto;
+  }
+}
+</style>
