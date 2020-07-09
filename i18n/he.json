@@ -9,6 +9,7 @@
 			"Lego770",
 			"Liuxinyu970226",
 			"Ronel1",
+			"Steeve815",
 			"Strayblues",
 			"Yona b",
 			"Петар Петковић",
@@ -120,7 +121,7 @@
 	"cx-translation-filter-draft-translations": "בעבודה",
 	"cx-translation-filter-suggested-translations": "הצעות",
 	"cx-suggestionlist-favorite": "מאוחר יותר",
-	"cx-suggestionlist-title": "דפים מוצעים",
+	"cx-suggestionlist-title": "הצעות",
 	"cx-suggestionlist-empty-title": "אין הצעות עכשיו",
 	"cx-suggestionlist-empty-desc": "לא מצאנו הצעות. אפשר לנסות מאוחר יותר, או למצוא דפים באמצעות כלי ההצעות החיצוני שלנו (ניסיוני).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "הצגת הצעות (ניסיוני)",
@@ -330,5 +331,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "הפסקאות מזוהות אוטומטית והתוצאות לא תמיד מדויקות.",
 	"cx-sx-section-selector-learn-more-anchor-label": "מידע נוסף",
 	"cx-sx-section-selector-unsupported-sections-title": "פסקאות לא נתמכות",
-	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפסקאות לא תופענה ברשימה כי התוכן שלהן עדיין לא נתמך."
+	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפסקאות לא תופענה ברשימה כי התוכן שלהן עדיין לא נתמך.",
+	"cx-suggestion-list-new-pages-division": "דפים חדשים"
 }

@@ -152,7 +152,7 @@
 	"cx-translation-filter-draft-translations": "En cours",
 	"cx-translation-filter-suggested-translations": "Suggestions",
 	"cx-suggestionlist-favorite": "Pour plus tard",
-	"cx-suggestionlist-title": "Pages suggérées",
+	"cx-suggestionlist-title": "Suggestions",
 	"cx-suggestionlist-empty-title": "Aucune suggestion pour le moment",
 	"cx-suggestionlist-empty-desc": "Nous n’avons trouvé aucune suggestion. Vous pouvez vérifier ultérieurement ou trouver des pages pertinentes en utilisant notre outil de recommandation (expérimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Afficher des suggestions (expérimental)",
@@ -361,5 +361,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Les sections sont identifiées automatiquement et les résultats ne correspondent pas toujours.",
 	"cx-sx-section-selector-learn-more-anchor-label": "En savoir plus",
 	"cx-sx-section-selector-unsupported-sections-title": "Sections non prises en compte",
-	"cx-sx-section-selector-unsupported-sections-description": "Certaines sections peuvent ne pas apparaître dans la liste parce que leur contenu n'est pas encore pris en charge."
+	"cx-sx-section-selector-unsupported-sections-description": "Certaines sections peuvent ne pas apparaître dans la liste parce que leur contenu n'est pas encore pris en charge.",
+	"cx-suggestion-list-new-pages-division": "Nouvelles pages"
 }

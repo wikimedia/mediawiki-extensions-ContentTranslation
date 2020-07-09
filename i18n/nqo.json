@@ -78,11 +78,12 @@
 	"cx-source-page-selector-input-placeholder": "ߞߐߜߍ߫ ߘߟߊߡߌ߬ߘߊ߬ߕߊ ߘߏ߫ ߢߌߣߌ߲߫",
 	"cx-source-page-selector-no-search-results": "ߞߐߜߍ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߬  \"$1\" ߦߋ߫ $2 ߘߐ߫",
 	"cx-selected-source-page-start-translation-button": "ߘߟߊߡߌߘߊߟߌ ߘߊߡߌ߬ߣߊ߬",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|ߓߐߒߡߊߟߌ߫ $1|ߓߐߒߡߊߟߌ $1 ߟߎ߬|߀=ߓߐߒߡߊߟߌ߫ ߡߊ߫ ߞߍ߫}} ߞߎ߲߬ߢߐ߮ ߣߌ߲߬ ߞߘߐ߫",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|ߓߐߒߡߊߟߌ߫ $1|ߓߐߒߡߊߟߌ $1 ߟߎ߬}} ߞߎ߲߬ߢߐ߮ ߣߌ߲߬ ߞߘߐ߫",
 	"cx-selected-source-page-error-page-and-title-exist": "ߞߎ߲߬ߕߐ߮ ߣߌ߲߬ ߓߘߊ߫ ߟߊߓߊ߯ߙߊ߫ [$1 $2] ߘߐ߫ ߞߘߐ߬ߡߊ߲߫߸ ߣߌ߫ [$3 ߟߋ߬߸ ߦߋ߫ ߞߐߜߍ߫ ߜߘߍ߫ ߟߋ߬ ߘߌ߫]",
 	"cx-selected-source-page-error-page-exists": "ߞߐߜߍ [$1 ߦߋ߫] $2 ߘߐ߫ ߞߘߐ߬ߡߊ߲߫",
 	"cx-selected-source-page-error-title-in-use": "ߘߐߜߍ߫ ߞߎߘߊ ߞߎ߲߬ߕߐ߮ ߦߋ߫ [$1 ߘߏ߲߬ ߟߊߓߊ߯ߙߊߣߍ߲߫ ߞߘߐ ߟߋ߬]",
 	"cx-favorite-added-for-later": "ߞߵߊ߬ ߟߊߘߏ߲߬ ߞߐ߯ߟߊ߫߹",
+	"cx-favorite-added-for-later-detail": "ߊ߬ ߓߘߊ߫ ߝߙߊ߬ ߞߐߝߍߟߊ ߦߋ߫߹ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߦߋߟߌ ߝߛߍ߬ߝߛߍ߫ ߥߊߕߌ߫ ߛߌ߫.",
 	"cx-favorite-removed": "ߊ߬ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫ ߤߣߍߣߊ߲ߕߊ ߛߙߍߘߍ ߟߎ߬ ߘߐ߫߹",
 	"cx-page-missing-in-target-language": "ߊ߬ ߕߍ߫ $1 ߘߐ߫",
 	"cx-page-number-of-languages": "ߞߊ߲ ߠߎ߬ ߦߙߌߞߊ",
@@ -99,7 +100,7 @@
 	"cx-translation-filter-draft-translations": "ߊ߬ ߓߘߊ߫ ߖߊ߲߬ߝߊ߬",
 	"cx-translation-filter-suggested-translations": "ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߟߎ߬",
 	"cx-suggestionlist-favorite": "ߞߐߝߍ߬",
-	"cx-suggestionlist-title": "ߞߐߜߍ ߞߎ߲߭ߦߌ߬ߘߊ߬ߣߍ߲ ߠߎ߬",
+	"cx-suggestionlist-title": "ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߟߎ߬",
 	"cx-suggestionlist-empty-title": "ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ߬ ߕߴߦߋ߲߬ ߕߊ߲߬",
 	"cx-suggestionlist-view-source-page": "ߞߐߜߍ ߛߎ߲ ߦߋ߫",
 	"cx-create-new-translation": "ߘߟߊߡߌߘߊߟߌ߫ ߞߎߘߊ",
@@ -231,6 +232,7 @@
 	"cx-tools-mt-new-providers-available": "ߢߣߊߕߊߟߌ߫ ߞߎߘߊ߫ ߘߌ߫",
 	"cx-continue-translation": "ߘߟߊߡߌߘߊߟߌ ߛߊߓߊ߲߫",
 	"cx-tools-template-title": "ߞߙߊߞߏ",
+	"cx-template-action-adapt": "ߓߐߢߐ߲߯ߞߏ߫ ߞߙߊߞߏ ߟߊߓߊ߯ߙߊ߫",
 	"cx-template-action-keep-original": "ߓߊߖߎ߫ ߞߙߊߞߏ ߟߊߡߙߊ߬",
 	"cx-template-action-skip": "ߌ ߜߊ߲߫ ߞߙߊߞߏ ߞߎ߲߬ߠߊ߫",
 	"cx-template-not-available": "ߕߍ߫ $1 ߘߐ߫",
@@ -278,5 +280,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "ߕߍߕߍ߮ ߟߎ߬ ߦߋ߫ ߡߊߟߐ߲߫ ߠߊ߫ ߞߍߒߖߘߍߦߋߓߟߏߡߊ߬ ߟߋ߬߸ ߊ߬ ߣߌ߫ ߞߐߝߟߌ ߘߏ߫ ߟߎ߫ ߝߊ߲߭ ߡߊ߫ ߡߊߕߍ߭ ߟߋ߬.",
 	"cx-sx-section-selector-learn-more-anchor-label": "ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
 	"cx-sx-section-selector-unsupported-sections-title": "ߕߍߕߍ߯ ߟߊߘߤߊ߬ߓߊߟߌ",
-	"cx-sx-section-selector-unsupported-sections-description": "ߕߎ߬ߡߊ߬ߘߐ߫ ߕߍߕߍ߮ ߘߏ߫ ߟߎ߫ ߕߍ߫ ߣߊ߬ ߦߌ߬ߘߊ߬ ߟߊ߫ ߛߙߍߘߍ ߘߐ߫߸ ߓߊߏ߬ ߊ߬ߟߎ߬ ߦߙߌߞߊ ߟߊߘߌ߬ߢߍ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬."
+	"cx-sx-section-selector-unsupported-sections-description": "ߕߎ߬ߡߊ߬ߘߐ߫ ߕߍߕߍ߮ ߘߏ߫ ߟߎ߫ ߕߍ߫ ߣߊ߬ ߦߌ߬ߘߊ߬ ߟߊ߫ ߛߙߍߘߍ ߘߐ߫߸ ߓߊߏ߬ ߊ߬ߟߎ߬ ߦߙߌߞߊ ߟߊߘߌ߬ߢߍ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬.",
+	"cx-suggestion-list-new-pages-division": "ߞߐߜߍ߫ ߞߎߘߊ ߟߎ߬"
 }

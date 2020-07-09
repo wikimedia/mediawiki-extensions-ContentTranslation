@@ -121,7 +121,7 @@
 	"cx-translation-filter-draft-translations": "In corso",
 	"cx-translation-filter-suggested-translations": "Suggerimenti",
 	"cx-suggestionlist-favorite": "Per dopo",
-	"cx-suggestionlist-title": "Pagine suggerite",
+	"cx-suggestionlist-title": "Suggerimenti",
 	"cx-suggestionlist-empty-title": "Nessun suggerimento, per ora",
 	"cx-suggestionlist-empty-desc": "Non è stato trovato alcun suggerimento. Puoi controllare più tardi o trovare pagine rilevanti utilizzando il nostro strumento di raccomandazione (sperimentale).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Vedi suggerimenti (sperimentale)",
@@ -287,5 +287,6 @@
 	"cx-sx-section-selector-more-details-title": "Ulteriori dettagli",
 	"cx-sx-section-selector-view-article-button-label": "Vedi voce in $1",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Seleziona un'altra pagina",
-	"cx-sx-section-selector-learn-more-anchor-label": "Ulteriori informazioni"
+	"cx-sx-section-selector-learn-more-anchor-label": "Ulteriori informazioni",
+	"cx-suggestion-list-new-pages-division": "Nuove pagine"
 }

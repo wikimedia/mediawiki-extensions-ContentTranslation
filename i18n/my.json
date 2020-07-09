@@ -102,7 +102,7 @@
 	"cx-translation-filter-draft-translations": "လုပ်ဆောင်နေဆဲအဆင့်",
 	"cx-translation-filter-suggested-translations": "အကြံပေးမှုများ",
 	"cx-suggestionlist-favorite": "နောင်အတွက်",
-	"cx-suggestionlist-title": "အကြံပြု စာမျက်နှာများ",
+	"cx-suggestionlist-title": "အကြံပြုချက်များ",
 	"cx-suggestionlist-empty-title": "ယခုအချိန်တွင် အကြံပြုချက်များ မရှိပါ",
 	"cx-suggestionlist-empty-desc": "အကြံပြုချက်များ မတွေ့ရှိပါ။ နောက်မှ စစ်ဆေးကြည့်နိုင်ပါသည်၊ သို့မဟုတ် ကျွန်ုပ်တို့ ထောက်ခံထားသော ကိရိယာကိုအသုံးပြု၍ ဆီလျော်သော စာမျက်နှာများကို ရှာဖွေနိုင်ပါသည်။ (စမ်းသပ်အဆင့်)",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "အကြံပြုချက်များ ကြည့်ရန် (စမ်းသပ်အဆင့်)",
@@ -269,5 +269,6 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "အခြားစာမျက်နှာကို ရွေးချယ်ပါ",
 	"cx-sx-section-selector-automatic-section-matching-title": "အလိုအလျောက် အပိုင်းကိုက်ညီမှု",
 	"cx-sx-section-selector-learn-more-anchor-label": "ပိုမို လေ့လာရန်",
-	"cx-sx-section-selector-unsupported-sections-title": "မထောက်ပံ့ထားသော အပိုင်းများ"
+	"cx-sx-section-selector-unsupported-sections-title": "မထောက်ပံ့ထားသော အပိုင်းများ",
+	"cx-suggestion-list-new-pages-division": "စာမျက်နှာအသစ်"
 }

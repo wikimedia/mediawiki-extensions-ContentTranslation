@@ -22,6 +22,7 @@
 			"Liuxinyu970226",
 			"Liye",
 			"Phenolla",
+			"Shuiwater",
 			"SomeyaMako",
 			"VulpesVulpes825",
 			"Xiaomingyan",
@@ -142,7 +143,7 @@
 	"cx-translation-filter-draft-translations": "进行中",
 	"cx-translation-filter-suggested-translations": "建议",
 	"cx-suggestionlist-favorite": "以后再说",
-	"cx-suggestionlist-title": "建议的页面",
+	"cx-suggestionlist-title": "建议",
 	"cx-suggestionlist-empty-title": "现在没有建议",
 	"cx-suggestionlist-empty-desc": "我们找不到建议。您可以稍后再看，或使用我们的推荐工具查找相关页面（实验性）。",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "查看建议（实验）",
@@ -340,5 +341,6 @@
 	"cx-sx-section-selector-more-details-title": "更多详情",
 	"cx-sx-section-selector-view-article-button-label": "查看$1中的文章",
 	"cx-sx-section-selector-pick-other-translation-button-label": "选择另一个页面",
-	"cx-sx-section-selector-learn-more-anchor-label": "了解更多"
+	"cx-sx-section-selector-learn-more-anchor-label": "了解更多",
+	"cx-suggestion-list-new-pages-division": "新页面"
 }
