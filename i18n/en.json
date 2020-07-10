@@ -342,5 +342,10 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Review the contents in both languages. ",
 	"cx-sx-content-comparator-additional-considerations-content": "Contents from the selected section may be already covered in the target article.",
 	"cx-sx-content-comparator-source-selector-title": "Section in $1",
-	"cx-sx-content-comparator-target-selector-title": "Full article in $1"
+	"cx-sx-content-comparator-target-selector-title": "Full article in $1",
+	"sx-quick-tutorial-main-point-step-1": "Translating a new section is easy, quick and fun!",
+	"sx-quick-tutorial-main-point-step-2": "Expand the knowledge one section at a time.",
+	"sx-quick-tutorial-secondary-point-step-1": "For each sentence, you’ll get an initial automatic translation <mark>for you to review and improve.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Publish when you are ready. Your translation will be added to the page, and you can pick another <mark>section next!</mark>",
+	"sx-quick-tutorial-translate-button-label": "Start translating"
 }

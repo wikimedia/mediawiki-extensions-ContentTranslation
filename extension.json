@@ -391,7 +391,12 @@
 				"cx-sx-content-comparator-additional-considerations-title",
 				"cx-sx-content-comparator-additional-considerations-content",
 				"cx-sx-content-comparator-source-selector-title",
-				"cx-sx-content-comparator-target-selector-title"
+				"cx-sx-content-comparator-target-selector-title",
+				"sx-quick-tutorial-main-point-step-1",
+				"sx-quick-tutorial-main-point-step-2",
+				"sx-quick-tutorial-secondary-point-step-1",
+				"sx-quick-tutorial-secondary-point-step-2",
+				"sx-quick-tutorial-translate-button-label"
 			],
 			"noflip": true
 		},

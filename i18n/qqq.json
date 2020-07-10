@@ -354,5 +354,10 @@
 	"cx-sx-content-comparator-additional-considerations-title": "First sentence of additional considerations section of content comparator",
 	"cx-sx-content-comparator-additional-considerations-content": "Rest content of additional considersations section of content comparator",
 	"cx-sx-content-comparator-source-selector-title": "Title for source option in source/target selector inside content comparator. \n\nParameters:\n* $1 - Autonym of the source language",
-	"cx-sx-content-comparator-target-selector-title": "Title for target option in source/target selector inside content comparator. \n\nParameters:\n* $1 - Autonym of the target language"
+	"cx-sx-content-comparator-target-selector-title": "Title for target option in source/target selector inside content comparator. \n\nParameters:\n* $1 - Autonym of the target language",
+	"sx-quick-tutorial-main-point-step-1": "Content of the main point in first step of the quick tutorial",
+	"sx-quick-tutorial-main-point-step-2": "Content of the main point in second step of the quick tutorial",
+	"sx-quick-tutorial-secondary-point-step-1": "Content of the secondary point in first step of the quick tutorial",
+	"sx-quick-tutorial-secondary-point-step-2": "Content of the secondary point in second step of the quick tutorial",
+	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial"
 }

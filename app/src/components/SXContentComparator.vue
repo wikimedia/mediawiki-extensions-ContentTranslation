@@ -46,7 +46,8 @@
             :label="
               $i18n('cx-sx-content-comparator-translation-section-button-label')
             "
-          ></mw-button>
+            @click="translateSection"
+          />
         </div>
         <div class="flex py-2">
           <div class="shrink pe-2">
@@ -85,10 +86,14 @@
       <mw-spinner v-if="!targetPage.content" />
       <p v-html="targetPage.content"></p>
     </div>
+    <sx-quick-tutorial
+      :active.sync="tutorialActive"
+    />
   </mw-dialog>
 </template>
 
 <script>
+import SxQuickTutorial from "./SXQuickTutorial";
 import {
   mwIconPrevious,
   mwIconArrowForward,
@@ -111,7 +116,8 @@ export default {
     MWIcon,
     MwButton,
     MwDialog,
-    MwSpinner
+    MwSpinner,
+    SxQuickTutorial
   },
   mixins: [autonymMixin],
   props: {
@@ -135,7 +141,8 @@ export default {
     mwIconArrowForward,
     mwIconArrowPrevious,
     contentComparatorActive: false,
-    sourceVsTargetSelection: "source_section"
+    sourceVsTargetSelection: "source_section",
+    tutorialActive: false
   }),
   watch: {
     sourcePage() {
@@ -201,6 +208,11 @@ export default {
         }
       ];
     }
+  },
+  methods: {
+    translateSection() {
+      this.tutorialActive = true;
+    },
   }
 };
 </script>
