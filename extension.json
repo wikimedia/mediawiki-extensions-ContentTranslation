@@ -396,7 +396,13 @@
 				"sx-quick-tutorial-main-point-step-2",
 				"sx-quick-tutorial-secondary-point-step-1",
 				"sx-quick-tutorial-secondary-point-step-2",
-				"sx-quick-tutorial-translate-button-label"
+				"sx-quick-tutorial-translate-button-label",
+				"cx-sx-sentence-selector-header-title",
+				"cx-sx-sentence-selector-done-button-label",
+				"cx-sx-sentence-selector-proposed-translation-title",
+				"cx-sx-sentence-selector-edit-translation-button-label",
+				"cx-sx-sentence-selector-apply-translation-button-label",
+				"cx-sx-sentence-selector-skip-translation-button-label"
 			],
 			"noflip": true
 		},

@@ -284,7 +284,8 @@ export default {
     mwIconRobot,
     mwIconLabFlask,
     contentComparatorActive: false,
-    selectedMissingSectionKey: ""
+    selectedMissingSectionKey: "",
+    sectionToTranslate: null,
   }),
   computed: {
     sourceLanguageAutonym() {

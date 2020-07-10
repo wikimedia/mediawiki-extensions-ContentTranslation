@@ -359,5 +359,11 @@
 	"sx-quick-tutorial-main-point-step-2": "Content of the main point in second step of the quick tutorial",
 	"sx-quick-tutorial-secondary-point-step-1": "Content of the secondary point in first step of the quick tutorial",
 	"sx-quick-tutorial-secondary-point-step-2": "Content of the secondary point in second step of the quick tutorial",
-	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial"
+	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial",
+	"cx-sx-sentence-selector-header-title": "Title for header inside sentence selector",
+	"cx-sx-sentence-selector-done-button-label": "Label for done button inside sentence selector header",
+	"cx-sx-sentence-selector-proposed-translation-title": "Title for proposed sentence translation section inside sentence selector. \n\nParameters:\n* $1 - Name of selected MT provider",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Label for edit sentence translation button inside sentence selector",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Label for apply sentence translation button inside sentence selector",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Label for skip sentence translation button inside sentence selector"
 }

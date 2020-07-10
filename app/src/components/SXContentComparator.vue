@@ -59,10 +59,10 @@
             >
               <strong
                 v-i18n:cx-sx-content-comparator-additional-considerations-title
-              ></strong>
+              />
               <span
                 v-i18n:cx-sx-content-comparator-additional-considerations-content
-              ></span>
+              />
             </p>
           </div>
         </div>
@@ -89,11 +89,15 @@
     <sx-quick-tutorial
       :active.sync="tutorialActive"
     />
+    <sx-sentence-selector
+      :suggestion="suggestion"
+      :section-source-title="activeMissingSectionKey"
+      :active.sync="selectSentenceActive"
+    />
   </mw-dialog>
 </template>
 
 <script>
-import SxQuickTutorial from "./SXQuickTutorial";
 import {
   mwIconPrevious,
   mwIconArrowForward,
@@ -108,6 +112,8 @@ import MwButtonGroup from "../lib/mediawiki.ui/components/MWButtonGroup";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import autonymMixin from "../mixins/autonym";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+import SxQuickTutorial from "./SXQuickTutorial";
+import SxSentenceSelector from "./SXSentenceSelector";
 
 export default {
   name: "sx-content-comparator",
@@ -117,7 +123,8 @@ export default {
     MwButton,
     MwDialog,
     MwSpinner,
-    SxQuickTutorial
+    SxQuickTutorial,
+    SxSentenceSelector,
   },
   mixins: [autonymMixin],
   props: {
@@ -142,7 +149,8 @@ export default {
     mwIconArrowPrevious,
     contentComparatorActive: false,
     sourceVsTargetSelection: "source_section",
-    tutorialActive: false
+    tutorialActive: false,
+    selectSentenceActive: false
   }),
   watch: {
     sourcePage() {
@@ -211,7 +219,7 @@ export default {
   },
   methods: {
     translateSection() {
-      this.tutorialActive = true;
+      this.selectSentenceActive = true;
     },
   }
 };
