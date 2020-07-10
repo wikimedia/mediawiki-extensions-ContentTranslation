@@ -178,17 +178,20 @@ export const DialogWithCustomHeader = () => ({
     },
     fullscreen: {
       default: boolean("Fullscreen", false)
+    },
+    header: {
+      default: boolean("Header", true)
     }
   },
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen">
+    <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :header="header">
     <template v-slot:header>
       <div class="row">
-      <span class="col-1">
-      <mw-button type="icon" :icon="mwIconPrevious" v-on:click="onDialogClose()"></mw-button>
-      </span>
-      <span class="col-10 justify-start">{{title}}<span>
+        <span class="col-1">
+          <mw-button type="icon" :icon="mwIconPrevious" v-on:click="onDialogClose()"></mw-button>
+        </span>
+        <span class="col-10 justify-start items-center">{{title}}<span>
       </div>
     </template>
     <template v-slot:default><img :src="bodyImage"/></template>

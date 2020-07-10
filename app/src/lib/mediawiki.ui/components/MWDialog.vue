@@ -10,7 +10,7 @@
     >
       <div class="mw-ui-dialog__overlay" @click="close()" />
       <div class="mw-ui-dialog__shell items-stretch">
-        <slot name="header">
+        <slot name="header" v-if="header">
           <div class="mw-ui-dialog__header row ">
             <div
               class="col-11 items-center mw-ui-dialog__header-title justify-start"
@@ -67,6 +67,10 @@ export default {
       default: null
     },
     closeOnEscapeKey: {
+      type: Boolean,
+      default: true
+    },
+    header: {
       type: Boolean,
       default: true
     }
