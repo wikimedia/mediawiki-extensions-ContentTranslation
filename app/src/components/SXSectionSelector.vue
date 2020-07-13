@@ -102,7 +102,6 @@
           <div class="sx-selector__empty-missing-sections-details col-12 pa-0">
             <h6
               v-i18n:cx-sx-section-selector-empty-missing-sections-title
-              class=""
             ></h6>
           </div>
           <div
@@ -132,6 +131,7 @@
             v-for="(targetSection, sourceSection) in suggestion.presentSections"
             :key="sourceSection"
             class="row ma-0"
+            @click="selectSection(sourceSection)"
           >
             <mw-button
               class="col-12 justify-between items-center py-3 px-4"
@@ -236,7 +236,7 @@
     <sx-content-comparator
       :active.sync="contentComparatorActive"
       :suggestion="suggestion"
-      :active-missing-section-key="selectedMissingSectionKey"
+      :active-section-source-title="selectedSectionKey"
     />
   </mw-dialog>
 </template>
@@ -284,7 +284,7 @@ export default {
     mwIconRobot,
     mwIconLabFlask,
     contentComparatorActive: false,
-    selectedMissingSectionKey: "",
+    selectedSectionKey: "",
     sectionToTranslate: null,
   }),
   computed: {
@@ -310,7 +310,7 @@ export default {
     },
     selectSection(sourceSection) {
       this.contentComparatorActive = true;
-      this.selectedMissingSectionKey = sourceSection;
+      this.selectedSectionKey = sourceSection;
     }
   }
 };

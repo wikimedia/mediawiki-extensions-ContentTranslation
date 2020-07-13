@@ -388,8 +388,8 @@
 				"cx-translation-list-all-languages-option-label",
 				"cx-sx-content-comparator-back-to-sections-button-label",
 				"cx-sx-content-comparator-translation-section-button-label",
-				"cx-sx-content-comparator-additional-considerations-title",
-				"cx-sx-content-comparator-additional-considerations-content",
+				"cx-sx-content-comparator-review-contents-title",
+				"cx-sx-content-comparator-review-contents-rest",
 				"cx-sx-content-comparator-source-selector-title",
 				"cx-sx-content-comparator-target-selector-title",
 				"sx-quick-tutorial-main-point-step-1",
@@ -402,7 +402,12 @@
 				"cx-sx-sentence-selector-proposed-translation-title",
 				"cx-sx-sentence-selector-edit-translation-button-label",
 				"cx-sx-sentence-selector-apply-translation-button-label",
-				"cx-sx-sentence-selector-skip-translation-button-label"
+				"cx-sx-sentence-selector-skip-translation-button-label",
+				"cx-sx-content-comparator-target-selector-full-article-title",
+				"cx-sx-content-comparator-translation-section-button-label",
+				"cx-sx-content-comparator-mapped-section-header-title",
+				"cx-sx-content-comparator-target-selector-target-section-title",
+				"cx-sx-content-comparator-mapped-section-clarifications"
 			],
 			"noflip": true
 		},

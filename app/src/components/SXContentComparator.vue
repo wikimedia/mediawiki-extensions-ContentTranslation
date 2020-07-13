@@ -23,7 +23,7 @@
               {{ suggestion.sourceTitle }}
             </h4>
             <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
-              {{ activeMissingSectionKey }}
+              {{ activeSectionSourceTitle }}
             </h2>
           </div>
           <div class="col-xs-3 col-lg-1">
@@ -49,22 +49,50 @@
             @click="translateSection"
           />
         </div>
-        <div class="flex py-2">
+        <div
+            v-if="isMissingSection"
+            class="sx-content-comparator-header__additional-considerations--missing flex py-2"
+        >
           <div class="shrink pe-2">
-            <m-w-icon :icon="mwIconEye"></m-w-icon>
+            <mw-icon :icon="mwIconEye" />
           </div>
           <div>
-            <p
-              class="ma-0 sx-content-comparator-header__additional-considerations"
-            >
+            <p class="ma-0">
               <strong
-                v-i18n:cx-sx-content-comparator-additional-considerations-title
+                v-i18n:cx-sx-content-comparator-review-contents-title
               />
               <span
-                v-i18n:cx-sx-content-comparator-additional-considerations-content
+                v-i18n:cx-sx-content-comparator-review-contents-rest
               />
             </p>
           </div>
+        </div>
+        <div
+          v-else
+          class="sx-content-comparator-header__additional-considerations--present"
+        >
+          <div class="sx-content-comparator-header__additional-considerations-header--present row pa-2 ma-0">
+            <div class="col grow">
+              <h5
+                class="sx-content-comparator-header__additional-considerations-title--present pa-0 mb-1 ms-1"
+                v-i18n:cx-sx-content-comparator-mapped-section-header-title="[getAutonym(targetLanguage)]"
+              />
+              <h5 class="sx-content-comparator-header__additional-considerations-section-target-title pa-0 ms-1">
+                {{ activeSectionTargetTitle }}
+              </h5>
+            </div>
+            <div class="col shrink">
+              <mw-button
+                class="pa-0"
+                :icon="mwIconTrash"
+                type="icon"
+              />
+            </div>
+          </div>
+          <p
+            class="sx-content-comparator-header__additional-considerations-clarifications complementary pa-3 ma-0"
+            v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
+          />
         </div>
       </div>
     </template>
@@ -72,26 +100,35 @@
       <mw-button-group
         :items="listSelector"
         :active="sourceVsTargetSelection"
-        v-on:select="sourceVsTargetSelection = $event"
+        @select="sourceVsTargetSelection = $event"
       />
     </div>
-    <div
+    <section
       class="sx-content-comparator__source-content pa-4"
       v-if="sourceVsTargetSelection === 'source_section'"
     >
-      <h2>{{ activeMissingSectionKey }}</h2>
-      <p v-html="content"></p>
-    </div>
-    <div v-else>
+      <h2>{{ activeSectionSourceTitle }}</h2>
+      <p v-html="sourceSectionContent"></p>
+    </section>
+    <section
+      class="sx-content-comparator__source-content pa-4"
+      v-else-if="sourceVsTargetSelection === 'target_article'"
+    >
       <mw-spinner v-if="!targetPage.content" />
       <p v-html="targetPage.content"></p>
-    </div>
+    </section>
+    <section
+      class="sx-content-comparator__source-content pa-4"
+      v-else
+    >
+      <p v-html="targetSectionContent"></p>
+    </section>
     <sx-quick-tutorial
       :active.sync="tutorialActive"
     />
     <sx-sentence-selector
       :suggestion="suggestion"
-      :section-source-title="activeMissingSectionKey"
+      :section-source-title="activeSectionSourceTitle"
       :active.sync="selectSentenceActive"
     />
   </mw-dialog>
@@ -103,11 +140,12 @@ import {
   mwIconArrowForward,
   mwIconArrowPrevious,
   mwIconEdit,
-  mwIconEye
+  mwIconEye,
+  mwIconTrash
 } from "../lib/mediawiki.ui/components/icons";
 import MwButton from "../lib/mediawiki.ui/components/MWButton";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MWIcon from "../lib/mediawiki.ui/components/MWIcon";
+import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import MwButtonGroup from "../lib/mediawiki.ui/components/MWButtonGroup";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import autonymMixin from "../mixins/autonym";
@@ -119,7 +157,7 @@ export default {
   name: "sx-content-comparator",
   components: {
     MwButtonGroup,
-    MWIcon,
+    MwIcon,
     MwButton,
     MwDialog,
     MwSpinner,
@@ -136,7 +174,7 @@ export default {
       type: SectionSuggestion,
       required: true
     },
-    activeMissingSectionKey: {
+    activeSectionSourceTitle: {
       type: String,
       required: true
     }
@@ -147,6 +185,7 @@ export default {
     mwIconPrevious,
     mwIconArrowForward,
     mwIconArrowPrevious,
+    mwIconTrash,
     contentComparatorActive: false,
     sourceVsTargetSelection: "source_section",
     tutorialActive: false,
@@ -172,7 +211,7 @@ export default {
     /**
      * @return {PageSection[]}
      */
-    sections() {
+    sourcePageSections() {
       return this.sourcePage?.sections;
     },
     sourcePage() {
@@ -181,40 +220,76 @@ export default {
         this.suggestion.sourceTitle
       );
     },
+    /**
+     * @return {PageSection[]}
+     */
+    targetPageSections() {
+      return this.targetPage?.sections;
+    },
     targetPage() {
       return this.$store.getters["mediawiki/getPage"](
         this.suggestion.targetLanguage,
         this.suggestion.targetTitle
       );
     },
-    content() {
-      return (this.sections || []).find(
-        section => section.line === this.activeMissingSectionKey
+    // Needed so that it can be easily watched
+    targetTitle() {
+      return this.suggestion.targetTitle;
+    },
+    missingSections() {
+      return this.suggestion.missingSections;
+    },
+    activeSectionTargetTitle() {
+      return this.missingSections[this.activeSectionSourceTitle]
+          || this.suggestion.presentSections[this.activeSectionSourceTitle];
+    },
+    sourceSectionContent() {
+      return (this.sourcePageSections || []).find(
+          section => section.line === this.activeSectionSourceTitle
       )?.text;
     },
+    targetSectionContent() {
+      return (this.targetPageSections || []).find(
+          section => section.line === this.activeSectionSourceTitle
+      )?.text;
+    },
+    isMissingSection() {
+      return this.missingSections.hasOwnProperty(this.activeSectionSourceTitle);
+    },
+    isPresentSection() {
+      return !this.isMissingSection && true;
+    },
     listSelector() {
-      return [
-        {
-          value: "source_section",
-          props: {
-            label: this.$i18n(
-              "cx-sx-content-comparator-source-selector-title",
-              this.getAutonym(this.suggestion.sourceLanguage)
-            ),
-            type: "text"
-          }
-        },
-        {
-          value: "target_article",
-          props: {
-            label: this.$i18n(
-              "cx-sx-content-comparator-target-selector-title",
-              this.getAutonym(this.suggestion.targetLanguage)
-            ),
-            type: "text"
-          }
+      const sourceSelectorItem = {
+        value: "source_section",
+        props: {
+          label: this.$i18n(
+            "cx-sx-content-comparator-source-selector-title",
+            this.getAutonym(this.suggestion.sourceLanguage)
+          ),
+          type: "text"
         }
-      ];
+      };
+      const targetSelectorItem = this.isPresentSection ? {
+        value: 'target_section',
+        props: {
+          label: this.$i18n(
+            "cx-sx-content-comparator-target-selector-target-section-title",
+            this.getAutonym(this.suggestion.targetLanguage)
+          ),
+          type: "text"
+        }
+      } : {
+        value: "target_article",
+        props: {
+          label: this.$i18n(
+            "cx-sx-content-comparator-target-selector-full-article-title",
+            this.getAutonym(this.suggestion.targetLanguage)
+          ),
+          type: "text"
+        }
+      };
+      return [sourceSelectorItem, targetSelectorItem];
     }
   },
   methods: {
@@ -232,8 +307,29 @@ export default {
     border: none;
   }
 
-  .sx-content-comparator-header__additional-considerations {
-     color: @color-base;
+  .sx-content-comparator-header__additional-considerations--missing {
+    color: @color-base;
+  }
+  .sx-content-comparator-header__additional-considerations--present {
+    background-color: @background-color-base--disabled;
+    border-radius: @border-radius-base;
+    .sx-content-comparator-header__additional-considerations-header--present {
+      border-bottom: @border-width-base @border-style-base @border-color-base--disabled;
+      .sx-content-comparator-header__additional-considerations-title--present {
+        // No typography style for this font-size in UI library
+        font-size: 14px;
+        // TODO: Fix this to be base20
+        color: @color-base--subtle;
+      }
+      .sx-content-comparator-header__additional-considerations-section-target-title {
+        color: @color-base;
+      }
+    }
+    .sx-content-comparator-header__additional-considerations-clarifications {
+      // No typography style for this font-size in UI library
+      color: @color-base;
+      line-height: 1.3;
+    }
   }
 
   .sx-content-comparator__source-target-selector {
@@ -243,7 +339,7 @@ export default {
     }
   }
   .sx-content-comparator__source-content {
-    line-height: 1.6;
+    line-height: 1.3;
   }
 }
 </style>
