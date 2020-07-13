@@ -131,7 +131,7 @@
 	"cx-translation-filter-draft-translations": "En proceso",
 	"cx-translation-filter-suggested-translations": "Sugerencias",
 	"cx-suggestionlist-favorite": "Para más adelante",
-	"cx-suggestionlist-title": "Páginas sugeridas",
+	"cx-suggestionlist-title": "Sugerencias",
 	"cx-suggestionlist-empty-title": "Ninguna sugerencia por ahora",
 	"cx-suggestionlist-empty-desc": "No encontramos ninguna sugerencia. Puedes intentar más tarde o encontrar páginas relevantes usando nuestra herramienta de recomendación (experimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Ver sugerencias (experimental)",
@@ -283,5 +283,7 @@
 	"cx-linkcontextitem-missing-title-description": "Esta página aún no existe",
 	"cx-feature-discovery-title": "Traduce en cualquier momento",
 	"cx-feature-discovery-dismiss": "De acuerdo",
-	"cx-sx-language-selector-dialog-title": "Buscar un idioma"
+	"cx-sx-language-selector-dialog-title": "Buscar un idioma",
+	"cx-sx-section-selector-unsupported-sections-title": "Secciones no admitidas",
+	"cx-suggestion-list-new-pages-division": "Páginas nuevas"
 }
