@@ -8,16 +8,10 @@
         />
       </template>
       <sx-translation-list-language-selector
-        :selected-source-language="sourceLanguage"
-        :selected-target-language="targetLanguage"
+        :selected-source-language.sync="selectedSourceLanguage"
+        :selected-target-language.sync="selectedTargetLanguage"
         :source-languages="availableSourceLanguages"
         :target-languages="availableTargetLanguages"
-        @update:selected-source-language="
-          $emit('update:source-language', $event)
-        "
-        @update:selected-target-language="
-          $emit('update:target-language', $event)
-        "
       />
       <div class="cx-translation-list__division">
         <h6 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4"></h6>
@@ -27,8 +21,8 @@
         v-for="(suggestion, index) in pageSuggestionsForPairSubset"
         :key="`suggestion-${index}`"
         :suggestion="suggestion"
-        :from="sourceLanguage"
-        :to="targetLanguage"
+        :from="selectedSourceLanguage"
+        :to="selectedTargetLanguage"
       />
     </mw-card>
     <mw-card
@@ -102,11 +96,11 @@ export default {
       type: Boolean,
       default: false
     },
-    sourceLanguage: {
+    initialSourceLanguage: {
       type: String,
       required: true
     },
-    targetLanguage: {
+    initialTargetLanguage: {
       type: String,
       required: true
     }
@@ -117,7 +111,9 @@ export default {
     sectionSuggestionsLoaded: true,
     showSxArticleSelector: false,
     paginationIndex: 0,
-    pageSize: 3
+    pageSize: 3,
+    selectedSourceLanguage: '',
+    selectedTargetLanguage: ''
   }),
   computed: {
     ...mapState({
@@ -128,7 +124,7 @@ export default {
     }),
     availableSourceLanguages() {
       return this.supportedLanguageCodes
-        .filter(languageCode => languageCode !== this.targetLanguage)
+        .filter(languageCode => languageCode !== this.selectedTargetLanguage)
         .reduce(
           (languages, languageCode) => [
             ...languages,
@@ -139,7 +135,7 @@ export default {
     },
     availableTargetLanguages() {
       return this.supportedLanguageCodes
-        .filter(languageCode => languageCode !== this.sourceLanguage)
+        .filter(languageCode => languageCode !== this.selectedSourceLanguage)
         .reduce(
           (languages, languageCode) => [
             ...languages,
@@ -150,14 +146,14 @@ export default {
     },
     pageSuggestionsForPair() {
       return this.$store.getters["suggestions/getPageSuggestionsForPair"](
-        this.sourceLanguage,
-        this.targetLanguage
+        this.selectedSourceLanguage,
+        this.selectedTargetLanguage
       );
     },
     sectionSuggestionForPair() {
       return this.$store.getters["suggestions/getSectionSuggestionsForPair"](
-        this.sourceLanguage,
-        this.targetLanguage
+        this.selectedSourceLanguage,
+        this.selectedTargetLanguage
       );
     },
     pageSuggestionsForPairSubset() {
@@ -169,7 +165,7 @@ export default {
     publishedTranslations() {
       return this.$store.getters[
         "translator/getPublishedTranslationsForLanguagePair"
-      ](this.sourceLanguage, this.targetLanguage);
+      ](this.selectedSourceLanguage, this.selectedTargetLanguage);
     },
     seedArticleTitle() {
       if (this.paginationIndex < this.publishedTranslations.length) {
@@ -192,35 +188,37 @@ export default {
       if (this.active) {
         if (!this.pageSuggestionsForPair?.length) {
           this.getPageSuggestions({
-            sourceLanguage: this.sourceLanguage,
-            targetLanguage: this.targetLanguage,
+            sourceLanguage: this.selectedSourceLanguage,
+            targetLanguage: this.selectedTargetLanguage,
             seed: this.seedArticleTitle
           });
         }
         if (!this.sectionSuggestionForPair?.length) {
           this.getSectionSuggestions({
-            sourceLanguage: this.sourceLanguage,
-            targetLanguage: this.targetLanguage
+            sourceLanguage: this.selectedSourceLanguage,
+            targetLanguage: this.selectedTargetLanguage
           });
         }
       }
     },
-    sourceLanguage() {
+    selectedSourceLanguage() {
       this.getPageSuggestions({
-        sourceLanguage: this.sourceLanguage,
-        targetLanguage: this.targetLanguage
+        sourceLanguage: this.selectedSourceLanguage,
+        targetLanguage: this.selectedTargetLanguage
       });
       this.pageSuggestionsLoaded = false;
     },
-    targetLanguage() {
+    selectedTargetLanguage() {
       this.getPageSuggestions({
-        sourceLanguage: this.sourceLanguage,
-        targetLanguage: this.targetLanguage
+        sourceLanguage: this.selectedSourceLanguage,
+        targetLanguage: this.selectedTargetLanguage
       });
       this.pageSuggestionsLoaded = false;
     }
   },
   mounted: function() {
+    this.selectedSourceLanguage = this.initialSourceLanguage;
+    this.selectedTargetLanguage = this.initialTargetLanguage;
     const urlParams = new URLSearchParams(location.search);
     const isSectionTranslation = urlParams.get("sx");
     const sourceLanguage = urlParams.get("from");
@@ -267,8 +265,8 @@ export default {
         // suggestions are shown.
         if (this.seedArticleTitle) {
           this.$store.dispatch("suggestions/getPageSuggestions", {
-            sourceLanguage: this.sourceLanguage,
-            targetLanguage: this.targetLanguage,
+            sourceLanguage: this.selectedSourceLanguage,
+            targetLanguage: this.selectedTargetLanguage,
             seed: this.seedArticleTitle
           });
         }

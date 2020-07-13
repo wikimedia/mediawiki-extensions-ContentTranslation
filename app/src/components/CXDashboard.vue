@@ -9,21 +9,17 @@
     </nav>
     <cx-suggestion-list
       class="col-12 pa-0 ma-0"
-      :source-language="sourceLanguage"
-      :target-language="targetLanguage"
+      :initial-source-language="sourceLanguage"
+      :initial-target-language="targetLanguage"
       :active="active === 'suggestions'"
     />
     <cx-translation-list
       class="col-12 pa-0 ma-0"
-      :source-language="sourceLanguage"
-      :target-language="targetLanguage"
       translation-status="published"
       :active="active === 'published'"
     />
     <cx-translation-list
       class="col-12 pa-0 ma-0"
-      :source-language="sourceLanguage"
-      :target-language="targetLanguage"
       translation-status="draft"
       :active="active === 'draft'"
     />
