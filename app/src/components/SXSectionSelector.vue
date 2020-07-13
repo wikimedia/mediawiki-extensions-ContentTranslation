@@ -201,7 +201,7 @@
     <sx-content-comparator
       :active.sync="contentComparatorActive"
       :suggestion="suggestion"
-      :active-section-source-title="selectedSectionKey"
+      :active-section-source-title.sync="selectedSectionKey"
     />
   </mw-dialog>
 </template>

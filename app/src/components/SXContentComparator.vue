@@ -18,7 +18,7 @@
           @click="$emit('update:active', false)"
         />
         <div class="row my-1 py-2 mx-0">
-          <div class="col-xs-9 col-lg-8 px-0">
+          <div class="col grow">
             <h4 class="pa-0 sx-content-comparator-header__article-title">
               {{ suggestion.sourceTitle }}
             </h4>
@@ -26,20 +26,20 @@
               {{ activeSectionSourceTitle }}
             </h2>
           </div>
-          <div class="col-xs-3 col-lg-1">
-            <mw-button
-              class="pa-0 pe-1"
-              type="icon"
-              :icon="mwIconPrevious"
-            ></mw-button>
-            <mw-button
-              class="pa-0 ps-1"
-              type="icon"
-              :icon="mwIconArrowForward"
-            ></mw-button>
-          </div>
+          <mw-button
+            class="pa-0 pe-1"
+            type="icon"
+            :icon="mwIconPrevious"
+            @click="previousSection"
+          />
+          <mw-button
+            class="pa-0 ps-1"
+            type="icon"
+            :icon="mwIconArrowForward"
+            @click="nextSection"
+          />
         </div>
-        <div class="col-xs-12 col-lg-3 py-2 mb-1">
+        <div class="py-2 mb-1">
           <mw-button
             :icon="mwIconEdit"
             :progressive="true"
@@ -51,7 +51,7 @@
         </div>
         <div
           v-if="isMissingSection"
-          class="sx-content-comparator-header__additional-considerations--missing flex py-2"
+          class="sx-content-comparator-header__review-contents flex py-2"
         >
           <div class="shrink pe-2">
             <mw-icon :icon="mwIconEye" />
@@ -63,25 +63,22 @@
             </p>
           </div>
         </div>
-        <div
-          v-else
-          class="sx-content-comparator-header__additional-considerations--present"
-        >
+        <div v-else class="sx-content-comparator-header__mapped-section">
           <div
-            class="sx-content-comparator-header__additional-considerations-header--present row pa-2 ma-0"
+            class="sx-content-comparator-header__mapped-section-header row pa-2 ma-0"
           >
             <div class="col grow">
-              <h5
+              <h6
                 v-i18n:cx-sx-content-comparator-mapped-section-header-title="[
-                  getAutonym(targetLanguage)
+                  getAutonym(suggestion.targetLanguage)
                 ]"
-                class="sx-content-comparator-header__additional-considerations-title--present pa-0 mb-1 ms-1"
+                class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
               />
-              <h5
-                class="sx-content-comparator-header__additional-considerations-section-target-title pa-0 ms-1"
+              <h6
+                class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
               >
                 {{ activeSectionTargetTitle }}
-              </h5>
+              </h6>
             </div>
             <div class="col shrink">
               <mw-button class="pa-0" :icon="mwIconTrash" type="icon" />
@@ -89,7 +86,7 @@
           </div>
           <p
             v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
-            class="sx-content-comparator-header__additional-considerations-clarifications complementary pa-3 ma-0"
+            class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
           />
         </div>
       </div>
@@ -274,6 +271,12 @@ export default {
             }
           };
       return [sourceSelectorItem, targetSelectorItem];
+    },
+    sectionSourceTitles() {
+      return [
+        ...Object.keys(this.missingSections),
+        ...Object.keys(this.suggestion.presentSections)
+      ];
     }
   },
   watch: {
@@ -305,6 +308,32 @@ export default {
     },
     goToSentenceSelector() {
       this.selectSentenceActive = true;
+    },
+    previousSection() {
+      const currentIndex = this.sectionSourceTitles.indexOf(
+        this.activeSectionSourceTitle
+      );
+      const previousIndex =
+        currentIndex === 0
+          ? this.sectionSourceTitles.length - 1
+          : currentIndex - 1;
+      this.$emit(
+        "update:active-section-source-title",
+        this.sectionSourceTitles[previousIndex]
+      );
+    },
+    nextSection() {
+      const currentIndex = this.sectionSourceTitles.indexOf(
+        this.activeSectionSourceTitle
+      );
+      const nextIndex =
+        currentIndex === this.sectionSourceTitles.length - 1
+          ? 0
+          : currentIndex + 1;
+      this.$emit(
+        "update:active-section-source-title",
+        this.sectionSourceTitles[nextIndex]
+      );
     }
   }
 };
@@ -317,32 +346,30 @@ export default {
     border: none;
   }
 
-  .sx-content-comparator-header__additional-considerations--missing {
+  .sx-content-comparator-header__review-contents {
     color: @color-base;
   }
-  .sx-content-comparator-header__additional-considerations--present {
+  .sx-content-comparator-header__mapped-section {
     background-color: @background-color-base--disabled;
     border-radius: @border-radius-base;
-    .sx-content-comparator-header__additional-considerations-header--present {
+    .sx-content-comparator-header__mapped-section-header {
       border-bottom: @border-width-base @border-style-base
         @border-color-base--disabled;
-      .sx-content-comparator-header__additional-considerations-title--present {
+      .sx-content-comparator-header__mapped-section-header-title {
         // No typography style for this font-size in UI library
         font-size: 14px;
         // TODO: Fix this to be base20
         color: @color-base--subtle;
       }
-      .sx-content-comparator-header__additional-considerations-section-target-title {
+      .sx-content-comparator-header__mapped-section-target-title {
         color: @color-base;
       }
     }
-    .sx-content-comparator-header__additional-considerations-clarifications {
-      // No typography style for this font-size in UI library
+    .sx-content-comparator-header__mapped-section-clarifications {
       color: @color-base;
       line-height: 1.3;
     }
   }
-
   .sx-content-comparator__source-target-selector {
     .mw-ui-button-group {
       background: @background-color-framed;
