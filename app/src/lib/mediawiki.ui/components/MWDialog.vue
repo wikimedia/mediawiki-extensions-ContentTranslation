@@ -13,10 +13,10 @@
         <slot name="header" v-if="header">
           <div class="mw-ui-dialog__header row ">
             <div
-              class="col-11 items-center mw-ui-dialog__header-title justify-start"
+              class="col grow items-center mw-ui-dialog__header-title justify-start"
               v-html="title"
             />
-            <div class="col-1 justify-center">
+            <div class="col shrink justify-center">
               <mw-button type="icon" :icon="mwIconClose" @click="close()" />
             </div>
           </div>

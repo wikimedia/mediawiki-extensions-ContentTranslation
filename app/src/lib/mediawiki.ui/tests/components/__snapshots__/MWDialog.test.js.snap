@@ -21,13 +21,13 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
         class="mw-ui-dialog__header row "
       >
         <div
-          class="col-11 items-center mw-ui-dialog__header-title justify-start"
+          class="col grow items-center mw-ui-dialog__header-title justify-start"
         >
           Dialog Title
         </div>
          
         <div
-          class="col-1 justify-center"
+          class="col shrink justify-center"
         >
           <mw-button-stub
             icon="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
