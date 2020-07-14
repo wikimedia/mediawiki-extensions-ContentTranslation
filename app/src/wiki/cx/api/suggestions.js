@@ -49,7 +49,7 @@ async function fetchSectionSuggestions(
   targetLanguage
 ) {
   const sitemapper = new mw.cx.SiteMapper();
-  // Example: https://cxserver.thottingal.in:8080/v2/suggest/sections/Sitar/en/ml
+  // Example: https://cxserver.wikimedia.org/v2/suggest/sections/Sitar/en/ml
   const cxserverAPI = sitemapper.getCXServerUrl(
     `/suggest/sections/${sourceTitle}/${sourceLanguage}/${targetLanguage}`
   );

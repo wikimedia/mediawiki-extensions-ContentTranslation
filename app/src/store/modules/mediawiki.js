@@ -1,9 +1,12 @@
 import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
+import Language from "../../wiki/mw/models/language";
 
 const state = {
+  /** @type {Page[]} */
   pages: [],
-  languageInfo: {},
+  /** @type {Language[]} */
+  languages: [],
   languageTitleGroups: [],
   supportedLanguageCodes: []
 };
@@ -15,8 +18,8 @@ const mutations = {
   addLanguageTitleGroup(state, group) {
     state.languageTitleGroups.push(group);
   },
-  setLanguageInfo(state, languageInfo) {
-    state.languageInfo = languageInfo;
+  setLanguages(state, languages) {
+    state.languages = languages;
   },
   setSupportedLanguageCodes(state, languageCodes) {
     state.supportedLanguageCodes = languageCodes;
@@ -46,7 +49,14 @@ const getters = {
   getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
     (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
       title => title.lang === language
-    )?.title
+    )?.title,
+  /**
+   * Get the language object for the given language code
+   * @param {String} languageCode
+   * @returns {Language}
+   */
+  getLanguage: state => languageCode =>
+    state.languages.find(language=>language.code===languageCode)
 };
 
 const actions = {
@@ -80,10 +90,10 @@ const actions = {
           commit("addLanguageTitleGroup", languageTitleGroup)
       );
   },
-  fetchLanguageInfo({ commit }) {
+  fetchLanguages({ commit }) {
     const userLanguage=mw.config.get('wgUserLanguage');
-    siteApi.fetchLanguageInfo(userLanguage).then(languageInfo => {
-      commit("setLanguageInfo", languageInfo);
+    siteApi.fetchLanguages(userLanguage).then(languages => {
+      commit("setLanguages", languages);
     });
   },
   fetchSupportedLanguageCodes({ commit }) {

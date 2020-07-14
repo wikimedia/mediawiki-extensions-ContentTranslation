@@ -1,10 +1,10 @@
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      languageInfo: state => state.mediawiki.languageInfo
-    })
+    ...mapGetters({
+      getLanguage: "mediawiki/getLanguage",
+    }),
   },
   methods: {
     getAutonym(lang) {
@@ -15,10 +15,10 @@ export default {
         // Locales not supported by Intl.DisplayNames will throw error.
         // Skip
       }
-      return this.languageInfo[lang]?.autonym || displayName?.of(lang) || lang;
+      return this.getLanguage(lang)?.autonym || displayName?.of(lang) || lang;
     },
     getDirection(lang) {
-      return this.languageInfo[lang]?.dir || "auto";
+      return this.getLanguage(lang)?.dir || "auto";
     }
   }
 };

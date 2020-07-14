@@ -1,4 +1,5 @@
 import axios from "axios";
+import Language from "../models/language";
 
 /**
  * Fetch languages information for the supported languages in wikipedia.
@@ -6,14 +7,15 @@ import axios from "axios";
  * default value 'en'.
  * @param {String} language The language code for the wiki to query
  * @param {String} [licontinue] continue parameter for the api
+ * @returns {Promise<Language[]>}
  */
-function fetchLanguageInfo(language='en', licontinue) {
+function fetchLanguages(language='en', licontinue) {
   const params = {
     action: "query",
     format: "json",
     formatversion: 2,
     meta: "languageinfo",
-    liprop: "autonym|dir",
+    liprop: "autonym|dir|name|code|bcp47|fallbacks|variants",
     origin: "*"
   };
   if (licontinue) {
@@ -29,10 +31,12 @@ function fetchLanguageInfo(language='en', licontinue) {
         results = Object.assign(
           {},
           results,
-          await fetchLanguageInfo(language, licontinue)
+          await fetchLanguages(language, licontinue)
         );
       }
-      return results;
+      return Object.values(results).map(result => {
+        return Object.freeze(new Language(result));
+      });
     });
 }
 
@@ -44,6 +48,6 @@ async function fetchSupportedLanguageCodes() {
 }
 
 export default {
-  fetchLanguageInfo,
+  fetchLanguages,
   fetchSupportedLanguageCodes
 };
