@@ -21,7 +21,9 @@ async function fetchSuggestions(
   const sitemapper = new mw.cx.SiteMapper();
   const apiURL = sitemapper.getRestbaseUrl(targetLanguage, apiModule);
   const suggestedResults = await axios
-    .get(apiURL, { count })
+    .get(apiURL, {
+      params: { count }
+    })
     .then(response => response.data?.items || []);
   return suggestedResults.map(
     item =>
