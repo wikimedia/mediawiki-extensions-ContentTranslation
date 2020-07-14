@@ -39,7 +39,7 @@ function fetchLanguageInfo(language='en', licontinue) {
 async function fetchSupportedLanguageCodes() {
   const api = "https://cxserver.wikimedia.org/v1/list/languagepairs";
   return await axios
-    .get(api, { origin: "*" })
+    .get(api)
     .then(response => response.data.source);
 }
 
