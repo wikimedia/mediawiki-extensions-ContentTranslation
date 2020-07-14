@@ -81,7 +81,8 @@ const actions = {
       );
   },
   fetchLanguageInfo({ commit }) {
-    siteApi.fetchLanguageInfo().then(languageInfo => {
+    const userLanguage=mw.config.get('wgUserLanguage');
+    siteApi.fetchLanguageInfo(userLanguage).then(languageInfo => {
       commit("setLanguageInfo", languageInfo);
     });
   },

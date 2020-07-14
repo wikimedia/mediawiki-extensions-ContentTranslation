@@ -1,6 +1,13 @@
 import axios from "axios";
 
-function fetchLanguageInfo(licontinue) {
+/**
+ * Fetch languages information for the supported languages in wikipedia.
+ * The api can be used with any wikipedia since output is same. Hence the
+ * default value 'en'.
+ * @param {String} language The language code for the wiki to query
+ * @param {String} [licontinue] continue parameter for the api
+ */
+function fetchLanguageInfo(language='en', licontinue) {
   const params = {
     action: "query",
     format: "json",
@@ -12,8 +19,9 @@ function fetchLanguageInfo(licontinue) {
   if (licontinue) {
     params["licontinue"] = licontinue;
   }
+  const api= `https://${language}.wikipedia.org/w/api.php`;
   return axios
-    .get(mw.util.wikiScript("api"), { params })
+    .get(api, { params })
     .then(async response => {
       let licontinue = response.data.continue?.licontinue;
       let results = response.data.query.languageinfo;
@@ -21,7 +29,7 @@ function fetchLanguageInfo(licontinue) {
         results = Object.assign(
           {},
           results,
-          await fetchLanguageInfo(licontinue)
+          await fetchLanguageInfo(language, licontinue)
         );
       }
       return results;
