@@ -337,5 +337,6 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "Dowiedz się więcej",
 	"cx-sx-section-selector-unsupported-sections-title": "Niewspierane sekcje",
 	"cx-sx-section-selector-unsupported-sections-description": "Niektóre sekcje mogą nie pojawiać się na liście, ponieważ ich zawartość nie jest jeszcze wspierana.",
-	"cx-suggestion-list-new-pages-division": "Nowe strony"
+	"cx-suggestion-list-new-pages-division": "Nowe strony",
+	"cx-translation-list-all-languages-option-label": "Wszystkie"
 }

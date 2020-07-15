@@ -347,5 +347,5 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Title for unsupported section consideration of section selector",
 	"cx-sx-section-selector-unsupported-sections-description": "Content of unsupported section consideration of section selector",
 	"cx-suggestion-list-new-pages-division": "Title for new pages division in content translation suggestion list",
-	"cx-translation-list-all-languages-option-label": "Label for all languages option for language selector inside translation list"
+	"cx-translation-list-all-languages-option-label": "Label for all languages option for language selector inside translation list\n{{identical|All}}"
 }

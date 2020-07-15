@@ -116,7 +116,7 @@
 	"cx-translation-filter-draft-translations": "Keskeneräiset",
 	"cx-translation-filter-suggested-translations": "Ehdotukset",
 	"cx-suggestionlist-favorite": "Myöhemmin",
-	"cx-suggestionlist-title": "Ehdotetut sivut",
+	"cx-suggestionlist-title": "Ehdotukset",
 	"cx-suggestionlist-empty-title": "Ei ehdotuksia nyt",
 	"cx-suggestionlist-empty-desc": "Ehdotuksia ei löytynyt. Voit tarkistaa myöhemmin tai etsiä asiaankuuluvia sivuja käyttämällä suositustyökaluamme (kokeellinen)",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Näytä ehdotukset (kokeellinen)",

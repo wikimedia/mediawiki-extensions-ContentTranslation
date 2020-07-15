@@ -335,5 +335,6 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "了解更多",
 	"cx-sx-section-selector-unsupported-sections-title": "不支援的章節",
 	"cx-sx-section-selector-unsupported-sections-description": "一些章節沒出現在清單裡，是因為尚不支援它們的內容。",
-	"cx-suggestion-list-new-pages-division": "新頁面"
+	"cx-suggestion-list-new-pages-division": "新頁面",
+	"cx-translation-list-all-languages-option-label": "全部"
 }

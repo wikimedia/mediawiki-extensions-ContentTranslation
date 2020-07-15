@@ -15,6 +15,7 @@
 			"Matěj Suchánek",
 			"Mjälten",
 			"Rockyfelle",
+			"Sabelöga",
 			"Skalman",
 			"Sturban",
 			"WikiPhoenix",
@@ -338,5 +339,6 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "Läs mer",
 	"cx-sx-section-selector-unsupported-sections-title": "Avsnitt som inte stöds",
 	"cx-sx-section-selector-unsupported-sections-description": "Vissa avsnitt kanske inte dyker upp i listan eftersom dess innehåll ännu inte stöds.",
-	"cx-suggestion-list-new-pages-division": "Nya sidor"
+	"cx-suggestion-list-new-pages-division": "Nya sidor",
+	"cx-translation-list-all-languages-option-label": "Alla"
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Narazeni",
 			"Silovan"
 		]
 	},
@@ -10,5 +11,6 @@
 	"cx-stats-total-published": "ედომუშამო გობჟინაფილი",
 	"cx-stats-weekly-published": "ულირ მარა",
 	"cx-stats-local-published": "$1 ($3) $2-ს",
-	"echo-category-title-cx": "ნოთანგუეფი"
+	"echo-category-title-cx": "ნოთანგუეფი",
+	"cx-suggestion-list-new-pages-division": "ახალი ხასჷლეფი"
 }
