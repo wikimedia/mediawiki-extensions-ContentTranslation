@@ -1,4 +1,5 @@
 import Language from "../models/language";
+import MTProviderGroup from "../models/mtProviderGroup";
 
 /**
  * Fetch languages information for the supported languages in wikipedia.
@@ -45,7 +46,30 @@ async function fetchSupportedLanguageCodes() {
     .then(response => response.sourceLanguages);
 }
 
+/**
+ * Fetches supported MT providers for a given language pair
+ * and returns a Promise that resolves to a read-only MTProviderGroup object
+ * @param sourceLanguage
+ * @param targetLanguage
+ * @return {Promise<Readonly<MTProviderGroup>>}
+ */
+async function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
+  const sitemapper = new mw.cx.SiteMapper();
+  const cxserverAPI = sitemapper.getCXServerUrl(
+    `/list/pair/${sourceLanguage}/${targetLanguage}`
+  );
+
+  return fetch(cxserverAPI)
+    .then(response => response.json())
+    .then(data =>
+      Object.freeze(
+        new MTProviderGroup(sourceLanguage, targetLanguage, data.mt)
+      )
+    );
+}
+
 export default {
   fetchLanguages,
-  fetchSupportedLanguageCodes
+  fetchSupportedLanguageCodes,
+  fetchSupportedMTProviders
 };

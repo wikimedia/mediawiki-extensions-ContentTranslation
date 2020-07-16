@@ -25,6 +25,41 @@ async function fetchTranslations(offset) {
   });
 }
 
+/**
+ * Fetches translation for a given sentence, language pair and MT provider service
+ * and a promise that resolves to the translation. In case of api call failure,
+ * it returns a promise that resolves to the provided sentence as is.
+ * @param sourceLanguage
+ * @param targetLanguage
+ * @param provider
+ * @param sentence
+ * @return {Promise<String>}
+ */
+async function fetchSentenceTranslation(
+  sourceLanguage,
+  targetLanguage,
+  provider,
+  sentence
+) {
+  if (!provider || !sentence) {
+    return;
+  }
+  const sitemapper = new mw.cx.SiteMapper();
+  const cxserverAPI = sitemapper.getCXServerUrl(
+    `/mt/${sourceLanguage}/${targetLanguage}/${provider}`
+  );
+
+  return fetch(cxserverAPI, {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify({ html: sentence })
+  })
+    .then(response => response.json())
+    .then(data => data.contents)
+    .catch(error => sentence);
+}
+
 export default {
-  fetchTranslations
+  fetchTranslations,
+  fetchSentenceTranslation
 };

@@ -1,6 +1,7 @@
 import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
 import Language from "../../wiki/mw/models/language";
+import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 
 const state = {
   /** @type {Page[]} */
@@ -8,7 +9,8 @@ const state = {
   /** @type {Language[]} */
   languages: [],
   languageTitleGroups: [],
-  supportedLanguageCodes: []
+  supportedLanguageCodes: [],
+  supportedMTProviderGroups: []
 };
 
 const mutations = {
@@ -23,6 +25,12 @@ const mutations = {
   },
   setSupportedLanguageCodes(state, languageCodes) {
     state.supportedLanguageCodes = languageCodes;
+  },
+  /**
+   * @param mtProviderGroup
+   */
+  addMtProviderGroup(state, mtProviderGroup) {
+    state.supportedMTProviderGroups.push(mtProviderGroup);
   }
 };
 
@@ -56,7 +64,25 @@ const getters = {
    * @returns {Language}
    */
   getLanguage: state => languageCode =>
-    state.languages.find(language => language.code === languageCode)
+    state.languages.find(language => language.code === languageCode),
+  getPageSection: (state, getters) => (language, title, sectionTitle) =>
+    (getters.getPage(language, title)?.sections || []).find(
+      section => section.line === sectionTitle
+    ),
+  /**
+   * Get MTProviderGroup for the given language pair
+   * @param {String} sourceLanguage
+   * @param {String} targetLanguage
+   * @returns {MTProviderGroup}
+   */
+  getSupportedMTProviders: state => (sourceLanguage, targetLanguage) =>
+    state.supportedMTProviderGroups.find(
+      mtProviderGroup =>
+        mtProviderGroup.sourceLanguage === sourceLanguage &&
+        mtProviderGroup.targetLanguage === targetLanguage
+    )?.providers,
+  getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
+    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0]
 };
 
 const actions = {
@@ -126,6 +152,26 @@ const actions = {
     pageApi.fetchPageSections(language, title).then(sections => {
       page.sections = sections;
     });
+  },
+  fetchMTProviders({ commit }, { sourceLanguage, targetLanguage }) {
+    siteApi
+      .fetchSupportedMTProviders(sourceLanguage, targetLanguage)
+      .then(mtProviderGroup => commit("addMtProviderGroup", mtProviderGroup));
+  },
+  selectSentenceForPageSection(
+    { getters },
+    { sourceLanguage, targetLanguage, sectionSourceTitle, sentenceIndex }
+  ) {
+    const section = getters.getPageSection(
+      sourceLanguage,
+      targetLanguage,
+      sectionSourceTitle
+    );
+    const selectedSentence = section.sentences.find(
+      sentence => sentence.selected
+    );
+    selectedSentence.selected = false;
+    section.sentences[sentenceIndex].selected = true;
   }
 };
 

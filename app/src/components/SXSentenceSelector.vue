@@ -23,8 +23,8 @@
         </div>
       </div>
     </template>
-    <section class="sx-sentence-selector__section">
-      <div class="sx-sentence-selector__section-header pa-5">
+    <section class="sx-sentence-selector__section fill-height column ma-0">
+      <div class="sx-sentence-selector__section-header pa-5 col shrink">
         <a
           :href="sourceArticlePath"
           target="_blank"
@@ -37,7 +37,7 @@
           {{ sectionSourceTitle }}
         </h2>
       </div>
-      <div class="sx-sentence-selector__section-contents px-4">
+      <div class="sx-sentence-selector__section-contents px-4 col grow">
         <span
           v-for="(sentence, index) in sentences"
           :key="`sentence-${index}`"
@@ -50,63 +50,67 @@
           v-html="formatSentence(sentence, index)"
         />
       </div>
-    </section>
-    <section class="sx-sentence-selector__proposed-translation">
-      <div class="sx-sentence-selector__proposed-translation-body pa-5">
-        <div
-          class="sx-sentence-selector__proposed-translation-header row ma-0 pb-4"
-        >
-          <!--            Selected provider parameter will be added in following patch-->
-          <h6
-            v-i18n:cx-sx-sentence-selector-proposed-translation-title="[
-              'OpusMT'
-            ]"
-            class="sx-sentence-selector__proposed-translation-title col grow pa-0 ma-0 pe-4"
-          />
-          <div class="col shrink">
-            <mw-button
-              :icon="mwIconEllipsis"
-              type="icon"
-              class="sx-sentence-selector__translation-more-options-button pa-0"
+      <section class="sx-sentence-selector__proposed-translation col shrink">
+        <div class="sx-sentence-selector__proposed-translation-body pa-5">
+          <div
+            class="sx-sentence-selector__proposed-translation-header row ma-0 pb-4"
+          >
+            <h6
+              v-i18n:cx-sx-sentence-selector-proposed-translation-title="[
+                selectedProvider
+              ]"
+              class="sx-sentence-selector__proposed-translation-title col grow pa-0 ma-0 pe-4"
             />
+            <div class="col shrink">
+              <mw-button
+                :icon="mwIconEllipsis"
+                type="icon"
+                class="sx-sentence-selector__translation-more-options-button pa-0"
+              />
+            </div>
           </div>
+          <div
+            class="sx-sentence-selector__proposed-translation-contents pb-4"
+            v-html="translation"
+          />
+          <mw-button
+            :icon="mwIconEdit"
+            type="text"
+            :label="
+              $i18n('cx-sx-sentence-selector-edit-translation-button-label')
+            "
+            class="sx-sentence-selector__translation-edit-button pa-0"
+          />
         </div>
-        <div
-          class="sx-sentence-selector__proposed-translation-contents pb-4"
-          v-html="translation"
-        />
-        <mw-button
-          :icon="mwIconEdit"
-          type="text"
-          :label="
-            $i18n('cx-sx-sentence-selector-edit-translation-button-label')
-          "
-          class="sx-sentence-selector__translation-edit-button pa-0"
-        />
-      </div>
-      <div class="sx-sentence-selector__translation-action-buttons row ma-0">
-        <mw-button :icon="mwIconPrevious" type="icon" class="col shrink pa-4" />
-        <mw-button
-          type="text"
-          :label="
-            $i18n('cx-sx-sentence-selector-apply-translation-button-label')
-          "
-          class="sx-sentence-selector__translation-apply-button col grow pa-4"
-        />
-        <mw-button
-          type="text"
-          :indicator="mwIconArrowForward"
-          :label="
-            $i18n('cx-sx-sentence-selector-skip-translation-button-label')
-          "
-          class="col shrink pa-4"
-        />
-      </div>
+        <div class="sx-sentence-selector__translation-action-buttons row ma-0">
+          <mw-button
+            :icon="mwIconPrevious"
+            type="icon"
+            class="col shrink pa-4"
+          />
+          <mw-button
+            type="text"
+            :label="
+              $i18n('cx-sx-sentence-selector-apply-translation-button-label')
+            "
+            class="sx-sentence-selector__translation-apply-button col grow pa-4"
+          />
+          <mw-button
+            type="text"
+            :indicator="mwIconArrowForward"
+            :label="
+              $i18n('cx-sx-sentence-selector-skip-translation-button-label')
+            "
+            class="col shrink pa-4"
+          />
+        </div>
+      </section>
     </section>
   </mw-dialog>
 </template>
 
 <script>
+import translator from "../wiki/cx/api/translator";
 import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
@@ -142,15 +146,33 @@ export default {
     mwIconEdit,
     mwIconPrevious,
     mwIconArrowForward,
-    sentences: []
+    selectedProvider: null,
+    translation: null
   }),
   computed: {
+    defaultMTProvider() {
+      return this.$store.getters["mediawiki/getDefaultMTProvider"](
+        this.suggestion.sourceLanguage,
+        this.suggestion.targetLanguage
+      );
+    },
+    sentences() {
+      return this.currentPageSection.sentences;
+    },
+    mtProviders() {
+      return this.$store.getters["mediawiki/getSupportedMTProviders"](
+        this.suggestion.sourceLanguage,
+        this.suggestion.targetLanguage
+      );
+    },
     /**
      * @return PageSection
      */
     currentPageSection() {
-      return (this.sourcePage?.sections || []).find(
-        section => section.line === this.sectionSourceTitle
+      return this.$store.getters["mediawiki/getPageSection"](
+        this.suggestion.sourceLanguage,
+        this.suggestion.sourceTitle,
+        this.sectionSourceTitle
       );
     },
     sectionSourceContent() {
@@ -167,36 +189,50 @@ export default {
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);
+    }
+  },
+  watch: {
+    mtProviders() {
+      if (!this.selectedProvider) {
+        this.selectedProvider = this.defaultMTProvider;
+      }
     },
-    /**
-     * Dummy translation for now
-     */
-    translation() {
-      return this.selectedSentence?.content;
+    selectedSentence() {
+      if (this.selectedSentence) {
+        this.translate();
+      }
+    },
+    selectedProvider() {
+      if (this.selectedProvider) {
+        this.translate();
+      }
     }
   },
   mounted() {
-    /**
-     * @type {SectionSentence[]}
-     */
-    this.sentences = this.sectionSourceContent.split(".").map(
-      sentence =>
-        new SectionSentence({
-          originalContent: sentence
-        })
-    );
-    this.sentences[0].selected = true;
+    this.$store.dispatch("mediawiki/fetchMTProviders", {
+      sourceLanguage: this.suggestion.sourceLanguage,
+      targetLanguage: this.suggestion.targetLanguage
+    });
   },
   methods: {
+    async translate() {
+      this.translation = await translator.fetchSentenceTranslation(
+        this.suggestion.sourceLanguage,
+        this.suggestion.targetLanguage,
+        this.selectedProvider,
+        this.selectedSentence.originalContent
+      );
+    },
     onClose() {
       this.$emit("update:active", false);
     },
     selectSentence(sentenceIndex) {
-      const selectedSentence = this.sentences.find(
-        sentence => sentence.selected
-      );
-      selectedSentence.selected = false;
-      this.sentences[sentenceIndex].selected = true;
+      this.$store.dispatch("mediawiki/selectSentenceForPageSection", {
+        sourceLanguage: this.suggestion.sourceLanguage,
+        targetLanguage: this.suggestion.sourceTitle,
+        sectionSourceTitle: this.sectionSourceTitle,
+        sentenceIndex
+      });
     },
     formatSentence(sentence, index) {
       return (
@@ -231,6 +267,7 @@ export default {
       }
     }
     .sx-sentence-selector__section-contents {
+      overflow: auto;
       .sx-sentence-selector__section-sentence {
         cursor: pointer;
         // TODO: Fix this to be base20 (currently base30)
@@ -247,10 +284,8 @@ export default {
     }
   }
   .sx-sentence-selector__proposed-translation {
-    position: fixed;
-    bottom: 0;
-    max-height: 50%;
     border-radius: 2px 2px 0 0;
+    background-color: @background-color-base;
     // TODO: Fix these with variables(?)
     box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
     .sx-sentence-selector__proposed-translation-title {
