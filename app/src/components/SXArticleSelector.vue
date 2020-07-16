@@ -128,7 +128,7 @@ import {
   mwIconBookmarkOutline,
   mwIconArrowNext
 } from "../lib/mediawiki.ui/components/icons";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 
 export default {
   name: "SxArticleSelector",

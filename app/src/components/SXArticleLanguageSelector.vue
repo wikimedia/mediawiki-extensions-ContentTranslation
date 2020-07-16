@@ -75,11 +75,11 @@ import {
   mwIconArrowNext,
   mwIconExpand
 } from "../lib/mediawiki.ui/components/icons";
-import MwLanguageSelector from "../lib/mediawiki.ui/components/MWLanguageSelector";
+import MwLanguageSelector from "./MWLanguageSelector";
 import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import { mapState, mapGetters } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 
 export default {
   name: "SxArticleLanguageSelector",

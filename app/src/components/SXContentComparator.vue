@@ -102,7 +102,7 @@ import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import MWIcon from "../lib/mediawiki.ui/components/MWIcon";
 import MwButtonGroup from "../lib/mediawiki.ui/components/MWButtonGroup";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 
 export default {

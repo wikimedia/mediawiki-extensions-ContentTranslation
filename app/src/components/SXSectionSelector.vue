@@ -255,7 +255,7 @@ import {
 } from "../lib/mediawiki.ui/components/icons";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 import SxContentComparator from "./SXContentComparator";
 
 export default {

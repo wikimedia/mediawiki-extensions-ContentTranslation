@@ -19,6 +19,6 @@ export default {
     },
     getDirection(lang) {
       return this.getLanguage(lang)?.dir || "auto";
-    }
-  }
+    },
+  },
 };

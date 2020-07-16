@@ -25,7 +25,7 @@
 import MwCard from "../lib/mediawiki.ui/components/MWCard";
 import CxTranslationWork from "./CXTranslationWork";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 
 export default {

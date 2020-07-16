@@ -78,7 +78,7 @@ import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
 import { mapState, mapActions } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import autonymMixin from "../lib/mediawiki.ui/mixins/autonym";
+import autonymMixin from "../mixins/autonym";
 
 export default {
   name: "CxSuggestionList",

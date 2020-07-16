@@ -47,7 +47,7 @@
 <script>
 import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-import autonym from "../lib/mediawiki.ui/mixins/autonym";
+import autonym from "../mixins/autonym";
 import {
   mwIconStar,
   mwIconArrowForward
