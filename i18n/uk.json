@@ -127,7 +127,7 @@
 	"cx-translation-filter-draft-translations": "У процесі",
 	"cx-translation-filter-suggested-translations": "Пропозиції",
 	"cx-suggestionlist-favorite": "На потім",
-	"cx-suggestionlist-title": "Пропоновані сторінки",
+	"cx-suggestionlist-title": "Пропозиції",
 	"cx-suggestionlist-empty-title": "Наразі немає запропонованих сторінок",
 	"cx-suggestionlist-empty-desc": "Ми не знайшли пропозицій. Ви можете глянути пізніше або знайти відповідні сторінки, скориставшись нашим інструментом рекомендацій (експериментально).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Переглянути пропозиції (експериментально)",
@@ -328,5 +328,15 @@
 	"cx-sx-section-selector-missing-sections-title": "Бракує розділів мовою $1",
 	"cx-sx-section-selector-present-sections-title": "Наявні розділи мовою $1",
 	"cx-sx-section-selector-more-details-title": "Докладніше",
-	"cx-sx-section-selector-view-article-button-label": "Переглянути статтю мовою $1"
+	"cx-sx-section-selector-view-article-button-label": "Переглянути статтю мовою $1",
+	"cx-sx-section-selector-empty-missing-sections-title": "Не знайдено розділів вам на переклад",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Спробуйте іншу сторінку або інші мови",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Вибрати іншу сторінку",
+	"cx-sx-section-selector-automatic-section-matching-title": "Автоматичне співвіднесення розділів",
+	"cx-sx-section-selector-automatic-section-matching-description": "Розділи визначаються автоматично, і результати не завжди точні.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Дізнатися більше",
+	"cx-sx-section-selector-unsupported-sections-title": "Непідтримувані розділи",
+	"cx-sx-section-selector-unsupported-sections-description": "Деякі розділи можуть не з'являтися у цьому списку, бо їхній вміст іще не підтримується.",
+	"cx-suggestion-list-new-pages-division": "Нові сторінки",
+	"cx-translation-list-all-languages-option-label": "Усі"
 }

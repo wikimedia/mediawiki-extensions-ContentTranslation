@@ -333,5 +333,6 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "Lær mer",
 	"cx-sx-section-selector-unsupported-sections-title": "Ikke-støttede seksjoner",
 	"cx-sx-section-selector-unsupported-sections-description": "Det kan være at noen seksjoner ikke dukker opp i lista fordi innholdet i dem ikke støttes ennå.",
-	"cx-suggestion-list-new-pages-division": "Nye sider"
+	"cx-suggestion-list-new-pages-division": "Nye sider",
+	"cx-translation-list-all-languages-option-label": "Alle"
 }
