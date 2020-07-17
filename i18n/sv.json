@@ -340,5 +340,11 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Avsnitt som inte stöds",
 	"cx-sx-section-selector-unsupported-sections-description": "Vissa avsnitt kanske inte dyker upp i listan eftersom dess innehåll ännu inte stöds.",
 	"cx-suggestion-list-new-pages-division": "Nya sidor",
-	"cx-translation-list-all-languages-option-label": "Alla"
+	"cx-translation-list-all-languages-option-label": "Alla",
+	"cx-sx-content-comparator-back-to-sections-button-label": "Tillbaka till alla avsnitt",
+	"cx-sx-content-comparator-translation-section-button-label": "Översätt detta avsnitt",
+	"cx-sx-content-comparator-additional-considerations-title": "Granska innehållet på båda språk.",
+	"cx-sx-content-comparator-additional-considerations-content": "Innehållet från det valda avsnittet kanske redan täcks i målartikeln.",
+	"cx-sx-content-comparator-source-selector-title": "Avsnitt på $1",
+	"cx-sx-content-comparator-target-selector-title": "Fullständig artikel på $1"
 }

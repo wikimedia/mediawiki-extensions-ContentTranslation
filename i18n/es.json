@@ -28,6 +28,7 @@
 			"RicardoSGZ",
 			"Ryo567",
 			"Sporeunai",
+			"Suecarmol",
 			"Themasterriot",
 			"Tiberius1701",
 			"VegaDark",
@@ -285,5 +286,7 @@
 	"cx-feature-discovery-dismiss": "De acuerdo",
 	"cx-sx-language-selector-dialog-title": "Buscar un idioma",
 	"cx-sx-section-selector-unsupported-sections-title": "Secciones no admitidas",
-	"cx-suggestion-list-new-pages-division": "Páginas nuevas"
+	"cx-suggestion-list-new-pages-division": "Páginas nuevas",
+	"cx-sx-content-comparator-translation-section-button-label": "Traducir esta sección",
+	"cx-sx-content-comparator-additional-considerations-title": "Revisa el contenido en ambos idiomas"
 }

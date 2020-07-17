@@ -338,5 +338,11 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Непідтримувані розділи",
 	"cx-sx-section-selector-unsupported-sections-description": "Деякі розділи можуть не з'являтися у цьому списку, бо їхній вміст іще не підтримується.",
 	"cx-suggestion-list-new-pages-division": "Нові сторінки",
-	"cx-translation-list-all-languages-option-label": "Усі"
+	"cx-translation-list-all-languages-option-label": "Усі",
+	"cx-sx-content-comparator-back-to-sections-button-label": "Повернутися до усіх розділів",
+	"cx-sx-content-comparator-translation-section-button-label": "Перекласти цей розділ",
+	"cx-sx-content-comparator-additional-considerations-title": "Переглянути вміст обома мовами.",
+	"cx-sx-content-comparator-additional-considerations-content": "Вміст із вибраного розділу уже може бути присутній у цільовій статті.",
+	"cx-sx-content-comparator-source-selector-title": "Розділ мовою $1",
+	"cx-sx-content-comparator-target-selector-title": "Повна стаття мовою $1"
 }

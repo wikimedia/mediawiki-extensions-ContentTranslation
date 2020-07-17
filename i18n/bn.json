@@ -115,7 +115,7 @@
 	"cx-translation-filter-draft-translations": "চলমান",
 	"cx-translation-filter-suggested-translations": "পরামর্শ",
 	"cx-suggestionlist-favorite": "পরের জন্য",
-	"cx-suggestionlist-title": "পরামর্শকৃত পাতা",
+	"cx-suggestionlist-title": "পরামর্শ",
 	"cx-suggestionlist-empty-title": "এই মুহুর্তে কোন পরামর্শ নেই",
 	"cx-suggestionlist-empty-desc": "আমরা কোন পরামর্শ পাইনি। আপনি পরে পরীক্ষা করতে পারেন বা আমাদের সুপারিশ সরঞ্জাম ব্যবহার প্রাসঙ্গিক পৃষ্ঠাগুলি খুঁজে পেতে পারেন (পরীক্ষামূলক)।",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "পরামর্শগুলি দেখুন (পরীক্ষামূলক)",
@@ -298,5 +298,7 @@
 	"cx-sx-section-selector-missing-sections-title": "$1 ভাষায় অনুচ্ছেদ অনুপস্থিত",
 	"cx-sx-section-selector-present-sections-title": "$1 ভাষায় অনুচ্ছেদ উপস্থিত রয়েছে",
 	"cx-sx-section-selector-more-details-title": "আরো বিস্তারিত",
-	"cx-sx-section-selector-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন"
+	"cx-sx-section-selector-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন",
+	"cx-suggestion-list-new-pages-division": "নতুন পাতা",
+	"cx-translation-list-all-languages-option-label": "সব"
 }

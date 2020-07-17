@@ -333,5 +333,11 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Nicht unterstützte Abschnitte",
 	"cx-sx-section-selector-unsupported-sections-description": "Einige Abschnitte erscheinen möglicherweise nicht in der Liste, weil ihr Inhalt noch nicht unterstützt wird.",
 	"cx-suggestion-list-new-pages-division": "Neue Seiten",
-	"cx-translation-list-all-languages-option-label": "Alle"
+	"cx-translation-list-all-languages-option-label": "Alle",
+	"cx-sx-content-comparator-back-to-sections-button-label": "Zurück zu den Abschnitten",
+	"cx-sx-content-comparator-translation-section-button-label": "Diesen Abschnitt übersetzen",
+	"cx-sx-content-comparator-additional-considerations-title": "Überprüfen des Inhalts in beiden Sprachen.",
+	"cx-sx-content-comparator-additional-considerations-content": "Inhalte aus dem ausgewählten Abschnitt können bereits im Zielartikel enthalten sein.",
+	"cx-sx-content-comparator-source-selector-title": "Abschnitt auf $1",
+	"cx-sx-content-comparator-target-selector-title": "Ganzer Artikel auf $1"
 }

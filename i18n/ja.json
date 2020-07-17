@@ -130,7 +130,7 @@
 	"cx-translation-filter-draft-translations": "進行中",
 	"cx-translation-filter-suggested-translations": "候補",
 	"cx-suggestionlist-favorite": "後で",
-	"cx-suggestionlist-title": "ページの候補",
+	"cx-suggestionlist-title": "候補",
 	"cx-suggestionlist-empty-title": "候補となるページはありません、現時点では",
 	"cx-suggestionlist-empty-desc": "候補が見つかりません。しばらくしてからもう一度確認するか、推奨ツール (開発中) を使用して関連するページを検索することができます。",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "候補を表示 (実験段階)",
@@ -322,5 +322,7 @@
 	"cx-sx-start-translation-button-label": "翻訳を開始",
 	"cx-sx-view-translation-anchor": "表示",
 	"cx-sx-section-selector-more-details-title": "詳細はこちら",
-	"cx-sx-section-selector-view-article-button-label": "$1で記事を見る"
+	"cx-sx-section-selector-view-article-button-label": "$1で記事を見る",
+	"cx-suggestion-list-new-pages-division": "新しいページ",
+	"cx-translation-list-all-languages-option-label": "すべて"
 }

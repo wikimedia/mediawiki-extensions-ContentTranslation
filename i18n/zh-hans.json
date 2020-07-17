@@ -342,6 +342,9 @@
 	"cx-sx-section-selector-view-article-button-label": "查看$1中的文章",
 	"cx-sx-section-selector-pick-other-translation-button-label": "选择另一个页面",
 	"cx-sx-section-selector-learn-more-anchor-label": "了解更多",
+	"cx-sx-section-selector-unsupported-sections-title": "不支持的章节",
 	"cx-suggestion-list-new-pages-division": "新页面",
-	"cx-translation-list-all-languages-option-label": "全部"
+	"cx-translation-list-all-languages-option-label": "全部",
+	"cx-sx-content-comparator-back-to-sections-button-label": "返回全部章节",
+	"cx-sx-content-comparator-translation-section-button-label": "翻译本节"
 }
