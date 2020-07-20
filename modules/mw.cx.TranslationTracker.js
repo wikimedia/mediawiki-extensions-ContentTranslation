@@ -224,7 +224,7 @@ mw.cx.TranslationTracker.static.getTokensFromValidationTree = function ( validat
 
 	for ( i = 0; i < validationTree.length; i++ ) {
 		validationNode = validationTree[ i ];
-		sourceText = $( ve.dm.converter.getDomFromNode( validationNode ).body.innerHTML ).text();
+		sourceText = $( ve.dm.converter.getDomFromNode( validationNode ) ).text();
 		sourceTokens = sourceTokens.concat( this.tokenise( sourceText, language ) );
 	}
 
