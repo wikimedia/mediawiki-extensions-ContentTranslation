@@ -325,5 +325,11 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Неподдржани поднаслови",
 	"cx-sx-section-selector-unsupported-sections-description": "Некои поднаслови може да не стојат на списокот бидеќи нивната содржина засега не е поддржана.",
 	"cx-suggestion-list-new-pages-division": "Нови страници",
-	"cx-translation-list-all-languages-option-label": "Сите"
+	"cx-translation-list-all-languages-option-label": "Сите",
+	"cx-sx-content-comparator-back-to-sections-button-label": "Назад кон сите поднаслови",
+	"cx-sx-content-comparator-translation-section-button-label": "Преведи го поднасловов",
+	"cx-sx-content-comparator-additional-considerations-title": "Проверка на содржината на обата јазика",
+	"cx-sx-content-comparator-additional-considerations-content": "Содржината од избраниот поднасов може веќе да е покриена во целната статија.",
+	"cx-sx-content-comparator-source-selector-title": "Поднаслов на $1",
+	"cx-sx-content-comparator-target-selector-title": "Целосна статија на $1"
 }

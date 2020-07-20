@@ -8,6 +8,7 @@
 			"Bodhisattwa",
 			"Elias Ahmmad",
 			"Nasir8891",
+			"Sibabrata Banerjee",
 			"Tauhid16",
 			"আফতাবুজ্জামান"
 		]
@@ -299,6 +300,9 @@
 	"cx-sx-section-selector-present-sections-title": "$1 ভাষায় অনুচ্ছেদ উপস্থিত রয়েছে",
 	"cx-sx-section-selector-more-details-title": "আরো বিস্তারিত",
 	"cx-sx-section-selector-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন",
+	"cx-sx-section-selector-learn-more-anchor-label": "আরও জানুন",
 	"cx-suggestion-list-new-pages-division": "নতুন পাতা",
-	"cx-translation-list-all-languages-option-label": "সব"
+	"cx-translation-list-all-languages-option-label": "সব",
+	"cx-sx-content-comparator-translation-section-button-label": "এই অংশটি অনুবাদ করুন",
+	"cx-sx-content-comparator-additional-considerations-title": "উভয় ভাষায় বিষয়বস্তু পর্যালোচনা করুন।"
 }

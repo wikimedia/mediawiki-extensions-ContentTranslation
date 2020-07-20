@@ -332,5 +332,12 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "מידע נוסף",
 	"cx-sx-section-selector-unsupported-sections-title": "פסקאות לא נתמכות",
 	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפסקאות לא תופענה ברשימה כי התוכן שלהן עדיין לא נתמך.",
-	"cx-suggestion-list-new-pages-division": "דפים חדשים"
+	"cx-suggestion-list-new-pages-division": "דפים חדשים",
+	"cx-translation-list-all-languages-option-label": "",
+	"cx-sx-content-comparator-back-to-sections-button-label": "",
+	"cx-sx-content-comparator-translation-section-button-label": "",
+	"cx-sx-content-comparator-additional-considerations-title": "",
+	"cx-sx-content-comparator-additional-considerations-content": "",
+	"cx-sx-content-comparator-source-selector-title": "",
+	"cx-sx-content-comparator-target-selector-title": ""
 }
