@@ -391,7 +391,6 @@
 				"cx-sx-content-comparator-review-contents-title",
 				"cx-sx-content-comparator-review-contents-rest",
 				"cx-sx-content-comparator-source-selector-title",
-				"cx-sx-content-comparator-target-selector-title",
 				"sx-quick-tutorial-main-point-step-1",
 				"sx-quick-tutorial-main-point-step-2",
 				"sx-quick-tutorial-secondary-point-step-1",
@@ -408,7 +407,9 @@
 				"cx-sx-content-comparator-mapped-section-header-title",
 				"cx-sx-content-comparator-target-selector-target-section-title",
 				"cx-sx-content-comparator-mapped-section-clarifications",
-				"cx-sx-article-selector-views-count"
+				"cx-sx-article-selector-views-count",
+				"cx-sx-content-comparator-discarded-section-clarifications",
+				"cx-sx-content-comparator-discarded-section-label"
 			],
 			"noflip": true
 		},

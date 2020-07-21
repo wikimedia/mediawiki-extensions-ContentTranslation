@@ -50,7 +50,7 @@
           />
         </div>
         <div
-          v-if="isMissingSection"
+          v-if="isCurrentSectionMissing"
           class="sx-content-comparator-header__review-contents flex py-2"
         >
           <div class="shrink pe-2">
@@ -69,23 +69,53 @@
           >
             <div class="col grow">
               <h6
-                v-i18n:cx-sx-content-comparator-mapped-section-header-title="[
-                  getAutonym(suggestion.targetLanguage)
-                ]"
                 class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
-              />
+              >
+                {{
+                  $i18n(
+                    "cx-sx-content-comparator-mapped-section-header-title",
+                    getAutonym(suggestion.targetLanguage)
+                  )
+                }}
+                <span
+                  v-if="isCurrentSectionDiscarded"
+                  v-i18n:cx-sx-content-comparator-discarded-section-label
+                />
+              </h6>
               <h6
                 class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
+                :class="{
+                  'sx-content-comparator-header__mapped-section-target-title--discarded': isCurrentSectionDiscarded
+                }"
               >
                 {{ activeSectionTargetTitle }}
               </h6>
             </div>
             <div class="col shrink">
-              <mw-button class="pa-0" :icon="mwIconTrash" type="icon" />
+              <mw-button
+                v-if="!isCurrentSectionDiscarded"
+                class="pa-0"
+                :icon="mwIconTrash"
+                type="icon"
+                @click="discardMapping"
+              />
+              <mw-button
+                v-else
+                class="pa-0"
+                :icon="mwIconUndo"
+                type="icon"
+                @click="undoDiscard"
+              />
             </div>
           </div>
           <p
+            v-if="!isCurrentSectionDiscarded"
             v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
+            class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
+          />
+          <p
+            v-else
+            v-i18n-html:cx-sx-content-comparator-discarded-section-clarifications
             class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
           />
         </div>
@@ -170,7 +200,8 @@ import {
   mwIconEdit,
   mwIconEye,
   mwIconTrash,
-  mwIconLinkExternal
+  mwIconLinkExternal,
+  mwIconUndo
 } from "../lib/mediawiki.ui/components/icons";
 import {
   MwButton,
@@ -218,10 +249,12 @@ export default {
     mwIconArrowPrevious,
     mwIconTrash,
     mwIconLinkExternal,
+    mwIconUndo,
     contentComparatorActive: false,
     sourceVsTargetSelection: "source_section",
     tutorialActive: false,
-    selectSentenceActive: false
+    selectSentenceActive: false,
+    discardedSections: []
   }),
   computed: {
     targetArticlePath() {
@@ -286,11 +319,14 @@ export default {
     targetSectionContent() {
       return this.targetSection?.text;
     },
-    isMissingSection() {
+    isCurrentSectionMissing() {
       return this.missingSections.hasOwnProperty(this.activeSectionSourceTitle);
     },
-    isPresentSection() {
-      return !this.isMissingSection && true;
+    isCurrentSectionMapped() {
+      return !this.isCurrentSectionMissing && !this.isCurrentSectionDiscarded;
+    },
+    isCurrentSectionDiscarded() {
+      return this.discardedSections.includes(this.activeSectionTargetTitle);
     },
     listSelector() {
       const sourceSelectorItem = {
@@ -303,7 +339,7 @@ export default {
           type: "text"
         }
       };
-      const targetSelectorItem = this.isPresentSection
+      const targetSelectorItem = this.isCurrentSectionMapped
         ? {
             value: "target_section",
             props: {
@@ -394,6 +430,18 @@ export default {
         "update:active-section-source-title",
         this.sectionSourceTitles[nextIndex]
       );
+    },
+    discardMapping() {
+      if (!this.isCurrentSectionDiscarded) {
+        this.discardedSections.push(this.activeSectionTargetTitle);
+      }
+    },
+    undoDiscard() {
+      if (this.isCurrentSectionDiscarded) {
+        this.discardedSections = this.discardedSections.filter(
+          sectionTitle => sectionTitle !== this.activeSectionTargetTitle
+        );
+      }
     }
   }
 };
@@ -423,6 +471,9 @@ export default {
       }
       .sx-content-comparator-header__mapped-section-target-title {
         color: @color-base;
+        &.sx-content-comparator-header__mapped-section-target-title--discarded {
+          text-decoration: line-through;
+        }
       }
     }
     .sx-content-comparator-header__mapped-section-clarifications {
