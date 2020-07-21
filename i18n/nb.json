@@ -334,5 +334,10 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Ikke-støttede seksjoner",
 	"cx-sx-section-selector-unsupported-sections-description": "Det kan være at noen seksjoner ikke dukker opp i lista fordi innholdet i dem ikke støttes ennå.",
 	"cx-suggestion-list-new-pages-division": "Nye sider",
-	"cx-translation-list-all-languages-option-label": "Alle"
+	"cx-translation-list-all-languages-option-label": "Alle",
+	"cx-sx-content-comparator-translation-section-button-label": "Oversett denne seksjonen",
+	"cx-sx-content-comparator-additional-considerations-title": "Gå gjennom innholdet på begge språk.",
+	"cx-sx-content-comparator-additional-considerations-content": "Innhold fra den valgte seksjonen kan allerede være dekket i målartikkelen.",
+	"cx-sx-content-comparator-source-selector-title": "Seksjon på $1",
+	"cx-sx-content-comparator-target-selector-title": "Hele artikkelen på $1"
 }
