@@ -205,11 +205,21 @@ h6 {
 
 blockquote {
   font-style: italic;
-  font-size: 1.5rem;
+  font-family: map-get($font-stack, serif);
+  font-size: 1.25rem;
   line-height: 1.5;
+  border-left: 3px solid #c8ccd1;
+  margin: 1.6rem 0 0;
+  padding: 0 3.2rem;
+
   cite {
     display: block;
     font-style: normal;
+    font-family: map-get($font-stack, sans);
+    font-size: 0.875rem;
+    &::before {
+      content: "— ";
+    }
   }
 }
 
