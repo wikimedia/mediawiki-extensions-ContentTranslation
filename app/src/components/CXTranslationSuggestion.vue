@@ -12,19 +12,19 @@
       />
     </div>
     <div class="col pe-2">
-      <p
+      <h5
         class="mt-0 mb-2 cx-suggestion__source-title"
         :lang="suggestion.sourceLanguage"
       >
         {{ suggestion.sourceTitle }}
-      </p>
+      </h5>
       <p
-        class="cx-suggestion__source-description"
+        class="cx-suggestion__source-description complementary"
         :lang="suggestion.sourceLanguage"
       >
         {{ page && page.description }}
       </p>
-      <p class="mt-2 cx-suggestion__languages text-small">
+      <div class="mt-2 cx-suggestion__languages text-small">
         <span
           class="mw-ui-autonym"
           :dir="getDirection(suggestion.sourceLanguage)"
@@ -36,7 +36,7 @@
           :dir="getDirection(suggestion.targetLanguage)"
           v-text="getAutonym(suggestion.targetLanguage)"
         ></span>
-      </p>
+      </div>
     </div>
     <div class="col-1">
       <mw-icon :icon="mwIconStar" :size="24" />
@@ -99,14 +99,6 @@ export default {
   .cx-suggestion__thumbnail {
     height: 84px;
     width: 84px;
-  }
-  .cx-suggestion__source-title {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  .cx-suggestion__source-description {
-    font-weight: normal;
-    font-size: 1em;
   }
 }
 </style>

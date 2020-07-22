@@ -56,10 +56,9 @@
             <p
               class="ma-0 sx-content-comparator-header__additional-considerations"
             >
-              <span
-                class="sx-content-comparator-header__additional-considerations-title"
+              <strong
                 v-i18n:cx-sx-content-comparator-additional-considerations-title
-              ></span>
+              ></strong>
               <span
                 v-i18n:cx-sx-content-comparator-additional-considerations-content
               ></span>
@@ -210,17 +209,13 @@ export default {
 @import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-content-comparator {
   .sx-content-comparator-header__section-title {
-    line-height: 1.6;
     border: none;
   }
 
   .sx-content-comparator-header__additional-considerations {
-    line-height: 1.6;
-    color: @color-base;
-    .sx-content-comparator-header__additional-considerations-title {
-      font-weight: bold;
-    }
+     color: @color-base;
   }
+
   .sx-content-comparator__source-target-selector {
     .mw-ui-button-group {
       background: @background-color-framed;

@@ -43,7 +43,7 @@
         ></h4>
         <ul
           v-if="!emptyMissingSections"
-          class="sx-selector__missing-sections-list ma-0"
+          class="sx-selector__missing-sections-list ma-0 pa-0"
         >
           <li
             v-for="(targetSection, sourceSection) in suggestion.missingSections"
@@ -127,26 +127,26 @@
           ]"
           class="sx-selector__list-title mb-0 pb-0 py-3 px-4"
         ></h4>
-        <ul class="sx-selector__present-sections-list ma-0">
+        <ul class="sx-selector__present-sections-list ma-0 pa-0">
           <li
             v-for="(targetSection, sourceSection) in suggestion.presentSections"
             :key="sourceSection"
             class="row ma-0"
           >
             <mw-button
-              class="col-12 justify-between py-3 px-4"
+              class="col-12 justify-between items-center py-3 px-4"
               :indicator="mwIconArrowForward"
               type="text"
               :outlined="false"
               :block="true"
             >
               <div class="sx-selector__present-section-button-content">
-                <p class="sx-selector__present-section-button-source mb-0">
+                <h5 class="sx-selector__present-section-button-source">
                   {{ sourceSection }}
-                </p>
-                <p class="sx-selector__present-section-button-target mb-0">
+                </h5>
+                <h6 class="sx-selector__present-section-button-target">
                   {{ targetSection }}
-                </p>
+                </h6>
               </div>
             </mw-button>
           </li>
@@ -159,7 +159,7 @@
           ]"
           class="sx-selector__list-title mb-0 pb-0 py-3 px-4"
         ></h4>
-        <ul class="ma-0">
+        <ul class="ma-0 pa-0">
           <li class="row ma-0">
             <mw-button
               :href="sourceArticlePath"
@@ -324,7 +324,6 @@ export default {
     .sx-selector__title {
       color: @color-base;
       border: none;
-      font-weight: bold;
     }
     .sx-selector__header-text {
       color: @color-base;
@@ -350,11 +349,10 @@ export default {
     .sx-selector__present-sections {
       background-color: @background-color-framed;
       .sx-selector__present-section-button-content {
-        text-align: start;
+        text-align:start;
         .sx-selector__present-section-button-target {
           // TODO: Fix this to be @base20 color - currently base30
           color: @color-base--subtle;
-          font-weight: normal;
         }
       }
     }

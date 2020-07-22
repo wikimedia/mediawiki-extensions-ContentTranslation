@@ -14,7 +14,7 @@
         :target-languages="availableTargetLanguages"
       />
       <div class="cx-translation-list__division">
-        <h6 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4"></h6>
+        <h5 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4"></h5>
       </div>
       <mw-spinner v-if="!pageSuggestionsLoaded" />
       <cx-translation-suggestion
@@ -30,10 +30,10 @@
       class="cx-translation-list--sx-suggestions pa-0 mb-0"
     >
       <div class="cx-translation-list__division">
-        <h6
+        <h5
           v-i18n:cx-suggestionlist-expand-sections-title
           class="ma-0 pa-4"
-        ></h6>
+        ></h5>
       </div>
       <mw-spinner v-if="!sectionSuggestionsLoaded" />
       <cx-translation-suggestion

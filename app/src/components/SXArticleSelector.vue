@@ -18,16 +18,14 @@
           <div
             class="sx-article-selector__header-title column justify-between ma-0"
           >
-            <div class="col">
-              <h6 class="pa-0 ma-0">{{ sourceTitle }}</h6>
-            </div>
-            <div class="col shrink sx-article-selector__stats">
+            <h5 class="col pa-0 ma-0">{{ sourceTitle }}</h5>
+            <p class="col shrink complementary sx-article-selector__stats">
               <span class="pe-3">
                 <mw-icon :icon="mwIconLanguage" />
                 {{ langLinksCount }}
               </span>
               <span> {{ weeklyViews }} visits per week </span>
-            </div>
+            </p>
           </div>
         </div>
         <div class="col shrink items-start">
@@ -253,8 +251,6 @@ export default {
     .sx-article-selector__stats {
       // TODO: Fix this to be @base20 color - currently base30
       color: @color-base--subtle;
-      // Waiting UI Typography to set it properly using appropriate class
-      font-size: 14px;
     }
   }
 

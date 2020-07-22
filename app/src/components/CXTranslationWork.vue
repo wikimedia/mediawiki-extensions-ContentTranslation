@@ -13,18 +13,18 @@
       <div class="cx-translation__details column justify-between ma-0">
         <div class="row ma-0">
           <div class="col grow">
-            <div
+            <h5
               class="cx-translation__source-title pb-2"
               :lang="translation.sourceLanguage"
             >
               {{ translation.sourceTitle }}
-            </div>
-            <div
+            </h5>
+            <h6
               class="cx-translation__target-title"
               :lang="translation.targetLanguage"
             >
               {{ translation.targetTitle }}
-            </div>
+            </h6>
           </div>
           <div class="col shrink ps-2">
             <mw-icon
@@ -141,11 +141,6 @@ export default {
   }
   .cx-translation__details {
     height: 100%;
-
-    .cx-translation__source-title {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
   }
 }
 </style>

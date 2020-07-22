@@ -73,7 +73,6 @@ export default {
 .cx-header {
   padding: 0;
   h1.header {
-    font-size: 1.8em;
     border-bottom: 0;
   }
 }
