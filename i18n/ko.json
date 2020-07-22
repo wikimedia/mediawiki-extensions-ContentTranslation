@@ -329,5 +329,6 @@
 	"cx-sx-existing-translation-learn-more": "더 알아보기",
 	"cx-sx-section-selector-pick-other-translation-button-label": "다른 페이지 선택",
 	"cx-sx-section-selector-learn-more-anchor-label": "더 알아보기",
-	"cx-suggestion-list-new-pages-division": "새 문서"
+	"cx-suggestion-list-new-pages-division": "새 문서",
+	"cx-sx-content-comparator-translation-section-button-label": "이 문단 번역하기"
 }
