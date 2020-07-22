@@ -150,6 +150,10 @@ export const Typography = () => ({
       <dd>
         <p>Lato Regular / system sans-serif 16 sp<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius. Itaque laudantium, praesentium maiores distinctio! Voluptate ipsam consequatur corrupti inventore cum illo quae modi.</p>
       </dd>
+      <dt>Complementary Paragraph</dt>
+      <dd>
+        <p class="complementary">Lato Regular / system sans-serif 14 sp<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis reprehenderit minima voluptates doloribus nemo, enim eius. Itaque laudantium, praesentium maiores distinctio! Voluptate ipsam consequatur corrupti inventore cum illo quae modi.</p>
+      </dd>
       <dt>Block quotation<br>citation</dt>
       <dd>
         <blockquote>Charter Italic 20 sp, 3px border before<br><cite>Lato regular / system sans-serif 14 sp</cite></blockquote>
