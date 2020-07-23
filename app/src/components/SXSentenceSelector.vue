@@ -1,7 +1,7 @@
 <template>
   <mw-dialog v-if="active" class="sx-sentence-selector">
     <template slot="header">
-      <div class="row sx-sentence-selector__header ma-0 py-2">
+      <div class="row sx-sentence-selector__header ma-0 py-2 items-center">
         <div class="col shrink">
           <mw-button
             class="px-3"
