@@ -339,5 +339,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Überprüfen des Inhalts in beiden Sprachen.",
 	"cx-sx-content-comparator-additional-considerations-content": "Inhalte aus dem ausgewählten Abschnitt können bereits im Zielartikel enthalten sein.",
 	"cx-sx-content-comparator-source-selector-title": "Abschnitt auf $1",
-	"cx-sx-content-comparator-target-selector-title": "Ganzer Artikel auf $1"
+	"cx-sx-content-comparator-target-selector-title": "Ganzer Artikel auf $1",
+	"sx-quick-tutorial-main-point-step-1": "Einen neuen Abschnitt zu übersetzen ist einfach, schnell und macht Freude!",
+	"sx-quick-tutorial-main-point-step-2": "Erweitere das Wissen um einen Abschnitt nach dem anderen.",
+	"sx-quick-tutorial-secondary-point-step-1": "Für jeden Satz erhältst du eine erste automatische Übersetzung <mark>zur Überprüfung und Verbesserung.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Veröffentliche, wenn du bereit bist. Deine Übersetzung wird der Seite hinzugefügt, und du kannst einen anderen <mark>Abschnitt next!</mark> auswählen.",
+	"sx-quick-tutorial-translate-button-label": "Übersetzen beginnen",
+	"cx-sx-sentence-selector-header-title": "Abschnitt übersetzen",
+	"cx-sx-sentence-selector-done-button-label": "Fertig",
+	"cx-sx-sentence-selector-proposed-translation-title": "Vorgeschlagene Übersetzung ab $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Übersetzung bearbeiten",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Anwenden",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Überspringen"
 }

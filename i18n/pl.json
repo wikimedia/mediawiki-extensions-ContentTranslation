@@ -352,5 +352,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Przejrzyj treść w obu językach.",
 	"cx-sx-content-comparator-additional-considerations-content": "Treść wybranej sekcji może już istnieć w docelowym artykule.",
 	"cx-sx-content-comparator-source-selector-title": "Sekcja w $1",
-	"cx-sx-content-comparator-target-selector-title": "Pełen artykuł w $1"
+	"cx-sx-content-comparator-target-selector-title": "Pełen artykuł w $1",
+	"sx-quick-tutorial-main-point-step-1": "Tłumaczenie sekcji jest proste, szybkie i przyjemne!",
+	"sx-quick-tutorial-main-point-step-2": "Poszerzaj wiedzę po jednej sekcji na raz.",
+	"sx-quick-tutorial-secondary-point-step-1": "Każde zdanie otrzyma wstępne automatyczne tłumaczenie przeznaczone <mark>do ręcznego przeglądu i ulepszenia.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Opublikuj gdy skończysz. Twoje tłumaczenie zostanie dodane na stronę, a następnie ty możesz wybrać <mark>inną sekcję!</mark>",
+	"sx-quick-tutorial-translate-button-label": "Rozpocznij tłumaczenie",
+	"cx-sx-sentence-selector-header-title": "Przetłumacz sekcję",
+	"cx-sx-sentence-selector-done-button-label": "Gotowe",
+	"cx-sx-sentence-selector-proposed-translation-title": "Proponowane tłumaczenie z $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Edytuj tłumaczenie",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Zastosuj",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Pomiń"
 }

@@ -241,7 +241,7 @@
 	"cx-draft-restored": "Kaydedilen çeviri yüklendi.",
 	"cx-draft-restore-failed": "Kaydedilen çeviri yüklenemedi!",
 	"cx-suggestionlist-expand": "Hepsini göster",
-	"cx-suggestionlist-collapse": "Azını göster",
+	"cx-suggestionlist-collapse": "Daha az göster",
 	"cx-suggestionlist-refresh": "Önerileri güncelle",
 	"cx-notification-suggestions-available": "'''$1''' sayfasının önceki {{GENDER:$2|çevirinize}} dayanmaktadır, yeni öneriler artık mevcut.",
 	"cx-infobar-view-issues": "Sorunları Görüntüle",
@@ -351,5 +351,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Her iki dildeki içeriği inceleyin.",
 	"cx-sx-content-comparator-additional-considerations-content": "Seçilen bölümün içeriği zaten hedef maddede ele alınmış olabilir.",
 	"cx-sx-content-comparator-source-selector-title": "$1 içindeki bölüm",
-	"cx-sx-content-comparator-target-selector-title": "$1 içindeki tam madde"
+	"cx-sx-content-comparator-target-selector-title": "$1 içindeki tam madde",
+	"sx-quick-tutorial-main-point-step-1": "Yeni bir bölümü çevirmek kolay, hızlı ve eğlenceli!",
+	"sx-quick-tutorial-main-point-step-2": "Bilgiyi her seferinde bir bölüm genişletin.",
+	"sx-quick-tutorial-secondary-point-step-1": "Her cümle <mark>için incelemeniz ve geliştirmeniz</mark> için bir başlangıç otomatik çeviri alırsınız.",
+	"sx-quick-tutorial-secondary-point-step-2": "Hazır olduğunuzda yayınlayın. Çeviriniz sayfaya eklenecek ve bir sonraki <mark>bölümü seçebilirsiniz</mark>!",
+	"sx-quick-tutorial-translate-button-label": "Çevirmeye başla",
+	"cx-sx-sentence-selector-header-title": "Bölümü çevir",
+	"cx-sx-sentence-selector-done-button-label": "Yapıldı",
+	"cx-sx-sentence-selector-proposed-translation-title": "$1 üzerinden önerilen çeviri",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi düzenle",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Uygula",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Atla"
 }

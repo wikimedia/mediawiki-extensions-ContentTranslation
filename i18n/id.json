@@ -16,6 +16,7 @@
 			"Macofe",
 			"Mirws",
 			"Rachmat04",
+			"Sonic Speedy",
 			"Sumbukompor",
 			"Veracious",
 			"William Surya Permana"
@@ -303,5 +304,8 @@
 	"cx-preference-enable-entrypoints": "Akses untuk [[$1|memulai terjemahan]], dari halaman kontribusi, daftar bahasa, dan pembuatan halaman baru.",
 	"cx-feature-discovery-title": "Terjemahkan kapan pun",
 	"cx-feature-discovery-content": "Anda dapat memulai atau melanjutkan terjemahan kapan pun dari halaman {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Oke, saya paham"
+	"cx-feature-discovery-dismiss": "Oke, saya paham",
+	"cx-sx-sentence-selector-header-title": "Bagian terjemahan",
+	"cx-sx-sentence-selector-done-button-label": "Selesai",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan"
 }

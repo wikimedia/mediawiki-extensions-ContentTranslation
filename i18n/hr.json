@@ -313,5 +313,11 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "Saznajte više",
 	"cx-sx-section-selector-unsupported-sections-title": "Nepodržani odlomci",
 	"cx-sx-section-selector-unsupported-sections-description": "Pojedini odlomci moguće neće biti prikazani u popisu jer njihovi sadržaji još nisu podržani.",
-	"cx-suggestion-list-new-pages-division": "Nove stranice"
+	"cx-suggestion-list-new-pages-division": "Nove stranice",
+	"sx-quick-tutorial-main-point-step-1": "Prevođenje novoga odlomka lagano je, brzo i zabavno!",
+	"sx-quick-tutorial-secondary-point-step-2": "Objavite kad ste spremni. Vaš će prijevod biti dodan stranici, a Vi ćete moći odabrati drugi <mark>odlomak koji slijedi!</mark>",
+	"cx-sx-sentence-selector-header-title": "Prevođenje odlomka",
+	"cx-sx-sentence-selector-done-button-label": "Gotovo",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Uredi prijevod",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Primijeni"
 }

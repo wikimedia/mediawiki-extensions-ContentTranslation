@@ -59,7 +59,7 @@
 	"cx-campaign-newbytranslation-title": "להתחיל מתרגום במקום זה?",
 	"cx-campaign-newbytranslation-notice": "ליצור ערך חדש באמצעות תרגום משפה אחרת {{GENDER:|שאתה יודע|שאת יודעת}}.",
 	"cx-campaign-newbytranslation-search": "לחפש דף אחר לתרגם",
-	"cx-campaign-newbytranslation-start": "להתחיל לתרגום",
+	"cx-campaign-newbytranslation-start": "להתחיל לתרגם",
 	"cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה. [$1 כניסה]",
 	"cx-tools-instructions-text1": "{{GENDER:|לחץ|לחצי}} על פסקאות כדי לתרגם",
 	"cx-tools-instructions-text2": "{{GENDER:|אתה לא צריך|את לא צריכה}} להוסיף את כולן",
@@ -339,5 +339,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "לסקור את התוכן בכל השפות.",
 	"cx-sx-content-comparator-additional-considerations-content": "ייתכן שתוכן מהפסקה שנבחרה כבר מסוקר בערך היעד.",
 	"cx-sx-content-comparator-source-selector-title": "פסקה ב{{GRAMMAR:תחילית|$1}}.",
-	"cx-sx-content-comparator-target-selector-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}."
+	"cx-sx-content-comparator-target-selector-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}.",
+	"sx-quick-tutorial-main-point-step-1": "תרגום פסקה חדשה זה דבר קל, מהיר, וכיפי!",
+	"sx-quick-tutorial-main-point-step-2": "תרחיבו את הידע פסקה אחרי פסקה.",
+	"sx-quick-tutorial-secondary-point-step-1": "לכל משפט, תקבל תרגום התחלתי <mark>{{GENDER:|שתצטרך|שתצטרכי}} לסקור ולשפר.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "{{GENDER:|פרסם כשתהיה מוכן|פרסמי כשתהיי מוכנה}}. התרגום שלך יתווסף לדף, {{GENDER:|ותוכל|ותוכלי}} לבחור את <mark>הפסקה הבאה אחרי־כן!</mark>",
+	"sx-quick-tutorial-translate-button-label": "להתחיל לתרגם",
+	"cx-sx-sentence-selector-header-title": "לתרגם פסקה",
+	"cx-sx-sentence-selector-done-button-label": "בוצע",
+	"cx-sx-sentence-selector-proposed-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-sentence-selector-edit-translation-button-label": "עריכת התרגום",
+	"cx-sx-sentence-selector-apply-translation-button-label": "החלה",
+	"cx-sx-sentence-selector-skip-translation-button-label": "לדלג"
 }
