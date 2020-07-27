@@ -118,7 +118,10 @@
     <section v-else class="sx-content-comparator__source-content pa-4">
       <p v-html="targetSectionContent"></p>
     </section>
-    <sx-quick-tutorial :active.sync="tutorialActive" />
+    <sx-quick-tutorial
+      :active.sync="tutorialActive"
+      @tutorial-completed="goToSentenceSelector"
+    />
     <sx-sentence-selector
       :suggestion="suggestion"
       :section-source-title="activeSectionSourceTitle"
@@ -291,6 +294,16 @@ export default {
   },
   methods: {
     translateSection() {
+      if (this.$store.getters["translator/hasSectionTranslations"]()) {
+        this.goToSentenceSelector();
+        return;
+      }
+      this.goToTutorial();
+    },
+    goToTutorial() {
+      this.tutorialActive = true;
+    },
+    goToSentenceSelector() {
       this.selectSentenceActive = true;
     }
   }

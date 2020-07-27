@@ -1,5 +1,6 @@
 import cxTranslatorApi from "../../wiki/cx/api/translator";
 import Vue from "vue";
+import translation from "../../wiki/cx/models/translation";
 
 const state = {
   username: mw.config.get("wgUserName"),
@@ -44,7 +45,10 @@ const getters = {
     return state.translations.filter(
       translationItem => translationItem.status === "draft"
     );
-  }
+  },
+  // Function with dummy implementation. Needed to add real functionality later
+  hasSectionTranslations: state => () =>
+    state.translations.some(translation => translation.hasSectionTranslations)
 };
 
 const actions = {
