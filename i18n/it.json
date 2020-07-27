@@ -291,5 +291,11 @@
 	"cx-suggestion-list-new-pages-division": "Nuove pagine",
 	"cx-translation-list-all-languages-option-label": "Tutte",
 	"cx-sx-content-comparator-translation-section-button-label": "Traduci questa sezione",
-	"cx-sx-content-comparator-source-selector-title": "Sezione in $1"
+	"cx-sx-content-comparator-source-selector-title": "Sezione in $1",
+	"sx-quick-tutorial-translate-button-label": "Inizia a tradurre",
+	"cx-sx-sentence-selector-header-title": "Traduci sezione",
+	"cx-sx-sentence-selector-done-button-label": "Fatto",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Modifica traduzione",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Applica",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Salta"
 }

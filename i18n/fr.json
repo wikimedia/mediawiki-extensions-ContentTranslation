@@ -369,5 +369,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Revoir le contenu dans les deux langues.",
 	"cx-sx-content-comparator-additional-considerations-content": "Le contenu de la section sélectionnée peut déjà être couvert dans l’article cible.",
 	"cx-sx-content-comparator-source-selector-title": "Section dans $1",
-	"cx-sx-content-comparator-target-selector-title": "Article complet dans $1"
+	"cx-sx-content-comparator-target-selector-title": "Article complet dans $1",
+	"sx-quick-tutorial-main-point-step-1": "Traduire une nouvelle section est facile, rapide et amusant !",
+	"sx-quick-tutorial-main-point-step-2": "Développer la connaissance, une section à la fois.",
+	"sx-quick-tutorial-secondary-point-step-1": "Pour chaque phrase, vous aurez une traduction automatique initiale <mark>que vous devez relire et améliorer</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Publiez quand vous serez prêt. Votre traduction sera ajoutée à la page, et vous pourrez choisir une autre <mark>section suivante</mark> !",
+	"sx-quick-tutorial-translate-button-label": "Commencer à traduire",
+	"cx-sx-sentence-selector-header-title": "Traduire la section",
+	"cx-sx-sentence-selector-done-button-label": "Terminé",
+	"cx-sx-sentence-selector-proposed-translation-title": "Traduction proposée depuis $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Modifier la traduction",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Appliquer",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Sauter"
 }

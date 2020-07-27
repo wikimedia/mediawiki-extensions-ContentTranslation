@@ -331,5 +331,16 @@
 	"cx-sx-content-comparator-additional-considerations-title": "Проверка на содржината на обата јазика",
 	"cx-sx-content-comparator-additional-considerations-content": "Содржината од избраниот поднасов може веќе да е покриена во целната статија.",
 	"cx-sx-content-comparator-source-selector-title": "Поднаслов на $1",
-	"cx-sx-content-comparator-target-selector-title": "Целосна статија на $1"
+	"cx-sx-content-comparator-target-selector-title": "Целосна статија на $1",
+	"sx-quick-tutorial-main-point-step-1": "Преведувањето на нов поднаслов е лесно, брзо и забавно!",
+	"sx-quick-tutorial-main-point-step-2": "Проширете го знаењето поднаслов по поднаслов.",
+	"sx-quick-tutorial-secondary-point-step-1": "За секоја реченица ќе добивате првичен автоматски превод <mark>кој ќе го проверите и подобрите.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Објавете го кога ќе бидете готови. Вашиот превод ќе биде додаден во страницата, и потоа ќе можете да одберете <mark>друг поднаслов!</mark>",
+	"sx-quick-tutorial-translate-button-label": "Почни со преведување",
+	"cx-sx-sentence-selector-header-title": "Преведи поднаслов",
+	"cx-sx-sentence-selector-done-button-label": "Готово",
+	"cx-sx-sentence-selector-proposed-translation-title": "Преложен превод од $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Уреди превод",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Примени",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Прескокни"
 }

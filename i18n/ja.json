@@ -324,5 +324,16 @@
 	"cx-sx-section-selector-more-details-title": "詳細はこちら",
 	"cx-sx-section-selector-view-article-button-label": "$1で記事を見る",
 	"cx-suggestion-list-new-pages-division": "新しいページ",
-	"cx-translation-list-all-languages-option-label": "すべて"
+	"cx-translation-list-all-languages-option-label": "すべて",
+	"sx-quick-tutorial-main-point-step-1": "新しいセクションを翻訳するのは簡単で、即座にでき、しかも楽しくもあります！",
+	"sx-quick-tutorial-main-point-step-2": "一度に一セクションずつ知識を増やしていってください。",
+	"sx-quick-tutorial-secondary-point-step-1": "各文ごとに、たたき台となる自動翻訳の結果が表示されるので、<mark>あなたはそれを読んで改善してください。</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "準備が出来たら発行しましょう。あなたの翻訳がページに追加され、もう一つ <mark>次のセクション</mark> を選べるようになります！",
+	"sx-quick-tutorial-translate-button-label": "翻訳を開始",
+	"cx-sx-sentence-selector-header-title": "セクションを翻訳",
+	"cx-sx-sentence-selector-done-button-label": "完了",
+	"cx-sx-sentence-selector-proposed-translation-title": "$1 による翻訳案",
+	"cx-sx-sentence-selector-edit-translation-button-label": "翻訳を編集",
+	"cx-sx-sentence-selector-apply-translation-button-label": "適用",
+	"cx-sx-sentence-selector-skip-translation-button-label": "スキップ"
 }

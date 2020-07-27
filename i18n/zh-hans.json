@@ -346,5 +346,9 @@
 	"cx-suggestion-list-new-pages-division": "新页面",
 	"cx-translation-list-all-languages-option-label": "全部",
 	"cx-sx-content-comparator-back-to-sections-button-label": "返回全部章节",
-	"cx-sx-content-comparator-translation-section-button-label": "翻译本节"
+	"cx-sx-content-comparator-translation-section-button-label": "翻译本节",
+	"cx-sx-sentence-selector-done-button-label": "完成",
+	"cx-sx-sentence-selector-edit-translation-button-label": "编辑翻译",
+	"cx-sx-sentence-selector-apply-translation-button-label": "应用",
+	"cx-sx-sentence-selector-skip-translation-button-label": "跳过"
 }

@@ -236,5 +236,13 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "Eng aner Säit eraussichen",
 	"cx-sx-section-selector-learn-more-anchor-label": "Fir méi ze wëssen",
 	"cx-suggestion-list-new-pages-division": "Nei Säiten",
-	"cx-translation-list-all-languages-option-label": "All"
+	"cx-translation-list-all-languages-option-label": "All",
+	"cx-sx-content-comparator-translation-section-button-label": "Dësen Abschnitt iwwersetzen",
+	"cx-sx-content-comparator-target-selector-title": "Kompletten Artikel op $1",
+	"sx-quick-tutorial-translate-button-label": "Ufänke mat iwwersetzen",
+	"cx-sx-sentence-selector-header-title": "Abschnitt iwwersetzen",
+	"cx-sx-sentence-selector-done-button-label": "Fäerdeg",
+	"cx-sx-sentence-selector-proposed-translation-title": "Proposéiert Iwwersetzung vum $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Iwwersetzung änneren",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Iwwersprangen"
 }

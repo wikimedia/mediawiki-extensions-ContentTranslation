@@ -284,5 +284,10 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "Vælg en anden side",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lær mere",
 	"cx-suggestion-list-new-pages-division": "Nye sider",
-	"cx-translation-list-all-languages-option-label": "Alle"
+	"cx-translation-list-all-languages-option-label": "Alle",
+	"sx-quick-tutorial-translate-button-label": "Start oversættelse",
+	"cx-sx-sentence-selector-done-button-label": "Udført",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Redigér oversættelse",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Anvend",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Spring over"
 }

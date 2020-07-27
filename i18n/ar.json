@@ -330,5 +330,6 @@
 	"cx-sx-section-selector-automatic-section-matching-title": "مطابقة القسم تلقائياً",
 	"cx-sx-section-selector-learn-more-anchor-label": "معرفة المزيد",
 	"cx-sx-section-selector-unsupported-sections-title": "أقسام غير مدعومة",
-	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن."
+	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن.",
+	"sx-quick-tutorial-translate-button-label": "ابدأ الترجمة"
 }

@@ -304,5 +304,11 @@
 	"cx-suggestion-list-new-pages-division": "নতুন পাতা",
 	"cx-translation-list-all-languages-option-label": "সব",
 	"cx-sx-content-comparator-translation-section-button-label": "এই অংশটি অনুবাদ করুন",
-	"cx-sx-content-comparator-additional-considerations-title": "উভয় ভাষায় বিষয়বস্তু পর্যালোচনা করুন।"
+	"cx-sx-content-comparator-additional-considerations-title": "উভয় ভাষায় বিষয়বস্তু পর্যালোচনা করুন।",
+	"sx-quick-tutorial-translate-button-label": "অনুবাদ শুরু করুন",
+	"cx-sx-sentence-selector-header-title": "অনুচ্ছেদ অনুবাদ করুন",
+	"cx-sx-sentence-selector-done-button-label": "সম্পন্ন",
+	"cx-sx-sentence-selector-edit-translation-button-label": "অনুবাদ সম্পাদনা করুন",
+	"cx-sx-sentence-selector-apply-translation-button-label": "প্রয়োগ",
+	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান"
 }
