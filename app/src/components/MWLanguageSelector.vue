@@ -29,43 +29,43 @@ import { mapGetters } from "vuex";
 export default {
   name: "MwLanguageSelector",
   components: {
-    MwSelect,
+    MwSelect
   },
   props: {
     placeholder: {
-      type: String,
+      type: String
     },
     autofocus: {
       type: Boolean,
-      default: true,
+      default: true
     },
     languages: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data: () => ({
-    mwIconSearch,
+    mwIconSearch
   }),
   computed: {
     classes() {
       return {
-        "mw-ui-language-selector": true,
+        "mw-ui-language-selector": true
       };
     },
     ...mapGetters({
-      getLanguage: "mediawiki/getLanguage",
+      getLanguage: "mediawiki/getLanguage"
     }),
     languageOptions() {
       const options = {};
       return this.languages.reduce(
         (options, language) => ({
           ...options,
-          [language.code]: this.getLanguage(language.code),
+          [language.code]: this.getLanguage(language.code)
         }),
         {}
       );
-    },
+    }
   },
   mounted() {
     if (this.autofocus) {
@@ -82,10 +82,10 @@ export default {
         // Search by language name in current user language
         (label.name + "").toLowerCase().startsWith(query.toLowerCase()) ||
         // Search by language code
-        (value + "").toLowerCase() .startsWith(query.toLowerCase())
+        (value + "").toLowerCase().startsWith(query.toLowerCase())
       );
-    },
-  },
+    }
+  }
 };
 </script>
 

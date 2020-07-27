@@ -13,7 +13,7 @@
       </h1>
     </div>
     <div class="col-6 col-xs-4 items-center justify-end">
-      <mw-button class="h-sm-and-down " type="icon" large :icon="mwIconBell" />
+      <mw-button class="h-sm-and-down" type="icon" large :icon="mwIconBell" />
       <mw-button class="h-sm-and-down" type="icon" large :icon="mwIconTray" />
       <mw-button
         type="text"

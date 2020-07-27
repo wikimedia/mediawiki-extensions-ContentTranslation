@@ -3,8 +3,8 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      getLanguage: "mediawiki/getLanguage",
-    }),
+      getLanguage: "mediawiki/getLanguage"
+    })
   },
   methods: {
     getAutonym(lang) {
@@ -19,6 +19,6 @@ export default {
     },
     getDirection(lang) {
       return this.getLanguage(lang)?.dir || "auto";
-    },
-  },
+    }
+  }
 };

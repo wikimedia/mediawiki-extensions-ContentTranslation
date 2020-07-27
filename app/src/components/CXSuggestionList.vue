@@ -112,8 +112,8 @@ export default {
     showSxArticleSelector: false,
     paginationIndex: 0,
     pageSize: 3,
-    selectedSourceLanguage: '',
-    selectedTargetLanguage: ''
+    selectedSourceLanguage: "",
+    selectedTargetLanguage: ""
   }),
   computed: {
     ...mapState({

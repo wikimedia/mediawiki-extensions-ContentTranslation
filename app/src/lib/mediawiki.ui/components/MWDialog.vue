@@ -10,8 +10,8 @@
     >
       <div class="mw-ui-dialog__overlay" @click="close()" />
       <div class="mw-ui-dialog__shell items-stretch">
-        <slot name="header" v-if="header">
-          <div class="mw-ui-dialog__header row ">
+        <slot v-if="header" name="header">
+          <div class="mw-ui-dialog__header row">
             <div
               class="col grow items-center mw-ui-dialog__header-title justify-start"
               v-html="title"

@@ -12,12 +12,14 @@
         </div>
         <div class="col grow px-1">
           <h4
-            class="sx-sentence-selector__header--title"
             v-i18n:cx-sx-sentence-selector-header-title
+            class="sx-sentence-selector__header--title"
           />
         </div>
         <div class="col shrink px-3">
-          <mw-button :label="$i18n('cx-sx-sentence-selector-done-button-label')" />
+          <mw-button
+            :label="$i18n('cx-sx-sentence-selector-done-button-label')"
+          />
         </div>
       </div>
     </template>
@@ -42,7 +44,7 @@
           class="sx-sentence-selector__section-sentence"
           :class="{
             'sx-sentence-selector__section-sentence--selected':
-              sentence.selected,
+              sentence.selected
           }"
           @click="selectSentence(index)"
           v-html="formatSentence(sentence, index)"
@@ -54,10 +56,12 @@
         <div
           class="sx-sentence-selector__proposed-translation-header row ma-0 pb-4"
         >
-<!--            Selected provider parameter will be added in following patch-->
+          <!--            Selected provider parameter will be added in following patch-->
           <h6
+            v-i18n:cx-sx-sentence-selector-proposed-translation-title="[
+              'OpusMT'
+            ]"
             class="sx-sentence-selector__proposed-translation-title col grow pa-0 ma-0 pe-4"
-            v-i18n:cx-sx-sentence-selector-proposed-translation-title="['OpusMT']"
           />
           <div class="col shrink">
             <mw-button
@@ -74,25 +78,27 @@
         <mw-button
           :icon="mwIconEdit"
           type="text"
-          :label="$i18n('cx-sx-sentence-selector-edit-translation-button-label')"
+          :label="
+            $i18n('cx-sx-sentence-selector-edit-translation-button-label')
+          "
           class="sx-sentence-selector__translation-edit-button pa-0"
         />
       </div>
       <div class="sx-sentence-selector__translation-action-buttons row ma-0">
-        <mw-button
-          :icon="mwIconPrevious"
-          type="icon"
-          class="col shrink pa-4"
-        />
+        <mw-button :icon="mwIconPrevious" type="icon" class="col shrink pa-4" />
         <mw-button
           type="text"
-          :label="$i18n('cx-sx-sentence-selector-apply-translation-button-label')"
+          :label="
+            $i18n('cx-sx-sentence-selector-apply-translation-button-label')
+          "
           class="sx-sentence-selector__translation-apply-button col grow pa-4"
         />
         <mw-button
           type="text"
           :indicator="mwIconArrowForward"
-          :label="$i18n('cx-sx-sentence-selector-skip-translation-button-label')"
+          :label="
+            $i18n('cx-sx-sentence-selector-skip-translation-button-label')
+          "
           class="col shrink pa-4"
         />
       </div>
@@ -109,7 +115,7 @@ import {
   mwIconEllipsis,
   mwIconEdit,
   mwIconPrevious,
-  mwIconArrowForward,
+  mwIconArrowForward
 } from "../lib/mediawiki.ui/components/icons";
 import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import SectionSentence from "../wiki/cx/models/sectionSentence";
@@ -154,31 +160,31 @@ export default {
     },
     sourcePage() {
       return this.$store.getters["mediawiki/getPage"](
-          this.suggestion.sourceLanguage,
-          this.suggestion.sourceTitle
+        this.suggestion.sourceLanguage,
+        this.suggestion.sourceTitle
       );
     },
     sourceArticlePath() {
       return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}`;
     },
     selectedSentence() {
-      return this.sentences.find((sentence) => sentence.selected);
+      return this.sentences.find(sentence => sentence.selected);
     },
     /**
      * Dummy translation for now
      */
     translation() {
       return this.selectedSentence?.content;
-    },
+    }
   },
   mounted() {
     /**
      * @type {SectionSentence[]}
      */
     this.sentences = this.sectionSourceContent.split(".").map(
-      (sentence) =>
+      sentence =>
         new SectionSentence({
-          originalContent: sentence,
+          originalContent: sentence
         })
     );
     this.sentences[0].selected = true;
@@ -189,15 +195,17 @@ export default {
     },
     selectSentence(sentenceIndex) {
       const selectedSentence = this.sentences.find(
-        (sentence) => sentence.selected
+        sentence => sentence.selected
       );
       selectedSentence.selected = false;
       this.sentences[sentenceIndex].selected = true;
     },
     formatSentence(sentence, index) {
-      return sentence.content + (index === this.sentences.length - 1 ? "" : ".");
+      return (
+        sentence.content + (index === this.sentences.length - 1 ? "" : ".")
+      );
     }
-  },
+  }
 };
 </script>
 

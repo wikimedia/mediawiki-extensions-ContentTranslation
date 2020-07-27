@@ -50,20 +50,16 @@
           />
         </div>
         <div
-            v-if="isMissingSection"
-            class="sx-content-comparator-header__additional-considerations--missing flex py-2"
+          v-if="isMissingSection"
+          class="sx-content-comparator-header__additional-considerations--missing flex py-2"
         >
           <div class="shrink pe-2">
             <mw-icon :icon="mwIconEye" />
           </div>
           <div>
             <p class="ma-0">
-              <strong
-                v-i18n:cx-sx-content-comparator-review-contents-title
-              />
-              <span
-                v-i18n:cx-sx-content-comparator-review-contents-rest
-              />
+              <strong v-i18n:cx-sx-content-comparator-review-contents-title />
+              <span v-i18n:cx-sx-content-comparator-review-contents-rest />
             </p>
           </div>
         </div>
@@ -71,27 +67,29 @@
           v-else
           class="sx-content-comparator-header__additional-considerations--present"
         >
-          <div class="sx-content-comparator-header__additional-considerations-header--present row pa-2 ma-0">
+          <div
+            class="sx-content-comparator-header__additional-considerations-header--present row pa-2 ma-0"
+          >
             <div class="col grow">
               <h5
+                v-i18n:cx-sx-content-comparator-mapped-section-header-title="[
+                  getAutonym(targetLanguage)
+                ]"
                 class="sx-content-comparator-header__additional-considerations-title--present pa-0 mb-1 ms-1"
-                v-i18n:cx-sx-content-comparator-mapped-section-header-title="[getAutonym(targetLanguage)]"
               />
-              <h5 class="sx-content-comparator-header__additional-considerations-section-target-title pa-0 ms-1">
+              <h5
+                class="sx-content-comparator-header__additional-considerations-section-target-title pa-0 ms-1"
+              >
                 {{ activeSectionTargetTitle }}
               </h5>
             </div>
             <div class="col shrink">
-              <mw-button
-                class="pa-0"
-                :icon="mwIconTrash"
-                type="icon"
-              />
+              <mw-button class="pa-0" :icon="mwIconTrash" type="icon" />
             </div>
           </div>
           <p
-            class="sx-content-comparator-header__additional-considerations-clarifications complementary pa-3 ma-0"
             v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
+            class="sx-content-comparator-header__additional-considerations-clarifications complementary pa-3 ma-0"
           />
         </div>
       </div>
@@ -104,28 +102,23 @@
       />
     </div>
     <section
-      class="sx-content-comparator__source-content pa-4"
       v-if="sourceVsTargetSelection === 'source_section'"
+      class="sx-content-comparator__source-content pa-4"
     >
       <h2>{{ activeSectionSourceTitle }}</h2>
       <p v-html="sourceSectionContent"></p>
     </section>
     <section
-      class="sx-content-comparator__source-content pa-4"
       v-else-if="sourceVsTargetSelection === 'target_article'"
+      class="sx-content-comparator__source-content pa-4"
     >
       <mw-spinner v-if="!targetPage.content" />
       <p v-html="targetPage.content"></p>
     </section>
-    <section
-      class="sx-content-comparator__source-content pa-4"
-      v-else
-    >
+    <section v-else class="sx-content-comparator__source-content pa-4">
       <p v-html="targetSectionContent"></p>
     </section>
-    <sx-quick-tutorial
-      :active.sync="tutorialActive"
-    />
+    <sx-quick-tutorial :active.sync="tutorialActive" />
     <sx-sentence-selector
       :suggestion="suggestion"
       :section-source-title="activeSectionSourceTitle"
@@ -154,7 +147,7 @@ import SxQuickTutorial from "./SXQuickTutorial";
 import SxSentenceSelector from "./SXSentenceSelector";
 
 export default {
-  name: "sx-content-comparator",
+  name: "SxContentComparator",
   components: {
     MwButtonGroup,
     MwIcon,
@@ -162,7 +155,7 @@ export default {
     MwDialog,
     MwSpinner,
     SxQuickTutorial,
-    SxSentenceSelector,
+    SxSentenceSelector
   },
   mixins: [autonymMixin],
   props: {
@@ -191,22 +184,6 @@ export default {
     tutorialActive: false,
     selectSentenceActive: false
   }),
-  watch: {
-    sourcePage() {
-      this.$store.dispatch("mediawiki/fetchPageSections", {
-        language: this.suggestion.sourceLanguage,
-        title: this.suggestion.sourceTitle
-      });
-    },
-    // watch for target title as it is not provided when the proxy suggestion object is created
-    // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
-    targetTitle() {
-      this.$store.dispatch("mediawiki/fetchPageContent", {
-        language: this.suggestion.targetLanguage,
-        title: this.suggestion.targetTitle
-      });
-    }
-  },
   computed: {
     /**
      * @return {PageSection[]}
@@ -240,17 +217,19 @@ export default {
       return this.suggestion.missingSections;
     },
     activeSectionTargetTitle() {
-      return this.missingSections[this.activeSectionSourceTitle]
-          || this.suggestion.presentSections[this.activeSectionSourceTitle];
+      return (
+        this.missingSections[this.activeSectionSourceTitle] ||
+        this.suggestion.presentSections[this.activeSectionSourceTitle]
+      );
     },
     sourceSectionContent() {
       return (this.sourcePageSections || []).find(
-          section => section.line === this.activeSectionSourceTitle
+        section => section.line === this.activeSectionSourceTitle
       )?.text;
     },
     targetSectionContent() {
       return (this.targetPageSections || []).find(
-          section => section.line === this.activeSectionSourceTitle
+        section => section.line === this.activeSectionSourceTitle
       )?.text;
     },
     isMissingSection() {
@@ -270,32 +249,50 @@ export default {
           type: "text"
         }
       };
-      const targetSelectorItem = this.isPresentSection ? {
-        value: 'target_section',
-        props: {
-          label: this.$i18n(
-            "cx-sx-content-comparator-target-selector-target-section-title",
-            this.getAutonym(this.suggestion.targetLanguage)
-          ),
-          type: "text"
-        }
-      } : {
-        value: "target_article",
-        props: {
-          label: this.$i18n(
-            "cx-sx-content-comparator-target-selector-full-article-title",
-            this.getAutonym(this.suggestion.targetLanguage)
-          ),
-          type: "text"
-        }
-      };
+      const targetSelectorItem = this.isPresentSection
+        ? {
+            value: "target_section",
+            props: {
+              label: this.$i18n(
+                "cx-sx-content-comparator-target-selector-target-section-title",
+                this.getAutonym(this.suggestion.targetLanguage)
+              ),
+              type: "text"
+            }
+          }
+        : {
+            value: "target_article",
+            props: {
+              label: this.$i18n(
+                "cx-sx-content-comparator-target-selector-full-article-title",
+                this.getAutonym(this.suggestion.targetLanguage)
+              ),
+              type: "text"
+            }
+          };
       return [sourceSelectorItem, targetSelectorItem];
+    }
+  },
+  watch: {
+    sourcePage() {
+      this.$store.dispatch("mediawiki/fetchPageSections", {
+        language: this.suggestion.sourceLanguage,
+        title: this.suggestion.sourceTitle
+      });
+    },
+    // watch for target title as it is not provided when the proxy suggestion object is created
+    // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
+    targetTitle() {
+      this.$store.dispatch("mediawiki/fetchPageContent", {
+        language: this.suggestion.targetLanguage,
+        title: this.suggestion.targetTitle
+      });
     }
   },
   methods: {
     translateSection() {
       this.selectSentenceActive = true;
-    },
+    }
   }
 };
 </script>
@@ -314,7 +311,8 @@ export default {
     background-color: @background-color-base--disabled;
     border-radius: @border-radius-base;
     .sx-content-comparator-header__additional-considerations-header--present {
-      border-bottom: @border-width-base @border-style-base @border-color-base--disabled;
+      border-bottom: @border-width-base @border-style-base
+        @border-color-base--disabled;
       .sx-content-comparator-header__additional-considerations-title--present {
         // No typography style for this font-size in UI library
         font-size: 14px;

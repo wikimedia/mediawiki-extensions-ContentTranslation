@@ -18,7 +18,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
       class="mw-ui-dialog__shell items-stretch"
     >
       <div
-        class="mw-ui-dialog__header row "
+        class="mw-ui-dialog__header row"
       >
         <div
           class="col grow items-center mw-ui-dialog__header-title justify-start"

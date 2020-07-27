@@ -100,9 +100,7 @@
             </svg>
           </div>
           <div class="sx-selector__empty-missing-sections-details col-12 pa-0">
-            <h6
-              v-i18n:cx-sx-section-selector-empty-missing-sections-title
-            ></h6>
+            <h6 v-i18n:cx-sx-section-selector-empty-missing-sections-title></h6>
           </div>
           <div
             class="sx-selector__empty-missing-sections-details col-12 pa-0 mb-2"
@@ -285,7 +283,7 @@ export default {
     mwIconLabFlask,
     contentComparatorActive: false,
     selectedSectionKey: "",
-    sectionToTranslate: null,
+    sectionToTranslate: null
   }),
   computed: {
     sourceLanguageAutonym() {
@@ -350,7 +348,7 @@ export default {
     .sx-selector__present-sections {
       background-color: @background-color-framed;
       .sx-selector__present-section-button-content {
-        text-align:start;
+        text-align: start;
         .sx-selector__present-section-button-target {
           // TODO: Fix this to be @base20 color - currently base30
           color: @color-base--subtle;

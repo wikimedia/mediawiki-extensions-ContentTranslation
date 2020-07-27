@@ -56,7 +56,7 @@ const getters = {
    * @returns {Language}
    */
   getLanguage: state => languageCode =>
-    state.languages.find(language=>language.code===languageCode)
+    state.languages.find(language => language.code === languageCode)
 };
 
 const actions = {
@@ -91,7 +91,7 @@ const actions = {
       );
   },
   fetchLanguages({ commit }) {
-    const userLanguage = mw.config.get('wgUserLanguage');
+    const userLanguage = mw.config.get("wgUserLanguage");
     siteApi.fetchLanguages(userLanguage).then(languages => {
       commit("setLanguages", languages);
     });
@@ -123,11 +123,9 @@ const actions = {
     if (!page) {
       return;
     }
-    pageApi
-      .fetchPageSections(language, title)
-      .then(sections => {
-        page.sections = sections;
-      });
+    pageApi.fetchPageSections(language, title).then(sections => {
+      page.sections = sections;
+    });
   }
 };
 

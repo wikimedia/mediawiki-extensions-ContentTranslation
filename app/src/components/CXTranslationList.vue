@@ -53,10 +53,16 @@ export default {
   data() {
     return {
       loaded: false,
-      labelForAllTranslationsOption: this.$i18n('cx-translation-list-all-languages-option-label'),
-      selectedSourceLanguage: this.$i18n('cx-translation-list-all-languages-option-label'),
-      selectedTargetLanguage: this.$i18n('cx-translation-list-all-languages-option-label')
-    }
+      labelForAllTranslationsOption: this.$i18n(
+        "cx-translation-list-all-languages-option-label"
+      ),
+      selectedSourceLanguage: this.$i18n(
+        "cx-translation-list-all-languages-option-label"
+      ),
+      selectedTargetLanguage: this.$i18n(
+        "cx-translation-list-all-languages-option-label"
+      )
+    };
   },
   computed: {
     availableSourceLanguages() {
@@ -68,7 +74,12 @@ export default {
             ...languages,
             { name: this.getAutonym(languageCode), code: languageCode }
           ],
-          [{ name: this.labelForAllTranslationsOption, code: this.labelForAllTranslationsOption }]
+          [
+            {
+              name: this.labelForAllTranslationsOption,
+              code: this.labelForAllTranslationsOption
+            }
+          ]
         );
     },
     availableTargetLanguages() {
@@ -80,7 +91,12 @@ export default {
             ...languages,
             { name: this.getAutonym(languageCode), code: languageCode }
           ],
-          [{ name: this.labelForAllTranslationsOption, code: this.labelForAllTranslationsOption }]
+          [
+            {
+              name: this.labelForAllTranslationsOption,
+              code: this.labelForAllTranslationsOption
+            }
+          ]
         );
     },
     translations() {

@@ -112,14 +112,11 @@ function fetchPageContent(language, title) {
  * @returns {Promise<PageSection[]>}
  */
 function fetchPageSections(language, title) {
-  const apiURL =
-    `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
-  return axios
-    .get(apiURL)
-    .then(response => {
-      const sections = response.data?.remaining?.sections || [];
-      return sections.map(section => new PageSection(section));
-    });
+  const apiURL = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
+  return axios.get(apiURL).then(response => {
+    const sections = response.data?.remaining?.sections || [];
+    return sections.map(section => new PageSection(section));
+  });
 }
 
 export default {
