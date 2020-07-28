@@ -65,10 +65,7 @@
           v-if="emptyMissingSections"
           class="sx-selector__empty-missing-sections row px-4 my-0"
         >
-          <div
-              class="col py-6 justify-center"
-              v-html="sadRobotSVG"
-          />
+          <div class="col py-6 justify-center" v-html="sadRobotSVG" />
           <div class="sx-selector__empty-missing-sections-details col-12 pa-0">
             <h6 v-i18n:cx-sx-section-selector-empty-missing-sections-title />
           </div>

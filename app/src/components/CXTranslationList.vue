@@ -27,6 +27,7 @@ import CxTranslationWork from "./CXTranslationWork";
 import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
 import autonymMixin from "../mixins/autonym";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
+import { mapState } from "vuex";
 
 export default {
   name: "CxTranslationList",
@@ -52,7 +53,6 @@ export default {
   },
   data() {
     return {
-      loaded: false,
       labelForAllTranslationsOption: this.$i18n(
         "cx-translation-list-all-languages-option-label"
       ),
@@ -65,6 +65,9 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      loaded: state => state.translator.translationsLoaded
+    }),
     availableSourceLanguages() {
       return this.translations
         .map(translation => translation.sourceLanguage)
@@ -120,11 +123,6 @@ export default {
     },
     isActiveForAllTargetLanguages() {
       return this.selectedTargetLanguage === this.labelForAllTranslationsOption;
-    }
-  },
-  watch: {
-    translations: function() {
-      this.loaded = true;
     }
   }
 };

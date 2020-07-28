@@ -54,9 +54,6 @@ export default {
     mwIconArticleCheck,
     mwIconLightBulb,
     mwIconEdit,
-    suggestionsLoaded: false,
-    publishedTranslationsLoaded: false,
-    draftTranslationsLoaded: false,
     active: "draft",
     sourceLanguage: "en",
     targetLanguage: "ml"

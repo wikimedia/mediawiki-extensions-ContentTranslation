@@ -1,15 +1,17 @@
 import cxTranslatorApi from "../../wiki/cx/api/translator";
-import Vue from "vue";
-import translation from "../../wiki/cx/models/translation";
 
 const state = {
   username: mw.config.get("wgUserName"),
-  translations: []
+  translations: [],
+  translationsLoaded: false
 };
 
 const mutations = {
   addTranslation(state, translation) {
     state.translations.push(translation);
+  },
+  setTranslationsLoaded: (state, value) => {
+    state.translationsLoaded = value;
   }
 };
 
@@ -65,6 +67,7 @@ const actions = {
           queue[translation.sourceLanguage] || [];
         queue[translation.sourceLanguage].push(translation.sourceTitle);
       }
+      commit("setTranslationsLoaded", true);
       // Fetch metadata for each source article.
       for (let sourceLanguage in queue) {
         dispatch(
