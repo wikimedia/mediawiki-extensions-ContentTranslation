@@ -339,8 +339,8 @@
 	"cx-translation-list-all-languages-option-label": "全部",
 	"cx-sx-content-comparator-back-to-sections-button-label": "返回全部章節",
 	"cx-sx-content-comparator-translation-section-button-label": "翻譯這個章節",
-	"cx-sx-content-comparator-additional-considerations-title": "檢視在雙方語言的內容。",
-	"cx-sx-content-comparator-additional-considerations-content": "在目標條目裡可能已涵蓋所選章節的內容。",
+	"cx-sx-content-comparator-review-contents-title": "檢視在雙方語言的內容。",
+	"cx-sx-content-comparator-review-contents-rest": "在目標條目裡可能已涵蓋所選章節的內容。",
 	"cx-sx-content-comparator-source-selector-title": "在$1的章節",
 	"cx-sx-content-comparator-target-selector-title": "在$1的完整條目",
 	"sx-quick-tutorial-main-point-step-1": "翻譯新章節是容易、快速、有趣的！",
@@ -353,5 +353,7 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "來自於 $1 的建議翻譯",
 	"cx-sx-sentence-selector-edit-translation-button-label": "編輯翻譯",
 	"cx-sx-sentence-selector-apply-translation-button-label": "套用",
-	"cx-sx-sentence-selector-skip-translation-button-label": "跳過"
+	"cx-sx-sentence-selector-skip-translation-button-label": "跳過",
+	"cx-sx-content-comparator-target-selector-full-article-title": "在$1的完整條目",
+	"cx-sx-content-comparator-target-selector-target-section-title": "在$1的章節"
 }

@@ -336,8 +336,8 @@
 	"cx-translation-list-all-languages-option-label": "הכול",
 	"cx-sx-content-comparator-back-to-sections-button-label": "חזרה לכל הפסקאות",
 	"cx-sx-content-comparator-translation-section-button-label": "תרגום הפסקה הזאת",
-	"cx-sx-content-comparator-additional-considerations-title": "לסקור את התוכן בכל השפות.",
-	"cx-sx-content-comparator-additional-considerations-content": "ייתכן שתוכן מהפסקה שנבחרה כבר מסוקר בערך היעד.",
+	"cx-sx-content-comparator-review-contents-title": "לסקור את התוכן בכל השפות.",
+	"cx-sx-content-comparator-review-contents-rest": "ייתכן שתוכן מהפסקה שנבחרה כבר מסוקר בערך היעד.",
 	"cx-sx-content-comparator-source-selector-title": "פסקה ב{{GRAMMAR:תחילית|$1}}.",
 	"cx-sx-content-comparator-target-selector-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}.",
 	"sx-quick-tutorial-main-point-step-1": "תרגום פסקה חדשה זה דבר קל, מהיר, וכיפי!",
@@ -350,5 +350,9 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-sentence-selector-edit-translation-button-label": "עריכת התרגום",
 	"cx-sx-sentence-selector-apply-translation-button-label": "החלה",
-	"cx-sx-sentence-selector-skip-translation-button-label": "לדלג"
+	"cx-sx-sentence-selector-skip-translation-button-label": "לדלג",
+	"cx-sx-content-comparator-target-selector-full-article-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}.",
+	"cx-sx-content-comparator-mapped-section-header-title": "קיים ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-content-comparator-target-selector-target-section-title": "פסקה ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פסקה קיימת <br /> אפשר להתעלם מזה אם הפסקאות אינן קשורות."
 }

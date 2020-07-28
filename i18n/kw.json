@@ -265,8 +265,8 @@
 	"cx-translation-list-all-languages-option-label": "Oll",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Dehweles dhe oll an treghow",
 	"cx-sx-content-comparator-translation-section-button-label": "Treylya an tregh ma",
-	"cx-sx-content-comparator-additional-considerations-title": "Dasweles an dalgh y'n dhiw yeth.",
-	"cx-sx-content-comparator-additional-considerations-content": "Dalgh a'n tregh dewisys a yll bos treylys seulabrys y'n erthygel kosten.",
+	"cx-sx-content-comparator-review-contents-title": "Dasweles an dalgh y'n dhiw yeth.",
+	"cx-sx-content-comparator-review-contents-rest": "Dalgh a'n tregh dewisys a yll bos treylys seulabrys y'n erthygel kosten.",
 	"cx-sx-content-comparator-source-selector-title": "Tregh yn $1",
 	"cx-sx-content-comparator-target-selector-title": "Erthygel leun yn $1"
 }

@@ -336,8 +336,8 @@
 	"cx-translation-list-all-languages-option-label": "Alle",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Zurück zu den Abschnitten",
 	"cx-sx-content-comparator-translation-section-button-label": "Diesen Abschnitt übersetzen",
-	"cx-sx-content-comparator-additional-considerations-title": "Überprüfen des Inhalts in beiden Sprachen.",
-	"cx-sx-content-comparator-additional-considerations-content": "Inhalte aus dem ausgewählten Abschnitt können bereits im Zielartikel enthalten sein.",
+	"cx-sx-content-comparator-review-contents-title": "Überprüfen des Inhalts in beiden Sprachen.",
+	"cx-sx-content-comparator-review-contents-rest": "Inhalte aus dem ausgewählten Abschnitt können bereits im Zielartikel enthalten sein.",
 	"cx-sx-content-comparator-source-selector-title": "Abschnitt auf $1",
 	"cx-sx-content-comparator-target-selector-title": "Ganzer Artikel auf $1",
 	"sx-quick-tutorial-main-point-step-1": "Einen neuen Abschnitt zu übersetzen ist einfach, schnell und macht Freude!",
@@ -350,5 +350,9 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "Vorgeschlagene Übersetzung ab $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Übersetzung bearbeiten",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Anwenden",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Überspringen"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Überspringen",
+	"cx-sx-content-comparator-target-selector-full-article-title": "Ganzer Artikel auf $1",
+	"cx-sx-content-comparator-mapped-section-header-title": "Gegenwärtig in $1",
+	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt auf $1",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Deine Übersetzung wird den bestehenden Abschnitt erweitern. <br /> Verwerfe dies, wenn die Abschnitte nichts miteinander zu tun haben."
 }

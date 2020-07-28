@@ -349,8 +349,8 @@
 	"cx-translation-list-all-languages-option-label": "Wszystkie",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Powrót do wszystkich sekcji",
 	"cx-sx-content-comparator-translation-section-button-label": "Przetłumacz tę sekcję",
-	"cx-sx-content-comparator-additional-considerations-title": "Przejrzyj treść w obu językach.",
-	"cx-sx-content-comparator-additional-considerations-content": "Treść wybranej sekcji może już istnieć w docelowym artykule.",
+	"cx-sx-content-comparator-review-contents-title": "Przejrzyj treść w obu językach.",
+	"cx-sx-content-comparator-review-contents-rest": "Treść wybranej sekcji może już istnieć w docelowym artykule.",
 	"cx-sx-content-comparator-source-selector-title": "Sekcja w $1",
 	"cx-sx-content-comparator-target-selector-title": "Pełen artykuł w $1",
 	"sx-quick-tutorial-main-point-step-1": "Tłumaczenie sekcji jest proste, szybkie i przyjemne!",
@@ -363,5 +363,9 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "Proponowane tłumaczenie z $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Edytuj tłumaczenie",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Zastosuj",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Pomiń"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Pomiń",
+	"cx-sx-content-comparator-target-selector-full-article-title": "Pełen artykuł w $1",
+	"cx-sx-content-comparator-mapped-section-header-title": "Obecna w $1",
+	"cx-sx-content-comparator-target-selector-target-section-title": "Sekcja w $1",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Twoje tłumaczenie rozszerzy istniejącą sekcję. <br /> Zakończ tłumaczenie, jeśli sekcje nie są powiązane."
 }
