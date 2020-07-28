@@ -2,7 +2,9 @@ import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
 import Language from "../../wiki/mw/models/language";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
-
+import SectionSentence from "../../wiki/cx/models/sectionSentence";
+import translatorApi from "../../wiki/cx/api/translator";
+import Vue from "vue";
 const state = {
   /** @type {Page[]} */
   pages: [],
@@ -82,7 +84,30 @@ const getters = {
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers,
   getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
-    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0]
+    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0],
+  /**
+   * Get selected sentence for a section defined by
+   * the given language, title and source title
+   * @param {String} sourceLanguage
+   * @param {String} sourceTitle
+   * @param {String} sectionTitle
+   * @return {SectionSentence|null}
+   */
+  getSelectedSentenceForPageSection: (state, getters) => (
+    sourceLanguage,
+    sourceTitle,
+    sectionTitle
+  ) => {
+    const section = getters.getPageSection(
+      sourceLanguage,
+      sourceTitle,
+      sectionTitle
+    );
+    if (!section) {
+      return null;
+    }
+    return section.sentences.find(sentence => sentence.selected);
+  }
 };
 
 const actions = {
@@ -160,18 +185,64 @@ const actions = {
   },
   selectSentenceForPageSection(
     { getters },
-    { sourceLanguage, targetLanguage, sectionSourceTitle, sentenceIndex }
+    { sourceLanguage, sourceTitle, sectionTitle, sentenceIndex }
   ) {
     const section = getters.getPageSection(
       sourceLanguage,
-      targetLanguage,
-      sectionSourceTitle
+      sourceTitle,
+      sectionTitle
     );
-    const selectedSentence = section.sentences.find(
-      sentence => sentence.selected
+
+    const selectedSentence = getters.getSelectedSentenceForPageSection(
+      sourceLanguage,
+      sourceTitle,
+      sectionTitle
     );
+
     selectedSentence.selected = false;
     section.sentences[sentenceIndex].selected = true;
+  },
+  /**
+   * Translate selected sentence for a section defined
+   * by given source language, title and section title,
+   * from source language to given target language.
+   * @param {String} sourceLanguage
+   * @param {String} targetLanguage
+   * @param {String} sourceTitle
+   * @param {String} sectionTitle
+   * @param {String} provider
+   * @return {Promise<void>}
+   */
+  async translateSelectedSentence(
+    { getters },
+    { sourceLanguage, targetLanguage, sourceTitle, sectionTitle, provider }
+  ) {
+    const selectedSentence = getters.getSelectedSentenceForPageSection(
+      sourceLanguage,
+      sourceTitle,
+      sectionTitle
+    );
+
+    if (provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY) {
+      return;
+    }
+
+    if (!selectedSentence.proposedTranslations[provider]) {
+      let translation;
+      try {
+        translation = await translatorApi.fetchSentenceTranslation(
+          sourceLanguage,
+          targetLanguage,
+          provider,
+          selectedSentence.originalContent
+        );
+      } catch (error) {
+        // Fall back to original content
+        translation = selectedSentence.originalContent;
+      }
+
+      Vue.set(selectedSentence.proposedTranslations, provider, translation);
+    }
   }
 };
 

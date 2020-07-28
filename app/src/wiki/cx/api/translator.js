@@ -1,4 +1,5 @@
 import Translation from "../models/translation";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 
 async function fetchTranslations(offset) {
   const params = {
@@ -41,22 +42,27 @@ async function fetchSentenceTranslation(
   provider,
   sentence
 ) {
-  if (!provider || !sentence) {
+  if (!sentence) {
     return;
   }
   const sitemapper = new mw.cx.SiteMapper();
-  const cxserverAPI = sitemapper.getCXServerUrl(
-    `/mt/${sourceLanguage}/${targetLanguage}/${provider}`
-  );
+  let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
+
+  if (provider !== MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY) {
+    relativeUrl += `/${provider}`;
+  }
+  const cxserverAPI = sitemapper.getCXServerUrl(relativeUrl);
 
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
-    body: JSON.stringify({ html: sentence })
+    body: JSON.stringify({ html: `<div>${sentence}</div>` })
   })
     .then(response => response.json())
-    .then(data => data.contents)
-    .catch(error => sentence);
+    .then(
+      data => /<div>(?<content>.*)<\/div>/.exec(data.contents).groups.content
+    )
+    .catch(error => Promise.reject(error));
 }
 
 export default {

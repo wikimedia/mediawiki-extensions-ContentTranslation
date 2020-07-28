@@ -56,22 +56,21 @@
             class="sx-sentence-selector__proposed-translation-header row ma-0 pb-4"
           >
             <h6
-              v-i18n:cx-sx-sentence-selector-proposed-translation-title="[
-                selectedProvider
-              ]"
               class="sx-sentence-selector__proposed-translation-title col grow pa-0 ma-0 pe-4"
+              v-text="mtOptionLabel"
             />
             <div class="col shrink">
               <mw-button
                 :icon="mwIconEllipsis"
                 type="icon"
                 class="sx-sentence-selector__translation-more-options-button pa-0"
+                @click="configureTranslationOptions"
               />
             </div>
           </div>
           <div
             class="sx-sentence-selector__proposed-translation-contents pb-4"
-            v-html="translation"
+            v-html="proposedSentenceTranslation"
           />
           <mw-button
             :icon="mwIconEdit"
@@ -106,11 +105,17 @@
         </div>
       </section>
     </section>
+    <sx-translation-selector
+      :active.sync="translationOptionsActive"
+      :provider.sync="selectedProvider"
+      :sentence="selectedSentence"
+      :source-language="suggestion.sourceLanguage"
+      :target-language="suggestion.targetLanguage"
+    />
   </mw-dialog>
 </template>
 
 <script>
-import translator from "../wiki/cx/api/translator";
 import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
@@ -118,13 +123,16 @@ import {
   mwIconEllipsis,
   mwIconEdit,
   mwIconPrevious,
-  mwIconArrowForward
+  mwIconArrowForward,
+  mwIconClose
 } from "../lib/mediawiki.ui/components/icons";
-import SectionSentence from "../wiki/cx/models/sectionSentence";
+
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+import MTProviderGroup from "../wiki/mw/models/mtProviderGroup";
+import SxTranslationSelector from "@/components/SXTranslationSelector";
 export default {
   name: "SxSentenceSelector",
-  components: { MwIcon, MwButton, MwDialog },
+  components: { SxTranslationSelector, MwButton, MwDialog, MwIcon },
   props: {
     suggestion: {
       type: SectionSuggestion,
@@ -146,8 +154,10 @@ export default {
     mwIconEdit,
     mwIconPrevious,
     mwIconArrowForward,
+    mwIconClose,
     selectedProvider: null,
-    translation: null
+    translation: null,
+    translationOptionsActive: false
   }),
   computed: {
     defaultMTProvider() {
@@ -155,6 +165,9 @@ export default {
         this.suggestion.sourceLanguage,
         this.suggestion.targetLanguage
       );
+    },
+    proposedSentenceTranslation() {
+      return this.selectedSentence.proposedTranslations[this.selectedProvider];
     },
     sentences() {
       return this.currentPageSection.sentences;
@@ -189,6 +202,28 @@ export default {
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);
+    },
+    mtOptionLabel() {
+      if (
+        Object.keys(this.extraMTOptionLabels).includes(this.selectedProvider)
+      ) {
+        return this.extraMTOptionLabels[this.selectedProvider];
+      }
+
+      return this.$i18n(
+        "cx-sx-sentence-selector-proposed-translation-title",
+        this.selectedProvider
+      );
+    },
+    extraMTOptionLabels() {
+      return {
+        [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.$i18n(
+            "cx-sx-sentence-selector-translation-options-original-card-title"
+        ),
+        [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: this.$i18n(
+            "cx-sx-sentence-selector-translation-options-empty-card-title"
+        )
+      };
     }
   },
   watch: {
@@ -199,12 +234,19 @@ export default {
     },
     selectedSentence() {
       if (this.selectedSentence) {
-        this.translate();
+        this.translateSelectedSentence(this.selectedProvider);
       }
     },
     selectedProvider() {
       if (this.selectedProvider) {
-        this.translate();
+        this.translateSelectedSentence(this.selectedProvider);
+      }
+    },
+    translationOptionsActive() {
+      if (this.translationOptionsActive) {
+        this.mtProviders.forEach(provider =>
+          this.translateSelectedSentence(provider)
+        );
       }
     }
   },
@@ -215,13 +257,14 @@ export default {
     });
   },
   methods: {
-    async translate() {
-      this.translation = await translator.fetchSentenceTranslation(
-        this.suggestion.sourceLanguage,
-        this.suggestion.targetLanguage,
-        this.selectedProvider,
-        this.selectedSentence.originalContent
-      );
+    async translateSelectedSentence(provider) {
+      this.$store.dispatch("mediawiki/translateSelectedSentence", {
+        sourceLanguage: this.suggestion.sourceLanguage,
+        targetLanguage: this.suggestion.targetLanguage,
+        sourceTitle: this.suggestion.sourceTitle,
+        sectionTitle: this.sectionSourceTitle,
+        provider
+      });
     },
     onClose() {
       this.$emit("update:active", false);
@@ -229,8 +272,8 @@ export default {
     selectSentence(sentenceIndex) {
       this.$store.dispatch("mediawiki/selectSentenceForPageSection", {
         sourceLanguage: this.suggestion.sourceLanguage,
-        targetLanguage: this.suggestion.sourceTitle,
-        sectionSourceTitle: this.sectionSourceTitle,
+        sourceTitle: this.suggestion.sourceTitle,
+        sectionTitle: this.sectionSourceTitle,
         sentenceIndex
       });
     },
@@ -238,6 +281,9 @@ export default {
       return (
         sentence.content + (index === this.sentences.length - 1 ? "" : ".")
       );
+    },
+    configureTranslationOptions() {
+      this.translationOptionsActive = true;
     }
   }
 };

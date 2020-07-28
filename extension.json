@@ -409,7 +409,11 @@
 				"cx-sx-content-comparator-mapped-section-clarifications",
 				"cx-sx-article-selector-views-count",
 				"cx-sx-content-comparator-discarded-section-clarifications",
-				"cx-sx-content-comparator-discarded-section-label"
+				"cx-sx-content-comparator-discarded-section-label",
+				"cx-sx-sentence-selector-translation-options-header-title",
+				"cx-sx-sentence-selector-translation-options-header-text",
+				"cx-sx-sentence-selector-translation-options-original-card-title",
+				"cx-sx-sentence-selector-translation-options-empty-card-title"
 			],
 			"noflip": true
 		},

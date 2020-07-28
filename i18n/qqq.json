@@ -371,5 +371,9 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "Content of clarifications for mapped section in the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-article-selector-views-count": "Content of views count stat for specific article inside article selector. \n\nParameters:\n* $1 - Number of weekly views for this specific article",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Content of clarifications for a discarded section in the screen where translators compare source and target section contents for an article existing in both languages.",
-	"cx-sx-content-comparator-discarded-section-label": "Label for discarded mapped section in the screen where translators compare source and target section contents for an article existing in both languages."
+	"cx-sx-content-comparator-discarded-section-label": "Label for discarded mapped section in the screen where translators compare source and target section contents for an article existing in both languages.",
+	"cx-sx-sentence-selector-translation-options-header-title": "Title of translation options dialog header inside sentence selector",
+	"cx-sx-sentence-selector-translation-options-header-text": "Complementary text of translation options dialog header inside sentence selector",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Title of card with original sentence inside translation options of sentence selector component",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Title of card with empty sentence inside translation options of sentence selector component"
 }
