@@ -369,5 +369,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Title for target option in source/target selector inside content comparator. \n\nParameters:\n* $1 - Autonym of the target language",
 	"cx-sx-content-comparator-mapped-section-header-title": "Title of additional considerations section of content comparator for present section",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Title for target section option in source/target selector inside content comparator",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Content of clarifications inside additional considerations section of content comparator"
+	"cx-sx-content-comparator-mapped-section-clarifications": "Content of clarifications inside additional considerations section of content comparator",
+	"cx-sx-article-selector-views-count": "Content of views count stat for specific article inside article selector. \n\nParameters:\n* $1 - Number of weekly views for this specific article"
 }

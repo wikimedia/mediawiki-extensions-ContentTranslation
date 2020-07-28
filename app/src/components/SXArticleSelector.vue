@@ -24,7 +24,7 @@
                 <mw-icon :icon="mwIconLanguage" />
                 {{ langLinksCount }}
               </span>
-              <span> {{ weeklyViews }} visits per week </span>
+              <span v-i18n:cx-sx-article-selector-views-count="[weeklyViews]" />
             </p>
           </div>
         </div>

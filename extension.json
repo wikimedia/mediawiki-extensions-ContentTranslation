@@ -407,7 +407,8 @@
 				"cx-sx-content-comparator-translation-section-button-label",
 				"cx-sx-content-comparator-mapped-section-header-title",
 				"cx-sx-content-comparator-target-selector-target-section-title",
-				"cx-sx-content-comparator-mapped-section-clarifications"
+				"cx-sx-content-comparator-mapped-section-clarifications",
+				"cx-sx-article-selector-views-count"
 			],
 			"noflip": true
 		},
