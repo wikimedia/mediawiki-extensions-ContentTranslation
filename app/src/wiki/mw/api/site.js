@@ -1,4 +1,3 @@
-import axios from "axios";
 import Language from "../models/language";
 
 /**
@@ -21,10 +20,11 @@ function fetchLanguages(language = "en", licontinue) {
   if (licontinue) {
     params["licontinue"] = licontinue;
   }
-  const api = `https://${language}.wikipedia.org/w/api.php`;
-  return axios.get(api, { params }).then(async response => {
-    let licontinue = response.data.continue?.licontinue;
-    let results = response.data.query.languageinfo;
+  const sitemapper = new mw.cx.SiteMapper();
+  const mwApi = sitemapper.getApi(language);
+  return mwApi.get(params).then(async response => {
+    let licontinue = response.continue?.licontinue;
+    let results = response.query.languageinfo;
     if (licontinue) {
       results = Object.assign(
         {},
@@ -39,8 +39,10 @@ function fetchLanguages(language = "en", licontinue) {
 }
 
 async function fetchSupportedLanguageCodes() {
-  const api = "https://cxserver.wikimedia.org/v1/list/languagepairs";
-  return await axios.get(api).then(response => response.data.source);
+  const sitemapper = new mw.cx.SiteMapper();
+  return await sitemapper
+    .getLanguagePairs()
+    .then(response => response.sourceLanguages);
 }
 
 export default {

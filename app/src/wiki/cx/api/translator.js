@@ -1,4 +1,3 @@
-import axios from "axios";
 import Translation from "../models/translation";
 
 async function fetchTranslations(offset) {
@@ -9,19 +8,16 @@ async function fetchTranslations(offset) {
     formatversion: 2,
     list: "contenttranslation"
   };
-  const api = mw.util.wikiScript("api");
   if (offset) {
     params["offset"] = offset;
   }
-  return axios({
-    method: "get",
-    url: api,
-    params,
-    withCredentials: true
-  }).then(async response => {
-    const apiResponse = response.data.query.contenttranslation.translations;
+
+  const api = new mw.Api();
+  //   withCredentials: true
+  return api.get(params).then(async response => {
+    const apiResponse = response.query.contenttranslation.translations;
     let results = apiResponse.map(item => new Translation(item.translation));
-    if (response.data.continue?.offset) {
+    if (response.continue?.offset) {
       const restOfResults = await fetchTranslations(
         response.data.continue.offset
       );

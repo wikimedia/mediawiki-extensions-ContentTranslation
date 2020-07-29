@@ -1,4 +1,3 @@
-import axios from "axios";
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
 import PageSection from "../models/pageSection";
@@ -25,10 +24,11 @@ function fetchPages(language, titles) {
     redirects: true
   };
 
-  const api = `https://${language}.wikipedia.org/w/api.php`;
-  return axios.get(api, { params }).then(response => {
-    const apiResponse = response.data.query.pages;
-    const redirects = response.data.query.redirects || [];
+  const sitemapper = new mw.cx.SiteMapper();
+  const mwApi = sitemapper.getApi(language);
+  return mwApi.get(params).then(response => {
+    const apiResponse = response.query.pages;
+    const redirects = response.query.redirects || [];
     const redirectMap = redirects.reduce(
       (rMap, redirect) => ({ ...rMap, [redirect.to]: redirect.from }),
       {}
@@ -61,9 +61,10 @@ function fetchLanguageTitles(language, title) {
     origin: "*",
     redirects: true
   };
-  const api = `https://${language}.wikipedia.org/w/api.php`;
-  return axios.get(api, { params }).then(async response => {
-    const pages = response.data.query.pages;
+  const sitemapper = new mw.cx.SiteMapper();
+  const mwApi = sitemapper.getApi(language);
+  return mwApi.get(params).then(async response => {
+    const pages = response.query.pages;
     // When invalid title is provided a dummy page is return with "missing"
     // property equal to true. So we should check also for this one.
     if (!pages || !pages.length || pages[0]?.missing) {
@@ -97,10 +98,11 @@ function fetchPageContent(language, title) {
     origin: "*",
     redirects: true
   };
-  const api = `https://${language}.wikipedia.org/w/api.php`;
-  return axios
-    .get(api, { params })
-    .then(response => response.data.parse.text)
+  const sitemapper = new mw.cx.SiteMapper();
+  const mwApi = sitemapper.getApi(language);
+  return mwApi
+    .get(params)
+    .then(response => response.parse.text)
     .catch(error => null);
 }
 
@@ -112,11 +114,23 @@ function fetchPageContent(language, title) {
  * @returns {Promise<PageSection[]>}
  */
 function fetchPageSections(language, title) {
-  const apiURL = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
-  return axios.get(apiURL).then(response => {
-    const sections = response.data?.remaining?.sections || [];
-    return sections.map(section => new PageSection(section));
-  });
+  const sitemapper = new mw.cx.SiteMapper();
+  const apiURL = sitemapper.getRestbaseUrl(
+    language,
+    "/page/mobile-sections/$title",
+    { $title: title }
+  );
+
+  return fetch(apiURL)
+    .then(response =>
+      response.ok
+        ? response.json()
+        : Promise.reject(new Error("Failed to load data from server"))
+    )
+    .then(response => {
+      const sections = response?.remaining?.sections || [];
+      return sections.map(section => new PageSection(section));
+    });
 }
 
 export default {

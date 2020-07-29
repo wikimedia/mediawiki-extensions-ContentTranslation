@@ -1,4 +1,3 @@
-import axios from "axios";
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
 
@@ -20,11 +19,15 @@ async function fetchSuggestions(
   }
   const sitemapper = new mw.cx.SiteMapper();
   const apiURL = sitemapper.getRestbaseUrl(targetLanguage, apiModule);
-  const suggestedResults = await axios
-    .get(apiURL, {
-      params: { count }
-    })
-    .then(response => response.data?.items || []);
+  const params = new URLSearchParams({ count });
+  const suggestedResults = await fetch(`${apiURL}?${params}`)
+    .then(response =>
+      response.ok
+        ? response.json()
+        : Promise.reject(new Error("Failed to load data from server"))
+    )
+    .then(response => response?.items || []);
+
   return suggestedResults.map(
     item =>
       new ArticleSuggestion({
@@ -53,9 +56,13 @@ async function fetchSectionSuggestions(
   const cxserverAPI = sitemapper.getCXServerUrl(
     `/suggest/sections/${sourceTitle}/${sourceLanguage}/${targetLanguage}`
   );
-  const suggestedSectionResult = await axios
-    .get(cxserverAPI)
-    .then(response => response.data?.sections)
+  const suggestedSectionResult = await fetch(cxserverAPI)
+    .then(response =>
+      response.ok
+        ? response.json()
+        : Promise.reject(new Error("Failed to load data from server"))
+    )
+    .then(response => response?.sections)
     .catch(error => null);
   return suggestedSectionResult
     ? new SectionSuggestion(suggestedSectionResult)
