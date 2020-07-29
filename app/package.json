@@ -16,8 +16,7 @@
     "axios": "^0.19.2",
     "vue": "^2.6.10",
     "vue-banana-i18n": "^1.2.2",
-    "vuex": "^3.5.1",
-    "wikimedia-ui-base": "^0.16.0"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^5.3.19",
@@ -52,7 +51,8 @@
     "stylelint": "^13.5.0",
     "terser-webpack-plugin": "^3.0.6",
     "vue-cli-plugin-storybook": "^1.2.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "wikimedia-ui-base": "^0.16.0"
   },
   "bundlesize": [
     {
