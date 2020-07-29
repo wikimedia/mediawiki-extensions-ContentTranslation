@@ -6,7 +6,8 @@
 			"Guilhelma",
 			"Jfblanc",
 			"Nicolas Eynaud",
-			"Prevodim"
+			"Prevodim",
+			"Quentí"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -162,5 +163,11 @@
 	"cx-template-not-available": "Pas disponible en $1",
 	"cx-translation-template-add-param": "+ Traduire lo camp",
 	"cx-translation-template-add-more": "Apondre mai de camps",
-	"cx-translation-template-select-param": "Seleccionar los camps de destinacion"
+	"cx-translation-template-select-param": "Seleccionar los camps de destinacion",
+	"cx-sx-sentence-selector-header-title": "Traduire la seccion",
+	"cx-sx-sentence-selector-done-button-label": "Acabat",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Modificar la traduccion",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Aplicar",
+	"cx-sx-content-comparator-target-selector-full-article-title": "Article complet en $1",
+	"cx-sx-content-comparator-mapped-section-header-title": "Present en $1"
 }

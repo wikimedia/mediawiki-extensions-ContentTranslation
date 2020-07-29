@@ -331,5 +331,6 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "معرفة المزيد",
 	"cx-sx-section-selector-unsupported-sections-title": "أقسام غير مدعومة",
 	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن.",
-	"sx-quick-tutorial-translate-button-label": "ابدأ الترجمة"
+	"sx-quick-tutorial-translate-button-label": "ابدأ الترجمة",
+	"cx-sx-sentence-selector-edit-translation-button-label": "عدل الترجمة"
 }

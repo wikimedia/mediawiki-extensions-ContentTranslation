@@ -346,5 +346,20 @@
 	"cx-sx-content-comparator-review-contents-title": "Granska innehållet på båda språken.",
 	"cx-sx-content-comparator-review-contents-rest": "Innehållet från det valda avsnittet kanske redan täcks i målartikeln.",
 	"cx-sx-content-comparator-source-selector-title": "Avsnitt på $1",
-	"cx-sx-content-comparator-target-selector-title": "Fullständig artikel på $1"
+	"cx-sx-content-comparator-target-selector-title": "Fullständig artikel på $1",
+	"sx-quick-tutorial-main-point-step-1": "Det är enkelt, snabbt och roligt att översätta ett nytt avsnitt!",
+	"sx-quick-tutorial-main-point-step-2": "Utvidga kunskapen ett avsnitt åt gången.",
+	"sx-quick-tutorial-secondary-point-step-1": "För varje mening får du en automatisk översättning <mark>som du kan granska och förbättra.</mark>",
+	"sx-quick-tutorial-secondary-point-step-2": "Publicera när du är redo. Din översättning kommer att läggas till på sidan och du kan välja ett annat <mark>avsnitt!</mark>",
+	"sx-quick-tutorial-translate-button-label": "Börja översätta",
+	"cx-sx-sentence-selector-header-title": "Översätt avsnitt",
+	"cx-sx-sentence-selector-done-button-label": "Klar",
+	"cx-sx-sentence-selector-proposed-translation-title": "Föreslagen översättning från $1",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Redigera översättning",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Verkställ",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Hoppa över",
+	"cx-sx-content-comparator-target-selector-full-article-title": "Fullständig artikel på $1",
+	"cx-sx-content-comparator-mapped-section-header-title": "Finns på $1",
+	"cx-sx-content-comparator-target-selector-target-section-title": "Avsnitt på $1",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. <br /> Stäng detta om avsnitten inte är relaterade."
 }

@@ -359,5 +359,9 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "Tradução proposta de $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Editar tradução",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Aplicar",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Pular"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Pular",
+	"cx-sx-content-comparator-target-selector-full-article-title": "Artigo completo em $1",
+	"cx-sx-content-comparator-mapped-section-header-title": "Presente em $1",
+	"cx-sx-content-comparator-target-selector-target-section-title": "Seção em $1",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Sua tradução expandirá a seção existente. <br /> Descarte isso se as seções não estiverem relacionadas."
 }

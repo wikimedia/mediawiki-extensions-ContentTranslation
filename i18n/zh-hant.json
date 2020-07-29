@@ -355,5 +355,7 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "套用",
 	"cx-sx-sentence-selector-skip-translation-button-label": "跳過",
 	"cx-sx-content-comparator-target-selector-full-article-title": "在$1的完整條目",
-	"cx-sx-content-comparator-target-selector-target-section-title": "在$1的章節"
+	"cx-sx-content-comparator-mapped-section-header-title": "目前在$1",
+	"cx-sx-content-comparator-target-selector-target-section-title": "在$1的章節",
+	"cx-sx-content-comparator-mapped-section-clarifications": "您的翻譯將會擴充現有的章節。<br />若章節各不相關，則放棄此操作。"
 }
