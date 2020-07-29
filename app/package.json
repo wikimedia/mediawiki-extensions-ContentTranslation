@@ -1,6 +1,6 @@
 {
   "name": "cxdashboard",
-  "version": "0.1.0+20200723",
+  "version": "0.1.0+20200729",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
