@@ -54,7 +54,7 @@ export default {
     mwIconArticleCheck,
     mwIconLightBulb,
     mwIconEdit,
-    active: "draft",
+    active: "suggestions",
     sourceLanguage: "en",
     targetLanguage: "ml"
   }),
