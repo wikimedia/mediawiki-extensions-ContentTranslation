@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Laitei",
 			"Teitei Para"
 		]
 	},
-	"cx-translation-list-all-languages-option-label": "Zydua"
+	"cx-translation-list-all-languages-option-label": "Zydua",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week"
 }

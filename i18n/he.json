@@ -354,5 +354,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}.",
 	"cx-sx-content-comparator-mapped-section-header-title": "קיים ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-content-comparator-target-selector-target-section-title": "פסקה ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פסקה קיימת <br /> אפשר להתעלם מזה אם הפסקאות אינן קשורות."
+	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פסקה קיימת <br /> אפשר להתעלם מזה אם הפסקאות אינן קשורות.",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|ביקור אחד לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}"
 }

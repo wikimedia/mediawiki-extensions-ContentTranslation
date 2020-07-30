@@ -357,5 +357,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "在$1的完整條目",
 	"cx-sx-content-comparator-mapped-section-header-title": "目前在$1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "在$1的章節",
-	"cx-sx-content-comparator-mapped-section-clarifications": "您的翻譯將會擴充現有的章節。<br />若章節各不相關，則放棄此操作。"
+	"cx-sx-content-comparator-mapped-section-clarifications": "您的翻譯將會擴充現有的章節。<br />若章節各不相關，則放棄此操作。",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|每週有 $1 次訪問|每週有 $1 次訪問|0=本週沒有訪問}}"
 }

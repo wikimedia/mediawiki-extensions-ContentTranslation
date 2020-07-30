@@ -384,5 +384,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Article complet en $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Présent en $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section en $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. <br /> Abandonner cela si les sections n’ont pas de rapport."
+	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. <br /> Abandonner cela si les sections n’ont pas de rapport.",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Pas de visite cette}} semaine"
 }
