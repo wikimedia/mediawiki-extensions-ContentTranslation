@@ -102,18 +102,53 @@
       v-if="sourceVsTargetSelection === 'source_section'"
       class="sx-content-comparator__source-content pa-4"
     >
-      <h2>{{ activeSectionSourceTitle }}</h2>
-      <p v-html="sourceSectionContent"></p>
+      <div
+        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
+      >
+        <h3 v-text="activeSectionSourceTitle" />
+        <mw-button
+          class="pa-0 pe-2"
+          :icon="mwIconLinkExternal"
+          type="icon"
+          :href="sourceSectionPath"
+          target="_blank"
+        />
+      </div>
+      <div class="pt-2" v-html="sourceSectionContent"></div>
     </section>
     <section
       v-else-if="sourceVsTargetSelection === 'target_article'"
       class="sx-content-comparator__source-content pa-4"
     >
+      <div
+        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
+      >
+        <h3 v-text="suggestion.targetTitle" />
+        <mw-button
+          class="pa-0 pe-2"
+          :icon="mwIconLinkExternal"
+          type="icon"
+          :href="targetArticlePath"
+          target="_blank"
+        />
+      </div>
       <mw-spinner v-if="!targetPage.content" />
-      <p v-html="targetPage.content"></p>
+      <div v-html="targetPage.content"></div>
     </section>
     <section v-else class="sx-content-comparator__source-content pa-4">
-      <p v-html="targetSectionContent"></p>
+      <div
+        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
+      >
+        <h3 v-text="activeSectionTargetTitle" />
+        <mw-button
+          class="pa-0 pe-2"
+          :icon="mwIconLinkExternal"
+          type="icon"
+          :href="targetSectionPath"
+          target="_blank"
+        />
+      </div>
+      <div v-html="targetSectionContent"></div>
     </section>
     <sx-quick-tutorial
       :active.sync="tutorialActive"
@@ -134,7 +169,8 @@ import {
   mwIconArrowPrevious,
   mwIconEdit,
   mwIconEye,
-  mwIconTrash
+  mwIconTrash,
+  mwIconLinkExternal
 } from "../lib/mediawiki.ui/components/icons";
 import {
   MwButton,
@@ -181,12 +217,22 @@ export default {
     mwIconArrowForward,
     mwIconArrowPrevious,
     mwIconTrash,
+    mwIconLinkExternal,
     contentComparatorActive: false,
     sourceVsTargetSelection: "source_section",
     tutorialActive: false,
     selectSentenceActive: false
   }),
   computed: {
+    targetArticlePath() {
+      return `https://${this.suggestion.targetLanguage}.wikipedia.org/wiki/${this.suggestion.targetTitle}`;
+    },
+    targetSectionPath() {
+      return `${this.targetArticlePath}#${this.targetSection?.anchor}`;
+    },
+    sourceSectionPath() {
+      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}#${this.sourceSection.anchor}`;
+    },
     /**
      * @return {PageSection[]}
      */
@@ -224,15 +270,21 @@ export default {
         this.suggestion.presentSections[this.activeSectionSourceTitle]
       );
     },
-    sourceSectionContent() {
+    sourceSection() {
       return (this.sourcePageSections || []).find(
         section => section.line === this.activeSectionSourceTitle
-      )?.text;
+      );
     },
-    targetSectionContent() {
+    targetSection() {
       return (this.targetPageSections || []).find(
         section => section.line === this.activeSectionTargetTitle
-      )?.text;
+      );
+    },
+    sourceSectionContent() {
+      return this.sourceSection?.text;
+    },
+    targetSectionContent() {
+      return this.targetSection?.text;
     },
     isMissingSection() {
       return this.missingSections.hasOwnProperty(this.activeSectionSourceTitle);
@@ -386,6 +438,14 @@ export default {
   }
   .sx-content-comparator__source-content {
     line-height: 1.3;
+  }
+  .sx-content-comparator__content-header {
+    // Not border style defined in specifications
+    border-bottom: @border-style-base @border-width-base
+      @border-color-base--disabled;
+    .mw-ui-icon {
+      color: @color-base--subtle;
+    }
   }
 }
 </style>
