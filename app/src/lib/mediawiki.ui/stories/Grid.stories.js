@@ -1,11 +1,5 @@
 import { withA11y } from "@storybook/addon-a11y";
-import {
-  withKnobs,
-  boolean,
-  number,
-  select,
-  text
-} from "@storybook/addon-knobs";
+import { select, withKnobs } from "@storybook/addon-knobs";
 import "../grid.scss";
 import "../typography.scss";
 import "./grid-story.less";

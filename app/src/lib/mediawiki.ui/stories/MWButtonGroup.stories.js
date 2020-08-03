@@ -1,4 +1,4 @@
-import MwButtonGroup from "../components/MWButtonGroup.vue";
+import { MwButtonGroup } from "../";
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
 import * as icons from "../components/icons";

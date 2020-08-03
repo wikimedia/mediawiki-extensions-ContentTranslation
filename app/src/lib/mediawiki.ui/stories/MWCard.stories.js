@@ -1,4 +1,4 @@
-import MwCard from "../components/MWCard.vue";
+import { MwCard } from "../";
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";

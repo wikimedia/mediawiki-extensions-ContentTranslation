@@ -1,6 +1,6 @@
 import Vue from "vue";
-import BreakpointsPlugin from "../plugins/breakpoints";
 import "../grid.scss";
+import { BreakpointsPlugin } from "../plugins/";
 
 Vue.use(BreakpointsPlugin);
 

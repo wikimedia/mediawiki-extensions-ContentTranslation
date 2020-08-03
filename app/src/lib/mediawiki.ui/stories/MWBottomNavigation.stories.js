@@ -1,8 +1,7 @@
-import MwButtonGroup from "../components/MWButtonGroup.vue";
-import MwBottomNavigation from "../components/MWBottomNavigation.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
 import * as icons from "../components/icons";
+import { MwBottomNavigation, MwButtonGroup } from "../";
 
 export default {
   title: "Components",

@@ -1,6 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MWSelect from "../../components/MWSelect";
-import { mwIconTrash, mwIconAdd } from "../../components/icons";
+import { MwSelect } from "../../components";
 
 describe("MWSelect.vue", () => {
   it("renders with given slots and options", async () => {
@@ -12,7 +11,7 @@ describe("MWSelect.vue", () => {
       { label: "Hindi", value: "hi" },
       { label: "French", value: "fr" }
     ];
-    const wrapper = shallowMount(MWSelect, {
+    const wrapper = shallowMount(MwSelect, {
       propsData: { value: languages },
       slots: {
         "no-results": "<span class='err'>Error! No results!!!</span>",

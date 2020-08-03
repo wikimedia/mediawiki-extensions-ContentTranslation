@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwMessage from "../../components/MWMessage";
+import { MwMessage } from "../../components";
 
 describe("MwMessage.vue", () => {
   test("is a Vue instance", () => {

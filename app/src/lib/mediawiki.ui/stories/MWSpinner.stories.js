@@ -1,6 +1,6 @@
-import MwSpinner from "../components/MWSpinner.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
+import { MwSpinner } from "../";
 
 export default {
   title: "Components",

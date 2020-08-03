@@ -1,8 +1,8 @@
-import MwIcon from "../components/MWIcon.vue";
-import * as icons from "../components/icons";
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
-import { withKnobs, color, select, number } from "@storybook/addon-knobs";
+import { color, number, select, withKnobs } from "@storybook/addon-knobs";
+import { MwIcon } from "../";
+import * as icons from "../components/icons";
 
 export default {
   title: "Components",

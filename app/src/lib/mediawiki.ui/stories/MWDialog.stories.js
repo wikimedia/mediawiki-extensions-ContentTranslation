@@ -1,17 +1,8 @@
-import MwDialog from "../components/MWDialog.vue";
-import MwButton from "../components/MWButton.vue";
-import { mwIconPrevious } from "../components/icons";
-
 import { withA11y } from "@storybook/addon-a11y";
 import centered from "@storybook/addon-centered/vue";
-
-import {
-  withKnobs,
-  boolean,
-  number,
-  select,
-  text
-} from "@storybook/addon-knobs";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { MwButton, MwDialog } from "../";
+import { mwIconPrevious } from "../components/icons";
 
 export default {
   title: "Components/Dialog",

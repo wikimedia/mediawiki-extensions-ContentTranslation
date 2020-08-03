@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwIcon from "../../components/MWIcon";
+import { MwIcon } from "../../components/";
 import { mwIconTrash } from "../../components/icons";
 
 describe("MWIcon.vue", () => {

@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
-import MwButton from "../../components/MWButton";
-import { mwIconTrash, mwIconAdd } from "../../components/icons";
+import { MwButton } from "../../components";
+import { mwIconAdd, mwIconTrash } from "../../components/icons";
 
 describe("MWButton.vue", () => {
   it("renders props.id when passed", () => {

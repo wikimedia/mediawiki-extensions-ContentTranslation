@@ -1,15 +1,9 @@
-import MwButton from "../components/MWButton.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import {
-  withKnobs,
-  boolean,
-  number,
-  select,
-  text
-} from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import * as icons from "../components/icons";
+import { MwButton } from "../";
 
 export default {
   title: "Components/Button",

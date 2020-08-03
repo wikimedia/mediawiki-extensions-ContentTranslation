@@ -1,5 +1,5 @@
-import MwThumbnail from "../components/MWThumbnail.vue";
 import { withA11y } from "@storybook/addon-a11y";
+import { MwThumbnail } from "../";
 
 export default {
   title: "Components",

@@ -1,8 +1,8 @@
-import MwInput from "../components/MWInput.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, boolean, select, text } from "@storybook/addon-knobs";
 import centered from "@storybook/addon-centered/vue";
+import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { MwInput } from "../";
 import * as icons from "../components/icons";
 import "../grid.scss";
 

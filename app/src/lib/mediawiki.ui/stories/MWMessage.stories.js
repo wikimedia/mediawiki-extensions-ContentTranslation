@@ -1,6 +1,6 @@
-import MwMessage from "../components/MWMessage.vue";
 import { withA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
+import { MwMessage } from "../";
 
 export default {
   title: "Components",

@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MwButtonGroup from "../../components/MWButtonGroup";
+import { MwButtonGroup } from "../../components";
 
 describe("MwButtonGroup.vue", () => {
   test("is a Vue instance", () => {

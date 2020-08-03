@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MWDropdown from "../../components/MWDropdown";
+import { MwDropdown } from "../../components";
 
 describe("MWDropdown.vue", () => {
   it("renders with given slots and options", async () => {
@@ -11,7 +11,7 @@ describe("MWDropdown.vue", () => {
       { label: "Hindi", value: "hi" },
       { label: "French", value: "fr" }
     ];
-    const wrapper = shallowMount(MWDropdown, {
+    const wrapper = shallowMount(MwDropdown, {
       propsData: { value: languages }
     });
     const trigger = wrapper.find(`.${triggerClass}`);
