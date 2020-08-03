@@ -229,7 +229,7 @@ export default {
     },
     targetSectionContent() {
       return (this.targetPageSections || []).find(
-        section => section.line === this.activeSectionSourceTitle
+        section => section.line === this.activeSectionTargetTitle
       )?.text;
     },
     isMissingSection() {
@@ -284,6 +284,12 @@ export default {
       this.$store.dispatch("mediawiki/fetchPageSections", {
         language: this.suggestion.sourceLanguage,
         title: this.suggestion.sourceTitle
+      });
+    },
+    targetPage() {
+      this.$store.dispatch("mediawiki/fetchPageSections", {
+        language: this.suggestion.targetLanguage,
+        title: this.suggestion.targetTitle
       });
     },
     // watch for target title as it is not provided when the proxy suggestion object is created
