@@ -52,7 +52,7 @@
 	"cx-beta": "Prevoditelj sadržaja",
 	"cx-beta-desc": "Alat za brzo prevođenje stranica na svoj jezik. Počnite prevoditi [[Special:MyContributions|Vaše doprinose]] i uređivati ih u uređivaču posebno napravljenom za prevođenje. Određeni alati mogu biti dostupni samo za određene jezike.",
 	"cx-entrypoint-title": "Prevedi ovu stranicu na $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ova stranica još ne postoji na $1. Želite li je stvoriti?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ova stranica još ne postoji na jeziku: $1. {{GENDER:|Želite}} li je stvoriti?",
 	"cx-entrypoint-dialog-button-translate-from": "Prevedi s $1",
 	"cx-entrypoint-dialog-desc": "Prijevodom ove stranice možete pomoći Wikipediji. Prijevod je lak način za stvaranje novog sadržaja u Vašem jeziku.",
 	"cx-campaign-newbytranslation-title": "Želite li započeti prijevod umjesto ovoga?",

@@ -2,9 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Laitei",
+			"Taytay",
 			"Teitei Para"
 		]
 	},
 	"cx-translation-list-all-languages-option-label": "Zydua",
+	"sx-quick-tutorial-translate-button-label": "Reihpalei pathao",
+	"cx-sx-sentence-selector-header-title": "Bo kha reihpalei teih",
+	"cx-sx-sentence-selector-done-button-label": "Patlô",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Reihpaleina taopathi teih",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Saoh",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Khôsai",
+	"cx-sx-content-comparator-target-selector-target-section-title": "$1 liata bo",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week"
 }

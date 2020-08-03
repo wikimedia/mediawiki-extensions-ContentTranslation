@@ -150,7 +150,7 @@
 	"cx-translation-label-draft": "চলমান অনুবাদ",
 	"cx-translation-label-published": "প্রকাশিত অনুবাদ",
 	"cx-translation-already-in-progress": "এটি $1 {{GENDER:$2|কর্তৃক}} একটি চলমান অনুবাদ।",
-	"cx-translation-already-in-progress-collaborate": "নিশ্চিত করুন যে {{GENDER:$1|ব্যবহারকারী}} যিনি বর্তমান অনুবাদ অনূদিত করেছেন তার সাথে আপনি সমন্বয় সাধন করেছেন।",
+	"cx-translation-already-in-progress-collaborate": "নিশ্চিত করুন যে {{GENDER:$1|ব্যবহারকারী}} যিনি বর্তমানে লেখাটি অনূদিত করছেন তার সাথে আপনি সমন্বয় সাধন করছেন।",
 	"cx-publishing-dialog-publish-draft-button": "খসড়া হিসাবে প্রকাশ করুন",
 	"cx-feedback-link": "মতামত প্রদান করুন",
 	"cx-stats-published-translations-title": "প্রকাশিত অনুবাদ",
@@ -300,15 +300,18 @@
 	"cx-sx-section-selector-present-sections-title": "$1 ভাষায় অনুচ্ছেদ উপস্থিত রয়েছে",
 	"cx-sx-section-selector-more-details-title": "আরো বিস্তারিত",
 	"cx-sx-section-selector-view-article-button-label": "$1 ভাষায় নিবন্ধ দেখুন",
+	"cx-sx-section-selector-pick-other-translation-button-label": "আরেকটি পাতা নির্বাচন করুন",
 	"cx-sx-section-selector-learn-more-anchor-label": "আরও জানুন",
 	"cx-suggestion-list-new-pages-division": "নতুন পাতা",
 	"cx-translation-list-all-languages-option-label": "সব",
 	"cx-sx-content-comparator-translation-section-button-label": "এই অংশটি অনুবাদ করুন",
 	"cx-sx-content-comparator-review-contents-title": "উভয় ভাষায় বিষয়বস্তু পর্যালোচনা করুন।",
+	"sx-quick-tutorial-main-point-step-1": "একটি নতুন অনুচ্ছেদ অনুবাদ করা হল সহজ, দ্রুত ও মজাদার!",
 	"sx-quick-tutorial-translate-button-label": "অনুবাদ শুরু করুন",
 	"cx-sx-sentence-selector-header-title": "অনুচ্ছেদ অনুবাদ করুন",
 	"cx-sx-sentence-selector-done-button-label": "সম্পন্ন",
 	"cx-sx-sentence-selector-edit-translation-button-label": "অনুবাদ সম্পাদনা করুন",
 	"cx-sx-sentence-selector-apply-translation-button-label": "প্রয়োগ",
-	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান"
+	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}"
 }

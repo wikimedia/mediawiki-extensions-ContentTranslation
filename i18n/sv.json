@@ -361,5 +361,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Fullständig artikel på $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Finns på $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Avsnitt på $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. <br /> Stäng detta om avsnitten inte är relaterade."
+	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. <br /> Stäng detta om avsnitten inte är relaterade.",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besök varje vecka|0=Inga besök denna vecka}}"
 }
