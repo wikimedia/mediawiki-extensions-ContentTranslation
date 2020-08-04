@@ -6,7 +6,6 @@
 </template>
 
 <style lang="less">
-@import "../../mixins/common.less";
 @import "../../variables/wikimedia-ui-base.less";
 
 @width-bounce-dot: 1em;
@@ -25,9 +24,7 @@
     width: @width-bounce-dot;
     height: @width-bounce-dot;
     border-radius: 100%;
-    -webkit-animation: bounce-delay 1600ms infinite ease-in-out both;
     animation: bounce-delay 1600ms infinite ease-in-out both;
-    -webkit-animation-delay: -160ms;
     animation-delay: -160ms;
   }
 

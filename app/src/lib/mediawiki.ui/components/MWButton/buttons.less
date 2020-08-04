@@ -9,7 +9,7 @@
 .mw-ui-button() {
   // Container layout
   display: inline-block;
-  .box-sizing(border-box);
+  box-sizing: border-box;
   min-width: 4em;
   max-width: 28.75em; // equivalent to 460px, @see T95367
   margin: 0;
@@ -84,9 +84,8 @@
 
   // `:not()` is used exclusively for `transition`s as both are not supported by IE < 9
   &:not(:disabled) {
-    .transition(
-      ~"background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms"
-    );
+    transition: background-color 100ms, color 100ms, border-color 100ms,
+      box-shadow 100ms;
   }
 }
 

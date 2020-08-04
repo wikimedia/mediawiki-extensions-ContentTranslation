@@ -100,7 +100,6 @@ export default {
 </script>
 <style lang="less">
 @import "../../variables/wikimedia-ui-base.less";
-@import "../../mixins/common.less";
 
 .mw-ui-dialog {
   display: flex;
@@ -144,7 +143,7 @@ export default {
     min-width: 300px;
     max-height: calc(100vh - 100px);
     min-height: 200px;
-    .box-shadow(0 2px 2px 0 rgba(0, 0, 0, 0.25));
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
   }
 
   .mw-ui-dialog__header {

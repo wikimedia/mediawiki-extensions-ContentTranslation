@@ -218,7 +218,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../mixins/common.less";
 @import "../../variables/wikimedia-ui-base.less";
 
 .mw-ui-dropdown {
@@ -268,7 +267,7 @@ export default {
 
     // `:not()` is used exclusively for `transition`s as both are not supported by IE < 9.
     &:not(:disabled) {
-      .transition(~"color 100ms, border-color 100ms, box-shadow 100ms");
+      transition: color 100ms, border-color 100ms, box-shadow 100ms;
     }
 
     &:disabled {

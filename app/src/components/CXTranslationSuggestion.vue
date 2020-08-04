@@ -81,7 +81,6 @@ export default {
 
 <style lang="less">
 @import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-@import "../lib/mediawiki.ui/mixins/common.less";
 
 .cx-suggestion {
   // Not sure if @background-color-notice-frame variable is ok to use here
@@ -89,9 +88,8 @@ export default {
     @background-color-notice--framed;
   cursor: pointer;
   min-height: 100px;
-  .transition(
-    "background-color 100ms, border-color 100ms, transform 1s, opacity 1s"
-  );
+  transition: background-color 100ms, border-color 100ms, transform 1s,
+    opacity 1s;
   &:hover {
     background-color: @background-color-primary;
   }

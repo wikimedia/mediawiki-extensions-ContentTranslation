@@ -121,16 +121,15 @@ export default {
 
 <style lang="less">
 @import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-@import "../lib/mediawiki.ui/mixins/common.less";
 
 .cx-translation {
   /* TODO: Fix border color to be base80*/
   border-top: @border-width-base @border-style-base @border-color-base--disabled;
   cursor: pointer;
   min-height: 100px;
-  .transition(
-    "background-color 100ms, border-color 100ms, transform 1s, opacity 1s"
-  );
+  transition: background-color 100ms, border-color 100ms, transform 1s,
+    opacity 1s;
+
   &:hover {
     background-color: @background-color-primary;
   }

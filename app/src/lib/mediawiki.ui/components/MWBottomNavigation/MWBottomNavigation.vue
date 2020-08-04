@@ -28,7 +28,6 @@ export default {
 
 <style lang="less">
 @import "../../variables/wikimedia-ui-base.less";
-@import "../../mixins/common.less";
 
 .mw-ui-bottom-navigation {
   position: fixed;
@@ -36,7 +35,7 @@ export default {
   bottom: 0;
   width: 100%;
   background-color: @background-color-base;
-  .box-shadow(2px -2px 2px rgba(0, 0, 0, 0.15));
+  box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
 
   .mw-ui-bottom-navigation__button-group {
     .mw-ui-button {

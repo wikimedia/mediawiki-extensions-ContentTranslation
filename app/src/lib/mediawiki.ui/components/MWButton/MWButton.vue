@@ -109,7 +109,6 @@ export default {
 
 <style lang="less">
 @import "./buttons.less";
-@import "../../mixins/common.less";
 @import "../../variables/wikimedia-ui-base.less";
 
 // Neutral button styling
