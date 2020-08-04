@@ -23,7 +23,7 @@
 
 <script>
 import { mwIconSearch } from "../lib/mediawiki.ui/components/icons";
-import MwSelect from "../lib/mediawiki.ui/components/MWSelect";
+import { MwSelect } from "../lib/mediawiki.ui";
 import { mapGetters } from "vuex";
 
 export default {

@@ -136,11 +136,13 @@ import {
   mwIconEye,
   mwIconTrash
 } from "../lib/mediawiki.ui/components/icons";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-import MwButtonGroup from "../lib/mediawiki.ui/components/MWButtonGroup";
-import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
+import {
+  MwButton,
+  MwDialog,
+  MwIcon,
+  MwButtonGroup,
+  MwSpinner
+} from "../lib/mediawiki.ui";
 import autonymMixin from "../mixins/autonym";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import SxQuickTutorial from "./SXQuickTutorial";

@@ -85,8 +85,7 @@
 </template>
 
 <script>
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import { MwDialog, MwButton } from "../lib/mediawiki.ui";
 import { mwIconArrowForward } from "../lib/mediawiki.ui/components/icons";
 export default {
   name: "SxQuickTutorial",

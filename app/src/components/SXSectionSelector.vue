@@ -207,10 +207,7 @@
 </template>
 
 <script>
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-
+import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
 import {
   mwIconClose,
   mwIconArrowForward,

@@ -69,11 +69,9 @@
 </template>
 
 <script>
-import MwCard from "../lib/mediawiki.ui/components/MWCard";
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import SxArticleSelector from "./SXArticleSelector";
-import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import { MwSpinner, MwCard, MwButton } from "../lib/mediawiki.ui";
 import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
 import { mapState, mapActions } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";

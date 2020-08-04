@@ -107,8 +107,7 @@
 </template>
 
 <script>
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
   mwIconLinkExternal,
@@ -117,7 +116,6 @@ import {
   mwIconPrevious,
   mwIconArrowForward
 } from "../lib/mediawiki.ui/components/icons";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
 import SectionSentence from "../wiki/cx/models/sectionSentence";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 export default {

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import { MwButton } from "../lib/mediawiki.ui";
 
 import {
   mwIconWikipediaLogo,

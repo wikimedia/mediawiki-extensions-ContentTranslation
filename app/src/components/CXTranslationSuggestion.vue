@@ -45,8 +45,7 @@
 </template>
 
 <script>
-import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
+import { MwIcon, MwThumbnail } from "../lib/mediawiki.ui";
 import autonym from "../mixins/autonym";
 import {
   mwIconStar,

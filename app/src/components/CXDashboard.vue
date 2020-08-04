@@ -34,8 +34,7 @@
 <script>
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
-import MwButtonGroup from "../lib/mediawiki.ui/components/MWButtonGroup";
-import MwBottomNavigation from "../lib/mediawiki.ui/components/MWBottomNavigation";
+import { MwButtonGroup, MwBottomNavigation } from "../lib/mediawiki.ui";
 import {
   mwIconArticleCheck,
   mwIconLightBulb,

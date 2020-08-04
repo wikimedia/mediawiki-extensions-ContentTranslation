@@ -114,10 +114,7 @@
 <script>
 import { mapState } from "vuex";
 import SxSectionSelector from "./SXSectionSelector";
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwThumbnail from "../lib/mediawiki.ui/components/MWThumbnail";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
+import { MwButton, MwIcon, MwDialog, MwThumbnail } from "../lib/mediawiki.ui";
 import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
 import {
   mwIconClose,

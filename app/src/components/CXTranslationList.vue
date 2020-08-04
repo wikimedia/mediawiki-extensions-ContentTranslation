@@ -22,9 +22,8 @@
 </template>
 
 <script>
-import MwCard from "../lib/mediawiki.ui/components/MWCard";
 import CxTranslationWork from "./CXTranslationWork";
-import MwSpinner from "../lib/mediawiki.ui/components/MWSpinner";
+import { MwSpinner, MwCard } from "../lib/mediawiki.ui";
 import autonymMixin from "../mixins/autonym";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import { mapState } from "vuex";

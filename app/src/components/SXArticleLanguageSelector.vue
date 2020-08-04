@@ -69,14 +69,16 @@
 </template>
 
 <script>
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
+import {
+  MwLanguageSelector,
+  MwDialog,
+  MwIcon,
+  MwButton
+} from "../lib/mediawiki.ui";
 import {
   mwIconArrowNext,
   mwIconExpand
 } from "../lib/mediawiki.ui/components/icons";
-import MwLanguageSelector from "./MWLanguageSelector";
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
 import { mapState, mapGetters } from "vuex";
 import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import autonymMixin from "../mixins/autonym";

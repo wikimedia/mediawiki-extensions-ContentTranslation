@@ -71,10 +71,12 @@
 </template>
 
 <script>
-import MwButton from "../lib/mediawiki.ui/components/MWButton";
-import MwLanguageSelector from "./MWLanguageSelector";
-import MwDialog from "../lib/mediawiki.ui/components/MWDialog";
-import MwIcon from "../lib/mediawiki.ui/components/MWIcon";
+import {
+  MwLanguageSelector,
+  MwDialog,
+  MwIcon,
+  MwButton
+} from "../lib/mediawiki.ui";
 import autonymMixin from "../mixins/autonym";
 import {
   mwIconArrowNext,
