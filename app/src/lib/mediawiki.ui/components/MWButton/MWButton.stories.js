@@ -26,9 +26,6 @@ export const DifferentButtons = () => ({
     href: {
       default: text("Button click target(href)", "")
     },
-    block: {
-      default: boolean("Block button", false)
-    },
     outlined: {
       default: boolean("Outlined", false)
     },
@@ -60,5 +57,5 @@ export const DifferentButtons = () => ({
       action("indicator-click")(`Clicked`);
     }
   },
-  template: `<mw-button :large="large" :progressive="progressive" :destructive="destructive" :outlined="outlined" :type="type" :icon="icons[icon]"  :indicator="icons[indicator]" :href="href" :block="block" :label="label" v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"></mw-button>`
+  template: `<mw-button :large="large" :progressive="progressive" :destructive="destructive" :outlined="outlined" :type="type" :icon="icons[icon]"  :indicator="icons[indicator]" :href="href" :label="label" v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"></mw-button>`
 });

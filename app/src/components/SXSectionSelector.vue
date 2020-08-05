@@ -56,7 +56,6 @@
               :label="sourceSection"
               type="text"
               :outlined="false"
-              :block="true"
               @click="selectSection(sourceSection)"
             />
           </li>
@@ -103,7 +102,6 @@
               :indicator="mwIconArrowForward"
               type="text"
               :outlined="false"
-              :block="true"
             >
               <div class="sx-selector__present-section-button-content">
                 <h5 class="sx-selector__present-section-button-source">
@@ -139,7 +137,6 @@
               "
               type="text"
               :outlined="false"
-              :block="true"
             />
           </li>
           <li class="row ma-0">
@@ -156,7 +153,6 @@
               "
               type="text"
               :outlined="false"
-              :block="true"
             />
           </li>
         </ul>

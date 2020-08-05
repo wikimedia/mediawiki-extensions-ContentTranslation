@@ -53,7 +53,6 @@
         v-if="pageSuggestionsLoaded"
         class="ma-0 pa-4"
         type="text"
-        :block="true"
         :label="$i18n('cx-suggestionlist-refresh')"
         :outlined="false"
         :icon="mwIconRefresh"

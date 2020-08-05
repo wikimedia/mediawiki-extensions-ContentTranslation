@@ -45,7 +45,6 @@ export default {
     label: String,
     disabled: Boolean,
     depressed: Boolean,
-    block: Boolean,
     large: Boolean,
     icon: [Object, String],
     iconSize: {
@@ -80,7 +79,6 @@ export default {
     classes() {
       return {
         "mw-ui-button": true,
-        "mw-ui-button--block": this.block,
         "mw-ui-button--depressed": this.depressed || this.outlined,
         "mw-ui-button--disabled": this.disabled,
         "mw-ui-button--fab": this.fab,
@@ -198,17 +196,6 @@ export default {
   // Styleguide 2.1.4.
   &.mw-ui-button--large {
     font-size: 1.3em;
-  }
-
-  // Block buttons
-  //
-  // Some buttons might need to be stacked.
-  // Styleguide 2.1.5.
-  &.mw-ui-button--block {
-    display: block;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 </style>
