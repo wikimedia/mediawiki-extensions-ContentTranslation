@@ -839,6 +839,7 @@
 				"ext.cx.sitemapper",
 				"ext.cx.tools.validator",
 				"mediawiki.api",
+				"mediawiki.jqueryMsg",
 				"mediawiki.user"
 			],
 			"messages": [
@@ -1574,6 +1575,7 @@
 				"cx-publish-page-success"
 			],
 			"dependencies": [
+				"mediawiki.jqueryMsg",
 				"ext.cx.model",
 				"ext.cx.sitemapper",
 				"ext.cx.util",
