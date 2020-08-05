@@ -275,5 +275,7 @@
 	"cx-mt-abuse-publish-error": "Käännöstäsi ei voida julkaista, koska sen teksti sisältää liikaa muokkaamatonta tekstiä.",
 	"cx-unreviewed-translation-category": "Sivut, joissa on tarkistamattomia käännöksiä",
 	"cx-feature-discovery-title": "Käännä koska tahansa",
-	"cx-feature-discovery-dismiss": "Ok, selvä"
+	"cx-feature-discovery-dismiss": "Ok, selvä",
+	"sx-quick-tutorial-translate-button-label": "Aloita kääntäminen",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Ohita"
 }
