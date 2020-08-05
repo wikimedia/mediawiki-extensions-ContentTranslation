@@ -23,7 +23,7 @@
     <mw-icon
       v-if="indicator"
       :icon="indicator"
-      :size="large ? 28 : indicatorSize || iconSize"
+      :size="large ? 28 : indicatorSize"
       class="mw-ui-button__indicator"
       @click.stop="
         hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
@@ -48,10 +48,12 @@ export default {
     large: Boolean,
     icon: [Object, String],
     iconSize: {
-      type: [Number, String]
+      type: [Number, String],
+      default: 20
     },
     indicatorSize: {
-      type: [Number, String]
+      type: [Number, String],
+      default: 12
     },
     indicator: [Object, String],
     href: String,

@@ -26,6 +26,7 @@ exports[`MwMessage.vue renders correctly 1`] = `
     class="col shrink items-start mw-ui-message__action py-1"
     icon="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
     iconsize="24"
+    indicatorsize="12"
     type="icon"
   />
 </div>

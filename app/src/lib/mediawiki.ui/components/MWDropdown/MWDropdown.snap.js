@@ -21,7 +21,7 @@ exports[`MWDropdown.vue renders with given slots and options 1`] = `
       height="0"
       icon="M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
       iconcolor="currentColor"
-      size="24"
+      size="12"
       width="0"
     />
   </div>

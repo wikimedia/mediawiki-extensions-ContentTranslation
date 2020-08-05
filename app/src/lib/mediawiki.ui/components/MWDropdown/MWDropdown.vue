@@ -95,11 +95,11 @@ export default {
     },
     iconSize: {
       type: [Number, String],
-      default: "24"
+      default: 20
     },
     indicatorSize: {
       type: [Number, String],
-      default: "24"
+      default: 12
     },
     indicator: {
       type: String,
