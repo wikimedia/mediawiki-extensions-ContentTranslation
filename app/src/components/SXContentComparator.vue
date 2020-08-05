@@ -130,10 +130,10 @@
     </div>
     <section
       v-if="sourceVsTargetSelection === 'source_section'"
-      class="sx-content-comparator__source-content pa-4"
+      class="sx-content-comparator__source-content"
     >
       <div
-        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
+        class="sx-content-comparator__content-header justify-between mx-4 pt-4 pb-2"
       >
         <h3 v-text="activeSectionSourceTitle" />
         <mw-button
@@ -178,7 +178,11 @@
           target="_blank"
         />
       </div>
-      <div v-html="targetSectionContent"></div>
+      <section class="pa-4" v-html="targetSectionContent" />
+      <section class="sx-content-comparator__new-section-placeholder--present pa-4 px-7">
+        <h5 v-i18n:cx-sx-content-comparator-present-section-placeholder-title />
+        <p v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle />
+      </section>
     </section>
     <sx-quick-tutorial
       :active.sync="tutorialActive"
@@ -496,6 +500,15 @@ export default {
       @border-color-base--disabled;
     .mw-ui-icon {
       color: @color-base--subtle;
+    }
+  }
+  .sx-content-comparator__new-section-placeholder--present {
+    background-color: @background-color-primary;
+    color: @color-primary--active;
+    // No color for accent-50 with 0.5 opacity present in UI library
+    box-shadow: 0 1px 3px rgba(51, 102, 204, 0.5), 0 -1px 3px rgba(51, 102, 204, 0.5);
+    h5 {
+      color: @color-primary--active;
     }
   }
 }

@@ -160,6 +160,10 @@ const actions = {
       page = getters.getPage(language, title);
     }
 
+    if (!page.sections.length) {
+      dispatch("fetchPageSections", { language, title });
+    }
+
     if (page.content) {
       return;
     }

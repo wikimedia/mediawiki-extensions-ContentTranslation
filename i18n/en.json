@@ -363,5 +363,7 @@
 	"cx-sx-sentence-selector-translation-options-header-title": "Start with a different translation",
 	"cx-sx-sentence-selector-translation-options-header-text": "Choose the translation option for the current and following sentences.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
-	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start with an empty sentence"
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start with an empty sentence",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Your translation will be added here",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "When publishing you can decide to replace the existing contents instead."
 }
