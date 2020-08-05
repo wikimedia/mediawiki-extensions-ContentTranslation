@@ -43,15 +43,15 @@
       </mw-col>
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
         <span
-          v-for="(sentence, index) in sentences"
-          :key="`sentence-${index}`"
+          v-for="sentence in sentences"
+          :key="`sentence-${sentence.id}`"
           class="sx-sentence-selector__section-sentence"
           :class="{
             'sx-sentence-selector__section-sentence--selected':
               sentence.selected
           }"
-          @click="selectSentence(index)"
-          v-html="formatSentence(sentence, index)"
+          @click="selectSentence(sentence)"
+          v-html="sentence.content"
         />
       </mw-col>
       <mw-col
@@ -69,6 +69,7 @@
       </mw-col>
     </mw-row>
     <sx-translation-selector
+      v-if="selectedSentence"
       :active.sync="translationOptionsActive"
       :provider.sync="selectedProvider"
       :sentence="selectedSentence"
@@ -125,11 +126,11 @@ export default {
     },
     proposedSentenceTranslation() {
       return (
-        this.selectedSentence.proposedTranslations[this.selectedProvider] || ""
+        this.selectedSentence?.proposedTranslations[this.selectedProvider] || ""
       );
     },
     sentences() {
-      return this.currentPageSection.sentences;
+      return this.currentPageSection?.sentences || [];
     },
     mtProviders() {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](
@@ -142,13 +143,9 @@ export default {
      */
     currentPageSection() {
       return this.$store.getters["mediawiki/getPageSection"](
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle,
+        this.sourcePage,
         this.sourceSectionTitle
       );
-    },
-    sectionSourceContent() {
-      return this.currentPageSection?.text;
     },
     sourcePage() {
       return this.$store.getters["mediawiki/getPage"](
@@ -161,9 +158,6 @@ export default {
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);
-    },
-    selectedSentenceIndex() {
-      return this.sentences.findIndex(sentence => sentence.selected);
     }
   },
   watch: {
@@ -215,21 +209,15 @@ export default {
     onClose() {
       this.$router.go(-1);
     },
-    selectSentence(sentenceIndex) {
-      if (this.selectedSentenceIndex === sentenceIndex) {
+    selectSentence(sentence) {
+      if (this.selectedSentence === sentence) {
         this.bounceTranslation();
       }
-      this.$store.dispatch("mediawiki/selectSentenceForPageSection", {
-        sourceLanguage: this.suggestion.sourceLanguage,
-        sourceTitle: this.suggestion.sourceTitle,
+      this.$store.dispatch("application/selectSentenceForPageSection", {
+        page: this.sourcePage,
         sectionTitle: this.sourceSectionTitle,
-        sentenceIndex
+        id: sentence.id
       });
-    },
-    formatSentence(sentence, index) {
-      return (
-        sentence.content + (index === this.sentences.length - 1 ? "" : ".")
-      );
     },
     configureTranslationOptions() {
       this.translationOptionsActive = true;

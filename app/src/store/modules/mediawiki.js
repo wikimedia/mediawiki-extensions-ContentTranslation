@@ -2,7 +2,6 @@ import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
 import Language from "../../wiki/mw/models/language";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
-import SectionSentence from "../../wiki/cx/models/sectionSentence";
 import translatorApi from "../../wiki/cx/api/translator";
 import Vue from "vue";
 const state = {
@@ -33,6 +32,9 @@ const mutations = {
    */
   addMtProviderGroup(state, mtProviderGroup) {
     state.supportedMTProviderGroups.push(mtProviderGroup);
+  },
+  setPageSections(state, { page, sections }) {
+    Vue.set(page, "sections", sections);
   }
 };
 
@@ -67,10 +69,8 @@ const getters = {
    */
   getLanguage: state => languageCode =>
     state.languages.find(language => language.code === languageCode),
-  getPageSection: (state, getters) => (language, title, sectionTitle) =>
-    (getters.getPage(language, title)?.sections || []).find(
-      section => section.line === sectionTitle
-    ),
+  getPageSection: state => (page, sectionTitle) =>
+    (page?.sections || []).find(section => section.title === sectionTitle),
   /**
    * Get MTProviderGroup for the given language pair
    * @param {String} sourceLanguage
@@ -84,30 +84,7 @@ const getters = {
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers,
   getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
-    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0],
-  /**
-   * Get selected sentence for a section defined by
-   * the given language, title and source title
-   * @param {String} sourceLanguage
-   * @param {String} sourceTitle
-   * @param {String} sectionTitle
-   * @return {SectionSentence|null}
-   */
-  getSelectedSentenceForPageSection: (state, getters) => (
-    sourceLanguage,
-    sourceTitle,
-    sectionTitle
-  ) => {
-    const section = getters.getPageSection(
-      sourceLanguage,
-      sourceTitle,
-      sectionTitle
-    );
-    if (!section) {
-      return null;
-    }
-    return section.sentences.find(sentence => sentence.selected);
-  }
+    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0]
 };
 
 const actions = {
@@ -160,10 +137,6 @@ const actions = {
       page = getters.getPage(language, title);
     }
 
-    if (!page.sections.length) {
-      dispatch("fetchPageSections", { language, title });
-    }
-
     if (page.content) {
       return;
     }
@@ -172,44 +145,26 @@ const actions = {
       .fetchPageContent(language, title)
       .then(content => (page.content = content));
   },
-  fetchPageSections({ getters }, { language, title }) {
-    const page = getters.getPage(language, title);
+  async fetchPageSections(
+    { getters, commit },
+    { sourceLanguage, targetLanguage, sourceTitle }
+  ) {
+    const page = getters.getPage(sourceLanguage, sourceTitle);
 
-    if (!page) {
-      return;
-    }
-    pageApi.fetchPageSections(language, title).then(sections => {
-      page.sections = sections;
-    });
+    pageApi
+      .fetchPageSections(sourceLanguage, targetLanguage, sourceTitle)
+      .then(sections => commit("setPageSections", { page, sections }));
   },
   fetchMTProviders({ commit }, { sourceLanguage, targetLanguage }) {
     siteApi
       .fetchSupportedMTProviders(sourceLanguage, targetLanguage)
       .then(mtProviderGroup => commit("addMtProviderGroup", mtProviderGroup));
   },
-  selectSentenceForPageSection(
-    { getters },
-    { sourceLanguage, sourceTitle, sectionTitle, sentenceIndex }
-  ) {
-    const section = getters.getPageSection(
-      sourceLanguage,
-      sourceTitle,
-      sectionTitle
-    );
-
-    const selectedSentence = getters.getSelectedSentenceForPageSection(
-      sourceLanguage,
-      sourceTitle,
-      sectionTitle
-    );
-
-    selectedSentence.selected = false;
-    section.sentences[sentenceIndex].selected = true;
-  },
   /**
    * Translate selected sentence for a section defined
    * by given source language, title and section title,
    * from source language to given target language.
+   * @param getters
    * @param {String} sourceLanguage
    * @param {String} targetLanguage
    * @param {String} sourceTitle
@@ -218,16 +173,17 @@ const actions = {
    * @return {Promise<void>}
    */
   async translateSelectedSentence(
-    { getters },
+    { rootGetters },
     { sourceLanguage, targetLanguage, sourceTitle, sectionTitle, provider }
   ) {
-    const selectedSentence = getters.getSelectedSentenceForPageSection(
-      sourceLanguage,
-      sourceTitle,
-      sectionTitle
-    );
+    const selectedSentence = rootGetters[
+      "application/getSelectedSentenceForPageSection"
+    ](sourceLanguage, sourceTitle, sectionTitle);
 
-    if (provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY) {
+    if (
+      !selectedSentence ||
+      provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+    ) {
       return;
     }
 

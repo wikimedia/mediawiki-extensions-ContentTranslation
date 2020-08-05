@@ -1,7 +1,7 @@
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
-import PageSection from "../models/pageSection";
-
+import PageSection from "@/wiki/cx/models/pageSection";
+import segmentedContentConverter from "@/utils/segmentedContentConverter";
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
@@ -107,30 +107,28 @@ function fetchPageContent(language, title) {
 }
 
 /**
- * Fetches sections with content for a given page and returns a promise that
- * resolves to an array containing PageSection objects
- * @param {String} language
- * @param {String} title
+ * Fetches segmented content of a page for given source language,
+ * target language and source title. Returns a promise that resolves
+ * to a string containing HTML segmented content.
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String} sourceTitle
  * @returns {Promise<PageSection[]>}
  */
-function fetchPageSections(language, title) {
+function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
   const sitemapper = new mw.cx.SiteMapper();
-  const apiURL = sitemapper.getRestbaseUrl(
-    language,
-    "/page/mobile-sections/$title",
-    { $title: title }
+  // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
+  const cxserverAPI = sitemapper.getCXServerUrl(
+    `/page/${sourceLanguage}/${targetLanguage}/${sourceTitle}`
   );
 
-  return fetch(apiURL)
+  return fetch(cxserverAPI)
+    .then(response => response.json())
     .then(response =>
-      response.ok
-        ? response.json()
-        : Promise.reject(new Error("Failed to load data from server"))
-    )
-    .then(response => {
-      const sections = response?.remaining?.sections || [];
-      return sections.map(section => new PageSection(section));
-    });
+      segmentedContentConverter.convertSegmentedContentToPageSections(
+        response.segmentedContent
+      )
+    );
 }
 
 export default {

@@ -88,12 +88,6 @@ export default {
         this.suggestion.sourceTitle
       );
     },
-    /**
-     * @return {PageSection[]}
-     */
-    targetPageSections() {
-      return this.targetPage?.sections;
-    },
     targetPage() {
       return this.$store.getters["mediawiki/getPage"](
         this.suggestion.targetLanguage,
@@ -117,20 +111,22 @@ export default {
       );
     },
     sourceSection() {
-      return (this.sourcePageSections || []).find(
-        section => section.line === this.sourceSectionTitle
+      return this.$store.getters["mediawiki/getPageSection"](
+        this.sourcePage,
+        this.sourceSectionTitle
       );
     },
     targetSection() {
-      return (this.targetPageSections || []).find(
-        section => section.line === this.activeSectionTargetTitle
+      return this.$store.getters["mediawiki/getPageSection"](
+        this.targetPage,
+        this.activeSectionTargetTitle
       );
     },
     sourceSectionContent() {
-      return this.sourceSection?.text;
+      return this.sourceSection?.html;
     },
     targetSectionContent() {
-      return this.targetSection?.text;
+      return this.targetSection?.html;
     },
     isCurrentSectionMissing() {
       return this.missingSections.hasOwnProperty(this.sourceSectionTitle);
@@ -150,15 +146,13 @@ export default {
   },
   watch: {
     sourcePage() {
-      this.$store.dispatch("mediawiki/fetchPageSections", {
-        language: this.suggestion.sourceLanguage,
-        title: this.suggestion.sourceTitle
-      });
+      this.$store.dispatch("mediawiki/fetchPageSections", this.suggestion);
     },
     targetPage() {
       this.$store.dispatch("mediawiki/fetchPageSections", {
-        language: this.suggestion.targetLanguage,
-        title: this.targetTitle
+        sourceLanguage: this.suggestion.targetLanguage,
+        targetLanguage: this.suggestion.sourceLanguage,
+        sourceTitle: this.suggestion.targetTitle
       });
     },
     // watch for target title as it is not provided when the proxy suggestion object is created
