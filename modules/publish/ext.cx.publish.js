@@ -242,7 +242,7 @@
 				$( '<a>' ).attr( {
 					href: mw.util.getUrl( this.targetTitle ),
 					target: '_blank'
-				} ).text( this.targetTitle )[ 0 ].outerHTML
+				} ).text( this.targetTitle )
 			) );
 
 		mw.hook( 'mw.cx.translation.published' ).fire(

@@ -475,7 +475,7 @@ ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
 			$( '<a>' ).attr( {
 				href: mw.util.getUrl( this.translation.targetTitle ),
 				target: '_blank'
-			} ).text( this.translation.targetTitle )[ 0 ].outerHTML
+			} ).text( this.translation.getTargetTitle() )
 		)
 	);
 	this.publishButton.setDisabled( true ).setLabel( mw.msg( 'cx-publish-button' ) );
