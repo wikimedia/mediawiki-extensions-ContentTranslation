@@ -18,9 +18,7 @@ async function fetchTranslations(offset) {
     const apiResponse = response.query.contenttranslation.translations;
     let results = apiResponse.map(item => new Translation(item.translation));
     if (response.continue?.offset) {
-      const restOfResults = await fetchTranslations(
-        response.data.continue.offset
-      );
+      const restOfResults = await fetchTranslations(response.continue.offset);
       results = results.concat(restOfResults);
     }
     return results;
