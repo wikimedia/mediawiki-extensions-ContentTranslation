@@ -433,7 +433,7 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 	var cleanupHtml,
 		doc = this.veTarget.getSurface().getDom();
 
-	cleanupHtml = this.veTarget.getHtml( this.constructor.static.getCleanedupContent( doc ) );
+	cleanupHtml = mw.libs.ve.targetSaver.getHtml( this.constructor.static.getCleanedupContent( doc ) );
 
 	return deflate ? mw.deflate( cleanupHtml ) : cleanupHtml;
 };
