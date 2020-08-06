@@ -6,7 +6,8 @@
 			"MIKHEIL",
 			"Mehman97",
 			"Otogi",
-			"Sopopruidze"
+			"Sopopruidze",
+			"Tokoko"
 		]
 	},
 	"cx": "გვერდის თარგმნა",
@@ -47,6 +48,7 @@
 	"cx-entrypoint-title": "ამ გვერდის თარგმნა $1-ზე",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ეს გვერდი $1-ზე ჯერ არ არსებობს. {{GENDER:|თქვენ}} გსურთ მისი შექმნა ?",
 	"cx-entrypoint-dialog-button-translate-from": "$1-დან თარგმნა",
+	"cx-campaign-newbytranslation-start": "დაიწყეთ თარგმნა",
 	"cx-special-login-error": "სატარგმენლად თქვენ სისტემაში უნდა შეხვიდეთ. [$1 შესვლა]",
 	"cx-tools-instructions-text1": "სათარგმნელად პარაგრაფზე {{GENDER:|დააწკაპუნეთ}}",
 	"cx-tools-instructions-text2": "{{GENDER:|თქვენ}} არ გჭირდებათ მათი ყველას დამატება",
@@ -97,6 +99,8 @@
 	"cx-suggestionlist-featured": "რჩეული",
 	"cx-suggestionlist-view-source-page": "წყაროს გვერდის ხილვა",
 	"cx-create-new-translation": "ახალი თარგმანი",
+	"cx-translation-filter-label-all-languages": "ყველა",
+	"cx-translation-filter-uls-all-languages": "ყველა ენა",
 	"cx-save-draft-save-success": "შეინახა {{PLURAL:$1|ერთი წუთის წინ|$1 წუთის წინ|0=ამ წუთას}}",
 	"cx-save-draft-saving": "ინახება...",
 	"cx-save-draft-tooltip": "თარგმანის მონახაზები ავტომატურად ინახება",
@@ -202,5 +206,7 @@
 	"cx-template-not-available": "$1-თვის არ არის ხელმისაწვდომი",
 	"cx-translation-template-add-param": "+ თარგმნის ველი",
 	"cx-translation-template-add-more": "ბევრი ველის დამატება",
-	"cx-translation-template-select-param": "აირჩიეთ სამიზნე ველები"
+	"cx-translation-template-select-param": "აირჩიეთ სამიზნე ველები",
+	"cx-sx-section-selector-title": "სექციები",
+	"cx-sx-language-selector-dialog-title": "ენის ძებნა"
 }
