@@ -1,10 +1,9 @@
 import { withA11y } from "@storybook/addon-a11y";
 import { select, withKnobs } from "@storybook/addon-knobs";
-import "../typography.scss";
-import "./grid-story.less";
+import "./typography.scss";
 
 export default {
-  title: "Style",
+  title: "Layout",
   decorators: [withKnobs, withA11y]
 };
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="cxdashboard" class="container">
+  <mw-grid id="cxdashboard">
     <cx-header />
     <section class="row cx-translation-header">
       <mw-button
@@ -16,20 +16,18 @@
         class="col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12"
       />
     </section>
-  </div>
+  </mw-grid>
 </template>
 
 <script>
-import MwButton from "./lib/mediawiki.ui/components/MWButton";
+import { MwButton, MwGrid } from "./lib/mediawiki.ui";
 import CxHeader from "./components/CXHeader";
 import CxDashboard from "./components/CXDashboard";
 import { mwIconAdd } from "./lib/mediawiki.ui/components/icons";
-import "./lib/mediawiki.ui/grid.scss";
-import "./lib/mediawiki.ui/typography.scss";
 
 export default {
   name: "CxDashboardApp",
-  components: { MwButton, CxHeader, CxDashboard },
+  components: { MwButton, MwGrid, CxHeader, CxDashboard },
   data: () => ({ mwIconAdd })
 };
 </script>

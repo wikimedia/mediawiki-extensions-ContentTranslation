@@ -11,15 +11,16 @@
       <div class="mw-ui-dialog__overlay" @click="close()" />
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
-          <div class="mw-ui-dialog__header row">
-            <div
-              class="col grow items-center mw-ui-dialog__header-title justify-start"
+          <mw-row class="mw-ui-dialog__header">
+            <mw-col
+              grow
+              class="items-center mw-ui-dialog__header-title justify-start"
               v-html="title"
             />
-            <div class="col shrink justify-center">
+            <mw-col shrink class="justify-center">
               <mw-button type="icon" :icon="mwIconClose" @click="close()" />
-            </div>
-          </div>
+            </mw-col>
+          </mw-row>
           <mw-divider />
         </slot>
 
@@ -35,14 +36,16 @@
 <script>
 import MwButton from "../MWButton";
 import MwDivider from "../MWDivider";
+import { MwRow, MwCol } from "../MWLayout";
 
 import { mwIconClose } from "../icons";
-import "../../grid.scss";
 
 export default {
   name: "MwDialog",
   components: {
     MwButton,
+    MwRow,
+    MwCol,
     MwDivider
   },
   props: {

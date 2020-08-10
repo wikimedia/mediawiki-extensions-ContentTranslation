@@ -1,10 +1,10 @@
 import { withA11y } from "@storybook/addon-a11y";
 import { number, select, withKnobs } from "@storybook/addon-knobs";
-import "../grid.scss";
+import { MwGrid, MwRow, MwCol } from "./index";
 import "./grid-story.less";
 
 export default {
-  title: "Style",
+  title: "Layout",
   decorators: [withKnobs, withA11y]
 };
 
@@ -19,6 +19,7 @@ const dirPrefixes = {
 };
 
 export const Spacing = () => ({
+  components: { MwGrid, MwRow, MwCol },
   props: {
     padding: {
       default: select("Padding direction", dirPrefixes, "a")
@@ -63,16 +64,16 @@ export const Spacing = () => ({
   },
   template: `
   <main :dir="scriptDirection">
-  <div class="container storybook-grid spacing-demo" >
-    <div class="row" style="background-color:orange;">
-      <div
+  <mw-grid class="storybook-grid spacing-demo" >
+    <mw-row style="background-color:orange;">
+      <mw-col
         :class="paddingClass + ' ' + marginClass" style="width:100%; background-color:yellowgreen;">
         <code
           style="background-color:whitesmoke;"
           class="justify-center">{{paddingClass}} {{marginClass}}
         </code>
-      </div>
-    </div>
+      </mw-col>
+    </mw-row>
     <h3>Spacing helpers</h3>
     <p>You can add padding and margin to your components without writing custom styles. Spacing helpers are useful for modifying the padding and margin of an element.
     Note that elements having these spacing helper classes should be under an element with <code>row</row> class. </p>
@@ -94,7 +95,7 @@ export const Spacing = () => ({
     <h3>Breakpoints</h3>
     <p>Spacing units can be set specifically for each breakpoints. Please see the responsiveness section to learn about breakpoints. To use breakpoints in spacing helper classes, use the format <code>p{direction}{breakpoint}-{unit}</code></p>
     <p>For example <code>pa-xs-4</code> sets padding: 16px in xs(mobile) viewports and has no effect on other viewports. And <code>ma-lg-2</code> sets 8px margin on lg(large) viewports.</p>
-  </div>
+  </mw-grid>
   </main>
   `
 });

@@ -2,7 +2,6 @@ import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
 import centered from "@storybook/addon-centered/vue";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
-import "../../grid.scss";
 import * as icons from "../icons";
 import MwInput from "./MWInput.vue";
 

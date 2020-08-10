@@ -1,8 +1,8 @@
-import "../grid.scss";
+import "./grid.scss";
 import "./grid-story.less";
 
 export default {
-  title: "Style"
+  title: "Layout"
 };
 
 export const Display = () => ({

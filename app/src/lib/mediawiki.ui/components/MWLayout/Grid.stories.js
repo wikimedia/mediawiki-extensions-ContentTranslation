@@ -1,11 +1,10 @@
 import { withA11y } from "@storybook/addon-a11y";
 import { select, withKnobs } from "@storybook/addon-knobs";
-import "../grid.scss";
-import "../typography.scss";
+import { MwCol, MwGrid, MwRow } from "./index";
 import "./grid-story.less";
 
 export default {
-  title: "Style",
+  title: "Layout",
   decorators: [withKnobs, withA11y]
 };
 
@@ -117,4 +116,49 @@ export const Responsiveness = () => ({
       <p>The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, the column will be hidden. </p>
     </div>
     </div>`
+});
+
+export const GridComponents = () => ({
+  components: { MwGrid, MwRow, MwCol },
+  template: `<mw-grid class="storybook-grid basic-demo">
+    <p>An alternate way to do layout is by using <code> mw-grid, mw-row, mw-col</code> components. This may make the SFC template code more readable compared to helper css classes. Some examples:</p>
+    <p>A row is divided into 12 equal width columns.</p>
+      <mw-row>
+        <mw-col v-for="n in 12"
+        :key="n" cols="1">col-1</mw-col>
+      </mw-row>
+      <p>The space taken in each column can be indicated using col-n class</p>
+      <mw-row>
+        <mw-col cols="1">col-1</mw-col>
+        <mw-col cols="3">col-3</mw-col>
+        <mw-col cols="6">col-6</mw-col>
+        <mw-col cols="2">col-2</mw-col>
+      </mw-row>
+      <p>Rows can be nested in columns</p>
+      <mw-row>
+        <mw-col cols="4">col-4</mw-col>
+        <mw-col cols="8">
+           <mw-row>
+            <mw-col cols="4">col-4</mw-col>
+            <mw-col cols="4">col-4</mw-col>
+            <mw-col cols="4">col-4</mw-col>
+          </mw-row>
+        </mw-col>
+      </mw-row>
+      <p>Columns with variable width using col class. Available space is shared equally between columns with variable width</p>
+      <mw-row>
+        <mw-col>Variable width</mw-col>
+        <mw-col cols="8">
+          col-8
+        </mw-col>
+        <mw-col>Variable width</mw-col>
+      </mw-row>
+      <mw-row>
+        <mw-col>Variable width</mw-col>
+        <mw-col cols="7">
+          col-7
+        </mw-col>
+        <mw-col>Variable width</mw-col>
+      </mw-row>
+  </mw-grid>`
 });

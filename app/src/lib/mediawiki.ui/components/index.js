@@ -5,6 +5,7 @@ import MwCard from "./MWCard";
 import MwDialog from "./MWDialog";
 import MwDivider from "./MWDivider";
 import MwDropdown from "./MWDropdown";
+import { MwCol, MwGrid, MwRow } from "./MWLayout";
 import MwIcon from "./MWIcon";
 import MwInput from "./MWInput";
 import MwLanguageSelector from "./MWLanguageSelector";
@@ -27,5 +28,8 @@ export {
   MwDivider,
   MwButtonGroup,
   MwIcon,
-  MwDropdown
+  MwDropdown,
+  MwGrid,
+  MwRow,
+  MwCol
 };

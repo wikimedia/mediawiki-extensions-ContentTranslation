@@ -17,17 +17,24 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
     <div
       class="mw-ui-dialog__shell items-stretch"
     >
-      <div
-        class="mw-ui-dialog__header row"
+      <mw-row-stub
+        align="center"
+        class="mw-ui-dialog__header"
+        justify="start"
+        tag="div"
       >
-        <div
-          class="col grow items-center mw-ui-dialog__header-title justify-start"
+        <mw-col-stub
+          class="items-center mw-ui-dialog__header-title justify-start"
+          grow="true"
+          tag="div"
         >
           Dialog Title
-        </div>
+        </mw-col-stub>
          
-        <div
-          class="col shrink justify-center"
+        <mw-col-stub
+          class="justify-center"
+          shrink="true"
+          tag="div"
         >
           <mw-button-stub
             icon="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
@@ -35,8 +42,8 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
             indicatorsize="12"
             type="icon"
           />
-        </div>
-      </div>
+        </mw-col-stub>
+      </mw-row-stub>
        
       <mw-divider-stub />
        
