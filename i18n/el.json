@@ -295,5 +295,9 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "Επιλέξτε άλλη σελίδα",
 	"cx-sx-section-selector-learn-more-anchor-label": "Μάθετε περισσότερα",
 	"cx-sx-section-selector-unsupported-sections-title": "Μη υποστηριζόμενες ενότητες",
-	"cx-sx-section-selector-unsupported-sections-description": "Ορισμένες ενότητες ενδέχεται να μην εμφανίζονται στη λίστα επειδή τα περιεχόμενά τους δεν υποστηρίζονται ακόμη."
+	"cx-sx-section-selector-unsupported-sections-description": "Ορισμένες ενότητες ενδέχεται να μην εμφανίζονται στη λίστα επειδή τα περιεχόμενά τους δεν υποστηρίζονται ακόμη.",
+	"sx-quick-tutorial-translate-button-label": "Έναρξη μετάφρασης",
+	"cx-sx-sentence-selector-done-button-label": "Έγινε",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Εφαρμογή",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Παράβλεψη"
 }
