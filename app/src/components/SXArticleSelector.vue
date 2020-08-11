@@ -19,7 +19,7 @@
             class="sx-article-selector__header-title column justify-between ma-0"
           >
             <h5 class="col pa-0 ma-0">{{ sourceTitle }}</h5>
-            <p class="col shrink complementary sx-article-selector__stats">
+            <p class="col shrink complementary sx-article-selector__stats ma-0">
               <span class="pe-3">
                 <mw-icon :icon="mwIconLanguage" />
                 {{ langLinksCount }}
