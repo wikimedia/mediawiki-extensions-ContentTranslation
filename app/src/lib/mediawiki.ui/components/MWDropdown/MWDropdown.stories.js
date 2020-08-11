@@ -1,13 +1,11 @@
-import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import { select, text, withKnobs } from "@storybook/addon-knobs";
+import { select, text } from "@storybook/addon-knobs";
 import * as icons from "../icons";
 import MwDropdown from "./MWDropdown.vue";
 
 export default {
   title: "Components",
-  component: MwDropdown,
-  decorators: [withKnobs, withA11y]
+  component: MwDropdown
 };
 
 export const Dropdown = () => ({

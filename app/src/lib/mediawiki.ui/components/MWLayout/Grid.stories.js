@@ -1,14 +1,12 @@
-import { withA11y } from "@storybook/addon-a11y";
-import { select, withKnobs } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 import { MwCol, MwGrid, MwRow } from "./index";
 import "./grid-story.less";
 
 export default {
-  title: "Layout",
-  decorators: [withKnobs, withA11y]
+  title: "Layout/Grid"
 };
 
-export const Grid = () => ({
+export const CSSHelperClasses = () => ({
   template: `<div class="container storybook-grid basic-demo">
       <p>A row is divided into 12 equal width columns.</p>
       <div class="row">

@@ -1,11 +1,8 @@
-import { withA11y } from "@storybook/addon-a11y";
-import { withKnobs } from "@storybook/addon-knobs";
 import { MwMessage } from "../..";
 
 export default {
   title: "Components",
-  component: MwMessage,
-  decorators: [withKnobs, withA11y]
+  component: MwMessage
 };
 
 export const Message = () => ({

@@ -1,12 +1,10 @@
 import { MwButtonGroup } from "../..";
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
 import * as icons from "../icons";
 
 export default {
   title: "Components",
   component: MwButtonGroup,
-  decorators: [centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const ButtonGroup = () => ({

@@ -1,13 +1,11 @@
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { MwButton, MwDialog } from "../..";
 import { mwIconPrevious } from "../icons";
 
 export default {
   title: "Components/Dialog",
   component: MwDialog,
-  decorators: [withKnobs, centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const DismissableInformationDialog = () => ({
@@ -182,7 +180,7 @@ export const DialogWithCustomHeader = () => ({
         <span class="col-1">
           <mw-button type="icon" :icon="mwIconPrevious" v-on:click="onDialogClose()"></mw-button>
         </span>
-        <span class="col-10 justify-start items-center">{{title}}<span>
+        <span class="col-10 justify-start items-center">{{title}}</span>
       </div>
     </template>
     <template v-slot:default><img :src="bodyImage"/></template>
@@ -203,7 +201,6 @@ export const Animations = () => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false,
-    animation: "slide-right",
     bodyImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),

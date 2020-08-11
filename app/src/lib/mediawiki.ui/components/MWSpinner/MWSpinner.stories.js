@@ -1,11 +1,9 @@
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
-import { MwSpinner } from "../..";
+import MwSpinner from "./MWSpinner.vue";
 
 export default {
   title: "Components",
   component: MwSpinner,
-  decorators: [centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const Spinner = () => ({

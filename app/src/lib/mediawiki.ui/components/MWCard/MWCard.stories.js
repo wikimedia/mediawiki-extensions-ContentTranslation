@@ -1,12 +1,10 @@
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
-import { text, withKnobs } from "@storybook/addon-knobs";
+import { text } from "@storybook/addon-knobs";
 import MwCard from "./MWCard.vue";
 
 export default {
   title: "Components",
   component: MwCard,
-  decorators: [withKnobs, centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const Card = () => ({

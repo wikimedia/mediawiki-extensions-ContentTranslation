@@ -1,12 +1,10 @@
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
 import * as icons from "../icons";
 import { MwBottomNavigation, MwButtonGroup } from "../..";
 
 export default {
   title: "Components",
   component: MwBottomNavigation,
-  decorators: [centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const BottomNavigation = () => ({

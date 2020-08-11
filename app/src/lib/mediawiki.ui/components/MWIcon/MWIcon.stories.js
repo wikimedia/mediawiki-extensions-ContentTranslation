@@ -1,5 +1,3 @@
-import { withA11y } from "@storybook/addon-a11y";
-import centered from "@storybook/addon-centered/vue";
 import { color, number, select, withKnobs } from "@storybook/addon-knobs";
 import * as icons from "../icons";
 import MwIcon from "./MWIcon.vue";
@@ -7,7 +5,7 @@ import MwIcon from "./MWIcon.vue";
 export default {
   title: "Components",
   component: MwIcon,
-  decorators: [centered, withKnobs, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const Icons = () => ({

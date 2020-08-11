@@ -4,7 +4,7 @@ import { BreakpointsPlugin } from ".";
 Vue.use(BreakpointsPlugin);
 
 export default {
-  title: "Plugins"
+  title: "Components/Plugins"
 };
 
 export const Breakpoints = () => ({

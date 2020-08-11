@@ -1,14 +1,12 @@
-import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import centered from "@storybook/addon-centered/vue";
-import { select, text, withKnobs } from "@storybook/addon-knobs";
+import { select, text } from "@storybook/addon-knobs";
 import { MwSelect } from "../..";
 import * as icons from "../icons";
 
 export default {
   title: "Components",
   component: MwSelect,
-  decorators: [withKnobs, centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const Select = () => ({

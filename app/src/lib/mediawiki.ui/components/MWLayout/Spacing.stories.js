@@ -1,11 +1,9 @@
-import { withA11y } from "@storybook/addon-a11y";
-import { number, select, withKnobs } from "@storybook/addon-knobs";
+import { number, select } from "@storybook/addon-knobs";
 import { MwGrid, MwRow, MwCol } from "./index";
 import "./grid-story.less";
 
 export default {
-  title: "Layout",
-  decorators: [withKnobs, withA11y]
+  title: "Layout"
 };
 
 const dirPrefixes = {

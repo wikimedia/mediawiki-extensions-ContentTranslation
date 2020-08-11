@@ -1,10 +1,8 @@
-import { withA11y } from "@storybook/addon-a11y";
 import MwThumbnail from "./MWThumbnail.vue";
 
 export default {
   title: "Components",
-  component: MwThumbnail,
-  decorators: [withA11y]
+  component: MwThumbnail
 };
 
 export const Thumbnail = () => ({

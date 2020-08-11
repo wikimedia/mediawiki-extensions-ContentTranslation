@@ -1,10 +1,8 @@
-import { withA11y } from "@storybook/addon-a11y";
-import { select, withKnobs } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 import "./typography.scss";
 
 export default {
-  title: "Layout",
-  decorators: [withKnobs, withA11y]
+  title: "Layout/Typography"
 };
 
 export const Typography = () => ({

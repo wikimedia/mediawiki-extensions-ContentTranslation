@@ -1,5 +1,3 @@
-import { addParameters } from "@storybook/vue";
-
 const customViewports = {
   xs: {
     name: "Extra small screens - mobiles",
@@ -38,6 +36,6 @@ const customViewports = {
   }
 };
 
-addParameters({
+export const parameters = {
   viewport: { viewports: customViewports }
-});
+};

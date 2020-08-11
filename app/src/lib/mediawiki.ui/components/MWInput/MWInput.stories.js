@@ -1,14 +1,12 @@
-import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
-import centered from "@storybook/addon-centered/vue";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 import * as icons from "../icons";
 import MwInput from "./MWInput.vue";
 
 export default {
   title: "Components",
   component: MwInput,
-  decorators: [withKnobs, centered, withA11y]
+  parameters: { layout: "centered" }
 };
 
 export const Inputs = () => ({
