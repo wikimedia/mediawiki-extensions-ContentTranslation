@@ -1,5 +1,7 @@
 <template>
-  <div class="row sx-article-language-selector ma-0 justify-center">
+  <div
+    class="row sx-article-language-selector ma-0 justify-center items-center"
+  >
     <div class="col-5 justify-end">
       <mw-button
         :indicator="mwIconExpand"
