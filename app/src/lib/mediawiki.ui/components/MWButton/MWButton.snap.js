@@ -4,22 +4,26 @@ exports[`MWButton.vue matches the snapshot with an HTML label 1`] = `
 <button
   class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
 >
-  <!---->
-   
   <span
-    class="mw-ui-button__label"
+    class="mw-ui-button__content"
   >
-    Large button text with &lt;b&gt;html&lt;/b&gt;
+    <!---->
+     
+    <span
+      class="mw-ui-button__label"
+    >
+      Large button text with &lt;b&gt;html&lt;/b&gt;
+    </span>
+     
+    <mw-icon-stub
+      class="mw-ui-button__indicator"
+      height="0"
+      icon="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"
+      iconcolor="currentColor"
+      size="28"
+      width="0"
+    />
   </span>
-   
-  <mw-icon-stub
-    class="mw-ui-button__indicator"
-    height="0"
-    icon="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"
-    iconcolor="currentColor"
-    size="28"
-    width="0"
-  />
 </button>
 `;
 
@@ -27,17 +31,21 @@ exports[`MWButton.vue matches the snapshot with an destructive type icon button 
 <button
   class="mw-ui-button mw-ui-button--destructive mw-ui-button--icon"
 >
-  <mw-icon-stub
-    class="mw-ui-button__icon"
-    height="0"
-    icon="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H4z"
-    iconcolor="currentColor"
-    size="20"
-    width="0"
-  />
-   
-  <!---->
-   
-  <!---->
+  <span
+    class="mw-ui-button__content"
+  >
+    <mw-icon-stub
+      class="mw-ui-button__icon"
+      height="0"
+      icon="M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H4z"
+      iconcolor="currentColor"
+      size="20"
+      width="0"
+    />
+     
+    <!---->
+     
+    <!---->
+  </span>
 </button>
 `;

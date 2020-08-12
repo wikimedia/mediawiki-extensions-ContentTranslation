@@ -7,28 +7,30 @@
     :disabled="disabled"
     @click="handleClick"
   >
-    <mw-icon
-      v-if="icon"
-      :icon="icon"
-      :size="large ? 28 : iconSize"
-      class="mw-ui-button__icon"
-    ></mw-icon>
     <slot>
-      <span
-        v-if="!isIcon && label"
-        class="mw-ui-button__label"
-        v-text="label"
-      />
+      <span class="mw-ui-button__content">
+        <mw-icon
+          v-if="icon"
+          :icon="icon"
+          :size="large ? 28 : iconSize"
+          class="mw-ui-button__icon"
+        ></mw-icon>
+        <span
+          v-if="!isIcon && label"
+          class="mw-ui-button__label"
+          v-text="label"
+        />
+        <mw-icon
+          v-if="indicator"
+          :icon="indicator"
+          :size="large ? 28 : indicatorSize"
+          class="mw-ui-button__indicator"
+          @click.stop="
+            hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
+          "
+        ></mw-icon>
+      </span>
     </slot>
-    <mw-icon
-      v-if="indicator"
-      :icon="indicator"
-      :size="large ? 28 : indicatorSize"
-      class="mw-ui-button__indicator"
-      @click.stop="
-        hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
-      "
-    ></mw-icon>
   </component>
 </template>
 
@@ -56,7 +58,10 @@ export default {
       default: 12
     },
     indicator: [Object, String],
-    href: String,
+    href: {
+      type: String,
+      default: null
+    },
     accessKey: String,
     outlined: Boolean,
     progressive: Boolean,
@@ -119,6 +124,7 @@ export default {
 .mw-ui-button {
   background-color: @background-color-framed;
   color: @color-base;
+
   .mw-ui-button();
   .mw-ui-button-states();
   // Progressive buttons
@@ -141,6 +147,16 @@ export default {
     .mw-ui-button__indicator {
       padding-left: 8px;
     }
+  }
+
+  .mw-ui-button__content {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    flex: 1 0 auto;
+    justify-content: inherit;
+    line-height: normal;
+    position: relative;
   }
 
   // Do not break words in buttons.

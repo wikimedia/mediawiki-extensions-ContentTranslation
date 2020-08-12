@@ -41,9 +41,12 @@ export default {
     .mw-ui-button {
       border: none;
       padding: 12px 0;
-      .mw-ui-button__icon {
+      .mw-ui-button__content {
         display: block;
         margin: 0;
+      }
+      .mw-ui-button__icon {
+        display: block;
       }
       .mw-ui-button__label {
         padding: 0;

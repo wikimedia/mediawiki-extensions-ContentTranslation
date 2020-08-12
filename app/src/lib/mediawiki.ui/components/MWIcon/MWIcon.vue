@@ -10,7 +10,7 @@
       role="presentation"
       @click="handleClick"
     >
-      <title :id="iconName">{{ iconName }}</title>
+      <title v-if="iconName" :id="iconName">{{ iconName }}</title>
       <g :fill="iconColor">
         <path :d="iconImagePath" />
       </g>
@@ -75,7 +75,8 @@ export default {
 <style lang="less">
 @import "../../variables/wikimedia-ui-base.less";
 
-.mw-ui-icon {
+span.mw-ui-icon {
+  // Selector specificity for avoidiong conflict with MW Vector
   align-items: center;
   display: inline-flex;
   font-feature-settings: "liga";

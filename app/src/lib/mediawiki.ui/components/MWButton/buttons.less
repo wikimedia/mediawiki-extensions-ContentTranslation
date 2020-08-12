@@ -8,23 +8,27 @@
 // Default button mixin.
 .mw-ui-button() {
   // Container layout
-  display: inline-block;
-  box-sizing: border-box;
+  display: inline-flex;
+
   min-width: 4em;
   max-width: 28.75em; // equivalent to 460px, @see T95367
   margin: 0;
-  padding: 0.57142857em 0.9375em; // equivalent to `8px 12px`
+  padding: 0.5em 0.75em; // equivalent to `8px 12px`
   border: @border-base;
   border-radius: @border-radius-base;
   cursor: pointer;
   // Ensure that buttons and inputs are nicely aligned when they have differing heights
   vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+
   // Inherit the font rather than apply user agent stylesheet (T72072)
   font-family: inherit;
   font-size: 1em;
   font-weight: bold;
   line-height: 1;
-  text-align: center;
   // Disable weird iOS styling
   -webkit-appearance: none;
 }
