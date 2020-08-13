@@ -23,9 +23,14 @@ export default {
   name: "MWCol",
   props: {
     ...breakpointProps,
+    /**
+     * Sets the default number of columns the component extends.
+     * Available options are 1 -> 12
+     **/
     cols: {
       type: [String, Number],
-      default: null
+      default: null,
+      validator: val => Number.parseInt(val) >= 1 && Number.parseInt(val) <= 12
     },
     grow: {
       type: Boolean,
@@ -38,6 +43,18 @@ export default {
     tag: {
       type: String,
       default: "div"
+    },
+    /**
+     * Applies the align-items css property.
+     **/
+    align: {
+      type: String,
+      // TODO: There is a small bug in grid css that adds display:flex
+      // When items* class is present anywhere. After fixing that, we
+      // can have a sensible default here.
+      default: null,
+      validator: str =>
+        str ? ["start", "end", "center", "stretch"].includes(str) : true
     }
   },
   computed: {
@@ -60,7 +77,8 @@ export default {
       classList.push({
         col: !hasColClasses,
         grow: this.grow,
-        shrink: this.shrink
+        shrink: this.shrink,
+        [`items-${this.align}`]: this.align
       });
       return classList;
     }
