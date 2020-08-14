@@ -314,5 +314,7 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "অনুবাদ সম্পাদনা করুন",
 	"cx-sx-sentence-selector-apply-translation-button-label": "প্রয়োগ",
 	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "মূল",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "একটি খালি বাক্য দিয়ে শুরু করুন"
 }

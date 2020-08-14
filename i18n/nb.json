@@ -340,7 +340,6 @@
 	"cx-sx-content-comparator-review-contents-title": "Gå gjennom innholdet på begge språk.",
 	"cx-sx-content-comparator-review-contents-rest": "Innhold fra den valgte seksjonen kan allerede være dekket i målartikkelen.",
 	"cx-sx-content-comparator-source-selector-title": "Seksjon på $1",
-	"cx-sx-content-comparator-target-selector-title": "Hele artikkelen på $1",
 	"sx-quick-tutorial-main-point-step-1": "Det er enkelt, raskt og moro å oversette en ny seksjon!",
 	"sx-quick-tutorial-main-point-step-2": "Utvid kunnskapen én seksjon av gangen.",
 	"sx-quick-tutorial-secondary-point-step-1": "For hver setning vil du få en automatisk oversettelse <mark>du kan gå gjennom og forbedre</mark>.",
@@ -356,5 +355,11 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Til stede på $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Seksjon på $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Oversettelsen din vil utvide den eksisterende seksjonen.<br />Forkast dette hvis seksjonene ikke har noe med hverandre å gjøre.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka",
+	"cx-sx-content-comparator-discarded-section-clarifications": "Oversettelsen din blir publisert som en ny, uavhengig seksjon.",
+	"cx-sx-content-comparator-discarded-section-label": "(forkastet)",
+	"cx-sx-sentence-selector-translation-options-header-title": "Start med en annen oversettelse",
+	"cx-sx-sentence-selector-translation-options-header-text": "Velg oversettelsesalternativet for den nåværende og påfølgende setninger.",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start med en tom setning"
 }

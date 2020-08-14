@@ -339,7 +339,6 @@
 	"cx-sx-content-comparator-review-contents-title": "לסקור את התוכן בכל השפות.",
 	"cx-sx-content-comparator-review-contents-rest": "ייתכן שתוכן מהפסקה שנבחרה כבר מסוקר בערך היעד.",
 	"cx-sx-content-comparator-source-selector-title": "פסקה ב{{GRAMMAR:תחילית|$1}}.",
-	"cx-sx-content-comparator-target-selector-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}.",
 	"sx-quick-tutorial-main-point-step-1": "תרגום פסקה חדשה זה דבר קל, מהיר, וכיפי!",
 	"sx-quick-tutorial-main-point-step-2": "תרחיבו את הידע פסקה אחרי פסקה.",
 	"sx-quick-tutorial-secondary-point-step-1": "לכל משפט, תקבל תרגום התחלתי <mark>{{GENDER:|שתצטרך|שתצטרכי}} לסקור ולשפר.</mark>",

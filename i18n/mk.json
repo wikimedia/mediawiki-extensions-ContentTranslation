@@ -331,7 +331,6 @@
 	"cx-sx-content-comparator-review-contents-title": "Проверка на содржината на обата јазика",
 	"cx-sx-content-comparator-review-contents-rest": "Содржината од избраниот поднасов може веќе да е покриена во целната статија.",
 	"cx-sx-content-comparator-source-selector-title": "Поднаслов на $1",
-	"cx-sx-content-comparator-target-selector-title": "Целосна статија на $1",
 	"sx-quick-tutorial-main-point-step-1": "Преведувањето на нов поднаслов е лесно, брзо и забавно!",
 	"sx-quick-tutorial-main-point-step-2": "Проширете го знаењето поднаслов по поднаслов.",
 	"sx-quick-tutorial-secondary-point-step-1": "За секоја реченица ќе добивате првичен автоматски превод <mark>кој ќе го проверите и подобрите.</mark>",
@@ -347,5 +346,11 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Тековно на $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Поднаслов на $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Вашиот превод ќе го прошири постоечкиот поднаслов. <br /> Отфрлете го ова ако поднасловите се неповрзани.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 посета неделно|$1 посети неделно|0=Нема посети оваа недела}}"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 посета неделно|$1 посети неделно|0=Нема посети оваа недела}}",
+	"cx-sx-content-comparator-discarded-section-clarifications": "Вашиот превод ќе се објави како нов независен поднаслов.",
+	"cx-sx-content-comparator-discarded-section-label": "(отфрлено)",
+	"cx-sx-sentence-selector-translation-options-header-title": "Почнете со друг превод",
+	"cx-sx-sentence-selector-translation-options-header-text": "Изберете ја преводната можност за тековната и следниве реченици.",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Изворно",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Започни со празна реченица"
 }

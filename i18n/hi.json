@@ -256,5 +256,6 @@
 	"cx-mt-abuse-publish-error": "आपका अनुवाद प्रकाशित नहीं किया जा सकता क्योंकि इसमें बहुतायत में बिना सुधार के मशीनी-अनुवाद का पाठ शामिल है।",
 	"cx-sx-section-selector-title": "अनुभाग",
 	"cx-sx-section-selector-learn-more-anchor-label": "अधिक जानिए",
-	"cx-sx-sentence-selector-skip-translation-button-label": "छोड़ें"
+	"cx-sx-sentence-selector-skip-translation-button-label": "छोड़ें",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "मूल"
 }

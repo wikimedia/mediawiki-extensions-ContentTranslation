@@ -18,6 +18,7 @@
 			"Meelo",
 			"Mirzali",
 			"MrSchipunov",
+			"MuratTheTurkish",
 			"Ramona.Stewart",
 			"Rapsar",
 			"Sayginer",
@@ -351,7 +352,6 @@
 	"cx-sx-content-comparator-review-contents-title": "Her iki dildeki içeriği inceleyin.",
 	"cx-sx-content-comparator-review-contents-rest": "Seçilen bölümün içeriği zaten hedef maddede ele alınmış olabilir.",
 	"cx-sx-content-comparator-source-selector-title": "$1 içindeki bölüm",
-	"cx-sx-content-comparator-target-selector-title": "$1 içindeki tam madde",
 	"sx-quick-tutorial-main-point-step-1": "Yeni bir bölümü çevirmek kolay, hızlı ve eğlenceli!",
 	"sx-quick-tutorial-main-point-step-2": "Bilgiyi her seferinde bir bölüm genişletin.",
 	"sx-quick-tutorial-secondary-point-step-1": "Her cümle <mark>için incelemeniz ve geliştirmeniz</mark> için bir başlangıç otomatik çeviri alırsınız.",
@@ -362,5 +362,10 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "$1 üzerinden önerilen çeviri",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi düzenle",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Uygula",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Atla"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Atla",
+	"cx-sx-content-comparator-target-selector-full-article-title": "$1 içindeki tam madde",
+	"cx-sx-content-comparator-mapped-section-header-title": "$1 içindeki sunum",
+	"cx-sx-content-comparator-target-selector-target-section-title": "$1 içindeki bölüm",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. <br /> Bölümler ilgili değilse bunu atın.",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|her $1 hafta ziyaret|0=Bunda ziyaret yok}}"
 }

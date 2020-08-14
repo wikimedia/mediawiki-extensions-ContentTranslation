@@ -369,7 +369,6 @@
 	"cx-sx-content-comparator-review-contents-title": "Revoir le contenu dans les deux langues.",
 	"cx-sx-content-comparator-review-contents-rest": "Le contenu de la section sélectionnée peut déjà être couvert dans l’article cible.",
 	"cx-sx-content-comparator-source-selector-title": "Section dans $1",
-	"cx-sx-content-comparator-target-selector-title": "Article complet dans $1",
 	"sx-quick-tutorial-main-point-step-1": "Traduire une nouvelle section est facile, rapide et amusant !",
 	"sx-quick-tutorial-main-point-step-2": "Développer la connaissance, une section à la fois.",
 	"sx-quick-tutorial-secondary-point-step-1": "Pour chaque phrase, vous aurez une traduction automatique initiale <mark>que vous devez relire et améliorer</mark>",
@@ -385,5 +384,8 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Présent en $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section en $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. <br /> Abandonner cela si les sections n’ont pas de rapport.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Pas de visite cette}} semaine"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Pas de visite cette}} semaine",
+	"cx-sx-content-comparator-discarded-section-label": "(annulé)",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Commencer avec une phrase vide"
 }
